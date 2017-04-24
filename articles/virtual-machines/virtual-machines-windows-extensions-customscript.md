@@ -89,8 +89,8 @@ ms.lasthandoff: 04/06/2017
 | typeHandlerVersion | 1.8 |
 | fileUris（例如） | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute（例如） | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
-| storageAccountName（示例） | examplestorageacct |
-| storageAccountKey（示例） | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== |
+| storageAccountName（例如） | examplestorageacct |
+| storageAccountKey（例如） | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== |
 
 ## <a name="template-deployment"></a>模板部署
 
