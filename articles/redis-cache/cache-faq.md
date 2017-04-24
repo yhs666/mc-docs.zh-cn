@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/12/2017
 wacn.date: 
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: dbf5a97a944a86fa79d25448def9aefc25b3d420
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
+ms.openlocfilehash: 271e380b0c80f5f9ad6bdddb6d63e75b5daa69cf
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -126,7 +126,7 @@ Azure Redis 缓存以常用的开放源 [Redis 缓存](http://redis.io)为基础
 * 启用 Redis 群集功能时，增加群集中分片（节点）的数量会导致吞吐量线性提高。 如果创建了一个包含 10 个分片的 P4 群集，则可用吞吐量为 250K*10 = 每秒 250 万个请求。
 * 如果增加密钥大小，则高级层的吞吐量要高于标准层。
 
-| 定价层 | 大小 | CPU 核心数 | 可用带宽 | 1 KB 密钥大小 |
+| 定价层 | 大小 | CPU 核心数 | 可用带宽 | 1 KB 值大小 |
 | --- | --- | --- | --- | --- |
 | **标准缓存大小** | | |**兆位/秒（Mb/秒）/兆字节/秒（MB/秒）** |**请求数/秒 (RPS)** |
 | C0 |250 MB |共享 |5/0.625 |600 |
@@ -150,8 +150,8 @@ Azure Redis 缓存以常用的开放源 [Redis 缓存](http://redis.io)为基础
 ### <a name="cache-billing" id="how-am-i-billed-for-azure-redis-cache"></a> Azure Redis 缓存如何计费？
 [此处](https://www.azure.cn/pricing/details/redis-cache/)提供了 Azure Redis 缓存定价。 定价页列出了每小时费率。 缓存按分钟计费，从创建缓存时开始，到删除缓存时为止。 没有提供用于停止或暂停缓存的计费选项。
 
-### <a name="cache-configuration" id="what-do-the-stackexchangeredis-configuration-options-do"></a> StackExchange.Redis 配置选项有什么作用？
-StackExchange.Redis 有很多选项。 本部分将介绍一些常用设置。 有关 StackExchange.Redis 选项的详细详细，请参阅 [StackExchange.Redis 配置](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md)。
+### <a name="cache-configuration"></a> StackExchange.Redis 配置选项有什么作用？
+StackExchange.Redis 有很多选项。 本部分将介绍一些常用设置。 有关 StackExchange.Redis 选项的详细详细，请参阅 [StackExchange.Redis 配置](https://stackexchange.github.io/StackExchange.Redis/Configuration)。
 
 | 配置选项 | 说明 | 建议 |
 | --- | --- | --- |
@@ -416,3 +416,4 @@ Redis 取得成功的另一个重要方面是围绕它构建了健康而充满�
 [角色中缓存已于 2016 年 11 月 30 日停用。](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
+

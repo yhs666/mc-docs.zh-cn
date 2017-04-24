@@ -23,4 +23,10 @@ NuGet 程序包会给客户端应用程序下载并添加所需的程序集引�
 > [!NOTE]
 > 如果以前已将项目配置为使用 StackExchange.Redis，则可以通过 **NuGet 包管理器**检查该包是否有更新。 若要检查并安装 StackExchange.Redis NuGet 包的更新版本，请在“NuGet 包管理器”窗口中单击“更新”。 如果 StackExchange.Redis NuGet 包有可用更新，则可以更新项目以使用更新后的版本。
 > 
->
+> 
+
+也可安装 StackExchange.Redis NuGet 包，方法是：依次单击“工具”菜单中的“NuGet 包管理器”、“包管理器控制台”，然后在“包管理器控制台”窗口中运行以下命令。
+
+```
+Install-Package StackExchange.Redis
+```

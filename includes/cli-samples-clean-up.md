@@ -2,6 +2,6 @@
 
 若要删除通过此快速入门创建的所有资源，请运行以下命令：
 
-azurecli
-
-    az group delete --name myResourceGroup
+```azurecli
+az group delete --name myResourceGroup
+```

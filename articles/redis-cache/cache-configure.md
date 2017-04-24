@@ -16,9 +16,9 @@ ms.date: 03/08/2017
 wacn.date: 
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: c534da1c22f35a66729001f5eb07906670a060fa
-ms.openlocfilehash: 3612c0495e2f0c097895d9191a9355d0f9d86d02
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
+ms.openlocfilehash: b3850085b778f502ac5b0dfada958ecf51672c08
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/07/2017
 本主题介绍如何查看和更新 Azure Redis 缓存实例的配置，并介绍了 Azure Redis 缓存实例的默认 Redis 服务器配置。
 
 > [!NOTE]
-> 有关配置和使用高级缓存功能的详细信息，请参阅[如何配置高级 Azure Redis 缓存的持久性](cache-how-to-premium-persistence.md)、[如何配置高级 Azure Redis 缓存的群集](cache-how-to-premium-clustering.md)以及[如何配置高级 Azure Redis 缓存的虚拟网络支持](cache-how-to-premium-vnet.md)。
+> 有关配置和使用高级缓存功能的详细信息，请参阅[如何配置持久性](cache-how-to-premium-persistence.md)、[如何配置群集](cache-how-to-premium-clustering.md)以及[如何配置虚拟网络支持](cache-how-to-premium-vnet.md)。
 > 
 > 
 
@@ -324,13 +324,13 @@ Azure 门户预览版中的“用户”部分对基于角色的访问控制 (RBA
 
 | 设置 | 默认值 | 说明 |
 | --- | --- | --- |
-| 数据库 |16 |默认的数据库数为 16，但可以根据定价层配置不同数目。<sup>1</sup> 默认数据库是 DB 0，可以基于每个连接使用 `connection.GetDatabase(dbid)`（其中 dbid 是介于 `0` 和 `databases - 1` 之间的数字）选择其他数据库。 |
-| maxclients |取决于定价层<sup>2</sup> |这是同一时间内允许的最大已连接客户端数。 一旦达到该限制，Redis 将在关闭所有新连接的同时发送“达到客户端最大数量”的错误。 |
-| maxmemory-policy |volatile-lru |Maxmemory 策略是达到 maxmemory（创建缓存时所选缓存服务的大小）时，Redis 将根据它选择要删除内容的设置。 Azure Redis 缓存的默认设置为 volatile-lru，此设置使用 LRU 算法删除具有过期设置的密钥。 可以在 Azure 门户预览版中配置此设置。 有关详细信息，请参阅 [Maxmemory-policy 和 maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)。 |
-| maxmemory-samples |3 |LRU 和最小 TTL 算法不是精确算法而是近似算法（为了节省内存），因此还可以选择示例大小进行检查。 例如，对于默认设置，Redis 将检查三个密钥并选取最近使用较少的一个。 |
-| lua-time-limit |5,000 |Lua 脚本的最大执行时间（以毫秒为单位）。 如果达到最大执行时间，Redis 将记录达到最大允许时间后仍继续执行的脚本，并将开始在查询答复时出现错误。 |
-| lua-event-limit |500 |这是脚本事件队列的最大大小。 |
-| client-output-buffer-limit normalclient-output-buffer-limit pubsub |0 0 032mb 8mb 60 |客户端输出缓冲区限制可用于强制断开处于某种原因（一个常见原因是发布/订阅客户端处理消息的速度慢于发布者提供消息的速度）而未从服务器快速读取数据的客户端的连接。 有关详细信息，请参阅 [http://redis.io/topics/clients](http://redis.io/topics/clients)。 |
+| `databases` |16 |默认的数据库数为 16，但可以根据定价层配置不同数目。<sup>1</sup> 默认数据库是 DB 0，可以基于每个连接使用 `connection.GetDatabase(dbid)`（其中 `dbid` 是介于 `0` 和 `databases - 1` 之间的数字）选择其他数据库。 |
+| `maxclients` |取决于定价层<sup>2</sup> |这是同一时间内允许的最大已连接客户端数。 一旦达到该限制，Redis 将在关闭所有新连接的同时返回“达到客户端最大数量”的错误。 |
+| `maxmemory-policy` |`volatile-lru` |Maxmemory 策略是达到 `maxmemory`（创建缓存时所选缓存服务的大小）时，Redis 将根据它选择要删除内容的设置。 Azure Redis 缓存的默认设置为 `volatile-lru`，此设置使用 LRU 算法删除具有过期设置的密钥。 可以在 Azure 门户预览版中配置此设置。 有关详细信息，请参阅 [Maxmemory-policy 和 maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)。 |
+| `maxmemory-sample`s |3 |LRU 算法和最小 TTL 算法都是近似算法而不是精确算法，这是为了节省内存。 默认情况下，Redis 会检查三个密钥并选取最近使用较少的一个。 |
+| `lua-time-limit` |5,000 |Lua 脚本的最大执行时间（以毫秒为单位）。 如果达到最大执行时间，Redis 会记录达到最大允许时间后仍继续执行的脚本，并开始在查询答复时出现错误。 |
+| `lua-event-limit` |500 |脚本事件队列的最大大小。 |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |客户端输出缓冲区限制可用于强制断开处于某种原因（一个常见原因是发布/订阅客户端处理消息的速度慢于发布者提供消息的速度）而未从服务器快速读取数据的客户端的连接。 有关详细信息，请参阅 [http://redis.io/topics/clients](http://redis.io/topics/clients)。 |
 
 <a name="databases"></a>
 <sup>1</sup>每个 Azure Redis 缓存定价层的 `databases` 限制是不同的，可以在创建缓存时进行设置。 如果在创建缓存期间未指定 `databases` 设置，则默认值为 16。
