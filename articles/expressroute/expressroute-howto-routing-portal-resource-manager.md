@@ -1,27 +1,28 @@
 ---
-title: "如何使用 Azure 门户配置 ExpressRoute 线路的路由 | Azure"
-description: "本文介绍创建和预配 ExpressRoute 线路的专用、公共对等互连的步骤。 本文还介绍了如何检查状态，以及如何更新或删除线路的对等互连。"
+title: "如何为 ExpressRoute 线路配置路由（对等互连）：Resource Manager：Azure "
+description: "本文介绍创建和预配 ExpressRoute 线路的专用、公共对等互连的步骤。 本文还介绍如何检查状态，以及如何更新或删除线路的对等互连。"
 documentationCenter: na
 services: expressroute
-authors: cherylmc
-manager: carmonm
+author: cherylmc
+manager: timlt
 editor: 
 tags: azure-resource-manager
+ms.assetid: 8c2a7ed2-ae5c-4e49-81f6-77cf9f2b2ac9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 03/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: fe829ab6b463c82e41065396734eeff769f1dff5
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
+ms.openlocfilehash: 9665a12a5670d8f38d03c0a89beaf52867d7fa54
+ms.lasthandoff: 04/22/2017
+
 
 ---
-
-# <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>创建和修改 ExpressRoute 线路的路由
+# <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>创建和修改 ExpressRoute 线路的对等互连
 > [!div class="op_single_selector"]
 >- [资源管理器 - Azure 门户](./expressroute-howto-routing-portal-resource-manager.md)
 >- [Resource Manager - PowerShell](./expressroute-howto-routing-arm.md)
@@ -36,13 +37,15 @@ ms.lasthandoff: 04/14/2017
 ## <a name="configuration-prerequisites"></a>配置先决条件
 
 - 在开始配置之前，请务必查看[先决条件](./expressroute-prerequisites.md)页、[路由要求](./expressroute-routing.md)页和[工作流](./expressroute-workflows.md)页。
-- 你必须有一个活动的 ExpressRoute 线路。 在继续下一步之前，请按说明 [创建 ExpressRoute 线路](./expressroute-howto-circuit-arm.md) ，并通过连接提供商启用该线路。 ExpressRoute 线路必须处于已预配和已启用状态，你才能运行下述 cmdlet。
+- 你必须有一个活动的 ExpressRoute 线路。 在继续下一步之前，请按说明 [创建 ExpressRoute 线路](./expressroute-howto-circuit-portal-resource-manager.md) ，并通过连接提供商启用该线路。 ExpressRoute 线路必须处于已预配和已启用状态，你才能运行下述 cmdlet。
 - 如果计划使用共享密钥/MD5 哈希，请确保在隧道两端都使用该哈希，并将最大字符数限制为 25。
 
 这些说明只适用于由提供第 2 层连接服务的服务提供商创建的线路。 如果你的服务提供商提供第 3 层托管服务（通常是 IPVPN，如 MPLS），则连接服务提供商将为你设置和管理路由。 
 
 >[!IMPORTANT]
 > 我们目前无法通过服务管理门户播发服务提供商配置的对等互连。 我们正在努力不久就实现这一功能。 请在配置 BGP 对等互连之前与服务提供商核对。
+> 
+> 
 
 你可以为 ExpressRoute 线路配置一到三个对等互连（Azure 专用、Azure 公共和 Microsoft）。 可以按照所选的任意顺序配置对等互连。 但是，你必须确保一次只完成一个对等互连的配置。 
 
@@ -206,7 +209,7 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-下一步， [将 VNet 链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-arm.md)。
+下一步， [将 VNet 链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-portal-resource-manager.md)。
 
 -  有关 ExpressRoute 工作流的详细信息，请参阅 [ExpressRoute 工作流](./expressroute-workflows.md)。
 
