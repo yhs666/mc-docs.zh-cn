@@ -20,8 +20,8 @@ ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 94db2ba8bb6997485b07d23a40cfb37a234f0260
 ms.lasthandoff: 04/14/2017
 
----
 
+---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>使用 IoT 中心发送云到设备的消息 (Java)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -101,7 +101,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.0.15</version>
+      <version>1.2.18</version>
     </dependency>
     ```
 
@@ -113,7 +113,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 6. 在该文件中添加以下 **import** 语句：
 
     ```
-    import com.microsoft.azure.sdk.iot.service.sdk.*;
+    import com.microsoft.azure.sdk.iot.service.*;
     import java.io.IOException;
     import java.net.URISyntaxException;
     ```

@@ -80,7 +80,7 @@ ms.lasthandoff: 04/14/2017
 * **Azure Data Lake 工具** 现在已合并到用于 .NET 的 Azure SDK 发行版中。 当你安装 Azure SDK 时，便会自动安装此工具。 
 
     此工具会经常更新，请转到 [此处](http://aka.ms/datalaketool) 获取更新。
-* **服务器资源管理器** 可以查看所有 U-SQL 元数据实体和创建一些 U-SQL 元数据实体。 
+* **服务器资源管理器** 可以查看所有 U-SQL 元数据实体和创建一些 U-SQL 元数据实体。
 
 ## <a name="hdinsight-tools"></a>HDInsight 工具
 **HDInsight 工具** 现在支持 HDInsight 3.3 版，包括显示 Tez 图形和其他语言修复。

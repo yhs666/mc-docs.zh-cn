@@ -31,7 +31,7 @@
 [5]: ./media/iot-hub-get-started-create-hub/create-iot-hub5.png
 
 <!-- Links -->
-[lnk-resource-groups]: /documentation/articles/azure-portal/resource-group-portal/
+[lnk-resource-groups]: ../articles/azure-resource-manager/resource-group-portal.md
 [lnk-portal]: https://portal.azure.cn/
 [lnk-pricing]: https://www.azure.cn/pricing/details/iot-hub/
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
