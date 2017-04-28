@@ -296,7 +296,7 @@ SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices%2fdevice1&sig=13y8ejUk
 
     var endpoint ="myhub.azure-devices.cn/devices";   var policyName = 'device';   var policyKey = '...';
 
-    var 令牌为 generateSasToken(终结点, 策略密钥, 策略名称, 60)；
+    var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 授权读取所有设备标识权限的安全令牌是：
 
@@ -397,10 +397,10 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 ## <a name="additional-reference-material"></a>其他参考资料
 IoT 中心开发人员指南中的其他参考主题包括：
 
-* [IoT 中心终结点][lnk-endpoints] ，介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
-* [限制和配额][lnk-quotas] ，说明了适用于 IoT 中心服务的配额，以及使用服务时预期会碰到的限制行为。
-* [Azure IoT 设备和服务 SDK][lnk-sdks] ，列出了在开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
-* [设备孪生和作业的 IoT 中心查询语言][lnk-query] ，介绍了在 IoT 中心检索设备孪生和作业相关信息时可使用的 IoT 中心查询语言。
+* [IoT 中心终结点][lnk-endpoints]，介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
+* [限制和配额][lnk-quotas]，说明了适用于 IoT 中心服务的配额，以及使用服务时预期会碰到的限制行为。
+* [Azure IoT 设备和服务 SDK][lnk-sdks]，列出了在开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
+* [设备孪生和作业的 IoT 中心查询语言][lnk-query]，介绍了在 IoT 中心检索设备孪生和作业相关信息时可使用的 IoT 中心查询语言。
 * [IoT 中心 MQTT 支持][lnk-devguide-mqtt] 提供有关 IoT 中心对 MQTT 协议的支持的详细信息。
 
 ## <a name="next-steps"></a>后续步骤

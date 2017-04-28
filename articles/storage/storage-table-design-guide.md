@@ -54,7 +54,7 @@ ms.lasthandoff: 04/14/2017
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>电子邮件</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Don</td>
@@ -74,7 +74,7 @@ ms.lasthandoff: 04/14/2017
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>电子邮件</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Jun</td>
@@ -86,7 +86,7 @@ ms.lasthandoff: 04/14/2017
 </tr>
 <tr>
 <td>Marketing</td>
-<td>系</td>
+<td>Department</td>
 <td>2014-08-22T00:50:30Z</td>
 <td>
 <table>
@@ -111,7 +111,7 @@ ms.lasthandoff: 04/14/2017
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>电子邮件</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Ken</td>
@@ -153,7 +153,7 @@ EGT 还为你引入了潜在的权衡以便在设计中进行评估：使用更�
 | 分区中实体的个数 |仅受存储帐户的容量限制 |
 | 单个实体的大小 |最大 1 MB，最多 255 个属性（包括 **PartitionKey**、**RowKey** 和 **Timestamp**） |
 | **PartitionKey** 的大小 |大小最大为 1 KB 的字符串 |
-| **RowKey** |大小最大为 1 KB 的字符串 |
+| **RowKey** 的大小 |大小最大为 1 KB 的字符串 |
 | 实体组事务的大小 |一个事务最多可包含 100 个实体，并且负载大小必须小于 4 MB。 EGT 只能更新一次实体。 |
 
 有关详细信息，请参阅 [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx)（了解表服务数据模型）。  
@@ -295,7 +295,7 @@ EGT 还为你引入了潜在的权衡以便在设计中进行评估：使用更�
 
 [表设计模式](#table-design-patterns) 这部分中的以下模式实施针对高效查询的设计与针对高效数据修改的设计之间的折衷方案：  
 
-* [Compound key pattern](#compound-key-pattern) - 使用复合 **RowKey** 值可让客户端使用单个点查询查找相关数据。  
+* [复合键模式](#compound-key-pattern) - 使用复合 **RowKey** 值可让客户端使用单个点查询查找相关数据。  
 * [日志结尾模式](#log-tail-pattern) - 通过使用以日期时间倒序排序的 *RowKey* 值检索最近添加到分区中的 **n** 个实体。  
 
 ## <a name="encrypting-table-data"></a>对表数据进行加密
@@ -385,7 +385,7 @@ EGT 还为你引入了潜在的权衡以便在设计中进行评估：使用更�
 如何在这些选项中进行选择，以及哪些优点和缺点最重要，取决于特定应用程序方案。 例如，你修改部门实体的频率；你的所有员工查询是否都需要附加部门信息；你有多接近对分区或存储帐户的可伸缩性限制？  
 
 ### <a name="one-to-one-relationships"></a>一对一关系
-域模型可能包括实体之间的一对一关系。 如果你需要在表服务中实现一对一关系，还必须选择在需要检索两个相关的实体时如何链接这两个实体。 此链接可为隐式或显式，前者基于键值中的约定，后者在每个实体中按 **PartitionKey** and **RowKey** 值的形式存储指向其相关实体的链接。 若要了解是否应在同一分区存储相关实体，请参阅[一对多关系](#one-to-many-relationships)部分。  
+域模型可能包括实体之间的一对一关系。 如果你需要在表服务中实现一对一关系，还必须选择在需要检索两个相关的实体时如何链接这两个实体。 此链接可为隐式或显式，前者基于键值中的约定，后者在每个实体中按 **PartitionKey** 和 **RowKey** 值的形式存储指向其相关实体的链接。 若要了解是否应在同一分区存储相关实体，请参阅[一对多关系](#one-to-many-relationships)部分。  
 
 请注意，还有可能引导你在表服务中实现一对一关系的实现注意事项：  
 
@@ -914,7 +914,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 在此示例中，**RowKey** 包括日志消息的日期和时间以及消息 ID，前者用于确保日志消息存储按日期/时间顺序排序，后者可防止多条日志消息共享同一日期和时间。  
 
-另一种方法是使用 **PartitionKey** ，它可确保应用程序在一组分区中写入消息。 例如，如果日志消息的源提供了一种方法可将消息分布到多个分区，则可以使用以下实体架构：  
+另一种方法是使用 **PartitionKey**，它可确保应用程序在一组分区中写入消息。 例如，如果日志消息的源提供了一种方法可将消息分布到多个分区，则可以使用以下实体架构：  
 
 ![][29]
 
@@ -1120,7 +1120,7 @@ foreach (var e in entities)
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>电子邮件</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1140,7 +1140,7 @@ foreach (var e in entities)
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>电子邮件</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1177,7 +1177,7 @@ foreach (var e in entities)
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>电子邮件</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1213,7 +1213,7 @@ foreach (var e in entities)
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>电子邮件</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -1235,7 +1235,7 @@ foreach (var e in entities)
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>电子邮件</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -1258,7 +1258,7 @@ foreach (var e in entities)
 <th>EmployeeCount</th>
 </tr>
 <tr>
-<td>department</td>
+<td>Department</td>
 <td></td>
 <td></td>
 </tr>
@@ -1276,7 +1276,7 @@ foreach (var e in entities)
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
-<th>电子邮件</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>

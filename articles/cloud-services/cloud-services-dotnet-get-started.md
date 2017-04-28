@@ -141,7 +141,7 @@ Azure 云服务是该应用程序将运行的环境。
 
     此字段指定你的云服务将托管在哪个数据中心。 对于生产应用程序，你可以选择离客户最近的区域。 对于本教程，选择离您最近的区域。
 
-6. 单击“创建云服务” 。
+6. 单击“创建云服务”。
 
     在下图中，使用 URL contosoads.chinacloudapp.cn 创建一个云服务。
 
@@ -153,7 +153,7 @@ Azure 云服务是该应用程序将运行的环境。
 
 1. 在 [Azure 管理门户](http://manage.windowsazure.cn)中，单击“新建”>“数据服务”>“SQL 数据库”>“快速创建”。
 
-1. 在“数据库名称”框中  ，输入 *contosoads*。
+1. 在“数据库名称”框中，输入 *contosoads*。
 
 1. 从“服务器”下拉列表中选择“新建 SQL 数据库服务器”。
 
@@ -167,7 +167,7 @@ Azure 云服务是该应用程序将运行的环境。
 
     如果选择了“新建 SQL 数据库服务器”，则在此处不要输入现有名称和密码。应输入新的名称和密码，现在定义的名称和密码将在以后访问数据库时使用。 如果你选择之前创建的服务器，系统将提示你已创建的管理用户帐户的密码。
 
-1. 单击“创建 SQL 数据库” 。
+1. 单击“创建 SQL 数据库”。
 
     ![新 SQL 数据库](./media/cloud-services-dotnet-get-started/newdb.png)
 
@@ -175,11 +175,11 @@ Azure 云服务是该应用程序将运行的环境。
 
 2. 单击“仪表板”选项卡  。
 
-3. 单击“管理允许的 IP 地址” 。
+3. 单击“管理允许的 IP 地址”。
 
 4. 在“允许的服务”下，将“Azure 服务”更改为“是”。
 
-5. 单击“保存” 。
+5. 单击“保存”。
 
 ### <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 
@@ -203,7 +203,7 @@ Azure 存储帐户提供在云中存储队列和 Blob 数据的资源。
 
     为存储帐户启用地域复制时，会将存储内容复制到辅助数据中心，这样就能够在主要位置发生重大灾难时将故障转移到该位置。 地域复制可能会产生额外的成本。 对于测试和开发帐户，你通常不希望因为地域复制而付款。 有关详细信息，请参阅[创建、管理或删除存储帐户](./storage-create-storage-account.md#replication-options)。
 
-5. 单击“创建存储帐户” 。
+5. 单击“创建存储帐户”。
 
     ![新的存储帐户](./media/cloud-services-dotnet-get-started/newstorage.png)
 
@@ -213,7 +213,7 @@ Azure 存储帐户提供在云中存储队列和 Blob 数据的资源。
 
 Web 项目和辅助角色项目自身具有数据库连接字符串，并且当应用程序在 Azure 运行时指向 Azure SQL 数据库。
 
-你将为 Web 角色使用 [Web.config 转换](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) ，为辅助角色使用云服务环境设置。
+你将为 Web 角色使用 [Web.config 转换](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)，为辅助角色使用云服务环境设置。
 
 >[!NOTE]
 > 在本部分和下一部分中，你将在项目文件中存储凭据。 [不要将敏感数据存储在公共源代码存储库中](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets)。
@@ -348,7 +348,7 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 
     ![Azure 活动日志窗口](./media/cloud-services-dotnet-get-started/waal.png)
 
-6. 当部署状态为完成时，单击“Web 应用 URL”  启动应用程序。
+6. 当部署状态为完成时，单击“Web 应用 URL”启动应用程序。
 
 7. 就像在本地运行应用程序一样，现在可以通过创建、查看和编辑一些广告测试应用程序。
 
@@ -371,11 +371,11 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 
 ### <a name="create-a-cloud-service-visual-studio-solution"></a>创建云服务 Visual Studio 解决方案
 
-1. 在 Visual Studio 中，从“文件”菜单中选择“新建项目” **新建项目** from the  。
+1. 在 Visual Studio 中，从“文件”菜单中选择“新建项目”。
 
 2. 在“新建项目”对话框的左窗格中，展开“Visual C#”，选择“云”模板，然后选择“Microsoft Azure 云服务”模板。
 
-3. 将项目和解决方案命名为 ContosoAdsCloudService，然后单击“确定” 。
+3. 将项目和解决方案命名为 ContosoAdsCloudService，然后单击“确定”。
 
     ![新建项目](./media/cloud-services-dotnet-get-started/newproject.png)
 
@@ -405,13 +405,13 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 
 1. 打开解决方案的“管理 NuGet 包”对话框  。
 
-2. 在窗口顶部，选择“更新” 。
+2. 在窗口顶部，选择“更新”。
 
 3. 查找 *WindowsAzure.Storage* 包，如果它在列表中，请选择它并选择要在其中更新它的 Web 项目和辅助角色项目，然后单击“更新”。
 
     存储客户端库更新频率高于 Visual Studio 项目模板，因此您通常会发现该版本中新创建的计划需求需要更新。
 
-4. 在窗口顶部，选择“浏览” 。
+4. 在窗口顶部，选择“浏览”。
 
 5. 找到 *EntityFramework* NuGet 包，并将其安装在所有三个项目中。
 
@@ -474,7 +474,7 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 
 本部分中，您将代码将文件从已下载的解决方案复制到新的解决方案。 以下各节将显示并解释此代码的关键部分。
 
-要将文件添加到某个项目或文件夹，请右键单击该项目或文件夹，然后单击“添加”&gt;“现有项”  - 。 选择所需的文件，然后单击“添加” 。 如果询问你是否想要替换现有文件，请单击“是” 。
+要将文件添加到某个项目或文件夹，请右键单击该项目或文件夹，然后单击“添加” - “现有项”。 选择所需的文件，然后单击“添加”。 如果询问你是否想要替换现有文件，请单击“是”。
 
 3. 在 ContosoAdsCommon 项目中，删除 *Class1.cs* 文件，并在其原位置添加来自下载项目的 *Ad.cs* 和 *ContosoAdscontext.cs* 文件。
 
@@ -835,7 +835,7 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 
 ### <a name="cannot-override-to-port-xxx-new-port-below-minimum-allowed-value-8080-for-protocol-http"></a>无法重写到端口 xxx。 低于最小允许值 8080 的新端口用于 http 协议
 
-请尝试更改 web 项目使用的端口号。 右键单击 ContosoAdsWeb 项目，然后单击“属性” 。 单击“Web”选项卡，然后更改“项目 Url”设置中的端口号。
+请尝试更改 web 项目使用的端口号。 右键单击 ContosoAdsWeb 项目，然后单击“属性”。 单击“Web”选项卡，然后更改“项目 Url”设置中的端口号。
 
 有关可能解决该问题的另一种方法，请参阅下一节。
 
@@ -843,7 +843,7 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 
 默认情况下新的云服务项目使用 Azure 计算模拟器 express 版来模拟 Azure 环境。 这是完整计算仿真程序的轻型版本，在某些情况下完整仿真程序将在没有 express 版时工作。  
 
-若要更改项目以使用完整模拟器，请右键单击 ContosoAdsCloudService 项目中，然后单击“属性” 。 在“属性”窗口中，单击“Web”选项卡，然后单击“使用完整模拟器”单选按钮。
+若要更改项目以使用完整模拟器，请右键单击 ContosoAdsCloudService 项目中，然后单击“属性”。 在“属性”窗口中，单击“Web”选项卡，然后单击“使用完整模拟器”单选按钮。
 
 要使用完整仿真程序运行该应用程序，您必须使用管理员权限打开 Visual Studio。
 

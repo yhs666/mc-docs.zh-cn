@@ -30,7 +30,7 @@ ms.lasthandoff: 04/14/2017
 | PublisherName | 产品 | SKU |
 |:--- |:--- |:--- |:--- |
 | MicrosoftSQLServer |SQL2016-WS2012R2 |Enterprise |
-| MicrosoftSQLServer |SQL2016-WS2012R2 |标准 |
+| MicrosoftSQLServer |SQL2016-WS2012R2 |Standard |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |

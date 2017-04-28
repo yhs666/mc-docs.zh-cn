@@ -400,7 +400,7 @@ for (; it != end_of_results; ++it)
 > 
 > 
 
-## <a name="delete-an-entity"></a>删除条目
+## <a name="delete-an-entity"></a>删除实体
 可以在检索到实体后轻松将其删除。 检索到实体后，对要删除的实体调用 **table_operation::delete_entity**。 然后调用 **cloud_table.execute** 方法。 以下代码检索并删除分区键为“Smith”、行键为“Jeff”的实体。  
 
 ```cpp

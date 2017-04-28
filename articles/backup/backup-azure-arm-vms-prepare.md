@@ -48,7 +48,7 @@ Azure 备份服务提供两种类型的保管库（备份保管库和恢复服�
 如果确定环境满足这些条件，请转到[备份 VM 的文章](backup-azure-vms.md)。 如果需要设置或检查上述任何先决条件，本文将引导你逐步完成先决条件的准备步骤。
 
 ##<a name="supported-operating-system-for-backup"></a>支持用于备份的操作系统
- - **Linux**：Azure 备份支持 [Azure 认可的分发版列表](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/) ，但 Core OS Linux 除外。 _只要虚拟机上装有 VM 代理且支持 Python，其他自带 Linux 分发版应该也能正常运行。但是，我们不赞同将这些分发版用于备份。_
+ - **Linux**：Azure 备份支持 [Azure 认可的分发版列表](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/)，但 Core OS Linux 除外。 _只要虚拟机上装有 VM 代理且支持 Python，其他自带 Linux 分发版应该也能正常运行。但是，我们不赞同将这些分发版用于备份。_
  - **Windows Server**：不支持低于 Windows Server 2008 R2 的版本。
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>备份和还原 VM 时的限制
@@ -103,7 +103,7 @@ Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 
 | HTTP 代理 |允许在代理中对存储 URL 进行精细控制。<br>对 VM 进行单点 Internet 访问。<br>不受 Azure IP 地址变化的影响。 |通过代理软件运行 VM 带来的额外成本。 |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Whitelist the Azure datacenter IP ranges
-若要将 Azure 数据中心 IP 范围加入允许列表，请参阅 [Azure 网站](http://www.microsoft.com/en-us/download/details.aspx?id=41653) ，获取有关 IP 范围的详细信息和说明。
+若要将 Azure 数据中心 IP 范围加入允许列表，请参阅 [Azure 网站](http://www.microsoft.com/en-us/download/details.aspx?id=41653)，获取有关 IP 范围的详细信息和说明。
 
 ### <a name="using-an-http-proxy-for-vm-backups"></a>使用 HTTP 代理进行 VM 备份
 备份 VM 时，VM 上的备份扩展会使用 HTTPS API 将快照管理命令发送到 Azure 存储。 将通过 HTTP 代理路由备份扩展流量，因为它是为了访问公共 Internet 而配置的唯一组件。

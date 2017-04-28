@@ -32,7 +32,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>使用虚拟机时，我可以使用多少存储？
 每个数据磁盘的容量高达 1 TB。 可以使用的数据磁盘数取决于虚拟机大小。 有关详细信息，请参阅[虚拟机大小](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
-Azure 存储帐户可为操作系统磁盘和任何数据磁盘提供存储空间。 每个磁盘都是一个 .vhd 文件，以页 blob 形式存储。 有关定价详细信息，请参阅 [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/)（存储定价详细信息）。
+Azure 存储帐户可为操作系统磁盘和任何数据磁盘提供存储空间。 每个磁盘都是一个 .vhd 文件，以页 blob 形式存储。 有关定价详细信息，请参阅[存储定价详细信息](https://www.azure.cn/pricing/details/storage/)。
 
 ## <a name="how-can-i-access-my-virtual-machine"></a>如何访问我的虚拟机？
 使用安全外壳 (SSH) 建立远程连接，登录到虚拟机。 请参阅如何[从 Windows](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或[从 Linux 和 Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 进行连接的相关说明。 默认情况下，SSH 允许的并发连接最多为 10 个。 通过编辑配置文件，可以增加此数量。
@@ -49,7 +49,7 @@ Azure 存储帐户可为操作系统磁盘和任何数据磁盘提供存储空�
 能，目前可行。 首先需停止解除分配 VM。 然后便可添加或删除 NIC（除非它是 VM 上的最后一个 NIC）。 
 
 ## <a name="are-there-any-computer-name-requirements"></a>是否有任何计算机名称要求？
-是的。 计算机名称的最大长度为 64 个字符。 有关命名资源的详细信息，请参阅 [Infrastructure naming guidelines](virtual-machines-linux-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)（基础结构命名准则）。
+是的。 计算机名称的最大长度为 64 个字符。 有关命名资源的详细信息，请参阅[基础结构命名准则](virtual-machines-linux-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>创建 VM 时，用户名有什么要求？
 用户名的长度必须为 1 到 64 个字符。

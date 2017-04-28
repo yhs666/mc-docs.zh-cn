@@ -109,4 +109,4 @@ azure vm create -n myVM -l myLocation -g myResourceGroup -f myNic \
 ```
 
 ## <a name="next-steps"></a>后续步骤
-若要了解如何使用 Azure CLI 管理新虚拟机，请参阅 [Azure CLI commands for the Azure Resource Manager](azure-cli-arm-commands.md)（Azure Resource Manager 的 Azure CLI 命令）。
+若要了解如何使用 Azure CLI 管理新虚拟机，请参阅 [Azure Resource Manager 的 Azure CLI 命令](azure-cli-arm-commands.md)。

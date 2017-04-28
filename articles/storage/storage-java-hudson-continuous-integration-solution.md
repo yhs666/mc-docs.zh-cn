@@ -70,7 +70,7 @@ Hudson 通过允许开发人员轻松地集成其代码更改以及自动和频�
 3. 单击“可用”选项卡。
 4. 单击“其他”。
 5. 在“项目上载程序”部分，选择“Azure 存储插件”。
-6. 单击“安装” 。
+6. 单击“安装”。
 7. 安装完毕后，重新启动 Hudson。
 
 ## <a name="how-to-configure-the-azure-storage-plugin-to-use-your-storage-account"></a>如何配置 Azure 存储插件以使用你的存储帐户
@@ -88,7 +88,7 @@ Hudson 通过允许开发人员轻松地集成其代码更改以及自动和频�
 
     e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，然后单击“确定”。 [可选]如果有其他存储帐户并且希望其可供 Hudson CI 使用，请单击“添加更多存储帐户”。
 
-    f. Click **Save** to save your settings.
+    f. 单击“保存”以保存设置。
 
 ## <a name="how-to-create-a-post-build-action-that-uploads-your-build-artifacts-to-your-storage-account"></a>如何创建生成后操作以将生成项目上传到存储帐户
 为了进行说明，首先我们将需要创建一个将创建若干文件的作业，然后添加后期生成操作以将文件上载到存储帐户。
