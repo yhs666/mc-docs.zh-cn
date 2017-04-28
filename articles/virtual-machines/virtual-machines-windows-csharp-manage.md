@@ -205,7 +205,7 @@ ms.lasthandoff: 04/06/2017
 
 3. 保存 Program.cs 文件。
 
-4. 在 Visual Studio 中单击“启动”  ，然后使用订阅所用的相同用户名和密码登录到 Azure AD。
+4. 在 Visual Studio 中单击“启动”，然后使用订阅所用的相同用户名和密码登录到 Azure AD。
 
     运行此方法时，应会显示与下例类似的内容：
 
@@ -312,7 +312,7 @@ ms.lasthandoff: 04/06/2017
 
 4. 保存 Program.cs 文件。
 
-5. 在 Visual Studio 中单击“启动”  ，然后使用订阅所用的相同用户名和密码登录到 Azure AD。
+5. 在 Visual Studio 中单击“启动”，然后使用订阅所用的相同用户名和密码登录到 Azure AD。
 
     你应会看到虚拟机的状态更改为“已停止”。 如果你运行了调用 Deallocate 的方法，则状态为已停止（已解除分配）。
 
@@ -350,7 +350,7 @@ ms.lasthandoff: 04/06/2017
 
 4. 保存 Program.cs 文件。
 
-5. 在 Visual Studio 中单击“启动”  ，然后使用订阅所用的相同用户名和密码登录到 Azure AD。
+5. 在 Visual Studio 中单击“启动”，然后使用订阅所用的相同用户名和密码登录到 Azure AD。
 
     你应会看到虚拟机的状态更改为“正在运行”。
 
@@ -388,7 +388,7 @@ ms.lasthandoff: 04/06/2017
 
 4. 保存 Program.cs 文件。
 
-5. 在 Visual Studio 中单击“启动”  ，然后使用订阅所用的相同用户名和密码登录到 Azure AD。
+5. 在 Visual Studio 中单击“启动”，然后使用订阅所用的相同用户名和密码登录到 Azure AD。
 
 ## <a name="resize-a-virtual-machine"></a>重设虚拟机的大小
 
@@ -428,7 +428,7 @@ ms.lasthandoff: 04/06/2017
 
 4. 保存 Program.cs 文件。
 
-5. 在 Visual Studio 中单击“启动”，然后使用用于订阅的相同用户名和密码登录到 Azure AD。
+5. 在 Visual Studio 中单击“启动”，然后使用订阅所用的相同用户名和密码登录到 Azure AD。
 
     应会看到虚拟机的大小更改为 Standard_D2_v2。
 
@@ -484,7 +484,7 @@ ms.lasthandoff: 04/06/2017
 
 4. 保存 Program.cs 文件。
 
-5. 在 Visual Studio 中单击“启动”  ，然后使用订阅所用的相同用户名和密码登录到 Azure AD。
+5. 在 Visual Studio 中单击“启动”，然后使用订阅所用的相同用户名和密码登录到 Azure AD。
 
 ## <a name="delete-a-virtual-machine"></a>删除虚拟机
 
@@ -520,10 +520,10 @@ ms.lasthandoff: 04/06/2017
 
 4. 保存 Program.cs 文件。
 
-5. 在 Visual Studio 中单击“启动”  ，然后使用订阅所用的相同用户名和密码登录到 Azure AD。
+5. 在 Visual Studio 中单击“启动”，然后使用订阅所用的相同用户名和密码登录到 Azure AD。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 如果部署出现问题，可以参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](../azure-resource-manager/resource-manager-common-deployment-errors.md)。
 - 若要了解如何部署虚拟机及其支持的资源，请查看[使用 C# 部署 Azure 虚拟机](virtual-machines-windows-csharp.md)。
-- 参考 [Deploy an Azure Virtual Machine using C# and a Resource Manager template](virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（使用 C# 和 Resource Manager 模板部署 Azure 虚拟机）中的信息，利用模板创建虚拟机。
+- 参考[使用 C# 和 Resource Manager 模板部署 Azure 虚拟机](virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中的信息，利用模板创建虚拟机。
