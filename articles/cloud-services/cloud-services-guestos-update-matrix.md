@@ -24,12 +24,12 @@ ms.lasthandoff: 04/14/2017
 提供适用于云服务的最新 Azure 来宾 OS 版本的最新信息。 此信息将帮助你在来宾 OS 停用之前规划升级路径。 如果根据 [Azure 来宾 OS 更新设置][Azure Guest OS Update Settings]中所述将角色配置为使用自动进行来宾 OS 更新，则不一定要阅读本页面。
 
 > [!IMPORTANT]
-> 本页面适用于在来宾 OS 顶层运行的云服务 Web 角色和辅助角色， It does **not apply** to IaaS Virtual Machines. 
+> 本页面适用于在来宾 OS 顶层运行的云服务 Web 角色和辅助角色， 而**不适用于** IaaS 虚拟机。 
 
 <!-- -->
 
 > [!TIP]
-> 订阅 [来宾 OS 更新 RSS 源][rss] ，以接收有关所有来宾 OS 更改的最新通知。
+> 订阅[来宾 OS 更新 RSS 源][rss]，以接收有关所有来宾 OS 更改的最新通知。
 
 不太确定什么是来宾 OS 或者来宾 OS 的工作原理？ 请阅读 [此部分](#how-it-works) 。
 
