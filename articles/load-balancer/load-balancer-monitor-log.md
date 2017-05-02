@@ -16,9 +16,9 @@ ms.date: 10/24/2016
 wacn.date: 
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: e2b065a3ac46b866c7775fab679fc0ee3379b543
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
+ms.openlocfilehash: 2b55b55dd3cb7ee54566ef151627effd8f0d8bd3
+ms.lasthandoff: 04/28/2017
 
 ---
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/07/2017
 
 每个 Resource Manager 资源都会自动启用审核日志记录。 需启用事件和运行状况探测日志记录才能开始收集通过这些日志提供的数据。 使用以下步骤启用日志记录。
 
-登录到 [Azure 门户预览版](http://portal.azure.cn)。 如果还没有负载均衡器，请先[创建负载均衡器](./load-balancer-get-started-internet-arm-ps.md)，然后再继续。
+登录到 [Azure 门户预览版](http://portal.azure.cn)。 如果还没有负载均衡器，请先[创建负载均衡器](load-balancer-get-started-internet-arm-ps.md)，然后再继续。
 
 1. 在门户中，单击“浏览” 。
 2. 选择“负载均衡器” 。
@@ -63,7 +63,7 @@ ms.lasthandoff: 04/07/2017
 
 默认生成审核日志。 日志在 Azure 的事件日志存储区中保留 90 天。 通过阅读[查看事件和审核日志](../monitoring-and-diagnostics/insights-debugging-with-events.md)一文可了解有关这些日志的详细信息。
 
-## <a name="alert-event-log"></a> 警报事件日志
+## <a name="alert-event-log"></a>警报事件日志
 
 只有基于每个负载均衡器启用了此日志，才会生成此日志。 事件以 JSON 格式记录，并存储在启用日志记录时指定的存储帐户中。 下面是事件的示例。
 
@@ -147,4 +147,4 @@ JSON 输出在属性字段显示了探测运行状况的基本信息。 *dipDown
 
 ## <a name="next-steps"></a>后续步骤
 
-[了解负载均衡器探测](./load-balancer-custom-probe-overview.md)
+[了解负载均衡器探测](load-balancer-custom-probe-overview.md)
