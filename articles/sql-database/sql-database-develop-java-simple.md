@@ -46,7 +46,7 @@ ms.author: lbosq
 
 ## 后续步骤
 
-* 访问 [Java 开发人员中心](/develop/java/)。
+* 访问 [Java 开发人员中心](https://www.azure.cn/develop/java/)。
 * 参阅 [SQL 数据库开发概述](./sql-database-develop-overview.md)
 * 有关 [Microsoft JDBC Driver for SQL Server](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) 的详细信息
 

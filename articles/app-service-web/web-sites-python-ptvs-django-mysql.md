@@ -149,7 +149,7 @@ ms.author: huvalo
 * [Django 文档]
 * [MySQL]
 
-有关详细信息，请参阅 [Python 开发人员中心](/develop/python/)。
+有关详细信息，请参阅 [Python 开发人员中心](https://www.azure.cn/develop/python/)。
 
 <!--Link references-->
 

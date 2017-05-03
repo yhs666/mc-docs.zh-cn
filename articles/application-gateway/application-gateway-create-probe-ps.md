@@ -60,7 +60,7 @@ Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 创建资源组（如果要使用现有的资源组，请跳过此步骤）。
 
-```
+```powershell
 New-AzureRmResourceGroup -Name appgw-rg -location "China North"
 ```
 
@@ -100,7 +100,7 @@ $subnet = $vnet.Subnets[0]
 
 在中国北部区域的“appgw-rg”资源组中创建公共 IP 资源“publicIP01”。
 
-```
+```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "China North" -AllocationMethod Dynamic
 ```
 
@@ -278,7 +278,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 
 创建网关后，下一步是配置用于通信的前端。使用公共 IP 时，应用程序网关需要动态分配的 DNS 名称，这会造成不方便。若要确保最终用户能够访问应用程序网关，可以使用指向应用程序网关的公共终结点的 CNAME 记录。为此，可使用附加到应用程序网关的 PublicIPAddress 元素检索应用程序网关及其关联的 IP/DNS 名称的详细信息。应使用应用程序网关的 DNS 名称来创建 CNAME 记录，使两个 Web 应用程序都指向此 DNS 名称。不建议使用 A 记录，因为重新启动应用程序网关后 VIP 可能会变化。
 
-```
+```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
 ```
 

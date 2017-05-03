@@ -41,7 +41,7 @@ Azure 诊断提供了灵活的方法用于收集来自云服务虚拟机 (VM) �
 
 从 Azure SDK 2.9 和相应的 Azure Tools for Visual Studio 开始，使用事件中心接收 Azure 诊断就受云服务、VM、虚拟机规模集和 Service Fabric 支持。
 
-* Azure 诊断扩展 1.6（[用于 .NET 的 Azure SDK 2.9 或更高版本](/downloads/)默认以此为目标）
+* Azure 诊断扩展 1.6（[用于 .NET 的 Azure SDK 2.9 或更高版本](https://www.azure.cn/downloads/)默认以此为目标）
 * [Visual Studio 2013 或更高版本](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * 应用程序中使用 *.wadcfgx* 文件和以下任一方法的 Azure 诊断现有配置：
   * Visual Studio：[为 Azure 云服务和虚拟机配置诊断](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)

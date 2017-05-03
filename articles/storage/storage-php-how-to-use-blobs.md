@@ -307,7 +307,7 @@ catch(ServiceException $e){
 - 参阅 [PHP 页 Blob 示例](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php)。
 - [使用 AzCopy 命令行实用程序传输数据](./storage-use-azcopy.md)
 
-有关详细信息，另请参阅 [PHP 开发人员中心](/develop/php/)。
+有关详细信息，另请参阅 [PHP 开发人员中心](https://www.azure.cn/develop/php/)。
 
 [download]: ../php-download-sdk.md
 [container-acl]: http://msdn.microsoft.com/zh-cn/library/azure/dd179391.aspx

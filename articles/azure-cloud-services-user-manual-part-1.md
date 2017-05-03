@@ -205,7 +205,7 @@ Azure 带宽虽然是共享带宽，其价格还是非常具有竞争优势的�
 
 Azure Web 应用支持的开发语言包括：.NET, Java, PHP, Python, Node.js, Ruby。  
 
-开发 Azure 云服务必须先安装 [Azure SDK](/downloads/?sdk=net)。
+开发 Azure 云服务必须先安装 [Azure SDK](https://www.azure.cn/downloads/?sdk=net)。
 
 ###<a id="azure-cloud-service-concurrent"></a>1.6 Azure 云服务如何解决大并发  
 

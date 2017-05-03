@@ -432,7 +432,7 @@ git push azure master
 - [具有 Python Tools for Visual Studio 的 Azure 上的 Flask 和 MongoDB]
 - [具有 Python Tools for Visual Studio 的 Azure 上的 Flask 和 Azure 表存储]
 
-有关详细信息，另请参阅 [Python 开发人员中心](/develop/python/)。
+有关详细信息，另请参阅 [Python 开发人员中心](https://www.azure.cn/develop/python/)。
 
 ## 更改内容
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](./app-service-changes-existing-services.md)

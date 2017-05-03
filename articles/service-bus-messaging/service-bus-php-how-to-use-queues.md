@@ -214,7 +214,7 @@ wacn.date: 03/20/2017
 
 现在，你已了解服务总线队列的基础知识，请参阅[队列、主题和订阅][]以获取更多信息。
 
-有关详细信息，另请访问 [PHP 开发人员中心](/develop/php/)。
+有关详细信息，另请访问 [PHP 开发人员中心](https://www.azure.cn/develop/php/)。
 
 [队列、主题和订阅]: ./service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once

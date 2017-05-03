@@ -105,7 +105,7 @@ Set-AzureServiceProjectRole WebRole1 Node 0.8.4
 ## 后续步骤
 了解如何指定应用程序使用的 Node.js 版本后，请学习[如何使用模块]、[生成和部署 Node.js 网站](./app-service-web/web-sites-nodejs-develop-deploy-mac.md)以及[如何使用适用于 Mac 和 Linux 的 Azure 命令行工具]。
 
-有关详细信息，请参阅 [Node.js 开发人员中心](/develop/nodejs/)。
+有关详细信息，请参阅 [Node.js 开发人员中心](https://www.azure.cn/develop/nodejs/)。
 
 [如何使用适用于 Mac 和 Linux 的 Azure 命令行工具]: ./xplat-cli-install.md
 [Azure 命令行工具]: ./xplat-cli-install.md

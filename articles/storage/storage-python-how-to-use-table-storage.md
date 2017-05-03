@@ -156,7 +156,7 @@ table_service.delete_table('tasktable')
 ## 后续步骤
 在了解了表存储的基础知识后，可单击下面的链接了解详细信息。
 
-- [Python 开发人员中心](/develop/python/)
+- [Python 开发人员中心](https://www.azure.cn/develop/python/)
 - [Azure 存储服务 REST API](http://msdn.microsoft.com/zh-cn/library/azure/dd179355)
 - [Azure 存储团队博客]
 - [Azure Storage SDK for Python]

@@ -66,7 +66,7 @@ Visual Studio 解决方案包含三个项目：
 
 * Azure 帐户 - 可以[打开 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-* Visual Studio 2015 和[用于 .NET 的 Azure SDK](/downloads/) - SDK 会自动安装 Visual Studio 2015（如果尚未安装）。
+* Visual Studio 2015 和[用于 .NET 的 Azure SDK](https://www.azure.cn/downloads/) - SDK 会自动安装 Visual Studio 2015（如果尚未安装）。
 
     * 在 Visual Studio 中，单击“帮助”->“关于 Microsoft Visual Studio”，确保安装了“Azure App Service Tools v2.9.1”或更高版本。
 

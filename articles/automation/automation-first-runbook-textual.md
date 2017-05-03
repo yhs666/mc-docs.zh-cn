@@ -86,7 +86,7 @@ ms.lasthandoff: 04/22/2017
 2. 我们不再需要 **Write-Output** 行，因此请直接删除它。
 3. 将光标放在大括号之间的空白行上。
 3. 单击“插入” > “设置” > “获取 Windows PowerShell 凭据”，然后选择所需的凭据。
-4. 如果没有凭据，可单击“管理” > “添加凭据”以创建并添加凭据。 有关详细信息，请参阅 [Azure Active Directory 用户和自动化凭据资产](/documentation/articles/automation-configuring/)。
+4. 如果没有凭据，可单击“管理” > “添加凭据”以创建并添加凭据。
 5. 在 **Get-AutomationPSCredential**前面，输入 *$Credential =* 以将凭据分配给变量。 
 3. 在下一行中键入 *Add-AzureRmAccount -Credential $Credential -EnvironmentName AzureChinaCloud*。
 

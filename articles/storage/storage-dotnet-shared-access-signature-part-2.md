@@ -31,7 +31,7 @@ ms.author: marsma
 在本教程中，我们将通过创建两个控制台应用程序重点说明如何为容器和 Blob 创建共享访问签名。第一个控制台应用程序将在一个容器和 Blob 上生成共享访问签名。该应用程序知道存储帐户密钥。第二个控制台应用程序（将充当客户端应用程序）使用第一个应用程序创建的共享访问签名访问容器和 Blob 资源。该应用程序仅使用共享访问签名验证其对容器和 Blob 资源的访问 – 它不知道帐户密钥。
 
 ## 第 1 部分：创建控制台应用程序以便生成共享访问签名
-首先，确保你安装了 Azure .NET 存储客户端库。你可以安装包含该客户端库的最新程序集的 [NuGet 程序包](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 包")；这是确保你具有最新修补程序的建议方法。你还可以通过下载包含该客户端库的最新 [用于 .NET 的 Azure SDK](/downloads/) 版本来下载该客户端库。
+首先，确保你安装了 Azure .NET 存储客户端库。你可以安装包含该客户端库的最新程序集的 [NuGet 程序包](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 包")；这是确保你具有最新修补程序的建议方法。你还可以通过下载包含该客户端库的最新 [用于 .NET 的 Azure SDK](https://www.azure.cn/downloads/) 版本来下载该客户端库。
 
 在 Visual Studio 中，创建一个新的 Windows 控制台应用程序并将其命名为 **GenerateSharedAccessSignatures**。使用以下方法之一添加对 **Microsoft.WindowsAzure.Configuration.dll** 和 **Microsoft.WindowsAzure.Storage.dll** 的引用：
 

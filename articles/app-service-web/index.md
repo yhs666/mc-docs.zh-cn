@@ -9,7 +9,7 @@ description: 了解如何使用应用服务 Web 应用生成和托管网站和 W
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/app-service-web/app-service-web-overview">
+        <a href="/app-service-web/app-service-web-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -63,7 +63,7 @@ description: 了解如何使用应用服务 Web 应用生成和托管网站和 W
         </a>
 </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-dotnet-get-started">
+        <a href="/app-service-web/web-sites-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -81,7 +81,7 @@ description: 了解如何使用应用服务 Web 应用生成和托管网站和 W
         </a>
 </li> 
      <li>
-        <a href="/azure/app-service-web/web-sites-java-get-started">
+        <a href="/app-service-web/web-sites-java-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -99,7 +99,7 @@ description: 了解如何使用应用服务 Web 应用生成和托管网站和 W
         </a>
 </li>
     <li>
-        <a href="/azure/app-service-web/app-service-web-nodejs-get-started">
+        <a href="/app-service-web/app-service-web-nodejs-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -117,7 +117,7 @@ description: 了解如何使用应用服务 Web 应用生成和托管网站和 W
         </a>
 </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-python-ptvs-django-mysql">
+        <a href="/app-service-web/web-sites-python-ptvs-django-mysql">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -137,7 +137,7 @@ description: 了解如何使用应用服务 Web 应用生成和托管网站和 W
 
 ```
  <li>
-    <a href="/azure/app-service-web/app-service-web-php-get-started">
+    <a href="/app-service-web/app-service-web-php-get-started">
     <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
@@ -156,7 +156,7 @@ description: 了解如何使用应用服务 Web 应用生成和托管网站和 W
 ```
 </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-php-web-site-gallery">
+        <a href="/app-service-web/web-sites-php-web-site-gallery">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

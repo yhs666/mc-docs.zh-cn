@@ -31,7 +31,7 @@ ms.lasthandoff: 04/14/2017
 在开始之前，你需要符合以下先决条件：
 
 1. 若要编译和生成应用程序，需在计算机上安装 [Visual Studio 2015](https://www.visualstudio.com/) 或更高版本。
-2. 安装最新版的[用于 .NET 的 Azure SDK](/downloads/)。 SDK 包括 Azure 快速入门示例项目、Azure 存储模拟器和 [用于 .NET 的 Azure 存储空间客户端库](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
+2. 安装最新版的[用于 .NET 的 Azure SDK](https://www.azure.cn/downloads/)。 SDK 包括 Azure 快速入门示例项目、Azure 存储模拟器和 [用于 .NET 的 Azure 存储空间客户端库](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
 3. 确保在你的计算机上安装了 [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653)，因为我们将在本教程中使用的 Azure 快速入门示例项目需要它。
 
     如果你不确定计算机上安装了哪个版本的 .NET Framework，请参阅 [如何：确定安装的 .NET Framework 版本](https://msdn.microsoft.com/vstudio/hh925568.aspx)。 或者，按“开始”按钮或 Windows 键，并键入“控制面板”。 然后，单击“程序” > “程序和功能”，然后在已安装程序中确定是否列出 .NET Framework 4.5。

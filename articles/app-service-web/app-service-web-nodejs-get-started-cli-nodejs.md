@@ -260,7 +260,7 @@ https://<app_name>.scm.chinacloudsites.cn/api/diagnostics/runtime
 * [如何在 Azure App Service 中调试 Node.js Web 应用](./web-sites-nodejs-debug.md)
 * [将 Node.js 模块与 Azure 应用程序一起使用](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web 应用：Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
-* [Node.js 开发人员中心](/develop/nodejs/)
+* [Node.js 开发人员中心](https://www.azure.cn/develop/nodejs/)
 * [在 Azure App Service 中开始使用 Web 应用](./app-service-web-get-started.md)
 * [探索神秘无比的 Kudu 调试控制台]
 

@@ -275,7 +275,7 @@ $db = "value of Database";
 
 ## 后续步骤
 
-有关详细信息，请参阅 [PHP 开发中心](/develop/php/)。
+有关详细信息，请参阅 [PHP 开发中心](https://www.azure.cn/develop/php/)。
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html

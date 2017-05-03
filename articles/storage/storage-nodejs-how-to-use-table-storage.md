@@ -442,7 +442,7 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 
 * [Azure 存储团队博客][Azure Storage Team Blog]。
 * GitHub 上的 [Azure Storage SDK for Node][Azure Storage SDK for Node] 存储库。
-* [Node.js 开发人员中心](/develop/nodejs/)
+* [Node.js 开发人员中心](https://www.azure.cn/develop/nodejs/)
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/

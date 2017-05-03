@@ -127,7 +127,7 @@ azure site log tail [sitename]
 
 有关为你的应用程序指定 Node.js 版本的信息，请参阅[在 Azure 应用程序中指定 Node.js 版本]。
 
-有关详细信息，另请参阅 [Node.js 开发人员中心](/develop/nodejs/)。
+有关详细信息，另请参阅 [Node.js 开发人员中心](https://www.azure.cn/develop/nodejs/)。
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode 自述文件]: https://github.com/tjanczuk/iisnode#readme

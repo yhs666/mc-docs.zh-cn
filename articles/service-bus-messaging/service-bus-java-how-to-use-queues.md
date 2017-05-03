@@ -195,7 +195,7 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 ## <a name="next-steps"></a>后续步骤
 现在，你已了解服务总线队列的基础知识，请参阅 [队列、主题和订阅][Queues, topics, and subscriptions] 以获取更多信息。
 
-有关详细信息，请参阅 [Java 开发人员中心](/develop/java/)。
+有关详细信息，请参阅 [Java 开发人员中心](https://www.azure.cn/develop/java/)。
 [用于 Java 的 Azure SDK]: /develop/java/ [用于 Eclipse 的 Azure 工具包]：https://msdn.microsoft.com/zh-cn/library/azure/hh694271.aspx
 
   [Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md

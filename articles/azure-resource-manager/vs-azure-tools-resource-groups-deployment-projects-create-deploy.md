@@ -19,13 +19,13 @@ ms.author: tomfitz
 ---
 
 # 通过 Visual Studio 创建和部署 Azure 资源组
-使用 Visual Studio 和 [Azure SDK](/downloads/) 可以创建一个项目，用于将基础结构和代码部署到 Azure。例如，你可以为应用定义 Web 主机、网站和数据库，然后将该基础结构与代码一起部署。或者，你可以定义虚拟机、虚拟网络和存储帐户，然后连同虚拟机上执行的脚本一起部署该基础结构。**Azure 资源组**部署项目可让你通过单个可重复的的操作部署全部所需的资源。有关部署和管理资源的详细信息，请参阅 [Azure Resource Manager overview](./resource-group-overview.md)（Azure Resource Manager 概述）。
+使用 Visual Studio 和 [Azure SDK](https://www.azure.cn/downloads/) 可以创建一个项目，用于将基础结构和代码部署到 Azure。例如，你可以为应用定义 Web 主机、网站和数据库，然后将该基础结构与代码一起部署。或者，你可以定义虚拟机、虚拟网络和存储帐户，然后连同虚拟机上执行的脚本一起部署该基础结构。**Azure 资源组**部署项目可让你通过单个可重复的的操作部署全部所需的资源。有关部署和管理资源的详细信息，请参阅 [Azure Resource Manager overview](./resource-group-overview.md)（Azure Resource Manager 概述）。
 
 Azure 资源组项目包含 Azure Resource Manager JSON 模板，用于定义部署到 Azure 的资源。若要了解 Resource Manager 模板的元素，请参阅 [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md)（创作 Azure Resource Manager 模板）。Visual Studio 允许你编辑这些模板，并提供工具来简化模板的使用。
 
 在本主题中，会部署 Web 应用和 SQL 数据库。但是，对于任何类型的资源，这些步骤都几乎一样。可以轻松地部署虚拟机及其相关资源。Visual Studio 许多不同的入门模板用于部署常见方案。
 
-本文说明 Visual Studio 2015 Update 2 和用于 .NET 2.9 的 Azure SDK。如果将 Visual Studio 2013 与 Azure SDK 2.9 配合使用，体验大体相同。可以使用 2.6 或更高版本的 Azure SDK；但是，用户界面体验可能会不同于本文所示的用户界面体验。强烈建议在开始执行相关步骤前安装最新版本的 [Azure SDK](/downloads/)。
+本文说明 Visual Studio 2015 Update 2 和用于 .NET 2.9 的 Azure SDK。如果将 Visual Studio 2013 与 Azure SDK 2.9 配合使用，体验大体相同。可以使用 2.6 或更高版本的 Azure SDK；但是，用户界面体验可能会不同于本文所示的用户界面体验。强烈建议在开始执行相关步骤前安装最新版本的 [Azure SDK](https://www.azure.cn/downloads/)。
 
 ## 创建 Azure 资源组项目
 在此过程中，会使用 **Web 应用 + SQL** 模板创建 Azure 资源组项目。

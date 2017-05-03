@@ -453,7 +453,7 @@ sms.create_virtual_machine_deployment(service_name=name,
 
 既已了解有关服务管理的基础知识，现可访问 [Azure Python SDK 的完整 API 参考文档](http://azure-sdk-for-python.readthedocs.org/)，轻松执行复杂任务来管理 Python 应用程序。
 
-有关详细信息，请参阅 [Python 开发人员中心](/develop/python/)。
+有关详细信息，请参阅 [Python 开发人员中心](https://www.azure.cn/develop/python/)。
 
 [What is Service Management]: #WhatIs
 [Concepts]: #Concepts

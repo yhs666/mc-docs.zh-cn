@@ -25,7 +25,7 @@ ms.lasthandoff: 04/14/2017
 
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>排查 Azure App Service 中 Web 应用性能缓慢的问题
-本文将帮助排查 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services/)中 Web 应用性能缓慢的问题。
+本文将帮助排查 [Azure 应用服务](/app-service-web/app-service-changes-existing-services/)中 Web 应用性能缓慢的问题。
 
 如果你对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，你也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)，并单击“**获取支持**”。
 

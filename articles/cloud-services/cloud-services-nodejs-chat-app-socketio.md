@@ -169,7 +169,7 @@ Socket.IO 在 node.js 服务器和客户端之间提供实时通信。本教程�
 
 在本教程中，你已了解如何创建托管于 Azure 云服务中的基本聊天应用程序。若要了解如何在 Azure 网站中托管此应用程序，请参阅[在 Azure 网站中使用 Socket.IO 生成 Node.js 聊天应用程序][chatwebsite]。
 
-有关详细信息，另请参阅 [Node.js 开发人员中心](/develop/nodejs/)。
+有关详细信息，另请参阅 [Node.js 开发人员中心](https://www.azure.cn/develop/nodejs/)。
 
   [chatwebsite]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 

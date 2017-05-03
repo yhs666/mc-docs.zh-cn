@@ -37,7 +37,7 @@ ms.lasthandoff: 04/14/2017
 ![如何使用 Azure 备份来备份 Windows 计算机](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
 ## <a name="get-an-azure-subscription"></a>获取 Azure 订阅
-如果没有 Azure 订阅，可以先创建一个 [试用帐户](/pricing/1rmb-trial/) ，这样就可以访问任何 Azure 服务。
+如果没有 Azure 订阅，可以先创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/) ，这样就可以访问任何 Azure 服务。
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 若要备份文件和文件夹，需在要存储数据的区域内创建恢复服务保管库。 还需确定存储复制方式。

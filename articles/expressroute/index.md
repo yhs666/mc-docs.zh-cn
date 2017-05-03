@@ -7,7 +7,7 @@ description: 了解如何配置和管理专用 ExpressRoute 连接，从本地�
 了解如何使用 ExpressRoute 设置快速的专用连接，从本地基础结构或共置设施连接到 Microsoft 云服务。教程、REST API 和其他文档可帮助用户配置和管理 ExpressRoute 线路。
 
 <ul class="panelContent cardsFTitle">
-    <li><a href="/azure/expressroute/expressroute-introduction">
+    <li><a href="/expressroute/expressroute-introduction">
 <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardImageOuter"><div class="cardImage"><img src="media/index/expressroute.svg" alt="" /></div></div><div class="cardText"><h3>了解 ExpressRoute</h3></div></div></div>
         </div></a>
 </li>
@@ -15,7 +15,7 @@ description: 了解如何配置和管理专用 ExpressRoute 连接，从本地�
 <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardImageOuter"><div class="cardImage"><img src="media/index/video-library.svg" alt="" /></div></div><div class="cardText"><h3>Azure ExpressRoute 视频库</h3></div></div></div>
         </div></a>
 </li>
-    <li><a href="/azure/expressroute/expressroute-prerequisites">
+    <li><a href="/expressroute/expressroute-prerequisites">
 <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardImageOuter"><div class="cardImage"><img src="media/index/get-started.svg" alt="" /></div></div><div class="cardText"><h3>ExpressRoute 入门</h3></div></div></div>
         </div></a>
 </li>

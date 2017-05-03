@@ -144,7 +144,7 @@ Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 如有必要，请使用 **New-AzureResourceGroup** cmdlet 创建资源组。在下面的示例中，将在“中国东部”位置创建名为 AppgatewayRG 的资源组。
 
-```
+```powershell
 New-AzureRmResourceGroup -Name AppgatewayRG -Location "China East"
 ```
 

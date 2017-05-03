@@ -85,7 +85,7 @@ System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happen
 尽管三个存储位置都可为记录事件提供相同的基本信息，但与记录到“文件系统”相比，“表存储”和“Blob 存储”记录包含额外信息，如实例 ID、线程 ID 以及更详细的时间戳（刻度格式）。
 
 > [!NOTE]
-只能使用存储客户端访问或由直接使用这些存储系统的应用程序访问存储在“表存储”或“Blob 存储”中的信息。例如，Visual Studio 2013 包含的存储资源管理器可用于浏览表或 Blob 存储，而 HDInsight 可以访问存储在 Blob 存储中的数据。还可编写通过使用 [Azure SDK](/downloads/#) 之一访问 Azure 存储的应用程序。
+只能使用存储客户端访问或由直接使用这些存储系统的应用程序访问存储在“表存储”或“Blob 存储”中的信息。例如，Visual Studio 2013 包含的存储资源管理器可用于浏览表或 Blob 存储，而 HDInsight 可以访问存储在 Blob 存储中的数据。还可编写通过使用 [Azure SDK](https://www.azure.cn/downloads/#) 之一访问 Azure 存储的应用程序。
 >
 > [!NOTE]
 也可从 Azure PowerShell 使用 **Set-AzureWebsite** cmdlet 启用诊断。如果尚未安装 Azure PowerShell，或尚未将其配置为使用 Azure 订阅，请参阅[如何使用 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。

@@ -19,7 +19,7 @@ ms.author: carolz
 了解如何使用事件中心从连接的 IoT 设备和应用程序每秒收集和管理数百万事件。教程、API 参考和其他文档介绍了如何为各种平台上的事件设置可缩放引入。
 
 <ul class="panelContent cardsFTitle">
-     <li><a href="/azure/event-hubs/event-hubs-what-is-event-hubs">
+     <li><a href="/event-hubs/event-hubs-what-is-event-hubs">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -47,7 +47,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-     <li><a href="/azure/event-hubs/event-hubs-programming-guide">
+     <li><a href="/event-hubs/event-hubs-programming-guide">
 <div class="cardSize">
             <div class="cardPadding">
                <div class="card">
@@ -61,7 +61,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/event-hubs/event-hubs-csharp-ephcs-getstarted">
+    <li><a href="/event-hubs/event-hubs-csharp-ephcs-getstarted">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -114,8 +114,8 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3><a href="/rest/api/eventhub">REST</a></h3>
-                        <p><a href="/azure/event-hubs/event-hubs-messaging-exceptions">异常</a></p>
-                        <p><a href="/azure/event-hubs/event-hubs-quotas">配额</a></p>
+                        <p><a href="/event-hubs/event-hubs-messaging-exceptions">异常</a></p>
+                        <p><a href="/event-hubs/event-hubs-quotas">配额</a></p>
                     </div>
                 </div>
             </div>

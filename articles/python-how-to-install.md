@@ -137,7 +137,7 @@ PTVS 适用于你现有的 Visual Studio 2013 或 2015 版本的安装。有关�
 * [IPython - Python 的高级 REPL/Notebook][]
 * [Azure 上的 IPython Notebook][]
 * [GitHub 上的 Python Tools for Visual Studio][]
-* [Python 开发人员中心](/develop/python/)
+* [Python 开发人员中心](https://www.azure.cn/develop/python/)
 
 [Continuum Analytics Python 分发]: http://continuum.io
 [Enthought Python 分发]: http://www.enthought.com

@@ -338,7 +338,7 @@ JNDI 环境是通过将配置信息的哈希表传入到 javax.naming.InitialCon
 * [如何将 AMQP 1.0 与服务总线 .NET API 一起使用](./service-bus-amqp-dotnet.md)
 * [服务总线 AMQP 1.0 开发人员指南](./service-bus-amqp-dotnet.md)
 * [如何使用 Service Bus 队列](./service-bus-dotnet-get-started-with-queues.md)
-* [Java 开发人员中心](/develop/java/)。
+* [Java 开发人员中心](https://www.azure.cn/develop/java/)。
 
 <!---HONumber=Mooncake_Quality_Review_0104_2017-->
 <!--Update_Description:update meta properties-->

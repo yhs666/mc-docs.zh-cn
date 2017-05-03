@@ -105,7 +105,7 @@ DLL 或程序集缺失的症状可能为：
 
 为了在使用此诊断方法时获得最佳结果，应使用包含 Windows 的干净安装的计算机或虚拟机。若要以最佳效果模拟 Azure 环境，请使用 Windows Server 2008 R2 x64。
 
-1. 安装独立版本的 [Azure SDK](/downloads)
+1. 安装独立版本的 [Azure SDK](https://www.azure.cn/downloads)
 
 2. 在开发计算机上生成云服务项目。
 

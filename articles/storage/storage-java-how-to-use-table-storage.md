@@ -571,7 +571,7 @@ catch (Exception e)
 * [Azure Storage REST API（Azure 存储 REST API）][Azure Storage REST API]
 * [Azure 存储团队博客][Azure Storage Team Blog]
 
-有关详细信息，另请参阅 [Java 开发人员中心](/develop/java/)。
+有关详细信息，另请参阅 [Java 开发人员中心](https://www.azure.cn/develop/java/)。
 
 [Azure SDK for Java]: /develop/java/
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java

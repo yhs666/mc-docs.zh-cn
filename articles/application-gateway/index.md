@@ -18,7 +18,7 @@ ms.author: carolz
 了解如何将应用程序网关（即应用程序传送控制器 (ADC)）部署为服务。教程、API 参考及其他文档显示如何设置应用程序级路由和负载均衡服务，使你可以构建高度可用的可缩放 Web 前端。
 
 <ul class="panelContent cardsFTitle">
-    <li><a href="/azure/application-gateway/application-gateway-introduction">
+    <li><a href="/application-gateway/application-gateway-introduction">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -46,7 +46,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-        <li><a href="/azure/application-gateway/application-gateway-create-gateway-portal">
+        <li><a href="/application-gateway/application-gateway-create-gateway-portal">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -60,7 +60,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/application-gateway/application-gateway-create-gateway-arm">
+    <li><a href="/application-gateway/application-gateway-create-gateway-arm">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -74,7 +74,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/application-gateway/application-gateway-create-gateway-arm-template">
+    <li><a href="/application-gateway/application-gateway-create-gateway-arm-template">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

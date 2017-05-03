@@ -345,7 +345,7 @@ Analysis Services 的**默认实例**侦听 TCP 端口 **2383**。在虚拟机�
 * [将数据库迁移到 Azure VM 上的 SQL Server](./windows/sql/virtual-machines-windows-migrate-sql.md)
 * [确定 Analysis Services 实例的服务器模式](https://msdn.microsoft.com/zh-cn/library/gg471594.aspx)
 * [多维建模（Adventure Works 教程）](https://technet.microsoft.com/zh-cn/library/ms170208.aspx)
-* [Azure 文档中心](/documentation/)
+* [Azure 文档中心](/)
 * [在混合环境中使用 Power BI](https://msdn.microsoft.com/zh-cn/library/dn798994.aspx)
 
 > [!NOTE]

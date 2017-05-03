@@ -19,7 +19,7 @@ ms.author: carolz
 了解如何配置 Azure 负载均衡器可提高应用程序的可用性和网络性能。文档介绍了如何对出入虚拟机和云服务以及跨界虚拟网络中的流量进行负载均衡。
 
 <ul class="panelContent cardsFTitle">
-    <li><a href="/azure/load-balancer/load-balancer-overview">
+    <li><a href="/load-balancer/load-balancer-overview">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -47,7 +47,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/load-balancer/load-balancer-internet-overview">
+    <li><a href="/load-balancer/load-balancer-internet-overview">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-       <li><a href="/azure/load-balancer/load-balancer-internal-overview">
+       <li><a href="/load-balancer/load-balancer-internal-overview">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

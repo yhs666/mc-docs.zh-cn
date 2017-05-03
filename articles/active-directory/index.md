@@ -23,7 +23,7 @@ wacn.date: 03/31/2017
 了解如何通过 Azure Active Directory (Azure AD) 同步目录并启用单一登录。教程、API 参考和其他文档介绍了如何集成各种标识管理功能，包括多重身份验证、设备注册、基于角色的访问控制，以及安全监视和提醒。
 
 <ul class="panelContent cardsFTitle">
-    <li><a href="/azure/active-directory/active-directory-whatis">
+    <li><a href="/active-directory/active-directory-whatis">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -51,7 +51,7 @@ wacn.date: 03/31/2017
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/active-directory/active-directory-howto-tenant">
+    <li><a href="/active-directory/active-directory-howto-tenant">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -102,7 +102,7 @@ wacn.date: 03/31/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>其他</h3>
-                        <p><a href="/azure/active-directory/active-directory-service-limits-restrictions">服务限制和局限性</a></p>
+                        <p><a href="/active-directory/active-directory-service-limits-restrictions">服务限制和局限性</a></p>
                     </div>
                 </div>
             </div>

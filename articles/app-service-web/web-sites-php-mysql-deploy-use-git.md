@@ -283,7 +283,7 @@ ms.author: robmcm
 
 ## 后续步骤
 
-有关详细信息，请参阅 [PHP 开发中心](/develop/php/)。
+有关详细信息，请参阅 [PHP 开发中心](https://www.azure.cn/develop/php/)。
 
 <!-- URL List -->
 

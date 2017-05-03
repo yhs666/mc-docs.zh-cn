@@ -20,7 +20,7 @@ wacn.date: 03/28/2016
 
 本文档还包含 Azure SDK for .NET 2.7.1 发行版的发行说明。
 
-只有 Visual Studio 2015 和 Visual Studio 2013 才支持 Azure SDK 2.7。[Azure SDK 2.6](/downloads/) 是 Visual Studio 2012 支持的最后一个 SDK。
+只有 Visual Studio 2015 和 Visual Studio 2013 才支持 Azure SDK 2.7。[Azure SDK 2.6](https://www.azure.cn/downloads/) 是 Visual Studio 2012 支持的最后一个 SDK。
 
 有关此版本的详细信息，请参阅 [Azure SDK 2.7 通告文章](https://azure.microsoft.com/zh-cn/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)和 [Azure SDK 2.7.1 通告文章](https://azure.microsoft.com/zh-cn/blog/announcing-the-azure-sdk-2-7-1-for-net/)。
 

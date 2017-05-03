@@ -18,7 +18,7 @@ ms.author: carolz
 了解如何使用 SQL 数据库（云中基于 Microsoft SQL Server 引擎构建的关系数据库即服务）。教程、视频和其他文档介绍了如何设置、连接和管理 SQL 数据库。
 
 <ul class="panelContent cardsFTitle">
-     <li><a href="/azure/sql-database/sql-database-technical-overview">
+     <li><a href="/sql-database/sql-database-technical-overview">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -46,7 +46,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/sql-database/sql-database-get-started">
+    <li><a href="/sql-database/sql-database-get-started">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -60,7 +60,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/sql-database/sql-database-elastic-scale-get-started">
+    <li><a href="/sql-database/sql-database-elastic-scale-get-started">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -74,7 +74,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-     <li><a href="/azure/sql-database/sql-database-get-started-security">
+     <li><a href="/sql-database/sql-database-get-started-security">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

@@ -47,7 +47,7 @@ ms.lasthandoff: 04/14/2017
 验证结果（成功或拒绝）和任何拒绝原因也与身份验证数据一起存储，可从身份验证和使用情况报告中获取。
 
 ## <a name="billing"></a>计费
-可参阅 [多重身份验证定价页](/pricing/details/multi-factor-authentication/)获得大多数计费问题的答案。
+可参阅 [多重身份验证定价页](https://www.azure.cn/pricing/details/multi-factor-authentication/)获得大多数计费问题的答案。
 
 **问：通过电话或短信对用户进行身份验证时，组织是否需要付费？**
 

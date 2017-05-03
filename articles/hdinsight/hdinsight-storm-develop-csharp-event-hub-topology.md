@@ -178,7 +178,7 @@ topologyBuilder.SetJavaBolt(
 
 * [Azure 事件中心](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
-* [Azure .NET SDK](/downloads/)
+* [Azure .NET SDK](https://www.azure.cn/downloads/)
 
 * [HDInsight Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md)
 

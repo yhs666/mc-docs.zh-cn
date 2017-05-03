@@ -18,7 +18,7 @@ ms.author: carolz
 了解如何使用 Site Recovery 实现业务连续性和私有云的灾难恢复策略。教程和其他文档演示了如何规划、部署和管理将本地物理服务器和虚拟机复制到云或辅助数据中心的业务流程。
 
 <ul class="panelContent cardsFTitle">
-    <li><a href="/azure/site-recovery/site-recovery-overview">
+    <li><a href="/site-recovery/site-recovery-overview">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -46,7 +46,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/site-recovery/site-recovery-vmware-to-azure">
+    <li><a href="/site-recovery/site-recovery-vmware-to-azure">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -60,7 +60,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/site-recovery/site-recovery-hyper-v-site-to-azure">
+    <li><a href="/site-recovery/site-recovery-hyper-v-site-to-azure">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -74,7 +74,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/site-recovery/site-recovery-vmm-to-azure">
+    <li><a href="/site-recovery/site-recovery-vmm-to-azure">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

@@ -158,7 +158,7 @@ cnxn.rollback()
 
 * 参阅 [SQL 数据库开发概述](./sql-database-develop-overview.md)
 * 有关 [Microsoft Python Driver for SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/) 的详细信息
-* 访问 [Python 开发人员中心](/develop/python/)。
+* 访问 [Python 开发人员中心](https://www.azure.cn/develop/python/)。
 
 ## 其他资源 
 

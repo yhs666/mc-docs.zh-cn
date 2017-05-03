@@ -185,7 +185,7 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 
 -   [队列、主题和订阅][]
 -   GitHub 上的 [Azure SDK for Node][] 存储库
--   [Node.js 开发人员中心](/develop/nodejs/)
+-   [Node.js 开发人员中心](https://www.azure.cn/develop/nodejs/)
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
   [Azure 经典管理门户]: http://manage.windowsazure.cn

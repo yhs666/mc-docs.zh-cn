@@ -18,7 +18,7 @@ ms.author: carolz
 了解如何使用 Resource Manager 以组的形式部署、监视和管理解决方案资源。教程、API 参考和其他文档介绍了如何设置资源组并创建模板，以便进行一致且可重复的部署。
 
 <ul class="panelContent cardsFTitle">
-    <li><a href="/azure/Azure-Resource-Manager/resource-group-overview">
+    <li><a href="/Azure-Resource-Manager/resource-group-overview">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -46,7 +46,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/resource-manager-template-walkthrough">
+    <li><a href="/resource-manager-template-walkthrough">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -60,7 +60,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/resource-group-define-dependencies">
+    <li><a href="/resource-group-define-dependencies">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -74,7 +74,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/resource-group-create-multiple">
+    <li><a href="/resource-group-create-multiple">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

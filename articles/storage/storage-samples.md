@@ -27,7 +27,7 @@ ms.author: marsma
 * [适用于 Azure 存储的 Visual Studio 快速入门](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts)
 
 ## .NET 示例
-若要浏览 .NET 示例，请从 NuGet 下载 [.NET 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)。[用于 .NET 的 Azure SDK](/downloads/) 中同时也提供 .NET 存储客户端库。
+若要浏览 .NET 示例，请从 NuGet 下载 [.NET 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)。[用于 .NET 的 Azure SDK](https://www.azure.cn/downloads/) 中同时也提供 .NET 存储客户端库。
 
 * [使用 .NET 的 Azure 存储示例](./storage-samples-dotnet.md)
 

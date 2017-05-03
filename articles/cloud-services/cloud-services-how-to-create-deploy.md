@@ -42,7 +42,7 @@ Azure 经典门户提供两种创建和部署云服务的方法：“快速创�
 可在[此处](./cloud-services-model-and-package.md)了解有关这些内容的详细信息以及创建包的方法。
 
 ## 准备应用
-在可以部署云服务之前，必须根据应用程序代码创建云服务包 (.cspkg) 以及云服务配置文件 (.cscfg)。Azure SDK 提供了用于准备这些必需的部署文件的工具。可从 [Azure 下载](/downloads)页，使用要用于开发应用程序代码的语言安装 SDK。
+在可以部署云服务之前，必须根据应用程序代码创建云服务包 (.cspkg) 以及云服务配置文件 (.cscfg)。Azure SDK 提供了用于准备这些必需的部署文件的工具。可从 [Azure 下载](https://www.azure.cn/downloads)页，使用要用于开发应用程序代码的语言安装 SDK。
 
 导出服务包之前，三种云服务功能需要特殊的配置：
 
@@ -56,7 +56,7 @@ Azure 经典门户提供两种创建和部署云服务的方法：“快速创�
 
 ## 开始之前
 
-- 如果尚未安装 Azure SDK，请单击“安装 Azure SDK”以打开 [Azure 下载页](/downloads/)，然后下载要用于开发代码的语言的 SDK。（也可以稍后执行此操作。）
+- 如果尚未安装 Azure SDK，请单击“安装 Azure SDK”以打开 [Azure 下载页](https://www.azure.cn/downloads/)，然后下载要用于开发代码的语言的 SDK。（也可以稍后执行此操作。）
 
 - 如果任何角色实例需要证书，请创建这些证书。云服务需要带有私钥的 .pfx 文件。可在创建和部署云服务时[将这些证书上传到 Azure](./cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate)。
 

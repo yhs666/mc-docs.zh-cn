@@ -405,7 +405,7 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 * [Azure Storage SDK for Node API 参考][Azure Storage SDK for Node API Reference]
 * [Azure 存储团队博客][Azure Storage Team Blog]
 * GitHub 上的 [Azure Storage SDK for Node][Azure Storage SDK for Node] 存储库
-* [Node.js 开发人员中心](/develop/nodejs/)
+* [Node.js 开发人员中心](https://www.azure.cn/develop/nodejs/)
 * [使用 AzCopy 命令行实用程序传输数据](./storage-use-azcopy.md)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node

@@ -50,7 +50,7 @@ ms.author: syamk
     在本地安装 [Azure DocumentDB 模拟器](./documentdb-nosql-local-emulator.md)。
 - [Visual Studio 2013](http://www.visualstudio.com/) 或更高版本，或者免费版 Visual Studio Express。本教程中的说明专为 Visual Studio 2015 所编写。
 - 来自 [GitHub](http://microsoft.github.io/PTVS/) 的 Python Tools for Visual Studio。本教程使用的是 Python Tools for VS 2015。
-- [azure.cn](/downloads/) 上提供 Azure Python SDK for Visual Studio 2.4 版本或更高版本。我们使用的是 Azure SDK for Python 2.7。
+- [azure.cn](https://www.azure.cn/downloads/) 上提供 Azure Python SDK for Visual Studio 2.4 版本或更高版本。我们使用的是 Azure SDK for Python 2.7。
 - 来自 [python.org][2] 的 Python 2.7。我们使用的是 Python 2.7.11。
 
 > [!IMPORTANT]
@@ -425,7 +425,7 @@ C:\Python27\site-packages;C:\Python27\;C:\Python27\Scripts;
 
 若要将其他功能添加到 Web 应用程序，请查看 [DocumentDB Python SDK](./documentdb-sdk-python.md) 中提供的 API。
 
-有关 Azure、Visual Studio 和 Python 的详细信息，请参阅 [Python 开发人员中心](/develop/python/)。
+有关 Azure、Visual Studio 和 Python 的详细信息，请参阅 [Python 开发人员中心](https://www.azure.cn/develop/python/)。
 
 有关其他 Python Flask 教程，请参阅 [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)（Flask 大型教程，第 I 部分：Hello, World!）。
 

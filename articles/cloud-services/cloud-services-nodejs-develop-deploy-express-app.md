@@ -145,7 +145,7 @@ PS C:\node\expressapp\WebRole1> Publish-AzureServiceProject -ServiceName myexpre
 
 ## 后续步骤
 
-有关详细信息，请参阅 [Node.js 开发人员中心](/develop/nodejs/)。
+有关详细信息，请参阅 [Node.js 开发人员中心](https://www.azure.cn/develop/nodejs/)。
 
   [Node.js Web Application]: ./cloud-services-nodejs-develop-deploy-app.md
   [Express]: http://expressjs.com/

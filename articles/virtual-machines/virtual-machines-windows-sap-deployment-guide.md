@@ -656,7 +656,7 @@ ms.author: sedusch
 本部分介绍了在配置和部署流程中用于执行特定任务的详细步骤。
 
 ### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>部署 Azure PowerShell cmdlet
-1.  转到 [Azure 下载](/downloads/)。
+1.  转到 [Azure 下载](https://www.azure.cn/downloads/)。
 2.  在“命令行工具”中的“PowerShell”下面，选择“Windows 安装”。
 3.  在“Microsoft 下载管理器”对话框中，针对已下载的文件（例如 WindowsAzurePowershellGet.3f.3f.3fnew.exe）选择“运行”。
 4.  若要运行 Microsoft Web 平台安装程序 (Microsoft Web PI)，请选择“是”。
@@ -685,7 +685,7 @@ Import-Module Azure
 ![表示已安装最新 Azure PowerShell cmdlet 版本的 Azure PowerShell cmdlet 安装页面][deployment-guide-figure-700]  
 
 ### <a name="figure-7"></a> <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>部署 Azure CLI
-1.  转到 [Azure 下载](/downloads/)。
+1.  转到 [Azure 下载](https://www.azure.cn/downloads/)。
 2.  在“命令行工具”中的“Azure 命令行接口”下面，选择适用于你的操作系统的安装链接。
 3.  在“Microsoft 下载管理器”对话框中，针对已下载的文件（例如 WindowsAzureXPlatCLI.3f.3f.3fnew.exe）选择“运行”。
 4.  若要运行 Microsoft Web 平台安装程序 (Microsoft Web PI)，请选择“是”。

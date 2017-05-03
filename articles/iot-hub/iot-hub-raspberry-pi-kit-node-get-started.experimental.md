@@ -27,7 +27,7 @@ ms.author: xshi
 
 在本教程中，用户将开始学习基础知识，了解如何使用运行 Raspbian 的 Raspberry Pi 3，然后学习如何使用 [Azure IoT 中心](./iot-hub-what-is-iot-hub.md)将设备无缝连接到云。有关 Windows 10 IoT Core 的示例，请访问 [Windows 开发人员中心](http://www.windowsondevices.com/)。
 
-还没有工具包？ 试用 [Raspberry Pi 3 仿真器](https://blogs.msdn.microsoft.com/iliast/2016/11/10/how-to-emulate-raspberry-pi/)。或在[此处](/develop/iot/iot-starter-kits)购买新工具包。
+还没有工具包？ 试用 [Raspberry Pi 3 仿真器](https://blogs.msdn.microsoft.com/iliast/2016/11/10/how-to-emulate-raspberry-pi/)。或在[此处](https://www.azure.cn/develop/iot/iot-starter-kits)购买新工具包。
 
 ## 第 1 课：配置设备
 ![第 1 课端到端关系图](./media/iot-hub-raspberry-pi-lessons/e2e-lesson1.png)  

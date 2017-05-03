@@ -116,7 +116,7 @@ wacn.date: 02/21/2017
 
 - Azure 账户<br/>
 - Visual Studio 2013<br/>
-- 安装 [Azure SDK](/downloads/?sdk=net)
+- 安装 [Azure SDK](https://www.azure.cn/downloads/?sdk=net)
 
 [!INCLUDE [azure-sdk-developer-differences](../includes/azure-visual-studio-login-guide.md)]
 

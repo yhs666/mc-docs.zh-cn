@@ -197,7 +197,7 @@ Azure 存储将服务器日志数据写入 Blob，将度量值写入表。存储
 AzCopy.exe /Source:http://<storageaccountname>.blob.core.chinacloudapi.cn/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 ```
 
-可以从 [Azure 下载](/downloads/)页下载 AzCopy。有关使用 AzCopy 的详细信息，请参阅[使用 AzCopy 命令行实用工具传输数据](./storage-use-azcopy.md)。
+可以从 [Azure 下载](https://www.azure.cn/downloads/)页下载 AzCopy。有关使用 AzCopy 的详细信息，请参阅[使用 AzCopy 命令行实用工具传输数据](./storage-use-azcopy.md)。
 
 有关下载服务器端日志的其他信息，请参阅[下载存储日志记录日志数据](http://msdn.microsoft.com/zh-cn/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata)。
 

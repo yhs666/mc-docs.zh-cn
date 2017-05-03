@@ -40,7 +40,7 @@ ms.author: cephalin
 * 一个 Azure Active Directory 租户，其中的用户已分配到不同的组
 * 在 Azure Active Directory 租户上创建应用程序的权限
 * Visual Studio 2013 Update 4 或更高版本
-* [Azure SDK 2.8.1 或更高版本](/downloads/)
+* [Azure SDK 2.8.1 或更高版本](https://www.azure.cn/downloads/)
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 

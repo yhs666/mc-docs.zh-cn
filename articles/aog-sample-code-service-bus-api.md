@@ -156,5 +156,4 @@ static async Task<ServiceBusHttpMessage> ReceiveMessageAsync(string token, bool 
 
 ## 更多资源
 
-- [从策略生成共享访问令牌（SAS Token）](/documentation/articles/service-bus-sas-overview/#bookmark-2)
 - [服务总线REST API](https://docs.microsoft.com/en-us/rest/api/servicebus/service-bus-runtime-rest/)

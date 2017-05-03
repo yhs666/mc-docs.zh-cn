@@ -251,7 +251,7 @@ ms.author: cephalin
 ## 后续步骤
 查看 Azure 中以下更有用的 PHP 链接：
 
-* [PHP 开发中心](/develop/php/)
+* [PHP 开发中心](https://www.azure.cn/develop/php/)
 * [在 Azure App Service Web Apps 中配置 PHP](./web-sites-php-configure.md)
 * [在 Azure App Service 中将 WordPress 转换为 Multisite](./web-sites-php-convert-wordpress-multisite.md)
 * [Azure App Service 上的企业级 WordPress](./web-sites-php-enterprise-wordpress.md)

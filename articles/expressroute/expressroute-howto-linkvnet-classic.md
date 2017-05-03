@@ -39,7 +39,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="configuration-prerequisites"></a>配置先决条件
 
-1. 需要 Azure PowerShell 模块的最新版本。 可以从 [Azure 下载页](/downloads/)的 PowerShell 部分下载最新 PowerShell 模块。 有关如何配置计算机以使用 Azure PowerShell 模块的分步指导，请遵循[如何安装和配置 Azure PowerShell](../powershell-install-configure.md) 中的说明。 
+1. 需要 Azure PowerShell 模块的最新版本。 可以从 [Azure 下载页](https://www.azure.cn/downloads/)的 PowerShell 部分下载最新 PowerShell 模块。 有关如何配置计算机以使用 Azure PowerShell 模块的分步指导，请遵循[如何安装和配置 Azure PowerShell](../powershell-install-configure.md) 中的说明。 
 2. 在开始配置之前，需要查看[先决条件](./expressroute-prerequisites.md/)、[路由要求](./expressroute-routing.md/)和[工作流](./expressroute-workflows.md/)。
 3. 你必须有一个活动的 ExpressRoute 线路。 
     - 请按说明[创建 ExpressRoute 线路](./expressroute-howto-circuit-classic.md/)，并让连接提供商启用该线路。

@@ -23,7 +23,7 @@ ms.author: carolz
 </div>
 
 <ul class="panelContent cardsFTitle">
-    <li><a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+    <li><a href="/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -37,7 +37,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+    <li><a href="/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -51,7 +51,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/virtual-machines/virtual-machines-linux-azure-overview?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+    <li><a href="/virtual-machines/virtual-machines-linux-azure-overview?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

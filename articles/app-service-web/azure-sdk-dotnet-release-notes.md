@@ -63,7 +63,7 @@ ms.author: juliako
 
 ##相关主题
 
-[Azure SDK for .NET](/downloads/)
+[Azure SDK for .NET](https://www.azure.cn/downloads/)
 
 [MSDN 上的 Azure SDK 发行说明](https://msdn.microsoft.com/zh-cn/library/azure/dn627519.aspx)
 

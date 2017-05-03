@@ -23,7 +23,7 @@ ms.author: carolz
 </div>
 
 <ul class="panelContent cardsFTitle">
-    <li><a href="/azure/virtual-machines/virtual-machines-windows-overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
+    <li><a href="/virtual-machines/virtual-machines-windows-overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -51,7 +51,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/virtual-machines/virtual-machines-windows-hero-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
+    <li><a href="/virtual-machines/virtual-machines-windows-hero-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -65,7 +65,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/virtual-machines/virtual-machines-windows-ps-create?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
+    <li><a href="/virtual-machines/virtual-machines-windows-ps-create?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="/azure/resource-manager-template-walkthrough?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
+    <li><a href="/resource-manager-template-walkthrough?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
 <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

@@ -200,7 +200,7 @@ az appservice web config show -g {resource-group-name} -n {app-name}
     ![在 Azure 中使用编辑器自动化的 Git 部署](./media/web-sites-php-configure/composer-extension-success.png)
 
 ## 后续步骤
-有关详细信息，请参阅 [PHP 开发中心](/develop/php/)。
+有关详细信息，请参阅 [PHP 开发中心](https://www.azure.cn/develop/php/)。
 
 [试用版]: https://www.azure.cn/pricing/1rmb-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php

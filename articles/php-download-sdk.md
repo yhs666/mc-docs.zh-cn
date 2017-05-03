@@ -83,7 +83,7 @@ Azure CLI 是一组用于部署和管理 Azure 服务（例如 Azure 网站和 A
 
 ## 后续步骤
 
-有关详细信息，请参阅 [PHP 开发中心](/develop/php/)。
+有关详细信息，请参阅 [PHP 开发中心](https://www.azure.cn/develop/php/)。
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer

@@ -49,7 +49,7 @@ Azure 服务总线支持一组基于云的、面向消息的中间件技术，�
 
 ## 显示相关代码
 
-[创建使用服务总线队列的应用程序](./service-bus-create-queues.md)一文介绍如何注册 Azure 帐户以及如何创建服务命名空间。若要使用服务总线命名空间，应用程序必须引用服务总线程序集，特别是 Microsoft.ServiceBus.dll。引用服务总线依赖项的最简单方法是安装服务总线 [Nuget 包](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)。还可以作为 Azure SDK 的一部分查找该程序集。可从 [Azure SDK 下载页](/downloads/)下载。
+[创建使用服务总线队列的应用程序](./service-bus-create-queues.md)一文介绍如何注册 Azure 帐户以及如何创建服务命名空间。若要使用服务总线命名空间，应用程序必须引用服务总线程序集，特别是 Microsoft.ServiceBus.dll。引用服务总线依赖项的最简单方法是安装服务总线 [Nuget 包](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)。还可以作为 Azure SDK 的一部分查找该程序集。可从 [Azure SDK 下载页](https://www.azure.cn/downloads/)下载。
 
 ### 创建主题和订阅
 

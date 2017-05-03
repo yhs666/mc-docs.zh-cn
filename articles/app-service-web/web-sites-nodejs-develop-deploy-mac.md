@@ -38,7 +38,7 @@ ms.author: robmcm
 
 ![显示“Hello World”消息的浏览器。][helloworld-completed]
 
-有关教程以及适用于更复杂 Node.js 应用程序的示例代码，或有关如何在 Azure 中使用 Node.js 的其他主题，请参阅 [Node.js 开发人员中心](/develop/nodejs/)。
+有关教程以及适用于更复杂 Node.js 应用程序的示例代码，或有关如何在 Azure 中使用 Node.js 的其他主题，请参阅 [Node.js 开发人员中心](https://www.azure.cn/develop/nodejs/)。
 
 > [!NOTE]
 若要完成本教程，你需要一个 Azure 帐户。如果你没有帐户，可以[注册试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
@@ -209,7 +209,7 @@ Node.js 提供可由您的应用程序使用的丰富的模块生态系统。若
 
 本文将使用 Azure 门户预览来创建 Web 应用。你也可以使用 [Azure 命令行接口](../xplat-cli-install.md)或 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 执行相同的操作。
 
-有关如何在 Azure 上开发 Node.js 应用程序的详细信息，请参阅 [Node.js 开发人员中心](/develop/nodejs/)。
+有关如何在 Azure 上开发 Node.js 应用程序的详细信息，请参阅 [Node.js 开发人员中心](https://www.azure.cn/develop/nodejs/)。
 
 [helloworld-completed]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
 [helloworld-localhost]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png

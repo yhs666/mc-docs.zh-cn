@@ -23,7 +23,7 @@ ms.author: marsma
 Azure 存储模拟器提供了一个模拟 Azure Blob、队列和表服务以进行开发的本地环境。使用存储模拟器，可以在本地针对存储服务测试应用程序，而无需创建 Azure 订阅且不会产生任何费用。如果对应用程序在模拟器中的工作情况感到满意，则可以切换到在云中使用 Azure 存储帐户。
 
 > [!NOTE]
-> 存储模拟器作为 [Azure SDK](/downloads/) 的一部分提供。此外，还可以使用[独立安装程序](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409)来安装存储模拟器。若要配置存储模拟器，必须在计算机上具有管理权限。
+> 存储模拟器作为 [Azure SDK](https://www.azure.cn/downloads/) 的一部分提供。此外，还可以使用[独立安装程序](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409)来安装存储模拟器。若要配置存储模拟器，必须在计算机上具有管理权限。
 > 
 > 存储模拟器目前仅在 Windows 上运行。
 >  

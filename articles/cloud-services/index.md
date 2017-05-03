@@ -44,7 +44,7 @@ description: 教程、API 参考和其他文档介绍了如何使用云服务托
         </a>
 </li>
     <li>
-        <a href="/azure/cloud-services/cloud-services-dotnet-get-started">
+        <a href="/cloud-services/cloud-services-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -62,7 +62,7 @@ description: 教程、API 参考和其他文档介绍了如何使用云服务托
         </a>
 </li>
     <li>
-        <a href="/azure/cloud-services/cloud-services-python-ptvs">
+        <a href="/cloud-services/cloud-services-python-ptvs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

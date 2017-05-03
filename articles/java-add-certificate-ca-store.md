@@ -52,7 +52,7 @@ Baltimore 证书可能已安装到您的 cacerts 存储中，因此请务必先�
 ## 后续步骤
 有关 Azure 使用的根证书的详细信息，请参阅 [Azure 根证书迁移](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx)。
 
-有关 Java 的详细信息，请参阅 [Java 开发人员中心](/develop/java/)。
+有关 Java 的详细信息，请参阅 [Java 开发人员中心](https://www.azure.cn/develop/java/)。
 
 <!---HONumber=Mooncake_0206_2017-->
 <!--Update_Description: wording update-->

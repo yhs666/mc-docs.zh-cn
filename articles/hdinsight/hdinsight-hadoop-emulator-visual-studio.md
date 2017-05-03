@@ -32,7 +32,7 @@ ms.author: larryfr
 
 * Visual Studio 2013、2015 或 2017，任何版本均可。
 
-* [用于 .NET 的 Azure SDK](/downloads/) 2.7.1 或更高版本。
+* [用于 .NET 的 Azure SDK](https://www.azure.cn/downloads/) 2.7.1 或更高版本。
 
 * [用于 Visual Studio 的 Azure Data Lake 工具](https://www.microsoft.com/download/details.aspx?id=49504)。
 

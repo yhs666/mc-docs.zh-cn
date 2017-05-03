@@ -23,7 +23,7 @@ ms.author: darosa;sethm
 <!--event-hubs-archive-overview only set the partition count on Azure.cn-->
 <!--有关事件中心存档的详细信息，请参阅[概述文章](/documentation/articles/event-hubs-archive-overview/)。-->
 
-此示例使用 [Azure Python SDK](/develop/python/) 演示如何使用存档功能。Sender.py 程序以 JSON 格式将模拟的环境遥测数据发送到事件中心。事件中心已配置为使用存档功能将此数据成批地写入到 blob 存储。然后 archivereader.py 应用将读取这些 blob，并为每个设备创建一个附加文件，然后将数据写入到 .csv 文件中。
+此示例使用 [Azure Python SDK](https://www.azure.cn/develop/python/) 演示如何使用存档功能。Sender.py 程序以 JSON 格式将模拟的环境遥测数据发送到事件中心。事件中心已配置为使用存档功能将此数据成批地写入到 blob 存储。然后 archivereader.py 应用将读取这些 blob，并为每个设备创建一个附加文件，然后将数据写入到 .csv 文件中。
 
 将要完成的任务
 

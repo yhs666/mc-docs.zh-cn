@@ -96,7 +96,7 @@ Azure Active Directory 可配置为将已分配的用户和组预配到实现[�
 **先决条件**
 
 * Visual Studio 2013 或更高版本
-* [Azure SDK for .NET](/downloads/)
+* [Azure SDK for .NET](https://www.azure.cn/downloads/)
 * 支持将 ASP.NET Framework 4.5 用作 SCIM 终结点的 Windows 计算机。必须能够从云访问此计算机
 * [具有 Azure AD Premium 试用版或许可版的 Azure 订阅](./index.md)
 * Amazon AWS 示例需要 [AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html) 中的库。请参阅示例随附的自述文件以获取其他详细信息

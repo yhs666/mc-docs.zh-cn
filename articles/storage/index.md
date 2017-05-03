@@ -19,7 +19,7 @@ ms.author: carolz
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/storage/storage-introduction">
+        <a href="/storage/storage-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -55,7 +55,7 @@ ms.author: carolz
         </a>
     </li>
     <li>
-        <a href="/azure/storage/storage-getting-started-guide">
+        <a href="/storage/storage-getting-started-guide">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -73,7 +73,7 @@ ms.author: carolz
         </a>
     </li>
     <li>
-        <a href="/azure/storage/storage-create-storage-account">
+        <a href="/storage/storage-create-storage-account">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

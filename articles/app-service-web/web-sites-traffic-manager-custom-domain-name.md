@@ -62,7 +62,7 @@ ms.author: robmcm
 
 ## 后续步骤
 
-有关详细信息，请参阅 [Node.js 开发人员中心](/develop/nodejs/)。
+有关详细信息，请参阅 [Node.js 开发人员中心](https://www.azure.cn/develop/nodejs/)。
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

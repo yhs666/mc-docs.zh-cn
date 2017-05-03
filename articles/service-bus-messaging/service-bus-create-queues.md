@@ -60,7 +60,7 @@ wacn.date: 03/20/2017
 
 ### 安装 NuGet 包
 
-若要使用服务总线命名空间，应用程序必须引用服务总线程序集，特别是 Microsoft.ServiceBus.dll。你可以在 Microsoft Azure SDK 的一部分中找到此程序集，也可在 [Azure SDK 下载页](/downloads/)下载。但是，[服务总线 NuGet 包](https://www.nuget.org/packages/WindowsAzure.ServiceBus)是获取服务总线 API 并为应用程序配置所有服务总线依赖项的最简单方法。
+若要使用服务总线命名空间，应用程序必须引用服务总线程序集，特别是 Microsoft.ServiceBus.dll。你可以在 Microsoft Azure SDK 的一部分中找到此程序集，也可在 [Azure SDK 下载页](https://www.azure.cn/downloads/)下载。但是，[服务总线 NuGet 包](https://www.nuget.org/packages/WindowsAzure.ServiceBus)是获取服务总线 API 并为应用程序配置所有服务总线依赖项的最简单方法。
 
 ### 创建队列
 

@@ -121,7 +121,7 @@ Azure 备份将在 Windows VM 上创建 VSS 完整备份（深入了解 [VSS 完
 在备份过程中，Azure 备份不会加密数据。 但是，可以在 VM 中加密数据，然后无缝备份保护的数据（阅读有关[加密数据备份](backup-azure-vms-encryption.md)的详细信息）。
 
 ## <a name="calculating-the-cost-of-protected-instances"></a>计算受保护实例的成本
-通过 Azure 备份进行备份的 Azure 虚拟机的收费依据 [Azure 备份定价](/pricing/details/backup/)。 受保护的实例计算基于虚拟机的实际大小，即虚拟机中除“资源磁盘”外的所有数据之和。
+通过 Azure 备份进行备份的 Azure 虚拟机的收费依据 [Azure 备份定价](https://www.azure.cn/pricing/details/backup/)。 受保护的实例计算基于虚拟机的实际大小，即虚拟机中除“资源磁盘”外的所有数据之和。
 
 VM 备份计费不是基于附加到虚拟机的每个数据磁盘的最大支持大小。 该项计费基于数据磁盘中存储的实际数据。 与此类似，备份存储空间的收费是根据通过 Azure 存储空间存储的数据容量，即每个恢复点中实际数据之和。
 

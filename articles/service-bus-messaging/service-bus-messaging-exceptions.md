@@ -128,7 +128,7 @@ ConnectionsQuotaExceeded for namespace xxx.
 ## <a name="next-steps"></a>后续步骤
 有关服务总线和事件中心 .NET API 的完整参考，请参阅 [Azure .NET API 参考](https://docs.microsoft.com/en-us/dotnet/api/)。
 
-若要了解有关 [服务总线](/home/feateures/messaging/)的详细信息，请参阅以下主题。
+若要了解有关 [服务总线](https://www.azure.cn/home/feateures/messaging/)的详细信息，请参阅以下主题。
 
 - [服务总线消息传送概述](./service-bus-messaging-overview.md)
 - [服务总线基础知识](./service-bus-fundamentals-hybrid-solutions.md)

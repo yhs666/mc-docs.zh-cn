@@ -28,7 +28,7 @@ ms.author: gwallace
 
 ## 开始之前
 
-1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。可以从[“下载”](/downloads/)页的“Windows PowerShell”部分下载并安装最新版本。
+1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。可以从[“下载”](https://www.azure.cn/downloads/)页的“Windows PowerShell”部分下载并安装最新版本。
 2. 请确认你已创建包含有效子网、可正常运行的虚拟网络。请确保没有虚拟机或云部署正在使用子网。应用程序网关必须单独位于虚拟网络子网中。
 3. 必须存在配置为使用应用程序网关的服务器，或者必须在虚拟网络中为其创建终结点，或者必须为其分配公共 IP/VIP。
 
@@ -47,9 +47,11 @@ ms.author: gwallace
 
 此示例在第一行显示 cmdlet，接着显示输出。
 
-```
+```powershell
 PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+```
 
+```
 VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
 VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
 Name       HTTP Status Code     Operation ID                             Error
@@ -63,9 +65,11 @@ Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 此示例在第一行显示 cmdlet，接着显示输出。
 
-```
+```powershell
 PS C:\> Get-AzureApplicationGateway AppGwTest
+```
 
+```
 VERBOSE: 4:39:39 PM - Begin Operation:
 Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed
 Operation: Get-AzureApplicationGateway
@@ -86,9 +90,11 @@ DnsName:
 
 此示例在第一行显示 cmdlet，接着显示输出。将示例中的值替换为你自己的值。
 
-```
+```powershell
 PS C:\> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file>
+```
 
+```
 VERBOSE: 5:05:23 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
 VERBOSE: 5:06:29 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
 Name       HTTP Status Code     Operation ID                             Error
@@ -100,9 +106,11 @@ Successful OK                   21fdc5a0-3bf7-2c12-ad98-192e0dd078ef
 
 此示例在第一行显示 cmdlet，接着显示输出。
 
-```
+```powershell
 PS C:\> Get-AzureApplicationGatewaySslCertificate AppGwTest
+```
 
+```
 VERBOSE: 5:07:54 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
 VERBOSE: 5:07:55 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
 Name           : SslCert
@@ -188,9 +196,11 @@ State..........: Provisioned
 
 接下来，你将设置应用程序网关。可以对配置对象或配置 XML 文件使用 **Set-AzureApplicationGatewayConfig** cmdlet。
 
-```
+```powershell
 PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+```
 
+```
 VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
 VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
 Name       HTTP Status Code     Operation ID                             Error
@@ -204,9 +214,11 @@ Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
 
 **注意：****Start-AzureApplicationGateway** cmdlet 可能需要长达 15-20 分钟的时间才能完成。
 
-```
+```powershell
 PS C:\> Start-AzureApplicationGateway AppGwTest
+```
 
+```
 VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
 VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
 Name       HTTP Status Code     Operation ID                             Error
@@ -220,9 +232,11 @@ Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 
 此示例演示了一个正常运行并已准备好接收流量的应用程序网关。
 
-```
+```powershell
 PS C:\> Get-AzureApplicationGateway AppGwTest
+```
 
+```
 Name          : AppGwTest2
 Description   :
 VnetName      : testvnet1

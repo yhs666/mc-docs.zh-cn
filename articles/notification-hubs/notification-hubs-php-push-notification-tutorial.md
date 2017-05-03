@@ -271,7 +271,7 @@ $hub->sendNotification($notification, null);
 * 在 [突发新闻教程] 中继续学习通知中心标记功能
 * 在 [通知用户教程] 中了解如何将通知推送到单个用户
 
-有关详细信息，另请参阅 [PHP 开发人员中心](/develop/php/)。
+有关详细信息，另请参阅 [PHP 开发人员中心](https://www.azure.cn/develop/php/)。
 
 [PHP REST 包装器示例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [入门教程]: ./notification-hubs-ios-apple-push-notification-apns-get-started.md

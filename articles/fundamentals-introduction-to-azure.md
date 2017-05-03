@@ -216,7 +216,7 @@ Azure 提供了多种工具，可以帮助开发人员和 IT 专业人员创建�
 ### Azure SDK
 早在 2008 年，Azure 的第一个预发行版本仅支持 .NET 开发。而现今，你几乎可以使用任何语言创建 Azure 应用程序。Microsoft 目前为 .NET、Java、PHP、Node.js、Ruby 和 Python 提供了特定于语言的 SDK。还有一个为任何语言（例如 C++）提供基本支持的常规 Azure SDK。
 
-这些 SDK 可帮助你构建、部署和管理 Azure 应用程序。可从 [www.azure.cn](/downloads/) 或 GitHub 获得它们，并且它们可以与 Visual Studio 和 Eclipse 结合使用。Azure 还提供了开发人员可以将其与任何编辑器或开发环境结合使用的命令行工具，包括用于从 Linux 和 Macintosh 系统将应用程序部署到 Azure 的工具。
+这些 SDK 可帮助你构建、部署和管理 Azure 应用程序。可从 [www.azure.cn](https://www.azure.cn/downloads/) 或 GitHub 获得它们，并且它们可以与 Visual Studio 和 Eclipse 结合使用。Azure 还提供了开发人员可以将其与任何编辑器或开发环境结合使用的命令行工具，包括用于从 Linux 和 Macintosh 系统将应用程序部署到 Azure 的工具。
 
 除了帮助你构建 Azure 应用程序以外，这些 SDK 还提供了客户端库，可帮助你创建使用 Azure 服务的软件。例如，你可以构建用于读取和写入 Azure Blob 的应用程序，或创建通过 Azure 管理界面部署 Azure 应用程序的工具。
 
@@ -462,6 +462,6 @@ Azure 媒体服务解决了此问题。它提供了一组云组件，从而使�
 
 ## 入门
 
-现在，你已了解大体情况，下一步是编写你的第一个 Azure 应用程序。选择你的语言，[获取相应的 SDK](/downloads/)，然后继续下一步。云计算是新的默认计算模式 -- 立即开始。
+现在，你已了解大体情况，下一步是编写你的第一个 Azure 应用程序。选择你的语言，[获取相应的 SDK](https://www.azure.cn/downloads/)，然后继续下一步。云计算是新的默认计算模式 -- 立即开始。
 
 <!---HONumber=Mooncake_1114_2016-->

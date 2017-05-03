@@ -236,7 +236,7 @@ try
 
 如果你还想更多地了解其他 Azure 存储 API，请点击以下链接。
 
-- [Java 开发中心](/develop/java/)
+- [Java 开发中心](https://www.azure.cn/develop/java/)
 - [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
 - [Azure Storage SDK for Android](https://github.com/azure/azure-storage-android)
 - [Azure 存储客户端 SDK 参考](http://azure.github.io/azure-storage-java/)

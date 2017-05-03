@@ -481,7 +481,7 @@ catch(ServiceException $e){
 
 - 访问 [Azure 存储空间团队博客](http://blogs.msdn.com/b/windowsazurestorage/)
 
-有关详细信息，另请参阅 [PHP 开发人员中心](/develop/php/)。
+有关详细信息，另请参阅 [PHP 开发人员中心](https://www.azure.cn/develop/php/)。
 
 [download]: ../php-download-sdk.md
 [require_once]: http://php.net/require_once

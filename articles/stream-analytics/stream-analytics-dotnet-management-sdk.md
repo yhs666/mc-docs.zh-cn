@@ -35,7 +35,7 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 在开始阅读本文前，你必须具有：
 
 * 安装 Visual Studio 2017 或 2015。
-* 下载并安装 [Azure .NET SDK](/downloads/)。
+* 下载并安装 [Azure .NET SDK](https://www.azure.cn/downloads/)。
 * 在订阅中创建 Azure 资源组。 下面是 Azure PowerShell 脚本示例。 有关 Azure PowerShell 的信息，请参阅 [安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)；  
 
     ```

@@ -21,7 +21,7 @@ ms.author: rachelap
 
 ## 概述
 
-用于 .NET 的 Azure SDK 是一套应用程序，其中包括 Visual Studio 工具、命令行工具、运行时二进制文件和客户端库，可帮助你开发、测试和部署在 Azure 中运行的应用程序。本文详细介绍了安装 SDK 时获得的内容。您可以从[“Azure 下载”页](/downloads/)下载 SDK。
+用于 .NET 的 Azure SDK 是一套应用程序，其中包括 Visual Studio 工具、命令行工具、运行时二进制文件和客户端库，可帮助你开发、测试和部署在 Azure 中运行的应用程序。本文详细介绍了安装 SDK 时获得的内容。您可以从[“Azure 下载”页](https://www.azure.cn/downloads/)下载 SDK。
 
 用于 .NET 的 Azure SDK 还包含[使用 Azure 服务所需的客户端库](http://go.microsoft.com/fwlink/?LinkId=510472)。这些库使用 NuGet 单独进行安装。
 
@@ -136,7 +136,7 @@ Azure 模拟器模拟云服务环境，这样您就可以先在本地计算机�
 
 ###<a id="olderversions"></a>哪里可以找到较旧版本的用于 .NET 的 Azure SDK？
 
-如需较旧版本，请参阅 [用于 .NET 的 Azure SDK](/downloads/) 下载页。
+如需较旧版本，请参阅 [用于 .NET 的 Azure SDK](https://www.azure.cn/downloads/) 下载页。
 
 ###<a id="lifecycle"></a>用于 .NET 的 Azure SDK 版本的生命周期策略是什么？
 
@@ -162,11 +162,11 @@ Azure 模拟器模拟云服务环境，这样您就可以先在本地计算机�
 
 ##<a id="versions"></a>版本
 
-若要查看哪一个版本是最新版本或者需要下载较旧版本，请参阅 [用于 .NET 的 Azure SDK 版本历史记录](/downloads/)页。
+若要查看哪一个版本是最新版本或者需要下载较旧版本，请参阅 [用于 .NET 的 Azure SDK 版本历史记录](https://www.azure.cn/downloads/)页。
 
 ##<a id="resources"></a>资源
 
-若要下载最新的用于 .NET 的 Azure SDK 或客户端库，请参阅[“Azure 下载”页](/downloads/)。
+若要下载最新的用于 .NET 的 Azure SDK 或客户端库，请参阅[“Azure 下载”页](https://www.azure.cn/downloads/)。
 
 如需用于 .NET 的 Azure SDK 源代码，包括客户端库，请参阅 [GitHub.com/Azure](https://github.com/azure/)。
 

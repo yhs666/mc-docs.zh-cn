@@ -370,7 +370,7 @@ def get_venv_handler():
 
 ## 后续步骤
 
-有关详细信息，请参阅 [Python 开发人员中心](/develop/python/)。
+有关详细信息，请参阅 [Python 开发人员中心](https://www.azure.cn/develop/python/)。
 
 ## 更改内容
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](./app-service-changes-existing-services.md)

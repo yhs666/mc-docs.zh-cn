@@ -236,7 +236,7 @@ Sqoop 是一种专用于在 Hadoop 和关系数据库之间传输数据的工具
 * Python
 * Ruby
 
-有关安装 Azure SDK 的详细信息，请参阅 [Azure 下载](/downloads/)
+有关安装 Azure SDK 的详细信息，请参阅 [Azure 下载](https://www.azure.cn/downloads/)
 
 ## 故障排除
 ### <a id="storageexception"></a>写入 blob 时的存储异常

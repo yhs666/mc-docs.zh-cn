@@ -27,7 +27,7 @@ ms.author: gwallace
 
 ## 开始之前
 
-1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。可以从[下载页面](/downloads)的“Windows PowerShell”部分下载并安装最新版本。
+1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。可以从[下载页面](https://www.azure.cn/downloads)的“Windows PowerShell”部分下载并安装最新版本。
 2. 请确认你已创建包含有效子网、可正常运行的虚拟网络。
 3. 请确认后端服务器位于虚拟网络中，或者为后端服务器分配了公共 IP/VIP。
 
@@ -43,9 +43,11 @@ ms.author: gwallace
 
 **若要创建网关**，请使用 `New-AzureApplicationGateway` cmdlet，并将值替换为你自己的值。请注意，此时不会开始计收网关的费用。计费将在后面已成功启动网关时开始。
 
-```
+```powershell
 PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+```
 
+```
 VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
 VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
 Name       HTTP Status Code     Operation ID                             Error 
@@ -57,7 +59,7 @@ Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 在此示例中，*Description*、*InstanceCount* 和 *GatewaySize* 是可选参数。*InstanceCount* 的默认值为 2，最大值为 10。*GatewaySize* 的默认值为 Medium。其他可用值为 Small 和 Large。*Vip* 和 *DnsName* 显示为空白，因为网关尚未启动。这些值将在网关进入运行状态后立即创建。
 
-```
+```powershell
 PS C:\> Get-AzureApplicationGateway AppGwTest
 
 VERBOSE: 4:39:39 PM - Begin Operation:
@@ -157,9 +159,11 @@ DnsName:
 
 接下来，你将设置应用程序网关。可以对配置对象或配置 XML 文件使用 `Set-AzureApplicationGatewayConfig` cmdlet。
 
-```
+```powershell
 PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+```
 
+```
 VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
 VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
 Name       HTTP Status Code     Operation ID                             Error 
@@ -176,7 +180,9 @@ Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
 
 ```
 PS C:\> Start-AzureApplicationGateway AppGwTest 
+```
 
+```
 VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
 VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
 Name       HTTP Status Code     Operation ID                             Error 
@@ -191,9 +197,11 @@ Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 > [!NOTE]
 > 在此示例中，应用程序网关配置为在配置的 ILB 终结点 10.0.0.10 上接受流量。
 
-```
+```powershell
 PS C:\> Get-AzureApplicationGateway AppGwTest 
+```
 
+```
 VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
 VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
 Name          : AppGwTest
