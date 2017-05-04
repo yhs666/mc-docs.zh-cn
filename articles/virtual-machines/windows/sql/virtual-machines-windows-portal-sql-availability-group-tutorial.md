@@ -265,7 +265,7 @@ ms.author: mikeray
 
     ![新建可用性组向导，指定副本（完整）](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/64-newagreplica.png)  
 
-6. 单击“终结点”，查看此可用性组的数据库镜像终结点。使用设置[数据库镜像终结点的防火墙规则](./windows/sql/virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall)时所用的同一端口。
+6. 单击“终结点”，查看此可用性组的数据库镜像终结点。使用设置[数据库镜像终结点的防火墙规则](./virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall)时所用的同一端口。
 
     ![新建可用性组向导，选择初始数据同步](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)  
 

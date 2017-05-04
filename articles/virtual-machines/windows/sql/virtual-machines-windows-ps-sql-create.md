@@ -71,7 +71,7 @@ $ResourceGroupName = "sqlvm1"
 ### 存储属性
 使用以下变量来定义存储帐户和虚拟机要使用的存储类型。
 
-根据需要修改并执行以下 cmdlet，以初始化这些变量。请注意，在本示例中，我们将使用建议用于生产工作负荷的[高级存储](../storage/storage-premium-storage.md)。有关本指导和其他建议的详细信息，请参阅 [Azure 虚拟机中 SQL Server 的性能最佳实践](../../windows/sql/virtual-machines-windows-sql-performance.md)。
+根据需要修改并执行以下 cmdlet，以初始化这些变量。请注意，在本示例中，我们将使用建议用于生产工作负荷的[高级存储](../../../storage/storage-premium-storage.md)。有关本指导和其他建议的详细信息，请参阅 [Azure 虚拟机中 SQL Server 的性能最佳实践](../../windows/sql/virtual-machines-windows-sql-performance.md)。
 
 ```
 $StorageName = $ResourceGroupName + "storage"

@@ -64,7 +64,7 @@ ms.author: mikeray
 1. [使用 Azure 门户预览配置 VNet 到 VNet 连接](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)。
 
     >[!NOTE]
-    在某些情况下，可能需要使用 PowerShell 创建 VNet 到 VNet 连接。例如，如果使用不同的 Azure 帐户，则无法在门户中配置该连接。对于这种情况，请参阅[使用 Azure 门户预览配置 VNet 到 VNet 连接](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)。
+    在某些情况下，可能需要使用 PowerShell 创建 VNet 到 VNet 连接。例如，如果使用不同的 Azure 帐户，则无法在门户中配置该连接。对于这种情况，请参阅[使用 Azure 门户预览配置 VNet 到 VNet 连接](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)。
 
 1. [在新区域中创建域控制器](../../../active-directory/active-directory-new-forest-virtual-machine.md)。
 

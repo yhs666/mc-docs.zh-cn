@@ -48,7 +48,7 @@ ms.author: lvargas
 
 开始阅读本文之前，你应该掌握有关 SQL Server 和 Azure 的基本概念知识。有关信息，请参阅 [SQL Server 联机丛书](https://msdn.microsoft.com/zh-cn/library/bb545450.aspx)、[Azure 虚拟机中的 SQL Server](../../virtual-machines-windows-sql-server-iaas-overview.md) 和 [Azure.cn](https://www.azure.cn/)。
 
-本文介绍了几种应用程序模式，它们可能适合你的简单应用程序，也可能适合非常复杂的企业应用程序。在详细介绍每种模式之前，我们建议你熟悉 Azure 中的可用数据存储服务，例如 [Azure 存储空间](../../../storage/storage-introduction.md)、[Azure SQL 数据库](../sql-database/sql-database-technical-overview.md)和 [Azure 虚拟机中的 SQL Server](../../virtual-machines-windows-sql-server-iaas-overview.md)。若要为你的应用程序做出最好的设计决策，必须明确了解何时使用何种数据存储服务。
+本文介绍了几种应用程序模式，它们可能适合你的简单应用程序，也可能适合非常复杂的企业应用程序。在详细介绍每种模式之前，我们建议你熟悉 Azure 中的可用数据存储服务，例如 [Azure 存储空间](../../../storage/storage-introduction.md)、[Azure SQL 数据库](../../../sql-database/sql-database-technical-overview.md)和 [Azure 虚拟机中的 SQL Server](../../virtual-machines-windows-sql-server-iaas-overview.md)。若要为你的应用程序做出最好的设计决策，必须明确了解何时使用何种数据存储服务。
 
 ### 在以下情况下，应选择 Azure 虚拟机中的 SQL Server：
 * 你需要在 SQL Server 和 Winodws 上进行控制。例如，你想要控制 SQL Server 版本、特殊修补程序、性能配置等。
@@ -121,7 +121,7 @@ ms.author: lvargas
 
 若要充分利用一层的多个 VM 实例，必须配置应用程序层之间的 Azure 负载均衡器。若要配置每个层中的负载均衡器，请在每个层的 VM 上单独创建负载均衡终结点。对于特定层，请首先在同一云服务中创建 VM。这样可以确保它们具有同一公共虚拟 IP 地址。接下来，在该层的一个虚拟机上创建终结点。然后，将同一终结点分配给该层上的其他虚拟机，以便进行负载均衡。通过创建负载均衡集，你可将流量分布到多个虚拟机，并让负载均衡器能够在后端 VM 节点出现故障时确定连接哪一个节点。例如，负载均衡器之后有多个 Web 服务器实例，可以确保呈现层的高可用性。
 
-最佳做法是始终确保所有 Internet 连接首先进入呈现层。呈现层访问业务层，业务层再访问数据层。若要深入了解如何允许对表示层的访问，请参阅[允许通过 Azure 门户预览对 VM 进行外部访问](./virtual-machines-windows-nsg-quickstart-portal.md)。
+最佳做法是始终确保所有 Internet 连接首先进入呈现层。呈现层访问业务层，业务层再访问数据层。若要深入了解如何允许对表示层的访问，请参阅[允许通过 Azure 门户预览对 VM 进行外部访问](../../virtual-machines-windows-nsg-quickstart-portal.md)。
 
 请注意，Azure 中的负载均衡器的工作方式类似于本地环境中的负载均衡器。有关更多信息，请参阅 [Azure 基础结构服务的负载均衡](../../virtual-machines-windows-load-balance.md)。
 
