@@ -79,7 +79,7 @@ ms.lasthandoff: 04/22/2017
 
     ![创建模板](./media/resource-group-template-deploy-portal/show-custom-template.png)
 
-    在编辑器中，添加用于定义要部署的资源的 JSON 语法。 完成后，选择“保存”  。 有关编写 JSON 语法的指导，请参阅 [Resource Manager 模板演练](./resource-manager-template-walkthrough.md)。
+    在编辑器中，添加用于定义要部署的资源的 JSON 语法。 完成后，选择“保存”  。 有关编写 JSON 语法的指导，请参阅 [Resource Manager 模板演练](./resource-manager-create-first-template.md)。
 
     ![编辑模板](./media/resource-group-template-deploy-portal/edit-template.png)
 4. 或者，也可以从 [Azure 快速启动模板](https://azure.microsoft.com/zh-cn/documentation/templates/)中选择预先存在的模板。 这些模板是由社区提供的。 它们涵盖了许多常见的方案，有人可能已添加了一个与你想要部署的模板类似的模板。 可以搜索模板以查找与你的方案相匹配的模板。
