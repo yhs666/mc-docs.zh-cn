@@ -510,6 +510,6 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
 ## 后续步骤
-部署移动服务代理后，可为虚拟机[启用复制](./site-recovery-vmware-to-azure.md#step-6-replicate-applications)。
+部署移动服务代理后，可为虚拟机[启用复制](./site-recovery-vmware-to-azure.md#enable-replication)。
 
 <!---HONumber=Mooncake_0306_2017-->

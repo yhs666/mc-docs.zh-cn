@@ -75,13 +75,13 @@ ms.author: raynew
 
 3. 在 vCenter 服务器或 vSphere 主机上[准备一个帐户](#prepare-for-automatic-discovery-and-push-installation)，以便 Site Recovery 可以自动检测到 VMware VM。
 
-## 准备配置服务器
+##<a name="configuration-server-or-additional-process-server-prerequisites"></a> 准备配置服务器
 
 1. 在 VMware VM 上安装 Windows Server 2012 R2 或更高版本。
 2. 确保该 VM 有权访问[先决条件](#prerequisites)中列出的 URL。
 3. 安装 [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)。
 
-## 为自动发现和推送安装做好准备
+##<a name="install-the-mobility-service-manually"></a> 为自动发现和推送安装做好准备
 
 - **为自动发现准备一个帐户**：Site Recovery 进程服务器将自动发现 VM。为此，Site Recovery 需要凭据，以便可以访问 vCenter 服务器/vSphere ESXi 主机。
 
@@ -259,7 +259,7 @@ Site Recovery 将使用指定的设置连接到 VMware 服务器并发现 VM。
 
 [了解详细信息](/documentation/articles/site-recovery-vmware-to-azure-install-mob-svc/)
 
-## 启用复制
+##<a name="enable-replication"></a> 启用复制
 
 开始之前：
 

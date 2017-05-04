@@ -39,7 +39,7 @@ Site Recovery 是一项 Azure 服务，可以通过协调从本地物理服务�
 - 在 Azure 区域之间迁移 [Azure IaaS VM](./site-recovery-migrate-azure-to-azure.md)。目前只有此方案才支持迁移，这意味着，故障回复不受支持。
 - 将 [AWS Windows 实例](./site-recovery-migrate-aws-to-azure.md)迁移到 Azure IaaS VM。目前只有此方案才支持迁移，这意味着，故障回复不受支持。
 
-## 迁移本地 VM 和物理服务器
+##<a name="migrate-on-premises-vms-and-physical-servers"></a> 迁移本地 VM 和物理服务器
 
 若要迁移本地 Hyper-V VM 和物理服务器，遵循的步骤大致与普通复制相同。此过程包括设置恢复服务保管库，配置所需的管理服务器（具体取决于想要迁移哪些工作负荷），将这些服务器添加到保管库，然后指定复制设置。为想要迁移的计算机启用复制，并运行快速测试故障转移，确保一切按预期运行。
 

@@ -213,7 +213,6 @@ Microsoft 将维护 Azure 群集中运行的结构代码和配置。 我们将�
 
 ## <a name="next-steps"></a>后续步骤
 * 了解如何自定义 [Service Fabric 群集结构设置](service-fabric-cluster-fabric-settings.md)的部分内容
-* 了解如何[扩展和缩减群集](service-fabric-cluster-scale-up-down.md)
 * 了解[应用程序升级](service-fabric-application-upgrade.md)
 
 <!--Image references-->
