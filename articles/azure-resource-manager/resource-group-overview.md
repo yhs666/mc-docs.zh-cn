@@ -224,7 +224,7 @@ Azure Resource Manager 会分析依赖关系，以确保按正确的顺序创建
 
 也可通过 Azure 门户查看标记的资源。
 
-订阅的[使用情况报告](/documentation/articles/billing-understand-your-bill/)包括标记名称和值，可用于按标记对成本进行细分。 有关标记的详细信息，请参阅 [使用标记来组织 Azure 资源](./resource-group-using-tags.md)。
+订阅的[使用情况报告](../billing-understand-your-bill.md)包括标记名称和值，可用于按标记对成本进行细分。 有关标记的详细信息，请参阅 [使用标记来组织 Azure 资源](./resource-group-using-tags.md)。
 
 ## <a name="access-control"></a>访问控制
 资源管理器可让你控制谁有权访问组织的特定操作。 Resource Manager 原生地在管理平台中集成了基于角色的访问控制 (RBAC)，并向资源组中的所有服务应用该访问控制。 

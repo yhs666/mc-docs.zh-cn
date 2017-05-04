@@ -176,4 +176,4 @@ SDK 会自动反序列化包含 POCO[（普通旧 CLR 对象](http://en.wikipedi
 * 写入日志
 
 ## <a id="nextsteps"></a>后续步骤
-本指南中包含的代码示例展示了如何处理常见方案来结合使用 Azure 服务总线。 有关如何使用 Azure WebJobs 和 WebJobs SDK 的详细信息，请参阅 [Azure WebJobs 推荐资源](/azure/app-service-web/websites-webjobs-resources/)。
+本指南中包含的代码示例展示了如何处理常见方案来结合使用 Azure 服务总线。 有关如何使用 Azure WebJobs 和 WebJobs SDK 的详细信息，请参阅 [Azure WebJobs 推荐资源](/app-service-web/websites-webjobs-resources/)。

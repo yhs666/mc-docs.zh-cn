@@ -33,7 +33,7 @@ ms.lasthandoff: 04/22/2017
 - 实例大小（小、中、大）
 - SKU（免费、共享、基本、标准、高级）
 
-[Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services)中的 Web 应用、移动应用、API 应用、Function App（或 Functions）均在应用服务计划中运行。  同一订阅、区域和资源组中的应用可共享应用服务计划。 
+[Azure 应用服务](/app-service-web/app-service-changes-existing-services)中的 Web 应用、移动应用、API 应用、Function App（或 Functions）均在应用服务计划中运行。  同一订阅、区域和资源组中的应用可共享应用服务计划。 
 
 分配给**应用服务计划**的所有应用程序共享其定义的资源，这样可以通过单个应用服务计划托管多个应用，从而节省成本。
 
@@ -135,7 +135,7 @@ ms.lasthandoff: 04/22/2017
 应用服务计划表示一组可在应用间共享的功能和容量。 可以通过应用服务计划灵活地将特定应用分配给一组资源，并进一步优化 Azure 资源的使用情况。 若要节省测试环境的资金，可通过这种方式跨多个应用共享一个计划。 也可跨多个区域和计划进行伸缩，实现生产环境吞吐量的最大化。
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png

@@ -32,7 +32,7 @@ ms.lasthandoff: 04/07/2017
 在开始阅读本文前，你必须具有：
 
 * Visual Studio 2017 或 2015。
-* 下载并安装 [Azure .NET SDK](/downloads/)。
+* 下载并安装 [Azure .NET SDK](https://www.azure.cn/downloads/)。
 * 需要启用监视功能的现有流分析作业。
 
 ## <a name="setup-a-project"></a>设置项目

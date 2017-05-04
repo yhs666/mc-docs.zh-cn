@@ -69,7 +69,7 @@ ms.lasthandoff: 04/22/2017
 
     此命令将提供 Azure Resource Manager 模板的输入。
 
-    有关如何在密钥保管库中创建自签名证书的示例，请参阅[Service Fabric 群集安全方案](/azure/service-fabric-cluster-security/)。
+    有关如何在密钥保管库中创建自签名证书的示例，请参阅[Service Fabric 群集安全方案](/service-fabric-cluster-security/)。
 
 2.  更改 Resource Manager 模板。
 
@@ -218,7 +218,7 @@ CRP 组件不会持久保留客户机密。 如果对虚拟机规模集中的所
 
 扩大时不会遇到此问题，因为（单 Fabric 租户模型中的）Azure Service Fabric 中存在机密的缓存副本。
 
-### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurecn443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenariosazureservice-fabric-cluster-security"></a>如 [Service Fabric 群集安全方案](/azure/service-fabric-cluster-security/)中所示，为什么必须指定证书 URL 的准确位置 (https://<name of the vault>.vault.azure.cn:443/secrets/<exact location>)？
+### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurecn443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenariosazureservice-fabric-cluster-security"></a>如 [Service Fabric 群集安全方案](/service-fabric-cluster-security/)中所示，为什么必须指定证书 URL 的准确位置 (https://<name of the vault>.vault.azure.cn:443/secrets/<exact location>)？
 
 根据 Azure Key Vault 文档，在未指定版本的情况下，Get Secret REST API 应返回最新版本的机密。
 
@@ -373,7 +373,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>我需要执行一个在专用存储帐户中托管的自定义脚本。 存储为公共存储时脚本成功运行，但尝试使用共享访问签名 (SAS) 时，脚本运行失败。 显示此消息：“缺少有效共享访问签名的强制参数”。 通过本地浏览器可以正常使用“链接+SAS”。
 
-若要执行在私有存储帐户中托管的自定义脚本，请通过存储帐户密钥和名称来设置受保护的设置。 有关详细信息，请参阅[适用于 Windows 的自定义脚本扩展](/azure/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings)。
+若要执行在私有存储帐户中托管的自定义脚本，请通过存储帐户密钥和名称来设置受保护的设置。 有关详细信息，请参阅[适用于 Windows 的自定义脚本扩展](/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings)。
 
 ## <a name="networking"></a>网络
 
@@ -423,7 +423,7 @@ IP 地址是从指定的子网中选择的。
 
 ### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>如何将虚拟机规模集更新为新映像？ 如何管理修补？
 
-若要将虚拟机规模集更新为新映像，或管理修补，请参阅[升级虚拟机规模集](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set)。
+若要将虚拟机规模集更新为新映像，或管理修补，请参阅[升级虚拟机规模集](/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set)。
 
 ### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>是否可以在不更改映像的情况下，使用重置映像操作来重置 VM？ （也就是说，将 VM 重置为出厂设置而不是重置为新映像）
 
