@@ -51,7 +51,7 @@ ms.lasthandoff: 04/06/2017
 <br>
 
 ## <a name="step-3-ensure-that-you-are-co-administrator-for-the-subscription-in-azure-classic-management-portal"></a>步骤 3：确保你是 Azure 经典管理门户中订阅的共同管理员
-若要执行此迁移，必须在 [Azure 经典管理门户](https://manage.windowsazure.cn/)中将你添加为订阅的共同管理员。 即使你已被添加为 [Azure 门户预览版](https://portal.azure.cn)中的所有者，这仍是必需的操作。 尝试[在 Azure 经典管理门户中添加订阅的共同管理员](../../billing-add-change-azure-subscription-administrator.md)以了解你是否是订阅的共同管理员。 如果不能添加协同管理员，请联系订阅的服务管理员或协同管理员，以将自己添加为协同管理员。   
+若要执行此迁移，必须在 [Azure 经典管理门户](https://manage.windowsazure.cn/)中将你添加为订阅的共同管理员。 即使你已被添加为 [Azure 门户预览版](https://portal.azure.cn)中的所有者，这仍是必需的操作。 尝试在 Azure 经典管理门户中添加订阅的共同管理员以了解你是否是订阅的共同管理员。 如果不能添加协同管理员，请联系订阅的服务管理员或协同管理员，以将自己添加为协同管理员。   
 
 ## <a name="step-4-set-your-subscription-and-sign-up-for-migration"></a>步骤 4：设置订阅并针对迁移进行注册
 首先，请启动 PowerShell 提示符。 对于迁移，需要针对经典部署模型和 Resource Manager 部署模型设置环境。

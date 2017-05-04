@@ -605,7 +605,7 @@ public static void RegisterBundles(BundleCollection bundles)
 7. 刷新 Azure Web 应用的浏览器窗口。现在可看到所有脚本和样式表都已正常加载。
 
 ## 更多信息 
-- [Azure 内容交付网络 (CDN) 概述](../cdn/cdn-overview.md)
+- [Azure 内容交付网络 (CDN) 概述](https://www.azure.cn/documentation/articles/cdn-overview/)
 - [ASP.NET 绑定和缩减](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 
 <!---HONumber=Mooncake_Quality_Review_1215_2016-->
