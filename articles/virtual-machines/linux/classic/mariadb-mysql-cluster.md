@@ -299,18 +299,20 @@ Azure 有两种用于创建和处理资源的不同部署模型：[Azure Resourc
     --vm-name mariadb2
     --connect mariadbha mariadb-galera-image azureuser
     ```
-  对于 MariaDB3：
+    对于 MariaDB3：
 
-        azure vm create
-        --virtual-network-name mariadbvnet
-        --subnet-names mariadb
-        --availability-set clusteravset
-        --vm-size Medium
-        --ssh-cert "/path/to/key.pem"
-        --no-ssh-password
-        --ssh 24
-        --vm-name mariadb3
-        --connect mariadbha mariadb-galera-image azureuser
+    ```
+    azure vm create
+    --virtual-network-name mariadbvnet
+    --subnet-names mariadb
+    --availability-set clusteravset
+    --vm-size Medium
+    --ssh-cert "/path/to/key.pem"
+    --no-ssh-password
+    --ssh 24
+    --vm-name mariadb3
+    --connect mariadbha mariadb-galera-image azureuser
+    ```
 3. 需要获取三个 VM 各自的内部 IP 地址，才能执行下一步：
 
     ![获取 IP 地址](./media/mariadb-mysql-cluster/IP.png)  
