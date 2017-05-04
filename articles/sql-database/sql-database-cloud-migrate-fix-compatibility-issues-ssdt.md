@@ -75,9 +75,6 @@ ms.author: carlrab
  - 在发布前，根据源 SQL Server 版本（早于 SQL Server 2014），可能需要重置项目的目标平台才能进行部署。
  - 如果迁移的是较早的 SQL Server 数据库，不要向项目中引入任何不受源 SQL Server 支持的功能，除非先将数据库迁移到较新版本的 SQL Server。
 
-        ![alt text](./media/sql-database-migrate-visualstudio-ssdt/10MigrateSSDT.png)    
-
-        ![alt text](./media/sql-database-migrate-visualstudio-ssdt/11MigrateSSDT.png)    
 
 4. 在 SQL Server 对象资源管理器中，右键单击源数据库，然后单击“数据比较”。将项目与原始数据库进行比较，有助于了解向导所做的更改。选择 Azure SQL V12 版本的数据库，然后单击“完成”。
 

@@ -36,7 +36,7 @@ ms.author: raynew
 - 可以使用物理服务器（而非 VMware VM）作为配置服务器
 - 你需要具有用于故障回复的本地 VMware 基础结构。无法故障回复到物理服务器。
 
-## Hyper-V 到 Azure
+##<a name="hyper-v-to-azure"></a> Hyper-V 到 Azure
 
 下面是将 Hyper-V VM 复制到 Azure 时所需的项。
 
@@ -103,7 +103,7 @@ ms.author: raynew
 2. 初始复制之后，每台计算机上的代理将增量复制更改发送到进程服务器。
 3. 进程服务器将优化这些数据，并将其传输到辅助站点上的主目标服务器。配置服务器将管理复制进程。
 
-## 从 Hyper-V 到辅助站点
+##<a name="replicate-hyper-v-vms-to-a-secondary-site"></a> 从 Hyper-V 到辅助站点
 
 下面是将 Hyper-V VM 复制到辅助站点时所需的项。
 

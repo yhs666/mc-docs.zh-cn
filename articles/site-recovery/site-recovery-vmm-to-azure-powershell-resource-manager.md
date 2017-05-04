@@ -96,7 +96,7 @@ Azure Site Recovery 可在许多部署方案中安排虚拟机的复制、故障
 
 - [如何在 VMM 中配置逻辑网络](https://technet.microsoft.com/zh-cn/library/jj721568.aspx)
 - [如何在 VMM 中配置 VM 网络和网关](https://technet.microsoft.com/zh-cn/library/jj721575.aspx)
-- [如何在 Azure 中配置和监视虚拟网络](home/features/virtual-network)
+- [如何在 Azure 中配置和监视虚拟网络](https://www.azure.cn/home/features/virtual-network)
 
 ###PowerShell 必决条件
 确保已将 Azure PowerShell 准备就绪。如果你已使用 PowerShell，则升级到 0.8.10 或更高版本。有关设置 PowerShell 的信息，请参阅 [Guide to install and configure Azure PowerShell](../powershell-install-configure.md)（Azure PowerShell 安装和配置指南）。安装并配置 PowerShell 后，可在[此处](https://msdn.microsoft.com/zh-cn/library/dn850420.aspx)查看该服务的所有可用 cmdlet。

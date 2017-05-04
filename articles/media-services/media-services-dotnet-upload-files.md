@@ -25,7 +25,7 @@ ms.lasthandoff: 04/14/2017
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
-> * [门户](media-services-portal-upload-files.md)
+> * [门户](media-services-manage-content.md#upload)
 > 
 > 
 

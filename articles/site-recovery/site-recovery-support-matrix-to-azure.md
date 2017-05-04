@@ -99,7 +99,7 @@ ELB | 是 | 是 | 是
 IPv4 | 是 | 是 | 是
 保留源 IP | 是 | 是 | 是
 
-## 存储支持
+##<a name="support-for-storage"></a> 存储支持
 下表总结了使用 Azure Site Recovery 复制到 Azure 时的各种部署方案中的存储配置支持。
 
 ### 主机存储配置

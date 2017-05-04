@@ -129,6 +129,6 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 * [创建存储帐户](storage-create-storage-account.md)
 
 
-* [使用 Resource Manager 和 PowerShell 创建 VM](../virtual-machines/virtual-machines-windows-ps-create.md)
+* [使用 Resource Manager 和 PowerShell 创建 VM](../virtual-machines/windows/quick-create-powershell.md)
 
 * [使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md)

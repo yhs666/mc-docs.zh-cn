@@ -339,7 +339,7 @@ Hyper-V 主机上运行的恢复服务代理需有权通过 Internet 访问 Azur
      ![启用复制](./media/site-recovery-vmm-to-azure/test-failover4.png)
 4. 在“磁盘”中，可以看到 VM 上将要复制的操作系统和数据磁盘。
 
-## <a name="test-the-deployment"></a>测试部署
+## <a name="test-the-deployment"></a><a name="step-7-test-your-deployment"></a>测试部署
 
 为了对部署进行测试，你可以针对单个虚拟机或单个恢复计划（其中包含一个或多个虚拟机）运行测试性故障转移。
 

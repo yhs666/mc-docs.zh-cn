@@ -64,7 +64,7 @@ Site Recovery 将使用在虚拟机的“计算和网络”设置中提供的同
 ## 准备 Active Directory 和 DNS
 要运行测试故障转移以进行应用程序测试，测试中需要生产用 Active Directory 环境的副本。如需更多详细信息，请参阅 [Active Directory 的测试性故障转移注意事项](./site-recovery-active-directory.md#test-failover-considerations)部分。
 
-## 准备在故障转移后连接到 Azure VM
+##<a name="prepare-to-connect-to-azure-vms-after-failover"></a> 准备在故障转移后连接到 Azure VM
 
 如果想要在故障转移后使用 RDP 连接到 Azure VM，请确保执行下表中汇总的操作。
 
