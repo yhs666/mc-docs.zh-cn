@@ -97,7 +97,7 @@ ms.author: danlep
 * 尝试在群集上运行测试工作负荷。例如，请参阅 HPC Pack [入门指南](https://technet.microsoft.com/zh-cn/library/jj884144)。
 
 <!--Image references-->
-[headnode]:../../media/virtual-machines-windows-hpcpack-cluster-headnode/headnode.png
+[headnode]: ./media/hpcpack-cluster-headnode/headnode.png
 
 <!---HONumber=Mooncake_0220_2017-->
 <!--Update_Description: meta update-->

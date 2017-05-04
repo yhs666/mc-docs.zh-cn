@@ -82,6 +82,6 @@ ms.author: danlep
 * 如果想根据群集工作负荷自动扩展或收缩 Azure 计算资源，请参阅[自动扩展和收缩 HPC Pack 群集中的 Azure 计算资源](hpcpack-cluster-node-autogrowshrink.md)。
 
 <!--Image references-->
-[burst]:../../../media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
+[burst]: ./media/hpcpack-cluster-node-burst/burst.png
 
 <!---HONumber=Mooncake_Quality_Review_1215_2016-->

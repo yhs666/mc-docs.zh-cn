@@ -57,6 +57,6 @@ ms.author: kmouss
 有关配置监视指标和示例的详细信息，请访问文档- [使用 Linux 诊断扩展监视 Linux VM 的性能和诊断数据](classic/diagnostic-extension.md)。
 
 <!--Image references-->
-[1]:../../media/virtual-machines-linux-vm-monitoring/portal-enable-disable.png
+[1]: ./media/vm-monitoring/portal-enable-disable.png
 
 <!---HONumber=Mooncake_Quality_Review_1215_2016-->

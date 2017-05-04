@@ -243,17 +243,17 @@ knife azure server create --azure-dns-name 'diegotest01' --azure-vm-name 'testse
 希望这对你有所帮助！ 现在就使用 Azure 开始你的基础结构即代码之旅吧！
 
 <!--Image references-->
-[2]:../../media/virtual-machines-windows-chef-automation/2.png
-[3]:../../media/virtual-machines-windows-chef-automation/3.png
-[4]:../../media/virtual-machines-windows-chef-automation/4.png
-[5]:../../media/virtual-machines-windows-chef-automation/5.png
-[6]:../../media/virtual-machines-windows-chef-automation/6.png
-[7]:../../media/virtual-machines-windows-chef-automation/7.png
-[8]:../../media/virtual-machines-windows-chef-automation/8.png
-[9]:../../media/virtual-machines-windows-chef-automation/9.png
-[10]:../../media/virtual-machines-windows-chef-automation/10.png
-[11]:../../media/virtual-machines-windows-chef-automation/11.png
-[13]:../../media/virtual-machines-windows-chef-automation/13.png
+[2]: ./media/chef-automation/2.png
+[3]: ./media/chef-automation/3.png
+[4]: ./media/chef-automation/4.png
+[5]: ./media/chef-automation/5.png
+[6]: ./media/chef-automation/6.png
+[7]: ./media/chef-automation/7.png
+[8]: ./media/chef-automation/8.png
+[9]: ./media/chef-automation/9.png
+[10]: ./media/chef-automation/10.png
+[11]: ./media/chef-automation/11.png
+[13]: ./media/chef-automation/13.png
 
 <!--Link references-->
 

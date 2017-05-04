@@ -76,12 +76,12 @@ Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure �
 ## <a name="next-steps"></a>后续步骤
 该映像已就绪，可用于创建虚拟机了。 为此，通过在服务菜单底部选择“更多服务”菜单项，然后在“计算”组中选择“VM 映像(经典)”来创建虚拟机。 有关说明，请参阅[从映像创建虚拟机](createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
-[How to sign in to a virtual machine running Windows Server]: virtual-machines-windows-classic-connect-logon.md
+[How to sign in to a virtual machine running Windows Server]: connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx
-[Run Sysprep.exe]:../../../media/virtual-machines-capture-image-windows-server/SysprepCommand.png
-[Enter Sysprep.exe options]:../../../media/virtual-machines-windows-classic-capture-image/SysprepGeneral.png
-[The virtual machine is stopped]:../../../media/virtual-machines-capture-image-windows-server/SysprepStopped.png
-[Capture an image of the virtual machine]:../../../media/virtual-machines-windows-classic-capture-image/CaptureVM.png
-[Enter the image name]:../../../media/virtual-machines-capture-image-windows-server/Capture.png
-[Image capture successful]:../../../media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
-[Use the captured image]:../../../media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
+[Run Sysprep.exe]: ../../media/virtual-machines-capture-image-windows-server/SysprepCommand.png
+[Enter Sysprep.exe options]: ./media/capture-image/SysprepGeneral.png
+[The virtual machine is stopped]: ../../media/virtual-machines-capture-image-windows-server/SysprepStopped.png
+[Capture an image of the virtual machine]: ./media/capture-image/CaptureVM.png
+[Enter the image name]: ../../media/virtual-machines-capture-image-windows-server/Capture.png
+[Image capture successful]: ../../media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
+[Use the captured image]: ../../media/virtual-machines-capture-image-windows-server/MyImagesWindows.png

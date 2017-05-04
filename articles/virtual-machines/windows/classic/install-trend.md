@@ -87,7 +87,7 @@ Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity -Version $Agent.Version 
 
 <!--Link references-->
 
-[如何登录到运行 Windows Server 的虚拟机]:../../../virtual-machines-windows-classic-connect-logon.md
-[Azure VM 扩展和功能]:../../../virtual-machines-windows-extensions-features.md
+[如何登录到运行 Windows Server 的虚拟机]: connect-logon.md
+[Azure VM 扩展和功能]: ../extensions-features.md
 
 <!---HONumber=Mooncake_1017_2016-->

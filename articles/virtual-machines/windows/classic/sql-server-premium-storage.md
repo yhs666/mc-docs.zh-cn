@@ -1173,31 +1173,31 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate  | Add-AzureEndpoi
 * [Azure 虚拟机中的 SQL Server](../../virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->
-[1]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png
-[2]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/2_Diskname_Lun.png
-[3]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/3_Virtual_Disk_Properties.png
-[4]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/4_Virtual_Disk_Properties_Details.png
-[5]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/5_Get_Storage_Pool.png
-[6]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/6_Deployments_Always_On.png
-[7]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/7_Add_More_Secondaries.png
-[8]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/8_Use_Existing_Secondary_Single_Site.png
-[9]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/9_Use_Existing_Secondary_Multi_Site.png
-[10]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/9_Use_Existing_Secondary_Multi_Site_b.png
-[11]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_01.png
-[12]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_02.png
-[13]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_03.png
-[14]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_04.png
-[15]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_05.png
-[16]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_06.png
-[17]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_07.png
-[18]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_08.png
-[19]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_09.png
-[20]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_10.png
-[21]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_11.png
-[22]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_12.png
-[23]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_13.png
-[24]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
-[25]:../../../media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
+[1]: ./media/sql-server-premium-storage/1_VNET_Portal.png
+[2]: ./media/sql-server-premium-storage/2_Diskname_Lun.png
+[3]: ./media/sql-server-premium-storage/3_Virtual_Disk_Properties.png
+[4]: ./media/sql-server-premium-storage/4_Virtual_Disk_Properties_Details.png
+[5]: ./media/sql-server-premium-storage/5_Get_Storage_Pool.png
+[6]: ./media/sql-server-premium-storage/6_Deployments_Always_On.png
+[7]: ./media/sql-server-premium-storage/7_Add_More_Secondaries.png
+[8]: ./media/sql-server-premium-storage/8_Use_Existing_Secondary_Single_Site.png
+[9]: ./media/sql-server-premium-storage/9_Use_Existing_Secondary_Multi_Site.png
+[10]: ./media/sql-server-premium-storage/9_Use_Existing_Secondary_Multi_Site_b.png
+[11]: ./media/sql-server-premium-storage/10_Appendix_01.png
+[12]: ./media/sql-server-premium-storage/10_Appendix_02.png
+[13]: ./media/sql-server-premium-storage/10_Appendix_03.png
+[14]: ./media/sql-server-premium-storage/10_Appendix_04.png
+[15]: ./media/sql-server-premium-storage/10_Appendix_05.png
+[16]: ./media/sql-server-premium-storage/10_Appendix_06.png
+[17]: ./media/sql-server-premium-storage/10_Appendix_07.png
+[18]: ./media/sql-server-premium-storage/10_Appendix_08.png
+[19]: ./media/sql-server-premium-storage/10_Appendix_09.png
+[20]: ./media/sql-server-premium-storage/10_Appendix_10.png
+[21]: ./media/sql-server-premium-storage/10_Appendix_11.png
+[22]: ./media/sql-server-premium-storage/10_Appendix_12.png
+[23]: ./media/sql-server-premium-storage/10_Appendix_13.png
+[24]: ./media/sql-server-premium-storage/10_Appendix_14.png
+[25]: ./media/sql-server-premium-storage/10_Appendix_15.png
 
 <!---HONumber=Mooncake_0220_2017-->
 <!--Update_Description: wording update-->

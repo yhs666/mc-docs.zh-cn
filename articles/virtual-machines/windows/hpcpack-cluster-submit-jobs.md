@@ -194,6 +194,6 @@ ms.author: danlep
 * 若要从 Linux 客户端提交群集作业，请参阅 [HPC Pack 2012 R2 SDK 和示例代码](https://www.microsoft.com/download/details.aspx?id=41633)中的 Python 示例。
 
 <!--Image references-->
-[jobsubmit]:../../media/virtual-machines-windows-hpcpack-cluster-submit-jobs/jobsubmit.png
+[jobsubmit]: ./media/hpcpack-cluster-submit-jobs/jobsubmit.png
 
 <!---HONumber=Mooncake_Quality_Review_1215_2016-->

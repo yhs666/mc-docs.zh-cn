@@ -530,14 +530,14 @@ public class TSPClient
 ## 如何停止 Java 应用程序
 对于解算器和客户端应用程序，如果你希望在正常完成之前结束，则可以按 **Ctrl+C** 退出。
 
-[solver_output]:../../../media/virtual-machines-windows-classic-java-run-compute-intensive-task/WA_JavaTSPSolver.png
-[client_output]:../../../media/virtual-machines-windows-classic-java-run-compute-intensive-task/WA_JavaTSPClient.png
-[svc_bus_node]:../../../media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_02_SvcBusNode.jpg
-[create_namespace]:../../../media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_03_CreateNewSvcNamespace.jpg
-[avail_namespaces]:../../../media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
-[namespace_list]:../../../media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
-[properties_pane]:../../../media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
-[default_key]:../../../media/virtual-machines-windows-classic-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
+[solver_output]: ./media/java-run-compute-intensive-task/WA_JavaTSPSolver.png
+[client_output]: ./media/java-run-compute-intensive-task/WA_JavaTSPClient.png
+[svc_bus_node]: ./media/java-run-compute-intensive-task/SvcBusQueues_02_SvcBusNode.jpg
+[create_namespace]: ./media/java-run-compute-intensive-task/SvcBusQueues_03_CreateNewSvcNamespace.jpg
+[avail_namespaces]: ./media/java-run-compute-intensive-task/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
+[namespace_list]: ./media/java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
+[properties_pane]: ./media/java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
+[default_key]: ./media/java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../../../java-add-certificate-ca-store.md
 
 <!---HONumber=Mooncake_0215_2016-->

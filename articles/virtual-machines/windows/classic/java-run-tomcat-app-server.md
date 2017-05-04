@@ -135,13 +135,13 @@ Tomcat 运行后，可通过在虚拟机浏览器中输入 URL <http://localhost
 ## <a name="next-steps"></a>后续步骤
 可了解可能要在 Java 应用程序中包含的其他服务（例如 Azure 存储、服务总线和 SQL 数据库）。 查看 [Java 开发人员中心](https://www.azure.cn/develop/java/)上提供的信息。
 
-[virtual_machine_tomcat]:../../../media/virtual-machines-windows-classic-java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
+[virtual_machine_tomcat]: ./media/java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
 
-[service_automatic_startup]:../../../media/virtual-machines-windows-classic-java-run-tomcat-app-server/WA_TomcatServiceAutomaticStart.png
+[service_automatic_startup]: ./media/java-run-tomcat-app-server/WA_TomcatServiceAutomaticStart.png
 
-[NewIBRule]:../../../media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewInboundRule.png
-[NewRulePort]:../../../media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRulePort.png
-[NewRuleProtocol]:../../../media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleProtocol.png
-[NewRuleAction]:../../../media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleAction.png
-[NewRuleName]:../../../media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleName.png
-[NewRuleProfile]:../../../media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleProfile.png
+[NewIBRule]: ./media/java-run-tomcat-app-server/NewInboundRule.png
+[NewRulePort]: ./media/java-run-tomcat-app-server/NewRulePort.png
+[NewRuleProtocol]: ./media/java-run-tomcat-app-server/NewRuleProtocol.png
+[NewRuleAction]: ./media/java-run-tomcat-app-server/NewRuleAction.png
+[NewRuleName]: ./media/java-run-tomcat-app-server/NewRuleName.png
+[NewRuleProfile]: ./media/java-run-tomcat-app-server/NewRuleProfile.png

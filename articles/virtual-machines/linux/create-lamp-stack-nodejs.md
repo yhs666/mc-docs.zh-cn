@@ -167,6 +167,6 @@ user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 
 * [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 
-[1]:../../media/virtual-machines-linux-deploy-lamp-stack/configmysqlpassword-small.png
-[2]:../../media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png
-[3]:../../media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png
+[1]: ../media/virtual-machines-linux-deploy-lamp-stack/configmysqlpassword-small.png
+[2]: ../media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png
+[3]: ../media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png

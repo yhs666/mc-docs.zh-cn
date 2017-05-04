@@ -199,9 +199,9 @@ ms.author: huvalo
 
 完成本教程后，请关闭并/或删除你新创建的 Azure 虚拟机以为其他教程释放资源并避免产生 Azure 使用费。
 
-[1]:../../../media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-browser-azure.png
+[1]: ./media/python-django-web-app/django-helloworld-browser-azure.png
 
-[port80]:../../../media/virtual-machines-windows-classic-python-django-web-app/django-helloworld-port80.png
+[port80]: ./media/python-django-web-app/django-helloworld-port80.png
 
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [python.org]: https://www.python.org/downloads/

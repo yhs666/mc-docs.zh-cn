@@ -102,7 +102,7 @@ Azure 在“映像”下存储映像 ，以及任何已上载的映像。 有关
 **另请参阅：**[Azure Linux 代理用户指南](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Azure Classic Management Portal]: http://manage.windowsazure.cn
-[About Virtual Machine Images in Azure]: virtual-machines-linux-classic-about-images.md
-[How to Create a Custom Virtual Machine]: virtual-machines-linux-classic-create-custom.md
-[How to Attach a Data Disk to a Virtual Machine]: virtual-machines-linux-classic-attach-disk.md
-[How to Create a Linux Virtual Machine]: virtual-machines-linux-classic-create-custom.md
+[About Virtual Machine Images in Azure]: about-images.md
+[How to Create a Custom Virtual Machine]: create-custom.md
+[How to Attach a Data Disk to a Virtual Machine]: attach-disk.md
+[How to Create a Linux Virtual Machine]: create-custom.md

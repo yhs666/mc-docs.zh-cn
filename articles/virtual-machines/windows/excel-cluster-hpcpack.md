@@ -333,18 +333,18 @@ info.UseAzureQueue = false;
 * 有关使用 HPC Pack 部署和管理 SOA 服务的详细信息，请参阅[在 Microsoft HPC Pack 中管理 SOA 服务](https://technet.microsoft.com/zh-cn/library/ff919412.aspx)。
 
 <!--Image references-->
-[scenario]:../../media/virtual-machines-windows-excel-cluster-hpcpack/scenario.png
-[github]:../../media/virtual-machines-windows-excel-cluster-hpcpack/github.png
-[template]:../../media/virtual-machines-windows-excel-cluster-hpcpack/template.png
-[parameters]:../../media/virtual-machines-windows-excel-cluster-hpcpack/parameters.png
-[create]:../../media/virtual-machines-windows-excel-cluster-hpcpack/create.png
-[connect]:../../media/virtual-machines-windows-excel-cluster-hpcpack/connect.png
-[cert]:../../media/virtual-machines-windows-excel-cluster-hpcpack/cert.png
-[addin]:../../media/virtual-machines-windows-excel-cluster-hpcpack/addin.png
-[macro]:../../media/virtual-machines-windows-excel-cluster-hpcpack/macro.png
-[options]:../../media/virtual-machines-windows-excel-cluster-hpcpack/options.png
-[run]:../../media/virtual-machines-windows-excel-cluster-hpcpack/run.png
-[endpoint]:../../media/virtual-machines-windows-excel-cluster-hpcpack/endpoint.png
-[udf]:../../media/virtual-machines-windows-excel-cluster-hpcpack/udf.png
+[scenario]: ./media/excel-cluster-hpcpack/scenario.png
+[github]: ./media/excel-cluster-hpcpack/github.png
+[template]: ./media/excel-cluster-hpcpack/template.png
+[parameters]: ./media/excel-cluster-hpcpack/parameters.png
+[create]: ./media/excel-cluster-hpcpack/create.png
+[connect]: ./media/excel-cluster-hpcpack/connect.png
+[cert]: ./media/excel-cluster-hpcpack/cert.png
+[addin]: ./media/excel-cluster-hpcpack/addin.png
+[macro]: ./media/excel-cluster-hpcpack/macro.png
+[options]: ./media/excel-cluster-hpcpack/options.png
+[run]: ./media/excel-cluster-hpcpack/run.png
+[endpoint]: ./media/excel-cluster-hpcpack/endpoint.png
+[udf]: ./media/excel-cluster-hpcpack/udf.png
 
 <!---HONumber=Mooncake_Quality_Review_1215_2016-->
