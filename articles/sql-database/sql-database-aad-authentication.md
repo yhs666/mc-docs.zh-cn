@@ -76,7 +76,7 @@ Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) �
 
 不支持 Microsoft 帐户（例如 outlook.com、hotmail.com、live.com）或其他来宾帐户（例如 gmail.com、yahoo.com）。如果可以使用帐户和密码登录到 [https://login.live.com](https://login.live.com)，则使用的是 Microsoft 帐户，Azure SQL 数据库或 Azure SQL 数据仓库的 Azure AD 身份验证不支持此类帐户。
 
-## 使用 Azure AD 标识进行连接
+##<a name="connect-using-active-directory-integrated-authentication"></a> 使用 Azure AD 标识进行连接
 
 Azure Active Directory 身份验证支持使用 Azure AD 标识连接到数据库的以下方法：
 

@@ -23,16 +23,6 @@
     items:
     - name: .NET
       href: sql-database-connect-query-dotnet.md
-    - name: PHP
-      href: sql-database-connect-query-php.md
-    - name: Node.js
-      href: sql-database-connect-query-nodejs.md
-    - name: Java
-      href: sql-database-connect-query-java.md
-    - name: Python
-      href: sql-database-connect-query-python.md
-    - name: Ruby
-      href: sql-database-connect-query-ruby.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -41,10 +31,6 @@
     href: sql-database-powershell-samples.md
 - name: Tutorials
   items:
-  - name: Design a database
-    href: sql-database-design-first-database.md
-  - name: Migrate a database
-    href: sql-database-migrate-your-sql-server-database.md  
 - name: Concepts
   items:
   - name: DBs and servers
@@ -103,8 +89,6 @@
       href: sql-database-elastic-query-vertical-partitioning.md
     - name: Transactions
       href: sql-database-elastic-transactions-overview.md
-    - name: Elastic jobs
-      href: sql-database-elastic-jobs-overview.md
   - name: Security
     items:
     - name: Overview
@@ -137,8 +121,6 @@
       href: sql-database-business-continuity.md
     - name: Database backups
       href: sql-database-automated-backups.md
-    - name: Backup retention
-      href: sql-database-long-term-retention.md
     - name: Database recovery
       href: sql-database-recovery-using-backups.md
     - name: Geo-replication
@@ -171,8 +153,6 @@
       href: sql-database-elastic-scale-working-with-dapper.md
     - name: JSON data
       href: sql-database-json-features.md
-    - name: In-memory
-      href: sql-database-in-memory.md
     - name: Temporal tables 
       href: sql-database-temporal-tables.md
     - name: Retention policies
@@ -241,8 +221,6 @@
       href: sql-database-dynamic-data-masking-get-started-portal.md
   - name: Recover single table
     href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-  - name: Configure vault for backups
-    href: sql-database-long-term-backup-retention-configure.md
   - name: Geo-replicate data
     items:
     - name: Portal
@@ -259,8 +237,6 @@
     items:
     - name: Load data with BCP
       href: sql-database-load-from-csv-with-bcp.md
-    - name: Load data with ADF
-      href: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
     - name: Sync data
       href: sql-database-get-started-sql-data-sync.md
   - name: Connect applications
@@ -275,8 +251,6 @@
       href: sql-database-troubleshoot-common-connection-issues.md
     - name: Create DB with C #
       href: sql-database-get-started-csharp.md
-  - name: Configure In-Memory
-    href: sql-database-in-memory-oltp-migration.md
   - name: Manage multiple DBs
     items:
     - name: Create sharded app
@@ -297,16 +271,6 @@
       href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: Upgrade clients
       href: sql-database-elastic-scale-upgrade-client-library.md
-    - name: Install elastic job
-      href: sql-database-elastic-jobs-service-installation.md
-    - name: Create job - Portal
-      href: sql-database-elastic-jobs-create-and-manage.md
-    - name: Create job - PowerShell
-      href: sql-database-elastic-jobs-powershell.md
-    - name: Create job - Sample app
-      href: sql-database-elastic-jobs-getting-started.md
-    - name: Uninstall elastic job
-      href: sql-database-elastic-jobs-uninstall.md
     - name: Query horizontal data
       href: sql-database-elastic-query-getting-started.md
     - name: Query vertical data
@@ -331,8 +295,6 @@
     items:
     - name: Azure Automation
       href: sql-database-manage-automation.md
-    - name: Azure RemoteApp
-      href: sql-database-ssms-remoteapp.md
     - name: SSMS - MFA
       href: sql-database-ssms-mfa-authentication-configure.md
 - name: Reference
@@ -386,8 +348,6 @@
   items:
   - name: FAQ
     href: sql-database-faq.md
-  - name: Public data sets
-    href: sql-database-public-data-sets.md  
   - name: Troubleshoot connectivity
     href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
   - name: Pricing

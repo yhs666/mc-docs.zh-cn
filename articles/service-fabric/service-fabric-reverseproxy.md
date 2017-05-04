@@ -218,7 +218,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
         ]
     }
     ```
-4. 若要在反向代理的端口上配置 SSL 证书，请将证书添加到 **Cluster** [资源类型节](../resource-group-authoring-templates.md)中的 ***reverseProxyCertificate*** 属性。
+4. 若要在反向代理的端口上配置 SSL 证书，请将证书添加到 **Cluster** [资源类型节](../azure-resource-manager/resource-group-authoring-templates.md)中的 ***reverseProxyCertificate*** 属性。
 
     ```json
     {
@@ -242,7 +242,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
     ```
 
 ### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>支持不同于群集证书的反向代理证书
- 如果反向代理证书不同于用于保护群集的证书，应将前面指定的证书安装在虚拟机上，并将其添加到访问控制列表 (ACL)，使 Service Fabric 能够访问它。 可在 **virtualMachineScaleSets** [资源类型节](../resource-group-authoring-templates.md)中执行此操作。 若要安装，请将该证书添加到 osProfile。 模板的扩展节可以更新 ACL 中的证书。
+ 如果反向代理证书不同于用于保护群集的证书，应将前面指定的证书安装在虚拟机上，并将其添加到访问控制列表 (ACL)，使 Service Fabric 能够访问它。 可在 **virtualMachineScaleSets** [资源类型节](../azure-resource-manager/resource-group-authoring-templates.md)中执行此操作。 若要安装，请将该证书添加到 osProfile。 模板的扩展节可以更新 ACL 中的证书。
 
   ```json
   {

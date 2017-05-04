@@ -23,7 +23,7 @@ ms.lasthandoff: 04/07/2017
 
 ---
 
-# <a name="create-a-single-azure-sql-database-using-powershell"></a>使用 PowerShell 创建单一 Azure SQL 数据库
+# <a name="create-a-single-azure-sql-database-using-powershell"></a><a name="create-a-sql-database-powershell-script"></a>使用 PowerShell 创建单一 Azure SQL 数据库
 
 PowerShell 用于从命令行或脚本创建和管理 Azure 资源。 本指南详述了如何使用 PowerShell 在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)的 [Azure SQL 数据库逻辑服务器](sql-database-features.md)中部署 Azure SQL 数据库。
 

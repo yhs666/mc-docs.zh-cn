@@ -255,7 +255,7 @@ ms.author: sutalasi
     New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
     ```
 
-## 步骤 6：配置存储映射
+##<a name="step-7-configure-storage-mapping"></a> 步骤 6：配置存储映射
 1. 以下命令在 $storageclassifications 变量中获取存储分类的列表。
 
     ```

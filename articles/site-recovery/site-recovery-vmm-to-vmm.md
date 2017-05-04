@@ -174,7 +174,7 @@ ms.author: raynew
 
      ![复制策略](./media/site-recovery-vmm-to-vmm/policy-associate.png)  
 
-### 配置网络映射
+###<a name="prepare-for-network-mapping"></a> 配置网络映射
 
 - 开始之前，请先了解[网络映射](#prepare-for-network-mapping)。
 - 验证 VMM 服务器上的虚拟机是否已连接到 VM 网络。
@@ -331,7 +331,7 @@ ms.author: raynew
 | VM-2 的网络属性在故障转移后发生更改并连接到 VMNetwork2-Beijing。 |如果未映射 VMNetwork2-Beijing，则 VM-1 将断开连接。 |
 | VMNetwork1-Beijing 的网络映射已更改。 |VM-1 将连接到现已映射到 VMNetwork1-Beijing 的网络。 |
 
-## 准备单一服务器部署
+##<a name="prepare-for-single-server-deployment"></a> 准备单一服务器部署
 
 如果只有一个 VMM 服务器，可以在 VMM 云中将 Hyper-V 主机上的 VM 复制到 [Azure](./site-recovery-vmm-to-azure.md)，或复制到辅助 VMM 云。建议选择前者，因为云之间复制不是无缝复制。如果想要在云之间进行复制，可通过单个独立 VMM 服务器，或通过 Windows 延伸群集的单个 VMM 服务器进行复制
 
