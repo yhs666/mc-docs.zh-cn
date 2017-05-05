@@ -52,15 +52,15 @@ HDInsight 上的 Ambari REST API 的基本 URI 为 https://CLUSTERNAME.azurehdin
 
 > [!IMPORTANT]
 URI 的完全限定域名 (FQDN) 部分 (CLUSTERNAME.azurehdinsight.cn) 中的群集名称不区分大小写，但 URI 中的其他部分则区分大小写。例如，如果群集命名为 `MyCluster`，则有效的 URI 如下所示：
-> <p>  
+> 
 > `https://mycluster.azurehdinsight.cn/api/v1/clusters/MyCluster`  
-><p>
+> 
 > `https://MyCluster.azurehdinsight.cn/api/v1/clusters/MyCluster`  
-> <p>  
+> 
 > 下面的 URI 返回一个错误，因为第二个出现的名称的大小写不正确。
-> <p>  
+> 
 > `https://mycluster.azurehdinsight.cn/api/v1/clusters/mycluster`  
-><p>
+> 
 > `https://MyCluster.azurehdinsight.cn/api/v1/clusters/mycluster`  
 
 ### 身份验证
@@ -77,10 +77,10 @@ curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/cl
 
 > [!IMPORTANT]
 本文档中的 Bash 示例作出以下假设：
-><p>
-><p> *群集的登录名是 `admin` 的默认值。
-<p> * `$PASSWORD` 包含 HDInsight 登录命令的密码。可使用 `PASSWORD='mypassword'` 设置该值。
-<p> * `$CLUSTERNAME` 包含群集名称。可使用 `set CLUSTERNAME='clustername'` 设置该值。
+>
+> *群集的登录名是 `admin` 的默认值。
+> * `$PASSWORD` 包含 HDInsight 登录命令的密码。可使用 `PASSWORD='mypassword'` 设置该值。
+> * `$CLUSTERNAME` 包含群集名称。可使用 `set CLUSTERNAME='clustername'` 设置该值。
 
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName" `
@@ -90,9 +90,9 @@ $resp.Content
 
 > [!IMPORTANT]
 本文档中的 PowerShell 示例作出以下假设：
-><p>
-><p> * `$creds` 是一个凭据对象，包含用于群集的管理员登录名和密码。通过使用 `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` 并在系统提示时提供密码，可设置该值。
-<p> * `$clusterName` 是一个包含群集名称的字符串。可使用 `$clusterName="clustername"` 设置该值。
+>
+> * `$creds` 是一个凭据对象，包含用于群集的管理员登录名和密码。通过使用 `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` 并在系统提示时提供密码，可设置该值。
+> * `$clusterName` 是一个包含群集名称的字符串。可使用 `$clusterName="clustername"` 设置该值。
 
 两个示例均返回一个 JSON 文档，该文档以类似于如下示例的信息开头：
 
@@ -207,7 +207,7 @@ $respObj.Clusters.health_report
 
 > [!IMPORTANT]
 本部分中的示例所返回的 IP 地址不可直接通过 Internet 进行访问。仅可在包含 HDInsight 群集的 Azure 虚拟网络内部对其进行访问。
-><p>
+>
 > 有关使用 HDInsight 和虚拟网络的详细信息，请参阅[通过使用自定义 Azure 虚拟网络扩展 HDInsight 功能](./hdinsight-extend-hadoop-virtual-network.md)。
 
 必须知道主机的 FQDN 才可获取其 IP 地址。拥有 FQDN 后即可获取主机的 IP 地址。下面的示例首先会向 Ambari 查询所有主机节点的 FQDN，然后再向 Ambari 查询每个主机的 IP 地址。

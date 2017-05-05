@@ -116,10 +116,10 @@ HDInsight 不支持限制出站流量，仅限制入站流量。在定义包含 
 
 > [!IMPORTANT]
 请注意这些示例中使用的 `priority` 值。系统根据优先级按顺序针对网络流量测试规则。一旦某个规则与测试条件匹配并进行了应用，将不再测试其他规则。
-> <p>
+> 
 > 如果你的自定义规则大范围阻止了入站流量（例如 **deny all** 规则），则可能需要调整这些示例中的优先级值。示例中的规则需要在阻止访问的规则之前执行。否则，将会先测试 **deny all** 规则，示例中的规则将永远得不到应用。不要阻止 Azure 虚拟网络的默认规则。例如，不应让创建的 **deny all** 规则应用在默认的 **ALLOW VNET INBOUND** 规则（优先级为 65000）前面。
-><p> 
-><p> 有关网络安全组规则的详细信息，请参阅[什么是网络安全组？](../virtual-network/virtual-networks-nsg.md)。
+> 
+> 有关网络安全组规则的详细信息，请参阅[什么是网络安全组？](../virtual-network/virtual-networks-nsg.md)。
 
 **使用 Azure 资源管理模板**
 
@@ -244,11 +244,11 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 
 > [!IMPORTANT]
 使用前面的步骤只可访问 Azure 云上的 HDInsight 运行状况和管理服务。从虚拟网络外部对 HDInsight 群集进行的任何其他访问都会被阻止。如果希望允许从虚拟网络外部进行访问，则需要添加额外的网络安全组规则。
-> <p>
+> 
 > 以下示例展示了如何启用来自 Internet 的 SSH 访问：
-> <p>
-><p> * Azure PowerShell - ```Add-AzureRmNetworkSecurityRuleConfig -Name "SSSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound``` 
-<p> * Azure CLI - ```az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"```
+> 
+> * Azure PowerShell - ```Add-AzureRmNetworkSecurityRuleConfig -Name "SSSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound``` 
+> * Azure CLI - ```az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"```
 
 有关网络安全组的详细信息，请参阅[网络安全组概述](../virtual-network/virtual-networks-nsg.md)。有关控制 Azure 虚拟网络中的路由的信息，请参阅[用户定义的路由和 IP 转发](../virtual-network/virtual-networks-udr-overview.md)。
 
@@ -298,11 +298,11 @@ https://<clustername>.azurehdinsight.cn/ambari/api/v1/clusters/<clustername>.azu
 
 > [!IMPORTANT]
 如果你限制了对群集的 Internet 访问，则无法通过 Internet 使用 Ambari。相反，你必须使用下列方法之一来检索 FQDN：
-><p>
-><p> * Azure PowerShell：`Get-AzureRmNetworkInterface -ResourceGroupName GROUPNAME | Foreach-object { Write-Output $_.DnsSettings.InternalFqdn }` 
-<p> * Azure CLI 2.0：` az network nic list --resource-group GROUPNAME --query '[].dnsSettings.internalFqdn'`
-><p>
-><p> 在两个示例中，都需要将 __GROUPNAME__ 替换为包含虚拟网络的资源组名称。
+>
+> * Azure PowerShell：`Get-AzureRmNetworkInterface -ResourceGroupName GROUPNAME | Foreach-object { Write-Output $_.DnsSettings.InternalFqdn }` 
+> * Azure CLI 2.0：` az network nic list --resource-group GROUPNAME --query '[].dnsSettings.internalFqdn'`
+>
+> 在两个示例中，都需要将 __GROUPNAME__ 替换为包含虚拟网络的资源组名称。
 
 ### 连接到 HBase
 

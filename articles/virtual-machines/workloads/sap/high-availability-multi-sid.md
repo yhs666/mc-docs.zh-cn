@@ -460,7 +460,7 @@ ms.author: goraco
 
 > [!NOTE]
 每个 Azure 内部负载均衡器的专用前端 IP 数目有限。
-><p>
+>
 >一个 WSFC 群集中的最大 SAP ASCS/SCS 实例数等于每个 Azure 内部负载均衡器的最大专用前端 IP 数。
 >
 
@@ -472,9 +472,9 @@ ms.author: goraco
 
 > [!IMPORTANT]
 安装必须满足以下条件：
-><p> - SAP ASCS/SCS 实例必须共享同一个 WSFC 群集。
-><p> - 每个 DBMS SID 必须具有自身的专用 WSFC 群集。
-><p> - 属于同一 SAP 系统 SID 的 SAP 应用程序服务器必须具有自身的专用 VM。
+> - SAP ASCS/SCS 实例必须共享同一个 WSFC 群集。
+> - 每个 DBMS SID 必须具有自身的专用 WSFC 群集。
+> - 属于同一 SAP 系统 SID 的 SAP 应用程序服务器必须具有自身的专用 VM。
 
 ## 准备基础结构
 若要准备基础结构，可使用以下参数安装附加 SAP ASCS/SCS 实例：
@@ -490,7 +490,7 @@ ms.author: goraco
 
 > [!NOTE]
 对于 SAP ASCS/SCS 群集实例，每个 IP 地址都需要唯一探测端口。例如，如果 Azure 内部负载均衡器上有一个 IP 地址使用探测端口 62300，则该负载均衡器上的其他 IP 地址均不能使用探测端口 62300。
-><p>
+>
 >在本例中，已保留探测端口 62300，因此使用探测端口 62350。
 
 可在现有的 WSFC 群集中安装包含两个节点的附加 SAP ASCS/SCS 实例：
@@ -516,7 +516,7 @@ ms.author: goraco
 
 > [!NOTE]
 分配给附加 ASCS/SCS 实例虚拟主机名的新 IP 地址必须与分配给 SAP Azure 负载均衡器的新 IP 地址相同。
-><p>
+>
 >本例中，IP 地址是 10.0.0.50。
 
 ### 使用 PowerShell 将 IP 地址添加到现有 Azure 内部负载均衡器

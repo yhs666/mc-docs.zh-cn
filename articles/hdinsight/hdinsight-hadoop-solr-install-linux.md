@@ -32,7 +32,7 @@ ms.author: larryfr
 
 > [!WARNING]
 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门将帮助找出并解决与这些组件相关的问题。
-> <p> 
+> 
 > 自定义组件（如 Solr）可获得合理范围的支持，以帮助你进一步排查问题。这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。例如，有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/zh-cn/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
 > 
 > 
@@ -88,7 +88,7 @@ Azure PowerShell、Azure CLI、HDInsight .NET SDK 或 Azure Resource Manager 模
 
      > [!IMPORTANT]
      本文档中的后续步骤将使用 SSL 隧道连接到 Solr Web UI。若要使用这些步骤，必须建立 SSL 隧道，然后将浏览器配置为使用该隧道。
-     > <p> 
+     > 
      > 有关详细信息，请参阅 [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](./hdinsight-linux-ambari-ssh-tunnel.md)（使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI）
      > 
      > 

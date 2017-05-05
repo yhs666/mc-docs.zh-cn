@@ -110,8 +110,9 @@ ms.author: byvinyal
 
 > [!NOTE]
 > 应用程序日志记录依赖于你的应用程序生成的日志信息。用于生成日志信息的方法以及信息格式是特定于编写你的应用程序所使用的语言的。有关使用应用程序日志记录的语言特定的信息，请参见以下文章：
-><p> - **Node.js** - [如何在 Azure 网站中调试 Node.js 应用程序](./web-sites-nodejs-debug.md)
-><p> 只有 .NET 应用程序支持到表或 Blob 存储中的应用程序日志记录。
+> - **Node.js** - [如何在 Azure 网站中调试 Node.js 应用程序](./web-sites-nodejs-debug.md)
+>
+> 只有 .NET 应用程序支持到表或 Blob 存储中的应用程序日志记录。
 
 #### 网站诊断 ####
 

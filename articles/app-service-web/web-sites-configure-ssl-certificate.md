@@ -141,11 +141,11 @@ ms.author: cephalin
 
     >[!IMPORTANT]
     > 在“证书导出向导”中，确保选择“是, 导出私钥”
-    ><p>
+    >
     >![导出私钥][certwiz1]
-    ><p>
+    >
     > 还可选择“个人信息交换- PKCS #12”、“将所有证书包括在证书路径内(如可能)”和“导出所有扩展属性”。
-    ><p>
+    >
     >![包括所有证书和扩展的属性][certwiz2]
 
 现可将导出的 PFX 文件上传到应用服务。请参阅[步骤 2. 上传和绑定自定义 SSL 证书](#bkmk_configuressl)。
@@ -211,7 +211,11 @@ ms.author: cephalin
     系统提示后，定义密码以保护该 .pfx 文件。
 
     > [!NOTE]
-    > 如果 CA 使用中间证书，必须用 `-certfile` 参数包含它们。这些证书通常从 CA 单独下载，会针对不同的 Web 服务器类型提供多种格式。选择具有 `.pem` 扩展名的版本。<p>`openssl -export` 命令应与下例中类似，其创建包含 **intermediate-cets.pem** 文件内的中间证书的 .pfx 文件：<p>`openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
+    > 如果 CA 使用中间证书，必须用 `-certfile` 参数包含它们。这些证书通常从 CA 单独下载，会针对不同的 Web 服务器类型提供多种格式。选择具有 `.pem` 扩展名的版本。
+    >
+    > `openssl -export` 命令应与下例中类似，其创建包含 **intermediate-cets.pem** 文件内的中间证书的 .pfx 文件：
+    >
+    > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
 
 现可将导出的 PFX 文件上传到应用服务。请参阅[步骤 2. 上传和绑定自定义 SSL 证书](#bkmk_configuressl)。
 
@@ -308,7 +312,11 @@ ms.author: cephalin
     系统提示后，定义密码以保护该 .pfx 文件。
 
     > [!NOTE]
-    > 如果 CA 使用中间证书，必须用 `-certfile` 参数包含它们。这些证书通常从 CA 单独下载，会针对不同的 Web 服务器类型提供多种格式。选择具有 `.pem` 扩展名的版本。<p>`openssl -export` 命令应与下例中类似，其创建包含 **intermediate-cets.pem** 文件内的中间证书的 .pfx 文件：<p>`openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
+    > 如果 CA 使用中间证书，必须用 `-certfile` 参数包含它们。这些证书通常从 CA 单独下载，会针对不同的 Web 服务器类型提供多种格式。选择具有 `.pem` 扩展名的版本。
+    >
+    > `openssl -export` 命令应与下例中类似，其创建包含 **intermediate-cets.pem** 文件内的中间证书的 .pfx 文件：
+    >
+    > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
 
 现可将导出的 PFX 文件上传到应用服务。请参阅[步骤 2. 上传和绑定自定义 SSL 证书](#bkmk_configuressl)。
 
@@ -450,7 +458,7 @@ ms.author: cephalin
 
     > [!NOTE]
     > “基于 IP 的 SSL” 通过将服务器的专用公共 IP 地址映射到域名，将证书与域名相关联。这要求与你的服务相关联的每个域名（contoso.com、fabricam.com 等）都具有专用 IP 地址。这是将 SSL 证书与某一 Web 服务器相关联的传统方法。
-    > <p>
+    > 
     > “基于 SNI 的 SSL” 是对 SSL 和**[传输层安全性](http://zh.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) 的扩展，它允许多个域共享相同的 IP 地址，并且对于每个域都有单独的安全证书。当前常用的大多数浏览器（包括 Internet Explorer、Chrome、Firefox 和 Opera）都支持 SNI，但是，较旧的浏览器可能不支持 SNI。有关 SNI 的详细信息，请参阅 Wikipedia 上的文章 **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)**（服务器名称指示）。
 
 9. 单击“添加绑定”保存更改并启用 SSL。

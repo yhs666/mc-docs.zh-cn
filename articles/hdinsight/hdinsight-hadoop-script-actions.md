@@ -31,7 +31,7 @@ ms.author: jgao
 
 > [!NOTE]
 如果你遇到以下错误消息：
-><p>
+>
 > System.Management.Automation.CommandNotFoundException；ExceptionMessage: 术语“Save-HDIFile”无法识别为 cmdlet、函数、脚本文件或可操作程序的名称。请检查名称的拼写，如果包含路径，请验证该路径是否正确，然后重试。这是因为你没有包括帮助器方法。请参阅[自定义脚本的帮助器方法](./hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts)。
 >
 >
