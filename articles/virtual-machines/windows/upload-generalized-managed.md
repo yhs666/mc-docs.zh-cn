@@ -60,7 +60,7 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
 4. 在**“关机选项”**中选择**“关机”**。
 5. 单击**“确定”**。
 
-    ![启动 Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)  
+    ![启动 Sysprep](../media/virtual-machines-windows-upload-image/sysprepgeneral.png)  
 
 6. 在 Sysprep 完成时，它会关闭虚拟机。不要重新启动 VM。
 
