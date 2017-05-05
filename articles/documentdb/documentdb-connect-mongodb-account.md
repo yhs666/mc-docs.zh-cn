@@ -45,7 +45,7 @@ ms.lasthandoff: 04/07/2017
 
     ![“快速启动”边栏选项卡的屏幕截图](./media/documentdb-connect-mongodb-account/QuickStartBlade.png)
 
-## <a id="GetCustomConnection"></a> 获取要自定义的 MongoDB 连接字符串
+## <a id="GetCustomConnection" name="a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize"></a> 获取要自定义的 MongoDB 连接字符串
 1. 在 Internet 浏览器中，登录 [Azure 门户](https://portal.azure.cn)。
 2. 在“NoSQL (DocumentDB)”边栏选项卡中，选择 DocumentDB：MongoDB 帐户的 API。 
 3. 在“帐户”边栏选项卡的“左导航”栏中，单击“连接字符串”。 

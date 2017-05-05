@@ -1,6 +1,6 @@
 > [AZURE.LANGUAGE]
-- [中文](../articles/cdn/cdn-overview.md)
-- [English](../articles/cdn/cdn-overview.md) 
+- [中文](https://www.azure.cn/documentation/articles/cdn-overview/)
+- [English](https://www.azure.cn/documentation/articles/cdn-overview/) 
 # 使用 Azure CDN
 
 Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物理节点上缓存Azure平台上的Storage Blob，Cloud Service和WebSites的静态内容，为开发人员提供一个传送高带宽内容的解决方案。目前本CDN服务也同时支持没有部署在Azure平台上的源站使用。

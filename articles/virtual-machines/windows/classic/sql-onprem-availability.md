@@ -90,7 +90,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
 创建可用性组之后，你应该为客户端创建侦听器，以便连接到副本。侦听器可将传入连接定向至主副本或只读辅助副本。有关侦听器的详细信息，请参阅[在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听器](ps-sql-int-listener.md)。
 
 ## 后续步骤
-除了使用**添加 Azure 副本向导**将 AlwaysOn 可用性组扩展到 Azure 以外，还可以将某些 SQL Server 工作负荷完全移到 Azure。若要开始，请参阅[在 Azure 上预配 SQL Server 虚拟机](./windows/sql/virtual-machines-windows-portal-sql-server-provision.md)。
+除了使用**添加 Azure 副本向导**将 AlwaysOn 可用性组扩展到 Azure 以外，还可以将某些 SQL Server 工作负荷完全移到 Azure。若要开始，请参阅[在 Azure 上预配 SQL Server 虚拟机](../sql/virtual-machines-windows-portal-sql-server-provision.md)。
 
 有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [Azure 虚拟机上的 SQL Server](../../virtual-machines-windows-sql-server-iaas-overview.md)。
 
