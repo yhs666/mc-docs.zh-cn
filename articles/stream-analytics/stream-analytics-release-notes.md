@@ -105,7 +105,7 @@ ms.lasthandoff: 04/07/2017
 | --- | --- |
 <!-- Not supported in Azure.cn | Power BI Org Id 与 Azure Id 脱偶联 |此功能允许任何 Azure 帐户类型（Live Id 或 Org Id）下任何 ASA 作业的 [Power BI 输出](./stream-analytics-power-bi-dashboard.md)。 此外，你还可以将一个 Org Id 用于 Azure 帐户，将另一个用于 Power BI 输出的授权。 |-->
 | 支持 Service Bus 队列输出 |[服务总线队列](./stream-analytics-define-outputs.md#service-bus-queues)输出现可用于流分析作业。 |
-| 支持服务总线主题输出 |[服务总线主题](./stream-analytics-define-outputs.md#service-bus-topics)输出现在可用于流分析作业。 |
+<!-- Not supported in Azure.cn | 支持服务总线主题输出 |[服务总线主题](./stream-analytics-define-outputs.md#service-bus-topics)输出现在可用于流分析作业。 | -->
 
 ## <a name="notes-for-07092015-release-of-stream-analytics"></a>流分析 07/09/2015 版说明
 此版本包含以下更新。
