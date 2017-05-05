@@ -89,8 +89,8 @@ ms.lasthandoff: 04/22/2017
 * [预见性维护预配置解决方案概述][lnk-predictive-overview]
 * [从头开始保障 IoT 安全][lnk-security-groundup]
 
-[lnk-predictive-overview]: ./iot-suite-predictive-overview.md/
-[lnk-security-groundup]: ./securing-iot-ground-up.md/
+[lnk-predictive-overview]: ./iot-suite-predictive-overview.md
+[lnk-security-groundup]: ./securing-iot-ground-up.md
 [link-azuresupportticket]: https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
 [link-azuresublimits]: ../azure-subscription-service-limits.md#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.cn

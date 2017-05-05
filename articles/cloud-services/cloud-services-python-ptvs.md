@@ -70,7 +70,7 @@ Azure 为运行应用程序提供了三种计算模型：[Azure 应用服务中�
 >[!WARNING]
 > 在本文上次更新时与 Visual Studio 一起安装的安装脚本无法使用。 本部分将介绍一种解决方法。
 
-安装脚本的主要问题在于无法安装 Python。 首先，请在 [ServiceDefinition.csdef](./cloud-services-model-and-package.md#servicedefinitioncsdef) 文件中定义两个[启动任务](./cloud-services-startup-tasks.md)。 第一个任务 (**PrepPython.ps1**) 下载并安装 Python 运行时。 第二个任务 (**PipInstaller.ps1**) 运行 pip，安装可能存在的任何依赖项。
+安装脚本的主要问题在于无法安装 Python。 首先，请在 [ServiceDefinition.csdef](./cloud-services-model-and-package.md#csdef) 文件中定义两个[启动任务](./cloud-services-startup-tasks.md)。 第一个任务 (**PrepPython.ps1**) 下载并安装 Python 运行时。 第二个任务 (**PipInstaller.ps1**) 运行 pip，安装可能存在的任何依赖项。
 
 以下脚本是针对 Python 3.5 编写的。 若要使用 2.x 版 Python，请针对两个启动任务以及运行时任务将 **PYTHON2** 变量文件设置为 **on**：`<Variable name="PYTHON2" value="<mark>on</mark>" />`。
 

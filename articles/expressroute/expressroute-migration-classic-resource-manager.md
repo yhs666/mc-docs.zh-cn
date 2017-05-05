@@ -38,7 +38,7 @@ ms.lasthandoff: 04/22/2017
     * [平台支持的从经典部署模型到 Azure Resource Manager 的 IaaS 资源迁移](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
     * [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
     * [常见问题解答：平台支持的从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-    * [查看最常见的迁移错误和缓解措施](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+
 
 ## <a name="supported-and-unsupported-scenarios"></a>支持的和不支持的方案
 
@@ -190,5 +190,5 @@ Set-AzureVNetConfig -ConfigurationPath c:\virtualnetworkconfig.xml
 * [平台支持的从经典部署模型到 Azure Resource Manager 的 IaaS 资源迁移](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
 * [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 * [常见问题解答：平台支持的从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-* [查看最常见的迁移错误和缓解措施](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+
 

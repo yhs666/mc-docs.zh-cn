@@ -206,7 +206,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 [Azure IoT Hub developer guide - Device to cloud]: ./iot-hub-devguide-messaging.md
 
 [Azure 存储]: ../storage/index.md
-[Azure 服务总线]: ../service-bus/index.md
+[Azure 服务总线]: ../service-bus-messaging/index.md
 
 [IoT 中心开发人员指南]: ./iot-hub-devguide.md
 [IoT 中心入门]: ./iot-hub-csharp-csharp-getstarted.md
