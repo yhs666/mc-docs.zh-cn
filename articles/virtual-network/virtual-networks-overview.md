@@ -40,7 +40,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name = "isolation"></a>网络隔离和细分
 
-可在每个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)和 Azure [区域](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region)中实现多个 VNet。 每个 VNet 与其他 VNet 隔离。 对于每个 VNet，可执行以下操作：
+可在每个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)和 Azure 区域中实现多个 VNet。 每个 VNet 与其他 VNet 隔离。 对于每个 VNet，可执行以下操作：
 - 使用公共和专用 (RFC 1918) 地址指定自定义专用 IP 地址空间。 Azure 从分配的地址空间中向连接到 VNet 的资源分配一个专用 IP 地址。
 - 将 VNet 细分为一个或多个子网，并向每个子网分配一部分 VNet 地址空间。
 - 使用 Azure 提供的名称解析或指定你自己的 DNS 服务器以供连接到 VNet 的资源使用。 若要了解 VNet 中名称解析的详细信息，请阅读 [VM 和云服务的名称解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)一文。

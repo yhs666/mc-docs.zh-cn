@@ -101,7 +101,7 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp` 中找到。此目录包�
 
 示例数据和 JAR 文件可以在 Hadoop 分布式文件系统上的 `/example` 和 `/HdiSamples` 处找到。
 
-## HDFS 和 Azure 存储
+## <a name="hdfs-blob-storage-and-data-lake-store"></a> HDFS 和 Azure 存储
 
 在大部分的 Hadoop 分发中，HDFS 受群集中计算机上的本地存储的支持。尽管使用本地存储很有效率，但用于基于云的解决方案时可能费用高昂，因为计算资源以小时或分钟为单位计费。
 
