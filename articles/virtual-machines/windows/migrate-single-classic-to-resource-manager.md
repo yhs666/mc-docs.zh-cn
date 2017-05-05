@@ -23,7 +23,7 @@ ms.author: cynthn
 
 # 将单个 Azure VM 从经典部署模型迁移到托管磁盘 
 
-本部分帮助用户将现有 Azure VM 从经典部署模型迁移到 Resource Manager 部署模型中的[托管磁盘](../storage/storage-managed-disks-overview.md)。
+本部分帮助用户将现有 Azure VM 从经典部署模型迁移到 Resource Manager 部署模型中的[托管磁盘](../../storage/storage-managed-disks-overview.md)。
 
 ## 开始之前
 如果使用 PowerShell，请确保使用的是最新版本的 AzureRM.Compute PowerShell 模块。运行以下命令安装该模块。

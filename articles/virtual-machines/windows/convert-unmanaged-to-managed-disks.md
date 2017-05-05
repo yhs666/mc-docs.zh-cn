@@ -25,7 +25,7 @@ ms.author: cynthn
 
 如果现有的 Azure VM 在存储帐户中使用非托管磁盘，但你希望能够利用[托管磁盘](../../storage/storage-managed-disks-overview.md)，可以转换这些 VM。这个过程会同时将 OS 磁盘和任何附加的数据磁盘，从在存储帐户中使用非托管磁盘转换为使用托管磁盘。VM 将关闭并解除分配，然后，你可以使用 PowerShell 将 VM 转换为使用托管磁盘。完成转换后，请重新启动 VM，然后它将开始使用托管磁盘。
 
-在开始之前，请确保已查看[规划迁移到托管磁盘](../virtual-machines-windows-on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)。在生产中执行迁移之前，请务必先通过迁移测试虚拟机来测试迁移过程，因为迁移过程是不可逆的。
+在开始之前，请确保已查看[规划迁移到托管磁盘](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)。在生产中执行迁移之前，请务必先通过迁移测试虚拟机来测试迁移过程，因为迁移过程是不可逆的。
 
 > [!IMPORTANT] 
 在转换期间，会解除分配 VM。解除分配 VM 意味着它在完成转换并重新启动后将使用新的 IP 地址。如果依赖于固定 IP，应使用保留 IP。

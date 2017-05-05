@@ -28,7 +28,7 @@ ms.author: iainfou
 
 如果非托管磁盘所在的存储帐户已使用或曾使用 [Azure 存储服务加密 (SSE)](../../storage/storage-service-encryption.md) 加密，则无法将其转换为托管磁盘。以下步骤详细说明了如何转换位于（或曾位于）已加密存储帐户的非托管磁盘：
 
-- 使用 [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy#start) 将[虚拟硬盘 (VHD) 复制](../virtual-machines-linux-copy-vm.md#unmanaged-disks)到从未启用 Azure 存储服务加密的存储帐户。
+- 使用 [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy#start) 将[虚拟硬盘 (VHD) 复制](../virtual-machines-linux-copy-vm.md)到从未启用 Azure 存储服务加密的存储帐户。
 - 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建使用托管磁盘的 VM 并指定创建期间的 VHD 文件，或
 - 使用 [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) 将复制的 VHD 附加到具有托管磁盘的正在运行中的 VM。
 

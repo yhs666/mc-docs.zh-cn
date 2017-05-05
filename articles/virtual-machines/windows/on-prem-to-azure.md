@@ -46,7 +46,7 @@ Azure 托管磁盘无需管理存储帐户，从而简化了 VM 管理。托管�
 
 - [标准托管磁盘](../../storage/storage-standard-storage.md)使用基于硬盘驱动器 (HDD) 的存储媒体，并最适合对性能变化不太敏感的开发/测试和其他很少访问的工作负荷。
 
-## 迁移到托管磁盘的计划
+## <a name="plan-for-the-migration-to-managed-disks"></a> 迁移到托管磁盘的计划
 
 本部分可帮助你针对 VM 和磁盘类型做出最佳决策。
 

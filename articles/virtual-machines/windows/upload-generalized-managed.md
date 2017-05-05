@@ -28,7 +28,7 @@ ms.author: cynthn
 Azure 托管磁盘不需要用户为 Azure VM 管理[存储帐户](../../storage/storage-introduction.md)。用户只需指定[高级](../../storage/storage-premium-storage-performance.md)或[标准](../../storage/storage-standard-storage.md)类型以及所需的磁盘大小，Azure 将为用户创建和管理磁盘。
 
 > [!IMPORTANT]
-在开始迁移到[托管磁盘](../../storage/storage-managed-disks-overview.md)之前，请查看[计划迁移到托管磁盘](../virtual-machines-windows-on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)。
+在开始迁移到[托管磁盘](../../storage/storage-managed-disks-overview.md)之前，请查看[计划迁移到托管磁盘](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)。
 >
 > 将任何 VHD 上载到 Azure 之前，应该遵循[准备要上载到 Azure 的 Windows VHD 或 VHDX](../virtual-machines-windows-prepare-for-upload-vhd-image.md) 中的步骤操作
 >
