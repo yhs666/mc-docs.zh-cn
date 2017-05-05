@@ -23,7 +23,7 @@ ms.lasthandoff: 04/25/2017
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>在 Resource Manager 部署模型中获取 ARP 表
 
 > [!div class="op_single_selector"]
-[PowerShell - Resource Manager](./expressroute-troubleshooting-arp-resourcemanager.md/)
+[PowerShell - Resource Manager](./expressroute-troubleshooting-arp-resourcemanager.md)
 [PowerShell - 经典](./expressroute-troubleshooting-arp-classic.md)
 
 本文将指导你完成相关步骤，以便了解 ExpressRoute 线路的 ARP 表。 

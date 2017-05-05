@@ -468,9 +468,9 @@ ms.lasthandoff: 04/14/2017
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md/
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-dotnet-standard-getstarted-send.md
 [lnk-devguide-identity]: ./iot-hub-devguide-identity-registry.md
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs/event-hubs-overview.md/
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs/event-hubs-what-is-event-hubs.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-process-d2c-tutorial]: ./iot-hub-csharp-csharp-process-d2c.md

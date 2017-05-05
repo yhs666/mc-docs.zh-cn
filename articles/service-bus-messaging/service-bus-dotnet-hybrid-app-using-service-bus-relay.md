@@ -565,7 +565,7 @@ wacn.date: 03/31/2017
   [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
   [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
 
-  [sbwacom]: ../service-bus/index.md
+  [sbwacom]: ../service-bus-messaging/index.md
   [sbwacomqhowto]: ./service-bus-dotnet-get-started-with-queues.md
 
 <!---HONumber=Mooncake_Quality_Review_0104_2017-->

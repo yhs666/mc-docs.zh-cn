@@ -63,7 +63,6 @@ ms.lasthandoff: 04/22/2017
 ## <a name="next-steps"></a>后续步骤
 完成此基本身份验证教程后，请考虑继续学习以下教程之一：
 
-+ [将推送通知添加到 Android 应用](./app-service-mobile-android-get-started-push.md) 了解如何将移动应用后端配置为使用 Azure 通知中心发送推送通知。
 
 + [为 Android 应用启用脱机同步](./app-service-mobile-android-get-started-offline-data.md) 了解如何使用移动应用后端向应用添加脱机支持。 使用脱机同步，用户可以与移动应用进行交互&mdash;查看、添加或修改数据&mdash;，即使在没有网络连接时也是如此。
 

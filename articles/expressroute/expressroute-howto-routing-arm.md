@@ -39,8 +39,8 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="configuration-prerequisites"></a>配置先决条件
 - 需要最新版本的 Azure Resource Manager PowerShell cmdlet。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](/powershell/azureps-cmdlets-docs)。 
-- 在开始配置之前，请务必查看[先决条件](./expressroute-prerequisites.md/)页、[路由要求](./expressroute-routing.md/)页和[工作流](./expressroute-workflows.md/)页。
-- 必须有活动的 ExpressRoute 线路。 在继续下一步之前，请按说明 [创建 ExpressRoute 线路](./expressroute-howto-circuit-arm.md/)，并通过连接提供商启用该线路。 ExpressRoute 线路必须处于已预配和已启用状态，才能运行下述 cmdlet。
+- 在开始配置之前，请务必查看[先决条件](./expressroute-prerequisites.md)页、[路由要求](./expressroute-routing.md)页和[工作流](./expressroute-workflows.md)页。
+- 必须有活动的 ExpressRoute 线路。 在继续下一步之前，请按说明 [创建 ExpressRoute 线路](./expressroute-howto-circuit-arm.md)，并通过连接提供商启用该线路。 ExpressRoute 线路必须处于已预配和已启用状态，才能运行下述 cmdlet。
 
 这些说明只适用于由提供第 2 层连接服务的服务提供商创建的线路。 如果你的服务提供商提供第 3 层托管服务（通常是 IPVPN，如 MPLS），则连接服务提供商将为你设置和管理路由。
 

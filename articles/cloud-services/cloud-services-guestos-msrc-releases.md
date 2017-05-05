@@ -702,7 +702,7 @@ wacn.date: 04/27/2017
 [3063858]: http://support.microsoft.com/zh-cn/kb/3063858
 
 [archive]: https://msdn.microsoft.com/zh-cn/library/azure/dn391773.aspx
-[family-explain]: ./cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
+[family-explain]: ./cloud-services-guestos-update-matrix.md#guest-os-family-version-explanation
 
 <!---HONumber=Mooncake_0120_2017-->
 <!--Update_Description:update wording-->
