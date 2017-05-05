@@ -232,6 +232,6 @@ Azure App Service 为大规模的关键任务 [WordPress][wordpress] 站点提�
 [posh]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [Azure CLI]: ../xplat-cli-install.md
 [storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
-[cdn]: ../cdn/cdn-overview.md
+[cdn]: https://www.azure.cn/documentation/articles/cdn-overview/
 
 <!---HONumber=Mooncake_1226_2016-->

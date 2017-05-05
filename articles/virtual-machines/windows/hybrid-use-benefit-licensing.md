@@ -72,7 +72,7 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 >
 >
 
-还可以阅读有关[将 VHD 上载到 Azure 的过程](upload-image.md#upload-the-vhd-to-your-storage-account)的详细信息
+还可以阅读有关[将 VHD 上载到 Azure 的过程](upload-image.md#upload-the-vm-vhd-to-your-storage-account)的详细信息
 
 ## <a name="deploy-an-uploaded-vm-via-resource-manager"></a>通过 Resource Manager 部署已上载的 VM
 在 Resource Manager 模板中，可以为 `licenseType` 指定附加参数。 可以阅读有关[创作 Azure Resource Manager 模板](../../azure-resource-manager/resource-group-authoring-templates.md)的详细信息。 将 VHD 上载到 Azure 之后，请编辑 Resource Manager 模板以将许可证类型包含为计算提供程序的一部分，然后照常部署模板：

@@ -49,7 +49,6 @@ ms.lasthandoff: 04/22/2017
 
 - 了解[加权流量路由方法](traffic-manager-configure-weighted-routing-method.md)。
 - 了解[优先级路由方法](traffic-manager-configure-priority-routing-method.md)。
-- 了解[地理路由方法](traffic-manager-configure-geographic-routing-method.md)。
 - 了解如何[测试流量管理器设置](traffic-manager-testing-settings.md)。
 
 <!--Image references-->
