@@ -120,7 +120,7 @@ Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。�
 
     > [!IMPORTANT]
     上面的示例使用 2 个工作节点创建群集。如果你计划使用 32 个以上的工作节点（在创建或扩展群集时），则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。可以使用 `--headNodeSize` 参数设置头节点大小。
-    > <p>
+    > 
     > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
     可能需要几分钟时间才能完成群集创建过程。通常大约为 15 分钟。

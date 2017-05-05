@@ -8,8 +8,8 @@
 
 > [!IMPORTANT]
 >如果希望虚拟机使用虚拟网络，请确保在创建虚拟机时指定虚拟网络。
-><p> * 使用虚拟网络的两大优点是：可以直接连接到虚拟机，以及可以设置跨界连接。
-><p> * 仅当创建虚拟机后，才能将该虚拟机配置为加入虚拟网络。有关虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../articles/virtual-network/virtual-networks-overview.md)。
+> * 使用虚拟网络的两大优点是：可以直接连接到虚拟机，以及可以设置跨界连接。
+> * 仅当创建虚拟机后，才能将该虚拟机配置为加入虚拟网络。有关虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../articles/virtual-network/virtual-networks-overview.md)。
 >
 >
 

@@ -39,15 +39,15 @@ Mahout 是适用于 Apache Hadoop 的[计算机学习][ml]库。Mahout 包含用
 
     > [!IMPORTANT]
     Azure PowerShell 对于使用 Azure Service Manager 管理 HDInsight 资源的支持已**弃用**，将于 2017 年 1 月 1 日删除。本文档中的步骤使用的是与 Azure Resource Manager 兼容的新 HDInsight cmdlet。
-    ><p>
+    >
     > 请按照 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)（安装和配置 Azure PowerShell）中的步骤安装最新版本的 Azure PowerShell。如果你的脚本需要修改才能使用与 Azure Resource Manager 兼容的新 cmdlet，请参阅[迁移到适用于 HDInsight 群集的基于 Azure Resource Manager 的开发工具](./hdinsight-hadoop-development-using-azure-resource-manager.md)，了解详细信息。
 
 ## <a name="recommendations"></a>使用 Azure PowerShell 生成推荐
 
 > [!NOTE]
 尽管在本部分中使用的作业使用 Azure PowerShell 执行，但是，随 Mahout 一起提供的很多类当前不适用于 Azure PowerShell，必须使用 Hadoop 命令行来运行这些类。有关不适用于 Azure PowerShell 的类的列表，请参阅[故障排除](#troubleshooting)部分。
-><p>
-><p>有关使用 SSH 连接到 HDInsight 和直接在群集上运行 Mahout 示例的示例，请参阅[使用 Mahout 和 HDInsight (SSH) 生成电影推荐](./hdinsight-hadoop-mahout-linux-mac.md)。
+>
+>有关使用 SSH 连接到 HDInsight 和直接在群集上运行 Mahout 示例的示例，请参阅[使用 Mahout 和 HDInsight (SSH) 生成电影推荐](./hdinsight-hadoop-mahout-linux-mac.md)。
 
 Mahout 提供的功能之一是推荐引擎。此引擎接受 `userID`、`itemId` 和 `prefValue` 格式（此项的用户偏好）的数据。然后，Mahout 将执行共现分析，以确定：*偏好某个项的用户也偏好其他类似项*。随后，Mahout 确定拥有类似项偏好的用户，这些偏好可用于推荐。
 

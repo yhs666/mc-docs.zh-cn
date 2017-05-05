@@ -46,9 +46,9 @@ ms.author: larryfr
 
 > [!NOTE]
 使用 Curl 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须提供 HDInsight 群集的管理员用户名和密码对请求进行身份验证。此外，还必须使用群集名称作为用来向服务器发送请求的统一资源标识符 (URI) 的一部分。
-><p> 
+> 
 > 对于本部分中的命令，请将 **USERNAME** 替换为对群集进行身份验证的用户，并将 **PASSWORD** 替换为用户帐户的密码。将 **CLUSTERNAME** 替换为群集名称。
-><p> 
+> 
 > REST API 通过[基本访问身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。你始终应该使用安全 HTTP (HTTPS) 发出请求，以帮助确保安全地将凭据发送到服务器。
 
 1. 在命令行中，使用以下命令验证你是否可以连接到 HDInsight 群集。

@@ -342,15 +342,17 @@ mvn compile exec:java -Dstorm.topology=<CLASSNAME>
 
     > [!NOTE]
     如果使用了 SSH 帐户的密码，则系统将提示你输入该密码。如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。以下示例从 `~/.ssh/id_rsa` 加载私钥：
-    > <p> 
+    > 
     > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`  
 
     若要使用 PuTTY，请在“主机名(或 IP 地址)”字段中输入 `CLUSTERNAME-ssh.azurehdinsight.cn`，然后单击“打开”进行连接。系统将提示输入 SSH 帐户名称。
 
     > [!NOTE]
     如果使用了 SSH 帐户的密码，则系统将提示你输入该密码。如果将 SSH 密钥与帐户配合使用，则可能需要使用以下步骤来选择密钥：
-    > <p> 
-    ><p> 1.在“类别”中，依次展开“连接”和“SSH”，然后选择“身份验证”。<p> 2.单击“浏览”，然后选择包含私钥的 .ppk 文件。<p> 3.单击“打开”进行连接。
+    > 
+    > 1.在“类别”中，依次展开“连接”和“SSH”，然后选择“身份验证”。
+    > 2.单击“浏览”，然后选择包含私钥的 .ppk 文件。
+    > 3.单击“打开”进行连接。
 
 3. 使用以下命令启动拓扑：
 

@@ -39,9 +39,9 @@ ms.author: larryfr
 ## <a id="curl"></a>通过使用 Curl 运行 Hive 查询
 > [!NOTE]
 使用 Curl 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须提供 HDInsight 群集管理员用户名和密码对请求进行身份验证。此外，还必须使用群集名称作为用来向服务器发送请求的统一资源标识符 (URI) 的一部分。
-><p> 
+> 
 > 对本部分中的所有命令，请将 **USERNAME** 替换为在群集上进行身份验证的用户，并将 **PASSWORD** 替换为用户帐户的密码。将 **CLUSTERNAME** 替换为群集名称。
-><p> 
+> 
 > REST API 通过[基本身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。你始终应该使用安全 HTTP (HTTPS) 来发出请求，以确保安全地将凭据发送到服务器。
 > 
 > 
@@ -94,7 +94,7 @@ ms.author: larryfr
 
         > [!NOTE]
         如果希望以外部源更新基础数据（例如自动化数据上载过程），或以其他 MapReduce 操作更新基础数据，但希望 Hive 查询始终使用最新数据时，必须使用外部表。
-        ><p> 
+        > 
         > 删除外部表**不会**删除数据，只会删除表定义。
         > 
         > 

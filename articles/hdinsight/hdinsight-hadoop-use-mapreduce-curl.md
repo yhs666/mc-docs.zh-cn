@@ -39,9 +39,9 @@ ms.author: larryfr
 ## <a id="curl"></a>使用 Curl 运行 MapReduce 作业
 > [!NOTE]
 使用 Curl 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须提供 HDInsight 群集管理员用户名和密码，对请求进行身份验证。此外，用来向服务器发送请求的 URI 必须包括群集名称。
-><p> 
+> 
 > 对本部分中的所有命令，请将 **USERNAME** 替换为在群集上进行身份验证的用户，并将 **PASSWORD** 替换为用户帐户的密码。将 **CLUSTERNAME** 替换为群集名称。
-><p> 
+> 
 > REST API 使用[基本访问身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。应始终使用 HTTPS 发出请求，确保安全地将凭据发送到服务器。
 > 
 > 

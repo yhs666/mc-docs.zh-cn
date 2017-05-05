@@ -100,12 +100,12 @@ ms.author: cephalin
 
     >[!NOTE]
     > 在使用这些模板之前，需要进行以下编辑，以适应 Azure 中国区的云环境：
-    > <p>1. 打开文件“ProdAndStage.json”，然后搜索“sourcecontrols”。
-    > <p>2. 在“properties”内添加 `"IsManualIntegration": true` 
-    > <p>3. 在“ProdAndStage.json”和“deploy.ps1”中，将“West US”或“East US”替换为“China East”或“China North”
-    > <p>
-    > <P>[这里](https://github.com/bbetstcw/ToDoApp)可以找到一个已经改好的版本。
-    > <p>Azure 中国区，我们无法通过新门户设置 GitHub 凭据。因此，连续部署仅适用于公共存储库。
+    > 1. 打开文件“ProdAndStage.json”，然后搜索“sourcecontrols”。
+    > 2. 在“properties”内添加 `"IsManualIntegration": true` 
+    > 3. 在“ProdAndStage.json”和“deploy.ps1”中，将“West US”或“East US”替换为“China East”或“China North”
+    > 
+    > [这里](https://github.com/bbetstcw/ToDoApp)可以找到一个已经改好的版本。
+    > Azure 中国区，我们无法通过新门户设置 GitHub 凭据。因此，连续部署仅适用于公共存储库。
 
 4. 出现提示时，键入所需的用户名和密码来访问数据库。
 
@@ -148,8 +148,8 @@ ms.author: cephalin
 
     >[!NOTE]
     > 应该对“Dev.json”进行相同的修改，就像你对“ProdAndStage.json”所做的修改一样
-    > <p>
-    > <P>[这里](https://github.com/bbetstcw/ToDoApp)可以找到一个已经改好的版本。
+    > 
+    > [这里](https://github.com/bbetstcw/ToDoApp)可以找到一个已经改好的版本。
 
 1. 出现提示时，键入所需的用户名和密码来访问数据库。
 
@@ -180,9 +180,9 @@ ms.author: cephalin
 
 >[!NOTE]
 > 有多位开发人员处理新的更新时，只要执行以下操作，每一位都可以轻松创建分支和专用开发环境：
-><p>1.	在 GitHub 中创建其在存储库中的专属分叉（请参阅[分叉存储库](https://help.github.com/articles/fork-a-repo/)）。
-><p>2.	克隆其本地计算机上的分叉。
-><p>3.	运行相同的命令，以创建其自身的开发分支和环境。
+>1.	在 GitHub 中创建其在存储库中的专属分叉（请参阅[分叉存储库](https://help.github.com/articles/fork-a-repo/)）。
+>2.	克隆其本地计算机上的分叉。
+>3.	运行相同的命令，以创建其自身的开发分支和环境。
 
 完成后，GitHub 分叉应有三个分支：
 
@@ -211,9 +211,9 @@ ms.author: cephalin
 
     >[!NOTE]
     > 如果无法看到上述图像：
-    ><p>
-    ><p>- 在第 18 行，将 `check-list` 更改为 `list-group`。
-    ><p>- 在第 19 行，将 `class="check-list-item"` 更改为 `class="list-group-item"`。
+    >
+    >- 在第 18 行，将 `check-list` 更改为 `list-group`。
+    >- 在第 19 行，将 `class="check-list-item"` 更改为 `class="list-group-item"`。
 
 3. 保存更改。返回到 Git Shell 并运行以下命令：
 

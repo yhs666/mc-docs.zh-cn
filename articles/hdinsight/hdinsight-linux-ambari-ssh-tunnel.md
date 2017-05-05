@@ -53,10 +53,11 @@ Ambari 中的多个菜单在没有 SSH 隧道的情况下无法完全填充，�
 
     > [!WARNING]
     内置于 Windows 的 SOCKS 代理不支持 SOCKS5，并且不适用于本文档中的步骤。以下浏览器依赖于 Windows 代理设置，当前不适用于本文档中的步骤：
-    > <p>
-    ><p> * Microsoft Edge <p> * Microsoft Internet Explorer
-    ><p>
-    ><p> Google Chrome 也依赖于 Windows 代理设置。但是，可以安装支持 SOCKS5 的扩展。我们建议使用 [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp)。
+    > 
+    > * Microsoft Edge
+    > * Microsoft Internet Explorer
+    >
+    > Google Chrome 也依赖于 Windows 代理设置。但是，可以安装支持 SOCKS5 的扩展。我们建议使用 [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp)。
 
 ## <a name="usessh"></a>使用 SSH 命令创建隧道
 
@@ -135,7 +136,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 
     > [!NOTE]
     如果 Internet 连接速度较慢或者头节点非常繁忙，则选择“快速链接”时，可能会看到等待指针而不是菜单。如果是这样，请等待一两分钟，让系统从服务器接收数据，然后再次尝试列出节点列表。
-    > <p>  
+    > 
     > 如果显示器分辨率较低或者浏览器窗口没有最大化，则“快速链接”菜单中的某些项可能在屏幕右侧截断。如果是这样，请使用鼠标展开菜单，然后使用向右箭头键向右滚动屏幕，查看菜单的余下内容。
     > 
     > 

@@ -35,11 +35,11 @@ ms.author: larryfr
 
     > [!IMPORTANT]
     你不需要现有的 HDInsight 群集。此文档中的步骤创建以下资源：
-    > <p>  
-    ><p> * 一个 Azure 虚拟网络
-    <p> * 一个 Storm on HDInsight 群集（基于 Linux 且具有两个工作节点）
-    <p> * 一个 HBase on HDInsight 群集（基于 Linux 且具有两个工作节点）
-    <p> * 一个托管着 Web 仪表板的 Azure Web 应用
+    > 
+    > * 一个 Azure 虚拟网络
+    > * 一个 Storm on HDInsight 群集（基于 Linux 且具有两个工作节点）
+    > * 一个 HBase on HDInsight 群集（基于 Linux 且具有两个工作节点）
+    > * 一个托管着 Web 仪表板的 Azure Web 应用
 
 * [Node.js](http://nodejs.org/)：用于在开发环境中以本地方式预览 Web 仪表板。
 * [Java 和 JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)：用于开发 Storm 拓扑。
@@ -89,9 +89,9 @@ ms.author: larryfr
 
 > [!NOTE]
 这是一个简化的拓扑视图。在运行时，每个组件的实例为每个分区创建事件中心所读取。这些实例分布在群集中，节点和数据在它们之间路由，如下所示：
-><p> 
-><p> * 从 spout 到分析器的数据已经过负载均衡。
-<p> * 从分析器到仪表板和 HBase 的数据已按设备 ID 分组，因此来自同一设备的消息始终流向同一组件。
+> 
+> * 从 spout 到分析器的数据已经过负载均衡。
+> * 从分析器到仪表板和 HBase 的数据已按设备 ID 分组，因此来自同一设备的消息始终流向同一组件。
 > 
 > 
 
@@ -264,9 +264,9 @@ eventhub.name: sensordata
 
     > [!NOTE]
     如果在 Linux/Unix/OS X 系统上，并且[已在开发环境中安装 Storm](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)，则可以使用以下命令：
-    ><p> 
-    ><p> `mvn compile package` 
-    <p> `storm jar target/TemperatureMonitor-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /no-hbase.yaml --filter dev.properties`
+    > 
+    > `mvn compile package` 
+    > `storm jar target/TemperatureMonitor-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /no-hbase.yaml --filter dev.properties`
 
     此命令将在本地模式下启动 **no-hbase.yaml** 文件中定义的拓扑。**dev.properties** 文件中包含的值提供事件中心的连接信息。启动后，拓扑会从事件中心读取条目，然后将它们发送到在本地计算机上运行的仪表板。你应看到各行显示在 Web 仪表板中，如下图所示：
 

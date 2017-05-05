@@ -36,7 +36,7 @@ HDInsight Spark 群集包括可用于运行 Spark 作业 Zeppelin 笔记本。�
 
     > [!NOTE]
     也可以在浏览器中打开以下 URL 来访问群集的 Zeppelin 笔记本。将 **CLUSTERNAME** 替换为群集的名称：
-    > <p>
+    > 
     > `https://CLUSTERNAME.azurehdinsight.cn/zeppelin`
     > 
     > 

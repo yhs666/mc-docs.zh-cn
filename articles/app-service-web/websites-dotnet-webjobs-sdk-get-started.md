@@ -38,7 +38,7 @@ ms.author: tdykstra
 
 > [!NOTE]
 > <a name="note"></a>完成本教程需要 Azure 帐户：
-><p>
+>
 > * 可以[注册一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)：获取用于试用付费版 Azure 服务的信用额度，甚至在用完信用额度后，仍可保留帐户并使用免费 Azure 服务（如网站）。不会收取任何费用，除非明确更改设置并要求收费。
 >
 >
@@ -738,7 +738,9 @@ HttpPost `Edit` 方法的代码类似，不同之处在于如果用户选择新�
 * [如何通过 WebJobs SDK 使用 Azure Service Bus](./websites-dotnet-webjobs-sdk-service-bus.md)
 
 > [!NOTE]
-> * 如果在多台 VM 上运行 Web 应用，将会同时运行多个 Web 作业；在某些情况下，这可能会导致多次处理相同的数据。如果使用内置队列、Blob 和服务总线触发器，将不会造成问题。SDK 可确保针对每个消息或 Blob 仅处理一次函数。<p>*有关如何实现正常关闭的信息，请参阅[正常关闭](./websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful)。<p>*为方便起见，`ConvertImageToThumbnailJPG` 方法中的代码（未显示）使用 `System.Drawing` 命名空间中的类。但是，此命名空间中的类设计用于 Windows 窗体。不支持在 Windows 或 ASP.NET 服务中使用。有关图像处理选项的详细信息，请参阅[动态图像生成](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx)和[深入学习图像大小调整](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na)。
+> * 如果在多台 VM 上运行 Web 应用，将会同时运行多个 Web 作业；在某些情况下，这可能会导致多次处理相同的数据。如果使用内置队列、Blob 和服务总线触发器，将不会造成问题。SDK 可确保针对每个消息或 Blob 仅处理一次函数。
+> *有关如何实现正常关闭的信息，请参阅[正常关闭](./websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful)。
+> *为方便起见，`ConvertImageToThumbnailJPG` 方法中的代码（未显示）使用 `System.Drawing` 命名空间中的类。但是，此命名空间中的类设计用于 Windows 窗体。不支持在 Windows 或 ASP.NET 服务中使用。有关图像处理选项的详细信息，请参阅[动态图像生成](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx)和[深入学习图像大小调整](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na)。
 >
 >
 

@@ -24,12 +24,12 @@ ms.author: singhkay
 
 > [!NOTE]
 Microsoft 支持服务并不正式支持这些工具。因此 Github 上提供了其开放源代码，我们很乐意接受有关修复或其他方案的 PR。若要报告问题，请使用 Github 问题功能。
-> <p>
+> 
 > 使用这些工具进行迁移会造成经典虚拟机停机。若要了解平台支持的迁移，请访问
-> <p>
-><p> * [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack（平台支持从经典部署模型迁移到 Azure Resource Manager 堆栈的 IaaS 资源）](./virtual-machines-windows-migration-classic-resource-manager.md)
-><p> * [有关平台支持的从经典部署模型到 Azure Resource Manager 的迁移的技术深入探讨](./virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-><p> * [Migrate IaaS resources from Classic to Azure Resource Manager using Azure PowerShell（使用 Azure PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager）](./virtual-machines-windows-ps-migration-classic-resource-manager.md)
+> 
+> * [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack（平台支持从经典部署模型迁移到 Azure Resource Manager 堆栈的 IaaS 资源）](./virtual-machines-windows-migration-classic-resource-manager.md)
+> * [有关平台支持的从经典部署模型到 Azure Resource Manager 的迁移的技术深入探讨](./virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+> * [Migrate IaaS resources from Classic to Azure Resource Manager using Azure PowerShell（使用 Azure PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager）](./virtual-machines-windows-ps-migration-classic-resource-manager.md)
 > 
 > 
 

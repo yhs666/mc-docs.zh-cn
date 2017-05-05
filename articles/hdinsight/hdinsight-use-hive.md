@@ -108,7 +108,7 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPU
 
 > [!NOTE]
 当你预期以外部源更新基础数据（例如自动化数据上载过程），或以其他 MapReduce 操作更新基础数据，但希望 Hive 查询始终使用最新数据时，必须使用外部表。
-><p> 
+> 
 > 删除外部表**不会**删除数据，只会删除表定义。
 > 
 > 
@@ -139,10 +139,9 @@ SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
 > [!NOTE]
 对于基于 Windows 的 HDInsight 群集来说，Tez 目前默认处于关闭状态，因此必须启用。若要充分利用 Tez，你必须设置 Hive 查询的以下值：
-><p> 
+> 
 > ```set hive.execution.engine=tez;```  
-
-><p> 
+> 
 > 你可为每个查询提交此值，只需将它放置在查询的开头即可。你也可以在创建群集时设置配置值，而在群集上将此值默认为打开。可以在[预配 HDInsight 群集](./hdinsight-hadoop-provision-linux-clusters.md)中找到详细信息。
 > 
 > 

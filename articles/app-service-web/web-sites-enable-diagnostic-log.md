@@ -74,9 +74,9 @@ System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happen
 
 > [!NOTE]
 如果[重新生成存储帐户的访问密钥](../storage/storage-create-storage-account.md)，则必须重置相应的日志记录配置才能使用更新的密钥。为此，请按以下步骤操作：
-><p>
-><p> 1.在“配置”选项卡上，将相应的日志记录功能设置为“关闭”。保存设置。
-><p> 2.再次将日志记录到存储帐户 blob 或表。保存设置。
+>
+> 1.在“配置”选项卡上，将相应的日志记录功能设置为“关闭”。保存设置。
+> 2.再次将日志记录到存储帐户 blob 或表。保存设置。
 >
 >
 
