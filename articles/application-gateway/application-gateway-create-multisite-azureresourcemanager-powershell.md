@@ -255,7 +255,6 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
 ```
 
-
 ```
 Name                     : publicIP01
 ResourceGroupName        : appgw-RG

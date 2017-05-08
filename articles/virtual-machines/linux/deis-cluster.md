@@ -18,25 +18,25 @@ wacn.date: ''
 本文将逐步指导你完成在 Azure 上设置 [Deis](http://deis.io/) 群集的过程。其中包括所有的步骤，从创建必要的证书，到在新设置的群集上部署和缩放示例 **Go** 应用程序。
 
 > [!NOTE]
->Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器和经典](../azure-resource-manager/resource-manager-deployment-model.md)。这篇文章介绍如何使用资源管理器部署模型，Azure 建议大多数新部署使用资源管理器模型替代经典部署模型。
+>Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器和经典](../../azure-resource-manager/resource-manager-deployment-model.md)。这篇文章介绍如何使用资源管理器部署模型，Azure 建议大多数新部署使用资源管理器模型替代经典部署模型。
 
 下图显示了部署的系统的体系结构。系统管理员可以使用 Deis 工具（如 **deis** 和 **deisctl**）来管理群集。连接是通过会将连接转发到群集上某个成员节点的 Azure 负载均衡器建立的。客户端也通过负载均衡器访问部署的应用程序。在此情况下，负载均衡器会将流量转发到 Deis 路由器网络，从者进一步将流量路由到托管在群集上的对应 Docker 容器。
 
-  ![部署的 Desis 群集的体系结构示意图](./media/virtual-machines-linux-deis-cluster/architecture-overview.png)
+![部署的 Desis 群集的体系结构示意图](../media/virtual-machines-linux-deis-cluster/architecture-overview.png)
 
 若要完成以下步骤，你需要：
 
- * 一个有效的 Azure 订阅。如果没有，你可以在 [azure.com](https://azure.microsoft.com) 上获取免费试用帐户。
- * 用来使用 Azure 资源组的工作或学校 ID。如果你有个人帐户并使用 Microsoft ID 登录，则需要[基于你的个人 ID 创建工作 ID](./virtual-machines-windows-create-aad-work-id.md)。
- * 以下组件之一（取决于客户端操作系统）[Azure PowerShell](../powershell-install-configure.md) 或[适用于 Mac、Linux 和 Windows 的 Azure CLI](../xplat-cli-install.md)。
- * [OpenSSL](https://www.openssl.org/)。OpenSSL 用于生成必要的证书。
- * Git 客户端，如 [Git Bash](https://git-scm.com/)。
- * 若要测试示例应用程序，你还需要一个 DNS 服务器。可以使用任何 DNS 服务器或支持通配符 A 记录的服务。
- * 用于运行 Deis 客户端工具的计算机。可以使用本地计算机或虚拟机。几乎可以在任何 Linux 分发版中运行这些工具，但以下说明使用的是 Ubuntu。
+* 一个有效的 Azure 订阅。如果没有，你可以在 [azure.com](https://azure.microsoft.com) 上获取免费试用帐户。
+* 用来使用 Azure 资源组的工作或学校 ID。如果你有个人帐户并使用 Microsoft ID 登录，则需要[基于你的个人 ID 创建工作 ID](../virtual-machines-windows-create-aad-work-id.md)。
+* 以下组件之一（取决于客户端操作系统）[Azure PowerShell](../../powershell-install-configure.md) 或[适用于 Mac、Linux 和 Windows 的 Azure CLI](../../xplat-cli-install.md)。
+* [OpenSSL](https://www.openssl.org/)。OpenSSL 用于生成必要的证书。
+* Git 客户端，如 [Git Bash](https://git-scm.com/)。
+* 若要测试示例应用程序，你还需要一个 DNS 服务器。可以使用任何 DNS 服务器或支持通配符 A 记录的服务。
+* 用于运行 Deis 客户端工具的计算机。可以使用本地计算机或虚拟机。几乎可以在任何 Linux 分发版中运行这些工具，但以下说明使用的是 Ubuntu。
 
 ## 设置群集
 
-在本部分中，你将使用开放源代码存储库 [azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) 中的 [Azure 资源管理员](../azure-resource-manager/resource-group-overview.md)模板。首先复制该模板。其次，创建用于身份验证的新 SSH 密钥对。再次，为群集配置新的标识符。最后，使用 Shell 脚本或 PowerShell 脚本设置群集。
+在本部分中，你将使用开放源代码存储库 [azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) 中的 [Azure 资源管理员](../../azure-resource-manager/resource-group-overview.md)模板。首先复制该模板。其次，创建用于身份验证的新 SSH 密钥对。再次，为群集配置新的标识符。最后，使用 Shell 脚本或 PowerShell 脚本设置群集。
 
 1. 克隆存储库：[https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)。
 
@@ -95,16 +95,16 @@ wacn.date: ''
     .\azuredeploy.json -ParametersFile .\azuredeploy-parameters.json -CloudInitFile .\cloud-config.yaml
     ```
 
-  也可以使用 Azure CLI：
+    也可以使用 Azure CLI：
 
-  ```
+    ```
     ./deploy-deis.sh -n "[resource group name]" -l "West US" -f ./azuredeploy.json -e ./azuredeploy-parameters.json
     -c ./cloud-config.yaml  
-  ```
+    ```
 
 11. 设置资源组后，可以在 Azure 经典门户上看到组中的所有资源。如以下屏幕截图所示，资源组中有一个包含三个 VM 的虚拟网络，这些 VM 已加入同一个可用性集。该组还包含具有关联公共 IP 的负载均衡器。
 
-  ![Azure 经典门户上显示的已设置资源组](./media/virtual-machines-linux-deis-cluster/resource-group.png)
+    ![Azure 经典门户上显示的已设置资源组](../media/virtual-machines-linux-deis-cluster/resource-group.png)
 
 ## 安装客户端
 
@@ -133,7 +133,7 @@ wacn.date: ''
 
 模板定义了将 2223 映射到实例 1、将 2224 映射到实例 2、将 2225 映射到实例 3 的入站 NAT 规则。这提供了使用 deisctl 工具时的冗余。可以在 Azure 经典门户中检查这些规则：
 
-![负载均衡器上的 NAT 规则](./media/virtual-machines-linux-deis-cluster/nat-rules.png)
+![负载均衡器上的 NAT 规则](../media/virtual-machines-linux-deis-cluster/nat-rules.png)
 
 > [!NOTE]
 >模板目前仅支持三节点群集。这是因为 Azure 资源管理器模板 NAT 规则定义存在限制，它不支持循环语法。
@@ -194,8 +194,8 @@ deis-store-volume.service       ebe3005e.../10.0.0.6    loaded  active          
 
 1. 为了使路由网络正确工作，指向负载均衡器公共 IP 的域需要有通配符 A 记录。以下屏幕截图显示了在 GoDaddy 上注册的示例域的 A 记录：
 
-    ![Godaddy A 记录](./media/virtual-machines-linux-deis-cluster/go-daddy.png)
-<p />
+    ![Godaddy A 记录](../media/virtual-machines-linux-deis-cluster/go-daddy.png)
+    <p />
 2. 安装 deis：
 
     ```
@@ -214,20 +214,20 @@ deis-store-volume.service       ebe3005e.../10.0.0.6    loaded  active          
 
 4. 在 GitHub 添加 id\_rsa.pub 或所选的公钥。可以使用 SSH 密钥配置屏幕上的“添加 SSH 密钥”按钮来执行此操作。
 
-  ![Github 密钥](./media/virtual-machines-linux-deis-cluster/github-key.png)
-<p />
+    ![Github 密钥](../media/virtual-machines-linux-deis-cluster/github-key.png)
+    <p />
 5. 注册新用户：
 
     ```
     deis register http://deis.[your domain]
     ```
-<p />
+    <p />
 6. 添加 SSH 密钥：
 
     ```
     deis keys:add [path to your SSH public key]
     ```
-  <p />
+    <p />
 7. 创建应用程序。
 
     ```
@@ -236,7 +236,7 @@ deis-store-volume.service       ebe3005e.../10.0.0.6    loaded  active          
     deis create
     git push deis master
     ```
-<p />
+    <p />
 8. git push 将触发 Docker 映像的构建和部署，这需要几分钟来完成。根据我的经验，步骤 10（将映像推送到专用存储库）偶尔会挂起。如果发生此情况，你可以停止过程，使用 `deis apps:destroy –a <application name>` 删除应用程序，然后重试。你也可以使用 `deis apps:list` 找出应用程序的名称。如果一切正常，你应会在命令输出的末尾看到如下内容：
 
     ```
@@ -247,24 +247,24 @@ deis-store-volume.service       ebe3005e.../10.0.0.6    loaded  active          
     To ssh://git@deis.artitrack.com:2222/lambda-underdog.git
      * [new branch]      master -> master
     ```
-<p />
+    <p />
 9. 验证应用程序是否工作：
 
     ```
     curl -S http://[your application name].[your domain]
     ```
-  你应会看到：
+    你应会看到：
 
         Welcome to Deis!
         See the documentation at http://docs.deis.io/ for more information.
         (you can use geis apps:list to get the name of your application).
-<p />
+    <p />
 10. 将应用程序缩放为 3 个实例：
 
     ```
     deis scale cmd=3
     ```
-<p />
+    <p />
 11. （可选）你可以使用 deis info 来检查应用程序的详细信息。以下是我的应用程序部署的输出：
 
     ```
@@ -300,8 +300,8 @@ deis-store-volume.service       ebe3005e.../10.0.0.6    loaded  active          
 [如何使用 Azure CLI][azure-command-line-tools]  
 [将 Azure PowerShell 与 Azure 资源管理器配合使用][powershell-azure-resource-manager]
 
-[azure-command-line-tools]: ../xplat-cli-install.md
-[resource-group-overview]: ../resource-group-overview.md
-[powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
+[azure-command-line-tools]: ../../xplat-cli-install.md
+[resource-group-overview]: ../../resource-group-overview.md
+[powershell-azure-resource-manager]: ../../powershell-azure-resource-manager.md
 
 <!---HONumber=Mooncake_1207_2015-->

@@ -31,34 +31,34 @@ ms.author: amsriva
 
 ```json
 "httpListeners": [
-            {
-                "name": "appGatewayHttpsListener",
-                "properties": {
-                    "FrontendIPConfiguration": {
-                        "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/DefaultFrontendPublicIP"
-                    },
-                    "FrontendPort": {
-                        "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort443'"
-                    },
-                    "Protocol": "Https",
-                    "SslCertificate": {
-                        "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/sslCertificates/appGatewaySslCert1'"
-                    },
-                }
-            },
-            {
-                "name": "appGatewayHttpListener",
-                "properties": {
-                    "FrontendIPConfiguration": {
-                        "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/appGatewayFrontendIP'"
-                    },
-                    "FrontendPort": {
-                        "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort80'"
-                    },
-                    "Protocol": "Http",
-                }
+        {
+            "name": "appGatewayHttpsListener",
+            "properties": {
+                "FrontendIPConfiguration": {
+                    "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/DefaultFrontendPublicIP"
+                },
+                "FrontendPort": {
+                    "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort443'"
+                },
+                "Protocol": "Https",
+                "SslCertificate": {
+                    "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/sslCertificates/appGatewaySslCert1'"
+                },
             }
-        ],
+        },
+        {
+            "name": "appGatewayHttpListener",
+            "properties": {
+                "FrontendIPConfiguration": {
+                    "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/appGatewayFrontendIP'"
+                },
+                "FrontendPort": {
+                    "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort80'"
+                },
+                "Protocol": "Http",
+            }
+        }
+    ],
 ```
 
 ## BackendAddressPool、BackendHttpSetting 和路由规则配置

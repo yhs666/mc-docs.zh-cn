@@ -58,7 +58,7 @@ ms.author: nicking
             {
                 "databaseType": "SqlAzure",
                 "name": "MyDatabase1",
-                    "connectionString": "<your database connection string>"
+                "connectionString": "<your database connection string>"
             }
         ]
     }
@@ -191,8 +191,8 @@ ms.author: nicking
         "blobName": "backup_201509280431.zip",
         "databases": [ // Not required unless you're restoring databases
             {
-            "databaseType": "SqlAzure",
-            "name": "MyDatabase1"
+                "databaseType": "SqlAzure",
+                "name": "MyDatabase1"
         }],
         "overwrite": "true",
         "storageAccountUrl": "https://account.blob.core.chinacloudapi.cn/backups?sv=2015-02-21&sr=c&sig=DzlkBl7h32C8qCv%2BifdBRxE63r4iv0kZ9L7E0qP16sY%3D&se=2016-09-15T22%3A46%3A54Z&sp=rwdl" // SAS URL to storage container containing your website backup

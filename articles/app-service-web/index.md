@@ -134,8 +134,6 @@ description: 了解如何使用应用服务 Web 应用生成和托管网站和 W
         </div>
         </a>
 </li>
-
-```
  <li>
     <a href="/app-service-web/app-service-web-php-get-started">
     <div class="cardSize">
@@ -153,7 +151,6 @@ description: 了解如何使用应用服务 Web 应用生成和托管网站和 W
         </div>
     </div>
     </a>
-```
 </li>
     <li>
         <a href="/app-service-web/web-sites-php-web-site-gallery">

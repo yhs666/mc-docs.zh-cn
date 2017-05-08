@@ -75,7 +75,7 @@ Azure WebJobs SDK 简化了许多 Web 作业编程任务。有关详细信息，
 
 > [!NOTE]
 > 如果 Web 应用在多个实例上运行，则连续运行的 Web 作业会在所有实例上运行。按需和按计划 Web 作业在 Azure 针对负载均衡所选择的单个实例上运行。
-
+> 
 > 要使连续 Web 作业在所有实例上可靠运行，请启用 Web 应用的 AlwaysOn* 配置设置；否则，Web 作业将在 SCM 主机站点闲置时间太长时停止运行。
 
 ## <a name="CreateScheduledCRON"></a>使用 CRON 表达式创建计划的 Web 作业

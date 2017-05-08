@@ -78,7 +78,7 @@ App Service Web Apps 构建于一种“平台即服务”模型之上，可大�
 
 App Service Web Apps 提供了一个稳定、可靠的平台，后者已被证实能够满足从小型内部开发和测试工作负荷到高度可扩展的高流量网站的各种业务需求。通过使用 Web Apps，你可以使用与 Microsoft 公司用于处理高价值 Web 工作负荷相同的企业类托管平台。Web Apps 以及 Azure 平台上的所有服务均符合安全要求和遵从法规要求，如 ISO (ISO/IEC 27001:2005）；SOC1 和 SOC2 SSAE 16/ISAE 3402 Attestations、HIPAA BAA、PCI 和 Fedramp，是每个元素和功能的核心，有关详细信息，请参阅[https://www.azure.cn/support/trust-center/compliance/](https://www.azure.cn/support/trust-center/compliance/)。
 
-Azure 平台支持基于角色的身份验证控制，从而支持对 Web 应用内的资源进行企业级控制。RBAC 支持企业在 Azure 环境中为其所有资产实施自己的访问管理策略，将用户分配到组并反过来根据 Web 应用等资产将所需的权限分配给这些组。关于 Azure 中 RBAC 的详细信息，请参阅 [../active-directory/role-based-access-control-configure.md](../active-directory/role-based-access-control-configure.md)。通过利用 Web Apps，你可以确保将 Web 应用程序部署在安全可靠的环境中，并完全地控制要将资产部署到的区域。
+Azure 平台支持基于角色的身份验证控制，从而支持对 Web 应用内的资源进行企业级控制。RBAC 支持企业在 Azure 环境中为其所有资产实施自己的访问管理策略，将用户分配到组并反过来根据 Web 应用等资产将所需的权限分配给这些组。关于 Azure 中 RBAC 的详细信息，请参阅 [role-based-access-control-configure](../active-directory/role-based-access-control-configure.md)。通过利用 Web Apps，你可以确保将 Web 应用程序部署在安全可靠的环境中，并完全地控制要将资产部署到的区域。
 
 通过支持往回连接到你的内部资源（如数据仓库或 SharePoint 环境），应用服务 Web 应用还能够充分利用你的本地投资。如之前在[高级别的解决方案](#high-level-solution)中所讨论的，用户可以使用混合连接和虚拟网络连接建立到本地基础结构和服务的连接。
 
