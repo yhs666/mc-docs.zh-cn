@@ -1,6 +1,6 @@
 ---
 title: "使用点到站点将计算机连接到 Azure 虚拟网络：门户 | Azure"
-description: "使用 Resource Manager 和 Azure 门户预览版创建点到站点 VPN 网关连接，安全连接到 Azure 虚拟网络。"
+description: "使用 Resource Manager 和 Azure 门户预览创建点到站点 VPN 网关连接，安全连接到 Azure 虚拟网络。"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -23,11 +23,11 @@ ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal-preview"></a>使用 Azure 门户预览版配置与 VNet 的点到站点连接
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal-preview"></a>使用 Azure 门户预览配置与 VNet 的点到站点连接
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure 门户预览版](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Resource Manager - Azure 门户预览](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [经典 - Azure 门户预览版](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [经典 - Azure 门户预览](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 > 
 > 
 

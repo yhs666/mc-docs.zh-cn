@@ -62,11 +62,11 @@ Azure CLI 1.0 可通过 npm 包、发行版提供的程序包或 Docker 容器�
           --size-in-GB 5
         ```
 
-## <a name="azure-portal-preview"></a>Azure 门户预览版
-在 [Azure 门户预览版](https://portal.azure.cn) 中可以快速创建 VM，因为不需要在系统上安装任何组件。 使用 Azure 门户预览版创建 VM：
+## <a name="azure-portal-preview"></a>Azure 门户预览
+在 [Azure 门户预览](https://portal.azure.cn) 中可以快速创建 VM，因为不需要在系统上安装任何组件。 使用 Azure 门户预览创建 VM：
 
-* [使用 Azure 门户预览版创建 Linux VM](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
-* [使用 Azure 门户预览版附加磁盘](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 Azure 门户预览创建 Linux VM](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+* [使用 Azure 门户预览附加磁盘](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="operating-system-and-image-choices"></a>操作系统和映像选项
 创建 VM 时，可根据要运行的操作系统选择映像。 Azure 及其合作伙伴提供了许多映像，其中一些映像包括预安装的应用程序和工具。 也可上载自己的某个映像（请参阅[以下部分](#use-your-own-image)）。

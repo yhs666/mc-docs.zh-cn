@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/12/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
@@ -49,7 +49,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
     * [将 Apache Pig 和 HDInsight 配合使用](hdinsight-use-pig.md)
 
-* HDInsight 群集上的 Hadoop。 有关创建群集的详细信息，请参阅[创建 HDInsight 群集](hdinsight-provision-clusters.md)。
+* HDInsight 群集上的 Hadoop。 有关创建群集的详细信息，请参阅[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 

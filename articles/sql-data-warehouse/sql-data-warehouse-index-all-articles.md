@@ -53,7 +53,7 @@ ms.lasthandoff: 04/28/2017
 | 11 |[如何创建 SQL 数据仓库的支持票证](sql-data-warehouse-get-started-create-support-ticket.md) |如何在 SQL 数据仓库中创建支持票证。 |
 | 12 |[使用 Azure 数据工厂加载数据](sql-data-warehouse-get-started-load-with-azure-data-factory.md) |了解如何使用 Azure 数据工厂加载数据 |
 | 13 |[在 SQL 数据仓库中使用 PolyBase 加载数据](sql-data-warehouse-get-started-load-with-polybase.md) |了解什么是 PolyBase，以及如何将其用于数据仓库方案。 |
-| 14 |[创建 Azure SQL 数据仓库](sql-data-warehouse-get-started-provision.md) |了解如何在 Azure 门户预览版中创建 Azure SQL 数据仓库 |
+| 14 |[创建 Azure SQL 数据仓库](sql-data-warehouse-get-started-provision.md) |了解如何在 Azure 门户预览中创建 Azure SQL 数据仓库 |
 | 15 |[使用 PowerShell 创建 SQL 数据仓库](sql-data-warehouse-get-started-provision-powershell.md) |使用 PowerShell 创建 SQL 数据仓库 |
 | 16 |[使用 Power BI 可视化数据](sql-data-warehouse-get-started-visualize-with-power-bi.md) |使用 Power BI 可视化 SQL 数据仓库数据 |
 | 17 |[查询 Azure SQL 数据仓库 (Visual Studio)](sql-data-warehouse-query-visual-studio.md) |使用 Visual Studio 查询 SQL 数据仓库。 |
@@ -79,7 +79,7 @@ ms.lasthandoff: 04/28/2017
 | &nbsp; | 标题 | 说明 |
 | ---:|:--- |:--- |
 | 31 |[管理 Azure SQL 数据仓库中的计算能力（概述）](sql-data-warehouse-manage-compute-overview.md) |Azure SQL 数据仓库中的性能横向扩展功能。 通过调整 DWU 数目进行横向扩展，或者通过暂停和恢复计算资源来节省成本。 |
-| 32 |[管理 Azure SQL 数据仓库中的计算能力（Azure 门户预览版）](sql-data-warehouse-manage-compute-portal.md) |用于管理计算能力的 Azure 预览门户任务。 通过调整 DWU 缩放计算资源。 或者，暂停和恢复计算资源来节省成本。 |
+| 32 |[管理 Azure SQL 数据仓库中的计算能力（Azure 门户预览）](sql-data-warehouse-manage-compute-portal.md) |用于管理计算能力的 Azure 预览门户任务。 通过调整 DWU 缩放计算资源。 或者，暂停和恢复计算资源来节省成本。 |
 | 33 |[管理 Azure SQL 数据仓库中的计算能力 (PowerShell)](sql-data-warehouse-manage-compute-powershell.md) |用于管理计算能力的 PowerShell 任务。 通过调整 DWU 缩放计算资源。 或者，暂停和恢复计算资源来节省成本。 |
 | 34 |[管理 Azure SQL 数据仓库中的计算能力 (REST)](sql-data-warehouse-manage-compute-rest-api.md) |用于管理计算能力的 PowerShell 任务。 通过调整 DWU 缩放计算资源。 或者，暂停和恢复计算资源来节省成本。 |
 | 35 |[管理 Azure SQL 数据仓库中的计算能力 (T-SQL)](sql-data-warehouse-manage-compute-tsql.md) |可通过调整 DWU 来提高性能的 Transact-SQL (T-SQL) 任务。 通过在非高峰期缩减性能来节省成本。 |
@@ -87,7 +87,7 @@ ms.lasthandoff: 04/28/2017
 | 37 |[在 Azure SQL 数据仓库中管理数据库](sql-data-warehouse-overview-manage.md) |管理 SQL 数据仓库数据库的概述。 包括管理工具、DWU 和向外扩展性能，对查询性能进行故障排除，建立良好的安全策略，以及从数据损坏或区域中断还原数据库。 |
 | 38 |[在 Azure SQL 数据仓库中监视用户查询](sql-data-warehouse-overview-manage-user-queries.md) |在 Azure SQL 数据仓库中监视用户查询时的注意事项、最佳实践和任务的概述 |
 | 39 |[SQL 数据仓库还原](sql-data-warehouse-restore-database-overview.md) |在 Azure SQL 数据仓库中恢复数据库时的数据库还原选项概述。 |
-| 40 |[还原 Azure SQL 数据仓库（门户）](sql-data-warehouse-restore-database-portal.md) |用于还原 SQL 数据仓库的 Azure 门户预览版任务。 |
+| 40 |[还原 Azure SQL 数据仓库（门户）](sql-data-warehouse-restore-database-portal.md) |用于还原 SQL 数据仓库的 Azure 门户预览任务。 |
 | 41 |[还原 Azure SQL 数据仓库 (PowerShell)](sql-data-warehouse-restore-database-powershell.md) |用于还原 SQL 数据仓库的 PowerShell 任务。 |
 | 42 |[还原 Azure SQL 数据仓库 (REST API)](sql-data-warehouse-restore-database-rest-api.md) |用于还原 SQL 数据仓库的 REST API 任务。 |
 

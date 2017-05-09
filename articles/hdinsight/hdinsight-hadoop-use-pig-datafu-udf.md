@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -34,7 +34,7 @@ DataFu 是适用于 Hadoop 的开放源代码库的集合。 在本文档中，�
 * Azure HDInsight 群集（基于 Linux 或 Windows）
 
     > [!IMPORTANT]
-    > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+    > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 * 基本熟悉[在 HDInsight 上使用 Pig](hdinsight-use-pig.md)
 
@@ -49,7 +49,7 @@ DataFu 是适用于 Hadoop 的开放源代码库的集合。 在本文档中，�
 
 可以从 Maven 存储库下载和安装 DataFu。 使用以下步骤将 DataFu 添加到 HDInsight 群集：
 
-1. 使用 SSH 连接到基于 Linux 的 HDInsight 群集。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+1. 使用 SSH 连接到基于 Linux 的 HDInsight 群集。 有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 使用以下命令通过 wget 实用程序下载 DataFu jar 文件，或将链接复制并粘贴到浏览器以开始下载。
 

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/03/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -38,7 +38,7 @@ Azure 事件中心可用于处理网站、应用程序和设备中的大量数�
     > [!IMPORTANT]
     > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅[弃用 HDInsight 3.3 和 3.4](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
-* [Azure 事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)。
+* [Azure 事件中心](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)。
 
 * [Oracle Java Developer Kit (JDK) 版本 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或等效工具，例如 [OpenJDK](http://openjdk.java.net/)。
 
@@ -49,7 +49,7 @@ Azure 事件中心可用于处理网站、应用程序和设备中的大量数�
     > [!NOTE]
     > 你的编辑器或 IDE 可能具有处理 Maven 的特定功能，但本文档中未提供说明。 有关环境编辑功能的详细信息，请参阅所使用产品的文档。
 
-    * SSH 客户端。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+    * SSH 客户端。 有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 * 一个 SCP 客户端。 `scp` 命令随所有 Linux、Unix 和 OS X 系统（包括 Windows 10 上的 Bash）提供。对于未提供 `scp` 命令的 Windows 版本，建议使用 PSCP。 PSCP 可通过 [PuTTY 下载页](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)获得。
 

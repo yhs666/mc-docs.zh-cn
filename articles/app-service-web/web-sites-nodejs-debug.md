@@ -55,7 +55,7 @@ Azure 提供了内置诊断来协助调试托管在 [Azure App Service](/azure/a
 > 
 > 
 
-要重新启动 Web 应用，请在 [Azure 门户预览版](https://portal.azure.cn)中选择该 Web 应用，然后单击“重新启动”按钮：
+要重新启动 Web 应用，请在 [Azure 门户预览](https://portal.azure.cn)中选择该 Web 应用，然后单击“重新启动”按钮：
 
 ![重新启动按钮][restart-button]
 
@@ -76,7 +76,7 @@ Azure 提供了内置诊断来协助调试托管在 [Azure App Service](/azure/a
 安装后，可以使用“azure”命令访问这些工具。 首先，必须配置这些命令行工具使用你的 Azure 订阅。 有关如何实现此任务的信息，请参阅[如何使用 Azure 命令行工具](../xplat-cli-connect.md)一文的“如何下载和导入发布设置”部分。
 
 ### <a name="ftp"></a>FTP
-若要通过 FTP 访问诊断信息，请访问 [Azure 门户预览版](https://portal.azure.cn)，选择你的 Web 应用，然后选择“仪表板”。 在“快速链接”部分中，“FTP 诊断日志”和“FTPS 诊断日志”链接提供了使用 FTP 协议访问日志的权限。
+若要通过 FTP 访问诊断信息，请访问 [Azure 门户预览](https://portal.azure.cn)，选择你的 Web 应用，然后选择“仪表板”。 在“快速链接”部分中，“FTP 诊断日志”和“FTPS 诊断日志”链接提供了使用 FTP 协议访问日志的权限。
 
 > [!NOTE]
 > 如果你以前没有为 FTP 或部署配置过用户名和密码，可以通过选择“设置部署凭据”从“快速启动”管理页来执行此配置。

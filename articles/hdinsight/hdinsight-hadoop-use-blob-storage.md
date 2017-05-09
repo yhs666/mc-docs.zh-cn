@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
@@ -69,7 +69,7 @@ HDInsight 提供对在本地附加到计算节点的分布式文件系统的访�
 * **没有连接到群集的存储帐户中的公共容器或公共 Blob：** 你对这些容器中的 Blob 具有只读权限。
 
     > [!NOTE]
-    > 利用公共容器，你可以获得该容器中可用的所有 Blob 的列表以及容器元数据。 利用公共 Blob，你仅在知道正确 URL 时才可访问 Blob。 有关详细信息，请参阅<a href="/azure/storage/storage-manage-access-to-resources/">限制对容器和 Blob 的访问</a>。
+    > 利用公共容器，你可以获得该容器中可用的所有 Blob 的列表以及容器元数据。 利用公共 Blob，你仅在知道正确 URL 时才可访问 Blob。 有关详细信息，请参阅<a href="../storage/storage-manage-access-to-resources.md">限制对容器和 Blob 的访问</a>。
     > 
     > 
 * **没有连接到群集的存储帐户中的私有容器：** 你不能访问这些容器中的 Blob，除非在提交 WebHCat 作业时定义存储帐户。 本文后面对此做了解释。
@@ -105,7 +105,7 @@ Blob 可用于结构化和非结构化数据。 Blob 容器将数据存储为键
 
 默认的 Blob 容器存储群集特定的信息，如作业历史记录和日志。 请不要多个 HDInsight 群集之间共享默认的 Blob 容器。 这可能会损坏作业历史记录。 建议对每个群集使用不同的容器，并将共享数据放入在所有相关群集的部署中指定的链接存储帐户，而不是放入默认存储帐户。 有关配置链接存储帐户的详细信息，请参阅 [创建 HDInsight 群集][hdinsight-creation]。 但是，在删除原始的 HDInsight 群集后，你可以重用默认存储容器。 对于 HBase 群集，实际上可以通过使用已删除的 HBase 群集使用的默认 Blob 容器创建新的 HBase 群集来保留 HBase 表架构和数据。
 
-#### <a name="using-the-azure-portal-preview"></a>使用 Azure 门户预览版
+#### <a name="using-the-azure-portal-preview"></a>使用 Azure 门户预览
 从门户创建 HDInsight 群集时，可通过以下选项提供存储帐户详细信息。 还可以指定是否要将附加存储帐户与该群集相关联，如果需要，请选择 Azure 存储 Blob 作为附加存储。
 
 ![HDInsight Hadoop - 创建数据源](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
@@ -306,14 +306,14 @@ URI 方案提供了使用 *wasb:* 前缀的未加密访问和使用 *wasbs* 的 
 * [使用 Azure 存储共享访问签名来限制使用 HDInsight 访问数据][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
-[powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
+[powershell-install]: https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs
 [hdinsight-creation]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-[blob-storage-restAPI]: http://msdn.microsoft.com/library/azure/dd135733.aspx
+[blob-storage-restAPI]: http://msdn.microsoft.com/zh-cn/library/azure/dd135733.aspx
 [azure-storage-create]: ../storage/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png

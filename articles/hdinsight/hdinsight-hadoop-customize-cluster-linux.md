@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -31,7 +31,7 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 > [!IMPORTANT]
 > 只有基于 Linux 的 HDInsight 群集能够在运行中的群集上使用脚本操作。
 > <p>
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 还可以将脚本操作作为 HDInsight 应用程序发布到 Azure 应用商店。 本文档中的某些示例将演示如何使用 PowerShell 和 .NET SDK 的脚本操作命令来安装 HDInsight 应用程序。
 
@@ -48,11 +48,11 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 
 如果使用的是你不是管理员/所有者的 Azure 订阅（例如公司所有的订阅），则必须确保你的 Azure 帐户至少具有 **参与者** 访问权限，才能访问包含 HDInsight 群集的 Azure 资源组。
 
-另外，如果用户创建的是 HDInsight 群集，至少对 Azure 订阅具有 **参与者** 访问权限的用户必须之前已注册 HDInsight 的提供程序。 对订阅具有参与者访问权限的用户首次在订阅上创建资源时，会进行提供程序注册。 不[使用 REST 注册提供程序](https://msdn.microsoft.com/library/azure/dn790548.aspx)创建资源也可完成该操作。
+另外，如果用户创建的是 HDInsight 群集，至少对 Azure 订阅具有 **参与者** 访问权限的用户必须之前已注册 HDInsight 的提供程序。 对订阅具有参与者访问权限的用户首次在订阅上创建资源时，会进行提供程序注册。 不[使用 REST 注册提供程序](https://msdn.microsoft.com/zh-cn/library/azure/dn790548.aspx)创建资源也可完成该操作。
 
 有关使用访问管理的详细信息，请参阅以下文档：
 
-* [Azure 门户预览版中的访问管理入门](../active-directory/role-based-access-control-what-is.md)
+* [Azure 门户预览中的访问管理入门](../active-directory/role-based-access-control-what-is.md)
 * [使用角色分配管理对 Azure 订阅资源的访问权限](../active-directory/role-based-access-control-configure.md)
 
 ## <a name="understanding-script-actions"></a>了解脚本操作
@@ -93,7 +93,7 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 
 * 可以接受脚本在执行期间使用的 **参数** 。
 * 在群集节点上 **以 root 级权限** 运行。
-* 可以通过 **Azure 门户预览版**、**Azure PowerShell**、**Azure CLI** 或 **HDInsight .NET SDK** 使用。
+* 可以通过 **Azure 门户预览**、**Azure PowerShell**、**Azure CLI** 或 **HDInsight .NET SDK** 使用。
 
 为了帮助了解哪些脚本已应用到群集，以及确定可供升级或降级的脚本 ID，群集将保留所有已运行脚本的历史记录。
 
@@ -144,7 +144,7 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 
 ## <a name="example-script-action-scripts"></a>脚本操作脚本示例
 
-可以从 Azure 门户预览版、Azure PowerShell、Azure CLI 或 HDInsight.NET SDK 使用脚本操作脚本。 HDInsight 提供了脚本用于在 HDInsight 群集上安装以下组件：
+可以从 Azure 门户预览、Azure PowerShell、Azure CLI 或 HDInsight.NET SDK 使用脚本操作脚本。 HDInsight 提供了脚本用于在 HDInsight 群集上安装以下组件：
 
 | 名称 | 脚本 |
 | --- | --- |
@@ -157,11 +157,11 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>在创建群集期间使用脚本操作
 
-本部分提供可以在创建 HDInsight 群集时使用脚本操作的不同方式的示例 - 从 Azure 门户预览版、使用 Azure Resource Manager 模板、使用 PowerShell cmdlet，以及使用 .NET SDK。
+本部分提供可以在创建 HDInsight 群集时使用脚本操作的不同方式的示例 - 从 Azure 门户预览、使用 Azure Resource Manager 模板、使用 PowerShell cmdlet，以及使用 .NET SDK。
 
-### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal-preview"></a>在创建群集期间从 Azure 门户预览版使用脚本操作
+### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal-preview"></a>在创建群集期间从 Azure 门户预览使用脚本操作
 
-1. 根据[在 HDInsight 中创建 Hadoop 群集](hdinsight-provision-clusters.md)中的说明开始创建群集。
+1. 根据[在 HDInsight 中创建 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)中的说明开始创建群集。
 2. 在“脚本操作”边栏选项卡的“可选配置”下，单击“添加脚本操作”以提供有关脚本操作的详细信息，如下所示：
 
     ![使用脚本操作自定义群集](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png)
@@ -185,7 +185,7 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 
 #### <a name="before-you-begin"></a>开始之前
 
-* 有关配置工作站以运行 HDInsight Powershell cmdlet 的信息，请参阅 [安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
+* 有关配置工作站以运行 HDInsight Powershell cmdlet 的信息，请参阅 [安装和配置 Azure PowerShell](https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs)。
 * 有关如何创建模板的说明，请参阅[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)。
 * 如果你以前没有对 Resource Manager 使用过 Azure PowerShell，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](../azure-resource-manager/powershell-azure-resource-manager.md)。
 
@@ -466,11 +466,11 @@ HDInsight .NET SDK 提供客户端库，可简化从 .NET 应用程序中使用 
 
 ## <a name="apply-a-script-action-to-a-running-cluster"></a>将脚本操作应用到正在运行的群集
 
-本部分提供可以将脚本操作应用到正在运行 HDInsight 群集的不同方式示例 - 从 Azure 门户预览版、使用 PowerShell cmdlet、使用跨平台 Azure CLI，以及使用 .NET SDK。 本部分中使用的持久化脚本操作将现有 Azure 存储帐户添加到正在运行的群集。 也可以使用其他脚本操作，请参阅 [Example Script Action scripts](#example-script-action-scripts)（示例脚本操作脚本）。
+本部分提供可以将脚本操作应用到正在运行 HDInsight 群集的不同方式示例 - 从 Azure 门户预览、使用 PowerShell cmdlet、使用跨平台 Azure CLI，以及使用 .NET SDK。 本部分中使用的持久化脚本操作将现有 Azure 存储帐户添加到正在运行的群集。 也可以使用其他脚本操作，请参阅[示例脚本操作脚本](#example-script-action-scripts)。
 
-### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-portal-preview"></a>从 Azure 门户预览版将脚本操作应用到正在运行的群集
+### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-portal-preview"></a>从 Azure 门户预览将脚本操作应用到正在运行的群集
 
-1. 在 [Azure 门户预览版](https://portal.azure.cn)中，选择 HDInsight 群集。
+1. 在 [Azure 门户预览](https://portal.azure.cn)中，选择 HDInsight 群集。
 
 2. 从 HDInsight 群集边栏选项卡中，选择“脚本操作”磁贴。
 
@@ -503,7 +503,7 @@ HDInsight .NET SDK 提供客户端库，可简化从 .NET 应用程序中使用 
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>从 Azure PowerShell 将脚本操作应用到正在运行的群集
 
-在继续前，确保你已安装并配置 Azure PowerShell。 有关配置工作站以运行 HDInsight PowerShell cmdlet 的信息，请参阅 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)（安装和配置 Azure PowerShell）。
+在继续前，确保你已安装并配置 Azure PowerShell。 有关配置工作站以运行 HDInsight PowerShell cmdlet 的信息，请参阅 [Install and configure Azure PowerShell](https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs)（安装和配置 Azure PowerShell）。
 
 1. 打开 Azure PowerShell 控制台并使用以下命令登录到 Azure 订阅，然后声明一些 PowerShell 变量：
 
@@ -568,7 +568,7 @@ HDInsight .NET SDK 提供客户端库，可简化从 .NET 应用程序中使用 
 
 ### <a name="apply-a-script-action-to-a-running-cluster-using-rest-api"></a>使用 REST API 将脚本操作应用到正在运行的群集
 
-请参阅[在运行中的群集上运行脚本操作](https://msdn.microsoft.com/library/azure/mt668441.aspx)。
+请参阅[在运行中的群集上运行脚本操作](https://msdn.microsoft.com/zh-cn/library/azure/mt668441.aspx)。
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>从 HDInsight .NET SDK 将脚本操作应用到正在运行的群集
 
@@ -576,9 +576,9 @@ HDInsight .NET SDK 提供客户端库，可简化从 .NET 应用程序中使用 
 
 ## <a name="view-history-promote-and-demote-script-actions"></a>查看历史记录以及升级和降级脚本操作
 
-### <a name="using-the-azure-portal-preview"></a>使用 Azure 门户预览版
+### <a name="using-the-azure-portal-preview"></a>使用 Azure 门户预览
 
-1. 在 [Azure 门户预览版](https://portal.azure.cn)中，选择 HDInsight 群集。
+1. 在 [Azure 门户预览](https://portal.azure.cn)中，选择 HDInsight 群集。
 
 2. 从 HDInsight 群集边栏选项卡中，选择“设置”。
 
@@ -663,7 +663,7 @@ HDInsight 服务中有两种类型的开放源代码组件：
 > [!WARNING]
 > 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门将帮助找出并解决与这些组件相关的问题。
 > <p>
-> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
 
 HDInsight 服务提供多种方式来使用自定义组件。 不论在群集上使用组件或安装组件的方式为何，均适用相同级别的支持。 以下是可以在 HDInsight 群集上使用的自定义组件最常见方式的列表：
 

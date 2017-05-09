@@ -71,7 +71,7 @@ ms.lasthandoff: 04/28/2017
     ![](./media/web-sites-dotnet-lob-application-azure-ad/4-published-shown-in-browser.png)
 
 ## <a name="bkmk_auth"></a> 配置身份验证和目录访问
-1. 登录到 [Azure 门户预览版](https://portal.azure.cn)。
+1. 登录到 [Azure 门户预览](https://portal.azure.cn)。
 2. 从左侧菜单中，依次单击“**应用服务** > **&lt;*应用名称*”** >“**身份验证/授权**”。
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/5-app-service-authentication.png)

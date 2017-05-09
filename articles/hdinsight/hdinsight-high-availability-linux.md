@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/03/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -33,7 +33,7 @@ Hadoop 可以通过在群集的多个节点上保留服务和数据的副本实�
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 ## <a name="understanding-the-nodes"></a>了解节点
 
@@ -219,9 +219,9 @@ Ambari REST API 可通过 Internet 提供，公共网关可将请求路由到当
 
 只能在创建群集期间选择节点大小。 可以在 [HDInsight 定价页](https://www.azure.cn/pricing/details/hdinsight/)中找到 HDInsight 可用的不同 VM 大小（包括核心、内存和本地存储）的列表。
 
-创建新的群集时，你可以指定节点的大小。 以下信息介绍了如何使用 [Azure 门户预览版][preview-portal]、[Azure PowerShell][azure-powershell] 和 [Azure CLI][azure-cli] 指定大小：
+创建新的群集时，你可以指定节点的大小。 以下信息介绍了如何使用 [Azure 门户预览][preview-portal]、[Azure PowerShell][azure-powershell] 和 [Azure CLI][azure-cli] 指定大小：
 
-* **Azure 门户预览版**：创建群集时，可以设置群集所用节点的大小：
+* **Azure 门户预览**：创建群集时，可以设置群集所用节点的大小：
 
     ![群集创建向导的图像，其中包含节点大小选项](./media/hdinsight-high-availability-linux/headnodesize.png)
 
@@ -235,11 +235,11 @@ Ambari REST API 可通过 Internet 提供，公共网关可将请求路由到当
 
 * [Ambari REST 参考](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [安装和配置 Azure CLI](../cli-install-nodejs.md)
-* [安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+* [安装和配置 Azure PowerShell](https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs)
 * [使用 Ambari 管理 HDInsight](hdinsight-hadoop-manage-ambari.md)
 * [配置基于 Linux 的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.cn/
-[azure-powershell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
+[azure-powershell]: https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs
 [azure-cli]: ../cli-install-nodejs.md
 

@@ -104,9 +104,9 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版�
 下表列出当前可用的 HDInsight 版本以及它们使用的相应 Hortonworks 数据平台版本和发布日期。 如果知道，还提供其支持到期日期和弃用日期。 请注意以下事项：
 
 * 默认情况下，会针对 HDInsight 2.1 和更高版本的群集部署具有两个头节点的高度可用群集。 它们不适用于 HDInsight 1.6 群集。
-* 某版本的支持到期后，可能不再通过 Azure 门户预览版提供它。 下表列出 Azure 经典管理门户上提供的版本。 可继续使用 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 参数和 .NET SDK 获取群集版本，直到其弃用日期为止。
+* 某版本的支持到期后，可能不再通过 Azure 门户预览提供它。 下表列出 Azure 经典管理门户上提供的版本。 可继续使用 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/zh-cn/library/mt619331.aspx) 命令中的 `Version` 参数和 .NET SDK 获取群集版本，直到其弃用日期为止。
 
-| HDInsight 版本 | HDP 版本 | VM OS | 高可用性 | 发布日期 | 在 Azure 门户预览版上提供 | 支持到期日期 | 弃用日期 |
+| HDInsight 版本 | HDP 版本 | VM OS | 高可用性 | 发布日期 | 在 Azure 门户预览上提供 | 支持到期日期 | 弃用日期 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDI 3.6 |HDP 2.6 |Ubuntu 16 |是 |04/06/2017 |是 | | |
 | HDI 3.5 |HDP 2.5 |Ubuntu 16 |是 |2016/9/30 |是 |07/05/2017 |05/31/2018 |
@@ -118,7 +118,7 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版�
 | HDI 2.1 |HDP 1.3 |Windows Server 2012R2 |是 |10/28/2013 |否 |05/12/2014 |05/31/2015 |
 | HDI 1.6 |HDP 1.1 | |否 |10/28/2013 |否 |04/26/2014 |05/31/2015 |
 
-##<a name="hdi-version-33-nearing-deprecation-date"></a>HDI 版本 3.3 接近弃用日期
+##<a name="hdi-version-33-nearing-deprecation-date" id="hdi-version-32-and-33-nearing-deprecation-date"></a>HDI 版本 3.3 接近弃用日期
 对 HDI 3.3 群集的支持于 06/27/2016 到期，并将于 07/31/2017 弃用。 如果有 HDI 3.3 群集，请尽快将群集升级到 HDI 3.5 或 HDI 3.6。 HDI 3.3 Windows 的弃用时间表可能因区域而异。 如果所在区域的计划弃用日期与本通信中确定的日期不同，客户将会收到单独的通信。
 
 ### <a name="the-service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 群集版本的服务级别协议

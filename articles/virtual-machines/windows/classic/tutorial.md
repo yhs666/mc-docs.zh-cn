@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 门户预览版中创建 VM | Azure"
-description: "在 Azure 门户预览版中创建 Windows 虚拟机。"
+title: "在 Azure 门户预览中创建 VM | Azure"
+description: "在 Azure 门户预览中创建 Windows 虚拟机。"
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -23,7 +23,7 @@ ms.lasthandoff: 04/14/2017
 
 
 ---
-# <a name="create-a-virtual-machine-running-windows-in-the-azure-portal-preview"></a>在 Azure 门户预览版中创建运行 Windows 的虚拟机
+# <a name="create-a-virtual-machine-running-windows-in-the-azure-portal-preview"></a>在 Azure 门户预览中创建运行 Windows 的虚拟机
 > [!div class="op_single_selector"]
 > * [Azure 经典管理门户](tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 > * [PowerShell：经典部署](create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
@@ -33,11 +33,11 @@ ms.lasthandoff: 04/14/2017
 <br>
 
 > [!IMPORTANT]
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何通过 **Azure 门户预览版**[使用 Resource Manager 部署模型执行这些步骤](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何通过 **Azure 门户预览**[使用 Resource Manager 部署模型执行这些步骤](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-本教程演示如何在 Azure 门户预览版中创建运行 Windows 的 Azure 虚拟机 (VM)。 我们将使用 Windows Server 映像作为示例，但这只是 Azure 提供的众多映像的其中一个。
+本教程演示如何在 Azure 门户预览中创建运行 Windows 的 Azure 虚拟机 (VM)。 我们将使用 Windows Server 映像作为示例，但这只是 Azure 提供的众多映像的其中一个。
 
-本部分演示如何使用 Azure 门户预览版中的“仪表板”选择并创建虚拟机。
+本部分演示如何使用 Azure 门户预览中的“仪表板”选择并创建虚拟机。
 
 你也可以使用[自己的映像](createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)创建 VM。 若要了解此方法和其他方法，请参阅[创建 Windows 虚拟机的不同方式](../creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
@@ -47,6 +47,6 @@ ms.lasthandoff: 04/14/2017
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
 ## <a name="next-steps"></a>后续步骤
-* 了解如何在 Azure 门户预览版中[使用 Resource Manager 部署模型创建 VM](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 了解如何在 Azure 门户预览中[使用 Resource Manager 部署模型创建 VM](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 登录到虚拟机。 有关说明，请参阅[登录到运行 Windows Server 的虚拟机](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 * 附加磁盘以存储数据。 你可以附加空磁盘和包含数据的磁盘。 有关说明，请参阅[将数据磁盘附加到使用经典部署模型创建的 Windows 虚拟机](attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。

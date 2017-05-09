@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/06/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -61,7 +61,7 @@ Ambari 中的多个菜单在没有 SSH 隧道的情况下无法完全填充，�
     > * Microsoft Edge
     > * Microsoft Internet Explorer
     > <p>
-    > Google Chrome 也依赖于 Windows 代理设置。 但是，可以安装支持 SOCKS5 的扩展。 我们建议使用 [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp)。
+    > Google Chrome 也依赖于 Windows 代理设置。 但是，可以安装支持 SOCKS5 的扩展。 我们建议使用 FoxyProxy Standard。
 
 ## <a name="usessh"></a>使用 SSH 命令创建隧道
 
@@ -140,7 +140,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 
     > [!NOTE]
     > 如果 Internet 连接速度较慢或者头节点非常繁忙，则选择“快速链接”时，可能会看到等待指针而不是菜单。 如果是这样，请等待一两分钟，让系统从服务器接收数据，然后再次尝试列出节点列表。
-    > <p> 如果显示器分辨率较低或者浏览器窗口没有最大化，则“快速链接”菜单中的某些项可能在屏幕右侧截断。 如果是这样，请使用鼠标展开菜单，然后使用向右箭头键向右滚动屏幕，查看菜单的余下内容。> 
+    > <p> 如果显示器分辨率较低或者浏览器窗口没有最大化，则“快速链接”菜单中的某些项可能在屏幕右侧截断。 如果是这样，请使用鼠标展开菜单，然后使用向右箭头键向右滚动屏幕，查看菜单的余下内容。
 4. 应会显示如下所示的页面：
 
     ![NameNode UI 的截图](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)

@@ -45,7 +45,7 @@ ms.lasthandoff: 04/28/2017
 
 对于虚拟网络中的每个 VM，请按如下所述为辅助 NIC 添加 IP 配置：  
 
-1. 从浏览器导航到 Azure 门户预览版：http://portal.azure.cn，并使用 Azure 帐户登录。
+1. 从浏览器导航到 Azure 门户预览：http://portal.azure.cn，并使用 Azure 帐户登录。
 2. 在屏幕的左上方单击“资源组”图标，然后单击 VM 所在的资源组（例如 *contosofabrikam*）。 此时将显示“资源组”边栏选项卡，其中列出了 VM 的所有资源以及网络接口。
 3. 针对每个 VM 的辅助 NIC，请按如下所述添加 IP 配置：
     1. 选择要将 IP 配置添加到的网络接口。
@@ -60,7 +60,7 @@ ms.lasthandoff: 04/28/2017
 
 按如下所述创建负载均衡器：
 
-1. 从浏览器导航到 Azure 门户预览版：http://portal.azure.cn，并使用 Azure 帐户登录。
+1. 从浏览器导航到 Azure 门户预览：http://portal.azure.cn，并使用 Azure 帐户登录。
 2. 在屏幕的左上方，单击“新建” > “网络” > “负载均衡器”。 接下来，单击“创建”。
 3. 在“创建负载均衡器”边栏选项卡中，为负载均衡器键入一个名称。 本例中使用名称 *mylb*。
 4. 在“公共 IP 地址”下，创建名为 **PublicIP1** 的新公共 IP。

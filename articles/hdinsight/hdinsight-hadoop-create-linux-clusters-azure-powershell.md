@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/06/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -37,12 +37,12 @@ Azure PowerShell 是一个功能强大的脚本编写环境，可用于在 Azure
 开始执行此过程之前请做好以下准备：
 
 * Azure 订阅。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+* [Azure PowerShell](https://docs.microsoft.com/zh-cn/powershell/azure/install-azurerm-ps)
 
     > [!IMPORTANT]
     > 使用 Azure Service Manager 管理 HDInsight 资源的 Azure PowerShell 支持**已弃用**，已在 2017 年 1 月 1 日删除。 本文档中的步骤使用的是与 Azure Resource Manager 兼容的新 HDInsight cmdlet。
     > <p>
-    > 请按照[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 中的步骤安装最新版本的 Azure PowerShell。 如果你的脚本需要修改后才能使用与 Azure Resource Manager 兼容的新 cmdlet，请参阅 [迁移到适用于 HDInsight 群集的基于 Azure Resource Manager 的开发工具](hdinsight-hadoop-development-using-azure-resource-manager.md) ，了解详细信息。
+    > 请按照[安装 Azure PowerShell](https://docs.microsoft.com/zh-cn/powershell/azure/install-azurerm-ps) 中的步骤安装最新版本的 Azure PowerShell。 如果你的脚本需要修改后才能使用与 Azure Resource Manager 兼容的新 cmdlet，请参阅 [迁移到适用于 HDInsight 群集的基于 Azure Resource Manager 的开发工具](hdinsight-hadoop-development-using-azure-resource-manager.md) ，了解详细信息。
 
 ### <a name="access-control-requirements"></a>访问控制要求
 

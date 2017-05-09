@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/28/2017
 [Maven](http://maven.apache.org/) 是一种软件项目管理和综合工具，可用于为 Java 项目构建软件、文档和报告。 在本文中，你将要了解如何使用 Maven 创建一个基本的 Java 应用程序，该应用程序可在基于 Linux 的 HDInsight 群集上创建、查询和删除 HBase 表。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 ## <a name="requirements"></a>要求
 
@@ -49,9 +49,9 @@ ms.lasthandoff: 04/28/2017
 
 * **熟悉 SSH 和 SCP** 或 **Azure PowerShell**。 本文档提供有关运行此示例时使用 SSH/SCP 和 Azure PowerShell 的步骤。
 
-    有关安装 Azure PowerShell 的信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)。
+    有关安装 Azure PowerShell 的信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs/)。
 
-    有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+    有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="create-the-project"></a>创建项目
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 04/28/2017
 
 4. 保存 **pom.xml** 文件。
 
-5. 在 **conf** in the **hbaseapp** 的目录。 此目录用于保存连接到 HBase 所需的配置信息。
+5. 在 **hbaseapp** 目录中创建名为 **conf** 的目录。 此目录用于保存连接到 HBase 所需的配置信息。
 
 6. 使用以下命令将 HBase 配置从 HDInsight 服务器复制到 **conf** 目录。 将 **USERNAME** 替换为 SSH 登录名。 将 **CLUSTERNAME** 替换为 HDInsight 群集名称：
 

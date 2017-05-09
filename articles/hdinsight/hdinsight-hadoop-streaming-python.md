@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/06/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -37,14 +37,14 @@ Hadoop 为 MapReduce 提供了一个流式处理 API，这样，除 Java 外，�
 * 基于 Linux 的 HDInsight 上的 Hadoop 群集
 
     > [!IMPORTANT]
-    > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+    > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 * 文本编辑器
 
     > [!IMPORTANT]
-    > 文本编辑器必须使用 LF 作为行尾。 如果使用 CRLF，则在基于 Linux 的 HDInsight 群集上运行 MapReduce 作业时会出错。 如果不确定它使用哪种行尾，请使用 [运行 MapReduce](#run-mapreduce) 部分中的可选步骤，将所有 CRLF 转换为 LF。
+    > 文本编辑器必须使用 LF 作为行尾。 如果使用 CRLF，则在基于 Linux 的 HDInsight 群集上运行 MapReduce 作业时会出错。 如果不确定它使用哪种行尾，请使用 [运行 MapReduce](#run-mapreduce-ssh) 部分中的可选步骤，将所有 CRLF 转换为 LF。
 
-* **熟悉 SSH 和 SCP**。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+* **熟悉 SSH 和 SCP**。 有关详细信息，请参阅 [对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="word-count"></a>字数统计
 

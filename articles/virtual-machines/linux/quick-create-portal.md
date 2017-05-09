@@ -23,9 +23,9 @@ ms.lasthandoff: 04/14/2017
 
 ---
 
-# <a name="create-a-linux-virtual-machine-with-the-azure-portal-preview"></a>使用 Azure 门户预览版创建 Linux 虚拟机
+# <a name="create-a-linux-virtual-machine-with-the-azure-portal-preview"></a>使用 Azure 门户预览创建 Linux 虚拟机
 
-可以通过 Azure 门户预览版创建 Azure 虚拟机。 此方法提供一个基于浏览器的用户界面，用于创建和配置 VM 和所有相关的 Azure 资源。
+可以通过 Azure 门户预览创建 Azure 虚拟机。 此方法提供一个基于浏览器的用户界面，用于创建和配置 VM 和所有相关的 Azure 资源。
 
 ## <a name="create-ssh-key-pair"></a>创建 SSH 密钥对
 
@@ -39,11 +39,11 @@ ssh-keygen -t rsa -b 2048
 
 ## <a name="log-in-to-azure"></a>登录到 Azure 
 
-通过 http://portal.azure.cn 登录到 Azure 门户预览版。
+通过 http://portal.azure.cn 登录到 Azure 门户预览。
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 
-1. 单击 Azure 门户预览版左上角的“新建”按钮。
+1. 单击 Azure 门户预览左上角的“新建”按钮。
 
 2. 从“新建”边栏选项卡中选择“计算”，从“计算”边栏选项卡中选择“Ubuntu Server 16.04 LTS”，然后单击“创建”按钮。
 
@@ -59,19 +59,19 @@ ssh-keygen -t rsa -b 2048
 
 6. 在摘要页上，单击“确定”以开始虚拟机部署。
 
-7. 若要监视部署状态，请单击虚拟机。 可以在 Azure 门户预览版仪表板上或者通过从左侧菜单中选择“虚拟机”来找到该 VM。 创建 VM 后，状态将从“正在部署”更改为“正在运行”。
+7. 若要监视部署状态，请单击虚拟机。 可以在 Azure 门户预览仪表板上或者通过从左侧菜单中选择“虚拟机”来找到该 VM。 创建 VM 后，状态将从“正在部署”更改为“正在运行”。
 
 ## <a name="connect-to-virtual-machine"></a>连接到虚拟机
 
 完成部署后，请与虚拟机建立 SSH 连接。
 
-1. 单击该虚拟机。 可以在 Azure 门户预览版的主屏幕上或者通过从左侧菜单中选择“虚拟机”来找到该 VM。
+1. 单击该虚拟机。 可以在 Azure 门户预览的主屏幕上或者通过从左侧菜单中选择“虚拟机”来找到该 VM。
 
 2. 单击“连接”按钮。 单击“连接”按钮后，将显示可用于连接到虚拟机的 SSH 连接字符串。
 
     ![门户 9](../media/virtual-machine-quick-start/portal-quick-start-9.png) 
 
-3. 运行以下命令创建 SSH 会话。 将连接字符串替换为从 Azure 门户预览版复制的值。
+3. 运行以下命令创建 SSH 会话。 将连接字符串替换为从 Azure 门户预览复制的值。
 
 ```bash 
 ssh <replace with IP address>

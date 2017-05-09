@@ -64,7 +64,7 @@ ms.lasthandoff: 04/14/2017
 10. 在“**摘要**”边栏选项卡中，单击“**确定**”。
 
 ## <a name="to-remotely-sign-in-to-your-virtual-machine"></a>远程登录到虚拟机的步骤
-1. 登录到 [Azure 门户预览版](https://portal.azure.cn)。
+1. 登录到 [Azure 门户预览](https://portal.azure.cn)。
 2. 单击“虚拟机(经典)”。 必要时，请单击服务类别下方左下角的“更多服务”。 “虚拟机(经典)”条目列在“计算”组中。
 3. 单击要登录到的虚拟机的名称。
 4. 启动虚拟机后，可使用窗格顶部的菜单进行连接。

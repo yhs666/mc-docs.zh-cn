@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/05/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -267,7 +267,7 @@ beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin
 * [在基于 Windows 的 HDInsight 上使用 Tez UI](hdinsight-debug-tez-ui.md)
 * [在基于 Linux 的 HDInsight 上使用 Ambari Tez 视图](hdinsight-debug-ambari-tez-view.md)
 
-[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdn.microsoft.com/zh-cn/library/dn479185.aspx
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
@@ -275,18 +275,18 @@ beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-log4j]: http://zh.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: /azure/hdinsight-connect-excel-power-query/
+[import-to-excel]: ./hdinsight-connect-excel-power-query.md
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: http://technet.microsoft.com/zh-cn/library/ee692792.aspx
 

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/29/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
@@ -258,7 +258,7 @@ Maven 插件可让你自定义项目的生成阶段，例如，如何编译项�
 > * [TwitterSampleSpout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java)：从Twitter 读取数据的示例 Spout
 > * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka)：从 Kafka 读取数据的 Spout
 
-对于 Spout，在 `RandomSentenceSpout.java` in the `src\main\java\com\microsoft\example` 的文件，并使用以下文本作为内容：
+对于 Spout，在 `src\main\java\com\microsoft\example` 目录中创建名为 `RandomSentenceSpout.java` 的文件，并使用以下文本作为内容：
 
 ```java
 package com.microsoft.example;
@@ -482,7 +482,7 @@ public class WordCount extends BaseBasicBolt {
 
 ![显示 Spout 和 Bolt 排列方式的示意图](./media/hdinsight-storm-develop-java-topology/wordcount-topology.png)
 
-若要实现该拓扑，请在 `WordCountTopology.java` in the `src\main\java\com\microsoft\example` 。 将以下文本用作该文件的内容：
+若要实现该拓扑，请在 `src\main\java\com\microsoft\example` 目录中创建一个名为 `WordCountTopology.java` 的文件。 将以下文本用作该文件的内容：
 
 ```java
 package com.microsoft.example;
@@ -550,7 +550,7 @@ public class WordCountTopology {
 
 ### <a name="configure-logging"></a>配置日志记录
 
-Storm 使用 Apache Log4j 来记录信息。 如果未配置日志记录，拓扑将发出诊断信息。 若要控制所记录的信息，请在 `log4j2.xml` in the `resources` 。 使用以下文本作为该文件的内容。
+Storm 使用 Apache Log4j 来记录信息。 如果未配置日志记录，拓扑将发出诊断信息。 若要控制所记录的信息，请在 `resources` 目录中创建名为 `log4j2.xml` 的文件。 使用以下文本作为该文件的内容。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

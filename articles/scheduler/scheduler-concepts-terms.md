@@ -184,7 +184,7 @@ ms.lasthandoff: 04/28/2017
 ## <a name="see-also"></a>另请参阅
  [计划程序是什么？](scheduler-intro.md)
 
- [开始在 Azure 门户预览版中使用计划程序](scheduler-get-started-portal.md)
+ [开始在 Azure 门户预览中使用计划程序](scheduler-get-started-portal.md)
 
  [Azure 计划程序中的计划和计费](scheduler-plans-billing.md)
 

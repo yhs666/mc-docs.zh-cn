@@ -5,5 +5,5 @@
 
 有关使用访问管理的详细信息，请参阅以下文章：
 
-* [Azure 门户预览版中的访问管理入门](../articles/active-directory/role-based-access-control-what-is.md)
+* [Azure 门户预览中的访问管理入门](../articles/active-directory/role-based-access-control-what-is.md)
 * [使用角色分配管理对 Azure 订阅资源的访问权限](../articles/active-directory/role-based-access-control-configure.md)

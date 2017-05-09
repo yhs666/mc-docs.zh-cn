@@ -55,7 +55,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 尽管可以手动创建 Azure 虚拟网络、Kafka 和 Storm 群集，但使用 Azure Resource Manager 模板会更容易。 使用以下步骤将 Azure 虚拟网络、Kafka 和 Storm 群集部署到 Azure 订阅。
 
-1. 使用以下按钮登录到 Azure，然后在 Azure 门户预览版中打开模板。
+1. 使用以下按钮登录到 Azure，然后在 Azure 门户预览中打开模板。
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -343,7 +343,7 @@ storm kill kafka-reader
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-由于本文档中的步骤在同一 Azure 资源组中创建两个群集，因此可以在 Azure 门户预览版中删除该资源组。 此操作会删除按照本文档创建的所有资源（Azure 虚拟网络和群集使用的存储帐户）。
+由于本文档中的步骤在同一 Azure 资源组中创建两个群集，因此可以在 Azure 门户预览中删除该资源组。 此操作会删除按照本文档创建的所有资源（Azure 虚拟网络和群集使用的存储帐户）。
 
 ## <a name="next-steps"></a>后续步骤
 

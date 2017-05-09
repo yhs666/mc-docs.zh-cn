@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/14/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
@@ -48,7 +48,7 @@ ms.lasthandoff: 04/28/2017
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 **要求**
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 04/28/2017
     > [!NOTE]
     > 本文档假定你已创建存储帐户、blob 容器，并已将文件上传到该容器。
     > <p>
-    > 如果尚未创建存储帐户，可以通过 [Azure 门户预览版](https://portal.azure.cn)创建该帐户。 然后可以使用实用工具（如 [Azure 存储资源管理器](http://storageexplorer.com/) ）在帐户中创建容器并将文件上载到该容器。
+    > 如果尚未创建存储帐户，可以通过 [Azure 门户预览](https://portal.azure.cn)创建该帐户。 然后可以使用实用工具（如 [Azure 存储资源管理器](http://storageexplorer.com/) ）在帐户中创建容器并将文件上载到该容器。
 
 ## <a name="create-a-cluster-using-the-script"></a>使用脚本创建群集。
 

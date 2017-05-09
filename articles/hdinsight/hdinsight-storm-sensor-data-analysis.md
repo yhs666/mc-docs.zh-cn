@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/28/2017
 > [!NOTE]
 > 此文档中的信息和此文档中的示例需要 HDInsight 3.5 版。
 >
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 04/28/2017
 * [Java 和 JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)：用于开发 Storm 拓扑。
 * [Maven](http://maven.apache.org/what-is-maven.html)：用于生成和编译项目。
 * [Git](http://git-scm.com/)：用于从 GitHub 下载项目。
-* **SSH** 客户端：用于连接到基于 Linux 的 HDInsight 群集。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+* **SSH** 客户端：用于连接到基于 Linux 的 HDInsight 群集。 有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
     > [!NOTE]
     > 另外，用户还必须有权限访问 `scp` 命令，该命令用于在本地开发环境与使用 SSH 的 HDInsight 群集之间复制文件。
@@ -83,7 +83,7 @@ ms.lasthandoff: 04/28/2017
 > [!IMPORTANT]
 > 需要两个群集，因为没有方法支持为 Storm 和 HBase 创建同一个 HDInsight 群集。
 
-拓扑使用 [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) 类从事件中心读取数据，并使用 [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html) 类将数据写入到 HBase。 与网站的通信可通过使用 [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java) 来实现。
+拓扑使用 [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) 类从事件中心读取数据，并使用 [org.apache.storm.hbase.bolt.HBaseBolt](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/hbase/bolt/HBaseBolt.html) 类将数据写入到 HBase。 与网站的通信可通过使用 [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java) 来实现。
 
 下图说明拓扑的布局：
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 04/28/2017
 
 事件中心是此示例的数据源。 按照下列步骤创建一个事件中心。
 
-1. 从 [Azure 门户预览版](https://portal.azure.cn)选择“+ 新建” -> “物联网” -> “事件中心”。
+1. 从 [Azure 门户预览](https://portal.azure.cn)选择“+ 新建” -> “物联网” -> “事件中心”。
 2. 在“创建命名空间”边栏选项卡上，执行以下任务： 
 
     1. 输入命名空间的**名称**。
@@ -257,12 +257,12 @@ ms.lasthandoff: 04/28/2017
 
 本文档使用的 Resource Manager 模板位于 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hbase-storm-cluster-in-vnet.json**.的公共 blob 容器上。
 
-1. 单击以下按钮登录到 Azure，然后在 Azure 门户预览版中打开 Resource Manager 模板。
+1. 单击以下按钮登录到 Azure，然后在 Azure 门户预览中打开 Resource Manager 模板。
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet-3.5.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
     >[!NOTE]
-    > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，将一些终结点 -“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”；将允许的位置更改为“中国北部”和“中国东部”；将 HDInsight Linux 版本更改为 Azure 中国区支持的版本 3.5。
+    > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，将一些终结点 -“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”；将允许的位置更改为“China North”和“China East”；将 HDInsight Linux 版本更改为 Azure 中国区支持的版本 3.5。
 
 2. 在“自定义部署”  边栏选项卡中，输入以下信息：
 

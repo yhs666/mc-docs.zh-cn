@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -71,7 +71,7 @@ ms.lasthandoff: 04/28/2017
 **将空边缘节点添加到现有群集**
 
 1. 创建一个 HDInsight 群集（如果没有）。  请参阅 [Hadoop 教程：开始使用 HDInsight 中基于 Linux 的 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)。
-2. 单击以下图像登录到 Azure，然后在 Azure 门户预览版中打开 Azure Resource Manager 模板。 
+2. 单击以下图像登录到 Azure，然后在 Azure 门户预览中打开 Azure Resource Manager 模板。 
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FEmptyNode%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
 3. 配置以下属性：
@@ -90,12 +90,12 @@ ms.lasthandoff: 04/28/2017
 **将空边缘节点添加到现有群集**
 
 1. 创建一个 HDInsight 群集（如果没有）。  请参阅 [Hadoop 教程：开始使用 HDInsight 中基于 Linux 的 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)。
-2. 单击以下图像登录到 Azure，然后在 Azure 门户预览版中打开 Azure Resource Manager 模板。 
+2. 单击以下图像登录到 Azure，然后在 Azure 门户预览中打开 Azure Resource Manager 模板。 
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
     >[!NOTE]
-    > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，将一些终结点 -“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”；将允许的位置更改为“中国北部”和“中国东部”；将 HDInsight Linux 版本更改为 Azure 中国区支持的版本 3.5。
+    > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，将一些终结点 -“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”；将允许的位置更改为“China North”和“China East”；将 HDInsight Linux 版本更改为 Azure 中国区支持的版本 3.5。
 
 3. 配置以下属性：
 
@@ -115,11 +115,11 @@ ms.lasthandoff: 04/28/2017
 ## <a name="access-an-edge-node"></a>访问边缘节点
 边缘节点 ssh 终结点为 &lt;边缘节点名称>.&lt;群集名称>-ssh.azurehdinsight.cn:22。  例如，new-edgenode.myedgenode0914-ssh.azurehdinsight.cn:22。
 
-在 Azure 门户预览版中，边缘节点显示为应用程序。  门户中提供了使用 SSH 访问边缘节点时所需的信息。
+在 Azure 门户预览中，边缘节点显示为应用程序。  门户中提供了使用 SSH 访问边缘节点时所需的信息。
 
 **验证边缘节点 SSH 终结点**
 
-1. 登录到 [Azure 门户预览版](https://portal.azure.cn)。
+1. 登录到 [Azure 门户预览](https://portal.azure.cn)。
 2. 打开包含边缘节点的 HDInsight 群集。
 3. 在群集边栏选项卡中单击“应用程序”。 此时将显示该边缘节点。  默认名称为 **new-edgenode**。
 4. 单击该边缘节点。 此时将显示 SSH 终结点。
@@ -136,11 +136,11 @@ ms.lasthandoff: 04/28/2017
         show tables;
 
 ## <a name="delete-an-edge-node"></a>删除边缘节点
-可以在 Azure 门户预览版中删除边缘节点。
+可以在 Azure 门户预览中删除边缘节点。
 
 **访问边缘节点**
 
-1. 登录到 [Azure 门户预览版](https://portal.azure.cn)。
+1. 登录到 [Azure 门户预览](https://portal.azure.cn)。
 2. 打开包含边缘节点的 HDInsight 群集。
 3. 在群集边栏选项卡中单击“应用程序”。 此时将显示边缘节点的列表。  
 4. 右键单击要删除的边缘节点，然后单击“删除”。
@@ -151,7 +151,7 @@ ms.lasthandoff: 04/28/2017
 
 * [安装 HDInsight 应用程序](hdinsight-apps-install-applications.md)：了解如何将 HDInsight 应用程序安装到群集。
 * [安装自定义 HDInsight 应用程序](hdinsight-apps-install-custom-applications.md)：了解如何将未发布的 HDInsight 应用程序部署到 HDInsight。
-* [MSDN：安装 HDInsight 应用程序](https://msdn.microsoft.com/library/mt706515.aspx)：了解如何定义 HDInsight 应用程序。
+* [MSDN：安装 HDInsight 应用程序](https://msdn.microsoft.com/zh-cn/library/mt706515.aspx)：了解如何定义 HDInsight 应用程序。
 * [使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用脚本操作安装其他应用程序。
 * [使用 Resource Manager 模板在 HDInsight 中创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)：了解如何调用 Resource Manager 模板创建 HDInsight 群集。
 

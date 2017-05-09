@@ -20,7 +20,7 @@
     ![查找数据磁盘](./media/howto-detach-disk-windows-linux/vmwithdisklist.png)
 
 ## <a name="detach-the-disk"></a>分离磁盘
-1. 在 Azure 门户预览版中，单击“虚拟机”，然后单击其数据磁盘需要进行分离的虚拟机的名称。
+1. 在 Azure 门户预览中，单击“虚拟机”，然后单击其数据磁盘需要进行分离的虚拟机的名称。
 
 2. 在虚拟机仪表板左侧边缘上，单击“设置”下的“磁盘”。
 

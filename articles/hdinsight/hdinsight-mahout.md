@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -39,7 +39,7 @@ ms.lasthandoff: 04/28/2017
     > [!IMPORTANT]
     > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/zh-cn/powershell/azure/overview)
 
 ## <a name="recommendations"></a>使用 Azure PowerShell 生成推荐
 
@@ -396,7 +396,7 @@ foreach($blob in $blobs)
 * [MapReduce 和 HDInsight 配合使用](hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
-[aps]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
+[aps]: https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs
 [movielens]: http://grouplens.org/datasets/movielens/
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
 [getstarted]: hdinsight-hadoop-linux-tutorial-get-started.md

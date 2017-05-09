@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 02/27/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
@@ -34,7 +34,7 @@ Hive 和 Pig 非常适用于在 HDInsight 中处理数据，但有时需要使�
     [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
     > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 * 文本编辑器
 
@@ -271,7 +271,7 @@ def create_structure(input):
 
 ### <a name="powershell"></a>PowerShell
 
-这些步骤使用 Azure PowerShell。 有关如何使用 Azure PowerShell 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
+这些步骤使用 Azure PowerShell。 有关如何使用 Azure PowerShell 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs)。
 
 1. 使用 Python 示例 [streaming.py](#streamingpy) 和 [pig_python.py](#jythonpy) 在开发计算机上创建文件的本地副本。
 2. 使用以下 PowerShell 脚本将 **streaming.py** 和 **pig\_python.py**  文件上传到服务器。 在脚本的前三行中，替换 Azure HDInsight 群集的名称，以及 **streaming.py** 和 **pig\_python.py** 文件的路径。

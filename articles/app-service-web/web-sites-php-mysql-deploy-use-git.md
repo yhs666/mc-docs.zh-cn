@@ -31,7 +31,7 @@ ms.lasthandoff: 04/28/2017
 
 学习内容：
 
-* 如何使用 [Azure 门户预览版][management-portal]创建 Web 应用和 MySQL 数据库。 由于在[应用服务 Web 应用](/azure/app-service-web/app-service-changes-existing-services)中已默认启用 PHP，因此运行 PHP 代码没有任何特殊要求。
+* 如何使用 [Azure 门户预览][management-portal]创建 Web 应用和 MySQL 数据库。 由于在[应用服务 Web 应用](/azure/app-service-web/app-service-changes-existing-services)中已默认启用 PHP，因此运行 PHP 代码没有任何特殊要求。
 * 如何使用 Git 将应用程序发布和重新发布到 Azure。
 * 如何启用该编辑器扩展才能在每个 `git push`自动执行编辑器任务。
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 04/28/2017
 ## <a id="create-web-site-and-set-up-git"></a>创建 Web 应用并设置 Git 发布
 按照以下步骤创建 Web 应用和 MySQL 数据库：
 
-1. 登录到 [Azure 门户预览版][management-portal]。
+1. 登录到 [Azure 门户预览][management-portal]。
 2. 单击“新建”  图标。
 3. 单击“应用商店”旁边的“查看全部”。 
 4. 单击“Web + 移动”，然后单击“Web 应用”。 然后单击 **创建**。
@@ -187,11 +187,11 @@ ms.lasthandoff: 04/28/2017
 在本地测试你的应用之后，可以使用 Git 将其发布到 Web Apps。 你将初始化本地 Git 存储库并发布该应用程序。
 
 > [!NOTE]
-> 这些步骤与 Azure 门户预览版中的“创建 Web 应用并设置 Git 发布”一节的结尾显示的步骤相同。
+> 这些步骤与 Azure 门户预览中的“创建 Web 应用并设置 Git 发布”一节的结尾显示的步骤相同。
 > 
 > 
 
-1. （可选）如果你忘记或误放了 Git 远程存储库 URL，请导航到 Azure 门户预览版上的 Web 应用属性。
+1. （可选）如果你忘记或误放了 Git 远程存储库 URL，请导航到 Azure 门户预览上的 Web 应用属性。
 2. 打开 GitBash（或终端，如果 Git 在 `PATH` 中），将目录更改为应用程序的根目录，并运行以下命令：
 
         git init
@@ -229,7 +229,7 @@ ms.lasthandoff: 04/28/2017
 ## <a name="composer"></a> 使用编辑器扩展启用编辑器自动化
 默认情况下，如果 PHP 项目中有 composer.json，则应用服务中的 git 部署过程与其不相关。 `git push` 期间可以通过启用编辑器扩展启用 composer.json 处理。
 
-1. 在 [Azure 门户预览版][management-portal]的 PHP Web 应用的边栏选项卡中，单击“工具” > “扩展”。
+1. 在 [Azure 门户预览][management-portal]的 PHP Web 应用的边栏选项卡中，单击“工具” > “扩展”。
 
     ![设置编辑器扩展插件][composer-extension-settings]
 2. 单击“添加”，然后单击“编辑器”。

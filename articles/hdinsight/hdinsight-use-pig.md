@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/03/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -78,7 +78,7 @@ HDInsight 提供各种示例数据集，它们存储在 `/example/data` 和 `/Hd
 在前面的示例中，日志级别为 ERROR。
 
 > [!NOTE]
-> 还可以使用 [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) 日志记录工具来生成 log4j 文件，然后将该文件上传到 Blob。 请参阅[将数据上传到 HDInsight](hdinsight-upload-data.md) 以获取相关说明。 有关如何将 Azure 存储中的 Blob 与 HDInsight 配合使用的详细信息，请参阅[将 Azure Blob 存储与 HDInsight 配合使用](hdinsight-hadoop-use-blob-storage.md)。
+> 还可以使用 [Apache Log4j](http://zh.wikipedia.org/wiki/Log4j) 日志记录工具来生成 log4j 文件，然后将该文件上传到 Blob。 请参阅[将数据上传到 HDInsight](hdinsight-upload-data.md) 以获取相关说明。 有关如何将 Azure 存储中的 Blob 与 HDInsight 配合使用的详细信息，请参阅[将 Azure Blob 存储与 HDInsight 配合使用](hdinsight-hadoop-use-blob-storage.md)。
 
 ## <a id="job"></a>示例作业
 
@@ -135,9 +135,9 @@ HDInsight 可以使用各种方法来运行 Pig Latin 作业。 使用下表来�
 [apachepig-home]: http://pig.apache.org/
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: http://curl.haxx.se/
-[pigtask]: http://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[pigtask]: http://msdn.microsoft.com/zh-cn/library/mt146781(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/zh-cn/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/zh-cn/library/mt146770(v=sql.120).aspx
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
@@ -146,12 +146,12 @@ HDInsight 可以使用各种方法来运行 Pig Latin 作业。 使用下表来�
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md#mapreduce-sdk
 
-[Powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
+[Powershell-install-configure]: https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/zh-cn/library/hh847889.aspx
 
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
 

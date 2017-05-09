@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -41,7 +41,7 @@ ms.lasthandoff: 04/28/2017
 > [!WARNING]
 > Microsoft 完全支持 HDInsight 群集提供的组件。
 >
-> 自定义组件（如 Solr）可获得合理范围的支持，以帮助进一步排查问题。 Microsoft 支持可能无法解决与自定义组件有关的问题。 用户可能需要寻求开源社区的帮助。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [http://stackoverflow.com](http://stackoverflow.com)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自定义组件（如 Solr）可获得合理范围的支持，以帮助进一步排查问题。 Azure.cn 支持可能无法解决与自定义组件有关的问题。 用户可能需要寻求开源社区的帮助。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
 
 ## <a name="what-the-script-does"></a>脚本功能
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 04/28/2017
     ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
     ```
 
-    有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+    有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
      > [!IMPORTANT]
      > 本文档中的后续步骤使用 SSL 隧道连接到 Solr Web UI。 若要使用这些步骤，必须建立 SSL 隧道，然后将浏览器配置为使用该隧道。

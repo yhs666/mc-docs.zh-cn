@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/14/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -87,7 +87,7 @@ HDInsight 提供存储在 `/example/data` 和 `/HdiSamples` 目录中的各种�
 在前面的示例中，日志级别为 ERROR。
 
 > [!NOTE]
-> 你也可以使用 [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) 日志记录工具生成 log4j 文件，然后将该文件上传到 Blob 容器。 请参阅[将数据上传到 HDInsight](hdinsight-upload-data.md) 以获取相关说明。 有关如何将 Azure Blob 存储与 HDInsight 配合使用的详细信息，请参阅[将 Azure Blob 存储与 HDInsight 配合使用](hdinsight-hadoop-use-blob-storage.md)。
+> 你也可以使用 [Apache Log4j](http://zh.wikipedia.org/wiki/Log4j) 日志记录工具生成 log4j 文件，然后将该文件上传到 Blob 容器。 请参阅[将数据上传到 HDInsight](hdinsight-upload-data.md) 以获取相关说明。 有关如何将 Azure Blob 存储与 HDInsight 配合使用的详细信息，请参阅[将 Azure Blob 存储与 HDInsight 配合使用](hdinsight-hadoop-use-blob-storage.md)。
 
 ## <a id="job"></a>Hive 查询示例
 
@@ -199,7 +199,7 @@ HDInsight 可以使用各种方法运行 HiveQL 作业。 使用下表来确定�
 * [将 Pig 与 HDInsight 配合使用][hdinsight-use-pig]
 * [将 MapReduce 作业与 HDInsight 配合使用][hdinsight-use-mapreduce]
 
-[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdn.microsoft.com/zh-cn/library/dn479185.aspx
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
@@ -207,12 +207,12 @@ HDInsight 可以使用各种方法运行 HiveQL 作业。 使用下表来确定�
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-log4j]: http://zh.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: /azure/hdinsight-connect-excel-power-query/
-[hivetask]: http://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[import-to-excel]: hdinsight-connect-excel-power-query.md
+[hivetask]: http://msdn.microsoft.com/zh-cn/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/zh-cn/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/zh-cn/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -221,12 +221,12 @@ HDInsight 可以使用各种方法运行 HiveQL 作业。 使用下表来确定�
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
-[Powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[Powershell-install-configure]: https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs
+[powershell-here-strings]: http://technet.microsoft.com/zh-cn/library/ee692792.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 

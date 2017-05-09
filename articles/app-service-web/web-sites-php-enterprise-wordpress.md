@@ -120,11 +120,11 @@ Azure App Service 为大规模任务关键型 [WordPress][wordpress] 站点提�
 #### <a name="the-export-and-import-method"></a>导出和导入方法
 1. 使用 [WordPress 导出][export] 导出您的现有网站。
 2. 使用 [创建 WordPress 站点](#Create-a-new-WordPress-site) 部分的步骤，创建 Web 应用。
-3. 在 [Azure 门户预览版][mgmtportal]上登录 WordPress 站点，然后单击“插件” > “新增”。 搜索并安装 **WordPress 导入程序**插件。
+3. 在 [Azure 门户预览][mgmtportal]上登录 WordPress 站点，然后单击“插件” > “新增”。 搜索并安装 **WordPress 导入程序**插件。
 4. 安装 WordPress 导入程序插件后，单击“工具” > “导入”，然后单击“WordPress”使用 WordPress 导入程序插件。
 5. 在“导入 WordPress”页面上，单击“选择文件”。 查找从现有 WordPress 站点导出的 WXR 文件，然后单击“上传文件和导入”。
 6. 单击“提交” 。 系统提示导入成功。
-7. 完成所有这些步骤后，从 [Azure 门户预览版][mgmtportal]中的“应用服务”边栏选项卡重启站点。
+7. 完成所有这些步骤后，从 [Azure 门户预览][mgmtportal]中的“应用服务”边栏选项卡重启站点。
 
 导入站点后，请执行以下步骤，启用导入文件中不包含的设置。
 
@@ -145,7 +145,7 @@ Azure App Service 为大规模任务关键型 [WordPress][wordpress] 站点提�
     3. 更新数据库，将域条目更改为新 Azure App Service 域（如 mywordpress.chinacloudsites.cn）。 使用 [搜索和替换为 WordPress 数据库脚本][searchandreplace] ，安全地更改所有实例。
 4. 在 Azure 门户预览中创建 Web 应用并发布 WordPress 备份。
 
-    1. 若要创建带数据库的 Web 应用，请在 [Azure 门户预览版][mgmtportal]中，单击“新建” > “Web + 移动” > “Web 应用” > “创建”。 配置所有所需的设置来创建空 Web 应用。
+    1. 若要创建带数据库的 Web 应用，请在 [Azure 门户预览][mgmtportal]中，单击“新建” > “Web + 移动” > “Web 应用” > “创建”。 配置所有所需的设置来创建空 Web 应用。
     2. 在 WordPress 备份中，找到 **wp-config.php** 文件，并在编辑器中打开。 将以下条目替换为新 MySQL 数据库的信息：
 
         * **DB_NAME**：数据库的用户名。

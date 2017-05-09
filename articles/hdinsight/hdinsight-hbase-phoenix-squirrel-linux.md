@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/06/2017
-wacn.date: 
+wacn.date: 05/08/2017
 ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -38,7 +38,7 @@ ms.lasthandoff: 04/28/2017
 在使用 SQLLine 之前，必须先准备好以下各项：
 
 * **HDInsight 中的 HBase 群集**。 有关预配 HBase 群集的信息，请参阅 [HDInsight 中的 Apache HBase 入门][hdinsight-hbase-get-started]。
-* **通过远程桌面协议连接到 HBase 群集**。 有关说明，请参阅 [使用 Azure 经典管理门户管理 HDInsight 中的 Hadoop 群集][hdinsight-manage-portal]。
+* **通过远程桌面协议连接到 HBase 群集**。 有关说明，请参阅 [使用 Azure 门户预览管理 HDInsight 中的 Hadoop 群集][hdinsight-manage-portal]。
 
 在连接到 HBase 群集时，你需要连接到 Zookeeper 之一。 每个 HDInsight 群集有 3 个 Zookeeper。
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 04/28/2017
 
 **使用 SQLLine**
 
-1. 使用 SSH 连接到群集。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+1. 使用 SSH 连接到群集。 有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 从 SSH 运行以下命令以运行 SQLLine：
 
@@ -79,9 +79,9 @@ ms.lasthandoff: 04/28/2017
 * [在 HDInsight 中配置 HBase 复制](hdinsight-hbase-replication.md)：了解如何跨两个 Azure 数据中心配置 HBase 复制。
 
 [azure-portal]: https://portal.azure.cn
-[vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
+[vnet-point-to-site-connectivity]: https://msdn.microsoft.com/zh-cn/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
-[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
+[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md

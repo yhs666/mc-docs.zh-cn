@@ -36,9 +36,9 @@ ms.lasthandoff: 04/07/2017
 
 ## <a name="connect-to-database-and-query-data"></a>连接到数据库并查询数据
 
-在 Azure 门户预览版中获取连接字符串。 请使用连接字符串连接到 Azure SQL 数据库。
+在 Azure 门户预览中获取连接字符串。 请使用连接字符串连接到 Azure SQL 数据库。
 
-1. 登录 [Azure 门户预览版](https://portal.azure.cn/)。
+1. 登录 [Azure 门户预览](https://portal.azure.cn/)。
 2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
 3. 在数据库的“概要”窗格中，找到并单击“显示数据库连接字符串”。
 4. 复制 **ADO.NET** 连接字符串。

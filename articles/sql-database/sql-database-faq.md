@@ -31,7 +31,7 @@ SQL 数据库的最新版本为 V12。 版本 V11 已停用。
 我们保证至少在 99.99% 的时间内客户将能够在其单个或弹性“基本”、“标准”或“高级”版 Azure SQL 数据库与我们的 Internet 网关之间保持连接。 有关详细信息，请参阅 [SLA](https://www.azure.cn/support/legal/sla/)。
 
 ## <a name="how-do-i-reset-the-password-for-the-server-admin"></a>如何重置服务器管理员的密码？
-在 [Azure 门户预览版](https://portal.azure.cn)中，单击“SQL Server”，从列表中选择服务器，然后单击“重置密码”。
+在 [Azure 门户预览](https://portal.azure.cn)中，单击“SQL Server”，从列表中选择服务器，然后单击“重置密码”。
 
 ## <a name="how-do-i-manage-databases-and-logins"></a>如何管理数据库和登录名？
 请参阅[管理数据库和登录名](sql-database-manage-logins.md)。
@@ -120,8 +120,8 @@ Azure SQL Web 和企业数据库现已停用。 基本、标准、高级和弹�
 我们通过 DMV 显示主数据库与地域辅助数据库之间的实时复制延迟。 有关详细信息，请参阅 [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx)。
 
 ## <a name="to-move-a-database-to-a-different-server-in-the-same-subscription"></a>将数据库移到同一订阅中的不同服务器
-* 在 [Azure 门户预览版](https://portal.azure.cn)中，单击“SQL 数据库”，从列表中选择数据库，然后单击“复制”。 有关详细信息，请参阅[复制 Azure SQL 数据库](sql-database-copy.md)。
+* 在 [Azure 门户预览](https://portal.azure.cn)中，单击“SQL 数据库”，从列表中选择数据库，然后单击“复制”。 有关详细信息，请参阅[复制 Azure SQL 数据库](sql-database-copy.md)。
 
 ## <a name="to-move-a-database-between-subscriptions"></a>在订阅之间移动数据库
-* 在 [Azure 门户预览版](https://portal.azure.cn)中，单击“SQL Server”，然后从列表中选择托管数据库的服务器。 单击“**移动**”，然后选择要移动的资源以及要移动到其中的订阅。
+* 在 [Azure 门户预览](https://portal.azure.cn)中，单击“SQL Server”，然后从列表中选择托管数据库的服务器。 单击“**移动**”，然后选择要移动的资源以及要移动到其中的订阅。
 
