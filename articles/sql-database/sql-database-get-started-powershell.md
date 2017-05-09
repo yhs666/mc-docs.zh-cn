@@ -1,6 +1,6 @@
 ---
 title: "Azure PowerShell：创建 SQL 数据库 | Microsoft Docs"
-description: "了解如何在 Azure 门户预览版中创建 SQL 数据库逻辑服务器、服务器级防火墙规则和数据库。"
+description: "了解如何在 Azure 门户预览中创建 SQL 数据库逻辑服务器、服务器级防火墙规则和数据库。"
 keywords: "SQL 数据库教程：创建 SQL 数据库"
 services: sql-database
 documentationcenter: 
@@ -16,9 +16,10 @@ ms.devlang: PowerShell
 ms.topic: hero-article
 ms.date: 03/13/2017
 ms.author: carlrab
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: ef48b526b708fdcb2614268cff531de4959095ec
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

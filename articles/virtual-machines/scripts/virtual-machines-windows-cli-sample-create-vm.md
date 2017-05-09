@@ -16,9 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 wacn.date: 
 ms.author: rclaus
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: e62418a3463bbc846e2d20eb152edd77bd86a833
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 ---

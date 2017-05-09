@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 03/08/2017
 wacn.date: 
 ms.author: mimig
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 61d6597e7248327889c86aee724b96a348562b0b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

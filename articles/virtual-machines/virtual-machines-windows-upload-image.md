@@ -1,5 +1,5 @@
 ---
-title: "上载 Windows VHD 用于 Resource Manager | Azure"
+title: "上传 Windows VHD 用于 Resource Manager | Azure"
 description: "了解如何使用 Resource Manager 部署模型将 Windows 虚拟机 VHD 从本地上传到 Azure。 可以从通用或专用 VM 上传 VHD。"
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,17 +16,18 @@ ms.topic: article
 ms.date: 03/06/2017
 wacn.date: 
 ms.author: cynthn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: cda212f12074a5fecac7863205cecb7cf9968be8
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="upload-a-windows-vhd-from-an-on-premises-vm-to-azure"></a>将 Windows VHD 从本地 VM 上载到 Azure
-本文介绍如何创建和上传用于创建 Azure VM 的 Windows 虚拟硬盘 (VHD)。 可以从通用 VM 或专用 VM 上载 VHD。 
+# <a name="upload-a-windows-vhd-from-an-on-premises-vm-to-azure"></a>将 Windows VHD 从本地 VM 上传到 Azure
+本文介绍如何创建和上传用于创建 Azure VM 的 Windows 虚拟硬盘 (VHD)。 可以从通用 VM 或专用 VM 上传 VHD。 
 
-有关如何使用托管磁盘准备、上载和创建新 VM 的完整演练，请参阅[从使用托管磁盘上载到 Azure 的通用 VHD 创建新 VM](virtual-machines-windows-upload-generalized-managed.md) 或[上载专用 VHD 以在 Azure 中创建 VM](virtual-machines-windows-upload-specialized.md)。
+有关如何使用托管磁盘准备、上传和创建新 VM 的完整演练，请参阅[从使用托管磁盘上传到 Azure 的通用 VHD 创建新 VM](virtual-machines-windows-upload-generalized-managed.md) 或[上传专用 VHD 以在 Azure 中创建 VM](virtual-machines-windows-upload-specialized.md)。
 
 有关 Azure 中的磁盘和 VHD 的更多详细信息，请参阅 [About disks and VHDs for virtual machines](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（关于虚拟机的磁盘和 VHD）。
 
@@ -35,11 +36,11 @@ ms.lasthandoff: 04/06/2017
 
 * **通用 VHD** - 通用 VHD 包含使用 Sysprep 删除所有个人帐户信息。 如果想要使用 VHD 作为映像来创建新的 VM，应该：
 
-    * [准备好要上载到 Azure 的 Windows VHD](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
+    * [准备好要上传到 Azure 的 Windows VHD](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
     * [使用 Sysprep 通用化虚拟机](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
 * **专用 VHD** - 专用 VHD 保留原始 VM 中的用户帐户、应用程序和其他状态数据。 如果想要使用当前 VHD 创建新 VM，请确保完成以下步骤。 
 
-    * [准备好要上载到 Azure 的 Windows VHD](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 **不要**使用 Sysprep 通用化 VM。
+    * [准备好要上传到 Azure 的 Windows VHD](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 **不要**使用 Sysprep 通用化 VM。
     * 删除 VM 上安装的所有来宾虚拟化工具和代理（例如 VMware 工具）。
     * 确保 VM 配置为通过 DHCP 来提取其 IP 地址和 DNS 设置。 这确保服务器在启动时在 VNet 中获取 IP 地址。 
 
@@ -71,7 +72,7 @@ ms.lasthandoff: 04/06/2017
 Get-AzureRmStorageAccount
 ```
 
-如果要使用现有存储帐户，请转到 [上载 VM 映像](#upload-the-vm-vhd-to-your-storage-account) 部分。
+如果要使用现有存储帐户，请转到 [上传 VM 映像](#upload-the-vm-vhd-to-your-storage-account) 部分。
 
 若要创建存储帐户，请执行以下步骤：
 
@@ -103,7 +104,7 @@ Get-AzureRmStorageAccount
     * **Premium_LRS** - 高级本地冗余存储。 
 
 ## <a name="upload-the-vm-vhd-to-your-storage-account"></a> 将 VHD 上传到存储帐户
-使用 [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet 将映像上载到存储帐户中的容器： 本示例将文件 **myVHD.vhd** 从 `"C:\Users\Public\Documents\Virtual hard disks\"` 上载到 **myResourceGroup** 资源组中名为 **mystorageaccount** 的存储帐户。 该文件将放入名为 **mycontainer** 的容器，新文件名为 **myUploadedVHD.vhd**。
+使用 [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet 将映像上传到存储帐户中的容器： 本示例将文件 **myVHD.vhd** 从 `"C:\Users\Public\Documents\Virtual hard disks\"` 上传到 **myResourceGroup** 资源组中名为 **mystorageaccount** 的存储帐户。 该文件将放入名为 **mycontainer** 的容器，新文件名为 **myUploadedVHD.vhd**。
 
 ```powershell
 $rgName = "myResourceGroup"

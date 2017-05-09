@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/14/2017
 wacn.date: 
 ms.author: arramac
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 4be2f81ef60496427701a96dcb0b9e5f508dd415
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

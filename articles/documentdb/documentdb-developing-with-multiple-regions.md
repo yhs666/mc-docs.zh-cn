@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 02/09/2017
 wacn.date: 
 ms.author: mimig
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: ad8dc8d73553efbf2cfc8d7f97a291e4e29d39a8
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

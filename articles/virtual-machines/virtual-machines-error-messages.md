@@ -15,9 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 3/17/2017
 wacn.date: 
 ms.author: xujing
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 3ab46147e7f0364b605f8566253aeaff4046ee4c
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
@@ -172,7 +173,7 @@ Azure VM 使用以下 JSON 格式提供错误响应。
 |  OperationNotAllowed  |  有一个进行中的操作正在将虚拟机的电源状态从 {0} 改为 {1}。 请稍后执行操作 {2}。  |
 |  OperationNotAllowed  |  无法添加或更新 VM。 请求的 VM 大小 {0} 可能不可用于现有分配单元。 访问 https://aka.ms/azure-resizevm 详细了解重设 VM 大小的策略。  |
 |  OperationNotAllowed  |  无法重设 VM 大小，因为请求的大小 {0} 不可用于当前分配有可用性集的群集。 可用的大小为: {1}。 访问 https://aka.ms/azure-resizevm 详细了解重设 VM 大小的策略。  |
-|  OperationNotAllowed  |  无法重设 VM 大小，因为请求的大小 {0} 不可用于当前分配有 VM 的群集。 若要将 VM 的大小调整为 {1}，请解除分配（这在 Azure 门户预览版中为“停止”操作），然后重试调整大小操作。 访问 https://aka.ms/azure-resizevm 详细了解重设 VM 大小的策略。  |
+|  OperationNotAllowed  |  无法重设 VM 大小，因为请求的大小 {0} 不可用于当前分配有 VM 的群集。 若要将 VM 的大小调整为 {1}，请解除分配（这在 Azure 门户预览中为“停止”操作），然后重试调整大小操作。 访问 https://aka.ms/azure-resizevm 详细了解重设 VM 大小的策略。  |
 |  OSProvisioningClientError  |  VM“{0}”的 OS 预配失败，因为当前正在预配来宾 OS。  |
 |  OSProvisioningClientError  |  VM“{0}”的 OS 预配失败。 错误详细信息: {1} 请确保已正确准备(通用化)映像。 <ul><li>适用于 Windows 的说明：https://www.azure.cn/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
 |  OSProvisioningClientError  |  SSH 主机密钥生成失败。 错误详细信息: {0}。 若要解决此问题，请验证 Linux 代理是否设置正确。 <ul><li>可以查看以下位置的说明：https://www.azure.cn/documentation/articles/virtual-machines-linux-agent-user-guide/ </li></ul> |

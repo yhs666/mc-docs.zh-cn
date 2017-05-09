@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2017
 wacn.date: 
 ms.author: yushwang;cherylmc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: f0f30889954cf2fdf6bed49f6d712785c5edcfbe
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
@@ -186,4 +187,4 @@ ms.lasthandoff: 04/06/2017
 
 1. 检查 Palo Alto Networks 设备的固件版本。 如果 PAN-OS 版本低于 7.1.4，请升级到 7.1.4。
 2. 连接到 Azure VPN 网关时，请在 Palo Alto Networks 设备上将阶段 2 SA（或快速模式 SA）生存期更改为 28,800 秒（8 小时）。
-3. 如果仍然遇到连接问题，请从 Azure 门户预览版提出支持请求。
+3. 如果仍然遇到连接问题，请从 Azure 门户预览提出支持请求。

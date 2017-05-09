@@ -17,9 +17,10 @@ ms.topic: article
 ms.date: 03/14/2017
 wacn.date: 
 ms.author: mimig
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: c41fac00ef0ac7177056795d000cf93ed10d7ef9
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -67,7 +68,7 @@ NoSQL 是一种与 SQL 数据库截然不同的数据库。 NoSQL 常用来指�
 
 然后你可以使用其他 Azure 服务生成此解决方案：
 
-- [Azure App Services](https://www.azure.cn/home/features/app-service/) 可用来托管应用程序和后台进程。
+- [Azure 应用服务](https://www.azure.cn/home/features/app-service/)可用来托管应用程序和后台进程。
 - [Azure Blob 存储](https://www.azure.cn/home/features/storage/)可用来存储包括映像的完整的用户配置文件。
 - [Azure SQL 数据库](https://www.azure.cn/home/features/sql-database/)可用来存储大量数据，例如登录信息和使用情况分析数据。
 

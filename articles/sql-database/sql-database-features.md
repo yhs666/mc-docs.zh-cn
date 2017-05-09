@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 990378f47398b8840171075bcd3164701a3ad5d7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 

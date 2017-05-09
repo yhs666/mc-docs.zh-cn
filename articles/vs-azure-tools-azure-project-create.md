@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/19/2017
 wacn.date: 
 ms.author: tarcher
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 3fae3db0a1d731b8c12b3dd3d4dfc18c4fdda181
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

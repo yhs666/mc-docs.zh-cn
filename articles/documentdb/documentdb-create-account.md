@@ -16,9 +16,10 @@ ms.topic: get-started-article
 ms.date: 02/17/2017
 wacn.date: 
 ms.author: mimig
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: fd1859afd047c0aabe767e2b6a342937ba67caa7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

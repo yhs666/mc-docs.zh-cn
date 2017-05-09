@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 03/07/2017
 wacn.date: 
 ms.author: byvinyal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: a740e80ef3aa8c20c63f9de5d3690b3c01e5e525
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -34,10 +35,10 @@ ms.lasthandoff: 04/07/2017
 > 1 元试用订阅不符合增加限制或配额的条件。 如果有 1 元试用订阅，可将其升级到 [即用即付](https://azure.microsoft.com/offers/ms-azr-0003p/) 订阅。 
 > 
 
-## <a name="limits-and-the-azure-resource-manager"></a>限制和 Azure 资源管理器
-现在可以将多个 Azure 资源合并到单个 Azure 资源组中。 在使用资源组时，以前针对全局的限制会通过 Azure 资源管理器在区域级别进行管理。 有关 Azure 资源组的详细信息，请参阅 [Azure Resource Manager 概述](./azure-resource-manager/resource-group-overview.md)。
+## <a name="limits-and-the-azure-resource-manager"></a>限制和 Azure Resource Manager
+现在可以将多个 Azure 资源合并到单个 Azure 资源组中。 在使用资源组时，以前针对全局的限制会通过 Azure Resource Manager 在区域级别进行管理。 有关 Azure 资源组的详细信息，请参阅 [Azure Resource Manager 概述](./azure-resource-manager/resource-group-overview.md)。
 
-在下面的限制中，添加了一个新表以反映在使用 Azure 资源管理器时限制中的任何差异。 例如，会存在一个**订阅限制**表和一个**订阅数限制 - Azure Resource Manager** 表。 如果某个限制同时适用于这两种方案，它将仅显示在第一个表中。 除非另有说明，否则限制是跨所有区域的全局限制。
+在下面的限制中，添加了一个新表以反映在使用 Azure Resource Manager 时限制中的任何差异。 例如，会存在一个**订阅限制**表和一个**订阅数限制 - Azure Resource Manager** 表。 如果某个限制同时适用于这两种方案，它将仅显示在第一个表中。 除非另有说明，否则限制是跨所有区域的全局限制。
 
 > [!NOTE]
 > 请务必强调 Azure 资源组中的资源配额是用户的订阅可以访问的每个区域，而不像服务管理配额那样是可以访问的每个订阅。 我们来使用核心配额作为示例。 如果您需要根据对核心的支持请求增加配额，则需要决定您想要在哪个区域中使用多少核心，然后针对您希望的 Azure 资源组核心配额的数量和区域进行特定请求。 
@@ -49,7 +50,7 @@ ms.lasthandoff: 04/07/2017
 ## <a name="service-specific-limits"></a>服务特定的限制
 - [Active Directory](#active-directory-limits)
 - [API 管理](#api-management-limits)
-- [App Service](#app-service-limits)
+- [应用服务](#app-service-limits)
 - [应用程序网关](#application-gateway-limits)
 - [Application Insights](#application-insights-limits)
 - [自动化](#automation-limits)
@@ -92,7 +93,7 @@ ms.lasthandoff: 04/07/2017
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### <a name="subscription-limits---azure-resource-manager"></a>订阅数限制 - Azure Resource Manager
-使用 Azure 资源管理器和 Azure 资源组时，以下限制适用。 未使用 Azure 资源管理器更改的限制不会在下面列出。 请参阅上表了解这些限制。
+使用 Azure Resource Manager 和 Azure 资源组时，以下限制适用。 未使用 Azure Resource Manager 更改的限制不会在下面列出。 请参阅上表了解这些限制。
 
 有关处理 Resource Manager 请求限制的信息，请参阅[限制 Resource Manager 请求](./azure-resource-manager/resource-manager-request-limits.md)。
 
@@ -106,7 +107,7 @@ ms.lasthandoff: 04/07/2017
 [!INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 #### <a name="virtual-machines-limits---azure-resource-manager"></a>虚拟机限制 - Azure Resource Manager
-使用 Azure 资源管理器和 Azure 资源组时，以下限制适用。 未使用 Azure 资源管理器更改的限制不会在下面列出。 请参阅上表了解这些限制。
+使用 Azure Resource Manager 和 Azure 资源组时，以下限制适用。 未使用 Azure Resource Manager 更改的限制不会在下面列出。 请参阅上表了解这些限制。
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
@@ -156,15 +157,15 @@ ms.lasthandoff: 04/07/2017
 ### <a name="cloud-services-limits"></a>云服务限制
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
-### <a name="app-service-limits"></a>App Service 限制
-以下 App Service 限制包括 Web Apps、Mobile Apps、API Apps 和 Logic Apps 的限制。
+### <a name="app-service-limits"></a>应用服务限制
+以下应用服务限制包括 Web 应用、移动应用、API 应用和逻辑应用的限制。
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
 ### <a name="scheduler-limits"></a>计划程序限制
 [!INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
-### <a name="batch-limits"></a>Batch 限制
+### <a name="batch-limits"></a>批处理限制
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
 ### <a name="documentdb-limits"></a>DocumentDB 限制

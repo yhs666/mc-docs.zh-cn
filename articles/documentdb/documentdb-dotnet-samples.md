@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 02/22/2017
 wacn.date: 
 ms.author: rnagpal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 4f3fa1ae824543dc8eb2440fc75c8c104275b010
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

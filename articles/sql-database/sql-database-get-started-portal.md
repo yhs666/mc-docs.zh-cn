@@ -1,6 +1,6 @@
 ---
-title: "Azure 门户预览版：创建 SQL 数据库 | Microsoft Docs"
-description: "了解如何在 Azure 门户预览版中创建 SQL 数据库逻辑服务器、服务器级防火墙规则和数据库。 同时了解如何使用 Azure 门户预览版查询 Azure SQL 数据库。"
+title: "Azure 门户预览：创建 SQL 数据库 | Microsoft Docs"
+description: "了解如何在 Azure 门户预览中创建 SQL 数据库逻辑服务器、服务器级防火墙规则和数据库。 同时了解如何使用 Azure 门户预览查询 Azure SQL 数据库。"
 keywords: "SQL 数据库教程：创建 SQL 数据库"
 services: sql-database
 documentationcenter: 
@@ -16,20 +16,21 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/13/2017
 ms.author: carlrab
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: efa4e79f983fa4df2a2ea9fc0b657f90f7bab706
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 
 ---
-# <a name="create-and-query-a-single-azure-sql-database-in-the-azure-portal-preview"></a>在 Azure 门户预览版中创建和查询单一 Azure SQL 数据库
+# <a name="create-and-query-a-single-azure-sql-database-in-the-azure-portal-preview"></a>在 Azure 门户预览中创建和查询单一 Azure SQL 数据库
 
-Azure SQL 数据库可以通过 Azure 门户预览版创建。 此方法提供一个基于浏览器的用户界面，用于创建和配置 Azure SQL 数据库和所有相关的 Azure 资源。
+Azure SQL 数据库可以通过 Azure 门户预览创建。 此方法提供一个基于浏览器的用户界面，用于创建和配置 Azure SQL 数据库和所有相关的 Azure 资源。
 
-## <a name="log-in-to-the-azure-portal-preview"></a>登录到 Azure 门户预览版
+## <a name="log-in-to-the-azure-portal-preview"></a>登录到 Azure 门户预览
 
-登录到 [Azure 门户预览版](https://portal.azure.cn/)。
+登录到 [Azure 门户预览](https://portal.azure.cn/)。
 
 ## <a name="create-a-sql-database"></a>创建 SQL 数据库
 
@@ -37,7 +38,7 @@ Azure SQL 数据库可以通过 Azure 门户预览版创建。 此方法提供�
 
 请按以下步骤创建包含 Adventure Works LT 示例数据的 SQL 数据库。 
 
-1. 单击 Azure 门户预览版左上角的“新建”按钮。
+1. 单击 Azure 门户预览左上角的“新建”按钮。
 
 2. 从“新建”页中选择“数据库”，然后从“数据库”页中选择“SQL 数据库”。
 
@@ -75,7 +76,7 @@ SQL 数据库服务会创建一个防火墙，阻止外部应用程序和工具�
 
 ## <a name="query-the-sql-database"></a>查询 SQL 数据库
 
-在 Azure 门户预览版中使用查询编辑器，按照以下步骤查询数据库。 
+在 Azure 门户预览中使用查询编辑器，按照以下步骤查询数据库。 
 
 1. 在数据库的“SQL 数据库”页上，单击工具栏上的“工具”。 此时会打开“查询编辑器”预览页。
 
@@ -103,9 +104,9 @@ SQL 数据库服务会创建一个防火墙，阻止外部应用程序和工具�
 
 ## <a name="clean-up-resources"></a>清理资源
 
-此集合中的“连接方式”快速入门以及教程集合中的教程以此快速入门为基础。 如果计划继续使用后续的快速入门或相关教程，请勿清除在本快速入门中创建的资源。 如果不打算继续，请在 Azure 门户预览版中执行以下步骤，删除通过此快速入门创建的所有资源。
+此集合中的“连接方式”快速入门以及教程集合中的教程以此快速入门为基础。 如果计划继续使用后续的快速入门或相关教程，请勿清除在本快速入门中创建的资源。 如果不打算继续，请在 Azure 门户预览中执行以下步骤，删除通过此快速入门创建的所有资源。
 
-1. 在 Azure 门户预览版的左侧菜单中，单击“资源组”，然后单击“myResourceGroup”。 
+1. 在 Azure 门户预览的左侧菜单中，单击“资源组”，然后单击“myResourceGroup”。 
 2. 在资源组页上单击“删除”，在文本框中键入 **myResourceGroup**，然后单击“删除”。
 
 ## <a name="next-steps"></a>后续步骤

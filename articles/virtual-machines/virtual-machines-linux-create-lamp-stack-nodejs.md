@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 2/21/2017
 wacn.date: 
 ms.author: juluk
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 442b5e509200e191d4defe2ab4743d99f308d4b0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/06/2017
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可使用以下 CLI 版本之一完成任务：
 
-- [Azure CLI 1.0] - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
+- [Azure CLI 1.0] - 适用于经典部署模型和资源管理部署模型的 CLI（本文）
 - [Azure CLI 2.0](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ```

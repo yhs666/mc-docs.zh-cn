@@ -17,9 +17,10 @@ ms.date: 03/13/2017
 wacn.date: 
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 90519886db1be949c2262126fa1238e7dd3d3bc0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
@@ -93,7 +94,7 @@ Azure 资源组部署是一种通过单个部署操作将相关的一组 Azure �
     ![输出窗口][output_window]
 
 ## <a name="exploring-your-virtual-machine-scale-set"></a>探索虚拟机规模集
-部署完成后，可在 Visual Studio **云资源管理器**中（刷新列表）查看新的虚拟机规模集。 云资源管理器让你可以在开发应用程序时管理 Visual Studio 中的 Azure 资源。 还可以在 [Azure 门户预览版](https://portal.azure.cn)和 [Azure 资源浏览器](https://resources.azure.com/)中查看虚拟机规模集。
+部署完成后，可在 Visual Studio **云资源管理器**中（刷新列表）查看新的虚拟机规模集。 云资源管理器让你可以在开发应用程序时管理 Visual Studio 中的 Azure 资源。 还可以在 [Azure 门户预览](https://portal.azure.cn)和 [Azure 资源浏览器](https://resources.azure.com/)中查看虚拟机规模集。
 
 ![云资源管理器][cloud_explorer]
 

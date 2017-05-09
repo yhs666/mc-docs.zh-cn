@@ -16,9 +16,10 @@ ms.workload: data-services
 ms.date: 02/01/2017
 wacn.date: 
 ms.author: babanisa
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 53ff2da916405074de80280d2c0b2e88585f27be
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/07/2017
 ## <a name="turn-on-diagnostic-logs"></a>启用诊断日志
 诊断日志默认已**禁用**。 若要启用诊断日志，请执行下列步骤：
 
-1. 在 Azure 门户预览版中，转到“流式处理作业”边栏选项卡。
+1. 在 Azure 门户预览中，转到“流式处理作业”边栏选项卡。
 
 2. 在“监视”下面，转到“诊断日志”边栏选项卡。
 

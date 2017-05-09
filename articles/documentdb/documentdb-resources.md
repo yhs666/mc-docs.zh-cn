@@ -17,9 +17,10 @@ ms.date: 03/14/2017
 wacn.date: 
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 83c92237dc0cc7aec39095d9f5300de3873531c9
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -446,7 +447,7 @@ DocumentDB 可通过 DocumentDB 存储二进制 blob/媒体（每个帐户最大
 
 请注意，上面列出的示例使用易于理解的 ID 来表示资源层次结构。 通过唯一的资源 ID 和 REST API 访问资源。 
 
-对于由 DocumentDB 管理的媒体，附件的 _media 属性将通过其 URI 引用媒体。 DocumentDB 将确保在删除所有未完成的引用时对媒体进行垃圾收集。 当你上传新的媒体并填充 _media 以指向新添加的媒体时，DocumentDB 自动生成附件。 如果你选择将媒体存储在由你（例如 OneDrive、Azure 存储空间、DropBox 等）管理的远程 blob 存储区，你仍可以使用附件以引用媒体。 在这种情况下，你将自行创建附件并填充其 _media 属性。   
+对于由 DocumentDB 管理的媒体，附件的 _media 属性将通过其 URI 引用媒体。 DocumentDB 将确保在删除所有未完成的引用时对媒体进行垃圾收集。 当你上传新的媒体并填充 _media 以指向新添加的媒体时，DocumentDB 自动生成附件。 如果选择将媒体存储在由你管理的远程 blob 存储区（例如 OneDrive、Azure 存储、DropBox 等），仍可以使用附件以引用媒体。 在这种情况下，你将自行创建附件并填充其 _media 属性。   
 
 至于所有其他资源，可以创建、替换、删除、读取、枚举附件，也可以轻松地使用 REST API 或任一客户端 SDK 查询附件。 至于文档，附件的读取一致性级别遵守数据库帐户中的一致性策略。 可以根据你的应用程序的数据一致性要求在每个请求中重写此策略。 查询附件时，读取一致性遵循集合上的索引编制模式设置。 对于“一致性”，将遵循帐户的一致性策略。 
  

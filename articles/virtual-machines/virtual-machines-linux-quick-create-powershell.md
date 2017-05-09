@@ -16,9 +16,10 @@ ms.workload: infrastructure
 ms.date: 03/08/2017
 wacn.date: 
 ms.author: nepeters
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: a75c20a6873c9efabdfdb027488adab37b067e86
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 

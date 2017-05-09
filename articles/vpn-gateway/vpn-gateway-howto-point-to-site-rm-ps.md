@@ -16,18 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 wacn.date: 
 ms.author: cherylmc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: b95d2fbbf8218c639789b20c1df76e9aeb1011ef
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-powershell"></a>使用 PowerShell 配置与 VNet 的点到站点连接
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure 门户预览版](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Resource Manager - Azure 门户预览](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [经典 - Azure 门户预览版](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [经典 - Azure 门户预览](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 > 
 > 
 
@@ -124,7 +125,7 @@ ms.lasthandoff: 04/06/2017
         $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 
 ## <a name="Certificates"></a>第 3 部分 - 证书
-Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 创建根证书以后，请将公共证书数据（不是密钥）作为 Base-64 编码的 X.509 .cer 文件导出。 然后，将公共证书数据从根证书上载到 Azure。
+Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 创建根证书以后，请将公共证书数据（不是密钥）作为 Base-64 编码的 X.509 .cer 文件导出。 然后，将公共证书数据从根证书上传到 Azure。
 
 在使用点到站点连接连接到 VNet 的每台客户端计算机上，必须安装客户端证书。 客户端证书从根证书生成，安装在每个客户端计算机上。 如果未安装有效的客户端证书，而客户端尝试连接到 VNet，则身份验证会失败。
 
@@ -145,7 +146,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 创
 
 #### <a name="to-export-the-public-key-for-a-self-signed-root-certificate"></a>导出自签名根证书的公钥
 
-点到站点连接要求将公钥 (.cer) 上载到 Azure。 以下步骤帮助你导出自签名根证书的 .cer 文件。
+点到站点连接要求将公钥 (.cer) 上传到 Azure。 以下步骤帮助你导出自签名根证书的 .cer 文件。
 
 1. 若要获取证书 .cer 文件，请打开 **certmgr.msc**。 找到自签名根证书（通常位于“Certificates - Current User\Personal\Certificates”中），然后右键单击。 单击“所有任务”，然后单击“导出”。 此操作将打开“证书导出向导”。
 2. 在向导中，单击“下一步”。 选择“否，不导出私钥”，然后单击“下一步”。
@@ -174,9 +175,9 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 创
 5. 在“要导出的文件”中，“浏览”到要将证书导出的目标位置。 在“文件名”中，为证书文件命名。 然后单击“下一步” 。
 6. 单击“完成”导出证书。
 
-### <a name="upload"></a>步骤 4 - 上载根证书 .cer 文件
+### <a name="upload"></a>步骤 4 - 上传根证书 .cer 文件
 
-创建网关后，可以将受信任根证书的 .cer 文件上载到 Azure。 最多可以上载 20 个根证书的文件。 不要将根证书的私钥上载到 Azure。 上载 .Cer 文件后，Azure 将使用它来对连接到虚拟网络的客户端进行身份验证。
+创建网关后，可以将受信任根证书的 .cer 文件上传到 Azure。 最多可以上传 20 个根证书的文件。 不要将根证书的私钥上传到 Azure。 上传 .Cer 文件后，Azure 将使用它来对连接到虚拟网络的客户端进行身份验证。
 
 为证书名称声明变量，将值替换为自己的值：
 
@@ -202,7 +203,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 创
 
 VPN 客户端包中含有用于配置 Windows 内置 VPN 客户端软件的配置信息。 该程序包不安装额外的软件。 这些设置特定于要连接到的虚拟网络。 有关支持的客户端操作系统列表，请参阅本文末尾的 [点到站点连接常见问题解答](#faq) 。
 
-1. 创建网关后，可以下载客户端配置包。 此示例为 64 位客户端下载程序包。 如果要下载 32 位客户端，请将“Amd64”替换为“x86”。 还可以使用 Azure 门户预览版下载 VPN 客户端。
+1. 创建网关后，可以下载客户端配置包。 此示例为 64 位客户端下载程序包。 如果要下载 32 位客户端，请将“Amd64”替换为“x86”。 还可以使用 Azure 门户预览下载 VPN 客户端。
 
         Get-AzureRmVpnClientPackage -ResourceGroupName $RG `
         -VirtualNetworkGatewayName $GWName -ProcessorArchitecture Amd64

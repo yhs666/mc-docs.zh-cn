@@ -16,9 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 wacn.date: 
 ms.author: rickstercdn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 66a70c7bf9ac817a0d08426ba57a06c17930ce1c
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 ---

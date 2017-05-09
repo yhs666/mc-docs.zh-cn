@@ -17,9 +17,10 @@ ms.date: 03/17/2017
 wacn.date: 
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: e3827eba8b6119cfac24c8766e97747f59fbb460
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
@@ -45,7 +46,7 @@ ms.lasthandoff: 04/06/2017
 * 使用命名约定创建存储帐户集。 你可以使用 Azure PowerShell 或门户。
 
 ## <a name="storage"></a>存储
-Azure 存储空间是部署与管理虚拟机 (VM) 和应用程序的重要部分。 Azure 存储空间提供的服务可用于存储文件数据、非结构化数据和消息，该存储空间也是为 VM 提供支持的基础结构的一部分。
+Azure 存储是部署与管理虚拟机 (VM) 和应用程序的重要部分。 Azure 存储提供的服务可用于存储文件数据、非结构化数据和消息，该存储空间也是为 VM 提供支持的基础结构的一部分。
 
 [Azure 托管磁盘](../storage/storage-managed-disks-overview.md)在幕后为你处理存储。 使用非托管磁盘时，需创建存储帐户来存储你的 Azure VM 的磁盘（VHD 文件）。 进行扩展时，必须确保创建了额外的存储帐户，以便任何磁盘都不会超出对存储的 IOPS 限制。 使用托管磁盘处理存储时，不再受到存储帐户限制（例如每个帐户 20,000 IOPS）的约束。 另外，不再需要将自定义映像（VHD 文件）复制到多个存储帐户。 可在一个中心位置管理自定义映像（每个 Azure 区域保存一个存储帐户），并使用它们在一个订阅中创建数百个 VM。 我们建议你使用托管磁盘进行新部署。
 

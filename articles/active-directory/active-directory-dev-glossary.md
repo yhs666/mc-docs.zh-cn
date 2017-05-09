@@ -15,9 +15,10 @@ ms.workload: identity
 ms.date: 03/20/2017
 wacn.date: 
 ms.author: bryanla
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 74def0f7e05fdea60dfeec64a218945041da08d8
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

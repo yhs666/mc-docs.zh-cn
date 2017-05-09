@@ -16,23 +16,24 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2017
 wacn.date: 
 ms.author: cherylmc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: d490fe0652d06d424ca981a5ed3402fe53e8d790
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-portal-preview-classic"></a>使用 Azure 门户预览版创建具有站点到站点连接的 VNet（经典）
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-portal-preview-classic"></a>使用 Azure 门户预览创建具有站点到站点连接的 VNet（经典）
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure 门户预览版](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Resource Manager - Azure 门户预览](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [经典 - Azure 门户预览版](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [经典 - Azure 门户预览](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [经典 - 经典管理门户](vpn-gateway-site-to-site-create.md)
 >
 >
 
-本文介绍了如何使用经典部署模型和 Azure 门户预览版创建一个虚拟网络和一个连接到本地网络的站点到站点 VPN 网关连接。 
+本文介绍了如何使用经典部署模型和 Azure 门户预览创建一个虚拟网络和一个连接到本地网络的站点到站点 VPN 网关连接。 
 
 站点到站点 (S2S) VPN 网关连接是通过 IPsec/IKE（IKEv1 或 IKEv2）VPN 隧道建立的连接。 此类型的连接要求位于本地的 VPN 设备分配有一个公共 IP 地址，并且不位于 NAT 后面。 S2S 连接可以用于跨界配置和混合配置，或者用于连接使用不同部署模型的 VNet。
 
@@ -87,7 +88,7 @@ ms.lasthandoff: 04/06/2017
 
 ### <a name="to-create-a-virtual-network"></a>创建虚拟网络
 
-1. 从浏览器导航到 [Azure 门户预览版](http://portal.azure.cn) ，必要时使用 Azure 帐户登录。
+1. 从浏览器导航到 [Azure 门户预览](http://portal.azure.cn)，必要时使用 Azure 帐户登录。
 2. 单击“新建” 。 在“搜索应用商店”字段中，键入“虚拟网络”。 从返回的列表中找到“虚拟网络”，单击打开“虚拟网络”边栏选项卡。
 
     ![搜索虚拟网络边栏选项卡](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
@@ -98,7 +99,7 @@ ms.lasthandoff: 04/06/2017
 
     ![创建虚拟网络边栏选项卡](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "创建虚拟网络边栏选项卡")
 5. 验证“订阅”  是否正确。 可以使用下拉列表更改订阅。
-6. 单击“资源组”  ，然后选择现有资源组，或通过键入新的资源组名称创建新资源组。 有关资源组的详细信息，请访问 [Azure 资源管理器概述](../azure-resource-manager/resource-group-overview.md#resource-groups)。
+6. 单击“资源组”  ，然后选择现有资源组，或通过键入新的资源组名称创建新资源组。 有关资源组的详细信息，请访问 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md#resource-groups)。
 7. 接下来，选择 VNet 的“位置”  设置。 该位置确定要部署到此 VNet 的资源所在的位置。
 8. 如果希望能够在仪表板上轻松查找 VNet，请选择“固定到仪表板”，然后单击“创建”。
 
@@ -178,7 +179,7 @@ ms.lasthandoff: 04/06/2017
 此步骤设置共享密钥并创建连接。 设置的密钥必须是在 VPN 设备配置中使用过的同一密钥。
 
 > [!NOTE]
-> 此步骤目前在 Azure 门户预览版中不可用。 必须使用服务管理 (SM) 版本的 Azure PowerShell cmdlet。                                                                                                                                                                             
+> 此步骤目前在 Azure 门户预览中不可用。 必须使用服务管理 (SM) 版本的 Azure PowerShell cmdlet。                                                                                                                                                                             
 >
 >
 

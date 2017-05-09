@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 02/27/2017
 wacn.date: 
 ms.author: dimakwan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 127c7d50b80ce58b959b37a10d6e0bd0cb4a7310
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

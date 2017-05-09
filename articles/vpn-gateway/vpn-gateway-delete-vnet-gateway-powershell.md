@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 wacn.date: 
 ms.author: cherylmc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 4e0987a023049f44cba798a808b1e99d454ba9e1
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 

@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2017
 wacn.date: 
 ms.author: cherylmc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: a489b6724ed12dd46129a9b1db678cb7fd15bf7a
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
@@ -37,7 +38,7 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 为每个资源选择的设置对于创建成功的连接至关重要。 有关 VPN 网关的各个资源和设置的信息，请参阅 [关于 VPN 网关设置](vpn-gateway-about-vpn-gateway-settings.md)。 可找到有助于了解网关类型、VPN 类型、连接类型、网关子网、本地网络网关以及可能需要考虑的各种其他资源设置的信息。
 
 ###<a name="deployment-tools"></a>部署工具
-可以使用一种配置工具（例如 Azure 门户预览版）开始创建和配置资源。 稍后可以切换到另一种工具（如 PowerShell）来配置其他资源，或者在适当的情况下修改现有资源。 目前无法在 Azure 门户预览版中配置每一项资源和资源设置。 需要使用特定的配置工具时，本文中针对每种连接拓扑提供的说明都有指明。 
+可以使用一种配置工具（例如 Azure 门户预览）开始创建和配置资源。 稍后可以切换到另一种工具（如 PowerShell）来配置其他资源，或者在适当的情况下修改现有资源。 目前无法在 Azure 门户预览中配置每一项资源和资源设置。 需要使用特定的配置工具时，本文中针对每种连接拓扑提供的说明都有指明。 
 
 ###<a name="deployment-model"></a>部署模型
 配置 VPN 网关时，采取的步骤取决于用于创建虚拟网络的部署模型。 例如，如果使用经典部署模型创建了 VNet，将使用经典部署模型的指导原则和说明来创建及配置 VPN 网关设置。 有关部署模型的详细信息，请参阅 [了解 Resource Manager 和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。

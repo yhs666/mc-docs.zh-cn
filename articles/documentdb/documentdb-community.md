@@ -15,9 +15,10 @@ ms.workload: data-services
 ms.date: 03/07/2017
 wacn.date: 
 ms.author: andrl
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 28f49efb39d61fe2a5e9389326dc29fcdcb73807
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -138,9 +139,9 @@ fluent-plugin-documentdb 是用于输出到 Azure DocumentDB 的 Fluentd 插件�
 | [会议：西雅图可扩展性会议](http://www.meetup.com/Seattle-Scalability-Meetup/events/204010442/) |Dharma Shukla |华盛顿州西雅图 |2015 年 5 月 27 日 |不适用 |
 | [SQL Saturday #377 - Kiev 2015](http://www.sqlsaturday.com/377/Sessions/Details.aspx?sid=20322) |Mihail Mateev |乌克兰基辅 |2015 年 5 月 23 日 |不适用 |
 | [Database Month](http://www.databasemonth.com/database/azure-documentdb) |Dharma Shukla |纽约州纽约市 |2015 年 5 月 19 日 |[Azure DocumentDB：可大规模缩放、多租户文档数据库服务](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
-| [Meetup: London SQL Server User Group](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) |Allan Mitchell |英国伦敦 |2015 年 5 月 19 日 |不适用 |
+| [会议：伦敦 SQL Server 用户组](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) |Allan Mitchell |英国伦敦 |2015 年 5 月 19 日 |不适用 |
 | [DevIntersection](https://devintersection.com/) |Andrew Liu |亚利桑那州斯科茨代尔 |2015 年 5 月 18 日至 5 月 21 日 |不适用 |
-| [Meetup: Seattle Web App Developers Group](http://www.meetup.com/Seattle-Web-App-Developers-Group/events/220591071/) |Andrew Liu |华盛顿州西雅图 |2015 年 5 月 14 日 |不适用 |
+| [会议：西雅图 Web 应用开发人员组](http://www.meetup.com/Seattle-Web-App-Developers-Group/events/220591071/) |Andrew Liu |华盛顿州西雅图 |2015 年 5 月 14 日 |不适用 |
 | [Ignite](http://ignite.microsoft.com/) |Andrew Hoh、John Macintyre |伊利诺斯州芝加哥 |2015 年 5 月 4 日至 5 月 8 日 | |
 | [Build 2015](http://www.buildwindows.com/) |Ryan Crawcour |加州旧金山 |2015 年 4 月 29 日至 5 月 1 日 |[使用 Azure 的 NoSQL 服务：DocumentDB，构建又一个重大成就](https://channel9.msdn.com/Events/Build/2015/2-729) |
 | [Global Azure Bootcamp 2015 - Spain](http://azurebootcamp.es/) |Luis Ruiz Pavon、Roberto Gonzalez |西班牙马德里 |2015 年 4 月 25 日 |[#DEAN DocumentDB + Express + AngularJS + NodeJS running on Azure](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure)（Azure 上运行的 #DEAN DocumentDB + Express + AngularJS + NodeJS） |

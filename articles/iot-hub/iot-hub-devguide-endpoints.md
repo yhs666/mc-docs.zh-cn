@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 01/31/2017
 wacn.date: 
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 5bca1dededbeec3ebeb5efe744042a0bf7f7a533
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -38,7 +39,7 @@ Azure IoT 中心属于多租户服务，向各种执行组件公开功能。 下
 
   * *发送设备到云的消息*。 使用此终结点[发送设备到云的消息][lnk-d2c]。
   * *接收云到设备的消息*。 设备使用此终结点接收面向[云到设备的消息][lnk-c2d]。
-  * *启动文件上载*。 设备使用此终结点接收来自 IoT 中心的 Azure 存储 SAS URI，以便 [上载文件][lnk-upload]。
+  * *启动文件上传*。 设备使用此终结点接收来自 IoT 中心的 Azure 存储 SAS URI，以便[上传文件][lnk-upload]。
   * *检索并更新设备孪生的属性*。 设备使用此终结点访问其 [设备孪生][lnk-twins]的属性。
   * *接收直接方法请求*。 设备使用此终结点侦听[直接方法][lnk-methods]的请求。
 

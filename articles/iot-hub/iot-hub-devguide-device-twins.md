@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/09/2017
 wacn.date: 
 ms.author: elioda
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: feb55746a0f999f2bf36c4e317e2c1ef9a7adba6
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -42,7 +43,7 @@ ms.lasthandoff: 04/07/2017
 * 同步设备应用与后端应用之间的长时间运行工作流的状态。 例如，当解决方案后端指定要安装的新固件版本以及设备应用报告更新过程的各个阶段时。
 * 查询设备的元数据、配置或状态。
 
-有关使用报告的属性、设备到云的消息或文件上载的指导，请参阅[设备到云的通信指南][lnk-d2c-guidance]。
+有关使用报告的属性、设备到云的消息或文件上传的指导，请参阅[设备到云的通信指南][lnk-d2c-guidance]。
 有关使用所需的属性、直接方法或云到设备的消息的指导，请参阅[云到设备的通信指南][lnk-c2d-guidance]。
 
 ## <a name="device-twins"></a>设备克隆

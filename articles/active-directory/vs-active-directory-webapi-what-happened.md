@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 03/01/2017
 wacn.date: 
 ms.author: tarcher
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: fcdfda9645eaef85f364d0315e0cb7ad977cd44d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

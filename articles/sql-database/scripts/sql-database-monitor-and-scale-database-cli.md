@@ -16,9 +16,10 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 03/16/2017
 ms.author: janeng
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 721191ddd0d5a5bbe7ce827c2f3ab9461fba64e4
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

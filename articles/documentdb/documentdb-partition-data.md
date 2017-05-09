@@ -16,9 +16,10 @@ ms.date: 03/14/2017
 wacn.date: 
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 750a1d4ad74818e09b0c53b698852813d7eebf63
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

@@ -16,9 +16,10 @@ ms.date: 03/16/2017
 wacn.date: 
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: c1b9f8697c90b6bde6d198e17a5fcca0c492e46a
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

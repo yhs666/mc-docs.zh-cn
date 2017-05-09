@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/17/2017
 ms.author: shkurhek
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 3446dd832f0d0087c111e1b4d02adc09bbbc72f7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/07/2017
 SQL 数据库是云中的关系数据库服务，它基于行业领先的 Microsoft SQL Server 引擎，能够处理任务关键型工作负荷。 SQL 数据库在多个服务级别提供可预测的性能、支持在不停机的情况下进行缩放、内置业务连续性和数据保护 — 所有这些功能几乎都不需要管理。 凭借这些功能，客户可将注意力集中在如何快速进行应用开发、加快推向市场，而无需将宝贵的时间和资源投入在管理虚拟机和基础结构上。 SQL 数据库基于 [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx) 引擎，支持现有的 SQL Server 工具、库和 API。 因此，无需学习新的技能，就能轻松开发新解决方案，迁移现有 SQL Server 解决方案，将现有 SQL Server 解决方案扩展到 Microsoft 云中。
 
 本文将介绍 SQL 数据库在性能、缩放性和易管理性方面的核心概念与功能，并提供链接让你进一步了解详细信息。 请参阅这些快速入门，以便尽快入门：
- - [在 Azure 门户预览版中创建 SQL 数据库](sql-database-get-started-portal.md)  
+ - [在 Azure 门户预览中创建 SQL 数据库](sql-database-get-started-portal.md)  
  - [使用 Azure CLI 创建 SQL 数据库](sql-database-get-started-cli.md)
  - [使用 PowerShell 创建 SQL 数据库](sql-database-get-started-powershell.md)
 

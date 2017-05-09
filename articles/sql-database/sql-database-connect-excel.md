@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: jhubbard
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: a4f3717c917c2f0037e354c1cc90d59ac2b46250
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 
@@ -44,7 +45,7 @@ ms.lasthandoff: 04/07/2017
    ![键入服务器名称和登录凭据](./media/sql-database-connect-excel/connect-to-server.png)
    
    > [!TIP]
-   > 根据你的网络环境，你可能无法连接；如果 SQL 数据库服务器不允许来自客户端 IP 地址的流量，你可能会断开连接。 转到 [Azure 门户预览版](https://portal.azure.cn/)，依次单击“SQL Server”、你的服务器、“设置”下面的“防火墙”，然后添加客户端 IP 地址。 有关详细信息，请参阅 [如何配置防火墙设置](sql-database-configure-firewall-settings.md) 。
+   > 根据你的网络环境，你可能无法连接；如果 SQL 数据库服务器不允许来自客户端 IP 地址的流量，你可能会断开连接。 转到 [Azure 门户预览](https://portal.azure.cn/)，依次单击“SQL Server”、你的服务器、“设置”下面的“防火墙”，然后添加客户端 IP 地址。 有关详细信息，请参阅 [如何配置防火墙设置](sql-database-configure-firewall-settings.md) 。
    > 
    > 
 5. 在“选择数据库和表”对话框中，从列表中选择要使用的数据库，然后单击要使用的表或视图（我们选择了 **vGetAllCategories**），然后单击“下一步”。

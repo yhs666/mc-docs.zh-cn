@@ -15,9 +15,10 @@ ms.workload: tbd
 ms.date: 02/10/2017
 wacn.date: 
 ms.author: sethm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: ac3119f3007dccede3305612cba01c29c31b3865
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -184,7 +185,7 @@ while(receive)
 
 经过一段时间后，就会建立平衡。 通过这种动态功能，可以向使用者应用基于 CPU 的自动缩放，以实现向上扩展和向下缩减。 由于事件中心没有直接的消息计数概念，平均 CPU 利用率通常是度量后端或使用者规模的最佳机制。 如果发布者开始发布的事件数超过了使用者可以处理的数量，可以使用使用者的 CPU 增大功能来实现工作线程实例数的自动缩放。
 
-[EventProcessorHost][] 类还实现了基于 Azure 存储空间的检查点机制。 此机制按分区存储偏移量，每个使用者都能确定前一个使用者的最后一个检查点是什么。 分区通过租约在节点之间转移时，正是此同步机制在促进负载转移。
+[EventProcessorHost][] 类还实现了基于 Azure 存储的检查点机制。 此机制按分区存储偏移量，每个使用者都能确定前一个使用者的最后一个检查点是什么。 分区通过租约在节点之间转移时，正是此同步机制在促进负载转移。
 
 ## <a name="publisher-revocation"></a>发布者吊销
 

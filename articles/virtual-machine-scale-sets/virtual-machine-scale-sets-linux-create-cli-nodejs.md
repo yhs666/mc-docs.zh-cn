@@ -16,9 +16,10 @@ ms.topic: get-started-article
 ms.date: 2/21/2017
 wacn.date: 
 ms.author: negat
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 95662c18a9278d96867bb31f6ae2e2b0ef7e55b5
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 

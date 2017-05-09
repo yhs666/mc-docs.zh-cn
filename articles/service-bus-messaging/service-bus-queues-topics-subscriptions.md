@@ -13,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
 ms.author: sethm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: fe7c512f76e7866eb9afae5b646541892d210ee5
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
