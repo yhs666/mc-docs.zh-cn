@@ -1,6 +1,6 @@
 ---
-title: "Azure 门户预览版中的 Azure 计划程序入门 | Azure"
-description: "Azure 门户预览版中的 Azure 计划程序入门"
+title: "Azure 门户预览中的 Azure 计划程序入门 | Azure"
+description: "Azure 门户预览中的 Azure 计划程序入门"
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
@@ -14,18 +14,19 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: d1f9bc5a2e30313acb861c58dcd3fe7612e822a2
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="get-started-with-azure-scheduler-in-azure-portal-preview"></a>Azure 门户预览版中的 Azure 计划程序入门
+# <a name="get-started-with-azure-scheduler-in-azure-portal-preview"></a>Azure 门户预览中的 Azure 计划程序入门
 在 Azure 计划程序中创建计划的作业很简单。 在本教程中，你将了解如何创建作业。 还将学习计划程序的监视和管理功能。
 
 ## <a name="create-a-job"></a>创建作业
-1.  登录到 [Azure 门户预览版](https://portal.azure.cn/)。  
+1.  登录到 [Azure 门户预览](https://portal.azure.cn/)。  
 2. 单击“+新建”> 在搜索框中键入“计划程序”> 在结果中选择“计划程序”> 单击“创建”。
    
     ![][marketplace-create]

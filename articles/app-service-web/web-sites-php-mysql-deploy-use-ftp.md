@@ -1,5 +1,5 @@
 ---
-title: "使用 FTP 在 Azure App Service 中创建和部署 PHP-MySQL Web 应用"
+title: "使用 FTP 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用"
 description: "本教程演示如何创建在 MySQL 中存储数据的 PHP Web 应用并使用 FTP 部署到 Azure。"
 services: app-service\web
 documentationcenter: php
@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: 
 ms.author: robmcm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 13c2e44aae3d582fc50be361b6e8ef6c446d83ca
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-ftp"></a>使用 FTP 在 Azure App Service 中创建和部署 PHP-MySQL Web 应用
+# <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-ftp"></a>使用 FTP 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/28/2017
 
 学习内容：
 
-* 如何使用 Azure 门户预览版创建 Web 应用和 MySQL 数据库。 由于 Web 应用已默认启用 PHP，因此运行 PHP 代码没有任何特殊要求。
+* 如何使用 Azure 门户预览创建 Web 应用和 MySQL 数据库。 由于 Web 应用已默认启用 PHP，因此运行 PHP 代码没有任何特殊要求。
 * 如何使用 FTP 将应用程序发布到 Azure。
 
 通过按照本教程中的说明进行操作，你将在 PHP 中构建简单的注册 Web 应用。 将在 Web 应用中托管应用程序。 以下是已完成应用程序的屏幕快照：
@@ -40,8 +41,8 @@ ms.lasthandoff: 04/28/2017
 ## <a name="create-a-web-app-and-set-up-ftp-publishing"></a>创建 Web 应用并设置 FTP 发布
 按照以下步骤创建 Web 应用和 MySQL 数据库：
 
-1. 登录到 [Azure 门户预览版][management-portal]。
-2. 单击 Azure 门户预览版左上角的“+ 新建”图标。
+1. 登录到 [Azure 门户预览][management-portal]。
+2. 单击 Azure 门户预览左上角的“+ 新建”图标。
 
     ![创建新的 Azure 网站][new-website]
 3. 在搜索中键入“Web 应用”，然后单击“Web 应用”。
@@ -191,7 +192,7 @@ ms.lasthandoff: 04/28/2017
 你现在可以浏览到 [http://localhost/registration/index.php][localhost-index] 来测试应用。
 
 ## <a name="get-mysql-and-ftp-connection-information"></a>获取 MySQL 和 FTP 连接信息
-若要连接到正在 Web Apps 中运行的 MySQL 数据库，你将需要连接信息。 若要获取 MySQL 连接信息，请按照以下步骤操作：
+若要连接到正在 Web 应用中运行的 MySQL 数据库，你将需要连接信息。 若要获取 MySQL 连接信息，请按照以下步骤操作：
 
 1. 在应用服务 Web 应用边栏选项卡中，单击资源组链接：
 
@@ -233,9 +234,9 @@ ms.lasthandoff: 04/28/2017
 3. 将上面记下的 `userName` 和 `userPWD` 属性按原样输入到 FTP 客户端。
 4. 建立连接。
 
-连接后，你可以根据需要上载和下载文件。 确保将文件上载到根目录 `/site/wwwroot`。
+连接后，你可以根据需要上传和下载文件。 确保将文件上传到根目录 `/site/wwwroot`。
 
-上载 `index.php` 和 `createtable.php` 之后，浏览到 **http://[site name].chinacloudsites.cn/createtable.php** 以创建用于应用程序的 MySQL 表，然后浏览到 **http://[site name].chinacloudsites.cn/index.php** 以开始使用应用程序。
+上传 `index.php` 和 `createtable.php` 之后，浏览到 **http://[site name].chinacloudsites.cn/createtable.php** 以创建用于应用程序的 MySQL 表，然后浏览到 **http://[site name].chinacloudsites.cn/index.php** 以开始使用应用程序。
 
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅 [PHP 开发人员中心](https://www.azure.cn/develop/php/)。

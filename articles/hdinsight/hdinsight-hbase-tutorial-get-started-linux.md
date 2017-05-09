@@ -17,9 +17,10 @@ ms.topic: get-started-article
 ms.date: 03/22/2017
 wacn.date: 
 ms.author: jgao
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 538f649c06705614282f8e9ab538a5ebf5a1665c
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 04/28/2017
 ## <a name="create-hbase-cluster"></a>创建 HBase 群集
 以下过程使用 Azure Resource Manager 模板创建 3.5 版基于 Linux 的 HBase 群集和从属默认 Azure 存储帐户。 若要了解该过程与其他群集创建方法中使用的参数，请参阅 [在 HDInsight 中创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 
-1. 单击下面的图像可在 Azure 门户预览版中打开模板。 模板位于公共 blob 容器中。 
+1. 单击下面的图像可在 Azure 门户预览中打开模板。 模板位于公共 blob 容器中。 
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -115,7 +116,7 @@ ms.lasthandoff: 04/28/2017
 
 HBase 提供了多种方法用于将数据载入表中。  有关详细信息，请参阅 [批量加载](http://hbase.apache.org/book.html#arch.bulk.load)。
 
-已将示例数据文件上载到公共 Blob 容器 *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*。  该数据文件的内容为：
+已将示例数据文件上传到公共 Blob 容器 *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*。  该数据文件的内容为：
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -128,7 +129,7 @@ HBase 提供了多种方法用于将数据载入表中。  有关详细信息，
     4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-如果需要，你可以创建一个文本文件并将该文件上载到你自己的存储帐户。 有关说明，请参阅 [在 HDInsight 中为 Hadoop 作业上载数据][hdinsight-upload-data]。
+如果需要，你可以创建一个文本文件并将该文件上传到你自己的存储帐户。 有关说明，请参阅 [在 HDInsight 中为 Hadoop 作业上传数据][hdinsight-upload-data]。
 
 > [!NOTE]
 > 此过程使用你在上一个过程中创建的“联系人”HBase 表。

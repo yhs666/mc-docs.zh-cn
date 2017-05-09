@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/28/2017
 ms.author: arramac
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 1d7ba28a86f655933c9dd980d60cec189bec114d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

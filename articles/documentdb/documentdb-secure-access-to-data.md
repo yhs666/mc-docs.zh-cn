@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: mimig
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: e3fb75afab0fe6b893afc0037ecdb243994a20a3
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

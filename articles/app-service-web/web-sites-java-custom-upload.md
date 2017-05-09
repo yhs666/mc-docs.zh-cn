@@ -1,6 +1,6 @@
 ---
-title: "将自定义 Java Web 应用上载到 Azure"
-description: "本教程说明如何将自定义 Java Web 应用上载到 Azure App Service Web Apps。"
+title: "将自定义 Java Web 应用上传到 Azure"
+description: "本教程说明如何将自定义 Java Web 应用上传到 Azure 应用服务 Web 应用。"
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
@@ -15,17 +15,18 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: 
 ms.author: robmcm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 023eeb25360a0c01f550bac130c279882784c1e6
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="upload-a-custom-java-web-app-to-azure"></a>将自定义 Java Web 应用上载到 Azure
-本主题介绍如何将自定义 Java Web 应用上载到 [Azure 应用服务] Web 应用。 包括适用于所有 Java 网站或 Web 应用的信息和一部分特定应用程序示例。
+# <a name="upload-a-custom-java-web-app-to-azure"></a>将自定义 Java Web 应用上传到 Azure
+本主题介绍如何将自定义 Java Web 应用上传到 [Azure 应用服务] Web 应用。 包括适用于所有 Java 网站或 Web 应用的信息和一部分特定应用程序示例。
 
-请注意，Azure 提供了一种使用 Azure 门户预览版的配置 UI 创建 Java Web 应用的方法，如[在 Azure 应用服务中创建 Java Web 应用](web-sites-java-get-started.md)中所述。 本教程适用于无需使用 Azure 门户预览版配置 UI 的方案。  
+请注意，Azure 提供了一种使用 Azure 门户预览的配置 UI 创建 Java Web 应用的方法，如[在 Azure 应用服务中创建 Java Web 应用](web-sites-java-get-started.md)中所述。 本教程适用于无需使用 Azure 门户预览配置 UI 的方案。  
 
 ## <a name="configuration-guidelines"></a>配置指南
 下面描述了 Azure 上自定义 Java Web 应用的预期设置。
@@ -85,7 +86,7 @@ ms.lasthandoff: 04/28/2017
 对于以下应用程序，提供了 web.config 文件和应用程序配置作为示例，用以说明如何在应用服务 Web 应用上启用 Java 应用程序。
 
 ### <a name="tomcat"></a>Tomcat
-尽管应用服务 Web 应用提供了两个 Tomcat 变体，但仍可以上载客户特定的实例。 使用不同 Java 虚拟机 (JVM) 安装 Tomcat 的示例如下。
+尽管应用服务 Web 应用提供了两个 Tomcat 变体，但仍可以上传客户特定的实例。 使用不同 Java 虚拟机 (JVM) 安装 Tomcat 的示例如下。
 
     <?xml version="1.0" encoding="UTF-8"?>
     <configuration>
@@ -116,7 +117,7 @@ ms.lasthandoff: 04/28/2017
 应用服务 Web 应用上不支持 Direct3d 调用。 若要禁用这些调用，添加以下 Java 选项使应用程序进行以下调用：`-Dsun.java2d.d3d=false`
 
 ### <a name="jetty"></a>Jetty
-和 Tomcat 一样，客户可以上载自己的 Jetty 实例。 对于运行完整安装的 Jetty，配置应如下所示：
+和 Tomcat 一样，客户可以上传自己的 Jetty 实例。 对于运行完整安装的 Jetty，配置应如下所示：
 
     <?xml version="1.0" encoding="UTF-8"?>
     <configuration>
@@ -136,7 +137,7 @@ ms.lasthandoff: 04/28/2017
 应在 start.ini 中更改 Jetty 配置并设置 `java.net.preferIPv4Stack=true`。
 
 ### <a name="springboot"></a>Springboot
-若要运行 Springboot 应用程序，需要上载你的 JAR 或 WAR 文件，并添加以下 web.config 文件。 该 web.config 文件位于 wwwroot 文件夹中。 在 web.config 中，调整参数以指向你的 JAR 文件，以下示例中的 JAR 文件同样位于 wwwroot 文件夹中。  
+若要运行 Springboot 应用程序，需要上传你的 JAR 或 WAR 文件，并添加以下 web.config 文件。 该 web.config 文件位于 wwwroot 文件夹中。 在 web.config 中，调整参数以指向你的 JAR 文件，以下示例中的 JAR 文件同样位于 wwwroot 文件夹中。  
 
     <?xml version="1.0" encoding="UTF-8"?>
     <configuration>

@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
 ms.author: nberdy
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: b12293a470ef1b0c9dc079ac0a1ee44f71a3c141
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -30,7 +31,7 @@ IoT 中心监视 6 种类别的事件：
 - 设备遥测
 - 云到设备的消息
 - 连接
-- 文件上载
+- 文件上传
 - 消息路由
 
 ## <a name="how-to-enable-operations-monitoring"></a>如何启用操作监视
@@ -139,15 +140,15 @@ IoT 中心监视 6 种类别的事件：
 }
 ```
 
-### <a name="file-uploads"></a>文件上载
+### <a name="file-uploads"></a>文件上传
 
-文件上载类别跟踪在 IoT 中心发生且与文件上载功能相关的错误。 此类别包括：
+文件上传类别跟踪在 IoT 中心发生且与文件上传功能相关的错误。 此类别包括：
 
 - SAS URI 发生的错误，例如它在设备就上传完毕通知中心之前到期。
 - 设备报告的失败上传。
 - 创建 IoT 中心通知消息期间在存储中找不到文件时发生的错误。
 
-此类别不能捕获在设备将文件上载到存储时直接发生的错误。
+此类别不能捕获在设备将文件上传到存储时直接发生的错误。
 
 ```json
 {

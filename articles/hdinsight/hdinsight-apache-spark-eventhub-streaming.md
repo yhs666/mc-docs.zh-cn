@@ -17,9 +17,10 @@ ms.topic: article
 ms.date: 03/27/2017
 wacn.date: 
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 9fb436c319a5847e1a66d8b59e734f1333e53a9c
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -56,7 +57,7 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="create-azure-event-hub"></a>创建 Azure 事件中心
 
-1. 登录到 [Azure 门户预览版](https://manage.windowsazure.cn)，然后单击屏幕左上角的“新建”。
+1. 登录到 [Azure 门户预览](https://manage.windowsazure.cn)，然后单击屏幕左上角的“新建”。
 
 2. 单击“物联网”，然后单击“事件中心”。
 
@@ -182,10 +183,10 @@ ms.lasthandoff: 04/28/2017
 
         java -cp com-microsoft-azure-eventhubs-client-example.jar com.microsoft.eventhubs.client.example.EventhubsClientDriver --eventhubs-namespace "mysbnamespace" --eventhubs-name "myeventhub" --policy-name "mysendpolicy" --policy-key "<policy key>" --message-length 32 --thread-count 32 --message-count -1
 
-2. 将流式 jar (**spark-streaming-data-persistence-examples.jar**) 复制到与群集关联的 Azure Blob 存储。 这样，jar 便可供 Livy 访问。 可以使用命令行实用工具 [**AzCopy**](../storage/storage-use-azcopy.md) 来执行此操作。 可以使用其他许多客户端来上载数据。 有关详细信息，请参阅[在 HDInsight 中上传 Hadoop 作业的数据](hdinsight-upload-data.md)。
+2. 将流式 jar (**spark-streaming-data-persistence-examples.jar**) 复制到与群集关联的 Azure Blob 存储。 这样，jar 便可供 Livy 访问。 可以使用命令行实用工具 [**AzCopy**](../storage/storage-use-azcopy.md) 来执行此操作。 可以使用其他许多客户端来上传数据。 有关详细信息，请参阅[在 HDInsight 中上传 Hadoop 作业的数据](hdinsight-upload-data.md)。
 3. 将 CURL 安装在要运行这些应用程序的计算机上。 我们将使用 CURL 来调用 Livy 终结点，以远程运行作业。
 
-### <a name="run-the-applications-to-receive-the-events-into-an-azure-storage-blob-as-text"></a>运行应用程序以将事件以文本形式接收到 Azure 存储空间 Blob 中
+### <a name="run-the-applications-to-receive-the-events-into-an-azure-storage-blob-as-text"></a>运行应用程序以将事件以文本形式接收到 Azure 存储 Blob 中
 
 打开命令提示符，导航到安装 CURL 的目录，然后运行以下命令（替换用户名/密码和群集名称）：
 
@@ -227,7 +228,7 @@ ms.lasthandoff: 04/28/2017
 
     curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.cn/livy/batches/1"
 
-### <a name="run-the-applications-to-receive-the-events-into-an-azure-storage-blob-as-json"></a>运行应用程序以将事件以 JSON 形式接收到 Azure 存储空间 Blob 中
+### <a name="run-the-applications-to-receive-the-events-into-an-azure-storage-blob-as-json"></a>运行应用程序以将事件以 JSON 形式接收到 Azure 存储 Blob 中
 打开命令提示符，导航到安装 CURL 的目录，然后运行以下命令（替换用户名/密码和群集名称）：
 
     curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\inputJSON.txt "https://mysparkcluster.azurehdinsight.cn/livy/batches"

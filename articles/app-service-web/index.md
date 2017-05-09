@@ -12,9 +12,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 wacn.date: 
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 5e850196a7f7bd0a6e7dea0b4a39b860ac4178fb
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---

@@ -17,9 +17,10 @@ ms.workload: big-data
 ms.date: 03/21/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: d3ea7c7326124efaea63bd745037da185996ad07
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -153,7 +154,7 @@ Azure PowerShell 提供 *cmdlet* ，可让你在 HDInsight 上远程运行 Hive 
         2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
 
     > [!NOTE]
-    > 对于较长的 HiveQL 查询，可以使用 Azure PowerShell **Here-Strings** cmdlet 或 HiveQL 脚本文件。 以下代码段显示了如何使用 **Invoke-Hive** cmdlet 来运行 HiveQL 脚本文件。 必须将 HiveQL 脚本文件上载到 wasb://。
+    > 对于较长的 HiveQL 查询，可以使用 Azure PowerShell **Here-Strings** cmdlet 或 HiveQL 脚本文件。 以下代码段显示了如何使用 **Invoke-Hive** cmdlet 来运行 HiveQL 脚本文件。 必须将 HiveQL 脚本文件上传到 wasb://。
     > <p>
     > `Invoke-AzureRmHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
     > <p>

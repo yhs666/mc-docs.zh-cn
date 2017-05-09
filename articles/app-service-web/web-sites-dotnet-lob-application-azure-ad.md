@@ -1,6 +1,6 @@
 ---
 title: "使用 Azure Active Directory 身份验证创建业务线 Azure 应用 | Azure"
-description: "了解如何在 Azure App Service 中创建使用 Azure Active Directory 进行身份验证的 ASP.NET MVC 业务线应用"
+description: "了解如何在 Azure 应用服务中创建使用 Azure Active Directory 进行身份验证的 ASP.NET MVC 业务线应用"
 services: app-service\web, active-directory
 documentationcenter: .net
 author: cephalin
@@ -15,9 +15,10 @@ ms.workload: web
 ms.date: 09/01/2016
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 93d180cb16e57c82b714c42e3412654a65f46fd8
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -26,12 +27,12 @@ ms.lasthandoff: 04/28/2017
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本文说明如何在 [Azure App Service Web 应用](/azure/app-service-web/app-service-changes-existing-services)中使用[身份验证/授权](../app-service/app-service-authentication-overview.md)功能创建 .NET 业务线应用。 另外，还说明如何在应用程序中使用 [Azure Active Directory 图形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 查询目录数据。
+本文说明如何在 [Azure 应用服务 Web 应用](/azure/app-service-web/app-service-changes-existing-services)中使用[身份验证/授权](../app-service/app-service-authentication-overview.md)功能创建 .NET 业务线应用。 另外，还说明如何在应用程序中使用 [Azure Active Directory 图形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 查询目录数据。
 
 使用的 Azure Active Directory 租户可以是仅限 Azure 的目录。 或者，可以将它[与本地 Active Directory 同步](../active-directory/active-directory-aadconnect.md)，为本地和远程工作者创建单一登录体验。 本文使用 Azure 帐户的默认目录。
 
 ## <a name="bkmk_build"></a>要构建的项目
-将在 App Service Web Apps 中构建用于跟踪工作项并具有以下功能的简单的业务线创建-读取-更新-删除 (CRUD) 应用程序：
+将在应用服务 Web 应用中构建用于跟踪工作项并具有以下功能的简单的业务线创建-读取-更新-删除 (CRUD) 应用程序：
 
 * 根据 Azure Active Directory 对用户进行身份验证
 * 使用 [Azure Active Directory 图形 API](http://msdn.microsoft.com/library/azure/hh974476.aspx) 查询目录用户和组
@@ -64,14 +65,14 @@ ms.lasthandoff: 04/28/2017
     ![](./media/web-sites-dotnet-lob-application-azure-ad/3-add-sql-database.png)
 7. 在“配置 SQL 数据库”中，单击“新建”以创建 SQL Server 实例。
 8. 在“配置 SQL Server”中，配置你的 SQL Server 实例。 然后，依次单击“确定”、“确定”和“创建”以开始在 Azure 中创建应用。
-9. 在“Azure App Service 活动”中，可以看到应用创建何时完成。 然后，单击“**立即将 &lt;*appname*> 发布到此 Web 应用”，然后单击“**发布**”。 
+9. 在“Azure 应用服务活动”中，可以看到应用创建何时完成。 然后，单击“**立即将 &lt;*appname*> 发布到此 Web 应用”，然后单击“**发布**”。 
 
     Visual Studio 完成后，将在浏览器中打开发布应用。 
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/4-published-shown-in-browser.png)
 
 ## <a name="bkmk_auth"></a> 配置身份验证和目录访问
-1. 登录到 [Azure 门户预览版](https://portal.azure.cn)。
+1. 登录到 [Azure 门户预览](https://portal.azure.cn)。
 2. 从左侧菜单中，依次单击“**应用服务** > **&lt;*应用名称*”** >“**身份验证/授权**”。
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/5-app-service-authentication.png)
@@ -155,7 +156,7 @@ ms.lasthandoff: 04/28/2017
 8. 将 json 放置在 URL 的上面。
 17. 现在，若要测试是否获得了用于访问 Azure Active Directory 图形 API 的授权令牌，请在浏览器中导航到 **https://&lt;*appname*>.chinacloudsites.cn/.auth/me**。 如果一切都配置正确，应会在 JSON 响应中看到 `access_token` 属性。
 
-    `~/.auth/me` URL 路径由应用服务身份验证/授权进行管理，提供与经过身份验证的会话相关的所有信息。 有关详细信息，请参阅 [Azure App Service 中的身份验证和授权](../app-service/app-service-authentication-overview.md)。
+    `~/.auth/me` URL 路径由应用服务身份验证/授权进行管理，提供与经过身份验证的会话相关的所有信息。 有关详细信息，请参阅 [Azure 应用服务中的身份验证和授权](../app-service/app-service-authentication-overview.md)。
 
     > [!NOTE]
     > `access_token` 到时会过期。 但是，应用服务身份验证/授权使用 `~/.auth/refresh`提供令牌刷新功能。 有关此功能的用法详细信息，请参阅 [App Service Token Store](https://cgillum.tech/2016/03/07/app-service-token-store/)（应用服务令牌存储）。
@@ -353,7 +354,7 @@ ms.lasthandoff: 04/28/2017
 如果 Azure 中的业务线应用需要基于角色的访问控制 (RBAC)，请参阅 [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) 获取 Azure Active Directory 团队提供的示例。 该示例演示了如何为 Azure Active Directory 应用程序启用角色，然后使用 `[Authorize]` 装饰为用户授权。
 
 ## <a name="bkmk_resources"></a> 其他资源
-* [Azure App Service 中的身份验证和授权](../app-service/app-service-authentication-overview.md)
+* [Azure 应用服务中的身份验证和授权](../app-service/app-service-authentication-overview.md)
 * [在 Azure 应用中使用本地 Active Directory 进行身份验证](web-sites-authentication-authorization.md)
 * [在 Azure 中使用 AD FS 身份验证创建业务线应用](web-sites-dotnet-lob-application-adfs.md)
 * [App Service Auth and the Azure AD Graph API（应用服务身份验证和 Azure AD 图形 API）](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)

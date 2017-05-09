@@ -17,9 +17,10 @@ ms.workload: big-data
 ms.date: 02/17/2017
 wacn.date: 
 ms.author: jgao
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 6653ad841e348a84a64a9d79ccd58660eaf638b2
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -103,7 +104,7 @@ Azure HDInsight 提供了两个类别的大数据云产品/服务：标准和[�
 | Storm |是 |否 |
 | Spark 上的 R Server |否 |是 |
 
-随着 HDInsight 高级版中包含的群集类型更多，此表也会随之更新。 以下屏幕截图显示了用于选择群集类型的 Azure 门户预览版信息。
+随着 HDInsight 高级版中包含的群集类型更多，此表也会随之更新。 以下屏幕截图显示了用于选择群集类型的 Azure 门户预览信息。
 
 ![HDInsight 高级版配置](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
 
@@ -137,7 +138,7 @@ Azure HDInsight 提供了两个类别的大数据云产品/服务：标准和[�
 ### <a name="credentials"></a>凭据
 使用 HDInsight 群集时，可以在群集创建期间配置两个用户帐户：
 
-* HTTP 用户。 默认的用户名为 *admin*。 它使用 Azure 门户预览版的基本配置。 有时称为“群集用户”。
+* HTTP 用户。 默认的用户名为 *admin*。 它使用 Azure 门户预览的基本配置。 有时称为“群集用户”。
 * SSH 用户（Linux 群集）。 通过 SSH 连接到群集时使用此用户。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
     > [!NOTE]
@@ -184,7 +185,7 @@ HDInsight 群集与其默认存储帐户必须位于相同的 Azure 位置。
 > 群集使用的节点不视为虚拟机，因为用于节点的虚拟机映像是 HDInsight 服务的实现细节。 节点使用的计算核心会计入可供订阅使用的计算核心总数。 创建 HDInsight 群集时，可以在“节点定价层”边栏选项卡的摘要部分中查看可用核心数以及群集要使用的核心数  。
 >
 
-使用 Azure 门户预览版配置群集时，可通过“节点定价层”边栏选项卡查看节点大小  。 还可以查看不同节点大小的相关成本。 以下屏幕截图显示了基于 Linux 的 Hadoop 群集的选项。
+使用 Azure 门户预览配置群集时，可通过“节点定价层”边栏选项卡查看节点大小  。 还可以查看不同节点大小的相关成本。 以下屏幕截图显示了基于 Linux 的 Hadoop 群集的选项。
 
 ![HDInsight VM 节点大小](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
 
@@ -300,7 +301,7 @@ HDInsight 群集与其默认存储帐户必须位于相同的 Azure 位置。
 >
 
 ## <a name="customize-clusters-using-script-action"></a>使用脚本操作自定义群集
-你可以在创建期间通过使用脚本安装其他组件或自定义群集配置。 此类脚本可通过 **脚本操作**调用，脚本操作是一种配置选项，可通过 Azure 门户预览版、HDInsight Windows PowerShell cmdlet 或 HDInsight .NET SDK 使用。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
+你可以在创建期间通过使用脚本安装其他组件或自定义群集配置。 此类脚本可通过**脚本操作**调用，脚本操作是一种配置选项，可通过 Azure 门户预览、HDInsight Windows PowerShell cmdlet 或 HDInsight .NET SDK 使用。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 某些本机 Java 组件（如 Mahout 和 Cascading）可以在群集上作为 Java 存档 (JAR) 文件运行。 可以通过 Hadoop 作业提交机制将这些 JAR 文件分发到 Azure 存储，然后提交到 HDInsight 群集。 有关详细信息，请参阅[以编程方式提交 Hadoop 作业](hdinsight-submit-hadoop-jobs-programmatically.md)。
 
@@ -318,7 +319,7 @@ HDInsight 群集与其默认存储帐户必须位于相同的 Azure 位置。
 
 | 群集创建方法 | Web 浏览器 | 命令行 | REST API | SDK | Linux、Mac OS X 或 Unix | Windows |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
-| [Azure 门户预览版](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |✔ |✔ |
+| [Azure 门户预览](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |✔ |✔ |
 | [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |✔ |✔ |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |✔ |✔ |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |✔ |✔ |

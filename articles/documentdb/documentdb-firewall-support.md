@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2017
 ms.author: ankshah
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 56b0d67405ea904d0731de598c4c0c1782d4e33a
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

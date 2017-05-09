@@ -1,6 +1,6 @@
 ---
 title: "Azure 上具有 Python Tools 2.2 for Visual Studio 的 Django 和 MySQL"
-description: "了解如何使用 Python Tools for Visual Studio 来创建在 MySQL 数据库实例中存储数据的 Django Web 应用，以及将应用部署到 Azure App Service Web Apps 中。"
+description: "了解如何使用 Python Tools for Visual Studio 来创建在 MySQL 数据库实例中存储数据的 Django Web 应用，以及将应用部署到 Azure 应用服务 Web 应用中。"
 services: app-service\web
 documentationcenter: python
 author: huguesv
@@ -15,9 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/07/2016
 wacn.date: 
 ms.author: huvalo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: b92409631ceb8834426aa4c8645f265807af2af2
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -27,9 +28,9 @@ ms.lasthandoff: 04/28/2017
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程介绍使用 [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python) 通过一个 PTVS 样本模板创建简单的轮询 Web 应用。 了解如何使用在 Azure 上托管的 MySQL 服务、如何将 Web 应用配置为使用 MySQL，以及如何将 Web 应用发布到 [Azure App Service Web 应用](/azure/app-service-web/app-service-changes-existing-services)中。
+本教程介绍使用 [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python) 通过一个 PTVS 样本模板创建简单的轮询 Web 应用。 了解如何使用在 Azure 上托管的 MySQL 服务、如何将 Web 应用配置为使用 MySQL，以及如何将 Web 应用发布到 [Azure 应用服务 Web 应用](/azure/app-service-web/app-service-changes-existing-services)中。
 
-请访问 [Python 开发人员中心] ，查看更多有关使用 PTVS 以及 Bottle、Flask 和 Django Web 框架、Azure 表存储、MySQL、SQL 数据库服务开发 Azure 应用服务 Web 应用的文章。 虽然本文将着重介绍 App Service，但步骤与 [Azure 云服务]的开发步骤类似。
+请访问 [Python 开发人员中心] ，查看更多有关使用 PTVS 以及 Bottle、Flask 和 Django Web 框架、Azure 表存储、MySQL、SQL 数据库服务开发 Azure 应用服务 Web 应用的文章。 虽然本文将着重介绍应用服务，但步骤与 [Azure 云服务]的开发步骤类似。
 
 ## <a name="prerequisites"></a>先决条件
 * Visual Studio 2015
@@ -110,8 +111,8 @@ ms.lasthandoff: 04/28/2017
     这将创建你在上一节中创建的 MySQL 数据库的表。 按照提示创建用户，该用户不一定要与本文第一节中创建的 sqlite 数据库中的用户相同。
 5. 使用 `F5`运行应用程序。 使用“创建样本轮询”  创建的轮询以及通过投票提交的数据会在 MySQL 数据库中进行序列化。
 
-## <a name="publish-the-web-app-to-azure-app-service"></a>将 Web 应用发布到 Azure App Service
-借助 Azure.NET SDK，您可以轻松地将 Web 应用部署到 Azure App Service 中。
+## <a name="publish-the-web-app-to-azure-app-service"></a>将 Web 应用发布到 Azure 应用服务
+借助 Azure.NET SDK，您可以轻松地将 Web 应用部署到 Azure 应用服务中。
 
 1. 在“解决方案资源管理器”中，右键单击项目节点，然后选择“发布”。
 
@@ -121,7 +122,7 @@ ms.lasthandoff: 04/28/2017
 4. 填写以下字段，然后单击“创建” ：
 
     * **Web 应用名称**
-    * **App Service 计划**
+    * **应用服务计划**
     * **资源组**
     * **区域**
     * 保持“数据库服务器”的“无数据库”设置不变

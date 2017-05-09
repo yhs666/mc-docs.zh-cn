@@ -17,9 +17,10 @@ ms.workload: big-data
 ms.date: 03/14/2017
 wacn.date: 
 ms.author: jgao
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 11e2b2c03528dd546b6541399da78b6b70ea8b0f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -58,9 +59,9 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="generate-templates"></a>生成模板
 
-使用 Azure 门户预览版可以配置群集的所有属性并保存模板，然后再进行部署。 可重复使用模板。
+使用 Azure 门户预览可以配置群集的所有属性并保存模板，然后再进行部署。 可重复使用模板。
 
-**使用 Azure 门户预览版生成模板**
+**使用 Azure 门户预览生成模板**
 
 1. 登录 [Azure 门户预览](https://portal.azure.cn)。
 2. 在左侧菜单中单击“新建”，然后依次单击“智能+分析”和“HDInsight”。

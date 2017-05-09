@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/06/2017
 ms.author: curtand
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 2852eece5f3f8fa4e73b4b9e2cbcb7c142b36a0e
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

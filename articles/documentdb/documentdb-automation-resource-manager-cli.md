@@ -15,9 +15,10 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: dimakwan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 2ec439e7c6790a3830a8c7303cde5013196b2f94
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

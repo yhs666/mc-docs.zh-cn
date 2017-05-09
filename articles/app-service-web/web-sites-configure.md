@@ -1,6 +1,6 @@
 ---
-title: "在 Azure App Service 中配置 Web 应用"
-description: "如何在 Azure App Service 中配置 Web 应用"
+title: "在 Azure 应用服务中配置 Web 应用"
+description: "如何在 Azure 应用服务中配置 Web 应用"
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
@@ -15,20 +15,21 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: 
 ms.author: robmcm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 9d453d135acba104ccec1097b9c20e124d5b8c44
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="configure-web-apps-in-azure-app-service"></a>在 Azure App Service 中配置 Web 应用
-本主题介绍如何使用 [Azure 门户预览版]配置 Web 应用。
+# <a name="configure-web-apps-in-azure-app-service"></a>在 Azure 应用服务中配置 Web 应用
+本主题介绍如何使用 [Azure 门户预览]配置 Web 应用。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="application-settings"></a>应用程序设置
-1. 在 [Azure 门户预览版]中，打开 Web 应用边栏选项卡。
+1. 在 [Azure 门户预览]中，打开 Web 应用边栏选项卡。
 2. 单击“所有设置”。
 3. 单击“应用程序设置”。
 
@@ -56,7 +57,7 @@ ms.lasthandoff: 04/28/2017
 
 **托管管道版本**。 设置 IIS [管道模式]。 将此设置保留为“集成(默认)”，除非旧版应用需要旧版 IIS。
 
-**自动交换**。 如果启用部署槽的自动交换，则在向该槽推送更新时，应用服务会自动将 Web 应用交换到生产。 有关详细信息，请参阅 [为 Azure App Service 中的 Web 应用部署到过渡槽](web-sites-staged-publishing.md)。
+**自动交换**。 如果启用部署槽的自动交换，则在向该槽推送更新时，应用服务会自动将 Web 应用交换到生产。 有关详细信息，请参阅 [为 Azure 应用服务中的 Web 应用部署到过渡槽](web-sites-staged-publishing.md)。
 
 ### <a name="debugging"></a>调试
 **远程调试**。 启用远程调试。 启用后，可使用 Visual Studio 中的远程调试器直接连接到 Web 应用。 远程调试将保持启用状态 48 小时。 
@@ -118,18 +119,18 @@ Web 应用可能会使用根据 URL 路由的模块，而不是提供静态内�
 
 1. 登录到 [Azure 经典管理门户](https://manage.windowsazure.cn/)，找到你的应用，然后单击“速览”下的“仪表板” > “重置部署凭据”，为应用设置部署凭据。
 
-1. 返回到 [Azure 门户预览版](https://portal.azure.cn)。 完整的 FTP 用户名是“app\username”，其中 *app* 是 Web 应用的名称。 用户名列在 Web 应用边栏选项卡的“Essentials” 下。  
+1. 返回到 [Azure 门户预览](https://portal.azure.cn)。 完整的 FTP 用户名是“app\username”，其中 *app* 是 Web 应用的名称。 用户名列在 Web 应用边栏选项卡的“Essentials” 下。  
 
 ![FTP 部署凭据][configure02]
 
 ## <a name="other-configuration-tasks"></a>其他配置任务
 ### <a name="ssl"></a>SSL
-在“基本”或“标准”模式下，你可为自定义域上载 SSL 证书。 有关详细信息，请参阅[为 Web 应用启用 HTTPS]。 
+在“基本”或“标准”模式下，你可为自定义域上传 SSL 证书。 有关详细信息，请参阅[为 Web 应用启用 HTTPS]。 
 
 若要查看上传的证书，请单击“所有设置” > “自定义域和 SSL”。
 
 ### <a name="domain-names"></a>域名
-添加 Web 应用的自定义域名。 有关详细信息，请参阅[为 Azure App Service 中的 Web 应用配置自定义域名]。
+添加 Web 应用的自定义域名。 有关详细信息，请参阅[为 Azure 应用服务中的 Web 应用配置自定义域名]。
 
 若要查看域名，请单击“所有设置” > “自定义域和 SSL”。
 
@@ -144,22 +145,22 @@ Web 应用可能会使用根据 URL 路由的模块，而不是提供静态内�
 
 有关详细信息，请参阅 [如何监视 Web 终结点状态]。
 ## <a name="next-steps"></a>后续步骤
-* [在 Azure App Service 中配置自定义域名]
-* [Enable HTTPS for an app in Azure App Service（为 Azure App Service 中的应用启用 HTTPS）]
-* [在 Azure App Service 中缩放 Web 应用]
+* [在 Azure 应用服务中配置自定义域名]
+* [Enable HTTPS for an app in Azure App Service（为 Azure 应用服务中的应用启用 HTTPS）]
+* [在 Azure 应用服务中缩放 Web 应用]
 * [Azure 应用服务中 Web 应用的监视基础知识]
 
 <!-- URL List -->
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
-[Azure 门户预览版]: https://portal.azure.cn/
-[在 Azure App Service 中配置自定义域名]: ./web-sites-custom-domain-name.md
+[Azure 门户预览]: https://portal.azure.cn/
+[在 Azure 应用服务中配置自定义域名]: ./web-sites-custom-domain-name.md
 [为 Azure 应用服务中的 Web 应用部署到过渡环境]: ./web-sites-staged-publishing.md。
-[Enable HTTPS for an app in Azure App Service（为 Azure App Service 中的应用启用 HTTPS）]: ./web-sites-configure-ssl-certificate.md
+[Enable HTTPS for an app in Azure App Service（为 Azure 应用服务中的应用启用 HTTPS）]: ./web-sites-configure-ssl-certificate.md
 [如何监视 Web 终结点状态]: /azure/app-service-web/web-sites-monitor
 [Azure 应用服务中 Web 应用的监视基础知识]: ./web-sites-monitor.md
 [管道模式]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[在 Azure App Service 中缩放 Web 应用]: ./web-sites-scale.md
+[在 Azure 应用服务中缩放 Web 应用]: ./web-sites-scale.md
 [socket.io]: ./web-sites-nodejs-chat-app-socketio.md
 [Try App Service]: https://azure.microsoft.com/try/app-service/
 

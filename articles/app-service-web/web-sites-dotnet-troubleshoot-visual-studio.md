@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 08/29/2016
 wacn.date: 
 ms.author: rachelap
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 1ca415cae11eb51f23c9941993ea14005f039cd7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -52,7 +53,7 @@ ms.lasthandoff: 04/28/2017
 流式日志功能仅适用于面向 .NET Framework 4 或更高版本的应用程序。
 
 ## <a name="sitemanagement"></a>Web 应用配置和管理
-通过 Visual Studio，可以访问 [Azure 门户预览版](/azure/app-service-web/app-service-web-app-azure-portal)中提供的 Web 应用管理功能和配置设置的子集。 本节介绍使用**服务器资源管理器**可以实现的功能。 若要了解最新的 Azure 集成功能，请同时试用**云资源管理器**。 可以从“视图”菜单打开这两个窗口。
+通过 Visual Studio，可以访问 [Azure 门户预览](/azure/app-service-web/app-service-web-app-azure-portal)中提供的 Web 应用管理功能和配置设置的子集。 本节介绍使用**服务器资源管理器**可以实现的功能。 若要了解最新的 Azure 集成功能，请同时试用**云资源管理器**。 可以从“视图”菜单打开这两个窗口。
 
 1. 如果还未在 Visual Studio 中登录到 Azure，请单击“服务器资源管理器”中的“连接到 Azure”按钮。
 
@@ -77,7 +78,7 @@ ms.lasthandoff: 04/28/2017
 
     有关该窗口中“应用程序设置”和“连接字符串”框的信息，请参阅 [Azure Web 应用：应用程序字符串和连接字符串的工作原理](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)。
 
-    如果要执行的 Web 应用管理任务无法在此窗口进行，请单击“在管理门户中打开”，以便在浏览器窗口中打开 Azure 门户预览版。
+    如果要执行的 Web 应用管理任务无法在此窗口进行，请单击“在管理门户中打开”，以便在浏览器窗口中打开 Azure 门户预览。
 
 ## <a name="remoteview"></a>在服务器资源管理器中访问 Web 应用文件
 部署 Web 项目时，Web.config 文件中的 `customErrors` 标志通常设置为 `On` 或 `RemoteOnly`，这意味着如果出现问题你不会获得任何有帮助的错误消息。 无论发生何种错误，你获得的都是类似如下所示的页面。
@@ -395,7 +396,7 @@ Web 服务器日志将记录 Web 应用上所有的 HTTP 活动。 若要在“�
 
     ![输出窗口中的 Web 服务器日志](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
-默认情况下，通过使用 Visual Studio 第一次启用 Web 服务器日志时，Azure 会将日志写入文件系统。 或者，可以使用 Azure 门户预览版指定将 Web 服务器日志写入存储帐户的 Blob 容器。
+默认情况下，通过使用 Visual Studio 第一次启用 Web 服务器日志时，Azure 会将日志写入文件系统。 或者，可以使用 Azure 门户预览指定将 Web 服务器日志写入存储帐户的 Blob 容器。
 
 如果使用门户将 Web 服务器日志记录写入 Azure 存储帐户，之后在 Visual Studio 中禁用日志记录，则在 Visual Studio 中重新启用日志记录时，存储帐户设置将还原。
 
@@ -521,7 +522,7 @@ Web 服务器日志将记录 Web 应用上所有的 HTTP 活动。 若要在“�
 ## <a name="failedrequestlogs"></a>查看失败请求跟踪日志
 在出现诸如 URL 重写或身份验证问题之类的情况下，需要详细了解 IIS 如何处理 HTTP 请求时可求助于失败请求跟踪日志。
 
-Azure Web Apps 使用 IIS 7.0 及更高版本中提供的相同失败请求跟踪功能。 IIS 设置经过配置可记录指定错误，但无法访问该设置。 启用失败请求跟踪后，所有错误都将纳入捕获范围内。
+Azure Web 应用使用 IIS 7.0 及更高版本中提供的相同失败请求跟踪功能。 IIS 设置经过配置可记录指定错误，但无法访问该设置。 启用失败请求跟踪后，所有错误都将纳入捕获范围内。
 
 使用 Visual Studio 可启用失败请求跟踪，但却无法在 Visual Studio 中对其进行查看。 这些日志是 XML 文件。 这些流式传输日志服务只监视认为在纯文本模式下可读的文件：*.txt*、*.html* 和 *.log* 文件。
 

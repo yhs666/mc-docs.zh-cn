@@ -17,9 +17,10 @@ ms.date: 02/27/2017
 wacn.date: 
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 9b0881301e378c8aafcc443168a39e8a18fe6636
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -197,12 +198,12 @@ def create_structure(input):
 3. 使用 SSH 连接到群集。 例如，下面会以用户 **myuser** 的身份连接到名为 **mycluster** 的群集。
 
         ssh myuser@mycluster-ssh.azurehdinsight.cn
-4. 从 SSH 会话将前面上载的 python 文件添加到群集的 WASB 存储中。
+4. 从 SSH 会话将前面上传的 python 文件添加到群集的 WASB 存储中。
 
         hdfs dfs -put streaming.py /streaming.py
         hdfs dfs -put pig_python.py /pig_python.py
 
-在上载文件后，使用以下步骤来运行 Hive 和 Pig 作业。
+在上传文件后，使用以下步骤来运行 Hive 和 Pig 作业。
 
 #### <a name="hive"></a>Hive
 
@@ -316,7 +317,7 @@ def create_structure(input):
         -Context $context
     ```
 
-    此脚本将检索 HDInsight 群集的信息，然后提取默认存储帐户的名称和密钥，并将文件上载到容器的根目录。
+    此脚本将检索 HDInsight 群集的信息，然后提取默认存储帐户的名称和密钥，并将文件上传到容器的根目录。
 
     > [!NOTE]
     > [在 HDInsight 中上传 Hadoop 作业的数据](hdinsight-upload-data.md)文档中介绍了上传脚本的其他方法。
@@ -451,7 +452,7 @@ Get-AzureRmHDInsightJobOutput `
 
 此问题可能是由 streaming.py 文件中的行尾结束符号导致的。 许多 Windows 编辑器默认为使用 CRLF 作为行尾结束符号，但 Linux 应用程序通常应使用 LF。
 
-可以使用以下 PowerShell 语句删除 CR 字符，然后再将文件上载到 HDInsight：
+可以使用以下 PowerShell 语句删除 CR 字符，然后再将文件上传到 HDInsight：
 
 ```powershell
 $original_file ='c:\path\to\streaming.py'

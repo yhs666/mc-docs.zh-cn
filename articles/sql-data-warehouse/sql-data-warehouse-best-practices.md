@@ -16,9 +16,10 @@ ms.custom: performance
 ms.date: 10/31/2016
 wacn.date: 
 ms.author: barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 20bf12713f7a671fc25f7f36964176671a48c4f1
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/28/2017
 如果你刚开始使用 Azure SQL 数据仓库，千万别让本文吓到。  主题的顺序主要按照重要性排列。  如果一开始就关注头几个概念，则效果应该不错。  更熟悉 SQL 数据仓库且能运用自如后，请再回来看看其他概念。  融会贯通不需要很长时间。
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>使用暂停和缩放来降低成本
-SQL 数据仓库的一个重要功能，是能够在不使用它时予以暂停，这将停止计算资源的计费。  另一个重要功能是能够缩放资源。  暂停和缩放可以通过 Azure 门户预览版或 PowerShell 命令完成。  请熟悉这些功能，因为这些功能可以在数据仓库不使用时大幅降低成本。  如果希望随时可访问数据仓库，建议将其缩放到最小的大小 (DW100)，而不是暂停。
+SQL 数据仓库的一个重要功能，是能够在不使用它时予以暂停，这将停止计算资源的计费。  另一个重要功能是能够缩放资源。  暂停和缩放可以通过 Azure 门户预览或 PowerShell 命令完成。  请熟悉这些功能，因为这些功能可以在数据仓库不使用时大幅降低成本。  如果希望随时可访问数据仓库，建议将其缩放到最小的大小 (DW100)，而不是暂停。
 
 另请参阅[暂停计算资源][Pause compute resources]、[恢复计算资源][Resume compute resources]、[缩放计算资源][Scale compute resources]
 

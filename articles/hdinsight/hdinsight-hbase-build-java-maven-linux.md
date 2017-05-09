@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 02/17/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 4b4b5d4e6a4c5dc40d6a9ab14b26ec8faf84f59b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -373,15 +374,15 @@ ms.lasthandoff: 04/28/2017
     > [!NOTE]
     > **hbaseapp-1.0-SNAPSHOT.jar** 文件是 uber jar。 它包含运行应用程序所需的所有依赖项。
 
-## <a name="upload-the-jar-and-run-jobs-ssh"></a>上载 JAR 并运行作业 (SSH)
+## <a name="upload-the-jar-and-run-jobs-ssh"></a>上传 JAR 并运行作业 (SSH)
 
 以下步骤使用 `scp` 将 JAR 复制到 HDInsight 群集的主要头节点。 然后，使用 `ssh` 命令连接到群集并直接在头节点上运行此示例。
 
-1. 使用以下命令将该 jar 文件上载到 HDInsight 群集。 将 **USERNAME** 替换为 SSH 登录名。 将 **CLUSTERNAME** 替换为 HDInsight 群集名称：
+1. 使用以下命令将该 jar 文件上传到 HDInsight 群集。 将 **USERNAME** 替换为 SSH 登录名。 将 **CLUSTERNAME** 替换为 HDInsight 群集名称：
 
         scp ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:hbaseapp-1.0-SNAPSHOT.jar
 
-    此命令会将文件上载到 SSH 用户帐户的主目录。
+    此命令会将文件上传到 SSH 用户帐户的主目录。
 
     > [!NOTE]
     > 如果使用了 SSH 帐户的密码，则系统将提示你输入该密码。 如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。 以下示例从 `~/.ssh/id_rsa`加载私钥：
@@ -416,9 +417,9 @@ ms.lasthandoff: 04/28/2017
         Gabriela Ingram - ID: 6
         Gabriela Ingram - gabriela@contoso.com - ID: 6
 
-## <a name="upload-the-jar-and-run-jobs-powershell"></a>上载 JAR 并运行作业 (PowerShell)
+## <a name="upload-the-jar-and-run-jobs-powershell"></a>上传 JAR 并运行作业 (PowerShell)
 
-以下步骤使用 Azure PowerShell 将 JAR 上载到 HDInsight 群集的默认存储。 然后使用 HDInsight cmdlet 远程运行这些示例。
+以下步骤使用 Azure PowerShell 将 JAR 上传到 HDInsight 群集的默认存储。 然后使用 HDInsight cmdlet 远程运行这些示例。
 
 1. 安装并配置 Azure PowerShell 后，请创建名为 **hbase-runner.psm1**的文件。 使用以下文本作为此文件的内容：
 
@@ -621,7 +622,7 @@ ms.lasthandoff: 04/28/2017
 
     此文件包含两个模块：
 
-    * **Add-HDInsightFile** - 用于将文件上载到 HDInsight
+    * **Add-HDInsightFile** - 用于将文件上传到 HDInsight
     * **Start-HBaseExample** - 用于运行以前创建的类
 
 2. 保存 **hbase-runner.psm1** 文件。
@@ -632,7 +633,7 @@ ms.lasthandoff: 04/28/2017
 
     将路径切换到前面创建的 **hbase-runner.psm1** 文件所在的位置。 此命令使用 Azure PowerShell 注册模块。
 
-4. 使用以下命令将 **hbaseapp-1.0-SNAPSHOT.jar** 上载到你的 HDInsight 群集。
+4. 使用以下命令将 **hbaseapp-1.0-SNAPSHOT.jar** 上传到你的 HDInsight 群集。
 
         Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
 

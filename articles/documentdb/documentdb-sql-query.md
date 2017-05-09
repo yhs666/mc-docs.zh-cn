@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/08/2017
 ms.author: arramac
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 68fa95920aa332cec15b2578f04b4a612327697b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

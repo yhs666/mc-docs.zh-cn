@@ -15,9 +15,10 @@ ms.workload: data-services
 ms.date: 03/20/2016
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: b1e43f76fdcfff50f601937e956b045e7ec4e796
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

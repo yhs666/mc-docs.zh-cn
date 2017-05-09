@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 04/05/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: b28f398b50145202513c2aa5189ce9fd75f698e5
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

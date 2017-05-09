@@ -1,6 +1,6 @@
 ---
-title: "在 Azure App Service Web 应用中配置 PHP | Azure"
-description: "了解如何在 Azure App Service 中为 Web Apps 配置默认 PHP 安装或添加自定义 PHP 安装。"
+title: "在 Azure 应用服务 Web 应用中配置 PHP | Azure"
+description: "了解如何在 Azure 应用服务中为 Web 应用配置默认 PHP 安装或添加自定义 PHP 安装。"
 services: app-service
 documentationcenter: php
 author: rmcmurray
@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 12/16/2016
 wacn.date: 
 ms.author: robmcm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 075f5f46b8a438d663d5d0849a084d4b5c32391b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="configure-php-in-azure-app-service-web-apps"></a>在 Azure App Service Web Apps 中配置 PHP
+# <a name="configure-php-in-azure-app-service-web-apps"></a>在 Azure 应用服务 Web 应用中配置 PHP
 ## <a name="WhatIs"></a> 介绍
 本指南将演示如何执行以下操作：在 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services) 中配置 Web 应用的内置 PHP 运行时，提供自定义 PHP 运行时，并启用扩展。 若要使用应用服务，请注册 [试用版]。 若要充分利用本指南，你应先在应用服务中创建一个 PHP Web 应用。
 
@@ -34,7 +35,7 @@ ms.lasthandoff: 04/28/2017
 PHP 5.6 和 PHP 7.0 也可用，但它们在默认情况下不启用。 若要更新 PHP 版本，请使用下列方法之一：
 
 ### <a name="azure-portal-preview"></a>Azure 门户预览
-1. 在 [Azure 门户预览版](https://portal.azure.cn)中浏览到 Web 应用，然后单击“设置”按钮。
+1. 在 [Azure 门户预览](https://portal.azure.cn)中浏览到 Web 应用，然后单击“设置”按钮。
 
     ![Web 应用设置][settings-button]
 2. 在“设置”边栏选项卡中选择“应用程序设置”，然后选择新的 PHP 版本。
@@ -166,7 +167,7 @@ PHP 5.6 和 PHP 7.0 也可用，但它们在默认情况下不启用。 若要�
 > 
 > 
 
-1. 在 [Azure 门户预览版](https://portal.azure.cn)的 PHP Web 应用的边栏选项卡中，单击“工具” > “扩展”。
+1. 在 [Azure 门户预览](https://portal.azure.cn)的 PHP Web 应用的边栏选项卡中，单击“工具” > “扩展”。
 
     ![Azure 门户预览设置边栏选项卡，用于在 Azure 中启用编辑器自动化](./media/web-sites-php-configure/composer-extension-settings.png)
 2. 单击“添加”，然后单击“编辑器”。

@@ -17,9 +17,10 @@ ms.workload: big-data
 ms.date: 03/31/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
 ms.openlocfilehash: 2b8957daaf39d12b4ad479a4a1c6b7cf1adcc478
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/29/2017
 
 

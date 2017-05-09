@@ -17,9 +17,10 @@ ms.workload: big-data
 ms.date: 02/06/2017
 wacn.date: 
 ms.author: jgao
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: ca08aa58c031266a336ce1b835e85ae0486e3db0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -36,7 +37,7 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 * **Datameer**： [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) 提供一种交互方式，让分析师发现、分析和可视化大数据的结果。 轻松拉进其他数据源，以发现新的关系并迅速获取所需的答案。
 * **用于 HDnsight 的 Streamsets 数据收集器**提供了一个全功能的集成开发环境 (IDE)，它允许用户设计、测试、部署和管理汇合流和批处理数据的全面互通引入管道，并提供各种流中转换 - 所有这些都无需编写自定义代码。 
 
-本文提供的说明使用 Azure 门户预览版。 也可以从门户导出 Azure Resource Manager 模板或从供应商处获取 Resource Manage 模板的副本，然后使用 Azure PowerShell 和 Azure CLI 部署模板。  请参阅 [使用 Resource Manager 模板在 HDInsight 中创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
+本文提供的说明使用 Azure 门户预览。 也可以从门户导出 Azure Resource Manager 模板或从供应商处获取 Resource Manage 模板的副本，然后使用 Azure PowerShell 和 Azure CLI 部署模板。  请参阅 [使用 Resource Manager 模板在 HDInsight 中创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
 
 ## <a name="prerequisites"></a>先决条件
 如果想要在现有的 HDInsight 群集上安装 HDInsight 应用程序，必须有一个 HDInsight 群集。 若要创建群集，请参阅 [创建群集](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster)。 也可以在创建 HDInsight 群集时安装 HDInsight 应用程序。
@@ -68,7 +69,7 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 
 **安装 HDInsight 应用程序**
 
-1. 登录 [Azure 门户预览版](https://portal.azure.cn)。
+1. 登录 [Azure 门户预览](https://portal.azure.cn)。
 2. 依次单击“新建”、“数据 + 分析”、“HDInsight”。
 3. 输入“群集名称” ：此名称必须全局唯一。
 4. 单击“订阅”  ，选择将用于此群集的 Azure 订阅。

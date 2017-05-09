@@ -16,9 +16,10 @@ ms.date: 02/23/2017
 wacn.date: 
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: b1e9e258b15d221cd76aa3604b041ff038203b30
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -65,7 +66,7 @@ __要求__：
 
 ## <a name="to-use-the-script"></a>使用脚本
 
-有关通过 Azure 门户预览版、Azure PowerShell 和 Azure CLI 使用脚本操作的信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)文档的“将脚本操作应用于正在运行的群集”部分。
+有关通过 Azure 门户预览、Azure PowerShell 和 Azure CLI 使用脚本操作的信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)文档的“将脚本操作应用于正在运行的群集”部分。
 
 使用自定义文档中提供的信息时，请将任何示例脚本操作 URI 替换为此脚本的 URI (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)。 使用要添加到群集的存储帐户的 Azure 存储帐户名称和密钥替换任何示例参数。
 
@@ -74,9 +75,9 @@ __要求__：
 
 ## <a name="known-issues"></a>已知问题
 
-### <a name="storage-accounts-not-displayed-in-azure-portal-preview-or-tools"></a>Azure 门户预览版或工具中未显示存储帐户
+### <a name="storage-accounts-not-displayed-in-azure-portal-preview-or-tools"></a>Azure 门户预览或工具中未显示存储帐户
 
-在 Azure 门户预览版中查看 HDInsight 群集时，选择“属性”下的“存储帐户”项不显示通过此脚本操作添加的存储帐户。 Azure PowerShell 和 Azure CLI 也不显示其他存储帐户。
+在 Azure 门户预览中查看 HDInsight 群集时，选择“属性”下的“存储帐户”项不显示通过此脚本操作添加的存储帐户。 Azure PowerShell 和 Azure CLI 也不显示其他存储帐户。
 
 之所以未显示存储信息是因为该脚本只修改群集的 core-site.xml 配置。 使用 Azure 管理 API 检索群集信息时，未使用此信息。
 

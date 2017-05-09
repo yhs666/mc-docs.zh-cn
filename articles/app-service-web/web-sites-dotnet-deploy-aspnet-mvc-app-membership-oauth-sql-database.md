@@ -1,5 +1,5 @@
 ---
-title: "创建具有身份验证和 SQL 数据库的 ASP.NET MVC 应用程序并将其部署到 Azure App Service"
+title: "创建具有身份验证和 SQL 数据库的 ASP.NET MVC 应用程序并将其部署到 Azure 应用服务"
 description: "了解如何开发具有 SQL 数据库后端的 ASP.NET MVC 5 应用程序，添加身份验证和授权，并将其部署到 Azure。"
 services: app-service\web
 documentationcenter: .net
@@ -16,18 +16,19 @@ ms.topic: article
 ms.date: 03/21/2016
 wacn.date: 
 ms.author: riande
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 41f08394e3cfba3fdceb3872a0cdeeaefe4d047b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="create-an-aspnet-mvc-app-with-auth-and-sql-db-and-deploy-to-azure-app-service"></a>创建具有身份验证和 SQL 数据库的 ASP.NET MVC 应用程序并将其部署到 Azure App Service
+# <a name="create-an-aspnet-mvc-app-with-auth-and-sql-db-and-deploy-to-azure-app-service"></a>创建具有身份验证和 SQL 数据库的 ASP.NET MVC 应用程序并将其部署到 Azure 应用服务
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程演示如何构建安全的 ASP.NET MVC 5 Web 应用，以便用户能够使用 Facebook 或 Google 凭据进行登录。 该应用是一个简单的联系人列表，使用 ADO.NET Entity Framework 进行数据库访问。 你需要将该应用部署到 [Azure App Service](/azure/app-service-web/app-service-changes-existing-services)。 
+本教程演示如何构建安全的 ASP.NET MVC 5 Web 应用，以便用户能够使用 Facebook 或 Google 凭据进行登录。 该应用是一个简单的联系人列表，使用 ADO.NET Entity Framework 进行数据库访问。 你需要将该应用部署到 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services)。 
 
 完成本教程后，你将能够在云中启动并运行安全的数据驱动的 Web 应用程序，以及使用云数据库。 下图显示了已完成的应用程序的登录页。
 
@@ -41,10 +42,10 @@ ms.lasthandoff: 04/28/2017
 * 如何使用 ADO.NET Entity Framework 6 Code First 在 SQL 数据库中读取和写入数据。
 * 如何使用 Entity Framework Code First 迁移部署数据库。
 * 如何使用 Azure SQL 数据库在云中存储关系数据。
-* 如何将使用数据库的 Web 项目部署到 Azure App Service 中的 [Web 应用](/azure/app-service-web/app-service-changes-existing-services)。
+* 如何将使用数据库的 Web 项目部署到 Azure 应用服务中的 [Web 应用](/azure/app-service-web/app-service-changes-existing-services)。
 
 > [!NOTE]
-> 本教程的篇幅较长。 如果要快速了解 Azure App Service 和 Visual Studio Web 项目，请参阅[在 Azure App Service 中创建 ASP.NET Web 应用](app-service-web-get-started-dotnet.md)。 有关疑难解答信息，请参阅 [疑难解答](#troubleshooting) 部分。
+> 本教程的篇幅较长。 如果要快速了解 Azure 应用服务和 Visual Studio Web 项目，请参阅[在 Azure 应用服务中创建 ASP.NET Web 应用](app-service-web-get-started-dotnet.md)。 有关疑难解答信息，请参阅 [疑难解答](#troubleshooting) 部分。
 > 
 > 
 
@@ -78,7 +79,7 @@ ms.lasthandoff: 04/28/2017
     如果需要，你也可以选择已有的资源组。 但如果创建新的资源组并只将它用于本教程，则在完成教程后你可以轻松删除为教程创建的所有 Azure 资源。 有关资源组的信息，请参阅 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)。 
 8. 在“应用服务计划”下拉列表中，选择一个现有计划或“新建应用服务计划”（请参见下图）。
 
-    如果需要，你也可以选择已有的 App Service 计划。 有关应用服务计划的信息，请参阅 [Azure 应用服务计划深入概述](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 
+    如果需要，你也可以选择已有的应用服务计划。 有关应用服务计划的信息，请参阅 [Azure 应用服务计划深入概述](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 
 9. 点击“浏览其他 Azure 服务”以添加 SQL 数据库。
 
     ![添加新服务](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/n2.png)
@@ -523,7 +524,7 @@ ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新�
 1. 在“服务器资源管理器”中，导航到“Azure”>“应用服务”>“{你的资源组}”>“{你的 Web 应用}”。
 2. 右键单击 Web 应用，并选择“停止”。 
 
-    也可以从 [Azure 门户预览版](https://portal.azure.cn/)中转到 Web 应用的边栏选项卡，然后单击边栏选项卡顶部的“停止”图标。
+    也可以从 [Azure 门户预览](https://portal.azure.cn/)中转到 Web 应用的边栏选项卡，然后单击边栏选项卡顶部的“停止”图标。
 
     ![停止 Web 应用门户](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/stopweb.png)
 
@@ -606,7 +607,7 @@ ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新�
 ***请提供有关你喜欢的内容或者你希望看到改善的内容的反馈***，不仅关于教程本身，也关于它所演示的产品。 你的反馈将帮助我们确定优先改进哪些方面。 你还可以在 [教我编写代码](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code)上请求帮助以及对新主题投票。
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth

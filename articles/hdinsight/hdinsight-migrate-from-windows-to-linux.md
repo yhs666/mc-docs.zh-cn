@@ -16,9 +16,10 @@ ms.workload: big-data
 ms.date: 04/12/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
 ms.openlocfilehash: 8f16d685f2ac0f96079e96d2c572e7e480dda92b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/29/2017
 
 
@@ -100,7 +101,7 @@ ms.lasthandoff: 04/29/2017
 
 #### <a name="direct-copy-between-blobs-in-azure-storage"></a>在 Azure 存储的 blob 之间直接复制
 
-或者，你可能想要使用 `Start-AzureStorageBlobCopy` Azure PowerShell cmdlet 在 HDInsight 以外的存储帐户之间复制 Blob。 有关详细信息，请参阅“Using Azure PowerShell with Azure Storage”（在 Azure 存储空间中使用 Azure PowerShell）一文中的“How to manage Azure Blobs”（如何管理 Azure Blob）部分。
+或者，你可能想要使用 `Start-AzureStorageBlobCopy` Azure PowerShell cmdlet 在 HDInsight 以外的存储帐户之间复制 Blob。 有关详细信息，请参阅“Using Azure PowerShell with Azure Storage”（在 Azure 存储中使用 Azure PowerShell）一文中的“How to manage Azure Blobs”（如何管理 Azure Blob）部分。
 
 ## <a name="client-side-technologies"></a>客户端技术
 

@@ -17,9 +17,10 @@ ms.workload: big-data
 ms.date: 02/02/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
 ms.openlocfilehash: 0cf3f3ece0307cef9a3eb4f2124c17ad538bbb16
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/29/2017
 
 
@@ -111,7 +112,7 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包�
 HDInsight 使用 Azure 存储中的 Blob 作为默认存储。 这些服务提供以下优势：
 
 * 成本低廉的长期存储
-* 可从外部服务访问，例如网站、文件上载/下载实用程序、各种语言 SDK 和 Web 浏览器
+* 可从外部服务访问，例如网站、文件上传/下载实用程序、各种语言 SDK 和 Web 浏览器
 
 > [!WARNING]
 > HDInsight 仅支持 __常规用途__ Azure 存储帐户。 它目前不支持 __Blob 存储__帐户类型。
@@ -149,9 +150,9 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
 
     帐户名称是 Azure 存储帐户的名称，容器名称是作为群集存储的根的 Blob 容器。
 
-也可使用 Azure 门户预览版按照以下步骤查找存储信息：
+也可使用 Azure 门户预览按照以下步骤查找存储信息：
 
-1. 在 [Azure 门户预览版](https://portal.azure.cn/)中，选择 HDInsight 群集。
+1. 在 [Azure 门户预览](https://portal.azure.cn/)中，选择 HDInsight 群集。
 
 2. 在“属性”部分中，选择“存储帐户”。 将显示群集的存储信息。
 
@@ -207,7 +208,7 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
 
 有关缩放 HDInsight 群集的特定信息，请参阅：
 
-* [使用 Azure 门户预览版管理 HDInsight 中的 Hadoop 群集](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [使用 Azure 门户预览管理 HDInsight 中的 Hadoop 群集](hdinsight-administer-use-portal-linux.md#scale-clusters)
 * [使用 Azure PowerShell 管理 HDInsight 中的 Hadoop 群集](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>如何安装 Hue（或其他 Hadoop 组件）？
@@ -227,7 +228,7 @@ HDInsight 是托管服务。 如果 Azure 检测到群集存在问题，则可�
 
 ### <a name="jar-files"></a>Jar 文件
 
-某些 Hadoop 技术以自包含 jar 文件形式提供，这些文件包含某些函数，这些函数用作 MapReduce 作业的一部分，或来自 Pig 或 Hive 内部。 这些技术可以使用脚本操作安装，但通常不需任何设置，在预配后上载到群集即可直接使用。 如需确保组件在群集重置映像后仍存在，可将 jar 文件存储在群集的默认存储（WASB 或 ADL）中。
+某些 Hadoop 技术以自包含 jar 文件形式提供，这些文件包含某些函数，这些函数用作 MapReduce 作业的一部分，或来自 Pig 或 Hive 内部。 这些技术可以使用脚本操作安装，但通常不需任何设置，在预配后上传到群集即可直接使用。 如需确保组件在群集重置映像后仍存在，可将 jar 文件存储在群集的默认存储（WASB 或 ADL）中。
 
 例如，如果要使用 [DataFu](http://datafu.incubator.apache.org/) 的最新版本，可以下载包含项目的 jar，并将其上传到 HDInsight 群集。 然后按照 DataFu 文档的说明通过 Pig 或 Hive 使用它。
 
@@ -238,7 +239,7 @@ HDInsight 是托管服务。 如果 Azure 检测到群集存在问题，则可�
 > <p>
 > 此命令会返回任何匹配的 jar 文件的路径。
 
-如需使用群集随附版本之外的版本，则可上载新版组件，并在作业中试用。
+如需使用群集随附版本之外的版本，则可上传新版组件，并在作业中试用。
 
 > [!WARNING]
 > 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门将帮助找出并解决与这些组件相关的问题。

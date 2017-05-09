@@ -1,6 +1,6 @@
 ---
 title: "在 Azure 应用中使用本地 Active Directory 进行身份验证 | Azure"
-description: "了解 Azure App Service 中的业务线应用在本地 Active Directory 上进行身份验证时可用的不同选项"
+description: "了解 Azure 应用服务中的业务线应用在本地 Active Directory 上进行身份验证时可用的不同选项"
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -15,18 +15,19 @@ ms.workload: web
 ms.date: 08/31/2016
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 48463c03b4e9ef83a363a7b7bebc489cb5b5f182
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="authenticate-with-on-premises-active-directory-in-your-azure-app"></a>Authenticate with on-premises Active Directory in your Azure app（在 Azure 应用中使用本地 Active Directory 进行身份验证）
-本文说明如何在 [Azure App Service](../app-service/app-service-value-prop-what-is.md) 中使用本地 Active Directory (AD) 进行身份验证。 Azure 应用托管在云中，但可以通过多种方法安全地对本地 AD 用户进行身份验证。 
+本文说明如何在 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)中使用本地 Active Directory (AD) 进行身份验证。 Azure 应用托管在云中，但可以通过多种方法安全地对本地 AD 用户进行身份验证。 
 
 ## <a name="authenticate-through-azure-active-directory"></a>通过 Azure Active Directory 进行身份验证
-Azure Active Directory 租户的目录可与本地 AD 同步。 此方法可让 AD 用户通过 Internet 访问应用，并使用其本地凭据进行身份验证。 此外，Azure App Service [为此方法提供周全的解决方案](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)。 只需按几下鼠标，就能为 Azure 应用启用目录同步的租户的身份验证。 此方法具有以下优点：
+Azure Active Directory 租户的目录可与本地 AD 同步。 此方法可让 AD 用户通过 Internet 访问应用，并使用其本地凭据进行身份验证。 此外，Azure 应用服务[为此方法提供周全的解决方案](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)。 只需按几下鼠标，就能为 Azure 应用启用目录同步的租户的身份验证。 此方法具有以下优点：
 
 * 应用中不需要任何身份验证代码。 让应用服务自动执行身份验证，腾出时间专注于如何在应用中提供功能。
 * 使用 [Azure AD 图形 API](http://msdn.microsoft.com/library/azure/hh974476.aspx) 可从 Azure 应用访问目录数据。

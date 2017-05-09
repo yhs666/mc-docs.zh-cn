@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 94d4b2aaa44e0c6071c0e91c26f1610ba2d833fa
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---

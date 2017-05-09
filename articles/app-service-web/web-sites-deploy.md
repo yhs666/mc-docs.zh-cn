@@ -1,6 +1,6 @@
 ---
 title: "将应用部署到 Azure 应用服务 | Azure"
-description: "了解如何将你的应用部署到 Azure App Service。"
+description: "了解如何将你的应用部署到 Azure 应用服务。"
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -15,22 +15,23 @@ ms.topic: article
 ms.date: 01/05/2017
 wacn.date: 
 ms.author: cephalin;dariac
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 7497647d68cd022df9ba10d949bdbeecf7f12900
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="deploy-your-app-to-azure-app-service"></a>将应用部署到 Azure App Service
-本文可帮助你确定将 Web 应用、移动应用后端或 API 应用的文件部署到 [Azure App Service](/azure/app-service-web/app-service-changes-existing-services) 的最佳选项，然后将你引导到相应的资源，其中包含特定于你的首选选项的操作说明。
+# <a name="deploy-your-app-to-azure-app-service"></a>将应用部署到 Azure 应用服务
+本文可帮助你确定将 Web 应用、移动应用后端或 API 应用的文件部署到 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services)的最佳选项，然后将你引导到相应的资源，其中包含特定于你的首选选项的操作说明。
 
-## <a name="overview"></a>Azure App Service 部署概述
-Azure App Service 保留了应用程序框架（ASP.NET、PHP、Node.js 等等）。 某些框架在默认情况下已启用，而其他框架（如 Java 和 Python）可能需要进行简单的复选标记配置才能启用。 此外，你还可以自定义应用程序框架，如运行时的 PHP 版本或位元。 有关详细信息，请参阅[在 Azure App Service 中配置应用](web-sites-configure.md)。
+## <a name="overview"></a>Azure 应用服务部署概述
+Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等）。 某些框架在默认情况下已启用，而其他框架（如 Java 和 Python）可能需要进行简单的复选标记配置才能启用。 此外，你还可以自定义应用程序框架，如运行时的 PHP 版本或位元。 有关详细信息，请参阅[在 Azure 应用服务中配置应用](web-sites-configure.md)。
 
 由于你无需担心 Web 服务器或应用程序框架，因此将应用部署到应用服务只需将代码、二进制文件、内容文件及其各自的目录结构部署到 Azure 中的 [**/site/wwwroot** 目录](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure)（对于 Web 作业，部署到 **/site/wwwroot/App_Data/Jobs/** 目录）。 应用服务支持 3 种不同的部署进程。 本文中的所有部署方法使用以下进程之一： 
 
-* [FTP 或 FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol)：使用你常用的支持 FTP 或 FTPS 的工具（从 [FileZilla](https://filezilla-project.org) 到功能齐全的 IDE，如 [NetBeans](https://netbeans.org)）将文件移至 Azure。 这完全是文件上载进程。 应用服务不提供任何附加服务，例如版本控制、文件结构管理等。 
+* [FTP 或 FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol)：使用你常用的支持 FTP 或 FTPS 的工具（从 [FileZilla](https://filezilla-project.org) 到功能齐全的 IDE，如 [NetBeans](https://netbeans.org)）将文件移至 Azure。 这完全是文件上传进程。 应用服务不提供任何附加服务，例如版本控制、文件结构管理等。 
 * [Kudu (Git/Mercurial)](https://github.com/projectkudu/kudu/wiki/Deployment)：Kudu 是应用服务中的[部署引擎](https://github.com/projectkudu/kudu/wiki)。 从任何存储库将你的代码直接推送到 Kudu。 只要代码推送到 Kudu，Kudu 还提供附加服务，包括版本控制、程序包还原、MSBuild 和 [Web 挂钩](https://github.com/projectkudu/kudu/wiki/Web-hooks) 以用于连续部署和其他自动化任务。 Kudu 部署引擎支持 2 种不同类型的部署源：   
 
     * 从 GitHub 使用自动同步进行基于存储库的连续部署  
@@ -60,8 +61,8 @@ Azure App Service 保留了应用程序框架（ASP.NET、PHP、Node.js 等等�
 * 无法提供用于排查部署问题的内置部署历史记录。
 * 部署时间可能很长，因为许多 FTP 工具不提供仅差异复制，而只是复制所有文件。  
 
-### <a name="howtoftp"></a>如何使用 FTP 上载文件
-[Azure 门户预览版](https://portal.azure.cn) 为用户提供所有需要的信息，以便使用 FTP 或 FTPS 连接到应用的目录。
+### <a name="howtoftp"></a>如何使用 FTP 上传文件
+[Azure 门户预览](https://portal.azure.cn)为用户提供所有需要的信息，以便使用 FTP 或 FTPS 连接到应用的目录。
 
 * [使用 FTP 将应用部署到 Azure 应用服务](app-service-deploy-ftp.md)
 
@@ -82,9 +83,9 @@ Azure App Service 保留了应用程序框架（ASP.NET、PHP、Node.js 等等�
 ### <a name="vsts"></a>如何从基于云的源代码管理服务连续部署
 在 Kudu 中，可以配置从 GitHub 进行的连续部署。
 
-* [连续部署到 Azure App Service](app-service-continuous-deployment.md)。 
+* [连续部署到 Azure 应用服务](app-service-continuous-deployment.md)。 
 
-若要了解如何通过 Azure 门户预览版中未列出的云存储库（如 [GitLab](https://gitlab.com/)）手动配置连续部署，请参阅 [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)（使用手动步骤设置连续部署）。
+若要了解如何通过 Azure 门户预览中未列出的云存储库（如 [GitLab](https://gitlab.com/)）手动配置连续部署，请参阅 [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)（使用手动步骤设置连续部署）。
 
 ## <a name="localgitdeployment"></a>从本地 Git 部署
 如果你的开发团队使用基于 Git 的本地源代码管理 (SCM) 服务，可将它配置为应用服务的部署源。 
@@ -101,9 +102,9 @@ Azure App Service 保留了应用程序框架（ASP.NET、PHP、Node.js 等等�
 * 连续部署没有任何现成的解决方案。 
 
 ### <a name="vsts"></a>如何从本地 Git 部署
-在 [Azure 门户预览版](https://portal.azure.cn)中，可以配置本地 Git 部署。
+在 [Azure 门户预览](https://portal.azure.cn)中，可以配置本地 Git 部署。
 
-* [从本地 Git 部署到 Azure App Service](app-service-deploy-local-git.md)。 
+* [从本地 Git 部署到 Azure 应用服务](app-service-deploy-local-git.md)。 
 * [从任何 git/hg 存储库发布到 Web 应用](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html)。  
 
 ## <a name="deploy-using-an-ide"></a>使用 IDE 进行部署

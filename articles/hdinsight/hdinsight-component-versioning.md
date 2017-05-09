@@ -17,9 +17,10 @@ ms.topic: article
 ms.date: 04/14/2017
 wacn.date: 
 ms.author: bprakash
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
 ms.openlocfilehash: dc2708bb86b27e59a949d8604050b87e074b53c5
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/29/2017
 
 
@@ -104,9 +105,9 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版�
 下表列出当前可用的 HDInsight 版本以及它们使用的相应 Hortonworks 数据平台版本和发布日期。 如果知道，还提供其支持到期日期和弃用日期。 请注意以下事项：
 
 * 默认情况下，会针对 HDInsight 2.1 和更高版本的群集部署具有两个头节点的高度可用群集。 它们不适用于 HDInsight 1.6 群集。
-* 某版本的支持到期后，可能不再通过 Azure 门户预览版提供它。 下表列出 Azure 经典管理门户上提供的版本。 可继续使用 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 参数和 .NET SDK 获取群集版本，直到其弃用日期为止。
+* 某版本的支持到期后，可能不再通过 Azure 门户预览提供它。 下表列出 Azure 经典管理门户上提供的版本。 可继续使用 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 参数和 .NET SDK 获取群集版本，直到其弃用日期为止。
 
-| HDInsight 版本 | HDP 版本 | VM OS | 高可用性 | 发布日期 | 在 Azure 门户预览版上提供 | 支持到期日期 | 弃用日期 |
+| HDInsight 版本 | HDP 版本 | VM OS | 高可用性 | 发布日期 | 在 Azure 门户预览上提供 | 支持到期日期 | 弃用日期 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDI 3.6 |HDP 2.6 |Ubuntu 16 |是 |04/06/2017 |是 | | |
 | HDI 3.5 |HDP 2.5 |Ubuntu 16 |是 |2016/9/30 |是 |07/05/2017 |05/31/2018 |

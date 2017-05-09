@@ -1,5 +1,5 @@
 ---
-title: "在 Azure App Service 中将 WordPress 转换为 Multisite"
+title: "在 Azure 应用服务中将 WordPress 转换为 Multisite"
 description: "了解如何采用通过 Azure 中的库创建的现有 WordPress Web 应用并将其转换为 WordPress Multisite"
 services: app-service\web
 documentationcenter: php
@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: 
 ms.author: robmcm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 29e12e1848d40ec9598ac60b8003007a99a3e0be
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="convert-wordpress-to-multisite-in-azure-app-service"></a>在 Azure App Service 中将 WordPress 转换为 Multisite
+# <a name="convert-wordpress-to-multisite-in-azure-app-service"></a>在 Azure 应用服务中将 WordPress 转换为 Multisite
 ## <a name="overview"></a>概述
 *作者：[Ben Lobaugh][ben-lobaugh]，[Microsoft Open Technologies Inc.][ms-open-tech]*
 
@@ -46,14 +47,14 @@ ms.lasthandoff: 04/28/2017
 
     define( 'WP_ALLOW_MULTISITE', true );
 
-请务必保存该文件并将其上载回服务器！
+请务必保存该文件并将其上传回服务器！
 
 ## <a name="network-setup"></a>网络设置
 登录到 Web 应用的 *wp-admin* 区域，在“工具”菜单的下方应该会看到一个名为“网络设置”的新项。 单击“网络设置”并填写网络的详细信息。
 
 ![“网络设置”屏幕][wordpress-network-setup]
 
-本教程使用 *子目录* 站点架构，因为它应始终运行，我们在本教程的后面将为每个子站点设置自定义域。 但是，如果通过 [Azure 门户预览版](https://portal.azure.cn)映射域并正确设置通配符 DNS，则应能够设置子域安装。
+本教程使用 *子目录* 站点架构，因为它应始终运行，我们在本教程的后面将为每个子站点设置自定义域。 但是，如果通过 [Azure 门户预览](https://portal.azure.cn)映射域并正确设置通配符 DNS，则应能够设置子域安装。
 
 有关子域和子目录设置的详细信息，请参阅 WordPress Codex 上的 [多站点网络的类型][wordpress-codex-types-of-networks] 一文。
 
@@ -72,7 +73,7 @@ ms.lasthandoff: 04/28/2017
 ## <a name="enable-domain-mapping-to-the-web-app"></a>启用到 Web 应用的域映射
 **免费**的[应用服务](/azure/app-service-web/app-service-changes-existing-services)计划模式不支持向 Web 应用添加自定义域。 需要切换到**共享**或**标准**模式。 为此，请按以下步骤操作：
 
-* 登录到 Azure 门户预览版并找到你的 Web 应用。 
+* 登录到 Azure 门户预览并找到你的 Web 应用。 
 * 单击“设置”中的“向上缩放”选项卡。
 * 在“常规”下，选择“共享”或“标准”。
 * 单击“保存”
@@ -82,7 +83,7 @@ ms.lasthandoff: 04/28/2017
 由于处理新的设置需要花费几秒钟的时间，因此现在正好来开始设置域。
 
 ## <a name="verify-your-domain"></a>验证域
-在 Azure Web Apps 允许你将域映射到站点前，你首先需要验证自己是否有映射域的权限。 为此，你必须将新的 CNAME 记录添加到 DNS 项。
+在 Azure Web 应用允许你将域映射到站点前，你首先需要验证自己是否有映射域的权限。 为此，你必须将新的 CNAME 记录添加到 DNS 项。
 
 * 登录到域的 DNS 管理器
 * 创建新的 CNAME *awverify*
@@ -91,7 +92,7 @@ ms.lasthandoff: 04/28/2017
 由于 DNS 更改可能需要过段时间才能生效，因此，如果后续步骤无法立即运行，你可以先去冲杯咖啡，然后回来重试。
 
 ## <a name="add-the-domain-to-the-web-app"></a>将域添加到 Web 应用
-通过 Azure 门户预览版返回到 Web 应用，单击“设置”，然后单击“自定义域和 SSL”。
+通过 Azure 门户预览返回到 Web 应用，单击“设置”，然后单击“自定义域和 SSL”。
 
 显示 *SSL 设置* 时，请在显示的字段里输入希望分配给 Web 应用的所有域。 如果某个域未在此处列出，则无法在 WordPress 中将该域用于映射，无论设置域 DNS 的方式如何。
 
@@ -122,7 +123,7 @@ WordPress Multisite 当前没有用于映射自定义域的内置方法。 但�
 利用 Azure Web 应用，可以向一个 Web 应用添加无数个域。 若要添加另一个域，需要为每个域执行**验证域**和**设置域 A 记录**部分中所述的操作。    
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com

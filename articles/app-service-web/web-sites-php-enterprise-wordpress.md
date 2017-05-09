@@ -1,6 +1,6 @@
 ---
 title: "Azure 上的企业级 WordPress | Azure"
-description: "了解如何在 Azure App Service 上托管企业级 WordPress 网站"
+description: "了解如何在 Azure 应用服务上托管企业级 WordPress 网站"
 services: app-service\web
 documentationcenter: 
 author: sunbuild
@@ -15,22 +15,23 @@ ms.workload: web
 ms.date: 10/24/2016
 wacn.date: 
 ms.author: sumuth
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 08be05e302fcf18337f785fbb22c3880aea9ab53
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="enterprise-class-wordpress-on-azure"></a>Azure 上的企业级 WordPress
-Azure App Service 为大规模任务关键型 [WordPress][wordpress] 站点提供了一个可缩放、安全且易用的环境。 Microsoft 自身在运营 [Office][officeblog] 和[必应][bingblog]博客等企业级站点。 本文说明如何使用 Azure App Service 的 Web 应用功能，建立和维护一个可处理大量访客、基于云的企业级 WordPress 站点。
+Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提供了一个可缩放、安全且易用的环境。 Microsoft 自身在运营 [Office][officeblog] 和[必应][bingblog]博客等企业级站点。 本文说明如何使用 Azure 应用服务的 Web 应用功能，建立和维护一个可处理大量访客、基于云的企业级 WordPress 站点。
 
 ## <a name="planning"></a> 体系结构与规划
 基本的 WordPress 安装只有两个要求：
 
 * **MySQL 数据库**：[Linux][mysqllinux]，或可使用 **Azure 上的 MySQL 数据库**。 作为替代方法，可以使用 [Windows][mysqlwindows] 或 [Linux][mysqllinux] 在 Azure 虚拟机上管理自己的 MySQL 安装。
 
-* **PHP 5.2.4 或更高版本**：Azure App Service 目前提供 [PHP 5.4、5.5 和 5.6 版本][phpwebsite]。
+* **PHP 5.2.4 或更高版本**：Azure 应用服务目前提供 [PHP 5.4、5.5 和 5.6 版本][phpwebsite]。
 
     > [!NOTE]
     > 我们建议始终运行最新版本的 PHP，以确保拥有最新的安全修补程序。
@@ -67,18 +68,18 @@ Azure App Service 为大规模任务关键型 [WordPress][wordpress] 站点提�
 #### <a name="additional-requirements"></a>其他要求
 | 为此，请执行以下操作... | 使用此方法... |
 | --- | --- |
-| **上载或存储大型文件** |[适用于使用 Blob 存储的 WordPress 插件][storageplugin] |
+| **上传或存储大型文件** |[适用于使用 Blob 存储的 WordPress 插件][storageplugin] |
 | **发送电子邮件** | [适用于使用 SendGrid 的 WordPress 插件][sendgridplugin] |
-| **自定义域名** |[在 Azure App Service 中配置自定义域名][customdomain] |
-| **HTTPS** |[在 Azure App Service 中启用 Web 应用的 HTTPS][httpscustomdomain] |
+| **自定义域名** |[在 Azure 应用服务中配置自定义域名][customdomain] |
+| **HTTPS** |[在 Azure 应用服务中启用 Web 应用的 HTTPS][httpscustomdomain] |
 | **预生产验证** |[为 Azure 应用服务中的 Web 应用设置过渡环境][staging] <p>将 Web 应用从过渡移到生产时，还将移动 WordPress 配置。 将过渡应用移动到生产之前，请确保所有设置均针对生产应用的要求进行了更新。</p> |
 | **监视和故障排除** |[在 Azure 应用服务中启用 Web 应用的诊断日志][log]和[在 Azure 应用服务中监视 Web 应用][monitor] |
-| **部署站点** |[在 Azure App Service 中部署 Web 应用][deploy] |
+| **部署站点** |[在 Azure 应用服务中部署 Web 应用][deploy] |
 
 #### <a name="availability-and-disaster-recovery"></a>可用性和灾难恢复
 | 为此，请执行以下操作... | 请使用以下方法... |
 | --- | --- |
-| **对站点进行负载平衡**或**对站点进行地理分配** |[通过 Azure 流量管理器路由流量][trafficmanager] |
+| **对站点进行负载均衡**或**对站点进行地理分配** |[通过 Azure 流量管理器路由流量][trafficmanager] |
 | **备份和还原** |[在 Azure 应用服务中备份 Web 应用][backup]和[在 Azure 应用服务中还原 Web 应用][restore] |
 
 #### <a name="performance"></a>性能
@@ -91,9 +92,9 @@ Azure App Service 为大规模任务关键型 [WordPress][wordpress] 站点提�
 | **扩展您的应用程序** |[在 Azure 应用服务中缩放 Web 应用][websitescale]和 [MySQL 集群 CGE][cge] |
 
 #### <a name="migration"></a>迁移
-若要将现有 WordPress 站点迁移到 Azure App Service，可使用两种方法：
+若要将现有 WordPress 站点迁移到 Azure 应用服务，可使用两种方法：
 
-* **[WordPress 导出][export]**：此方法可导出你的博客内容。 然后可使用 [WordPress 导入程序插件][import]，将内容导入到 Azure App Service 上的新 WordPress 站点。
+* **[WordPress 导出][export]**：此方法可导出你的博客内容。 然后可使用 [WordPress 导入程序插件][import]，将内容导入到 Azure 应用服务上的新 WordPress 站点。
 
     > [!NOTE]
     > 尽管此过程允许迁移内容，但不会迁移任何插件、主题或其他自定义内容。 必须再次手动安装这些组件。
@@ -120,11 +121,11 @@ Azure App Service 为大规模任务关键型 [WordPress][wordpress] 站点提�
 #### <a name="the-export-and-import-method"></a>导出和导入方法
 1. 使用 [WordPress 导出][export] 导出您的现有网站。
 2. 使用 [创建 WordPress 站点](#Create-a-new-WordPress-site) 部分的步骤，创建 Web 应用。
-3. 在 [Azure 门户预览版][mgmtportal]上登录 WordPress 站点，然后单击“插件” > “新增”。 搜索并安装 **WordPress 导入程序**插件。
+3. 在 [Azure 门户预览][mgmtportal]上登录 WordPress 站点，然后单击“插件” > “新增”。 搜索并安装 **WordPress 导入程序**插件。
 4. 安装 WordPress 导入程序插件后，单击“工具” > “导入”，然后单击“WordPress”使用 WordPress 导入程序插件。
 5. 在“导入 WordPress”页面上，单击“选择文件”。 查找从现有 WordPress 站点导出的 WXR 文件，然后单击“上传文件和导入”。
 6. 单击“提交” 。 系统提示导入成功。
-7. 完成所有这些步骤后，从 [Azure 门户预览版][mgmtportal]中的“应用服务”边栏选项卡重启站点。
+7. 完成所有这些步骤后，从 [Azure 门户预览][mgmtportal]中的“应用服务”边栏选项卡重启站点。
 
 导入站点后，请执行以下步骤，启用导入文件中不包含的设置。
 
@@ -142,10 +143,10 @@ Azure App Service 为大规模任务关键型 [WordPress][wordpress] 站点提�
 
     1. 在“Azure 上的 MySQL 数据库”中创建一个数据库，或者在 [Windows][mysqlwindows] 或 [Linux][mysqllinux] 虚拟机上设置一个 MySQL 数据库。
     2. 使用 MySQL 客户端（如 [MySQL Workbench][workbench] ）连接到新数据库，然后导入 WordPress 数据库。
-    3. 更新数据库，将域条目更改为新 Azure App Service 域（如 mywordpress.chinacloudsites.cn）。 使用 [搜索和替换为 WordPress 数据库脚本][searchandreplace] ，安全地更改所有实例。
+    3. 更新数据库，将域条目更改为新 Azure 应用服务域（如 mywordpress.chinacloudsites.cn）。 使用 [搜索和替换为 WordPress 数据库脚本][searchandreplace] ，安全地更改所有实例。
 4. 在 Azure 门户预览中创建 Web 应用并发布 WordPress 备份。
 
-    1. 若要创建带数据库的 Web 应用，请在 [Azure 门户预览版][mgmtportal]中，单击“新建” > “Web + 移动” > “Web 应用” > “创建”。 配置所有所需的设置来创建空 Web 应用。
+    1. 若要创建带数据库的 Web 应用，请在 [Azure 门户预览][mgmtportal]中，单击“新建” > “Web + 移动” > “Web 应用” > “创建”。 配置所有所需的设置来创建空 Web 应用。
     2. 在 WordPress 备份中，找到 **wp-config.php** 文件，并在编辑器中打开。 将以下条目替换为新 MySQL 数据库的信息：
 
         * **DB_NAME**：数据库的用户名。
@@ -161,25 +162,25 @@ Azure App Service 为大规模任务关键型 [WordPress][wordpress] 站点提�
 
 | 为此，请执行以下操作... | 使用此方法... |
 | --- | --- |
-| **设置 App Service 计划模式、大小和启用缩放** |[在 Azure App Service 中缩放 Web 应用][websitescale]。 |
+| **设置应用服务计划模式、大小和启用缩放** |[在 Azure 应用服务中缩放 Web 应用][websitescale]。 |
 | **启用持久的数据库连接** |默认情况下，WordPress 不使用持久的数据库连接，这可能导致数据库的连接在多次连接后受到限制。 若要启用持久连接，请安装 [持久连接适配器插件](https://wordpress.org/plugins/persistent-database-connection-updater/installation/)。 |
 | **提高性能** |<ul><li><p><a href="https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">禁用 ARR Cookie</a> 可在多个 Web 应用实例上运行 WordPress 时提高性能。</p></li><li><p>启用缓存。 可将 <a href="/azure/redis-cache">Redis 缓存</a>（预览版）与 <a href="https://wordpress.org/plugins/redis-object-cache/">Redis 对象缓存 WordPress 插件</a>配合使用，或可使用 <a href="/gallery/store/">Azure 应用商店</a>中的一款其他缓存产品。</p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">使用 Wincache 加快 WordPress 的速度</a>。 默认情况下为 Web 应用启用 Wincache。</p></li><li><p>[在 Azure 应用服务中缩放 Web 应用][websitescale]并使用 <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB 高可用性路由</a>或 <a href="http://www.mysql.com/products/cluster/">MySQL 群集 CGE</a>。</p></li></ul> |
 | **使用 blob 作为存储** |<ol><li><p>[创建 Azure 存储帐户](../storage/storage-create-storage-account.md)。</p></li><li><p>了解如何[使用内容分发网络 (CDN)][cdn] 将 blob 中存储的数据分发到各个地区。</p></li><li><p>安装并配置<a href="https://wordpress.org/plugins/windows-azure-storage/">适用于 WordPress 的 Azure 存储插件</a>。</p><p>有关该插件的详细设置和配置信息，请参阅<a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">用户指南</a>。</p> </li></ol> |
 | **启用电子邮件** | 安装 WordPress 的 <a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified">SendGrid 插件</a>。 |
-| **配置自定义域名** |[在 Azure App Service 中配置自定义域名][customdomain]。 |
-| **启用自定义域名的 HTTPS** |[在 Azure App Service 中启用 Web 应用的 HTTPS][httpscustomdomain]。 |
-| **负载均衡或地理分配站点** |[通过 Azure 流量管理器路由流量][trafficmanager]。 如果使用自定义域，请参阅 [在 Azure App Service 中配置自定义域名][customdomain] ，了解如何使用含自定义域名的流量管理器。 |
-| **启用自动化的备份** |[在 Azure App Service 中备份 Web 应用][backup]。 |
-| **启用诊断日志记录** |[在 Azure App Service 中启用 Web 应用的诊断日志记录][log]。 |
+| **配置自定义域名** |[在 Azure 应用服务中配置自定义域名][customdomain]。 |
+| **启用自定义域名的 HTTPS** |[在 Azure 应用服务中启用 Web 应用的 HTTPS][httpscustomdomain]。 |
+| **负载均衡或地理分配站点** |[通过 Azure 流量管理器路由流量][trafficmanager]。 如果使用自定义域，请参阅 [在 Azure 应用服务中配置自定义域名][customdomain] ，了解如何使用含自定义域名的流量管理器。 |
+| **启用自动化的备份** |[在 Azure 应用服务中备份 Web 应用][backup]。 |
+| **启用诊断日志记录** |[在 Azure 应用服务中启用 Web 应用的诊断日志记录][log]。 |
 
 ## <a name="next-steps"></a>后续步骤
 * [WordPress 优化](http://codex.wordpress.org/WordPress_Optimization)
 * [在 Azure 应用服务中将 WordPress 转换为多站点](web-sites-php-convert-wordpress-multisite.md)
-* [在 Azure App Service 的 Web 应用的子文件夹中托管 WordPress](http://blogs.msdn.com/b/webapps/archive/2013/02/13/hosting-wordpress-in-a-subfolder-of-your-windows-azure-web-site.aspx)
+* [在 Azure 应用服务的 Web 应用的子文件夹中托管 WordPress](http://blogs.msdn.com/b/webapps/archive/2013/02/13/hosting-wordpress-in-a-subfolder-of-your-windows-azure-web-site.aspx)
 * [分步说明：使用 Azure 创建 WordPress 站点](http://blogs.technet.com/b/blainbar/archive/2013/08/07/article-create-a-wordpress-site-using-windows-azure-read-on.aspx)
 * [在 Azure 上托管现有的 WordPress 博客](http://blogs.msdn.com/b/msgulfcommunity/archive/2013/08/26/migrating-a-self-hosted-wordpress-blog-to-windows-azure.aspx)
 * [在 WordPress 中启用美观的固定链接](http://www.iis.net/learn/extensions/url-rewrite-module/enabling-pretty-permalinks-in-wordpress)
-* [如何在 Azure App Service 上免费运行 WordPress](http://architects.dzone.com/articles/how-run-wordpress-azure)
+* [如何在 Azure 应用服务上免费运行 WordPress](http://architects.dzone.com/articles/how-run-wordpress-azure)
 * [在 2 分钟或更短时间内在 Azure 上运行 WordPress](http://www.sitepoint.com/wordpress-windows-azure-2-minutes-less/)
 * [将 WordPress 博客移至 Azure - 第 1 部分：在 Azure 上创建 WordPress 博客](http://www.davebost.com/2013/07/10/moving-a-wordpress-blog-to-windows-azure-part-1)
 * [将 WordPress 博客移至 Azure - 第 2 部分：传输您的内容](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-transferring-your-content)

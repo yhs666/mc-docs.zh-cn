@@ -16,14 +16,15 @@ ms.topic: article
 ms.date: 02/29/2016
 wacn.date: 
 ms.author: riande
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: fb59dd4ad3708ee1616e4d2acf6214b0e2a04fee
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="create-a-rest-service-using-aspnet-web-api-and-sql-database-in-azure-app-service"></a>在 Azure App Service 中使用 ASP.NET Web API 和 SQL 数据库创建 REST 服务
+# <a name="create-a-rest-service-using-aspnet-web-api-and-sql-database-in-azure-app-service"></a>在 Azure 应用服务中使用 ASP.NET Web API 和 SQL 数据库创建 REST 服务
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -681,7 +682,7 @@ XSRF 攻击不同于网络钓鱼攻击。 网络钓鱼攻击需要与受害者�
 请提供有关你喜欢的内容或者你希望看到改善的内容的反馈，不仅关于教程本身，也关于它所演示的产品。 你的反馈将帮助我们确定优先改进哪些方面。 我们特别希望确定大家对于对配置和部署成员资格数据库的流程进行更多自动化的兴趣有多大。 
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth

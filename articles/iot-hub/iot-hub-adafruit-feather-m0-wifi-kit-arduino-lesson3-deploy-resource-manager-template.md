@@ -16,9 +16,10 @@ ms.workload: na
 ms.date: 11/13/2016
 wacn.date: 
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 5a5d820e01acf49e25b8e4d31920f49c210d1028
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---

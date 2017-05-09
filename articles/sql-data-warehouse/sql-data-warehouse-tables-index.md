@@ -16,9 +16,10 @@ ms.custom: tables
 ms.date: 07/12/2016
 wacn.date: 
 ms.author: jrj;barbkess;sonyama
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: b8e33e78d55cf4a26c71fbd7009677d5ec5d62fc
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---

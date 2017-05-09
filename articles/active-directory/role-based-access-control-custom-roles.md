@@ -15,9 +15,10 @@ ms.workload: identity
 ms.date: 03/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 41047be4bef215cb57e08bc50ce0be291ad6b7d5
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: "使用 .NET 通过媒体编码器标准版对资产进行编码 | Azure"
+title: "使用 .NET 通过 Media Encoder Standard 对资产进行编码 | Azure"
 description: "本主题介绍如何使用 .NET 通过 Media Encoder Standard 对资产进行编码。"
 services: media-services
 documentationcenter: 
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: c335c192ee833007363ae8a8e6607072441f1222
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 通过媒体编码器标准版对资产进行编码
+# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 通过 Media Encoder Standard 对资产进行编码
 编码作业是媒体服务中最常见的处理操作之一。 可通过创建编码作业将媒体文件从一种编码转换为另一种编码。 进行编码时，可以使用媒体服务内置的 Media Encoder。 你也可以使用媒体服务合作伙伴提供的编码器；可通过 Azure 应用商店获取第三方编码器。 
 
 本主题介绍如何使用 .NET 通过媒体编码器标准 (MES) 对资产进行编码。 Media Encoder Standard 使用[此处](media-services-mes-presets-overview.md)所述的编码器预设之一进行配置。
@@ -54,7 +55,7 @@ Media Encoder Standard 使用[此处](media-services-mes-presets-overview.md)所
 以下代码示例使用媒体服务 .NET SDK 执行下列任务：
 
 * 创建编码作业。
-* 获取对媒体编码器标准版编码器的引用。
+* 获取对 Media Encoder Standard 编码器的引用。
 * 指定使用[自适应流式处理](media-services-autogen-bitrate-ladder-with-mes.md)预设。 
 * 将一个编码任务添加到该作业。 
 * 指定要编码的输入资产。

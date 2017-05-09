@@ -15,20 +15,21 @@ ms.topic: article
 ms.date: 07/06/2016
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: f845568dc04e0c9235dc614cdee1cca29580978f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="restore-an-app-in-azure"></a>在 Azure 中还原应用
-本文将演示如何在 [Azure App Service](../app-service/app-service-value-prop-what-is.md) 中还原已事先备份的应用（请参阅[在 Azure 中备份应用](web-sites-backup.md)）。 你可以根据需要将应用及其链接的数据库（SQL 数据库或 MySQL）还原到以前的状态，或者基于原始应用的备份之一创建新的应用。 创建与最新版本并行运行的新应用对于 A/B 测试会很有用。
+本文将演示如何在 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)中还原已事先备份的应用（请参阅[在 Azure 中备份应用](web-sites-backup.md)）。 你可以根据需要将应用及其链接的数据库（SQL 数据库或 MySQL）还原到以前的状态，或者基于原始应用的备份之一创建新的应用。 创建与最新版本并行运行的新应用对于 A/B 测试会很有用。
 
 从备份还原适用于在**标准**和**高级**层中运行的应用。 有关向上缩放应用的信息，请参阅[在 Azure 中向上缩放应用](web-sites-scale.md)。 相比于**标准**层，**高级**层允许执行更多的每日备份量。
 
 ## <a name="PreviousBackup"></a> 从现有备份还原应用
-1. 在 Azure 门户预览版中应用的“设置”边栏选项卡上，单击“备份”以显示“备份”边栏选项卡。 然后单击命令栏中的“立即还原”  。
+1. 在 Azure 门户预览中应用的“设置”边栏选项卡上，单击“备份”以显示“备份”边栏选项卡。 然后单击命令栏中的“立即还原”  。
 
     ![选择“立即还原”][ChooseRestoreNow]
 2. 在“还原”  边栏选项卡中，首先选择备份源。
@@ -51,7 +52,7 @@ ms.lasthandoff: 04/28/2017
 4. 单击 **“确定”**。
 
 ## <a name="StorageAccount"></a> 从存储帐户中下载或删除备份
-1. 在 Azure 门户预览版的主“浏览”边栏选项卡中，选择“存储帐户”。
+1. 在 Azure 门户预览的主“浏览”边栏选项卡中，选择“存储帐户”。
 
     将显示现有存储帐户的列表。
 2. 选择包含要下载或删除的备份的存储帐户。
@@ -66,7 +67,7 @@ ms.lasthandoff: 04/28/2017
 5. 单击“下载”或“删除”，具体取决于要执行的操作。  
 
 ## <a name="OperationLogs"></a> 监视还原操作
-1. 若要查看有关应用还原操作成功与否的详细信息，请导航到 Azure 门户预览版中的“活动日志”边栏选项卡。
+1. 若要查看有关应用还原操作成功与否的详细信息，请导航到 Azure 门户预览中的“活动日志”边栏选项卡。
 
     “活动日志”边栏选项卡将显示所有的操作，以及级别、状态、资源和时间的详细信息。
 2. 向下滚动以查找所需的还原操作，然后单击以选中。

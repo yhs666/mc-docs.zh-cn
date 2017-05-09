@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 5397742e9bfdfafddd63dd9c389e23659cc47d7d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/28/2017
 >
 
 ## <a name="set-up-key-vault"></a>设置密钥保管库
-若要使应用程序能够从 Key Vault 检索机密，必须先创建机密并将其上载到保管库。 此操作可通过以下方式实现：启动 Azure PowerShell 会话，然后使用以下命令登录你的 Azure 帐户：
+若要使应用程序能够从 Key Vault 检索机密，必须先创建机密并将其上传到保管库。 此操作可通过以下方式实现：启动 Azure PowerShell 会话，然后使用以下命令登录你的 Azure 帐户：
 
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud

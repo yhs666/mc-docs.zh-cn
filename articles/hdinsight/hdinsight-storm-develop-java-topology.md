@@ -17,9 +17,10 @@ ms.date: 03/29/2017
 wacn.date: 
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
 ms.openlocfilehash: 62d5fec233da2fa2ae02835c315aeac46fcc80fb
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/29/2017
 
 ---

@@ -16,9 +16,10 @@ ms.custom: manage
 ms.date: 10/31/2016
 wacn.date: 
 ms.author: barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: b4a9313fffff4c3fcc012dcbb98fefe3529e7820
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

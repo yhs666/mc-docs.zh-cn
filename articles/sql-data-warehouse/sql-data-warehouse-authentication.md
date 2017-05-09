@@ -17,9 +17,10 @@ ms.custom: security
 ms.date: 03/21/2017
 wacn.date: 
 ms.author: rickbyh;barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: d1455196c87733af77ea97ad11915297452e7f95
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

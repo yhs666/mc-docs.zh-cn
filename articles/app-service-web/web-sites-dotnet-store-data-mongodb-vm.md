@@ -1,6 +1,6 @@
 ---
 title: "在 Azure 中创建连接到虚拟机上运行的 MongoDB 的 Web 应用"
-description: "本教程介绍如何使用 Git 将 ASP.NET 应用部署到连接至Azure 虚拟机上 MongoDB 的 Azure App Service。"
+description: "本教程介绍如何使用 Git 将 ASP.NET 应用部署到连接至Azure 虚拟机上 MongoDB 的 Azure 应用服务。"
 tags: azure-portal
 services: app-service\web, virtual-machines
 documentationcenter: .net
@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 02/29/2016
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 4cbbffd591d503577fedac6abd845a9c2d5ad5bd
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/28/2017
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-使用 Git，可以将 ASP.NET 应用程序部署到 Azure App Service Web 应用。 在本教程中，你将构建一个简单的前端 ASP.NET MVC 任务列表应用程序，该程序将连接至在 Azure 内的虚拟机中运行的 MongoDB 数据库。  [MongoDB][MongoDB] 是一个受欢迎的开源、高性能 NoSQL 数据库。 在开发计算机上运行并测试 ASP.NET 应用程序后，可使用 Git 将其上传到应用服务 Web 应用。
+使用 Git，可以将 ASP.NET 应用程序部署到 Azure 应用服务 Web 应用。 在本教程中，你将构建一个简单的前端 ASP.NET MVC 任务列表应用程序，该程序将连接至在 Azure 内的虚拟机中运行的 MongoDB 数据库。  [MongoDB][MongoDB] 是一个受欢迎的开源、高性能 NoSQL 数据库。 在开发计算机上运行并测试 ASP.NET 应用程序后，可使用 Git 将其上传到应用服务 Web 应用。
 
 ## <a name="background-knowledge"></a>背景知识
 以下知识对学习本教程有帮助（但并非必需）：
@@ -54,7 +55,7 @@ ms.lasthandoff: 04/28/2017
 在 Azure 中创建虚拟机并安装 MongoDB 后，请务必记住该虚拟机的 DNS 名称（例如“testlinuxvm.chinacloudapp.cn”）以及在终结点中指定的 MongoDB 的外部端口。  本教程后面的步骤中将会用到此信息。
 
 ## <a id="createapp"></a> 创建应用程序
-在本部分中，将使用 Visual Studio 创建一个名为“My Task List”的 ASP.NET 应用程序，并执行到 Azure App Service Web 应用的初始部署。 将在本地运行该应用程序，但它将连接到 Azure 上的虚拟机并使用在此处创建的 MongoDB 实例。
+在本部分中，将使用 Visual Studio 创建一个名为“My Task List”的 ASP.NET 应用程序，并执行到 Azure 应用服务 Web 应用的初始部署。 将在本地运行该应用程序，但它将连接到 Azure 上的虚拟机并使用在此处创建的 MongoDB 实例。
 
 1. 在 Visual Studio 中，单击“新建项目”。
 
@@ -66,7 +67,7 @@ ms.lasthandoff: 04/28/2017
 
     ![选择 MVC 模板][VS2013SelectMVCTemplate]
 4. 如果尚未登录 Azure，系统会提示用户登录。 按提示登录到 Azure。
-5. 在登录后，可以开始配置 App Service Web 应用。 指定“Web 应用名称”、“应用服务计划”、“资源组”和“区域”，然后单击“创建”。
+5. 在登录后，可以开始配置应用服务 Web 应用。 指定“Web 应用名称”、“应用服务计划”、“资源组”和“区域”，然后单击“创建”。
 
     ![](./media/web-sites-dotnet-store-data-mongodb-vm/VSConfigureWebAppSettings.png)
 6. 在项目创建完成后，等待 Web 应用在 Azure 应用服务中完成创建，如“Azure 应用服务活动”窗口中所指示。 然后，单击“立即将 MyTaskListApp 发布到此 Web 应用”。
@@ -74,7 +75,7 @@ ms.lasthandoff: 04/28/2017
 
     ![](./media/web-sites-dotnet-store-data-mongodb-vm/VSPublishWeb.png)
 
-    将默认的 ASP.NET 应用程序发布到 Azure App Service Web 应用后，将在浏览器中启动该应用程序。
+    将默认的 ASP.NET 应用程序发布到 Azure 应用服务 Web 应用后，将在浏览器中启动该应用程序。
 
 ## <a name="install-the-mongodb-c-driver"></a>安装 MongoDB C# 驱动程序
 MongoDB 通过驱动程序为 C# 应用程序提供客户端支持，需要在本地开发计算机上安装此驱动程序。 C# 驱动程序通过 NuGet 提供。
@@ -409,7 +410,7 @@ MongoDB C# 驱动程序现已安装。  对 **MongoDB.Bson**、**MongoDB.Driver*
 
     private string connectionString = "mongodb://<vm-dns-name>";
 
-将 `<vm-dns-name>` 替换为运行 MongoDB 的虚拟机（在本教程的 [创建虚拟机并安装 MongoDB][Create a virtual machine and install MongoDB] 步骤中创建）的 DNS 名。  若要查找虚拟机的 DNS 名称，请转到 Azure 门户预览版，选择“虚拟机”并找到“DNS 名称”。
+将 `<vm-dns-name>` 替换为运行 MongoDB 的虚拟机（在本教程的 [创建虚拟机并安装 MongoDB][Create a virtual machine and install MongoDB] 步骤中创建）的 DNS 名。  若要查找虚拟机的 DNS 名称，请转到 Azure 门户预览，选择“虚拟机”并找到“DNS 名称”。
 
 如果虚拟机的 DNS 名是“testlinuxvm.chinacloudapp.cn”而 MongoDB 在默认端口 27017 进行侦听，连接字符串代码行将如下所示：
 
@@ -426,18 +427,18 @@ MongoDB C# 驱动程序现已安装。  对 **MongoDB.Bson**、**MongoDB.Driver*
 
 ![My Task List 应用程序][TaskListAppBlank]
 
-## <a name="publish-to-azure-app-service-web-apps"></a>发布到 Azure App Service Web 应用
-在本部分中，将向 Azure App Service Web 应用发布所做的更改。
+## <a name="publish-to-azure-app-service-web-apps"></a>发布到 Azure 应用服务 Web 应用
+在本部分中，将向 Azure 应用服务 Web 应用发布所做的更改。
 
 1. 在“解决方案资源管理器”中，再次右键单击“MyTaskListApp”，并单击“发布”。
 2. 单击“发布”。
 
-    现在应该看到 Web 应用在 Azure App Service 中运行并在 Azure 虚拟机中访问 MongoDB 数据库。
+    现在应该看到 Web 应用在 Azure 应用服务中运行并在 Azure 虚拟机中访问 MongoDB 数据库。
 
 ## <a name="summary"></a>摘要
-现在，已将 ASP.NET 应用程序成功部署到 Azure App Service Web 应用。 查看 Web 应用：
+现在，已将 ASP.NET 应用程序成功部署到 Azure 应用服务 Web 应用。 查看 Web 应用：
 
-1. 登录到 Azure 门户预览版。
+1. 登录到 Azure 门户预览。
 2. 单击“Web 应用”。 
 3. 在“Web 应用”列表中选择相应的 Web 应用。
 

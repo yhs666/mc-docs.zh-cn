@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 03/29/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: c2e0580c22ea2a77567df8e3ce3ce3bf3a4f3570
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -171,7 +172,7 @@ ms.lasthandoff: 04/28/2017
 - **[已修复]** 使用非 en 区域性信息（如 nl-NL 等）时出现本地化问题。 
 
 ### <a name="a-name140140httpswwwnugetorgpackagesmicrosoftazuredocumentdb140"></a><a name="1.4.0"/>[1.4.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.4.0)
-- 基于 ID 的路由 
+- 基于 ID 的路由
   - 用于协助构建基于 ID 的资源链接的新 UriFactory 帮助器
   - DocumentClient 上的新重载以采用 URI
 - 已在用于地理空间的 LINQ 中添加了 IsValid() 和 IsValidDetailed()
@@ -195,7 +196,7 @@ ms.lasthandoff: 04/28/2017
 - 对 Newtonsoft.Json v5.0.7 的依赖关系 
 - 更改为支持 Order By
   
-  - LINQ 提供程序支持 OrderBy() 或 OrderByDescending() 
+  - LINQ 提供程序支持 OrderBy() 或 OrderByDescending()
   - 支持 Order By 的 IndexingPolicy 
     
     **注意：可能非常重大的更改** 

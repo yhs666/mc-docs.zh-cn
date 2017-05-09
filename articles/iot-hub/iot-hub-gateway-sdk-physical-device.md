@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
 ms.author: andbuc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 8c1b07d5c4448aaec303b0494f403b021e223dc9
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -54,7 +55,7 @@ ms.lasthandoff: 04/28/2017
 
 ### <a name="how-data-flows-through-the-gateway"></a>数据如何流经网关
 
-以下块图说明了遥测上载数据流管道：
+以下块图说明了遥测上传数据流管道：
 
 ![遥测上传网关管道](./media/iot-hub-gateway-sdk-physical-device/gateway_ble_upload_data_flow.png)
 

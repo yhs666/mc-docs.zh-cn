@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 8dd98fb80732de61a8eb4757d20593389b8ef474
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -381,7 +382,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 
  [Azure 计划程序的概念、术语和实体层次结构](scheduler-concepts-terms.md)
 
- [开始在 Azure 门户预览版中使用计划程序](scheduler-get-started-portal.md)
+ [开始在 Azure 门户预览中使用计划程序](scheduler-get-started-portal.md)
 
  [Azure 计划程序中的计划和计费](scheduler-plans-billing.md)
 

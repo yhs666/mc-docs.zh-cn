@@ -44,7 +44,7 @@
 ### Java
 
 #### [使用用于 Java 的 Azure SDK](java-create-azure-website-using-java-sdk.md)
-#### [上载现有应用](web-sites-java-add-app.md)
+#### [上传现有应用](web-sites-java-add-app.md)
 #### [远程调试 Eclipse](app-service-web-debug-java-web-app-in-eclipse.md)
 #### [远程调试 IntelliJ](app-service-web-debug-java-web-app-in-intellij.md)
 

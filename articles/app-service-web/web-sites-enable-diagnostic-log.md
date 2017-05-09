@@ -1,5 +1,5 @@
 ---
-title: "在 Azure App Service 中启用 Web 应用的诊断日志记录"
+title: "在 Azure 应用服务中启用 Web 应用的诊断日志记录"
 description: "了解如何启用诊断日志记录并将检测添加到应用程序，以及如何访问由 Azure 记录的信息。"
 services: app-service
 documentationcenter: .net
@@ -15,18 +15,19 @@ ms.topic: article
 ms.date: 06/06/2016
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: ae96ad8a80fd9bd80799dabf5b0c340948f0da2d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure App Service 中启用 Web 应用的诊断日志记录
+# <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure 应用服务中启用 Web 应用的诊断日志记录
 ## <a name="overview"></a>概述
 Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/azure/app-service-web/app-service-changes-existing-services)。 在本文中，你将了解如何启用诊断日志记录并将检测添加到应用程序，以及如何访问由 Azure 记录的信息。
 
-本文通过 [Azure 门户预览版](https://portal.azure.cn)、Azure PowerShell 和 Azure 命令行接口 (Azure CLI) 使用诊断日志。 有关通过 Visual Studio 使用诊断日志的信息，请参阅[在 Visual Studio 中对 Azure 进行故障排除](web-sites-dotnet-troubleshoot-visual-studio.md)。
+本文通过 [Azure 门户预览](https://portal.azure.cn)、Azure PowerShell 和 Azure 命令行接口 (Azure CLI) 使用诊断日志。 有关通过 Visual Studio 使用诊断日志的信息，请参阅[在 Visual Studio 中对 Azure 进行故障排除](web-sites-dotnet-troubleshoot-visual-studio.md)。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -50,7 +51,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/azure
 将内容发布到某个 Web 应用时，应用服务 Web 应用还记录部署信息。 此操作自动执行，不会对部署日志记录进行配置设置。 部署日志记录允许你确定部署失败的原因。 例如，如果使用自定义部署脚本，可能会使用部署日志记录确定该脚本失败的原因。
 
 ## <a name="enablediag"></a>如何启用诊断
-若要在 [Azure 门户预览版](https://portal.azure.cn)中启用诊断，请转到 Web 应用边栏选项卡，然后单击“设置”>“诊断日志”。
+若要在 [Azure 门户预览](https://portal.azure.cn)中启用诊断，请转到 Web 应用边栏选项卡，然后单击“设置”>“诊断日志”。
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![日志部分](./media/web-sites-enable-diagnostic-log/logspart.png)
@@ -268,5 +269,5 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/azure
 * [在 HDInsight 中分析 Web 应用日志](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 ## <a name="whats-changed"></a>更改内容
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
-* 有关从旧门户更改为新门户的指导，请参阅：[有关在 Azure 门户预览版中导航的参考](/azure/app-service-web/app-service-web-app-azure-portal)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从旧门户更改为新门户的指导，请参阅：[有关在 Azure 门户预览中导航的参考](/azure/app-service-web/app-service-web-app-azure-portal)

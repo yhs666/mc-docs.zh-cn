@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: rli; juliako;
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 60afee1b041871602f909996eda56e3fdb02cf99
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -44,7 +45,7 @@ ms.lasthandoff: 04/28/2017
 1. 从 [此处下载 AMSE 工具](https://github.com/Azure/Azure-Media-Services-Explorer)。
 1. 使用服务密钥登录媒体服务帐户。
 
-    若要获取帐户名和密钥信息，请转到 [Azure 门户预览版](https://portal.azure.cn/)，然后选择 AMS 帐户。 然后，选择“设置”>“密钥”。 管理密钥窗口会显示帐户名称、主密钥和辅助密钥。 复制帐户名称和主密钥的值。
+    若要获取帐户名和密钥信息，请转到 [Azure 门户预览](https://portal.azure.cn/)，然后选择 AMS 帐户。 然后，选择“设置”>“密钥”。 管理密钥窗口会显示帐户名称、主密钥和辅助密钥。 复制帐户名称和主密钥的值。
 
 ![面部修正](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
 

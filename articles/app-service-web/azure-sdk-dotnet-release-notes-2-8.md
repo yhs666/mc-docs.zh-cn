@@ -14,9 +14,10 @@ ms.workload: integration
 ms.date: 02/24/2017
 wacn.date: 
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: fa4d8417e0bbd8de96a1ddeb125746b1f66a6066
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -43,7 +44,7 @@ Azure.NET SDK 2.8 可让你创建 .NET 4.5.2 云服务包。 不过，.NET 4.5.2
 
 若要成功创建这种类型的项目，必须安装 [Azure PowerShell 0.9.8 版](https://github.com/Azure/azure-powershell/releases/download/v0.9.8-September2015/azure-powershell.0.9.8.msi)。
 
-### <a name="azure-resource-manager-tools"></a>Azure 资源管理器工具
+### <a name="azure-resource-manager-tools"></a>Azure Resource Manager 工具
 #### <a name="breaking-changes"></a>重大变化
 Azure 资源组项目提供的 PowerShell 脚本在此版本中已更新，可以配合新的 Azure PowerShell cmdlet 1.0 版使用。  使用 2.8 以前的 SDK 版本时，将无法从 Visual Studio 使用此新脚本。  
 
@@ -55,7 +56,7 @@ Azure 资源组项目提供的 PowerShell 脚本在此版本中已更新，可�
 #### <a name="known-issues"></a>已知问题
 以下版本将解决以下已知问题。
 
-* 非生产环境（例如 Azure 中国区或 Azure Stack 客户）的应用服务相关云与服务器资源管理器笔势无效。 对于这些受影响区域中的客户，从 Azure 门户预览版下载发布配置文件将启用发布功能。 以后的版本将为 Azure 中国区和 Azure Stack 客户修复笔势，例如“附加调试器”和“查看流日志”。 
+* 非生产环境（例如 Azure 中国区或 Azure Stack 客户）的应用服务相关云与服务器资源管理器笔势无效。 对于这些受影响区域中的客户，从 Azure 门户预览下载发布配置文件将启用发布功能。 以后的版本将为 Azure 中国区和 Azure Stack 客户修复笔势，例如“附加调试器”和“查看流日志”。 
 * 当客户在创建应用服务时，如果要部署的目标 App Insights 实例位于中国东部以外的区域，可能会看到错误。 在这种情况下，在门户中创建应用服务和下载发布配置文件将启用发布方案。 
 
 ### <a name="azure-hdinsight-tools"></a>Azure HDInsight 工具
@@ -67,9 +68,9 @@ Azure 资源组项目提供的 PowerShell 脚本在此版本中已更新，可�
 
 ## <a name="azure-sdk-for-net-281"></a>Azure SDK for .NET 2.8.1
 ### <a name="known-issues-for-visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 和 Visual Studio 2015 的已知问题
-1. 以槽为目标的触发 Web 作业发布将显示错误，并且不会设置计划，但会将 Web 作业推送到 Azure。 需要计划作业的客户可以使用 Azure 门户预览版来设置 Web 作业的计划。 
+1. 以槽为目标的触发 Web 作业发布将显示错误，并且不会设置计划，但会将 Web 作业推送到 Azure。 需要计划作业的客户可以使用 Azure 门户预览来设置 Web 作业的计划。 
 2. Python 客户可能会遇到调试器问题。 服务团队正在针对此问题推出修复程序，但如果客户受到影响，请通过论坛、通知博客或发行说明意见部分告知 Microsoft。 
-3. 某些区域（如印度南部）的客户会遇到应用服务预配错误。 这与门户中的情况一致，遇到此问题的客户可以使用 Azure 门户预览版来请求这些地理区域的发布访问权限。 使用 Azure 门户预览版请求这些区域的访问权限后，预配应能正常进行。 
+3. 某些区域（如印度南部）的客户会遇到应用服务预配错误。 这与门户中的情况一致，遇到此问题的客户可以使用 Azure 门户预览来请求这些地理区域的发布访问权限。 使用 Azure 门户预览请求这些区域的访问权限后，预配应能正常进行。 
 
 ## <a name="azure-sdk-for-net-282"></a>Azure SDK for .NET 2.8.2
 在安装 2.8.2 工具以后，客户可能会遇到以下问题。         

@@ -17,9 +17,10 @@ ms.date: 03/17/2017
 wacn.date: 
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 8b66388d4b55b505661b6a70de32651061ee9fe7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -46,7 +47,7 @@ Apache Storm 是一个可扩展的、具有容错能力的分布式实时计算�
 
 使用以下步骤创建 Storm on HDInsight 群集：
 
-1. 在 [Azure 门户预览版](https://portal.azure.cn)中，依次选择“+ 新建”，、“智能 + 分析”、“HDInsight”。
+1. 在 [Azure 门户预览](https://portal.azure.cn)中，依次选择“+ 新建”，、“智能 + 分析”、“HDInsight”。
 
     ![创建 HDInsight 群集](./media/hdinsight-apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 

@@ -1,6 +1,6 @@
 ---
-title: "管理 Azure App Service 中的 Web 应用"
-description: "用于管理 Azure App Service 中 Web 应用的资源链接。"
+title: "管理 Azure 应用服务中的 Web 应用"
+description: "用于管理 Azure 应用服务中 Web 应用的资源链接。"
 services: app-service\web
 documentationcenter: 
 author: erikre
@@ -15,29 +15,30 @@ ms.topic: article
 ms.date: 08/24/2016
 wacn.date: 
 ms.author: rachelap
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: e5d457a58e00e1507467ed13af0fa6bc481721d2
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="manage-a-web-app-in-azure-app-service"></a>管理 Azure App Service 中的 Web 应用
+# <a name="manage-a-web-app-in-azure-app-service"></a>管理 Azure 应用服务中的 Web 应用
 本主题包含用于管理 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services)中 Web 应用的资源链接。 管理包括维持 Web 应用平稳运行的所有任务。 
 
 在整个 Web 应用使用期内，您将执行各种管理任务，从初始部署到正常操作、维护与更新。
 
-许多 Web 应用管理任务都可在 Azure 门户预览版中执行。
+许多 Web 应用管理任务都可在 Azure 门户预览中执行。
 
 ## <a name="before-you-deploy-your-web-app-to-production"></a>将 Web 应用部署到生产之前
 ### <a name="choose-a-tier"></a>选择层级
-提供五个级别的 Azure App Service：免费、共享、基本、标准和高级。 有关各层的功能与定价的信息，请参阅[定价详细信息](https://www.azure.cn/pricing/details/app-service/)。 
+提供五个级别的 Azure 应用服务：免费、共享、基本、标准和高级。 有关各层的功能与定价的信息，请参阅[定价详细信息](https://www.azure.cn/pricing/details/app-service/)。 
 
 * [应用服务计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)支持将多个 Web 应用分组到同一层中。
 * 在创建 Web 应用后可以随时[切换层](web-sites-scale.md)。
 
 ### <a name="configuration"></a>配置
-使用 [Azure 门户预览版](https://portal.azure.cn/) 设置各种配置选项。 有关详细信息，请参阅[在 Azure 应用服务中配置 Web 应用](web-sites-configure.md)。 下面是快速核对清单：
+使用 [Azure 门户预览](https://portal.azure.cn/) 设置各种配置选项。 有关详细信息，请参阅[在 Azure 应用服务中配置 Web 应用](web-sites-configure.md)。 下面是快速核对清单：
 
 * 选择用于 .NET、PHP、Java 或 Python 的**运行时版本**（如果需要）。
 * 如果 Web 应用使用 WebSocket 协议，请启用 **WebSocket**。 （这包括使用 [ASP.NET SignalR](http://www.asp.net/signalr) 或 [socket.io](web-sites-nodejs-chat-app-socketio.md) 的应用。）
@@ -58,7 +59,7 @@ ms.lasthandoff: 04/28/2017
 在 Web 应用运行期间，您要确保其可用性，并能够进行缩放以满足用户流量。 您可能还需要解决错误。
 
 ### <a name="monitoring"></a>监视
-* 通过 Azure 门户预览版，可以[添加性能指标](web-sites-monitor.md)（如 CPU 使用率和客户端请求数）。
+* 通过 Azure 门户预览，可以[添加性能指标](web-sites-monitor.md)（如 CPU 使用率和客户端请求数）。
 * [缩放 Web 应用](web-sites-scale.md)以响应流量。 您可以根据不同的层缩放虚拟机数量和/或虚拟机实例的大小。 在标准层和高级层中，您还可以设置自动缩放，那么您的 Web 应用将能够根据固定计划，或以负载为依据进行自动缩放。  
 
 ### <a name="backups"></a>备份

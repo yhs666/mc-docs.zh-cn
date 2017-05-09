@@ -15,9 +15,10 @@ ms.devlang: rest-api
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: mimig
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 64c38474fa1861bbb0aeb51cc5a9842a0fcd1400
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
