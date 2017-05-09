@@ -36,7 +36,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="application-package-requirements"></a>应用程序包要求
 若要使用应用程序包，必须 [将 Azure 存储帐户链接](#link-a-storage-account) 到 Batch 帐户。
 
-本文所讨论的应用程序包功能 *仅* 能与 2016 年 3 月 10 日之后创建的 Batch 池兼容。 应用程序包将无法部署到在此日期之前创建r 池中的计算节点。
+本文所讨论的应用程序包功能 *仅* 能与 2016 年 3 月 10 日之后创建的 Batch 池兼容。 应用程序包将无法部署到在此日期之前创建于池中的计算节点。
 
 [Batch REST API][api_rest] 2015-12-01.2.2 版和对应的 [Batch .NET][api_net] 库 3.1.0 版引入了此功能。 使用 Batch 时，我们建议始终使用最新的 API 版本。
 

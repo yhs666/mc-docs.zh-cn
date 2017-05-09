@@ -1,13 +1,12 @@
 ---
-title: 在基于 Linux 的 HDInsight 上使用 Hive 分析航班延误数据 | Azure
-description: 了解如何在基于 Linux 的 HDInsight 上使用 Hive 分析航班数据，然后使用 Sqoop 将数据导出到 SQL 数据库中。
+title: "在基于 Linux 的 HDInsight 上使用 Hive 分析航班延误数据 | Azure"
+description: "了解如何在基于 Linux 的 HDInsight 上使用 Hive 分析航班数据，然后使用 Sqoop 将数据导出到 SQL 数据库中。"
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
 ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
 ms.service: hdinsight
 ms.workload: big-data
@@ -15,29 +14,33 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
-wacn.date: 03/31/2017
+wacn.date: 
 ms.author: larryfr
-ms.custom: H1Hack27Feb2017
----
+ms.custom: H1Hack27Feb2017,hdinsightactive
+translationtype: Human Translation
+ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
+ms.openlocfilehash: 5def30e8110c70f7b37b3d1d8e297e8a2217f850
+ms.lasthandoff: 04/28/2017
 
-# 在基于 Linux 的 HDInsight 上使用 Hive 分析航班延误数据
+---
+# <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上使用 Hive 分析航班延误数据
 
 了解如何在基于 Linux 的 HDInsight 上使用 Hive 分析航班延误数据，然后使用 Sqoop 将数据导出到 Azure SQL 数据库中。
 
 > [!IMPORTANT]
-本文档中的步骤需要使用 Linux 的 HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)。
+> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
 
-### 先决条件
+### <a name="prerequisites"></a>先决条件
 
-* **HDInsight 群集**。有关创建新的基于 Linux 的 HDInsight 群集的步骤，请参阅 [在 Linux 上的 HDInsight 中开始将 Hadoop 与 Hive 配合使用](./hdinsight-hadoop-linux-tutorial-get-started.md)。
+* **HDInsight 群集**。 有关创建新的基于 Linux 的 HDInsight 群集的步骤，请参阅[在 Linux 上的 HDInsight 中开始将 Hadoop 与 Hive 配合使用](hdinsight-hadoop-linux-tutorial-get-started.md)。
 
-* **Azure SQL 数据库**。使用 Azure SQL 数据库作为目标数据存储。如果没有 SQL 数据库，请参阅 [SQL 数据库教程：几分钟内即可创建 SQL 数据库](../sql-database/sql-database-get-started.md)。
+* **Azure SQL 数据库**。 使用 Azure SQL 数据库作为目标数据存储。 如果没有 SQL 数据库，请参阅 [SQL 数据库教程：几分钟内即可创建 SQL 数据库](../sql-database/sql-database-get-started.md)。
 
-* **Azure CLI**。如果你尚未安装 Azure CLI，请参阅[安装和配置 Azure CLI](../xplat-cli-install.md) 了解详细步骤。
+* **Azure CLI**。 如果尚未安装 Azure CLI，请参阅[安装和配置 Azure CLI](../cli-install-nodejs.md) 可了解详细步骤。
 
-## 下载航班数据
+## <a name="download-the-flight-data"></a>下载航班数据
 
-1. 浏览到[美国研究与技术创新管理部门 - 运输统计局][rita-website]。
+1. 浏览到 [美国研究与技术创新管理部门 - 运输统计局][rita-website]。
 
 2. 在该页面上，选择以下值：
 
@@ -45,11 +48,11 @@ ms.custom: H1Hack27Feb2017
     | --- | --- |
     | 筛选年份 |2013 |
     | 筛选期间 |1 月 |
-    | 字段 |Year、FlightDate、UniqueCarrier、Carrier、FlightNum、OriginAirportID、Origin、OriginCityName、OriginState、DestAirportID、Dest、DestCityName、DestState、DepDelayMinutes、ArrDelay、ArrDelayMinutes、CarrierDelay、WeatherDelay、NASDelay、SecurityDelay、LateAircraftDelay。清除所有其他字段 |
+    | 字段 |Year、FlightDate、UniqueCarrier、Carrier、FlightNum、OriginAirportID、Origin、OriginCityName、OriginState、DestAirportID、Dest、DestCityName、DestState、DepDelayMinutes、ArrDelay、ArrDelayMinutes、CarrierDelay、WeatherDelay、NASDelay、SecurityDelay、LateAircraftDelay。 清除所有其他字段 |
 
 3. 单击“下载”。
 
-## 上载数据
+## <a name="upload-the-data"></a>上载数据
 
 1. 使用以下命令将该 zip 文件上载到 HDInsight 群集头节点：
 
@@ -57,19 +60,16 @@ ms.custom: H1Hack27Feb2017
     scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:
     ```
 
-    将 **FILENAME** 替换为 zip 文件的名称。将 **USERNAME** 替换为 HDInsight 群集的 SSH 登录名。将 CLUSTERNAME 替换为 HDInsight 群集的名称。
+    将 **FILENAME** 替换为 zip 文件的名称。 将 **USERNAME** 替换为 HDInsight 群集的 SSH 登录名。 将 CLUSTERNAME 替换为 HDInsight 群集的名称。
 
     > [!NOTE]
-    如果使用密码对 SSH 登录名进行身份验证，系统将提示输入密码。如果你使用了公钥，则可能需要使用 `-i` 参数并指定匹配私钥的路径。例如，`scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:`。
+    > 如果使用密码对 SSH 登录名进行身份验证，系统将提示输入密码。 如果你使用了公钥，则可能需要使用 `-i` 参数并指定匹配私钥的路径。 例如， `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:`。
 
 2. 上载完成后，使用 SSH 连接到群集：
 
-    ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn```  
+    ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn```
 
-    有关将 SSH 与基于 Linux 的 HDInsight 配合使用的详细信息，请参阅以下文章：
-
-    * [在 Linux、Unix 或 OS X 中的 HDInsight 上将 SSH 与基于 Linux 的 Hadoop 配合使用](./hdinsight-hadoop-linux-use-ssh-unix.md)
-    * [在 Windows 中的 HDInsight 上将 SSH 与基于 Linux 的 Hadoop 配合使用](./hdinsight-hadoop-linux-use-ssh-windows.md)
+    有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 3. 连接后，使用以下命令来解压缩 .zip 文件：
 
@@ -86,17 +86,17 @@ ms.custom: H1Hack27Feb2017
     hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
     ```
 
-## 创建并运行 HiveQL
+## <a name="create-and-run-the-hiveql"></a>创建并运行 HiveQL
 
-使用以下步骤将 CSV 文件中的数据导入到名为 **Delays** 的 Hive 表中。
+使用以下步骤将 CSV 文件中的数据导入到名为 **Delays**的 Hive 表中。
 
-1. 使用以下命令创建名为 **flightdelays.hql** 的新文件并编辑它：
+1. 使用以下命令创建名为 **flightdelays.hql**的新文件并编辑它：
 
     ```
     nano flightdelays.hql
     ```
 
-    使用以下文本作为此文件的内容：
+    将以下文本用作此文件的内容：
 
     ```hiveql
     DROP TABLE delays_raw;
@@ -158,7 +158,7 @@ ms.custom: H1Hack27Feb2017
     FROM delays_raw;
     ```
 
-2. 使用 **Ctrl + X**，然后单击 **Y** 以保存该文件。
+2. 使用 **Ctrl+X**，然后使用 **Y** 以保存该文件。
 
 3. 使用以下命令启动 Hive 并运行 **flightdelays.hql** 文件：
 
@@ -167,9 +167,9 @@ ms.custom: H1Hack27Feb2017
     ```
 
     > [!NOTE]
-    在此示例中，由于已连接到运行 HiveServer2 的 HDInsight 群集的头节点，因此使用 `localhost`。
+    > 在此示例中，由于已连接到运行 HiveServer2 的 HDInsight 群集的头节点，因此使用 `localhost`。
 
-4. __flightdelays.hql__ 脚本运行完成后，请使用以下命令打开交互式 Beeline 会话：
+4. __flightdelays.hql__ 脚本完成运行后，使用以下命令打开交互式 Beeline 会话：
 
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
@@ -187,20 +187,20 @@ ms.custom: H1Hack27Feb2017
     GROUP BY origin_city_name;
     ```
 
-    此查询将检索遇到天气延迟的城市的列表和平均延迟时间，并将其保存到 `/tutorials/flightdelays/output` 中。稍后，Sqoop 将从此位置读取数据并将其导出到 Azure SQL 数据库中。
+    此查询将检索遇到天气延迟的城市的列表和平均延迟时间，并将其保存到 `/tutorials/flightdelays/output`中。 稍后，Sqoop 将从此位置读取数据并将其导出到 Azure SQL 数据库中。
 
-6. 若要退出 Beeline，请在提示符处输入 `!quit`。
+6. 若要退出 Beeline，请在提示符处输入 `!quit` 。
 
-## 创建 SQL 数据库
+## <a name="create-a-sql-database"></a>创建 SQL 数据库
 
-如果已具备 SQL 数据库，则必须获取服务器名称。可通过在 [Azure 门户预览](https://portal.azure.cn)中选择“SQL 数据库”，然后筛选要使用的数据库名称，来找到服务器名称。服务器名称在“SERVER”列中列出。
+如果已具备 SQL 数据库，则必须获取服务器名称。 可通过在 [Azure 门户预览版](https://portal.azure.cn)中选择“SQL 数据库”，然后筛选要使用的数据库名称，来找到服务器名称。 服务器名称在“SERVER”  列中列出。
 
-如果没有 SQL 数据库，请使用 [SQL 数据库教程：几分钟内即可创建 SQL 数据库](../sql-database/sql-database-get-started.md)中的信息创建一个。需要保存数据库所使用的服务器名称。
+如果还没有 SQL 数据库，请使用 [SQL 数据库教程：几分钟内即可创建 SQL 数据库](../sql-database/sql-database-get-started.md)中的信息创建一个。 需要保存数据库所使用的服务器名称。
 
-## 创建 SQL 数据库表
+## <a name="create-a-sql-database-table"></a>创建 SQL 数据库表
 
 > [!NOTE]
-可通过多种方式连接到 SQL 数据库并创建表。以下步骤从 HDInsight 群集使用 [FreeTDS](http://www.freetds.org/)。
+> 可通过多种方式连接到 SQL 数据库并创建表。 以下步骤从 HDInsight 群集使用 [FreeTDS](http://www.freetds.org/) 。
 
 1. 使用 SSH 连接到基于 Linux 的 HDInsight 群集，并从 SSH 会话运行以下步骤。
 
@@ -210,7 +210,7 @@ ms.custom: H1Hack27Feb2017
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-3. 安装完成后，使用以下命令连接到 SQL 数据库服务器。使用 SQL 数据库服务器名称替换“serverName”。使用 SQL 数据库登录信息替换 “adminLogin”和“adminPassword”。使用数据库名称替换 “databaseName”。
+3. 安装完成后，使用以下命令连接到 SQL 数据库服务器。 使用 SQL 数据库服务器名称替换 **serverName**。 使用 SQL 数据库登录信息替换 **adminLogin** 和 **adminPassword**。 使用数据库名称替换 **databaseName**。
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.chinacloudapi.cn -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
@@ -237,7 +237,7 @@ ms.custom: H1Hack27Feb2017
     GO
     ```
 
-    输入 `GO` 语句后，将评估前面的语句。这将创建一个名为 **delays** 且具有聚集索引的表。
+    输入 `GO` 语句后，将评估前面的语句。 这将创建一个名为 **delays**且具有聚集索引的表。
 
     使用以下命令验证是否已创建该表：
 
@@ -253,9 +253,9 @@ ms.custom: H1Hack27Feb2017
     databaseName       dbo     delays      BASE TABLE
     ```
 
-5. 在 `1>` 提示符下输入 `exit` 以退出 tsql 实用工具。
+5. 在 `exit` at the `1>` 以退出 tsql 实用工具。
 
-## 使用 Sqoop 导出数据
+## <a name="export-data-with-sqoop"></a>使用 Sqoop 导出数据
 
 1. 使用以下命令验证 Sqoop 是否可以看到你的 SQL 数据库：
 
@@ -286,9 +286,9 @@ ms.custom: H1Hack27Feb2017
     GO
     ```
 
-    你会在表中看到一系列数据。键入 `exit` 退出 tsql 实用程序。
+    你会在表中看到一系列数据。 键入 `exit` 退出 tsql 实用程序。
 
-## <a id="nextsteps"></a>后续步骤
+## <a id="nextsteps"></a> 后续步骤
 
 若要了解更多使用 HDInsight 中数据的方式，请参阅以下文档：
 
@@ -306,20 +306,18 @@ ms.custom: H1Hack27Feb2017
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[hdinsight-use-oozie]: ./hdinsight-use-oozie-linux-mac.md
-[hdinsight-use-hive]: ./hdinsight-use-hive.md
-[hdinsight-provision]: ./hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-storage]: ./hdinsight-hadoop-use-blob-storage.md
-[hdinsight-upload-data]: ./hdinsight-upload-data.md
-[hdinsight-get-started]: ./hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-use-sqoop]: ./hdinsight-use-sqoop-mac-linux.md
-[hdinsight-use-pig]: ./hdinsight-use-pig.md
-[hdinsight-develop-streaming]: ./hdinsight-hadoop-streaming-python.md
-[hdinsight-develop-mapreduce]: ./hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-develop-streaming]: hdinsight-hadoop-streaming-python.md
+[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=Mooncake_0327_2017-->
-<!--Update_Description: wording update-->

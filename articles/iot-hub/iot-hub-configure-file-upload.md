@@ -1,45 +1,51 @@
 ---
-title: 使用 Azure 门户配置文件上载 | Azure
-description: 如何使用 Azure 门户配置 IoT 中心，以便从连接的设备上传文件。包括有关配置目标 Azure 存储帐户的信息。
+title: "使用 Azure 门户配置文件上载 | Azure"
+description: "如何使用 Azure 门户配置 IoT 中心，以便从连接的设备上传文件。 包括有关配置目标 Azure 存储帐户的信息。"
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
 ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
-wacn.date: 02/10/2017
+ms.date: 04/07/2017
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
+ms.openlocfilehash: 038be9aa1a540d0a5e50e999f05da55fb284e2f4
+ms.lasthandoff: 04/28/2017
+
 ---
 
-# 使用 Azure 门户预览配置 IoT 中心文件上传
-## 文件上载
-若要使用 [IoT 中心的文件上载功能][lnk-upload]，必须先将 Azure 存储帐户与中心关联。选择“文件上传”设置，即可显示正在修改的 IoT 中心的文件上传属性列表。
+# <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>使用 Azure 门户配置 IoT 中心文件上传
 
-![][13]  
+[!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-**存储容器**：使用 Azure 门户预览在当前 Azure 订阅中选择 Azure 存储帐户中的 Blob 容器，以便与 IoT 中心关联。如有必要，可在“存储帐户”边栏选项卡上创建 Azure 存储帐户，并在“容器”边栏选项卡上创建 Blob 容器。IoT 中心会自动生成对此 Blob 容器具有写入权限的 SAS URI，以供设备上传文件时使用。
+## <a name="file-upload"></a>文件上载
+若要使用 [IoT 中心的文件上传功能][lnk-upload]，必须先将 Azure 存储帐户与中心关联。 选择“**文件上载**”设置，即可显示正在修改的 IoT 中心的文件上载属性列表。
 
-![][14]
+![在门户中查看 IoT 中心文件上传设置][13]
 
-**接收已上传文件的通知**：通过切换来启用或禁用文件上传通知。
+**存储容器**：使用 Azure 门户在当前 Azure 订阅中选择 Azure 存储帐户中的 blob 容器，以便与 IoT 中心关联。 如有必要，可以在“存储帐户”边栏选项卡上创建 Azure 存储帐户，并在“容器”边栏选项卡上创建 blob 容器。 IoT 中心会自动生成对此 Blob 容器具有写入权限的 SAS URI，以供设备上传文件时使用。
 
-**SAS TTL**：此设置是 IoT 中心返回给设备的 SAS URI 生存时间。默认设置为一小时，但可以使用滑块自定义为其他值。
+![在门户中查看用于文件上传的存储容器][14]
 
-**文件通知设置默认 TTL**：文件上传通知到期前的生存时间。默认设置为一天，但可以使用滑块自定义为其他值。
+**接收已上载文件的通知**：通过切换来启用或禁用文件上载通知。
 
-**文件通知最大传送数**：IoT 中心将尝试传送文件上载通知的次数。默认设置为 10，但可以使用滑块自定义为其他值。
+**SAS TTL**：此设置是 IoT 中心返回给设备的 SAS URI 生存时间。 默认设置为一小时，但可以使用滑块自定义为其他值。
 
-![][15]  
+**文件通知设置默认 TTL**：文件上传通知到期前的生存时间。 默认设置为一天，但可以使用滑块自定义为其他值。
 
-## 后续步骤
-有关 IoT 中心文件上传功能的详细信息，请参阅 IoT 中心开发人员指南中的[从设备上传文件][lnk-upload]。
+**文件通知最大传送数**：IoT 中心将尝试传送文件上载通知的次数。 默认设置为 10，但可以使用滑块自定义为其他值。
+
+![在门户中配置 IoT 中心文件上传][15]
+
+## <a name="next-steps"></a>后续步骤
+有关 IoT 中心文件上传功能的详细信息，请参阅 IoT 中心开发人员指南中的 [从设备上传文件][lnk-upload] 。
 
 若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
 
@@ -51,6 +57,7 @@ ms.author: dobett
 
 * [IoT 中心开发人员指南][lnk-devguide]
 * [使用 IoT 网关 SDK 模拟设备][lnk-gateway]
+* [从根本上保护 IoT 解决方案][lnk-securing]
 
   [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
   [14]: ./media/iot-hub-configure-file-upload/file-upload-container-selection.png
@@ -64,6 +71,4 @@ ms.author: dobett
 
 [lnk-devguide]: ./iot-hub-devguide.md
 [lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
-
-<!---HONumber=Mooncake_0109_2017-->
-<!--Update_Description:update meta properties-->
+[lnk-securing]: ./iot-hub-security-ground-up.md
