@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/21/2017
 ms.author: mikhegn@microsoft.com
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 6110b5ed72667f1060a2becb48f57385db159d10
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -129,7 +130,7 @@ Visual Studio Service Fabric Resource Manager 模板将创建一个受证书保�
 > 
 > 
 
-如果出现任何错误，请转到 [Azure 门户预览版](https://portal.azure.cn/)并打开已部署到的资源组。 单击“**所有设置**”，然后单击“设置”边栏选项卡上的“**部署**”。 失败的资源组部署会在那里留下详细的诊断信息。
+如果出现任何错误，请转到 [Azure 门户预览](https://portal.azure.cn/)并打开已部署到的资源组。 单击“**所有设置**”，然后单击“设置”边栏选项卡上的“**部署**”。 失败的资源组部署会在那里留下详细的诊断信息。
 
 > [!NOTE]
 > Service Fabric 群集需要一定数量的节点处于开机状态，以维护可用性和保留状态（称为“维护仲裁”）。 因此，除非首先执行[状态的完整备份](service-fabric-reliable-services-backup-restore.md)，否则关闭群集中的所有计算机是很不安全的。
@@ -137,7 +138,7 @@ Visual Studio Service Fabric Resource Manager 模板将创建一个受证书保�
 > 
 
 ## <a name="next-steps"></a>后续步骤
-* [了解如何使用 Azure 门户预览版设置 Service Fabric 群集](service-fabric-cluster-creation-via-portal.md)
+* [了解如何使用 Azure 门户预览设置 Service Fabric 群集](service-fabric-cluster-creation-via-portal.md)
 * [了解如何使用 Visual Studio 管理和部署 Service Fabric 应用程序](service-fabric-manage-application-in-visual-studio.md)
 
 <!--Image references-->

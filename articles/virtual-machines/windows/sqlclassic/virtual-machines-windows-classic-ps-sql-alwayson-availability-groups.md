@@ -16,9 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 wacn.date: 
 ms.author: mikeray
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: e594c551fabcf7bd886abb09fe09b10216eb5a93
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -60,7 +61,7 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
     **Get-AzurePublishgSettingsFile** 命令自动生成管理证书，Azure 将其下载到你的计算机。 将自动打开浏览器，并且系统会提示输入 Azure 订阅的 Microsoft 帐户凭据。 所下载的 **.publishsettings** 文件包含管理 Azure 订阅所需的全部信息。 将该文件保存到本地目录后，使用 **Import-AzurePublishSettingsFile** 命令将其导入。
 
     > [!NOTE]
-    > publishsettings 文件中包含用于管理 Azure 订阅和服务的凭据（未编码）。 确保此文件安全的最佳做法是，将其暂时存储在您的源目录的外部（例如存储在 Libraries\Documents 文件夹中），然后在完成导入后将其删除。 恶意用户获得 publishsettings 文件的访问权限后，可编辑、创建和删除你的 Azure 服务。
+    > publishsettings 文件中包含用于管理 Azure 订阅和服务的凭据（未编码）。 确保此文件安全的最佳做法是，将其暂时存储在你的源目录的外部（例如存储在 Libraries\Documents 文件夹中），然后在完成导入后将其删除。 恶意用户获得 publishsettings 文件的访问权限后，可编辑、创建和删除你的 Azure 服务。
     > 
     > 
 2. 定义将用于创建云 IT 基础结构的一系列变量。

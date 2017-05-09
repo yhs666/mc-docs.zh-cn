@@ -14,9 +14,10 @@ ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: 
 ms.author: barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: f54d8f576cd4ca14ab36b274e54fde4bb6c56b80
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 04/14/2017
 本文说明如何使用 PowerShell 创建 SQL 数据仓库。
 
 ## <a name="prerequisites"></a>先决条件
-若要开始，您需要：
+若要开始，你需要：
 
 * **Azure 帐户**：访问 [Azure 免费试用版][Azure Free Trial] ，以创建帐户。
 * **Azure SQL Server**：有关详细信息，请参阅[在 Azure 门户中创建 Azure SQL 数据库][Create an Azure SQL database in the Azure Portal]或[使用 PowerShell 创建 Azure SQL 数据库][Create an Azure SQL database with PowerShell]。

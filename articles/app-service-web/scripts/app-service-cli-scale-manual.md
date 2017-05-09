@@ -16,9 +16,10 @@ ms.workload: web
 ms.date: 03/20/2017
 wacn.date: 
 ms.author: cfowler
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 72c991f9c3ba36c66dc7c5a8a4aada7be6cbe1b0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---

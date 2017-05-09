@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: jahogg
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: de009265a02fd5d4e0f17cdd06f593986e0b3fcb
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

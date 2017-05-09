@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: f74a7e5af7173c164623d21e3c8aef8872569bd7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -34,7 +35,7 @@ ms.lasthandoff: 04/14/2017
 以下代码示例使用媒体服务 .NET SDK 执行下列任务：
 
 - 创建编码作业。
-- 获取对媒体编码器标准版编码器的引用。
+- 获取对 Media Encoder Standard 编码器的引用。
 - 向作业添加一个编码任务，指定使用“自适应流式处理”预设。 
 - 创建将包含所编码资产的输出资产。
 - 添加事件处理程序以检查作业进度。

@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 脚本示例 - 使用 FTP 将文件上载到 Web 应用 | Azure"
-description: "Azure PowerShell 脚本示例 - 使用 FTP 将文件上载到 Web 应用"
+title: "Azure PowerShell 脚本示例 - 使用 FTP 将文件上传到 Web 应用 | Azure"
+description: "Azure PowerShell 脚本示例 - 使用 FTP 将文件上传到 Web 应用"
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 03/20/2017
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 79cf3bd7cb4c59b1a57195a629d87d1351fcce99
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
 
-# <a name="upload-files-to-a-web-app-using-ftp"></a>使用 FTP 将文件上载到 Web 应用
+# <a name="upload-files-to-a-web-app-using-ftp"></a>使用 FTP 将文件上传到 Web 应用
 
 此示例脚本使用其相关资源，在应用服务中创建 Web 应用，然后使用 FTP（通过 [WebClient.UploadFile()](https://msdn.microsoft.com/library/ms144229.aspx)）部署 Web 应用代码。
 

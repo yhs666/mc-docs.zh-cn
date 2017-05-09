@@ -17,9 +17,10 @@ ms.date: 03/17/2017
 wacn.date: 
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 75df9865e8dd2fa1297990adce4668949bf341a6
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -74,7 +75,7 @@ Adventure Works Cycles 确定其应使用 Azure 托管磁盘。 创建 VM 时，
 ## <a name="virtual-network-and-subnets"></a>虚拟网络和子网
 由于虚拟网络不需要持续连接到 Adventure Work Cycles 本地网络，因此，他们决定选择仅限云的虚拟网络。
 
-他们通过 Azure 门户预览版使用以下设置创建了仅限云的虚拟网络：
+他们通过 Azure 门户预览使用以下设置创建了仅限云的虚拟网络：
 
 * 名称：AZOS-CHE-VN01
 * 位置：中国东部

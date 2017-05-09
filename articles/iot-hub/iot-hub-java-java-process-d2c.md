@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/07/2017
 wacn.date: 
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: fd12c0dd792dbf9e3a4cdd23943a8075341f3bda
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -42,7 +43,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 > 
 > 
 
-要完成本教程，需要具备以下先决条件：
+若要完成本教程，你需要以下各项：
 
 + [IoT 中心入门] 教程的完整工作版本。
 

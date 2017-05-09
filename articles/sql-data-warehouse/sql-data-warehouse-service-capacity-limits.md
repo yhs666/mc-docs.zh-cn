@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess;jrj
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: cd48a35bc8a0bef299c241f358dc98e3ea4ba3ed
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/14/2017
 | 类别 | 说明 | 最大值 |
 |:--- |:--- |:--- |
 | [数据仓库单位 (DWU)][Data Warehouse Units (DWU)] |单个 SQL 数据仓库的最大 DWU |6000 |
-| [数据仓库单位 (DWU)][Data Warehouse Units (DWU)] |单个 SQL Server 的最大 DWU |默认为 6000<br/><br/> 默认情况下，每个 SQL Server（例如 myserver.database.windows.net）的 DTU 配额为 45,000，最多可以允许 6000 DWU。 此配额仅仅只是安全限制。 可以通过[创建支持票证][creating a support ticket]并选择“配额”作为请求类型来增加配额。  若要计算 DTU 需求，可将总 DWU 需求乘以 7.5。 您可以在门户中的 SQL server 边栏选项卡中查看您当前的 DTU 消耗量。 已暂停和未暂停的数据库都计入 DTU 配额。 |
+| [数据仓库单位 (DWU)][Data Warehouse Units (DWU)] |单个 SQL Server 的最大 DWU |默认为 6000<br/><br/> 默认情况下，每个 SQL Server（例如 myserver.database.windows.net）的 DTU 配额为 45,000，最多可以允许 6000 DWU。 此配额仅仅只是安全限制。 可以通过[创建支持票证][creating a support ticket]并选择“配额”作为请求类型来增加配额。  若要计算 DTU 需求，可将总 DWU 需求乘以 7.5。 你可以在门户中的 SQL server 边栏选项卡中查看你当前的 DTU 消耗量。 已暂停和未暂停的数据库都计入 DTU 配额。 |
 | 数据库连接 |并发打开的会话 |1024<br/><br/>我们支持最多 1024 个活动连接，每个活动连接可同时将请求提交到 SQL 数据仓库数据库。 请注意，实际可并发执行的查询数量是有限制的。 当超出并发限制时，请求将进入内部队列等待处理。 |
 | 数据库连接 |预处理语句的最大内存 |20 MB |
 | [工作负荷管理][Workload management] |并发查询数上限 |32<br/><br/> 默认情况下，SQL 数据仓库可以执行最多 32 个并发查询并将剩余查询排列起来。<br/><br/>在将用户分配到更高的资源类或在使用较低 DWU 配置 SQL 数据仓库时，可能会降低并发级别。 某些查询（如 DMV 查询）始终可以运行。 |

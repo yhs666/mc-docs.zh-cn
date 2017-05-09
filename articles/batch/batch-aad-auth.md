@@ -15,9 +15,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 03/16/2017
 ms.author: tamram
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: c8f4bd3fe38a4d72f51d575a6dd1495aa10d1121
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---

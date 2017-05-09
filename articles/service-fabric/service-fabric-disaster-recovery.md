@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/01/2017
 ms.author: seanmck
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: fd268bd183ce8b0e124b230b1476c57e9442d92b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -64,7 +65,7 @@ ms.lasthandoff: 04/14/2017
 > 
 > 
 
-系统服务也会遭受仲裁丢失，同时对相关服务造成特定影响。 例如，命名服务的仲裁丢失将影响名称解析，而故障转移管理器服务的仲裁丢失将阻止创建新服务与故障转移。 请注意，我们并 *不* 建议您像修复自己的服务一样尝试修复系统服务。 而最好是单纯地等待，直到关闭的副本恢复为止。
+系统服务也会遭受仲裁丢失，同时对相关服务造成特定影响。 例如，命名服务的仲裁丢失将影响名称解析，而故障转移管理器服务的仲裁丢失将阻止创建新服务与故障转移。 请注意，我们并 *不* 建议你像修复自己的服务一样尝试修复系统服务。 而最好是单纯地等待，直到关闭的副本恢复为止。
 
 #### <a name="minimizing-the-risk-of-quorum-loss"></a>将仲裁丢失的风险降到最低
 你可以通过增大服务的目标副本集大小，将仲裁丢失的风险降到最低。 根据一次可容许的不可用节点数（仍可用于写入）来考虑所需的副本数会有所帮助，但请记住，除了硬件故障以外，应用程序或群集升级也可能使节点暂时不可用。

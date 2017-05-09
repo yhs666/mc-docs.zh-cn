@@ -1,6 +1,6 @@
 ---
 title: "监视、诊断和排查存储问题 | Microsoft Docs"
-description: "使用存储分析、客户端日志记录等功能及其他第三方工具来确定、诊断和排查与 Azure 存储空间相关的问题。"
+description: "使用存储分析、客户端日志记录等功能及其他第三方工具来确定、诊断和排查与 Azure 存储相关的问题。"
 services: storage
 documentationcenter: 
 author: jasonnewyork
@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: jahogg
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: b03a544d12edfb49aa054103b29e71e4d31153c0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
 ---
-# <a name="monitor-diagnose-and-troubleshoot-azure-storage"></a>对 Azure 存储空间进行监视、诊断和故障排除
+# <a name="monitor-diagnose-and-troubleshoot-azure-storage"></a>对 Azure 存储进行监视、诊断和故障排除
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
 ## <a name="overview"></a>概述
 诊断和排查在云环境中托管的分布式应用程序中的问题可能会比在传统环境中更复杂。 应用程序可以部署在 PaaS 或 IaaS 基础结构、本地、移动设备，或这些项的某种组合中。 通常，应用程序的网络流量可能会经过公用和专用网络，且应用程序可以使用多种存储技术（如 Azure 存储表、Blob、队列或文件）以及其他数据存储（如关系数据库和文档数据库）。
 
-若要成功管理此类应用程序，应主动监视这些应用程序，并了解如何诊断和排查这些应用程序及其相关技术的所有方面的问题。 作为 Azure 存储服务的用户，你应持续监视你的应用程序所用的存储服务是否出现任何意外的行为更改（如比正常响应时间慢），并使用日志记录收集更详细的数据并深入分析问题。 从监视和日志记录获取的诊断信息将有助于确定应用程序所遇到问题的根本原因。 然后，你可以排查该问题，并确定可以执行以更正该问题的相应步骤。 Azure 存储空间是一项核心 Azure 服务，它是客户部署到 Azure 基础结构的大多数解决方案的重要组成部分。 Azure 存储空间提供的功能可以简化监视、诊断和排查基于云的应用程序中的存储问题的过程。
+若要成功管理此类应用程序，应主动监视这些应用程序，并了解如何诊断和排查这些应用程序及其相关技术的所有方面的问题。 作为 Azure 存储服务的用户，你应持续监视你的应用程序所用的存储服务是否出现任何意外的行为更改（如比正常响应时间慢），并使用日志记录收集更详细的数据并深入分析问题。 从监视和日志记录获取的诊断信息将有助于确定应用程序所遇到问题的根本原因。 然后，你可以排查该问题，并确定可以执行以更正该问题的相应步骤。 Azure 存储是一项核心 Azure 服务，它是客户部署到 Azure 基础结构的大多数解决方案的重要组成部分。 Azure 存储提供的功能可以简化监视、诊断和排查基于云的应用程序中的存储问题的过程。
 
 有关 Azure 存储应用程序中端到端故障排除的动手指南，请参阅[端到端故障排除 - 使用 Azure 存储指标和日志记录、AzCopy 和 Message Analyzer](storage-e2e-troubleshooting.md)。
 
@@ -74,7 +75,7 @@ ms.lasthandoff: 04/14/2017
   * [附录 4：使用 Excel 查看指标和日志数据]
 
 ## <a name="introduction"></a>介绍
-本指南演示如何使用 Azure 存储客户端库中的 Azure 存储分析、客户端日志记录等功能及其他第三方工具来确定、诊断和排查与 Azure 存储空间相关的问题。
+本指南演示如何使用 Azure 存储客户端库中的 Azure 存储分析、客户端日志记录等功能及其他第三方工具来确定、诊断和排查与 Azure 存储相关的问题。
 
 ![][1]
 
@@ -83,8 +84,8 @@ ms.lasthandoff: 04/14/2017
 本指南的主要目标受众是开发使用 Azure 存储服务的联机服务的开发人员以及负责管理此类联机服务的 IT 专业人员。 本指南的目标是：
 
 * 帮助你维护 Azure 存储帐户的运行状况和性能。
-* 为你提供必要的过程和工具来帮助你确定应用程序中的问题是否与 Azure 存储空间有关。
-* 为你提供用于解决与 Azure 存储空间相关的问题的可操作指南。
+* 为你提供必要的过程和工具来帮助你确定应用程序中的问题是否与 Azure 存储有关。
+* 为你提供用于解决与 Azure 存储相关的问题的可操作指南。
 
 ### <a name="how-this-guide-is-organized"></a>本指南的组织方式
 “[监视存储服务]”一节介绍如何使用 Azure 存储分析指标（存储指标）监视 Azure 存储服务的运行状况和性能。
@@ -93,12 +94,12 @@ ms.lasthandoff: 04/14/2017
 
 “[端到端跟踪]”一节介绍了如何关联各种日志文件中包含的信息和指标数据。
 
-“[故障排除指南]”一节针对您可能会遇到的一些与存储相关的常见问题，提供了故障排除指南。
+“[故障排除指南]”一节针对你可能会遇到的一些与存储相关的常见问题，提供了故障排除指南。
 
 “[附录]”提供了有关如何使用其他工具的信息，例如如何使用 Wireshark 和 Netmon 分析网络数据包数据，如何使用 Fiddler 分析 HTTP/HTTPS 消息，以及如何使用 Microsoft Message Analyzer 关联日志数据等。
 
 ## <a name="monitoring-your-storage-service"></a>监视存储服务
-如果你熟悉 Windows 性能监视，则可以将存储指标视为 Windows 性能监视器计数器的 Azure 存储等效项。 在存储指标中，你将找到一组综合指标（相当于 Windows 性能监视器术语中的计数器），例如服务可用性、向服务发送的请求总数或向服务发出的成功请求的百分比（有关可用指标的完整列表，请参阅 MSDN 上的<a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">存储分析指标表架构</a>）。 你可以指定希望存储服务每隔一小时还是每隔一分钟收集和聚合一次指标。 有关如何启用指标和监视存储帐户的详细信息，请参阅 MSDN 上的<a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">启用存储指标</a>。
+如果你熟悉 Windows 性能监视，则可以将存储度量值视为 Windows 性能监视器计数器的 Azure 存储等效项。 在存储指标中，你将找到一组综合指标（相当于 Windows 性能监视器术语中的计数器），例如服务可用性、向服务发送的请求总数或向服务发出的成功请求的百分比（有关可用指标的完整列表，请参阅 MSDN 上的<a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">存储分析指标表架构</a>）。 你可以指定希望存储服务每隔一小时还是每隔一分钟收集和聚合一次指标。 有关如何启用指标和监视存储帐户的详细信息，请参阅 MSDN 上的<a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">启用存储指标</a>。
 
 可以选择要将哪些小时指标显示在 Azure 经典管理门户中，并对规则进行配置，让系统在小时指标超过特定阈值时，通过电子邮件通知管理员（有关详细信息，请参阅页面<a href="http://msdn.microsoft.com/zh-cn/library/azure/dn306638.aspx" target="_blank">如何：在 Azure 中接收警报通知和管理警报规则</a>）。 存储服务将尽最大努力收集指标，但可能无法记录每个存储操作。
 
@@ -110,7 +111,7 @@ ms.lasthandoff: 04/14/2017
 
 你应通过以下方式持续监视 Azure 应用程序以确保它们正常运行并按预期执行操作：
 
-* 为应用程序建立一些基准指标，以用于比较当前数据和识别 Azure 存储空间和你的应用程序的任何重大行为更改。 在许多情况下，基准指标的值将特定于应用程序，因此应在对应用程序进行性能测试时建立这些指标。
+* 为应用程序建立一些基准指标，以用于比较当前数据和识别 Azure 存储和你的应用程序的任何重大行为更改。 在许多情况下，基准指标的值将特定于应用程序，因此应在对应用程序进行性能测试时建立这些指标。
 * 记录每分钟指标，并使用这些指标来主动监视意外的错误和异常，例如错误计数或请求速率达到峰值。
 * 记录每小时指标，并使用这些指标来监视平均值，例如平均错误计数和请求速率。
 * 使用诊断工具调查潜在问题，如稍后在“[诊断存储空间问题]”中所述。
@@ -143,7 +144,7 @@ ms.lasthandoff: 04/14/2017
 ### <a name="monitoring-availability"></a>监视可用性
 应通过监视以下每小时或每分钟指标表中的 **Availability** 列中的值来监视存储帐户中存储服务的可用性：**$MetricsHourPrimaryTransactionsBlob**、**$MetricsHourPrimaryTransactionsTable**、**$MetricsHourPrimaryTransactionsQueue**、**$MetricsMinutePrimaryTransactionsBlob**、**$MetricsMinutePrimaryTransactionsTable**、**$MetricsMinutePrimaryTransactionsQueue**、**$MetricsCapacityBlob**。 **Availability** 列包含一个百分比值，指示该服务的可用性或该行所表示的 API 操作的可用性（**RowKey** 显示行是包含整体服务的指标还是包含特定 API 操作的指标）。
 
-任何小于 100% 的值指示某些存储请求将失败。 你可以通过检查指标数据中显示具有不同错误类型（如 **ServerTimeoutError**）的请求数的其他列来了解失败原因。 由于以下原因，应该会看到“可用性”暂时低于 100%：比如在该服务移动分区以更好地负载均衡请求时，出现暂时性服务器超时；客户端应用程序中的重试逻辑应处理此类间歇性情况。 <a href="http://msdn.microsoft.com/library/azure/hh343260.aspx" target="_blank"></a> 页列出了存储指标在其**可用性**计算中包括的事务类型。
+任何小于 100% 的值指示某些存储请求将失败。 你可以通过检查指标数据中显示具有不同错误类型（如 **ServerTimeoutError**）的请求数的其他列来了解失败原因。 由于以下原因你应该会看到 **Availability** 暂时低于 100%：比如在该服务移动分区以更好地负载均衡请求时，出现暂时性服务器超时；客户端应用程序中的重试逻辑应处理此类间歇性情况。 <a href="http://msdn.microsoft.com/library/azure/hh343260.aspx" target="_blank"></a> 页列出了存储指标在其**可用性**计算中包括的事务类型。
 
 在 Azure 经典管理门户中的存储帐户“监视”页上，可以添加警报规则，让系统在服务的**可用性**低于指定阈值时通知你。
 
@@ -177,17 +178,17 @@ ms.lasthandoff: 04/14/2017
 * 你的应用程序遇到错误，该错误由你的用户报告或由你监视的其中一个错误计数指标增加显示。
 * 在开发和测试期间，你可能使用的是本地存储模拟器；你可能会遇到一些与使用存储模拟器特别相关的问题。
 
-以下各节概述了诊断和排查这四大类中的每一类问题时应遵循的步骤。 在本指南后面的“[故障排除指南]”一节将提供有关您可能会遇到的一些常见问题的更多详细信息。
+以下各节概述了诊断和排查这四大类中的每一类问题时应遵循的步骤。 在本指南后面的“[故障排除指南]”一节将提供有关你可能会遇到的一些常见问题的更多详细信息。
 
 ### <a name="service-health-issues"></a>服务运行状况问题
-服务运行状况问题通常不受你控制。 Azure 经典管理门户提供了有关 Azure 服务（包括存储服务）当前存在的任何问题的信息。 如果你在创建存储帐户时选择了启用读取访问地域冗余存储，则在主位置中的数据不可用时，你的应用程序可以暂时切换到辅助位置中的只读副本。 为此，您的应用程序必须能够在使用主存储位置和辅助存储位置之间切换，并能够在降低的功能模式下使用只读数据。 使用 Azure 存储客户端库，可以定义重试策略，以便在从主存储读取失败时可以从辅助存储读取。 你的应用程序还需要注意辅助位置中的数据是否最终一致。 有关详细信息，请参阅博客文章 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx" target="_blank">Azure 存储冗余选项和读取访问异地冗余存储</a>。
+服务运行状况问题通常不受你控制。 Azure 经典管理门户提供了有关 Azure 服务（包括存储服务）当前存在的任何问题的信息。 如果你在创建存储帐户时选择了启用读取访问地域冗余存储，则在主位置中的数据不可用时，你的应用程序可以暂时切换到辅助位置中的只读副本。 为此，你的应用程序必须能够在使用主存储位置和辅助存储位置之间切换，并能够在降低的功能模式下使用只读数据。 使用 Azure 存储客户端库，可以定义重试策略，以便在从主存储读取失败时可以从辅助存储读取。 你的应用程序还需要注意辅助位置中的数据是否最终一致。 有关详细信息，请参阅博客文章 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx" target="_blank">Azure 存储冗余选项和读取访问异地冗余存储</a>。
 
 ### <a name="performance-issues"></a>性能问题
 应用程序的性能可能是主观判定的，尤其是从用户角度来看，更是如此。 因此，请务必设置可用于帮助你确定是否可能存在性能问题的基准指标。 从客户端应用程序角度来看，有许多因素可能会影响 Azure 存储服务的性能。 这些因素可能在存储服务、客户端或网络基础结构中运作；因此必须设置策略来确定性能问题的源。
 
 在通过指标确定性能问题的可能根源位置后，可以使用日志文件查找详细信息以便进一步诊断并排查该问题。
 
-在本指南后面的“[故障排除指南]”一节将提供有关您可能会遇到的一些常见性能相关问题的详细信息。
+在本指南后面的“[故障排除指南]”一节将提供有关你可能会遇到的一些常见性能相关问题的详细信息。
 
 ### <a name="diagnosing-errors"></a>诊断错误
 应用程序用户可能会向你通知客户端应用程序报告的错误。 存储指标还会记录来自存储服务的不同错误类型（如 **NetworkError**、**ClientTimeoutError** 或 **AuthorizationError**）的计数。 虽然存储指标仅记录不同错误类型的计数，但你可以通过检查服务器端日志、客户端日志和网络日志来获取有关单个请求的详细信息。 通常，存储服务返回的 HTTP 状态代码将指示请求失败的原因。
@@ -225,7 +226,7 @@ Azure SDK 提供了一个存储模拟器，你可以在开发工作站上运行�
 * Fiddler (<a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>) 是一个免费 Web 调试代理，使用它可以检查 HTTP 和 HTTPS 请求和响应消息的标头和负载数据。 有关详细信息，请参阅“[附录 1：使用 Fiddler 捕获 HTTP 和 HTTPS 通信]”。
 * Microsoft 网络监视器 (Netmon) (<a href="http://www.microsoft.com/download/details.aspx?id=4865" target="_blank">http://www.microsoft.com/download/details.aspx?id=4865</a>) 和 Wireshark (<a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>) 是免费的网络协议分析器，使用它们可以查看各种网络协议的详细数据包信息。 有关 Wireshark 的详细信息，请参阅“[附录 2：使用 Wireshark 捕获网络流量]”。
 * Microsoft Message Analyzer 是 Microsoft 提供的用于取代 Netmon 的工具，它除了捕获网络数据包数据外，还可帮助你查看和分析其他工具捕获的日志数据。 有关详细信息，请参阅“[附录 3：使用 Microsoft Message Analyzer 捕获网络流量]”。
-* 如果您要执行基本连接测试，以检查客户端计算机是否能够通过网络连接到 Azure 存储服务，您不能在客户端上使用是标准 **ping** 工具来执行此操作。 但是，可以使用 **tcping** 工具来检查连接性。 **Tcping** 在 <a href="http://www.elifulkerson.com/projects/tcping.php" target="_blank">http://www.elifulkerson.com/projects/tcping.php</a> 上提供下载。
+* 如果你要执行基本连接测试，以检查客户端计算机是否能够通过网络连接到 Azure 存储服务，你不能在客户端上使用是标准 **ping** 工具来执行此操作。 但是，可以使用 **tcping** 工具来检查连接性。 **Tcping** 在 <a href="http://www.elifulkerson.com/projects/tcping.php" target="_blank">http://www.elifulkerson.com/projects/tcping.php</a> 上提供下载。
 
 在许多情况下，通过存储日志记录和存储客户端库记录的日志数据已足以诊断问题，但在某些情况下，你可能需要更详细的信息，而这些网络日志记录工具可以提供这些信息。 例如，使用 Fiddler 查看 HTTP 和 HTTPS 消息时，你可以查看发往和来自存储服务的标头和负载数据，这使你能够检查客户端应用程序如何重试存储操作。 协议分析器（例如 Wireshark）运行在数据包级别，这使你能够查看 TCP 数据，从而可以排查丢失的数据包和连接问题。 Message Analyzer 可以在 HTTP 和 TCP 层上运行。
 
@@ -371,7 +372,7 @@ ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAcc
 queueServicePoint.UseNagleAlgorithm = false;
 ```
 
-您应查看客户端日志以了解客户端应用程序正在提交多少个请求，并检查客户端中一般与 .NET 相关的性能瓶颈（如 CPU、.NET 垃圾回收、网络利用率或内存（作为排查 .NET 客户端应用程序问题的起点，请参阅 MSDN 上的<a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">调试、跟踪和分析</a>）。
+你应查看客户端日志以了解客户端应用程序正在提交多少个请求，并检查客户端中一般与 .NET 相关的性能瓶颈（如 CPU、.NET 垃圾回收、网络利用率或内存（作为排查 .NET 客户端应用程序问题的起点，请参阅 MSDN 上的<a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">调试、跟踪和分析</a>）。
 
 #### <a name="investigating-network-latency-issues"></a>调查网络延迟问题
 通常，因网络导致的高端到端延迟是由暂时状况导致的。 你可以使用工具（如 Wireshark 或 Microsoft Message Analyzer）调查临时和持久网络问题，例如丢弃数据包。
@@ -392,9 +393,9 @@ queueServicePoint.UseNagleAlgorithm = false;
 有关使用 Microsoft Message Analyzer 排查网络问题的详细信息，请参阅“[附录 3：使用 Microsoft Message Analyzer 捕获网络流量]”。
 
 ### <a name="metrics-show-high-AverageServerLatency"></a>指标显示高 AverageServerLatency
-如果 blob 下载请求出现高 **AverageServerLatency**，则应使用存储日志记录日志来了解对于同一 blob（或一组 blob）是否存在重复的请求。 对于 Blob 上载请求，应调查客户端正在使用的数据块大小（例如，小于 64k 的数据块大小可能会导致开销，除非读取操作也在小于 64k 的区块中进行），以及是否有多个客户端正在并行将数据块上载到同一 Blob。 还应检查每分钟指标以了解导致超出每秒可伸缩性目标的请求数峰值：另请参阅“[指标显示 PercentTimeoutError 增加]”。
+如果 blob 下载请求出现高 **AverageServerLatency**，则应使用存储日志记录日志来了解对于同一 blob（或一组 blob）是否存在重复的请求。 对于 Blob 上传请求，应调查客户端正在使用的数据块大小（例如，小于 64k 的数据块大小可能会导致开销，除非读取操作也在小于 64k 的区块中进行），以及是否有多个客户端正在并行将数据块上传到同一 Blob。 还应检查每分钟指标以了解导致超出每秒可伸缩性目标的请求数峰值：另请参阅“[指标显示 PercentTimeoutError 增加]”。
 
-如果当对于同一 Blob（或一组 Blob）存在重复的请求时，会看到 Blob 下载请求显示高 **AverageServerLatency**，则应考虑使用 Azure 缓存或 Azure 内容传送网络 (CDN) 缓存这些 Blob。 对于上载请求，你可以通过使用较大的数据块大小来提高吞吐量。 对于表查询，也可以在执行相同的查询操作并且数据不会频繁更改的客户端上实施客户端缓存。
+如果当对于同一 Blob（或一组 Blob）存在重复的请求时，会看到 Blob 下载请求显示高 **AverageServerLatency**，则应考虑使用 Azure 缓存或 Azure 内容传送网络 (CDN) 缓存这些 Blob。 对于上传请求，你可以通过使用较大的数据块大小来提高吞吐量。 对于表查询，也可以在执行相同的查询操作并且数据不会频繁更改的客户端上实施客户端缓存。
 
 高 **AverageServerLatency** 值也可能是设计欠佳的表或查询的症状，它会导致扫描操作或执行追加/前面预置反模式。 有关详细信息，请参阅“[指标显示 PercentThrottlingError 增加]”。
 
@@ -413,7 +414,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 * 检查存储日志记录日志以查找在长于平常的时间段内具有高于预期的 **E2ELatency** 和 **ServerLatency** 值的任何队列操作。
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>指标显示 PercentThrottlingError 增加
-当超出存储服务的可伸缩性目标时，会发生限制错误。 存储服务这样做是为了确保没有单个客户端或租户可以在损害其他客户端或租户的情况下使用服务。 有关存储帐户的可伸缩性目标和存储帐户中的分区的性能目标的详细信息，请参阅 <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure 存储空间可伸缩性和性能目标</a>。
+当超出存储服务的可伸缩性目标时，会发生限制错误。 存储服务这样做是为了确保没有单个客户端或租户可以在损害其他客户端或租户的情况下使用服务。 有关存储帐户的可伸缩性目标和存储帐户中的分区的性能目标的详细信息，请参阅 <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure 存储可伸缩性和性能目标</a>。
 
 如果 **PercentThrottlingError** 指标显示失败并出现限制错误的请求百分比增加，则需要调查以下两种情况之一：
 
@@ -426,7 +427,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 如果看到 **PercentThrottlingError** 的值达到峰值的时间与应用程序活动的高峰期保持一致，则应在客户端中对重试实施指数（而非线性）退让策略：这将减少分区上的即时负载，并帮助应用程序消除流量峰值。 有关如何实现使用存储客户端库实现重试策略的详细信息，请参阅 MSDN 上的 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies 命名空间</a>。
 
 > [!NOTE]
-> 可能也会看到 **PercentThrottlingError** 的值达到峰值的时间与应用程序活动的高峰期不一致：出现此情况最可能的原因是存储服务正在移动分区以改进负载均衡。
+> 你可能也会看到 **PercentThrottlingError** 的值达到峰值的时间与应用程序活动的高峰期不一致：这种情况最可能的原因是存储服务正在移动分区以改进负载均衡。
 > 
 > 
 
@@ -654,7 +655,7 @@ client.SetServiceProperties(sp);
 ### <a name="you-are-experiencing-unexpected-reboots"></a>遇到具有大量附加 VHD 的 Azure 虚拟机意外重新启动
 如果 Azure 虚拟机 (VM) 具有大量位于同一存储帐户的附加 VHD，则可能会超过单个存储帐户的可伸缩性目标，从而导致 VM 出现故障。 应检查存储帐户的分钟指标 (**TotalRequests**/**TotalIngress**/**TotalEgress**)，以获取超过一个存储帐户可伸缩性目标的峰值。 若要帮助确定是否已对存储帐户进行限制，请参阅“[指标显示 PercentThrottlingError 增加]”一节。
 
-通常，虚拟机对 VHD 进行的每个单独的输入或输出操作都会转换为对基础页 Blob 进行的“Get 页”或“Put 页”操作。 因此，你可以根据应用程序的特定行为，对环境使用估计的 IOPS 以优化可以在单个存储帐户中设置的 VHD 数。 我们不建议在单个存储帐户中设置超过 40 个的磁盘。 有关存储帐户的当前可伸缩性目标的详细信息（尤其是您所用的存储帐户类型的总请求速率和总带宽），请参阅 <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure 存储空间可伸缩性和性能目标</a>。
+通常，虚拟机对 VHD 进行的每个单独的输入或输出操作都会转换为对基础页 Blob 进行的“Get 页”或“Put 页”操作。 因此，你可以根据应用程序的特定行为，对环境使用估计的 IOPS 以优化可以在单个存储帐户中设置的 VHD 数。 我们不建议在单个存储帐户中设置超过 40 个的磁盘。 有关存储帐户的当前可伸缩性目标的详细信息（尤其是你所用的存储帐户类型的总请求速率和总带宽），请参阅 <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure 存储可伸缩性和性能目标</a>。
 如果你即将超过存储帐户的可伸缩性目标，则应将你的 VHD 放入多个不同的存储帐户中，以减少每个帐户中的活动。
 
 ### <a name="your-issue-arises-from-using-the-storage-emulator"></a>你的问题是由于使用存储模拟器进行开发或测试而导致

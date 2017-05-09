@@ -16,25 +16,26 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 wacn.date: 
 ms.author: jroth
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 5469db164c68709150de9a2aa4dae6d8f304754b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
 ---
-# <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal-preview"></a>在 Azure 门户预览版中预配 SQL Server 虚拟机
+# <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal-preview"></a>在 Azure 门户预览中预配 SQL Server 虚拟机
 > [!div class="op_single_selector"]
 > * [门户](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
 > 
 > 
 
-本端到端教程说明如何使用 Azure 门户预览版来预配运行 SQL Server 的虚拟机。
+本端到端教程说明如何使用 Azure 门户预览来预配运行 SQL Server 的虚拟机。
 
 Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只需单击几下鼠标，就可从库中选择一个 SQL VM 映像，并将其预配到你的 Azure 环境中。
 
-在本教程中，您将：
+在本教程中，你将：
 
 * [从库中选择 SQL VM 映像](#select-a-sql-vm-image-from-the-gallery)
 * [配置和创建 VM](#configure-the-vm)
@@ -42,13 +43,13 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 * [远程连接到 SQL Server](#connect-to-sql-server-remotely)
 
 ## <a name="select-a-sql-vm-image-from-the-gallery"></a> 从库中选择 SQL VM 映像
-1. 使用帐户登录到 [Azure 门户预览版](https://portal.azure.cn) 。
+1. 使用帐户登录到 [Azure 门户预览](https://portal.azure.cn)。
 
     > [!NOTE]
     > 如果没有 Azure 帐户，请访问 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
     > 
     > 
-2. 在 Azure 门户预览版中单击“新建” 。 该门户将打开“新建”  边栏选项卡。 SQL Server VM 资源位于应用商店的“计算”组中。
+2. 在 Azure 门户预览中单击“新建”。 该门户将打开“新建”  边栏选项卡。 SQL Server VM 资源位于应用商店的“计算”组中。
 3. 在“新建”边栏选项卡中，单击“计算”，然后单击“全部查看”。
 4. 在“筛选器”文本框中，键入 SQL Server，然后按 ENTER 键。
 
@@ -108,7 +109,7 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 选择计算机大小，然后单击“选择” 。
 
 ## <a name="3-configure-optional-features"></a> 3.配置可选功能
-在“设置”边栏选项卡中，为虚拟机配置 Azure 存储空间、网络和监视。
+在“设置”边栏选项卡中，为虚拟机配置 Azure 存储、网络和监视。
 
 * 在“存储”下面，为“磁盘类型”指定“标准”或“高级(SSD)”。 对于生产型工作负荷，建议使用高级存储。
 
@@ -117,7 +118,7 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 > 
 > 
 
-* 在“存储帐户”下面 ，可以接受自动预配的存储帐户名称。 还可以单击“存储帐户”  以选择现有帐户和配置存储帐户类型。 默认情况下，Azure 将创建具有本地冗余存储空间的新存储帐户。 有关存储选项的详细信息，请参阅 [Azure 存储空间复制](../../../storage/storage-redundancy.md)。
+* 在“存储帐户”下面 ，可以接受自动预配的存储帐户名称。 还可以单击“存储帐户”  以选择现有帐户和配置存储帐户类型。 默认情况下，Azure 将创建具有本地冗余存储空间的新存储帐户。 有关存储选项的详细信息，请参阅 [Azure 存储复制](../../../storage/storage-redundancy.md)。
 * 在“网络”下面，可以接受自动填充的值。 也可以单击每个功能来手动配置**虚拟网络**、**子网**、**公共 IP 地址**和**网络安全组**。 对于本教程，请保留默认值。
 * 默认情况下，Azure 会对为 VM 指定的同一个存储帐户启用“监视”功能。 你可以在此处更改这些设置。
 * 在“可用性集”下指定可用性集。 在本教程中，可以选择“无”。 如果你计划设置 SQL AlwaysOn 可用性组，可以对可用性进行配置，避免重新创建虚拟机。  有关详细信息，请参阅 [管理虚拟机的可用性](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -251,7 +252,7 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 ## <a name="5-review-the-summary"></a> 5.查看摘要
 在“摘要”边栏选项卡上查看摘要，然后单击“确定”以创建为此 VM 指定的 SQL Server、资源组和资源。
 
-可以从 Azure 门户预览版监视部署情况。 屏幕顶部的“通知”  按钮显示部署的基本状态。
+可以从 Azure 门户预览监视部署情况。 屏幕顶部的“通知”  按钮显示部署的基本状态。
 
 > [!NOTE]
 > 为了让你了解部署时间，我已使用默认设置将一个 SQL VM 部署到中国东部区域。 此测试部署总共花费了 26 分钟才完成。 但是根据你所在的区域和选择的设置，你花费的部署时间会更长或更短。

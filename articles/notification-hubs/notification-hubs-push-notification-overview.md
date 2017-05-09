@@ -14,9 +14,10 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 1/17/2017
 ms.author: yuaxu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 672c4b6338c8e0cf8ff34716e675f8fd73780e8d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -111,8 +112,8 @@ Azure 通知中心提供易用的多平台扩展式推送引擎。 使用单个�
 
   - 共享访问机密 (SAS) 或联合身份验证。
 
-## <a name="integration-with-app-service-mobile-apps"></a>与 App Service Mobile Apps 集成
-为了帮助在 Azure 服务之间提供无缝且统一的体验， [应用服务移动应用] 原生支持使用通知中心来推送通知。 [应用服务移动应用] 提供面向企业开发人员和系统集成商的高度可缩放、全局可用的移动应用程序开发平台，该平台向移动开发人员提供一组丰富的功能。
+## <a name="integration-with-app-service-mobile-apps"></a>与应用服务移动应用集成
+为了帮助在 Azure 服务之间提供无缝且统一的体验，[应用服务移动应用]原生支持使用通知中心来推送通知。 [应用服务移动应用]提供面向企业开发人员和系统集成商的高度可缩放、全局可用的移动应用程序开发平台，该平台向移动开发人员提供一组丰富的功能。
 
 移动应用开发人员可以借助以下工作流来利用通知中心：
 

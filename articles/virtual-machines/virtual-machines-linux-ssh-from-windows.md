@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 03/08/2017
 wacn.date: 
 ms.author: rasquill
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 1a933204051f5707566323d6a7293b47bd4a9bcf
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -62,9 +63,9 @@ Azure 需要至少 2048 位采用 **ssh-rsa** 格式的公钥和私钥。 如果
 
 以下是部署方案，以及你在每个方案中使用的文件类型：
 
-1. **ssh-rsa** 密钥是使用 [Azure 门户预览版](https://portal.azure.cn)进行任何部署所必需的，并且是使用 [Azure CLI](../cli-install-nodejs.md) 进行 Resource Manager 部署所必需的。
+1. **ssh-rsa** 密钥是使用 [Azure 门户预览](https://portal.azure.cn)进行任何部署所必需的，并且是使用 [Azure CLI](../cli-install-nodejs.md) 进行 Resource Manager 部署所必需的。
     * 几乎所有部署人员都需要这些密钥。
-2. 使用经典部署创建 VM 时需要 `.pem` 文件。 使用 [Azure 门户预览版](https://portal.azure.cn)或 [Azure CLI](../cli-install-nodejs.md) 时，经典部署支持这些密钥。
+2. 使用经典部署创建 VM 时需要 `.pem` 文件。 使用 [Azure 门户预览](https://portal.azure.cn)或 [Azure CLI](../cli-install-nodejs.md) 时，经典部署支持这些密钥。
     * 仅当你要管理使用经典部署模型创建的资源时，才需要创建这些附加密钥和证书。
 
 ## <a name="install-git-for-windows"></a>安装 Git For Windows
@@ -150,13 +151,13 @@ PuTTY 是适用于 Windows 的常用 SSH 客户端。 不过，你可以根据�
 
     ![已成功将密钥导入到 PuTTYgen 中](./media/virtual-machines-linux-ssh-from-windows/successfully-imported-key.png)
 6. 单击“确定”以关闭该提示。
-7. 公钥将显示在“PuTTYgen”窗口的顶部。 创建 Linux VM 时，请复制此公钥并将其粘贴到 Azure 门户预览版或 Azure Resource Manager 模板中。 也可以单击“保存公钥”将一个副本保存到计算机： 
+7. 公钥将显示在“PuTTYgen”窗口的顶部。 创建 Linux VM 时，请复制此公钥并将其粘贴到 Azure 门户预览或 Azure Resource Manager 模板中。 也可以单击“保存公钥”将一个副本保存到计算机： 
 
     ![保存 PuTTY 公钥文件](./media/virtual-machines-linux-ssh-from-windows/save-public-key.png)
 
-    以下示例演示在创建 Linux VM 时，如何复制此公钥并将其粘贴到 Azure 门户预览版中。 然后，公钥通常存储在新 VM 上的 `~/.ssh/authorized_keys` 中。
+    以下示例演示在创建 Linux VM 时，如何复制此公钥并将其粘贴到 Azure 门户预览中。 然后，公钥通常存储在新 VM 上的 `~/.ssh/authorized_keys` 中。
 
-    ![在 Azure 门户预览版中创建 VM 时使用公钥](./media/virtual-machines-linux-ssh-from-windows/use-public-key-azure-portal.png)
+    ![在 Azure 门户预览中创建 VM 时使用公钥](./media/virtual-machines-linux-ssh-from-windows/use-public-key-azure-portal.png)
 8. 返回到 **PuTTYgen** 中，单击“保存私钥”：
 
     ![保存 PuTTY 私钥文件](./media/virtual-machines-linux-ssh-from-windows/save-ppk-file.png)
@@ -173,7 +174,7 @@ PuTTY 是适用于 Windows 的常用 SSH 客户端。 不过，你可以根据�
 如前所述，PuTTY 是适用于 Windows 的常用 SSH 客户端。 不过，你可以根据需要使用任意 SSH 客户端。 以下步骤详细说明如何使用私钥通过 SSH 在 Azure VM 上进行身份验证。 这些步骤与其他 SSH 密钥客户端类似，都需要加载私钥以对 SSH 连接进行身份验证。
 
 1. 从以下位置下载并运行 putty：[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-2. 填写从 Azure 门户预览版获取的 VM 主机名或 IP 地址：
+2. 填写从 Azure 门户预览获取的 VM 主机名或 IP 地址：
 
     ![打开新的 PuTTY 连接](./media/virtual-machines-linux-ssh-from-windows/putty-new-connection.png)
 3. 在选择“打开”之前，单击“连接” > “SSH” > “身份验证”选项卡。 浏览到你的私钥并选择它：

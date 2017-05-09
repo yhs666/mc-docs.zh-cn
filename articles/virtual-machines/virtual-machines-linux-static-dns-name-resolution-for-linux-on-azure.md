@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 wacn.date: 
 ms.author: v-livech
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: bc3fba0ca7a6313477f6e465ddcb2dfd2e2f6819
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2017
 ms.author: mcoskun
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: b8292af671d401cfda5f2e722bd2b23a88e4fa40
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

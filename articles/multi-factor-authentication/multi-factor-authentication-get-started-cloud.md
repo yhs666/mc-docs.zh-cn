@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: c543d8ce82c521dd91b9f0a2b2ae7f4ce56b7d74
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

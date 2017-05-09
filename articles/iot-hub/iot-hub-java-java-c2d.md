@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/07/2017
 wacn.date: 
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 94db2ba8bb6997485b07d23a40cfb37a234f0260
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -47,7 +48,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 > 
 > 
 
-若要完成本教程，您需要以下各项：
+若要完成本教程，你需要以下各项：
 
 + Java SE 8。 <br/> [准备开发环境][lnk-dev-setup] 介绍了如何在 Windows 或 Linux 上安装本教程所用的 Java。
 

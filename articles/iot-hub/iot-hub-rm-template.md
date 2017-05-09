@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/08/2017
 wacn.date: 
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: ab67fb09b09735c9b3110aa70d218a9d4b4057ed
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -31,11 +32,11 @@ ms.lasthandoff: 04/14/2017
 > [!NOTE]
 > Azure 提供了用于创建和使用资源的两个不同部署模型：[Azure Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍了如何使用 Azure Resource Manager 部署模型。
 
-若要完成本教程，您需要以下各项：
+若要完成本教程，你需要以下各项：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-* 有效的 Azure 帐户。 <br/>如果没有帐户，只需花费几分钟就能创建一个 [帐户][lnk-free-trial] 。
-* 可用于存储 Azure Resource Manager 模板文件的 [Azure 存储帐户][lnk-storage-account] 。
+* 有效的 Azure 帐户。 <br/>如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。
+* 可用于存储 Azure Resource Manager 模板文件的 [Azure 存储帐户][lnk-storage-account]。
 * [Azure PowerShell 1.0][lnk-powershell-install] 或更高版本。
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
@@ -121,7 +122,7 @@ ms.lasthandoff: 04/14/2017
     }
     ```
 5. 在**服务器资源管理器**中，连接到你的 Azure 订阅，并在 Azure 存储帐户中创建名为 **templates** 的容器。 在“**属性**”面板中，将 **templates** 容器的“**公共读取访问权限**”权限设置为“**Blob**”。
-6. 在“**服务器资源管理器**”中，右键单击 **templates** 容器，然后单击“**查看 Blob 容器**”。 单击“**上载 Blob**”按钮，选择“**parameters.json**”和“**templates.json**”这两个文件，然后单击“**打开**”，将 JSON 文件上载到 **templates** 容器。 包含 JSON 数据的 Blob 的 URL 如下：
+6. 在“**服务器资源管理器**”中，右键单击 **templates** 容器，然后单击“**查看 Blob 容器**”。 单击“**上传 Blob**”按钮，选择“**parameters.json**”和“**templates.json**”这两个文件，然后单击“**打开**”，将 JSON 文件上传到 **templates** 容器。 包含 JSON 数据的 Blob 的 URL 如下：
 
     ```
     https://{Your storage account name}.blob.core.windows.net/templates/parameters.json

@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2016
 ms.author: luywang
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 478ad608495fc812ee669a50845d1254eddc130b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -96,7 +97,7 @@ Site Recovery 是一个 Azure 服务，可通过协调从本地物理服务器�
 
   ![][8]
 
-  安装完成后，将显示“Microsoft Azure Site Recovery 配置服务器”窗口。 使用“管理帐户”选项卡创建可供 Site Recovery 用于执行自动发现的帐户。 （在保护物理机的相关方案中，没有必要设置帐户，但至少要有一个帐户才能启用以下步骤之一。 在此情况下，可以指定任意帐户和密码。）使用“保管库注册”选项卡上上载保管库凭据文件。
+  安装完成后，将显示“Microsoft Azure Site Recovery 配置服务器”窗口。 使用“管理帐户”选项卡创建可供 Site Recovery 用于执行自动发现的帐户。 （在保护物理机的相关方案中，没有必要设置帐户，但至少要有一个帐户才能启用以下步骤之一。 在此情况下，可以指定任意帐户和密码。）使用“保管库注册”选项卡上上传保管库凭据文件。
 
   ![][9]
 

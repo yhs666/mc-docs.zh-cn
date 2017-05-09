@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2017
 ms.author: vturecek;mikhegn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: a1e1a24b102d2308737f1007c54cfbb81fb80383
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

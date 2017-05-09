@@ -1,6 +1,6 @@
 ---
 title: "教程 - 使用适用于 .NET 的 Azure 批处理客户端库 | Microsoft 文档"
-description: "了解 Azure Batch 的基本概念并使用 .NET 构建简单的解决方案。"
+description: "了解 Azure 批处理的基本概念并使用 .NET 构建简单的解决方案。"
 services: batch
 documentationcenter: .net
 author: tamram
@@ -15,14 +15,15 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: e3e434c794337aacf18c6855f65ca5b1958ea033
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
 ---
-# <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>通过适用于 .NET 的 Batch 客户端库开始构建解决方案
+# <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>通过适用于 .NET 的批处理客户端库开始构建解决方案
 
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
@@ -30,16 +31,16 @@ ms.lasthandoff: 04/14/2017
 >
 >
 
-在我们分步讨论 C# 示例应用程序时，了解本文中的 [Azure 批处理][azure_batch]和[批处理 .NET][net_api] 库的基础知识。 我们将探讨该示例应用程序如何利用批处理服务来处理云中的并行工作负荷，以及如何与 [Azure 存储](../storage/storage-introduction.md)交互来暂存和检索文件。 你将了解常见的 Batch 应用程序工作流，并基本了解 Batch 的主要组件，例如作业、任务、池和计算节点。
+在我们分步讨论 C# 示例应用程序时，了解本文中的 [Azure 批处理][azure_batch]和[批处理 .NET][net_api] 库的基础知识。 我们将探讨该示例应用程序如何利用批处理服务来处理云中的并行工作负荷，以及如何与 [Azure 存储](../storage/storage-introduction.md)交互来暂存和检索文件。 你将了解常见的批处理应用程序工作流，并基本了解批处理的主要组件，例如作业、任务、池和计算节点。
 
-![Batch 解决方案工作流（基础）][11]<br/>
+![批处理解决方案工作流（基础）][11]<br/>
 
 ## <a name="prerequisites"></a>先决条件
-本文假定你有 C# 和 Visual Studio 的使用知识。 本文还假定，你能够满足下面为 Azure 和 Batch 及存储服务指定的帐户创建要求。
+本文假定你有 C# 和 Visual Studio 的使用知识。 本文还假定，你能够满足下面为 Azure 和批处理及存储服务指定的帐户创建要求。
 
 ### <a name="accounts"></a>帐户
 - **Azure 帐户**：如果没有 Azure 订阅，可以 [创建一个 Azure 帐户][azure_free_account]。
-- **Batch 帐户**：获取 Azure 订阅后，请 [创建 Azure Batch 帐户](batch-account-create-portal.md)。
+- **批处理帐户**：获取 Azure 订阅后，请 [创建 Azure 批处理帐户](batch-account-create-portal.md)。
 - **存储帐户**：请参阅[关于 Azure 存储帐户](../storage/storage-create-storage-account.md)中的[创建存储帐户](../storage/storage-create-storage-account.md#create-a-storage-account)。
 
 > [!IMPORTANT]
@@ -55,21 +56,21 @@ ms.lasthandoff: 04/14/2017
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
-### <a name="azure-batch-explorer-optional"></a>Azure Batch 资源管理器（可选）
-[Azure 批处理资源管理器][github_batchexplorer]是 GitHub 上的 [azure-batch-samples][github_samples] 存储库随附的免费实用工具。 尽管完成本教程不要求使用 Azure Batch 资源管理器，但可将其用于开发和调试 Batch 解决方案。
+### <a name="azure-batch-explorer-optional"></a>Azure 批处理资源管理器（可选）
+[Azure 批处理资源管理器][github_batchexplorer]是 GitHub 上的 [azure-batch-samples][github_samples] 存储库随附的免费实用工具。 尽管完成本教程不要求使用 Azure 批处理资源管理器，但可将其用于开发和调试批处理解决方案。
 
 ## <a name="dotnettutorial-sample-project-overview"></a>DotNetTutorial 示例项目概述
 *DotNetTutorial* 代码示例是由以下两个项目组成的 Visual Studio 解决方案：**DotNetTutorial** 和 **TaskApplication**。
 
-- **DotNetTutorial** 是与 Batch 和存储服务交互，以在计算节点（虚拟机）上执行并行工作负荷的客户端应用程序。 DotNetTutorial 在本地工作站上运行。
-- **TaskApplication** 是在 Azure 中的计算节点上运行以执行实际工作的程序。 在本示例中， `TaskApplication.exe` 将分析从 Azure 存储空间下载的文件（输入文件）中的文本。 然后，它会生成一个文本文件（输出文件），其中包含出现在输入文件中的头三个单词的列表。 在创建输出文件以后，TaskApplication 会将文件上载到 Azure 存储空间。 这样该文件就可供客户端应用程序下载。 TaskApplication 在 Batch 服务中的多个计算节点上并行运行。
+- **DotNetTutorial** 是与批处理和存储服务交互，以在计算节点（虚拟机）上执行并行工作负荷的客户端应用程序。 DotNetTutorial 在本地工作站上运行。
+- **TaskApplication** 是在 Azure 中的计算节点上运行以执行实际工作的程序。 在本示例中， `TaskApplication.exe` 将分析从 Azure 存储下载的文件（输入文件）中的文本。 然后，它会生成一个文本文件（输出文件），其中包含出现在输入文件中的头三个单词的列表。 在创建输出文件以后，TaskApplication 会将文件上传到 Azure 存储。 这样该文件就可供客户端应用程序下载。 TaskApplication 在批处理服务中的多个计算节点上并行运行。
 
-下图演示了客户端应用程序 *DotNetTutorial* 执行的主要操作，以及任务执行的应用程序 *TaskApplication*。 此基本工作流是通过 Batch 创建的许多计算解决方案中常见的工作流。 尽管它并未演示 Batch 服务提供的每项功能，但几乎每个 Batch 方案都包含此工作流的某些部分。
+下图演示了客户端应用程序 *DotNetTutorial* 执行的主要操作，以及任务执行的应用程序 *TaskApplication*。 此基本工作流是通过批处理创建的许多计算解决方案中常见的工作流。 尽管它并未演示批处理服务提供的每项功能，但几乎每个批处理方案都包含此工作流的某些部分。
 
-![Batch 示例工作流][8]<br/>
+![批处理示例工作流][8]<br/>
 
 [**步骤 1.**](#step-1-create-storage-containers) 在 Azure Blob 存储中创建**容器**。<br/>
-[**步骤 2.**](#step-2-upload-task-application-and-data-files) 将任务应用程序文件和输入文件上载到容器。<br/>
+[**步骤 2.**](#step-2-upload-task-application-and-data-files) 将任务应用程序文件和输入文件上传到容器。<br/>
 [**步骤 3.**](#step-3-create-batch-pool) 创建批处理**池**。<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**3a.** 池 **StartTask** 在节点加入池时将任务二进制文件 (TaskApplication) 下载到节点。<br/>
 [**步骤 4.**](#step-4-create-batch-job) 创建批处理**作业**。<br/>
@@ -77,10 +78,10 @@ ms.lasthandoff: 04/14/2017
   &nbsp;&nbsp;&nbsp;&nbsp;**5a.** 任务计划在节点上执行。<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** 每项任务从 Azure 存储下载其输入数据，然后开始执行。<br/>
 [**步骤 6.**](#step-6-monitor-tasks) 监视任务。<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** 当任务完成时，会将其输出数据上载到 Azure 存储。<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** 当任务完成时，会将其输出数据上传到 Azure 存储。<br/>
 [**步骤 7.**](#step-7-download-task-output) 从存储空间下载任务输出。
 
-如前所述，并非每个 Batch 解决方案都执行这些具体步骤，此类方案可能包含更多步骤，但 *DotNetTutorial* 示例应用程序将演示 Batch 方案中的常见过程。
+如前所述，并非每个批处理解决方案都执行这些具体步骤，此类方案可能包含更多步骤，但 *DotNetTutorial* 示例应用程序将演示批处理方案中的常见过程。
 
 ## <a name="build-the-dotnettutorial-sample-project"></a>构建 *DotNetTutorial* 示例项目
 必须先在 *DotNetTutorial* 项目的 `Program.cs` 文件中指定批处理和存储帐户凭据才能成功运行该示例。 请在 Visual Studio 中双击 `DotNetTutorial.sln` 解决方案文件以打开该解决方案（如果你尚未这样做）。 也可以在 Visual Studio 中使用“文件”>“打开”>“项目/解决方案”菜单打开它。
@@ -103,11 +104,11 @@ private const string StorageAccountKey  = "";
 ```
 
 > [!IMPORTANT]
-> 如上所述，目前必须为 Azure 存储空间中的 **常规用途** 存储帐户指定凭据。 Batch 应用程序使用 **常规用途** 存储帐户中的 Blob 存储。 请不要为通过选择 *Blob 存储* 帐户类型创建的存储帐户指定凭据。
+> 如上所述，目前必须为 Azure 存储中的 **常规用途** 存储帐户指定凭据。 批处理应用程序使用 **常规用途** 存储帐户中的 Blob 存储。 请不要为通过选择 *Blob 存储*帐户类型创建的存储帐户指定凭据。
 >
 >
 
-可以在 [Azure 门户预览版][azure_portal]中每项服务的帐户边栏选项卡中找到批处理和存储帐户凭据：
+可以在 [Azure 门户预览][azure_portal]中每项服务的帐户边栏选项卡中找到批处理和存储帐户凭据：
 
 ![门户中的批处理凭据][9]
 ![门户中的存储凭据][10]<br/>
@@ -119,7 +120,7 @@ private const string StorageAccountKey  = "";
 >
 >
 
-在以下部分中，我们将示例应用程序细分为用于处理 Batch 服务中工作负荷的多个步骤，并详细讨论这些步骤。 建议你在学习本文的余下部分时参考 Visual Studio 中打开的解决方案，因为我们并不会讨论示例中的每一行代码。
+在以下部分中，我们将示例应用程序细分为用于处理批处理服务中工作负荷的多个步骤，并详细讨论这些步骤。 建议你在学习本文的余下部分时参考 Visual Studio 中打开的解决方案，因为我们并不会讨论示例中的每一行代码。
 
 导航到 *DotNetTutorial* 项目的 `Program.cs` 文件中 `MainAsync` 方法的顶部，开始执行步骤 1。 以下每个步骤大致遵循 `MainAsync`中方法调用的进度。
 
@@ -128,11 +129,11 @@ private const string StorageAccountKey  = "";
 ![在 Azure 存储中创建容器][1]
 <br/>
 
-Batch 包含的内置支持支持与 Azure 存储空间交互。 存储帐户中的容器将为 Batch 帐户中运行的任务提供所需的文件。 这些容器还提供存储任务生成的输出数据所需的位置。 *DotNetTutorial* 客户端应用程序首先在 [Azure Blob 存储](../storage/storage-introduction.md)中创建三个容器：
+批处理包含的内置支持支持与 Azure 存储交互。 存储帐户中的容器将为批处理帐户中运行的任务提供所需的文件。 这些容器还提供存储任务生成的输出数据所需的位置。 *DotNetTutorial* 客户端应用程序首先在 [Azure Blob 存储](../storage/storage-introduction.md)中创建三个容器：
 
 - **应用程序**：此容器用于存储任务所要运行的应用程序及其依赖项，例如 DLL。
 - **输入**：任务将从 *输入* 容器下载所要处理的数据文件。
-- **输出**：当任务完成输入文件的处理时，会将其结果上载到 *输出* 容器。
+- **输出**：当任务完成输入文件的处理时，会将其结果上传到 *输出* 容器。
 
 为了与存储帐户交互并创建容器，我们使用了[用于 .NET 的 Azure 存储客户端库][net_api_storage]。 我们将创建包含 [CloudStorageAccount][net_cloudstorageaccount] 的帐户引用，并从中创建 [CloudBlobClient][net_cloudblobclient]：
 
@@ -185,18 +186,18 @@ private static async Task CreateContainerIfNotExistAsync(
 }
 ```
 
-创建容器之后，应用程序现在即可上载任务使用的文件。
+创建容器之后，应用程序现在即可上传任务使用的文件。
 
 > [!TIP]
-> [如何通过 .NET 使用 Blob 存储](../storage/storage-dotnet-how-to-use-blobs.md)对如何使用 Azure 存储容器和 Blob 做了全面的概述。 当你开始使用 Batch 时，它应该位于阅读列表顶部附近。
+> [如何通过 .NET 使用 Blob 存储](../storage/storage-dotnet-how-to-use-blobs.md)对如何使用 Azure 存储容器和 Blob 做了全面的概述。 当你开始使用批处理时，它应该位于阅读列表顶部附近。
 >
 >
 
-## <a name="step-2-upload-task-application-and-data-files"></a>步骤 2：上载任务应用程序和数据文件
+## <a name="step-2-upload-task-application-and-data-files"></a>步骤 2：上传任务应用程序和数据文件
 ![将任务应用程序和输入（数据）文件上传到容器][2]
 <br/>
 
-在文件上载操作中，*DotNetTutorial* 先定义**应用程序**和**输入**文件在本地计算机上的路径的集合， 然后将这些文件上载到上一步骤创建的容器。
+在文件上传操作中，*DotNetTutorial* 先定义**应用程序**和**输入**文件在本地计算机上的路径的集合， 然后将这些文件上传到上一步骤创建的容器。
 
 ```csharp
 // Paths to the executable and its dependencies that will be executed by the tasks
@@ -232,10 +233,10 @@ List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
     inputFilePaths);
 ```
 
-`Program.cs` 中有两个方法涉及到上载过程：
+`Program.cs` 中有两个方法涉及到上传过程：
 
-- `UploadFilesToContainerAsync`：此方法返回 [ResourceFile][net_resourcefile] 对象的集合（下面将会介绍），并在内部调用 `UploadFileToContainerAsync` 上载在 *filePaths* 参数中传递的每个文件。
-- `UploadFileToContainerAsync`：这是实际执行文件上载并创建 [ResourceFile][net_resourcefile] 对象的方法。 上载文件后，它将获取该文件的共享访问签名 (SAS) 并返回代表它的 ResourceFile 对象。 下面也会介绍共享访问签名。
+- `UploadFilesToContainerAsync`：此方法返回 [ResourceFile][net_resourcefile] 对象的集合（下面将会介绍），并在内部调用 `UploadFileToContainerAsync` 上传在 *filePaths* 参数中传递的每个文件。
+- `UploadFileToContainerAsync`：这是实际执行文件上传并创建 [ResourceFile][net_resourcefile] 对象的方法。 上传文件后，它将获取该文件的共享访问签名 (SAS) 并返回代表它的 ResourceFile 对象。 下面也会介绍共享访问签名。
 
 ```csharp
 private static async Task<ResourceFile> UploadFileToContainerAsync(
@@ -270,33 +271,33 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 ```
 
 ### <a name="resourcefiles"></a>ResourceFiles
-[ResourceFile][net_resourcefile] 提供 Batch 中的任务，以及 Azure 存储空间中将在任务运行之前下载到计算节点的文件的 URL。 [ResourceFile.BlobSource][net_resourcefile_blobsource] 属性指定存在于 Azure 存储的文件的完整 URL。 该 URL 还可以包含用于对文件进行安全访问的共享访问签名 (SAS)。 Batch .NET 中的大多数任务类型都包含 *ResourceFiles* 属性，这些类型包括：
+[ResourceFile][net_resourcefile] 提供批处理中的任务，以及 Azure 存储中将在任务运行之前下载到计算节点的文件的 URL。 [ResourceFile.BlobSource][net_resourcefile_blobsource] 属性指定存在于 Azure 存储的文件的完整 URL。 该 URL 还可以包含用于对文件进行安全访问的共享访问签名 (SAS)。 批处理 .NET 中的大多数任务类型都包含 *ResourceFiles* 属性，这些类型包括：
 
 - [CloudTask][net_task]
 - [StartTask][net_pool_starttask]
 - [JobPreparationTask][net_jobpreptask]
 - [JobReleaseTask][net_jobreltask]
 
-DotNetTutorial 示例应用程序不使用 JobPreparationTask 或 JobReleaseTask 任务类型，但你可以通过 [在 Azure Batch 计算节点上运行作业准备和完成任务](batch-job-prep-release.md)来详细了解这些任务类型。
+DotNetTutorial 示例应用程序不使用 JobPreparationTask 或 JobReleaseTask 任务类型，但你可以通过 [在 Azure 批处理计算节点上运行作业准备和完成任务](batch-job-prep-release.md)来详细了解这些任务类型。
 
 ### <a name="shared-access-signature-sas"></a>共享访问签名 (SAS)
 共享访问签名是一些字符串，包含为 URL 的一部分时，它们可以提供对 Azure 存储中容器和 Blob 的安全访问。 DotNetTutorial 应用程序使用 Blob 和容器共享访问签名 URL，并演示如何从存储空间服务获取这些共享访问签名字符串。
 
 - **Blob 共享访问签名**：DotNetTutorial 中池的 StartTask 在从存储空间下载应用程序二进制文件和输入数据文件时使用 Blob 共享访问签名（请参阅下面的步骤 3）。 DotNetTutorial 的 `Program.cs` 中的 `UploadFileToContainerAsync` 方法包含的代码可用于获取每个 blob 的共享访问签名。 它是通过调用 [CloudBlob.GetSharedAccessSignature][net_sas_blob] 来完成此操作的。
-- **容器共享访问签名**：每个任务在计算节点上完成其工作后，会将其输出文件上载到 Azure 存储空间中的 *输出* 容器。 为此，TaskApplication 使用容器共享访问签名，在上载文件时，该共享访问签名提供对路径中包含的容器的写访问。 获取容器共享访问签名的操作方式类似于获取 blob 共享访问签名。 在 DotNetTutorial 中，你会发现 `GetContainerSasUrl` 帮助器方法调用 [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] 来执行该操作。 你可以在下面的“步骤 6：监视任务”中详细了解 TaskApplication 如何使用容器共享访问签名。
+- **容器共享访问签名**：每个任务在计算节点上完成其工作后，会将其输出文件上传到 Azure 存储中的 *输出* 容器。 为此，TaskApplication 使用容器共享访问签名，在上传文件时，该共享访问签名提供对路径中包含的容器的写访问。 获取容器共享访问签名的操作方式类似于获取 blob 共享访问签名。 在 DotNetTutorial 中，你会发现 `GetContainerSasUrl` 帮助器方法调用 [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] 来执行该操作。 你可以在下面的“步骤 6：监视任务”中详细了解 TaskApplication 如何使用容器共享访问签名。
 
 > [!TIP]
 > 请查看有关共享访问签名的两篇系列教程的[第 1 部分：了解共享访问签名 (SAS) 模型](../storage/storage-dotnet-shared-access-signature-part-1.md)和[第 2 部分：创建共享访问签名 (SAS) 并将其用于 Blob 存储](../storage/storage-dotnet-shared-access-signature-part-2.md)，详细了解如何提供对存储帐户中数据的安全访问。
 >
 >
 
-## <a name="step-3-create-batch-pool"></a>步骤 3：创建 Batch 池
-![创建 Batch 池][3]
+## <a name="step-3-create-batch-pool"></a>步骤 3：创建批处理池
+![创建批处理池][3]
 <br/>
 
-Batch **池** 是 Batch 执行作业任务时所在的计算节点（虚拟机）集合。
+批处理**池**是批处理执行作业任务时所在的计算节点（虚拟机）集合。
 
-将应用程序和数据文件上载到存储帐户之后， *DotNetTutorial* 将使用 Batch .NET 库开始与 Batch 服务交互。 为此，需要先创建一个 [BatchClient][net_batchclient]：
+将应用程序和数据文件上传到存储帐户之后， *DotNetTutorial* 将使用批处理 .NET 库开始与批处理服务交互。 为此，需要先创建一个 [BatchClient][net_batchclient]：
 
 ```csharp
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
@@ -309,7 +310,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
     ...
 ```
 
-然后，调用 `CreatePoolIfNotExistsAsync`以在 Batch 帐户中创建计算节点池。 `CreatePoolIfNotExistsAsync` 使用 [BatchClient.PoolOperations.CreatePool][net_pool_create] 方法在批处理服务中创建池。
+然后，调用 `CreatePoolIfNotExistsAsync`以在批处理帐户中创建计算节点池。 `CreatePoolIfNotExistsAsync` 使用 [BatchClient.PoolOperations.CreatePool][net_pool_create] 方法在批处理服务中创建池。
 
 ```csharp
 private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, string poolId, IList<ResourceFile> resourceFiles)
@@ -365,7 +366,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 使用 [CreatePool][net_pool_create] 创建池时，需指定多个参数，例如计算节点数目、[节点大小](../cloud-services/cloud-services-sizes-specs.md)以及节点的操作系统。 在 *DotNetTutorial* 中，我们使用 [CloudServiceConfiguration][net_cloudserviceconfiguration] 从[云服务](../cloud-services/cloud-services-guestos-update-matrix.md)指定 Windows Server 2012 R2。 但是，如果指定 [VirtualMachineConfiguration][net_virtualmachineconfiguration]，则可以从应用商店映像（包括 Windows 和 Linux 映像）创建节点池—有关详细信息，请参阅[在 Azure 批处理池中预配 Linux 计算节点](batch-linux-nodes.md)。
 
 > [!IMPORTANT]
-> 你需要支付 Batch 中计算资源的费用。 若要将费用降到最低，可以在运行示例之前，将 `targetDedicated` 降为 1。
+> 你需要支付批处理中计算资源的费用。 若要将费用降到最低，可以在运行示例之前，将 `targetDedicated` 降为 1。
 >
 >
 
@@ -374,25 +375,25 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 在此示例应用程序中，StartTask 将它从存储中下载的文件（使用 [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles] 属性指定），从 StartTask 工作目录复制到在节点上运行的*所有*任务可以访问的共享目录。 本质上，这会在节点加入池时，将 `TaskApplication.exe` 及其依赖项复制到每个节点上的共享目录，因此该节点上运行的任何任务都可以访问它。
 
 > [!TIP]
-> Azure Batch 的 **应用程序包** 功能提供另一种方法，用于将应用程序转移到池中的计算节点。 有关详细信息，请参阅 [使用 Azure Batch 应用程序包部署应用程序](batch-application-packages.md) 。
+> Azure 批处理的 **应用程序包** 功能提供另一种方法，用于将应用程序转移到池中的计算节点。 有关详细信息，请参阅 [使用 Azure 批处理应用程序包部署应用程序](batch-application-packages.md)。
 >
 >
 
-此外，在上述代码片段中，值得注意的问题是，StartTask 的 *CommandLine* 属性中使用了两个环境变量：`%AZ_BATCH_TASK_WORKING_DIR%` 和 `%AZ_BATCH_NODE_SHARED_DIR%`。 将自动为 Batch 池中的每个计算节点配置多个特定于 Batch 的环境变量。 由任务执行的任何进程都可以访问这些环境变量。
+此外，在上述代码片段中，值得注意的问题是，StartTask 的 *CommandLine* 属性中使用了两个环境变量：`%AZ_BATCH_TASK_WORKING_DIR%` 和 `%AZ_BATCH_NODE_SHARED_DIR%`。 将自动为批处理池中的每个计算节点配置多个特定于批处理的环境变量。 由任务执行的任何进程都可以访问这些环境变量。
 
 > [!TIP]
 > 若要深入了解批处理池中计算节点上可用的环境变量，以及有关任务工作目录的信息，请参阅[面向开发人员的批处理功能概述](batch-api-basics.md)中的[任务的环境设置](batch-api-basics.md#environment-settings-for-tasks)及[文件和目录](batch-api-basics.md#files-and-directories)部分。
 >
 >
 
-## <a name="step-4-create-batch-job"></a>步骤 4：创建 Batch 作业
-![创建 Batch 作业][4]<br/>
+## <a name="step-4-create-batch-job"></a>步骤 4：创建批处理作业
+![创建批处理作业][4]<br/>
 
-Batch **作业** 是任务的集合，它与计算节点池相关联。 作业中的任务在关联池的计算节点上执行。
+批处理**作业**是任务的集合，它与计算节点池相关联。 作业中的任务在关联池的计算节点上执行。
 
-你不仅可以使用作业来组织和跟踪相关工作负荷中的任务，也可以使用它来实施特定的约束，例如作业（并扩展到其任务）的最大运行时，以及 Batch 帐户中其他作业的相关作业优先级。 不过在本示例中，该作业仅与步骤 3 中创建的池关联。 未配置任何其他属性。
+你不仅可以使用作业来组织和跟踪相关工作负荷中的任务，也可以使用它来实施特定的约束，例如作业（并扩展到其任务）的最大运行时，以及批处理帐户中其他作业的相关作业优先级。 不过在本示例中，该作业仅与步骤 3 中创建的池关联。 未配置任何其他属性。
 
-所有 Batch 作业都与特定的池关联。 此关联指示将要在其上执行作业任务的节点。 可以通过 [CloudJob.PoolInformation][net_job_poolinfo] 属性进行这方面的指定，如下面的代码片段所示。
+所有批处理作业都与特定的池关联。 此关联指示将要在其上执行作业任务的节点。 可以通过 [CloudJob.PoolInformation][net_job_poolinfo] 属性进行这方面的指定，如下面的代码片段所示。
 
 ```csharp
 private static async Task CreateJobAsync(
@@ -416,7 +417,7 @@ private static async Task CreateJobAsync(
 ![将任务添加到作业][5]<br/>
 *(1) 将任务添加到作业；(2) 将任务计划为在节点上运行；(3) 任务下载要处理的数据文件*
 
-Batch **任务** 是在计算节点上执行的各个工作单位。 任务有一个命令行，可运行在该命令行中指定的脚本或可执行文件。
+批处理**任务**是在计算节点上执行的各个工作单位。 任务有一个命令行，可运行在该命令行中指定的脚本或可执行文件。
 
 若要实际执行工作，必须将任务添加到作业。 每个 [CloudTask][net_task] 都是使用命令行属性以及任务在其命令行自动执行前下载到节点的 [ResourceFiles][net_task_resourcefiles]（如同池的 StartTask）进行配置的。 在 *DotNetTutorial* 示例项目中，每个任务只处理一个文件。 因此，其 ResourceFiles 集合包含单个元素。
 
@@ -506,13 +507,13 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 ## <a name="step-6-monitor-tasks"></a>步骤 6：监视任务
 
 ![监视任务][6]<br/>
-*客户端应用程序将会：(1) 监视任务的完成和成功状态；(2) 监视将结果数据上载到 Azure 存储的任务*
+*客户端应用程序将会：(1) 监视任务的完成和成功状态；(2) 监视将结果数据上传到 Azure 存储的任务*
 
-任务在添加到作业后，将自动排入队列并计划在与作业关联的池中的计算节点上执行。 根据你指定的设置，Batch 将为你处理所有任务排队、计划、重试和其他任务管理工作。
+任务在添加到作业后，将自动排入队列并计划在与作业关联的池中的计算节点上执行。 根据你指定的设置，批处理将为你处理所有任务排队、计划、重试和其他任务管理工作。
 
-监视任务的执行有许多方法。 DotNetTutorial 显示了一个简单的示例，该示例只报告完成状态以及任务的失败或成功状态。 DotNetTutorial 的 `Program.cs` 中的 `MonitorTasks` 方法内有三个 Batch .NET 概念值得讨论。 下面按出现顺序列出了这些概念：
+监视任务的执行有许多方法。 DotNetTutorial 显示了一个简单的示例，该示例只报告完成状态以及任务的失败或成功状态。 DotNetTutorial 的 `Program.cs` 中的 `MonitorTasks` 方法内有三个批处理 .NET 概念值得讨论。 下面按出现顺序列出了这些概念：
 
-1. **ODATADetailLevel**：必须在列出操作（例如获取作业的任务列表）中指定 [ODATADetailLevel][net_odatadetaillevel]，确保批处理应用程序的性能。 若打算在 Batch 应用程序中进行任何类型的状态监视，请将 [有效地查询 Azure Batch 服务](batch-efficient-list-queries.md) 加入阅读列表。
+1. **ODATADetailLevel**：必须在列出操作（例如获取作业的任务列表）中指定 [ODATADetailLevel][net_odatadetaillevel]，确保批处理应用程序的性能。 若打算在批处理应用程序中进行任何类型的状态监视，请将 [有效地查询 Azure 批处理服务](batch-efficient-list-queries.md) 加入阅读列表。
 2. **TaskStateMonitor**：[TaskStateMonitor][net_taskstatemonitor] 为批处理 .NET 应用程提供用于监视任务状态的帮助器实用工具。 在 `MonitorTasks` 中，*DotNetTutorial* 将等待所有任务在时限内达到 [TaskState.Completed][net_taskstate]， 然后终止作业。
 3. **TerminateJobAsync**：通过 [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] 终止作业（或阻止 JobOperations.TerminateJob）会将该作业标记为已完成。 如果批处理解决方案使用 [JobReleaseTask][net_jobreltask]，则这样做很重要。 这是一种特殊类型的任务，在 [作业准备与完成任务](batch-job-prep-release.md)中有说明。
 
@@ -611,7 +612,7 @@ private static async Task<bool> MonitorTasks(
 
 ![从存储空间下载任务输出][7]<br/>
 
-完成作业后，可以从 Azure 存储空间下载任务的输出。 可以在 *DotNetTutorial* 的 `Program.cs` 中调用 `DownloadBlobsFromContainerAsync` 来实现此目的：
+完成作业后，可以从 Azure 存储下载任务的输出。 可以在 *DotNetTutorial* 的 `Program.cs` 中调用 `DownloadBlobsFromContainerAsync` 来实现此目的：
 
 ```csharp
 private static async Task DownloadBlobsFromContainerAsync(
@@ -706,7 +707,7 @@ if (response != "n" && response != "no")
 >
 
 ## <a name="run-the-dotnettutorial-sample"></a>运行 *DotNetTutorial* 示例
-当你运行示例应用程序时，控制台输出如下所示。 在执行期间启动池的计算节点时，你将会遇到暂停并看到 `Awaiting task completion, timeout in 00:30:00...` 。 在执行期间和之后，可以使用 [Azure 门户预览版][azure_portal] 来监视池、计算节点、作业和任务。 使用 [Azure 门户预览版][azure_portal]或 [Azure 存储资源管理器][storage_explorers]可以查看应用程序创建的存储资源（容器和 Blob）。
+当你运行示例应用程序时，控制台输出如下所示。 在执行期间启动池的计算节点时，你将会遇到暂停并看到 `Awaiting task completion, timeout in 00:30:00...` 。 在执行期间和之后，可以使用 [Azure 门户预览][azure_portal] 来监视池、计算节点、作业和任务。 使用 [Azure 门户预览][azure_portal]或 [Azure 存储资源管理器][storage_explorers]可以查看应用程序创建的存储资源（容器和 Blob）。
 
 以默认配置运行应用程序时，典型的执行时间 **大约为 5 分钟** 。
 
@@ -744,11 +745,11 @@ Sample complete, hit ENTER to exit...
 ## <a name="next-steps"></a>后续步骤
 可以随意更改 *DotNetTutorial* 和 *TaskApplication*，体验不同的计算方案。 例如，尝试通过某个方法（例如使用 [Thread.Sleep][net_thread_sleep]）将执行延迟添加到 *TaskApplication*，模拟长时间运行的任务并在门户中监视这些任务。 尝试添加更多任务，或调整计算节点的数目。 添加逻辑来检查并允许使用现有的池加速执行时间（*提示*：请查看 [azure-batch-samples][github_samples] 中 [Microsoft.Azure.Batch.Samples.Common][github_samples_common] 项目的 `ArticleHelpers.cs`）。
 
-熟悉 Batch 解决方案的基本工作流后，接下来可以深入了解 Batch 服务的其他功能。
+熟悉批处理解决方案的基本工作流后，接下来可以深入了解批处理服务的其他功能。
 
-- 如果对 Batch 服务不熟悉，建议查看 [Azure Batch 功能概述](batch-api-basics.md) 一文。
+- 如果对批处理服务不熟悉，建议查看 [Azure 批处理功能概述](batch-api-basics.md) 一文。
 - 从[批处理学习路径][batch_learning_path]中**有关开发的深度知识**下面列出的其他批处理开发文章着手。
-- 通过 [TopNWords][github_topnwords] 示例了解有关使用 Batch 处理“前 N 个单词”工作负荷的不同实现方式。
+- 通过 [TopNWords][github_topnwords] 示例了解有关使用批处理处理“前 N 个单词”工作负荷的不同实现方式。
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: /pricing/1rmb-trial/
@@ -798,15 +799,15 @@ Sample complete, hit ENTER to exit...
 [visual_studio]: https://www.visualstudio.com/vs/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "在 Azure 存储中创建容器"
-[2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "将任务应用程序和输入（数据）文件上载到容器"
-[3]: ./media/batch-dotnet-get-started/batch_workflow_03_sm.png "创建 Batch 池"
-[4]: ./media/batch-dotnet-get-started/batch_workflow_04_sm.png "创建 Batch 作业"
+[2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "将任务应用程序和输入（数据）文件上传到容器"
+[3]: ./media/batch-dotnet-get-started/batch_workflow_03_sm.png "创建批处理池"
+[4]: ./media/batch-dotnet-get-started/batch_workflow_04_sm.png "创建批处理作业"
 [5]: ./media/batch-dotnet-get-started/batch_workflow_05_sm.png "将任务添加到作业"
 [6]: ./media/batch-dotnet-get-started/batch_workflow_06_sm.png "监视任务"
 [7]: ./media/batch-dotnet-get-started/batch_workflow_07_sm.png "从存储空间下载任务输出"
-[8]: ./media/batch-dotnet-get-started/batch_workflow_sm.png "Batch 解决方案工作流（完整流程图）"
-[9]: ./media/batch-dotnet-get-started/credentials_batch_sm.png "门户中的 Batch 凭据"
+[8]: ./media/batch-dotnet-get-started/batch_workflow_sm.png "批处理解决方案工作流（完整流程图）"
+[9]: ./media/batch-dotnet-get-started/credentials_batch_sm.png "门户中的批处理凭据"
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "门户中的存储空间凭据"
-[11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Batch 解决方案工作流（精简流程图）"
+[11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "批处理解决方案工作流（精简流程图）"
 
 

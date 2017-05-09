@@ -69,7 +69,7 @@
        > 
 10. 在 Keychain Access 中，按住 Ctrl 并单击在“Certificates”（证书）类别中创建的新推送证书。 单击“导出”，为文件命名，选择“.p12”格式，然后单击“保存”。
     
-    记住导出的 .p12 推送证书的文件名和位置。 稍后你要在 Azure 经典门户中将它上载，以使用它来启用 APNS 身份验证。 如果 **.p12** 格式选项不可用，可能需重新启动 Keychain Access。
+    记住导出的 .p12 推送证书的文件名和位置。 稍后你要在 Azure 经典门户中将它上传，以使用它来启用 APNS 身份验证。 如果 **.p12** 格式选项不可用，可能需重新启动 Keychain Access。
 
 #### <a name="create-a-provisioning-profile-for-the-app"></a>为应用程序创建配置文件
 1. 返回 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS 预配门户</a>，选择“Provisioning Profiles”（预配配置文件），选择“All”（全部），然后单击 **+** 按钮创建一个新的配置文件。 此时会启动“添加 iOS 预配配置文件”向导。

@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 10/25/2016
 wacn.date: 
 ms.author: v-livech
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: e67b33adffd7ec2b010efaf08524034b5bdde4d1
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -28,12 +29,12 @@ ms.lasthandoff: 04/14/2017
 
 * 一个 Azure 帐户（[获取试用版](https://www.azure.cn/pricing/1rmb-trial/)）。
 * 已使用 `azure login -e AzureChinaCloud` 登录 [Azure CLI](../cli-install-nodejs.md)。
-* Azure CLI *必须处于*Azure Resource Manager 模式`azure config mode arm`。
+* Azure CLI *必须处于* Azure Resource Manager 模式`azure config mode arm`。
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可使用以下 CLI 版本之一完成任务：
 
-- [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
+- [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型的 CLI（本文）
 - [Azure CLI 2.0](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="quick-commands"></a> 快速命令

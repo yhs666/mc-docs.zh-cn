@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/08/2017
 ms.author: chackdan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 09620448b0fe445ccf903f47d7fdf6de8bbf346b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/14/2017
 使用 Azure Service Fabric 可在运行 Windows Server 或 Linux 的任何 VM 或计算机上创建 Service Fabric 群集。 这意味着，可以在包含一组互连 Windows Server 或 Linux 计算机（无论是本地计算机、Azure 计算机还是任何云提供商的计算机）的任何环境中部署和运行 Service Fabric 应用程序。
 
 ## <a name="create-service-fabric-clusters-on-azure"></a>在 Azure 上创建 Service Fabric 群集
-在 Azure 上创建群集是通过资源模型模板或 Azure 门户预览版完成的。 有关详细信息，请参阅[使用 Resource Manager 模板创建 Service Fabric 群集](service-fabric-cluster-creation-via-arm.md)或[在 Azure 门户预览版中创建 Service Fabric 群集](service-fabric-cluster-creation-via-portal.md)。
+在 Azure 上创建群集是通过资源模型模板或 Azure 门户预览完成的。 有关详细信息，请参阅[使用 Resource Manager 模板创建 Service Fabric 群集](service-fabric-cluster-creation-via-arm.md)或[在 Azure 门户预览中创建 Service Fabric 群集](service-fabric-cluster-creation-via-portal.md)。
 
 ## <a name="supported-operating-systems-for-clusters-on-azure"></a>Azure 上支持的群集操作系统
 可以在运行以下操作系统的 VM 上创建群集：
@@ -58,7 +59,7 @@ Service Fabric 提供一个安装包，用于在本地或者与任何云提供�
 ## <a name="advantages-of-service-fabric-clusters-on-azure-over-standalone-service-fabric-clusters-created-on-premises"></a>与在本地创建的独立 Service Fabric 群集相比 Azure 上的 Service Fabric 群集的优势
 在 Azure 上运行 Service Fabric 群集相对于本地运行具有一些优势，因此，如果对于群集的运行位置没有特定需求，则我们建议在 Azure 上运行它们。 在 Azure 上，我们提供与其他 Azure 功能和服务的集成，这样可使群集的操作和管理更容易且更可靠。
 
-* **Azure 门户预览版：** Azure 门户预览版使群集易于创建和管理。
+* **Azure 门户预览：** Azure 门户预览使群集易于创建和管理。
 * **Azure Resource Manager：** 使用 Azure Resource Manager 可以单元的形式方便地管理群集使用的所有资源，并简化了成本跟踪和计费。
 * **用作 Azure 资源的 Service Fabric 群集** Service Fabric 群集是一种 ARM 资源，因此可以像在 Azure 中对其他 ARM 资源建模一样为它建模。
 * **与 Azure 基础结构集成** Service Fabric 与适用于 OS、网络和其他升级的 Azure 基础结构相协调，以提高应用程序的可用性与可靠性。  

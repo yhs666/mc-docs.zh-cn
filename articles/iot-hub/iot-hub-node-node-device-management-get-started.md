@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 09/30/2016
 wacn.date: 
 ms.author: juanpere
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 7d74b9959254889c2f4e8de7ba5da0ab8443a1ea
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -48,7 +49,7 @@ IoT 云应用程序可以使用 Azure IoT 中心中的基元（即设备孪生�
 
 **dmpatterns_getstarted_service.js**，它调用模拟设备应用中的直接方法，显示响应，并显示更新后的报告属性。
 
-若要完成本教程，需要以下各项：
+若要完成本教程，你需要以下各项：
 
 * Node.js 版本 0.12.x 或更高版本， <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
 * 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）

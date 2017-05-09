@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 06/01/2016
 wacn.date: 
 ms.author: glenga
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: d8ca5595eaf7afd88e9bea4d6996d4111827f60a
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

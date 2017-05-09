@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service 部署凭据 | Azure"
-description: "了解如何使用 Azure App Service 部署凭据。"
+title: "Azure 应用服务部署凭据 | Azure"
+description: "了解如何使用 Azure 应用服务部署凭据。"
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
@@ -14,9 +14,10 @@ ms.topic: article
 ms.date: 01/05/2016
 wacn.date: 
 ms.author: dariagrigoriu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 63f7ce316d861f1bb6c7a7a2fdf6577a3fb1e7c3
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -37,7 +38,7 @@ ms.lasthandoff: 04/14/2017
 
 用户级凭据是 Azure 用户创建的。 用户级部署凭据可从 [Azure 经典管理门户](https://manage.windowsazure.cn)设置或重置，每个应用服务应用在该门户的“仪表板”>“速览”下都有一个编辑入口点。 无论入口点如何，对这些用户级凭据所作的编辑都会应用于整个 Azure 帐户。 FTP 和 Git 部署频繁使用这些凭据。
 
-设置部署凭据后，可以在 [Azure 门户预览版](https://portal.azure.cn)的应用的“概览”中找到 *Git*部署用户名，
+设置部署凭据后，可以在 [Azure 门户预览](https://portal.azure.cn)的应用的“概览”中找到 *Git* 部署用户名，
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 04/14/2017
 
 若要获取应用级凭据，请执行以下操作：
 
-1. 在 [Azure 门户预览版](https://portal.azure.cn)中，单击“应用服务”> **&lt;any_app>** > “概览”。
+1. 在 [Azure 门户预览](https://portal.azure.cn)中，单击“应用服务”> **&lt;any_app>** > “概览”。
 
 2. 单击“...更多” > “获取发布配置文件”，然后就会开始下载 .PublishSettings 文件。
 
@@ -70,7 +71,7 @@ ms.lasthandoff: 04/14/2017
 
 若要重置应用级凭据，请执行以下操作：
 
-1. 在 [Azure 门户预览版](https://portal.azure.cn)中，单击“应用服务”> **&lt;any_app>** > “概览”。
+1. 在 [Azure 门户预览](https://portal.azure.cn)中，单击“应用服务”> **&lt;any_app>** > “概览”。
 
 2. 单击“...更多” > “重置发布配置文件”。 单击“是”确认重置。
 

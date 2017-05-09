@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2017
 ms.author: mcoskun
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 8777942e5ca315f92d845ecd320f2116425cff70
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -64,7 +65,7 @@ Azure Service Fabric 是一个高可用性平台，用于复制多个节点中�
 若要开始备份，服务需要调用继承的成员函数 **BackupAsync**。  
 仅可从主副本创建备份，并且需要授予这些备份写入状态。
 
-如下所示，**BackupAsync** 采用 **BackupDescription** 对象，用户可以在其中指定完整或增量备份，以及指定在本地创建备份文件夹并准备好移出到某个外部存储时调用的回叫函数 **Func<< BackupInfo, CancellationToken, Task<bool>>>**。
+如下所示，**BackupAsync** 采用 **BackupDescription** 对象，用户可以在其中指定完整或增量备份，以及指定在本地创建备份文件夹并准备好移出到某个外部存储时调用的回调函数 **Func<< BackupInfo, CancellationToken, Task<bool>>>**。
 
 ```C#
 
@@ -84,9 +85,9 @@ await this.BackupAsync(myBackupDescription);
 请注意，增加这些值将会增加每个副本磁盘的使用。
 有关详细信息，请参阅 [Reliable Services 配置](service-fabric-reliable-services-configuration.md)。
 
-**BackupInfo** 提供有关备份的信息，包括运行时保存备份的文件夹位置 (**BackupInfo.Directory**)。 此回叫函数可以将 **BackupInfo.Directory** 移到外部存储或其他位置。  此函数也返回一个布尔值，此值表示是否已成功将备份文件夹移动到其目标位置。
+**BackupInfo** 提供有关备份的信息，包括运行时保存备份的文件夹位置 (**BackupInfo.Directory**)。 此回调函数可以将 **BackupInfo.Directory** 移到外部存储或其他位置。  此函数也返回一个布尔值，此值表示是否已成功将备份文件夹移动到其目标位置。
 
-以下代码演示如何使用 **BackupCallbackAsync** 方法将备份上载到 Azure 存储：
+以下代码演示如何使用 **BackupCallbackAsync** 方法将备份上传到 Azure 存储：
 
 ```C#
 private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
@@ -123,10 +124,10 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, Cancellation
 * 替代虚拟基类方法 **OnDataLossAsync**。
 * 在包含服务的备份的外部位置中查找最新备份。
 * 下载最新的备份（如果备份已压缩，则将其解压缩到备份文件夹中）。
-* **OnDataLossAsync**方法提供 **RestoreContext**。 在提供的 **RestoreContext** 上调用 **RestoreAsync** API。
+* **OnDataLossAsync** 方法提供 **RestoreContext**。 在提供的 **RestoreContext** 上调用 **RestoreAsync** API。
 * 如果还原成功，则返回 true。
 
-以下是 **OnDataLossAsync**方法的实现示例：
+以下是 **OnDataLossAsync** 方法的实现示例：
 
 ```C#
 
@@ -250,7 +251,7 @@ class MyCustomActorService : ActorService
 ### <a name="backup"></a>备份
 可靠性状态管理器具有在不阻止任何读取或写入操作的情况下创建一致的备份的功能。 为了实现此功能，它利用了检查点和日志持久性机制。  可靠性状态管理器在特定时间点采用模糊（轻型）检查点来缓解来自事务日志的压力，并缩短恢复时间。  调用 **BackupAsync** 时，可靠状态管理器指示所有可靠对象将其最新的检查点文件复制到本地备份文件夹。  然后，可靠性状态管理器将复制所有日志记录（从“开始指针”开始到最新的日志记录）到备份文件夹中。  由于所有日志记录直至最新日志记录都包含在备份中，并且可靠状态管理器保留了预写日志记录，因此，可靠状态管理器保证所有提交的事务（**CommitAsync** 已成功返回）都包含在备份中。
 
-在调用 **BackupAsync** 之后提交的任何事务可能在备份中，也可能不在备份中。  一旦平台填充此本地备份文件夹（即由运行时完成本地备份），就将调用此服务的备份回调。  此回调负责将备份文件夹移至 Azure 存储空间等外部位置。
+在调用 **BackupAsync** 之后提交的任何事务可能在备份中，也可能不在备份中。  一旦平台填充此本地备份文件夹（即由运行时完成本地备份），就将调用此服务的备份回调。  此回调负责将备份文件夹移至 Azure 存储等外部位置。
 
 ### <a name="restore"></a>还原
 可靠状态管理器具有使用 **RestoreAsync** API 从备份还原的功能。  

@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 02/01/2017
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: c91c44f6df6c447703d3abd03aadc5a34bdfcb34
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---

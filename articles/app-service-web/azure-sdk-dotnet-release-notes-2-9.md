@@ -14,9 +14,10 @@ ms.workload: integration
 ms.date: 02/24/2017
 wacn.date: 
 ms.author: juliako;mikhegn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: c844f50026936ecf7beec863c99be82d1a078e3d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -85,7 +86,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="hdinsight-tools"></a>HDInsight 工具
 **HDInsight 工具** 现在支持 HDInsight 3.3 版，包括显示 Tez 图形和其他语言修复。
 
-## <a name="azure-resource-manager"></a>Azure 资源管理器
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 此版本添加了对 Resource Manager 模板的[密钥保管库](../azure-resource-manager/resource-manager-keyvault-parameter.md)支持。
 
 ## <a name="see-also"></a>另请参阅

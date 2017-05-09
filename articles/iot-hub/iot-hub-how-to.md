@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 01/31/2017
 wacn.date: 
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: e78b624d76f1d7215c6efb40164cd640f3bdddd0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -38,7 +39,7 @@ ms.lasthandoff: 04/14/2017
 
 - [使用 IoT 中心发送云到设备的消息][lnk-c2d-tutorial]。 本教程介绍如何通过 IoT 中心发送云到设备的消息以及如何在设备上接收云到设备的消息。
 
-- [使用 IoT 中心将文件从设备上载到云][lnk-upload-tutorial]。 本教程介绍使用 IoT 中心的文件上载功能。
+- [使用 IoT 中心将文件从设备上传到云][lnk-upload-tutorial]。 本教程介绍使用 IoT 中心的文件上传功能。
 
 - [设备孪生入门][lnk-twin-tutorial]。 本教程介绍设备孪生、报告的属性、所需属性和标记。 可以使用设备孪生通过设备同步值。
 

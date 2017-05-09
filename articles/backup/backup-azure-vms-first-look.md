@@ -1,5 +1,5 @@
 ---
-title: "初步了解：使用备份保管库备份 Azure VM | Microsoft 文档"
+title: "初步了解：使用备份保管库备份 Azure VM | Microsoft Docs"
 description: "使用经典管理门户将 Azure VM 备份到备份保管库。 本教程介绍了所有阶段，包括：创建备份保管库、注册 VM、创建备份策略，以及运行初始备份作业。"
 services: backup
 documentationcenter: 
@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 3/10/2017
 ms.author: markgal;
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 6e80c0d475a710a2282ca89f72707c8b2cc463bf
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

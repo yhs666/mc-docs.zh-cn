@@ -1,5 +1,5 @@
 ---
-title: "云中的 Batch 和 HPC 解决方案 - Azure | Microsoft Docs"
+title: "云中的批处理和 HPC 解决方案 - Azure | Microsoft Docs"
 description: "了解 Azure 中的批处理和高性能计算（HPC 和大型计算）方案和解决方案选项"
 services: batch, virtual-machines, cloud-services
 documentationcenter: 
@@ -15,14 +15,15 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 8e6455b0d0dce9aff93f87789b85fab7e5fabdce
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
 ---
-# <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>适用于大规模计算工作负荷的 Batch 和 HPC 解决方案
+# <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>适用于大规模计算工作负荷的批处理和 HPC 解决方案
 
 Azure 提供高效且可缩放的云解决方案来进行批处理和高性能计算（HPC，又称为*大型计算*）。 在此处了解大型计算工作负荷以及 Azure 提供的相应支持服务，或者直接跳至本文后面的 [解决方案应用场景](#scenarios) 。 本文主要面向技术决策人、IT 经理和独立软件供应商，但其他 IT 专业人员和开发人员也可以使用它来熟悉这些解决方案。
 
@@ -30,11 +31,11 @@ Azure 提供高效且可缩放的云解决方案来进行批处理和高性能�
 
 - 创建混合式解决方案，扩展本地 HPC 群集，将高峰工作负荷卸载到云
 - 完全在 Azure 中运行 HPC 群集工具和工作负荷
-- 使用托管的可缩放 Azure 服务（例如 [Batch](./index.md) ）运行计算密集型工作负荷，而无需部署和管理计算基础结构
+- 使用托管的可缩放 Azure 服务（例如[批处理](./index.md)）运行计算密集型工作负荷，而无需部署和管理计算基础结构
 
 Azure 还为开发人员和合作伙伴提供一整套功能、体系结构选项和开发工具，用于构建大规模的自定义大型计算工作流，当然这超出了本文的范围。 还可使用规模不断扩大的合作伙伴生态系统，以提高大型计算工作流在 Azure 云中的工作效率。
 
-## <a name="batch-and-hpc-applications"></a>Batch 和 HPC 应用程序
+## <a name="batch-and-hpc-applications"></a>批处理和 HPC 应用程序
 与 Web 应用程序和许多业务线应用程序不同，批处理和 HPC 应用程序有确定的开始和结束时间，而且它们可以按照计划运行或按需运行。 其中的大多数应用程序可分为两大类：*内在并行*（有时称为“高度并行”，因为它们解决的问题有助于使自身在多个计算机或处理器上并行运行）和*紧密耦合*。 有关这些应用程序类型的详细信息，请参阅下表。 某些 Azure 解决方案方法更适合一种类型或其他类型。
 
 > [!NOTE]
@@ -97,7 +98,7 @@ Azure 计算服务是大型计算解决方案的核心，不同的计算服务�
 | --- | --- |
 | **[虚拟机](../virtual-machines/index.md)**<br/><br/> |• 使用 Microsoft Hyper-V 技术提供计算基础结构即服务 (IaaS)<br/><br/>• 可让你基于 [Azure 应用商店](https://azure.microsoft.com/marketplace/)中的 Windows Server 或 Linux 标准映像或者自己提供的映像与数据磁盘灵活预配及管理持久性云计算机<br/><br/>• 能够以 [VM 规模集](../virtual-machine-scale-sets/index.md)的形式进行部署或管理，从相同的虚拟机构建大规模服务，使用自动缩放功能自动增加或减少容量<br/><br/>• 完全在云中运行本地计算群集工具和应用程序<br/><br/> |
 | **[云服务](../cloud-services/index.md)**<br/><br/> |• 可以在辅助角色实例中运行大型计算应用程序，辅助角色实例是运行某个 Windows Server 版本的虚拟机并且完全由 Azure 托管<br/><br/>• 以较低的管理开销支持平台即服务 (PaaS) 模型中运行的可缩放且可靠的应用程序<br/><br/>• 可能需要额外的工具或开发来与现有的本地 HPC 群集解决方案进行集成 |
-| **[Batch](./index.md)**<br/><br/> |• 在完全托管的服务中运行大规模的并行与批处理工作负荷<br/><br/>• 针对虚拟机的托管池提供作业计划和自动缩放<br/><br/>• 允许开发人员以服务形式构建和运行应用程序，或者运行支持云的现有应用程序<br/> |
+| **[批处理](./index.md)**<br/><br/> |• 在完全托管的服务中运行大规模的并行与批处理工作负荷<br/><br/>• 针对虚拟机的托管池提供作业计划和自动缩放<br/><br/>• 允许开发人员以服务形式构建和运行应用程序，或者运行支持云的现有应用程序<br/> |
 
 ### <a name="storage-services"></a>存储服务
 大型计算解决方案通常会操作一组输入数据，然后生成其结果的数据。 大型计算解决方案中使用的一些 Azure 存储服务包括：
@@ -119,7 +120,7 @@ Azure 计算服务是大型计算解决方案的核心，不同的计算服务�
 - [服务总线](../service-bus/index.md) - 提供多种机制让应用程序进行通信或交换数据，无论这些应用程序位于 Azure、另一个云平台还是数据中心。
 
 ## <a name="next-steps"></a>后续步骤
-- 请参阅 [Batch 和 HPC 的技术资源](big-compute-resources.md) ，查找用于生成解决方案的技术指导。
+- 请参阅[批处理和 HPC 的技术资源](big-compute-resources.md)，查找用于生成解决方案的技术指导。
 - 与 Cycle Computing、Rescale 和 UberCloud 等合作伙伴讨论 Azure 选项。
 - 了解 [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)、[Altair](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/)、[ANSYS](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/) 和 [d3VIEW](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088) 提供的 Azure 大型计算解决方案。
 - 有关最新通告，请参阅 [Microsoft HPC 和批处理团队博客](http://blogs.technet.com/b/windowshpc/)与 [Azure 博客](https://azure.microsoft.com/blog/tag/hpc/)。

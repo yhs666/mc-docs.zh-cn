@@ -1,5 +1,5 @@
 ---
-title: "设计有效的列表查询 - Azure Batch | Microsoft Docs"
+title: "设计有效的列表查询 - Azure 批处理 | Microsoft Docs"
 description: "在请求批处理资源（例如池、作业、任务和计算节点）的相关信息时对查询进行筛选可提高性能。"
 services: batch
 documentationcenter: .net
@@ -15,23 +15,24 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 4e5f9e5530811be0e13f11c80c7855681da17e77
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
 ---
-# <a name="create-queries-to-list-batch-resources-efficiently"></a>创建可高效列出 Batch 资源的查询
+# <a name="create-queries-to-list-batch-resources-efficiently"></a>创建可高效列出批处理资源的查询
 
 本文介绍如何通过减少使用[批处理 .NET][api_net] 库查询作业、任务和计算节点时该服务返回的数据量，提高 Azure 批处理应用程序的性能。
 
 几乎所有批处理应用程序都需执行某类监视操作或其他查询批处理服务的操作（通常按固定的时间间隔）。 例如，若要确定作业中是否还有排队的任务，必须获取作业中每个任务的相关数据。 若要确定池中节点的状态，必须获取池中每个节点的相关数据。 本文介绍如何以最有效的方式执行此类查询。
 
 ## <a name="meet-the-detaillevel"></a>符合 DetailLevel 要求
-在生产型批处理应用程序中，作业、任务和计算节点等实体的数目成千上万。 请求这些资源的相关信息时，可能需要将大量数据从 Batch 服务“跨网络”传输到执行每个查询的应用程序。 通过限制查询时返回的项数和信息类型，可以提高查询速度，因此也会提高应用程序的性能。
+在生产型批处理应用程序中，作业、任务和计算节点等实体的数目成千上万。 请求这些资源的相关信息时，可能需要将大量数据从批处理服务“跨网络”传输到执行每个查询的应用程序。 通过限制查询时返回的项数和信息类型，可以提高查询速度，因此也会提高应用程序的性能。
 
-此 [Batch .NET][api_net] API 代码片段列出与作业关联的*每个*任务，以及每个任务的*所有*属性：
+此[批处理 .NET][api_net] API 代码片段列出与作业关联的*每个*任务，以及每个任务的*所有*属性：
 
 ```csharp
 // Get a collection of all of the tasks and all of their properties for job-001
@@ -56,12 +57,12 @@ IPagedEnumerable<CloudTask> completedTasks =
 在此示例方案中，如果作业中存在数以千计的任务，则通常情况下，第二个查询的结果的返回速度将远远快于第一个查询。 [下面](#efficient-querying-in-batch-net)提供了有关使用批处理 .NET API 列出项时使用 ODATADetailLevel 的详细信息。
 
 > [!IMPORTANT]
-> 强烈建议 *始终* 将 ODATADetailLevel 对象提供给 .NET API 列表调用，确保最大程度地提高应用程序的效率和性能。 指定详细程度有助于缩短 Batch 服务响应时间，提高网络利用率，以及最大程度减少客户端应用程序的内存使用量。
+> 强烈建议 *始终* 将 ODATADetailLevel 对象提供给 .NET API 列表调用，确保最大程度地提高应用程序的效率和性能。 指定详细程度有助于缩短批处理服务响应时间，提高网络利用率，以及最大程度减少客户端应用程序的内存使用量。
 > 
 > 
 
 ## <a name="filter-select-and-expand"></a>Filter、select 和 expand
-[Batch .NET][api_net] 和 [Batch REST][api_rest] API 可以减少列表中返回的项数以及针对每个查询返回的信息量。 在执行列表查询时可以通过指定 **filter**、**select** 和 **expand** 字符串来实现此目的。
+[批处理 .NET][api_net] 和[批处理 REST][api_rest] API 可以减少列表中返回的项数以及针对每个查询返回的信息量。 在执行列表查询时可以通过指定 **filter**、**select** 和 **expand** 字符串来实现此目的。
 
 ### <a name="filter"></a>筛选器
 filter 字符串是一个表达式，用于减少返回的项数。 例如，只列出作业的运行中任务，或者只列出已做好运行任务准备的计算节点。
@@ -90,7 +91,7 @@ expand 字符串用于减少获取特定信息所需的 API 调用数。 使用 
 > 
 
 ### <a name="rules-for-filter-select-and-expand-strings"></a>filter、select 和 expand 字符串的规则
-- filter、select 和 expand 字符串中属性名称的显示方式应与其在 [Batch REST][api_rest] API 中的显示方式相同，即使用户使用 [Batch .NET][api_net] 或其他某个批处理 SDK 时也是如此。
+- filter、select 和 expand 字符串中属性名称的显示方式应与其在[批处理 REST][api_rest] API 中的显示方式相同，即使用户使用[批处理 .NET][api_net] 或其他某个批处理 SDK 时也是如此。
 - 所有属性名称均区分大小写，但属性值不区分大小写。
 - 日期/时间字符串可以采用两种格式中的一种，并且必须在前面加上 `DateTime`。
   
@@ -99,15 +100,15 @@ expand 字符串用于减少获取特定信息所需的 API 调用数。 使用 
 - 布尔值字符串为 `true` 或 `false`。
 - 如果指定了无效的属性或运算符，则会导致 `400 (Bad Request)` 错误。
 
-## <a name="efficient-querying-in-batch-net"></a>在 Batch .NET 中进行高效查询
+## <a name="efficient-querying-in-batch-net"></a>在批处理 .NET 中进行高效查询
 
-在 [Batch .NET][api_net] API 中，将通过 [ODATADetailLevel][odata] 类来提供 filter、select 和 expand 字符串以列出相应操作。 ODataDetailLevel 类有三个公共字符串属性，这些属性可以在构造函数中指定，也可以直接在对象上设置。 然后即可将 ODataDetailLevel 对象作为参数传递给不同的列表操作，例如 [ListPools][net_list_pools]、[ListJobs][net_list_jobs] 和 [ListTasks][net_list_tasks]。
+在[批处理 .NET][api_net] API 中，将通过 [ODATADetailLevel][odata] 类来提供 filter、select 和 expand 字符串以列出相应操作。 ODataDetailLevel 类有三个公共字符串属性，这些属性可以在构造函数中指定，也可以直接在对象上设置。 然后即可将 ODataDetailLevel 对象作为参数传递给不同的列表操作，例如 [ListPools][net_list_pools]、[ListJobs][net_list_jobs] 和 [ListTasks][net_list_tasks]。
 
 - [ODATADetailLevel][odata].[FilterClause][odata_filter]：限制返回的项数。
 - [ODATADetailLevel][odata].[SelectClause][odata_select]：指定随每个项返回的属性值。
 - [ODATADetailLevel][odata].[ExpandClause][odata_expand]：通过单个 API 调用检索所有项的数据，不必针对每个项分别进行调用。
 
-以下代码段使用 Batch .NET API 对 Batch 服务进行有效的查询，查询其中是否存在特定池集的统计信息。 在此方案中，Batch 用户既有测试池又有生产池。 测试池 ID 具有“test”前缀，生产池 ID 具有“prod”前缀。 在代码片段中，*myBatchClient* 是正确初始化的 [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) 类实例。
+以下代码段使用批处理 .NET API 对批处理服务进行有效的查询，查询其中是否存在特定池集的统计信息。 在此方案中，批处理用户既有测试池又有生产池。 测试池 ID 具有“test”前缀，生产池 ID 具有“prod”前缀。 在代码片段中，*myBatchClient* 是正确初始化的 [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) 类实例。
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -140,7 +141,7 @@ List<CloudPool> testPools =
 > 
 > 
 
-## <a name="batch-rest-to-net-api-mappings"></a>Batch REST 到 .NET API 映射
+## <a name="batch-rest-to-net-api-mappings"></a>批处理 REST 到 .NET API 映射
 filter、select 和 expand 字符串中的属性名称 *必须* 反映其 REST API 对应项，不管是名称本身还是大小写。 下表提供了 .NET 和 REST API 的对应项之间的映射。
 
 ### <a name="mappings-for-filter-strings"></a>filter 字符串的映射
@@ -242,8 +243,8 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 ### <a name="parallel-node-tasks"></a>并行节点任务
 [通过并发节点任务最大限度提高 Azure 批处理计算资源的使用率](batch-parallel-node-tasks.md)是另一篇与批处理应用程序性能相关的文章。 在数量较少但规模更大的计算节点上执行并行任务适合某些类型的工作负荷。 若需详细了解此类方案，请查看文章中的[示例方案](batch-parallel-node-tasks.md#example-scenario)。
 
-### <a name="batch-forum"></a>Batch 论坛
-MSDN 上的 [Azure Batch 论坛][forum] 是探讨 Batch 服务以及咨询其相关问题的不错场所。 欢迎前往浏览这些帮忙解决“棘手问题”的贴子，并发布你在构建 Batch 解决方案时遇到的问题。
+### <a name="batch-forum"></a>批处理论坛
+MSDN 上的 [Azure 批处理论坛][forum]是探讨批处理服务以及咨询其相关问题的不错场所。 欢迎前往浏览这些帮忙解决“棘手问题”的贴子，并发布你在构建批处理解决方案时遇到的问题。
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx

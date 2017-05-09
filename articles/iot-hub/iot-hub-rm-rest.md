@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/08/2017
 wacn.date: 
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 219fb7ccffe772adf0207877c42c363e245b9b81
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -33,10 +34,10 @@ ms.lasthandoff: 04/14/2017
 > 
 > 
 
-若要完成本教程，您需要以下各项：
+若要完成本教程，你需要以下各项：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-- 有效的 Azure 帐户。 <br/>如果没有帐户，只需花费几分钟就能创建一个 [帐户][lnk-free-trial] 。
+- 有效的 Azure 帐户。 <br/>如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。
 - [Azure PowerShell 1.0][lnk-powershell-install] 或更高版本。
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]

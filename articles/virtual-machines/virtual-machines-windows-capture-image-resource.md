@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 02/27/2017
 wacn.date: 
 ms.author: cynthn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 307fd0f6fcf32125a841a55d02551b6c54235cc2
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

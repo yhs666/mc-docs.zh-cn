@@ -13,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 03/08/2017
 ms.author: raiye
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: feca2242b9ef95d17edfe9a698f95db125f3fa68
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---

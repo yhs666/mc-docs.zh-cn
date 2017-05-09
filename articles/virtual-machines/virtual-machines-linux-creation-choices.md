@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 wacn.date: 
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 67c7d55b7c8603b3e18e8c765b30ff6a28c56128
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -78,14 +79,14 @@ ms.lasthandoff: 04/14/2017
         --new --size-gb 50
         ```
 
-## <a name="azure-portal-preview"></a>Azure 门户预览版
-在 [Azure 门户预览版](https://portal.azure.cn) 中可以快速创建 VM，因为不需要在系统上安装任何组件。 使用 Azure 门户预览版创建 VM：
+## <a name="azure-portal-preview"></a>Azure 门户预览
+在 [Azure 门户预览](https://portal.azure.cn) 中可以快速创建 VM，因为不需要在系统上安装任何组件。 使用 Azure 门户预览创建 VM：
 
-* [使用 Azure 门户预览版创建 Linux VM](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
-* [使用 Azure 门户预览版附加磁盘](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 Azure 门户预览创建 Linux VM](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+* [使用 Azure 门户预览附加磁盘](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="operating-system-and-image-choices"></a>操作系统和映像选项
-创建 VM 时，可根据要运行的操作系统选择映像。 Azure 及其合作伙伴提供了许多映像，其中一些映像包括预安装的应用程序和工具。 也可上载自己的某个映像（请参阅[以下部分](#use-your-own-image)）。
+创建 VM 时，可根据要运行的操作系统选择映像。 Azure 及其合作伙伴提供了许多映像，其中一些映像包括预安装的应用程序和工具。 也可上传自己的某个映像（请参阅[以下部分](#use-your-own-image)）。
 
 ### <a name="azure-images"></a>Azure 映像
 使用 [az vm image](https://docs.microsoft.com/cli/azure/vm/image) 命令可按发布者、发行版本和内部版本查看可用内容。
@@ -129,7 +130,7 @@ az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --
 | UbuntuLTS |Canonical |UbuntuServer |14.04.3-LTS |最新 |
 
 ### <a name="use-your-own-image"></a>使用你自己的映像
-若要进行具体的自定义，可以通过 *捕获* 现有 Azure VM 来使用基于该 VM 的映像。 也可以上载本地创建的映像。 有关受支持的发行版以及如何使用你自己的映像的详细信息，请参阅以下文章：
+若要进行具体的自定义，可以通过 *捕获* 现有 Azure VM 来使用基于该 VM 的映像。 也可以上传本地创建的映像。 有关受支持的发行版以及如何使用你自己的映像的详细信息，请参阅以下文章：
 
 * [Azure endorsed distributions（Azure 认可的分发版）](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Information for non-endorsed distributions（有关未认可分发版的信息）](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -146,4 +147,4 @@ az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --
 ## <a name="next-steps"></a>后续步骤
 * 通过[门户](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)、[CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或 [Azure Resource Manager 模板](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)创建 Linux VM。
 * 创建 Linux VM 后，可[添加数据磁盘](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
-* [重置密码或 SSH 密钥和管理用户](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [重置密码或 SSH 密钥和管理用户](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的快速步骤

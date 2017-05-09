@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 03/20/2017
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: d49d971c4bf9959da2307df1c85c41a2b04e1144
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/14/2017
 
 - 已使用 `az login` 命令创建与 Azure 的连接。
 - 你可以访问域注册机构的 DNS 配置页。
-- 你有要上载和绑定的 SSL 证书的有效 .PFX 文件及其密码。
+- 你有要上传和绑定的 SSL 证书的有效 .PFX 文件及其密码。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

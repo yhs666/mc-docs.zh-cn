@@ -17,9 +17,10 @@ ms.topic: article
 ms.date: 09/06/2016
 wacn.date: 
 ms.author: rclaus
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 02d4d82b35ad891a2cc981a2af1369f8403311d9
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 04/14/2017
 默认情况下，创建 VM 时，Azure 将提供 OS 磁盘 (**/dev/sda**) 和临时磁盘 (**/dev/sdb**)。  额外添加的所有磁盘显示为 **/dev/sdc**、**/dev/sdd**、**/dev/sde**，依此类推。 临时磁盘 (**/dev/sdb**) 上的所有数据均不具有持久性，因此当发生 VM 调整大小、重新部署或维护等特定事件，从而迫使 VM 重新启动时，数据可能会丢失。  临时磁盘的类型和大小与在部署时选择的 VM 大小相关。 所有高级大小的 VM（DS、G 和 DS_V2 系列），临时驱动器均由本地 SSD 提供支持，因此可以实现最高 48k IOps 的附加性能。 
 
 ## <a name="linux-swap-file"></a>Linux 交换文件
-如果你的 Azure VM 来自 Ubuntu 或 CoreOS 映像，则可以使用 CustomData 将 cloud-config 发送到 cloud-init。 如果已[上载使用 cloud-init 的自定义 Linux 映像](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，则还可以使用 cloud-init 配置交换分区。
+如果你的 Azure VM 来自 Ubuntu 或 CoreOS 映像，则可以使用 CustomData 将 cloud-config 发送到 cloud-init。 如果已[上传使用 cloud-init 的自定义 Linux 映像](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，则还可以使用 cloud-init 配置交换分区。
 
 在 Ubuntu 云映像上，必须使用 cloud-init 配置交换分区。 有关详细信息，请参阅 [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions)。
 

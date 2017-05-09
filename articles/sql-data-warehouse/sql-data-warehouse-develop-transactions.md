@@ -15,9 +15,10 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 wacn.date: 
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 53315bc2be93dc3a03f5177c8ce85d4efb519934
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -65,11 +66,11 @@ SQL 数据仓库实现 ACID 事务。 但是，事务支持的隔离仅限于 `R
 SQL 数据仓库使用 XACT_STATE() 函数（采用值 -2）来报告失败的事务。 这表示事务已失败并标记为仅可回滚
 
 > [!NOTE]
-> XACT_STATE 函数使用 -2 表示失败的事务，以代表 SQL Server 中不同的行为。 SQL Server 使用值 -1 来代表无法提交的事务。 SQL Server 可以容忍事务内的某些错误，而无需将其标记为无法提交。 例如， `SELECT 1/0` 导致错误，但不强制事务进入无法提交状态。 SQL Server 还允许读取无法提交的事务。 但是，SQL 数据仓库不允许执行此操作。 如果 SQL 数据仓库事务内部发生错误，它将自动进入 -2 状态，并且在该语句回退之前，您无法执行任何 Select 语句。 因此，必须查看应用程序代码是否使用 XACT_STATE()，因为你可能需要修改代码。
+> XACT_STATE 函数使用 -2 表示失败的事务，以代表 SQL Server 中不同的行为。 SQL Server 使用值 -1 来代表无法提交的事务。 SQL Server 可以容忍事务内的某些错误，而无需将其标记为无法提交。 例如， `SELECT 1/0` 导致错误，但不强制事务进入无法提交状态。 SQL Server 还允许读取无法提交的事务。 但是，SQL 数据仓库不允许执行此操作。 如果 SQL 数据仓库事务内部发生错误，它将自动进入 -2 状态，并且在该语句回退之前，你无法执行任何 Select 语句。 因此，必须查看应用程序代码是否使用 XACT_STATE()，因为你可能需要修改代码。
 > 
 > 
 
-例如，在 SQL Server 中，您可能会看到如下所示的事务：
+例如，在 SQL Server 中，你可能会看到如下所示的事务：
 
 ```sql
 SET NOCOUNT ON;

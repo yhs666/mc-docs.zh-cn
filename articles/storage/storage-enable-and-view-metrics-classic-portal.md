@@ -1,5 +1,5 @@
 ---
-title: "在 Azure 门户预览版中启用存储指标 | Microsoft Docs"
+title: "在 Azure 门户预览中启用存储指标 | Microsoft Docs"
 description: "如何为 Blob、队列、表和文件服务启用存储指标"
 services: storage
 documentationcenter: 
@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: robinsh
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: e7be5e3d4108aa93c0d0f58dff740b535aa82ef6
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -182,7 +183,7 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
 ## <a name="what-charges-do-you-incur-when-you-enable-storage-metrics"></a>在启用存储指标时，你需要支付多少费用？
 为指标创建表实体的写入请求，按适用于所有 Azure 存储操作的标准费率收费。
 
-客户端针对指标数据的读取和删除请求也按标准费率收费。 如果你已配置数据保留策略，则当 Azure 存储空间删除旧的指标数据时，你不用付费。 但是，如果你删除分析数据，则会针对删除操作向你的帐户收费。
+客户端针对指标数据的读取和删除请求也按标准费率收费。 如果你已配置数据保留策略，则当 Azure 存储删除旧的度量值数据时，你不用付费。 但是，如果你删除分析数据，则会针对删除操作向你的帐户收费。
 
 指标表使用的容量也要付费：你可以依据以下内容估算用于存储指标数据的容量：
 
