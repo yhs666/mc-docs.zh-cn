@@ -34,34 +34,6 @@ ms.lasthandoff: 04/07/2017
 
 ![负载均衡应用场景图像](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
-## <a name="limitations"></a> 限制
-
-现在，只有使用 Azure PowerShell 和 Azure CLI 才能对辅助 IP 配置进行负载均衡配置。 该限制是暂时性的，以后随时可能更改。 重新访问此页以检查更新。
-
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
-
-通过登录后在 PowerShell 中运行以下命令并选择相应的订阅来注册预览版：
-
-```
-Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
-
-Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
-
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-请不要尝试完成剩余步骤，直至运行 ```Get-AzureRmProviderFeature``` 命令时看到以下输出：
-
-```powershell
-FeatureName                            ProviderName      RegistrationState
------------                            ------------      -----------------      
-AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-```
-
->[!NOTE] 
->这可能需要几分钟的时间。
-
 ##<a name="prerequisites"></a>先决条件
 本示例假设已有一个名为 *contosofabrikam* 的、使用以下配置的资源组：
  -  在名为 *myAvailset* 的同一个可用性集中包含名为 *myVNet* 的虚拟网络，以及名为 *VM1* 和 *VM2* 的两个 VM。 
@@ -153,7 +125,7 @@ AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered
 8. 完成负载均衡规则配置后，这两个规则（*HTTPc* 和 *HTTPf*）将显示在负载均衡器的“负载均衡规则”边栏选项卡中。
 
 ### <a name="step-7-configure-dns-records"></a>步骤 7：配置 DNS 记录
-最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 可以在 Azure DNS 中托管域。 有关将 Azure DNS 与负载均衡器配合使用的详细信息，请参阅[将 Azure DNS 与其他 Azure 服务配合使用](/documentation/articles/dns-for-azure-services/)。
+最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。

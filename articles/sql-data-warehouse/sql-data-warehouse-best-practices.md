@@ -146,17 +146,17 @@ SQL 数据仓库有多个 DMV 可用于监视查询执行。以下监视相关�
 [CREATE STATISTICS]: https://msdn.microsoft.com/zh-cn/library/ms188038.aspx
 [CREATE TABLE]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
 [CREATE TABLE AS SELECT]: https://msdn.microsoft.com/zh-cn/library/mt204041.aspx
-[DBCC PDW\_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/zh-cn/library/mt204017.aspx
+[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/zh-cn/library/mt204017.aspx
 [INSERT]: https://msdn.microsoft.com/zh-cn/library/ms174335.aspx
 [OPTION]: https://msdn.microsoft.com/zh-cn/library/ms190322.aspx
 [TRUNCATE TABLE]: https://msdn.microsoft.com/zh-cn/library/ms177570.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/zh-cn/library/ms187348.aspx
-[sys.dm\_exec\_sessions]: https://msdn.microsoft.com/zh-cn/library/ms176013.aspx
-[sys.dm\_pdw\_exec\_requests]: https://msdn.microsoft.com/zh-cn/library/mt203887.aspx
-[sys.dm\_pdw\_request\_steps]: https://msdn.microsoft.com/zh-cn/library/mt203913.aspx
-[sys.dm\_pdw\_sql\_requests]: https://msdn.microsoft.com/zh-cn/library/mt203889.aspx
-[sys.dm\_pdw\_dms\_workers]: https://msdn.microsoft.com/zh-cn/library/mt203878.aspx
-[sys.dm\_pdw\_waits]: https://msdn.microsoft.com/zh-cn/library/mt203893.aspx
+[sys.dm_exec_sessions]: https://msdn.microsoft.com/zh-cn/library/ms176013.aspx
+[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/zh-cn/library/mt203887.aspx
+[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/zh-cn/library/mt203913.aspx
+[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/zh-cn/library/mt203889.aspx
+[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/zh-cn/library/mt203878.aspx
+[sys.dm_pdw_waits]: https://msdn.microsoft.com/zh-cn/library/mt203893.aspx
 [Columnstore indexes guide]: https://msdn.microsoft.com/zh-cn/library/gg492088.aspx
 
 <!--Other Web references-->
