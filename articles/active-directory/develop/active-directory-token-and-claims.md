@@ -302,7 +302,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 
 ## 相关内容
 - 请参阅 Azure AD Graph [策略操作](https://msdn.microsoft.com/zh-cn/library/azure/ad/graph/api/policy-operations)和[策略实体](https://msdn.microsoft.com/zh-cn/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity)以了解有关通过 Azure AD Graph API 管理令牌生存期策略的详细信息。
-- 有关通过 PowerShell cmdlet 管理策略详细信息和示例，请参阅 [Azure AD 中的可配置令牌生存期](./active-directory-configurable-token-lifetimes.md)。
+- 有关通过 PowerShell cmdlet 管理策略详细信息和示例，请参阅 [Azure AD 中的可配置令牌生存期](../active-directory-configurable-token-lifetimes.md)。
 
 <!---HONumber=Mooncake_0306_2017-->
 <!--Update_Description: wording update-->
