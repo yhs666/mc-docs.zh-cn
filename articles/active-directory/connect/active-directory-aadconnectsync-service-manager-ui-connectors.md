@@ -66,7 +66,7 @@ ms.custom: H1Hack27Feb2017
 
 例如，如果进行子树搜索，将获取某个 OU 中的所有对象。
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png) 
-可以从此处选择对象，选择“属性”，从源连接器空间到 Metaverse 再到目标连接器空间一直[跟踪对象](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)。
+可以从此处选择对象，选择“属性”，从源连接器空间到 Metaverse 再到目标连接器空间一直[跟踪对象](./active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)。
 
 ## 后续步骤
 了解有关 [Azure AD Connect 同步](./active-directory-aadconnectsync-whatis.md)配置的详细信息。

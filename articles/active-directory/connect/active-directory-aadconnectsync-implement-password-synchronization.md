@@ -102,9 +102,9 @@ Active Directory 域服务以实际用户密码的哈希值表示形式存储密
 如果你再次更改本地密码，新密码则会同步到云，并会手动覆盖更新的密码。
 
 ## 启用密码同步
-使用“快速设置”安装 Azure AD Connect 时，会自动启用密码同步。有关详细信息，请参阅[通过快速设置开始使用 Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md)。
+使用“快速设置”安装 Azure AD Connect 时，会自动启用密码同步。有关详细信息，请参阅[通过快速设置开始使用 Azure AD Connect](./active-directory-aadconnect-get-started-express.md)。
 
-如果在安装 Azure AD Connect 时使用了自定义设置，则必须在用户登录页上启用密码同步。有关详细信息，请参阅 [Azure AD Connect 的自定义安装](./connect/active-directory-aadconnect-get-started-custom.md)。
+如果在安装 Azure AD Connect 时使用了自定义设置，则必须在用户登录页上启用密码同步。有关详细信息，请参阅 [Azure AD Connect 的自定义安装](./active-directory-aadconnect-get-started-custom.md)。
 
 ![启用密码同步](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
 
@@ -185,7 +185,7 @@ Active Directory 域服务以实际用户密码的哈希值表示形式存储密
 
 如果脚本显示没有检测信号，请运行[“触发所有密码的完全同步”](#trigger-a-full-sync-of-all-passwords)中的脚本。在配置正确但密码不同步的其他一些情况下。也可以使用此脚本。
 
-如果使用自定义设置安装 Azure AD Connect，请确保已将“复制目录更改”和“复制所有目录更改”权限授予 AD 连接器使用的帐户。请参阅[帐户和权限](./connect/active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)，了解此帐户所需的所有权限。如果没有这些权限，此帐户将无权读取 Active Directory 中的密码哈希。
+如果使用自定义设置安装 Azure AD Connect，请确保已将“复制目录更改”和“复制所有目录更改”权限授予 AD 连接器使用的帐户。请参阅[帐户和权限](./active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)，了解此帐户所需的所有权限。如果没有这些权限，此帐户将无权读取 Active Directory 中的密码哈希。
 
 然后查看应用程序事件日志。如果密码同步存在全局问题，并且服务正在运行，则如上述步骤所验证，应存在包含更多详细信息的错误。
 

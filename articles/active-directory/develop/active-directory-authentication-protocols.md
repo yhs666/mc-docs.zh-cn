@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) 支持多个最广泛使用的身份验证和�
 ## 另请参阅
 [Azure Active Directory 开发人员指南](./active-directory-developers-guide.md)
 
-[使用 Azure AD 进行身份验证](../app-service-web/web-sites-authentication-authorization.md)
+[使用 Azure AD 进行身份验证](../../app-service-web/web-sites-authentication-authorization.md)
 
 [Active Directory 代码示例](./active-directory-code-samples.md)
 

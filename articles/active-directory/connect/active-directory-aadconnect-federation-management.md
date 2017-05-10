@@ -115,7 +115,7 @@ Azure AD Connect 可以检查 AD FS 和 Azure Active Directory 信任的当前�
 4. 在下一页上，向导将提供可与本地目录联合的 Azure AD 域的列表。从列表中选择域。
    ![Azure AD 域](./media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
-    选择域后，向导将为你提供有关向导将采取的进一步操作以及配置产生的影响的适当信息。在某些情况下，如果你选择的域尚未在 Azure AD 中进行验证，则向导将为你提供帮助验证域的信息。有关详细信息，请参阅 [Add your custom domain name to Azure Active Directory](./active-directory-add-domain.md)（将自定义域名添加到 Azure Active Directory）。
+    选择域后，向导将为你提供有关向导将采取的进一步操作以及配置产生的影响的适当信息。在某些情况下，如果你选择的域尚未在 Azure AD 中进行验证，则向导将为你提供帮助验证域的信息。有关详细信息，请参阅 [Add your custom domain name to Azure Active Directory](../active-directory-add-domain.md)（将自定义域名添加到 Azure Active Directory）。
 5. 单击“下一步”，“准备好配置”页将显示 Azure AD Connect 将要执行的操作列表。单击“安装”完成配置。
    ![已准备好配置](./media/active-directory-aadconnect-federation-management/AdditionalDomain5.PNG)
 

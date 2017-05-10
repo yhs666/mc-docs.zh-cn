@@ -91,7 +91,7 @@ AD FS 提供简化、安全的联合身份验证与 Web 单一登录 (SSO) 功�
 - 虚拟网络站点到站点
 - ExpressRoute
 
-建议使用 ExpressRoute。借助 ExpressRoute，可在 Azure 数据中心与本地环境或并置环境中的基础结构之间创建专用连接。ExpressRoute 连接不通过公共 Internet 。它们能够提供可靠性、速度、延迟和安全性这几个方面均比基于 Internet 的典型连接更胜一筹的专用连接。尽管建议使用 ExpressRoute，但你也可以选择最适合你组织的任何连接方法。若要详细了解 ExpressRoute 以及有关使用 ExpressRoute 的各种连接选项，请阅读 [ExpressRoute 技术概述](../expressroute/expressroute-introduction.md)。
+建议使用 ExpressRoute。借助 ExpressRoute，可在 Azure 数据中心与本地环境或并置环境中的基础结构之间创建专用连接。ExpressRoute 连接不通过公共 Internet 。它们能够提供可靠性、速度、延迟和安全性这几个方面均比基于 Internet 的典型连接更胜一筹的专用连接。尽管建议使用 ExpressRoute，但你也可以选择最适合你组织的任何连接方法。若要详细了解 ExpressRoute 以及有关使用 ExpressRoute 的各种连接选项，请阅读 [ExpressRoute 技术概述](../../expressroute/expressroute-introduction.md)。
 
 ### 2\.创建存储帐户
 为了保持高可用性并避免依赖单个存储帐户，可以创建两个存储帐户。将每个可用性集中的计算机划分为两组，然后为每个组分配不同的存储帐户。
@@ -123,7 +123,7 @@ AD FS 提供简化、安全的联合身份验证与 Web 单一登录 (SSO) 功�
 | contosowap1 |WAP |外围网络 |contosowapset |contososac1 |静态 |
 | contosowap2 |WAP |外围网络 |contosowapset |contososac2 |静态 |
 
-你可能已注意到尚未指定 NSG。这是因为 Azure 允许你在子网级别使用 NSG。然后，你可以使用与子网或 NIC 对象关联的单个 NSG 来控制计算机的网络流量。有关详细信息，请阅读[什么是网络安全组 (NSG)](../virtual-network/virtual-networks-nsg.md)。如果你要管理 DNS，建议使用静态 IP 地址。你可以使用 Azure DNS，并改为在域的 DNS 记录中按计算机的 Azure FQDN 引用新计算机。完成部署后，虚拟机窗格应如下所示：
+你可能已注意到尚未指定 NSG。这是因为 Azure 允许你在子网级别使用 NSG。然后，你可以使用与子网或 NIC 对象关联的单个 NSG 来控制计算机的网络流量。有关详细信息，请阅读[什么是网络安全组 (NSG)](../../virtual-network/virtual-networks-nsg.md)。如果你要管理 DNS，建议使用静态 IP 地址。你可以使用 Azure DNS，并改为在域的 DNS 记录中按计算机的 Azure FQDN 引用新计算机。完成部署后，虚拟机窗格应如下所示：
 
 ![已部署虚拟机](./media/active-directory-aadconnect-azure-adfs/virtualmachinesdeployed_noadfs.png)
 
@@ -349,7 +349,7 @@ f.**探测**：选择前面为 AD FS 服务器创建的探测
 ## 后续步骤
 - [将本地标识与 Azure Active Directory 集成](./active-directory-aadconnect.md)
 - [Configuring and managing your AD FS using Azure AD Connect（使用 Azure AD Connect 配置和管理 AD FS）](./active-directory-aadconnectfed-whatis.md)
-- [使用 Azure 流量管理器在 Azure 中部署高可用性跨地域 AD FS](./active-directory-adfs-in-azure-with-azure-traffic-manager.md)
+- [使用 Azure 流量管理器在 Azure 中部署高可用性跨地域 AD FS](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
 <!---HONumber=Mooncake_0327_2017-->
 <!---Update_Description: wording update -->

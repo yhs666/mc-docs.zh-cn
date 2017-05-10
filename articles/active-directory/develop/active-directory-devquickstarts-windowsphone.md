@@ -19,9 +19,9 @@ ms.author: dastrock
 ---
 
 # 将 Azure AD 与 Windows Phone 应用集成
-[!INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
+[!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
-[!INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 如果你要开发 Windows Phone 8.1 应用，Azure AD 可让你简单直接地使用用户的 Active Directory 帐户对其进行身份验证。它还可以让应用程序安全地使用 Azure AD 保护的任何 Web API，例如 Office 365 API 或 Azure API。
 
@@ -88,8 +88,6 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
 
 - 第一步是初始化应用程序的 `AuthenticationContext`（ADAL 的主类）。你将在此处传递 ADAL 与 Azure AD 通信时所需的坐标，并告诉 ADAL 如何缓存令牌。
 
-    C#
-
     ```C#
     public MainPage()
     {
@@ -101,8 +99,6 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
     ```
 
 - 现在查找 `Search(...)` 方法，当用户在应用程序的 UI 中单击“搜索”按钮时，将调用该方法。此方法将向 Azure AD 图形 API 发出 GET 请求，以查询其 UPN 以给定搜索词开头的用户。但是，若要查询 Graph API，你需要在请求的 `Authorization` 标头中包含 access\_token - 这是 ADAL 传入的位置。
-
-    C#
 
     ```C#
     private async void Search(object sender, RoutedEventArgs e)
@@ -128,8 +124,6 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
 
 - 如果需要交互式身份验证，ADAL 将使用 Windows Phone 的 Web 身份验证代理 (WAB) 和[延续模型](http://www.cloudidentity.com/blog/2014/06/16/adal-for-windows-phone-8-1-deep-dive/)来显示 Azure AD 登录页。当用户登录时，应用需要向 ADAL 传递 WAB 交互的结果。这只要实现 `ContinueWebAuthentication` 接口即可：
 
-    C#
-
     ```C#
     // This method is automatically invoked when the application
     // is reactivated after an authentication interaction through WebAuthenticationBroker.
@@ -142,8 +136,6 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
     ```
 
 - 现在，可以使用 ADAL 返回给应用程序的 `AuthenticationResult`。在 `QueryGraph(...)` 回调中，在 Authorization 标头内将你获取的 access\_token 附加到 GET 请求：
-
-    C#
 
     ```C#
     private async void QueryGraph(AuthenticationResult result)
@@ -163,16 +155,12 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
 
 - 你还可以使用 `AuthenticationResult` 对象在应用程序中显示有关用户的信息。在 `QueryGraph(...)` 方法中，使用该结果在页上显示用户的 ID：
 
-    C#
-
     ```C#
     // Update the Page UI to represent the signed in user
     ActiveUser.Text = result.UserInfo.DisplayableId;
     ```
 
 - 最后，还可以使用 ADAL 将用户从应用程序中注销。当用户单击“注销”按钮时，我们希望确保 `AcquireTokenSilentAsync(...)` 的后续调用失败。使用 ADAL 时，只需清除令牌缓存即可：
-
-    C#
 
     ```C#
     private void SignOut()
@@ -192,7 +180,7 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
 
 [使用 Azure AD 保护 .NET Web API >>](./active-directory-devquickstarts-webapi-dotnet.md)
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 
 <!---HONumber=Mooncake_0120_2017-->
 <!---Update_Description: wording update -->

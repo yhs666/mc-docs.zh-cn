@@ -78,7 +78,7 @@ SSO 是通过 Azure AD Connect 启用的一项功能，适用于密码同步或�
 ## 启用带直通身份验证或密码同步的 SSO
 Azure AD Connect 提供了一个简单的过程来启用带直通身份验证或密码同步的单一登录。请确保在同步的每个林中都具有其中一个域的域管理员权限，以便在计算机帐户上配置 Kerberos 服务主体名称 (SPN)。用户名和密码未存储在 Azure AD Connect 或 Azure AD 中，并且仅用于此操作。
 
-安装 Azure AD Connect 时选择自定义安装，以便能够在用户登录页中选择单一登录选项。有关详细信息，请参阅 [Azure AD Connect 的自定义安装](./connect/active-directory-aadconnect-get-started-custom.md)。
+安装 Azure AD Connect 时选择自定义安装，以便能够在用户登录页中选择单一登录选项。有关详细信息，请参阅 [Azure AD Connect 的自定义安装](./active-directory-aadconnect-get-started-custom.md)。
 
 ![单一登录](./media/active-directory-aadconnect-sso/sso3.png)  
 

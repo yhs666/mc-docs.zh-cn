@@ -19,9 +19,9 @@ ms.author: brandwe
 ---
 
 # 将 Azure AD 集成到 iOS 应用中
-[!INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
+[!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
-[!INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 对于需要访问受保护资源的 iOS 客户端，Azure AD 提供 Active Directory 身份验证库 (ADAL)。在本质上，ADAL 的唯一用途就是方便应用获取访问令牌。为了演示操作的简单性，下面我们要生成一个 Objective C 待办事项列表应用程序，该应用程序可以：
 
@@ -233,7 +233,7 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
 - [使用 Azure AD 保护 Node.JS Web API](./active-directory-devquickstarts-webapi-nodejs.md)
 - 了解[如何使用 ADAL 在 iOS 上启用跨应用 SSO](./active-directory-sso-ios.md)
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 
 <!---HONumber=Mooncake_0120_2017-->
 <!---Update_Description: wording update -->

@@ -19,7 +19,7 @@ ms.author: dastrock
 ---
 
 # 使用 Azure AD 执行 ASP.NET Web 应用登录和注销
-[!INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 使用 Azure Active Directory (Azure AD)，只需通过编写几行代码来提供单一登录和注销，就能简单外包 Web 应用的标识管理。通过使用适用于 .NET 的开放 Web 界面 (OWIN) 中间件的 Microsoft 实现，可以将用户登录到 ASP.NET Web 应用或从 ASP.NET Web 应用注销。NET Framework 4.5 中包含社区驱动 OWIN 中间件。本文演示如何使用 OWIN 执行以下操作：
 
@@ -192,7 +192,7 @@ ms.author: dastrock
 
 现在，可以转到更高级的主题。例如，请尝试[使用 Azure AD 保护 Web API](./active-directory-devquickstarts-webapi-dotnet.md)。
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 
 <!---HONumber=Mooncake_0306_2017-->
 <!---Update_Description: wording update -->

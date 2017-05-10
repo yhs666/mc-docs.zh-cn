@@ -28,7 +28,7 @@ Azure Active Directory 团队会定期更新 Azure AD Sync 的新特性和功能
 主题 |  
 --------- | --------- |
 从 Azure AD Connect 升级的步骤 | [从旧版升级到最新版](./active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect 的不同方法。
-所需的权限 | 有关应用更新时所需的权限，请参阅[帐户和权限](./connect/active-directory-aadconnect-accounts-permissions.md#upgrade)
+所需的权限 | 有关应用更新时所需的权限，请参阅[帐户和权限](./active-directory-aadconnect-accounts-permissions.md#upgrade)
 下载| [下载 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 ## 1\.1.380.0
@@ -163,7 +163,7 @@ Azure Active Directory 团队会定期更新 Azure AD Sync 的新特性和功能
   - 如果使用 MFA，则需要让代理也允许向 https://secure.aadcdn.microsoftonline-p.com 传送流量。
   - 需要将 https://secure.aadcdn.microsoftonline-p.com 添加到受信任站点列表，MFA 才能正常运行。
 - 允许在初始安装之后更改用户的登录方法。
-- 允许在安装向导中使用[域和 OU 筛选](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)。这也允许连接到并非所有域都可供使用的林。
+- 允许在安装向导中使用[域和 OU 筛选](./active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)。这也允许连接到并非所有域都可供使用的林。
 - [计划程序](./active-directory-aadconnectsync-feature-scheduler.md)是同步引擎的内置功能。
 
 **从预览版升级到 GA 的功能：**
@@ -252,9 +252,9 @@ Azure Active Directory 团队会定期更新 Azure AD Sync 的新特性和功能
 
 **新功能：**
 
-- [快速设置](./connect/active-directory-aadconnect-get-started-express.md)安装
-- 可以[配置 ADFS](./connect/active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
-- 可以[从 DirSync 升级](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)
+- [快速设置](./active-directory-aadconnect-get-started-express.md)安装
+- 可以[配置 ADFS](./active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+- 可以[从 DirSync 升级](./active-directory-aadconnect-dirsync-upgrade-get-started.md)
 - [防止意外删除](./active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 - 引入了[过渡模式](./active-directory-aadconnectsync-operations.md#staging-mode)
 

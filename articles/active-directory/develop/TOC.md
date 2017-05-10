@@ -35,7 +35,6 @@
 ## [Enable SSO on Android](active-directory-sso-android.md)
 ## [Enable SSO on iOS](active-directory-sso-ios.md)
 ## [Get AppSource Certified](active-directory-devhowto-appsource-certified.md)
-## [List your app in the gallery](active-directory-app-gallery-listing.md)
 ## [Understand the manifest](active-directory-application-manifest.md)
 ## [Branding guidelines](active-directory-branding-guidelines.md)
 ## Working with SAML

@@ -50,9 +50,9 @@ Azure Active Directory Connect 由三个主要组件构成：同步服务、可�
 | 解决方案 | 方案 |
 | --- | --- |
 | 准备工作 - [硬件和先决条件](./active-directory-aadconnect-prerequisites.md) |<li>开始安装 Azure AD Connect 之前所要完成的步骤。</li> |
-| [快速设置](./connect/active-directory-aadconnect-get-started-express.md) |<li>如果只有一个林 AD，则建议使用此选项。</li> <li>使用密码同步以同一密码进行用户登录。</li> |
-| [自定义设置](./connect/active-directory-aadconnect-get-started-custom.md) |<li>有多个林时使用。支持许多[本地拓扑](./active-directory-aadconnect-topologies.md)。</li> <li>自定义登录选项，例如用于联合身份验证的 ADFS，或使用第三方标识提供者。</li> <li>自定义同步功能，例如筛选和写回。</li> |
-| [从 DirSync 升级](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>在已有 DirSync 服务器运行的情况下使用。</li> |
+| [快速设置](./active-directory-aadconnect-get-started-express.md) |<li>如果只有一个林 AD，则建议使用此选项。</li> <li>使用密码同步以同一密码进行用户登录。</li> |
+| [自定义设置](./active-directory-aadconnect-get-started-custom.md) |<li>有多个林时使用。支持许多[本地拓扑](./active-directory-aadconnect-topologies.md)。</li> <li>自定义登录选项，例如用于联合身份验证的 ADFS，或使用第三方标识提供者。</li> <li>自定义同步功能，例如筛选和写回。</li> |
+| [从 DirSync 升级](./active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>在已有 DirSync 服务器运行的情况下使用。</li> |
 | [从 Azure AD Sync 或 Azure AD Connect 升级](./active-directory-aadconnect-upgrade-previous-version.md) |<li>可以根据偏好选择多种不同的方法。</li> |
 
 [安装后](./active-directory-aadconnect-whats-next.md)，你应该验证程序是否按预期工作，并将许可证分配给用户。
@@ -61,9 +61,9 @@ Azure Active Directory Connect 由三个主要组件构成：同步服务、可�
 |主题 |链接|  
 | --- | --- |
 |下载 Azure AD Connect | [下载 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
-|使用快速设置安装 | [Azure AD Connect 的快速安装](./connect/active-directory-aadconnect-get-started-express.md)|
-|使用自定义设置安装 | [Azure AD Connect 的自定义安装](./connect/active-directory-aadconnect-get-started-custom.md)|
-|从 DirSync 升级 | [从 Azure AD 同步工具 (DirSync) 升级](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+|使用快速设置安装 | [Azure AD Connect 的快速安装](./active-directory-aadconnect-get-started-express.md)|
+|使用自定义设置安装 | [Azure AD Connect 的自定义安装](./active-directory-aadconnect-get-started-custom.md)|
+|从 DirSync 升级 | [从 Azure AD 同步工具 (DirSync) 升级](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
 |安装后 | [验证安装并分配许可证](./active-directory-aadconnect-whats-next.md)|
 
 ### 了解有关安装 Azure AD Connect 的详细信息
@@ -73,7 +73,7 @@ Azure Active Directory Connect 由三个主要组件构成：同步服务、可�
 | --- | --- |
 |支持的拓扑 | [Azure AD Connect 的拓扑](./active-directory-aadconnect-topologies.md)|
 |设计概念 | [Azure AD Connect 设计概念](./active-directory-aadconnect-design-concepts.md)|
-|用于安装的帐户 | [有关 Azure AD Connect 凭据和权限的更多信息](./connect/active-directory-aadconnect-accounts-permissions.md)|
+|用于安装的帐户 | [有关 Azure AD Connect 凭据和权限的更多信息](./active-directory-aadconnect-accounts-permissions.md)|
 |操作规划 | [Azure AD Connect 同步：操作任务和注意事项](./active-directory-aadconnectsync-operations.md)|
 |用户登录选项 | [Azure AD Connect 用户登录选项](./active-directory-aadconnect-user-signin.md)|
 

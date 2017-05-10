@@ -47,7 +47,7 @@ Azure AD Connect 的 2015 年 8 月更新版中删除了用户写回预览版功
 >
 
 ## 后续步骤
-配置 [Azure AD Connect 的自定义安装](./connect/active-directory-aadconnect-get-started-custom.md)。
+配置 [Azure AD Connect 的自定义安装](./active-directory-aadconnect-get-started-custom.md)。
 
 了解有关[将本地标识与 Azure Active Directory 集成](./active-directory-aadconnect.md)的详细信息。
 

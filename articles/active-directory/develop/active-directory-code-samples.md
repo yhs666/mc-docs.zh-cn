@@ -19,7 +19,7 @@ ms.author: mbaldwin
 ---
 
 # Azure Active Directory 代码示例
-[!INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 可以使用 Azure Active Directory (Azure AD) 向 Web 应用程序和 Web API 添加身份验证与授权。本部分提供指向示例的链接，这些示例展示了它的工作原理以及可以在应用程序中使用的代码片段。在代码示例页上，可以找到在要求、安装和设置方面提供帮助的详细自述主题。并且代码带有注释，可以帮助你理解关键部分。
 

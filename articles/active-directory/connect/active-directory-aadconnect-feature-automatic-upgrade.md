@@ -88,7 +88,7 @@ ms.author: billmath
 | UpgradeNotSupportedMetaverseSizeExceeeded |metaverse 中的对象超过 100,000 个。| 
 | UpgradeNotSupportedMultiForestSetup |正在连接到多个林。快速设置仅连接到一个林。| 
 | UpgradeNotSupportedNonLocalDbInstall |用户使用的不是 SQL Server Express LocalDB 数据库。| 
-| UpgradeNotSupportedNonMsolAccount |[AD 连接器帐户](./connect/active-directory-aadconnect-accounts-permissions.md#active-directory-account)不再是默认的 MSOL\_ 帐户。| 
+| UpgradeNotSupportedNonMsolAccount |[AD 连接器帐户](./active-directory-aadconnect-accounts-permissions.md#active-directory-account)不再是默认的 MSOL\_ 帐户。| 
 | UpgradeNotSupportedStagingModeEnabled |服务器在设置后处于[暂存模式](./active-directory-aadconnectsync-operations.md#staging-mode)。| 
 | UpgradeNotSupportedUserWritebackEnabled |用户已启用[用户写回](./active-directory-aadconnect-feature-preview.md#user-writeback)功能。|
 

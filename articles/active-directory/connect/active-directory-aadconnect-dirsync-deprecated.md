@@ -42,7 +42,7 @@ Azure AD Connect 是 DirSync 和 Azure AD Sync 的后继产品。它结合了两
 
 | 解决方案 | 方案 |
 | --- | --- |
-| [从 DirSync 升级](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>如果你有已在运行的现有 DirSync 服务器。</li> |
+| [从 DirSync 升级](./active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>如果你有已在运行的现有 DirSync 服务器。</li> |
 | [从 Azure AD Sync 升级](./active-directory-aadconnect-upgrade-previous-version.md) |<li>如果要从 Azure AD Sync 迁移。</li> |
 
 ## 常见问题

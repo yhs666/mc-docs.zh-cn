@@ -424,7 +424,7 @@ git clone --branch complete https://github.com/AzureADQuickStarts/WebApp-OpenIDC
 
 [使用 Azure AD 保护 Web API >>](./active-directory-devquickstarts-webapi-nodejs.md)
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 
 <!---HONumber=Mooncake_0120_2017-->
 <!---Update_Description: wording update -->

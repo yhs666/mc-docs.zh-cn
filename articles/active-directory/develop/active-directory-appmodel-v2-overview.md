@@ -28,7 +28,7 @@ ms.author: dastrock
 从下述列表中选择偏爱的平台，以便使用开源库与框架生成应用。或者，你可以使用我们的 OAuth 2.0 和 OpenID Connect 协议文档来直接发送和接收协议消息，而不必使用身份验证库。
 
 <!-- TODO: Finalize this table  -->
-[!INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
 
 ## 新增功能
 此处提供的概念性信息可帮助你了解 v2.0 终结点的定义及其功能。

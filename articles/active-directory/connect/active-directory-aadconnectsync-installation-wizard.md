@@ -49,10 +49,10 @@ wacn.date: 03/13/2017
 ## 自定义同步选项 <a name="customize-synchronization-options"></a>
 此选项可用于更改同步配置。你会在自定义配置安装路径中看到一部分选项。即使最初使用的是快速安装，也会看到此选项。
 
-- [添加更多目录](./connect/active-directory-aadconnect-get-started-custom.md#connect-your-directories)。若要删除目录，请参阅[删除连接器](./active-directory-aadconnectsync-service-manager-ui-connectors.md#delete)。
-- [更改域和 OU 筛选](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)。
+- [添加更多目录](./active-directory-aadconnect-get-started-custom.md#connect-your-directories)。若要删除目录，请参阅[删除连接器](./active-directory-aadconnectsync-service-manager-ui-connectors.md#delete)。
+- [更改域和 OU 筛选](./active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)。
 - 删除组筛选。
-- [更改可选功能](./connect/active-directory-aadconnect-get-started-custom.md#optional-features)。
+- [更改可选功能](./active-directory-aadconnect-get-started-custom.md#optional-features)。
 
 初始安装中的其他选项既无法更改，也不能使用。这些选项包括：
 

@@ -21,7 +21,7 @@ ms.author: billmath
 # Azure AD Connect：从旧版升级到最新版本
 本主题介绍可将 Azure AD Connect 安装升级到最新版本的不同方法。建议使用最新版本的 Azure AD Connect。进行重大配置更改时，也可以使用[交叉迁移](#swing-migration)中所述的步骤。
 
-如果要从 DirSync 升级，请参阅[从 Azure AD 同步工具 (DirSync) 升级](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)。
+如果要从 DirSync 升级，请参阅[从 Azure AD 同步工具 (DirSync) 升级](./active-directory-aadconnect-dirsync-upgrade-get-started.md)。
 
 可以采用几种不同的策略来升级 Azure AD Connect。
 
@@ -31,7 +31,7 @@ ms.author: billmath
 | [就地升级](#in-place-upgrade) |如果你只有一台服务器，请在该服务器上就地升级安装。 |
 | [交叉迁移](#swing-migration) |如果有两台服务器，可将其中一台升级到最新版本或配置，然后在准备就绪时更改活动服务器。 |
 
-有关所需的权限，请参阅[升级所需的权限](./connect/active-directory-aadconnect-accounts-permissions.md#upgrade)。
+有关所需的权限，请参阅[升级所需的权限](./active-directory-aadconnect-accounts-permissions.md#upgrade)。
 
 > [!NOTE]
 启用新的 Azure AD Connect 服务器并开始将更改同步到 Azure AD 以后，不得通过回退来使用 DirSync 或 Azure AD Sync。不支持从 Azure AD Connect 降级到旧版客户端（包括 DirSync 和 Azure AD Sync），降级会导致 Azure AD 中的数据丢失等问题。
@@ -54,7 +54,7 @@ ms.author: billmath
 
 备注：我们注意到，对于这种方案，有些客户喜欢使用三到四台服务器来进行交叉迁移。升级过渡服务器时，万一发生[灾难恢复](./active-directory-aadconnectsync-operations.md#disaster-recovery)，就没有备份服务器可用。如果使用三到四台服务器，就可以准备一组装有新版本的主/备用服务器，确保始终都有过渡服务器来接管任务。
 
-以下步骤也适用于从 Azure AD Sync 或者使用 FIM + Azure AD 连接器的解决方案迁移。这些步骤不适用于 DirSync，但是，可以在 [Upgrade Azure Active Directory sync (DirSync)](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)（升级 Azure Active Directory 同步 (DirSync)）一文中找到适用于 DirSync 的相同交叉迁移（也称为并行部署）方法的步骤。
+以下步骤也适用于从 Azure AD Sync 或者使用 FIM + Azure AD 连接器的解决方案迁移。这些步骤不适用于 DirSync，但是，可以在 [Upgrade Azure Active Directory sync (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)（升级 Azure Active Directory 同步 (DirSync)）一文中找到适用于 DirSync 的相同交叉迁移（也称为并行部署）方法的步骤。
 
 ### 交叉迁移步骤
 1. 如果在两台服务器上使用 Azure AD Connect 并且只打算执行配置更改，请确保活动服务器和过渡服务器使用相同的版本。这将有助于稍后比较差异。如果要从 Azure AD Sync 升级，这些服务器将使用不同的版本。如果要从旧版 Azure AD Connect 升级，建议使用相同的版本在两台服务器上开始升级，但不一定要这样做。

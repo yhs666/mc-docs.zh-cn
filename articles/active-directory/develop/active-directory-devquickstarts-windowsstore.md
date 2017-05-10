@@ -19,9 +19,9 @@ wacn.date: 01/09/2017
 
 # 将 Azure AD 与 Windows 应用商店应用集成
 
-[!INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
+[!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
-[!INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 如果你要开发 Windows 应用商店应用程序，Azure AD 可让你简单直接地使用用户的 Active Directory 帐户对其进行身份验证。它还可以让应用程序安全地使用 Azure AD 保护的任何 Web API，例如 Office 365 API 或 Azure API。
 
@@ -155,6 +155,6 @@ private void SignOut()
 
 [使用 Azure AD 保护 .NET Web API >>](./active-directory-devquickstarts-webapi-dotnet.md)
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 
 <!---HONumber=Mooncake_Quality_Review_0104_2017-->

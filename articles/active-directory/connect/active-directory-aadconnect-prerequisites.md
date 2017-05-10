@@ -1,4 +1,4 @@
----
+---connect/active-directo
 title: Azure AD Connect：先决条件和硬件 | Azure
 description: 本主题介绍 Azure AD Connect 的先决条件和硬件要求
 services: active-directory
@@ -27,7 +27,7 @@ ms.author: billmath
 ### Azure AD
 - Azure 订阅或 [Azure 试用版订阅](https://www.azure.cn/pricing/1rmb-trial/)。此订阅只是用来访问 Azure 门户预览，而不是用于 Azure AD Connect。如果使用 PowerShell 或 Office 365，则无需 Azure 订阅即可使用 Azure AD Connect。如果有 Office 365 许可证，还可以使用 Office 365 门户。使用付费的 Office 365 许可证，还可以从 Office 365 门户访问 Azure 门户预览。
   - 还可以使用 [Azure 门户预览](https://portal.azure.cn)中的 Azure AD 预览版功能。此门户不需要 Azure 许可证。
-- [添加并验证](./active-directory-add-domain.md)要在 Azure AD 中计划使用的域。例如，如果计划让用户使用 contoso.com，请确保此域已经过验证，并且不是直接使用 contoso.partner.onmschina.cn 默认域。
+- [添加并验证](../active-directory-add-domain.md)要在 Azure AD 中计划使用的域。例如，如果计划让用户使用 contoso.com，请确保此域已经过验证，并且不是直接使用 contoso.partner.onmschina.cn 默认域。
 - 默认情况下，一个 Azure AD 租户允许 5 万个对象。在验证域后，该限制将增加到 30 万个对象。如果在 Azure AD 中需要更多的对象，则需要开具支持案例来请求增大此限制。如果需要 50 万个以上的对象，则需要购买 Office 365、Azure AD Basic、Azure AD Premium 或 Enterprise Mobility Suite 等许可证。
 
 ### 准备本地数据
@@ -62,7 +62,7 @@ ms.author: billmath
 ### 帐户
 - 要为将要集成的 Azure AD 租户准备 Azure AD 全局管理员帐户。该帐户必须是**学校或组织帐户**，而不能是 **Microsoft 帐户**。
 - 如果使用快速设置或者从 DirSync 升级，必须创建本地 Active Directory 的企业管理员帐户。
-- 如果使用自定义设置安装路径，[帐户应在 Active Directory 中](./connect/active-directory-aadconnect-accounts-permissions.md)。
+- 如果使用自定义设置安装路径，[帐户应在 Active Directory 中](./active-directory-aadconnect-accounts-permissions.md)。
 
 ### 连接 <a name="connectivity"></a>
 - Azure AD Connect 服务器需要 Intranet 和 Internet 的 DNS 解析。DNS 服务器必须能够将名称解析成本地 Active Directory 以及 Azure AD 终结点。
@@ -84,7 +84,7 @@ ms.author: billmath
     </system.net>
     ```
 
-- 如果代理服务器要求身份验证，则[服务帐户](./connect/active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)必须位于域中，且必须使用自定义的设置安装路径来指定[自定义服务帐户](./connect/active-directory-aadconnect-get-started-custom.md#install-required-components)。还需要对 machine.config 进行不同的更改。在 machine.config 中进行此更改之后，安装向导和同步引擎将响应来自代理服务器的身份验证请求。在所有安装向导页中（“配置”页除外）都使用已登录用户的凭据。在安装向导结束时的“配置”页上，上下文将切换到创建的[服务帐户](./connect/active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)。machine.config 节应如下所示。
+- 如果代理服务器要求身份验证，则[服务帐户](./active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)必须位于域中，且必须使用自定义的设置安装路径来指定[自定义服务帐户](./active-directory-aadconnect-get-started-custom.md#install-required-components)。还需要对 machine.config 进行不同的更改。在 machine.config 中进行此更改之后，安装向导和同步引擎将响应来自代理服务器的身份验证请求。在所有安装向导页中（“配置”页除外）都使用已登录用户的凭据。在安装向导结束时的“配置”页上，上下文将切换到创建的[服务帐户](./active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)。machine.config 节应如下所示。
 
     ```
     <system.net>

@@ -20,7 +20,7 @@ ms.author: mbaldwin;bryanla
 
 # 将应用程序与 Azure Active Directory 集成
 
-[!INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 企业开发人员和软件即服务 (SaaS) 提供商可以开发能够与 Azure Active Directory (Azure AD) 集成的商业云服务或业务线应用程序，以针对其服务提供安全的登录和授权。若要将应用程序或服务与 Azure AD 集成，开发人员必须首先通过 Azure 经典管理门户向 Azure AD 注册关于其应用程序的详细信息。
 

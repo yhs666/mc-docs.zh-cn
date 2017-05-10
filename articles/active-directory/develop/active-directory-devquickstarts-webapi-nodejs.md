@@ -19,7 +19,7 @@ ms.author: brandwe
 ---
 
 # 节点 WEB API 入门
-[!INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 **Passport** 是 Node.js 的身份验证中间件。Passport 极其灵活并且采用模块化结构，可以在不造成干扰的情况下放入任何基于 Express 的应用程序或 Resitify Web 应用程序。一套综合性策略支持使用用户名和密码、Facebook、Twitter 等进行身份验证。我们针对 Azure Active directory 开发了一项策略。我们将安装此模块，然后添加 Azure Active Directory `passport-azure-ad` 插件。
 
@@ -32,7 +32,7 @@ ms.author: brandwe
 本教程的代码[在 GitHub 上](https://github.com/Azure-Samples/active-directory-node-webapi)维护。
 
 > [!NOTE]
-> 本文未涵盖如何使用 Azure AD B2C 来实施登录、注册和配置文件管理，而是着重介绍如何在用户已通过身份验证后调用 Web API。如果尚未开始，应该先从[如何与 Azure Active Directory 集成文档](./develop/active-directory-how-to-integrate.md)入手，了解 Azure Active Directory 的基础知识。
+> 本文未涵盖如何使用 Azure AD B2C 来实施登录、注册和配置文件管理，而是着重介绍如何在用户已通过身份验证后调用 Web API。如果尚未开始，应该先从[如何与 Azure Active Directory 集成文档](./active-directory-how-to-integrate.md)入手，了解 Azure Active Directory 的基础知识。
 > 
 > 
 
@@ -47,7 +47,7 @@ ms.author: brandwe
 若要使用本示例，需要一个 Azure Active Directory 租户。如果不确定什么是租户或者如何获取租户，请参阅[如何获取 Azure AD 租户](./active-directory-howto-tenant.md)。
 
 ## 2\.创建应用程序
-你现在需要在目录中创建应用，以便为 Azure AD 提供一些必要信息，让它与应用安全地通信。在此案例中，因为客户端应用和 Web API 会组成一个逻辑应用，所以将由单一**应用程序 ID** 表示。若要创建应用，请遵循[这些说明](./active-directory-how-applications-are-added.md)。如果要生成业务线应用，[这些附加说明可能很有用](./active-directory-applications-guiding-developers-for-lob-applications.md)。
+你现在需要在目录中创建应用，以便为 Azure AD 提供一些必要信息，让它与应用安全地通信。在此案例中，因为客户端应用和 Web API 会组成一个逻辑应用，所以将由单一**应用程序 ID** 表示。若要创建应用，请遵循[这些说明](./active-directory-how-applications-are-added.md)。如果要生成业务线应用，[这些附加说明可能很有用](../active-directory-applications-guiding-developers-for-lob-applications.md)。
 
 请务必：
 
@@ -983,7 +983,7 @@ Transfer-Encoding: chunked
 
 [ADAL for Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 
 <!---HONumber=Mooncake_0120_2017-->
 <!---Update_Description: wording update -->

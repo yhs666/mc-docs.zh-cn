@@ -28,7 +28,6 @@
 ### [When you already have Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Manage Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Renew certs for O365 and Azure AD](active-directory-aadconnect-o365-certs.md)
-### [Enable device writeback](active-directory-aadconnect-feature-device-writeback.md)
 ### [User sign-on options](active-directory-aadconnect-user-signin.md)
 ### [Multiple domain support for federating](active-directory-aadconnect-multiple-domains.md)
 ### [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
@@ -84,14 +83,6 @@
 ### [Azure AD federation compatibility list](active-directory-aadconnect-federation-compatibility.md)
 ### [Technical Concepts](active-directory-aadconnectsync-technical-concepts.md)
 ### [Service features](active-directory-aadconnectsyncservice-features.md)
-
-
-
-
-# Related
-## [Monitor your on-premises identity infrastructure and synchronization services in the cloud](../connect-health/active-directory-aadconnect-health.md)
-## [Hybrid Identity Design Guide](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
-
 
 # Resources
 ##[Azure AD Connect FAQ](active-directory-aadconnect-faq.md)

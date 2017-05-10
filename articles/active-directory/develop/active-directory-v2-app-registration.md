@@ -51,7 +51,7 @@ v2.0 终结点并不支持所有 Azure Active Directory 方案和功能。若要
 ## 生成快速启动应用
 你现在已有 Microsoft 应用，你可以完成我们提供的其中一个 v2.0 快速启动教程。以下是一些建议：
 
-[!INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
 
 <!---HONumber=Mooncake_0206_2017-->
 <!--Update_Description: link update-->

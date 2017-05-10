@@ -87,7 +87,7 @@ Azure AD 直通身份验证为这些客户提供了一种简单的解决方案�
 如果你的防火墙根据发起用户强制实施流量，请针对来自作为网络服务运行的 Windows 服务的流量打开这些端口。此外，请确保为 NT Authority\\System 启用端口 8080。
 
 ## 启用直通身份验证
-通过 Azure AD Connect 启用 Azure AD 直通身份验证。启用直通身份验证可将第一个连接器部署在与 Azure AD Connect 相同的服务器上。安装 Azure AD Connect 时，请选择自定义安装，并在登录选项页中选择直通身份验证。有关详细信息，请参阅 [Azure AD Connect 的自定义安装](./connect/active-directory-aadconnect-get-started-custom.md)。
+通过 Azure AD Connect 启用 Azure AD 直通身份验证。启用直通身份验证可将第一个连接器部署在与 Azure AD Connect 相同的服务器上。安装 Azure AD Connect 时，请选择自定义安装，并在登录选项页中选择直通身份验证。有关详细信息，请参阅 [Azure AD Connect 的自定义安装](./active-directory-aadconnect-get-started-custom.md)。
 
 ![单一登录](./media/active-directory-aadconnect-sso/sso3.png)  
 

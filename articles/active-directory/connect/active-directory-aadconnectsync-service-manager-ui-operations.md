@@ -40,7 +40,7 @@ ms.custom: H1Hack27Feb2017
 
 选择某一行时，底部将更新以显示该运行的详细信息。在底部的最左边，可能会有一份显示“步骤编号”的列表。仅当林中有多个域，而且每个域都以一个步骤表示时，才会显示此列表。你可以在“分区”标题下方找到域名。在“同步统计信息”下方，可以找到有关已处理更改次数的详细信息。可以单击链接获取已更改对象的列表。如果有对象发生错误，这些错误将显示在“同步错误”下方。
 
-有关详细信息，请参阅[排查未同步的对象](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+有关详细信息，请参阅[排查未同步的对象](./active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 
 ## 后续步骤
 了解有关 [Azure AD Connect 同步](./active-directory-aadconnectsync-whatis.md)配置的详细信息。

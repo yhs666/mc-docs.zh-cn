@@ -29,8 +29,8 @@ wacn.date: 02/06/2017
 | **Azure AD Connect 用户登录选项** | |
 | [了解用户登录选项](./active-directory-aadconnect-user-signin.md) |各种用户登录选项以及它们如何影响 Azure 登录的用户体验的说明 |
 | **使用 Azure AD Connect 安装 AD FS** | |
-| [先决条件](./connect/active-directory-aadconnect-get-started-custom.md#ad-fs-configuration-pre-requisites) |通过 Azure AD Connect 成功安装 AD FS 的前提条件 |
-| [配置 AD FS 场](./connect/active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) |如何使用 Azure AD Connect 安装新的 AD FS 场 |
+| [先决条件](./active-directory-aadconnect-get-started-custom.md#ad-fs-configuration-pre-requisites) |通过 Azure AD Connect 成功安装 AD FS 的前提条件 |
+| [配置 AD FS 场](./active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) |如何使用 Azure AD Connect 安装新的 AD FS 场 |
 | **修改 AD FS 配置** | |
 | [修复信任](./active-directory-aadconnect-federation-management.md#repairthetrust) |如何修复当前本地 AD FS 和 Office 365/Azure 之间的信任 |
 | [添加新的 AD FS 服务器](./active-directory-aadconnect-federation-management.md#addadfsserver) |初始安装后，使用其他 AD FS 服务器扩展 AD FS 场 |
@@ -44,6 +44,6 @@ wacn.date: 02/06/2017
 ## 其他资源
 - [将本地标识与 Azure Active Directory 集成](./active-directory-aadconnect.md)
 - [Azure 中的 AD FS 部署](./active-directory-aadconnect-azure-adfs.md)
-- [使用 Azure 流量管理器在 Azure 中部署高可用性跨地域 AD FS](./active-directory-adfs-in-azure-with-azure-traffic-manager.md)
+- [使用 Azure 流量管理器在 Azure 中部署高可用性跨地域 AD FS](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
 <!---HONumber=Mooncake_Quality_Review_0125_2017-->

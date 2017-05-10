@@ -19,7 +19,7 @@ ms.author: brandwe
 ---
 
 # 通过 Azure AD 实现 Java Web 应用登录和注销
-[!INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 使用 Azure Active Directory (Azure AD)，只需通过编写几行代码来提供单一登录和注销，就能简单外包 Web 应用的标识管理。可通过使用社区驱动的、用于 Java 的 Azure Active Directory 身份验证库 (ADAL4J) 的 Microsoft 实现，将用户登入和登出 Java Web 应用。
 

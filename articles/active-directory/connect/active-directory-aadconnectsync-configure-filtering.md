@@ -42,7 +42,7 @@ Microsoft 不支持在正式记录的这些操作之外修改或操作 Azure AD 
 
 为了防止意外删除许多对象，默认情况下已打开[防止意外删除](./active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)功能。如果由于筛选而删除了许多对象（默认为 500 个），则需要遵循本文中的步骤来允许将删除结果传播到 Azure AD。
 
-如果使用 2015 年 11 月 ([1\.0.9125](./active-directory-aadconnect-version-history.md#1091250)) 之前的内部版本、更改筛选器配置或使用密码同步，则在完成配置之后，需要触发所有密码的完全同步。有关如何触发密码完全同步的步骤，请参阅[触发所有密码的完全同步](./connect/active-directory-aadconnectsync-troubleshoot-password-synchronization.md#trigger-a-full-sync-of-all-passwords)。如果使用内部版本 1.0.9125 或更高版本，则常规的**完全同步**操作也会计算是否应同步密码，因此不再需要执行这个额外的步骤。
+如果使用 2015 年 11 月 ([1\.0.9125](./active-directory-aadconnect-version-history.md#1091250)) 之前的内部版本、更改筛选器配置或使用密码同步，则在完成配置之后，需要触发所有密码的完全同步。有关如何触发密码完全同步的步骤，请参阅[触发所有密码的完全同步](./active-directory-aadconnectsync-troubleshoot-password-synchronization.md#trigger-a-full-sync-of-all-passwords)。如果使用内部版本 1.0.9125 或更高版本，则常规的**完全同步**操作也会计算是否应同步密码，因此不再需要执行这个额外的步骤。
 
 如果在 Azure AD 中由于筛选错误导致**用户**对象被无意中删除，可以通过删除筛选配置，在 Azure AD 中重新创建用户对象，然后再次同步目录。此操作可以从 Azure AD 的回收站中还原用户。但是，无法取消删除其他对象类型。例如，如果意外删除了某个安全组，而该组用于将资源加入 ACL，则无法恢复该组及其 ACL。
 
@@ -71,7 +71,7 @@ Azure AD Connect 只删除其曾经认为在范围中的对象。如果 Azure AD
 ## 筛选选项
 可将以下筛选配置类型应用到目录同步工具：
 
-- [**基于组**](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)：初始安装时只能使用安装向导配置基于单个组的筛选。本文不会进一步介绍此操作。
+- [**基于组**](./active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)：初始安装时只能使用安装向导配置基于单个组的筛选。本文不会进一步介绍此操作。
 - [**基于域**](#domain-based-filtering)：使用此选项可以选择要将哪些域同步到 Azure AD。在安装 Azure AD Connect 同步之后对本地基础结构进行更改时，还可以在同步引擎配置中添加和删除域。
 - [**基于组织单位 (OU)**](#organizational-unitbased-filtering)：使用此选项可以选择要将哪些 OU 同步到 Azure AD。将对所选 OU 中的所有对象类型应用此选项。
 - [**基于属性**](#attribute-based-filtering)：使用此选项可根据对象属性值筛选对象。你也可以对不同的对象类型使用不同的筛选器。
@@ -81,7 +81,7 @@ Azure AD Connect 只删除其曾经认为在范围中的对象。如果 Azure AD
 ## 基于域的筛选 <a name="domain-based-filtering"></a>
 本部分提供配置域筛选器时需要执行的步骤。如果安装 Azure AD Connect 之后在林中添加或删除了域，则也必须更新筛选配置。
 
-更改基于域的筛选的首选方法是运行安装向导并更改[域和 OU 筛选](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)。使用安装向导可以自动完成本主题中所述的所有任务。
+更改基于域的筛选的首选方法是运行安装向导并更改[域和 OU 筛选](./active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)。使用安装向导可以自动完成本主题中所述的所有任务。
 
 仅当出于某种原因而无法运行安装向导时，才遵循以下步骤。
 
@@ -132,7 +132,7 @@ Azure AD Connect 只删除其曾经认为在范围中的对象。如果 Azure AD
 5.  若要完成配置，需要运行**完全导入**和**增量同步**。请继续阅读[应用并检查更改](#apply-and-verify-changes)部分。
 
 ## 基于组织单位的筛选 <a name="organizational-unitbased-filtering"></a>
-更改基于 OU 的筛选的首选方法是运行安装向导并更改[域和 OU 筛选](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)。使用安装向导可以自动完成本主题中所述的所有任务。
+更改基于 OU 的筛选的首选方法是运行安装向导并更改[域和 OU 筛选](./active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)。使用安装向导可以自动完成本主题中所述的所有任务。
 
 仅当出于某种原因而无法运行安装向导时，才遵循以下步骤。
 

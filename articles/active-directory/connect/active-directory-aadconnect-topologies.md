@@ -175,7 +175,7 @@ Azure AD 租户在设计上是隔离的。不支持以下任务：
 可以使用本地 FIM 2010 或 MIM 2016 在两个 Exchange 组织之间同步用户（通过 GALSync）。一个组织中的用户将显示为另一组织中的外部用户/联系人。这些不同的本地 Active Directory 实例可与其自身的 Azure AD 租户同步。
 
 ## 后续步骤
-若要了解如何为这些方案安装 Azure AD Connect，请参阅[Azure AD Connect 的自定义安装](./connect/active-directory-aadconnect-get-started-custom.md)。
+若要了解如何为这些方案安装 Azure AD Connect，请参阅[Azure AD Connect 的自定义安装](./active-directory-aadconnect-get-started-custom.md)。
 
 了解有关 [Azure AD Connect 同步](./active-directory-aadconnectsync-whatis.md)配置的详细信息。
 

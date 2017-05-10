@@ -79,7 +79,7 @@ Azure AD Connect 可让用户使用同一组密码登录云和本地资源。本
 - 要部署 Web 应用程序代理角色的任何工作组（未加入域）服务器上的本地管理员凭据。
 - 执行向导的计算机必须能够通过 Windows 远程管理连接到要安装 AD FS 或 Web 应用程序代理的任何其他计算机。
 
-[使用 AD FS 配置 SSO](./connect/active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+[使用 AD FS 配置 SSO](./active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 
 #### 使用早期版本的 AD FS 或第三方解决方案登录
 如果你已使用早期版本的 AD FS（例如 AD FS 2.0）或第三方联合身份验证提供者配置了云登录，则可以通过 Azure AD Connect 选择跳过用户登录配置。这样，你便可以获取最新的同步和 Azure AD Connect 的其他功能，同时仍可使用现有的解决方案进行登录。
@@ -134,7 +134,7 @@ UserPrincipalName - 属性 userPrincipalName 是用户登录 Azure AD 和 Office
 | 已验证 |在这种情况下，我们已在 Azure AD 中为 UPN 后缀添加并验证自定义域 contoso.com。用户可以使用其本地用户主体名（例如 user@contoso.com），在其同步到 Azure AD 之后登录到 Azure |
 
 ###### AD FS 联合
-你无法与 Azure AD 中的默认 .partner.onmschina.cn 域或 Azure AD 中未验证的自定义域创建联合。当你运行 Azure AD Connect 向导时，如果选择要与未验证的域创建联合，Azure AD Connect 将发出提示，并提供要创建的、包含域 DNS 托管位置的所需记录。有关详细信息，请参阅[此文](./connect/active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation)。
+你无法与 Azure AD 中的默认 .partner.onmschina.cn 域或 Azure AD 中未验证的自定义域创建联合。当你运行 Azure AD Connect 向导时，如果选择要与未验证的域创建联合，Azure AD Connect 将发出提示，并提供要创建的、包含域 DNS 托管位置的所需记录。有关详细信息，请参阅[此文](./active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation)。
 
 如果选择的用户登录选项为“与 AD FS 联合”，则必须有一个自定义域才能继续在 Azure AD 中创建联合。在我们的介绍中，这意味着应在 Azure AD 目录中添加自定义域 contoso.com。
 
