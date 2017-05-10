@@ -33,7 +33,7 @@ ms.lasthandoff: 04/22/2017
 可以根据监视指标或事件接收 Azure 服务的警报。
 
 - **指标值** - 当指定指标的值在任一方向越过了指定的阈值时警报将触发。 也就是说，当条件先是满足以及之后不再满足该条件时，警报都会触发。    
-- **活动日志事件** - 警报可以在发生每个事件时都触发，也可以仅在发生特定数量的事件时触发。 若要详细了解活动日志警报，请[单击此处](./monitoring-activity-log-alerts.md)
+- **活动日志事件** - 警报可以在发生每个事件时都触发，也可以仅在发生特定数量的事件时触发。 
 
 可以配置指标警报，在其触发时执行以下操作：
 
@@ -136,7 +136,7 @@ ms.lasthandoff: 04/22/2017
 
 * [获取 Azure 监视概述](./monitoring-overview.md)，包括可收集和监视的信息的类型。
 * 了解[在警报中配置 Webhook](./insights-webhooks-alerts.md)的详细信息。
-* 详细了解[针对活动日志事件配置警报](./monitoring-activity-log-alerts.md)。
+
 * 了解关于 [Azure 自动化 Runbook](../automation/automation-starting-a-runbook.md) 的详细信息。
-* 获取[收集诊断日志概述](./monitoring-overview-of-diagnostic-logs.md)以收集有关服务的详细高频率指标。
+
 * 获取[指标集合概述](./insights-how-to-customize-monitoring.md)以确保你的服务可用且响应迅速。

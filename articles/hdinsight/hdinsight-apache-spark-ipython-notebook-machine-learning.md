@@ -51,7 +51,7 @@ ms.author: nitinme
 
     > [!NOTE]
     > 也可以在浏览器中打开以下 URL 访问群集的 Jupyter 笔记本。将 __CLUSTERNAME__ 替换为群集的名称：
-    ><p>
+    >
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
 
 2. 创建新笔记本。单击“新建”，然后单击“PySpark”。

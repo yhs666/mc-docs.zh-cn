@@ -25,9 +25,9 @@ ms.lasthandoff: 04/06/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-classic-management-portal-classic"></a>使用经典管理门户配置与 VNet 的点到站点连接（经典）
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure 门户预览版](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Resource Manager - Azure 门户预览](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [经典 - Azure 门户预览版](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [经典 - Azure 门户预览](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 > * [经典 - 经典管理门户](vpn-gateway-point-to-site-create.md)
 > 
 > 
@@ -58,7 +58,7 @@ ms.lasthandoff: 04/06/2017
 开始之前，请确保你拥有 Azure 订阅。 如果你还没有 Azure 订阅，可以激活 [MSDN 订户权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)或注册获取[免费帐户](https://azure.microsoft.com/pricing/1rmb-trial)。
 
 ### <a name="part-1-create-a-virtual-network"></a>第 1 部分：创建虚拟网络
-1. 登录到 [Azure 经典管理门户](https://manage.windowsazure.cn)。 这些步骤使用经典管理门户而不是 Azure 门户预览版。 目前无法使用 Azure 门户预览版创建 P2S 连接。
+1. 登录到 [Azure 经典管理门户](https://manage.windowsazure.cn)。 这些步骤使用经典管理门户而不是 Azure 门户预览。 目前无法使用 Azure 门户预览创建 P2S 连接。
 2. 在屏幕左下角，单击“新建”。 在导航窗格中，单击“网络服务”，然后单击“虚拟网络”。 单击“自定义创建”以启动配置向导  。
 3. 在“虚拟网络详细信息”  页上，输入以下信息，然后单击右下角的“下一步”箭头。
 

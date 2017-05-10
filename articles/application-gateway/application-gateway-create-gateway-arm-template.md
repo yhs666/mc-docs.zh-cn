@@ -167,7 +167,7 @@ New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroup
 
 运行 **azure config mode** 命令切换到 Resource Manager 模式，如以下代码片段中所示。
 
-```
+```azurecli
 azure config mode arm
 ```
 
@@ -181,7 +181,7 @@ info:    New mode is arm
 
 如有必要，请运行 **azure group create** 命令创建新资源组，如以下代码片段中所示。请注意命令的输出。在输出后显示的列表说明了所使用的参数。有关资源组的详细信息，请访问 [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)（Azure Resource Manager 概述）。
 
-```
+```azurecli
 azure group create -n appgatewayRG -l chinaeast
 ```
 
@@ -193,7 +193,7 @@ azure group create -n appgatewayRG -l chinaeast
 
 运行 **azure group deployment create** cmdlet，使用上述步骤中下载并修改的模板和参数文件部署新虚拟网络。输出后显示的列表阐释了所用参数。
 
-```
+```azurecli
 azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 ```
 

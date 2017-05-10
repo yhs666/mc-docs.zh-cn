@@ -13,15 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2017
-wacn.date: 
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: b1feef703e0871ec1e1ce77872923e44116fb86c
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
+ms.openlocfilehash: ef95cfdd45b18eb38d8c5b446fa47a1c5a2038b7
+ms.lasthandoff: 04/28/2017
+
 
 ---
-
 # <a name="send-and-receive-messages-with-iot-hub"></a>使用 IoT 中心发送和接收消息
 ## <a name="overview"></a>概述
 IoT 中心提供了用于与设备通信的以下消息传送基元：
@@ -192,7 +191,7 @@ IoT 中心还支持用户管理内置设备到云接收终结点上的使用者�
 | --- | --- |
 | EnqueuedTimeUtc |指示消息结果出现时的时间戳。 例如，设备已完成或消息已过期。 |
 | OriginalMessageId |**MessageId** 。 |
-| StatusCode |必须是整数。 在 IoT 中心生成的反馈消息中使用。 <br/> 0 = 成功 <br/> 1 = 消息过期 <br/> 2 = 超过最大传送数 <br/> 3 = 消息已被拒绝 |
+| StatusCode |必需的字符串。 在 IoT 中心生成的反馈消息中使用。 <br/> “Success” <br/> “Expired” <br/> “DeliveryCountExceeded” <br/> “Rejected” <br/> “Purged” |
 | 说明 |**StatusCode**的字符串值。 |
 | deviceId |**DeviceId** 。 |
 | DeviceGenerationId |**DeviceGenerationId** 。 |
@@ -330,6 +329,8 @@ IoT 中心允许设备使用 [MQTT][lnk-mqtt]、基于 WebSocket 的 MQQT、[AMQ
 
 > [!NOTE]
 > 使用 HTTP 时，每台设备应每 25 分钟或更长时间轮询一次云到设备消息。 但在开发期间，可按低于 25 分钟的更高频率进行轮询。
+> 
+> 
 
 ## <a name="port-numbers"></a>端口号
 设备可在 Azure 中使用各种协议来与 IoT 中心通信。 通常，选择的协议根据解决方案的具体要求而定。 下表列出了必须打开的、使设备能够使用特定协议的出站端口：
@@ -358,10 +359,10 @@ IoT 中心实现 MQTT v3.1.1 协议，但具有以下限制和特定行为：
 ## <a name="additional-reference-material"></a>其他参考资料
 IoT 中心开发人员指南中的其他参考主题包括：
 
-* [IoT 中心终结点][lnk-endpoints] ，介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
-* [限制和配额][lnk-quotas] ，说明了适用于 IoT 中心服务的配额，以及使用服务时预期会碰到的限制行为。
-* [Azure IoT 设备和服务 SDK][lnk-sdks] ，列出了在开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
-* [设备孪生和作业的 IoT 中心查询语言][lnk-query] ，介绍了在 IoT 中心检索设备孪生和作业相关信息时可使用的 IoT 中心查询语言。
+* [IoT 中心终结点][lnk-endpoints]，介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
+* [限制和配额][lnk-quotas]，说明了适用于 IoT 中心服务的配额，以及使用服务时预期会碰到的限制行为。
+* [Azure IoT 设备和服务 SDK][lnk-sdks]，列出了在开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
+* [设备孪生和作业的 IoT 中心查询语言][lnk-query]，介绍了在 IoT 中心检索设备孪生和作业相关信息时可使用的 IoT 中心查询语言。
 * [IoT 中心 MQTT 支持][lnk-devguide-mqtt] 提供有关 IoT 中心对 MQTT 协议的支持的详细信息。
 
 ## <a name="next-steps"></a>后续步骤

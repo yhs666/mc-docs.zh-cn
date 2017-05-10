@@ -46,9 +46,9 @@ ms.author: larryfr
 
 > [!NOTE]
 使用 Curl 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须提供 HDInsight 群集的管理员用户名和密码对请求进行身份验证。此外，还必须使用群集名称作为用来向服务器发送请求的统一资源标识符 (URI) 的一部分。
-><p> 
+> 
 > 对于本部分中的命令，请将 **USERNAME** 替换为对群集进行身份验证的用户，并将 **PASSWORD** 替换为用户帐户的密码。将 **CLUSTERNAME** 替换为群集名称。
-><p> 
+> 
 > REST API 通过[基本访问身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。你始终应该使用安全 HTTP (HTTPS) 发出请求，以帮助确保安全地将凭据发送到服务器。
 
 1. 在命令行中，使用以下命令验证你是否可以连接到 HDInsight 群集。
@@ -108,7 +108,7 @@ ms.author: larryfr
 
 在作业的状态更改为 **SUCCEEDED** 时，你可以从群集使用的默认存储中检索作业的结果。随查询一起传递的 `statusdir` 参数包含输出文件的位置；在本例中为 **/example/pigcurl**。
 
-HDInsight 的后备存储可以是 Azure 存储，有多种方法可以找到数据，具体取决于所使用的存储。有关如何使用 Azure 存储的详细信息，请参阅 HDInsight on Linux 文档的 [HDFS 和 Blob 存储](./hdinsight-hadoop-linux-information.md#hdfs-blob-storage-and-data-lake-store) 部分。
+HDInsight 的后备存储可以是 Azure 存储，有多种方法可以找到数据，具体取决于所使用的存储。有关如何使用 Azure 存储的详细信息，请参阅 HDInsight on Linux 文档的 [HDFS 和 Blob 存储](./hdinsight-hadoop-linux-information.md#hdfs-and-azure-storage) 部分。
 
 ## <a id="summary"></a>摘要
 

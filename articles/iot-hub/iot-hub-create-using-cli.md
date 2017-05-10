@@ -8,20 +8,18 @@ manager: timlt
 editor: 
 ms.assetid: 
 ms.service: iot-hub
-ms.devlang: multiple
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2017
-wacn.date: 
+ms.date: 03/23/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 99dc90d9cb29730726876404e849119f1db73fc9
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
+ms.openlocfilehash: 5cf453781736a41a4db49d68c21a5da1257d227e
+ms.lasthandoff: 04/28/2017
 
 ---
-
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建 IoT 中心
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -42,10 +40,10 @@ ms.lasthandoff: 04/07/2017
 
 ## <a name="sign-in-and-set-your-azure-account"></a>登录并设置 Azure 帐户
 
-登录 Azure 帐户，并将 Azure CLI 配置为与 IoT 中心资源配合使用。
+登录到 Azure 帐户，然后选择订阅。
 
 1. 在命令提示符中，运行 [login 命令][lnk-login-command]：
-
+    
     ```azurecli
     az login
     ```
@@ -53,7 +51,7 @@ ms.lasthandoff: 04/07/2017
     按照说明使用代码进行身份验证，并通过 Web 浏览器登录 Azure 帐户。
 
 2. 如果有多个 Azure 订阅，登录 Azure 可获得与凭据关联的所有 Azure 帐户的访问权限。 使用以下 [命令，列出可供使用的 Azure 帐户][lnk-az-account-command] ：
-
+    
     ```azurecli
     az account list 
     ```
@@ -97,7 +95,7 @@ ms.lasthandoff: 04/07/2017
 若要删除 IoT 中心，请运行以下命令：
 
 ```azurecli
-az resource delete --name {your iot hub name} --resource-group {your resource group name} --resource-type Microsoft.Devices/IotHubs
+az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
 若要删除资源组及其所有资源，请运行以下命令：

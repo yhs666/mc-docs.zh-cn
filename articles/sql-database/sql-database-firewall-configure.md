@@ -30,7 +30,7 @@ Azure SQL 数据库为 Azure 和其他基于 Internet 的应用程序提供关�
 
 若要配置你的防火墙，请创建防火墙规则，以指定可接受的 IP 地址的范围。 可以在服务器和数据库级上创建防火墙规则。
 
-* **服务器级防火墙规则** ：这些规则允许客户端访问整个 Azure SQL Server，即同一逻辑服务器内的所有数据库。 这些规则存储在 **master** 数据库中。 可以通过使用门户或 Transact-SQL 语句配置服务器级防火墙规则。 若要使用 Azure 门户预览版或 PowerShell 创建服务器级防火墙规则，你必须是订阅所有者或订阅参与者。 若要使用 Transact-SQL 创建服务器级防火墙规则，你必须以服务器级主体登录用户或 Azure Active Directory 管理员身份连接到 SQL 数据库实例（这意味着，必须先由具有 Azure 级权限的用户创建服务器级防火墙规则）。
+* **服务器级防火墙规则** ：这些规则允许客户端访问整个 Azure SQL Server，即同一逻辑服务器内的所有数据库。 这些规则存储在 **master** 数据库中。 可以通过使用门户或 Transact-SQL 语句配置服务器级防火墙规则。 若要使用 Azure 门户预览或 PowerShell 创建服务器级防火墙规则，你必须是订阅所有者或订阅参与者。 若要使用 Transact-SQL 创建服务器级防火墙规则，你必须以服务器级主体登录用户或 Azure Active Directory 管理员身份连接到 SQL 数据库实例（这意味着，必须先由具有 Azure 级权限的用户创建服务器级防火墙规则）。
 * **数据库级防火墙规则**：这些规则允许客户端访问 Azure SQL 数据库服务器内的各个数据库。 可以为每个数据库创建这些规则，它们将存储在单独的数据库中。 （可为 **master** 数据库创建数据库级防火墙规则。）这些规则可以用来将访问限制为同一逻辑服务器内的某些（安全）数据库。 只能通过使用 Transact-SQL 语句配置数据库级防火墙规则。
 
    > [!NOTE]
@@ -77,7 +77,7 @@ Azure SQL 数据库为 Azure 和其他基于 Internet 的应用程序提供关�
 
 ## <a name="creating-the-first-server-level-firewall-rule"></a>创建第一个服务器级防火墙规则
 
-第一个服务器级防火墙设置可以使用 [Azure 门户预览版](https://portal.azure.cn/)进行创建，也可以使用 REST API 或 Azure PowerShell 通过编程方式创建。 后续的服务器级防火墙规则可以使用这些方法和通过 Transact-SQL 创建和管理。 为了提高性能，会暂时在数据库级别缓存服务器级防火墙规则。 若要刷新高速缓存，请参阅 [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx)。 有关服务器级防火墙规则的详细信息，请参阅[如何：使用 Azure 门户预览版配置 Azure SQL Server 防火墙](sql-database-configure-firewall-settings.md)。
+第一个服务器级防火墙设置可以使用 [Azure 门户预览](https://portal.azure.cn/)进行创建，也可以使用 REST API 或 Azure PowerShell 通过编程方式创建。 后续的服务器级防火墙规则可以使用这些方法和通过 Transact-SQL 创建和管理。 为了提高性能，会暂时在数据库级别缓存服务器级防火墙规则。 若要刷新高速缓存，请参阅 [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx)。 有关服务器级防火墙规则的详细信息，请参阅[如何：使用 Azure 门户预览配置 Azure SQL Server 防火墙](sql-database-configure-firewall-settings.md)。
 
 ## <a name="creating-database-level-firewall-rules"></a>创建数据库级防火墙规则
  在你配置第一个服务器级防火墙之后，你可能希望限制对特定数据库的访问。 如果你在数据库级防火墙规则中指定的 IP 地址范围超出了在服务器级防火墙规则中指定的范围，则客户端若要访问数据库，其 IP 地址必须处于数据库级范围内。 对于每个数据库，最多可以有 128 个数据库级防火墙规则。 可以通过 Transact-SQL 创建和管理 master 数据库和用户数据库的数据库级防火墙规则。 有关配置数据库级防火墙规则的详细信息，请参阅 [sp_set_database_firewall_rule（Azure SQL 数据库）](https://msdn.microsoft.com/library/dn270010.aspx)。
@@ -149,7 +149,7 @@ Azure SQL 数据库为 Azure 和其他基于 Internet 的应用程序提供关�
 ## <a name="next-steps"></a>后续步骤
 有关如何创建服务器级和数据库级防火墙规则的文章，请参阅：
 
-* [使用 Azure 门户预览版配置 Azure SQL 数据库服务器级防火墙规则](sql-database-configure-firewall-settings.md)
+* [使用 Azure 门户预览配置 Azure SQL 数据库服务器级防火墙规则](sql-database-configure-firewall-settings.md)
 * [使用 T-SQL 配置 Azure SQL 数据库服务器级和数据库级防火墙规则](sql-database-configure-firewall-settings-tsql.md)
 * [使用 PowerShell 配置 Azure SQL 数据库服务器级防火墙规则](sql-database-configure-firewall-settings-powershell.md)
 * [使用 REST API 配置 Azure SQL 数据库服务器级防火墙规则](sql-database-configure-firewall-settings-rest.md)

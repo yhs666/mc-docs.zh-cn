@@ -26,26 +26,26 @@ ms.lasthandoff: 04/22/2017
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>将虚拟网络连接到 ExpressRoute 线路
 
 > [!div class="op_single_selector"]
->- [Resource Manager - Azure 门户](./expressroute-howto-linkvnet-portal-resource-manager.md/)
->- [Resource Manager - PowerShell](./expressroute-howto-linkvnet-arm.md/)
->- [经典 - PowerShell](./expressroute-howto-linkvnet-classic.md/)
+>- [Resource Manager - Azure 门户](./expressroute-howto-linkvnet-portal-resource-manager.md)
+>- [Resource Manager - PowerShell](./expressroute-howto-linkvnet-arm.md)
+>- [经典 - PowerShell](./expressroute-howto-linkvnet-classic.md)
 
 本文通过使用 Resource Manager 部署模型和 Azure 门户，帮助将虚拟网络 (VNets) 链接到 Azure ExpressRoute 线路。 虚拟网络可以在同一个订阅中，也可以属于另一个订阅。
 
 ## <a name="before-you-begin"></a>开始之前
 
-- 在开始配置之前，请查看[先决条件](./expressroute-prerequisites.md/)、[路由要求](./expressroute-routing.md/)和[工作流](./expressroute-workflows.md/)。
+- 在开始配置之前，请查看[先决条件](./expressroute-prerequisites.md)、[路由要求](./expressroute-routing.md)和[工作流](./expressroute-workflows.md)。
 - 必须有活动的 ExpressRoute 线路。 
     - 请按说明[创建 ExpressRoute 线路](./expressroute-howto-circuit-portal-resource-manager.md)，并通过连接提供商启用该线路。
 
-    - 确保为线路配置 Azure 专用对等互连。 有关路由说明，请参阅[配置路由](./expressroute-howto-routing-portal-resource-manager.md/)一文。 
+    - 确保为线路配置 Azure 专用对等互连。 有关路由说明，请参阅[配置路由](./expressroute-howto-routing-portal-resource-manager.md)一文。 
 
     - 确保配置 Azure 专用对等互连，并运行用户网络和 Microsoft 之间的 BGP 对等互连，以便启用端到端连接。
     - 确保已创建并完全预配一个虚拟网络和一个虚拟网络网关。 按照说明[为 ExpressRoute 创建虚拟网关](./expressroute-howto-add-gateway-resource-manager.md)。 ExpressRoute 的虚拟网关使用 GatewayType“ExpressRoute”，而不是 VPN。
 
 - 最多可以将 10 个虚拟网络链接到一条标准 ExpressRoute 线路。 使用标准 ExpressRoute 线路时，所有虚拟网络都必须位于同一地缘政治区域。 
 - 如果已启用 ExpressRoute 高级外接程序，则可以链接 ExpressRoute 线路的地缘政治区域外部的虚拟网络，或者将大量虚拟网络连接到 ExpressRoute 线路。 有关高级外接程序的更多详细信息，请参阅[常见问题](./expressroute-faqs.md)。
-- 如果已启用 ExpressRoute 高级外接程序，则可以链接 ExpressRoute 线路的地缘政治区域外部的虚拟网络，或者将大量虚拟网络连接到 ExpressRoute 线路。 有关高级外接程序的更多详细信息，请参阅[常见问题](./expressroute-faqs.md/)。
+- 如果已启用 ExpressRoute 高级外接程序，则可以链接 ExpressRoute 线路的地缘政治区域外部的虚拟网络，或者将大量虚拟网络连接到 ExpressRoute 线路。 有关高级外接程序的更多详细信息，请参阅[常见问题](./expressroute-faqs.md)。
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>将同一订阅中的虚拟网络连接到线路
 
@@ -144,4 +144,4 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 ExpressRoute 的详细信息，请参阅 [ExpressRoute 常见问题](./expressroute-faqs.md/)。
+有关 ExpressRoute 的详细信息，请参阅 [ExpressRoute 常见问题](./expressroute-faqs.md)。

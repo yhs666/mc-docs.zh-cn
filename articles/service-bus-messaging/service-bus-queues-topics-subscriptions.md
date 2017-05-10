@@ -82,7 +82,7 @@ while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, secon
 
 请注意，如果应用程序在处理消息之后，但在发出 **Complete** 请求之前发生崩溃，则在应用程序重新启动时会将该消息重新传送给它。 此情况通常称作 *至少处理一次* ，即每条消息将至少被处理一次。 但是，在某些情况下，同一消息可能会被重新传送。 如果某个场景不允许重复处理，则应用程序中需要用于检测重复的其他逻辑，此要求可基于消息的 **MessageId** 属性来实现，该属性在多次传送尝试中保持不变。 这称为 *仅一次* 处理。
 
-有关如何创建和将消息发送至队列以及从队列发送消息的详细信息和操作示例说明，请参阅[服务总线中转消息传送 .NET 教程](./service-bus-brokered-tutorial-dotnet.md)。
+有关如何创建和将消息发送至队列以及从队列发送消息的详细信息和操作示例说明，请参阅[服务总线中转消息传送 .NET 教程](./service-bus-dotnet-get-started-with-queues.md)。
 
 ## <a name="topics-and-subscriptions"></a>主题和订阅
 与每条消息都由单个使用方处理的队列相比，主题和订阅通过发布/订阅模式提供“一对多”通信方式。 这对于扩展到大量接收方而言十分有用，每个发布的消息对向该主题注册的每个订阅均可用。 系统会将消息发送到主题并传递到一个或多个相关联的订阅，具体取决于每个订阅上可以设置的筛选规则。 此订阅可以使用其他筛选器来限制其想要接收的消息。 可以采用与发送至队列的相同方式将消息发送至主题，但不可直接从主题接收消息。 而是从订阅接收消息。 主题订阅类似于接收发送至该主题的消息副本的虚拟队列。 从订阅接收消息的方式与从队列接收相同。
@@ -161,7 +161,7 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 有关使用服务总线消息传送的详细信息和示例，请参阅以下高级主题。
 
 - [服务总线消息传送概述](./service-bus-messaging-overview.md)
-- [服务总线中转消息传送 .NET 教程](./service-bus-brokered-tutorial-dotnet.md)
-- [服务总线中转消息传送 REST 教程](./service-bus-brokered-tutorial-rest.md)
+- [服务总线中转消息传送 .NET 教程](./service-bus-dotnet-get-started-with-queues.md)
+- [服务总线中转消息传送 REST 教程](./service-bus-dotnet-get-started-with-queues.md)
 - [主题筛选器示例](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
 - [Brokered Messaging: Advanced Filters sample](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)（中转消息传送：高级筛选器示例）

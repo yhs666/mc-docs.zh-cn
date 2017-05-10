@@ -94,11 +94,11 @@ Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $reso
 ## <a name="create-a-blank-sql-database"></a>创建空的 SQL 数据库
 1. 登录 [Azure 门户预览](https://portal.azure.cn/)。
 2. 转到“新建” > “数据 + 存储” > “SQL 数据库”。
-3. 在新服务器或现有服务器上创建名为 **Clinic** 的**空**数据库。 若要深入了解如何在 Azure 门户预览版中创建数据库，请参阅[你的第一个 Azure SQL 数据库](sql-database-get-started.md)。
+3. 在新服务器或现有服务器上创建名为 **Clinic** 的**空**数据库。 若要深入了解如何在 Azure 门户预览中创建数据库，请参阅[你的第一个 Azure SQL 数据库](sql-database-get-started.md)。
    
     ![创建空数据库](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 
-在本教程中稍后将需要连接字符串，因此在创建数据库后，浏览到新的 Clinic 数据库并复制连接字符串。 你可以在任何时候获取连接字符串，但很容易将其复制到 Azure 门户预览版。
+在本教程中稍后将需要连接字符串，因此在创建数据库后，浏览到新的 Clinic 数据库并复制连接字符串。 你可以在任何时候获取连接字符串，但很容易将其复制到 Azure 门户预览。
 
 1. 转到“SQL 数据库” > “Clinic” > “显示数据库连接字符串”。
 2. 复制 **ADO.NET** 的连接字符串。
@@ -260,7 +260,7 @@ static void InitializeAzureKeyVaultProvider()
 * 将数据插入已加密列。
 * 通过在已加密列中筛选出特定的值来选择记录。
 
-将 **Program.cs** 的内容替换为以下代码。 将 Main 方法前一行中全局 connectionString 变量的连接字符串替换为 Azure 门户预览版中的有效连接字符串。 这是需要对此代码进行的唯一更改。
+将 **Program.cs** 的内容替换为以下代码。 将 Main 方法前一行中全局 connectionString 变量的连接字符串替换为 Azure 门户预览中的有效连接字符串。 这是需要对此代码进行的唯一更改。
 
 运行该应用以在操作中查看始终加密。
 

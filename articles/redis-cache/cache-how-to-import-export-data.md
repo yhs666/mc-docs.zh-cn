@@ -45,7 +45,7 @@ ms.lasthandoff: 04/22/2017
 >
 >
 
-1. 若要导入一个或多个导出的缓存 Blob，请在 Azure 门户预览版中[浏览到你的缓存](cache-configure.md#configure-redis-cache-settings)，然后在“资源菜单”中单击“导入数据”。
+1. 若要导入一个或多个导出的缓存 Blob，请在 Azure 门户预览中[浏览到你的缓存](cache-configure.md#configure-redis-cache-settings)，然后在“资源菜单”中单击“导入数据”。
 
     ![导入数据][cache-import-data]
 2. 单击“选择 Blob”，然后选择包含要导入的数据的存储帐户。
@@ -66,14 +66,14 @@ ms.lasthandoff: 04/22/2017
 
     ![导入][cache-import-blobs]
 
-    可以通过关注 Azure 门户预览版中的通知或查看[审核日志](../azure-resource-manager/resource-group-audit.md)中的事件，来监视导入操作的进度。
+    可以通过关注 Azure 门户预览中的通知或查看[审核日志](../azure-resource-manager/resource-group-audit.md)中的事件，来监视导入操作的进度。
 
     ![导入进度][cache-import-data-import-complete]
 
 ## <a name="export"></a>导出
 使用导出可以将 Azure Redis 缓存中存储的数据导出到与 Redis 兼容的 RDB 文件。 可以使用此功能将一个 Azure Redis 缓存实例中的数据移到另一个 Azure Redis 缓存实例或另一个 Redis 服务器。 在导出过程中，将在托管 Azure Redis 缓存服务器实例的 VM 上创建临时文件，并将该文件上载到指定的存储帐户。 导出操作完成后，无论状态为成功还是失败，都会删除临时文件。
 
-1. 若要将缓存的当前内容导出到存储，请在 Azure 门户预览版中[浏览到你的缓存](cache-configure.md#configure-redis-cache-settings)，然后在“资源菜单”中单击“导出数据”。
+1. 若要将缓存的当前内容导出到存储，请在 Azure 门户预览中[浏览到你的缓存](cache-configure.md#configure-redis-cache-settings)，然后在“资源菜单”中单击“导出数据”。
 
     ![选择存储容器][cache-export-data-choose-storage-container]
 2. 单击“选择存储容器”并选择所需的存储帐户  。 存储帐户必须与你的缓存在同一订阅和区域中。
@@ -91,7 +91,7 @@ ms.lasthandoff: 04/22/2017
 
     ![导出][cache-export-data]
 
-    可以通过关注 Azure 门户预览版中的通知或查看[审核日志](../azure-resource-manager/resource-group-audit.md)中的事件，来监视导出操作的进度。
+    可以通过关注 Azure 门户预览中的通知或查看[审核日志](../azure-resource-manager/resource-group-audit.md)中的事件，来监视导出操作的进度。
 
     ![导出数据完成][cache-export-data-export-complete]
 

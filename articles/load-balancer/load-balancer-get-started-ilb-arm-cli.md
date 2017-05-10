@@ -24,7 +24,7 @@ ms.lasthandoff: 04/07/2017
 
 # <a name="create-an-internal-load-balancer-by-using-the-azure-cli"></a>使用 Azure CLI 创建内部负载均衡器
 > [!div class="op_single_selector"]
-> * [Azure 门户预览版](./load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure 门户预览](./load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](./load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](./load-balancer-get-started-ilb-arm-cli.md)
 > * [模板](./load-balancer-get-started-ilb-arm-template.md)

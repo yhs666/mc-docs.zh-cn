@@ -107,7 +107,7 @@ Azure IoT 中心会实现 [服务辅助通信][lnk-service-assisted-pattern] 模
 [lnk-gateway]: ./iot-hub-protocol-gateway.md
 [lnk-field-gateway]: ./iot-hub-devguide-endpoints.md#field-gateways
 [lnk-devguide-identityregistry]: ./iot-hub-devguide-identity-registry.md
-[lnk-devguide-security]: ./iot-hub-devguide.md#security
+[lnk-devguide-security]: ./iot-hub-devguide-security.md
 [lnk-wns]: https://msdn.microsoft.com/zh-cn/library/windows/apps/mt187203.aspx
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9

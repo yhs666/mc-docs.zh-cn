@@ -206,7 +206,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 [Azure IoT Hub developer guide - Device to cloud]: ./iot-hub-devguide-messaging.md
 
 [Azure 存储]: ../storage/index.md
-[Azure 服务总线]: ../service-bus/index.md
+[Azure 服务总线]: ../service-bus-messaging/index.md
 
 [IoT 中心开发人员指南]: ./iot-hub-devguide.md
 [lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md

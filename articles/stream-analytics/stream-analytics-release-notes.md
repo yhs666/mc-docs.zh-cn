@@ -76,7 +76,7 @@ ms.lasthandoff: 04/07/2017
 | 标题 | 说明 |
 | --- | --- |
 | Azure IoT 套件公共预览版 |流分析包含在 Azure IoT 套件的公共预览版中。 |
-| Azure 门户集成 |除了在 Azure 管理门户中继续存在，流分析现在还集成在 [Azure 门户](http://portal.azure.cn)中。 请注意，门户预览版中的流分析功能目前是 Azure 管理门户中提供的功能子集，不支持浏览器内查询测试、Power BI 输出配置，以及在有权访问的订阅中浏览到或新建输入和输出资源。 |
+| Azure 门户集成 |除了在 Azure 管理门户中继续存在，流分析现在还集成在 [Azure 门户](http://portal.azure.cn)中。 请注意，门户预览中的流分析功能目前是 Azure 管理门户中提供的功能子集，不支持浏览器内查询测试、Power BI 输出配置，以及在有权访问的订阅中浏览到或新建输入和输出资源。 |
 | 支持 DocumentDB 输出 |流分析作业现在可以输出到 [DocumentDB](https://www.azure.cn/home/features/documentdb/)。 |
 | 支持 IoT 中心输入 |流分析作业现在可以采集来自 IoT 中心的数据。 |
 | 用于异类事件的 TIMESTAMP BY |当单个数据流中包含多个其时间戳在不同字段中的事件类型时，你现在可以对表达式使用 [TIMESTAMP BY](http://msdn.microsoft.com/zh-cn/library/mt573293.aspx) ，以为每个用例指定不同时间戳字段。 |

@@ -61,7 +61,7 @@ HDInsight 使用各种 Hadoop 组件。有关已获得验证和支持的组件�
 
     > [!NOTE]
     如果在将 JAR 文件部署到 HDInsight 群集或调用 HDInsight 群集上的 JAR 文件时遇到问题，请联系 [Azure.cn 技术支持](https://www.azure.cn/support/contact/)。
-    ><p>
+    >
     > Cascading 不受 HDInsight 支持，因此不符合 Azure.cn 技术支持的条件。有关支持的组件列表，请参阅 [HDInsight 提供的群集版本有哪些新功能](./hdinsight-component-versioning.md)。
     >
     >
