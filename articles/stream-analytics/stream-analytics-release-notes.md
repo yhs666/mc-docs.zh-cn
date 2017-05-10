@@ -33,13 +33,9 @@ ms.lasthandoff: 04/07/2017
 | 诊断日志记录简介 |[诊断日志记录](/documentation/articles/stream-analytics-job-diagnostic-logs/) 现在已发布，因此故障诊断选项更多。 |
 | 引入了地理空间函数 |[地理空间函数](http://msdn.microsoft.com/zh-cn/library/mt778980(Azure.100).aspx)现已推出正式版。 |
 
+<!-- Not supported in Azure.cn
 ## <a name="notes-for-04152016-release-of-stream-analytics"></a>流分析 04/15/2016 版说明
-此版本包含以下更新。
-
-| 标题 | 说明 |
-| --- | --- |
-| Power BI 输出的公开发行版 |[Power BI 输出](./stream-analytics-power-bi-dashboard.md)现已正式发布。 Power BI 的 90 天授权有效期已去除。 有关需要续订授权的方案的详细信息，请参阅创建 Power BI 仪表板的“续订授权”[](./stream-analytics-power-bi-dashboard.md#renew-authorization)部分。 |
-
+-->
 ## <a name="notes-for-03032016-release-of-stream-analytics"></a>流分析 03/03/2016 版说明
 此版本包含以下更新。
 
@@ -84,15 +80,14 @@ ms.lasthandoff: 04/07/2017
 | 支持 DocumentDB 输出 |流分析作业现在可以输出到 [DocumentDB](https://www.azure.cn/home/features/documentdb/)。 |
 | 支持 IoT 中心输入 |流分析作业现在可以采集来自 IoT 中心的数据。 |
 | 用于异类事件的 TIMESTAMP BY |当单个数据流中包含多个其时间戳在不同字段中的事件类型时，你现在可以对表达式使用 [TIMESTAMP BY](http://msdn.microsoft.com/zh-cn/library/mt573293.aspx) ，以为每个用例指定不同时间戳字段。 |
-
+<!-- Not supported in Azure.cn -->
+<!--
 ## <a name="notes-for-09102015-release-of-stream-analytics"></a>流分析 09/10/2015 版说明
-
 此版本包含以下更新。
-
 | 标题 | 说明 |
 | --- | --- |
 | 支持 PowerBI 组 |为了实现与其他 Power BI 用户共享数据，流分析作业现在可以写入到 Power BI 帐户中的 [PowerBI 组](./stream-analytics-define-outputs.md#power-bi)。 |
-
+-->
 ## <a name="notes-for-08202015-release-of-stream-analytics"></a>流分析 08/20/2015 版说明
 
 此版本包含以下更新。
@@ -108,9 +103,9 @@ ms.lasthandoff: 04/07/2017
 
 | 标题 | 说明 |
 | --- | --- |
-| Power BI Org Id 与 Azure Id 脱偶联 |此功能允许任何 Azure 帐户类型（Live Id 或 Org Id）下任何 ASA 作业的 [Power BI 输出](./stream-analytics-power-bi-dashboard.md)。 此外，你还可以将一个 Org Id 用于 Azure 帐户，将另一个用于 Power BI 输出的授权。 |
+<!-- Not supported in Azure.cn | Power BI Org Id 与 Azure Id 脱偶联 |此功能允许任何 Azure 帐户类型（Live Id 或 Org Id）下任何 ASA 作业的 [Power BI 输出](./stream-analytics-power-bi-dashboard.md)。 此外，你还可以将一个 Org Id 用于 Azure 帐户，将另一个用于 Power BI 输出的授权。 |-->
 | 支持 Service Bus 队列输出 |[服务总线队列](./stream-analytics-define-outputs.md#service-bus-queues)输出现可用于流分析作业。 |
-| 支持服务总线主题输出 |[服务总线主题](./stream-analytics-define-outputs.md#service-bus-topics)输出现在可用于流分析作业。 |
+<!-- Not supported in Azure.cn | 支持服务总线主题输出 |[服务总线主题](./stream-analytics-define-outputs.md#service-bus-topics)输出现在可用于流分析作业。 | -->
 
 ## <a name="notes-for-07092015-release-of-stream-analytics"></a>流分析 07/09/2015 版说明
 此版本包含以下更新。
