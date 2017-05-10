@@ -33,9 +33,9 @@ ms.author: larryfr
 
 > [!IMPORTANT]
 虽然本文档中的步骤依赖于带 Visual Studio 的 Windows 开发环境，但是也可将编译的项目提交到基于 Linux 或 Windows 的 HDInsight 群集。__仅在 2016 年 10 月 28 日以后创建的基于 Linux 的群集支持 SCP.NET 拓扑__。
-> <p>  
+> 
 > 若要将 C# 拓扑与基于 Linux 的群集一起使用，必须将项目所使用的 Microsoft.SCP.Net.SDK NuGet 包更新为 0.10.0.6 或更高版本。包的版本还必须与 HDInsight 上安装的 Storm 的主要版本相符。例如，Storm on HDInsight 版本 3.3 和 3.4 使用 Storm 版本 0.10.x，而 HDInsight 3.5 使用 Storm 1.0.x。
-> <p>  
+> 
 > 基于 Linux 的群集上的 C# 拓扑必须使用 .NET 4.5，并使用要在 HDInsight 群集上运行的 Mono。大多数功能会正常运行，但应查看 [Mono 兼容性](http://www.mono-project.com/docs/about-mono/compatibility/)文档，了解可能的不兼容性。
 
 ## 先决条件
@@ -511,8 +511,9 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 > [!IMPORTANT]
 如果项目是通过未使用 NuGet 的旧版 SCP.NET 创建的，则必须执行以下步骤以更新到新版本：
-> <p>  
-><p> 1.在“解决方案资源管理器”中，右键单击项目，然后选择“管理 NuGet 包”。<p> 2.使用“搜索”字段搜索 **Microsoft.SCP.Net.SDK**，然后将其添加到项目中。
+> 
+> 1.在“解决方案资源管理器”中，右键单击项目，然后选择“管理 NuGet 包”。
+> 2.使用“搜索”字段搜索 **Microsoft.SCP.Net.SDK**，然后将其添加到项目中。
 
 ## 故障排除
 

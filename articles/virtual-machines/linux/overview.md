@@ -30,7 +30,7 @@ Azure 正在不断集结各种集成的公有云服务，包括分析、虚拟�
 
 ## <a name="managed-disks"></a>托管磁盘
 
-托管磁盘为用户在后台处理 Azure 存储帐户的创建和管理，确保用户无需担心存储帐户的可伸缩性限制。 用户只需指定磁盘大小和性能层（标准或高级），然后 Azure 就会为用户创建和管理磁盘。 即使是添加磁盘或者扩展和缩减 VM，也无需考虑要使用哪种存储。 如果要创建新的 VM，请[使用 Azure CLI 2.0](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或 Azure 门户预览版，通过托管 OS 和数据磁盘创建 VM。 如果 VM 具有非托管磁盘，则可以[将 VM 转换为由托管磁盘支持](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+托管磁盘为用户在后台处理 Azure 存储帐户的创建和管理，确保用户无需担心存储帐户的可伸缩性限制。 用户只需指定磁盘大小和性能层（标准或高级），然后 Azure 就会为用户创建和管理磁盘。 即使是添加磁盘或者扩展和缩减 VM，也无需考虑要使用哪种存储。 如果要创建新的 VM，请[使用 Azure CLI 2.0](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或 Azure 门户预览，通过托管 OS 和数据磁盘创建 VM。 如果 VM 具有非托管磁盘，则可以[将 VM 转换为由托管磁盘支持](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 用户还可以按 Azure 区域在一个存储帐户中管理自定义映像，并使用这些映像在同一订阅中创建数百台 VM。 有关托管磁盘的详细信息，请参阅[托管磁盘概述](../../storage/storage-managed-disks-overview.md)。
 
@@ -86,7 +86,7 @@ Microsoft 与合作伙伴紧密合作，以确保及时更新可用映像并针�
 使用 Azure 云的第一步是注册 Azure 帐户。  若要开始，请转到 [Azure 帐户注册](https://www.azure.cn/pricing/1rmb-trial/)页。
 
 ### <a name="install-the-cli"></a>安装 CLI
-使用新的 Azure 帐户，可以立即开始使用 Azure 门户预览版（一个基于 Web 的管理面板）。  若要通过命令行管理 Azure 云，请安装 `azure-cli`。  在 Mac 或 Linux 工作站上安装 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install)。
+使用新的 Azure 帐户，可以立即开始使用 Azure 门户预览（一个基于 Web 的管理面板）。  若要通过命令行管理 Azure 云，请安装 `azure-cli`。  在 Mac 或 Linux 工作站上安装 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install)。
 
 ### <a name="create-an-ssh-key-pair"></a>创建 SSH 密钥对
 现在已有 Azure 帐户、Azure Web 门户和 Azure CLI。  下一步是创建 SSH 密钥对，使用它可以通过 SSH 连接到 Linux 而无需使用密码。  [在 Linux 和 Mac 上创建 SSH 密钥](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)可启用无密码登录和更高的安全性。
@@ -110,13 +110,13 @@ VM 现在正在 Azure 上运行，用户可以登录。  通过 SSH 使用密码
 ## <a name="storage"></a>存储
 * [Azure 存储简介](../../storage/storage-introduction.md)
 * [使用 azure-cli 将磁盘添加到 Linux VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [如何在 Azure 门户预览版中将数据磁盘附加到 Linux VM](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [如何在 Azure 门户预览中将数据磁盘附加到 Linux VM](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="networking"></a>网络
 * [虚拟网络概述](../../virtual-network/virtual-networks-overview.md)
 * [Azure 中的 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [在 Azure 中打开 Linux VM 的端口](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [在 Azure 门户预览版中创建完全限定的域名](portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [在 Azure 门户预览中创建完全限定的域名](portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="next-steps"></a>后续步骤
 现在已概要了解 Azure 上的 Linux。  下一步是进一步的研究，并创建一些 VM 组件！

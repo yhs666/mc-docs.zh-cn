@@ -38,7 +38,7 @@ ms.author: cephalin;dariac
 
     > [!NOTE]
     必须输入 Azure 门户预览中显示的“FTP/部署用户”值（包括应用名称），以便为 FTP 服务器提供适当的上下文。在左侧菜单中选择“属性”时，可以找到相同信息。
-    ><p>
+    >
     > 此外，永远不会显示部署密码。如果忘记了部署密码，请返回到[步骤 1](#step1)，重置部署密码。
     >
     >
@@ -51,11 +51,11 @@ ms.author: cephalin;dariac
 
 > [!NOTE] 
 与[基于 Git 的部署](./app-service-deploy-local-git.md)不同，FTP 部署不支持以下部署自动化：
-><p>
-><p> - 依赖项还原（如 NuGet、NPM、PIP 和 Composer 自动化）
-><p> - 编译 .NET 二进制文件 
-><p> - 生成 web.config（下面是 [Node.js 示例](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps)）
-><p> 
+>
+> - 依赖项还原（如 NuGet、NPM、PIP 和 Composer 自动化）
+> - 编译 .NET 二进制文件 
+> - 生成 web.config（下面是 [Node.js 示例](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps)）
+> 
 > 必须在本地计算机上手动还原、构建和生成这些必需的文件并将其与你的应用一起部署。
 >
 >

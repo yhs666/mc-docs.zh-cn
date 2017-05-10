@@ -44,11 +44,11 @@ Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。�
 
     > [!NOTE]
     如果使用 PowerShell 运行本文档中的命令，则必须先删除默认创建的 `curl` 别名。此别名使用 Invoke-WebRequest，而不是 cURL。如果不删除此别名，在使用某些本文中所用的命令时可能会收到错误。
-    ><p>
+    >
     > 若要删除此别名，请从 PowerShell 提示符使用以下命令：
-    ><p>
+    >
     > `Remove-item alias:curl`  
-    ><p>
+    >
     > 删除别名后，你应该能够使用系统上安装的 cURL 版本。
 
 ### 访问控制要求
@@ -249,7 +249,7 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
 
 > [!IMPORTANT]
 该模板对 HDInsight 群集使用默认数目的辅助角色节点（4 个）。如果计划使用 32 个以上的辅助角色节点，则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
-><p>
+>
 > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
 ## 登录到 Azure 订阅
@@ -363,7 +363,7 @@ curl -X "POST" "https://login.chinacloudapi.cn/TenantID/oauth2/token" \
 
 > [!NOTE]
 如果将该模版保存到文件，则可以使用以下命令而不是 `-d "{ template and parameters}"`：
-><p>
+>
 > `--data-binary "@/path/to/file.json"`  
 
 如果此请求成功，将收到 200 系列响应，且响应正文包含一个 JSON 文档，其中包含有关部署操作的信息。

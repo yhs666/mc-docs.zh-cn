@@ -26,7 +26,7 @@ ms.author: cherylmc
 - 使用中的有效 Azure 帐户。需有此帐户才能设置 ExpressRoute 线路。
 
 ## 连接服务提供商
-- 可以通过 [ExpressRoute 连接服务合作伙伴](./expressroute-locations.md)连接到 Azure 云。可以通过[三种方法](./expressroute-introduction.md#howtoconnect)在本地网络与 Azure 之间建立连接。
+- 可以通过 [ExpressRoute 连接服务合作伙伴](./expressroute-locations.md)连接到 Azure 云。可以通过[三种方法](./expressroute-introduction.md)在本地网络与 Azure 之间建立连接。
 - 即使提供商不是 ExpressRoute 连接服务合作伙伴，也可以通过[云交换服务提供商](./expressroute-locations.md)连接到 Azure 云。
 
 ## 在你的网络与连接服务提供商之间建立物理连接

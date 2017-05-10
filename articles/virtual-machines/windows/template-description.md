@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 模板中的虚拟机
 
-本文介绍 Azure Resource Manager 模板中与虚拟机相关的方面。 本文不会介绍用于创建虚拟机的完整模板；在完整的模板中，需要提供存储帐户、网络接口、公共 IP 地址和虚拟网络的资源定义。 有关如何统一定义这些资源的详细信息，请参阅 [Resource Manager 模板演练](../../resource-manager-template-walkthrough.md)。
+本文介绍 Azure Resource Manager 模板中与虚拟机相关的方面。 本文不会介绍用于创建虚拟机的完整模板；在完整的模板中，需要提供存储帐户、网络接口、公共 IP 地址和虚拟网络的资源定义。 有关如何统一定义这些资源的详细信息，请参阅 [Resource Manager 模板演练](../../azure-resource-manager/resource-manager-template-walkthrough.md)。
 
 [在库中](https://github.com/Azure/azure-quickstart-templates/?term=VM) 有许多包含 VM 资源的模板。 本文并未介绍可在模板中包含的所有元素。
 
@@ -453,7 +453,7 @@ start.ps1 脚本可以完成许多配置任务。 例如，在本示例中已添
 
 部署模板时，Azure 将会跟踪以组的形式部署的资源，并自动为这个部署的组分配一个名称。 部署名称与模板名称相同。
 
-如果你很想知道部署中的资源状态，可以使用 Azure 门户预览版中的“资源组”边栏选项卡：
+如果你很想知道部署中的资源状态，可以使用 Azure 门户预览中的“资源组”边栏选项卡：
 
 ![获取部署信息](./media/template-description/virtual-machines-deployment-info.png)
 

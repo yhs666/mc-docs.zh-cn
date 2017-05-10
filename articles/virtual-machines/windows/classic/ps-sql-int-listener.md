@@ -32,7 +32,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
 
 若要为 Resource Manager 模型中的 Always On 可用性组配置 ILB 侦听器，请参阅[在 Azure 中为 Always On 可用性组配置内部负载均衡器](../../virtual-machines-windows-portal-sql-alwayson-int-listener.md)。
 
-你的可用性组可以仅包含本地副本或 Azure 副本，也可以跨越本地和 Azure 以实现混合配置。Azure 副本可以位于同一区域，也可以跨越使用多个虚拟网络 \(VNet\) 的多个区域。以下步骤假设你已[配置了一个可用性组](./windows/sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)但是没有配置侦听器。
+你的可用性组可以仅包含本地副本或 Azure 副本，也可以跨越本地和 Azure 以实现混合配置。Azure 副本可以位于同一区域，也可以跨越使用多个虚拟网络 \(VNet\) 的多个区域。以下步骤假设你已[配置了一个可用性组](../sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)但是没有配置侦听器。
 
 ## 内部侦听器的准则和限制
 请注意有关 Azure 中使用 ILB 的可用性组侦听器的以下准则：

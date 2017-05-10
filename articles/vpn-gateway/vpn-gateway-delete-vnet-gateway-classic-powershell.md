@@ -64,7 +64,7 @@ ms.lasthandoff: 04/06/2017
 
      Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 
-使用文本编辑器打开文件，并查看经典 VNet 的名称。 在 Azure 门户预览版中创建 VNet 时，Azure 使用的全名在 Azure 门户预览版中不可见。 例如，在 Azure 门户预览版中命名为“ClassicVNet1”的 VNet 可能在网络配置文件中具有更长的名称。 名称可能如下所示：“Group ClassicRG1 ClassicVNet1”。 VNet 名称被列为“VirtualNetworkSite name =”。<br>运行 PowerShell cmdlet 时，请使用网络配置文件中的名称。
+使用文本编辑器打开文件，并查看经典 VNet 的名称。 在 Azure 门户预览中创建 VNet 时，Azure 使用的全名在 Azure 门户预览中不可见。 例如，在 Azure 门户预览中命名为“ClassicVNet1”的 VNet 可能在网络配置文件中具有更长的名称。 名称可能如下所示：“Group ClassicRG1 ClassicVNet1”。 VNet 名称被列为“VirtualNetworkSite name =”。<br>运行 PowerShell cmdlet 时，请使用网络配置文件中的名称。
 
 ## <a name="part-3-delete-the-virtual-network-gateway"></a>第 3 部分： 删除虚拟网络网关
 

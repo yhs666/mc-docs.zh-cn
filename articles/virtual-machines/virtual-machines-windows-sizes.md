@@ -23,10 +23,10 @@ ms.author: cynthn
 本文介绍可用于运行 Windows 应用和工作负荷的 Azure 虚拟机的可用大小与选项。此外，还提供在计划使用这些资源时要考虑的部署注意事项。本文也适用于 [Linux 虚拟机](./virtual-machines-linux-sizes.md)。
 
 >[!IMPORTANT] 
-><p>
-><p>- 有关不同大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)。
-><p>
-><p>- 若要查看 Azure VM 的一般限制，请参阅 [Azure 订阅和服务的限制、配额与约束](../azure-subscription-service-limits.md)。<br>
+>
+>- 有关不同大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)。
+>
+>- 若要查看 Azure VM 的一般限制，请参阅 [Azure 订阅和服务的限制、配额与约束](../azure-subscription-service-limits.md)。<br>
 
 [!INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
 

@@ -483,12 +483,12 @@ IP 转发是 UDR 的随附功能。这是虚拟设备上的一项设置，使虚
 
 ## 参考
 ### 有用的网站和文档
-- 使用 PowerShell 访问 Azure：[../powershell-install-configure.md](../powershell-install-configure.md)
-- 虚拟网络文档：[../virtual-network/index.md](../virtual-network/index.md)
-- 网络安全组文档：[../virtual-network/virtual-networks-nsg.md](../virtual-network/virtual-networks-nsg.md)
-- 用户定义的路由文档：[../virtual-network/virtual-networks-udr-overview.md](../virtual-network/virtual-networks-udr-overview.md)
-- Azure 虚拟网关：[../vpn-gateway/index.md](../vpn-gateway/index.md)
-- 站点到站点 VPN：[../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+- 使用 PowerShell 访问 Azure：[powershell-install-configure](../powershell-install-configure.md)
+- 虚拟网络文档：[virtual-network](../virtual-network/index.md)
+- 网络安全组文档：[virtual-networks-nsg](../virtual-network/virtual-networks-nsg.md)
+- 用户定义的路由文档：[virtual-networks-udr-overview](../virtual-network/virtual-networks-udr-overview.md)
+- Azure 虚拟网关：[vpn-gateway](../vpn-gateway/index.md)
+- 站点到站点 VPN：[vpn-gateway-create-site-to-site-rm-powershell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 - ExpressRoute 文档：[确保查看“入门”和“方法”部分](../expressroute/index.md)
 
 <!--Image References-->

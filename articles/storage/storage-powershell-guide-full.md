@@ -22,7 +22,7 @@ ms.lasthandoff: 04/14/2017
 
 # <a name="using-azure-powershell-with-azure-storage"></a>对 Azure 存储 使用 Azure PowerShell
 ## <a name="overview"></a>概述
-Azure PowerShell 是一个模块，提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet。 它是一种基于任务的命令行 shell 和脚本语言，专门用于系统管理。 使用 PowerShell，可以轻松控制和自动化 Azure 服务与应用程序的管理。 例如，可以使用这些 cmdlet 执行在 [Azure 门户预览版](https://portal.azure.cn)中可以执行的相同任务。
+Azure PowerShell 是一个模块，提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet。 它是一种基于任务的命令行 shell 和脚本语言，专门用于系统管理。 使用 PowerShell，可以轻松控制和自动化 Azure 服务与应用程序的管理。 例如，可以使用这些 cmdlet 执行在 [Azure 门户预览](https://portal.azure.cn)中可以执行的相同任务。
 
 在本指南中，将探讨如何使用 [Azure 存储 Cmdlet](https://msdn.microsoft.com/library/azure/mt269418.aspx)，以通过 Azure 存储执行各种开发和管理任务。
 
@@ -110,7 +110,7 @@ Azure PowerShell 是一个模块，提供用于通过 Windows PowerShell 管理 
            Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
         ```
 
-        b.使用“1521”作为公用端口。 若要在 [Azure 门户预览版](https://portal.azure.cn)中找到并复制订阅名称，请在左侧“中心”菜单中单击“订阅”。 复制在运行本指南中的脚本时要使用的订阅名称。
+        b.使用“1521”作为公用端口。 若要在 [Azure 门户预览](https://portal.azure.cn)中找到并复制订阅名称，请在左侧“中心”菜单中单击“订阅”。 复制在运行本指南中的脚本时要使用的订阅名称。
 
          ![Azure portal preview](./media/storage-powershell-guide-full/Subscription_Previewportal.png)
 

@@ -102,7 +102,7 @@ SQL 数据仓库还集成了 SQL Server 用户可能会熟悉的许多工具。 
 
 **基于云的工具：**SQL 数据仓库可以集成 Azure 中的各种服务，包括数据工厂、流分析、机器学习和 Power BI。 有关更完整的列表，请参阅[集成工具概述][Integrated tools overview]。
 
-**第三方工具：**许多第三方工具提供商都已证明其工具能够与 SQL 数据仓库集成。 有关完整列表，请参阅 [SQL 数据仓库解决方案合作伙伴][SQL Data Warehouse solution partners]。
+<!-- Not supported in Azure.cn **第三方工具：**许多第三方工具提供商都已证明其工具能够与 SQL 数据仓库集成。 有关完整列表，请参阅 [SQL 数据仓库解决方案合作伙伴][SQL Data Warehouse solution partners]。-->
 
 ## <a name="hybrid-data-sources-scenarios"></a>混合数据源方案
 Polybase 可让你使用熟悉的 T-SQL 命令来利用不同源中的数据。 Polybase 使你可以像查询普通表一样查询 Azure Blob 存储中的非关系数据。 使用 Polybase 可以查询非关系数据，或者将非关系数据导入 SQL 数据仓库。
@@ -122,7 +122,7 @@ SQL 数据仓库提供产品级别的服务级别协议 (SLA) 作为 Microsoft O
 * [功能请求]
 * [视频]
 * [客户顾问团队博客]
-* [创建支持票证]
+<!-- Not supported in Azure.cn * [创建支持票证]-->
 * [MSDN 论坛]
 * [Stack Overflow 论坛]
 * [Twitter]
@@ -131,11 +131,11 @@ SQL 数据仓库提供产品级别的服务级别协议 (SLA) 作为 Microsoft O
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[创建支持票证]: ./sql-data-warehouse-get-started-create-support-ticket.md
+<!-- Not supported in Azure.cn [创建支持票证]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
 [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+<!-- Not supported in Azure.cn [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md-->
 [Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
 [Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md

@@ -134,6 +134,7 @@ az network application-gateway create \
 --frontend-port 443 \
 --routing-rule-type Basic \
 --http-settings-port 80
+
 ```
 
 > [!NOTE]

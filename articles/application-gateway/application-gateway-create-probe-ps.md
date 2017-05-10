@@ -282,7 +282,6 @@ Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
 ```
 
-
 ```
 Name                     : publicIP01
 ResourceGroupName        : appgw-RG

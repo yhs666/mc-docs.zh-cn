@@ -35,11 +35,11 @@ ms.author: georgem
 2. 如果没有企业协议，可[上传自定义 VM](#upload-a-windows-vhd)，然后[使用 Resource Manager 模板](#deploy-a-vm-via-resource-manager)或 [Azure PowerShell](#detailed-powershell-deployment-walkthrough) 进行部署。
 
 ## <a name="deploy-a-vm-using-the-azure-marketplace"></a>使用 Azure 应用商店部署 VM
-对于拥有 [企业协议订阅](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx)的客户，应用商店中提供了已预配置 Azure Hybrid Use Benefit 的映像。 例如，可直接从 Azure 门户预览版、Resource Manager 模板或 Azure PowerShell 部署这些映像。 应用商店中的映像使用 `[HUB]` 名称做了标注，如下所示：
+对于拥有 [企业协议订阅](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx)的客户，应用商店中提供了已预配置 Azure Hybrid Use Benefit 的映像。 例如，可直接从 Azure 门户预览、Resource Manager 模板或 Azure PowerShell 部署这些映像。 应用商店中的映像使用 `[HUB]` 名称做了标注，如下所示：
 
 ![Azure 应用商店中的 Azure Hybrid Use Benefit 映像](../media/virtual-machines-windows-hybrid-use-benefit/ahub-images-portal.png)
 
-可以直接从 Azure 门户预览版部署这些映像。 若要在 Resource Manager 模板和 Azure PowerShell 中使用，请查看如下所示的映像列表：
+可以直接从 Azure 门户预览部署这些映像。 若要在 Resource Manager 模板和 Azure PowerShell 中使用，请查看如下所示的映像列表：
 
 对于 Windows Server：
 
@@ -72,7 +72,7 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 >
 >
 
-还可以阅读有关[将 VHD 上载到 Azure 的过程](upload-image.md#upload-the-vhd-to-your-storage-account)的详细信息
+还可以阅读有关[将 VHD 上载到 Azure 的过程](upload-image.md#upload-the-vm-vhd-to-your-storage-account)的详细信息
 
 ## <a name="deploy-an-uploaded-vm-via-resource-manager"></a>通过 Resource Manager 部署已上载的 VM
 在 Resource Manager 模板中，可以为 `licenseType` 指定附加参数。 可以阅读有关[创作 Azure Resource Manager 模板](../../azure-resource-manager/resource-group-authoring-templates.md)的详细信息。 将 VHD 上载到 Azure 之后，请编辑 Resource Manager 模板以将许可证类型包含为计算提供程序的一部分，然后照常部署模板：

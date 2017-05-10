@@ -16,53 +16,23 @@ ms.date: 03/16/2017
 wacn.date: 
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: daaf29e126c9df1a35182e3f4b9c1c78642f2a9e
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
+ms.openlocfilehash: 0d4d5f13b014617f6ab58c16064c246c0a78c849
+ms.lasthandoff: 04/28/2017
 
 ---
 
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>使用 PowerShell 在多个 IP 配置上进行负载均衡
 > [!div class="op_single_selector"]
->- [门户](./load-balancer-multiple-ip.md)
->- [CLI](./load-balancer-multiple-ip-cli.md)
->- [PowerShell](./load-balancer-multiple-ip-powershell.md)
+> * [门户](load-balancer-multiple-ip.md)
+> * [CLI](load-balancer-multiple-ip-cli.md)
+> * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
-本文介绍如何将 Azure 负载均衡器用于辅助网络接口 (NIC) 的多个 IP 地址。 目前，对一个 NIC 的多个 IP 地址的支持是预览版的功能。 有关详细信息，请参阅本文的 [限制](#limitations) 部分。 以下场景说明了如何通过负载均衡器使用此功能。
+本文介绍如何将 Azure 负载均衡器用于辅助网络接口 (NIC) 的多个 IP 地址。 在此方案中，有两个运行 Windows 的 VM，每个 VM 有一个主 NIC 和一个辅助 NIC。 每个辅助 NIC 具有两个 IP 配置。 每个 VM 托管网站 contoso.com 和 fabrikam.com。 每个网站都绑定到辅助 NIC 的一个 IP 配置。 我们使用 Azure 负载均衡器公开两个前端 IP 地址，每个地址分别对应于一个网站，从而将流量分发到网站的各个 IP 配置。 此场景中两个前端以及两个后端池 IP 地址都使用相同的端口号。
 
-在此方案中，有两个运行 Windows 的 VM，每个 VM 有一个主 NIC 和一个辅助 NIC。 每个辅助 NIC 具有两个 IP 配置。 每个 VM 托管网站 contoso.com 和 fabrikam.com。 每个网站都绑定到辅助 NIC 的一个 IP 配置。 我们使用 Azure 负载均衡器公开两个前端 IP 地址，每个地址分别对应于一个网站，从而将流量分发到网站的各个 IP 配置。 此场景中两个前端以及两个后端池 IP 地址都使用相同的端口号。
+![负载平衡应用场景图像](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
-![负载均衡应用场景图像](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
-
-##  <a name="limitations"></a> 限制
-
-现在，只有使用 Azure PowerShell 和 Azure CLI 才能对辅助 IP 配置进行负载均衡配置。 该限制是暂时性的，以后随时可能更改。 重新访问此页以检查更新。
-
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
-
-通过登录后在 PowerShell 中运行以下命令并选择相应的订阅来注册预览版：
-
-```
-Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
-
-Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
-
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-请不要尝试完成剩余步骤，直至运行 ```Get-AzureRmProviderFeature``` 命令时看到以下输出：
-
-```powershell
-FeatureName                            ProviderName      RegistrationState
------------                            ------------      -----------------      
-AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-```
-
->[!NOTE] 
->这可能需要几分钟的时间。
-
-## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>在多个 IP 配置上进行负载均衡的步骤
+## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>在多个 IP 配置上进行负载平衡的步骤
 
 按照以下步骤来实现本文所概述的场景：
 
@@ -76,7 +46,7 @@ AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered
 
     有关详细信息，请参阅[创建资源组](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)中的第 2 步。
 
-3. [创建可用性集](../virtual-machines/virtual-machines-windows-create-availability-set.md?toc=%2fazure%2fload-balancer%2ftoc.json)来包含 VM。 对于此场景，请使用以下命令：
+3. [创建可用性集](../virtual-machines/windows/create-availability-set.md?toc=%2fazure%2fload-balancer%2ftoc.json)来包含 VM。 对于此场景，请使用以下命令：
 
     ```powershell
     New-AzureRmAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "China North"
@@ -96,7 +66,7 @@ AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered
     ```powershell
     $NicName = "VM1-NIC2"
     $RgName = "contosofabrikam"
-    $NicLocation = "West China North"
+    $NicLocation = "China North"
     $IPConfigName4 = "VM1-ipconfig2"
     $Subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet" -VirtualNetwork $myVnet
     ```
@@ -167,8 +137,8 @@ AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered
     $nic2 | Set-AzureRmNetworkInterface
     ```
 
-13. 最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 可以在 Azure DNS 中托管域。 有关将 Azure DNS 与负载均衡器配合使用的详细信息，请参阅[将 Azure DNS 与其他 Azure 服务配合使用](/documentation/articles/dns-for-azure-services/)。
+13. 最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 可以在 Azure DNS 中托管域。 有关将 Azure DNS 与负载均衡器配合使用的详细信息，请参阅[将 Azure DNS 与其他 Azure 服务配合使用](../dns/dns-for-azure-services.md)。
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。
-- 若要了解如何在 Azure 中使用不同类型的日志对负载均衡器进行管理和故障排除，请参阅 [Azure 负载均衡器的 Log Analytics](./load-balancer-monitor-log.md)。
+- 若要了解如何在 Azure 中使用不同类型的日志对负载均衡器进行管理和故障排除，请参阅 [Azure 负载均衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md)。

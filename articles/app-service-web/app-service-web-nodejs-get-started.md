@@ -318,7 +318,7 @@ https://<app_name>.scm.chinacloudsites.cn/api/diagnostics/runtime
 [Bower]: http://bower.io/
 [在 Azure App Service 中使用 Socket.IO 创建 Node.js 聊天应用程序]: ./web-sites-nodejs-chat-app-socketio.md
 [将 Sails.js Web 应用部署到 Azure App Service]: ./app-service-web-nodejs-sails.md
-[探索神秘无比的 Kudu 调试控制台]: ../aog-web-app-diagnostics-kudu.md
+[探索神秘无比的 Kudu 调试控制台]: https://www.azure.cn/documentation/articles/aog-web-app-diagnostics-kudu/
 [适用于 Yeoman 的 Express 生成器]: https://github.com/petecoop/generator-express
 [Git]: http://www.git-scm.com/downloads
 [如何将 io.js 与 Azure App Service Web Apps 配合使用]: ./web-sites-nodejs-iojs.md

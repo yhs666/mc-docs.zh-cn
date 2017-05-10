@@ -50,7 +50,8 @@ azure account set "<azure-subscription-name>"
 
 >[!NOTE]
 > 注册是一次性步骤，但必须在尝试迁移之前完成。如果不注册，你会看到以下错误消息
-><p>BadRequest : Subscription is not registered for migration.
+>
+>    BadRequest : Subscription is not registered for migration.
 
 使用以下命令向迁移资源提供程序注册。请注意，在某些情况下，此命令会超时。但是，注册会成功。
 

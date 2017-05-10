@@ -35,7 +35,7 @@ ms.lasthandoff: 04/14/2017
 
 - [SSH 公钥和私钥文件](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-也可以使用 [Azure 门户预览版](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)快速部署 Linux VM。
+也可以使用 [Azure 门户预览](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)快速部署 Linux VM。
 
 ## <a name="quick-commands"></a>快速命令
 

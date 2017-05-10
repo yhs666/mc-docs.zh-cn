@@ -113,10 +113,10 @@ IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和�
 | etag |必需，只读 |一个字符串，根据 [RFC7232][lnk-rfc7232] 表示设备标识的弱 ETag。 |
 | auth |可选 |包含身份验证信息和安全材料的复合对象。 |
 | auth.symkey |可选 |包含主密钥和辅助密钥的复合对象，以 base64 格式存储。 |
-| 状态 |必填 |访问指示器。 可以是**已启用**或**已禁用**。 如果是**已启用**，则允许设备连接。 如果是 **Disabled**，则此设备无法访问任何面向设备的终结点。 |
+| 状态 |必填 |访问指示器。 可以是 **Enabled** 或 **Disabled**。 如果是 **Enabled**，则允许设备连接。 如果是 **Disabled**，则此设备无法访问任何面向设备的终结点。 |
 | statusReason |可选 |128 个字符的字符串，用于存储设备标识状态的原因。 允许所有 UTF-8 字符。 |
 | statusUpdateTime |只读 |临时指示器，显示上次状态更新的日期和时间。 |
-| connectionState |只读 |指示连接状态的字段：**已连接**或**已断开**。 此字段表示设备连接状态的 IoT 中心视图。 **重要说明**：此字段只用于开发/调试目的。 仅使用 MQTT 或 AMQP 的设备才更新连接状态。 此外，它基于协议级别的 ping（MQTT ping 或 AMQP ping），并且最多只有 5 分钟的延迟。 出于这些原因，可能会发生误报，例如，将设备报告为已连接，但实际上已断开连接。 |
+| connectionState |只读 |指示连接状态的字段：**Connected** 或 **Disconnected**。 此字段表示设备连接状态的 IoT 中心视图。 **重要说明**：此字段只用于开发/调试目的。 仅使用 MQTT 或 AMQP 的设备才更新连接状态。 此外，它基于协议级别的 ping（MQTT ping 或 AMQP ping），并且最多只有 5 分钟的延迟。 出于这些原因，可能会发生误报，例如，将设备报告为已连接，但实际上已断开连接。 |
 | connectionStateUpdatedTime |只读 |临时指示器，显示上次更新连接状态的日期和时间。 |
 | lastActivityTime |只读 |临时指示器，显示设备上次连接、接收或发送消息的日期和时间。 |
 
@@ -128,10 +128,10 @@ IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和�
 ## <a name="additional-reference-material"></a>其他参考资料
 IoT 中心开发人员指南中的其他参考主题包括：
 
-* [IoT 中心终结点][lnk-endpoints] ，介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
-* [限制和配额][lnk-quotas] ，说明了适用于 IoT 中心服务的配额，以及使用服务时预期会碰到的限制行为。
-* [Azure IoT 设备和服务 SDK][lnk-sdks] ，列出了在开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
-* [设备孪生和作业的 IoT 中心查询语言][lnk-query] ，介绍了在 IoT 中心检索设备孪生和作业相关信息时可使用的 IoT 中心查询语言。
+* [IoT 中心终结点][lnk-endpoints]，介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
+* [限制和配额][lnk-quotas]，说明了适用于 IoT 中心服务的配额，以及使用服务时预期会碰到的限制行为。
+* [Azure IoT 设备和服务 SDK][lnk-sdks]，列出了在开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
+* [设备孪生和作业的 IoT 中心查询语言][lnk-query]，介绍了在 IoT 中心检索设备孪生和作业相关信息时可使用的 IoT 中心查询语言。
 * [IoT 中心 MQTT 支持][lnk-devguide-mqtt] 提供有关 IoT 中心对 MQTT 协议的支持的详细信息。
 
 ## <a name="next-steps"></a>后续步骤

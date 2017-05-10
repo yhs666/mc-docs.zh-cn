@@ -1,6 +1,6 @@
 ---
 title: "在 Windows VM 上重置密码或远程桌面配置 | Azure"
-description: "了解如何使用 Azure 门户预览版或 Azure PowerShell 在 Windows VM 上重置帐户密码或远程桌面服务。"
+description: "了解如何使用 Azure 门户预览或 Azure PowerShell 在 Windows VM 上重置帐户密码或远程桌面服务。"
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -29,10 +29,10 @@ ms.lasthandoff: 04/06/2017
 ## <a name="ways-to-reset-configuration-or-credentials"></a>重置配置或凭据的方式
 可以根据需要，通过多种不同的方式重置远程桌面服务和凭据：
 
-- [使用 Azure 门户预览版重置](#azure-portal)
+- [使用 Azure 门户预览重置](#azure-portal)
 - [使用 Azure PowerShell 进行重置](#vmaccess-extension-and-powershell)
 
-## <a name="azure-portal-preview"></a>Azure 门户预览版
+## <a name="azure-portal-preview"></a>Azure 门户预览
 若要展开门户菜单，请单击左上角的三个条形，然后单击“虚拟机” ：
 
 ![浏览 Azure VM](./media/reset-rdp/Portal-Select-VM.png)

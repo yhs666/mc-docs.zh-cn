@@ -36,7 +36,7 @@ ms.lasthandoff: 04/07/2017
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-在本教程中，你将生成多层应用程序并在 Azure 云服务中运行它。 前端是 ASP.NET MVC Web 角色，后端是使用服务总线队列的辅助角色。 可创建与前端相同的多层应用程序，作为将部署到 Azure 网站而不是云服务的 Web 项目。 有关如何以不同方式处理 Azure 网站前端的说明，请参阅 [后续步骤](#nextsteps) 部分。 还可以试用 [.NET 本地/云混合应用程序](./service-bus-dotnet-hybrid-app-using-service-bus-relay.md/)教程。
+在本教程中，你将生成多层应用程序并在 Azure 云服务中运行它。 前端是 ASP.NET MVC Web 角色，后端是使用服务总线队列的辅助角色。 可创建与前端相同的多层应用程序，作为将部署到 Azure 网站而不是云服务的 Web 项目。 有关如何以不同方式处理 Azure 网站前端的说明，请参阅 [后续步骤](#nextsteps) 部分。 还可以试用 [.NET 本地/云混合应用程序](./service-bus-dotnet-hybrid-app-using-service-bus-relay.md)教程。
 
 以下屏幕截图显示了已完成的应用程序。
 
@@ -437,6 +437,6 @@ ms.lasthandoff: 04/07/2017
   [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
-  [sbacom]: ../service-bus/index.md  
+  [sbacom]: ../service-bus-messaging/index.md  
   [sbacomqhowto]: ./service-bus-dotnet-get-started-with-queues.md  
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

@@ -25,7 +25,7 @@ ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="how-to-create-a-virtual-machine-scale-set-with-the-azure-portal-preview"></a>如何使用 Azure 门户预览版创建虚拟机规模集
+# <a name="how-to-create-a-virtual-machine-scale-set-with-the-azure-portal-preview"></a>如何使用 Azure 门户预览创建虚拟机规模集
 本教程介绍如何使用 Azure 门户预览在数分钟内轻松创建虚拟机规模集。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="choose-the-vm-image-from-the-marketplace"></a>从应用商店中选择 VM 映像

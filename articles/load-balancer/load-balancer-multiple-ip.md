@@ -16,51 +16,21 @@ ms.date: 03/22/2017
 wacn.date: 
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 54b086cdbde6c36824f5bd62406589a32fe6c980
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
+ms.openlocfilehash: 2dcb34a7c86444fcc02836d9b7cd3f7a98d21e1d
+ms.lasthandoff: 04/28/2017
 
 ---
 
 # <a name="load-balancing-on-multiple-ip-configurations-using-the-azure-portal"></a>使用 Azure 门户对多个 IP 配置进行负载均衡
 > [!div class="op_single_selector"]
->- [门户](./load-balancer-multiple-ip.md)
->- [PowerShell](./load-balancer-multiple-ip-powershell.md)
->- [CLI](./load-balancer-multiple-ip-cli.md)
+> * [门户](load-balancer-multiple-ip.md)
+> * [PowerShell](load-balancer-multiple-ip-powershell.md)
+> * [CLI](load-balancer-multiple-ip-cli.md)
 
-本文介绍如何将 Azure 负载均衡器用于辅助网络接口 (NIC) 的多个 IP 地址。 目前，对一个 NIC 的多个 IP 地址的支持是预览版的功能。 有关详细信息，请参阅本文的 [限制](#limitations) 部分。 以下场景说明了如何通过负载均衡器使用此功能。
+本文介绍如何针对辅助网络接口 (NIC) 上的多个 IP 地址使用 Azure 负载均衡器。本方案包含两个运行 Windows 的 VM，每个 VM 包含主要 NIC 和辅助 NIC。 每个辅助 NIC 具有两个 IP 配置。 每个 VM 托管网站 contoso.com 和 fabrikam.com。 每个网站都绑定到辅助 NIC 的一个 IP 配置。 我们使用 Azure 负载均衡器公开两个前端 IP 地址，每个地址分别对应于一个网站，从而将流量分发到网站的各个 IP 配置。 此场景中两个前端以及两个后端池 IP 地址都使用相同的端口号。
 
-在此方案中，有两个运行 Windows 的 VM，每个 VM 有一个主 NIC 和一个辅助 NIC。 每个辅助 NIC 具有两个 IP 配置。 每个 VM 托管网站 contoso.com 和 fabrikam.com。 每个网站都绑定到辅助 NIC 的一个 IP 配置。 我们使用 Azure 负载均衡器公开两个前端 IP 地址，每个地址分别对应于一个网站，从而将流量分发到网站的各个 IP 配置。 此场景中两个前端以及两个后端池 IP 地址都使用相同的端口号。
-
-![负载均衡应用场景图像](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
-
-## <a name="limitations"></a> 限制
-
-现在，只有使用 Azure PowerShell 和 Azure CLI 才能对辅助 IP 配置进行负载均衡配置。 该限制是暂时性的，以后随时可能更改。 重新访问此页以检查更新。
-
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
-
-通过登录后在 PowerShell 中运行以下命令并选择相应的订阅来注册预览版：
-
-```
-Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
-
-Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
-
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-请不要尝试完成剩余步骤，直至运行 ```Get-AzureRmProviderFeature``` 命令时看到以下输出：
-
-```powershell
-FeatureName                            ProviderName      RegistrationState
------------                            ------------      -----------------      
-AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-```
-
->[!NOTE] 
->这可能需要几分钟的时间。
+![负载平衡应用场景图像](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
 ##<a name="prerequisites"></a>先决条件
 本示例假设已有一个名为 *contosofabrikam* 的、使用以下配置的资源组：
@@ -75,7 +45,7 @@ AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered
 
 对于虚拟网络中的每个 VM，请按如下所述为辅助 NIC 添加 IP 配置：  
 
-1. 从浏览器导航到 Azure 门户预览版：http://portal.azure.cn，并使用 Azure 帐户登录。
+1. 从浏览器导航到 Azure 门户预览：http://portal.azure.cn，并使用 Azure 帐户登录。
 2. 在屏幕的左上方单击“资源组”图标，然后单击 VM 所在的资源组（例如 *contosofabrikam*）。 此时将显示“资源组”边栏选项卡，其中列出了 VM 的所有资源以及网络接口。
 3. 针对每个 VM 的辅助 NIC，请按如下所述添加 IP 配置：
     1. 选择要将 IP 配置添加到的网络接口。
@@ -90,7 +60,7 @@ AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered
 
 按如下所述创建负载均衡器：
 
-1. 从浏览器导航到 Azure 门户预览版：http://portal.azure.cn，并使用 Azure 帐户登录。
+1. 从浏览器导航到 Azure 门户预览：http://portal.azure.cn，并使用 Azure 帐户登录。
 2. 在屏幕的左上方，单击“新建” > “网络” > “负载均衡器”。 接下来，单击“创建”。
 3. 在“创建负载均衡器”边栏选项卡中，为负载均衡器键入一个名称。 本例中使用名称 *mylb*。
 4. 在“公共 IP 地址”下，创建名为 **PublicIP1** 的新公共 IP。
@@ -153,8 +123,8 @@ AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered
 8. 完成负载均衡规则配置后，这两个规则（*HTTPc* 和 *HTTPf*）将显示在负载均衡器的“负载均衡规则”边栏选项卡中。
 
 ### <a name="step-7-configure-dns-records"></a>步骤 7：配置 DNS 记录
-最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 可以在 Azure DNS 中托管域。 有关将 Azure DNS 与负载均衡器配合使用的详细信息，请参阅[将 Azure DNS 与其他 Azure 服务配合使用](/documentation/articles/dns-for-azure-services/)。
+最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 可以在 Azure DNS 中托管域。 有关将 Azure DNS 与负载均衡器配合使用的详细信息，请参阅[将 Azure DNS 与其他 Azure 服务配合使用](../dns/dns-for-azure-services.md)。
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。
-- 若要了解如何在 Azure 中使用不同类型的日志对负载均衡器进行管理和故障排除，请参阅 [Azure 负载均衡器的 Log Analytics](./load-balancer-monitor-log.md)。
+- 若要了解如何在 Azure 中使用不同类型的日志对负载均衡器进行管理和故障排除，请参阅 [Azure 负载均衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md)。

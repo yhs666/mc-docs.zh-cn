@@ -44,7 +44,7 @@ ms.lasthandoff: 04/22/2017
 
 ### <a name="log-in-to-azure"></a>登录 Azure
 
-打开 Azure 门户预览版。 
+打开 Azure 门户预览。 
 
 为此，请使用你的 Azure 帐户登录到 [https://portal.azure.cn](https://portal.azure.cn)。
 
@@ -179,7 +179,7 @@ ms.lasthandoff: 04/22/2017
 
 > [!IMPORTANT]
 > 建议使用 CNAME 映射。 如果你删除并重新创建应用，或者从专用托管层更改回**共享**层，则应用的虚拟 IP 地址可能会发生更改。 在经历这样的更改后，CNAME 映射仍然保持有效，但 A 映射可能会因新的 IP 地址而失效。 
-> <p>
+> 
 > 但是，请_不要_为根域（即“根记录”）创建 CNAME 记录。 有关详细信息，请参阅 [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain)（为什么不能将 CNAME 记录用于根域）。
 > 若要将根域映射到 Azure 应用，请改用 [A 记录](#a) 。> 
 
@@ -213,7 +213,7 @@ ms.lasthandoff: 04/22/2017
 
 现在可以向应用中添加已配置的 DNS 名称（例如 `contoso.com` 和 `www.contoso.com`）。
 
-在 Azure 门户预览版中返回到应用的“自定义域”页（请参阅[第 1 步](#info)）。需要将自定义域的完全限定域名 (FQDN) 添加到列表中。
+在 Azure 门户预览中返回到应用的“自定义域”页（请参阅[第 1 步](#info)）。需要将自定义域的完全限定域名 (FQDN) 添加到列表中。
 
 ### <a name="add-the-a-hostname-to-your-app"></a>将 A 主机名添加到应用
 

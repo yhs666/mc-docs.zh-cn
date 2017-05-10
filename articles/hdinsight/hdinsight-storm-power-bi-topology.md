@@ -29,12 +29,12 @@ Power BI 允许以可视方式将数据显示为报表。本文档提供了如�
 
 > [!NOTE]
 虽然本文档中的步骤依赖于带 Visual Studio 的 Windows 开发环境，但是也可将编译的项目提交到基于 Linux 或 Windows 的 HDInsight 群集。仅在 2016 年 10 月 28 日以后创建的基于 Linux 的群集支持 SCP.NET 拓扑。
-> <p> 
+> 
 > 若要将 C# 拓扑用于基于 Linux 的群集，请将项目所使用的 Microsoft.SCP.Net.SDK NuGet 包更新为 0.10.0.6 版或更高版本。包的版本还必须与 HDInsight 上安装的 Storm 的主要版本相符。例如，Storm on HDInsight 版本 3.3 和 3.4 使用 Storm 版本 0.10.x，而 HDInsight 3.5 使用 Storm 1.0.x。
-> <p> 
+> 
 > 基于 Linux 的群集上的 C# 拓扑必须使用 .NET 4.5，并使用要在 HDInsight 群集上运行的 Mono。大多数功能适用。但应查看 [Mono 兼容性](http://www.mono-project.com/docs/about-mono/compatibility/)文档，了解可能的不兼容性。
 > 
-> <p>如需此项目的 Java 版本（适用于基于 Linux 或基于 Windows 的 HDInsight），请参阅[使用 Storm on HDInsight 处理 Azure 事件中心中的事件 (Java)](./hdinsight-storm-develop-java-event-hub-topology.md)。
+> 如需此项目的 Java 版本（适用于基于 Linux 或基于 Windows 的 HDInsight），请参阅[使用 Storm on HDInsight 处理 Azure 事件中心中的事件 (Java)](./hdinsight-storm-develop-java-event-hub-topology.md)。
 
 ## 先决条件
 
@@ -97,7 +97,7 @@ Power BI 允许以可视方式将数据显示为报表。本文档提供了如�
 
     > [!NOTE]
     “Storm 群集”下拉对话框中填充服务器名称可能需要几秒钟时间。
-    > <p> 
+    > 
     > 如果出现提示，请输入 Azure 订阅的登录凭据。如果有多个订阅，请登录包含 Storm on HDInsight 群集的订阅。
 
 2. 提交拓扑后，将会显示“拓扑查看器”。若要查看此拓扑，请从列表中选择 SqlAzureWriterTopology 条目。

@@ -1,5 +1,5 @@
 ---
-title: "Azure DocumentDB Java API、SDK 和资源 | Azure"
+title: "Azure DocumentDB Java API、SDK 和资源 | Microsoft 文档"
 description: "了解有关 Java API 和 SDK 的全部信息，包括发布日期、停用日期和 DocumentDB Java SDK 各版本之间所做的更改。"
 services: documentdb
 documentationcenter: java
@@ -12,27 +12,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/22/2017
-wacn.date: 
+ms.date: 03/16/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 2b4795c56c3a4800e17e4b924e8fef4e05a536e7
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
+ms.openlocfilehash: 0ce6322bcecac09a675bbc73e38aa693afecce19
+ms.lasthandoff: 04/28/2017
+
 
 ---
-
 # <a name="documentdb-java-sdk-release-notes-and-resources"></a>DocumentDB Java SDK：发行说明和资源
 > [!div class="op_single_selector"]
->- [.NET](./documentdb-sdk-dotnet.md)
->- [.NET Core](./documentdb-sdk-dotnet-core.md)
->- [Node.js](./documentdb-sdk-node.md)
->- [Java](./documentdb-sdk-java.md)
->- [Python](./documentdb-sdk-python.md)
->- [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
->- [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
->- [SQL](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx)
+> * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET Core](documentdb-sdk-dotnet-core.md)
+> * [Node.js](documentdb-sdk-node.md)
+> * [Java](documentdb-sdk-java.md)
+> * [Python](documentdb-sdk-python.md)
+> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> 
+> 
 
 <table>
 
@@ -42,20 +43,25 @@ ms.lasthandoff: 04/07/2017
 
 <tr><td>**参与 SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 
-<tr><td>**入门**</td><td>[Java SDK 入门](./documentdb-java-get-started.md)</td></tr>
+<tr><td>**入门**</td><td>[Java SDK 入门](documentdb-java-get-started.md)</td></tr>
 
-<tr><td>**Web 应用教程**</td><td>[使用 DocumentDB 开发 Web 应用程序](./documentdb-java-application.md)</td></tr>
+<tr><td>**Web 应用教程**</td><td>[使用 DocumentDB 开发 Web 应用程序](documentdb-java-application.md)</td></tr>
 
 <tr><td>**当前受支持的运行时**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>发行说明
+
+### <a name="a-name11001100httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb1100"></a><a name="1.10.0"/>[1.10.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.10.0)
+- 启用了对吞吐量低至 2,500 RU/秒并且缩放增量为 100 RU/秒的分区集合的支持。
+- 修复了本机程序集中的 bug，该 bug 在某些查询中可能会导致 NullRef 异常。
+
 ### <a name="a-name196196httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb196"></a><a name="1.9.6"/>[1.9.6](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.6)
 - 修复了查询引擎配置中可能会导致网关模式下查询异常的 Bug。
 - 修复了会话容器中的一些 Bug，这些 Bug 可能会在创建集合后立即导致“找不到所有者资源”请求异常。
 
 ### <a name="a-name195195httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb195"></a><a name="1.9.5"/>[1.9.5](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.5)
-- 添加了对聚合查询（COUNT、MIN、MAX、SUM、AVG）的支持。 请参阅[聚合支持](./documentdb-sql-query.md#Aggregates)。
+- 添加了对聚合查询（COUNT、MIN、MAX、SUM、AVG）的支持。 请参阅[聚合支持](documentdb-sql-query.md#Aggregates)。
 - 添加了对更改源的支持。
 - 通过 RequestOptions.setPopulateQuotaInfo 添加了对集合配额信息的支持。
 - 通过 RequestOptions.setScriptLoggingEnabled 添加了对存储过程脚本日志记录的支持。
@@ -113,7 +119,7 @@ ms.lasthandoff: 04/07/2017
 - 对文档添加了生存时间 (TTL) 支持。
 
 ### <a name="a-name160160httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb160"></a><a name="1.6.0"/>[1.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
-- 实现了[分区集合](./documentdb-partition-data.md)和[用户定义的性能级别](./documentdb-performance-levels.md)。
+- 实现了[分区集合](documentdb-partition-data.md)和[用户定义的性能级别](documentdb-performance-levels.md)。
 
 ### <a name="a-name151151httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb151"></a><a name="1.5.1"/>[1.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
 - 修复了 HashPartitionResolver 中的 Bug 以生成 little-endian 格式的哈希值，以便与其他 SDK 保持一致。
@@ -155,6 +161,7 @@ Microsoft 至少会在停用 SDK 的 **12 个月**之前发出通知，以便顺
 
 | 版本 | 发布日期 | 停用日期 |
 | --- | --- | --- |
+| [1.10.0](#1.10.0) |2017 年 3 月 11 日 |--- |
 | [1.9.6](#1.9.6) |2017 年 2 月 21 日 |--- |
 | [1.9.5](#1.9.5) |2017 年 1 月 31 日 |--- |
 | [1.9.4](#1.9.4) |2016 年 11 月 24 日 |--- |

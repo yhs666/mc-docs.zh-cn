@@ -141,8 +141,6 @@ var keepaliveAgent = new Agent({
 你可能会在门户上获取 Azure Webapps 针对高 CPU 耗用量提供的建议。你也可以设置监视器以监视某些[度量值](./web-sites-monitor.md)。在 Azure 门户预览仪表板上检查 CPU 使用率时，请检查 CPU 的 MAX 值，你才不会错过峰值。
 在你认为应用程序耗用太多 CPU，但你无法解释的情况下，必须分析节点应用程序。
 
-###
-
 #### 在 Azure Webapps 上使用 V8 探查器分析节点应用程序
 
 例如，假设你有一个要分析的 hello world 应用，如下所示：
@@ -283,6 +281,6 @@ NODE.exe 内有名为 NODE\_PENDING\_PIPE\_INSTANCES 的设置。默认情况下
 * [将 Node.js 模块与 Azure 应用程序一起使用](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js 开发人员中心](../nodejs-use-node-modules-azure-apps.md)
-* [探索神秘无比的 Kudu 调试控制台](../aog-web-app-diagnostics-kudu.md)
+* [探索神秘无比的 Kudu 调试控制台](https://www.azure.cn/documentation/articles/aog-web-app-diagnostics-kudu/)
 
 <!---HONumber=Mooncake_0815_2016-->

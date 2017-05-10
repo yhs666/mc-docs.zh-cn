@@ -29,9 +29,9 @@ Refernce article:
     If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal preview](../attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 -->
 
-本文介绍如何通过 Azure 门户预览版将通过经典部署模型创建的新磁盘和现有磁盘附加到 Windows 虚拟机。
+本文介绍如何通过 Azure 门户预览将通过经典部署模型创建的新磁盘和现有磁盘附加到 Windows 虚拟机。
 
-也可以[在 Azure 门户预览版中将数据磁盘附加到 Linux VM](../../linux/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+也可以[在 Azure 门户预览中将数据磁盘附加到 Linux VM](../../linux/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 附加磁盘之前，请查看以下提示：
 

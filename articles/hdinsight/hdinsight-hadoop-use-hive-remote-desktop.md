@@ -28,7 +28,7 @@ ms.author: larryfr
 
 > [!IMPORTANT]
 远程桌面只能在使用 Windows 作为操作系统的 HDInsight 群集上使用。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)。
-><p>
+>
 > 有关 HDInsight 3.4 或更高版本，请参阅[将 Hive 与 HDInsight 和 Beeline 配合使用](./hdinsight-hadoop-use-hive-beeline.md)，了解如何通过命令行直接在群集上运行 Hive 查询。
 
 ## <a id="prereq"></a>先决条件
@@ -69,7 +69,7 @@ ms.author: larryfr
 
         > [!NOTE]
         当你预期以外部源更新基础数据（例如自动化数据上载过程），或以其他 MapReduce 操作更新基础数据，但希望 Hive 查询始终使用最新数据时，必须使用外部表。
-        ><p>
+        >
         > 删除外部表**不会**删除数据，只会删除表定义。
         >
         >

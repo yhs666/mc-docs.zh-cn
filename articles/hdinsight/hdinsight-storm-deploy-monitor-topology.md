@@ -31,7 +31,7 @@ HDInsight 工具中的 Storm 仪表板和 Storm 功能依赖于 Storm REST API�
 
 > [!IMPORTANT]
 本文档中的步骤需要将 Windows 作为操作系统的 Storm on HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)。
-><p>
+>
 > 有关在使用 Linux 的 HDInsight 群集上部署和管理 Storm 拓扑的信息，请参阅 [Deploy and manage Apache Storm topologies on Linux-based HDInsight](./hdinsight-storm-deploy-monitor-topology-linux.md)（在基于 Linux 的 HDInsight 上部署和管理 Apache Storm 拓扑）
 
 ## 先决条件
