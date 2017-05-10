@@ -195,7 +195,7 @@ knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
-[AAD-Consent-Overview]: ./active-directory-integrating-applications.md#overview-of-the-consent-framework/
+[AAD-Consent-Overview]: ./active-directory-integrating-applications.md#overview-of-the-consent-framework
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
 [AAD-Graph-Overview]: ./active-directory-graph-api.md
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/zh-cn/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
