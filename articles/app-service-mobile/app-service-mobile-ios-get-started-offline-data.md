@@ -33,9 +33,9 @@ ms.author: yuaxu
 
 使用移动应用的脱机数据同步功能，最终用户可在无法访问网络时仍能够与本地数据库进行交互。若要在应用中使用这些功能，你可以初始化 `MSClient` 的同步上下文，并引用本机存储。然后通过 **MSSyncTable** 接口引用表。
 
-在 **QSTodoService.m** (Objective-C) 或 **ToDoTableViewController.swift** (Swift) 中，请注意成员 **syncTable** 的类型为 **MSSyncTable**。脱机同步使用此同步表接口而不是 **MSTable**。使用同步表时，所有操作将转到本地存储，而且只会与具有显式推送和提取操作的远程后端同步。
+在 **QSTodoService.m** (Objective-C) 或 **ToDoTableViewController.swift** (Swift) 中，请注意成员 **syncTable** 的类型为 **MSSyncTable** 。脱机同步使用此同步表接口而不是 **MSTable** 。使用同步表时，所有操作将转到本地存储，而且只会与具有显式推送和提取操作的远程后端同步。
 
- 若要获取对同步表的引用，请对 `MSClient` 使用 **syncTableWithName** 方法。若要删除脱机同步功能，请改用 **tableWithName**。
+ 若要获取对同步表的引用，请对 `MSClient` 使用 **syncTableWithName** 方法。若要删除脱机同步功能，请改用 **tableWithName** 。
 
 2. 表操作之前，必须初始化本地存储区。下面是相关的代码。
 
@@ -132,9 +132,9 @@ ms.author: yuaxu
         ```
         } 
 
-在 Objective-C 版本的 `syncData` 中，首先在同步上下文中调用 **pushWithCompletion**。此方法是 `MSSyncContext` 的成员（不是同步表本身），因为它将更改推送到所有表。只有已在本地以某种方式修改（通过 CUD 操作来完成）的记录才会发送到服务器。然后调用 **pullData** 帮助程序，该帮助程序调用 **MSSyncTable.pullWithQuery** 来检索远程数据并将其存储在本地数据库中。
+在 Objective-C 版本的 `syncData` 中，首先在同步上下文中调用 **pushWithCompletion** 。此方法是 `MSSyncContext` 的成员（不是同步表本身），因为它将更改推送到所有表。只有已在本地以某种方式修改（通过 CUD 操作来完成）的记录才会发送到服务器。然后调用 **pullData** 帮助程序，该帮助程序调用 **MSSyncTable.pullWithQuery** 来检索远程数据并将其存储在本地数据库中。
 
-在 Swift 版本中，因为推送操作不是必需的，所以没有调用 **pushWithCompletion**。如果同步上下文中正在进行推送操作的表存在任何挂起的更改，则提取始终会先发出推送。但是，如果有多个同步表，则最好是显式调用推送，以确保所有内容在相关表中保持一致。
+在 Swift 版本中，因为推送操作不是必需的，所以没有调用 **pushWithCompletion** 。如果同步上下文中正在进行推送操作的表存在任何挂起的更改，则提取始终会先发出推送。但是，如果有多个同步表，则最好是显式调用推送，以确保所有内容在相关表中保持一致。
 
 在 Objective-C 和 Swift 版本中，均可以使用 **pullWithQuery** 方法指定查询，筛选想要检索的记录。在本示例中，查询检索远程 `TodoItem` 表中的所有记录。
 
@@ -153,7 +153,7 @@ ms.author: yuaxu
   * MS\_TableOperations：用于跟踪需要与服务器同步的项。
   * MS\_TableOperationErrors：用于跟踪脱机同步期间发生的任何错误。
   * MS\_TableConfig：用于跟踪所有提取操作最后一次同步操作的上次更新时间。
-  * TodoItem：存储待办事项。系统列 **createdAt**、**updatedAt** 和 **version** 是可选的系统属性。
+  * TodoItem：存储待办事项。系统列 **createdAt** 、 **updatedAt** 和 **version** 是可选的系统属性。
 
 > [!NOTE]
 > 移动应用 SDK 保留以“**``**”开头的列名称。请不要在系统列以外的其他列中使用此前缀。否则，列名称会在使用远程后端时被修改。
@@ -162,10 +162,10 @@ ms.author: yuaxu
 
 当使用脱机同步功能时，请定义三个系统表和一个数据表。
 
-```
+
 ### 系统表
 
-**MS\_TableOperations**
+**MS\_TableOperations** 
 
 ![MS\_TableOperations 表属性][defining-core-data-tableoperations-entity]
 
@@ -177,7 +177,7 @@ ms.author: yuaxu
 | 表 | 字符串 |
 | tableKind | 16 位整数 |
 
-<br>**MS\_TableOperationErrors**
+<br> **MS\_TableOperationErrors** 
 
 ![MS\_TableOperationErrors 表属性][defining-core-data-tableoperationerrors-entity]  
 
@@ -212,7 +212,7 @@ ms.author: yuaxu
 | createdAt | 日期 | （可选）映射到 createdAt 系统属性 |
 | updatedAt | 日期 | （可选）映射到 updatedAt 系统属性 |
 | 版本 | 字符串 | （可选）用于检测冲突，映射到版本 |
-```
+
 
 ## <a name="setup-sync"></a>更改应用的同步行为
 本节将修改应用，使其在启动应用或插入和更新项时不进行同步。仅在按下刷新手势按钮时进行同步。

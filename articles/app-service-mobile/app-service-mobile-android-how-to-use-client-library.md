@@ -129,16 +129,16 @@ mPriority = priority;
 }
 ```
 
-若要了解如何在移动应用后端中创建更多的表，请参阅[如何定义表控制器][15]（.NET 后端）或[使用动态架构定义表][16]（Node.js 后端）。对于 Node.js 后端，也可以使用 [Azure 门户]中的“简易表”设置。
+若要了解如何在移动应用后端中创建更多的表，请参阅[如何定义表控制器][15]（.NET 后端）或[使用动态架构定义表][16]（Node.js 后端）。对于 Node.js 后端，也可以使用 [Azure 门户预览]中的“简易表”设置。
 
 ###<a name="create-client"></a>如何创建客户端上下文
 
 此代码创建用于访问移动应用后端的 **MobileServiceClient** 对象。代码将进入 *AndroidManifest.xml* 中指定为 **MAIN** 操作和 **LAUNCHER** 类别的 **Activity** 类的 `onCreate` 方法。在快速入门代码中，代码将进入 **ToDoActivity.java** 文件。
 
 ```
-    MobileServiceClient mClient = new MobileServiceClient(
-        "MobileAppUrl", // Replace with the Site URL
-        this)
+MobileServiceClient mClient = new MobileServiceClient(
+    "MobileAppUrl", // Replace with the Site URL
+    this)
 ```
 
 在此代码中，请将 `MobileAppUrl` 替换为移动应用后端的 URL，可以在 [Azure 门户预览]中移动应用后端的边栏选项卡内找到该 URL。若要编译此代码行，还需要添加以下 **import** 语句：
@@ -269,7 +269,7 @@ ToDoItemAdapter mAdapter;
 mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 ```
 
-ToDoItemAdapter 构造函数的第二个参数是对布局的引用。我们现在可以实例化 **ListView** 并将适配器分配到 **ListView**。
+ToDoItemAdapter 构造函数的第二个参数是对布局的引用。我们现在可以实例化 **ListView** 并将适配器分配到 **ListView** 。
 
 ```
 ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
@@ -348,7 +348,7 @@ List<ToDoItem> result = mToDoTable.where()
 
 **mToDoTable** 是对前面创建的移动服务表的引用。
 
-对表引用使用 **where** 方法调用定义筛选器。执行 **where** 方法后，依次执行 **field** 方法和用于指定逻辑谓词的方法。可能的谓词方法包括 **eq**（等于）、**ne**（不等于）、**gt**（大于）、**ge**（大于或等于）、**lt**（小于）、**le**（小于或等于）。使用这些方法可将数字和字符串字段与特定的值相比较。
+对表引用使用 **where** 方法调用定义筛选器。执行 **where** 方法后，依次执行 **field** 方法和用于指定逻辑谓词的方法。可能的谓词方法包括 **eq** （等于）、 **ne** （不等于）、**gt**（大于）、**ge**（大于或等于）、**lt**（小于）、**le**（小于或等于）。使用这些方法可将数字和字符串字段与特定的值相比较。
 
 可以按日期筛选。使用以下方法可以比较整个日期字段或日期的某些部分：**year**、**month**、**day**、**hour**、**minute** 和 **second**。以下示例针对 *截止日期* 等于 2013 的项添加一个筛选器。
 
@@ -553,13 +553,13 @@ jsonItem.getAsJsonPrimitive("id").getAsInt());
 以下代码演示了如何删除一个实例，在本例中，该实例就是我们在前一个 *insert* 示例中创建的 **JsonObject** 的实例。该代码与类型化案例相同，但方法具有不同的签名，因为它引用了 **JsonObject**。
 
 ```
-     mToDoTable.delete(jsonItem);
+mToDoTable.delete(jsonItem);
 ```
 
 还可以使用某个实例的 ID 来直接删除该实例：
 
 ```
-     mToDoTable.delete(ID);
+mToDoTable.delete(ID);
 ```
 
 ### <a name="json_get"></a>如何返回非类型化表中的所有行
@@ -651,10 +651,10 @@ public void completeItem(View view) {
 
 ### <a name="caching"></a>如何向应用程序添加身份验证代码
 
-以下代码使用 Microsoft 提供程序启动服务器流登录过程：
+以下代码使用 MicrosoftAccount 提供程序启动服务器流登录过程：
 
 ```
-MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.Microsoft);
+MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.MicrosoftAccount);
 ```
 
 使用 **getUserId** 方法从 **MobileServiceUser** 获取已登录用户的 ID。有关如何使用 Futures 调用异步登录 API 的示例，请参阅 [Get started with authentication]（身份验证入门）。
@@ -700,13 +700,13 @@ MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.Micro
 
 3. 将以下代码添加到应用程序并进行以下替换：
 
-* 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配了应用程序的租户的名称。格式应为 https://login.chinacloudapi.cn/contoso.partner.onmschina.cn。可以在 [Azure 经典管理门户] 中 Azure Active Directory 的“域”选项卡复制此值。
+* 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配了应用程序的租户的名称。格式应为 https://login.chinacloudapi.cn/contoso.partner.onmschina.cn。 可以在 [Azure 经典管理门户] 中 Azure Active Directory 的“域”选项卡复制此值。
 
 * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取客户端 ID。
 
 * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
 
-* 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点（使用 HTTPS 方案）。此值应类似于 \_https://contoso.chinacloudsites.cn/.auth/login/done_。
+* 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点（使用 HTTPS 方案）。此值应类似于  _https://contoso.chinacloudsites.cn/.auth/login/done_ 。
 
     ```
     private AuthenticationContext mContext;
@@ -787,7 +787,7 @@ MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.Micro
 
 ### <a name="headers"></a>如何自定义请求标头
 
-配置 **ServiceFilter**，将自定义 HTTP 标头添加到每个请求：
+配置 **ServiceFilter** ，将自定义 HTTP 标头添加到每个请求：
 
 ```
 private class CustomHeaderFilter implements ServiceFilter {

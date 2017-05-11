@@ -60,7 +60,7 @@ ms.author: adrianha
 1. 编辑共享项目中的 App.xaml.cs。注释掉 **MobileServiceClient** 的初始化并添加使用无效移动应用 URL 的以下行：
 
     ```
-     public static MobileServiceClient MobileService = new MobileServiceClient("https://your-service.azurewebsites.fail");
+    public static MobileServiceClient MobileService = new MobileServiceClient("https://your-service.azurewebsites.fail");
     ```
 
     还可以通过在设备上禁用 wifi 和手机网络或使用飞行模式来演示脱机行为。
@@ -89,7 +89,7 @@ ms.author: adrianha
 
 4. 在应用程序中，单击要在本地存储区中完成的几个项旁边的复选框。
 
-  `UpdateCheckedTodoItem` 调用 `SyncAsync`，将每个已完成项与移动应用后端进行同步。`SyncAsync` 同时调用推送和拉取操作。但是，**针对客户端已更改的表执行拉取操作时，始终会自动执行推送操作**。此行为可确保本地存储中的所有表以及关系都保持一致。此行为可能会导致意外的推送。有关此行为的详细信息，请参阅 [Azure 移动应用中的脱机数据同步]。
+    `UpdateCheckedTodoItem` 调用 `SyncAsync`，将每个已完成项与移动应用后端进行同步。`SyncAsync` 同时调用推送和拉取操作。但是，**针对客户端已更改的表执行拉取操作时，始终会自动执行推送操作**。此行为可确保本地存储中的所有表以及关系都保持一致。此行为可能会导致意外的推送。有关此行为的详细信息，请参阅 [Azure 移动应用中的脱机数据同步]。
 
 ##API 摘要
 

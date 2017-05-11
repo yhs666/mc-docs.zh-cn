@@ -54,9 +54,9 @@ ms.author: adrianha
         try
         {
             // Change 'MobileService' to the name of your MobileServiceClient instance.
-            // Sign-in using Microsoft authentication.
+            // Sign-in using MicrosoftAccount authentication.
             user = await App.MobileService
-                .LoginAsync(MobileServiceAuthenticationProvider.Microsoft);
+                .LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount);
             message =
                 string.Format("You are now signed in - {0}", user.UserId);
 
@@ -74,7 +74,7 @@ ms.author: adrianha
     }
     ```
 
-    此代码使用 Microsoft 登录对用户进行身份验证。如果使用的标识提供者不是 Microsoft，请将上述 **MobileServiceAuthenticationProvider** 的值更改为提供者的值。
+    此代码使用 MicrosoftAccount 登录对用户进行身份验证。如果使用的标识提供者不是 MicrosoftAccount ，请将上述 **MobileServiceAuthenticationProvider** 的值更改为提供者的值。
 
 3. 注释掉或删除现有 **OnNavigatedTo** 方法重写中对 **ButtonRefresh\_Click** 方法（或 **InitLocalStoreAsync** 方法）的调用。这可以防止在对用户进行身份验证之前加载数据。接下来，向应用添加用于触发身份验证的“登录”按钮。
 
@@ -123,7 +123,7 @@ ms.author: adrianha
 >[!NOTE]
 >无论使用的是客户端管理的还是服务管理的身份验证，都可以缓存应用服务颁发的令牌。本教程使用服务管理的身份验证。
 
-[!INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
+
 
 ##后续步骤
 

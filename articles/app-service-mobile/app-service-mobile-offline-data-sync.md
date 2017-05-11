@@ -56,7 +56,7 @@ ms.author: adrianha
 开发人员也可以实现自己的本地存储。例如，如果希望将数据以加密格式存储在移动客户端上，可以定义使用 SQLCipher 进行加密的本地存储。
 
 ## 什么是同步上下文？
-*同步上下文*与移动客户端对象（例如 `IMobileServiceClient` 或 `MSClient`）关联，跟踪对同步表所做的更改。同步上下文维护操作队列，其中保留了 CUD 操作（Create、Update、Delete）的顺序列表，该列表稍后将发送到服务器。
+*同步上下文* 与移动客户端对象（例如 `IMobileServiceClient` 或 `MSClient`）关联，跟踪对同步表所做的更改。同步上下文维护操作队列，其中保留了 CUD 操作（Create、Update、Delete）的顺序列表，该列表稍后将发送到服务器。
 
 本地存储使用初始化方法（例如 [.NET 客户端 SDK] 中的 `IMobileServicesSyncContext.InitializeAsync(localstore)`）来与同步上下文关联。
 
