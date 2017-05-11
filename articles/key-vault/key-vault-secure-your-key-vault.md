@@ -46,7 +46,7 @@ Azure 密钥保管库是保护云应用程序加密密钥和机密（例如证�
 - **用户+ 应用访问** - 通常适用于代表登录用户访问密钥保管库的应用程序。Azure PowerShell 和 Azure 门户预览就是这种访问类型的例子。可使用两种方法向用户授予访问权限：一种方法是授予用户从任何应用程序访问密钥保管库的权限，另一种方法是仅当用户使用特定应用程序时才向其授予密钥保管库访问权限（称为复合标识）。
 - **仅限应用的访问** - 适用于运行后台程序服务、后台作业等的应用程序。将向应用程序的标识授予密钥保管库访问权限。
 
-这两种类型的应用程序使用任何[受支持的身份验证方法](../active-directory/active-directory-authentication-scenarios.md)在 Azure Active Directory 中进行身份验证，并获取令牌。使用的身份验证方法取决于应用程序类型。然后，应用程序使用此令牌并将 REST API 请求发送到密钥保管库。在管理平面访问模式中，请求将通过 Azure资源管理器终结点路由。访问数据平面时，应用程序直接与密钥保管库终结点对话。查看有关[整个身份验证流](../active-directory/active-directory-protocols-oauth-code.md)的详细信息。
+这两种类型的应用程序使用任何[受支持的身份验证方法](../active-directory/develop/active-directory-authentication-scenarios.md)在 Azure Active Directory 中进行身份验证，并获取令牌。使用的身份验证方法取决于应用程序类型。然后，应用程序使用此令牌并将 REST API 请求发送到密钥保管库。在管理平面访问模式中，请求将通过 Azure资源管理器终结点路由。访问数据平面时，应用程序直接与密钥保管库终结点对话。查看有关[整个身份验证流](../active-directory/develop/active-directory-protocols-oauth-code.md)的详细信息。
 
 应用程序请求其令牌的资源名称会有所不同，具体取决于应用程序访问的是管理平面还是数据平面。因此，根据具体的 Azure 环境，资源名称是本部分稍后提供的表格中所述的管理平面或数据平面终结点。
 
@@ -218,7 +218,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 - [Managing Role-Based Access Control with the REST API（使用 REST API 管理基于角色的访问控制）](../active-directory/role-based-access-control-manage-access-rest.md)
 
   此文说明如何使用 REST API 来管理 RBAC。
-- [使用 OAuth 2.0 和 Azure Active Directory 来授权访问 Web 应用程序](../active-directory/active-directory-protocols-oauth-code.md)
+- [使用 OAuth 2.0 和 Azure Active Directory 来授权访问 Web 应用程序](../active-directory/develop/active-directory-protocols-oauth-code.md)
 
   此文介绍使用 Azure Active Directory 进行身份验证时遵循的整个 OAuth 2.0 流程。
 - [key vault Management REST APIs（密钥保管库管理 REST API）](https://msdn.microsoft.com/zh-cn/library/azure/mt620024.aspx)
