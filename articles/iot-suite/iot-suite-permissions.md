@@ -120,7 +120,7 @@ Azure 管理员角色可控制将 Azure 订阅映射到 AD 租户的能力。
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
 [lnk-classic-portal]: https://manage.windowsazure.cn/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
-[lnk-assign-app-roles]: ../active-directory/active-directory-application-manifest.md
+[lnk-assign-app-roles]: ../active-directory/develop/active-directory-application-manifest.md
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-help-support]: https://www.azure.cn/support/support-ticket-form/?l=zh-cn
 [lnk-customize]: ./iot-suite-guidance-on-customizing-preconfigured-solutions.md

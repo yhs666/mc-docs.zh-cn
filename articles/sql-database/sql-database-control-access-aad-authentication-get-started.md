@@ -44,7 +44,7 @@ ms.author: carlrab
    根据需要完成 SQL Server 身份验证的相关教程 [SQL 数据库教程：SQL 身份验证、登录名和用户帐户、数据库角色、权限、服务器级防火墙规则和数据库级防火墙规则](./sql-database-control-access-sql-authentication-get-started.md) - 但是，该教程讲解的一些概念未在本文中复述。如果在同一台计算机（使用相同的 IP 地址）上完成了这篇相关教程，则无需执行本教程中与服务器和数据库级防火墙相关的过程。正因如此，这些过程在本教程中标记为可选。此外，本教程中的屏幕截图内容假设读者已完成这篇相关教程。
    >
 
-* 已创建并填充 Azure Active Directory。有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](../active-directory/active-directory-aadconnect.md)、[将自己的域名添加到 Azure AD](../active-directory/active-directory-add-domain.md)、[管理 Azure AD 目录](https://msdn.microsoft.com/zh-cn/library/azure/hh967611.aspx)、[使用 Windows PowerShell 管理 Azure AD](https://msdn.microsoft.com/zh-cn/library/azure/jj151815.aspx) 和[混合标识所需的端口和协议](../active-directory/active-directory-aadconnect-ports.md)。
+* 已创建并填充 Azure Active Directory。有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](../active-directory/connect/active-directory-aadconnect.md)、[将自己的域名添加到 Azure AD](../active-directory/active-directory-add-domain.md)、[管理 Azure AD 目录](https://msdn.microsoft.com/zh-cn/library/azure/hh967611.aspx)、[使用 Windows PowerShell 管理 Azure AD](https://msdn.microsoft.com/zh-cn/library/azure/jj151815.aspx) 和[混合标识所需的端口和协议](../active-directory/connect/active-directory-aadconnect-ports.md)。
 
 > [!NOTE]
 本教程帮助读者了解以下学习主题的内容：[SQL 数据库访问和控制](./sql-database-control-access.md)，[登录名、用户和数据库角色](./sql-database-manage-logins.md)、[主体](https://msdn.microsoft.com/zh-cn/library/ms181127.aspx)、[数据库角色](https://msdn.microsoft.com/zh-cn/library/ms189121.aspx)、[SQL 数据库防火墙规则](./sql-database-firewall-configure.md)和 [Azure Active Directory 身份验证](./sql-database-aad-authentication.md)。

@@ -169,7 +169,7 @@ $x509.Thumbprint
 
 运行这些命令后，可以在 Azure AD 中看到该应用程序。搜索时，请确保在搜索对话框中选择“我的公司拥有的应用程序”，而不是“我的公司使用的应用程序”。
 
-若要了解有关 Azure AD 应用程序对象和 ServicePrincipal 对象的详细信息，请参阅[应用程序对象和服务主体对象](../active-directory/active-directory-application-objects.md)
+若要了解有关 Azure AD 应用程序对象和 ServicePrincipal 对象的详细信息，请参阅[应用程序对象和服务主体对象](../active-directory/develop/active-directory-application-objects.md)
 
 **在 Web 应用中添加代码以使用证书** 现在，我们将在 Web 应用中添加代码以访问证书并使用它进行身份验证。
 
