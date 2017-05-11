@@ -21,6 +21,7 @@ ms.lasthandoff: 04/22/2017
 
 
 ---
+
 # <a name="understand-azure-active-directory-architecture"></a>了解 Azure Active Directory 体系结构
 使用 Azure Active Directory (Azure AD) 可以安全地管理用户对 Azure 服务和资源的访问。 Azure AD 随附了整套标识管理功能。 有关 Azure AD 功能的信息，请参阅[什么是 Azure Active Directory？](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)
 

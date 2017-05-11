@@ -104,8 +104,8 @@ Azure 应用服务提供内置的身份验证与授权服务，可实现 [OAuth 
 
 有关 Azure Active Directory 的详细信息，请参阅以下资源。
 
-* [Azure AD scenarios](../active-directory/active-directory-authentication-scenarios.md)（Azure AD 方案）
-* [Azure AD developers' guide](../active-directory/active-directory-developers-guide.md)（Azure AD 开发人员指南）
+* [Azure AD scenarios](../active-directory/develop/active-directory-authentication-scenarios.md)（Azure AD 方案）
+* [Azure AD developers' guide](../active-directory/develop/active-directory-developers-guide.md)（Azure AD 开发人员指南）
 * [Azure AD 示例](https://github.com/azure-samples?query=active-directory)
 
 ## 后续步骤

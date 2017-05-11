@@ -28,7 +28,7 @@ ms.lasthandoff: 04/28/2017
 
 本文说明如何在 [Azure App Service Web 应用](/azure/app-service-web/app-service-changes-existing-services)中使用[身份验证/授权](../app-service/app-service-authentication-overview.md)功能创建 .NET 业务线应用。 另外，还说明如何在应用程序中使用 [Azure Active Directory 图形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 查询目录数据。
 
-使用的 Azure Active Directory 租户可以是仅限 Azure 的目录。 或者，可以将它[与本地 Active Directory 同步](../active-directory/active-directory-aadconnect.md)，为本地和远程工作者创建单一登录体验。 本文使用 Azure 帐户的默认目录。
+使用的 Azure Active Directory 租户可以是仅限 Azure 的目录。 或者，可以将它[与本地 Active Directory 同步](../active-directory/connect/active-directory-aadconnect.md)，为本地和远程工作者创建单一登录体验。 本文使用 Azure 帐户的默认目录。
 
 ## <a name="bkmk_build"></a>要构建的项目
 将在 App Service Web Apps 中构建用于跟踪工作项并具有以下功能的简单的业务线创建-读取-更新-删除 (CRUD) 应用程序：

@@ -43,7 +43,7 @@ Azure 托管磁盘通过管理与 VM 磁盘关联的[存储帐户](./storage-int
 
 可以使用 [Azure 基于角色的访问控制 (RBAC)](../active-directory/role-based-access-control-what-is.md) 向一个或多个用户分配对托管磁盘的特定权限。托管磁盘公开各种操作，包括读取、写入（创建/更新）、删除、导出磁盘，以及检索磁盘的[共享访问签名 (SAS) URI](./storage-dotnet-shared-access-signature-part-1.md)。可以仅向某人授予执行作业时所需的操作的访问权限。例如，如果不希望某人将托管磁盘复制到存储帐户，可以选择不授予对该托管磁盘的导出操作的访问权限。类似地，如果不希望某人使用 SAS URI 复制托管磁盘，可以选择不授予对该托管磁盘的该权限。
 
-## 定价和计费 
+## <a name="pricing-and-billing"></a> 定价和计费 
 
 使用托管磁盘时，将考虑以下计费因素：
 

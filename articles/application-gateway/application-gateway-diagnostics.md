@@ -80,7 +80,7 @@ Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGr
 }
 ```
 
-## 诊断日志记录
+## <a name="diagnostic-logging"></a> 诊断日志记录
 
 可在 Azure 中使用不同类型的日志来对应用程序网关进行管理和故障排除。可通过门户访问其中某些日志，且可从 Azure Blob 存储提取并在 Excel 和 PowerBI 等各种工具中查看所有日志。可从以下列表了解有关不同类型日志的详细信息：
 

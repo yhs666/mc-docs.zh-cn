@@ -39,7 +39,7 @@ ms.lasthandoff: 04/22/2017
 ## <a name="checklist-before-moving-resources"></a>移动资源前需查看的清单
 移动资源之前需执行的一些重要步骤。 验证这些条件可以避免错误。
 
-1. 源订阅与目标订阅必须在同一个 [Active Directory 租户](../active-directory/active-directory-howto-tenant.md)中。 若要检查这两个订阅是否具有相同的租户 ID，请使用 Azure PowerShell 或 Azure CLI。
+1. 源订阅与目标订阅必须在同一个 [Active Directory 租户](../active-directory/develop/active-directory-howto-tenant.md)中。 若要检查这两个订阅是否具有相同的租户 ID，请使用 Azure PowerShell 或 Azure CLI。
 
     对于 Azure PowerShell，请使用：
 

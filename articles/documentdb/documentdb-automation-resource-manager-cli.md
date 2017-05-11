@@ -20,8 +20,8 @@ ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 2ec439e7c6790a3830a8c7303cde5013196b2f94
 ms.lasthandoff: 04/28/2017
 
-
 ---
+
 # <a name="automate-azure-documentdb-account-management-using-azure-cli-20"></a>使用 Azure CLI 2.0 自动管理 Azure DocumentDB 帐户
 > [!div class="op_single_selector"]
 > * [Azure 门户](documentdb-create-account.md)
@@ -265,5 +265,6 @@ az documentdb failover-priority-change "East US"=1 "West US"=0 "South Central US
 [az-documentdb-ref]: https://docs.microsoft.com/en-us/cli/azure/documentdb
 [az-documentdb-create-ref]: https://docs.microsoft.com/en-us/cli/azure/documentdb#create
 [rp-rest-api]: https://docs.microsoft.com/en-us/rest/api/documentdbresourceprovider/
+
 
 

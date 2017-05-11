@@ -151,7 +151,7 @@ ms.lasthandoff: 04/28/2017
 ## <a name="alerts-and-autoscale"></a>警报和自动缩放
 可将应用或应用服务计划的度量值连接到警报；若要了解相关详细信息，请参阅[接收警报通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-托管在基本、标准或高级应用服务计划中的应用服务应用支持 **自动缩放**。 这使你可以配置监视应用服务计划度量值的规则，还能增加或减少根据需要提供其他资源或在过度预配时节约资金的实例计数。 可以在此处了解有关自动缩放的详细信息：[如何缩放](../monitoring-and-diagnostics/insights-how-to-scale.md)以及 [Azure 监视器自动缩放的最佳做法](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+托管在基本、标准或高级应用服务计划中的应用服务应用支持 **自动缩放**。 这使你可以配置监视应用服务计划度量值的规则，还能增加或减少根据需要提供其他资源或在过度预配时节约资金的实例计数。 可以在此处了解有关自动缩放的详细信息：[如何缩放](../monitoring-and-diagnostics/insights-how-to-scale.md)
 
 ## <a name="whats-changed"></a>发生的更改
 * 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)

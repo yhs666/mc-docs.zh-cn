@@ -18,7 +18,6 @@ translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 87d3055012244ae5d10cd8d548d6d3c1be661f62
 ms.lasthandoff: 04/22/2017
-
 ---
 
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>存在现有的租户时如何使用 Azure AD Connect
@@ -61,5 +60,6 @@ Azure AD 中的对象在云中 (Azure AD) 或本地掌控。 对于单个对象�
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
+
 
 

@@ -105,8 +105,7 @@ SQL 数据仓库支持通过 PolyBase 从 HDInsight 加载数据。 该过程和
 有关教程，请参阅[将数据从 Azure Blob 存储加载到 SQL 数据仓库 (PolyBase)][Load data from Azure blob storage to SQL Data Warehouse (PolyBase)]。
 
 ## <a name="recommendations"></a>建议
-我们的很多合作伙伴都提供加载解决方案。 若要获取更多解决方案，请参阅我们的 [解决方案合作伙伴][solution partners]的列表。 
-
+<!-- Not supported in Azure.cn 我们的很多合作伙伴都提供加载解决方案。 若要获取更多解决方案，请参阅我们的 [解决方案合作伙伴][solution partners]的列表。 -->
 如果你的数据来自非关系源，而你想要将其载入 SQL 数据仓库，则需在加载前先将其转换成行和列。 已转换的数据不需存储在数据库中，可以存储在文本文件中。
 
 基于新加载的数据创建统计信息。 Azure SQL 数据仓库尚不支持自动创建或自动更新统计信息。  为了获得查询的最佳性能，在首次加载数据或者在数据发生重大更改之后，创建所有表的所有列统计信息非常重要。  有关详细信息，请参阅 [统计信息][Statistics]。

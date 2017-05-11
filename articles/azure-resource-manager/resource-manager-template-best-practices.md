@@ -274,7 +274,7 @@ ms.lasthandoff: 04/22/2017
    
      有关连接到虚拟机的详细信息，请参阅：
    
-   * [在 Azure 中运行用于 N 层体系结构的 VM](../guidance/guidance-compute-n-tier-vm.md)
+   <!-- Not contain guidence direcotry * [在 Azure 中运行用于 N 层体系结构的 VM](../guidance/guidance-compute-n-tier-vm.md)-->
    * [在 Azure Resource Manager 中设置对 VM 的 WinRM 访问](../virtual-machines/windows/winrm.md)
    * [使用 Azure 门户实现对 VM 的外部访问](../virtual-machines/windows/nsg-quickstart-portal.md)
    * [使用 PowerShell 实现对 VM 的外部访问](../virtual-machines/windows/nsg-quickstart-powershell.md)

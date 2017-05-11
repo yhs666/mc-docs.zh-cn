@@ -30,8 +30,7 @@ ms.lasthandoff: 04/22/2017
 * 策略定义 - 描述何时强制执行策略，以及要采取的操作
 * 策略分配 - 应用策略定义的范围（订阅或资源组）
 
-本主题重点介绍策略定义。 有关策略分配的信息，请参阅[分配和管理策略](./resource-manager-policy-create-assign.md)。
-
+<!-- Not suitfor Azure.cn 本主题重点介绍策略定义。 有关策略分配的信息，请参阅[分配和管理策略](./resource-manager-policy-create-assign.md)。-->
 Azure 提供一些内置的策略定义，可减少需要定义的策略数目。 如果内置策略定义适用于你的方案，请在分配到范围时使用该定义。
 
 将在创建和更新资源（PUT 和 PATCH 操作）时评估策略。
@@ -238,7 +237,7 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 
 以下主题包含策略示例：
 
-* 有关标记策略的示例，请参阅[将资源策略应用于标记](./resource-manager-policy-tags.md)。
+<!-- Not suitfor Azure.cn * 有关标记策略的示例，请参阅[将资源策略应用于标记](./resource-manager-policy-tags.md)。-->
 * 有关虚拟机策略的示例，请参阅[将资源策略应用于 Linux VM](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 和[将资源策略应用于 Windows WM](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ### <a name="allowed-resource-locations"></a>允许的资源位置

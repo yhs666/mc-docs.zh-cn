@@ -18,7 +18,7 @@ wacn.date: 01/17/2017
 
 ## 在 AAD 中为 Service Fabric 群集建模
 
-AAD 可让组织（称为租户）管理用户对应用程序的访问，这些应用程序划分为提供基于 Web 的 UI 的应用程序，以及提供本机客户端体验的应用程序。在本文中，我们假设你已创建一个租户。否则，请先阅读 [How to get an Azure Active Directory tenant](../active-directory/active-directory-howto-tenant.md)（如何获取 Azure Active Directory 租户）。
+AAD 可让组织（称为租户）管理用户对应用程序的访问，这些应用程序划分为提供基于 Web 的 UI 的应用程序，以及提供本机客户端体验的应用程序。在本文中，我们假设你已创建一个租户。否则，请先阅读 [How to get an Azure Active Directory tenant](../active-directory/develop/active-directory-howto-tenant.md)（如何获取 Azure Active Directory 租户）。
 
 Service Fabric 群集提供其管理功能的各种入口点（包括基于 Web 的 [Service Fabric Explorer](./service-fabric-visualizing-your-cluster.md) 和 [Visual Studio](./service-fabric-manage-application-in-visual-studio.md)）。因此，你将要创建两个 AAD 应用程序来控制对群集的访问：一个 Web 应用程序和一个本机应用程序。
 
