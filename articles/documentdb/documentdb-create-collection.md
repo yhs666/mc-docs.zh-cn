@@ -81,7 +81,7 @@ DocumentDB 自动将集合分区到一个或多个物理服务器。创建集合
 - 可以使用 DocumentDB 数据迁移工具来[导入文档和数据](./documentdb-import-data.md)，利用此工具可以导入 JSON 和 CSV 文件，以及来自 SQL Server、MongoDB、Azure 表存储及其他 DocumentDB 集合的数据。
 - 也可以使用某个 [DocumentDB SDK](./documentdb-sdk-dotnet.md) 来添加文档。DocumentDB 有 .NET、Java、Python、Node.js 和 JavaScript API SDK。有关说明如何使用 DocumentDB .NET SDK 处理文档的 C# 代码示例，请参阅 [C# 文档示例](./documentdb-dotnet-samples.md#document-examples)。有关说明如何使用 DocumentDB Node.js SDK 处理文档的 Node.js 代码示例，请参阅 [Node.js 文档示例](./documentdb-nodejs-samples.md#document-examples)。
 
-当集合中有文档后，就可以利用门户中的[查询资源管理器](./documentdb-query-collections-query-explorer.md)、[REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx) 或某个 [SDK](./documentdb-sdk-dotnet.md)，来针对文档使用 [DocumentDB SQL](./documentdb-sql-query.md) [执行查询](./documentdb-sql-query.md#executing-sql-queries)。
+当集合中有文档后，就可以利用门户中的[查询资源管理器](./documentdb-query-collections-query-explorer.md)、[REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx) 或某个 [SDK](./documentdb-sdk-dotnet.md)，来针对文档使用 [DocumentDB SQL](./documentdb-sql-query.md) [执行查询](./documentdb-sql-query.md#ExecutingSqlQueries)。
 
 <!---HONumber=Mooncake_0313_2017-->
 <!---Update_Description: wording update -->

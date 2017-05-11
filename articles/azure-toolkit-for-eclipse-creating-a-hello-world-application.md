@@ -180,7 +180,7 @@ ms.author: robmcm
 [Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
 [Enabling Remote Access for Azure Deployments in Eclipse]:./azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
-[Server configuration properties]: ./azure-toolkit-for-eclipse-azure-role-properties.md#server_configuration_properties/
+[Server configuration properties]: ./azure-toolkit-for-eclipse-azure-role-properties.md#server_configuration_properties
 [What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 
 <!-- IMG List -->

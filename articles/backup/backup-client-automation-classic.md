@@ -37,7 +37,7 @@ Azure PowerShell 1.0 已在 2015 年 10 月发布。此版本在 0.9.8 版本的
 
 [!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## 创建备份保管库
+## 创建备份保管库 <a name="create-a-backup-vault"></a>
 > [!WARNING]
 对于首次使用 Azure 备份的客户，需要注册用于订阅的 Azure 备份提供程序。可通过运行以下命令来执行此操作：Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 > 
