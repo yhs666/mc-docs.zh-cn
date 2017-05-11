@@ -133,7 +133,7 @@ ms.author: nicking
 ### 获取自动备份计划
 若要获取应用的备份配置，请向 URL **https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup/list** 发送 **POST** 请求。
 
-我们的示例站点的 URL 是 **https://management.chinacloudapi.cn/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-ChinaNorth/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup/list**。
+我们的示例站点的 URL 是 **https://management.chinacloudapi.cn/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-ChinaNorth/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup/list** 。
 
 ## <a name="get-backup-status"></a>获取备份的状态
 根据应用的大小，备份可能需要一段时间才能完成。备份也可能会失败、超时或部分成功。若要查看应用的所有备份的状态，请向 URL **https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups** 发送 **GET** 请求。

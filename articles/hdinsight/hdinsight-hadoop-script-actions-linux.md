@@ -102,7 +102,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-包含这些片段的完整脚本位于此处：https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh。
+包含这些片段的完整脚本位于此处：https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh 。
 
 有关 HDInsight 使用的 Ubuntu 版本，请参阅 [HDInsight 组件版本](./hdinsight-component-versioning.md)文档。
 

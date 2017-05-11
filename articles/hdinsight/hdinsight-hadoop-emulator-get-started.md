@@ -47,7 +47,7 @@ ms.author: nitinme
 
     ![正常启动](./media/hdinsight-hadoop-emulator-get-started/normal-start.png)  
 
-2. 打开 Web 浏览器并导航到显示的 URL（通常是 http://127.0.0.1:8888）。
+2. 打开 Web 浏览器并导航到显示的 URL（通常是 http://127.0.0.1:8888 ）。
 
 ## <a name="set-passwords" id="set-sandbox-passwords"></a> 设置沙盒密码
 

@@ -674,7 +674,7 @@ InvokeApiAsync\(\) 方法将“/api/”预置到要调用的 API，除非该 API
 2. 在 Visual Studio 或 Xamarin Studio 中打开项目，然后添加对 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 包的引用。搜索时，请包含预发行版。
 3. 根据使用的平台，将以下代码添加到应用程序。在每条代码中进行以下替换：
 
-    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。格式应为 https://login.chinacloudapi.cn/contoso.partner.onmschina.cn。可以在 [Azure 经典管理门户]中 Azure Active Directory 的“域”选项卡中复制此值。
+    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。格式应为 https://login.chinacloudapi.cn/contoso.partner.onmschina.cn 。可以在 [Azure 经典管理门户]中 Azure Active Directory 的“域”选项卡中复制此值。
     * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取客户端 ID。
     * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
 

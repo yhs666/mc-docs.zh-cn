@@ -214,7 +214,7 @@ SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式�
 若要验证配置，浏览到 VM 上的报表管理器。
 
 1. 在 VM 中，使用管理员权限启动 Internet Explorer。
-2. 浏览到 VM 上的 http://localhost/reports。
+2. 浏览到 VM 上的 http://localhost/reports 。
 
 ### 连接到 2012 和 2014 版的远程 Web 门户或报表管理器
 如果想要从远程计算机连接到虚拟机上的 2012 和 2014 版 Web 门户或报表管理器，请创建新的虚拟机 TCP 终结点。默认情况下，报表服务器侦听“端口 80”上的 HTTP 请求。如果您配置报表服务器 URL 使用其他端口，必须在下面的说明中指定该端口号。

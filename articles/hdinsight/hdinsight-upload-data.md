@@ -274,7 +274,7 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 还可以使用 Ambari 全局增加 `fs.azure.write.request.size` 的值。可以使用以下步骤在 Ambari Web UI 中更改该值：
 
-1. 在浏览器中，转到群集的 Ambari Web UI。网址为 https://CLUSTERNAME.azurehdinsight.cn，其中 **CLUSTERNAME** 是群集的名称。
+1. 在浏览器中，转到群集的 Ambari Web UI。网址为 https://CLUSTERNAME.azurehdinsight.cn ，其中 **CLUSTERNAME** 是群集的名称。
 
     出现提示时，输入群集的管理员名称和密码。
 2. 在屏幕左侧选择“HDFS”，然后选择“配置”选项卡。

@@ -59,7 +59,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-    Azure Resource Manager 模板位于 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet.json**。
+    Azure Resource Manager 模板位于 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet.json** 。
 
 2. 使用以下指南来填充“自定义部署”边栏选项卡上的条目：
 
@@ -174,7 +174,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
     保存 Kafka 群集名称和 Zookeeper 主机信息，因为在 Storm 群集上启动拓扑时会使用这些值。
 
     > [!NOTE]
-    > 上述命令使用 __http://headnodehost:8080/__，它直接连接到 Ambari。 如果需要通过 Internet 从群集外部检索此信息，则必须改为使用 __https://kafka-BASENAME.azurehdinsight.cn/__。
+    > 上述命令使用 __http://headnodehost:8080/__ ，它直接连接到 Ambari。 如果需要通过 Internet 从群集外部检索此信息，则必须改为使用 __https://kafka-BASENAME.azurehdinsight.cn/__ 。
 
 4. 使用以下命令在 Kafka 中创建一个主题：
 
@@ -300,7 +300,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
     storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml -e
     ```
 
-2. 拓扑启动后，打开 Storm UI。 此 Web UI 位于 https://storm-BASENAME.azurehdinsight.cn/stormui。 将 __BASENAME__ 替换为创建群集时使用的基名称。 
+2. 拓扑启动后，打开 Storm UI。 此 Web UI 位于 https://storm-BASENAME.azurehdinsight.cn/stormui 。 将 __BASENAME__ 替换为创建群集时使用的基名称。 
 
     出现提示时，使用创建群集时使用的管理员登录名（默认情况下为 `admin`）和密码。 此时会显示与下图类似的网页：
 

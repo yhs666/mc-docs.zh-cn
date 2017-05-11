@@ -14,7 +14,7 @@
 
     ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-native-selection.png)
 
-5. 在“重定向 URI”框中，为你的移动服务输入 /login/done 终结点。此值应类似于 https://todolist.azure-mobile.cn/login/done。
+5. 在“重定向 URI”框中，为你的移动服务输入 /login/done 终结点。此值应类似于 https://todolist.azure-mobile.cn/login/done 。
 
     ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-native-redirect-uri.png)
 

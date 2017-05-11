@@ -108,7 +108,7 @@ HEAD|为 GET 响应返回对象的元数据。
 
 ## 发现媒体服务模型
 
-为了使媒体服务实体易于发现，可使用 $metadata 操作。使用该操作，可以检索所有有效的实体类型、实体属性、关联、函数、操作等。以下示例说明了如何构建 URI：https://wamsshaclus001rest-hs.chinacloudapp.cn/API/$metadata。
+为了使媒体服务实体易于发现，可使用 $metadata 操作。使用该操作，可以检索所有有效的实体类型、实体属性、关联、函数、操作等。以下示例说明了如何构建 URI：https://wamsshaclus001rest-hs.chinacloudapp.cn/API/$metadata 。
 
 如果希望在浏览器中查看元数据，应在 URI 的末尾追加“?api-version=2.x”，或不要在请求中包括 x-ms-version 标头。
 

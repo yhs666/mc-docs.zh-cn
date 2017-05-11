@@ -36,7 +36,7 @@ wacn.date: 08/22/2016
 
 客户端应用程序必须验证响应中 `resource_id` 参数的值。否则，恶意服务可能会造成权限提升攻击。
 
- 防止攻击的建议策略是验证 resource\_id 是否与正在访问的 Web API URL 基部分相匹配。例如，如果正在访问 https://service.contoso.com/data， 则 `resource_id` 可以是 https://service.contoso.com/。 客户端应用程序必须拒绝不以基 URL 开头的 `resource_id`，除非存在可靠的替代方法来验证该 ID。
+ 防止攻击的建议策略是验证 resource\_id 是否与正在访问的 Web API URL 基部分相匹配。例如，如果正在访问 https://service.contoso.com/data ， 则 `resource_id` 可以是 https://service.contoso.com/ 。 客户端应用程序必须拒绝不以基 URL 开头的 `resource_id`，除非存在可靠的替代方法来验证该 ID。
 
 ## 令牌颁发和重试指导原则
 

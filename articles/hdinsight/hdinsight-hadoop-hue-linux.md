@@ -48,7 +48,7 @@ Hue 是一组 Web 应用程序，用来与 Hadoop 群集交互。 你可以使�
 
 ## <a name="install-hue-using-script-actions"></a>使用脚本操作安装 Hue
 
-有关用于在基于 Linux 的 HDInsight 群集上安装 Hue 的脚本，可访问 https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh。 可使用此脚本在群集上安装 Hue，其中可将 Azure 存储 Blob (WASB) 用作默认存储。
+有关用于在基于 Linux 的 HDInsight 群集上安装 Hue 的脚本，可访问 https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh 。 可使用此脚本在群集上安装 Hue，其中可将 Azure 存储 Blob (WASB) 用作默认存储。
 
 本部分说明如何在使用 Azure 门户预览预配群集时使用脚本。
 

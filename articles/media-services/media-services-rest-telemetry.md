@@ -31,7 +31,7 @@ ms.author: juliako
 - 获取通知终结点
 - 创建用于监视的通知终结点。
 
-    若要创建通知终结点，将 EndPointType 设置为 AzureTable (2) 并将 endPontAddress 设置为存储表（例如 https://telemetryvalidationstore.table.core.chinacloudapi.cn/）。
+    若要创建通知终结点，将 EndPointType 设置为 AzureTable (2) 并将 endPontAddress 设置为存储表（例如 https://telemetryvalidationstore.table.core.chinacloudapi.cn/ ）。
 
 - 获取监视配置
 

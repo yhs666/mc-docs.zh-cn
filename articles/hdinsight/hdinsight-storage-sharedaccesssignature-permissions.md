@@ -166,7 +166,7 @@ HDInsight 使用 Azure 存储 Blob 存储数据。 HDInsight 必须对用作群�
 
 如果已有基于 Linux 的群集，则可以按照以下步骤将 SAS 添加到 **core-site** 配置：
 
-1. 打开群集的 Ambari Web UI。 此页的地址是 https://YOURCLUSTERNAME.azurehdinsight.cn。 出现提示时，使用创建群集时所用的管理员名称 (admin) 和密码向群集进行身份验证。
+1. 打开群集的 Ambari Web UI。 此页的地址是 https://YOURCLUSTERNAME.azurehdinsight.cn 。 出现提示时，使用创建群集时所用的管理员名称 (admin) 和密码向群集进行身份验证。
 2. 从 Ambari Web UI 的左侧，选择“HDFS”，然后在页面的中间选择“配置”选项卡。
 3. 选择“高级”选项卡，然后向下滚动，找到“自定义 core-site”部分。
 4. 展开“自定义 core-site”部分，然后滚动到底部，选择“添加属性...”链接。 在“密钥”和“值”字段中使用以下值：

@@ -72,7 +72,7 @@ wacn.date: 01/19/2017
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. 在 ViewController.h 中，在 import 语句的正下方添加以下 `#define`。将 *< 输入你的后端终结点>* 占位符替换为在上一节中用于部署应用后端的目标 URL。例如，*http://you_backend.chinacloudsites.cn*。
+4. 在 ViewController.h 中，在 import 语句的正下方添加以下 `#define`。将 *< 输入你的后端终结点>* 占位符替换为在上一节中用于部署应用后端的目标 URL。例如，*http://you_backend.chinacloudsites.cn* 。
 
     ```
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"

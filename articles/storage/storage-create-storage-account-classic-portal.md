@@ -98,7 +98,7 @@ Azure 存储帐户将授权访问 Azure 存储中的 Azure Blob、队列、表�
 
 创建存储帐户后，可以在 [Azure 经典管理门户](https://manage.windowsazure.cn)的存储仪表板上看到该帐户的终结点。
 
-用于访问存储帐户中某个对象的 URL 是通过将存储帐户中对象的位置附加到终结点而构建的。例如，Blob 地址可能具有以下格式：http://*mystorageaccount*.blob.core.chinacloudapi.cn/*mycontainer*/*myblob*。
+用于访问存储帐户中某个对象的 URL 是通过将存储帐户中对象的位置附加到终结点而构建的。例如，Blob 地址可能具有以下格式：http://*mystorageaccount*.blob.core.chinacloudapi.cn/*mycontainer*/*myblob* 。
 
 此外还可以配置用于存储帐户的自定义域名称。请参阅[为 Blob 存储终结点配置自定义域名称](./storage-custom-domain-name.md)以了解详细信息。
 

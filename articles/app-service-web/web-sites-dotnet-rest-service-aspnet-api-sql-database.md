@@ -483,7 +483,7 @@ ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新�
     ![包含待办事项列表项的索引页面][addwebapi004]
 3. 在浏览器中，将 **/api/contacts** 追加到 URL。
 
-    生成的 URL 类似于 http://localhost:1234/api/contacts。 添加的 RESTful Web API 将返回存储的联系人。 Firefox 和 Chrome 将以 XML 格式显示数据。
+    生成的 URL 类似于 http://localhost:1234/api/contacts 。 添加的 RESTful Web API 将返回存储的联系人。 Firefox 和 Chrome 将以 XML 格式显示数据。
 
     ![包含待办事项列表项的索引页面][rxFFchrome]
 

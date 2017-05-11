@@ -59,7 +59,7 @@ ms.lasthandoff: 04/28/2017
     * **-u** - 用来对请求进行身份验证的用户名和密码。
     * **-G** - 指示此请求是一个 GET 操作。
 
-    所有请求的 URL 开头都是 **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**。 路径 **/status** 指示请求将返回服务器的 WebHCat（也称为 Templeton）状态。 你还可以通过使用以下命令请求 Hive 的版本：
+    所有请求的 URL 开头都是 **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1** 。 路径 **/status** 指示请求将返回服务器的 WebHCat（也称为 Templeton）状态。 你还可以通过使用以下命令请求 Hive 的版本：
 
     ```bash
     curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/version/hive

@@ -118,7 +118,7 @@ az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGro
 此命令的输出会显示你刚刚创建的密钥保管库的属性。 两个最重要的属性是：
 
 - **名称**：在本示例中为 ContosoKeyVault。 将在其他 Key Vault 命令中使用此名称。
-- **vaultUri**：在本示例中为 https://contosokeyvault.vault.azure.cn。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
+- **vaultUri**：在本示例中为 https://contosokeyvault.vault.azure.cn 。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
 
 你的 Azure 帐户现已获取在此密钥保管库上执行任何作业的授权。 而且没有其他人有此授权。
 

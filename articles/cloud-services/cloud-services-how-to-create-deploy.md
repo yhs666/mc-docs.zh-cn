@@ -68,7 +68,7 @@ Azure 经典门户提供两种创建和部署云服务的方法：“快速创�
 
     ![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)  
 
-2. 在“URL”中，输入要在公用 URL 中使用的子域名称，以便在生产部署中访问云服务。生产部署的 URL 格式为：http://*myURL*.chinacloudapp.cn。
+2. 在“URL”中，输入要在公用 URL 中使用的子域名称，以便在生产部署中访问云服务。生产部署的 URL 格式为：http://*myURL*.chinacloudapp.cn 。
 
 3. 在“区域或地缘组”中，选择要在其中部署云服务的地理区域或地缘组。若要将云服务和其他 Azure 服务部署到某个区域中的同一位置，请选择地缘组。
 

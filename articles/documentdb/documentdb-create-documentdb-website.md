@@ -70,7 +70,7 @@ ms.author: hawong
 
 6. 依次单击“查看法律条款”、“购买”和“创建”以开始部署。选择“固定到仪表板”，让生成的部署轻松显示在 Azure 门户预览的主页上。![模板部署 UI 的屏幕截图](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
 7. 部署完成后，将会打开“资源组”边栏选项卡。![资源组边栏选项卡的屏幕截图](./media/documentdb-create-documentdb-website/TemplateDeployment7.png)
-8. 若要使用应用程序，只需导航到 Web 应用 URL（上述示例中的 URL 会是 http://mydemodocdbwebapp.chinacloudsites.cn）。你会看到下列 Web 应用程序：
+8. 若要使用应用程序，只需导航到 Web 应用 URL（上述示例中的 URL 会是 http://mydemodocdbwebapp.chinacloudsites.cn ）。你会看到下列 Web 应用程序：
 
     ![示例待办事项应用程序](./media/documentdb-create-documentdb-website/image2.png)  
 

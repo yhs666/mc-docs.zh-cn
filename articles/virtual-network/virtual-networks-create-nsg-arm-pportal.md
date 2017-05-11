@@ -37,7 +37,7 @@ ms.author: jdial
 
 若要从门户预览中在现有 NSG 中创建规则，请按照下面的步骤操作。
 
-1. 从浏览器导航到 https://portal.azure.cn，如有必要，请使用 Azure 帐户登录。
+1. 从浏览器导航到 https://portal.azure.cn ，如有必要，请使用 Azure 帐户登录。
 2. 单击“浏览>”>“网络安全组”。
 
 ![门户预览 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure1.png)

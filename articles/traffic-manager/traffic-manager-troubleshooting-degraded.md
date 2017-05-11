@@ -46,7 +46,7 @@ ms.author: sewhee
 
 也可以在 Internet Explorer 中使用“F12 调试工具”的“网络”标签页查看 HTTP 响应。
 
-在本示例中，我们想要查看探测 URL 返回的响应：http://watestsdp2008r2.chinacloudapp.cn:80/Probe。以下 PowerShell 示例演示了该问题。
+在本示例中，我们想要查看探测 URL 返回的响应：http://watestsdp2008r2.chinacloudapp.cn:80/Probe 。以下 PowerShell 示例演示了该问题。
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.chinacloudapp.cn/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription

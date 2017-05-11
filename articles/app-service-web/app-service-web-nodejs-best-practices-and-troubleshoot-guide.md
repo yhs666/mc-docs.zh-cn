@@ -113,7 +113,7 @@ ms.author: ranjithr;wadeh
 
 * debuggingEnabled（请勿在实际生产站点上启用）
 
-    此设置控制调试功能。Iisnode 与节点检查器集成。通过启用此设置，可启用节点应用程序的调试功能。启用此设置后，iisnode 会在对节点应用程序发出第一个调试请求时，在“debuggerVirtualDir”目录中布置所需的节点检查器文件。你可以将请求发送到 http://yoursite/server.js/debug，以加载节点检查器。你可以使用“debuggerPathSegment”设置来控制调试 URL 段。默认情况下，debuggerPathSegment =“debug”。你可以将其设置为 GUID 之类的值，这样，其他人就更难发现。
+    此设置控制调试功能。Iisnode 与节点检查器集成。通过启用此设置，可启用节点应用程序的调试功能。启用此设置后，iisnode 会在对节点应用程序发出第一个调试请求时，在“debuggerVirtualDir”目录中布置所需的节点检查器文件。你可以将请求发送到 http://yoursite/server.js/debug ，以加载节点检查器。你可以使用“debuggerPathSegment”设置来控制调试 URL 段。默认情况下，debuggerPathSegment =“debug”。你可以将其设置为 GUID 之类的值，这样，其他人就更难发现。
 
     有关调试的更多详细信息，请查看此[链接](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html)。
 

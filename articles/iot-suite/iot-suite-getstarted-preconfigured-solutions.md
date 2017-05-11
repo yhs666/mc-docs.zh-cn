@@ -154,7 +154,7 @@ Azure IoT 套件[预配置解决方案][lnk-preconfigured-solutions]结合了多
 
 1. 为“方法”选择“InitiateFirmwareUpdate”。
 
-1. 将 **FwPackageUri** 参数设置为 **https://iotrmassets.blob.core.chinacloudapi.cn/firmwares/FW20.bin**。
+1. 将 **FwPackageUri** 参数设置为 **https://iotrmassets.blob.core.chinacloudapi.cn/firmwares/FW20.bin** 。
 
 1. 选择“计划”。默认设置是让作业立即运行。
 

@@ -48,7 +48,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 
 ### 用于 Ambari Rest API 的基 URI
 
-HDInsight 上的 Ambari REST API 的基本 URI 为 https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME，其中 **CLUSTERNAME** 是群集的名称。
+HDInsight 上的 Ambari REST API 的基本 URI 为 https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME ，其中 **CLUSTERNAME** 是群集的名称。
 
 > [!IMPORTANT]
 URI 的完全限定域名 (FQDN) 部分 (CLUSTERNAME.azurehdinsight.cn) 中的群集名称不区分大小写，但 URI 中的其他部分则区分大小写。例如，如果群集命名为 `MyCluster`，则有效的 URI 如下所示：

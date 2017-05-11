@@ -100,10 +100,10 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装附加组件�
 
 | Name | 脚本 |
 | --- | --- |
-| **安装 Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1。请参阅[在 HDInsight 群集上安装并使用 Spark][hdinsight-install-spark]。 |
-| **安装 R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1。请参阅[在 HDInsight 群集上安装并使用 R][hdinsight-r-scripts]。 |
-| **安装 Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1。请参阅[在 HDInsight 群集上安装并使用 Solr](./hdinsight-hadoop-solr-install.md)。 |
-| - **安装 Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1。请参阅[在 HDInsight 群集上安装并使用 Giraph](./hdinsight-hadoop-giraph-install.md)。 |
+| **安装 Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1 。请参阅[在 HDInsight 群集上安装并使用 Spark][hdinsight-install-spark]。 |
+| **安装 R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1 。请参阅[在 HDInsight 群集上安装并使用 R][hdinsight-r-scripts]。 |
+| **安装 Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 。请参阅[在 HDInsight 群集上安装并使用 Solr](./hdinsight-hadoop-solr-install.md)。 |
+| - **安装 Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 。请参阅[在 HDInsight 群集上安装并使用 Giraph](./hdinsight-hadoop-giraph-install.md)。 |
 
 脚本操作可以通过 Azure 门户预览、Azure PowerShell 或 HDInsight .NET SDK 来部署。有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集][hdinsight-cluster-customize]。
 
@@ -164,7 +164,7 @@ else
     只有 HDInsight 3.1 (Hadoop 2.4) 及其更高版本才支持使用脚本操作在群集上安装自定义组件。在自定义脚本中，你必须使用 **Get-HDIHadoopVersion** 帮助器方法检查 Hadoop 版本，然后才能继续在脚本中执行其他任务。
 * 提供指向脚本资源的可靠链接
 
-    用户应确保自定义群集过程中使用的所有脚本和其他项目在群集的整个生存期内都必须一直可用，并且这些文件的版本在此期间也不会发生更改。如果需要为群集中的节点重新制作映像，则需要用到这些资源。最佳做法是，下载用户控制的存储帐户中的所有内容并将其存档。这可能是默认存储帐户，也可能是在部署自定义群集时指定的其他任何存储帐户。例如，在文档提供的 Spark 和 R 自定义群集示例中，我们已为此存储帐户中的资源创建了本地副本：https://hdiconfigactions.blob.core.windows.net/。
+    用户应确保自定义群集过程中使用的所有脚本和其他项目在群集的整个生存期内都必须一直可用，并且这些文件的版本在此期间也不会发生更改。如果需要为群集中的节点重新制作映像，则需要用到这些资源。最佳做法是，下载用户控制的存储帐户中的所有内容并将其存档。这可能是默认存储帐户，也可能是在部署自定义群集时指定的其他任何存储帐户。例如，在文档提供的 Spark 和 R 自定义群集示例中，我们已为此存储帐户中的资源创建了本地副本：https://hdiconfigactions.blob.core.windows.net/ 。
 * 确保群集自定义脚本是幂等的
 
     必须预期在群集的生存期内将对 HDInsight 群集的节点重新制作映像。只要对群集重新制作映像，就会运行群集自定义脚本。在某种意义上讲，此脚本必须设计为幂等的，即重新制作映像时，该脚本应确保将群集返回到在初次创建群集时首次运行脚本后所处的相同自定义状态。例如，如果自定义脚本在其首次运行时在 D:\\AppLocation 上安装了应用程序，则在随后每次运行时，重新制作映像后，该脚本应检查应用程序是否在 D:\\AppLocation 位置存在，然后才能继续在该脚本中执行其他步骤。

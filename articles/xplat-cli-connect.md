@@ -46,7 +46,7 @@ azure login -e AzureChinaCloud
 info:    Executing command login
 info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate. 
 ```
-复制命令输出中提供的代码，并打开浏览器访问 http://aka.ms/devicelogin（或指定的其他页面）。（可以在同一计算机上，也可以在其他计算机或设备上打开浏览器。） 输入代码，然后系统会提示你为要使用的标识输入用户名和密码。该过程完成后，命令外壳会完成登录过程。它的外观可能如下：
+复制命令输出中提供的代码，并打开浏览器访问 http://aka.ms/devicelogin （或指定的其他页面）。（可以在同一计算机上，也可以在其他计算机或设备上打开浏览器。） 输入代码，然后系统会提示你为要使用的标识输入用户名和密码。该过程完成后，命令外壳会完成登录过程。它的外观可能如下：
 
 ```
 info:    Added subscription Visual Studio Ultimate with MSDN

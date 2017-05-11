@@ -169,7 +169,7 @@ Storm 拓扑在启动后，将会不断运行，直到将其停止。 若要停�
 
 ## <a name="monitor-and-manage-storm-ui"></a>监视和管理：Storm UI
 
-Storm UI 提供一个 Web 界面用于处理正在运行的拓扑，你的 HDInsight 群集随附了此界面。 若要查看 Storm UI，请使用 Web 浏览器打开 **https://CLUSTERNAME.azurehdinsight.cn/stormui**，其中 **CLUSTERNAME** 是群集的名称。
+Storm UI 提供一个 Web 界面用于处理正在运行的拓扑，你的 HDInsight 群集随附了此界面。 若要查看 Storm UI，请使用 Web 浏览器打开 **https://CLUSTERNAME.azurehdinsight.cn/stormui** ，其中 **CLUSTERNAME** 是群集的名称。
 
 > [!NOTE]
 > 如果系统要求你提供用户名和密码，请输入创建群集时使用的群集管理员用户名 (admin) 和密码。

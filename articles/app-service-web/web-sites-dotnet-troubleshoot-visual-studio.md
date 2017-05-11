@@ -309,7 +309,7 @@ ms.lasthandoff: 04/28/2017
 
         <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 4. 按 Ctrl+F5 运行应用程序。
-5. 在浏览器窗口的地址栏中，将 *trace.axd* 添加到 URL，然后按 Enter 键（URL 将类似于 http://localhost:53370/trace.axd）。
+5. 在浏览器窗口的地址栏中，将 *trace.axd* 添加到 URL，然后按 Enter 键（URL 将类似于 http://localhost:53370/trace.axd ）。
 6. 在“应用程序跟踪”页面上，单击第一行中（非浏览器链接中）的“查看详细信息”。
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)

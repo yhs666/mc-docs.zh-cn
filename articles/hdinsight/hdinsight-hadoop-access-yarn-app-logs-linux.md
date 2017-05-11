@@ -77,7 +77,7 @@ YARN ResourceManager UI 在群集头节点上运行，并可通过 Ambari Web UI
 
 创建 SSH 隧道后，请执行以下步骤查看 YARN 日志：
 
-1. 在 Web 浏览器中，导航到 https://CLUSTERNAME.azurehdinsight.cn。 将 CLUSTERNAME 替换为 HDInsight 群集的名称。
+1. 在 Web 浏览器中，导航到 https://CLUSTERNAME.azurehdinsight.cn 。 将 CLUSTERNAME 替换为 HDInsight 群集的名称。
 2. 从左侧的服务列表中，选择“YARN” 。
 
     ![选中的 Yarn 服务](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)

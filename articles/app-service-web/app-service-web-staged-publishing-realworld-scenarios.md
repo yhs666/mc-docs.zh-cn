@@ -339,7 +339,7 @@ require_once(ABSPATH. 'wp-settings.php');
 
 ![将许可证文件放在 bin 文件夹下](./media/app-service-web-staged-publishing-realworld-scenarios/13droplic.png)  
 
-1. [下载 Courier2 包](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/)。 登录过渡 Web 应用 http://umbracocms-site-stage.chinacloudsites.cn/umbraco， 单击“开发人员”菜单，然后单击“包”>“安装本地包”。
+1. [下载 Courier2 包](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/)。 登录过渡 Web 应用 http://umbracocms-site-stage.chinacloudsites.cn/umbraco ， 单击“开发人员”菜单，然后单击“包”>“安装本地包”。
 
     ![Umbraco 包安装程序](./media/app-service-web-staged-publishing-realworld-scenarios/14umbpkg.png)  
 

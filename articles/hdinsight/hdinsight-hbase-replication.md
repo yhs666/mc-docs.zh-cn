@@ -129,7 +129,7 @@ HBase 复制使用 ZooKeeper VM 的 IP 地址。必须为目标 HBase ZooKeeper 
 5. 选择或输入以下信息：
 
     - **名称**：输入“启用复制”。
-    - **Bash 脚本 URL**：输入 **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**。
+    - **Bash 脚本 URL**：输入 **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** 。
     - **头**：保持选中状态。清除其他节点类型。
     - **参数**：以下示例参数将对所有现有表启用复制，并将源群集中的所有数据复制到目标群集：
 

@@ -43,6 +43,6 @@ wacn.date: 03/18/2016
 
 ## 后续步骤
 
-更好地了解 Azure 经典管理门户：http://www.azure.cn/。
+更好地了解 Azure 经典管理门户：http://www.azure.cn/ 。
 
 <!---HONumber=Mooncake_0104_2016-->

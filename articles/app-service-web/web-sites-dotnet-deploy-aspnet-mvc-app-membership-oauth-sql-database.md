@@ -143,7 +143,7 @@ ms.lasthandoff: 04/28/2017
 2. 将“已启用 SSL”更改为 **True**。 
 3. 复制“SSL URL”。
 
-    SSL URL 将为 https://localhost:44300/，除非你之前已创建 SSL Web 应用。
+    SSL URL 将为 https://localhost:44300/ ，除非你之前已创建 SSL Web 应用。
 
     ![启用 SSL][rxSSL]
 4. 在“解决方案资源管理器”中，右键单击“Contact Manager”项目，然后单击“属性”。

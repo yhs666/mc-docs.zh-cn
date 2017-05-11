@@ -703,7 +703,7 @@ HiveQL 脚本将执行以下操作：
 
     该脚本中使用的某些变量：
 
-    * **$ipAddressRestService** - 默认值为 http://bot.whatismyipaddress.com。这是用来获取外部 IP 地址的公共 IP 地址 REST 服务。可根据需要使用其他服务。使用此服务检索的外部 IP 地址将用于创建 Azure SQL 数据库服务器的防火墙规则，使你能够从工作站访问数据库（通过 Windows PowerShell 脚本）。
+    * **$ipAddressRestService** - 默认值为 http://bot.whatismyipaddress.com 。这是用来获取外部 IP 地址的公共 IP 地址 REST 服务。可根据需要使用其他服务。使用此服务检索的外部 IP 地址将用于创建 Azure SQL 数据库服务器的防火墙规则，使你能够从工作站访问数据库（通过 Windows PowerShell 脚本）。
     * **$fireWallRuleName** - 这是 Azure SQL 数据库服务器的防火墙规则名称。默认名称为 <u>FlightDelay</u>。可根据需要对其进行重命名。
     * **$sqlDatabaseMaxSizeGB** - 只有在创建新的 Azure SQL 数据库服务器时才会使用此值。默认值为 10GB。10GB 对于本教程来说已足够。
     * **$sqlDatabaseName** - 只有在创建新的 Azure SQL 数据库时才会使用此值。默认值为 HDISqoop。如果将它重命名，则必须相应地更新 Sqoop Windows PowerShell 脚本。

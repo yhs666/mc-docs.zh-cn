@@ -693,7 +693,7 @@ var mobile = azureMobileApps({ swagger: true });
 var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 ```
 
-Swagger 终结点将位于 http://_yoursite_.chinacloudsites.cn/swagger。可以通过 `/swagger/ui` 终结点访问 Swagger UI。请注意，如果选择要求在整个应用程序中进行身份验证，Swagger 将生成 / 终结点错误。为获得最佳效果，请在“Azure 应用服务身份验证/授权”设置中选择允许未经身份验证的请求通过，然后使用 `table.access` 属性控制身份验证。
+Swagger 终结点将位于 http://_yoursite_.chinacloudsites.cn/swagger 。可以通过 `/swagger/ui` 终结点访问 Swagger UI。请注意，如果选择要求在整个应用程序中进行身份验证，Swagger 将生成 / 终结点错误。为获得最佳效果，请在“Azure 应用服务身份验证/授权”设置中选择允许未经身份验证的请求通过，然后使用 `table.access` 属性控制身份验证。
 
 如果希望只在本地进行开发时才使用 Swagger 支持，则也可以将 Swagger 选项添加到 `azureMobile.js` 文件中。
 

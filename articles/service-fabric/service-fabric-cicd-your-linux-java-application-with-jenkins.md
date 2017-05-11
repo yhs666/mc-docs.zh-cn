@@ -139,7 +139,7 @@ bash Scripts/install.sh
  >
 
 ### <a name="end-to-end-scenario"></a>端到端方案
-现在已配置 GitHub 和 Jenkins，因此可以在存储库（例如 https://github.com/sayantancs/SFJenkins）的 ``MyActor`` 项目中进行一些示例性的更改，并将所做的更改推送到远程 ``master`` 分支（或任何已配置的可以使用的分支）。 此时会触发已配置的 Jenkins 作业 ``MyJob``。 其基本功能包括：从 GitHub 提取更改、生成这些更改并将应用程序部署到在生成后操作中指定的群集终结点。  
+现在已配置 GitHub 和 Jenkins，因此可以在存储库（例如 https://github.com/sayantancs/SFJenkins ）的 ``MyActor`` 项目中进行一些示例性的更改，并将所做的更改推送到远程 ``master`` 分支（或任何已配置的可以使用的分支）。 此时会触发已配置的 Jenkins 作业 ``MyJob``。 其基本功能包括：从 GitHub 提取更改、生成这些更改并将应用程序部署到在生成后操作中指定的群集终结点。  
 
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png

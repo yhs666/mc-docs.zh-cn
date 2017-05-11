@@ -34,7 +34,7 @@ ms.author: jdial
 
 若要如上述方案所示创建 **NSG-FrontEnd** NSG，请按照以下步骤进行操作。
 
-1. 从浏览器导航到 http://portal.azure.cn， 如有必要，请使用 Azure 帐户登录。
+1. 从浏览器导航到 http://portal.azure.cn ， 如有必要，请使用 Azure 帐户登录。
 2. 单击“浏览 >”>“网络安全组”。
 
     ![Azure 门户预览 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)

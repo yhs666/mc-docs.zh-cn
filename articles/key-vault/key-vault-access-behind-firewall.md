@@ -24,7 +24,7 @@ ms.author: ambapat
 
 - 通过 Azure Active Directory \(Azure AD\) 进行身份验证。
 - 管理 Azure 密钥保管库。这包括通过 Azure资源管理器创建、读取、更新、删除和设置访问策略。
-- 通过密钥保管库特定终结点（例如 https://yourvaultname.vault.azure.cn），访问和管理密钥保管库自身存储的对象（密钥和机密）。
+- 通过密钥保管库特定终结点（例如 https://yourvaultname.vault.azure.cn ），访问和管理密钥保管库自身存储的对象（密钥和机密）。
 
 根据配置和环境，会有一些变化。
 

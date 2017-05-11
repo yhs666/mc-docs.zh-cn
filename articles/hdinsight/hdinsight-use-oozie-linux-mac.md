@@ -524,7 +524,7 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
 1. 与 HDInsight 群集建立 SSH 隧道。 有关执行这些操作的相关信息，请参阅 [使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
 
-2. 创建隧道后，请在 Web 浏览器中打开 Ambari Web UI。 Ambari 站点的 URI 为 **https://CLUSTERNAME.azurehdinsight.cn**。 请将 **CLUSTERNAME**替换为基于 Linux 的 HDInsight 群集的名称。
+2. 创建隧道后，请在 Web 浏览器中打开 Ambari Web UI。 Ambari 站点的 URI 为 **https://CLUSTERNAME.azurehdinsight.cn** 。 请将 **CLUSTERNAME**替换为基于 Linux 的 HDInsight 群集的名称。
 
 3. 在页面左侧选择“Oozie”，然后依次选择“快速链接” 和“Oozie Web UI”。
 

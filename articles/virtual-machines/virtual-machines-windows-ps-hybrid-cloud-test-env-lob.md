@@ -208,7 +208,7 @@ Restart-Computer
 10. 在“确认安装选择”页上，单击“安装”。
 11. 等待直到组件安装完成，然后单击“关闭”。
 12. 在 Azure 门户预览中，使用 CORP\\User1 帐户凭据连接到 CLIENT1 计算机，然后启动 Internet Explorer。
-13. 在地址栏中，键入 **http://lob1/**，然后按 Enter。你会看到默认的 IIS 8 网页。
+13. 在地址栏中，键入 **http://lob1/** ，然后按 Enter。你会看到默认的 IIS 8 网页。
 
 这是你当前的配置。
 

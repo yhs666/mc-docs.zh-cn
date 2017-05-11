@@ -52,7 +52,7 @@ Azure 存储帐户提供唯一的命名空间来存储和访问你的 Azure 存�
 > [!NOTE]
 > Blob 存储帐户仅公开 Blob 服务终结点。
 
-用于访问存储帐户中某个对象的 URL 是通过将存储帐户中对象的位置附加到终结点而构建的。例如，Blob 地址可能具有以下格式：http://*mystorageaccount*.blob.core.chinacloudapi.cn/*mycontainer*/*myblob*。
+用于访问存储帐户中某个对象的 URL 是通过将存储帐户中对象的位置附加到终结点而构建的。例如，Blob 地址可能具有以下格式：http://*mystorageaccount*.blob.core.chinacloudapi.cn/*mycontainer*/*myblob* 。
 
 此外还可以配置用于存储帐户的自定义域名称。有关经典存储帐户的详细信息，请参阅[为 Blob 存储终结点配置自定义域名](./storage-custom-domain-name.md)。对于 Resource Manager 存储帐户，此功能尚未添加到 [Azure 门户预览](https://portal.azure.cn)，但你可使用 PowerShell 配置它。有关详细信息，请参阅 [Set-AzureRmStorageAccount](https://msdn.microsoft.com/zh-cn/library/mt607146.aspx) cmdlet。
 

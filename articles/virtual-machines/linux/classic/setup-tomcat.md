@@ -85,9 +85,9 @@ TCP 端口 8080 是 Tomcat 用来侦听的默认端口号。如果使用 Azure �
 
     1. 对于终结点，请在“终结点”中输入终结点的名称，然后在“公用端口”中输入 80。
 
-      如果将其设置为 80，则无需在 URL 中包括用于访问 Tomcat 的端口号。例如，http://tomcatdemo.chinacloudapp.cn。
+      如果将其设置为 80，则无需在 URL 中包括用于访问 Tomcat 的端口号。例如，http://tomcatdemo.chinacloudapp.cn 。
 
-      如果将其设置为其他值（例如 81），则需要将端口号添加到 URL 才能访问 Tomcat。例如，http://tomcatdemo.chinacloudapp.cn:81/。
+      如果将其设置为其他值（例如 81），则需要将端口号添加到 URL 才能访问 Tomcat。例如，http://tomcatdemo.chinacloudapp.cn:81/ 。
     2. 在“专用端口”中输入 8080。默认情况下，Tomcat 侦听 TCP 端口 8080。如果更改了 Tomcat 的默认侦听端口，应将“专用端口”更新为与 Tomcat 侦听端口相同。
     ![显示“添加”命令、“公共端口”和“专用端口”的 UI 屏幕截图][7]
 4. 单击“确定”将该终结点添加到虚拟机。
@@ -197,7 +197,7 @@ sudo apt-get install tomcat7
 如果未使用 Tomcat7，请使用此命令的相应变体。
 
 #### 确认 Tomcat7 安装成功
-若要检查 Tomcat7 是否已成功安装，请浏览到 Tomcat 服务器的 DNS 名称。在本文中，示例 URL 为 http://tomcatexample.chinacloudapp.cn/。如果看到如下消息，则表示已正确安装 Tomcat7。
+若要检查 Tomcat7 是否已成功安装，请浏览到 Tomcat 服务器的 DNS 名称。在本文中，示例 URL 为 http://tomcatexample.chinacloudapp.cn/ 。如果看到如下消息，则表示已正确安装 Tomcat7。
 ![指出成功安装 Tomcat7 的消息][16]
 
 ### 安装其他 Tomcat7 组件
@@ -258,7 +258,7 @@ sudo vi  /etc/tomcat7/tomcat-users.xml
 sudo /etc/init.d/tomcat7 restart  
 ```
 
-打开浏览器，然后输入 URL **http://\<Tomcat 服务器 DNS 名称\>/manager/html**。对于本文中的示例，URL 为 http://tomcatexample.chinacloudapp.cn/manager/html。
+打开浏览器，然后输入 URL **http://\<Tomcat 服务器 DNS 名称\>/manager/html**。对于本文中的示例，URL 为 http://tomcatexample.chinacloudapp.cn/manager/html 。
 
 连接后，应显示如下内容：
 ![Tomcat Web 应用程序管理器的屏幕截图][18]
