@@ -82,6 +82,6 @@ ms.author: asmalser-msft
 
 - [有关 Azure Active Directory 中应用程序管理的文章索引](./active-directory-apps-index.md)
 - [Azure Active Directory 的应用程序访问与单一登录](./active-directory-appssoaccess-whatis.md)
-- [排查基于 SAML 的单一登录问题](./active-directory-saml-debugging.md)
+- [排查基于 SAML 的单一登录问题](./develop/active-directory-saml-debugging.md)
 
 <!---HONumber=Mooncake_Quality_Review_0125_2017-->

@@ -23,7 +23,7 @@ wacn.date: 02/06/2017
 
 ## 从企业网络上的目录同步的用户
 
-如果你已经设定本地 Active Directory 与 Azure Active Directory 之间的连接，则同步可以填充帐户。如需有关如何同步 Azure Active Directory 与本地 Active Directory 的详细信息，请参阅[将本地标识与 Azure Active Directory 集成](./active-directory-aadconnect.md)。
+如果你已经设定本地 Active Directory 与 Azure Active Directory 之间的连接，则同步可以填充帐户。如需有关如何同步 Azure Active Directory 与本地 Active Directory 的详细信息，请参阅[将本地标识与 Azure Active Directory 集成](./connect/active-directory-aadconnect.md)。
 
 ## 在云中添加和管理的用户
 

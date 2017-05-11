@@ -145,10 +145,3 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 | 区域服务器 |所有辅助角色节点 |16020 |&nbsp; |&nbsp; |
 | &nbsp; |&nbsp; |2181 |&nbsp; |客户端用来连接 ZooKeeper 的端口 |
 
-### <a name="kafka-ports"></a>Kafka 端口
-
-| 服务 | Nodes | 端口 | 协议 | 说明 |
-| --- | --- | --- | --- | --- |
-| 代理 |辅助角色节点 |9092 |[Kafka 线路协议](http://kafka.apache.org/protocol.html) |用于客户端通信 |
-| &nbsp; |Zookeeper 节点 |2181 |&nbsp; |客户端用来连接 ZooKeeper 的端口 |
-

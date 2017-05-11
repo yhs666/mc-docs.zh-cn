@@ -67,7 +67,7 @@ ms.author: kgremban
 
 对于你信任的应用程序，可以代表组织来同意应用程序，以简化用户体验。
 
-有关 Azure 中的用户同意和同意体验的详细信息，请参阅 [Integrating Applications with Azure Active Directory](./active-directory-integrating-applications.md)（将应用程序与 Azure Active Directory 集成）。
+有关 Azure 中的用户同意和同意体验的详细信息，请参阅 [Integrating Applications with Azure Active Directory](./develop/active-directory-integrating-applications.md)（将应用程序与 Azure Active Directory 集成）。
 
 ## 相关文章
 - [使用 Azure AD 管理对应用的访问](./active-directory-managing-access-to-apps.md)

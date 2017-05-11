@@ -95,7 +95,7 @@ Azure AD Connect 可让用户使用同一组密码登录云和本地资源。本
 ### Azure AD 中的用户主体名
 Azure AD Connect 向导将使用 userPrincipalName 属性，或让你指定要从本地用作 Azure AD 中的用户主体名的属性（在自定义安装中）。这是要用于登录 Azure AD 的值。如果用户主体名属性的值不对应于 Azure AD 中已验证的域，则 Azure AD 会将该值替换为默认的 .partner.onmschina.cn 值。
 
-Azure Active Directory 中的每个目录随附内置域名，格式为 contoso.partner.onmschina.cn，可让你开始使用 Azure 或其他 Microsoft 服务。你可以使用自定义域来改善和简化登录体验。有关 Azure AD 中的自定义域名以及如何验证域的信息，请阅读 [Add your custom domain name to Azure Active Directory](./active-directory-add-domain.md#add-a-custom-domain-name-to-your-directory)（将自定义域名添加到 Azure Active Directory）
+Azure Active Directory 中的每个目录随附内置域名，格式为 contoso.partner.onmschina.cn，可让你开始使用 Azure 或其他 Microsoft 服务。你可以使用自定义域来改善和简化登录体验。有关 Azure AD 中的自定义域名以及如何验证域的信息，请阅读 [Add your custom domain name to Azure Active Directory](../active-directory-add-domain.md#add-a-custom-domain-name-to-your-directory)（将自定义域名添加到 Azure Active Directory）
 
 ## Azure AD 登录配置 <a name="azure-ad-sign-in-configuration"></a>
 ### 使用 Azure AD Connect 配置 Azure AD 登录
@@ -104,8 +104,8 @@ Azure AD 登录体验取决于 Azure AD 是否能够匹配要同步到 Azure AD 
 | 状态 | 说明 | 所需操作 |
 |:--- |:--- |:--- |
 | 已验证 |Azure AD Connect 在 Azure AD 中找到匹配的已验证域。此域的所有用户均可使用其本地凭据登录 |无需操作 |
-| 未验证 |Azure AD Connect 可在 Azure AD 中找到匹配的但未验证的自定义域。如果域未验证，则在同步后会将此域的用户的 UPN 后缀更改为默认的 .partner.onmschina.cn 后缀。 |在 Azure AD 中验证自定义域。[了解详细信息](./active-directory-add-domain.md#verify-the-domain-name-with-azure-ad) |
-| 未添加 |Azure AD Connect 找不到对应于 UPN 后缀的自定义域。如果未在 Azure 中添加和验证域，则会将此域的用户的 UPN 后缀更改为默认的 .partner.onmschina.cn。 |添加和验证与 UPN 后缀相对应的自定义域 [了解更多](./active-directory-add-domain.md) |
+| 未验证 |Azure AD Connect 可在 Azure AD 中找到匹配的但未验证的自定义域。如果域未验证，则在同步后会将此域的用户的 UPN 后缀更改为默认的 .partner.onmschina.cn 后缀。 |在 Azure AD 中验证自定义域。[了解详细信息](../active-directory-add-domain.md#verify-the-domain-name-with-azure-ad) |
+| 未添加 |Azure AD Connect 找不到对应于 UPN 后缀的自定义域。如果未在 Azure 中添加和验证域，则会将此域的用户的 UPN 后缀更改为默认的 .partner.onmschina.cn。 |添加和验证与 UPN 后缀相对应的自定义域 [了解更多](../active-directory-add-domain.md) |
 
 Azure AD 的登录页列出了针对本地 Active Directory 定义的 UPN 后缀，以及 Azure AD 中对应的自定义域与当前验证状态。在自定义安装中，现在你可以在“Azure AD 登录”页上选择用户主体名的属性。
 
