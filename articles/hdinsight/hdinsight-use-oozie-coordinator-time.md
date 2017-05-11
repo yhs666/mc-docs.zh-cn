@@ -675,7 +675,7 @@ tutorials/useoozie/workflow.xml
     ```
 
     如果要运行附加功能，请删除 # 号。
-9. 如果 HDinsight 群集版本为 2.1，请将“https://$clusterName.azurehdinsight.cn:443/oozie/v2/”替换为“https://$clusterName.azurehdinsight.cn:443/oozie/v1/”。HDInsight 群集 2.1 版不支持 2 版的 Web 服务。
+9. 如果 HDinsight 群集版本为 2.1，请将 "https://$clusterName.azurehdinsight.cn:443/oozie/v2/" 替换为 "https://$clusterName.azurehdinsight.cn:443/oozie/v1/" 。HDInsight 群集 2.1 版不支持 2 版的 Web 服务。
 10. 单击“运行脚本”或按 **F5** 运行脚本。输出结果类似如下：
 
     ![教程运行工作流输出][img-runworkflow-output]  

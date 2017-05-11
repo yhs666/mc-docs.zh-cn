@@ -221,7 +221,7 @@ ms.author: davidmu
     ```
 
     若要查找其他要使用的映像的相关信息，请参阅 [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md)（使用 Windows PowerShell 和 Azure CLI 来导航和选择 Azure 虚拟机映像）。
-3. 将 **$vhdContainers** 的值替换为包含虚拟硬盘的存储路径的列表，如“https://mystorage.blob.core.chinacloudapi.cn/vhds”，然后创建变量：
+3. 将 **$vhdContainers** 的值替换为包含虚拟硬盘的存储路径的列表，如 "https://mystorage.blob.core.chinacloudapi.cn/vhds" ，然后创建变量：
 
     ```
     $vhdContainers = @("https://myst1.blob.core.chinacloudapi.cn/vhds","https://myst2.blob.core.chinacloudapi.cn/vhds","https://myst3.blob.core.chinacloudapi.cn/vhds")

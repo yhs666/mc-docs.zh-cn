@@ -129,7 +129,7 @@ Content-Length: 115
 ```
 
 >[!NOTE]
->请务必将“https://telemetryvalidationstore.table.core.chinacloudapi.cn”值更改为存储帐户。
+>请务必将 "https://telemetryvalidationstore.table.core.chinacloudapi.cn" 值更改为存储帐户。
 
 ###响应
 
