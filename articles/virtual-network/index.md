@@ -36,11 +36,11 @@ description: 了解如何在云中使用虚拟网络。文档演示如何部署 
 <h2>引用</h2>
 <ul class="panelContent cardsW">
     <li>
-        <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardText"><h3>命令行</h3><p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell (Resource manager)</a></p><p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell（经典）</a></p><p><a href="/cli/azure">Azure CLI</a></p></div></div></div>
+        <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardText"><h3>命令行</h3><p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell (Resource manager)</a></p><p><a href="https://docs.microsoft.com/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell（经典）</a></p><p><a href="https://docs.microsoft.com/cli/azure">Azure CLI</a></p></div></div></div>
         </div>
     </li>
     <li>
-        <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardText"><h3>语言</h3><p><a href="/java/api/">Java</a></p></div></div></div>
+        <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardText"><h3>语言</h3><p><a href="https://docs.microsoft.com/java/api/">Java</a></p></div></div></div>
         </div>
     </li>
     <li>

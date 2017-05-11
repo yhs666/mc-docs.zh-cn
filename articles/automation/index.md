@@ -16,23 +16,10 @@ description: 了解如何使用自动化来自动执行过程和配置管理以�
 <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardImageOuter"><div class="cardImage"><img src="media/index/video-library.svg" alt="" /></div></div><div class="cardText"><h3>自动化视频库</h3></div></div></div>
         </div></a>
 </li>
-    <li><a href="/automation/automation-first-runbook-graphical">
-<div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardImageOuter"><div class="cardImage"><img src="media/index/tutorial.svg" alt="" /></div></div><div class="cardText"><h3>使用 Runbook 实现自动化入门</h3></div></div></div>
-        </div></a>
-</li>
-    <li><a href="/automation/automation-first-runbook-textual-powershell">
-<div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardImageOuter"><div class="cardImage"><img src="media/index/powershell.svg" alt="" /></div></div><div class="cardText"><h3>使用 PowerShell 实现自动化入门</h3></div></div></div>
-        </div></a>
-</li>
     <li><a href="/automation/automation-first-runbook-textual">
 <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardImageOuter"><div class="cardImage"><img src="media/index/powershell.svg" alt="" /></div></div><div class="cardText"><h3>创建第一个 PowerShell 工作流 Runbook</h3></div></div></div>
         </div></a>
 </li>
-    <li><a href="/automation/automation-role-based-access-control">
-<div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardImageOuter"><div class="cardImage"><img src="media/index/tutorial.svg" alt="" /></div></div><div class="cardText"><h3>使用 PowerShell 工作流实现自动化入门</h3></div></div></div>
-        </div></a>
-</li>
-
 </ul>
 
 ---
@@ -40,11 +27,11 @@ description: 了解如何使用自动化来自动执行过程和配置管理以�
 <h2>引用</h2>
 <ul class="panelContent cardsW">
     <li>
-        <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardText"><h3>命令行</h3><p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell</a></p><p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">经典 PowerShell</a></p></div></div></div>
+        <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardText"><h3>命令行</h3><p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell</a></p><p><a href="https://docs.microsoft.com/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">经典 PowerShell</a></p></div></div></div>
         </div>
     </li>
     <li>
-        <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardText"><h3>语言</h3><p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p></div></div></div>
+        <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardText"><h3>语言</h3><p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.automation">.NET</a></p></div></div></div>
         </div>
     </li>
     <li>

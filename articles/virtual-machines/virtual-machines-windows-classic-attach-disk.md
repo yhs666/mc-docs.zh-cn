@@ -53,7 +53,7 @@ Refernce article:
 
     ![打开磁盘设置](./media/virtual-machines-windows-classic-attach-disk/virtualmachinedisks.png)
 
-按照附加[新磁盘](#option-1-attach-a-new-disk)或[现有磁盘](#option-2-attach-an-existing-disk)的说明继续操作。
+按照附加[新磁盘](#option-1-attach-and-initialize-a-new-disk)或[现有磁盘](#option-2-attach-an-existing-disk)的说明继续操作。
 
 ## <a name="option-1-attach-and-initialize-a-new-disk"></a>选项 1：附加并初始化新的磁盘
 

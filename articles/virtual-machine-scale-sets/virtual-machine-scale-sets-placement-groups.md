@@ -20,7 +20,7 @@ ms.author: guybo
 ---
 
 # 使用大型的虚拟机规模集
-你现在可以创建容量高达 1,000 个 VM 的 Azure [虚拟机规模集](/azure/virtual-machine-scale-sets/)。在本文档中，_大型虚拟机规模集_定义为能够扩展到超过 100 个 VM 的规模集。此功能由规模集属性 (_singlePlacementGroup = False_) 进行设置。
+你现在可以创建容量高达 1,000 个 VM 的 Azure [虚拟机规模集](/virtual-machine-scale-sets/)。在本文档中，_大型虚拟机规模集_定义为能够扩展到超过 100 个 VM 的规模集。此功能由规模集属性 (_singlePlacementGroup = False_) 进行设置。
 
 大型规模集的某些方面，例如负载均衡和容错域的行为与标准规模集不同。本文档说明大型规模集的特征，并介绍要在应用程序中成功使用它们所需要知道的知识。
 

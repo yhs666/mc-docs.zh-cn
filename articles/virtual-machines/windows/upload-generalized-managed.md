@@ -127,7 +127,7 @@ Get-AzureRmStorageAccount
     * **Standard\_RAGRS** - 读取访问权限异地冗余存储。
     * **Premium\_LRS** - 高级本地冗余存储。
 
-## 将 VHD 上载到存储帐户
+## <a name="upload-the-vm-vhd-to-your-storage-account"></a> 将 VHD 上载到存储帐户
 
 使用 [Add-AzureRmVhd](https://msdn.microsoft.com/zh-cn/library/mt603554.aspx) cmdlet 将 VHD 上载到存储帐户中的容器。此示例将文件 **myVHD.vhd** 从 `"C:\Users\Public\Documents\Virtual hard disks"` 上传到 **myResourceGroup** 资源组中名为 **mystorageaccount** 的存储帐户。该文件将放到名为 **mycontainer** 的容器，新的文件名将是 **myUploadedVHD.vhd**。
 

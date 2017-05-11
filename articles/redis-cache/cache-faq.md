@@ -150,7 +150,7 @@ Azure Redis 缓存以常用的开放源 [Redis 缓存](http://redis.io)为基础
 ### <a name="cache-billing" id="how-am-i-billed-for-azure-redis-cache"></a> Azure Redis 缓存如何计费？
 [此处](https://www.azure.cn/pricing/details/redis-cache/)提供了 Azure Redis 缓存定价。 定价页列出了每小时费率。 缓存按分钟计费，从创建缓存时开始，到删除缓存时为止。 没有提供用于停止或暂停缓存的计费选项。
 
-### <a name="cache-configuration"></a> StackExchange.Redis 配置选项有什么作用？
+### <a name="cache-configuration" id="what-do-the-stackexchangeredis-configuration-options-do"></a> StackExchange.Redis 配置选项有什么作用？
 StackExchange.Redis 有很多选项。 本部分将介绍一些常用设置。 有关 StackExchange.Redis 选项的详细详细，请参阅 [StackExchange.Redis 配置](https://stackexchange.github.io/StackExchange.Redis/Configuration)。
 
 | 配置选项 | 说明 | 建议 |

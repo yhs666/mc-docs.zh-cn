@@ -59,7 +59,7 @@ ms.lasthandoff: 04/28/2017
 
     ![无身份验证](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/GS13noauth.png)
 
-    你要创建的示例应用程序没有需要用户登录的功能。 有关如何实施身份验证和授权功能的信息，请参阅本教程末尾的[后续步骤](#nextsteps)部分。 
+    你要创建的示例应用程序没有需要用户登录的功能。 有关如何实施身份验证和授权功能的信息，请参阅本教程末尾的[后续步骤](#next-steps)部分。 
 6. 在“新建 ASP.NET 项目”对话框中，确保选中“在云中托管”，然后单击“确定”。
 
 如果事先未登录到 Azure，则系统会提示登录。
@@ -178,7 +178,7 @@ ms.lasthandoff: 04/28/2017
             }
         }
 
-**Contact** 类定义你将为每个联系人存储的数据以及数据库需要的主键 ContactID。 本教程末尾的 [后续步骤](#nextsteps) 部分提供了有关数据模型的详细信息。
+**Contact** 类定义你将为每个联系人存储的数据以及数据库需要的主键 ContactID。 本教程末尾的 [后续步骤](#next-steps) 部分提供了有关数据模型的详细信息。
 
 ### <a name="create-web-pages-that-enable-app-users-to-work-with-the-contacts"></a>创建使应用程序用户可以使用联系人的网页
 ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新和删除 (CRUD) 操作的代码。
@@ -293,7 +293,7 @@ ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新�
 ![数据的 MVC 视图][rxz3]
 
 ## <a name="edit-the-view"></a>编辑视图
-1. 打开 *Views\Home\Index.cshtml* 文件。 在下一步中，将生成的标记替换为使用 [jQuery](http://jquery.com/) 和 [Knockout.js](http://knockoutjs.com/) 的代码。 此新代码将使用 Web API 和 JSON 检索联系人列表，然后使用 knockout.js 将联系人数据绑定至 UI。 有关详细信息，请参阅本教程末尾的 [后续步骤](#nextsteps) 部分。 
+1. 打开 *Views\Home\Index.cshtml* 文件。 在下一步中，将生成的标记替换为使用 [jQuery](http://jquery.com/) 和 [Knockout.js](http://knockoutjs.com/) 的代码。 此新代码将使用 Web API 和 JSON 检索联系人列表，然后使用 knockout.js 将联系人数据绑定至 UI。 有关详细信息，请参阅本教程末尾的 [后续步骤](#next-steps) 部分。 
 2. 将文件的内容替换为以下代码。
 
         @model IEnumerable<ContactManager.Models.Contact>
