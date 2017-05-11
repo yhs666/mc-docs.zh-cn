@@ -456,9 +456,9 @@ wacn.date: 11/28/2016
 [documentdb-hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [documentdb-github]: https://github.com/Azure/azure-documentdb-hadoop
 [documentdb-java-application]: ./documentdb-java-application.md
-[documentdb-manage-collections]: ./documentdb-manage.md#Collections/
-[documentdb-manage-document-storage]: ./documentdb-manage.md#IndexOverhead/
-[documentdb-manage-throughput]: ./documentdb-manage.md#ProvThroughput/
+[documentdb-manage-collections]: ./documentdb-manage.md#Collections
+[documentdb-manage-document-storage]: ./documentdb-manage.md#IndexOverhead
+[documentdb-manage-throughput]: ./documentdb-manage.md#ProvThroughput
 [documentdb-import-data]: ./documentdb-import-data.md
 
 [hdinsight-storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md

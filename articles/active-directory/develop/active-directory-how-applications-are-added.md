@@ -142,7 +142,7 @@ Azure AD 中的应用程序是使用 2 个对象表示的：应用程序对象�
 
 ## 另请参阅
 
-- [有关 Azure Active Directory 中应用程序管理的文章索引](./active-directory-apps-index.md)
+- [有关 Azure Active Directory 中应用程序管理的文章索引](../active-directory-apps-index.md)
 
 <!--Image references-->
 

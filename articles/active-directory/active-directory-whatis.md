@@ -67,14 +67,14 @@ Azure AD 是多客户公共目录服务，这意味着用户可以在 Azure AD �
 
 **如果你是开发人员：**
 
-- 查看 Azure Active Directory 的[开发人员指南](./active-directory-developers-guide.md)
+- 查看 Azure Active Directory 的[开发人员指南](./develop/active-directory-developers-guide.md)
 
 - [开始试用](https://www.azure.cn/pricing/1rmb-trial/) - 立即注册试用版，开始将应用集成到 Azure AD
 
 ## 可以从何处了解详细信息？
 我们提供了大量的优秀在线资源，以帮助用户了解 Azure AD 的方方面面。下面是一些有助于快速入门的优秀文章：
 
-- [使用 Azure AD Connect 启用目录的混合管理](./active-directory-aadconnect.md)
+- [使用 Azure AD Connect 启用目录的混合管理](./connect/active-directory-aadconnect.md)
 - [在互联世界中提高安全性](../multi-factor-authentication/multi-factor-authentication.md)
 
 - [从任意位置管理密码](./active-directory-passwords.md)
