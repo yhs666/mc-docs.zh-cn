@@ -124,14 +124,15 @@ await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 ### 自定义执行组件服务
 使用执行组件注册 lambda，还可以注册自己的自定义执行组件服务（派生自 `ActorService`），可在其中实现自己的服务级别功能。可通过编写继承 `ActorService` 的服务类来完成此操作。自定义执行组件服务从 `ActorService` 继承所有执行组件运行时功能，可用于实现自己的服务方法。
 
-```
+```csharp
 class MyActorService : ActorService
 {
     public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<ActorBase> newActor)
         : base(context, typeInfo, newActor)
     { }
 }
-
+```
+```Java
 static class Program
 {
     private static void Main()
@@ -147,7 +148,7 @@ static class Program
 
 #### 实现执行组件备份和还原
  在下面的示例中，自定义执行组件服务利用已存在于 `ActorService` 中的远程侦听器，公开备份执行组件数据的方法：
-
+```csharp
     public interface IMyActorService : IService
     {
         Task BackupActorsAsync();
@@ -159,26 +160,27 @@ static class Program
             : base(context, typeInfo, newActor)
         { }
 
-    ```
-    public Task BackupActorsAsync()
-    {
-        return this.BackupAsync(new BackupDescription(PerformBackupAsync));
-    }
 
-    private async Task<bool> PerformBackupAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
-    {
-        try
+        public Task BackupActorsAsync()
         {
-           // store the contents of backupInfo.Directory
-           return true;
+            return this.BackupAsync(new BackupDescription(PerformBackupAsync));
         }
-        finally
+    
+        private async Task<bool> PerformBackupAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
         {
-           Directory.Delete(backupInfo.Directory, recursive: true);
+            try
+            {
+               // store the contents of backupInfo.Directory
+               return true;
+            }
+            finally
+            {
+               Directory.Delete(backupInfo.Directory, recursive: true);
+            }
         }
+
     }
-    ```
-    }
+```
 
 在本示例中，`IMyActorService` 是一个远程协定，它实现 `IService`，然后由 `MyActorService` 实现。通过添加此远程协定，并使用 `ActorServiceProxy` 创建远程代理，现在 `IMyActorService` 的方法也可用于客户端：
 

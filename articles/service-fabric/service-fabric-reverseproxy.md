@@ -63,7 +63,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **http(s)：**可以将反向代理配置为接受 HTTP 或 HTTPS 流量。 对于 HTTPS 流量，反向代理中会发生安全套接字层 (SSL) 终止。 反向代理使用 HTTP 将请求转发到群集中服务。
 
     请注意，目前不支持 HTTPS 服务。
-* **Cluster fully qualified domain name (FQDN) | internal IP：**对于外部客户端，可以配置反向代理，以便可以通过群集域（例如 mycluster.eastus.cloudapp.azure.com）访问反向代理。 默认情况下，反向代理在每个节点上运行。 对于内部流量，可在本地主机或任意内部节点 IP（例如 10.0.0.1）上访问反向代理。
+* **Cluster fully qualified domain name (FQDN) | internal IP：**对于外部客户端，可以配置反向代理，以便可以通过群集域（例如 mycluster.chinaeast.cloudapp.chinacloudapi.cn）访问反向代理。 默认情况下，反向代理在每个节点上运行。 对于内部流量，可在本地主机或任意内部节点 IP（例如 10.0.0.1）上访问反向代理。
 * **Port：**为反向代理指定的端口，例如 19008。
 * **ServiceInstanceName：**在不使用“fabric:/”方案的情况下尝试访问的已部署服务实例的完全限定名称。 例如，若要访问 *fabric:/myapp/myservice/* 服务，可以使用 *myapp/myservice*。
 * **Suffix path：**要连接到的服务的实际 URL 路径，例如 *myapi/values/add/3*。
