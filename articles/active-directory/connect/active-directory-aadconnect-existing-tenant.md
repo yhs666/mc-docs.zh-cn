@@ -57,7 +57,7 @@ Azure AD 中的对象在云中 (Azure AD) 或本地掌控。 对于单个对象�
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>基于 Azure AD 中的数据创建新的本地 Active Directory
 某些客户最初在 Azure AD 中使用仅限云的解决方案，而没有构建本地 AD。 后来，他们想要使用本地资源，并希望基于 Azure AD 数据构建本地 AD。 对于这种情况，Azure AD Connect 无法起到作用。 它不会创建本地用户，并且没有能力将本地密码设置为与 Azure AD 中的密码相同。
 
-如果你计划添加本地 AD 的唯一原因是支持 LOB（业务线应用），也许应该考虑改用 [Azure AD 域服务](../../active-directory-domain-services/index.md)。
+如果你计划添加本地 AD 的唯一原因是支持 LOB（业务线应用），也许应该考虑改用 Azure AD 域服务。
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。

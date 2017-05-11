@@ -73,7 +73,7 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 
 **答：**可以使用 Azure AD Connect 将本地目录连接到 Azure AD。
 
-有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](./active-directory-aadconnect.md)。
+有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](./connect/active-directory-aadconnect.md)。
 
 - - -
 **问：如何在本地目录与云应用程序之间设置 SSO？**
@@ -82,7 +82,7 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 
 可以通过联合身份验证解决方案（例如 Active Directory 联合身份验证服务 (AD FS)）或通过配置密码哈希同步，轻松地从本地实现 SSO。可以使用 Azure AD Connect 配置向导轻松部署这两个选项。
 
-有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](./active-directory-aadconnect.md)。
+有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](./connect/active-directory-aadconnect.md)。
 
 - - -
 **问：Azure AD 是否为组织中的用户提供自助服务门户？**
@@ -141,8 +141,8 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 
 有关详细信息，请参阅：
 
-- [Azure AD 的身份验证方案](./active-directory-authentication-scenarios.md)
-- [Active Directory 身份验证协议](./active-directory-developers-guide.md)
+- [Azure AD 的身份验证方案](./develop/active-directory-authentication-scenarios.md)
+- [Active Directory 身份验证协议](./develop/active-directory-developers-guide.md)
 - [Azure Active Directory 中单一登录的工作原理是什么？](./active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 - - -

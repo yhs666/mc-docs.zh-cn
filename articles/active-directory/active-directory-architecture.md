@@ -117,7 +117,7 @@ Azure AD 实施所有数据的每日备份，因此，在发生任何逻辑删�
 我们针对任一操作采用多重身份验证 (MFA) 等操作控制，并针对所有操作实施审核。 此外，我们使用适时提升系统，授予必要的临时访问权限让客户完成任何日常的按需操作任务。 有关详细信息，请参阅 [The Trusted Cloud](https://azure.microsoft.com/en-us/support/trust-center)（受信任的云）。
 
 ## <a name="next-steps"></a>后续步骤
-[Azure Active Directory 开发人员指南](./active-directory-developers-guide.md)
+[Azure Active Directory 开发人员指南](./develop/active-directory-developers-guide.md)
 
 
 
