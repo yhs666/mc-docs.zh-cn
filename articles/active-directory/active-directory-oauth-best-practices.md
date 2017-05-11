@@ -69,6 +69,6 @@ Azure AD 支持客户端可查询的多种令牌颁发终结点。使用以下�
 
 ## 后续步骤
 
-[Active Directory 身份验证库 (ADAL)](./active-directory-authentication-libraries.md)
+[Active Directory 身份验证库 (ADAL)](./develop/active-directory-authentication-libraries.md)
 
 <!---HONumber=AcomDC_0718_2016-->

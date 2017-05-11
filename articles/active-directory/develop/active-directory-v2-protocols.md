@@ -18,7 +18,7 @@ wacn.date: 02/13/2017
 ms.author: dastrock
 ---
 
-# v2.0 协议 - OAuth 2.0 和 OpenID Connect  <a name="oauth2-authorization-code-flow"></a>
+# v2.0 协议 - OAuth 2.0 和 OpenID Connect
 
 v2.0 终结点可以使用 Azure AD，通过行业标准协议（OpenID Connect 与 OAuth 2.0）提供标识即服务。尽管此服务与标准兼容，但这些协议的两个实现之间仍然存在微妙的差异。如果你选择通过直接发送和处理 HTTP 请求，或使用第三方开放源代码库来编写代码，而不是使用我们的其中一个开放源代码库，则可以参考此处提供的有用信息。
 <!-- TODO: Need link to libraries above -->

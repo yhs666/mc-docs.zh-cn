@@ -92,7 +92,7 @@ ID 令牌将传递给网站和本机客户端，包含有关用户的配置文�
 - 如果未将策略显式分配到服务主体或组织，则强制实施分配到应用程序的策略。
 - 如果未将策略分配到服务主体、组织或应用程序对象，则强制实施默认值（请参阅上表）。
 
-有关 Azure AD 中应用程序对象与服务主体对象之间的关系的详细信息，请参阅 [Application and service principal objects in Azure Active Directory](./active-directory-application-objects.md)（Azure Active Directory 中的应用程序对象和服务主体对象）。
+有关 Azure AD 中应用程序对象与服务主体对象之间的关系的详细信息，请参阅 [Application and service principal objects in Azure Active Directory](./develop/active-directory-application-objects.md)（Azure Active Directory 中的应用程序对象和服务主体对象）。
 
 使用令牌时，系统会评估其有效性。所访问的应用程序中具有最高优先级的策略将会生效。
 
@@ -186,7 +186,7 @@ ID 令牌将传递给网站和本机客户端，包含有关用户的配置文�
 - 管理高级策略
 
 ### 先决条件
-以下示例方案针对应用、服务主体和整个组织创建、更新、关联和删除策略。在学习这些示例之前，Azure AD 的新手应该先阅读[此文](./active-directory-howto-tenant.md)帮助自己入门。
+以下示例方案针对应用、服务主体和整个组织创建、更新、关联和删除策略。在学习这些示例之前，Azure AD 的新手应该先阅读[此文](./develop/active-directory-howto-tenant.md)帮助自己入门。
 
 1. 若要开始，请下载最新的 [Azure AD PowerShell Cmdlet 预览版](https://www.powershellgallery.com/packages/AzureADPreview)。
 2. 获取 Azure AD PowerShell Cmdlet 后，运行 Connect 命令登录到 Azure AD 管理员帐户。每次启动新会话都需要执行此操作。

@@ -144,7 +144,7 @@ Office 365 订阅包括以下比较表中所述的其他 Azure Active Directory 
 
 **更多详细信息：**
 
-- [将本地标识与 Azure Active Directory 集成](./active-directory-aadconnect.md)
+- [将本地标识与 Azure Active Directory 集成](./connect/active-directory-aadconnect.md)
 
 #### 安全/使用情况报告 <a name="securityusage-reports"></a>
 **类型：**常用功能

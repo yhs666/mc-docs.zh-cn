@@ -27,7 +27,7 @@ Microsoft 标识平台以及 Microsoft 标识 SDK 能够为你完成所有这些
 
 本演练将介绍如何在应用程序中配置 SDK，以便向客户提供此项优点。
 
-请注意，以下文档假设已了解如何[在旧版门户中为 Azure Active Directory 预配应用程序](./develop/active-directory-how-to-integrate.md)，并且已将应用程序与 [Microsoft Identity iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc) 集成。
+请注意，以下文档假设已了解如何[在旧版门户中为 Azure Active Directory 预配应用程序](./active-directory-how-to-integrate.md)，并且已将应用程序与 [Microsoft Identity iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc) 集成。
 
 ## Microsoft 标识平台中的 SSO 概念
 ### Microsoft 标识中转站
@@ -267,7 +267,7 @@ Microsoft 标识平台使用 URL 来调用中转站，然后将控制权返回�
 
 例如：*x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-需要使用 [Azure 经典管理门户](https://manage.windowsazure.cn/)在应用注册中指定此重定向 URI。有关 Azure AD 应用注册的详细信息，请参阅[与 Azure Active Directory 集成](./develop/active-directory-how-to-integrate.md)。
+需要使用 [Azure 经典管理门户](https://manage.windowsazure.cn/)在应用注册中指定此重定向 URI。有关 Azure AD 应用注册的详细信息，请参阅[与 Azure Active Directory 集成](./active-directory-how-to-integrate.md)。
 
 ##### 步骤 3a：在应用和开发人员门户添加重定向 URI，以支持基于证书的身份验证
 若要支持基于证书的身份验证，必须在应用程序和 [Azure 经典管理门户](https://manage.windowsazure.cn/)中注册第二个“msauth”，以处理证书身份验证（如果想要在应用程序中添加该支持）。

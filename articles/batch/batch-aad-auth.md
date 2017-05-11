@@ -252,13 +252,13 @@ public static async Task PerformBatchOperations()
 
 有关运行 [AccountManagement 示例应用程序][acct_mgmt_sample]的详细信息，请参阅 [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md)（使用适用于 .NET 的批处理管理客户端库来管理批处理帐户和配额）。
 
-有关 Azure AD 的详细信息，请阅读 [Azure Active Directory 文档](https://docs.microsoft.com/azure/active-directory/)。 演示如何使用 [Azure 代码示例](https://azure.microsoft.com/resources/samples/?service=active-directory)库中提供的 ADAL 的深度讲解示例。
+有关 Azure AD 的详细信息，请阅读 [Azure Active Directory 文档](/active-directory/)。 演示如何使用 [Azure 代码示例](https://azure.microsoft.com/resources/samples/?service=active-directory)库中提供的 ADAL 的深度讲解示例。
 
 
 [aad_about]: ../active-directory/active-directory-whatis.md "什么是 Azure Active Directory？"
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Azure AD 的身份验证方案"
-[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "将应用程序与 Azure Active Directory 集成"
+[aad_adal]: ../active-directory/develop/active-directory-authentication-libraries.md
+[aad_auth_scenarios]: ../active-directory/develop/active-directory-authentication-scenarios.md "Azure AD 的身份验证方案"
+[aad_integrate]: ../active-directory/develop/active-directory-integrating-applications.md "将应用程序与 Azure Active Directory 集成"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [azure_portal]: http://portal.azure.cn
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md

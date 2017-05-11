@@ -33,10 +33,10 @@ Azure Active Directory (Azure AD) 可在云中创建属于你的标识布局。�
 ## Azure AD 如何为 Office 365、Microsoft Intune 和其他 Azure 服务提供支持？
 Azure 门户、Office 365 管理中心、Microsoft Intune 帐户门户和 Azure AD PowerShell 模块中的 cmdlet 都在与你目录关联的 Azure AD 的单个共享实例中读取和写入数据。门户（或 cmdlet）充当前端接口，它可以输入或更改目录信息。
 ## Azure AD 如何为第三方应用程序提供支持？
-Azure AD 提供标识即服务，并提供针对不同平台的开放源代码库来帮助你快速编程，从而简化了开发人员的身份验证。[了解有关 Azure AD 的身份验证方案的详细信息](./active-directory-authentication-scenarios.md)。
+Azure AD 提供标识即服务，并提供针对不同平台的开放源代码库来帮助你快速编程，从而简化了开发人员的身份验证。[了解有关 Azure AD 的身份验证方案的详细信息](./develop/active-directory-authentication-scenarios.md)。
 
 ## Azure AD 如何扩展我的本地目录？
-Azure AD 支持多个最广泛使用的身份验证和授权协议。[了解有关 Azure Active Directory 身份验证协议的详细信息](./active-directory-authentication-scenarios.md)。
+Azure AD 支持多个最广泛使用的身份验证和授权协议。[了解有关 Azure Active Directory 身份验证协议的详细信息](./develop/active-directory-authentication-scenarios.md)。
 
 ## Azure 如何帮助我管理标识？
 想要了解有关如何管理 Azure AD 的详细信息？如何获取目录？如何删除目录？如何管理目录数据？了解有关管理 Azure AD 目录的详细信息。[了解有关如何管理 Azure AD（主题待定）]。

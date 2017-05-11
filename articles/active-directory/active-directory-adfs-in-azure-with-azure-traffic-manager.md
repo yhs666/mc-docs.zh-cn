@@ -20,7 +20,7 @@ ms.author: anandy;billmath
 
 #使用 Azure 流量管理器在 Azure 中部署高可用性跨地域 AD FS
 
-[Azure 中的 AD FS 部署](./active-directory-aadconnect-azure-adfs.md)提供有关如何在 Azure 中为组织部署简单 AD FS 基础结构的分步指南。本文提供如何使用 [Azure 流量管理器](../traffic-manager/traffic-manager-overview.md)在 Azure 中创建 AD FS 的跨地域部署的后续步骤。Azure 流量管理器会使用各种可用的路由方法来适应基础结构的不同需求，帮助为组织创建在地理上分散的高可用性和高性能 AD FS 基础结构。
+[Azure 中的 AD FS 部署](./connect/active-directory-aadconnect-azure-adfs.md)提供有关如何在 Azure 中为组织部署简单 AD FS 基础结构的分步指南。本文提供如何使用 [Azure 流量管理器](../traffic-manager/traffic-manager-overview.md)在 Azure 中创建 AD FS 的跨地域部署的后续步骤。Azure 流量管理器会使用各种可用的路由方法来适应基础结构的不同需求，帮助为组织创建在地理上分散的高可用性和高性能 AD FS 基础结构。
 
 高度可用的跨地域 AD FS 基础结构能够：
 
@@ -50,7 +50,7 @@ ms.author: anandy;billmath
 ##集成 Azure 流量管理器的步骤
 
 ###在新地理区域中部署 AD FS
-请按照 [Azure 中的 AD FS 部署](./active-directory-aadconnect-azure-adfs.md)中的步骤和指南，在新地理区域中部署同一拓扑。
+请按照 [Azure 中的 AD FS 部署](./connect/active-directory-aadconnect-azure-adfs.md)中的步骤和指南，在新地理区域中部署同一拓扑。
 
 ###面向 Internet 的（公共）负载均衡器中公共 IP 地址的 DNS 标签
 如上所述，Azure 流量管理器仅可将 DNS 标签用作终结点的参考，因此必须为外部负载均衡器的公共 IP 地址创建 DNS 标签。以下屏幕快照显示如何配置公共 IP 地址的 DNS 标签。
@@ -130,7 +130,7 @@ ms.author: anandy;billmath
     ![ADFS 测试 - 身份验证成功](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)  
 
 ##相关链接
-* [Azure 中的基本 AD FS 部署](./active-directory-aadconnect-azure-adfs.md)
+* [Azure 中的基本 AD FS 部署](./connect/active-directory-aadconnect-azure-adfs.md)
 * [Azure 流量管理器](../traffic-manager/traffic-manager-overview.md)
 * [流量管理器流量路由方法](../traffic-manager/traffic-manager-routing-methods.md)
 

@@ -406,7 +406,7 @@ ms.author: rachelap
 
 两个 Web API 项目是通过使用 **Azure API 应用**项目模板并将默认“值”控制器替换为 ToDoList 控制器创建的。为了在 ToDoListAPI 项目中获取 Azure AD 服务主体令牌，我们已安装[用于 .NET 的 Active Directory 身份验证库 (ADAL)](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) NuGet 包。
 
-有关如何使用 ToDoListAngular 之类的 Web API 后端创建 AngularJS 单页应用程序的信息，请参阅 [Hands On Lab: Build a Single Page Application (SPA) with ASP.NET Web API and Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs)（动手实验：使用 ASP.NET Web API 和 Angular.js 构建单页应用程序 (SPA)）。有关如何添加 Azure AD 身份验证代码的信息，请参阅 [Securing AngularJS Single Page Apps with Azure AD](../active-directory/active-directory-devquickstarts-angular.md)（使用 Azure AD 保护 AngularJS 单页应用程序）。
+有关如何使用 ToDoListAngular 之类的 Web API 后端创建 AngularJS 单页应用程序的信息，请参阅 [Hands On Lab: Build a Single Page Application (SPA) with ASP.NET Web API and Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs)（动手实验：使用 ASP.NET Web API 和 Angular.js 构建单页应用程序 (SPA)）。有关如何添加 Azure AD 身份验证代码的信息，请参阅 [Securing AngularJS Single Page Apps with Azure AD](../active-directory/develop/active-directory-devquickstarts-angular.md)（使用 Azure AD 保护 AngularJS 单页应用程序）。
 
 ## <a name="troubleshooting"></a>故障排除
 
@@ -420,8 +420,8 @@ ms.author: rachelap
 
 有关 Azure Active Directory 的详细信息，请参阅以下资源。
 
-* [Azure AD developers' guide](../active-directory/active-directory-developers-guide.md)（Azure AD 开发人员指南）
-* [Azure AD scenarios](../active-directory/active-directory-authentication-scenarios.md)（Azure AD 方案）
+* [Azure AD developers' guide](../active-directory/develop/active-directory-developers-guide.md)（Azure AD 开发人员指南）
+* [Azure AD scenarios](../active-directory/develop/active-directory-authentication-scenarios.md)（Azure AD 方案）
 * [Azure AD 示例](https://github.com/azure-samples?query=active-directory)
 
     [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) 示例类似于本教程中所示的示例，但未使用应用服务身份验证。

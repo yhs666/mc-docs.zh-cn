@@ -425,5 +425,5 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="next-steps"></a>后续步骤
 * 有关将应用程序集成到 Azure 以管理资源的详细步骤，请参阅 [Developer's guide to authorization with the Azure Resource Manager API](./resource-manager-api-authentication.md)（使用 Azure Resource Manager API 进行授权的开发人员指南）。
-* 有关应用程序和服务主体的详细说明，请参阅 [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md)（应用程序对象和服务主体对象）。 
-* 有关 Active Directory 身份验证的详细信息，请参阅 [Authentication Scenarios for Azure AD](../active-directory/active-directory-authentication-scenarios.md)（Azure AD 的身份验证方案）。
+* 有关应用程序和服务主体的详细说明，请参阅 [Application Objects and Service Principal Objects](../active-directory/develop/active-directory-application-objects.md)（应用程序对象和服务主体对象）。 
+* 有关 Active Directory 身份验证的详细信息，请参阅 [Authentication Scenarios for Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md)（Azure AD 的身份验证方案）。

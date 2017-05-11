@@ -301,7 +301,7 @@ deis-store-volume.service       ebe3005e.../10.0.0.6    loaded  active          
 [将 Azure PowerShell 与 Azure 资源管理器配合使用][powershell-azure-resource-manager]
 
 [azure-command-line-tools]: ../xplat-cli-install.md
-[resource-group-overview]: ../resource-group-overview.md
+[resource-group-overview]: ../azure-resource-manager/resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
 <!---HONumber=Mooncake_1207_2015-->

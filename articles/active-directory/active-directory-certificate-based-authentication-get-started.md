@@ -30,7 +30,7 @@ ms.author: markvi
 
 - 提供的步骤介绍如何为 Office 365 企业版、商业版和教育版的用户配置并使用基于证书的身份验证。此功能在 Office 365 中国版计划以预览版形式提供。
 
-- 假设用户已配置[公钥基础结构 (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) 和 [AD FS](./active-directory-aadconnectfed-whatis.md)。
+- 假设用户已配置[公钥基础结构 (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) 和 [AD FS](./connect/active-directory-aadconnectfed-whatis.md)。
 
 ## 要求
 
