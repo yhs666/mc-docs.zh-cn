@@ -30,7 +30,7 @@ ms.lasthandoff: 04/22/2017
 ## <a name="numeric-functions"></a>数值函数
 资源管理器提供以下用于处理整数的函数：
 
-* [添加](#add)
+* [add](#add)
 * [copyIndex](#copyindex)
 * [div](#div)
 * [int](#int)

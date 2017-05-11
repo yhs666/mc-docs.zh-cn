@@ -46,7 +46,7 @@ ms.lasthandoff: 04/22/2017
 本主题介绍以下错误代码：
 
 * [AccountNameInvalid](#accountnameinvalid)
-* [授权失败](#authorization-failed)
+* [AuthorizationFailed](#authorization-failed)
 * [BadRequest](#badrequest)
 * [DeploymentFailed](#deploymentfailed)
 * [DisallowedOperation](#disallowedoperation)
@@ -178,7 +178,7 @@ ms.lasthandoff: 04/22/2017
 
     如果未提供匹配的语法，该模板将生成一个意外的值。
 
-    当你收到此类错误时，请仔细检查表达式语法。 考虑使用 [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 或 [Visual Studio Code](/documentation/articles/resource-manager-vs-code/) 等 JSON 编辑器，此类编辑器在出现语法错误时可以发出警告。
+    当你收到此类错误时，请仔细检查表达式语法。 考虑使用 [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 或 [创建第一个 Azure Resource Manager 模板](/documentation/articles/resource-manager-create-first-template/) 等 JSON 编辑器，此类编辑器在出现语法错误时可以发出警告。
 
 - 段长度不正确
 
@@ -526,7 +526,7 @@ ms.lasthandoff: 04/22/2017
 
 有关策略的详细信息，请参阅[使用策略来管理资源和控制访问](./resource-manager-policy.md)。
 
-### <a name="authorization-failed"></a> 授权失败
+### <a name="authorization-failed"></a> AuthorizationFailed
 你可能在部署期间收到错误，因为尝试部署资源的帐户或服务主体没有执行这些操作的访问权限。 Azure Active Directory 可让你或你的系统管理员非常精确地控制哪些标识可以访问哪些资源。 例如，如果你的帐户已分配到“读取者”角色，则无法创建资源。 在此情况下，将会出现一条错误消息，指出授权失败。
 
 有关基于角色的访问控制的详细信息，请参阅 [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)（Azure 基于角色的访问控制）。
