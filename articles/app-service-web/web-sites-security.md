@@ -113,4 +113,4 @@ Azure App Service 通过“FTPS” 提供对应用文件系统的安全 FTP 访�
 有关应用服务应用的日志记录信息（可能在检测攻击时很有用），请参阅[启用诊断日志记录](web-sites-enable-diagnostic-log.md)。
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)

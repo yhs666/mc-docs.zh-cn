@@ -24,7 +24,7 @@ ms.lasthandoff: 04/28/2017
 
 ---
 # <a name="how-to-debug-a-nodejs-web-app-in-azure-app-service"></a>如何在 Azure App Service 中调试 Node.js Web 应用
-Azure 提供了内置诊断来协助调试托管在 [Azure App Service](/azure/app-service-web/app-service-changes-existing-services) Web 应用中的 Node.js 应用程序。 在本文中，你将学习如何启用 stdout 和 stderr 的日志记录，如何在浏览器中显示错误信息以及下载和查看日志文件。
+Azure 提供了内置诊断来协助调试托管在 [Azure App Service](/app-service-web/app-service-changes-existing-services) Web 应用中的 Node.js 应用程序。 在本文中，你将学习如何启用 stdout 和 stderr 的日志记录，如何在浏览器中显示错误信息以及下载和查看日志文件。
 
 [IISNode]提供对在 Azure 上托管的 Node.js 应用程序的诊断。 本文只讨论了有关收集诊断信息的常见设置，并未提供使用 IISNode 的完整参考。 有关使用 IISNode 的详细信息，请参阅 GitHub 上的 [IISNode 自述文件] 。
 
@@ -118,7 +118,7 @@ Azure 提供了内置诊断来协助调试托管在 [Azure App Service](/azure/a
 有关详细信息，另请参阅 [Node.js 开发人员中心](https://www.azure.cn/develop/nodejs/)。
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode 自述文件]: https://github.com/tjanczuk/iisnode#readme

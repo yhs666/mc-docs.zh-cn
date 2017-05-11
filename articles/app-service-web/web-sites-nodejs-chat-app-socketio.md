@@ -276,12 +276,12 @@ Azure Web 应用可提供多个 SKU，用于确定站点可用的资源。 包�
 
 <!-- URL List -->
 
-[Azure Redis 缓存]: /azure/redis-cache/
-[应用服务 Web 应用]: /azure/app-service-web/app-service-changes-existing-services
-[Web Apps 定价页]: /azure/azure-subscription-service-limits
+[Azure Redis 缓存]: /redis-cache/
+[应用服务 Web 应用]: /app-service-web/app-service-changes-existing-services
+[Web Apps 定价页]: /azure-subscription-service-limits
 [在 Azure 云服务中使用 Socket.IO 构建 Node.js 聊天应用程序]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
 [Install and Configure the Azure CLI]: ../cli-install-nodejs.md
-[Azure App Service and Its Impact on Existing Azure Services]: /azure/app-service-web/app-service-changes-existing-services
+[Azure App Service and Its Impact on Existing Azure Services]: /app-service-web/app-service-changes-existing-services
 [Node.js 开发人员中心]: https://www.azure.cn/develop/nodejs/
 [Try App Service]: https://azure.microsoft.com/try/app-service/
 [Instance Affinity in Azure Web Sites]: https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/

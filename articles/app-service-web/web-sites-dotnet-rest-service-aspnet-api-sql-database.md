@@ -27,7 +27,7 @@ ms.lasthandoff: 04/28/2017
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程将展示如何使用 Visual Studio 2013 或 Visual Studio 2013 社区版中的“发布 Web”向导将 ASP.NET Web 应用部署到 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services)。 
+本教程将展示如何使用 Visual Studio 2013 或 Visual Studio 2013 社区版中的“发布 Web”向导将 ASP.NET Web 应用部署到 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)。 
 
 你可以注册一个 Azure 帐户，如果你没有 Visual Studio 2013，此 SDK 会自动安装 Visual Studio 2013 for Web Express。 这样你就可以免费使用 Azure 进行开发了。
 
@@ -681,7 +681,7 @@ XSRF 攻击不同于网络钓鱼攻击。 网络钓鱼攻击需要与受害者�
 请提供有关你喜欢的内容或者你希望看到改善的内容的反馈，不仅关于教程本身，也关于它所演示的产品。 你的反馈将帮助我们确定优先改进哪些方面。 我们特别希望确定大家对于对配置和部署成员资格数据库的流程进行更多自动化的兴趣有多大。 
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth

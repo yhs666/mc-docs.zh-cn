@@ -107,7 +107,7 @@ Azure App Service 为大规模任务关键型 [WordPress][wordpress] 站点提�
 
 在本地将 PHP Web 应用配置到 WordPress 站点，并将其推送到 Azure。
 
-如果要迁移现有 WordPress 站点，在创建新 Web 应用后，请参阅 [将现有 WordPress 站点迁移到 Azure](#Migrate-an-existing-WordPress-site-to-Azure) 。
+如果要迁移现有 WordPress 站点，在创建新 Web 应用后，请参阅 [将现有 WordPress 站点迁移到 Azure](#migrate-an-existing-wordpress-site-to-azure) 。
 
 ### <a name="migrate-an-existing-wordpress-site-to-azure"></a>将现有 WordPress 网站迁移到 Azure
 如[架构与规划](#planning)部分所述，有两种方法可迁移 WordPress 站点：
@@ -119,7 +119,7 @@ Azure App Service 为大规模任务关键型 [WordPress][wordpress] 站点提�
 
 #### <a name="the-export-and-import-method"></a>导出和导入方法
 1. 使用 [WordPress 导出][export] 导出您的现有网站。
-2. 使用 [创建 WordPress 站点](#Create-a-new-WordPress-site) 部分的步骤，创建 Web 应用。
+2. 使用 [创建 WordPress 站点](#create-a-wordpress-site) 部分的步骤，创建 Web 应用。
 3. 在 [Azure 门户预览][mgmtportal]上登录 WordPress 站点，然后单击“插件” > “新增”。 搜索并安装 **WordPress 导入程序**插件。
 4. 安装 WordPress 导入程序插件后，单击“工具” > “导入”，然后单击“WordPress”使用 WordPress 导入程序插件。
 5. 在“导入 WordPress”页面上，单击“选择文件”。 查找从现有 WordPress 站点导出的 WXR 文件，然后单击“上传文件和导入”。
@@ -163,7 +163,7 @@ Azure App Service 为大规模任务关键型 [WordPress][wordpress] 站点提�
 | --- | --- |
 | **设置 App Service 计划模式、大小和启用缩放** |[在 Azure App Service 中缩放 Web 应用][websitescale]。 |
 | **启用持久的数据库连接** |默认情况下，WordPress 不使用持久的数据库连接，这可能导致数据库的连接在多次连接后受到限制。 若要启用持久连接，请安装 [持久连接适配器插件](https://wordpress.org/plugins/persistent-database-connection-updater/installation/)。 |
-| **提高性能** |<ul><li><p><a href="https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">禁用 ARR Cookie</a> 可在多个 Web 应用实例上运行 WordPress 时提高性能。</p></li><li><p>启用缓存。 可将 <a href="/azure/redis-cache">Redis 缓存</a>（预览版）与 <a href="https://wordpress.org/plugins/redis-object-cache/">Redis 对象缓存 WordPress 插件</a>配合使用，或可使用 <a href="/gallery/store/">Azure 应用商店</a>中的一款其他缓存产品。</p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">使用 Wincache 加快 WordPress 的速度</a>。 默认情况下为 Web 应用启用 Wincache。</p></li><li><p>[在 Azure 应用服务中缩放 Web 应用][websitescale]并使用 <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB 高可用性路由</a>或 <a href="http://www.mysql.com/products/cluster/">MySQL 群集 CGE</a>。</p></li></ul> |
+| **提高性能** |<ul><li><p><a href="https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">禁用 ARR Cookie</a> 可在多个 Web 应用实例上运行 WordPress 时提高性能。</p></li><li><p>启用缓存。 可将 <a href="/redis-cache">Redis 缓存</a>（预览版）与 <a href="https://wordpress.org/plugins/redis-object-cache/">Redis 对象缓存 WordPress 插件</a>配合使用，或可使用 Azure 应用商店中的一款其他缓存产品。</p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">使用 Wincache 加快 WordPress 的速度</a>。 默认情况下为 Web 应用启用 Wincache。</p></li><li><p>[在 Azure 应用服务中缩放 Web 应用][websitescale]并使用 <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB 高可用性路由</a>或 <a href="http://www.mysql.com/products/cluster/">MySQL 群集 CGE</a>。</p></li></ul> |
 | **使用 blob 作为存储** |<ol><li><p>[创建 Azure 存储帐户](../storage/storage-create-storage-account.md)。</p></li><li><p>了解如何[使用内容分发网络 (CDN)][cdn] 将 blob 中存储的数据分发到各个地区。</p></li><li><p>安装并配置<a href="https://wordpress.org/plugins/windows-azure-storage/">适用于 WordPress 的 Azure 存储插件</a>。</p><p>有关该插件的详细设置和配置信息，请参阅<a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">用户指南</a>。</p> </li></ol> |
 | **启用电子邮件** | 安装 WordPress 的 <a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified">SendGrid 插件</a>。 |
 | **配置自定义域名** |[在 Azure App Service 中配置自定义域名][customdomain]。 |
@@ -191,7 +191,7 @@ Azure App Service 为大规模任务关键型 [WordPress][wordpress] 站点提�
 * [在 Azure 上支持 WordPress 的技巧](http://www.johnpapa.net/azurecleardbmysql/)
 
 ## <a name="whats-changed"></a>发生的更改
-有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)。
+有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)。
 
 <!-- URL List -->
 
@@ -209,7 +209,7 @@ Azure App Service 为大规模任务关键型 [WordPress][wordpress] 站点提�
 [trafficmanager]: ../traffic-manager/traffic-manager-overview.md
 [backup]: web-sites-backup.md
 [restore]: web-sites-restore.md
-[rediscache]: /azure/redis-cache/
+[rediscache]: /redis-cache/
 [managedcache]: http://msdn.microsoft.com/library/azure/dn386122.aspx
 [websitescale]: web-sites-scale.md
 [managedcachescale]: http://msdn.microsoft.com/library/azure/dn386113.aspx

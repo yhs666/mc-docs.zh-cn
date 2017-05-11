@@ -27,11 +27,11 @@ ms.lasthandoff: 04/28/2017
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程演示如何创建 PHP-MySQL Web 应用以及如何使用 Git 将该应用部署到[应用服务](/azure/app-service-web/app-service-changes-existing-services)。 需要使用计算机上已安装的 [PHP][install-php]、MySQL 命令行工具（[MySQL][install-mysql] 的一部分）和 [Git][install-git]。 本教程中的说明适用于任何操作系统，包括 Windows、Mac 和 Linux。 完成本指南之后，将获得一个在 Azure 中运行的 PHP/MySQL Web 应用。
+本教程演示如何创建 PHP-MySQL Web 应用以及如何使用 Git 将该应用部署到[应用服务](/app-service-web/app-service-changes-existing-services)。 需要使用计算机上已安装的 [PHP][install-php]、MySQL 命令行工具（[MySQL][install-mysql] 的一部分）和 [Git][install-git]。 本教程中的说明适用于任何操作系统，包括 Windows、Mac 和 Linux。 完成本指南之后，将获得一个在 Azure 中运行的 PHP/MySQL Web 应用。
 
 学习内容：
 
-* 如何使用 [Azure 门户预览][management-portal]创建 Web 应用和 MySQL 数据库。 由于在[应用服务 Web 应用](/azure/app-service-web/app-service-changes-existing-services)中已默认启用 PHP，因此运行 PHP 代码没有任何特殊要求。
+* 如何使用 [Azure 门户预览][management-portal]创建 Web 应用和 MySQL 数据库。 由于在[应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中已默认启用 PHP，因此运行 PHP 代码没有任何特殊要求。
 * 如何使用 Git 将应用程序发布和重新发布到 Azure。
 * 如何启用该编辑器扩展才能在每个 `git push`自动执行编辑器任务。
 
