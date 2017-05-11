@@ -83,7 +83,7 @@ SQL 数据仓库的体系结构由控制节点、计算节点和跨 60 个分布
 | REST API     | 是          | 是   | 是                  |
 | T-SQL        | **否**       | 是   | 是                  |
 
-## <a name="scale-compute-bk"></a>缩放计算
+## <a name="scale-compute-bk"></a><a name="scale-compute"></a>缩放计算
 
 SQL 数据仓库中的性能以[数据仓库单位 (DWU)][data warehouse units (DWUs)] 度量，这是 CPU、内存和 I/O 带宽等计算资源的抽象度量值。 想要缩放其系统性能的用户可以通过不同的方式实现此目的，例如通过门户、T-SQL 和 REST API。 
 
