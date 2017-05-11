@@ -77,7 +77,7 @@ Azure Active Directory Connect 由三个主要组件构成：同步服务、可�
 |操作规划 | [Azure AD Connect 同步：操作任务和注意事项](./active-directory-aadconnectsync-operations.md)|
 |用户登录选项 | [Azure AD Connect 用户登录选项](./active-directory-aadconnect-user-signin.md)|
 
-## 配置同步功能
+## 配置同步功能 <a name="configure-sync-features"></a>
 Azure AD Connect 随附了多个可以选择启用或已按默认启用的功能。在某些方案和拓扑中，有些功能可能需要进行其他配置。
 
 如果你要限制可将哪些对象同步到 Azure AD，可以使用[筛选](./active-directory-aadconnectsync-configure-filtering.md)。默认同步所有用户、联系人、组和 Windows 10 计算机。可以根据域、OU 或属性更改筛选设置。
