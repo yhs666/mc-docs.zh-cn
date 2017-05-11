@@ -34,7 +34,7 @@ Service Fabric 为**适用于 Java 开发人员的 Eclipse IDE** 提供插件，
   1. 在“使用”文本框中，输入：``http://dl.windowsazure.com/eclipse/servicefabric``
   2. 单击“添加”。
 
-  ![适用于 Service Fabric 的 Eclipse Neon 插件][sf-eclipse-plugin-install]
+      ![适用于 Service Fabric 的 Eclipse Neon 插件][sf-eclipse-plugin-install]
 
   3. 选择 Service Fabric 插件，然后单击“下一步”。
   4. 继续执行安装并接受最终用户许可协议。

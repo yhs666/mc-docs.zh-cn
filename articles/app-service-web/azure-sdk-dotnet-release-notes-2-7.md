@@ -44,7 +44,7 @@ ms.lasthandoff: 04/28/2017
 一般性的 Bug 修复与改进。 有关更新和功能的详细信息，请参阅最新[服务总线 NuGet](http://www.nuget.org/packages/WindowsAzure.ServiceBus/) 的发行说明。
 
 ### <a name="hdinsight-tools"></a>HDInsight 工具
-此版本做了以下更新。 这些更新目前以预览版提供。 有关详细信息，请参阅[此博客](/azure/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started)。
+此版本做了以下更新。 这些更新目前以预览版提供。 有关详细信息，请参阅[此博客](/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started)。
 
 * 为 Tez 上的 Hive 作业绘制 Hive 图形
 * 完全支持 Hive DML IntelliSense
@@ -52,8 +52,8 @@ ms.lasthandoff: 04/28/2017
 * Azure 服务的 Storm 模板
 
 #### <a name="breaking-changes"></a>重大变化
-* 使用此版本的工具时，必须先升级旧的 **Storm** 项目。 有关详细信息，请参阅[此博客](/azure/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started)。
-* 不再支持 Visual Studio Web Express。 有关详细信息，请参阅[此博客](/azure/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started)。
+* 使用此版本的工具时，必须先升级旧的 **Storm** 项目。 有关详细信息，请参阅[此博客](/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started)。
+* 不再支持 Visual Studio Web Express。 有关详细信息，请参阅[此博客](/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started)。
 
 ### <a name="azure-app-service-tools"></a>Azure App Service 工具
 此版本对 Web 工具扩展做了以下更新。 有关详细信息，请参阅[此博客](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)。 

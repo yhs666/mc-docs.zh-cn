@@ -30,7 +30,7 @@ ms.lasthandoff: 04/28/2017
 
 本文介绍如何针对辅助网络接口 (NIC) 上的多个 IP 地址使用 Azure 负载均衡器。本方案包含两个运行 Windows 的 VM，每个 VM 包含主要 NIC 和辅助 NIC。 每个辅助 NIC 具有两个 IP 配置。 每个 VM 托管网站 contoso.com 和 fabrikam.com。 每个网站都绑定到辅助 NIC 的一个 IP 配置。 我们使用 Azure 负载均衡器公开两个前端 IP 地址，每个地址分别对应于一个网站，从而将流量分发到网站的各个 IP 配置。 此场景中两个前端以及两个后端池 IP 地址都使用相同的端口号。
 
-![负载平衡应用场景图像](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
+![负载均衡应用场景图像](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
 ##<a name="prerequisites"></a>先决条件
 本示例假设已有一个名为 *contosofabrikam* 的、使用以下配置的资源组：
@@ -123,7 +123,7 @@ ms.lasthandoff: 04/28/2017
 8. 完成负载均衡规则配置后，这两个规则（*HTTPc* 和 *HTTPf*）将显示在负载均衡器的“负载均衡规则”边栏选项卡中。
 
 ### <a name="step-7-configure-dns-records"></a>步骤 7：配置 DNS 记录
-最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 可以在 Azure DNS 中托管域。 有关将 Azure DNS 与负载均衡器配合使用的详细信息，请参阅[将 Azure DNS 与其他 Azure 服务配合使用](../dns/dns-for-azure-services.md)。
+最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。

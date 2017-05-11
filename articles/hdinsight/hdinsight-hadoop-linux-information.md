@@ -43,9 +43,7 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
 
 ## <a name="users"></a>用户
 
-除非[加入域](hdinsight-domain-joined-introduction.md)，HDInsight 应被视为**单用户**系统。 使用群集时，将创建单个具有管理员级别权限的 SSH 用户帐户。 可以创建其他 SSH 帐户，但这些帐户也具有对群集的管理员访问权限。
-
-已加入域的 HDInsight 支持使用多个用户，并支持对权限和角色进行更精细的设置。 有关详细信息，请参阅[管理已加入域的 HDInsight 群集](hdinsight-domain-joined-manage.md)。
+HDInsight 应被视为**单用户**系统。 使用群集时，将创建单个具有管理员级别权限的 SSH 用户帐户。 可以创建其他 SSH 帐户，但这些帐户也具有对群集的管理员访问权限。
 
 ## <a name="domain-names"></a>域名
 

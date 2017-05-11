@@ -26,7 +26,7 @@ ms.lasthandoff: 04/28/2017
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本文说明如何在 [Azure App Service Web 应用](/azure/app-service-web/app-service-changes-existing-services)中使用[身份验证/授权](../app-service/app-service-authentication-overview.md)功能创建 .NET 业务线应用。 另外，还说明如何在应用程序中使用 [Azure Active Directory 图形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 查询目录数据。
+本文说明如何在 [Azure App Service Web 应用](/app-service-web/app-service-changes-existing-services)中使用[身份验证/授权](../app-service/app-service-authentication-overview.md)功能创建 .NET 业务线应用。 另外，还说明如何在应用程序中使用 [Azure Active Directory 图形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 查询目录数据。
 
 使用的 Azure Active Directory 租户可以是仅限 Azure 的目录。 或者，可以将它[与本地 Active Directory 同步](../active-directory/connect/active-directory-aadconnect.md)，为本地和远程工作者创建单一登录体验。 本文使用 Azure 帐户的默认目录。
 
@@ -358,7 +358,7 @@ ms.lasthandoff: 04/28/2017
 * [在 Azure 中使用 AD FS 身份验证创建业务线应用](web-sites-dotnet-lob-application-adfs.md)
 * [App Service Auth and the Azure AD Graph API（应用服务身份验证和 Azure AD 图形 API）](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Azure Active Directory Samples and Documentation（Azure Active Directory 示例和文档）](https://github.com/AzureADSamples)
-* [Azure Active Directory 支持的令牌和声明类型](/azure/active-directory/active-directory-token-and-claims/)
+* [Azure Active Directory 支持的令牌和声明类型](/active-directory/develop/active-directory-token-and-claims/)
 
 [Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
 

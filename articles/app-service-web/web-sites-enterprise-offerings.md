@@ -23,7 +23,7 @@ ms.lasthandoff: 04/28/2017
 ---
 
 # <a name="azure-app-service-web-apps-offerings-for-enterprise-whitepaper"></a>适用于企业的 Azure App Service Web Apps 产品白皮书
-降低成本以及在快速发展的环境中更快地交付 IT 解决方案的要求为开发人员、IT 专业人员和管理人员带来了新的挑战。 用户日益期望其业务线 (LOB) Web 应用程序能够在任何设备上快速运行和响应。 同时，企业正在尝试利用由于与云和移动服务集成所带来的生产力和效率提高，这简单可到使用 Active Directory 实现的跨设备的单一登录，复杂可到使用从内部 LOB 应用程序（反过来也可以从公司 Salesforce 实施中拉取数据）中提取的数据在 Office365 中进行协作。 [Azure 应用服务 Web 应用](/azure/app-service-web/app-service-changes-existing-services)是一种用于开发、测试和运行 Web 及移动应用程序、Web API 和一般网站的企业级云服务。 它可以用于在针对缩放和可用性优化的全球数据中心网络上运行企业网站、Intranet 网站、业务应用和数字营销活动，同时还支持持续集成和现代 DevOps 实践。  
+降低成本以及在快速发展的环境中更快地交付 IT 解决方案的要求为开发人员、IT 专业人员和管理人员带来了新的挑战。 用户日益期望其业务线 (LOB) Web 应用程序能够在任何设备上快速运行和响应。 同时，企业正在尝试利用由于与云和移动服务集成所带来的生产力和效率提高，这简单可到使用 Active Directory 实现的跨设备的单一登录，复杂可到使用从内部 LOB 应用程序（反过来也可以从公司 Salesforce 实施中拉取数据）中提取的数据在 Office365 中进行协作。 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)是一种用于开发、测试和运行 Web 及移动应用程序、Web API 和一般网站的企业级云服务。 它可以用于在针对缩放和可用性优化的全球数据中心网络上运行企业网站、Intranet 网站、业务应用和数字营销活动，同时还支持持续集成和现代 DevOps 实践。  
 
 本白皮书重点介绍专门侧重于运行 LOB Web 应用程序的 [Web 应用](https://www.azure.cn/home/features/app-service/web-apps/)功能，涵盖现有 Web 应用程序的迁移和平台上全新 LOB Web 应用程序的部署。
 
@@ -47,7 +47,7 @@ App Service Web Apps 是用于托管此类应用程序的理想之选，其提�
 
 另一种方法是在本地使用现有投资。 在示例场景中（员工支出系统），你可能想要在自己的内部基础架构中维护数据存储。 这可能是为了与内部系统 （报表、工资单、计费等）集成，或者为了满足 IT 监管要求。 Web 应用提供一种方法用于支持连接到 Azure 中国区的本地基础结构：
 
-* [虚拟网络集成](/azure/app-service-web/app-service-vnet-integration-powershell/) - Web 应用与 Azure 虚拟网络的集成支持你将 Web 应用连接到 Azure 虚拟网络，后者反过来又能够通过站点到站点 VPN 连接到你的本地基础结构。
+* [虚拟网络集成](/app-service-web/app-service-vnet-integration-powershell/) - Web 应用与 Azure 虚拟网络的集成支持你将 Web 应用连接到 Azure 虚拟网络，后者反过来又能够通过站点到站点 VPN 连接到你的本地基础结构。
 
 下图展示了一个具有适用于本地资源的连接选项的高级解决方案示例。
 

@@ -40,7 +40,7 @@ ms.author: xiaoyzhu
 3. 将所需库分发到所有工作节点
 4. 编写 Caffe 模型并以分布方式运行
 
-HDInsight 是一种 PaaS 解决方案，因此提供了出色的平台功能，可以很轻松地执行某些任务。我们在本博客文章中多次使用的一项功能称为[脚本操作](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)，适合执行 Shell 命令来自定义群集节点（头节点、工作节点或边缘节点）。
+HDInsight 是一种 PaaS 解决方案，因此提供了出色的平台功能，可以很轻松地执行某些任务。我们在本博客文章中多次使用的一项功能称为[脚本操作](/hdinsight/hdinsight-hadoop-customize-cluster-linux)，适合执行 Shell 命令来自定义群集节点（头节点、工作节点或边缘节点）。
 
 ## 步骤 1：在所有节点上安装必需的依赖项
 
@@ -70,13 +70,13 @@ echo "protobuf installation done"
 
 第二步是在运行时下载、编译和安装适用于 Caffe 的 protobuf 2.5.0。Protobuf 2.5.0 [是必需的](https://github.com/yahoo/CaffeOnSpark/issues/87)，但 Ubuntu 16 不提供包形式的该版本，因此需从源代码对其进行编译。Internet 上也有一些介绍其编译方法的资源，例如[此文](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html)
 
-若要快速开始，可直接针对群集的所有工作节点和头节点运行此脚本操作（适用于 HDInsight 3.5）。脚本操作可在群集运行时运行，也可在群集预配时运行。有关脚本操作的更多详细信息，请参阅[此处](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions)的文档
+若要快速开始，可直接针对群集的所有工作节点和头节点运行此脚本操作（适用于 HDInsight 3.5）。脚本操作可在群集运行时运行，也可在群集预配时运行。有关脚本操作的更多详细信息，请参阅[此处](/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions)的文档
 
 ![用于安装依赖项的脚本操作](./media/hdinsight-deep-learning-caffe-spark/Script-Action-1.png)  
 
 ## 步骤 2：在头节点上生成 Caffe on Spark for HDInsight
 
-第二步是在头节点上生成 Caffe，然后将编译的库分发到所有工作节点。这一步需[以 ssh 方式登录到头节点](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)，然后按 [CaffeOnSpark 生成过程](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn)操作。使用下面的脚本，只需几项附加步骤即可生成 CaffeOnSpark。
+第二步是在头节点上生成 Caffe，然后将编译的库分发到所有工作节点。这一步需[以 ssh 方式登录到头节点](/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)，然后按 [CaffeOnSpark 生成过程](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn)操作。使用下面的脚本，只需几项附加步骤即可生成 CaffeOnSpark。
 
 ```
 #!/bin/bash

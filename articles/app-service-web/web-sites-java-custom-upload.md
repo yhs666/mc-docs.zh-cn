@@ -245,5 +245,5 @@ ms.lasthandoff: 04/28/2017
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 <!-- External Links -->
-[Azure 应用服务]: /azure/app-service-web/app-service-changes-existing-services
+[Azure 应用服务]: /app-service-web/app-service-changes-existing-services
 

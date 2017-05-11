@@ -24,7 +24,7 @@ ms.lasthandoff: 04/28/2017
 ---
 # <a name="run-background-tasks-with-webjobs"></a>使用 Web 作业运行后台任务
 ## <a name="overview"></a>概述
-可使用 3 种方式在 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services) Web 应用的 WebJobs 中运行程序或脚本：按需、连续或按计划。 使用 Web 作业无需支付额外的费用。
+可使用 3 种方式在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services) Web 应用的 WebJobs 中运行程序或脚本：按需、连续或按计划。 使用 Web 作业无需支付额外的费用。
 
 [!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
@@ -178,7 +178,7 @@ Azure 门户预览尚不能创建计划的 Web 作业，但在增添该功能之
 有关详细信息，请参阅 [Azure Web 作业推荐资源][WebJobsRecommendedResources]。
 
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
-[WebJobsRecommendedResources]:/azure/app-service-web/websites-webjobs-resources
+[WebJobsRecommendedResources]:/app-service-web/websites-webjobs-resources
 
 [OnDemandWebJob]: ./media/web-sites-create-web-jobs/01aOnDemandWebJob.png
 [WebJobsList]: ./media/web-sites-create-web-jobs/02aWebJobsList.png
