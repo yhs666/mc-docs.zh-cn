@@ -66,7 +66,6 @@ Azure 门户预览会公开大部分的群集属性。 使用 Azure Resource Man
         * **操作系统**：选择“Linux”。
 
         * **版本**：如果不知道要选择哪个版本，请使用默认版本。 有关详细信息，请参阅 [HDInsight 群集版本](hdinsight-component-versioning.md)。
-        * **群集层**：Azure HDInsight 提供两个类别的大数据云产品：标准层和高级层。 有关详细信息，请参阅 [群集层](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers)。
 
     * 对于“群集登录用户名”和“群集登录密码”，请分别为管理员用户提供用户名和密码。
 

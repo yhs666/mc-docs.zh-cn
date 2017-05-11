@@ -42,8 +42,6 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 * **AMBARI.RUN\_CUSTOM\_COMMAND**：默认情况下，Ambari 管理员角色具有此权限。
 * **CLUSTER.RUN\_CUSTOM\_COMMAND**：默认情况下，HDInsight 群集管理员和 Ambari 管理员都具有此权限。
 
-有关处理已加入域的 HDInsight 权限的详细信息，请参阅[管理已加入域的 HDInsight 群集](hdinsight-domain-joined-manage.md)。
-
 ## <a name="access-control"></a>访问控制
 
 如果使用的是你不是管理员/所有者的 Azure 订阅（例如公司所有的订阅），则必须确保你的 Azure 帐户至少具有 **参与者** 访问权限，才能访问包含 HDInsight 群集的 Azure 资源组。
@@ -71,9 +69,6 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
         > HDInsight 仅支持__通用__ Azure 存储帐户。 当前不支持 __Blob 存储__ 帐户类型。
 
 * 可以限制为 **只对特定的节点类型运行**，例如头节点或辅助角色节点。
-
-  > [!NOTE]
-  > 与 HDInsight 高级版配合使用时，可以指定脚本应该在边缘节点上使用。
 
 * 可以是**持久化**或**即席**。
 
@@ -515,9 +510,6 @@ HDInsight .NET SDK 提供客户端库，可简化从 .NET 应用程序中使用 
         $saName = "<ScriptActionName>"                  # Name of the script action
         $saURI = "<URI to the script>"                  # The URI where the script is located
         $nodeTypes = "headnode", "workernode"
-
-   > [!NOTE]
-   > 如果使用的是 HDInsight 高级群集，可以使用 `"edgenode"` 节点类型在边缘节点上运行脚本。
 
 2. 使用以下命令将脚本应用到群集：
 
