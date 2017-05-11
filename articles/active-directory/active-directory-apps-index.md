@@ -30,16 +30,16 @@ ms.author: markvi
 | 介绍 Azure AD 解决的应用程序管理问题 |[使用 Azure Active Directory (AD) 管理应用程序](./active-directory-enable-sso-scenario.md) |
 | Azure AD 中与启用单一登录、定义有权访问应用的人员，以及用户如何启动应用相关的各种功能概述 |[Azure Active Directory 中的应用程序访问和单一登录](./active-directory-appssoaccess-whatis.md) |
 | 探讨将应用集成到 Azure AD 时所涉及的不同步骤 |[将 Azure Active Directory 与应用程序集成](./active-directory-integrating-applications-getting-started.md)<br /><br />[启用 SaaS 应用的单一登录](./active-directory-sso-integrate-saas-apps.md)<br /><br />[管理对应用的访问](./active-directory-managing-access-to-apps.md) |
-| 如何在 Azure AD 中表示应用的技术说明 |[如何及为何将应用程序添加到 Azure AD](./active-directory-how-applications-are-added.md) |
+| 如何在 Azure AD 中表示应用的技术说明 |[如何及为何将应用程序添加到 Azure AD](./develop/active-directory-how-applications-are-added.md) |
 
 ## 疑难解答文章
 本部分提供相关故障排除指南的快速访问链接。可以在本页的余下部分找到有关每个功能区的详细信息。
 
 | 功能区 | |
 |:---:| --- |
-| 联合单一登录 |[基于 SAML 的单一登录疑难解答](./active-directory-saml-debugging.md) |
+| 联合单一登录 |[基于 SAML 的单一登录疑难解答](./develop/active-directory-saml-debugging.md) |
 | 基于密码的单一登录 | Internet Explorer 访问面板扩展疑难解答 |
-| 本地 AD 与 Azure AD 之间的单一登录 |[密码同步疑难解答](./active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization) |
+| 本地 AD 与 Azure AD 之间的单一登录 |[密码同步疑难解答](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization) |
 
 ## 单一登录 (SSO)
 ### 联合单一登录：使用一个标识登录多个应用程序
@@ -50,8 +50,8 @@ ms.author: markvi
 | 联合身份验证和其他登录类型简介 |[使用 Azure AD 进行单一登录](./active-directory-appssoaccess-whatis.md) |
 | 通过简化的单一登录配置步骤与 Azure AD 预先集成的数千个 SaaS 应用 |[Azure AD 应用程序库入门](./active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[支持联合身份验证的预先集成应用完整列表](http://aka.ms/aadfederatedapps)<br /><br />  |
 | 150 个以上的应用教程，介绍如何为应用配置单一登录等内容 | |
-| 如何手动设置和自定义单一登录配置 |如何为不在 Azure Active Directory 应用程序库中的应用配置联合单一登录<br /><br />[如何针对预先集成的应用自定义在 SAML 令牌中颁发的声明](./active-directory-saml-claims-customization.md) |
-| 使用 SAML 协议的联合应用的故障排除指南 |[排查基于 SAML 的单一登录问题](./active-directory-saml-debugging.md) |
+| 如何手动设置和自定义单一登录配置 |如何为不在 Azure Active Directory 应用程序库中的应用配置联合单一登录<br /><br />[如何针对预先集成的应用自定义在 SAML 令牌中颁发的声明](./develop/active-directory-saml-claims-customization.md) |
+| 使用 SAML 协议的联合应用的故障排除指南 |[排查基于 SAML 的单一登录问题](./develop/active-directory-saml-debugging.md) |
 | 如何设置应用的证书过期日期，以及如何续订证书 |[在 Azure Active Directory 中管理用于联合单一登录的证书](./active-directory-sso-certs.md) |
 
 联合单一登录适用于所有版本的 Azure AD，每个用户最多十个应用。
@@ -73,9 +73,9 @@ ms.author: markvi
 
 | 文章指南 | |
 |:---:| --- |
-| Azure AD Connect 中提供的单一登录选项概述，以及管理混合环境的相关信息 |[Azure AD Connect 中的用户登录选项](./active-directory-aadconnect-user-signin.md) |
-| 同时使用本地 Active Directory 和 Azure Active Directory 管理环境的一般指导 | [将本地标识与 Azure Active Directory 集成](./active-directory-aadconnect.md) |
-| 有关使用密码同步启用 SSO 的指导 |[使用 Azure AD Connect 实现密码同步](./active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[密码同步疑难解答](https://support.microsoft.com/zh-cn/kb/2855271) |
+| Azure AD Connect 中提供的单一登录选项概述，以及管理混合环境的相关信息 |[Azure AD Connect 中的用户登录选项](./connect/active-directory-aadconnect-user-signin.md) |
+| 同时使用本地 Active Directory 和 Azure Active Directory 管理环境的一般指导 | [将本地标识与 Azure Active Directory 集成](./connect/active-directory-aadconnect.md) |
+| 有关使用密码同步启用 SSO 的指导 |[使用 Azure AD Connect 实现密码同步](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[密码同步疑难解答](https://support.microsoft.com/zh-cn/kb/2855271) |
 | 有关使用第三方标识提供程序启用 SSO 的指南 |[可用于启用单一登录的兼容第三方标识提供程序列表](https://aka.ms/ssoproviders) |
 
 Azure AD Connect 适用于[所有版本的 Azure Active Directory](https://www.azure.cn/pricing/details/identity/)。Azure AD 自助密码重置适用于 [Azure AD 基本版](https://www.azure.cn/pricing/details/identity/)和 [Azure AD 高级版](https://www.azure.cn/pricing/details/identity/)。对本地 AD 进行密码写回是一项 [Azure AD 高级版](https://www.azure.cn/pricing/details/identity/)功能。
@@ -100,7 +100,7 @@ Azure AD Connect 适用于[所有版本的 Azure Active Directory](https://www.a
 
 | 文章指南 | |
 |:---:| --- |
-| 有关 IT 专业人员和应用程序开发人员集成应用程序与 Azure AD 的指南 |[适用于开发 Azure AD 应用程序的 IT 专业人员指南](./active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Azure Active Directory 的开发人员指南](./active-directory-developers-guide.md) |
+| 有关 IT 专业人员和应用程序开发人员集成应用程序与 Azure AD 的指南 |[适用于开发 Azure AD 应用程序的 IT 专业人员指南](./active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Azure Active Directory 的开发人员指南](./develop/active-directory-developers-guide.md) |
 | 应用程序供应商如何将其应用添加到 Azure AD 应用库 |  |
 | 如何使用 Azure Active Directory 管理对开发的应用程序的访问 |[如何对开发的应用程序启用用户分配](./active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[将用户分配到应用](./active-directory-applications-guiding-developers-assigning-users.md)<br /> |
 

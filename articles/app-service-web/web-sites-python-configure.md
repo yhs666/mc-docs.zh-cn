@@ -24,7 +24,7 @@ ms.lasthandoff: 04/28/2017
 
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>使用 Azure App Service Web 应用配置 Python
-本教程介绍在 [Azure App Service Web 应用](/azure/app-service-web/app-service-changes-existing-services)中创作和配置符合基本 Web 服务器网关接口 (WSGI) 的 Python 应用程序的选项。
+本教程介绍在 [Azure App Service Web 应用](/app-service-web/app-service-changes-existing-services)中创作和配置符合基本 Web 服务器网关接口 (WSGI) 的 Python 应用程序的选项。
 
 其中讲解了 Git 部署的一些功能，如使用 requirements.txt 安装虚拟环境和包。
 
@@ -349,5 +349,5 @@ Python 3.4 的示例 `web.config` ：
 有关详细信息，请参阅 [Python 开发人员中心](https://www.azure.cn/develop/python/)。
 
 ## <a name="whats-changed"></a>更改内容
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 

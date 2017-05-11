@@ -57,11 +57,11 @@ Azure Active Directory 目前支持 Azure AD 应用库中数千个预先集成�
 
 如果指定的用户没有针对选定属性存储的值，则不会在令牌中颁发该声明。
 
-**注意：**仅当在使用 [Azure AD Connect 工具](./active-directory-aadconnect.md)从本地 Active Directory 同步用户数据时，才支持 **user.onpremisesecurityidentifier** 和 **user.onpremisesamaccountname**。
+**注意：**仅当在使用 [Azure AD Connect 工具](../connect/active-directory-aadconnect.md)从本地 Active Directory 同步用户数据时，才支持 **user.onpremisesecurityidentifier** 和 **user.onpremisesamaccountname**。
 
 ## 相关文章
 
-- [有关 Azure Active Directory 中应用程序管理的文章索引](./active-directory-apps-index.md)
+- [有关 Azure Active Directory 中应用程序管理的文章索引](../active-directory-apps-index.md)
 - [排查基于 SAML 的单一登录问题](./active-directory-saml-debugging.md)
 
 <!--Image references-->

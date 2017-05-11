@@ -31,7 +31,7 @@ ms.author: curtand
 
 - [Azure 博客](https://azure.microsoft.com/blog/)
 - [什么是 Azure AD？](./active-directory-whatis.md)
-- [在云中使用本地标识基础结构](./active-directory-aadconnect.md)
+- [在云中使用本地标识基础结构](./connect/active-directory-aadconnect.md)
 
 <!---HONumber=Mooncake_0327_2017-->
 <!---Update_Description: update meta properties -->

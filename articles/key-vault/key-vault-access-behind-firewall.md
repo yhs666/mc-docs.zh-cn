@@ -40,7 +40,7 @@ ms.author: ambapat
 | 通过 Azure AD 使用工作或学校帐户（例如 user@contoso.com）的用户或服务主体 |**全球：**<br>login.microsoftonline.com:443<br><br> **Azure China：**<br>login.chinacloudapi.cn:443<br><br>**Azure US Government：**<br>login-us.microsoftonline.com:443<br><br>**Azure Germany：**<br>login.microsoftonline.de:443 |
 | 使用工作或学校帐户以及 Active Directory 联合身份验证服务 \(AD FS\) 或其他联合终结点（例如 user@contoso.com）的用户或服务主体 |适用于工作或学校帐户的所有终结点，以及 AD FS 或其他联合终结点 |
 
-还有其他可能的复杂情况。有关其他信息，请参阅 [Azure Active Directory 身份验证流](../active-directory/active-directory-authentication-scenarios.md)、[将应用程序与 Azure Active Directory 集成](../active-directory/active-directory-integrating-applications.md)以及 [Active Directory 身份验证协议](../active-directory/active-directory-developers-guide.md)。
+还有其他可能的复杂情况。有关其他信息，请参阅 [Azure Active Directory 身份验证流](../active-directory/develop/active-directory-authentication-scenarios.md)、[将应用程序与 Azure Active Directory 集成](../active-directory/develop/active-directory-integrating-applications.md)以及 [Active Directory 身份验证协议](../active-directory/develop/active-directory-developers-guide.md)。
 
 ## 密钥保管库管理
 对于密钥保管库管理（CRUD 和设置访问策略），密钥保管库客户端应用程序需要访问 Azure资源管理器终结点。

@@ -19,8 +19,8 @@ ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: d142b0cd89f7ea328aa5028b6a1b1b207f19fa4d
 ms.lasthandoff: 04/22/2017
 
-
 ---
+
 # <a name="azure-active-directory-proof-of-concept-playbook-implementation"></a>Azure Active Directory 概念证明演练手册：实现
 
 ## <a name="foundation---syncing-ad-to-azure-ad"></a>基础 - 将 AD 同步到 Azure AD 
@@ -69,7 +69,7 @@ ms.lasthandoff: 04/22/2017
 | 方案 | 构建基块| 
 | --- | --- |  
 | [确保管理员帐户访问安全](#secure-administrator-account-access) | [使用电话呼叫执行 Azure MFA](active-directory-playbook-building-blocks.md#azure-multi-factor-authentication-with-phone-calls) |
-| [根据风险保护标识](#protect-identities-based-on-risk) | [发现风险事件](active-directory-playbook-building-blocks.md#discovering-risk-events) <br/>[部署登录风险策略](active-directory-playbook-building-blocks.md#deploying-sign-in-risk-policies) |
+| [根据风险保护标识](#protect-identities-based-on-risk) |  |
 | [使用基于证书的身份验证，在没有密码的情况下进行身份验证](#authenticate-without-passwords-using-certificate-based-authentication) | [配置基于证书的身份验证](active-directory-playbook-building-blocks.md#configuring-certificate-based-authentication)
 
 ### <a name="secure-administrator-account-access"></a>保护对管理员帐户的访问

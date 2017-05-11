@@ -27,7 +27,7 @@ Microsoft 标识平台以及 Microsoft 标识 SDK 能够为你完成所有这些
 
 本演练将介绍如何在应用程序中配置 SDK，以便向客户提供此项优点。
 
-请注意，以下文档假设你已了解如何[在旧版门户中为 Azure Active Directory 预配应用程序](./develop/active-directory-how-to-integrate.md)，并且已将应用程序与 [Microsoft Identity Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android) 集成。
+请注意，以下文档假设你已了解如何[在旧版门户中为 Azure Active Directory 预配应用程序](./active-directory-how-to-integrate.md)，并且已将应用程序与 [Microsoft Identity Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android) 集成。
 
 ## Microsoft 标识平台中的 SSO 概念
 ### Microsoft 标识中转站
@@ -216,7 +216,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 例如：*msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-需要使用 [Azure 经典管理门户](https://manage.windowsazure.cn/)在应用注册中指定此重定向 URI。有关 Azure AD 应用注册的详细信息，请参阅[与 Azure Active Directory 集成](./develop/active-directory-how-to-integrate.md)。
+需要使用 [Azure 经典管理门户](https://manage.windowsazure.cn/)在应用注册中指定此重定向 URI。有关 Azure AD 应用注册的详细信息，请参阅[与 Azure Active Directory 集成](./active-directory-how-to-integrate.md)。
 
 #### 步骤 3：在应用程序中设置正确的权限
 Android 中的中转站应用程序使用 Android OS 的帐户管理器功能来跨应用程序管理凭据。若要在 Android 中使用中转站，应用清单必须有权使用 AccountManager 帐户。[Google 帐户管理器文档](http://developer.android.com/reference/android/accounts/AccountManager.html)中对此进行了详细介绍

@@ -27,7 +27,7 @@ ms.lasthandoff: 04/28/2017
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程介绍了如何开始在 [Azure App Service Web 应用](/azure/app-service-web/app-service-changes-existing-services)中运行 Python。  Web Apps 提供有限的免费托管和快速部署功能，现在，你可以使用 Python！  随着您的应用增长，可以切换到付费托管，并且还可以与所有其他 Azure 服务集成。
+本教程介绍了如何开始在 [Azure App Service Web 应用](/app-service-web/app-service-changes-existing-services)中运行 Python。  Web Apps 提供有限的免费托管和快速部署功能，现在，你可以使用 Python！  随着您的应用增长，可以切换到付费托管，并且还可以与所有其他 Azure 服务集成。
 
 你将使用 Flask web 框架创建应用程序（请参阅本教程针对 [Django](web-sites-python-create-deploy-django-app.md) 和 [Bottle](web-sites-python-create-deploy-bottle-app.md) 的备选版本）。  你将创建网站，设置 Git 部署以及在本地克隆存储库。  然后将本地运行应用程序，将其更改、 提交和推送到 Azure。  本教程演示如何从 Windows 或 Mac/Linux 执行此操作。
 
@@ -348,7 +348,7 @@ Visual Studio 不会显示部署的进度。
 有关详细信息，另请参阅 [Python 开发人员中心](https://www.azure.cn/develop/python/)。
 
 ## <a name="whats-changed"></a>更改内容
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!--Link references-->
 [具有 Python Tools for Visual Studio 的 Azure 上的 Flask 和 MongoDB]: https://github.com/microsoft/ptvs/wiki/Flask-and-MongoDB-on-Azure

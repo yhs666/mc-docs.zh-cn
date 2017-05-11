@@ -98,8 +98,8 @@ Azure AD Connect 要求使用 SQL Server 数据库来存储标识数据。 可�
 
 ## <a name="long-term-solution---migrate-to-full-sql"></a>长期解决方案 - 迁移到完整的 SQL
 通常情况下，此问题表示 10 GB 的数据库大小已经无法让 Azure AD Connect 将本地 Active Directory 同步到 Azure AD。 建议改用完整版 SQL Server。 不能直接将现有 Azure AD Connect 部署的 LocalDB 替换为完整版 SQL 的数据库， 而必须使用完整版 SQL 来部署新的 Azure AD Connect 服务器。 建议执行交叉迁移，将新的 Azure AD Connect 服务器（装有 SQL DB）部署为过渡服务器，与现有的 Azure AD Connect 服务器（装有 LocalDB）并存。 
-- 有关如何使用 Azure AD Connect 配置远程 SQL 的说明，请参阅 [Azure AD Connect 的自定义安装](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom)一文。
-- 有关如何通过交叉迁移进行 Azure AD Connect 升级的说明，请参阅 [Azure AD Connect：从旧版升级到最新版本](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration)一文。
+- 有关如何使用 Azure AD Connect 配置远程 SQL 的说明，请参阅 [Azure AD Connect 的自定义安装](/active-directory/connect/active-directory-aadconnect-get-started-custom)一文。
+- 有关如何通过交叉迁移进行 Azure AD Connect 升级的说明，请参阅 [Azure AD Connect：从旧版升级到最新版本](/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration)一文。
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。

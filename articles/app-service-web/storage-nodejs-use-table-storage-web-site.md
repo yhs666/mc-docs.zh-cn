@@ -25,7 +25,7 @@ ms.lasthandoff: 04/28/2017
 ---
 # <a name="nodejs-web-app-using-the-azure-table-service"></a>使用 Azure 表服务的 Node.js Web 应用
 ## <a name="overview"></a>概述
-本教程说明如何使用 Azure 数据管理提供的表服务在 [Azure App Service](/azure/app-service-web/app-service-changes-existing-services) Web 应用托管的 [node] 应用程序中存储和访问数据。 本教程假定你之前使用过 node 和 [Git]。
+本教程说明如何使用 Azure 数据管理提供的表服务在 [Azure App Service](/app-service-web/app-service-changes-existing-services) Web 应用托管的 [node] 应用程序中存储和访问数据。 本教程假定你之前使用过 node 和 [Git]。
 
 你将学习以下内容：
 
@@ -546,7 +546,7 @@ ms.lasthandoff: 04/28/2017
 [Azure CLI]
 
 ## <a name="whats-changed"></a>更改内容
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!-- URLs -->
 

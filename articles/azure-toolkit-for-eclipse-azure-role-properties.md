@@ -388,7 +388,7 @@ ms.author: robmcm
 [Azure Storage Account List]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md
 [com.microsoft.windowsazure.serviceruntime package summary]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
 [Creating a Hello World Application for Azure in Eclipse]: ./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
-[Debugging a specific role instance in a multi-instance deployment]: ./azure-toolkit-for-eclipse-debugging-azure-applications.md#debugging_specific_role_instance/
+[Debugging a specific role instance in a multi-instance deployment]: ./azure-toolkit-for-eclipse-debugging-azure-applications.md#debugging_specific_role_instance
 [Debugging Azure Applications in Eclipse]: ./azure-toolkit-for-eclipse-debugging-azure-applications.md
 [Deploying Large Deployments]: ./azure-toolkit-for-eclipse-deploying-large-deployments.md
 [How to Use Co-located Caching]: /develop/java/

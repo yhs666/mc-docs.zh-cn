@@ -573,7 +573,7 @@ info:    group deployment create command OK
 
 创建数据库后，必须向数据库[添加一个或多个集合](./documentdb-create-collection.md)，然后向集合[添加文档](./documentdb-view-json-document-explorer.md)。 
 
-当集合中有文档后，可以使用门户中的[查询资源管理器](./documentdb-query-collections-query-explorer.md)、[REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx) 或某个 [SDK](https://msdn.microsoft.com/zh-cn/library/azure/dn781482.aspx)针对文档使用 [DocumentDB SQL](./documentdb-sql-query.md) [执行查询](./documentdb-sql-query.md#executing-sql-queries)。
+当集合中有文档后，可以使用门户中的[查询资源管理器](./documentdb-query-collections-query-explorer.md)、[REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx) 或某个 [SDK](https://msdn.microsoft.com/zh-cn/library/azure/dn781482.aspx)针对文档使用 [DocumentDB SQL](./documentdb-sql-query.md) [执行查询](./documentdb-sql-query.md#ExecutingSqlQueries)。
 
 若要详细了解 DocumentDB，请浏览以下资源：
 
@@ -583,4 +583,5 @@ info:    group deployment create command OK
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [distribute-globally]:./documentdb-distribute-data-globally.md
-[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet/
+[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet
+

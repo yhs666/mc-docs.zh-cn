@@ -93,7 +93,7 @@ _必须针对部署启用_密钥保管库，使计算资源提供程序能够从
 
 ```powershell
 
-    New-AzureRmKeyVault -VaultName 'mywestusvault' -ResourceGroupName 'westus-mykeyvault' -Location 'West US' -EnabledForDeployment
+    New-AzureRmKeyVault -VaultName 'mychinaeastvault' -ResourceGroupName 'chinaeast-mykeyvault' -Location 'China East' -EnabledForDeployment
 
 ```
 
@@ -611,7 +611,7 @@ FabricClient 和 FabricGateway 执行相互身份验证。 使用 Azure AD 身�
 [azure-classic-portal]: https://manage.windowsazure.cn
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [service-fabric-cluster-security]: ./service-fabric-cluster-security.md
-[active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
+[active-directory-howto-tenant]: ../active-directory/develop/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: ./service-fabric-visualizing-your-cluster.md
 [service-fabric-manage-application-in-visual-studio]: ./service-fabric-manage-application-in-visual-studio.md
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip

@@ -318,19 +318,19 @@ Azure Plugin for Eclipse - 2011 年 12 月 CTP 已发布。新功能包括：新
 [Zulu OpenJDK 的 Azul Systems 网页]: http://go.microsoft.com/fwlink/?LinkId=402457
 [Azure 服务终结点]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure 存储帐户列表]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md
-[组件属性]: ./azure-toolkit-for-eclipse-azure-role-properties.md#components_properties/
+[组件属性]: ./azure-toolkit-for-eclipse-azure-role-properties.md#components_properties
 [在 Eclipse 中为 Azure 创建 Hello World 应用程序]: ./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
 [在 Eclipse 中调试 Azure 应用程序]: ./azure-toolkit-for-eclipse-debugging-azure-applications.md
 [实施大型部署]: ./azure-toolkit-for-eclipse-deploying-large-deployments.md
-[环境变量属性]: ./azure-toolkit-for-eclipse-azure-role-properties.md#environment_variables_properties/
+[环境变量属性]: ./azure-toolkit-for-eclipse-azure-role-properties.md#environment_variables_properties
 [如何使用 SSL 卸载]: /develop/java/
 [安装 Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
-[本地存储属性]: ./azure-toolkit-for-eclipse-azure-role-properties.md#local_storage_properties/
+[本地存储属性]: ./azure-toolkit-for-eclipse-azure-role-properties.md#local_storage_properties
 [Azure 客户端 API]: http://go.microsoft.com/fwlink/?LinkId=280397
-[服务器配置属性]: ./azure-toolkit-for-eclipse-azure-role-properties.md#server_configuration_properties/
+[服务器配置属性]: ./azure-toolkit-for-eclipse-azure-role-properties.md#server_configuration_properties
 [会话相关性]: ./azure-toolkit-for-eclipse-enable-session-affinity.md
 [SSL 卸载]: /develop/java/
-[新建存储帐户]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md#create_new/
+[新建存储帐户]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md#create_new
 [Azure 的虚拟机和云服务大小]:./cloud-services/cloud-services-sizes-specs.md
 
 <!-- IMG List -->

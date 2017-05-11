@@ -19,8 +19,8 @@ ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 48894228773f84072664c9b790e1c6367834aa4d
 ms.lasthandoff: 04/22/2017
 
-
 ---
+
 # <a name="azure-active-directory-proof-of-concept-playbook-ingredients"></a>Azure Active Directory 概念证明演练手册成分 
 
 ## <a name="theme"></a>主题
@@ -28,7 +28,6 @@ Azure AD 为企业中的诸多方面提供标识和访问解决方案。 我们�
 
 - [ 多个应用，一个标识](active-directory-playbook-implementation.md#theme---lots-of-apps-one-identity) 
 - [提高安全性](active-directory-playbook-implementation.md#theme---increase-your-security) 
-- [使用自助服务进行缩放](active-directory-playbook-implementation.md#theme---scale-with-self-service) 
 
 定义一个用于限定 PoC 范围的主题有助于将工作重心放在如何与业务目标产生共鸣上，这通常是概念证明的前导需求触发器。 
 

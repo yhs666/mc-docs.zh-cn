@@ -48,8 +48,9 @@ ms.author: vturecek
 
  例如，使用 PowerShell 创建自签名证书时，`KeyUsage` 标志必须设置为 `DataEncipherment`：
 
-    New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'
-
+ ```powershell
+   New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'
+ ```
 ## 在群集中安装证书
 必须在群集中的每个节点上安装此证书。在运行时，将使用此证书解密服务的 Settings.xml 中存储的值。有关设置说明，请参阅 [how to create a cluster using Azure Resource Manager][service-fabric-cluster-creation-via-arm]（如何使用 Azure Resource Manager 创建群集）。
 

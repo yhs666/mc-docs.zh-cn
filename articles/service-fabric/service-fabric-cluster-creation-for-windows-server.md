@@ -61,32 +61,32 @@ ms.author: chackdan;maburlik
 完成以下链接中详述的规划和准备步骤后，可以使用群集配置文件创建生产群集。<br>[规划和准备群集部署](./service-fabric-cluster-standalone-deployment-preparation.md)
 
 1. 从独立包文件夹运行 *TestConfiguration.ps1* 脚本，验证编写的配置文件：
-
+    ```powershell
     .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.json
+    ```
+    应会看到如下输出：如果底部字段“Passed”的返回值为“True”，则表示已通过健全性检查，应该可以根据输入配置部署群集。
 
-应会看到如下输出：如果底部字段“Passed”的返回值为“True”，则表示已通过健全性检查，应该可以根据输入配置部署群集。
-
-```
-Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
-Running Best Practices Analyzer...
-Best Practices Analyzer completed successfully.
-
-LocalAdminPrivilege        : True
-IsJsonValid                : True
-IsCabValid                 : True
-RequiredPortsOpen          : True
-RemoteRegistryAvailable    : True
-FirewallAvailable          : True
-RpcCheckPassed             : True
-NoConflictingInstallations : True
-FabricInstallable          : True
-Passed                     : True
-```
+    ```
+    Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
+    Running Best Practices Analyzer...
+    Best Practices Analyzer completed successfully.
+    
+    LocalAdminPrivilege        : True
+    IsJsonValid                : True
+    IsCabValid                 : True
+    RequiredPortsOpen          : True
+    RemoteRegistryAvailable    : True
+    FirewallAvailable          : True
+    RpcCheckPassed             : True
+    NoConflictingInstallations : True
+    FabricInstallable          : True
+    Passed                     : True
+    ```
 
 2. 创建群集：运行 *CreateServiceFabricCluster.ps1* 脚本，在配置中的每台计算机上部署 Service Fabric 群集。
-
+    ```powershell
     .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
-
+    ```
 > [!NOTE]
 部署跟踪已写入运行 CreateServiceFabricCluster.ps1 PowerShell 脚本的 VM/计算机。可在运行脚本的目录中的子文件夹 DeploymentTraces 中找到这些信息。若要确定是否已将 Service Fabric 正确部署到计算机，请根据群集配置文件 FabricSettings 部分中的详述找到 FabricDataRoot 目录（默认为 c:\\ProgramData\\SF）中安装的文件。在任务管理器中也可以看到 FabricHost.exe 和 Fabric.exe 进程正在运行。
 > 

@@ -30,7 +30,7 @@ ms.author: asmalser
 
 ## 相关文章
 
-- [有关 Azure Active Directory 中应用程序管理的文章索引](./active-directory-apps-index.md)
+- [有关 Azure Active Directory 中应用程序管理的文章索引](../active-directory-apps-index.md)
 - [如何为预先集成的应用程序自定义 SAML 令牌中颁发的声明](./active-directory-saml-claims-customization.md)
 
 <!--Image references-->

@@ -42,7 +42,7 @@ ms.lasthandoff: 04/22/2017
 
 检查帐户是否有足够权限的最简方法是使用门户。 请参阅[检查所需的权限](./resource-group-create-service-principal-portal.md#required-permissions)。
 
-现在转到[密码](#create-service-principal-with-password)或[证书](#create-service-principal-with-certificate)身份验证部分。
+现在转到[密码](#create-service-principal-with-password)或[证书](#create-service-principal-with-certificate-from-certificate-authority)身份验证部分。
 
 ## <a name="create-service-principal-with-password"></a>使用密码创建服务主体
 以下脚本为应用程序创建标识，然后将该标识分配到指定范围的“参与者”角色：
@@ -425,5 +425,5 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="next-steps"></a>后续步骤
 * 有关将应用程序集成到 Azure 以管理资源的详细步骤，请参阅 [Developer's guide to authorization with the Azure Resource Manager API](./resource-manager-api-authentication.md)（使用 Azure Resource Manager API 进行授权的开发人员指南）。
-* 有关应用程序和服务主体的详细说明，请参阅 [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md)（应用程序对象和服务主体对象）。 
-* 有关 Active Directory 身份验证的详细信息，请参阅 [Authentication Scenarios for Azure AD](../active-directory/active-directory-authentication-scenarios.md)（Azure AD 的身份验证方案）。
+* 有关应用程序和服务主体的详细说明，请参阅 [Application Objects and Service Principal Objects](../active-directory/develop/active-directory-application-objects.md)（应用程序对象和服务主体对象）。 
+* 有关 Active Directory 身份验证的详细信息，请参阅 [Authentication Scenarios for Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md)（Azure AD 的身份验证方案）。

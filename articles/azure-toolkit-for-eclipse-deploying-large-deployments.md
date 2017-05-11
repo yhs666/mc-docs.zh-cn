@@ -47,7 +47,7 @@ ms.author: robmcm
 [Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
 [Creating a Hello World Application for Azure in Eclipse]: ./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
-[Local storage properties]: ./azure-toolkit-for-eclipse-azure-role-properties.md#local_storage_properties/
+[Local storage properties]: ./azure-toolkit-for-eclipse-azure-role-properties.md#local_storage_properties
 
 <!-- IMG List -->
 

@@ -24,37 +24,37 @@ ms.lasthandoff: 04/28/2017
 <h2 style="margin-top: 36px">快速入门</h2>
 <div class="ico48Case">
     <div class="ico48Link">
-        <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
+        <a href="/app-service-web/app-service-web-get-started-dotnet">
             <img src="media/index/logo_NET.svg" alt="">
             <span>.NET</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
+        <a href="/app-service-web/app-service-web-get-started-nodejs">
             <img src="media/index/logo_nodejs.svg" alt="">
             <span>Node.js</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/azure/app-service-web/app-service-web-get-started-php">
+        <a href="/app-service-web/app-service-web-get-started-php">
             <img src="media/index/logo_php.svg" alt="">
             <span>PHP</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/azure/app-service-web/app-service-web-get-started-java">
+        <a href="/app-service-web/app-service-web-get-started-java">
             <img src="media/index/logo_java.svg" alt="">
             <span>Java</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/azure/app-service-web/app-service-web-get-started-python">
+        <a href="/app-service-web/app-service-web-get-started-python">
             <img src="media/index/logo_python.svg" alt="">
             <span>Python</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/azure/app-service-web/app-service-web-get-started-html">
+        <a href="/app-service-web/app-service-web-get-started-html">
             <img src="media/index/logo_html5.svg" alt="">
             <span>HTML</span>
         </a>
@@ -65,14 +65,14 @@ ms.lasthandoff: 04/28/2017
         <h2 style="margin-top: 36px">教程</h2>
         <p>在云中创建简单 Web 应用。</p>
         <ul class="spaced">
-            <li><a href="/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">使用 Azure SQL DB 创建 .NET 应用程序</a></li>
-            <li><a href="/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">使用 MongoDB 创建 Node.js 应用程序</a></li>
+            <li><a href="/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">使用 Azure SQL DB 创建 .NET 应用程序</a></li>
+            <li><a href="/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">使用 MongoDB 创建 Node.js 应用程序</a></li>
         </ul>
         <h2>示例</h2>
         <p>查找脚本来管理常见任务。</p>
         <ul class="spaced">
-            <li><a href="/azure/app-service-web/app-service-cli-samples">Azure CLI</a></li>
-            <li><a href="/azure/app-service-web/app-service-powershell-samples">Azure PowerShell</a></li>
+            <li><a href="/app-service-web/app-service-cli-samples">Azure CLI</a></li>
+            <li><a href="/app-service-web/app-service-powershell-samples">Azure PowerShell</a></li>
         </ul>
     </div>
     <div class="column50" style="max-width: 400px">
@@ -109,8 +109,8 @@ ms.lasthandoff: 04/28/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="/dotnet/api">.NET</a></p>
-                        <p><a href="/java/api/">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/">Java</a></p>
                     </div>
                 </div>
             </div>

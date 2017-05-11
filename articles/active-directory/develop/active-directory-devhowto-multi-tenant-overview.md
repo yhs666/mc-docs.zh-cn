@@ -223,7 +223,7 @@ knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-To-Integrate]: ./develop/active-directory-how-to-integrate.md
-[AAD-Security-Token-Claims]:./active-directory-authentication-scenarios.md#claims-in-azure-ad-security-tokens/
+[AAD-Security-Token-Claims]:./active-directory-authentication-scenarios.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AAD-V2-Dev-Guide]: ./active-directory-appmodel-v2-overview.md
 [AZURE-classic-portal]: https://manage.windowsazure.cn

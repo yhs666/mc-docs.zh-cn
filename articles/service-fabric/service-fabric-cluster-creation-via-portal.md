@@ -204,7 +204,8 @@ Value : https://myvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c09
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>搜索 Service Fabric 群集资源
 ![在 Azure 门户预览中搜索 Service Fabric 群集模板。][SearchforServiceFabricClusterTemplate]
 
- 1. 登录到 [Azure 门户预览][azure-portal]。
+
+1. 登录到 [Azure 门户预览][azure-portal]。
 2. 单击“**新建**”添加新的资源模板。 在“**全部**”下面的“**应用商店**”中搜索 Service Fabric 群集模板。
 3. 从列表中选择“**Service Fabric 群集**”。
 4. 导航到“**Service Fabric 群集**”边栏选项卡，然后单击“**创建**”。
