@@ -67,7 +67,9 @@ ms.author: adrianha
 
 应在本地计算机上安装 [Node]。还应安装兼容包。安装 Node 后，可以从新的 cmd 或 PowerShell 命令提示符运行以下命令：
 
-```npm i -g azure-mobile-apps-compatibility```
+```
+npm i -g azure-mobile-apps-compatibility
+```
 
 ## <a name="obtain-ams-scripts"></a>获取 Azure 移动服务脚本
 
@@ -84,7 +86,9 @@ ms.author: adrianha
 
 从包含脚本目录的目录运行以下命令：
 
-```scaffold-mobile-app scripts out```
+```
+scaffold-mobile-app scripts out
+```
 
 此时将在 `out` 目录中创建带有基架的 Azure 移动应用后端。最好将 `out` 目录签入所选的源代码存储库（但不一定要这样做）。
 

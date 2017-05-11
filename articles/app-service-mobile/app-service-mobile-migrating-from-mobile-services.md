@@ -165,7 +165,7 @@ PublishSettings 文件将下载到计算机。此文件通常名为 _站点名�
 可以同时更新多个应用设置。
 
 > [!TIP]
->  有两项应用程序设置的值相同。例如，可能会出现 _ApplicationKey_ 和 _MS_ApplicationKey_ 。同时更新这两个应用程序设置。
+>  有两项应用程序设置的值相同。例如，可能会出现 _ApplicationKey_ 和 *MS_ApplicationKey* 。同时更新这两个应用程序设置。
 
 ### <a name="authentication"></a>身份验证
 
@@ -182,6 +182,8 @@ PublishSettings 文件将下载到计算机。此文件通常名为 _站点名�
 > **请不要使用“设置”菜单中的身份验证机制**
 >
 > Azure 应用服务分别在“身份验证/授权设置”菜单下提供“无代码”身份验证和授权系统，以及在“设置”菜单下提供已过时的“移动身份验证”选项。这些选项与已迁移的 Azure 移动服务不兼容。可以[升级站点](./app-service-mobile-net-upgrading-from-mobile-services.md)来利用 Azure 应用服务身份验证。
+>
+>
 
 ### <a name="easytables"></a>数据
 

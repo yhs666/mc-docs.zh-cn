@@ -29,7 +29,7 @@ Azure 移动服务的最新版本是 Azure 应用服务的**移动应用**功能
 
 ## 标头规范
 
-可以在 HTTP 标头或查询字符串中指定键 `ZUMO-API-VERSION`。值为版本字符串，格式为 **x.y.z**。
+可以在 HTTP 标头或查询字符串中指定键 `ZUMO-API-VERSION`。值为版本字符串，格式为 **x.y.z** 。
 
 例如：
 
@@ -45,6 +45,8 @@ POST https://service.chinacloudsites.cn/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 > [!NOTE]
 > 移动服务和移动应用之间有许多行为发生了变化，尤其是在脱机同步、身份验证和推送通知方面。应该在完成测试之后才选择不要进行版本检查，确保这些行为的更改不会影响应用功能。
+>
+>
 
 ## 所有版本的兼容性摘要
 
@@ -107,7 +109,7 @@ POST https://service.chinacloudsites.cn/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 <!-- TODO: add HTML version when released -->
 
-### 移动*应用*服务器 SDK
+### 移动 *应用* 服务器 SDK
 
 以下服务器 SDK 版本包含版本检查：
 

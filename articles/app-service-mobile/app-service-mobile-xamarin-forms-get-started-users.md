@@ -154,9 +154,9 @@ ms.author: adrianha
         var message = string.Empty;
         try
         {
-            // Sign in with Microsoft login using a server-managed flow.
+            // Sign in with MicrosoftAccount login using a server-managed flow.
             user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(this,
-                MobileServiceAuthenticationProvider.Microsoft);
+                MobileServiceAuthenticationProvider.MicrosoftAccount);
             if (user != null)
             {
                 message = string.Format("you are now signed-in as {0}.",
@@ -179,7 +179,7 @@ ms.author: adrianha
     }
     ```
 
-    如果使用的是 Microsoft 以外的其他标识提供者，请为 [MobileServiceAuthenticationProvider] 选择其他值。
+    如果使用的是 MicrosoftAccount 以外的其他标识提供者，请为 [MobileServiceAuthenticationProvider] 选择其他值。
 
 6. 在 **MainActivity** 类的 **OnCreate** 方法中调用 `LoadApplication()` 之前添加以下代码：
 
@@ -221,12 +221,12 @@ ms.author: adrianha
         var message = string.Empty;
         try
         {
-            // Sign in with Microsoft login using a server-managed flow.
+            // Sign in with MicrosoftAccount login using a server-managed flow.
             if (user == null)
             {
                 user = await TodoItemManager.DefaultManager.CurrentClient
                     .LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,
-                    MobileServiceAuthenticationProvider.Microsoft);
+                    MobileServiceAuthenticationProvider.MicrosoftAccount);
                 if (user != null)
                 {
                     message = string.Format("You are now signed-in as {0}.", user.UserId);
@@ -247,7 +247,7 @@ ms.author: adrianha
     }
     ```
 
-    如果使用的是 Microsoft 以外的其他标识提供者，请为 [MobileServiceAuthenticationProvider] 选择其他值。
+    如果使用的是 MicrosoftAccount 以外的其他标识提供者，请为 [MobileServiceAuthenticationProvider] 选择其他值。
 
 6. 在 **FinishedLaunching** 方法中调用 `LoadApplication()` 之前添加以下代码行：
 
@@ -256,6 +256,7 @@ ms.author: adrianha
     ```
 
     该代码可确保验证器在应用加载前进行初始化。
+    
 7. 重新生成应用，运行它，然后使用所选的身份验证提供者登录，并验证是否能够以经过身份验证的用户身份访问数据。
 
 ## 向 Windows 8.1（包括 Phone）应用项目添加身份验证
@@ -279,6 +280,7 @@ ms.author: adrianha
     ```
     public sealed partial class MainPage : IAuthenticate
     ```
+    
 5. 通过添加 **MobileServiceUser** 字段和 **IAuthenticate** 接口所需的 **Authenticate** 方法，更新 **MainPage** 类，如下所示：
 
     ```
@@ -292,11 +294,11 @@ ms.author: adrianha
 
         try
         {
-            // Sign in with Microsoft login using a server-managed flow.
+            // Sign in with MicrosoftAccount login using a server-managed flow.
             if (user == null)
             {
                 user = await TodoItemManager.DefaultManager.CurrentClient
-                    .LoginAsync(MobileServiceAuthenticationProvider.Microsoft);
+                    .LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount);
                 if (user != null)
                 {
                     success = true;
@@ -317,7 +319,7 @@ ms.author: adrianha
     }
     ```
 
-    如果使用的是 Microsoft 以外的其他标识提供者，请为 [MobileServiceAuthenticationProvider] 选择其他值。
+    如果使用的是 MicrosoftAccount 以外的其他标识提供者，请为 [MobileServiceAuthenticationProvider] 选择其他值。
 
 6. 在 **MainPage** 类的构造函数中调用 `LoadApplication()` 之前添加以下代码行：
 

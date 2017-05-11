@@ -41,6 +41,8 @@ ms.author: adrianha
 
 >[!NOTE]
 > 如果想要在注册 Azure 帐户之前开始使用 Azure App Service，请转到[试用应用服务](https://tryappservice.azure.com/?appServiceName=mobile)。可以立即在应用服务中创建短期的入门级移动应用。无需付费，也不需要做出任何承诺。
+>
+>
 
 ## 创建 Azure 移动应用后端
 
@@ -58,7 +60,7 @@ ms.author: adrianha
 
 1. 在“下载并运行 Xamarin.Android 项目”下，单击“下载”按钮。
 
-      将压缩的项目文件保存到本地计算机，并记下保存位置。
+     将压缩的项目文件保存到本地计算机，并记下保存位置。
 
 2. 按 **F5** 键生成项目并启动该应用。
 

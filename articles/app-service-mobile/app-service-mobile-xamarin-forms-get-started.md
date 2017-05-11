@@ -23,7 +23,7 @@ ms.author: adrianha
 
 ##概述
 
-本教程说明如何使用 Azure 移动应用后端向 Xamarin.Forms 移动应用添加基于云的后端服务。将创建一个新的移动应用后端以及一个简单的_待办事项列表_ Xamarin.Forms 应用，此应用将应用数据存储在 Azure 中。
+本教程说明如何使用 Azure 移动应用后端向 Xamarin.Forms 移动应用添加基于云的后端服务。将创建一个新的移动应用后端以及一个简单的 _待办事项列表_ Xamarin.Forms 应用，此应用将应用数据存储在 Azure 中。
 
 只有在完成本教程后，才可以学习有关 Xamarin.Forms 的所有其他移动应用教程。
 
@@ -39,6 +39,8 @@ ms.author: adrianha
 
 >[!NOTE]
 > 如果要在注册 Azure 帐户之前就开始使用 Azure 应用服务，请转到[试用应用服务](https://tryappservice.azure.com/?appServiceName=mobile)，即可在应用服务中立即创建一个生存期较短的入门级移动应用。你不需要使用信用卡，也不需要做出承诺。
+>
+>
 
 ## 创建新的 Azure 移动应用后端
 
@@ -88,6 +90,8 @@ ms.author: adrianha
 
     >[!NOTE]
     > 如果遇到生成问题，请运行 NuGet 包管理器并更新到 Xamarin 支持包的最新版本。有时快速入门项目可能会在更新到最新版本时滞后。
+    >
+    >
 
 在应用中键入有意义的文本（例如 _Learn Xamarin_ ），然后单击“+”按钮。
 
@@ -115,6 +119,8 @@ ms.author: adrianha
 
     >[!NOTE]
     > 如果遇到生成问题，请运行 NuGet 包管理器并更新到 Xamarin 支持包的最新版本。有时快速入门项目可能会在更新到最新版本时滞后。
+    >
+    >
 
 在应用中键入有意义的文本（例如 _Learn Xamarin_ ），然后单击“+”按钮。
 
@@ -137,6 +143,8 @@ ms.author: adrianha
 
     >[!NOTE]
     > 如果遇到生成问题，请运行 NuGet 包管理器并更新到 Xamarin 支持包的最新版本。有时快速入门项目可能会在更新到最新版本时滞后。
+    >
+    >
 
 在应用中键入有意义的文本（例如 _Learn Xamarin_ ），然后单击“+”按钮。
 
@@ -146,6 +154,8 @@ ms.author: adrianha
 
 > [!NOTE]
 可在解决方案的可移植类库项目的 TodoItemManager.cs C# 文件中找到用于访问移动应用后端的代码。
+>
+>
 
 ##后续步骤
 
