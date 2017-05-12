@@ -56,7 +56,7 @@ ms.author: carlrab
 - [最新版本的 SSDT](https://msdn.microsoft.com/zh-cn/library/mt204009.aspx) 
 [最新版本的 SQL Server Management Studio](https://msdn.microsoft.com/zh-cn/library/mt238290.aspx)
 - [修复数据库迁移的兼容性问题](./sql-database-cloud-migrate.md#fix-database-migration-compatibility-issues)
-- [将兼容的 SQL Server 数据库迁移到 SQL 数据库](./sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
+- [将兼容的 SQL Server 数据库迁移到 SQL 数据库](./sql-database-cloud-migrate.md)
 
 ## 其他资源
 

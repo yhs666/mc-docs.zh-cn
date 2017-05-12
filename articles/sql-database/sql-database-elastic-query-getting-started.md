@@ -32,7 +32,7 @@ ms.author: SilviaDoomra
 
 在此处，将创建分片映射管理器以及多个分片，然后将数据插入到分片中。如果分片中正好设置了分片数据，则可以跳过下面的步骤，直接转到下一部分。
 
-1. 生成并运行**弹性数据库工具入门**示例应用程序。按照步骤一直执行到[下载并运行示例应用](./sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools)部分中的步骤 7 为止。在步骤 7 结束时，会显示以下的命令提示符：
+1. 生成并运行**弹性数据库工具入门**示例应用程序。按照步骤一直执行到[下载并运行示例应用](./sql-database-elastic-scale-get-started.md)部分中的步骤 7 为止。在步骤 7 结束时，会显示以下的命令提示符：
 
     ![命令提示符][1]
 
@@ -71,7 +71,7 @@ ms.author: SilviaDoomra
     SECRET = '<password>';
     ```
 
-    “username”和“password”应与[弹性数据库工具入门](./sql-database-elastic-scale-get-started.md)中[下载并运行示例应用](./sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools)的步骤 6 中所使用的登录信息相同。
+    “username”和“password”应与[弹性数据库工具入门](./sql-database-elastic-scale-get-started.md)中[下载并运行示例应用](./sql-database-elastic-scale-get-started.md)的步骤 6 中所使用的登录信息相同。
 
 ### 外部数据源
 

@@ -35,7 +35,7 @@ $resourceGroupLocation = "China East"
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
 ```
 
-有关详细信息，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](../azure-resource-manager/powershell-azure-resource-manager.md)。有关示例脚本，请参阅[创建 SQL 数据库 PowerShell 脚本](./sql-database-get-started-powershell.md#create-a-sql-database-powershell-script)。
+有关详细信息，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](../azure-resource-manager/powershell-azure-resource-manager.md)。有关示例脚本，请参阅[创建 SQL 数据库 PowerShell 脚本](./sql-database-get-started-powershell.md)。
 
 ## 创建 SQL 数据库服务器
 
@@ -57,7 +57,7 @@ $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
  -ResourceGroupName $resourceGroupName -ServerVersion $sqlServerVersion
 ```
 
-有关详细信息，请参阅[什么是 SQL 数据库](./sql-database-technical-overview.md)。有关示例脚本，请参阅[创建 SQL 数据库 PowerShell 脚本](./sql-database-get-started-powershell.md#create-a-sql-database-powershell-script)。
+有关详细信息，请参阅[什么是 SQL 数据库](./sql-database-technical-overview.md)。有关示例脚本，请参阅[创建 SQL 数据库 PowerShell 脚本](./sql-database-get-started-powershell.md)。
 
 ## 创建 SQL 数据库服务器防火墙规则
 
@@ -78,7 +78,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
 
 若要允许其他 Azure 服务访问服务器，请创建防火墙规则，将 `-StartIpAddress` 和 `-EndIpAddress` 都设置为 **0.0.0.0**。这个特殊的防火墙规则允许所有 Azure 流量访问服务器。
 
-有关详细信息，请参阅 [Azure SQL 数据库防火墙](./sql-database-firewall-configure.md)。有关示例脚本，请参阅[创建 SQL 数据库 PowerShell 脚本](./sql-database-get-started-powershell.md#create-a-sql-database-powershell-script)。
+有关详细信息，请参阅 [Azure SQL 数据库防火墙](./sql-database-firewall-configure.md)。有关示例脚本，请参阅[创建 SQL 数据库 PowerShell 脚本](./sql-database-get-started-powershell.md)。
 
 ## 创建 SQL 数据库（空）
 
@@ -97,7 +97,7 @@ $currentDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName 
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
-有关详细信息，请参阅[什么是 SQL 数据库](./sql-database-technical-overview.md)。有关示例脚本，请参阅[创建 SQL 数据库 PowerShell 脚本](./sql-database-get-started-powershell.md#create-a-sql-database-powershell-script)。
+有关详细信息，请参阅[什么是 SQL 数据库](./sql-database-technical-overview.md)。有关示例脚本，请参阅[创建 SQL 数据库 PowerShell 脚本](./sql-database-get-started-powershell.md)。
 
 ## 更改 SQL 数据库的性能级别
 
