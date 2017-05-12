@@ -108,7 +108,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters
 
 若要解决此问题，必须删除存储帐户的现有条目。 使用以下步骤删除现有条目：
 
-1. 在 Web 浏览器中，打开 HDInsight 群集的 Ambari Web UI。 该 URI 是 https://CLUSTERNAME.azurehdinsight.cn。 将 __CLUSTERNAME__ 替换为群集名称。
+1. 在 Web 浏览器中，打开 HDInsight 群集的 Ambari Web UI。 该 URI 是 https://CLUSTERNAME.azurehdinsight.cn 。 将 __CLUSTERNAME__ 替换为群集名称。
 
     出现提示时，输入群集的 HTTP 登录用户和密码。
 

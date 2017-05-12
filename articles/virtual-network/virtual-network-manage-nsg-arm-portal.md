@@ -40,7 +40,7 @@ Azure 具有两种不同的部署模型，用于创建和处理资源：[Resourc
 
 若要查看订阅中的全部现有 NSG，请完成以下步骤：
 
-1. 从浏览器导航到 http://portal.azure.cn， 根据需要使用 Azure 帐户登录。
+1. 从浏览器导航到 http://portal.azure.cn ， 根据需要使用 Azure 帐户登录。
 
 2. 单击“浏览 >”>“网络安全组”。
 

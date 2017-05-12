@@ -156,7 +156,7 @@ Content-Length: 670
 ### <a name="connecting-to-the-media-services-uri"></a>连接到媒体服务 URI
 
 
-用于上载和下载资产文件的根 URI 为 https://yourstorageaccount.blob.core.chinacloudapi.cn/，其中的存储帐户名为你在媒体服务帐户设置期间使用的同一帐户名。
+用于上载和下载资产文件的根 URI 为 https://yourstorageaccount.blob.core.chinacloudapi.cn/ ，其中的存储帐户名为你在媒体服务帐户设置期间使用的同一帐户名。
 
 以下示例演示了发往中国东部区域 (https://wamsshaclus001rest-hs.chinacloudapp.cn/API/) 的媒体服务的 HTTP 请求。 
 

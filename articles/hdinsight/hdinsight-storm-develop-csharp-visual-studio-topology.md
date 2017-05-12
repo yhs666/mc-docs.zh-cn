@@ -106,15 +106,15 @@ EventHub 读取器模板随附的基于 Java 的 EventHub Spout 组件不适用�
 
 4. 创建项目后，应有以下文件：
 
-    * **Program.cs**：此文件定义项目的拓扑。默认情况下会创建包含一个 Spout 和一个 Bolt 的默认拓扑。
+   * **Program.cs**：此文件定义项目的拓扑。默认情况下会创建包含一个 Spout 和一个 Bolt 的默认拓扑。
 
-    * **Spout.cs**：发出随机数的示例 Spout。
+   * **Spout.cs**：发出随机数的示例 Spout。
 
-    * **Bolt.cs**：保留 Spout 所发出数字计数的示例 Bolt。
+   * **Bolt.cs**：保留 Spout 所发出数字计数的示例 Bolt。
 
-        在创建项目过程中，将会从 NuGet 下载最新的 [SCP.NET 包](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/)。
+     在创建项目过程中，将会从 NuGet 下载最新的 [SCP.NET 包](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/)。
 
-        [!INCLUDE [重要的 scp.net 版本](../../includes/hdinsight-storm-scpdotnet-version.md)]
+     [!INCLUDE [重要的 scp.net 版本](../../includes/hdinsight-storm-scpdotnet-version.md)]
 
 在以下各节中，会将此项目修改成基本 WordCount 应用程序。
 

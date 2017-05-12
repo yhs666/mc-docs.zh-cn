@@ -166,7 +166,8 @@ vim log.txt
 
 祝贺你！ 现已将 Intel NUC 设置为网关。 接下来可进入下一课，了解如何设置主机、创建 Azure IoT 中心以及注册 Azure IoT 中心逻辑设备。
 
+<!--
 ## <a name="next-steps"></a>后续步骤
 [使用 IoT 网关将设备连接到 Azure IoT 中心](./iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-
+-->
 

@@ -49,7 +49,7 @@ ms.lasthandoff: 04/22/2017
 
 若要在名为 *TestVNet* 的 VNet 的 *FrontEnd* 子网中创建名为 *DNS01* 的 VM，请按以下步骤操作。
 
-1. 从浏览器导航到 http://portal.azure.cn，并在必要时用 Azure 帐户登录。
+1. 从浏览器导航到 http://portal.azure.cn ，并在必要时用 Azure 帐户登录。
 2. 单击“**新建**” > “**计算**” > “**Windows Server 2012 R2 Datacenter**”（注意此时“**选择部署模型**”列表已显示“**Resource Manager**”），然后单击“**创建**”，如下图所示。
 
     ![在 Azure 门户预览中创建 VM](./media/virtual-networks-static-ip-arm-pportal/figure01.png)

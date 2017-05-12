@@ -252,9 +252,9 @@ query = query.IncludeTotalCount();
 在实际应用中，可以搭配页导航控件或类似的 UI 使用类似于上述示例的查询，在页之间导航。
 
 >[!NOTE]
->若要替代移动应用后端中的 50 行限制，还必须将 [EnableQueryAttribute] 应用到公共 GET 方法，并指定分页行为。将以下语句应用到该方法后，最大返回行数将设置为 1000：
+>若要替代移动应用后端中的 50 行限制，还必须将 [EnableQueryAttribute] 应用到公共 GET 方法，并指定分页行为。将以下语句应用到该方法后，最大返回行数将设置为 1000：[EnableQuery(MaxTop=1000)]
 >
->    [EnableQuery(MaxTop=1000)]
+>    
 
 ### <a name="selecting"></a>如何选择特定的列
 
@@ -674,11 +674,11 @@ InvokeApiAsync\(\) 方法将“/api/”预置到要调用的 API，除非该 API
 2. 在 Visual Studio 或 Xamarin Studio 中打开项目，然后添加对 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 包的引用。搜索时，请包含预发行版。
 3. 根据使用的平台，将以下代码添加到应用程序。在每条代码中进行以下替换：
 
-    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。格式应为 https://login.chinacloudapi.cn/contoso.partner.onmschina.cn。可以在 [Azure 经典管理门户]中 Azure Active Directory 的“域”选项卡中复制此值。
+    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。格式应为 https://login.chinacloudapi.cn/contoso.partner.onmschina.cn 。可以在 [Azure 经典管理门户]中 Azure Active Directory 的“域”选项卡中复制此值。
     * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取客户端 ID。
     * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
 
-   * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 */.auth/login/done* 终结点（使用 HTTPS 方案）。此值应类似于 *https://contoso.chinacloudsites.cn/.auth/login/done* 。
+    * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 */.auth/login/done* 终结点（使用 HTTPS 方案）。此值应类似于 *https://contoso.chinacloudsites.cn/.auth/login/done* 。
 
     每个平台所需的代码如下：
 
@@ -837,7 +837,7 @@ private async System.Threading.Tasks.Task AuthenticateAsync()
 有关详细信息，请参阅 [Windows Live SDK] 文档。
 
 ###<a name="serverflow"></a>服务器托管的身份验证
-注册标识提供者后，使用提供者的 [MobileServiceAuthenticationProvider] 值对 [MobileServiceClient] 调用 [LoginAsync] 方法。例如，以下代码使用 Microsoft 启动服务器流登录。
+注册标识提供者后，使用提供者的 [MobileServiceAuthenticationProvider] 值对 [MobileServiceClient] 调用 [LoginAsync] 方法。例如，以下代码使用 MicrosoftAccount 启动服务器流登录。
 
 ```
 private MobileServiceUser user;
@@ -849,7 +849,7 @@ private async System.Threading.Tasks.Task Authenticate()
         try
         {
             user = await client
-                .LoginAsync(MobileServiceAuthenticationProvider.Microsoft);
+                .LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount);
             message =
                 string.Format("You are now logged in - {0}", user.UserId);
         }
@@ -865,7 +865,7 @@ private async System.Threading.Tasks.Task Authenticate()
 }
 ```
 
-如果使用的标识提供者不是 Microsoft，请将上述 [MobileServiceAuthenticationProvider] 的值更改为提供者的值。
+如果使用的标识提供者不是 MicrosoftAccount，请将上述 [MobileServiceAuthenticationProvider] 的值更改为提供者的值。
 
 在服务器流中，Azure 应用服务可以通过显示所选提供者的登录页来管理 OAuth 身份验证。标识提供者返回后，Azure 应用服务会生成一个应用服务身份验证令牌。[LoginAsync 方法]返回 [MobileServiceUser]，后者提供已经过身份验证的用户的 [UserId]，以及 JSON Web 令牌 (JWT) 形式的 [MobileServiceAuthenticationToken]。可以缓存此令牌，并在它过期之前重复使用。有关详细信息，请参阅[缓存身份验证令牌](#caching)。
 
@@ -873,10 +873,10 @@ private async System.Threading.Tasks.Task Authenticate()
 在某些情况下，存储提供者提供的身份验证令牌可避免在首次成功身份验证后调用登录方法。Windows 应用商店和 UWP 应用可以使用 [PasswordVault] 在成功登录后缓存当前身份验证令牌，如下所示：
 
 ```
-await client.LoginAsync(MobileServiceAuthenticationProvider.Microsoft);		
+await client.LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount);		
 
 PasswordVault vault = new PasswordVault();
-vault.Add(new PasswordCredential("Microsoft", client.currentUser.UserId, 
+vault.Add(new PasswordCredential("MicrosoftAccount", client.currentUser.UserId, 
     client.currentUser.MobileServiceAuthenticationToken));
 ```
 
@@ -884,13 +884,13 @@ UserId 值存储为凭据的 UserName，令牌存储为 Password。在后续启�
 
 ```
 // Try to retrieve stored credentials.
-var creds = vault.FindAllByResource("Microsoft").FirstOrDefault();
+var creds = vault.FindAllByResource("MicrosoftAccount").FirstOrDefault();
 if (creds != null)
 {
     // Create the current user from the stored credentials.
     client.currentUser = new MobileServiceUser(creds.UserName);
     client.currentUser.MobileServiceAuthenticationToken = 
-        vault.Retrieve("Microsoft", creds.UserName).Password;
+        vault.Retrieve("MicrosoftAccount", creds.UserName).Password;
 }
 else
 {
@@ -902,12 +902,12 @@ else
 
 ```
 client.Logout();
-vault.Remove(vault.Retrieve("Microsoft", client.currentUser.UserId));
+vault.Remove(vault.Retrieve("MicrosoftAccount", client.currentUser.UserId));
 ```
 
 Xamarin 应用使用 [Xamarin.Auth API] 将证书安全存储在 **Account** 对象中。有关使用这些 API 的示例，请参阅 [ContosoMoments photo sharing sample](https://github.com/azure-appservice-samples/ContosoMoments)（ContosoMoments 照片分享示例）中的 [AuthStore.cs] 代码文件。
 
-使用客户端托管的身份验证时，也可以缓存从提供程序（例如 Microsoft）获取的访问令牌。可以提供此令牌，从后端请求新的身份验证令牌，如下所示：
+使用客户端托管的身份验证时，也可以缓存从提供程序（例如 MicrosoftAccount ）获取的访问令牌。可以提供此令牌，从后端请求新的身份验证令牌，如下所示：
 
 ```
 var token = new JObject();
@@ -915,7 +915,7 @@ var token = new JObject();
 token.Add("access_token", "<your_access_token_value>");
 
 // Authenticate using the access token.
-await client.LoginAsync(MobileServiceAuthenticationProvider.Microsoft, token);
+await client.LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount, token);
 ```
 
 ##<a name="pushnotifications"></a>推送通知
@@ -1039,7 +1039,6 @@ public async Task CallClientWithHandler()
     IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
     var newItem = new TodoItem { Text = "Hello world", Complete = false };
     await todoTable.InsertAsync(newItem);
-```
 }
 
     public class MyHandler : DelegatingHandler
@@ -1050,17 +1049,17 @@ public async Task CallClientWithHandler()
             // Change the request-side here based on the HttpRequestMessage
             request.Headers.Add("x-my-header", "my value");
 
-    ```
-        // Do the request
-        var response = await base.SendAsync(request, cancellationToken);
-
-        // Change the response-side here based on the HttpResponseMessage
-
-        // Return the modified response
-        return response;
+            // Do the request
+            var response = await base.SendAsync(request, cancellationToken);
+    
+            // Change the response-side here based on the HttpResponseMessage
+    
+            // Return the modified response
+            return response;
+        }
     }
-    ```
-    }
+```
+
 
 <!-- Anchors. -->
 

@@ -25,7 +25,7 @@ ms.author: amsriva
 
 对 http://contoso.com 的请求将路由到 ContosoServerPool，对 http://fabrikam.com 的请求将路由到 FabrikamServerPool。
 
-同样可以将同一父域的两个子域托管到同一应用程序网关部署。此方面的示例可能包括 http://blog.contoso.com 和 http://app.contoso.com，托管在单个应用程序网关部署上。
+同样可以将同一父域的两个子域托管到同一应用程序网关部署。此方面的示例可能包括 http://blog.contoso.com 和 http://app.contoso.com ，托管在单个应用程序网关部署上。
 
 ## 主机标头和服务器名称指示 (SNI)
 可以通过三种常用机制在同一基础结构上启用多站点托管功能。

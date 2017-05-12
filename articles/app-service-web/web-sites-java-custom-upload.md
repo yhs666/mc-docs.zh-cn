@@ -177,7 +177,7 @@ ms.lasthandoff: 04/28/2017
           </system.webServer>
         </configuration>
 
-    此时，可以重新启动 Web 应用，使所做的更改生效。  连接到 http://yourwebapp/hudson，启动 Hudson。
+    此时，可以重新启动 Web 应用，使所做的更改生效。  连接到 http://yourwebapp/hudson ，启动 Hudson。
 4. Hudson 自行配置后，将显示以下屏幕：
 
     ![Hudson](./media/web-sites-java-custom-upload/hudson1.png)
@@ -235,7 +235,7 @@ ms.lasthandoff: 04/28/2017
 
 请注意，在上述 web.config 文件中指定的 JRE_HOME 环境变量指向 64 位 JDK。 默认为 32 位，但由于 Liferay 可能需要大量内存，因此建议使用 64 位 JDK。
 
-做完上述更改后，重新启动运行 Liferay 的 Web 应用，然后打开 http://yourwebapp。 可从 Web 应用根目录访问 Liferay 门户。 
+做完上述更改后，重新启动运行 Liferay 的 Web 应用，然后打开 http://yourwebapp 。 可从 Web 应用根目录访问 Liferay 门户。 
 
 ## <a name="next-steps"></a>后续步骤
 有关 Liferay 的详细信息，请参阅 [http://www.liferay.com](http://www.liferay.com)。
@@ -245,5 +245,5 @@ ms.lasthandoff: 04/28/2017
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 <!-- External Links -->
-[Azure 应用服务]: /azure/app-service-web/app-service-changes-existing-services
+[Azure 应用服务]: /app-service-web/app-service-changes-existing-services
 

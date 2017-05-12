@@ -46,6 +46,8 @@ ms.author: xshi
 
 若要创建 IoT 中心，请执行以下步骤：
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 1. 通过运行以下命令登录到 Azure 帐户：
 
     ```
@@ -53,8 +55,6 @@ ms.author: xshi
     ```
 
     成功登录后，会列出所有可用的订阅。
-
-    [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 2. 运行以下命令，设置默认的需要使用的 Azure 订阅：
 

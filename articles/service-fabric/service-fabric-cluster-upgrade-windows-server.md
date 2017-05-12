@@ -28,7 +28,7 @@ ms.author: chackdan
 
 ## 控制群集中运行的结构版本
 
-可以将群集设置为在 Microsoft 发布新版本时下载 Service Fabric 更新，或者选择要运行的受支持结构版本。
+可以将群集设置为在发布新版本时下载 Service Fabric 更新，或者选择要运行的受支持结构版本。
 
 为此，可将“fabricClusterAutoupgradeEnabled”群集配置设置为 true 或 false。
 
@@ -104,11 +104,11 @@ ms.author: chackdan
 >[!NOTE]
 >如果运行的群集未连接到 Internet，必须关注 Service Fabric 团队博客获取有关新版的通知。在此情况下，系统**不会**发出任何群集运行状况警告。
 
-1. 请修改群集配置，将以下属性设置为 false。
+请修改群集配置，将以下属性设置为 false。
 
-    ```
-    "fabricClusterAutoupgradeEnabled": false,
-    ```
+```
+"fabricClusterAutoupgradeEnabled": false,
+```
 
 然后开始配置升级。有关用法详细信息，请参阅 [Start-ServiceFabricClusterConfigurationUpgrade PS 命令](https://msdn.microsoft.com/zh-cn/library/mt788302.aspx)。请确保先更新 JSON 中的“clusterConfigurationVersion”，然后再开始配置升级。
 
@@ -169,15 +169,15 @@ ms.author: chackdan
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion 5.3.301.9590 -Monitored -FailureAction Rollback
     ```
 
-可以在 Service Fabric Explorer 中或者通过运行以下 PowerShell 命令来监视升级进度
+    可以在 Service Fabric Explorer 中或者通过运行以下 PowerShell 命令来监视升级进度
 
-```powershell
-    Get-ServiceFabricClusterUpgrade
-```
+    ```powershell
+        Get-ServiceFabricClusterUpgrade
+    ```
 
-如果不符合现行的群集运行状况策略，则回滚升级。此时，可以指定自定义运行状况策略。有关 start-serviceFabricClusterUpgrade 命令的详细信息，请参阅[此文档](https://msdn.microsoft.com/zh-cn/library/mt125872.aspx)。
+    如果不符合现行的群集运行状况策略，则回滚升级。此时，可以指定自定义运行状况策略。有关 start-serviceFabricClusterUpgrade 命令的详细信息，请参阅[此文档](https://msdn.microsoft.com/zh-cn/library/mt125872.aspx)。
 
-解决导致回滚的问题后，需要遵循前面相同的步骤再次启动升级。
+    解决导致回滚的问题后，需要遵循前面相同的步骤再次启动升级。
 
 ## 群集配置升级
 若要执行群集配置升级，请运行 Start-ServiceFabricClusterConfigurationUpgrade。按升级域逐个处理配置升级。

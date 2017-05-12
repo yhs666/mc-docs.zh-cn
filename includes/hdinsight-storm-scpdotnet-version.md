@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-用于项目的 SCP.Net 版本必须与 HDInsight 群集上的 Storm 版本相匹配。使用下表确定应使用的版本：
+> 用于项目的 SCP.Net 版本必须与 HDInsight 群集上的 Storm 版本相匹配。使用下表确定应使用的版本：
 > 
 > | HDInsight 版本 | Apache Storm 版本 | SCP.NET 版本 |
 > |:---:|:---:|:---:|

@@ -53,7 +53,7 @@ Tez UI 包含数据的前提是使用 Tez 引擎的作业当前正在运行或�
 
 请使用以下步骤运行 Hive 查询，该查询将通过 Tez 执行。
 
-1. 在 Web 浏览器中导航到 https://CLUSTERNAME.azurehdinsight.cn，其中 **CLUSTERNAME** 是 HDInsight 群集的名称。
+1. 在 Web 浏览器中导航到 https://CLUSTERNAME.azurehdinsight.cn ，其中 **CLUSTERNAME** 是 HDInsight 群集的名称。
 2. 从页面顶部的菜单中，选择“Hive 编辑器”。此时会显示包含以下示例查询的页面。
 
     ```

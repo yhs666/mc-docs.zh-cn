@@ -61,7 +61,7 @@ ms.lasthandoff: 04/28/2017
     * **-u**：指示用来对请求进行身份验证的用户名和密码
     * **-G**：指示此操作是 GET 请求。
 
-        所有请求的 URI 开头都是 **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**。
+        所有请求的 URI 开头都是 **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1** 。
 
 2. 要提交 MapReduce 作业，请使用以下命令：
 

@@ -41,7 +41,7 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。Azure 建
 
 若要使用 Azure 门户预览创建虚拟网络，请完成以下步骤：
 
-1. 从浏览器导航到 http://portal.azure.cn， 根据需要使用 Azure 帐户登录。
+1. 从浏览器导航到 http://portal.azure.cn ， 根据需要使用 Azure 帐户登录。
 2. 单击“新建”>“网络”>“虚拟网络”，如下图所示：
 
     ![新建虚拟网络](./media/virtual-network-create-vnet-arm-pportal/1.png)  

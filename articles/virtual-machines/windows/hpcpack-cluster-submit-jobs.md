@@ -153,11 +153,11 @@ ms.author: danlep
 
     b.单击“Windows 凭据”>“添加普通凭据”。
 
-    c.指定 Internet 地址（例如 https://&lt;HeadNodeDnsName&gt;.chinacloudapp.cn/HpcScheduler 或 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.chinacloudapp.cn/HpcScheduler）以及群集管理员或所配置的另一群集用户的用户名（格式为 &lt;DomainName&gt;\\&lt;UserName&gt;）和密码。
+    c.指定 Internet 地址（例如 https://&lt;HeadNodeDnsName&gt;.chinacloudapp.cn/HpcScheduler 或 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.chinacloudapp.cn/HpcScheduler ）以及群集管理员或所配置的另一群集用户的用户名（格式为 &lt;DomainName&gt;\\&lt;UserName&gt;）和密码。
 
 2. 在客户端计算机上启动 HPC 作业管理器。
 
-3. 在“选择头节点”对话框中，键入指向 Azure 中头节点的 URL（例如 https://&lt;HeadNodeDnsName&gt;.chinacloudapp.cn 或 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.chinacloudapp.cn）。
+3. 在“选择头节点”对话框中，键入指向 Azure 中头节点的 URL（例如 https://&lt;HeadNodeDnsName&gt;.chinacloudapp.cn 或 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.chinacloudapp.cn ）。
 
     HPC 作业管理器将会打开并显示头节点上的作业列表。
 

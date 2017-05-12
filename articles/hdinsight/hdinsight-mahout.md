@@ -32,9 +32,9 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-* 基于 Linux 的 HDInsight 群集。 有关创建该群集的信息，请参阅 [开始在 HDInsight 中使用基于 Linux 的 Hadoop][getstarted]。
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+* 基于 Linux 的 HDInsight 群集。 有关创建该群集的信息，请参阅 [开始在 HDInsight 中使用基于 Linux 的 Hadoop][getstarted]。
 
     > [!IMPORTANT]
     > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。

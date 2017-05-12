@@ -117,7 +117,7 @@ Service Fabric 命令目前在 Azure CLI 2.0 中不可用。
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. 打开 Web 浏览器并导航到 http://localhost:19080/Explorer。如果群集已启动，应会显示 Service Fabric Explorer 仪表板。
+2. 打开 Web 浏览器并导航到 http://localhost:19080/Explorer 。如果群集已启动，应会显示 Service Fabric Explorer 仪表板。
 
     ![Linux 上的 Service Fabric Explorer][sfx-linux]  
 

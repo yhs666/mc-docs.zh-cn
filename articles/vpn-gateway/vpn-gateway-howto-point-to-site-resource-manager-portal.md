@@ -62,7 +62,7 @@ ms.lasthandoff: 04/06/2017
 * **客户端地址池：172.16.201.0/24**<br>使用此点到站点连接连接到 VNet 的 VPN 客户端接收来自客户端地址池的 IP 地址。
 
 ## <a name="createvnet"></a>第 1 部分 - 创建虚拟网络
-开始之前，请确保你拥有 Azure 订阅。 如果你还没有 Azure 订阅，可以激活 [MSDN 订户权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)或注册获取[免费帐户](https://azure.microsoft.com/pricing/1rmb-trial)。 如果正在练习创建此配置，可以参考[示例值](#example)。
+开始之前，请确保你拥有 Azure 订阅。 如果你还没有 Azure 订阅，可以注册获取[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 如果正在练习创建此配置，可以参考[示例值](#example)。
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 

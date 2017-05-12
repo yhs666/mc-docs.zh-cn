@@ -186,7 +186,7 @@ ms.lasthandoff: 04/28/2017
 
         Server listening at port 3000
 
-3. 打开 Web 浏览器，并输入 **http://localhost:3000/**作为地址。 应看到类似于下图的页面：
+3. 打开 Web 浏览器，并输入 **http://localhost:3000/**作为地址 。 应看到类似于下图的页面：
 
     ![Web 仪表板](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
 

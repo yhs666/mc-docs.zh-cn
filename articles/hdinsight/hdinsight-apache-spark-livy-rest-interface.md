@@ -162,7 +162,7 @@ Livy 可为群集上运行的 Spark 作业提供高可用性。 下面是一些�
 
 HDInsight 3.5 群集默认情况下禁止使用本地文件路径访问示例数据文件或 jar。 建议改用 `wasb://` 路径访问群集中的 jar 或示例数据文件。 如果要使用本地路径，则必须相应地更新 Ambari 配置。 为此，请执行以下操作：
 
-1. 转到群集的 Ambari 门户。 Ambari Web UI 在 HDInsight 群集上提供，网址为 https://**CLUSTERNAME**.azurehdidnsight.net，其中 CLUSTERNAME 是群集的名称。
+1. 转到群集的 Ambari 门户。 Ambari Web UI 在 HDInsight 群集上提供，网址为 https://**CLUSTERNAME**.azurehdidnsight.net ，其中 CLUSTERNAME 是群集的名称。
 
 2. 在左侧导航中，单击“Livy”，然后单击“配置”。
 

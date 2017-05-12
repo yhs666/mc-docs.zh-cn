@@ -79,7 +79,7 @@ ms.lasthandoff: 04/07/2017
 
 创建数据库和集合后，需要向集合[添加文档](./documentdb-view-json-document-explorer.md)。
 
-在集合中添加文档后，可以使用 [DocumentDB SQL](./documentdb-sql-query.md) 对这些文档[执行查询](./documentdb-sql-query.md#executing-sql-queries)。 可以在门户、[REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx) 或某个 [SDK](./documentdb-sdk-dotnet.md) 中，使用[查询资源管理器](./documentdb-query-collections-query-explorer.md)执行查询。
+在集合中添加文档后，可以使用 [DocumentDB SQL](./documentdb-sql-query.md) 对这些文档[执行查询](./documentdb-sql-query.md#ExecutingSqlQueries)。 可以在门户、[REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx) 或某个 [SDK](./documentdb-sdk-dotnet.md) 中，使用[查询资源管理器](./documentdb-query-collections-query-explorer.md)执行查询。
 
 ### <a name="learn-more"></a>了解详细信息
 若要详细了解 DocumentDB，请浏览以下资源：

@@ -764,7 +764,7 @@ GitHub 上的 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 
 3. 在 Eclipse 中，在“文件”菜单上单击“导入”。
 4. 在“导入”窗口中，依次单击“Git”、“来自 Git 的项目”和“下一步”。
 5. 在“选择存储库源”屏幕上，单击“克隆 URI”。
-6. 在“源 Git 存储库”屏幕上，在“URI”框中输入 https://github.com/Azure-Samples/documentdb-java-todo-app.git，然后单击“下一步”。
+6. 在“源 Git 存储库”屏幕上，在“URI”框中输入 https://github.com/Azure-Samples/documentdb-java-todo-app.git ，然后单击“下一步”。
 7. 在“分支选择”屏幕上，确保已选择“master”，然后单击“下一步”。
 8. 在“本地目标”屏幕上，单击“浏览”选择要将存储库复制到的文件夹，然后单击“下一步”。
 9. 在“选择要用于导入项目的向导”屏幕上，确保已选择“导入现有项目”，然后单击“下一步”。
@@ -779,7 +779,7 @@ GitHub 上的 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 
 18. 在此屏幕下面的“服务器”选项卡上，右键单击“localhost 上的 Tomcat v7.0 服务器”，然后单击“添加和删除”。
 19. 在“添加和删除”窗口中，将 **azure-documentdb-java-sample** 移动到“配置”框，然后单击“完成”。
 20. 在“服务器”选项卡上，右键单击“localhost 上的 Tomcat v7.0 服务器”，然后单击“重新启动”。
-21. 在浏览器中导航到 http://localhost:8080/azure-documentdb-java-sample/，然后开始向你的任务列表中添加项。请注意，如果你更改了默认端口值，请将 8080 更改为你选择的值。
+21. 在浏览器中导航到 http://localhost:8080/azure-documentdb-java-sample/ ，然后开始向你的任务列表中添加项。请注意，如果你更改了默认端口值，请将 8080 更改为你选择的值。
 22. 若要将项目部署到 Azure 网站，请参阅[步骤 6. 将应用程序部署到 Azure 网站](#Deploy)。
 
 [1]: media/documentdb-java-application/keys.png

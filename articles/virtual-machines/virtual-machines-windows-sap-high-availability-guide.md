@@ -1233,7 +1233,7 @@ _**表 4：**更改第二个 TCP/IP 参数_
 
     _**图 38：**确认已重新配置群集_
 
-成功安装 Windows 故障转移群集后，需要更改某些阈值，以使故障转移检测适合于 Azure 中的情况。 此博客记录了要更改的参数：https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/。 假定用于生成 ASCS/SCS 的 Windows 群集配置的两个 VM 位于同一子网中，需要将以下参数更改为这些值：
+成功安装 Windows 故障转移群集后，需要更改某些阈值，以使故障转移检测适合于 Azure 中的情况。 此博客记录了要更改的参数：https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ 。 假定用于生成 ASCS/SCS 的 Windows 群集配置的两个 VM 位于同一子网中，需要将以下参数更改为这些值：
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 

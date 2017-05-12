@@ -121,7 +121,7 @@ Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZ
 
 ## <a name="start-data-explorer"></a>启动数据资源管理器
 
-DocumentDB 模拟器启动时，会自动在浏览器中打开 DocumentDB 数据资源管理器。 地址将显示为 https://localhost:8081/_explorer/index.html。 如果关闭浏览器并想要稍后重新打开，可在浏览器中打开 URL 或从 Windows 任务栏图标中的 DocumentDB 模拟器中启动，如下所示。
+DocumentDB 模拟器启动时，会自动在浏览器中打开 DocumentDB 数据资源管理器。 地址将显示为 https://localhost:8081/_explorer/index.html 。 如果关闭浏览器并想要稍后重新打开，可在浏览器中打开 URL 或从 Windows 任务栏图标中的 DocumentDB 模拟器中启动，如下所示。
 
 ![DocumentDB 本地模拟器数据资源管理器启动器](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-data-explorer-launcher.png)
 

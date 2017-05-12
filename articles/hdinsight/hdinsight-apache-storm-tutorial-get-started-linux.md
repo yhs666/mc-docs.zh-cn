@@ -120,7 +120,7 @@ Storm UI 提供一个 Web 界面用于处理正在运行的拓扑，你的 HDIns
 
 执行以下步骤以使用 Storm UI 来监视拓扑。
 
-1. 若要显示 Storm UI，请在 Web 浏览器中打开 https://CLUSTERNAME.azurehdinsight.cn/stormui。 将 **CLUSTERNAME** 替换为群集名称。
+1. 若要显示 Storm UI，请在 Web 浏览器中打开 https://CLUSTERNAME.azurehdinsight.cn/stormui 。 将 **CLUSTERNAME** 替换为群集名称。
 
     > [!NOTE]
     > 如果系统要求你提供用户名和密码，请输入创建群集时使用的群集管理员用户名 (admin) 和密码。

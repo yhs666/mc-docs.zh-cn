@@ -33,6 +33,8 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="requirements"></a>要求
 
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+
 * [Java 平台 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 或更高版本。
 
     > [!NOTE]
@@ -41,8 +43,6 @@ ms.lasthandoff: 04/28/2017
 * [Maven](http://maven.apache.org/)
 
 * [装有 HBase 的基于 Linux 的 Azure HDInsight 群集](hdinsight-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
-
-    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
     > [!NOTE]
     > 本文档中的步骤已在 HDInsight 群集版本 3.2、3.3、3.4 和 3.5 中测试。 示例中提供的默认值适用于 HDInsight 3.5 群集。

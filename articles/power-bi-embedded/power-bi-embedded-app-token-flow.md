@@ -43,7 +43,7 @@ Power BI Embedded 服务使用**密钥**和**应用令牌**进行身份验证和
 | 声明 | 说明 |
 | --- | --- |
 | **ver** |应用令牌的版本。 当前版本为 0.2.0。 |
-| **aud** |令牌的目标接收方。 对于 Power BI Embedded，请使用：“https://analysis.chinacloudapi.cn/powerbi/api”。 |
+| **aud** |令牌的目标接收方。 对于 Power BI Embedded，请使用： "https://analysis.chinacloudapi.cn/powerbi/api" 。 |
 | **iss** |一个字符串，指示颁发了令牌的应用程序。 |
 | **type** |要创建的应用令牌的类型。 当前唯一支持的类型是 **embed**。 |
 | **wcn** |要为其颁发令牌的工作区集合名称。 |

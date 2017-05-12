@@ -31,7 +31,7 @@ description: 了解如何管理传入流量，以获得最佳应用程序性能�
 ## 引用
 
 <ul class="panelContent cardsW">
-    <li><a href="/powershell/azureps-cmdlets-docs">
+    <li><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">
 <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardText"><h3>PowerShell</h3><p>Azure PowerShell</p></div></div></div>
         </div></a>
 </li>

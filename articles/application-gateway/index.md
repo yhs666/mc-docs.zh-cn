@@ -100,8 +100,8 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>命令行</h3>
-                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/application-gateway">Azure CLI 2.0</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/cli/azure/network/application-gateway">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -113,8 +113,8 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="/dotnet/api">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.network">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways">Node​.js</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways">Ruby</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations#azure.mgmt.network.operations.ApplicationGatewaysOperations">Python</a></p>

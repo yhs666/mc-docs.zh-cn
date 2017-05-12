@@ -145,7 +145,7 @@ ms.author: adrianha
 
 ## 脱机同步注意事项
 
-在示例中，**syncContext** 的 **push** 方法仅会在应用启动时在登录的回调函数中调用。在实际应用程序中，还可以手动或在网络状态发生更改时触发此同步功能。
+在示例中， **syncContext** 的 **push** 方法仅会在应用启动时在登录的回调函数中调用。在实际应用程序中，还可以手动或在网络状态发生更改时触发此同步功能。
 
 如果对一个表执行拉取操作，并且该表具有由上下文跟踪的未完成的本地更新，那么该拉取操作将自动触发推送操作。在此示例中刷新、添加和完成项时，可省略显式 **push** 调用，因为它可能是冗余的。
 
@@ -177,7 +177,7 @@ ms.author: adrianha
 1. 在解决方案资源管理器中，打开 index.js 项目文件，然后更改应用程序 URL，使其指向无效的 URL，如以下代码所示：
 
     ```
-    client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net-fail');
+    client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.cn-fail');
     ```
 
 2. 在 index.html 中，使用同一无效的 URL 更新 CSP `<meta>` 元素。

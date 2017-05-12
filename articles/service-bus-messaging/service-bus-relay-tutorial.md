@@ -75,7 +75,7 @@ wacn.date: 03/31/2017
     >[!IMPORTANT]
     > 本教程使用 C# 命名空间 **Microsoft.ServiceBus.Samples**，它是协定管理类型的命名空间，此类型用于[配置 WCF 客户端](#configure-the-wcf-client)步骤中的配置文件。在构建此示例时，你可以指定任何想要的命名空间，当你在配置文件中修改了协定以及相应服务的命名空间后，本教程才会生效。在 App.config 文件中指定的命名空间必须与在 C# 文件中指定的命名空间相同。
 
-1. 直接在完成 `Microsoft.ServiceBus.Samples` 命名空间声明后，在命名空间内定义一个名为 `IEchoContract` 的新接口，然后将 `ServiceContractAttribute` 属性应用于该接口，其值为 **http://samples.microsoft.com/ServiceModel/Relay/**。该命名空间值不同于你在整个代码范围内使用的命名空间。相反，该命名空间值将用作此协定的唯一标识符。显式指定命名空间可防止将默认的命名空间值添加到约定名称中。
+1. 直接在完成 `Microsoft.ServiceBus.Samples` 命名空间声明后，在命名空间内定义一个名为 `IEchoContract` 的新接口，然后将 `ServiceContractAttribute` 属性应用于该接口，其值为 **http://samples.microsoft.com/ServiceModel/Relay/** 。该命名空间值不同于你在整个代码范围内使用的命名空间。相反，该命名空间值将用作此协定的唯一标识符。显式指定命名空间可防止将默认的命名空间值添加到约定名称中。
 
     ```csharp
     [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]

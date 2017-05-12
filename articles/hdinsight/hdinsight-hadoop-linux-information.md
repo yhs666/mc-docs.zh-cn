@@ -39,7 +39,7 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
 * [jq](https://stedolan.github.io/jq/) - 用于分析 JSON 文档
 * [Azure CLI 2.0](https://docs.microsoft.com/zh-cn/cli/azure/install-az-cli2)（预览版）- 用于远程管理 Azure 服务
 
-    [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="users"></a>用户
 
@@ -200,7 +200,7 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
 
     * **Storm UI**：使用以下步骤来重新平衡使用 Storm UI 的拓扑。
 
-        1. 在 Web 浏览器中打开 **https://CLUSTERNAME.azurehdinsight.cn/stormui**，其中“CLUSTERNAME”是 Storm 群集的名称。 如果出现提示，请输入在创建 HDInsight 群集时指定的群集管理员用户名和密码。
+        1. 在 Web 浏览器中打开 **https://CLUSTERNAME.azurehdinsight.cn/stormui** ，其中“CLUSTERNAME”是 Storm 群集的名称。 如果出现提示，请输入在创建 HDInsight 群集时指定的群集管理员用户名和密码。
         2. 选择要重新平衡的拓扑，然后选择“重新平衡”按钮。 输入执行重新平衡操作前的延迟。
 
 有关缩放 HDInsight 群集的特定信息，请参阅：

@@ -130,7 +130,7 @@ ms.custom: H1Hack27Feb2017
 
 3. 选择**“设置”**，然后设置以下值：
 
-    * HBaseClusterURL：到 HBase 群集的 URL。例如，https://myhbasecluster.azurehdinsight.cn。
+    * HBaseClusterURL：到 HBase 群集的 URL。例如，https://myhbasecluster.azurehdinsight.cn 。
 
     * HBaseClusterUserName：群集的管理员/HTTP 用户帐户
 
@@ -152,7 +152,7 @@ ms.custom: H1Hack27Feb2017
 
 3. 在属性窗口中，选择“设置”，然后输入此项目的配置值。前 5 个值是 **SessionInfo** 项目使用的相同值：
 
-    * HBaseClusterURL：到 HBase 群集的 URL。例如，https://myhbasecluster.azurehdinsight.cn。
+    * HBaseClusterURL：到 HBase 群集的 URL。例如，https://myhbasecluster.azurehdinsight.cn 。
 
     * HBaseClusterUserName：群集的管理员/HTTP 用户帐户。
 

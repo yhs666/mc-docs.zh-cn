@@ -376,7 +376,7 @@ AzureWebDemo 应用程序的目的是创建应用服务 Web 应用，因此请�
 ### <a name="deploying-the-hello-world-application-using-ftp"></a>使用 FTP 部署 Hello World 应用程序
 选择第三方 FTP 客户端来发布应用程序。 此过程将介绍两个选项：Azure 中内置的 Kudu 控制台；FileZilla，这是一个带有便捷式图形 UI 的常用工具。
 
-> **注意：** Azure Toolkit for Eclipse 支持部署到存储帐户和云服务，但当前不支持部署到 Web Apps。 可按照[在 Eclipse 中为 Azure 创建 Hello World 应用程序](/azure/azure-toolkit-for-eclipse-creating-a-hello-world-application/)中所述，使用 Azure 部署项目部署到存储帐户和云服务，但不能部署到 Web 应用。 使用其他方法（例如 FTP 或 GitHub）将文件传输到 Web 应用。
+> **注意：** Azure Toolkit for Eclipse 支持部署到存储帐户和云服务，但当前不支持部署到 Web Apps。 可按照[在 Eclipse 中为 Azure 创建 Hello World 应用程序](/azure-toolkit-for-eclipse-creating-a-hello-world-application/)中所述，使用 Azure 部署项目部署到存储帐户和云服务，但不能部署到 Web 应用。 使用其他方法（例如 FTP 或 GitHub）将文件传输到 Web 应用。
 > 
 > **注意：**不建议通过 Windows 命令提示符（Windows 随附的命令行 FTP.EXE 实用工具）使用 FTP。 使用活动 FTP 的 FTP 客户端（如 FTP.EXE）通常无法通过防火墙工作。 活动 FTP 指定基于 LAN 的内部地址，FTP 服务器可能无法连接到该地址。
 > 
@@ -511,9 +511,9 @@ JSPHello.war 自身首先会显示在目录区域中：
 [9]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-1.png
 [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
 
-[Azure App Service]: /azure/app-service-web/app-service-changes-existing-services
+[Azure App Service]: /app-service-web/app-service-changes-existing-services
 [Web Platform Installer]: http://go.microsoft.com/fwlink/?LinkID=252838
-[Azure Toolkit for Eclipse]: /azure/azure-toolkit-for-eclipse-installation/
+[Azure Toolkit for Eclipse]: /azure-toolkit-for-eclipse-installation/
 [Azure Classic Management Portal]: https://manage.windowsazure.cn
 [What is an Azure AD directory]: http://technet.microsoft.com/library/jj573650.aspx
 [Create and Upload a Management Certificate for Azure]: ../cloud-services/cloud-services-certs-create.md

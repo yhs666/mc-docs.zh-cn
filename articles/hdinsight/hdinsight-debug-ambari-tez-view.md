@@ -54,7 +54,7 @@ Tez 视图提供进程的历史信息，还提供正在运行的进程的相关�
 
 使用以下步骤，来运行使用 Tez 的 Hive 查询：
 
-1. 在 Web 浏览器中导航到 https://CLUSTERNAME.azurehdinsight.cn，其中“CLUSTERNAME”是 HDInsight 群集的名称。
+1. 在 Web 浏览器中导航到 https://CLUSTERNAME.azurehdinsight.cn ，其中“CLUSTERNAME”是 HDInsight 群集的名称。
 
 2. 从页面顶部的菜单中选择“视图”  图标。 该图标看起来像一系列方块。 在显示的下拉列表中，选择“Hive 视图”。
 

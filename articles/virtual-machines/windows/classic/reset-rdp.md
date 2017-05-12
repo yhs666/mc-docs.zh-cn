@@ -32,7 +32,7 @@ ms.lasthandoff: 04/06/2017
 ## <a name="ways-to-reset-configuration-or-credentials"></a>如何重置配置或凭据
 可以根据需要，通过多种不同的方式重置远程桌面服务和凭据：
 
-- [使用 Azure 门户预览重置](#azure-portal)
+- [使用 Azure 门户预览重置](#azure-portal-preview)
 - [使用 Azure PowerShell 进行重置](#vmaccess-extension-and-powershell)
 
 ## <a name="azure-portal-preview"></a>Azure 门户预览

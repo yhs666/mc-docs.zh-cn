@@ -31,7 +31,7 @@ ms.lasthandoff: 04/28/2017
 
 轮询 Web 应用是对存储库的抽象界定，因此可以轻松地在不同类型的存储库（内存、Azure 表存储、MongoDB）之间进行切换。
 
-我们将了解如何创建 Azure 存储帐户、如何将 Web 应用配置为使用 Azure 表存储，以及如何将 Web 应用发布到 [Azure App Service Web 应用](/azure/app-service-web/app-service-changes-existing-services)中。
+我们将了解如何创建 Azure 存储帐户、如何将 Web 应用配置为使用 Azure 表存储，以及如何将 Web 应用发布到 [Azure App Service Web 应用](/app-service-web/app-service-changes-existing-services)中。
 
 请访问 [Python 开发人员中心] ，查看更多有关使用 PTVS 以及 Bottle、Flask 和 Django Web 框架、MongoDB、Azure 表存储、MySQL、SQL 数据库服务开发 Azure App Service Web Apps 的文章。 虽然本文将着重介绍 App Service，但步骤与 [Azure 云服务]的开发步骤类似。
 
@@ -166,7 +166,7 @@ ms.lasthandoff: 04/28/2017
 * [如何从 Python 使用表存储服务]
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!--Link references-->
 [Python 开发人员中心]: https://www.azure.cn/develop/python/
@@ -188,5 +188,5 @@ ms.lasthandoff: 04/28/2017
 [在 Azure 中进行远程调试]: http://go.microsoft.com/fwlink/?LinkId=624026
 [Web 项目]: http://go.microsoft.com/fwlink/?LinkId=624027
 [云服务项目]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Azure 存储空间]: /azure/storage/
+[Azure 存储空间]: /storage/
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python

@@ -46,6 +46,7 @@ ms.author: adrianha
    * **通用 Windows 平台** 安装[适用于通用 Windows 平台的 SQLite][5]。
 
      虽然该快速入门不包含通用 Windows 项目，但是 Xamarin Forms 支持通用 Windows 平台。
+     
 4. （可选）在每个 Windows 应用项目中，右键单击“引用”>“添加引用...”，展开“Windows”文件夹>“扩展”。启用与 **Visual C++ 2013 Runtime for Windows** SDK 配套的 **SQLite for Windows** SDK。每个 Windows 平台的 SQLite SDK 名称略有不同。
 
 ## 查看客户端同步代码

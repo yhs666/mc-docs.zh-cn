@@ -17,9 +17,10 @@ ms.topic: article
 ms.date: 02/03/2017
 wacn.date: 03/22/2017
 ms.author: kirillg
+
 ---
 
-# 如何管理 DocumentDB 帐户
+# 如何管理 DocumentDB 帐户 <a name="a-idkeysaview-copy-and-regenerate-access-keys"></a>
 了解如何在 Azure 门户预览中设置全局一致性、使用密钥，以及删除 DocumentDB 帐户。
 
 ## <a id="consistency"></a>管理 DocumentDB 一致性设置
@@ -31,7 +32,7 @@ ms.author: kirillg
 3. 在“默认一致性”边栏选项卡中，选择新的一致性级别，然后单击“保存”。
 ![默认一致性会话][5]
 
-## <a id="keys"></a>查看、复制和重新生成访问密钥
+## <a name="a-idkeysaview-copy-and-regenerate-access-keys"></a>查看、复制和重新生成访问密钥
 当创建 DocumentDB 帐户时，服务生成两个主访问密钥，用于访问 DocumentDB 帐户时的身份验证。通过提供两个访问密钥，DocumentDB 允许你在不中断 DocumentDB 帐户连接的情况下重新生成密钥。
 
 在 [Azure 门户预览](https://portal.azure.cn/)中，从“DocumentDB 帐户”边栏选项卡上的资源菜单访问“密钥”边栏选项卡，查看、复制和重新生成用于访问 DocumentDB 帐户的访问密钥。

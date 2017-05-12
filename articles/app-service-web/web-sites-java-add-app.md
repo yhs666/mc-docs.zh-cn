@@ -39,5 +39,5 @@ Tomcat Web 应用说明：将 WAR 文件上载到 **webapps** 文件夹后，Tom
 <!-- URL List -->
 
 [Azure Java 开发人员中心]: https://www.azure.cn/develop/java/
-[Azure App Service]: /azure/app-service-web/app-service-changes-existing-services
+[Azure App Service]: /app-service-web/app-service-changes-existing-services
 [将应用部署到 Azure 应用服务]: ./web-sites-deploy.md

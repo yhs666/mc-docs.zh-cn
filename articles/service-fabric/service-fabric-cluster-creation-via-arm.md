@@ -93,7 +93,7 @@ _必须针对部署启用_密钥保管库，使计算资源提供程序能够从
 
 ```powershell
 
-    New-AzureRmKeyVault -VaultName 'mywestusvault' -ResourceGroupName 'westus-mykeyvault' -Location 'West US' -EnabledForDeployment
+    New-AzureRmKeyVault -VaultName 'mychinaeastvault' -ResourceGroupName 'chinaeast-mykeyvault' -Location 'China East' -EnabledForDeployment
 
 ```
 

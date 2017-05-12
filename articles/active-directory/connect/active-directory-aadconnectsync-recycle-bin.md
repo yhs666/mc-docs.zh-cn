@@ -32,7 +32,7 @@ ms.lasthandoff: 04/22/2017
 
 - 如果你意外删除了某个本地 AD 用户对象，相应的 Azure AD 用户对象将在下一同步周期被删除。 默认情况下，Azure AD 会将删除的 Azure AD 用户对象以软删除状态保留 30 天。
 
-- 如果已启用本地 AD 回收站功能，无需更改已删除的本地 AD 用户对象的“源定位点”值，即可将它还原。 已恢复的本地 AD 用户对象同步到 Azure AD 后，Azure AD 将还原处于软删除状态的相应 Azure AD 用户对象。 有关“源定位点”属性的信息，请参阅 [Azure AD Connect：设计概念](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor)一文。
+- 如果已启用本地 AD 回收站功能，无需更改已删除的本地 AD 用户对象的“源定位点”值，即可将它还原。 已恢复的本地 AD 用户对象同步到 Azure AD 后，Azure AD 将还原处于软删除状态的相应 Azure AD 用户对象。 有关“源定位点”属性的信息，请参阅 [Azure AD Connect：设计概念](/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor)一文。
 
 - 如果未启用本地 AD 回收站功能，可能需要创建一个 AD 用户对象来替换已删除的对象。 如果 Azure AD Connect 同步服务配置为对“源定位点”属性使用系统生成的 AD 属性（例如 ObjectGuid），新建的 AD 用户对象与已删除的 AD 用户对象的“源定位点”值将不相同。 新建的 AD 用户对象同步到 Azure AD 后，Azure AD 将创建新的 Azure AD 用户对象，而不是还原处于软删除状态的 Azure AD 用户对象。
 

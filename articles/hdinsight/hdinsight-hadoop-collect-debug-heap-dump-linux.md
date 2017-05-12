@@ -92,7 +92,7 @@ ms.lasthandoff: 04/28/2017
 
 若要修改服务配置，请使用以下步骤：
 
-1. 打开群集的 Ambari Web UI。 URL 为 https://YOURCLUSTERNAME.azurehdinsight.cn。
+1. 打开群集的 Ambari Web UI。 URL 为 https://YOURCLUSTERNAME.azurehdinsight.cn 。
 
     出现提示时，在该站点中使用群集的 HTTP 帐户名（默认为 admin）和密码进行身份验证。
 

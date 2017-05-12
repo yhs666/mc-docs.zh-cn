@@ -92,7 +92,7 @@ Azure AD Connect 提供了一个简单的过程来启用带直通身份验证或
 为了配置 SSO，Azure AD Connect 需要能够与端口 9090 (TCP) 上的 *.msappproxy.net 通信。只需在配置期间完成此端口打开操作，最终用户身份验证期间不需要执行此操作。
 
 ## 确保客户端自动登录
-默认情况下，浏览器不会尝试将凭据发送到 Web 服务器，除非 URL 定义为在 Intranet 区域。通常情况下，浏览器可以通过查看 URL 来计算正确的区域。例如，如果 URL 为 http://intranet/，浏览器将自动发送凭据，因为它会映射到 Intranet 区域的 URL。但是，如果 URL 包含句点（例如 http://intranet.contoso.com/），则计算机不会自动发送凭据，而是将该 URL 视为普通 Internet 站点。
+默认情况下，浏览器不会尝试将凭据发送到 Web 服务器，除非 URL 定义为在 Intranet 区域。通常情况下，浏览器可以通过查看 URL 来计算正确的区域。例如，如果 URL 为 http://intranet/ ，浏览器将自动发送凭据，因为它会映射到 Intranet 区域的 URL。但是，如果 URL 包含句点（例如 http://intranet.contoso.com/ ），则计算机不会自动发送凭据，而是将该 URL 视为普通 Internet 站点。
 
 由于在 Azure AD 中用于单一登录的 URL 包含句点，因此需将其显式添加到计算机的 Intranet 区域。此设置允许浏览器将当前登录的用户的凭据以 Kerberos 票证形式自动发送到 Azure AD。将所需 URL 添加到 Intranet 区域的最简单方法是在 Active Directory 中创建组策略。
 
@@ -121,7 +121,7 @@ Azure AD Connect 提供了一个简单的过程来启用带直通身份验证或
 ## 排查单一登录问题
 请务必确保客户端正确配置单一登录，其中包括：
 
-1. 在 Intranet 区域内定义了 https://autologon.microsoftazuread-sso.com 和 https://aadg.chinacloudapi.cn.nsatc.net。
+1. 在 Intranet 区域内定义了 https://autologon.microsoftazuread-sso.com 和 https://aadg.chinacloudapi.cn.nsatc.net 。
 2. 确保工作站加入到域。
 3. 确保用户使用域帐户登录。
 4. 请确保计算机已连接到公司网络。

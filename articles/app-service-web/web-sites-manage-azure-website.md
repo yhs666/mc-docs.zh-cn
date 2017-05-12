@@ -23,7 +23,7 @@ ms.lasthandoff: 04/28/2017
 
 ---
 # <a name="manage-a-web-app-in-azure-app-service"></a>管理 Azure App Service 中的 Web 应用
-本主题包含用于管理 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services)中 Web 应用的资源链接。 管理包括维持 Web 应用平稳运行的所有任务。 
+本主题包含用于管理 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)中 Web 应用的资源链接。 管理包括维持 Web 应用平稳运行的所有任务。 
 
 在整个 Web 应用使用期内，您将执行各种管理任务，从初始部署到正常操作、维护与更新。
 

@@ -83,7 +83,7 @@ ms.author: cephalin
     php artisan serve
     ```
 
-    现在可以在浏览器中导航到 http://localhost:8000， 并查看 Laravel 初始屏幕。
+    现在可以在浏览器中导航到 http://localhost:8000 ， 并查看 Laravel 初始屏幕。
 
     ![在将应用部署到 Azure 之前在本地测试你的 PHP (Laravel) 应用](./media/app-service-web-php-get-started/laravel-splash-screen.png)  
 

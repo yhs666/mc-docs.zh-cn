@@ -153,7 +153,7 @@ Get-AzureApplicationGateway AppGwTest
 
 * **Name** - 自定义探测的引用名称。
 * **Protocol** - 使用的协议（可能的值为 HTTP 或 HTTPS）。
-* **Host** 和 **Path** - 应用程序网关为了确定实例运行状况而调用的完整 URL 路径。例如，如果网站为 http://contoso.com/，则可以为“http://contoso.com/path/custompath.htm”配置自定义探测，使探测检查能够获得成功的 HTTP 响应。
+* **Host** 和 **Path** - 应用程序网关为了确定实例运行状况而调用的完整 URL 路径。例如，如果网站为 http://contoso.com/ ，则可以为 "http://contoso.com/path/custompath.htm" 配置自定义探测，使探测检查能够获得成功的 HTTP 响应。
 * **Interval** - 配置探测检查间隔，以秒为单位。
 * **Timeout** - 定义 HTTP 响应检查的探测超时。
 * **UnhealthyThreshold** - 将后端实例标记为*不正常* 所需的失败 HTTP 响应数目。

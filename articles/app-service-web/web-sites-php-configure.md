@@ -24,7 +24,7 @@ ms.lasthandoff: 04/28/2017
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>在 Azure App Service Web Apps 中配置 PHP
 ## <a name="WhatIs"></a> 介绍
-本指南将演示如何执行以下操作：在 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services) 中配置 Web 应用的内置 PHP 运行时，提供自定义 PHP 运行时，并启用扩展。 若要使用应用服务，请注册 [试用版]。 若要充分利用本指南，你应先在应用服务中创建一个 PHP Web 应用。
+本指南将演示如何执行以下操作：在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services) 中配置 Web 应用的内置 PHP 运行时，提供自定义 PHP 运行时，并启用扩展。 若要使用应用服务，请注册 [试用版]。 若要充分利用本指南，你应先在应用服务中创建一个 PHP Web 应用。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 

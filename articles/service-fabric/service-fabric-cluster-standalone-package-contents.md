@@ -44,7 +44,7 @@ ms.author: chackdan;maburlik
 | ClusterConfig.Windows.MultiMachine.json |一个群集配置示例文件，包含使用 Windows 安全性的安全多计算机（或虚拟机）群集的所有设置，包括安全群集中每个计算机的信息。该群集使用 [Windows 标识](https://msdn.microsoft.com/zh-cn/library/ff649396.aspx)进行保护。 |
 | ClusterConfig.x509.DevCluster.json |一个群集配置示例文件，包含安全三节点式单计算机（或虚拟机）开发群集的所有设置，包括群集中每个节点的信息。此群集使用 x509 证书进行保护。 |
 | ClusterConfig.x509.MultiMachine.json |一个群集配置示例文件，包含安全多计算机（或虚拟机）群集的所有设置，包括安全群集中每个节点的信息。此群集使用 x509 证书进行保护。 |
-| ClusterConfig.gMSA.Windows.MultiMachine.json |一个群集配置示例文件，包含安全多计算机（或虚拟机）群集的所有设置，包括安全群集中每个节点的信息。使用 [组托管服务帐户] 保护群集 (https://technet.microsoft.com/zh-cn/library/jj128431(v=ws.11).aspx)。 |
+| ClusterConfig.gMSA.Windows.MultiMachine.json |一个群集配置示例文件，包含安全多计算机（或虚拟机）群集的所有设置，包括安全群集中每个节点的信息。使用 [组托管服务帐户](https://technet.microsoft.com/zh-cn/library/jj128431(v=ws.11).aspx) 保护群集 。 |
 
 # 群集配置示例
 最新版本的群集配置模板可以在以下 Github 页上找到：[独立群集配置示例](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)。

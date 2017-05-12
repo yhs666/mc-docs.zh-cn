@@ -25,7 +25,7 @@ ms.lasthandoff: 04/28/2017
 # <a name="how-to-use-iojs-with-azure-app-service-web-apps"></a>如何将 io.js 与 Azure App Service Web Apps 配合使用
 与 Joyent 的 Node.js 项目相比，流行的 Node 分叉 [io.js] 具有许多不同的特性，包括更加开放的监管模型、更快的发行周期，和更快地采纳新的和试验性的 JavaScript 功能。
 
-虽然 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services) Web 应用预装了许多 Node.js 版本，但它还允许使用用户提供的 Node.js 二进制文件。 本文将讨论在应用服务 Web 应用上启用 io.js 的两种方法：使用扩展的部署脚本（自动将 Azure 配置为使用最新的可用 io.js 版本），以及手动上载 io.js 二进制文件。 
+虽然 [Azure 应用服务](/app-service-web/app-service-changes-existing-services) Web 应用预装了许多 Node.js 版本，但它还允许使用用户提供的 Node.js 二进制文件。 本文将讨论在应用服务 Web 应用上启用 io.js 的两种方法：使用扩展的部署脚本（自动将 Azure 配置为使用最新的可用 io.js 版本），以及手动上载 io.js 二进制文件。 
 
 ## <a id="deploymentscript"></a>使用部署脚本
 在部署 Node.js 应用后，应用服务 Web 应用将运行大量的小命令来确保正确配置环境。 如果使用部署脚本，则可以将此过程自定义为包含 io.js 的下载和配置。
@@ -55,7 +55,7 @@ GitHub 上提供了 [io.js 部署脚本](https://github.com/felixrieseberg/iojs-
 > 
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [io.js]: https://iojs.org
 [io.js 分发包]: https://iojs.org/dist/

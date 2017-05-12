@@ -106,7 +106,7 @@ cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
 tail -f extension.log
 ```
 
-当 CustomScript 扩展完成执行后，你可以浏览找到你创建的 PHP 页面，在本例中将是：*http://lamp-vm.chinacloudapp.cn/phpinfo.php*。
+当 CustomScript 扩展完成执行后，你可以浏览找到你创建的 PHP 页面，在本例中将是：*http://lamp-vm.chinacloudapp.cn/phpinfo.php* 。
 
 ## 其他资源
 

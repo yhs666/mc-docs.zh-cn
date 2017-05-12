@@ -125,7 +125,7 @@ rails server -b 0.0.0.0 -p 3000
     ![默认 rails 页面][default-rails-cloud]  
 
 ## <a id="next"></a> 后续步骤
-在本教程中，手动执行大多数步骤。在生产环境中，可在开发计算机上编写应用，然后将其部署到 Azure VM。此外，大多数生产环境都结合其他服务器进程（如 Apache 或 NginX）托管 Rails 应用程序，这些进程处理路由到多个 Rails 应用程序实例的请求并提供静态资源。有关详细信息，请参阅 http://rubyonrails.org/deploy/。
+在本教程中，手动执行大多数步骤。在生产环境中，可在开发计算机上编写应用，然后将其部署到 Azure VM。此外，大多数生产环境都结合其他服务器进程（如 Apache 或 NginX）托管 Rails 应用程序，这些进程处理路由到多个 Rails 应用程序实例的请求并提供静态资源。有关详细信息，请参阅 http://rubyonrails.org/deploy/ 。
 
 若要详细了解 Ruby on Rails，请参阅 [Ruby on Rails 指南][rails-guides]。
 

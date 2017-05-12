@@ -91,7 +91,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> 单击以下链接执行此请求！登录后，浏览器将重定向到 https://localhost/myapp/，地址栏中会包含一个 ID 令牌。请注意，此请求使用 `response_mode=query`（仅用于演示）。建议使用 `response_mode=form_post`。
+> 单击以下链接执行此请求！登录后，浏览器将重定向到 https://localhost/myapp/ ，地址栏中会包含一个 ID 令牌。请注意，此请求使用 `response_mode=query`（仅用于演示）。建议使用 `response_mode=form_post`。
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
@@ -221,7 +221,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 ```
 
 > [!TIP]
-单击以下链接执行此请求！登录后，浏览器将重定向到 https://localhost/myapp/，地址栏中会包含一个 ID 令牌和一个代码。请注意，此请求使用 `response_mode=query`（仅用于演示）。建议使用 `response_mode=form_post`。<a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+单击以下链接执行此请求！登录后，浏览器将重定向到 https://localhost/myapp/ ，地址栏中会包含一个 ID 令牌和一个代码。请注意，此请求使用 `response_mode=query`（仅用于演示）。建议使用 `response_mode=form_post`。<a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 

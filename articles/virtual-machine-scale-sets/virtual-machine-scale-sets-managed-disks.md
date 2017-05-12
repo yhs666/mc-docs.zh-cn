@@ -21,7 +21,7 @@ ms.author: negat
 
 # Azure VM 规模集和托管磁盘
 
-Azure [虚拟机规模集](/azure/virtual-machine-scale-sets/)现在支持具有托管磁盘的虚拟机。在规模集中使用托管磁盘有以下好处：
+Azure [虚拟机规模集](/virtual-machine-scale-sets/)现在支持具有托管磁盘的虚拟机。在规模集中使用托管磁盘有以下好处：
 
 * 不再需要预先创建和管理存储帐户以存储规模集 VM 的 OS 磁盘。
 
@@ -46,7 +46,7 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 
 ## 后续步骤
 
-若要查找一般情况下有关托管磁盘的详细信息，请参阅[本文](/documentation/articles/storage-managed-disks-overview/)。
+若要查找一般情况下有关托管磁盘的详细信息，请参阅[本文](../storage/storage-managed-disks-overview.md)。
 
 若要了解如何转换 Resource Manager 模板以预配使用托管磁盘的规模集，请参阅[本文](./virtual-machine-scale-sets-convert-template-to-md.md)。对 Resource Manager 模板的修改也适用于 Azure REST API。
 

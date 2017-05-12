@@ -640,7 +640,7 @@ namespace LeaderboardApp
 }
 ```
 
-当你在本地调试时，移动服务将在 IIS Express 上运行。Visual Studio 将分配一个随机端口号，因此本地 URL 为 http://localhost:port，其中 port 为端口号。若要获取端口号，请按 F5 在 Visual Studio 中启动服务，以进行调试。Visual Studio 将启动浏览器，并导航到服务 URL。你也可以在项目属性中的 **Web** 下查找本地 URL。
+当你在本地调试时，移动服务将在 IIS Express 上运行。Visual Studio 将分配一个随机端口号，因此本地 URL 为 http://localhost:port ，其中 port 为端口号。若要获取端口号，请按 F5 在 Visual Studio 中启动服务，以进行调试。Visual Studio 将启动浏览器，并导航到服务 URL。你也可以在项目属性中的 **Web** 下查找本地 URL。
 
 ## 创建主页面
 

@@ -129,7 +129,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 1. 在浏览器中，转到 http://headnodehost:8080 。 `headnodehost` 地址通过隧道发送到群集，并解析为运行 Ambari 的头节点。 出现提示时，请输入群集的管理员用户名 (admin) 和密码。 Ambari Web UI 可能会再次出现提示。 如果出现，请重新输入信息。
 
     > [!NOTE]
-    > 使用 http://headnodehost:8080 地址连接到群集时，将使用 HTTP 通过隧道直接连接到运行 Ambari 的头节点，并使用 SSH 隧道来保护通信安全。 如果在不使用隧道的情况下通过 Internet 进行连接，则使用 HTTPS 来保护通信安全。 若要使用 HTTPS 通过 Internet 进行连接，请使用 https://CLUSTERNAME.azurehdinsight.cn，其中 **CLUSTERNAME** 是群集的名称。
+    > 使用 http://headnodehost:8080 地址连接到群集时，将使用 HTTP 通过隧道直接连接到运行 Ambari 的头节点，并使用 SSH 隧道来保护通信安全。 如果在不使用隧道的情况下通过 Internet 进行连接，则使用 HTTPS 来保护通信安全。 若要使用 HTTPS 通过 Internet 进行连接，请使用 https://CLUSTERNAME.azurehdinsight.cn ，其中 **CLUSTERNAME** 是群集的名称。
 
 2. 在 Ambari Web UI 中，请选择页面左侧列表中的“HDFS”。
 
@@ -146,7 +146,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
     ![NameNode UI 的截图](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
     > [!NOTE]
-    > 请注意此页的 URL，它应类似于 **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.chinacloudapp.cn:8088/cluster**。 此 URL 使用了节点的内部完全限定域名 (FQDN)，在不使用 SSH 隧道的情况下无法访问它。
+    > 请注意此页的 URL，它应类似于 **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.chinacloudapp.cn:8088/cluster** 。 此 URL 使用了节点的内部完全限定域名 (FQDN)，在不使用 SSH 隧道的情况下无法访问它。
     > 
     > 
 

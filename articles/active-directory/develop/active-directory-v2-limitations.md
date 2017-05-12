@@ -92,7 +92,7 @@ v2.0 终结点目前不支持以下类型的应用。有关受支持应用类型
 v2.0 终结点目前支持登录到已在应用程序注册门户中注册的任何应用，前提是该应用已在[支持的身份验证流](./active-directory-v2-flows.md)列表中列出。但是，这些应用只能获取 OAuth 2.0 访问令牌来访问一组非常有限的资源。v2.0 终结点只为以下目的颁发访问令牌仅：
 
 - 请求令牌的应用。如果逻辑应用包含多个不同的组件或层，则应用可为自身获取访问令牌。若要查看此方案的实际运行情况，请参阅[入门](./active-directory-appmodel-v2-overview.md#getting-started)教程。
-- Outlook 邮件、日历和联系人 REST API，全都位于 https://outlook.office.com。若要了解如何编写访问这些 API 的应用，请参阅 [Office 入门](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)教程。
+- Outlook 邮件、日历和联系人 REST API，全都位于 https://outlook.office.com 。若要了解如何编写访问这些 API 的应用，请参阅 [Office 入门](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)教程。
 - Microsoft 图形 API。详细了解 [Microsoft Graph](https://graph.microsoft.io) 和可用的数据。
 
 目前不支持其他服务。将来会添加更多的 Microsoft Online Services，并支持自定义构建的 Web API 和服务。

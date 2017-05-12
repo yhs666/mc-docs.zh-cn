@@ -29,7 +29,7 @@ ms.lasthandoff: 04/28/2017
 
 在本教程中，我们将使用 [Python Tools for Visual Studio] 通过一个 PTVS 样本模板创建简单的轮询 Web 应用。
 
-我们将了解如何使用在 Azure 上托管的 SQL 数据库、如何将 Web 应用配置为使用 SQL 数据库，以及如何将 Web 应用发布到 [Azure App Service Web 应用](/azure/app-service-web/app-service-changes-existing-services)中。
+我们将了解如何使用在 Azure 上托管的 SQL 数据库、如何将 Web 应用配置为使用 SQL 数据库，以及如何将 Web 应用发布到 [Azure App Service Web 应用](/app-service-web/app-service-changes-existing-services)中。
 
 请访问 [Python 开发人员中心] ，查看更多有关使用 PTVS 以及 Bottle、Flask 和 Django Web 框架、Azure 表存储、MySQL、SQL 数据库服务开发 Azure 应用服务 Web 应用的文章。 虽然本文将着重介绍 App Service，但步骤与 [Azure 云服务]的开发步骤类似。
 
@@ -157,7 +157,7 @@ ms.lasthandoff: 04/28/2017
 * [SQL 数据库]
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!--Link references-->
 [Python 开发人员中心]: https://www.azure.cn/develop/python/
@@ -175,4 +175,4 @@ ms.lasthandoff: 04/28/2017
 [Web 项目]: http://go.microsoft.com/fwlink/?LinkId=624027
 [云服务项目]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Django 文档]: https://www.djangoproject.com/
-[SQL 数据库]: /azure/sql-database/
+[SQL 数据库]: /sql-database/

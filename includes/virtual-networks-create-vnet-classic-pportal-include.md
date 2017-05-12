@@ -4,7 +4,7 @@
 
 若要基于上述方案创建经典 VNet，请执行以下步骤。
 
-1. 从浏览器导航到 http://portal.azure.cn，如有必要，请使用 Azure 帐户登录。
+1. 从浏览器导航到 http://portal.azure.cn ，如有必要，请使用 Azure 帐户登录。
 2. 单击**“新建”**>**“网络”**>**“虚拟网络”**，请注意，**“选择部署模型”**列表已显示**“经典”**，然后单击**“创建”**，如下图所示。
 
     ![在门户预览中创建 VNet](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)

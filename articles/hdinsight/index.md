@@ -62,24 +62,6 @@ description: 了解 Hadoop on HDInsight。文档介绍如何使用 Hadoop、Spar
         </div>
         </a>
 </li>
-    <li>
-        <a href="/hdinsight/hdinsight-hadoop-r-server-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>通过将 Spark 群集与 R Server 配合使用，开始使用 HDInsight</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-</li>
      <li>
         <a href="/hdinsight/hdinsight-hbase-tutorial-get-started-linux">
         <div class="cardSize">
@@ -129,7 +111,7 @@ description: 了解 Hadoop on HDInsight。文档介绍如何使用 Hadoop、Spar
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -155,8 +137,8 @@ description: 了解 Hadoop on HDInsight。文档介绍如何使用 Hadoop、Spar
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/hdinsight/">REST API</a></p>
-                        <p><a href="/rest/api/hdinsightspark/">REST API (Spark)</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/hdinsight/">REST API</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/hdinsightspark/">REST API (Spark)</a></p>
                     </div>
                 </div>
             </div>

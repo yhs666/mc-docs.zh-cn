@@ -24,7 +24,7 @@ ms.lasthandoff: 04/28/2017
 # <a name="azure-sdk-for-net-26-release-notes"></a>Azure SDK for .NET 2.6 发行说明
 本文档包含 Azure SDK for .NET 2.6 发行版的发行说明。 
 
-使用 Azure SDK 2.6，你可以开发针对 .NET 4.5.2 或 .NET 4.6 的云服务应用程序 (PaaS)，前提是你在云服务角色上手动安装目标 .NET Framework。 请参阅[在云服务角色上安装 .NET](/azure/cloud-services/cloud-services-dotnet-install-dotnet)。
+使用 Azure SDK 2.6，你可以开发针对 .NET 4.5.2 或 .NET 4.6 的云服务应用程序 (PaaS)，前提是你在云服务角色上手动安装目标 .NET Framework。 请参阅[在云服务角色上安装 .NET](/cloud-services/cloud-services-dotnet-install-dotnet)。
 
 ## <a name="service-bus-updates"></a>Service Bus 更新
 * 事件中心： 
@@ -41,7 +41,7 @@ ms.lasthandoff: 04/28/2017
 
     HDInsight Tools for Visual Studio 现在支持连接到 HDInsight Emulator，因此，你可以在本地开发 Hive 脚本而不会引入任何成本，然后再针对 HDInsight 群集执行这些脚本即可。 
 
-    有关详细信息，请参阅[此手册](/azure/hdinsight/hdinsight-hadoop-emulator-get-started)。
+    有关详细信息，请参阅[此手册](/hdinsight/hdinsight-hadoop-emulator-get-started)。
 * **针对泛型 Hadoop 群集的用于 Visual Studio 的 HDInsight 工具支持**（预览版）
 
     HDInsight Tools for Visual Studio 现在支持泛型 Hadoop 群集，因此，你可以使用 HDInsight Tools for Visual Studio 执行以下操作：
@@ -50,7 +50,7 @@ ms.lasthandoff: 04/28/2017
     * 通过增强型 IntelliSense/自动完成支持编写 Hive 查询； 
     * 在你的群集中通过直观的 UI 查看所有作业。 
 
-    有关详细信息，请参阅[此手册](/azure/hdinsight/hdinsight-hadoop-emulator-get-started)。
+    有关详细信息，请参阅[此手册](/hdinsight/hdinsight-hadoop-emulator-get-started)。
 
 ## <a name="in-role-cache-updates"></a>角色中缓存更新
 * **角色中缓存**已更新，可以使用 **Microsoft Azure 存储 SDK** 版本 4.3。 到目前为止，**角色中缓存**一直在使用 Microsoft Azure 存储 SDK 版本 1.7。
@@ -79,12 +79,12 @@ Azure 资源管理器工具已更新，现在包括适用于虚拟机、网络�
 ## <a name="diagnostics-improvements-for-cloud-services"></a>针对云服务的诊断改进
 Azure SDK 2.6 重新支持在 Azure 计算模拟器中收集诊断日志，并可将其传输到开发存储空间中。 当应用程序在模拟器中运行时生成的任何诊断日志（包括应用程序跟踪日志、Windows 事件跟踪 (ETW) 日志、性能计数器、基础结构日志和 Windows 事件日志）都可以传输到开发存储空间中，以便验证你的诊断日志功能在本地计算机上是否正常工作。 
 
-现在，诊断存储帐户可以在服务配置 (.cscfg) 文件中指定，因此可以更轻松地针对不同环境使用不同的诊断存储帐户。 链接字符串在 Azure SDK 2.4 和 Azure SDK 2.6 中的工作方式有明显的区别。 如需详细了解如何使用诊断存储连接字符串以及它如何影响项目，请参阅[针对 Azure 云服务配置诊断](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。
+现在，诊断存储帐户可以在服务配置 (.cscfg) 文件中指定，因此可以更轻松地针对不同环境使用不同的诊断存储帐户。 链接字符串在 Azure SDK 2.4 和 Azure SDK 2.6 中的工作方式有明显的区别。 如需详细了解如何使用诊断存储连接字符串以及它如何影响项目，请参阅[针对 Azure 云服务配置诊断](/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。
 
 ## <a name="breaking-changes"></a>重大变化
 ### <a name="azure-resource-manager-tools"></a>Azure 资源管理器工具
 * 在 Azure SDK 2.5 中提供的“云部署项目”项目类型已重命名为“Azure 资源组”。
-* 在 Azure SDK 2.5 中创建的项目的“云部署项目”类型可以在 2.6 中使用，但通过 Visual Studio 部署模板会失败。 不过，仍可使用 PowerShell 脚本进行部署，就像以前一样。  有关如何在 2.6 中使用“云部署项目”的信息，请阅读[此文章](/azure/vs-azure-tools-resource-groups-deployment-projects-create-deploy)。
+* 在 Azure SDK 2.5 中创建的项目的“云部署项目”类型可以在 2.6 中使用，但通过 Visual Studio 部署模板会失败。 不过，仍可使用 PowerShell 脚本进行部署，就像以前一样。  有关如何在 2.6 中使用“云部署项目”的信息，请阅读[此文章](/vs-azure-tools-resource-groups-deployment-projects-create-deploy)。
 
 ## <a name="known-issues"></a>已知问题
 * 在模拟器中收集诊断日志需要 64 位操作系统。 在 32 位操作系统上运行时，不会收集诊断日志。 这不会影响任何其他模拟器功能。 

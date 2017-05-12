@@ -35,7 +35,7 @@ Azure 使用 xml 文件定义适用于订阅的所有 VNet。可以下载并编�
 
 若要通过 Azure 经典管理门户使用 netcfg 文件创建 VNet，请完成以下步骤：
 
-1. 从浏览器导航到 http://manage.windowsazure.cn，根据需要使用 Azure 帐户登录。
+1. 从浏览器导航到 http://manage.windowsazure.cn ，根据需要使用 Azure 帐户登录。
 2. 向下滚动服务列表，单击“网络”，然后单击“导出”，如下图所示：
 
     ![Azure 虚拟网络](./media/virtual-networks-create-vnet-classic-portal/networks.png)  

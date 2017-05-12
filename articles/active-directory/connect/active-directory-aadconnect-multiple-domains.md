@@ -64,7 +64,7 @@ ms.author: billmath
 
 因此，在 Azure AD 或 Office 365 上进行身份验证期间，将使用用户令牌中的 IssuerUri 元素来查找 Azure AD 中的域。如果找不到匹配项，身份验证将会失败。
 
-例如，如果用户的 UPN 是 bsimon@bmcontoso.com，AD FS 颁发的令牌中的 IssuerUri 元素将设置为 http://bmcontoso.com/adfs/services/trust。这将与 Azure AD 配置匹配，并且身份验证会成功。
+例如，如果用户的 UPN 是 bsimon@bmcontoso.com，AD FS 颁发的令牌中的 IssuerUri 元素将设置为 http://bmcontoso.com/adfs/services/trust 。这将与 Azure AD 配置匹配，并且身份验证会成功。
 
 以下是实现此逻辑的自定义声明规则：
 
@@ -78,7 +78,7 @@ c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://sche
 > 
 
 ## 如何更新 AD FS 与 Azure AD 之间的信任
-如果未设置 AD FS 与 Azure AD 实例之间的联合信任，可能需要重新创建此信任。这是因为当我们最初未使用 `-SupportMultipleDomain` 参数进行设置时，系统将 IssuerUri 设置为默认值。在以下屏幕截图中，可以看到 IssuerUri 的设置为 https://adfs.bmcontoso.com/adfs/services/trust。
+如果未设置 AD FS 与 Azure AD 实例之间的联合信任，可能需要重新创建此信任。这是因为当我们最初未使用 `-SupportMultipleDomain` 参数进行设置时，系统将 IssuerUri 设置为默认值。在以下屏幕截图中，可以看到 IssuerUri 的设置为 https://adfs.bmcontoso.com/adfs/services/trust 。
 
 回过头来，如果我们已成功地在 Azure AD 门户中添加新域，然后再尝试使用 `Convert-MsolDomaintoFederated -DomainName <your domain>` 转换，我们会收到以下错误。
 
@@ -134,7 +134,7 @@ c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://sche
 ## 子域的支持
 添加子域时，因为 Azure AD 处理域的方式，导致子域继承父项的设置。这表示 IssuerUri 需要与父项匹配。
 
-假设我有 bmcontoso.com，后来再添加 corp.bmcontoso.com。这表示来自 corp.bmcontoso.com 的用户的 IssuerUri 需是 **http://bmcontoso.com/adfs/services/trust.**。但是，根据前述针对 Azure AD 实现的标准规则，生成的令牌的颁发者是 **http://corp.bmcontoso.com/adfs/services/trust.**。由于它与域的所需值不匹配，因此身份验证将会失败。
+假设我有 bmcontoso.com，后来再添加 corp.bmcontoso.com。这表示来自 corp.bmcontoso.com 的用户的 IssuerUri 需是 **http://bmcontoso.com/adfs/services/trust.** 。但是，根据前述针对 Azure AD 实现的标准规则，生成的令牌的颁发者是 **http://corp.bmcontoso.com/adfs/services/trust.** 。由于它与域的所需值不匹配，因此身份验证将会失败。
 
 ### 如何启用子域的支持
 若要解决此问题，需要更新 Microsoft Online 的 AD FS 信赖方信任。为此，你必须配置自定义声明规则，使其在构造自定义 Issuer 值时能够从用户的 UPN 后缀中删除任何子域。

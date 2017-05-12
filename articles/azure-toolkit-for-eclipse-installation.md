@@ -35,7 +35,7 @@ ms.author: robmcm
 
     ![安装 Azure Toolkit for Eclipse][01]  
 
-3. 在“可用软件”对话框的“使用”文本框中，键入**http://dl.microsoft.com/eclipse**，然后按 **Enter **键。
+3. 在“可用软件”对话框的“使用”文本框中，键入**http://dl.microsoft.com/eclipse** ，然后按 **Enter **键。
 4. 在“名称”窗格中，选中“Azure Toolkit for Eclipse”，并取消选中“在安装过程中访问所有更新站点以查找所需的软件”。你的屏幕应与下图中所示类似：
 
     ![安装 Azure Toolkit for Eclipse][02]

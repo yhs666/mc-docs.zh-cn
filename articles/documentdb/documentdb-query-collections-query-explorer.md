@@ -69,7 +69,7 @@ ms.author: kirillg
 ![查询资源管理器查询错误的屏幕截图](./media/documentdb-query-collections-query-explorer/queryerror.png)  
 
 ## 运行门户外部的 DocumentDB SQL 查询
-Azure 门户预览中的查询资源管理器只是一种对 DocumentDB 运行 SQL 查询的方式。还可以使用 [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx) 或[客户端 SDK](./documentdb-sdk-dotnet.md) 运行 SQL 查询。有关使用这些其他方法的详细信息，请参阅[执行 SQL 查询](./documentdb-sql-query.md#executing-sql-queries)
+Azure 门户预览中的查询资源管理器只是一种对 DocumentDB 运行 SQL 查询的方式。还可以使用 [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx) 或[客户端 SDK](./documentdb-sdk-dotnet.md) 运行 SQL 查询。有关使用这些其他方法的详细信息，请参阅[执行 SQL 查询](./documentdb-sql-query.md#ExecutingSqlQueries)
 
 ## 后续步骤
 有关查询资源管理器中支持的 DocumentDB SQL 语法的详细信息，请参阅 [SQL 查询和 SQL 语法](./documentdb-sql-query.md)一文或打印 [SQL 查询速查表](./documentdb-sql-query-cheat-sheet.md)。还可以尝试使用[查询板块](https://www.documentdb.com/sql/demo)，在其中可以使用示例数据集联机测试查询。

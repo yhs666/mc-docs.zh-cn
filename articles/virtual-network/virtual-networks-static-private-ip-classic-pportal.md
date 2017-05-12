@@ -34,7 +34,7 @@ ms.author: jdial
 ## 如何在创建 VM 时指定静态专用 IP 地址
 若要在名为 *TestVNet* 的 VNet 的 *FrontEnd* 子网中使用静态专用 IP *192.168.1.101* 创建名为 *DNS01* 的 VM，请按照以下步骤进行操作：
 
-1. 从浏览器导航到 http://portal.azure.cn，根据需要使用 Azure 帐户登录。
+1. 从浏览器导航到 http://portal.azure.cn ，根据需要使用 Azure 帐户登录。
 2. 单击“新建”>“计算”>“Windows Server 2012 R2 数据中心”（注意“选择部署模型”列表已显示“经典”），然后单击“创建”。
 
     ![在 Azure 门户预览中创建 VM](./media/virtual-networks-static-ip-classic-pportal/figure01.png)

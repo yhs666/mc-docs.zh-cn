@@ -51,7 +51,7 @@ ASP.NET Core 是轻量跨平台的 Web 开发框架，可用于创建现代 Web 
 
 1. 在 Visual Studio 中，按 F5 调试应用。
 
-2. 部署完成后，Visual Studio 将启动浏览器并打开 ASP.NET Web API 服务的根目录，类似于 http://localhost:33003。端口号是随机分配的，可能与你计算机上的端口号不同。ASP.NET Core Web API 模板不提供根目录的默认行为，因此你将在浏览器中收到错误。
+2. 部署完成后，Visual Studio 将启动浏览器并打开 ASP.NET Web API 服务的根目录，类似于 http://localhost:33003 。端口号是随机分配的，可能与你计算机上的端口号不同。ASP.NET Core Web API 模板不提供根目录的默认行为，因此你将在浏览器中收到错误。
 
 3. 将 `/api/values` 添加到浏览器中的位置。这将对 Web API 模板中的 ValuesController 调用 `Get` 方法。它会返回模板提供的默认响应，即包含两个字符串的 JSON 数组：
 
