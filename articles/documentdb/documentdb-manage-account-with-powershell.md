@@ -218,7 +218,7 @@ Invoke-AzureRmResourceAction -Action failoverPriorityChange -ResourceType "Micro
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [powershell-install-configure]:../powershell-install-configure.md
-[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet
+[scaling-globally]:./documentdb-distribute-data-globally.md
 [distribute-data-globally]:./documentdb-distribute-data-globally.md
 [azure-resource-groups]:../azure-resource-manager/resource-group-overview.md#resource-groups
 [azure-resource-tags]:../azure-resource-manager/resource-group-using-tags.md
