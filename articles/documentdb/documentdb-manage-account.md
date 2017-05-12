@@ -51,7 +51,7 @@ ms.author: kirillg
 
 ![在 Azure 门户预览中查看并复制访问密钥，密钥边栏选项卡](./media/documentdb-manage-account/copykeys.png)
 
-### 重新生成访问密钥
+### 重新生成访问密钥 <a name="keys"></a>
 你应定期将访问密钥更改为你的 DocumentDB 帐户，使你的连接更安全。分配了两个访问密钥，你可以使用一个访问密钥保持与 DocumentDB 帐户的连接，同时，你可以重新生成另一个访问密钥。
 
 > [!WARNING]

@@ -39,13 +39,13 @@ ms.lasthandoff: 04/14/2017
 | --- | --- |
 | 适用于 Office 365 的多重身份验证 |此版本专门与 Office 365 应用程序配合使用，可以从 Office 365 门户进行管理。 管理员可以[使用双重验证来保护 Office 365 资源](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)。 此版本是 Office 365 订阅的一部分。 |
 | 面向 Azure 管理员的多重身份验证 | Azure 管理员可以免费为其管理员帐户启用双重验证。|
-| Azure 多重身份验证 | Azure 多重身份验证（通常称为“完整”版本）提供了最丰富的功能集。 它通过 [Azure 经典管理门户](https://manage.windowsazure.cn)、高级报告以及对一系列本地和云应用程序的支持，提供额外的配置选项。 Azure 多重身份验证已随附在 Azure Active Directory Premium（P1 与 P2 计划）和企业移动性 + 安全性（E3 和 E5 计划）中，可[在云中或本地](multi-factor-authentication-get-started.md)部署。 |
+| Azure 多重身份验证 | Azure 多重身份验证（通常称为“完整”版本）提供了最丰富的功能集。 它通过 [Azure 经典管理门户](https://manage.windowsazure.cn)、高级报告以及对一系列本地和云应用程序的支持，提供额外的配置选项。 Azure 多重身份验证已随附在 Azure Active Directory Premium（P1 与 P2 计划）和企业移动性 + 安全性（E3 和 E5 计划）中，可[在云中](multi-factor-authentication-get-started-cloud.md)部署。 |
 
 ## <a name="feature-comparison-of-versions"></a>版本功能比较
 下表提供了 Azure 多重身份验证的各个版本中可用的功能列表。
 
 > [!NOTE]
-> 此比较表讨论了每个版本的多重身份验证的部分功能。 如果拥有完整的 Azure 多重身份验证服务，某些功能可能不可用，具体取决于是否在云中使用 [MFA 或本地 MFA](multi-factor-authentication-get-started.md)。
+> 此比较表讨论了每个版本的多重身份验证的部分功能。 如果拥有完整的 Azure 多重身份验证服务，某些功能可能不可用，具体取决于是否在云中使用 [MFA](multi-factor-authentication-get-started-cloud.md)。
 
 
 | 功能 | 适用于 Office 365 的多重身份验证 | 面向 Azure 管理员的多重身份验证 | Azure 多重身份验证 |
