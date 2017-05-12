@@ -25,6 +25,7 @@ description: 了解如何使用 Microsoft Azure 云服务构建和管理功能�
 </li><li><a href="/sql-server-stretch-database/"> <img src="media/index/SQLDatabase.svg" alt="" /><p>SQL Server Stretch Database</p></a>
 </li><li><a href="/documentdb/"> <img src="media/index/DocumentDB.svg" alt="" /><p>DocumentDB</p></a>
 </li><li><a href="/redis-cache/"> <img src="media/index/RedisCache.svg" alt="" /><p>Redis 缓存</p></a>
+</li><li><a href="/mysql/"> <img src="media/index/mysql.svg" alt="" /><p>MySQL Database on Azure</p></a>
 </li></ul><h3>安全性 + 标识</h3><ul><li><a href="/key-vault/"> <img src="media/index/KeyVault.svg" alt="" /><p>密钥保管库</p></a>
 </li><li><a href="/active-directory/"> <img src="media/index/ActiveDirectory.svg" alt="" /><p>Azure Active Directory</p></a>
 </li><li><a href="/multi-factor-authentication/"> <img src="media/index/MultiFactorAuthentication.svg" alt="" /><p>多重身份验证</p></a>
@@ -127,6 +128,8 @@ description: 了解如何使用 Microsoft Azure 云服务构建和管理功能�
 <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardImageOuter"><div class="cardImage"><img src="media/index/DocumentDB.svg" alt="" /></div></div><div class="cardText"><h3>DocumentDB</h3><p>托管 NoSQL 文档数据库即服务</p></div></div></div></div></a>
 </li><li><a href="/redis-cache/">
 <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardImageOuter"><div class="cardImage"><img src="media/index/RedisCache.svg" alt="" /></div></div><div class="cardText"><h3>Redis 缓存</h3><p>进行高吞吐量、低延迟的数据访问以生成快速/可扩展的应用程序</p></div></div></div></div></a>
+</li><li><a href="/mysql/">
+<div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardImageOuter"><div class="cardImage"><img src="media/index/mysql.svg" alt="" /></div></div><div class="cardText"><h3>MySQL Database on Azure</h3><p>Azure 提供的一种关系型数据库服务</p></div></div></div></div></a>
 </li></ul></li><li><a href="#analytics">智能 + 分析</a><ul id="analytics" class="cardsA"><li><a href="/hdinsight/">
 <div class="cardSize"><div class="cardPadding"><div class="card"><div class="cardImageOuter"><div class="cardImage"><img src="media/index/HDInsight.svg" alt="" /></div></div><div class="cardText"><h3>HDInsight</h3><p>预配云 Hadoop、Spark、R Server、Hbase 和 Storm 群集</p></div></div></div></div></a>
 </li><li><a href="/stream-analytics/">
