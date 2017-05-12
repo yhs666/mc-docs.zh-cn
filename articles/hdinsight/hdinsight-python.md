@@ -29,9 +29,9 @@ Hive 和 Pig 非常适用于在 HDInsight 中处理数据，但有时需要使�
 
 ## <a name="requirements"></a>要求
 
-* HDInsight 群集
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+* HDInsight 群集
 
     > [!IMPORTANT]
     > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。

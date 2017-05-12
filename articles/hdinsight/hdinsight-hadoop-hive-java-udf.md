@@ -29,9 +29,9 @@ ms.lasthandoff: 04/29/2017
 
 ## <a name="requirements"></a>要求
 
-* HDInsight 群集（基于 Windows 或 Linux）
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+* HDInsight 群集（基于 Windows 或 Linux）
 
     > [!IMPORTANT]
     > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅[弃用 HDInsight 3.2 和 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。

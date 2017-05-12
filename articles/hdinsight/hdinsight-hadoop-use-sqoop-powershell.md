@@ -34,9 +34,10 @@ ms.author: jgao
 ### 先决条件
 在开始本教程前，你必须具有以下项：
 
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 * **配备 Azure PowerShell 的工作站**。
 
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 * **HDInsight 中的 Hadoop 群集**。请参阅[创建群集和 SQL 数据库](./hdinsight-use-sqoop.md#create-cluster-and-sql-database)。
 
 ## 使用 PowerShell 运行 Sqoop
