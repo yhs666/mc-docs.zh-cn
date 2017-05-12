@@ -32,17 +32,17 @@ ms.author: kgremban
 > [!NOTE]
 请注意，IT 部门可能会禁用上述一个或多个选项。如果是这种情况，则在注册过程中无法使用这些选项。
 
-现在，已经确定验证方法，可以开始注册了。使用[设置体验](./multi-factor-authentication-end-user-first-time.md)链接开始逐步完成注册过程。
+现在，已经确定验证方法，可以开始注册了。使用[设置体验](multi-factor-authentication-end-user-first-time.md)链接开始逐步完成注册过程。
 
 ## 如何开始使用多重身份验证
 请选择以下主题之一开始使用。
 
 | 主题 | 说明 |
 |:--- |:--- |
-| [设置体验](./multi-factor-authentication-end-user-first-time.md) |介绍第一次设置多重身份验证的过程。 |
-| [登录体验](./end-user/multi-factor-authentication-end-user-signin.md) |说明使用各种方法（例如电话或应用）登录时可以预期的情况。 |
-| [更改设置](./end-user/multi-factor-authentication-end-user-manage-settings.md) |说明如何更改设置，例如电话号码或首选注册方法。 |
-| [使用移动应用](./end-user/microsoft-authenticator-app-how-to.md) |Microsoft Authenticator 应用适用于 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073)。 |
+| [设置体验](multi-factor-authentication-end-user-first-time.md) |介绍第一次设置多重身份验证的过程。 |
+| [登录体验](multi-factor-authentication-end-user-signin.md) |说明使用各种方法（例如电话或应用）登录时可以预期的情况。 |
+| [更改设置](multi-factor-authentication-end-user-manage-settings.md) |说明如何更改设置，例如电话号码或首选注册方法。 |
+| [使用移动应用](microsoft-authenticator-app-how-to.md) |Microsoft Authenticator 应用适用于 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073)。 |
 
 <!---HONumber=Mooncake_0213_2017-->
 <!--Update_Description: wording update-->

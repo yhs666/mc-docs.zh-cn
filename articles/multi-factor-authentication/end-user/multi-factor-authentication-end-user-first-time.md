@@ -95,8 +95,8 @@ ms.author: kgremban
 4. 单击“Done”（完成）。
 
 ## 后续步骤
-- 更改首选选项并[管理多重身份验证的设置](./end-user/multi-factor-authentication-end-user-manage-settings.md)
-- 查看[Microsoft Authenticator 应用](./end-user/microsoft-authenticator-app-how-to.md)文章，了解快速、安全的身份验证（即便没有手机网络服务）。
+- 更改首选选项并[管理多重身份验证的设置](multi-factor-authentication-end-user-manage-settings.md)
+- 查看[Microsoft Authenticator 应用](microsoft-authenticator-app-how-to.md)文章，了解快速、安全的身份验证（即便没有手机网络服务）。
 
 <!---HONumber=Mooncake_0213_2017-->
 <!--Update_Description: wording update-->

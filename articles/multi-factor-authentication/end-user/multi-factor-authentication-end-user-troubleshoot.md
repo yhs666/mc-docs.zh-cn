@@ -24,7 +24,7 @@ ms.author: kgremban
 
 ## 我的手机丢失或被盗
 
-如果你的手机已丢失或被盗，建议你要求管理员清除你的设置。 以便在你下次登录时再次提示你[设置帐户](./multi-factor-authentication-end-user-first-time.md)。
+如果你的手机已丢失或被盗，建议你要求管理员清除你的设置。 以便在你下次登录时再次提示你[设置帐户](multi-factor-authentication-end-user-first-time.md)。
 
 ## 我的手机上未收到短信或呼叫
 
@@ -40,9 +40,9 @@ ms.author: kgremban
 
     如果你收到了多个验证码，则只有最新的一个验证码才起作用。
 
-如果你没有配置其他方法，请联系管理员并要求他们清除你的设置。你下次登录时，会再次提示你[设置多重身份验证](./multi-factor-authentication-end-user-first-time.md)。
+如果你没有配置其他方法，请联系管理员并要求他们清除你的设置。你下次登录时，会再次提示你[设置多重身份验证](multi-factor-authentication-end-user-first-time.md)。
 
-如果经常因为手机信号弱而导致延迟，建议在你的智能手机上使用 [Microsoft Authenticator 应用](./end-user/microsoft-authenticator-app-how-to.md)。该应用可以生成用来登录的随机安全代码，这些代码不需要手机信号或 Internet 连接。
+如果经常因为手机信号弱而导致延迟，建议在你的智能手机上使用 [Microsoft Authenticator 应用](microsoft-authenticator-app-how-to.md)。该应用可以生成用来登录的随机安全代码，这些代码不需要手机信号或 Internet 连接。
 
 ## 我找不到我的问题的解答。
 
@@ -67,8 +67,8 @@ ms.author: kgremban
 提供这些信息将有助于我们尽快为你解决问题。
 
 ## 相关主题
-- [管理多重身份验证设置](./end-user/multi-factor-authentication-end-user-manage-settings.md)
-- [Microsoft Authenticator 应用程序常见问题解答](./end-user/microsoft-authenticator-app-faq.md)
+- [管理多重身份验证设置](multi-factor-authentication-end-user-manage-settings.md)
+- [Microsoft Authenticator 应用程序常见问题解答](microsoft-authenticator-app-faq.md)
 
 <!---HONumber=Mooncake_0213_2017-->
 <!--Update_Description: link update-->

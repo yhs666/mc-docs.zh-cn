@@ -34,7 +34,7 @@ iOS 和 Android 设备提供此功能，此功能适用于 Microsoft 个人帐�
 
 1. 为帐户启用手机登录。
 
-  - 如果没有 Microsoft 验证器应用，请根据 [Microsoft 验证器页](./end-user/microsoft-authenticator-app-how-to.md)中步骤安装和添加 Microsoft 个人帐户。新添加的帐户将自动启用，因此可以顺利完成后续操作。
+  - 如果没有 Microsoft 验证器应用，请根据 [Microsoft 验证器页](microsoft-authenticator-app-how-to.md)中步骤安装和添加 Microsoft 个人帐户。新添加的帐户将自动启用，因此可以顺利完成后续操作。
 
 2. Microsoft 向手机发送通知。确认该通知可登录到你的帐户。
 
@@ -76,6 +76,6 @@ iOS 和 Android 设备提供此功能，此功能适用于 Microsoft 个人帐�
 ## 后续步骤
 如果尚未下载 Microsoft 验证器应用，请查看相关文档。该应用适用于 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)。在适用于 [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073) 的 Microsoft 验证器应用中可以使用手机登录。
 
-如有关于该应用的一般性问题，请参阅 [Microsoft 验证器常见问题](./end-user/microsoft-authenticator-app-faq.md)
+如有关于该应用的一般性问题，请参阅 [Microsoft 验证器常见问题](microsoft-authenticator-app-faq.md)
 
 <!---HONumber=Mooncake_0306_2017-->
