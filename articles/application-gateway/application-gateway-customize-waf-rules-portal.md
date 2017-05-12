@@ -9,7 +9,7 @@ editor: tysonn
 ms.assetid: 1159500b-17ba-41e7-88d6-b96986795084
 ms.service: application-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: 
 ms.workload: infrastructure-services
