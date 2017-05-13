@@ -1,6 +1,6 @@
 ---
-title: "使用任务依赖关系来基于其他任务的完成情况运行任务 - Azure Batch | Microsoft 文档"
-description: "在 Azure Batch 中创建依赖于其他任务的完成的任务，以处理 MapReduce 样式和类似的大数据工作负荷。"
+title: "使用任务依赖关系来基于其他任务的完成情况运行任务 - Azure 批处理 | Microsoft Docs"
+description: "在 Azure 批处理中创建依赖于其他任务的完成的任务，以处理 MapReduce 样式和类似的大数据工作负荷。"
 services: batch
 documentationcenter: .net
 author: tamram
@@ -15,9 +15,10 @@ ms.workload: big-compute
 ms.date: 03/02/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 573d75feda5e07ce865a4e76ae14054d93a1edc4
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/21/2017
 
 
@@ -37,11 +38,11 @@ ms.lasthandoff: 04/21/2017
 
 用户可以创建依赖于一对一或一对多关系中其他任务的任务。 甚至可以创建一个范围依赖关系，使其中一项任务依赖于特定任务 ID 范围内一组任务的完成。 你可以组合这三种基本方案，以创建多对多关系。
 
-## <a name="task-dependencies-with-batch-net"></a>Batch .NET 的任务依赖关系
-本文讨论如何使用 [Batch .NET][net_msdn] 库配置任务依赖关系。 本文首先说明如何为作业[启用任务依赖关系](#enable-task-dependencies)，然后演示如何[为任务配置依赖关系](#create-dependent-tasks)。 本文还将介绍如何指定一个依赖关系操作，以便在父任务失败时运行依赖任务。 最后介绍 Batch 支持的[依赖关系方案](#dependency-scenarios)。
+## <a name="task-dependencies-with-batch-net"></a>批处理 .NET 的任务依赖关系
+本文讨论如何使用[批处理 .NET][net_msdn] 库配置任务依赖关系。 本文首先说明如何为作业[启用任务依赖关系](#enable-task-dependencies)，然后演示如何[为任务配置依赖关系](#create-dependent-tasks)。 本文还将介绍如何指定一个依赖关系操作，以便在父任务失败时运行依赖任务。 最后介绍批处理支持的[依赖关系方案](#dependency-scenarios)。
 
 ## <a name="enable-task-dependencies"></a>启用任务依赖关系
-若要在批处理应用程序中使用任务依赖关系，必须先将作业配置为使用任务依赖关系。 在 Batch .NET 中，为 [CloudJob][net_cloudjob] 启用任务依赖关系的方法是将其 [UsesTaskDependencies][net_usestaskdependencies] 属性设置为 `true`：
+若要在批处理应用程序中使用任务依赖关系，必须先将作业配置为使用任务依赖关系。 在 批处理 .NET 中，为 [CloudJob][net_cloudjob] 启用任务依赖关系的方法是将其 [UsesTaskDependencies][net_usestaskdependencies] 属性设置为 `true`：
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -54,7 +55,7 @@ unboundJob.UsesTaskDependencies = true;
 在以上代码片段中，“batchClient”是 [BatchClient][net_batchclient] 类的一个实例。
 
 ## <a name="create-dependent-tasks"></a>创建依赖任务
-若要创建一个依赖于一个或多个父任务的完成的任务，可以指定该任务必须“依赖于”其他任务。 在 Batch .NET 中，为 [CloudTask][net_cloudtask].[DependsOn][net_dependson] 属性配置 [TaskDependencies][net_taskdependencies] 类的一个实例：
+若要创建一个依赖于一个或多个父任务的完成的任务，可以指定该任务必须“依赖于”其他任务。 在 批处理 .NET 中，为 [CloudTask][net_cloudtask].[DependsOn][net_dependson] 属性配置 [TaskDependencies][net_taskdependencies] 类的一个实例：
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -68,12 +69,12 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 此代码片段创建任务 ID 为“Flowers”的依赖任务。 “Flowers”任务依赖于“Rain”和“Sun”任务。 “Flowers”任务将计划为仅在“Rain”和“Sun”任务已成功完成后才在计算节点上运行。
 
 > [!NOTE]
-> 当任务处于**已完成**状态并且其**退出代码**为 `0` 时，该任务视为已成功完成。 在 Batch .NET 中，这意味着 [CloudTask][net_cloudtask].[State][net_taskstate] 属性值为 `Completed`，CloudTask 的 [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] 属性值为 `0`。
+> 当任务处于**已完成**状态并且其**退出代码**为 `0` 时，该任务视为已成功完成。 在 批处理 .NET 中，这意味着 [CloudTask][net_cloudtask].[State][net_taskstate] 属性值为 `Completed`，CloudTask 的 [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] 属性值为 `0`。
 > 
 > 
 
 ## <a name="dependency-scenarios"></a>依赖关系方案
-可以在 Azure Batch 中使用三种基本任务依赖关系方案：一对一、一对多和任务 ID 范围依赖关系。 可以组合这些方案以提供第四种方案：多对多。
+可以在 Azure 批处理中使用三种基本任务依赖关系方案：一对一、一对多和任务 ID 范围依赖关系。 可以组合这些方案以提供第四种方案：多对多。
 
 | 方案&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 示例 |  |
 |:---:| --- | --- |
@@ -201,7 +202,7 @@ new CloudTask("B", "cmd.exe /c echo B")
 ```
 
 ## <a name="code-sample"></a>代码示例
-[TaskDependencies][github_taskdependencies] 示例项目是 GitHub 上的 [Azure Batch 代码示例][github_samples]之一。 此 Visual Studio 解决方案演示了：
+[TaskDependencies][github_taskdependencies] 示例项目是 GitHub 上的 [Azure 批处理代码示例][github_samples]之一。 此 Visual Studio 解决方案演示了：
 
 - 如何在作业中启用任务依赖关系
 - 如何创建依赖于其他任务的任务
@@ -209,7 +210,7 @@ new CloudTask("B", "cmd.exe /c echo B")
 
 ## <a name="next-steps"></a>后续步骤
 ### <a name="application-deployment"></a>应用程序部署
-使用 Batch 的[应用程序包](batch-application-packages.md)功能，可以轻松地部署任务在计算节点上执行的应用程序并对其进行版本控制。
+使用批处理的[应用程序包](batch-application-packages.md)功能，可以轻松地部署任务在计算节点上执行的应用程序并对其进行版本控制。
 
 ### <a name="installing-applications-and-staging-data"></a>安装应用程序和暂存数据
 有关准备节点以运行任务的方法概述，请参阅 Azure 批处理论坛中的 [Installing applications and staging data on Batch compute nodes][forum_post]（在批处理计算节点上安装应用程序和暂存数据）。 此帖子由某个 Azure 批处理团队成员编写，是一篇很好的入门教程，介绍如何使用不同的方法将应用程序、任务输入数据和其他文件复制到计算节点。
