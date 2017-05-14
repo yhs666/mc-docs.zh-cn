@@ -15,9 +15,10 @@ ms.workload: tbd
 ms.date: 03/08/2017
 wacn.date: 
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: b3850085b778f502ac5b0dfada958ecf51672c08
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -100,7 +101,7 @@ Azure Redis 缓存在“设置”边栏选项卡上提供以下设置。
 
 ![Redis 缓存 Maxmemory 策略](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
- 允许从以下逐出策略中进行选择：
+**Maxmemory 策略**允许从以下逐出策略中进行选择：
 
 * `volatile-lru` - 这是默认值。
 * `allkeys-lru`
@@ -226,7 +227,7 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 
 导入可用于从任何云或环境中运行的任何 Redis 服务器引入与 Redis 兼容的 RDB 文件，包括在 Linux、Windows 上运行的 Redis 或任何云提供程序（如 Amazon Web Services 等）。 导入数据是使用预先填充的数据创建缓存的简单方式。 在导入过程中，Azure Redis 缓存从 Azure 存储将 RDB 文件加载到内存中，然后再将密钥插入到缓存中。
 
-使用导出可以将 Azure Redis 缓存中存储的数据导出到与 Redis 兼容的 RDB 文件。 可以使用此功能将一个 Azure Redis 缓存实例中的数据移到另一个 Azure Redis 缓存实例或另一个 Redis 服务器。 在导出过程中，将在托管 Azure Redis 缓存服务器实例的 VM 上创建临时文件，并将该文件上载到指定的存储帐户。 导出操作完成后，无论状态为成功还是失败，都会删除临时文件。
+使用导出可以将 Azure Redis 缓存中存储的数据导出到与 Redis 兼容的 RDB 文件。 可以使用此功能将一个 Azure Redis 缓存实例中的数据移到另一个 Azure Redis 缓存实例或另一个 Redis 服务器。 在导出过程中，将在托管 Azure Redis 缓存服务器实例的 VM 上创建临时文件，并将该文件上传到指定的存储帐户。 导出操作完成后，无论状态为成功还是失败，都会删除临时文件。
 
 > [!IMPORTANT]
 > 导入/导出仅适用于高级层缓存。 有关详细信息和说明，请参阅[在 Azure Redis 缓存中导入和导出数据](cache-how-to-import-export-data.md)。
@@ -309,7 +310,7 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 
 “锁定”部分可用来锁定订阅、资源组或资源，以防止组织中的其他用户意外删除或修改关键资源。 有关详细信息，请参阅 [使用 Azure Resource Manager 锁定资源](../azure-resource-manager/resource-group-lock-resources.md)。
 
-Azure 门户预览版中的“用户”部分对基于角色的访问控制 (RBAC) 提供支持，以帮助组织简单准确地满足其访问管理要求。 有关详细信息，请参阅 [Azure 门户预览版中基于角色的访问控制](../active-directory/role-based-access-control-configure.md)。
+Azure 门户预览中的“用户”部分对基于角色的访问控制 (RBAC) 提供支持，以帮助组织简单准确地满足其访问管理要求。 有关详细信息，请参阅 [Azure 门户预览中基于角色的访问控制](../active-directory/role-based-access-control-configure.md)。
 
 单击“导出模板”可生成并导出已部署资源的模板，以用于将来部署。 有关使用模板的详细信息，请参阅[使用 Azure Resource Manager 模板部署资源](../azure-resource-manager/resource-group-template-deploy.md)。
 
@@ -320,13 +321,13 @@ Azure 门户预览版中的“用户”部分对基于角色的访问控制 (RBA
 > 无法使用 `StackExchange.Redis.IServer.ConfigSet` 方法更改本部分中的设置。 如果使用此部分中的任一命令调用此方法，将引发如下异常：  
 ><p> 
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
-><p> 任何可配置的值（例如 **max-memory-policy**）都可以通过 Azure 门户预览版或命令行管理工具（例如 Azure CLI 或 PowerShell）进行配置。> 
+><p> 任何可配置的值（例如 **max-memory-policy**）都可以通过 Azure 门户预览或命令行管理工具（例如 Azure CLI 或 PowerShell）进行配置。> 
 
 | 设置 | 默认值 | 说明 |
 | --- | --- | --- |
 | `databases` |16 |默认的数据库数为 16，但可以根据定价层配置不同数目。<sup>1</sup> 默认数据库是 DB 0，可以基于每个连接使用 `connection.GetDatabase(dbid)`（其中 `dbid` 是介于 `0` 和 `databases - 1` 之间的数字）选择其他数据库。 |
 | `maxclients` |取决于定价层<sup>2</sup> |这是同一时间内允许的最大已连接客户端数。 一旦达到该限制，Redis 将在关闭所有新连接的同时返回“达到客户端最大数量”的错误。 |
-| `maxmemory-policy` |`volatile-lru` |Maxmemory 策略是达到 `maxmemory`（创建缓存时所选缓存服务的大小）时，Redis 将根据它选择要删除内容的设置。 Azure Redis 缓存的默认设置为 `volatile-lru`，此设置使用 LRU 算法删除具有过期设置的密钥。 可以在 Azure 门户预览版中配置此设置。 有关详细信息，请参阅 [Maxmemory-policy 和 maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)。 |
+| `maxmemory-policy` |`volatile-lru` |Maxmemory 策略是达到 `maxmemory`（创建缓存时所选缓存服务的大小）时，Redis 将根据它选择要删除内容的设置。 Azure Redis 缓存的默认设置为 `volatile-lru`，此设置使用 LRU 算法删除具有过期设置的密钥。 可以在 Azure 门户预览中配置此设置。 有关详细信息，请参阅 [Maxmemory-policy 和 maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)。 |
 | `maxmemory-sample`s |3 |LRU 算法和最小 TTL 算法都是近似算法而不是精确算法，这是为了节省内存。 默认情况下，Redis 会检查三个密钥并选取最近使用较少的一个。 |
 | `lua-time-limit` |5,000 |Lua 脚本的最大执行时间（以毫秒为单位）。 如果达到最大执行时间，Redis 会记录达到最大允许时间后仍继续执行的脚本，并开始在查询答复时出现错误。 |
 | `lua-event-limit` |500 |脚本事件队列的最大大小。 |
@@ -380,11 +381,11 @@ Azure 门户预览版中的“用户”部分对基于角色的访问控制 (RBA
 ><p> 
 ><p> * BGREWRITEAOF
 ><p> * BGSAVE
-><p> * 配置
-><p> * 调试
-><p> * 迁移
-><p> * 保存
-><p> * 关机
+><p> * CONFIG
+><p> * DEBUG
+><p> * MIGRATE
+><p> * SAVE
+><p> * SHUTDOWN
 ><p> * SLAVEOF
 ><p> * CLUSTER - 群集写命令已禁用，但允许使用只读群集命令。> 
 

@@ -15,16 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 7e9933106c3f2ccf8af8f3f08f10751e52850f56
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>创建和修改 ExpressRoute 线路的对等互连（经典）
 > [!div class="op_single_selector"]
-> * [资源管理器 - Azure 门户](./expressroute-howto-routing-portal-resource-manager.md)
+> * [Resource Manager - Azure 门户](./expressroute-howto-routing-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](./expressroute-howto-routing-arm.md)
 > * [经典 - PowerShell](./expressroute-howto-routing-classic.md)
 >

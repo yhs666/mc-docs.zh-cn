@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: becb0ba865157970cc0c19c757d8e2f9d6a34794
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---

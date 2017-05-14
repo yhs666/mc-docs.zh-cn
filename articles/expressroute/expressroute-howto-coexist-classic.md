@@ -15,15 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 73b0248c2a549c009b4a9f4716f6ab8ead765182
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>配置 ExpressRoute 和站点到站点并存连接（经典）
 > [!div class="op_single_selector"]
->- [PowerShell - 资源管理器](./expressroute-howto-coexist-resource-manager.md/)
+>- [PowerShell - Resource Manager](./expressroute-howto-coexist-resource-manager.md/)
 >- [PowerShell - 经典](./expressroute-howto-coexist-classic.md/)
 > 
 > 
@@ -120,9 +121,9 @@ ms.lasthandoff: 04/22/2017
           </VirtualNetworkSite>
         ```
 
-3. 在创建并配置 xml 架构文件之后，将文件上载。 这将创建你的虚拟网络。
+3. 在创建并配置 xml 架构文件之后，将文件上传。 这将创建你的虚拟网络。
 
-    使用以下 cmdlet 上载文件，并将值替换为你自己的值。
+    使用以下 cmdlet 上传文件，并将值替换为你自己的值。
 
     ```
     Set-AzureVNetConfig -ConfigurationPath 'C:\NetworkConfig.xml'

@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 04/12/2017
 wacn.date: 
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 271e380b0c80f5f9ad6bdddb6d63e75b5daa69cf
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -34,7 +35,7 @@ ms.lasthandoff: 04/22/2017
 ## <a name="azure-redis-cache-basics"></a>Azure Redis 缓存基础知识
 本部分中的常见问题介绍了 Azure Redis 缓存的一些基础知识。
 
-* [什么是 Azure Redis Cache？](#what-is-azure-redis-cache)
+* [什么是 Azure Redis 缓存？](#what-is-azure-redis-cache)
 * [使用 Azure Redis 缓存？](#how-can-i-get-started-with-azure-redis-cache)
 
 下面的常见问题介绍了有关 Azure Redis 缓存的基本概念和问题，并在另一个常见问题部分列出了相应回答。
@@ -81,7 +82,7 @@ ms.lasthandoff: 04/22/2017
 ## <a name="prior-cache-offering-faqs"></a>有关之前缓存产品的常见问题
 * [哪种 Azure 缓存产品适合我？](#which-azure-cache-offering-is-right-for-me)
 
-### <a name="what-is-azure-redis-cache"></a> 什么是 Azure Redis Cache？
+### <a name="what-is-azure-redis-cache"></a> 什么是 Azure Redis 缓存？
 Azure Redis 缓存以常用的开放源 [Redis 缓存](http://redis.io)为基础。 这使你可以访问安全、专用的 Redis 缓存，该缓存由 Azure.cn 管理并可从 Azure 内的任何应用程序进行访问。 有关更详细的概述，请参阅 Azure.cn 上的 [Azure Redis 缓存](https://www.azure.cn/home/features/redis-cache/)产品页。
 
 ### <a name="how-can-i-get-started-with-azure-redis-cache"></a> 使用 Azure Redis 缓存？
@@ -207,7 +208,7 @@ Azure Redis 缓存没有本地模拟器，但可以在本地计算机上从 [Red
 ### <a name="cache-commands" id="how-can-i-run-redis-commands"></a> 如何运行 Redis 命令？
 可以使用 [Redis 命令](http://redis.io/commands#)中列出的任何命令，但 [Azure Redis 缓存中不支持的 Redis 命令](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache)所列的命令除外。 可以使用多个选项来运行 Redis 命令。
 
-* 如果采用标准或高级缓存，可以使用 [Redis 控制台](cache-configure.md#redis-console)运行 Redis 命令。 可以通过 Redis 控制台在 Azure 门户预览版中安全地运行 Redis 命令。
+* 如果采用标准或高级缓存，可以使用 [Redis 控制台](cache-configure.md#redis-console)运行 Redis 命令。 可以通过 Redis 控制台在 Azure 门户预览中安全地运行 Redis 命令。
 * 还可以使用 Redis 命令行工具。 若要使用这些工具，请执行以下步骤：
 * 下载 [Redis 命令行工具](https://github.com/MSOpenTech/redis/releases/)。
 * 使用 `redis-cli.exe`连接到缓存。 使用 -h 开关传入缓存终结点，使用 -a 传入密钥，如以下示例中所示：
@@ -268,18 +269,18 @@ Redis 服务器本身不支持 SSL，但 Azure Redis 缓存可以。 如果你�
 #### <a name="stackexchangeredis-best-practices"></a> StackExchange.Redis 最佳做法
 * 将 `AbortConnect` 设置为 false，然后使 ConnectionMultiplexer 自动重新连接。 [请参阅此处了解详细信息](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md)。
 * 重复使用 ConnectionMultiplexer - 不要为每个请求创建一个新的 ConnectionMultiplexe。 建议使用[此处所示](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)的 `Lazy<ConnectionMultiplexer>` 模式。
-* 具有较小值的 Redis 工作性能最佳，因此请考虑将较大数据分成多个密钥。 阅读 [](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) 了解较大值可能引起的问题示例。
+* 具有较小值的 Redis 工作性能最佳，因此请考虑将较大数据分成多个密钥。 阅读[本文](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size)了解较大值可能引起的问题示例。
 * 配置 [ThreadPool 设置](#important-details-about-threadpool-growth) ，以免超时。
 * 将默认 connectTimeout 至少设置为 5 秒。 出现网络故障时，此时间间隔会给 StackExchange.Redis 足够的时间来重新建立连接。
 * 注意与正在运行的不同操作相关的性能成本。 例如，`KEYS` 命令是 O(n) 操作，应当避免。 [redis.io](http://redis.io/commands/) 站点具有关于其支持的每个操作的时间复杂性的详细信息。 单击每个命令以查看每个操作的复杂程度。
 
 #### <a name="configuration-and-concepts"></a> 配置和概念
 * 针对生产系统使用标准层或高级层。 基本层是没有数据复制和 SLA 的单节点系统。 此外，使用至少一个 C1 缓存。 C0 缓存通常用于简单的开发/测试方案。
-* 请记住，Redis 是 **内存中** 数据存储区。 阅读 [](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) ，了解可能出现数据丢失的情况。
+* 请记住，Redis 是 **内存中** 数据存储区。 阅读[本文](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)，了解可能出现数据丢失的情况。
 * 开发您的系统，以便它可以处理 [由于修补和故障转移](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md)出现的连接故障。
 
 #### <a name="performance-testing"></a> 性能测试
-* 使用 `redis-benchmark.exe` 启动以在编写您自己的性能测试前感受可能的吞吐量。 由于 `redis-benchmark` 不支持 SSL，因此在运行测试之前必须[通过 Azure 门户预览版启用非 SSL 端口](cache-configure.md#access-ports)。 例如，请参阅 [如何制定基准和测试缓存的性能？](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+* 使用 `redis-benchmark.exe` 启动以在编写您自己的性能测试前感受可能的吞吐量。 由于 `redis-benchmark` 不支持 SSL，因此在运行测试之前必须[通过 Azure 门户预览启用非 SSL 端口](cache-configure.md#access-ports)。 例如，请参阅 [如何制定基准和测试缓存的性能？](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * 用于测试的客户端 VM 应与 Redis 缓存实例位于同一区域。
 * 建议为客户端使用 Dv2 VM 系列，因为该系列具有更好的硬件，会提供最佳的结果。
 * 确保选择的客户端 VM 至少与正在测试的缓存拥有相同的计算和带宽容量。
@@ -293,7 +294,7 @@ Redis 服务器本身不支持 SSL，但 Azure Redis 缓存可以。 如果你�
 * 这些考量并不意味着不能在 Redis 中存储较大值，只是要注意以下事项。 延迟将会提高。 如果你有一个较大的数据集和一个较小的数据集，则可以使用多个 ConnectionMultiplexer 实例，并根据 [StackExchange.Redis 配置选项有什么作用](#cache-configuration) 部分中所述，为每个实例配置一组不同的超时和重试值。
 
 ### <a name="cache-benchmarking" id="how-can-i-benchmark-and-test-the-performance-of-my-cache"></a> 如何制定基准和测试缓存的性能？
-* [启用缓存诊断](cache-how-to-monitor.md#enable-cache-diagnostics)，以便可以[监视](cache-how-to-monitor.md)缓存的运行状况。 可以在 Azure 门户预览版中查看指标，也可以使用所选的工具 [下载和查看](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) 这些指标。
+* [启用缓存诊断](cache-how-to-monitor.md#enable-cache-diagnostics)，以便可以[监视](cache-how-to-monitor.md)缓存的运行状况。 可以在 Azure 门户预览中查看指标，也可以使用所选的工具 [下载和查看](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) 这些指标。
 * 可以使用 redis-benchmark.exe 对 Redis 服务器进行负载测试。
 * 确保负载测试客户端和 Redis 缓存位于同一区域。
 * 使用 redis-cli.exe，并使用 INFO 命令监视缓存。
@@ -357,7 +358,7 @@ CLR 线程池具有两种类型的线程 —“辅助角色”和“I/O 完成�
 * [垃圾回收和性能](https://msdn.microsoft.com/library/ee851764.aspx)
 
 ### <a name="cache-monitor" id="how-do-i-monitor-the-health-and-performance-of-my-cache"></a> 如何监视缓存的运行状况和性能？
-可以在 [Azure 门户预览版](https://portal.azure.cn)中监视 Azure Redis 缓存实例。 可以查看度量值、将度量值图表固定到启动板、自定义监视图表的日期和时间范围、在图表中添加和删除度量值，以及设置符合特定条件时发出的警报。 有关详细信息，请参阅 [Monitor Azure Redis Cache](cache-how-to-monitor.md)（监视 Azure Redis 缓存）。
+可以在 [Azure 门户预览](https://portal.azure.cn)中监视 Azure Redis 缓存实例。 可以查看度量值、将度量值图表固定到启动板、自定义监视图表的日期和时间范围、在图表中添加和删除度量值，以及设置符合特定条件时发出的警报。 有关详细信息，请参阅 [Monitor Azure Redis Cache](cache-how-to-monitor.md)（监视 Azure Redis 缓存）。
 
 Redis 缓存**资源菜单**中还包含了用于对缓存进行监视和故障排除的几个工具。
 

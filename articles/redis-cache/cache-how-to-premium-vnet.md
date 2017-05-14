@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 04/12/2017
 wacn.date: 
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 26aa5eae7d569770bb383b8c39b368dd47a85196
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -40,7 +41,7 @@ Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚�
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-选择高级定价层后，可以通过选择与缓存相同的订阅和位置中的 VNet，来配置 Redis VNet 集成。 若要使用新 VNet，请先创建 VNet，方法是遵循[使用 Azure 门户预览版创建虚拟网络](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)或[使用 Azure 门户预览版创建虚拟网络（经典）](../virtual-network/virtual-networks-create-vnet-classic-portal.md)中的步骤，然后返回“新建 Redis 缓存”边栏选项卡来创建和配置高级缓存。
+选择高级定价层后，可以通过选择与缓存相同的订阅和位置中的 VNet，来配置 Redis VNet 集成。 若要使用新 VNet，请先创建 VNet，方法是遵循[使用 Azure 门户预览创建虚拟网络](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)或[使用 Azure 门户预览创建虚拟网络（经典）](../virtual-network/virtual-networks-create-vnet-classic-portal.md)中的步骤，然后返回“新建 Redis 缓存”边栏选项卡来创建和配置高级缓存。
 
 若要为新缓存配置 VNet，请单击“新建 Redis 缓存”边栏选项卡上的“虚拟网络”，然后从下拉列表中选择所需的 VNet。
 
@@ -95,7 +96,7 @@ Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚�
 
 | 端口 | 方向 | 传输协议 | 目的 | 远程 IP |
 | --- | --- | --- | --- | --- |
-| 80、443 |出站 |TCP |Azure 存储空间/PKI (Internet) 上的 Redis 依赖关系 |* |
+| 80、443 |出站 |TCP |Azure 存储/PKI (Internet) 上的 Redis 依赖关系 |* |
 | 53 |出站 |TCP/UDP |DNS (Internet/VNet) 上的 Redis 依赖关系 |* |
 | 6379、6380 |入站 |TCP |与 Redis 的客户端通信、Azure 负载均衡 |VIRTUAL_NETWORK、AZURE_LOADBALANCER |
 | 8443 |入站/出站 |TCP |Redis 的实现详细信息 |VIRTUAL_NETWORK |
@@ -108,7 +109,7 @@ Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚�
 
 在虚拟网络中，可能一开始不符合 Azure Redis 缓存的网络连接要求。 在虚拟网络中使用时，Azure Redis 缓存需要以下所有项才能正常运行。
 
-* 与全球 Azure 存储空间终结点建立的出站网络连接。 这包括位于与 Azure Redis 缓存实例相同区域中的终结点，以及位于 **其他** Azure 区域的存储终结点。 Azure 存储终结点在以下 DNS 域之下解析：*table.core.chinacloudapi.cn*、*blob.core.chinacloudapi.cn*、*queue.core.chinacloudapi.cn* 和 *file.core.chinacloudapi.cn*。 
+* 与全球 Azure 存储终结点建立的出站网络连接。 这包括位于与 Azure Redis 缓存实例相同区域中的终结点，以及位于 **其他** Azure 区域的存储终结点。 Azure 存储终结点在以下 DNS 域之下解析：*table.core.chinacloudapi.cn*、*blob.core.chinacloudapi.cn*、*queue.core.chinacloudapi.cn* 和 *file.core.chinacloudapi.cn*。 
 * 与 *ocsp.msocsp.com*、*mscrl.microsoft.com* 和 *crl.microsoft.com* 建立的出站网络连接。 需要此连接才能支持 SSL 功能。
 * 虚拟网络的 DNS 设置必须能够解析前面几点所提到的所有终结点和域。 确保已针对虚拟网络配置并维护有效的 DNS 基础结构即可符合这些 DNS 要求。
 * 与以下 Azure 监视终结点（在下列 DNS 域下进行解析）的出站网络连接：shoebox2-black.shoebox2.metrics.nsatc.net、north-prod2.prod2.metrics.nsatc.net、azglobal-black.azglobal.metrics.nsatc.net、shoebox2-red.shoebox2.metrics.nsatc.net、east-prod2.prod2.metrics.nsatc.net、azglobal-red.azglobal.metrics.nsatc.net。

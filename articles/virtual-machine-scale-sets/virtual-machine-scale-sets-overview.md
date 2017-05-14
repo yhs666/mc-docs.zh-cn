@@ -17,9 +17,10 @@ ms.date: 03/10/2017
 wacn.date: 
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 6424077cd4f43c7abd83c6c4259923f00ce6e6fe
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 04/22/2017
 * [Guy Bowerman 介绍虚拟机规模集](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>创建和管理规模集
-可以在 [Azure 门户预览版](https://portal.azure.cn)中创建规模集，方法是：选择“新建”，然后在搜索栏中键入“规模”。 结果中会列出“虚拟机规模集”。 从这里，可以填写必填字段，自定义和部署规模集。 还可以使用相应的选项根据 CPU 使用率设置基本的自动缩放规则。
+可以在 [Azure 门户预览](https://portal.azure.cn)中创建规模集，方法是：选择“新建”，然后在搜索栏中键入“规模”。 结果中会列出“虚拟机规模集”。 从这里，可以填写必填字段，自定义和部署规模集。 还可以使用相应的选项根据 CPU 使用率设置基本的自动缩放规则。
 
 也可以使用 JSON 模板与 [REST API](https://msdn.microsoft.com/library/mt589023.aspx) 来定义和部署规模集，就像定义和部署单个 Azure Resource Manager VM 一样。 因此，可以使用任何标准的 Azure Resource Manager 部署方法。 有关模板的详细信息，请参阅[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)。
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 04/22/2017
 > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
 
 ## <a name="scaling-a-scale-set-out-and-in"></a>扩大和缩小规模集
-若要在 Azure 门户预览版中更改规模集的容量，可单击“设置”下的“缩放”部分。 
+若要在 Azure 门户预览中更改规模集的容量，可单击“设置”下的“缩放”部分。 
 
 若要在命令行中更改规模集容量，请在 [Azure CLI](https://github.com/Azure/azure-cli) 中使用 **scale** 命令。 例如，使用以下命令可将规模集设置为 10 个 VM 的容量：
 
@@ -69,7 +70,7 @@ Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -Virt
 
 ## <a name="autoscale"></a>自动缩放
 
-在 Azure 门户预览版中创建规模集时，可以选择性地为规模集配置自动缩放设置。 然后，可以根据平均 CPU 使用率增减 VM 数。 
+在 Azure 门户预览中创建规模集时，可以选择性地为规模集配置自动缩放设置。 然后，可以根据平均 CPU 使用率增减 VM 数。 
 
 [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates)（Azure 快速启动模板）中的许多规模集模板定义了自动缩放设置。 也可向现有的规模集添加自动缩放设置。 例如，此 Azure PowerShell 脚本向规模集添加基于 CPU 的自动缩放：
 
@@ -87,7 +88,7 @@ Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGr
 ```
 
 ## <a name="monitoring-your-scale-set"></a>监视规模集
-[Azure 门户预览版](https://portal.azure.cn)列出规模集并显示其属性。 门户还支持管理操作。 可以针对规模集和规模集中的单个 VM 执行这些操作。 该门户还提供了一个可自定义的资源使用情况图。 
+[Azure 门户预览](https://portal.azure.cn)列出规模集并显示其属性。 门户还支持管理操作。 可以针对规模集和规模集中的单个 VM 执行这些操作。 该门户还提供了一个可自定义的资源使用情况图。 
 
 ## <a name="scale-set-scenarios"></a>规模集方案
 本部分列出了一些典型的规模集方案。 一些高级 Azure 服务（如批处理、Service Fabric 和容器服务）使用这些方案。
@@ -118,7 +119,7 @@ Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGr
    云服务辅助角色虽然在平台/运行时支持方面受到限制（仅限 Windows 平台映像）， 但它也包括多项服务，如 VIP 交换，可配置的升级设置，以及特定于运行时/应用部署的设置。 这些服务*尚未*在规模集中提供，或者由 Azure Service Fabric 等其他更高级别 PaaS 服务提供。 可以将规模集视为支持 PaaS 的基础结构。 PaaS 解决方案（例如 [Service Fabric](https://www.azure.cn/home/features/service-fabric/)）基于该基础结构。
 
 ## <a name="scale-set-performance-and-scale-guidance"></a>规模集性能和缩放指南
-* 一个规模集最多支持 1,000 个 VM。 如果创建和上载你自己的自定义 VM 映像，则该限制为 100。 如需使用大型规模集时的注意事项，请参阅[使用大型虚拟机规模集](virtual-machine-scale-sets-placement-groups.md)。
+* 一个规模集最多支持 1,000 个 VM。 如果创建和上传你自己的自定义 VM 映像，则该限制为 100。 如需使用大型规模集时的注意事项，请参阅[使用大型虚拟机规模集](virtual-machine-scale-sets-placement-groups.md)。
 * 无需预先创建 Azure 存储帐户即可使用规模集。 规模集支持 Azure 托管磁盘，因此不需担心因单个存储帐户磁盘数不足而造成的性能问题。 有关详细信息，请参阅 [Azure 虚拟机规模集和托管磁盘](virtual-machine-scale-sets-managed-disks.md)。
 * 可以考虑使用 Azure 高级存储而不是 Azure 存储，以便加快 VM 预配速度、提高 VM 预配时间的可预测性，以及改进 I/O 性能。
 * 可以创建的 VM 数受到在其中进行部署的区域中核心配额的限制。 即使目前用于 Azure 云服务的核心数上限已较高，也仍可能需要联系客户支持来提高计算配额限制。 若要查询配额，请运行以下 Azure CLI 命令：`azure vm list-usage`。 或者，运行以下 PowerShell 命令：`Get-AzureRmVMUsage`。

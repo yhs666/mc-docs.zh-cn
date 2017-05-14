@@ -15,9 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 wacn.date: 
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 6ee59cb73f7d75d016d041df31c51aed689059cd
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -50,7 +51,7 @@ NSG 规则包含以下属性：
 | --- | --- | --- | --- |
 | **Name** |规则的名称。 |必须在区域内唯一。<br/>可以包含字母、数字、下划线、句点和连字符。<br/>必须以字母或数字开头。<br/>必须以字母、数字或下划线结尾。<br/>不能超过 80 个字符。 |一个 NSG 中可以有多个规则，因此请确保遵循命名约定，以便标识规则的功能。 |
 | **协议** |要与规则匹配的协议。 |TCP、UDP 或 * |使用 * 作为协议时，会包括 ICMP（仅限东西通信），以及 UDP 和 TCP，可能会减少所需规则的数量。<br/>同时，使用 * 可能是过于宽泛的方法，因此建议只在必要时使用 *。 |
-| **Source port range** |要与规则匹配的源端口范围。 |单个端口号（从 1 到 65535）、端口范围（示例：1-65535）、或 *（表示所有端口）。 |源端口可以是暂时的。 除非客户端程序在使用特定端口，否则请在大多数情况下使用 *。<br/>尽可能尝试使用端口范围，这样就不需使用多个规则。<br/>不能使用逗号对多个端口或端口范围分组。 |
+| **Source port range** |要与规则匹配的源端口范围。 |单个端口号（从 1 到 65535）、端口范围（示例：1-65635）、或 *（表示所有端口）。 |源端口可以是暂时的。 除非客户端程序在使用特定端口，否则请在大多数情况下使用 *。<br/>尽可能尝试使用端口范围，这样就不需使用多个规则。<br/>不能使用逗号对多个端口或端口范围分组。 |
 | **Destination port range** |要与规则匹配的目标端口范围。 |单个端口号（从 1 到 65535）、端口范围（示例：1-65535）、或 \*（表示所有端口）。 |尽可能尝试使用端口范围，这样就不需使用多个规则。<br/>不能使用逗号对多个端口或端口范围分组。 |
 | **Source address prefix** |要与规则匹配的源地址前缀或标记。 |单个 IP 地址（示例：10.10.10.10）、IP 子网（示例：192.168.1.0/24）、[默认标记](#default-tags)或 *（表示所有地址）。 |考虑使用范围、默认标记和 * 来减少规则数。 |
 | **Destination address prefix** |要与规则匹配的目标地址前缀或标记。 | 单个 IP 地址（示例：10.10.10.10）、IP 子网（示例：192.168.1.0/24）、[默认标记](#default-tags)或 *（表示所有地址）。 |考虑使用范围、默认标记和 * 来减少规则数。 |
@@ -123,9 +124,9 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 ## <a name="implementation"></a>实现
 可以使用以下工具，在 Resource Manager 部署模型或经典部署模型中实现 NSG：
 
-| 部署工具 | 经典 | 资源管理器 |
+| 部署工具 | 经典 | Resource Manager |
 | --- | --- | --- |
-| Azure 门户预览版   | 是 | [是](virtual-networks-create-nsg-arm-pportal.md) |
+| Azure 门户预览   | 是 | [是](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [是](virtual-networks-create-nsg-classic-ps.md) | [是](virtual-networks-create-nsg-arm-ps.md) |
 | Azure CLI **V1**   | [是](virtual-networks-create-nsg-classic-cli.md) | [是](virtual-networks-create-nsg-cli-nodejs.md) |
 | Azure CLI **V2**   | 否 | [是](virtual-networks-create-nsg-arm-cli.md) |

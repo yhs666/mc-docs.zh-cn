@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: baf26cbf12d04df1b41c9d727cd2bdea61c2d4ee
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 

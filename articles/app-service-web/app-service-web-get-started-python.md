@@ -15,9 +15,10 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 wacn.date: 
 ms.author: cfowler
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 522784739f33102805dbf10e91ac387f06591294
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -285,7 +286,7 @@ git push azure master
 
 ## <a name="manage-your-new-azure-web-app"></a>管理新 Azure Web 应用
 
-转到 Azure 门户预览版，查看刚刚创建的 Web 应用。
+转到 Azure 门户预览，查看刚刚创建的 Web 应用。
 
 为此，请登录到 [https://portal.azure.cn](https://portal.azure.cn)。
 
@@ -297,7 +298,7 @@ git push azure master
 
 默认情况下，Web 应用的边栏选项卡显示“概述”页。 在此页中可以查看应用的运行状况。 在此处还可以执行基本的管理任务，例如浏览、停止、启动、重新启动和删除。 边栏选项卡左侧的选项卡显示可以打开的不同配置页。
 
-![Azure 门户预览版中的“应用服务”边栏选项卡](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-detail.png)
+![Azure 门户预览中的“应用服务”边栏选项卡](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-detail.png)
 
 边栏选项卡中的这些选项卡显示了可添加到 Web 应用的许多强大功能。 以下列表只是列出了一部分可用的功能：
 

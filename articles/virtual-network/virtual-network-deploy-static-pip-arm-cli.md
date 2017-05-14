@@ -17,9 +17,10 @@ ms.date: 03/15/2016
 wacn.date: 
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: e01b221f15a937d2e96bdb7ebe001d5e90bdfebb
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/22/2017
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建具有静态公共 IP 地址的 VM
 
 > [!div class="op_single_selector"]
-> * [Azure 门户预览版](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure 门户预览](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
@@ -36,7 +37,7 @@ ms.lasthandoff: 04/22/2017
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-Azure 具有用于创建和处理资源的两个不同的部署模型： [资源管理器和经典](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是经典部署模型。
+Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是经典部署模型。
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 

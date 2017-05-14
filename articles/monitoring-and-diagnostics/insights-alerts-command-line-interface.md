@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 94754c6f0b12312734e8f150fbecb05aec8cce87
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 

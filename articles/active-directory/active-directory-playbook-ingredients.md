@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/12/2017
 ms.author: dstefan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 48894228773f84072664c9b790e1c6367834aa4d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 

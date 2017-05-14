@@ -15,9 +15,10 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 wacn.date: 
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: be452a9b79908daa778484d422e9273d0c9eef93
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -284,7 +285,7 @@ ms.lasthandoff: 04/22/2017
     Install-Package StackExchange.Redis
     ```
 
-    NuGet 程序包会给客户端应用程序下载并添加所需的程序集引用，以访问带 StackExchange.Redis 缓存客户端的 Azure Redis Cache。 如果更愿使用强命名版本的 `StackExchange.Redis` 客户端库，请安装 `StackExchange.Redis.StrongName` 包。
+    NuGet 程序包会给客户端应用程序下载并添加所需的程序集引用，以访问带 StackExchange.Redis 缓存客户端的 Azure Redis 缓存。 如果更愿使用强命名版本的 `StackExchange.Redis` 客户端库，请安装 `StackExchange.Redis.StrongName` 包。
 3. 在“解决方案资源管理器”中，展开“Controllers”文件夹，然后双击“TeamsController.cs”将其打开。
 
     ![团队控制器][cache-teamscontroller]
@@ -728,7 +729,7 @@ ms.lasthandoff: 04/22/2017
 预配完成后，即可将你的应用程序从 Visual Studio 发布到 Azure。
 
 > [!NOTE]
-> 预配期间可能出现的任何错误都会显示在“ **Microsoft.Template** ”边栏选项卡上。 常见错误有：每个订阅的 SQL 服务器太多或免费 App Service 托管计划太多。 解决所有错误，然后单击“Microsoft.Template”边栏选项卡上的“重新部署”或本教程中的“部署到 Azure”按钮，重新启动此过程。
+> 预配期间可能出现的任何错误都会显示在“ **Microsoft.Template** ”边栏选项卡上。 常见错误有：每个订阅的 SQL 服务器太多或免费应用服务托管计划太多。 解决所有错误，然后单击“Microsoft.Template”边栏选项卡上的“重新部署”或本教程中的“部署到 Azure”按钮，重新启动此过程。
 > 
 > 
 
@@ -769,7 +770,7 @@ ms.lasthandoff: 04/22/2017
 ## <a name="delete-the-resources-when-you-are-finished-with-the-application"></a>完成应用程序的操作以后，删除相关资源
 完成示例性的教程应用程序以后，即可删除所用的 Azure 资源，以便节省成本和资源。 如果使用[预配 Azure 资源](#provision-the-azure-resources)部分的“部署到 Azure”按钮，并且所有资源都包含在同一资源组中，则可通过删除资源组这一个操作来删除所有资源。
 
-1. 登录到 [Azure 门户预览版](https://portal.azure.cn)，然后单击“资源组”。
+1. 登录到 [Azure 门户预览](https://portal.azure.cn)，然后单击“资源组”。
 2. 在“筛选项目...”  文本框中键入资源组的名称。
 3. 单击资源组右侧的“...”  。
 4. 单击“删除” 。
@@ -793,7 +794,7 @@ ms.lasthandoff: 04/22/2017
 * 如果你有另一个现成的 Azure Redis 缓存实例，则可使用该实例在本地运行此示例。
 * 如果需要创建 Azure Redis 缓存实例，则可按 [创建缓存](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)中的步骤来执行操作。
 
-选择或创建要使用的缓存后，在 Azure 门户预览版中浏览到该缓存，然后检索缓存的[主机名](cache-configure.md#properties)和[访问密钥](cache-configure.md#access-keys)。 有关说明，请参阅 [配置 Redis 缓存设置](cache-configure.md#configure-redis-cache-settings)。
+选择或创建要使用的缓存后，在 Azure 门户预览中浏览到该缓存，然后检索缓存的[主机名](cache-configure.md#properties)和[访问密钥](cache-configure.md#access-keys)。 有关说明，请参阅 [配置 Redis 缓存设置](cache-configure.md#configure-redis-cache-settings)。
 
 1. 使用所选编辑器打开在本教程的[配置应用程序以使用 Redis 缓存](#configure-the-application-to-use-redis-cache)步骤中创建的 `WebAppPlusCacheAppSecrets.config` 文件。
 2. 编辑 `value` 属性，将 `MyCache.redis.cache.chinacloudapi.cn` 替换为缓存的[主机名](cache-configure.md#properties)，并指定缓存的[主密钥或辅助密钥](cache-configure.md#access-keys)作为密码。
@@ -816,8 +817,8 @@ ms.lasthandoff: 04/22/2017
 * 有关在应用服务中创建 ASP.NET Web 应用的更多示例，请从 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [演示](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)参阅[在 Azure 应用服务中创建和部署 ASP.NET Web 应用](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service)。
     * 有关 HealthClinic.biz 演示的多个快速入门，请参阅 [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)（Azure 开发人员工具快速入门）。
 * 详细了解 [对新数据库使用 Code First](https://msdn.microsoft.com/data/jj193542) 中介绍的本教程所用实体框架需要的方法。
-* 详细了解 [Azure App Service 中的 Web 应用](../app-service-web/app-service-web-overview.md)。
-* 了解如何在 Azure 门户预览版中[监视](cache-how-to-monitor.md)缓存。
+* 详细了解 [Azure 应用服务中的 Web 应用](../app-service-web/app-service-web-overview.md)。
+* 了解如何在 Azure 门户预览中[监视](cache-how-to-monitor.md)缓存。
 * 了解 Azure Redis 缓存高级功能
 
     * [如何为高级 Azure Redis 缓存配置暂留](cache-how-to-premium-persistence.md)

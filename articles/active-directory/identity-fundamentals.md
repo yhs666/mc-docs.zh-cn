@@ -10,9 +10,10 @@ ms.prod:
 ms.service: azure
 ms.technology: 
 ms.assetid: 
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: f837b002ef2f7f4648b76f6eb0550f09172bb197
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---

@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2017
 wacn.date: 
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 35c193e897ad7c441f77d3c1c5bb2c08055ac430
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
