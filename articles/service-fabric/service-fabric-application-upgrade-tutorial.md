@@ -1,5 +1,5 @@
 ---
-title: "Service Fabric 应用升级教程 | Microsoft 文档"
+title: "Service Fabric 应用升级教程 | Azure"
 description: "本文逐步指导你使用 Visual Studio 部署 Service Fabric 应用程序、更改代码以及推出升级版本。"
 services: service-fabric
 documentationcenter: .net
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 04/07/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 7604874e738db6e5a723e6a796573d4cc6870d02
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
+ms.openlocfilehash: 0205ac42106c80c44f77d54ec980ac6fcc806d9c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/14/2017
 Azure Service Fabric 确保只升级已更改的服务，并在整个升级过程中监视应用程序的运行状况，从而可以简化云应用程序的升级过程。 它还能在应用程序发生任何问题时自动回滚到旧版本。 Service Fabric 应用程序升级造成的 *停机时间为零*，因为可以在不停机的情况下升级应用程序。 本教程介绍如何从 Visual Studio 完成滚动升级。
 
 ## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>步骤 1：构建和发布可视对象示例
-首先，从 GitHub 下载[可视对象](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Actors/VisualObjects)应用程序。 然后，右键单击应用程序项目 **VisualObjects**，并从 Service Fabric 菜单项中选择“**发布**”命令生成并发布应用程序。
+首先，从 GitHub 下载[可视对象](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects)应用程序。 然后，右键单击应用程序项目 **VisualObjects**，并从 Service Fabric 菜单项中选择“**发布**”命令生成并发布应用程序。
 
 ![Service Fabric 应用程序的上下文菜单][image1]
 
@@ -82,7 +83,8 @@ Azure Service Fabric 确保只升级已更改的服务，并在整个升级过�
 
 参考[对应用程序升级进行故障排除](service-fabric-application-upgrade-troubleshooting.md)中的步骤来解决应用程序升级时的常见问题。
 
-[image1]: ./media/service-fabric-application-upgrade-tutorial/upgrade7.png
-[image2]: ./media/service-fabric-application-upgrade-tutorial/upgrade1.png
-[image3]: ./media/service-fabric-application-upgrade-tutorial/upgrade5.png
-[image4]: ./media/service-fabric-application-upgrade-tutorial/upgrade6.png
+[image1]: media/service-fabric-application-upgrade-tutorial/upgrade7.png
+[image2]: media/service-fabric-application-upgrade-tutorial/upgrade1.png
+[image3]: media/service-fabric-application-upgrade-tutorial/upgrade5.png
+[image4]: media/service-fabric-application-upgrade-tutorial/upgrade6.png
+
