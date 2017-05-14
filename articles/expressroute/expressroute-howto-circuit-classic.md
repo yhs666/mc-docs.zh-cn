@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eece5b23ce0c05c9e6e8a1938c34faf0383fb06a
 ms.openlocfilehash: 58cd1a83f45a2bcaa1988d7adb4e03a0b153843c
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/25/2017
 
 ---
@@ -110,7 +111,7 @@ PowerShell cmdlet `Get-AzureDedicatedCircuitServiceProvider` 将返回此信息�
     New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium - BillingType MeteredData
 
 
-响应将包含服务密钥。 可以通过运行以下命令获取所有这些参数的详细说明。
+响应将包含服务密钥。 可以通过运行以下命令获取所有这些参数的详细说明：
 
     get-help new-azurededicatedcircuit -detailed
 
@@ -143,7 +144,7 @@ PowerShell cmdlet `Get-AzureDedicatedCircuitServiceProvider` 将返回此信息�
     Sku                              : Standard
     Status                           : Enabled
 
-你可以通过运行以下命令获取所有这些参数的详细说明。
+可以通过运行以下命令获取所有这些参数的详细说明：
 
     get-help get-azurededicatedcircuit -detailed
 

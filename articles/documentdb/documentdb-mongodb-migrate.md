@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 03/06/2017
 wacn.date: 
 ms.author: anhoh
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
 ms.openlocfilehash: f8ff2aaa2d126da6a72597afae014d91b58362e3
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/25/2017
 
 ---

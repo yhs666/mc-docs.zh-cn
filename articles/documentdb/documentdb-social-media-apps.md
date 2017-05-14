@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 03/17/2017
 wacn.date: 
 ms.author: mimig
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
 ms.openlocfilehash: 74ef0635e514f520efec6ffa661ae82fec2d9db9
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/25/2017
 
 ---
@@ -114,7 +115,7 @@ Azure DocumentDB 可确保所有属性通过其自动索引功能进行索引，
 
 我们可以有一个“最新”流（其中帖子按创建日期排序）和一个“最热门”流（其中包括在过去 24 小时内获得了更多赞的帖子），甚至还可以基于逻辑点赞粉丝和兴趣为每个用户实现客户流，且它仍然可以是一个帖子列表。 虽然如何生成这些列表还是一个问题，但读取性能仍然不受阻碍。 一旦我们获得其中一个列表之后，我们就可以使用 [IN 运算符](./documentdb-sql-query.md#WhereClause) 向 DocumentDB 发布单个查询以一次性获取帖子的所有页面。
 
-可以使用 [Azure App Service](https://www.azure.cn/home/features/app-service/) 的后台进程 - [Web 作业](../app-service-web/web-sites-create-web-jobs.md) - 来构建源流。 创建一个帖子后，可以通过使用 [Azure 存储空间](https://www.azure.cn/home/features/storage/) [队列](../storage/storage-dotnet-how-to-use-queues.md)和 Web 作业（通过 [Azure Webjobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) 触发）触发后台处理，从而根据我们自己的自定义逻辑实现流内的帖子传播。 
+可以使用 [Azure 应用服务](https://www.azure.cn/home/features/app-service/)的后台进程 - [Web 作业](../app-service-web/web-sites-create-web-jobs.md) - 来构建源流。 创建一个帖子后，可以通过使用 [Azure 存储](https://www.azure.cn/home/features/storage/)、[队列](../storage/storage-dotnet-how-to-use-queues.md)和 Web 作业（通过 [Azure Webjobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) 触发）触发后台处理，从而根据我们自己的自定义逻辑实现流内的帖子传播。 
 
 通过使用这种相同的技术创建最终一致性环境还可以以延迟方式处理评分和点赞。
 
@@ -261,7 +262,7 @@ DocumentDB 根据给定的**分区键**（定义为文档中的一个属性）�
 
 ![社交网络中各 Azure 服务之间的交互关系图](./media/documentdb-social-media-apps/social-media-apps-azure-solution.png)
 
-事实上，对于此类方案并没有万能方法，而需结合各种卓越的服务共同创建，才能提供绝佳的体验：Azure DocumentDB 的速度和自由性，可用于提供绝佳的社交应用程序；一流搜索解决方案后的智能操作，Azure 搜索；Azure App Service 的灵活性，不仅可以托管与语言无关的应用程序，甚至还可以托管功能强大的后台处理程序；Azure 存储空间和 Azure SQL 数据库的可扩展性，可用于存储大量数据；Azure 机器学习的分析功能，可创建能够为我们的进程提供反馈，并且有助于我们向合适的用户提供合适的内容的知识和智能。
+事实上，对于此类方案并没有万能方法，而需结合各种卓越的服务共同创建，才能提供绝佳的体验：Azure DocumentDB 的速度和自由性，可用于提供绝佳的社交应用程序；一流搜索解决方案后的智能操作，Azure 搜索；Azure 应用服务的灵活性，不仅可以托管与语言无关的应用程序，甚至还可以托管功能强大的后台处理程序；Azure 存储和 Azure SQL 数据库的可扩展性，可用于存储大量数据；Azure 机器学习的分析功能，可创建能够为我们的进程提供反馈，并且有助于我们向合适的用户提供合适的内容的知识和智能。
 
 ## <a name="next-steps"></a>后续步骤
 阅读[为 DocumentDB 中的数据建模](./documentdb-modeling-data.md)一文，了解有关数据建模的详细信息。 如需了解 DocumentDB 其他用例信息，请参阅 [DocumentDB 的常见用例](./documentdb-use-cases.md)。

@@ -16,9 +16,10 @@ ms.workload: big-data
 ms.date: 01/24/2017
 wacn.date: 
 ms.author: jeffstok
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
 ms.openlocfilehash: 04c2e2e321f27491d6995b92e4d105335705b13c
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/25/2017
 
 ---

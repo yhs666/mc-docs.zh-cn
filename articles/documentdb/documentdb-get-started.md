@@ -16,9 +16,10 @@ ms.topic: hero-article
 ms.date: 03/19/2017
 wacn.date: 
 ms.author: anhoh
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
 ms.openlocfilehash: ae2c1d116ced401ce266a32cf8977122a46a8129
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/25/2017
 
 ---
@@ -82,7 +83,7 @@ ms.lasthandoff: 04/25/2017
 很好！ 现在，我们已完成安装，让我们开始编写一些代码。 可以在 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs)上找到本教程的完整代码项目。
 
 ## <a id="Connect"></a>第 3 步：连接到 DocumentDB 帐户
-首先，在 Program.cs 文件中 C# 应用程序的开始位置添加这些引用︰
+首先，在 Program.cs 文件中 C# 应用程序的开始位置添加这些引用：
 
 ```
 using System;
@@ -388,7 +389,7 @@ await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakef
 
 祝贺你！ 你已成功创建了两个 DocumentDB 文档。  
 
-![说明 NoSQL 教程创建 C# 控制台应用程序所用帐户、联机数据库、集合和文档的层次关系的图表。](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![说明 NoSQL 教程创建 C# 控制台应用程序所用帐户、联机数据库、集合和文档的层次关系的图表](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>步骤 7：查询 DocumentDB 资源
 DocumentDB 支持对存储在每个集合中的 JSON 文档进行各种 [查询](./documentdb-sql-query.md) 。  下面的示例代码演示了各种查询（使用 DocumentDB SQL 语法以及 LINQ），我们可以针对上一步中插入的文档执行查询。
@@ -446,7 +447,7 @@ this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
 下图说明了如何对创建的集合调用 DocumentDB SQL 查询语法，相同的逻辑也适用于 LINQ 查询。
 
-![说明 NoSQL 教程创建 C# 控制台应用程序所用查询的范围和意义的图表。](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
+![说明 NoSQL 教程创建 C# 控制台应用程序所用查询的范围和意义的图表](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
 查询中的 [FROM](./documentdb-sql-query.md#FromClause) 关键字是可选的，因为 DocumentDB 查询的范围已限制为单个集合。 因此，“FROM Families f”可与“FROM root r”或者任何其他所选变量名进行交换。 默认情况下，DocumentDB 将推断你选择的 Families、root 或变量名，并默认引用当前集合。
 
