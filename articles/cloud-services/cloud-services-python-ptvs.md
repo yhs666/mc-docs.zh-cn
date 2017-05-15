@@ -44,7 +44,7 @@ Azure 为运行应用程序提供了三种计算模型：[Azure 应用服务中�
 
 > [!NOTE]
 > *想要构建一个简单的网站？*
-如果你的方案只涉及一个简单的网站前端，请考虑使用 Azure 应用服务中的轻型 Web 应用功能。 随着你网站的不断扩大和需求的变化，你可以轻松升级到云服务。 请参阅 <a href="/develop/python/">Python 开发人员中心</a>关于如何在 Azure 应用服务中开发 Web 应用功能的文章。
+如果你的方案只涉及一个简单的网站前端，请考虑使用 Azure App Service 中的轻型 Web Apps 功能。 随着您网站的不断扩大和需求的变化，您可以轻松升级到云服务。 请参阅 <a href="/develop/python/">Python 开发人员中心</a>关于如何在 Azure 应用服务中开发 Web 应用功能的文章。
 <br />
 
 ## <a name="project-creation"></a>创建项目
@@ -64,7 +64,7 @@ Azure 为运行应用程序提供了三种计算模型：[Azure 应用服务中�
 
 ![添加角色命令](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
-你的云服务可以包含用不同语言实现的角色。  例如，可以使用 Django 实现 Python Web 角色，而用使用 Python 或 C# 实现辅助角色。  你可以通过使用服务总线队列或存储队列来轻松地在角色之间进行通信。
+您的云服务可以包含用不同语言实现的角色。  例如，可以使用 Django 实现 Python Web 角色，而用使用 Python 或 C# 实现辅助角色。  你可以通过使用服务总线队列或存储队列来轻松地在角色之间进行通信。
 
 ## <a name="install-python-on-the-cloud-service"></a>在云服务上安装 Python
 
@@ -299,7 +299,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 ## <a name="run-locally"></a>在本地运行
 
-如果你将云服务项目设置为启动项目并按 F5，云服务将在本地 Azure 仿真程序中运行。
+如果您将云服务项目设置为启动项目并按 F5，云服务将在本地 Azure 仿真程序中运行。
 
 虽然 PTVS 支持在仿真程序中启动，调试（例如断点）将无法工作。
 
@@ -317,9 +317,9 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 完成配置设置后，单击 **发布**。
 
-某些进度将显示在输出窗口中，然后你将看到“Microsoft Azure 活动日志”窗口。
+某些进度将显示在输出窗口中，然后您将看到“Microsoft Azure 活动日志”窗口。
 
-![Microsoft Azure 活动日志窗口](./media/cloud-services-python-ptvs/publish-activity-log.png)
+![Microsoft  Azure 活动日志窗口](./media/cloud-services-python-ptvs/publish-activity-log.png)
 
 几分钟即可完成部署，之后 Web 和/或辅助角色可以在 Azure 上运行！
 
@@ -333,7 +333,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 - [云服务项目][]
 
-有关作为 Web 角色和辅助角色使用 Azure 服务（例如使用 Azure 存储或服务总线）的详细信息，请参阅以下文章。
+有关作为 Web 角色和辅助角色使用 Azure 服务（例如使用 Azure 存储空间或服务总线）的详细信息，请参阅以下文章。
 
 - [Blob 服务][]
 - [表服务][]

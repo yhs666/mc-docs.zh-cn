@@ -293,7 +293,7 @@ sudo -i blkid
 > 
 > 
 
-接下来，请在文本编辑器中打开 **/etc/fstab** 文件：
+接下来，请在文本编辑器中打开 **/etc/fstab** 文件。
 
 ```bash
 sudo vi /etc/fstab
