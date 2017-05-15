@@ -226,7 +226,6 @@ HBase 提供了多种方法用于将数据载入表中。  有关详细信息，
 
 有关 HBase Rest 的详细信息，请参阅 [Apache HBase 参考指南](https://hbase.apache.org/book.html#_rest)。
 
->
 > [!NOTE]
 > Thrift 不受 HDInsight 中的 HBase 支持。
 >

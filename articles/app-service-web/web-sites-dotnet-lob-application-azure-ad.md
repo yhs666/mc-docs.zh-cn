@@ -64,7 +64,7 @@ ms.lasthandoff: 04/28/2017
     ![](./media/web-sites-dotnet-lob-application-azure-ad/3-add-sql-database.png)
 7. 在“配置 SQL 数据库”中，单击“新建”以创建 SQL Server 实例。
 8. 在“配置 SQL Server”中，配置你的 SQL Server 实例。 然后，依次单击“确定”、“确定”和“创建”以开始在 Azure 中创建应用。
-9. 在“Azure App Service 活动”中，可以看到应用创建何时完成。 然后，单击“**立即将 &lt;*appname*> 发布到此 Web 应用”，然后单击“**发布**”。 
+9. 在“Azure App Service 活动”中，可以看到应用创建何时完成。 然后，单击“立即将 &lt;*appname*> 发布到此 Web 应用”，然后单击“**发布**”。 
 
     Visual Studio 完成后，将在浏览器中打开发布应用。 
 
@@ -336,7 +336,7 @@ ms.lasthandoff: 04/28/2017
     > * Azure Active Directory 不发送防伪令牌默认所需的 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 。
     > * 如果 Azure Active Directory 是与 AD FS 同步的目录，默认情况下 AD FS 信任不发送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 声明，尽管可以手动配置 AD FS 以发送此声明。
     > <p> 
-    > `ClaimTypes.NameIdentifies` 指定 Azure Active Directory 提供的声明 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`。  > 
+    > `ClaimTypes.NameIdentifies` 指定 Azure Active Directory 提供的声明 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`。
 15. 现在，请发布更改。 右键单击项目，然后单击“发布”。
 16. 单击“设置”，确保提供 SQL 数据库的连接字符串，选择“更新数据库”更改模型的架构，然后单击“发布”。
 
