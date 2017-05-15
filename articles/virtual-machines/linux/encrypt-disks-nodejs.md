@@ -156,7 +156,7 @@ Linux VM 上的虚拟磁盘是使用 [dm-crypt](https://wikipedia.org/wiki/Dm-cr
 
 * 以下 Linux 服务器 SKU - Ubuntu、CentOS、SUSE、SUSE Linux Enterprise Server (SLES) 和 Red Hat Enterprise Linux。
 * 所有资源（例如密钥保管库、存储帐户和 VM）必须在同一个 Azure 区域和订阅中。
-* 标准 A、D、DS、G 和 GS 系列 VM。
+* 标准 A、D 和 DS 系列 VM。
 
 以下方案目前不支持磁盘加密：
 
@@ -311,5 +311,4 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* 有关管理 Azure 密钥保管库的详细信息，包括删除加密密钥和保管库，请参阅 [Manage Key Vault using CLI](../../key-vault/key-vault-manage-with-cli.md)（使用 CLI 管理密钥保管库）。
-* 有关磁盘加密的详细信息，例如准备要上载到 Azure 的已加密自定义 VM，请参阅 [Azure Disk Encryption](../../security/azure-security-disk-encryption.md)（Azure 磁盘加密）。
+* 有关管理 Azure 密钥保管库的详细信息，包括删除加密密钥和保管库，请参阅[使用 CLI 管理密钥保管库](../../key-vault/key-vault-manage-with-cli.md)。
