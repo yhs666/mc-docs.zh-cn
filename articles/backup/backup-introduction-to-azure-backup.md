@@ -13,14 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/27/2017
-ms.author: markgal;trinadhk
+ms.date: 3/13/2017
+ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: e3adb2a1044762e062b9c058772ea78ff909739f
-ms.lasthandoff: 04/14/2017
-
+wacn.date: 
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3ff18e6f95d8bbc27348658bc5fce50c3320cf0a
+ms.openlocfilehash: 70982c3cdecbe8694b4fa9995fb6b80509808b27
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/15/2017
 
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 备份功能概述
@@ -88,15 +89,15 @@ Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 
 | 组件 | Linux（Azure 认可）支持 |
 | --- | --- |
 | Azure 备份 (MARS) 代理 |否（仅限基于 Windows 的代理） |
-| System Center DPM |文件一致性备份仅支持 Hyper-V<br/> （不适用于 Azure VM） |
-| Azure 备份服务器 |文件一致性备份仅支持 Hyper-V<br/> （不适用于 Azure VM） |
-| Azure IaaS VM 备份 |是 |
+| System Center DPM |在 Hyper-V 和 VMWare 上对 Linux 来宾 VM 进行文件一致性备份<br/> （不适用于 Azure VM）<br/> 对 Hyper-V 和 VMWare Linux 来宾 VM 进行 VM 还原 |
+| Azure 备份服务器 |在 Hyper-V 和 VMWare 上对 Linux 来宾 VM 进行文件一致性备份<br/> （不适用于 Azure VM）<br/> 对 Hyper-V 和 VMWare Linux 来宾 VM 进行 VM 还原 |
+| Azure IaaS VM 备份 |应用程序一致性备份，使用[前脚本和后脚本框架](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)<br/> [还原所有 VM 磁盘](https://docs.microsoft.com/azure/backup/backup-azure-restore-vms#restore-backed-up-disks)<br/> [VM 还原](https://docs.microsoft.com/azure/backup/backup-azure-restore-vms#create-a-new-vm-from-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>结合使用高级存储 VM 和 Azure 备份
 Azure 备份可保护高级存储 VM。 Azure 高级存储是基于固态硬盘 (SSD) 的存储，用于支持 I/O 密集型工作负荷。 高级存储很适合虚拟机 (VM) 工作负荷。 有关高级存储的详细信息，请参阅[高级存储：Azure 虚拟机工作负荷的高性能存储](../storage/storage-premium-storage.md)一文。
 
 ### <a name="back-up-premium-storage-vms"></a>备份高级存储 VM
-在备份高级存储 VM 时，备份服务在高级存储帐户中创建名为“AzureBackup-”的临时暂存位置。 暂存位置与恢复点快照大小相同。 请确保存储帐户中存在适用于临时暂存位置的空间。 有关详细信息，请参阅[高级存储限制](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets)一文。 备份作业完成后，将删除暂存位置。 用于暂存位置的存储的价格与所有 [高级存储定价](../storage/storage-premium-storage.md#pricing-and-billing)一致。
+在备份高级存储 VM 时，备份服务在高级存储帐户中创建名为“AzureBackup-”的临时暂存位置。 暂存位置与恢复点快照大小相同。 请确保存储帐户中存在适用于临时暂存位置的空间。 有关详细信息，请参阅[高级存储限制](../storage/storage-premium-storage.md#scalability-and-performance-targets)一文。 备份作业完成后，将删除暂存位置。 用于暂存位置的存储的价格与所有 [高级存储定价](../storage/storage-premium-storage.md#pricing-and-billing)一致。
 
 > [!NOTE]
 > 请不要修改或编辑暂存位置。
@@ -110,7 +111,7 @@ Azure 备份可保护高级存储 VM。 Azure 高级存储是基于固态硬盘 
 Azure 备份可保护托管磁盘 VM。 使用托管磁盘，用户就不需要管理虚拟机的存储帐户，大大简化 VM 预配。
 
 ### <a name="back-up-managed-disk-vms"></a>备份托管磁盘 VM
-在托管磁盘上备份 VM 与备份 Resource Manager VM 并无不同。  通过基于托管磁盘的 RestorePoint 收集，可以在托管磁盘上备份 VM。 Azure 备份目前不支持备份使用 Azure 磁盘加密 (ADE) 加密的托管磁盘 VM。
+在托管磁盘上备份 VM 与备份 Resource Manager VM 并无不同。 在 Azure 门户中，可以直接从虚拟机视图或恢复服务保管库视图中配置备份作业。 通过基于托管磁盘的 RestorePoint 收集，可以在托管磁盘上备份 VM。 Azure 备份目前不支持备份使用 Azure 磁盘加密 (ADE) 加密的托管磁盘 VM。
 
 ### <a name="restore-managed-disk-vms"></a>还原托管磁盘 VM
 Azure 备份允许用户还原使用托管磁盘的完整 VM，或者将托管磁盘还原到 Resource Manager 存储帐户。 在还原过程中，Azure 管理托管磁盘。 你（客户）管理作为还原过程的一部分所创建的存储帐户。
