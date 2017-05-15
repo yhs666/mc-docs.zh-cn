@@ -1,6 +1,6 @@
 ---
-title: "使用 Visual Studio 管理 Azure 云服务项目中的角色 | Azure"
-description: "了解如何使用 Visual Studio 在 Azure 云服务项目中添加和删除角色。"
+title: "使用 Visual Studio 管理 Azure 云服务中的角色 | Microsoft Docs"
+description: "了解如何使用 Visual Studio 在 Azure 云服务中添加和删除角色。"
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
@@ -12,21 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 03/19/2017
+ms.date: 03/21/2017
 wacn.date: 
 ms.author: tarcher
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 41a06a869a71f3d0f38afd0822d2fa59fefcc895
+ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
+ms.openlocfilehash: 523255fe334fb770b1ca83ba4420d67ff5c48737
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 05/12/2017
+
 
 ---
+# <a name="managing-roles-in-azure-cloud-services-with-visual-studio"></a>使用 Visual Studio 管理 Azure 云服务中的角色
+创建 Azure 云服务后，即可向其添加新角色或从中删除现有角色。 你也可以导入现有项目并将其转换为角色。 例如，你可以导入 ASP.NET Web 应用程序并将其指定为 Web 角色。
 
-# <a name="managing-roles-in-azure-cloud-service-projects-with-visual-studio"></a>使用 Visual Studio 管理 Azure 云服务项目中的角色
-创建 Azure 云服务项目后，即可向其添加新角色或从中删除现有角色。 你也可以导入现有项目并将其转换为角色。 例如，你可以导入 ASP.NET Web 应用程序并将其指定为 Web 角色。
-
-## <a name="adding-a-role-to-an-azure-cloud-service-project"></a>将角色添加到 Azure 云服务项目
+## <a name="adding-a-role-to-an-azure-cloud-service"></a>将角色添加到 Azure 云服务
 以下步骤指导如何在 Visual Studio 中将 Web 或辅助角色添加到 Azure 云服务项目。
 
 1. 在 Visual Studio 中创建或打开 Azure 云服务项目。
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/07/2017
 
     ![向 Azure 云服务项目添加角色的菜单选项](./media/vs-azure-tools-cloud-service-project-managing-roles/add-role.png)
 
-## <a name="removing-a-role-from-an-azure-cloud-service-project"></a>从 Azure 云服务项目删除角色
+## <a name="removing-a-role-from-an-azure-cloud-service"></a>从 Azure 云服务删除角色
 以下步骤指导如何在 Visual Studio 中从 Azure 云服务项目删除 Web 或辅助角色。
 
 1. 在 Visual Studio 中创建或打开 Azure 云服务项目。
@@ -48,7 +48,7 @@ ms.lasthandoff: 04/07/2017
 
 1. 右键单击要删除的节点，然后从上下文菜单中选择“删除”。 
 
-    ![向 Azure 云服务项目添加角色的菜单选项](./media/vs-azure-tools-cloud-service-project-managing-roles/remove-role.png)
+    ![向 Azure 云服务添加角色的菜单选项](./media/vs-azure-tools-cloud-service-project-managing-roles/remove-role.png)
 
 ## <a name="readding-a-role-to-an-azure-cloud-service-project"></a>将角色重新添加到 Azure 云服务项目
 如果你从云服务项目中删除了角色，但后来又决定将该角色添加回项目中，则只会添加角色声明和基本特性，如终结点和诊断信息。 不会向 `ServiceDefinition.csdef` 文件或 `ServiceConfiguration.cscfg` 文件添加其他资源或引用。 如果你想添加此类信息，则需要将其手动添加回这些文件中。
@@ -77,4 +77,6 @@ ms.lasthandoff: 04/07/2017
 ```
 
 ## <a name="next-steps"></a>后续步骤
-- [使用 Visual Studio 配置 Azure 云服务的角色](./vs-azure-tools-configure-roles-for-cloud-service.md)
+- [使用 Visual Studio 配置 Azure 云服务的角色](vs-azure-tools-configure-roles-for-cloud-service.md)
+
+
