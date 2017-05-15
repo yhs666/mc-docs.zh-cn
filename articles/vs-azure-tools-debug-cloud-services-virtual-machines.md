@@ -21,7 +21,7 @@ ms.author: tarcher
 # 在 Visual Studio 中调试云服务或虚拟机
 Visual Studio 提供了不同的选项让您调试 Azure 云服务和虚拟机。
 
-## 调试本地计算机上的云服务 <a name="debug-your-cloud-service-on-your-local-compute"></a>
+## 调试本地计算机上的云服务 <a name="debug-your-cloud-service-on-your-local-computer"></a>
 使用 Azure 计算模拟器调试本地计算机上的云服务可为您节省时间和金钱。部署某个服务之前在本地对其进行调试可以提高可靠性和性能，且不会产生计算时间的相关费用。但是，仅当您在 Azure 自身中运行云服务时，某些错误才可能会出现。如果您在发布服务时启用远程调试，然后将调试器附加到角色实例，则可以调试这些错误。
 
 该模拟器模拟 Azure 计算服务并在您的本地环境中运行，使您可以在部署云服务之前对其进行测试和调试。该模拟器将处理角色实例的生命周期，并提供对所模拟资源（如本地存储）的访问。当您从 Visual Studio 调试或运行服务时，Visual Studio 会自动将模拟器作为后台应用程序启动，然后将服务部署到模拟器。当模拟器在本地环境中运行时，您可以使用它来查看服务。可以运行完整版或速成版的模拟器。（从 Azure 2.3 开始，将默认安装速成版的模拟器。） 请参阅[使用 Emulator Express 在本地运行和调试云服务](https://msdn.microsoft.com/zh-cn/library/dn339018.aspx)。
