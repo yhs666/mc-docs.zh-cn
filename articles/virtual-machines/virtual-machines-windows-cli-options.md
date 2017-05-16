@@ -60,7 +60,7 @@ docker run -it azuresdk/azure-cli-python:latest bash
 
 ## <a name="next-steps"></a>后续步骤
 
-[用于 Azure 虚拟机的 CLI 示例](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[用于 Azure 虚拟机的 CLI 示例](virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [用于 Azure Web 应用的 CLI 示例](../app-service-web/app-service-cli-samples.md)
 

@@ -24,9 +24,9 @@ ms.author: iainfou
 本文提供详细的故障排除步骤，用于为基于 Windows 的 Azure 虚拟机诊断和修复复杂的远程桌面错误。
 
 > [!IMPORTANT]
-> 若要排除更常见的远程桌面错误，请务必先阅读[远程桌面的基本故障排除文章](./virtual-machines-windows-troubleshoot-rdp-connection.md)，然后再继续。
+> 若要排除更常见的远程桌面错误，请务必先阅读[远程桌面的基本故障排除文章](virtual-machines-windows-troubleshoot-rdp-connection.md)，然后再继续。
 
-可能会出现远程桌面错误消息，其不同于[基本远程桌面故障排除指南](./virtual-machines-windows-troubleshoot-rdp-connection.md)中介绍的所有特定错误消息。请按照这些步骤确定远程桌面 (RDP) 客户端为何无法连接到 Azure VM 上的 RDP 服务。
+可能会出现远程桌面错误消息，其不同于[基本远程桌面故障排除指南](virtual-machines-windows-troubleshoot-rdp-connection.md)中介绍的所有特定错误消息。请按照这些步骤确定远程桌面 (RDP) 客户端为何无法连接到 Azure VM 上的 RDP 服务。
 
 [!INCLUDE [了解部署模型](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -48,7 +48,7 @@ ms.author: iainfou
 在继续进行详细故障排除前，
 
 - 在 Azure 经典管理门户或 Azure 门户预览中，通过虚拟机的状态检查是否有任何明显问题。
-- 按照[基本故障排除指南中常见 RDP 错误的快速修复步骤](./virtual-machines-windows-troubleshoot-rdp-connection.md#quick-troubleshooting-steps)进行操作。
+- 按照[基本故障排除指南中常见 RDP 错误的快速修复步骤](virtual-machines-windows-troubleshoot-rdp-connection.md#quick-troubleshooting-steps)进行操作。
 
 在执行这些步骤后，尝试通过远程桌面重新连接到 VM。
 
@@ -83,7 +83,7 @@ ms.author: iainfou
 
 ![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_2.png)  
 
-如果没有直接连接到 Internet 的计算机，则可以在资源组或云服务中创建新的 Azure 虚拟机并使用它进行测试。有关详细信息，请参阅[在 Azure 中创建运行 Windows 的虚拟机](./virtual-machines-windows-hero-tutorial.md)。在测试后，可以删除该虚拟机和资源组或云服务。
+如果没有直接连接到 Internet 的计算机，则可以在资源组或云服务中创建新的 Azure 虚拟机并使用它进行测试。有关详细信息，请参阅[在 Azure 中创建运行 Windows 的虚拟机](virtual-machines-windows-hero-tutorial.md)。在测试后，可以删除该虚拟机和资源组或云服务。
 
 如果可以与直接连接到 Internet 的计算机建立远程桌面连接，检查组织的 Intranet 边缘设备中是否有以下问题：
 
@@ -102,14 +102,14 @@ ms.author: iainfou
 > [!NOTE]
 > 对于在资源管理器中创建的虚拟机，请跳转到[来源 4：网络安全组](#source-4-network-security-groups)。
 
-如果同一云服务或虚拟网络中没有其他虚拟机，可自行创建。执行[创建在 Azure 中运行 Windows 的虚拟机](./virtual-machines-windows-hero-tutorial.md)中的步骤。测试完成后，删除测试虚拟机。
+如果同一云服务或虚拟网络中没有其他虚拟机，可自行创建。执行[创建在 Azure 中运行 Windows 的虚拟机](virtual-machines-windows-hero-tutorial.md)中的步骤。测试完成后，删除测试虚拟机。
 
 如果可以通过远程桌面连接到同一云服务或虚拟网络中的虚拟机，请检查以下设置：
 
 - 目标 VM 上远程桌面通信的终结点配置：终结点的专用 TCP 端口必须与 VM 的远程桌面服务正在侦听的 TCP 端口（默认值为 3389）匹配。
 - 目标 VM 上远程桌面通信终结点的 ACL：ACL 可根据源 IP 地址，指定允许或拒绝从 Internet 传入的流量。错误配置 ACL 可能会阻止传入远程桌面流量到达终结点。检查 ACL 以确保允许从代理服务器或其他边缘服务器的公共 IP 地址传入的流量。有关详细信息，请参阅[什么是网络访问控制列表 (ACL)？](../virtual-network/virtual-networks-acl.md)
 
-要检查终结点是否是问题的源，删除当前终结点，然后创建新终结点，并选择范围 49152-65535 中的随机端口作为外部端口号。有关详细信息，请参阅[如何对虚拟机设置终结点](./virtual-machines-windows-classic-setup-endpoints.md)。
+要检查终结点是否是问题的源，删除当前终结点，然后创建新终结点，并选择范围 49152-65535 中的随机端口作为外部端口号。有关详细信息，请参阅[如何对虚拟机设置终结点](virtual-machines-windows-classic-setup-endpoints.md)。
 
 ## <a name="source-4-network-security-groups"></a>来源 4：网络安全组
 
@@ -128,7 +128,7 @@ ms.author: iainfou
 
 ![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_5.png)  
 
-使用 [Azure IaaS (Windows) 诊断程序包](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)查看失败是否是因 Azure 虚拟机本身导致。如果此诊断程序包无法解决**与 Azure VM 的 RDP 连接（需重启）**问题，请按照[本文](./virtual-machines-windows-reset-rdp.md)中的说明操作。本文会重置虚拟机上的远程桌面服务：
+使用 [Azure IaaS (Windows) 诊断程序包](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)查看失败是否是因 Azure 虚拟机本身导致。如果此诊断程序包无法解决**与 Azure VM 的 RDP 连接（需重启）**问题，请按照[本文](virtual-machines-windows-reset-rdp.md)中的说明操作。本文会重置虚拟机上的远程桌面服务：
 
 - 启用“远程桌面”Windows 防火墙默认规则（TCP 端口 3389）。
 - 通过将 HKLM\\System\\CurrentControlSet\\Control\\Terminal Server\\fDenyTSConnections 注册表值设置为 0，启用远程桌面连接。
@@ -207,12 +207,12 @@ Exit-PSSession
 
 [Azure IaaS (Windows) 诊断程序包](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
 
-[如何为 Windows 虚拟机重置密码或远程桌面服务](./virtual-machines-windows-reset-rdp.md)
+[如何为 Windows 虚拟机重置密码或远程桌面服务](virtual-machines-windows-reset-rdp.md)
 
 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 
-[对基于 Linux 的 Azure 虚拟机的 Secure Shell (SSH) 连接进行故障排除](./virtual-machines-linux-troubleshoot-ssh-connection.md)
+[对基于 Linux 的 Azure 虚拟机的 Secure Shell (SSH) 连接进行故障排除](virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-[对在 Azure 虚拟机上运行的应用程序的访问进行故障排除](./virtual-machines-windows-troubleshoot-app-connection.md)
+[对在 Azure 虚拟机上运行的应用程序的访问进行故障排除](virtual-machines-windows-troubleshoot-app-connection.md)
 
 <!---HONumber=Mooncake_Quality_Review_1202_2016-->

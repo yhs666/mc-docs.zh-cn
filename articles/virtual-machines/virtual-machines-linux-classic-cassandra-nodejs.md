@@ -303,7 +303,7 @@ ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
 执行以下操作序列捕获映像：
 
 ##### 1\.预配
-使用命令“sudo waagent -deprovision+user”删除虚拟机实例特定信息。请参阅[如何捕获将用作模板的 Linux 虚拟机](./virtual-machines-linux-classic-capture-image.md)，了解映像捕获过程的详细信息。
+使用命令“sudo waagent -deprovision+user”删除虚拟机实例特定信息。请参阅[如何捕获将用作模板的 Linux 虚拟机](virtual-machines-linux-classic-capture-image.md)，了解映像捕获过程的详细信息。
 
 ##### 2：关闭 VM
 确保突出显示该虚拟机，然后单击底部命令栏中的“关闭”链接。

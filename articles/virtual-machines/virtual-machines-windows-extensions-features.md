@@ -29,13 +29,13 @@ Azure 虚拟机扩展是小型应用程序，可在Azure 虚拟机上提供部�
 
 有许多不同的 Azure VM 扩展可用，每个都有特定用例。一些示例用例包括：
 
-- 使用适用于 Windows 的 DSC 扩展将 PowerShell 所需状态配置应用于虚拟机。有关详细信息，请参阅 [Azure Desired State configuration extension](./virtual-machines-windows-extensions-dsc-overview.md)（Azure Desired State Configuration 扩展）。
+- 使用适用于 Windows 的 DSC 扩展将 PowerShell 所需状态配置应用于虚拟机。有关详细信息，请参阅 [Azure Desired State configuration extension](virtual-machines-windows-extensions-dsc-overview.md)（Azure Desired State Configuration 扩展）。
 - 使用 Datadog 扩展配置 Azure 基础结构监视功能。有关详细信息，请参阅 [Datadog 博客](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)。
-- 使用 Chef 配置 Azure 虚拟机。有关详细信息，请参阅[使用 Chef 自动执行 Azure 虚拟机部署](./virtual-machines-windows-chef-automation.md)。
+- 使用 Chef 配置 Azure 虚拟机。有关详细信息，请参阅[使用 Chef 自动执行 Azure 虚拟机部署](virtual-machines-windows-chef-automation.md)。
 
-除了进程特定的扩展外，自定义脚本扩展也可用于 Windows 和 Linux 虚拟机。适用于 Windows 的自定义脚本扩展允许在虚拟机上运行任何 PowerShell 脚本。在设计需要本机 Azure 工具无法提供的配置的 Azure 部署时，这很有用。有关详细信息，请参阅 [Windows VM 自定义脚本扩展](./virtual-machines-windows-extensions-customscript.md)。
+除了进程特定的扩展外，自定义脚本扩展也可用于 Windows 和 Linux 虚拟机。适用于 Windows 的自定义脚本扩展允许在虚拟机上运行任何 PowerShell 脚本。在设计需要本机 Azure 工具无法提供的配置的 Azure 部署时，这很有用。有关详细信息，请参阅 [Windows VM 自定义脚本扩展](virtual-machines-windows-extensions-customscript.md)。
 
-若要浏览在端到端应用程序部署中使用 VM 扩展的示例，请参阅[将应用程序自动部署到 Azure 虚拟机](./virtual-machines-windows-dotnet-core-1-landing.md)。
+若要浏览在端到端应用程序部署中使用 VM 扩展的示例，请参阅[将应用程序自动部署到 Azure 虚拟机](virtual-machines-windows-dotnet-core-1-landing.md)。
 
 ## 先决条件
 
@@ -44,7 +44,7 @@ Azure 虚拟机扩展是小型应用程序，可在Azure 虚拟机上提供部�
 ### Azure VM 代理
 Azure VM 代理可管理 Azure 虚拟机与 Azure 结构控制器之间的交互。VM 代理负责部署和管理 Azure 虚拟机的许多功能层面，包括运行 VM 扩展。Azure VM 代理预先安装在 Azure 应用商店映像上，并可安装在支持的操作系统上。
 
-有关支持的操作系统和安装说明的信息，请参阅 [Azure 虚拟机代理](./virtual-machines-windows-agent-user-guide.md)。
+有关支持的操作系统和安装说明的信息，请参阅 [Azure 虚拟机代理](virtual-machines-windows-agent-user-guide.md)。
 
 ## 发现 VM 扩展
 有许多不同的 VM 扩展可与 Azure 虚拟机配合使用。若要查看完整列表，请使用 Azure Resource Manager PowerShell 模块运行以下命令。运行此命令时请确保指定所需的位置。
@@ -88,7 +88,7 @@ Cmdlet          Set-AzureRmVMExtension                             2.2.0      Az
 Cmdlet          Set-AzureRmVMSqlServerExtension                    2.2.0      AzureRM.Compute
 ```
 
-以下示例使用自定义脚本扩展从 GitHub 存储库将脚本下载到目标虚拟机上，然后运行该脚本。有关自定义脚本扩展的详细信息，请参阅[自定义脚本扩展概述](./virtual-machines-windows-extensions-customscript.md)。
+以下示例使用自定义脚本扩展从 GitHub 存储库将脚本下载到目标虚拟机上，然后运行该脚本。有关自定义脚本扩展的详细信息，请参阅[自定义脚本扩展概述](virtual-machines-windows-extensions-customscript.md)。
 
 ```
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
@@ -97,7 +97,7 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "China North"
 ```
 
-在此示例中，VM 访问扩展用于重置 Windows 虚拟机的管理密码。有关 VM 访问扩展的详细信息，请参阅[重置 Windows VM 中的远程桌面服务](./virtual-machines-windows-reset-rdp.md)。
+在此示例中，VM 访问扩展用于重置 Windows 虚拟机的管理密码。有关 VM 访问扩展的详细信息，请参阅[重置 Windows VM 中的远程桌面服务](virtual-machines-windows-reset-rdp.md)。
 
 ```
 $cred=Get-Credential
@@ -156,7 +156,7 @@ VM 扩展可添加到 Azure Resource Manager 模板，并在部署模板的过�
 }
 ```
 
-有关详细信息，请参阅[使用 Windows VM 扩展创作 Azure Resource Manager 模板](./virtual-machines-windows-extensions-authoring-templates.md)。
+有关详细信息，请参阅[使用 Windows VM 扩展创作 Azure Resource Manager 模板](virtual-machines-windows-extensions-authoring-templates.md)。
 
 ## 保护 VM 扩展数据
 
@@ -279,8 +279,8 @@ Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name 
 ## 常见 VM 扩展参考
 | 扩展名称 | 说明 | 详细信息 |
 | --- | --- | --- |
-| 适用于 Windows 的自定义脚本扩展 |针对 Azure 虚拟机运行脚本 |[适用于 Windows 的自定义脚本扩展](./virtual-machines-windows-extensions-customscript.md) |
-| 适用于 Windows 的 DSC 扩展 |PowerShell DSC（所需状态配置）扩展 |[适用于 Windows 的 DSC 扩展](./virtual-machines-windows-extensions-dsc-overview.md) |
+| 适用于 Windows 的自定义脚本扩展 |针对 Azure 虚拟机运行脚本 |[适用于 Windows 的自定义脚本扩展](virtual-machines-windows-extensions-customscript.md) |
+| 适用于 Windows 的 DSC 扩展 |PowerShell DSC（所需状态配置）扩展 |[适用于 Windows 的 DSC 扩展](virtual-machines-windows-extensions-dsc-overview.md) |
 | Azure 诊断扩展 |管理 Azure 诊断 |[Azure 诊断扩展](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM 访问扩展 |管理用户和凭据 |[适用于 Linux 的 VM 访问扩展](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 

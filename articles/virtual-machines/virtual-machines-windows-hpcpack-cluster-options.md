@@ -32,24 +32,24 @@ ms.author: danlep
 * （快速入门）[使用自定义计算节点映像创建 HPC 群集](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-custom-image)
 
 ### PowerShell 部署脚本
-* [使用 HPC Pack IaaS 部署脚本创建 HPC 群集](./virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)
+* [使用 HPC Pack IaaS 部署脚本创建 HPC 群集](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)
 
 ### 教程
-* [教程：开始使用 Azure 中的 HPC Pack 群集运行 Excel 和 SOA 工作负荷](./virtual-machines-windows-excel-cluster-hpcpack.md)
+* [教程：开始使用 Azure 中的 HPC Pack 群集运行 Excel 和 SOA 工作负荷](virtual-machines-windows-excel-cluster-hpcpack.md)
 
 ### 使用 Azure 门户预览手动部署
-* [在 Azure VM 中设置 HPC Pack 群集的头节点](./virtual-machines-windows-hpcpack-cluster-headnode.md)
+* [在 Azure VM 中设置 HPC Pack 群集的头节点](virtual-machines-windows-hpcpack-cluster-headnode.md)
 
 ### 群集管理
-* [在 Azure 中管理 HPC Pack 群集的计算节点](./virtual-machines-windows-classic-hpcpack-cluster-node-manage.md)
-* [增加和减少 HPC Pack 群集中的 Azure 计算资源](./virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)
-* [将作业提交到 Azure 中的 HPC Pack 群集](./virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
+* [在 Azure 中管理 HPC Pack 群集的计算节点](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md)
+* [增加和减少 HPC Pack 群集中的 Azure 计算资源](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)
+* [将作业提交到 Azure 中的 HPC Pack 群集](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 * [HPC Pack 中的作业管理](https://technet.microsoft.com/zh-cn/library/jj899585.aspx)
 
 ## 将辅助角色节点添加到 HPC Pack 群集
 * [使用 HPC Pack 迸发到 Azure 辅助角色实例](https://technet.microsoft.com/zh-cn/library/gg481749.aspx)
 * [教程：使用 Azure 中的 HPC Pack 设置混合群集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
-* [将 Azure“突发”节点添加到 Azure 中的 HPC Pack 头节点](./virtual-machines-windows-classic-hpcpack-cluster-node-burst.md)
+* [将 Azure“突发”节点添加到 Azure 中的 HPC Pack 头节点](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md)
 
 ## 与 Azure 批处理集成
 * [使用 HPC Pack 迸发到 Azure Batch](https://technet.microsoft.com/zh-cn/library/mt612877.aspx)

@@ -42,7 +42,7 @@ ms.author: davidmu
 
 ## 网络接口
 
-[网络接口 \(NIC\)](../virtual-network/virtual-network-network-interface.md) 是 VM 与虚拟网络 \(VNet\) 之间互相连接的桥梁。VM 必须至少有一个 NIC，但可以根据所创建 VM 的大小包含多个 NIC。请在 [Azure 中虚拟机的大小](./virtual-machines-windows-sizes.md)中了解每种 VM 大小支持的 NIC 数目。
+[网络接口 \(NIC\)](../virtual-network/virtual-network-network-interface.md) 是 VM 与虚拟网络 \(VNet\) 之间互相连接的桥梁。VM 必须至少有一个 NIC，但可以根据所创建 VM 的大小包含多个 NIC。请在 [Azure 中虚拟机的大小](virtual-machines-windows-sizes.md)中了解每种 VM 大小支持的 NIC 数目。
 
 如果想要创建包含多个 NIC 的 VM，必须创建至少包含两个 NIC 的 VM。创建 VM 后，可以添加更多的 NIC（不超过 VM 大小支持的数目上限），但是，无法将更多 NIC 添加到只包含一个 NIC 的 VM，不管该 VM 大小支持的数目如何。
 
@@ -173,9 +173,9 @@ NSG 包含两种类型的规则：入站规则和出站规则。在每组中，�
 
 | 方法 | 说明 |
 | ------ | ----------- |
-| [Azure 门户预览](./virtual-machines-windows-hero-tutorial.md) | 使用前面所述的默认网络设置创建包含单个 NIC 的 VM。若要创建包含多个 NIC 的 VM，必须使用其他方法。 |
-| [Azure PowerShell](./virtual-machines-windows-quick-create-powershell.md) | 使用 [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v1.3.4/Add-AzureRmVMNetworkInterface) 将事先创建的 NIC 添加到 VM 配置中。 |
-| [模板](./virtual-machines-windows-ps-template.md) | 参考 [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)（非常简单的 Windows VM 部署），使用模板部署 VM。 |
+| [Azure 门户预览](virtual-machines-windows-hero-tutorial.md) | 使用前面所述的默认网络设置创建包含单个 NIC 的 VM。若要创建包含多个 NIC 的 VM，必须使用其他方法。 |
+| [Azure PowerShell](virtual-machines-windows-quick-create-powershell.md) | 使用 [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v1.3.4/Add-AzureRmVMNetworkInterface) 将事先创建的 NIC 添加到 VM 配置中。 |
+| [模板](virtual-machines-windows-ps-template.md) | 参考 [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)（非常简单的 Windows VM 部署），使用模板部署 VM。 |
 
 ## 后续步骤
 

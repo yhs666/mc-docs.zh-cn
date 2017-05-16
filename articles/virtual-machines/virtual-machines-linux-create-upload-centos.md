@@ -30,9 +30,9 @@ ms.author: szark
 
 **CentOS 安装说明**
 
-* 另请参阅[常规 Linux 安装说明](./virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)，了解更多如何为 Azure 准备 Linux 的提示。
+* 另请参阅[常规 Linux 安装说明](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)，了解更多如何为 Azure 准备 Linux 的提示。
 * Azure 不支持 VHDX 格式，仅支持**固定大小的 VHD**。可使用 Hyper-V 管理器或 convert-vhd cmdlet 将磁盘转换为 VHD 格式。如果你使用 VirtualBox，则意味着选择的是“固定大小”，而不是在创建磁盘时动态分配默认大小。
-* 安装 Linux 系统时，*建议*使用标准分区而非 LVM（通常是许多安装的默认值）。这可以避免与克隆 VM 发生 LVM 名称冲突，尤其是在需要将 OS 磁盘连接到另一个同类 VM 进行故障排除时。可在数据磁盘上使用 [LVM](./virtual-machines-linux-configure-lvm.md) 或 [RAID](./virtual-machines-linux-configure-raid.md)。
+* 安装 Linux 系统时，*建议*使用标准分区而非 LVM（通常是许多安装的默认值）。这可以避免与克隆 VM 发生 LVM 名称冲突，尤其是在需要将 OS 磁盘连接到另一个同类 VM 进行故障排除时。可在数据磁盘上使用 [LVM](virtual-machines-linux-configure-lvm.md) 或 [RAID](virtual-machines-linux-configure-raid.md)。
 * 需要装载 UDF 文件系统的内核支持。在 Azure 上首次启动时，预配配置将通过附加到来宾的 UDF 格式媒体传递到 Linux VM。Azure Linux 代理必须能够装载 UDF 文件系统才能读取其配置和预配 VM。
 * 低于 2.6.37 的 Linux 内核版本不支持具有更大 VM 大小的 Hyper-V 上的 NUMA。此问题主要影响使用上游 Red Hat 2.6.32 内核的旧分发版，在 RHEL 6.6 (kernel-2.6.32-504) 中已解决。运行版本低于 2.6.37 的自定义内核的系统，或者版本低于 2.6.32-504 的基于 RHEL 的内核必须在 grub.conf 中的内核命令行上设置启动参数 `numa=off`。有关详细信息，请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
 * 不要在操作系统磁盘上配置交换分区。可以配置 Linux 代理，以便在临时资源磁盘上创建交换文件。有关此操作的详细信息，请参见以下步骤。
@@ -384,7 +384,7 @@ ms.author: szark
 14. 在 Hyper-V 管理器中单击“操作”->“关闭”。Linux VHD 现已准备好上载到 Azure。
 
 ## 后续步骤
-现在，可以使用 CentOS Linux 虚拟硬盘在 Azure 中创建新的 Azure 虚拟机了。如果这是第一次将 .vhd 文件上载到 Azure，请参阅[创建和上载包含 Linux 操作系统的虚拟硬盘](./virtual-machines-linux-classic-create-upload-vhd.md)中的步骤 2 和步骤 3。
+现在，可以使用 CentOS Linux 虚拟硬盘在 Azure 中创建新的 Azure 虚拟机了。如果这是第一次将 .vhd 文件上载到 Azure，请参阅[创建和上载包含 Linux 操作系统的虚拟硬盘](virtual-machines-linux-classic-create-upload-vhd.md)中的步骤 2 和步骤 3。
 
 <!---HONumber=Mooncake_0313_2017-->
 <!--Update_Description: wording update-->

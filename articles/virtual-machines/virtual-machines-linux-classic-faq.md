@@ -22,7 +22,7 @@ ms.author: cynthn
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-关于资源管理器模型的常见问题，请点击[这里](./virtual-machines-linux-faq.md)。
+关于资源管理器模型的常见问题，请点击[这里](virtual-machines-linux-faq.md)。
 
 [!INCLUDE [virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]
 

@@ -20,7 +20,7 @@ ms.author: cynthn
 
 # Windows VM 的计算基准测试分数
 
-以下 SPECInt 基准测试分数显示运行 Windows Server 的 Azure 高性能 VM 产品阵容的计算性能。此外，还提供了 [Linux VM](./virtual-machines-linux-compute-benchmark-scores.md) 的计算基准测试分数。
+以下 SPECInt 基准测试分数显示运行 Windows Server 的 Azure 高性能 VM 产品阵容的计算性能。此外，还提供了 [Linux VM](virtual-machines-linux-compute-benchmark-scores.md) 的计算基准测试分数。
 
 ## Dv2 系列
 
@@ -42,6 +42,6 @@ Windows 分数是通过在 Windows Server 上运行 [SPECint 2006](https://www.s
 
 ## 后续步骤
 
-* 有关存储容量、磁盘详细信息以及选择 VM 大小的注意事项，请参阅 [Sizes for virtual machines](./virtual-machines-windows-sizes.md)（虚拟机的大小）。
+* 有关存储容量、磁盘详细信息以及选择 VM 大小的注意事项，请参阅 [Sizes for virtual machines](virtual-machines-windows-sizes.md)（虚拟机的大小）。
 
 <!---HONumber=Mooncake_0829_2016-->

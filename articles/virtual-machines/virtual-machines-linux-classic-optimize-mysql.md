@@ -23,7 +23,7 @@ ms.author: ningk
 影响 Azure 上 MySQL 性能的因素有很多，主要体现在虚拟硬件选择和软件配置两个方面。本文重点介绍如何通过存储、系统和数据库配置优化性能。
 
 > [!IMPORTANT]
-Azure 有两种用于创建和处理资源的不同部署模型：[Azure Resource Manager 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)和经典部署模型。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。若要了解如何通过 Resource Manager 模型进行 Linux VM 优化，请参阅[优化 Azure 上的 Linux VM](./virtual-machines-linux-optimization.md)。
+Azure 有两种用于创建和处理资源的不同部署模型：[Azure Resource Manager 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)和经典部署模型。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。若要了解如何通过 Resource Manager 模型进行 Linux VM 优化，请参阅[优化 Azure 上的 Linux VM](virtual-machines-linux-optimization.md)。
 
 ## 利用 Azure 虚拟机上的 RAID
 存储是影响云环境中的数据库性能的关键因素。与单个磁盘相比，RAID 可以通过并发访问提供更快的访问速度。有关详细信息，请参阅 [Standard RAID levels](http://en.wikipedia.org/wiki/Standard_RAID_levels)（标准 RAID 级别）。
@@ -69,7 +69,7 @@ sudo grep SCSI /var/log/dmesg
 ```
 
 #### 创建具有更多磁盘的 RAID
-以下步骤介绍如何[在 Linux 上配置软件 RAID](./virtual-machines-linux-configure-raid.md)。
+以下步骤介绍如何[在 Linux 上配置软件 RAID](virtual-machines-linux-configure-raid.md)。
 
 > [!NOTE]
 如果使用的是 XFS 文件系统，请在创建 RAID 后执行以下步骤。

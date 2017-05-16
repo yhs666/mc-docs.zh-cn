@@ -25,7 +25,7 @@ ms.author: saurabh
 
 ## 使用资源管理器部署模型在虚拟机上启用 Azure 诊断扩展
 
-你可以使用资源管理器部署模型在创建 Windows 虚拟机的同时启用诊断扩展，只需将扩展配置添加到资源管理器模板即可。请参阅[使用 Azure 资源管理器模板创建具有监视和诊断功能的 Windows 虚拟机](./virtual-machines-windows-extensions-diagnostics-template.md)。
+你可以使用资源管理器部署模型在创建 Windows 虚拟机的同时启用诊断扩展，只需将扩展配置添加到资源管理器模板即可。请参阅[使用 Azure 资源管理器模板创建具有监视和诊断功能的 Windows 虚拟机](virtual-machines-windows-extensions-diagnostics-template.md)。
 
 若要在通过资源管理器部署模型创建的现有虚拟机上启用 Azure 诊断扩展，可以使用 [Set-AzureRMVMDiagnosticsExtension](https://msdn.microsoft.com/zh-cn/library/mt603499.aspx) powershell cmdlet，如下所示。
 
@@ -98,7 +98,7 @@ Update-AzureVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
         ```
         <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
         ```
-    - 有关如何根据性能计数器和度量值配置生成度量值的详细信息，请参阅[存储中的 WAD 度量值表](./virtual-machines-windows-extensions-diagnostics-template.md#wadmetrics-tables-in-storage)
+    - 有关如何根据性能计数器和度量值配置生成度量值的详细信息，请参阅[存储中的 WAD 度量值表](virtual-machines-windows-extensions-diagnostics-template.md#wadmetrics-tables-in-storage)
 
 - 需要使用诊断存储帐户的名称对 **StorageAccount** 元素进行更新。
 

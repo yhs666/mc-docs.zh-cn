@@ -21,14 +21,14 @@ ms.author: delhan
 # 排查在 Azure 中重新启动现有 Linux 虚拟机或调整其大小时遇到的经典部署问题
 
 > [!div class="op_single_selector"]
->- [经典](./virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
->- [资源管理器](./virtual-machines-linux-restart-resize-error-troubleshooting.md)
+>- [经典](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
+>- [资源管理器](virtual-machines-linux-restart-resize-error-troubleshooting.md)
 
 在尝试启动已停止的 Azure 虚拟机 (VM)，或调整现有 Azure VM 的大小时，经常遇到的错误是分配失败。当群集或区域没有可用的资源或无法支持所请求的 VM 大小时，就会发生此错误。
 
 [!INCLUDE [了解部署模型](../../includes/learn-about-deployment-models-classic-include.md)]
 
-更多关于资源管理器模型，请点击[这里](./virtual-machines-linux-restart-resize-error-troubleshooting.md)。
+更多关于资源管理器模型，请点击[这里](virtual-machines-linux-restart-resize-error-troubleshooting.md)。
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -87,6 +87,6 @@ ms.author: delhan
 
 ## 后续步骤
 
-如果你在 Azure 中创建新的 Linux VM 时遇到问题，请参阅[排查在 Azure 中新建 Linux 虚拟机时遇到的部署问题](./virtual-machines-linux-troubleshoot-deployment-new-vm.md)。
+如果你在 Azure 中创建新的 Linux VM 时遇到问题，请参阅[排查在 Azure 中新建 Linux 虚拟机时遇到的部署问题](virtual-machines-linux-troubleshoot-deployment-new-vm.md)。
 
 <!---HONumber=Mooncake_Quality_Review_1215_2016-->

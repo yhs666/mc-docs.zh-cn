@@ -31,14 +31,14 @@ RDP（远程桌面协议）是用于 Windows 的专用协议。我们如何使�
 Xrdp 是一个开源 RDP 服务器，支持你从 Windows 计算机通过远程桌面连接连接到 Linux 服务器。它比 VNC（虚拟网络计算）表现得更好。VNC 具有“JPEG”质量和行为慢的特征，而 RDP 则快速清晰。
 
 > [!NOTE]
->你必须已有运行 Linux 的 Azure VM。若要创建和设置 Linux VM，请参阅 [Azure Linux VM 教程](./virtual-machines-linux-classic-createportal.md)。
+>你必须已有运行 Linux 的 Azure VM。若要创建和设置 Linux VM，请参阅 [Azure Linux VM 教程](virtual-machines-linux-classic-createportal.md)。
 
 ##为远程桌面创建终结点
 在本文档中，我们将使用默认终结点 3389 进行远程连接。因此，将 Linux VM 的 3389 终结点设置为远程桌面，如下所示：
 
 ![图像](./media/virtual-machines-linux-classic-remote-desktop/no1.png)
 
-如果你不知道如何设置 VM 的终结点，请参阅[指南](./virtual-machines-linux-classic-setup-endpoints.md)。
+如果你不知道如何设置 VM 的终结点，请参阅[指南](virtual-machines-linux-classic-setup-endpoints.md)。
 
 ##安装 Gnome 桌面
 

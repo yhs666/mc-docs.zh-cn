@@ -25,11 +25,11 @@ ms.author: rasquill
 [!INCLUDE [了解部署模型](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## 入门
-- [Azure 上的 Linux 简介](./virtual-machines-linux-intro-on-azure.md)
-- [使用经典部署模型创建 Azure 虚拟机的常见问题](./virtual-machines-linux-classic-faq.md)
-- [关于虚拟机的映像](./virtual-machines-linux-classic-about-images.md)
-- [上载自己的发行版映像](./virtual-machines-linux-classic-create-upload-vhd.md)（以及使用 [Azure 认可的发行版](./virtual-machines-linux-endorsed-distros.md)的说明）
-- [使用 Azure 经典管理门户登录到 Linux VM](./virtual-machines-linux-mac-create-ssh-keys.md)
+- [Azure 上的 Linux 简介](virtual-machines-linux-intro-on-azure.md)
+- [使用经典部署模型创建 Azure 虚拟机的常见问题](virtual-machines-linux-classic-faq.md)
+- [关于虚拟机的映像](virtual-machines-linux-classic-about-images.md)
+- [上载自己的发行版映像](virtual-machines-linux-classic-create-upload-vhd.md)（以及使用 [Azure 认可的发行版](virtual-machines-linux-endorsed-distros.md)的说明）
+- [使用 Azure 经典管理门户登录到 Linux VM](virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## 设置
 
@@ -37,62 +37,62 @@ ms.author: rasquill
 
 ## 教程
 
-- [在 Azure 中的 Linux 虚拟机上安装 LAMP 堆栈](./virtual-machines-linux-create-lamp-stack.md)
-- [Azure 虚拟机上的 Ruby on Rails Web 应用程序](./virtual-machines-linux-classic-ruby-rails-web-app.md)
+- [在 Azure 中的 Linux 虚拟机上安装 LAMP 堆栈](virtual-machines-linux-create-lamp-stack.md)
+- [Azure 虚拟机上的 Ruby on Rails Web 应用程序](virtual-machines-linux-classic-ruby-rails-web-app.md)
 - [如何：为 AMQP 和服务总线安装 Apache Qpid Proton-C](../service-bus-messaging/service-bus-amqp-overview.md)
 
 ### 数据库
-- [优化 Azure 上的 MySQL 的性能](./virtual-machines-linux-classic-optimize-mysql.md)
-- [MySQL 群集](./virtual-machines-linux-classic-mysql-cluster.md)
-- [在 Azure 上同时运行 Cassandra 和 Linux 并通过 Node.js 访问](./virtual-machines-linux-classic-cassandra-nodejs.md)
-- [创建多主的 MariaDb 群集](./virtual-machines-linux-classic-mariadb-mysql-cluster.md)
+- [优化 Azure 上的 MySQL 的性能](virtual-machines-linux-classic-optimize-mysql.md)
+- [MySQL 群集](virtual-machines-linux-classic-mysql-cluster.md)
+- [在 Azure 上同时运行 Cassandra 和 Linux 并通过 Node.js 访问](virtual-machines-linux-classic-cassandra-nodejs.md)
+- [创建多主的 MariaDb 群集](virtual-machines-linux-classic-mariadb-mysql-cluster.md)
 
 ### Ubuntu
-- [如何：MySQL 群集](./virtual-machines-linux-classic-mysql-cluster.md)
-- [如何：Node.js 和 Cassandra](./virtual-machines-linux-classic-cassandra-nodejs.md)
+- [如何：MySQL 群集](virtual-machines-linux-classic-mysql-cluster.md)
+- [如何：Node.js 和 Cassandra](virtual-machines-linux-classic-cassandra-nodejs.md)
 
 ### OpenSUSE
-- [如何：安装和运行 MySQL](./virtual-machines-linux-classic-mysql-on-opensuse.md)
+- [如何：安装和运行 MySQL](virtual-machines-linux-classic-mysql-on-opensuse.md)
 
 ### CoreOS
 - [如何：在 Azure 上使用 CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 ## 规划
-- [Azure 基础结构服务实施准则](./virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
-- [选择 Linux 用户名](./virtual-machines-linux-usernames.md)
-- [如何在经典部署模型中为虚拟机配置可用性集](./virtual-machines-linux-classic-configure-availability.md)
-- [如何在 Azure VM 上安排计划内的维护](./virtual-machines-linux-planned-maintenance-schedule.md)
-- [管理虚拟机的可用性](./virtual-machines-linux-manage-availability.md)
-- [Azure 中 Linux 虚拟机的计划内维护](./virtual-machines-linux-planned-maintenance.md)
+- [Azure 基础结构服务实施准则](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
+- [选择 Linux 用户名](virtual-machines-linux-usernames.md)
+- [如何在经典部署模型中为虚拟机配置可用性集](virtual-machines-linux-classic-configure-availability.md)
+- [如何在 Azure VM 上安排计划内的维护](virtual-machines-linux-planned-maintenance-schedule.md)
+- [管理虚拟机的可用性](virtual-machines-linux-manage-availability.md)
+- [Azure 中 Linux 虚拟机的计划内维护](virtual-machines-linux-planned-maintenance.md)
 
 ## 部署
-- [创建运行 Linux 的自定义虚拟机](./virtual-machines-linux-classic-createportal.md)
-- [基础知识：捕获 Linux VM 以创建模板](./virtual-machines-linux-classic-capture-image.md)
-- [有关未认可发行版的信息](./virtual-machines-linux-create-upload-generic.md)
+- [创建运行 Linux 的自定义虚拟机](virtual-machines-linux-classic-createportal.md)
+- [基础知识：捕获 Linux VM 以创建模板](virtual-machines-linux-classic-capture-image.md)
+- [有关未认可发行版的信息](virtual-machines-linux-create-upload-generic.md)
 
 ## 管理
 
-- [SSH](./virtual-machines-linux-mac-create-ssh-keys.md)
-- [如何为 Linux 重置密码或 SSH 属性](./virtual-machines-linux-classic-reset-access.md)
-- [使用 Root](./virtual-machines-linux-use-root-privileges.md)
+- [SSH](virtual-machines-linux-mac-create-ssh-keys.md)
+- [如何为 Linux 重置密码或 SSH 属性](virtual-machines-linux-classic-reset-access.md)
+- [使用 Root](virtual-machines-linux-use-root-privileges.md)
 
 ## Azure 资源
 
-- [Azure Linux 代理](./virtual-machines-linux-agent-user-guide.md)
-- [Azure VM 扩展和功能](./virtual-machines-windows-extensions-features.md)
-- [将自定义数据注入到 VM 中以用于 Cloud-init](./virtual-machines-windows-classic-inject-custom-data.md)
+- [Azure Linux 代理](virtual-machines-linux-agent-user-guide.md)
+- [Azure VM 扩展和功能](virtual-machines-windows-extensions-features.md)
+- [将自定义数据注入到 VM 中以用于 Cloud-init](virtual-machines-windows-classic-inject-custom-data.md)
 
 ## 存储
 
-- [将数据磁盘附加到 Linux VM](./virtual-machines-linux-classic-attach-disk.md)
-- [从 Linux VM 分离数据磁盘](./virtual-machines-linux-classic-detach-disk.md)
-- [RAID](./virtual-machines-linux-configure-raid.md)
+- [将数据磁盘附加到 Linux VM](virtual-machines-linux-classic-attach-disk.md)
+- [从 Linux VM 分离数据磁盘](virtual-machines-linux-classic-detach-disk.md)
+- [RAID](virtual-machines-linux-configure-raid.md)
 
 ## 网络
-- [如何在 Azure 中的经典虚拟机上设置终结点](./virtual-machines-linux-classic-setup-endpoints.md)
+- [如何在 Azure 中的经典虚拟机上设置终结点](virtual-machines-linux-classic-setup-endpoints.md)
 
 ## 故障排除
-- [对基于 Linux 的 Azure 虚拟机的 Secure Shell (SSH) 连接进行故障排除](./virtual-machines-linux-troubleshoot-ssh-connection.md)
+- [对基于 Linux 的 Azure 虚拟机的 Secure Shell (SSH) 连接进行故障排除](virtual-machines-linux-troubleshoot-ssh-connection.md)
 
 ## 引用
 

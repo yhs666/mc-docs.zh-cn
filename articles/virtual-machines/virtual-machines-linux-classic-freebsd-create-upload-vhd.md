@@ -24,7 +24,7 @@ ms.author: kyliel
 
 [!INCLUDE [了解部署模型](../../includes/learn-about-deployment-models-classic-include.md)]
 
-想查看更多关于使用资源管理器模型上传 VHD，请点击[这里](./virtual-machines-linux-upload-vhd.md)。
+想查看更多关于使用资源管理器模型上传 VHD，请点击[这里](virtual-machines-linux-upload-vhd.md)。
 
 ## 先决条件
 本文假定你拥有以下项目：

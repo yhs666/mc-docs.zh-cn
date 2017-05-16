@@ -25,7 +25,7 @@ ms.author: szark
 
 ## 安装说明
 
-- 请同时阅读[通用 Linux 安装笔记](./virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)，以查看更多为 Azure 准备 Linux 的提示。
+- 请同时阅读[通用 Linux 安装笔记](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)，以查看更多为 Azure 准备 Linux 的提示。
 - Azure 不支持更新的 VHDX 格式。可使用 Hyper-V 管理器或 **convert-vhd** cmdlet 将磁盘转换为 VHD 格式。
 - 在安装 Linux 系统时，建议使用标准分区而不是 LVM（许多安装通常默认使用后者）。这将避免 LVM 与克隆 VM 发生名称冲突，特别是在 OS 磁盘需要连接到另一台 VM 以进行故障排除的情况下。如果需要，可在数据磁盘上使用 LVM 或 RAID。
 - 请勿在 OS 磁盘上配置交换分区。可以配置 Azure Linux 代理，以在临时资源磁盘上创建交换文件。有关此操作的详细信息，请参见以下步骤。
@@ -117,6 +117,6 @@ ms.author: szark
 
 ## 后续步骤
 
-现在，你可以使用 Debian 虚拟硬盘在 Azure 中创建新的虚拟机了。如果这是第一次将 .vhd 文件上载到 Azure，请参阅[创建和上载包含 Linux 操作系统的虚拟硬盘](./virtual-machines-linux-classic-create-upload-vhd.md)中的步骤 2 和步骤 3。
+现在，你可以使用 Debian 虚拟硬盘在 Azure 中创建新的虚拟机了。如果这是第一次将 .vhd 文件上载到 Azure，请参阅[创建和上载包含 Linux 操作系统的虚拟硬盘](virtual-machines-linux-classic-create-upload-vhd.md)中的步骤 2 和步骤 3。
 
 <!---HONumber=Mooncake_Quality_Review_1215_2016-->

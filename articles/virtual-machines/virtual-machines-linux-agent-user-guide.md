@@ -96,7 +96,7 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 * 装载 UDF 文件系统的内核支持。
 
 ## 安装
-使用分发的包存储库中的 RPM 或 DEB 包进行安装是安装和升级 Azure Linux 代理的首选方法。所有[认可的分发版提供商](./virtual-machines-linux-endorsed-distros.md)会将 Azure Linux 代理包集成到其映像和存储库。
+使用分发的包存储库中的 RPM 或 DEB 包进行安装是安装和升级 Azure Linux 代理的首选方法。所有[认可的分发版提供商](virtual-machines-linux-endorsed-distros.md)会将 Azure Linux 代理包集成到其映像和存储库。
 
 请参阅 [Github 上的 Azure Linux 代理存储库](https://github.com/Azure/WALinuxAgent)中的文档了解高级安装选项，例如从源安装，或者安装到自定义位置或前缀。
 
@@ -267,6 +267,6 @@ HttpProxy.Port=None
 - 请参阅以下资源来配置资源磁盘装入点，并在预配期间交换 Ubuntu 云映像上的空间：
 
  - [Ubuntu Wiki：配置交换分区](https://wiki.ubuntu.com/AzureSwapPartitions)
- - [将自定义数据注入到 Azure 虚拟机中](./virtual-machines-linux-classic-inject-custom-data.md)
+ - [将自定义数据注入到 Azure 虚拟机中](virtual-machines-linux-classic-inject-custom-data.md)
 
 <!---HONumber=Mooncake_1114_2016-->

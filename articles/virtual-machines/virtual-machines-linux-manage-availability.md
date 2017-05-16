@@ -20,11 +20,11 @@ ms.author: cynthn
 
 # 管理虚拟机的可用性
 
-了解如何设置和管理多个虚拟机，以确保 Linux 应用程序在 Azure 中的高可用性。你也可以[管理 Windows 虚拟机的可用性](./virtual-machines-windows-manage-availability.md)。
+了解如何设置和管理多个虚拟机，以确保 Linux 应用程序在 Azure 中的高可用性。你也可以[管理 Windows 虚拟机的可用性](virtual-machines-windows-manage-availability.md)。
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-有关在资源管理器部署模型中使用 CLI 创建可用性集的说明，请参阅 [azure availset：用于管理可用性集的命令](./azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets)。
+有关在资源管理器部署模型中使用 CLI 创建可用性集的说明，请参阅 [azure availset：用于管理可用性集的命令](azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets)。
 
 [!INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 

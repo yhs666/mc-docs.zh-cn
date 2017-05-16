@@ -22,7 +22,7 @@ ms.author: rasquill
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-关于在资源管理器模型使用自定义脚本扩展，请点击[这里](./virtual-machines-windows-extensions-customscript.md)。
+关于在资源管理器模型使用自定义脚本扩展，请点击[这里](virtual-machines-windows-extensions-customscript.md)。
 
 [!INCLUDE [virtual-machines-common-classic-inject-custom-data](../../includes/virtual-machines-common-classic-inject-custom-data.md)]
 

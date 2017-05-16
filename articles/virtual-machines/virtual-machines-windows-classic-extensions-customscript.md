@@ -22,7 +22,7 @@ ms.author: nepeters
 # 使用经典部署模型完成的适用于 Windows 的自定义脚本扩展
 
 > [!IMPORTANT] 
-Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。了解如何[使用 Resource Manager 模型执行这些步骤](./virtual-machines-windows-extensions-customscript.md)。
+Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。了解如何[使用 Resource Manager 模型执行这些步骤](virtual-machines-windows-extensions-customscript.md)。
 
 自定义脚本扩展在 Azure 虚拟机上下载并执行脚本。此扩展适用于部署后配置、软件安装或其他任何配置/管理任务。可以从 Azure 存储或 GitHub 下载脚本，也可以在扩展运行时将脚本提供给 Azure 门户预览。自定义脚本扩展与 Azure Resource Manager 模板集成，也可以使用 Azure CLI、PowerShell、Azure 门户预览或 Azure 虚拟机 REST API 来运行它。
 

@@ -32,7 +32,7 @@ ms.author: nepeters
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [公共 IP 地址](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L121)。
 
-```
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/publicIPAddresses",
@@ -54,7 +54,7 @@ ms.author: nepeters
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [公共 IP 地址与负载均衡器的关联](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L208)。
 
-```
+```json
 "frontendIPConfigurations": [
   {
     "properties": {
@@ -79,7 +79,7 @@ Azure 门户预览中显示的公共 IP 地址。请注意，公共 IP 地址与
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [网络安全组](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L68)。
 
-```
+```json
 {
   "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Network/networkSecurityGroups",
@@ -114,7 +114,7 @@ Azure 门户预览中显示的公共 IP 地址。请注意，公共 IP 地址与
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [网络安全组与虚拟网络的关联](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L158)。
 
-```
+```json
 "subnets": [
   {
     "name": "[variables('subnetName')]",
@@ -137,6 +137,6 @@ Azure 门户预览中的网络安全组如下所示。请注意，NSG 可与子�
 
 <hr>
 
-[步骤 3 - Azure Resource Manager 模板的可用性和缩放](./virtual-machines-linux-dotnet-core-4-availability-scale.md)
+[步骤 3 - Azure Resource Manager 模板的可用性和缩放](virtual-machines-linux-dotnet-core-4-availability-scale.md)
 
 <!---HONumber=Mooncake_1114_2016-->
