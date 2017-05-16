@@ -17,7 +17,6 @@ ms.author: jotaub
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 0d351d292bd328cc0af0e579ce8da5da0bc7446a
-ms.contentlocale: zh-cn
 ms.lasthandoff: 05/05/2017
 
 ---
