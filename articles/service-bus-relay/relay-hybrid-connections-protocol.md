@@ -17,7 +17,6 @@ ms.author: sethm;clemensv
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 4c5d8abae0b4dd781f60f9924481b077f51cd65b
-ms.contentlocale: zh-cn
 ms.lasthandoff: 05/05/2017
 
 
