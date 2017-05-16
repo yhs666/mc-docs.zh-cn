@@ -1,5 +1,5 @@
 ---
-title: "Azure 批处理文档 - 教程和 API 参考 | Microsoft 文档"
+title: "Azure Batch 文档 - 教程和 API 参考 | Microsoft 文档"
 description: "了解如何使用批处理有效运行大规模并行和高性能计算应用程序。 教程、API 参考和其他文档。"
 services: batch
 author: carolz
@@ -53,7 +53,7 @@ ms.lasthandoff: 05/12/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure 批处理视频库</h3>
+                        <h3>Azure Batch 视频库</h3>
                     </div>
                 </div>
             </div>
