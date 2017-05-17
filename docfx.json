@@ -63,7 +63,9 @@
     ],
     "overwrite": [],
     "externalReference": [],
-    "globalMetadata": {},
+    "globalMetadata": {
+      "breadcrumb_path": "/bread/toc.json"
+    },
     "fileMetadata": {},
     "template": [
       "docs.html"
