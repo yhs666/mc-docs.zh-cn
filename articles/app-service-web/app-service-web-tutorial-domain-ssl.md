@@ -70,7 +70,7 @@ az group create --name myResourceGroup --location chinanorth
 
 以下示例创建一个名为 `myAppServicePlan` 且使用**基本**定价层的应用服务计划。
 
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
+    az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
 
 创建应用服务计划后，Azure CLI 将显示类似于以下示例的信息。 
 
@@ -228,7 +228,7 @@ Web 应用现在具有了所需的自定义域名，并且它还具有一个用�
 
 在以下命令中，请将 `<app_name>` 替换为唯一的应用名称，将 `<thumbprint-from-previous-output>` 替换为通过前面所示的命令获取的证书指纹。 
 
-az appservice web config ssl bind --name <app_name> --resource-group myResourceGroup --certificate-thumbprint <thumbprint-from-previous-output> --ssl-type SNI
+    az appservice web config ssl bind --name <app_name> --resource-group myResourceGroup --certificate-thumbprint <thumbprint-from-previous-output> --ssl-type SNI
 
 将证书绑定到 Web 应用后，Azure CLI 将显示类似于以下示例的信息：
 

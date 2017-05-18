@@ -534,7 +534,7 @@ ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新�
 2. 生成项目（该操作将保存文件更改并确认没有任何编译错误）。
 3. 在“解决方案资源管理器”中，右键单击该项目并选择“发布”。
 
-       ![Publish in project context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/GS13publish.png)
+    ![Publish in project context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/GS13publish.png)
 4. 单击“开始预览”按钮。 只会部署需要更新的文件。
 5. 从 Visual Studio 或门户启动 Web 应用。 “Web 应用停止时无法发布”。
 

@@ -124,7 +124,7 @@ ms.author: cephalin
 
     ![](./media/app-service-agile-software-development/production-4-swap.png)
 
-7. 脚本完成后，请返回浏览到前端的地址 (http://ToDoApp *&lt;unique_string>* master.chinacloudsites.cn/)，以查看在生产环境中运行的应用程序。
+7. 脚本完成后，请返回浏览到前端的地址 (http://ToDoApp*&lt;unique_string>*master.chinacloudsites.cn/)，以查看在生产环境中运行的应用程序。
 
 5. 登录到 [Azure 门户预览](https://portal.azure.cn/)并查看创建的内容。
 

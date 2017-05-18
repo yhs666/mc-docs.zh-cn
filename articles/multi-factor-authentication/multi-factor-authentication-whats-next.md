@@ -31,7 +31,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="selectable-verification-methods"></a>可选择的验证方法
 可以选择用户可以使用哪些验证方法。 下表提供了每种方法的简要概述。
 
-当用户注册 MFA 帐户时，可以选择除已启用的选项以外的首选验证方法。 [设置我的双重验证帐户](multi-factor-authentication-end-user-first-time.md)中介绍了注册过程指导
+当用户注册 MFA 帐户时，可以选择除已启用的选项以外的首选验证方法。 [设置我的双重验证帐户](./end-user/multi-factor-authentication-end-user-first-time.md)中介绍了注册过程指导
 
 | 方法 | 说明 |
 |:--- |:--- |

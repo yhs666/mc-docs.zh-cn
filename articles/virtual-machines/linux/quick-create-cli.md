@@ -9,25 +9,28 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/10/2017
+ms.date: 04/03/2017
 wacn.date: 
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: b227647cb35c6d8c5ba4b4f53843c8375534fbd8
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
+ms.openlocfilehash: 4c9cf54d89a91e980d749eaa80c4e235cda7ef25
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/05/2017
 
 ---
 
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 创建 Linux 虚拟机
 
-Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本指南详细介绍了如何使用 Azure CLI 部署运行 Ubuntu 16.04 LTS 的虚拟机。
+Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本指南详细介绍了如何使用 Azure CLI 部署运行 Ubuntu 16.04 LTS 的虚拟机。 部署服务器后，可通过 SSH 登录到 VM 以安装 NGINX。 
 
-在开始之前，请确保已安装 Azure CLI。 有关详细信息，请参阅 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+
+另请确保已安装 Azure CLI。 有关详细信息，请参阅 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
 
 ## <a name="log-in-to-azure"></a>登录 Azure 
 
@@ -59,7 +62,7 @@ az group create --name myResourceGroup --location chinanorth
 az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-创建 VM 后，Azure CLI 将显示类似于以下示例的信息。 记下公共 IP 地址。 此地址用于访问 VM。
+创建 VM 后，Azure CLI 将显示类似于以下示例的信息。 记下 `publicIpAddress`。 此地址用于访问 VM。
 
 ```azurecli
 {
@@ -69,18 +72,46 @@ az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --ge
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "52.174.34.95",
+  "publicIpAddress": "40.68.254.142",
   "resourceGroup": "myResourceGroup"
 }
 ```
 
-## <a name="connect-to-virtual-machine"></a>连接到虚拟机
+## <a name="open-port-80-for-web-traffic"></a>为 Web 流量打开端口 80 
 
-使用以下命令创建与虚拟机的 SSH 会话。 将 IP 地址替换为你的虚拟机的公共 IP 地址。
+默认情况下，仅允许通过 SSH 连接登录到 Azure 中部署的 Linux 虚拟机。 如果此 VM 将用作 Web 服务器，则需要从 Internet 打开端口 80。  需要使用单个命令打开所需的端口。  
+
+ ```azurecli 
+az vm open-port --port 80 --resource-group myResourceGroup --name myVM
+```
+
+## <a name="ssh-into-your-vm"></a>通过 SSH 连接到你的 VM
+
+使用以下命令创建与虚拟机的 SSH 会话。 确保将 `<publicIpAddress>` 替换为你的虚拟机的相应公共 IP 地址。  在上例中，我们的 IP 地址为 `40.68.254.142`。
 
 ```bash 
-ssh <Public IP Address>
+ssh <publicIpAddress>
 ```
+
+## <a name="install-nginx"></a>安装 NGINX
+
+使用以下 bash 脚本更新包源并安装最新的 NGINX 包。 
+
+```bash 
+#!/bin/bash
+
+# update package source
+apt-get -y update
+
+# install NGINX
+apt-get -y install nginx
+```
+
+## <a name="view-the-ngix-welcome-page"></a>查看 NGIX 欢迎页
+
+NGINX 已安装，并且现在已从 Internet 打开 VM 上的端口 80 - 可以使用所选的 Web 浏览器查看默认的 NGINX 欢迎页。 请务必使用前面记录的 `publicIpAddress` 访问默认页面。 
+
+![NGINX 默认站点](./media/quick-create-cli/nginx.png) 
 
 ## <a name="delete-virtual-machine"></a>删除虚拟机
 
@@ -92,6 +123,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-[创建高可用性虚拟机教程](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[创建高可用性虚拟机教程](create-cli-complete.md)
 
-[浏览 VM 部署 CLI 示例](cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[浏览 VM 部署 CLI 示例](cli-samples.md)
+

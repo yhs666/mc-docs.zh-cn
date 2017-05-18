@@ -1,5 +1,5 @@
 ---
-title: "设置 Azure 微服务的开发环境 | Microsoft 文档"
+title: "设置 Azure 微服务的开发环境 | Azure"
 description: "安装运行时、SDK 和工具并创建本地开发群集。 完成此设置后，你就可以开始生成应用程序。"
 services: service-fabric
 documentationcenter: .net
@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/07/2017
+ms.date: 03/22/2017
 ms.author: ryanwi, mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 3cf8121b2afbb00a3e67dd6fca26671613db1e23
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
+ms.openlocfilehash: 57ec9a01c6d4a59d021691177663179954df25d9
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -69,10 +70,10 @@ Service Fabric 工具是 Visual Studio 2017 中 Azure 开发和管理工作负�
 > 
 > 对此给你带来的不便，我们深表歉意。 
 
-当前版本有：
-* Service Fabric SDK 2.4.164
-* Service Fabric 运行时 5.4.164
-* Visual Studio 2015 工具 1.4.50124
+当前版本包括：
+* Service Fabric SDK 2.5.216
+* Service Fabric 运行时 5.5.216
+* Visual Studio 2015 工具 1.5.50311.1
 
 有关支持的版本列表，请参阅 [Service Fabric 支持](service-fabric-support.md)
 
