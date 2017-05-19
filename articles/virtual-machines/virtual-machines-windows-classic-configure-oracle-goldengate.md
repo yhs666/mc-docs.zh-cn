@@ -32,7 +32,7 @@ Oracle GoldenGate 包含以下主要组件：Extract、Data Pump、Replicat、Tr
 
 - 你已从 [Oracle 下载](http://www.oracle.com/us/downloads/index.html)网站下载了 Oracle GoldenGate 软件。你已选择产品包“Oracle Fusion Middleware – Data Integration”。然后，你已选择适用于 Oracle 11g 数据库的 Oracle GoldenGate on Oracle v11.2.1 Media Pack for Microsoft Windows x64（64 位）。接下来，请下载 Oracle GoldenGate V11.2.1.0.3 for Oracle 11g 64bit on Windows 2008（64 位）。
 
-- 你已使用 Windows Server 上的 Oracle 企业版映像中提供的平台在 Azure 中创建了两个虚拟机 (VM)。有关信息，请参阅 [Azure 虚拟机](virtual-machines-windows-classic-index.md)。确保这些虚拟机位于[相同的云服务](virtual-machines-windows-load-balance.md)和相同的[虚拟网络](../virtual-network/index.md)中，以确保它们可以通过持久性专用 IP 地址相互访问。
+- 你已使用 Windows Server 上的 Oracle 企业版映像中提供的平台在 Azure 中创建了两个虚拟机 (VM)。有关信息，请参阅 [Azure 虚拟机](./windows/classic/index.md)。确保这些虚拟机位于[相同的云服务](virtual-machines-windows-load-balance.md)和相同的[虚拟网络](../virtual-network/index.md)中，以确保它们可以通过持久性专用 IP 地址相互访问。
 
 - 已在 Azure 经典管理门户中将站点 A 的虚拟机名称设置为“MachineGG1”，将站点 B 的虚拟机名称设置为“MachineGG2”。
 

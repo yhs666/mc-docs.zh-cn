@@ -88,7 +88,6 @@
 ### [开发 C# 流式处理 MapReduce 程序](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [开发 Java MapReduce 程序](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [开发 Scalding MapReduce 作业](hdinsight-hadoop-mapreduce-scalding.md)
-### [使用 HDInsight 工具创建 Spark 应用](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [使用空边缘节点](hdinsight-apps-use-edge-node.md)
 ### [开发 Python 流式处理程序](hdinsight-hadoop-streaming-python.md)
 ### [处理和分析 JSON 文档](hdinsight-using-json-in-hive.md)

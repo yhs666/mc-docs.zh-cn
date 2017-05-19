@@ -64,7 +64,6 @@
 #### [在流量管理器中使用自定义域](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### [克隆现有应用](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [本地连接](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [高级配置](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [资源组](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Web 作业](app-service-webjobs-readme.md)
@@ -103,9 +102,6 @@
 #### [SSL 证书绑定](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [将 Azure Resource Manager 与 PowerShell 配合使用](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [使用 Azure 自动化管理应用](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service%2ftoc.json)
-
-## 集成
-### [使用混合连接访问本地资源](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## 故障排除
 ### [启用诊断日志记录](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
