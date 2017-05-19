@@ -53,7 +53,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 有关详细信息，请参阅 [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning)（Azure PowerShell 版本控制）。
 
-## 将可用性集中的 VM 转换为托管可用性集中的托管磁盘
+## <a name="convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set"></a> 将可用性集中的 VM 转换为托管可用性集中的托管磁盘
 
 如果要转换为托管磁盘的 VM 位于可用性集中，则需要先将可用性集转换为托管可用性集。
 
