@@ -15,7 +15,6 @@
 #### [经典门户](active-directory-create-users.md)
 ### 从其他目录添加用户
 #### [经典门户](active-directory-create-users-external.md)
-### [重置密码](active-directory-users-reset-password-azure-portal.md)
 ### [共享帐户](active-directory-sharing-accounts.md)
 
 
@@ -105,7 +104,6 @@
 ## [多重身份验证](/azure/multi-factor-authentication/)
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [面向开发人员的 Azure AD](./develop/active-directory-how-to-integrate.md)
-## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # 资源
 ## [价格](https://azure.microsoft.com/pricing/details/active-directory/)
