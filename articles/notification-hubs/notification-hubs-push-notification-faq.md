@@ -67,7 +67,7 @@ wacn.date: 12/16/2016
 我们支持将推送通知发送到 [Apple iOS](./notification-hubs-ios-apple-push-notification-apns-get-started.md)、[Windows 通用](./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)、[Windows Phone](./notification-hubs-windows-mobile-push-notifications-mpns.md)、[Kindle](./notification-hubs-kindle-amazon-adm-push-notification.md)、[Android China（通过百度）](./notification-hubs-baidu-china-android-notifications-get-started.md)、Xamarin（[iOS](./xamarin-notification-hubs-ios-push-notification-apns-get-started.md) 和 Android） 和 [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari) 平台。有关在这些平台上发送推送通知的入门教程的完整列表，请访问 [NH — 入门教程]页面。
 
 ###3\.是否支持 SMS/电子邮件/Web 通知？
-通知中心主要针对使用上面列出的平台将通知发送到移动应用而设计。我们尚未提供发送电子邮件或短信提示的功能；但提供这些功能的第三方平台可以与通知中心进行集成，以通过使用 [Azure 移动应用]发送原生推送通知。
+通知中心主要针对使用上面列出的平台将通知发送到移动应用而设计。我们尚未提供发送电子邮件或短信提示的功能；但提供这些功能的第三方平台可以与通知中心进行集成，以通过使用 Azure 移动应用发送原生推送通知。
 
 通知中心也不提供现成的浏览器内推送通知传递服务。客户可以在支持的服务器端平台上，选择使用 SignalR 来实现此功能。
 
@@ -204,7 +204,6 @@ Azure 通知中心支持在 [Azure 经典管理门户]中查看遥测数据。�
 [注册信息导出/导入]: https://msdn.microsoft.com/zh-cn/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.cn
 [完整的示例]: https://github.com/Azure/azure-notificationhubs-samples
-[Azure 移动应用]: ../mobile-services/index.md
 [应用服务定价]: https://www.azure.cn/pricing/details/app-service/
 
 <!---HONumber=Mooncake_1114_2016-->
