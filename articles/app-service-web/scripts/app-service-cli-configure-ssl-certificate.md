@@ -12,7 +12,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: sample
 ms.date: 04/10/2017
 wacn.date: 
 ms.author: cephalin
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="sample-script"></a>示例脚本
 
-```azurecli
+```azurecli-interactive
 #!/bin/bash
 
 fqdn=<Replace with www.{yourdomain}>
@@ -98,3 +98,4 @@ echo "You can now browse to https://$fqdn"
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
 可以在 [Azure 应用服务文档](../app-service-cli-samples.md)中找到其他应用服务 CLI 脚本示例。
+
