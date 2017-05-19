@@ -43,7 +43,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。它是
 ## 将 FQDN 关联到 Linux VM
 在 Azure 门户中使用 Resource Manager 部署模型创建虚拟机 (VM) 时，系统将为虚拟机自动创建一个公共 IP 资源。可以使用此 IP 地址远程访问 VM。默认情况下，该门户不会创建完全限定域名（简称 FQDN），但一旦创建 VM，就可以添加一个 FQDN。
 
-* [在 Azure 门户预览中创建完全限定的域名](./virtual-machines-linux-portal-create-fqdn.md)
+* [在 Azure 门户预览中创建完全限定的域名](virtual-machines-linux-portal-create-fqdn.md)
 
 ## 虚拟 NIC
 网络接口 (NIC) 是虚拟机 (VM) 与基础软件网络之间互相连接的桥梁。本文解释什么是网络接口，以及在 Azure Resource Manager 部署模型中如何使用它。
@@ -53,7 +53,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。它是
 ## 虚拟 NIC 和 DNS 标签
 如果你想要持久保留某台服务器，但该服务器充当过渡用的设备，经常被撤掉然后又重新部署，那么，可以在 NIC 上使用 DNS 标签，以便在 VNET 中持久保留其名称。使用以下文章中的详细步骤，可以创建一个使用静态 IP 的、名称持久保留的 NIC。
 
-* [使用 Azure CLI 创建完整的 Linux 环境](./virtual-machines-linux-create-cli-complete.md)
+* [使用 Azure CLI 创建完整的 Linux 环境](virtual-machines-linux-create-cli-complete.md)
 
 ## 虚拟网络网关
 虚拟网络网关用于在 Azure 虚拟网络与本地位置之间以及 Azure 内的虚拟网络（VNet 到 VNet）之间发送网络流量。配置 VPN 网关时，必须创建并配置虚拟网络网关和虚拟网络网关连接。

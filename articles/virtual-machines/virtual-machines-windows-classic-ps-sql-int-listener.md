@@ -21,8 +21,8 @@ ms.author: MikeRayMSFT
 
 # 在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听器
 > [!div class="op_single_selector"]
->- [内部侦听器](./virtual-machines-windows-classic-ps-sql-int-listener.md)
->- [外部侦听器](./virtual-machines-windows-classic-ps-sql-ext-listener.md)
+>- [内部侦听器](virtual-machines-windows-classic-ps-sql-int-listener.md)
+>- [外部侦听器](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 
 ## 概述
 本主题说明如何使用**内部负载均衡器 \(ILB\)** 为 AlwaysOn 可用性组配置侦听器。
@@ -30,20 +30,20 @@ ms.author: MikeRayMSFT
 > [!IMPORTANT] 
 Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。
 
-若要为 Resource Manager 模型中的 Always On 可用性组配置 ILB 侦听器，请参阅[在 Azure 中为 Always On 可用性组配置内部负载均衡器](./virtual-machines-windows-portal-sql-alwayson-int-listener.md)。
+若要为 Resource Manager 模型中的 Always On 可用性组配置 ILB 侦听器，请参阅[在 Azure 中为 Always On 可用性组配置内部负载均衡器](virtual-machines-windows-portal-sql-alwayson-int-listener.md)。
 
-你的可用性组可以仅包含本地副本或 Azure 副本，也可以跨越本地和 Azure 以实现混合配置。Azure 副本可以位于同一区域，也可以跨越使用多个虚拟网络 \(VNet\) 的多个区域。以下步骤假设你已[配置了一个可用性组](./windows/sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)但是没有配置侦听器。
+你的可用性组可以仅包含本地副本或 Azure 副本，也可以跨越本地和 Azure 以实现混合配置。Azure 副本可以位于同一区域，也可以跨越使用多个虚拟网络 \(VNet\) 的多个区域。以下步骤假设你已[配置了一个可用性组](windows/sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)但是没有配置侦听器。
 
 ## 内部侦听器的准则和限制
 请注意有关 Azure 中使用 ILB 的可用性组侦听器的以下准则：
 
 * Windows Server 2008 R2、Windows Server 2012 和 Windows Server 2012 R2 支持可用性组侦听器。
-* 每个云服务只支持一个内部可用性组侦听器，因为该侦听器将配置给 ILB，而每个云服务只有一个 ILB。但是，可以创建多个外部侦听器。有关详细信息，请参阅 [Configure an external listener for Always On Availability Groups in Azure](./virtual-machines-windows-classic-ps-sql-ext-listener.md)（在 Azure 中配置 AlwaysOn 可用性组的外部侦听器）。
+* 每个云服务只支持一个内部可用性组侦听器，因为该侦听器将配置给 ILB，而每个云服务只有一个 ILB。但是，可以创建多个外部侦听器。有关详细信息，请参阅 [Configure an external listener for Always On Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md)（在 Azure 中配置 AlwaysOn 可用性组的外部侦听器）。
 
 ## 确定侦听器的可访问性
 [!INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-本文重点介绍如何创建使用**内部负载均衡器 \(ILB\)** 的侦听器。如果你需要一个公共/外部侦听器，请参阅本文的另一个版本，其中提供了有关设置[外部侦听器](./virtual-machines-windows-classic-ps-sql-ext-listener.md)的步骤
+本文重点介绍如何创建使用**内部负载均衡器 \(ILB\)** 的侦听器。如果你需要一个公共/外部侦听器，请参阅本文的另一个版本，其中提供了有关设置[外部侦听器](virtual-machines-windows-classic-ps-sql-ext-listener.md)的步骤
 
 ## 创建支持直接服务器返回的负载均衡 VM 终结点
 对于 ILB，必须先创建内部负载均衡器。以下脚本将执行此操作。

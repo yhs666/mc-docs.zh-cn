@@ -36,7 +36,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
 * **Azure 订阅**：验证 Azure 订阅中可用的核心数。如果你创建的建议 VM 大小为 **A3**，你需要 **4** 个可用核心。如果你使用的 VM 大小为 **A2**，你需要 **2** 个可用核心。
 
     * 若要验证订阅的核心限制，请在 Azure 经典管理门户中，单击左侧窗格中的“设置”，然后单击顶部菜单中的“使用情况”。
-    * 若要增加核心配额，请联系 [Azure 支持](https://www.azure.cn/support/contact/)。有关 VM 大小信息，请参阅 [Azure 的虚拟机大小](./virtual-machines-windows-sizes.md)。
+    * 若要增加核心配额，请联系 [Azure 支持](https://www.azure.cn/support/contact/)。有关 VM 大小信息，请参阅 [Azure 的虚拟机大小](virtual-machines-windows-sizes.md)。
 * **Windows PowerShell 脚本编写**：本主题假定你具备 Windows PowerShell 的基础应用知识。有关使用 Windows PowerShell 的详细信息，请参阅以下部分：
 
     * [在 Windows Server 上启动 Windows PowerShell](https://technet.microsoft.com/zh-cn/library/hh847814.aspx)
@@ -80,7 +80,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
     * **终结点**：保留“远程桌面”和 **PowerShell** 终结点，然后添加一个 HTTP 或 HTTPS 终结点，具体取决于你的环境。
 
         * **HTTP**：默认公共和专用端口均为 **80**。请注意，如果你使用非 80 的专用端口，请修改 http 脚本中的 **$HTTPport = 80**。
-        * **HTTPS**：默认公共和专用端口均为 **443**。最佳安全方案是更改私有端口并配置你的防火墙和报表服务器以使用私有端口。有关终结点的详细信息，请参阅[如何设置与虚拟机的通信](./virtual-machines-windows-classic-setup-endpoints.md)。请注意，如果你使用非 443 的端口，请更改 HTTPS 脚本中的参数 **$HTTPsport = 443**。
+        * **HTTPS**：默认公共和专用端口均为 **443**。最佳安全方案是更改私有端口并配置你的防火墙和报表服务器以使用私有端口。有关终结点的详细信息，请参阅[如何设置与虚拟机的通信](virtual-machines-windows-classic-setup-endpoints.md)。请注意，如果你使用非 443 的端口，请更改 HTTPS 脚本中的参数 **$HTTPsport = 443**。
     * 单击“下一步”。![下一步](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. 在向导的最后一页上，保持选中默认的“安装 VM 代理”。本主题中的步骤不使用 VM 代理，但如果打算保留此 VM，VM 代理和扩展将允许你增强该 VM。有关 VM 代理的详细信息，请参阅 [VM Agent and Extensions - Part 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/)（VM 代理和扩展 – 第 1 部分）。安装并运行的一个默认扩展是“BGINFO”扩展，它在 VM 桌面上显示系统信息，如内部 IP 和可用驱动器空间。
 9. 单击“完成”。![确定](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
@@ -153,7 +153,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
 * 使用脚本来配置报表服务器
 * 使用配置管理器配置报表服务器。
 
-有关更多详细步骤，请参阅[连接到虚拟机并启动 Reporting Services 配置管理器](./virtual-machines-windows-classic-ps-sql-bi.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager)。
+有关更多详细步骤，请参阅[连接到虚拟机并启动 Reporting Services 配置管理器](virtual-machines-windows-classic-ps-sql-bi.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager)。
 
 **身份验证说明：**Windows 身份验证是建议的身份验证方法，并且它是默认的 Reporting Services 身份验证方法。只有在 VM 配置的用户可以访问 Reporting Services 并分配给 Reporting Services 角色。
 
@@ -638,14 +638,14 @@ get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayna
 ### 资源
 * 有关对 SQL Server Business Intelligence 和 SharePoint 2013 进行单一服务器部署的相关类似内容，请参阅[使用 Windows PowerShell 创建装有 SQL Server BI 和 SharePoint 2013 的 Azure VM](https://msdn.microsoft.com/zh-cn/library/azure/dn385843.aspx)。
 * 有关对 SQL Server Business Intelligence 和 SharePoint 2013 进行多服务器部署的相关类似内容，请参阅[在 Azure 虚拟机中部署 SQL Server Business Intelligence](https://msdn.microsoft.com/zh-cn/library/dn321998.aspx)。
-* 有关在 Azure 虚拟机上部署 SQL Server Business Intelligence 的常规信息，请参阅[在 Azure 虚拟机中部署 SQL Server Business Intelligence](./virtual-machines-windows-classic-ps-sql-bi.md)。
+* 有关在 Azure 虚拟机上部署 SQL Server Business Intelligence 的常规信息，请参阅[在 Azure 虚拟机中部署 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md)。
 * 有关 Azure 计算费用成本的详细信息，请参阅 [Azure 定价计算器](https://www.azure.cn/pricing/calculator/)的“虚拟机”选项卡。
 
 ### 社区内容
 * 有关如何在不使用脚本的情况下创建 Reporting Services 本机模式报表服务器的分步说明，请参阅[在 Azure 虚拟机上托管 SQL 报表服务](http://adititechnologiesblog.blogspot.in/2012/07/hosting-sql-reporting-service-on-azure.html)。
 
 ### 指向 Azure VM 中 SQL Server 的其他资源的链接
-[Azure 虚拟机中的 SQL Server 概述](./virtual-machines-windows-sql-server-iaas-overview.md)
+[Azure 虚拟机中的 SQL Server 概述](virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!---HONumber=Mooncake_0220_2017-->
 <!--Update_Description: wording update-->

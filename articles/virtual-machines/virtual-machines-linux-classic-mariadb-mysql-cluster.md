@@ -219,7 +219,7 @@ Azure 有两种用于创建和处理资源的不同部署模型：[Azure Resourc
     * RSYNC：`firewall-cmd --zone=public --add-port=4444/tcp --permanent`
     * 重新加载防火墙：`firewall-cmd --reload`
 
-9. 优化系统性能。有关详细信息，请参阅[性能调优策略](./virtual-machines-linux-classic-optimize-mysql.md)。
+9. 优化系统性能。有关详细信息，请参阅[性能调优策略](virtual-machines-linux-classic-optimize-mysql.md)。
 
     a.再次编辑 MySQL 配置文件。
 
@@ -401,7 +401,7 @@ SELECT * FROM TestTable;
 ## 后续步骤
 在本文中，你在运行 CentOS 7 的 Azure 虚拟机上创建了三节点型 MariaDB + Galera 高可用性群集。VM 通过 Azure 负载均衡器实现负载均衡。
 
-你可能希望了解[在 Linux 上对 MySQL 进行集群的其他方式](./virtual-machines-linux-classic-mysql-cluster.md)并探究如何[优化和测试 Azure Linux VM 上的 MySQL 性能](./virtual-machines-linux-classic-optimize-mysql.md)。
+你可能希望了解[在 Linux 上对 MySQL 进行集群的其他方式](virtual-machines-linux-classic-mysql-cluster.md)并探究如何[优化和测试 Azure Linux VM 上的 MySQL 性能](virtual-machines-linux-classic-optimize-mysql.md)。
 
 <!--Anchors-->
 

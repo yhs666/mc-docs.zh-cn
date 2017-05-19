@@ -61,7 +61,7 @@ Azure 门户预览中显示的可用性集。下面说明了每个虚拟机及�
 
 ![可用性集](./media/virtual-machines-windows-dotnet-core/ase-win.png)  
 
-有关可用性集的深入信息，请参阅 [Manage availability of virtual machines](./virtual-machines-windows-manage-availability.md)（管理虚拟机的可用性）。
+有关可用性集的深入信息，请参阅 [Manage availability of virtual machines](virtual-machines-windows-manage-availability.md)（管理虚拟机的可用性）。
 
 ## 网络负载均衡器
 可用性集提供应用程序容错能力，而负载均衡器可让单个网络地址上有多个应用程序实例可供使用。多个应用程序实例可以托管在多个虚拟机上，每个虚拟机都连接到负载均衡器。访问应用程序时，负载均衡器将传入请求路由到每个附加的成员。可以通过使用 Visual Studio 中的“添加新资源向导”或者在 Azure Resource Manager 模板中插入格式正确的 JSON 资源，来添加负载均衡器。
@@ -197,7 +197,7 @@ Azure 门户预览中显示的一个示例入站 NAT 规则。在部署中为每
 
 ![入站 NAT 规则](./media/virtual-machines-windows-dotnet-core/natrule-win.png)  
 
-有关 Azure 网络负载均衡器的深入信息，请参阅 [Azure 基础结构服务的负载均衡](./virtual-machines-windows-load-balance.md)。
+有关 Azure 网络负载均衡器的深入信息，请参阅 [Azure 基础结构服务的负载均衡](virtual-machines-windows-load-balance.md)。
 
 ## 部署多个 VM
 最后，为使可用性集或负载均衡器有效运行，需要部署多个虚拟机。可以使用 Azure Resource Manager 模板复制函数来部署多个 VM。使用复制函数时，不需要定义有限数量的虚拟机，而可以在部署时动态提供此值。复制函数使用要创建的实例数目，处理适当数目的虚拟机和关联资源的部署。
@@ -250,6 +250,6 @@ Azure 门户预览中显示的一个示例入站 NAT 规则。在部署中为每
 ## 后续步骤
 <hr>
 
-[步骤 4 - 使用 Azure Resource Manager 模板部署应用程序](./virtual-machines-windows-dotnet-core-5-app-deployment.md)
+[步骤 4 - 使用 Azure Resource Manager 模板部署应用程序](virtual-machines-windows-dotnet-core-5-app-deployment.md)
 
 <!---HONumber=Mooncake_1212_2016-->

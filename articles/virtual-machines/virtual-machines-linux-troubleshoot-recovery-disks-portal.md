@@ -162,7 +162,7 @@ ms.author: iainfou
 ![更新启动诊断设置](./media/virtual-machines-linux-troubleshoot-recovery-disks/reenable-boot-diagnostics.png)  
 
 ## 后续步骤
-如果在连接到 VM 时遇到问题，请参阅 [Troubleshoot SSH connections to an Azure VM](./virtual-machines-linux-troubleshoot-ssh-connection.md)（排查 Azure VM 的 SSH 连接问题）。如果在访问 VM 上运行的应用时遇到问题，请参阅 [Troubleshoot application connectivity issues on a Linux VM](./virtual-machines-linux-troubleshoot-app-connection.md)（排查 Linux VM 上的应用程序连接问题）。
+如果在连接到 VM 时遇到问题，请参阅 [Troubleshoot SSH connections to an Azure VM](virtual-machines-linux-troubleshoot-ssh-connection.md)（排查 Azure VM 的 SSH 连接问题）。如果在访问 VM 上运行的应用时遇到问题，请参阅 [Troubleshoot application connectivity issues on a Linux VM](virtual-machines-linux-troubleshoot-app-connection.md)（排查 Linux VM 上的应用程序连接问题）。
 
 有关资源组的详细信息，请参阅 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)。
 

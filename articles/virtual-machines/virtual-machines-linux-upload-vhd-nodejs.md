@@ -110,7 +110,7 @@ azure config mode arm
 在以下示例中，请将示例参数名称替换为自己的值。 示例参数名称包括 `myResourceGroup`、`mystorageaccount` 和 `myimages`。
 
 ## <a id="prepimage"></a> 准备要上载的映像
-Azure 支持各种 Linux 分发（请参阅[认可的分发](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)）。 以下文章将指导你如何准备 Azure 上支持的各种 Linux 分发：
+Azure 支持各种 Linux 分发（请参阅 [Endorsed Distributions](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)（认可的分发））。 以下文章将指导你如何准备 Azure 上支持的各种 Linux 分发：
 
 * **[基于 CentOS 的分发版](virtual-machines-linux-create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -166,7 +166,7 @@ info:    storage account keys list command OK
 
 ```
 
-记下 `key1`，因为你将在后续步骤中使用它与存储帐户进行交互。
+记下 `key1` ，因为你将在后续步骤中使用它与存储帐户进行交互。
 
 ## <a name="create-a-storage-container"></a>创建存储容器
 就像你创建各种目录以便通过逻辑方式整理本地文件系统一样，你可以在存储帐户内创建容器来整理虚拟磁盘和映像。 一个存储帐户可以包含任意数目的容器。 

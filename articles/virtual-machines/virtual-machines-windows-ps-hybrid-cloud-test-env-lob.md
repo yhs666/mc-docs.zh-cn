@@ -46,7 +46,7 @@ ms.author: josephd
 
 ## 阶段 1：设置模拟混合云环境
 
-创建[模拟的混合云测试环境](./virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md)。由于此测试环境不需要 Corpnet 子网上存在 APP1 服务器，因此现在可将其关闭。
+创建[模拟的混合云测试环境](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md)。由于此测试环境不需要 Corpnet 子网上存在 APP1 服务器，因此现在可将其关闭。
 
 这是你当前的配置。
 
@@ -218,6 +218,6 @@ Restart-Computer
 
 ## 后续步骤
 
-- 使用 [Azure 门户预览](./virtual-machines-windows-hero-tutorial.md)添加新虚拟机。
+- 使用 [Azure 门户预览](virtual-machines-windows-hero-tutorial.md)添加新虚拟机。
 
 <!---HONumber=Mooncake_Quality_Review_1202_2016-->

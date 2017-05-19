@@ -23,7 +23,7 @@ ms.author: zachal
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-本文介绍 Azure 的 Desired State Configuration 扩展。有关 DSC 扩展处理程序的概述，请参阅 [Azure Desired State Configuration 扩展处理程序简介](./virtual-machines-windows-extensions-dsc-overview.md)。
+本文介绍 Azure 的 Desired State Configuration 扩展。有关 DSC 扩展处理程序的概述，请参阅 [Azure Desired State Configuration 扩展处理程序简介](virtual-machines-windows-extensions-dsc-overview.md)。
 
 ## 传入凭据
 在配置过程中，你可能需要在用户上下文中设置用户帐户、访问服务或安装程序。若要执行这些操作，需提供凭据。
@@ -85,9 +85,9 @@ $vm | Update-AzureVM
 
 ## 后续步骤 ##
 
-有关 Azure DSC 扩展处理程序的详细信息，请参阅 [Azure Desired State Configuration 扩展处理程序简介](./virtual-machines-windows-extensions-dsc-overview.md)。
+有关 Azure DSC 扩展处理程序的详细信息，请参阅 [Azure Desired State Configuration 扩展处理程序简介](virtual-machines-windows-extensions-dsc-overview.md)。
 
-查看[适用于 DSC 扩展的 Azure Resource Manager 模板](./virtual-machines-windows-extensions-dsc-template.md)。
+查看[适用于 DSC 扩展的 Azure Resource Manager 模板](virtual-machines-windows-extensions-dsc-template.md)。
 
 有关 PowerShell DSC 的详细信息，请[访问 PowerShell 文档中心](https://msdn.microsoft.com/powershell/dsc/overview)。
 

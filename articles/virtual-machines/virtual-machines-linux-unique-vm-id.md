@@ -30,11 +30,11 @@ Azure VM 唯一 ID 是只读属性。在重新启动关机（计划中或计划�
 
 ## 创建 VM
 
-有关详细信息，请参阅[创建虚拟机](./virtual-machines-linux-creation-choices.md)
+有关详细信息，请参阅[创建虚拟机](virtual-machines-linux-creation-choices.md)
 
 ## 连接到 VM
 
-有关详细信息，请参阅[从 Linux 执行 SSH](./virtual-machines-linux-mac-create-ssh-keys.md)
+有关详细信息，请参阅[从 Linux 执行 SSH](virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## 查询 VM 唯一 ID
 

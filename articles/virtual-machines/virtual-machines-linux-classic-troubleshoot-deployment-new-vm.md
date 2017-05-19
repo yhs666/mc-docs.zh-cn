@@ -27,7 +27,7 @@ ms.author: cjiang
 > [!IMPORTANT]
 > Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。
 
-查看资源管理器版本，请点击[这里](./virtual-machines-linux-troubleshoot-deployment-new-vm.md).
+查看资源管理器版本，请点击[这里](virtual-machines-linux-troubleshoot-deployment-new-vm.md).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -51,7 +51,7 @@ ms.author: cjiang
 
 **解决方法：**
 
-若要解决这两个错误，请上载原始 VHD、可用的本地设置、以及与该 OS（通用/专用）相同的设置。若要以通用设置上载，请记得先运行 -deprovision。有关详细信息，请参阅[创建并上载包含 Linux 操作系统的虚拟硬盘](./virtual-machines-linux-classic-create-upload-vhd.md)。
+若要解决这两个错误，请上载原始 VHD、可用的本地设置、以及与该 OS（通用/专用）相同的设置。若要以通用设置上载，请记得先运行 -deprovision。有关详细信息，请参阅[创建并上载包含 Linux 操作系统的虚拟硬盘](virtual-machines-linux-classic-create-upload-vhd.md)。
 
 **捕获错误：**
 
@@ -61,7 +61,7 @@ ms.author: cjiang
 
 **解决方法：**
 
-若要解决这两个错误，请从门户中删除当前映像，并[从当前 VHD 重新捕获映像](./virtual-machines-linux-classic-capture-image.md)，该映像具有与该 OS（通用/专用）相同的设置。
+若要解决这两个错误，请从门户中删除当前映像，并[从当前 VHD 重新捕获映像](virtual-machines-linux-classic-capture-image.md)，该映像具有与该 OS（通用/专用）相同的设置。
 
 ## 问题：自定义/库/应用商店映像；分配失败
 当新的 VM 请求被发送到没有可用空间来处理请求或不支持所请求 VM 大小的群集时，便会发生此错误。不可在同一云服务中混合不同系列的 VM。因此，如果想要创建的新 VM 的大小不受云服务支持，计算请求将失败。
@@ -87,6 +87,6 @@ ms.author: cjiang
 - 将[现有虚拟网络连接](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)到新虚拟网络。详细了解[区域虚拟网络](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。此外，你也可以[将基于地缘组的虚拟网络迁移到区域虚拟网络](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)，然后创建新 VM。
 
 ## 后续步骤
-如果你在 Azure 中启动已停止的 Linux VM 或调整现有 Linux VM 的大小时遇到问题，请参阅[排查在 Azure 中重新启动现有 Linux 虚拟机或调整其大小时遇到的经典部署问题](./virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)。
+如果你在 Azure 中启动已停止的 Linux VM 或调整现有 Linux VM 的大小时遇到问题，请参阅[排查在 Azure 中重新启动现有 Linux 虚拟机或调整其大小时遇到的经典部署问题](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)。
 
 <!---HONumber=Mooncake_Quality_Review_1215_2016-->

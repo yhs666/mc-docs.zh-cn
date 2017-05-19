@@ -40,7 +40,7 @@ SSHD 是在 Linux VM 上运行的 SSH 服务器。SSH 是从 MacBook 或 Linux �
 在本文中，必须让用户在 Linux VM 中保持登录，使整个演练得以顺畅进行。出于此原因，我们将打开两个终端，并从它们打开 Linux VM 的 SSH。我们将使用第一个终端来更改 SSHD 配置文件，然后重新启动 SSHD 服务。重新启动服务后，我们将使用第二个终端来测试这些更改。由于我们要禁用 SSH 密码并严重依赖于 SSH 密钥，因此如果 SSH 密钥不正确而关闭 VM 连接，VM 将永久被锁定，并且没有人能够登录。这样，只能将它删除后再重新创建。
 
 ## 先决条件
-* [在 Linux 和 Mac 上为 Azure 中的 Linux VM 创建 SSH 密钥](./virtual-machines-linux-mac-create-ssh-keys.md)
+* [在 Linux 和 Mac 上为 Azure 中的 Linux VM 创建 SSH 密钥](virtual-machines-linux-mac-create-ssh-keys.md)
 * Azure 帐户
     * [试用版注册](https://www.azure.cn/pricing/1rmb-trial/)
     * [Azure 门户预览](http://portal.azure.cn)

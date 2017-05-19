@@ -2,7 +2,7 @@
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>此迁移计划是否影响 Azure 虚拟机上运行的任何现有服务或应用程序？ 
 
-不可以。 VM（经典）是公开上市的完全受支持的服务。 你可以继续使用这些资源来拓展你在 Azure 上的足迹。
+不会。 VM（经典）是公开上市的完全受支持的服务。 你可以继续使用这些资源来拓展你在 Azure 上的足迹。
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>如果我近期不打算迁移，我的 VM 会出现什么情况？ 
 

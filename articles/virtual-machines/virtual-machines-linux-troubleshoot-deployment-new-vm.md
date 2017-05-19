@@ -55,7 +55,7 @@ ms.author: cjiang
 
 **解决方法：**
 
-若要解决这两个错误，请从门户中删除当前映像，并[从当前 VHD 重新捕获映像](./virtual-machines-linux-capture-image.md)，该映像具有与该 OS（通用/专用）相同的设置。
+若要解决这两个错误，请从门户中删除当前映像，并[从当前 VHD 重新捕获映像](virtual-machines-linux-capture-image.md)，该映像具有与该 OS（通用/专用）相同的设置。
 
 ## 问题：自定义/库/应用商店映像；分配失败
 当新的 VM 请求被固定到不支持所请求的 VM 大小、或没有可用空间可处理请求的群集时，便会发生此错误。
@@ -80,7 +80,7 @@ ms.author: cjiang
     * 将新 VM 添加到同一虚拟网络。
 
 ## 后续步骤
-如果你在 Azure 中启动已停止的 Linux VM 或调整现有 Linux VM 的大小时遇到问题，请参阅[排查在 Azure 中重新启动或调整现有 Linux 虚拟机时遇到的 Resource Manager 部署问题](./virtual-machines-linux-restart-resize-error-troubleshooting.md)。
+如果你在 Azure 中启动已停止的 Linux VM 或调整现有 Linux VM 的大小时遇到问题，请参阅[排查在 Azure 中重新启动或调整现有 Linux 虚拟机时遇到的 Resource Manager 部署问题](virtual-machines-linux-restart-resize-error-troubleshooting.md)。
 
 <!---HONumber=Mooncake_0213_2017-->
 <!--Update_Description: wording update-->

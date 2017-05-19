@@ -19,15 +19,15 @@ ms.author: iainfou
 ---
 
 # 在 Azure 中的 Windows VM 上安装和配置 MongoDB
-[MongoDB](http://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。本文逐步讲解如何在 Azure 中的 Windows Server 2012 R2 虚拟机 \(VM\) 上安装和配置 MongoDB。也可以[在 Azure 中的 Linux VM 上安装 MongoDB](./virtual-machines-linux-install-mongodb.md)。
+[MongoDB](http://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。本文逐步讲解如何在 Azure 中的 Windows Server 2012 R2 虚拟机 \(VM\) 上安装和配置 MongoDB。也可以[在 Azure 中的 Linux VM 上安装 MongoDB](virtual-machines-linux-install-mongodb.md)。
 
 ## 先决条件
 在安装和配置 MongoDB 之前，需要创建一个 VM，并且最好将一个磁盘添加到该 VM。请参阅以下文章创建 VM 并向其添加数据磁盘：
 
-* [使用 Azure 门户预览创建 Windows Server VM](./virtual-machines-windows-hero-tutorial.md) 或[使用 Azure PowerShell 创建 Windows Server VM](./virtual-machines-windows-quick-create-powershell.md)
-* [使用 Azure 门户预览将数据磁盘附加到 Windows Server VM](./virtual-machines-windows-attach-disk-portal.md) 或[使用 Azure PowerShell 将数据磁盘附加到 Windows Server VM](https://msdn.microsoft.com/zh-cn/library/mt603673.aspx)
+* [使用 Azure 门户预览创建 Windows Server VM](virtual-machines-windows-hero-tutorial.md) 或[使用 Azure PowerShell 创建 Windows Server VM](virtual-machines-windows-quick-create-powershell.md)
+* [使用 Azure 门户预览将数据磁盘附加到 Windows Server VM](virtual-machines-windows-attach-disk-portal.md) 或[使用 Azure PowerShell 将数据磁盘附加到 Windows Server VM](https://msdn.microsoft.com/zh-cn/library/mt603673.aspx)
 
-使用远程桌面[登录到 Windows Server VM](./virtual-machines-windows-connect-logon.md)，开始安装和配置 MongoDB。
+使用远程桌面[登录到 Windows Server VM](virtual-machines-windows-connect-logon.md)，开始安装和配置 MongoDB。
 
 ## 安装 MongoDB
 > [!IMPORTANT]
@@ -154,7 +154,7 @@ New-NetFirewallRule -DisplayName "Allow MongoDB" -Direction Inbound `
 
 也可以使用“具有高级安全性的 Windows 防火墙”图形管理工具创建该规则。创建一个新的入站规则以允许 TCP 端口 27017。
 
-如有需要，创建一个网络安全组规则，以允许从现有 Azure 虚拟网络子网外部访问 MongoDB。可使用 [Azure 门户预览](./virtual-machines-windows-nsg-quickstart-portal.md)或 [Azure PowerShell](./virtual-machines-windows-nsg-quickstart-powershell.md) 创建网络安全组规则。与创建 Windows 防火墙规则时一样，允许通过 TCP 端口 27017 连接到 MongoDB VM 的虚拟网络接口。
+如有需要，创建一个网络安全组规则，以允许从现有 Azure 虚拟网络子网外部访问 MongoDB。可使用 [Azure 门户预览](virtual-machines-windows-nsg-quickstart-portal.md)或 [Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md) 创建网络安全组规则。与创建 Windows 防火墙规则时一样，允许通过 TCP 端口 27017 连接到 MongoDB VM 的虚拟网络接口。
 
 > [!NOTE]
 TCP 端口 27017 是 MongoDB 使用的默认端口。可以在启动 `mongod.exe` 时使用 `--port` 参数手动更改此端口，或者通过某个服务更改此端口。如果更改了端口，请确保在前面的步骤中更新 Windows 防火墙和网络安全组规则。

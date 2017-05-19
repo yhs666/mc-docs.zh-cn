@@ -268,6 +268,6 @@ Azure 门户预览中显示的 SQL Server 和 MusicStore 数据库视图。
 ## 后续步骤
 <hr>
 
-[步骤 2 - Azure Resource Manager 模板中的访问权限和安全性](./virtual-machines-windows-dotnet-core-3-access-security.md)
+[步骤 2 - Azure Resource Manager 模板中的访问权限和安全性](virtual-machines-windows-dotnet-core-3-access-security.md)
 
 <!---HONumber=Mooncake_1212_2016-->

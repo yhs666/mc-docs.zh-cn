@@ -26,7 +26,7 @@ ms.author: danlep
 本文仅适用于 Azure 中使用经典部署模型创建的 HPC Pack 2012 R2 群集。Azure 建议大多数新部署使用 Resource Manager 模型。另外，本文中介绍的 PowerShell 脚本在 HPC Pack 2016 中不可用。
 
 ## 先决条件
-* **Azure VM 中的 HPC Pack 2012 R2 群集**：在经典部署模型中创建 HPC Pack 2012 R2 群集。例如，可以通过使用 Azure 应用商店的 HPC Pack 2012 R2 VM 映像和 Azure PowerShell 脚本，自动化部署。有关信息和先决条件，请参阅[使用 HPC Pack IaaS 部署脚本创建 HPC 群集](./virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)。
+* **Azure VM 中的 HPC Pack 2012 R2 群集**：在经典部署模型中创建 HPC Pack 2012 R2 群集。例如，可以通过使用 Azure 应用商店的 HPC Pack 2012 R2 VM 映像和 Azure PowerShell 脚本，自动化部署。有关信息和先决条件，请参阅[使用 HPC Pack IaaS 部署脚本创建 HPC 群集](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)。
 
     部署以后，在头节点上的 %CCP\_HOME%bin 文件夹中找到节点管理脚本。以管理员身份运行各个脚本。
 * **Azure 发布设置文件或管理证书**：需要在头节点上执行下列操作之一：
@@ -150,7 +150,7 @@ Stop-HPCIaaSNode.ps1 -Name HPCNodeCN-* -Force
 ```
 
 ## 后续步骤
-* 若要根据群集上作业及任务的当前工作负荷自动增加或减少群集节点，请参阅[在 Azure 中根据群集工作负荷自动扩展和收缩 HPC Pack 群集资源](./virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)。
+* 若要根据群集上作业及任务的当前工作负荷自动增加或减少群集节点，请参阅[在 Azure 中根据群集工作负荷自动扩展和收缩 HPC Pack 群集资源](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)。
 
 <!---HONumber=Mooncake_0213_2017-->
 <!--Update_Description: wording update-->

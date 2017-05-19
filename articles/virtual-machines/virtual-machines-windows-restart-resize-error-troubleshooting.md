@@ -61,7 +61,7 @@ ms.author: delhan
     3. 选择已调整大小的 VM，单击“启动”，然后启动每个已停止的 VM。
 
 ## 后续步骤
-如果在 Azure 中创建新的 Windows VM 时遇到问题，请参阅[排查在 Azure 中新建 Windows 虚拟机时遇到的部署问题](./virtual-machines-windows-troubleshoot-deployment-new-vm.md)。
+如果在 Azure 中创建新的 Windows VM 时遇到问题，请参阅[排查在 Azure 中新建 Windows 虚拟机时遇到的部署问题](virtual-machines-windows-troubleshoot-deployment-new-vm.md)。
 
 <!---HONumber=Mooncake_0220_2017-->
 <!--Update_Description: wording update-->

@@ -282,9 +282,9 @@ sc config RemoteRegistry start= auto
 * [KB2904100](https://support.microsoft.com/kb/2904100)：Windows 中发生磁盘 I/O 期间系统会冻结 
 
 ## <a id="step23"></a> 运行 Sysprep   
-如果想创建一个映像并将其部署到多个 VM，则在将 VHD 上传到 Azure 之前，需要[运行 Sysprep 来通用化该映像](./virtual-machines-windows-generalize-vhd.md)。无需运行要用作专用 VHD 的 Sysprep。有关详细信息，请参阅以下文章：
+如果想创建一个映像并将其部署到多个 VM，则在将 VHD 上传到 Azure 之前，需要[运行 Sysprep 来通用化该映像](virtual-machines-windows-generalize-vhd.md)。无需运行要用作专用 VHD 的 Sysprep。有关详细信息，请参阅以下文章：
 
-* [Create a VM image from an existing Azure VM using the Resource Manager deployment model（使用 Resource Manager 部署模型从现有 Azure VM 创建 VM 映像）](./virtual-machines-windows-create-vm-generalized.md)
+* [Create a VM image from an existing Azure VM using the Resource Manager deployment model（使用 Resource Manager 部署模型从现有 Azure VM 创建 VM 映像）](virtual-machines-windows-create-vm-generalized.md)
 * [针对服务器角色的 Sysprep 支持](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 ## 完成推荐配置
@@ -312,7 +312,7 @@ sc config RemoteRegistry start= auto
     ```
 
 ## 后续步骤
-* [将 Windows VM 映像上载到 Azure 以进行资源管理器部署](./virtual-machines-windows-upload-image.md)
+* [将 Windows VM 映像上载到 Azure 以进行资源管理器部署](virtual-machines-windows-upload-image.md)
 
 <!---HONumber=Mooncake_0220_2017-->
 <!--Update_Description: wording update-->
