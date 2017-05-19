@@ -13,7 +13,6 @@
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
 ### [.NET framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
-### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## [编程指南](event-hubs-programming-guide.md)
 
 # 如何
@@ -31,7 +30,7 @@
 ## 管理
 ### [事件中心管理库](event-hubs-management-libraries.md)
 ### 存档
-#### [事件中心存档](event-hubs-archive-overview.md)
+
 #### [使用模板启用事件中心存档](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
 #### [使用 Python 启用事件中心存档](event-hubs-archive-python.md)
 ### [使用事件中心流式传输 Azure 诊断数据](event-hubs-streaming-azure-diags-data.md)
