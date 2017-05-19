@@ -36,8 +36,6 @@ Azure 提供了用于运行应用程序的不同托管模型。每种模型提�
 
 Azure 还针对更特殊的用途提供其他计算托管模型，例如：
 
-* [移动服务](./mobile-services/index.md)  
-  适用于移动设备上运行的应用的云后端优化模型。
 * [Batch](./batch/index.md)  
   适用于处理大量类似任务的优化模型，特别适用于本身在多台计算机上以并行任务形式运行的工作负荷。
 * [HDInsight (Hadoop)](./hdinsight/index.md)  
