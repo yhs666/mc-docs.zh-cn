@@ -23,11 +23,6 @@ ms.lasthandoff: 05/05/2017
 
 ---
 # <a name="deploy-a-docker-container-to-service-fabric"></a>将 Docker 容器部署到 Service Fabric
-> [!div class="op_single_selector"]
-> * [部署 Windows 容器](service-fabric-deploy-container.md)
-> * [部署 Docker 容器](service-fabric-deploy-container-linux.md)
->
->
 
 本文介绍在 Linux 上的 Docker 容器中构建容器化服务的步骤。
 
