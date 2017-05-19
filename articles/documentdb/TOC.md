@@ -78,11 +78,8 @@
 
 ## 集成
 ### [使用 Azure 应用服务部署网站](documentdb-create-documentdb-website.md)
-### [使用逻辑应用进行应用程序日志记录](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
-### [绑定到 Azure Functions](../azure-functions/functions-bindings-documentdb.md)
 ### [使用 Hadoop 分析数据](documentdb-run-hadoop-with-hdinsight.md)
 ### [与 Azure 搜索集成](documentdb-search-indexer.md)
-### [使用 Azure 数据工厂移动数据](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [使用 Azure 流分析分析实时数据](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [使用逻辑应用获取通知](documentdb-change-notification.md)
 ### [实时处理传感器数据](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
