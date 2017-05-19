@@ -201,7 +201,7 @@ ms.author: raynew
 
     ![详细信息](./media/site-recovery-vmware-to-azure/credentials2.png)  
 
-### 连接到 VMware 服务器
+###<a name="prepare-to-connect-to-azure-vms-after-failover"></a> 连接到 VMware 服务器
 
 连接到 vSphere ESXi 主机或 vCenter 服务器以发现 VMware VM。
 
