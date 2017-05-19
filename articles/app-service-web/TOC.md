@@ -19,14 +19,11 @@
 ## [将 ASP.NET 应用与 SQL 数据库配合使用](web-sites-dotnet-get-started.md)
 ## [将 Laravel 应用与 MySQL 配合使用](app-service-web-php-get-started.md)
 ## [将 Sails.js 应用与 NOSQL DB 配合使用](app-service-web-nodejs-sails.md)
-## [将 Java 应用与 Eclipse 配合使用](app-service-web-eclipse-create-hello-world-web-app.md)
-## [将 Java 应用与 IntelliJ 配合使用](app-service-web-intellij-create-hello-world-web-app.md)
 ## [将 Django 应用与 MySQL 配合使用](web-sites-python-ptvs-django-mysql.md)
 
 # 概念
 ## [应用服务的工作方式](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)    
 ## [应用服务计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)    
-## [应用服务环境](app-service-app-service-environment-intro.md)
 ## [身份验证和授权](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [使用本地 AD 进行身份验证](web-sites-authentication-authorization.md)
 
@@ -45,61 +42,45 @@
 
 #### [使用用于 Java 的 Azure SDK](java-create-azure-website-using-java-sdk.md)
 #### [上传现有应用](web-sites-java-add-app.md)
-#### [远程调试 Eclipse](app-service-web-debug-java-web-app-in-eclipse.md)
-#### [远程调试 IntelliJ](app-service-web-debug-java-web-app-in-intellij.md)
-
-### [使用 SendGrid 发送电子邮件](sendgrid-dotnet-how-to-send-email.md)
 
 ### 配置运行时    
 #### [Windows 上的 PHP](web-sites-php-configure.md)
 
 #### [Java](web-sites-java-add-app.md)
-#### [Linux 上的 Node.js](app-service-linux-using-nodejs-pm2.md)
 #### [Python](web-sites-python-configure.md)
 
 ### 配置应用程序
 #### [使用应用设置](web-sites-configure.md)
 
 ## [部署到 Azure](web-sites-deploy.md)
-### [通过 FTP 部署](app-service-deploy-content-sync.md)
 ### [通过云同步部署](web-sites-deploy.md)
 ### [持续部署](app-service-continuous-deployment.md)
 ### [部署到过渡环境](web-sites-staged-publishing.md)
 ### [从本地 Git 部署](app-service-deploy-local-git.md)
 ### [使用模板部署](app-service-deploy-complex-application-predictably.md)
 ### [敏捷部署](app-service-agile-software-development.md)
-### [Beta 测试](app-service-web-test-in-production-controlled-test-flight.md)
 
 ### [设置部署凭据](app-service-deployment-credentials.md)
 
 ### 映射自定义域
-#### [购买域](custom-dns-web-site-buydomains-web-app.md)
 #### [映射第三方域](web-sites-custom-domain-name.md)
 #### [使用流量管理器映射域](web-sites-traffic-manager-custom-domain-name.md)
-#### [映射 GoDaddy 域](web-sites-godaddy-custom-domain-name.md)
 #### [迁移活动域](app-service-custom-domain-name-migrate.md)
 
-### [从 IIS 迁移](web-sites-migration-from-iis-server.md)
 ### [在生产中测试](app-service-web-test-in-production-get-start.md)
 
 ## 连接到数据库/资源        
 
-### [连接到本地数据](web-sites-hybrid-connection-get-started.md) 
-### [连接到 Azure VNet](web-sites-integrate-with-vnet.md)
 ### [使用 PowerShell 连接到 Azure VNet](app-service-vnet-integration-powershell.md)
 ### [连接到 Azure VM 上的 MongoDB](web-sites-dotnet-store-data-mongodb-vm.md)
 
 ##安全应用
 ### 对用户进行身份验证        
 #### [使用 Azure AD 进行身份验证](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [使用 Facebook 进行身份验证](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [使用 Google 进行身份验证](../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [使用 Microsoft 帐户进行身份验证](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [使用 Twitter 进行身份验证](../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [使用本地 AD 进行身份验证](web-sites-authentication-authorization.md)
 #### [将应用与多租户数据库配合使用](web-sites-dotnet-entity-framework-row-level-security.md)
 ### 分配自定义 SSL
-#### [购买 SSL 证书](web-sites-purchase-ssl-web-site.md)
 #### [配置第三方 SSL 证书](web-sites-configure-ssl-certificate.md)
 ### [实施 HTTPS](web-sites-configure-ssl-certificate.md#enforce-https-on-your-app)
 ### [配置 TLS 相互身份验证](app-service-web-configure-tls-mutual-auth.md)
@@ -108,7 +89,6 @@
 ### [纵向扩展](web-sites-scale.md)
 ### [横向扩展](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [使用流量管理器进行负载均衡](web-sites-traffic-manager.md)
-### [应用服务环境的高度缩放](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [使用 Azure CDN 扩大全球覆盖范围](cdn-websites-with-cdn.md)
 ### [通过 Memcache 连接到 Redis 缓存](web-sites-connect-to-redis-using-memcache-protocol.md)
 ### [创建 Redis 缓存](../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -148,6 +128,3 @@
 ## [最佳实践](app-service-best-practices.md)
 ## [示例](https://azure.microsoft.com/resources/samples/?service=app-service)    
 ## [视频](https://azure.microsoft.com/resources/videos/index/?services=app-service)
-## Cookbook    
-### [参考体系结构](../guidance/guidance-ra-app-service.md)    
-### [部署脚本](https://azure.microsoft.com/documentation/scripts/)
