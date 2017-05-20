@@ -56,7 +56,7 @@ ms.author: iainfou
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-## 将可用性集中的 VM 转换为托管磁盘
+## <a name="convert-vm-in-an-availability-set-to-managed-disks"></a> 将可用性集中的 VM 转换为托管磁盘
 
 如果要转换为托管磁盘的 VM 位于可用性集中，则需要先将可用性集转换为托管可用性集。
 
