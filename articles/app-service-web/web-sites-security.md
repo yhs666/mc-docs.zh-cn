@@ -16,10 +16,10 @@ ms.date: 01/12/2016
 wacn.date: 
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 1c016227d60a67b5ab9542057686a9ed74181d85
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 030b32920e75f9d65591d1f759c5ae85a09e20af
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -114,4 +114,4 @@ Azure 应用服务通过“FTPS” 提供对应用文件系统的安全 FTP 访�
 有关应用服务应用的日志记录信息（可能在检测攻击时很有用），请参阅[启用诊断日志记录](web-sites-enable-diagnostic-log.md)。
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)

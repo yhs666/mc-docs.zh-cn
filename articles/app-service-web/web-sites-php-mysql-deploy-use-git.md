@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 wacn.date: 
 ms.author: robmcm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: be36cbf19d212e0c2078e59b25ef5fc98693cb07
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 41c1d766282d5a15c6bd495a658fdb522c685a56
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -28,11 +28,11 @@ ms.lasthandoff: 04/28/2017
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程演示如何创建 PHP-MySQL Web 应用以及如何使用 Git 将该应用部署到[应用服务](/azure/app-service-web/app-service-changes-existing-services)。 需要使用计算机上已安装的 [PHP][install-php]、MySQL 命令行工具（[MySQL][install-mysql] 的一部分）和 [Git][install-git]。 本教程中的说明适用于任何操作系统，包括 Windows、Mac 和 Linux。 完成本指南之后，将获得一个在 Azure 中运行的 PHP/MySQL Web 应用。
+本教程演示如何创建 PHP-MySQL Web 应用以及如何使用 Git 将该应用部署到[应用服务](/app-service-web/app-service-changes-existing-services)。 需要使用计算机上已安装的 [PHP][install-php]、MySQL 命令行工具（[MySQL][install-mysql] 的一部分）和 [Git][install-git]。 本教程中的说明适用于任何操作系统，包括 Windows、Mac 和 Linux。 完成本指南之后，将获得一个在 Azure 中运行的 PHP/MySQL Web 应用。
 
 学习内容：
 
-* 如何使用 [Azure 门户预览][management-portal]创建 Web 应用和 MySQL 数据库。 由于在[应用服务 Web 应用](/azure/app-service-web/app-service-changes-existing-services)中已默认启用 PHP，因此运行 PHP 代码没有任何特殊要求。
+* 如何使用 [Azure 门户预览][management-portal]创建 Web 应用和 MySQL 数据库。 由于在[应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中已默认启用 PHP，因此运行 PHP 代码没有任何特殊要求。
 * 如何使用 Git 将应用程序发布和重新发布到 Azure。
 * 如何启用该编辑器扩展才能在每个 `git push`自动执行编辑器任务。
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 04/28/2017
 4. 单击“Web + 移动”，然后单击“Web 应用”。 然后单击 **创建**。
 5. 为资源组输入有效的名称。
 6. 为新的 Web 应用输入值。
-6. 登录到 [Azure 经典管理门户](https://manage.windowsazure.cn)，创建 MYSQL，然后在 MYSQL 的仪表板中获取 Web 应用的连接字符串。
+7. 登录到 [Azure 经典管理门户](https://manage.windowsazure.cn)，创建 MYSQL，然后在 MYSQL 的仪表板中获取 Web 应用的连接字符串。
 8. 创建 Web 应用程序后，用户将看到新的 Web 应用边栏选项卡。
 9. 在“设置”中，单击“连续部署”，然后单击“配置所需设置”。
 
@@ -246,7 +246,7 @@ ms.lasthandoff: 04/28/2017
     ![编辑器扩展插件成功][composer-extension-success]
 
 ## <a name="next-steps"></a>后续步骤
-有关详细信息，请参阅 [PHP 开发人员中心](https://www.azure.cn/develop/php/)。
+有关详细信息，请参阅 [PHP 开发人员中心](/develop/php/)。
 
 <!-- URL List -->
 

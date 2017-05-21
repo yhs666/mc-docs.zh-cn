@@ -17,17 +17,17 @@ ms.date: 12/16/2016
 wacn.date: 
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 888f0f54de8d8abbbbcd6413b5f87896d058c9a5
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: cb4270b702a698373f8db4853066d66a0fbafa78
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>设置 Azure 应用服务中的过渡环境
 <a name="Overview"></a>
 
-将 Web 应用、移动后端和 API 应用部署到[应用服务](/azure/app-service-web/app-service-changes-existing-services)时，如果应用在“标准”或“高级”应用服务计划模式下运行，则可以部署到单独的部署槽而不是默认的生产槽。 部署槽实际上是具有自身主机名的实时应用。 两个部署槽（包括生产槽）之间的应用内容与配置元素可以交换。 将应用程序部署到部署槽具有以下优点：
+将 Web 应用、移动后端和 API 应用部署到[应用服务](/app-service-web/app-service-changes-existing-services)时，如果应用在“标准”或“高级”应用服务计划模式下运行，则可以部署到单独的部署槽而不是默认的生产槽。 部署槽实际上是具有自身主机名的实时应用。 两个部署槽（包括生产槽）之间的应用内容与配置元素可以交换。 将应用程序部署到部署槽具有以下优点：
 
 * 可以在分阶段部署槽中验证应用更改，然后将其与生产槽交换。
 * 首先将应用部署到槽，然后将其交换到生产，这确保槽的所有实例都已准备好，然后交换到生产。 部署应用时，这样可避免停机。 流量重定向是无缝的，且不会因交换操作而删除任何请求。 当不需要预交换验证时，可以通过配置[自动交换](#Auto-Swap)来自动化这整个工作流。
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/28/2017
 
 * 如果应用具有多个槽，则无法更改模式。
 * 缩放不适用于非生产槽。
-* 非生产槽不支持链接的资源管理。 在 [Azure 门户预览](/azure/app-service-web/app-service-web-app-azure-portal)中，可通过暂时将非生产槽移到其他应用服务计划模式，避免对生产槽造成这种潜在影响。 请注意，非生产槽必须先再次与生产槽共享相同的模式，才能交换这两个槽。
+* 非生产槽不支持链接的资源管理。 在 [Azure 门户预览](/app-service-web/app-service-web-app-azure-portal)中，可通过暂时将非生产槽移到其他应用服务计划模式，避免对生产槽造成这种潜在影响。 请注意，非生产槽必须先再次与生产槽共享相同的模式，才能交换这两个槽。
 
 ## <a name="Add"></a> 添加部署槽
 必须在“标准”或“高级”模式下运行应用，才能启用多个部署槽。
@@ -62,7 +62,7 @@ ms.lasthandoff: 04/28/2017
 4. 在应用的资源边栏选项卡中，单击“部署槽”，然后单击部署槽打开该槽的资源边栏选项卡，它包含一组度量值和配置（类似任何其他应用）。 槽的名称将出现在边栏选项卡顶部，提醒你正在查看部署槽。
 
     ![部署槽标题][StagingTitle]
-5. 单击此槽边栏选项卡中的应用 URL。 请注意，部署槽有其自己的主机名，同时它也是动态应用。 若要限制对部署槽的公共访问权限，请参阅[应用服务 Web 应用 – 阻止对非生产部署槽的 Web 访问](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)。
+5. 单击此槽边栏选项卡中的应用 URL。 请注意，部署槽有其自己的主机名，同时它也是动态应用。 若要限制对部署槽的公共访问权限，请参阅 [应用服务 Web 应用 – 阻止对非生产部署槽的 Web 访问](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)。
 
 创建部署槽后没有任何内容。 你可以从其他存储库分支或完全不同的存储库部署到槽。 你还可以更改此槽的配置。 使用与内容更新部署槽关联的发布配置文件或部署凭证。  例如，你可以[使用 git 发布到此槽](app-service-deploy-local-git.md)。
 
@@ -173,7 +173,7 @@ Azure PowerShell 是一个模块，可提供通过 Windows PowerShell 管理 Azu
 
 [!INCLUDE [AzureRm PowerShell with Azure China Cloud](../../includes/azurerm-azurechinacloud-environment-parameter.md)]
 
-* 有关安装和配置 Azure PowerShell 的信息以及使用 Azure 订阅对 Azure PowerShell 进行身份验证的信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。  
+* 有关安装和配置 Azure PowerShell 的信息以及使用 Azure 订阅对 Azure PowerShell 进行身份验证的信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。  
 
 - - -
 ### <a name="create-a-web-app"></a>创建 Web 应用

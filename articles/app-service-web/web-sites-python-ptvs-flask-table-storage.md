@@ -17,10 +17,10 @@ ms.date: 07/07/2016
 wacn.date: 
 ms.author: huvalo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: d9b3c96c23e7cafd4fec016a796ff1d4de888106
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 9c601f07b26df1fde484d8ea5455f984becb28cf
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/28/2017
 
 轮询 Web 应用是对存储库的抽象界定，因此可以轻松地在不同类型的存储库（内存、Azure 表存储、MongoDB）之间进行切换。
 
-我们将了解如何创建 Azure 存储帐户、如何将 Web 应用配置为使用 Azure 表存储，以及如何将 Web 应用发布到 [Azure 应用服务Web 应用](/azure/app-service-web/app-service-changes-existing-services)中。
+我们将了解如何创建 Azure 存储帐户、如何将 Web 应用配置为使用 Azure 表存储，以及如何将 Web 应用发布到 [Azure 应用服务Web 应用](/app-service-web/app-service-changes-existing-services)中。
 
 请访问 [Python 开发人员中心] ，查看更多有关使用 PTVS 以及 Bottle、Flask 和 Django Web 框架、MongoDB、Azure 表存储、MySQL、SQL 数据库服务开发 Azure 应用服务 Web 应用的文章。 虽然本文将着重介绍应用服务，但步骤与 [Azure 云服务]的开发步骤类似。
 
@@ -167,17 +167,17 @@ ms.lasthandoff: 04/28/2017
 * [如何从 Python 使用表存储服务]
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!--Link references-->
-[Python 开发人员中心]: https://www.azure.cn/develop/python/
+[Python 开发人员中心]: /develop/python/
 [Azure 云服务]: ../cloud-services/cloud-services-python-ptvs.md
 [文档]: ../storage/storage-python-how-to-use-table-storage.md
 [如何从 Python 使用表存储服务]: ../storage/storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
 [Azure Portal Preview]: https://portal.azure.cn
-[用于 .NET 的 Azure SDK]: https://www.azure.cn/downloads/
+[用于 .NET 的 Azure SDK]: /downloads/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio 示例 VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
@@ -189,5 +189,5 @@ ms.lasthandoff: 04/28/2017
 [在 Azure 中进行远程调试]: http://go.microsoft.com/fwlink/?LinkId=624026
 [Web 项目]: http://go.microsoft.com/fwlink/?LinkId=624027
 [云服务项目]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Azure 存储]: /azure/storage/
+[Azure 存储]: /storage/
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python

@@ -17,10 +17,10 @@ ms.date: 02/19/2016
 wacn.date: 
 ms.author: huvalo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 55e9ebcc7fa92b65304e6857f1f4e5d9b1b17cec
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 139ff85e7a0101b4e3f1f28f50218791ca753bac
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/28/2017
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程将介绍如何开始在 [Azure 应用服务 Web 应用](/azure/app-service-web/app-service-changes-existing-services)中运行 Python。 Web 应用提供有限的免费托管和快速部署功能，现在，你可以使用 Python！ 随着您的应用增长，可以切换到付费托管，并且还可以与所有其他 Azure 服务集成。
+本教程将介绍如何开始在 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中运行 Python。 Web 应用提供有限的免费托管和快速部署功能，现在，你可以使用 Python！ 随着您的应用增长，可以切换到付费托管，并且还可以与所有其他 Azure 服务集成。
 
 你将使用 Django Web 框架创建应用程序（请参阅本教程针对 [Flask](web-sites-python-create-deploy-flask-app.md) 和 [Bottle](web-sites-python-create-deploy-bottle-app.md)的备选版本）。 将从 Azure 应用商店创建 Web 应用，设置 Git 部署和本地克隆存储库。 然后将本地运行应用程序，将其更改、 提交和推送到 Azure。 本教程演示如何从 Windows 或 Mac/Linux 执行此操作。
 
@@ -445,10 +445,10 @@ Azure 提供可以从 Django 应用程序方便地使用的数据库服务。 �
 * [具有 Python Tools for Visual Studio 的 Azure 上的 Django 和 MySQL]
 * [具有 Python Tools for Visual Studio 的 Azure 上的 Django 和 SQL 数据库]
 
-有关详细信息，请参阅 [Python 开发人员中心](https://www.azure.cn/develop/python/)。
+有关详细信息，请参阅 [Python 开发人员中心](/develop/python/)。
 
 ## <a name="whats-changed"></a>更改内容
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!--Link references-->
 [具有 Python Tools for Visual Studio 的 Azure 上的 Django 和 MySQL]: web-sites-python-ptvs-django-mysql.md
