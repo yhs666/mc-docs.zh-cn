@@ -12,19 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 wacn.date: 
 ms.author: robmcm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 8bff81af9e1b21fdad1f57f87d6f8fb0b9b62b40
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 7c9bfa24526f5078e1724286f5015841b743e1e6
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
 # <a name="create-a-php-sql-web-app-and-deploy-to-azure-app-service-using-git"></a>使用 Git 创建 PHP-SQL Web 应用并将其部署到 Azure 应用服务
-本教程演示如何在 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services)中创建连接到 Azure SQL 数据库的 PHP Web 应用以及如何使用 Git 部署该应用。 本教程假定你已在计算机上安装 [PHP][install-php]、[SQL Server Express][install-SQLExpress]、[Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) 和 [Git][install-git]。 完成本指南之后，将获得一个在 Azure 中运行的 PHP-SQL Web 应用。
+本教程演示如何在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)中创建连接到 Azure SQL 数据库的 PHP Web 应用以及如何使用 Git 部署该应用。 本教程假定你已在计算机上安装 [PHP][install-php]、[SQL Server Express][install-SQLExpress]、[Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) 和 [Git][install-git]。 完成本指南之后，将获得一个在 Azure 中运行的 PHP-SQL Web 应用。
 
 > [!NOTE]
 > 你可以使用 [Microsoft Web 平台安装程序](http://www.microsoft.com/web/downloads/platform.aspx)安装和配置 PHP、SQL Server Express 和 Microsoft Drivers for SQL Server for PHP。
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/28/2017
 
 学习内容：
 
-* 如何使用 [Azure 门户预览](/azure/app-service-web/app-service-web-app-azure-portal)创建 Azure Web 应用和 SQL 数据库。 由于在应用服务 Web 应用中已默认启用 PHP，因此运行 PHP 代码没有任何特殊要求。
+* 如何使用 [Azure 门户预览](/app-service-web/app-service-web-app-azure-portal)创建 Azure Web 应用和 SQL 数据库。 由于在应用服务 Web 应用中已默认启用 PHP，因此运行 PHP 代码没有任何特殊要求。
 * 如何使用 Git 将应用程序发布和重新发布到 Azure。
 
 通过按照本教程中的说明进行操作，你将在 PHP 中构建简单的注册 Web 应用程序。 该应用程序将在 Azure 网站中托管。 以下是已完成应用程序的屏幕快照：
@@ -262,10 +262,11 @@ ms.lasthandoff: 04/28/2017
 3. 浏览到 **http://[web app name].chinacloudsites.cn/index.php** 以查看你的更改。
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
 [install-Drivers]: http://www.microsoft.com/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
+

@@ -16,10 +16,10 @@ ms.date: 07/07/2016
 wacn.date: 
 ms.author: huvalo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: b92409631ceb8834426aa4c8645f265807af2af2
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 7dece0eefad0f9f9825bc0463771aaae0e9574cf
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/28/2017
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程介绍使用 [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python) 通过一个 PTVS 样本模板创建简单的轮询 Web 应用。 了解如何使用在 Azure 上托管的 MySQL 服务、如何将 Web 应用配置为使用 MySQL，以及如何将 Web 应用发布到 [Azure 应用服务 Web 应用](/azure/app-service-web/app-service-changes-existing-services)中。
+本教程介绍使用 [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python) 通过一个 PTVS 样本模板创建简单的轮询 Web 应用。 了解如何使用在 Azure 上托管的 MySQL 服务、如何将 Web 应用配置为使用 MySQL，以及如何将 Web 应用发布到 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中。
 
 请访问 [Python 开发人员中心] ，查看更多有关使用 PTVS 以及 Bottle、Flask 和 Django Web 框架、Azure 表存储、MySQL、SQL 数据库服务开发 Azure 应用服务 Web 应用的文章。 虽然本文将着重介绍应用服务，但步骤与 [Azure 云服务]的开发步骤类似。
 
@@ -143,11 +143,11 @@ ms.lasthandoff: 04/28/2017
 * [Django 文档]
 * [MySQL]
 
-有关详细信息，请参阅 [Python 开发人员中心](https://www.azure.cn/develop/python/)。
+有关详细信息，请参阅 [Python 开发人员中心](/develop/python/)。
 
 <!--Link references-->
 
-[Python 开发人员中心]: https://www.azure.cn/develop/python/
+[Python 开发人员中心]: /develop/python/
 [Azure 云服务]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->

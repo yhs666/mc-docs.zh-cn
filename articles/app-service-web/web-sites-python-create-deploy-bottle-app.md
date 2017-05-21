@@ -17,10 +17,10 @@ ms.date: 02/19/2016
 wacn.date: 
 ms.author: huvalo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 95e7da329497cbccc7571e7c825bb77f5eb08185
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: d5daaa4498473b13839cd7c0031d2a521f6e8e89
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/28/2017
 
 在本教程中，我们将介绍如何开始在 Azure 应用服务 Web 应用中运行 Python。 Web 应用提供有限的免费托管和快速部署功能，现在，你可以使用 Python！ 随着您的应用增长，可以切换到付费托管，并且还可以与所有其他 Azure 服务集成。
 
-你将使用 Bottle Web 框架创建 Web 应用（请参阅本教程针对 [Django](web-sites-python-create-deploy-django-app.md) 和 [Flask](web-sites-python-create-deploy-flask-app.md) 的备选版本）。 将从 Azure 应用商店创建 Web 应用，设置 Git 部署和本地克隆存储库。 然后，本地运行 Web 应用，将其更改、提交和推送到 [Azure 应用服务 Web 应用](/azure/app-service-web/app-service-changes-existing-services)。 本教程演示如何从 Windows 或 Mac/Linux 执行此操作。
+你将使用 Bottle Web 框架创建 Web 应用（请参阅本教程针对 [Django](web-sites-python-create-deploy-django-app.md) 和 [Flask](web-sites-python-create-deploy-flask-app.md) 的备选版本）。 将从 Azure 应用商店创建 Web 应用，设置 Git 部署和本地克隆存储库。 然后，本地运行 Web 应用，将其更改、提交和推送到 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)。 本教程演示如何从 Windows 或 Mac/Linux 执行此操作。
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -345,7 +345,7 @@ Visual Studio 不会显示部署的进度。
 * [具有 Python Tools for Visual Studio 的 Azure 上的 Bottle 和 Azure 表存储]
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!--Link references-->
 [具有 Python Tools for Visual Studio 的 Azure 上的 Bottle 和 MongoDB]: web-sites-python-ptvs-bottle-table-storage.md

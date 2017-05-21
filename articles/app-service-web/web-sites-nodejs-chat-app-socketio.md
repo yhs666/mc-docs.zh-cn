@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 wacn.date: 
 ms.author: robmcm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 29c72dc4b08c000a1da140cd1c3b248282932439
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 0fd86d6433837102b941b9c207bc21ac33310da7
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -277,13 +277,13 @@ Azure Web 应用可提供多个 SKU，用于确定站点可用的资源。 包�
 
 <!-- URL List -->
 
-[Azure Redis 缓存]: /azure/redis-cache/
-[应用服务 Web 应用]: /azure/app-service-web/app-service-changes-existing-services
-[Web 应用定价页]: /azure/azure-subscription-service-limits
+[Azure Redis 缓存]: /redis-cache/
+[应用服务 Web 应用]: /app-service-web/app-service-changes-existing-services
+[Web 应用定价页]: /azure-subscription-service-limits
 [在 Azure 云服务中使用 Socket.IO 构建 Node.js 聊天应用程序]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
 [Install and Configure the Azure CLI]: ../cli-install-nodejs.md
-[Azure App Service and Its Impact on Existing Azure Services]: /azure/app-service-web/app-service-changes-existing-services
-[Node.js 开发人员中心]: https://www.azure.cn/develop/nodejs/
+[Azure App Service and Its Impact on Existing Azure Services]: /app-service-web/app-service-changes-existing-services
+[Node.js 开发人员中心]: /develop/nodejs/
 [Try App Service]: https://azure.microsoft.com/try/app-service/
 [Instance Affinity in Azure Web Sites]: https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/
 [在 Azure Redis 缓存中创建缓存]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md

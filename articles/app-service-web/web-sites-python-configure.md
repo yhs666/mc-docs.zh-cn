@@ -17,15 +17,15 @@ ms.date: 02/26/2016
 wacn.date: 
 ms.author: huvalo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 0d01470bdeca2512c2f9f7c0add091d57ff45dfe
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: afac3797de52f6a88cd501f8e4f8dd2a8606adbd
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>使用 Azure 应用服务 Web 应用配置 Python
-本教程介绍在 [Azure 应用服务 Web 应用](/azure/app-service-web/app-service-changes-existing-services)中创作和配置符合基本 Web 服务器网关接口 (WSGI) 的 Python 应用程序的选项。
+本教程介绍在 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中创作和配置符合基本 Web 服务器网关接口 (WSGI) 的 Python 应用程序的选项。
 
 其中讲解了 Git 部署的一些功能，如使用 requirements.txt 安装虚拟环境和包。
 
@@ -347,8 +347,8 @@ Python 3.4 的示例 `web.config` ：
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 ## <a name="next-steps"></a>后续步骤
-有关详细信息，请参阅 [Python 开发人员中心](https://www.azure.cn/develop/python/)。
+有关详细信息，请参阅 [Python 开发人员中心](/develop/python/)。
 
 ## <a name="whats-changed"></a>更改内容
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 

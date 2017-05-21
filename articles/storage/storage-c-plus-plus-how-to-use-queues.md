@@ -1,24 +1,24 @@
 ---
-title: "如何使用队列存储 (C++) | Microsoft Docs"
+title: "如何使用队列存储 (C++) | Azure"
 description: "了解如何在 Azure 中使用队列存储服务。 示例用 C++ 编写。"
 services: storage
 documentationcenter: .net
-author: seguler
+author: cbrooksmsft
 manager: jahogg
 editor: tysonn
 ms.assetid: c8a36365-29f6-404d-8fd1-858a7f33b50a
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: cpp
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: seguler
+ms.date: 05/11/2017
+ms.author: cbrooksmsft
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: c40d807ab64d70559b7dcef68f033aec7604caa2
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 0f549aa999ccfde138ab8b5fed6d7fff5159098f
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/14/2017
 本指南将演示如何使用 Azure 队列存储服务执行常见方案。 示例采用 C++ 编写，并使用了[适用于 C++ 的 Azure 存储客户端库](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 介绍的方案包括**插入**、**扫视**、**获取**和**删除**队列消息以及**创建和删除队列**。
 
 > [!NOTE]
-> 本指南主要面向适用于 C++ 的 Azure 存储客户端库 1.0.0 版及更高版本。 推荐版本：存储客户端库 2.2.0（可通过 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](http://github.com/Azure/azure-storage-cpp/) 获得）。
+> 本指南主要面向适用于 C++ 的 Azure 存储空间客户端库 1.0.0 版及更高版本。 推荐版本：存储客户端库 2.2.0（可通过 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](http://github.com/Azure/azure-storage-cpp/) 获得）。
 > 
 > 
 

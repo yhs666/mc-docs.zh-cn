@@ -1,2 +1,2 @@
-若要运行此示例，请确保已安装最新的 [Azure PowerShell](./powershell-install-configure.md)。 若要开始，请运行 `Login-AzureRmAccount` 以创建与 Azure 的连接。 
+若要运行此示例，请确保已安装最新的 [Azure PowerShell](../articles/powershell-install-configure.md)。 若要开始，请运行 `Login-AzureRmAccount` 以创建与 Azure 的连接。 
 

@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 wacn.date: 
 ms.author: robmcm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 29e12e1848d40ec9598ac60b8003007a99a3e0be
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: f5ab1818d3bebf889f1523858e4c4acdd391ac67
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -71,7 +71,7 @@ ms.lasthandoff: 04/28/2017
 利用 [WordPress MU 域映射][wordpress-plugin-wordpress-mu-domain-mapping] 插件，可以轻松向网络中的任何站点添加自定义域。 若要使该插件正常运行，你需要额外对门户和域注册机构进行一些设置。
 
 ## <a name="enable-domain-mapping-to-the-web-app"></a>启用到 Web 应用的域映射
-**免费**的[应用服务](/azure/app-service-web/app-service-changes-existing-services)计划模式不支持向 Web 应用添加自定义域。 需要切换到**共享**或**标准**模式。 为此，请按以下步骤操作：
+**免费**的[应用服务](/app-service-web/app-service-changes-existing-services)计划模式不支持向 Web 应用添加自定义域。 需要切换到**共享**或**标准**模式。 为此，请按以下步骤操作：
 
 * 登录到 Azure 门户预览并找到你的 Web 应用。 
 * 单击“设置”中的“向上缩放”选项卡。
@@ -123,14 +123,14 @@ WordPress Multisite 当前没有用于映射自定义域的内置方法。 但�
 利用 Azure Web 应用，可以向一个 Web 应用添加无数个域。 若要添加另一个域，需要为每个域执行**验证域**和**设置域 A 记录**部分中所述的操作。    
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com
-[website-from-gallery]: https://www.azure.cn/develop/php/tutorials/website-from-gallery/
+[website-from-gallery]: /develop/php/tutorials/website-from-gallery/
 [wordpress-codex-create-a-network]: http://codex.wordpress.org/Create_A_Network
-[website-w-mysql-and-ftp-ftp-setup]: /azure/app-service-web/web-sites-php-mysql-deploy-use-ftp
-[website-w-mysql-and-git-git-setup]: /azure/app-service-web/web-sites-php-mysql-deploy-use-git
+[website-w-mysql-and-ftp-ftp-setup]: /app-service-web/web-sites-php-mysql-deploy-use-ftp
+[website-w-mysql-and-git-git-setup]: /app-service-web/web-sites-php-mysql-deploy-use-git
 [wordpress-network-setup]: ./media/web-sites-php-convert-wordpress-multisite/wordpress-network-setup.png
 [wordpress-codex-types-of-networks]: http://codex.wordpress.org/Before_You_Create_A_Network#Types_of_multisite_network
 [wordpress-plugin-wordpress-mu-domain-mapping]: http://wordpress.org/extend/plugins/wordpress-mu-domain-mapping/
