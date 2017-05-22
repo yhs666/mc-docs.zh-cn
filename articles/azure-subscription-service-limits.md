@@ -1,5 +1,5 @@
 ---
-title: "Azure 订阅限制和配额 | Azure"
+title: "Azure 订阅限制和配额 | Microsoft Docs"
 description: "提供常见的 Azure 订阅和服务限制、配额和约束的列表。 这包括有关如何增加限制以及最大值的信息。"
 services: 
 documentationcenter: 
@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/20/2017
 wacn.date: 
 ms.author: byvinyal
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: a740e80ef3aa8c20c63f9de5d3690b3c01e5e525
+ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
+ms.openlocfilehash: 4acfed2b89dba7563b72f72515f2a21b67ce5f4c
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 05/12/2017
+
 
 ---
-
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将得以展开并更新，以便涵盖更多平台。
 
@@ -36,12 +36,12 @@ ms.lasthandoff: 04/07/2017
 > 
 
 ## <a name="limits-and-the-azure-resource-manager"></a>限制和 Azure Resource Manager
-现在可以将多个 Azure 资源合并到单个 Azure 资源组中。 在使用资源组时，以前针对全局的限制会通过 Azure Resource Manager 在区域级别进行管理。 有关 Azure 资源组的详细信息，请参阅 [Azure Resource Manager 概述](./azure-resource-manager/resource-group-overview.md)。
+现在可以将多个 Azure 资源合并到单个 Azure 资源组中。 在使用资源组时，以前针对全局的限制会通过 Azure Resource Manager 在区域级别进行管理。 有关 Azure 资源组的详细信息，请参阅 [Azure Resource Manager 概述](azure-resource-manager/resource-group-overview.md)。
 
 在下面的限制中，添加了一个新表以反映在使用 Azure Resource Manager 时限制中的任何差异。 例如，会存在一个**订阅限制**表和一个**订阅数限制 - Azure Resource Manager** 表。 如果某个限制同时适用于这两种方案，它将仅显示在第一个表中。 除非另有说明，否则限制是跨所有区域的全局限制。
 
 > [!NOTE]
-> 请务必强调 Azure 资源组中的资源配额是用户的订阅可以访问的每个区域，而不像服务管理配额那样是可以访问的每个订阅。 我们来使用核心配额作为示例。 如果您需要根据对核心的支持请求增加配额，则需要决定您想要在哪个区域中使用多少核心，然后针对您希望的 Azure 资源组核心配额的数量和区域进行特定请求。 
+> 请务必强调 Azure 资源组中的资源配额是用户的订阅可以访问的每个区域，而不像服务管理配额那样是可以访问的每个订阅。 我们来使用核心配额作为示例。 如果您需要根据对核心的支持请求增加配额，则需要决定您想要在哪个区域中使用多少核心，然后针对您希望的 Azure 资源组核心配额的数量和区域进行特定请求。 因此，如果需要在西欧使用 30 个核心以在那里运行应用程序，则应专门在西欧请求 30 个核心。 但这不会增加在任何其他区域的核心配额 -- 仅西欧会有 30 个核心配额。
 > <!-- -->
 > 因此，你可能会发现考虑决定你在任何一个区域中的工作负荷所需的 Azure 资源组配额数量，以及请求你考虑在其中进行部署的每个区域的数量很有用。 请参阅[部署问题疑难解答](./azure-resource-manager/resource-manager-common-deployment-errors.md)，了解有关发现你特定区域的当前配额的更多帮助。
 > 
@@ -74,7 +74,6 @@ ms.lasthandoff: 04/07/2017
 - [多重身份验证](#multi-factor-authentication)
 - [联网](#networking-limits)
 - [通知中心服务](#notification-hub-service-limits)
-
 - [资源组](#resource-group-limits)
 - [计划程序](#scheduler-limits)
 - [服务总线](#service-bus-limits)
@@ -130,7 +129,7 @@ ms.lasthandoff: 04/07/2017
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ### <a name="storage-limits"></a>存储限制
-有关存储帐户限制的详细信息，请参阅 [Azure 存储可伸缩性和性能目标](./storage/storage-scalability-targets.md)。
+有关存储帐户限制的详细信息，请参阅 [Azure 存储可伸缩性和性能目标](storage/storage-scalability-targets.md)。
 <!--like # storage accts --> 
 #### <a name="storage-service-limits"></a>存储服务限制
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
@@ -139,7 +138,7 @@ ms.lasthandoff: 04/07/2017
 #### <a name="virtual-machine-disk-limits"></a>虚拟机磁盘限制 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-有关其他详细信息，请参阅[虚拟机大小](./virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/)。
+有关其他详细信息，请参阅[虚拟机大小](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 #### <a name="managed-virtual-machine-disks"></a>托管虚拟机磁盘
 
@@ -232,11 +231,14 @@ DocumentDB 是一个全规模数据库，该数据库对吞吐量和存储进行
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
 ### <a name="sql-database-limits"></a>SQL 数据库限制
-有关 Azure SQL 数据库限制，请参阅 [SQL 数据库资源限制](./sql-database/sql-database-resource-limits.md)。
+有关 Azure SQL 数据库限制，请参阅 [SQL 数据库资源限制](sql-database/sql-database-resource-limits.md)。
 
 ## <a name="see-also"></a>另请参阅
 [了解 Azure 限制和增加](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Azure 的虚拟机和云服务大小](./virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/)
+[Azure 的虚拟机和云服务大小](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[云服务的大小](./cloud-services/cloud-services-sizes-specs.md)
+[云服务的大小](cloud-services/cloud-services-sizes-specs.md)
+
+
+

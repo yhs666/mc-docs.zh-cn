@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI 脚本 - 监视和缩放单个 SQL 数据库 | Microsoft 文档"
+title: "Azure CLI 脚本 - 监视和缩放单个 SQL 数据库 | Azure"
 description: "Azure CLI 脚本示例 - 使用 Azure CLI 监视和缩放单个 SQL 数据库"
 services: sql-database
 documentationcenter: sql-database
@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
 ms.custom: sample
-ms.devlang: CLI
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/16/2017
+ms.date: 04/04/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 721191ddd0d5a5bbe7ce827c2f3ab9461fba64e4
+ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
+ms.openlocfilehash: c2a87af371db975f4cf97b0ac1beeec1572a836a
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 05/12/2017
 
 ---
 
