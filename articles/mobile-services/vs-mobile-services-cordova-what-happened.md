@@ -36,6 +36,5 @@ document.addEventListener("deviceready", function() {
     );
 ```
 
-[详细了解移动服务](./index.md)
 
 <!---HONumber=Mooncake_0215_2016-->
