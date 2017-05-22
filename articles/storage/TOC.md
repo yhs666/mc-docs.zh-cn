@@ -48,8 +48,8 @@
 ### [使用 Azure CLI 2.0（预览版）创建 Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 ### [使用 PowerShell 将托管磁盘附加到 Windows VM](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
 ### [将托管磁盘添加到 Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md)
-### [使用 Windows 中的快照创建作为托管磁盘存储的 VHD 的副本](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
-### [使用 Linux 中的快照创建作为托管磁盘存储的 VHD 的副本](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+### [使用 Windows 中的快照创建作为托管磁盘存储的 VHD 的副本](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+### [使用 Linux 中的快照创建作为托管磁盘存储的 VHD 的副本](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 # 如何
 ## [创建存储帐户](storage-create-storage-account.md)
