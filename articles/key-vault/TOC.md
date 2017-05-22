@@ -12,11 +12,9 @@
 ### [开发人员快速入门视频](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
 ### [Key Vault 开发人员指南](key-vault-developers-guide.md)
 ### [服务限制](key-vault-service-limits.md)
-### [受 HSM 保护的密钥](key-vault-hsm-protected-keys.md)
 ### [迁移到 .NET 2.0](key-vault-dotnet2api-release-notes.md)
 
 ## 管理
-### [Azure 密钥保管库日志记录](key-vault-logging.md)
 ### [防火墙后的访问](key-vault-access-behind-firewall.md)
 ### [更改租户 ID](key-vault-subscription-move-fix.md)
 ### [可用性和冗余性](key-vault-disaster-recovery-guidance.md)

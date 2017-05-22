@@ -13,7 +13,6 @@
 ### [PHP](service-bus-php-how-to-use-queues.md)
 ### [Python](service-bus-python-how-to-use-queues.md)
 ### [Ruby](service-bus-ruby-how-to-use-queues.md)
-### [REST](service-bus-brokered-tutorial-rest.md)
 ## 使用主题和订阅
 ### [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 ### [Java](service-bus-java-how-to-use-topics-subscriptions.md)
@@ -21,7 +20,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [生成共享访问签名](service-bus-sas-overview.md)
 
 # 如何
 ## 规划和设计
@@ -35,25 +33,17 @@
 ### [使用队列的应用](service-bus-create-queues.md)
 ### [使用主题/订阅的应用](service-bus-create-topics-subscriptions.md)
 ### [身份验证和授权](service-bus-authentication-and-authorization.md)
-### [高级消息传送](service-bus-premium-messaging.md)
 ### [分区的队列和主题](service-bus-partitioning.md)
 ### [死信队列](service-bus-dead-letter-queues.md)
 ### [事务处理](service-bus-transactions.md)
 ### [AMQP 开发人员指南]
 #### [.NET](service-bus-amqp-dotnet.md)
-#### [Java](service-bus-amqp-java.md)
-#### [PHP](service-bus-amqp-php.md)
-#### [Python](service-bus-amqp-python.md)
-#### [Apache](service-bus-amqp-apache.md)
-### [将 AMQP 用于 .NET API](service-bus-dotnet-advanced-message-queuing.md)
-### [将 AMQP 用于分区队列和主题](service-bus-partitioned-queues-and-topics-amqp-overview.md)
 ### [配对命名空间](service-bus-paired-namespaces.md)
 ### [将实体与自动转发链接在一起](service-bus-auto-forwarding.md)
 
 ## 管理
 ### [服务总线管理库](service-bus-management-libraries.md)
 ### [使用 Azure 资源管理器模板](service-bus-resource-manager-overview.md)
-### [使用 PowerShell 预配实体](service-bus-powershell-how-to-provision.md)
 
 # 引用
 ## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)

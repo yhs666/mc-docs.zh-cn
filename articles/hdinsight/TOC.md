@@ -49,7 +49,6 @@
 ## 使用 Spark 进行内存中处理
 ### [使用 BI 工具](hdinsight-apache-spark-use-bi-tools.md)
 ### [创建独立应用](hdinsight-apache-spark-create-standalone-application.md)
-### [使用 IntelliJ 创建应用](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [处理流事件](hdinsight-apache-spark-eventhub-streaming.md)
 ### [预测 HVAC 性能](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [预测食品检测结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
@@ -88,7 +87,6 @@
 ### [开发 C# 流式处理 MapReduce 程序](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [开发 Java MapReduce 程序](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [开发 Scalding MapReduce 作业](hdinsight-hadoop-mapreduce-scalding.md)
-### [使用 HDInsight 工具创建 Spark 应用](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [使用空边缘节点](hdinsight-apps-use-edge-node.md)
 ### [开发 Python 流式处理程序](hdinsight-hadoop-streaming-python.md)
 ### [处理和分析 JSON 文档](hdinsight-using-json-in-hive.md)
@@ -118,7 +116,6 @@
 #### [安装 HDInsight 应用](hdinsight-apps-install-applications.md)
 #### [安装自定义应用](hdinsight-apps-install-custom-applications.md)
 #### [使用 REST 安装应用](https://msdn.microsoft.com/library/mt706515.aspx)
-#### [将 HDInsight 应用发布到 Azure 应用商店](hdinsight-apps-publish-applications.md)
 ## 安全
 ### [将 Pig 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [使用 SSH 隧道](hdinsight-linux-ambari-ssh-tunnel.md)

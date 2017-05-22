@@ -5,7 +5,6 @@
 ###[访问缓存中的项目](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)
 ###[配置高可用性](https://azure.microsoft.com/pricing/details/cache/)
 ###[使用 SSL 进行安全连接](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)
-###[从托管缓存服务中迁移](cache-migrate-to-redis.md)
 ###[缓存模式与实践指南](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 
 
