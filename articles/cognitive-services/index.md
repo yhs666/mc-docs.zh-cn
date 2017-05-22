@@ -2,7 +2,7 @@
 title: 认知服务文档 | Azure
 description: 了解如何向应用程序添加影像、语音和语言分析等智能功能。
 services: cognitive-services
-author: v-johch
+author: forester123
 manager: 
 layout: LandingPage
 ms.assetid: 'ms.service: cognitive-services'
