@@ -20,8 +20,8 @@
 ### [用于 Hyper-V 复制的 Capacity Planner](site-recovery-capacity-planner.md)
 
 ## 配置
-#### [使用 System Center Configuration Manager 部署移动服务](site-recovery-install-mobility-service-using-sccm.md)
-#### [使用 Azure Automation DSC 部署移动服务](site-recovery-automate-mobility-service-install.md)
+### [使用 System Center Configuration Manager 部署移动服务](site-recovery-install-mobility-service-using-sccm.md)
+### [使用 Azure Automation DSC 部署移动服务](site-recovery-automate-mobility-service-install.md)
 ## 故障转移和故障回复
 ### [故障转移受保护的计算机](site-recovery-failover.md)
 ### [设置恢复计划](site-recovery-create-recovery-plans.md)
