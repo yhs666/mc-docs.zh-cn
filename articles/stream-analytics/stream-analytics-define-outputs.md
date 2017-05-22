@@ -29,75 +29,8 @@ ms.lasthandoff: 05/05/2017
 
 为了启用多种应用程序模式，Azure 流分析提供了不同的选项来存储输出和查看分析结果。 这样可以轻松地查看作业输出，并可灵活地使用和存储作业输出，以便进行数据仓库操作和其他操作。 必须先存在作业中配置的输出，然后才能启动作业并开始事件的流动。 例如，如果你使用 Blob 存储作为输出，该作业将不会自动创建存储帐户。 在启动 ASA 作业之前，需要由用户创建该存储帐户。
 
-<!-- Data Lake Not supported on Azure.cn-->
-<!--
-## Azure Data Lake Store
-Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). This storage enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. Further, Stream Analytics needs to be authorized to access the Data Lake Store. Details on authorization and how to sign up for the Data Lake Store (if needed) are discussed in the [Data Lake output article](./stream-analytics-data-lake-output.md).
--->
+<!-- Not Available ## Azure Data Lake Store-->
 
-<!--
-### Authorize an Azure Data Lake Store
-When Data Lake Storage is selected as an output in the Azure Management portal, you will be prompted to authorize a connection to an existing Data Lake Store.  
-
-![Authorize Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
-
-Then fill out the properties for the Data Lake Store output as seen below:
-
-![Authorize Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
-
-The table below lists the property names and their description needed for creating a Data Lake Store output.
-
-<table>
-<tbody>
-<tr>
-<td><B>PROPERTY NAME</B></td>
-<td><B>DESCRIPTION</B></td>
-</tr>
-<tr>
-<td>Output Alias</td>
-<td>This is a friendly name used in queries to direct the query output to this Data Lake Store.</td>
-</tr>
-<tr>
-<td>Account Name</td>
-<td>The name of the Data Lake Storage account where you are sending your output. You will be presented with a drop down list of Data Lake Store accounts to which the user logged in to the portal has access to.</td>
-</tr>
-<tr>
-<td>Path Prefix Pattern [<I>optional</I>]</td>
-<td>The file path used to write your files within the specified Data Lake Store Account. <BR>{date}, {time}<BR>Example 1: folder1/logs/{date}/{time}<BR>Example 2: folder1/logs/{date}</td>
-</tr>
-<tr>
-<td>Date Format [<I>optional</I>]</td>
-<td>If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD</td>
-</tr>
-<tr>
-<td>Time Format [<I>optional</I>]</td>
-<td>If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH.</td>
-</tr>
-<tr>
-<td>Event Serialization Format</td>
-<td>Serialization format for output data. JSON, CSV, and Avro are supported.</td>
-</tr>
-<tr>
-<td>Encoding</td>
-<td>If CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time.</td>
-</tr>
-<tr>
-<td>Delimiter</td>
-<td>Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab and vertical bar.</td>
-</tr>
-<tr>
-<td>Format</td>
-<td>Only applicable for JSON serialization. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects.</td>
-</tr>
-</tbody>
-</table>
-
-### Renew Data Lake Store Authorization
-You will need to re-authenticate your Data Lake Store account if its password has changed since your job was created or last authenticated.
-
-![Authorize Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
-
--->
 
 ## <a name="sql-database"></a>SQL 数据库
 可以将 [Azure SQL 数据库](https://www.azure.cn/home/features/sql-database/)用作本质上为关系型数据的输出，也可以将其用于所依赖的内容在关系数据库中托管的应用程序。 流分析作业将写入到 Azure SQL 数据库的现有表中。  请注意表架构必须与字段及其正从作业输出的类型完全匹配。 [Azure SQL 数据仓库](/azure/sql-data-warehouse/)也可以通过 SQL 数据库输出选项指定为输出（此项为预览功能）。 下表列出了属性名称和用于创建 SQL 数据库输出的属性说明。
@@ -192,70 +125,7 @@ Blob 存储提供了一种经济高效且可缩放的解决方案，用于在云
 | 分隔符 |仅适用于 CSV 序列化。 流分析支持大量的常见分隔符以对 CSV 格式的数据进行序列化。 支持的值为逗号、分号、空格、制表符和竖线。 |
 | 格式 |仅适用于 JSON 类型。 分隔行指定了通过新行分隔各个 JSON 对象，从而格式化输出。 数组指定输出将被格式化为 JSON 对象的数组。 |
 
-## <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com/) 可以用作流分析作业的输出，以便提供丰富的分析结果可视化体验。 此功能可用于操作仪表板、生成报告以及进行指标驱动型报告。
-
-### <a name="authorize-a-power-bi-account"></a>向 Power BI 帐户授权
-1. 当 Power BI 被选为 Azure 管理门户中的输出时，会提示你向现有的 Power BI 用户授权或创建新的 Power BI 帐户。  
-
-    ![向 Power BI 用户授权](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
-2. 如果你还没有帐户，请创建一个新帐户，然后单击“立即授权”。  将显示如下所示的屏幕。  
-
-    ![Azure 帐户 Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
-3. 在此步骤中，提供用于授权 Power BI 输出的工作或学校帐户。 如果你还没有注册 Power BI，请选择“立即注册”。 用于 Power BI 的工作或学校帐户可能不同于你当前登录时所用的 Azure 订阅帐户。
-
-### <a name="configure-the-power-bi-output-properties"></a>配置 Power BI 输出属性
-Power BI 帐户身份验证完成后，你可以为自己的 Power BI 输出配置属性。 下表列出了用于配置 Power BI 输出的属性名称及其说明。
-
-| 属性名称 | 说明 |
-| --- | --- |
-| 输出别名 |该名称是在查询中使用的友好名称，用于将查询输出定向到此 PowerBI 输出。 |
-| 组工作区 |若要启用与其他 Power BI 用户共享数据，可以在 Power BI 帐户中选择组。如果不想写入组，可以选择“我的工作区”。  更新现有组需要对 Power BI 重新进行身份验证。 |
-| 数据集名称 |提供数据集名称，供 Power BI 输出使用 |
-| 表名称 |在 Power BI 输出的数据集下提供表名称。 目前，流分析作业的 Power BI 输出只能在数据集中设置一个表 |
-<!-- remove the Stream Analytics Power BI  output due to it did not release currently  -->
-
-> [!NOTE]
-> 不要在 Power BI 仪表板中显式创建数据集和表。 当作业启动并且开始将输出抽取到 Power BI 中时，会自动填充数据集和表。 请注意，如果作业查询没有生成任何结果，则不会创建数据集和表。 另请注意，如果 Power BI 已经有一个数据集和表，且与流分析作业中提供的数据集和表同名，则会覆盖现有的数据。
-> 
-> 
-
-### <a name="schema-creation"></a>架构创建
-Azure 流分析会代表用户创建一个 Power BI 数据集和表（如果不存在）。 在所有其他情况下，会使用新值更新表。目前存在一个限制，即一个数据集中只能存在一个表。
-
-### <a name="data-type-conversion-from-asa-to-power-bi"></a>从 ASA 到 Power BI 的数据类型转换
-如果输出架构更改，Azure 流分析会在运行时动态更新数据模型。 列名称更改、列类型更改，以及添加或删除列，这些都会进行跟踪。
-
-此表介绍了在不存在 POWER BI 数据集和表的情况下，如何将数据类型从[流分析数据类型](https://msdn.microsoft.com/library/azure/dn835065.aspx)转换为 Power BI 的[实体数据模型 (EDM) 类型](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/)。
-
-从流分析 | 到 Power BI
------|-----|------------
-bigint | Int64
-nvarchar(max) | String
-datetime | datetime
-float | Double
-记录数组 | 字符串类型，常量值“IRecord”或“IArray”
-
-### <a name="schema-update"></a>架构更新
-流分析根据输出中的第一组事件推断数据模型架构。 以后会根据需要对数据模型架构进行更新，使之适合那些不符合原始架构的传入事件。
-
-应避免使用 `SELECT *` 查询，防止跨行进行动态架构更新。 除了潜在的性能影响，它还可能导致生成结果所需的时间不确定。 应对那些需要显示在 Power BI 仪表板上的具体字段进行选择。 此外，数据值应与所选数据类型相符。
-
-以前/当前 | Int64 | String | datetime | Double
------------------|-------|--------|----------|-------
-Int64 | Int64 | String | String | Double
-Double | Double | String | String | Double
-String | String | String | String | String
-datetime | String | String |  datetime | String
-
-### <a name="renew-power-bi-authorization"></a>续订 Power BI 授权
-如果自作业创建后或上次身份验证后更改了密码，你需要重新对 Power BI 帐户进行身份验证。 如果在 Azure Active Directory (AAD) 租户上配置了多重身份验证 (MFA)，还需要每 2 周续订一次 Power BI 授权。 此问题的症状是没有作业输出，并且操作日志存在“验证用户错误”：
-
-  ![Power BI 刷新令牌错误](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
-
-若要解决此问题，请停止正在运行的作业并转到你的 Power BI 输出。  单击“续订授权”链接，并在“上次停止时间”重新启动你的工作以避免数据丢失。
-
-  ![Power BI 续订授权](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
+<!-- Not Available ## Power BI-->
 
 ## <a name="table-storage"></a>表存储
 [Azure 表存储](../storage/storage-introduction.md)提供了具有高可用性且可大规模缩放的存储，因此应用程序可以自动缩放以满足用户需求。 表存储是 Microsoft 推出的 NoSQL 键/属性存储，适用于对架构的约束性较少的结构化数据。 Azure 表存储可用于持久地存储数据，方便进行高效的检索。
@@ -273,7 +143,8 @@ datetime | String | String |  datetime | String
 | 批大小 |批处理操作的记录数。 通常情况下，默认值对于大多数作业来说已经足够；若要修改此设置，请参阅[表批处理操作规范](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx)以获取详细信息。 |
 
 ## <a name="service-bus-queues"></a>服务总线队列
-[服务总线队列](https://msdn.microsoft.com/library/azure/hh367516.aspx)为一个或多个竞争使用方提供先入先出 (FIFO) 消息传递方式。 通常情况下，接收方会按照消息添加到队列中的临时顺序来接收并处理消息，并且每条消息仅由一个消息使用方接收并处理。
+<!--Notice: azure/hh367516.aspx redirect to EN-US service-bus-queues-topics-subscriptions, we should correct to right URL-->
+[服务总线队列](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)为一个或多个竞争使用方提供先入先出 (FIFO) 消息传递方式。 通常情况下，接收方会按照消息添加到队列中的临时顺序来接收并处理消息，并且每条消息仅由一个消息使用方接收并处理。
 
 下表列出了用于创建队列输出的属性名称及其说明。
 
@@ -290,7 +161,7 @@ datetime | String | String |  datetime | String
 | 格式 |仅适用于 JSON 类型。 分隔行指定了通过新行分隔各个 JSON 对象，从而格式化输出。 数组指定输出将被格式化为 JSON 对象的数组。 |
 
 ## <a name="service-bus-topics"></a>服务总线主题
-服务总线队列提供的是从发送方到接收方的一对一通信方法，而[服务总线主题](https://msdn.microsoft.com/library/azure/hh367516.aspx)提供的则是一对多形式的通信。
+服务总线队列提供的是从发送方到接收方的一对一通信方法，而[服务总线主题](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)提供的则是一对多形式的通信。
 
 下表列出了用于创建表输出的属性名称及其说明。
 

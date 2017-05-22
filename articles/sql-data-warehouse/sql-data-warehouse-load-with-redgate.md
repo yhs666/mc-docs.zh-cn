@@ -118,7 +118,6 @@ DPS 会以可视化方式显示从本地 SQL Server 提取和上载数据的进�
 若要浏览 SQL 数据仓库中的数据，请先查看以下内容：
 
 * [查询 Azure SQL 数据仓库 (Visual Studio)][Query Azure SQL Data Warehouse (Visual Studio)]
-* [使用 Power BI 可视化数据][Visualize data with Power BI]
 
 若要详细了解 Redgate 的 Data Platform Studio，请：
 
@@ -146,7 +145,7 @@ DPS 会以可视化方式显示从本地 SQL Server 提取和上载数据的进�
 <!--Article references-->
 
 [Query Azure SQL Data Warehouse (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
-<!--[Visualize data with Power BI]: /documentation/articles/sql-data-warehouse-get-started-visualize-with-power-bi/-->
+<!--[Visualize data with Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md -->
 [Migrate your solution to SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md
 [Load data into Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
 [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
