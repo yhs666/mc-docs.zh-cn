@@ -15,9 +15,10 @@ ms.topic: hero-article
 ms.date: 03/28/2017
 wacn.date: 
 ms.author: cfowler
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 0369acfa64206d556f5d83942a47a84233c9c0b8
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---

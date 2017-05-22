@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: fd949fd0a7b9cf792119f5e862cceec485952006
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -32,12 +33,12 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
-
 * **基于 Linux 的 HDInsight 群集**：请参阅[在 Linux 上的 HDInsight 中开始将 Hadoop 与 Hive 配合使用](hdinsight-hadoop-linux-tutorial-get-started.md)
 
+    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+
     > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
 
 * **SSH 客户端**：有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -77,7 +78,7 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="how-to-run-the-samples"></a>如何运行示例
 
-1. 使用 SSH 连接到 HDInsight。 有关详细信息，请参阅 [对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+1. 使用 SSH 连接到 HDInsight。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 2. 在 `username@#######:~$` 提示符下，使用以下命令列出示例：
 
@@ -227,7 +228,7 @@ GraySort 是一个基准排序，其指标为在给巨量数据（通常至少 1
 
 [hdinsight-errors]: hdinsight-debug-jobs.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/zh-cn/library/azure/dn479185.aspx
+[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-introduction]: hdinsight-hadoop-introduction.md

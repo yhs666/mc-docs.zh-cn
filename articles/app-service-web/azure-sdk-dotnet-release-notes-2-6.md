@@ -14,9 +14,10 @@ ms.workload: integration
 ms.date: 02/24/2017
 wacn.date: 
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: c5d6a79ff711367dfaa6de5e7c9bb44dd79e1b5c
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -57,24 +58,24 @@ ms.lasthandoff: 04/28/2017
 
     使用 Azure SDK 2.5 或以下版本的客户应更新到 Azure SDK 2.6，并选择使用新版 Microsoft Azure 存储 SDK。 
 
-    目前已计划在 2016 年 8 月 1 日删除 Azure 存储空间版本 2011-08-18。 从 Azure SDK 2.5 或更低版本到 2.6 的任何角色中缓存迁移必须在该日期之前完成。 有关停用 Azure 存储版本 2011-08-18 的详细信息，请参阅[有关删除 Microsoft Azure 存储服务版本的最新信息：延期到 2016 年](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)。
+    目前已计划在 2016 年 8 月 1 日删除 Azure 存储版本 2011-08-18。 从 Azure SDK 2.5 或更低版本到 2.6 的任何角色中缓存迁移必须在该日期之前完成。 有关停用 Azure 存储版本 2011-08-18 的详细信息，请参阅[有关删除 Microsoft Azure 存储服务版本的最新信息：延期到 2016 年](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)。
 
 > [!IMPORTANT]
 > 我们特此宣布将在 2016 年 11 月 30 日停用 Azure 托管缓存服务和 Azure 角色中缓存。 我们建议你迁移到 Azure Redis 缓存，以便为这次停用做好准备。 有关日期和迁移指导的详细信息，请参阅[哪种 Azure 缓存产品适合我？](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
 > 
 > 
 
-## <a name="azure-app-service-tools"></a>Azure App Service 工具
+## <a name="azure-app-service-tools"></a>Azure 应用服务工具
 以下各项已在 Azure SDK 2.6 版本中更新。
 
 * Azure 发布功能已增强，其中包括了作为部署目标的 Azure API Apps。
 * API Apps 预配功能，允许用户创建 API App 并行使预配功能。
-* 服务器资源管理器已更改，目的是反映新的 App Service 节点，同时 Web、移动和 API 应用程序已按资源组进行分组。
+* 服务器资源管理器已更改，目的是反映新的应用服务节点，同时 Web、移动和 API 应用程序已按资源组进行分组。
 * 将 Azure API 应用客户端手势添加到了大多数 C# 项目中，这样就可以自动生成可以在用户的 Azure 订阅中运行且支持 Swagger 的 API Apps。
-* 服务器资源管理器中的 API Apps 工具和 App Service 节点仅在 Visual Studio 2013 中可用。 
+* 服务器资源管理器中的 API Apps 工具和应用服务节点仅在 Visual Studio 2013 中可用。 
 
-## <a name="azure-resource-manager-tools-updates"></a>Azure 资源管理器工具更新
-Azure 资源管理器工具已更新，现在包括适用于虚拟机、网络和存储的模板。 JSON 编辑体验已更新，现在包括新的模板概况视图，并且可以使用 JSON 代码段来编辑模板。 从 Visual Studio 部署的模板使用随项目提供的 PowerShell 脚本，因此对脚本所做的更改会被 Visual Studio 使用。
+## <a name="azure-resource-manager-tools-updates"></a>Azure Resource Manager 工具更新
+Azure Resource Manager 工具已更新，现在包括适用于虚拟机、网络和存储的模板。 JSON 编辑体验已更新，现在包括新的模板概况视图，并且可以使用 JSON 代码段来编辑模板。 从 Visual Studio 部署的模板使用随项目提供的 PowerShell 脚本，因此对脚本所做的更改会被 Visual Studio 使用。
 
 ## <a name="diagnostics-improvements-for-cloud-services"></a>针对云服务的诊断改进
 Azure SDK 2.6 重新支持在 Azure 计算模拟器中收集诊断日志，并可将其传输到开发存储空间中。 当应用程序在模拟器中运行时生成的任何诊断日志（包括应用程序跟踪日志、Windows 事件跟踪 (ETW) 日志、性能计数器、基础结构日志和 Windows 事件日志）都可以传输到开发存储空间中，以便验证你的诊断日志功能在本地计算机上是否正常工作。 
@@ -82,7 +83,7 @@ Azure SDK 2.6 重新支持在 Azure 计算模拟器中收集诊断日志，并�
 现在，诊断存储帐户可以在服务配置 (.cscfg) 文件中指定，因此可以更轻松地针对不同环境使用不同的诊断存储帐户。 链接字符串在 Azure SDK 2.4 和 Azure SDK 2.6 中的工作方式有明显的区别。 如需详细了解如何使用诊断存储连接字符串以及它如何影响项目，请参阅[针对 Azure 云服务配置诊断](/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。
 
 ## <a name="breaking-changes"></a>重大变化
-### <a name="azure-resource-manager-tools"></a>Azure 资源管理器工具
+### <a name="azure-resource-manager-tools"></a>Azure Resource Manager 工具
 * 在 Azure SDK 2.5 中提供的“云部署项目”项目类型已重命名为“Azure 资源组”。
 * 在 Azure SDK 2.5 中创建的项目的“云部署项目”类型可以在 2.6 中使用，但通过 Visual Studio 部署模板会失败。 不过，仍可使用 PowerShell 脚本进行部署，就像以前一样。  有关如何在 2.6 中使用“云部署项目”的信息，请阅读[此文章](/vs-azure-tools-resource-groups-deployment-projects-create-deploy)。
 

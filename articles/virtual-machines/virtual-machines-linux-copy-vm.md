@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 03/10/2017
 wacn.date: 
 ms.author: cynthn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 7c4f6b1ddac26659057bcee15690ae5657dddbcd
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/14/2017
 
 本文说明了如何使用 Azure CLI 2.0 和 Azure Resource Manager 部署模型创建运行 Linux 的 Azure 虚拟机 (VM) 的副本。 还可以使用 [Azure CLI 1.0](virtual-machines-linux-copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
 
-还可以[上载 VHD 并从中创建 VM](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+还可以[上传 VHD 并从中创建 VM](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="prerequisites"></a>先决条件
 

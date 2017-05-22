@@ -14,21 +14,22 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/17/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 8b66388d4b55b505661b6a70de32651061ee9fe7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
-# <a name="get-started-with-the-storm-starter-samples-for-big-data-analytics-on-linux-based-hdinsight"></a>用于在基于 Linux 的 HDInsight 上进行大数据分析的 Storm 初学者示例入门
+#<a name="get-started-with-the-storm-starter-samples-for-big-data-analytics-on-linux-based-hdinsight"></a>用于在基于 Linux 的 HDInsight 上进行大数据分析的 Storm 初学者示例入门
 
 Apache Storm 是一个可扩展的、具有容错能力的分布式实时计算系统，用于处理数据流。 使用 Azure HDInsight 上的 Storm，你可以创建一个基于云的、用于实时执行大数据分析的 Storm 群集。
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -120,7 +121,7 @@ Storm UI 提供一个 Web 界面用于处理正在运行的拓扑，你的 HDIns
 
 执行以下步骤以使用 Storm UI 来监视拓扑。
 
-1. 若要显示 Storm UI，请在 Web 浏览器中打开 https://CLUSTERNAME.azurehdinsight.cn/stormui 。 将 **CLUSTERNAME** 替换为群集名称。
+1. 若要显示 Storm UI，请在 Web 浏览器中打开 https://CLUSTERNAME.azurehdinsight.cn/stormui。 将 **CLUSTERNAME** 替换为群集名称。
 
     > [!NOTE]
     > 如果系统要求你提供用户名和密码，请输入创建群集时使用的群集管理员用户名 (admin) 和密码。
@@ -209,6 +210,6 @@ Storm UI 提供一个 Web 界面用于处理正在运行的拓扑，你的 HDIns
 [stormstarter]: https://github.com/apache/storm/tree/master/examples/storm-starter
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.cn/
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.cn/
 

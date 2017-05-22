@@ -17,9 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 wacn.date: 
 ms.author: mikeray
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 20b41268b48511b4db661c03f2cbb0c29772f29d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -89,7 +90,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 
 ## <a name="step-1-create-virtual-machines"></a>步骤 1：创建虚拟机
 
-1. 使用订阅登录到 [Azure 门户预览](http://portal.azure.cn) 。
+1. 使用订阅登录到 [Azure 门户预览](http://portal.azure.cn)。
 
 1. [创建 Azure 可用性集](../../virtual-machines-windows-create-availability-set.md)。
 

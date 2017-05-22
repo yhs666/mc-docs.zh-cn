@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 03/20/2017
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 121076b74d6b8bdd6452a69b09819e986fc15514
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 4b13619bee2cf9b4fd0352fa1dff013ad221981d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 ---
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/14/2017
 
 此示例脚本使用其相关资源，在应用服务中创建 Web 应用，然后从公共 GitHub 存储库部署 Web 应用代码（不进行连续部署）。 有关不进行连续部署的 GitHub 部署，请参阅[从 GitHub 使用连续部署创建 Web 应用](../app-service-continuous-deployment.md)。
 
-必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)中的说明安装 Azure PowerShell。 此外，还需要指向含 web 应用代码的 GitHub 存储库的链接。
+必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell。 此外，还需要指向含 web 应用代码的 GitHub 存储库的链接。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -50,10 +51,12 @@ New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappn
 $PropertiesObject = @{
     repoUrl = "$gitrepo";
     branch = "master";
+    isManualIntegration = "true";
 }
 Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName $webappname `
 -ResourceType Microsoft.Web/sites/sourcecontrols -ResourceName $webappname/web `
 -ApiVersion 2015-08-01 -Force
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署 
@@ -70,13 +73,14 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 | 命令 | 说明 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Resources/v3.5.0/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/new-azurermappserviceplan) | 创建应用服务计划。 |
-| [New-AzureRmWebApp](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/new-azurermwebapp) | 创建 Web 应用。 |
-| [Set-AzureRmResource](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/set-azurermresource) | 修改资源组中的资源。 |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermappserviceplan) | 创建应用服务计划。 |
+| [New-AzureRmWebApp](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermwebapp) | 创建 Web 应用。 |
+| [Set-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermresource) | 修改资源组中的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)。
+有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure PowerShell 示例](../app-service-powershell-samples.md)中找到 Azure 应用服务 Web 应用的其他 Azure Powershell 示例。
+

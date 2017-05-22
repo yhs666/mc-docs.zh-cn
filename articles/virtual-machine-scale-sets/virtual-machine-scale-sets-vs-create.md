@@ -17,9 +17,10 @@ ms.date: 03/13/2017
 wacn.date: 
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 90519886db1be949c2262126fa1238e7dd3d3bc0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 

@@ -17,9 +17,10 @@ ms.date: 05/16/2016
 wacn.date: 
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 70dfb9339bc1b4d5657069c1561865d2f515cbed
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -38,7 +39,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可使用以下 CLI 版本之一完成任务：
 
-- [Azure CLI 1.0](#resize-a-linux-vm) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
+- [Azure CLI 1.0](#resize-a-linux-vm) - 适用于经典部署模型和资源管理部署模型的 CLI（本文）
 - [Azure CLI 2.0](virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="resize-a-linux-vm"></a> 调整 Linux VM 的大小

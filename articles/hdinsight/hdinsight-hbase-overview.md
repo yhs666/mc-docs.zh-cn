@@ -16,11 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/22/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: jgao
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 330b3884344c2616de752fdbf069c8e0f1f40633
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -67,6 +68,7 @@ HDInsight 实施利用 HBase 的横向扩展架构来提供表自动分片、使
 
 ## <a name="see-also"></a>另请参阅
 * [Apache HBase](https://hbase.apache.org/)
+* [Bigtable：针对结构化数据的分布式存储系统](http://research.google.com/archive/bigtable.html)
 
 [hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
@@ -76,7 +78,7 @@ HDInsight 实施利用 HBase 的横向扩展架构来提供表自动分片、使
 
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 
-[hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
+[hbase-get-started]: /azure/hdinsight-hbase-get-started/
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/

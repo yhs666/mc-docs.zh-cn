@@ -15,9 +15,10 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 wacn.date: 
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 21a20b3b611b7f1e39775ae8dcf384d4e774bc25
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可使用以下 CLI 版本之一完成任务：
 
-- [Azure CLI 1.0](#create-supporting-resources) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
+- [Azure CLI 1.0](#create-supporting-resources) - 适用于经典部署模型和资源管理部署模型的 CLI（本文）
 - [Azure CLI 2.0](virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="create-supporting-resources"></a> 创建支持资源
@@ -138,6 +139,6 @@ Azure Resource Manager 模板使用声明性 JSON 文件来定义环境。 可�
 可以阅读[使用 Resource Manager 模板创建多个 NIC](../virtual-network/virtual-network-deploy-multinic-arm-template.md) 的完整示例。
 
 ## <a name="next-steps"></a>后续步骤
-尝试创建具有多个 NIC 的 VM 时，请务必查看 [Linux VM sizes](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)（Linux VM 大小）。 注意每个 VM 大小支持的 NIC 数目上限。 
+尝试创建具有多个 NIC 的 VM 时，请务必查看 [Linux VM 大小](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 注意每个 VM 大小支持的 NIC 数目上限。 
 
 请记住，不能将其他 NIC 添加到现有 VM，而必须在部署 VM 时创建所有 NIC。 仔细规划部署，确保从一开始就建立了全部所需的网络连接。

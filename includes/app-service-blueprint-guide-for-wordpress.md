@@ -1,4 +1,4 @@
-## <a name="wordpress-and-azure-app-service"></a>WordPress 和 Azure App Service
+## <a name="wordpress-and-azure-app-service"></a>WordPress 和 Azure 应用服务
 * [WordPress 是什么？](https://wordpress.org/)
 * [如何设置企业级 WordPress Web 应用](../articles/app-service-web/web-sites-php-enterprise-wordpress.md)
 * [深入了解如何管理群集](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)

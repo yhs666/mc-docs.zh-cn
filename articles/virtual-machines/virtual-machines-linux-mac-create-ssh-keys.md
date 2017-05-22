@@ -18,9 +18,10 @@ wacn.date:
 ms.author: iainfou
 experimental: true
 experiment_id: rasquill-ssh-20170308
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: d5c11f2eb0fae1cf081d15d06fc80c47e95aeb07
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

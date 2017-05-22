@@ -1,5 +1,5 @@
 ---
-title: "在 Azure App Service 中将 WordPress 转换为 Multisite"
+title: "在 Azure 应用服务中将 WordPress 转换为 Multisite"
 description: "了解如何采用通过 Azure 中的库创建的现有 WordPress Web 应用并将其转换为 WordPress Multisite"
 services: app-service\web
 documentationcenter: php
@@ -12,17 +12,18 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 wacn.date: 
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 29e12e1848d40ec9598ac60b8003007a99a3e0be
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: f5ab1818d3bebf889f1523858e4c4acdd391ac67
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="convert-wordpress-to-multisite-in-azure-app-service"></a>在 Azure App Service 中将 WordPress 转换为 Multisite
+# <a name="convert-wordpress-to-multisite-in-azure-app-service"></a>在 Azure 应用服务中将 WordPress 转换为 Multisite
 ## <a name="overview"></a>概述
 *作者：[Ben Lobaugh][ben-lobaugh]，[Microsoft Open Technologies Inc.][ms-open-tech]*
 
@@ -46,7 +47,7 @@ ms.lasthandoff: 04/28/2017
 
     define( 'WP_ALLOW_MULTISITE', true );
 
-请务必保存该文件并将其上载回服务器！
+请务必保存该文件并将其上传回服务器！
 
 ## <a name="network-setup"></a>网络设置
 登录到 Web 应用的 *wp-admin* 区域，在“工具”菜单的下方应该会看到一个名为“网络设置”的新项。 单击“网络设置”并填写网络的详细信息。
@@ -82,7 +83,7 @@ ms.lasthandoff: 04/28/2017
 由于处理新的设置需要花费几秒钟的时间，因此现在正好来开始设置域。
 
 ## <a name="verify-your-domain"></a>验证域
-在 Azure Web Apps 允许你将域映射到站点前，你首先需要验证自己是否有映射域的权限。 为此，你必须将新的 CNAME 记录添加到 DNS 项。
+在 Azure Web 应用允许你将域映射到站点前，你首先需要验证自己是否有映射域的权限。 为此，你必须将新的 CNAME 记录添加到 DNS 项。
 
 * 登录到域的 DNS 管理器
 * 创建新的 CNAME *awverify*
@@ -122,11 +123,11 @@ WordPress Multisite 当前没有用于映射自定义域的内置方法。 但�
 利用 Azure Web 应用，可以向一个 Web 应用添加无数个域。 若要添加另一个域，需要为每个域执行**验证域**和**设置域 A 记录**部分中所述的操作。    
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com
-[website-from-gallery]: https://www.azure.cn/develop/php/tutorials/website-from-gallery/
+[website-from-gallery]: /develop/php/tutorials/website-from-gallery/
 [wordpress-codex-create-a-network]: http://codex.wordpress.org/Create_A_Network
 [website-w-mysql-and-ftp-ftp-setup]: /app-service-web/web-sites-php-mysql-deploy-use-ftp
 [website-w-mysql-and-git-git-setup]: /app-service-web/web-sites-php-mysql-deploy-use-git

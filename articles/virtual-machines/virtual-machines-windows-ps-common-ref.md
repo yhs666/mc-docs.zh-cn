@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/02/2017
 wacn.date: 
 ms.author: davidmu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 1546a528c8664fc7fce8d3b6bf6e014f09a198d7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 

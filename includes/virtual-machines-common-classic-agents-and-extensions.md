@@ -12,7 +12,7 @@ Azure 虚拟机代理（VM 代理）是一个安全的轻型进程，用于在 A
 
 存在两种 Azure VM 代理，一种用于 Windows VM，另一种用于 Linux VM。
 
-如果需要一个虚拟机实例来使用一个或多个 VM 扩展，该实例必须有安装的 VM 代理。 通过 Azure 门户预览创建的虚拟机映像和**应用商店**提供的映像会自动在创建过程中安装 VM 代理。 如果虚拟机实例缺少 VM 代理，则可在创建虚拟机实例以后安装该 VM 代理。 也可安装随后上载的自定义 VM 映像中的代理。
+如果需要一个虚拟机实例来使用一个或多个 VM 扩展，该实例必须有安装的 VM 代理。 通过 Azure 门户预览创建的虚拟机映像和**应用商店**提供的映像会自动在创建过程中安装 VM 代理。 如果虚拟机实例缺少 VM 代理，则可在创建虚拟机实例以后安装该 VM 代理。 也可安装随后上传的自定义 VM 映像中的代理。
 
 > [!IMPORTANT]
 > 这些 VM 代理是非常轻量级的，可启用虚拟机实例的安全管理的服务。 可能也存在你不想要 VM 代理的情况。 如果是这样，请务必使用 Azure CLI 或 PowerShell 创建未安装 VM 代理的 VM。 尽管可以物理删除 VM 代理，但实例上的 VM 扩展的行为是不确定的。 因此，不支持删除已安装的 VM 代理。
@@ -29,7 +29,7 @@ Azure 虚拟机代理（VM 代理）是一个安全的轻型进程，用于在 A
         $vm.VM.ProvisionGuestAgent = $TRUE
         Update-AzureVM -Name $name -VM $vm.VM -ServiceName $svc
 
-* 用户创建一个 VM 映像，其中包括已安装的 VM 代理。 如果存在包含 VM 代理的映像，则可将该映像上载到 Azure。 对于 Windows VM，下载 [Windows VM 代理 .msi 文件](http://go.microsoft.com/fwlink/?LinkID=394789)并安装 VM 代理。 对于 Linux VM，请从位于 <https://github.com/Azure/WALinuxAgent> 的 GitHub 存储库安装 VM 代理。 有关如何在 Linux 上安装 VM 代理的详细信息，请参阅 [Azure Linux VM 代理用户指南](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+* 用户创建一个 VM 映像，其中包括已安装的 VM 代理。 如果存在包含 VM 代理的映像，则可将该映像上传到 Azure。 对于 Windows VM，下载 [Windows VM 代理 .msi 文件](http://go.microsoft.com/fwlink/?LinkID=394789)并安装 VM 代理。 对于 Linux VM，请从位于 <https://github.com/Azure/WALinuxAgent> 的 GitHub 存储库安装 VM 代理。 有关如何在 Linux 上安装 VM 代理的详细信息，请参阅 [Azure Linux VM 代理用户指南](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 > [!NOTE]
 > 在 PaaS 中，VM 代理名为 **WindowsAzureGuestAgent**，并且始终可在 Web 角色和辅助角色 VM 上找到。 （有关详细信息，请参阅 [Azure 角色体系结构](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx)。）角色 VM 的 VM 代理现在可以按向永久性虚拟机添加扩展的相同方式向云服务 VM 添加扩展。 角色 VM 和永久性 VM 上的 VM 扩展的最大差异表现在添加 VM 扩展的时候。 使用角色 VM 时，扩展先添加到云服务，然后添加到该云服务中的部署。

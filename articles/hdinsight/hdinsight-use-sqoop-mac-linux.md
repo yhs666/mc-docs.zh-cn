@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 455bb9637f3a2604c45404315ed737edafeeaea8
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -37,7 +38,7 @@ ms.lasthandoff: 04/28/2017
 
 1. 使用 SSH 连接到基于 Linux 的 HDInsight 群集。 连接时要使用的地址为 `CLUSTERNAME-ssh.azurehdinsight.cn`，端口为 `22`。
 
-    有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+    有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 2. 使用以下命令安装 FreeTDS：
 
@@ -187,7 +188,7 @@ ms.lasthandoff: 04/28/2017
 * [将数据上传到 HDInsight][hdinsight-upload-data]：了解将数据上传到 HDInsight/Azure Blob 存储的其他方法。
 
 [hdinsight-versions]:  hdinsight-component-versioning.md
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
@@ -198,8 +199,8 @@ ms.lasthandoff: 04/28/2017
 [sqldatabase-get-started]: ../sql-database-get-started.md
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 
-[powershell-start]: http://technet.microsoft.com/zh-cn/library/hh847889.aspx
-[powershell-install]: https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [powershell-script]: https://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

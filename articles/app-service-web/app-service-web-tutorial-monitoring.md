@@ -9,9 +9,10 @@ ms.date: 04/04/2017
 wacn.date: 
 ms.topic: article
 ms.service: app-service-web
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 6c7e705921d5fab427722f5fbf912251c034e7cb
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---

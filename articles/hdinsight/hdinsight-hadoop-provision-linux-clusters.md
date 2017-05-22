@@ -15,11 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/17/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: jgao
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 6653ad841e348a84a64a9d79ccd58660eaf638b2
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -56,14 +57,16 @@ Hadoop 群集由用于对群集中的任务进行分布式处理的多个虚拟�
 
 <!-- need to be verified -->
 
-| 群集类型 | Hadoop | HBase | Storm | Spark |
-| --- | --- | --- | --- | --- |
-| 头：默认 VM 大小 |D3 v2 |D3 v2 |A3 |D12 v2 |
-| 头：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |A3、A4、A5 |D12 v2、D13 v2、D14 v2 |
-| 辅助角色：默认 VM 大小 |D3 v2 |D3 v2 |D3 v2 |Windows：D12 v2；Linux：D4 v2 |
-| 辅助角色：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
-| Zookeeper：默认 VM 大小 | |A3 |A2 | |
-| Zookeeper：建议的 VM 大小 | |A3、A4、A5 |A2、A3、A4 | |
+| 群集类型 | Hadoop | HBase | Storm | Spark | R Server |
+| --- | --- | --- | --- | --- | --- |
+| 头：默认 VM 大小 |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
+| 头：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |A3、A4、A5 |D12 v2、D13 v2、D14 v2 |D12 v2、D13 v2、D14 v2 |
+| 辅助角色：默认 VM 大小 |D3 v2 |D3 v2 |D3 v2 |Windows：D12 v2；Linux：D4 v2 |Windows：D12 v2；Linux：D4 v2 |
+| 辅助角色：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
+| Zookeeper：默认 VM 大小 | |A3 |A2 | | |
+| Zookeeper：建议的 VM 大小 | |A3、A4、A5 |A2、A3、A4 | | |
+| 边缘：默认 VM 大小 | | | | |Windows：D12 v2；Linux：D4 v2 |
+| 边缘：建议的 VM 大小 | | | | |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
 
 > [!NOTE]
 > 头称为 Storm 群集类型的 *Nimbus* 。 辅助角色称为 HBase 群集类型的“区域”以及 Storm 群集类型的“监督程序”。
@@ -86,6 +89,23 @@ Hadoop 群集由用于对群集中的任务进行分布式处理的多个虚拟�
 
 有关在一个 Azure 虚拟网络中使用两种群集类型的示例，请参阅[使用 Storm 和 HBase 分析传感器数据](hdinsight-storm-sensor-data-analysis.md)。
 
+## <a name="cluster-tiers"></a>群集层
+Azure HDInsight 提供了两个类别的大数据云产品/服务：标准和[高级](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)。 HDInsight 高级版包括 R 和其他附加组件。 只有 HDInsight 3.5 版才支持 HDInsight 高级版。
+
+下表列出了 HDInsight 群集类型和 HDInsight 高级版支持矩阵。
+
+| 群集类型 | 标准 | 高级 |
+| --- | --- | --- |
+| Hadoop |是 |是 |
+| Spark |是 |是 |
+| HBase |是 |否 |
+| Storm |是 |否 |
+| Spark 上的 R Server |否 |是 |
+
+随着 HDInsight 高级版中包含的群集类型更多，此表也会随之更新。 以下屏幕截图显示了用于选择群集类型的 Azure 门户预览信息。
+
+![HDInsight 高级版配置](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
+
 ## <a name="basic-configuration-options"></a>基本配置选项
 下面是用于创建 HDInsight 群集的基本配置选项。
 
@@ -96,7 +116,7 @@ Hadoop 群集由用于对群集中的任务进行分布式处理的多个虚拟�
 * 字段只能包含字母、数字和连字符。
 
 ### <a name="cluster-type"></a>群集类型
-请参阅[群集类型](#cluster-types)。
+请参阅[群集类型](#cluster-types)和[群集层](#cluster-tiers)。
 
 ### <a name="operating-system"></a>操作系统
 可以在以下两个操作系统之一上创建 HDInsight 群集：
@@ -105,7 +125,7 @@ Hadoop 群集由用于对群集中的任务进行分布式处理的多个虚拟�
 * Windows 上的 HDInsight (Windows Server 2012 R2 Datacenter)。
 
 ### <a name="hdinsight-version"></a>HDInsight 版本
-此选项用于确定该群集所需的 HDInsight 版本。 有关详细信息，请参阅 [HDInsight 中的 Hadoop 群集版本和组件](hdinsight-component-versioning.md)。
+此选项用于确定该群集所需的 HDInsight 版本。 有关详细信息，请参阅 [HDInsight 中的 Hadoop 群集版本和组件](/azure/hdinsight/hdinsight-component-versioning)。
 
 ### <a name="subscription-name"></a>订阅名称
 每个 HDInsight 群集与一个 Azure 订阅绑定。
@@ -117,7 +137,7 @@ Hadoop 群集由用于对群集中的任务进行分布式处理的多个虚拟�
 使用 HDInsight 群集时，可以在群集创建期间配置两个用户帐户：
 
 * HTTP 用户。 默认的用户名为 *admin*。 它使用 Azure 门户预览的基本配置。 有时称为“群集用户”。
-* SSH 用户（Linux 群集）。 通过 SSH 连接到群集时使用此用户。 有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+* SSH 用户（Linux 群集）。 通过 SSH 连接到群集时使用此用户。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
     > [!NOTE]
     > 对于基于 Windows 的群集，可以创建一个 RDP 用户，用于通过 RDP 连接到群集。
@@ -237,7 +257,7 @@ HDInsight 群集与其默认存储帐户必须位于相同的 Azure 位置。
 >
 
 ## <a name="use-azure-virtual-networks"></a>使用 Azure 虚拟网络
-使用 [Azure 虚拟网络](../virtual-network/index.md)可创建包含解决方案所需的资源的安全持久性网络。 使用虚拟网络可以：
+使用 [Azure 虚拟网络](/azure/virtual-network/)可创建包含解决方案所需的资源的安全持久性网络。 使用虚拟网络可以：
 
 * 在专用网络（仅限云）中将云资源连接在一起。
 
@@ -279,7 +299,7 @@ HDInsight 群集与其默认存储帐户必须位于相同的 Azure 位置。
 >
 
 ## <a name="customize-clusters-using-script-action"></a>使用脚本操作自定义群集
-你可以在创建期间通过使用脚本安装其他组件或自定义群集配置。 此类脚本可通过 **脚本操作**调用，脚本操作是一种配置选项，可通过 Azure 门户预览、HDInsight Windows PowerShell cmdlet 或 HDInsight .NET SDK 使用。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
+你可以在创建期间通过使用脚本安装其他组件或自定义群集配置。 此类脚本可通过**脚本操作**调用，脚本操作是一种配置选项，可通过 Azure 门户预览、HDInsight Windows PowerShell cmdlet 或 HDInsight .NET SDK 使用。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 某些本机 Java 组件（如 Mahout 和 Cascading）可以在群集上作为 Java 存档 (JAR) 文件运行。 可以通过 Hadoop 作业提交机制将这些 JAR 文件分发到 Azure 存储，然后提交到 HDInsight 群集。 有关详细信息，请参阅[以编程方式提交 Hadoop 作业](hdinsight-submit-hadoop-jobs-programmatically.md)。
 

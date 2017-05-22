@@ -17,9 +17,10 @@ ms.date: 03/17/2017
 wacn.date: 
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: f1668e5fd3c3d3a3e55767926f4d41b14b2570dd
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 

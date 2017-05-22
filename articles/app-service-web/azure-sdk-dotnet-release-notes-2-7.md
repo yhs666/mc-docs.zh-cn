@@ -14,9 +14,10 @@ ms.workload: integration
 ms.date: 02/24/2017
 wacn.date: 
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 1f50d7e5cf0e408cd9c6c9f2b92788c7c9ae75e8
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 04/28/2017
 * 使用此版本的工具时，必须先升级旧的 **Storm** 项目。 有关详细信息，请参阅[此博客](/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started)。
 * 不再支持 Visual Studio Web Express。 有关详细信息，请参阅[此博客](/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started)。
 
-### <a name="azure-app-service-tools"></a>Azure App Service 工具
+### <a name="azure-app-service-tools"></a>Azure 应用服务工具
 此版本对 Web 工具扩展做了以下更新。 有关详细信息，请参阅[此博客](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)。 
 
 * 添加了对 DreamSpark 帐户的支持
@@ -73,13 +74,13 @@ Azure SDK 2.7 包含适用于 Visual Studio 2015 的云资源管理器，可让�
 * Azure 资源的“资源组”和“资源类型”视图 
 * 按名称搜索资源（可在“资源类型”视图中使用）
 * 支持应用了基于角色的访问控制 (RBAC) 的订阅和资源 
-* 集成式“操作”面板，针对特定选择的资源显示以开发人员为焦点的操作。 例如：附加使用资源管理器堆栈创建的虚拟机的远程调试器、查看虚拟机的诊断数据，等等。
+* 集成式“操作”面板，针对特定选择的资源显示以开发人员为焦点的操作。 例如：附加使用 Resource Manager 堆栈创建的虚拟机的远程调试器、查看虚拟机的诊断数据，等等。
 * 集成式“属性”面板，显示以开发人员为焦点，在开发/测试期间经常需要的属性 
 * 快速切换枚举资源时要使用的帐户（使用工具栏上的“设置”命令） 
 * 筛选枚举资源时要使用的订阅（使用工具栏上的“设置”命令） 
 * Azure 门户预览中用于管理资源与资源组的深层链接 
 
-### <a name="azure-resource-manager-tools"></a>Azure 资源管理器工具
+### <a name="azure-resource-manager-tools"></a>Azure Resource Manager 工具
 Azure Resource Manager 工具已更新为使用基于角色的访问控制 (RBAC) 和新的订阅类型。  除了经典存储之外，这些更改还附带了使用新存储帐户在部署期间存储项目的功能。  
 
 如果在 SDK 2.7 中使用旧版 SDK 中的 Azure 资源组，则需要使用新的存储帐户而不是经典存储帐户来部署新的部署脚本。  在你更改项目以添加新的脚本之前，系统会发出提示。  旧脚本将重命名，你需要手动修改新的脚本。

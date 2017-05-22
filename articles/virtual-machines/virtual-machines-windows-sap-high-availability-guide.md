@@ -18,9 +18,10 @@ ms.date: 12/07/2016
 wacn.date: 
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: bebd55b37fcc7b504e02fe526334d1c9c37c32b7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 

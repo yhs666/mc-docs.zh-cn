@@ -17,9 +17,10 @@ ms.topic: article
 ms.date: 12/21/2016
 wacn.date: 
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: f361a9fbccb5c425a0edd7effd420c7a80f292b0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -73,7 +74,7 @@ ms.lasthandoff: 04/14/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果创建并上载了自定义 Linux 磁盘映像，请确保已安装 [Azure Linux 代理](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 2.0.5 或更高版本。 在使用库映像创建的 VM 上，系统已自动安装并配置了此访问扩展。
+如果创建并上传了自定义 Linux 磁盘映像，请确保已安装 [Azure Linux 代理](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 2.0.5 或更高版本。 在使用库映像创建的 VM 上，系统已自动安装并配置了此访问扩展。
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>重置用户的 SSH 凭据
 以下示例在 `myResourceGroup` 中名为 `myVM` 的 VM 上，使用 [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#set-linux-user) 将 `myUsername` 的凭据重置为 `myPassword` 中指定的值。 请如下所示使用自己的值：
@@ -142,7 +143,7 @@ azure vm extension set myResourceGroup myVM \
 azure config mode arm
 ```
 
-如果创建并上载了自定义 Linux 磁盘映像，请确保已安装 [Azure Linux 代理](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 2.0.5 或更高版本。 在使用库映像创建的 VM 上，系统已自动安装并配置了此访问扩展。
+如果创建并上传了自定义 Linux 磁盘映像，请确保已安装 [Azure Linux 代理](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 2.0.5 或更高版本。 在使用库映像创建的 VM 上，系统已自动安装并配置了此访问扩展。
 
 ### <a name="reset-ssh-configuration"></a>重置 SSH 配置
 SSHD 配置本身可能有误或服务遇到错误。 你可以重置 SSHD 以确保 SSH 配置本身是有效的。 要执行的第一个故障排除步骤应该是重置 SSHD。
@@ -173,7 +174,7 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
 如果已重置 SSH 配置和用户凭据，或者在执行此操作期间遇到错误，可以尝试重新启动 VM 来解决基本的计算问题。
 
 ### <a name="azure-portal-preview"></a>Azure 门户预览
-若要使用 Azure 门户预览重新启动 VM，请选择 VM，然后单击“重新启动”按钮，如以下示例所示： 
+若要使用 Azure 门户预览重新启动 VM，请选择 VM，然后单击“重新启动”按钮，如以下示例所示：
 
 ![在 Azure 门户预览中重新启动 VM](./media/virtual-machines-linux-troubleshoot-ssh-connection/restart-vm-using-portal.png)
 

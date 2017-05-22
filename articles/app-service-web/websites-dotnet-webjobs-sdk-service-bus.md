@@ -3,7 +3,7 @@ title: "如何通过 WebJobs SDK 使用 Azure Service Bus"
 description: "了解如何通过 WebJobs SDK 使用 Azure 服务总线队列和主题。"
 services: app-service\web, service-bus
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: 2114a934-135b-42b8-871c-6cc040214e76
@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 06/01/2016
 wacn.date: 
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: d8ca5595eaf7afd88e9bea4d6996d4111827f60a
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: d160acdab92deaf067f411551083ced68a427ac9
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -176,4 +177,4 @@ SDK 会自动反序列化包含 POCO[（普通旧 CLR 对象](http://en.wikipedi
 * 写入日志
 
 ## <a id="nextsteps"></a>后续步骤
-本指南中包含的代码示例展示了如何处理常见方案来结合使用 Azure 服务总线。 有关如何使用 Azure WebJobs 和 WebJobs SDK 的详细信息，请参阅 [Azure WebJobs 推荐资源](/app-service-web/websites-webjobs-resources/)。
+本指南中包含的代码示例展示了如何处理常见方案来结合使用 Azure 服务总线。 有关如何使用 Azure WebJobs 和 WebJobs SDK 的详细信息，请参阅 [Azure WebJobs 推荐资源](/app-service-web/websites-webjobs-resources)。

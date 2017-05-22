@@ -9,15 +9,16 @@ editor: tysonn
 ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
 ms.service: application-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 wacn.date: 
 ms.author: gwallace
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
 ms.openlocfilehash: 53cfe8ed2aef020aa6b6683b0c7305d2448eb140
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/25/2017
 
 

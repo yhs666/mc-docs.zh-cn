@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 12/02/2016
 wacn.date: 
 ms.author: byvinyal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 157eee600f84b93c0b9b8e1bd1a64a33293909df
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -74,7 +75,7 @@ ms.lasthandoff: 04/22/2017
 
 这样一来，可以为应用分配新的资源集，并更好地控制应用。
 
-## <a name="create-an-app-service-plan"></a> 创建 App Service 计划
+## <a name="create-an-app-service-plan"></a> 创建应用服务计划
 
 可以在浏览应用服务计划或创建应用的过程中创建空的应用服务计划。
 

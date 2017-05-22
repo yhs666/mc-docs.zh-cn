@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 01/17/2017
 wacn.date: 
 ms.author: cynthn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 4dd63f1f4514251f319fb383a23d29d8ba73bf6b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
@@ -54,8 +55,8 @@ Azure 存储帐户可为操作系统磁盘和任何数据磁盘提供存储空�
 
 ## <a name="can-i-add-an-existing-vm-to-an-availability-set"></a>可否将现有 VM 添加到可用性集？
 不可以。 如果希望将 VM 作为可用性集的一部分，则需要在该可用性集中创建 VM。 目前，不支持在创建 VM 后将其添加到可用性集。
-## <a name="can-i-upload-a-virtual-machine-to-azure"></a>可否将虚拟机上载到 Azure？
-可以。 有关说明，请参阅 [Upload a Windows VM image to Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（将 Windows VM 映像上载到 Azure）
+## <a name="can-i-upload-a-virtual-machine-to-azure"></a>可否将虚拟机上传到 Azure？
+可以。 有关说明，请参阅 [Upload a Windows VM image to Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（将 Windows VM 映像上传到 Azure）
 
 ## <a name="can-i-resize-the-os-disk"></a>可否调整 OS 磁盘的大小？
 可以。 有关说明，请参阅 [How to expand the OS drive of a Virtual Machine in an Azure Resource Group](virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（如何扩展 Azure 资源组中虚拟机的 OS 驱动器）。

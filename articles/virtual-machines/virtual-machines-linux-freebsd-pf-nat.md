@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/20/2017
 wacn.date: 
 ms.author: kyliel
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 242a3bac471395ed31bf9bd85d4a2d65d6de4e5f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 

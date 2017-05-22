@@ -17,9 +17,10 @@ ms.workload: na
 ms.date: 03/04/2016
 wacn.date: 
 ms.author: cfowler
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 22b13bc2b2717c9b726ae0bb18eb8ca5cd49f173
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -53,7 +54,7 @@ Azure 应用服务本地缓存功能允许通过 Web 角色来查看内容。 �
 组合使用保留的应用设置即可配置本地缓存。 可以通过以下方法配置这些应用设置：
 
 * [Azure 门户预览](#Configure-Local-Cache-Portal)
-* [Azure 资源管理器](#Configure-Local-Cache-ARM)
+* [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal-preview"></a>通过 Azure 门户预览配置本地缓存
 <a name="Configure-Local-Cache-Portal"></a>

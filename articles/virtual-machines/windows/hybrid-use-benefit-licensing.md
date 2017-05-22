@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 3/10/2017
+ms.date: 4/10/2017
 wacn.date: ''
 ms.author: georgem
 
@@ -31,22 +31,27 @@ ms.author: georgem
 ## <a name="ways-to-use-azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit 的用法
 可以使用 Azure Hybrid Use Benefit 通过多种不同的方法来部署 Windows VM：
 
-1. 如果拥有企业协议订阅，可从通过 Azure 混合使用权益预配的[特定应用商店映像中部署 VM](#deploy-a-vm-using-the-azure-marketplace)。
-2. 如果没有企业协议，可[上传自定义 VM](#upload-a-windows-vhd)，然后[使用 Resource Manager 模板](#deploy-an-uploaded-vm-via-resource-manager)或 [Azure PowerShell](#detailed-powershell-deployment-walkthrough) 进行部署。
+1. 可以从[特定应用商店映像](#deploy-a-vm-using-the-azure-marketplace)部署 VM，这些映像已通过 Azure 混合使用权益（Windows Server 2016、Windows Server 2012R2、Windows Server 2012 和 Windows Server 2008SP1）进行了预配置。
+2. 用户可以[上传自定义 VM](#upload-a-windows-vhd)，并[使用 Resource Manager 模板](#deploy-an-uploaded-vm-via-resource-manager)或 [Azure PowerShell](#detailed-powershell-deployment-walkthrough) 进行部署。
 
 ## <a name="deploy-a-vm-using-the-azure-marketplace"></a>使用 Azure 应用商店部署 VM
-对于拥有 [企业协议订阅](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx)的客户，应用商店中提供了已预配置 Azure Hybrid Use Benefit 的映像。 例如，可直接从 Azure 门户预览、Resource Manager 模板或 Azure PowerShell 部署这些映像。 应用商店中的映像使用 `[HUB]` 名称做了标注，如下所示：
-
-![Azure 应用商店中的 Azure Hybrid Use Benefit 映像](../media/virtual-machines-windows-hybrid-use-benefit/ahub-images-portal.png)
+以下映像可在应用商店中获取，这些映像已通过以下 Azure 混合使用权益进行了预配置：Windows Server 2016、Windows Server 2012R2、Windows Server 2012 和 Windows Server 2008SP1。 可直接从 Azure 门户预览、Resource Manager 模板或 Azure PowerShell 部署这些映像。
 
 可以直接从 Azure 门户预览部署这些映像。 若要在 Resource Manager 模板和 Azure PowerShell 中使用，请查看如下所示的映像列表：
 
 对于 Windows Server：
 
 ```powershell
-Get-AzureRMVMImageSku -Location "China North" -Publisher "MicrosoftWindowsServer" `
-    -Offer "WindowsServer-HUB"
+Get-AzureRmVMImagesku -Location chinanorth -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
+
+2016-Datacenter 版本 2016.127.20170406 或更高版本
+
+2012-R2-Datacenter 版本 4.127.20170406 或更高版本
+
+2012-Datacenter 版本 3.127.20170406 或更高版本
+
+2008-R2-SP1 版本 2.127.20170406 或更高版本
 
 对于 Windows 客户端：
 
@@ -55,12 +60,10 @@ Get-AzureRMVMImageSku -Location "China North" -Publisher "MicrosoftWindowsServer
     -Offer "Windows-HUB"
 ```
 
-如果没有企业协议订阅，请继续阅读有关如何上传自定义 VM 和通过 Azure 混合使用权益部署的说明。
-
 ## <a name="upload-a-windows-vhd"></a>上传 Windows VHD
-若要在 Azure 中部署 Windows VM，必须先创建包含基本 Windows 版本的 VHD。 必须先通过 Sysprep 妥善准备此 VHD，再将其上载到 Azure。 可以[阅读有关 VHD 要求和 Sysprep 进程](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)以及[针对服务器角色的 Sysprep 支持](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)的详细信息。 在运行 Sysprep 之前备份 VM。 
+若要在 Azure 中部署 Windows VM，必须先创建包含基本 Windows 版本的 VHD。 必须先通过 Sysprep 妥善准备此 VHD，再将其上传到 Azure。 可以[阅读有关 VHD 要求和 Sysprep 进程](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)以及[针对服务器角色的 Sysprep 支持](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)的详细信息。 在运行 Sysprep 之前备份 VM。 
 
-确保 [已安装并配置最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。 准备好 VHD 之后，即可使用 `Add-AzureRmVhd` cmdlet 将 VHD 上载到 Azure 存储帐户，如下所示：
+确保 [已安装并配置最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。 准备好 VHD 之后，即可使用 `Add-AzureRmVhd` cmdlet 将 VHD 上传到 Azure 存储帐户，如下所示：
 
 ```powershell
 Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -68,14 +71,14 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 ```
 
 > [!NOTE]
-> Microsoft SQL Server、SharePoint Server 和 Dynamics 还可以利用软件保障许可。 你仍需要准备 Windows Server 映像，方法是安装应用程序组件，并相应地提供许可证密钥，然后将磁盘映像上载到 Azure。 查看使用应用程序运行 Sysprep 的相关文档，例如[使用 Sysprep 安装 SQL Server 的注意事项](https://msdn.microsoft.com/library/ee210754.aspx)或[生成 SharePoint Server 2016 参考映像 (Sysprep)](http://social.technet.microsoft.com/wiki/contents/articles/33789.build-a-sharepoint-server-2016-reference-image-sysprep.aspx)。
+> Microsoft SQL Server、SharePoint Server 和 Dynamics 还可以利用软件保障许可。 你仍需要准备 Windows Server 映像，方法是安装应用程序组件，并相应地提供许可证密钥，然后将磁盘映像上传到 Azure。 查看使用应用程序运行 Sysprep 的相关文档，例如[使用 Sysprep 安装 SQL Server 的注意事项](https://msdn.microsoft.com/library/ee210754.aspx)或[生成 SharePoint Server 2016 参考映像 (Sysprep)](http://social.technet.microsoft.com/wiki/contents/articles/33789.build-a-sharepoint-server-2016-reference-image-sysprep.aspx)。
 >
 >
 
-还可以阅读有关[将 VHD 上载到 Azure 的过程](upload-image.md#upload-the-vm-vhd-to-your-storage-account)的详细信息
+还可以阅读有关[将 VHD 上传到 Azure 的过程](upload-image.md#upload-the-vm-vhd-to-your-storage-account)的详细信息
 
-## <a name="deploy-an-uploaded-vm-via-resource-manager"></a>通过 Resource Manager 部署已上载的 VM
-在 Resource Manager 模板中，可以为 `licenseType` 指定附加参数。 可以阅读有关[创作 Azure Resource Manager 模板](../../azure-resource-manager/resource-group-authoring-templates.md)的详细信息。 将 VHD 上载到 Azure 之后，请编辑 Resource Manager 模板以将许可证类型包含为计算提供程序的一部分，然后照常部署模板：
+## <a name="deploy-an-uploaded-vm-via-resource-manager"></a>通过 Resource Manager 部署已上传的 VM
+在 Resource Manager 模板中，可以为 `licenseType` 指定附加参数。 可以阅读有关[创作 Azure Resource Manager 模板](../../resource-group-authoring-templates.md)的详细信息。 将 VHD 上传到 Azure 之后，请编辑 Resource Manager 模板以将许可证类型包含为计算提供程序的一部分，然后照常部署模板：
 
 对于 Windows Server：
 
@@ -196,7 +199,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 $storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -AccountName mystorageaccount
 ```
 
-上载准备妥当的 VHD，并附加到 VM 以供使用：
+上传准备妥当的 VHD，并附加到 VM 以供使用：
 
 ```powershell
 $osDiskName = "licensing.vhd"
@@ -224,3 +227,5 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 阅读有关 [Azure Hybrid Use Benefit 许可](https://azure.microsoft.com/pricing/hybrid-use-benefit/)的详细信息。
 
 了解有关[使用 Resource Manager模板](../../azure-resource-manager/resource-group-overview.md)的详细信息。
+
+详细了解 [Azure 混合使用权益和 Azure Site Recovery 可更加经济高效地将应用程序迁移到 Azure](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)。

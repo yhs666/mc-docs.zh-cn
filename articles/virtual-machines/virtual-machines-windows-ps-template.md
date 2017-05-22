@@ -17,9 +17,10 @@ ms.date: 03/07/2017
 wacn.date: 
 ms.author: davidmu
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 4cf2636abac23b7a4b61a6e3b273349b8893bae1
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
@@ -97,7 +98,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Templat
     DeploymentDebugLogLevel :
 
 > [!NOTE]
-> 还可通过本地文件部署模板和参数。 有关详细信息，请参阅[对 Azure 存储空间使用 Azure PowerShell](../storage/storage-powershell-guide-full.md)。
+> 还可通过本地文件部署模板和参数。 有关详细信息，请参阅[对 Azure 存储使用 Azure PowerShell](../storage/storage-powershell-guide-full.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
