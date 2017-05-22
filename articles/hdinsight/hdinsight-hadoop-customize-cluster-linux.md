@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 30488be872b61ef1678b0244dd9b07cfdd09d28c
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -31,7 +32,7 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 > [!IMPORTANT]
 > 只有基于 Linux 的 HDInsight 群集能够在运行中的群集上使用脚本操作。
 > <p>
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
 
 还可以将脚本操作作为 HDInsight 应用程序发布到 Azure 应用商店。 本文档中的某些示例将演示如何使用 PowerShell 和 .NET SDK 的脚本操作命令来安装 HDInsight 应用程序。
 
@@ -42,11 +43,13 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 * **AMBARI.RUN\_CUSTOM\_COMMAND**：默认情况下，Ambari 管理员角色具有此权限。
 * **CLUSTER.RUN\_CUSTOM\_COMMAND**：默认情况下，HDInsight 群集管理员和 Ambari 管理员都具有此权限。
 
+有关处理已加入域的 HDInsight 权限的详细信息，请参阅[管理已加入域的 HDInsight 群集](hdinsight-domain-joined-manage.md)。
+
 ## <a name="access-control"></a>访问控制
 
 如果使用的是你不是管理员/所有者的 Azure 订阅（例如公司所有的订阅），则必须确保你的 Azure 帐户至少具有 **参与者** 访问权限，才能访问包含 HDInsight 群集的 Azure 资源组。
 
-另外，如果用户创建的是 HDInsight 群集，至少对 Azure 订阅具有 **参与者** 访问权限的用户必须之前已注册 HDInsight 的提供程序。 对订阅具有参与者访问权限的用户首次在订阅上创建资源时，会进行提供程序注册。 不[使用 REST 注册提供程序](https://msdn.microsoft.com/zh-cn/library/azure/dn790548.aspx)创建资源也可完成该操作。
+另外，如果用户创建的是 HDInsight 群集，至少对 Azure 订阅具有 **参与者** 访问权限的用户必须之前已注册 HDInsight 的提供程序。 对订阅具有参与者访问权限的用户首次在订阅上创建资源时，会进行提供程序注册。 不[使用 REST 注册提供程序](https://msdn.microsoft.com/library/azure/dn790548.aspx)创建资源也可完成该操作。
 
 有关使用访问管理的详细信息，请参阅以下文档：
 
@@ -69,6 +72,9 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
         > HDInsight 仅支持__通用__ Azure 存储帐户。 当前不支持 __Blob 存储__ 帐户类型。
 
 * 可以限制为 **只对特定的节点类型运行**，例如头节点或辅助角色节点。
+
+  > [!NOTE]
+  > 与 HDInsight 高级版配合使用时，可以指定脚本应该在边缘节点上使用。
 
 * 可以是**持久化**或**即席**。
 
@@ -143,12 +149,12 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 
 | 名称 | 脚本 |
 | --- | --- |
-| **添加 Azure 存储帐户** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh 。 请参阅[将其他存储添加到 HDInsight 群集中](hdinsight-hadoop-add-storage.md)。 |
-| **安装 Hue** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh 。 请参阅[在 HDInsight 群集上安装并使用 Hue](hdinsight-hadoop-hue-linux.md)。 |
-| **安装 R** |https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh 。 请参阅[在 HDInsight 群集上安装并使用 R](hdinsight-hadoop-r-scripts-linux.md)。 |
-| **安装 Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh 。 请参阅[在 HDInsight 群集上安装并使用 Solr](hdinsight-hadoop-solr-install-linux.md)。 |
-| **安装 Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh 。 请参阅[在 HDInsight 群集上安装并使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
-| **预加载 Hive 库** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh 。 请参阅[在 HDInsight 群集上添加 Hive 库](hdinsight-hadoop-add-hive-libraries.md) |
+| **添加 Azure 存储帐户** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh。 请参阅[将其他存储添加到 HDInsight 群集中](hdinsight-hadoop-add-storage.md)。 |
+| **安装 Hue** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh。 请参阅[在 HDInsight 群集上安装并使用 Hue](hdinsight-hadoop-hue-linux.md)。 |
+| **安装 R** |https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh。 请参阅[在 HDInsight 群集上安装并使用 R](hdinsight-hadoop-r-scripts-linux.md)。 |
+| **安装 Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh。 请参阅[在 HDInsight 群集上安装并使用 Solr](hdinsight-hadoop-solr-install-linux.md)。 |
+| **安装 Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh。 请参阅[在 HDInsight 群集上安装并使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
+| **预加载 Hive 库** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh。 请参阅[在 HDInsight 群集上添加 Hive 库](hdinsight-hadoop-add-hive-libraries.md) |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>在创建群集期间使用脚本操作
 
@@ -156,7 +162,7 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal-preview"></a>在创建群集期间从 Azure 门户预览使用脚本操作
 
-1. 根据[在 HDInsight 中创建 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)中的说明开始创建群集。
+1. 根据[在 HDInsight 中创建 Hadoop 群集](hdinsight-provision-clusters.md)中的说明开始创建群集。
 2. 在“脚本操作”边栏选项卡的“可选配置”下，单击“添加脚本操作”以提供有关脚本操作的详细信息，如下所示：
 
     ![使用脚本操作自定义群集](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png)
@@ -172,7 +178,7 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 
 3. 单击“选择”保存配置并继续创建群集。
 
-### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>从 Azure 资源管理器模板使用脚本操作
+### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>从 Azure Resource Manager 模板使用脚本操作
 在本部分中，将使用 Azure Resource Manager 模板创建 HDInsight 群集，并使用脚本操作在群集上安装自定义组件（在此示例中为 R）。 本部分提供使用脚本操作创建群集时所需的示例模板。
 
 > [!NOTE]
@@ -180,7 +186,7 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 
 #### <a name="before-you-begin"></a>开始之前
 
-* 有关配置工作站以运行 HDInsight Powershell cmdlet 的信息，请参阅 [安装和配置 Azure PowerShell](https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs)。
+* 有关配置工作站以运行 HDInsight Powershell cmdlet 的信息，请参阅 [安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 * 有关如何创建模板的说明，请参阅[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)。
 * 如果你以前没有对 Resource Manager 使用过 Azure PowerShell，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](../azure-resource-manager/powershell-azure-resource-manager.md)。
 
@@ -461,7 +467,7 @@ HDInsight .NET SDK 提供客户端库，可简化从 .NET 应用程序中使用 
 
 ## <a name="apply-a-script-action-to-a-running-cluster"></a>将脚本操作应用到正在运行的群集
 
-本部分提供可以将脚本操作应用到正在运行 HDInsight 群集的不同方式示例 - 从 Azure 门户预览、使用 PowerShell cmdlet、使用跨平台 Azure CLI，以及使用 .NET SDK。 本部分中使用的持久化脚本操作将现有 Azure 存储帐户添加到正在运行的群集。 也可以使用其他脚本操作，请参阅[示例脚本操作脚本](#example-script-action-scripts)。
+本部分提供可以将脚本操作应用到正在运行 HDInsight 群集的不同方式示例 - 从 Azure 门户预览、使用 PowerShell cmdlet、使用跨平台 Azure CLI，以及使用 .NET SDK。 本部分中使用的持久化脚本操作将现有 Azure 存储帐户添加到正在运行的群集。 也可以使用其他脚本操作，请参阅 [Example Script Action scripts](#example-script-action-scripts)（示例脚本操作脚本）。
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-portal-preview"></a>从 Azure 门户预览将脚本操作应用到正在运行的群集
 
@@ -498,7 +504,7 @@ HDInsight .NET SDK 提供客户端库，可简化从 .NET 应用程序中使用 
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>从 Azure PowerShell 将脚本操作应用到正在运行的群集
 
-在继续前，确保你已安装并配置 Azure PowerShell。 有关配置工作站以运行 HDInsight PowerShell cmdlet 的信息，请参阅 [Install and configure Azure PowerShell](https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs)（安装和配置 Azure PowerShell）。
+在继续前，确保你已安装并配置 Azure PowerShell。 有关配置工作站以运行 HDInsight PowerShell cmdlet 的信息，请参阅 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)（安装和配置 Azure PowerShell）。
 
 1. 打开 Azure PowerShell 控制台并使用以下命令登录到 Azure 订阅，然后声明一些 PowerShell 变量：
 
@@ -510,6 +516,9 @@ HDInsight .NET SDK 提供客户端库，可简化从 .NET 应用程序中使用 
         $saName = "<ScriptActionName>"                  # Name of the script action
         $saURI = "<URI to the script>"                  # The URI where the script is located
         $nodeTypes = "headnode", "workernode"
+
+   > [!NOTE]
+   > 如果使用的是 HDInsight 高级群集，可以使用 `"edgenode"` 节点类型在边缘节点上运行脚本。
 
 2. 使用以下命令将脚本应用到群集：
 
@@ -560,7 +569,7 @@ HDInsight .NET SDK 提供客户端库，可简化从 .NET 应用程序中使用 
 
 ### <a name="apply-a-script-action-to-a-running-cluster-using-rest-api"></a>使用 REST API 将脚本操作应用到正在运行的群集
 
-请参阅[在运行中的群集上运行脚本操作](https://msdn.microsoft.com/zh-cn/library/azure/mt668441.aspx)。
+请参阅[在运行中的群集上运行脚本操作](https://msdn.microsoft.com/library/azure/mt668441.aspx)。
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>从 HDInsight .NET SDK 将脚本操作应用到正在运行的群集
 
@@ -655,7 +664,7 @@ HDInsight 服务中有两种类型的开放源代码组件：
 > [!WARNING]
 > 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门将帮助找出并解决与这些组件相关的问题。
 > <p>
-> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
 
 HDInsight 服务提供多种方式来使用自定义组件。 不论在群集上使用组件或安装组件的方式为何，均适用相同级别的支持。 以下是可以在 HDInsight 群集上使用的自定义组件最常见方式的列表：
 
@@ -671,7 +680,7 @@ HDInsight 服务提供多种方式来使用自定义组件。 不论在群集上
 
 ### <a name="using-the-ambari-web-ui"></a>使用 Ambari Web UI
 
-1. 在浏览器中，导航到 https://CLUSTERNAME.azurehdinsight.cn 。 将 CLUSTERNAME 替换为 HDInsight 群集的名称。
+1. 在浏览器中，导航到 https://CLUSTERNAME.azurehdinsight.cn。 将 CLUSTERNAME 替换为 HDInsight 群集的名称。
 
     出现提示时，为群集输入管理员帐户名 (admin) 和密码。 你可能需要在 Web 窗体中重新输入管理员凭据。
 
@@ -701,7 +710,7 @@ HDInsight 服务提供多种方式来使用自定义组件。 不论在群集上
 
     * **Zookeeper 节点** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.chinacloudapp.cn`
 
-* 相应主机的所有 stdout 和 stderr 将上载到存储帐户。 每个脚本操作各有一个 **output-\*.txt** 和 **errors-\*.txt**。 output-*.txt 文件包含有关在主机上运行的脚本的 URI 信息。 例如
+* 相应主机的所有 stdout 和 stderr 将上传到存储帐户。 每个脚本操作各有一个 **output-\*.txt** 和 **errors-\*.txt**。 output-*.txt 文件包含有关在主机上运行的脚本的 URI 信息。 例如
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -715,7 +724,7 @@ HDInsight 服务提供多种方式来使用自定义组件。 不论在群集上
 
 * 如果在当天结束时创建群集，则日志可能跨越两天。 在这种情况下，会看到同一群集有两个不同的日期文件夹。
 
-* 将日志上载到默认容器可能需要 5 分钟，特别是对于大型群集。 因此，如果你想要访问日志，则不应在脚本操作失败时立即删除群集。
+* 将日志上传到默认容器可能需要 5 分钟，特别是对于大型群集。 因此，如果你想要访问日志，则不应在脚本操作失败时立即删除群集。
 
 ### <a name="ambari-watchdog"></a>Ambari 监视器
 

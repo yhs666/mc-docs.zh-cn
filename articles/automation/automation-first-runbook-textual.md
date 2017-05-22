@@ -16,9 +16,10 @@ ms.topic: get-started-article
 ms.date: 03/26/2017
 wacn.date: 
 ms.author: magoedte;bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: f5b71edf8211b2cfa4cb802eb72d15e5e27eb2d9
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 

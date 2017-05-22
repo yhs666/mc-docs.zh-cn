@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 02/17/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: e2c609da661e30367605b552dea77d46da465fac
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -246,9 +247,9 @@ ms.lasthandoff: 04/28/2017
     > [!NOTE]
     > `wordcountjava-1.0-SNAPSHOT.jar` 文件是一种 uberjar，其中不仅包含 WordCount 作业，还包含作业在运行时需要的依赖项。
 
-## <a id="upload"></a>上载该 jar
+## <a id="upload"></a>上传该 jar
 
-使用以下命令将该 jar 文件上载到 HDInsight 头节点：
+使用以下命令将该 jar 文件上传到 HDInsight 头节点：
 
 ```bash
 scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:

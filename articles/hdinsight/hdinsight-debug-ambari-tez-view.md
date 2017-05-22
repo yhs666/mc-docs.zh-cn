@@ -14,11 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/14/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: b5e8cc132cef05d3317c26a5c22da17ff3de4745
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -54,7 +55,7 @@ Tez 视图提供进程的历史信息，还提供正在运行的进程的相关�
 
 使用以下步骤，来运行使用 Tez 的 Hive 查询：
 
-1. 在 Web 浏览器中导航到 https://CLUSTERNAME.azurehdinsight.cn ，其中“CLUSTERNAME”是 HDInsight 群集的名称。
+1. 在 Web 浏览器中导航到 https://CLUSTERNAME.azurehdinsight.cn，其中“CLUSTERNAME”是 HDInsight 群集的名称。
 
 2. 从页面顶部的菜单中选择“视图”  图标。 该图标看起来像一系列方块。 在显示的下拉列表中，选择“Hive 视图”。
 

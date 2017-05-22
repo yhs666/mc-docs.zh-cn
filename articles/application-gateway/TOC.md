@@ -48,8 +48,8 @@
 # 引用
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
 ## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/network/application-gateway)
-## [.NET](/dotnet/api)
-## [Java](/java/api/com.microsoft.azure.management.network)
+## [.NET](https://docs.microsoft.com/dotnet/api)
+## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
@@ -63,7 +63,7 @@
 ## [负载均衡器](/azure/load-balancer/)
 ## [流量管理器](/azure/traffic-manager/)
 # 资源
-## [定价](https://www.azure.cn/pricing/details/application-gateway/)
+## [价格](https://www.azure.cn/pricing/details/application-gateway/)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-application-gateway)
 ## [服务更新](https://azure.microsoft.com/updates/?product=application-gateway)

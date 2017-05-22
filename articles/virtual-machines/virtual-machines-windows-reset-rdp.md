@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 03/14/2017
 wacn.date: 
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 3209a28ba34fad33289b2cb0b1cd7f90253a6047
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 

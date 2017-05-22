@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 04/03/2017
 wacn.date: 
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: a5c85010cec0eaed7aaea89bf5eb98dc5e1e6871
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -56,7 +57,7 @@ ms.lasthandoff: 04/22/2017
 
     Select-AzureRmSubscription -SubscriptionName ContosoSubscription
 
-在可以将 Windows PowerShell 与 Azure 资源管理器一起使用之前，你需要具备以下项：
+在可以将 Windows PowerShell 与 Azure Resource Manager 一起使用之前，你需要具备以下项：
 
 * Windows PowerShell 3.0 版或 4.0 版。 若要查找 Windows PowerShell 的版本，请键入：`$PSVersionTable` 并验证 `PSVersion` 的值是否为 3.0 或 4.0。 若要安装兼容版本，请参阅 [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)。
 

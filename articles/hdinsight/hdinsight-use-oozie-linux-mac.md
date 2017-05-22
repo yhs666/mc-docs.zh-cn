@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 8a62b19f17d416d2ef8384d1cd467a0dd85185b7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -41,7 +42,7 @@ Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。 该系统
 * **HDInsight 群集**：请参阅[Linux 上的 HDInsight 入门](hdinsight-hadoop-linux-tutorial-get-started.md)
 
     > [!IMPORTANT]
-    > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+    > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
 
 * **Azure SQL 数据库**：使用本文档中的步骤创建此数据库
 
@@ -105,7 +106,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
     ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
     ```
 
-    有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+    有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 2. 从 SSH 连接，使用以下命令新建一个文件：
 
@@ -281,7 +282,7 @@ Oozie 工作流定义以 hPDL（XML 过程定义语言）编写。 使用以下�
     oozietest       dbo     mobiledata      BASE TABLE
     ```
 
-4. 在 `1>` 提示符下输入 `exit` 以退出 tsql 实用工具。
+4. Enter `exit` at the `1>` 以退出 tsql 实用工具。
 
 ## <a name="create-the-job-definition"></a>创建作业定义
 
@@ -524,7 +525,7 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
 1. 与 HDInsight 群集建立 SSH 隧道。 有关执行这些操作的相关信息，请参阅 [使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
 
-2. 创建隧道后，请在 Web 浏览器中打开 Ambari Web UI。 Ambari 站点的 URI 为 **https://CLUSTERNAME.azurehdinsight.cn** 。 请将 **CLUSTERNAME**替换为基于 Linux 的 HDInsight 群集的名称。
+2. 创建隧道后，请在 Web 浏览器中打开 Ambari Web UI。 Ambari 站点的 URI 为 **https://CLUSTERNAME.azurehdinsight.cn**。 请将 **CLUSTERNAME**替换为基于 Linux 的 HDInsight 群集的名称。
 
 3. 在页面左侧选择“Oozie”，然后依次选择“快速链接” 和“Oozie Web UI”。
 
@@ -737,7 +738,7 @@ Oozie UI 对于排查 Oozie 作业问题很有帮助，因为它可让你轻松�
 在本教程中，你已经学习了如何定义 Oozie 工作流，以及如何运行 Oozie 作业。 若要了解有关使用 HDInsight 的详细信息，请参阅以下文章：
 
 * [将基于时间的 Oozie 协调器与 HDInsight 配合使用][hdinsight-oozie-coordinator-time]
-* [在 HDInsight 中上载 Hadoop 作业的数据][hdinsight-upload-data]
+* [在 HDInsight 中上传 Hadoop 作业的数据][hdinsight-upload-data]
 * [将 Sqoop 与 HDInsight 中的 Hadoop 配合使用][hdinsight-use-sqoop]
 * [将 Hive 与 HDInsight 上的 Hadoop 配合使用][hdinsight-use-hive]
 * [将 Pig 与 HDInsight 上的 Hadoop 配合使用][hdinsight-use-pig]
@@ -749,7 +750,7 @@ Oozie UI 对于排查 Oozie 作业问题很有帮助，因为它可让你轻松�
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-get-started.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -769,9 +770,9 @@ Oozie UI 对于排查 Oozie 作业问题很有帮助，因为它可让你轻松�
 
 [powershell-download]: https://www.azure.cn/downloads/
 [powershell-about-profiles]: https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Profiles
-[powershell-install-configure]: https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs
-[powershell-start]: http://technet.microsoft.com/zh-cn/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/zh-cn/library/ee176961.aspx
+[powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 

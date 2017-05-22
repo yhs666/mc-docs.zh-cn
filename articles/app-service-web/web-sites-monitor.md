@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 09/07/2016
 wacn.date: 
 ms.author: byvinyal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 81a1ded6c2874b6258e14ebe940576c804e931c8
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="how-to-monitor-apps-in-azure-app-service"></a>如何：在 Azure App Service 中监视 Web 应用
+# <a name="how-to-monitor-apps-in-azure-app-service"></a>如何：在 Azure 应用服务中监视 Web 应用
 [应用服务](/app-service-web/app-service-changes-existing-services)在 [Azure 门户预览](https://portal.azure.cn)中提供了内置监视功能。
 还能查看应用的**配额**和**度量值**以及应用服务计划、设置**警报**，甚至基于这些度量值自动**缩放**。
 
@@ -154,7 +155,7 @@ ms.lasthandoff: 04/28/2017
 托管在基本、标准或高级应用服务计划中的应用服务应用支持 **自动缩放**。 这使你可以配置监视应用服务计划度量值的规则，还能增加或减少根据需要提供其他资源或在过度预配时节约资金的实例计数。 可以在此处了解有关自动缩放的详细信息：[如何缩放](../monitoring-and-diagnostics/insights-how-to-scale.md)
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:/cloud-services/cloud-services-sizes-specs

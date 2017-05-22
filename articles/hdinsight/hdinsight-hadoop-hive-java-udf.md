@@ -14,11 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/04/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
 ms.openlocfilehash: 477bce18661f9323baeba7578c0d7ae8fed8d0a1
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/29/2017
 
 
@@ -29,9 +30,9 @@ ms.lasthandoff: 04/29/2017
 
 ## <a name="requirements"></a>要求
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
-
 * HDInsight 群集（基于 Windows 或 Linux）
+
+    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
     > [!IMPORTANT]
     > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅[弃用 HDInsight 3.2 和 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
@@ -196,7 +197,7 @@ ms.lasthandoff: 04/29/2017
     ssh myuser@mycluster-ssh.azurehdinsight.cn
     ```
 
-    有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+    有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 4. 从 SSH 会话中，将 jar 文件复制到 HDInsight 存储。
 

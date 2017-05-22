@@ -14,11 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/04/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: bhanupr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: a96ff5e0f9511a1757df9390a97faabe48999e75
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

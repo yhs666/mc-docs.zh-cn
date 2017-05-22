@@ -15,9 +15,10 @@ ms.workload: infrastructure
 ms.date: 02/14/2017
 wacn.date: 
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 9774cf3056eef92eab1c775aeec14d13615fa2b7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

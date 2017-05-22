@@ -1,6 +1,6 @@
 ---
 title: "使用 HTTPS 保护应用的自定义域 | Azure"
-description: "了解如何配置 SSL 证书绑定以在 Azure App Service 中保护应用的自定义域名。 还将学习如何通过多个工具获取 SSL 证书。"
+description: "了解如何配置 SSL 证书绑定以在 Azure 应用服务中保护应用的自定义域名。 还将学习如何通过多个工具获取 SSL 证书。"
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 08/08/2016
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 223debd3b55d625d391ecfa1f1a8906be2f1198f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -391,9 +392,9 @@ ms.lasthandoff: 04/28/2017
 2. 单击页面左侧的“应用服务”选项。
 3. 单击要分配此证书的应用的名称。 
 4. 在“设置”中，单击“SSL 证书”
-5. 单击“上载证书”
+5. 单击“上传证书”
 6. 选择[步骤 1](#bkmk_getcert) 中导出的 .pfx 文件并指定之前创建的密码。 
-   然后单击“上载”上载证书。 随后可在“SSL 证书”边栏选项卡中看到上载的证书。
+   然后单击“上传”上传证书。 随后可在“SSL 证书”边栏选项卡中看到上传的证书。
 7. 在“ssl 绑定”部分中，单击“添加绑定”
 8. 在“添加 SSL 绑定”边栏选项卡中，使用下拉列表选择要使用 SSL 保护的域名，然后选择要使用的证书。 还可以选择是要使用**[服务器名称指示 (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** 还是使用基于 IP 的 SSL。
 

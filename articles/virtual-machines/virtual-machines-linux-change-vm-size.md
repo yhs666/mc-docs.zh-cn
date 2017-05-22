@@ -17,9 +17,10 @@ ms.date: 02/10/2017
 wacn.date: 
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 99351e9e2e4cd692a0becacc61bab22bbdfb92b3
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

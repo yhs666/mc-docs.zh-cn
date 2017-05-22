@@ -15,9 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2017
 wacn.date: 
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 646eeb1144f64f17f58099aaf574e19fe108b2c6
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 

@@ -18,9 +18,10 @@ ms.date: 02/06/2017
 wacn.date: 
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: bb5dd26f9dfbe8b5bd9bef43d674b95a9ca47ec1
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---

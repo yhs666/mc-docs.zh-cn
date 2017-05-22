@@ -15,11 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/14/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: ff16f1e2766eaf0d733d5eac15cdacd61d1706b0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -59,7 +60,7 @@ ms.lasthandoff: 04/28/2017
     * **-u** - 用来对请求进行身份验证的用户名和密码。
     * **-G** - 指示此请求是一个 GET 操作。
 
-    所有请求的 URL 开头都是 **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1** 。 路径 **/status** 指示请求将返回服务器的 WebHCat（也称为 Templeton）状态。 你还可以通过使用以下命令请求 Hive 的版本：
+    所有请求的 URL 开头都是 **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**。 路径 **/status** 指示请求将返回服务器的 WebHCat（也称为 Templeton）状态。 你还可以通过使用以下命令请求 Hive 的版本：
 
     ```bash
     curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/version/hive
@@ -123,7 +124,7 @@ ms.lasthandoff: 04/28/2017
 
 4. 在作业的状态更改为“SUCCEEDED”后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置；在本例中，位置为 **/example/curl**。 此地址在群集默认存储的 **example/curl** 目录中存储输出。
 
-    可以使用 [Azure CLI](https://docs.microsoft.com/zh-cn/cli/azure/install-azure-cli) 列出并下载这些文件。 有关将 Azure CLI 与 Azure 存储配合使用的详细信息，请参阅[将 Azure CLI 2.0 与 Azure 存储配合使用](../storage/storage-azure-cli.md#create-and-manage-blobs)文档。
+    可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 列出并下载这些文件。 有关将 Azure CLI 与 Azure 存储配合使用的详细信息，请参阅[将 Azure CLI 2.0 与 Azure 存储配合使用](/azure/storage/storage-azure-cli#create-and-manage-blobs)文档。
 
 5. 使用以下语句创建名为 **errorLogs** 的新“内部”表：
 
@@ -161,7 +162,7 @@ ms.lasthandoff: 04/28/2017
 
 有关在本文档中使用的 REST API 的详细信息，请参阅 [WebHCat 参考](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference)文档。
 
-[hdinsight-sdk-documentation]: http://msdn.microsoft.com/zh-cn/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
@@ -169,16 +170,16 @@ ms.lasthandoff: 04/28/2017
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://zh.wikipedia.org/wiki/Log4j
+[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: hdinsight-connect-excel-power-query.md
+[import-to-excel]: /azure/hdinsight-connect-excel-power-query/
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
-[powershell-here-strings]: http://technet.microsoft.com/zh-cn/library/ee692792.aspx
+[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 

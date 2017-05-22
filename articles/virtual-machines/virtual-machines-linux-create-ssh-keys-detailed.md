@@ -16,9 +16,10 @@ ms.topic: get-started-article
 ms.date: 2/6/2016
 wacn.date: 
 ms.author: rasquill
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: ee98682bd39fd6b8444c1a6472879d18051a75bf
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 

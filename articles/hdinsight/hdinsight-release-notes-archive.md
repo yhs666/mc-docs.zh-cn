@@ -14,24 +14,30 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: nitinme
 ROBOTS: NOINDEX
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
 ms.openlocfilehash: 64f540ebab985bb07b5a01bfcf4c8f4977b5033c
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/29/2017
 
 
 ---
 # <a name="release-notes-archive-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight 上的 Hadoop 组件发行说明（存档）
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
-
 本文提供有关 Azure HDInsight **较旧**版本更新的信息。 有关较新版本的信息，请参阅 [HDInsight 发行说明](hdinsight-release-notes.md)。
 
 > [!IMPORTANT]
 > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 版本控制文章](hdinsight-component-versioning.md)。
+
+## <a name="08172016---release-of-r-server-on-hdinsight"></a>2016 年 8 月 17 日：发行 R Server on HDInsight
+* R Server 8.0.5 – 主要为 Bug 修复版本。 有关详细信息，请参阅 [R Server Release Notes](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) （R Server 发行说明）。
+* 边缘节点上的 AzureML 包 – [该 R 包](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)使 R 模型能够被发布并用作 Azure ML Web 服务。  有关详细信息，请参阅[“R Server on HDInsight 概述”](hdinsight-hadoop-r-server-overview.md)文章中的[“操作模型”](hdinsight-hadoop-r-server-overview.md#operationalize-a-model)部分。
+* [前 100 个最受欢迎的 R 包](https://github.com/metacran/cranlogs)的 Linux 依赖项 – 现在都预安装了这些 Linux 包依赖项。
+* 将 R 包添加到数据节点时的 CRAN 存储库使用选项。 有关详细信息，请参阅[开始使用 HDInsight 上的 R Server](hdinsight-hadoop-r-server-get-started.md)。
+* 改进在创建群集时进行 R Server 预配的可靠性。
 
 ## <a name="notes-for-08012016-release-of-hdinsight"></a>HDInsight 2016 年 8 月 1 日发行说明
 随此版本一起部署的基于 Linux 的 HDInsight 群集的所有版本号：
@@ -185,6 +191,8 @@ ms.lasthandoff: 04/29/2017
 | 标题 | 说明 | 受影响区域（例如服务、组件或 SDK） | 群集类型（例如 Hadoop、HBase 或 STORM） | JIRA（如果适用） |
 | --- | --- | --- | --- | --- |
 | 添加了 HDInsight 3.4 版本并更新了所有 HDInsight 群集的 HDP 版本 |在此版本中，我们添加了 HDInsight v3.4（基于 HDP 2.4）并更新了其他 HDP 版本。 [此处](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html)提供了 HDP 2.4 发行说明；[此处](hdinsight-component-versioning.md)提供了有关 HDInsight 版本的详细信息。 |服务 |所有 Linux 群集 |不适用 |
+| HDInsight 高级版 |现在提供两种类别的 HDInsight - 标准版和高级版。 HDInsight 高级版现在为预览版，仅适用于 Linux 上的 Hadoop 和 Spark 群集。 有关详细信息，请参阅[此文](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)。 |服务 |Linux 上的 Hadoop 和 Spark |不适用 |
+| Microsoft R Server |HDInsight 高级版提供的 Microsoft R Server 可能随附在 Linux 的 Hadoop 和 Spark 群集中。 有关详细信息，请参阅 [HDInsight 上的 R Server 概述](hdinsight-hadoop-r-server-overview.md)。 |服务 |Linux 上的 Hadoop 和 Spark |不适用 |
 | Spark 1.6.0 |HDInsight 3.4 群集现在包括 Spark 1.6.0 |服务 |Linux 上的 Spark 群集 |不适用 |
 | Jupyter 笔记本增强功能 |适用于 Spark 群集的 Jupyter 笔记本现在提供更多的 Spark 内核。 其中还包括了增强功能，例如使用 %%magic、自动可视化和与 Python 可视化库集成（如 matplotlib）。 有关详细信息，请参阅 [Jupyter 笔记本的可用内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)。 |服务 |Linux 上的 Spark 群集 |不适用 |
 
@@ -926,7 +934,7 @@ ms.lasthandoff: 04/29/2017
 </tr>
 </table>
 
-## <a name="notes-for-1292015-release-of-hdinsight"></a>HDInsight 2015 年 1 月 9 日发行说明
+## <a name="notes-for-1292015-release-of-hdinsight"></a>HDInsight 2015 年 1 月 29 日发行说明
 随此版本一起部署的 HDInsight 群集的所有版本号包括：
 
 * HDInsight     2.1.10.455.1309616（HDP 1.3.9.0-01351 - 保持不变）
@@ -1033,7 +1041,7 @@ Apache Mahout 是 Apache Hadoop 的机器学习库。 Mahout 包含用于处理�
 </tr>
 <tr>
 <td><a href = "hdinsight-hadoop-customize-cluster.md" target="_blank">群集自定义功能正式发布</a></td>
-<td><p>自定义可让你自定义 Azure HDInsight 群集，以搭配使用 Apache Hadoop 生态系统的项目。 使用这项新功能，你现在可以试验并部署 Hadoop 项目到 Azure HDInsight。 这可通过**脚本操作**功能启用，该功能可以使用自定义脚本，以任意方式修改 Hadoop 群集。 此自定义适用于所有类型的 HDInsight 群集，包括 Hadoop、HBase 和 Storm。 为了演示这项强大功能，我们记录了过程以安装流行的 <a href = "hdinsight-apache-spark-jupyter-spark-sql.md" target="_blank">Spark</a>、<a href = "./hdinsight-hadoop-r-scripts.md" target="_blank">R</a>、<a href = "hdinsight-hadoop-solr-install.md" target="_blank">Solr</a> 和 <a href = "hdinsight-hadoop-giraph-install.md" target="_blank">Giraph</a> 模块。 这个版本还添加了让客户通过 Azure 门户预览指定其自定义脚本操作的功能、提供如何使用帮助器方法生成自定义脚本操作的指导和最佳作法，并提供有关如何测试脚本操作的指导。 </p></td>
+<td><p>自定义可让你自定义 Azure HDInsight 群集，以搭配使用 Apache Hadoop 生态系统的项目。 使用这项新功能，你现在可以试验并部署 Hadoop 项目到 Azure HDInsight。 这可通过**脚本操作**功能启用，该功能可以使用自定义脚本，以任意方式修改 Hadoop 群集。 此自定义适用于所有类型的 HDInsight 群集，包括 Hadoop、HBase 和 Storm。 为了演示这项强大功能，我们记录了过程以安装流行的 <a href = "hdinsight-hadoop-spark-install.md" target="_blank">Spark</a>、<a href = "hdinsight-hadoop-r-scripts.md" target="_blank">R</a>、<a href = "hdinsight-hadoop-solr-install.md" target="_blank">Solr</a> 和 <a href = "hdinsight-hadoop-giraph-install.md" target="_blank">Giraph</a> 模块。 这个版本还添加了让客户通过 Azure 门户预览指定其自定义脚本操作的功能、提供如何使用帮助器方法生成自定义脚本操作的指导和最佳作法，并提供有关如何测试脚本操作的指导。 </p></td>
 <td>功能正式发布</td>
 <td>全部</td>
 <td>不适用</td>
@@ -1165,7 +1173,7 @@ Apache Mahout 是 Apache Hadoop 的机器学习库。 Mahout 包含用于处理�
 > [!NOTE]
 > 为了演示群集自定义所提供的新功能，此过程使用脚本操作在所述的群集上安装 Spark 和 R 模块。 有关详细信息，请参阅：
 
-* [在 HDInsight 群集上安装并使用 Spark 1.0](hdinsight-apache-spark-jupyter-spark-sql.md)
+* [在 HDInsight 群集上安装并使用 Spark 1.0](hdinsight-hadoop-spark-install.md)
 * [在 HDInsight Hadoop 群集上安装并使用 R](hdinsight-hadoop-r-scripts.md)
 
 ## <a name="notes-for-11072014-release-of-hdinsight"></a>HDInsight 2014 年 11 月 7 日发行说明
@@ -1242,13 +1250,13 @@ Apache Mahout 是 Apache Hadoop 的机器学习库。 Mahout 包含用于处理�
 关于 Azure PowerShell 和 HDInsight SDK 错误消息：“群集未配置 HTTP 服务访问”：
 
 * 此错误是已知的[兼容性问题](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight)，起因于 HDInsight SDK 或 Azure PowerShell 版本和群集版本的差异。 8 月 15 日或之后创建的群集支持虚拟网络的新配置功能。 但旧版的 SDK 或 Azure PowerShell 无法正确解释此功能。 结果造成某些作业提交操作失败。 如果你使用 HDInsight SDK API 或 Azure PowerShell cmdlet 来提交作业（**Use-AzureRmHDInsightCluster** 或 **Invoke-AzureRmHDInsightHiveJob**），这些作业可能失败并返回错误消息“群集 <clustername> 未配置 HTTP 服务访问”。 或者（根据具体的操作），你可能会收到其他错误消息，例如“无法连接到群集”。
-* 在最新版 HDInsight SDK 和 Azure PowerShell 中，这些兼容性问题均已解决。 我们建议将 HDInsight SDK 更新至 1.3.1.6 版本或更高版本，将 Azure PowerShell 工具更新至 0.8.8 版本或更高版本。 可以从 [Nuget](http://nuget.codeplex.com/wikipage?title=Getting%20Started) 获取最新的 HDInsight SDK，从[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs) 获取 Azure PowerShell 工具。
+* 在最新版 HDInsight SDK 和 Azure PowerShell 中，这些兼容性问题均已解决。 我们建议将 HDInsight SDK 更新至 1.3.1.6 版本或更高版本，将 Azure PowerShell 工具更新至 0.8.8 版本或更高版本。 可以从 [Nuget](http://nuget.codeplex.com/wikipage?title=Getting%20Started) 获取最新的 HDInsight SDK，从[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 获取 Azure PowerShell 工具。
 
 ## <a name="notes-for-9122014-release-of-hdinsight-31"></a>HDInsight 3.1 2014/9/12 版发行说明
 * 此版本基于 Hortonworks 数据平台 (HDP) 2.1.5。 有关此版本中修复的 bug 列表，请参阅 Hortonworks 站点上的[此版本中修复的问题](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html)页。
 * 在 Pig 库文件夹中，“avro-mapred-1.7.4.jar”文件已改为“avro-mapred-1.7.4-hadoop2.jar”。 此文件的内容包含一个小 Bug 的不间断修复。 建议客户不要直接依赖 JAR 文件名，以避免文件重命名时出现中断。
 
-## <a name="notes-for-8212014-release"></a>2014 年 8 月 24 日发行说明
+## <a name="notes-for-8212014-release"></a>2014 年 8 月 21 日发行说明
 * 我们正在添加以下 WebHCat 配置 (HIVE-7155)，该配置可将 Templeton 控制器作业的默认内存限制设置为 1 GB： （以前的默认值是 512 MB。）
 
      templeton.mapper.memory.mb (=1024)
@@ -1273,7 +1281,8 @@ Apache Mahout 是 Apache Hadoop 的机器学习库。 Mahout 包含用于处理�
 * **HDInsight 已在新区域推出：**我们已将 HDInsight 的地理位置据点扩展到三个新的区域。 HDInsight 客户可以在这些区域创建群集。
   * 中国东部
   * 中国北部
-* HDInsight 1.6 版（HDP1.1、Hadoop 1.0.3）和 HDInsight 2.1 版（HDP1.3、Hadoop 1.2）即将从 Azure 门户预览中删除。 可继续使用 Azure PowerShell cmdlet [New-AzureRmHDInsightCluster](http://msdn.microsoft.com/zh-cn/library/dn593744.aspx) 或 [HDInsight SDK](http://msdn.microsoft.com/zh-cn/library/azure/dn469975.aspx) 来创建这些版本的 Hadoop 群集。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md)页。
+  * 中国东部
+* HDInsight 1.6 版（HDP1.1、Hadoop 1.0.3）和 HDInsight 2.1 版（HDP1.3、Hadoop 1.2）即将从 Azure 门户预览中删除。 可继续使用 Azure PowerShell cmdlet [New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) 或 [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx) 来创建这些版本的 Hadoop 群集。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md)页。
 * 此版本中发生的 Hortonworks 数据平台 (HDP) 更改：
 
 <table border="1">
@@ -1485,5 +1494,5 @@ SQL Server 的 Java 数据库连接 (JDBC) 驱动程序由 HDInsight 在内部�
 
 [webpi-link]: http://go.microsoft.com/?linkid=9811175&clcid=0x409
 
-[hdinsight-install-spark]: ../hdinsight-apache-spark-jupyter-spark-sql/
+[hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/

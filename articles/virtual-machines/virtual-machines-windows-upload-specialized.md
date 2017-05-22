@@ -1,6 +1,6 @@
 ---
-title: "将专用 VHD 上载到 Azure，用于创建新的 VM | Azure"
-description: "将专用 VHD 上载到 Azure，用于创建新的 VM。"
+title: "将专用 VHD 上传到 Azure，用于创建新的 VM | Azure"
+description: "将专用 VHD 上传到 Azure，用于创建新的 VM。"
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -17,15 +17,16 @@ ms.date: 02/05/2017
 wacn.date: 
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 1957fe5b779b2739989cac64876cf6f9219742bf
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
 ---
 
-# <a name="how-to-upload-a-specialized-vhd-to-create-a-vm-in-azure"></a>如何上载专用 VHD，以便在 Azure 中创建 VM
+# <a name="how-to-upload-a-specialized-vhd-to-create-a-vm-in-azure"></a>如何上传专用 VHD，以便在 Azure 中创建 VM
 
 用 VHD 保留原始 VM 中的用户帐户、应用程序和其他状态数据。 可将专用 VHD 上传到 Azure，并借其创建使用托管磁盘或非托管存储帐户的 VM。 建议使用[托管磁盘](../storage/storage-managed-disks-overview.md)，以利用托管磁盘提供的简化管理功能和其他功能。
 
@@ -88,7 +89,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 Get-AzureRmStorageAccount
 ```
 
-如果要使用现有存储帐户，请转到 [上载 VM 映像](#upload-the-vm-vhd-to-your-storage-account) 部分。
+如果要使用现有存储帐户，请转到 [上传 VM 映像](#upload-the-vm-vhd-to-your-storage-account) 部分。
 
 若要创建存储帐户，请执行以下步骤：
 
@@ -121,7 +122,7 @@ Get-AzureRmStorageAccount
 
 ## <a name="upload-the-vm-vhd-to-your-storage-account"></a> 将 VHD 上传到存储帐户
 
-使用 [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet 将 VHD 上传到存储帐户中的容器。 本示例将文件 **myVHD.vhd** 从 `"C:\Users\Public\Documents\Virtual hard disks\"` 上载到 **myResourceGroup** 资源组中名为 **mystorageaccount** 的存储帐户。 该文件将放入名为 **mycontainer** 的容器，新文件名为 **myUploadedVHD.vhd**。
+使用 [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet 将 VHD 上传到存储帐户中的容器。 本示例将文件 **myVHD.vhd** 从 `"C:\Users\Public\Documents\Virtual hard disks\"` 上传到 **myResourceGroup** 资源组中名为 **mystorageaccount** 的存储帐户。 该文件将放入名为 **mycontainer** 的容器，新文件名为 **myUploadedVHD.vhd**。
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -146,11 +147,11 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
 
 完成执行此命令可能需要一段时间，具体取决于网络连接速度和 VHD 文件的大小
 
-如果要使用上载的 VHD 创建托管磁盘或新 VM，请保存 **目标 URI** 路径供稍后使用。
+如果要使用上传的 VHD 创建托管磁盘或新 VM，请保存 **目标 URI** 路径供稍后使用。
 
 ### <a name="other-options-for-uploading-a-vhd"></a>用于上传 VHD 的其他选项
 
-也可以使用以下方法之一将 VHD 上载到存储帐户：
+也可以使用以下方法之一将 VHD 上传到存储帐户：
 
 -   [Azure 存储复制 Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
 

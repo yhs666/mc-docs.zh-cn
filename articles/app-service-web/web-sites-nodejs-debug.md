@@ -1,6 +1,6 @@
 ---
-title: "如何在 Azure App Service 中调试 Node.js Web 应用"
-description: "了解如何在 Azure App Service 中调试 Node.js Web 应用。"
+title: "如何在 Azure 应用服务中调试 Node.js Web 应用"
+description: "了解如何在 Azure 应用服务中调试 Node.js Web 应用。"
 tags: azure-portal
 services: app-service\web
 documentationcenter: nodejs
@@ -13,18 +13,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 wacn.date: 
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: ac2b9f6baa0f7ee3c7ae83a634a3a5dd907bc3b8
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 1e91eecec3dae78e653fc90597bb347e9ffcdc35
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="how-to-debug-a-nodejs-web-app-in-azure-app-service"></a>如何在 Azure App Service 中调试 Node.js Web 应用
-Azure 提供了内置诊断来协助调试托管在 [Azure App Service](/app-service-web/app-service-changes-existing-services) Web 应用中的 Node.js 应用程序。 在本文中，你将学习如何启用 stdout 和 stderr 的日志记录，如何在浏览器中显示错误信息以及下载和查看日志文件。
+# <a name="how-to-debug-a-nodejs-web-app-in-azure-app-service"></a>如何在 Azure 应用服务中调试 Node.js Web 应用
+Azure 提供了内置诊断来协助调试托管在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services) Web 应用中的 Node.js 应用程序。 在本文中，你将学习如何启用 stdout 和 stderr 的日志记录，如何在浏览器中显示错误信息以及下载和查看日志文件。
 
 [IISNode]提供对在 Azure 上托管的 Node.js 应用程序的诊断。 本文只讨论了有关收集诊断信息的常见设置，并未提供使用 IISNode 的完整参考。 有关使用 IISNode 的详细信息，请参阅 GitHub 上的 [IISNode 自述文件] 。
 
@@ -115,10 +116,10 @@ Azure 提供了内置诊断来协助调试托管在 [Azure App Service](/app-ser
 
 有关为你的应用程序指定 Node.js 版本的信息，请参阅 [在 Azure 应用程序中指定 Node.js 版本]。
 
-有关详细信息，另请参阅 [Node.js 开发人员中心](https://www.azure.cn/develop/nodejs/)。
+有关详细信息，另请参阅 [Node.js 开发人员中心](/develop/nodejs/)。
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode 自述文件]: https://github.com/tjanczuk/iisnode#readme

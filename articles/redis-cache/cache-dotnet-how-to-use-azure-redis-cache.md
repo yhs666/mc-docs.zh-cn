@@ -15,14 +15,15 @@ ms.topic: hero-article
 ms.date: 03/08/2017
 wacn.date: 
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 690e73e5842057c22e6db8d865b49a0fbfc1b7a5
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="how-to-use-azure-redis-cache"></a>如何使用 Azure Redis Cache
+# <a name="how-to-use-azure-redis-cache"></a>如何使用 Azure Redis 缓存
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)

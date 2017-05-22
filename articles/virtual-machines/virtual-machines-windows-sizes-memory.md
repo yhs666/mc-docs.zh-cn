@@ -18,7 +18,7 @@ wacn.date:
 ms.author: cynthn
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: dbba0b77976493e3ca1ac7dd085c95cffae7332e
+ms.openlocfilehash: b16720440ce5e33e435c6ac52df891d4e1251bfc
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/05/2017
 
@@ -32,8 +32,8 @@ ms.lasthandoff: 05/05/2017
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="other-sizes"></a>其他大小
-- [常规用途](virtual-machines-windows-sizes-general.md)
-- [计算优化](virtual-machines-windows-sizes-compute.md)
+- [常规用途](windows/sizes-general.md)
+- [计算优化](windows/sizes-compute.md)
 
 ## <a name="next-steps"></a>后续步骤
-了解有关 [Azure 计算单元 (ACU)](virtual-machines-windows-acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。
+了解有关 [Azure 计算单元 (ACU)](windows/acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。

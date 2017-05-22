@@ -28,7 +28,7 @@
 # 引用
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell（经典）](https://docs.microsoft.com/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
-## [.NET](/dotnet/api/microsoft.azure.management.automation)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.automation)
 ## [REST](https://docs.microsoft.com/rest/api/automation)
 ## [REST（经典）](https://msdn.microsoft.com/library/azure/mt163781)
 # 资源

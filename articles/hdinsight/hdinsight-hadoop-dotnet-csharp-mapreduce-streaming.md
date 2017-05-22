@@ -17,9 +17,10 @@ ms.topic: article
 ms.date: 04/12/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
 ms.openlocfilehash: 5101f84666ee4d076b7089fac1733bc6eb17eb5a
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/29/2017
 
 
@@ -153,7 +154,7 @@ namespace reducer
 
 创建该应用程序后，生成它以在项目目录中生成 `/bin/Debug/reducer.exe` 文件。
 
-## <a name="upload-to-storage"></a>上载到存储
+## <a name="upload-to-storage"></a>上传到存储
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
@@ -171,9 +172,9 @@ namespace reducer
 
 5. 若要上传 .exe 文件，请使用以下方法之一：
 
-    单击上载图标，然后浏览到 **mapper** 项目的 **bin\debug** 文件夹。 最后，选择“mapper.exe”文件，然后单击“确定”。
+    单击上传图标，然后浏览到 **mapper** 项目的 **bin\debug** 文件夹。 最后，选择“mapper.exe”文件，然后单击“确定”。
 
-    ![上载图标](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+    ![上传图标](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
     上传“mapper.exe”完成后，请为“reducer.exe”文件重复该上传过程。
 

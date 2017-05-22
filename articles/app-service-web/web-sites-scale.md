@@ -1,6 +1,6 @@
 ---
 title: "增加 Azure 中的应用 | Azure"
-description: "了解如何增加 Azure App Service 中的应用以增加容量和功能。"
+description: "了解如何增加 Azure 应用服务中的应用以增加容量和功能。"
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 07/05/2016
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 0c56d3a06880a09b8a534a4eed38194268e2547f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="scale-up-an-app-in-azure"></a>增加 Azure 中的应用
-本文介绍如何在 Azure App Service 中缩放应用。 缩放的工作流有两种：向上缩放和向外缩放；本文介绍向上缩放工作流。
+本文介绍如何在 Azure 应用服务中缩放应用。 缩放的工作流有两种：向上缩放和向外缩放；本文介绍向上缩放工作流。
 
 * [向上缩放](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)：获取更多 CPU、内存、磁盘空间和额外功能，例如专用虚拟机 (VMs)、自定义域和证书、暂存槽、自动缩放以及更多功能。 可以通过更改应用所属的应用服务计划的定价层来向上缩放。
 * [向外缩放](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)：增加用于运行应用的 VM 实例数。
@@ -35,7 +36,7 @@ ms.lasthandoff: 04/28/2017
 有关各个应用服务计划的定价和功能的信息，请参阅[应用服务定价详细信息](https://www.azure.cn/pricing/details/app-service/)。  
 
 > [!NOTE]
-> 在从**免费**层切换应用服务计划之前，必须首先删除对 Azure 订阅施加的[支出限制](https://www.azure.cn/pricing/spending-limits/)。 若要查看或更改 Azure App Service 订阅的选项，请参阅 [Azure Subscriptions][azuresubscriptions]（Azure 订阅）。
+> 在从**免费**层切换应用服务计划之前，必须首先删除对 Azure 订阅施加的[支出限制](https://www.azure.cn/pricing/spending-limits/)。 若要查看或更改 Azure 应用服务订阅的选项，请参阅 [Azure Subscriptions][azuresubscriptions]（Azure 订阅）。
 > 
 > 
 
@@ -99,7 +100,7 @@ ms.lasthandoff: 04/28/2017
     [应用服务定价详细信息](https://www.azure.cn/pricing/details/app-service/)
 
     [应用服务定价详细信息 - SSL 连接](https://www.azure.cn/pricing/details/app-service/)
-* 有关 Azure App Service 最佳实践（包括构建可缩放、有弹性的体系结构）的信息，请参阅 [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)（最佳实践：Azure App Service Web 应用）。
+* 有关 Azure 应用服务最佳实践（包括构建可缩放、有弹性的体系结构）的信息，请参阅 [Best Practices: Azure 应用服务 Web 应用](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)（最佳实践：Azure 应用服务 Web 应用）。
 
 <!-- LINKS -->
 [vmsizes]:https://www.azure.cn/pricing/details/app-service/

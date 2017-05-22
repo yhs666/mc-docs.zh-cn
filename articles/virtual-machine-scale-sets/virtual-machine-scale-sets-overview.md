@@ -17,9 +17,10 @@ ms.date: 03/10/2017
 wacn.date: 
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 6424077cd4f43c7abd83c6c4259923f00ce6e6fe
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -118,7 +119,7 @@ Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGr
    云服务辅助角色虽然在平台/运行时支持方面受到限制（仅限 Windows 平台映像）， 但它也包括多项服务，如 VIP 交换，可配置的升级设置，以及特定于运行时/应用部署的设置。 这些服务*尚未*在规模集中提供，或者由 Azure Service Fabric 等其他更高级别 PaaS 服务提供。 可以将规模集视为支持 PaaS 的基础结构。 PaaS 解决方案（例如 [Service Fabric](https://www.azure.cn/home/features/service-fabric/)）基于该基础结构。
 
 ## <a name="scale-set-performance-and-scale-guidance"></a>规模集性能和缩放指南
-* 一个规模集最多支持 1,000 个 VM。 如果创建和上载你自己的自定义 VM 映像，则该限制为 100。 如需使用大型规模集时的注意事项，请参阅[使用大型虚拟机规模集](virtual-machine-scale-sets-placement-groups.md)。
+* 一个规模集最多支持 1,000 个 VM。 如果创建和上传你自己的自定义 VM 映像，则该限制为 100。 如需使用大型规模集时的注意事项，请参阅[使用大型虚拟机规模集](virtual-machine-scale-sets-placement-groups.md)。
 * 无需预先创建 Azure 存储帐户即可使用规模集。 规模集支持 Azure 托管磁盘，因此不需担心因单个存储帐户磁盘数不足而造成的性能问题。 有关详细信息，请参阅 [Azure 虚拟机规模集和托管磁盘](virtual-machine-scale-sets-managed-disks.md)。
 * 可以考虑使用 Azure 高级存储而不是 Azure 存储，以便加快 VM 预配速度、提高 VM 预配时间的可预测性，以及改进 I/O 性能。
 * 可以创建的 VM 数受到在其中进行部署的区域中核心配额的限制。 即使目前用于 Azure 云服务的核心数上限已较高，也仍可能需要联系客户支持来提高计算配额限制。 若要查询配额，请运行以下 Azure CLI 命令：`azure vm list-usage`。 或者，运行以下 PowerShell 命令：`Get-AzureRmVMUsage`。

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: af765c4e2546422dcb96b81f84d7380e38fe2356
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -92,7 +93,7 @@ ms.lasthandoff: 04/28/2017
 
 若要修改服务配置，请使用以下步骤：
 
-1. 打开群集的 Ambari Web UI。 URL 为 https://YOURCLUSTERNAME.azurehdinsight.cn 。
+1. 打开群集的 Ambari Web UI。 URL 为 https://YOURCLUSTERNAME.azurehdinsight.cn。
 
     出现提示时，在该站点中使用群集的 HTTP 帐户名（默认为 admin）和密码进行身份验证。
 

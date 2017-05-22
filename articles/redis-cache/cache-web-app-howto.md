@@ -15,9 +15,10 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 wacn.date: 
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: be452a9b79908daa778484d422e9273d0c9eef93
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -284,7 +285,7 @@ ms.lasthandoff: 04/22/2017
     Install-Package StackExchange.Redis
     ```
 
-    NuGet 程序包会给客户端应用程序下载并添加所需的程序集引用，以访问带 StackExchange.Redis 缓存客户端的 Azure Redis Cache。 如果更愿使用强命名版本的 `StackExchange.Redis` 客户端库，请安装 `StackExchange.Redis.StrongName` 包。
+    NuGet 程序包会给客户端应用程序下载并添加所需的程序集引用，以访问带 StackExchange.Redis 缓存客户端的 Azure Redis 缓存。 如果更愿使用强命名版本的 `StackExchange.Redis` 客户端库，请安装 `StackExchange.Redis.StrongName` 包。
 3. 在“解决方案资源管理器”中，展开“Controllers”文件夹，然后双击“TeamsController.cs”将其打开。
 
     ![团队控制器][cache-teamscontroller]
@@ -728,7 +729,7 @@ ms.lasthandoff: 04/22/2017
 预配完成后，即可将你的应用程序从 Visual Studio 发布到 Azure。
 
 > [!NOTE]
-> 预配期间可能出现的任何错误都会显示在“ **Microsoft.Template** ”边栏选项卡上。 常见错误有：每个订阅的 SQL 服务器太多或免费 App Service 托管计划太多。 解决所有错误，然后单击“Microsoft.Template”边栏选项卡上的“重新部署”或本教程中的“部署到 Azure”按钮，重新启动此过程。
+> 预配期间可能出现的任何错误都会显示在“ **Microsoft.Template** ”边栏选项卡上。 常见错误有：每个订阅的 SQL 服务器太多或免费应用服务托管计划太多。 解决所有错误，然后单击“Microsoft.Template”边栏选项卡上的“重新部署”或本教程中的“部署到 Azure”按钮，重新启动此过程。
 > 
 > 
 
@@ -816,7 +817,7 @@ ms.lasthandoff: 04/22/2017
 * 有关在应用服务中创建 ASP.NET Web 应用的更多示例，请从 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [演示](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)参阅[在 Azure 应用服务中创建和部署 ASP.NET Web 应用](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service)。
     * 有关 HealthClinic.biz 演示的多个快速入门，请参阅 [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)（Azure 开发人员工具快速入门）。
 * 详细了解 [对新数据库使用 Code First](https://msdn.microsoft.com/data/jj193542) 中介绍的本教程所用实体框架需要的方法。
-* 详细了解 [Azure App Service 中的 Web 应用](../app-service-web/app-service-web-overview.md)。
+* 详细了解 [Azure 应用服务中的 Web 应用](../app-service-web/app-service-web-overview.md)。
 * 了解如何在 Azure 门户预览中[监视](cache-how-to-monitor.md)缓存。
 * 了解 Azure Redis 缓存高级功能
 

@@ -15,11 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/02/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
 ms.openlocfilehash: 0cf3f3ece0307cef9a3eb4f2124c17ad538bbb16
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/29/2017
 
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/29/2017
 Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运行的 Hadoop。 在大多数情况下，它的工作方式应该与其他任何 Hadoop-on-Linux 安装完全相同。 本文档指出了你应该注意的具体差异。
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -37,13 +38,15 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
 
 * [cURL](https://curl.haxx.se/) - 用于与基于 Web 的服务通信
 * [jq](https://stedolan.github.io/jq/) - 用于分析 JSON 文档
-* [Azure CLI 2.0](https://docs.microsoft.com/zh-cn/cli/azure/install-az-cli2)（预览版）- 用于远程管理 Azure 服务
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)（预览版）- 用于远程管理 Azure 服务
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+    [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="users"></a>用户
 
-HDInsight 应被视为**单用户**系统。 使用群集时，将创建单个具有管理员级别权限的 SSH 用户帐户。 可以创建其他 SSH 帐户，但这些帐户也具有对群集的管理员访问权限。
+除非[加入域](hdinsight-domain-joined-introduction.md)，HDInsight 应被视为**单用户**系统。 使用群集时，将创建单个具有管理员级别权限的 SSH 用户帐户。 可以创建其他 SSH 帐户，但这些帐户也具有对群集的管理员访问权限。
+
+已加入域的 HDInsight 支持使用多个用户，并支持对权限和角色进行更精细的设置。 有关详细信息，请参阅[管理已加入域的 HDInsight 群集](hdinsight-domain-joined-manage.md)。
 
 ## <a name="domain-names"></a>域名
 
@@ -109,12 +112,12 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包�
 HDInsight 使用 Azure 存储中的 Blob 作为默认存储。 这些服务提供以下优势：
 
 * 成本低廉的长期存储
-* 可从外部服务访问，例如网站、文件上载/下载实用程序、各种语言 SDK 和 Web 浏览器
+* 可从外部服务访问，例如网站、文件上传/下载实用程序、各种语言 SDK 和 Web 浏览器
 
 > [!WARNING]
 > HDInsight 仅支持 __常规用途__ Azure 存储帐户。 它目前不支持 __Blob 存储__帐户类型。
 
-Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角度来说是文件）大小最多为 195 GB。 有关详细信息，请参阅[了解 Blob](https://docs.microsoft.com/zh-cn/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs)。
+Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角度来说是文件）大小最多为 195 GB。 有关详细信息，请参阅[了解 Blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs)。
 
 使用 Azure 存储时，不需要从 HDInsight 执行任何特殊操作即可访问数据。 例如，以下命令列出 `/example/data` 文件夹中的文件：
 
@@ -159,7 +162,7 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
 
 如果使用的是 __Azure 存储__，请参阅以下链接了解可用于访问数据的方式：
 
-* [Azure CLI 2.0](https://docs.microsoft.com/zh-cn/cli/azure/install-az-cli2)：适用于 Azure 的命令行接口命令。 在安装后，使用 `az storage` 命令获取有关使用存储的帮助，或者使用 `az storage blob` 获取特定于 Blob 的命令。
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)：适用于 Azure 的命令行接口命令。 在安装后，使用 `az storage` 命令获取有关使用存储的帮助，或者使用 `az storage blob` 获取特定于 Blob 的命令。
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage)：用于 Azure 存储中的 blob 的 python 脚本。
 * 多种 SDK：
 
@@ -169,7 +172,7 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
     * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
-    * [存储 REST API](https://msdn.microsoft.com/zh-cn/library/azure/dd135733.aspx)
+    * [存储 REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
 ## <a name="scaling"></a>缩放你的群集
 
@@ -180,7 +183,7 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
 * **Hadoop**：减少群集中的节点数时，群集中的某些服务将重新启动。 这会导致正在运行或挂起的作业在缩放操作完成时失败。 你可以在操作完成后重新提交这些作业。
 * **HBase**：在完成缩放操作后的几分钟内，区域服务器会自动进行平衡。 若要手动平衡区域服务器，请使用以下步骤：
 
-    1. 使用 SSH 连接到 HDInsight 群集。 有关详细信息，请参阅 [对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+    1. 使用 SSH 连接到 HDInsight 群集。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
     2. 使用以下命令来启动 HBase shell：
 
@@ -200,7 +203,7 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
 
     * **Storm UI**：使用以下步骤来重新平衡使用 Storm UI 的拓扑。
 
-        1. 在 Web 浏览器中打开 **https://CLUSTERNAME.azurehdinsight.cn/stormui** ，其中“CLUSTERNAME”是 Storm 群集的名称。 如果出现提示，请输入在创建 HDInsight 群集时指定的群集管理员用户名和密码。
+        1. 在 Web 浏览器中打开 **https://CLUSTERNAME.azurehdinsight.cn/stormui**，其中“CLUSTERNAME”是 Storm 群集的名称。 如果出现提示，请输入在创建 HDInsight 群集时指定的群集管理员用户名和密码。
         2. 选择要重新平衡的拓扑，然后选择“重新平衡”按钮。 输入执行重新平衡操作前的延迟。
 
 有关缩放 HDInsight 群集的特定信息，请参阅：
@@ -225,7 +228,7 @@ HDInsight 是托管服务。 如果 Azure 检测到群集存在问题，则可�
 
 ### <a name="jar-files"></a>Jar 文件
 
-某些 Hadoop 技术以自包含 jar 文件形式提供，这些文件包含某些函数，这些函数用作 MapReduce 作业的一部分，或来自 Pig 或 Hive 内部。 这些技术可以使用脚本操作安装，但通常不需任何设置，在预配后上载到群集即可直接使用。 如需确保组件在群集重置映像后仍存在，可将 jar 文件存储在群集的默认存储（WASB 或 ADL）中。
+某些 Hadoop 技术以自包含 jar 文件形式提供，这些文件包含某些函数，这些函数用作 MapReduce 作业的一部分，或来自 Pig 或 Hive 内部。 这些技术可以使用脚本操作安装，但通常不需任何设置，在预配后上传到群集即可直接使用。 如需确保组件在群集重置映像后仍存在，可将 jar 文件存储在群集的默认存储（WASB 或 ADL）中。
 
 例如，如果要使用 [DataFu](http://datafu.incubator.apache.org/) 的最新版本，可以下载包含项目的 jar，并将其上传到 HDInsight 群集。 然后按照 DataFu 文档的说明通过 Pig 或 Hive 使用它。
 
@@ -236,12 +239,12 @@ HDInsight 是托管服务。 如果 Azure 检测到群集存在问题，则可�
 > <p>
 > 此命令会返回任何匹配的 jar 文件的路径。
 
-如需使用群集随附版本之外的版本，则可上载新版组件，并在作业中试用。
+如需使用群集随附版本之外的版本，则可上传新版组件，并在作业中试用。
 
 > [!WARNING]
 > 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门将帮助找出并解决与这些组件相关的问题。
 > <p>
-> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
+> 自定义组件可获得合理范围的支持，有助于进一步解决问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 
 ## <a name="next-steps"></a>后续步骤
 
