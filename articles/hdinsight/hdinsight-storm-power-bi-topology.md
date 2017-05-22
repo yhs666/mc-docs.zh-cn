@@ -42,7 +42,7 @@ Power BI 允许以可视方式将数据显示为报表。本文档提供了如�
 * HDInsight 群集。有关详细信息，请参阅 [Get started with Storm on HDInsight](./hdinsight-apache-storm-tutorial-get-started-linux.md)（Storm on HDInsight 入门）。
 
     > [!IMPORTANT]
-    Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)。
+    Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 * Visual Studio（以下版本之一）
 
