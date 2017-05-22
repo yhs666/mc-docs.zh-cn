@@ -5,7 +5,8 @@ services: storage
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: ms.service: storage
+ms.assetid: ''
+ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
