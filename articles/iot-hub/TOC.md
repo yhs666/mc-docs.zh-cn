@@ -227,7 +227,7 @@
 ## [Azure IoT 套件](../iot-suite/index.md)
 ## [Azure 事件中心](../event-hubs/index.md)
 ## [流分析](../stream-analytics/index.md)
-## [机器学习](../machine-learning/index.md)
+
 
 # 资源
 ## [价格](https://azure.microsoft.com/pricing/details/iot-hub/)
