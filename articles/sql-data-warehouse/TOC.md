@@ -7,10 +7,10 @@
 
 # 入门
 
-## [初级教程](sql-data-warehouse-get-started-tutorial.md)
+<!-- ## [初级教程](sql-data-warehouse-get-started-tutorial.md) -->
 ## [最佳实践](sql-data-warehouse-best-practices.md)
 ## [管理](sql-data-warehouse-overview-manage.md)
-## [获取支持](sql-data-warehouse-get-started-create-support-ticket.md)
+<!-- ## [获取支持](sql-data-warehouse-get-started-create-support-ticket.md) -->
 ## [故障排除](sql-data-warehouse-troubleshoot.md)
 
 # 如何
@@ -73,7 +73,7 @@
 ### [概述](sql-data-warehouse-overview-integrate.md)
 <!-- Not Available ### [Data Factory](sql-data-warehouse-integrate-azure-data-factory.md)-->
 <!-- Not Available ### [Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md)-->
-### [机器学习教程](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+<!-- Not Available ### [机器学习教程](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) -->
 <!-- Not Available ### [Power BI](sql-data-warehouse-integrate-power-bi.md)-->
 <!-- Not Available ### [Power BI visualization](sql-data-warehouse-get-started-visualize-with-power-bi.md)-->
 ### [流分析](sql-data-warehouse-integrate-azure-stream-analytics.md)
@@ -82,7 +82,7 @@
 
 ### [概述](sql-data-warehouse-overview-load.md)
 ### [样本数据](sql-data-warehouse-load-sample-databases.md)
-### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
+<!-- Not Available ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md) -->
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 <!-- Not Available ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)-->
