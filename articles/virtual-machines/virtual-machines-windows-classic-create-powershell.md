@@ -21,13 +21,13 @@ ms.author: cynthn
 # 使用 Powershell 和经典部署模型创建 Windows 虚拟机 
 
 > [!div class="op_single_selector"]
->- [Azure 经典管理门户](./virtual-machines-windows-classic-tutorial.md)
->- [PowerShell - Windows](./virtual-machines-windows-classic-create-powershell.md)
+>- [Azure 经典管理门户](virtual-machines-windows-classic-tutorial.md)
+>- [PowerShell - Windows](virtual-machines-windows-classic-create-powershell.md)
 
 <br>
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器和经典](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型。Azure 建议大多数新部署使用资源管理器模型。学习如何[使用资源管理器模型执行这些步骤](./virtual-machines-windows-quick-create-powershell.md)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器和经典](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型。Azure 建议大多数新部署使用资源管理器模型。学习如何[使用资源管理器模型执行这些步骤](virtual-machines-windows-quick-create-powershell.md)。
 
 这些步骤演示了如何使用构建基块方法自定义一组 Azure PowerShell 命令以创建和预配置基于 Windows 的 Azure 虚拟机。可以使用此过程快速创建用于基于 Windows 的新虚拟机的命令集并扩展现有部署，或者创建多个命令集以快速构建出自定义开发/测试或 IT 专业环境。
 
@@ -293,6 +293,6 @@ New-AzureVM -ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 ## 后续步骤
 
-如果需要大于 127 GB 的操作系统磁盘，你可以[展开操作系统驱动器](./virtual-machines-windows-expand-os-disk.md)。
+如果需要大于 127 GB 的操作系统磁盘，你可以[展开操作系统驱动器](virtual-machines-windows-expand-os-disk.md)。
 
 <!---HONumber=Mooncake_Quality_Review_1118_2016-->

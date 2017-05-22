@@ -37,7 +37,7 @@ ASP.NET MVC Web 应用程序模板不支持 ReportViewer 控件。
 * **发布** ASP.NET Web 应用程序到 Azure
 
 ## 先决条件
-请查看 [Azure 虚拟机的 SQL Server Business Intelligence](./virtual-machines-windows-classic-ps-sql-bi.md) 中的“常规建议和最佳实践”部分。
+请查看 [Azure 虚拟机的 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md) 中的“常规建议和最佳实践”部分。
 
 > [!NOTE]
 ReportViewer 控件随 Visual Studio Standard Edition 或更高版本提供。如果你使用的是 Web Developer Express Edition，则必须安装 [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) 才能使用 ReportViewer 运行时功能。
@@ -91,9 +91,9 @@ ReportViewer 需要使用正确的凭据向报表服务器进行身份验证，�
 ## 资源
 [Microsoft 报表](https://msdn.microsoft.com/zh-cn/library/bb885185.aspx)
 
-[Azure 虚拟机中的 SQL Server Business Intelligence](./virtual-machines-windows-classic-ps-sql-bi.md)
+[Azure 虚拟机中的 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md)
 
-[使用 PowerShell 创建运行本机模式报表服务器的 Azure VM](./virtual-machines-windows-classic-ps-sql-report.md)
+[使用 PowerShell 创建运行本机模式报表服务器的 Azure VM](virtual-machines-windows-classic-ps-sql-report.md)
 
 [Reporting Services 报表查看器控件和基于 Azure 虚拟机的报表服务器](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 

@@ -70,8 +70,8 @@ Linux VM 需要从 Internet 访问，因此将创建允许通过网络将入站�
 
 ## 后续步骤
 
-* [Use an Azure Resource Manager template to create a specific deployment（使用 Azure Resource Manager 模板创建特定部署）](./virtual-machines-linux-cli-deploy-templates.md)
-* [Create your own custom environment for a Linux VM using Azure CLI commands directly（直接使用 Azure CLI 命令为 Linux VM 创建用户自己的自定义环境）](./virtual-machines-linux-create-cli-complete.md)
-* [使用模板在 Azure 上创建 Linux VM](./virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+* [Use an Azure Resource Manager template to create a specific deployment（使用 Azure Resource Manager 模板创建特定部署）](virtual-machines-linux-cli-deploy-templates.md)
+* [Create your own custom environment for a Linux VM using Azure CLI commands directly（直接使用 Azure CLI 命令为 Linux VM 创建用户自己的自定义环境）](virtual-machines-linux-create-cli-complete.md)
+* [使用模板在 Azure 上创建 Linux VM](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
 <!---HONumber=Mooncake_0109_2017-->

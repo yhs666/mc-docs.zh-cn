@@ -116,7 +116,7 @@ Azure 计算服务是大型计算解决方案的核心，不同的计算服务�
 
 - [虚拟网络](../virtual-network/index.md) - 在 Azure 中创建逻辑隔离的区域，将 Azure 资源彼此连接或连接到本地数据中心。 有了跨界虚拟网络，大型计算应用程序就可以访问本地数据、Active Directory 服务和许可证服务器
 - [ExpressRoute](../expressroute/index.md) - 在 Microsoft 数据中心与本地环境或共同租用环境中的基础结构之间创建专用连接。 与基于 Internet 的典型连接相比，ExpressRoute 的安全性更高，可靠性更强，速度更快且延迟更轻微。
-- [服务总线](../service-bus/index.md) - 提供多种机制让应用程序进行通信或交换数据，无论这些应用程序位于 Azure、另一个云平台还是数据中心。
+- [服务总线](../service-bus-messaging/index.md) - 提供多种机制让应用程序进行通信或交换数据，无论这些应用程序位于 Azure、另一个云平台还是数据中心。
 
 ## <a name="next-steps"></a>后续步骤
 - 请参阅 [Batch 和 HPC 的技术资源](big-compute-resources.md) ，查找用于生成解决方案的技术指导。

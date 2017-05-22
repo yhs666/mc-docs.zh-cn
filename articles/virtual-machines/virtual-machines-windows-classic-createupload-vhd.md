@@ -23,7 +23,7 @@ ms.author: cynthn
 本文说明如何上载自己的通用化 VM 映像作为虚拟硬盘 (VHD)，以便使用它来创建虚拟机。有关 Azure 中的磁盘和 VHD 的更多详细信息，请参阅 [About Disks and VHDs for Virtual Machines](../storage/storage-about-disks-and-vhds-linux.md)（关于虚拟机的磁盘和 VHD）。
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器和经典](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。也可以使用 Resource Manager 模型来[捕获](./virtual-machines-windows-capture-image.md)和[上载](./virtual-machines-windows-upload-image.md)虚拟机。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器和经典](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。也可以使用 Resource Manager 模型来[捕获](virtual-machines-windows-capture-image.md)和[上载](virtual-machines-windows-upload-image.md)虚拟机。
 
 ## 先决条件
 
@@ -114,6 +114,6 @@ ms.author: cynthn
 
 ## 后续步骤
 
-现在可以使用上载的映像来[创建自定义的 VM](./virtual-machines-windows-classic-createportal.md)。
+现在可以使用上载的映像来[创建自定义的 VM](virtual-machines-windows-classic-createportal.md)。
 
 <!---HONumber=Mooncake_0905_2016-->

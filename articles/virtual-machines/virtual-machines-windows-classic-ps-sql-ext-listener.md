@@ -21,15 +21,15 @@ ms.author: MikeRayMSFT
 
 # 在 Azure 中配置 AlwaysOn 可用性组的外部侦听器
 > [!div class="op_single_selector"]
->- [内部侦听器](./virtual-machines-windows-classic-ps-sql-int-listener.md)
->- [外部侦听器](./virtual-machines-windows-classic-ps-sql-ext-listener.md)
+>- [内部侦听器](virtual-machines-windows-classic-ps-sql-int-listener.md)
+>- [外部侦听器](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 
 本主题说明如何为 AlwaysOn 可用性组配置一个可以通过 Internet 从外部访问的侦听器。这是通过将云服务的**公共虚拟 IP \(VIP\)** 地址与侦听器关联来实现的。
 
 > [!IMPORTANT] 
 Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。
 
-你的可用性组可以仅包含本地副本或 Azure 副本，也可以跨越本地和 Azure 以实现混合配置。Azure 副本可以位于同一区域，也可以跨越使用多个虚拟网络 \(VNet\) 的多个区域。以下步骤假设你已[配置了一个可用性组](./windows/sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)但是没有配置侦听器。
+你的可用性组可以仅包含本地副本或 Azure 副本，也可以跨越本地和 Azure 以实现混合配置。Azure 副本可以位于同一区域，也可以跨越使用多个虚拟网络 \(VNet\) 的多个区域。以下步骤假设你已[配置了一个可用性组](windows/sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)但是没有配置侦听器。
 
 ## 外部侦听器的准则和限制
 在使用云服务的公共 VIP 地址部署时，请注意有关 Azure 中可用性组侦听器的以下准则：
@@ -43,7 +43,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
 ## 确定侦听器的可访问性
 [!INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-本文重点介绍如何创建使用**外部负载均衡**的侦听器。如果你想要创建专用于虚拟网络的侦听器，请参阅本文的另一个版本，其中提供了设置[使用 ILB 的侦听器](./virtual-machines-windows-classic-ps-sql-int-listener.md)的步骤
+本文重点介绍如何创建使用**外部负载均衡**的侦听器。如果你想要创建专用于虚拟网络的侦听器，请参阅本文的另一个版本，其中提供了设置[使用 ILB 的侦听器](virtual-machines-windows-classic-ps-sql-int-listener.md)的步骤
 
 ## 创建支持直接服务器返回的负载均衡 VM 终结点
 外部负载均衡使用托管 VM 的云服务的公共虚拟 IP 地址。因此，在这种情况下，你不需要创建或配置负载均衡器。

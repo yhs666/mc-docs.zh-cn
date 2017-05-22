@@ -68,7 +68,7 @@ ms.author: hermannd
 名为 WALinuxAgent 的代理是 Azure 应用商店中 SLES 映像的一部分。有关如何手动安装该代理的信息（例如，从本地上载 SLES OS 虚拟硬盘 (VHD) 时），请参阅：
 
 * [OpenSUSE](http://software.opensuse.org/package/WALinuxAgent)
-* [Azure](./virtual-machines-linux-endorsed-distros.md)
+* [Azure](virtual-machines-linux-endorsed-distros.md)
 * [SUSE](https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 
 ## SAP“增强型监视”
@@ -94,7 +94,7 @@ SAP“增强型监视”是在 Azure 上运行 SAP 的必要先决条件。请�
 * 不要使用 UUID（而是使用其他内容）从另一个 VM 附加损坏的 OS 磁盘
 
 ## 从本地将 SUSE VM 上载到 Azure
-有关从本地将 SUSE VM 上载到 Azure 的步骤说明，请参阅[为 Azure 准备 SLES 或 openSUSE 虚拟机](./virtual-machines-linux-suse-create-upload-vhd.md)。
+有关从本地将 SUSE VM 上载到 Azure 的步骤说明，请参阅[为 Azure 准备 SLES 或 openSUSE 虚拟机](virtual-machines-linux-suse-create-upload-vhd.md)。
 
 若要使用最终没有取消预配步骤的方法上载 VM（例如，为了保留现有 SAP 安装以及主机名），需要检查以下项：
 
@@ -136,7 +136,7 @@ SUSE 提供了一个名为“sapconf”的包，该包可管理一组特定于 S
 如果你使用了分布式安装（例如，要将数据库和 SAP 应用程序服务器安装在独立的 VM 中），你可以通过网络文件系统 (NFS) 来共享 /sapmnt 目录。如果在为 /sapmnt 创建 NFS 共享后，安装步骤会出现问题，请检查是否为该共享设置了“no\_root\_squash”。
 
 ## 逻辑卷
-在过去，如果用户需要一个跨多个 Azure 数据磁盘的大型逻辑卷（例如用于 SAP 数据库），我们建议使用 mdadm，因为 lvm 在 Azure 上尚未完全通过验证。若要了解如何使用 mdadm 在 Azure 上设置 Linux RAID，请参阅[在 Linux 上配置软件 RAID](./virtual-machines-linux-configure-raid.md)。此外，自 2016 年 5 月起，lvm 在 Azure 上也已获得完全支持，可用作 mdadm 的替代方案。有关 Azure 上 lvm 的其他信息，请参阅[在 Azure 中的 Linux VM 上配置 LVM](./virtual-machines-linux-configure-lvm.md)。
+在过去，如果用户需要一个跨多个 Azure 数据磁盘的大型逻辑卷（例如用于 SAP 数据库），我们建议使用 mdadm，因为 lvm 在 Azure 上尚未完全通过验证。若要了解如何使用 mdadm 在 Azure 上设置 Linux RAID，请参阅[在 Linux 上配置软件 RAID](virtual-machines-linux-configure-raid.md)。此外，自 2016 年 5 月起，lvm 在 Azure 上也已获得完全支持，可用作 mdadm 的替代方案。有关 Azure 上 lvm 的其他信息，请参阅[在 Azure 中的 Linux VM 上配置 LVM](virtual-machines-linux-configure-lvm.md)。
 
 ## Azure SUSE 存储库
 如果访问标准 Azure SUSE 存储库时遇到问题，可以使用一个简单的命令来重置它。以下情况下会发生这个问题：你在一个 Azure 区域中创建一个专用 OS 映像，然后将该映像复制到其他区域，并且要在该区域中基于此专用 OS 映像部署新 VM。只需在 VM 中运行以下命令：

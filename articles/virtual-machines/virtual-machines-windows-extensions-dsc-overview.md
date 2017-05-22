@@ -152,11 +152,11 @@ C:\\WindowsAzure\\Logs\\Plugins\\Microsoft.Powershell.DSC\[Version Number\]
 ## 后续步骤
 有关 PowerShell DSC 的详细信息，请[访问 PowerShell 文档中心](https://msdn.microsoft.com/powershell/dsc/overview)。
 
-检查 [Azure Resource Manager template for the DSC extension](./virtual-machines-windows-extensions-dsc-template.md)（适用于 DSC 扩展的 Azure Resource Manager 模板）。
+检查 [Azure Resource Manager template for the DSC extension](virtual-machines-windows-extensions-dsc-template.md)（适用于 DSC 扩展的 Azure Resource Manager 模板）。
 
 若要查找可以使用 PowerShell DSC 管理的其他功能，请[浏览 PowerShell 库](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)以获取更多 DSC 资源。
 
-有关将敏感参数传入配置的详细信息，请参阅 [Manage credentials securely with the DSC extension handler](./virtual-machines-windows-extensions-dsc-credentials.md)（使用 DSC 扩展处理程序安全管理凭据）。
+有关将敏感参数传入配置的详细信息，请参阅 [Manage credentials securely with the DSC extension handler](virtual-machines-windows-extensions-dsc-credentials.md)（使用 DSC 扩展处理程序安全管理凭据）。
 
 <!---HONumber=Mooncake_0220_2017-->
 <!--Update_Description: Adding ARM model-->

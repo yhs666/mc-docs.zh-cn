@@ -144,7 +144,7 @@ HPC Pack 群集与 Azure AD 集成可帮助用户实现以下目标：
 
 若要准备客户端计算机，请在客户端计算机上安装在 HPC 群集安装过程中使用的证书。使用标准 Windows 证书管理过程将公共证书安装到“证书 - 当前用户”>“受信任根证书颁发机构”存储。
 
-现在可以运行 HPC Pack 命令或通过 HPC Pack 作业管理器 GUI 使用 Azure AD 帐户提交和管理群集作业。有关作业提交选项，请参阅[将 HPC 作业提交到 Azure 中的 HPC Pack 群集](./virtual-machines-windows-hpcpack-cluster-submit-jobs.md#step-3-run-test-jobs-on-the-cluster)。
+现在可以运行 HPC Pack 命令或通过 HPC Pack 作业管理器 GUI 使用 Azure AD 帐户提交和管理群集作业。有关作业提交选项，请参阅[将 HPC 作业提交到 Azure 中的 HPC Pack 群集](virtual-machines-windows-hpcpack-cluster-submit-jobs.md#step-3-run-test-jobs-on-the-cluster)。
 
 > [!NOTE]
 首次尝试连接到 Azure 中的 HPC Pack 群集时，将显示弹出窗口。输入用于登录的 Azure AD 凭据。然后缓存令牌。除非身份验证更改或已清除缓存令牌，否则以后连接 Azure 中的群集时将使用缓存令牌。

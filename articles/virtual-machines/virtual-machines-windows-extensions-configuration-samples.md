@@ -21,16 +21,16 @@ ms.author: kundanap
 # Azure Windows VM 扩展配置示例
 
 > [!div class="op_single_selector"]
->- [PowerShell - Template](./virtual-machines-windows-extensions-configuration-samples.md)
->- [CLI - Template](./virtual-machines-linux-extensions-configuration-samples.md)
+>- [PowerShell - Template](virtual-machines-windows-extensions-configuration-samples.md)
+>- [CLI - Template](virtual-machines-linux-extensions-configuration-samples.md)
 
 <br>
 
 本文提供为 Windows VM 配置 Azure VM 扩展的示例配置。
 
-若要了解有关这些扩展的详细信息，请参阅 [Azure VM 扩展概述](./virtual-machines-windows-extensions-features.md)。
+若要了解有关这些扩展的详细信息，请参阅 [Azure VM 扩展概述](virtual-machines-windows-extensions-features.md)。
 
-若要了解有关创作扩展模板的详细信息，请参阅[创作扩展模板](./virtual-machines-windows-extensions-authoring-templates.md)。
+若要了解有关创作扩展模板的详细信息，请参阅[创作扩展模板](virtual-machines-windows-extensions-authoring-templates.md)。
 
 本文列出了一些 Windows 扩展的预期配置值。
 
@@ -372,7 +372,7 @@ ms.author: kundanap
 
 ### Azure 诊断
 
-有关如何配置诊断的更多详细信息，请参阅 [Azure 诊断扩展](./virtual-machines-windows-extensions-diagnostics-template.md)
+有关如何配置诊断的更多详细信息，请参阅 [Azure 诊断扩展](virtual-machines-windows-extensions-diagnostics-template.md)
 
 ```
       {

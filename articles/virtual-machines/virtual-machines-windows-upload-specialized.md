@@ -52,7 +52,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 如果计划按原样使用专用 VHD 创建新的 VM，请确保完成以下步骤。 
 
-* 如果要使用托管磁盘，请查看[计划迁移到托管磁盘](./windows/on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)。
+* 如果要使用托管磁盘，请查看[计划迁移到托管磁盘](virtual-machines-windows-on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)。
 * [准备好要上传到 Azure 的 Windows VHD](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 **不要**使用 Sysprep 通用化 VM。
 * 删除 VM 上安装的所有来宾虚拟化工具和代理（例如 VMware 工具）。
 * 确保 VM 配置为通过 DHCP 来提取其 IP 地址和 DNS 设置。 这确保服务器在启动时在 VNet 中获取 IP 地址。 

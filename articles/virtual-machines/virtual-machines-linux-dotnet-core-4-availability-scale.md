@@ -29,7 +29,7 @@ ms.author: nepeters
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [可用性集](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L387)。
 
-```
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Compute/availabilitySets",
@@ -50,7 +50,7 @@ ms.author: nepeters
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [可用性集与虚拟机的关联](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L313)。
 
-```
+```json
 "properties": {
   "availabilitySet": {
     "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('availabilitySetName'))]"
@@ -61,14 +61,14 @@ Azure 门户预览中显示的可用性集。下面说明了每个虚拟机及�
 
 ![可用性集](./media/virtual-machines-linux-dotnet-core/aset.png)  
 
-有关可用性集的深入信息，请参阅 [Manage availability of virtual machines](./virtual-machines-linux-manage-availability.md)（管理虚拟机的可用性）。
+有关可用性集的深入信息，请参阅 [Manage availability of virtual machines](virtual-machines-linux-manage-availability.md)（管理虚拟机的可用性）。
 
 ## 网络负载均衡器
 可用性集提供应用程序容错能力，而负载均衡器可让单个网络地址上有多个应用程序实例可供使用。多个应用程序实例可以托管在多个虚拟机上，每个虚拟机都连接到负载均衡器。访问应用程序时，负载均衡器将传入请求路由到每个附加的成员。可以通过使用 Visual Studio 中的“添加新资源向导”或者在 Azure Resource Manager 模板中插入格式正确的 JSON 资源，来添加负载均衡器。
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [网络负载均衡器](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L208)。
 
-```
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/loadBalancers",
@@ -85,7 +85,7 @@ Azure 门户预览中显示的可用性集。下面说明了每个虚拟机及�
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [网络负载均衡器与公共 IP 地址的关联](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L221)。
 
-```
+```json
 "frontendIPConfigurations": [
   {
     "properties": {
@@ -107,7 +107,7 @@ Azure 门户预览中显示的可用性集。下面说明了每个虚拟机及�
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [负载均衡器规则](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L270)。
 
-```
+```json
 "loadBalancingRules": [
   {
     "name": "[variables('loadBalencerRule')]",
@@ -140,7 +140,7 @@ Azure 门户预览中显示的可用性集。下面说明了每个虚拟机及�
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [负载均衡器探测](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L257)。
 
-```
+```json
 "probes": [
   {
     "properties": {
@@ -165,7 +165,7 @@ Azure 门户预览中显示的负载均衡器探测。
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [入站 NAT 规则](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L270)。
 
-```
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/loadBalancers/inboundNatRules",
@@ -204,7 +204,7 @@ Azure 门户预览中显示的一个示例入站 NAT 规则。在部署中为每
 
 音乐应用商店示例模板中已定义一个提取实例计数的参数。创建虚拟机和相关资源时，将在整个模板中使用此数字。
 
-```
+```json
 "numberOfInstances": {
   "type": "int",
   "minValue": 1,
@@ -219,7 +219,7 @@ Azure 门户预览中显示的一个示例入站 NAT 规则。在部署中为每
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [虚拟机复制函数](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L300)。
 
-```
+```json
 "apiVersion": "2015-06-15",
 "type": "Microsoft.Compute/virtualMachines",
 "name": "[concat(variables('vmName'),copyindex())]",
@@ -234,7 +234,7 @@ Azure 门户预览中显示的一个示例入站 NAT 规则。在部署中为每
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [复制索引函数](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L319)。
 
-```
+```json
 "osProfile": {
   "computerName": "[concat(parameters('vmName'),copyindex())]",
   "adminUsername": "[parameters('adminUsername')]",
@@ -259,6 +259,6 @@ Azure 门户预览中显示的一个示例入站 NAT 规则。在部署中为每
 ## 后续步骤
 <hr>
 
-[步骤 4 - 使用 Azure Resource Manager 模板部署应用程序](./virtual-machines-linux-dotnet-core-5-app-deployment.md)
+[步骤 4 - 使用 Azure Resource Manager 模板部署应用程序](virtual-machines-linux-dotnet-core-5-app-deployment.md)
 
 <!---HONumber=Mooncake_1212_2016-->

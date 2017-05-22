@@ -211,7 +211,7 @@ Jupyter Notebook 为交互访问 Azure 上的 Python 生态系统的功能提供
 
 有关详细信息，请参阅 [Python 开发人员中心](https://www.azure.cn/develop/python/)。
 
-[portal-vm-linux]: ./virtual-machines-linux-quick-create-portal.md
+[portal-vm-linux]: virtual-machines-linux-quick-create-portal.md
 [存储库]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 

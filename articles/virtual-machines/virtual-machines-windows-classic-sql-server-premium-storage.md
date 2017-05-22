@@ -36,7 +36,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
 * 可能的迁移方法。
 * 演示 Azure、Windows 和 SQL Server 如何分步迁移现有 AlwaysOn 实现的完整端到端示例。
 
-有关 Azure 虚拟机中的 SQL Server 的更多背景信息，请参阅 [Azure 虚拟机中的 SQL Server](./virtual-machines-windows-sql-server-iaas-overview.md)。
+有关 Azure 虚拟机中的 SQL Server 的更多背景信息，请参阅 [Azure 虚拟机中的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)。
 
 **作者：**Daniel Sol 
 **技术审阅人员：**Luis Carlos Vargas Herring、Sanjay Mishra、Pravin Mital、Juergen Thomas、Gonzalo Ruiz。
@@ -45,7 +45,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
 使用高级存储须满足多个先决条件。
 
 ### 虚拟机大小
-要使用高级存储，需要使用 DS 系列虚拟机 \(VM\)。如果你以前未在云服务中使用过 DS 系列虚拟机，则必须在以 DS\* 角色大小重新创建 VM 之前，删除现有 VM、保留附加磁盘，然后创建新的云服务。有关虚拟机大小的详细信息，请参阅 [Azure 的虚拟机和云服务大小](./virtual-machines-windows-sizes.md)。
+要使用高级存储，需要使用 DS 系列虚拟机 \(VM\)。如果你以前未在云服务中使用过 DS 系列虚拟机，则必须在以 DS\* 角色大小重新创建 VM 之前，删除现有 VM、保留附加磁盘，然后创建新的云服务。有关虚拟机大小的详细信息，请参阅 [Azure 的虚拟机和云服务大小](virtual-machines-windows-sizes.md)。
 
 ### 云服务
 在新的云服务中创建 VM 时，只能将 DS\* VM 用于高级存储。如果在 Azure 中使用 SQL Server AlwaysOn，则 AlwaysOn 侦听器将引用与云服务关联的 Azure 内部或外部负载均衡器 IP 地址。本文重点介绍如何在此场景中迁移，同时保持可用性。
@@ -149,7 +149,7 @@ New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "Ch
 将 VHD 映射到存储池中的物理磁盘后，可以将其分离并复制到高级存储帐户，然后再使用正确的缓存设置进行附加。请参阅[附录](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)中的示例，步骤 8 到步骤 12。以下步骤显示了如何将 VM 附加的 VHD 磁盘配置提取到 CSV 文件、复制 VHD、变更磁盘配置缓存设置，最后将 VM 重新部署为带所有附加磁盘的 DS 系列 VM。
 
 ### VM 存储带宽和 VHD 存储吞吐量
-存储量性能取决于指定的 DS\* VM 大小和 VHD 大小。VM 针对可附加的 VHD 数量以及它们支持的最大带宽（MB/秒）提供不同限额。有关特定带宽数字，请参阅 [Azure 的虚拟机和云服务大小](./virtual-machines-windows-sizes.md)。
+存储量性能取决于指定的 DS\* VM 大小和 VHD 大小。VM 针对可附加的 VHD 数量以及它们支持的最大带宽（MB/秒）提供不同限额。有关特定带宽数字，请参阅 [Azure 的虚拟机和云服务大小](virtual-machines-windows-sizes.md)。
 
 较大的磁盘大小可提高 IOPS。当你考虑迁移路径时，应考虑这一点。有关详细信息，[请参阅 IOPS 和磁盘类型的表](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets)。
 
@@ -292,7 +292,7 @@ New-AzureService $destcloudsvc -Location $location
 ```
 
 #### 步骤 3：使用现有映像
-可以使用现有映像，也可以[创建现有虚拟机的映像](./virtual-machines-windows-classic-capture-image.md)。请注意，为其创建映像的虚拟机不一定是 DS* 虚拟机。获得映像后，请参阅以下步骤了解如何使用 **Start-AzureStorageBlobCopy*\* PowerShell commandlet 将其复制到高级存储帐户。
+可以使用现有映像，也可以[创建现有虚拟机的映像](virtual-machines-windows-classic-capture-image.md)。请注意，为其创建映像的虚拟机不一定是 DS* 虚拟机。获得映像后，请参阅以下步骤了解如何使用 **Start-AzureStorageBlobCopy*\* PowerShell commandlet 将其复制到高级存储帐户。
 
 ```
 #Get storage account keys:
@@ -1170,7 +1170,7 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate  | Add-AzureEndpoi
 ## 其他资源
 * [Azure 高级存储](../storage/storage-premium-storage.md)
 * [虚拟机](https://www.azure.cn/home/features/virtual-machines/)
-* [Azure 虚拟机中的 SQL Server](./virtual-machines-windows-sql-server-iaas-overview.md)
+* [Azure 虚拟机中的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->
 [1]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png

@@ -21,8 +21,8 @@ ms.author: huvalo
 # Linux VM 上的 Django Hello World Web 应用程序
 
 > [!div class="op_single_selector"]
->- [Windows](./virtual-machines-windows-classic-python-django-web-app.md)
->- [Mac/Linux](./virtual-machines-linux-python-django-web-app.md)
+>- [Windows](virtual-machines-windows-classic-python-django-web-app.md)
+>- [Mac/Linux](virtual-machines-linux-python-django-web-app.md)
 
 <br>
 
@@ -43,11 +43,11 @@ ms.author: huvalo
 
 ## 创建并配置 Azure 虚拟机以托管 Django
 
-1. 按照[此处](./virtual-machines-linux-quick-create-portal.md)提供的说明可创建 Ubuntu Server 14.04 LTS 分发的 Azure 虚拟机。如果你喜欢，你可以选择密码登陆，而不是 SSH 公钥。
+1. 按照[此处](virtual-machines-linux-quick-create-portal.md)提供的说明可创建 Ubuntu Server 14.04 LTS 分发的 Azure 虚拟机。如果你喜欢，你可以选择密码登陆，而不是 SSH 公钥。
 
 1. 按照[这里](../virtual-network/virtual-networks-create-nsg-arm-ps.md)的说明，编辑网络安全组，允许 http 访问端口 80
 
-1. 默认情况下，你的心虚拟机没有完全限定域名（FQDN）。你可以按照[这里](./virtual-machines-linux-portal-create-fqdn.md)的说明，创建一个。这个步骤对于本教程而言只是可选的。
+1. 默认情况下，你的心虚拟机没有完全限定域名（FQDN）。你可以按照[这里](virtual-machines-linux-portal-create-fqdn.md)的说明，创建一个。这个步骤对于本教程而言只是可选的。
 
 ## <a id="setup"> </a>设置开发环境
 

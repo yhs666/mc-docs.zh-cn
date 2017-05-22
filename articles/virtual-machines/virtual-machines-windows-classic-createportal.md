@@ -29,6 +29,6 @@ ms.author: cynthn
 
 ## 后续步骤
 
-还可以[创建运行 Linux 的自定义虚拟机](./virtual-machines-linux-classic-createportal.md)。
+还可以[创建运行 Linux 的自定义虚拟机](virtual-machines-linux-classic-createportal.md)。
 
 <!---HONumber=Mooncake_1121_2016-->

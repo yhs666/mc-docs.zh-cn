@@ -23,7 +23,7 @@ ms.author: cynthn
 
 在第一个虚拟机 (VM) 启动并正常运行之后，可以接着安装软件和服务。本教程将使用 Windows Server VM 上的服务器管理器安装 IIS。然后，使用 Azure 门户预览为 IIS 流量打开端口 80，创建网络安全组 (NSG)。
 
-如果尚未创建第一个 VM，应先返回 [Create your first Windows virtual machine in the Azure portal](./virtual-machines-windows-hero-tutorial.md)（在 Azure 门户预览中创建第一个 Windows 虚拟机），然后继续学习本教程。
+如果尚未创建第一个 VM，应先返回 [Create your first Windows virtual machine in the Azure portal](virtual-machines-windows-hero-tutorial.md)（在 Azure 门户预览中创建第一个 Windows 虚拟机），然后继续学习本教程。
 
 ## 确保 VM 正在运行
 
@@ -51,7 +51,7 @@ ms.author: cynthn
 
     ![显示有关验证 VM 标识的消息的屏幕截图](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)  
 
-如果在尝试连接时遇到故障，请参阅 [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](./virtual-machines-windows-troubleshoot-rdp-connection.md)（对基于 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除）。
+如果在尝试连接时遇到故障，请参阅 [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md)（对基于 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除）。
 
 ## 在 VM 上安装 IIS
 
@@ -105,7 +105,7 @@ ms.author: cynthn
 
     ![显示用于添加安全规则的按钮的屏幕截图。](./media/virtual-machines-windows-hero-tutorial/port-80.png)  
 
-有关 NSG、入站和出站规则的详细信息，请参阅 [Allow external access to your VM using the Azure portal](./virtual-machines-windows-nsg-quickstart-portal.md)（使用 Azure 门户预览对 VM 实现外部访问）。
+有关 NSG、入站和出站规则的详细信息，请参阅 [Allow external access to your VM using the Azure portal](virtual-machines-windows-nsg-quickstart-portal.md)（使用 Azure 门户预览对 VM 实现外部访问）。
 
 ## 连接到默认 IIS 网站
 
@@ -121,6 +121,6 @@ ms.author: cynthn
 
 ## 后续步骤
 
-- 还可以体验[将数据磁盘附加到](./virtual-machines-windows-attach-disk-portal.md)虚拟机。数据磁盘可为虚拟机提供更多存储空间。
+- 还可以体验[将数据磁盘附加到](virtual-machines-windows-attach-disk-portal.md)虚拟机。数据磁盘可为虚拟机提供更多存储空间。
 
 <!---HONumber=Mooncake_1010_2016-->

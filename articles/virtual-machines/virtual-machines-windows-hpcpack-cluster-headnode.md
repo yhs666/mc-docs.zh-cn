@@ -31,7 +31,7 @@ ms.author: danlep
 >[!NOTE]
 >目前，HPC Pack VM 映像为基于预安装了 HPC Pack 2012 R2 Update 2 的 Windows Server 2012 R2 Datacenter。还预安装了 Microsoft SQL Server 2014 Express。
 
-对于 Azure 中 HPC Pack 群集的生产部署，我们建议采用自动部署方法，如 [HPC Pack IaaS 部署脚本](./virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)。
+对于 Azure 中 HPC Pack 群集的生产部署，我们建议采用自动部署方法，如 [HPC Pack IaaS 部署脚本](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)。
 
 ## 规划注意事项
 
@@ -57,7 +57,7 @@ ms.author: danlep
 
     * 对于简单的概念验证部署，可以忽略此步骤，稍后将头节点 VM 提升为域控制器。
 
-3. 在 Azure 经典管理门户中，通过从 Azure 库中选择 HPC Pack 2012 R2 映像，创建一台经典 VM。（请参阅[此处](./virtual-machines-windows-classic-tutorial.md)的经典管理门户步骤。）
+3. 在 Azure 经典管理门户中，通过从 Azure 库中选择 HPC Pack 2012 R2 映像，创建一台经典 VM。（请参阅[此处](virtual-machines-windows-classic-tutorial.md)的经典管理门户步骤。）
 
     **注意事项**
 
@@ -92,7 +92,7 @@ ms.author: danlep
 ## 后续步骤
 
 * 现在即可使用 HPC Pack 群集的头节点。例如，启动 HPC 群集管理器，并完成[部署待办事项列表](https://technet.microsoft.com/zh-cn/library/jj884141.aspx)。
-* 若要按需提高群集计算容量，可在云服务中添加 [Azure 迸发节点](./virtual-machines-windows-classic-hpcpack-cluster-node-burst.md)。
+* 若要按需提高群集计算容量，可在云服务中添加 [Azure 迸发节点](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md)。
 
 * 尝试在群集上运行测试工作负荷。例如，请参阅 HPC Pack [入门指南](https://technet.microsoft.com/zh-cn/library/jj884144)。
 

@@ -91,7 +91,7 @@ ms.author: drewm
     New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
     ```
 
-5. 添加数据磁盘和扩展。有关详细信息，请参阅 [Attach Data Disk to VM](./virtual-machines-windows-attach-disk-portal.md)（将数据磁盘附加到 VM）和 [Extension Configuration Samples](./virtual-machines-windows-extensions-configuration-samples.md)（扩展配置示例）。可以使用 PowerShell 或 Azure CLI 将数据磁盘和扩展添加到 VM。
+5. 添加数据磁盘和扩展。有关详细信息，请参阅 [Attach Data Disk to VM](virtual-machines-windows-attach-disk-portal.md)（将数据磁盘附加到 VM）和 [Extension Configuration Samples](virtual-machines-windows-extensions-configuration-samples.md)（扩展配置示例）。可以使用 PowerShell 或 Azure CLI 将数据磁盘和扩展添加到 VM。
 
 ## 示例脚本
 
@@ -160,6 +160,6 @@ New-AzureRmVM -ResourceGroupName $rg -Location $OriginalVM.Location -VM $NewVM -
 
 ## 后续步骤
 
-通过添加附加[数据磁盘](./virtual-machines-windows-attach-disk-portal.md)，向 VM 添加附加存储。
+通过添加附加[数据磁盘](virtual-machines-windows-attach-disk-portal.md)，向 VM 添加附加存储。
 
 <!---HONumber=Mooncake_1010_2016-->

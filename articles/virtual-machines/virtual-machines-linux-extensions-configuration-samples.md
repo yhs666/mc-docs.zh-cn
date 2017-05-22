@@ -21,8 +21,8 @@ ms.author: kundanap
 # Linux VM 扩展配置示例
 
 > [!div class="op_single_selector"]
->- [PowerShell - 模板](./virtual-machines-windows-extensions-configuration-samples.md)
->- [CLI - 模板](./virtual-machines-linux-extensions-configuration-samples.md)
+>- [PowerShell - 模板](virtual-machines-windows-extensions-configuration-samples.md)
+>- [CLI - 模板](virtual-machines-linux-extensions-configuration-samples.md)
 
 <br>
 
@@ -34,9 +34,9 @@ ms.author: kundanap
 > [!NOTE]
 > Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器和经典](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是经典部署模型。
 
-若要了解有关这些扩展的详细信息，请单击此处：[Azure VM 扩展概述。](./virtual-machines-windows-extensions-features.md)
+若要了解有关这些扩展的详细信息，请单击此处：[Azure VM 扩展概述。](virtual-machines-windows-extensions-features.md)
 
-若要了解有关创作扩展模板的详细信息，请单击此处：[创作扩展模板。](./virtual-machines-windows-extensions-authoring-templates.md)
+若要了解有关创作扩展模板的详细信息，请单击此处：[创作扩展模板。](virtual-machines-windows-extensions-authoring-templates.md)
 
 本文列出了一些 Linux 扩展的预期配置值。
 

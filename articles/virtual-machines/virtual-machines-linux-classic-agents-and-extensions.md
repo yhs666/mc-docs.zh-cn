@@ -22,7 +22,7 @@ ms.author: rasquill
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-想查看更多关于资源管理器模型的信息，请点击[这里](./virtual-machines-linux-extensions-features.md)。
+想查看更多关于资源管理器模型的信息，请点击[这里](virtual-machines-linux-extensions-features.md)。
 
 [!INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../includes/virtual-machines-common-classic-agents-and-extensions.md)]
 

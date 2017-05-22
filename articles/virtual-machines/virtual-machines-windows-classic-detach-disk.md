@@ -22,7 +22,7 @@ ms.author: cynthn
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-关于在资源管理器模型分离磁盘，请点击[这里](./virtual-machines-windows-detach-disk.md)。
+关于在资源管理器模型分离磁盘，请点击[这里](virtual-machines-windows-detach-disk.md)。
 
 [!INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
@@ -30,6 +30,6 @@ ms.author: cynthn
 
 [关于虚拟机的磁盘和 VHD](../storage/storage-about-disks-and-vhds-windows.md)
 
-[如何将数据磁盘附加到 Windows 虚拟机](./virtual-machines-windows-classic-attach-disk.md)
+[如何将数据磁盘附加到 Windows 虚拟机](virtual-machines-windows-classic-attach-disk.md)
 
 <!---HONumber=Mooncake_1207_2015-->
