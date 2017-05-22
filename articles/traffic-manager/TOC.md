@@ -10,7 +10,6 @@
 
 # 如何
 
-## [配置地域路由方法](traffic-manager-configure-geographic-routing-method.md)
 ## [配置优先级路由方法](traffic-manager-configure-priority-routing-method.md)
 ## [配置加权路由方法](traffic-manager-configure-weighted-routing-method.md)
 ## [配置性能路由方法](traffic-manager-configure-performance-routing-method.md)
