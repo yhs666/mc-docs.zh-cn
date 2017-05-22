@@ -18,7 +18,6 @@ ms.author: tysonn
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 0b5a4c5c0ae4f1b4e0404fb198356fad1273a741
-ms.contentlocale: zh-cn
 ms.lasthandoff: 05/12/2017
 
 

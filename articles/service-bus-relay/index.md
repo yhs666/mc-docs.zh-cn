@@ -5,7 +5,6 @@ description: "了解 Azure 中继服务在混合云与本地环境中的工作�
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 8396bc009707ff9d1dcd37f91cc4eec90ae79a3a
-ms.contentlocale: zh-cn
 ms.lasthandoff: 05/12/2017
 
 ---
@@ -130,18 +129,6 @@ ms.lasthandoff: 05/12/2017
                         <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.relay">Microsoft.Azure.Relay</a></p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>其他</h3>
-                        <p><a href="service-bus-relay-port-settings.md">端口设置</a></p>
-                   </div>
                 </div>
             </div>
         </div>
