@@ -1,6 +1,6 @@
 ---
 title: "针对 Microsoft Azure 存储使用 Java 的客户端加密 | Microsoft Docs"
-description: "用于 Java 的 Azure 存储客户端库支持客户端加密以及与 Azure 密钥保管库集成以实现 Azure 存储应用程序的最佳安全性。"
+description: "用于 Java 的 Azure 存储客户端库支持客户端加密以及与 Azure 密钥保管库集成以实现 Azure 存储空间应用程序的最佳安全性。"
 services: storage
 documentationcenter: java
 author: seguler
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/14/2017
 [!INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>概述
-[用于 Java 的 Azure 存储客户端库](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)支持在上传到 Azure 存储之前加密客户端应用程序中的数据，以及在下载到客户端时解密数据。 此库还支持与 [Azure 密钥保管库](https://www.azure.cn/home/features/key-vault)集成，以便管理存储帐户密钥。
+[用于 Java 的 Azure 存储空间客户端库](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) 支持在上载到 Azure 存储空间之前加密客户端应用程序中的数据，以及在下载到客户端时解密数据。 此库还支持与 [Azure 密钥保管库](https://www.azure.cn/home/features/key-vault)集成，以便管理存储帐户密钥。
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>通过信封技术加密和解密
 加密和解密的过程遵循信封技术。  
@@ -58,7 +58,7 @@ ms.lasthandoff: 04/14/2017
 在加密过程中，客户端库将生成 16 个字节的随机初始化向量 (IV) 和 32 个字节的随机内容加密密钥 (CEK) 并将使用此信息对 Blob 数据执行信封加密。 然后，已包装的 CEK 和一些附加加密元数据将与服务上的已加密 Blob 一起存储为 Blob 元数据。
 
 > [!WARNING]
-> 如果你要针对 Blob 编辑或上传自己的元数据，需要确保此元数据已保留。 如果你在没有此元数据的情况下上传新元数据，则已包装的 CEK、IV 和其他元数据将丢失，而 Blob 内容将永远无法再检索。
+> 如果您要针对 Blob 编辑或上载自己的元数据，需要确保此元数据已保留。 如果您在没有此元数据的情况下上载新元数据，则已包装的 CEK、IV 和其他元数据将丢失，而 Blob 内容将永远无法再检索。
 > 
 > 
 
@@ -148,7 +148,7 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
     [加密示例](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>演示了针对 Blob、队列和表的更详细端到端方案，以及密钥保管库集成。
 
 ### <a name="requireencryption-mode"></a>RequireEncryption 模式
-用户可以选择启用这样的操作模式，要求加密所有上传和下载行为。 在此模式下，尝试在没有加密策略的情况下上传数据或下载在服务中未加密的数据，将导致在客户端上失败。 请求选项对象的 **requireEncryption** 标志控制此行为。 如果应用程序要对存储在 Azure 存储中的所有对象进行加密，则可以在服务客户端对象的默认请求选项上设置 **requireEncryption** 属性。   
+用户可以选择启用这样的操作模式，要求加密所有上传和下载行为。 在此模式下，尝试在没有加密策略的情况下上载数据或下载在服务中未加密的数据，将导致在客户端上失败。 请求选项对象的 **requireEncryption** 标志控制此行为。 如果应用程序要对存储在 Azure 存储中的所有对象进行加密，则可以在服务客户端对象的默认请求选项上设置 **requireEncryption** 属性。   
 
 例如，使用 **CloudBlobClient.getDefaultRequestOptions().setRequireEncryption(true)**，要求对通过该客户端对象执行的所有 Blob 操作进行加密。
 
@@ -248,7 +248,7 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 ```
 
 ## <a name="encryption-and-performance"></a>加密和性能
-注意，加密你的存储数据会导致额外的性能开销。 必须生成内容密钥和 IV，内容本身必须进行加密，并且其他元数据必须进行格式化并上传。 此开销将因所加密的数据量而有所变化。 我们建议客户在开发过程中始终测试其应用程序的性能。
+注意，加密存储数据会导致额外的性能开销。 必须生成内容密钥和 IV，内容本身必须进行加密，并且其他元数据必须进行格式化并上传。 此开销将因所加密的数据量而有所变化。 我们建议客户在开发过程中始终测试其应用程序的性能。
 
 ## <a name="next-steps"></a>后续步骤
 * 下载 [适用于 Java 的 Azure 存储客户端库 Maven 程序包](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  

@@ -2,14 +2,14 @@
 
 ### <a name="general-purpose-storage-accounts"></a>通用存储帐户
 
-通用存储帐户有权使用单个帐户访问诸如表、队列、文件、Blob 和 Azure 虚拟机磁盘等 Azure 存储服务。 此类型存储帐户具有两个性能层：
+通用存储帐户有权使用单个帐户访问诸如表、队列、文件、Blob 和 Azure 虚拟机磁盘等 Azure 存储空间服务。 此类型存储帐户具有两个性能层：
 
 - 标准存储性能层，允许存储表、队列、文件、Blob 和 Azure 虚拟机磁盘。
 - 高级存储性能层，当前仅支持 Azure 虚拟机磁盘。 有关高级存储的详细概述，请参阅 [高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../articles/storage/storage-premium-storage.md) 。
 
 ### <a name="blob-storage-accounts"></a>Blob 存储帐户
 
-Blob 存储帐户是将非结构化数据作为 Blob（对象）存储在 Azure 存储的专用存储帐户。 Blob 存储帐户类似于现有的通用存储帐户，并且具有你现在使用的所有卓越的耐用性、可用性、可伸缩性和性能功能，包括用于块 blob 和追加 blob 的 100% API 一致性。 对于仅需要块 blob 或追加 blob 存储的应用程序，我们建议使用 Blob 存储帐户。
+Blob 存储帐户是将非结构化数据作为 Blob（对象）存储在 Azure 存储空间的专用存储帐户。 Blob 存储帐户类似于现有的通用存储帐户，并且具有你现在使用的所有卓越的耐用性、可用性、可伸缩性和性能功能，包括用于块 blob 和追加 blob 的 100% API 一致性。 对于仅需要块 blob 或追加 blob 存储的应用程序，我们建议使用 Blob 存储帐户。
 
 > [!NOTE]
 > Blob 存储帐户仅支持块 blob 和追加 blob，不支持页 blob。

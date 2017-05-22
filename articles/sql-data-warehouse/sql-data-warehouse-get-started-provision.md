@@ -34,7 +34,7 @@ ms.lasthandoff: 04/14/2017
 本教程使用 Azure 门户来创建包含 AdventureWorksDW 示例数据库的 SQL 数据仓库。
 
 ## <a name="prerequisites"></a>先决条件
-若要开始，你需要：
+若要开始，您需要：
 
 * **Azure 帐户**：访问 [Azure 免费试用版][Azure Free Trial] ，以创建帐户。
 * **Azure SQL Server**：有关详细信息，请参阅[使用 Azure 门户创建 Azure SQL 数据库][Create an Azure SQL database in the Azure portal]。

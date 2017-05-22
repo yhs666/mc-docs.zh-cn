@@ -71,7 +71,7 @@ block_blob_service.set_container_acl('mycontainer', public_access=PublicAccess.C
 
 在此更改后，Internet 上的任何人都可以查看公共容器中的 Blob，但只有你可以修改或删除它们。
 
-## <a name="upload-a-blob-into-a-container"></a>将 Blob 上传到容器中
+## <a name="upload-a-blob-into-a-container"></a>将 Blob 上载到容器中
 若要创建块 blob 和上传数据，请使用 **create\_blob\_from\_path**、**create\_blob\_from\_stream**、**create\_blob\_from\_bytes** 或 **create\_blob\_from\_text** 方法。 这些方法属于高级方法，用于在数据大小超过 64 MB 时执行必要的分块。
 
 **create\_blob\_from\_path** 用于从指定位置上传文件内容，**create\_blob\_from\_stream** 用于从已经打开的文件/流上传内容。 **create\_blob\_from\_bytes** 用于上传一组字节，**create\_blob\_from\_text** 使用指定的编码（默认为 UTF-8）上传指定的文本值。
@@ -138,7 +138,7 @@ append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob'
 在了解了 Blob 存储的基础知识后，可单击下面的链接了解详细信息。
 
 * [Python 开发人员中心](https://www.azure.cn/develop/python/)
-* [Azure 存储服务 REST API](http://msdn.microsoft.com/library/azure/dd179355)
+* [Azure 存储空间服务 REST API](http://msdn.microsoft.com/library/azure/dd179355)
 * [Azure 存储团队博客]
 * [Microsoft Azure Storage SDK for Python]
 

@@ -33,7 +33,7 @@ ms.lasthandoff: 04/14/2017
 
 [打包应用程序类型后][10]，就可以部署到 Azure Service Fabric 群集中。 部署涉及以下三个步骤：
 
-1. 将应用程序包上传到映像存储
+1. 将应用程序包上载到映像存储
 2. 注册应用程序类型
 3. 创建应用程序实例
 
@@ -54,8 +54,8 @@ PS C:\>Connect-ServiceFabricCluster
 
 有关连接到远程群集或连接到使用 Azure Active Directory、X509 证书或 Windows Active Directory 保护的群集的示例，请参阅[连接到安全群集](service-fabric-connect-to-secure-cluster.md)。
 
-## <a name="upload-the-application-package"></a>上传应用程序包
-上传应用程序包会将其放在一个可由内部 Service Fabric 组件访问的位置。 如果要在本地验证应用包，请使用 [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet。  [Copy-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 命令用来将应用程序包上传到群集映像存储。 Service Fabric SDK PowerShell 模块中包含的 **Get-ImageStoreConnectionStringFromClusterManifest** cmdlet，用于获取映像存储连接字符串。  要导入 SDK 模块，请运行：
+## <a name="upload-the-application-package"></a>上载应用程序包
+上载应用程序包会将其放在一个可由内部 Service Fabric 组件访问的位置。 如果要在本地验证应用包，请使用 [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet。  [Copy-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 命令用来将应用程序包上载到群集映像存储。 Service Fabric SDK PowerShell 模块中包含的 **Get-ImageStoreConnectionStringFromClusterManifest** cmdlet，用于获取映像存储连接字符串。  要导入 SDK 模块，请运行：
 
 ```powershell
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
@@ -92,7 +92,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
             Settings.xml
 ```
 
-以下示例将包上传到映像存储中名为“MyApplicationV1”的文件夹中：
+以下示例将包上载到映像存储中名为“MyApplicationV1”的文件夹中：
 
 ```powershell
 PS C:\> $path = 'C:\Users\user\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
@@ -104,7 +104,7 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationP
 有关映像存储和映像存储连接字符串的补充信息，请参阅[了解映像存储连接字符串](service-fabric-image-store-connection-string.md)。
 
 ## <a name="register-the-application-package"></a>注册应用程序包
-注册应用包时，应用程序清单中声明的应用程序类型和版本可供使用。 系统将读取上一步中上传的程序包，验证此包，处理包的内容，并将已处理的包复制到内部系统位置。  
+注册应用包时，应用程序清单中声明的应用程序类型和版本可供使用。 系统将读取上一步中上载的程序包，验证此包，处理包的内容，并将已处理的包复制到内部系统位置。  
 
 运行 [Register-ServiceFabricApplicationType](https://docs.microsoft.com/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet 以在群集中注册应用程序类型并使其可用于部署：
 

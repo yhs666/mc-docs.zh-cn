@@ -98,10 +98,10 @@ if (share.create_if_not_exists()) {
 
 此时，**share** 保留对名为 **my-sample-share** 的共享的引用。
 
-## <a name="how-to-upload-a-file"></a>如何：上传文件
-Azure 文件存储共享至少包含文件所在的根目录。 在本部分，你将学习如何将文件从本地存储上传到共享所在的根目录。
+## <a name="how-to-upload-a-file"></a>如何：上载文件
+Azure 文件存储共享至少包含文件所在的根目录。 在本部分，你将学习如何将文件从本地存储上载到共享所在的根目录。
 
-上传文件的第一步是获取对文件所在的目录的引用。 为此，需要调用共享对象的 **get_root_directory_reference** 方法。
+上载文件的第一步是获取对文件所在的目录的引用。 为此，需要调用共享对象的 **get_root_directory_reference** 方法。
 
 ```cpp
 //Get a reference to the root directory for the share.
@@ -350,9 +350,9 @@ if (share.exists())
 若要深入了解如何创建和使用共享访问签名，请参阅[使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md)。
 
 ## <a name="next-steps"></a>后续步骤
-若要了解有关 Azure 存储的详细信息，请参阅以下资源：
+若要了解有关 Azure 存储空间的详细信息，请参阅以下资源：
 
 * [适用于 C++ 的存储客户端库](https://github.com/Azure/azure-storage-cpp)
 * [Azure Storage File Service Samples in C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)（C++ 中的 Azure 存储文件服务示例）
-* [Azure 存储资源管理器](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Azure 存储空间资源管理器](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure 存档文档](./index.md)

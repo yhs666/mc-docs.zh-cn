@@ -29,18 +29,18 @@ ms.lasthandoff: 04/14/2017
 > 
 > 
 
-当你运行 Azure Service Fabric 群集时，最好是从一个中心位置的所有节点中收集日志。 只要将日志集中在一个位置，无论问题发生在服务、应用程序还是群集本身，都能轻松分析问题并进行故障排除。 上传和收集日志的方式之一是使用可将日志上传到 Azure 存储或 Azure 事件中心的 Azure 诊断扩展。 也可从存储或事件中心读取事件。
+当你运行 Azure Service Fabric 群集时，最好是从一个中心位置的所有节点中收集日志。 只要将日志集中在一个位置，无论问题发生在服务、应用程序还是群集本身，都能轻松分析问题并进行故障排除。 上载和收集日志的方式之一是使用可将日志上载到 Azure 存储或 Azure 事件中心的 Azure 诊断扩展。 也可从存储或事件中心读取事件。
 
 ## <a name="log-sources-that-you-might-want-to-collect"></a>想要收集的日志源
-* **Service Fabric 日志**：由平台通过 [LTTng](http://lttng.org) 发出，将上传到你的存储帐户。 日志可能是平台发出的操作事件或运行时事件。 这些日志存储在群集清单指定的位置。 （若要获取存储帐户的详细信息，请搜索 **AzureTableWinFabETWQueryable** 标记，然后查找 **StoreConnectionString**。）
+* **Service Fabric 日志**：由平台通过 [LTTng](http://lttng.org) 发出，将上载到你的存储帐户。 日志可能是平台发出的操作事件或运行时事件。 这些日志存储在群集清单指定的位置。 （若要获取存储帐户的详细信息，请搜索 **AzureTableWinFabETWQueryable** 标记，然后查找 **StoreConnectionString**。）
 * **应用程序事件**：从服务代码发出。 可以使用任何能够写入基于文本的日志的日志记录解决方案，例如 LTTng。 有关详细信息，请参阅有关跟踪应用程序的 LTTng 文档。  
 
 ## <a name="deploy-the-diagnostics-extension"></a>部署诊断扩展
-收集日志的第一个步骤是将诊断扩展部署在 Service Fabric 群集中的每个 VM 上。 诊断扩展将收集每个 VM 上的日志，并将它们上传到指定的存储帐户。 根据使用的是 Azure 门户预览还是 Azure Resource Manager，步骤将有所不同。
+收集日志的第一个步骤是将诊断扩展部署在 Service Fabric 群集中的每个 VM 上。 诊断扩展将收集每个 VM 上的日志，并将它们上传到指定的存储帐户。 根据使用的是 Azure 门户预览版还是 Azure Resource Manager，步骤将有所不同。
 
 若要在创建群集期间将诊断扩展部署到群集中的 VM，请将“**诊断**”设置为“**打开**”。 创建群集后，无法使用门户更改此设置。
 
-然后，配置 Linux Azure 诊断 (LAD) 来收集文件并将其放入你的存储帐户。 [使用 LAD 监视和诊断 Linux VM](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md) 一文中的方案 3（“上传自己的日志文件”）说明了此过程。 遵循此过程即可访问跟踪。 可以将跟踪上传到所选的可视化程序。
+然后，配置 Linux Azure 诊断 (LAD) 来收集文件并将其放入你的存储帐户。 [使用 LAD 监视和诊断 Linux VM](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md) 一文中的方案 3（“上载自己的日志文件”）说明了此过程。 遵循此过程即可访问跟踪。 可以将跟踪上载到所选的可视化程序。
 
 也可以使用 Azure Resource Manager 部署诊断扩展。 Windows 和 Linux 的此过程类似，并将 Windows 群集记录在[如何使用 Azure 诊断收集日志](service-fabric-diagnostics-how-to-setup-wad.md)中。
 

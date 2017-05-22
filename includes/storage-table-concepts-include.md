@@ -7,7 +7,7 @@ Azure 表存储服务可存储大量结构化数据。 该服务是一个 NoSQL 
 -   使用聚集索引快速查询数据
 -   使用 OData 协议和 LINQ 查询以及 WCF 数据服务 .NET 库访问数据
 
-你可以使用表服务来存储和查询大型结构化非关系型数据集，并且你的表会随着需求的增加而扩展。
+您可以使用表服务来存储和查询大型结构化非关系型数据集，并且您的表会随着需求的增加而扩展。
 
 ## <a name="table-service-concepts"></a>表服务概念
 
@@ -18,9 +18,9 @@ Azure 表存储服务可存储大量结构化数据。 该服务是一个 NoSQL 
 -   **URL 格式：**代码使用此地址格式对帐户中的表进行寻址：   
     http://`<storage account>`.table.core.chinacloudapi.cn/`<table>`  
 
-    你可以直接使用此地址和 OData 协议来访问 Azure 表。 有关详细信息，请参阅 [OData.org][]
+    您可以直接使用此地址和 OData 协议来访问 Azure 表。 有关详细信息，请参阅 [OData.org][]
 
--   **存储帐户：** 对 Azure 存储服务的所有访问都要通过存储帐户来完成。 有关存储帐户容量的详细信息，请参阅 [Azure 存储可伸缩性和性能目标](../articles/storage/storage-scalability-targets.md)。
+-   **存储帐户：** 对 Azure 存储服务的所有访问都要通过存储帐户来完成。 有关存储帐户容量的详细信息，请参阅 [Azure 存储空间可伸缩性和性能目标](../articles/storage/storage-scalability-targets.md) 。
 
 -   **表**：表是实体的集合。 表不对实体强制实施架构，这意味着单个表可以包含具有不同属性集的实体。 一个存储帐户可以包含的表数仅受存储帐户容量限制。
 

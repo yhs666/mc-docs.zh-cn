@@ -30,7 +30,7 @@ ms.lasthandoff: 04/14/2017
 
 本文将演示如何捕获运行 Linux 的经典 Azure 虚拟机 (VM) 作为创建其他虚拟机的映像。 此映像包括 OS 磁盘和附加到 VM 的数据磁盘。 它不包括网络配置，因此在使用此映像创建其他 VM 时需要进行网络配置。
 
-Azure 在“映像”下存储映像 ，以及任何已上传的映像。 有关映像的详细信息，请参阅 [关于 Azure 中的虚拟机映像][About Virtual Machine Images in Azure]。
+Azure 在“映像”下存储映像 ，以及任何已上载的映像。 有关映像的详细信息，请参阅 [关于 Azure 中的虚拟机映像][About Virtual Machine Images in Azure]。
 
 ## <a name="before-you-begin"></a>开始之前
 这些步骤假定已使用经典部署模型创建了 Azure VM 并配置了操作系统，包括附加任何数据磁盘。 如果需要创建 VM，请阅读 [如何创建 Linux 虚拟机][How to Create a Linux Virtual Machine]。
@@ -91,7 +91,7 @@ Azure 在“映像”下存储映像 ，以及任何已上传的映像。 有关
     azure vm image list
     ```
 
-    在 [Azure 门户预览](http://portal.azure.cn)中，新映像会出现在属于“计算”服务的“VM 映像(经典)”中。 可通过在 Azure 服务列表底部单击“更多服务”，然后在“计算”服务中查找来访问“VM 映像(经典)”。   
+    在 [Azure 门户预览版](http://portal.azure.cn)中，新映像会出现在属于“计算”服务的“VM 映像(经典)”中。 可通过在 Azure 服务列表底部单击“更多服务”，然后在“计算”服务中查找来访问“VM 映像(经典)”。   
 
     ![成功捕获映像](./media/virtual-machines-linux-classic-capture-image/VMCapturedImageAvailable.png)
 

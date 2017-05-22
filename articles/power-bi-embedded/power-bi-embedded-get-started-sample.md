@@ -41,7 +41,7 @@ ms.lasthandoff: 04/14/2017
 
 下面将引导完成 Visual Studio 开发环境的设置，以便访问运行示例应用时所需的组件。
 
-1. 下载并解压缩 GitHub 上的 [Power BI Embedded - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493)（Power BI Embedded - 将报表集成到 Web 应用中）示例。
+1. 下载并解压缩 GitHub 上的 [Power BI Embedded - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) （Power BI Embedded - 将报表集成到 Web 应用中）示例。
 
     >[!IMPORTANT]
     > 本示例中的某些 URL 只能在全球环境中使用。 若要在 Azure 中国区环境中使用它，必须执行一些替换。

@@ -34,10 +34,10 @@ ms.lasthandoff: 04/14/2017
 > 
 > 
 
-若要完成本教程，你需要以下各项：
+若要完成本教程，您需要以下各项：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-- 有效的 Azure 帐户。 <br/>如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。
+- 有效的 Azure 帐户。 <br/>如果没有帐户，只需花费几分钟就能创建一个 [帐户][lnk-free-trial] 。
 - [Azure PowerShell 1.0][lnk-powershell-install] 或更高版本。
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]

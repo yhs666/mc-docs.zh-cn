@@ -38,15 +38,15 @@ ms.lasthandoff: 04/14/2017
 ## <a name="task-deploy-a-service-fabric-application"></a>任务：部署 Service Fabric 应用程序
 在生成并打包应用程序（或下载应用程序包）之后，可以将应用程序部署到本地 Service Fabric 群集中。 部署过程包括上传应用程序包、注册应用程序类型，以及创建应用程序实例。 使用本部分中的说明将新应用程序部署到群集。
 
-### <a name="step-1-upload-the-application-package"></a>步骤 1：上传应用程序包
-将应用程序包上传到映像存储区会将其放在可由内部 Service Fabric 组件访问的位置。  应用程序包包含所需的应用程序清单、服务清单，以及用于创建应用程序和服务实例的代码、配置和数据包。 如果要在本地验证应用包，请使用 [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet。  [Copy-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 命令用来上传包。 例如：
+### <a name="step-1-upload-the-application-package"></a>步骤 1：上载应用程序包
+将应用程序包上传到映像存储区会将其放在可由内部 Service Fabric 组件访问的位置。  应用程序包包含所需的应用程序清单、服务清单，以及用于创建应用程序和服务实例的代码、配置和数据包。 如果要在本地验证应用包，请使用 [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet。  [Copy-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 命令用来上载包。 例如：
 
 ```powershell
 Copy-ServiceFabricApplicationPackage C:\Temp\WordCount\ -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStoreShare -ApplicationPackagePathInImageStore WordCount
 ```
 
 ### <a name="step-2-register-the-application-type"></a>步骤 2：注册应用程序类型
-注册应用程序包，使应用程序清单中声明的应用程序类型和版本可供使用。 系统将读取步骤 1 中上传的包，对该包进行验证（等效于在本地运行 [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage)），处理包的内容，并将已处理的包复制到内部系统位置。  运行 [Register-ServiceFabricApplicationType](https://docs.microsoft.com/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet：
+注册应用程序包，使应用程序清单中声明的应用程序类型和版本可供使用。 系统将读取步骤 1 中上载的包，对该包进行验证（等效于在本地运行 [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage)），处理包的内容，并将已处理的包复制到内部系统位置。  运行 [Register-ServiceFabricApplicationType](https://docs.microsoft.com/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet：
 
 ```powershell
 Register-ServiceFabricApplicationType WordCount

@@ -1,6 +1,6 @@
 ---
 title: "针对 Azure 存储使用 Python 的客户端加密 | Microsoft Docs"
-description: "适用于 Python 的 Azure 存储客户端库支持客户端加密，实现 Azure 存储应用程序的最高安全性。"
+description: "适用于 Python 的 Azure 存储客户端库支持客户端加密，实现 Azure 存储空间应用程序的最高安全性。"
 services: storage
 documentationcenter: python
 author: seguler
@@ -23,14 +23,14 @@ ms.lasthandoff: 04/14/2017
 
 ---
 
-# <a name="client-side-encryption-with-python-for-azure-storage"></a>使用适用于 Azure 存储的 Python 进行客户端加密
+# <a name="client-side-encryption-with-python-for-azure-storage"></a>使用适用于 Azure 存储空间的 Python 进行客户端加密
 [!INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>概述
-[用于 Python 的 Azure 存储客户端库](https://pypi.python.org/pypi/azure-storage)支持在上传到 Azure 存储之前加密客户端应用程序中的数据，以及在下载到客户端时解密数据。
+[用于 Python 的 Azure 存储空间客户端库](https://pypi.python.org/pypi/azure-storage) 支持在上载到 Azure 存储空间之前加密客户端应用程序中的数据，以及在下载到客户端时解密数据。
 
 > [!NOTE]
-> Azure 存储 Python 库目前以预览版提供。
+> Azure 存储空间 Python 库目前以预览版提供。
 > 
 > 
 
@@ -58,12 +58,12 @@ ms.lasthandoff: 04/14/2017
 存储客户端库使用 [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 来加密用户数据。 具体而言，是使用 AES 的[加密块链接 (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 模式。 每个服务的工作方式都稍有不同，因此我们将在此讨论其中每个服务。
 
 ### <a name="blobs"></a>Blob
-目前，客户端库仅支持整个 Blob 的加密。 具体而言，用户使用 **create*** 方法时支持加密。 对于下载，支持完整下载和范围下载，并且可以并行化上传和下载。
+目前，客户端库仅支持整个 Blob 的加密。 具体而言，用户使用 **create*** 方法时支持加密。 对于下载，支持完整下载和范围下载，并且可以并行化上载和下载。
 
 在加密过程中，客户端库将生成 16 字节的随机初始化向量 (IV) 和 32 字节的随机内容加密密钥 (CEK) 并将使用此信息对 Blob 数据执行信封加密。 然后，已包装的 CEK 和一些附加加密元数据将与服务上的已加密 Blob 一起存储为 Blob 元数据。
 
 > [!WARNING]
-> 如果你要针对 Blob 编辑或上传自己的元数据，需要确保此元数据已保留。 如果你在没有此元数据的情况下上传新元数据，则已包装的 CEK、IV 和其他元数据将丢失，而 Blob 内容将永远无法再检索。
+> 如果您要针对 Blob 编辑或上载自己的元数据，需要确保此元数据已保留。 如果您在没有此元数据的情况下上载新元数据，则已包装的 CEK、IV 和其他元数据将丢失，而 Blob 内容将永远无法再检索。
 > 
 > 
 
@@ -114,7 +114,7 @@ ms.lasthandoff: 04/14/2017
 > [!IMPORTANT]
 > 使用客户端加密时，请注意以下要点：
 > 
-> * 读取或写入到已加密的 Blob 时，请使用完整 Blob 上传命令和范围/完整 Blob 下载命令。 避免使用协议操作（如“放置块”、“放置块列表”、“写入页”或“清除页”）写入到已加密的 Blob，否则可能会损坏已加密的 Blob 并使其不可读。
+> * 读取或写入到已加密的 Blob 时，请使用完整 Blob 上载命令和范围/完整 Blob 下载命令。 避免使用协议操作（如“放置块”、“放置块列表”、“写入页”或“清除页”）写入到已加密的 Blob，否则可能会损坏已加密的 Blob 并使其不可读。
 > * 对于表，存在类似的约束。 请注意，不要在未更新加密元数据的情况下更新已加密的属性。
 > * 如果在已加密的 Blob 上设置元数据，则可能会覆盖解密所需的与加密相关的元数据，因为设置元数据不是累加性的。 这也适用于快照；避免在创建已加密的 Blob 的快照时指定元数据。 如果必须设置元数据，务必调用 **get_blob_metadata** 方法首先获取当前加密元数据，并在设置元数据时避免并发写入。
 > * 对于只处理加密数据的用户，请在服务对象中启用 **require_encryption** 标志。 有关详细信息，请参阅下文。
@@ -147,7 +147,7 @@ KEK 必须实现以下方法才能成功加密数据：
       KEK 和密钥解析程序的示例实现在示例文件中分别以 KeyWrapper 和 KeyResolver 提供。
 
 ### <a name="requireencryption-mode"></a>RequireEncryption 模式
-用户可以选择启用这样的操作模式，要求加密所有上传和下载行为。 在此模式下，尝试在没有加密策略的情况下上传数据或下载在服务中未加密的数据，将导致在客户端上失败。 服务对象中的 **require_encryption** 标志控制此行为。
+用户可以选择启用这样的操作模式，要求加密所有上传和下载行为。 在此模式下，尝试在没有加密策略的情况下上载数据或下载在服务中未加密的数据，将导致在客户端上失败。 服务对象中的 **require_encryption** 标志控制此行为。
 
 ### <a name="blob-service-encryption"></a>Blob 服务加密
 设置 blockblobservice 对象中的加密策略字段。 其他所有事项均由客户端库在内部处理。
@@ -239,7 +239,7 @@ encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ```
 
 ## <a name="encryption-and-performance"></a>加密和性能
-注意，加密你的存储数据会导致额外的性能开销。 必须生成内容密钥和 IV，内容本身必须进行加密，并且其他元数据必须进行格式化并上传。 此开销将因所加密的数据量而有所变化。 我们建议客户在开发过程中始终测试其应用程序的性能。
+注意，加密您的存储数据会导致额外的性能开销。 必须生成内容密钥和 IV，内容本身必须进行加密，并且其他元数据必须进行格式化并上载。 此开销将因所加密的数据量而有所变化。 我们建议客户在开发过程中始终测试其应用程序的性能。
 
 ## <a name="next-steps"></a>后续步骤
 * 下载 [适用于 Java 的 Azure 存储客户端库 PyPi 包](https://pypi.python.org/pypi/azure-storage)

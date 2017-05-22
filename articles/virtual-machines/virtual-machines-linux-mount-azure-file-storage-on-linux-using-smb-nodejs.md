@@ -34,7 +34,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="cli-versions-to-use"></a>要使用的 CLI 版本
 可以使用以下命令行界面 (CLI) 版本之一来完成任务：
 
-- [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型的 CLI（本文）
+- [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
 - [Azure CLI 2.0](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="quick-commands"></a> 快速命令

@@ -1,5 +1,5 @@
 ---
-title: "Azure 云中的批处理和 HPC 的资源 | Microsoft Docs"
+title: "Azure 云中的 Batch 和 HPC 的资源 | Microsoft Docs"
 description: "列出了旨在帮助你在 Azure 中运行大规模并行批处理和高性能计算 (HPC) 工作负荷的技术资源。"
 services: batch, cloud-services, virtual-machines
 documentationcenter: 
@@ -28,16 +28,16 @@ ms.lasthandoff: 04/14/2017
 ## <a name="solutions-options"></a>解决方案选项
 了解 Azure 中的大型计算选项，并根据工作负荷和业务需要选择适当的方法。
 
-- [批处理和 HPC 解决方案](batch-hpc-solutions.md)
+- [Batch 和 HPC 解决方案](batch-hpc-solutions.md)
 
-## <a name="azure-batch"></a>Azure 批处理
-[批处理](https://azure.microsoft.com/services/batch/)是一种平台服务，可让用户轻松地在 Linux 和 Windows 应用程序中启用云功能并运行作业，而无需设置和管理群集与作业计划程序。 使用 SDK 可将不同语言的客户端应用与 Azure 批处理集成，将数据迁移到 Azure，以及生成作业运行管道。
+## <a name="azure-batch"></a>Azure Batch
+[Batch](https://azure.microsoft.com/services/batch/) 是一种平台服务，可让用户轻松地在 Linux 和 Windows 应用程序中启用云功能并运行作业，而无需设置和管理群集与作业计划程序。 使用 SDK 可将不同语言的客户端应用与 Azure 批处理集成，将数据迁移到 Azure，以及生成作业运行管道。
 
 - [文档](./index.md)
 - [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx)、[Python](http://azure-sdk-for-python.readthedocs.io/latest/)、[Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)、[Java](http://azure.github.io/azure-sdk-for-java/) 和 [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API 参考
-- [批处理管理 .NET 库](https://msdn.microsoft.com/library/mt463120.aspx)参考
-- 教程：[用于 .NET 的 Azure 批处理库](batch-dotnet-get-started.md)入门和[批处理 Python 客户端](batch-python-tutorial.md)入门
-- [批处理论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=azurebatch)
+- [Batch 管理 .NET 库](https://msdn.microsoft.com/library/mt463120.aspx)参考
+- 教程：[用于 .NET 的 Azure Batch 库](batch-dotnet-get-started.md)入门和 [Batch Python 客户端](batch-python-tutorial.md)入门
+- [Batch 论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=azurebatch)
 
 ## <a name="hpc-cluster-solutions"></a>HPC 群集解决方案
 将现有的 Windows 或 Linux HPC 群集部署或扩展到 Azure，以运行计算密集型工作负荷。  
@@ -50,7 +50,7 @@ HPC Pack 是在 Azure 和 Windows Server 技术基础之上构建的 Microsoft �
 - [文档](https://technet.microsoft.com/library/jj899572.aspx)
 - Azure 中的 HPC Pack 群集选项：[Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
 - [使用 HPC Pack 迸发到 Azure 辅助角色实例](https://technet.microsoft.com/library/gg481749.aspx)
-- [使用 HPC Pack 迸发到 Azure 批处理](https://technet.microsoft.com/library/mt612877.aspx)
+- [使用 HPC Pack 迸发到 Azure Batch](https://technet.microsoft.com/library/mt612877.aspx)
 - [Windows HPC 论坛](https://social.microsoft.com/Forums/home?category=windowshpc)
 
 ### <a name="linux-and-oss-cluster-solutions"></a>Linux 和 OSS 群集解决方案
@@ -81,9 +81,9 @@ Azure 提供适合运行 Linux 和 Windows HPC 工作负荷的 [VM 大小范围]
 有关 GPU 密集型工作负载，请查看 [NC 和NV 大小](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/)。
 
 ## <a name="samples-and-demos"></a>示例和演示
-- [Azure 批处理 C# 和 Python 代码示例](https://github.com/Azure/azure-batch-samples)
-- [ Shipyard](https://azure.github.io/batch-shipyard/) 工具包，可以轻松地将批处理样式的 Dockerized 工作负荷部署到 Azure 批处理
-- 基于 Azure 批处理构建的 [doAzureParallel](http://www.github.com/Azure/doAzureParallel) R 包
+- [Azure Batch C# 和 Python 代码示例](https://github.com/Azure/azure-batch-samples)
+- [ Shipyard](https://azure.github.io/batch-shipyard/) 工具包，可以轻松地将批处理样式的 Dockerized 工作负荷部署到 Azure Batch
+- 基于 Azure Batch 构建的 [doAzureParallel](http://www.github.com/Azure/doAzureParallel) R 包
 - [Test drive SUSE Linux Enterprise Server for HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)（试用 SUSE Linux Enterprise Server for HPC）
 
 ## <a name="related-azure-services"></a>相关的 Azure 服务
@@ -112,7 +112,7 @@ Azure 提供适合运行 Linux 和 Windows HPC 工作负荷的 [VM 大小范围]
 
 ## <a name="next-steps"></a>后续步骤
 - 有关最新通告，请参阅 [Microsoft HPC 和批处理团队博客](http://blogs.technet.com/b/windowshpc/)与 [Azure 博客](https://azure.microsoft.com/blog/tag/hpc/)。
-- 另请参阅 [批处理中的新增功能](https://azure.microsoft.com/updates/?service=batch)或订阅 [RSS 源](https://azure.microsoft.com/updates/feed/?service=batch)。
+- 另请参阅 [Batch 中的新增功能](https://azure.microsoft.com/updates/?service=batch)或订阅 [RSS 源](https://azure.microsoft.com/updates/feed/?service=batch)。
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "为批处理事件启用诊断日志记录 - Azure | Microsoft Docs"
-description: "记录并分析 Azure 批处理帐户资源（诸如池和任务）的诊断日志事件。"
+title: "为 Batch 事件启用诊断日志记录 - Azure | Microsoft Docs"
+description: "记录并分析 Azure Batch 帐户资源（诸如池和任务）的诊断日志事件。"
 services: batch
 documentationcenter: 
 author: tamram
@@ -23,23 +23,23 @@ ms.lasthandoff: 04/14/2017
 
 
 ---
-# <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>记录事件以用来对批处理解决方案进行诊断评估和监视
+# <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>记录事件以用来对 Batch 解决方案进行诊断评估和监视
 
-与许多 Azure 服务一样，批处理服务也会在某些资源的生命周期内针对这些资源生成日志事件。 可以启用 Azure 批处理诊断日志来记录资源（诸如池和任务）的事件，然后使用日志进行进行诊断评估和监视。 批处理诊断日志中包括诸如池创建、池删除、任务启动、任务完成之类的事件和其他事件。
+与许多 Azure 服务一样，Batch 服务也会在某些资源的生命周期内针对这些资源生成日志事件。 可以启用 Azure Batch 诊断日志来记录资源（诸如池和任务）的事件，然后使用日志进行进行诊断评估和监视。 Batch 诊断日志中包括诸如池创建、池删除、任务启动、任务完成之类的事件和其他事件。
 
 > [!NOTE]
-> 本文讨论了批处理帐户资源本身的日志记录事件，没有讨论作业和任务输出数据。 有关如何存储作业和任务的输出数据的详细信息，请参阅 [Persist Azure Batch job and task output](batch-task-output.md)（保存 Azure 批处理作业和任务输出）。
+> 本文讨论了 Batch 帐户资源本身的日志记录事件，没有讨论作业和任务输出数据。 有关如何存储作业和任务的输出数据的详细信息，请参阅 [Persist Azure Batch job and task output](batch-task-output.md)（保存 Azure Batch 作业和任务输出）。
 > 
 > 
 
 ## <a name="prerequisites"></a>先决条件
-- [Azure 批处理帐户](batch-account-create-portal.md)
+- [Azure Batch 帐户](batch-account-create-portal.md)
 - [Azure 存储帐户](../storage/storage-create-storage-account.md#create-a-storage-account)
   
-  若要暂留批处理诊断日志，必须创建一个将用来存储日志的 Azure 存储帐户。 可以在为批处理帐户[启用诊断日志记录](#enable-diagnostic-logging)时指定此存储帐户。 启用日志收集时指定的存储帐户与[应用程序包](batch-application-packages.md)和[任务输出暂留](batch-task-output.md)文章中所提到的链接存储帐户不是同一个。
+  若要暂留 Batch 诊断日志，必须创建一个将用来存储日志的 Azure 存储帐户。 可以在为 Batch 帐户[启用诊断日志记录](#enable-diagnostic-logging)时指定此存储帐户。 启用日志收集时指定的存储帐户与[应用程序包](batch-application-packages.md)和[任务输出暂留](batch-task-output.md)文章中所提到的链接存储帐户不是同一个。
 
 ## <a name="service-logs"></a>服务日志
-Azure 批处理服务日志包含 Azure 批处理服务在批处理资源（诸如池或任务）的生命周期内生成的事件。 批处理生成的每个事件都采用 JSON 格式存储在指定的存储帐户中。 例如，下面是一个**池创建事件**样本的正文：
+Azure Batch 服务日志包含 Azure Batch 服务在 Batch 资源（诸如池或任务）的生命周期内生成的事件。 Batch 生成的每个事件都采用 JSON 格式存储在指定的存储帐户中。 例如，下面是一个**池创建事件**样本的正文：
 
 ```json
 {
@@ -66,7 +66,7 @@ Azure 批处理服务日志包含 Azure 批处理服务在批处理资源（诸�
 每个事件正文都位于指定 Azure 存储帐户中的一个 .json 文件中。
 
 ## <a name="service-log-events"></a>服务日志事件
-批处理服务当前会生成以下服务日志事件。 此列表可能不完整，因为自本文最后更新以来可能又添加了其他事件。
+Batch 服务当前会生成以下服务日志事件。 此列表可能不完整，因为自本文最后更新以来可能又添加了其他事件。
 
 | **服务日志事件** |
 | --- |
@@ -82,7 +82,7 @@ Azure 批处理服务日志包含 Azure 批处理服务在批处理资源（诸�
 ## <a name="next-steps"></a>后续步骤
 除了将诊断日志事件存储在 Azure 存储帐户中之外，还可以将批处理服务日志事件流式传输到 [Azure 事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)。
 
-  将批处理诊断事件流式传输到“事件中心”，这是一项可高度缩放的数据入口服务。 数据中心每秒可以接受数百万事件，然后你可以使用任何实时分析提供程序转换并存储这些事件。
+  将 Batch 诊断事件流式传输到“事件中心”，这是一项可高度缩放的数据入口服务。 数据中心每秒可以接受数百万事件，然后你可以使用任何实时分析提供程序转换并存储这些事件。
 
   将诊断日志发送到 Log Analytics，可以使用该工具在 Operations Management Suite (OMS) 门户中分析这些日志，或者导出诊断日志以在 Power BI 或 Excel 中进行分析。
 

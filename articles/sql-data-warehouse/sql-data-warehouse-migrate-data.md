@@ -137,7 +137,7 @@ Azure 导入和导出服务是一个数据传输进程，用于将大量 (GB++) 
 
 若要使用 AZCopy，必须先下载并安装它。 可用版本包括[生产版][production version]和[预览版][preview version]。
 
-若要从文件系统上传文件，需要执行如下所示的命令：
+若要从文件系统上载文件，需要执行如下所示的命令：
 
 ```
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /DestKey:key /Pattern:abc.txt

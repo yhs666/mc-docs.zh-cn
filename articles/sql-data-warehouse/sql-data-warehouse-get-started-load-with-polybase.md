@@ -48,7 +48,7 @@ ms.lasthandoff: 04/14/2017
 * 一个标准本地冗余存储 (Standard-LRS)、标准异地冗余存储 (Standard-GRS) 或标准读取访问权限异地冗余存储 (Standard-RAGRS) 类型的 Azure 存储帐户。
 * AzCopy 命令行实用工具。 下载并安装 Azure 存储工具随附的 [最新版本的 AzCopy][latest version of AzCopy] 。
 
-    ![Azure 存储工具](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
+    ![Azure 存储空间工具](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 ## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>步骤 1：将示例数据添加到 Azure Blob 存储
 为了加载数据，我们需要将一些示例数据放入 Azure Blob 存储。 在此步骤中，我们会将示例数据填入 Azure 存储 Blob。 稍后，我们会使用 PolyBase 将这些示例数据加载到 SQL 数据仓库数据库。
@@ -105,7 +105,7 @@ ms.lasthandoff: 04/14/2017
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
 
-2. 运行以下命令以上传该文件。 指定 <blob service endpoint URL> 的 BLOB 服务终结点 URL，以及 <azure_storage_account_key> 的 Azure 存储帐户密钥。
+2. 运行以下命令以上载该文件。 指定 <blob service endpoint URL> 的 BLOB 服务终结点 URL，以及 <azure_storage_account_key> 的 Azure 存储帐户密钥。
 
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
