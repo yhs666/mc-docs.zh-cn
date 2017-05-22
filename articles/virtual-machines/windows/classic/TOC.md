@@ -4,7 +4,6 @@
 ## [虚拟网络](../../../virtual-network/virtual-networks-overview.md)
 ## [常见问题](faq.md)
 ## [VM、网站和云服务对比](../../../app-service-web/choose-web-site-cloud-service-vm.md)
-## [容器](../../virtual-machines-windows-containers.md)
 
 # 入门
 ## [使用门户创建 VM](tutorial.md)
@@ -39,7 +38,6 @@
 
 ## 配置
 ### [重置密码或远程桌面服务](../../virtual-machines-windows-reset-rdp.md)
-### [安装和配置 Symantec Endpoint Protection](install-symantec.md)
 ### [安装和配置 Trend Micro Deep Security 即服务](install-trend.md)
 ### [配置可用性集](configure-availability.md)
 ### [调整经典部署模型中创建的 Windows VM 大小](resize-vm.md)
@@ -55,7 +53,6 @@
 ## 计划
 ### [关于映像](about-images.md)
 ### [VM 的大小](../../virtual-machines-windows-sizes.md)
-#### [关于 H 系列和计算密集型 A 系列 VM](../../virtual-machines-windows-a8-a9-a10-a11-specs.md)
 ### [Azure VM 的计划维护](../../virtual-machines-windows-planned-maintenance.md)
 ### [Azure 基础结构服务实施准则](../../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
@@ -64,8 +61,6 @@
 #### [自动缩放资源](hpcpack-cluster-node-autogrowshrink.md)
 #### [管理计算节点](hpcpack-cluster-node-manage.md)
 #### [创建群集](hpcpack-cluster-powershell-script.md)
-#### [设置用于运行 MPI 应用程序的群集](hpcpack-rdma-cluster.md)
-#### [运行 Excel 和 SOA 工作负荷](../../virtual-machines-windows-excel-cluster-hpcpack.md)
 #### [使用应用商店映像创建头节点](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
 #### [将作业从本地提交到 Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MongoDB](install-mongodb.md)
@@ -74,8 +69,6 @@
 ####[配置 Oracle Data Guard for Azure](configure-oracle-data-guard.md)
 ####[配置 Oracle GoldenGate for Azure](configure-oracle-goldengate.md)
 ####[有关映像的其他注意事项](oracle-considerations.md)
-####[Oracle VM 映像列表](oracle-images.md)
-### [SAP](sap-get-started.md)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
 
