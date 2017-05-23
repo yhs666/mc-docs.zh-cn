@@ -775,7 +775,7 @@ Azure 环境的部署独立于 Azure，例如[中国世纪互联运营的 AzureC
     $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
     ```
 
-* [在中国服务中创建应用程序时的差异概述](https://www.azure.cn/documentation/articles/developerdifferences/)
+* [在中国服务中创建应用程序时的差异概述](/articles/developerdifferences/)
 
 ## <a name="next-steps"></a>后续步骤
 在本指南中，已了解如何使用 Azure PowerShell 管理 Azure 存储。 下面是一些相关的文章和了解有关这些更多的资源。

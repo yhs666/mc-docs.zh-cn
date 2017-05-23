@@ -73,7 +73,7 @@ Azure 支持部门可帮助你提高服务限制以应对计划内的高流量�
 __如果未联系 Azure 支持部门来帮助处理大规模事件，会发生什么情况？__ 如果未针对高流量事件进行沟通或规划，你可能会达到特定的 [Azure 服务限制](../azure-subscription-service-limits.md)，因而在事件期间造成用户体验不佳（更糟的是停机）。在高峰出现之前做好体系结构审查和沟通有助于缓解这些风险。
 
 ### 是否在面向 Web 的存储 Blob 和静态资产前面使用内容交付网络 (Azure CDN)？
-使用 CDN 可在世界各地的 CDN POP/边缘位置缓存内容，从而帮助减轻服务器的负载。这样做可以缩短延迟、提高可缩放性、减少服务器负载，并采用保护策略来防范拒绝服务 (DOS) 攻击。若要了解有关如何使用 Azure CDN 提高复原能力并缩短客户延迟的详细信息，请阅读 [Overview of the Azure Content Delivery Network (CDN)（Azure 内容交付网络 (CDN) 概述）](https://www.azure.cn/documentation/articles/cdn-overview/)。
+使用 CDN 可在世界各地的 CDN POP/边缘位置缓存内容，从而帮助减轻服务器的负载。这样做可以缩短延迟、提高可缩放性、减少服务器负载，并采用保护策略来防范拒绝服务 (DOS) 攻击。若要了解有关如何使用 Azure CDN 提高复原能力并缩短客户延迟的详细信息，请阅读 [Overview of the Azure Content Delivery Network (CDN)（Azure 内容交付网络 (CDN) 概述）](/cdn/cdn-overview/)。
 
 __不使用 CDN 会发生什么情况？__ 如果不使用 CDN，则所有客户流量将直接定向到你的资源。这意味着服务器的负载会升高，导致其可缩放性降低。此外，客户可能会遇到更高的延迟。相比之下，CDN 在世界各地的位置可能更靠近你的客户。
 
