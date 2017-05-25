@@ -154,7 +154,7 @@ push.send(null, templatePayload, {
 [Azure 通知中心]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [SSO Windows Store]: /documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/
 [SSO Windows Phone]: /documentation/articles/mobile-services-windows-phone-single-sign-on/
-[Tutorials and resources]: ./index.md
+
 
 [向用户发送跨平台通知]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users-xplat-mobile-services/
 [Get started with push Windows dotnet]: /documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push-vs2012/

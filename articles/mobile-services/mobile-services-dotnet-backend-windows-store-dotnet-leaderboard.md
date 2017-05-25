@@ -748,7 +748,7 @@ sealed partial class App : Application
 
 ## 后续步骤
 
-* [详细了解 Azure 移动服务]
+
 * [详细了解 Web API]
 * [处理数据库写入冲突]
 * [身份验证入门]
@@ -791,7 +791,7 @@ sealed partial class App : Application
 
 <!-- URLs. -->
 
-[详细了解 Azure 移动服务]: ./index.md
+
 [详细了解 Web API]: http://asp.net/web-api
 [处理数据库写入冲突]: ./mobile-services-windows-store-dotnet-handle-database-conflicts.md
 [身份验证入门]: ./mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md

@@ -46,7 +46,6 @@
 
 ### 容器应用程序
 #### [概述](service-fabric-containers-overview.md)
-#### [部署 Windows 容器](service-fabric-deploy-container.md)
 #### [部署 Docker 容器](service-fabric-deploy-container-linux.md)
 
 ### Reliable Service 应用程序
@@ -108,8 +107,6 @@
 ##### [Visual Studio 和 Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
 #### [群集网络模式](service-fabric-patterns-networking.md)
 #### [节点类型和 VM 规模集](service-fabric-cluster-nodetypes.md)
-#### [缩放群集](service-fabric-cluster-scale-up-down.md)
-#### [以编程方式缩放群集](service-fabric-cluster-programmatic-scaling.md)
 #### [升级群集](service-fabric-cluster-upgrade.md)
 #### [删除群集](service-fabric-cluster-delete.md)
 #### [访问控制](service-fabric-cluster-security-roles.md)
@@ -162,7 +159,6 @@
 ### Azure 诊断日志
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [从服务进程收集日志](service-fabric-diagnostic-collect-logs-without-an-agent.md)
 ### [有状态 Reliable Services 中的诊断](service-fabric-reliable-services-diagnostics.md)
 ### [Reliable Actors 中的诊断](service-fabric-reliable-actors-diagnostics.md)
 ### [排查本地群集的故障](service-fabric-troubleshoot-local-cluster-setup.md)

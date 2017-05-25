@@ -16,9 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 wacn.date: 
 ms.author: rasquill
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 95f0372f5a9249cc9693ddc0a8fdd5401857fa76
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 04/14/2017
 > 
 > 
 
-使用 Azure 资源管理器创建新的虚拟机时，在某些情况下，你需要使用以下映像属性组合来指定映像：
+使用 Azure Resource Manager 创建新的虚拟机时，在某些情况下，你需要使用以下映像属性组合来指定映像：
 
 * 发布者
 * 产品

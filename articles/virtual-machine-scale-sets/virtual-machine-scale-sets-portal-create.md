@@ -18,9 +18,10 @@ ms.date: 09/15/2016
 wacn.date: 
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 7cc2df26ff33d62b43a1f7eb73bbca93078655f4
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 

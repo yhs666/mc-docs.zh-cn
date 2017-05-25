@@ -18,7 +18,7 @@ wacn.date:
 ms.author: cynthn
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: e1cde06ebf28d97945cf665f1a96027ec4764596
+ms.openlocfilehash: 0ffe3d39bda08a3c3c571d5f3f626fe277aa3626
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/05/2017
 
@@ -26,13 +26,13 @@ ms.lasthandoff: 05/05/2017
 
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
-本文介绍可用于运行 Windows 应用和工作负荷的 Azure 虚拟机的可用大小和选项。 此外，还提供在计划使用这些资源时要考虑的部署注意事项。  本文也适用于 [Linux 虚拟机](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+本文介绍可用于运行 Windows 应用和工作负荷的 Azure 虚拟机的可用大小和选项。 此外，还提供在计划使用这些资源时要考虑的部署注意事项。  本文也适用于 [Linux 虚拟机](linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 > [!IMPORTANT]
->* 有关不同大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/#Windows)。 
+>* 有关不同大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)。 
 >* 若要查看 Azure VM 的一般限制，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
 >* 存储成本根据存储帐户中的已使用页数进行单独计算。 有关详细信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)。
-> * 了解有关 [Azure 计算单元 (ACU)](virtual-machines-windows-acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。
+> * 了解有关 [Azure 计算单元 (ACU)](windows/acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。
 >
 >
 <br>    
@@ -45,7 +45,7 @@ ms.lasthandoff: 05/05/2017
 
 <br>
 
-了解有关 [Azure 计算单元 (ACU)](virtual-machines-windows-acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。
+了解有关 [Azure 计算单元 (ACU)](windows/acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。
 
 了解关于可用的各种 VM 大小的详细信息：
 - [常规用途](virtual-machines-windows-sizes-general.md)

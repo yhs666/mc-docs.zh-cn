@@ -45,6 +45,7 @@
 #### [使用远程桌面](hdinsight-hadoop-use-pig-remote-desktop.md)
 ### [将 DataFu 与 Pig 配合使用](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [提交 Hadoop 作业](hdinsight-submit-hadoop-jobs-programmatically.md)
+### [ScaleR 和 SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## 使用 Spark 进行内存中处理
 ### [使用 BI 工具](hdinsight-apache-spark-use-bi-tools.md)
 ### [创建独立应用](hdinsight-apache-spark-create-standalone-application.md)
@@ -82,8 +83,6 @@
 #### [处理车辆传感器数据](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [关联各个时间的事件](hdinsight-storm-correlation-topology.md)
 #### [使用 Python 开发拓扑](hdinsight-storm-develop-python-topology.md)
-## 使用 Kafka（预览版）
-### [与 Storm 配合使用](hdinsight-apache-storm-with-kafka.md)
 ## 开发
 ### [开发 C# 流式处理 MapReduce 程序](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [开发 Java MapReduce 程序](hdinsight-develop-deploy-java-mapreduce-linux.md)

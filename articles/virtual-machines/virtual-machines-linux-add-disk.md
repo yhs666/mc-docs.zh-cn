@@ -18,9 +18,10 @@ ms.date: 02/02/2017
 wacn.date: 
 ms.author: rasquill
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 90684aec1d082dff985c89cd02a0405faa5aef5b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/21/2017
 
 ---

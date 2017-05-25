@@ -15,11 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/05/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 0ce7089552bdf5a652fc10a23dfab1a13160f323
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -151,29 +152,27 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.cn
 
     此命令的输出类似于以下文本：
 
-    ```
-    INFO  : Tez session hasn't been created yet. Opening session
-    INFO  :
+        INFO  : Tez session hasn't been created yet. Opening session
+        INFO  :
 
-    INFO  : Status: Running (Executing on YARN cluster with App id application_1443698635933_0001)
+        INFO  : Status: Running (Executing on YARN cluster with App id application_1443698635933_0001)
 
-    INFO  : Map 1: -/-      Reducer 2: 0/1
-    INFO  : Map 1: 0/1      Reducer 2: 0/1
-    INFO  : Map 1: 0/1      Reducer 2: 0/1
-    INFO  : Map 1: 0/1      Reducer 2: 0/1
-    INFO  : Map 1: 0/1      Reducer 2: 0/1
-    INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
-    INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
-    INFO  : Map 1: 1/1      Reducer 2: 0/1
-    INFO  : Map 1: 1/1      Reducer 2: 0(+1)/1
-    INFO  : Map 1: 1/1      Reducer 2: 1/1
-    +----------+--------+--+
-    |   sev    | count  |
-    +----------+--------+--+
-    | [ERROR]  | 3      |
-    +----------+--------+--+
-    1 row selected (47.351 seconds)
-    ```
+        INFO  : Map 1: -/-      Reducer 2: 0/1
+        INFO  : Map 1: 0/1      Reducer 2: 0/1
+        INFO  : Map 1: 0/1      Reducer 2: 0/1
+        INFO  : Map 1: 0/1      Reducer 2: 0/1
+        INFO  : Map 1: 0/1      Reducer 2: 0/1
+        INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
+        INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
+        INFO  : Map 1: 1/1      Reducer 2: 0/1
+        INFO  : Map 1: 1/1      Reducer 2: 0(+1)/1
+        INFO  : Map 1: 1/1      Reducer 2: 1/1
+        +----------+--------+--+
+        |   sev    | count  |
+        +----------+--------+--+
+        | [ERROR]  | 3      |
+        +----------+--------+--+
+        1 row selected (47.351 seconds)
 
 5. 若要退出 Beeline，请使用 `!exit`。
 
@@ -269,7 +268,7 @@ beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin
 * [在基于 Windows 的 HDInsight 上使用 Tez UI](hdinsight-debug-tez-ui.md)
 * [在基于 Linux 的 HDInsight 上使用 Ambari Tez 视图](hdinsight-debug-ambari-tez-view.md)
 
-[hdinsight-sdk-documentation]: http://msdn.microsoft.com/zh-cn/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
@@ -277,18 +276,18 @@ beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://zh.wikipedia.org/wiki/Log4j
+[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: ./hdinsight-connect-excel-power-query.md
+[import-to-excel]: /azure/hdinsight-connect-excel-power-query/
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
-[powershell-here-strings]: http://technet.microsoft.com/zh-cn/library/ee692792.aspx
+[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 

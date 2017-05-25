@@ -23,8 +23,6 @@ ms.author: priyamo
 
 如果要构建的 Web 应用程序托管在服务器中并通过浏览器访问，我们建议使用 OpenID Connect。
 
-[!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
-
 ## 使用 OpenID Connect 的身份验证流
 最基本的登录流包含以下步骤 - 下面详细描述了每个步骤。
 

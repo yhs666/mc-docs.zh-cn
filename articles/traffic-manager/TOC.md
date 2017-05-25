@@ -1,7 +1,6 @@
 # 概述
 ## [什么是流量管理器？](traffic-manager-overview.md)
 ## [路由方法](traffic-manager-routing-methods.md)
-### [流量管理器使用的国家/地区层次结构](traffic-manager-geographic-regions.md)
 ## [终结点类型](traffic-manager-endpoint-types.md)
 ## [终结点监视](traffic-manager-monitoring.md)
 ## [常见问题](traffic-manager-FAQs.md)
@@ -11,7 +10,6 @@
 
 # 如何
 
-## [配置地域路由方法](traffic-manager-configure-geographic-routing-method.md)
 ## [配置优先级路由方法](traffic-manager-configure-priority-routing-method.md)
 ## [配置加权路由方法](traffic-manager-configure-weighted-routing-method.md)
 ## [配置性能路由方法](traffic-manager-configure-performance-routing-method.md)

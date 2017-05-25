@@ -97,6 +97,6 @@ todoTable.del(todoItem).done(function (item) {
 }
 ```
 
-[详细了解移动服务](./index.md)
+
 
 <!---HONumber=Mooncake_0215_2016-->

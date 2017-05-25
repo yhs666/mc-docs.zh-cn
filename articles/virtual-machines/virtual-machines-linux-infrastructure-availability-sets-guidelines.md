@@ -18,10 +18,10 @@ wacn.date:
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 73634a1cd5086a8a5fea5cca6711deab890ed760
+ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
+ms.openlocfilehash: c430513c0ea18093fc814977e0b5cc4a7c3e177c
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -57,6 +57,5 @@ Azure 中的底层基础结构分为多个硬件群集。 每个硬件群集可�
 
 在存储层针对高可用性设计应用程序。 最佳做法是[为可用性集中的 VM 使用托管磁盘](virtual-machines-linux-manage-availability.md#use-managed-disks-for-vms-in-availability-set)。 如果当前使用的是未托管磁盘，我们强烈建议[在可用性集中转换 VM，以便使用托管磁盘](virtual-machines-linux-convert-unmanaged-to-managed-disks.md#convert-vm-in-an-availability-set-to-managed-disks)。
 
-## <a name="next-steps"></a>后续步骤
+## <a name="next-steps"></a> 后续步骤
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-

@@ -1,6 +1,6 @@
 ---
 title: "使用 Azure 表服务的 Node.js Web 应用"
-description: "本教程讲解如何使用 Azure 表服务存储 Azure App Service Web 应用中托管的 Node.js 应用程序的数据。"
+description: "本教程讲解如何使用 Azure 表服务存储 Azure 应用服务 Web 应用中托管的 Node.js 应用程序的数据。"
 tags: azure-portal
 services: app-service\web, storage
 documentationcenter: nodejs
@@ -16,16 +16,17 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: 
 ms.author: robmcm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 93f4389c0ef80c583f95f50551b881f252056d85
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="nodejs-web-app-using-the-azure-table-service"></a>使用 Azure 表服务的 Node.js Web 应用
 ## <a name="overview"></a>概述
-本教程说明如何使用 Azure 数据管理提供的表服务在 [Azure App Service](/app-service-web/app-service-changes-existing-services) Web 应用托管的 [node] 应用程序中存储和访问数据。 本教程假定你之前使用过 node 和 [Git]。
+本教程说明如何使用 Azure 数据管理提供的表服务在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services) Web 应用托管的 [node] 应用程序中存储和访问数据。 本教程假定你之前使用过 node 和 [Git]。
 
 你将学习以下内容：
 
@@ -439,12 +440,12 @@ ms.lasthandoff: 04/28/2017
 即使应用程序在本地运行，它也会将数据存储在 Azure 表服务中。
 
 ## <a name="deploy-your-application-to-azure"></a>将你的应用程序部署到 Azure
-本节中的步骤使用 Azure 命令行工具在 App Service 中创建新的 Web 应用，然后使用 Git 部署应用程序。 若要执行这些步骤，你必须具有 Azure 订阅。
+本节中的步骤使用 Azure 命令行工具在应用服务中创建新的 Web 应用，然后使用 Git 部署应用程序。 若要执行这些步骤，你必须具有 Azure 订阅。
 
 > [!NOTE]
-> 也可以使用 [Azure 门户预览](https://portal.azure.cn/)执行这些步骤。 请参阅 [Build and deploy a Node.js web app in Azure App Service]（在 Azure App Service中构建和部署 Node.js Web 应用）。
-> <p> 
-> <p> 如果这是创建的第一个 Web 应用，则必须使用 Azure 门户预览部署此应用程序。
+> 也可以使用 [Azure 门户预览](https://portal.azure.cn/)执行这些步骤。 请参阅 [Build and deploy a Node.js web app in Azure App Service]（在 Azure 应用服务中构建和部署 Node.js Web 应用）。
+> 
+> 如果这是创建的第一个 Web 应用，则必须使用 Azure 门户预览部署此应用程序。
 
 若要开始，请在命令行中输入以下命令以安装 [Azure CLI] ：
 
@@ -495,7 +496,7 @@ ms.lasthandoff: 04/28/2017
         info:   site create command OK
 
     > [!NOTE]
-    > 如果这是订阅的第一个应用服务 Web 应用，系统会指示使用 Azure 门户预览创建该 Web 应用。 有关详细信息，请参阅 [Build and deploy a Node.js web app in Azure App Service]（在 Azure App Service中构建和部署 Node.js Web 应用）。
+    > 如果这是订阅的第一个应用服务 Web 应用，系统会指示使用 Azure 门户预览创建该 Web 应用。 有关详细信息，请参阅 [Build and deploy a Node.js web app in Azure App Service]（在 Azure 应用服务中构建和部署 Node.js Web 应用）。
     > 
     > 
 
@@ -546,7 +547,7 @@ ms.lasthandoff: 04/28/2017
 [Azure CLI]
 
 ## <a name="whats-changed"></a>更改内容
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!-- URLs -->
 

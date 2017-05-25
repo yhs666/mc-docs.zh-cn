@@ -15,9 +15,10 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 wacn.date: 
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: e6cc17f105c91e8e88aeca1f141a73b2d1d32093
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可使用以下 CLI 版本之一完成任务：
 
-- [Azure CLI 1.0](#recovery-process-overview) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
+- [Azure CLI 1.0](#recovery-process-overview) - 适用于经典部署模型和资源管理部署模型的 CLI（本文）
 - [Azure CLI 2.0](virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="recovery-process-overview"></a> 恢复过程概述

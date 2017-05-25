@@ -16,11 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: jgao
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
 ms.openlocfilehash: 7fb3c467e11e817d661de7f7828ba13edcb45bd8
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/29/2017
 
 
@@ -69,7 +70,7 @@ HDInsight 提供对在本地附加到计算节点的分布式文件系统的访�
 * **没有连接到群集的存储帐户中的公共容器或公共 Blob：** 你对这些容器中的 Blob 具有只读权限。
 
     > [!NOTE]
-    > 利用公共容器，你可以获得该容器中可用的所有 Blob 的列表以及容器元数据。 利用公共 Blob，你仅在知道正确 URL 时才可访问 Blob。 有关详细信息，请参阅<a href="../storage/storage-manage-access-to-resources.md">限制对容器和 Blob 的访问</a>。
+    > 利用公共容器，你可以获得该容器中可用的所有 Blob 的列表以及容器元数据。 利用公共 Blob，你仅在知道正确 URL 时才可访问 Blob。 有关详细信息，请参阅<a href="/azure/storage/storage-manage-access-to-resources/">限制对容器和 Blob 的访问</a>。
     > 
     > 
 * **没有连接到群集的存储帐户中的私有容器：** 你不能访问这些容器中的 Blob，除非在提交 WebHCat 作业时定义存储帐户。 本文后面对此做了解释。
@@ -224,7 +225,7 @@ URI 方案提供了使用 *wasb:* 前缀的未加密访问和使用 *wasbs* 的 
 
 ![Blob 相关 PowerShell cmdlet 的列表。][img-hdi-powershell-blobcommands]
 
-#### <a name="upload-files"></a>上载文件
+#### <a name="upload-files"></a>上传文件
 请参阅 [将数据上传到 HDInsight][hdinsight-upload-data]。
 
 #### <a name="download-files"></a>下载文件
@@ -306,14 +307,14 @@ URI 方案提供了使用 *wasb:* 前缀的未加密访问和使用 *wasbs* 的 
 * [使用 Azure 存储共享访问签名来限制使用 HDInsight 访问数据][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
-[powershell-install]: https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs
+[powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [hdinsight-creation]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-[blob-storage-restAPI]: http://msdn.microsoft.com/zh-cn/library/azure/dd135733.aspx
+[blob-storage-restAPI]: http://msdn.microsoft.com/library/azure/dd135733.aspx
 [azure-storage-create]: ../storage/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png

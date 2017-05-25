@@ -15,9 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 3/17/2017
 wacn.date: 
 ms.author: xujing
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 3ab46147e7f0364b605f8566253aeaff4046ee4c
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 

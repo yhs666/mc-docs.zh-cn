@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 wacn.date: 
 ms.author: annahar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: f0a4868683c28acda995419d92797c9c14820d42
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 04/22/2017
 
 ### <a name="coreadd"></a>核心步骤
 
-1. 根据需要浏览到 Azure 门户预览（网址为 https://portal.azure.cn ）并登录。
+1. 根据需要浏览到 Azure 门户预览（网址为 https://portal.azure.cn）并登录。
 2. 在门户中单击“更多服务”> 在筛选框中键入“虚拟机”，然后单击“虚拟机”。
 3. 在“虚拟机”边栏选项卡中单击要向其添加 IP 地址的 VM。 在显示的虚拟机边栏选项卡中单击“网络接口”，然后选择要向其添加 IP 地址的网络接口。 在下图所示的示例中，已从名为“myVM”的 VM 中选定名为“myNIC”的 NIC：
 
@@ -77,7 +78,7 @@ ms.lasthandoff: 04/22/2017
 
 公共 IP 地址是针对公共 IP 地址资源的一种设置。 如果你的公共 IP 地址资源目前所关联到的 IP 配置不是你想要关联到的 IP 配置，可跳过以下步骤，根据需要完成后面某个部分的步骤。 如果没有可用的公共 IP 地址资源，可通过以下步骤创建一个：
 
-1. 根据需要浏览到 Azure 门户预览（网址为 https://portal.azure.cn ）并登录。
+1. 根据需要浏览到 Azure 门户预览（网址为 https://portal.azure.cn）并登录。
 3. 在门户中，单击“新建” > “网络” > “公共 IP 地址”。
 4. 在显示的“创建公共 IP 地址”边栏选项卡中，输入一个“名称”，选择一个“IP 地址分配”类型、一个“订阅”、一个“资源组”和一个“位置”，然后单击“创建”，如下图所示：
 

@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/10/2016
 wacn.date: 
 ms.author: zivr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: f1f6761cd213886d99550e6966b5c38300729003
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

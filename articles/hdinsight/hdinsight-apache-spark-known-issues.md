@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: e4e83522c055ff07aed34f001e45e3416689f482
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -77,7 +78,7 @@ ms.lasthandoff: 04/28/2017
 下面是与 Jupyter 笔记本相关的一些已知问题。
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>笔记本的文件名中包含非 ASCII 字符
-可在 Spark HDInsight 群集中使用的 Jupyter 笔记本的文件名不应包含非 ASCII 字符。 如果你尝试通过 Jupyter UI 上载文件名中包含非 ASCII 字符的文件，操作将会失败且不发出提示（即，Jupyter 不允许你上载该文件，但同时也不引发可视的错误）。 
+可在 Spark HDInsight 群集中使用的 Jupyter 笔记本的文件名不应包含非 ASCII 字符。 如果你尝试通过 Jupyter UI 上传文件名中包含非 ASCII 字符的文件，操作将会失败且不发出提示（即，Jupyter 不允许你上传该文件，但同时也不引发可视的错误）。 
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>加载大型笔记本时发生错误
 加载大型笔记本时，可能会看到错误“ **`Error loading notebook`** 。  
@@ -128,9 +129,9 @@ ms.lasthandoff: 04/28/2017
 ### <a name="tools-and-extensions"></a>工具和扩展
 * [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-use-zeppelin-notebook.md)
 * [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-* [将外部包与 Jupyter 笔记本配合使用](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>管理资源
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](hdinsight-apache-spark-resource-manager.md)
-* [跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业](hdinsight-apache-spark-job-debugging.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](hdinsight-apache-spark-job-debugging.md)

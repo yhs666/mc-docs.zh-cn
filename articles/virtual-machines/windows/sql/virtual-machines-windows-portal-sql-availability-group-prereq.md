@@ -17,9 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 wacn.date: 
 ms.author: mikeray
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 55848a4b7dc742cab3b7aa9302d110c1628b18d8
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -292,7 +293,7 @@ Azure 将创建虚拟机。
 
     >[!NOTE]
     >“DNS 选项”页可能会发出警告，指出无法为此 DNS 服务器创建委托。 在非生产环境中可以忽略此警告。 
-1. 单击“下一步”，直到出现“必备项检查”对话框。 上提出。
+1. 单击“下一步”，直到出现“必备项检查”对话框。 然后单击“安装”。
 
 服务器完成配置更改后，请重新启动服务器。 
 

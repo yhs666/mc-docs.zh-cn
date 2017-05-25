@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 4b4b5d4e6a4c5dc40d6a9ab14b26ec8faf84f59b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -29,11 +30,9 @@ ms.lasthandoff: 04/28/2017
 [Maven](http://maven.apache.org/) 是一种软件项目管理和综合工具，可用于为 Java 项目构建软件、文档和报告。 在本文中，你将要了解如何使用 Maven 创建一个基本的 Java 应用程序，该应用程序可在基于 Linux 的 HDInsight 群集上创建、查询和删除 HBase 表。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
 
 ## <a name="requirements"></a>要求
-
-[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 * [Java 平台 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 或更高版本。
 
@@ -44,14 +43,16 @@ ms.lasthandoff: 04/28/2017
 
 * [装有 HBase 的基于 Linux 的 Azure HDInsight 群集](hdinsight-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
 
+    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+
     > [!NOTE]
     > 本文档中的步骤已在 HDInsight 群集版本 3.2、3.3、3.4 和 3.5 中测试。 示例中提供的默认值适用于 HDInsight 3.5 群集。
 
 * **熟悉 SSH 和 SCP** 或 **Azure PowerShell**。 本文档提供有关运行此示例时使用 SSH/SCP 和 Azure PowerShell 的步骤。
 
-    有关安装 Azure PowerShell 的信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs/)。
+    有关安装 Azure PowerShell 的信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)。
 
-    有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+    有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 ## <a name="create-the-project"></a>创建项目
 
@@ -162,7 +163,7 @@ ms.lasthandoff: 04/28/2017
 
 4. 保存 **pom.xml** 文件。
 
-5. 在 **hbaseapp** 目录中创建名为 **conf** 的目录。 此目录用于保存连接到 HBase 所需的配置信息。
+5. 在 **conf** in the **hbaseapp** 的目录。 此目录用于保存连接到 HBase 所需的配置信息。
 
 6. 使用以下命令将 HBase 配置从 HDInsight 服务器复制到 **conf** 目录。 将 **USERNAME** 替换为 SSH 登录名。 将 **CLUSTERNAME** 替换为 HDInsight 群集名称：
 
@@ -373,15 +374,15 @@ ms.lasthandoff: 04/28/2017
     > [!NOTE]
     > **hbaseapp-1.0-SNAPSHOT.jar** 文件是 uber jar。 它包含运行应用程序所需的所有依赖项。
 
-## <a name="upload-the-jar-and-run-jobs-ssh"></a>上载 JAR 并运行作业 (SSH)
+## <a name="upload-the-jar-and-run-jobs-ssh"></a>上传 JAR 并运行作业 (SSH)
 
 以下步骤使用 `scp` 将 JAR 复制到 HDInsight 群集的主要头节点。 然后，使用 `ssh` 命令连接到群集并直接在头节点上运行此示例。
 
-1. 使用以下命令将该 jar 文件上载到 HDInsight 群集。 将 **USERNAME** 替换为 SSH 登录名。 将 **CLUSTERNAME** 替换为 HDInsight 群集名称：
+1. 使用以下命令将该 jar 文件上传到 HDInsight 群集。 将 **USERNAME** 替换为 SSH 登录名。 将 **CLUSTERNAME** 替换为 HDInsight 群集名称：
 
         scp ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:hbaseapp-1.0-SNAPSHOT.jar
 
-    此命令会将文件上载到 SSH 用户帐户的主目录。
+    此命令会将文件上传到 SSH 用户帐户的主目录。
 
     > [!NOTE]
     > 如果使用了 SSH 帐户的密码，则系统将提示你输入该密码。 如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。 以下示例从 `~/.ssh/id_rsa`加载私钥：
@@ -416,9 +417,9 @@ ms.lasthandoff: 04/28/2017
         Gabriela Ingram - ID: 6
         Gabriela Ingram - gabriela@contoso.com - ID: 6
 
-## <a name="upload-the-jar-and-run-jobs-powershell"></a>上载 JAR 并运行作业 (PowerShell)
+## <a name="upload-the-jar-and-run-jobs-powershell"></a>上传 JAR 并运行作业 (PowerShell)
 
-以下步骤使用 Azure PowerShell 将 JAR 上载到 HDInsight 群集的默认存储。 然后使用 HDInsight cmdlet 远程运行这些示例。
+以下步骤使用 Azure PowerShell 将 JAR 上传到 HDInsight 群集的默认存储。 然后使用 HDInsight cmdlet 远程运行这些示例。
 
 1. 安装并配置 Azure PowerShell 后，请创建名为 **hbase-runner.psm1**的文件。 使用以下文本作为此文件的内容：
 
@@ -621,7 +622,7 @@ ms.lasthandoff: 04/28/2017
 
     此文件包含两个模块：
 
-    * **Add-HDInsightFile** - 用于将文件上载到 HDInsight
+    * **Add-HDInsightFile** - 用于将文件上传到 HDInsight
     * **Start-HBaseExample** - 用于运行以前创建的类
 
 2. 保存 **hbase-runner.psm1** 文件。
@@ -632,7 +633,7 @@ ms.lasthandoff: 04/28/2017
 
     将路径切换到前面创建的 **hbase-runner.psm1** 文件所在的位置。 此命令使用 Azure PowerShell 注册模块。
 
-4. 使用以下命令将 **hbaseapp-1.0-SNAPSHOT.jar** 上载到你的 HDInsight 群集。
+4. 使用以下命令将 **hbaseapp-1.0-SNAPSHOT.jar** 上传到你的 HDInsight 群集。
 
         Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
 

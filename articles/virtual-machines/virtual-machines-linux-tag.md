@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 wacn.date: 
 ms.author: memccror
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 7a436bd332accc3d7a594a7a7e24ef6079a92fdc
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 5def30e8110c70f7b37b3d1d8e297e8a2217f850
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -52,9 +53,9 @@ ms.lasthandoff: 04/28/2017
 
 3. 单击“下载”。
 
-## <a name="upload-the-data"></a>上载数据
+## <a name="upload-the-data"></a>上传数据
 
-1. 使用以下命令将该 zip 文件上载到 HDInsight 群集头节点：
+1. 使用以下命令将该 zip 文件上传到 HDInsight 群集头节点：
 
     ```
     scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:
@@ -65,7 +66,7 @@ ms.lasthandoff: 04/28/2017
     > [!NOTE]
     > 如果使用密码对 SSH 登录名进行身份验证，系统将提示输入密码。 如果你使用了公钥，则可能需要使用 `-i` 参数并指定匹配私钥的路径。 例如， `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:`。
 
-2. 上载完成后，使用 SSH 连接到群集：
+2. 上传完成后，使用 SSH 连接到群集：
 
     ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn```
 

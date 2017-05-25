@@ -14,9 +14,10 @@ ms.workload: integration
 ms.date: 02/24/2017
 wacn.date: 
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: fa4d8417e0bbd8de96a1ddeb125746b1f66a6066
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -43,7 +44,7 @@ Azure.NET SDK 2.8 可让你创建 .NET 4.5.2 云服务包。 不过，.NET 4.5.2
 
 若要成功创建这种类型的项目，必须安装 [Azure PowerShell 0.9.8 版](https://github.com/Azure/azure-powershell/releases/download/v0.9.8-September2015/azure-powershell.0.9.8.msi)。
 
-### <a name="azure-resource-manager-tools"></a>Azure 资源管理器工具
+### <a name="azure-resource-manager-tools"></a>Azure Resource Manager 工具
 #### <a name="breaking-changes"></a>重大变化
 Azure 资源组项目提供的 PowerShell 脚本在此版本中已更新，可以配合新的 Azure PowerShell cmdlet 1.0 版使用。  使用 2.8 以前的 SDK 版本时，将无法从 Visual Studio 使用此新脚本。  
 

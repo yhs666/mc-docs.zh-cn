@@ -17,9 +17,10 @@ ms.date: 02/02/2016
 wacn.date: 
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 803c7058df2c7e021495d0f124fe9f9db6b87d86
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 

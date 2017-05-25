@@ -17,9 +17,10 @@ ms.date: 11/21/2016
 wacn.date: 
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 2545cbde724ae26de9c63937f6fdd35aee3a203d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
@@ -165,7 +166,7 @@ New-Website -Name "MusicStore" -Port 80 -PhysicalPath C:\music\ -ApplicationPool
 
 此方法的主要优点是，在存储帐户密钥更改的情况下，无需更改模板和部署参数。
 
-有关使用自定义脚本扩展的详细信息，请参阅 [Custom script extensions with Resource Manager templates](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（使用 Resource Manager 模板自定义脚本扩展）。
+有关使用自定义脚本扩展的详细信息，请参阅[使用 Resource Manager 模板自定义脚本扩展](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ## <a name="next-step"></a>后续步骤
 <hr>

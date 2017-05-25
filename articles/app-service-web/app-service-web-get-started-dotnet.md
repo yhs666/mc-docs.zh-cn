@@ -15,9 +15,10 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 19ca3a66248c4e79a953293582e5e345da215b7f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 

@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/23/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: b1e9e258b15d221cd76aa3604b041ff038203b30
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -108,7 +109,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters
 
 若要解决此问题，必须删除存储帐户的现有条目。 使用以下步骤删除现有条目：
 
-1. 在 Web 浏览器中，打开 HDInsight 群集的 Ambari Web UI。 该 URI 是 https://CLUSTERNAME.azurehdinsight.cn 。 将 __CLUSTERNAME__ 替换为群集名称。
+1. 在 Web 浏览器中，打开 HDInsight 群集的 Ambari Web UI。 该 URI 是 https://CLUSTERNAME.azurehdinsight.cn。 将 __CLUSTERNAME__ 替换为群集名称。
 
     出现提示时，输入群集的 HTTP 登录用户和密码。
 

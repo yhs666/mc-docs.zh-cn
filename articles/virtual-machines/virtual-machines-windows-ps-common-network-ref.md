@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 03/02/2017
 wacn.date: 
 ms.author: davidmu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: c661878795039483fbec373ed5bb7b646d9d7ac2
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 

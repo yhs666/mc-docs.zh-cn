@@ -10,15 +10,17 @@ tags: azure-service-management
 ms.assetid: 2b995dcd-e471-4355-9fda-00babcdb156e
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
-ms.topic: article
+ms.devlang: azurecli
+ms.tgt_pltfrm: na
+ms.topic: sample
 ms.date: 03/20/2017
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: d5c646d1bebfe10ff988dba3f7fff619716abe77
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 87ce182270d938de66c957a8617f891d506cc71b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 ---
 
@@ -26,15 +28,13 @@ ms.lasthandoff: 04/14/2017
 
 此示例脚本使用名为“过渡”的附加部署槽在应用服务中创建 Web 应用，然后将示例应用部署到“过渡”槽。
 
-必要时，请使用 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中的说明安装 Azure CLI，然后运行 `az login` 创建与 Azure 的连接。
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-此示例在 Bash shell 中正常工作。 有关在 Windows 客户端上运行 Azure CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../../virtual-machines/virtual-machines-windows-cli-options.md)。
-
 ## <a name="sample-script"></a>示例脚本
 
-```azurecli
+```azurecli-interactive
 #!/bin/bash
 
 gitrepo=<Replace with a public GitHub repo URL. e.g. https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git>
@@ -67,6 +67,7 @@ az appservice web deployment slot swap --name $webappname --resource-group myRes
 
 # Browse to the production slot. 
 az appservice web browse --name $webappname --resource-group myResourceGroup
+
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
@@ -90,3 +91,4 @@ az appservice web browse --name $webappname --resource-group myResourceGroup
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
 可以在 [Azure 应用服务文档](../app-service-cli-samples.md)中找到其他应用服务 CLI 脚本示例。
+

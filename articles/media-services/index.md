@@ -5,7 +5,8 @@ services: media-services
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: ms.service: media-services
+ms.assetid: ''
+ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page

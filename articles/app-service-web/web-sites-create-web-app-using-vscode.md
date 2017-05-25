@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 02/26/2016
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 58c342f0945a7437a0950481b2b71a058f6f1631
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -148,7 +149,7 @@ ASP.NET 5/DNX（.NET 执行环境）是精简的 .NET 堆栈，用于构建在 O
 
     ![新的 Azure Web 应用](./media/web-sites-create-web-app-using-vscode/09-azure-newwebapp.png)
 4. 输入“名称”的值，例如 **SampleWebAppDemo**。 请注意，此名称必须是唯一的；当你尝试输入名称时，门户会强制此要求。 因此，如果你选择或输入了不同的值，需要以该值替换本教程中每个出现的 **SampleWebAppDemo** 。 
-5. 选择现有的 **App Service 计划** 或创建新的计划。 如果创建新计划，请选择定价层、位置和其他选项。 有关应用服务计划的详细信息，请参阅 [Azure 应用服务计划深入概述](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)一文。
+5. 选择现有的**应用服务计划**或创建新的计划。 如果创建新计划，请选择定价层、位置和其他选项。 有关应用服务计划的详细信息，请参阅 [Azure 应用服务计划深入概述](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)一文。
 
     ![新的 Azure Web 应用边栏选项卡](./media/web-sites-create-web-app-using-vscode/10-azure-newappblade.png)
 6. 单击“创建” 。
@@ -156,7 +157,7 @@ ASP.NET 5/DNX（.NET 执行环境）是精简的 .NET 堆栈，用于构建在 O
     ![Web 应用边栏选项卡](./media/web-sites-create-web-app-using-vscode/11-azure-webappblade.png)
 
 ## <a name="enable-git-publishing-for-the-new-web-app"></a>为新 Web 应用启用 Git 发布
-Git 是分布式版本控制系统，可用于部署 Azure App Service Web 应用。 你将在本地 Git 存储库中存储你为 Web 应用编写的代码，并通过推送到远程存储库将代码部署到 Azure。   
+Git 是分布式版本控制系统，可用于部署 Azure 应用服务 Web 应用。 你将在本地 Git 存储库中存储你为 Web 应用编写的代码，并通过推送到远程存储库将代码部署到 Azure。   
 
 1. 登录到 [Azure 门户预览](https://portal.azure.cn)。
 2. 单击“浏览” 。
@@ -169,7 +170,7 @@ Git 是分布式版本控制系统，可用于部署 Azure App Service Web 应�
 7. 单击“确定”。
 
     ![Azure 本地 Git 存储库](./media/web-sites-create-web-app-using-vscode/15-azure-localrepository.png)
-8. 如果你事先未设置部署凭据用于发布 Web 应用或其他 App Service 应用，现在请进行设置：
+8. 如果你事先未设置部署凭据用于发布 Web 应用或其他应用服务应用，现在请进行设置：
 
     登录到 [Azure 经典管理门户](https://manage.windowsazure.cn/)，找到你的应用，然后单击“速览”下的“仪表板” > “重置部署凭据”，为应用设置部署凭据。
 9. 返回到 [Azure 门户预览](https://portal.azure.cn)，单击“设置”>“属性”。 要部署到的远程 Git 存储库的 URL 将显示在“GIT URL”下。
@@ -177,7 +178,7 @@ Git 是分布式版本控制系统，可用于部署 Azure App Service Web 应�
 
     ![Azure Git URL](./media/web-sites-create-web-app-using-vscode/17-azure-giturl.png)
 
-## <a name="publish-your-web-app-to-azure-app-service"></a>将 Web 应用发布到 Azure App Service
+## <a name="publish-your-web-app-to-azure-app-service"></a>将 Web 应用发布到 Azure 应用服务
 在本部分中，你将创建一个本地 Git 存储库，并从该存储库推送到 Azure，以将 Web 应用部署到 Azure。
 
 1. 在 VS Code 的左侧导航栏中，选择“Git”选项  。

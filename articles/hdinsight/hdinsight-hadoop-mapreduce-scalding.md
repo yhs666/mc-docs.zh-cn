@@ -30,7 +30,7 @@ Scalding 是一种 Scala 库，它可以让你轻松地创建 Hadoop MapReduce �
 * **HDInsight 群集上基于 Windows 或 Linux 的 Hadoop**。有关详细信息，请参阅[在 HDInsight 上预配基于 Linux 的 Hadoop](./hdinsight-hadoop-provision-linux-clusters.md) 或[在 HDInsight 上预配基于 Windows 的 Hadoop](./hdinsight-hadoop-provision-linux-clusters.md)。
 
     > [!IMPORTANT]
-    Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)。
+    Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 * **[Maven](http://maven.apache.org/)**
 

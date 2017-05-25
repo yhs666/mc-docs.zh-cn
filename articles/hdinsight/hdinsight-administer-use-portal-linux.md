@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: jgao
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: e4c455c608bbcde859dc44668294ffcfd5b1b289
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -158,12 +159,10 @@ HDInsight 使用各种 Hadoop 组件。 有关已获得验证和支持的组件�
 
     以下是有关如何使用 CLI 命令重新平衡 Storm 拓扑的示例：
 
-    ```
-    ## Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## the spout "blue-spout" to use 3 executors, and
-    ## the bolt "yellow-bolt" to use 10 executors
-    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
-    ```
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 **缩放群集**
 
@@ -177,7 +176,7 @@ HDInsight 使用各种 Hadoop 组件。 有关已获得验证和支持的组件�
 
 ## <a name="pauseshut-down-clusters"></a>暂停/关闭群集
 
-大多数 Hadoop 作业只是偶尔运行的批处理作业。 大多数 Hadoop 群集都存在长时间不进行处理的情况。 有了 HDInsight，可将数据存储在 Azure 存储空间，以便在不使用群集时可将其安全删除。
+大多数 Hadoop 作业只是偶尔运行的批处理作业。 大多数 Hadoop 群集都存在长时间不进行处理的情况。 有了 HDInsight，可将数据存储在 Azure 存储，以便在不使用群集时可将其安全删除。
 此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用高于存储空间费用数倍，因此在不使用群集时将其删除可以节省费用。
 
 可以通过许多方式对此过程进行程序性处理：
@@ -220,7 +219,7 @@ HDInsight 群集可以有两个用户帐户。 HDInsight 群集用户帐户（�
         PASS=$2
 
         usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
-2. 将该文件上载到可以使用 HTTP 或 HTTPS 地址从 HDInsight 访问的存储位置。 例如，某个公共文件存储（如 OneDrive 或 Azure Blob 存储）。 将 URI（HTTP 或 HTTPS 地址）保存到该文件中，因为下一步需要用到。
+2. 将该文件上传到可以使用 HTTP 或 HTTPS 地址从 HDInsight 访问的存储位置。 例如，某个公共文件存储（如 OneDrive 或 Azure Blob 存储）。 将 URI（HTTP 或 HTTPS 地址）保存到该文件中，因为下一步需要用到。
 3. 从 Azure 门户预览中，单击“HDInsight 群集” 。
 4. 单击 HDInsight 群集。
 4. 单击“脚本操作”。
