@@ -259,10 +259,10 @@ Export-AzureRmResourceGroup -ResourceGroupName TestRG1 -Path c:\Azure\Templates\
 
 以下主题演示如何使用 Azure 自动化、Resource Manager 和 PowerShell 来有效执行管理任务：
 
-<!-- - 有关创建 Runbook 的信息，请参阅[我的第一个 PowerShell Runbook](/documentation/articles/automation-first-runbook-textual-powershell/)。-->
+<!-- Not Available - 有关创建 Runbook 的信息，请参阅[我的第一个 PowerShell Runbook](/documentation/articles/../automation/automation-first-runbook-textual-powershell.md)。-->
 - 有关使用脚本库的信息，请参阅 [Azure 自动化的 Runbook 和模块库](../automation/automation-runbook-gallery.md)。
-<!-- - 如需用于启动和停止虚拟机的 Runbook，请参阅 [Azure 自动化方案 - 使用 JSON 格式的标记创建 Azure VM 启动和关闭计划](/documentation/articles/automation-scenario-start-stop-vm-wjson-tags/)。-->
-<!-- - 如需用于在非工作时间启动和停止虚拟机的 Runbook，请参阅[在自动化中，在非工作时间启动/停止 VM](/documentation/articles/automation-solution-vm-management/)。-->
+<!-- Not Available - 如需用于启动和停止虚拟机的 Runbook，请参阅 [Azure 自动化方案 - 使用 JSON 格式的标记创建 Azure VM 启动和关闭计划](../automation/automation-scenario-start-stop-vm-wjson-tags.md)。-->
+<!-- Not Available - 如需用于在非工作时间启动和停止虚拟机的 Runbook，请参阅[在自动化中，在非工作时间启动/停止 VM](../automation/automation-solution-vm-management.md)。-->
 
 ## 后续步骤
 * 若要了解如何创建资源管理器模板，请参阅[创作 Azure 资源管理器模板](./resource-group-authoring-templates.md)。
