@@ -191,7 +191,7 @@ http://<app_name>.chinacloudsites.cn
 
 ## <a name="configure-to-use-php"></a>配置为使用 PHP
 
-使用 [az appservice web config update](https://docs.microsoft.com/cli/azure/app-service-web/config#update) 命令将 Web 应用配置为使用 PHP 版本 `7.0.x`。
+使用 [az appservice web config update](https://docs.microsoft.com/cli/azure/appservice/web/config#update) 命令将 Web 应用配置为使用 PHP 版本 `7.0.x`。
 
 > [!TIP]
 > 以这种方式设置 PHP 版本会使用平台提供的默认容器。如果你想要使用自己的容器，请参阅 [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) 命令的 CLI 参考文章。
