@@ -1,9 +1,9 @@
 ---
-title: "针对 Azure 存储使用 Python 的客户端加密 | Microsoft Docs"
-description: "适用于 Python 的 Azure 存储客户端库支持客户端加密，实现 Azure 存储空间应用程序的最高安全性。"
+title: "使用适用于 Azure 存储的 Python 进行客户端加密 | Azure"
+description: "适用于 Python 的 Azure 存储客户端库支持客户端加密，实现 Azure 存储应用程序的最高安全性。"
 services: storage
 documentationcenter: python
-author: seguler
+author: lakasa
 manager: jahogg
 editor: tysonn
 ms.assetid: f9bf7981-9948-4f83-8931-b15679a09b8a
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: seguler
+ms.date: 05/11/2017
+ms.author: lakasa
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 96d9b36c67a07319291dc47676220d5c19b870e2
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 4b8ccc8ae3f693891baf82199d1fbcb169d9cd1e
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2017
+ms.date: 04/04/2017
 wacn.date: 
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: a489b6724ed12dd46129a9b1db678cb7fd15bf7a
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 0e425b4cf0beefc87bd1815aec49016ee553b92d
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -43,7 +43,7 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 ###<a name="deployment-model"></a>部署模型
 配置 VPN 网关时，采取的步骤取决于用于创建虚拟网络的部署模型。 例如，如果使用经典部署模型创建了 VNet，将使用经典部署模型的指导原则和说明来创建及配置 VPN 网关设置。 有关部署模型的详细信息，请参阅 [了解 Resource Manager 和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。
 
-## <a name="diagrams"></a>连接拓扑图
+## <a name="diagrams" id="a-namediagramsaconnection-topology-diagrams"></a>连接拓扑图
 必须知道，VPN 网关连接可以使用不同的配置。 必须确定哪种配置最适合自己的需要。 在下面的部分中，可以查看有关以下 VPN 网关连接的信息和拓扑示意图：以下部分包含一些表格，其中列出了：
 
 * 可用的部署模型
@@ -81,7 +81,7 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 
 * 在相同或不同的区域中
 * 在相同或不同的订阅中 
-* 在相同或不同的部署模型中
+* 在相同或不同部署模型中
 
 ![Azure VPN 网关 VNet 到 VNet 连接示例](./media/vpn-gateway-about-vpngateways/vpngateway-vnet-to-vnet-connection-diagram.png)
 
@@ -122,7 +122,12 @@ ExpressRoute 可以从 WAN 与 Microsoft 服务（包括 Azure）直接建立专
 ### <a name="estimated-aggregate-throughput-by-sku"></a>按 SKU 列出的估计聚合吞吐量
 [!INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
+## <a name="faq"></a>常见问题
+
+有关 VPN 网关的常见问题，请参阅 [VPN 网关常见问题解答](vpn-gateway-vpn-faq.md)。
+
 ## <a name="next-steps"></a>后续步骤
 - 规划 VPN 网关配置。 请参阅 [VPN 网关规划和设计](vpn-gateway-plan-design.md)。
 - 有关更多信息，请查看 [VPN 网关常见问题](vpn-gateway-vpn-faq.md)。
 - 查看[订阅和服务限制](../azure-subscription-service-limits.md#networking-limits)。
+

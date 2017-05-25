@@ -4,7 +4,6 @@
 
 # 入门
 
-## [快速入门指南](storage-getting-started-guide.md)
 ## [创建存储帐户](storage-create-storage-account.md)
 
 ## Blob 存储
@@ -12,8 +11,8 @@
 ### [Java](storage-java-how-to-use-blob-storage.md)
 ### [Node.js](storage-nodejs-how-to-use-blob-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-blobs.md)
-### [Python](storage-python-how-to-use-blob-storage.md)
 ### [PHP](storage-php-how-to-use-blobs.md)
+### [Python](storage-python-how-to-use-blob-storage.md)
 ### [Ruby](storage-ruby-how-to-use-blob-storage.md)
 ### [iOS](storage-ios-how-to-use-blob-storage.md)
 ### [Xamarin](storage-xamarin-blob-storage.md)
@@ -23,17 +22,18 @@
 ### [Java](storage-java-how-to-use-queue-storage.md)
 ### [Node.js](storage-nodejs-how-to-use-queues.md)
 ### [C++](storage-c-plus-plus-how-to-use-queues.md)
-### [Python](storage-python-how-to-use-queue-storage.md)
 ### [PHP](storage-php-how-to-use-queues.md)
+### [Python](storage-python-how-to-use-queue-storage.md)
 ### [Ruby](storage-ruby-how-to-use-queue-storage.md)
 
 ## 表存储
 ### [.NET](storage-dotnet-how-to-use-tables.md)
+### [F#](/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage)
 ### [Java](storage-java-how-to-use-table-storage.md)
 ### [Node.js](storage-nodejs-how-to-use-table-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-tables.md)
-### [Python](storage-python-how-to-use-table-storage.md)
 ### [PHP](storage-php-how-to-use-table-storage.md)
+### [Python](storage-python-how-to-use-table-storage.md)
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
 ## 文件存储
@@ -45,11 +45,11 @@
 
 ## 磁盘存储 
 ### [使用 Resource Manager 和 PowerShell 创建 VM](../virtual-machines/virtual-machines-windows-ps-create.md)
-### [使用 Azure CLI 2.0（预览版）创建 Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
-### [使用 PowerShell 将托管磁盘附加到 Windows VM](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
-### [将托管磁盘添加到 Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md)
-### [使用 Windows 中的快照创建作为托管磁盘存储的 VHD 的副本](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
-### [使用 Linux 中的快照创建作为托管磁盘存储的 VHD 的副本](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+### [使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md)
+### [使用 PowerShell 将托管磁盘附加到 Windows VM](../virtual-machines/windows/attach-disk-ps.md)
+### [将托管磁盘添加到 Linux VM](../virtual-machines/linux/add-disk.md)
+### [使用 Windows 中的快照创建作为托管磁盘存储的 VHD 的副本](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+### [使用 Linux 中的快照创建作为托管磁盘存储的 VHD 的副本](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 # 如何
 ## [创建存储帐户](storage-create-storage-account.md)
@@ -58,24 +58,20 @@
 ### [“冷”层和“热”层](storage-blob-storage-tiers.md)
 ### [自定义域](storage-custom-domain-name.md)
 ### [匿名访问 Blob](storage-manage-access-to-resources.md)
-### [示例](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)
 ## 使用队列
 ### [概念](https://msdn.microsoft.com/library/dd179353.aspx)
-### [示例](https://azure.microsoft.com/documentation/samples/?service=storage&term=queue)
 ## 使用表
 ### [概述](https://msdn.microsoft.com/library/dd179463.aspx)
 ### [表设计指南](storage-table-design-guide.md)
-### [示例](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## 使用文件
-### [概述](/rest/api/storageservices/fileservices/File-Service-Concepts)
+### [概述](https://docs.microsoft.com/rest/api/storageservices/File-Service-Concepts)
 ### [排查 Azure 文件问题](storage-troubleshoot-file-connection-problems.md)
-### [示例](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## 使用磁盘
 ### [Windows VM 的磁盘和 VHD](storage-about-disks-and-vhds-windows.md)
 ### [Linux VM 的磁盘和 VHD](storage-about-disks-and-vhds-linux.md)
 ### [Azure 托管磁盘概述](storage-managed-disks-overview.md)
-### [将 Azure VM 迁移到 Azure 托管磁盘](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
-### [从 AWS 和其他平台迁移到托管磁盘](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [将 Azure VM 迁移到 Azure 托管磁盘](../virtual-machines/windows/migrate-to-managed-disks.md)
+### [从 AWS 和其他平台迁移到托管磁盘](../virtual-machines/windows/on-prem-to-azure.md)
 ### [有关 Azure IaaS VM 磁盘的常见问题](storage-faq-for-disks.md)
 ### 高级存储
 #### [适用于 VM 磁盘的高性能高级存储](storage-premium-storage.md)
@@ -100,7 +96,7 @@
 ### [设置和检索属性及元数据](storage-properties-metadata.md)
 ## 管理
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI 2.0（预览版）](storage-azure-cli.md)
+### [Azure CLI 2.0](storage-azure-cli.md)
 ### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Azure 自动化](automation-manage-storage.md)
 ## 安全
@@ -164,24 +160,25 @@
 #### [取消和删除作业](storage-import-export-cancelling-and-deleting-jobs.md)
 #### [备份驱动器清单](storage-import-export-backing-up-drive-manifests.md)
 #### [导入/导出作业的诊断和错误恢复](storage-import-export-diagnostics-and-error-recovery.md)
-# 参考
-## [PowerShell](/powershell/storage)
-## [Azure CLI](/cli/azure/storage)
+# 引用
+## [PowerShell](https://docs.microsoft.com/powershell/module/azure.storage)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/storage)
 ## .NET
-### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
-### [数据移动](https://msdn.microsoft.com/library/azure/mt684990.aspx)
+### [Resource Manager](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.storage)
+### [数据移动](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement)
 ### [Blob、队列、表和文件](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
 ## [Ruby](http://azure.github.io/azure-storage-ruby)
+## [PHP](http://azure.github.io/azure-storage-php/)
 ## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)
 ## [C++](http://azure.github.io/azure-storage-cpp)
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Blob、队列、表和文件](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
-### [资源提供程序](/rest/api/storagerp)
-### [导入/导出](/rest/api/storageimportexport)
+### [Blob、队列、表和文件](https://docs.microsoft.com/rest/api/storageservices)
+### [资源提供程序](https://docs.microsoft.com/rest/api/storagerp)
+### [导入/导出](https://docs.microsoft.com/rest/api/storageimportexport)
 
 # 相关内容
 ## 经典门户
@@ -191,16 +188,14 @@
 ### [故障排除教程](storage-e2e-troubleshooting-classic-portal.md)
 
 # 资源
-## [价格](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [价格](https://www.azure.cn/pricing/details/storage/blobs/)
 ## [Azure 存储客户端工具](storage-explorers.md)
-## [堆栈溢出](http://stackoverflow.com/questions/tagged/windows-azure-storage)
-## [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
-## [服务更新](https://azure.microsoft.com/updates/?product=storage)
-## [视频](https://azure.microsoft.com/documentation/videos/index/?services=storage)
+
 
 ## Azure 存储资源管理器
 ### [存储资源管理器（预览版）](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [使用存储资源管理器（预览版）管理 Blob](../vs-azure-tools-storage-explorer-blobs.md)
+### [将存储资源管理器（预览版）与 Azure 文件存储配合使用](../vs-azure-tools-storage-explorer-files.md)
 
 ## NuGet 包
 ### [适用于 .NET 的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)
@@ -216,6 +211,6 @@
 ### [Java](https://github.com/Azure/azure-storage-java)
 ### [C++](https://github.com/Azure/azure-storage-cpp)
 ### [PHP](https://github.com/Azure/azure-storage-php)
-### [Ruby](https://github.com/Azure/azure-storage-ruby)
 ### [Python](https://github.com/Azure/azure-storage-python)
+### [Ruby](https://github.com/Azure/azure-storage-ruby)
 ### [iOS](https://github.com/Azure/azure-storage-ios)

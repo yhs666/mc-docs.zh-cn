@@ -1,7 +1,7 @@
 # 概述
 ## [什么是流量管理器？](traffic-manager-overview.md)
 ## [路由方法](traffic-manager-routing-methods.md)
-### [流量管理器使用的国家/地区层次结构](traffic-manager-geographic-regions.md)
+## [嵌套式流量管理器配置文件](traffic-manager-nested-profiles.md)
 ## [终结点类型](traffic-manager-endpoint-types.md)
 ## [终结点监视](traffic-manager-monitoring.md)
 ## [常见问题](traffic-manager-FAQs.md)
@@ -11,7 +11,6 @@
 
 # 如何
 
-## [配置地域路由方法](traffic-manager-configure-geographic-routing-method.md)
 ## [配置优先级路由方法](traffic-manager-configure-priority-routing-method.md)
 ## [配置加权路由方法](traffic-manager-configure-weighted-routing-method.md)
 ## [配置性能路由方法](traffic-manager-configure-performance-routing-method.md)
@@ -22,9 +21,11 @@
 ## [测量流量管理器性能](traffic-manager-performance-considerations.md)
 ## [使用 PowerShell 管理流量管理器](traffic-manager-powershell-arm.md)
 ## [将 Internet 域指向流量管理器](traffic-manager-point-internet-domain.md)
+## 故障排除
+### [排查 Azure 流量管理器中出现降级状态的问题](traffic-manager-troubleshooting-degraded.md)
 
 # 引用
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
+## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network/traffic-manager)
 ## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
