@@ -114,7 +114,7 @@ static const char* connectionString = "[device connection string]";
 
 Windows 版本的 **iothub\_client\_sample\_mqtt** 应用程序包含以下 Visual Studio 解决方案：
 
-  ![](media/iot-hub-device-sdk-c-intro/12-iothub-client-sample-mqtt.PNG)
+  ![](./media/iot-hub-device-sdk-c-intro/12-iothub-client-sample-mqtt.PNG)
 
 > [!NOTE]
 > 如果在 Visual Studio 2017 中打开此项目，请接受提示，以便将项目重新定位到最新版本。
@@ -326,7 +326,7 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
 
 [azure-iot-sdk-c 存储库](https://github.com/Azure/azure-iot-sdk-c)的 **serializer** 文件夹中有一个 **samples** 文件夹，其中包含名为 **simplesample\_mqtt** 的应用程序。 此示例的 Windows 版本包含以下 Visual Studio 解决方案：
 
-  ![](media/iot-hub-device-sdk-c-intro/14-simplesample_mqtt.PNG)
+  ![](./media/iot-hub-device-sdk-c-intro/14-simplesample_mqtt.PNG)
 
 > [!NOTE]
 > 如果在 Visual Studio 2017 中打开此项目，请接受提示，以便将项目重新定位到最新版本。

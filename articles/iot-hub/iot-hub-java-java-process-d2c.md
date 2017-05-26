@@ -13,7 +13,6 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2017
-wacn.date: 
 ms.author: dobett
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -60,13 +59,14 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 
 1. 使用文本编辑器打开 simulated-device\src\main\java\com\mycompany\app\App.java 文件。 本文件包含你在 [IoT 中心入门]教程中创建的 **simulated-device** 应用的代码。
 2. 使用以下代码替换 **MessageSender** 类：
-
+   
     ```
     private static class MessageSender implements Runnable {
 
         public void run()  {
             try {
-                double avgWindSpeed = 10; // m/s
+                double minTemperature = 20;
+                double minHumidity = 60;
                 Random rand = new Random();
 
                 while (true) {
@@ -77,10 +77,12 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
                         msg = new Message(msgStr);
                         msg.setProperty("level", "critical");
                     } else {
-                        double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
+                        double currentTemperature = minTemperature + rand.nextDouble() * 15;
+                        double currentHumidity = minHumidity + rand.nextDouble() * 20; 
                         TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
                         telemetryDataPoint.deviceId = deviceId;
-                        telemetryDataPoint.windSpeed = currentWindSpeed;
+                        telemetryDataPoint.temperature = currentTemperature;
+                        telemetryDataPoint.humidity = currentHumidity;
 
                         msgStr = telemetryDataPoint.serialize();
                         msg = new Message(msgStr);
@@ -204,7 +206,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 [Service Bus queue]: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
 [lnk-sb-queues-java]: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
 
-[Azure IoT Hub developer guide - Device to cloud]: ./iot-hub-devguide-messaging.md
+[IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
 
 [Azure 存储]: ../storage/index.md
 [Azure 服务总线]: ../service-bus/index.md
@@ -229,6 +231,6 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 
 [lnk-classic-portal]: https://manage.windowsazure.cn
 [lnk-c2d]: ./iot-hub-java-java-process-d2c.md
-[lnk-suite]: ../iot-suite/index.md
+[lnk-suite]: /documentation/services/iot-suite/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-create-an-iot-hub]: ./iot-hub-java-java-getstarted.md#create-an-iot-hub
