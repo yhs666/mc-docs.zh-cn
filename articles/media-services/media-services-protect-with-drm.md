@@ -367,9 +367,6 @@ Azure 媒体服务允许你传送受 [Microsoft PlayReady DRM](https://www.micro
 
                 // Configure PlayReady license templates.
                 string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
-
-
-
                 IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
                     _context.ContentKeyAuthorizationPolicyOptions.Create("",
                         ContentKeyDeliveryType.PlayReadyLicense,
@@ -403,8 +400,6 @@ Azure 媒体服务允许你传送受 [Microsoft PlayReady DRM](https://www.micro
 
                 // Configure PlayReady license templates.
                 string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
-
-
                 IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
                     _context.ContentKeyAuthorizationPolicyOptions.Create("Token option",
                         ContentKeyDeliveryType.PlayReadyLicense,
