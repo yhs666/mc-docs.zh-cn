@@ -85,9 +85,9 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [什么是流量管理器](./traffic-manager-overview.md)
 
-[云服务](../cloud-services/index.md)
+[云服务](/cloud-services/)
 
-[Azure Web 应用](../app-service-web/index.md)
+[Azure Web 应用](/app-service-web/)
 
 [流量管理器上的操作（REST API 参考）](https://msdn.microsoft.com/zh-cn/library/hh758255.aspx)
 
