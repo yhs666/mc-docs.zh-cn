@@ -303,8 +303,6 @@ ms.author: sedusch
 
 本文是对 SAP 安装文档和 SAP 说明的补充，这些文档代表在给定平台上安装和部署 SAP 软件的主要资源。
 
-[!INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
-
 ## 一般注意事项
 本章介绍在 Azure VM 中运行 SAP 相关 DBMS 系统的注意事项。其中很少涉及有关特定 DBMS 系统的参考信息。在本白皮书内，改在本章之后讨论特定的 DBMS 系统。
 

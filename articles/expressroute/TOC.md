@@ -37,9 +37,6 @@
 ## 为 ExpressRoute 配置路由器
 ### [路由器配置设置示例](expressroute-config-samples-routing.md)
 
-## 最佳实践
-### [网络安全和云服务最佳实践](../security/best-practices-network-security.md)
-
 ## 故障排除
 ### [验证 ExpressRoute 连接](expressroute-troubleshooting-expressroute-overview.md)
 ### [获取 ARP 表](expressroute-troubleshooting-arp-resource-manager.md)

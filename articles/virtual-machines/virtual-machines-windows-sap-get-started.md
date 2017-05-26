@@ -326,8 +326,6 @@ SAP 业务套件软件 | Windows、SUSE Linux Enterprise、Red Hat Enterprise Li
 SAP BusinessObjects BI | Windows | 不适用 | A5 至 A11、D11 至 D14、DS11 至 DS14、GS1 至 GS5 
 SAP NetWeaver | Windows、SUSE Linux Enterprise、Red Hat Enterprise Linux | SQL Server、Oracle、DB2、SAP ASE | A5 至 A11、D11 至 D14、DS11 至 DS14、GS1 至 GS5 
 
-[!INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
-
 ## 在 Azure 上开始使用 SAP HANA
 
 标题：在 Azure VM 上手动安装 SAP HANA 的快速入门指南

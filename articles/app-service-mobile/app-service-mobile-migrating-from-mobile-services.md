@@ -41,7 +41,7 @@ Microsoft 建议迁移 Azure 移动服务来利用 Azure 应用服务的各项�
 
 ## <a name="before-you-begin"></a>准备工作
 
-在站点上开始任何主要任务之前，应该先[备份移动服务]脚本和 SQL 数据库。
+在站点上开始任何主要任务之前，应该先备份移动服务脚本和 SQL 数据库。
 
 ## <a name="migrating-site"></a>迁移站点
 

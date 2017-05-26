@@ -108,7 +108,7 @@ Azure 计算服务是大型计算解决方案的核心，不同的计算服务�
 ### <a name="data-and-analysis-services"></a>数据和分析服务
 某些大型计算方案涉及到大规模数据流，或者会生成需要进一步处理或分析的数据。 Azure 提供多个数据和分析服务，包括：
 
-- [SQL 数据库](../sql-database/index.md) - 提供托管服务中 Microsoft SQL Server 关系数据库管理系统的主要功能。
+- [SQL 数据库](/sql-database/) - 提供托管服务中 Microsoft SQL Server 关系数据库管理系统的主要功能。
 - [HDInsight](../hdinsight/index.md) - 在云中部署和预配基于 Windows Server 或 Linux 的 Apache Hadoop 群集，用于管理、分析和报告大数据。
 
 ### <a name="additional-services"></a>其他服务

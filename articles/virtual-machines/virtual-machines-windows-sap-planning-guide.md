@@ -305,8 +305,6 @@ ms.author: sedusch
 本白皮书介绍 Azure 虚拟机的基础知识，并以演练的方式提供有关在 Azure 中规划和实施 SAP NetWeaver 安装的注意事项，因此，在 Azure 中实际部署 SAP NetWeaver 之前，应该先阅读本文档。
 此文是对 SAP 安装文档和 SAP 说明的补充，这些文档代表在给定平台上安装和部署 SAP 软件的主要资源。
 
-[!INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
-
 ## 摘要
 云计算是一个广泛使用的术语，它在 IT 行业（从小公司到大型跨国企业）中受到越来越多的重视。
 
