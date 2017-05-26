@@ -350,9 +350,9 @@ if (share.exists())
 若要深入了解如何创建和使用共享访问签名，请参阅[使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md)。
 
 ## <a name="next-steps"></a>后续步骤
-若要了解有关 Azure 存储空间的详细信息，请参阅以下资源：
+若要了解有关 Azure 存储的详细信息，请参阅以下资源：
 
 * [适用于 C++ 的存储客户端库](https://github.com/Azure/azure-storage-cpp)
 * [Azure Storage File Service Samples in C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)（C++ 中的 Azure 存储文件服务示例）
-* [Azure 存储空间资源管理器](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Azure 存储资源管理器](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure 存档文档](./index.md)

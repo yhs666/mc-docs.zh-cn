@@ -156,7 +156,7 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://azurestorageexplorer.codeplex.com/">Azure 存储空间资源管理器</a></td>
+    <td><a href="http://azurestorageexplorer.codeplex.com/">Azure 存储资源管理器</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>

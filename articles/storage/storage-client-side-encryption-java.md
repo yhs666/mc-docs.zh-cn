@@ -1,6 +1,6 @@
 ---
 title: "使用适用于 Microsoft Azure 存储的 Java 进行客户端加密 | Azure"
-description: "用于 Java 的 Azure 存储客户端库支持客户端加密以及与 Azure 密钥保管库集成以实现 Azure 存储空间应用程序的最佳安全性。"
+description: "用于 Java 的 Azure 存储客户端库支持客户端加密以及与 Azure 密钥保管库集成以实现 Azure 存储应用程序的最佳安全性。"
 services: storage
 documentationcenter: java
 author: lakasa
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/19/2017
 [!INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>概述
-[用于 Java 的 Azure 存储空间客户端库](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) 支持在上载到 Azure 存储空间之前加密客户端应用程序中的数据，以及在下载到客户端时解密数据。 此库还支持与 [Azure 密钥保管库](https://www.azure.cn/home/features/key-vault)集成，以便管理存储帐户密钥。
+[用于 Java 的 Azure 存储客户端库](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) 支持在上载到 Azure 存储之前加密客户端应用程序中的数据，以及在下载到客户端时解密数据。 此库还支持与 [Azure 密钥保管库](https://www.azure.cn/home/features/key-vault)集成，以便管理存储帐户密钥。
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>通过信封技术加密和解密
 加密和解密的过程遵循信封技术。  

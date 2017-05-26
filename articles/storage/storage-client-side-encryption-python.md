@@ -23,14 +23,14 @@ ms.lasthandoff: 05/19/2017
 
 ---
 
-# <a name="client-side-encryption-with-python-for-azure-storage"></a>使用适用于 Azure 存储空间的 Python 进行客户端加密
+# <a name="client-side-encryption-with-python-for-azure-storage"></a>使用适用于 Azure 存储的 Python 进行客户端加密
 [!INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>概述
-[用于 Python 的 Azure 存储空间客户端库](https://pypi.python.org/pypi/azure-storage) 支持在上载到 Azure 存储空间之前加密客户端应用程序中的数据，以及在下载到客户端时解密数据。
+[用于 Python 的 Azure 存储客户端库](https://pypi.python.org/pypi/azure-storage) 支持在上载到 Azure 存储之前加密客户端应用程序中的数据，以及在下载到客户端时解密数据。
 
 > [!NOTE]
-> Azure 存储空间 Python 库目前以预览版提供。
+> Azure 存储 Python 库目前以预览版提供。
 > 
 > 
 
