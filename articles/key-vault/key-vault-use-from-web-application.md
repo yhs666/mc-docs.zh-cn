@@ -40,7 +40,7 @@ ms.author: adhurwit
 
 要访问密钥保管库的 Web 应用程序已在 Azure Active Directory 中注册，有权访问密钥保管库。否则，请返回入门教程中的“注册应用程序”部分，并重复列出的步骤。
 
-本教程面向已了解在 Azure 上创建 Web 应用程序基本知识的 Web 开发人员。有关 Azure Web Apps 的详细信息，请参阅 [Web Apps 概述](../app-service-web/index.md)。
+本教程面向已了解在 Azure 上创建 Web 应用程序基本知识的 Web 开发人员。有关 Azure Web Apps 的详细信息，请参阅 [Web Apps 概述](/app-service-web/)。
 
 ## <a id="packages"></a>添加 NuGet 包
 需要在 Web 应用程序上安装两个包。
