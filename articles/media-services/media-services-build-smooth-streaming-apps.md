@@ -592,9 +592,8 @@ MediaElement 控件并非原本就支持平滑流式处理内容。若要启用�
 
 1. 在解决方案资源管理器中，右键单击“MainPage.xaml”，然后单击“查看代码”。
 2. 在 SSPlayer 命名空间中添加一个新类：
-        #region class Stream
-
-    ```
+    ```    
+    #region class Stream
     public class Stream
     {
         private IManifestStream stream;
