@@ -17,10 +17,10 @@ ms.date: 12/02/2016
 wacn.date: 
 ms.author: byvinyal
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 157eee600f84b93c0b9b8e1bd1a64a33293909df
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: af9e05d9e78edc06c423843b7408279c529f4645
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -34,9 +34,9 @@ ms.lasthandoff: 04/22/2017
 - 实例大小（小、中、大）
 - SKU（免费、共享、基本、标准、高级）
 
-[Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services)中的 Web 应用、移动应用、API 应用、Function App（或 Functions）均在应用服务计划中运行。  同一订阅、区域和资源组中的应用可共享应用服务计划。 
+[Azure 应用服务](/app-service-web/app-service-changes-existing-services)中的 Web 应用、移动应用、API 应用均在应用服务计划中运行。  同一订阅、区域和资源组中的应用可共享应用服务计划。 
 
-分配给**应用服务计划**的所有应用程序共享其定义的资源，这样可以通过单个应用服务计划托管多个应用，从而节省成本。
+分配到**应用服务计划**的所有应用程序将共享该计划定义的资源。 在单个应用服务计划中托管多个应用时，此共享操作可节省成本。
 
 **应用服务计划**可以从**免费**和**共享** SKU 扩展到**基本**、**标准**和 **高级** SKU，让用户随着不断的发展访问更多的资源和功能。 
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 04/22/2017
 
 这样一来，可以为应用分配新的资源集，并更好地控制应用。
 
-## <a name="create-an-app-service-plan"></a> 创建应用服务计划
+## <a name="create-an-app-service-plan"></a>创建应用服务计划
 
 可以在浏览应用服务计划或创建应用的过程中创建空的应用服务计划。
 
@@ -136,7 +136,7 @@ ms.lasthandoff: 04/22/2017
 应用服务计划表示一组可在应用间共享的功能和容量。 可以通过应用服务计划灵活地将特定应用分配给一组资源，并进一步优化 Azure 资源的使用情况。 若要节省测试环境的资金，可通过这种方式跨多个应用共享一个计划。 也可跨多个区域和计划进行伸缩，实现生产环境吞吐量的最大化。
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png

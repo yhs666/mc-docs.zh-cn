@@ -1,49 +1,43 @@
 ---
-title: "使用 MongoDB API 生成 DocumentDB Web 应用 | Azure"
-description: "使用 MongoDB 的 DocumentDB API 创建联机数据库 Web 应用的 NoSQL 教程。"
+title: "使用 Azure Cosmos DB 的 MongoDB API 构建 Web 应用 | Microsoft Docs"
+description: "使用 MongoDB 的 API 创建联机数据库 Web 应用的 Azure Cosmos DB 教程。"
 keywords: "mongodb 示例"
-services: documentdb
+services: cosmosdb
 author: AndrewHoh
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: 61a2ab3a-2fc3-4d49-a263-ed87c66628f6
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/28/2017
 wacn.date: 
 ms.author: anhoh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 8e1a8a407347a1c7e6a4967555561f5135838d49
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 00cfb2b197c1e0015f7d164f294e3abc0baf1643
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 05/19/2017
+
 
 ---
+# <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB：使用 .NET 连接到 MongoDB 应用
 
-# <a name="web-application-development-with-documentdb-api-for-mongodb"></a>使用 DocumentDB：MongoDB 的 API 开发 Web 应用程序
-> [!div class="op_single_selector"]
->- [.NET](./documentdb-dotnet-application.md)
->- [适用于 MongoDB 的 .NET](./documentdb-mongodb-application.md)
->- [Node.js](./documentdb-nodejs-application.md)
->- [Java](./documentdb-java-application.md)
->- [Python](./documentdb-python-application.md)
-
-此示例说明如何使用 .NET 生成 MongoDB Web 应用的 DocumentDB: API。
+此示例说明如何使用 .NET 生成 MongoDB Web 应用的 API。
 
 若要使用此示例，必须：
 
-- [创建](./documentdb-create-mongodb-account.md) Azure DocumentDB：MongoDB 帐户的 API。
-- 检索 MongoDB [连接字符串](./documentdb-connect-mongodb-account.md)信息。
+- [创建](documentdb-create-mongodb-account.md) Azure Cosmos DB 数据库。
+- 检索 MongoDB [连接字符串](documentdb-connect-mongodb-account.md)信息。
 
-可以参考[在 Azure 中创建连接到虚拟机上运行的 MongoDB 的 Web 应用](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md)教程（需做出少量的修改），快速设置一个连接到 DocumentDB：MongoDB 帐户的 API 的 MongoDB 应用程序（在本地或发布到 Azure Web 应用）。  
+可以参考[在 Azure 中创建连接到虚拟机上运行的 MongoDB 的 Web 应用](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md)教程（需进行少量修改），快速设置一个连接到 API for MongoDB 帐户的 MongoDB 应用程序（在本地或发布到 Azure Web 应用）。  
 
 1. 请遵循该教程，不过需要做出一项修改。  将 Dal.cs 代码替换为以下内容：
 
-    ```csharp
+    ```csharp   
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -53,14 +47,14 @@ ms.lasthandoff: 04/07/2017
     using MongoDB.Bson;
     using System.Configuration;
     using System.Security.Authentication;
-
+   
     namespace MyTaskListApp
     {
         public class Dal : IDisposable
         {
             //private MongoServer mongoServer = null;
             private bool disposed = false;
-
+   
             // To do: update the connection string with the DNS name
             // or IP address of your server. 
             //For example, "mongodb://testlinux.chinacloudapp.cn
@@ -68,18 +62,18 @@ ms.lasthandoff: 04/07/2017
             private string userName = "<your user name>";
             private string host = "<your host>";
             private string password = "<your password>";
-
+   
             // This sample uses a database named "Tasks" and a 
             //collection named "TasksList".  The database and collection 
             //will be automatically created if they don't already exist.
             private string dbName = "Tasks";
             private string collectionName = "TasksList";
-
+   
             // Default constructor.        
             public Dal()
             {
             }
-
+   
             // Gets all Task items from the MongoDB server.        
             public List<MyTask> GetAllTasks()
             {
@@ -93,7 +87,7 @@ ms.lasthandoff: 04/07/2017
                     return new List<MyTask>();
                 }
             }
-
+   
             // Creates a Task and inserts it into the collection in MongoDB.
             public void CreateTask(MyTask task)
             {
@@ -107,7 +101,7 @@ ms.lasthandoff: 04/07/2017
                     string msg = ex.Message;
                 }
             }
-
+   
             private IMongoCollection<MyTask> GetTasksCollection()
             {
                 MongoClientSettings settings = new MongoClientSettings();
@@ -115,21 +109,21 @@ ms.lasthandoff: 04/07/2017
                 settings.UseSsl = true;
                 settings.SslSettings = new SslSettings();
                 settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
-
+   
                 MongoIdentity identity = new MongoInternalIdentity(dbName, userName);
                 MongoIdentityEvidence evidence = new PasswordEvidence(password);
-
+   
                 settings.Credentials = new List<MongoCredential>()
                 {
                     new MongoCredential("SCRAM-SHA-1", identity, evidence)
                 };
-
+   
                 MongoClient client = new MongoClient(settings);
                 var database = client.GetDatabase(dbName);
                 var todoTaskCollection = database.GetCollection<MyTask>(collectionName);
                 return todoTaskCollection;
             }
-
+   
             private IMongoCollection<MyTask> GetTasksCollectionForEdit()
             {
                 MongoClientSettings settings = new MongoClientSettings();
@@ -137,10 +131,10 @@ ms.lasthandoff: 04/07/2017
                 settings.UseSsl = true;
                 settings.SslSettings = new SslSettings();
                 settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
-
+   
                 MongoIdentity identity = new MongoInternalIdentity(dbName, userName);
                 MongoIdentityEvidence evidence = new PasswordEvidence(password);
-
+   
                 settings.Credentials = new List<MongoCredential>()
                 {
                     new MongoCredential("SCRAM-SHA-1", identity, evidence)
@@ -150,15 +144,15 @@ ms.lasthandoff: 04/07/2017
                 var todoTaskCollection = database.GetCollection<MyTask>(collectionName);
                 return todoTaskCollection;
             }
-
+   
             # region IDisposable
-
+   
             public void Dispose()
             {
                 this.Dispose(true);
                 GC.SuppressFinalize(this);
             }
-
+   
             protected virtual void Dispose(bool disposing)
             {
                 if (!this.disposed)
@@ -167,10 +161,10 @@ ms.lasthandoff: 04/07/2017
                     {
                     }
                 }
-
+   
                 this.disposed = true;
             }
-
+   
             # endregion
         }
     }
@@ -178,7 +172,7 @@ ms.lasthandoff: 04/07/2017
 
 2. 根据你的帐户设置在 Dal.cs 文件中修改以下变量：
 
-    ```csharp
+    ```csharp   
     private string userName = "<your user name>";
     private string host = "<your host>";
     private string password = "<your password>";
@@ -187,4 +181,6 @@ ms.lasthandoff: 04/07/2017
 3. 应用可供使用！
 
 ## <a name="next-steps"></a>后续步骤
-- 了解如何配合 DocumentDB：MongoDB 帐户的 API [使用 MongoChef](./documentdb-mongodb-mongochef.md) 和[使用 RoboMongo](./documentdb-mongodb-robomongo.md)。
+- 了解如何配合 Azure Cosmos DB 的 API for MongoDB 帐户 [使用 MongoChef](documentdb-mongodb-mongochef.md) 和[使用 RoboMongo](documentdb-mongodb-robomongo.md)。
+
+

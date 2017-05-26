@@ -16,10 +16,10 @@ ms.date: 10/24/2016
 wacn.date: 
 ms.author: sumuth
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 08be05e302fcf18337f785fbb22c3880aea9ab53
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 201bc3ba5f607fd592bea42cba23c93fc96c4dd6
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -164,7 +164,7 @@ Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提�
 | --- | --- |
 | **设置应用服务计划模式、大小和启用缩放** |[在 Azure 应用服务中缩放 Web 应用][websitescale]。 |
 | **启用持久的数据库连接** |默认情况下，WordPress 不使用持久的数据库连接，这可能导致数据库的连接在多次连接后受到限制。 若要启用持久连接，请安装 [持久连接适配器插件](https://wordpress.org/plugins/persistent-database-connection-updater/installation/)。 |
-| **提高性能** |<ul><li><p><a href="https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">禁用 ARR Cookie</a> 可在多个 Web 应用实例上运行 WordPress 时提高性能。</p></li><li><p>启用缓存。 可将 <a href="/azure/redis-cache">Redis 缓存</a>（预览版）与 <a href="https://wordpress.org/plugins/redis-object-cache/">Redis 对象缓存 WordPress 插件</a>配合使用，或可使用 <a href="/gallery/store/">Azure 应用商店</a>中的一款其他缓存产品。</p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">使用 Wincache 加快 WordPress 的速度</a>。 默认情况下为 Web 应用启用 Wincache。</p></li><li><p>[在 Azure 应用服务中缩放 Web 应用][websitescale]并使用 <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB 高可用性路由</a>或 <a href="http://www.mysql.com/products/cluster/">MySQL 群集 CGE</a>。</p></li></ul> |
+| **提高性能** |<ul><li><p><a href="https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">禁用 ARR Cookie</a> 可在多个 Web 应用实例上运行 WordPress 时提高性能。</p></li><li><p>启用缓存。 可将 <a href="/redis-cache">Redis 缓存</a>（预览版）与 <a href="https://wordpress.org/plugins/redis-object-cache/">Redis 对象缓存 WordPress 插件</a>配合使用，或可使用 Azure 应用商店中的一款其他缓存产品。</p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">使用 Wincache 加快 WordPress 的速度</a>。 默认情况下为 Web 应用启用 Wincache。</p></li><li><p>[在 Azure 应用服务中缩放 Web 应用][websitescale]并使用 <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB 高可用性路由</a>或 <a href="http://www.mysql.com/products/cluster/">MySQL 群集 CGE</a>。</p></li></ul> |
 | **使用 blob 作为存储** |<ol><li><p>[创建 Azure 存储帐户](../storage/storage-create-storage-account.md)。</p></li><li><p>了解如何[使用内容分发网络 (CDN)][cdn] 将 blob 中存储的数据分发到各个地区。</p></li><li><p>安装并配置<a href="https://wordpress.org/plugins/windows-azure-storage/">适用于 WordPress 的 Azure 存储插件</a>。</p><p>有关该插件的详细设置和配置信息，请参阅<a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">用户指南</a>。</p> </li></ol> |
 | **启用电子邮件** | 安装 WordPress 的 <a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified">SendGrid 插件</a>。 |
 | **配置自定义域名** |[在 Azure 应用服务中配置自定义域名][customdomain]。 |
@@ -192,7 +192,7 @@ Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提�
 * [在 Azure 上支持 WordPress 的技巧](http://www.johnpapa.net/azurecleardbmysql/)
 
 ## <a name="whats-changed"></a>发生的更改
-有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)。
+有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)。
 
 <!-- URL List -->
 
@@ -210,7 +210,7 @@ Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提�
 [trafficmanager]: ../traffic-manager/traffic-manager-overview.md
 [backup]: web-sites-backup.md
 [restore]: web-sites-restore.md
-[rediscache]: /azure/redis-cache/
+[rediscache]: /redis-cache/
 [managedcache]: http://msdn.microsoft.com/library/azure/dn386122.aspx
 [websitescale]: web-sites-scale.md
 [managedcachescale]: http://msdn.microsoft.com/library/azure/dn386113.aspx
@@ -236,4 +236,4 @@ Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提�
 [posh]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [Azure CLI]:../cli-install-nodejs.md
 [storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
-[cdn]: ../cdn/cdn-overview.md
+[cdn]: /cdn/cdn-overview/
