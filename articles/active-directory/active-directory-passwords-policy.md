@@ -51,7 +51,7 @@ ms.author: curtand
 | 帐户锁定 |10 次登录尝试失败（错误密码）之后，用户会被锁定一分钟。后续的错误登录尝试会增加用户被锁定的时间。 |
 
 ## 后续步骤
-- **你是否因登录时遇到问题而浏览至此？** 如果是这样，[可按以下方式更改和重置你的密码](./active-directory-passwords-update-your-own-password.md#how-to-reset-your-password)。
+- **你是否因登录时遇到问题而浏览至此？** 如果是这样，[可更改和重置你的密码](./active-directory-passwords-update-your-own-password.md#how-to-reset-your-password)。
 - [从任意位置管理密码](./active-directory-passwords.md)
 
 <!---HONumber=Mooncake_0327_2017-->

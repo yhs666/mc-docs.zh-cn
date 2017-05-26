@@ -36,7 +36,7 @@ ms.author: femila
 
 本文重点介绍混合部署方案的要求，这种方案是将 Windows Server AD DS 或 AD FS 的一部分部署在本地，还有一部分则部署在 Azure 虚拟机上。本文首先介绍在 Azure 虚拟机上以及在本地运行 Windows Server AD DS 和 AD FS 之间的关键区别以及影响设计和部署的重要决策。本文的其余部分更详细地介绍每个决策点的准则以及如何将这些准则应用于不同的部署方案。
 
-本文不讨论如何配置 [Azure Active Directory](https://www.azure.cn/home/features/identity/) - 一种基于 REST 的服务，用于为云应用程序提供身份管理和访问控制功能。但是，Azure Active Directory (Azure AD) 和 Windows Server AD DS 旨在协同使用以为当前的混合 IT 环境和新式应用程序提供身份和访问管理解决方案。要帮助了解 Windows Server AD DS 与 Azure AD 之间的区别和关系，请设想以下情况：
+本文不讨论如何配置 [Azure Active Directory](./index.md) - 一种基于 REST 的服务，用于为云应用程序提供身份管理和访问控制功能。但是，Azure Active Directory (Azure AD) 和 Windows Server AD DS 旨在协同使用以为当前的混合 IT 环境和新式应用程序提供身份和访问管理解决方案。要帮助了解 Windows Server AD DS 与 Azure AD 之间的区别和关系，请设想以下情况：
 
 1. 使用 Azure 将本地数据中心扩展到云中时，可能在云中 Azure 虚拟机上运行 Windows Server AD DS。
 2. 你可以使用 Azure AD 允许用户单一登录到软件即服务 (SaaS) 应用程序。例如，Microsoft Office 365 使用此项技术，并且在 Azure 或其他云平台上运行的应用程序也可使用它。
@@ -168,7 +168,7 @@ Azure 也很适合替代其他情况下成本高昂的灾难恢复 (DR) 站点�
 
 在这种情况下，部署 AD FS 的高级步骤如下：
 
-1. 使用 VPN 或 [ExpressRoute](https://www.azure.cn/home/features/expressroute/) 创建提供跨界连接的虚拟网络。
+1. 使用 VPN 或 [ExpressRoute](../expressroute/index.md) 创建提供跨界连接的虚拟网络。
 2. 在虚拟网络上部署域控制器。此步骤是可选的，但建议执行。
 3. 在虚拟网络上部署已加入域的 AD FS 服务器。
 4. 创建[内部负载均衡集](http://azure.microsoft.com/blog/internal-load-balancing/)，该集包含 AD FS 服务器，并使用虚拟网络中的新专用 IP 地址（动态 IP 地址）。
