@@ -7,7 +7,7 @@
 
 # 入门
 ## [导出模板](resource-manager-export-template.md)
-## [创建第一个模板](/azure/templates/?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [创建第一个模板](resource-manager-create-first-template.md)
 ## [Visual Studio 与 Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # 如何

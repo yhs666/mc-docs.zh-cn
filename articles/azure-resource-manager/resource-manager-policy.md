@@ -62,63 +62,63 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 
 以下示例演示了一个限制资源部署位置的策略：
 
-    ```json
-    {
-      "properties": {
-        "parameters": {
-          "allowedLocations": {
-            "type": "array",
-            "metadata": {
-              "description": "The list of locations that can be specified when deploying resources",
-              "strongType": "location",
-              "displayName": "Allowed locations"
-            }
-          }
-        },
-        "displayName": "Allowed locations",
-        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
-        "policyRule": {
-          "if": {
-            "not": {
-              "field": "location",
-              "in": "[parameters('allowedLocations')]"
-            }
-          },
-          "then": {
-            "effect": "deny"
-          }
+```json
+{
+  "properties": {
+    "parameters": {
+      "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying resources",
+          "strongType": "location",
+          "displayName": "Allowed locations"
         }
       }
+    },
+    "displayName": "Allowed locations",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('allowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
     }
-    ```
+  }
+}
+```
 
 ## <a name="parameters"></a>参数
 使用参数可减少策略定义的数量，有助于简化策略管理。 为资源属性定义策略（如限制资源部署的位置），并在定义中包含参数。 然后，通过在分配策略时传递不同的值（例如为订阅指定一组位置），针对不同的方案重复使用该策略定义。
 
 在创建策略定义时声明参数。
 
-    ```json
-    "parameters": {
-      "allowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of allowed locations for resources.",
-          "displayName": "Allowed locations"
-        }
-      }
+```json
+"parameters": {
+  "allowedLocations": {
+    "type": "array",
+    "metadata": {
+      "description": "The list of allowed locations for resources.",
+      "displayName": "Allowed locations"
     }
-    ```
+  }
+}
+```
 
 参数类型可以是字符串，也可以是数组。 Azure 门户等工具使用元数据属性显示用户友好信息。 
 
 在策略规则中，使用下列语法引用参数： 
 
-    ```json
-    { 
-        "field": "location",
-        "in": "[parameters('allowedLocations')]"
-    }
-    ```
+```json
+{ 
+    "field": "location",
+    "in": "[parameters('allowedLocations')]"
+}
+```
 
 ## <a name="display-name-and-description"></a>显示名称和说明
 
@@ -128,16 +128,16 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 
 策略规则包括 **If** and **Then** 块。 在 **If** 块中，定义强制执行策略时指定的一个或多个条件。 可以对这些条件应用逻辑运算符，以精确定义策略的方案。 在 **Then** 块中，定义满足 **If** 条件时产生的效果。
 
-    ```json
-    {
-      "if" : {
-          <condition> | <logical operator>
-      },
-      "then" : {
-          "effect" : "deny | audit | append"
-      }
-    }
-    ```
+```json
+{
+  "if": {
+    <condition> | <logical operator>
+  },
+  "then": {
+    "effect": "deny | audit | append"
+  }
+}
+```
 
 ### <a name="logical-operators"></a>逻辑运算符
 支持的逻辑运算符为：
@@ -150,22 +150,22 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 
 可以嵌套逻辑运算符。 以下示例显示了嵌套在 **And** 操作中的 **Not** 操作。 
 
-    ```json
-    "if": {
-      "allOf": [
-        {
-          "not": {
-            "field": "tags",
-            "containsKey": "application"
-          }
-        },
-        {
-          "field": "type",
-          "equals": "Microsoft.Storage/storageAccounts"
-        }
-      ]
+```json
+"if": {
+  "allOf": [
+    {
+      "not": {
+        "field": "tags",
+        "containsKey": "application"
+      }
     },
-    ```
+    {
+      "field": "type",
+      "equals": "Microsoft.Storage/storageAccounts"
+    }
+  ]
+},
+```
 
 ### <a name="conditions"></a>条件
 条件评估 **字段** 是否符合特定的准则。 支持的条件有：
@@ -221,15 +221,15 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 
 对于 **append**，必须提供以下详细信息：
 
-    ```json
-    "effect": "append",
-    "details": [
-      {
-        "field": "field name",
-        "value": "value of the field"
-      }
-    ]
-    ```
+```json
+"effect": "append",
+"details": [
+  {
+    "field": "field name",
+    "value": "value of the field"
+  }
+]
+```
 
 值可以是字符串或 JSON 格式对象。 
 
@@ -246,83 +246,83 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 ### <a name="not-allowed-resource-locations"></a>不允许的资源位置
 若要指定不允许的位置，请使用以下策略定义：
 
-    ```json
-    {
-      "properties": {
-        "parameters": {
-          "notAllowedLocations": {
-            "type": "array",
-            "metadata": {
-              "description": "The list of locations that are not allowed when deploying resources",
-              "strongType": "location",
-              "displayName": "Not allowed locations"
-            }
-          }
-        },
-        "displayName": "Not allowed locations",
-        "description": "This policy enables you to block locations that your organization can specify when deploying resources.",
-        "policyRule": {
-          "if": {
-            "field": "location",
-            "in": "[parameters('notAllowedLocations')]"
-          },
-          "then": {
-            "effect": "deny"
-          }
+```json
+{
+  "properties": {
+    "parameters": {
+      "notAllowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that are not allowed when deploying resources",
+          "strongType": "location",
+          "displayName": "Not allowed locations"
         }
       }
+    },
+    "displayName": "Not allowed locations",
+    "description": "This policy enables you to block locations that your organization can specify when deploying resources.",
+    "policyRule": {
+      "if": {
+        "field": "location",
+        "in": "[parameters('notAllowedLocations')]"
+      },
+      "then": {
+        "effect": "deny"
+      }
     }
-    ```
+  }
+}
+```
 
 ### <a name="allowed-resource-types"></a>允许的资源类型
 以下示例显示只允许对 Microsoft.Resources、Microsoft.Compute、Microsoft.Storage 和 Microsoft.Network 资源类型进行部署的策略。 将拒绝其他所有资源类型：
 
-    ```json
-    {
-      "if" : {
-        "not" : {
-          "anyOf" : [
-            {
-              "field" : "type",
-              "like" : "Microsoft.Resources/*"
-            },
-            {
-              "field" : "type",
-              "like" : "Microsoft.Compute/*"
-            },
-            {
-              "field" : "type",
-              "like" : "Microsoft.Storage/*"
-            },
-            {
-              "field" : "type",
-              "like" : "Microsoft.Network/*"
-            }
-          ]
+```json
+{
+  "if": {
+    "not": {
+      "anyOf": [
+        {
+          "field": "type",
+          "like": "Microsoft.Resources/*"
+        },
+        {
+          "field": "type",
+          "like": "Microsoft.Compute/*"
+        },
+        {
+          "field": "type",
+          "like": "Microsoft.Storage/*"
+        },
+        {
+          "field": "type",
+          "like": "Microsoft.Network/*"
         }
-      },
-      "then" : {
-        "effect" : "deny"
-      }
+      ]
     }
-    ```
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
 
 ### <a name="set-naming-convention"></a>设置命名约定
 以下示例演示如何使用 **like** 条件支持的通配符。 该条件指明，如果名称符合所述模式 (namePrefix\*nameSuffix)，则拒绝请求：
 
-    ```json
-    {
-      "if" : {
-        "not" : {
-          "field" : "name",
-          "like" : "namePrefix*nameSuffix"
-        }
-      },
-      "then" : {
-        "effect" : "deny"
-      }
+```json
+{
+  "if": {
+    "not": {
+      "field": "name",
+      "like": "namePrefix*nameSuffix"
     }
-    ```
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
 
 ## <a name="next-steps"></a>后续步骤
 

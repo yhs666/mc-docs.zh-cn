@@ -37,80 +37,80 @@ ms.lasthandoff: 04/22/2017
 
 * 若要快速开始部署，请使用以下命令部署带内联参数的本地模板：
 
-        ```azurecli
-        az login
-        az account set --subscription {subscription-id}
+    ```azurecli
+    az login
+    az account set --subscription {subscription-id}
 
-        az group create --name ExampleGroup --location "China North"
-        az group deployment create \
-            --name ExampleDeployment \
-            --resource-group ExampleGroup \
-            --template-file storage.json \
-            --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
-        ```
+    az group create --name ExampleGroup --location "China North"
+    az group deployment create \
+        --name ExampleDeployment \
+        --resource-group ExampleGroup \
+        --template-file storage.json \
+        --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
+    ```
 
     部署可能需要几分钟才能完成。 完成之后，你将看到一条包含以下结果的消息：
 
-        ```azurecli
-        "provisioningState": "Succeeded",
-        ```
+    ```azurecli
+    "provisioningState": "Succeeded",
+    ```
 
 * 仅当要使用非默认订阅时，才需要 `az account set` 命令。 若要查看所有订阅及其 ID，请使用：
 
-        ```azurecli
-        az account list
-        ```
+    ```azurecli
+    az account list
+    ```
 
 * 若要部署外部模板，请使用 **template-uri** 参数：
 
-        ```azurecli
-        az group deployment create \
-            --name ExampleDeployment \
-            --resource-group ExampleGroup \
-            --template-uri "https://raw.githubusercontent.com/exampleuser/MyTemplates/master/storage.json" \
-            --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
-        ```
+    ```azurecli
+    az group deployment create \
+        --name ExampleDeployment \
+        --resource-group ExampleGroup \
+        --template-uri "https://raw.githubusercontent.com/exampleuser/MyTemplates/master/storage.json" \
+        --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
+    ```
 
 * 若要在文件中传递参数值，请使用：
 
-        ```azurecli
-        az group deployment create \
-            --name ExampleDeployment \
-            --resource-group ExampleGroup \
-            --template-file storage.json \
-            --parameters @storage.parameters.json
-        ```
+    ```azurecli
+    az group deployment create \
+        --name ExampleDeployment \
+        --resource-group ExampleGroup \
+        --template-file storage.json \
+        --parameters @storage.parameters.json
+    ```
 
     参数文件必须采用以下格式：
 
-        ```json
-        {
-            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-            "contentVersion": "1.0.0.0",
-            "parameters": {
-                "storageNamePrefix": {
-                    "value": "contoso"
-                },
-                "storageSKU": {
-                    "value": "Standard_GRS"
-                }
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "storageNamePrefix": {
+                "value": "contoso"
+            },
+            "storageSKU": {
+                "value": "Standard_GRS"
             }
         }
-        ```
+    }
+    ```
 
 
 [!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
 若要使用完整模式，请使用 mode 参数：
 
-    ```azurecli
-    az group deployment create \
-        --name ExampleDeployment \
-        --mode Complete \
-        --resource-group ExampleGroup \
-        --template-file storage.json \
-        --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
-    ```
+```azurecli
+az group deployment create \
+    --name ExampleDeployment \
+    --mode Complete \
+    --resource-group ExampleGroup \
+    --template-file storage.json \
+    --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
+```
 
 ## <a name="deploy-template-from-storage-with-sas-token"></a>使用 SAS 令牌从存储空间部署模板
 可以将模板添加到存储帐户，并在部署过程中使用 SAS 令牌链接到这些模板。
@@ -123,53 +123,53 @@ ms.lasthandoff: 04/22/2017
 ### <a name="add-private-template-to-storage-account"></a>将专用模板添加到存储帐户
 以下示例设置专用存储帐户容器并上载模板：
 
-    ```azurecli
-    az group create --name "ManageGroup" --location "China East"
-    az storage account create \
-        --resource-group ManageGroup \
-        --location "China East" \
-        --sku Standard_LRS \
-        --kind Storage \
-        --name {your-unique-name}
-    connection=$(az storage account show-connection-string \
-        --resource-group ManageGroup \
-        --name {your-unique-name} \
-        --query connectionString)
-    az storage container create \
-        --name templates \
-        --public-access Off \
-        --connection-string $connection
-    az storage blob upload \
-        --container-name templates \
-        --file vmlinux.json \
-        --name vmlinux.json \
-        --connection-string $connection
-    ```
+```azurecli
+az group create --name "ManageGroup" --location "China East"
+az storage account create \
+    --resource-group ManageGroup \
+    --location "China East" \
+    --sku Standard_LRS \
+    --kind Storage \
+    --name {your-unique-name}
+connection=$(az storage account show-connection-string \
+    --resource-group ManageGroup \
+    --name {your-unique-name} \
+    --query connectionString)
+az storage container create \
+    --name templates \
+    --public-access Off \
+    --connection-string $connection
+az storage blob upload \
+    --container-name templates \
+    --file vmlinux.json \
+    --name vmlinux.json \
+    --connection-string $connection
+```
 
 ### <a name="provide-sas-token-during-deployment"></a>在部署期间提供 SAS 令牌
 若要在存储帐户中部署专用模板，请生成 SAS 令牌，并将其包括在模板的 URI 中。 设置到期时间以允许足够的时间来完成部署。
 
-    ```azurecli
-    seconds='@'$(( $(date +%s) + 1800 ))
-    expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
-    connection=$(az storage account show-connection-string \
-        --resource-group ManageGroup \
-        --name {your-unique-name} \
-        --query connectionString)
-    token=$(az storage blob generate-sas \
-        --container-name templates \
-        --name vmlinux.json \
-        --expiry $expiretime \
-        --permissions r \
-        --output tsv \
-        --connection-string $connection)
-    url=$(az storage blob url \
-        --container-name templates \
-        --name vmlinux.json \
-        --output tsv \
-        --connection-string $connection)
-    az group deployment create --resource-group ExampleGroup --template-uri $url?$token
-    ```
+```azurecli
+seconds='@'$(( $(date +%s) + 1800 ))
+expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
+connection=$(az storage account show-connection-string \
+    --resource-group ManageGroup \
+    --name {your-unique-name} \
+    --query connectionString)
+token=$(az storage blob generate-sas \
+    --container-name templates \
+    --name vmlinux.json \
+    --expiry $expiretime \
+    --permissions r \
+    --output tsv \
+    --connection-string $connection)
+url=$(az storage blob url \
+    --container-name templates \
+    --name vmlinux.json \
+    --output tsv \
+    --connection-string $connection)
+az group deployment create --resource-group ExampleGroup --template-uri $url?$token
+```
 
 有关将 SAS 令牌与链接模板配合使用的示例，请参阅[将已链接的模版与 Azure Resource Manager 配合使用](./resource-group-linked-templates.md)。
 
@@ -177,9 +177,9 @@ ms.lasthandoff: 04/22/2017
 
 若要查看有关失败的部署操作的信息，请使用：
 
-    ```azurecli
-    az group deployment operation list --resource-group ExampleGroup --name vmlinux --query "[*].[properties.statusMessage]"
-    ```
+```azurecli
+az group deployment operation list --resource-group ExampleGroup --name vmlinux --query "[*].[properties.statusMessage]"
+```
 
 有关解决常见部署错误的提示，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](./resource-manager-common-deployment-errors.md)。
 
@@ -187,125 +187,125 @@ ms.lasthandoff: 04/22/2017
 
 以下示例显示了用于部署由[导出模板](./resource-manager-export-template.md)功能所生成模板的 Azure CLI 2.0 脚本：
 
-    ```azurecli
-    #!/bin/bash
-    set -euo pipefail
-    IFS=$'\n\t'
+```azurecli
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
 
-    # -e: immediately exit if any command has a non-zero exit status
-    # -o: prevents errors in a pipeline from being masked
-    # IFS new value is less likely to cause confusing bugs when looping arrays or     arguments (e.g. $@)
+# -e: immediately exit if any command has a non-zero exit status
+# -o: prevents errors in a pipeline from being masked
+# IFS new value is less likely to cause confusing bugs when looping arrays or     arguments (e.g. $@)
 
-    usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
+usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
 
-    declare subscriptionId=""
-    declare resourceGroupName=""
-    declare deploymentName=""
-    declare resourceGroupLocation=""
+declare subscriptionId=""
+declare resourceGroupName=""
+declare deploymentName=""
+declare resourceGroupLocation=""
 
-    # Initialize parameters specified from command line
-    while getopts ":i:g:n:l:" arg; do
-        case "${arg}" in
-            i)
-                subscriptionId=${OPTARG}
-                ;;
-            g)
-                resourceGroupName=${OPTARG}
-                ;;
-            n)
-                deploymentName=${OPTARG}
-                ;;
-            l)
-                resourceGroupLocation=${OPTARG}
-                ;;
-            esac
-    done
-    shift $((OPTIND-1))
+# Initialize parameters specified from command line
+while getopts ":i:g:n:l:" arg; do
+    case "${arg}" in
+        i)
+            subscriptionId=${OPTARG}
+            ;;
+        g)
+            resourceGroupName=${OPTARG}
+            ;;
+        n)
+            deploymentName=${OPTARG}
+            ;;
+        l)
+            resourceGroupLocation=${OPTARG}
+            ;;
+        esac
+done
+shift $((OPTIND-1))
 
-    #Prompt for parameters is some required parameters are missing
-    if [[ -z "$subscriptionId" ]]; then
-        echo "Subscription Id:"
-        read subscriptionId
-        [[ "${subscriptionId:?}" ]]
-    fi
+#Prompt for parameters is some required parameters are missing
+if [[ -z "$subscriptionId" ]]; then
+    echo "Subscription Id:"
+    read subscriptionId
+    [[ "${subscriptionId:?}" ]]
+fi
 
-    if [[ -z "$resourceGroupName" ]]; then
-        echo "ResourceGroupName:"
-        read resourceGroupName
-        [[ "${resourceGroupName:?}" ]]
-    fi
+if [[ -z "$resourceGroupName" ]]; then
+    echo "ResourceGroupName:"
+    read resourceGroupName
+    [[ "${resourceGroupName:?}" ]]
+fi
 
-    if [[ -z "$deploymentName" ]]; then
-        echo "DeploymentName:"
-        read deploymentName
-    fi
+if [[ -z "$deploymentName" ]]; then
+    echo "DeploymentName:"
+    read deploymentName
+fi
 
-    if [[ -z "$resourceGroupLocation" ]]; then
-        echo "Enter a location below to create a new resource group else skip this"
-        echo "ResourceGroupLocation:"
-        read resourceGroupLocation
-    fi
+if [[ -z "$resourceGroupLocation" ]]; then
+    echo "Enter a location below to create a new resource group else skip this"
+    echo "ResourceGroupLocation:"
+    read resourceGroupLocation
+fi
 
-    #templateFile Path - template file to be used
-    templateFilePath="template.json"
+#templateFile Path - template file to be used
+templateFilePath="template.json"
 
-    if [ ! -f "$templateFilePath" ]; then
-        echo "$templateFilePath not found"
-        exit 1
-    fi
+if [ ! -f "$templateFilePath" ]; then
+    echo "$templateFilePath not found"
+    exit 1
+fi
 
-    #parameter file path
-    parametersFilePath="parameters.json"
+#parameter file path
+parametersFilePath="parameters.json"
 
-    if [ ! -f "$parametersFilePath" ]; then
-        echo "$parametersFilePath not found"
-        exit 1
-    fi
+if [ ! -f "$parametersFilePath" ]; then
+    echo "$parametersFilePath not found"
+    exit 1
+fi
 
-    if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentName" ]; then
-    echo "Either one of subscriptionId, resourceGroupName, deploymentName is empty"
-    usage
-    fi
+if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentName" ]; then
+echo "Either one of subscriptionId, resourceGroupName, deploymentName is empty"
+usage
+fi
 
-    #login to azure using your credentials
-    az account show 1> /dev/null
+#login to azure using your credentials
+az account show 1> /dev/null
 
-    if [ $? != 0 ];
-    then
-        az login
-    fi
+if [ $? != 0 ];
+then
+    az login
+fi
 
-    #set the default subscription id
-    az account set --name $subscriptionId
+#set the default subscription id
+az account set --name $subscriptionId
 
-    set +e
+set +e
 
-    #Check for existing RG
-    az group show $resourceGroupName 1> /dev/null
+#Check for existing RG
+az group show $resourceGroupName 1> /dev/null
 
-    if [ $? != 0 ]; then
-        echo "Resource group with name" $resourceGroupName "could not be found. Creating new resource group.."
-    set -e
-    (
-        set -x
-        az resource group create --name $resourceGroupName --location $resourceGroupLocation 1> /dev/null
-    )
-    else
-    echo "Using existing resource group..."
-    fi
+if [ $? != 0 ]; then
+    echo "Resource group with name" $resourceGroupName "could not be found. Creating new resource group.."
+set -e
+(
+    set -x
+    az resource group create --name $resourceGroupName --location $resourceGroupLocation 1> /dev/null
+)
+else
+echo "Using existing resource group..."
+fi
 
-    #Start deployment
-    echo "Starting deployment..."
-    (
-        set -x
-        az resource group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file $templateFilePath --parameters $parametersFilePath
-    )
+#Start deployment
+echo "Starting deployment..."
+(
+    set -x
+    az resource group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file $templateFilePath --parameters $parametersFilePath
+)
 
-    if [ $?  == 0 ];
-     then
-        echo "Template has been successfully deployed"
-    fi
-    ```
+if [ $?  == 0 ];
+ then
+    echo "Template has been successfully deployed"
+fi
+```
 
 ## <a name="next-steps"></a>后续步骤
 * 有关通过 .NET 客户端库部署资源的示例，请参阅[使用 .NET 库和模板部署资源](../virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
