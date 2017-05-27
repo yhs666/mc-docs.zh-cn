@@ -59,13 +59,16 @@ ms.author: daleche
 
     ![SQL 数据库迁移向导 - 选择源 - 步骤 2](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/3.png)
 5. 在“选择对象”对话框中，选择“选择特定的数据库对象”选项，然后选择你想要迁移到目标服务器的表。
-![SQL 数据库迁移向导 - 选择对象](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/4.png)
+
+    ![SQL 数据库迁移向导 - 选择对象](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/4.png)
 
 6. 在“脚本向导摘要”页面中，当询问你是否准备好生成 SQL 脚本时，单击“是”。你还可以选择保存此 TSQL 脚本供以后使用。
-![SQL 数据库迁移向导 - 脚本向导摘要](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/5.png)
+
+    ![SQL 数据库迁移向导 - 脚本向导摘要](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/5.png)
 
 7. 在“结果摘要”页面上，单击“下一步”。
-![SQL 数据库迁移向导 - 结果摘要](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/6.png)
+
+    ![SQL 数据库迁移向导 - 结果摘要](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/6.png)
 
 8. 在“设置目标服务器连接”页面上，单击“连接到服务器”，然后输入详细信息，如下所示：
     - **服务器名称**：目标服务器实例
