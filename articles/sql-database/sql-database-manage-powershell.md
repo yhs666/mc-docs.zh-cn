@@ -113,7 +113,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
-有关详细信息，请参阅 [SQL 数据库选项和性能：了解每个服务层提供的功能](./sql-database-service-tiers.md)。有关示例脚本，请参阅[用于更改 SQL 数据库的服务层和性能级别的示例 PowerShell 脚本](./sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database)。
+有关详细信息，请参阅 [SQL 数据库选项和性能：了解每个服务层提供的功能](./sql-database-service-tiers.md)。有关示例脚本，请参阅[用于更改 SQL 数据库的服务层和性能级别的示例 PowerShell 脚本](./sql-database-manage-single-databases-powershell.md)。
 
 ## 如何将 SQL 数据库复制到同一台服务器？
 若要将 SQL 数据库复制到同一台服务器，请使用 [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/zh-cn/library/azure/mt603644(v=azure.300).aspx) cmdlet。将 `-CopyServerName` 和 `-CopyResourceGroupName` 设置为与源数据库服务器和资源组相同的值。
@@ -133,7 +133,7 @@ New-AzureRmSqlDatabaseCopy -DatabaseName $databaseName `
  -CopyResourceGroupName $copyResourceGroupName
 ```
 
-有关详细信息，请参阅[复制 Azure SQL 数据库](./sql-database-copy.md)。有关示例脚本，请参阅[复制 SQL 数据库 PowerShell 脚本](./sql-database-copy-powershell.md#example-powershell-script)。
+有关详细信息，请参阅[复制 Azure SQL 数据库](./sql-database-copy.md)。有关示例脚本，请参阅[复制 SQL 数据库 PowerShell 脚本](./sql-database-copy-powershell.md)。
 
 ## 如何删除 SQL 数据库？
 若要删除 SQL 数据库，请使用 [Remove-AzureRmSqlDatabase](https://msdn.microsoft.com/zh-cn/library/azure/mt619368(v=azure.300).aspx) cmdlet。资源组、服务器和数据库必须已存在于订阅中。
