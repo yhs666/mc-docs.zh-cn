@@ -71,7 +71,8 @@ Azure AD Connect 可以检查 AD FS 和 Azure Active Directory 信任的当前�
 3. 提供域管理员凭据。
    ![域管理员凭据](./media/active-directory-aadconnect-federation-management/AddNewADFSServer3.PNG)
 4. Azure AD Connect 将要求你提供在使用 Azure AD Connect 配置新的 AD FS 场时提供的 PFX 文件的密码。单击“输入密码”提供 PFX 文件的密码。
-   ![证书密码](./media/active-directory-aadconnect-federation-management/AddNewADFSServer4.PNG)
+
+	![证书密码](./media/active-directory-aadconnect-federation-management/AddNewADFSServer4.PNG)
 
     ![指定 SSL 证书](./media/active-directory-aadconnect-federation-management/AddNewADFSServer5.PNG)
 5. 在“AD FS 服务器”页上，输入要添加到 AD FS 场的服务器名称或 IP 地址。
@@ -95,7 +96,9 @@ Azure AD Connect 可以检查 AD FS 和 Azure Active Directory 信任的当前�
     ![指定 SSL 证书](./media/active-directory-aadconnect-federation-management/WapServer4.PNG)  
 
 4. 添加要用作 Web 应用程序代理的服务器。由于 Web 应用程序代理服务器可能未加入域，因此向导将要求提供正在添加的服务器的管理凭据。
-   ![管理服务器凭据](./media/active-directory-aadconnect-federation-management/WapServer5.PNG)
+
+	![管理服务器凭据](./media/active-directory-aadconnect-federation-management/WapServer5.PNG)
+
 5. 在“代理信任凭据”页上，提供管理凭据以配置代理信任并访问 AD FS 场中的主服务器。
    ![代理信任凭据](./media/active-directory-aadconnect-federation-management/WapServer6.PNG)
 6. 在“准备好配置”页上，向导显示了将执行的操作的列表。

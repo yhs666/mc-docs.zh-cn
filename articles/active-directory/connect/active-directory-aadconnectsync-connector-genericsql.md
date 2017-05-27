@@ -182,11 +182,15 @@ ms.author: billmath
 连接器提供两种方法来支持密码同步：
 
 - **存储过程**：此方法需要两个存储过程，支持设置和更改密码。按照以下示例，分别在“设置密码 SP 参数”和“更改密码 SP 参数”中键入添加和更改密码操作的所有参数。
-![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters3.png)
+
+	![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters3.png)
+
 - **密码扩展**：此方法需要密码扩展 DLL（必须提供实现 [IMAExtensible2Password](https://msdn.microsoft.com/zh-cn/library/microsoft.metadirectoryservices.imaextensible2password.aspx) 接口的扩展 DLL 名称）。密码扩展组件必须放在扩展文件夹中，连接器才可以在运行时加载 DLL。
-![globalparameters4](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters4.png)
+
+	![globalparameters4](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters4.png)
 
 你还必须在“配置扩展”页面上启用密码管理。
+
 ![globalparameters5](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters5.png)
 
 ### 配置分区和层次结构
@@ -225,7 +229,9 @@ ms.author: billmath
 - 在“联接条件”中键入“员工”与“部门”之间的联接条件，例如 `Employee.DEPTID=Department.DepartmentID`。
 ![runstep2](./media/active-directory-aadconnectsync-connector-genericsql/runstep2.png)
 
-**存储过程** ![runstep3](./media/active-directory-aadconnectsync-connector-genericsql/runstep3.png)
+**存储过程** 
+
+![runstep3](./media/active-directory-aadconnectsync-connector-genericsql/runstep3.png)
 
 - 如果有大量的数据，建议实现存储过程的分页。
 - 若要让存储过程支持分页，需要提供起始索引和结束索引。请参阅：[有效进行大量数据的分页](https://msdn.microsoft.com/zh-cn/library/bb445504.aspx)。
@@ -234,7 +240,8 @@ ms.author: billmath
 - 泛型 SQL 连接器还支持从 Microsoft SQL Server 中链接服务器的导入操作。如果要从链接的服务器中的表检索信息，则以 `[ServerName].[Database].[Schema].[TableName]` 格式提供表。
 - 泛型 SQL 连接器仅支持在运行步骤信息和架构检测之间具有类似结构（包括别名和数据类型）的对象。如果架构中选择的对象与在运行步骤提供的信息不同，则 SQL 连接器无法支持此类方案。
 
-**SQL 查询** ![runstep4](./media/active-directory-aadconnectsync-connector-genericsql/runstep4.png)
+**SQL 查询** 
+![runstep4](./media/active-directory-aadconnectsync-connector-genericsql/runstep4.png)
 
 ![runstep5](./media/active-directory-aadconnectsync-connector-genericsql/runstep5.png)  
 
@@ -265,6 +272,7 @@ ms.author: billmath
 **表/视图**如果选择“表/视图”选项，连接器将生成相应的查询来执行导出。
 
 **存储过程** 
+
 ![runstep8](./media/active-directory-aadconnectsync-connector-genericsql/runstep8.png)
 
 如果选择“存储过程”选项，则导出需要三个不同的存储过程来执行插入/更新/删除操作。
@@ -276,6 +284,7 @@ ms.author: billmath
 - 若要运行参数化存储过程，请以 `[Name]:[Direction]:[Value]` 格式提供参数。独行输入每个参数（使用 Ctrl+Enter 来换行）。
 
 **SQL 查询** 
+
 ![runstep9](./media/active-directory-aadconnectsync-connector-genericsql/runstep9.png)
 
 如果选择“SQL 查询”选项，则导出需要三个不同的查询来执行插入/更新/删除操作。

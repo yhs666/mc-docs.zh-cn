@@ -99,7 +99,9 @@ Azure AD Connect 提供了一个简单的过程来启用带直通身份验证或
 1. 打开组策略管理工具。
 2. 编辑应用到所有用户的组策略，例如“默认域策略”。
 3. 导航到“用户配置\\管理模板\\Windows 组件\\Internet Explorer\\Internet 控制面板\\安全页”，并选择“站点到区域分配列表”。
-![单一登录](./media/active-directory-aadconnect-sso/sso6.png)
+	
+	![单一登录](./media/active-directory-aadconnect-sso/sso6.png)
+
 4. 启用策略，并在对话框中输入以下值/数据。
 
     ```
@@ -108,8 +110,10 @@ Azure AD Connect 提供了一个简单的过程来启用带直通身份验证或
     Value: https://aadg.chinacloudapi.cn.nsatc.net  
     Data: 1  
     ```
+
 5. 结果如下图所示：
-![单一登录](./media/active-directory-aadconnect-sso/sso7.png)
+
+	![单一登录](./media/active-directory-aadconnect-sso/sso7.png)
 
 6. 请单击两次“确定”。
 

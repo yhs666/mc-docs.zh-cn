@@ -158,7 +158,9 @@ Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name
 Get-ADSyncConnectorRunStatus
 ```
 
-![连接器运行状态](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png) 在上图中，第一行来自同步引擎处于空闲的状态。第二行来自 Azure AD 连接器正在运行时。
+![连接器运行状态](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png) 
+
+在上图中，第一行来自同步引擎处于空闲的状态。第二行来自 Azure AD 连接器正在运行时。
 
 ## 计划程序和安装向导
 如果启动安装向导，计划程序将暂时暂停。此行为是因为它认为用户将进行配置更改，如果同步引擎正处于活动运行状态，将不能应用这些设置。出于此原因，不要让安装向导处于打开状态，因为这会使同步引擎停止执行任何同步操作。

@@ -42,6 +42,7 @@ ms.custom: H1Hack27Feb2017
 
 ### 删除 <a name="delete"></a>
 删除操作适用于两种不同的用途。
+
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
 
 “仅删除连接器空间”选项会删除所有数据，但保留所有配置。
@@ -65,7 +66,9 @@ ms.custom: H1Hack27Feb2017
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchscope.png) 
 
 例如，如果进行子树搜索，将获取某个 OU 中的所有对象。
+
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png) 
+
 可以从此处选择对象，选择“属性”，从源连接器空间到 Metaverse 再到目标连接器空间一直[跟踪对象](./active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)。
 
 ## 后续步骤

@@ -97,7 +97,8 @@ IBM Lotus Notes 客户端和 Domino 服务器使用 Notes 远程过程调用 (NR
 ### 客户端软件安装和配置
 在服务器上安装连接器**之前**，必须先安装 Lotus Notes。
 
-安装时，请务必执行“单用户安装”。默认的“多用户安装”无法进行。![Notes1](./media/active-directory-aadconnectsync-connector-domino/notes1.png)
+安装时，请务必执行“单用户安装”。默认的“多用户安装”无法进行。
+![Notes1](./media/active-directory-aadconnectsync-connector-domino/notes1.png)
 
 在功能页面上，请只安装所需的 Lotus Notes 功能和“客户端单一登录”。必须要有单一登录，连接器才能登录到 Domino 服务器。![Notes2](./media/active-directory-aadconnectsync-connector-domino/notes2.png)
 
