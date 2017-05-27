@@ -312,10 +312,10 @@ MediaElement 控件并非原本就支持平滑流式处理内容。若要启用�
     ```
 
 4. 在 **MainPage** 构造函数的末尾，添加以下行以订阅自适应源打开事件：
-
+    ```
     adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
         new AdaptiveSourceOpenedEventHandler(mediaElement\_AdaptiveSourceOpened);
-
+    ```
 5. 按 **CTRL+S** 保存文件。
 
 **添加自适应源级别事件处理程序**
@@ -519,11 +519,11 @@ MediaElement 控件并非原本就支持平滑流式处理内容。若要启用�
     ```
 
 7. 在 **MediaOpened** 方法的末尾，添加以下代码：
-
+    ```
     sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan); 
     sliderProgress.Width = mediaElement.Width; 
     setupTimer();
-
+    ```
 8. 按 **CTRL+S** 保存文件。
 
 **编译和测试应用程序**
@@ -592,9 +592,8 @@ MediaElement 控件并非原本就支持平滑流式处理内容。若要启用�
 
 1. 在解决方案资源管理器中，右键单击“MainPage.xaml”，然后单击“查看代码”。
 2. 在 SSPlayer 命名空间中添加一个新类：
-        #region class Stream
-
-    ```
+    ```    
+    #region class Stream
     public class Stream
     {
         private IManifestStream stream;

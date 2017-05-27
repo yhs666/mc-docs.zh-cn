@@ -197,8 +197,6 @@ OCR 媒体处理器的输出是一个 JSON 文件。
                     ConfigurationManager.AppSettings["MediaServicesAccountKey"];
         
         private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
-        
-        
         // Azure China uses a different API server and a different ACS Base Address from the Global.
         private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
         private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";

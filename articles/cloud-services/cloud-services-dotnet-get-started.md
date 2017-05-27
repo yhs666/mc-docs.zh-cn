@@ -34,7 +34,7 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="alternative-architecture-websites-and-webjobs"></a>替代体系结构：网站和 Web 作业
 
-本教程演示如何在 Azure 云服务中运行前端和后端。 一种替代方法是在 [Azure 网站](../app-service-web/index.md)中运行前端，并为后端使用 [WebJobs](../app-service-web/websites-webjobs-resources.md) 功能（目前以预览版提供）。 有关如何使用 WebJobs 的教程，请参阅 [Azure WebJobs SDK 入门](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)。 有关如何选择最适合你的方案的服务信息，请参阅 [Azure 网站、云服务和虚拟机比较](../app-service-web/choose-web-site-cloud-service-vm.md)。
+本教程演示如何在 Azure 云服务中运行前端和后端。 一种替代方法是在 [Azure 网站](/app-service-web/)中运行前端，并为后端使用 [WebJobs](../app-service-web/websites-webjobs-resources.md) 功能（目前以预览版提供）。 有关如何使用 WebJobs 的教程，请参阅 [Azure WebJobs SDK 入门](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)。 有关如何选择最适合你的方案的服务信息，请参阅 [Azure 网站、云服务和虚拟机比较](../app-service-web/choose-web-site-cloud-service-vm.md)。
 
 ## <a name="what-youll-learn"></a>学习内容
 
@@ -865,5 +865,5 @@ Contoso 广告应用程序有意保持入门教程的简单性。 例如，它�
 
 * [Azure 云服务的第 1 部分：简介](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction)
 * [如何管理云服务](./cloud-services-how-to-manage.md)
-* [Azure 存储空间](../storage/index.md)
+* [Azure 存储空间](/storage/)
 * [如何选择云服务提供商](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

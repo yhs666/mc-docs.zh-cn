@@ -160,7 +160,7 @@ HDInsight 群集支持以下特定于 Hadoop 生态系统的语言：
 * 最先进的 Hadoop 组件。有关详细信息，请参阅 [HDInsight 中的 Hadoop 组件、版本和服务产品][component-versioning]。
 * 群集具有高可用性和可靠性。有关详细信息，请参阅 [HDInsight 中的 Hadoop 群集的可用性和可靠性](./hdinsight-high-availability-linux.md)。
 * 使用 Azure Blob 存储，数据存储高效又经济。有关详细信息，请参阅[在 HDInsight 中将 Azure Blob 存储与 Hadoop 配合使用](./hdinsight-hadoop-use-blob-storage.md)。
-* 与其他 Azure 服务集成，包括 [Web 应用](../app-service-web/index.md)和 [SQL 数据库](../sql-database/index.md)。
+* 与其他 Azure 服务集成，包括 [Web 应用](/app-service-web/)和 [SQL 数据库](/sql-database/)。
 * 用于运行 HDInsight 群集的其他 VM 大小和类型。有关详细信息，请参阅 [HDInsight 中的 Hadoop 组件、版本和服务产品][component-versioning]。
 * 群集缩放。群集缩放使你能够更改正在运行的 HDInsight 群集的节点数，而无需删除或重新创建群集。
 * 虚拟网络支持。HDInsight 群集可用于 Azure 虚拟网络，以支持隔离云资源或将云资源与数据中心资源相链接的混合方案。
