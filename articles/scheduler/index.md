@@ -32,20 +32,6 @@ ms.author: carolz
             </div>
         </div></a>
 </li>
-    <li><a href="https://azure.microsoft.com/documentation/videos/index/?services=scheduler">
-<div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/video-library.svg" alt="" /></div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure 计划程序视频库</h3>
-                    </div>
-                </div>
-            </div>
-        </div></a>
-</li>
     <li><a href="/scheduler/scheduler-get-started-portal">
 <div class="cardSize">
             <div class="cardPadding">
