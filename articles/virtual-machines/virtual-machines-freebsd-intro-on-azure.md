@@ -40,7 +40,7 @@ Microsoft Corporation 在 Azure 上提供预先配置了 [Azure VM 来宾代理]
 至于未来版本的 FreeBSD，所采用的策略是始终进行更新，确保在 FreeBSD 版本工程团队发布最新版本后很快就可以使用这些版本。
 
 ## <a name="deploying-a-freebsd-virtual-machine"></a>部署 FreeBSD 虚拟机
-在 Azure 门户预览版中使用来自 Azure 应用商店的映像部署 FreeBSD 虚拟机是一个非常简单的过程：
+在 Azure 门户预览中使用来自 Azure 应用商店的映像部署 FreeBSD 虚拟机是一个非常简单的过程：
 
 - [Azure 应用商店中的 FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
 - [Azure 应用商店中的 FreeBSD 11.0](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
@@ -113,7 +113,7 @@ Microsoft Corporation 在 Azure 上提供预先配置了 [Azure VM 来宾代理]
 > FreeBSD VM 目前仅支持 CustomScript 1.x 版。  
 
 ## <a name="authentication-user-names-passwords-and-ssh-keys"></a>身份验证：用户名、密码和 SSH 密钥
-使用 Azure 门户预览版创建 FreeBSD 虚拟机时，必须提供用户名、密码或 SSH 公钥。
+使用 Azure 门户预览创建 FreeBSD 虚拟机时，必须提供用户名、密码或 SSH 公钥。
 在 Azure 上部署 FreeBSD 虚拟机时，用户名必须与已经存在于虚拟机中的系统帐户 (UID <100) 的名称（例如“root”）相符。
 目前仅支持 RSA SSH 密钥。 多行 SSH 密钥必须以 `---- BEGIN SSH2 PUBLIC KEY ----` 开头，以 `---- END SSH2 PUBLIC KEY ----` 结尾。
 
@@ -132,4 +132,4 @@ Microsoft Corporation 在 Azure 上提供预先配置了 [Azure VM 来宾代理]
 
 ## <a name="next-steps"></a>后续步骤
 * 转到 [Azure 应用商店](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) 创建 FreeBSD VM。
-* 如果要将自己的 FreeBSD 放入 Azure，请参阅[创建 FreeBSD VHD 并将其上载到 Azure](./virtual-machines-linux-classic-freebsd-create-upload-vhd.md)。
+* 如果要将自己的 FreeBSD 放入 Azure，请参阅[创建 FreeBSD VHD 并将其上传到 Azure](./virtual-machines-linux-classic-freebsd-create-upload-vhd.md)。

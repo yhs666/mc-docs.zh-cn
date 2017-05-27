@@ -32,7 +32,7 @@ ms.lasthandoff: 04/14/2017
 该环境包含：
 
 * 两个位于可用性集中的 VM。
-* 端口 80 上有一个带负载平衡规则的负载均衡器。
+* 端口 80 上有一个带负载均衡规则的负载均衡器。
 * 网络安全组 (NSG) 规则，阻止 VM 接受不需要的流量。
 
 ![基本环境概述](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
@@ -46,7 +46,7 @@ ms.lasthandoff: 04/14/2017
 - [Azure CLI 2.0](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="quick-commands"></a> 快速命令
-如果需要快速完成任务，请参阅以下部分，其中详细说明了用于将 VM 上载到 Azure 的基本命令。 本文档的余下部分（ [从此处开始](#detailed-walkthrough)）提供了每个步骤的更详细信息和应用背景。
+如果需要快速完成任务，请参阅以下部分，其中详细说明了用于将 VM 上传到 Azure 的基本命令。 本文档的余下部分（ [从此处开始](#detailed-walkthrough)）提供了每个步骤的更详细信息和应用背景。
 
 确保已登录 [Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 并使用 Resource Manager 模式：
 

@@ -30,7 +30,7 @@ ms.lasthandoff: 04/14/2017
 本指南将演示如何使用 Azure 表存储服务执行常见方案。 示例采用 C++ 编写，并使用了[适用于 C++ 的 Azure 存储客户端库](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 涉及的方案包括**创建和删除表**以及**使用表实体**。
 
 > [!NOTE]
-> 本指南主要面向适用于 C++ 的 Azure 存储空间客户端库 1.0.0 版及更高版本。 推荐版本：存储客户端库 2.2.0（可通过 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp/) 获得）。
+> 本指南主要面向适用于 C++ 的 Azure 存储客户端库 1.0.0 版及更高版本。 推荐版本：存储客户端库 2.2.0（可通过 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp/) 获得）。
 > 
 > 
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 04/14/2017
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>设置 Azure 存储连接字符串
-Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。 运行客户端应用程序时，必须提供以下格式的存储连接字符串。 使用 [Azure 门户预览版](https://portal.azure.cn)中列出的存储帐户的存储帐户名称和存储访问密钥作为 AccountName 和 AccountKey 值。 有关存储帐户和访问密钥的信息，请参阅[关于 Azure 存储帐户](./storage-create-storage-account.md)。 此示例演示如何声明一个静态字段以保存连接字符串：  
+Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。 运行客户端应用程序时，必须提供以下格式的存储连接字符串。 使用 [Azure 门户预览](https://portal.azure.cn)中列出的存储帐户的存储帐户名称和存储访问密钥作为 AccountName 和 AccountKey 值。 有关存储帐户和访问密钥的信息，请参阅[关于 Azure 存储帐户](./storage-create-storage-account.md)。 此示例演示如何声明一个静态字段以保存连接字符串：  
 
 ```cpp
 // Define the connection string with your values.
@@ -450,7 +450,7 @@ azure::storage::table_result delete_result = table.execute(delete_operation);
 ```
 
 ## <a name="next-steps"></a>后续步骤
-现在，你已了解表存储的基础知识，请打开以下链接了解有关 Azure 存储空间的详细信息：  
+现在，你已了解表存储的基础知识，请打开以下链接了解有关 Azure 存储的详细信息：  
 
 * [如何通过 C++ 使用 Blob 存储](storage-c-plus-plus-how-to-use-blobs.md)
 * [如何通过 C++ 使用队列存储](storage-c-plus-plus-how-to-use-queues.md)

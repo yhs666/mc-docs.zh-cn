@@ -63,14 +63,14 @@ ms.lasthandoff: 04/14/2017
 *DotNetTutorial* 代码示例是由以下两个项目组成的 Visual Studio 解决方案：**DotNetTutorial** 和 **TaskApplication**。
 
 - **DotNetTutorial** 是与 Batch 和存储服务交互，以在计算节点（虚拟机）上执行并行工作负荷的客户端应用程序。 DotNetTutorial 在本地工作站上运行。
-- **TaskApplication** 是在 Azure 中的计算节点上运行以执行实际工作的程序。 在本示例中， `TaskApplication.exe` 将分析从 Azure 存储空间下载的文件（输入文件）中的文本。 然后，它会生成一个文本文件（输出文件），其中包含出现在输入文件中的头三个单词的列表。 在创建输出文件以后，TaskApplication 会将文件上载到 Azure 存储空间。 这样该文件就可供客户端应用程序下载。 TaskApplication 在 Batch 服务中的多个计算节点上并行运行。
+- **TaskApplication** 是在 Azure 中的计算节点上运行以执行实际工作的程序。 在本示例中， `TaskApplication.exe` 将分析从 Azure 存储下载的文件（输入文件）中的文本。 然后，它会生成一个文本文件（输出文件），其中包含出现在输入文件中的头三个单词的列表。 在创建输出文件以后，TaskApplication 会将文件上传到 Azure 存储。 这样该文件就可供客户端应用程序下载。 TaskApplication 在 Batch 服务中的多个计算节点上并行运行。
 
 下图演示了客户端应用程序 *DotNetTutorial* 执行的主要操作，以及任务执行的应用程序 *TaskApplication*。 此基本工作流是通过 Batch 创建的许多计算解决方案中常见的工作流。 尽管它并未演示 Batch 服务提供的每项功能，但几乎每个 Batch 方案都包含此工作流的某些部分。
 
 ![Batch 示例工作流][8]<br/>
 
 [**步骤 1.**](#step-1-create-storage-containers) 在 Azure Blob 存储中创建**容器**。<br/>
-[**步骤 2.**](#step-2-upload-task-application-and-data-files) 将任务应用程序文件和输入文件上载到容器。<br/>
+[**步骤 2.**](#step-2-upload-task-application-and-data-files) 将任务应用程序文件和输入文件上传到容器。<br/>
 [**步骤 3.**](#step-3-create-batch-pool) 创建批处理**池**。<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**3a.** 池 **StartTask** 在节点加入池时将任务二进制文件 (TaskApplication) 下载到节点。<br/>
 [**步骤 4.**](#step-4-create-batch-job) 创建批处理**作业**。<br/>
@@ -78,7 +78,7 @@ ms.lasthandoff: 04/14/2017
   &nbsp;&nbsp;&nbsp;&nbsp;**5a.** 任务计划在节点上执行。<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** 每项任务从 Azure 存储下载其输入数据，然后开始执行。<br/>
 [**步骤 6.**](#step-6-monitor-tasks) 监视任务。<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** 当任务完成时，会将其输出数据上载到 Azure 存储。<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** 当任务完成时，会将其输出数据上传到 Azure 存储。<br/>
 [**步骤 7.**](#step-7-download-task-output) 从存储空间下载任务输出。
 
 如前所述，并非每个 Batch 解决方案都执行这些具体步骤，此类方案可能包含更多步骤，但 *DotNetTutorial* 示例应用程序将演示 Batch 方案中的常见过程。
@@ -104,11 +104,11 @@ private const string StorageAccountKey  = "";
 ```
 
 > [!IMPORTANT]
-> 如上所述，目前必须为 Azure 存储空间中的 **常规用途** 存储帐户指定凭据。 Batch 应用程序使用 **常规用途** 存储帐户中的 Blob 存储。 请不要为通过选择 *Blob 存储* 帐户类型创建的存储帐户指定凭据。
+> 如上所述，目前必须为 Azure 存储中的 **常规用途** 存储帐户指定凭据。 Batch 应用程序使用 **常规用途** 存储帐户中的 Blob 存储。 请不要为通过选择 *Blob 存储* 帐户类型创建的存储帐户指定凭据。
 >
 >
 
-可以在 [Azure 门户预览版][azure_portal]中每项服务的帐户边栏选项卡中找到批处理和存储帐户凭据：
+可以在 [Azure 门户预览][azure_portal]中每项服务的帐户边栏选项卡中找到批处理和存储帐户凭据：
 
 ![门户中的批处理凭据][9]
 ![门户中的存储凭据][10]<br/>
@@ -129,11 +129,11 @@ private const string StorageAccountKey  = "";
 ![在 Azure 存储中创建容器][1]
 <br/>
 
-Batch 包含的内置支持支持与 Azure 存储空间交互。 存储帐户中的容器将为 Batch 帐户中运行的任务提供所需的文件。 这些容器还提供存储任务生成的输出数据所需的位置。 *DotNetTutorial* 客户端应用程序首先在 [Azure Blob 存储](../storage/storage-introduction.md)中创建三个容器：
+Batch 包含的内置支持支持与 Azure 存储交互。 存储帐户中的容器将为 Batch 帐户中运行的任务提供所需的文件。 这些容器还提供存储任务生成的输出数据所需的位置。 *DotNetTutorial* 客户端应用程序首先在 [Azure Blob 存储](../storage/storage-introduction.md)中创建三个容器：
 
 - **应用程序**：此容器用于存储任务所要运行的应用程序及其依赖项，例如 DLL。
 - **输入**：任务将从 *输入* 容器下载所要处理的数据文件。
-- **输出**：当任务完成输入文件的处理时，会将其结果上载到 *输出* 容器。
+- **输出**：当任务完成输入文件的处理时，会将其结果上传到 *输出* 容器。
 
 为了与存储帐户交互并创建容器，我们使用了[用于 .NET 的 Azure 存储客户端库][net_api_storage]。 我们将创建包含 [CloudStorageAccount][net_cloudstorageaccount] 的帐户引用，并从中创建 [CloudBlobClient][net_cloudblobclient]：
 
@@ -186,18 +186,18 @@ private static async Task CreateContainerIfNotExistAsync(
 }
 ```
 
-创建容器之后，应用程序现在即可上载任务使用的文件。
+创建容器之后，应用程序现在即可上传任务使用的文件。
 
 > [!TIP]
 > [如何通过 .NET 使用 Blob 存储](../storage/storage-dotnet-how-to-use-blobs.md)对如何使用 Azure 存储容器和 Blob 做了全面的概述。 当你开始使用 Batch 时，它应该位于阅读列表顶部附近。
 >
 >
 
-## <a name="step-2-upload-task-application-and-data-files"></a>步骤 2：上载任务应用程序和数据文件
+## <a name="step-2-upload-task-application-and-data-files"></a>步骤 2：上传任务应用程序和数据文件
 ![将任务应用程序和输入（数据）文件上传到容器][2]
 <br/>
 
-在文件上载操作中，*DotNetTutorial* 先定义**应用程序**和**输入**文件在本地计算机上的路径的集合， 然后将这些文件上载到上一步骤创建的容器。
+在文件上传操作中，*DotNetTutorial* 先定义**应用程序**和**输入**文件在本地计算机上的路径的集合， 然后将这些文件上传到上一步骤创建的容器。
 
 ```csharp
 // Paths to the executable and its dependencies that will be executed by the tasks
@@ -233,10 +233,10 @@ List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
     inputFilePaths);
 ```
 
-`Program.cs` 中有两个方法涉及到上载过程：
+`Program.cs` 中有两个方法涉及到上传过程：
 
-- `UploadFilesToContainerAsync`：此方法返回 [ResourceFile][net_resourcefile] 对象的集合（下面将会介绍），并在内部调用 `UploadFileToContainerAsync` 上载在 *filePaths* 参数中传递的每个文件。
-- `UploadFileToContainerAsync`：这是实际执行文件上载并创建 [ResourceFile][net_resourcefile] 对象的方法。 上载文件后，它将获取该文件的共享访问签名 (SAS) 并返回代表它的 ResourceFile 对象。 下面也会介绍共享访问签名。
+- `UploadFilesToContainerAsync`：此方法返回 [ResourceFile][net_resourcefile] 对象的集合（下面将会介绍），并在内部调用 `UploadFileToContainerAsync` 上传在 *filePaths* 参数中传递的每个文件。
+- `UploadFileToContainerAsync`：这是实际执行文件上传并创建 [ResourceFile][net_resourcefile] 对象的方法。 上传文件后，它将获取该文件的共享访问签名 (SAS) 并返回代表它的 ResourceFile 对象。 下面也会介绍共享访问签名。
 
 ```csharp
 private static async Task<ResourceFile> UploadFileToContainerAsync(
@@ -271,7 +271,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 ```
 
 ### <a name="resourcefiles"></a>ResourceFiles
-[ResourceFile][net_resourcefile] 提供 Batch 中的任务，以及 Azure 存储空间中将在任务运行之前下载到计算节点的文件的 URL。 [ResourceFile.BlobSource][net_resourcefile_blobsource] 属性指定存在于 Azure 存储的文件的完整 URL。 该 URL 还可以包含用于对文件进行安全访问的共享访问签名 (SAS)。 Batch .NET 中的大多数任务类型都包含 *ResourceFiles* 属性，这些类型包括：
+[ResourceFile][net_resourcefile] 提供 Batch 中的任务，以及 Azure 存储中将在任务运行之前下载到计算节点的文件的 URL。 [ResourceFile.BlobSource][net_resourcefile_blobsource] 属性指定存在于 Azure 存储的文件的完整 URL。 该 URL 还可以包含用于对文件进行安全访问的共享访问签名 (SAS)。 Batch .NET 中的大多数任务类型都包含 *ResourceFiles* 属性，这些类型包括：
 
 - [CloudTask][net_task]
 - [StartTask][net_pool_starttask]
@@ -284,7 +284,7 @@ DotNetTutorial 示例应用程序不使用 JobPreparationTask 或 JobReleaseTask
 共享访问签名是一些字符串，包含为 URL 的一部分时，它们可以提供对 Azure 存储中容器和 Blob 的安全访问。 DotNetTutorial 应用程序使用 Blob 和容器共享访问签名 URL，并演示如何从存储空间服务获取这些共享访问签名字符串。
 
 - **Blob 共享访问签名**：DotNetTutorial 中池的 StartTask 在从存储空间下载应用程序二进制文件和输入数据文件时使用 Blob 共享访问签名（请参阅下面的步骤 3）。 DotNetTutorial 的 `Program.cs` 中的 `UploadFileToContainerAsync` 方法包含的代码可用于获取每个 blob 的共享访问签名。 它是通过调用 [CloudBlob.GetSharedAccessSignature][net_sas_blob] 来完成此操作的。
-- **容器共享访问签名**：每个任务在计算节点上完成其工作后，会将其输出文件上载到 Azure 存储空间中的 *输出* 容器。 为此，TaskApplication 使用容器共享访问签名，在上载文件时，该共享访问签名提供对路径中包含的容器的写访问。 获取容器共享访问签名的操作方式类似于获取 blob 共享访问签名。 在 DotNetTutorial 中，你会发现 `GetContainerSasUrl` 帮助器方法调用 [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] 来执行该操作。 你可以在下面的“步骤 6：监视任务”中详细了解 TaskApplication 如何使用容器共享访问签名。
+- **容器共享访问签名**：每个任务在计算节点上完成其工作后，会将其输出文件上传到 Azure 存储中的 *输出* 容器。 为此，TaskApplication 使用容器共享访问签名，在上传文件时，该共享访问签名提供对路径中包含的容器的写访问。 获取容器共享访问签名的操作方式类似于获取 blob 共享访问签名。 在 DotNetTutorial 中，你会发现 `GetContainerSasUrl` 帮助器方法调用 [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] 来执行该操作。 你可以在下面的“步骤 6：监视任务”中详细了解 TaskApplication 如何使用容器共享访问签名。
 
 > [!TIP]
 > 请查看有关共享访问签名的两篇系列教程的[第 1 部分：了解共享访问签名 (SAS) 模型](../storage/storage-dotnet-shared-access-signature-part-1.md)和[第 2 部分：创建共享访问签名 (SAS) 并将其用于 Blob 存储](../storage/storage-dotnet-shared-access-signature-part-2.md)，详细了解如何提供对存储帐户中数据的安全访问。
@@ -297,7 +297,7 @@ DotNetTutorial 示例应用程序不使用 JobPreparationTask 或 JobReleaseTask
 
 Batch **池** 是 Batch 执行作业任务时所在的计算节点（虚拟机）集合。
 
-将应用程序和数据文件上载到存储帐户之后， *DotNetTutorial* 将使用 Batch .NET 库开始与 Batch 服务交互。 为此，需要先创建一个 [BatchClient][net_batchclient]：
+将应用程序和数据文件上传到存储帐户之后， *DotNetTutorial* 将使用 Batch .NET 库开始与 Batch 服务交互。 为此，需要先创建一个 [BatchClient][net_batchclient]：
 
 ```csharp
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
@@ -507,7 +507,7 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 ## <a name="step-6-monitor-tasks"></a>步骤 6：监视任务
 
 ![监视任务][6]<br/>
-*客户端应用程序将会：(1) 监视任务的完成和成功状态；(2) 监视将结果数据上载到 Azure 存储的任务*
+*客户端应用程序将会：(1) 监视任务的完成和成功状态；(2) 监视将结果数据上传到 Azure 存储的任务*
 
 任务在添加到作业后，将自动排入队列并计划在与作业关联的池中的计算节点上执行。 根据你指定的设置，Batch 将为你处理所有任务排队、计划、重试和其他任务管理工作。
 
@@ -612,7 +612,7 @@ private static async Task<bool> MonitorTasks(
 
 ![从存储空间下载任务输出][7]<br/>
 
-完成作业后，可以从 Azure 存储空间下载任务的输出。 可以在 *DotNetTutorial* 的 `Program.cs` 中调用 `DownloadBlobsFromContainerAsync` 来实现此目的：
+完成作业后，可以从 Azure 存储下载任务的输出。 可以在 *DotNetTutorial* 的 `Program.cs` 中调用 `DownloadBlobsFromContainerAsync` 来实现此目的：
 
 ```csharp
 private static async Task DownloadBlobsFromContainerAsync(
@@ -707,7 +707,7 @@ if (response != "n" && response != "no")
 >
 
 ## <a name="run-the-dotnettutorial-sample"></a>运行 *DotNetTutorial* 示例
-当你运行示例应用程序时，控制台输出如下所示。 在执行期间启动池的计算节点时，你将会遇到暂停并看到 `Awaiting task completion, timeout in 00:30:00...` 。 在执行期间和之后，可以使用 [Azure 门户预览版][azure_portal] 来监视池、计算节点、作业和任务。 使用 [Azure 门户预览版][azure_portal]或 [Azure 存储资源管理器][storage_explorers]可以查看应用程序创建的存储资源（容器和 Blob）。
+当你运行示例应用程序时，控制台输出如下所示。 在执行期间启动池的计算节点时，你将会遇到暂停并看到 `Awaiting task completion, timeout in 00:30:00...` 。 在执行期间和之后，可以使用 [Azure 门户预览][azure_portal] 来监视池、计算节点、作业和任务。 使用 [Azure 门户预览][azure_portal]或 [Azure 存储资源管理器][storage_explorers]可以查看应用程序创建的存储资源（容器和 Blob）。
 
 以默认配置运行应用程序时，典型的执行时间 **大约为 5 分钟** 。
 
@@ -799,7 +799,7 @@ Sample complete, hit ENTER to exit...
 [visual_studio]: https://www.visualstudio.com/vs/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "在 Azure 存储中创建容器"
-[2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "将任务应用程序和输入（数据）文件上载到容器"
+[2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "将任务应用程序和输入（数据）文件上传到容器"
 [3]: ./media/batch-dotnet-get-started/batch_workflow_03_sm.png "创建 Batch 池"
 [4]: ./media/batch-dotnet-get-started/batch_workflow_04_sm.png "创建 Batch 作业"
 [5]: ./media/batch-dotnet-get-started/batch_workflow_05_sm.png "将任务添加到作业"

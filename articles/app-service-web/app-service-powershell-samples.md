@@ -32,7 +32,7 @@ ms.lasthandoff: 04/14/2017
 |-|-|
 |**创建应用**||
 | [从 GitHub 使用部署创建 Web 应用](./scripts/app-service-powershell-deploy-github.md)| 创建从 GitHub 拉取代码的 Azure Web 应用。 |
-| [使用 FTP 创建 Web 应用并部署代码](./scripts/app-service-powershell-deploy-ftp.md) | 使用 FTP 从本地目录创建 Azure Web 应用并上载文件。 |
+| [使用 FTP 创建 Web 应用并部署代码](./scripts/app-service-powershell-deploy-ftp.md) | 使用 FTP 从本地目录创建 Azure Web 应用并上传文件。 |
 | [从本地 Git 存储库创建 Web 应用并部署代码](./scripts/app-service-powershell-deploy-local-git.md) | 从本地 Git 存储库创建 Azure Web 应用并配置代码推送。 |
 | [创建 Web 应用并将代码部署到过渡环境](./scripts/app-service-powershell-deploy-staging-environment.md) | 使用用于暂存代码更改的部署槽创建 Azure Web 应用。 |
 |**配置应用**||

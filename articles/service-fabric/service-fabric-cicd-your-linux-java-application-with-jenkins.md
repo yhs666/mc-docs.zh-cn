@@ -113,7 +113,7 @@ bash Scripts/install.sh
 
 1. 转到 ``http://PublicIPorFQDN:8081``
 2. 在 Jenkins 仪表板中，选择“管理 Jenkins” -> “管理插件” -> “高级”。
-可以在这里上载插件。 选择“选择文件”选项，然后选择 serviceFabric.hpi 文件（已在“先决条件”部分下载）。 一旦用户选择“上载”，Jenkins 就会自动安装该插件。 如果系统请求重新启动，请允许。
+可以在这里上传插件。 选择“选择文件”选项，然后选择 serviceFabric.hpi 文件（已在“先决条件”部分下载）。 一旦用户选择“上传”，Jenkins 就会自动安装该插件。 如果系统请求重新启动，请允许。
 
 ## <a name="creating-and-configuring-a-jenkins-job"></a>创建和配置 Jenkins 作业
 

@@ -63,14 +63,14 @@ Azure CLI 1.0 可通过 npm 包、发行版提供的程序包或 Docker 容器�
           --size-in-GB 5
         ```
 
-## <a name="azure-portal-preview"></a>Azure 门户预览版
-在 [Azure 门户预览版](https://portal.azure.cn) 中可以快速创建 VM，因为不需要在系统上安装任何组件。 使用 Azure 门户预览版创建 VM：
+## <a name="azure-portal-preview"></a>Azure 门户预览
+在 [Azure 门户预览](https://portal.azure.cn) 中可以快速创建 VM，因为不需要在系统上安装任何组件。 使用 Azure 门户预览创建 VM：
 
-* [使用 Azure 门户预览版创建 Linux VM](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
-* [使用 Azure 门户预览版附加磁盘](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 Azure 门户预览创建 Linux VM](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+* [使用 Azure 门户预览附加磁盘](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="operating-system-and-image-choices"></a>操作系统和映像选项
-创建 VM 时，可根据要运行的操作系统选择映像。 Azure 及其合作伙伴提供了许多映像，其中一些映像包括预安装的应用程序和工具。 也可上载自己的某个映像（请参阅[以下部分](#use-your-own-image)）。
+创建 VM 时，可根据要运行的操作系统选择映像。 Azure 及其合作伙伴提供了许多映像，其中一些映像包括预安装的应用程序和工具。 也可上传自己的某个映像（请参阅[以下部分](#use-your-own-image)）。
 
 ### <a name="azure-images"></a>Azure 映像
 使用 `azure vm image` CLI 命令可按发布者、发行版本和内部版本查看可用内容。
@@ -114,11 +114,11 @@ azure vm image list --location ChinaNorth --publisher Canonical --offer UbuntuSe
 | UbuntuLTS |Canonical |UbuntuServer |14.04.3-LTS |最新 |
 
 ### <a name="use-your-own-image"></a> 使用自己的映像
-若要进行具体的自定义，可以通过 *捕获* 现有 Azure VM 来使用基于该 VM 的映像。 也可以上载本地创建的映像。 有关受支持的发行版以及如何使用你自己的映像的详细信息，请参阅以下文章：
+若要进行具体的自定义，可以通过 *捕获* 现有 Azure VM 来使用基于该 VM 的映像。 也可以上传本地创建的映像。 有关受支持的发行版以及如何使用你自己的映像的详细信息，请参阅以下文章：
 
 * [Azure endorsed distributions（Azure 认可的分发版）](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Information for non-endorsed distributions（有关未认可分发版的信息）](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [上载自定义磁盘映像并从其创建 Linux VM](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [上传自定义磁盘映像并从其创建 Linux VM](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [如何捕获用作 Resource Manager 模板的 Linux 虚拟机](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
     * 用于捕获现有 VM 的快速入门示例命令：

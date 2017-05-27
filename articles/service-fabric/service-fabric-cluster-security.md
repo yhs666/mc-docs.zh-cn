@@ -115,7 +115,7 @@ X.509 数字证书通常用于验证客户端与服务器，以及对消息进�
 
 
 1.  [使用 Resource Manager 模板在 Azure 中创建群集](service-fabric-cluster-creation-via-arm.md) 
-2.  [Azure 门户预览版](service-fabric-cluster-creation-via-portal.md)。
+2.  [Azure 门户预览](service-fabric-cluster-creation-via-portal.md)。
 
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png

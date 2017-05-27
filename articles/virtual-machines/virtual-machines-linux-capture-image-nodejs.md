@@ -30,7 +30,7 @@ ms.lasthandoff: 04/14/2017
 若要使用映像创建 VM，请为每个新 VM 设置网络资源，并使用模板（JavaScript 对象表示法或 JSON 文件）从捕获的 VHD 映像部署它。 这样，可以复制具有其当前软件配置的 VM，与在 Azure 应用商店中使用映像的方式类似。
 
 > [!TIP]
-> 如果要创建具有其专用备份或调试状态的现有 Linux VM 的副本，请参阅[创建在 Azure 上运行的 Linux 虚拟机的副本](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 如果要从本地 VM 上载 Linux VHD，请参阅[上载自定义磁盘映像并从其创建 Linux VM](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。  
+> 如果要创建具有其专用备份或调试状态的现有 Linux VM 的副本，请参阅[创建在 Azure 上运行的 Linux 虚拟机的副本](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 如果要从本地 VM 上传 Linux VHD，请参阅[上传自定义磁盘映像并从其创建 Linux VM](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。  
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可使用以下 CLI 版本之一完成任务：
@@ -186,7 +186,7 @@ azure network public-ip show myResourceGroup1 myPublicIP
 * 使用修改后的模板 JSON 文件，在设置虚拟网络的资源组中创建部署。
 
 ### <a name="use-a-quickstart-template"></a>使用快速入门模板
-如果要在从映像创建 VM 时自动设置网络，可在模板中指定这些资源。 有关示例，请参阅 GitHub 中的 [101-vm-from-user-image 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) 。 此模板会从你的自定义映像创建 VM 以及必要的虚拟网络、公共 IP 地址和 NIC 资源。 若要在 Azure 门户预览版中演练如何使用该模板，请参阅 [How to create a virtual machine from a custom image using a Resource Manager template](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/)（如何使用 Resource Manager 模板从自定义映像创建虚拟机）。
+如果要在从映像创建 VM 时自动设置网络，可在模板中指定这些资源。 有关示例，请参阅 GitHub 中的 [101-vm-from-user-image 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) 。 此模板会从你的自定义映像创建 VM 以及必要的虚拟网络、公共 IP 地址和 NIC 资源。 若要在 Azure 门户预览中演练如何使用该模板，请参阅 [How to create a virtual machine from a custom image using a Resource Manager template](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/)（如何使用 Resource Manager 模板从自定义映像创建虚拟机）。
 
 ### <a name="use-the-azure-vm-create-command"></a>使用 azure vm create 命令
 通常使用 Resource Manager 模板从映像创建 VM 是最简单的方法。 但是，可以使用带 **-Q** (**--image-urn**) 参数的 **azure vm create** 命令*强制*创建 VM。 如果使用此方法，还可以传递 **-d** (**--os-disk-vhd**) 参数来指定新 VM 的 OS .vhd 文件的位置。 此文件必须位于存储映像 VHD 文件的存储帐户的 vhd 容器中。 该命令自动将新 VM 的 VHD 复制到 **vhds** 容器。

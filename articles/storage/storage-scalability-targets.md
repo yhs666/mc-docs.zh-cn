@@ -53,7 +53,7 @@ ms.lasthandoff: 04/14/2017
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## <a name="scalability-targets-for-azure-resource-manager"></a>Azure 资源管理器的可伸缩性目标
+## <a name="scalability-targets-for-azure-resource-manager"></a>Azure Resource Manager 的可伸缩性目标
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ## <a name="partitions-in-azure-storage"></a>Azure 存储中的分区

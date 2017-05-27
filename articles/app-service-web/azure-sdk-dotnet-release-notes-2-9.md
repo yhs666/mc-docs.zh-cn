@@ -86,7 +86,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="hdinsight-tools"></a>HDInsight 工具
 **HDInsight 工具** 现在支持 HDInsight 3.3 版，包括显示 Tez 图形和其他语言修复。
 
-## <a name="azure-resource-manager"></a>Azure 资源管理器
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 此版本添加了对 Resource Manager 模板的[密钥保管库](../azure-resource-manager/resource-manager-keyvault-parameter.md)支持。
 
 ## <a name="see-also"></a>另请参阅

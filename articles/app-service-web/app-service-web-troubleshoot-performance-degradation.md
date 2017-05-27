@@ -1,6 +1,6 @@
 ---
 title: "应用服务中 Web 应用性能缓慢 | Azure"
-description: "本文将帮助你排查 Azure App Service 中 Web 应用性能缓慢的问题。"
+description: "本文将帮助你排查 Azure 应用服务 中 Web 应用性能缓慢的问题。"
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/14/2017
 
 
 ---
-# <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>排查 Azure App Service 中 Web 应用性能缓慢的问题
+# <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>排查 Azure 应用服务中 Web 应用性能缓慢的问题
 本文将帮助排查 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services/)中 Web 应用性能缓慢的问题。
 
 如果你对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，你也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)，并单击“**获取支持**”。
@@ -51,7 +51,7 @@ ms.lasthandoff: 04/14/2017
 
 ### <a name="observe"></a> 1.观察和监视应用程序行为
 #### <a name="track-service-health"></a>跟踪服务运行状况
-每次发生服务中断或性能下降时 Azure 会进行宣传。 可以在 [Azure 门户预览版](https://portal.azure.cn/)中跟踪服务的运行状况。 有关详细信息，请参阅[跟踪服务的运行状况](../monitoring-and-diagnostics/insights-service-health.md)。
+每次发生服务中断或性能下降时 Azure 会进行宣传。 可以在 [Azure 门户预览](https://portal.azure.cn/)中跟踪服务的运行状况。 有关详细信息，请参阅[跟踪服务的运行状况](../monitoring-and-diagnostics/insights-service-health.md)。
 
 #### <a name="monitor-your-web-app"></a>监视你的 Web 应用
 此选项可让你找出应用程序是否存在任何问题。 在 Web 应用的边栏选项卡中，单击“请求和错误”磁贴。 “指标”边栏选项卡将显示所有可以添加的指标。
@@ -78,7 +78,7 @@ ms.lasthandoff: 04/14/2017
 
 将使用 HTTP 响应代码监视运行时间，并且以毫秒为单位计算响应时间。 如果 HTTP 响应代码大于或等于 400 或响应时间超过 30 秒，则监视测试失败。 如果从所有指定的位置监视测试均成功，则终结点被视为可用。
 
-有关详细信息，请参阅[在 Azure App Service 中监视应用](web-sites-monitor.md)
+有关详细信息，请参阅[在 Azure 应用服务中监视应用](web-sites-monitor.md)
 
 另外，有关终结点监视的视频，请参阅[保持 Azure 网站运行以及终结点监视 - Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow)。
 
@@ -104,14 +104,14 @@ Web 应用环境为 Web 服务器和 Web 应用中的日志记录信息提供了
 有关如何在应用程序中配置日志记录的详细说明，请参阅[在 Azure 应用服务中启用 Web 应用的诊断日志记录](web-sites-enable-diagnostic-log.md)。
 
 #### <a name="use-remote-profiling"></a>使用远程分析
-在 Azure App Service 中，可以远程分析 Web 应用、API 应用和 WebJob。 如果进程运行速度比预期缓慢，或者 HTTP 请求的延迟高于平时并且进程的 CPU 使用率偏高，则你可以远程分析进程并获取 CPU 采样调用堆栈，以分析进程活动和代码繁忙的路径。
+在 Azure 应用服务中，可以远程分析 Web 应用、API 应用和 WebJob。 如果进程运行速度比预期缓慢，或者 HTTP 请求的延迟高于平时并且进程的 CPU 使用率偏高，则你可以远程分析进程并获取 CPU 采样调用堆栈，以分析进程活动和代码繁忙的路径。
 
 有关详细信息，请参阅 [Azure 应用服务中的远程分析支持](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service)。
 
-#### <a name="use-the-azure-app-service-support-portal"></a>使用 Azure App Service 支持门户
+#### <a name="use-the-azure-app-service-support-portal"></a>使用 Azure 应用服务支持门户
 在 Web 应用中，可通过查看 HTTP 日志、事件日志、进程转储等信息来排查与 Web 应用相关的问题。 可以使用支持门户 (**http://&lt;your app name>.scm.chinacloudsites.cn/Support**) 访问所有这些信息
 
-Azure App Service 支持门户具有三个不同的选项卡，用于支持常见故障排除方案的三个步骤：
+Azure 应用服务支持门户具有三个不同的选项卡，用于支持常见故障排除方案的三个步骤：
 
 1. 观察当前行为
 2. 通过收集诊断信息和运行内置分析器进行分析
@@ -126,7 +126,7 @@ Azure App Service 支持门户具有三个不同的选项卡，用于支持常�
 有关 Azure 应用服务支持门户的详细信息，请参阅[用于支持 Azure 网站的站点扩展的最新更新](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites)。
 
 #### <a name="use-the-kudu-debug-console"></a>使用 Kudu 调试控制台
-Web Apps 随附可用于调试、浏览和上载文件的调试控制台，以及用于获取环境相关信息的 JSON 终结点。 此控制台称为 Web 应用的 *Kudu 控制台*或 *SCM 仪表板*。
+Web Apps 随附可用于调试、浏览和上传文件的调试控制台，以及用于获取环境相关信息的 JSON 终结点。 此控制台称为 Web 应用的 *Kudu 控制台*或 *SCM 仪表板*。
 
 转到链接 **https://&lt;Your app name>.scm.chinacloudsites.cn/** 即可访问此仪表板。
 
@@ -143,7 +143,7 @@ Kudu 的另一项有用功能是，如果应用程序引发第一次异常，你
 
 ### <a name="mitigate"></a> 3.缓解问题
 #### <a name="scale-the-web-app"></a>缩放 Web 应用
-在 Azure 应用服务中，为了提高性能和吞吐量，可以调整运行应用程序的规模。 向上缩放 Web 应用涉及到两个相关操作：将 App Service 计划更改为较高的定价层，以及在切换到较高的定价层后配置特定的设置。
+在 Azure 应用服务中，为了提高性能和吞吐量，可以调整运行应用程序的规模。 向上缩放 Web 应用涉及到两个相关操作：将应用服务计划更改为较高的定价层，以及在切换到较高的定价层后配置特定的设置。
 
 有关缩放的详细信息，请参阅[缩放 Azure 应用服务中的 Web 应用](web-sites-scale.md)。
 
@@ -152,12 +152,12 @@ Kudu 的另一项有用功能是，如果应用程序引发第一次异常，你
 可以将缩放设置为手动或自动。
 
 #### <a name="use-autoheal"></a>使用 AutoHeal
-AutoHeal 会根据你选择的设置（例如配置更改、请求、基于内存的限制或执行请求所需的时间），回收应用程序的工作进程。 在大多数情况下，回收进程是在出现问题后进行恢复的最快方式。 尽管始终可以从 Azure 门户预览版直接重新启动 Web 应用，但 AutoHeal 可以自动为你执行此操作。 你只需在 Web 应用的根 web.config 中添加一些触发器即可。 请注意，即使你的应用程序并非 .Net 应用程序，这些设置的工作方式也仍然相同。
+AutoHeal 会根据你选择的设置（例如配置更改、请求、基于内存的限制或执行请求所需的时间），回收应用程序的工作进程。 在大多数情况下，回收进程是在出现问题后进行恢复的最快方式。 尽管始终可以从 Azure 门户预览直接重新启动 Web 应用，但 AutoHeal 可以自动为你执行此操作。 你只需在 Web 应用的根 web.config 中添加一些触发器即可。 请注意，即使你的应用程序并非 .Net 应用程序，这些设置的工作方式也仍然相同。
 
 有关详细信息，请参阅 [自动修复 Azure 网站](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)。
 
 #### <a name="restart-the-web-app"></a>重新启动 Web 应用
-这通常是在发生一次性问题后进行恢复的最简单方式。 [Azure 门户预览版](https://portal.azure.cn/)上的 Web 应用边栏选项卡中提供了用于停止或重新启动应用的选项。
+这通常是在发生一次性问题后进行恢复的最简单方式。 [Azure 门户预览](https://portal.azure.cn/)上的 Web 应用边栏选项卡中提供了用于停止或重新启动应用的选项。
 
  ![重新启动 Web 应用以解决性能问题](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 

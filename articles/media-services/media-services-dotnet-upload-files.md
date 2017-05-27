@@ -62,7 +62,7 @@ ms.lasthandoff: 04/14/2017
 本主题说明如何使用媒体服务.NET SDK 以及媒体服务.NET SDK 扩展将文件上传到媒体服务资产中。
 
 ## <a name="upload-a-single-file-with-media-services-net-sdk"></a>使用媒体服务 .NET SDK 上传单个文件
-以下示例代码使用 .NET SDK 上载单个文件。 AccessPolicy 和 Locator 由 Upload 函数创建和销毁。 
+以下示例代码使用 .NET SDK 上传单个文件。 AccessPolicy 和 Locator 由 Upload 函数创建和销毁。 
 
 
         static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)

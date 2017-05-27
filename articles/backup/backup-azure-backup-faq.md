@@ -63,7 +63,7 @@ ms.lasthandoff: 04/14/2017
 将 VM 从经典模式移到 Resource Manager 模式时，备份保管库中的经典 VM 恢复点不会自动迁移到恢复服务保管库中。 可以按照以下步骤传输 VM 备份：
 
 1. 在备份保管库中，转到“受保护的项”选项卡并选择 VM。 单击[停止保护](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)。 将“ *删除关联的备份数据* ”选项保留为 **取消选中**状态。
-2. 将虚拟机从经典模式迁移到资源管理器模式。 确保与虚拟机对应的存储和网络信息也已迁移到 Resource Manager 模式。
+2. 将虚拟机从经典模式迁移到 Resource Manager 模式。 确保与虚拟机对应的存储和网络信息也已迁移到 Resource Manager 模式。
 3. 创建一个恢复服务保管库，并使用保管库仪表板顶部的“备份”操作在迁移的虚拟机上配置备份。 
 
 

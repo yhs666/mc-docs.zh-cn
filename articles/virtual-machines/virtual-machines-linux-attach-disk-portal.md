@@ -1,6 +1,6 @@
 ---
 title: "将数据磁盘附加到 Linux VM | Azure"
-description: "如何使用 Resource Manager 部署模型在 Azure 门户预览版中将新数据磁盘或现有数据磁盘附加到 Linux VM。"
+description: "如何使用 Resource Manager 部署模型在 Azure 门户预览中将新数据磁盘或现有数据磁盘附加到 Linux VM。"
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -24,8 +24,8 @@ ms.lasthandoff: 04/14/2017
 
 
 ---
-# <a name="how-to-attach-a-data-disk-to-a-linux-vm-in-the-azure-portal-preview"></a>如何在 Azure 门户预览版中将数据磁盘附加到 Linux VM
-本文介绍如何通过 Azure 门户预览版将新磁盘和现有磁盘附加到 Linux 虚拟机。 还可以[在 Azure 门户预览版中将数据磁盘附加到 Windows VM](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 可以选择使用 Azure 托管磁盘或非托管磁盘。 托管磁盘由 Azure 平台处理，无需任何准备或位置来存储它们。 非托管磁盘需要存储帐户，且存在一些[适用的配额和限制](../azure-subscription-service-limits.md#storage-limits)。 有关 Azure 托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../storage/storage-managed-disks-overview.md)。
+# <a name="how-to-attach-a-data-disk-to-a-linux-vm-in-the-azure-portal-preview"></a>如何在 Azure 门户预览中将数据磁盘附加到 Linux VM
+本文介绍如何通过 Azure 门户预览将新磁盘和现有磁盘附加到 Linux 虚拟机。 还可以[在 Azure 门户预览中将数据磁盘附加到 Windows VM](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 可以选择使用 Azure 托管磁盘或非托管磁盘。 托管磁盘由 Azure 平台处理，无需任何准备或位置来存储它们。 非托管磁盘需要存储帐户，且存在一些[适用的配额和限制](../azure-subscription-service-limits.md#storage-limits)。 有关 Azure 托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../storage/storage-managed-disks-overview.md)。
 
 将磁盘附加到 VM 前，请查看以下提示：
 

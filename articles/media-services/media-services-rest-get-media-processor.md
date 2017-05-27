@@ -36,7 +36,7 @@ ms.lasthandoff: 04/14/2017
 
 | 媒体处理器名称 | 说明 | 更多信息 |
 | --- | --- | --- |
-| 媒体编码器标准版 |为按需编码提供标准功能。 |[简要介绍并比较 Azure 按需媒体编码器](media-services-encode-asset.md) |
+| Media Encoder Standard |为按需编码提供标准功能。 |[简要介绍并比较 Azure 点播媒体编码器](media-services-encode-asset.md) |
 | Azure Media Indexer |使媒体文件和内容可搜索，以及生成隐藏字幕跟踪和关键字。 |[Azure Media Indexer](media-services-index-content.md) |
 | Azure Media Hyperlapse（预览） |使你能够通过视频防抖动功能消除视频中的“晃动”。 也可使将内容制作为可用剪辑的速度加快。 |[Azure Media Hyperlapse](media-services-hyperlapse-content.md) |
 | Azure Media Encoder |已放弃 | |

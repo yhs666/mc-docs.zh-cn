@@ -27,7 +27,7 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="contoso-ads-application"></a>Contoso 广告应用程序
 
-该应用程序是广告公告板。 用户通过输入文本和上载图像创建一个广告。 它们可以通过缩略图查看一个广告列表，当用户选择广告以查看详细信息时，它们可以查看完整尺寸的图像。
+该应用程序是广告公告板。 用户通过输入文本和上传图像创建一个广告。 它们可以通过缩略图查看一个广告列表，当用户选择广告以查看详细信息时，它们可以查看完整尺寸的图像。
 
 ![广告列表](./media/cloud-services-dotnet-get-started/list.png)
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 04/14/2017
 
 ![广告表](./media/cloud-services-dotnet-get-started/adtable.png)
 
-当用户上载一个图像时，Web 角色中运行的前端在 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)中存储图像，并将广告信息存储在带有指向 Blob 的 URL 的数据库中。 同时，它将一条消息写入 Azure 队列。 在辅助角色中定期运行的后端进程轮询队列是否有新消息。 显示新消息时，辅助角色将创建该图像的缩略图，并为该广告更新缩略图 URL 数据库字段。 下图演示了应用程序各部分之间如何交互：
+当用户上传一个图像时，Web 角色中运行的前端在 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)中存储图像，并将广告信息存储在带有指向 Blob 的 URL 的数据库中。 同时，它将一条消息写入 Azure 队列。 在辅助角色中定期运行的后端进程轮询队列是否有新消息。 显示新消息时，辅助角色将创建该图像的缩略图，并为该广告更新缩略图 URL 数据库字段。 下图演示了应用程序各部分之间如何交互：
 
 ![Contoso 广告体系结构](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 04/14/2017
 
 2. 单击“创建广告”。
 
-2. 输入一些测试数据并选择一个要上载的 *.jpg* 图像，然后单击“创建”。
+2. 输入一些测试数据并选择一个要上传的 *.jpg* 图像，然后单击“创建”。
 
     ![创建页面](./media/cloud-services-dotnet-get-started/create.png)
 
@@ -630,7 +630,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-大部分控制器代码通常用于使用 DbContext 类的实体框架数据模型。 例外情况是 HttpPost `Create` 方法，它上载文件并将其保存在 Blob 存储中。 模型联编程序为该方法提供一个 [HttpPostedFileBase](http://msdn.microsoft.com/zh-cn/library/system.web.httppostedfilebase.aspx) 对象。
+大部分控制器代码通常用于使用 DbContext 类的实体框架数据模型。 例外情况是 HttpPost `Create` 方法，它上传文件并将其保存在 Blob 存储中。 模型联编程序为该方法提供一个 [HttpPostedFileBase](http://msdn.microsoft.com/zh-cn/library/system.web.httppostedfilebase.aspx) 对象。
 
 ```csharp
 [HttpPost]
@@ -640,7 +640,7 @@ public async Task<ActionResult> Create(
     HttpPostedFileBase imageFile)
 ```
 
-如果用户选择要上载的文件，则代码上载该文件，将其保存在 Blob 中，并使用指向 Blob 的 URL 更新广告数据库记录。
+如果用户选择要上传的文件，则代码上传该文件，将其保存在 Blob 中，并使用指向 Blob 的 URL 更新广告数据库记录。
 
 ```csharp
 if (imageFile != null && imageFile.ContentLength != 0)
@@ -650,7 +650,7 @@ if (imageFile != null && imageFile.ContentLength != 0)
 }
 ```
 
-执行上载的代码位于 `UploadAndSaveBlobAsync` 方法中。 它将创建 Blob 的 GUID 名称，上载和保存该文件，并将引用返回已保存的 Blob。
+执行上传的代码位于 `UploadAndSaveBlobAsync` 方法中。 它将创建 Blob 的 GUID 名称，上传和保存该文件，并将引用返回已保存的 Blob。
 
 ```csharp
 private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
@@ -665,7 +665,7 @@ private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase ima
 }
 ```
 
-之后 HttpPost `Create` 方法上载 Blob 并更新数据库，它会创建队列消息，以通知后端进程图像已准备好转换为一个缩略图。
+之后 HttpPost `Create` 方法上传 Blob 并更新数据库，它会创建队列消息，以通知后端进程图像已准备好转换为一个缩略图。
 
 ```csharp
 string queueMessageString = ad.AdId.ToString();
@@ -866,5 +866,5 @@ Contoso 广告应用程序有意保持入门教程的简单性。 例如，它�
 
 * [Azure 云服务的第 1 部分：简介](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction)
 * [如何管理云服务](./cloud-services-how-to-manage.md/)
-* [Azure 存储空间](../storage/index.md)
+* [Azure 存储](../storage/index.md)
 * [如何选择云服务提供商](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

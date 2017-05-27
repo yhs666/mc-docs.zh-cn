@@ -32,13 +32,13 @@ ms.lasthandoff: 04/14/2017
 该环境包含：
 
 * 两个位于可用性集中的 VM。
-* 端口 80 上有一个带负载平衡规则的负载均衡器。
+* 端口 80 上有一个带负载均衡规则的负载均衡器。
 * 网络安全组 (NSG) 规则，阻止 VM 接受不需要的流量。
 
 ![基本环境概述](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
 ## <a name="quick-commands"></a>快速命令
-如果需要快速完成任务，请参阅以下部分，其中详细说明了用于将 VM 上载到 Azure 的基本命令。 本文档的余下部分（ [从此处开始](#detailed-walkthrough)）提供了每个步骤的更详细信息和应用背景。
+如果需要快速完成任务，请参阅以下部分，其中详细说明了用于将 VM 上传到 Azure 的基本命令。 本文档的余下部分（ [从此处开始](#detailed-walkthrough)）提供了每个步骤的更详细信息和应用背景。
 
 在以下示例中，请将示例参数名称替换为自己的值。 示例参数名称包括 `myResourceGroup`、`mystorageaccount` 和 `myVM`。
 
@@ -410,7 +410,7 @@ az network public-ip create --resource-group myResourceGroup --location chinanor
 公共 IP 地址资源已经以逻辑方式分配，但尚未分配有特定地址。 若要获取 IP 地址，需要一个负载均衡器，但该负载均衡器尚未创建。
 
 ## <a name="create-a-load-balancer-and-ip-pools"></a>创建负载均衡器和 IP 池
-创建负载均衡器时，可以将流量分散到多个 VM。 负载平衡器还可以在执行维护或承受重负载时运行多个 VM 来响应用户请求，为应用程序提供冗余。 以下示例使用 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) 创建一个名为 `myLoadBalancer` 的负载均衡器、一个名为 `myFrontEndPool` 的前端 IP 池，并挂接 `myPublicIP` 资源：
+创建负载均衡器时，可以将流量分散到多个 VM。 负载均衡器还可以在执行维护或承受重负载时运行多个 VM 来响应用户请求，为应用程序提供冗余。 以下示例使用 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) 创建一个名为 `myLoadBalancer` 的负载均衡器、一个名为 `myFrontEndPool` 的前端 IP 池，并挂接 `myPublicIP` 资源：
 
 ```azurecli
 az network lb create --resource-group myResourceGroup --location chinanorth \
