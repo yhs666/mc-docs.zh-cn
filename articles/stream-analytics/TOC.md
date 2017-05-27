@@ -50,7 +50,7 @@
 ## [REST](/rest/api/streamanalytics)
 
 # 资源
-## [发行说明](stream-analytics-release-notes.md)
+<!-- Not Available ## [发行说明](stream-analytics-release-notes.md) -->
 ## [学习路径](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
 ## [价格](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [博客](http://blogs.msdn.com/b/streamanalytics/)
