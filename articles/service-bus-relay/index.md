@@ -3,10 +3,10 @@ layout: LandingPage
 title: "服务总线中继文档"
 description: "了解 Azure 中继服务在混合云与本地环境中的工作方式，获取完整的操作指南、教程、视频、API 参考和其他信息。"
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 8396bc009707ff9d1dcd37f91cc4eec90ae79a3a
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: eaa3109e8be29886ab304d44fd73b1cad6e55d7d
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="service-bus-relay-documentation"></a>服务总线中继文档
@@ -130,18 +130,6 @@ ms.lasthandoff: 05/12/2017
                         <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.relay">Microsoft.Azure.Relay</a></p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>其他</h3>
-                        <p><a href="service-bus-relay-port-settings.md">端口设置</a></p>
-                   </div>
                 </div>
             </div>
         </div>

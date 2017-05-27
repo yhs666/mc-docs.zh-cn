@@ -19,9 +19,6 @@
 ### [使用诊断 VM 扩展监视 VM](diagnostic-extension.md)
 ### [注入自定义数据](inject-custom-data.md)
 ### [重置 Linux 密码或密钥、修复 SSH 并检查磁盘](reset-access.md)
-### [使用 CLI 创建 Docker 主机](cli-use-docker.md)
-### [使用门户创建 Docker 主机](portal-use-docker.md)
-### [如何将 Docker 与 Swarm 一起使用](../../virtual-machines-linux-docker-swarm.md)
 
 ## 使用存储
 ### [附加数据磁盘](attach-disk.md)
@@ -37,7 +34,6 @@
 ### [Oracle VM 映像列表](oracle-images.md)
 
 ## 管理工作负荷
-### [SAP](sap-get-started.md)
 ### MySQL 和 MariaDB
 #### [MariaDB 群集教程](mariadb-mysql-cluster.md)
 #### [在 OpenSUSE VM 上安装 MySQL](mysql-on-opensuse.md)
@@ -50,22 +46,14 @@
 ### [LAMP 堆栈](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)
 ### [使用 Visual Studio 编写的 Web 应用程序](web-app-visual-studio.md)
-### [用于运行 MPI 应用程序的 RDMA 群集](rdma-cluster.md)
 ### [如何在 Hudson CI 中使用 Azure 从属插件](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-## HPC Pack
-### [用于运行 MPI 应用的 Windows RDMA 群集](hpcpack-cluster.md)
-### [使用 HPC Pack IaaS 部署脚本管理 HPC 群集](hpcpack-cluster-starccm.md)
-### [管理计算节点的数量和可用性](hpcpack-cluster-powershell-script.md)
-### [添加按需节点](hpcpack-cluster-openfoam.md)
-### [自动缩放资源](hpcpack-cluster-namd.md)
 
 ## 故障排除
 ### [VM 部署](troubleshoot-deployment-new-vm.md)
 ### [重启 VM 或调整其大小](restart-resize-error-troubleshooting.md)
 
 # 引用
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [创建 Resource Manager 模板](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -26,7 +26,6 @@
 
 ## [管理 Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [续订 O365 和 Azure AD 的证书](active-directory-aadconnect-o365-certs.md)
-### [启用设备写回](active-directory-aadconnect-feature-device-writeback.md)
 ### [用户登录选项](active-directory-aadconnect-user-signin.md)
 ### [联合的多域支持](active-directory-aadconnect-multiple-domains.md)
 ### [自动升级](active-directory-aadconnect-feature-automatic-upgrade.md)
@@ -80,7 +79,6 @@
 
 
 # 相关内容
-## [在云中监视本地标识基础结构和同步服务](../connect-health/active-directory-aadconnect-health.md)
 ## [混合标识设计指南](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 

@@ -16,10 +16,10 @@ ms.date: 01/12/2016
 wacn.date: 
 ms.author: cephalin;riande
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 1a338f3b908dbd9dd9f8abe87fd385389d89c890
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 0840fcd13f4cebaee723877f436dc57d8681ed74
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -544,7 +544,7 @@ Bootstrap [链接列表组][linked list group] 样式使每个链接的整个框
 * [用于媒体查询的 W3C 候选建议方案][W3C Candidate Recommendation for media queries]
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!-- Internal Links -->
 [Deploy the starter project to an Azure web app]: #bkmk_DeployStarterProject

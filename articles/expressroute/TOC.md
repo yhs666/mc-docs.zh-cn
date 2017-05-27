@@ -11,8 +11,6 @@
 ## [先决条件](expressroute-prerequisites.md)
 ## [路由要求](expressroute-routing.md)
 ## [优化路由](expressroute-optimize-routing.md)
-## [NAT 要求](expressroute-nat.md)
-## [QoS 要求](expressroute-qos.md)
 ## [将线路从经典部署转移到 Resource Manager 部署](expressroute-move.md)
 ## [ExpressRoute 的虚拟网关](expressroute-about-virtual-network-gateways.md)
 
@@ -38,7 +36,6 @@
 ## [将线路从经典部署迁移到 Resource Manager 部署](expressroute-howto-move-arm.md)
 ## 为 ExpressRoute 配置路由器
 ### [路由器配置设置示例](expressroute-config-samples-routing.md)
-### [NAT 的路由器配置示例](expressroute-config-samples-nat.md)
 
 ## 最佳实践
 ### [网络安全和云服务最佳实践](../best-practices-network-security.md)

@@ -4,17 +4,19 @@ description:
 keywords: 
 author: jeffgilb
 manager: femila
-ms.date: 3/28/2017
+ms.date: 5/1/2017
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
+wacn.date: 
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: f837b002ef2f7f4648b76f6eb0550f09172bb197
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 65d9b4a4d6905099dfd134f85f93f6a963114f32
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 05/26/2017
+
 
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Azure 标识管理基础知识
@@ -33,7 +35,7 @@ Microsoft 不仅提供各处通用的标识，而且提供一套可以在组织�
 
 如果只需记住单一用户名和密码且所有设备的体验是一致的，则员工的工作效率更高。 另外，如果能够执行自助任务，例如，如果能够[重置遗忘的密码](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)或请求访问某个应用程序而不需等待支持人员的帮助，则还可节省时间。
 
-Azure AD [将本地 Active Directory 扩展](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)到云，让用户不仅能够将主要组织帐户用于已加入域的设备和公司资源，而且还能用于完成作业所需的全部 Web 和 SaaS 应用程序。 用户除了无需记忆多组用户名和密码，还可根据其组织的组成员身份和身为员工的状态，自动预配（或取消预配）其应用程序访问权限。
+Azure AD [将本地 Active Directory 扩展](connect/active-directory-aadconnect.md)到云，让用户不仅能够将主要组织帐户用于已加入域的设备和公司资源，而且还能用于完成作业所需的全部 Web 和 SaaS 应用程序。 用户除了无需记忆多组用户名和密码，还可根据其组织的组成员身份和身为员工的状态，自动预配（或取消预配）其应用程序访问权限。 
 
 ## <a name="manage-and-control-access-to-corporate-resources"></a>管理和控制对公司资源的访问
 Microsoft 标识和访问管理解决方案可帮助 IT 部门保护对企业数据中心和云中的应用程序和资源的访问，从而支持附加的验证级别，比如[多重身份验证](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next)。

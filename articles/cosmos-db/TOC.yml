@@ -244,8 +244,6 @@
         href: ../documentdb/documentdb-manage-account-with-powershell.md
     - name: “安全”
       items:
-      - name: 静态加密
-        href: ../documentdb/documentdb-nosql-database-encryption-at-rest.md
       - name: 防火墙支持
         href: ../documentdb/documentdb-firewall-support.md
   - name: 集成
@@ -254,20 +252,10 @@
       href: ../documentdb/documentdb-spark-connector.md
     - name: 使用 Azure 应用服务部署网站
       href: ../documentdb/documentdb-create-documentdb-website.md
-    - name: 使用逻辑应用进行应用程序日志记录
-      href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
-    - name: 绑定到 Azure Functions
-      href: ../azure-functions/functions-bindings-documentdb.md
     - name: 使用 Hadoop 分析数据
       href: ../documentdb/documentdb-run-hadoop-with-hdinsight.md
-    - name: 与 Azure 搜索集成
-      href: ../search/search-howto-index-documentdb.md
-    - name: 使用 Azure 数据工厂移动数据
-      href: ../data-factory/data-factory-azure-documentdb-connector.md
     - name: 使用 Azure 流分析分析实时数据
       href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
-    - name: 使用逻辑应用获取更改的 HL7 FHIR 记录
-      href: ../documentdb/documentdb-change-feed-hl7-fhir-logic-apps.md
     - name: 实时处理传感器数据
       href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
     - name: 使用 Power BI 直观显示数据

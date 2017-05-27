@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
+wacn.date: 
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 9c89e845bb716e811c51adbb27aae7efb1c40db5
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: c258b00bc7641714a5d80e7a3f524e1b5cc36856
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="selectable-verification-methods"></a>可选择的验证方法
 可以选择用户可以使用哪些验证方法。 下表提供了每种方法的简要概述。
 
-当用户注册 MFA 帐户时，可以选择除已启用的选项以外的首选验证方法。 [设置我的双重验证帐户](multi-factor-authentication-end-user-first-time.md)中介绍了注册过程指导
+当用户注册 MFA 帐户时，可以选择除已启用的选项以外的首选验证方法。 [设置我的双重验证帐户](./end-user/multi-factor-authentication-end-user-first-time.md)中介绍了注册过程指导
 
 | 方法 | 说明 |
 |:--- |:--- |
@@ -51,4 +52,3 @@ ms.lasthandoff: 04/14/2017
    ![验证选项](./media/multi-factor-authentication-whats-next/authmethods.png)
 7. 单击“保存” 。
 8. 单击“**关闭**”。
-

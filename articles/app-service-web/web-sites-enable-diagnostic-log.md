@@ -16,16 +16,16 @@ ms.date: 06/06/2016
 wacn.date: 
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: ae96ad8a80fd9bd80799dabf5b0c340948f0da2d
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 5a3da8c96c3fc0e1a6342ea7c36d93b7af2fabee
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure 应用服务中启用 Web 应用的诊断日志记录
 ## <a name="overview"></a>概述
-Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/azure/app-service-web/app-service-changes-existing-services)。 在本文中，你将了解如何启用诊断日志记录并将检测添加到应用程序，以及如何访问由 Azure 记录的信息。
+Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)。 在本文中，你将了解如何启用诊断日志记录并将检测添加到应用程序，以及如何访问由 Azure 记录的信息。
 
 本文通过 [Azure 门户预览](https://portal.azure.cn)、Azure PowerShell 和 Azure 命令行接口 (Azure CLI) 使用诊断日志。 有关通过 Visual Studio 使用诊断日志的信息，请参阅[在 Visual Studio 中对 Azure 进行故障排除](web-sites-dotnet-troubleshoot-visual-studio.md)。
 
@@ -84,10 +84,10 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/azure
 尽管所有三个存储位置都可为记录事件提供相同的基本信息，但与记录到“文件系统”相比，“表存储”和“Blob 存储”记录包含额外信息，如实例 ID、线程 ID 以及更详细的时间戳（刻度格式）。
 
 > [!NOTE]
-> 只能使用存储客户端访问或由直接使用这些存储系统的应用程序访问存储在“表存储”或“Blob 存储”中的信息。 例如，Visual Studio 2013 包含的存储资源管理器可用于浏览表或 Blob 存储，而 HDInsight 可以访问存储在 Blob 存储中的数据。 还可编写通过使用 [Azure SDK](https://www.azure.cn/downloads/#) 之一访问 Azure 存储的应用程序。
+> 只能使用存储客户端访问或由直接使用这些存储系统的应用程序访问存储在“表存储”或“Blob 存储”中的信息。 例如，Visual Studio 2013 包含的存储资源管理器可用于浏览表或 Blob 存储，而 HDInsight 可以访问存储在 Blob 存储中的数据。 还可编写通过使用 [Azure SDK](/downloads/#) 之一访问 Azure 存储的应用程序。
 >
 > [!NOTE]
-> 也可从 Azure PowerShell 使用 **Set-AzureWebsite** cmdlet 启用诊断。 如果尚未安装 Azure PowerShell，或尚未将其配置为使用 Azure 订阅，请参阅[如何使用 Azure PowerShell](/azure/powershell-install-configure)。
+> 也可从 Azure PowerShell 使用 **Set-AzureWebsite** cmdlet 启用诊断。 如果尚未安装 Azure PowerShell，或尚未将其配置为使用 Azure 订阅，请参阅[如何使用 Azure PowerShell](/powershell-install-configure)。
 >
 >
 
@@ -118,7 +118,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/azure
 这会将 **-Name** 参数指定的 Web 应用的日志保存到当前目录中名为 **logs.zip** 的文件。
 
 > [!NOTE]
-> 如果尚未安装 Azure PowerShell，或尚未将其配置为使用 Azure 订阅，请参阅[如何使用 Azure PowerShell](/azure/powershell-install-configure)。
+> 如果尚未安装 Azure PowerShell，或尚未将其配置为使用 Azure 订阅，请参阅[如何使用 Azure PowerShell](/powershell-install-configure)。
 >
 >
 
@@ -163,7 +163,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/azure
 若要查看可用的路径列表，请使用 -ListPath 参数。
 
 > [!NOTE]
-> 如果尚未安装 Azure PowerShell，或尚未将其配置为使用 Azure 订阅，请参阅[如何使用 Azure PowerShell](/azure/powershell-install-configure)。
+> 如果尚未安装 Azure PowerShell，或尚未将其配置为使用 Azure 订阅，请参阅[如何使用 Azure PowerShell](/powershell-install-configure)。
 >
 >
 
@@ -264,10 +264,10 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](/azure
 >
 
 ## <a name="nextsteps"></a>后续步骤
-* [如何监视 Web 应用](/azure/app-service-web/web-sites-monitor)
+* [如何监视 Web 应用](/app-service-web/web-sites-monitor)
 * [在 Visual Studio 中对 Azure Web 应用进行故障排除](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [在 HDInsight 中分析 Web 应用日志](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 ## <a name="whats-changed"></a>更改内容
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
-* 有关从旧门户更改为新门户的指导，请参阅：[有关在 Azure 门户预览中导航的参考](/azure/app-service-web/app-service-web-app-azure-portal)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
+* 有关从旧门户更改为新门户的指导，请参阅：[有关在 Azure 门户预览中导航的参考](/app-service-web/app-service-web-app-azure-portal)

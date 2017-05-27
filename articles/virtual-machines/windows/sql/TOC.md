@@ -1,6 +1,6 @@
 # 概述
 ## [Azure VM 上的 SQL Server 是什么？](virtual-machines-windows-sql-server-iaas-overview.md) 
-## [定价](https://www.azure.cn/pricing/details/virtual-machines/windows/)
+## [定价](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [常见问题](virtual-machines-windows-sql-server-iaas-faq.md)
 
 # 入门
@@ -13,7 +13,6 @@
 ## 配置高可用性
 ### [高可用性选项](virtual-machines-windows-sql-high-availability-dr.md) 
 ### [Always On 可用性组](virtual-machines-windows-portal-sql-availability-group-overview.md)
-#### [自动 - 使用模板](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [手动 - 先决条件](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [手动 - 教程](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 #### [负载均衡器 - 门户](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
@@ -36,7 +35,7 @@
 ## [应用程序模式](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 # 参考
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [SQL Server 驱动程序](https://msdn.microsoft.com/library/mt654049.aspx)

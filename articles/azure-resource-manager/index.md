@@ -11,12 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
+wacn.date: 
 ms.author: carolz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 13314e371f1c55fa3f5df83435ed9917a4c092ff
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 2bb3abc05566effa9a95f7514e2de30079e7b3d5
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 #<a name="azure-resource-manager-documentation"></a>Azure Resource Manager 文档
@@ -25,7 +26,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/Azure-Resource-Manager/resource-group-overview">
+        <a href="/azure-resource-manager/resource-group-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +62,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/resource-manager-template-walkthrough">
+        <a href="/resource-manager-template-walkthrough">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +80,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/resource-group-define-dependencies">
+        <a href="/resource-group-define-dependencies">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +98,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/resource-group-create-multiple">
+        <a href="/resource-group-create-multiple">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -117,7 +118,7 @@ ms.lasthandoff: 05/12/2017
 </ul>
 
 ---
- 
+
 <h2>引用</h2>
 <ul class="panelContent cardsW">
     <li>
@@ -126,8 +127,8 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>命令行</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources">PowerShell</a></p>
-                        <p><a href="/cli/azure/resource">Azure CLI</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/cli/azure/resource">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
@@ -139,10 +140,10 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.resources">Java</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
-                        <p><a href="https://github.com/Azure/azure-resource-manager-schemas">模板架构</a></p>
+                        <p><a href="/resource-group-template-functions">模板函数</a></p>
                     </div>
                 </div>
             </div>
@@ -154,7 +155,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/resources/">REST API</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/resources/">REST API</a></p>
                     </div>
                 </div>
             </div>

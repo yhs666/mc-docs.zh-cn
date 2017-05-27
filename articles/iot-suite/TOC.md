@@ -16,7 +16,7 @@
 ## [将设备连接到远程监视解决方案 (Linux)](iot-suite-connecting-devices-linux.md)
 ## [将设备连接到远程监视解决方案 (mbed)](iot-suite-connecting-devices-mbed.md)
 ## [将设备连接到远程监视解决方案 (Node)](iot-suite-connecting-devices-node.md)
-## [将逻辑应用连接到远程监视解决方案](iot-suite-logic-apps-tutorial.md)
+
 ## [自定义预配置解决方案](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [在远程监视解决方案中使用动态遥测](iot-suite-dynamic-telemetry.md)
 ## [在远程监视解决方案中创建自定义规则](iot-suite-custom-rule.md)
@@ -32,7 +32,7 @@
 ## [流分析](/azure/stream-analytics/)
 ## [事件中心](/azure/event-hubs/)
 ## [IoT 中心](/azure/iot-hub/)
-## [机器学习](/azure/machine-learning/)
+
 
 # 资源
 ## [常见问题](iot-suite-faq.md)
