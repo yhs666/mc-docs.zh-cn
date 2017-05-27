@@ -29,16 +29,16 @@ ms.lasthandoff: 04/22/2017
 ## <a name="template-format"></a>模板格式
 使用最简单的结构时，模板包含以下元素：
 
-    ```json
-    {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "",
-        "parameters": {  },
-        "variables": {  },
-        "resources": [  ],
-        "outputs": {  }
-    }
-    ```
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "",
+    "parameters": {  },
+    "variables": {  },
+    "resources": [  ],
+    "outputs": {  }
+}
+```
 
 | 元素名称 | 必选 | 说明 |
 |:--- |:--- |:--- |
@@ -51,86 +51,11 @@ ms.lasthandoff: 04/22/2017
 
 每个元素均包含可设置的属性。 下例包含一个模板的完整语法：
 
-    ```json
-    {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "",
-        "parameters": {  
-            "<parameter-name>" : {
-                "type" : "<type-of-parameter-value>",
-                "defaultValue": "<default-value-of-parameter>",
-                "allowedValues": [ "<array-of-allowed-values>" ],
-                "minValue": <minimum-value-for-int>,
-                "maxValue": <maximum-value-for-int>,
-                "minLength": <minimum-length-for-string-or-array>,
-                "maxLength": <maximum-length-for-string-or-array-parameters>,
-                "metadata": {
-                    "description": "<description-of-the parameter>" 
-                }
-            }
-        },
-        "variables": {  
-            "<variable-name>": "<variable-value>",
-            "<variable-name>": { 
-                <variable-complex-type-value> 
-            }
-        },
-        "resources": [
-            {
-                "apiVersion": "<api-version-of-resource>",
-                "type": "<resource-provider-namespace/resource-type-name>",
-                "name": "<name-of-the-resource>",
-                "location": "<location-of-resource>",
-                "tags": "<name-value-pairs-for-resource-tagging>",
-                "comments": "<your-reference-notes>",
-                "dependsOn": [
-                    "<array-of-related-resource-names>"
-                ],
-                "properties": "<settings-for-the-resource>",
-                "copy": {
-                    "name": "<name-of-copy-loop>",
-                    "count": "<number-of-iterations>"
-                },
-                "resources": [
-                    "<array-of-child-resources>"
-                ]
-            }
-        ],
-        "outputs": {
-            "<outputName>" : {
-                "type" : "<type-of-output-value>",
-                "value": "<output-value-expression>"
-            }
-        }
-    }
-    ```
-
-本主题稍后将更详细地介绍模板的各个节。
-
-## <a name="expressions-and-functions"></a>表达式和函数
-模板的基本语法为 JSON。 但是，表达式和函数扩展了模板中可用的 JSON 值。  表达式在 JSON 字符串文本中编写，其中第一个和最后一个字符分别是 `[` 和 `]` 括号。 部署模板时会计算表达式的值。 尽管编写为字符串文本，但表达式的计算结果可以是不同的 JSON 类型，例如数组或整数，具体取决于实际的表达式。  若要使用一个括号 `[` 在开头括住文本字符串但不将其解释为表达式，请额外添加一个括号，使字符串以 `[[` 开头。
-
-通常，你会将表达式与函数一起使用，以执行用于配置部署的操作。 如同在 JavaScript 中一样，函数调用的格式为 `functionName(arg1,arg2,arg3)`。 使用点和 [index] 运算符引用属性。
-
-以下示例演示如何在构造值时使用一些函数：
-
-    ```json
-    "variables": {
-        "location": "[resourceGroup().location]",
-        "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
-        "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
-    }
-    ```
-
-有关模板函数的完整列表，请参阅 [Azure Resource Manager 模板函数](./resource-group-template-functions.md)。 
-
-## <a name="parameters"></a>参数
-在模板的 parameters 节中，你可以指定在部署资源时能够输入的值。 提供针对特定环境（例如开发、测试和生产环境）定制的参数值可以自定义部署。 无需在模板中提供参数，但如果没有参数，模板始终部署具有相同名称、位置和属性的相同资源。
-
-使用以下结构定义参数：
-
-    ```json
-    "parameters": {
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "",
+    "parameters": {  
         "<parameter-name>" : {
             "type" : "<type-of-parameter-value>",
             "defaultValue": "<default-value-of-parameter>",
@@ -143,8 +68,83 @@ ms.lasthandoff: 04/22/2017
                 "description": "<description-of-the parameter>" 
             }
         }
+    },
+    "variables": {  
+        "<variable-name>": "<variable-value>",
+        "<variable-name>": { 
+            <variable-complex-type-value> 
+        }
+    },
+    "resources": [
+      {
+          "apiVersion": "<api-version-of-resource>",
+          "type": "<resource-provider-namespace/resource-type-name>",
+          "name": "<name-of-the-resource>",
+          "location": "<location-of-resource>",
+          "tags": "<name-value-pairs-for-resource-tagging>",
+          "comments": "<your-reference-notes>",
+          "dependsOn": [
+              "<array-of-related-resource-names>"
+          ],
+          "properties": "<settings-for-the-resource>",
+          "copy": {
+              "name": "<name-of-copy-loop>",
+              "count": "<number-of-iterations>"
+          },
+          "resources": [
+              "<array-of-child-resources>"
+          ]
+      }
+    ],
+    "outputs": {
+        "<outputName>" : {
+            "type" : "<type-of-output-value>",
+            "value": "<output-value-expression>"
+        }
     }
-    ```
+}
+```
+
+本主题稍后将更详细地介绍模板的各个节。
+
+## <a name="expressions-and-functions"></a>表达式和函数
+模板的基本语法为 JSON。 但是，表达式和函数扩展了模板中可用的 JSON 值。  表达式在 JSON 字符串文本中编写，其中第一个和最后一个字符分别是 `[` 和 `]` 括号。 部署模板时会计算表达式的值。 尽管编写为字符串文本，但表达式的计算结果可以是不同的 JSON 类型，例如数组或整数，具体取决于实际的表达式。  若要使用一个括号 `[` 在开头括住文本字符串但不将其解释为表达式，请额外添加一个括号，使字符串以 `[[` 开头。
+
+通常，你会将表达式与函数一起使用，以执行用于配置部署的操作。 如同在 JavaScript 中一样，函数调用的格式为 `functionName(arg1,arg2,arg3)`。 使用点和 [index] 运算符引用属性。
+
+以下示例演示如何在构造值时使用一些函数：
+
+```json
+"variables": {
+    "location": "[resourceGroup().location]",
+    "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
+    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+}
+```
+
+有关模板函数的完整列表，请参阅 [Azure Resource Manager 模板函数](./resource-group-template-functions.md)。 
+
+## <a name="parameters"></a>参数
+在模板的 parameters 节中，你可以指定在部署资源时能够输入的值。 提供针对特定环境（例如开发、测试和生产环境）定制的参数值可以自定义部署。 无需在模板中提供参数，但如果没有参数，模板始终部署具有相同名称、位置和属性的相同资源。
+
+使用以下结构定义参数：
+
+```json
+"parameters": {
+    "<parameter-name>" : {
+        "type" : "<type-of-parameter-value>",
+        "defaultValue": "<default-value-of-parameter>",
+        "allowedValues": [ "<array-of-allowed-values>" ],
+        "minValue": <minimum-value-for-int>,
+        "maxValue": <maximum-value-for-int>,
+        "minLength": <minimum-length-for-string-or-array>,
+        "maxLength": <maximum-length-for-string-or-array-parameters>,
+        "metadata": {
+            "description": "<description-of-the parameter>" 
+        }
+    }
+}
+```
 
 | 元素名称 | 必选 | 说明 |
 |:--- |:--- |:--- |
@@ -182,41 +182,41 @@ ms.lasthandoff: 04/22/2017
 
 以下示例演示如何定义参数：
 
-    ```json
-    "parameters": {
-        "siteName": {
-            "type": "string",
-            "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
-        },
-        "hostingPlanName": {
-            "type": "string",
-             "defaultValue": "[concat(parameters('siteName'),'-plan')]"
-        },
-        "skuName": {
-            "type": "string",
-            "defaultValue": "F1",
-            "allowedValues": [
-                "F1",
-                "D1",
-                "B1",
-                "B2",
-                "B3",
-                "S1",
-                "S2",
-                "S3",
-                "P1",
-                "P2",
-                "P3",
-                "P4"
-            ]
-        },
-        "skuCapacity": {
-            "type": "int",
-            "defaultValue": 1,
-            "minValue": 1
-        }
+```json
+"parameters": {
+    "siteName": {
+        "type": "string",
+        "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
+    },
+    "hostingPlanName": {
+        "type": "string",
+        "defaultValue": "[concat(parameters('siteName'),'-plan')]"
+    },
+    "skuName": {
+        "type": "string",
+        "defaultValue": "F1",
+        "allowedValues": [
+          "F1",
+          "D1",
+          "B1",
+          "B2",
+          "B3",
+          "S1",
+          "S2",
+          "S3",
+          "P1",
+          "P2",
+          "P3",
+          "P4"
+        ]
+    },
+    "skuCapacity": {
+        "type": "int",
+        "defaultValue": 1,
+        "minValue": 1
     }
-    ```
+}
+```
 
 若要了解如何在部署过程中输入参数值，请参阅 [Deploy an application with Azure Resource Manager template](./resource-group-template-deploy.md)（使用 Azure Resource Manager 模板部署应用程序）。 
 
@@ -225,80 +225,80 @@ ms.lasthandoff: 04/22/2017
 
 使用以下结构定义变量：
 
-    ```json
-    "variables": {
-        "<variable-name>": "<variable-value>",
-        "<variable-name>": { 
-            <variable-complex-type-value> 
-        }
+```json
+"variables": {
+    "<variable-name>": "<variable-value>",
+    "<variable-name>": { 
+        <variable-complex-type-value> 
     }
-    ```
+}
+```
 
 以下示例演示如何定义从两个参数值构造出的变量：
 
-    ```json
-    "variables": {
-        "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
-    }
-    ```
+```json
+"variables": {
+    "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
+}
+```
 
 下一个示例演示一个属于复杂的 JSON 类型的变量，以及从其他变量构造出的变量：
 
-    ```json
-    "parameters": {
-        "environmentName": {
-            "type": "string",
-            "allowedValues": [
-                "test",
-                "prod"
-            ]
+```json
+"parameters": {
+    "environmentName": {
+        "type": "string",
+        "allowedValues": [
+          "test",
+          "prod"
+        ]
+    }
+},
+"variables": {
+    "environmentSettings": {
+        "test": {
+            "instancesSize": "Small",
+            "instancesCount": 1
+        },
+        "prod": {
+            "instancesSize": "Large",
+            "instancesCount": 4
         }
     },
-    "variables": {
-        "environmentSettings": {
-            "test": {
-                "instancesSize": "Small",
-                "instancesCount": 1
-            },
-            "prod": {
-                "instancesSize": "Large",
-                "instancesCount": 4
-            }
-        },
-        "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
-        "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
-        "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
-    }
-    ```
+    "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
+    "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
+    "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
+}
+```
 
 ## <a name="resources"></a>资源
 在 resources 节，可以定义部署或更新的资源。 此节可能比较复杂，因为用户必须了解要部署哪些类型才能提供正确的值。 
 
 使用以下结构定义资源：
 
-    ```json
-    "resources": [
-        {
-            "apiVersion": "<api-version-of-resource>",
-            "type": "<resource-provider-namespace/resource-type-name>",
-            "name": "<name-of-the-resource>",
-            "location": "<location-of-resource>",
-            "tags": "<name-value-pairs-for-resource-tagging>",
-            "comments": "<your-reference-notes>",
-            "dependsOn": [
-                "<array-of-related-resource-names>"
-            ],
-            "properties": "<settings-for-the-resource>",
-            "copy": {
-                "name": "<name-of-copy-loop>",
-                "count": "<number-of-iterations>"
-            },
-            "resources": [
-                "<array-of-child-resources>"
-            ]
-        }
-    ]
-    ```
+```json
+"resources": [
+  {
+      "apiVersion": "<api-version-of-resource>",
+      "type": "<resource-provider-namespace/resource-type-name>",
+      "name": "<name-of-the-resource>",
+      "location": "<location-of-resource>",
+      "tags": "<name-value-pairs-for-resource-tagging>",
+      "comments": "<your-reference-notes>",
+      "dependsOn": [
+          "<array-of-related-resource-names>"
+      ],
+      "properties": "<settings-for-the-resource>",
+      "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": "<number-of-iterations>"
+      },
+      "resources": [
+          "<array-of-child-resources>"
+      ]
+  }
+]
+```
 
 | 元素名称 | 必选 | 说明 |
 |:--- |:--- |:--- |
@@ -315,27 +315,27 @@ ms.lasthandoff: 04/22/2017
 
 resources 节包含要部署的资源数组。 在每个资源内，还可以定义子资源数组。 因此，resources 节的结构可能类似于：
 
-    ```json
-    "resources": [
+```json
+"resources": [
+  {
+      "name": "resourceA",
+  },
+  {
+      "name": "resourceB",
+      "resources": [
         {
-            "name": "resourceA",
+            "name": "firstChildResourceB",
         },
-        {
-            "name": "resourceB",
-            "resources": [
-                {
-                    "name": "firstChildResourceB",
-                },
-                {   
-                    "name": "secondChildResourceB",
-                }
-            ]
-        },
-        {
-            "name": "resourceC",
+        {   
+            "name": "secondChildResourceB",
         }
-    ]
-    ```
+      ]
+  },
+  {
+      "name": "resourceC",
+  }
+]
+```      
 
 有关定义子资源的详细信息，请参阅[在 Resource Manager 模板中设置子资源的名称和类型](./resource-manager-template-child-resource.md)。
 
@@ -344,14 +344,14 @@ resources 节包含要部署的资源数组。 在每个资源内，还可以定
 
 以下示例演示了输出定义的结构：
 
-    ```json
-    "outputs": {
-        "<outputName>" : {
-            "type" : "<type-of-output-value>",
-            "value": "<output-value-expression>"
-        }
+```json
+"outputs": {
+    "<outputName>" : {
+        "type" : "<type-of-output-value>",
+        "value": "<output-value-expression>"
     }
-    ```
+}
+```
 
 | 元素名称 | 必选 | 说明 |
 |:--- |:--- |:--- |
@@ -361,14 +361,14 @@ resources 节包含要部署的资源数组。 在每个资源内，还可以定
 
 以下示例演示了 Outputs 节中返回的值。
 
-    ```json
-    "outputs": {
-        "siteUri" : {
-            "type" : "string",
-            "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-        }
+```json
+"outputs": {
+    "siteUri" : {
+        "type" : "string",
+        "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
     }
-    ```
+}
+```
 
 有关如何处理输出的详细信息，请参阅 [Sharing state in Azure Resource Manager templates](./best-practices-resource-manager-state.md)（在 Azure Resource Manager 模板中共享状态）。
 
