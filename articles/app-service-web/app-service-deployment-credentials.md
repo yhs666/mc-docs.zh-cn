@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service 部署凭据 | Azure"
-description: "了解如何使用 Azure App Service 部署凭据。"
+title: "Azure 应用服务部署凭据 | Azure"
+description: "了解如何使用 Azure 应用服务部署凭据。"
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
@@ -14,15 +14,16 @@ ms.topic: article
 ms.date: 01/05/2016
 wacn.date: 
 ms.author: dariagrigoriu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 63f7ce316d861f1bb6c7a7a2fdf6577a3fb1e7c3
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>为 Azure 应用服务配置部署凭据
-[Azure 应用服务](/app-service-web/app-service-changes-existing-services/)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](app-service-deploy-local-git.md)和 [FTP/S 部署](app-service-deploy-ftp.md)。
+[Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services/)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](app-service-deploy-local-git.md)和 [FTP/S 部署](app-service-deploy-ftp.md)。
 
 * **用户级凭据**：一组适用于整个 Azure 帐户的凭据。 在任何订阅中，它均可用于为 Azure 帐户有权访问的任何应用部署应用服务。 这些是默认的凭据集，可从 [Azure 经典管理门户](https://manage.windowsazure.cn)设置或重置，每个应用服务应用在该门户的“仪表板”>“速览”下都有一个编辑入口点。
 

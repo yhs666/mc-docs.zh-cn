@@ -117,7 +117,7 @@ SQL 数据库审核可让你：
 - [Use-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/zh-cn/library/azure/mt619353.aspx)
 
 <!--Anchors-->
-[Azure SQL 数据库审核基础知识]: #subheading-1
+[Azure SQL 数据库审核概述]: #subheading-1
 [分析审核日志和报告]: #subheading-3
 [使用 Azure 经典管理门户为数据库设置审核]: #subheading-4
 [Practices for usage in production]: #subheading-5

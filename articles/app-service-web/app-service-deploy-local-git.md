@@ -1,6 +1,6 @@
 ---
-title: "从本地 Git 部署到 Azure App Service"
-description: "了解如何实现从本地 Git 部署到 Azure App Service。"
+title: "从本地 Git 部署到 Azure 应用服务"
+description: "了解如何实现从本地 Git 部署到 Azure 应用服务。"
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 06/13/2016
 wacn.date: 
 ms.author: dariagrigoriu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 57d74d7680f5426fa3f6318b93c878f051aa74db
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
 ---
-# <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure App Service
-本教程说明如何将应用从本地计算机上的 Git 存储库部署到 [Azure App Service] 。 应用服务支持结合 [Azure 门户预览]中的“本地 Git”部署选项使用此方法。  
+# <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
+本教程说明如何将应用从本地计算机上的 Git 存储库部署到 [Azure 应用服务] 。 应用服务支持结合 [Azure 门户预览]中的“本地 Git”部署选项使用此方法。  
 在根据[此处](app-service-web-get-started.md)所述使用 [Azure 命令行接口]创建应用服务应用时，将自动执行本文中所述的许多 Git 命令。
 
 ## <a name="prerequisites"></a>先决条件
@@ -157,12 +158,12 @@ ms.lasthandoff: 04/22/2017
 * [如何使用适用于 Azure 的 PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 * [如何使用 Azure 命令行接口](../cli-install-nodejs.md)
 
-[Azure App Service]: /app-service-web/app-service-changes-existing-services/
+[Azure 应用服务]: /azure/app-service-changes-existing-services/
 [Azure Developer Center]: https://www.azure.cn/develop/overview/
 [Azure 门户预览]: https://portal.azure.cn
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
-[Azure 命令行接口]: /xplat-cli-azure-resource-manager/
+[Azure 命令行接口]: /azure/xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart

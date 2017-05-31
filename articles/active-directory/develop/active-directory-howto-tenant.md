@@ -54,7 +54,7 @@ ms.author: dastrock
     - 可选：启用多重身份验证
     - 最后，单击绿色的“创建”按钮以完成用户创建（并显示临时密码）。
 7. 完成“添加用户表单”并收到新管理用户的临时密码后，请务必记下此密码，因为在更改密码时，你要以此新用户的身份登录。你还可以使用备用电子邮件直接向用户发送密码。
-8. 若要更改临时密码，请使用此新用户帐户登录到 https://login.microsoftonline.com，然后根据请求更改密码。
+8. 若要更改临时密码，请使用此新用户帐户登录到 https://login.microsoftonline.com ，然后根据请求更改密码。
 
 ## <a name="use-an-organizational-azure-subscription"></a>使用组织 Azure 订阅
 如果你以前使用组织帐户注册过 Azure 订阅，则你已经有了一个租户！ 在 [Azure 经典管理门户](https://manage.windowsazure.cn)中，你应该会在“所有项”和“Active Directory”的下面看到一个租户。 你可以根据需要任意使用此租户。你还可以想要使用门户左下角的“新建”按钮创建新租户。

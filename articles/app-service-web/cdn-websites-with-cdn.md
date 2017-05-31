@@ -1,6 +1,6 @@
 ---
-title: "在 Azure App Service 中使用 Azure CDN"
-description: "本教程演示如何将 Web 应用部署到 Azure App Service，以便从集成的 Azure CDN 终结点提供内容"
+title: "在 Azure 应用服务中使用 Azure CDN"
+description: "本教程演示如何将 Web 应用部署到 Azure 应用服务，以便从集成的 Azure CDN 终结点提供内容"
 services: app-service\web,cdn
 documentationcenter: .net
 author: cephalin
@@ -15,20 +15,21 @@ ms.topic: article
 ms.date: 07/01/2016
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 56beedbbdb537afb4595cd120c1b1ccc6d77299b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="use-azure-cdn-in-azure-app-service"></a>在 Azure App Service 中使用 Azure CDN
+# <a name="use-azure-cdn-in-azure-app-service"></a>在 Azure 应用服务中使用 Azure CDN
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-[应用服务](/app-service-web/app-service-changes-existing-services)可以与 [Azure CDN](https://www.azure.cn/home/features/cdn/) 集成，增强[应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中固有的全国缩放功能，在全国通过靠近客户的服务器节点提供 Web 应用内容（如需已更新的包含所有最新节点位置的列表，请单击[此处](http://msdn.microsoft.com/library/azure/gg680302.aspx)）。 在特定情况下（例如提供静态映像），此集成可以大幅提高 Azure 应用服务 Web 应用的性能，在全国显著改善 Web 应用的用户体验。 
+[应用服务](/azure/app-service-web/app-service-changes-existing-services)可以与 [Azure CDN](https://www.azure.cn/home/features/cdn/) 集成，增强[应用服务 Web 应用](/azure/app-service-web/app-service-changes-existing-services)中固有的全国缩放功能，在全国通过靠近客户的服务器节点提供 Web 应用内容（如需已更新的包含所有最新节点位置的列表，请单击[此处](http://msdn.microsoft.com/library/azure/gg680302.aspx)）。 在特定情况下（例如提供静态映像），此集成可以大幅提高 Azure 应用服务 Web 应用的性能，在全国显著改善 Web 应用的用户体验。 
 
-将 Web Apps 与 Azure CDN 集成具有以下优点：
+将 Web 应用与 Azure CDN 集成具有以下优点：
 
 * 在 Web 应用的[持续部署](app-service-continuous-deployment.md)过程中集成内容部署（映像、脚本和样式表）
 * 轻松升级 Azure 应用服务的 Web 应用中的 NuGet 包，例如 jQuery 或 Bootstrap 版本 
@@ -162,7 +163,7 @@ ms.lasthandoff: 04/28/2017
 在下一部分，我还将向你演示如何针对 CDN 缓存中的控制器操作结果配置缓存设置。
 
 ## <a name="serve-content-from-controller-actions-through-azure-cdn"></a>通过 Azure CDN 的控制器操作提供内容
-将 Web Apps 与 Azure CDN 集成以后，可以相对轻松地通过 Azure CDN 的控制器操作提供内容。 同样，如果你决定通过 CDN 提供整个 Azure Web 应用，则根本不需要执行此操作，因为此时所有控制器操作都已经可以通过 CDN 进行访问。 不过，出于我在 [通过集成 CDN 终结点部署 Azure Web 应用](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint)中指出的原因，你不应该决定执行这样的操作，而应选择需要通过 Azure CDN 来处理的控制器操作。 Maarten Balliauw 在 [通过 Azure CDN 减少 Web 延迟](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN)中向你演示了如何使用有趣的 MemeGenerator 控制器执行该操作。 在这里，我将简单地再现该过程。
+将 Web 应用与 Azure CDN 集成以后，可以相对轻松地通过 Azure CDN 的控制器操作提供内容。 同样，如果你决定通过 CDN 提供整个 Azure Web 应用，则根本不需要执行此操作，因为此时所有控制器操作都已经可以通过 CDN 进行访问。 不过，出于我在 [通过集成 CDN 终结点部署 Azure Web 应用](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint)中指出的原因，你不应该决定执行这样的操作，而应选择需要通过 Azure CDN 来处理的控制器操作。 Maarten Balliauw 在 [通过 Azure CDN 减少 Web 延迟](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN)中向你演示了如何使用有趣的 MemeGenerator 控制器执行该操作。 在这里，我将简单地再现该过程。
 
 假设在 Web 应用中，用户希望根据年轻的 Chuck Norris 的照片（由 [Alan Light](http://www.flickr.com/photos/alan-light/218493788/) 拍摄）制作一个搞笑的迷因，如下所示：
 
@@ -542,6 +543,6 @@ ms.lasthandoff: 04/28/2017
 8. 刷新 Azure Web 应用的浏览器窗口。 你现在应该会看到所有脚本和样式表都已正常加载。
 
 ## <a name="more-information"></a>更多信息
-* [Azure 内容交付网络 (CDN) 概述](https://www.azure.cn/documentation/articles/cdn-overview/)
+* [Azure 内容交付网络 (CDN) 概述](../cdn/cdn-overview.md)
 * [ASP.NET 绑定和缩减](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 

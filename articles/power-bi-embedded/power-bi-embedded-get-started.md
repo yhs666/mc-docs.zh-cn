@@ -15,9 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: asaxton
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 395ad0ef70b954aed4cf8f864952acd2be2290e4
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -43,7 +44,7 @@ ms.lasthandoff: 04/14/2017
    
    ![](./media/power-bi-embedded-get-started/create-workspace-1.png)
 3. 在“数据 + 分析”下单击“Power BI Embedded”。
-4. 在“工作区集合”边栏选项卡上输入所需的信息。 有关 **定价**信息，请参阅 [Power BI Embedded 定价](https://www.azure.cn/pricing/details/power-bi-embedded/)。
+4. 在“工作区集合”边栏选项卡上输入所需的信息。 有关 **定价**信息，请参阅 [Power BI Embedded 定价](/pricing/details/power-bi-embedded/)。
    
    ![](./media/power-bi-embedded-get-started/create-workspace-2.png)
 5. 单击“创建” 。

@@ -22,7 +22,7 @@ ms.author: iainfou
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## 快速命令
-也可以[通过 Azure PowerShell 执行这些步骤](./virtual-machines-windows-nsg-quickstart-powershell.md)。
+也可以[通过 Azure PowerShell 执行这些步骤](virtual-machines-windows-nsg-quickstart-powershell.md)。
 
 首先，创建网络安全组。在门户中选择一个资源组，单击“添加”，然后搜索并选择“网络安全组”：
 

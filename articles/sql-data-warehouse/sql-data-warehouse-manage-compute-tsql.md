@@ -15,9 +15,10 @@ ms.workload: data-services
 ms.date: 03/30/2017
 wacn.date: 
 ms.author: barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: d005755a0c4834ffd1986a212be4c46029cfb857
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -65,7 +66,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
 ```
 
-## <a name="check-database-state-bk"></a><a name="check-database-state-and-operation-progress"></a>查看数据库状态和操作进度
+## <a name="check-database-state-bk"></a>查看数据库状态和操作进度
 
 1. 连接到与逻辑 SQL 数据库服务器关联的 master 数据库。
 2. 提交查询以查看数据库状态

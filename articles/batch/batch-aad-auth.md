@@ -15,9 +15,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 03/16/2017
 ms.author: tamram
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: c8f4bd3fe38a4d72f51d575a6dd1495aa10d1121
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -256,9 +257,9 @@ public static async Task PerformBatchOperations()
 
 
 [aad_about]: ../active-directory/active-directory-whatis.md "什么是 Azure Active Directory？"
-[aad_adal]: ../active-directory/develop/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/develop/active-directory-authentication-scenarios.md "Azure AD 的身份验证方案"
-[aad_integrate]: ../active-directory/develop/active-directory-integrating-applications.md "将应用程序与 Azure Active Directory 集成"
+[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
+[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Azure AD 的身份验证方案"
+[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "将应用程序与 Azure Active Directory 集成"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [azure_portal]: http://portal.azure.cn
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md

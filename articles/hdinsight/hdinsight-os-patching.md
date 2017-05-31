@@ -14,11 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: bhanupr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: c23a62a837b44f4c2073afa47c503760ff73959b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -39,6 +40,10 @@ ms.lasthandoff: 04/28/2017
 1. 启用或禁用自动重新启动
 2. 设置重新启动的频率（两次重新启动相隔的天数）
 3. 设置在星期几重新启动
+
+> [!NOTE]
+> 此脚本操作将仅适用于在 2016 年 8 月 1 日以后创建的基于 Linux 的 HDInsight 群集。 修补程序在 VM 重新启动后才生效。 
+>
 
 ## <a name="how-to-use-the-script"></a>如何使用此脚本 
 

@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 02/22/2017
 wacn.date: 
 ms.author: nberdy
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 0ef732686486a2af9fca01f202d5dc4fd00abcb3
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---

@@ -107,9 +107,9 @@ Azure 模拟器模拟云服务环境，这样您就可以先在本地计算机�
 
       **客户端库的本地副本。** 用于 .NET 的 Azure SDK 将某些 Azure 客户端库的 NuGet 包（如存储空间、服务总线和 Caching）复制到您的计算机上。这些客户端库将自动包括在新的云服务项目中，因此本地的 NuGet 程序包会启用 Visual Studio 来创建项目，即使您未连接到 Internet 也是如此。通常，客户端库的更新频率比 SDK 新版本的发布频率更为频繁，因此 NuGet.org 上的客户端库通常比您所获得的 SDK 更新。
 
-    **包括客户端库的项目模板。** 只有 [Azure 云服务](./cloud-services/cloud-services-dotnet-get-started.md)和 [Azure 移动服务](./mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md)项目模板会自动包含一些客户端库。对于其他库或其他模板，安装您所需的[客户端库 NuGet 包](http://go.microsoft.com/fwlink/?LinkId=510472)。
+    **包括客户端库的项目模板。** 只有 [Azure 云服务](./cloud-services/cloud-services-dotnet-get-started.md)和 Azure 移动服务项目模板会自动包含一些客户端库。对于其他库或其他模板，安装您所需的[客户端库 NuGet 包](http://go.microsoft.com/fwlink/?LinkId=510472)。
 
-* [Azure 移动服务项目模板](./mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md)。
+* Azure 移动服务项目模板。
 
     移动服务模板仅在 Visual Studio 2013 Update 2 及更高版本中提供。这些模板在 Visual Studio 2012 或更早的版本中不提供，在 Visual Studio 2013 Update 1 或更早的版本中也不提供，即使你安装了用于 .NET 的 Azure SDK。
 

@@ -33,7 +33,6 @@ ms.author: juliako;cenkdin;anilmur
 ##先决条件
 
 - [创建 Azure 媒体服务帐户](./media-services-create-account.md)
-- 确保运行流式处理终结点。有关详细信息，请参阅[在媒体服务帐户中管理流式处理终结点](./media-services-manage-origins.md)
 - 安装最新版本的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
 - 启动该工具并连接到 AMS 帐户。
 
@@ -47,14 +46,14 @@ ms.author: juliako;cenkdin;anilmur
 
 1.  在 AMSE 工具中，导航到“实时”选项卡，然后右键单击频道区域。从菜单中选择“创建频道…”。
 
-![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
 2. 指定频道名称，说明字段为选填字段。在“频道设置”下针对“实时编码”选项选择“标准”，将“输入协议”设置为“RTMP”。所有其他设置可保留原样。
 
-确保选中“立即启动新频道”。
+    确保选中“立即启动新频道”。
 
 3. 单击“创建频道”。
-![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
 >[!NOTE]
 > 启动频道可能需要长达 20 分钟的时间。
@@ -144,9 +143,9 @@ ms.author: juliako;cenkdin;anilmur
 
 ##测试播放
 
-1. 导航回 AMSE 工具，然后右键单击要测试的频道。在菜单中，将鼠标悬停在“播放预览”上方，然后选择“使用 Azure Media Player”。
+导航回 AMSE 工具，然后右键单击要测试的频道。在菜单中，将鼠标悬停在“播放预览”上方，然后选择“使用 Azure Media Player”。
 
-    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
+![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 如果流出现在播放器中，则编码器已正确配置，可以连接到 AMS。
 

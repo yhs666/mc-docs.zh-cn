@@ -8,6 +8,6 @@ Azure 应用服务的移动应用功能使用 [Azure 通知中心]发送推送�
 现在已将一个通知中心连接到移动应用后端项目。稍后会将此通知中心配置为连接到平台通知系统 (PNS) 以推送到设备。
 
 [Azure 门户预览]: https://portal.azure.cn/
-[通知中心]: ../articles/notification-hubs/notification-hubs-push-notification-overview.md
+[Azure 通知中心]: ../articles/notification-hubs/notification-hubs-push-notification-overview.md
 
 <!---HONumber=Mooncake_0116_2017-->

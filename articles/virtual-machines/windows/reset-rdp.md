@@ -29,7 +29,7 @@ ms.lasthandoff: 04/06/2017
 ## <a name="ways-to-reset-configuration-or-credentials"></a>重置配置或凭据的方式
 可以根据需要，通过多种不同的方式重置远程桌面服务和凭据：
 
-- [使用 Azure 门户预览重置](#azure-portal)
+- [使用 Azure 门户预览重置](#azure-portal-preview)
 - [使用 Azure PowerShell 进行重置](#vmaccess-extension-and-powershell)
 
 ## <a name="azure-portal-preview"></a>Azure 门户预览
@@ -53,7 +53,7 @@ ms.lasthandoff: 04/06/2017
 
 从下拉菜单中选择“仅重置配置”，然后单击“更新”。 尝试重新连接到 VM。
 
-## <a name="vmaccess-extension-and-powershell---resource-manager"></a> VMAccess 扩展和 PowerShell
+## <a name="vmaccess-extension-and-powershell"></a> VMAccess 扩展和 PowerShell
 请务必[安装和配置最新的 PowerShell 模块](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)，并使用 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` cmdlet 登录到 Azure 订阅。
 
 ### <a name="reset-the-local-administrator-account-password"></a>**重置本地管理员帐户密码**

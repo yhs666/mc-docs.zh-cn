@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 12/19/2016
 wacn.date: 
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 450b3b80389760f957ec4c85b76bbd1e8f7daf68
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/22/2017
 
 本主题演示了如何将 [Azure 门户](https://portal.azure.cn)与 [Azure Resource Manager](./resource-group-overview.md) 配合使用，以部署 Azure 资源。 若要了解有关管理资源的信息，请参阅[通过门户管理 Azure 资源](./resource-group-portal.md)。
 
-目前，并非每种服务都支持门户或资源管理器。 对于这些服务，需要使用[经典门户](https://manage.windowsazure.cn)。  若要了解每种服务的状态，请参阅 [Azure 门户可用性图表](https://azure.microsoft.com/features/azure-portal/availability/)。
+目前，并非每种服务都支持门户或 Resource Manager。 对于这些服务，需要使用[经典门户](https://manage.windowsazure.cn)。  若要了解每种服务的状态，请参阅 [Azure 门户可用性图表](https://azure.microsoft.com/features/azure-portal/availability/)。
 
 ## <a name="create-resource-group"></a>创建资源组
 1. 若要创建空资源组，请依次选择“新建” > “管理” > “资源组”。
@@ -79,10 +80,10 @@ ms.lasthandoff: 04/22/2017
 
     ![创建模板](./media/resource-group-template-deploy-portal/show-custom-template.png)
 
-    在编辑器中，添加用于定义要部署的资源的 JSON 语法。 完成后，选择“保存”  。 有关编写 JSON 语法的指导，请参阅 [创建第一个 Azure Resource Manager 模板](./resource-manager-create-first-template.md)。
+    在编辑器中，添加用于定义要部署的资源的 JSON 语法。 完成后，选择“保存”  。 有关编写 JSON 语法的指导，请参阅 [Resource Manager 模板演练](./resource-manager-template-walkthrough.md)。
 
     ![编辑模板](./media/resource-group-template-deploy-portal/edit-template.png)
-4. 或者，也可以从 [Azure 快速启动模板](https://github.com/Azure/azure-quickstart-templates/)中选择预先存在的模板。 这些模板是由社区提供的。 它们涵盖了许多常见的方案，有人可能已添加了一个与你想要部署的模板类似的模板。 可以搜索模板以查找与你的方案相匹配的模板。
+4. 或者，也可以从 [Azure 快速启动模板](https://azure.microsoft.com/zh-cn/documentation/templates/)中选择预先存在的模板。 这些模板是由社区提供的。 它们涵盖了许多常见的方案，有人可能已添加了一个与你想要部署的模板类似的模板。 可以搜索模板以查找与你的方案相匹配的模板。
 
     ![选择快速入门模板](./media/resource-group-template-deploy-portal/select-quickstart-template.png)
 

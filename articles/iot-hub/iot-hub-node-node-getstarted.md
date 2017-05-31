@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/16/2017
 wacn.date: 
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: ab8fc4900ae18aa96ff061b806880b75ead9e27f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---

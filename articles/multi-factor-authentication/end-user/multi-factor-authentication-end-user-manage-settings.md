@@ -13,12 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/23/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 588a90188774fc5b968695337be8dc9789616d11
-ms.lasthandoff: 04/14/2017
+ms.custom: end-user
+wacn.date: 
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3ff18e6f95d8bbc27348658bc5fce50c3320cf0a
+ms.openlocfilehash: 7537eeb5b052f6e578615b31734cac40b0333c3d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -51,7 +54,7 @@ ms.lasthandoff: 04/14/2017
         ![4](./media/multi-factor-authentication-end-user-manage/4.png) 
 
 
-## <a name="i-want-to-change-my-phone-number-or-add-a-secondary-number"></a>我想要更改我的电话号码，或添加次要号码
+## <a name="i-want-to-change-my-phone-number"></a>我想要更改我的电话号码
 
 若要更改电话号码，可执行以下步骤。
 
@@ -76,6 +79,5 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="next-steps"></a>后续步骤
 - 在[使用双重验证时遇到问题](multi-factor-authentication-end-user-troubleshoot.md)中获得疑难解答提示和帮助
-
 
 

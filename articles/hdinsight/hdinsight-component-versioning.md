@@ -17,9 +17,10 @@ ms.topic: article
 ms.date: 04/14/2017
 wacn.date: 
 ms.author: bprakash
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
 ms.openlocfilehash: dc2708bb86b27e59a949d8604050b87e074b53c5
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/29/2017
 
 
@@ -30,8 +31,36 @@ ms.lasthandoff: 04/29/2017
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
+## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight 标准版和 HDInsight 高级版
+
+Azure HDInsight 提供了两个类别的大数据云产品/服务：**标准**和**高级**。 下表部分列出了**仅可作为高级版的一部分**使用的功能。 没有在此处的表格中显式调用的功能将用作为标准版的一部分可用。
+
+> [!NOTE]
+> HDInsight 高级版产品/服务当前处于预览状态，仅可用于 Linux 群集。
+>
+>
+
+| HDInsight 高级版功能 | 说明 |
+| --- | --- |
+| 已加入域的 HDInsight 群集 |将 HDInsight 群集加入到 Azure Active Directory (AAD) 域以实现企业级安全性。 现在可配置企业员工的列表，这些员工可通过 Azure Active Directory 进行身份验证登录到 HDInsight 群集。 企业管理员还可以使用 [Apache Ranger](http://hortonworks.com/apache/ranger/)配置基于角色的访问控制以确保 Hive 安全性，根据需要尽可能限制对数据的访问权限。 最后，管理员可以审核员工访问的数据以及对访问控制策略所做的任何更改，对公司资源进行高度控制。 |
+
+### <a name="cluster-types-supported-for-hdinsight-premium"></a>HDInsight 高级版支持的群集类型
+下表列出了 HDInsight 群集类型和高级版支持矩阵。
+
+| 群集类型 | 标准 | 高级（预览） |
+| --- | --- | --- |
+| Hadoop |是 |是（仅限 HDInsight 3.5 和 3.6） |
+| Spark |是 |否 |
+| HBase |是 |否 |
+| Storm |是 |否 |
+| R Server  |是 |否 |
+| 交互式 Hive（预览版） |是 |否 |
+| Kafka（预览版）|是|否| 
+
+随着 HDInsight 高级版中包含的群集类型更多，此表也会随之更新。
+
 ### <a name="pricing-and-sla"></a>定价和 SLA
-有关 HDInsight 的定价和 SLA 的信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
+有关 HDInsight 高级版的定价和 SLA 的信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
 ## <a name="hadoop-components-available-with-different-hdinsight-versions"></a>可与不同 HDInsight 版本使用的 Hadoop 组件
 Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版本选项创建 Hortonworks 数据平台 (HDP) 分发的特定版本和该分发内包含的一组组件。 下表中逐项列出了与 HDInsight 群集版本关联的组件版本。 请注意，截止 2017/02/17，Azure HDInsight 使用的默认群集当前版本为 3.5，基于 HDP 2.5。
@@ -76,7 +105,7 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版�
 下表列出当前可用的 HDInsight 版本以及它们使用的相应 Hortonworks 数据平台版本和发布日期。 如果知道，还提供其支持到期日期和弃用日期。 请注意以下事项：
 
 * 默认情况下，会针对 HDInsight 2.1 和更高版本的群集部署具有两个头节点的高度可用群集。 它们不适用于 HDInsight 1.6 群集。
-* 某版本的支持到期后，可能不再通过 Azure 门户预览提供它。 下表列出 Azure 经典管理门户上提供的版本。 可继续使用 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/zh-cn/library/mt619331.aspx) 命令中的 `Version` 参数和 .NET SDK 获取群集版本，直到其弃用日期为止。
+* 某版本的支持到期后，可能不再通过 Azure 门户预览提供它。 下表列出 Azure 经典管理门户上提供的版本。 可继续使用 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 参数和 .NET SDK 获取群集版本，直到其弃用日期为止。
 
 | HDInsight 版本 | HDP 版本 | VM OS | 高可用性 | 发布日期 | 在 Azure 门户预览上提供 | 支持到期日期 | 弃用日期 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -90,7 +119,7 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版�
 | HDI 2.1 |HDP 1.3 |Windows Server 2012R2 |是 |10/28/2013 |否 |05/12/2014 |05/31/2015 |
 | HDI 1.6 |HDP 1.1 | |否 |10/28/2013 |否 |04/26/2014 |05/31/2015 |
 
-##<a name="hdi-version-33-nearing-deprecation-date" id="hdi-version-32-and-33-nearing-deprecation-date"></a>HDI 版本 3.3 接近弃用日期
+##<a name="hdi-version-33-nearing-deprecation-date"></a>HDI 版本 3.3 接近弃用日期
 对 HDI 3.3 群集的支持于 06/27/2016 到期，并将于 07/31/2017 弃用。 如果有 HDI 3.3 群集，请尽快将群集升级到 HDI 3.5 或 HDI 3.6。 HDI 3.3 Windows 的弃用时间表可能因区域而异。 如果所在区域的计划弃用日期与本通信中确定的日期不同，客户将会收到单独的通信。
 
 ### <a name="the-service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 群集版本的服务级别协议

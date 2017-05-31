@@ -15,9 +15,10 @@ ms.workload: infrastructure
 ms.date: 12/15/2016
 wacn.date: 
 ms.author: v-livech
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 06f366c6e4940cb650dcc839a03f6552b818d937
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -51,7 +52,7 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 
 ## <a name="vm-quick-create-aliases"></a>VM quick-create 别名
 
-选择分发的便捷方法是使用映射到最常见 OS 分发的 Azure CLI 别名。 下表列出了别名（截止到 Azure 0.10 版）。 使用 `quick-create` 的所有部署默认为部署到由固态硬盘 (SSD) 存储提供支持的 VM，这些 VM 提供更快的预配性能和高性能磁盘访问。 （这些别名表示 Azure 上的一小部分可用分发。 在 Azure 应用商店中查找更多映像（可以[在 PowerShell 中搜索映像](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)），或者[上载自己的自定义映像](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。）
+选择分发的便捷方法是使用映射到最常见 OS 分发的 Azure CLI 别名。 下表列出了别名（截止到 Azure 0.10 版）。 使用 `quick-create` 的所有部署默认为部署到由固态硬盘 (SSD) 存储提供支持的 VM，这些 VM 提供更快的预配性能和高性能磁盘访问。 （这些别名表示 Azure 上的一小部分可用分发。 在 Azure 应用商店中查找更多映像（可以[在 PowerShell 中搜索映像](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)），或者[上传自己的自定义映像](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。）
 
 | 别名 | 发布者 | 产品 | SKU | 版本 |
 |:--- |:--- |:--- |:--- |:--- |
@@ -63,7 +64,7 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 
 以下各节对 **ImageURN** 选项 (`-Q`) 使用 `UbuntuLTS` 别名来部署 Ubuntu 14.04.3 LTS Server。
 
-上一个 `quick-create` 示例在禁用 SSH 密码时仅调出 `-M` 标志来标识要上载的 SSH 公钥，因此系统将提示输入以下参数：
+上一个 `quick-create` 示例在禁用 SSH 密码时仅调出 `-M` 标志来标识要上传的 SSH 公钥，因此系统将提示输入以下参数：
 
 * 资源组名称（通常适用于第一个 Azure 资源组的任何字符串）
 * VM 名称

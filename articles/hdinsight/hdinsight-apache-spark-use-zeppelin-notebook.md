@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
 ms.openlocfilehash: e925f69ed16447d813aee518acbf4e171fb11f84
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/29/2017
 
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 04/29/2017
 可以使用脚本操作在 Spark 群集上安装 Zeppelin。 脚本操作使用自定义脚本在群集上安装默认情况下未提供的组件。 可以使用自定义脚本，通过 Azure 门户预览、HDInsight .NET SDK 或 Azure PowerShell 安装 Zeppelin。 可以在创建群集过程中或者在群集已启动并运行之后使用脚本安装 Zeppelin。 以下部分中的链接提供了有关如何执行此操作的说明。
 
 ### <a name="using-the-azure-portal-preview"></a>使用 Azure 门户预览
-有关如何使用 Azure 门户预览运行脚本操作安装 Zeppelin 的说明，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)。 必须对该文章中的说明做出一些更改。
+有关如何使用 Azure 门户预览运行脚本操作安装 Zeppelin 的说明，请参阅 [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)（使用脚本操作自定义 HDInsight 群集）。 必须对该文章中的说明做出一些更改。
 
 * 必须使用脚本来安装 Zeppelin。 用于在 HDInsight 中的 Spark 群集上安装 Zeppelin 的自定义脚本可从以下链接获取：
 
@@ -222,12 +223,12 @@ ms.lasthandoff: 04/29/2017
 
 ### <a name="tools-and-extensions"></a>工具和扩展
 * [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-* [将外部包与 Jupyter 笔记本配合使用](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>管理资源
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](hdinsight-apache-spark-resource-manager.md)
-* [跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业](hdinsight-apache-spark-job-debugging.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](hdinsight-apache-spark-job-debugging.md)
 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-upload-data]: hdinsight-upload-data.md

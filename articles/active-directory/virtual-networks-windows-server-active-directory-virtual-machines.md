@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2017
 ms.author: joflore
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 615f8bda6e31bbcd42c75a5b008d359a6ce33ef7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

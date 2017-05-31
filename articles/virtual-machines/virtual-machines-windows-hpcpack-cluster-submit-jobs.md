@@ -28,7 +28,7 @@ ms.author: danlep
 
 ## 先决条件
 
-* **Azure VM 中部署的 HPC Pack 头节点** - 建议使用 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)或 [Azure PowerShell 脚本](./virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)等自动化工具来部署头节点和群集。需要获得头节点的 DNS 名称和群集管理员的凭据才能完成本文中的步骤。
+* **Azure VM 中部署的 HPC Pack 头节点** - 建议使用 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)或 [Azure PowerShell 脚本](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)等自动化工具来部署头节点和群集。需要获得头节点的 DNS 名称和群集管理员的凭据才能完成本文中的步骤。
 
 * **客户端计算机** - 需要有可运行 HPC Pack 客户端实用工具的 Windows 或 Windows Server 客户端计算机（请参阅[系统要求](https://technet.microsoft.com/zh-cn/library/dn535781.aspx)）。如果只想使用 HPC Pack Web 门户或 REST API 来提交作业，则可以使用自选的任意客户端计算机。
 
@@ -41,7 +41,7 @@ ms.author: danlep
 有关详细过程，请参阅[安装 Microsoft HPC Pack Web 组件](http://technet.microsoft.com/zh-cn/library/hh314627.aspx)。
 
 >[!TIP]
-> HPC Pack 的某些 Azure 快速启动模板将自动安装并配置 Web 组件。如果使用 [HPC Pack IaaS 部署脚本](./virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)创建群集，可在部署期间选择安装并配置 Web 组件。
+> HPC Pack 的某些 Azure 快速启动模板将自动安装并配置 Web 组件。如果使用 [HPC Pack IaaS 部署脚本](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)创建群集，可在部署期间选择安装并配置 Web 组件。
 
 **安装 Web 组件**
 
@@ -153,11 +153,11 @@ ms.author: danlep
 
     b.单击“Windows 凭据”>“添加普通凭据”。
 
-    c.指定 Internet 地址（例如 https://&lt;HeadNodeDnsName&gt;.chinacloudapp.cn/HpcScheduler 或 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.chinacloudapp.cn/HpcScheduler）以及群集管理员或所配置的另一群集用户的用户名（格式为 &lt;DomainName&gt;\\&lt;UserName&gt;）和密码。
+    c.指定 Internet 地址（例如 https://&lt;HeadNodeDnsName&gt;.chinacloudapp.cn/HpcScheduler 或 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.chinacloudapp.cn/HpcScheduler ）以及群集管理员或所配置的另一群集用户的用户名（格式为 &lt;DomainName&gt;\\&lt;UserName&gt;）和密码。
 
 2. 在客户端计算机上启动 HPC 作业管理器。
 
-3. 在“选择头节点”对话框中，键入指向 Azure 中头节点的 URL（例如 https://&lt;HeadNodeDnsName&gt;.chinacloudapp.cn 或 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.chinacloudapp.cn）。
+3. 在“选择头节点”对话框中，键入指向 Azure 中头节点的 URL（例如 https://&lt;HeadNodeDnsName&gt;.chinacloudapp.cn 或 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.chinacloudapp.cn ）。
 
     HPC 作业管理器将会打开并显示头节点上的作业列表。
 

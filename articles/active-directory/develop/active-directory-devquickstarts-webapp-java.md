@@ -1704,7 +1704,7 @@ public class BasicFilter implements Filter {
 现在，/targets 目录中应具有 adal4jsample.war 文件。可以在 Tomcat 容器中部署该文件并访问 http://localhost:8080/adal4jsample/ URL。
 
 > [!NOTE]
-可使用最新的 Tomcat 服务器轻松部署 .war 文件。转到 http://localhost:8080/manager/，并按照相关说明上传 adal4jsample.war 文件。它会为你自动部署正确的终结点。
+可使用最新的 Tomcat 服务器轻松部署 .war 文件。转到 http://localhost:8080/manager/ ，并按照相关说明上传 adal4jsample.war 文件。它会为你自动部署正确的终结点。
 
 ## 后续步骤
 现在，已创建一个有效的 Java 应用，它可以对用户进行身份验证，使用 OAuth 2.0 安全调用 Web API，并获取有关用户的基本信息。如果尚未将用户填充到租户，现在正是执行此操作的最佳时机。

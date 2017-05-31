@@ -15,16 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 wacn.date: 
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 2c6cb346308f002ba9e924d19fa51ec730297ec1
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
 
 # <a name="azure-load-balancer-overview"></a>Azure 负载均衡器概述
 
-Azure 负载均衡器可提高应用程序的可用性和网络性能。 它是第 4 层（TCP、UDP）类型的负载均衡器，可在负载平衡集中定义的运行状况良好的服务实例之间分配传入流量。
+Azure 负载均衡器可提高应用程序的可用性和网络性能。 它是第 4 层（TCP、UDP）类型的负载均衡器，可在负载均衡集中定义的运行状况良好的服务实例之间分配传入流量。
 
 可以将 Azure 负载均衡器配置为：
 
@@ -40,7 +41,7 @@ Azure 负载均衡器可提高应用程序的可用性和网络性能。 它是�
 
 ### <a name="azure-classic-deployment-model"></a>Azure 经典部署模型
 
-部署在云服务边界内的虚拟机可组合起来使用一个负载均衡器。 在此模型中，为云服务分配了一个公共 IP 地址和一个完全限定域名 FQDN。 负载均衡器使用云服务的公共 IP 地址进行端口转换以及对网络流量进行负载平衡。
+部署在云服务边界内的虚拟机可组合起来使用一个负载均衡器。 在此模型中，为云服务分配了一个公共 IP 地址和一个完全限定域名 FQDN。 负载均衡器使用云服务的公共 IP 地址进行端口转换以及对网络流量进行负载均衡。
 
 负载均衡的流量由终结点定义。 端口转换终结点在公共 IP 地址的公共分配端口与分配到特定虚拟机上的服务的本地端口之间存在一对一的关系。 负载均衡终结点在公共 IP 地址与分配到云服务中虚拟机上的服务的本地端口之间存在一对多的关系。
 

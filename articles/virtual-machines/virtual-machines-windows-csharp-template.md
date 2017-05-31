@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 03/01/2017
 wacn.date: 
 ms.author: davidmu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 1a5a4a2b0addd26dab5da2ae6892cb0119b02bca
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/06/2017
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>使用 C# 和 Resource Manager 模板部署 Azure 虚拟机
 本文介绍如何使用 C# 部署 Azure Resource Manager 模板。 此[模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json)在包含单个子网的新虚拟网络中部署运行 Windows Server 的单个虚拟机。
 
-有关虚拟机资源的详细说明，请参阅 [Azure Resource Manager 模板中的虚拟机](virtual-machines-windows-template-description.md)。 有关模板中所有资源的详细信息，请参阅 [Azure Resource Manager 模板演练](../azure-resource-manager/resource-manager-template-walkthrough.md)。
+有关虚拟机资源的详细说明，请参阅 [Azure Resource Manager 模板中的虚拟机](virtual-machines-windows-template-description.md)。 有关模板中所有资源的详细信息，请参阅 [Azure Resource Manager 模板演练](../resource-manager-template-walkthrough.md)。
 
 完成这些步骤大约需要 10 分钟。
 

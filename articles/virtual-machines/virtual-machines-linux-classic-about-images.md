@@ -24,16 +24,16 @@ ms.author: cynthn
 
 [!INCLUDE [virtual-machines-common-classic-about-images](../../includes/virtual-machines-common-classic-about-images.md)]
 
-想查看更多关于资源管理器模型的信息，请点击[这里](./virtual-machines-linux-cli-ps-findimage.md)。
+想查看更多关于资源管理器模型的信息，请点击[这里](virtual-machines-linux-cli-ps-findimage.md)。
 
 ## 使用映像
 
 可以使用适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (CLI) 模块管理可供 Azure 订阅使用的映像。也可以使用 Azure 经典管理门户完成某些映像任务，但命令行提供更多选项。
 
-有关这些工具的用例，请参阅 [Common Azure CLI commands on Linux and Mac](./virtual-machines-linux-cli-manage.md)（Linux 和 Mac 上的常用 Azure CLI 命令）。
+有关这些工具的用例，请参阅 [Common Azure CLI commands on Linux and Mac](virtual-machines-linux-cli-manage.md)（Linux 和 Mac 上的常用 Azure CLI 命令）。
 
 ## 后续步骤
 
-还可以[上载自己的映像](./virtual-machines-linux-classic-create-upload-vhd.md)。
+还可以[上载自己的映像](virtual-machines-linux-classic-create-upload-vhd.md)。
 
 <!---HONumber=Mooncake_0905_2016-->

@@ -15,9 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2017
 wacn.date: 
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 646eeb1144f64f17f58099aaf574e19fe108b2c6
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -37,7 +38,7 @@ ms.lasthandoff: 04/22/2017
 
 可使用以下 CLI 版本之一完成任务： 
 
-- [Azure CLI 1.0](#Create-the-UDR-for-the-front-end-subnet) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
+- [Azure CLI 1.0](#Create-the-UDR-for-the-front-end-subnet) - 适用于经典部署模型和资源管理部署模型的 CLI（本文）
 - [Azure CLI 2.0](virtual-network-create-udr-arm-cli.md) - 适用于资源管理部署模型的下一代 CLI 
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]

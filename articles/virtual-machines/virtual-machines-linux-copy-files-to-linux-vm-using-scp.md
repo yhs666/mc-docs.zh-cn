@@ -27,7 +27,7 @@ ms.author: v-livech
 
 - [一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)
 
-- [SSH 公钥和私钥文件](./virtual-machines-linux-mac-create-ssh-keys.md)
+- [SSH 公钥和私钥文件](virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## 快速命令
 
@@ -51,7 +51,7 @@ scp user@host:directory/file targetfile
 
 SCP 将 SSH 用于传输层。通过使用 SSH 进行传输，SSH 处理目标主机上的身份验证，同时还在 SSH 默认提供的加密隧道中移动文件。对于 SSH 身份验证，可以使用用户名和密码，但作为安全最佳做法，强烈建议使用 SSH 公钥和私钥进行身份验证。SSH 对连接进行身份验证后，SCP 将开始复制文件的过程。使用正确配置的 `~/.ssh/config` 和 SSH 公钥和私钥，无需使用用户名，只使用服务器名称就可建立 SCP 连接。如果只有一个 SSH 密钥，SCP 将在 `~/.ssh/` 目录中查找它，并默认情况下使用它登录到 VM。
 
-有关配置 `~/.ssh/config` 以及 SSH 公钥和私钥的详细信息，请按照此文（[创建 SSH 密钥](./virtual-machines-linux-mac-create-ssh-keys.md)）进行操作。
+有关配置 `~/.ssh/config` 以及 SSH 公钥和私钥的详细信息，请按照此文（[创建 SSH 密钥](virtual-machines-linux-mac-create-ssh-keys.md)）进行操作。
 
 ## 通过 SCP 将文件复制到 Linux VM
 
@@ -73,7 +73,7 @@ scp -r myserver:/home/ahmet/logs/ /tmp/.
 
 ## 后续步骤
 
-* [管理用户、SSH，并使用 VMAccess 扩展检查或修复 Azure Linux VM 上的磁盘](./virtual-machines-linux-using-vmaccess-extension.md)
-* [通过配置 SSHD 禁用 Linux VM 上的 SSH 密码](./virtual-machines-linux-mac-disable-ssh-password-usage.md)
+* [管理用户、SSH，并使用 VMAccess 扩展检查或修复 Azure Linux VM 上的磁盘](virtual-machines-linux-using-vmaccess-extension.md)
+* [通过配置 SSHD 禁用 Linux VM 上的 SSH 密码](virtual-machines-linux-mac-disable-ssh-password-usage.md)
 
 <!---HONumber=Mooncake_0109_2017-->

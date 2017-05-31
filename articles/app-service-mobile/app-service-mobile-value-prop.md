@@ -19,7 +19,7 @@ ms.author: adrianha
 
 # <a name="getting-started"></a>什么是移动应用？
 
-Azure 应用服务是面向专业开发人员的完全托管型平台即服务 (PaaS)，可为 Web、移动和集成方案提供丰富的功能。*Azure 应用服务* 中的 *移动应用* 提供面向企业开发人员和系统集成商的高度可缩放、全局可用的移动应用程序平台，为移动开发人员提供丰富的功能。
+Azure 应用服务是面向专业开发人员的完全托管型平台即服务 (PaaS)，可为 Web、移动和集成方案提供丰富的功能。 *Azure 应用服务* 中的 *移动应用* 提供面向企业开发人员和系统集成商的高度可缩放、全局可用的移动应用程序平台，为移动开发人员提供丰富的功能。
 
 ![Mobile Apps](./media/app-service-mobile-value-prop/overview.png)
 

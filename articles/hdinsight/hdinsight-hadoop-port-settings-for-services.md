@@ -14,11 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/14/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: e33993919eadfbd9fda6725fdc8cc225511ae7bd
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -44,9 +45,9 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 
 | 服务 | 端口 | 协议 | 说明 |
 | --- | --- | --- | --- | --- |
-| sshd |22 |SSH |将客户端连接到主头节点上的 sshd。 有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。 |
-| sshd |22 |SSH |将客户端连接到边缘节点上的 sshd。 有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。 |
-| sshd |23 |SSH |将客户端连接到辅助头节点上的 sshd。 有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。 |
+| sshd |22 |SSH |将客户端连接到主头节点上的 sshd。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。 |
+| sshd |22 |SSH |将客户端连接到边缘节点上的 sshd。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。 |
+| sshd |23 |SSH |将客户端连接到辅助头节点上的 sshd。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。 |
 | Ambari |443 |HTTPS |Ambari Web UI。 请参阅[使用 Ambari Web UI 管理 HDInsight](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API。 请参阅[使用 Ambari REST API 管理 HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md) |
 | WebHCat |443 |HTTPS |HCatalog REST API。 请参阅[将 Hive 与 Curl 配合使用](hdinsight-hadoop-use-pig-curl.md)、[将 Pig 与 Curl 配合使用](hdinsight-hadoop-use-pig-curl.md)、[将 MapReduce 与 Curl 配合使用](hdinsight-hadoop-use-mapreduce-curl.md) |
@@ -144,4 +145,11 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 | HMaster 信息 Web UI |头节点 |16010 |HTTP |HBase 主控 Web UI 的端口 |
 | 区域服务器 |所有辅助角色节点 |16020 |&nbsp; |&nbsp; |
 | &nbsp; |&nbsp; |2181 |&nbsp; |客户端用来连接 ZooKeeper 的端口 |
+
+### <a name="kafka-ports"></a>Kafka 端口
+
+| 服务 | Nodes | 端口 | 协议 | 说明 |
+| --- | --- | --- | --- | --- |
+| 代理 |辅助角色节点 |9092 |[Kafka 线路协议](http://kafka.apache.org/protocol.html) |用于客户端通信 |
+| &nbsp; |Zookeeper 节点 |2181 |&nbsp; |客户端用来连接 ZooKeeper 的端口 |
 

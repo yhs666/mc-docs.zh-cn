@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2017
 ms.author: juanpere
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 8d80059a16e5375b9e04de191b138ae28678be33
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: jhubbard
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: a4f3717c917c2f0037e354c1cc90d59ac2b46250
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 

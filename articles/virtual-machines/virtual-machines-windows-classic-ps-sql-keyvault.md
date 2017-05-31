@@ -21,8 +21,8 @@ ms.author: jroth
 
 # 在 Azure VM 上配置 SQL Serve 的 Azure 密钥保管库集成（经典）
 > [!div class="op_single_selector"]
->- [资源管理器](./virtual-machines-windows-ps-sql-keyvault.md)
->- [经典](./virtual-machines-windows-classic-ps-sql-keyvault.md)
+>- [资源管理器](virtual-machines-windows-ps-sql-keyvault.md)
+>- [经典](virtual-machines-windows-classic-ps-sql-keyvault.md)
 
 ## 概述
 SQL Server 加密功能多种多样，包括[透明数据加密 \(TDE\)](https://msdn.microsoft.com/zh-cn/library/bb934049.aspx)、[列级加密 \(CLE\)](https://msdn.microsoft.com/zh-cn/library/ms173744.aspx) 和[备份加密](https://msdn.microsoft.com/zh-cn/library/dn449489.aspx)。这些加密形式要求你管理和存储用于加密的加密密钥。Azure 密钥保管库 \(AKV\) 服务专用于在一个高度可用的安全位置改进这些密钥的安全性和管理。[SQL Server 连接器](http://www.microsoft.com/download/details.aspx?id=45344)使 SQL Server 能够使用 Azure 密钥保管库中的这些密钥。
@@ -40,14 +40,14 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
 使用 PowerShell 来配置 Azure 密钥保管库集成。以下各节概述了所需的参数，然后提供了一个示例 PowerShell 脚本。
 
 ### 安装 SQL Server IaaS 扩展
-首先，请[安装 SQL Server IaaS 扩展](./virtual-machines-windows-classic-sql-server-agent-extension.md)。
+首先，请[安装 SQL Server IaaS 扩展](virtual-machines-windows-classic-sql-server-agent-extension.md)。
 
 ### 了解输入参数
 下表列出在下一节中运行 PowerShell 脚本所需的参数。
 
 | 参数 | 说明 | 示例 |
 | --- | --- | --- |
-| **$akvURL** |**密钥保管库 URL** |“https://contosokeyvault.vault.azure.cn/” |
+| **$akvURL** |**密钥保管库 URL** | "https://contosokeyvault.vault.azure.cn/"  |
 | **$spName** |**服务主体名称** |“fde2b411-33d5-4e11-af04eb07b669ccf2” |
 | **$spSecret** |**服务主体密码** |“9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM =” |
 | **$credName** |**凭据名称**：AKV 集成在 SQL Server 内创建一个凭据，使 VM 具有对密钥保管库的访问权限。为此凭据选择一个名称。 |“mycred1” |

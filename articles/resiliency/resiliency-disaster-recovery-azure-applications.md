@@ -36,7 +36,7 @@ Azure 在中国不同的区域保留了数据中心。此基础结构支持多�
 
 发生数据中心特有的故障后，必须将流量重定向到另一区域中的服务或部署。可手动进行此路由过程，使用自动过程更加高效。Azure 流量管理器专为完成此任务而设计。使用它可在主要区域发生故障时管理将用户流量故障转移到另一区域的过程。由于流量管理是整体策略的重要组成部分，因此了解流量管理器的基本知识很重要。
 
-在下图中，用户连接到为流量管理器指定的 URL (**http://myATMURL.trafficmanager.cn**)，后者对真实的站点 URL（**http://app1URL.chinacloudapp.cn** 和 **http://app2URL.chinacloudapp.cn**）进行了抽象化。当策略发出指令时，将根据配置何时路由用户的条件，将用户发送到正确的真实站点。策略选项为轮循机制、性能或故障转移。在本文中，我们只讨论故障转移选项。
+在下图中，用户连接到为流量管理器指定的 URL (**http://myATMURL.trafficmanager.cn**)，后者对真实的站点 URL（**http://app1URL.chinacloudapp.cn** 和 **http://app2URL.chinacloudapp.cn** ）进行了抽象化。当策略发出指令时，将根据配置何时路由用户的条件，将用户发送到正确的真实站点。策略选项为轮循机制、性能或故障转移。在本文中，我们只讨论故障转移选项。
 
 ![通过 Azure 流量管理器路由](./media/resiliency-disaster-recovery-azure-applications/routing-using-azure-traffic-manager.png)
 

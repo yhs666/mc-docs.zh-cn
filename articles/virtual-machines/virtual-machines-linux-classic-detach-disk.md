@@ -28,7 +28,7 @@ ms.author: iainfou
 ## 后续步骤
 你可以阅读下列文章，进一步了解如何使用 Linux VM：
 
-- [如何将数据磁盘附加到 Linux 虚拟机](./virtual-machines-linux-classic-attach-disk.md)
+- [如何将数据磁盘附加到 Linux 虚拟机](virtual-machines-linux-classic-attach-disk.md)
 
 - [将 Azuer CLI 与经典部署模型搭配使用](../virtual-machines-command-line-tools.md)
 

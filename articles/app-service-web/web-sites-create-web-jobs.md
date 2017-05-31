@@ -15,20 +15,21 @@ ms.topic: article
 ms.date: 11/27/2016
 wacn.date: 
 ms.author: glenga
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 6b9eaf0ea44238f2d6b5731ae1f060a304132f7d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="run-background-tasks-with-webjobs"></a>使用 Web 作业运行后台任务
 ## <a name="overview"></a>概述
-可使用 3 种方式在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services) Web 应用的 WebJobs 中运行程序或脚本：按需、连续或按计划。 使用 Web 作业无需支付额外的费用。
+可使用 3 种方式在 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services) Web 应用的 WebJobs 中运行程序或脚本：按需、连续或按计划。 使用 Web 作业无需支付额外的费用。
 
 [!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
-本文说明如何使用 [Azure 门户预览](https://portal.azure.cn)来部署 Web 作业。 有关如何使用 Visual Studio 或连续交付过程进行部署的信息，请参阅[如何将 Azure WebJobs 部署到 Web 应用](websites-dotnet-deploy-webjobs.md)。
+本文说明如何使用 [Azure 门户预览](https://portal.azure.cn)来部署 Web 作业。 有关如何使用 Visual Studio 或持续交付过程进行部署的信息，请参阅[如何将 Azure WebJobs 部署到 Web 应用](websites-dotnet-deploy-webjobs.md)。
 
 Azure WebJobs SDK 简化了许多 Web 作业编程任务。 有关详细信息，请参阅[什么是 WebJobs SDK](websites-dotnet-webjobs-sdk.md)。
 
@@ -178,7 +179,7 @@ Azure 门户预览尚不能创建计划的 Web 作业，但在增添该功能之
 有关详细信息，请参阅 [Azure Web 作业推荐资源][WebJobsRecommendedResources]。
 
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
-[WebJobsRecommendedResources]:/app-service-web/websites-webjobs-resources
+[WebJobsRecommendedResources]:/azure/app-service-web/websites-webjobs-resources
 
 [OnDemandWebJob]: ./media/web-sites-create-web-jobs/01aOnDemandWebJob.png
 [WebJobsList]: ./media/web-sites-create-web-jobs/02aWebJobsList.png

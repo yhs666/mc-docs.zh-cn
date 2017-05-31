@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/30/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: b39ee1fed6168d10ca797e5fadc22d3864dbf482
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -300,9 +301,9 @@ AD FS 服务需要域服务帐户来验证用户，以及在 Active Directory �
 
 此外，请执行以下验证步骤：
 
-- 在 Intranet 上，通过已加入域的计算机上的浏览器验证是否能够登录：连接到 https://login.partner.microsoftonline.cn，然后使用登录帐户验证登录。 内置的 AD DS 管理员帐户未同步，因此无法用于验证。
-- 验证是否能够从 Extranet 中的设备登录。 在家庭计算机或移动设备上连接到 https://login.partner.microsoftonline.cn，并提供你的凭据。
-- 验证富客户端登录。 连接到 https://testconnectivity.microsoft.com，选择“Office 365”选项卡，然后选择“Office 365 单一登录测试”。
+- 在 Intranet 上，通过已加入域的计算机上的浏览器验证是否能够登录：连接到 https://login.partner.microsoftonline.cn ，然后使用登录帐户验证登录。 内置的 AD DS 管理员帐户未同步，因此无法用于验证。
+- 验证是否能够从 Extranet 中的设备登录。 在家庭计算机或移动设备上连接到 https://login.partner.microsoftonline.cn ，并提供你的凭据。
+- 验证富客户端登录。 连接到 https://testconnectivity.microsoft.com ，选择“Office 365”选项卡，然后选择“Office 365 单一登录测试”。
 
 ## <a name="next-steps"></a>后续步骤
 安装完成后，请注销并再次登录到 Windows，然后即可使用同步服务管理器或同步规则编辑器。

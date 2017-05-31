@@ -29,7 +29,7 @@ ms.author: iainfou
 可使用以下 CLI 版本之一完成任务：
 
 - Azure CLI 1.0 - 用于经典部署模型和资源管理部署模型（本文）的 CLI
-- [Azure CLI 2.0（预览版）](./virtual-machines-linux-install-mongodb.md)- 下一代 CLI，适用于资源管理部署模型。
+- [Azure CLI 2.0（预览版）](virtual-machines-linux-install-mongodb.md)- 下一代 CLI，适用于资源管理部署模型。
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a> 在 VM 上手动安装和配置 MongoDB
 MongoDB 为 Red Hat/CentOS、SUSE、Ubuntu 和 Debian 等 Linux 分发版[提供了安装说明](https://docs.mongodb.com/manual/administration/install-on-linux/)。以下示例使用 `~/.ssh/id_rsa.pub` 中存储的 SSH 密钥创建 `CentOS` VM。出现提供存储帐户名称、DNS 名称和管理员凭据的提示时，请输入所需的信息：
@@ -178,10 +178,10 @@ azure group create --name myResourceGroup --location ChinaNorth \
 > 
 
 ## 后续步骤
-在上述示例中，你已在本地从 VM 连接到 MongoDB 实例。如果想要从另一个 VM 或网络连接到 MongoDB 实例，请确保[创建相应的网络安全组规则](./virtual-machines-linux-nsg-quickstart.md)。
+在上述示例中，你已在本地从 VM 连接到 MongoDB 实例。如果想要从另一个 VM 或网络连接到 MongoDB 实例，请确保[创建相应的网络安全组规则](virtual-machines-linux-nsg-quickstart.md)。
 
 有关使用模板创建这些规则的详细信息，请参阅 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)。
 
-Azure Resource Manager 模板使用自定义脚本扩展在 VM 上下载并执行脚本。有关详细信息，请参阅[在 Linux 虚拟机上使用 Azure 自定义脚本扩展](./virtual-machines-linux-extensions-customscript.md)。
+Azure Resource Manager 模板使用自定义脚本扩展在 VM 上下载并执行脚本。有关详细信息，请参阅[在 Linux 虚拟机上使用 Azure 自定义脚本扩展](virtual-machines-linux-extensions-customscript.md)。
 
 <!---HONumber=Mooncake_0313_2017-->

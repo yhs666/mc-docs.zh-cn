@@ -46,7 +46,7 @@ ms.author: josephd
 
 ## 阶段 1：设置模拟混合云环境
 
-创建[模拟的混合云测试环境](./virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md)。由于此测试环境不需要 Corpnet 子网上存在 APP1 服务器，因此现在可将其关闭。
+创建[模拟的混合云测试环境](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md)。由于此测试环境不需要 Corpnet 子网上存在 APP1 服务器，因此现在可将其关闭。
 
 这是你当前的配置。
 
@@ -208,7 +208,7 @@ Restart-Computer
 10. 在“确认安装选择”页上，单击“安装”。
 11. 等待直到组件安装完成，然后单击“关闭”。
 12. 在 Azure 门户预览中，使用 CORP\\User1 帐户凭据连接到 CLIENT1 计算机，然后启动 Internet Explorer。
-13. 在地址栏中，键入 **http://lob1/**，然后按 Enter。你会看到默认的 IIS 8 网页。
+13. 在地址栏中，键入 **http://lob1/** ，然后按 Enter。你会看到默认的 IIS 8 网页。
 
 这是你当前的配置。
 
@@ -218,6 +218,6 @@ Restart-Computer
 
 ## 后续步骤
 
-- 使用 [Azure 门户预览](./virtual-machines-windows-hero-tutorial.md)添加新虚拟机。
+- 使用 [Azure 门户预览](virtual-machines-windows-hero-tutorial.md)添加新虚拟机。
 
 <!---HONumber=Mooncake_Quality_Review_1202_2016-->

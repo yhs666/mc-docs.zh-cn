@@ -1,11 +1,7 @@
-若要配置 VPN 设备，你需要使用虚拟网络网关的公共 IP 地址来配置本地 VPN 设备。请联系你的设备制造商以获得具体的配置信息并配置设备。有关可在 Azure 上正常工作的 VPN 设备的详细信息，请参阅 [VPN Devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md)（VPN 设备）。
+请参阅以下链接，了解 VPN 设备配置信息：
 
-若要使用 PowerShell 查找虚拟网络网关的公共 IP 地址，请使用以下示例：
-
-```
-Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
-```
-
-也可以使用 Azure 门户预览来查看虚拟网络网关的公共 IP 地址。导航到“虚拟网络网关”，然后单击网关的名称。
-
-<!---HONumber=Mooncake_0425_2016-->
+- 有关兼容 VPN 设备的信息，请参阅 [VPN 设备](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md)。 
+- 有关设备配置设置的链接，请参阅[已验证的 VPN 设备](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)。 我们会尽力提供各种设备配置链接。 如需最新的配置信息，最好是咨询设备制造商。
+- 若要了解如何编辑设备配置示例，请参阅[编辑示例](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#editing)。
+- 对于 IPsec/IKE 参数，请参阅[参数](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec)。
+- 在配置 VPN 设备之前，对于要使用的 VPN 设备，请查看是否存在任何[已知的设备兼容性问题](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known)。

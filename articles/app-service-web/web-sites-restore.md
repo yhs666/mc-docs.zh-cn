@@ -15,15 +15,21 @@ ms.topic: article
 ms.date: 07/06/2016
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: f845568dc04e0c9235dc614cdee1cca29580978f
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 775bfce52a7db4a6247ea9622fb2defd29777a40
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 
 ---
 # <a name="restore-an-app-in-azure"></a>在 Azure 中还原应用
-本文将演示如何在 [Azure App Service](../app-service/app-service-value-prop-what-is.md) 中还原已事先备份的应用（请参阅[在 Azure 中备份应用](web-sites-backup.md)）。 你可以根据需要将应用及其链接的数据库（SQL 数据库或 MySQL）还原到以前的状态，或者基于原始应用的备份之一创建新的应用。 创建与最新版本并行运行的新应用对于 A/B 测试会很有用。
+本文将演示如何在 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)中还原已事先备份的应用（请参阅[在 Azure 中备份应用](web-sites-backup.md)）。 可以根据需要将应用及其链接的数据库还原到以前的状态，或者基于原始应用的备份之一创建新的应用。 Azure 应用服务支持用于备份和还原的以下数据库：
+- [SQL 数据库](https://azure.microsoft.com/services/sql-database/)
+- [用于 MySQL 的 Azure 数据库（预览版）](https://azure.microsoft.com/services/mysql)
+- [用于 PostgreSQL 的 Azure 数据库（预览版）](https://azure.microsoft.com/services/postgres)
+- [ClearDB MySQL](https://azuremarketplace.microsoft.com/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview)
+- [MySQL 应用内产品](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 从备份还原适用于在**标准**和**高级**层中运行的应用。 有关向上缩放应用的信息，请参阅[在 Azure 中向上缩放应用](web-sites-scale.md)。 相比于**标准**层，**高级**层允许执行更多的每日备份量。
 
@@ -43,20 +49,17 @@ ms.lasthandoff: 04/28/2017
     ![](./media/web-sites-restore/022ChooseDestination.png)
 
     > [!WARNING]
-    > 如果选择“覆盖”，将清除当前应用中所有的现有数据。 在单击“确定”之前，请确保该操作正是想要执行的操作。
+    > 如果选择“覆盖”，将清除并覆盖当前应用中所有的现有数据。 在单击“确定”之前，请确保该操作正是想要执行的操作。
     > 
     > 
 
-    可选择“现有应用”  将应用备份还原到同一资源组中的其他应用。 使用此选项之前，应已使用应用备份中定义的镜像数据库配置在资源组中创建了其他应用。
+    可选择“现有应用”  将应用备份还原到同一资源组中的其他应用。 使用此选项之前，应已使用应用备份中定义的镜像配置在资源组中创建了其他应用。
+
 4. 单击 **“确定”**。
 
 ## <a name="StorageAccount"></a> 从存储帐户中下载或删除备份
-1. 在 Azure 门户预览的主“浏览”边栏选项卡中，选择“存储帐户”。
-
-    将显示现有存储帐户的列表。
-2. 选择包含要下载或删除的备份的存储帐户。
-
-    将显示存储帐户的边栏选项卡。
+1. 在 Azure 门户预览的主“浏览”边栏选项卡中，选择“存储帐户”。 将显示现有存储帐户的列表。
+2. 选择包含要下载或删除的备份的存储帐户。将显示该存储帐户的边栏选项卡。
 3. 在存储帐户边栏选项卡中，选择所需的容器
 
     ![查看容器][ViewContainers]
@@ -66,15 +69,14 @@ ms.lasthandoff: 04/28/2017
 5. 单击“下载”或“删除”，具体取决于要执行的操作。  
 
 ## <a name="OperationLogs"></a> 监视还原操作
-1. 若要查看有关应用还原操作成功与否的详细信息，请导航到 Azure 门户预览中的“活动日志”边栏选项卡。
+若要查看有关应用还原操作成功与否的详细信息，请导航到 Azure 门户预览中的“活动日志”边栏选项卡。  
 
-    “活动日志”边栏选项卡将显示所有的操作，以及级别、状态、资源和时间的详细信息。
-2. 向下滚动以查找所需的还原操作，然后单击以选中。
+向下滚动以查找所需的还原操作，然后单击以选中。
 
 “详细信息”边栏选项卡将显示与还原操作相关的可用信息。
 
 ## <a name="next-steps"></a>后续步骤
-还可使用 REST API 备份和还原应用服务应用（请参阅[使用 REST 备份和还原应用服务应用](websites-csm-backup.md)）。
+可使用 REST API 备份和还原应用服务应用（请参阅[使用 REST 备份和还原应用服务应用](websites-csm-backup.md)）。
 
 <!-- IMAGES -->
 [ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow.png
@@ -91,3 +93,4 @@ ms.lasthandoff: 04/28/2017
 [ManagementServicesOperationLogsList]: ./media/web-sites-restore/11ManagementServicesOperationLogsList.png
 [DetailsButton]: ./media/web-sites-restore/12DetailsButton.png
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
+

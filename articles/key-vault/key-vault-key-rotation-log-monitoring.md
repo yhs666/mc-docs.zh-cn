@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 5397742e9bfdfafddd63dd9c389e23659cc47d7d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/28/2017
 >
 
 ## <a name="set-up-key-vault"></a>设置密钥保管库
-若要使应用程序能够从 Key Vault 检索机密，必须先创建机密并将其上载到保管库。 此操作可通过以下方式实现：启动 Azure PowerShell 会话，然后使用以下命令登录你的 Azure 帐户：
+若要使应用程序能够从 Key Vault 检索机密，必须先创建机密并将其上传到保管库。 此操作可通过以下方式实现：启动 Azure PowerShell 会话，然后使用以下命令登录你的 Azure 帐户：
 
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -234,5 +235,184 @@ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Secre
 
 在编辑器窗格中，选择“测试窗格”测试脚本。 正常运行脚本后，可以选择“发布”，然后返回 Runbook 的配置窗格以应用 Runbook 的计划。
 
+## <a name="key-vault-auditing-pipeline"></a>密钥保管库审核管道
+设置 Key Vault 时，可以打开审核功能，收集有关对 Key Vault 发出的访问请求的日志。 这些日志存储在指定的 Azure 存储帐户中，可以提取、监视和分析。 以下方案使用 Azure Functions、Azure 逻辑应用和 Key Vault 审核日志创建一个管道，以便在与 Web 应用的应用 ID 匹配的应用从保管库检索机密时发送电子邮件。
+
+首先，必须对密钥保管库启用日志记录。 这可以通过以下 PowerShell 命令完成（有关完整详细信息，可以查看 [key-vault-logging](key-vault-logging.md)）：
+
+```powershell
+$sa = New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'China East'
+$kv = Get-AzureRmKeyVault -VaultName '<vaultName>'
+Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+```
+
+启用日志记录后，审核日志将开始收集到指定的存储帐户中。 这些日志包含的事件记录了谁在何时以何种方式访问了 Key Vault。
+
+> [!NOTE]
+> 在执行 Key Vault 操作 10 分钟后，即可访问日志记录信息。 但通常不用等待这么长时间。
+>
+>
+
+下一步是[创建 Azure 服务总线队列](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。 这是 Key Vault 审核日志的推送位置。 审核日志消息进入队列后，逻辑应用将选择并处理它们。 使用以下步骤创建服务总线：
+
+1. 创建服务总线命名空间（如果要在本示例中使用现有的命名空间，请跳到步骤 2）。
+2. 在 Azure 门户中浏览到服务总线，然后选择要在其中创建队列的命名空间。
+3. 选择“新建”，然后依次选择“服务总线”>“队列”并输入所需的详细信息。
+4. 通过选择命名空间并单击“连接信息”，获取服务总线连接信息。 在下一部分需要用到此信息。
+
+接下来，[创建 Azure 函数](../azure-functions/functions-create-first-azure-function.md)以轮询存储帐户中的密钥保管库日志并选取新的事件。 这是一个按计划触发的函数。
+
+若要创建 Azure 函数，请在 Azure 门户中依次选择“新建”>“Function App”。 在创建过程中，可以使用现有的托管计划，或创建新的计划。 也可以选择动态托管。 有关托管选项的函数的更多详细信息，请参阅[如何缩放 Azure Functions](../azure-functions/functions-scale.md)。
+
+创建 Azure 函数后，导航到它并选择计时器函数和 C\#。然后单击“创建此函数”。
+
+![Azure Functions“开始”屏幕边栏选项卡](./media/keyvault-keyrotation/Azure_Functions_Start.png)
+
+在“开发”选项卡上，将 run.csx 代码替换为以下内容：
+
+```csharp
+#r "Newtonsoft.Json"
+
+using System;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.ServiceBus.Messaging;
+using System.Text;
+
+public static void Run(TimerInfo myTimer, TextReader inputBlob, TextWriter outputBlob, TraceWriter log)
+{
+    log.Info("Starting");
+
+    CloudStorageAccount sourceStorageAccount = new CloudStorageAccount(new StorageCredentials("<STORAGE_ACCOUNT_NAME>", "<STORAGE_ACCOUNT_KEY>"), true);
+
+    CloudBlobClient sourceCloudBlobClient = sourceStorageAccount.CreateCloudBlobClient();
+
+    var connectionString = "<SERVICE_BUS_CONNECTION_STRING>";
+    var queueName = "<SERVICE_BUS_QUEUE_NAME>";
+
+    var sbClient = QueueClient.CreateFromConnectionString(connectionString, queueName);
+
+    DateTime dtPrev = DateTime.UtcNow;
+    if(inputBlob != null)
+    {
+        var txt = inputBlob.ReadToEnd();
+
+        if(!string.IsNullOrEmpty(txt))
+        {
+            dtPrev = DateTime.Parse(txt);
+            log.Verbose($"SyncPoint: {dtPrev.ToString("O")}");
+        }
+        else
+        {
+            dtPrev = DateTime.UtcNow;
+            log.Verbose($"Sync point file didnt have a date. Setting to now.");
+        }
+    }
+
+    var now = DateTime.UtcNow;
+
+    string blobPrefix = "insights-logs-auditevent/resourceId=/SUBSCRIPTIONS/<SUBSCRIPTION_ID>/RESOURCEGROUPS/<RESOURCE_GROUP_NAME>/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/<KEY_VAULT_NAME>/y=" + now.Year +"/m="+now.Month.ToString("D2")+"/d="+ (now.Day).ToString("D2")+"/h="+(now.Hour).ToString("D2")+"/m=00/";
+
+    log.Info($"Scanning:  {blobPrefix}");
+
+    IEnumerable<IListBlobItem> blobs = sourceCloudBlobClient.ListBlobs(blobPrefix, true);
+
+    log.Info($"found {blobs.Count()} blobs");
+
+    foreach(var item in blobs)
+    {
+        if (item is CloudBlockBlob)
+        {
+            CloudBlockBlob blockBlob = (CloudBlockBlob)item;
+
+            log.Info($"Syncing: {item.Uri}");
+
+            string sharedAccessUri = GetContainerSasUri(blockBlob);
+
+            CloudBlockBlob sourceBlob = new CloudBlockBlob(new Uri(sharedAccessUri));
+
+            string text;
+            using (var memoryStream = new MemoryStream())
+            {
+                sourceBlob.DownloadToStream(memoryStream);
+                text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
+            }
+
+            dynamic dynJson = JsonConvert.DeserializeObject(text);
+
+            //required to order by time as they may not be in the file
+            var results = ((IEnumerable<dynamic>) dynJson.records).OrderBy(p => p.time);
+
+            foreach (var jsonItem in results)
+            {
+                DateTime dt = Convert.ToDateTime(jsonItem.time);
+
+                if(dt>dtPrev){
+                    log.Info($"{jsonItem.ToString()}");
+
+                    var payloadStream = new MemoryStream(Encoding.UTF8.GetBytes(jsonItem.ToString()));
+                    //When sending to ServiceBus, use the payloadStream and set keeporiginal to true
+                    var message = new BrokeredMessage(payloadStream, true);
+                    sbClient.Send(message);
+                    dtPrev = dt;
+                }
+            }
+        }
+    }
+    outputBlob.Write(dtPrev.ToString("o"));
+}
+
+static string GetContainerSasUri(CloudBlockBlob blob)
+{
+    SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
+
+    sasConstraints.SharedAccessStartTime = DateTime.UtcNow.AddMinutes(-5);
+    sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+    sasConstraints.Permissions = SharedAccessBlobPermissions.Read;
+
+    //Generate the shared access signature on the container, setting the constraints directly on the signature.
+    string sasBlobToken = blob.GetSharedAccessSignature(sasConstraints);
+
+    //Return the URI string for the container, including the SAS token.
+    return blob.Uri + sasBlobToken;
+}
+```
+
+
+> [!NOTE]
+> 确保替换上面代码中的变量，以指向写入密钥保管库日志的存储帐户、以前创建的服务总线和密钥保管库存储日志的特定路径。
+>
+>
+
+该函数在写入 Key Vault 日志的目标存储帐户中选择最新日志文件，从该文件获取最新事件，并将这些事件推送到服务总线队列。 由于单个文件可以包含多个事件，因此应该创建了一个 sync.txt 文件，函数会参照该文件确定所选最后一个事件的时间戳。 这可以确保不会多次推送相同的事件。 此 sync.txt 文件包含上次遇到的事件的时间戳。 加载日志时，必须根据该时间戳将日志排序，以确保其顺序正确。
+
+在此函数中，我们引用了 Azure Functions 中几个无法现成使用的附加库。 为了包含这些库，需要 Azure Functions 来使用 nuget 提取它们。 选择“查看文件”选项。
+
+![“查看文件”选项](./media/keyvault-keyrotation/Azure_Functions_ViewFiles.png)
+
+并添加包含以下内容的名为 project.json 的文件：
+
+```json
+    {
+      "frameworks": {
+        "net46":{
+          "dependencies": {
+                "WindowsAzure.Storage": "7.0.0",
+                "WindowsAzure.ServiceBus":"3.2.2"
+          }
+        }
+       }
+    }
+```
+单击“保存”后，Azure Functions 将下载必需的二进制文件。
+
+切换到“**集成**”选项卡，为计时器参数指定一个要在函数中使用的有意义名称。 在上面的代码中，需要称为 *myTimer* 的计时器。 按如下所示为计时器指定 [CRON 表达式](../app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON)：0 \* \* \* \* \*。这将导致函数一分钟运行一次。
+
+在同一个“集成”选项卡上，添加类型为“Azure Blob 存储”的输入。 这将指向 sync.txt 文件，其中包含该函数查看的最后一个事件的时间戳。 将在函数中按参数名称提供此文件。 在上面的代码中，Azure Blob 存储输入要求参数名称为 *inputBlob*。 选择将存储 sync.txt 文件的存储帐户（该存储帐户可以相同，也可以不同）。 在路径字段中，提供采用 {container-name}/path/to/sync.txt 格式存储文件的路径。
+
+添加一个类型为“Azure Blob 存储”输出的输出。 这将指向刚在输入中定义的 sync.txt 文件。 函数将使用此文件写入所查找的最后一个事件的时间戳。 在上面的代码中，要求此参数名为 *outputBlob*。
+
+现在，函数已准备就绪。 确保切换回“开发”选项卡并保存代码。 检查输出窗口中是否有任何编译错误并相应地更正。 如果代码可以编译，则代码现在应会每隔一分钟检查 Key Vault 日志，并将所有新事件推送到定义的服务总线队列。 每次触发该函数时，应该都会看到向日志窗口写入日志记录信息。
 
 

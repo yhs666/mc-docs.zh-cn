@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2016
 ms.author: ganesr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 0ca44f78c13c6f49a0d64839d452b87edd1c0a90
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -39,15 +40,15 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="configuration-prerequisites"></a>配置先决条件
 
-1. 需要 Azure PowerShell 模块的最新版本。 可以从 [Azure 下载页](https://www.azure.cn/downloads/)的 PowerShell 部分下载最新 PowerShell 模块。 有关如何配置计算机以使用 Azure PowerShell 模块的分步指导，请遵循[如何安装和配置 Azure PowerShell](../powershell-install-configure.md) 中的说明。 
-2. 在开始配置之前，需要查看[先决条件](./expressroute-prerequisites.md)、[路由要求](./expressroute-routing.md)和[工作流](./expressroute-workflows.md)。
+1. 需要 Azure PowerShell 模块的最新版本。 可以从 [Azure 下载页](/downloads/)的 PowerShell 部分下载最新 PowerShell 模块。 有关如何配置计算机以使用 Azure PowerShell 模块的分步指导，请遵循[如何安装和配置 Azure PowerShell](../powershell-install-configure.md) 中的说明。 
+2. 在开始配置之前，需要查看[先决条件](./expressroute-prerequisites.md/)、[路由要求](./expressroute-routing.md/)和[工作流](./expressroute-workflows.md/)。
 3. 你必须有一个活动的 ExpressRoute 线路。 
-    - 请按说明[创建 ExpressRoute 线路](./expressroute-howto-circuit-classic.md)，并让连接提供商启用该线路。
-    - 确保为线路配置 Azure 专用对等互连。 有关路由说明，请参阅[配置路由](./expressroute-howto-routing-classic.md)一文。 
+    - 请按说明[创建 ExpressRoute 线路](./expressroute-howto-circuit-classic.md/)，并让连接提供商启用该线路。
+    - 确保为线路配置 Azure 专用对等互连。 有关路由说明，请参阅[配置路由](./expressroute-howto-routing-classic.md/)一文。 
     - 确保配置 Azure 专用对等互连，并运行用户网络和 Microsoft 之间的 BGP 对等互连，以便启用端到端连接。
-    - 必须已创建并完全预配虚拟网络和虚拟网络网关。 请按说明[为 ExpressRoute 配置虚拟网络](./expressroute-howto-vnet-portal-classic.md)。
+    - 必须已创建并完全预配虚拟网络和虚拟网络网关。 请按说明[为 ExpressRoute 配置虚拟网络](./expressroute-howto-vnet-portal-classic.md/)。
 
-最多可以将 10 个虚拟网络链接到 ExpressRoute 线路。 所有虚拟网络都必须位于同一地缘政治区域。 如果已启用 ExpressRoute 高级外接程序，则可以将更多虚拟网络链接到 ExpressRoute 线路，或者链接其他地缘政治区域中的虚拟网络。 有关高级外接程序的更多详细信息，请参阅[常见问题解答](./expressroute-faqs.md)。
+最多可以将 10 个虚拟网络链接到 ExpressRoute 线路。 所有虚拟网络都必须位于同一地缘政治区域。 如果已启用 ExpressRoute 高级外接程序，则可以将更多虚拟网络链接到 ExpressRoute 线路，或者链接其他地缘政治区域中的虚拟网络。 有关高级外接程序的更多详细信息，请参阅[常见问题解答](./expressroute-faqs.md/)。
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>将同一订阅中的虚拟网络连接到线路
 可以使用以下 cmdlet 将虚拟网络链接到 ExpressRoute 线路。 在运行 cmdlet 之前，请确保已创建虚拟网络网关并可将其用于进行链接。

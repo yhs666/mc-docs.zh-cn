@@ -63,7 +63,11 @@
     ],
     "overwrite": [],
     "externalReference": [],
-    "globalMetadata": {},
+    "globalMetadata": {
+      "breadcrumb_path": "/bread/toc.json",
+      "brand": "mooncake",
+      "searchScope": ["mooncake"]
+    },
     "fileMetadata": {},
     "template": [
       "docs.html"

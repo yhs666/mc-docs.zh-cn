@@ -17,9 +17,10 @@ ms.date: 02/15/2017
 wacn.date: 
 ms.author: rasquill
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 5921ae7c25bbc90b4d89e2d8f950fc77aa24f91f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -79,7 +80,7 @@ Debian  credativ    8     credativ:Debian:8:8.0.201701180  8.0.201701180
 如果知道部署位置，则可以将常规映像搜索结果与 `az vm image list-skus`、`az vm image list-offers` 和 `az vm image list-publishers` 命令一起使用，以查找所需的精确内容以及可以进行部署的位置。 例如，如果从前面的示例知道 `credativ` 具有 Debian 产品/服务，则可以使用 `--location` 和其他选项查找所需的精确内容。 以下示例在 **chinanorth**中查找一个 Debian 8 映像：
 
 ```azurecli
-az vm image show -l chinanorth -f debian -p credativ --sku 8 --version 8.0.201701180
+az vm image show -l chinanorth -f debian -p credativ --skus 8 --version 8.0.201701180
 ```
 
 输出为：

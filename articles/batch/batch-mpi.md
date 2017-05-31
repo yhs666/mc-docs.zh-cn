@@ -15,9 +15,10 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 7ad3b1c72bc5996db5b800fb4c16562a13e86502
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -89,6 +90,8 @@ await myCloudPool.CommitAsync();
 ```
 
 ### <a name="remote-direct-memory-access-rdma"></a>远程直接内存访问 (RDMA)
+在批处理池中为计算节点选择[支持 RDMA 的大小](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/)（例如 A9）时，MPI 应用程序可以使用 Azure 的高性能、低延迟的远程直接内存访问 (RDMA) 网络。
+
 在以下文章中查找指定为“支持 RDMA”的大小：
 
 - **CloudServiceConfiguration** 池
@@ -263,8 +266,8 @@ GitHub 上的 [MultiInstanceTasks][github_mpi] 代码示例演示了如何通过
 ### <a name="preparation"></a>准备工作
 1. 执行 [How to compile and run a simple MS-MPI program][msmpi_howto]（如何编译和运行简单的 MS-MPI 程序）中的头两个步骤。 这样即可满足下一步的先决条件。
 2. 生成 *MPIHelloWorld* 示例 MPI 程序的 [发行][helloworld_proj] 版。 该程序是将在计算节点上通过多实例任务运行的程序。
-3. 创建包含 `MPIHelloWorld.exe`（在步骤 2 构建）和 `MSMpiSetup.exe`（在步骤 1 下载）的 zip 文件。 需在下一步将此 zip 文件作为应用程序包上载。
-4. 通过 [Azure 门户][portal]创建名为“MPIHelloWorld”的 Batch [应用程序](batch-application-packages.md)，并将在上一步创建的 zip 文件指定为“1.0”版应用程序包。 有关详细信息，请参阅[上载和管理应用程序](batch-application-packages.md#upload-and-manage-applications)。
+3. 创建包含 `MPIHelloWorld.exe`（在步骤 2 构建）和 `MSMpiSetup.exe`（在步骤 1 下载）的 zip 文件。 需在下一步将此 zip 文件作为应用程序包上传。
+4. 通过 [Azure 门户][portal]创建名为“MPIHelloWorld”的 Batch [应用程序](batch-application-packages.md)，并将在上一步创建的 zip 文件指定为“1.0”版应用程序包。 有关详细信息，请参阅[上传和管理应用程序](batch-application-packages.md#upload-and-manage-applications)。
 
 > [!TIP]
 > 生成*发行*版 `MPIHelloWorld.exe`，这样就不需在应用程序包中包括任何其他依赖项（例如 `msvcp140d.dll` 或 `vcruntime140d.dll`）。

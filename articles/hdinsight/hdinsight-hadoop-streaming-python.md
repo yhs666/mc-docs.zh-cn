@@ -15,11 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/06/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: ad4ab1c3082d640f386bab81d41016a88d46c44f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -37,14 +38,14 @@ Hadoop 为 MapReduce 提供了一个流式处理 API，这样，除 Java 外，�
 * 基于 Linux 的 HDInsight 上的 Hadoop 群集
 
     > [!IMPORTANT]
-    > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+    > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
 
 * 文本编辑器
 
     > [!IMPORTANT]
-    > 文本编辑器必须使用 LF 作为行尾。 如果使用 CRLF，则在基于 Linux 的 HDInsight 群集上运行 MapReduce 作业时会出错。 如果不确定它使用哪种行尾，请使用 [运行 MapReduce](#run-mapreduce-ssh) 部分中的可选步骤，将所有 CRLF 转换为 LF。
+    > 文本编辑器必须使用 LF 作为行尾。 如果使用 CRLF，则在基于 Linux 的 HDInsight 群集上运行 MapReduce 作业时会出错。 如果不确定它使用哪种行尾，请使用 [运行 MapReduce](#run-mapreduce) 部分中的可选步骤，将所有 CRLF 转换为 LF。
 
-* **熟悉 SSH 和 SCP**。 有关详细信息，请参阅 [对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+* **熟悉 SSH 和 SCP**。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 ## <a name="word-count"></a>字数统计
 
@@ -147,7 +148,7 @@ if __name__ == "__main__":
     main()
 ```
 
-## <a name="upload-the-files"></a>上载文件
+## <a name="upload-the-files"></a>上传文件
 
 **mapper.py** 和 **reducer.py** 都必须位于群集的头节点上才能运行。 本部分提供了一个示例 `scp` 命令和一个 Azure PowerShell 脚本，可用于将文件上传到群集。
 
@@ -167,7 +168,7 @@ if __name__ == "__main__":
 > [!NOTE]
 > 如果使用了密码来保护 SSH 帐户，系统会提示你输入密码。 如果使用了 SSH 密钥，则可能需要使用 `-i` 参数和私钥路径，例如 `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.cn:`。
 
-### <a name="upload-using-powershell"></a>使用 PowerShell 上载
+### <a name="upload-using-powershell"></a>使用 PowerShell 上传
 
 1. 从开发环境创建一个名为 `Put-FilesInHDInsight.ps1` 的新文件，并使用以下代码作为该文件的内容：
 
@@ -220,7 +221,7 @@ if __name__ == "__main__":
     }
     ```
 
-2. 若要使用此脚本上载文件，请从 Azure PowerShell 提示符使用以下命令：
+2. 若要使用此脚本上传文件，请从 Azure PowerShell 提示符使用以下命令：
 
     `.\Put-FilesInHDInsight.ps1 -clusterName <your HDInsight cluster name> -source mapper.py -destination mapper.py`
 

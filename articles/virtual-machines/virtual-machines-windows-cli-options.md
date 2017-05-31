@@ -16,9 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/14/2017
 wacn.date: 
 ms.author: nepeters
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: cc1707c51b8dd29d1aeab17683d70a010bbc1bad
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 ---
@@ -60,7 +61,7 @@ docker run -it azuresdk/azure-cli-python:latest bash
 
 ## <a name="next-steps"></a>后续步骤
 
-[用于 Azure 虚拟机的 CLI 示例](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[用于 Azure 虚拟机的 CLI 示例](virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [用于 Azure Web 应用的 CLI 示例](../app-service-web/app-service-cli-samples.md)
 

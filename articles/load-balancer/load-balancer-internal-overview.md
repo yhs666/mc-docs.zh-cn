@@ -15,9 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 wacn.date: 
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 7a50970a9fd381744592d51986f5474d4e248782
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -32,9 +33,9 @@ Azure 内部负载均衡 (ILB) 可在驻留在云服务或虚拟网络（具有�
 
 ILB 允许进行以下类型的负载均衡：
 
-* 在云服务中，从虚拟机负载平衡到驻留在同一云服务中的一组虚拟机（见图 1）。
-* 在虚拟网络中，从该虚拟网络中的虚拟机负载平衡到驻留在该虚拟网络的同一云服务中的一组虚拟机（见图 2）。
-* 对于跨界虚拟网络，从本地计算机负载平衡到驻留在该虚拟网络的同一云服务中的一组虚拟机（见图 3）。
+* 在云服务中，从虚拟机负载均衡到驻留在同一云服务中的一组虚拟机（见图 1）。
+* 在虚拟网络中，从该虚拟网络中的虚拟机负载均衡到驻留在该虚拟网络的同一云服务中的一组虚拟机（见图 2）。
+* 对于跨界虚拟网络，从本地计算机负载均衡到驻留在该虚拟网络的同一云服务中的一组虚拟机（见图 3）。
 * 面向 Internet 的多层应用程序，其中的后端层不面向 Internet，但需要针对面向 Internet 的层发出的流量进行负载均衡。
 * 使托管在 Azure 中的 LOB 应用程序实现负载均衡，而无需其他负载均衡器硬件或软件。 将本地服务器包含在一组流量已实现负载均衡的计算机中。
 

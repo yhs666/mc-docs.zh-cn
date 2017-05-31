@@ -16,16 +16,17 @@ ms.topic: article
 ms.date: 03/14/2017
 wacn.date: 
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 2741e9043ef7bb9fa62f5bb8c8ba4cc506a6f023
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>如何在使用经典部署模型创建的 Windows VM 中重置远程桌面服务或其登录密码
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型： [资源管理器和经典](../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 还可对[使用 Resource Manager 部署模型创建的 VM 执行这些步骤](virtual-machines-windows-reset-rdp.md)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 还可对[使用 Resource Manager 部署模型创建的 VM 执行这些步骤](virtual-machines-windows-reset-rdp.md)。
 
 如果无法连接到 Windows 虚拟机 (VM)，可以重置本地管理员密码或重置远程桌面服务配置。 可以使用 Azure 门户预览或 Azure PowerShell 中的 VM 访问扩展重置密码。
 

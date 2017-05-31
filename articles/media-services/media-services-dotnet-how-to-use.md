@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: eee3696e8a586206ecbd9b4088cff3ea2eea235d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/14/2017
 **Azure 媒体服务 .NET SDK** 库允许你使用 .NET 为媒体服务编程。 为了进一步方便使用 .NET 进行开发，提供了 **Azure 媒体服务 .NET SDK 扩展**库。 此库包含一组扩展方法和帮助器函数，可简化你的 .NET 代码。 这两个库都通过 **NuGet** 和 **GitHub** 提供。
 
 ## <a name="prerequisites"></a>先决条件
-* 在新的或现有的 Azure 订阅中拥有一个媒体服务帐户。 请参阅主题[如何创建媒体服务帐户](media-services-create-account.md)。
+* 在新的或现有的 Azure 订阅中拥有一个媒体服务帐户。 请参阅主题[如何创建媒体服务帐户](media-services-portal-create-account.md)。
 * 操作系统：Windows 10、Windows 7、Windows 2008 R2 或 Windows 8。
 * .NET Framework 4.5。
 * Visual Studio。

@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: hero-=article
 ms.date: 04/05/2017
 ms.author: raynew
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 19fc08c275b3e60d59cedd823c18c45e442fda20
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -261,7 +262,7 @@ Hyper-V 主机上运行的恢复服务代理需有权通过 Internet 访问 Azur
 4. 在“恢复点保留期”中，针对每个恢复点指定保留期的时长（以小时为单位）。 受保护的计算机可以恢复到某个时段内的任意时间点。
 5. 在“应用一致性快照频率” 中，指定创建包含应用程序一致性快照的恢复点的频率（1-12 小时）。 Hyper-V 使用两种类型的快照 — 标准快照，它提供整个虚拟机的增量快照；与应用程序一致的快照，它生成虚拟机内的应用程序数据的时间点快照。 与应用程序一致的快照使用卷影复制服务 (VSS) 来确保应用程序在拍摄快照时处于一致状态。 请注意，如果你启用了与应用程序一致的快照，它将影响在源虚拟机上运行的应用程序的性能。 请确保你设置的值小于你配置的额外恢复点的数目。
 6. 在“初始复制开始时间” 中，指定开始初始复制的时间。 复制通过 Internet 带宽进行，因此你可能需要将它安排在非繁忙时间。
-7. 在“加密 Azure 上存储的数据” 中，指定是否加密 Azure 存储空间中的静态数据。 然后，单击“确定” 。
+7. 在“加密 Azure 上存储的数据” 中，指定是否加密 Azure 存储中的静态数据。 然后，单击“确定” 。
 
     ![复制策略](./media/site-recovery-vmm-to-azure/gs-replication2.png)
 8. 当创建新策略时，该策略自动与 VMM 云关联。 单击 **“确定”**。 可以在“复制”“策略名称”>“关联 VMM 云”中，将其他 VMM 云（及其中的 VM）与此复制策略相关联。

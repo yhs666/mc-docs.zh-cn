@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 09ddabf97028525e04f930f935f6ddf7ae132567
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -71,7 +72,7 @@ Azure Service Fabric 针对连接到 Service Fabric 群集的客户端支持两�
 * **FileDownload**：启动映像存储客户端文件下载（群集外部）                             
 * **InternalList**：映像存储客户端文件列表操作（内部）                             
 * **Delete**：映像存储客户端删除操作                              
-* **Upload**：映像存储客户端上载操作                             
+* **Upload**：映像存储客户端上传操作                             
 * **NodeControl**：启动、停止和重新启动节点                             
 * **MoveReplicaControl**：将副本从一个节点移到另一个节点                             
 

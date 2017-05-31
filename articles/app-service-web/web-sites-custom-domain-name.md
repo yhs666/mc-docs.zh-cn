@@ -1,6 +1,6 @@
 ---
 title: "将自定义域名映射到 Azure 应用"
-description: "了解如何在 Azure App Service 中将自定义域名（虚域）映射到应用。"
+description: "了解如何在 Azure 应用服务中将自定义域名（虚域）映射到应用。"
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 01/30/2017
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 4e4d3792fcb8926f57bf90d4cb9ad2b09ac5b50d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -66,12 +67,12 @@ CNAME 的优点是其不会随 IP 地址的更改而更改。 如果删除和重
 ## <a name="vip"></a> 步骤 1。 *（仅限 A 记录）*获取应用的 IP 地址。
 若要使用 A 记录映射自定义域名，则需要 Azure 应用的 IP 地址。 如果要使用 CNAME 记录进行映射，请跳过此步骤并转到下一节。
 
-1. 登录 [Azure 门户预览](https://portal.azure.cn)。
+1. 登录到 [Azure 门户预览](https://portal.azure.cn)。
 2. 在左侧菜单上，单击“应用服务”  。
 3. 单击你的应用，然后单击“自定义域”。
 4. 记下“主机名”部分上方的 IP 地址。
 
-    ![使用 A 记录映射自定义域名：获取 Azure App Service 应用的 IP 地址](./media/web-sites-custom-domain-name/virtual-ip-address.png)
+    ![使用 A 记录映射自定义域名：获取 Azure 应用服务应用的 IP 地址](./media/web-sites-custom-domain-name/virtual-ip-address.png)
 5. 将此门户边栏选项卡保持打开状态。 在创建 DNS 记录后会返回这里。
 
 ## <a name="createdns" id="step-2-create-the-dns-records"></a>步骤 2。 创建 DNS 记录

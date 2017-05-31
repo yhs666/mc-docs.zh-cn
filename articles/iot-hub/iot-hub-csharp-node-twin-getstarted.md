@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: elioda
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 673bfcca723d1942cd66a24efa642ac50ae6e539
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

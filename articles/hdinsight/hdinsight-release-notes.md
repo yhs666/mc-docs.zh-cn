@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 9e640c7547562a5e2018393aa084556d0d1fccc2
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -85,6 +86,7 @@ Spark 2.0.1 现已在 Spark 群集（HDInsight 版本 3.5）上发行。
 * 进行边缘节点访问的 URI 已更改为 **clustername**-ed-ssh.azurehdinsight.cn
 * R Server on HDInsight 群集预配已简化。
 * R Server on HDInsight 现已作为常用的 HDInsight“R Server”群集类型推出，不再作为单独的 HDInsight 应用程序安装。 边缘节点和 R Server 二进制文件现在会在 R Server 群集部署过程中进行预配。 这将提高预配的速度和可靠性。 R Server 的定价模型会相应地进行更新。
+* R Server 群集类型价格现在取决于标准层价格和 R Server 额外费用价格。 高级层现在会为高级功能保留，适用于不同的群集类型，但不适用于 R Server 群集类型。 此更改不影响 R Server 的有效定价，只影响帐单中费用的显示形式。 在接到弃用通知之前，所有现有的 R Server 群集均可继续使用，ARM 模板也可继续使用。 **建议更新脚本化的部署，以使用新的 ARM 模板。**
 
 ## <a name="08302016---release-of-r-server-on-hdinsight"></a>2016 年 8 月 30 日：发布 R Server on HDInsight
 随此版本一起部署的基于 Linux 的 HDInsight 群集的所有版本号包括：

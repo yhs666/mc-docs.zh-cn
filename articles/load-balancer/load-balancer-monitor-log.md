@@ -15,9 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 wacn.date: 
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 2b55b55dd3cb7ee54566ef151627effd8f0d8bd3
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -130,7 +131,7 @@ JSON 输出在属性字段显示了探测运行状况的基本信息。 *dipDown
 
 你可以使用任何以下方法查看和分析审核日志数据：
 
-* **Azure 工具：**通过 Azure PowerShell、Azure 命令行接口 (CLI)、Azure REST API 或 Azure 门户预览检索审计日志中的信息。 [使用资源管理器审核操作](../azure-resource-manager/resource-group-audit.md)一文中详细介绍了每种方法的分步说明。
+* **Azure 工具：**通过 Azure PowerShell、Azure 命令行接口 (CLI)、Azure REST API 或 Azure 门户预览检索审计日志中的信息。 [使用 Resource Manager 审核操作](../azure-resource-manager/resource-group-audit.md)一文中详细介绍了每种方法的分步说明。
 * **Power BI：** 如果尚无 [Power BI](https://powerbi.microsoft.com/pricing) 帐户，可免费试用。 使用 [适用于 Power BI 的 Azure 审核日志内容包](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs)，可以借助预配置的仪表板分析数据，也可以自定义视图来满足自己的需求。
 
 ## <a name="view-and-analyze-the-health-probe-and-event-log"></a>查看和分析运行状况探测和事件日志

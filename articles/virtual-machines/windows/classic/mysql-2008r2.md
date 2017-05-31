@@ -47,7 +47,7 @@ ms.author: cynthn
 
 1. 使用远程桌面连接到该虚拟机后，从“开始”菜单单击“Internet Explorer”。
 2. 选择右上角的“工具”按钮（齿轮图标），然后单击“Internet 选项”。依次单击“安全”选项卡、“受信任的站点”图标、“站点”按钮。将 http://*.mysql.com 添加到受信任站点列表中。单击“关闭”，然后单击“确定”。
-3. 在 Internet Explorer 的地址栏中，键入 http://dev.mysql.com/downloads/mysql/。
+3. 在 Internet Explorer 的地址栏中，键入 http://dev.mysql.com/downloads/mysql/ 。
 4. 使用 MySQL 站点查找和下载最新版本的用于 Windows 的 MySQL 安装程序。选择 MySQL 安装程序时，请下载包含完整文件集的版本（例如 mysql-installer-community-5.6.23.0.msi，文件大小为 282.4 MB），并保存该安装程序。
 5. 当安装程序下载完成后，单击“运行”以启动安装程序。
 6. 在“许可协议”页上接受许可协议，然后单击“下一步”。

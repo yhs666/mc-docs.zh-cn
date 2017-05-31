@@ -15,9 +15,10 @@ ms.author: sstein
 ms.workload: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 97846c0e6b23bebc139010bee5cd4ea927f71f23
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 

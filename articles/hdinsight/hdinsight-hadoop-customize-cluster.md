@@ -25,7 +25,7 @@ ms.author: nitinme
 本文中的信息特定于基于 Windows 的 HDInsight 群集。有关基于 Linux 的群集的信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](./hdinsight-hadoop-customize-cluster-linux.md)。
 
 > [!IMPORTANT]
-Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)。
+Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 也可以使用其他各种方法自定义 HDInsight 群集，例如包括其他 Azure 存储帐户、更改 hadoop 配置文件（core-site.xml、hive-site.xml 等），或者将共享库（如 Hive、Oozie）添加到群集中的共同位置。这些自定义可通过使用 Azure PowerShell、Azure HDInsight .NET SDK 或 Azure 门户预览来完成。有关详细信息，请参阅[在 HDInsight 中创建 Hadoop 群集][hdinsight-provision-cluster]。
 
@@ -51,11 +51,11 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装以下组件�
 
 | Name | 脚本 |
 | --- | --- |
-| **安装 Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1。请参阅[在 HDInsight 群集上安装并使用 Spark][hdinsight-install-spark]。 |
-| **安装 R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1。请参阅[在 HDInsight 群集上安装并使用 R][hdinsight-install-r]。 |
-| **安装 Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1。请参阅[在 HDInsight 群集上安装并使用 Solr](./hdinsight-hadoop-solr-install.md)。 |
-| - **安装 Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1。请参阅[在 HDInsight 群集上安装并使用 Giraph](./hdinsight-hadoop-giraph-install.md)。 |
-| **预加载 Hive 库** |https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1。请参阅 [Add Hive libraries on HDInsight clusters](./hdinsight-hadoop-add-hive-libraries.md)（在 HDInsight 群集上添加 Hive 库） |
+| **安装 Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1 。请参阅[在 HDInsight 群集上安装并使用 Spark][hdinsight-install-spark]。 |
+| **安装 R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1 。请参阅[在 HDInsight 群集上安装并使用 R][hdinsight-install-r]。 |
+| **安装 Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 。请参阅[在 HDInsight 群集上安装并使用 Solr](./hdinsight-hadoop-solr-install.md)。 |
+| - **安装 Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 。请参阅[在 HDInsight 群集上安装并使用 Giraph](./hdinsight-hadoop-giraph-install.md)。 |
+| **预加载 Hive 库** |https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1 。请参阅 [Add Hive libraries on HDInsight clusters](./hdinsight-hadoop-add-hive-libraries.md)（在 HDInsight 群集上添加 Hive 库） |
 
 ## 使用 Azure 门户预览调用脚本
 **在 Azure 门户预览中**

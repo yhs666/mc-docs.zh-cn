@@ -32,7 +32,7 @@ ms.author: nepeters
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [虚拟机 JSON](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L295)。
 
-```
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Compute/virtualMachines",
@@ -68,7 +68,7 @@ ms.author: nepeters
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [存储帐户](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L109)。
 
-```
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Storage/storageAccounts",
@@ -87,7 +87,7 @@ ms.author: nepeters
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [虚拟机与存储帐户的关联](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L341)。
 
-```
+```json
 "osDisk": {
   "name": "osdisk",
   "vhd": {
@@ -114,7 +114,7 @@ ms.author: nepeters
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [虚拟网络和子网](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L136)。
 
-```
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/virtualNetworks",
@@ -157,54 +157,56 @@ ms.author: nepeters
 
  单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [网络接口](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166)。
 
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/networkInterfaces",
-      "name": "[concat(variables('networkInterfaceNamePrefix'), copyindex())]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "network-interface"
-      },
-      "copy": {
-        "name": "nicLoop",
-        "count": "[parameters('numberOfInstances')]"
-      },
-      "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
-        "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
-        "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIpAddressName'))]",
-        "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'), '/inboundNatRules/', 'SSH-VM', copyIndex())]"
-      ],
-      "properties": {
-        "ipConfigurations": [
-          {
-            "name": "ipconfig1",
-            "properties": {
-              "privateIPAllocationMethod": "Dynamic",
-              "subnet": {
-                "id": "[variables('subnetRef')]"
-              },
-              "loadBalancerBackendAddressPools": [
-                {
-                  "id": "[variables('lbPoolID')]"
-                }
-              ],
-              "loadBalancerInboundNatRules": [
-                {
-                  "id": "[concat(variables('lbID'),'/inboundNatRules/SSH-VM', copyIndex())]"
-                }
-              ]
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "Microsoft.Network/networkInterfaces",
+  "name": "[concat(variables('networkInterfaceNamePrefix'), copyindex())]",
+  "location": "[resourceGroup().location]",
+  "tags": {
+    "displayName": "network-interface"
+  },
+  "copy": {
+    "name": "nicLoop",
+    "count": "[parameters('numberOfInstances')]"
+  },
+  "dependsOn": [
+    "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+    "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
+    "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIpAddressName'))]",
+    "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'), '/inboundNatRules/', 'SSH-VM', copyIndex())]"
+  ],
+  "properties": {
+    "ipConfigurations": [
+      {
+        "name": "ipconfig1",
+        "properties": {
+          "privateIPAllocationMethod": "Dynamic",
+          "subnet": {
+            "id": "[variables('subnetRef')]"
+          },
+          "loadBalancerBackendAddressPools": [
+            {
+              "id": "[variables('lbPoolID')]"
             }
-          }
-        ]
+          ],
+          "loadBalancerInboundNatRules": [
+            {
+              "id": "[concat(variables('lbID'),'/inboundNatRules/SSH-VM', copyIndex())]"
+            }
+          ]
+        }
       }
-    }
+    ]
+  }
+}
+```
 
 每个虚拟机资源包含一个网络配置文件。网络接口在此配置文件中与虚拟机关联。
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [虚拟机网络配置文件](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L350)。
 
-```
+```json
 "networkProfile": {
   "networkInterfaces": [
     {
@@ -228,7 +230,7 @@ ms.author: nepeters
 
 单击以下链接可查看 Resource Manager 模板中的 JSON 示例 – [Azure SQL 数据库](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401)。
 
-```
+```json
 {
   "apiVersion": "2014-04-01-preview",
   "type": "Microsoft.Sql/servers",
@@ -271,6 +273,6 @@ Azure 门户预览中显示的 SQL Server 和 MusicStore 数据库视图。
 
 <hr>
 
-[步骤 2 - Azure Resource Manager 模板中的访问权限和安全性](./virtual-machines-linux-dotnet-core-3-access-security.md)
+[步骤 2 - Azure Resource Manager 模板中的访问权限和安全性](virtual-machines-linux-dotnet-core-3-access-security.md)
 
 <!---HONumber=Mooncake_1114_2016-->

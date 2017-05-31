@@ -14,11 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/28/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 9315607cb8ee38272fabd3cb6d08f618bfe493d0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -38,7 +39,7 @@ HDInsight 使用 Azure 存储 Blob 存储数据。 HDInsight 必须对用作群�
 * 基于 Linux 的 HDInsight 群集或 [Azure PowerShell][powershell] - 如果已有基于 Linux 的群集，则可以使用 Ambari 将共享访问签名添加到群集。 如果没有，则可以使用 Azure PowerShell 创建群集，并在创建群集期间添加共享访问签名。
 
     > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
 
 * 来自以下网址的示例文件： [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)。 此存储库包含以下项：
 
@@ -79,7 +80,7 @@ HDInsight 使用 Azure 存储 Blob 存储数据。 HDInsight 必须对用作群�
     * StorageConnectionString：想要为其创建存储策略和 SAS 的存储帐户的连接字符串。 其格式应为 `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`，其中 `myaccount` 是存储帐户名称，`mykey` 是存储帐户密钥。
     * ContainerName：想要限制访问的存储帐户中的容器。
     * SASPolicyName：要创建的存储策略所用的名称。
-    * FileToUpload：上载到容器的文件的路径。
+    * FileToUpload：上传到容器的文件的路径。
 4. 运行该项目。 将显示控制台窗口，并且在生成 SAS 之后，将显示类似于以下文本的信息：
 
         Container SAS token using stored access policy: sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
@@ -93,7 +94,7 @@ HDInsight 使用 Azure 存储 Blob 存储数据。 HDInsight 必须对用作群�
     * storage\_account\_name：存储帐户的名称。
     * storage\_account\_key：存储帐户的密钥。
     * storage\_container\_name：想要限制访问的存储帐户中的容器。
-    * example\_file\_path：上载到容器的文件的路径
+    * example\_file\_path：上传到容器的文件的路径
 2. 运行该脚本。 脚本完成后，将显示如以下文本所示的 SAS 令牌：
 
         sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
@@ -195,7 +196,7 @@ HDInsight 使用 Azure 存储 Blob 存储数据。 HDInsight 必须对用作群�
 * 对于 **基于 Windows** 的 HDInsight 群集，请使用远程桌面连接到群集。 有关详细信息，请参阅[使用 RDP 连接到 HDInsight](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)。
 
     连接后，使用桌面上的“Hadoop 命令行”  图标打开命令提示符。
-* 对于**基于 Linux** 的 HDInsight 群集，请使用 SSH 连接到群集。 有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+* 对于**基于 Linux** 的 HDInsight 群集，请使用 SSH 连接到群集。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 连接到群集后，使用以下步骤验证是否只能读取和列出 SAS 存储帐户中的项：
 
@@ -214,7 +215,7 @@ HDInsight 使用 Azure 存储 Blob 存储数据。 HDInsight 必须对用作群�
         hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.chinacloudapi.cn/FILENAME testfile.txt
 
     此命令会将该文件下载到名为 **testfile.txt**的本地文件中。
-4. 使用以下命令将本地文件上载到 SAS 存储上名为 **testupload.txt** 的新文件中：
+4. 使用以下命令将本地文件上传到 SAS 存储上名为 **testupload.txt** 的新文件中：
 
         hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.chinacloudapi.cn/testupload.txt
 
@@ -255,5 +256,5 @@ HDInsight 使用 Azure 存储 Blob 存储数据。 HDInsight 必须对用作群�
 * [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
 
-[powershell]: https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs
+[powershell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 

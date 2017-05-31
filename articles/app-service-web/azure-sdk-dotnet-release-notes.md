@@ -14,9 +14,10 @@ ms.workload: integration
 ms.date: 10/17/2016
 wacn.date: 
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: cf1003b15ff71d5fccfa5e9316f4426689451ed5
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

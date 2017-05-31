@@ -24,7 +24,7 @@ ms.author: rasquill
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-想查看更多关于在资源管理器模型使用 VM 扩展的信息，请点击[这里](./virtual-machines-linux-extensions-features.md)。
+想查看更多关于在资源管理器模型使用 VM 扩展的信息，请点击[这里](virtual-machines-linux-extensions-features.md)。
 
 [!INCLUDE [virtual-machines-common-classic-manage-extensions](../../includes/virtual-machines-common-classic-manage-extensions.md)]
 

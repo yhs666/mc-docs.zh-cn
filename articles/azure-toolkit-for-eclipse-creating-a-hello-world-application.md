@@ -96,7 +96,7 @@ ms.author: robmcm
 
       ![][ic719490]
 
-由于这是部署到过渡环境，DNS 名称将采用 http://&lt;*guid*&gt;.chinacloudapp.cn 的格式，并且 URL 将包含 DNS 名称加上应用程序的后缀。例如，http://447564652c20426f6220526f636b7321.chinacloudapp.cn/MyHelloWorld。（**MyHelloWorld** 部分区分大小写。） 如果你在 Azure 平台管理门户中（在管理门户的“云服务”部分中）单击部署名称，也可以看到 DNS 名称。
+由于这是部署到过渡环境，DNS 名称将采用 http://&lt;*guid*&gt;.chinacloudapp.cn 的格式，并且 URL 将包含 DNS 名称加上应用程序的后缀。例如，http://447564652c20426f6220526f636b7321.chinacloudapp.cn/MyHelloWorld 。（**MyHelloWorld** 部分区分大小写。） 如果你在 Azure 平台管理门户中（在管理门户的“云服务”部分中）单击部署名称，也可以看到 DNS 名称。
 
 尽管本演练针对的是到过渡环境的部署，但到生产环境的部署也遵循相同的步骤，不同的是，在“发布到 Azure”对话框中，对于“目标环境”，选择“生产”而不是“过渡”。部署到生产环境会生成基于所选 DNS 名称的 URL，而不是用于过渡的 GUID。
 

@@ -303,9 +303,9 @@ Azure 移动应用 Node.js SDK 利用 [mssql Node.js 包]来建立和使用 SQL 
   5. 单击“IP 地址”选项卡。
   6. 找到“IPAll”节点。在“TCP 端口”字段中输入 **1433**。
 
-      ```
+
       ![Configure SQL Express for TCP/IP][3]
-      ```
+
 
   7. 单击“确定”。在弹出对话框中单击“确定”。
   8. 在左侧的树菜单中，单击“SQL Server 服务”。
@@ -319,18 +319,18 @@ Azure 移动应用 Node.js SDK 利用 [mssql Node.js 包]来建立和使用 SQL 
   3. 确保已选择“SQL Server 和 Windows 身份验证模式”
   4. 单击“确定”
 
-      ```
+
       ![Configure SQL Express Authentication][4]
-      ```
+
 
   5. 在对象资源管理器中展开“安全性”>“登录”。
   6. 右键单击“登录”，然后选择“新建登录名...”
   7. 输入登录名。选择“SQL Server 身份验证”。输入密码，然后在“确认密码”中输入相同的密码。密码必须符合 Windows 复杂性要求。
   8. 单击“确定”
 
-      ```
+
       ![Add a new user to SQL Express][5]
-      ```
+
 
   9. 右键单击新登录名并选择“属性”
   10. 选择“服务器角色”页
@@ -350,7 +350,7 @@ $env:SQLCONNSTR_MS_TableConnectionString = "Server=127.0.0.1; Database=mytestdat
 
 ### <a name="howto-config-localdev"></a>如何配置项目以进行本地开发
 
-Azure 移动应用从本地文件系统读取名为 _azureMobile.js_ 的 JavaScript 文件。不要使用此文件在生产环境中配置 Azure 移动应用 SDK，请改用 [Azure 门户预览]中的“应用设置”。_azureMobile.js_ 文件应导出配置对象。最常见的设置如下：
+Azure 移动应用从本地文件系统读取名为 _azureMobile.js_ 的 JavaScript 文件。不要使用此文件在生产环境中配置 Azure 移动应用 SDK，请改用 [Azure 门户预览]中的“应用设置”。 _azureMobile.js_ 文件应导出配置对象。最常见的设置如下：
 
 - 数据库设置
 - 诊断日志记录设置
@@ -421,10 +421,12 @@ _azureMobile.js_ 文件中的大多数设置在 [Azure 门户预览]中都有等
 
 5. 单击“创建”。预配移动应用后端可能需要几分钟时间。预配移动应用后端后，门户预览将打开移动应用后端的“设置”边栏选项卡。
 
-创建移动应用后端后，可以选择将现有的 SQL 数据库连接到移动应用后端，或创建新的 SQL 数据库。在本部分中，将创建 SQL 数据库。
+    创建移动应用后端后，可以选择将现有的 SQL 数据库连接到移动应用后端，或创建新的 SQL 数据库。在本部分中，将创建 SQL 数据库。
 
-> [!NOTE]
-> 如果在与移动应用后端相同的位置已有一个数据库，可选择“使用现有数据库”，然后选中该数据库。因为会产生更高的延迟，所以不建议使用位于不同位置的数据库。
+    > [!NOTE]
+    > 如果在与移动应用后端相同的位置已有一个数据库，可选择“使用现有数据库”，然后选中该数据库。因为会产生更高的延迟，所以不建议使用位于不同位置的数据库。
+    >
+    >
 
 6. 在新移动应用后端中，单击“设置”>“移动应用”>“数据”>“+添加”。
 
@@ -691,7 +693,7 @@ var mobile = azureMobileApps({ swagger: true });
 var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 ```
 
-Swagger 终结点将位于 http://_yoursite_.chinacloudsites.cn/swagger。可以通过 `/swagger/ui` 终结点访问 Swagger UI。请注意，如果选择要求在整个应用程序中进行身份验证，Swagger 将生成 / 终结点错误。为获得最佳效果，请在“Azure 应用服务身份验证/授权”设置中选择允许未经身份验证的请求通过，然后使用 `table.access` 属性控制身份验证。
+Swagger 终结点将位于 http://_yoursite_.chinacloudsites.cn/swagger 。可以通过 `/swagger/ui` 终结点访问 Swagger UI。请注意，如果选择要求在整个应用程序中进行身份验证，Swagger 将生成 / 终结点错误。为获得最佳效果，请在“Azure 应用服务身份验证/授权”设置中选择允许未经身份验证的请求通过，然后使用 `table.access` 属性控制身份验证。
 
 如果希望只在本地进行开发时才使用 Swagger 支持，则也可以将 Swagger 选项添加到 `azureMobile.js` 文件中。
 

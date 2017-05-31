@@ -30,7 +30,7 @@ ms.author: jdial
 
 ## 模板说明
 
-部署模板后，即可使用不同配置值快速且一致地创建 Azure 资源。本文使用[部署具有多个 IP 地址的 VM](https://azure.microsoft.com/resources/templates/101-vm-multiple-ipconfig) 模板。
+部署模板后，即可使用不同配置值快速且一致地创建 Azure 资源。本文使用[部署具有多个 IP 地址的 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-ipconfig) 模板。
 
 <a name="resources"></a>部署模板时，会创建以下资源：
 
@@ -120,7 +120,7 @@ ms.author: jdial
     >[!NOTE] 
     这可能需要几分钟的时间。
 
-2. 通过完成[使用 PowerShell 部署模板](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy)一文中的步骤来部署模板。本文介绍多个用于部署模板的选项。如果选择通过 `-TemplateUri parameter` 进行部署，则请注意，该模板的 URI 为 *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*。如果选择通过 `-TemplateFile` 参数进行部署，则可将[模板文件](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json)的内容从 GitHub 复制到计算机的新文件中。根据需要修改模板内容。模板部署本文的[资源](#resources)部分列出的资源和设置。若要详细了解模板及其创作方法，请阅读[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)一文。
+2. 通过完成[使用 PowerShell 部署模板](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy)一文中的步骤来部署模板。本文介绍多个用于部署模板的选项。如果选择通过 `-TemplateUri parameter` 进行部署，则请注意，该模板的 URI 为 *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json* 。如果选择通过 `-TemplateFile` 参数进行部署，则可将[模板文件](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json)的内容从 GitHub 复制到计算机的新文件中。根据需要修改模板内容。模板部署本文的[资源](#resources)部分列出的资源和设置。若要详细了解模板及其创作方法，请阅读[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)一文。
 
     不管选择哪个选项来部署模板，都必须为本文[参数](#parameters)部分列出的参数提供值。如果选择使用参数文件提供参数，请将[参数文件](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json)的内容从 GitHub 复制到计算机上的新文件中。修改文件中的值。使用所创建的文件作为 `-TemplateParameterFile` 参数的值。
 
@@ -157,7 +157,7 @@ ms.author: jdial
     >[!NOTE] 
     这可能需要几分钟的时间。
 
-2. 通过完成[使用 Azure CLI 部署模板](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy)一文中的步骤来部署模板。本文介绍多个用于部署模板的选项。如果选择通过 `--template-uri` (-f) 进行部署，则请注意，该模板的 URI 为 *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*。如果选择通过 `--template-file` (-f) 参数进行部署，则可将[模板文件](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json)的内容从 GitHub 复制到计算机的新文件中。根据需要修改模板内容。模板部署本文的[资源](#resources)部分列出的资源和设置。若要详细了解模板及其创作方法，请阅读[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)一文。
+2. 通过完成[使用 Azure CLI 部署模板](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy)一文中的步骤来部署模板。本文介绍多个用于部署模板的选项。如果选择通过 `--template-uri` (-f) 进行部署，则请注意，该模板的 URI 为 *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json* 。如果选择通过 `--template-file` (-f) 参数进行部署，则可将[模板文件](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json)的内容从 GitHub 复制到计算机的新文件中。根据需要修改模板内容。模板部署本文的[资源](#resources)部分列出的资源和设置。若要详细了解模板及其创作方法，请阅读[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)一文。
 
     不管选择哪个选项来部署模板，都必须为本文[参数](#parameters)部分列出的参数提供值。如果选择使用参数文件提供参数，请将[参数文件](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json)的内容从 GitHub 复制到计算机上的新文件中。修改文件中的值。使用所创建的文件作为 `--parameters-file` (-e) 参数的值。
 

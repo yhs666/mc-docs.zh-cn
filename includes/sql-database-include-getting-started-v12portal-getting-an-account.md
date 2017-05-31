@@ -15,7 +15,7 @@ articles/sql-database/sql-database-get-started-tutorial.md
 
 1. 打开所选的浏览器并通过 http://manage.windowsazure.cn/ 连接到 [Azure 经典管理门户](https://manage.windowsazure.cn)。
 
-1. 登录到 [Azure  经典管理门户](https://manage.windowsazure.cn)（网址为 http://manage.windowsazure.cn/）。
+1. 登录到 [Azure  经典管理门户](https://manage.windowsazure.cn)（网址为 http://manage.windowsazure.cn/ ）。
 
 2. 登录页出现时，请提供订阅的凭据
 

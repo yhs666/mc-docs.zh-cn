@@ -17,9 +17,10 @@ ms.date: 02/04/2016
 wacn.date: 
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: c74a1001d308ec4f1e414b93c2cc81f851e360af
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -38,7 +39,7 @@ ms.lasthandoff: 04/22/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-本文介绍资源管理器部署模型。 还可以[管理经典部署模型中的静态专用 IP 地址](virtual-networks-static-private-ip-classic-pportal.md)。
+本文介绍 Resource Manager 部署模型。 还可以[管理经典部署模型中的静态专用 IP 地址](virtual-networks-static-private-ip-classic-pportal.md)。
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 

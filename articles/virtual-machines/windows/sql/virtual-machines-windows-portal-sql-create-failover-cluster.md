@@ -17,9 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 wacn.date: 
 ms.author: mikeray
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 20b41268b48511b4db661c03f2cbb0c29772f29d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

@@ -20,23 +20,23 @@ ms.author: cynthn
 
 # 在使用经典部署模型创建的运行 Windows Server 2012 R2 的虚拟机上安装 MySQL
 
-[MySQL](http://www.mysql.com) 是一种受欢迎的 SQL 开源数据库。使用 [Azure 经典管理门户](http://manage.windowsazure.cn)，你可以从映像库创建运行 Windows Server 2012 R2 的虚拟机。然后，你就可以将其安装并配置为 MySQL Server。有关如何在 Linux 上安装 MySQL 的说明，请参阅：[如何在 Azure 上安装 MySQL](./virtual-machines-linux-mysql-install.md)。
+[MySQL](http://www.mysql.com) 是一种受欢迎的 SQL 开源数据库。使用 [Azure 经典管理门户](http://manage.windowsazure.cn)，你可以从映像库创建运行 Windows Server 2012 R2 的虚拟机。然后，你就可以将其安装并配置为 MySQL Server。有关如何在 Linux 上安装 MySQL 的说明，请参阅：[如何在 Azure 上安装 MySQL](virtual-machines-linux-mysql-install.md)。
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## 创建运行 Windows Server 2012 R2 的虚拟机
 
-如果你还没拥有运行 Windows Server 2012 R2 的虚拟机，你可以使用这个[教程](./virtual-machines-windows-classic-tutorial.md)来创建虚拟机。
+如果你还没拥有运行 Windows Server 2012 R2 的虚拟机，你可以使用这个[教程](virtual-machines-windows-classic-tutorial.md)来创建虚拟机。
 
 ## 附加数据磁盘
 
 创建虚拟机后，你可以选择性地附加其他数据磁盘。生产型负荷建议执行此操作，这样做还可以避免包含操作系统的 OS 驱动器 (C:) 空间不足。
 
-请参阅[如何将数据磁盘附加到 Windows 虚拟机](./virtual-machines-windows-classic-attach-disk.md)，然后按说明附加一个空磁盘。将主机缓存设置设置为“无”或“只读”。
+请参阅[如何将数据磁盘附加到 Windows 虚拟机](virtual-machines-windows-classic-attach-disk.md)，然后按说明附加一个空磁盘。将主机缓存设置设置为“无”或“只读”。
 
 ## 登录到虚拟机
 
-接下来，你将[登录到虚拟机](./virtual-machines-windows-classic-connect-logon.md)，以便安装 MySQL。
+接下来，你将[登录到虚拟机](virtual-machines-windows-classic-connect-logon.md)，以便安装 MySQL。
 
 ##在虚拟机上安装和运行 MySQL Community Server
 
@@ -47,7 +47,7 @@ ms.author: cynthn
 
 1. 使用远程桌面连接到该虚拟机后，从“开始”菜单单击“Internet Explorer”。
 2. 选择右上角的“工具”按钮（齿轮图标），然后单击“Internet 选项”。依次单击“安全”选项卡、“受信任的站点”图标、“站点”按钮。将 http://*.mysql.com 添加到受信任站点列表中。单击“关闭”，然后单击“确定”。
-3. 在 Internet Explorer 的地址栏中，键入 http://dev.mysql.com/downloads/mysql/。
+3. 在 Internet Explorer 的地址栏中，键入 http://dev.mysql.com/downloads/mysql/ 。
 4. 使用 MySQL 站点查找和下载最新版本的用于 Windows 的 MySQL 安装程序。选择 MySQL 安装程序时，请下载包含完整文件集的版本（例如 mysql-installer-community-5.6.23.0.msi，文件大小为 282.4 MB），并保存该安装程序。
 5. 当安装程序下载完成后，单击“运行”以启动安装程序。
 6. 在“许可协议”页上接受许可协议，然后单击“下一步”。
@@ -85,7 +85,7 @@ ms.author: cynthn
 如果你希望 MySQL Server 服务可供 Internet 上的 MySQL 客户端计算机使用，则必须为 MySQL Server 服务所侦听的 TCP 端口配置一个终结点，并创建更多 Windows 防火墙规则。该端口为 TCP 端口 3306，除非你在“类型和网络”页上指定了其他端口（前一过程的步骤 10）。
 
 > [!NOTE]
->你应该仔细考虑这样做的安全隐患，因为这会使 MySQL Server 服务可供 Internet 上的所有计算机使用。你可以通过访问控制列表 (ACL) 定义一组允许使用终结点的源 IP 地址。有关详细信息，请参阅[如何对虚拟机设置终结点](./virtual-machines-windows-classic-setup-endpoints.md)。
+>你应该仔细考虑这样做的安全隐患，因为这会使 MySQL Server 服务可供 Internet 上的所有计算机使用。你可以通过访问控制列表 (ACL) 定义一组允许使用终结点的源 IP 地址。有关详细信息，请参阅[如何对虚拟机设置终结点](virtual-machines-windows-classic-setup-endpoints.md)。
 
 若要配置 MySQL Server 服务终结点，请执行以下操作：
 

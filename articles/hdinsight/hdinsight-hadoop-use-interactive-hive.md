@@ -52,7 +52,7 @@ ms.author: jgao
 
 **若要查找 JDBC 连接字符串：**
 
-1. 使用以下 URL 登录到 Ambari：https://\<ClusterName\>.AzureHDInsight.net。
+1. 使用以下 URL 登录到 Ambari：https://\<ClusterName\>.azurehdinsight.cn。
 2. 在左侧菜单中，单击“Hive”。
 3. 单击突出显示图标以复制 URL：
 

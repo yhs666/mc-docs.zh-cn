@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 3/10/2017
 ms.author: markgal;
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 6e80c0d475a710a2282ca89f72707c8b2cc463bf
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

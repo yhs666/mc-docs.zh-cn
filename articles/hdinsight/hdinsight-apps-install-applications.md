@@ -15,11 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/06/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: jgao
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: ca08aa58c031266a336ce1b835e85ae0486e3db0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -77,6 +78,7 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
     * **群集类型**：如果不知道要选择哪种群集，请选择“Hadoop”。 它是最受欢迎的群集类型。
     * **操作系统**：选择“Linux”。
     * **版本**：如果不知道要选择哪个版本，请使用默认版本。 有关详细信息，请参阅 [HDInsight 群集版本](hdinsight-component-versioning.md)。
+    * **群集层**：Azure HDInsight 提供两个类别的大数据云产品：标准层和高级层。 有关详细信息，请参阅 [群集层](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers)。
 6. 依次单击“应用程序”、其中一个已发布的应用程序、“选择”。
 7. 单击“凭据”  ，然后输入管理员用户的密码。 此外，还必须输入“SSH 用户名”以及“密码”或“公钥”，这将用于验证 SSH 用户的身份。 建议使用公钥。 单击底部的“选择”  ，保存凭据配置。
 8. 单击“数据源” 、选择现有存储帐户之一，或创建新的存储帐户，作为群集的默认存储帐户。
@@ -113,7 +115,7 @@ HTTP 终结点凭据是你针对 HDInsight 群集配置的 HTTP 用户凭据；S
 
 ## <a name="next-steps"></a>后续步骤
 * [安装自定义 HDInsight 应用程序](hdinsight-apps-install-custom-applications.md)：了解如何将未发布的 HDInsight 应用程序部署到 HDInsight。
-* [MSDN：安装 HDInsight 应用程序](https://msdn.microsoft.com/zh-cn/library/mt706515.aspx)：了解如何定义 HDInsight 应用程序。
+* [MSDN：安装 HDInsight 应用程序](https://msdn.microsoft.com/library/mt706515.aspx)：了解如何定义 HDInsight 应用程序。
 * [使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用脚本操作安装其他应用程序。
 * [使用 Resource Manager 模板在 HDInsight 中创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)：了解如何调用 Resource Manager 模板创建 HDInsight 群集。
 * [在 HDInsight 中使用空边缘节点](hdinsight-apps-use-edge-node.md)：了解如何使用空边缘节点访问 HDInsight 群集、测试 HDInsight 应用程序以及托管 HDInsight 应用程序。

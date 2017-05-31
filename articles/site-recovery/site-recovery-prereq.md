@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: rajanaki
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: cf8beb6e09b06edf48aeaa6f28c766a819f5373f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -34,7 +35,7 @@ Azure Site Recovery 服务可协调本地物理服务器和虚拟机到云 (Azur
 --- | ---
 **Azure 帐户** | 一个 [Azure](https://www.azure.cn/) 帐户。<br/><br/> 可以从 [1 元试用](https://www.azure.cn/pricing/1rmb-trial/)开始。
 **Site Recovery 服务** | 有关 Site Recovery 定价的详细信息，请参阅[站点恢复定价](https://www.azure.cn/pricing/details/site-recovery/)。 |
-**Azure 存储空间** | 需要一个 Azure 存储帐户来存储复制数据，且该帐户必须与恢复服务保管库位于同一区域。 复制的数据存储在 Azure 存储中，发生故障转移时将创建 Azure VM。<br/><br/> 根据要用于故障转移 Azure VM 的资源模型，可在 [Azure Resource Manager 模型](../storage/storage-create-storage-account.md)或[经典模型](../storage/storage-create-storage-account-classic-portal.md)下设置帐户。<br/><br/>可使用[异地冗余存储](../storage/storage-redundancy.md#geo-redundant-storage)或本地冗余存储。 建议使用异地冗余存储，以便在发生区域性故障或无法恢复主要区域时可复原数据。<br/><br/> 可以使用标准或高级存储。 [高级存储](../storage/storage-premium-storage.md)通常用于 IO 性能一贯较高且延迟一贯较低、托管 IO 密集型工作负荷的虚拟机。 如果使用高级存储来存储复制数据，则还需要一个标准存储帐户来存储复制日志，以便捕获本地数据正在发生的更改。<br/><br/>
+**Azure 存储** | 需要一个 Azure 存储帐户来存储复制数据，且该帐户必须与恢复服务保管库位于同一区域。 复制的数据存储在 Azure 存储中，发生故障转移时将创建 Azure VM。<br/><br/> 根据要用于故障转移 Azure VM 的资源模型，可在 [Azure Resource Manager 模型](../storage/storage-create-storage-account.md)或[经典模型](../storage/storage-create-storage-account-classic-portal.md)下设置帐户。<br/><br/>可使用[异地冗余存储](../storage/storage-redundancy.md#geo-redundant-storage)或本地冗余存储。 建议使用异地冗余存储，以便在发生区域性故障或无法恢复主要区域时可复原数据。<br/><br/> 可以使用标准或高级存储。 [高级存储](../storage/storage-premium-storage.md)通常用于 IO 性能一贯较高且延迟一贯较低、托管 IO 密集型工作负荷的虚拟机。 如果使用高级存储来存储复制数据，则还需要一个标准存储帐户来存储复制日志，以便捕获本地数据正在发生的更改。<br/><br/>
 **存储限制** | 无法跨资源组、在订阅中或跨订阅移动 Site Recovery 中所用的存储帐户。<br/><br/> 目前不支持复制到印度中部和印度南部的高级存储帐户。
 **Azure 网络** | 需要一个 Azure VM 故障转移后可连接的 Azure 网络，且该网络必须与恢复服务保管库位于同一区域。<br/><br/> 在 Azure 门户中，可使用 [Resource Manager 模型](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)或[经典模型](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)创建网络。<br/><br/> 如果从 System Center Virtual Machine Manager 复制到 Azure，则需要在 Virtual Machine Manager VM 网络与 Azure 网络之间设置网络映射，确保 Azure VM 在故障转移后连接到适当的网络。
 **网络限制** | 无法跨资源组、在订阅中或跨订阅移动 Site Recovery 中所用的网络帐户。

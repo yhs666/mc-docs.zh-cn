@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 wacn.date: 
 ms.author: cherylmc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 9d2e536a0697a3cfdeac345f67c5faac23421954
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
@@ -49,7 +50,7 @@ ms.lasthandoff: 04/06/2017
 以下步骤逐步建立与虚拟网络的安全点到站点连接。 点到站点连接的配置分为四个部分。 必须遵循这些部分的先后顺序完成配置。 请不要跳过步骤。
 
 * **第 1 部分** 创建虚拟网络和 VPN 网关。
-* **第 2 部分** 创建并上载用于身份验证的证书。
+* **第 2 部分** 创建并上传用于身份验证的证书。
 * **第 3 部分** 导出并安装客户端证书。
 * **第 4 部分** 配置 VPN 客户端。
 
@@ -88,7 +89,7 @@ ms.lasthandoff: 04/06/2017
 2. 在“仪表板”页的底部，单击“创建网关”。 。 单击“是”  即可开始创建网关。 创建网关最多可能需要 45 分钟。
 
 ## <a name="generate"></a>第 2 部分 - 生成证书并上传
-Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 创建根证书以后，请将公共证书数据（不是密钥）作为 Base-64 编码的 X.509 .cer 文件导出。 然后，将公共证书数据从根证书上载到 Azure。
+Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 创建根证书以后，请将公共证书数据（不是密钥）作为 Base-64 编码的 X.509 .cer 文件导出。 然后，将公共证书数据从根证书上传到 Azure。
 
 在使用点到站点连接连接到 VNet 的每台客户端计算机上，必须安装客户端证书。 客户端证书从根证书生成，安装在每个客户端计算机上。 如果未安装有效的客户端证书，而客户端尝试连接到 VNet，则身份验证会失败。
 
@@ -111,7 +112,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 创
 
 #### <a name="to-export-the-public-key-for-a-self-signed-root-certificate"></a>导出自签名根证书的公钥。
 
-点到站点连接要求将公钥 (.cer) 上载到 Azure。 以下步骤帮助你导出自签名根证书的 .cer 文件。
+点到站点连接要求将公钥 (.cer) 上传到 Azure。 以下步骤帮助你导出自签名根证书的 .cer 文件。
 
 1. 若要获取证书 .cer 文件，请打开 **certmgr.msc**。 找到自签名根证书（通常位于“Certificates - Current User\Personal\Certificates”中），然后右键单击。 单击“所有任务”，然后单击“导出”。 此操作将打开“证书导出向导”。
 2. 在向导中，单击“下一步”。 选择“否，不导出私钥”，然后单击“下一步”。
@@ -119,12 +120,12 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 创
 4. 在“要导出的文件”中，“浏览”到要将证书导出的目标位置。 在“文件名”中，为证书文件命名。 然后单击“下一步” 。
 5. 单击“完成”以导出证书  。 会看到“导出已成功” 。 单击“确定”  关闭该向导。
 
-### <a name="upload"></a>第 2 部分：将根证书 .cer 文件上载到 Azure 经典管理门户
+### <a name="upload"></a>第 2 部分：将根证书 .cer 文件上传到 Azure 经典管理门户
 
-将受信任的证书添加到 Azure。 在将 Base64 编码 X.509 (.cer) 文件添加到 Azure 时，则是在告诉 Azure 信任该文件所代表的根证书。 最多可以上载 20 个根证书的文件。 不要将根证书的私钥上载到 Azure。 上载 .Cer 文件后，Azure 将使用它来对连接到虚拟网络的客户端进行身份验证。
+将受信任的证书添加到 Azure。 在将 Base64 编码 X.509 (.cer) 文件添加到 Azure 时，则是在告诉 Azure 信任该文件所代表的根证书。 最多可以上传 20 个根证书的文件。 不要将根证书的私钥上传到 Azure。 上传 .Cer 文件后，Azure 将使用它来对连接到虚拟网络的客户端进行身份验证。
 
-1. 在 Azure 经典管理门户的虚拟网络“证书”页上，单击“上载根证书”。
-2. 在“上载证书”页上  ，浏览 .cer 根证书，然后单击复选标记。
+1. 在 Azure 经典管理门户的虚拟网络“证书”页上，单击“上传根证书”。
+2. 在“上传证书”页上，浏览 .cer 根证书，然后单击复选标记。
 
 ### <a name="createclientcert"></a>第 3 部分：生成客户端证书
 可以为要连接的每个客户端生成唯一证书，也可以在多台客户端上使用同一个证书。 生成唯一客户端证书的优势是能够根据需要吊销单个证书。 否则，如果每个人都使用相同的客户端证书，在需要吊销某个客户端的证书时，必须为所有使用该证书进行身份验证的客户端生成并安装新证书。
@@ -214,4 +215,4 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 创
 
 ## <a name="next-steps"></a>后续步骤
 
-连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/virtual-machines/)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/virtual-machines-linux-azure-vm-network-overview.md)。
+连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/azure/virtual-machines/)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/virtual-machines-linux-azure-vm-network-overview.md)。

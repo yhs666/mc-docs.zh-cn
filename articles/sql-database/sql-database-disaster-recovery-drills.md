@@ -57,7 +57,7 @@ ms.author: mihaelab
 ####恢复
 
 - 确保 DR 区域中的应用程序配置指向以前的辅助数据库，故障转移后，该数据库将成为完全可访问的新主数据库。
-- 执行[计划的故障转移](./sql-database-geo-replication-failover-powershell.md#initiate-a-planned-failover)，使辅助数据库成为新的主数据库
+- 执行[计划的故障转移](./sql-database-geo-replication-failover-powershell.md)，使辅助数据库成为新的主数据库
 - 根据[在恢复后配置数据库](./sql-database-disaster-recovery.md)指南完成恢复。
 
 ####验证

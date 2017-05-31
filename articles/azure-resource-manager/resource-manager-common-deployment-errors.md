@@ -17,9 +17,10 @@ ms.workload: na
 ms.date: 03/15/2017
 wacn.date: 
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 5eec526a5f41acdf51a4a65a2002458ef4e48a11
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -46,7 +47,7 @@ ms.lasthandoff: 04/22/2017
 本主题介绍以下错误代码：
 
 * [AccountNameInvalid](#accountnameinvalid)
-* [AuthorizationFailed](#authorization-failed)
+* [授权失败](#authorization-failed)
 * [BadRequest](#badrequest)
 * [DeploymentFailed](#deploymentfailed)
 * [DisallowedOperation](#disallowedoperation)
@@ -178,7 +179,7 @@ ms.lasthandoff: 04/22/2017
 
     如果未提供匹配的语法，该模板将生成一个意外的值。
 
-    当你收到此类错误时，请仔细检查表达式语法。 考虑使用 [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 或 [创建第一个 Azure Resource Manager 模板](/documentation/articles/resource-manager-create-first-template/) 等 JSON 编辑器，此类编辑器在出现语法错误时可以发出警告。
+    当你收到此类错误时，请仔细检查表达式语法。 考虑使用 [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 或 [Visual Studio Code](/documentation/articles/resource-manager-vs-code/) 等 JSON 编辑器，此类编辑器在出现语法错误时可以发出警告。
 
 - 段长度不正确
 
@@ -268,7 +269,7 @@ ms.lasthandoff: 04/22/2017
     Message=Cannot find ServerFarm with name exampleplan.
     ```
 
-若要部署模板中缺少的资源，请检查是否需要添加依赖关系。 如果可能，Resource Manager 将通过并行创建资源来优化部署。 如果一个资源必须在另一个资源之后部署，则需在模板中使用 **dependsOn** 元素创建与其他资源的依赖关系。 例如，在部署 Web 应用时，App Service 计划必须存在。 如果未指定该 Web 应用与应用服务计划的依赖关系，Resource Manager 将同时创建这两个资源。 此时将出现一条错误消息，指出找不到应用服务计划资源，因为尝试在 Web 应用上设置属性时它尚不存在。 在 Web 应用中设置依赖关系可避免此错误。
+若要部署模板中缺少的资源，请检查是否需要添加依赖关系。 如果可能，Resource Manager 将通过并行创建资源来优化部署。 如果一个资源必须在另一个资源之后部署，则需在模板中使用 **dependsOn** 元素创建与其他资源的依赖关系。 例如，在部署 Web 应用时，应用服务计划必须存在。 如果未指定该 Web 应用与应用服务计划的依赖关系，Resource Manager 将同时创建这两个资源。 此时将出现一条错误消息，指出找不到应用服务计划资源，因为尝试在 Web 应用上设置属性时它尚不存在。 在 Web 应用中设置依赖关系可避免此错误。
 
     ```json
     {
@@ -491,7 +492,7 @@ ms.lasthandoff: 04/22/2017
 在这种情况中，你应前往门户并提交一份支持问题以增加你在要部署区域内的配额。
 
 > [!NOTE]
-> 请记住，对于资源组，配额针对每个单独的区域，而不是针对整个订阅。 如果你需要在中国北部部署 30 个核心，则必须在中国北部寻求 30 个资源管理器核心。 如果需要在有权访问的任何区域内部署总共 30 个核心，则应在所有区域内请求总共 30 个 Resource Manager 核心。
+> 请记住，对于资源组，配额针对每个单独的区域，而不是针对整个订阅。 如果你需要在中国北部部署 30 个核心，则必须在中国北部寻求 30 个 Resource Manager 核心。 如果需要在有权访问的任何区域内部署总共 30 个核心，则应在所有区域内请求总共 30 个 Resource Manager 核心。
 >
 >
 
@@ -503,7 +504,7 @@ ms.lasthandoff: 04/22/2017
     Message=Unable to download deployment content from ...
     ```
 
-原因很可能是你尝试链接到一个不可用的嵌套模板。 请仔细检查提供给嵌套模板的 URI。 如果模板在存储帐户中存在，请确保 URI 可访问。 可能需要传递 SAS 令牌。 有关详细信息，请参阅 [将链接的模板与 Azure 资源管理器配合使用](./resource-group-linked-templates.md)。
+原因很可能是你尝试链接到一个不可用的嵌套模板。 请仔细检查提供给嵌套模板的 URI。 如果模板在存储帐户中存在，请确保 URI 可访问。 可能需要传递 SAS 令牌。 有关详细信息，请参阅 [将链接的模板与 Azure Resource Manager 配合使用](./resource-group-linked-templates.md)。
 
 ### <a name="requestdisallowedbypolicy"></a> RequestDisallowedByPolicy
 如果订阅中的某个资源策略会阻止部署期间尝试执行的操作，将会出现此错误。 请在错误消息中查找策略标识符。
@@ -526,7 +527,7 @@ ms.lasthandoff: 04/22/2017
 
 有关策略的详细信息，请参阅[使用策略来管理资源和控制访问](./resource-manager-policy.md)。
 
-### <a name="authorization-failed"></a> AuthorizationFailed
+### <a name="authorization-failed"></a> 授权失败
 你可能在部署期间收到错误，因为尝试部署资源的帐户或服务主体没有执行这些操作的访问权限。 Azure Active Directory 可让你或你的系统管理员非常精确地控制哪些标识可以访问哪些资源。 例如，如果你的帐户已分配到“读取者”角色，则无法创建资源。 在此情况下，将会出现一条错误消息，指出授权失败。
 
 有关基于角色的访问控制的详细信息，请参阅 [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)（Azure 基于角色的访问控制）。

@@ -13,9 +13,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: robinsh
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 14983f3b0dab6c1332d911dd68d31b905d160617
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -190,7 +191,7 @@ Azure 存储将服务器日志数据写入 Blob，将指标写入表。 存储�
 ```azcopy
 AzCopy.exe /Source:http://<storageaccountname>.blob.core.chinacloudapi.cn/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 ```
-可以从 [Azure 下载](https://www.azure.cn/downloads/)页下载 AzCopy。 若要深入了解如何使用 AzCopy，请参阅[使用 AzCopy 命令行实用程序传输数据](./storage-use-azcopy.md)。
+可以从 [Azure 下载](/downloads/)页下载 AzCopy。 若要深入了解如何使用 AzCopy，请参阅[使用 AzCopy 命令行实用程序传输数据](./storage-use-azcopy.md)。
 
 有关下载服务器端日志的其他信息，请参阅 [Download Storage Logging log data](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata)（下载存储日志记录日志数据）。
 
@@ -202,7 +203,7 @@ Message Analyzer 包括 Azure 存储的资产，可帮助你分析服务器、�
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>下载并安装 Message Analyzer 和 Azure 存储资产
 1. 从 Microsoft 下载中心下载 [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226)，并运行安装程序。
 2. 启动 Message Analyzer。
-3. 从“工具”菜单中选择“资产管理器”。 在“资产管理器”对话框中，选择“下载”，然后筛选“Azure 存储”。 你将会看到 Azure 存储空间资产，如下图中所示。
+3. 从“工具”菜单中选择“资产管理器”。 在“资产管理器”对话框中，选择“下载”，然后筛选“Azure 存储”。 你将会看到 Azure 存储资产，如下图中所示。
 4. 单击“同步所有显示的项”以安装 Azure 存储资产。 可用的资产包括：
    * **Azure 存储颜色规则**：Azure 存储颜色规则可让你定义特殊筛选器，以使用颜色、文本和字体样式突出显示跟踪中包含特定信息的消息。
    * **Azure 存储图表**：Azure 存储图表是根据服务器日志数据绘制的预定义图表。 请注意，若要在此时使用 Azure 存储图表，可以只将服务器日志加载到分析网格中。
@@ -262,14 +263,14 @@ Message Analyzer 的存储资产包括 Azure 存储视图布局，它们是预�
 > 
 > 
 
-除了使用 Azure 存储空间视图布局以外，还可以定义并保存自己的视图布局。 可以选择其他所需字段来分组数据，并将分组另存为自定义布局的一部分。
+除了使用 Azure 存储视图布局以外，还可以定义并保存自己的视图布局。 可以选择其他所需字段来分组数据，并将分组另存为自定义布局的一部分。
 
 ### <a name="apply-color-rules-to-the-analysis-grid"></a>将颜色规则应用到分析网格
 存储资产还包括颜色规则，用于以直观方式在分析网格中标识不同类型的错误。 预定义的颜色规则将应用到 HTTP 错误，因此它们仅对服务器日志和网络跟踪显示。
 
-若要应用颜色规则，请从工具栏功能区中选择“颜色规则”。 你将在菜单中看到 Azure 存储空间颜色规则。 对于本教程，请选择“客户端错误(介于 400 和 499 之间的状态代码)”，如下图中所示。
+若要应用颜色规则，请从工具栏功能区中选择“颜色规则”。 你将在菜单中看到 Azure 存储颜色规则。 对于本教程，请选择“客户端错误(介于 400 和 499 之间的状态代码)”，如下图中所示。
 
-![Azure 存储空间视图布局](./media/storage-e2e-troubleshooting/color-rules-menu.png)
+![Azure 存储视图布局](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
 除了使用 Azure 存储颜色规则以外，还可以定义并保存自己的颜色规则。
 

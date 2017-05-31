@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: robinsh
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 75c2817998d6c1f1e5fb6b35381dcd5ef688549e
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -151,7 +152,7 @@ blobClient.SetServiceProperties(properties);
 上面的示例数据显示一分钟的所有记录（从上午 11:00 开始），因此 QueryEntities 请求数加 QueryEntity 请求数再加 UpdateEntity 请求数的和为 7，这是显示在 user:All 行上的总数。 同样，通过计算 ((143.8 * 5) + 3 + 9)/7，可以在 user:All 行得到平均端到端延迟为 104.4286。
 
 ## <a name="metrics-alerts"></a>度量警报
-应考虑在 [Azure 门户预览](https://portal.azure.cn)中设置警报，以便存储指标可以自动向你通知存储服务行为的重要更改。 如果使用存储资源管理器工具下载这种采用分隔格式的指标数据，则可以使用 Microsoft Excel 分析数据。 有关可用存储资源管理器工具的列表，请参阅 [Azure 存储客户端工具](storage-explorers.md)。 可以在“警报规则”边栏选项卡（可在存储帐户菜单边栏选项卡中的“监视”下进行访问）。
+应考虑在 [Azure 门户预览](https://portal.azure.cn)中设置警报，以便存储指标可以自动向你通知存储服务行为的重要更改。 如果使用存储资源管理器工具下载这种采用分隔格式的指标数据，则可以使用 Microsoft Excel 分析数据。 有关可用存储资资源管理器工具的列表，请参阅 [Azure 存储客户端工具](storage-explorers.md)。 可以在“警报规则”边栏选项卡（可在存储帐户菜单边栏选项卡中的“监视”下进行访问）。
 
 > [!IMPORTANT]
 > 在存储事件与记录对应每小时或分钟度量数据的时间之间可能存在延迟。 对于分钟度量，可能会一次写入几分钟的数据。 这可能会导致将前面几分钟的事务聚合到当前分钟的事务中。 发生此情况时，警报服务可能没有已配置警报间隔内的所有可用度量数据，这可能会导致意外触发警报。
@@ -205,7 +206,7 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
 ## <a name="what-charges-do-you-incur-when-you-enable-storage-metrics"></a>在启用存储度量值时，你需要支付多少费用？
 为度量值创建表实体的写入请求，按适用于所有 Azure 存储操作的标准费率收费。
 
-客户端针对度量值数据的读取和删除请求也按标准费率收费。 如果你已配置数据保留策略，则当 Azure 存储空间删除旧的度量值数据时，你不用付费。 但是，如果你删除分析数据，则会针对删除操作向你的帐户收费。
+客户端针对度量值数据的读取和删除请求也按标准费率收费。 如果你已配置数据保留策略，则当 Azure 存储删除旧的度量值数据时，你不用付费。 但是，如果你删除分析数据，则会针对删除操作向你的帐户收费。
 
 度量值表使用的容量也要付费：你可以依据以下内容估算用于存储度量值数据的容量：
 

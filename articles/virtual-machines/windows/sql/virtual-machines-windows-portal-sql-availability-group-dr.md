@@ -177,7 +177,7 @@ ms.author: mikeray
 ## 其他链接
 
 * [Always On 可用性组](http://msdn.microsoft.com/zh-cn/library/hh510230.aspx)
-* [Azure 虚拟机](../../windows/index.md)
+* [Azure 虚拟机](/virtual-machines/windows/)
 * [Azure 负载均衡器](../../virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure 可用性集](../../virtual-machines-windows-manage-availability.md)
 

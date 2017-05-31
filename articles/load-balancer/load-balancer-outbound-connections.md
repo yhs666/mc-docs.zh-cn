@@ -15,9 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2016
 wacn.date: 
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 6e87350b658750b767403ae0c44fee940a284083
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -46,7 +47,7 @@ SNAT 端口是可能会被耗尽的有限资源。 因此了解它们的使用�
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>负载均衡的 VM（无实例级公共 IP 地址）
 
-在此场景中，VM 是 Azure 负载均衡器池的一部分。 没有分配给 VM 的公共 IP 地址。 当负载平衡的 VM 创建出站流时，Azure 将此出站流的专用源 IP 地址转换为公共负载均衡器前端的公共 IP 地址。 Azure 使用源网络地址转换 (SNAT) 来执行此功能。 使用负载均衡器的公共 IP 地址的临时端口区分由 VM 产生的各个流。 创建出站流后 SNAT 动态分配临时端口。 在此情况下，用于 SNAT 的临时端口被称为 SNAT 端口。
+在此场景中，VM 是 Azure 负载均衡器池的一部分。 没有分配给 VM 的公共 IP 地址。 当负载均衡的 VM 创建出站流时，Azure 将此出站流的专用源 IP 地址转换为公共负载均衡器前端的公共 IP 地址。 Azure 使用源网络地址转换 (SNAT) 来执行此功能。 使用负载均衡器的公共 IP 地址的临时端口区分由 VM 产生的各个流。 创建出站流后 SNAT 动态分配临时端口。 在此情况下，用于 SNAT 的临时端口被称为 SNAT 端口。
 
 SNAT 端口是可能会被耗尽的有限资源。 因此了解它们的使用方式很重要。 每个到单个目标 IP 地址的流使用一个 SNAT 端口。 对于到相同的目标 IP 地址的多个流，每个流使用一个 SNAT 端口。 这可以确保源自相同的公共 IP 地址，并到相同的目标 IP 地址的流的唯一性。 每个流到不同的目标 IP 地址的多个流对于每个目标使用一个 SNAT 端口。 目标 IP 地址使流具有唯一性。
 

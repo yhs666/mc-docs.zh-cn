@@ -15,9 +15,10 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 52b863965daee70904bc16f420e49c854329f098
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -179,7 +180,7 @@ Get-AzureBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-Azur
 ```
 
 ## <a name="application-package-management"></a>应用程序包管理
-应用程序包提供将应用程序部署到池中计算节点的简化方式。 使用 Batch PowerShell cmdlet 可以在 Batch 帐户中上载和管理应用程序包，以及将包版本部署到计算节点。
+应用程序包提供将应用程序部署到池中计算节点的简化方式。 使用 Batch PowerShell cmdlet 可以在 Batch 帐户中上传和管理应用程序包，以及将包版本部署到计算节点。
 
 **创建** 应用程序：
 

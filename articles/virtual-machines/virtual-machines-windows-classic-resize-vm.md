@@ -26,7 +26,7 @@ ms.author: drewm
 
 [!INCLUDE [了解部署模型](../../includes/learn-about-deployment-models-classic-include.md)]
 
-还可以[调整在 Resource Manager 部署模型中创建的 VM 的大小](./virtual-machines-windows-resize-vm.md)。
+还可以[调整在 Resource Manager 部署模型中创建的 VM 的大小](virtual-machines-windows-resize-vm.md)。
 
 ## 添加帐户
 必须将 Azure PowerShell 配置为使用经典 Azure 资源。请按照以下步骤配置 Azure PowerShell 以管理经典资源。
@@ -68,6 +68,6 @@ ms.author: drewm
 删除云服务并使用新的 VM 大小重新创建云服务的示例脚本可在[此处](https://github.com/Azure/azure-vm-scripts)找到。
 
 ## 后续步骤
-* [调整在 Resource Manager 部署模型中创建的 VM 的大小](./virtual-machines-windows-resize-vm.md)。
+* [调整在 Resource Manager 部署模型中创建的 VM 的大小](virtual-machines-windows-resize-vm.md)。
 
 <!---HONumber=Mooncake_1212_2016-->

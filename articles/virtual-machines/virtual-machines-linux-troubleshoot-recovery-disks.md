@@ -15,9 +15,10 @@ ms.workload: infrastructure
 ms.date: 02/16/2017
 wacn.date: 
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: efe188bd74471503c8feedb4f633ea4a1e27497e
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -62,7 +63,7 @@ az vm show --resource-group myResourceGroup --name myVM \
     --query [storageProfile.osDisk.vhd.uri] --output tsv
 ```
 
-该 URI 类似于 **https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/myVM.vhd**。
+该 URI 类似于 **https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/myVM.vhd** 。
 
 ## <a name="delete-existing-vm"></a>删除现有 VM
 虚拟硬盘和 VM 在 Azure 中是两个不同的资源。 虚拟硬盘是操作系统本身，存储应用程序和配置。 VM 本身只是定义大小或位置的元数据，引用虚拟硬盘或虚拟网络接口卡 (NIC) 等资源。 每个虚拟硬盘在附加到 VM 时分配有一个租约。 尽管 VM 正在运行时也可以附加和分离数据磁盘，但是，若要分离 OS 磁盘，则必须删除 VM 资源。 即使 VM 处于停止和解除分配状态，租约也继续将 OS 磁盘与 VM 相关联。

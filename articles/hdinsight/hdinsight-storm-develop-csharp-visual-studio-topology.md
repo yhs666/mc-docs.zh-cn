@@ -62,7 +62,7 @@ ms.author: larryfr
 * Apache Storm on HDInsight 群集：参阅 [Apache Storm on HDInsight 入门](./hdinsight-apache-storm-tutorial-get-started-linux.md)了解创建群集的步骤。
 
     > [!IMPORTANT]
-    Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)。
+    Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 ## 模板
 
@@ -106,15 +106,15 @@ EventHub 读取器模板随附的基于 Java 的 EventHub Spout 组件不适用�
 
 4. 创建项目后，应有以下文件：
 
-    * **Program.cs**：此文件定义项目的拓扑。默认情况下会创建包含一个 Spout 和一个 Bolt 的默认拓扑。
+   * **Program.cs**：此文件定义项目的拓扑。默认情况下会创建包含一个 Spout 和一个 Bolt 的默认拓扑。
 
-    * **Spout.cs**：发出随机数的示例 Spout。
+   * **Spout.cs**：发出随机数的示例 Spout。
 
-    * **Bolt.cs**：保留 Spout 所发出数字计数的示例 Bolt。
+   * **Bolt.cs**：保留 Spout 所发出数字计数的示例 Bolt。
 
-        在创建项目过程中，将会从 NuGet 下载最新的 [SCP.NET 包](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/)。
+     在创建项目过程中，将会从 NuGet 下载最新的 [SCP.NET 包](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/)。
 
-        [!INCLUDE [重要的 scp.net 版本](../../includes/hdinsight-storm-scpdotnet-version.md)]
+[!INCLUDE [重要的 scp.net 版本](../../includes/hdinsight-storm-scpdotnet-version.md)]
 
 在以下各节中，会将此项目修改成基本 WordCount 应用程序。
 

@@ -191,7 +191,7 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
 
 ## 后续步骤
-如果在连接到 VM 时遇到问题，请参阅[排查 Azure VM 的 RDP 连接问题](./virtual-machines-windows-troubleshoot-rdp-connection.md)。如果在访问 VM 上运行的应用时遇到问题，请参阅[排查 Windows VM 上的应用程序连接问题](./virtual-machines-windows-troubleshoot-app-connection.md)。
+如果在连接到 VM 时遇到问题，请参阅[排查 Azure VM 的 RDP 连接问题](virtual-machines-windows-troubleshoot-rdp-connection.md)。如果在访问 VM 上运行的应用时遇到问题，请参阅[排查 Windows VM 上的应用程序连接问题](virtual-machines-windows-troubleshoot-app-connection.md)。
 
 有关资源组的详细信息，请参阅 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)。
 

@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: marsma
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: dd9b63dd0d8da9884525046758674ec1b50e1846
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -29,12 +30,12 @@ ms.lasthandoff: 04/22/2017
 Azure Blob 存储是一种将非结构化数据作为对象/Blob 存储在云中的服务。 Blob 存储可以存储任何类型的文本或二进制数据，例如文档、媒体文件或应用程序安装程序。 Blob 存储也称为对象存储。
 
 ### <a name="about-this-tutorial"></a>关于本教程
-本教程演示如何针对使用 Azure Blob 存储一些常见情形编写 .NET 代码。 涉及的任务包括上载、列出、下载和删除 Blob。
+本教程演示如何针对使用 Azure Blob 存储一些常见情形编写 .NET 代码。 涉及的任务包括上传、列出、下载和删除 Blob。
 
 **先决条件：**
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/)
-* [适用于 .NET 的 Azure 存储空间客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [适用于 .NET 的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [适用于 .NET 的 Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * 一个 [Azure 存储帐户](storage-create-storage-account.md#create-a-storage-account)
 
@@ -95,12 +96,12 @@ container.SetPermissions(
 
 在 Internet 上的任何人都可以看到公共容器中的 Blob。 但是，仅当你具有相应的帐户访问密钥或共享访问签名时，才能修改或删除它们。
 
-## <a name="upload-a-blob-into-a-container"></a>将 Blob 上载到容器中
+## <a name="upload-a-blob-into-a-container"></a>将 Blob 上传到容器中
 Azure Blob 存储支持块 Blob 和页 Blob。  大多数情况下，推荐使用块 Blob 类型。
 
-若要将文件上载到块 Blob，请获取容器引用，并使用它获取块 Blob 引用。 获取 Blob 引用后，可以通过调用 **UploadFromStream** 方法，将任何数据流上载到该 Blob。 如果之前不存在 Blob，此操作将创建一个；如果存在 Blob，此操作将覆盖它。
+若要将文件上传到块 Blob，请获取容器引用，并使用它获取块 Blob 引用。 获取 Blob 引用后，可以通过调用 **UploadFromStream** 方法，将任何数据流上传到该 Blob。 如果之前不存在 Blob，此操作将创建一个；如果存在 Blob，此操作将覆盖它。
 
-下面的示例演示了如何将 Blob 上载到容器中，并假定已创建容器。
+下面的示例演示了如何将 Blob 上传到容器中，并假定已创建容器。
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -365,7 +366,7 @@ Console.WriteLine(appendBlob.DownloadText());
 请参阅 [了解块 Blob、页 Blob 和追加 Blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) ，就有关三种 Blob 之间的差异了解详细信息。
 
 ## <a name="managing-security-for-blobs"></a>管理 Blob 安全性
-默认情况下，Azure 存储空间会限制拥有帐户访问密钥的帐户所有者的访问权限来保持数据安全。 当你需要共享存储帐户中的 Blob 数据时，请注意不可危及帐户访问密钥的安全性。 此外，可以加密 Blob 数据，以确保其在网络中传输时以及在 Azure 存储空间中时的安全性。
+默认情况下，Azure 存储会限制拥有帐户访问密钥的帐户所有者的访问权限来保持数据安全。 当你需要共享存储帐户中的 Blob 数据时，请注意不可危及帐户访问密钥的安全性。 此外，可以加密 Blob 数据，以确保其在网络中传输时以及在 Azure 存储中时的安全性。
 
 [!INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
 
@@ -376,15 +377,15 @@ Console.WriteLine(appendBlob.DownloadText());
 * **共享访问签名** ：你可以为客户端提供共享访问签名 (SAS)，该共享访问签名可利用所指定的权限在所指定的时间间隔内，针对存储帐户中的资源提供委派访问权限。 有关详细信息，请参阅 [使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md) 。
 
 ### <a name="encrypting-blob-data"></a>加密 Blob 数据
-Azure 存储空间支持在客户端和服务器上加密 Blob 数据：
+Azure 存储支持在客户端和服务器上加密 Blob 数据：
 
-* **客户端加密** ：用于 .NET 的存储客户端库支持在上传到 Azure 存储空间之前加密客户端应用程序中的数据，以及在下载到客户端时解密数据。 此库还支持与 Azure 密钥保管库集成，以便管理存储帐户密钥。 有关详细信息，请参阅 [Azure 存储的使用 .NET 客户端加密](storage-client-side-encryption.md)。 另请参阅[教程：在 Azure 存储中使用 Azure Key Vault 加密和解密 Blob](storage-encrypt-decrypt-blobs-key-vault.md)。
-* **服务器端加密**：Azure 存储空间现在支持服务器端加密。 请参阅 [静态数据的 Azure 存储空间服务加密（预览版）](storage-service-encryption.md)。
+* **客户端加密** ：用于 .NET 的存储客户端库支持在上传到 Azure 存储之前加密客户端应用程序中的数据，以及在下载到客户端时解密数据。 此库还支持与 Azure 密钥保管库集成，以便管理存储帐户密钥。 有关详细信息，请参阅 [Azure 存储的使用 .NET 客户端加密](storage-client-side-encryption.md)。 另请参阅[教程：在 Azure 存储中使用 Azure Key Vault 加密和解密 Blob](storage-encrypt-decrypt-blobs-key-vault.md)。
+* **服务器端加密**：Azure 存储现在支持服务器端加密。 请参阅 [静态数据的 Azure 存储服务加密（预览版）](storage-service-encryption.md)。
 
 ## <a name="next-steps"></a>后续步骤
 现在，你已了解 Blob 存储的基础知识，可单击下面的链接了解详细信息。
 
-### <a name="azure-storage-explorer"></a>Azure 存储空间资源管理器
+### <a name="azure-storage-explorer"></a>Azure 存储资源管理器
 - [Azure 存储资源管理器 (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) 是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
 
 ### <a name="blob-storage-reference"></a>Blob 存储参考

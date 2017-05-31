@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 990378f47398b8840171075bcd3164701a3ad5d7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 
@@ -86,7 +87,7 @@ Azure SQL 数据库中的每个数据库都与逻辑服务器相关联。 数据
 | DML 触发器 | [支持](https://msdn.microsoft.com/library/ms178110.aspx) | [支持](https://msdn.microsoft.com/library/ms178110.aspx) |
 | DMV | [全部](https://msdn.microsoft.com/library/ms188754.aspx) | [部分](https://msdn.microsoft.com/library/ms188754.aspx) |
 | 弹性池 | 不支持 | [支持](sql-database-elastic-pool.md) |
-| 弹性作业 | 不支持 - 请参阅 [SQL Server 代理](https://msdn.microsoft.com/library/ms189237.aspx) | 不支持 | 
+| 弹性作业 | 不支持 - 请参阅 [SQL Server 代理](https://msdn.microsoft.com/library/ms189237.aspx) | [支持](sql-database-elastic-jobs-getting-started.md) | 
 | 弹性查询 | 不支持 - 请参阅[跨数据库查询](https://msdn.microsoft.com/library/dn584627.aspx) | [支持](sql-database-elastic-query-overview.md) |
 | 事件通知 | [支持](https://msdn.microsoft.com/library/ms186376.aspx) | [支持](sql-database-insights-alerts-portal.md) |
 | 表达式 | [支持](https://msdn.microsoft.com/library/ms190286.aspx) | [支持](https://msdn.microsoft.com/library/ms190286.aspx) |
@@ -97,7 +98,7 @@ Azure SQL 数据库中的每个数据库都与逻辑服务器相关联。 数据
 | 全文搜索 | [支持](https://msdn.microsoft.com/library/ms142571.aspx) | [不支持第三方断字符](https://msdn.microsoft.com/library/ms142571.aspx) |
 | 函数 | [支持](https://msdn.microsoft.com/library/ms174318.aspx) | [大多数](https://msdn.microsoft.com/library/ms174318.aspx) |
 | 内存中优化 | [支持](https://msdn.microsoft.com/library/dn133186.aspx) | [仅限 Premium Edition](https://msdn.microsoft.com/library/dn133186.aspx) |
-| 作业 | [SQL Server 代理](https://msdn.microsoft.com/library/ms189237.aspx) | 不支持 |
+| 作业 | [SQL Server 代理](https://msdn.microsoft.com/library/ms189237.aspx) | [支持](sql-database-elastic-jobs-getting-started.md) |
 | JSON 数据支持 | [支持](https://msdn.microsoft.com/library/dn921897.aspx) | [支持](sql-database-json-features.md) |
 | 语言元素 | [支持](https://msdn.microsoft.com/library/ff848807.aspx) | [大多数](https://msdn.microsoft.com/library/ff848807.aspx) |  
 | 链接的服务器 | [支持](https://msdn.microsoft.com/library/ms188279.aspx) | 不支持 - 请参阅[弹性查询](sql-database-elastic-query-horizontal-partitioning.md) |

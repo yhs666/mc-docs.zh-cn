@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 02/27/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 9b0881301e378c8aafcc443168a39e8a18fe6636
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -34,7 +35,7 @@ Hive 和 Pig 非常适用于在 HDInsight 中处理数据，但有时需要使�
     [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
     > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
 
 * 文本编辑器
 
@@ -197,12 +198,12 @@ def create_structure(input):
 3. 使用 SSH 连接到群集。 例如，下面会以用户 **myuser** 的身份连接到名为 **mycluster** 的群集。
 
         ssh myuser@mycluster-ssh.azurehdinsight.cn
-4. 从 SSH 会话将前面上载的 python 文件添加到群集的 WASB 存储中。
+4. 从 SSH 会话将前面上传的 python 文件添加到群集的 WASB 存储中。
 
         hdfs dfs -put streaming.py /streaming.py
         hdfs dfs -put pig_python.py /pig_python.py
 
-在上载文件后，使用以下步骤来运行 Hive 和 Pig 作业。
+在上传文件后，使用以下步骤来运行 Hive 和 Pig 作业。
 
 #### <a name="hive"></a>Hive
 
@@ -271,7 +272,7 @@ def create_structure(input):
 
 ### <a name="powershell"></a>PowerShell
 
-这些步骤使用 Azure PowerShell。 有关如何使用 Azure PowerShell 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs)。
+这些步骤使用 Azure PowerShell。 有关如何使用 Azure PowerShell 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 
 1. 使用 Python 示例 [streaming.py](#streamingpy) 和 [pig_python.py](#jythonpy) 在开发计算机上创建文件的本地副本。
 2. 使用以下 PowerShell 脚本将 **streaming.py** 和 **pig\_python.py**  文件上传到服务器。 在脚本的前三行中，替换 Azure HDInsight 群集的名称，以及 **streaming.py** 和 **pig\_python.py** 文件的路径。
@@ -316,7 +317,7 @@ def create_structure(input):
         -Context $context
     ```
 
-    此脚本将检索 HDInsight 群集的信息，然后提取默认存储帐户的名称和密钥，并将文件上载到容器的根目录。
+    此脚本将检索 HDInsight 群集的信息，然后提取默认存储帐户的名称和密钥，并将文件上传到容器的根目录。
 
     > [!NOTE]
     > [在 HDInsight 中上传 Hadoop 作业的数据](hdinsight-upload-data.md)文档中介绍了上传脚本的其他方法。
@@ -451,7 +452,7 @@ Get-AzureRmHDInsightJobOutput `
 
 此问题可能是由 streaming.py 文件中的行尾结束符号导致的。 许多 Windows 编辑器默认为使用 CRLF 作为行尾结束符号，但 Linux 应用程序通常应使用 LF。
 
-可以使用以下 PowerShell 语句删除 CR 字符，然后再将文件上载到 HDInsight：
+可以使用以下 PowerShell 语句删除 CR 字符，然后再将文件上传到 HDInsight：
 
 ```powershell
 $original_file ='c:\path\to\streaming.py'

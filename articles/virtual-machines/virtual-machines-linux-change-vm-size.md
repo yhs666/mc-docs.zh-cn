@@ -17,9 +17,10 @@ ms.date: 02/10/2017
 wacn.date: 
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 99351e9e2e4cd692a0becacc61bab22bbdfb92b3
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -64,8 +65,9 @@ ms.lasthandoff: 04/14/2017
     > 解除分配 VM 也会释放分配给该 VM 的所有动态 IP 地址。 OS 和数据磁盘不受影响。
 
 ## <a name="next-steps"></a>后续步骤
-若要提高可伸缩性，请运行多个 VM 实例并进行横向扩展。
+若要提高可伸缩性，请运行多个 VM 实例并进行横向扩展。 有关详细信息，请参阅 [自动调整虚拟机规模集中的 Linux 计算机规模][scale-set]。 
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[scale-set]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
 [vm-sizes]: virtual-machines-linux-sizes.md

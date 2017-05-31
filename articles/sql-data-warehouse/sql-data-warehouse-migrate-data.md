@@ -15,9 +15,10 @@ ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: 
 ms.author: jrj;barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: e0c0e7e7994d1fc8b985dc54b7bdcd9fb17a0136
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -136,7 +137,7 @@ Azure 导入和导出服务是一个数据传输进程，用于将大量 (GB++) 
 
 若要使用 AZCopy，必须先下载并安装它。 可用版本包括[生产版][production version]和[预览版][preview version]。
 
-若要从文件系统上载文件，需要执行如下所示的命令：
+若要从文件系统上传文件，需要执行如下所示的命令：
 
 ```
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /DestKey:key /Pattern:abc.txt

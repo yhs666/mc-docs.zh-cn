@@ -12,9 +12,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: sethm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 2319d1c1b681730bbd9776baf7104c975ee670a7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -118,7 +119,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-服务总线队列在标准层中支持的最大消息大小为 256 KB。 标头最大为 64 KB，其中包括标准和自定义应用程序属性。 一个队列可包含的消息数不受限制，但消息的总大小受限。 此队列大小是在创建时定义的，上限为 5 GB。
+服务总线队列在[标准层](./service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](./service-bus-premium-messaging.md)中则为 1 MB。 标头最大为 64 KB，其中包括标准和自定义应用程序属性。 一个队列可包含的消息数不受限制，但消息的总大小受限。 此队列大小是在创建时定义的，上限为 5 GB。
 
 ## <a name="receive-messages-from-a-queue"></a>从队列接收消息
 
@@ -195,7 +196,7 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 ## <a name="next-steps"></a>后续步骤
 现在，你已了解服务总线队列的基础知识，请参阅 [队列、主题和订阅][Queues, topics, and subscriptions] 以获取更多信息。
 
-有关详细信息，请参阅 [Java 开发人员中心](https://www.azure.cn/develop/java/)。
+有关详细信息，请参阅 [Java 开发人员中心](/develop/java/)。
 [用于 Java 的 Azure SDK]: /develop/java/ [用于 Eclipse 的 Azure 工具包]：https://msdn.microsoft.com/zh-cn/library/azure/hh694271.aspx
 
   [Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md

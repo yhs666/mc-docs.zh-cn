@@ -15,9 +15,10 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 375875a310712243269b0f26fc3867e9d998a7ff
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -38,18 +39,18 @@ ms.lasthandoff: 04/14/2017
 ## <a name="task-output-considerations"></a>任务输出注意事项
 设计 Batch 解决方案时，必须考虑几个与作业和任务输出相关的因素。
 
-- **计算节点生存期**：计算节点通常是瞬态的，尤其是在启用了自动缩放的池中。 在某个节点上运行的任务的输出仅在该节点存在时才可用，并且仅在你为任务设置的文件保留时间范围内才可用。 为了确保保留任务输出，你的任务必须将其输出文件上载到持久性存储，例如 Azure 存储空间。
-- **输出存储**：若要将任务输出数据保存到持久性存储，可以在任务代码中使用 [Azure 存储 SDK](../storage/storage-dotnet-how-to-use-blobs.md)，将任务输出上载到 Blob 存储容器中。 如果你实现了容器和文件命名约定，则客户端应用程序或作业中的其他任务可以根据该约定查找并下载此输出。
-- **输出检索**：你可以直接从池中的计算节点检索任务输出，如果任务保存了其输出，则你可以从 Azure 存储空间检索任务输出。 若要直接从计算节点检索任务输出，需要获取文件名及其在节点上的输出位置。 如果将输出保存到 Azure 存储，则下游任务或客户端应用程序必须获得 Azure 存储中文件的完整路径才能使用 Azure 存储 SDK 来下载输出。
+- **计算节点生存期**：计算节点通常是瞬态的，尤其是在启用了自动缩放的池中。 在某个节点上运行的任务的输出仅在该节点存在时才可用，并且仅在你为任务设置的文件保留时间范围内才可用。 为了确保保留任务输出，你的任务必须将其输出文件上传到持久性存储，例如 Azure 存储。
+- **输出存储**：若要将任务输出数据保存到持久性存储，可以在任务代码中使用 [Azure 存储 SDK](../storage/storage-dotnet-how-to-use-blobs.md)，将任务输出上传到 Blob 存储容器中。 如果你实现了容器和文件命名约定，则客户端应用程序或作业中的其他任务可以根据该约定查找并下载此输出。
+- **输出检索**：你可以直接从池中的计算节点检索任务输出，如果任务保存了其输出，则你可以从 Azure 存储检索任务输出。 若要直接从计算节点检索任务输出，需要获取文件名及其在节点上的输出位置。 如果将输出保存到 Azure 存储，则下游任务或客户端应用程序必须获得 Azure 存储中文件的完整路径才能使用 Azure 存储 SDK 来下载输出。
 - **查看输出**：导航到 Azure 门户中的某个 Batch 任务并选择“节点上的文件”时，将看到与该任务关联的所有文件，而不仅仅是想要查看的输出文件。 同样，计算节点上的文件仅在该节点存在时才可用，并且仅在你为任务设置的文件保留时间范围内才可用。 若要在门户或某个应用程序（例如 [Azure 存储资源管理器][storage_explorer]）中查看已保存到 Azure 存储的任务输出，必须知道该文件的位置并直接导航到该文件。
 
 ## <a name="help-for-persisted-output"></a>有关保存的输出的帮助
 为了帮助你更轻松地保存作业和任务输出，Batch 团队定义并实现了一组命名约定以及一个 .NET 类库（ [Azure Batch 文件约定][nuget_package] 库），供你在 Batch 应用程序中使用。 此外，Azure 门户可识别这些命名约定，因此可以轻松找到使用该库存储的文件。
 
 ## <a name="using-the-file-conventions-library"></a>使用文件约定库
-[Azure Batch 文件约定][nuget_package] 是一个 .NET 类库，Batch .NET 应用程序可以使用它来轻松向 Azure 存储空间存储任务输出，以及从中检索任务输出。 该库可在任务代码和客户端代码中使用 -- 在任务代码中用于保存文件，在客户端代码用于列出和检索文件。 任务还可以使用该库来检索上游任务的输出（例如，在[任务依赖性](batch-task-dependencies.md)方案中）。
+[Azure Batch 文件约定][nuget_package] 是一个 .NET 类库，Batch .NET 应用程序可以使用它来轻松向 Azure 存储存储任务输出，以及从中检索任务输出。 该库可在任务代码和客户端代码中使用 -- 在任务代码中用于保存文件，在客户端代码用于列出和检索文件。 任务还可以使用该库来检索上游任务的输出（例如，在[任务依赖性](batch-task-dependencies.md)方案中）。
 
-该约定库负责确保存储容器和任务输出文件根据约定命名，并在保存到 Azure 存储空间时上载到正确的位置。 当你检索输出时，可以按 ID 和用途列出或者检索给定作业或任务的输出，从而轻松找到所需的输出，而无需知道文件名或者文件在存储空间中的位置。
+该约定库负责确保存储容器和任务输出文件根据约定命名，并在保存到 Azure 存储时上传到正确的位置。 当你检索输出时，可以按 ID 和用途列出或者检索给定作业或任务的输出，从而轻松找到所需的输出，而无需知道文件名或者文件在存储空间中的位置。
 
 例如，你可以使用该库“列出任务 7 的所有中间文件”或“获取作业 *mymovie*的缩略图预览”，而无需知道文件名或者文件在存储帐户中的位置。
 
@@ -77,7 +78,7 @@ ms.lasthandoff: 04/14/2017
 > 
 
 ### <a name="create-storage-container"></a>创建存储容器
-在任务开始将输出保存到存储空间之前，必须创建一个 Blob 存储容器，以便任务将其输出上载到其中。 可通过调用 [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync] 来执行此操作。 此扩展方法使用 [CloudStorageAccount][net_cloudstorageaccount] 对象作为参数，并且会创建一个容器，该容器的命名能使 Azure 门户以及本文稍后介绍的检索方法发现其内容。
+在任务开始将输出保存到存储空间之前，必须创建一个 Blob 存储容器，以便任务将其输出上传到其中。 可通过调用 [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync] 来执行此操作。 此扩展方法使用 [CloudStorageAccount][net_cloudstorageaccount] 对象作为参数，并且会创建一个容器，该容器的命名能使 Azure 门户以及本文稍后介绍的检索方法发现其内容。
 
 通常会将此代码放入客户端应用程序 -- 即创建池、作业和任务的应用程序。
 
@@ -170,7 +171,7 @@ using (ITrackedSaveOperation stdout =
 `Task.Delay` 必须位于此 `using` 块的末尾，确保节点代理有时间将标准输出的内容刷新到节点上的 stdout.txt 文件（节点代理是在池中的每个节点上运行，在节点与 Batch 服务之间提供命令和控制接口的程序）。 若没有此延迟，可能会遗漏最后几秒的输出。 并非所有文件都需要此延迟。
 
 > [!NOTE]
-> 启用 SaveTrackedAsync 文件跟踪时，只会在 Azure 存储空间中保存被跟踪文件的 *追加* 内容。 此方法只应该用于跟踪非轮转的日志文件或追加到的其他文件，也就是说，数据在更新时只会添加到文件末尾。
+> 启用 SaveTrackedAsync 文件跟踪时，只会在 Azure 存储中保存被跟踪文件的 *追加* 内容。 此方法只应该用于跟踪非轮转的日志文件或追加到的其他文件，也就是说，数据在更新时只会添加到文件末尾。
 > 
 > 
 
@@ -215,7 +216,7 @@ Azure 门户将显示使用 Azure Batch 文件约定自述文件中提到的命�
 1. 在 **Visual Studio 2015 或更新版本**中打开该项目。
 2. 将 Batch 和存储**帐户凭据**添加到 Microsoft.Azure.Batch.Samples.Common 项目中的 **AccountSettings.settings**。
 3. **生成**（但不要运行）该解决方案。 根据提示还原所有 NuGet 包。
-4. 使用 Azure 门户上载 **PersistOutputsTask** 的[应用程序包](batch-application-packages.md)。 在 .zip 包中包含 `PersistOutputsTask.exe` 及其依赖程序集，将应用程序 ID 设置为“PersistOutputsTask”，将应用程序包版本设置为“1.0”。
+4. 使用 Azure 门户上传 **PersistOutputsTask** 的[应用程序包](batch-application-packages.md)。 在 .zip 包中包含 `PersistOutputsTask.exe` 及其依赖程序集，将应用程序 ID 设置为“PersistOutputsTask”，将应用程序包版本设置为“1.0”。
 5. **启动**（运行）**PersistOutputs** 项目。
 
 ## <a name="next-steps"></a>后续步骤

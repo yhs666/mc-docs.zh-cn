@@ -155,7 +155,7 @@ Azure 媒体服务 (AMS) 现已在以下数据中心推出：巴西南部、印�
 
 - 宣布媒体编码器标准版公开上市。有关详细信息，请参阅[此博客文章](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
 
-    媒体编码器标准版使用[本](https://msdn.microsoft.com/zh-cn/library/azure/mt269960.aspx)部分中所述的预设值。注意，当使用预设值进行 4K 编码时，应获取“高级版”保留单元类型。有关详细信息，请参阅[如何缩放编码](./media-services-portal-encoding-units.md)。
+    媒体编码器标准版使用[本](https://msdn.microsoft.com/zh-cn/library/azure/mt269960.aspx)部分中所述的预设值。
 - Azure 媒体服务和播放器的实时标题。有关详细信息，请参阅[此博客文章](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ###媒体服务 .NET SDK 更新
@@ -262,7 +262,7 @@ TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
 - 媒体服务现在允许通过 SSL 连接引入实时平滑流式处理 (FMP4) 内容。若要通过 SSL 进行引入，请确保将引入 URL 更新为 HTTPS。有关实时传送视频流的详细信息，请参阅[使用 Azure 媒体服务实时传送视频流]。
 - 注意，当前无法通过 SSL 连接引入 RTMP 实时流。
 - 也可通过 SSL 连接流式传输内容。为此，请确保流式处理 URL 以 HTTPS 开头。
-- 请注意，仅当要从中传递内容的流式处理终结点是在 2014 年 9 月 10 日以后创建的，才可通过 SSL 进行流式处理。如果流式处理 URL 基于 9 月 10 日之后创建的流式处理终结点，则 URL 会包含“streaming.mediaservices.chinacloudapi.cn”（新格式）。包含“origin.mediaservices.chinacloudapi.cn”（旧格式）的流式处理 URL 不支持 SSL。如果你的 URL 采用旧格式，而你希望能够通过 SSL 进行流式处理，请[创建新的流式处理终结点](./media-services-manage-origins.md)。使用基于新流式处理终结点创建的 URL，通过 SSL 流式处理内容。
+- 请注意，仅当要从中传递内容的流式处理终结点是在 2014 年 9 月 10 日以后创建的，才可通过 SSL 进行流式处理。如果流式处理 URL 基于 9 月 10 日之后创建的流式处理终结点，则 URL 会包含“streaming.mediaservices.chinacloudapi.cn”（新格式）。包含“origin.mediaservices.chinacloudapi.cn”（旧格式）的流式处理 URL 不支持 SSL。如果你的 URL 采用旧格式，而你希望能够通过 SSL 进行流式处理，请创建新的流式处理终结点。使用基于新流式处理终结点创建的 URL，通过 SSL 流式处理内容。
 
 ##<a id="october_changes_14"></a>2014 年 10 月版本
 

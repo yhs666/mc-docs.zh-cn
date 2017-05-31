@@ -25,7 +25,7 @@ ms.author: jgao
 Hive 提供了通过类似 SQL 的脚本语言（称为 *[HiveQL][hadoop-hiveql]*）运行 Hadoop MapReduce 作业的方法，此方法可用于对大量数据进行汇总、查询和分析。
 
 > [!IMPORTANT]
-本文档中的步骤要求使用基于 Windows 的 HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)。有关适用于基于 Linux 的群集的步骤，请参阅[使用 HDInsight (Linux) 中的 Hive 分析航班延误数据](./hdinsight-analyze-flight-delay-data-linux.md)。
+本文档中的步骤要求使用基于 Windows 的 HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。有关适用于基于 Linux 的群集的步骤，请参阅[使用 HDInsight (Linux) 中的 Hive 分析航班延误数据](./hdinsight-analyze-flight-delay-data-linux.md)。
 
 Azure HDInsight 的主要优势之一就是隔离数据存储和计算。HDInsight 将 Azure Blob 存储用于数据存储。典型的作业包含三部分：
 
@@ -703,7 +703,7 @@ HiveQL 脚本将执行以下操作：
 
     该脚本中使用的某些变量：
 
-    * **$ipAddressRestService** - 默认值为 http://bot.whatismyipaddress.com。这是用来获取外部 IP 地址的公共 IP 地址 REST 服务。可根据需要使用其他服务。使用此服务检索的外部 IP 地址将用于创建 Azure SQL 数据库服务器的防火墙规则，使你能够从工作站访问数据库（通过 Windows PowerShell 脚本）。
+    * **$ipAddressRestService** - 默认值为 http://bot.whatismyipaddress.com 。这是用来获取外部 IP 地址的公共 IP 地址 REST 服务。可根据需要使用其他服务。使用此服务检索的外部 IP 地址将用于创建 Azure SQL 数据库服务器的防火墙规则，使你能够从工作站访问数据库（通过 Windows PowerShell 脚本）。
     * **$fireWallRuleName** - 这是 Azure SQL 数据库服务器的防火墙规则名称。默认名称为 <u>FlightDelay</u>。可根据需要对其进行重命名。
     * **$sqlDatabaseMaxSizeGB** - 只有在创建新的 Azure SQL 数据库服务器时才会使用此值。默认值为 10GB。10GB 对于本教程来说已足够。
     * **$sqlDatabaseName** - 只有在创建新的 Azure SQL 数据库时才会使用此值。默认值为 HDISqoop。如果将它重命名，则必须相应地更新 Sqoop Windows PowerShell 脚本。

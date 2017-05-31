@@ -22,7 +22,7 @@ ms.author: igalf
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-更多关于资源管理器模型的计划内维护，请点击[这里](./virtual-machines-linux-planned-maintenance.md)。
+更多关于资源管理器模型的计划内维护，请点击[这里](virtual-machines-linux-planned-maintenance.md)。
 
 [!INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../includes/virtual-machines-common-planned-maintenance-schedule.md)]
 

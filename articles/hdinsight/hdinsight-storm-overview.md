@@ -15,11 +15,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/31/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
 ms.openlocfilehash: 2b8957daaf39d12b4ad479a4a1c6b7cf1adcc478
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/29/2017
 
 
@@ -51,7 +52,7 @@ Storm on HDInsight 具有下述重要优势：
 
 * 使用各种语言。 可以根据所选语言（例如 Java、C#、Python）编写 Storm 组件。
 
-    * 将 Visual Studio 与 HDInsight 集成，以便开发、管理和监视 C# 拓扑。 有关详细信息，请参阅[使用用于 Visual Studio 的 HDInsight 工具开发 C# Storm 拓扑](hdinsight-storm-develop-csharp-visual-studio-topology.md)。
+    * 将 Visual Studio 与 HDInsight 集成，以便开发、管理和监视 C# 拓扑。 有关详细信息，请参阅 [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)（使用用于 Visual Studio 的 HDInsight 工具开发 C# Storm 拓扑）。
 
     * 支持 Trident Java 接口。 可以创建支持一次性消息处理、事务性数据存储持久性和一组常见流分析操作的 Storm 拓扑。
 
@@ -83,7 +84,7 @@ Storm on HDInsight 具有下述重要优势：
 
 * __安全外壳 (SSH) 连接__：可以使用 SSH 通过 Internet 访问 HDInsight 群集的头节点。 可以使用 SSH 直接在群集上运行命令。
 
-    有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+    有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 * __Web 连接__：HDInsight 群集提供 Ambari Web UI。 可以使用 Ambari Web UI 在群集上轻松监视、配置和管理服务。 Storm on HDInsight 还提供 Storm UI。 可以使用 Storm UI，通过浏览器监视和管理 Storm 拓扑的运行。
 
@@ -93,7 +94,7 @@ Storm on HDInsight 具有下述重要优势：
 
 * __Visual Studio 集成__：针对 Visual Studio 的 Azure Data Lake 工具包含用于通过 SCP.Net Framework 创建 C# Storm 拓扑的项目模板。 Data Lake 工具还提供用于通过 Storm on HDInsight 部署、监视和管理解决方案的工具。
 
-    有关详细信息，请参阅 [使用用于 Visual Studio 的 HDInsight 工具开发 C# Storm 拓扑](hdinsight-storm-develop-csharp-visual-studio-topology.md)。
+    有关详细信息，请参阅 [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)（使用用于 Visual Studio 的 HDInsight 工具开发 C# Storm 拓扑）。
 
 ## <a name="integration-with-other-azure-services"></a>与其他 Azure 服务集成
 
@@ -162,7 +163,7 @@ Storm 可以提供不同级别的有保证的消息处理。 例如，基本的 
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-读取输入元组，发出零个或多个元组，然后在执行方法结束时立即询问输入元组，这种模式非常普通。 Storm 提供 [IBasicBolt](http://storm.apache.org/releases/0.10.1/javadocs/backtype/storm/topology/IBasicBolt.html) 接口来自动执行这种模式。
+读取输入元组，发出零个或多个元组，然后在执行方法结束时立即询问输入元组，这种模式非常普通。 Storm 提供 [IBasicBolt](https://storm.apache.org/apidocs/backtype/storm/topology/IBasicBolt.html) 接口来自动执行这种模式。
 
 ### <a name="joins"></a>联接
 
@@ -194,7 +195,7 @@ Trident 基于批量处理元组。
 
 Storm 使用 Apache Log4j 来记录信息。 默认情况下，将记录大量的数据，因此很难通过信息排序。 可以让日志记录配置文件包括在 Storm 拓扑中，控制日志记录行为。
 
-有关演示如何配置日志记录的示例拓扑，请参阅适用于 HDInsight 上的 Storm 的 [基于 Java 的 WordCount](hdinsight-storm-develop-java-topology.md)示例。
+有关演示如何配置日志记录的示例拓扑，请参阅适用于 HDInsight 上的 Storm 的 [Java-based WordCount](hdinsight-storm-develop-java-topology.md) （基于 Java 的 WordCount）示例。
 
 ## <a name="next-steps"></a>后续步骤
 

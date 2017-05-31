@@ -28,7 +28,7 @@ ms.author: narayan;annahar
 
 若要使用 Azure 门户预览基于方案创建 VNet 对等互连，请完成以下步骤：
 
-1. 从浏览器导航到 http://portal.azure.cn，根据需要使用 Azure 帐户登录。
+1. 从浏览器导航到 http://portal.azure.cn ，根据需要使用 Azure 帐户登录。
 2. 若要建立 VNet 对等互连，需要在两个 VNet 之间创建两个链接，每个方向各一个。可先创建 VNet1 到 VNet2 的 VNet 对等互连链接。在 Azure 门户预览中，单击“浏览”> 选择“虚拟网络”
 
     ![在 Azure 门户预览中创建 VNet 对等互连](./media/virtual-networks-create-vnetpeering-arm-portal/figure01.png)  
@@ -79,7 +79,7 @@ VNet 对等互连中的每个链接都有上述属性集。在门户中，可以
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
-1. 从浏览器导航到 http://portal.azure.cn，根据需要使用 Azure 帐户登录。
+1. 从浏览器导航到 http://portal.azure.cn ，根据需要使用 Azure 帐户登录。
 2. 在此示例中，用户 A 具有订阅 A 的管理权限，用户 B 具有订阅 B 的管理权限。两个订阅均与同一 Azure Active Directory 租户关联。无法在与不同 Azure Active Directory 租户关联的订阅之间创建对等互连。
 3. 在门户中，单击“浏览”，然后选择“虚拟网络”。单击要设置对等互连的 VNet。
 4. 在所选 VNet 的边栏选项卡中，依次单击“访问控制”和“添加”，如下图中所示：
@@ -128,7 +128,7 @@ VNet 对等互连中的每个链接都有上述属性集。在门户中，可以
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
-1. 从浏览器导航到 http://portal.azure.cn，根据需要使用 Azure 帐户登录。
+1. 从浏览器导航到 http://portal.azure.cn ，根据需要使用 Azure 帐户登录。
 2. 如果要在*同一*订阅中通过不同部署模型部署的 VNet 之间创建对等互连，请跳到步骤 3。在**预览版**中，可在*不同*订阅中创建通过不同部署模型部署的 VNet 之间的对等互连。预览版功能不提供与正式版功能相同级别的可靠性和服务级别协议。如果要在不同订阅中通过不同部署模型部署的 VNet 之间创建对等互连，必须先完成以下任务：
     - 在 PowerShell 中输入以下命令，在 Azure 订阅中注册预览版功能：`Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` 和 `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network`。无法在门户中完成此步骤。
     - 完成本文的[跨订阅对等互连](#x-sub)部分中的步骤 1-6。
@@ -144,7 +144,7 @@ VNet 对等互连中的每个链接都有上述属性集。在门户中，可以
     ![检查对等连接](./media/virtual-networks-create-vnetpeering-arm-portal/figure19.png)  
 
 ## 删除 VNet 对等互连
-1. 从浏览器导航到 http://portal.azure.cn，根据需要使用 Azure 帐户登录。
+1. 从浏览器导航到 http://portal.azure.cn ，根据需要使用 Azure 帐户登录。
 2. 转到虚拟网络边栏选项卡，单击“对等互连”，单击要删除的链接，然后单击“删除”。
 
     ![删除1](./media/virtual-networks-create-vnetpeering-arm-portal/figure15.png)  

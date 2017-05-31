@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: corywink
-translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 57642c199b090384d225101bded7ebff64d3a10c
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: a65a3da51532f8102655a85f15630a703d56d769
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -50,8 +51,9 @@ ms.lasthandoff: 04/22/2017
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>在一个订阅中可以设置多少个 IoT 中心实例？
 默认情况下，可以[为每个订阅预配 10 个 IoT 中心][link-azuresublimits]。 可以创建 [Azure 支持票证][link-azuresupportticket]以提高此限制。 由于每个预配置的解决方案将预配一个新的 IoT 中心，因此，在给定的订阅中，最多只能预配 10 个预配置的解决方案。 
 
-### <a name="how-many-documentdb-instances-can-i-provision-in-a-subscription"></a>在订阅中可以设置多少个 DocumentDB 实例？
-50 个。 可以创建 [Azure 支持票证][link-azuresupportticket] 以提高此限制，但在默认情况下，对每个订阅只能预配 50 个 DocumentDB 实例。 
+### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>在订阅中可以预配多少个 Azure Cosmos DB 实例？
+
+50 个。 可以创建 [Azure 支持票证][link-azuresupportticket]以提高此限制，但在默认情况下，对每个订阅只能预配 50 个 Cosmos DB 实例。 
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>在订阅中可以设置多少个免费必应地图 API？
 两个。 在一个 Azure 订阅中，只能创建两个面向企业的内部事务级别 1 必应地图计划。 默认情况下，远程监视解决方案是使用内部事务级别 1 计划预配的。 因此，如果不进行修改，则在订阅中只能设置最多两个远程监视解决方案。

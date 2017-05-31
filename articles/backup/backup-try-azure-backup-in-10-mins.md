@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/23/2017
 ms.author: markgal;
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 85b2a2000d3fc9f13d67e00090ad87e148f5b230
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -34,8 +35,10 @@ ms.lasthandoff: 04/14/2017
 ![步骤 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) 下载恢复服务代理并进行安装和注册。<br>
 ![步骤 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) 备份文件和文件夹。
 
+![如何使用 Azure 备份来备份 Windows 计算机](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
+
 ## <a name="get-an-azure-subscription"></a>获取 Azure 订阅
-如果没有 Azure 订阅，可以先创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/) ，这样就可以访问任何 Azure 服务。
+如果没有 Azure 订阅，可以先创建一个 [试用帐户](/pricing/1rmb-trial/) ，这样就可以访问任何 Azure 服务。
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 若要备份文件和文件夹，需在要存储数据的区域内创建恢复服务保管库。 还需确定存储复制方式。
@@ -83,7 +86,7 @@ ms.lasthandoff: 04/14/2017
 > [!NOTE]
 > 尚未推出通过 Azure 门户启用备份这一功能。 请使用 Azure 恢复服务代理备份文件和文件夹。
 
-若要详细了解如何下载、安装和注册代理，可参阅[此文](./backup-configure-vault-classic.md#download-install-register-backup-agent)。
+若要详细了解如何下载、安装和注册代理，可参阅[此文](./backup-configure-vault-classic.md/#download-install-register-backup-agent)。
 
 ## <a name="back-up-your-files-and-folders"></a>备份文件和文件夹
 初始备份包括两个关键任务：
@@ -139,7 +142,7 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="next-steps"></a>后续步骤
 - 详细了解如何 [备份 Windows 计算机](backup-configure-vault.md)。
-- 备份文件和文件夹后，可以 [管理保管库和服务器](backup-azure-manage-windows-server-classic.md)。
+- 备份文件和文件夹后，可以 [管理保管库和服务器](backup-azure-manage-windows-server.md)。
 - 如果需要还原备份，请参阅 [将文件还原到 Windows 计算机](backup-azure-restore-windows-server.md)一文。
 
 

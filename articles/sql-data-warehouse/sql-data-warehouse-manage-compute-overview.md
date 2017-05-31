@@ -16,9 +16,10 @@ ms.custom: manage
 ms.date: 03/22/2017
 wacn.date: 
 ms.author: elbutter
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: bddb370127988cc431c42eb2c2a158ff674b96d9
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---

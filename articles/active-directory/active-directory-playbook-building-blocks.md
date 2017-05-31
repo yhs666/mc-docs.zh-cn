@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/12/2017
 ms.author: dstefan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 5198eb391cb441acf42f73756c8444e3a9d7476c
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
----
 
+---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念证明演练手册：构建基块
 
 ## <a name="catalog-of-actors"></a>执行组件目录
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/22/2017
 
 | 先决条件 | 资源 |
 | --- | --- |
-| 使用有效 Azure 订阅定义的 Azure AD 租户 | [如何获取 Azure Active Directory 租户](./develop/active-directory-howto-tenant.md)<br/>**注意：**如果你已创建一个具有 Azure AD Premium 许可证的环境，可以导航到 https://aka.ms/accessaad 获取一个没有上限的订阅 <br/>在以下网页中了解详细信息：https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 和 https://technet.microsoft.com/library/dn832618.aspx |
+| 使用有效 Azure 订阅定义的 Azure AD 租户 | [如何获取 Azure Active Directory 租户](active-directory-howto-tenant.md)<br/>**注意：**如果你已创建一个具有 Azure AD Premium 许可证的环境，可以导航到 https://aka.ms/accessaad 获取一个没有上限的订阅 <br/>在以下网页中了解详细信息：https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 和 https://technet.microsoft.com/library/dn832618.aspx |
 | Azure AD 全局管理员凭据 | 在 Azure Active Directory 中分配管理员角色 |
 | 可选但强烈建议：用作应急措施的并行实验室环境 | [Azure AD Connect 的先决条件](./connect/active-directory-aadconnect-prerequisites.md) |
 

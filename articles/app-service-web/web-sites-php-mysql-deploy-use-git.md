@@ -1,5 +1,5 @@
 ---
-title: "使用 Git 在 Azure App Service 中创建和部署 PHP-MySQL Web 应用"
+title: "使用 Git 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用"
 description: "本教程演示如何创建在 MySQL 中存储数据的 PHP Web 应用并使用 Git 部署到 Azure。"
 services: app-service\web
 documentationcenter: php
@@ -13,17 +13,18 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 wacn.date: 
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: be36cbf19d212e0c2078e59b25ef5fc98693cb07
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 41c1d766282d5a15c6bd495a658fdb522c685a56
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-git"></a>使用 Git 在 Azure App Service 中创建和部署 PHP-MySQL Web 应用
+# <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-git"></a>使用 Git 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -51,7 +52,7 @@ ms.lasthandoff: 04/28/2017
 4. 单击“Web + 移动”，然后单击“Web 应用”。 然后单击 **创建**。
 5. 为资源组输入有效的名称。
 6. 为新的 Web 应用输入值。
-6. 登录到 [Azure 经典管理门户](https://manage.windowsazure.cn)，创建 MYSQL，然后在 MYSQL 的仪表板中获取 Web 应用的连接字符串。
+7. 登录到 [Azure 经典管理门户](https://manage.windowsazure.cn)，创建 MYSQL，然后在 MYSQL 的仪表板中获取 Web 应用的连接字符串。
 8. 创建 Web 应用程序后，用户将看到新的 Web 应用边栏选项卡。
 9. 在“设置”中，单击“连续部署”，然后单击“配置所需设置”。
 
@@ -64,7 +65,7 @@ ms.lasthandoff: 04/28/2017
      ![创建发布凭据][credentials]
 
 ## <a name="get-remote-mysql-connection-information"></a>获取远程 MySQL 连接信息
-若要连接到正在 Web Apps 中运行的 MySQL 数据库，你将需要连接信息。 若要获取 MySQL 连接信息，请按照以下步骤操作：
+若要连接到正在 Web 应用中运行的 MySQL 数据库，你将需要连接信息。 若要获取 MySQL 连接信息，请按照以下步骤操作：
 
 1. 在 Azure 经典管理门户中，单击“AZURE 上的 MYSQL 数据库” ，并打开 MYSQL 数据库服务器。 在“仪表板”页上的“速览”下，可以获取主机和端口。
 2. 在“帐户”  页中，可以获取所有帐户名称，并可以重置密码。
@@ -184,7 +185,7 @@ ms.lasthandoff: 04/28/2017
 现在可以浏览到 **http://localhost:8000/** 来测试此应用程序。
 
 ## <a name="publish-your-app"></a>发布应用
-在本地测试你的应用之后，可以使用 Git 将其发布到 Web Apps。 你将初始化本地 Git 存储库并发布该应用程序。
+在本地测试你的应用之后，可以使用 Git 将其发布到 Web 应用。 你将初始化本地 Git 存储库并发布该应用程序。
 
 > [!NOTE]
 > 这些步骤与 Azure 门户预览中的“创建 Web 应用并设置 Git 发布”一节的结尾显示的步骤相同。
@@ -245,7 +246,7 @@ ms.lasthandoff: 04/28/2017
     ![编辑器扩展插件成功][composer-extension-success]
 
 ## <a name="next-steps"></a>后续步骤
-有关详细信息，请参阅 [PHP 开发人员中心](https://www.azure.cn/develop/php/)。
+有关详细信息，请参阅 [PHP 开发人员中心](/develop/php/)。
 
 <!-- URL List -->
 

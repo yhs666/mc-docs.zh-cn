@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 8dd98fb80732de61a8eb4757d20593389b8ef474
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

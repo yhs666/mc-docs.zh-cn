@@ -48,7 +48,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 
 ### 用于 Ambari Rest API 的基 URI
 
-HDInsight 上的 Ambari REST API 的基本 URI 为 https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME，其中 **CLUSTERNAME** 是群集的名称。
+HDInsight 上的 Ambari REST API 的基本 URI 为 https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME ，其中 **CLUSTERNAME** 是群集的名称。
 
 > [!IMPORTANT]
 URI 的完全限定域名 (FQDN) 部分 (CLUSTERNAME.azurehdinsight.cn) 中的群集名称不区分大小写，但 URI 中的其他部分则区分大小写。例如，如果群集命名为 `MyCluster`，则有效的 URI 如下所示：
@@ -150,7 +150,6 @@ $respObj.Clusters.health_report
     | jq '.items[].Hosts.host_name'
     ```
 
-
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/hosts" `
         -Credential $creds
@@ -164,7 +163,6 @@ $respObj.Clusters.health_report
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/HDFS/components/NAMENODE" \
     | jq '.host_components[].HostRoles.host_name'
     ```
-
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/HDFS/components/NAMENODE" `
@@ -180,7 +178,6 @@ $respObj.Clusters.health_report
     | jq '.host_components[].HostRoles.host_name'
     ```
 
-
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/HDFS/components/DATANODE" `
         -Credential $creds
@@ -194,7 +191,6 @@ $respObj.Clusters.health_report
     curl -u admin:PASSWORD -sS -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
     | jq '.host_components[].HostRoles.host_name'
     ```
-
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" `
@@ -219,7 +215,6 @@ do
   echo "$HOSTNAME <--> $IP"
 done
 ```
-
 
 ```powershell
 $uri = "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/hosts"
@@ -246,7 +241,6 @@ curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/cl
 | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
 ```
 
-
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" `
     -Credential $creds
@@ -271,7 +265,6 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
     ```
-
 
     ```powershell
     Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
@@ -304,7 +297,6 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/configurations?type=core-site&tag=INITIAL"
     ```
 
-
 ```
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/configurations?type=core-site&tag=INITIAL" `
         -Credential $creds
@@ -320,7 +312,6 @@ This example returns a JSON document containing the current configuration for th
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
     ```
-
 
     ```powershell
     Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
@@ -355,7 +346,6 @@ This example returns a JSON document containing the current configuration for th
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" \
     | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     ```
-
 
     ```powershell
     $epoch = Get-Date -Year 1970 -Month 1 -Day 1 -Hour 0 -Minute 0 -Second 0
@@ -411,7 +401,6 @@ This example returns a JSON document containing the current configuration for th
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" -X PUT -d @newconfig.json "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME"
     ```
 
-
     ```powershell
     $newConfig = Get-Content .\newconfig.json
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName" `
@@ -436,7 +425,6 @@ This example returns a JSON document containing the current configuration for th
     "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/SPARK"
     ```
 
-
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/SPARK" `
         -Credential $creds `
@@ -454,7 +442,6 @@ This example returns a JSON document containing the current configuration for th
     | jq .ServiceInfo.maintenance_state
     ```
 
-
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/SPARK2" `
         -Credential $creds
@@ -471,7 +458,6 @@ This example returns a JSON document containing the current configuration for th
     -X PUT -d '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"INSTALLED"}}}' \
     "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/SPARK"
     ```
-
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/SPARK" `
@@ -505,7 +491,6 @@ This example returns a JSON document containing the current configuration for th
     | jq .Requests.request_status
     ```
 
-
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/requests/29" `
         -Credential $creds
@@ -522,7 +507,6 @@ This example returns a JSON document containing the current configuration for th
     -X PUT -d '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"STARTED"}}}' \
     "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/SPARK"
     ```
-
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/SPARK" `
@@ -541,7 +525,6 @@ This example returns a JSON document containing the current configuration for th
     -X PUT -d '{"RequestInfo": {"context": "turning off maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"OFF"}}}' \
     "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/SPARK"
     ```
-
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/SPARK" `

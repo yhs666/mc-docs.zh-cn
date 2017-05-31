@@ -1,6 +1,6 @@
 ---
-title: "连续部署到 Azure App Service | Azure"
-description: "了解如何实现连续部署到 Azure App Service。"
+title: "连续部署到 Azure 应用服务 | Azure"
+description: "了解如何实现连续部署到 Azure 应用服务。"
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 10/28/2016
 wacn.date: 
 ms.author: dariagrigoriu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 1f53d356062251966107053a9aab341cbf0a5e4c
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
 ---
-# <a name="continuous-deployment-to-azure-app-service"></a>连续部署到 Azure App Service
+# <a name="continuous-deployment-to-azure-app-service"></a>连续部署到 Azure 应用服务
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -59,7 +60,7 @@ ms.lasthandoff: 04/14/2017
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
-将 Visual Studio 解决方案推送到 Azure App Service 就像推送简单的 index.html 文件一样容易。 应用服务部署过程简化了所有细节，包括还原 NuGet 依赖项和生成应用程序二进制文件。 可以按照仅在 Git 存储库中维护代码的源控件最佳实践操作，并让应用服务部署处理其余工作。
+将 Visual Studio 解决方案推送到 Azure 应用服务就像推送简单的 index.html 文件一样容易。 应用服务部署过程简化了所有细节，包括还原 NuGet 依赖项和生成应用程序二进制文件。 可以按照仅在 Git 存储库中维护代码的源控件最佳实践操作，并让应用服务部署处理其余工作。
 
 将 Visual Studio 解决方案推送到应用服务的步骤与[上一部分](#overview)中的步骤相同，前提是按以下方式配置解决方案和存储库：
 
@@ -86,7 +87,7 @@ ms.lasthandoff: 04/14/2017
 * [项目 Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Use Azure to automatically generate a CI/CD pipeline to deploy an ASP.NET 4 app](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)（使用 Azure 自动生成部署 ASP.NET 4 应用的 CI/CD 管道）
 
-[Azure 应用服务]: /app-service-web/app-service-changes-existing-services/
+[Azure 应用服务]: /azure/app-service-changes-existing-services/
 [Azure 门户预览]: https://portal.azure.cn
 [VSTS Portal]: https://www.visualstudio.com/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git

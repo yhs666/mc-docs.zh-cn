@@ -13,14 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/10/2017
+ms.date: 5/09/2017
 wacn.date: 
 ms.author: negat
 ms.custom: na
-translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 06dede5f62d88f5667f10e5fec3993380e9e2e9c
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 90a8070dfbe391a9f13fbf06d80b5a9aa6041e0b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -69,7 +70,7 @@ ms.lasthandoff: 04/22/2017
 
     此命令将提供 Azure Resource Manager 模板的输入。
 
-    有关如何在密钥保管库中创建自签名证书的示例，请参阅[Service Fabric 群集安全方案](/service-fabric-cluster-security/)。
+    有关如何在密钥保管库中创建自签名证书的示例，请参阅[Service Fabric 群集安全方案](/azure/service-fabric-cluster-security)。
 
 2.  更改 Resource Manager 模板。
 
@@ -120,7 +121,7 @@ ms.lasthandoff: 04/22/2017
         }
 ```
 
-[101-vm-sshkey GitHub 快速入门模板](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json) 中使用了此 JSON 块。
+bpt id="p1" xmlns="urn:oasis:names:tc:xliff:document:1.2"> [</bpt>101-vm-sshkey GitHub 快速入门模板](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json) 中使用了此 JSON 块。
 
 [grelayhost.json GitHub 快速启动模板](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json)中也使用了此 OS 配置文件。
 
@@ -158,7 +159,7 @@ keyData | 是 | String | 指定 base64 编码的 SSH 公钥
 
 ### <a name="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>添加同一个密钥保管库中的多个证书后，运行 `Update-AzureRmVmss` 时看到以下消息：
 
-  Update-AzureRmVmss: 列表机密包含 /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev 的重复实例，这是不允许的。
+    Update-AzureRmVmss: List secret contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
 
 如果尝试重新添加同一保管库，而不是使用现有源保管库的新保管库证书，可能会看到此消息。 如果要添加其他机密，`Add-AzureRmVmssSecret` 命令将无法正常运行。
 
@@ -218,7 +219,7 @@ CRP 组件不会持久保留客户机密。 如果对虚拟机规模集中的所
 
 扩大时不会遇到此问题，因为（单 Fabric 租户模型中的）Azure Service Fabric 中存在机密的缓存副本。
 
-### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurecn443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenariosazureservice-fabric-cluster-security"></a>如 [Service Fabric 群集安全方案](/service-fabric-cluster-security/)中所示，为什么必须指定证书 URL 的准确位置 (https://<name of the vault>.vault.azure.cn:443/secrets/<exact location>)？
+### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurecn443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenariosservice-fabricservice-fabric-cluster-security"></a>如 [Service Fabric 群集安全方案](/service-fabric/service-fabric-cluster-security/)中所述，为什么必须指定证书 URL (https://\<name of the vault\>.vault.azure.cn:443/secrets/\<exact location\>) 的确切位置？
 
 根据 Azure Key Vault 文档，在未指定版本的情况下，Get Secret REST API 应返回最新版本的机密。
 
@@ -331,7 +332,7 @@ Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -Virtua
                                 "properties": {
                                     "publisher": "Microsoft.Compute",
                                     "type": "JsonADDomainExtension",
-                                    "typeHandlerVersion": "1.0",
+                                    "typeHandlerVersion": "1.3",
                                     "settings": {
                                         "Name": "[parameters('domainName')]",
                                         "OUPath": "[variables('ouPath')]",
@@ -373,17 +374,53 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>我需要执行一个在专用存储帐户中托管的自定义脚本。 存储为公共存储时脚本成功运行，但尝试使用共享访问签名 (SAS) 时，脚本运行失败。 显示此消息：“缺少有效共享访问签名的强制参数”。 通过本地浏览器可以正常使用“链接+SAS”。
 
-若要执行在私有存储帐户中托管的自定义脚本，请通过存储帐户密钥和名称来设置受保护的设置。 有关详细信息，请参阅[适用于 Windows 的自定义脚本扩展](/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings)。
+若要执行在私有存储帐户中托管的自定义脚本，请通过存储帐户密钥和名称来设置受保护的设置。 有关详细信息，请参阅[适用于 Windows 的自定义脚本扩展](/virtual-machines/virtual-machines-windows-extensions-customscript/)。
 
-## <a name="networking"></a>网络
+## <a name="networking"></a>联网
+
+### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>是否可以将网络安全组 (NSG) 分配给一个规模集，以便应用于规模集中的所有 VM Nic？
+
+是的。 网络安全组可以直接应用于规模集，方法是在网络配置文件的 networkInterfaceConfigurations 部分引用该组。 示例：
+
+```
+"networkProfile": {
+    "networkInterfaceConfigurations": [
+        {
+            "name": "nic1",
+            "properties": {
+                "primary": "true",
+                "ipConfigurations": [
+                    {
+                        "name": "ip1",
+                        "properties": {
+                            "subnet": {
+                                "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('vnetName'), '/subnets/subnet1')]"
+                            }
+                "loadBalancerInboundNatPools": [
+                                {
+                                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/inboundNatPools/natPool1')]"
+                                }
+                            ],
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/backendAddressPools/addressPool1')]"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "networkSecurityGroup": {
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/networkSecurityGroups/', variables('nsgName'))]"
+                }
+            }
+        }
+    ]
+}
+```
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>如何针对同一订阅和同一区域中的虚拟机规模集执行 VIP 交换？
 
 若要针对同一订阅和同一区域中的虚拟机规模集执行 VIP 交换，请参阅[VIP 交换：Azure Resource Manager 中的蓝绿色部署](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/)。
-
-### <a name="what-is-the-resourceguid-property-on-a-nic-used-for"></a>NIC 上的 resourceGuid 属性有什么作用？
-
-网络接口卡 (NIC) 上的 resourceGuid 属性是唯一的 ID.。 在将来的某个时间，较低的层将记录此 ID。 
 
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>如何为静态专用 IP 地址分配指定专用 IP 地址范围？
 
@@ -461,7 +498,7 @@ IP 地址是从指定的子网中选择的。
 
 若要在不发出多个调用的情况下获取每个 VM 的属性信息，通过在以下资源 URI 上执行 REST API `GET`调用 `ListVMInstanceViews`：
 
-/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
+    /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>是否可将不同的扩展参数传递给虚拟机规模集中的不同 VM？
 

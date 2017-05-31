@@ -31,9 +31,10 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。Azure 建
 - [Azure CLI 1.0](./virtual-networks-create-vnet-arm-cli-nodejs.md)：用于经典部署模型和资源管理部署模型的 CLI
 - [Azure CLI 2.0（预览版）](#create-a-virtual-network)- 用于资源管理部署模型（本文）的下一代 CLI
 
-    [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-    还可以使用其他工具通过 Resource Manager 创建 VNet，或通过从以下列表中选择不同的选项使用经典部署模型创建 VNet：
+还可以使用其他工具通过 Resource Manager 创建 VNet，或通过从以下列表中选择不同的选项使用经典部署模型创建 VNet：
+
 > [!div class="op_single_selector"]
 >- [门户](./virtual-networks-create-vnet-arm-pportal.md)
 >- [PowerShell](./virtual-networks-create-vnet-arm-ps.md)

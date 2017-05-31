@@ -15,11 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/16/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 827c788dfb8b604334aabf6c327b7d98a1136af0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -66,6 +67,7 @@ Azure 门户预览会公开大部分的群集属性。 使用 Azure Resource Man
         * **操作系统**：选择“Linux”。
 
         * **版本**：如果不知道要选择哪个版本，请使用默认版本。 有关详细信息，请参阅 [HDInsight 群集版本](hdinsight-component-versioning.md)。
+        * **群集层**：Azure HDInsight 提供两个类别的大数据云产品：标准层和高级层。 有关详细信息，请参阅 [群集层](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers)。
 
     * 对于“群集登录用户名”和“群集登录密码”，请分别为管理员用户提供用户名和密码。
 
@@ -101,7 +103,7 @@ Azure 门户预览会公开大部分的群集属性。 使用 Azure Resource Man
 
     > [!IMPORTANT]
     > 如果你计划使用 32 个以上的工作节点（在创建群集时或是在创建之后通过扩展群集进行），则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
-    > <p> 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
+    > <p> 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。> 
 
     单击“下一步”以保存节点定价配置。
 
@@ -130,7 +132,7 @@ Azure 门户预览会公开大部分的群集属性。 使用 Azure Resource Man
 
     参考以下内容了解此边栏选项卡顶部的图标。
 
-    * **概览** 边栏选项卡提供有关该群集的基本信息，如名称、所属的资源组、位置、操作系统、群集仪表板 URL 等。
+    *  边栏选项卡提供有关该群集的基本信息，如名称、所属的资源组、位置、操作系统、群集仪表板 URL 等。
     * **仪表板** 可将你定向到与群集关联的 Ambari 门户。
     * **安全外壳**：使用 SSH 访问群集时所需的信息。
     * **缩放群集** 可增加与群集关联的辅助角色节点数。

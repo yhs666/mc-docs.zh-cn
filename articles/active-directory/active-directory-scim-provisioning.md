@@ -712,7 +712,7 @@ System.Threading.Tasks.Task Delete(
 
 下图显示了 Azure Active Directory 将发送到 SCIM 服务以管理组在其他标识存储中的生命周期的消息。这些消息在以下三个方面与用户相关的消息不同：
 
-* 组资源的架构标识为 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group。  
+* 组资源的架构标识为 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group 。  
 * 检索组的请求规定将成员属性从请求响应中提供的任何资源中排除。  
 * 确定引用属性是否具有特定值的请求将是有关成员属性的请求。  
 

@@ -37,7 +37,7 @@ ms.author: robmcm
 3. 将应用程序部署到 Azure 中的*过渡*环境。
     >[!IMPORTANT]
     > 如前所述，强烈建议你在大多数情况下都通过计算模拟器进行调试，仅当需要进一步调试时才在过渡环境中调试。不建议在生产环境中进行调试。
-4. 准备好部署到 Azure 后，请从 [Azure 管理门户][Azure Management Portal]获取部署的 DNS 名称。过渡部署的 DNS 名称格式为 http://*&lt;guid&gt;*.chinacloudapp.cn，其中，*&lt;guid&gt;* 是 Azure 分配的 GUID 值。
+4. 准备好部署到 Azure 后，请从 [Azure 管理门户][Azure Management Portal]获取部署的 DNS 名称。过渡部署的 DNS 名称格式为 http://*&lt;guid&gt;*.chinacloudapp.cn ，其中，*&lt;guid&gt;* 是 Azure 分配的 GUID 值。
 5. 在 Eclipse 的项目资源管理器中，右键单击“WorkerRole1”，单击“Azure”，然后单击“调试”。
 6. 在“WorkerRole1 调试属性”对话框中：
    1. 选中“为此角色启用远程调试”。
@@ -50,7 +50,7 @@ ms.author: robmcm
    1. 对于“要调试的 Java 项目”，请选择“MyHelloWorld”项目。
    2. 对于“配置调试目标”，请选中“Azure 云(过渡)”。
    3. 确保已取消选中“Azure 计算模拟器”。
-   4. 对于“主机”，请输入过渡部署的 DNS 名称，但不要输入前面的 **http://**。例如（使用你的 GUID 来代替此处所示的 GUID）：**4e616d65-6f6e-6d65-6973-526f62657274.chinacloudapp.cn**
+   4. 对于“主机”，请输入过渡部署的 DNS 名称，但不要输入前面的 **http://** 。例如（使用你的 GUID 来代替此处所示的 GUID）：**4e616d65-6f6e-6d65-6973-526f62657274.chinacloudapp.cn**
 8. 单击“确定”关闭“Azure 调试配置”对话框。
 9. 单击“确定”关闭“WorkerRole1 调试属性”对话框。
 10. 如果尚未在 index.jsp 中设置断点，现在请设置它：
@@ -59,7 +59,7 @@ ms.author: robmcm
     ![][ic551537]
 11. 在 Eclipse 的菜单中，单击“运行”，然后单击“调试配置”。
 12. 在“调试配置”对话框的左窗格中，展开“远程 Java 应用程序”，选择“Azure 云(WorkerRole1)”，然后单击“调试”。
-13. 在浏览器中运行过渡应用程序 **http://***&lt;guid&gt;***.chinacloudapp.cn/MyHelloWorld**，并使用你的 DNS 名称中的 GUID 取代 *&lt;guid&gt;*。如果“确认角度切换”对话框有提示，请单击“是”。**现在，你的调试会话应该执行到设置了断点的代码行。
+13. 在浏览器中运行过渡应用程序 **http://***&lt;guid&gt;***.chinacloudapp.cn/MyHelloWorld** ，并使用你的 DNS 名称中的 GUID 取代 *&lt;guid&gt;*。如果“确认角度切换”对话框有提示，请单击“是”。**现在，你的调试会话应该执行到设置了断点的代码行。
 
 >[!NOTE]
 > 如果你正在尝试与包含多个运行中角色实例的部署建立远程调试连接，则目前你无法控制调试器最初要连接到的实例，因为 Azure 负载均衡器将随机选取一个实例。不过，一旦与该实例建立连接，你就可以继续调试同一个实例。另请注意，如果连接保持非活动状态 4 分钟以上（例如，你在某个断点处停止太长的时间），Azure 可能会关闭该连接。
@@ -107,7 +107,7 @@ ms.author: robmcm
 9. 在计算模拟器中的 Azure 工具栏上单击“在 Azure 模拟器中运行”按钮启动应用程序。
 10. 在 Eclipse 的菜单中，单击“运行”，然后单击“调试配置”。
 11. 在“调试配置”对话框的左窗格中，展开“远程 Java 应用程序”，选择“Azure 模拟器(WorkerRole1)”，然后单击“调试”。
-12. 在计算模拟器指出应用程序正在运行后，请在浏览器中运行 **http://localhost:8080/MyHelloWorld**。如果“确认角度切换”对话框中出现提示，请单击“是”。**现在，你的调试会话应该执行到设置了断点的代码行。
+12. 在计算模拟器指出应用程序正在运行后，请在浏览器中运行 **http://localhost:8080/MyHelloWorld** 。如果“确认角度切换”对话框中出现提示，请单击“是”。**现在，你的调试会话应该执行到设置了断点的代码行。
 
 本部分说明了如何在计算模拟器中进行调试；下一部分将说明如何调试已部署到 Azure 的应用程序。
 

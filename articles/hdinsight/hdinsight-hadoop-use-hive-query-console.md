@@ -27,7 +27,7 @@ ms.author: larryfr
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-HDInsight 查询控制台只能在基于 Windows 的 HDInsight 群集上使用。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)。
+HDInsight 查询控制台只能在基于 Windows 的 HDInsight 群集上使用。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 >
 > 有关 HDInsight 3.4 或更高版本，请参阅[在 Ambari Hive 视图中运行 Hive 查询](./hdinsight-hadoop-use-hive-ambari-view.md)，了解如何通过 Web 浏览器运行 Hive 查询。
 
@@ -38,7 +38,7 @@ HDInsight 查询控制台只能在基于 Windows 的 HDInsight 群集上使用�
 * 现代 Web 浏览器
 
 ## <a id="run"></a>使用查询控制台运行 Hive 查询
-1. 打开 Web 浏览器并导航到 **https://CLUSTERNAME.azurehdinsight.cn**，其中 **CLUSTERNAME** 是 HDInsight 群集的名称。如果出现提示，输入在创建群集时使用的用户名和密码。
+1. 打开 Web 浏览器并导航到 **https://CLUSTERNAME.azurehdinsight.cn** ，其中 **CLUSTERNAME** 是 HDInsight 群集的名称。如果出现提示，输入在创建群集时使用的用户名和密码。
 2. 在页面顶部的链接中，选择“Hive 编辑器”。此时将显示一个窗体，可以在其中输入要在 HDInsight 群集上运行的 HiveQL 语句。
 
     ![hive 编辑器](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)

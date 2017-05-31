@@ -1,6 +1,6 @@
 ---
-title: "管理 Azure App Service 中的 Web 应用"
-description: "用于管理 Azure App Service 中 Web 应用的资源链接。"
+title: "管理 Azure 应用服务中的 Web 应用"
+description: "用于管理 Azure 应用服务中 Web 应用的资源链接。"
 services: app-service\web
 documentationcenter: 
 author: erikre
@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 08/24/2016
 wacn.date: 
 ms.author: rachelap
-translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: e5d457a58e00e1507467ed13af0fa6bc481721d2
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: b862557b017180e6444d2130fe3847f79ad72433
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="manage-a-web-app-in-azure-app-service"></a>管理 Azure App Service 中的 Web 应用
+# <a name="manage-a-web-app-in-azure-app-service"></a>管理 Azure 应用服务中的 Web 应用
 本主题包含用于管理 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)中 Web 应用的资源链接。 管理包括维持 Web 应用平稳运行的所有任务。 
 
 在整个 Web 应用使用期内，您将执行各种管理任务，从初始部署到正常操作、维护与更新。
@@ -31,7 +32,7 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="before-you-deploy-your-web-app-to-production"></a>将 Web 应用部署到生产之前
 ### <a name="choose-a-tier"></a>选择层级
-提供五个级别的 Azure App Service：免费、共享、基本、标准和高级。 有关各层的功能与定价的信息，请参阅[定价详细信息](https://www.azure.cn/pricing/details/app-service/)。 
+提供五个级别的 Azure 应用服务：免费、共享、基本、标准和高级。 有关各层的功能与定价的信息，请参阅[定价详细信息](https://www.azure.cn/pricing/details/app-service/)。 
 
 * [应用服务计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)支持将多个 Web 应用分组到同一层中。
 * 在创建 Web 应用后可以随时[切换层](web-sites-scale.md)。

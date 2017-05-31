@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/07/2017
 ms.author: cherylmc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
 ms.openlocfilehash: 9ee6241c12a603a49b6550b96577b098f975a749
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/25/2017
 
 ---
@@ -93,7 +94,7 @@ You can view the properties of the circuit by selecting it. On this blade, note 
 
 ![启动预配过程](./media/expressroute-howto-circuit-portal-resource-manager/viewstatus.png)
 
-当连接提供商正在为你启用线路时，线路将转为以下状态。
+当连接提供商正在为你启用线路时，线路将转为以下状态：
 
 提供商状态：正在预配<BR>
 线路状态：已启用

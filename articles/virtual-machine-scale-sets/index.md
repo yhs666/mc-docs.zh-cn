@@ -1,66 +1,84 @@
 ---
-title: Azure 虚拟机规模集文档 - 教程、API 参考 | Azure
-description: 了解如何使用虚拟机规模集为大型计算、大数据和容器化解决方案创建自动调整规模的 Windows 或 Linux VM。
+title: "Azure 虚拟机规模集文档 - 教程、API 参考 | Azure"
+description: "了解如何使用虚拟机规模集为大型计算、大数据和容器化解决方案创建自动调整规模的 Windows 或 Linux VM。"
 services: virtual-machine-scale-sets
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-machine-scale-sets
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
+wacn.date: 
 ms.author: carolz
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
+ms.openlocfilehash: 3dbd51331ce0fe71aae2e6696ddd863c3edc3c7c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/12/2017
+
 ---
+#<a name="virtual-machine-scale-sets-documentation"></a>虚拟机规模集文档
 
-#虚拟机规模集文档
-
-了解如何使用虚拟机规模集来部署和管理一组完全相同、自动调整规模的 Windows 或 Linux VM。文档演示了如何使用规模集支持面向大型计算、大数据和容器化解决方案的服务。
+了解如何使用虚拟机规模集来部署和管理一组完全相同、自动调整规模的 Windows 或 Linux VM。 文档介绍了如何使用规模集来支持面向大型计算、大数据和容器化解决方案的服务。
 
 <ul class="panelContent cardsFTitle">
-    <li><a href="/virtual-machine-scale-sets/virtual-machine-scale-sets-overview">
-<div class="cardSize">
+    <li>
+        <a href="/virtual-machine-scale-sets/virtual-machine-scale-sets-overview">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/virtual-machine-scale-sets.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/virtual-machine-scale-sets.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
                         <h3>了解虚拟机规模集</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
-       <li><a href="https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines">
-<div class="cardSize">
+        </div>
+        </a>
+    </li>
+       <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/video-library.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
                         <h3>虚拟机视频库</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
-    <li><a href="/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create">
-<div class="cardSize">
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/get-started.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
                         <h3>虚拟机规模集入门</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
+        </div>
+        </a>
+    </li>
 
 </ul>
 
@@ -74,8 +92,8 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>命令行</h3>
-                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
-                        <p><a href="/cli/azure/vm">Azure CLI</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/cli/azure/vm">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
@@ -87,9 +105,9 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
-                        <p><a href="/java/api">Java</a></p>
-                        <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api">Java</a></p>
+                        <p><a href="/develop/nodejs/#azure-sdk">Node.js</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>
                 </div>
@@ -102,7 +120,7 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/compute">计算 REST API 参考</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/virtualmachinescalesets/">虚拟机规模集 REST API 参考</a></p>
                     </div>
                 </div>
             </div>
@@ -110,4 +128,3 @@ ms.author: carolz
     </li>
 </ul>
 
-<!---HONumber=Mooncake_0227_2017-->

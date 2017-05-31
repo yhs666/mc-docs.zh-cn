@@ -21,7 +21,7 @@ ms.author: guybo
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-想查看更多关于使用资源管理器模型部署 LAMP 堆栈的信息，请点击[这里](./virtual-machines-linux-create-lamp-stack.md)。
+想查看更多关于使用资源管理器模型部署 LAMP 堆栈的信息，请点击[这里](virtual-machines-linux-create-lamp-stack.md)。
 
 适用于 Linux 的 Azure CustomScript 扩展提供了一种方式来通过运行以 VM 支持的任何脚本语言（例如，Python、Bash 等）编写的任意代码来自定义你的虚拟机 (VM)。这提供了一种非常灵活的方式来在多台计算机上自动执行应用程序部署。
 
@@ -106,7 +106,7 @@ cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
 tail -f extension.log
 ```
 
-当 CustomScript 扩展完成执行后，你可以浏览找到你创建的 PHP 页面，在本例中将是：*http://lamp-vm.chinacloudapp.cn/phpinfo.php*。
+当 CustomScript 扩展完成执行后，你可以浏览找到你创建的 PHP 页面，在本例中将是：*http://lamp-vm.chinacloudapp.cn/phpinfo.php* 。
 
 ## 其他资源
 
@@ -118,6 +118,6 @@ tail -f extension.log
 
 [Azure Linux 扩展 (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
-[Azure 上的 Linux 和开源计算](./virtual-machines-linux-opensource-links.md)
+[Azure 上的 Linux 和开源计算](virtual-machines-linux-opensource-links.md)
 
 <!---HONumber=70-->

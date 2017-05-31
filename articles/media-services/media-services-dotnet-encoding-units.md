@@ -21,7 +21,6 @@ ms.author: juliako;milangada;
 #如何使用 .NET SDK 缩放编码
 
 > [!div class="op_single_selector"]
->- [门户](./media-services-portal-encoding-units.md)
 >- [.NET](./media-services-dotnet-encoding-units.md)
 >- [REST](https://docs.microsoft.com/zh-cn/rest/api/media/operations/encodingreservedunittype)
 >- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)

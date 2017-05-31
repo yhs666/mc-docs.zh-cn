@@ -14,11 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/03/2017
-wacn.date: 05/08/2017
+wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 2f18d8279fe0425e4f662e8133d7ab4fce3e2b81
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -38,7 +39,7 @@ Azure 事件中心可用于处理网站、应用程序和设备中的大量数�
     > [!IMPORTANT]
     > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅[弃用 HDInsight 3.3 和 3.4](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
-* [Azure 事件中心](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)。
+* [Azure 事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)。
 
 * [Oracle Java Developer Kit (JDK) 版本 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或等效工具，例如 [OpenJDK](http://openjdk.java.net/)。
 
@@ -49,7 +50,7 @@ Azure 事件中心可用于处理网站、应用程序和设备中的大量数�
     > [!NOTE]
     > 你的编辑器或 IDE 可能具有处理 Maven 的特定功能，但本文档中未提供说明。 有关环境编辑功能的详细信息，请参阅所使用产品的文档。
 
-    * SSH 客户端。 有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+    * SSH 客户端。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 * 一个 SCP 客户端。 `scp` 命令随所有 Linux、Unix 和 OS X 系统（包括 Windows 10 上的 Bash）提供。对于未提供 `scp` 命令的 Windows 版本，建议使用 PSCP。 PSCP 可通过 [PuTTY 下载页](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)获得。
 
@@ -127,7 +128,7 @@ HDInsight 基于 Hortonworks Data Platform。 为了确保项目与配合 HDInsi
 
 #### <a name="the-hdfsbolt-and-wasb-components"></a>HdfsBolt 和 WASB 组件
 
-HdfsBolt 一般用于将数据存储到 Hadoop 分布式文件系统 (HDFS)。 但是，HDInsight 群集使用 Azure 存储空间 (WASB) 作为默认的数据存储区，因此我们必须加载多个组件，使 HdfsBolt 识别 WASB 文件系统。
+HdfsBolt 一般用于将数据存储到 Hadoop 分布式文件系统 (HDFS)。 但是，HDInsight 群集使用 Azure 存储 (WASB) 作为默认的数据存储区，因此我们必须加载多个组件，使 HdfsBolt 识别 WASB 文件系统。
 
 ```xml
 <!--HdfsBolt stuff -->
@@ -348,7 +349,7 @@ HdfsBolt 一般用于将数据存储到 Hadoop 分布式文件系统 (HDFS)。 �
 
     此命令会将文件复制到群集上 SSH 用户的主目录。
 
-2. 上载完文件后，使用 SSH 连接到 HDInsight 群集。 将 **USERNAME** 替换为 SSH 登录名。 将 **CLUSTERNAME** 替换为 HDInsight 群集名称：
+2. 上传完文件后，使用 SSH 连接到 HDInsight 群集。 将 **USERNAME** 替换为 SSH 登录名。 将 **CLUSTERNAME** 替换为 HDInsight 群集名称：
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 

@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/20/2017
 wacn.date: 
 ms.author: kyliel
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 242a3bac471395ed31bf9bd85d4a2d65d6de4e5f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
@@ -62,6 +63,6 @@ az network public-ip list --resource-group myResourceGroup
 ## <a name="next-steps"></a>后续步骤
 是否要在 Azure 中设置自己的 NAT？ 是否开源、免费，但功能强大？ 那么 PF 是一个不错的选择。 通过使用模板 [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup)，只需要五分钟即可在 Azure 中使用 FreeBSD 的 PF 为通用 Web 服务器方案设置具有轮循机制负载均衡的 NAT 防火墙。 
 
-如果想要了解 Azure 中的 FreeBSD 产品，请参阅 [Azure FreeBSD 简介](./virtual-machines-freebsd-intro-on-azure.md)。
+如果想要了解 Azure 中的 FreeBSD 产品，请参阅 [Azure FreeBSD 简介](virtual-machines-freebsd-intro-on-azure.md)。
 
 如果想要了解有关 PF 的详细信息，请参阅 [FreeBSD 手册](https://www.freebsd.org/doc/handbook/firewalls-pf.html)或 [PF - 用户指南](https://www.freebsd.org/doc/handbook/firewalls-pf.html)。

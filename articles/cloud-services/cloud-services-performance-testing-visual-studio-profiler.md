@@ -26,7 +26,7 @@ ms.author: tarcher
 
 ## 1：配置 Visual Studio 以进行分析
 
-首先，提供了一些 Visual Studio 配置选项，这些选项在分析时可能会有用。若要使分析报告变得有意义，将需要用于应用程序的符号（.pdb 文件）以及系统库的符号。还需要确保引用可用的符号服务器。为此，请在 Visual Studio 中的“工具”菜单上，依次选择“选项”、“调试”和“符号”。确保**符号文件 (.pdb) 位置**下方列出了 Microsoft 符号服务器。还可以引用 http://referencesource.microsoft.com/symbols，其中可能包含其他符号文件。
+首先，提供了一些 Visual Studio 配置选项，这些选项在分析时可能会有用。若要使分析报告变得有意义，将需要用于应用程序的符号（.pdb 文件）以及系统库的符号。还需要确保引用可用的符号服务器。为此，请在 Visual Studio 中的“工具”菜单上，依次选择“选项”、“调试”和“符号”。确保**符号文件 (.pdb) 位置**下方列出了 Microsoft 符号服务器。还可以引用 http://referencesource.microsoft.com/symbols ，其中可能包含其他符号文件。
 
 ![“符号”选项][4]
 

@@ -1,16 +1,16 @@
-若要将标记添加到资源组中，请使用 **azure 组集**。如果资源组没有任何现有的标记，则传递标记。
+若要将标记添加到资源组中，请使用 **azure 组集**。 如果资源组没有任何现有的标记，则传递标记。
 
 ```azurecli
 azure group set -n tag-demo-group -t Dept=Finance
 ```
 
-标记作为一个整体更新。如果要将标记添加到具有现有标记的资源组，则传递所有标记。
+标记作为一个整体更新。 如果要将标记添加到具有现有标记的资源组，则传递所有标记。 
 
 ```azurecli
 azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
 ```
 
-资源组中的资源不会继承标记。若要将标记添加到资源，请使用 **azure 资源集**。必须传递要将标记添加到的资源类型的 API 版本号。如果需要检索 API 版本，请对你要设置的类型使用以下具有资源提供程序的命令：
+资源组中的资源不会继承标记。 若要将标记添加到资源，请使用 **azure 资源集**。 必须传递要将标记添加到的资源类型的 API 版本号。 如果需要检索 API 版本，请对你要设置的类型使用以下具有资源提供程序的命令：
 
 ```azurecli
 azure provider show -n Microsoft.Storage --json
@@ -38,7 +38,7 @@ azure provider show -n Microsoft.Storage --json
 azure resource set -g tag-demo-group -n storagetagdemo -r Microsoft.Storage/storageAccounts -t Dept=Finance -o 2016-01-01
 ```
 
-标记直接存在于资源和资源组中。若要查看现有标记，只需使用 **azure group show** 获取资源组及其资源。
+标记直接存在于资源和资源组中。 若要查看现有标记，只需使用 **azure group show**获取资源组及其资源。
 
 ```azurecli
 azure group show -n tag-demo-group --json
@@ -62,7 +62,7 @@ azure group show -n tag-demo-group --json
   ...
 ```
 
-使用 **azure resource show** 可以查看特定资源的标记。
+使用 **azure resource show**可以查看特定资源的标记。
 
 ```azurecli
 azure resource show -g tag-demo-group -n storagetagdemo -r Microsoft.Storage/storageAccounts -o 2016-01-01 --json
@@ -85,5 +85,3 @@ azure group list -t Dept=Finance
 ```azurecli
 azure tag list
 ```
-
-<!---HONumber=Mooncake_1114_2016-->

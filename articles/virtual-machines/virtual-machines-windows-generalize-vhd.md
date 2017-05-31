@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 10/20/2016
 wacn.date: 
 ms.author: cynthn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: fb4541d425b334f0e22f1796a6a989476724a076
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/06/2017
 确保 Sysprep 支持计算机上运行的服务器角色。 有关详细信息，请参阅 [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
-> 如果在首次将 VHD 上载到 Azure 之前运行 Sysprep，请确保先[准备好 VM](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)，然后再运行 Sysprep。 
+> 如果在首次将 VHD 上传到 Azure 之前运行 Sysprep，请确保先[准备好 VM](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)，然后再运行 Sysprep。 
 > 
 > 
 
@@ -48,5 +49,5 @@ ms.lasthandoff: 04/06/2017
 > 
 
 ## <a name="next-steps"></a>后续步骤
-* 如果 VM 位于本地，则现在可以[将 VHD 上载到 Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 如果 VM 位于本地，则现在可以[将 VHD 上传到 Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 如果 VM 已在 Azure 中，现在可以[从通用 VM 创建映像](virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。

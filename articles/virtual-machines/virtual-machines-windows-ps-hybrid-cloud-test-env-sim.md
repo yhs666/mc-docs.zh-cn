@@ -238,6 +238,6 @@ Install-ADDSDomainController -Credential (Get-Credential CORP\User1) -DomainName
 
 ## 后续步骤
 
-- 在此环境中设置[基于 Web 的业务线应用程序](./virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md)。
+- 在此环境中设置[基于 Web 的业务线应用程序](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md)。
 
 <!---HONumber=Mooncake_0905_2016-->

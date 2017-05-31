@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: seguler
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 2f028d36e99cc1224d86d2603697c9ae79e5de55
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -24,13 +25,13 @@ ms.lasthandoff: 04/22/2017
 # <a name="transfer-data-with-the-azure-storage-data-movement-library"></a>使用 Azure 存储数据移动库传输数据
 
 ## <a name="overview"></a>概述
-Azure 存储数据移动库是一个高性能的跨平台开源库，用于上载、下载和复制 Azure 存储 Blob 与文件。 此库是驱动 [AzCopy](./storage-use-azcopy.md) 的核心数据移动框架。 数据移动库提供传统 [.NET Azure 存储客户端库](./storage-dotnet-how-to-use-blobs.md)中所不能提供的便利方法。 这些功能包括设置并行操作数目、跟踪传输进度、轻松恢复已取消的传输，等等。  
+Azure 存储数据移动库是一个高性能的跨平台开源库，用于上传、下载和复制 Azure 存储 Blob 与文件。 此库是驱动 [AzCopy](./storage-use-azcopy.md) 的核心数据移动框架。 数据移动库提供传统 [.NET Azure 存储客户端库](./storage-dotnet-how-to-use-blobs.md)中所不能提供的便利方法。 这些功能包括设置并行操作数目、跟踪传输进度、轻松恢复已取消的传输，等等。  
 
 此库还使用 .NET Core，这意味着，可以在构建适用于 Windows、Linux 和 macOS 的 .NET 应用时使用它。 若要了解有关 .NET Core 的详细信息，请参阅 [.NET Core 文档](https://dotnet.github.io/)。 此库也适用于面向 Windows 的传统 .NET Framework 应用。 
 
 本文档演示如何创建在 Windows、Linux 和 macOS 上运行的 .NET Core 控制台应用程序并执行以下方案：
 
-- 将文件和目录上载到 Blob 存储。
+- 将文件和目录上传到 Blob 存储。
 - 定义传输数据时使用的并行操作数目。
 - 跟踪数据传输进度。
 - 恢复已取消的数据传输。 
@@ -210,9 +211,9 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 }
 ```
 
-此代码提示我们输入本地文件的路径、新的或现有容器的名称，以及新 Blob 的名称。 `TransferManager.UploadAsync` 方法使用此信息执行上载。 
+此代码提示我们输入本地文件的路径、新的或现有容器的名称，以及新 Blob 的名称。 `TransferManager.UploadAsync` 方法使用此信息执行上传。 
 
-点击 `F5` 运行应用程序。 可通过使用 [Azure 存储资源管理器](http://storageexplorer.com/)查看存储帐户，来验证是否已发生上载。
+点击 `F5` 运行应用程序。 可通过使用 [Azure 存储资源管理器](http://storageexplorer.com/)查看存储帐户，来验证是否已发生上传。
 
 ## <a name="set-number-of-parallel-operations"></a>设置并行操作数目
 数据移动库提供的一个极佳功能就是设置并行操作数目，以提高数据传输吞吐量。 默认情况下，数据移动库将并行操作数目设置为计算机上核心数的 8 倍。 
@@ -461,7 +462,7 @@ public static async Task TransferLocalDirectoryToAzureBlobDirectory(CloudStorage
 }
 ```
 
-此方法与用于上载单个文件的方法有几处区别。 现在，我们要使用 `TransferManager.UploadDirectoryAsync` 以及前面创建的 `getDirectoryTransferContext` 方法。 此外，要将 `options` 值提供给上载操作，指出我们要在上载内容中包含子目录。 
+此方法与用于上传单个文件的方法有几处区别。 现在，我们要使用 `TransferManager.UploadDirectoryAsync` 以及前面创建的 `getDirectoryTransferContext` 方法。 此外，要将 `options` 值提供给上传操作，指出我们要在上传内容中包含子目录。 
 
 ## <a name="copy-file-from-url-to-azure-blob"></a>将文件从 URL 复制到 Azure Blob
 现在，让我们添加代码，将文件从 URL 复制到 Azure Blob。 
@@ -518,7 +519,7 @@ public static async Task TransferUrlToAzureBlob(CloudStorageAccount account)
 }
 ```
 
-此功能的一个重要用例是将数据从另一个云服务（例如 AWS）移到 Azure。 只要拥有一个可用于访问资源的 URL，就可以使用 `TransferManager.CopyAsync` 方法轻松将该资源移入 Azure Blob。 此方法还引入了一个新的布尔参数。 将此参数设置为 `true` 即表示我们想要执行异步服务器端复制。 将此参数设置为 `false` 即表示要执行同步复制 - 先将资源下载到本地计算机，然后将其上载到 Azure Blob。 但是，同步复制目前只可用于在两个不同的 Azure 存储资源之间复制。 
+此功能的一个重要用例是将数据从另一个云服务（例如 AWS）移到 Azure。 只要拥有一个可用于访问资源的 URL，就可以使用 `TransferManager.CopyAsync` 方法轻松将该资源移入 Azure Blob。 此方法还引入了一个新的布尔参数。 将此参数设置为 `true` 即表示我们想要执行异步服务器端复制。 将此参数设置为 `false` 即表示要执行同步复制 - 先将资源下载到本地计算机，然后将其上传到 Azure Blob。 但是，同步复制目前只可用于在两个不同的 Azure 存储资源之间复制。 
 
 ## <a name="transfer-azure-blob-to-azure-blob"></a>将 Azure Blob 传输到 Azure Blob
 数据移动库提供的另一个独特功能是在两个不同的 Azure 存储资源之间复制。 
@@ -575,7 +576,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
 }
 ```
 
-在本示例中，我们将 `TransferManager.CopyAsync` 中的布尔参数设置为 `false`，表示要执行同步复制。 这意味着，需要先将资源下载到本地计算机，然后将其上载到 Azure Blob。 同步复制选项能够很好地确保复制操作以一致的速度进行。 相比之下，异步服务器复制的速度取决于服务器上的可用网络带宽，而这种带宽可能会有波动。 不过，同步复制可能会产生额外的数据传出费用，而异步复制则不会。 在与源存储帐户所在的同一区域的 Azure VM 中，建议使用同步复制，避免产生数据传出费用。
+在本示例中，我们将 `TransferManager.CopyAsync` 中的布尔参数设置为 `false`，表示要执行同步复制。 这意味着，需要先将资源下载到本地计算机，然后将其上传到 Azure Blob。 同步复制选项能够很好地确保复制操作以一致的速度进行。 相比之下，异步服务器复制的速度取决于服务器上的可用网络带宽，而这种带宽可能会有波动。 不过，同步复制可能会产生额外的数据传出费用，而异步复制则不会。 在与源存储帐户所在的同一区域的 Azure VM 中，建议使用同步复制，避免产生数据传出费用。
 
 ## <a name="conclusion"></a>结束语
 数据移动应用程序现已完成。 [GitHub 上提供了完整的代码示例](https://github.com/azure-samples/storage-dotnet-data-movement-library-app)。 

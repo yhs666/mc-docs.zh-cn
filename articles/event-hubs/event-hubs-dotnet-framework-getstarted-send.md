@@ -15,9 +15,10 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 wacn.date: 
 ms.author: jotaub;sethm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: dd1f8f2156e7deda4680d881762d58273bcbd9b2
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

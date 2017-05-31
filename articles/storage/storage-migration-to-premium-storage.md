@@ -156,7 +156,7 @@ VM 必须完全关闭才能干净迁移。在迁移完成之前将会存在停�
 对于数据磁盘，可选择在标准存储帐户中保留一些数据磁盘（例如具有冷却存储功能的磁盘），但强烈建议用户迁移生产工作负荷的所有数据以使用高级存储。
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>步骤 3.使用 AzCopy 或 PowerShell 复制 VHD
-需查找容器路径和存储帐户密钥，处理其中某个选项。可依次访问 **Azure 门户** 和“存储”，查找容器路径和存储帐户密钥。容器 URL 将类似于“https://myaccount.blob.core.chinacloudapi.cn/mycontainer/”。
+需查找容器路径和存储帐户密钥，处理其中某个选项。可依次访问 **Azure 门户** 和“存储”，查找容器路径和存储帐户密钥。容器 URL 将类似于 "https://myaccount.blob.core.chinacloudapi.cn/mycontainer/" 。
 
 ##### 选项 1：使用 AzCopy 复制 VHD（异步复制）
 可使用 AzCopy 通过 Internet 轻松上传 VHD。根据 VHD 的大小，这可能需要时间。请记住，在使用此选项时，检查存储帐户传入/传出限制。有关详细信息，请参阅 [Azure 存储可伸缩性和性能目标](./storage-scalability-targets.md)。
@@ -243,7 +243,7 @@ C:\PS> Start-AzureStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceCont
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-示例 < Uri > 可能是 ***“https://storagesample.blob.core.chinacloudapi.cn/mycontainer/blob1.vhd”*** 。示例 < FileInfo > 可能是 ***“C:\\path\\to\\upload.vhd”*** 。
+示例 < Uri > 可能是 *** "https://storagesample.blob.core.chinacloudapi.cn/mycontainer/blob1.vhd" *** 。示例 < FileInfo > 可能是 ***“C:\\path\\to\\upload.vhd”*** 。
 
 ##### 选项 2：使用 AzCopy 上传 .vhd 文件
 可使用 AzCopy 通过 Internet 轻松上传 VHD。根据 VHD 的大小，这可能需要时间。请记住，在使用此选项时，检查存储帐户传入/传出限制。有关详细信息，请参阅 [Azure 存储可伸缩性和性能目标](./storage-scalability-targets.md)。

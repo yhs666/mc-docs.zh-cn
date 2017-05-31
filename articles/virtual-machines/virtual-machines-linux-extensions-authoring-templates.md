@@ -45,7 +45,7 @@ ms.author: kundanap
 
 创作扩展模板的下一个步骤是确定提供配置参数的格式。每个扩展均支持其自己的参数集。
 
-若要查看 Linux 扩展的示例配置，请单击文档 [Linux 扩展示例](./virtual-machines-linux-extensions-configuration-samples.md)。
+若要查看 Linux 扩展的示例配置，请单击文档 [Linux 扩展示例](virtual-machines-linux-extensions-configuration-samples.md)。
 
 请参阅以下 VM 模板链接，以获取完整的 VM 扩展模板。
 

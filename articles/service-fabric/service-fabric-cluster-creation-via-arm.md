@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/22/2017
 ms.author: chackdan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: d8233d9507689ad3bede8eabe91389fc3f3ef151
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -93,7 +94,7 @@ _必须针对部署启用_密钥保管库，使计算资源提供程序能够从
 
 ```powershell
 
-    New-AzureRmKeyVault -VaultName 'mychinaeastvault' -ResourceGroupName 'chinaeast-mykeyvault' -Location 'China East' -EnabledForDeployment
+    New-AzureRmKeyVault -VaultName 'mywestusvault' -ResourceGroupName 'westus-mykeyvault' -Location 'West US' -EnabledForDeployment
 
 ```
 
@@ -611,7 +612,7 @@ FabricClient 和 FabricGateway 执行相互身份验证。 使用 Azure AD 身�
 [azure-classic-portal]: https://manage.windowsazure.cn
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [service-fabric-cluster-security]: ./service-fabric-cluster-security.md
-[active-directory-howto-tenant]: ../active-directory/develop/active-directory-howto-tenant.md
+[active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: ./service-fabric-visualizing-your-cluster.md
 [service-fabric-manage-application-in-visual-studio]: ./service-fabric-manage-application-in-visual-studio.md
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip

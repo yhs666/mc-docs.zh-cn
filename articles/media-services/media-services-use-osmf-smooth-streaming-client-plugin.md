@@ -330,7 +330,7 @@ package
 适用于 OSMF 的平滑流式处理动态插件与 [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html) 兼容。你可以使用 SS for OSMF 插件向 SMP 添加平滑流式处理内容播放功能。为此，请在进行 HTTP 加载时，使用以下步骤将“MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf”复制到 Web 服务器下：
 
 1. 浏览 [Strobe Media Playback 设置页](http://osmf.org/dev/2.0gm/setup.html)。 
-2. 将 src 设置为平滑流式处理源（例如 http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest） 
+2. 将 src 设置为平滑流式处理源（例如 http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest ） 
 3. 进行所需的配置更改，然后单击“Preview and Update”（预览并更新）。
 
     **注意** 你的内容 Web 服务器需要有效的 crossdomain.xml。 
