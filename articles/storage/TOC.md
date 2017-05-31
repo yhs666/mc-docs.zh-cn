@@ -70,7 +70,6 @@
 ### [Windows VM 的磁盘和 VHD](storage-about-disks-and-vhds-windows.md)
 ### [Linux VM 的磁盘和 VHD](storage-about-disks-and-vhds-linux.md)
 ### [Azure 托管磁盘概述](storage-managed-disks-overview.md)
-### [将 Azure VM 迁移到 Azure 托管磁盘](../virtual-machines/windows/migrate-to-managed-disks.md)
 ### [从 AWS 和其他平台迁移到托管磁盘](../virtual-machines/windows/on-prem-to-azure.md)
 ### [有关 Azure IaaS VM 磁盘的常见问题](storage-faq-for-disks.md)
 ### 高级存储

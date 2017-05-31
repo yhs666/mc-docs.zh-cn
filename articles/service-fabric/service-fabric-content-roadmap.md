@@ -169,7 +169,7 @@ Service Fabric 提供一个安装包，用于在本地或者与任何云提供�
 有关详细信息，请阅读[保护群集](service-fabric-cluster-security.md)。
 
 ### <a name="scaling"></a>扩展
-如果向群集添加新节点，Service Fabric 会在新增加的节点间重新平衡分区副本和实例。  应用程序总体性能提高，访问内存的争用减少。  如果没有高效使用群集中的节点，可以减少群集中节点的数量。  Service Fabric 会再次在减少的节点间重新平衡分区副本和实例以更加充分利用每个节点上的硬件。  可以在 Azure 上[手动](service-fabric-cluster-scale-up-down.md)或[以编程方式](service-fabric-cluster-programmatic-scaling.md)扩展群集。  可以[手动](service-fabric-cluster-windows-server-add-remove-nodes.md)扩展独立群集。
+如果向群集添加新节点，Service Fabric 会在新增加的节点间重新平衡分区副本和实例。  应用程序总体性能提高，访问内存的争用减少。  如果没有高效使用群集中的节点，可以减少群集中节点的数量。  Service Fabric 会再次在减少的节点间重新平衡分区副本和实例以更加充分利用每个节点上的硬件。可以[手动](service-fabric-cluster-windows-server-add-remove-nodes.md)扩展独立群集。
 
 ### <a name="cluster-upgrades"></a>群集升级
 我们会定期发布新版本的 Service Fabric 运行时。  在群集上执行运行时或结构升级，以便你始终运行[受支持的版本](service-fabric-support.md)。  除了结构升级，还可以更新群集配置（例如证书或应用程序端口）。

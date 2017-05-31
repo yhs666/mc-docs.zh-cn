@@ -38,7 +38,7 @@ ms.author: robinsh
 临时磁盘的大小因虚拟机的大小而异。有关详细信息，请参阅 [Windows 虚拟机的大小](../virtual-machines/virtual-machines-windows-sizes.md)。
 
 > [!WARNING]
-不要在临时磁盘上存储数据。该磁盘为应用程序和进程提供临时存储空间，只用于存储页面文件或交换文件等数据。若要将此磁盘重新映射到其他驱动器号，请参阅 [更改 Windows 临时磁盘的驱动器号](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md)。
+不要在临时磁盘上存储数据。该磁盘为应用程序和进程提供临时存储空间，只用于存储页面文件或交换文件等数据。
 > 
 
 有关 Azure 如何使用临时磁盘的详细信息，请参阅 [了解 Azure 虚拟机上的临时驱动器](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
@@ -77,6 +77,5 @@ fsutil behavior set DisableDeleteNotify 0
 ## 后续步骤
 * [附加磁盘](../virtual-machines/virtual-machines-windows-attach-disk-portal.md)可为 VM 添加额外的存储。
 * [将 Windows VM 映像上载到 Azure](../virtual-machines/virtual-machines-windows-upload-image.md)，以便在创建新的 VM 时使用。
-* [更改 Windows 临时磁盘的驱动器号](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md)，使应用程序能够将 D: 盘用于数据。
 
 <!---HONumber=Mooncake_0313_2017-->
