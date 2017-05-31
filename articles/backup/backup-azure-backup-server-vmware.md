@@ -344,4 +344,3 @@ Azure 备份服务器通过对指定 VMware 用户的凭据进行身份验证来
 
 有关如何解决代理注册、保护组配置和备份作业问题的信息，请参阅[排查 Azure 备份服务器问题](./backup-azure-mabs-troubleshoot.md)。
 
-

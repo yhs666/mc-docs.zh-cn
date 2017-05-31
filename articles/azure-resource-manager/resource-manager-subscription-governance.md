@@ -85,8 +85,10 @@ Azure 注册的三种常见模式为：
 
 <!--nameing convention not available in Azure.cn -->
 > [!TIP]
-><p> * 对资源名称使用骆驼拼写法（例如，myResourceGroup 和 vnetNetworkName）。 注意：某些资源，例如存储帐户，只允许使用小写字母（不能包括其他特殊字符）。
-><p> * 考虑使用 Azure Resource Manager 策略（下一部分将会介绍）强制实施命名标准。> 
+> * 对资源名称使用骆驼拼写法（例如，myResourceGroup 和 vnetNetworkName）。 注意：某些资源，例如存储帐户，只允许使用小写字母（不能包括其他特殊字符）。
+> * 考虑使用 Azure Resource Manager 策略（下一部分将会介绍）强制实施命名标准。
+> 
+> 
 
 ## <a name="policies-and-auditing"></a>策略和审核
 基架的第二个支柱涉及到创建 [Azure Resource Manager 策略](./resource-manager-policy.md)和[审核活动日志](./resource-group-audit.md)。 使用 Resource Manager 可以控制 Azure 中的风险。 可以定义策略，通过限制、强制实施或审核特定的操作来确保数据所有权。 

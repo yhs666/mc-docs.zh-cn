@@ -256,7 +256,7 @@ az documentdb failover-priority-change "East US"=1 "West US"=0 "South Central US
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet/
+[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet
 [install-az-cli2]: https://docs.microsoft.com/cli/azure/install-az-cli2
 [az-documentdb-ref]: https://docs.microsoft.com/cli/azure/documentdb
 [az-documentdb-create-ref]: https://docs.microsoft.com/cli/azure/documentdb#create

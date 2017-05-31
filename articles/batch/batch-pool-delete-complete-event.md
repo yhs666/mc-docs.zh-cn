@@ -45,4 +45,3 @@ ms.lasthandoff: 05/05/2017
 ## <a name="remarks"></a>备注
 有关池调整大小操作的状态和错误代码的详细信息，请参阅[从帐户中删除池](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account)。
 
-
