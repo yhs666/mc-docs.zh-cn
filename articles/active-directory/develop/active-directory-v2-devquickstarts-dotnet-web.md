@@ -63,8 +63,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-Web
 3. 将称为 `Startup.cs` 的 OWIN 启动类添加到项目。右键单击项目，选择“添加”-->“新建项”，然后搜索“OWIN”。当你的应用程序启动时，该 OWIN 中间件将调用 `Configuration(...)` 方法。
 4. 将类声明更改为 `public partial class Startup` - 我们已在另一个文件中实现了此类的一部分。在 `Configuration(...)` 方法中，调用 ConfigureAuth(...) 以设置 Web 应用的身份验证。
 
-    C#
-
     ```C#
     [assembly: OwinStartup(typeof(Startup))]
 
@@ -81,8 +79,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-Web
     ```
 
 5. 打开文件 `App_Start\Startup.Auth.cs` 并实现 `ConfigureAuth(...)` 方法。在 `OpenIdConnectAuthenticationOptions` 中提供的参数将充当应用程序与 Azure AD 通信时使用的坐标。你还需要设置 Cookie 身份验证 - OpenID Connect 中间件将在幕后使用 Cookie。
-
-    C#
 
     ```C#
     public void ConfigureAuth(IAppBuilder app)
@@ -121,8 +117,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-Web
 
 - 可以在控制器中使用 authorize 标记，要求用户在访问特定页面之前登录。打开 `Controllers\HomeController.cs`，然后将 `[Authorize]` 标记添加到 About 控制器。
 
-    C#
-
     ```C#
     [Authorize]
     public ActionResult About()
@@ -131,8 +125,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-Web
     ```
 
 - 还可以使用 OWIN 直接从代码内部发出身份验证请求。打开 `Controllers\AccountController.cs`。在 SignIn() 和 SignOut() 操作中，分别发出 OpenID Connect 质询和注销请求。
-
-    C#
 
     ```C#
     public void SignIn()
@@ -154,8 +146,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-Web
     ```
 
 - 现在，请打开 `Views\Shared\_LoginPartial.cshtml`。你将在其中向用户显示应用的登录和注销链接，用户名将在视图中列显。
-
-    HTML
 
     ```HTML
     @if (Request.IsAuthenticated)
@@ -186,8 +176,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-Web
 使用 OpenID Connect 对用户进行身份验证时，v2.0 终结点将向应用返回 id\_token，其中包含有关用户的声明或断言。你可以使用这些声明来个性化应用：
 
 - 打开 `Controllers\HomeController.cs` 文件。可以通过 `ClaimsPrincipal.Current` 安全主体对象访问控制器中的用户声明。
-
-    C#
 
     ```C#
     [Authorize]

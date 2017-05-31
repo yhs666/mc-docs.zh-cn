@@ -87,16 +87,12 @@ Xamarin 允许你使用 C# 编写可在 iOS、Android 和 Windows（移动设备
 
 - 首先打开 `DirectorySearcher.cs`，然后将一个新参数添加到 `SearchByAlias(...)` 方法。`IPlatformParameters` 是上下文参数，用于封装 ADAL 需要对其执行身份验证的特定于平台的对象。
 
-    C#
-
     ```C#
     public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
     {
     ```
 
 - 接下来，初始化 `AuthenticationContext`（ADAL 的主类）。你将在此处传递 ADAL 与 Azure AD 通信时所需的坐标。然后调用 `AcquireTokenAsync(...)`，该类将会接受 `IPlatformParameters` 对象，并调用所需的身份验证流来向应用程序返回令牌。
-
-    C#
 
     ```C#
     ...
@@ -118,8 +114,6 @@ Xamarin 允许你使用 C# 编写可在 iOS、Android 和 Windows（移动设备
 
 - 然后，你可以在 Authorization 标头中将访问令牌附加到图形 API 请求：
 
-    C#
-
     ```C#
     ...
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
@@ -131,15 +125,11 @@ Xamarin 允许你使用 C# 编写可在 iOS、Android 和 Windows（移动设备
 #### Android：
 - 在 `MainActivity.cs` 中，在按钮单击处理程序中添加对 `SearchByAlias(...)` 的调用：
 
-    C#
-
     ```C#
     List<User> results = await DirectorySearcher.SearchByAlias(searchTermText.Text, new PlatformParameters(this));
     ```
 
 - 还需要重写 `OnActivityResult` 生命周期方法，以将任何身份验证重定向转发回到相应的方法。ADAL 在 Android 中为此提供了 helper 方法：
-
-    C#
 
     ```C#
     ...
@@ -154,8 +144,6 @@ Xamarin 允许你使用 C# 编写可在 iOS、Android 和 Windows（移动设备
 #### Windows 桌面：
 - 在 `MainWindow.xaml.cs` 中，只需调用 `SearchByAlias(...)`，并在桌面的 `PlatformParameters` 对象中传递 `WindowInteropHelper`：
 
-    C#
-
     ```C#
     List<User> results = await DirectorySearcher.SearchByAlias(
       SearchTermText.Text,
@@ -165,8 +153,6 @@ Xamarin 允许你使用 C# 编写可在 iOS、Android 和 Windows（移动设备
 #### iOS：
 - 在 `DirSearchClient_iOSViewController.cs` 中，iOS `PlatformParameters` 对象只会引用视图控制器：
 
-    C#
-
     ```C#
     List<User> results = await DirectorySearcher.SearchByAlias(
       SearchTermText.Text,
@@ -175,8 +161,6 @@ Xamarin 允许你使用 C# 编写可在 iOS、Android 和 Windows（移动设备
 
 #### Windows Universal：
 - 在 Windows 通用中，打开 `MainPage.xaml.cs` 并实现 `Search` 方法，该方法会根据需要，使用共享项目中的帮助器方法来更新 UI。
-
-    C#
 
     ```C#
     ...

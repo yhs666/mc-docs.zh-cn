@@ -61,8 +61,6 @@ bower install adal-angular#experimental
 
 接下来，在 Visual Studio 中打开该项目，并在主页主体的末尾加载 adal.js：
 
-html
-
 ```html
 <!--index.html-->
 
@@ -77,8 +75,6 @@ html
 ## 设置 REST API
 
 在设置的同时，让我们查看后端 REST API 的工作方式。在项目的根目录中，打开 `web.config` 并替换 `audience` 值。REST API 使用此值来验证发出 AJAX 请求时从 Angular 应用收到的令牌。
-
-xml
 
 ```xml
 <!--web.config-->
@@ -97,8 +93,6 @@ xml
 ## 登录用户
 编写一些标识代码。你可能已发现 adal.js 包含 AngularJS 提供程序，该程序可以顺畅使用 Angular 路由机制。首先，将 adal 模块添加到应用：
 
-js
-
 ```js
 // app/scripts/app.js
 
@@ -110,8 +104,6 @@ angular.module('todoApp', ['ngRoute','AdalAngular'])
 ```
 
 现在可以使用应用程序 ID 初始化 `adalProvider`：
-
-js
 
 ```js
 // app/scripts/app.js
@@ -137,8 +129,6 @@ adalProvider.init({
 
 很好，现在 adal.js 有了保护应用和登录用户所需的所有信息。若要对应用中的特定路由强制登录，只需编写一行代码：
 
-js
-
 ```js
 // app/scripts/app.js
 
@@ -154,8 +144,6 @@ js
 ```
 
 现在，用户单击 `TodoList` 链接时，adal.js 会根据需要自动重定向到 Azure AD 以进行登录。也可以通过在控制器中调用 adal.js，显式发送登录和注销请求：
-
-js
 
 ```js
 // app/scripts/homeCtrl.js
@@ -181,8 +169,6 @@ angular.module('todoApp')
 ## 显示用户信息
 用户现已登录，你可能需要访问应用程序中已登录用户的身份验证数据。Adal.js 在 `userInfo` 对象中公开此信息。若要在视图中访问此对象，首先请将 adal.js 添加到相应控制器的根范围：
 
-js
-
 ```js
 // app/scripts/userDataCtrl.js
 
@@ -192,8 +178,6 @@ angular.module('todoApp')
 ```
 
 然后可以直接在视图中寻址 `userInfo` 对象：
-
-html
 
 ```html
 <!--app/views/UserData.html-->
@@ -209,8 +193,6 @@ html
 ```
 
 也可以使用 `userInfo` 对象来确定用户是否已登录。
-
-html
 
 ```html
     <!--index.html-->
@@ -231,8 +213,6 @@ html
 到底是如何做到这一点的呢？ 一切都归功于神奇的 [AngularJS 拦截器](https://docs.angularjs.org/api/ng/service/$http)，它让 adal.js 能够转换传出和传入的 http 消息。此外，adal.js 假设作为窗口发送到同一个域的任何请求都应该使用与 AngularJS 应用相同的应用程序 ID 所用的令牌。这就是为什么我们在 Angular 应用和 NodeJS REST API 中使用同一应用程序 ID 的原因。当然，你可以重写此行为，并根据需要告知 adal.js 获取其他 REST API 的令牌 - 但是对于此简单方案，使用默认值即可。
 
 下面代码段演示了如何轻松地从 Azure AD 发送包含持有者令牌的请求：
-
-js
 
 ```js
 // app/scripts/todoListSvc.js

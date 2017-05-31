@@ -63,8 +63,6 @@ ms.author: dastrock
 
 3. 将类声明更改为 `public partial class Startup`。我们已在另一个文件中实现了此类的一部分。在 `Configuration(…)` 方法中，调用 `ConfgureAuth(…)` 以设置 Web 应用的身份验证。
 
-    C#
-
     ```C#
     public partial class Startup
     {
@@ -76,8 +74,6 @@ ms.author: dastrock
     ```
 
 4. 打开文件 `App_Start\Startup.Auth.cs` 并实现 `ConfigureAuth(…)` 方法。在 `WindowsAzureActiveDirectoryBearerAuthenticationOptions` 中提供的参数充当应用与 Azure AD 通信时使用的坐标。
-
-    C#
 
     ```C#
     public void ConfigureAuth(IAppBuilder app)
@@ -93,8 +89,6 @@ ms.author: dastrock
 
 5. 现在，可以使用 `[Authorize]` 属性并结合 JSON Web 令牌 (JWT) 持有者身份验证来帮助保护控制器和操作。使用 authorize 标记修饰 `Controllers\TodoListController.cs` 类。这会强制用户在访问该页面之前登录。
 
-    C#
-
     ```C#
     [Authorize]
     public class TodoListController : ApiController
@@ -104,8 +98,6 @@ ms.author: dastrock
     如果已授权的调用方成功调用了某个 `TodoListController` API，该操作可能需要访问有关调用方的信息。OWIN 通过 `ClaimsPrincpal` 对象提供对持有者令牌中的声明的访问。
 
 6. Web API 的一个常见要求是验证令牌中存在的“作用域”。这可确保用户已许可授予访问待办事项列表服务所需的权限。
-
-    C#
 
     ```C#
     public IEnumerable<TodoItem> Get()
