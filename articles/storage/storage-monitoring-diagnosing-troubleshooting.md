@@ -104,7 +104,7 @@ ms.lasthandoff: 05/19/2017
 ## <a name="monitoring-your-storage-service"></a>监视存储服务
 如果你熟悉 Windows 性能监视，则可以将存储度量值视为 Windows 性能监视器计数器的 Azure 存储等效项。 在存储度量值中，可找到一组综合度量值（相当于 Windows 性能监视器术语中的计数器），例如服务可用性、向服务发送的请求总数或向服务发出的成功请求的百分比。 有关可用度量值的完整列表，请参阅[存储分析度量值表架构](http://msdn.microsoft.com/library/azure/hh343264.aspx)。 你可以指定希望存储服务每隔一小时还是每隔一分钟收集和聚合一次度量值。 有关如何启用度量值和监视存储帐户的详细信息，请参阅 [Enabling storage metrics and viewing metrics data](http://go.microsoft.com/fwlink/?LinkId=510865)（启用存储度量值并查看度量值数据）。
 
-可以选择要将哪些小时指标显示在 [Azure 门户预览](https://portal.azure.cn)中，并对规则进行配置，以便在小时指标超过特定阈值时，通过电子邮件通知管理员。 有关详细信息，请参阅[接收警报通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)。
+可以选择要将哪些小时指标显示在 [Azure 门户预览](https://portal.azure.cn)中，并对规则进行配置，以便在小时指标超过特定阈值时，通过电子邮件通知管理员。
 
 存储服务将尽最大努力收集度量值，但可能无法记录每个存储操作。
 

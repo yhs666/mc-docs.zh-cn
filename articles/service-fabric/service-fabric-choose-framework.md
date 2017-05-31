@@ -46,6 +46,5 @@ Reliable Actor 框架在 Reliable Services 的基础上生成，是根据执行�
 
 ## <a name="next-steps"></a>后续步骤
 [了解有关 Reliable Actors 的详细信息](service-fabric-reliable-actors-introduction.md)或开始[编写第一个 Reliable Actor 服务](service-fabric-reliable-actors-get-started.md)
-[深入了解在 Windows 或 Linux 中容器化服务](service-fabric-deploy-container.md)
-
+[深入了解在 Linux 中容器化服务](service-fabric-deploy-container-linux.md)
 
