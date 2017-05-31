@@ -545,6 +545,8 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 - 有关 R Server 的一般信息，请参阅 [Get started with R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node)（R 入门）一文。
 
+- 其他有用的文章包括 [R Server on Azure HDInsight](hdinsight-hadoop-r-server-get-started.md)（Azure HDInsight 上的 R Server）和 [R Server on Azure HDInsight overview](hdinsight-hadoop-r-server-overview.md)（Azure HDInsight 上的 R Server 概述）。
+
 有关 SparkR 用法的详细信息，请参阅以下资源：
 
 - [Apache SparkR 文档](https://spark.apache.org/docs/2.1.0/sparkr.html)

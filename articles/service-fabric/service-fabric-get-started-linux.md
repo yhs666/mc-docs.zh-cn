@@ -160,7 +160,7 @@ Java SDK 提供使用 Java 生成 Service Fabric 服务所需的库和模板。
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
-## <a name="install-the-eclipse-neon-plugin-optional"></a><a name="install-the-java-sdk-and-eclipse-neon-plugin-optional"></a>安装 Eclipse Neon 插件（可选）
+## <a name="install-the-eclipse-neon-plugin-optional"></a>安装 Eclipse Neon 插件（可选）
 
 可以在**适用于 Java 开发人员的 Eclipse IDE** 中安装适用于 Service Fabric 的 Eclipse 插件。 可以使用 Eclipse，在 Service Fabric Java 应用程序的基础上创建 Service Fabric 来宾可执行应用程序和容器应用程序。
 

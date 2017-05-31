@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2017
 ms.author: seanmck
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 9a254cde6944c0d6754280debfc9d41d4780108e
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -104,7 +105,7 @@ Reliable Collections 通常已[分区](service-fabric-concepts-partitioning.md)�
 
 请注意，此计算还假设：
 
-- 数据的跨分区分布大致均匀，或者你会向群集资源管理器报告负载指标。 默认情况下，Service Fabric 根据副本计数进行负载均衡。 在上述示例中，此操作会将 10 个主要副本和 20 个次要副本放在群集中的每个节点上。 这也适用于跨分区均匀分布的负载。 如果负载不均匀，则必须报告负载，以便资源管理器将较小的副本打包在一起，让较大的副本在单个节点上使用更多内存。
+- 数据的跨分区分布大致均匀，或者你会向群集 Resource Manager 报告负载指标。 默认情况下，Service Fabric 根据副本计数进行负载均衡。 在上述示例中，此操作会将 10 个主要副本和 20 个次要副本放在群集中的每个节点上。 这也适用于跨分区均匀分布的负载。 如果负载不均匀，则必须报告负载，以便 Resource Manager 将较小的副本打包在一起，让较大的副本在单个节点上使用更多内存。
 
 - 讨论的可靠服务是群集中存储状态的唯一服务。 因为已将多个服务部署到群集，所以需要注意每个服务运行和管理其状态所需的资源。
 

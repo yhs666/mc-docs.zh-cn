@@ -85,7 +85,7 @@ SQL Server 2014 包括以下增强功能：
 有关 SQL Server 2008 中的 SQL Server 备份和还原的信息，请参阅[在 SQL Server 中备份和还原数据库 (SQL Server 2008)](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx)。
 
 ## <a name="next-steps"></a>后续步骤
-规划 Azure VM 中的 SQL Server 部署时，可在以下教程中找到预配指导：[使用 Azure Resource Manager 在 Azure 上预配 SQL Server 虚拟机](virtual-machines-windows-portal-sql-server-provision.md)。
+规划 Azure VM 中的 SQL Server 部署时，可在以下教程中找到预配指导：[Provisioning a SQL Server Virtual Machine on Azure with Azure Resource Manager](virtual-machines-windows-portal-sql-server-provision.md)（使用 Azure Resource Manager 在 Azure 上预配 SQL Server 虚拟机）。
 
 尽管备份和还原可用于迁移数据，但是，Azure VM 上的 SQL Server 可能还存在更便捷的数据迁移路径。 有关迁移选项和建议的完整讨论，请参阅[将数据库迁移到 Azure VM 上的 SQL Server](virtual-machines-windows-migrate-sql.md)。
 

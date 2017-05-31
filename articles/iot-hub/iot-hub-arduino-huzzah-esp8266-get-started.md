@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 3219d96140363620eeb6aa60fa2fc8c93b71c793
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -294,7 +295,7 @@ ms.lasthandoff: 04/28/2017
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>将示例应用程序部署到 Feather HUZZAH ESP8266
 
 1. 在 Arduino IDE 中，单击“Tool”（工具） > “Port”（端口），然后单击 Feather HUZZAH ESP8266 的串行端口。
-1. 单击“Sketch” > “Upload”（上载），生成示例应用程序并将其部署到 Feather HUZZAH ESP8266。
+1. 单击“Sketch” > “Upload”（上传），生成示例应用程序并将其部署到 Feather HUZZAH ESP8266。
 
 ### <a name="enter-your-credentials"></a>输入凭据
 
@@ -322,6 +323,6 @@ ms.lasthandoff: 04/28/2017
 
 现已成功将 Feather HUZZAH ESP8266 连接到 IoT 中心，并将捕获的传感器数据发送到了 IoT 中心。 
 
-
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
 

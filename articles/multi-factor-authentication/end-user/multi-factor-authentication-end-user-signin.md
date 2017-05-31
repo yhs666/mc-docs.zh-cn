@@ -13,11 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 04/02/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.custom: end-user
+wacn.date: 
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: d3a1002d2cb9a19423250650725f43fbd2b7db51
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

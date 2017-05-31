@@ -16,10 +16,10 @@ ms.date: 09/01/2016
 wacn.date: 
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 93d180cb16e57c82b714c42e3412654a65f46fd8
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: ca2529c32796336e0a37879899ee74075e226d02
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/28/2017
 
 本文说明如何在 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中使用[身份验证/授权](../app-service/app-service-authentication-overview.md)功能创建 .NET 业务线应用。 另外，还说明如何在应用程序中使用 [Azure Active Directory 图形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 查询目录数据。
 
-使用的 Azure Active Directory 租户可以是仅限 Azure 的目录。 或者，可以将它[与本地 Active Directory 同步](../active-directory/connect/active-directory-aadconnect.md)，为本地和远程工作者创建单一登录体验。 本文使用 Azure 帐户的默认目录。
+使用的 Azure Active Directory 租户可以是仅限 Azure 的目录。 本文使用 Azure 帐户的默认目录。
 
 ## <a name="bkmk_build"></a>要构建的项目
 将在应用服务 Web 应用中构建用于跟踪工作项并具有以下功能的简单的业务线创建-读取-更新-删除 (CRUD) 应用程序：
@@ -48,7 +48,7 @@ ms.lasthandoff: 04/28/2017
 * 一个 Azure Active Directory 租户，其中的用户已分配到不同的组
 * 在 Azure Active Directory 租户上创建应用程序的权限
 * Visual Studio 2013 Update 4 或更高版本
-* [Azure SDK 2.8.1 或更高版本](https://www.azure.cn/downloads/)
+* [Azure SDK 2.8.1 或更高版本](/downloads/)
 
 ## <a name="bkmk_deploy"></a> 创建 Web 应用并将其部署到 Azure
 1. 在 Visual Studio 中，依次单击“文件” > “新建” > “项目”。
@@ -104,9 +104,9 @@ ms.lasthandoff: 04/28/2017
 
     > [!IMPORTANT]
     > 如果现在离开此页，将无法再次访问此客户端密钥。
-1. 使用 REST API 配置应用：从以下 URL 获取。 
+1. 使用 REST API 配置应用：从以下 URL 获取。
 
-    ``` 
+    ```
     https://management.chinacloudapi.cn/subscriptions/<Subscription id>/resourceGroups/<resource group>/providers/Microsoft.Web/sites/<you app>/config/authsettings/list?api-version=2015-08-01
     ```
 2. 将出现类似于下面的内容：
@@ -202,18 +202,26 @@ ms.lasthandoff: 04/28/2017
     <pre class="prettyprint">
     @model WebApplication1.Models.WorkItem
 
-    @{   ViewBag.Title = &quot;Create&quot;;  }
+    @{
+     ViewBag.Title = &quot;Create&quot;;
+    }
 
     &lt;h2&gt;Create&lt;/h2&gt;
 
-    @using (Html.BeginForm(<mark>&quot;Create&quot;, &quot;WorkItems&quot;, FormMethod.Post, new { id = &quot;main-form&quot; }</mark>))  {   @Html.AntiForgeryToken()
+    @using (Html.BeginForm(<mark>&quot;Create&quot;, &quot;WorkItems&quot;, FormMethod.Post, new { id = &quot;main-form&quot; }</mark>)) 
+    {
+     @Html.AntiForgeryToken()
 
      &lt;div class=&quot;form-horizontal&quot;&gt;
          &lt;h4&gt;WorkItem&lt;/h4&gt;
          &lt;hr /&gt;
-         @Html.ValidationSummary(true, &quot;&quot;, new { @class = &quot;text-danger&quot; })       &lt;div class=&quot;form-group&quot;&gt;
-             @Html.LabelFor(model =&gt; model.AssignedToID, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })           &lt;div class=&quot;col-md-10&quot;&gt;
-                 @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = &quot;form-control&quot;<mark>, @type = &quot;hidden&quot;</mark> } })               @Html.ValidationMessageFor(model =&gt; model.AssignedToID, &quot;&quot;, new { @class = &quot;text-danger&quot; })           &lt;/div&gt;
+         @Html.ValidationSummary(true, &quot;&quot;, new { @class = &quot;text-danger&quot; })
+         &lt;div class=&quot;form-group&quot;&gt;
+             @Html.LabelFor(model =&gt; model.AssignedToID, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
+             &lt;div class=&quot;col-md-10&quot;&gt;
+                 @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = &quot;form-control&quot;<mark>, @type = &quot;hidden&quot;</mark> } })
+                 @Html.ValidationMessageFor(model =&gt; model.AssignedToID, &quot;&quot;, new { @class = &quot;text-danger&quot; })
+             &lt;/div&gt;
          &lt;/div&gt;
 
          &lt;div class=&quot;form-group&quot;&gt;
@@ -249,10 +257,15 @@ ms.lasthandoff: 04/28/2017
     }
 
     &lt;div&gt;
-     @Html.ActionLink(&quot;Back to List&quot;, &quot;Index&quot;)  &lt;/div&gt;
+     @Html.ActionLink(&quot;Back to List&quot;, &quot;Index&quot;)
+    &lt;/div&gt;
 
-    @section Scripts {   @Scripts.Render(&quot;~/bundles/jqueryval&quot;)   <mark>&lt;script&gt;
-         // People/Group Picker Code       var maxResultsPerPage = 14;       var input = document.getElementById(&quot;AssignedToName&quot;);
+    @section Scripts {
+     @Scripts.Render(&quot;~/bundles/jqueryval&quot;)
+     <mark>&lt;script&gt;
+         // People/Group Picker Code
+         var maxResultsPerPage = 14;
+         var input = document.getElementById(&quot;AssignedToName&quot;);
 
          // Access token from request header, and tenantID from claims identity
          var token = &quot;@Request.Headers[&quot;X-MS-TOKEN-AAD-ACCESS-TOKEN&quot;]&quot;;
@@ -269,7 +282,8 @@ ms.lasthandoff: 04/28/2017
              $(&quot;#main-form&quot;).get()[0].elements[&quot;AssignedToID&quot;].value = picker.Selected().objectId;
          });
      &lt;/script&gt;</mark>
-    }  </pre>
+    }
+    </pre>
 
     请注意，`AadPicker` 对象使用 `token` 和 `tenant` 发出 Azure Active Directory 图形 API 调用。 稍后将要添加 `AadPicker`。     
 
@@ -334,10 +348,10 @@ ms.lasthandoff: 04/28/2017
 
     > [!NOTE]
     > 之所以需要这一行代码，是因为默认的 MVC 模板对某些操作使用 <code>[ValidateAntiForgeryToken]</code> 修饰。 由于存在 [Brock Allen](https://twitter.com/BrockLAllen) 在 [MVC 4、AntiForgeryToken 和声明](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/)中所述的行为，HTTP POST 可能无法通过防伪令牌验证，因为：
-    > * Azure Active Directory 不发送防伪令牌默认所需的 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 。
+    > * Azure Active Directory 不发送防伪令牌默认所需的 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider。
     > * 如果 Azure Active Directory 是与 AD FS 同步的目录，默认情况下 AD FS 信任不发送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 声明，尽管可以手动配置 AD FS 以发送此声明。
     > <p> 
-    > `ClaimTypes.NameIdentifies` 指定 Azure Active Directory 提供的声明 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`。
+    > `ClaimTypes.NameIdentifies` 指定 Azure Active Directory 提供的声明 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`。  > 
 15. 现在，请发布更改。 右键单击项目，然后单击“发布”。
 16. 单击“设置”，确保提供 SQL 数据库的连接字符串，选择“更新数据库”更改模型的架构，然后单击“发布”。
 
@@ -359,7 +373,7 @@ ms.lasthandoff: 04/28/2017
 * [在 Azure 中使用 AD FS 身份验证创建业务线应用](web-sites-dotnet-lob-application-adfs.md)
 * [App Service Auth and the Azure AD Graph API（应用服务身份验证和 Azure AD 图形 API）](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Azure Active Directory Samples and Documentation（Azure Active Directory 示例和文档）](https://github.com/AzureADSamples)
-* [Azure Active Directory 支持的令牌和声明类型](/active-directory/develop/active-directory-token-and-claims/)
+* [Azure Active Directory 支持的令牌和声明类型](/active-directory/active-directory-token-and-claims/)
 
 [Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
 

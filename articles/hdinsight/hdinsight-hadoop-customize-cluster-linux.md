@@ -43,6 +43,8 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 * **AMBARI.RUN\_CUSTOM\_COMMAND**：默认情况下，Ambari 管理员角色具有此权限。
 * **CLUSTER.RUN\_CUSTOM\_COMMAND**：默认情况下，HDInsight 群集管理员和 Ambari 管理员都具有此权限。
 
+有关处理已加入域的 HDInsight 权限的详细信息，请参阅[管理已加入域的 HDInsight 群集](hdinsight-domain-joined-manage.md)。
+
 ## <a name="access-control"></a>访问控制
 
 如果使用的是你不是管理员/所有者的 Azure 订阅（例如公司所有的订阅），则必须确保你的 Azure 帐户至少具有 **参与者** 访问权限，才能访问包含 HDInsight 群集的 Azure 资源组。

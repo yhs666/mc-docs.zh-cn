@@ -15,9 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 39265ba66a6fb699da54c6afa6a371d1c14c14c5
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/07/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-本文介绍资源管理器部署模型。 还可以[了解如何使用经典部署模型创建面向 Internet 的负载均衡器](./load-balancer-get-started-internet-classic-portal.md)
+本文介绍 Resource Manager 部署模型。 还可以[了解如何使用经典部署模型创建面向 Internet 的负载均衡器](./load-balancer-get-started-internet-classic-portal.md)
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 

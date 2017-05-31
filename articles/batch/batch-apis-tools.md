@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 00caaefc46faefba41ab43a434eede62147478b2
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---

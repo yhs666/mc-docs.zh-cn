@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: robinsh
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: c08e14d54e647d33f4a0609df5da91d10e6b53a4
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/22/2017
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
-## <a name="overview"></a><a name="what-is"></a>概述
+## <a name="overview"></a>概述
 Azure 队列存储用于在应用程序组件之间进行云消息传送。 在设计应用程序以实现可伸缩性时，通常要将各个应用程序组件分离，使其可以独立地进行伸缩。 队列存储提供的异步消息传送适用于在应用程序组件之间进行通信，无论这些应用程序组件是运行在云中、桌面上、本地服务器上还是移动设备上。 队列存储还支持管理异步任务以及构建过程工作流。
 
 ### <a name="about-this-tutorial"></a>关于本教程
@@ -37,7 +38,7 @@ Azure 队列存储用于在应用程序组件之间进行云消息传送。 在�
 **先决条件：**
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
-* [适用于 .NET 的 Azure 存储空间客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [适用于 .NET 的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [适用于 .NET 的 Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * 一个 [Azure 存储帐户](storage-create-storage-account.md#create-a-storage-account)
 
@@ -275,7 +276,7 @@ queue.Delete();
 * 查看队列服务参考文档，了解有关可用 API 的完整详细信息：
   * [.NET 存储客户端库参考](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
   * [REST API 参考](http://msdn.microsoft.com/library/azure/dd179355)
-* 了解如何通过使用 [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md)简化为使用 Azure 存储空间而写的代码。
+* 了解如何通过使用 [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) 简化为使用 Azure 存储而写的代码。
 * 查看更多功能指南，以了解在 Azure 中存储数据的其他方式。
   * [通过 .NET 开始使用 Azure 表存储](storage-dotnet-how-to-use-tables.md) 来存储结构化数据。
   * [通过 .NET 开始使用 Azure Blob 存储](storage-dotnet-how-to-use-blobs.md) 来存储非结构化数据。

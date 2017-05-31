@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery 文档 - 教程、API 参考 | Microsoft Docs
-description: 了解如何通过部署和管理复制来设置物理服务器和虚拟机的云灾难恢复和业务连续性。
+title: "Azure Site Recovery 文档 - 教程、API 参考 | Microsoft Docs"
+description: "了解如何通过部署和管理复制来设置物理服务器和虚拟机的云灾难恢复和业务连续性。"
 services: site-recovery
 author: carolz
 manager: carolz
@@ -9,85 +9,111 @@ ms.assetid:
 ms.service: site-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 登录页
+ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
----
-# Site Recovery 文档
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
+ms.openlocfilehash: 2d42b33e1aff3a0e6ca12a6b51500dcede5433d5
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/12/2017
 
-了解如何使用 Site Recovery 实现业务连续性和私有云的灾难恢复策略。教程和其他文档演示了如何规划、部署和管理将本地物理服务器和虚拟机复制到云或辅助数据中心的业务流程。
+---
+# <a name="site-recovery-documentation"></a>Site Recovery 文档
+
+了解如何使用 Site Recovery 实现业务连续性和私有云的灾难恢复策略。 教程和其他文档介绍了如何规划、部署和管理本地物理服务器与虚拟机到云或到辅助数据中心的协调复制。
 
 <ul class="panelContent cardsFTitle">
-    <li><a href="/site-recovery/site-recovery-overview">
-<div class="cardSize">
+    <li>
+        <a href="/azure/site-recovery/site-recovery-overview">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/site-recovery.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/site-recovery.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
                         <h3>了解 Azure Site Recovery</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
-    <li><a href="https://azure.microsoft.com/zh-cn/resources/videos/index/?services=recovery-manager">
-<div class="cardSize">
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=recovery-manager">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/video-library.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
                         <h3>Azure Site Recovery 视频库</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
-    <li><a href="/site-recovery/site-recovery-vmware-to-azure">
-<div class="cardSize">
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/site-recovery/site-recovery-vmware-to-azure">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/get-started.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
                         <h3>Azure Site Recovery 入门</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
-    <li><a href="/site-recovery/site-recovery-hyper-v-site-to-azure">
-<div class="cardSize">
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/site-recovery/site-recovery-hyper-v-site-to-azure">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/get-started.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
-                        <h3>将 Hyper-V VM 复制到 Azure（不带 VMM）入门</h3>
+                        <h3>开始将 Hyper-V VM 复制到 Azure（不包含 VMM）</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
-    <li><a href="/site-recovery/site-recovery-vmm-to-azure">
-<div class="cardSize">
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/site-recovery/site-recovery-vmm-to-azure">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/get-started.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
-                        <h3>将 VMM 云中的 Hyper-V VM 复制到 Azure 入门</h3>
+                        <h3>开始将 VMM 云中的 Hyper-V VM 复制到 Azure</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---
@@ -113,7 +139,7 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/zh-cn/library/mt750497">REST API 参考</a></p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/mt750497">REST API 参考</a></p>
                     </div>
                 </div>
             </div>
@@ -121,4 +147,5 @@ ms.author: carolz
     </li>
 </ul>
 
-<!---HONumber=Mooncake_0327_2017-->
+
+

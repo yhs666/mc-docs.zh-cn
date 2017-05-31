@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: c2776b6d1d54ec4d2a5d47830f9f5e5c48a8494d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -32,7 +33,7 @@ Azure 计划程序允许你为作业指定不同的一次性计划和重复性�
 * 周期性数据清理 – 例如，每日删除 3 个月以前的所有推文
 * 存档 – 例如，每月向备份服务推送发票历史记录
 * 请求外部数据 – 例如，每隔 15 分钟从 NOAA 提取新的滑雪天气报告
-* 图像处理 – 例如，在每个工作日的非高峰时间，使用云计算来压缩当天上载的图像
+* 图像处理 – 例如，在每个工作日的非高峰时间，使用云计算来压缩当天上传的图像
 
 在本文中，我们将会演练你可以使用 Azure 计划程序创建的示例作业。 我们将提供用于描述每个计划的 JSON 数据。 如果你熟悉[计划程序 REST API](https://msdn.microsoft.com/library/mt629143.aspx)，可以使用与此相同的 JSON 来[创建 Azure 计划程序作业](https://msdn.microsoft.com/library/mt629145.aspx)。
 

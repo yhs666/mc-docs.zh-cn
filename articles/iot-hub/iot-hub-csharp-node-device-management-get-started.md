@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 11/17/2016
 wacn.date: 
 ms.author: juanpere
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 402613a5879faeb4f69af6a6025afb2873b8adbc
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 wacn.date: 
 ms.author: robmcm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 023eeb25360a0c01f550bac130c279882784c1e6
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 98bb89ac554a4de05bcdfe7985b4463aa95e766a
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -178,7 +178,7 @@ ms.lasthandoff: 04/28/2017
           </system.webServer>
         </configuration>
 
-    此时，可以重新启动 Web 应用，使所做的更改生效。  连接到 http://yourwebapp/hudson ，启动 Hudson。
+    此时，可以重新启动 Web 应用，使所做的更改生效。  连接到 http://yourwebapp/hudson，启动 Hudson。
 4. Hudson 自行配置后，将显示以下屏幕：
 
     ![Hudson](./media/web-sites-java-custom-upload/hudson1.png)
@@ -236,15 +236,14 @@ ms.lasthandoff: 04/28/2017
 
 请注意，在上述 web.config 文件中指定的 JRE_HOME 环境变量指向 64 位 JDK。 默认为 32 位，但由于 Liferay 可能需要大量内存，因此建议使用 64 位 JDK。
 
-做完上述更改后，重新启动运行 Liferay 的 Web 应用，然后打开 http://yourwebapp 。 可从 Web 应用根目录访问 Liferay 门户。 
+做完上述更改后，重新启动运行 Liferay 的 Web 应用，然后打开 http://yourwebapp。 可从 Web 应用根目录访问 Liferay 门户。 
 
 ## <a name="next-steps"></a>后续步骤
 有关 Liferay 的详细信息，请参阅 [http://www.liferay.com](http://www.liferay.com)。
 
-有关 Java 的详细信息，请参阅 [Java 开发人员中心](https://www.azure.cn/develop/java/)。
+有关 Java 的详细信息，请参阅 [Java 开发人员中心](/develop/java/)。
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 <!-- External Links -->
 [Azure 应用服务]: /app-service-web/app-service-changes-existing-services
-

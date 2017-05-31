@@ -1,5 +1,5 @@
 ---
-title: "对 Azure 存储空间使用 Azure PowerShell | Microsoft Docs"
+title: "对 Azure 存储使用 Azure PowerShell | Microsoft Docs"
 description: "了解如何使用 Azure 存储的 Azure PowerShell cmdlet 来创建和管理存储帐户；使用 Blob、表、队列和文件；配置和查询存储分析并创建共享访问签名。"
 services: storage
 documentationcenter: na
@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: robinsh
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 1c6ed0b3e8c6e7da01a65bbf9d93c4b89fc807a0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -775,7 +776,7 @@ Azure 环境的部署独立于 Azure，例如[中国世纪互联运营的 AzureC
     $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
     ```
 
-* [在中国服务中创建应用程序时的差异概述](/articles/developerdifferences/)
+* [在中国服务中创建应用程序时的差异概述](https://www.azure.cn/documentation/articles/developerdifferences/)
 
 ## <a name="next-steps"></a>后续步骤
 在本指南中，已了解如何使用 Azure PowerShell 管理 Azure 存储。 下面是一些相关的文章和了解有关这些更多的资源。

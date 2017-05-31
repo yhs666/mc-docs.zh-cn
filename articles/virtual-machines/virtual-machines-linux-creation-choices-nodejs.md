@@ -30,7 +30,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="azure-cli"></a>Azure CLI
 可使用以下 CLI 版本之一在 Azure 中创建 VM：
 
-- Azure CLI 1.0 - 用于经典部署模型和资源管理部署模型的 CLI（本文）
+- Azure CLI 1.0 - 用于经典部署模型和资源管理部署模型（本文）的 CLI
 - [Azure CLI 2.0](virtual-machines-linux-creation-choices.md) - 适用于资源管理部署模型的下一代 CLI
 
 Azure CLI 1.0 可通过 npm 包、发行版提供的程序包或 Docker 容器跨平台使用。 有关详细信息，请参阅 [如何安装和配置 Azure CLI](../cli-install-nodejs.md)。 以下教程提供了有关使用 Azure CLI 1.0 的示例。 阅读下面每篇文章，了解更多有关所示的 CLI 快速启动命令的更多详细信息：

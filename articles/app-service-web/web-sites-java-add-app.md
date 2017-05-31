@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 wacn.date: 
 ms.author: robmcm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 1b0102636e186b0923f86d1a14e3cc1d4d6c51ec
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 9379e2cecb82a18734e582479e20c4797785bcf4
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -39,6 +39,6 @@ Tomcat Web 应用说明：将 WAR 文件上传到 **webapps** 文件夹后，Tom
 
 <!-- URL List -->
 
-[Azure Java 开发人员中心]: https://www.azure.cn/develop/java/
+[Azure Java 开发人员中心]: /develop/java/
 [Azure App Service]: /app-service-web/app-service-changes-existing-services
 [将应用部署到 Azure 应用服务]: ./web-sites-deploy.md

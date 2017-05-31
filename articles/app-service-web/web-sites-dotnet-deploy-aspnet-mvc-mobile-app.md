@@ -16,10 +16,10 @@ ms.date: 01/12/2016
 wacn.date: 
 ms.author: cephalin;riande
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 1a338f3b908dbd9dd9f8abe87fd385389d89c890
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 0840fcd13f4cebaee723877f436dc57d8681ed74
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---

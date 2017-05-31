@@ -223,7 +223,7 @@ az appservice plan update --name myAppServicePlan --resource-group myResourceGro
 ## <a name="step-5---scale-geographically"></a>步骤 5 - 按地理位置扩展
 按地理位置扩展时，需在 Azure 云的多个区域中运行应用。 这种设置可以根据地理位置进一步对应用进行负载均衡，并通过将应用放置在更靠近客户端浏览器的位置来减小响应时间。
 
-在此步骤中，你将使用 [Azure 流量管理器](/traffic-manager/)将 ASP.NET Web 应用扩展到另一个区域。 结束此步骤后，中国北部将运行一个 Web 应用（已创建），中国东部将运行另一个 Web 应用（尚未创建）。 应该从同一个流量管理器 URL 提供这两个应用。
+在此步骤中，你将使用 [Azure 流量管理器](/azure/traffic-manager/)将 ASP.NET Web 应用扩展到另一个区域。 结束此步骤后，中国北部将运行一个 Web 应用（已创建），中国东部将运行另一个 Web 应用（尚未创建）。 应该从同一个流量管理器 URL 提供这两个应用。
 
 ### <a name="scale-up-the-china-north-app-to-standard-tier"></a>将中国北部的应用纵向扩展到标准层
 在应用服务中，与 Azure 流量管理器的集成需要使用标准定价层。 使用 [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#update) 将应用服务计划纵向扩展到 S1。 
@@ -293,7 +293,7 @@ az appservice web create --name $appName-east --resource-group myResourceGroup -
 ### <a name="configure-the-connection-string-for-redis"></a>配置 Redis 的连接字符串
 使用 [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) 将中国东部缓存的连接字符串添加到该 Web 应用。
 
-    az appservice web config appsettings update --settings "RedisConnection=$($redis.hostname):$($redis.sslPort),password=$($redis.accessKeys.primaryKey),ssl=True,abortConnect=False" --name $appName-east --resource-group myResourceGroup
+az appservice web config appsettings update --settings "RedisConnection=$($redis.hostname):$($redis.sslPort),password=$($redis.accessKeys.primaryKey),ssl=True,abortConnect=False" --name $appName-east --resource-group myResourceGroup
 
 ### <a name="configure-git-deployment-for-the-china-east-app"></a>配置中国东部应用的 Git 部署。
 使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config-local-git) 配置第二个 Web 应用的本地 Git 部署。

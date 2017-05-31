@@ -47,7 +47,7 @@ ms.lasthandoff: 04/22/2017
 
 此外，Web 应用可利用 [API 应用](../app-service-api/app-service-api-apps-why-best-platform.md)提供的 CORS 支持等功能和[移动应用](../app-service-mobile/app-service-mobile-value-prop.md)提供的推送通知等功能。 有关应用服务中应用类型的详细信息，请参阅 [Azure 应用服务概述](../app-service/app-service-value-prop-what-is.md)。
 
-除了应用服务中的 Web 应用，Azure 还提供可用来托管网站和 Web 应用程序的其他服务。 大多数情况下，Web 应用是最佳选择。  对于微服务体系结构，请考虑使用 [Service Fabric](/service-fabric)；如果需要更好地控制运行代码的 VM，请考虑使用 [Azure 虚拟机](/virtual-machines/)。 有关如何在这些 Azure 服务之间做出选择的详细信息，请参阅 [Azure 应用服务、虚拟机、Service Fabric 和云服务的比较](choose-web-site-cloud-service-vm.md)。
+除了应用服务中的 Web 应用，Azure 还提供可用来托管网站和 Web 应用程序的其他服务。 大多数情况下，Web 应用是最佳选择。  对于微服务体系结构，请考虑使用 [Service Fabric](/azure/service-fabric)；如果需要更好地控制运行代码的 VM，请考虑使用 [Azure 虚拟机](/azure/virtual-machines/)。 有关如何在这些 Azure 服务之间做出选择的详细信息，请参阅 [Azure 应用服务、虚拟机、Service Fabric 和云服务的比较](choose-web-site-cloud-service-vm.md)。
 
 ## <a name="getting-started"></a>入门
 若要首先在应用服务中向新 Web 应用部署示例代码，请遵循以下下拉框中的教程之一。 需要一个 Azure 试用帐户。

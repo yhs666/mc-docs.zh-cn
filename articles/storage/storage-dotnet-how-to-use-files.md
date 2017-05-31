@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: b2c4e5b892d1eb60fb2630f654db16fdaa547882
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/22/2017
 
 有关通过 Linux 使用文件存储的信息，请参阅 [如何通过 Linux 使用 Azure 文件存储](storage-how-to-use-files-linux.md)。
 
-有关文件存储的可伸缩性和性能目标的信息，请参阅 [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files)（Azure 存储空间可缩放性和性能目标）。
+有关文件存储的可伸缩性和性能目标的信息，请参阅 [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files)（Azure 存储可缩放性和性能目标）。
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -46,15 +47,15 @@ ms.lasthandoff: 04/22/2017
 ## <a name="about-this-tutorial"></a>关于本教程
 此入门教程演示使用 Azure 文件存储的基础知识。 在本教程中，我们将：
 
-* 使用 Azure 门户预览或 PowerShell 创建新的 Azure 文件共享、添加目录、将本地文件上载到该共享，以及列出该目录中的文件。
+* 使用 Azure 门户预览或 PowerShell 创建新的 Azure 文件共享、添加目录、将本地文件上传到该共享，以及列出该目录中的文件。
 * 装载文件共享，就像装载任何 SMB 共享一样。
-* 使用用于.NET 的 Azure 存储空间客户端库从本地应用程序访问文件共享。 创建一个控制台应用程序并通过文件共享执行以下操作：
+* 使用用于.NET 的 Azure 存储客户端库从本地应用程序访问文件共享。 创建一个控制台应用程序并通过文件共享执行以下操作：
   * 将共享中一个文件的内容写入控制台窗口。
   * 设置文件共享的配额（最大大小）。
   * 若一个文件使用在共享中定义的共享访问策略，则为该文件创建一个共享访问签名。
   * 将文件复制到同一存储帐户中的另一个文件。
   * 将文件复制到同一存储帐户中的一个 Blob。
-* 使用 Azure 存储空间度量值进行故障排除
+* 使用 Azure 存储度量值进行故障排除
 
 现在所有存储帐户均支持文件存储，因此你可以使用现有存储帐户，也可以创建新的存储帐户。 请参阅 [How to create a storage account](storage-create-storage-account.md#create-a-storage-account) （如何创建存储帐户），了解有关创建新存储帐户的信息。
 
@@ -62,7 +63,7 @@ ms.lasthandoff: 04/22/2017
 [Azure 门户预览](https://portal.azure.cn)提供了方便客户管理文件共享的用户界面。 在门户中，你可以：
 
 * 创建文件共享
-* 将文件上载到文件共享以及从文件共享下载文件。
+* 将文件上传到文件共享以及从文件共享下载文件。
 * 监视每个文件共享的实际使用情况
 * 调整共享大小配额
 * 获取用于从 Windows 客户端装载文件共享的 `net use` 命令
@@ -85,13 +86,13 @@ ms.lasthandoff: 04/22/2017
    
     ![演示如何在门户中创建文件共享的屏幕快照](./media/storage-dotnet-how-to-use-files/files-create-share-4.png)
 
-### <a name="upload-and-download-files"></a>上载和下载文件
+### <a name="upload-and-download-files"></a>上传和下载文件
 1. 选择一个你已创建的文件共享。
    
-    ![演示如何从门户上载和下载文件的屏幕快照](./media/storage-dotnet-how-to-use-files/files-upload-download-1.png)
-2. 单击“上载”打开用于文件上载的用户界面。
+    ![演示如何从门户上传和下载文件的屏幕快照](./media/storage-dotnet-how-to-use-files/files-upload-download-1.png)
+2. 单击“上传”打开用于文件上传的用户界面。
    
-    ![演示如何从门户上载文件的屏幕快照](./media/storage-dotnet-how-to-use-files/files-upload-download-2.png)
+    ![演示如何从门户上传文件的屏幕快照](./media/storage-dotnet-how-to-use-files/files-upload-download-2.png)
 3. 右键单击一个文件，然后选择“下载”将其下载到本地。
    
     ![演示如何从门户下载文件的屏幕快照](./media/storage-dotnet-how-to-use-files/files-upload-download-3.png)
@@ -118,7 +119,7 @@ ms.lasthandoff: 04/22/2017
 ## <a name="use-powershell-to-manage-a-file-share"></a>使用 PowerShell 管理文件共享
 也可以使用 Azure PowerShell 来创建和管理文件共享。
 
-### <a name="install-the-powershell-cmdlets-for-azure-storage"></a>为 Azure 存储空间安装 PowerShell cmdlet
+### <a name="install-the-powershell-cmdlets-for-azure-storage"></a>为 Azure 存储安装 PowerShell cmdlet
 若要准备使用 PowerShell，请下载并安装 Azure PowerShell cmdlet。 有关安装点和安装说明，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 。
 
 > [!NOTE]
@@ -161,8 +162,8 @@ $s = New-AzureStorageShare logs -Context $ctx
 New-AzureStorageDirectory -Share $s -Path CustomLogs
 ```
 
-### <a name="upload-a-local-file-to-the-directory"></a>将本地文件上载到目录
-现在，将本地文件上载到该目录。 以下示例从 `C:\temp\Log1.txt`上载文件。 请编辑文件路径，使其指向你本地计算机上的有效文件。
+### <a name="upload-a-local-file-to-the-directory"></a>将本地文件上传到目录
+现在，将本地文件上传到该目录。 以下示例从 `C:\temp\Log1.txt`上传文件。 请编辑文件路径，使其指向你本地计算机上的有效文件。
 
 ```powershell
 # upload a local file to the new directory
@@ -368,7 +369,7 @@ if (share.Exists())
 运行控制台应用程序以查看输出。
 
 ### <a name="set-the-maximum-size-for-a-file-share"></a>设置文件共享的最大大小
-从 Azure 存储空间客户端库的 5.x 版开始，可以设置文件共享的配额（或最大大小），单位为千兆字节。 你还可以查看共享当前存储了多少数据。
+从 Azure 存储客户端库的 5.x 版开始，可以设置文件共享的配额（或最大大小），单位为千兆字节。 你还可以查看共享当前存储了多少数据。
 
 通过设置一个共享的配额，可以限制在该共享上存储的文件的总大小。 如果共享上文件的总大小超过在共享上设定的配额，则客户端将不能增加现有文件的大小或创建新文件，除非这些文件是空的。
 
@@ -405,7 +406,7 @@ if (share.Exists())
 ```
 
 ### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>为文件或文件共享生成共享访问签名
-从 Azure 存储空间客户端库的 5.x 版开始，可以为文件共享或单个文件生成共享访问签名 (SAS)。 还可以在文件共享上创建一个共享访问策略以管理共享访问签名。 建议创建共享访问策略，因为它提供了一种在受到威胁时撤消 SAS 的方式。
+从 Azure 存储客户端库的 5.x 版开始，可以为文件共享或单个文件生成共享访问签名 (SAS)。 还可以在文件共享上创建一个共享访问策略以管理共享访问签名。 建议创建共享访问策略，因为它提供了一种在受到威胁时撤消 SAS 的方式。
 
 以下示例在一个共享上创建共享访问策略，然后使用该策略为共享中的一个文件提供 SAS 约束。
 
@@ -456,7 +457,7 @@ if (share.Exists())
 有关创建和使用共享访问签名的更多信息，请参阅[使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md) 和[创建 SAS 并将其与 Blob 存储结合使用](storage-dotnet-shared-access-signature-part-2.md)。
 
 ### <a name="copy-files"></a>复制文件
-从 Azure 存储空间客户端库的 5.x 版开始，可以将一个文件复制到另一个文件，将一个文件复制到一个 Blob，或将一个 Blob 复制到一个文件。 在后续部分中，我们将演示如何以编程方式执行这些复制操作。
+从 Azure 存储客户端库的 5.x 版开始，可以将一个文件复制到另一个文件，将一个文件复制到一个 Blob，或将一个 Blob 复制到一个文件。 在后续部分中，我们将演示如何以编程方式执行这些复制操作。
 
 还可以使用 AzCopy 将一个文件复制到另一个文件或将一个 Blob 复制到一个文件，反之亦然。 请参阅 [使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)。
 
@@ -562,7 +563,7 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 可以用相同的方式将一个 Blob 复制到一个文件。 如果源对象是一个 Blob，则创建一个 SAS 以复制操作期间验证对该 Blob 的访问。
 
 ## <a name="troubleshooting-file-storage-using-metrics"></a>使用指标对文件存储进行故障排除
-Azure 存储空间分析现在支持用于文件存储的指标。 使用指标数据，可以跟踪请求和诊断问题。
+Azure 存储分析现在支持用于文件存储的指标。 使用指标数据，可以跟踪请求和诊断问题。
 
 可以从 [Azure 门户预览](https://portal.azure.cn)为文件存储启用指标。 你还可以通过 REST API 或存储客户端库中的类似物之一调用“设置文件服务属性”操作，以编程方式启用指标。
 
@@ -690,9 +691,9 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 * [如何通过 Linux 使用 Azure 文件存储](storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-file-storage"></a>文件存储的工具支持
-* [对 Azure 存储空间使用 Azure PowerShell](storage-powershell-guide-full.md)
+* [对 Azure 存储使用 Azure PowerShell](storage-powershell-guide-full.md)
 * [如何对 Azure 存储使用 AzCopy](storage-use-azcopy.md)
-* [将 Azure CLI 用于 Azure 存储空间](storage-azure-cli.md#create-and-manage-file-shares)
+* [将 Azure CLI 用于 Azure 存储](storage-azure-cli.md#create-and-manage-file-shares)
 * [排查 Azure 文件存储问题](./storage-troubleshoot-file-connection-problems.md)
 
 ### <a name="reference"></a>引用

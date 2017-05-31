@@ -31,6 +31,7 @@
 ## 部署映像
 ### [创建并上载 VHD](create-upload-vhd.md)
 ### [创建并上载 FreeBSD VHD](freebsd-create-upload-vhd.md)
+### [Oracle VM 映像列表](oracle-images.md)
 
 ## 管理工作负荷
 ### MySQL 和 MariaDB
@@ -52,7 +53,7 @@
 ### [重启 VM 或调整其大小](restart-resize-error-troubleshooting.md)
 
 # 引用
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [创建 Resource Manager 模板](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

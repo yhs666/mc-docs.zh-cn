@@ -16,10 +16,10 @@ ms.date: 10/24/2016
 wacn.date: 
 ms.author: sumuth
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 08be05e302fcf18337f785fbb22c3880aea9ab53
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 201bc3ba5f607fd592bea42cba23c93fc96c4dd6
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -108,7 +108,7 @@ Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提�
 
 在本地将 PHP Web 应用配置到 WordPress 站点，并将其推送到 Azure。
 
-如果要迁移现有 WordPress 站点，在创建新 Web 应用后，请参阅 [将现有 WordPress 站点迁移到 Azure](#migrate-an-existing-wordpress-site-to-azure) 。
+如果要迁移现有 WordPress 站点，在创建新 Web 应用后，请参阅 [将现有 WordPress 站点迁移到 Azure](#Migrate-an-existing-WordPress-site-to-Azure) 。
 
 ### <a name="migrate-an-existing-wordpress-site-to-azure"></a>将现有 WordPress 网站迁移到 Azure
 如[架构与规划](#planning)部分所述，有两种方法可迁移 WordPress 站点：
@@ -120,7 +120,7 @@ Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提�
 
 #### <a name="the-export-and-import-method"></a>导出和导入方法
 1. 使用 [WordPress 导出][export] 导出您的现有网站。
-2. 使用 [创建 WordPress 站点](#create-a-wordpress-site) 部分的步骤，创建 Web 应用。
+2. 使用 [创建 WordPress 站点](#Create-a-new-WordPress-site) 部分的步骤，创建 Web 应用。
 3. 在 [Azure 门户预览][mgmtportal]上登录 WordPress 站点，然后单击“插件” > “新增”。 搜索并安装 **WordPress 导入程序**插件。
 4. 安装 WordPress 导入程序插件后，单击“工具” > “导入”，然后单击“WordPress”使用 WordPress 导入程序插件。
 5. 在“导入 WordPress”页面上，单击“选择文件”。 查找从现有 WordPress 站点导出的 WXR 文件，然后单击“上传文件和导入”。
@@ -236,4 +236,4 @@ Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提�
 [posh]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [Azure CLI]:../cli-install-nodejs.md
 [storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
-[cdn]: /cdn/cdn-overview
+[cdn]: /cdn/cdn-overview/

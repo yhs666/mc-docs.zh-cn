@@ -90,7 +90,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 
 ## <a name="step-1-create-virtual-machines"></a>步骤 1：创建虚拟机
 
-1. 使用订阅登录到 [Azure 门户预览](http://portal.azure.cn)。
+1. 使用订阅登录到 [Azure 门户预览](http://portal.azure.cn) 。
 
 1. [创建 Azure 可用性集](../../virtual-machines-windows-create-availability-set.md)。
 

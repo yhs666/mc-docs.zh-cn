@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/09/2017
 wacn.date: 
 ms.author: elioda
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 28ff19325fe8fdf2537eed2823ba6acf40d4d8ce
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -27,11 +28,11 @@ ms.lasthandoff: 04/07/2017
 
 * [设备到云消息][lnk-d2c]，用于时序遥测和警报。
 * [报告属性][lnk-twins]，用于报告设备状态信息，例如可用功能、条件或长时间运行的工作流的状态。 例如，配置和软件更新。
-* [文件上载][lnk-fileupload]，用于由间歇性连接的设备上载的或为了节省带宽而压缩的媒体文件和大型遥测批文件。
+* [文件上传][lnk-fileupload]，用于由间歇性连接的设备上传的或为了节省带宽而压缩的媒体文件和大型遥测批文件。
 
 下面是各种设备到云通信选项的详细比较。
 
-|  | 设备到云的消息 | 报告的属性 | 文件上载 |
+|  | 设备到云的消息 | 报告的属性 | 文件上传 |
 | ---- | ------- | ---------- | ---- |
 | 方案 | 遥测时序和警报。 例如，每隔 5 分钟发送的 256KB 传感器数据批。 | 可用功能和条件。 例如，当前设备连接模式，诸如手机网络或 WiFi。 同步长时间运行的工作流，如配置和软件更新。 | 媒体文件。 大型（通常为压缩的）遥测批。 |
 | 存储和检索 | 通过 IoT 中心临时进行存储，最多存储 7 天。 仅顺序读取。 | 通过 IoT 中心存储在设备孪生中。 可使用 [IoT 中心查询语言][lnk-query]检索。 | 存储在用户提供的 Azure 存储帐户中。 |

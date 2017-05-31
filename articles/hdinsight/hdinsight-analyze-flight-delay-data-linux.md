@@ -29,7 +29,7 @@ ms.lasthandoff: 04/28/2017
 了解如何在基于 Linux 的 HDInsight 上使用 Hive 分析航班延误数据，然后使用 Sqoop 将数据导出到 Azure SQL 数据库中。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
 
 ### <a name="prerequisites"></a>先决条件
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 04/28/2017
 
     ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn```
 
-    有关详细信息，请参阅[对 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+    有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 3. 连接后，使用以下命令来解压缩 .zip 文件：
 
@@ -254,7 +254,7 @@ ms.lasthandoff: 04/28/2017
     databaseName       dbo     delays      BASE TABLE
     ```
 
-5. 在 `1>` 提示符下输入 `exit` 以退出 tsql 实用工具。
+5. 在 `exit` at the `1>` 以退出 tsql 实用工具。
 
 ## <a name="export-data-with-sqoop"></a>使用 Sqoop 导出数据
 
@@ -309,7 +309,7 @@ ms.lasthandoff: 04/28/2017
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md

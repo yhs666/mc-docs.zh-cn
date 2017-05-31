@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/07/2017
 ms.author: curtand
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 898a00dc1687236d1bd22e522b73399d80555465
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -40,7 +41,7 @@ ms.lasthandoff: 04/28/2017
 
 在对登录页进行品牌更改的情况下，可能需要长达一小时的时间才会向最终用户显示所做的更改。
 
-当用户访问特定于租户的 URL（例如 https://outlook.com/contoso.com ）时，公司品牌元素就会显示在 Azure AD 登录页上。
+当用户访问特定于租户的 URL（例如 https://outlook.com/contoso.com）时，公司品牌元素就会显示在 Azure AD 登录页上。
 
 当用户访问泛型 URL （例如 www.office.com）上的服务时，此时登录页还不会包含公司品牌信息，因为系统不知道用户是谁。 但是，在用户输入其用户 ID 或选择用户磁贴以后，公司品牌就会显示。
 

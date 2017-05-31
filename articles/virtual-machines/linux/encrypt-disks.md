@@ -44,7 +44,7 @@ az group create --name myResourceGroup --location ChinaNorth
 ```azurecli
 keyvault_name=myUniqueKeyVaultName
 az keyvault create --name $keyvault_name --resource-group myResourceGroup \
-  --location ChinaNorth --enabled-for-disk-encryption true
+  --location ChinaNorth --enabled-for-disk-encryption True
 ```
 
 使用 [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key#create) 在 Key Vault 中创建加密密钥。 以下示例创建名为 `myKey` 的密钥：
@@ -69,10 +69,10 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
   --secret-permissions all
 ```
 
-使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM 并附加一个 5Gb 数据磁盘。 只有特定应用商店映像才支持磁盘加密。 下面的示例使用 **Ubuntu 14.04** 映像创建一个名为 `myVM` 的 VM：
+使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM 并附加一个 5Gb 数据磁盘。 只有特定应用商店映像才支持磁盘加密。 下面的示例使用 **CentOS 7.2n** 映像创建一个名为 `myVM` 的 VM：
 
 ```azurecli
-az vm create -g myResourceGroup -n myVM --image Canonical:UbuntuServer:14.04.3-LTS:latest \
+az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.20160629 \
   --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
   --data-disk-sizes-gb 5
 ```
@@ -165,7 +165,7 @@ az group create --name myResourceGroup --location ChinaNorth
 ```azurecli
 keyvault_name=myUniqueKeyVaultName
 az keyvault create --name $keyvault_name --resource-group myResourceGroup \
-  --location ChinaNorth --enabled-for-disk-encryption true
+  --location ChinaNorth --enabled-for-disk-encryption True
 ```
 
 可以使用软件或硬件安全模型 (HSM) 保护来存储加密密钥。 使用 HSM 时需要高级密钥保管库。 与用于存储受软件保护的密钥的标准密钥保管库不同，创建高级密钥保管库会产生额外的费用。 若要创建高级密钥保管库，请在前一步骤中，将 `--sku Premium` 添加到命令。 由于我们创建的是标准密钥保管库，以下示例使用了受软件保护的密钥。 
@@ -196,10 +196,10 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 ```
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
-为了实际加密一些虚拟磁盘，让我们创建一个 VM 并添加一个数据磁盘。 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建要加密的 VM 并附加一个 5Gb 数据磁盘。 只有特定应用商店映像才支持磁盘加密。 下面的示例使用 **Ubuntu 14.04** 映像创建一个名为 `myVM` 的 VM：
+为了实际加密一些虚拟磁盘，让我们创建一个 VM 并添加一个数据磁盘。 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建要加密的 VM 并附加一个 5Gb 数据磁盘。 只有特定应用商店映像才支持磁盘加密。 下面的示例使用 **CentOS 7.2n** 映像创建一个名为 `myVM` 的 VM：
 
 ```azurecli
-az vm create -g myResourceGroup -n myVM --image Canonical:UbuntuServer:14.04.3-LTS:latest \
+az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.20160629 \
   --data-disk-sizes-gb 5
 ```
 

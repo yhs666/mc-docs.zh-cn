@@ -45,12 +45,12 @@
 如果以云中的存储帐户为目标，请从 Azure 门户预览复制存储帐户的主访问密钥。 有关详细信息，请参阅 [查看和复制存储访问密钥](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys)。
 
 > [!NOTE]
-> 您可以指向存储模拟器以避免引发与 Azure 存储空间有关的任何费用。 但是，如果您确实选择指向云中的 Azure 存储帐户，则执行此教程的费用将会忽略不计。
+> 您可以指向存储模拟器以避免引发与 Azure 存储有关的任何费用。 但是，如果您确实选择指向云中的 Azure 存储帐户，则执行此教程的费用将会忽略不计。
 > 
 > 
 
 ### <a name="configure-your-storage-connection-string"></a>配置存储连接字符串
-用于 .NET 的 Azure 存储空间客户端库支持使用存储连接字符串来配置终结点和用于访问存储服务的凭据。 维护存储连接字符串的最佳方法在配置文件中。 
+用于 .NET 的 Azure 存储客户端库支持使用存储连接字符串来配置终结点和用于访问存储服务的凭据。 维护存储连接字符串的最佳方法在配置文件中。 
 
 有关连接字符串的详细信息，请参阅 [配置 Azure 存储的连接字符串](../articles/storage/storage-configure-connection-string.md)。
 

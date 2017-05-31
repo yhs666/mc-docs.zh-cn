@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 02/09/2017
 wacn.date: 
 ms.author: robb
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 8796853fe6c46d62b5838f9f14865688891f195d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -70,8 +71,8 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 | -111 |无法启动监视代理。<p><p>解决方案：验证是否有足够的系统资源。 |
 | -112 |常规错误 |
 
-## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>未将 Diagnostics 数据记录到 Azure 存储空间
-Azure 诊断会将所有数据存储在 Azure 存储空间中。
+## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>未将 Diagnostics 数据记录到 Azure 存储
+Azure 诊断会将所有数据存储在 Azure 存储中。
 
 丢失事件数据的最常见原因是错误地定义了存储帐户信息。
 
@@ -101,7 +102,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<Diagno
 %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
 ```
 
- 
+云服务角色上的 *%SystemDrive%* 通常为 D:
 
 在虚拟机上：
 
@@ -112,7 +113,7 @@ C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVers
 上述命令生成日志文件 *maeventtable.csv*，可以打开该文件并检查失败消息。    
 
 ## <a name="diagnostics-data-tables-not-found"></a>找不到诊断数据表
-Azure 存储空间中保存 Azure 诊断数据的表是使用以下代码命名的：
+Azure 存储中保存 Azure 诊断数据的表是使用以下代码命名的：
 
 ```csharp
 if (String.IsNullOrEmpty(eventDestination)) {

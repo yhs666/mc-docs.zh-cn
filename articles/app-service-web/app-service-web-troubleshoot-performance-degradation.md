@@ -1,6 +1,6 @@
 ---
 title: "应用服务中 Web 应用性能缓慢 | Azure"
-description: "本文将帮助你排查 Azure 应用服务中 Web 应用性能缓慢的问题。"
+description: "本文将帮助你排查 Azure 应用服务 中 Web 应用性能缓慢的问题。"
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/14/2017
 
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>排查 Azure 应用服务中 Web 应用性能缓慢的问题
-本文将帮助排查 [Azure 应用服务](/app-service-web/app-service-changes-existing-services/)中 Web 应用性能缓慢的问题。
+本文将帮助排查 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services/)中 Web 应用性能缓慢的问题。
 
 如果你对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，你也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)，并单击“**获取支持**”。
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 04/14/2017
 * [接收警报通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 #### <a name="monitor-web-endpoint-status"></a>监视 Web 终结点状态
-如果在 **标准** 定价层中运行 Web 应用，Web 应用可让你从 3 个地理位置监视 2 个终结点。
+如果在 **标准** 定价层中运行 Web 应用，Web Apps 可让你从 3 个地理位置监视 2 个终结点。
 
 终结点监视可从测试 Web URL 的响应时间和运行时间的分布式地理位置配置 Web 测试。 该测试可对 Web URL 执行 HTTP GET 操作，以从每个位置确定响应时间和运行时间。 每个已配置位置每 5 分钟运行一次测试。
 
@@ -126,7 +126,7 @@ Azure 应用服务支持门户具有三个不同的选项卡，用于支持常�
 有关 Azure 应用服务支持门户的详细信息，请参阅[用于支持 Azure 网站的站点扩展的最新更新](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites)。
 
 #### <a name="use-the-kudu-debug-console"></a>使用 Kudu 调试控制台
-Web 应用随附可用于调试、浏览和上传文件的调试控制台，以及用于获取环境相关信息的 JSON 终结点。 此控制台称为 Web 应用的 *Kudu 控制台*或 *SCM 仪表板*。
+Web Apps 随附可用于调试、浏览和上传文件的调试控制台，以及用于获取环境相关信息的 JSON 终结点。 此控制台称为 Web 应用的 *Kudu 控制台*或 *SCM 仪表板*。
 
 转到链接 **https://&lt;Your app name>.scm.chinacloudsites.cn/** 即可访问此仪表板。
 

@@ -15,9 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: e4a7e778a7fccc4528b7f5b234041e7d5efc41fa
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -44,7 +45,7 @@ ms.lasthandoff: 04/07/2017
 
 * **前端 IP 配置**：包含传入网络流量的公共 IP 地址
 * **后端地址池**：包含使虚拟机可以从负载均衡器接收网络流量的网络接口 (NIC)
-* **负载平衡规则**：所含规则可将负载均衡器上的公共端口映射到后端地址池的端口上
+* **负载均衡规则**：所含规则可将负载均衡器上的公共端口映射到后端地址池的端口上
 * **入站 NAT 规则**：所含规则可将负载均衡器上的公共端口映射到后端地址池中特定虚拟机的端口
 * **探测器**：包含用于检查后端地址池中虚拟机实例的可用性的运行状况探测器
 

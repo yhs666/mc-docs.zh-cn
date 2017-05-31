@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 8dd98fb80732de61a8eb4757d20593389b8ef474
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -262,7 +263,7 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 | *authentication（父元素）* |用于使用 ActiveDirectoryOAuth 身份验证的身份验证对象。 |
 | *类型* |必需。 身份验证的类型。 对于 ActiveDirectoryOAuth 身份验证，该值必须是 `ActiveDirectoryOAuth`。 |
 | *tenant* |必需。 Azure AD 租户的租户标识符。 |
-|*audience* |必需。 设置为 https://management.core.chinacloudapi.cn/ 。|
+|*audience* |必需。 设置为 https://management.core.chinacloudapi.cn/。|
 | *clientId* |必需。 为 Azure AD 应用程序提供客户端标识符。 |
 | *secret* |必需。 正在请求令牌的客户端的机密。 |
 
@@ -277,7 +278,7 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 | *authentication（父元素）* |用于使用 ActiveDirectoryOAuth 身份验证的身份验证对象。 |
 | *类型* |身份验证的类型。 对于 ActiveDirectoryOAuth 身份验证，该值为 `ActiveDirectoryOAuth`。 |
 | *tenant* |Azure AD 租户的租户标识符。 |
-|*audience* |设置为 https://management.core.chinacloudapi.cn/ 。|
+|*audience* |设置为 https://management.core.chinacloudapi.cn/。|
 | *clientId* |AD 应用程序的客户端标识符。 |
 
 ## <a name="sample-rest-request-for-activedirectoryoauth-authentication"></a>ActiveDirectoryOAuth 身份验证的示例 REST 请求

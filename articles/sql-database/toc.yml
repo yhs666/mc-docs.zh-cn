@@ -1,5 +1,5 @@
 - name: SQL DB 文档
-  href: index.md
+  href: index.yml
 - name: 概述
   items:
   - name: 关于 SQL DB
@@ -23,6 +23,16 @@
     items:
     - name: .NET
       href: sql-database-connect-query-dotnet.md
+    - name: PHP
+      href: sql-database-connect-query-php.md
+    - name: Node.js
+      href: sql-database-connect-query-nodejs.md
+    - name: Java
+      href: sql-database-connect-query-java.md
+    - name: Python
+      href: sql-database-connect-query-python.md
+    - name: Ruby
+      href: sql-database-connect-query-ruby.md
 - name: 示例
   items:
   - name: Azure CLI
@@ -31,6 +41,10 @@
     href: sql-database-powershell-samples.md
 - name: 教程
   items:
+  - name: 设计数据库
+    href: sql-database-design-first-database.md
+  - name: 迁移数据库
+    href: sql-database-migrate-your-sql-server-database.md  
 - name: 概念
   items:
   - name: 数据库和服务器
@@ -89,6 +103,8 @@
       href: sql-database-elastic-query-vertical-partitioning.md
     - name: 事务
       href: sql-database-elastic-transactions-overview.md
+    - name: 弹性作业
+      href: sql-database-elastic-jobs-overview.md
   - name: “安全”
     items:
     - name: 概述
@@ -121,6 +137,8 @@
       href: sql-database-business-continuity.md
     - name: 数据库备份
       href: sql-database-automated-backups.md
+    - name: 备份保留
+      href: sql-database-long-term-retention.md
     - name: 数据库恢复
       href: sql-database-recovery-using-backups.md
     - name: 异地复制
@@ -154,6 +172,8 @@
       href: sql-database-elastic-scale-working-with-dapper.md
     - name: JSON 数据
       href: sql-database-json-features.md
+    - name: 内存中
+      href: sql-database-in-memory.md
     - name: 临时表
  
       href: sql-database-temporal-tables.md
@@ -224,6 +244,8 @@
       href: sql-database-dynamic-data-masking-get-started-portal.md
   - name: 恢复单个表
     href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
+  - name: 为备份配置保管库
+    href: sql-database-long-term-backup-retention-configure.md
   - name: 异地复制数据
     items:
     - name: 门户
@@ -255,6 +277,8 @@
     - name: 使用 C 创建 DB
 #
       href: sql-database-get-started-csharp.md
+  - name: 配置“内存中”设置
+    href: sql-database-in-memory-oltp-migration.md
   - name: 管理多个数据库
     items:
     - name: 创建分片应用
@@ -275,6 +299,16 @@
       href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: 升级客户端
       href: sql-database-elastic-scale-upgrade-client-library.md
+    - name: 安装弹性作业
+      href: sql-database-elastic-jobs-service-installation.md
+    - name: 创建作业 - 门户
+      href: sql-database-elastic-jobs-create-and-manage.md
+    - name: 创建作业 - PowerShell
+      href: sql-database-elastic-jobs-powershell.md
+    - name: 创建作业 - 示例应用
+      href: sql-database-elastic-jobs-getting-started.md
+    - name: 卸载弹性作业
+      href: sql-database-elastic-jobs-uninstall.md
     - name: 查询水平数据
       href: sql-database-elastic-query-getting-started.md
     - name: 查询垂直数据
@@ -299,6 +333,8 @@
     items:
     - name: Azure 自动化
       href: sql-database-manage-automation.md
+    - name: Azure RemoteApp
+      href: sql-database-ssms-remoteapp.md
     - name: SSMS - MFA
       href: sql-database-ssms-mfa-authentication-configure.md
 - name: 引用
@@ -352,6 +388,8 @@
   items:
   - name: 常见问题
     href: sql-database-faq.md
+  - name: 公共数据集
+    href: sql-database-public-data-sets.md  
   - name: 排查连接问题
     href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
   - name: 定价

@@ -25,8 +25,8 @@
 ### [配置角色的流量规则](cloud-services-enable-communication-role-instances.md)
 ### [处理云服务生命周期事件](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
-
-
+### [使用 Twilio 拨打电话 (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
+### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### 配置启动任务
 #### [创建启动任务](cloud-services-startup-tasks.md)
@@ -85,7 +85,6 @@
 ### [在 Azure 诊断中使用性能计数器](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [在 Azure 存储中存储和查看诊断数据](cloud-services-dotnet-diagnostics-storage.md)
 ### [使用诊断跟踪云服务](cloud-services-dotnet-diagnostics-trace-flow.md)
-
 
 ## 故障排除
 ### 调试 

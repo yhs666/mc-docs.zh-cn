@@ -1,23 +1,24 @@
 ---
-title: "如何使用队列存储 (C++) | Microsoft Docs"
+title: "如何使用队列存储 (C++) | Azure"
 description: "了解如何在 Azure 中使用队列存储服务。 示例用 C++ 编写。"
 services: storage
 documentationcenter: .net
-author: seguler
+author: cbrooksmsft
 manager: jahogg
 editor: tysonn
 ms.assetid: c8a36365-29f6-404d-8fd1-858a7f33b50a
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: cpp
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: seguler
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: c40d807ab64d70559b7dcef68f033aec7604caa2
-ms.lasthandoff: 04/14/2017
+ms.date: 05/11/2017
+ms.author: cbrooksmsft
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 0f549aa999ccfde138ab8b5fed6d7fff5159098f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -67,7 +68,7 @@ Azure 存储客户端使用存储连接字符串来存储用于访问数据管�
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key;EndpointSuffix=core.chinacloudapi.cn"));
 ```
 
-若要在本地 Windows 计算机中测试应用程序，可以使用随 [Azure SDK](https://www.azure.cn/downloads/) 一起安装的 Azure [存储模拟器](storage-use-emulator.md)。 存储模拟器是一种用于模拟本地开发计算机上 Azure 中可用的 Blob、队列和表服务的实用程序。 以下示例演示如何声明一个静态字段以将连接字符串保存到你的本地存储模拟器：  
+若要在本地 Windows 计算机中测试应用程序，可以使用随 [Azure SDK](/downloads/) 一起安装的 Azure [存储模拟器](storage-use-emulator.md)。 存储模拟器是一种用于模拟本地开发计算机上 Azure 中可用的 Blob、队列和表服务的实用程序。 以下示例演示如何声明一个静态字段以将连接字符串保存到你的本地存储模拟器：  
 
 ```cpp
 // Define the connection-string with Azure Storage Emulator.

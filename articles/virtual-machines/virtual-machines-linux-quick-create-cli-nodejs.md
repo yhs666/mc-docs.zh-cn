@@ -16,10 +16,10 @@ ms.date: 12/15/2016
 wacn.date: 
 ms.author: v-livech
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 0745557de0d4d46ef91b856b5e78e26a614e88fb
+ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
+ms.openlocfilehash: 06f366c6e4940cb650dcc839a03f6552b818d937
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -68,7 +68,7 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 
 * 资源组名称（通常适用于第一个 Azure 资源组的任何字符串）
 * VM 名称
-* 位置（`chinanorth` 或 `chinaeast` 都是合理的默认值）
+* 位置（`chinanorth` 或 `chinanorth` 都是合理的默认值）
 * linux（为了让 Azure 知道用户需要哪个 OS）
 * username
 

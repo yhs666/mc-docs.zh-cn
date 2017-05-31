@@ -119,7 +119,7 @@ ms.lasthandoff: 05/19/2017
 4. 在终端中，在应用程序的根目录下，键入以下命令：
 
         php -S localhost:8000
-5. 打开 Web 浏览器并浏览到 **http://localhost:8000/createtable.php** 。 这将在数据库中创建 `registration_tbl` 表。
+5. 打开 Web 浏览器并浏览到 **http://localhost:8000/createtable.php**。 这将在数据库中创建 `registration_tbl` 表。
 6. 在文本编辑器或 IDE 中打开 **index.php** 文件，并为页面添加基本 HTML 和 CSS 代码（将在后续步骤中添加 PHP 代码）。
 
         <html>

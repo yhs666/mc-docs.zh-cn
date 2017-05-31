@@ -17,10 +17,10 @@ ms.date: 02/29/2016
 wacn.date: 
 ms.author: riande
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: fb59dd4ad3708ee1616e4d2acf6214b0e2a04fee
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 219479054c45e67df252f94d73c29bfc1c77a68a
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -484,7 +484,7 @@ ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新�
     ![包含待办事项列表项的索引页面][addwebapi004]
 3. 在浏览器中，将 **/api/contacts** 追加到 URL。
 
-    生成的 URL 类似于 http://localhost:1234/api/contacts 。 添加的 RESTful Web API 将返回存储的联系人。 Firefox 和 Chrome 将以 XML 格式显示数据。
+    生成的 URL 类似于 http://localhost:1234/api/contacts。 添加的 RESTful Web API 将返回存储的联系人。 Firefox 和 Chrome 将以 XML 格式显示数据。
 
     ![包含待办事项列表项的索引页面][rxFFchrome]
 
@@ -677,7 +677,7 @@ XSRF 攻击不同于网络钓鱼攻击。 网络钓鱼攻击需要与受害者�
 * [你的第一个 ASP.NET Web API](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
 * [调试 WAWS](web-sites-dotnet-troubleshoot-visual-studio.md)
 
-本教程和示例应用程序由 [Rick Anderson](http://blogs.msdn.com/b/rickandy/) 在 Tom Dykstra 和 Barry Dorrans 的帮助下编写。
+本教程和示例应用程序由 [Rick Anderson](http://blogs.msdn.com/b/rickandy/) 在 Tom Dykstra 和 Barry Dorrans 的帮助下编写。 
 
 请提供有关你喜欢的内容或者你希望看到改善的内容的反馈，不仅关于教程本身，也关于它所演示的产品。 你的反馈将帮助我们确定优先改进哪些方面。 我们特别希望确定大家对于对配置和部署成员资格数据库的流程进行更多自动化的兴趣有多大。 
 

@@ -1,6 +1,6 @@
 ---
 title: "Azure Resource Manager 概述 | Azure"
-description: "介绍如何使用 Azure 资源管理器在 Azure 上部署和管理资源以及对其进行访问控制。"
+description: "介绍如何使用 Azure Resource Manager 在 Azure 上部署和管理资源以及对其进行访问控制。"
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -15,15 +15,16 @@ ms.workload: na
 ms.date: 03/23/2017
 wacn.date: 
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 7f4c7ec84ea9a14c941318640c832a20476d2749
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
 
-# <a name="azure-resource-manager-overview"></a>Azure 资源管理器概述
-应用程序的体系结构通常由许多组件构成 – 其中可能包括虚拟机、存储帐户、虚拟网络、Web 应用、数据库、数据库服务器和第三方服务。 这些组件不会以独立的实体出现，而是以单个实体的相关部件和依赖部件出现。 如果你希望以组的方式部署、管理和监视这些这些组件， 那么，你可以使用 Azure 资源管理器以组的方式处理解决方案中的资源。 可以通过一个协调的操作为解决方案部署、更新或删除所有资源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 资源管理器提供安全、审核和标记功能，以帮助你在部署后管理资源。 
+# <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
+应用程序的体系结构通常由许多组件构成 – 其中可能包括虚拟机、存储帐户、虚拟网络、Web 应用、数据库、数据库服务器和第三方服务。 这些组件不会以独立的实体出现，而是以单个实体的相关部件和依赖部件出现。 如果你希望以组的方式部署、管理和监视这些这些组件， 那么，你可以使用 Azure Resource Manager 以组的方式处理解决方案中的资源。 可以通过一个协调的操作为解决方案部署、更新或删除所有资源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 Resource Manager 提供安全、审核和标记功能，以帮助你在部署后管理资源。 
 
 ## <a name="terminology"></a>术语
 如果你不熟悉 Azure Resource Manager，则可能不熟悉某些术语。
@@ -35,7 +36,7 @@ ms.lasthandoff: 04/22/2017
 * **声明性语法** - 一种语法，允许你声明“以下是我想要创建的项目”，而不需要编写一系列编程命令来进行创建。 Resource Manager 模板便是声明性语法的其中一个示例。 在该文件中，你可以定义要部署到 Azure 的基础结构的属性。 
 
 ## <a name="the-benefits-of-using-resource-manager"></a>使用 Resource Manager 的优势
-资源管理器提供多种优势：
+Resource Manager 提供多种优势：
 
 * 可以以组的形式部署、管理和监视解决方案的所有资源，而不是单独处理这些资源。
 * 你可以在整个开发生命周期内重复部署解决方案，并确保以一致的状态部署资源。
@@ -45,7 +46,7 @@ ms.lasthandoff: 04/22/2017
 * 可以将标记应用到资源，以逻辑方式组织订阅中的所有资源。
 * 可以通过查看一组共享相同标记的资源的成本来明确组织的帐单。  
 
-资源管理器提供了一种新方法来部署和管理您的解决方案。 如果使用早期的部署模型并想了解这些更改，请参阅[了解 Resource Manager 部署和经典部署](./resource-manager-deployment-model.md)。
+Resource Manager 提供了一种新方法来部署和管理您的解决方案。 如果使用早期的部署模型并想了解这些更改，请参阅[了解 Resource Manager 部署和经典部署](./resource-manager-deployment-model.md)。
 
 ## <a name="consistent-management-layer"></a> 一致的管理层
 Resource Manager 针对通过 Azure PowerShell、Azure CLI、Azure 门户、REST API 和开发工具执行的任务提供一致的管理层。 所有工具使用一组通用操作。 可以使用最合适的工具，并且可以换用这些工具而不发生混淆。 
@@ -57,7 +58,7 @@ Resource Manager 针对通过 Azure PowerShell、Azure CLI、Azure 门户、REST
 ## <a name="guidance"></a>指南
 以下建议可帮助你在使用解决方案时充分利用 Resource Manager。
 
-1. 通过资源管理器模板中的声明性语法而不是强制性的命令来定义和部署基础结构。
+1. 通过 Resource Manager 模板中的声明性语法而不是强制性的命令来定义和部署基础结构。
 2. 在模板中定义所有部署和配置步骤。 在设置解决方案时不应执行手动步骤。
 3. 运行强制性命令来管理资源，例如启动或停止应用或计算机。
 4. 排列资源组中具有相同生命周期的资源。 使用标记来组织其他所有资源。
@@ -175,9 +176,9 @@ Resource Manager 像处理其他任何请求一样处理模板（请参阅[一�
 
 Azure Resource Manager 会分析依赖关系，以确保按正确的顺序创建资源。 如果一个资源依赖于另一个资源（例如虚拟机需要存储帐户才能访问磁盘）中的值，请设置依赖关系。 有关详细信息，请参阅[在 Azure Resource Manager 模板中定义依赖关系](./resource-group-define-dependencies.md)。
 
-还可以使用模板对基础结构进行更新。 例如，可以将资源添加到解决方案，并为已部署的资源添加配置规则。 如果模板指定要创建资源，但该资源已存在，则 Azure Resource Manager 将执行更新而不是创建新资产。 Azure 资源管理器会将现有资产更新到相同状态，就如同该资产是新建的一样。  
+还可以使用模板对基础结构进行更新。 例如，可以将资源添加到解决方案，并为已部署的资源添加配置规则。 如果模板指定要创建资源，但该资源已存在，则 Azure Resource Manager 将执行更新而不是创建新资产。 Azure Resource Manager 会将现有资产更新到相同状态，就如同该资产是新建的一样。  
 
-如果你需要其他操作（例如，安装未包含在安装程序中的特定软件）时，资源管理器可提供所需的扩展。 如果你已在使用配置管理服务（如 DSC、Chef 或 Puppet），则可以使用扩展来继续处理该服务。 有关虚拟机扩展的信息，请参阅[关于虚拟机扩展和功能](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
+如果你需要其他操作（例如，安装未包含在安装程序中的特定软件）时，Resource Manager 可提供所需的扩展。 如果你已在使用配置管理服务（如 DSC、Chef 或 Puppet），则可以使用扩展来继续处理该服务。 有关虚拟机扩展的信息，请参阅[关于虚拟机扩展和功能](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
 
 最后，该模板将成为应用程序源代码的一部分。 你可以将它签入源代码存储库，并随着应用程序的发展更新该模板。 你可以通过 Visual Studio 编辑模板。
 
@@ -189,7 +190,7 @@ Azure Resource Manager 会分析依赖关系，以确保按正确的顺序创建
 * [使用 Resource Manager 模板和 Resource Manager REST API 部署资源](./resource-group-template-deploy-rest.md)
 
 ## <a name="tags"></a>标记
-资源管理器提供了标记功能，让你根据管理或计费要求为资源分类。 如果你有一系列复杂的资源组和资源，并想要以最有利的方式可视化这些资产，则可以使用标记。 例如，你可以标记组织中充当类似角色或者属于同一部门的资源。 如果不使用标记，组织中的用户可以创建多个资源，这可能会使将来的标识和管理变得困难。 例如，你可能会希望删除特定项目的所有资源。 如果这些资源没有针对项目进行标记，则必须手动查找它们。 标记是降低不必要的订阅成本的重要方法。 
+Resource Manager 提供了标记功能，让你根据管理或计费要求为资源分类。 如果你有一系列复杂的资源组和资源，并想要以最有利的方式可视化这些资产，则可以使用标记。 例如，你可以标记组织中充当类似角色或者属于同一部门的资源。 如果不使用标记，组织中的用户可以创建多个资源，这可能会使将来的标识和管理变得困难。 例如，你可能会希望删除特定项目的所有资源。 如果这些资源没有针对项目进行标记，则必须手动查找它们。 标记是降低不必要的订阅成本的重要方法。 
 
 资源不需要驻留在同一个资源组中就能共享一个标记。 你可以创建自己的标记分类，以确保组织中的所有用户使用公用的标记，避免用户无意中应用稍有不同的标记（如“dept”而不是“department”）。
 
@@ -224,10 +225,10 @@ Azure Resource Manager 会分析依赖关系，以确保按正确的顺序创建
 
 也可通过 Azure 门户查看标记的资源。
 
-订阅的[使用情况报告](../billing-understand-your-bill.md)包括标记名称和值，可用于按标记对成本进行细分。 有关标记的详细信息，请参阅 [使用标记来组织 Azure 资源](./resource-group-using-tags.md)。
+订阅的[使用情况报告](/documentation/articles/billing-understand-your-bill/)包括标记名称和值，可用于按标记对成本进行细分。 有关标记的详细信息，请参阅 [使用标记来组织 Azure 资源](./resource-group-using-tags.md)。
 
 ## <a name="access-control"></a>访问控制
-资源管理器可让你控制谁有权访问组织的特定操作。 Resource Manager 原生地在管理平台中集成了基于角色的访问控制 (RBAC)，并向资源组中的所有服务应用该访问控制。 
+Resource Manager 可让你控制谁有权访问组织的特定操作。 Resource Manager 原生地在管理平台中集成了基于角色的访问控制 (RBAC)，并向资源组中的所有服务应用该访问控制。 
 
 使用基于角色的访问控制时，必须了解两个主要概念：
 
@@ -265,7 +266,7 @@ Azure 还提供资源特定的多种角色。 一些常见的角色包括：
 Resource Manager 记录所有创建、修改或删除资源的操作。 活动日志可用于在故障排除时查找错误，或用于监视组织内用户对资源的修改。 若要查看日志，请在某资源组的“设置”边栏选项卡选择“活动日志”。 可按多个值筛选日志，包括启动操作的用户。 有关使用活动日志的信息，请参阅[查看活动日志以管理 Azure 资源](./resource-group-audit.md)。
 
 ## <a name="customized-policies"></a>自定义的策略
-资源管理器可让你创建自定义策略来管理资源。 创建的策略类型可包括各种方案。 可以在资源上实施命名约定，限制可部署的资源的类型和实例，或限制可托管资源类型的区域。 可以要求资源上的标记值按部门组织计费。 可以通过创建策略来降低成本并在订阅中保持一致性。 
+Resource Manager 可让你创建自定义策略来管理资源。 创建的策略类型可包括各种方案。 可以在资源上实施命名约定，限制可部署的资源的类型和实例，或限制可托管资源类型的区域。 可以要求资源上的标记值按部门组织计费。 可以通过创建策略来降低成本并在订阅中保持一致性。 
 
 需要使用 JSON 定义策略，然后在整个订阅中或者在资源组内应用这些策略。 策略不同于基于角色的访问控制，因为它们将应用到资源类型。
 

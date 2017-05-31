@@ -18,6 +18,7 @@ ms.author: xshi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: be7c37851046e6fb5db2ea967ad2239937c4e85a
+ms.contentlocale: zh-cn
 ms.lasthandoff: 05/05/2017
 
 

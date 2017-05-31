@@ -1,84 +1,106 @@
 ---
-title: Azure 事件中心文档 - 教程、API 参考 | Microsoft Docs
-description: 了解如何使用事件中心从各种平台上的已连接 IoT 设备和应用程序每秒引入数百万事件。
+title: "Azure 事件中心文档 - 教程、API 参考 | Microsoft Docs"
+description: "了解如何使用事件中心从各种平台上的已连接 IoT 设备和应用程序每秒引入数百万事件。"
 services: event-hubs
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid:	
+ms.assetid: 
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 登录页
+ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
+ms.openlocfilehash: b3bbbefea5b2bffd8cdee1b93d7bd8bcf808bef0
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/12/2017
+
 ---
 
-#事件中心文档
+#<a name="event-hubs-documentation"></a>事件中心文档
 
-了解如何使用事件中心从连接的 IoT 设备和应用程序每秒收集和管理数百万事件。教程、API 参考和其他文档介绍了如何为各种平台上的事件设置可缩放引入。
+了解如何使用事件中心从连接的 IoT 设备和应用程序每秒收集和管理数百万事件。 教程、API 参考和其他文档介绍了如何针对各种平台上的事件设置可伸缩性引入。
 
 <ul class="panelContent cardsFTitle">
-     <li><a href="/event-hubs/event-hubs-what-is-event-hubs">
-<div class="cardSize">
+     <li>
+        <a href="/azure/event-hubs/event-hubs-what-is-event-hubs">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/event-hubs.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/event-hubs.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
                         <h3>了解 Azure 事件中心</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
-     <li><a href="https://azure.microsoft.com/documentation/videos/index/?services=event-hubs">
-<div class="cardSize">
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=event-hubs">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/video-library.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
                         <h3>Azure 事件中心视频库</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
-     <li><a href="/event-hubs/event-hubs-programming-guide">
-<div class="cardSize">
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/azure/event-hubs/event-hubs-programming-guide">
+        <div class="cardSize">
             <div class="cardPadding">
                <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/get-started.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
-                        <h3>事件中心编程指南入门</h3>
+                        <h3>事件中心编程入门指南</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
-    <li><a href="/event-hubs/event-hubs-csharp-ephcs-getstarted">
-<div class="cardSize">
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/event-hubs/event-hubs-csharp-ephcs-getstarted">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/tutorial.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
-                        <h3>通过 Azure 门户使用事件中心入门</h3>
+                        <h3>通过 Azure 门户开始使用事件中心</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---
-<h2>参考</h2>
+<h2>引用</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -114,8 +136,8 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3><a href="/rest/api/eventhub">REST</a></h3>
-                        <p><a href="/event-hubs/event-hubs-messaging-exceptions">异常</a></p>
-                        <p><a href="/event-hubs/event-hubs-quotas">配额</a></p>
+                        <p><a href="/azure/event-hubs/event-hubs-messaging-exceptions">异常</a></p>
+                        <p><a href="/azure/event-hubs/event-hubs-quotas">配额</a></p>
                     </div>
                 </div>
             </div>
@@ -123,4 +145,3 @@ ms.author: carolz
     </li>
 </ul>
 
-<!---HONumber=Mooncake_0320_2017-->

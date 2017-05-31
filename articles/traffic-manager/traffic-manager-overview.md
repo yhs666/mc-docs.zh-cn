@@ -16,10 +16,10 @@ ms.date: 03/16/2017
 wacn.date: 
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: 40d75f85a6cf30777f6c28b97fb8cd27d7aa64b2
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 820fe65b1f0fe93497bbbdc811d05f9b8550e712
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/19/2017
 
 ---
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 04/06/2017
 
 ### <a name="traffic-manager-example"></a>流量管理器示例
 
-Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 是 https://partners.contoso.com/login.aspx 。 该应用程序托管在三个 Azure 区域中。 为了改善可用性并在全球最大程度地提高性能，他们使用流量管理器将客户端流量分布到最靠近的可用终结点。
+Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 是 https://partners.contoso.com/login.aspx。 该应用程序托管在三个 Azure 区域中。 为了改善可用性并在全球最大程度地提高性能，他们使用流量管理器将客户端流量分布到最靠近的可用终结点。
 
 为了实现该配置：
 
@@ -107,6 +107,10 @@ Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 是 htt
 
 有关定价信息，请参阅[流量管理器定价](https://www.azure.cn/pricing/details/traffic-manager/)。
 
+## <a name="faq"></a>常见问题
+
+有关流量管理器的常见问题，请参阅[流量管理器常见问题解答](traffic-manager-FAQs.md)
+
 ## <a name="next-steps"></a>后续步骤
 
 详细了解流量管理器[终结点监视和自动故障转移](traffic-manager-monitoring.md)。
@@ -116,3 +120,4 @@ Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 是 htt
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
+

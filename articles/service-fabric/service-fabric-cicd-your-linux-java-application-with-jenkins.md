@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/27/2017
 ms.author: saysa
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 335f41e2e4a40e64e87382ea338673de3ab79c27
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -112,7 +113,7 @@ bash Scripts/install.sh
 
 1. 转到 ``http://PublicIPorFQDN:8081``
 2. 在 Jenkins 仪表板中，选择“管理 Jenkins” -> “管理插件” -> “高级”。
-可以在这里上载插件。 选择“选择文件”选项，然后选择 serviceFabric.hpi 文件（已在“先决条件”部分下载）。 一旦用户选择“上载”，Jenkins 就会自动安装该插件。 如果系统请求重新启动，请允许。
+可以在这里上传插件。 选择“选择文件”选项，然后选择 serviceFabric.hpi 文件（已在“先决条件”部分下载）。 一旦用户选择“上传”，Jenkins 就会自动安装该插件。 如果系统请求重新启动，请允许。
 
 ## <a name="creating-and-configuring-a-jenkins-job"></a>创建和配置 Jenkins 作业
 
@@ -139,7 +140,7 @@ bash Scripts/install.sh
  >
 
 ### <a name="end-to-end-scenario"></a>端到端方案
-现在已配置 GitHub 和 Jenkins，因此可以在存储库（例如 https://github.com/sayantancs/SFJenkins ）的 ``MyActor`` 项目中进行一些示例性的更改，并将所做的更改推送到远程 ``master`` 分支（或任何已配置的可以使用的分支）。 此时会触发已配置的 Jenkins 作业 ``MyJob``。 其基本功能包括：从 GitHub 提取更改、生成这些更改并将应用程序部署到在生成后操作中指定的群集终结点。  
+现在已配置 GitHub 和 Jenkins，因此可以在存储库（例如 https://github.com/sayantancs/SFJenkins）的 ``MyActor`` 项目中进行一些示例性的更改，并将所做的更改推送到远程 ``master`` 分支（或任何已配置的可以使用的分支）。 此时会触发已配置的 Jenkins 作业 ``MyJob``。 其基本功能包括：从 GitHub 提取更改、生成这些更改并将应用程序部署到在生成后操作中指定的群集终结点。  
 
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png

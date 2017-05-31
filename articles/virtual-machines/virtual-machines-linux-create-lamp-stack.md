@@ -92,7 +92,7 @@ az group deployment create -g myResourceGroup \
 现在你已创建已安装 LAMP 的 Linux VM。 可以根据需要跳转到[验证是否已成功安装 LAMP](#verify-lamp-successfully-installed) 来验证此安装。
 
 ## <a name="deploy-lamp-on-existing-vm-walkthrough"></a>在现有 VM 上部署 LAMP 的演练
-如果需要有关创建 Linux VM 方面的帮助，可以转到[此处了解如何创建 Linux VM](/virtual-machines/virtual-machines-linux-quick-create-cli)。 接下来，需通过 SSH 登录 Linux VM。 如果需要有关创建 SSH 密钥方面的帮助，可以转到[此处了解如何在 Linux/Mac 上创建 SSH 密钥](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+如果需要有关创建 Linux VM 方面的帮助，可以转到[此处了解如何创建 Linux VM](/azure/virtual-machines/virtual-machines-linux-quick-create-cli)。 接下来，需通过 SSH 登录 Linux VM。 如果需要有关创建 SSH 密钥方面的帮助，可以转到[此处了解如何在 Linux/Mac 上创建 SSH 密钥](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 如果已有 SSH 密钥，请继续操作，使用 `ssh azureuser@mypublicdns.chinanorth.chinacloudapp.cn` 从命令行通过 SSH 登录 Linux VM。
 
 现在你是在 Linux VM 中操作，我们可以指导你在基于 Debian 的分发版上安装 LAMP 堆栈。 对于其他 Linux 分发版，确切的命令可能会有所不同。

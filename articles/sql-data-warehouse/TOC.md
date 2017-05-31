@@ -7,10 +7,10 @@
 
 # 入门
 
-<!-- ## [初级教程](sql-data-warehouse-get-started-tutorial.md) -->
+<!-- ## [Beginner tutorial](sql-data-warehouse-get-started-tutorial.md) -->
 ## [最佳实践](sql-data-warehouse-best-practices.md)
 ## [管理](sql-data-warehouse-overview-manage.md)
-<!-- ## [获取支持](sql-data-warehouse-get-started-create-support-ticket.md) -->
+<!-- ## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)-->
 ## [故障排除](sql-data-warehouse-troubleshoot.md)
 
 # 如何
@@ -73,7 +73,7 @@
 ### [概述](sql-data-warehouse-overview-integrate.md)
 <!-- Not Available ### [Data Factory](sql-data-warehouse-integrate-azure-data-factory.md)-->
 <!-- Not Available ### [Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md)-->
-<!-- Not Available ### [机器学习教程](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) -->
+<!-- Not Available ### [Machine Learning tutorial](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) -->
 <!-- Not Available ### [Power BI](sql-data-warehouse-integrate-power-bi.md)-->
 <!-- Not Available ### [Power BI visualization](sql-data-warehouse-get-started-visualize-with-power-bi.md)-->
 ### [流分析](sql-data-warehouse-integrate-azure-stream-analytics.md)
@@ -142,7 +142,7 @@
 ## [论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
-## 合作伙伴
+<!-- Not Available ## Partners -->
 <!-- Not Available ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)-->
 <!-- Not Available ### [Data integration](sql-data-warehouse-partner-data-integration.md)-->
-### [数据管理](sql-data-warehouse-partner-data-management.md)
+<!-- Not Available ### [Data management](sql-data-warehouse-partner-data-management.md) -->

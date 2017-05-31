@@ -14,9 +14,10 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 wacn.date: 
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: a13d905a922f09d0bf1e3e8d10001fa4bdb17c67
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/21/2017
 
 ---

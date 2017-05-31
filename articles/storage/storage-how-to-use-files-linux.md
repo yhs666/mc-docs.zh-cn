@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/8/2017
 ms.author: renash
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: edc9d41bd38c4fe7359328a34bd0ebc4486d2aa8
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -123,7 +124,7 @@ Filesystem  Size  Used Avail Use% Mounted on
 ## <a name="manage-the-file-share"></a>管理文件共享
 [Azure 门户预览](https://portal.azure.cn)提供用于管理 Azure 文件存储的用户界面。 你可以从 Web 浏览器中执行以下操作：
 
-* 将文件上载到文件共享和从文件共享下载文件。
+* 将文件上传到文件共享和从文件共享下载文件。
 * 监视每个文件共享的实际使用情况。
 * 调整文件共享大小配额。
 * 复制 `net use` 命令以用于从 Windows 客户端装载文件共享。
@@ -131,9 +132,9 @@ Filesystem  Size  Used Avail Use% Mounted on
 还可以从 Linux 使用 Azure 跨平台命令行界面 (Azure CLI) 来管理文件共享。 Azure CLI 提供了一组开放源代码跨平台命令，你可以使用这些命令来处理 Azure 存储（包括文件存储）。 它提供 Azure 门户预览所能提供的很多相同功能，此外还有各种数据访问功能。 有关示例，请参阅[将 Azure CLI 用于 Azure 存储](./storage-azure-cli.md)。
 
 ## <a name="develop-with-file-storage"></a>使用文件存储进行开发
-作为开发人员，你可以通过 [适用于 Java 的 Azure 存储空间客户端库](https://github.com/azure/azure-storage-java)使用文件存储构建应用程序。 有关代码示例，请参阅[如何通过 Java 使用文件存储](storage-java-how-to-use-file-storage.md)。
+作为开发人员，你可以通过 [适用于 Java 的 Azure 存储客户端库](https://github.com/azure/azure-storage-java)使用文件存储构建应用程序。 有关代码示例，请参阅[如何通过 Java 使用文件存储](storage-java-how-to-use-file-storage.md)。
 
-你还可以使用 [适用于 Node.js 的 Azure 存储空间客户端库](https://github.com/Azure/azure-storage-node) 针对文件存储进行开发。
+你还可以使用 [适用于 Node.js 的 Azure 存储客户端库](https://github.com/Azure/azure-storage-node) 针对文件存储进行开发。
 
 ## <a name="next-steps"></a>后续步骤
 请参阅以下链接以获取有关 Azure 文件存储的更多信息。

@@ -16,9 +16,10 @@ ms.workload: big-compute
 ms.date: 03/15/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: e7be25b2dd6fecfd88a6f8deb6b1ef333f6bdf87
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -177,9 +178,9 @@ Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource
 
 
 [aad_about]: ../active-directory/active-directory-whatis.md
-[aad_adal]: ../active-directory/develop/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/develop/active-directory-authentication-scenarios.md
-[aad_integrate]: ../active-directory/develop/active-directory-integrating-applications.md
+[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
+[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md
+[aad_integrate]: ../active-directory/active-directory-integrating-applications.md
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_mgmt_net]: https://msdn.microsoft.com/library/azure/mt463120.aspx

@@ -87,7 +87,7 @@ ms.lasthandoff: 04/14/2017
 * [项目 Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Use Azure to automatically generate a CI/CD pipeline to deploy an ASP.NET 4 app](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)（使用 Azure 自动生成部署 ASP.NET 4 应用的 CI/CD 管道）
 
-[Azure 应用服务]: /app-service-web/app-service-changes-existing-services/
+[Azure 应用服务]: /azure/app-service-changes-existing-services/
 [Azure 门户预览]: https://portal.azure.cn
 [VSTS Portal]: https://www.visualstudio.com/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git

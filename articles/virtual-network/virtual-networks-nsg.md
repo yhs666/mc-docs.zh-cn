@@ -138,7 +138,7 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 1. 你想要使用什么类型的资源来筛选出入流量？ 可以连接多种资源，例如 NIC (Resource Manager)、VM（经典）、云服务、应用程序服务环境以及 VM 规模集。 
 2. 需要过滤其出入流量的资源是否连接到现有 VNet 中的子网？
 
-若要详细了解如何针对 Azure 中的网络安全进行规划，请阅读[云服务和网络安全](../security/best-practices-network-security.md)一文。 
+若要详细了解如何针对 Azure 中的网络安全进行规划，请阅读[云服务和网络安全](../best-practices-network-security.md)一文。 
 
 ## <a name="design-considerations"></a>设计注意事项
 了解[规划](#Planning)部分问题的答案以后，请查看以下部分的内容，然后再定义 NSG：

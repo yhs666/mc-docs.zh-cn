@@ -16,10 +16,10 @@ ms.date: 06/27/2016
 wacn.date: 
 ms.author: riande
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 31067806af43bc9f4ac2e31f4c49def88d7f7596
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: d47901f6477f5706b6fccc7451288beb6013366d
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -97,7 +97,7 @@ ms.lasthandoff: 04/28/2017
 ## <a name="whats-changed"></a>发生的更改
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
-[installed the latest]: https://www.azure.cn/downloads/?sdk=net  
+[installed the latest]: /downloads/?sdk=net  
 [ASP.NET Session State Overview]: http://msdn.microsoft.com/library/ms178581.aspx
 
 [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png

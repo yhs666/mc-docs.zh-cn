@@ -18,10 +18,10 @@ wacn.date:
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: a6438a65d4062312d517c9c8de9ca4ebb7d27e12
+ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
+ms.openlocfilehash: ecd6b0713b546b1ee06222edd902984a96e33c0d
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -55,8 +55,7 @@ Azure 中的底层基础结构分为多个硬件群集。 每个硬件群集可�
 
 可对每个应用程序层利用负载均衡器，使其与可用性集一起工作，确保始终可将流量路由到正在运行的实例。 如果不使用负载均衡器，VM 可能会在计划内和计划外维护事件中继续运行；但如果主 VM 不可用，最终用户可能无法解决这些问题。
 
-在存储层针对高可用性设计应用程序。 最佳做法是[为可用性集中的 VM 使用托管磁盘](virtual-machines-windows-manage-availability.md#use-managed-disks-for-vms-in-availability-set)。 如果当前使用的是未托管磁盘，我们强烈建议[在可用性集中转换 VM，以便使用托管磁盘](virtual-machines-windows-convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set)。
+使用非托管磁盘时，在存储层针对高可用性设计应用程序。 最佳实践是为可用性集中的每个 VM 使用单独的存储帐户。 将与同一 VM 关联的所有磁盘（OS 和数据）放置在同一存储帐户中。 向存储帐户中添加更多 VHD 时，考虑存储帐户[限制](../storage/storage-scalability-targets.md)。 对于 [Azure 托管磁盘](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，将代为处理基础磁盘的分发。
 
-## <a name="next-steps"></a>后续步骤
+## <a name="next-steps"></a> 后续步骤
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-

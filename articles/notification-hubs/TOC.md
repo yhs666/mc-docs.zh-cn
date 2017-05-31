@@ -58,9 +58,7 @@
 
 # 资源
 ## [价格](https://azure.microsoft.com/pricing/details/notification-hubs/)
-## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/zh-cn/home?forum=notificationhubs)
+## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-notificationhub)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)
 ## [服务更新](https://azure.microsoft.com/updates/?product=notification-hubs)
-
-<!---HONumber=Mooncake_0220_2017-->

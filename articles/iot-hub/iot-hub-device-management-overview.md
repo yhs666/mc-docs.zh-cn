@@ -18,6 +18,7 @@ ms.author: briz
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 80bba43e186331fb002a9dd499de684c6abf67c7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 05/05/2017
 
 ---

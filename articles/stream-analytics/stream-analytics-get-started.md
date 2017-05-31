@@ -145,7 +145,6 @@ ms.lasthandoff: 05/05/2017
     SELECT * FROM CallStream
     ```
 
-    > [Azure.Note]
     > 请确保输入源的名称与你此前指定的输入名称相匹配。
     > 
     > 

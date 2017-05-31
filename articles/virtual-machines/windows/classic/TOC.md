@@ -8,7 +8,7 @@
 # 入门
 ## [使用门户创建 VM](tutorial.md)
 ## [登录到 VM](connect-logon.md)
-## [安装 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [安装 Azure CLI](../../../cli-install-nodejs.md)
 
 # 如何
@@ -68,7 +68,6 @@
 ### [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
 ####[配置 Oracle Data Guard for Azure](configure-oracle-data-guard.md)
 ####[配置 Oracle GoldenGate for Azure](configure-oracle-goldengate.md)
-####[有关映像的其他注意事项](oracle-considerations.md)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
 
@@ -81,7 +80,7 @@
 ## [重置 RDP 密码](reset-rdp.md)
 
 # 引用
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute)

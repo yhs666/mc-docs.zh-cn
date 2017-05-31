@@ -16,9 +16,10 @@ ms.workload: data-services
 ms.date: 02/01/2017
 wacn.date: 
 ms.author: babanisa
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 53ff2da916405074de80280d2c0b2e88585f27be
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

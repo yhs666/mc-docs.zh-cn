@@ -16,10 +16,10 @@ ms.date: 07/29/2016
 wacn.date: 
 ms.author: anwestg
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 01e624093255b9de5985542d758e9f08bb5ddcd8
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 8280072a6591749a44e2b9b39244c5bb9b855c1a
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -48,7 +48,7 @@ Web 平台和框架越来越多地被用于开发、测试和托管业务线应�
 
 另一种方法是在本地使用现有投资。 在示例场景中（员工支出系统），你可能想要在自己的内部基础架构中维护数据存储。 这可能是为了与内部系统 （报表、工资单、计费等）集成，或者为了满足 IT 监管要求。 Web 应用提供一种方法用于支持连接到 Azure 中国区的本地基础结构：
 
-* [虚拟网络集成](/app-service-web/app-service-vnet-integration-powershell/) - Web 应用与 Azure 虚拟网络的集成支持你将 Web 应用连接到 Azure 虚拟网络，后者反过来又能够通过站点到站点 VPN 连接到你的本地基础结构。
+* [虚拟网络集成](/app-service-web/app-service-vnet-integration-powershell) - Web 应用与 Azure 虚拟网络的集成支持你将 Web 应用连接到 Azure 虚拟网络，后者反过来又能够通过站点到站点 VPN 连接到你的本地基础结构。
 
 下图展示了一个具有适用于本地资源的连接选项的高级解决方案示例。
 
@@ -86,7 +86,7 @@ Web 应用现在在全球 24 个数据中心提供，且还在不断增长。 �
 ## <a name="solution-details"></a>解决方案详细信息
 让我们看一个应用程序迁移方案的示例。 这概述了应用服务 Web 应用的各种功能如何协同提供出色解决方案和业务价值的详细信息。
 
-在整个示例中，我们要讨论的业务线应用程序是一个支出报表应用程序，它使员工能够提交费用进行报销。 该应用程序托管于运行 IIS6 的 Windows Server 2003 R2 上，数据库是 SQL Server 2005 数据库。 我们选择较旧服务器的原因在于 Windows Server 2003 R2 和 SQL Server 2005 的服务即将到期。 基于这一点，此示例中所使用的模式将适用于各种迁移场景。 
+在整个示例中，我们要讨论的业务线应用程序是一个支出报表应用程序，它使员工能够提交费用进行报销。 该应用程序托管于运行 IIS6 的 Windows Server 2003 R2 上，数据库是 SQL Server 2005 数据库。 我们选择较旧服务器的原因在于 Windows Server 2003 R2 和 SQL Server 2005 的服务即将到期。 基于这一点，此示例中所使用的模式将适用于各种迁移场景。
 
 ### <a name="migrate-existing-application"></a>迁移现有应用程序
 将业务线应用程序迁移到 Web 应用的总体解决方案中的第一步是确定现有应用程序资产和体系结构。 本白皮书中的示例是托管在单个 IIS 服务器上的 ASP.NET web 应用程序，以及托管在单独的 SQL Server 上的数据库（如图中所示）。 员工使用用户名和密码组合登录到系统，输入支出的详细信息并将每项开支收据的扫描副本上传到数据库。

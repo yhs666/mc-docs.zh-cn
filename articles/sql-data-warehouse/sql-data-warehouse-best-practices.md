@@ -16,9 +16,10 @@ ms.custom: performance
 ms.date: 10/31/2016
 wacn.date: 
 ms.author: barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 20bf12713f7a671fc25f7f36964176671a48c4f1
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -52,7 +53,7 @@ SQL 数据仓库的一个重要功能，是能够在不使用它时予以暂停�
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>使用 PolyBase 快速加载和导出数据
 SQL 数据仓库支持通过多种工具（包括 Azure 数据工厂、PolyBase、BCP）来加载和导出数据。  对于少量的数据，性能不是那么重要，任何工具都可以满足需求。  但是，当要加载或导出大量数据，或者需要快速的性能时，PolyBase 是最佳选择。  PolyBase 使用 SQL 数据仓库的 MPP（大规模并行处理）体系结构，因此加载和导出巨量数据的速度比其他任何工具更快。  可使用 CTAS 或 INSERT INTO 来运行 PolyBase 加载。  **使用 CTAS 可以减少事务日志记录，是加载数据最快的方法。**  Azure 数据工厂也支持 PolyBase 加载。  PolyBase 支持各种不同的文件格式，包括 Gzip 文件。  **若要在使用 gzip 文本文件时获得最大的吞吐量，请将文件分成 60 个以上的文件让加载有最大化的并行度。**  若要更快的总吞吐量，请考虑并行加载数据。
 
-另请参阅[加载数据][Load data]、[PolyBase 使用指南][Guide for using PolyBase]、[Azure SQL Data Warehouse loading patterns and strategies][Azure SQL Data Warehouse loading patterns and strategies]（Azure SQL 数据仓库加载模式和策略）、[CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]、[Create table as select (CTAS)][Create table as select (CTAS)]
+另请参阅[加载数据][Load data]、[PolyBase 使用指南][Guide for using PolyBase]、[Azure SQL Data Warehouse loading patterns and strategies][Azure SQL Data Warehouse loading patterns and strategies]（Azure SQL 数据仓库加载模式和策略）、[使用 Azure 数据工厂加载数据][Load Data with Azure Data Factory]、[使用 Azure 数据工厂移动数据][Move data with Azure Data Factory]、[CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]、[Create table as select (CTAS)][Create table as select (CTAS)]
 
 ## <a name="load-then-query-external-tables"></a>加载并查询外部表
 虽然 Polybase（也称外部表）可以最快速地加载数据，但并不特别适合查询。 SQL 数据仓库 Polybase 表目前只支持 Azure blob 文件。 这些文件并没有任何计算资源的支持。  因此，SQL 数据仓库无法卸载此工作，因此必须读取整个文件，方法是将其加载到 tempdb 来读取数据。  因此，如果有多个查询需要查询此数据，则最好是先加载一次此数据，然后让查询使用本地表。
@@ -146,23 +147,23 @@ SQL 数据仓库有多个 DMV 可用于监视查询执行。  以下监视相关
 [LABEL]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[ALTER TABLE]: https://msdn.microsoft.com/zh-cn/library/ms190273.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/zh-cn/library/dn935026.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/zh-cn/library/ms188038.aspx
-[CREATE TABLE]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
-[CREATE TABLE AS SELECT]: https://msdn.microsoft.com/zh-cn/library/mt204041.aspx
-[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/zh-cn/library/mt204017.aspx
-[INSERT]: https://msdn.microsoft.com/zh-cn/library/ms174335.aspx
-[OPTION]: https://msdn.microsoft.com/zh-cn/library/ms190322.aspx
-[TRUNCATE TABLE]: https://msdn.microsoft.com/zh-cn/library/ms177570.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/zh-cn/library/ms187348.aspx
-[sys.dm_exec_sessions]: https://msdn.microsoft.com/zh-cn/library/ms176013.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/zh-cn/library/mt203887.aspx
-[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/zh-cn/library/mt203913.aspx
-[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/zh-cn/library/mt203889.aspx
-[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/zh-cn/library/mt203878.aspx
-[sys.dm_pdw_waits]: https://msdn.microsoft.com/zh-cn/library/mt203893.aspx
-[Columnstore indexes guide]: https://msdn.microsoft.com/zh-cn/library/gg492088.aspx
+[ALTER TABLE]: https://msdn.microsoft.com/library/ms190273.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
+[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
+[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE AS SELECT]: https://msdn.microsoft.com/library/mt204041.aspx
+[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
+[INSERT]: https://msdn.microsoft.com/library/ms174335.aspx
+[OPTION]: https://msdn.microsoft.com/library/ms190322.aspx
+[TRUNCATE TABLE]: https://msdn.microsoft.com/library/ms177570.aspx
+[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
+[sys.dm_exec_sessions]: https://msdn.microsoft.com/library/ms176013.aspx
+[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
+[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/library/mt203913.aspx
+[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
+[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
+[sys.dm_pdw_waits]: https://msdn.microsoft.com/library/mt203893.aspx
+[Columnstore indexes guide]: https://msdn.microsoft.com/library/gg492088.aspx
 
 <!--Other Web references-->
 [Selecting table distribution]: https://blogs.msdn.microsoft.com/sqlcat/2015/08/11/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/

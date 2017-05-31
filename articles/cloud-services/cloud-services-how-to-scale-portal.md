@@ -14,9 +14,10 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: adegeo
 wacn.date: 
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: e492ffb34c68ee54d5170fbe0a7d984acf0881ed
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---

@@ -12,6 +12,7 @@
 ## 创建模板
 ### [了解规模集模板](virtual-machine-scale-sets-mvss-start.md)
 ### [添加虚拟网络](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [使用自定义映像](virtual-machine-scale-sets-mvss-custom-image.md)
 
 ## 部署
 ### [使用门户进行创建](virtual-machine-scale-sets-portal-create.md)
@@ -29,11 +30,14 @@
 ### [使用 DSC 和规模集](virtual-machine-scale-sets-dsc.md)
 ### [将模板转换为托管磁盘](virtual-machine-scale-sets-convert-template-to-md.md)
 
+## 故障排除
+### [自动缩放](virtual-machine-scale-sets-troubleshoot.md)
+
 ## 常见问题
 ### [规模集常见问题](virtual-machine-scale-sets-faq.md)
 
 # 引用
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](https://docs.microsoft.com/rest/api/virtualmachinescalesets/)
 

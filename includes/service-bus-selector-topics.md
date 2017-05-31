@@ -5,5 +5,3 @@
 >- [PHP](../articles/service-bus-messaging/service-bus-php-how-to-use-topics-subscriptions.md)
 >- [Python](../articles/service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md)
 >- [Ruby](../articles/service-bus-messaging/service-bus-ruby-how-to-use-topics-subscriptions.md)
-
-<!---HONumber=82-->

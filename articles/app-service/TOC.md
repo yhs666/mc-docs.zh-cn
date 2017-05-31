@@ -32,7 +32,7 @@
 
 ## 规划和设计
 ### [Azure 应用服务最佳实践](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Azure App Service 和现有的 Azure 服务](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Azure 应用服务和现有的 Azure 服务](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [应用服务计划深度介绍](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 ### [高密度托管](app-service-high-density-hosting.md)
 ### [在 Azure 应用服务中使用 WebJobs](app-service-webjobs-readme.md)
@@ -41,7 +41,7 @@
 
 ### Web 作业
 #### [什么是 Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [在 Azure App Service 中创建 .NET Web 作业](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [在 Azure 应用服务中创建 .NET Web 作业](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [如何通过 WebJobs SDK 使用 Azure Blob 存储](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [如何通过 WebJobs SDK 使用 Azure 队列存储](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [如何通过 WebJobs SDK 使用 Azure Service Bus](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -70,7 +70,7 @@
 #### [使用 Web 作业运行后台任务](../app-service-web/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [安全](app-service-security-readme.md)
-### [在 Azure App Service 中保护应用安全](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [在 Azure 应用服务中保护应用安全](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [身份验证和授权](app-service-authentication-overview.md)
 ### 使用标识提供者进行身份验证
 #### [Azure Active Directory 身份验证](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)

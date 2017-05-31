@@ -125,7 +125,7 @@ Web 应用可能会使用根据 URL 路由的模块，而不是提供静态内�
 
 ## <a name="other-configuration-tasks"></a>其他配置任务
 ### <a name="ssl"></a>SSL
-在“基本”或“标准”模式下，你可为自定义域上载 SSL 证书。 有关详细信息，请参阅[为 Web 应用启用 HTTPS](./web-sites-configure-ssl-certificate.md)。 
+在“基本”或“标准”模式下，你可为自定义域上传 SSL 证书。 有关详细信息，请参阅[为 Web 应用启用 HTTPS]。 
 
 若要查看上传的证书，请单击“所有设置” > “自定义域和 SSL”。
 
@@ -155,9 +155,9 @@ Web 应用可能会使用根据 URL 路由的模块，而不是提供静态内�
 [ASP.NET SignalR]: http://www.asp.net/signalr
 [Azure 门户预览]: https://portal.azure.cn/
 [在 Azure 应用服务中配置自定义域名]: ./web-sites-custom-domain-name.md
-[为 Azure 应用服务中的 Web 应用部署到过渡环境]: ./web-sites-staged-publishing.md
+[为 Azure 应用服务中的 Web 应用部署到过渡环境]: ./web-sites-staged-publishing.md。
 [Enable HTTPS for an app in Azure App Service（为 Azure 应用服务中的应用启用 HTTPS）]: ./web-sites-configure-ssl-certificate.md
-[如何监视 Web 终结点状态]: /app-service-web/web-sites-monitor
+[如何监视 Web 终结点状态]: /azure/app-service-web/web-sites-monitor
 [Azure 应用服务中 Web 应用的监视基础知识]: ./web-sites-monitor.md
 [管道模式]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [在 Azure 应用服务中缩放 Web 应用]: ./web-sites-scale.md

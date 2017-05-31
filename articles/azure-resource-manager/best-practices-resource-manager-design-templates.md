@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 12/19/2016
 wacn.date: 
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 9fe5cf581613b71126583d240796c8fa40fe928f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/22/2017
 
 本主题是包含更多内容的白皮书的一部分。 若要阅读完整的白皮书，请下载 [World Class Azure Resource Manager Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf)（一流的 Azure Resource Manager 模板注意事项和成熟的做法）。
 
-模板结合了底层 Azure 资源管理器的优点，以及 JavaScript 对象表示法 (JSON) 的自适应性和易读性。 使用模板可以：
+模板结合了底层 Azure Resource Manager 的优点，以及 JavaScript 对象表示法 (JSON) 的自适应性和易读性。 使用模板可以：
 
 * 以一致的方式部署拓扑及其工作负荷。
 * 使用资源组统一管理应用程序中的所有资源。
@@ -36,7 +37,7 @@ ms.lasthandoff: 04/22/2017
 
 本文提供有关在设计会话以及真实世界中与 Azure 客户咨询团队 (AzureCAT) 客户进行模板实施过程中所确定的使用方案、体系结构和实施模式的详细信息。 姑且不论学术理论是什么，这些方法已经实践实证，建立在针对 12 个基于 Linux 的顶级 OSS 技术开发的模板基础之上，这些技术包括：Apache Kafka、Apache Spark、Cloudera、Couchbase、Hortonworks HDP、Apache Cassandra 提供的 DataStax Enterprise、Elasticsearch、Jenkins、MongoDB、Nagios、PostgreSQL、Redis 和 Nagios。 
 
-本文将分享这些经过实证的最佳实践，以帮助你设计一流的 Azure 资源管理器模板。  
+本文将分享这些经过实证的最佳实践，以帮助你设计一流的 Azure Resource Manager 模板。  
 
 通过与客户合作，我们已在企业、系统集成商 (SI) 和 CSV 之间确定了多个 Resource Manager 模板使用体验。 以下部分提供了适用于不同客户类型的常见方案和模式的整体概述。
 
@@ -81,7 +82,7 @@ ms.lasthandoff: 04/22/2017
 若要通过应用商店（例如 Azure 应用商店）宣传和销售产品，可以开发模板来提供不同类型的、在客户的 Azure 帐户中运行的部署。 这些不同的部署通常可描述为 T 恤尺寸（小、中、大）、产品/受众类型（社区、开发人员、企业）或功能类型（基本、高可用性）。  在某些情况下，这些类型允许指定某些部署属性，例如 VM 类型或磁盘数。
 
 ## <a name="oss-projects"></a>OSS 项目
-在开放源代码项目中，资源管理器模板可让社区使用经过证实的做法快速部署解决方案。 你可以在 GitHub 存储库中存储模板，使社区可在一段时间之后修改它们。 用户可在自己的 Azure 订阅中部署这些模板。
+在开放源代码项目中，Resource Manager 模板可让社区使用经过证实的做法快速部署解决方案。 你可以在 GitHub 存储库中存储模板，使社区可在一段时间之后修改它们。 用户可在自己的 Azure 订阅中部署这些模板。
 
 以下部分描述了在设计解决方案之前需要考虑的事项。
 
@@ -140,7 +141,7 @@ DSC 可以使用最热门机制的一些资源扩展 - PowerShell DSC、Chef 和
 
 开始部署具有任何重要性的群集，就要开始处理这些复杂方案。 例如，如果你在部署 Hadoop 群集，其中有 8 个主节点和 200 个数据节点，并且每个主节点上组建了包含 4 个附加磁盘的池，每个数据节点上共享了 16 个附加磁盘，那么，有 208 个 VM 和 3,232 个磁盘需要管理。
 
-存储帐户将根据它所识别出的每秒 20,000 个事务限制上调节请求，因此，应该查看存储帐户的分区，并使用计算来确定适当数的存储帐户以配合此拓扑。 假设自由格式的方法支持多种组合，则需要动态计算来确定适当的分区。 Azure 资源管理器模板语言当前不提供数学函数，因此必须在代码中执行这些计算，生成唯一的硬编码模板以及适当的详细信息。
+存储帐户将根据它所识别出的每秒 20,000 个事务限制上调节请求，因此，应该查看存储帐户的分区，并使用计算来确定适当数的存储帐户以配合此拓扑。 假设自由格式的方法支持多种组合，则需要动态计算来确定适当的分区。 Azure Resource Manager 模板语言当前不提供数学函数，因此必须在代码中执行这些计算，生成唯一的硬编码模板以及适当的详细信息。
 
 在企业 IT 和 SI 方案中，必须有人维护模板，并支持为一个或多个组织部署的拓扑。 这种额外的开销（每位客户有不同的配置和模板）并不尽理想。
 

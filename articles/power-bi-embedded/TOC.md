@@ -18,7 +18,7 @@
 
 ## 安全
 ### [身份验证和授权](power-bi-embedded-app-token-flow.md)
-### [Power BI Embedded 的行级别安全性](power-bi-embedded-rls.md)
+### [Power BI Embedded 的行级别安全性 ](power-bi-embedded-rls.md)
 
 # 引用
 ## [PowerShell](/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded)
@@ -32,5 +32,3 @@
 ## [示例](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Power BI 社区](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/powerbi)
-
-<!---HONumber=Mooncake_0213_2017-->

@@ -39,7 +39,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可使用以下 CLI 版本之一完成任务：
 
-- [Azure CLI 1.0](#resize-a-linux-vm) - 适用于经典部署模型和资源管理部署模型的 CLI（本文）
+- [Azure CLI 1.0](#resize-a-linux-vm) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
 - [Azure CLI 2.0](virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="resize-a-linux-vm"></a> 调整 Linux VM 的大小
@@ -77,10 +77,11 @@ ms.lasthandoff: 04/14/2017
     > 
 
 ## <a name="next-steps"></a>后续步骤
-若要提高可伸缩性，请运行多个 VM 实例并进行横向扩展。
+若要提高可伸缩性，请运行多个 VM 实例并进行横向扩展。 有关详细信息，请参阅 [自动调整虚拟机规模集中的 Linux 计算机规模][scale-set]。 
 
 <!-- links -->
 
 [azure-cli]:../cli-install-nodejs.md
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[scale-set]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
 [vm-sizes]: virtual-machines-linux-sizes.md

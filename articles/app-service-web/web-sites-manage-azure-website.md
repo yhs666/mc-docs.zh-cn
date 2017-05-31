@@ -16,10 +16,10 @@ ms.date: 08/24/2016
 wacn.date: 
 ms.author: rachelap
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: e5d457a58e00e1507467ed13af0fa6bc481721d2
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: b862557b017180e6444d2130fe3847f79ad72433
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---

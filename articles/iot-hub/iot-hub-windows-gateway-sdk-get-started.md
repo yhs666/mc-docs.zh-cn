@@ -18,6 +18,7 @@ ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 512d861cde395f1da4e987188739d731c90eadd6
+ms.contentlocale: zh-cn
 ms.lasthandoff: 05/05/2017
 
 

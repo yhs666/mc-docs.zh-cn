@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 6714761fdd6996f48ead7602c2edb6e780456d3d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 04/07/2017
 2. 选择“Active Directory”，然后单击应用程序将使用的 Active Directory。
 3. 单击“应用程序”，然后单击“添加”。
 4. 键入应用程序的名称（例如：*myClientApp*），选择“WEB 应用程序”，然后单击箭头以继续。
-5. 对于“登录 URL”和“应用 ID URI”，可以键入一个有效 URL（例如：*http://myClientApp* ），然后继续。
+5. 对于“登录 URL”和“应用 ID URI”，可以键入一个有效 URL（例如：*http://myClientApp*），然后继续。
 6. 单击“配置”。
 7. 复制你的“客户端 ID”。 （稍后在代码中将需要此值。）
 8. 在“密钥”部分中，从“选择持续时间”下拉列表选择“1 年”。 （在步骤 13 中保存后将复制该密钥。）

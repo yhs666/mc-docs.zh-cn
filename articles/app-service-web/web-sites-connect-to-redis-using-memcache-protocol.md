@@ -27,7 +27,7 @@ ms.lasthandoff: 04/28/2017
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本文将介绍如何使用 [Memcache][13] 协议将 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)中的 WordPress Web 应用连接到 [Azure Redis 缓存][12]。 如果某个现有 Web 应用使用 Memcached 服务器进行内存中缓存，可将其迁移到 Azure 应用服务并使用 Azure 中不（几乎不）更改应用程序代码的第一方缓存解决方案。 还可利用现有的 Memcache 专业知识在 Azure 应用服务（带用于内存中缓存的 Azure Redis 缓存）中创建高度可缩放的分布式应用，同时使用常用的应用程序框架，例如 .NET、PHP、Node.js、Java 和 Python。  
+本文将介绍如何使用 [Memcache][13] 协议将 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services)中的 WordPress Web 应用连接到 [Azure Redis 缓存][12]。 如果某个现有 Web 应用使用 Memcached 服务器进行内存中缓存，可将其迁移到 Azure 应用服务并使用 Azure 中不（几乎不）更改应用程序代码的第一方缓存解决方案。 还可利用现有的 Memcache 专业知识在 Azure 应用服务（带用于内存中缓存的 Azure Redis 缓存）中创建高度可缩放的分布式应用，同时使用常用的应用程序框架，例如 .NET、PHP、Node.js、Java 和 Python。  
 
 应用服务 Web 应用使用 Web 应用 Memcache 填充码启用该应用程序方案，这是充当 Memcache 代理服务器的本地 Memcached 服务器，用于缓存对 Azure Redis 缓存的调用。 这使得使用 Memcache 协议通信的任何应用可以使用 Redis 缓存缓存数据。 此 Memcache 填充码在协议级别运行，因此只要它使用 Memcached 协议通信，就可以供任何应用程序或应用程序框架使用。
 
@@ -44,7 +44,7 @@ Web 应用 Memcache 填充码可以与任何应用程序一起使用，前提是
 部署可缩放的 WordPress 站点并设置 Redis 缓存实例后，你随时可以启用 Azure 应用服务 Web 应用中的 Memcache 填充码。
 
 ## <a name="enable-the-web-apps-memcache-shim"></a>启用 Web 应用 Memcache 填充码
-若要配置 Memcache 填充码，你必须创建三个应用设置。 可使用多种方法来完成，包括 [Azure 门户预览](/app-service-web/app-service-web-app-azure-portal)、[经典管理门户](https://manage.windowsazure.cn/)、[Azure PowerShell Cmdlet][4] 或 [Azure 命令行接口][5]。 本文将使用 [Azure 门户预览][3]来设置应用设置。 从 Redis 缓存实例的  “设置”边栏选项卡中，可以检索以下值。
+若要配置 Memcache 填充码，你必须创建三个应用设置。 可使用多种方法来完成，包括 [Azure 门户预览](/azure/app-service-web/app-service-web-app-azure-portal)、[经典管理门户](https://manage.windowsazure.cn/)、[Azure PowerShell Cmdlet][4] 或 [Azure 命令行接口][5]。 本文将使用 [Azure 门户预览][3]来设置应用设置。 从 Redis 缓存实例的  “设置”边栏选项卡中，可以检索以下值。
 
 ![Azure Redis 缓存设置边栏选项卡](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -186,7 +186,7 @@ redis-cli -h <hostname-for-redis-cache> -a <primary-key-for-redis-cache> -p 6379
 祝贺你！ WordPress 应用现在有了集中式的内存中缓存，这将有助于提高吞吐量。 请记住，Web 应用 Memcache 填充码可以与任何 Memcache 客户端结合使用，无需考虑编程语言或应用程序框架。 若要提供反馈或就 Web 应用 Memcache 填充码提问，请在 [MSDN 论坛][10]或 [CSDN][11] 上发布相关文章。
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
 
 [0]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache
 [1]: http://bit.ly/1t0KxBQ

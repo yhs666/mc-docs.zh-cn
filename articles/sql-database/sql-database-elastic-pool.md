@@ -16,9 +16,10 @@ ms.author: ddove
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: d2965e285f55f44d0c8e7c0a671a59801b6ec131
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 
@@ -52,14 +53,14 @@ SQL 数据库弹性池是一种简单且经济高效的解决方案，用于管�
 
 并且可以向池添加或缩减数据库。 如果可以预测到数据库的资源利用率不足，则将其移出。
 
-## <a name="which-databases-go-in-a-pool"></a><a name="elastic-database-pool-pricing-tier-recommendations"></a>池中有哪些数据库？
+## <a name="which-databases-go-in-a-pool"></a>池中有哪些数据库？
 ![弹性池中共享 eDTU 的 SQL 数据库。][1]
 
 最适合添加到弹性池的数据库通常有时活动，有时不活动。 上述示例中，可以看到单一数据库的活动、4 个数据库的活动，最后是包含 20 个数据库的弹性池的活动。 活动随时间而不同的数据库很适合添加到弹性池，因为它们不是永远都在使用中，而且可以共享 eDTU。 并非所有数据库都符合此模式。 具有更稳定资源需求的数据库更适合“基本”、“标准”和“高级”服务层级，这些层级的资源是单独分配的。
 
 [弹性池的价格和性能注意事项](sql-database-elastic-pool-guidance.md)。
 
-## <a name="edtu-and-storage-limits-for-elastic-pools"></a><a name="eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases"></a><a name="edtu-and-storage-limits-for-elastic-pools-and-elastic-databases"></a>弹性池的 eDTU 和存储限制
+## <a name="edtu-and-storage-limits-for-elastic-pools"></a>弹性池的 eDTU 和存储限制
 
 下表描述了基本、标准和高级弹性池的特征。
 
@@ -67,7 +68,7 @@ SQL 数据库弹性池是一种简单且经济高效的解决方案，用于管�
 
 如果使用了弹性池的所有 DTU，那么池中的每个数据库将接收相同数量的资源来处理查询。  SQL 数据库服务通过确保相等的计算时间片段，在数据库之间提供资源共享的公平性。 弹性池资源共享公平性是在将每个数据库的 DTU 最小值设为非零值时，对另外为每个数据库保证的任意资源量的补充。
 
-## <a name="elastic-pool-properties"></a><a name="elastic-database-pool-properties"></a>弹性池属性
+## <a name="elastic-pool-properties"></a>弹性池属性
 
 下表描述了弹性池和入池数据库的限制。
 

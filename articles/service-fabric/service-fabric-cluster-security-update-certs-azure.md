@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: chackdan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: a737a615ad6db164a4eff978558753008db5a421
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -176,7 +177,6 @@ ms.lasthandoff: 04/14/2017
 
 ```
 现在，生成的 Json 应如下所示。
-
 ![Json_Pub_Setting5][Json_Pub_Setting5]
 
 

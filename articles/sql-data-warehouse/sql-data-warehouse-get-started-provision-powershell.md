@@ -14,9 +14,10 @@ ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: 
 ms.author: barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: f54d8f576cd4ca14ab36b274e54fde4bb6c56b80
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---

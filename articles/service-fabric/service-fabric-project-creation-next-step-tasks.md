@@ -57,7 +57,7 @@ Service Fabric SDK 提供相同的一组可用于独立 ASP.NET Core 项目的 A
 
 ### <a name="guest-executables-and-guest-containers"></a>来宾可执行文件和来宾容器
 
-Service Fabric“来宾”是指不使用平台编程模型生成的服务。 可[直接在应用程序包中](service-fabric-deploy-existing-app.md)。 Visual Studio 都会在应用程序项目的 **ApplicationPackageRoot** 文件夹中创建必要的项目。 Visual Studio 不会创建新的服务项目，因为其他位置已存在相关代码。 如果想要一起管理 Service Fabric 应用程序项目和来宾项目，可将它们添加到同一 Visual Studio 解决方案中。
+Service Fabric“来宾”是指不使用平台编程模型生成的服务。 可[直接在应用程序包中](service-fabric-deploy-existing-app.md)或[通过容器映像](service-fabric-deploy-container.md)打包来宾的二进制文件。 在这两种情况下，Visual Studio 都会在应用程序项目的 **ApplicationPackageRoot** 文件夹中创建必要的项目。 Visual Studio 不会创建新的服务项目，因为其他位置已存在相关代码。 如果想要一起管理 Service Fabric 应用程序项目和来宾项目，可将它们添加到同一 Visual Studio 解决方案中。
 
 ## <a name="next-steps"></a>后续步骤
 ### <a name="create-an-azure-cluster"></a>创建 Azure 群集

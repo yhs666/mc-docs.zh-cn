@@ -11,16 +11,16 @@ ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
+ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 wacn.date: 
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: c31047900613fd6516b44bebcf17e9662341f1dc
+ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
+ms.openlocfilehash: 8c8a3560d31f97cc976747c664be6c5813cb93be
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -71,35 +71,35 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ### <a name="azure-managed-disks"></a>Azure 托管磁盘
-可以使用 Azure 托管磁盘或非托管磁盘创建 VM。 托管磁盘由 Azure 平台处理，无需任何准备或位置来存储它们。 有关 Azure 托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../storage/storage-managed-disks-overview.md)。 若要从 VHD 创建 VM，请先使用 [az disk create](https://docs.microsoft.com/cli/azure/disk/create) 将 VHD 转换为托管磁盘：
+可以使用 Azure 托管磁盘或非托管磁盘创建 VM。 托管磁盘由 Azure 平台处理，无需任何准备或位置来存储它们。 有关 Azure 托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../storage/storage-managed-disks-overview.md)。 若要从 VHD 创建 VM，请先使用 [az disk create](https://docs.microsoft.com/cli/azure/disk/create)将 VHD 转换为托管磁盘：
 
 ```azurecli
 az disk create --resource-group myResourceGroup --name myManagedDisk \
   --source https://mystorageaccount.blob.core.chinacloudapi.cn/mydisks/myDisk.vhd
 ```
 
-使用 [az disk list](https://docs.microsoft.com/cli/azure/disk/list) 获取创建的托管磁盘的详细信息：
+使用 [az disk list](https://docs.microsoft.com/cli/azure/disk/list)获取创建的托管磁盘的 URI：
 
 ```azurecli
 az disk list --resource-group myResourceGroup \
-  --query [].{Name:name,ID:id} --output table
+  --query '[].{Name:name,URI:creationData.sourceUri}' --output table
 ```
 
 输出类似于以下示例：
 
 ```azurecli
-Name               ID
+Name               URI
 -----------------  ----------------------------------------------------------------------------------------------------
-myManagedDisk    /subscriptions/mySubscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk
+myUMDiskFromVHD    https://vhdstoragezw9.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
 ```
 
-现在，使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM，并指定托管磁盘的名称 (`--attach-os-disk`)。 以下示例使用基于上载的 VHD 创建的托管磁盘创建名为 `myVM` 的 VM：
+现在，使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM，并指定托管磁盘的 URI (`--image`)。 以下示例使用基于上传的 VHD 创建的托管磁盘创建名为 `myVM` 的 VM：
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location chinanorth \
     --name myVM --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --attach-os-disk myManagedDisk
+    --attach-os-disk https://vhdstoragezw9.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
 ```
 
 ### <a name="unmanaged-disks"></a>非托管磁盘
@@ -290,7 +290,7 @@ Azure Resource Manager 模板是一个 JavaScript 对象表示法 (JSON) 文件�
           }
 ```
 
-可以使用[此现有模板从自定义映像创建 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)，或阅读有关[创建自己的 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)的信息。 
+可以使用[此现有模板从自定义映像创建 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)，或阅读有关[创建自己的 Azure Resource Manager 模板](../resource-group-authoring-templates.md)的信息。 
 
 配置模板之后，使用 [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create) 创建 VM。 使用 `--template-uri` 参数指定 JSON 模板的 URI：
 
@@ -308,4 +308,3 @@ az group deployment create --resource-group myNewResourceGroup \
 
 ## <a name="next-steps"></a>后续步骤
 准备好并上传自定义虚拟磁盘之后，可以阅读有关[使用 Resource Manager 和模板](../azure-resource-manager/resource-group-overview.md)的详细信息。 可能还需要向新 VM [添加数据磁盘](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 如果需要访问在 VM 上运行的应用程序，请务必[打开端口和终结点](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
-

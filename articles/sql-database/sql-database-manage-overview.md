@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: carlrab
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 328aca5f9c08e2e7ebd9cd09b7a4f00c6c2ac7b7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 
@@ -51,6 +52,7 @@ SQL Server Data Tools (SSDT) 是一种在计算机上运行的客户端工具，
 ## <a name="elastic-database-tools"></a>弹性数据库工具
 使用弹性数据库工具执行如下操作： 
 
+* 使用[弹性作业](sql-database-elastic-jobs-overview.md)针对一组数据库执行 T-SQL 脚本
 * 使用[拆分-合并工具](sql-database-elastic-scale-overview-split-and-merge.md)将多租户模型数据库移至单租户模型
 * 使用[弹性扩展客户端库](sql-database-elastic-database-client-library.md)管理单租户模型或多租户模型中的数据库。
 

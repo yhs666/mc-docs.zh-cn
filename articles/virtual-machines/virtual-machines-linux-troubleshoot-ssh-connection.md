@@ -174,7 +174,7 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
 如果已重置 SSH 配置和用户凭据，或者在执行此操作期间遇到错误，可以尝试重新启动 VM 来解决基本的计算问题。
 
 ### <a name="azure-portal-preview"></a>Azure 门户预览
-若要使用 Azure 门户预览重新启动 VM，请选择 VM，然后单击“重新启动”按钮，如以下示例所示：
+若要使用 Azure 门户预览重新启动 VM，请选择 VM，然后单击“重新启动”按钮，如以下示例所示： 
 
 ![在 Azure 门户预览中重新启动 VM](./media/virtual-machines-linux-troubleshoot-ssh-connection/restart-vm-using-portal.png)
 

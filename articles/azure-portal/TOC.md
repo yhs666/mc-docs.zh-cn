@@ -17,11 +17,14 @@
 ## 监视
 ### [监视服务指标](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
 ### [启用监视和诊断](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
+
+
 ### [查看事件和审核日志](../monitoring-and-diagnostics/insights-debugging-with-events.md)
-### [接收警报通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # 相关内容
 ## [Azure Resource Manager 模板函数](../azure-resource-manager/resource-group-template-functions.md)
+
+
 ## [审核日志警报 Webhook](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ## [指标警报 Webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 ## [Azure Insights PowerShell 快速入门示例](../monitoring-and-diagnostics/insights-powershell-samples.md)

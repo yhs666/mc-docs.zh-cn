@@ -14,9 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 9473e0fc4b74ca417bef1be176aea04f512e11ee
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -82,7 +83,7 @@ Jenkins 通过允许开发人员轻松地集成其代码更改以及自动和频
     6. 单击“保存”以保存设置。
 
 ## <a name="how-to-create-a-post-build-action-that-uploads-your-build-artifacts-to-your-storage-account"></a>如何创建生成后操作以将生成项目上传到存储帐户
-为了进行说明，首先我们将需要创建一个将创建若干文件的作业，然后添加后期生成操作以将文件上载到存储帐户。
+为了进行说明，首先我们将需要创建一个将创建若干文件的作业，然后添加后期生成操作以将文件上传到存储帐户。
 
 1. 在 Jenkins 仪表板中，单击“新建项目”。
 2. 将此作业命名为“MyJob”，单击“生成自由格式的软件项目”，然后单击“确定”。
@@ -99,7 +100,7 @@ Jenkins 通过允许开发人员轻松地集成其代码更改以及自动和频
 
 5. 在作业配置的“生成后操作”部分中，单击“添加生成后操作”并选择“将项目上传到 Azure Blob 存储”。
 6. 对于“存储帐户名称”，请选择要使用的存储帐户。
-7. 对于“容器名称”，请指定容器名称。 （如果上载生成项目时不存在该容器，则将创建该容器。）可使用环境变量，因此在此示例中，请输入 **${JOB_NAME}** 作为容器名称。
+7. 对于“容器名称”，请指定容器名称。 （如果上传生成项目时不存在该容器，则将创建该容器。）可使用环境变量，因此在此示例中，请输入 **${JOB_NAME}** 作为容器名称。
 
     **提示**
 
@@ -115,9 +116,9 @@ Jenkins 通过允许开发人员轻松地集成其代码更改以及自动和频
     2. 单击“存储”。
     3. 单击你用于 Jenkins 的存储帐户名称。
     4. 单击“容器”。
-    5. 单击名为 **myjob** 的容器，该名称是创建 Jenkins 作业时分配的作业名称的小写形式。 在 Azure 存储空间中，容器名称和 Blob 名称都是小写的（并且区分大小写）。 在名为 **myjob** 的容器的 Blob 列表中，应能看到 **hello.txt** 和 **date.txt**。 复制这两项中任一项的 URL 并在浏览器中打开。 可看到已作为生成项目上传的文本文件。
+    5. 单击名为 **myjob** 的容器，该名称是创建 Jenkins 作业时分配的作业名称的小写形式。 在 Azure 存储中，容器名称和 Blob 名称都是小写的（并且区分大小写）。 在名为 **myjob** 的容器的 Blob 列表中，应能看到 **hello.txt** 和 **date.txt**。 复制这两项中任一项的 URL 并在浏览器中打开。 可看到已作为生成项目上传的文本文件。
 
-每个作业只能创建一个用来将项目上载到 Azure Blob 存储的生成后操作。 请注意，单个生成后操作用于将项目上传到 Azure Blob 存储，它可在“要上传的项目列表”中指定不同的文件（包括通配符）和文件路径，其中使用分号作为分隔符。 例如，如果 Jenkins 内部版本在工作空间的 **build** 文件夹中生成了 JAR 文件和 TXT 文件，并且要将这两者都上传到 Azure Blob 存储，请使用以下项作为“要上传的项目列表”值：**build/\*.jar;build/\*.txt**。 你还可以使用双冒号语法指定要在 Blob 名称内使用的路径。 例如，如果要在 Blob 路径中使用 **binaries** 上传 JAR 并在 Blob 路径中使用 **notices** 上传 TXT 文件，请使用以下项作为“要上传的项目列表”值：**build/\*.jar::binaries;build/\*.txt::notices**。
+每个作业只能创建一个用来将项目上传到 Azure Blob 存储的生成后操作。 请注意，单个生成后操作用于将项目上传到 Azure Blob 存储，它可在“要上传的项目列表”中指定不同的文件（包括通配符）和文件路径，其中使用分号作为分隔符。 例如，如果 Jenkins 内部版本在工作空间的 **build** 文件夹中生成了 JAR 文件和 TXT 文件，并且要将这两者都上传到 Azure Blob 存储，请使用以下项作为“要上传的项目列表”值：**build/\*.jar;build/\*.txt**。 你还可以使用双冒号语法指定要在 Blob 名称内使用的路径。 例如，如果要在 Blob 路径中使用 **binaries** 上传 JAR 并在 Blob 路径中使用 **notices** 上传 TXT 文件，请使用以下项作为“要上传的项目列表”值：**build/\*.jar::binaries;build/\*.txt::notices**。
 
 ## <a name="how-to-create-a-build-step-that-downloads-from-azure-blob-storage"></a>如何创建从 Azure Blob 存储进行下载的生成步骤
 以下步骤演示了如何配置从 Azure Blob 存储来下载项的生成步骤。 如果你希望在你的生成中包括这些项（例如你保存在 Azure Blob 存储中的 JAR），则这将非常有用。
@@ -152,7 +153,7 @@ Jenkins 通过允许开发人员轻松地集成其代码更改以及自动和频
 - [Jenkins 概览](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 - [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
 - [Azure 存储客户端 SDK 参考](http://azure.github.io/azure-storage-java/)
-- [Azure 存储空间服务 REST API](https://msdn.microsoft.com/zh-cn/library/azure/dd179355.aspx )
+- [Azure 存储服务 REST API](https://msdn.microsoft.com/zh-cn/library/azure/dd179355.aspx )
 - [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/)
 
 有关详细信息，另请参阅 [Java 开发人员中心](https://www.azure.cn/develop/java/)。

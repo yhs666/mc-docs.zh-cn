@@ -49,13 +49,13 @@ Azure 应用服务是大多数 Web 应用的最佳选择。 部署和管理都�
 | WebMatrix 支持 |X | |X | | |
 | 访问 Service Bus、存储空间、SQL 数据库之类的服务 |X |X |X |X | |
 | 托管多层体系结构的 web 或 web 服务层 |X |X |X |X | |
-| 托管多层体系结构的中间层 |X |X |X |X |应用服务 Web 应用可轻松托管 REST API 中间层，而 [WebJobs](/app-service-web/websites-webjobs-resources) 功能可托管后台处理作业。 可在专用网站中运行 WebJobs，实现层的独立可扩展性。 预览版 [API 应用](../app-service-api/app-service-api-apps-why-best-platform.md)功能提供更多托管 REST 服务的功能。 |
+| 托管多层体系结构的中间层 |X |X |X |X |应用服务 Web 应用可轻松托管 REST API 中间层，而 [WebJobs](/azure/app-service-web/websites-webjobs-resources) 功能可托管后台处理作业。 可在专用网站中运行 WebJobs，实现层的独立可扩展性。 预览版 [API 应用](../app-service-api/app-service-api-apps-why-best-platform.md)功能提供更多托管 REST 服务的功能。 |
 | 支持 ASP.NET、经典 ASP、Node.js、PHP、Python |X |X |X |X |Service Fabric 支持使用 [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) 创建 Web 前端，或者也可按[来宾可执行文件](../service-fabric/service-fabric-deploy-existing-app.md)的形式部署任何类型的应用程序（Node.js、Java 等）。 |
 | 向外扩展到多个实例且无需重新部署 |X |X |X |X |虚拟机可以扩大到多个实例，但必须编写这些虚拟机上运行的服务，来处理向外扩展。 你需要配置负载均衡器，跨计算机路由请求；还需要创建地缘组，防止因维护或硬件故障导致同时重新启动所有实例。 |
 | 支持 SSL |X |X |X |X |对于应用服务 Web 应用，只有基本和标准模式支持自定义域名的 SSL。 若要了解如何结合使用 SSL 和 Web 应用，请参阅[为 Azure 网站配置 SSL 证书](web-sites-configure-ssl-certificate.md)。 |
 | Visual Studio 集成 |X |X |X |X | |
 | 远程调试 |X |X |X | | |
-| 使用 [Azure 虚拟网络](https://www.azure.cn/home/features/networking/)进行网络隔离 |X |X |X |X |另请参阅 [Azure 网站的虚拟网络集成](/app-service-web/app-service-vnet-integration-powershell/) |
+| 使用 [Azure 虚拟网络](https://www.azure.cn/home/features/networking/)进行网络隔离 |X |X |X |X |另请参阅 [Azure 网站的虚拟网络集成](/azure/app-service-web/app-service-vnet-integration-powershell/) |
 | 支持 [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/) |X |X |X |X | |
 | 集成的端点监视 |X |X |X | | |
 | 对服务器的远程桌面访问 | |X |X |X | |
@@ -86,7 +86,7 @@ Azure 应用服务是针对复杂业务应用程序的理想解决方案。 你�
 * 遵守 ISO、SOC2 和 PCI 的要求。
 * 与 Azure Active Directory 集成
 
-### <a id="corp"></a>我需要一种可靠的方式来托管公司网站，既可以进行良好地扩展也能实现全国性覆盖。</a>
+### <a id="corp">我需要一种可靠的方式来托管公司网站，既可以进行良好地扩展也能实现全国性覆盖。</a>
 Azure 应用服务是托管公司网站的理想解决方案。 通过 Web 应用，你可以轻松快速地缩放站点，满足整个数据中心全国网络的需求。 它涵盖了本地范围，提供了容错和智能流量管理功能。 所有内容均位于提供世界级管理工具的平台上，让你可以快速轻松地更深入了解站点运行状况和站点流量。 Azure 应用服务针对 Web 应用提供三个 9 的 SLA，且能够：
 
 * 在自愈性自动修补云平台上安全可靠地运行网站。
@@ -143,7 +143,7 @@ Azure 应用服务是适合该情况的强大解决方案，原因是其可免�
 如果应用服务不支持开源框架，则可在其他某个 Azure Web 托管选项上运行该框架。 使用虚拟机，可以在计算机映像（基于 Windows 或 Linux）上安装和配置软件。
 
 ### <a id="lob"></a>我有一个需要连接到公司网络的业务线应用程序
-如果你想要创建业务线应用程序，你的网站可能需要直接访问公司网络上的服务或数据。 可在应用服务、Service Fabric 和虚拟机上使用 [Azure 虚拟网络服务](https://www.azure.cn/home/features/networking/)来实现此目的。 可在应用服务上使用 [VNET 集成功能](/app-service-web/app-service-vnet-integration-powershell/)，该功能使 Azure 应用程序能够像在公司网络上一样运行。
+如果你想要创建业务线应用程序，你的网站可能需要直接访问公司网络上的服务或数据。 可在应用服务、Service Fabric 和虚拟机上使用 [Azure 虚拟网络服务](https://www.azure.cn/home/features/networking/)来实现此目的。 可在应用服务上使用 [VNET 集成功能](/azure/app-service-web/app-service-vnet-integration-powershell/)，该功能使 Azure 应用程序能够像在公司网络上一样运行。
 
 ### <a id="mobile"></a>我想为移动客户端托管 REST API 或 web 服务
 利用基于 HTTP 的 Web 服务，你可以支持各种客户端，包括移动客户端。 如 ASP.NET Web API 的框架与 Visual Studio 集成，能够更加轻松地创建和使用 REST 服务。  这些服务来自 web 端点，因此可使用 Azure 上的任何 web 托管技巧支持此方案。 但应用服务托管 REST API 的理想选择。 通过应用服务，可以：
@@ -158,27 +158,27 @@ Azure 应用服务是适合该情况的强大解决方案，原因是其可免�
 
 若要开始使用为应用程序选择的选项，请参阅以下资源：
 
-* [Azure 应用服务](/app-service/)
-* [Azure 云服务](/cloud-services/)
-* [Azure 虚拟机](/virtual-machines/)
-* [Service Fabric](/service-fabric)
+* [Azure 应用服务](/azure/app-service/)
+* [Azure 云服务](/azure/cloud-services/)
+* [Azure 虚拟机](/azure/virtual-machines/)
+* [Service Fabric](/azure/service-fabric)
 
 <!-- URL List -->
 
 [Azure App Service]: https://www.azure.cn/home/features/app-service/
-[Cloud Services]: /cloud-services/
-[Virtual Machines]: /virtual-machines/
+[Cloud Services]: /azure/cloud-services/
+[Virtual Machines]: /azure/virtual-machines/
 [Service Fabric]: https://www.azure.cn/home/features/service-fabric/
 [ClearDB]: http://www.cleardb.com/
-[WebJobs]: /app-service-web/websites-webjobs-resources
-[Configuring an SSL certificate for an Azure Website]: /app-service-web/web-sites-configure-ssl-certificate
+[WebJobs]: /azure/app-service-web/websites-webjobs-resources
+[Configuring an SSL certificate for an Azure Website]: /azure/app-service-web/web-sites-configure-ssl-certificate
 [dotnet]: https://www.azure.cn/develop/net/
 [nodejs]: https://www.azure.cn/develop/nodejs/
 [PHP]: https://www.azure.cn/develop/php/
 [Python]: https://www.azure.cn/develop/python/
-[servicebus]: /service-bus/
-[sqldatabase]: /sql-database/
-[Storage]: /storage/
+[servicebus]: /azure/service-bus/
+[sqldatabase]: /azure/sql-database/
+[Storage]: /azure/storage/
 
 <!-- IMG List -->
 

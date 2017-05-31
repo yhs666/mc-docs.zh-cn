@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: d1f9bc5a2e30313acb861c58dcd3fe7612e822a2
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/28/2017
 2. 单击“+新建”> 在搜索框中键入“计划程序”> 在结果中选择“计划程序”> 单击“创建”。
    
     ![][marketplace-create]
-3. 让我们来创建一个作业，这只需要使用 GET 请求访问 http://www.microsoft.com/ 。 在“计划程序作业”  屏幕上，输入以下信息：
+3. 让我们来创建一个作业，这只需要使用 GET 请求访问 http://www.microsoft.com/。 在“计划程序作业”  屏幕上，输入以下信息：
    
    1. **名称：**`getmicrosoft`  
    2. **订阅：** 您的 Azure 订阅   

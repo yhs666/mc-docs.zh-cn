@@ -14,10 +14,10 @@ ms.date: 01/23/2017
 wacn.date: 
 ms.author: carolz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: d5606d1c9ff27dcd3893d000abda60091450ce77
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: e5e2271e1b027f7f6a3950f174922a301ae3c8a8
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="automation-documentation"></a>自动化文档
@@ -98,7 +98,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt662285.aspx">REST API</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/automation/">REST API</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt163781">经典 REST API</a></p>
                     </div>
                 </div>

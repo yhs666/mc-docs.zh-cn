@@ -17,8 +17,22 @@
   items:
   - name: 1 - 创建/管理 VM
     href: tutorial-manage-vm.md
+  - name: 2 - 创建/管理磁盘
+    href: tutorial-manage-disks.md
+  - name: 3 - 自动执行配置
+    href: tutorial-automate-vm-deployment.md
+  - name: 4 - 创建 VM 映像
+    href: tutorial-custom-images.md
+  - name: 5 - 高度可用的 VM
+    href: tutorial-availability-sets.md
   - name: 6 - 创建 VM 规模集
     href: tutorial-create-vmss.md
+  - name: 7 - 对 VM 进行负载均衡
+    href: tutorial-load-balancer.md
+  - name: 8 - 管理网络
+    href: tutorial-virtual-network.md
+  - name: 10 - 监视虚拟机
+    href: tutorial-monitoring.md
 - name: 示例
   items:
   - name: Azure CLI
@@ -255,6 +269,8 @@
       href: extensions-customscript.md
   - name: 运行应用程序
     items:
+    - name: Cloud Foundry
+      href: cloudfoundry-get-started.md
     - name: MongoDB
       href: install-mongodb.md
     - name: MySQL
@@ -265,6 +281,8 @@
       href: create-lamp-stack.md
     - name: 部署三节点 Deis 群集
       href: deis-cluster.md
+    - name: 部署 Node.js 应用程序
+      href: ../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Django Web 应用
       href: python-django-web-app.md
     - name: Jupyter Notebook

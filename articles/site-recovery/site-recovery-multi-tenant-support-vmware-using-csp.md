@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: manayar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: d46a1ffbc63fdf84448af9e743025a6ad17d3772
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -73,7 +74,7 @@ vCenter 帐户访问过程如下所示：
  *    虚拟机 -> 配置
  *    虚拟机 -> 交互 -> 回答问题、设备连接、配置 CD 介质、配置软盘介质、关机、开机、VMware 工具安装
  *    虚拟机 -> 清单 -> 创建、注册、取消注册
- *    虚拟机 -> 预配 -> 允许虚拟机下载、允许虚拟机文件上载
+ *    虚拟机 -> 预配 -> 允许虚拟机下载、允许虚拟机文件上传
  *    虚拟机 -> 快照 -> 删除快照。
 
     ![role-permissions](./media/site-recovery-multi-tenant-support-vmware-using-csp/edit-role-permissions.png)
@@ -187,7 +188,7 @@ VM 先决条件与 Azure Site Recovery [文档](site-recovery-vmware-to-azure.md
 
     ![user-licenses](./media/site-recovery-multi-tenant-support-vmware-using-csp/users-and-licences.png)
 
-    你现在可以创建新的用户，只需输入相关详细信息并选择权限，或者通过 CSV 文件上载用户列表即可。
+    你现在可以创建新的用户，只需输入相关详细信息并选择权限，或者通过 CSV 文件上传用户列表即可。
 2.    创建用户之后，请返回到 Azure 门户预览，然后在“订阅”边栏选项卡下选择相关订阅。
 3.    在打开的新边栏选项卡上选择“访问控制(IAM)”，然后单击“+添加”添加具有相关访问级别的用户。 通过 CSP 门户创建的用户将自动显示在单击一种访问级别后打开的边栏选项卡上。
 

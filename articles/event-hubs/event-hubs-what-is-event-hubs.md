@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/31/2017
 wacn.date: 
 ms.author: sethm; babanisa
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 55917df44200b416528b9bb8f77eadafcaf1f33a
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---

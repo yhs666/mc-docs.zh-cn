@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: ambapat
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 2bab5b7dffe08796ca9251fbf06ec25f8f093797
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -57,7 +58,7 @@ az account set -h
 
 对某一命令所需的参数有疑问时，请使用 --help、-h 或 az help [命令] 来查看帮助。
 
-还可阅读以下教程以熟悉如何在 Azure 跨平台命令行接口中使用 Azure 资源管理器：
+还可阅读以下教程以熟悉如何在 Azure 跨平台命令行接口中使用 Azure Resource Manager：
 
 - [安装 Azure CLI](/cli/azure/install-azure-cli/)
 - [Azure CLI 2.0 入门](/cli/azure/get-started-with-azure-cli/)
@@ -118,7 +119,7 @@ az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGro
 此命令的输出会显示你刚刚创建的密钥保管库的属性。 两个最重要的属性是：
 
 - **名称**：在本示例中为 ContosoKeyVault。 将在其他 Key Vault 命令中使用此名称。
-- **vaultUri**：在本示例中为 https://contosokeyvault.vault.azure.cn 。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
+- **vaultUri**：在本示例中为 https://contosokeyvault.vault.azure.cn。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
 
 你的 Azure 帐户现已获取在此密钥保管库上执行任何作业的授权。 而且没有其他人有此授权。
 
@@ -127,11 +128,11 @@ az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGro
 ```
 az keyvault key create --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --protection software
 ```
-但是，如果你在保存为本地文件的 .pem 文件（名为 softkey.pem）中有现有密钥要上载到 Azure 密钥保管库，请键入以下命令以从 .PEM 文件（通过密钥保管库服务中的软件保护密钥）中导入该密钥：
+但是，如果你在保存为本地文件的 .pem 文件（名为 softkey.pem）中有现有密钥要上传到 Azure Key Vault，请键入以下命令以从 .PEM 文件（通过 Key Vault 服务中的软件保护密钥）中导入该密钥：
 ```
 az keyvault key import --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --pem-file './softkey.pem' --pem-password 'PaSSWORD' --protection software
 ```
-现在，你可以通过使用密钥的 URI，引用已创建或上载到 Azure 密钥保管库的密钥。 使用 **https://ContosoKeyVault.vault.azure.cn/keys/ContosoFirstKey** 可始终获取最新版本，使用 **https://ContosoKeyVault.vault.azure.cn/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 可获取此特定版本。
+现在，你可以通过使用密钥的 URI，引用已创建或上传到 Azure  Key Vault 的密钥。 使用 **https://ContosoKeyVault.vault.azure.cn/keys/ContosoFirstKey** 可始终获取最新版本，使用 **https://ContosoKeyVault.vault.azure.cn/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 可获取此特定版本。
 
 若要将名为 SQLPassword 且其 Azure 密钥保管库的值为 Pa$$w0rd 的机密添加到保管库，请键入以下内容：
 ```

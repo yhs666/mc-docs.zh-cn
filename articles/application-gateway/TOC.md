@@ -46,7 +46,7 @@
 ### [排查应用程序网关中的错误](application-gateway-troubleshooting-502.md)
 ### [诊断日志记录和指标](application-gateway-diagnostics.md)
 # 引用
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/network/application-gateway)
 ## [.NET](https://docs.microsoft.com/dotnet/api)
 ## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network)
@@ -56,12 +56,12 @@
 ## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
 ## [REST（经典）](https://msdn.microsoft.com/library/azure/mt299393)
 # 相关内容
-## [ExpressRoute](/azure/expressroute/)
-## [虚拟网络](/azure/virtual-network/)
-## [VPN 网关](/azure/vpn-gateway/)
-## [虚拟机](/azure/virtual-machines/)
-## [负载均衡器](/azure/load-balancer/)
-## [流量管理器](/azure/traffic-manager/)
+## [ExpressRoute](/expressroute/)
+## [虚拟网络](/virtual-network/)
+## [VPN 网关](/vpn-gateway/)
+## [虚拟机](/virtual-machines/)
+## [负载均衡器](/load-balancer/)
+## [流量管理器](/traffic-manager/)
 # 资源
 ## [价格](https://www.azure.cn/pricing/details/application-gateway/)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)

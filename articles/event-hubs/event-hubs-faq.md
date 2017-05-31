@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/13/2017
 wacn.date: 
 ms.author: sethm;jotaub;shvija
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 027069e7bee618db5418c1fc4331dc9221a6eb0c
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -31,7 +32,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 * 更长的事件保留期
 * 其他中转连接，对于超出包含的数量的部分收取超额费用
 * 多于单个使用者组
-* [存档](/event-hubs/event-hubs-archive-overview)
+* [存档](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
 
 有关定价层的更多详细信息（包括专用事件中心），请参阅[事件中心定价详细信息](https://www.azure.cn/pricing/details/event-hubs/)。
 
@@ -56,7 +57,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 可以，但前提是所有事件中心都在同一个命名空间中。
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>事件的最长保留期有多久？
-事件中心标准目前支持的最长保留期为 7 天。 请注意，事件中心并不是永久性的数据存储区。 大于 24 小时的保留期适用于将事件流重播到相同系统中的情形；例如，为了基于现有数据来培训或验证新计算机学习模型。 如果需要将消息保留 7 天以上，那么启用事件中心的[存档](/event-hubs/event-hubs-archive-overview)功能可将数据从事件中心拉取到你选择的存储。 启用存档功能会基于你购买的吞吐量单位进行计价。
+事件中心标准目前支持的最长保留期为 7 天。 请注意，事件中心并不是永久性的数据存储区。 大于 24 小时的保留期适用于将事件流重播到相同系统中的情形；例如，为了基于现有数据来培训或验证新计算机学习模型。 如果需要将消息保留 7 天以上，那么启用事件中心的[存档](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)功能可将数据从事件中心拉取到你选择的存储。 启用存档功能会基于你购买的吞吐量单位进行计价。
 
 ### <a name="where-is-azure-event-hubs-available"></a>Azure 事件中心在哪些区域可用？
 在所有支持的 Azure 区域中都可使用 Azure 事件中心。 有关列表，请访问 [Azure 区域](https://azure.microsoft.com/regions/)页。  

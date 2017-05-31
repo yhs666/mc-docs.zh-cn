@@ -14,9 +14,10 @@ ms.workload: na
 ms.date: 03/03/2017
 ms.author: sethm
 wacn.date: 
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 726ccac9f4fb7e541a1db4479540a3b96750f24f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -128,7 +129,7 @@ ConnectionsQuotaExceeded for namespace xxx.
 ## <a name="next-steps"></a>后续步骤
 有关服务总线和事件中心 .NET API 的完整参考，请参阅 [Azure .NET API 参考](https://docs.microsoft.com/en-us/dotnet/api/)。
 
-若要了解有关 [服务总线](https://www.azure.cn/home/feateures/messaging/)的详细信息，请参阅以下主题。
+若要了解有关 [服务总线](/home/feateures/messaging/)的详细信息，请参阅以下主题。
 
 - [服务总线消息传送概述](./service-bus-messaging-overview.md)
 - [服务总线基础知识](./service-bus-fundamentals-hybrid-solutions.md)

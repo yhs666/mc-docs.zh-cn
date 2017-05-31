@@ -16,10 +16,10 @@ ms.date: 08/31/2016
 wacn.date: 
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 54cefe4dfb6c9433ae8871808588eb987895115d
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 032b2f953ce42f63f9298549f533b1062144714d
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -189,7 +189,7 @@ ms.lasthandoff: 04/28/2017
     * 名称 ID (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - 可用于防伪验证。 若要详细了解如何使其适用于防伪验证，请参阅[使用 Azure Active Directory 身份验证创建业务线 Azure 应用](web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud)中的**添加业务线功能**部分。
 
     > [!NOTE]
-    > 需要为应用程序配置的声明类型取决于应用程序的需求。 有关 Azure Active Directory 应用程序支持的声明列表（即 RP 信任），请参阅[支持的令牌和声明类型](/active-directory/develop/active-directory-token-and-claims/)。
+    > 需要为应用程序配置的声明类型取决于应用程序的需求。 有关 Azure Active Directory 应用程序支持的声明列表（即 RP 信任），请参阅[支持的令牌和声明类型](/active-directory/active-directory-token-and-claims/)。
     > 
     > 
 11. 在“编辑声明规则”对话框中，单击“添加规则”。
@@ -276,10 +276,13 @@ ms.lasthandoff: 04/28/2017
     }
 
     <mark>[Authorize(Roles="Domain Admins")]</mark>
-    public ActionResult Contact()  {      ViewBag.Message = "Your contact page.";
+    public ActionResult Contact()
+    {
+        ViewBag.Message = "Your contact page.";
 
         return View();
-    }  </pre>
+    }
+    </pre>
 
     由于我已在 AD FS 实验室环境中向“测试组”添加了**测试用户**，因此我将使用“测试组”在 `About` 上测试授权。 对于 `Contact`，我将测试**测试用户**不属于的**域管理员**的反面情况。
 3. 键入 `F5` 启动调试器并登录，然后单击“关于”。 如果经过身份验证的用户已获得该操作的授权，那么您现在应该可以成功查看 `~/About/Index` 页面。

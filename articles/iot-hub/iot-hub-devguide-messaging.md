@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: ef95cfdd45b18eb38d8c5b446fa47a1c5a2038b7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -37,7 +38,7 @@ IoT 中心公开内置的 [与事件中心兼容的终结点][lnk-compatible-end
 ### <a name="when-to-use"></a>何时使用
 使用设备到云消息从设备应用发送时序遥测数据和警报，使用云到设备消息向设备应用发送单向通知。
 
-如果在使用报告属性、设备到云消息或文件上载方面有任何疑问，请参阅 [设备到云通信指南][lnk-d2c-guidance] 。
+如果在使用报告属性、设备到云消息或文件上传方面有任何疑问，请参阅 [设备到云通信指南][lnk-d2c-guidance] 。
 如果在使用所需属性、直接方法或云到设备消息方面有任何疑问，请参阅 [云到设备通信指南][lnk-c2d-guidance] 。
 
 有关 IoT 中心与事件中心服务的比较，请参阅 [IoT 中心与事件中心的比较][lnk-compare]。
@@ -50,7 +51,7 @@ IoT 中心使用流式消息传递模式实现设备到云的消息传递。 与
 这种实现具有以下含义：
 
 * 与事件中心事件类似，设备到云的消息可持久保留在 IoT 中心的默认 **messages/events** 终结点多达 7 天。
-* 如同事件中心的事件，设备到云的消息最大可为 256 KB，而且可分成多个批以优化发送。 Batch 最大可为 256 KB。
+* 如同事件中心的事件，设备到云的消息最大可为 256 KB，而且可分成多个批以优化发送。 批最大可为 256 KB。
 
 不过，IoT 中心的设备到云的消息传递与事件中心之间还有一些重要差异：
 
@@ -368,7 +369,7 @@ IoT 中心开发人员指南中的其他参考主题包括：
 ## <a name="next-steps"></a>后续步骤
 了解如何使用 IoT 中心发送和接收消息后，可以根据兴趣参阅以下开发人员指南主题：
 
-- [从设备上载文件][lnk-devguide-upload]
+- [从设备上传文件][lnk-devguide-upload]
 - [管理 IoT 中心中的设备标识][lnk-devguide-identities]
 - [控制 IoT 中心的访问权限][lnk-devguide-security]
 - [使用设备孪生同步状态和配置][lnk-devguide-device-twins]
@@ -393,7 +394,7 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-event-hubs]: ../event-hubs/index.md
 [lnk-event-hubs-consuming-events]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
 [lnk-management-portal]: https://portal.azure.cn
-[lnk-servicebus]: ../service-bus-messaging/index.md
+[lnk-servicebus]: ../service-bus/index.md
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-portal]: ./iot-hub-create-through-portal.md
 [lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

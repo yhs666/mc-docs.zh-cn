@@ -16,9 +16,10 @@ ms.custom: loading
 ms.date: 03/30/2017
 wacn.date: 
 ms.author: douglasl;barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: b94004f56f0be0f2e4c89dccaa94f8f2d00e27e8
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---

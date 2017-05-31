@@ -1,15 +1,13 @@
-# Overview
-## [What is two-step verification?](multi-factor-authentication-end-user.md)
-## [How does it affect me?](multi-factor-authentication-end-user-signin.md)
+# 概述
+## [什么是双重验证？](./multi-factor-authentication-end-user.md)
+## [它对我有什么影响？](./multi-factor-authentication-end-user-signin.md)
 
-# Get started
-## [Set up your account](multi-factor-authentication-end-user-first-time.md)
+# 入门
+## [设置帐户](./multi-factor-authentication-end-user-first-time.md)
 
-# How to
-## [Manage settings](multi-factor-authentication-end-user-manage-settings.md)
-## [Troubleshoot](multi-factor-authentication-end-user-troubleshoot.md)
-## Use the Microsoft Authenticator app
-### [Get started with the app](microsoft-authenticator-app-how-to.md)
-### [Sign in with your phone](microsoft-authenticator-app-phone-signin-faq.md)
-### [FAQs](microsoft-authenticator-app-faq.md)
-
+# 如何
+## [管理设置](./multi-factor-authentication-end-user-manage-settings.md)
+## [故障排除](./multi-factor-authentication-end-user-troubleshoot.md)
+## 使用 Microsoft Authenticator 应用
+### [入门](./microsoft-authenticator-app-how-to.md)
+### [常见问题](./microsoft-authenticator-app-faq.md)

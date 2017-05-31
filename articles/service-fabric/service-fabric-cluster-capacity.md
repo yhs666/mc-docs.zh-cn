@@ -137,7 +137,7 @@ ms.lasthandoff: 05/05/2017
 **VM 实例数：**对于无状态生产工作负荷，支持的最小非主节点类型大小为 2。 这允许你运行应用程序的两个无状态实例，并允许你的服务在某个 VM 实例丢失的情况下继续运行。 
 
 > [!NOTE]
-> 当你的群集在低于 5.6 的 Service Fabric 版本上运行时，由于运行时中的一个缺陷（计划在 5.6 中修复），如果将非主节点类型缩减为小于 5，则会导致群集运行状况变为不正常，直到你使用相应的节点名称调用 [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState)。
+> 当你的群集在低于 5.6 的 Service Fabric 版本上运行时，由于运行时中的一个缺陷（计划在 5.6 中修复），如果将非主节点类型缩减为小于 5，则会导致群集运行状况变为不正常，直到你使用相应的节点名称调用 [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState)。 有关更多详细信息，请阅读[执行 Service Fabric 群集缩放](service-fabric-cluster-scale-up-down.md)。
 > 
 >
 

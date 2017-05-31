@@ -23,7 +23,7 @@ ms.lasthandoff: 04/14/2017
 
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>为 Azure 应用服务配置部署凭据
-[Azure 应用服务](/app-service-web/app-service-changes-existing-services/)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](app-service-deploy-local-git.md)和 [FTP/S 部署](app-service-deploy-ftp.md)。
+[Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services/)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](app-service-deploy-local-git.md)和 [FTP/S 部署](app-service-deploy-ftp.md)。
 
 * **用户级凭据**：一组适用于整个 Azure 帐户的凭据。 在任何订阅中，它均可用于为 Azure 帐户有权访问的任何应用部署应用服务。 这些是默认的凭据集，可从 [Azure 经典管理门户](https://manage.windowsazure.cn)设置或重置，每个应用服务应用在该门户的“仪表板”>“速览”下都有一个编辑入口点。
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 04/14/2017
 
 用户级凭据是 Azure 用户创建的。 用户级部署凭据可从 [Azure 经典管理门户](https://manage.windowsazure.cn)设置或重置，每个应用服务应用在该门户的“仪表板”>“速览”下都有一个编辑入口点。 无论入口点如何，对这些用户级凭据所作的编辑都会应用于整个 Azure 帐户。 FTP 和 Git 部署频繁使用这些凭据。
 
-设置部署凭据后，可以在 [Azure 门户预览](https://portal.azure.cn)的应用的“概览”中找到 *Git* 部署用户名，
+设置部署凭据后，可以在 [Azure 门户预览](https://portal.azure.cn)的应用的“概览”中找到 *Git*部署用户名，
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 

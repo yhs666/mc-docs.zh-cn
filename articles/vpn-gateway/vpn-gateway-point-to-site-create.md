@@ -56,7 +56,7 @@ ms.lasthandoff: 04/06/2017
 
 ## <a name="vnetvpn"></a>第 1 部分 - 创建虚拟网络和 VPN 网关
 
-开始之前，请确保你拥有 Azure 订阅。 如果你还没有 Azure 订阅，可以注册获取[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+开始之前，请确保你拥有 Azure 订阅。 如果你还没有 Azure 订阅，可以激活 [MSDN 订户权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)或注册获取[免费帐户](https://azure.microsoft.com/pricing/1rmb-trial)。
 
 ### <a name="part-1-create-a-virtual-network"></a>第 1 部分：创建虚拟网络
 1. 登录到 [Azure 经典管理门户](https://manage.windowsazure.cn)。 这些步骤使用经典管理门户而不是 Azure 门户预览。 目前无法使用 Azure 门户预览创建 P2S 连接。
@@ -215,4 +215,4 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 创
 
 ## <a name="next-steps"></a>后续步骤
 
-连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/virtual-machines/)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/virtual-machines-linux-azure-vm-network-overview.md)。
+连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/azure/virtual-machines/)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/virtual-machines-linux-azure-vm-network-overview.md)。
