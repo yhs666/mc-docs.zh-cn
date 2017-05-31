@@ -22,7 +22,6 @@ ms.author: juliako
 > [!div class="op_single_selector"]
 >- [.NET](./media-services-deliver-streaming-content.md)
 >- [REST](./media-services-rest-deliver-streaming-content.md)
->- [门户](./media-services-manage-content.md#publish)
 
 ##概述
 
