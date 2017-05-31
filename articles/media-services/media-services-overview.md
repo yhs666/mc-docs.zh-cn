@@ -57,7 +57,7 @@ Azure 媒体服务是一个可扩展的基于云的平台，使开发人员能�
 3. （可选）设置开发环境。为开发环境选择“.NET”或“REST API”。有关详细信息，请参阅[设置环境](./media-services-dotnet-how-to-use.md)。
 
     此外，请学习如何[以编程方式进行连接](./media-services-dotnet-connect-programmatically.md)。
-4. 处于已启动状态的标准流式处理终结点。有关详细信息，请参阅[管理流式处理终结点](./media-services-manage-origins.md)。
+4. 处于已启动状态的标准流式处理终结点。
 
 ##概念和概述
 
@@ -173,7 +173,7 @@ Azure 媒体服务提供所需的工具，以便创建适用于大多数平台�
 
 ##启用 Azure CDN
 
-媒体服务支持与 Azure CDN 集成。有关如何启用 Azure CDN 的信息，请参阅[如何在媒体服务帐户中管理流式处理终结点](./media-services-manage-origins.md#enable_cdn)。
+媒体服务支持与 Azure CDN 集成。
 
 ##缩放媒体服务帐户
 
@@ -181,7 +181,6 @@ Azure 媒体服务提供所需的工具，以便创建适用于大多数平台�
 
 也可以通过向媒体服务帐户添加存储帐户来缩放该帐户。每个存储帐户大小限制为 500 TB。若要在默认限制之外扩展存储，可选择将多个存储帐户附加到单个媒体服务帐户。
 
-[本](./media-services-how-to-scale.md)主题链接到相关的主题。
 
 ##支持
 

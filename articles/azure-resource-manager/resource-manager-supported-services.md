@@ -75,7 +75,6 @@ ms.lasthandoff: 04/22/2017
 | --- | --- | --- | --- |
 | API Apps |是 | [应用服务 REST](https://docs.microsoft.com/rest/api/appservice) |[Web 资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22kind%22%3A+%22apiApp%22&type=Code) |
 | API 管理 |是 |[API 管理 REST](https://docs.microsoft.com/rest/api/apimanagement) |[API 管理资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ApiManagement%22&type=Code) |
-
 | Function App |是 | [Function App REST](https://docs.microsoft.com/rest/api/appservice) |[Function App 资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22functionApp%22&type=Code) |
 | 逻辑应用 |是 |[逻辑应用 REST](https://docs.microsoft.com/rest/api/logic) |[逻辑应用资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Logic%22&type=Code) |
 | 移动应用 |是 | [应用服务 REST](https://docs.microsoft.com/rest/api/appservice) |[移动应用资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22mobileApp%22&type=Code) |
@@ -149,40 +148,40 @@ Azure Active Directory 可以使用 Resource Manager 为订阅启用基于角色
 ### <a name="powershell"></a>PowerShell
 以下示例说明如何获取所有可用的资源提供程序。
 
-    ```powershell
-    Get-AzureRmResourceProvider -ListAvailable
-    ```
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 以下示例演示如何获取特定资源提供程序的资源类型。
 
-    ```powershell
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
-    ```
+```powershell
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
+```
 
 若要注册资源提供程序，请提供命名空间：
 
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
-    ```
+```powershell
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+```
 
 ### <a name="azure-cli"></a>Azure CLI
 以下示例说明如何获取所有可用的资源提供程序。
 
-    ```azurecli
-    az provider list
-    ```
+```azurecli
+az provider list
+```
 
 可使用以下命令查看特定资源提供程序的信息：
 
-    ```azurecli
-    az provider show --namespace Microsoft.Web
-    ```
+```azurecli
+az provider show --namespace Microsoft.Web
+```
 
 若要注册资源提供程序，请提供命名空间：
 
-    ```azurecli
-    az provider register --namespace Microsoft.ServiceBus
-    ```
+```azurecli
+az provider register --namespace Microsoft.ServiceBus
+```
 
 ## <a name="supported-regions"></a> 支持的区域
 部署资源时，通常需要指定资源的区域。 所有区域都支持 Resource Manager，但部署的资源可能无法在所有区域中受到支持。 此外，订阅可能存在一些限制，以防止用户使用某些支持该资源的区域。 这些限制可能与所在国家/地区的税务问题有关，或者与由订阅管理员所放置，只能使用特定区域的策略结果有关。 
@@ -208,16 +207,16 @@ Azure Active Directory 可以使用 Resource Manager 为订阅启用基于角色
 ### <a name="powershell"></a>PowerShell
 以下示例演示如何获取支持网站的区域。
 
-    ```powershell
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
-    ```
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+```
 
 ### <a name="azure-cli"></a>Azure CLI
 以下示例演示如何获取支持的网站位置。
 
-    ```azurecli
-    az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
-    ```
+```azurecli
+az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
+```
 
 ## <a name="supported-api-versions"></a>支持的 API 版本
 部署模板时，必须指定要用于创建每个资源的 API 版本。 API 版本对应于资源提供程序发布的 REST API 操作版本。 资源提供程序启用新功能时，会发布 REST API 的新版本。 因此，在模板中指定的 API 版本会影响你可以在模板中指定的属性。 通常，在创建模板时，需要选择最新的 API 版本。 对于现有模板，你可以决定是要继续使用以前的 API 版本，还是要选择最新版本来更新模板以利用新功能。
@@ -231,31 +230,31 @@ Azure Active Directory 可以使用 Resource Manager 为订阅启用基于角色
 ### <a name="powershell"></a>PowerShell
 以下示例演示如何获取特定资源类型可用的 API 版本。
 
-    ```powershell
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
-    ```
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+```
 
 输出类似于：
 
-    ```powershell
-    2015-08-01
-    2015-07-01
-    2015-06-01
-    2015-05-01
-    2015-04-01
-    2015-02-01
-    2014-11-01
-    2014-06-01
-    2014-04-01-preview
-    2014-04-01
-    ```
+```powershell
+2015-08-01
+2015-07-01
+2015-06-01
+2015-05-01
+2015-04-01
+2015-02-01
+2014-11-01
+2014-06-01
+2014-04-01-preview
+2014-04-01
+```
 
 ### <a name="azure-cli"></a>Azure CLI
 使用以下命令获取资源提供程序的可用 API 版本：
 
-    ```azurecli
-    az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].apiVersions"
-    ```
+```azurecli
+az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].apiVersions"
+```
 
 ## <a name="next-steps"></a>后续步骤
 * 若要了解如何创建 Resource Manager 模板，请参阅[创作 Azure Resource Manager 模板](./resource-group-authoring-templates.md)。

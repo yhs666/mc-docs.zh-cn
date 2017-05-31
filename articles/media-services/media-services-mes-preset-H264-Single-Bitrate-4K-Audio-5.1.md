@@ -25,8 +25,7 @@ ms.author: juliako
 
  此预设将生成单个 MP4 文件，其比特率为 18000 kbps，并且带有 AAC 5.1 音频。若要深入了解此预设的配置文件、比特率、采样率等，请检查下面定义的 XML 或 JSON。有关每个元素含义的说明以及每个元素的有效值，请参阅 [Media Encoder Standard 架构](./media-services-mes-schema.md)。
 
-> [!NOTE]
-应利用 4K 编码获取“高级版”保留单位类型。有关详细信息，请参阅[如何缩放编码](./media-services-portal-encoding-units.md)。
+
 
  XML
 

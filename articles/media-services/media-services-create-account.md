@@ -41,7 +41,7 @@ Azure 经典管理门户提供了快速创建 Azure 媒体服务帐户的方法�
 
 1. 在 [Azure 经典管理门户][]中，依次单击“新建”、“媒体服务”和“快速创建”。
 
-![媒体服务快速创建](./media/media-services-create-account/wams-QuickCreate.png)
+    ![媒体服务快速创建](./media/media-services-create-account/wams-QuickCreate.png)
 
 2. 在“名称”中，输入新帐户的名称。媒体服务帐户名称由小写字母或数字构成（不含空格），长度为 3 到 24 个字符。
 

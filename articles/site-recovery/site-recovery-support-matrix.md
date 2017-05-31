@@ -16,6 +16,7 @@ ms.workload: storage-backup-recovery
 ms.date: 12/04/2016
 wacn.date: 01/11/2017
 ms.author: raynew
+redirect_url: site-recovery-support-matrix-to-azure
 ---
 
 # Azure Site Recovery 支持矩阵

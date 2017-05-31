@@ -50,35 +50,35 @@ ms.lasthandoff: 04/22/2017
 
 1. 登录到你的帐户。
    
-        ```azurecli
-        azure login -e AzureChinaCloud
-        ```
+    ```azurecli
+    azure login -e AzureChinaCloud
+    ```
 2. 若要创建应用标识，请提供应用名称和密码，如以下命令所示：
      
-        ```azurecli
-        azure ad sp create -n exampleapp -p {your-password}
-        ```
+    ```azurecli
+    azure ad sp create -n exampleapp -p {your-password}
+    ```
      
     随后将返回新的服务主体。 授权时需要使用对象 ID。 登录时需要提供随服务主体名称列出的 GUID。 此 GUID 与 AppId 的值一样。 在示例应用程序中，此值称为 `Client ID`。 
      
-        ```azurecli
-        info:    Executing command ad sp create
-     
-        Creating application exampleapp
-            / Creating service principal for application 7132aca4-1bdb-4238-ad81-996ff91d8db+
-            data:    Object Id:               ff863613-e5e2-4a6b-af07-fff6f2de3f4e
-            data:    Display Name:            exampleapp
-            data:    Service Principal Names:
-            data:                             7132aca4-1bdb-4238-ad81-996ff91d8db4
-            data:                             https://www.contoso.org/example
-        info:    ad sp create command OK
-        ```
+    ```azurecli
+    info:    Executing command ad sp create
+
+    Creating application exampleapp
+      / Creating service principal for application 7132aca4-1bdb-4238-ad81-996ff91d8db+
+      data:    Object Id:               ff863613-e5e2-4a6b-af07-fff6f2de3f4e
+      data:    Display Name:            exampleapp
+      data:    Service Principal Names:
+      data:                             7132aca4-1bdb-4238-ad81-996ff91d8db4
+      data:                             https://www.contoso.org/example
+      info:    ad sp create command OK
+    ```
 
 3. 向服务主体授予对订阅的权限。 在此示例中，向“读取者”角色（授予读取订阅中所有资源的权限）添加服务主体。 对于其他角色，请参阅 [RBAC：内置角色](../active-directory/role-based-access-built-in-roles.md)。 对于 objectid 参数，请提供创建应用程序时使用的 Object ID。 运行此命令之前，必须留出一些时间将新的服务主体传遍 Active Directory。 手动运行这些命令时，任务之间通常已经过足够的时间。 在脚本中，应在命令间添加休眠步骤（如 `sleep 15`）。 如果看到错误称主体不存在于目录中，请重新运行该命令。
 
-        ```azurecli
-         azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
-        ```
+    ```azurecli
+    azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
+    ```
 
     就这么简单！ AD 应用程序和服务主体设置完毕。 下一部分演示如何通过 Azure CLI 使用凭据进行登录。 如果想在代码应用程序中使用凭据，则不需要继续了解本主题。 可以跳到 [示例应用程序](#sample-applications) ，获取使用应用程序 ID 和密码登录的示例。 
 
@@ -87,63 +87,63 @@ ms.lasthandoff: 04/22/2017
 
 1. 以服务主体方式登录时，需提供 AD 应用所在目录的租户 ID。 租户是 Active Directory 的实例。 若要检索当前已经过身份验证的订阅的租户 ID，请使用：
 
-        ```azurecli
-        azure account show
-        ```
+    ```azurecli
+    azure account show
+    ```
 
     将返回：
 
-        ```azurecli
-        info:    Executing command account show
-        data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
-        data:    ID                          : {guid}
-        data:    State                       : Enabled
-        data:    Tenant ID                   : {guid}
-        data:    Is Default                  : true
-        ...
-        ```
+    ```azurecli
+    info:    Executing command account show
+    data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
+    data:    ID                          : {guid}
+    data:    State                       : Enabled
+    data:    Tenant ID                   : {guid}
+    data:    Is Default                  : true
+    ...
+    ```
 
     如果需要获取另一个订阅的租户 ID，请使用以下命令：
 
-        ```azurecli
-        azure account show -s {subscription-id}
-        ```
+    ```azurecli
+    azure account show -s {subscription-id}
+    ```
 
 2. 如果需要检索用于登录的客户端 ID，请使用以下命令：
 
-        ```azurecli
-        azure ad sp show -c exampleapp --json
-        ```
+    ```azurecli
+    azure ad sp show -c exampleapp --json
+    ```
 
     用于登录的值是服务主体名称中列出的 GUID。
 
-        ```azurecli
-        [
-            {
-                "objectId": "ff863613-e5e2-4a6b-af07-fff6f2de3f4e",
-                "objectType": "ServicePrincipal",
-                "displayName": "exampleapp",
-                "appId": "7132aca4-1bdb-4238-ad81-996ff91d8db4",
-                "servicePrincipalNames": [
-                    "https://www.contoso.org/example",
-                    "7132aca4-1bdb-4238-ad81-996ff91d8db4"
-                ]
-            }
-        ]
-        ```
+    ```azurecli
+    [
+        {
+           "objectId": "ff863613-e5e2-4a6b-af07-fff6f2de3f4e",
+           "objectType": "ServicePrincipal",
+           "displayName": "exampleapp",
+           "appId": "7132aca4-1bdb-4238-ad81-996ff91d8db4",
+           "servicePrincipalNames": [
+               "https://www.contoso.org/example",
+               "7132aca4-1bdb-4238-ad81-996ff91d8db4"
+           ]
+        }
+    ]
+    ```
 
 3. 以服务主体方式登录。
 
-        ```azurecli
-        azure login -e AzureChinaCloud -u 7132aca4-1bdb-4238-ad81-996ff91d8db4 --service-principal --tenant {tenant-id}
-        ```
+    ```azurecli
+    azure login -e AzureChinaCloud -u 7132aca4-1bdb-4238-ad81-996ff91d8db4 --service-principal --tenant {tenant-id}
+    ```
 
     系统将提示输入密码。 提供在创建 AD 应用程序时指定的密码。
 
-        ```azurecli
-        info:    Executing command login
-        Password: ********
-        ```
+    ```azurecli
+    info:    Executing command login
+    Password: ********
+    ```
 
 现在，用户已作为所创建服务主体的服务主体进行身份验证。
 
@@ -160,116 +160,116 @@ ms.lasthandoff: 04/22/2017
 
 1. 创建自签名证书。
 
-        ```
-        openssl req -x509 -days 3650 -newkey rsa:2048 -out cert.pem -nodes -subj '/CN=exampleapp'
-        ```
+    ```
+    openssl req -x509 -days 3650 -newkey rsa:2048 -out cert.pem -nodes -subj '/CN=exampleapp'
+    ```
 
 2. 前述步骤创建了两个文件 - privkey.pem 和 cert.pem。 将公钥和私钥组合成一个文件。
 
-        ```
-        cat privkey.pem cert.pem > examplecert.pem
-        ```
+    ```
+    cat privkey.pem cert.pem > examplecert.pem
+    ```
 
 3. 打开 **examplecert.pem** 文件并找到 **-----BEGIN CERTIFICATE-----** 与 **-----END CERTIFICATE-----** 之间的长字符序列。 复制证书数据。 创建服务主体时将此数据作为参数传递。
 
 4. 登录到你的帐户。
 
-        ```azurecli
-        azure login -e AzureChinaCloud
-        ```
+    ```azurecli
+    azure login -e AzureChinaCloud
+    ```
 5. 若要创建服务主体，请提供应用名称和证书数据，如以下命令所示：
      
-        ```azurecli
-        azure ad sp create -n exampleapp --cert-value {certificate data}
-        ```
+    ```azurecli
+    azure ad sp create -n exampleapp --cert-value {certificate data}
+    ```
 
     随后将返回新的服务主体。 授权时需要使用对象 ID。 登录时需要提供随服务主体名称列出的 GUID。 此 GUID 与 AppId 的值一样。 在示例应用程序中，此值称为“客户端 ID”。 
      
-        ```azurecli
-        info:    Executing command ad sp create
+    ```azurecli
+    info:    Executing command ad sp create
 
-        Creating service principal for application 4fd39843-c338-417d-b549-a545f584a74+
-            data:    Object Id:        7dbc8265-51ed-4038-8e13-31948c7f4ce7
-            data:    Display Name:     exampleapp
-            data:    Service Principal Names:
-            data:                      4fd39843-c338-417d-b549-a545f584a745
-            data:                      https://www.contoso.org/example
-            info:    ad sp create command OK
+    Creating service principal for application 4fd39843-c338-417d-b549-a545f584a74+
+        data:    Object Id:        7dbc8265-51ed-4038-8e13-31948c7f4ce7
+        data:    Display Name:     exampleapp
+        data:    Service Principal Names:
+        data:                      4fd39843-c338-417d-b549-a545f584a745
+        data:                      https://www.contoso.org/example
+        info:    ad sp create command OK
         ```
 
 6. 向服务主体授予对订阅的权限。 在此示例中，向“读取者”角色（授予读取订阅中所有资源的权限）添加服务主体。 对于其他角色，请参阅 [RBAC：内置角色](../active-directory/role-based-access-built-in-roles.md)。 对于 objectid 参数，请提供创建应用程序时使用的 Object ID。 运行此命令之前，必须留出一些时间将新的服务主体传遍 Active Directory。 手动运行这些命令时，任务之间通常已经过足够的时间。 在脚本中，应在命令间添加休眠步骤（如 `sleep 15`）。 如果看到错误称主体不存在于目录中，请重新运行该命令。
    
-        ```azurecli
-        azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
-        ```
+    ```azurecli
+    azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
+    ```
   
 ### <a name="provide-certificate-through-automated-azure-cli-script"></a>通过自动执行的 Azure CLI 脚本提供证书
 现在，需要以应用程序方式登录以执行相应操作。
 
 1. 以服务主体方式登录时，需提供 AD 应用所在目录的租户 ID。 租户是 Active Directory 的实例。 若要检索当前已经过身份验证的订阅的租户 ID，请使用：
 
-        ```azurecli
-        azure account show
-        ```
+    ```azurecli
+    azure account show
+    ```
 
     将返回：
 
-        ```azurecli
-        info:    Executing command account show
-        data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
-        data:    ID                          : {guid}
-        data:    State                       : Enabled
-        data:    Tenant ID                   : {guid}
-        data:    Is Default                  : true
-        ...
-        ```
+    ```azurecli
+    info:    Executing command account show
+    data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
+    data:    ID                          : {guid}
+    data:    State                       : Enabled
+    data:    Tenant ID                   : {guid}
+    data:    Is Default                  : true
+    ...
+    ```
 
     如果需要获取另一个订阅的租户 ID，请使用以下命令：
 
-        ```azurecli
-        azure account show -s {subscription-id}
-        ```
+    ```azurecli
+    azure account show -s {subscription-id}
+    ```
 
 2. 若要检索证书指纹并删除不需要的字符，请使用：
 
-        ```
-        openssl x509 -in "C:\certificates\examplecert.pem" -fingerprint -noout | sed 's/SHA1 Fingerprint=//g'  | sed 's/://g'
-        ```
+    ```
+    openssl x509 -in "C:\certificates\examplecert.pem" -fingerprint -noout | sed 's/SHA1 Fingerprint=//g'  | sed 's/://g'
+    ```
 
     它返回的指纹值类似于：
 
-        ```
-        30996D9CE48A0B6E0CD49DBB9A48059BF9355851
-        ```
+    ```
+    30996D9CE48A0B6E0CD49DBB9A48059BF9355851
+    ```
 
 3. 如果需要检索用于登录的客户端 ID，请使用以下命令：
 
-        ```azurecli
-        azure ad sp show -c exampleapp
-        ```
+    ```azurecli
+    azure ad sp show -c exampleapp
+    ```
 
     用于登录的值是服务主体名称中列出的 GUID。
 
-        ```azurecli
-        [
-            {
-                "objectId": "7dbc8265-51ed-4038-8e13-31948c7f4ce7",
-                "objectType": "ServicePrincipal",
-                "displayName": "exampleapp",
-                "appId": "4fd39843-c338-417d-b549-a545f584a745",
-                "servicePrincipalNames": [
-                    "https://www.contoso.org/example",
-                    "4fd39843-c338-417d-b549-a545f584a745"
-                ]
-            }
-        ]
-        ```
+    ```azurecli
+    [
+        {
+            "objectId": "7dbc8265-51ed-4038-8e13-31948c7f4ce7",
+            "objectType": "ServicePrincipal",
+            "displayName": "exampleapp",
+            "appId": "4fd39843-c338-417d-b549-a545f584a745",
+            "servicePrincipalNames": [
+                "https://www.contoso.org/example",
+                "4fd39843-c338-417d-b549-a545f584a745"
+            ]
+        }
+    ]
+    ```
 
 4. 以服务主体方式登录。
 
-        ```azurecli
-        azure login -e AzureChinaCloud --service-principal --tenant {tenant-id} -u 4fd39843-c338-417d-b549-a545f584a745 --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
-        ```
+    ```azurecli
+    azure login -e AzureChinaCloud --service-principal --tenant {tenant-id} -u 4fd39843-c338-417d-b549-a545f584a745 --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
+    ```
 
 现在，你已作为所创建 Active Directory 应用程序的服务主体进行身份验证。
 
@@ -279,15 +279,15 @@ ms.lasthandoff: 04/22/2017
 
 若要更改密码，请使用：
 
-    ```azurecli
-    azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --password p@ssword
-    ```
+```azurecli
+azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --password p@ssword
+```
 
 若要更改证书值，请使用：
 
-    ```azurecli
-    azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-value {certificate data}
-    ```
+```azurecli
+azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-value {certificate data}
+```
 
 ## <a name="debug"></a>调试
 
