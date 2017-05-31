@@ -34,12 +34,12 @@ ms.author: rajanaki
 ![用于在本地站点之间复制的 Virtual Machine Manager 站点部署](./media/site-recovery-monitoring-and-troubleshooting/image1.png)  
 
 ### 用于在本地位置与 Azure 之间复制的 Virtual Machine Manager 站点部署
-在本地位置与 Azure 之间设置数据库恢复时，需要下载 Azure Site Recovery 提供程序，并将其安装在 Virtual Machine Manager 服务器上。此外，还需要在每个 Hyper-V 主机上安装 Azure 恢复服务代理。有关详细信息，请参阅[了解站点到 Azure 的保护](./site-recovery-understanding-site-to-azure-protection.md)。
+在本地位置与 Azure 之间设置数据库恢复时，需要下载 Azure Site Recovery 提供程序，并将其安装在 Virtual Machine Manager 服务器上。此外，还需要在每个 Hyper-V 主机上安装 Azure 恢复服务代理。
 
 ![用于在本地位置与 Azure 之间复制的 Virtual Machine Manager 站点部署](./media/site-recovery-monitoring-and-troubleshooting/image2.png)  
 
 ### 用于在本地位置与 Azure 之间复制的 Hyper-V 站点部署
-此过程与 Virtual Machine Manager 部署类似。唯一的区别在于，Azure Site Recovery 提供程序和 Azure 恢复服务代理将在 Hyper-V 主机上自行安装。有关详细信息，请参阅[了解站点到 Azure 的保护](./site-recovery-understanding-site-to-azure-protection.md)。
+此过程与 Virtual Machine Manager 部署类似。唯一的区别在于，Azure Site Recovery 提供程序和 Azure 恢复服务代理将在 Hyper-V 主机上自行安装。
 
 ## 监视配置、保护和恢复操作
 在“作业”选项卡下，Azure Site Recovery 中的每项操作都会经过审核和跟踪。若要查看任何配置、保护或恢复错误，请转到“作业”选项卡，然后查找故障。

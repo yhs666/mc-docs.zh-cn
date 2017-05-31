@@ -23,7 +23,6 @@ ms.author: juliako
 > [!div class="op_single_selector"]
 >- [.NET](./media-services-dotnet-encode-with-media-encoder-standard.md)
 >- [REST](./media-services-rest-encode-asset.md)
->- [门户](./media-services-manage-content.md#encode)
 
 ##概述
 要通过 Internet 传送数字视频，必须对媒体进行压缩。数字视频文件相当大，可能因过大而无法通过 Internet 传送或者无法在客户的设备上正常显示。编码是压缩视频和音频以便你的客户能够查看媒体的过程。
