@@ -152,27 +152,29 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.cn
 
     此命令的输出类似于以下文本：
 
-        INFO  : Tez session hasn't been created yet. Opening session
-        INFO  :
+    ```
+    INFO  : Tez session hasn't been created yet. Opening session
+    INFO  :
 
-        INFO  : Status: Running (Executing on YARN cluster with App id application_1443698635933_0001)
+    INFO  : Status: Running (Executing on YARN cluster with App id application_1443698635933_0001)
 
-        INFO  : Map 1: -/-      Reducer 2: 0/1
-        INFO  : Map 1: 0/1      Reducer 2: 0/1
-        INFO  : Map 1: 0/1      Reducer 2: 0/1
-        INFO  : Map 1: 0/1      Reducer 2: 0/1
-        INFO  : Map 1: 0/1      Reducer 2: 0/1
-        INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
-        INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
-        INFO  : Map 1: 1/1      Reducer 2: 0/1
-        INFO  : Map 1: 1/1      Reducer 2: 0(+1)/1
-        INFO  : Map 1: 1/1      Reducer 2: 1/1
-        +----------+--------+--+
-        |   sev    | count  |
-        +----------+--------+--+
-        | [ERROR]  | 3      |
-        +----------+--------+--+
-        1 row selected (47.351 seconds)
+    INFO  : Map 1: -/-      Reducer 2: 0/1
+    INFO  : Map 1: 0/1      Reducer 2: 0/1
+    INFO  : Map 1: 0/1      Reducer 2: 0/1
+    INFO  : Map 1: 0/1      Reducer 2: 0/1
+    INFO  : Map 1: 0/1      Reducer 2: 0/1
+    INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
+    INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
+    INFO  : Map 1: 1/1      Reducer 2: 0/1
+    INFO  : Map 1: 1/1      Reducer 2: 0(+1)/1
+    INFO  : Map 1: 1/1      Reducer 2: 1/1
+    +----------+--------+--+
+    |   sev    | count  |
+    +----------+--------+--+
+    | [ERROR]  | 3      |
+    +----------+--------+--+
+    1 row selected (47.351 seconds)
+    ````
 
 5. 若要退出 Beeline，请使用 `!exit`。
 

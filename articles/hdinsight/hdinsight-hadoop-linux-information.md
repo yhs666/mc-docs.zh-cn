@@ -40,7 +40,7 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
 * [jq](https://stedolan.github.io/jq/) - 用于分析 JSON 文档
 * [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)（预览版）- 用于远程管理 Azure 服务
 
-    [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="users"></a>用户
 

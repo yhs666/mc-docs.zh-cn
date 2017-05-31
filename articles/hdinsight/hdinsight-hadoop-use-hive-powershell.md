@@ -37,9 +37,9 @@ ms.lasthandoff: 04/28/2017
 
 **先决条件**
 
-* **Azure HDInsight 群集**：无论该群集是基于 Windows 还是基于 Linux 都行。
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+* **Azure HDInsight 群集**：无论该群集是基于 Windows 还是基于 Linux 都行。
 
     > [!IMPORTANT]
     > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。

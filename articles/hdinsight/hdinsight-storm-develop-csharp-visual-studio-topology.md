@@ -114,7 +114,7 @@ EventHub 读取器模板随附的基于 Java 的 EventHub Spout 组件不适用�
 
      在创建项目过程中，将会从 NuGet 下载最新的 [SCP.NET 包](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/)。
 
-     [!INCLUDE [重要的 scp.net 版本](../../includes/hdinsight-storm-scpdotnet-version.md)]
+[!INCLUDE [重要的 scp.net 版本](../../includes/hdinsight-storm-scpdotnet-version.md)]
 
 在以下各节中，会将此项目修改成基本 WordCount 应用程序。
 

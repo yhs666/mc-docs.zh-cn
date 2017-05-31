@@ -32,9 +32,9 @@ Azure 事件中心可用于处理网站、应用程序和设备中的大量数�
 
 ## <a name="prerequisites"></a>先决条件
 
-* 一个 3.5 版 Apache Storm on HDInsight 群集。 有关详细信息，请参阅 [Storm on HDInsight 群集入门](hdinsight-apache-storm-tutorial-get-started-linux.md)。
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+* 一个 3.5 版 Apache Storm on HDInsight 群集。 有关详细信息，请参阅 [Storm on HDInsight 群集入门](hdinsight-apache-storm-tutorial-get-started-linux.md)。
 
     > [!IMPORTANT]
     > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅[弃用 HDInsight 3.3 和 3.4](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
