@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 登录页
 ms.date: 01/23/2017
+wacn.date: ''
 ms.author: carolz
 ---
 
@@ -19,90 +20,114 @@ ms.author: carolz
 了解如何使用流分析（完全托管的事件处理引擎）在云中运行物联网 (IoT) 分析。教程和其他文档介绍了如何实时分析来自应用程序、传感器、设备、社交媒体等的数据。
 
 <ul class="panelContent cardsFTitle">
-     <li><a href="/stream-analytics/stream-analytics-introduction">
-<div class="cardSize">
+     <li>
+        <a href="/stream-analytics/stream-analytics-introduction">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/stream-analytics.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/stream-analytics.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
                         <h3>了解 Azure 流分析</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
-     <li><a href="https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics">
-<div class="cardSize">
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/video-library.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
                         <h3>Azure 流分析视频库</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
-    <li><a href="/Stream-Analytics/">
-<div class="cardSize">
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/stream-analytics/">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/get-started.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
                         <h3>流分析入门</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
-     <li><a href="/Stream-Analytics/stream-analytics-build-an-iot-solution-using-stream-analytics">
-<div class="cardSize">
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/tutorial.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
                         <h3>使用流分析的 IoT 解决方案入门</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
-     <li><a href="/Stream-Analytics/stream-analytics-twitter-sentiment-analysis-trends">
-<div class="cardSize">
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/stream-analytics/stream-analytics-twitter-sentiment-analysis-trends">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/tutorial.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
                         <h3>使用流分析的 Twitter 情绪分析解决方案入门</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
-     <li><a href="/Stream-Analytics/stream-analytics-machine-learning-integration-tutorial">
-<div class="cardSize">
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/stream-analytics/stream-analytics-machine-learning-integration-tutorial">
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage"><img src="media/index/tutorial.svg" alt="" /></div>
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
                     </div>
                     <div class="cardText">
                         <h3>利用 Azure 机器学习的实时评分解决方案入门</h3>
                     </div>
                 </div>
             </div>
-        </div></a>
-</li>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---
@@ -127,7 +152,7 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
                         <p><a href="https://msdn.microsoft.com/zh-cn/library/azure/dn834998">查询语言</a></p>
                     </div>
                 </div>
@@ -148,4 +173,3 @@ ms.author: carolz
     </li>
 </ul>
 
-<!---HONumber=Mooncake_0306_2017-->

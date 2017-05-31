@@ -52,7 +52,7 @@ ms.lasthandoff: 04/22/2017
         PUT https://management.chinacloudapi.cn/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
             <common headers>
             {
-                "location": "China North",
+        		"location": "China North",
                 "tags": {
                     "tagname1": "tagvalue1"
                 }
@@ -75,7 +75,6 @@ ms.lasthandoff: 04/22/2017
                     }
                 }
             }
-
 
     如果想要记录响应内容或/和请求内容，请在请求中包括 **debugSetting**。
 
