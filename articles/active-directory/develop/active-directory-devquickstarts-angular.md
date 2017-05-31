@@ -64,8 +64,6 @@ ms.author: dastrock
   - 下载 [adal-angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal-angular.js) 并将其添加到 `App/Scripts/` 项目目录。
   - 在 `index.html` 将每个脚本加载到 `</body>` 的末尾之前：
 
-    js
-
     ```js
     ...
     <script src="App/Scripts/adal.js"></script>
@@ -82,8 +80,6 @@ Adal.js 能够与 AngularJS 路由和 http 提供程序集成，使你可以在 
 
 - 在 `App/Scripts/app.js` 中引入 adal.js 模块：
 
-    js
-
     ```js
     angular.module('todoApp', ['ngRoute','AdalAngular'])
     .config(['$routeProvider','$httpProvider', 'adalAuthenticationServiceProvider',
@@ -92,8 +88,6 @@ Adal.js 能够与 AngularJS 路由和 http 提供程序集成，使你可以在 
     ```
 
 - 现在，你可以使用应用程序注册的配置值初始化 `adalProvider`（同样在 `App/Scripts/app.js` 中）：
-
-    js
 
     ```js
     adalProvider.init(
@@ -110,8 +104,6 @@ Adal.js 能够与 AngularJS 路由和 http 提供程序集成，使你可以在 
 
 - 若要在应用程序中保护 `TodoList` 视图，只需编写一行代码 - `requireADLogin`。
 
-    js
-
     ```js
     ...
     }).when("/TodoList", {
@@ -124,8 +116,6 @@ Adal.js 能够与 AngularJS 路由和 http 提供程序集成，使你可以在 
 现在，你已获得一个安全的单页面应用程序，它可以让用户登录，并可向其后端 API 发出受持有者令牌保护的请求。当用户单击 `TodoList` 链接时，adal.js 会根据需要自动重定向到 Azure AD 以进行登录。此外，adal.js 会自动将 access\_token 附加到已发送至应用程序后端的任何 ajax 请求。以上是使用 adal.js 生成 SPA 的最低要求 - SPA 中还提供了其他许多有用的功能：
 
 - 若要显式发出登录和注销请求，你可以在调用 adal.js 的控制器中定义函数。在 `App/Scripts/homeCtrl.js` 中：
-
-    js
 
     ```js
     ...
@@ -140,8 +130,6 @@ Adal.js 能够与 AngularJS 路由和 http 提供程序集成，使你可以在 
 
 - 你可能还想要在应用的 UI 中显示用户信息。adal 服务已添加到 `userDataCtrl` 控制器，因此你可以在关联的视图 `App/Views/UserData.html` 中访问 `userInfo` 对象：
 
-    js
-
     ```js
     <p>{{userInfo.userName}}</p>
     <p>aud:{{userInfo.profile.aud}}</p>
@@ -150,8 +138,6 @@ Adal.js 能够与 AngularJS 路由和 http 提供程序集成，使你可以在 
     ```
 
 - 另外，在许多情况下，你想要知道用户是否已登录。你也可以使用 `userInfo` 对象来收集此信息。例如，在 `index.html` 中，可以根据身份验证状态显示“登录”或“注销”按钮：
-
-    js
 
     ```js
     <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>

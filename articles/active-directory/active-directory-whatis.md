@@ -76,7 +76,6 @@ Azure AD 是多客户公共目录服务，这意味着用户可以在 Azure AD �
 
 - [使用 Azure AD Connect 启用目录的混合管理](./connect/active-directory-aadconnect.md)
 - [在互联世界中提高安全性](../multi-factor-authentication/multi-factor-authentication.md)
-
 - [从任意位置管理密码](./active-directory-passwords.md)
 - [Azure Active Directory 的应用程序访问与单一登录是什么？](./active-directory-appssoaccess-whatis.md)
 

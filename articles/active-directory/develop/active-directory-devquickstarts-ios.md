@@ -105,8 +105,6 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
 
 - 在 `QuickStart` 项目中，打开 `GraphAPICaller.m` 并找到靠近顶部位置的 `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` 注释。你将在此处通过 CompletionBlock 传递 ADAL 与 Azure AD 通信时所需的坐标，并告诉 ADAL 如何缓存令牌。
 
-    ObjC
-
     ```ObjC
     +(void) getToken : (BOOL) clearCache
                parent:(UIViewController*) parent
@@ -146,8 +144,6 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
     ```
 
 - 现在，我们需要使用此令牌在图形中搜索用户。查找 `// TODO: implement SearchUsersList` 注释。此方法将向 Azure AD 图形 API 发出 GET 请求，以查询其 UPN 以给定搜索词开头的用户。但是，若要查询 Graph API，你需要在请求的 `Authorization` 标头中包含 access\_token - 这是 ADAL 传入的位置。
-
-    ObjC
 
     ```ObjC
     +(void) searchUserList:(NSString*)searchString

@@ -149,8 +149,6 @@ cordova plugin add cordova-plugin-ms-adal
 
 要做的第一件事是，在代码中引入 AAD 用来识别应用和所需资源的协议值。稍后将要使用这些值来构造令牌请求。在 index.js 文件的顶部插入以下代码段。
 
-javascript
-
 ```javascript
 var authority = "https://login.chinacloudapi.cn/common",
 redirectUri = "http://MyDirectorySearcherApp",
@@ -163,8 +161,6 @@ graphApiVersion = "2013-11-08";
 注意：如果你选择不在自己的租户中注册新应用，则只需按原样粘贴上述预配置值 - 这样你便可以看到示例的运行情况，不过，在生产环境中，你始终要为应用创建自己的条目。
 
 接下来，需要添加实际的令牌请求代码。在 `search `和 `renderdata `定义之间插入以下代码段。
-
-javascript
 
 ```javascript
 // Shows user authentication dialog if required.
@@ -194,8 +190,6 @@ authenticate: function (authCompletedCallback) {
 此示例应适用于任何租户，而不只是与某个特定租户相关。它使用了“/common”终结点，因此，用户在身份验证时可以输入任何帐户，并可将请求定向到它所属的租户。
 该方法的第一部分将检查 ADAL 缓存，以确定是否已有一个存储的令牌 - 如果有，则使用该令牌的来源租户重新初始化 ADAL。要避免额外的提示，必须执行此操作，因为使用“/common”总会导致要求用户输入新帐户。
 
-javascript
-
 ```javascript
     app.context = new Microsoft.ADAL.AuthenticationContext(authority);
     app.context.tokenCache.readItems().then(function (items) {
@@ -208,8 +202,6 @@ javascript
 该方法的第二部分将执行适当的 tokewn 请求。
 `acquireTokenSilentAsync` 方法请求 ADAL 返回指定资源的令牌，且不显示任何 UX。如果缓存中已经存储了一个适当的访问令牌，或者有一个刷新令牌可用于获取新访问令牌且不显示任何提示，则可能会发生这种情况。
 如果该尝试失败，我们将在 `acquireTokenAsync` 上回退 - 这会以可视方式提示用户进行身份验证。
-
-javascript
 
 ```javascript
         // Attempt to authorize user silently
@@ -224,8 +216,6 @@ javascript
 ```
 
 现在，我们已经获得了令牌，最后，我们可以调用图形 API 并执行所需的搜索查询。在 `authenticate` 定义的正下方插入以下代码段。
-
-javascript
 
 ```javascript
 // Makes Api call to receive user list.

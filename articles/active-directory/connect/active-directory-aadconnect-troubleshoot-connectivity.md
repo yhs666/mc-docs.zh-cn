@@ -27,6 +27,7 @@ Azure AD Connect 使用现代身份验证（使用 ADAL 库）来进行身份验
 在本文中，我们说明了 Fabrikam 如何通过其代理连接到 Azure AD。代理服务器名为 fabrikamproxy，并使用端口 8080。
 
 首先，我们需要确保正确配置 [**machine.config**](./active-directory-aadconnect-prerequisites.md#connectivity)。
+
 ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
 > [!NOTE]

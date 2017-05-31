@@ -56,6 +56,7 @@ Azure AD Connect 同步在安装向导创建的服务帐户下运行。此服务
 仅当需要更改联接规则时，才应更改现成的规则。若需更改属性流，则应在创建同步规则时，让其优先级高于现成的规则。实际上，需克隆的唯一规则是规则 **In from AD - User Join**。可以使用优先级更高的规则重写所有其他规则。
 
 如果需要对现成的规则进行更改，应该复制该现成的规则，然后禁用原始规则。然后对克隆的规则进行更改。同步规则编辑器会帮助完成这些步骤。打开现成的规则时，将显示此对话框：
+
 ![对现成规则的警告](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
 选择“是”创建规则的副本。随后会打开克隆的规则。

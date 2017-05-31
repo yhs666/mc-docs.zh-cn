@@ -132,15 +132,11 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 ### 通过编辑 oidc\_clientconf.xml 文件来配置你的客户端
 1. 由于你只使用 OAuth2 流来获得令牌并调用图形 API，因此将客户端设置为只使用 OAuth2。在后面的示例中将使用 OIDC。
 
-    xml
-
     ```xml
     <bool name="oidc_oauth2only">true</bool>
     ```
 
 2. 配置从注册门户收到的客户端 ID。
-
-    xml
 
     ```xml
     <string name="oidc_clientId">86172f9d-a1ae-4348-aafa-7b3e5d1b36f5</string>
@@ -149,15 +145,11 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 
 3. 使用下面的文本配置重定向 URI。
 
-    xml
-
     ```xml
     <string name="oidc_redirectUrl">https://login.microsoftonline.com/common/oauth2/nativeclient</string>
     ```
 
 4. 配置访问图形 API 所需的范围。
-
-    xml
 
     ```xml
     <string-array name="oidc_scopes">
@@ -175,8 +167,6 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 ### 通过编辑 oidc\_endpoints.xml 文件配置客户端终结点
 
 - 打开 `oidc_endpoints.xml` 文件并进行以下更改：
-
-    xml
 
     ```xml
     <!-- Stores OpenID Connect provider endpoints. -->
@@ -198,8 +188,6 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 ## 配置图形 API 调用
 
 - 打开 `HomeActivity.java` 文件并进行以下更改：
-
-    Java
 
     ```Java
        //TODO: set your protected resource url

@@ -91,7 +91,8 @@ Azure AD Connect 是同步服务的一部分，使用加密密钥来存储 AD DS
 5. 在弹出对话框中，选择“连接到 Active Directory 林”：
 6. 在“密码”文本框中输入 AD DS 帐户的密码。 如果不知道该密码，则必须将其设置为某个已知值，然后再执行此步骤。
 7. 单击“确定”保存新密码并关闭弹出对话框。
-![Azure AD Connect 同步加密密钥实用工具](./media/active-directory-aadconnectsync-encryption-key/key6.png)
+
+	![Azure AD Connect 同步加密密钥实用工具](./media/active-directory-aadconnectsync-encryption-key/key6.png)
 
 #### <a name="reinitialize-the-password-of-the-azure-ad-sync-account"></a>重新初始化 Azure AD 同步帐户的密码
 不能直接向同步服务提供 Azure AD 服务帐户的密码， 而只能使用 cmdlet **Add-ADSyncAADServiceAccount** 重新初始化 Azure AD 服务帐户。 该 cmdlet 重置帐户密码，并使其可供同步服务使用：

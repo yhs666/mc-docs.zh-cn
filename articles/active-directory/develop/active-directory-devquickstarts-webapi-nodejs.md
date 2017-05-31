@@ -102,8 +102,6 @@ npm install restify
 #### 遇到了有关 DTRACE 的错误吗？
 在安装 Restify 时，可能会看到类似于下面的内容：
 
-Shell
-
 ```Shell
 clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
 make: *** [Release/DTraceProviderBindings.node] Error 1
@@ -232,8 +230,6 @@ cd azuread
 
 在偏好的编辑器中创建 `server.js` 文件，然后添加以下信息：
 
-Javascript
-
 ```Javascript
 'use strict';
 
@@ -267,8 +263,6 @@ cd azuread
 
 在偏好的编辑器中创建 `config.js` 文件，然后添加以下信息：
 
-Javascript
-
 ```Javascript
  exports.creds = {
      mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
@@ -298,15 +292,11 @@ cd azuread
 
 在偏好的编辑器中打开 `server.js` 文件，并添加以下信息：
 
-Javascript
-
 ```Javascript
 var config = require('./config');
 ```
 
 然后，在 `server.js` 中替换包含以下代码的新节：
-
-Javascript
 
 ```Javascript
 var options = {
@@ -383,8 +373,6 @@ cd azuread
 
 在偏好的编辑器中打开 `server.js` 文件，并在配置条目下面添加以下信息：
 
-Javascript
-
 ```Javascript
 // Connect to MongoDB
 global.db = mongoose.connect(serverURI);
@@ -416,8 +404,6 @@ Restify 中路由的工作原理与使用 Express 堆栈时的路由工作原理
 
 Restify 路由的典型模式是：
 
-Javascript
-
 ```Javascript
 function createObject(req, res, next) {
 
@@ -448,8 +434,6 @@ cd azuread
 ```
 
 在偏好的编辑器中打开 `server.js` 文件，并在前面创建的数据库条目下面添加以下信息：
-
-Javascript
 
 ```Javascript
 /**
@@ -635,8 +619,6 @@ util.inherits(TaskNotFoundError, restify.RestError);
 
 Restify（和 Express）允许对 REST API 服务器执行大量的深度自定义，但同样，我们在本演练中将使用最基本的设置。
 
-Javascript
-
 ```Javascript
 /**
  * Our Server
@@ -677,8 +659,6 @@ server.use(restify.bodyParser({
 ```
 
 ## 16\.将路由添加到服务器（目前不包括身份验证）
-
-Javascript
 
 ```Javascript
 /// Now the real handlers. Here we just CRUD
@@ -756,8 +736,6 @@ $ node server.js
 $ curl -isS http://127.0.0.1:8080 | json 
 ```
 
-Shell
-
 ```Shell
 HTTP/1.1 200 OK
 Connection: close
@@ -782,8 +760,6 @@ $ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello
 ```
 
 响应应为：
-
-Shell
 
 ```Shell
 HTTP/1.1 201 Created
@@ -820,8 +796,6 @@ cd azuread
 
 首先，需指出要使用 Passport。在其他服务器配置之后紧接着执行此操作：
 
-Javascript
-
 ```Javascript
 // Let's start using Passport.js
 
@@ -835,8 +809,6 @@ server.use(passport.session()); // Provides session support
 > 
 
 接下来，我们将使用 passport-azure-ad 随附的 Bearer 策略。先看看下面的代码，稍后我将进行解释。将此代码放在上面粘贴的内容后面：
-
-Javascript
 
 ```Javascript
 /**
@@ -897,8 +869,6 @@ Passport 对其所有策略（Twitter、Facebook 等）都使用所有策略写�
 
 让我们用服务器代码编辑路由，做一些更有趣的事：
 
-Javascript
-
 ```Javascript
 server.get('/tasks', passport.authenticate('oauth-bearer', {
 session: false
@@ -956,8 +926,6 @@ $ node server.js
 ```
 $ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello 
 ```
-
-Shell
 
 ```Shell
 HTTP/1.1 401 Unauthorized

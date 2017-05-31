@@ -71,8 +71,6 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
 
 - 在 `DirectorySearcher` 项目中，打开 `MainWindow.xaml.cs` 并找到 `MainWindow()` 方法。第一步是初始化应用程序的 `AuthenticationContext`（ADAL 的主类）。你将在此处传递 ADAL 与 Azure AD 通信时所需的坐标，并告诉 ADAL 如何缓存令牌。
 
-    C#
-
     ```C#
     public MainWindow()
     {
@@ -85,8 +83,6 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
     ```
 
 - 现在查找 `Search(...)` 方法，当用户在应用程序的 UI 中单击“搜索”按钮时，将调用该方法。此方法将向 Azure AD 图形 API 发出 GET 请求，以查询其 UPN 以给定搜索词开头的用户。但是，若要查询 Graph API，你需要在请求的 `Authorization` 标头中包含 access\_token - 这是 ADAL 传入的位置。
-
-    C#
 
     ```C#
     private async void Search(object sender, RoutedEventArgs e)
@@ -123,8 +119,6 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
 - 请注意，`AuthenticationResult` 对象包含 `UserInfo` 对象，后者可用于收集应用程序可能需要的信息。在 DirectorySearcher 中，`UserInfo` 用于使用用户 ID 自定义应用程序的 UI。
 - 当用户单击“注销”按钮时，我们希望确保 `AcquireTokenAsync(...)` 的后续调用要求用户登录。使用 ADAL 时，只需清除令牌缓存即可：
 
-    C#
-
     ```C#
     private void SignOut(object sender = null, RoutedEventArgs args = null)
     {
@@ -136,8 +130,6 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
     ```
 
 - 但是，如果用户未单击“注销”按钮，则你需要保留用户下次运行 DirectorySearcher 时的会话。当应用启动时，你可以检查现有令牌的 ADAL 令牌缓存，并相应地更新 UI。在 `CheckForCachedToken()` 方法中，再次调用 `AcquireTokenAsync(...)`，不过，这一次请传入 `PromptBehavior.Never` 参数。`PromptBehavior.Never` 将告知 ADAL 不应提示用户登录；如果 ADAL 无法返回令牌，则应引发异常。
-
-    C#
 
     ```C#
     public async void CheckForCachedToken() 
