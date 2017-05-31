@@ -46,7 +46,6 @@
 ### [将 Hyper-V 自动复制到 Azure（包含 VMM）](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [将 Hyper-V 自动复制到辅助站点（包含 VMM）](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## 管理
-### [编辑复制设置](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy.md)
 ### [删除服务器并禁用保护](site-recovery-manage-registration-and-protection.md)
 ## [监视和故障排除](site-recovery-monitoring-and-troubleshooting.md)
 
