@@ -43,15 +43,15 @@ ms.lasthandoff: 04/22/2017
 
     对于 Azure PowerShell，请使用：
 
-        ```powershell
-        (Get-AzureRmSubscription -SubscriptionName "Example Subscription").TenantId
-        ```
+    ```powershell
+    (Get-AzureRmSubscription -SubscriptionName "Example Subscription").TenantId
+    ```
 
     对于 Azure CLI 2.0，请使用：
 
-        ```azurecli
-        az account show --subscription "Example Subscription" --query tenantId
-        ```
+    ```azurecli
+    az account show --subscription "Example Subscription" --query tenantId
+    ```
 
     如果源和目标订阅的租户 ID 不相同，则可以尝试更改订阅的目录。 但是，此选项仅可供使用 Microsoft 帐户（而非组织帐户）登录的服务管理员使用。 若要尝试更改目录，请登录到[经典门户](https://manage.windowsazure.cn/)，选择“设置”，然后选择订阅。 如果“编辑目录”  图标可用，选择它可更改关联的 Active Directory。 
 
@@ -195,59 +195,59 @@ ms.lasthandoff: 04/22/2017
 
 1. 检查源订阅是否可以参与跨订阅移动。 使用以下操作：
 
-        ```HTTP
-        POST https://management.chinacloudapi.cn/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-        ```
+    ```HTTP
+    POST https://management.chinacloudapi.cn/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+    ```
 
     在请求正文中包括：
 
-        ```json
-        {
-            "role": "source"
-        }
-        ```
+    ```json
+    {
+        "role": "source"
+    }
+    ```
 
     验证操作的响应格式如下：
 
-        ```json
-        {
-            "status": "{status}",
-            "reasons": [
-            "reason1",
-            "reason2"
-            ]
-        }
-        ```
+    ```json
+    {
+        "status": "{status}",
+        "reasons": [
+        "reason1",
+        "reason2"
+        ]
+    }
+    ```
 
 2. 检查目标订阅是否可以参与跨订阅移动。 使用以下操作：
 
-        ```HTTP
-        POST https://management.chinacloudapi.cn/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-        ```
+    ```HTTP
+    POST https://management.chinacloudapi.cn/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+    ```
 
     在请求正文中包括：
 
-        ```json
-        {
-            "role": "target"
-        }
-        ```
+    ```json
+    {
+        "role": "target"
+    }
+    ```
 
     响应的格式与源订阅验证的响应格式相同。
 
 3. 如果两个订阅都通过了验证，可使用以下操作将所有经典资源从一个订阅移动到另一个订阅：
 
-        ```HTTP
-        POST https://management.chinacloudapi.cn/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
-        ```
+    ```HTTP
+    POST https://management.chinacloudapi.cn/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
+    ```
 
     在请求正文中包括：
 
-        ```json
-        {
-            "target": "/subscriptions/{target-subscription-id}"
-        }
-        ```
+    ```json
+    {
+        "target": "/subscriptions/{target-subscription-id}"
+    }
+    ```
 
 此操作可能需要运行几分钟。 
 
@@ -275,88 +275,88 @@ ms.lasthandoff: 04/22/2017
 
 第一个示例演示如何将一个资源移到新的资源组。
 
-    ```powershell
-    $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
-    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
-    ```
+```powershell
+$resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
+Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
+```
 
-    The second example shows how to move multiple resources to a new resource group.
+第二个示例演示如何将多个资源移到新的资源组。
 
-    ```powershell
-    $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-    $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
-    ```
+```powershell
+$webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
+$plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+```
 
 若要移到新订阅，请包含 `DestinationSubscriptionId` 参数的值。
 
 系统将要求确认是否想要移动指定的资源。
 
-    ```powershell
-    Confirm
-    Are you sure you want to move these resources to the resource group
-    '/subscriptions/{guid}/resourceGroups/newRG' the resources:
+```powershell
+Confirm
+Are you sure you want to move these resources to the resource group
+'/subscriptions/{guid}/resourceGroups/newRG' the resources:
 
-    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/serverFarms/exampleplan
-    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/sites/examplesite
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
-    ```
+/subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/serverFarms/exampleplan
+/subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/sites/examplesite
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+```
 
 ## <a name="use-azure-cli"></a>使用 Azure CLI 2.0
 若要将现有资源移到另一个资源组或订阅，请使用 `az resource move` 命令。 提供要移动的资源的资源 ID。 可以使用以下命令获取资源 ID：
 
-    ```azurecli
-    az resource show -g sourceGroup -n storagedemo --resource-type "Microsoft.Storage/storageAccounts" --query id
-    ```
+```azurecli
+az resource show -g sourceGroup -n storagedemo --resource-type "Microsoft.Storage/storageAccounts" --query id
+```
 
 以下示例说明如何将存储帐户移动到新的资源组。 在 `--ids` 参数中，提供要移动的资源 ID 的空格分隔列表。
 
-    ```azurecli
-    az resource move --destination-group newgroup --ids "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo"
-    ```
+```azurecli
+az resource move --destination-group newgroup --ids "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo"
+```
 
 若要移到新订阅，请提供 `--destination-subscription-id` 参数。
 
 ## <a name="use-azure-cli-10"></a>使用 Azure CLI 1.0
 若要将现有资源移到另一个资源组或订阅，请使用 `azure resource move` 命令。 提供要移动的资源的资源 ID。 可以使用以下命令获取资源 ID：
 
-    ```azurecli
-    azure resource list -g sourceGroup --json
-    ```
+```azurecli
+azure resource list -g sourceGroup --json
+```
 
 会返回以下格式：
 
-    ```azurecli
-    [
-        {
-            "id": "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo",
-            "name": "storagedemo",
-            "type": "Microsoft.Storage/storageAccounts",
-            "location": "chinaeast",
-            "tags": {},
-            "kind": "Storage",
-            "sku": {
-                "name": "Standard_RAGRS",
-                "tier": "Standard"
-            }
-        }
-    ]
-    ```
+```azurecli
+[
+  {
+    "id": "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo",
+    "name": "storagedemo",
+    "type": "Microsoft.Storage/storageAccounts",
+    "location": "chinaeast",
+    "tags": {},
+    "kind": "Storage",
+    "sku": {
+      "name": "Standard_RAGRS",
+      "tier": "Standard"
+    }
+  }
+]
+```
 
 以下示例说明如何将存储帐户移动到新的资源组。 在 `-i` 参数中，提供要移动的资源 ID 的逗号分隔列表。
 
-    ```azurecli
-    azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo" -d "destinationGroup"
-    ```
+```azurecli
+azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo" -d "destinationGroup"
+```
 
 系统将要求确认是否想要移动指定的资源。
 
 ## <a name="use-rest-api"></a>使用 REST API
 若要将现有资源移到另一个资源组或订阅中，请运行：
 
-    ```HTTP
-    POST https://management.chinacloudapi.cn/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
-    ```
+```HTTP
+POST https://management.chinacloudapi.cn/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
+```
 
 在请求正文中，指定目标资源组和要移动的资源。 有关移动 REST 操作的详细信息，请参阅 [移动资源](https://msdn.microsoft.com/zh-cn/library/azure/mt218710.aspx)。
 

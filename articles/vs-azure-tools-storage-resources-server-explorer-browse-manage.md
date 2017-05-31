@@ -51,8 +51,6 @@ Blob 节点显示所选存储帐户的容器列表。Blob 容器包含 Blob 文�
 
 1. 在“创建 Blob 容器”对话框中输入新容器的名称，然后选择“确定”。
 
-    ![添加新的 Blob 容器](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
-
     >[!NOTE]
     > Blob 容器名称必须以数字 (0-9) 或小写字母 (a-z) 开头。
 
