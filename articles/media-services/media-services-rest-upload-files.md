@@ -23,7 +23,6 @@ ms.author: juliako
  > [!div class="op_single_selector"]
  >- [.NET](./media-services-dotnet-upload-files.md)
  >- [REST](./media-services-rest-upload-files.md)
- >- [经典管理门户](./media-services-manage-content.md#upload)
 
 在媒体服务中，可以将数字文件上传到资产中。[资产](https://docs.microsoft.com/zh-cn/rest/api/media/operations/asset)实体可以包含视频、音频、图像、缩略图集合、图文轨迹和隐藏式字幕文件（以及有关这些文件的元数据。） 将文件上传到资产后，相关内容即安全地存储在云中供后续处理和流式处理。
 

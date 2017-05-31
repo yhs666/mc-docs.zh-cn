@@ -72,7 +72,7 @@ Azure Site Recovery 服务有助于业务连续性和灾难恢复 (BCDR) 策略�
 
 准备网络映射，如下所示：
 
-1. [阅读](./site-recovery-network-mapping.md)有关网络映射要求的信息。
+1. 阅读有关网络映射要求的信息。
 2. 在 VMM 中准备 VM 网络：
 
     - [设置逻辑网络](https://technet.microsoft.com/zh-cn/library/jj721568.aspx)。

@@ -34,7 +34,6 @@ ms.author: cenkd;anilmur;juliako
 
 - 必须具有实践知识，了解如何使用 Elemental Live Web 界面来创建实时事件。
 - [创建 Azure 媒体服务帐户](./media-services-create-account.md)
-- 确保运行流式处理终结点。有关详细信息，请参阅[在媒体服务帐户中管理流式处理终结点](./media-services-manage-origins.md)
 
 - 安装最新版本的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
 - 启动该工具并连接到 AMS 帐户。
