@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 登录页
 ms.date: 01/23/2017
+wacn.date: ''
 ms.author: carolz
 ---
 #Azure Resource Manager 文档
@@ -136,7 +137,7 @@ ms.author: carolz
                         <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p>
                         <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.resources">Java</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
-                        <p><a href="https://github.com/Azure/azure-resource-manager-schemas">模板架构</a></p>
+	                    <p><a href="/resource-group-template-functions">Template functions</a></p>
                     </div>
                 </div>
             </div>

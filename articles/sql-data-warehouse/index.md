@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 登录页
 ms.date: 01/23/2017
+wacn.date: ''
 ms.author: carolz
 ---
 
@@ -56,14 +57,13 @@ ms.author: carolz
         </a>
     </li>
      <li>
-        <a href="/sql-data-WArehouse/sql-data-warehouse-get-started-provision">
+        <a href="/sql-data-warehouse/sql-data-warehouse-get-started-provision">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-
-<img src="media/index/portal.svg" alt="" />
+                            <img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -108,5 +108,3 @@ ms.author: carolz
         </div>
     </li>
 </ul>
-
-<!---HONumber=Mooncake_0313_2017-->
