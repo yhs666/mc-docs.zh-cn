@@ -43,8 +43,10 @@ ms.lasthandoff: 05/12/2017
 | 刷新架构 |刷新缓存架构。 最好改为在安装向导中使用此选项，因为它也会更新同步规则。 |
 | [搜索连接器空间](#search-connector-space) |用于查找对象，以及 [在整个系统中跟踪对象及其数据](#follow-an-object-and-its-data-through-the-system)。 |
 
+=======
 ### <a name="delete"></a>删除
 删除操作适用于两种不同的用途。  
+
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
 
 “仅删除连接器空间”选项会删除所有数据，但保留所有配置。
@@ -90,9 +92,9 @@ ms.lasthandoff: 05/12/2017
 9. 单击“确定”以保存新密码，并重启 Synchronization Service 以从内存缓存中删除旧密码。
 
 
-
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)配置的详细信息。
+
 
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 

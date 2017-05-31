@@ -67,7 +67,7 @@ Azure SQL 数据库为 Azure 和其他基于 Internet 的应用程序提供关�
 > 该选项将防火墙配置为允许来自 Azure 的所有连接，包括来自其他客户的订阅的连接。 选择该选项时，请确保你的登录名和用户权限将访问权限限制为仅已授权用户使用。
 > 
 
-## <a name="creating-and-managing-firewall-rules"></a>创建和管理防火墙规则
+## <a name="creating-and-managing-firewall-rules"></a><a name="creating-database-level-firewall-rules"></a>创建和管理防火墙规则
 第一个服务器级防火墙设置可以使用 [Azure 门户预览](https://portal.azure.cn/)创建，也可以使用 [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn546724.aspx)、[Azure CLI](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#create) 或 [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx) 通过编程方式创建。 后续的服务器级防火墙规则可以使用这些方法和通过 Transact-SQL 创建和管理。 
 > [!IMPORTANT]
 > 只能使用 Transact-SQL 创建和管理数据库级防火墙规则。 

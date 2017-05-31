@@ -38,7 +38,9 @@ ms.author: billmath
 - 目标：目标对象
 
 ## 范围 <a name="scope"></a>
-范围模块会计算对象，并确定在范围内且应纳入处理的规则。根据对象的属性值，不同同步规则的计算结果都是在范围内。例如，没有 Exchange 邮箱的已禁用用户拥有与具有邮箱的已启用用户不同的规则。![范围](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope1.png)
+范围模块会计算对象，并确定在范围内且应纳入处理的规则。根据对象的属性值，不同同步规则的计算结果都是在范围内。例如，没有 Exchange 邮箱的已禁用用户拥有与具有邮箱的已启用用户不同的规则。
+
+![范围](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope1.png)
 
 范围可定义为组和子句。子句位于组内。逻辑 AND 用于组中的所有子句之间。例如，(department =IT AND country = Denmark)。逻辑 OR 用于组之间。
 
@@ -62,14 +64,22 @@ ms.author: billmath
 
 ## Join <a name="join"></a>
 同步管道中的联接模块负责查找源中的对象和目标中的对象之间的关系。在入站规则中，此关系是指连接器空间中的对象找到与 metaverse 中对象的关系。
+
 ![在 cs 和 mv 之间联接](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/join1.png)
+
 目标在于查看 metaverse 中是否已经有应该与之关联的对象（由另一个连接器创建）。例如，在帐户-资源林中，帐户林中的用户应与资源林中的用户联接。
 
 联接主要用于入站规则，以将连接器空间对象与同一 metaverse 对象联接在一起。
 
-联接定义为一个或多个组。在组内，用户拥有子句。逻辑 AND 用于组中的所有子句之间。逻辑 OR 用于组之间。组的处理顺序为从上到下。一个组在目标中恰好找到一个对象匹配项时，不会计算任何其他联接规则。如果找到零个或多个对象，则会继续处理下一组规则。出于此原因，应首先创建最明确的规则，最后创建比较模糊的规则。![联接定义](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/join2.png)此图中的联接会从上到下进行处理。同步管道首先查看是否有 employeeID 的匹配项。如果没有，第二个规则会查看是否可以使用帐户名来将对象联接在一起。如果也不是匹配项，则第三个（最后一个）规则会使用用户名查找更模糊的匹配项。
+联接定义为一个或多个组。在组内，用户拥有子句。逻辑 AND 用于组中的所有子句之间。逻辑 OR 用于组之间。组的处理顺序为从上到下。一个组在目标中恰好找到一个对象匹配项时，不会计算任何其他联接规则。如果找到零个或多个对象，则会继续处理下一组规则。出于此原因，应首先创建最明确的规则，最后创建比较模糊的规则。
 
-如果已对所有联接规则进行计算，但没有完全相符的匹配项，则会使用“说明”页上的“链接类型”。如果此选项设置为“预配”，则会在目标中创建新对象。![预配或联接](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/join3.png)
+![联接定义](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/join2.png)此图中的联接会从
+
+上到下进行处理。同步管道首先查看是否有 employeeID 的匹配项。如果没有，第二个规则会查看是否可以使用帐户名来将对象联接在一起。如果也不是匹配项，则第三个（最后一个）规则会使用用户名查找更模糊的匹配项。
+
+如果已对所有联接规则进行计算，但没有完全相符的匹配项，则会使用“说明”页上的“链接类型”。如果此选项设置为“预配”，则会在目标中创建新对象。
+
+![预配或联接](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/join3.png)
 
 一个对象应该只有一个同步规则具有在范围内的联接规则。如果有多个同步规则定义了联接，那么会出错。优先级不用于解决联接冲突。对象必须具有在范围内的联接规则，属性才能以相同的入站/出站方向流动。如果需要让属性以入站和出站方式流动到同一对象，则联接必须具有入站和出站同步规则。
 

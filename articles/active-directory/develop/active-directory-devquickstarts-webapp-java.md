@@ -56,8 +56,6 @@ ms.author: brandwe
 
 在项目的根目录中，打开/创建 `pom.xml`，找到 `// TODO: provide dependencies for Maven` 并替换为以下代码：
 
-Java
-
 ```Java
     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -172,8 +170,6 @@ Java
 
 1. 打开位于 \\webapp\\WEB-INF\\ 下的 web.xml 文件，然后在 XML 中输入应用配置值。XML 文件应包含以下代码：
 
-    xml
-
     ```xml
     <?xml version="1.0"?>
     <web-app id="WebApp_ID" version="2.4"
@@ -237,8 +233,6 @@ Java
 
 2. 在 \\webapp\\WEB-INF\\ 下创建 mvc-dispatcher-servlet.xml 文件，然后输入以下代码：
 
-    xml
-
     ```xml
     <beans xmlns="http://www.springframework.org/schema/beans"
         xmlns:context="http://www.springframework.org/schema/context"
@@ -275,8 +269,6 @@ Java
 
 1. 创建 index.jsp 文件（位于 \\webapp 下），然后粘贴以下代码：
 
-    jsp
-
     ```jsp
     <html>
     <body>
@@ -291,8 +283,6 @@ Java
     此代码仅重定向到筛选器保护的安全页。
 
 2. 在同一个目录中创建 error.jsp 文件，用于捕获可能发生的任何错误：
-
-    jsp
 
     ```jsp
     <html>
@@ -310,8 +300,6 @@ Java
 
 3. 若要让其成为安全网页，请在 \\webapp 下创建名为 \\secure 的文件夹，以使目录变为 \\webapp\\secure。
 4. 在 \\webapp\\secure 目录中，创建 aad.jsp 文件，然后粘贴以下代码：
-
-    jsp
 
     ```jsp
     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -362,8 +350,6 @@ Java
     本示例中，将在 Java 文件中使用命名空间 com.microsoft.aad.adal4jsample。为此，大多数 IDE 会创建嵌套文件夹结构（例如 /com/microsoft/aad/adal4jsample）。可执行此操作（但并非必要）。
 
 2. 在此文件夹中，创建名为 JSONHelper.java 的文件，该文件将用于帮助分析来自令牌的 JSON 数据。若要创建该文件，请粘贴以下代码：
-
-    Java
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -586,8 +572,6 @@ Java
 
 3. 创建名为 HttpClientHelper.java 的文件，该文件将用于帮助分析来自 Azure AD 终结点的 HTTP 数据。若要创建该文件，请粘贴以下代码：
 
-    Java
-
     ```Java
     package com.microsoft.aad.adal4jsample;
 
@@ -745,8 +729,6 @@ Java
 
 1. 创建名为 DirectoryObject.java 的文件，该文件将用于存储有关任何目录对象的基本数据。可在以后将此文件用于可能执行的任何其他图形查询。若要创建该文件，请粘贴以下代码：
 
-    Java
-
     ```Java
     package com.microsoft.aad.adal4jsample;
 
@@ -799,8 +781,6 @@ Java
     ```
 
 2. 创建名为 User.java 的文件，该文件将用于存储有关目录中任何用户的基本数据。这些是用于目录数据的基本 getter 和 setter 方法，可粘贴以下代码：
-
-    Java
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -1322,8 +1302,6 @@ Java 确实可能比较冗长，但就快完成了。在编写用于处理请求
 
      若要创建 AuthHelper.java 文件，请粘贴以下代码：
 
-    Java
-
     ```Java
     package com.microsoft.aad.adal4jsample;
 
@@ -1372,8 +1350,6 @@ Java 确实可能比较冗长，但就快完成了。在编写用于处理请求
 
 2. 创建名为 AuthParameterNames.java 的文件，该文件提供 ADAL4J 所需的某些不可变变量。若要创建该文件，请粘贴以下代码：
 
-    Java
-
     ```Java
     package com.microsoft.aad.adal4jsample;
 
@@ -1391,8 +1367,6 @@ Java 确实可能比较冗长，但就快完成了。在编写用于处理请求
     ```
 
 3. 创建名为 AadController.java 的文件，该文件是 MVC 模式的控制器。该文件提供 JSP 控制器，并公开应用的 secure/aad URL 终结点。该文件还包括图形查询。若要创建该文件，请粘贴以下代码：
-
-    Java
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -1470,8 +1444,6 @@ Java 确实可能比较冗长，但就快完成了。在编写用于处理请求
 
 ## 步骤 8：创建 BasicFilter 文件（适用于 BasicFilter MVC）
 现在可以创建 BasicFilter.java 文件，它处理来自 JSP 视图文件的请求。若要创建该文件，请粘贴以下代码：
-
-Java
 
 ```Java
 package com.microsoft.aad.adal4jsample;

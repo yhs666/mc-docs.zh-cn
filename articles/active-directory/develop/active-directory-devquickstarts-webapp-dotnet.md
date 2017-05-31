@@ -60,8 +60,6 @@ ms.author: dastrock
 2. 若要将称为 `Startup.cs` 的 OWIN 启动类添加到项目，请右键单击项目，依次选择“添加”、“新建项”，然后搜索“OWIN”。该应用启动时，OWIN 中间件会调用 **Configuration(...)** 方法。
 3. 将类声明更改为 `public partial class Startup`。我们已在另一个文件中实现了此类的一部分。在 **Configuration(...)** 方法中，调用 **ConfgureAuth(...)** 以设置应用的身份验证。
 
-    C#
-
     ```C#
     public partial class Startup
     {
@@ -73,8 +71,6 @@ ms.author: dastrock
     ```
 
 4. 打开 App\_Start\\Startup.Auth.cs 文件，然后实现 **ConfigureAuth(...)** 方法。在 *OpenIDConnectAuthenticationOptions* 中提供的参数充当应用与 Azure AD 通信时使用的坐标。还需要设置 Cookie 身份验证，因为 OpenID Connect 中间件将在后台使用 Cookie。
-
-    C#
 
     ```C#
     public void ConfigureAuth(IAppBuilder app)
@@ -103,8 +99,6 @@ ms.author: dastrock
 
 1. 可以在控制器中使用授权标记，要求用户在访问特定页面之前登录。为此，请打开 Controllers\\HomeController.cs，然后将 `[Authorize]` 标记添加到 About 控制器。
 
-    C#
-
     ```C#
     [Authorize]
     public ActionResult About()
@@ -113,8 +107,6 @@ ms.author: dastrock
     ```
 
 2. 还可以使用 OWIN 直接从代码内部发出身份验证请求。为此，请打开 Controllers\\AccountController.cs。然后，在 SignIn() 和 SignOut() 操作中，发出 OpenID Connect 质询和注销请求。
-
-    C#
 
     ```C#
     public void SignIn()
@@ -134,8 +126,6 @@ ms.author: dastrock
     ```
 
 3. 打开 Views\\Shared\_LoginPartial.cshtml 以向用户显示应用登录和注销链接，并在视图中打印用户名称。
-
-    HTML
 
     ```HTML
     @if (Request.IsAuthenticated)
@@ -163,8 +153,6 @@ ms.author: dastrock
 使用 OpenID Connect 对用户进行身份验证时，Azure AD 向应用返回 id\_token，其中包含有关用户的“声明”或断言。可以通过执行以下操作，使用这些声明对应用进行个性化设置：
 
 1. 打开 Controllers\\HomeController.cs 文件。可以通过 `ClaimsPrincipal.Current` 安全主体对象访问控制器中的用户声明。
-
-    C#
 
     ```C#
     public ActionResult About()

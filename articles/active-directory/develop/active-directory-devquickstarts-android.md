@@ -130,8 +130,6 @@ cd ./azure-activedirectory-library-for-android/src
 #### 选项 3：通过 Gradle 获取二进制文件
 你可以从 Maven 中心存储库获取二进制文件。AndroidStudio 的项目中可能包含了如下所示的 AAR 包：
 
-gradle
-
 ```gradle
     repositories {
         mavenCentral()
@@ -152,8 +150,6 @@ gradle
 
 #### 选项 4：通过 Maven 获取 aar
 如果使用 Eclipse 中的 m2e 插件，可以在 pom.xml 文件中指定依赖关系：
-
-xml
 
 ```xml
     <dependency>
@@ -192,17 +188,14 @@ xml
 
 4. 在主要活动中创建 AuthenticationContext 的实例。有关此调用的详细信息超出了本自述文件的范畴，但你可以通过查看 [Android 本机客户端示例](https://github.com/AzureADSamples/NativeClient-Android)来获得一个良好的起点。下面是一个示例，它使用 SharedPreferences 作为默认缓存，其中颁发机构采用 `https://login.chinacloudapi.cn/yourtenant.partner.onmschina.cn` 的形式：
 
-    Java
 
-    ```
+    ```Java
     mContext = new AuthenticationContext(MainActivity.this, authority, true);// mContext is a field in your activity
     ```
 
 5. 复制此代码块，以便在用户输入凭据并收到授权代码后处理 AuthenticationActivity 的结束工作：
 
-    Java
-
-    ```
+    ```Java
     @Override
      protected void onActivityResult(int requestCode, int resultCode, Intent data) {
          super.onActivityResult(requestCode, resultCode, data);
@@ -214,9 +207,7 @@ xml
 
 6. 若要请求令牌，你可以定义一个回调
 
-    Java
-
-    ```
+    ```Java
     private AuthenticationCallback<AuthenticationResult> callback = new AuthenticationCallback<AuthenticationResult>() {
 
             @Override
@@ -250,9 +241,7 @@ xml
 
 7. 最后，使用该回调请求令牌：
 
-    Java
-
-    ```
+    ```Java
      mContext.acquireToken(MainActivity.this, resource, clientId, redirect, user_loginhint, PromptBehavior.Auto, "",
                     callback);
     ```
@@ -271,34 +260,30 @@ xml
 
     可以调用 **acquireTokenSilent** 来处理缓存和令牌刷新。它也提供了同步版本。它接受使用 userid 作为参数。
 
-    Java
-
-    ```
+    ```Java
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
 8. **Broker**：
    Microsoft Intune 的公司门户应用程序将提供代理组件。如果在验证器中创建了一个用户帐户并且开发人员选择不跳过中转站帐户，ADAL 将使用中转站帐户。开发人员可以使用以下操作跳过中转站用户：
 
-    Java
-
-    ```
+    ```Java
     AuthenticationSettings.Instance.setSkipBroker(true);
     ```
+	
+	开发人员需要注册特殊的 redirectUri 供中转站使用。RedirectUri 的格式为 `msauth://packagename/Base64UrlencodedSignature`。你可以使用脚本“brokerRedirectPrint.ps1”获取应用的 redirecturi，也可以使用 API 调用 mContext.getBrokerRedirectUri。签名与签名证书相关。
 
-       开发人员需要注册特殊的 redirectUri 供中转站使用。RedirectUri 的格式为 `msauth://packagename/Base64UrlencodedSignature`。你可以使用脚本“brokerRedirectPrint.ps1”获取应用的 redirecturi，也可以使用 API 调用 mContext.getBrokerRedirectUri。签名与签名证书相关。
+	当前中转站模型针对一个用户。AuthenticationContext 提供用于获取中转站用户的 API 方法。
 
-       当前中转站模型针对一个用户。AuthenticationContext 提供用于获取中转站用户的 API 方法。
+	```Java
+        String brokerAccount =  mContext.getBrokerUser(); //Broker user will be returned if account is valid.
+	```
 
-       Java
+	应用程序清单应有权使用 AccountManager 帐户：http://developer.android.com/reference/android/accounts/AccountManager.html
 
-        String brokerAccount =  mContext.getBrokerUser(); //Broker user will be returned if account is valid.`
-
-       应用程序清单应有权使用 AccountManager 帐户：http://developer.android.com/reference/android/accounts/AccountManager.html
-
-       - GET\_ACCOUNTS
-       - USE\_CREDENTIALS
-       - MANAGE\_ACCOUNTS
+	- GET\_ACCOUNTS
+    - USE\_CREDENTIALS
+    - MANAGE\_ACCOUNTS
 
 使用本演练时，你应会获得与 Azure Active Directory 成功集成所需的项目。有关此工作的更多示例，请访问 GitHub 上的 AzureADSamples/ 存储库。
 
@@ -317,16 +302,13 @@ ADFS 不会识别为生产 STS，因此，你需要关闭实例发现，并在 A
 ### 查询缓存项
 ADAL 在 SharedPreferences 中提供默认缓存，以及一些简单的缓存查询函数。你可以使用以下命令从 AuthenticationContext 中获取当前缓存：
 
-Java
-
-```
+```Java
 ITokenCacheStore cache = mContext.getCache();
 ```
 
 你还可以提供缓存实现（如果你想要对其进行自定义）。
-Java
 
-```
+```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
 
@@ -338,9 +320,7 @@ ADAL 提供用于指定提示行为的选项。如果刷新令牌无效并且需
 
 此方法不使用 UI 弹出，并且不需要活动。它将从缓存返回令牌（如果可用）。如果令牌已过期，它将尝试刷新令牌。如果刷新令牌已过期或失败，它将返回 AuthenticationException。
 
-Java
-
-```
+```Java
 Future<AuthenticationResult> result = mContext.acquireTokenSilent(resource, clientid, userId, callback );
 ```
 
@@ -361,9 +341,7 @@ Future<AuthenticationResult> result = mContext.acquireTokenSilent(resource, clie
 #### 日志
 你可以将库配置为生成有助于诊断问题的日志消息。若要配置日志记录，你可以执行以下调用以配置一个回调，ADAL 将使用该回调来移交它所生成的每条日志消息。
 
-Java
-
-```
+```Java
 Logger.getInstance().setExternalLogger(new ILogger() {
      @Override
     public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) {
@@ -376,9 +354,7 @@ Logger.getInstance().setExternalLogger(new ILogger() {
 
 消息可写入自定义日志文件，如下所示。遗憾的是，没有标准的方法可从设备中获取日志。有些服务可帮助你实现此目的。你也可以还创造自己的方法，例如，将文件发送到服务器。
 
-Java
-
-```
+```Java
 private syncronized void writeToLogFile(Context ctx, String msg) {
     File directory = ctx.getDir(ctx.getPackageName(), Context.MODE_PRIVATE);
     File logFile = new File(directory, "logfile");
@@ -398,9 +374,7 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 
 可按如下所述设置日志级别：
 
-Java
-
-```
+```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 ```
 
@@ -430,9 +404,7 @@ AuthenticationParameters 类提供通过 Oauth2 持有者质询获取 authorizat
 ### Webview 中的会话 Cookie
 在关闭应用程序后，Android Webview 不会清除会话 Cookie。你可以使用以下示例代码来处理此问题：
 
-Java
-
-```
+```Java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();

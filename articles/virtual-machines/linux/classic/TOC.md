@@ -41,7 +41,7 @@
 #### [优化 MySQL 性能](optimize-mysql.md)
 
 ## 运行应用程序
-### [Ruby on Rails Web 应用程序](virtual-machines-linux-classic-ruby-rails-web-app.md)
+### [Ruby on Rails Web 应用程序](../linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)
 ### [Cassandra 和 Node.js 客户端](cassandra-nodejs.md)
 ### [LAMP 堆栈](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)

@@ -60,7 +60,6 @@ ms.lasthandoff: 04/14/2017
 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
-> * [门户](media-services-portal-scale-media-processing.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)

@@ -106,8 +106,6 @@ NXOAuth2Client 库要求设置一些值。完成该任务之后，可以使用�
 
 - 让我们在 `LoginViewController.m` 文件中添加一些值，以便针对身份验证和授权来设置上下文。紧跟代码后面的是关于这些值的详细信息。
 
-    objc
-
     ```objc
     NSString *scopes = @"openid offline_access User.Read";
     NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
@@ -140,8 +138,6 @@ NXOAuth2Client 库要求设置一些值。完成该任务之后，可以使用�
 
 添加以下代码：
 
-objc
-
 ```objc
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -160,8 +156,6 @@ objc
 
 Web 视图可提示用户提供短信等附加因素（如果已配置）或向用户返回错误消息。你将在此处设置 Web 视图，然后编写代码，以从标识服务处理将会在 Web 视图中发生的回叫。
 
-objc
-
 ```objc
 -(void)requestOAuth2Access {
     //to sign in to Microsoft APIs using OAuth2, we must show an embedded browser (UIWebView)
@@ -178,8 +172,6 @@ objc
 ### 重写 Web 视图方法以处理身份验证
 
 如先前所述，当用户需要登录时，若要告诉 Web 视图发生了什么情况，你可以粘贴以下代码。
-
-objc
 
 ```objc
 - (void)resolveUsingUIWebView:(NSURL *)URL {
@@ -235,8 +227,6 @@ objc
 
 以下代码会处理从 Web 视图返回的 redirectURL。如果身份验证未成功，此代码将重试一次。同时，库会提供错误，让你可在控制台中查看或以异步方式处理。
 
-objc
-
 ```objc
 - (void)handleOAuth2AccessResult:(NSString *)accessResult {
 
@@ -257,8 +247,6 @@ objc
 ### 设置 OAuth 上下文（称为帐户存储）
 
 在这里，你可以针对希望应用程序能够访问的每个服务，在共享帐户存储上调用 `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:tokenURL:redirectURL:forAccountType:]`。帐户类型是字符串，可作为特定服务的标识符。由于你正在访问图形 API，因此，代码会将其视为 `"myGraphService"`。接着，设置观察器，它会在令牌发生任何更改时通知你。在你获取令牌后，让用户返回到 `masterView`。
-
-objc
 
 ```objc
 - (void)setupOAuth2AccountStore {
@@ -313,8 +301,6 @@ objc
 ### 添加检查以查看你是否已经登录
 如果用户未登录，应用程序就没什么作用，因此，检查缓存中是否已有令牌是明智之举。如果没有，则重定向到登录视图以让用户登录。如果你还记得，在视图加载时执行操作的最佳方式，就是使用 Apple 提供的 `viewDidLoad()` 方法。
 
-objc
-
 ```objc
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -335,8 +321,6 @@ objc
 ### 在收到数据时更新表视图
 
 当图形 API 返回数据时，必须显示该数据。为简单起见，下面提供了用于更新表的全部代码。你可以直接在 MVC 样本代码中粘贴正确的值。
-
-objc
 
 ```objc
 #pragma mark - Table View
@@ -372,8 +356,6 @@ objc
 ### 提供用户在搜索字段中键入内容时调用图形 API 的方法
 
 当用户在框中键入搜索内容时，你需要将该内容塞入图形 API。你将在以下代码中生成的 `GraphAPICaller` 类会将查找功能从演示当中分离出来。现在，让我们编写会将任何搜索字符送入图形 API 的代码。我们的做法是提供称为 `lookupInGraph` 的方法，其采用我们想要搜索的字符串。
-
-objc
 
 ```objc
 -(void)lookupInGraph:(NSString *)searchText {
@@ -411,8 +393,6 @@ if (searchText.length > 0) {
 
 将文件命名为 `GraphAPICaller.h` 并添加以下代码。
 
-objc
-
 ```objc
 @interface GraphAPICaller : NSObject<NSURLConnectionDataDelegate>
 
@@ -426,8 +406,6 @@ objc
 
 ### 新建 Objective C 文件
 将文件命名为 `GraphAPICaller.m` 并添加以下方法。
-
-objc
 
 ```objc
 +(void) searchUserList:(NSString*)searchString
@@ -501,23 +479,17 @@ objc
 
 第一步是构造正确的图形 API 调用。由于你正在调用 `/users`，因此，你会将它追加到图形 API 资源和版本来进行指定。因为这些都会随着 API 演进而改变，所以合理的做法是将其放在外部设置文件中。
 
-objc
-
 ```objc
 NSString *graphURL = [NSString stringWithFormat:@"%@%@/users", data.graphApiUrlString, data.apiversion];
 ```
 
 接下来，你需要指定也会提供给图形 API 调用的参数。*切记*不要将参数放在资源终结点中，因为系统会在运行时针对所有不符合 URI 的字符擦除该终结点。必须在参数中提供所有查询代码。
 
-objc
-
 ```objc
 NSDictionary* params = [self convertParamsToDictionary:searchString];
 ```
 
 你可能发现这会调用你尚未编写的 `convertParamsToDictionary` 方法。在文件的最后，让我们立即编写该方法：
-
-objc
 
 ```objc
 +(NSDictionary*) convertParamsToDictionary:(NSString*)searchString
@@ -533,8 +505,6 @@ objc
 ```
 
 接下来，我们将使用 `NXOAuth2Request` 方法从 API 取回 JSON 格式的数据。
-
-objc
 
 ```objc
 NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
@@ -557,8 +527,6 @@ NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
 ```
 
 最后，来看看你要如何将数据返回到 MasterViewController。数据会以序列化方式返回，而且该数据必须反序列化并加载到 MainViewController 可使用的对象中。出于此目的，主干具有的 `User.m/h` 文件可以创建 User 对象。你会使用图形中的信息填充该 User 对象。
-
-objc
 
 ```objc
 // We can grab the top most JSON node to get our graph data.
