@@ -83,7 +83,9 @@ Azure Active Directory 并不是完全无法预配或更新具有重复属性的
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict`
 
-随后将生成如下所示的结果：![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")
+随后将生成如下所示的结果：
+
+![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")
 
 #### 按属性类型 <a name="by-property-type"></a>
 若要按属性类型查看错误，请添加带有 **UserPrincipalName** 或 **ProxyAddresses** 参数的 **-PropertyName** 标志：

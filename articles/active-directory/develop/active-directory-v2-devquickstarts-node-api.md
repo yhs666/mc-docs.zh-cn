@@ -19,8 +19,7 @@ ms.author: brandwe
 
 # 使用 node.js 保护 Web API
 
-> [!NOTE]
-    v2.0 终结点并不支持所有 Azure Active Directory 方案和功能。若要确定是否应使用 v2.0 终结点，请阅读 [v2.0 限制](./active-directory-v2-limitations.md)。
+> [!NOTE] v2.0 终结点并不支持所有 Azure Active Directory 方案和功能。若要确定是否应使用 v2.0 终结点，请阅读 [v2.0 限制](./active-directory-v2-limitations.md)。
 
 Azure Active Directory 的 v2.0 终结点可让你使用 [OAuth 2.0](./active-directory-v2-protocols.md) 访问令牌保护 Web API，具有个人 Microsoft 帐户以及公司或学校帐户的用户也能够安全访问 Web API。
 
@@ -83,8 +82,6 @@ Install MongoDB from [http://www.mongodb.org](http://www.mongodb.org).
 #### 遇到了有关 DTrace 的错误吗？
 
 在安装 Restify 时，你可能会看到类似于下面的内容：
-
-Shell
 
 ```Shell
 clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
@@ -203,7 +200,6 @@ cd azuread
 输入以下命令，以在 node\_modules 目录中安装以下模块：
 
 * `npm install crypto`  
-
 * `npm install assert-plus`
 * `npm install posix-getopt`
 * `npm install util`
@@ -233,8 +229,6 @@ server.js 文件将提供 Web API 服务器的大多数功能。我们要将大�
 
 在偏好的编辑器中创建 `server.js` 文件，然后添加以下信息：
 
-Javascript
-
 ```Javascript
 'use strict';
 /**
@@ -262,8 +256,6 @@ var OIDCBearerStrategy = require('passport-azure-ad').OIDCStrategy;
 
 在偏好的编辑器中创建 `config.js` 文件，然后添加以下信息：
 
-Javascript
-
 ```Javascript
 // Don't commit this file to your public repos. This config is for first-run
 exports.creds = {
@@ -280,8 +272,7 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 *audience*：来自门户的重定向 URI。
 
-> [!NOTE]
-我们会频繁滚动更新密钥。请确保始终从“openid\_keys”URL 提取密钥，并且应用程序能够访问 Internet。
+> [!NOTE] 我们会频繁滚动更新密钥。请确保始终从“openid\_keys”URL 提取密钥，并且应用程序能够访问 Internet。
 
 ## 11：将配置添加到 server.js 文件
 
@@ -293,15 +284,11 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 在偏好的编辑器中打开 `server.js` 文件，并添加以下信息：
 
-Javascript
-
 ```Javascript
 var config = require('./config');
 ```
 
 然后，在 `server.js` 中替换包含以下代码的新节：
-
-Javascript
 
 ```Javascript
 // We pass these options in to the ODICBearerStrategy.
@@ -350,8 +337,6 @@ COMPLETED - 任务是否已完成。一个***布尔值***
 
 在偏好的编辑器中打开 `server.js` 文件，并在配置条目下面添加以下信息：
 
-Javascript
-
 ```Javascript
 // MongoDB setup
 // Setup some configuration
@@ -368,8 +353,6 @@ log.info('MongoDB Schema loaded');
 #### 使用该架构在代码中创建模型
 
 在上面编写的代码下面，添加以下代码：
-
-Javascript
 
 ```Javascript
 // Here we create a schema to store our tasks and users. Pretty simple schema for now.
@@ -396,8 +379,6 @@ Restify 中路由的工作原理，与使用 Express 堆栈时的路由工作原
 
 Restify 路由的典型模式是：
 
-Javascript
-
 ```Javascript
 function createObject(req, res, next) {
 // do work on Object
@@ -420,8 +401,6 @@ server.post('/service/:add/:object', createObject); // calls createObject on rou
 `cd azuread`  
 
 在偏好的编辑器中打开 `server.js` 文件，并在前面创建的数据库条目下面添加以下信息：
-
-Javascript
 
 ```Javascript
 /**
@@ -529,8 +508,6 @@ return next();
 
 在前面编写的代码下面添加以下代码：
 
-Javascript
-
 ```Javascript
 ///--- Errors for communicating something interesting back to the client
 function MissingTaskError() {
@@ -573,8 +550,6 @@ util.inherits(TaskNotFoundError, restify.RestError);
 
 Restify（和 Express）允许你对 REST API 执行大量的深度自定义，但同样，我们在本演练中将使用最基本的设置。
 
-Javascript
-
 ```Javascript
 /**
 * Our Server
@@ -608,8 +583,6 @@ mapParams: true
 ```
 
 ## 15：添加路由（目前不包括身份验证）
-
-Javascript
 
 ```Javascript
 /// Now the real handlers. Here we just CRUD
@@ -682,8 +655,6 @@ consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 
 `$ curl -isS http://127.0.0.1:8080 | json`  
 
-Shell
-
 ```Shell
 HTTP/1.1 2.0OK
 Connection: close
@@ -706,8 +677,6 @@ Date: Tue, 14 Jul 2015 05:43:38 GMT
 `$ curl -isS -X POST http://127.0.0.1:8888/tasks/brandon/Hello`  
 
 响应应为：
-
-Shell
 
 ```Shell
 HTTP/1.1 201 Created
@@ -742,8 +711,6 @@ Hello
 
 首先，需指出要使用 Passport。在其他服务器配置之后紧接着执行此操作：
 
-Javascript
-
 ```Javascript
 // Let's start using Passport.js
 
@@ -752,11 +719,9 @@ server.use(passport.session()); // Provides session support
 ```
 
 > [!TIP]
-编写 API 时，应始终将数据链接到用户无法证明其在令牌中是唯一的项目。此服务器存储 TODO 项目时，会根据我们放在“所有者”字段的令牌（通过 token.sub 调用）中的用户订阅 ID 来存储它们。这可确保只有该用户可以访问其 TODO，其他任何人都不可以访问输入的 TODO。“所有者”API 中不公开任何信息，因此，外部用户可以请求其他的 TODO，即使它们已经过身份验证也一样。
+> 编写 API 时，应始终将数据链接到用户无法证明其在令牌中是唯一的项目。此服务器存储 TODO 项目时，会根据我们放在“所有者”字段的令牌（通过 token.sub 调用）中的用户订阅 ID 来存储它们。这可确保只有该用户可以访问其 TODO，其他任何人都不可以访问输入的 TODO。“所有者”API 中不公开任何信息，因此，外部用户可以请求其他的 TODO，即使它们已经过身份验证也一样。
 
 接下来，我们将使用随附在 passport-azure-ad 中的 Open ID Connect Bearer 策略。先看看下面的代码，稍后我将进行解释。将此代码放在上面粘贴的内容后面：
-
-Javascript
 
 ```Javascript
 /**
@@ -811,8 +776,6 @@ Passport 使用适用于它的所有策略（Twitter、Facebook 等），所有�
 通过结合你要使用的协议指定 passport.authenticate() 调用来保护终结点。
 
 让我们在服务器代码编辑路由，以做一些更有趣的事：
-
-Javascript
 
 ```Javascript
 server.get('/tasks', passport.authenticate('oidc-bearer', {
@@ -870,8 +833,6 @@ $ node server.js
 试用基本 POST：
 
 `$ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello`  
-
-Shell
 
 ```Shell
 HTTP/1.1 401 Unauthorized

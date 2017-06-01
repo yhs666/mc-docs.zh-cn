@@ -58,8 +58,6 @@ ms.author: brandwe
 
 - 在项目的根目录中，打开/创建 `pom.xml`，找到 `// TODO: provide dependencies for Maven` 并替换为以下代码：
 
-    Java
-
     ```Java
         <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -180,8 +178,6 @@ ms.author: brandwe
 如上所述，我们将使用图形 API 来获取有关已登录的用户的数据。为了顺利进行，我们应该创建一个表示**目录对象**的文件以及一个表示**用户**的单独文件，如此便可以使用 Java 的 OO 模式。
 
 - 创建一个名为 `DirectoryObject.java` 的文件，我们将用它来存储有关任何 DirectoryObject 的基本数据（你稍后可以随意使用它来执行任何其他图形查询）。可以从以下内容中剪切/粘贴此信息：
-
-    Java
 
     ```Java
         import java.io.BufferedReader;

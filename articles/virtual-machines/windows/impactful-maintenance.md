@@ -48,7 +48,7 @@ Azure 中的维护以迭代方式进行计划。 初始迭代范围较小，目�
 ### <a name="paired-regions"></a>配对区域
 
 每个 Azure 区域与同一地理位置中另一个区域配对。 执行维护时，Azure 将只更新区域对中单个区域的虚拟机实例。 例如，更新中国北部的虚拟机时，Azure 不会同时更新中国南部的任何虚拟机。 后者会安排在其他时间进行，以便在区域之间进行故障转移或负载均衡。 但是，中国北部等其他区域可以与中国东部同时进行维护。
-阅读关于 [Azure 区域对](/azure/best-practices-availability-paired-regions)的详细信息。
+阅读关于 [Azure 区域对](/best-practices-availability-paired-regions)的详细信息。
 
 ### <a name="single-instance-vms-vs-availability-set-or-vm-scale-set"></a>单实例 VM 与可用性集或 VM 规模集之对比
 

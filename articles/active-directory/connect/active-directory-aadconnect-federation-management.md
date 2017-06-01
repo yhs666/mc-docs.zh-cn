@@ -99,7 +99,6 @@ ms.lasthandoff: 05/12/2017
     ![连接到 Azure AD](./media/active-directory-aadconnect-federation-management/AddNewADFSServer2.PNG)
 
 3. 提供域管理员凭据。
-
     ![域管理员凭据](./media/active-directory-aadconnect-federation-management/AddNewADFSServer3.PNG)
 
 4. Azure AD Connect 将要求你提供在使用 Azure AD Connect 配置新的 AD FS 场时提供的 PFX 文件的密码。 单击“输入密码”提供 PFX 文件的密码。

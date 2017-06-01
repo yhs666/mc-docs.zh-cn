@@ -53,9 +53,11 @@ ms.author: billmath
 如果你认为有问题，请先运行 `Get-ADSyncAutoUpgrade` 确保已启用自动升级。
 
 确认与 Azure AD 建立连接后，可以深入了解事件日志。启动事件查看器，并查看**应用程序**事件日志。针对源 **Azure AD Connect 升级**的事件日志以及事件 ID 范围 **300-399** 添加筛选器。
+
 ![用于自动升级的事件日志筛选器](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogfilter.png)
 
 此时可以看到与自动升级状态关联的事件日志。
+
 ![用于自动升级的事件日志筛选器](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogresult.png)
 
 结果代码前面会有包含状态概述的前缀。

@@ -22,7 +22,9 @@ wacn.date: 03/07/2017
 本主题旨在介绍如何对 Azure AD Connect 同步中的默认配置进行更改。其中提供了一些常见方案的步骤。了解这些知识后，用户应该能够根据自己的业务规则对自己的配置进行一些简单的更改。
 
 ## 同步规则编辑器
-同步规则编辑器用于查看和更改默认配置。可以在 **Azure AD Connect** 组下的开始菜单中找到它。![具有同步规则编辑器的开始菜单](./media/active-directory-aadconnectsync-change-the-configuration/startmenu2.png)
+同步规则编辑器用于查看和更改默认配置。可以在 **Azure AD Connect** 组下的开始菜单中找到它。
+
+![具有同步规则编辑器的开始菜单](./media/active-directory-aadconnectsync-change-the-configuration/startmenu2.png)
 
 打开时，将看到现成可用的默认规则。
 
@@ -111,6 +113,7 @@ Fabrikam 中有对名字、姓氏和显示名称使用本地字母的林。以�
 - 转到“同步服务管理器”。在“连接器”上，选择我们已在其中添加了规则的“连接器”。选择“运行”和“完全同步”。完全同步将使用当前规则重新计算所有对象。
 
 这是使用此自定义规则的同一对象的结果：
+
 ![属性流 4](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp4.png)
 
 ### 属性的长度
@@ -159,7 +162,8 @@ Active Directory 中的某些属性在架构中是多值，不过它们在 Activ
 ![更改之前的 PowerShell](./media/active-directory-aadconnectsync-change-the-configuration/powershell1.png)
 2. 创建新的同步规则。可以使用同步规则编辑器进行创建。将规则导出到 PowerShell 脚本。
 3. 在属性 **PrecedenceBefore** 中插入现成规则中的标识符值。将 **Precedence** 设置为 **0**。请确保 Identifier 属性唯一，不能重复使用其他规则中的 GUID。另请确保 **ImmutableTag** 属性未设置；只有现成规则才应设置该属性。保存并运行 PowerShell 脚本。结果是，为自定义规则分配了优先级值 100，所有其他现成规则的值递增。
-![更改之后的 PowerShell](./media/active-directory-aadconnectsync-change-the-configuration/powershell2.png)
+
+	![更改之后的 PowerShell](./media/active-directory-aadconnectsync-change-the-configuration/powershell2.png)
 
 可以根据需要让许多自定义同步规则使用同一 **PrecedenceBefore** 值。
 

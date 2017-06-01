@@ -79,8 +79,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDC
   - `clientSecret` 是在门户中生成的密码。
 - 接下来，打开项目根目录中的 `app.js` 文件，并添加以下调用以调用 `passport-azure-ad` 随附的 `OIDCStrategy` 策略
 
-    JavaScript
-
     ```JavaScript
     var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
@@ -92,8 +90,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDC
     ```
 
 - 然后，使用我们刚刚提到的策略来处理登录请求
-
-    JavaScript
 
     ```JavaScript
     // Use the OIDCStrategy within Passport. (Section 2) 
@@ -143,8 +139,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDC
 
 - 接下来，让我们添加方法，以便根据 Passport 的要求，持续跟踪已登录的用户。这包括将用户信息序列化和反序列化：
 
-    JavaScript
-
     ```JavaScript
     // Passport session setup. (Section 2)
 
@@ -179,8 +173,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDC
 
 - 接下来，让我们添加可加载 Express 引擎的代码。在此处，你将看到我们使用了 Express 提供的默认 /views 和 /routes 模式。
 
-    JavaScript
-
     ```JavaScript
     // configure Express (Section 2)
 
@@ -204,8 +196,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDC
     ```
 
 - 最后，让我们添加路由，以便将实际的登录请求递交到 `passport-azure-ad` 引擎：
-
-    JavaScript
 
     ```JavaScript
     // Our Auth routes (Section 3)
@@ -254,8 +244,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDC
 
 - 首先，让我们在 `app.js` 文件中添加 default、login、account 和 logout 方法：
 
-    JavaScript
-
     ```JavaScript
     //Routes (Section 4)
 
@@ -288,8 +276,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDC
   - `/logout` 只是调用 logout.ejs（和路由），以便清除 Cookie 并将用户返回到 index.ejs
 - 对于 `app.js` 的最后一个部分，让我们添加上述 `/account` 中使用的 EnsureAuthenticated 方法。
 
-    JavaScript
-
     ```JavaScript
     // Simple route middleware to ensure user is authenticated. (Section 4)
 
@@ -305,8 +291,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDC
 
 - 最后，在 `app.js` 中实际创建服务器本身：
 
-    JavaScript
-
     ```JavaScript
     app.listen(3000);
     ```
@@ -315,8 +299,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDC
 我们已完成 `app.js`。现在只需添加路由和视图即可，两者将向用户显示我们获取的信息，并处理我们创建的 `/logout` 和 `/login` 路由。
 
 - 在根目录下创建 `/routes/index.js` 路由。
-
-    JavaScript
 
     ```JavaScript
     /*
@@ -329,8 +311,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDC
     ```
 
 - 在根目录下创建 `/routes/user.js` 路由
-
-    JavaScript
 
     ```JavaScript
     /*
@@ -346,8 +326,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDC
 
 - 在根目录下创建 `/views/index.ejs` 视图。这是一个简单的页面，将调用我们的登录和注销方法，并允许我们捕获帐户信息。请注意，如果在请求中传递的用户证明我们拥有已登录的用户，就能使用条件性 `if (!user)`。
 
-    JavaScript
-
     ```JavaScript
     <% if (!user) { %>
         <h2>Welcome! Please log in.</h2>
@@ -360,8 +338,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDC
     ```
 
 - 在根目录下创建 `/views/account.ejs` 视图，以便能够查看 `passport-azuread` 放置在用户请求中的其他信息。
-
-    Javascript
 
     ```Javascript
     <% if (!user) { %>
@@ -381,8 +357,6 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDC
     ```
 
 - 最后，可以通过添加布局，使视图变得美观。在根目录下创建 '/views/layout.ejs' 视图
-
-    HTML
 
     ```HTML
     <!DOCTYPE html>

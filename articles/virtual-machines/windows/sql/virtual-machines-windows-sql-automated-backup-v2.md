@@ -155,7 +155,7 @@ ms.lasthandoff: 05/05/2017
 可以使用 PowerShell 来配置自动备份 v2。 开始之前，必须：
 
 - [下载并安装最新的 Azure PowerShell](http://aka.ms/webpi-azps)。
-- 打开 Windows PowerShell 并将其关联到你的帐户。 可以遵循预配主题的[配置订阅](/azure/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription)部分中的步骤执行此操作。
+- 打开 Windows PowerShell 并将其关联到你的帐户。 可以遵循预配主题的[配置订阅](/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription)部分中的步骤执行此操作。
 
 ### <a name="install-the-sql-iaas-extension"></a>安装 SQL IaaS 扩展
 如果通过 Azure 门户预览版预配了 SQL Server 虚拟机，应已安装 SQL Server IaaS 扩展。 可通过调用 **Get-AzureRmVM** 命令并检查 **Extensions** 属性，来确定是否为 VM 安装了该扩展。

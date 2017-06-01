@@ -52,10 +52,10 @@ ms.lasthandoff: 04/07/2017
 
 有关详细信息，请参阅 [Integrating applications with Azure Active Directory][AAD-Integrating-Apps] （将应用程序与 Azure Active Directory 集成）。
 
-## <a name="authentication"></a>authentication
+## <a name="authentication"></a>认证
 向访问方质询合法凭据的措施，提供创建用于标识和访问控制的安全主体的基础。 例如，在 [OAuth2 授权](#authorization-grant)期间，访问方身份验证根据使用的授权填充[资源所有者](#resource-owner)或[客户端应用程序](#client-application)角色。
 
-## <a name="authorization"></a>authorization
+## <a name="authorization"></a>授权
 授权经过身份验证的安全主体执行某项操作的措施。 在 Azure AD 编程模型中有两个主要用例：
 
 - 在 [OAuth2 授权](#authorization-grant)流程中：[资源所有者](#resource-owner)向[客户端应用程序](#client-application)授权时，允许客户端访问资源所有者的资源。
@@ -153,7 +153,7 @@ ms.lasthandoff: 04/07/2017
 ## <a name="sign-out"></a>注销
 使最终用户变成未身份验证状态的过程，解除用户在[登录](#sign-in)期间与[客户端应用程序](#client-application)会话关联的状态
 
-## <a name="tenant"></a>tenant
+## <a name="tenant"></a>租户
 Azure AD 目录的实例称为 Azure AD 租户。 所提供的功能包括：
 
 - 适用于集成应用程序的注册表服务
