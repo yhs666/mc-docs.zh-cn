@@ -32,7 +32,8 @@
       "branch": "master",
       "branch_mapping": {
         "huxie-test": "mooncake",
-        "master": "mooncake"
+        "master": "mooncake",
+        "live": "mooncake"
       }
     },
     {
