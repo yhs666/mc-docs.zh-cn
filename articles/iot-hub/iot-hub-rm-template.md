@@ -212,6 +212,6 @@ ms.lasthandoff: 04/14/2017
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: lnk-statusiot-hub-devguide-sdks/
+[lnk-sdks]: ./iot-hub-devguide-sdks.md
 
 [lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md

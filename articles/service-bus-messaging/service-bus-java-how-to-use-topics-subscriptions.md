@@ -173,7 +173,7 @@ service.sendTopicMessage("TestTopic", message);
 }
 ```
 
-服务总线主题在[标准层](./service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](./service-bus-premium-messaging.md)中则为 1 MB。 标头最大为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小是在创建时定义的，上限为 5 GB。
+服务总线主题在标准层中支持的最大消息大小为 256 KB。 标头最大为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小是在创建时定义的，上限为 5 GB。
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>如何从订阅接收消息
 若要从订阅接收消息，请使用 **ServiceBusContract** 对象。 收到的消息可在两种不同模式下工作：**ReceiveAndDelete** 和 **PeekLock**。
