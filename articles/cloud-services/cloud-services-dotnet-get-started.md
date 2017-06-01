@@ -35,7 +35,7 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="alternative-architecture-websites-and-webjobs"></a>替代体系结构：网站和 Web 作业
 
-本教程演示如何在 Azure 云服务中运行前端和后端。 一种替代方法是在 [Azure 网站](../app-service-web/index.yml)中运行前端，并为后端使用 [WebJobs](../app-service-web/websites-webjobs-resources.md) 功能（目前以预览版提供）。 有关如何使用 WebJobs 的教程，请参阅 [Azure WebJobs SDK 入门](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)。 有关如何选择最适合你的方案的服务信息，请参阅 [Azure 网站、云服务和虚拟机比较](./choose-web-site-cloud-service-vm.md)。
+本教程演示如何在 Azure 云服务中运行前端和后端。 一种替代方法是在 [Azure 网站](../app-service-web/index.yml)中运行前端，并为后端使用 [WebJobs](../app-service-web/websites-webjobs-resources.md) 功能（目前以预览版提供）。 有关如何使用 WebJobs 的教程，请参阅 [Azure WebJobs SDK 入门](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)。 有关如何选择最适合你的方案的服务信息，请参阅 [Azure 网站、云服务和虚拟机比较](../app-service-web/choose-web-site-cloud-service-vm.md)。
 
 ## <a name="what-youll-learn"></a>学习内容
 
@@ -202,7 +202,7 @@ Azure 存储帐户提供在云中存储队列和 Blob 数据的资源。
 
 6. 将“复制”下拉列表设置为“本地冗余”。
 
-    为存储帐户启用地域复制时，会将存储内容复制到辅助数据中心，这样就能够在主要位置发生重大灾难时将故障转移到该位置。 地域复制可能会产生额外的成本。 对于测试和开发帐户，你通常不希望因为地域复制而付款。 有关详细信息，请参阅[创建、管理或删除存储帐户](../storage/storage-create-storage-account.md#replication-options)。
+    为存储帐户启用地域复制时，会将存储内容复制到辅助数据中心，这样就能够在主要位置发生重大灾难时将故障转移到该位置。 地域复制可能会产生额外的成本。 对于测试和开发帐户，你通常不希望因为地域复制而付款。 有关详细信息，请参阅[创建、管理或删除存储帐户](../storage/storage-create-storage-account.md)。
 
 5. 单击“创建存储帐户”。
 
