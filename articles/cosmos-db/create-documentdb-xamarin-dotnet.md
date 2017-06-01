@@ -109,8 +109,6 @@ Xamarin 文件夹中的代码包含：
 
 4. 打开 Xamarin 项目并导航到 TodoItemManager.cs。 填写 accountURL、collectionId、databaseId 和 resourceTokenBrokerURL 的值，作为资源令牌中转站网站的基本 HTTPS URL。
 
-5. 完成[如何将应用服务应用程序配置为使用 Facebook 登录](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md)教程，设置 Facebook 身份验证并配置 ResourceTokenBroker 网站。
-
     运行 Xamarin 应用。
 
 ## <a name="review-slas-in-the-azure-portal-preview"></a>在 Azure 门户预览中查看 SLA
