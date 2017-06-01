@@ -268,7 +268,6 @@ wacn.date: 01/19/2017
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/zh-cn/library/jj927168.aspx
 [使用通知中心发送突发新闻]: ./notification-hubs-ios-xplat-segmented-apns-push-notification.md
 [使用通知中心通知用户：ASP.NET]: ./notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[使用通知中心通知用户：移动服务]: ../mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Get started with Mobile Services]: ../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started.md#create-new-service/

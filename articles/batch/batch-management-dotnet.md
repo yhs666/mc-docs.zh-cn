@@ -150,7 +150,7 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 
 ## <a name="use-azure-ad-with-batch-management-net"></a>将 Azure AD 和 Batch 管理 .NET 配合使用
 
-Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource Manager][resman_overview] 配合使用以编程方式管理帐户资源。 Azure AD 需要对通过任何 Azure 资源提供程序客户端（包括 Batch 管理 .NET 库）和 [Azure Resource Manager][resman_overview] 发出的请求进行身份验证。 有关将 Azure AD 和 Batch 管理 .NET 库配合使用的信息，请参阅[使用 Azure Active Directory 对 Batch 解决方案进行身份验证](batch-aad-auth.md)。 
+Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource Manager][resman_overview] 配合使用以编程方式管理帐户资源。 Azure AD 需要对通过任何 Azure 资源提供程序客户端（包括 Batch 管理 .NET 库）和 [Azure Resource Manager][resman_overview] 发出的请求进行身份验证。 
 
 ## GitHub 上的示例项目 <a name="sample"></a>
 
@@ -173,9 +173,6 @@ Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource
 7. 删除该资源组。
 
 删除新建的批处理帐户和资源组之前，可以在 [Azure 门户预览][azure_portal]中查看它们：
-
-若要成功运行示例应用程序，必须首先在 Azure 门户中将其注册到 Azure AD 租户，并向 Azure Resource Manager API 授予权限。 按照[使用 Azure AD 对 Batch 管理应用程序进行身份验证](batch-aad-auth.md#use-azure-ad-with-batch-service-solutions)中提供的步骤操作。
-
 
 [aad_about]: ../active-directory/active-directory-whatis.md
 [aad_adal]: ../active-directory/develop/active-directory-authentication-libraries.md
