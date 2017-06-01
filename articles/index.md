@@ -108,6 +108,12 @@ ms.lasthandoff: 05/12/2017
                                                 <p>Redis 缓存</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/mysql/">
+                                                <img src="media/index/mysql.svg" alt="" />
+                                                <p>MySQL Database on Azure</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>安全性 + 标识 </h3>
                                     <ul>
@@ -974,6 +980,25 @@ ms.lasthandoff: 05/12/2017
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/mysql/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/mysql.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>MySQL Database on Azure</h3>
+                                                    <p>MySQL 关系型数据库服务，提供性能稳定、操作简单、高安全性的数据库平台</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -1217,6 +1242,8 @@ ms.lasthandoff: 05/12/2017
                                     </div>
                                 </a>
                             </li>
+                        </ul>
+                    </li>
                     <li>
                         <a href="#security">安全性 + 标识</a>
                         <ul id="security" class="cardsA">

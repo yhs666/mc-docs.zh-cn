@@ -28,7 +28,7 @@ ms.lasthandoff: 04/28/2017
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程演示如何构建安全的 ASP.NET MVC 5 Web 应用，以便用户能够使用 Facebook 或 Google 凭据进行登录。 该应用是一个简单的联系人列表，使用 ADO.NET Entity Framework 进行数据库访问。 你需要将该应用部署到 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services)。 
+本教程演示如何构建安全的 ASP.NET MVC 5 Web 应用，以便用户能够使用 Facebook 或 Google 凭据进行登录。 该应用是一个简单的联系人列表，使用 ADO.NET Entity Framework 进行数据库访问。 你需要将该应用部署到 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)。 
 
 完成本教程后，你将能够在云中启动并运行安全的数据驱动的 Web 应用程序，以及使用云数据库。 下图显示了已完成的应用程序的登录页。
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 04/28/2017
 * 如何使用 ADO.NET Entity Framework 6 Code First 在 SQL 数据库中读取和写入数据。
 * 如何使用 Entity Framework Code First 迁移部署数据库。
 * 如何使用 Azure SQL 数据库在云中存储关系数据。
-* 如何将使用数据库的 Web 项目部署到 Azure 应用服务中的 [Web 应用](/azure/app-service-web/app-service-changes-existing-services)。
+* 如何将使用数据库的 Web 项目部署到 Azure 应用服务中的 [Web 应用](/app-service-web/app-service-changes-existing-services)。
 
 > [!NOTE]
 > 本教程的篇幅较长。 如果要快速了解 Azure 应用服务和 Visual Studio Web 项目，请参阅[在 Azure 应用服务中创建 ASP.NET Web 应用](app-service-web-get-started-dotnet.md)。 有关疑难解答信息，请参阅 [疑难解答](#troubleshooting) 部分。
@@ -607,7 +607,7 @@ ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新�
 ***请提供有关你喜欢的内容或者你希望看到改善的内容的反馈***，不仅关于教程本身，也关于它所演示的产品。 你的反馈将帮助我们确定优先改进哪些方面。 你还可以在 [教我编写代码](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code)上请求帮助以及对新主题投票。
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth

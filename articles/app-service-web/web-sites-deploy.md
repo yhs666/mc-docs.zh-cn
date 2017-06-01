@@ -24,7 +24,7 @@ ms.lasthandoff: 04/28/2017
 
 ---
 # <a name="deploy-your-app-to-azure-app-service"></a>将应用部署到 Azure 应用服务
-本文可帮助你确定将 Web 应用、移动应用后端或 API 应用的文件部署到 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services)的最佳选项，然后将你引导到相应的资源，其中包含特定于你的首选选项的操作说明。
+本文可帮助你确定将 Web 应用、移动应用后端或 API 应用的文件部署到 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)的最佳选项，然后将你引导到相应的资源，其中包含特定于你的首选选项的操作说明。
 
 ## <a name="overview"></a>Azure 应用服务部署概述
 Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等）。 某些框架在默认情况下已启用，而其他框架（如 Java 和 Python）可能需要进行简单的复选标记配置才能启用。 此外，你还可以自定义应用程序框架，如运行时的 PHP 版本或位元。 有关详细信息，请参阅[在 Azure 应用服务中配置应用](web-sites-configure.md)。
