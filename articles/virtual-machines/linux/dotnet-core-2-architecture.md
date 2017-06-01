@@ -267,7 +267,7 @@ Azure 门户预览中显示的 SQL Server 和 MusicStore 数据库视图。
 
 ![SQL Server](../media/virtual-machines-linux-dotnet-core/sql.png)  
 
-有关部署 Azure SQL 数据库的详细信息，请参阅 [Azure SQL 数据库文档](../../sql-database/index.md)。
+有关部署 Azure SQL 数据库的详细信息，请参阅 [Azure SQL 数据库文档](/sql-database/)。
 
 ## 后续步骤
 

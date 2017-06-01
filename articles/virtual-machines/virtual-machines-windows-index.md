@@ -108,8 +108,6 @@ ms.author: cynthn
 
 [如何从经典 Windows 虚拟机中分离数据磁盘](./virtual-machines-windows-classic-detach-disk.md)
 
-[使用 D 盘作为 Windows VM 上的数据驱动器](./virtual-machines-windows-classic-change-drive-letter.md)
-
 ## 网络
 
 [虚拟网络概述](../virtual-network/virtual-networks-overview.md)

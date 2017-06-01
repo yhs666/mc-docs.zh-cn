@@ -116,7 +116,7 @@ App Service 针对某些常见的身份验证要求提供周全的解决方案�
 
 ## 接收应用的警报
 
-既然你的应用正在自动缩放，当它达到最大实例计数 (2) 且 CPU 使用率超过所需的百分比 (80%) 时，会发生什么情况？ 例如，你可以设置警报（有关更多信息，请阅读 [Receive alert notifications（接收警报通知）](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)）来通知这种情况，以便进一步向上/向外缩放应用。让我们快速为此方案设置警报。
+既然你的应用正在自动缩放，当它达到最大实例计数 (2) 且 CPU 使用率超过所需的百分比 (80%) 时，会发生什么情况？ 例如，你可以设置警报来通知这种情况，以便进一步向上/向外缩放应用。让我们快速为此方案设置警报。
 
 1. 在应用的边栏选项卡中，单击“工具”>“警报”。  
     ![警报 - 设置边栏选项卡](./media/app-service-web-get-started/alert-settings.png)
@@ -138,7 +138,7 @@ App Service 针对某些常见的身份验证要求提供周全的解决方案�
 你应会看到“订阅管理员”已是应用的“所有者”。如果你是 Azure 订阅（如试用订阅）的帐户管理员，此组就会将你包括在内。有关 Azure 基于角色的访问控制的详细信息，请参阅 [Azure Role-Based Access Control（Azure 基于角色的访问控制）](../active-directory/role-based-access-control-configure.md)。
 
 > [!NOTE]
-> 警报规则是一项 Azure 功能。有关详细信息，请参阅 [Receive alert notifications（接收警报通知）](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)。
+> 警报规则是一项 Azure 功能。
 
 ## 后续步骤
 
