@@ -1,14 +1,14 @@
 ---
-title: "Azure Cosmos DB 帐户的 MongoDB 连接字符串 | Microsoft Docs"
-description: "了解如何使用 MongoDB 连接字符串将 MongoDB 应用连接到 Azure Cosmos DB 帐户。"
+title: "DocumentDB 帐户的 MongoDB 连接字符串 | Microsoft Docs"
+description: "了解如何使用 MongoDB 连接字符串将 MongoDB 应用连接到 DocumentDB 帐户。"
 keywords: "mongodb 连接字符串"
-services: cosmosdb
+services: documentdb
 author: AndrewHoh
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -25,8 +25,8 @@ ms.lasthandoff: 05/19/2017
 
 ---
 
-# <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>将 MongoDB 应用程序连接到 Azure Cosmos DB
-了解如何使用 MongoDB 连接字符串将 MongoDB 应用连接到 Azure Cosmos DB 帐户。 将 MongoDB 应用连接到 Azure Cosmos DB 数据库后，可使用 Azure Cosmos DB 数据库作为 MongoDB 应用的数据存储。 
+# <a name="connect-a-mongodb-application-to-azure-documentdb"></a>将 MongoDB 应用程序连接到 DocumentDB
+了解如何使用 MongoDB 连接字符串将 MongoDB 应用连接到 DocumentDB 帐户。 将 MongoDB 应用连接到 DocumentDB 数据库后，可使用 DocumentDB 数据库作为 MongoDB 应用的数据存储。 
 
 本教程提供两个用于检索连接字符串信息的方法：
 
@@ -36,11 +36,11 @@ ms.lasthandoff: 05/19/2017
 ## <a name="prerequisites"></a>先决条件
 
 - 一个 Azure 帐户。 如果没有 Azure 帐户，请立即创建 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
-- 一个 Azure Cosmos DB 帐户。 有关说明，请参阅[创建与 MongoDB 应用配合使用的 Azure Cosmos DB 帐户](documentdb-create-mongodb-account.md)。
+- 一个 DocumentDB 帐户。 有关说明，请参阅[创建与 MongoDB 应用配合使用的 DocumentDB 帐户](documentdb-create-mongodb-account.md)。
 
 ## <a id="QuickstartConnection"></a>使用快速启动方法获取 MongoDB 连接字符串
 1. 在 Internet 浏览器中，登录 [Azure 门户](https://portal.azure.cn)。
-2. 在“Azure Cosmos DB”边栏选项卡中，选择 MongoDB API 帐户。 
+2. 在“DocumentDB”边栏选项卡中，选择 MongoDB API 帐户。 
 3. 在“帐户”边栏选项卡的“左导航”栏中，单击“快速启动”。 
 4. 选择平台（*.NET 驱动程序*、*Node.js 驱动程序*、*MongoDB Shell*、*Java 驱动程序*、*Python 驱动程序*）。 如果未列出驱动程序或工具，别担心，我们持续记录了更多连接代码片段。 请在下方就想要看到的内容进行评论，并阅读 [获取帐户的连接字符串信息](#GetCustomConnection) ，了解如何创建自己的连接。
 5. 将代码片段复制并粘贴到 MongoDB 应用后，即已准备就绪。
@@ -49,7 +49,7 @@ ms.lasthandoff: 05/19/2017
 
 ## <a id="GetCustomConnection"></a> 获取要自定义的 MongoDB 连接字符串
 1. 在 Internet 浏览器中，登录 [Azure 门户](https://portal.azure.cn)。
-2. 在“Azure Cosmos DB”边栏选项卡中，选择 MongoDB API 帐户。 
+2. 在“DocumentDB”边栏选项卡中，选择 MongoDB API 帐户。 
 3. 在“帐户”边栏选项卡的“左导航”栏中，单击“连接字符串”。 
 4. 此时将打开“连接字符串信息”边栏选项卡，其中显示了使用 MongoDB 驱动程序连接到帐户所需的所有信息，包括预先构造的连接字符串。
 
@@ -57,22 +57,22 @@ ms.lasthandoff: 05/19/2017
 
 ## <a name="connection-string-requirements"></a>连接字符串要求
 > [!Important]
-> Azure Cosmos DB 具有严格的安全要求和标准。 Azure Cosmos DB 帐户需要通过 **SSL** 进行身份验证和安全通信。
+> DocumentDB 具有严格的安全要求和标准。 DocumentDB 帐户需要通过 **SSL** 进行身份验证和安全通信。
 >
 >
 
-请务必注意，Azure Cosmos DB 支持标准 MongoDB 连接字符串 URI 格式，但要满足几个具体的要求：Azure Cosmos DB 帐户需要通过 SSL 进行身份验证和安全通信。  因此，连接字符串格式为：
+请务必注意，DocumentDB 支持标准 MongoDB 连接字符串 URI 格式，但要满足几个具体的要求：DocumentDB 帐户需要通过 SSL 进行身份验证和安全通信。  因此，连接字符串格式为：
 
     mongodb://username:password@host:port/[database]?ssl=true
 
 上图显示了“连接字符串”边栏选项卡中提供此字符串值的位置。
 
 - 用户名（必需）
-  - Azure Cosmos DB 帐户名称
+  - DocumentDB 帐户名称
 - 密码（必需）
-  - Azure Cosmos DB 帐户密码
+  - DocumentDB 帐户密码
 - 主机（必需）
-  - Azure Cosmos DB 帐户的 FQDN
+  - DocumentDB 帐户的 FQDN
 - 端口（必需）
   - 10250
 - 数据库（可选）
@@ -84,7 +84,7 @@ ms.lasthandoff: 05/19/2017
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.cn:10250/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>后续步骤
-- 了解如何将 [MongoChef](documentdb-mongodb-mongochef.md) 用于 Azure Cosmos DB: API for MongoDB 帐户。
-- 浏览 Azure Cosmos DB: API for MongoDB [示例](documentdb-mongodb-samples.md)。
+- 了解如何将 [MongoChef](documentdb-mongodb-mongochef.md) 用于 DocumentDB: API for MongoDB 帐户。
+- 浏览 DocumentDB: API for MongoDB [示例](documentdb-mongodb-samples.md)。
 
 

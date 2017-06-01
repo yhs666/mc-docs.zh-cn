@@ -18,7 +18,7 @@ ms.lasthandoff: 05/19/2017
 
 4. 在新边栏选项卡“集合”下的菜单中，单击“规模”。 
 
-      ![“Azure Cosmos DB 设置”和“选择定价层”边栏选项卡的屏幕截图](./media/documentdb-supercharge-your-account/documentdb-change-performance.png)
+      ![“DocumentDB 设置”和“选择定价层”边栏选项卡的屏幕截图](./media/documentdb-supercharge-your-account/documentdb-change-performance.png)
 5. 如以上屏幕截图中所示执行以下操作： 
 
  - 在新的边栏选项卡中，使用下拉菜单选择定价层为 S1、S2 或 S3 的集合。 

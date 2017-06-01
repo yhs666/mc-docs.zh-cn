@@ -1,14 +1,14 @@
 ---
-title: "Azure Cosmos DB 中的数据建模 | Microsoft Docs"
-description: "了解如何为 Azure Cosmos DB 这种全局分布式多模型数据库进行数据建模。"
+title: "DocumentDB 中的数据建模 | Microsoft Docs"
+description: "了解如何为 DocumentDB 这种全局分布式多模型数据库进行数据建模。"
 keywords: "数据建模"
-services: cosmosdb
+services: documentdb
 author: arramac
 manager: jhubbard
 editor: mimig1
 documentationcenter: 
 ms.assetid: 69521eb9-590b-403c-9b36-98253a4c88b5
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -24,8 +24,8 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="modeling-data-in-azure-cosmos-db"></a>Azure Cosmos DB 中的数据建模
-尽管无架构的数据库（如 Azure Cosmos DB）能够非常容易地接受对数据模型的更改，但用户仍需花一些时间来研究数据。 
+# <a name="modeling-data-in-azure-documentdb"></a>DocumentDB 中的数据建模
+尽管无架构的数据库（如 DocumentDB）能够非常容易地接受对数据模型的更改，但用户仍需花一些时间来研究数据。 
 
 将如何存储数据？ 你的应用程序将如何检索和查询数据？ 你的应用程序是读取频繁，还是写入频繁？ 
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 05/19/2017
 - 我应何时嵌入数据和何时链接数据？
 
 ## <a name="embedding-data"></a>嵌入数据
-对文档存储（如 Azure Cosmos DB）中的数据进行建模时，尝试将实体视为使用 JSON 表示的**自包含文档**。
+对文档存储（如 DocumentDB）中的数据进行建模时，尝试将实体视为使用 JSON 表示的**自包含文档**。
 
 在深入探讨之前，让我们先回顾一下在关系数据库中我们会如何建模，许多人对该主题已很熟悉。 下面的示例演示了如何在关系数据库中存储某个人的信息。 
 
@@ -187,7 +187,7 @@ ms.lasthandoff: 05/19/2017
 ## <a id="Refer"></a>引用数据
 因此，嵌入式数据在很多情况下都可以很好运作，但很明显在一些情况下，非规范化数据将导致更多问题而得不偿失。 因此我们现在该怎么办？ 
 
-关系数据库不是可以在实体之间创建关系的唯一数据库。 在文档数据库中，一个文档中的信息实际与其他文档中的数据相关。 现在，我甚至一分钟也不提倡在 Azure Cosmos DB 或任何其他文档数据库中生成可以更好地适应关系数据库的系统，但是简单关系是可以的，并且还非常有用。 
+关系数据库不是可以在实体之间创建关系的唯一数据库。 在文档数据库中，一个文档中的信息实际与其他文档中的数据相关。 现在，我甚至一分钟也不提倡在 DocumentDB 或任何其他文档数据库中生成可以更好地适应关系数据库的系统，但是简单关系是可以的，并且还非常有用。 
 
 在下面的 JSON 中我们选择使用前面的股票投资组合示例，但是这次我们引用了投资组合中的股票项目，而不是嵌入此项目。 在这种情况下，当一天当中股票项发生频繁更改时，仅有的需要更新的文档就是一个股票文档。 
 
@@ -233,7 +233,7 @@ ms.lasthandoff: 05/19/2017
 > 
 
 ### <a name="what-about-foreign-keys"></a>外键呢？
-因为当前没有约束、外键或其他类似概念，所以文档中存在的任何文档间关系都是有效的“弱链接”，并且数据库不会验证此关系。 如果想要确保文档要引用的数据实际存在，则需在应用程序中进行此验证，或通过使用 Azure Cosmos DB 上的服务器端触发器或存储过程来验证。
+因为当前没有约束、外键或其他类似概念，所以文档中存在的任何文档间关系都是有效的“弱链接”，并且数据库不会验证此关系。 如果想要确保文档要引用的数据实际存在，则需在应用程序中进行此验证，或通过使用 DocumentDB 上的服务器端触发器或存储过程来验证。
 
 ### <a name="when-to-reference"></a>何时引用
 通常在下列情况下使用规范化的数据模型：
@@ -261,13 +261,13 @@ ms.lasthandoff: 05/19/2017
     }
 
     Book documents:
-    {"id": "1", "name": "Azure Cosmos DB 101" }
-    {"id": "2", "name": "Azure Cosmos DB for RDBMS Users" }
+    {"id": "1", "name": "DocumentDB 101" }
+    {"id": "2", "name": "DocumentDB for RDBMS Users" }
     {"id": "3", "name": "Taking over the world one JSON doc at a time" }
     ...
-    {"id": "100", "name": "Learn about Azure Cosmos DB" }
+    {"id": "100", "name": "Learn about DocumentDB" }
     ...
-    {"id": "1000", "name": "Deep Dive in to Azure Cosmos DB" }
+    {"id": "1000", "name": "Deep Dive in to DocumentDB" }
 
 如果每个出版商的书籍数量较少且增长有限，那么在出版商文档中存储书籍引用可能很有用。 但是，如果每个出版商的书籍数量没有限制，那么此数据模型将产生可变、不断增长的数组，类似于上面示例中的出版商文档。 
 
@@ -280,13 +280,13 @@ ms.lasthandoff: 05/19/2017
     }
 
     Book documents: 
-    {"id": "1","name": "Azure Cosmos DB 101", "pub-id": "mspress"}
-    {"id": "2","name": "Azure Cosmos DB for RDBMS Users", "pub-id": "mspress"}
+    {"id": "1","name": "DocumentDB 101", "pub-id": "mspress"}
+    {"id": "2","name": "DocumentDB for RDBMS Users", "pub-id": "mspress"}
     {"id": "3","name": "Taking over the world one JSON doc at a time"}
     ...
-    {"id": "100","name": "Learn about Azure Cosmos DB", "pub-id": "mspress"}
+    {"id": "100","name": "Learn about DocumentDB", "pub-id": "mspress"}
     ...
-    {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
+    {"id": "1000","name": "Deep Dive in to DocumentDB", "pub-id": "mspress"}
 
 在上面的示例中，删除了出版商文档中的无限制集合， 只在每个书籍文档中引用出版商。
 
@@ -302,11 +302,11 @@ ms.lasthandoff: 05/19/2017
     {"id": "a2", "name": "William Wakefield" }
 
     Book documents:
-    {"id": "b1", "name": "Azure Cosmos DB 101" }
-    {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users" }
+    {"id": "b1", "name": "DocumentDB 101" }
+    {"id": "b2", "name": "DocumentDB for RDBMS Users" }
     {"id": "b3", "name": "Taking over the world one JSON doc at a time" }
-    {"id": "b4", "name": "Learn about Azure Cosmos DB" }
-    {"id": "b5", "name": "Deep Dive in to Azure Cosmos DB" }
+    {"id": "b4", "name": "Learn about DocumentDB" }
+    {"id": "b5", "name": "Deep Dive in to DocumentDB" }
 
     Joining documents: 
     {"authorId": "a1", "bookId": "b1" }
@@ -324,10 +324,10 @@ ms.lasthandoff: 05/19/2017
     {"id": "a2", "name": "William Wakefield", "books": ["b1", "b4"]}
 
     Book documents: 
-    {"id": "b1", "name": "Azure Cosmos DB 101", "authors": ["a1", "a2"]}
-    {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users", "authors": ["a1"]}
-    {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
-    {"id": "b4", "name": "Deep Dive in to Azure Cosmos DB", "authors": ["a2"]}
+    {"id": "b1", "name": "DocumentDB 101", "authors": ["a1", "a2"]}
+    {"id": "b2", "name": "DocumentDB for RDBMS Users", "authors": ["a1"]}
+    {"id": "b3", "name": "Learn about DocumentDB", "authors": ["a1"]}
+    {"id": "b4", "name": "Deep Dive in to DocumentDB", "authors": ["a2"]}
 
 现在，如果有作者的姓名，可以立即知道他们写了哪些书；相反，如果加载了书籍文档，则可以知道作者的 ID。 这可以省去对联接表的中间查询，从而减少了应用程序需要往返访问服务器的次数。 
 
@@ -367,7 +367,7 @@ ms.lasthandoff: 05/19/2017
     Book documents:
     {
         "id": "b1",
-        "name": "Azure Cosmos DB 101",
+        "name": "DocumentDB 101",
         "authors": [
             {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
             {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "http://....png"}
@@ -375,7 +375,7 @@ ms.lasthandoff: 05/19/2017
     },
     {
         "id": "b2",
-        "name": "Azure Cosmos DB for RDBMS Users",
+        "name": "DocumentDB for RDBMS Users",
         "authors": [
             {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
         ]
@@ -389,20 +389,20 @@ ms.lasthandoff: 05/19/2017
 
 在示例中 **预先计算的汇总** 值可在读取操作上节省高昂的处理成本。 在本例中，作者文档中嵌入的一些数据为在运行时计算的数据。 每当出版了一本新书，就会创建一个书籍文档 **并且** 将 countOfBooks 字段设置为基于特定作者的现有书籍文档数的计算值。 这种优化对于读取频繁的系统来说是有益的，为了优化读取，我们可以对写入操作执行更多计算。
 
-因为 Azure Cosmos DB 支持**多文档事务**，所以构建一个具有预先计算字段的模型是可能的。 许多 NoSQL 存储无法跨文档执行事务，正是因为该限制，所以提倡诸如“始终嵌入所有数据”的设计决策。 在 Azure Cosmos DB 中，可以使用服务器端触发器或存储过程在一个 ACID 事务中插入书籍和更新作者信息等。 现在你 **无需** 将所有数据嵌入一个文档，只需确保你的数据保持一致性。
+因为 DocumentDB 支持**多文档事务**，所以构建一个具有预先计算字段的模型是可能的。 许多 NoSQL 存储无法跨文档执行事务，正是因为该限制，所以提倡诸如“始终嵌入所有数据”的设计决策。 在 DocumentDB 中，可以使用服务器端触发器或存储过程在一个 ACID 事务中插入书籍和更新作者信息等。 现在你 **无需** 将所有数据嵌入一个文档，只需确保你的数据保持一致性。
 
 ## <a name="NextSteps"></a>后续步骤
 本文最大的要点在于了解无架构环境下的数据建模的重要性一如既往。 
 
 就像有多种方法可在屏幕上表示一个数据片段一样，数据的建模方法也不会只有一种。 你需要了解你的应用程序以及它如何生成、使用和处理数据。 然后，通过应用此处提供的一些准则，你可以开始创建可满足你的应用程序当前需求的模型。 当你的应用程序需要进行更改时，你可以利用无架构数据库的灵活性欣然接受更改，并轻松改进你的数据模型。 
 
-若要了解有关 Azure Cosmos DB 的详细信息，请参阅服务的[文档](/documentation/services/documentdb/)页。 
+若要了解有关 DocumentDB 的详细信息，请参阅服务的[文档](/documentation/services/documentdb/)页。 
 
-若要了解如何在 Azure Cosmos DB 中优化索引，请参阅有关[索引策略](documentdb-indexing-policies.md)的文章。
+若要了解如何在 DocumentDB 中优化索引，请参阅有关[索引策略](documentdb-indexing-policies.md)的文章。
 
-若要了解如何在多个分区之间对数据进行分片，请参阅[在 Azure Cosmos DB 中对数据进行分区](documentdb-partition-data.md)。 
+若要了解如何在多个分区之间对数据进行分片，请参阅[在 DocumentDB 中对数据进行分区](documentdb-partition-data.md)。 
 
-最后，有关多租户应用程序的数据建模和分片指导，请查阅[使用 Azure Cosmos DB 扩展多租户应用程序](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)。
+最后，有关多租户应用程序的数据建模和分片指导，请查阅[使用 DocumentDB 扩展多租户应用程序](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)。
 
 
 

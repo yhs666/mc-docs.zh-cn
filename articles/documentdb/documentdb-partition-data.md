@@ -1,13 +1,13 @@
 ---
-title: "Azure Cosmos DB 中的分区和缩放 | Microsoft Docs"
-description: "了解分区在 Azure Cosmos DB 中的工作原理、如何配置分区和分区键，以及如何为应用程序选取适当的分区键。"
-services: cosmosdb
+title: "DocumentDB 中的分区和缩放 | Microsoft Docs"
+description: "了解分区在 DocumentDB 中的工作原理、如何配置分区和分区键，以及如何为应用程序选取适当的分区键。"
+services: documentdb
 author: arramac
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 702c39b4-1798-48dd-9993-4493a2f6df9e
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -24,21 +24,21 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>使用 DocumentDB API 在 Azure Cosmos DB 中分区
+# <a name="partitioning-in-azure-documentdb-using-the-documentdb-api"></a>使用 DocumentDB API 在 DocumentDB 中分区
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是一个全局分布式多模型数据库服务，旨在帮助实现快速、可预测的性能并且随着应用程序的增长无缝扩展。 
+[DocumentDB](./documentdb-resources.md) 是一个全局分布式多模型数据库服务，旨在帮助实现快速、可预测的性能并且随着应用程序的增长无缝扩展。 
 
-本文概述如何使用 DocumentDB API 处理对 Cosmos DB 容器的分区。 请参阅[分区和水平缩放](../cosmos-db/partition-data.md)，大致了解使用任何 Azure Cosmos DB API 进行分区的概念和最佳做法。 
+本文概述如何使用 DocumentDB API 处理对 DocumentDB 容器的分区。 请参阅分区和水平缩放，大致了解使用任何 DocumentDB API 进行分区的概念和最佳做法。 
 
 若要开始使用代码，请从 [Github](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark) 下载项目。 
 
 阅读本文后，你将能够回答以下问题：   
 
-- Azure Cosmos DB 中的分区原理是什么？
-- 如何配置 Azure Cosmos DB 中的分区
+- DocumentDB 中的分区原理是什么？
+- 如何配置 DocumentDB 中的分区
 - 什么是分区键，以及如何为应用程序选取适当的分区键？
 
-若要开始使用代码，请从 [Azure Cosmos DB 性能测试驱动程序示例](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark)下载项目。 
+若要开始使用代码，请从 [DocumentDB 性能测试驱动程序示例](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark)下载项目。 
 
 <!-- placeholder until we have a permanent solution-->
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 05/19/2017
 让我们看看所选的分区键如何影响应用程序的性能。
 
 ## <a name="working-with-the-documentdb-sdks"></a>使用 DocumentDB SDK
-Azure Cosmos DB 增加了对 [REST API 版本 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx) 的自动分区支持。 为了创建已分区容器，必须在支持的 SDK 平台（.NET、Node.js、Java、Python、MongoDB）之一下载 SDK 1.6.0 或更高版本。 
+DocumentDB 增加了对 [REST API 版本 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx) 的自动分区支持。 为了创建已分区容器，必须在支持的 SDK 平台（.NET、Node.js、Java、Python、MongoDB）之一下载 SDK 1.6.0 或更高版本。 
 
 ### <a name="creating-containers"></a>创建容器
 下面的示例演示的 .NET 代码片段用于创建容器，以存储吞吐量为 20,000 个请求单位/秒的设备遥测数据。 SDK 将设置 OfferThroughput 值（其反过来将设置 REST API 中的 `x-ms-offer-throughput` 请求标头）。 这里，我们将 `/deviceId` 设为分区键。 所选分区键随容器元数据（如名称和索引策略）的其余部分一起保存。
@@ -102,10 +102,10 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
-此方法可对 Cosmos DB 进行 REST API 调用，且该服务将基于所请求的吞吐量预配分区数。 随着性能需求的变化，可以更改容器的吞吐量。 
+此方法可对 DocumentDB 进行 REST API 调用，且该服务将基于所请求的吞吐量预配分区数。 随着性能需求的变化，可以更改容器的吞吐量。 
 
 ### <a name="reading-and-writing-items"></a>读取和写入项
-现在，请将数据插入 Cosmos DB。 以下示例类包含设备读取和对 CreateDocumentAsync 的调用，目的是将新设备读数插入到容器中。 这是一个利用 DocumentDB API 的示例：
+现在，请将数据插入 DocumentDB。 以下示例类包含设备读取和对 CreateDocumentAsync 的调用，目的是将新设备读数插入到容器中。 这是一个利用 DocumentDB API 的示例：
 
 ```csharp
 public class DeviceReading
@@ -169,7 +169,7 @@ await client.DeleteDocumentAsync(
 ```
 
 ### <a name="querying-partitioned-containers"></a>查询已分区容器
-在已分区容器中查询数据时，Cosmos DB 会自动将查询路由到筛选器（如果有）中所指定分区键值对应的分区。 例如，此查询将只路由到包含分区键“XMS-0001”的分区。
+在已分区容器中查询数据时，DocumentDB 会自动将查询路由到筛选器（如果有）中所指定分区键值对应的分区。 例如，此查询将只路由到包含分区键“XMS-0001”的分区。
 
 ```csharp
 // Query using partition key
@@ -188,10 +188,10 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-从 SDK 1.12.0 及更高版本开始，Cosmos DB 支持使用 SQL 对已分区的容器执行[聚合函数](documentdb-sql-query.md#Aggregates) `COUNT`、`MIN`、`MAX`、`SUM` 和 `AVG`。 查询必须包括单个聚合运算符，并且必须在投影中包括单个值。
+从 SDK 1.12.0 及更高版本开始，DocumentDB 支持使用 SQL 对已分区的容器执行[聚合函数](documentdb-sql-query.md#Aggregates) `COUNT`、`MIN`、`MAX`、`SUM` 和 `AVG`。 查询必须包括单个聚合运算符，并且必须在投影中包括单个值。
 
 ### <a name="parallel-query-execution"></a>并行查询执行
-Cosmos DB SDK 1.9.0 及更高版本支持并行查询执行选项，这些选项可用于对已分区集合执行低延迟查询，即使在这些查询需要处理大量分区时，也是如此。 例如，以下查询配置为跨分区并行运行。
+DocumentDB SDK 1.9.0 及更高版本支持并行查询执行选项，这些选项可用于对已分区集合执行低延迟查询，即使在这些查询需要处理大量分区时，也是如此。 例如，以下查询配置为跨分区并行运行。
 
 ```csharp
 // Cross-partition Order By Queries
@@ -222,11 +222,11 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 在下一部分，将介绍如何从单分区容器移动到已分区容器。
 
 ## <a name="next-steps"></a>后续步骤
-本文概述了如何使用 DocumentDB API 处理对 Cosmos DB 容器的分区。 另请参阅[分区和水平缩放](../cosmos-db/partition-data.md)，大致了解使用任何 Azure Cosmos DB API 进行分区的概念和最佳做法。 
+本文概述了如何使用 DocumentDB API 处理对 DocumentDB 容器的分区。 另请参阅分区和水平缩放，大致了解使用任何 DocumentDB API 进行分区的概念和最佳做法。 
 
-- 使用 Cosmos DB 执行缩放和性能测试。 有关示例，请参阅[使用 Azure Cosmos DB 执行性能和规模测试](documentdb-performance-testing.md)。
+- 使用 DocumentDB 执行缩放和性能测试。 有关示例，请参阅[使用 DocumentDB 执行性能和规模测试](documentdb-performance-testing.md)。
 - 使用 [SDK](documentdb-sdk-dotnet.md) 或 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 的编码入门
-- 了解 [Azure Cosmos DB 中的预配吞吐量](documentdb-request-units.md)
+- 了解 [DocumentDB 中的预配吞吐量](documentdb-request-units.md)
 
 
 

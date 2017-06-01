@@ -1,14 +1,14 @@
 ---
-title: "使用 MongoDB API 生成 Azure Cosmos DB 应用 | Microsoft Docs"
+title: "使用 MongoDB API 生成 DocumentDB 应用 | Microsoft Docs"
 description: "使用 MongoDB 的 DocumentDB API 创建联机数据库的 N 教程。"
 keywords: "mongodb 示例"
-services: cosmosdb
+services: documentdb
 author: AndrewHoh
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: fb38bc53-3561-487d-9e03-20f232319a87
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -24,7 +24,7 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>使用 Node.js 生成 Azure Cosmos DB: API for MongoDB 应用
+# <a name="build-an-azure-documentdb-api-for-mongodb-app-using-nodejs"></a>使用 Node.js 生成 DocumentDB: API for MongoDB 应用
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -35,11 +35,11 @@ ms.lasthandoff: 05/19/2017
 >  
 >
 
-此示例说明如何使用 Node.js 生成 Azure Cosmos DB: API for MongoDB 控制台应用。
+此示例说明如何使用 Node.js 生成 DocumentDB: API for MongoDB 控制台应用。
 
 若要使用此示例，必须：
 
-- [创建](documentdb-create-mongodb-account.md) Azure Cosmos DB: API for MongoDB 帐户。
+- [创建](documentdb-create-mongodb-account.md) DocumentDB: API for MongoDB 帐户。
 - 检索 MongoDB [连接字符串](documentdb-connect-mongodb-account.md)信息。
 
 ## <a name="create-the-app"></a>创建应用程序
@@ -134,6 +134,6 @@ ms.lasthandoff: 05/19/2017
 3. 打开偏爱的终端，运行 **npm install mongodb --save**，然后使用 **node app.js** 运行应用程序
 
 ## <a name="next-steps"></a>后续步骤
-- 了解如何[将 MongoChef 用于](documentdb-mongodb-mongochef.md) Azure Cosmos DB: API for MongoDB 帐户。
+- 了解如何[将 MongoChef 用于](documentdb-mongodb-mongochef.md) DocumentDB: API for MongoDB 帐户。
 
 
