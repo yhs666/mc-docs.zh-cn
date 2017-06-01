@@ -40,7 +40,7 @@ ms.lasthandoff: 05/12/2017
 | [添加登录说明](#addsignindescription) |如何添加登录页说明。 |
 | [修改 AD FS 声明规则](#modclaims) |如何修改各种联合方案的 AD FS 声明。 |
 
-## <a name="manage-ad-fs"></a>管理 AD FS
+## <a name="ad-fs-management"></a>管理 AD FS
 使用 Azure AD Connect 向导，可以在最少的用户干预的 Azure AD Connect 中执行各种 AD FS 相关任务。 在通过运行向导来完成安装 Azure AD Connect 后，可以再次运行向导，以执行其他任务。
 
 ## 修复信任 <a name=repairthetrust></a>
