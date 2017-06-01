@@ -21,8 +21,8 @@ ms.author: carlrab
 
 > [!div class="op_single_selector"]
 >- 使用 [SQL Azure 迁移向导](./sql-database-cloud-migrate-fix-compatibility-issues.md)
->- 使用 [SSDT](./sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
->- 使用 [SSMS](./sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
+>- 使用 [SSDT](./sql-database-cloud-migrate.md)
+>- 使用 [SSMS](./sql-database-cloud-migrate.md)
 
 本文介绍了在迁移到 Azure SQL 数据库之前如何使用 SQL Azure 迁移向导检测并解决 SQL Server 数据库的兼容性问题。
 
