@@ -38,7 +38,7 @@ ms.author: rasquill
 ## 教程
 
 - [在 Azure 中的 Linux 虚拟机上安装 LAMP 堆栈](create-lamp-stack.md)
-- [Azure 虚拟机上的 Ruby on Rails Web 应用程序](../virtual-machines-linux-classic-ruby-rails-web-app.md)
+- [Azure 虚拟机上的 Ruby on Rails Web 应用程序](./classic/virtual-machines-linux-classic-ruby-rails-web-app.md)
 - [如何：为 AMQP 和服务总线安装 Apache Qpid Proton-C](../../service-bus-messaging/service-bus-amqp-overview.md)
 
 ### 数据库

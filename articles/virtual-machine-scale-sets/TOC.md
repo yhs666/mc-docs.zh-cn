@@ -30,9 +30,6 @@
 ### [使用 DSC 和规模集](virtual-machine-scale-sets-dsc.md)
 ### [将模板转换为托管磁盘](virtual-machine-scale-sets-convert-template-to-md.md)
 
-## 故障排除
-### [自动缩放](virtual-machine-scale-sets-troubleshoot.md)
-
 ## 常见问题
 ### [规模集常见问题](virtual-machine-scale-sets-faq.md)
 

@@ -47,7 +47,7 @@ ms.author: jdial
 |名称|说明|
 |---|---|
 |adminUsername|管理员用户名。该用户名必须符合 [Azure 用户名要求](../virtual-machines/virtual-machines-windows-faq.md)。|
-|adminPassword|管理员密码 该密码必须符合 [Azure 密码要求](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-password-requirements-when-creating-a-vm)。|
+|adminPassword|管理员密码 该密码必须符合 [Azure 密码要求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。|
 |dnsLabelPrefix|PublicIPAddressName1 的 DNS 名称。DNS 名称将解析为分配给 VM 的公共 IP 地址之一。在创建 VM 时所在的 Azure 区域（位置）内，名称必须是唯一的。|
 |dnsLabelPrefix1|PublicIPAddressName2 的 DNS 名称。DNS 名称将解析为分配给 VM 的公共 IP 地址之一。在创建 VM 时所在的 Azure 区域（位置）内，名称必须是唯一的。|
 |OSVersion|VM 的 Windows/Linux 版本。操作系统是所选的给定 Windows/Linux 版本的完整修补映像。|

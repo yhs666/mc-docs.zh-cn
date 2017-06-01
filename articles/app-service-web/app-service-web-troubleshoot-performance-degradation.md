@@ -69,7 +69,6 @@ ms.lasthandoff: 04/14/2017
 有关详细信息，请参阅：
 
 * [监视 Azure 应用服务中的 Web 应用](web-sites-monitor.md)
-* [接收警报通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 #### <a name="monitor-web-endpoint-status"></a>监视 Web 终结点状态
 如果在 **标准** 定价层中运行 Web 应用，Web Apps 可让你从 3 个地理位置监视 2 个终结点。

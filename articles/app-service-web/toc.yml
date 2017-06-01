@@ -27,12 +27,8 @@
     href: app-service-web-tutorial-dotnet-sqldatabase.md
   - name: 1 - 将 Node.js 与 MongoDB 配合使用
     href: app-service-web-tutorial-nodejs-mongodb-app.md
-  - name: 1 - 将 PHP 与 MySQL 配合使用
-    href: app-service-web-tutorial-php-mysql.md 
   - name: 2 - 映射自定义域
     href: app-service-web-tutorial-custom-domain.md
-  - name: 3 - 绑定 SSL 证书
-    href: app-service-web-tutorial-custom-ssl.md
 #  - name: 5 - Monitor your app
 #    href: app-service-web-tutorial-monitoring.md
 - name: 示例
@@ -114,8 +110,6 @@
       href: app-service-deploy-complex-application-predictably.md
     - name: 敏捷部署
       href: app-service-agile-software-development.md
-    - name: Beta 版测试
-      href: app-service-web-test-in-production-controlled-test-flight.md
     - name: 设置部署凭据
       href: app-service-deployment-credentials.md
     - name: 映射自定义域
