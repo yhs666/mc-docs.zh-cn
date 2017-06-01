@@ -181,7 +181,7 @@ New-AzureVM -ServiceName $svcname -VMs $vm1
     ```
 
 ## 完成 SQL Server 计算机的配置以进行远程访问
-在通过远程桌面登录计算机之后，根据[在 Azure VM 中配置 SQL Server 连接的步骤](../../virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)中的说明配置 SQL Server。
+在通过远程桌面登录计算机之后，根据[在 Azure VM 中配置 SQL Server 连接的步骤](../classic/sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)中的说明配置 SQL Server。
 
 ## 后续步骤
 你可以在[虚拟机文档](../../virtual-machines-windows-classic-create-powershell.md)中找到使用 PowerShell 设置虚拟机的其他说明。有关与 SQL Server 和高级存储相关的其他脚本，请参阅[将 Azure 高级存储用于虚拟机上的 SQL Server](../../virtual-machines-windows-classic-sql-server-premium-storage.md)。

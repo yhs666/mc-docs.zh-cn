@@ -48,7 +48,6 @@
 ## 使用 Spark 进行内存中处理
 ### [使用 BI 工具](hdinsight-apache-spark-use-bi-tools.md)
 ### [创建独立应用](hdinsight-apache-spark-create-standalone-application.md)
-### [使用 Eclipse 创建应用](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [处理流事件](hdinsight-apache-spark-eventhub-streaming.md)
 ### [预测 HVAC 性能](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [预测食品检测结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)

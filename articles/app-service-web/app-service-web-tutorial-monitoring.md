@@ -111,7 +111,6 @@ ms.lasthandoff: 04/22/2017
 
 > [!TIP]
 > 使用以下链接了解有关 Azure 警报的详细信息：
-> - [Azure 中的警报是什么？](..\monitoring-and-diagnostics\monitoring-overview-alerts.md)
 > - [对指标执行操作](..\monitoring-and-diagnostics\monitoring-overview.md)
 
 ## <a name="logging"></a> 步骤 4 - 日志记录
