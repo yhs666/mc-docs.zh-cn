@@ -131,8 +131,6 @@
     items:
     - name: 查找应用商店 VM 映像
       href: cli-ps-findimage.md
-    - name: Azure 混合使用权益许可
-      href: hybrid-use-benefit-licensing.md
     - name: 准备要上传的 VHD
       href: prepare-for-upload-vhd-image.md
     - name: 创建托管磁盘映像
