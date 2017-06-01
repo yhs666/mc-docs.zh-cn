@@ -312,4 +312,3 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
 
 ## <a name="next-steps"></a>后续步骤
 * 有关管理 Azure 密钥保管库的详细信息，包括删除加密密钥和保管库，请参阅 [Manage Key Vault using CLI](../../key-vault/key-vault-manage-with-cli.md)（使用 CLI 管理密钥保管库）。
-* 有关磁盘加密的详细信息，例如准备要上载到 Azure 的已加密自定义 VM，请参阅 [Azure Disk Encryption](../../security/azure-security-disk-encryption.md)（Azure 磁盘加密）。

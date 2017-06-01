@@ -26,10 +26,7 @@ ms.author: jdial
 Azure 有两个部署模型：Azure Resource Manager 和经典模型。Azure 建议通过 Resource Manager 部署模型创建资源。若要深入了解这两个模型之间的差异，请阅读[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)一文。
 
 ## 用于完成任务的 CLI 版本
-可使用以下 CLI 版本之一完成任务：
-
-- [Azure CLI 1.0](./virtual-networks-create-vnet-arm-cli-nodejs.md)：用于经典部署模型和资源管理部署模型的 CLI
-- [Azure CLI 2.0（预览版）](#create-a-virtual-network)- 用于资源管理部署模型（本文）的下一代 CLI
+可使用 [Azure CLI 2.0（预览版）](#create-a-virtual-network)- 用于资源管理部署模型（本文）的下一代 CLI
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

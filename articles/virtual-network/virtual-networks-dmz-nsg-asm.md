@@ -73,7 +73,7 @@ ms.author: jonor
 
 将这些规则绑定到每个子网后，如果有从 Internet 到 Web 服务器的入站 HTTP 请求，那么规则 3（允许）和规则 5（拒绝）均适用，但由于规则 3 具有较高的优先级，因此只应用规则 3，忽略规则 5。这样就会允许 HTTP 请求传往 Web 服务器。如果相同的流量尝试传往 DNS01 服务器，则会先应用规则 5（拒绝），因此不允许该流量传递到服务器。规则 6（拒绝）阻止前端子网与后端子网对话（规则 1 和 4 允许的流量除外），此规则集可在攻击者入侵前端 Web 应用程序时保护后端网络，攻击者只能对后端“受保护”的网络进行有限制的访问（只能访问 AppVM01 服务器上公开的资源）。
 
-有一个默认出站规则可允许流量外流到 Internet。在此示例中，我们允许出站流量，且未修改任何出站规则。若要锁定两个方向的流量，需使用“用户定义的路由”，详见[安全边界最佳实践页面][HOME]上的“示例 3”。
+有一个默认出站规则可允许流量外流到 Internet。在此示例中，我们允许出站流量，且未修改任何出站规则。
 
 下面更详细讨论了每个规则（**注意**：以下列表中以货币符号开头的任何项（例如 $NSGName）均为本文档“参考”部分的脚本中的用户定义变量）：
 
@@ -582,7 +582,6 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
 
 <!--Link References-->
 
-[HOME]: ../security/best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
 <!---HONumber=Mooncake_0206_2017-->

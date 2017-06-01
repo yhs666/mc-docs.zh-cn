@@ -43,8 +43,6 @@ Hadoop 群集由用于对群集中的任务进行分布式处理的多个虚拟�
 | [Storm](hdinsight-storm-overview.md) |实时事件处理 |
 | [Spark](hdinsight-apache-spark-overview.md) |内存中处理、交互式查询、微批流处理 |
 | [交互式 Hive（预览版）](hdinsight-hadoop-use-interactive-hive.md) |更快的交互式 Hive 查询的内存中缓存 |
-| [Spark 上的 R Server](hdinsight-hadoop-r-server-overview.md) |各种不同的大数据统计信息、预测模型和机器学习功能 |
-| [Kafka（预览版）](hdinsight-apache-kafka-introduction.md) | 分布式流式处理平台，可用于构建实时流数据管道和应用程序 |
 
 每个群集类型在群集中具有自身的节点数目、在群集中使用自身的节点术语，对每个节点类型具有默认的 VM 大小。 下表中的括号内列出了每个节点类型的节点数目。
 
