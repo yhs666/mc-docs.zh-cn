@@ -26,7 +26,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
      <li>
-        <a href="/azure/event-hubs/event-hubs-what-is-event-hubs">
+        <a href="/event-hubs/event-hubs-what-is-event-hubs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,8 +61,8 @@ ms.lasthandoff: 05/12/2017
         </div>
         </a>
     </li>
-     <li>
-        <a href="/azure/event-hubs/event-hubs-programming-guide">
+    <li>
+        <a href="/event-hubs/event-hubs-programming-guide">
         <div class="cardSize">
             <div class="cardPadding">
                <div class="card">
@@ -80,7 +80,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/event-hubs/event-hubs-csharp-ephcs-getstarted">
+        <a href="/event-hubs/event-hubs-csharp-ephcs-getstarted">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -107,11 +107,20 @@ ms.lasthandoff: 05/12/2017
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.eventhubs">Microsoft.Azure.EventHubs</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.eventhubs.processor">Microsoft.Azure.EventHubs.Processor</a></p>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.servicebus.eventprocessorhost">Microsoft.Azure.ServiceBus.EventProcessorHost</a></p>
+                        <h3>Command-Line</h3>
+                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.eventhub/">PowerShell</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/">.NET API Browser</a></p>
                    </div>
                 </div>
             </div>
@@ -123,8 +132,8 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>Java</h3>
-                        <p><a href="/java/api/com.microsoft.azure.eventhubs">com.microsoft.azure.eventhubs</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.eventprocessorhost">com.microsoft.azure.eventprocessorhost</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.eventhubs">com.microsoft.azure.eventhubs</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.eventprocessorhost">com.microsoft.azure.eventprocessorhost</a></p>
                     </div>
                 </div>
             </div>
@@ -135,9 +144,8 @@ ms.lasthandoff: 05/12/2017
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3><a href="/rest/api/eventhub">REST</a></h3>
-                        <p><a href="/azure/event-hubs/event-hubs-messaging-exceptions">异常</a></p>
-                        <p><a href="/azure/event-hubs/event-hubs-quotas">配额</a></p>
+                        <h3>REST</h3>
+                        <p><a href="https://docs.microsoft.com/rest/api/eventhub">REST API 参考</a></p>
                     </div>
                 </div>
             </div>

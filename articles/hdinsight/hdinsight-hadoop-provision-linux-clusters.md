@@ -43,8 +43,6 @@ Hadoop 群集由用于对群集中的任务进行分布式处理的多个虚拟�
 | [Storm](hdinsight-storm-overview.md) |实时事件处理 |
 | [Spark](hdinsight-apache-spark-overview.md) |内存中处理、交互式查询、微批流处理 |
 | [交互式 Hive（预览版）](hdinsight-hadoop-use-interactive-hive.md) |更快的交互式 Hive 查询的内存中缓存 |
-| [Spark 上的 R Server](hdinsight-hadoop-r-server-overview.md) |各种不同的大数据统计信息、预测模型和机器学习功能 |
-| [Kafka（预览版）](hdinsight-apache-kafka-introduction.md) | 分布式流式处理平台，可用于构建实时流数据管道和应用程序 |
 
 每个群集类型在群集中具有自身的节点数目、在群集中使用自身的节点术语，对每个节点类型具有默认的 VM 大小。 下表中的括号内列出了每个节点类型的节点数目。
 
@@ -127,7 +125,7 @@ Azure HDInsight 提供了两个类别的大数据云产品/服务：标准和[�
 * Windows 上的 HDInsight (Windows Server 2012 R2 Datacenter)。
 
 ### <a name="hdinsight-version"></a>HDInsight 版本
-此选项用于确定该群集所需的 HDInsight 版本。 有关详细信息，请参阅 [HDInsight 中的 Hadoop 群集版本和组件](/azure/hdinsight/hdinsight-component-versioning)。
+此选项用于确定该群集所需的 HDInsight 版本。 有关详细信息，请参阅 [HDInsight 中的 Hadoop 群集版本和组件](/hdinsight/hdinsight-component-versioning)。
 
 ### <a name="subscription-name"></a>订阅名称
 每个 HDInsight 群集与一个 Azure 订阅绑定。
@@ -259,7 +257,7 @@ HDInsight 群集与其默认存储帐户必须位于相同的 Azure 位置。
 >
 
 ## <a name="use-azure-virtual-networks"></a>使用 Azure 虚拟网络
-使用 [Azure 虚拟网络](/azure/virtual-network/)可创建包含解决方案所需的资源的安全持久性网络。 使用虚拟网络可以：
+使用 [Azure 虚拟网络](/virtual-network/)可创建包含解决方案所需的资源的安全持久性网络。 使用虚拟网络可以：
 
 * 在专用网络（仅限云）中将云资源连接在一起。
 

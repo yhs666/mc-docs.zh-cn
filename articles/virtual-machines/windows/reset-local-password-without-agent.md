@@ -57,7 +57,7 @@ ms.lasthandoff: 05/05/2017
 
         选择“VHD 文件”，然后选择包含源 VM 的存储帐户： 
 
-        ![选择存储帐户](./media/reset-local-password-without-agent/disks_select_storageaccount.PNG)
+        ![选择存储帐户](./media/reset-local-password-without-agent/disks_select_storageaccount.png)
 
         选择源容器。 源容器通常为 *vhds*：
 

@@ -144,4 +144,3 @@ ms.lasthandoff: 04/28/2017
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
-

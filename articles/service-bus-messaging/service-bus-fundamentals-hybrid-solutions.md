@@ -114,7 +114,6 @@ ms.lasthandoff: 04/07/2017
 
 - 如何使用 [Service Bus 队列](./service-bus-dotnet-get-started-with-queues.md)。
 - 如何使用[服务总线主题](./service-bus-dotnet-how-to-use-topics-subscriptions.md)。
-- 如何使用[服务总线中继](./service-bus-dotnet-how-to-use-relay.md)。
 - [服务总线示例](./service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png

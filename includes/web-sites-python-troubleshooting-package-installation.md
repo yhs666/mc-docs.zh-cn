@@ -59,6 +59,6 @@ Mac/Linux 用户：如果没有 Windows 计算机的访问权限，请参阅[创
 
 建议删除应用上的现有虚拟环境，防止在自动管理虚拟环境时出现剩余文件。
 
-[Create a Virtual Machine Running Windows]: /azure/virtual-machines-windows-hero-tutorial/
+[Create a Virtual Machine Running Windows]: /virtual-machines/virtual-machines-windows-hero-tutorial/
 [Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949

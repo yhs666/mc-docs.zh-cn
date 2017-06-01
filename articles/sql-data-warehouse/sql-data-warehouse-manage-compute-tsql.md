@@ -66,7 +66,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
 ```
 
-## <a name="check-database-state-bk"></a>查看数据库状态和操作进度
+## <a name="check-database-state-bk"></a><a name="check-database-state-and-operation-progress"></a>查看数据库状态和操作进度
 
 1. 连接到与逻辑 SQL 数据库服务器关联的 master 数据库。
 2. 提交查询以查看数据库状态

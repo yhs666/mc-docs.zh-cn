@@ -57,7 +57,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 ## 创建空数据磁盘作为托管磁盘
 
-在此示例中，我们将创建空数据磁盘作为托管磁盘，并将其分配给参数 **$dataDisk2**，以便以后使用。将空数据磁盘附加到正在运行的 VM 后，需要登录到 VM，使用 diskmgmt.msc 或[远程使用 WinRM 和脚本](../virtual-machines-windows-attach-disk-ps.md#initialize-the-disk)对该磁盘进行初始化。
+在此示例中，我们将创建空数据磁盘作为托管磁盘，并将其分配给参数 **$dataDisk2**，以便以后使用。将空数据磁盘附加到正在运行的 VM 后，需要登录到 VM，使用 diskmgmt.msc 或[远程使用 WinRM 和脚本](attach-disk-ps.md#initialize-the-disk)对该磁盘进行初始化。
 
 空数据磁盘将在**中国西北部**位置名为 **myResourceGroup** 的资源组中创建。磁盘将名为 **myEmptyDataDisk**。空磁盘将在高级本地冗余存储 (LRS) 中创建。StandardLRS 和 PremiumLRS 是可用于托管磁盘的唯一 **-AccountType** 选项。
 

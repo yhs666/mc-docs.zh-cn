@@ -16,7 +16,7 @@
 
 2. 输入用于在 VM 上创建本地帐户的“用户名”和强“密码”。 该本地帐户用于登录和管理 VM。 在示例中， _azureuser_ 是用户名。
 
- 密码的长度必须为 8 到 123 个字符，并且必须符合以下四个复杂性要求中的三个要求：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符。 了解有关[用户名和密码要求](../articles/virtual-machines/windows/faq.md)的详细信息。
+    密码的长度必须为 8 到 123 个字符，并且必须符合以下四个复杂性要求中的三个要求：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符。 了解有关[用户名和密码要求](../articles/virtual-machines/windows/faq.md)的详细信息。
 
 3. “订阅”  是可选的。 一个常用设置是“即用即付”。
 
@@ -34,7 +34,7 @@
 
 选择 VM 大小，然后单击“选择”以继续。 在此示例中，_DS1_\__V2 标准_是 VM 的大小。
 
-  ![显示可以选择的 Azure VM 大小的“大小”边栏选项卡的屏幕截图](./media/virtual-machines-common-portal-create-fqdn/vm-size-classic.png)
+![显示可以选择的 Azure VM 大小的“大小”边栏选项卡的屏幕截图](./media/virtual-machines-common-portal-create-fqdn/vm-size-classic.png)
 
 ## <a name="3-settings-blade"></a>3.“设置”边栏选项卡
 
@@ -48,8 +48,8 @@
 
 “摘要”边栏选项卡列出在之前的边栏选项卡中指定的设置。 准备好制作映像时，请单击“确定”。
 
- ![列出虚拟机的指定设置的“摘要”边栏选项卡报表](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
+![列出虚拟机的指定设置的“摘要”边栏选项卡报表](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
 
 创建虚拟机后，门户将在“所有资源”下列出新的虚拟机，并在仪表板上显示虚拟机的磁贴。 此外，还会创建和列出相应的云服务和存储帐户。 虚拟机和云服务都会自动启动，其状态将显示为“正在运行”。
 
- ![配置虚拟机的 VM 代理和终结点](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)
+![配置虚拟机的 VM 代理和终结点](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)

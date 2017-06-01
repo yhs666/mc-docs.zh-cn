@@ -80,9 +80,8 @@ ms.author: robb
 
 ## 后续步骤
 
-* 每当指标超过阈值时[接收警报通知](./insights-receive-alert-notifications.md)。
 * [启用监视和诊断](./insights-how-to-use-diagnostics.md)以收集有关服务的详细高频率指标。
 * [自动缩放实例计数](./insights-how-to-scale.md)以确保服务可用且响应迅速。
-* 在要确切了解代码在云中的执行情况时[监视应用程序性能](./insights-perf-analytics.md)。
+
 
 <!---HONumber=Mooncake_0503_2016-->

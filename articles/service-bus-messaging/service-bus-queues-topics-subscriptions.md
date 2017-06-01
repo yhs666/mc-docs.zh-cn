@@ -161,7 +161,7 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 有关使用服务总线消息传送的详细信息和示例，请参阅以下高级主题。
 
 - [服务总线消息传送概述](./service-bus-messaging-overview.md)
-- [服务总线中转消息传送 .NET 教程](./service-bus-brokered-tutorial-dotnet.md)
-- [服务总线中转消息传送 REST 教程](./service-bus-brokered-tutorial-rest.md)
+- [服务总线中转消息传送 .NET 教程](./service-bus-dotnet-get-started-with-queues.md)
+- [服务总线中转消息传送 REST 教程](./service-bus-dotnet-get-started-with-queues.md)
 - [主题筛选器示例](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
 - [Brokered Messaging: Advanced Filters sample](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)（中转消息传送：高级筛选器示例）

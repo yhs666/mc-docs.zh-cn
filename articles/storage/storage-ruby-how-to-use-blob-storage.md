@@ -31,7 +31,7 @@ Azure Blob 存储是一种将非结构化数据作为对象/Blob 存储在云中
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## 创建 Ruby 应用程序
-创建 Ruby 应用程序。有关说明，请参阅 [Azure VM 上的 Ruby on Rails Web 应用程序](../virtual-machines/linux/classic/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)。
+创建 Ruby 应用程序。有关说明，请参阅 [Azure VM 上的 Ruby on Rails Web 应用程序](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)。
 
 ## 配置应用程序以访问存储
 要使用 Azure 存储，需要下载和使用 Ruby azure 包，其中包括一组便于与存储 REST 服务进行通信的库。

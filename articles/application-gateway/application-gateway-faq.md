@@ -272,7 +272,7 @@ WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 **问：是否可以使用应用程序网关设置警报？**
 
-可以，应用程序网关确实支持警报。可以基于指标设置警报。  应用程序网关目前提供“吞吐量”指标，可以使用它来配置警报。 若要了解有关警报的详细信息，请访问 [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)（接收警报通知）。
+可以，应用程序网关确实支持警报。可以基于指标设置警报。  应用程序网关目前提供“吞吐量”指标，可以使用它来配置警报。
 
 **问：后端运行状况返回未知状态，原因是什么？**
 

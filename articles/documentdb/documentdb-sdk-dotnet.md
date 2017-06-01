@@ -1,13 +1,13 @@
 ---
 title: "Azure DocumentDB .NET SDK 和资源 | Microsoft 文档"
 description: "了解有关 .NET API 和 SDK 的全部信息，包括发布日期、停用日期和 DocumentDB.NET SDK 各版本之间的更改。"
-services: cosmosdb
+services: documentdb
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -47,7 +47,7 @@ ms.lasthandoff: 05/19/2017
 
 <tr><td>**入门**</td><td>[开始使用 DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
 
-<tr><td>**Web 应用教程**</td><td>[使用 Azure Cosmos DB 开发 Web 应用程序](documentdb-dotnet-application.md)</td></tr>
+<tr><td>**Web 应用教程**</td><td>[使用 DocumentDB 开发 Web 应用程序](documentdb-dotnet-application.md)</td></tr>
 
 <tr><td>**当前受支持的框架**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
@@ -208,7 +208,7 @@ ms.lasthandoff: 05/19/2017
   - DocumentCollection.IndexingPolicy 现在是可变的
 - 添加了对空间索引和查询的支持
   - 用于序列化/反序列化空间类型（如点和多边形）的新 Microsoft.Azure.Documents.Spatial 命名空间
-  - 用于索引存储在 Cosmos DB 中的 GeoJSON 数据的新 SpatialIndex 类
+  - 用于索引存储在 DocumentDB 中的 GeoJSON 数据的新 SpatialIndex 类
 - **[已修复]**：linq 表达式生成的不正确的 SQL 查询[#38](https://github.com/Azure/azure-documentdb-net/issues/38)
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
@@ -236,7 +236,7 @@ Microsoft 至少会在停用 SDK 的 **12 个月**之前发出通知，以便顺
 
 新特性和功能以及优化仅添加到当前 SDK，因此建议始终尽早升级到最新的 SDK 版本。 
 
-使用已停用的 SDK 对 Cosmos DB 发出的任何请求都将被服务拒绝。
+使用已停用的 SDK 对 DocumentDB 发出的任何请求都将被服务拒绝。
 
 <br/>
 
@@ -281,7 +281,7 @@ Microsoft 至少会在停用 SDK 的 **12 个月**之前发出通知，以便顺
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## <a name="see-also"></a>另请参阅
-若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) 服务页。 
+若要了解有关 DocumentDB 的详细信息，请参阅 [DocumentDB](https://www.azure.cn/home/features/documentdb/) 服务页。 
 
 
 

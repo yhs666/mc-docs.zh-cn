@@ -43,7 +43,7 @@ Azure 遵守多个行业法规和标准，使你能够使用在虚拟机中运�
 ## 有关保护与 Azure 虚拟机的连接的注意事项：
 * 请考虑使用 [Azure 虚拟网络](../../../virtual-network/virtual-networks-overview.md)（而不是公共 RDP 端口）来管理虚拟机。
 * 使用[网络安全组](../../../virtual-network/virtual-networks-nsg.md) \(NSG\) 以允许或拒绝与虚拟机的网络通信。如果你想要使用 NSG，但已有了终结点 ACL，则请先删除该终结点 ACL。有关如何执行此操作的信息，请参阅[使用 PowerShell 管理终结点的访问控制列表 \(ACL\)](../../../virtual-network/virtual-networks-acl-powershell.md)。
-* 如果你在使用终结点，当你不使用它们时，请删除虚拟机上的任何终结点。有关在终结点上使用 ACL 的说明，请参阅[管理终结点上的 ACL](../../virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint)。
+* 如果你在使用终结点，当你不使用它们时，请删除虚拟机上的任何终结点。有关在终结点上使用 ACL 的说明，请参阅[管理终结点上的 ACL](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)。
 * 为 Azure 虚拟机中的 SQL Server 数据库引擎实例启用加密连接选项。使用签名证书配置 SQL Server 实例。有关详细信息，请参阅[为数据库引擎启用加密连接](https://msdn.microsoft.com/zh-cn/library/ms191192.aspx)和[连接字符串语法](https://msdn.microsoft.com/zh-cn/library/ms254500.aspx)。
 * 如果只应从特定网络访问虚拟机，请使用 Windows 防火墙将访问限制到特定 IP 地址或网络子网。
 

@@ -19,7 +19,8 @@ ms.author: brandwe
 
 # 使用 node.js 保护 Web API
 
-> [!NOTE] v2.0 终结点并不支持所有 Azure Active Directory 方案和功能。若要确定是否应使用 v2.0 终结点，请阅读 [v2.0 限制](./active-directory-v2-limitations.md)。
+> [!NOTE] 
+> v2.0 终结点并不支持所有 Azure Active Directory 方案和功能。若要确定是否应使用 v2.0 终结点，请阅读 [v2.0 限制](./active-directory-v2-limitations.md)。
 
 Azure Active Directory 的 v2.0 终结点可让你使用 [OAuth 2.0](./active-directory-v2-protocols.md) 访问令牌保护 Web API，具有个人 Microsoft 帐户以及公司或学校帐户的用户也能够安全访问 Web API。
 
@@ -272,7 +273,8 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 *audience*：来自门户的重定向 URI。
 
-> [!NOTE] 我们会频繁滚动更新密钥。请确保始终从“openid\_keys”URL 提取密钥，并且应用程序能够访问 Internet。
+> [!NOTE] 
+> 我们会频繁滚动更新密钥。请确保始终从“openid\_keys”URL 提取密钥，并且应用程序能够访问 Internet。
 
 ## 11：将配置添加到 server.js 文件
 

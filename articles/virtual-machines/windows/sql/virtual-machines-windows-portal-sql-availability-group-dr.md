@@ -72,7 +72,7 @@ ms.author: mikeray
 
 1. [在新区域中创建 SQL Server 虚拟机](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)。
 
-1. [在新区域中的网络上创建 Azure 负载均衡器](../../virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)。
+1. [在新区域中的网络上创建 Azure 负载均衡器](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)。
 
     此负载均衡器必须：
 
@@ -88,7 +88,7 @@ ms.author: mikeray
 
 1. [将新 SQL Server 服务帐户设置为使用域帐户](../../windows/sql/virtual-machines-windows-portal-sql-availability-group-prereq.md#setServiceAccount)。
 
-1. [将新 SQL Server 添加到 Windows Server 故障转移群集](../../virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode)。
+1. [将新 SQL Server 添加到 Windows Server 故障转移群集](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode)。
 
 1. 在群集上创建 IP 地址资源。
 
@@ -120,7 +120,7 @@ ms.author: mikeray
     >[!IMPORTANT]
     该群集资源组包含这两个 IP 地址。这两个 IP 地址是侦听器客户端接入点的依赖项。在群集依赖项配置中使用 **OR** 运算符。
 
-1. [在 PowerShell 中设置群集参数](../../virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam)。
+1. [在 PowerShell 中设置群集参数](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam)。
 
 使用在新区域中的负载均衡器上配置的群集网络名称、IP 地址和探测端口运行 PowerShell 脚本。
 
@@ -178,7 +178,7 @@ ms.author: mikeray
 
 * [Always On 可用性组](http://msdn.microsoft.com/zh-cn/library/hh510230.aspx)
 * [Azure 虚拟机](/virtual-machines/windows/)
-* [Azure 负载均衡器](../../virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
+* [Azure 负载均衡器](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure 可用性集](../../virtual-machines-windows-manage-availability.md)
 
 <!---HONumber=Mooncake_0313_2017-->

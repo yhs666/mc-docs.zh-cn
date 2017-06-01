@@ -27,7 +27,7 @@ ms.lasthandoff: 04/28/2017
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-[应用服务](/azure/app-service-web/app-service-changes-existing-services)可以与 [Azure CDN](https://www.azure.cn/home/features/cdn/) 集成，增强[应用服务 Web 应用](/azure/app-service-web/app-service-changes-existing-services)中固有的全国缩放功能，在全国通过靠近客户的服务器节点提供 Web 应用内容（如需已更新的包含所有最新节点位置的列表，请单击[此处](http://msdn.microsoft.com/library/azure/gg680302.aspx)）。 在特定情况下（例如提供静态映像），此集成可以大幅提高 Azure 应用服务 Web 应用的性能，在全国显著改善 Web 应用的用户体验。 
+[应用服务](/app-service-web/app-service-changes-existing-services)可以与 [Azure CDN](https://www.azure.cn/home/features/cdn/) 集成，增强[应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中固有的全国缩放功能，在全国通过靠近客户的服务器节点提供 Web 应用内容（如需已更新的包含所有最新节点位置的列表，请单击[此处](http://msdn.microsoft.com/library/azure/gg680302.aspx)）。 在特定情况下（例如提供静态映像），此集成可以大幅提高 Azure 应用服务 Web 应用的性能，在全国显著改善 Web 应用的用户体验。 
 
 将 Web 应用与 Azure CDN 集成具有以下优点：
 
@@ -543,6 +543,6 @@ ms.lasthandoff: 04/28/2017
 8. 刷新 Azure Web 应用的浏览器窗口。 你现在应该会看到所有脚本和样式表都已正常加载。
 
 ## <a name="more-information"></a>更多信息
-* [Azure 内容交付网络 (CDN) 概述](../cdn/cdn-overview.md)
+* [Azure 内容交付网络 (CDN) 概述](/cdn/cdn-overview)
 * [ASP.NET 绑定和缩减](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 

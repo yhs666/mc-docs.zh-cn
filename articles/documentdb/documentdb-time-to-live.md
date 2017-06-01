@@ -1,14 +1,14 @@
 ---
-title: "利用生存时间使 Azure Cosmos DB 中的数据过期 | Microsoft Docs"
-description: "通过 TTL 功能，Azure Cosmos DB 能够在一段时间后将文档自动从系统中清除。"
-services: cosmosdb
+title: "利用生存时间使 DocumentDB 中的数据过期 | Microsoft Docs"
+description: "通过 TTL 功能，DocumentDB 能够在一段时间后将文档自动从系统中清除。"
+services: documentdb
 documentationcenter: 
 keywords: "生存时间"
 author: arramac
 manager: jhubbard
 editor: 
 ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
-ms.service: cosmosdb
+ms.service: documentdb
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -24,12 +24,12 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>利用生存时间使 Azure Cosmos DB 集合中的数据自动过期
+# <a name="expire-data-in-azure-documentdb-collections-automatically-with-time-to-live"></a>利用生存时间使 DocumentDB 集合中的数据自动过期
 应用程序可以生成和存储大量数据。 其中的某些数据（如计算机生成的事件数据、日志和用户会话信息）仅在有限的一段时间内才有用。 当数据变得多余，应用程序不再需要时，可以安全地清除这些数据并减少应用程序的存储需求。
 
-通过“生存时间”或 TTL 功能，Azure Cosmos DB 能够在一段时间后将文档自动从数据库中清除。 可以在集合级别设置默认生存时间，并且可以在每个文档上覆盖该时间。 TTL 设置后，无论作为集合默认设置还是在文档级别，Cosmos DB 都将自文档上次修改起的某段时间（以秒为单位）后，自动删除这些文档。
+通过“生存时间”或 TTL 功能，DocumentDB 能够在一段时间后将文档自动从数据库中清除。 可以在集合级别设置默认生存时间，并且可以在每个文档上覆盖该时间。 TTL 设置后，无论作为集合默认设置还是在文档级别，DocumentDB 都将自文档上次修改起的某段时间（以秒为单位）后，自动删除这些文档。
 
-Cosmos DB 中的生存时间针对上次修改该文档的时间使用偏移量。 为此，它会使用每个文档中存在的 `_ts` 字段。 _ts 字段为 unix 型的时期时间戳，表示日期和时间。 每次修改文档时都会更新 `_ts` 字段。 
+DocumentDB 中的生存时间针对上次修改该文档的时间使用偏移量。 为此，它会使用每个文档中存在的 `_ts` 字段。 _ts 字段为 unix 型的时期时间戳，表示日期和时间。 每次修改文档时都会更新 `_ts` 字段。 
 
 ## <a name="ttl-behavior"></a>TTL 行为
 TTL 功能在两个级别受 TTL 属性控制 - 集合级别和文档级别。 设置这些值时以秒为单位，这些值被视为自上次修改文档所在的 `_ts` 起的增量。
@@ -55,10 +55,10 @@ TTL 功能在两个级别受 TTL 属性控制 - 集合级别和文档级别。 �
 | 文档上的 TTL = n |在文档级别没有要替代的内容。 系统未解释文档上的 TTL。 |TTL = n 的文档将在时间间隔 n 秒后过期。 其他文档将继承 -1 时间间隔，并且永不过期。 |TTL = n 的文档将在时间间隔 n 秒后过期。 其他文档将从集合中继承“n”时间间隔。 |
 
 ## <a name="configuring-ttl"></a>配置 TTL
-默认情况下，在所有 Cosmos DB 集合和所有文档上禁用生存时间。
+默认情况下，在所有 DocumentDB 集合和所有文档上禁用生存时间。
 
 ## <a name="enabling-ttl"></a>启用 TTL
-若要在集合或集合内的文档上启用 TTL，需要将集合的 DefaultTTL 属性设置为 -1 或非零正数。 将 DefaultTTL 设置为 -1 表示默认情况下，集合中的所有文档将永久生存，但 Cosmos DB 服务应该监视此集合中已替代此默认值的文档。
+若要在集合或集合内的文档上启用 TTL，需要将集合的 DefaultTTL 属性设置为 -1 或非零正数。 将 DefaultTTL 设置为 -1 表示默认情况下，集合中的所有文档将永久生存，但 DocumentDB 服务应该监视此集合中已替代此默认值的文档。
 
     DocumentCollection collectionDefinition = new DocumentCollection();
     collectionDefinition.Id = "orders";
@@ -164,7 +164,7 @@ TTL 功能在两个级别受 TTL 属性控制 - 集合级别和文档级别。 �
 
 **文档上的 TTL 对 RU 费用是否会产生影响？**
 
-不会，在 Cosmos DB 中通过 TTL 删除过期的文档不会对 RU 费用产生任何影响。
+不会，在 DocumentDB 中通过 TTL 删除过期的文档不会对 RU 费用产生任何影响。
 
 **TTL 功能是否仅应用于整个文档，或者是否可以使单个文档的属性值过期？**
 
@@ -175,7 +175,7 @@ TTL 应用于整个文档。 如果只是想要使文档的一部分过期，则
 是的。 该集合必须将[索引策略设置](documentdb-indexing-policies.md)为“一致”或“迟缓”。 尝试在索引设置为“无”的集合上设置 DefaultTTL 将导致错误，尝试关闭已设置 DefaultTTL 的集合上的索引也是如此。
 
 ## <a name="next-steps"></a>后续步骤
-若要了解有关 Azure Cosmos DB 的详细信息，请参阅服务的[*文档*](./index.md)页。
+若要了解有关 DocumentDB 的详细信息，请参阅服务的[*文档*](./index.md)页。
 
 
 

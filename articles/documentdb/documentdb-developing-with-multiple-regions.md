@@ -1,13 +1,13 @@
 ---
-title: "在 Azure Cosmos DB 中使用多个区域进行开发 | Microsoft Docs"
-description: "了解如何从 Azure Cosmos DB（全局复制多模型数据库服务）访问多个区域中的数据。"
-services: cosmosdb
+title: "在 DocumentDB 中使用多个区域进行开发 | Microsoft Docs"
+description: "了解如何从 DocumentDB（全局复制多模型数据库服务）访问多个区域中的数据。"
+services: documentdb
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: d4579378-0b3a-44a5-9f5b-630f1fa4c66d
-ms.service: cosmosdb
+ms.service: documentdb
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na

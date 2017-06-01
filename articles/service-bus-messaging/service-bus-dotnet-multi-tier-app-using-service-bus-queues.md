@@ -35,7 +35,7 @@ ms.lasthandoff: 05/12/2017
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-在本教程中，你将生成多层应用程序并在 Azure 云服务中运行它。 前端是 ASP.NET MVC Web 角色，后端是使用服务总线队列的辅助角色。 可创建与前端相同的多层应用程序，作为将部署到 Azure 网站而不是云服务的 Web 项目。 还可以试用 [.NET 本地/云混合应用程序](./service-bus-dotnet-hybrid-app-using-service-bus-relay.md/)教程。
+在本教程中，你将生成多层应用程序并在 Azure 云服务中运行它。 前端是 ASP.NET MVC Web 角色，后端是使用服务总线队列的辅助角色。 可创建与前端相同的多层应用程序，作为将部署到 Azure 网站而不是云服务的 Web 项目。 
 
 以下屏幕截图显示了已完成的应用程序。
 

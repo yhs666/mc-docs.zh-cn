@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
+wacn.date: ''
 ms.author: carolz
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/load-balancer/load-balancer-overview">
+        <a href="/load-balancer/load-balancer-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +44,7 @@ ms.lasthandoff: 05/12/2017
         </div>
         </a>
     </li>
-     <li>
+    <li>
         <a href="https://azure.microsoft.com/documentation/videos/index/?services=load-balancer">
         <div class="cardSize">
             <div class="cardPadding">
@@ -62,7 +63,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/load-balancer/load-balancer-internet-overview">
+        <a href="/load-balancer/load-balancer-internet-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,8 +80,8 @@ ms.lasthandoff: 05/12/2017
         </div>
         </a>
     </li>
-       <li>
-        <a href="/azure/load-balancer/load-balancer-internal-overview">
+    <li>
+        <a href="/load-balancer/load-balancer-internal-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -109,8 +110,8 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>命令行</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/lb">Azure CLI 2.0（预览版）</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/cli/azure/network/lb">Azure CLI 2​.0</a></p>
                     </div>
                 </div>
             </div>
@@ -123,8 +124,8 @@ ms.lasthandoff: 05/12/2017
                     <div class="cardText">
                         <h3>语言</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.network.models">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node.js</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.network">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node​.js</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers">Ruby</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations#azure.mgmt.network.operations.LoadBalancersOperations">Python</a></p>
                    </div>

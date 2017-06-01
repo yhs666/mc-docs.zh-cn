@@ -1,14 +1,14 @@
 ---
-title: "Azure Cosmos DB 门户工具：查询浏览器 | Microsoft Docs"
-description: "了解 Azure Cosmos DB 查询浏览器，它是 Azure 门户中的一个 SQL 查询编辑器，用于编写 SQL 查询并针对 Azure Cosmos DB 集合运行这些查询。"
+title: "DocumentDB 门户工具：查询浏览器 | Microsoft Docs"
+description: "了解 DocumentDB 查询浏览器，它是 Azure 门户中的一个 SQL 查询编辑器，用于编写 SQL 查询并针对 DocumentDB 集合运行这些查询。"
 keywords: "编写 SQL 查询, SQL 查询编辑器"
-services: cosmosdb
+services: documentdb
 author: kirillg
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: ac378240-b11f-4522-ae9f-09da3a6f9c16
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -24,12 +24,12 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="write-edit-and-run-sql-queries-for-azure-cosmos-db-using-query-explorer-in-the-azure-portal"></a>在 Azure 门户中使用查询浏览器对 Azure Cosmos DB 编写、编辑和运行 SQL 查询
-本文概述了 [Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) 查询浏览器，该查询浏览器是一个 Azure 门户工具，可用于针对 [DocumentDB 集合](documentdb-create-collection.md)编写、编辑和运行 SQL 查询。
+# <a name="write-edit-and-run-sql-queries-for-azure-documentdb-using-query-explorer-in-the-azure-portal"></a>在 Azure 门户中使用查询浏览器对 DocumentDB 编写、编辑和运行 SQL 查询
+本文概述了 [DocumentDB](https://www.azure.cn/home/features/documentdb/) 查询浏览器，该查询浏览器是一个 Azure 门户工具，可用于针对 [DocumentDB 集合](documentdb-create-collection.md)编写、编辑和运行 SQL 查询。
 
-1. 在 [Azure 门户](https://portal.azure.cn)的左侧导航栏中，单击![Azure Cosmos DB 图标](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**。 
+1. 在 [Azure 门户](https://portal.azure.cn)的左侧导航栏中，单击![DocumentDB 图标](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **DocumentDB**。 
 
-    如果 **Azure Cosmos DB** 不可见，请单击底部的“更多服务”，然后单击 ![Azure Cosmos DB 图标](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**。
+    如果 **DocumentDB** 不可见，请单击底部的“更多服务”，然后单击 ![DocumentDB 图标](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **DocumentDB**。
 2. 在资源菜单中，单击“查询资源管理器” 。 
    
     ![Azure 门户的屏幕截图，其中突出显示了查询资源管理器](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
@@ -71,7 +71,7 @@ ms.lasthandoff: 05/19/2017
 ![查询资源管理器查询错误的屏幕截图](./media/documentdb-query-collections-query-explorer/queryerror.png)
 
 ## <a name="run-documentdb-api-sql-queries-outside-the-portal"></a>运行门户外部的 DocumentDB API SQL 查询
-Azure 门户中的查询浏览器只是一种对 Cosmos DB 运行 SQL 查询的方式。 还可以使用 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或[客户端 SDK](documentdb-sdk-dotnet.md) 运行 SQL 查询。 有关使用这些其他方法的详细信息，请参阅[执行 SQL 查询](documentdb-sql-query.md#ExecutingSqlQueries)
+Azure 门户中的查询浏览器只是一种对 DocumentDB 运行 SQL 查询的方式。 还可以使用 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或[客户端 SDK](documentdb-sdk-dotnet.md) 运行 SQL 查询。 有关使用这些其他方法的详细信息，请参阅[执行 SQL 查询](documentdb-sql-query.md#ExecutingSqlQueries)
 
 ## <a name="next-steps"></a>后续步骤
 若要详细了解查询浏览器中支持的 DocumentDB API SQL 语法，请参阅 [SQL 查询和 SQL 语法](documentdb-sql-query.md)一文或打印 [SQL 查询速查表](documentdb-sql-query-cheat-sheet.md)。

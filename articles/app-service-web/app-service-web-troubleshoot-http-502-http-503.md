@@ -70,7 +70,6 @@ ms.author: cephalin
 有关详细信息，请参阅：
 
 - [在 Azure App Service 中监视 Web Apps](./web-sites-monitor.md)
-- [接收警报通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 ### <a name="collect"></a> 2.收集数据
 

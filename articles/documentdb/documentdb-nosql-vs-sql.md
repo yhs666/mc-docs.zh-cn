@@ -1,14 +1,14 @@
 ---
-title: "NoSQL 与 SQL 和 Azure Cosmos DB | Microsoft Docs"
-description: "比较使用 NoSQL 非关系解决方案与使用 SQL 解决方案和 Azure Cosmos DB 的好处。 了解 Azure Cosmos DB 如何提供 NoSQL 和 SQL 的优势。"
+title: "NoSQL 与 SQL 和 DocumentDB | Microsoft Docs"
+description: "比较使用 NoSQL 非关系解决方案与使用 SQL 解决方案和 DocumentDB 的好处。 了解 DocumentDB 如何提供 NoSQL 和 SQL 的优势。"
 keywords: "nosql 与 sql, 何时使用 NoSQL, sql 与 nosql"
-services: cosmosdb
+services: documentdb
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 71ef1798-d709-4ccb-9f5c-57948fb96229
-ms.service: cosmosdb
+ms.service: documentdb
 ms.custom: overview
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -17,7 +17,7 @@ ms.topic: article
 ms.date: 03/14/2017
 wacn.date: 
 ms.author: mimig
-redirect_url: https://aka.ms/cosmosdb
+redirect_url: https://aka.ms/documentdb
 ROBOTS: NOINDEX, NOFOLLOW
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
@@ -26,7 +26,7 @@ ms.contentlocale: zh-cn
 ms.lasthandoff: 05/19/2017
 
 ---
-# <a name="nosql-vs-sql-and-azure-cosmos-db"></a>NoSQL 与 SQL 和 Azure Cosmos DB
+# <a name="nosql-vs-sql-and-azure-documentdb"></a>NoSQL 与 SQL 和 DocumentDB
 SQL Server 和关系数据库 (RDBMS) 成为重要专业数据库已经 20 多年了。 但是，不断增长的快速处理更多容量、速度和各种数据的需求改变了应用程序开发人员对数据存储的本质需求。 为了实现这种需求，能够大规模存储非结构化和异类数据的 NoSQL 数据库得到了普及。 对于大多数开发人员而言，关系数据库是默认或常用的选项，因为表结构易于理解且较为熟悉，但仍存在许多需要探索除关系数据库以外的数据库的因素。
 
 NoSQL 是一种与 SQL 数据库截然不同的数据库。 NoSQL 常用来指代“非 SQL”的数据管理系统，或者指代“不仅限于 SQL”的数据管理方法。 NoSQL 类别中有多种技术，包括文档数据库、键值存储、列系列存储和图形数据库，这些技术在游戏、社交和 IoT 应用中非常流行。
@@ -44,7 +44,7 @@ NoSQL 是一种与 SQL 数据库截然不同的数据库。 NoSQL 常用来指�
 
 目前为止，一切都好，但现在想想单个帖子的结构以及如何将其显示。 如果你想要在网站或应用程序上显示帖子和关联的图像、音频、视频、评论、分数以及用户信息，你将必须使用八表联接执行查询，只是为了检索内容。 现在，假设帖子流动态加载并出现在屏幕上，并且你可轻松地预测它将需要数千个查询和多个联接来完成任务。
 
-和 SQL 支持动态数据（ [以 JSON 为格式](https://msdn.microsoft.com/library/dn921897.aspx) ）一样，现在可以使用关系解决方案（如 SQL Server）存储数据并使用联接查询数据 - 但是存在另一种选项（即 NoSQL），它简化了此特定场景的解决方法。 通过使用和以下内容类似的一个文档并将其存储在 Azure Cosmos DB（Azure NoSQL 文档数据库服务）中，可以提高性能并使用一个查询检索整个帖子，而无需使用联接。 它更简单、更直观，并且性能更高。
+和 SQL 支持动态数据（ [以 JSON 为格式](https://msdn.microsoft.com/library/dn921897.aspx) ）一样，现在可以使用关系解决方案（如 SQL Server）存储数据并使用联接查询数据 - 但是存在另一种选项（即 NoSQL），它简化了此特定场景的解决方法。 通过使用和以下内容类似的一个文档并将其存储在 DocumentDB（Azure NoSQL 文档数据库服务）中，可以提高性能并使用一个查询检索整个帖子，而无需使用联接。 它更简单、更直观，并且性能更高。
 
     {
         "id":"ew12-res2-234e-544f",
@@ -71,7 +71,7 @@ NoSQL 是一种与 SQL 数据库截然不同的数据库。 NoSQL 常用来指�
 - [Azure Blob 存储](https://www.azure.cn/home/features/storage/)可用来存储包括映像的完整的用户配置文件。
 - [Azure SQL 数据库](https://www.azure.cn/home/features/sql-database/)可用来存储大量数据，例如登录信息和使用情况分析数据。
 
-此社交网站只是 NoSQL 数据库是针对作业的适当数据模型的其中一种方案。 如果对阅读有关此方案以及如何在社交媒体应用程序中对 Azure Cosmos DB 的数据建模的详细信息感兴趣，请参阅[使用 Azure Cosmos DB 进行社交](documentdb-social-media-apps.md)。 
+此社交网站只是 NoSQL 数据库是针对作业的适当数据模型的其中一种方案。 如果对阅读有关此方案以及如何在社交媒体应用程序中对 DocumentDB 的数据建模的详细信息感兴趣，请参阅[使用 DocumentDB 进行社交](documentdb-social-media-apps.md)。 
 
 ## <a name="nosql-vs-sql-comparison"></a>NoSQL 与 SQL 比较
 下表比较了 NoSQL 和 SQL 之间的主要区别。 
@@ -90,11 +90,11 @@ Azure 具有以下四种完全托管的 NoSQL 服务：
 
 下面的比较图表详细说明了每种服务的关键差异。 哪个最能准确描述你的应用程序的需求？ 
 
-![NoSQL 与 SQL 比较图，显示何时使用 Azure 中的 NoSQL 产品/服务，包括 Azure Cosmos DB、表存储、作为 HDInsight 一部分的 HBase 和 Redis 缓存](./media/documentdb-nosql-vs-sql/nosql-vs-sql-documentdb-storage-hbase-hdinsight-redis-cache.png)
+![NoSQL 与 SQL 比较图，显示何时使用 Azure 中的 NoSQL 产品/服务，包括 DocumentDB、表存储、作为 HDInsight 一部分的 HBase 和 Redis 缓存](./media/documentdb-nosql-vs-sql/nosql-vs-sql-documentdb-storage-hbase-hdinsight-redis-cache.png)
 
 如果这些服务中的一个或多个可能满足你的应用程序的需要，可使用以下资源了解详细信息： 
 
-- [Azure Cosmos DB 用例](documentdb-use-cases.md)
+- [DocumentDB 用例](documentdb-use-cases.md)
 - [Azure 表存储入门](../storage/storage-dotnet-how-to-use-tables.md)
 - [HDInsight 中的 HBase 是什么](../hdinsight/hdinsight-hbase-overview.md)
 

@@ -54,7 +54,7 @@ wacn.date: 02/20/2017
 
 ## 创建 Ruby 应用程序
 
-创建 Ruby 应用程序。有关说明，请参阅[在 Azure 上创建 Ruby 应用程序](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md)。
+创建 Ruby 应用程序。有关说明，请参阅[在 Azure 上创建 Ruby 应用程序](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)。
 
 ## 配置应用程序以使用服务总线
 

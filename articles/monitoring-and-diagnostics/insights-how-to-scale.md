@@ -43,8 +43,6 @@ ms.author: robb
 
 * [监视服务指标](./insights-how-to-customize-monitoring.md)以确保你的服务可用且响应迅速。
 * [启用监视和诊断](./insights-how-to-use-diagnostics.md)以收集你的服务的详细高频指标。
-* 每当操作事件发生或指标超过阈值时[接收警报通知](./insights-receive-alert-notifications.md)。
-* 在要确切了解代码在云中的执行情况时[监视应用程序性能](./insights-perf-analytics.md)
 * [查看事件和审核日志](./insights-debugging-with-events.md)以了解在服务中发生的所有事件。
 
 <!---HONumber=Mooncake_1107_2016-->

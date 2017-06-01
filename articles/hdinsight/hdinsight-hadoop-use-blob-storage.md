@@ -70,7 +70,7 @@ HDInsight 提供对在本地附加到计算节点的分布式文件系统的访�
 * **没有连接到群集的存储帐户中的公共容器或公共 Blob：** 你对这些容器中的 Blob 具有只读权限。
 
     > [!NOTE]
-    > 利用公共容器，你可以获得该容器中可用的所有 Blob 的列表以及容器元数据。 利用公共 Blob，你仅在知道正确 URL 时才可访问 Blob。 有关详细信息，请参阅<a href="/azure/storage/storage-manage-access-to-resources/">限制对容器和 Blob 的访问</a>。
+    > 利用公共容器，你可以获得该容器中可用的所有 Blob 的列表以及容器元数据。 利用公共 Blob，你仅在知道正确 URL 时才可访问 Blob。 有关详细信息，请参阅<a href="/storage/storage-manage-access-to-resources/">限制对容器和 Blob 的访问</a>。
     > 
     > 
 * **没有连接到群集的存储帐户中的私有容器：** 你不能访问这些容器中的 Blob，除非在提交 WebHCat 作业时定义存储帐户。 本文后面对此做了解释。
