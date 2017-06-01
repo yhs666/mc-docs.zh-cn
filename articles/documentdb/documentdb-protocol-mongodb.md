@@ -28,8 +28,6 @@ ms.lasthandoff: 05/19/2017
 
 [DocumentDB](./documentdb-resources.md) 是 Microsoft 针对任务关键型应用程序提供的全局分布式多模型数据库服务。 DocumentDB 在全球范围内提供[统包全局分发](../documentdb/documentdb-distribute-data-globally.md)、[吞吐量和存储的弹性缩放](../documentdb/documentdb-partition-data.md)、99% 的情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](../documentdb/documentdb-consistency-levels.md)以及得到保证的高可用性，所有这些均由行业领先的 SLA 提供支持。 DocumentDB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，不需要你管理架构和索引。 它采用多种模型，支持文档、键-值、图形和列式数据模型。 
 
-![Azure API for MongoDB](./media/documentdb-protocol-mongodb/documentdb-mongodb.png) 
-
 可以将 DocumentDB 数据库用作为 [MongoDB](https://docs.mongodb.com/manual/introduction/) 编写的应用的数据存储。 这意味着，通过使用现有[驱动程序](https://docs.mongodb.org/ecosystem/drivers/)，为 MongoDB 编写的应用程序现在可与 DocumentDB 通信，并使用 DocumentDB 数据库而不是 MongoDB 数据库。 在许多情况下，只需更改连接字符串便可从使用 MongoDB 切换到使用 DocumenetDB。 使用此功能，可以在 Azure 云中轻松生成和运行 MongoDB 数据库应用程序（利用 DocumentDB 在全球的分布以及内容广泛且行业领先的 SLA），并可继续使用熟悉的技能和 MongoDB 工具。
 
 

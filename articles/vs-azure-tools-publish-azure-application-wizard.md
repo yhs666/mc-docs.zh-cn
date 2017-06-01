@@ -91,8 +91,6 @@ Azure 存储帐户将存储应用程序部署的包。 部署应用程序之后�
 
 ![部署设置](./media/vs-azure-tools-publish-azure-application-wizard/deployment-settings.png)
 
-**启用 IntelliTrace** - 指定是否要启用 IntelliTrace。 通过 IntelliTrace，可以在某个角色实例在 Azure 中运行时记录该角色实例的大量调试信息。 如果您需要查找问题的原因，您可以从 Visual Studio 使用 IntelliTrace 日志来单步执行代码，就像它在 Azure 中运行一样。 有关使用 IntelliTrace 的详细信息，请参阅[使用 Visual Studio 和 IntelliTrace 调试已发布的 Azure 云服务](./vs-azure-tools-intellitrace-debug-published-cloud-services.md)。 
-
 **启用分析** - 指定是否要启用性能分析。 使用 Visual Studio 探查器，可以获取云服务在计算方面运行情况的深入分析。 有关使用 Visual Studio 探查器的详细信息，请参阅[测试 Azure 云服务的性能](./vs-azure-tools-performance-profiling-cloud-services.md)。
 
 **为所有角色启用远程调试器** - 指定是否要启用远程调试。 有关使用 Visual Studio 调试云服务的详细信息，请参阅[在 Visual Studio 中调试 Azure 云服务或虚拟机](./vs-azure-tools-debug-cloud-services-virtual-machines.md)。
@@ -121,7 +119,6 @@ Azure 存储帐户将存储应用程序部署的包。 部署应用程序之后�
 ## <a name="next-steps"></a>后续步骤
 - [通过 Visual Studio 将 Web 应用程序迁移和发布到 Azure 云服务](./vs-azure-tools-migrate-publish-web-app-to-cloud-service.md)
 - [了解如何使用 Visual Studio 发布 Azure 云服务](./vs-azure-tools-publishing-a-cloud-service.md)
-- [使用 Visual Studio 和 IntelliTrace 调试已发布的 Azure 云服务](./vs-azure-tools-intellitrace-debug-published-cloud-services.md)
 - [测试 Azure 云服务的性能](./vs-azure-tools-performance-profiling-cloud-services.md)
 - [为 Azure 云服务和虚拟机配置诊断](./vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)。 
 
