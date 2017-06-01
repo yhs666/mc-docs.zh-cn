@@ -542,4 +542,4 @@ Azure Cosmos DB 能够跨不同的 [Azure 区域](https://azure.microsoft.com/re
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [distribute-globally]:./documentdb-distribute-data-globally.md
-[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet/
+[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet

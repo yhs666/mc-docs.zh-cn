@@ -147,7 +147,7 @@ ms.lasthandoff: 05/05/2017
 > 此外，Linux 不支持独立群集 - 预览版仅支持单机群集和 Azure Linux 多计算机群集。
 >
 
-## <a name="install-the-java-sdk-optional-if-you-wish-to-use-the-java-programming-models"></a>安装 Java SDK（如果希望使用 Java 编程模型，则可以选择执行此步骤）
+## <a name="install-the-java-sdk-optional-if-you-wish-to-use-the-java-programming-models"></a><a name="install-the-java-sdk-and-eclipse-neon-plugin-optional"></a>安装 Java SDK（如果希望使用 Java 编程模型，则可以选择执行此步骤）
 Java SDK 提供使用 Java 生成 Service Fabric 服务所需的库和模板。
 
 1. 安装 Java SDK 包。

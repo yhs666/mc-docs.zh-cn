@@ -39,4 +39,3 @@ ms.lasthandoff: 05/05/2017
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
-

@@ -98,7 +98,6 @@ Azure 团队会努力尽快还原服务可用性，但视根本原因而定，�
 
 需确保更新现有的警报规则设置，以便映射到恢复的数据库和不同的服务器。
 
-有关数据库警报规则的详细信息，请参阅[接收警报通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)和[跟踪服务运行状况](../monitoring-and-diagnostics/insights-service-health.md)。
 
 ### 启用审核
 

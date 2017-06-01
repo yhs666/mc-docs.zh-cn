@@ -90,7 +90,6 @@ await myCloudPool.CommitAsync();
 ```
 
 ### <a name="remote-direct-memory-access-rdma"></a>远程直接内存访问 (RDMA)
-在批处理池中为计算节点选择[支持 RDMA 的大小](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/)（例如 A9）时，MPI 应用程序可以使用 Azure 的高性能、低延迟的远程直接内存访问 (RDMA) 网络。
 
 在以下文章中查找指定为“支持 RDMA”的大小：
 

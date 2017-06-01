@@ -70,7 +70,6 @@ ms.lasthandoff: 04/22/2017
 | 方案 | 构建基块| 
 | --- | --- |  
 | [确保管理员帐户访问安全](#secure-administrator-account-access) | [使用电话呼叫执行 Azure MFA](active-directory-playbook-building-blocks.md#azure-multi-factor-authentication-with-phone-calls) |
-| [根据风险保护标识](#protect-identities-based-on-risk) | [发现风险事件](active-directory-playbook-building-blocks.md#discovering-risk-events) <br/>[部署登录风险策略](active-directory-playbook-building-blocks.md#deploying-sign-in-risk-policies) |
 | [使用基于证书的身份验证，在没有密码的情况下进行身份验证](#authenticate-without-passwords-using-certificate-based-authentication) | [配置基于证书的身份验证](active-directory-playbook-building-blocks.md#configuring-certificate-based-authentication)
 
 ### <a name="secure-administrator-account-access"></a>保护对管理员帐户的访问

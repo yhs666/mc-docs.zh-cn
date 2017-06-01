@@ -61,27 +61,27 @@ Azure 在 2014 年引入了 Resource Manager，增加了资源组这一概念。
 
 在某些情况下，Resource Manager 命令可以检索通过经典部署创建的资源信息，或者执行管理任务（例如将经典资源移到另一个资源组）， 但这些情况并不意味着该类型支持 Resource Manager 操作。 例如，假设某个资源组包含使用经典部署创建的虚拟机。 如果运行以下 Resource Manager PowerShell 命令：
 
-    ```powershell
-    Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
-    ```
+```powershell
+Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
+```
 
 这会返回虚拟机：
 
-    ```powershell
-    Name              : ExampleClassicVM
-    ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
-    ResourceName      : ExampleClassicVM
-    ResourceType      : Microsoft.ClassicCompute/virtualMachines
-    ResourceGroupName : ExampleGroup
-    Location          : chinanorth
-    SubscriptionId    : {guid}
-    ```
+```powershell
+Name              : ExampleClassicVM
+ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
+ResourceName      : ExampleClassicVM
+ResourceType      : Microsoft.ClassicCompute/virtualMachines
+ResourceGroupName : ExampleGroup
+Location          : chinanorth
+SubscriptionId    : {guid}
+```
 
 但是，Resource Manager cmdlet **Get-AzureRmVM** 仅返回通过 Resource Manager 部署的虚拟机。 以下命令不返回通过经典部署创建的虚拟机。
 
-    ```powershell
-    Get-AzureRmVM -ResourceGroupName ExampleGroup
-    ```
+```powershell
+Get-AzureRmVM -ResourceGroupName ExampleGroup
+```
 
 只有通过 Resource Manager 创建的资源才支持标记。 您不能将标记应用到经典资源。
 
@@ -97,16 +97,16 @@ Azure 在 2014 年引入了 Resource Manager，增加了资源组这一概念。
     ![Resource Manager 部署](./media/resource-manager-deployment-model/select-resource-manager.png)
 * 使用 Azure PowerShell cmdlet 的 Resource Manager 版本创建。 这些命令采用 *Verb-AzureRmNoun*格式。
 
-        ```powershell
-        New-AzureRmResourceGroupDeployment
-        ```
+    ```powershell
+    New-AzureRmResourceGroupDeployment
+    ```
 * 通过用于 REST 操作的 [Azure Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) 创建。
 * 通过在 **arm** 模式下运行的 Azure CLI 命令创建。
 
-        ```azurecli
-        azure config mode arm
-        azure group deployment create 
-        ```
+    ```azurecli
+    azure config mode arm
+    azure group deployment create 
+    ```
 * 资源类型的名称中不包括 **(经典)**。 下图显示了**存储帐户**类型。
 
     ![Web 应用](./media/resource-manager-deployment-model/resource-manager-type.png)
@@ -125,16 +125,16 @@ Azure 在 2014 年引入了 Resource Manager，增加了资源组这一概念。
      ![经典部署](./media/resource-manager-deployment-model/select-classic.png)
 * 通过 Azure PowerShell cmdlet 的服务管理版本创建。 这些命令名称采用 *Verb-AzureNoun*格式。
 
-        ```powershell
-        New-AzureVM 
-        ```
+    ```powershell
+    New-AzureVM 
+    ```
 * 通过用于 REST 操作的 [服务管理 REST API](https://msdn.microsoft.com/zh-cn/library/azure/ee460799.aspx) 创建。
 * 通过在 **asm** 模式下运行的 Azure CLI 命令创建。
 
-        ```azurecli
-        azure config mode asm
-        azure vm create 
-        ```
+    ```azurecli
+    azure config mode asm
+    azure vm create 
+    ```
 * 资源类型的名称中包括 **(经典)**。 下图显示了**存储帐户(经典)** 类型。
 
     ![经典类型](./media/resource-manager-deployment-model/classic-type.png)

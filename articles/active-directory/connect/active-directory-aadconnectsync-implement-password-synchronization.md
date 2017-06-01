@@ -91,9 +91,6 @@ Active Directory 域服务以实际用户密码的哈希值表示形式存储密
 >[!Note] 
 >原始 MD4 哈希不会传送到 Azure AD。 与之相反，传输的是原始 MD4 哈希的 SHA256 哈希。 因此，如果获取了 Azure AD 中存储的哈希，将无法在本地“传递哈希”攻击中使用。
 
-### <a name="how-password-synchronization-works-with-azure-active-directory-domain-services"></a>如何使用 Azure Active Directory 域服务进行密码同步
-也可以使用密码同步功能将本地密码同步到 [Azure Active Directory 域服务](../../active-directory-domain-services/active-directory-ds-overview.md)。 在此方案中，Azure Active Directory 域服务实例以本地 Active Directory 实例中所有可用的方法验证云中的用户。 此方案的体验类似于在本地环境中使用 Active Directory 迁移工具 (ADMT)。
-
 ### <a name="security-considerations"></a>安全注意事项
 同步密码时，纯文本版本的密码既不能向密码同步功能公开，也不能向 Azure AD 或任何相关联的服务公开。
 
@@ -178,7 +175,7 @@ Active Directory 域服务以实际用户密码的哈希值表示形式存储密
 
 有关安全性与 FIPS 的信息，请参阅 [AAD Password Sync, encryption and FIPS compliance](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/)（AAD 密码同步、加密和 FIPS 符合性）。
 
-## <a name="troubleshoot-password-synchronization"></a>排查密码同步问题
+## <a name="troubleshooting-password-synchronization"></a>排查密码同步问题
 如果遇到密码同步问题，请参阅[排查密码同步问题](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)。
 
 ## <a name="next-steps"></a>后续步骤

@@ -53,4 +53,3 @@ ms.lasthandoff: 05/15/2017
 | 备份 | BMR 备份失败 | 如果 BMR 非常大，则可将某些应用程序文件移到 OS 驱动器，然后重试 |
 | 备份 | 访问文件/共享文件夹时出错 | 尝试根据[此处](https://technet.microsoft.com/library/hh757911.aspx)提供的建议修改防病毒设置|
 
-

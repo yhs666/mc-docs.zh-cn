@@ -30,6 +30,7 @@ ms.lasthandoff: 05/05/2017
 [!INCLUDE [virtual-machines-common-acu](../../../includes/virtual-machines-common-acu.md)]
 
 有关各种大小的详细信息，请访问以下链接：
+
 - [通用](sizes-general.md)
 - [内存优化](../virtual-machines-windows-sizes-memory.md)
 - [计算优化](sizes-compute.md)

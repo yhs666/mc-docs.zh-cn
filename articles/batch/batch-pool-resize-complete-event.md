@@ -56,4 +56,3 @@ ms.lasthandoff: 05/05/2017
 |resultCode|String|调整大小的结果。|
 |resultMessage|String|调整大小错误包括结果的详细信息。<br /><br /> 如果调整大小已成功完成，则表示操作成功。|
 
-

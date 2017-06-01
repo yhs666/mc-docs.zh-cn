@@ -193,15 +193,17 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     此命令的输出类似于以下文本：
 
-        Seven Years in Tibet (1997), score=5.0
-        Indiana Jones and the Last Crusade (1989), score=5.0
-        Jaws (1975), score=5.0
-        Sense and Sensibility (1995), score=5.0
-        Independence Day (ID4) (1996), score=5.0
-        My Best Friend's Wedding (1997), score=5.0
-        Jerry Maguire (1996), score=5.0
-        Scream 2 (1997), score=5.0
-        Time to Kill, A (1996), score=5.0
+    ```
+    Seven Years in Tibet (1997), score=5.0
+    Indiana Jones and the Last Crusade (1989), score=5.0
+    Jaws (1975), score=5.0
+    Sense and Sensibility (1995), score=5.0
+    Independence Day (ID4) (1996), score=5.0
+    My Best Friend's Wedding (1997), score=5.0
+    Jerry Maguire (1996), score=5.0
+    Scream 2 (1997), score=5.0
+    Time to Kill, A (1996), score=5.0
+    ```
 
 ## <a name="delete-temporary-data"></a>删除临时数据
 

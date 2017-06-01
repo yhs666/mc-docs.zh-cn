@@ -97,7 +97,7 @@ Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 
 Azure 备份可保护高级存储 VM。 Azure 高级存储是基于固态硬盘 (SSD) 的存储，用于支持 I/O 密集型工作负荷。 高级存储很适合虚拟机 (VM) 工作负荷。 有关高级存储的详细信息，请参阅[高级存储：Azure 虚拟机工作负荷的高性能存储](../storage/storage-premium-storage.md)一文。
 
 ### <a name="back-up-premium-storage-vms"></a>备份高级存储 VM
-在备份高级存储 VM 时，备份服务在高级存储帐户中创建名为“AzureBackup-”的临时暂存位置。 暂存位置与恢复点快照大小相同。 请确保存储帐户中存在适用于临时暂存位置的空间。 有关详细信息，请参阅[高级存储限制](../storage/storage-premium-storage.md#scalability-and-performance-targets)一文。 备份作业完成后，将删除暂存位置。 用于暂存位置的存储的价格与所有 [高级存储定价](../storage/storage-premium-storage.md#pricing-and-billing)一致。
+在备份高级存储 VM 时，备份服务在高级存储帐户中创建名为“AzureBackup-”的临时暂存位置。 暂存位置与恢复点快照大小相同。 请确保存储帐户中存在适用于临时暂存位置的空间。 有关详细信息，请参阅[高级存储限制](../storage/storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage)一文。 备份作业完成后，将删除暂存位置。 用于暂存位置的存储的价格与所有 [高级存储定价](../storage/storage-premium-storage.md#pricing-and-billing)一致。
 
 > [!NOTE]
 > 请不要修改或编辑暂存位置。
