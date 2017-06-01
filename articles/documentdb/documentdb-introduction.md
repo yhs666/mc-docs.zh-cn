@@ -28,8 +28,6 @@ ms.lasthandoff: 05/19/2017
 
 [DocumentDB](./documentdb-resources.md) 是 Microsoft 针对任务关键型应用程序提供的全局分布式多模型数据库服务。 DocumentDB 在全球范围内提供[统包全局分发](documentdb-distribute-data-globally.md)、吞吐量和存储的弹性扩展、99% 的情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](documentdb-consistency-levels.md)以及得到保证的高可用性，所有这些均由行业领先的 SLA 提供支持。 DocumentDB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键-值、图形和列式数据模型。 
 
-![Azure DocumentDB API](./media/documentdb-introduction/documentdb-documentdb.png) 
-
 借助 DocumentDB API，DocumentDB 可提供丰富且熟悉的 [SQL 查询功能](documentdb-sql-query.md)，在传输无架构 JSON 数据过程中可持续保持较低的延迟。 本文概述了 DocumentDB 的 DocumentDB API，以及如何使用它来存储大量 JSON 数据，以毫秒级的延迟查询这些数据，以及轻松改进架构。 
 
 ## <a name="how-can-i-learn-about-the-documentdb-api"></a>如何了解有关 DocumentDB API 的信息？

@@ -1625,7 +1625,7 @@ info:    mobile data truncate command OK
 ```
 
 ### <a name="Mobile_Scripts"></a>用于管理脚本的命令
-本部分中的命令用于管理属于移动服务的服务器脚本。有关详细信息，请参阅[使用移动服务中的服务器脚本](./mobile-services/mobile-services-how-to-use-server-scripts.md)。
+本部分中的命令用于管理属于移动服务的服务器脚本。
 
 **mobile script list [options] [servicename]**
 
