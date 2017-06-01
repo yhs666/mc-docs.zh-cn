@@ -29,7 +29,7 @@ Azure AD Connect 安装向导提供提供两种不同的路径：
 - 在“自定义设置”中，向导提供更多选项；但在某些情况下，需要确保自己拥有正确的权限。
 
 ## <a name="related-documentation"></a>相关文档
-如果尚未阅读文档了解如何[将本地标识与 Azure Active Directory 集成](../active-directory-aadconnect.md)，请查看下表获取相关主题的链接。
+如果尚未阅读文档了解如何[将本地标识与 Azure Active Directory 集成](./active-directory-aadconnect.md)，请查看下表获取相关主题的链接。
 
 |主题 |链接|
 | --- | --- |
@@ -184,6 +184,6 @@ VSA 适用于同步引擎与 SQL 位于同一台服务器上的场合。 如果�
 ![AD 帐户角色](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccountrole.png)
 
 ## <a name="next-steps"></a>后续步骤
-了解有关 [将本地标识与 Azure Active Directory 集成](../active-directory-aadconnect.md)的详细信息。
+了解有关 [将本地标识与 Azure Active Directory 集成](./active-directory-aadconnect.md)的详细信息。
 
 
