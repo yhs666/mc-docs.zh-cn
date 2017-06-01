@@ -108,6 +108,12 @@ ms.lasthandoff: 05/12/2017
                                                 <p>Redis 缓存</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/mysql/">
+                                                <img src="media/index/mysql.svg" alt="" />
+                                                <p>MySQL Database on Azure</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>安全性 + 标识 </h3>
                                     <ul>
@@ -968,6 +974,25 @@ ms.lasthandoff: 05/12/2017
                                                 <div class="cardText">
                                                     <h3>Redis 缓存</h3>
                                                     <p>进行高吞吐量、低延迟的数据访问以生成快速/可缩放的应用程序</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/mysql/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/mysql.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>MySQL Database on Azure</h3>
+                                                    <p>MySQL 关系型数据库服务，提供性能稳定、操作简单、高安全性的数据库平台</p>
                                                 </div>
                                             </div>
                                         </div>
