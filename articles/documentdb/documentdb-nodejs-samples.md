@@ -1,14 +1,14 @@
 ---
-title: "用于 Azure Cosmos DB 的 Node.js 示例 | Microsoft Docs"
-description: "在 github 上查找有关 Azure Cosmos DB 中常见任务的 Node.js 示例，包括 CRUD 操作。"
+title: "用于 DocumentDB 的 Node.js 示例 | Microsoft Docs"
+description: "在 github 上查找有关 DocumentDB 中常见任务的 Node.js 示例，包括 CRUD 操作。"
 keywords: "Node.js 示例"
-services: cosmosdb
+services: documentdb
 author: moderakh
 manager: jhubbard
 editor: monicar
 documentationcenter: nodejs
 ms.assetid: d87d97be-47a5-4928-8d46-a541fbb33213
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -24,7 +24,7 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js 示例
+# <a name="azure-documentdb-nodejs-examples"></a>DocumentDB Node.js 示例
 > [!div class="op_single_selector"]
 > * [.NET 示例](documentdb-dotnet-samples.md)
 > * [Node.js 示例](documentdb-nodejs-samples.md)
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/19/2017
 > 
 > 
 
-对 Azure Cosmos DB 资源执行 CRUD 操作和其他常见操作的示例解决方案包含在 [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub 存储库中。 本文将提供：
+对 DocumentDB 资源执行 CRUD 操作和其他常见操作的示例解决方案包含在 [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub 存储库中。 本文将提供：
 
 - 指向每个 Node.js 示例项目文件中任务的链接。
 - 指向相关 API 参考内容的链接。
@@ -103,7 +103,7 @@ ms.lasthandoff: 05/19/2017
 | [在字符串路径上创建范围索引](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L349-L425) |[IndexKind.Range](http://azure.github.io/azure-documentdb-node/global.html#IndexKind)、[IndexingPolicy](http://azure.github.io/azure-documentdb-node/global.html#IndexingPolicy)、[DocumentClient.queryDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#queryDocument) |
 | [使用默认 indexPolicy 创建集合，然后联机进行更新](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L519-L614) |[DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createCollection)<br> [DocumentClient.replaceCollection#replaceCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html) |
 
-有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](documentdb-indexing-policies.md)。
+有关索引的详细信息，请参阅 [DocumentDB 索引策略](documentdb-indexing-policies.md)。
 
 ## <a name="server-side-programming-examples"></a>服务器端编程示例
 [ServerSideScripts](https://github.com/Azure/azure-documentdb-node/tree/master/samples/ServerSideScripts) 项目的 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/ServerSideScripts/app.js) 文件演示如何执行以下任务。
@@ -113,7 +113,7 @@ ms.lasthandoff: 05/19/2017
 | [创建存储过程](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.ServerSideScripts/app.js#L44-L71) |[DocumentClient.createStoredProcedure](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createStoredProcedure) |
 | [执行存储过程](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.ServerSideScripts/app.js#L73-L90) |[DocumentClient.executeStoredProcedure](http://azure.github.io/azure-documentdb-node/DocumentClient.html#executeStoredProcedure) |
 
-有关服务器端编程的详细信息，请参阅 [Azure Cosmos DB 服务器端编程：存储过程、数据库触发器和 UDF](documentdb-programming.md)。
+有关服务器端编程的详细信息，请参阅 [DocumentDB 服务器端编程：存储过程、数据库触发器和 UDF](documentdb-programming.md)。
 
 ## <a name="partitioning-examples"></a>分区示例
 [Partitioning](https://github.com/Azure/azure-documentdb-node/tree/master/samples/Partitioning) 项目的 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/Partitioning/app.js) 文件演示如何执行以下任务。
@@ -122,7 +122,7 @@ ms.lasthandoff: 05/19/2017
 | --- | --- |
 | [使用 HashPartitionResolver](https://github.com/Azure/azure-documentdb-node/blob/ce0fc3c4e70b0279091a1e03620a668d93a14fc2/samples/Partitioning/app.js#L53-L103) |[HashPartitionResolver](http://azure.github.io/azure-documentdb-node/HashPartitionResolver.html) |
 
-有关在 Azure Cosmos DB 中对数据进行分区的详细信息，请参阅[对 Azure Cosmos DB 中的数据进行分区和扩展](documentdb-partition-data.md)。
+有关在 DocumentDB 中对数据进行分区的详细信息，请参阅[对 DocumentDB 中的数据进行分区和扩展](documentdb-partition-data.md)。
 
 
 

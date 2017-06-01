@@ -1,13 +1,13 @@
 ---
-title: "请求单位和估计吞吐量 - Azure Cosmos DB | Microsoft Docs"
-description: "了解如何理解、指定和估计 Azure Cosmos DB 中的请求单位要求。"
-services: cosmosdb
+title: "请求单位和估计吞吐量 - DocumentDB | Microsoft Docs"
+description: "了解如何理解、指定和估计 DocumentDB 中的请求单位要求。"
+services: documentdb
 author: syamkmsft
 manager: jhubbard
 editor: mimig
 documentationcenter: 
 ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
-ms.service: Azure Cosmos DB
+ms.service: DocumentDB
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -23,15 +23,15 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位
-现已推出：Azure Cosmos DB [请求单位计算器](https://www.documentdb.com/capacityplanner)。 了解[估计吞吐量需求](documentdb-request-units.md#estimating-throughput-needs)。
+# <a name="request-units-in-azure-documentdb"></a>DocumentDB 中的请求单位
+现已推出：DocumentDB [请求单位计算器](https://www.documentdb.com/capacityplanner)。 了解[估计吞吐量需求](documentdb-request-units.md#estimating-throughput-needs)。
 
 ![吞吐量计算器][5]
 
 ## <a name="introduction"></a>介绍
-[Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) 是由 Microsoft 提供的全球分布式多模型数据库。 使用 Azure Cosmos DB，无需租用虚拟机、部署软件或监视数据库。 Azure Cosmos DB 由 Microsoft 顶级工程师操作和持续监视，以提供一流的可用性、性能和数据保护。 你可以使用所选的 API 访问数据，因为它原生就支持 [DocumentDB SQL](documentdb-sql-query.md)（文档）、MongoDB（文档）、[Azure 表存储](https://azure.microsoft.com/services/storage/tables/)（键-值）和 [Gremlin](https://tinkerpop.apache.org/gremlin.html)（图形）。 Azure Cosmos DB 的计费依据是请求单位 (RU)。 如果使用 RU，则无需保留读取、写入容量或者预配 CPU、内存和 IOPS。
+[DocumentDB](https://www.azure.cn/home/features/documentdb/) 是由 Microsoft 提供的全球分布式多模型数据库。 使用 DocumentDB，无需租用虚拟机、部署软件或监视数据库。 DocumentDB 由 Microsoft 顶级工程师操作和持续监视，以提供一流的可用性、性能和数据保护。 你可以使用所选的 API 访问数据，因为它原生就支持 [DocumentDB SQL](documentdb-sql-query.md)（文档）、MongoDB（文档）、[Azure 表存储](https://azure.microsoft.com/services/storage/tables/)（键-值）和 [Gremlin](https://tinkerpop.apache.org/gremlin.html)（图形）。 DocumentDB 的计费依据是请求单位 (RU)。 如果使用 RU，则无需保留读取、写入容量或者预配 CPU、内存和 IOPS。
 
-Azure Cosmos DB 支持从读取、写入，到复杂的图形查询等一系列操作使用 API。 并非所有请求都是相同的，因此系统会根据请求所需的计算量为它们分配规范化数量的**请求单位**。 操作的请求单位数是确定性的，可以通过响应标头跟踪 Azure Cosmos DB 中的任何操作消耗的请求单位数。 
+DocumentDB 支持从读取、写入，到复杂的图形查询等一系列操作使用 API。 并非所有请求都是相同的，因此系统会根据请求所需的计算量为它们分配规范化数量的**请求单位**。 操作的请求单位数是确定性的，可以通过响应标头跟踪 DocumentDB 中的任何操作消耗的请求单位数。 
 
 若要提供可预测的性能，需要以 100 RU/秒为单位保留吞吐量。 对于每个 100 RU/秒的块，可以附加 1,000 RU/每分钟的块。 将每秒和每分钟预配吞吐量相组合可以带来极其有利的结果，因为不需要为峰值预配容量，并且与只使用每秒预配的任何服务相比，成本最高可节省 75%。
 
@@ -42,20 +42,20 @@ Azure Cosmos DB 支持从读取、写入，到复杂的图形查询等一系列�
 - 如何评估应用程序的请求单位需求？
 - 如果超过集合的请求单位容量会发生什么情况？
 
-由于 Azure Cosmos DB 是多模型数据库，因此必须注意，我们会提到文档 API 的集合/文档、图形 API 的图形/节点，以及表 API 的表/实体。 在整份文档中，我们将它们统称为容器/项。
+由于 DocumentDB 是多模型数据库，因此必须注意，我们会提到文档 API 的集合/文档、图形 API 的图形/节点，以及表 API 的表/实体。 在整份文档中，我们将它们统称为容器/项。
 
 ## <a name="request-units-and-request-charges"></a>请求单位和请求费用
-Azure Cosmos DB 通过*保留*资源提供快速且可预测的性能，以满足应用程序的吞吐量需求。  由于应用程序加载和访问模式会随着时间推移而更改，Azure Cosmos DB 使你可以轻松增加或减少保留供应用程序使用的吞吐量。
+DocumentDB 通过*保留*资源提供快速且可预测的性能，以满足应用程序的吞吐量需求。  由于应用程序加载和访问模式会随着时间推移而更改，DocumentDB 使你可以轻松增加或减少保留供应用程序使用的吞吐量。
 
-通过 Azure Cosmos DB，可根据每秒或每分钟（附加）请求单位处理指定保留的吞吐量。  可以将请求单位视为吞吐量货币，因此，可以*保留*每秒或每分钟可用于应用程序的定量有保障请求单位。  Azure Cosmos DB 中的每个操作（编写文档、执行查询、更新文档）都会消耗 CPU、内存和 IOPS。  也就是说，每个操作都会产生请求费用（用请求单位表示）。  你要了解影响请求单位费用的因素，以及你的应用程序吞吐量要求，才能尽可能有效地运行你的应用程序。 查询资源管理器也是一个可以测试查询核心的强大工具。
+通过 DocumentDB，可根据每秒或每分钟（附加）请求单位处理指定保留的吞吐量。  可以将请求单位视为吞吐量货币，因此，可以*保留*每秒或每分钟可用于应用程序的定量有保障请求单位。  DocumentDB 中的每个操作（编写文档、执行查询、更新文档）都会消耗 CPU、内存和 IOPS。  也就是说，每个操作都会产生请求费用（用请求单位表示）。  你要了解影响请求单位费用的因素，以及你的应用程序吞吐量要求，才能尽可能有效地运行你的应用程序。 查询资源管理器也是一个可以测试查询核心的强大工具。
 
 ## <a name="specifying-request-unit-capacity"></a>指定请求单位容量
 创建 DocumentDB 集合时，可以指定希望为集合保留的每秒请求单位的数量 (RU)。  创建集合之后，将保留指定的 RU 的完整分配供集合使用。  保证每个集合具有专用的和隔离的吞吐量特征。  
 
-如果为集合预配的请求单位数大于或等于 2,500，Azure Cosmos DB 要求指定分区键。 以后将集合的吞吐量扩展到 2,500 个请求单位以上时，也需要使用分区键。 因此，我们强烈建议在创建吞吐量容器时配置[分区键](documentdb-partition-data.md)，不管初始吞吐量有多大。 由于数据可能需要跨多个分区拆分，因此需要选择一个基数较高（几百到几百万个非重复值）的分区键，以便 Azure Cosmos DB 能够统一缩放集合/表/图形与请求。 
+如果为集合预配的请求单位数大于或等于 2,500，DocumentDB 要求指定分区键。 以后将集合的吞吐量扩展到 2,500 个请求单位以上时，也需要使用分区键。 因此，我们强烈建议在创建吞吐量容器时配置[分区键](documentdb-partition-data.md)，不管初始吞吐量有多大。 由于数据可能需要跨多个分区拆分，因此需要选择一个基数较高（几百到几百万个非重复值）的分区键，以便 DocumentDB 能够统一缩放集合/表/图形与请求。 
 
 > [!NOTE]
-> 分区键是一个逻辑边界而不是物理边界。 因此，不需要限制非重复分区键值的数目。 事实上，分区键值宁多勿少，因为 Azure Cosmos DB 提供的负载均衡选项较多。
+> 分区键是一个逻辑边界而不是物理边界。 因此，不需要限制非重复分区键值的数目。 事实上，分区键值宁多勿少，因为 DocumentDB 提供的负载均衡选项较多。
 
 以下代码片段使用 .NET SDK 创建每秒 3,000 个请求单位的集合：
 
@@ -70,9 +70,9 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-Azure Cosmos DB 运行一个保留模型来预配吞吐量。 也就是说，用户需要根据*保留的*吞吐量付费，不管实际*使用的*吞吐量是多少。 随着应用程序的负载、数据和使用情况模式的更改，可以通过 SDK 或使用 [Azure 门户](https://portal.azure.cn)轻松扩展和缩减保留的 RU 数量。
+DocumentDB 运行一个保留模型来预配吞吐量。 也就是说，用户需要根据*保留的*吞吐量付费，不管实际*使用的*吞吐量是多少。 随着应用程序的负载、数据和使用情况模式的更改，可以通过 SDK 或使用 [Azure 门户](https://portal.azure.cn)轻松扩展和缩减保留的 RU 数量。
 
-每个集合/表/图形映射到 Azure Cosmos DB 中的 `Offer` 资源，该资源包含有关预配吞吐量的元数据。 可以通过查找容器的相应服务资源，然后使用新的吞吐量值来对它进行更新，来更改分配的吞吐量。 以下代码片段使用 .NET SDK 将集合的吞吐量更改为每秒 5,000 个请求单位：
+每个集合/表/图形映射到 DocumentDB 中的 `Offer` 资源，该资源包含有关预配吞吐量的元数据。 可以通过查找容器的相应服务资源，然后使用新的吞吐量值来对它进行更新，来更改分配的吞吐量。 以下代码片段使用 .NET SDK 将集合的吞吐量更改为每秒 5,000 个请求单位：
 
 ```csharp
 // Fetch the resource to be updated
@@ -91,7 +91,7 @@ await client.ReplaceOfferAsync(offer);
 更改吞吐量不会影响容器的可用性。 通常，新的保留吞吐量在几秒内就会在应用程序上生效。
 
 ## <a name="request-unit-considerations"></a>请求单位注意事项
-在估计为 Azure Cosmos DB 容器保留的请求单位数量时，务必要考虑以下变量：
+在估计为 DocumentDB 容器保留的请求单位数量时，务必要考虑以下变量：
 
 - **项大小**。 随着大小的增加，用来读取或写入数据的单位数也随之增加。
 - **项属性计数**。 假设默认为所有属性创建索引，用于写入文档/节点/实体的单位数将随着属性计数的增加而增加。
@@ -186,12 +186,12 @@ await client.ReplaceOfferAsync(offer);
 > 
 > 
 
-### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>使用 Azure Cosmos DB 请求费用响应标头
-每个来自 Azure Cosmos DB 服务的响应都包含一个自定义标头 (`x-ms-request-charge`)，该标头包含请求消耗的请求单位数。 此标头也可通过 DocumentDB SDK 访问。 在 .NET SDK 中，RequestCharge 是 ResourceResponse 对象的属性。  对于查询，在 Azure 门户中的 Azure Cosmos DB 查询资源管理器提供了用于执行的查询的请求费用信息。
+### <a name="use-the-azure-documentdb-request-charge-response-header"></a>使用 DocumentDB 请求费用响应标头
+每个来自 DocumentDB 服务的响应都包含一个自定义标头 (`x-ms-request-charge`)，该标头包含请求消耗的请求单位数。 此标头也可通过 DocumentDB SDK 访问。 在 .NET SDK 中，RequestCharge 是 ResourceResponse 对象的属性。  对于查询，在 Azure 门户中的 DocumentDB 查询资源管理器提供了用于执行的查询的请求费用信息。
 
 ![检查查询资源管理器中的 RU 费用][1]
 
-基于这一点，有一种方法可以估计应用程序所需的保留的吞吐量：记录与针对应用程序所使用的代表性项运行典型操作相关联的请求单位费用，然后估计你预计每秒执行的操作数。  也要确保测算并包含典型查询和 Azure Cosmos DB 脚本使用情况。
+基于这一点，有一种方法可以估计应用程序所需的保留的吞吐量：记录与针对应用程序所使用的代表性项运行典型操作相关联的请求单位费用，然后估计你预计每秒执行的操作数。  也要确保测算并包含典型查询和 DocumentDB 脚本使用情况。
 
 > [!NOTE]
 > 如果有多种项类型，它们的索引属性大小和数目截然不同，则记录与每种*类型*的典型项相关联的适用操作请求单位费用。
@@ -293,7 +293,7 @@ API for MongoDB 支持使用自定义命令 *getLastRequestStatistics* 来检索
 ```
 
 > [!NOTE]
-> 文档在 Azure Cosmos DB 中已缩小，所以系统计算的上述文档的大小略小于 1KB。
+> 文档在 DocumentDB 中已缩小，所以系统计算的上述文档的大小略小于 1KB。
 > 
 > 
 
@@ -331,7 +331,7 @@ API for MongoDB 支持使用自定义命令 *getLastRequestStatistics* 来检索
 
 在此示例中，我们认为平均吞吐量需求为 1,275 RU/s。  舍入到最接近的百位数，我们会将此应用程序的集合设置为 1,300 RU/s。
 
-## <a id="RequestRateTooLarge"></a> 超过 Azure Cosmos DB 中的保留吞吐量限制
+## <a id="RequestRateTooLarge"></a> 超过 DocumentDB 中的保留吞吐量限制
 前面提到，如果每分钟请求单位数已禁用或者预算为空，则请求单位消耗以每秒速率进行评估。 对于超过为集合预配的请求单位速率的应用程序，将限制对该容器的请求数，直到速率降低到保留级别之下。 受到限制时，服务器将抢先结束请求、引发 RequestRateTooLargeException（HTTP 状态代码 429）并返回 x-ms-retry-after-ms 标头，该标头指示重试请求前用户必须等待的时间（以毫秒为单位）。
 
     HTTP Status 429
@@ -346,14 +346,14 @@ API for MongoDB 支持使用自定义命令 *getLastRequestStatistics* 来检索
 超过为集合预配的请求单位数的应用程序将受到限制，直到比率下降到保留级别以下。 受限制时，后端将提前结束请求并返回 *16500* 错误代码 -“请求过多”。 默认情况下，在返回“请求过多”错误代码之前，API for MongoDB 将自动重试最多 10 次。 如果收到大量的“请求过多”错误代码，可以考虑在应用程序的错误处理例程中添加重试行为，或者[提高集合的保留吞吐量](documentdb-set-throughput.md)。
 
 ## <a name="next-steps"></a>后续步骤
-若要了解有关 Azure Cosmos DB 数据库的保留吞吐量的详细信息，请浏览以下资源：
+若要了解有关 DocumentDB 数据库的保留吞吐量的详细信息，请浏览以下资源：
 
-- [Azure Cosmos DB 定价](https://www.azure.cn/pricing/details/documentdb/)
-- [将 Azure Cosmos DB 中的数据分区](documentdb-partition-data.md)
+- [DocumentDB 定价](https://www.azure.cn/pricing/details/documentdb/)
+- [将 DocumentDB 中的数据分区](documentdb-partition-data.md)
 
-有关 Azure Cosmos DB 的详细信息，请参阅 Azure Cosmos DB [文档](./index.md)。 
+有关 DocumentDB 的详细信息，请参阅 DocumentDB [文档](./index.md)。 
 
-若要开始使用 Azure Cosmos DB 进行规模和性能测试，请参阅[使用 Azure Cosmos DB 进行性能和规模测试](documentdb-performance-testing.md)。
+若要开始使用 DocumentDB 进行规模和性能测试，请参阅[使用 DocumentDB 进行性能和规模测试](documentdb-performance-testing.md)。
 
 [1]: ./media/documentdb-request-units/queryexplorer.png 
 [2]: ./media/documentdb-request-units/RUEstimatorUpload.png

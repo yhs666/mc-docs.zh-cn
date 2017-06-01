@@ -9,8 +9,8 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="sorting-azure-cosmos-db-data-using-order-by"></a>使用 Order By 对 Azure Cosmos DB 数据排序
-Azure Cosmos DB 支持使用 JSON 文档的 SQL 对文档进行查询。 可以使用 SQL 查询语句中的 ORDER BY 子句对查询结果进行排序。
+# <a name="sorting-azure-documentdb-data-using-order-by"></a>使用 Order By 对 DocumentDB 数据排序
+DocumentDB 支持使用 JSON 文档的 SQL 对文档进行查询。 可以使用 SQL 查询语句中的 ORDER BY 子句对查询结果进行排序。
 
 阅读本文之后，你将能够回答以下问题： 
 
@@ -20,10 +20,10 @@ Azure Cosmos DB 支持使用 JSON 文档的 SQL 对文档进行查询。 可以�
 
 还提供了[示例](#samples)和[常见问题](#faq)。
 
-有关 SQL 查询的完整参考，请参阅 [Azure Cosmos DB 查询教程](documentdb-sql-query.md)。
+有关 SQL 查询的完整参考，请参阅 [DocumentDB 查询教程](documentdb-sql-query.md)。
 
 ## <a name="how-to-query-with-order-by"></a>如何使用 Order By 进行查询
-正如在 ANSI-SQL 中，现在可在查询 Cosmos DB 时将可选 Order By 子句包括在 SQL 语句中。 该子句可以包括可选的 ASC/DESC 参数以指定检索结果必须遵守的顺序。 
+正如在 ANSI-SQL 中，现在可在查询 DocumentDB 时将可选 Order By 子句包括在 SQL 语句中。 该子句可以包括可选的 ASC/DESC 参数以指定检索结果必须遵守的顺序。 
 
 ### <a name="ordering-using-sql"></a>使用 SQL 进行排序
 例如，下面的查询以标题降序形式检索前 10 本书籍。 
@@ -50,10 +50,10 @@ Azure Cosmos DB 支持使用 JSON 文档的 SQL 对文档进行查询。 可以�
         // Iterate through books
     }
 
-Cosmos DB 支持每个查询使用单个数值、字符串或布尔值属性进行排序，即将推出其他查询类型。 请参阅 [即将推出的内容](#Whats_coming_next) 以了解详细信息。
+DocumentDB 支持每个查询使用单个数值、字符串或布尔值属性进行排序，即将推出其他查询类型。 请参阅 [即将推出的内容](#Whats_coming_next) 以了解详细信息。
 
 ## <a name="configure-an-indexing-policy-for-order-by"></a>为 Order By 配置索引策略
-回想一下，Cosmos DB 支持两种索引（哈希和范围），可以为特定的路径/属性、数据类型（字符串/数字）设置该索引并且采用不同的精度值（最大精度值或固定精度值）。 由于 Cosmos DB 使用哈希索引做为默认索引，因此必须使用带有数字、字符串（或两者）范围的自定义索引策略创建新集合，以便能够使用 Order By。 
+回想一下，DocumentDB 支持两种索引（哈希和范围），可以为特定的路径/属性、数据类型（字符串/数字）设置该索引并且采用不同的精度值（最大精度值或固定精度值）。 由于 DocumentDB 使用哈希索引做为默认索引，因此必须使用带有数字、字符串（或两者）范围的自定义索引策略创建新集合，以便能够使用 Order By。 
 
 > [!NOTE]
 > 在 2015 年 7 月 7 日推出了字符串范围索引，以及 REST API 版本 2015-06-03。 若要为 Order By 创建针对字符串的策略，必须使用 .NET SDK 的 SDK 版本 1.2.0，或者 Python、Node.js 或 Java SDK 的版本 1.1.0。
@@ -62,7 +62,7 @@ Cosmos DB 支持每个查询使用单个数值、字符串或布尔值属性进�
 > 
 > 
 
-有关索引的更多详细信息，请参阅 [Azure Cosmos DB 索引策略](documentdb-indexing-policies.md)。
+有关索引的更多详细信息，请参阅 [DocumentDB 索引策略](documentdb-indexing-policies.md)。
 
 ### <a name="indexing-for-order-by-against-all-properties"></a>针对所有属性的 Order By 的索引
 下面显示如何针对集合中 JSON 文档内出现的所有数字或字符串属性使用“所有范围”索引为 Order By 创建集合。 此处将字符串值的默认索引类型替换为范围，并且采用最大精度 (-1)。
@@ -97,13 +97,13 @@ Cosmos DB 支持每个查询使用单个数值、字符串或布尔值属性进�
 ## <a name="faq"></a>常见问题
 Order By 查询的预期请求单位 (RU) 使用情况如何？
 
-由于 Order By 利用 Cosmos DB 索引进行查找，Order By 查询使用的请求单位数将类似于没有 Order By 的等效查询。 正如对 Cosmos DB 的任何其他操作，请求单位的数量取决于文档的大小/形状以及查询的复杂性。 
+由于 Order By 利用 DocumentDB 索引进行查找，Order By 查询使用的请求单位数将类似于没有 Order By 的等效查询。 正如对 DocumentDB 的任何其他操作，请求单位的数量取决于文档的大小/形状以及查询的复杂性。 
 
 **预期的 Order By 的索引开销如何？**
 
 索引存储开销将与属性的数目成比例。 在最坏的情况下，索引开销将是数据的 100%。 范围/Order By 索引和默认哈希索引之间的吞吐量（请求单位）开销没有什么区别。
 
-如何使用 Order By 查询 Cosmos DB 中现有的数据？
+如何使用 Order By 查询 DocumentDB 中现有的数据？
 
 为了使用 Order By 对查询结果进行排序，必须修改集合的索引策略从而针对用于排序的属性使用范围索引类型。 请参阅[修改索引策略](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection)。 
 
@@ -128,10 +128,10 @@ Order By 查询的预期请求单位 (RU) 使用情况如何？
 派生 [GitHub 示例项目](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)并开始对数据进行排序！ 
 
 ## <a name="references"></a>参考
-- [Azure Cosmos DB 查询参考](documentdb-sql-query.md)
-- [Azure Cosmos DB 索引策略参考](documentdb-indexing-policies.md)
-- [Azure Cosmos DB SQL 参考](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-- [Azure Cosmos DB Order By 示例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
+- [DocumentDB 查询参考](documentdb-sql-query.md)
+- [DocumentDB 索引策略参考](documentdb-indexing-policies.md)
+- [DocumentDB SQL 参考](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+- [DocumentDB Order By 示例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
 
 
 

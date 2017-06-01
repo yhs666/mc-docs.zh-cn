@@ -1,13 +1,13 @@
 ---
-title: "使用 Azure Cosmos DB 和 HDInsight 运行 Hadoop 作业 | Microsoft Docs"
-description: "了解如何使用 Azure Cosmos DB 和 Azure HDInsight 运行一个简单的 Hive、Pig 和 MapReduce 作业。"
-services: cosmosdb
+title: "使用 DocumentDB 和 HDInsight 运行 Hadoop 作业 | Microsoft Docs"
+description: "了解如何使用 DocumentDB 和 Azure HDInsight 运行一个简单的 Hive、Pig 和 MapReduce 作业。"
+services: documentdb
 author: dennyglee
 manager: jhubbard
 editor: mimig
 documentationcenter: 
 ms.assetid: 06f0ea9d-07cb-4593-a9c5-ab912b62ac42
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
@@ -23,18 +23,18 @@ ms.contentlocale: zh-cn
 ms.lasthandoff: 05/19/2017
 
 ---
-# <a name="Azure Cosmos DB-HDInsight"></a>使用 Azure Cosmos DB 和 HDInsight 运行 Apache Hive、Pig 或 Hadoop 作业
-本教程介绍了如何在 Azure HDInsight 上使用 Cosmos DB 的 Hadoop 连接器运行 [Apache Hive][apache-hive]、[Apache Pig][apache-pig] 和 [Apache Hadoop][apache-hadoop] MapReduce 作业。 Cosmos DB 的 Hadoop 连接器使 Cosmos DB 可以充当 Hive、Pig 以及 MapReduce 作业的源和接收器。 本教程将使用 Cosmos DB 作为 Hadoop 作业的数据源和目的地。
+# <a name="DocumentDB-HDInsight"></a>使用 DocumentDB 和 HDInsight 运行 Apache Hive、Pig 或 Hadoop 作业
+本教程介绍了如何在 Azure HDInsight 上使用 DocumentDB 的 Hadoop 连接器运行 [Apache Hive][apache-hive]、[Apache Pig][apache-pig] 和 [Apache Hadoop][apache-hadoop] MapReduce 作业。 DocumentDB 的 Hadoop 连接器使 DocumentDB 可以充当 Hive、Pig 以及 MapReduce 作业的源和接收器。 本教程将使用 DocumentDB 作为 Hadoop 作业的数据源和目的地。
 
 完成本教程后，你将能够回答以下问题：
 
-- 如何使用 Hive、Pig 或 MapReduce 作业从 Cosmos DB 加载数据？
-- 如何使用 Hive、Pig 或 MapReduce 作业在 Cosmos DB 中存储数据？
+- 如何使用 Hive、Pig 或 MapReduce 作业从 DocumentDB 加载数据？
+- 如何使用 Hive、Pig 或 MapReduce 作业在 DocumentDB 中存储数据？
 
 然后，返回到本文，在这里你将获得有关如何对 DocumentDB 数据运行分析作业的完整详细信息。
 
 > [!TIP]
-> 本教程假定你之前有使用 Apache Hadoop、Hive 和/或 Pig的经验。 如果你不熟悉 Apache Hadoop、Hive 和 Pig，请访问 [Apache Hadoop 文档][apache-hadoop-doc]。 本教程还假定你具有使用 Cosmos DB 的经验，并且拥有一个 Cosmos DB 帐户。 如果你不熟悉 Cosmos DB 或没有 Cosmos DB 帐户，请查看[入门][getting-started]页。
+> 本教程假定你之前有使用 Apache Hadoop、Hive 和/或 Pig的经验。 如果你不熟悉 Apache Hadoop、Hive 和 Pig，请访问 [Apache Hadoop 文档][apache-hadoop-doc]。 本教程还假定你具有使用 DocumentDB 的经验，并且拥有一个 DocumentDB 帐户。 如果你不熟悉 DocumentDB 或没有 DocumentDB 帐户，请查看[入门][getting-started]页。
 >
 >
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 05/19/2017
 ## <a name="Prerequisites"></a>先决条件
 在按照本教程中的说明操作之前，请确保已有下列各项：
 
-- Cosmos DB 帐户、数据库以及其中包含文档的集合。 有关详细信息，请参阅 [Cosmos DB 入门][getting-started]。 使用 [Cosmos DB 导入工具][documentdb-import-data]将示例数据导入到 Cosmos DB 帐户。
+- DocumentDB 帐户、数据库以及其中包含文档的集合。 有关详细信息，请参阅 [DocumentDB 入门][getting-started]。 使用 [DocumentDB 导入工具][documentdb-import-data]将示例数据导入到 DocumentDB 帐户。
 - 吞吐量。 从 HDInsight 进行的读取和写入操作将计入你为集合分配的请求单位。
 - 在每个输出集合中用于其他存储的步骤的容量。 存储过程用于传输生成的文档。
 - 从 Hive、Pig 或 MapReduce 作业生成的文档的容量。
@@ -104,7 +104,7 @@ DNS 名称必须以字母数字字符开头和结尾，并且可以包含短划�
 8. 在同一边栏选项卡上，指定一个**默认容器**和**位置**。 然后单击“选择”。
 
     > [!NOTE]
-    > 选择靠近你的 Cosmos DB 帐户区域的位置以提升性能
+    > 选择靠近你的 DocumentDB 帐户区域的位置以提升性能
     >
     >
 9. 单击“定价”以选择节点的数量和类型。 可保留默认配置，稍后可调整辅助角色节点数。
@@ -157,7 +157,7 @@ DNS 名称必须以字母数字字符开头和结尾，并且可以包含短划�
 
     ![Azure PowerShell 的关系图][azure-powershell-diagram]
 
-## <a name="RunHive"></a>步骤 3：使用 Cosmos DB 和 HDInsight 运行 Hive 作业
+## <a name="RunHive"></a>步骤 3：使用 DocumentDB 和 HDInsight 运行 Hive 作业
 > [!IMPORTANT]
 > 必须使用你的配置设置填写所有由 < > 表示的变量。
 >
@@ -258,7 +258,7 @@ DNS 名称必须以字母数字字符开头和结尾，并且可以包含短划�
 
    ![Hive 查询结果][image-hive-query-results]
 
-## <a name="RunPig"></a>步骤 4：使用 Cosmos DB 和 HDInsight 运行 Pig 作业
+## <a name="RunPig"></a>步骤 4：使用 DocumentDB 和 HDInsight 运行 Pig 作业
 > [!IMPORTANT]
 > 必须使用你的配置设置填写所有由 < > 表示的变量。
 >
@@ -272,7 +272,7 @@ DNS 名称必须以字母数字字符开头和结尾，并且可以包含短划�
         # Provide HDInsight cluster name where you want to run the Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
 2. <p>接下来，我们将开始构造查询字符串。 我们将编写 Pig 查询，该查询采用来自 DocumentDB 集合的所有文档的系统生成的时间戳 (_ts) 和唯一 ID (_rid)，按分钟计算所有文档，然后将结果存储回新 DocumentDB 集合。</p>
-    <p>首先，从 Cosmos DB 将文档加载到 HDInsight 中。 将以下代码片段添加到 PowerShell 脚本窗格中从 #1 开始的代码片段<strong>之后</strong>。 请确保添加了 DocumentDB.query 到可选的 DocumentDB 查询参数，以便将我们的文档调整到 just_ts 和 _rid。</p>
+    <p>首先，从 DocumentDB 将文档加载到 HDInsight 中。 将以下代码片段添加到 PowerShell 脚本窗格中从 #1 开始的代码片段<strong>之后</strong>。 请确保添加了 DocumentDB.query 到可选的 DocumentDB 查询参数，以便将我们的文档调整到 just_ts 和 _rid。</p>
 
     > [!NOTE]
     > 是，我们允许添加多个集合来作为输入： </br>
@@ -282,7 +282,7 @@ DNS 名称必须以字母数字字符开头和结尾，并且可以包含短划�
 
     文档将为跨多个集合的分布式轮循机制。 一批文档将存储在一个集合中，第二批文档则存储在下一个集合中，如此类推。
 
-        # Load data from Cosmos DB. Pass DocumentDB query to filter transferred data to _rid and _ts.
+        # Load data from DocumentDB. Pass DocumentDB query to filter transferred data to _rid and _ts.
         $queryStringPart1 = "DocumentDB_timestamps = LOAD '<DocumentDB Endpoint>' USING com.microsoft.azure.documentdb.pig.DocumentDBLoader( " +
                                                         "'<DocumentDB Primary Key>', " +
                                                         "'<DocumentDB Database Name>', " +
@@ -303,7 +303,7 @@ DNS 名称必须以字母数字字符开头和结尾，并且可以包含短划�
     >
     >
 
-        # Store output data to Cosmos DB.
+        # Store output data to DocumentDB.
         $queryStringPart3 = "STORE by_minute_count INTO '<DocumentDB Endpoint>' " +
                             "USING com.microsoft.azure.documentdb.pig.DocumentDBStorage( " +
                                 "'<DocumentDB Primary Key>', " +
@@ -356,7 +356,7 @@ DNS 名称必须以字母数字字符开头和结尾，并且可以包含短划�
         $TallyPropertiesJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/TallyProperties-v01.jar" -ClassName "TallyProperties" -Arguments "<DocumentDB Endpoint>","<DocumentDB Primary Key>", "<DocumentDB Database Name>","<DocumentDB Input Collection Name>","<DocumentDB Output Collection Name>","<[Optional] DocumentDB Query>"
 
     > [!NOTE]
-    > Cosmos DB Hadoop 连接器自定义安装中附带了 TallyProperties-v01.jar。
+    > DocumentDB Hadoop 连接器自定义安装中附带了 TallyProperties-v01.jar。
     >
     >
 3. 添加以下命令来提交 MapReduce 作业。
@@ -378,8 +378,8 @@ DNS 名称必须以字母数字字符开头和结尾，并且可以包含短划�
 
    1. 单击左侧面板上的“浏览”<strong></strong>。
    2. 在浏览面板右上角单击“全部”。<strong></strong>
-   3. 找到并单击“Cosmos DB 帐户”。<strong></strong>
-   4. 接下来，找到你的 <strong>Cosmos DB 帐户</strong>、<strong>Cosmos DB 数据库</strong>和与 MapReduce 作业中指定的输出集合相关联的 <strong>DocumentDB 集合</strong>。
+   3. 找到并单击“DocumentDB 帐户”。<strong></strong>
+   4. 接下来，找到你的 <strong>DocumentDB 帐户</strong>、<strong>DocumentDB 数据库</strong>和与 MapReduce 作业中指定的输出集合相关联的 <strong>DocumentDB 集合</strong>。
    5. 最后，单击“开发人员工具”<strong></strong>下方的“文档资源管理器”<strong></strong>。
 
       你将看到 MapReduce 作业的结果。
@@ -387,7 +387,7 @@ DNS 名称必须以字母数字字符开头和结尾，并且可以包含短划�
       ![MapReduce 查询结果][image-mapreduce-query-results]
 
 ## <a name="NextSteps"></a>后续步骤
-祝贺你！ 你刚才已使用 Azure Cosmos DB 和 HDInsight 运行了你的第一个 Hive、Pig 和 MapReduce 作业。
+祝贺你！ 你刚才已使用 DocumentDB 和 HDInsight 运行了你的第一个 Hive、Pig 和 MapReduce 作业。
 
 我们的 Hadoop Connector 是开源的。 如果你有兴趣，欢迎在 [GitHub][documentdb-github]上供稿。
 

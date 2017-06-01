@@ -1,13 +1,13 @@
 ---
 title: "Azure DocumentDB .NET Core API、SDK 和资源 | Microsoft 文档"
 description: "了解有关 .NET Core API 和 SDK 的全部信息，包括发布日期、停用日期和 DocumentDB .NET Core SDK 各版本之间的更改。"
-services: cosmosdb
+services: documentdb
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: f899b314-26ac-4ddb-86b2-bfdf05c2abf2
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -129,7 +129,7 @@ DocumentDB .NET Core 预览版 SDK 与最新版 [DocumentDB.NET SDK](documentdb-
 | [0.1.0-preview](#0.1.0-preview) |2016 年 11 月 15 日 |2016 年 12 月 31 日 |
 
 ## <a name="see-also"></a>另请参阅
-若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) 服务页。 
+若要了解有关 DocumentDB 的详细信息，请参阅 [DocumentDB](https://www.azure.cn/home/features/documentdb/) 服务页。 
 
 
 

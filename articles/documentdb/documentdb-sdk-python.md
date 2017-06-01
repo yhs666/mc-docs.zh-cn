@@ -1,13 +1,13 @@
 ---
-title: "Azure Cosmos DB Python API、SDK 和资源 | Microsoft Docs"
+title: "DocumentDB Python API、SDK 和资源 | Microsoft Docs"
 description: "了解有关 Python API 和 SDK 的全部信息，包括发布日期、停用日期和 DocumentDB Python SDK 各版本之间所做的更改。"
-services: cosmosdb
+services: documentdb
 documentationcenter: python
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3ac344a9-b2fa-4a3f-a4cc-02d287e05469
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
@@ -77,7 +77,7 @@ ms.lasthandoff: 05/19/2017
 
 ### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
 - 添加了对限制请求的重试策略支持。 （限制请求收到请求速率太大的异常，错误代码 429。）默认情况下，遇到错误代码 429 时，DocumentDB 将针对每个请求重试九次，具体取决于响应标头中的 retryAfter 时间。 如果想要忽略重试之间由服务器返回的 retryAfter 时间，现在可以对 ConnectionPolicy 对象设置固定的重试间隔时间，并将其作为 RetryOptions 属性的一部分。 DocumentDB 现在对每个要中止的请求等待最多 30 秒（不考虑重试计数），并返回错误代码为 429 的响应。 还可以在 ConnectionPolicy 对象的 RetryOptions 属性中替代该时间。
-- Cosmos DB 现在将 x-ms-throttle-retry-count 和 x-ms-throttle-retry-wait-time-ms 作为每个请求的响应标头返回，以表示限制重试计数和重试之间请求所等待的累计时间。
+- DocumentDB 现在将 x-ms-throttle-retry-count 和 x-ms-throttle-retry-wait-time-ms 作为每个请求的响应标头返回，以表示限制重试计数和重试之间请求所等待的累计时间。
 - 删除了 document_client 类上公开的 RetryPolicy 类以及相应的属性 (retry_policy)，改为引入了在 ConnectionPolicy 对象上公开 RetryOptions 属性的 RetryOptions 类，该类可用于覆盖一些默认的重试选项。
 
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
@@ -118,7 +118,7 @@ Microsoft 至少会在停用 SDK 的 **12 个月**之前发出通知，以便顺
 
 新特性和功能以及优化仅添加到当前 SDK，因此建议你始终尽早升级到最新 SDK 版本。 
 
-使用已停用的 SDK 对 Cosmos DB 发出的任何请求都将被服务拒绝。
+使用已停用的 SDK 对 DocumentDB 发出的任何请求都将被服务拒绝。
 
 > [!WARNING]
 > Azure DocumentDB SDK for Python 在 **1.0.0** 版之前的所有版本都将在 **2016 年 2 月 29 日**停用。 
@@ -155,7 +155,7 @@ Microsoft 至少会在停用 SDK 的 **12 个月**之前发出通知，以便顺
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## <a name="see-also"></a>另请参阅
-若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) 服务页。 
+若要了解有关 DocumentDB 的详细信息，请参阅 [DocumentDB](https://www.azure.cn/home/features/documentdb/) 服务页。 
 
 
 

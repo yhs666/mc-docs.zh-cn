@@ -1,13 +1,13 @@
 ---
-title: "Azure Cosmos DB 社区、新闻和事件 | Microsoft Docs"
-description: "加入 Azure Cosmos DB 社区，在这里建立关系网，展示工作，磨练技能。"
-services: cosmosdb
+title: "DocumentDB 社区、新闻和事件 | Microsoft Docs"
+description: "加入 DocumentDB 社区，在这里建立关系网，展示工作，磨练技能。"
+services: documentdb
 documentationcenter: 
 author: aliuy
 manager: jhubbard
 editor: mimig
 ms.assetid: cfdf15da-3ddc-43a1-af64-789eea5f6ddd
-ms.service: cosmosdb
+ms.service: documentdb
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -25,26 +25,26 @@ ms.lasthandoff: 05/19/2017
 ---
 # <a name="community-portal"></a>社区门户
 ## <a name="community-spotlight"></a>社区聚焦
-让我们推销你的项目！ 向我们展示你使用 Azure Cosmos DB（下一代 DocumentDB 堆栈）进行的绝佳项目，我们很乐意与全世界分享你的才华。 若要提交你的项目，请向我们发送电子邮件： [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com)。
+让我们推销你的项目！ 向我们展示你使用 DocumentDB（下一代 DocumentDB 堆栈）进行的绝佳项目，我们很乐意与全世界分享你的才华。 若要提交你的项目，请向我们发送电子邮件： [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com)。
 
 ### <a name="documentdb-lumenize"></a>documentdb-lumenize
 作者：Larry Maccherone
 
-Azure Cosmos DB DocumentDB API 中以存储过程形式提供的聚合（分组依据、数据透视表和 N 维多维数据集）和时序转换功能。
+DocumentDB 中以存储过程形式提供的聚合（分组依据、数据透视表和 N 维多维数据集）和时序转换功能。
 
 在 [GitHub](https://github.com/lmaccherone/documentdb-lumenize) 和 [npm](https://www.npmjs.com/package/lumenize) 上了解相关信息。
 
 ### <a name="documentdb-studio"></a>DocumentDB Studio
 *作者：Ming Liu*
 
-Azure Cosmos DB DocumentDB API 服务的客户端管理查看器/资源管理器。
+DocumentDB 服务的客户端管理查看器/资源管理器。
 
 在 [GitHub](https://github.com/mingaliu/DocumentDBStudio) 上了解相关信息。
 
 ### <a name="doqmentdb"></a>DoQmentDB
 *作者：Ariel Mashraki*
 
-DoQmentDB 是一个以 Node.js Promise 为基础的客户端，可在 Azure Cosmos DB 之上提供类似 MongoDB 的层。
+DoQmentDB 是一个以 Node.js Promise 为基础的客户端，可在 DocumentDB 之上提供类似 MongoDB 的层。
 
 在 [GitHub](https://github.com/a8m/doqmentdb) 和 [npm](https://www.npmjs.com/package/doqmentdb) 上了解相关信息。
 
@@ -58,21 +58,21 @@ DoQmentDB 是一个以 Node.js Promise 为基础的客户端，可在 Azure Cosm
 ### <a name="swagger-rest-api-for-documentdb"></a>DocumentDB 的 Swagger REST API
 *作者：Howard Edidin*
 
-可以轻松部署为 API 应用的 Azure Cosmos DB DocumentDB REST API Swagger 文件。
+可以轻松部署为 API 应用的 DocumentDB DocumentDB REST API Swagger 文件。
 
 在 [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi) 上了解相关信息。
 
 ### <a name="fluent-plugin-documentdb"></a>fluent-plugin-documentdb
 *作者：Yoichi Kawasaki*
 
-fluent-plugin-documentdb 是用于输出到 Azure Cosmos DB DocumentDB API 的 Fluentd 插件。
+fluent-plugin-documentdb 是用于输出到 DocumentDB 的 Fluentd 插件。
 
 在 [GitHub](https://github.com/yokawasa/fluent-plugin-documentdb) 和 [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb) 上了解相关信息。
 
-*在 [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories) 上查找更多开放源代码 Azure Cosmos DB 项目。*
+*在 [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories) 上查找更多开放源代码 DocumentDB 项目。*
 
 ## <a name="news-blogs-and-articles"></a>新闻、博客和文章
-可以关注[我们的博客](https://azure.microsoft.com/blog/tag/documentdb/)，随时了解最新的 Azure Cosmos DB 新闻和功能。
+可以关注[我们的博客](https://azure.microsoft.com/blog/tag/documentdb/)，随时了解最新的 DocumentDB 新闻和功能。
 
 **社区贴文：**
 
@@ -218,7 +218,7 @@ fluent-plugin-documentdb 是用于输出到 Azure Cosmos DB DocumentDB API 的 F
 | Hadoop 连接器 |[azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | 数据迁移工具 |[azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) |[Microsoft 下载中心](http://www.microsoft.com/download/details.aspx?id=46436) |
 
-## <a name="azure-cosmos-db-wizards"></a>Azure Cosmos DB 向导
-Azure Cosmos DB 向导是社区领导者，他们是帮助其他人充分利用他们在 Azure Cosmos DB（下一代 Azure DocumentDB）上的经验的最佳典范。 他们和社区及 Azure Cosmos DB 团队分享了他们超乎常人的热情、实用的知识以及专业技术。
+## <a name="azure-documentdb-wizards"></a>DocumentDB 向导
+DocumentDB 向导是社区领导者，他们是帮助其他人充分利用他们在 DocumentDB（下一代 Azure DocumentDB）上的经验的最佳典范。 他们和社区及 DocumentDB 团队分享了他们超乎常人的热情、实用的知识以及专业技术。
 
 想要成为 DocumentDB 奇才？ 由于是否能成为 DocumentDB 奇才并没有任何评判基准，因此我们会针对部分条件来评估，包括被提名人对在线论坛（例如 StackOverflow 和 MSDN；Wiki 和在线内容；会议和用户组；播客；网站；博客和社交媒体；以及文章与书籍）的贡献所产生的影响。 如果想提名自己或其他人， [请向我们发送电子邮件](mailto:askdocdb@microsoft.com)。
