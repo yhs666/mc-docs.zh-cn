@@ -1292,7 +1292,7 @@ client.setGsonBuilder(
 [12]: http://azure.github.io/azure-mobile-apps-android-client/
 [13]: ./app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend
 [14]: http://go.microsoft.com/fwlink/p/?LinkID=717034
-[15]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller
+[15]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller
 [16]: ./app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [17]: https://developer.android.com/reference/java/util/UUID.html
 [18]: https://github.com/google/guava/wiki/ListenableFutureExplained

@@ -263,4 +263,16 @@ Web 应用中的此页面使用 PowerBI javascript 控件（请参阅 [PowerBI-v
 你可以通过阅读以下文章继续开始使用 IoT 套件：
 
 - [将设备连接到远程监视预配置解决方案][lnk-connect-rm]
-- [azureiotsuite.com 网站上的权限][lnk-permissions] [lnk-preconfigured-solutions]: ./iot-suite-what-are-preconfigured-solutions.md [lnk-customize]: ./iot-suite-guidance-on-customizing-preconfigured-solutions.md [lnk-iothub]: ../iot-hub/index.md [lnk-asa]: ../stream-analytics/index.md [lnk-webjobs]: ../app-service-web/websites-webjobs-resources.md [lnk-connect-rm]: ./iot-suite-connecting-devices.md [lnk-permissions]: ./iot-suite-permissions.md [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md [lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+- [azureiotsuite.com 网站上的权限][lnk-permissions] 
+
+
+[lnk-preconfigured-solutions]: ./iot-suite-what-are-preconfigured-solutions.md 
+[lnk-customize]: ./iot-suite-guidance-on-customizing-preconfigured-solutions.md 
+[lnk-iothub]: ../iot-hub/index.md 
+[lnk-asa]: ../stream-analytics/index.md 
+[lnk-webjobs]: ../app-service-web/websites-webjobs-resources.md 
+[lnk-connect-rm]: ./iot-suite-connecting-devices.md 
+[lnk-permissions]: ./iot-suite-permissions.md 
+[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md 
+[lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md 
+[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

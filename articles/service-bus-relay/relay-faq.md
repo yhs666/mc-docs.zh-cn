@@ -89,7 +89,7 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="subscription-and-namespace-management"></a>订阅和命名空间管理
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>如何将命名空间迁移到另一个 Azure 订阅中？
-你可以使用 PowerShell 命令（可在[此处](../service-bus-messaging/service-bus-powershell-how-to-provision.md)的文章中找到）将命名空间从某个 Azure 订阅移到另一个 Azure 订阅。 若要执行此操作，命名空间必须已处于活动状态。 此外，执行这些命令的用户必须是源订阅和目标订阅的管理员。
+你可以使用 PowerShell 命令（可在[此处](../service-bus-messaging/service-bus-manage-with-ps.md)的文章中找到）将命名空间从某个 Azure 订阅移到另一个 Azure 订阅。 若要执行此操作，命名空间必须已处于活动状态。 此外，执行这些命令的用户必须是源订阅和目标订阅的管理员。
 
 ## <a name="troubleshooting"></a>故障排除
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-their-suggested-actions"></a>Azure 中继 API 所生成的异常有哪些，建议采取什么操作？
@@ -100,7 +100,7 @@ ms.lasthandoff: 05/05/2017
 
 [Pricing overview]: /pricing/details/messaging/
 [Relay exceptions]: ./relay-exceptions.md
-[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas-overview.md
+[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>是否可以将中继终结点加入白名单？
 是的。 中继客户端使用完全限定的域名连接到中继服务。 这使客户能够在支持 DNS 白名单的防火墙上为 `*.servicebus.windows.net` 添加一个条目。

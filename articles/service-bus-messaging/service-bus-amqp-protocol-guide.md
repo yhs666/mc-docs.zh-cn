@@ -334,5 +334,5 @@ name 属性标识应与此令牌关联的实体。 在服务总线中，这是�
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
 [服务总线 AMQP 概述]: ./service-bus-amqp-overview.md
-[针对服务总线分区队列和主题的 AMQP 1.0 支持]: ./service-bus-partitioned-queues-and-topics-amqp-overview.md
+[针对服务总线分区队列和主题的 AMQP 1.0 支持]: ./service-bus-amqp-protocol-guide.md
 [适用于 Windows Server 的服务总线中的 AMQP]: https://msdn.microsoft.com/zh-cn/library/dn574799.aspx

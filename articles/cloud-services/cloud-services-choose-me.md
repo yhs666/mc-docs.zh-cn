@@ -30,7 +30,7 @@ Azure 云服务是适合你的选择吗？ Azure 提供了用于运行应用程�
 
 ## <a name="tell-me-about-cloud-services"></a>告诉我有关云服务的信息
 
-云服务是平台即服务 (PaaS) 的一个例子。 与[应用服务](../app-service-web/app-service-web-overview.md/)一样，这种技术旨在支持可缩放、可靠且运营价格实惠的应用程序。 云服务像应用服务一样托管在 VM 中，但用户对相关 VM 具有更高的控制权。 可在云服务 VM 上安装自己的软件，也可程接入。
+云服务是平台即服务 (PaaS) 的一个例子。 与[应用服务](../app-service-web/app-service-web-overview.md)一样，这种技术旨在支持可缩放、可靠且运营价格实惠的应用程序。 云服务像应用服务一样托管在 VM 中，但用户对相关 VM 具有更高的控制权。 可在云服务 VM 上安装自己的软件，也可程接入。
 
 ![cs_diagram](./media/cloud-services-choose-me/diagram.png) 
 
@@ -63,5 +63,5 @@ Azure 云服务是适合你的选择吗？ Azure 提供了用于运行应用程�
 ## <a name="next-steps"></a>后续步骤
 [使用 .NET 创建云服务应用](./cloud-services-dotnet-get-started.md)  
 [使用 Node.js 创建云服务应用](./cloud-services-nodejs-develop-deploy-app.md)  
-[使用 PHP 创建云服务应用](./cloud-services-php-create-web-role.md)  
+[使用 PHP 创建云服务应用](../cloud-services-php-create-web-role.md)  
 [使用 Python 创建云服务应用](./cloud-services-python-ptvs.md)
