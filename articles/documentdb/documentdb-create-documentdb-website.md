@@ -136,7 +136,7 @@ ms.lasthandoff: 05/19/2017
 祝贺你！ 你已使用 Azure Resource Manager 模板部署了 DocumentDB、应用服务 Web 应用以及示例 Web 应用程序。
 
 - 若要了解有关 DocumentDB 的详细信息，请单击[此处](./index.md)。
-- 若要了解有关 Azure 应用服务 Web 应用的详细信息，请单击[此处](../app-service-web/index.md)。
+- 若要了解有关 Azure 应用服务 Web 应用的详细信息，请单击[此处](../app-service-web/index.yml)。
 - 若要了解有关 Azure Resource Manager 模板的详细信息，请单击[此处](https://msdn.microsoft.com/library/azure/dn790549.aspx)。
 
 ## <a name="whats-changed"></a>发生的更改
