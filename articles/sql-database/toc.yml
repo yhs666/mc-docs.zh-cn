@@ -1,5 +1,5 @@
 - name: SQL DB 文档
-  href: index.yml
+  href: /sql-database/
 - name: 概述
   items:
   - name: 关于 SQL DB

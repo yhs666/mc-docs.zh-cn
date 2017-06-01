@@ -285,7 +285,7 @@ Write-Output "_applicationSecret:" $secret
 
 ## 其他资源
 
-- [SQL 数据库](./index.yml)
+- [SQL 数据库](/sql-database/)
 - [Azure 资源管理 API](https://msdn.microsoft.com/zh-cn/library/azure/dn948464.aspx)
 
 <!---HONumber=Mooncake_Quality_Review_1215_2016-->
