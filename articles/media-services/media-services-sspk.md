@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: xpouyat
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: f2ab27d22811136ec5647072a4c846a694ea9646
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

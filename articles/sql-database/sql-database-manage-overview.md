@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: carlrab
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 328aca5f9c08e2e7ebd9cd09b7a4f00c6c2ac7b7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 
@@ -26,11 +27,11 @@ ms.lasthandoff: 04/07/2017
 本主题介绍用于 Azure SQL 数据库管理和开发的工具。
 
 > [!IMPORTANT]
-> 此文档集包括快速入门、示例及操作指南，展示如何使用以下各段中介绍的工具来管理和开发 Azure SQL 数据库。 使用左侧的导航窗格和筛选器框可查找 Azure 门户预览版、PowerShell 和 T-SQL 的特定内容。
+> 此文档集包括快速入门、示例及操作指南，展示如何使用以下各段中介绍的工具来管理和开发 Azure SQL 数据库。 使用左侧的导航窗格和筛选器框可查找 Azure 门户预览、PowerShell 和 T-SQL 的特定内容。
 >
 
 ## <a name="azure-portal"></a>Azure 门户
-[Azure 门户预览版](https://portal.azure.cn)是一个基于 Web 的应用程序，可以在其中创建、更新和删除数据库及逻辑服务器并监视数据库活动。 如果刚开始使用 Azure（管理少量的数据库）或需要快速执行某些操作，该工具是理想之选。
+[Azure 门户预览](https://portal.azure.cn)是一个基于 Web 的应用程序，可以在其中创建、更新和删除数据库及逻辑服务器并监视数据库活动。 如果刚开始使用 Azure（管理少量的数据库）或需要快速执行某些操作，该工具是理想之选。
 
 ## <a name="sql-server-management-studio-and-transact-sql"></a>SQL Server Management Studio 和 Transact-SQL
 SQL Server Management Studio (SSMS) 是一种在计算机上运行的客户端工具，用于通过 Transact-SQL 管理云中的数据库。 许多数据库管理员都熟悉 SSMS（可用于 Azure SQL 数据库）。 [下载最新版本的 SSMS](https://msdn.microsoft.com/library/mt238290)，在使用 Azure SQL 数据库时始终使用该最新版本。 
@@ -51,7 +52,6 @@ SQL Server Data Tools (SSDT) 是一种在计算机上运行的客户端工具，
 ## <a name="elastic-database-tools"></a>弹性数据库工具
 使用弹性数据库工具执行如下操作： 
 
-* 使用[弹性作业](sql-database-elastic-jobs-overview.md)针对一组数据库执行 T-SQL 脚本
 * 使用[拆分-合并工具](sql-database-elastic-scale-overview-split-and-merge.md)将多租户模型数据库移至单租户模型
 * 使用[弹性扩展客户端库](sql-database-elastic-database-client-library.md)管理单租户模型或多租户模型中的数据库。
 

@@ -16,9 +16,10 @@ ms.workload: big-data
 ms.date: 02/08/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 2a173938245a052ba259fe7013e7cd4a321cd01c
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -57,7 +58,7 @@ DataFu 是适用于 Hadoop 的开放源代码库的集合。 在本文档中，�
     wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
     ```
 
-3. 接下来，将该文件上载到 HDInsight 群集的默认存储中。 这使该文件可供群集中的所有节点使用，并且该文件将保留在存储中，即使你删除并重新创建了群集，也是如此。
+3. 接下来，将该文件上传到 HDInsight 群集的默认存储中。 这使该文件可供群集中的所有节点使用，并且该文件将保留在存储中，即使你删除并重新创建了群集，也是如此。
 
     ```
     hdfs dfs -put datafu-1.2.0.jar /example/jars

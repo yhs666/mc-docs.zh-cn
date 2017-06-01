@@ -16,9 +16,10 @@ ms.workload: big-data
 ms.date: 03/22/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 3f0976db07fb259f78cf47d48cc911b89727e76d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -87,7 +88,7 @@ HDInsight Tools 可用于将 C# 或混合拓扑提交到 Storm 群集。 以下�
 
 2. 使用以下命令启动示例拓扑：
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology WordCount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
     此命令启动群集上的示例 WordCount 拓扑。 此拓扑随机生成句子，并统计句子中每个单词的出现次数。
 

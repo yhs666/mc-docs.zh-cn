@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure 门户预览版部署 Azure 资源 | Azure"
+title: "使用 Azure 门户预览部署 Azure 资源 | Azure"
 description: "使用 Azure 门户和 Azure Resource Manager 来部署资源。"
 services: azure-resource-manager,azure-portal
 documentationcenter: 
@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 12/19/2016
 wacn.date: 
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 450b3b80389760f957ec4c85b76bbd1e8f7daf68
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/22/2017
 
 本主题演示了如何将 [Azure 门户](https://portal.azure.cn)与 [Azure Resource Manager](./resource-group-overview.md) 配合使用，以部署 Azure 资源。 若要了解有关管理资源的信息，请参阅[通过门户管理 Azure 资源](./resource-group-portal.md)。
 
-目前，并非每种服务都支持门户或资源管理器。 对于这些服务，需要使用[经典门户](https://manage.windowsazure.cn)。  若要了解每种服务的状态，请参阅 [Azure 门户可用性图表](https://azure.microsoft.com/features/azure-portal/availability/)。
+目前，并非每种服务都支持门户或 Resource Manager。 对于这些服务，需要使用[经典门户](https://manage.windowsazure.cn)。  若要了解每种服务的状态，请参阅 [Azure 门户可用性图表](https://azure.microsoft.com/features/azure-portal/availability/)。
 
 ## <a name="create-resource-group"></a>创建资源组
 1. 若要创建空资源组，请依次选择“新建” > “管理” > “资源组”。

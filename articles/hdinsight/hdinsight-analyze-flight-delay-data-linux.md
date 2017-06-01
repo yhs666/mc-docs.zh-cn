@@ -17,9 +17,10 @@ ms.date: 02/07/2017
 wacn.date: 
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 5def30e8110c70f7b37b3d1d8e297e8a2217f850
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -52,9 +53,9 @@ ms.lasthandoff: 04/28/2017
 
 3. 单击“下载”。
 
-## <a name="upload-the-data"></a>上载数据
+## <a name="upload-the-data"></a>上传数据
 
-1. 使用以下命令将该 zip 文件上载到 HDInsight 群集头节点：
+1. 使用以下命令将该 zip 文件上传到 HDInsight 群集头节点：
 
     ```
     scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:
@@ -65,7 +66,7 @@ ms.lasthandoff: 04/28/2017
     > [!NOTE]
     > 如果使用密码对 SSH 登录名进行身份验证，系统将提示输入密码。 如果你使用了公钥，则可能需要使用 `-i` 参数并指定匹配私钥的路径。 例如， `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:`。
 
-2. 上载完成后，使用 SSH 连接到群集：
+2. 上传完成后，使用 SSH 连接到群集：
 
     ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn```
 
@@ -193,7 +194,7 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="create-a-sql-database"></a>创建 SQL 数据库
 
-如果已具备 SQL 数据库，则必须获取服务器名称。 可通过在 [Azure 门户预览版](https://portal.azure.cn)中选择“SQL 数据库”，然后筛选要使用的数据库名称，来找到服务器名称。 服务器名称在“SERVER”  列中列出。
+如果已具备 SQL 数据库，则必须获取服务器名称。 可通过在 [Azure 门户预览](https://portal.azure.cn)中选择“SQL 数据库”，然后筛选要使用的数据库名称，来找到服务器名称。 服务器名称在“SERVER”  列中列出。
 
 如果还没有 SQL 数据库，请使用 [SQL 数据库教程：几分钟内即可创建 SQL 数据库](../sql-database/sql-database-get-started.md)中的信息创建一个。 需要保存数据库所使用的服务器名称。
 

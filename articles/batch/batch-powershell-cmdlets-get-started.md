@@ -15,16 +15,17 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 52b863965daee70904bc16f420e49c854329f098
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>使用 PowerShell cmdlet 管理 Batch 资源
 
-通过 Azure Batch PowerShell cmdlet，可以执行许多通过 Batch API、Azure 门户预览版和 Azure 命令行接口 (CLI) 执行的任务并为它们编写脚本。 本文将简要介绍可用于管理 Batch 帐户和处理 Batch 资源（例如池、作业和任务）的 cmdlet。
+通过 Azure Batch PowerShell cmdlet，可以执行许多通过 Batch API、Azure 门户预览和 Azure 命令行接口 (CLI) 执行的任务并为它们编写脚本。 本文将简要介绍可用于管理 Batch 帐户和处理 Batch 资源（例如池、作业和任务）的 cmdlet。
 
 如需 Batch cmdlet 的完整列表和详细的 cmdlet 语法，请参阅 [Azure Batch cmdlet 参考](https://msdn.microsoft.com/library/azure/mt125957.aspx)。
 
@@ -179,7 +180,7 @@ Get-AzureBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-Azur
 ```
 
 ## <a name="application-package-management"></a>应用程序包管理
-应用程序包提供将应用程序部署到池中计算节点的简化方式。 使用 Batch PowerShell cmdlet 可以在 Batch 帐户中上载和管理应用程序包，以及将包版本部署到计算节点。
+应用程序包提供将应用程序部署到池中计算节点的简化方式。 使用 Batch PowerShell cmdlet 可以在 Batch 帐户中上传和管理应用程序包，以及将包版本部署到计算节点。
 
 **创建** 应用程序：
 

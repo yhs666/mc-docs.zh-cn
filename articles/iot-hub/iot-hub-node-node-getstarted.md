@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/16/2017
 wacn.date: 
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: ab8fc4900ae18aa96ff061b806880b75ead9e27f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -280,9 +281,9 @@ ms.lasthandoff: 04/14/2017
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-dotnet-standard-getstarted-send.md
 [lnk-devguide-identity]: ./iot-hub-devguide-identity-registry.md
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-what-is-event-hubs.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-process-d2c-tutorial]: ./iot-hub-csharp-csharp-process-d2c.md

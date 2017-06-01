@@ -17,9 +17,10 @@ ms.workload: big-data
 ms.date: 04/14/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: ff16f1e2766eaf0d733d5eac15cdacd61d1706b0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -123,7 +124,7 @@ ms.lasthandoff: 04/28/2017
 
 4. 在作业的状态更改为“SUCCEEDED”后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置；在本例中，位置为 **/example/curl**。 此地址在群集默认存储的 **example/curl** 目录中存储输出。
 
-    可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 列出并下载这些文件。 有关将 Azure CLI 与 Azure 存储配合使用的详细信息，请参阅[将 Azure CLI 2.0 与 Azure 存储配合使用](/azure/storage/storage-azure-cli#create-and-manage-blobs)文档。
+    可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 列出并下载这些文件。 有关将 Azure CLI 与 Azure 存储配合使用的详细信息，请参阅[将 Azure CLI 2.0 与 Azure 存储配合使用](/storage/storage-azure-cli#create-and-manage-blobs)文档。
 
 5. 使用以下语句创建名为 **errorLogs** 的新“内部”表：
 

@@ -15,9 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 wacn.date: 
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 2dcb34a7c86444fcc02836d9b7cd3f7a98d21e1d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -30,14 +31,14 @@ ms.lasthandoff: 04/28/2017
 
 本文介绍如何针对辅助网络接口 (NIC) 上的多个 IP 地址使用 Azure 负载均衡器。本方案包含两个运行 Windows 的 VM，每个 VM 包含主要 NIC 和辅助 NIC。 每个辅助 NIC 具有两个 IP 配置。 每个 VM 托管网站 contoso.com 和 fabrikam.com。 每个网站都绑定到辅助 NIC 的一个 IP 配置。 我们使用 Azure 负载均衡器公开两个前端 IP 地址，每个地址分别对应于一个网站，从而将流量分发到网站的各个 IP 配置。 此场景中两个前端以及两个后端池 IP 地址都使用相同的端口号。
 
-![负载平衡应用场景图像](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
+![负载均衡应用场景图像](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
 ##<a name="prerequisites"></a>先决条件
 本示例假设已有一个名为 *contosofabrikam* 的、使用以下配置的资源组：
  -  在名为 *myAvailset* 的同一个可用性集中包含名为 *myVNet* 的虚拟网络，以及名为 *VM1* 和 *VM2* 的两个 VM。 
  - 每个 VM 包含主要 NIC 和辅助 NIC。 主要 NIC 名为 *VM1NIC1* 和 *VM2NIC1*，辅助 NIC 名为 *VM1NIC2* 和 *VM2NIC2*。 有关创建具有多个 NIC 的 VM 的详细信息，请参阅[使用 PowerShell 创建具有多个 NIC 的 VM](../virtual-network/virtual-network-deploy-multinic-arm-ps.md)。
 
-## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>在多个 IP 配置上进行负载平衡的步骤
+## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>在多个 IP 配置上进行负载均衡的步骤
 
 遵循以下步骤实现本文所述的方案：
 
@@ -45,7 +46,7 @@ ms.lasthandoff: 04/28/2017
 
 对于虚拟网络中的每个 VM，请按如下所述为辅助 NIC 添加 IP 配置：  
 
-1. 从浏览器导航到 Azure 门户预览版：http://portal.azure.cn，并使用 Azure 帐户登录。
+1. 从浏览器导航到 Azure 门户预览：http://portal.azure.cn，并使用 Azure 帐户登录。
 2. 在屏幕的左上方单击“资源组”图标，然后单击 VM 所在的资源组（例如 *contosofabrikam*）。 此时将显示“资源组”边栏选项卡，其中列出了 VM 的所有资源以及网络接口。
 3. 针对每个 VM 的辅助 NIC，请按如下所述添加 IP 配置：
     1. 选择要将 IP 配置添加到的网络接口。
@@ -60,7 +61,7 @@ ms.lasthandoff: 04/28/2017
 
 按如下所述创建负载均衡器：
 
-1. 从浏览器导航到 Azure 门户预览版：http://portal.azure.cn，并使用 Azure 帐户登录。
+1. 从浏览器导航到 Azure 门户预览：http://portal.azure.cn，并使用 Azure 帐户登录。
 2. 在屏幕的左上方，单击“新建” > “网络” > “负载均衡器”。 接下来，单击“创建”。
 3. 在“创建负载均衡器”边栏选项卡中，为负载均衡器键入一个名称。 本例中使用名称 *mylb*。
 4. 在“公共 IP 地址”下，创建名为 **PublicIP1** 的新公共 IP。
@@ -123,8 +124,7 @@ ms.lasthandoff: 04/28/2017
 8. 完成负载均衡规则配置后，这两个规则（*HTTPc* 和 *HTTPf*）将显示在负载均衡器的“负载均衡规则”边栏选项卡中。
 
 ### <a name="step-7-configure-dns-records"></a>步骤 7：配置 DNS 记录
-最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 可以在 Azure DNS 中托管域。 有关将 Azure DNS 与负载均衡器配合使用的详细信息，请参阅[将 Azure DNS 与其他 Azure 服务配合使用](../dns/dns-for-azure-services.md)。
-
+最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。
 - 若要了解如何在 Azure 中使用不同类型的日志对负载均衡器进行管理和故障排除，请参阅 [Azure 负载均衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md)。

@@ -14,9 +14,10 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 wacn.date: 
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
 ms.openlocfilehash: 010ef01cf1485baa2ac176caf53592d92c59bee5
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/25/2017
 
 ---
@@ -107,7 +108,7 @@ Azure IoT 中心会实现 [服务辅助通信][lnk-service-assisted-pattern] 模
 [lnk-gateway]: ./iot-hub-protocol-gateway.md
 [lnk-field-gateway]: ./iot-hub-devguide-endpoints.md#field-gateways
 [lnk-devguide-identityregistry]: ./iot-hub-devguide-identity-registry.md
-[lnk-devguide-security]: ./iot-hub-devguide.md#security
+[lnk-devguide-security]: ./iot-hub-devguide-security.md
 [lnk-wns]: https://msdn.microsoft.com/zh-cn/library/windows/apps/mt187203.aspx
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9

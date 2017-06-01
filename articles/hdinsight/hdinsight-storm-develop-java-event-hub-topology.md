@@ -16,9 +16,10 @@ ms.workload: big-data
 ms.date: 04/03/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 2f18d8279fe0425e4f662e8133d7ab4fce3e2b81
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -127,7 +128,7 @@ HDInsight 基于 Hortonworks Data Platform。 为了确保项目与配合 HDInsi
 
 #### <a name="the-hdfsbolt-and-wasb-components"></a>HdfsBolt 和 WASB 组件
 
-HdfsBolt 一般用于将数据存储到 Hadoop 分布式文件系统 (HDFS)。 但是，HDInsight 群集使用 Azure 存储空间 (WASB) 作为默认的数据存储区，因此我们必须加载多个组件，使 HdfsBolt 识别 WASB 文件系统。
+HdfsBolt 一般用于将数据存储到 Hadoop 分布式文件系统 (HDFS)。 但是，HDInsight 群集使用 Azure 存储 (WASB) 作为默认的数据存储区，因此我们必须加载多个组件，使 HdfsBolt 识别 WASB 文件系统。
 
 ```xml
 <!--HdfsBolt stuff -->
@@ -348,7 +349,7 @@ HdfsBolt 一般用于将数据存储到 Hadoop 分布式文件系统 (HDFS)。 �
 
     此命令会将文件复制到群集上 SSH 用户的主目录。
 
-2. 上载完文件后，使用 SSH 连接到 HDInsight 群集。 将 **USERNAME** 替换为 SSH 登录名。 将 **CLUSTERNAME** 替换为 HDInsight 群集名称：
+2. 上传完文件后，使用 SSH 连接到 HDInsight 群集。 将 **USERNAME** 替换为 SSH 登录名。 将 **CLUSTERNAME** 替换为 HDInsight 群集名称：
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 

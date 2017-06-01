@@ -27,7 +27,7 @@
 > 添加数据磁盘后，需要登录到 VM 并初始化该磁盘，以便可以使用它。
 
 ## <a name="how-to-attach-an-existing-disk"></a>如何：附加现有磁盘
-附加现有磁盘需要存储帐户中具有可用的 .vhd。 可使用 [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet 将 .vhd 文件上载到存储帐户。 在创建并上载 .vhd 文件后，你可以将其附加到 VM。
+附加现有磁盘需要存储帐户中具有可用的 .vhd。 可使用 [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet 将 .vhd 文件上传到存储帐户。 在创建并上传 .vhd 文件后，你可以将其附加到 VM。
 
 1. 单击“虚拟机(经典)”，然后选择相应的虚拟机。
 
@@ -51,6 +51,6 @@
 
 7. 此时会再次显示“附加现有磁盘”面板，其位置中包含要添加到虚拟机的存储帐户、容器、所选硬盘 (vhd)。
 
-  将“主机缓存”设置为“否”或“只读”，然后单击“确定”。
+    将“主机缓存”设置为“否”或“只读”，然后单击“确定”。
 
     ![已成功附加了数据磁盘](./media/howto-attach-disk-windows-linux/exisitingdisksuccessful.png)

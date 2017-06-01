@@ -16,9 +16,10 @@ ms.custom: manage
 ms.date: 10/31/2016
 wacn.date: 
 ms.author: barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 87e4ef5db85511ff550ff4082b0e33c436626ed1
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -110,7 +111,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 $resultDatabase
 ```
 
-## <a name="check-database-state-bk"></a>检查数据库状态
+## <a name="check-database-state-bk"></a><a name="check-database-state"></a>检查数据库状态
 
 如以上示例所示，用户可以使用 [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase] cmdlet 获取数据库的信息，从而不仅可以用来检查状态，而且还可以用作参数。 
 

@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/31/2017
 wacn.date: 
 ms.author: rodend;karlku;tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 988191a7a73d89c3984a6626e176fed4c9461bb5
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -84,8 +85,10 @@ Azure 注册的三种常见模式为：
 
 <!--nameing convention not available in Azure.cn -->
 > [!TIP]
-><p> * 对资源名称使用骆驼拼写法（例如，myResourceGroup 和 vnetNetworkName）。 注意：某些资源，例如存储帐户，只允许使用小写字母（不能包括其他特殊字符）。
-><p> * 考虑使用 Azure Resource Manager 策略（下一部分将会介绍）强制实施命名标准。> 
+> * 对资源名称使用骆驼拼写法（例如，myResourceGroup 和 vnetNetworkName）。 注意：某些资源，例如存储帐户，只允许使用小写字母（不能包括其他特殊字符）。
+> * 考虑使用 Azure Resource Manager 策略（下一部分将会介绍）强制实施命名标准。
+> 
+> 
 
 ## <a name="policies-and-auditing"></a>策略和审核
 基架的第二个支柱涉及到创建 [Azure Resource Manager 策略](./resource-manager-policy.md)和[审核活动日志](./resource-group-audit.md)。 使用 Resource Manager 可以控制 Azure 中的风险。 可以定义策略，通过限制、强制实施或审核特定的操作来确保数据所有权。 
@@ -103,7 +106,7 @@ Azure 注册的三种常见模式为：
 ### <a name="common-uses-of-resource-manager-policies"></a>Resource Manager 策略的常见用途
 Azure Resource Manager 策略是 Azure 工具包中的一个强大工具。 使用这些策略可以避免意外的成本，通过标记识别资源的成本中心，以及确保满足法规要求。 将策略与内置审核功能相结合，可以创建复杂而灵活的解决方案。 策略允许公司针对“传统 IT”工作负荷和“敏捷”工作负荷（例如，开发客户应用程序）提供控制。 策略的最常见模式包括：
 
-* **地域法规遵从/数据主权** - Azure Azure 为全球各区域提供支持。 企业常常希望能够控制创建资源的位置（不管是为了确保数据主权，还是只为了确保在靠近最终使用者的位置创建资源）。
+* **地域法规遵从/数据主权** - Azure 为全球各区域提供支持。 企业常常希望能够控制创建资源的位置（不管是为了确保数据主权，还是只为了确保在靠近最终使用者的位置创建资源）。
 * **成本管理** - 一个 Azure 订阅可以包含多种类型和规模的资源。 公司总是希望标准订阅能够避免不必要地使用大型资源，否则每月需要损耗数百美元甚至更多。
 * **通过必需标记进行默认监管** - 要求使用标记，是最常见的且客户最想要的功能之一。 使用 Azure Resource Manager 策略，企业可以确保正确地标记资源。 最常见的标记包括：部门、资源所有者和环境类型（例如生产、测试、开发）
 

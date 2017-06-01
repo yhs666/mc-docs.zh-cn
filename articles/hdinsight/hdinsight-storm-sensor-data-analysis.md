@@ -16,9 +16,10 @@ ms.workload: big-data
 ms.date: 03/21/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: bdba5c33d4ca5596e33c09112a1a0b1200e87bb5
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -91,7 +92,7 @@ ms.lasthandoff: 04/28/2017
 
 > [!NOTE]
 > 这是一个简化的拓扑视图。 在运行时，每个组件的实例为每个分区创建事件中心所读取。 这些实例分布在群集中，节点和数据在它们之间路由，如下所示：
-> * 从 spout 到分析器的数据已经过负载平衡。
+> * 从 spout 到分析器的数据已经过负载均衡。
 > * 从分析器到仪表板和 HBase 的数据按设备 ID 进行分组，因此，来自同一设备的消息始终流向同一组件。
 
 ### <a name="topology-components"></a>拓扑组件
@@ -113,7 +114,7 @@ ms.lasthandoff: 04/28/2017
 
 事件中心是此示例的数据源。 按照下列步骤创建一个事件中心。
 
-1. 从 [Azure 门户预览版](https://portal.azure.cn)选择“+ 新建” -> “物联网” -> “事件中心”。
+1. 从 [Azure 门户预览](https://portal.azure.cn)选择“+ 新建” -> “物联网” -> “事件中心”。
 2. 在“创建命名空间”边栏选项卡上，执行以下任务： 
 
     1. 输入命名空间的**名称**。
@@ -257,7 +258,7 @@ ms.lasthandoff: 04/28/2017
 
 本文档使用的 Resource Manager 模板位于 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hbase-storm-cluster-in-vnet.json**.的公共 blob 容器上。
 
-1. 单击以下按钮登录到 Azure，然后在 Azure 门户预览版中打开 Resource Manager 模板。
+1. 单击以下按钮登录到 Azure，然后在 Azure 门户预览中打开 Resource Manager 模板。
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet-3.5.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 

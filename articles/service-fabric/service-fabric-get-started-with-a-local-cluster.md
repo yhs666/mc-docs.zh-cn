@@ -1,5 +1,5 @@
 ---
-title: "以本地方式部署和升级 Azure 微服务 | Microsoft 文档"
+title: "以本地方式部署和升级 Azure 微服务 | Azure"
 description: "了解如何设置本地 Service Fabric 群集，在其中部署现有的应用程序，然后升级该应用程序。"
 services: service-fabric
 documentationcenter: .net
@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 04/07/2017
 ms.author: ryanwi;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: a806c975ce07f00cc298f826d2c32188c65381f8
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
+ms.openlocfilehash: 5663987de03ee369f81eaf68b1f838ed8106468f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/05/2017
 
 
 ---

@@ -2,4 +2,4 @@
 > 
 > **查看 Azure 存储代码示例存储库**
 > 
-> 若要获取能够下载和运行且易于使用的端到端 Azure 存储代码，请查看我们提供的 [Azure 存储示例](https://docs.microsoft.com/en-us/azure/storage/storage-samples-dotnet)列表。
+> 若要获取能够下载和运行且易于使用的端到端 Azure 存储代码，请查看我们提供的 [Azure 存储示例](/storage/storage-samples-dotnet)列表。

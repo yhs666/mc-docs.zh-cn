@@ -17,9 +17,10 @@ ms.topic: article
 ms.date: 02/07/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 8a62b19f17d416d2ef8384d1cd467a0dd85185b7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -737,7 +738,7 @@ Oozie UI 对于排查 Oozie 作业问题很有帮助，因为它可让你轻松�
 在本教程中，你已经学习了如何定义 Oozie 工作流，以及如何运行 Oozie 作业。 若要了解有关使用 HDInsight 的详细信息，请参阅以下文章：
 
 * [将基于时间的 Oozie 协调器与 HDInsight 配合使用][hdinsight-oozie-coordinator-time]
-* [在 HDInsight 中上载 Hadoop 作业的数据][hdinsight-upload-data]
+* [在 HDInsight 中上传 Hadoop 作业的数据][hdinsight-upload-data]
 * [将 Sqoop 与 HDInsight 中的 Hadoop 配合使用][hdinsight-use-sqoop]
 * [将 Hive 与 HDInsight 上的 Hadoop 配合使用][hdinsight-use-hive]
 * [将 Pig 与 HDInsight 上的 Hadoop 配合使用][hdinsight-use-pig]

@@ -17,9 +17,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: dfeb0b7ec05d9b81dd866155517ec9034277cef2
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 
@@ -38,9 +39,9 @@ ms.lasthandoff: 04/07/2017
 
 ## <a name="get-connection-information"></a>获取连接信息
 
-请在 Azure 门户预览版中获取 Azure SQL 数据库服务器的完全限定服务器名称。 请使用 SQL Server Management Studio 通过完全限定的服务器名称连接到服务器。
+请在 Azure 门户预览中获取 Azure SQL 数据库服务器的完全限定服务器名称。 请使用 SQL Server Management Studio 通过完全限定的服务器名称连接到服务器。
 
-1. 登录 [Azure 门户预览版](https://portal.azure.cn/)。
+1. 登录到 [Azure 门户预览](https://portal.azure.cn/)。
 2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
 3. 在数据库的“Azure 门户”页的“概要”窗格中，找到并复制“服务器名称”。
 

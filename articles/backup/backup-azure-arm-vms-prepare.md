@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/7/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: c1909521911db88f1b5b95f36aea289f0513c8a7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -71,7 +72,7 @@ Azure 备份服务提供两种类型的保管库（备份保管库和恢复服�
 ## <a name="create-a-recovery-services-vault-for-a-vm"></a>为 VM 创建恢复服务保管库
 恢复服务保管库是用于存储在不同时间创建的备份和恢复点的实体。 恢复服务保管库还包含与受保护虚拟机关联的备份策略。
 
-Azure 门户预览版目前不支持 Azure 中国区的恢复服务。 若要创建恢复服务保管库，请执行[此处](./backup-azure-vms-automation.md#create-a-recovery-services-vault)的 PowerShell 步骤
+Azure 门户预览目前不支持 Azure 中国区的恢复服务。 若要创建恢复服务保管库，请执行[此处](./backup-azure-vms-automation.md#create-a-recovery-services-vault)的 PowerShell 步骤
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>在虚拟机中安装 VM 代理
 Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 如果 VM 创建自 Azure 资源库，则 VM 代理已存在于虚拟机上。 此处提供的信息适用于 *不是* 使用从 Azure 映像库创建的 VM 的情况（例如，从本地数据中心迁移的 VM）。 在这种情况下，需要安装 VM 代理才能保护虚拟机。 了解 [VM 代理](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md#azure-vm-agents-for-windows-and-linux)。

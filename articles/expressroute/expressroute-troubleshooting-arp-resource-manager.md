@@ -13,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
 ms.openlocfilehash: 658cef32efdda79c3d2516751bd7ada4ec6773a5
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/25/2017
 
 ---
@@ -23,7 +24,7 @@ ms.lasthandoff: 04/25/2017
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>在 Resource Manager 部署模型中获取 ARP 表
 
 > [!div class="op_single_selector"]
-[PowerShell - Resource Manager](./expressroute-troubleshooting-arp-resourcemanager.md/)
+[PowerShell - Resource Manager](./expressroute-troubleshooting-arp-resource-manager.md)
 [PowerShell - 经典](./expressroute-troubleshooting-arp-classic.md)
 
 本文将指导你完成相关步骤，以便了解 ExpressRoute 线路的 ARP 表。 

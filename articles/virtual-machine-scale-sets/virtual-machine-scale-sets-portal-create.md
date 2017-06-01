@@ -18,14 +18,15 @@ ms.date: 09/15/2016
 wacn.date: 
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 7cc2df26ff33d62b43a1f7eb73bbca93078655f4
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="how-to-create-a-virtual-machine-scale-set-with-the-azure-portal-preview"></a>如何使用 Azure 门户预览版创建虚拟机规模集
+# <a name="how-to-create-a-virtual-machine-scale-set-with-the-azure-portal-preview"></a>如何使用 Azure 门户预览创建虚拟机规模集
 本教程介绍如何使用 Azure 门户预览在数分钟内轻松创建虚拟机规模集。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="choose-the-vm-image-from-the-marketplace"></a>从应用商店中选择 VM 映像
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/06/2017
 现在可使用默认设置并快速创建规模集。
 
 * 在 `Basics` 边栏选项卡上，输入规模集的名称。 此名称将成为规模集前端负载均衡器的 FQDN 的基础，因此请确保在整个 Azure 中，此名称是唯一的。
-* 选择所需的 OS 类型，输入所需的用户名，然后选择希望使用的身份验证类型。 如果选择使用密码，密码的长度必须至少为 12 个字符，并且必须符合以下四个复杂性要求中的其中三个：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符。 了解有关[用户名和密码要求](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm)的详细信息。 如果选择 `SSH public key`，请确保仅在公钥中粘贴，而不是在私钥中：
+* 选择所需的 OS 类型，输入所需的用户名，然后选择希望使用的身份验证类型。 如果选择使用密码，密码的长度必须至少为 12 个字符，并且必须符合以下四个复杂性要求中的其中三个：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符。 了解有关[用户名和密码要求](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm)的详细信息。 如果选择 `SSH public key`，请确保仅在公钥中粘贴，而不是在私钥中：
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 

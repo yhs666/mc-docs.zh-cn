@@ -12,12 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: migrate
 ms.date: 10/31/2016
 wacn.date: 
 ms.author: jrj;barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: e0c0e7e7994d1fc8b985dc54b7bdcd9fb17a0136
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -26,7 +28,6 @@ ms.lasthandoff: 04/14/2017
 数据可以使用各种工具从不同源移动到 SQL 数据仓库中。  ADF 复制、SSIS 和 bcp 都可用来实现此目标。 但是，随着数据量的增加，你应该考虑将数据迁移过程划分成多个步骤。 这样，你便有机会优化每个步骤以提高性能和弹性，确保顺利迁移数据。
 
 本文首先讨论 SSIS 和 bcp 的简单迁移方案。 然后稍微深入讨论如何优化迁移。
-
 <!-- Azure Data Factory (ADF) Not supported in ACN-->
 
 ## <a name="integration-services"></a>Integration Services
@@ -136,7 +137,7 @@ Azure 导入和导出服务是一个数据传输进程，用于将大量 (GB++) 
 
 若要使用 AZCopy，必须先下载并安装它。 可用版本包括[生产版][production version]和[预览版][preview version]。
 
-若要从文件系统上载文件，需要执行如下所示的命令：
+若要从文件系统上传文件，需要执行如下所示的命令：
 
 ```
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /DestKey:key /Pattern:abc.txt
@@ -169,23 +170,27 @@ PolyBase 还支持名为“递归文件夹遍历”的功能。 你可以使用�
 有关更多开发技巧，请参阅 [开发概述][development overview]。
 
 <!--Image references-->
-
+<!--Azure Data Factory (ADF) Not supported in ACN-->
 <!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
-<!--Azure Data Factory (ADF) Not supported in ACN-->
-[development overview]: ./sql-data-warehouse-overview-develop.md
-[Migrate your solution to SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
-[Use bcp to load data into SQL Data Warehouse]: ./sql-data-warehouse-load-with-bcp.md
-[Use PolyBase to load data into SQL Data Warehouse]: ./sql-data-warehouse-get-started-load-with-polybase.md
+<!-- [ADF Copy]: ../data-factory/data-factory-data-movement-activities.md -->
+<!-- [ADF samples]: ../data-factory/data-factory-samples.md-->
+<!-- [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md-->
+[development overview]: sql-data-warehouse-overview-develop.md
+[Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
+[Use PolyBase to load data into SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[ExpressRoute]: /documentation/services/expressroute/
-[ExpressRoute documentation]: /documentation/services/expressroute/
+<!--Azure Data Factory (ADF) Not supported in ACN-->
+<!--[Azure Data Factory]: http://azure.microsoft.com/services/data-factory/-->
+[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
+[ExpressRoute documentation]: /azure/expressroute/
 
 [production version]: http://aka.ms/downloadazcopy/
 [preview version]: http://aka.ms/downloadazcopypr/
-[ADO.NET destination adapter]: https://msdn.microsoft.com/zh-cn/library/bb934041.aspx
-[SSIS documentation]: https://msdn.microsoft.com/zh-cn/library/ms141026.aspx
+[ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
+[SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx

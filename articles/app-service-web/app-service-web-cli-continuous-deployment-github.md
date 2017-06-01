@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 02/01/2017
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: e187eb3d0197adebc2fd95a8c1af76669ad2ffa3
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -65,7 +66,6 @@ az appservice web source-control config --name $webappname --resource-group myRe
 
 # Browse to the web app.
 az appservice web browse --name $webappname --resource-group myResourceGroup
-
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署 

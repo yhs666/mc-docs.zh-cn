@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: hero-=article
 ms.date: 04/05/2017
 ms.author: raynew
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 19fc08c275b3e60d59cedd823c18c45e442fda20
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
 ---
-# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal-preview"></a>在 Azure 门户预览版中使用 Site Recovery 将 VMM 云中的 Hyper-V 虚拟机复制到 Azure
+# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal-preview"></a>在 Azure 门户预览中使用 Site Recovery 将 VMM 云中的 Hyper-V 虚拟机复制到 Azure
 > [!div class="op_single_selector"]
-> * [Azure 门户预览版](site-recovery-vmm-to-azure.md)
+> * [Azure 门户预览](site-recovery-vmm-to-azure.md)
 > * [Azure 经典](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [PowerShell 经典](site-recovery-deploy-with-powershell.md)
 
 
-本文介绍如何在 Azure 门户预览版中使用 [Azure Site Recovery](site-recovery-overview.md) 服务将 System Center VMM 云中管理的本地 Hyper-V 虚拟机复制到 Azure。
+本文介绍如何在 Azure 门户预览中使用 [Azure Site Recovery](site-recovery-overview.md) 服务将 System Center VMM 云中管理的本地 Hyper-V 虚拟机复制到 Azure。
 
 阅读本文后，请在底部发布评论，或者发布到 [Azure 恢复服务论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)。
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 04/22/2017
 遵照本文完成以下部署步骤：
 
 
-1. [深入了解](site-recovery-components.md#hyper-v-to-azure)此部署的体系结构。 此外，[深入了解](site-recovery-hyper-v-azure-architecture.md) Hyper-V 复制在 Site Recovery 中的工作原理。
+1. [深入了解](site-recovery-components.md#hyper-v-to-azure)此部署的体系结构。
 2. 验证先决条件和限制。
 3. 设置 Azure 网络和存储帐户。
 4. 准备本地 VMM 服务器和 Hyper-V 主机。
@@ -88,7 +89,7 @@ ms.lasthandoff: 04/22/2017
 
 ### <a name="prepare-the-vmm-server"></a>准备 VMM 服务器
 * 确保 VMM 服务器符合 [先决条件](#prerequisites)。
-* 在 Site Recovery 部署期间，可指定 VMM 服务器上的所有云均可在 Azure 门户预览版中使用。 如果只希望门户中显示特定云，可在 VMM 管理控制台中启用云的该设置。
+* 在 Site Recovery 部署期间，可指定 VMM 服务器上的所有云均可在 Azure 门户预览中使用。 如果只希望门户中显示特定云，可在 VMM 管理控制台中启用云的该设置。
 
 ### <a name="prepare-for-network-mapping"></a>准备网络映射
 必须在 Site Recovery 部署期间设置网络映射。 网络映射将在源 VMM VM 网络与目标 Azure 网络之间映射，以便：
@@ -216,13 +217,13 @@ Hyper-V 主机上运行的恢复服务代理需有权通过 Internet 访问 Azur
    ![存储](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
 
 
-   * 若要使用经典模型创建存储帐户，请在 Azure 门户预览版中执行该操作。 [了解详细信息](../storage/storage-create-storage-account-classic-portal.md)
+   * 若要使用经典模型创建存储帐户，请在 Azure 门户预览中执行该操作。 [了解详细信息](../storage/storage-create-storage-account-classic-portal.md)
    * 如果使用高级存储帐户保存复制的数据，请设置其他标准存储帐户来存储复制日志，这些日志将捕获本地数据正在发生的更改。
 5. 如果尚未创建 Azure 网络并想使用 Resource Manager 创建一个，请单击“+网络”以内联方式执行该操作。  在“创建虚拟网络”边栏选项卡上，指定网络名称、地址范围、子网详细信息、订阅和位置。 该网络应位于与恢复服务保管库相同的位置。
 
    ![网络](./media/site-recovery-vmm-to-azure/gs-createnetwork.png)
 
-   若要使用经典模型创建网络，请在 Azure 门户预览版中执行该操作。 [了解详细信息](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)。
+   若要使用经典模型创建网络，请在 Azure 门户预览中执行该操作。 [了解详细信息](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)。
 
 ### <a name="configure-network-mapping"></a>配置网络映射
 
@@ -261,7 +262,7 @@ Hyper-V 主机上运行的恢复服务代理需有权通过 Internet 访问 Azur
 4. 在“恢复点保留期”中，针对每个恢复点指定保留期的时长（以小时为单位）。 受保护的计算机可以恢复到某个时段内的任意时间点。
 5. 在“应用一致性快照频率” 中，指定创建包含应用程序一致性快照的恢复点的频率（1-12 小时）。 Hyper-V 使用两种类型的快照 — 标准快照，它提供整个虚拟机的增量快照；与应用程序一致的快照，它生成虚拟机内的应用程序数据的时间点快照。 与应用程序一致的快照使用卷影复制服务 (VSS) 来确保应用程序在拍摄快照时处于一致状态。 请注意，如果你启用了与应用程序一致的快照，它将影响在源虚拟机上运行的应用程序的性能。 请确保你设置的值小于你配置的额外恢复点的数目。
 6. 在“初始复制开始时间” 中，指定开始初始复制的时间。 复制通过 Internet 带宽进行，因此你可能需要将它安排在非繁忙时间。
-7. 在“加密 Azure 上存储的数据” 中，指定是否加密 Azure 存储空间中的静态数据。 然后，单击“确定” 。
+7. 在“加密 Azure 上存储的数据” 中，指定是否加密 Azure 存储中的静态数据。 然后，单击“确定” 。
 
     ![复制策略](./media/site-recovery-vmm-to-azure/gs-replication2.png)
 8. 当创建新策略时，该策略自动与 VMM 云关联。 单击 **“确定”**。 可以在“复制”“策略名称”>“关联 VMM 云”中，将其他 VMM 云（及其中的 VM）与此复制策略相关联。
@@ -300,8 +301,8 @@ Hyper-V 主机上运行的恢复服务代理需有权通过 Internet 访问 Azur
 3. 在“目标”中，选择订阅、故障转移后的部署模型，以及用于复制数据的存储帐户。
 
     ![启用复制](./media/site-recovery-vmm-to-azure/enable-replication-target.png)
-4. 选择要使用的存储帐户。 如果要使用与现有存储帐户不同的存储帐户，可以 [创建一个](#set-up-an-azure-storage-account)。 如果要将高级存储帐户用于复制的数据，需要选择其他标准存储帐户存储复制日志，这些日志将捕获本地数据正在发生的更改。若要使用 Resource Manager 模型创建存储帐户，请单击“新建”。 若要使用经典模型创建存储帐户，请[在 Azure 门户预览版中](../storage/storage-create-storage-account-classic-portal.md)执行该操作。 。
-5. 选择 Azure VM 在故障转移后创建时所要连接的 Azure 网络和子网。 选择“立即为选定的计算机配置”，将网络设置应用到选择保护的所有计算机。 选择“稍后配置”以选择每个计算机的 Azure 网络。 如果要使用与现有不同的网络，可以[创建一个](#set-up-an-azure-network)。 若要使用 Resource Manager 模型创建网络，请单击“新建”。 若要使用经典模型创建网络，请[在 Azure 门户预览版中](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)执行该操作。 选择适用的子网。 。
+4. 选择要使用的存储帐户。 如果要使用与现有存储帐户不同的存储帐户，可以 [创建一个](#set-up-an-azure-storage-account)。 如果要将高级存储帐户用于复制的数据，需要选择其他标准存储帐户存储复制日志，这些日志将捕获本地数据正在发生的更改。若要使用 Resource Manager 模型创建存储帐户，请单击“新建”。 若要使用经典模型创建存储帐户，请[在 Azure 门户预览中](../storage/storage-create-storage-account-classic-portal.md)执行该操作。 。
+5. 选择 Azure VM 在故障转移后创建时所要连接的 Azure 网络和子网。 选择“立即为选定的计算机配置”，将网络设置应用到选择保护的所有计算机。 选择“稍后配置”以选择每个计算机的 Azure 网络。 如果要使用与现有不同的网络，可以[创建一个](#set-up-an-azure-network)。 若要使用 Resource Manager 模型创建网络，请单击“新建”。 若要使用经典模型创建网络，请[在 Azure 门户预览中](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)执行该操作。 选择适用的子网。 。
 6. 在“虚拟机” > “选择虚拟机”中，单击并选择要复制的每个计算机。 只能选择可以启用复制的计算机。 。
 
     ![启用复制](./media/site-recovery-vmm-to-azure/enable-replication5.png)
@@ -352,7 +353,7 @@ Hyper-V 主机上运行的恢复服务代理需有权通过 Internet 访问 Azur
      ![启用复制](./media/site-recovery-vmm-to-azure/test-failover4.png)
 4. 在“磁盘”中，可以看到 VM 上将要复制的操作系统和数据磁盘。
 
-## <a name="test-the-deployment"></a>测试部署
+## <a name="test-the-deployment"></a><a name="step-7-test-your-deployment"></a>测试部署
 
 为了对部署进行测试，你可以针对单个虚拟机或单个恢复计划（其中包含一个或多个虚拟机）运行测试性故障转移。
 
@@ -367,7 +368,7 @@ Hyper-V 主机上运行的恢复服务代理需有权通过 Internet 访问 Azur
 2. 若要故障转移某个恢复计划，请在“恢复计划”中，右键单击该计划 >“测试故障转移”。 若要创建恢复计划，请[遵循这些说明](site-recovery-create-recovery-plans.md)。
 3. 在“测试性故障转移”中，选择 Azure VM 在故障转移之后要连接到的 Azure 网络。
 4. 单击“确定”开始故障转移。 若要跟踪进度，可单击 VM 打开其属性，或者在“Site Recovery 作业”中选择“测试故障转移”作业。
-5. 故障转移完成后，你还应该能够看到副本 Azure 计算机显示在 Azure 门户预览版的“虚拟机”中。 应确保 VM 的大小适当、已连接到相应的网络，并且正在运行。
+5. 故障转移完成后，你还应该能够看到副本 Azure 计算机显示在 Azure 门户预览的“虚拟机”中。 应确保 VM 的大小适当、已连接到相应的网络，并且正在运行。
 6. 如果已准备好故障转移后的连接，应该能够连接到 Azure VM。
 7. 完成后，在恢复计划上单击“清理测试故障转移”。 在“**说明**”中，记录并保存与测试性故障转移相关联的任何观测结果。 这会删除测试故障转移期间创建的虚拟机。
 

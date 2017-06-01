@@ -14,9 +14,10 @@ ms.workload: integration
 ms.date: 02/24/2017
 wacn.date: 
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 1f50d7e5cf0e408cd9c6c9f2b92788c7c9ae75e8
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -44,7 +45,7 @@ ms.lasthandoff: 04/28/2017
 一般性的 Bug 修复与改进。 有关更新和功能的详细信息，请参阅最新[服务总线 NuGet](http://www.nuget.org/packages/WindowsAzure.ServiceBus/) 的发行说明。
 
 ### <a name="hdinsight-tools"></a>HDInsight 工具
-此版本做了以下更新。 这些更新目前以预览版提供。 有关详细信息，请参阅[此博客](/azure/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started)。
+此版本做了以下更新。 这些更新目前以预览版提供。 有关详细信息，请参阅[此博客](/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started)。
 
 * 为 Tez 上的 Hive 作业绘制 Hive 图形
 * 完全支持 Hive DML IntelliSense
@@ -52,10 +53,10 @@ ms.lasthandoff: 04/28/2017
 * Azure 服务的 Storm 模板
 
 #### <a name="breaking-changes"></a>重大变化
-* 使用此版本的工具时，必须先升级旧的 **Storm** 项目。 有关详细信息，请参阅[此博客](/azure/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started)。
-* 不再支持 Visual Studio Web Express。 有关详细信息，请参阅[此博客](/azure/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started)。
+* 使用此版本的工具时，必须先升级旧的 **Storm** 项目。 有关详细信息，请参阅[此博客](/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started)。
+* 不再支持 Visual Studio Web Express。 有关详细信息，请参阅[此博客](/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started)。
 
-### <a name="azure-app-service-tools"></a>Azure App Service 工具
+### <a name="azure-app-service-tools"></a>Azure 应用服务工具
 此版本对 Web 工具扩展做了以下更新。 有关详细信息，请参阅[此博客](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)。 
 
 * 添加了对 DreamSpark 帐户的支持
@@ -73,13 +74,13 @@ Azure SDK 2.7 包含适用于 Visual Studio 2015 的云资源管理器，可让�
 * Azure 资源的“资源组”和“资源类型”视图 
 * 按名称搜索资源（可在“资源类型”视图中使用）
 * 支持应用了基于角色的访问控制 (RBAC) 的订阅和资源 
-* 集成式“操作”面板，针对特定选择的资源显示以开发人员为焦点的操作。 例如：附加使用资源管理器堆栈创建的虚拟机的远程调试器、查看虚拟机的诊断数据，等等。
+* 集成式“操作”面板，针对特定选择的资源显示以开发人员为焦点的操作。 例如：附加使用 Resource Manager 堆栈创建的虚拟机的远程调试器、查看虚拟机的诊断数据，等等。
 * 集成式“属性”面板，显示以开发人员为焦点，在开发/测试期间经常需要的属性 
 * 快速切换枚举资源时要使用的帐户（使用工具栏上的“设置”命令） 
 * 筛选枚举资源时要使用的订阅（使用工具栏上的“设置”命令） 
-* Azure 门户预览版中用于管理资源与资源组的深层链接 
+* Azure 门户预览中用于管理资源与资源组的深层链接 
 
-### <a name="azure-resource-manager-tools"></a>Azure 资源管理器工具
+### <a name="azure-resource-manager-tools"></a>Azure Resource Manager 工具
 Azure Resource Manager 工具已更新为使用基于角色的访问控制 (RBAC) 和新的订阅类型。  除了经典存储之外，这些更改还附带了使用新存储帐户在部署期间存储项目的功能。  
 
 如果在 SDK 2.7 中使用旧版 SDK 中的 Azure 资源组，则需要使用新的存储帐户而不是经典存储帐户来部署新的部署脚本。  在你更改项目以添加新的脚本之前，系统会发出提示。  旧脚本将重命名，你需要手动修改新的脚本。
@@ -103,7 +104,7 @@ Azure Resource Manager 工具已更新为使用基于角色的访问控制 (RBAC
 * Storm 拓扑图（新功能）
 
     当你想要了解你的拓扑是否正常工作时，可视化十分重要。 在此版本中，我们添加了 Storm 图的可视化功能。 可以将拓扑的重要度量值可视化（例如，可以用颜色来表示某个 Bolt 是否“忙碌”）。 也可双击“Bolt/Spout”来查看更多详细信息。
-* 对 Azure 门户预览版中创建的 HDInsight 群集的支持（Bug 修复）
+* 对 Azure 门户预览中创建的 HDInsight 群集的支持（Bug 修复）
 
     现在，你可以使用 Visual Studio 来查看作业并将其提交给所有 HDInsight 群集，不管群集是在哪里创建的。
 * 更多 IntelliSense 支持，更快的 Hive 元数据加载速度（改进）
@@ -126,4 +127,4 @@ LightSwitch 项目与此版本不兼容。 下一个 SDK 版本将解决此问�
 
 [Azure SDK 2.7 通告文章](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 
-[用于 .NET 的 Azure SDK 和 API 支持与停用信息](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
+[用于 .NET 的 Azure SDK 和 API 支持与停用信息](https://msdn.microsoft.com/library/dn479282.aspx/)

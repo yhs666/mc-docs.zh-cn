@@ -18,9 +18,10 @@ ms.topic: get-started-article
 ms.date: 03/22/2017
 wacn.date: 
 ms.author: jgao
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 330b3884344c2616de752fdbf069c8e0f1f40633
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

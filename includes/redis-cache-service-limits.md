@@ -10,4 +10,4 @@
 
 有关 Azure Redis 缓存配置限制的详细信息，请参阅[默认 Redis 服务器配置](../articles/redis-cache/cache-configure.md#default-redis-server-configuration)。
 
-由于 Azure Redis 缓存实例的配置和管理是由 Microsoft 执行的，因此 Azure Redis 缓存不一定支持所有的 Redis 命令。 有关详细信息，请参阅 [Azure Redis 缓存中不支持的 Redis 命令]((redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache)。
+由于 Azure Redis 缓存实例的配置和管理是由 Microsoft 执行的，因此 Azure Redis 缓存不一定支持所有的 Redis 命令。 有关详细信息，请参阅 [Azure Redis 缓存不支持的 Redis 命令](../articles/redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache)。

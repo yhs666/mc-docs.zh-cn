@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2017
 ms.author: chackdan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 277a8a4d3472b3feff909886a513fe134e71feb6
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -187,12 +188,12 @@ Microsoft 将维护 Azure 群集中运行的结构代码和配置。 我们将�
 对于每个节点类型，可以添加要在应用程序中使用的自定义放置属性。 NodeType 是无需显式添加即可使用的默认属性。
 
 > [!NOTE]
-> 有关使用放置约束、节点属性以及如何定义它们的详细信息，请参阅 Service Fabric 群集资源管理器文档[描述群集](service-fabric-cluster-resource-manager-cluster-description.md)中的“放置约束和节点属性”部分。
+> 有关使用放置约束、节点属性以及如何定义它们的详细信息，请参阅 Service Fabric 群集 Resource Manager 文档[描述群集](service-fabric-cluster-resource-manager-cluster-description.md)中的“放置约束和节点属性”部分。
 > 
 > 
 
 ### <a name="capacity-metrics"></a>容量度量值
-对于每个节点类型，可以添加要在应用程序中用于报告负载的自定义容量度量值。 有关使用容量指标来报告负载的详细信息，请参阅 Service Fabric 群集资源管理器文档[描述群集](service-fabric-cluster-resource-manager-cluster-description.md)，以及[指标和负载](service-fabric-cluster-resource-manager-metrics.md)。
+对于每个节点类型，可以添加要在应用程序中用于报告负载的自定义容量度量值。 有关使用容量指标来报告负载的详细信息，请参阅 Service Fabric 群集 Resource Manager 文档[描述群集](service-fabric-cluster-resource-manager-cluster-description.md)，以及[指标和负载](service-fabric-cluster-resource-manager-metrics.md)。
 
 ### <a name="fabric-upgrade-settings---health-polices"></a>Fabric 升级设置 - 运行状况策略
 可为结构升级指定自定义运行状况策略。 如果已将群集设置为“自动”结构升级，这些策略将应用到自动结构升级的阶段 1。
@@ -213,7 +214,6 @@ Microsoft 将维护 Azure 群集中运行的结构代码和配置。 我们将�
 
 ## <a name="next-steps"></a>后续步骤
 * 了解如何自定义 [Service Fabric 群集结构设置](service-fabric-cluster-fabric-settings.md)的部分内容
-* 了解如何[扩展和缩减群集](service-fabric-cluster-scale-up-down.md)
 * 了解[应用程序升级](service-fabric-application-upgrade.md)
 
 <!--Image references-->

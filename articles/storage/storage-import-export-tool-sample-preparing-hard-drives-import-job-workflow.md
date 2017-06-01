@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 5fc5c2ac955ab3a6b780ce13df618700c04d9837
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -127,7 +128,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
 ```
 
-复制会话完成后，可断开两个驱动器与复制计算机的连接，然后将其寄送到相应的 Azure 数据中心。 在 Azure 门户中创建导入作业时，将上载两个日记文件：`<FirstDriveSerialNumber>.xml` 和 `<SecondDriveSerialNumber>.xml`。
+复制会话完成后，可断开两个驱动器与复制计算机的连接，然后将其寄送到相应的 Azure 数据中心。 在 Azure 门户中创建导入作业时，将上传两个日记文件：`<FirstDriveSerialNumber>.xml` 和 `<SecondDriveSerialNumber>.xml`。
 
 ## <a name="next-steps"></a>后续步骤
 

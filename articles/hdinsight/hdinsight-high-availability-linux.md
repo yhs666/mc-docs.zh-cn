@@ -17,9 +17,10 @@ ms.topic: article
 ms.date: 04/03/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 935ab3d1b8d70484c4ed3e5c99742566fddf200f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -196,7 +197,7 @@ Ambari REST API 可通过 Internet 提供，公共网关可将请求路由到当
 
 与使用 SSH 客户端一样，在连接到群集时，必须提供 SSH 用户帐户名和群集的 SSH 地址。 例如，`sftp username@mycluster-ssh.azurehdinsight.cn`。 必须在出现提示时，提供帐户密码或使用 `-i` 参数提供公钥。
 
-建立连接后，会出现 `sftp>` 提示符。 在此提示符下，可以更改目录以及上载和下载文件。 例如：以下命令将目录切换到 **/var/log/hadoop/hdfs** 目录，然后下载该目录中的所有文件。
+建立连接后，会出现 `sftp>` 提示符。 在此提示符下，可以更改目录以及上传和下载文件。 例如：以下命令将目录切换到 **/var/log/hadoop/hdfs** 目录，然后下载该目录中的所有文件。
 
     cd /var/log/hadoop/hdfs
     get *
@@ -219,9 +220,9 @@ Ambari REST API 可通过 Internet 提供，公共网关可将请求路由到当
 
 只能在创建群集期间选择节点大小。 可以在 [HDInsight 定价页](https://www.azure.cn/pricing/details/hdinsight/)中找到 HDInsight 可用的不同 VM 大小（包括核心、内存和本地存储）的列表。
 
-创建新的群集时，你可以指定节点的大小。 以下信息介绍了如何使用 [Azure 门户预览版][preview-portal]、[Azure PowerShell][azure-powershell] 和 [Azure CLI][azure-cli] 指定大小：
+创建新的群集时，你可以指定节点的大小。 以下信息介绍了如何使用 [Azure 门户预览][preview-portal]、[Azure PowerShell][azure-powershell] 和 [Azure CLI][azure-cli] 指定大小：
 
-* **Azure 门户预览版**：创建群集时，可以设置群集所用节点的大小：
+* **Azure 门户预览**：创建群集时，可以设置群集所用节点的大小：
 
     ![群集创建向导的图像，其中包含节点大小选项](./media/hdinsight-high-availability-linux/headnodesize.png)
 

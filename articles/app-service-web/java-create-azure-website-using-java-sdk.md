@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure SDK for Java 在 Azure App Service 中创建 Web 应用"
-description: "了解如何使用 Azure SDK for Java 以编程方式在Azure App Service 上创建 Web 应用。"
+title: "使用 Azure SDK for Java 在 Azure 应用服务中创建 Web 应用"
+description: "了解如何使用 Azure SDK for Java 以编程方式在Azure 应用服务上创建 Web 应用。"
 tags: azure-classic-portal
 services: app-service\web
 documentationcenter: Java
@@ -16,14 +16,15 @@ ms.topic: article
 ms.date: 02/25/2016
 wacn.date: 
 ms.author: v-donntr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 9e2d728001e94284bb9d9cde84561e719bd1a2ed
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="create-a-web-app-in-azure-app-service-using-the-azure-sdk-for-java"></a>使用 Azure SDK for Java 在 Azure App Service 中创建 Web 应用
+# <a name="create-a-web-app-in-azure-app-service-using-the-azure-sdk-for-java"></a>使用 Azure SDK for Java 在 Azure 应用服务中创建 Web 应用
 <!-- Azure Active Directory workflow is not yet available on the Azure Portal Preview -->
 
 ## <a name="overview"></a>概述
@@ -56,15 +57,15 @@ ms.lasthandoff: 04/28/2017
 ### <a name="create-a-management-certificate-for-azure"></a>创建 Azure 的管理证书
 Azure SDK for Java 使用管理证书在 Azure 订阅中进行身份验证。 对于使用服务管理 API 代表订阅所有者管理订阅资源的客户端应用程序，你可以使用这些 X.509 v3 证书来对其进行身份验证。
 
-此过程中的代码使用自签名证书在 Azure 上进行身份验证。 对于此过程，需要事先创建一个证书并将其上载到 [Azure 经典管理门户][Azure Classic Management Portal]。 这包括以下步骤：
+此过程中的代码使用自签名证书在 Azure 上进行身份验证。 对于此过程，需要事先创建一个证书并将其上传到 [Azure 经典管理门户][Azure Classic Management Portal]。 这包括以下步骤：
 
 * 生成表示客户端证书的 PFX 文件，并将其保存在本地。
 * 从 PFX 文件生成管理证书（CER 文件）。
-* 将 CER 文件上载到你的 Azure 订阅。
+* 将 CER 文件上传到你的 Azure 订阅。
 * 将 PFX 文件转换为 JKS，因为 Java 以这种格式来使用证书进行身份验证。
 * 编写引用本地 JKS 文件的应用程序身份验证代码。
 
-完成此过程后，CER 证书将驻留在 Azure 订阅中，JKS 证书将驻留在本地驱动器中。 有关管理证书的详细信息，请参阅[创建并上载 Azure 的管理证书][Create and Upload a Management Certificate for Azure]。
+完成此过程后，CER 证书将驻留在 Azure 订阅中，JKS 证书将驻留在本地驱动器中。 有关管理证书的详细信息，请参阅[创建并上传 Azure 的管理证书][Create and Upload a Management Certificate for Azure]。
 
 #### <a name="create-a-certificate"></a>创建证书
 若要创建自己的自签名证书，请在操作系统上打开一个命令控制台并运行以下命令。
@@ -95,10 +96,10 @@ Azure SDK for Java 使用管理证书在 Azure 订阅中进行身份验证。 �
 * `<password>` 是选择用于保护证书的密码；它的长度必须至少为 6 个字符。 可以不输入密码，但不建议这样做。
 * `<dname>` 是要与别名关联的 X.500 可分辨名称，它用作自签名证书中的颁发者和使用者字段。
 
-有关详细信息，请参阅[创建并上载 Azure 的管理证书][Create and Upload a Management Certificate for Azure]。
+有关详细信息，请参阅[创建并上传 Azure 的管理证书][Create and Upload a Management Certificate for Azure]。
 
-#### <a name="upload-the-certificate"></a>上载证书
-若要将自签名证书上载到 Azure，请转到经典管理门户中的“设置”页，然后单击“管理证书”选项卡。 单击页面底部的“上传”，然后导航到已创建的 CER 文件的所在位置。
+#### <a name="upload-the-certificate"></a>上传证书
+若要将自签名证书上传到 Azure，请转到经典管理门户中的“设置”页，然后单击“管理证书”选项卡。 单击页面底部的“上传”，然后导航到已创建的 CER 文件的所在位置。
 
 #### <a name="convert-the-pfx-file-into-jks"></a>将 PFX 文件转换为 JKS
 在 Windows 命令提示符下（以管理员身份运行），键入 cd 转到包含证书的目录，然后运行以下命令，其中，`<java-install-dir>` 是计算机安装 Java 的目录：
@@ -215,7 +216,7 @@ AzureWebDemo 应用程序的目的是创建应用服务 Web 应用，因此请�
 > 
 
 #### <a name="define-the-web-creation-method"></a>定义 Web 创建方法
-接下来，定义用于创建 Web 应用的方法。 此方法 `createWebApp` 指定 Web 应用的参数和 Web 空间。 它还会创建并配置应用服务 Web 应用管理客户端，该客户端由 [WebSiteManagementClient][WebSiteManagementClient] 对象进行定义。 管理客户端对于创建 Web Apps 至关重要。 它提供 RESTful web 服务，使应用程序能够通过调用服务管理 API 来管理 Web Apps（执行创建、更新和删除等操作）。
+接下来，定义用于创建 Web 应用的方法。 此方法 `createWebApp` 指定 Web 应用的参数和 Web 空间。 它还会创建并配置应用服务 Web 应用管理客户端，该客户端由 [WebSiteManagementClient][WebSiteManagementClient] 对象进行定义。 管理客户端对于创建 Web 应用至关重要。 它提供 RESTful web 服务，使应用程序能够通过调用服务管理 API 来管理 Web 应用（执行创建、更新和删除等操作）。
 
     private static void createWebApp() throws Exception {
 
@@ -306,7 +307,7 @@ AzureWebDemo 应用程序的目的是创建应用服务 Web 应用，因此请�
 
     ----------
 
-登录到 Azure 经典管理门户并单击“Web 应用”。 在数分钟内，新 Web 应用应会出现在“Web Apps”列表中。
+登录到 Azure 经典管理门户并单击“Web 应用”。 在数分钟内，新 Web 应用应会出现在“Web 应用”列表中。
 
 ## <a name="deploying-an-application-to-the-web-app"></a>将应用程序部署到 Web 应用
 运行 AzureWebDemo 并创建新 Web 应用后，请登录经典管理门户，单击“Web 应用”，然后在“Web 应用”列表中选择“WebDemoWebApp”。 在 Web 应用的仪表板页上，单击“浏览”（或单击 URL `webdemowebapp.chinacloudsites.cn`）导航到该网站。 你将会看到一个空白的占位符页，因为尚未将任何内容发布到 Web 应用。
@@ -376,7 +377,7 @@ AzureWebDemo 应用程序的目的是创建应用服务 Web 应用，因此请�
 ### <a name="deploying-the-hello-world-application-using-ftp"></a>使用 FTP 部署 Hello World 应用程序
 选择第三方 FTP 客户端来发布应用程序。 此过程将介绍两个选项：Azure 中内置的 Kudu 控制台；FileZilla，这是一个带有便捷式图形 UI 的常用工具。
 
-> **注意：** Azure Toolkit for Eclipse 支持部署到存储帐户和云服务，但当前不支持部署到 Web Apps。 可按照[在 Eclipse 中为 Azure 创建 Hello World 应用程序](/azure/azure-toolkit-for-eclipse-creating-a-hello-world-application/)中所述，使用 Azure 部署项目部署到存储帐户和云服务，但不能部署到 Web 应用。 使用其他方法（例如 FTP 或 GitHub）将文件传输到 Web 应用。
+> **注意：**用于 Eclipse 的 Azure 工具包支持部署到存储帐户和云服务，但当前不支持部署到 Web 应用。 可按照[在 Eclipse 中为 Azure 创建 Hello World 应用程序](/azure-toolkit-for-eclipse-creating-a-hello-world-application/)中所述，使用 Azure 部署项目部署到存储帐户和云服务，但不能部署到 Web 应用。 使用其他方法（例如 FTP 或 GitHub）将文件传输到 Web 应用。
 > 
 > **注意：**不建议通过 Windows 命令提示符（Windows 随附的命令行 FTP.EXE 实用工具）使用 FTP。 使用活动 FTP 的 FTP 客户端（如 FTP.EXE）通常无法通过防火墙工作。 活动 FTP 指定基于 LAN 的内部地址，FTP 服务器可能无法连接到该地址。
 > 
@@ -395,9 +396,9 @@ AzureWebDemo 应用程序的目的是创建应用服务 Web 应用，因此请�
     部署凭据与某个 Microsoft 帐户关联。 需要指定可用于使用 Git 和 FTP 进行部署的用户名和密码。 可以使用这些凭据部署到与你的 Microsoft 帐户关联的所有 Azure 订阅中的任何 Web 应用。 在对话框中提供 Git 和 FTP 部署凭据，并记下用户名和密码以供将来使用。
 
 #### <a name="get-ftp-connection-information"></a>获取 FTP 连接信息
-若要使用 FTP 将应用程序文件部署到新建的 Web 应用，你需要获取连接信息。 可通过两种方法获取连接信息。 一种方法是访问 Web 应用的“仪表板”  页；另一种方法是下载 Web 应用的发布配置文件。 发布配置文件是一个 XML 文件，它提供 Azure App Service 中 Web Apps 的 FTP 主机名和登录凭据等信息。 你可以使用此用户名和密码部署到与 Azure 帐户关联的所有订阅中的任何 Web 应用，而不仅仅是此 Web 应用。
+若要使用 FTP 将应用程序文件部署到新建的 Web 应用，你需要获取连接信息。 可通过两种方法获取连接信息。 一种方法是访问 Web 应用的“仪表板”  页；另一种方法是下载 Web 应用的发布配置文件。 发布配置文件是一个 XML 文件，它提供 Azure 应用服务中 Web 应用的 FTP 主机名和登录凭据等信息。 你可以使用此用户名和密码部署到与 Azure 帐户关联的所有订阅中的任何 Web 应用，而不仅仅是此 Web 应用。
 
-若要从 [Azure 门户预览版][Azure Portal Preview]的 Web 应用边栏选项卡中获取 FTP 连接信息：
+若要从 [Azure 门户预览][Azure Portal Preview]的 Web 应用边栏选项卡中获取 FTP 连接信息：
 
 1. 在 **Essentials** 下查找并复制**FTP 主机名**。 这是类似于 `ftp://waws-prod-bay-NNN.ftp.azurewebsites.chinacloudapi.cn` 的 URI。
 2. 在 **Essentials** 下查找并复制 **FTP/部署用户名**。 此值的形式为 *webappname\deployment-username*；例如 `WebDemoWebApp\deployer77`。
@@ -428,7 +429,7 @@ AzureWebDemo 应用程序的目的是创建应用服务 Web 应用，因此请�
 
 1. 在经典管理门户中，转到 Web 应用的“仪表板”页，然后单击“配置”。 在“配置”页上指定以下设置。
 2. 在“Java 版本”中，默认值为“关闭”；选择应用程序所针对的 Java 版本，例如 1.7.0_51。 完成此操作后，还请确保“Web 容器”已设置为 Tomcat 服务器的版本。
-3. 在“默认文档”中，添加 index.jsp 并将其上移至列表的顶部。 （Web Apps 的默认文件为 hostingstart.html。）
+3. 在“默认文档”中，添加 index.jsp 并将其上移至列表的顶部。 （Web 应用的默认文件为 hostingstart.html。）
 4. 单击“保存” 。
 
 #### <a name="publish-your-application-using-kudu"></a>使用 Kudu 发布应用程序
@@ -448,7 +449,7 @@ AzureWebDemo 应用程序的目的是创建应用服务 Web 应用，因此请�
     `mkdir webapps`
 
     `cd webapps`
-5. 将 JSPHello.war 从 `<project-path>/JSPHello/src/` 拖放到 Kudu 目录视图中的 `/site/wwwroot/webapps` 下。 请不将它拖放到“拖到此处以上载和压缩”区域，因为 Tomcat 会将其解压缩。
+5. 将 JSPHello.war 从 `<project-path>/JSPHello/src/` 拖放到 Kudu 目录视图中的 `/site/wwwroot/webapps` 下。 请不将它拖放到“拖到此处以上传和压缩”区域，因为 Tomcat 会将其解压缩。
 
     ![][8]
 
@@ -486,7 +487,7 @@ JSPHello.war 自身首先会显示在目录区域中：
 7. 将 JSPHello.war 复制到 webapps 目录后，Tomcat 服务器将自动解包（解压缩）该 WAR 文件中的文件。 尽管 Tomcat 服务器马上就会解包，但文件可能需要在很长时间（可能是几小时）之后才会出现在 FTP 客户端中。
 
 #### <a name="run-the-hello-world-application-on-the-web-app"></a>在 Web 应用上运行 Hello World 应用程序
-1. 上载 WAR 文件并确认 Tomcat 服务器已创建解包的 `JSPHello` 目录后，请浏览到 `http://webdemowebapp.chinacloudsites.cn/JSPHello` 以运行该应用程序。
+1. 上传 WAR 文件并确认 Tomcat 服务器已创建解包的 `JSPHello` 目录后，请浏览到 `http://webdemowebapp.chinacloudsites.cn/JSPHello` 以运行该应用程序。
 
     > **注意：**如果从经典管理门户单击“浏览”，则可能获得默认网页，网页显示“已成功创建此基于 Java 的 Web 应用程序。” 你可能需要刷新网页才能查看应用程序输出，而不是默认网页。
     > 
@@ -496,7 +497,7 @@ JSPHello.war 自身首先会显示在目录区域中：
     `Hello World, the time is Tue Mar 24 23:21:10 GMT 2015`
 
 #### <a name="clean-up-azure-resources"></a>清理 Azure 资源
-此过程将创建应用服务 Web 应用。 只要 Web 应用存在，你就要支付资源的费用。 除非你打算继续使用该 Web 应用进行测试或开发，否则应考虑停止或删除它。 已停止的 Web 应用仍会产生较小的费用，但你随时可以重新启动它。 删除某个 Web 应用会清除已上载到该 Web 应用的所有数据。
+此过程将创建应用服务 Web 应用。 只要 Web 应用存在，你就要支付资源的费用。 除非你打算继续使用该 Web 应用进行测试或开发，否则应考虑停止或删除它。 已停止的 Web 应用仍会产生较小的费用，但你随时可以重新启动它。 删除某个 Web 应用会清除已上传到该 Web 应用的所有数据。
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -511,9 +512,9 @@ JSPHello.war 自身首先会显示在目录区域中：
 [9]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-1.png
 [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
 
-[Azure App Service]: /azure/app-service-web/app-service-changes-existing-services
+[Azure App Service]: /app-service-web/app-service-changes-existing-services
 [Web Platform Installer]: http://go.microsoft.com/fwlink/?LinkID=252838
-[Azure Toolkit for Eclipse]: /azure/azure-toolkit-for-eclipse-installation/
+[Azure Toolkit for Eclipse]: /azure-toolkit-for-eclipse-installation/
 [Azure Classic Management Portal]: https://manage.windowsazure.cn
 [What is an Azure AD directory]: http://technet.microsoft.com/library/jj573650.aspx
 [Create and Upload a Management Certificate for Azure]: ../cloud-services/cloud-services-certs-create.md

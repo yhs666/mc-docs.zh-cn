@@ -15,9 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2017
 wacn.date: 
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 21d52b27ce4f3afd0acb7b25b0c0b07e5a5821a2
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -76,9 +77,6 @@ ms.lasthandoff: 04/22/2017
 
 ### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>可以在哪些情况下使用地理路由？ 
 只要 Azure 客户需要根据地理区域辨识其用户，即可使用地理路由类型。 例如，通过使用地理流量路由方法可为特定区域的用户提供不同于其他区域的用户体验。 又比如，根据本地数据自主性的规定，只能由同一区域的终结点为用户提供数据。
-
-### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>进行地理路由时，流量管理器支持哪些区域？ 
-可在[此处](traffic-manager-geographic-regions.md)查找流量管理器使用的国家/地区层次结构。 更改会在此页进行更新，不过，也可以通过 [Azure 流量管理器 REST API](https://docs.microsoft.com/rest/api/trafficmanager/) 以编程方式检索相同的信息。 
 
 ### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>流量管理器如何确定用户从何处进行查询？ 
 流量管理器会查看查询的源 IP（很可能是本地 DNS 解析程序在代表用户执行查询），并使用内部 IP 通过区域映射的方式确定位置。 该映射会随时更新，以反映 Internet 中的变化。 
@@ -159,7 +157,7 @@ Azure Resource Manager 要求所有资源组指定一个位置，这决定了部
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>如何确定每个终结点的当前运行状况？
 
-除了整个配置文件以外，每个终结点的当前监视状态也会显示在 Azure 门户预览版中。 此信息也可通过流量监视器 [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx)、[PowerShell cmdlet](https://msdn.microsoft.com/library/mt125941.aspx) 和[跨平台 Azure CLI](../cli-install-nodejs.md) 获取。
+除了整个配置文件以外，每个终结点的当前监视状态也会显示在 Azure 门户预览中。 此信息也可通过流量监视器 [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx)、[PowerShell cmdlet](https://msdn.microsoft.com/library/mt125941.aspx) 和[跨平台 Azure CLI](../cli-install-nodejs.md) 获取。
 
 Azure 不提供有关过去终结点运行状况的历史信息，也不提供在终结点运行状况发生变化时引发警报的功能。
 
@@ -181,7 +179,7 @@ Azure 不提供有关过去终结点运行状况的历史信息，也不提供�
 
 ### <a name="how-do-i-configure-nested-profiles"></a>如何配置嵌套式配置文件？
 
-可以使用 Azure Resource Manager、经典 Azure REST API、Azure PowerShell cmdlet 和跨平台 Azure CLI 命令配置嵌套式流量管理器配置文件。 也支持通过新 Azure 门户预览版配置这些配置文件。 不支持使用经典管理门户。
+可以使用 Azure Resource Manager、经典 Azure REST API、Azure PowerShell cmdlet 和跨平台 Azure CLI 命令配置嵌套式流量管理器配置文件。 也支持通过新 Azure 门户预览配置这些配置文件。 不支持使用经典管理门户。
 
 ### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>流量管理器支持多少层嵌套？
 

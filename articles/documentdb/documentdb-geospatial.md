@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure DocumentDB 中的地理空间数据 | Microsoft 文档"
-description: "了解如何使用 Azure DocumentDB 创建、索引和查询空间对象。"
+title: "使用 DocumentDB 中的地理空间数据 | Microsoft Docs"
+description: "了解如何使用 DocumentDB 和 DocumentDB API 创建、索引和查询空间对象。"
 services: documentdb
 documentationcenter: 
 author: arramac
@@ -12,24 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/20/2016
+ms.date: 05/08/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: b1e43f76fdcfff50f601937e956b045e7ec4e796
-ms.lasthandoff: 04/28/2017
+wacn.date: 
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 9748ac9242ce6e73ef95fc03fa25fe0fccf7f826
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="working-with-geospatial-and-geojson-location-data-in-documentdb"></a>使用 DocumentDB 中的地理空间和 GeoJSON 位置数据
-本文将介绍 [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/) 中的地理空间功能。 在阅读本文之后，你将能够回答以下问题：
+# <a name="working-with-geospatial-and-geojson-location-data-in-azure-documentdb"></a>使用 DocumentDB 中的地理空间和 GeoJSON 位置数据
+本文介绍了 [DocumentDB](https://www.azure.cn/home/features/documentdb/) 中的地理空间功能。 在阅读本文之后，你将能够回答以下问题：
 
-- 我如何在 Azure DocumentDB 中存储空间数据？
-- 我如何使用 SQL 和 LINQ 查询 Azure DocumentDB 中的地理空间数据？
-- 我如何在 DocumentDB 中启用或禁用空间索引？
+- 如何在 DocumentDB 中存储空间数据？
+- 如何使用 SQL 和 LINQ 查询 DocumentDB 中的地理空间数据？
+- 如何在DocumentDB 中启用或禁用空间索引？
 
-请参阅此 [GitHub 项目](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)中的代码示例。
+本文介绍了如何通过 DocumentDB API 使用空间数据。 请参阅此 [GitHub 项目](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)中的代码示例。
 
 ## <a name="introduction-to-spatial-data"></a>空间数据简介
 空间数据用于描述空间中对象的位置和形状。 在大部分应用程序中，这些会对应于地球上的对象，也就是地理空间数据。 空间数据可以用来表示人、名胜古迹、城市边界或湖泊所处的位置。 常见用例通常涉及邻近查询，例如“寻找我目前位置附近的所有咖啡厅”。 
@@ -40,12 +42,14 @@ DocumentDB 支持对使用 [GeoJSON 规范](https://tools.ietf.org/html/rfc7946)
 ### <a name="points-linestrings-and-polygons"></a>点、LineString 和多边形
 **点** 代表空间中的单一位置。 在地理空间数据中，某个点所代表的确切位置可能是杂货店、电话亭、汽车或城市的街道地址。  点使用其坐标对或经纬度，以 GeoJSON 格式（和 DocumentDB）表示。 以下是点的 JSON 示例。
 
-**DocumentDB 中的点**
+DocumentDB 中的点
 
-    {
-       "type":"Point",
-       "coordinates":[ 31.9, -4.8 ]
-    }
+```json
+{
+    "type":"Point",
+    "coordinates":[ 31.9, -4.8 ]
+}
+```
 
 > [!NOTE]
 > GeoJSON 规范先指定经度，再指定纬度。 与其他地图应用程序一样，经度和纬度为角度，并以度为单位表示。 经度值从本初子午线测量，并介于 -180 度和 180.0 度之间；纬度值从赤道测量，并介于 -90.0 度和 90.0 度之间。 
@@ -56,33 +60,37 @@ DocumentDB 支持对使用 [GeoJSON 规范](https://tools.ietf.org/html/rfc7946)
 
 如下面包含位置数据的用户配置文件示例所示，此数据可以嵌入 DocumentDB 文档中：
 
-**存储在 DocumentDB 中包含位置的用户配置文件**
+存储在 DocumentDB 中包含位置的用户配置文件
 
-    {
-       "id":"documentdb-profile",
-       "screen_name":"@DocumentDB",
-       "city":"Redmond",
-       "topics":[ "NoSQL", "Javascript" ],
-       "location":{
-          "type":"Point",
-          "coordinates":[ 31.9, -4.8 ]
-       }
+```json
+{
+    "id":"documentdb-profile",
+    "screen_name":"@DocumentDB",
+    "city":"Redmond",
+    "topics":[ "global", "distributed" ],
+    "location":{
+        "type":"Point",
+        "coordinates":[ 31.9, -4.8 ]
     }
+}
+```
 
 除了点之外，GeoJSON 也支持 LineString 和多边形。 **LineString** 表示空间中一连串的点（两个或更多个）以及连接这些点的线段。 在地理空间数据中，LineString 通常用来表示高速公路或河流。 **多边形** 是形成闭合的 LineString 的相连接的点的边界。 多边形通常用来表示自然构成物（例如湖泊），或表示政治管辖权（例如省/市/自治区）。 以下是 DocumentDB 中多边形的示例。 
 
-**DocumentDB 中的多边形**
+GeoJSON 中的多边形
 
-    {
-       "type":"Polygon",
-       "coordinates":[
-           [ 31.8, -5 ],
-           [ 31.8, -4.7 ],
-           [ 32, -4.7 ],
-           [ 32, -5 ],
-           [ 31.8, -5 ]
-       ]
-    }
+```json
+{
+    "type":"Polygon",
+    "coordinates":[
+        [ 31.8, -5 ],
+        [ 31.8, -4.7 ],
+        [ 32, -4.7 ],
+        [ 32, -5 ],
+        [ 31.8, -5 ]
+    ]
+}
+```
 
 > [!NOTE]
 > GeoJSON 规范需要此数据才能形成有效的多边形；若要创建一个闭合的形状，最后一个坐标对应该与第一个坐标对相同。
@@ -103,47 +111,51 @@ DocumentDB 支持对使用 [GeoJSON 规范](https://tools.ietf.org/html/rfc7946)
 
 **在 Node.js 中创建包含地理空间数据的文档**
 
-    var userProfileDocument = {
-       "name":"documentdb",
-       "location":{
-          "type":"Point",
-          "coordinates":[ -122.12, 47.66 ]
-       }
-    };
+```json
+var userProfileDocument = {
+    "name":"documentdb",
+    "location":{
+        "type":"Point",
+        "coordinates":[ -122.12, 47.66 ]
+    }
+};
 
-    client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfileDocument, (err, created) => {
-        // additional code within the callback
-    });
+client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfileDocument, (err, created) => {
+    // additional code within the callback
+});
+```
 
-如果使用 .NET（或 Java）SDK，则可以在 Microsoft.Azure.Documents.Spatial 命名空间中使用新的点和多边形类，将位置信息嵌入应用程序对象中。 这些类有助于简化将空间数据序列化和反序列化为 GeoJSON 的过程。
+如果使用 DocumentDB API，则可以在 `Microsoft.Azure.Documents.Spatial` 命名空间中使用 `Point` 和 `Polygon` 类，将位置信息嵌入应用程序对象中。 这些类有助于简化将空间数据序列化和反序列化为 GeoJSON 的过程。
 
 **在 .NET 中创建包含地理空间数据的文档**
 
-    using Microsoft.Azure.Documents.Spatial;
+```json
+using Microsoft.Azure.Documents.Spatial;
 
-    public class UserProfile
-    {
-        [JsonProperty("name")]
-        public string Name { get; set; }
+public class UserProfile
+{
+    [JsonProperty("name")]
+    public string Name { get; set; }
 
-        [JsonProperty("location")]
-        public Point Location { get; set; }
+    [JsonProperty("location")]
+    public Point Location { get; set; }
 
-        // More properties
-    }
+    // More properties
+}
 
-    await client.CreateDocumentAsync(
-        UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
-        new UserProfile 
-        { 
-            Name = "documentdb", 
-            Location = new Point (-122.12, 47.66) 
-        });
+await client.CreateDocumentAsync(
+    UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
+    new UserProfile 
+    { 
+        Name = "documentdb", 
+        Location = new Point (-122.12, 47.66) 
+    });
+```
 
 如果你没有经纬度信息，但有物理地址或位置名称，如城市或国家/地区，则可以使用必应地图 REST 服务等地理编码服务来查找实际的坐标。 在[此处](https://msdn.microsoft.com/library/ff701713.aspx)详细了解必应地图地理编码。
 
 ## <a name="querying-spatial-types"></a>查询空间类型
-我们已经探讨过如何插入地理空间数据，现在就来看看如何通过 SQL 和 LINQ 使用 DocumentDB 查询此数据。
+探讨过如何插入地理空间数据之后，现在来看看如何通过 SQL 和 LINQ 使用 DocumentDB 查询此数据。
 
 ### <a name="spatial-sql-built-in-functions"></a>空间 SQL 内置函数
 DocumentDB 支持以下用于查询地理空间的开放地理空间信息联盟 (OGC) 内置函数。 有关 SQL 语言中的整套内置函数的更多详细信息，请参阅[查询 DocumentDB](documentdb-sql-query.md)。
@@ -299,17 +311,17 @@ DocumentDB .NET SDK 还提供存根方法 `Distance()` 和 `Within()`，供用�
     }
 
 
-我们已经探讨过如何使用 LINQ 和 SQL 查询文档，现在我们来看一下如何针对空间索引配置 DocumentDB。
+探讨过如何使用 LINQ 和 SQL 查询文档之后，现在来看看如何针对空间索引配置 DocumentDB。
 
 ## <a name="indexing"></a>索引
-如[使用 Azure DocumentDB 进行架构不可知的索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)一文中所述，我们设计的 DocumentDB 数据库引擎具有真正不可知的架构，并提供一流的 JSON 支持。 DocumentDB 的写入优化数据库引擎可以通过本机方式了解用 GeoJSON 标准表示的空间数据（点、多边形和线）。
+如[使用 DocumentDB 进行架构不可知的索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)一文中所述，DocumentDB 数据库引擎具有真正不可知的架构，并提供一流的 JSON 支持。 DocumentDB 的写入优化数据库引擎可以通过本机方式了解用 GeoJSON 标准表示的空间数据（点、多边形和线）。
 
 简单来说，测地坐标的几何图形会投影在 2D 平面上，然后使用**四叉树**以渐进方式划分成单元格。 这些单元格会根据 **Hilbert 空间填充曲线**内的单元格位置映射到 1D，并保留点的位置。 此外，当位置数据进行索引编制后，会经历称为 **分割**的过程，也就是说，在某个位置上相交的所有单元格都会被识别为键并存储在 DocumentDB 索引中。 在查询时，点和多边形等参数也会经过分割，以提取相关的格子 ID 范围，然后用于从索引检索数据。
 
 如果指定的索引策略包含 /*（所有路径）的空间索引，则表示在集合中找到的所有点均已编制索引，能进行有效的空间查询（ST_WITHIN 和 ST_DISTANCE）。 空间索引没有精度值，并且始终使用默认的精度值。
 
 > [!NOTE]
-> DocumentDB 支持点、多边形和 LineString 的自动索引。
+> DocumentDB 支持点、多边形和 LineString 的自动索引
 > 
 > 
 
@@ -383,7 +395,7 @@ DocumentDB .NET SDK 还提供存根方法 `Distance()` 和 `Within()`，供用�
 > 
 
 ## <a name="next-steps"></a>后续步骤
-你已经学会如何开始使用 DocumentDB 中的地理空间支持，现在可以：
+学会如何开始使用 DocumentDB 中的地理空间支持之后，现在可以：
 
 - 使用 [GitHub 上的地理空间 .NET 代码示例](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)开始编写代码
 - 在 [DocumentDB 查询板块](http://www.documentdb.com/sql/demo#geospatial)中实际操作地理空间查询

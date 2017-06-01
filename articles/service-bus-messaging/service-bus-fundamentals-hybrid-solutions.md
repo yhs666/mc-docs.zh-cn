@@ -14,9 +14,10 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: sethm
 wacn.date: 
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: c268fc4ed2feb10af4444709366e41e439f954f5
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -113,7 +114,6 @@ ms.lasthandoff: 04/07/2017
 
 - 如何使用 [Service Bus 队列](./service-bus-dotnet-get-started-with-queues.md)。
 - 如何使用[服务总线主题](./service-bus-dotnet-how-to-use-topics-subscriptions.md)。
-- 如何使用[服务总线中继](./service-bus-dotnet-how-to-use-relay.md/)。
 - [服务总线示例](./service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png

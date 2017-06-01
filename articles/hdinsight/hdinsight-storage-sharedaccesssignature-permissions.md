@@ -16,9 +16,10 @@ ms.workload: big-data
 ms.date: 02/28/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 9315607cb8ee38272fabd3cb6d08f618bfe493d0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -79,7 +80,7 @@ HDInsight 使用 Azure 存储 Blob 存储数据。 HDInsight 必须对用作群�
     * StorageConnectionString：想要为其创建存储策略和 SAS 的存储帐户的连接字符串。 其格式应为 `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`，其中 `myaccount` 是存储帐户名称，`mykey` 是存储帐户密钥。
     * ContainerName：想要限制访问的存储帐户中的容器。
     * SASPolicyName：要创建的存储策略所用的名称。
-    * FileToUpload：上载到容器的文件的路径。
+    * FileToUpload：上传到容器的文件的路径。
 4. 运行该项目。 将显示控制台窗口，并且在生成 SAS 之后，将显示类似于以下文本的信息：
 
         Container SAS token using stored access policy: sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
@@ -93,7 +94,7 @@ HDInsight 使用 Azure 存储 Blob 存储数据。 HDInsight 必须对用作群�
     * storage\_account\_name：存储帐户的名称。
     * storage\_account\_key：存储帐户的密钥。
     * storage\_container\_name：想要限制访问的存储帐户中的容器。
-    * example\_file\_path：上载到容器的文件的路径
+    * example\_file\_path：上传到容器的文件的路径
 2. 运行该脚本。 脚本完成后，将显示如以下文本所示的 SAS 令牌：
 
         sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
@@ -157,8 +158,8 @@ HDInsight 使用 Azure 存储 Blob 存储数据。 HDInsight 必须对用作群�
     > * 必须至少包含一个数字
     > * 必须至少包含一个非字母数字字符
     > * 必须至少包含一个大写或小写字母
-    > 
-    > 
+    >
+    >
 
 需要等待一段时间让此脚本完成，通常大约是 15 分钟。 如果脚本完成且没有发生任何错误，则群集创建完毕。
 
@@ -181,8 +182,8 @@ HDInsight 使用 Azure 存储 Blob 存储数据。 HDInsight 必须对用作群�
 
     > [!IMPORTANT]
     > 必须重启几个服务才能使更改生效。
-    > 
-    > 
+    >
+    >
 6. 在 Ambari Web UI 中，从左侧的列表中选择“HDFS”，然后从右侧的“服务操作”下拉列表选择“全部重启”。 出现提示时，选择“打开维护模式”，然后选择“确认全部重启”。
 
     对 MapReduce2 和 YARN 重复此过程。
@@ -214,7 +215,7 @@ HDInsight 使用 Azure 存储 Blob 存储数据。 HDInsight 必须对用作群�
         hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.chinacloudapi.cn/FILENAME testfile.txt
 
     此命令会将该文件下载到名为 **testfile.txt**的本地文件中。
-4. 使用以下命令将本地文件上载到 SAS 存储上名为 **testupload.txt** 的新文件中：
+4. 使用以下命令将本地文件上传到 SAS 存储上名为 **testupload.txt** 的新文件中：
 
         hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.chinacloudapi.cn/testupload.txt
 

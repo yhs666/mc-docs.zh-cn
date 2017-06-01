@@ -15,9 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 02/07/2017
 ms.author: sashan;carlrab
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: c1e68022f2f20c13770e91f1ef0c503bdb88c879
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 
@@ -31,7 +32,7 @@ SQL 数据库的最新版本为 V12。 版本 V11 已停用。
 我们保证至少在 99.99% 的时间内客户将能够在其单个或弹性“基本”、“标准”或“高级”版 Azure SQL 数据库与我们的 Internet 网关之间保持连接。 有关详细信息，请参阅 [SLA](https://www.azure.cn/support/legal/sla/)。
 
 ## <a name="how-do-i-reset-the-password-for-the-server-admin"></a>如何重置服务器管理员的密码？
-在 [Azure 门户预览版](https://portal.azure.cn)中，单击“SQL Server”，从列表中选择服务器，然后单击“重置密码”。
+在 [Azure 门户预览](https://portal.azure.cn)中，单击“SQL Server”，从列表中选择服务器，然后单击“重置密码”。
 
 ## <a name="how-do-i-manage-databases-and-logins"></a>如何管理数据库和登录名？
 请参阅[管理数据库和登录名](sql-database-manage-logins.md)。
@@ -77,7 +78,7 @@ SQL 数据库以可预测的每小时费率收费，同时根据服务层 + 单�
 与单一数据库不同的是，对弹性数据库使用[活动异地复制](sql-database-geo-replication-overview.md)对计费没有直接的影响。  你只需支付对每个池（主池和辅助池）预配的 eDTU 费用
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>使用审核功能会对帐单产生什么影响？
-审核功能是 SQL 数据库服务的内置功能，无需另行付费，基本、标准和高级数据库均提供此功能。 但是，为了存储审核日志，审核功能将使用 Azure 存储帐户，而 Azure 存储空间中表和队列的费率根据审核日志的大小来应用。
+审核功能是 SQL 数据库服务的内置功能，无需另行付费，基本、标准和高级数据库均提供此功能。 但是，为了存储审核日志，审核功能将使用 Azure 存储帐户，而 Azure 存储中表和队列的费率根据审核日志的大小来应用。
 
 ## <a name="how-do-i-find-the-right-service-tier-and-performance-level-for-single-databases-and-elastic-pools"></a>如何找到单一数据库和弹性池的合适服务层和性能级别？
 有几种工具可供使用。 
@@ -120,8 +121,8 @@ Azure SQL Web 和企业数据库现已停用。 基本、标准、高级和弹�
 我们通过 DMV 显示主数据库与地域辅助数据库之间的实时复制延迟。 有关详细信息，请参阅 [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx)。
 
 ## <a name="to-move-a-database-to-a-different-server-in-the-same-subscription"></a>将数据库移到同一订阅中的不同服务器
-* 在 [Azure 门户预览版](https://portal.azure.cn)中，单击“SQL 数据库”，从列表中选择数据库，然后单击“复制”。 有关详细信息，请参阅[复制 Azure SQL 数据库](sql-database-copy.md)。
+* 在 [Azure 门户预览](https://portal.azure.cn)中，单击“SQL 数据库”，从列表中选择数据库，然后单击“复制”。 有关详细信息，请参阅[复制 Azure SQL 数据库](sql-database-copy.md)。
 
 ## <a name="to-move-a-database-between-subscriptions"></a>在订阅之间移动数据库
-* 在 [Azure 门户预览版](https://portal.azure.cn)中，单击“SQL Server”，然后从列表中选择托管数据库的服务器。 单击“**移动**”，然后选择要移动的资源以及要移动到其中的订阅。
+* 在 [Azure 门户预览](https://portal.azure.cn)中，单击“SQL Server”，然后从列表中选择托管数据库的服务器。 单击“**移动**”，然后选择要移动的资源以及要移动到其中的订阅。
 

@@ -17,9 +17,10 @@ ms.topic: get-started-article
 ms.date: 04/03/2017
 wacn.date: 
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 43f119e41e9aa4e8e82f6f78d32ca75ec06c5f96
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -48,7 +49,6 @@ Azure HDInsight 提供完全托管的 Spark 服务。 在 HDInsight 上使用 Sp
 | 易于使用 |HDInsight 群集中的 Spark 包含预先配置的 Jupyter 笔记本。 你可以使用这些笔记本执行交互式数据处理和可视化。 Jupyter 笔记本的 URL 为 https://CLUSTERNAME.azurehdinsight.cn/jupyter。 将 **CLUSTERNAME** 替换为 Spark HDInsight 群集的名称。 |
 | REST API |HDInsight 中的 Spark 包含 [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)，它是基于 REST-API 的 Spark 作业服务器，用于远程提交和监视正在运行的作业。 |
 | 与 Azure 服务集成 |HDInsight 上的 Spark 随附了 Azure 事件中心的连接器。 除了 Spark 提供的 [Kafka](http://kafka.apache.org/)之外，客户还可以使用事件中心来生成流式处理应用程序。 |
-| 支持 R Server |可以在 HDInsight Spark 群集上设置 R Server，以 Spark 群集承诺的速度运行分布式 R 计算。 有关详细信息，请参阅 [开始使用 HDInsight 上的 R Server](hdinsight-hadoop-r-server-get-started.md)。 |
 | 并发查询 |HDInsight 中的 Spark 支持并发查询。 它允许一个用户运行多个查询，或者不同的用户运行多个查询，以及让应用程序共享相同的群集资源。 |
 | SSD 缓存 |你可以选择将数据缓存在内存中，或缓存在已附加到群集节点的 SSD 中。 内存缓存提供最佳的查询性能，但可能费用不菲；SSD 缓存是改善查询性能的绝佳选项，而且你不需要根据内存中的整个数据集创建满足其需求的群集规模。 |
 | 与 BI 工具集成 |HDInsight 的 Spark 提供 BI 工具（如 [Power BI](http://www.powerbi.com/) 和 [Tableau](http://www.tableau.com/products/desktop)）的连接器用于数据分析。 |
@@ -62,7 +62,7 @@ HDInsight 中的 Apache Spark 适用于以下主要方案。
 ### <a name="interactive-data-analysis-and-bi"></a>交互式数据分析和 BI
 [观看教程](hdinsight-apache-spark-use-bi-tools.md)
 
-HDInsight 中的 Apache Spark 将数据存储在 Azure Blob 内。 商务专家和重要决策者可以利用这些数据来进行分析和创建报告，并使用 Microsoft Power BI 来根据分析数据生成交互式报告。 分析师可以从 Azure 存储空间内的非结构化/半结构化数据着手、使用笔记本来定义数据的架构，然后使用 Microsoft Power BI 生成数据模型。 HDInsight 中的 Spark 还支持 Tableau、Qlikview 和 SAP Lumira 等多种第三方 BI 工具，因此能成为数据分析师、商务专家和重要决策者的理想平台。
+HDInsight 中的 Apache Spark 将数据存储在 Azure Blob 内。 商务专家和重要决策者可以利用这些数据来进行分析和创建报告，并使用 Microsoft Power BI 来根据分析数据生成交互式报告。 分析师可以从 Azure 存储内的非结构化/半结构化数据着手、使用笔记本来定义数据的架构，然后使用 Microsoft Power BI 生成数据模型。 HDInsight 中的 Spark 还支持 Tableau、Qlikview 和 SAP Lumira 等多种第三方 BI 工具，因此能成为数据分析师、商务专家和重要决策者的理想平台。
 
 ### <a name="iterative-machine-learning"></a>迭代机器学习
 [查看教程：使用 HVAC 数据预测建筑物温度](hdinsight-apache-spark-ipython-notebook-machine-learning.md)

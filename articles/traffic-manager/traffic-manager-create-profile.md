@@ -15,9 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2017
 wacn.date: 
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 6e5b44b63b328d3e1e83cc7af8052030e957d5f3
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -26,10 +27,10 @@ ms.lasthandoff: 04/22/2017
 
 本文介绍如何创建“优先级”路由类型的配置文件以将用户路由到两个 Azure Web 应用终结点。 通过使用“优先级”路由类型，所有流量将路由到第一个终结点，而第二个终结点将保留为备份。 因此，如果第一个终结点处于不正常状态，则可以将用户路由到第二个终结点。
 
-在本文中，两个以前创建的 Azure Web 应用终结点将关联到这个新创建的流量管理器配置文件。 若要详细了解如何创建 Azure Web 应用终结点，请访问[“Azure Web 应用文档”页](/azure/app-service-web/)。 可以添加任何具有 DNS 名称且可通过公共 Internet 访问的终结点，例如，我们将使用 Azure Web 应用终结点。
+在本文中，两个以前创建的 Azure Web 应用终结点将关联到这个新创建的流量管理器配置文件。 若要详细了解如何创建 Azure Web 应用终结点，请访问[“Azure Web 应用文档”页](/app-service-web/)。 可以添加任何具有 DNS 名称且可通过公共 Internet 访问的终结点，例如，我们将使用 Azure Web 应用终结点。
 
 ### <a name="create-a-traffic-manager-profile"></a>创建流量管理器配置文件
-1. 在浏览器中，登录 [Azure 门户预览版](http://portal.azure.cn)。 如果还没有帐户，可注册 [1 个月期限的免费试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
+1. 在浏览器中，登录 [Azure 门户预览](http://portal.azure.cn)。 如果还没有帐户，可注册 [1 个月期限的免费试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
 2. 在“中心”菜单上，单击“新建” > “网络” > “全部查看”，单击“流量管理器配置文件”，打开“创建流量管理器配置文件”边栏选项卡，然后单击“创建”。
 3. 在“创建流量管理器配置文件”边栏选项卡上，按如下所示完成输入：
     1. 在**名称**中，提供配置文件的名称。 此名称必须在 trafficmanager.cn 区域中唯一，并将生成 DNS 名称 (<name>,trafficmanager.cn)，该名称用于访问流量管理器配置文件。

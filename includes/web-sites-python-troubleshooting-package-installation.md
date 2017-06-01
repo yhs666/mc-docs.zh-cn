@@ -1,4 +1,4 @@
-在 Azure 上运行时，有些软件包可能无法使用 pip 进行安装。  可能只是该软件包在 Python 软件包索引中不可用。  可能需要一个编译器（在运行 Azure App Service 中的 Web 应用的计算机上未提供编译器）。
+在 Azure 上运行时，有些软件包可能无法使用 pip 进行安装。  可能只是该软件包在 Python 软件包索引中不可用。  可能需要一个编译器（在运行 Azure 应用服务中的 Web 应用的计算机上未提供编译器）。
 
 在此部分中，我们将考察解决此问题的方法。
 
@@ -8,7 +8,7 @@
 现在使用最新提供的 [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7]，就可以更轻松地构建具有针对 Python 2.7 的本机代码的软件包。
 
 ### <a name="build-wheels-requires-windows"></a>构建轮（需要 Windows）
-注意：使用此选项时，确保使用匹配 Azure App Service 中 Web 应用上所用的平台/体系结构/版本（Windows/32 位/2.7 或 3.4）的 Python 环境编译此软件包。
+注意：使用此选项时，确保使用匹配 Azure 应用服务中 Web 应用上所用的平台/体系结构/版本（Windows/32 位/2.7 或 3.4）的 Python 环境编译此软件包。
 
 如果软件包由于需要编译器而未安装，您可以在本地计算机上安装编译器，然后为软件包构建轮，随后将轮包含在您的存储库中。
 
@@ -51,7 +51,7 @@ Mac/Linux 用户：如果没有 Windows 计算机的访问权限，请参阅[创
     env\scripts\easy_install "%DEPLOYMENT_SOURCE%\installers\somepackage.exe"
 
 ### <a name="include-the-virtual-environment-in-the-repository-requires-windows"></a>将虚拟环境包含在存储库中（需要 Windows）
-注意：使用此选项时，确保使用匹配 Azure App Service 中 Web 应用上所用的平台/体系结构/版本（Windows/32 位/2.7 或 3.4）的虚拟环境。
+注意：使用此选项时，确保使用匹配 Azure 应用服务中 Web 应用上所用的平台/体系结构/版本（Windows/32 位/2.7 或 3.4）的虚拟环境。
 
 如果存储库中包含虚拟环境，您可以通过创建一个空文件来防止部署脚本在 Azure 上执行虚拟环境管理：
 
@@ -59,6 +59,6 @@ Mac/Linux 用户：如果没有 Windows 计算机的访问权限，请参阅[创
 
 建议删除应用上的现有虚拟环境，防止在自动管理虚拟环境时出现剩余文件。
 
-[Create a Virtual Machine Running Windows]: /azure/virtual-machines-windows-hero-tutorial/
+[Create a Virtual Machine Running Windows]: /virtual-machines/virtual-machines-windows-hero-tutorial/
 [Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949

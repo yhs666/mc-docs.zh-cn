@@ -9,9 +9,10 @@ ms.date: 04/04/2017
 wacn.date: 
 ms.topic: article
 ms.service: app-service-web
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 6c7e705921d5fab427722f5fbf912251c034e7cb
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -74,7 +75,7 @@ ms.lasthandoff: 04/22/2017
 - “应用”指标提供有关 http 请求数/失败数和平均响应时间的信息。
 - “应用服务计划”指标提供有关资源利用率的信息。
 
-在 Azure 门户预览版中，可以使用 **Azure Monitor** 快速直观地检查应用的指标，
+在 Azure 门户预览中，可以使用 **Azure Monitor** 快速直观地检查应用的指标，
 
 - 转到想要监视的应用的“概述”边栏选项卡即可。
 
@@ -92,9 +93,7 @@ ms.lasthandoff: 04/22/2017
 > [!TIP]
 > 使用以下链接了解有关 Azure Monitor 的详细信息：
 > - [Azure Monitor 入门](..\monitoring-and-diagnostics\monitoring-overview.md)
-> - [Azure 指标](..\monitoring-and-diagnostics\monitoring-overview-metrics.md)
-> - [Azure Monitor 支持的指标](..\monitoring-and-diagnostics\monitoring-supported-metrics.md#microsoftwebsites-including-functions)
-> - [Azure 门户预览版仪表板](..\azure-portal\azure-portal-dashboards.md)
+> - [Azure 门户预览仪表板](..\azure-portal\azure-portal-dashboards.md)
 
 ## <a name="alerts"></a> 步骤 3 - 配置警报
 
@@ -112,7 +111,6 @@ ms.lasthandoff: 04/22/2017
 
 > [!TIP]
 > 使用以下链接了解有关 Azure 警报的详细信息：
-> - [Azure 中的警报是什么？](..\monitoring-and-diagnostics\monitoring-overview-alerts.md)
 > - [对指标执行操作](..\monitoring-and-diagnostics\monitoring-overview.md)
 
 ## <a name="logging"></a> 步骤 4 - 日志记录

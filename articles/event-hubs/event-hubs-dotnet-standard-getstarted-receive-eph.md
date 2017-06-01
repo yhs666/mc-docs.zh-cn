@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/27/2017
 wacn.date: 
 ms.author: jotaub;sethm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 84789249255d64b1341c688390314ec2e7f5eea8
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -65,6 +66,7 @@ ms.lasthandoff: 04/28/2017
 ## <a name="add-the-event-hubs-nuget-package"></a>添加事件中心 NuGet 包
 
 将以下 NuGet 包添加到项目：
+
 * [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)
 * [`Microsoft.Azure.EventHubs.Processor`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/)
 

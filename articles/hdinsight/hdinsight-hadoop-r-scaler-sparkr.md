@@ -17,9 +17,10 @@ ms.topic: article
 ms.date: 04/04/2017
 wacn.date: 
 ms.author: jeffstok
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: a060146bc86b8b49ef5050c5e59c0b419931e8d1
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -543,8 +544,6 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 - 有关使用 Spark 上的 R Server 的详细信息，请参阅 [MSDN 上的入门指南](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
 - 有关 R Server 的一般信息，请参阅 [Get started with R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node)（R 入门）一文。
-
-- 其他有用的文章包括 [R Server on Azure HDInsight](hdinsight-hadoop-r-server-get-started.md)（Azure HDInsight 上的 R Server）和 [R Server on Azure HDInsight overview](hdinsight-hadoop-r-server-overview.md)（Azure HDInsight 上的 R Server 概述）。
 
 有关 SparkR 用法的详细信息，请参阅以下资源：
 

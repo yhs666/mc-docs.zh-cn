@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 03/30/2017
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 379165b13b1fb6c276a10c317e4bf3bfb31aeba3
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -69,7 +70,7 @@ npm start
 
 ## <a name="step-2---create-a-mongodb-database"></a>步骤 2 - 创建 MongoDB 数据库
 
-在此步骤中，你要将应用程序连接到 MongoDB 数据库。 对于 MongoDB，本教程使用支持 MongoDB 客户端连接的 [Azure DocumentDB](/azure/documentdb/)。 换而言之，Node.js 应用程序只知道它要连接到 MongoDB 数据库。 连接由 DocumentDB 数据库支持的事实对于应用程序是完全透明的。
+在此步骤中，你要将应用程序连接到 MongoDB 数据库。 对于 MongoDB，本教程使用支持 MongoDB 客户端连接的 [Azure DocumentDB](/documentdb/)。 换而言之，Node.js 应用程序只知道它要连接到 MongoDB 数据库。 连接由 DocumentDB 数据库支持的事实对于应用程序是完全透明的。
 
 ### <a name="log-in-to-azure"></a>登录 Azure
 

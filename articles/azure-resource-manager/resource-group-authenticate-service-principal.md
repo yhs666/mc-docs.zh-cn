@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 04/03/2017
 wacn.date: 
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 2834562924880ca9cf3fab9335b9511a06541ad6
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -42,68 +43,68 @@ ms.lasthandoff: 04/22/2017
 
 检查帐户是否有足够权限的最简方法是使用门户。 请参阅[检查所需的权限](./resource-group-create-service-principal-portal.md#required-permissions)。
 
-现在转到[密码](#create-service-principal-with-password)或[证书](#create-service-principal-with-certificate)身份验证部分。
+现在转到[密码](#create-service-principal-with-password)或[证书](#create-service-principal-with-certificate-from-certificate-authority)身份验证部分。
 
 ## <a name="create-service-principal-with-password"></a>使用密码创建服务主体
 以下脚本为应用程序创建标识，然后将该标识分配到指定范围的“参与者”角色：
 
-    ```powershell
-    Param (
+```powershell
+Param (
 
-        # Use to set scope to resource group. If no value is provided, scope is set to subscription.
-        [Parameter(Mandatory=$false)]
-        [String] $ResourceGroup,
+ # Use to set scope to resource group. If no value is provided, scope is set to subscription.
+ [Parameter(Mandatory=$false)]
+ [String] $ResourceGroup,
 
-        # Use to set subscription. If no value is provided, default subscription is used. 
-        [Parameter(Mandatory=$false)]
-        [String] $SubscriptionId,
+ # Use to set subscription. If no value is provided, default subscription is used. 
+ [Parameter(Mandatory=$false)]
+ [String] $SubscriptionId,
 
-        [Parameter(Mandatory=$true)]
-        [String] $ApplicationDisplayName,
+ [Parameter(Mandatory=$true)]
+ [String] $ApplicationDisplayName,
 
-        [Parameter(Mandatory=$true)]
-        [String] $Password
-    )
+ [Parameter(Mandatory=$true)]
+ [String] $Password
+ )
 
-    Login-AzureRmAccount
-    Import-Module AzureRM.Resources
+ Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+ Import-Module AzureRM.Resources
 
-    if ($SubscriptionId -eq "") 
-    {
-        $SubscriptionId = (Get-AzureRmContext).Subscription.SubscriptionId
-    }
-    else
-    {
-        Set-AzureRmContext -SubscriptionId $SubscriptionId
-    }
+ if ($SubscriptionId -eq "") 
+ {
+    $SubscriptionId = (Get-AzureRmContext).Subscription.SubscriptionId
+ }
+ else
+ {
+    Set-AzureRmContext -SubscriptionId $SubscriptionId
+ }
 
-    if ($ResourceGroup -eq "")
-    {
-        $Scope = "/subscriptions/" + $SubscriptionId
-    }
-    else
-    {
-        $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
-    }
+ if ($ResourceGroup -eq "")
+ {
+    $Scope = "/subscriptions/" + $SubscriptionId
+ }
+ else
+ {
+    $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
+ }
 
-    # Create Active Directory application with password
-    $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $ApplicationDisplayName) -Password $Password
+ # Create Azure Active Directory application with password
+ $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $ApplicationDisplayName) -Password $Password
 
-    # Create Service Principal for the AD app
-    $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
-    Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
+ # Create Service Principal for the AD app
+ $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+ Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
-    $NewRole = $null
-    $Retries = 0;
-    While ($NewRole -eq $null -and $Retries -le 6)
-    {
-        # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
-        Sleep 15
-        New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-        $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
-        $Retries++;
-    }
-    ```
+ $NewRole = $null
+ $Retries = 0;
+ While ($NewRole -eq $null -and $Retries -le 6)
+ {
+    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+    Sleep 15
+    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
+    $Retries++;
+ }
+```
 
 有关该脚本的几个注意事项：
 
@@ -118,76 +119,76 @@ ms.lasthandoff: 04/22/2017
 ### <a name="provide-credentials-through-powershell"></a>通过 PowerShell 提供凭据
 现在，需要以应用程序方式登录以执行相应操作。 对于用户名，请使用针对应用程序创建的 `ApplicationId`。 对于密码，请使用你在创建帐户时指定的密码。 
 
-    ```powershell   
-    $creds = Get-Credential
-    Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId {tenant-id}
-    ```
+```powershell   
+$creds = Get-Credential
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $creds -ServicePrincipal -TenantId {tenant-id}
+```
 
 租户 ID 不是敏感信息，可将它直接嵌入脚本中。 如果需要检索租户 ID，请使用：
 
-    ```powershell
-    (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
-    ```
+```powershell
+(Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+```
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>使用自签名证书创建服务主体
 若要使用 Windows 10 上的 Azure PowerShell 2.0 或 Windows Server 2016 Technical Preview 生成自签名证书和服务主体，请使用以下脚本：
 
-    ```powershell
-    Param (
+```powershell
+Param (
 
-        # Use to set scope to resource group. If no value is provided, scope is set to subscription.
-        [Parameter(Mandatory=$false)]
-        [String] $ResourceGroup,
+ # Use to set scope to resource group. If no value is provided, scope is set to subscription.
+ [Parameter(Mandatory=$false)]
+ [String] $ResourceGroup,
 
-        # Use to set subscription. If no value is provided, default subscription is used. 
-        [Parameter(Mandatory=$false)]
-        [String] $SubscriptionId,
+ # Use to set subscription. If no value is provided, default subscription is used. 
+ [Parameter(Mandatory=$false)]
+ [String] $SubscriptionId,
 
-        [Parameter(Mandatory=$true)]
-        [String] $ApplicationDisplayName
-    )
+ [Parameter(Mandatory=$true)]
+ [String] $ApplicationDisplayName
+ )
 
-    Login-AzureRmAccount
-    Import-Module AzureRM.Resources
+ Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+ Import-Module AzureRM.Resources
 
-    if ($SubscriptionId -eq "") 
-    {
-        $SubscriptionId = (Get-AzureRmContext).Subscription.SubscriptionId
-    }
-    else
-    {
-        Set-AzureRmContext -SubscriptionId $SubscriptionId
-    }
+ if ($SubscriptionId -eq "") 
+ {
+    $SubscriptionId = (Get-AzureRmContext).Subscription.SubscriptionId
+ }
+ else
+ {
+    Set-AzureRmContext -SubscriptionId $SubscriptionId
+ }
 
-    if ($ResourceGroup -eq "")
-    {
-        $Scope = "/subscriptions/" + $SubscriptionId
-    }
-    else
-    {
-        $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
-    }
+ if ($ResourceGroup -eq "")
+ {
+    $Scope = "/subscriptions/" + $SubscriptionId
+ }
+ else
+ {
+    $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
+ }
 
-    $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleappScriptCert" -KeySpec KeyExchange
-    $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
+ $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleappScriptCert" -KeySpec KeyExchange
+ $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
-    # Use Key credentials
-    $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $ApplicationDisplayName) -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+ # Use Key credentials
+ $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $ApplicationDisplayName) -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
 
-    $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
-    Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
+ $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+ Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
-    $NewRole = $null
-    $Retries = 0;
-    While ($NewRole -eq $null -and $Retries -le 6)
-    {
-        # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
-        Sleep 15
-        New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-        $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
-        $Retries++;
-    }
-    ```
+ $NewRole = $null
+ $Retries = 0;
+ While ($NewRole -eq $null -and $Retries -le 6)
+ {
+    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+    Sleep 15
+    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
+    $Retries++;
+ }
+```
 
 有关该脚本的几个注意事项：
 
@@ -200,103 +201,103 @@ ms.lasthandoff: 04/22/2017
 
 如果未使用 **Windows 10 或 Windows Server 2016 Technical Preview**，需要从 Microsoft 脚本中心下载 [自签名证书生成器](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) 。 解压其内容，并导入所需的 cmdlet。
 
-    ```powershell  
-    # Only run if you could not use New-SelfSignedCertificate
-    Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
-    ```
+```powershell  
+# Only run if you could not use New-SelfSignedCertificate
+Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
+```
   
 在脚本中替换以下两行代码以生成证书。
   
-    ```powershell
-    New-SelfSignedCertificateEx  -StoreLocation CurrentUser -StoreName My -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
-    $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'CN=exampleapp' }
-    ```
+```powershell
+New-SelfSignedCertificateEx  -StoreLocation CurrentUser -StoreName My -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+$cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'CN=exampleapp' }
+```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>通过自动执行的 PowerShell 脚本提供证书
 以服务主体方式登录时，需提供 AD 应用所在目录的租户 ID。 租户是 Active Directory 的实例。 如果只有一个订阅，可以使用：
 
-    ```powershell
-    Param (
+```powershell
+Param (
 
-        [Parameter(Mandatory=$true)]
-        [String] $CertSubject,
+ [Parameter(Mandatory=$true)]
+ [String] $CertSubject,
 
-        [Parameter(Mandatory=$true)]
-        [String] $ApplicationId,
+ [Parameter(Mandatory=$true)]
+ [String] $ApplicationId,
 
-        [Parameter(Mandatory=$true)]
-        [String] $TenantId
-    )
+ [Parameter(Mandatory=$true)]
+ [String] $TenantId
+ )
 
-    $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match $CertSubject }).Thumbprint
-    Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
-    ```
+ $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match $CertSubject }).Thumbprint
+ Login-AzureRmAccount -EnvironmentName AzureChinaCloud -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
+```
 
 应用程序 ID 和租户 ID 不是敏感信息，可将它们直接嵌入脚本中。 如果需要检索租户 ID，请使用：
 
-    ```powershell
-    (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
-    ```
+```powershell
+(Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+```
 
 如果需要检索应用程序 ID，请使用：
 
-    ```powershell
-    (Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
-    ```
+```powershell
+(Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
+```
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>使用证书颁发机构提供的证书创建服务主体
 若要使用证书颁发机构颁发的证书创建服务主体，请使用以下脚本：
 
-    ```powershell
-    Param (
-        [Parameter(Mandatory=$true)]
-        [String] $ApplicationDisplayName,
+```powershell
+Param (
+ [Parameter(Mandatory=$true)]
+ [String] $ApplicationDisplayName,
 
-        [Parameter(Mandatory=$true)]
-        [String] $SubscriptionId,
+ [Parameter(Mandatory=$true)]
+ [String] $SubscriptionId,
 
-        [Parameter(Mandatory=$true)]
-        [String] $CertPath,
+ [Parameter(Mandatory=$true)]
+ [String] $CertPath,
 
-        [Parameter(Mandatory=$true)]
-        [String] $CertPlainPassword
-    )
+ [Parameter(Mandatory=$true)]
+ [String] $CertPlainPassword
+ )
 
-    Login-AzureRmAccount
-    Import-Module AzureRM.Resources
-    Set-AzureRmContext -SubscriptionId $SubscriptionId
+ Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+ Import-Module AzureRM.Resources
+ Set-AzureRmContext -SubscriptionId $SubscriptionId
 
-    $KeyId = (New-Guid).Guid
-    $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
+ $KeyId = (New-Guid).Guid
+ $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
 
-    $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
-    $KeyValue = [System.Convert]::ToBase64String($PFXCert.GetRawCertData())
+ $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
+ $KeyValue = [System.Convert]::ToBase64String($PFXCert.GetRawCertData())
 
-    $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
-    $KeyCredential.StartDate = $PFXCert.NotBefore
-    $KeyCredential.EndDate= $PFXCert.NotAfter
-    $KeyCredential.KeyId = $KeyId
-    $KeyCredential.CertValue = $KeyValue
+ $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
+ $KeyCredential.StartDate = $PFXCert.NotBefore
+ $KeyCredential.EndDate= $PFXCert.NotAfter
+ $KeyCredential.KeyId = $KeyId
+ $KeyCredential.CertValue = $KeyValue
 
-    # Use Key credentials
-    $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $KeyId) -KeyCredentials $keyCredential
+ # Use Key credentials
+ $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $KeyId) -KeyCredentials $keyCredential
 
-    $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
-    Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
+ $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+ Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
-    $NewRole = $null
-    $Retries = 0;
-    While ($NewRole -eq $null -and $Retries -le 6)
-    {
-        # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
-        Sleep 15
-        New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
-        $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
-        $Retries++;
-    }
+ $NewRole = $null
+ $Retries = 0;
+ While ($NewRole -eq $null -and $Retries -le 6)
+ {
+    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+    Sleep 15
+    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
+    $Retries++;
+ }
  
-    $NewRole
-    ```
+ $NewRole
+```
 
 有关该脚本的几个注意事项：
 
@@ -309,40 +310,40 @@ ms.lasthandoff: 04/22/2017
 ### <a name="provide-certificate-through-automated-powershell-script"></a>通过自动执行的 PowerShell 脚本提供证书
 以服务主体方式登录时，需提供 AD 应用所在目录的租户 ID。 租户是 Active Directory 的实例。
 
-    ```powershell
-    Param (
+```powershell
+Param (
+ 
+ [Parameter(Mandatory=$true)]
+ [String] $CertPath,
 
-        [Parameter(Mandatory=$true)]
-        [String] $CertPath,
+ [Parameter(Mandatory=$true)]
+ [String] $CertPlainPassword,
+ 
+ [Parameter(Mandatory=$true)]
+ [String] $ApplicationId,
 
-        [Parameter(Mandatory=$true)]
-        [String] $CertPlainPassword,
+ [Parameter(Mandatory=$true)]
+ [String] $TenantId
+ )
 
-        [Parameter(Mandatory=$true)]
-        [String] $ApplicationId,
+ $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
+ $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
+ $Thumbprint = $PFXCert.Thumbprint
 
-        [Parameter(Mandatory=$true)]
-        [String] $TenantId
-    )
-
-    $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
-    $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
-    $Thumbprint = $PFXCert.Thumbprint
-
-    Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
-    ```
+ Login-AzureRmAccount -EnvironmentName AzureChinaCloud -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
+```
 
 应用程序 ID 和租户 ID 不是敏感信息，可将它们直接嵌入脚本中。 如果需要检索租户 ID，请使用：
 
-    ```powershell
-    (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
-    ```
+```powershell
+(Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+```
 
 如果需要检索应用程序 ID，请使用：
 
-    ```powershell
-    (Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
-    ```
+```powershell
+(Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
+```
 
 ## <a name="change-credentials"></a>更改凭据
 
@@ -350,36 +351,36 @@ ms.lasthandoff: 04/22/2017
 
 若要删除应用程序的所有凭据，请使用：
 
-    ```powershell
-    Remove-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -All
-    ```
+```powershell
+Remove-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -All
+```
 
 若要添加密码，请使用：
 
-    ```powershell
-    New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
-    ```
+```powershell
+New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
+```
 
 若要添加证书值，请按本主题所示创建自签名证书。 然后，使用：
 
-    ```powershell
-    New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
-    ```
+```powershell
+New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+```
 
 ## <a name="save-access-token-to-simplify-log-in"></a>保存访问令牌来简化登录
 若要避免每次登录时都需要提供服务主体凭据，可保存访问令牌。
 
 若要在以后的会话中使用当前访问令牌，请保存该配置文件。
    
-    ```powershell
-    Save-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
-    ```
+```powershell
+Save-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
+```
    
 打开该配置文件，并检查其内容。 请注意，它包含访问令牌。 无需再次手动登录，只需加载配置文件。
    
-    ```powershell
-    Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
-    ```
+```powershell
+Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
+```
 
 > [!NOTE]
 > 访问令牌会过期，因此使用保存的配置文件仅适合在令牌有效期间使用。
@@ -425,5 +426,5 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="next-steps"></a>后续步骤
 * 有关将应用程序集成到 Azure 以管理资源的详细步骤，请参阅 [Developer's guide to authorization with the Azure Resource Manager API](./resource-manager-api-authentication.md)（使用 Azure Resource Manager API 进行授权的开发人员指南）。
-* 有关应用程序和服务主体的详细说明，请参阅 [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md)（应用程序对象和服务主体对象）。 
-* 有关 Active Directory 身份验证的详细信息，请参阅 [Authentication Scenarios for Azure AD](../active-directory/active-directory-authentication-scenarios.md)（Azure AD 的身份验证方案）。
+* 有关应用程序和服务主体的详细说明，请参阅 [Application Objects and Service Principal Objects](../active-directory/develop/active-directory-application-objects.md)（应用程序对象和服务主体对象）。 
+* 有关 Active Directory 身份验证的详细信息，请参阅 [Authentication Scenarios for Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md)（Azure AD 的身份验证方案）。

@@ -1,5 +1,5 @@
 ---
-title: "Azure DocumentDB Node.js API、SDK 和资源 | Azure"
+title: "Azure DocumentDB Node.js API、SDK 和资源 | Microsoft Docs"
 description: "了解有关 Node.js API 和 SDK 的全部信息，包括发布日期、停用日期和 DocumentDB Node.js SDK 各版本之间所做的更改。"
 services: documentdb
 documentationcenter: nodejs
@@ -12,27 +12,30 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 05/10/2017
 wacn.date: 
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: c1b9f8697c90b6bde6d198e17a5fcca0c492e46a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: fe56a37967f2a59da68dad2b151daf8513120938
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
+
 
 ---
-
 # <a name="documentdb-nodejs-sdk-release-notes-and-resources"></a>DocumentDB Node.js SDK：发行说明和资源
 > [!div class="op_single_selector"]
->- [.NET](./documentdb-sdk-dotnet.md)
->- [.NET Core](./documentdb-sdk-dotnet-core.md)
->- [Node.js](./documentdb-sdk-node.md)
->- [Java](./documentdb-sdk-java.md)
->- [Python](./documentdb-sdk-python.md)
->- [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
->- [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
->- [SQL](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx)
+> * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET Core](documentdb-sdk-dotnet-core.md)
+> * [Node.js](documentdb-sdk-node.md)
+> * [Java](documentdb-sdk-java.md)
+> * [Python](documentdb-sdk-python.md)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
+> * [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> 
+> 
 
 <table>
 
@@ -44,16 +47,22 @@ ms.lasthandoff: 04/07/2017
 
 <tr><td>**参与 SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
 
-<tr><td>**示例**</td><td>[Node.js 代码示例](./documentdb-nodejs-samples.md)</td></tr>
+<tr><td>**示例**</td><td>[Node.js 代码示例](documentdb-nodejs-samples.md)</td></tr>
 
-<tr><td>**入门教程**</td><td>[Node.js SDK 入门](./documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**入门教程**</td><td>[Node.js SDK 入门](documentdb-nodejs-get-started.md)</td></tr>
 
-<tr><td>**Web 应用教程**</td><td>[使用 DocumentDB 生成 Node.js Web 应用程序](./documentdb-nodejs-application.md)</td></tr>
+<tr><td>**Web 应用教程**</td><td>[使用 DocumentDB 生成 Node.js Web 应用程序](documentdb-nodejs-application.md)</td></tr>
 
 <tr><td>**当前受支持的平台**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>发行说明
+
+### <a name="1.12.0"/>1.12.0</a>
+- 添加了对每分钟请求单位数 (RU/m) 功能的支持。
+- 添加了对称为“ConsistentPrefix”的新[一致性级别](documentdb-consistency-levels.md)的支持。
+- 添加了对 UriFactory 的支持。
+- 修复了 unicode 支持 bug。 （GitHub 问题 #171）
 
 ### <a name="1.11.0"/>1.11.0</a>
 - 添加了对聚合查询（COUNT、MIN、MAX、SUM、AVG）的支持。
@@ -87,7 +96,7 @@ ms.lasthandoff: 04/07/2017
 - 添加了对文档生存时间 (TTL) 功能的支持。
 
 ### <a name="1.6.0"/>1.6.0</a>
-- 实现了[分区集合](./documentdb-partition-data.md)和[用户定义的性能级别](./documentdb-performance-levels.md)。
+- 实现了[分区集合](documentdb-partition-data.md)和[用户定义的性能级别](documentdb-performance-levels.md)。
 
 ### <a name="1.5.6"/>1.5.6</a>
 - 修复了 RangePartitionResolver.resolveForRead Bug，其会由于结果的错误 concat，它不返回链接。
@@ -157,6 +166,7 @@ Microsoft 至少会在停用 SDK 的 **12 个月**之前发出通知，以便顺
 
 | 版本 | 发布日期 | 停用日期 |
 | --- | --- | --- |
+| [1.12.0](#1.12.0) |2017 年 5 月 10 日 |--- |
 | [1.11.0](#1.11.0) |2017 年 3 月 16 日 |--- |
 | [1.10.2](#1.10.2) |2017 年 1 月 27 日 |--- |
 | [1.10.1](#1.10.1) |2016 年 12 月 22 日 |--- |
@@ -187,4 +197,7 @@ Microsoft 至少会在停用 SDK 的 **12 个月**之前发出通知，以便顺
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## <a name="see-also"></a>另请参阅
-若要了解有关 DocumentDB 的详细信息，请参阅 [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/) 服务页。
+若要了解有关 DocumentDB 的详细信息，请参阅 [DocumentDB](https://www.azure.cn/home/features/documentdb/) 服务页。
+
+
+

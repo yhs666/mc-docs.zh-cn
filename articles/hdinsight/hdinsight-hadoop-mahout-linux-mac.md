@@ -17,9 +17,10 @@ ms.topic: article
 ms.date: 04/03/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 1180789ad284d082a6fd8b042fa9838b9c44c967
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -192,15 +193,17 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     此命令的输出类似于以下文本：
 
-        Seven Years in Tibet (1997), score=5.0
-        Indiana Jones and the Last Crusade (1989), score=5.0
-        Jaws (1975), score=5.0
-        Sense and Sensibility (1995), score=5.0
-        Independence Day (ID4) (1996), score=5.0
-        My Best Friend's Wedding (1997), score=5.0
-        Jerry Maguire (1996), score=5.0
-        Scream 2 (1997), score=5.0
-        Time to Kill, A (1996), score=5.0
+    ```
+    Seven Years in Tibet (1997), score=5.0
+    Indiana Jones and the Last Crusade (1989), score=5.0
+    Jaws (1975), score=5.0
+    Sense and Sensibility (1995), score=5.0
+    Independence Day (ID4) (1996), score=5.0
+    My Best Friend's Wedding (1997), score=5.0
+    Jerry Maguire (1996), score=5.0
+    Scream 2 (1997), score=5.0
+    Time to Kill, A (1996), score=5.0
+    ```
 
 ## <a name="delete-temporary-data"></a>删除临时数据
 

@@ -15,9 +15,10 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: tobiast
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 4e340d82c4a2fb661b650304a8d941295e74bfe8
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 
@@ -46,7 +47,7 @@ Azure 目前有两个用于托管 SQL Server 工作负荷的选项：Azure SQL �
 ## <a id="ConnectionString"></a>步骤 2：获取连接字符串
 预配 Azure SQL 数据库后，需要执行以下步骤，确定连接信息及添加用于防火墙访问的客户端 IP。 
 
-在 [Azure 门户预览版](https://portal.azure.cn/)中，使用**显示数据库连接字符串**（包含在数据库概述部分中）转到 Azure SQL 数据库 ODBC 连接字符串： 
+在 [Azure 门户预览](https://portal.azure.cn/)中，使用**显示数据库连接字符串**（包含在数据库概述部分中）转到 Azure SQL 数据库 ODBC 连接字符串： 
 
 ![ODBCConnectionString](./media/sql-database-develop-cplusplus-simple/azureportal.png)
 
@@ -62,7 +63,7 @@ Azure 目前有两个用于托管 SQL Server 工作负荷的选项：Azure SQL �
 此时，已配置好 Azure SQL DB，并已准备好通过 C++ 代码连接。 
 
 ## <a id="Windows"></a>步骤 4：从 Windows C/C++ 应用程序连接
-可以 [使用通过 Visual Studio 生成的此示例在 Windows 上轻松连接到使用 ODBC 的 Azure SQL DB](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28windows%29) 。 该示例实现可用于连接到 Azure SQL DB 的 ODBC 命令行解释器。 此示例使用数据库源名称文件 (DSN) 文件作为命令行参数，或使用之前从 Azure 门户预览版复制的详细连接字符串。 打开此项目的属性页，然后将连接字符串作为命令行参数粘贴，如下所示： 
+可以 [使用通过 Visual Studio 生成的此示例在 Windows 上轻松连接到使用 ODBC 的 Azure SQL DB](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28windows%29) 。 该示例实现可用于连接到 Azure SQL DB 的 ODBC 命令行解释器。 此示例使用数据库源名称文件 (DSN) 文件作为命令行参数，或使用之前从 Azure 门户预览复制的详细连接字符串。 打开此项目的属性页，然后将连接字符串作为命令行参数粘贴，如下所示： 
 
 ![DSN Propsfile](./media/sql-database-develop-cplusplus-simple/props.png)
 
@@ -102,7 +103,7 @@ apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
 
 ![新建项目模板](./media/sql-database-develop-cplusplus-simple/template.png)
 
-然后，可以添加 [新的 C 源文件，并将其替换为此内容](https://github.com/Microsoft/VCSamples/blob/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29/odbcconnector/odbcconnector.c)。 使用 ODBC API SQLAllocHandle、SQLSetConnectAttr 和 SQLDriverConnect 时，应能够初始化并建立与数据库的连接。 和 Windows ODBC 示例一样，需要使用数据库连接字符串参数的详细信息（之前从 Azure 门户预览版复制）替换 SQLDriverConnect 调用。 
+然后，可以添加 [新的 C 源文件，并将其替换为此内容](https://github.com/Microsoft/VCSamples/blob/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29/odbcconnector/odbcconnector.c)。 使用 ODBC API SQLAllocHandle、SQLSetConnectAttr 和 SQLDriverConnect 时，应能够初始化并建立与数据库的连接。 和 Windows ODBC 示例一样，需要使用数据库连接字符串参数的详细信息（之前从 Azure 门户预览复制）替换 SQLDriverConnect 调用。 
 
 ```
  retcode = SQLDriverConnect(

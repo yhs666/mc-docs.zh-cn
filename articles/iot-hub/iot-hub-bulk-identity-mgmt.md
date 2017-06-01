@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/06/2017
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: c7fbb723183736f19183cd32d15e1f924b9e8e3e
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -321,7 +322,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>获取容器 SAS URI
 
-下面的代码示例演示如何使用 Blob 容器的读取、写入和删除权限生成 [SAS URI](../storage/storage-dotnet-shared-access-signature-part-2.md/)：
+下面的代码示例演示如何使用 Blob 容器的读取、写入和删除权限生成 [SAS URI](../storage/storage-dotnet-shared-access-signature-part-2.md)：
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)

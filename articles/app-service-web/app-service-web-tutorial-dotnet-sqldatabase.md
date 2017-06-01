@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 04/03/2017
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 943f44538488f82063c414c4f0974f699e22dcb7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
 ---
 # <a name="create-an-aspnet-app-in-azure-with-sql-database"></a>使用 SQL 数据库在 Azure 中创建 ASP.NET
 
-[AZURE.INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 本教程介绍如何在 Azure 中开发数据驱动的 ASP.NET Web 应用。 只需花费几分钟即可将 Web 应用连接到 Azure SQL 数据库，并在经过极少量的配置后启用数据驱动的功能。 完成此过程后，便可以在 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)中运行数据驱动的 ASP.NET Web 应用，并将其连接到 SQL 数据库。
 
@@ -77,7 +78,7 @@ git clone https://github.com/cephalin/DotNetAppSqlDb.git
 
 ### <a name="sign-in-to-azure"></a>登录 Azure
 
-[AZURE.INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
 在“创建应用服务”对话框中单击“添加帐户”，然后登录到你的 Azure 订阅。 如果已登录到 Azure 帐户，请确保该帐户包含你的 Azure 订阅。 如果登录的 Azure 帐户不包含你的 Azure 订阅，请单击该帐户添加正确的帐户。
 

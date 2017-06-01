@@ -1,6 +1,6 @@
 ---
 title: "具有 Python Tools 2.2 for Visual Studio 的 Azure 上的 Flask 和 Azure 表存储"
-description: "了解如何使用 Python Tools for Visual Studio 来创建在 Azure 表存储中存储数据的 Flask Web 应用，以及将应用部署到 Azure App Service Web Apps 中。"
+description: "了解如何使用 Python Tools for Visual Studio 来创建在 Azure 表存储中存储数据的 Flask Web 应用，以及将应用部署到 Azure 应用服务 Web 应用中。"
 services: app-service\web
 tags: python
 documentationcenter: python
@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 07/07/2016
 wacn.date: 
 ms.author: huvalo
-translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: d9b3c96c23e7cafd4fec016a796ff1d4de888106
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 9c601f07b26df1fde484d8ea5455f984becb28cf
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -31,9 +32,9 @@ ms.lasthandoff: 04/28/2017
 
 轮询 Web 应用是对存储库的抽象界定，因此可以轻松地在不同类型的存储库（内存、Azure 表存储、MongoDB）之间进行切换。
 
-我们将了解如何创建 Azure 存储帐户、如何将 Web 应用配置为使用 Azure 表存储，以及如何将 Web 应用发布到 [Azure App Service Web 应用](/azure/app-service-web/app-service-changes-existing-services)中。
+我们将了解如何创建 Azure 存储帐户、如何将 Web 应用配置为使用 Azure 表存储，以及如何将 Web 应用发布到 [Azure 应用服务Web 应用](/app-service-web/app-service-changes-existing-services)中。
 
-请访问 [Python 开发人员中心] ，查看更多有关使用 PTVS 以及 Bottle、Flask 和 Django Web 框架、MongoDB、Azure 表存储、MySQL、SQL 数据库服务开发 Azure App Service Web Apps 的文章。 虽然本文将着重介绍 App Service，但步骤与 [Azure 云服务]的开发步骤类似。
+请访问 [Python 开发人员中心] ，查看更多有关使用 PTVS 以及 Bottle、Flask 和 Django Web 框架、MongoDB、Azure 表存储、MySQL、SQL 数据库服务开发 Azure 应用服务 Web 应用的文章。 虽然本文将着重介绍应用服务，但步骤与 [Azure 云服务]的开发步骤类似。
 
 ## <a name="prerequisites"></a>先决条件
 * Visual Studio 2015
@@ -65,7 +66,7 @@ ms.lasthandoff: 04/28/2017
 ## <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 要使用存储操作，你需要一个 Azure 存储帐户。 可通过以下步骤创建存储帐户。
 
-1. 登录到 [Azure 门户预览版](https://portal.azure.cn/)。
+1. 登录到 [Azure 门户预览](https://portal.azure.cn/)。
 2. 单击门户左上角的“新建”图标，然后依次单击“数据 + 存储” > “存储帐户”。 单击“创建”，然后为存储帐户指定一个唯一名称，并为它创建新的[资源组](../azure-resource-manager/resource-group-overview.md)。
 
       ![快速创建](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzureStorageCreate.png)
@@ -78,7 +79,7 @@ ms.lasthandoff: 04/28/2017
     我们将需要使用此信息在下一部分中配置您的项目。
 
 ## <a name="configure-the-project"></a>配置项目
-在此部分中，我们将配置应用程序以使用刚才创建的存储帐户。 我们将了解如何从 Azure 门户预览版中获取连接设置。 然后我们将在本地运行应用程序。
+在此部分中，我们将配置应用程序以使用刚才创建的存储帐户。 我们将了解如何从 Azure 门户预览中获取连接设置。 然后我们将在本地运行应用程序。
 
 1. 在 Visual Studio 中，右键单击 Solution Explorer 中的项目节点，然后选择 **属性**。 单击“调试”  选项卡。
 
@@ -118,8 +119,8 @@ ms.lasthandoff: 04/28/2017
 
      ![表查询结果](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorerTable.png)
 
-## <a name="publish-the-web-app-to-azure-app-service"></a>将 Web 应用发布到 Azure App Service
-借助 Azure.NET SDK，您可以轻松地将 Web 应用部署到 Azure App Service 中。
+## <a name="publish-the-web-app-to-azure-app-service"></a>将 Web 应用发布到 Azure 应用服务
+借助 Azure.NET SDK，您可以轻松地将 Web 应用部署到 Azure 应用服务中。
 
 1. 在“解决方案资源管理器”中，右键单击项目节点，然后选择“发布”。
 
@@ -129,19 +130,19 @@ ms.lasthandoff: 04/28/2017
 4. 填写以下字段，然后单击“创建” 。
 
     * **Web 应用名称**
-    * **App Service 计划**
+    * **应用服务计划**
     * **资源组**
     * **区域**
     * 保持“数据库服务器”的“无数据库”设置不变
 5. 接受其他所有默认值，然后单击 **发布**。
 6. 此时，您的 Web 浏览器会自动打开已发布的 Web 应用。 如果浏览到“关于”页面，将看到它使用的是**内存中**存储库，而不是 **Azure 表存储**存储库。
 
-    这是因为未在 Azure App Service 的 Web 应用实例上设置环境变量，因此它使用的是 **settings.py** 中指定的默认值。
+    这是因为未在 Azure 应用服务的 Web 应用实例上设置环境变量，因此它使用的是 **settings.py** 中指定的默认值。
 
 ## <a name="configure-the-web-apps-instance"></a>配置 Web 应用实例
 在此部分中，我们将配置 Web 应用实例的环境变量。
 
-1. 在 [Azure 门户预览版](https://portal.azure.cn)中，单击“浏览” > “应用服务”和 Web 应用名称，打开 Web 应用的边栏选项卡。
+1. 在 [Azure 门户预览](https://portal.azure.cn)中，单击“浏览” > “应用服务”和 Web 应用名称，打开 Web 应用的边栏选项卡。
 2. 在 Web 应用的边栏选项卡中，依次单击“所有设置”和“应用程序设置”。
 3. 向下滚动到“应用设置”部分并设置 **REPOSITORY\_NAME**、**STORAGE\_NAME** 和 **STORAGE\_KEY** 的值（如上面的**配置项目**部分中所述）。
 
@@ -161,22 +162,22 @@ ms.lasthandoff: 04/28/2017
     * [云服务项目]
     * [在 Azure 中进行远程调试]
 * [Flask 文档]
-* [Azure 存储空间]
+* [Azure 存储]
 * [Azure SDK for Python]
 * [如何从 Python 使用表存储服务]
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!--Link references-->
-[Python 开发人员中心]: https://www.azure.cn/develop/python/
+[Python 开发人员中心]: /develop/python/
 [Azure 云服务]: ../cloud-services/cloud-services-python-ptvs.md
 [文档]: ../storage/storage-python-how-to-use-table-storage.md
 [如何从 Python 使用表存储服务]: ../storage/storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
 [Azure Portal Preview]: https://portal.azure.cn
-[用于 .NET 的 Azure SDK]: https://www.azure.cn/downloads/
+[用于 .NET 的 Azure SDK]: /downloads/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio 示例 VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
@@ -188,5 +189,5 @@ ms.lasthandoff: 04/28/2017
 [在 Azure 中进行远程调试]: http://go.microsoft.com/fwlink/?LinkId=624026
 [Web 项目]: http://go.microsoft.com/fwlink/?LinkId=624027
 [云服务项目]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Azure 存储空间]: /azure/storage/
+[Azure 存储]: /storage/
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python

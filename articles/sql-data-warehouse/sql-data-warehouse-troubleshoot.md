@@ -16,9 +16,10 @@ ms.custom: manage
 ms.date: 03/30/2017
 wacn.date: 
 ms.author: barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 14222fdecbaaf6877a921da9a7cc1234c9470610
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 ---
@@ -91,10 +92,10 @@ ms.lasthandoff: 04/28/2017
 [SSDT for Visual Studio]: ./sql-data-warehouse-install-visual-studio.md
 [Drivers for Azure SQL Data Warehouse]: ./sql-data-warehouse-connection-strings.md
 [Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
-[Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
+<!-- Not supported in Azure.cn [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
 [Scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
 [DWU]: ./sql-data-warehouse-overview-what-is.md
-[request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
+<!-- Not supported in Azure.cn [request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change-->
 [Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
 [Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal

@@ -17,9 +17,10 @@ ms.workload: big-data
 ms.date: 04/03/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 632c48b3ce48c9df9c2721608d244124cc156d6b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -126,7 +127,7 @@ HDInsight 可以使用各种方法来运行 Pig Latin 作业。 使用下表来�
 ## <a id="nextsteps"></a>后续步骤
 现在，你已了解如何将 Pig 与 HDInsight 配合使用，请使用以下链接来学习 Azure HDInsight 的其他用法。
 
-* [将数据上载到 HDInsight][hdinsight-upload-data]
+* [将数据上传到 HDInsight][hdinsight-upload-data]
 * [将 Hive 与 HDInsight 配合使用][hdinsight-use-hive]
 * [将 Sqoop 与 HDInsight 配合使用](hdinsight-use-sqoop.md)
 * [将 Oozie 与 HDInsight 配合使用](hdinsight-use-oozie.md)
@@ -146,7 +147,7 @@ HDInsight 可以使用各种方法来运行 Pig Latin 作业。 使用下表来�
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md#mapreduce-sdk
 
 [Powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs

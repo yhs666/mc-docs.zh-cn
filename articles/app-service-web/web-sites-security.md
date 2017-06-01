@@ -1,6 +1,6 @@
 ---
-title: "在 Azure App Service 中保护应用安全"
-description: "了解如何在 Azure App Service 中保护 Web 应用、移动应用后端或 API 应用。"
+title: "在 Azure 应用服务中保护应用安全"
+description: "了解如何在 Azure 应用服务中保护 Web 应用、移动应用后端或 API 应用。"
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -15,17 +15,18 @@ ms.topic: article
 ms.date: 01/12/2016
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 1c016227d60a67b5ab9542057686a9ed74181d85
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 030b32920e75f9d65591d1f759c5ae85a09e20af
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="secure-an-app-in-azure-app-service"></a>在 Azure App Service 中保护应用安全
-本文介绍如何在 Azure App Service 中保护 Web 应用、移动应用后端或 API 应用。 
+# <a name="secure-an-app-in-azure-app-service"></a>在 Azure 应用服务中保护应用安全
+本文介绍如何在 Azure 应用服务中保护 Web 应用、移动应用后端或 API 应用。 
 
-Azure App Service 中的安全性有两个级别： 
+Azure 应用服务中的安全性有两个级别： 
 
 * **基础结构和平台安全性** - 相信 Azure 能为你提供所需的服务以实际在云中安全地运行任务。
 * **应用程序安全性** - 需要安全地设计应用本身。 这包括如何与 Azure Active Directory 集成、如何管理证书，以及如何确保你可以安全地与不同服务通信。 
@@ -57,7 +58,7 @@ Azure 负责保护运行应用程序的基础结构和平台，而你负责保�
 如果想要执行自己的渗透测试，或者想要使用其他扫描程序套件或提供程序，则必须按照 Azure 渗透测试审批流程来进行并获得事先批准才能执行所需的渗透测试。
 
 ## <a name="https"></a> 保护与客户的通信
-如果使用为应用服务应用创建的 **\*.chinacloudsites.cn** 域名，则可以立即使用 HTTPS，因为 SSL 证书是针对所有 **\*.chinacloudsites.cn** 域名提供的。 如果你的网站使用[自定义域名](web-sites-custom-domain-name.md)，则可以上载 SSL 证书，为自定义域[启用 HTTPS](web-sites-configure-ssl-certificate.md)。
+如果使用为应用服务应用创建的 **\*.chinacloudsites.cn** 域名，则可以立即使用 HTTPS，因为 SSL 证书是针对所有 **\*.chinacloudsites.cn** 域名提供的。 如果你的网站使用[自定义域名](web-sites-custom-domain-name.md)，则可以上传 SSL 证书，为自定义域[启用 HTTPS](web-sites-configure-ssl-certificate.md)。
 
 启用 [HTTPS](https://en.wikipedia.org/wiki/HTTPS) 可帮助防范对应用与其用户之间的通信进行的 MITM 攻击。
 
@@ -86,16 +87,16 @@ Azure 负责保护运行应用程序的基础结构和平台，而你负责保�
 ### <a name="configuration-settings-and-connection-strings"></a>配置设置和连接字符串
 常见的做法是，将连接字符串、 身份验证凭证和其他敏感信息存储在配置文件中。 遗憾的是，这些文件可能会在你的网站上被公开或将其检入一个公共存储库，从而公开此类信息。 例如，在 [GitHub](https://github.com)上执行简单搜索，可以发现无数个配置文件，其中包含在公共存储库中公开的机密。
 
-最佳做法是将此信息保存在应用的配置文件以外。 应用服务允许将配置信息作为“应用设置”和“连接字符串”存储为运行时环境的一部分。 对于大多数编程语言，这些值通过*环境变量*在运行时向你的应用程序公开。 对于 .NET 应用程序，在运行时这些值被注入到 .NET 配置。 除了这些情况外，除非使用 [Azure 门户预览版](https://portal.azure.cn)或实用工具（例如 PowerShell 或 Azure CLI）查看或配置这些配置设置，否则这些配置设置将保持加密状态。 
+最佳做法是将此信息保存在应用的配置文件以外。 应用服务允许将配置信息作为“应用设置”和“连接字符串”存储为运行时环境的一部分。 对于大多数编程语言，这些值通过*环境变量*在运行时向你的应用程序公开。 对于 .NET 应用程序，在运行时这些值被注入到 .NET 配置。 除了这些情况外，除非使用 [Azure 门户预览](https://portal.azure.cn)或实用工具（例如 PowerShell 或 Azure CLI）查看或配置这些配置设置，否则这些配置设置将保持加密状态。 
 
 在应用服务中存储配置信息使应用管理员可以锁定生产应用的敏感信息。 开发人员可以针对应用开发使用单独的一组配置设置，并且这些设置可以自动由应用服务中配置的设置所取代。 甚至开发人员也无需知道为生产应用配置的机密。 有关在应用服务中配置应用设置和连接字符串的详细信息，请参阅[配置 Web 应用](web-sites-configure.md)。
 
 ### <a name="ftps"></a>FTPS
-Azure App Service 通过“FTPS” 提供对应用文件系统的安全 FTP 访问。 这样一来，你可以安全地访问 Web 应用上的应用程序代码以及诊断日志。 建议你始终使用 FTPS 而不是 FTP。 
+Azure 应用服务通过“FTPS” 提供对应用文件系统的安全 FTP 访问。 这样一来，你可以安全地访问 Web 应用上的应用程序代码以及诊断日志。 建议你始终使用 FTPS 而不是 FTP。 
 
 按照以下步骤操作，可以找到你的应用的 FTPS 链接：
 
-1. 打开 [Azure 门户预览版](https://portal.azure.cn)。
+1. 打开 [Azure 门户预览](https://portal.azure.cn)。
 2. 单击“浏览所有” 。
 3. 在“浏览”边栏选项卡中，选择“应用服务”。
 4. 在“应用服务”边栏选项卡中，选择所需应用。
@@ -108,9 +109,9 @@ Azure App Service 通过“FTPS” 提供对应用文件系统的安全 FTP 访�
 ## <a name="next-steps"></a>后续步骤
 有关 Azure 平台安全、如何报告**安全事件或滥用行为**，或者如何通知 Microsoft 将对网站执行**渗透测试**的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/security/)的安全部分。
 
-有关应用服务应用中 **web.config** 或 **applicationhost.config** 文件的详细信息，请参阅 [Azure App Service Web 应用中解锁的配置选项](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)。
+有关应用服务应用中 **web.config** 或 **applicationhost.config** 文件的详细信息，请参阅 [Azure 应用服务 Web 应用中解锁的配置选项](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)。
 
 有关应用服务应用的日志记录信息（可能在检测攻击时很有用），请参阅[启用诊断日志记录](web-sites-enable-diagnostic-log.md)。
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)

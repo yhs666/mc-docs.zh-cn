@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: cccf8aaaaef7c83ef25667e801ed00037e71093e
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---

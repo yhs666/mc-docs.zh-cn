@@ -1,0 +1,105 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Web 应用文档
+metadata:
+  title: Azure Web 应用文档 - 教程和 API 参考
+  meta.description: Learn how to use App Service Web Apps to build and host websites and web applications.
+  services: app-service
+  author: apexprodleads
+  manager: carolz
+  ms.service: app-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/23/2017
+  wacn.date: ''
+  ms.author: carolz
+abstract:
+  description: 使用 Azure Web 应用可以采用所选编程语言构建和托管 Web 应用程序，而无需管理基础结构。 它提供自动缩放和高可用性，支持 Windows 和 Linux，并允许从 GitHub、Team Services 或任何 Git 存储库进行自动部署。 使用我们的快速入门、教程和示例了解如何使用 Azure Web 应用。
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: https://docs.microsoft.com/azure/app-service-web/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
+      width: 250  
+    title: '使用 Node.js 和 Azure 应用服务创建 Web 应用。 (2:41)'
+    href: https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
+    width: 250
+sections:
+- title: 5 分钟快速入门
+  items:
+  - type: paragraph
+    text: 'Learn how to deploy your first application to the cloud using Web Apps:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/azure/app-service-web/media/index/logo_net.svg
+      text: .NET
+      href: https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet
+    - image: 
+        src: https://docs.microsoft.com/azure/app-service-web/media/index/logo_nodejs.svg
+      text: Node.js
+      href: https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-nodejs
+    - image: 
+        src: https://docs.microsoft.com/azure/app-service-web/media/index/logo_php.svg
+      text: PHP
+      href: https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-php
+    - image: 
+        src: https://docs.microsoft.com/azure/app-service-web/media/index/logo_java.svg
+      text: Java
+      href: https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java
+    - image: 
+        src: https://docs.microsoft.com/azure/app-service-web/media/index/logo_python.svg
+      text: Python
+      href: https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-python
+    - image: 
+        src: https://docs.microsoft.com/azure/app-service-web/media/index/logo_html5.svg
+      text: HTML
+      href: https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-html
+- title: 分步教程
+  items:
+  - type: paragraph
+    text: Learn how to deploy, manage, and monitor secure web applications on Azure
+  - type: list
+    style: ordered
+    items:
+    - html: Create an application using <a href="/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">.NET with Azure SQL DB</a> or <a href="/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>
+    - html: <a href="/app-service-web/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
+    - html: <a href="/app-service-web/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a>
+- title: 免费 PluralSight 视频培训
+  items:
+  - type: list
+    style: cards
+    className: cardsW
+    items:
+    - html: <p><a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Developing with .NET</a></p>
+      image: 
+        src: https://docs.microsoft.com/azure/app-service-web/media/index/video-training-dotnet.png
+        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+    - html: <p><a href="https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Developing with Node.js</a></p>
+      image: 
+        src: https://docs.microsoft.com/azure/app-service-web/media/index/video-training-nodejs.png
+        href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+- title: 示例
+  items:
+  - type: paragraph
+    text: Find scripts to manage common tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
+    - html: <a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a>
+- title: 引用
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: 命令行
+      html: <p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a></p>
+    - title: 语言
+      html: <p><a href="https://docs.microsoft.com/dotnet/api">.NET</a></p><p><a href="https://docs.microsoft.com/java/api/">Java</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a></p>

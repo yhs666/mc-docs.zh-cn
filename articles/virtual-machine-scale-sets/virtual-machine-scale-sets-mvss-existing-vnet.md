@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 3/06/2017
 wacn.date: 
 ms.author: negat
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 3bff289e88eae1889c7a324092bf7d66493d9cd4
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---

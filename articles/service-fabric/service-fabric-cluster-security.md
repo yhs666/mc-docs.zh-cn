@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2017
 ms.author: chackdan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: a51934ffd48e8c4a1c96143e48ea3bf7ff741765
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -114,7 +115,7 @@ X.509 数字证书通常用于验证客户端与服务器，以及对消息进�
 
 
 1.  [使用 Resource Manager 模板在 Azure 中创建群集](service-fabric-cluster-creation-via-arm.md) 
-2.  [Azure 门户预览版](service-fabric-cluster-creation-via-portal.md)。
+2.  [Azure 门户预览](service-fabric-cluster-creation-via-portal.md)。
 
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png

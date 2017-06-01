@@ -17,9 +17,10 @@ ms.topic: article
 ms.date: 02/08/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 24b735ad828670041ff636a7fed491319eece2ba
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -62,7 +63,7 @@ ms.lasthandoff: 04/28/2017
 
     https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
-本部分说明如何在通过 Azure 门户预览版创建群集时使用示例脚本。
+本部分说明如何在通过 Azure 门户预览创建群集时使用示例脚本。
 
 > [!NOTE]
 > Azure PowerShell、Azure CLI、HDInsight .NET SDK 或 Azure Resource Manager 模板也可用于应用脚本操作。 你也可以将脚本操作应用于已在运行的群集。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。

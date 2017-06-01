@@ -1,6 +1,6 @@
 ---
 title: "在 Azure 中备份应用"
-description: "了解如何在 Azure App Service 中创建应用备份。"
+description: "了解如何在 Azure 应用服务中创建应用备份。"
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 07/06/2016
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 8c778336bc72b3aa0a68e44b30e76a0b1999470e
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="back-up-your-app-in-azure"></a>在 Azure 中备份应用
-利用 [Azure App Service](../app-service/app-service-value-prop-what-is.md) 中的备份和还原功能，可以轻松地手动或自动创建应用备份。 你可以将应用还原到以前的状态，或者基于原始应用的备份之一创建新的应用。 
+利用 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)中的备份和还原功能，可以轻松地手动或自动创建应用备份。 你可以将应用还原到以前的状态，或者基于原始应用的备份之一创建新的应用。 
 
 有关从备份中还原应用的信息，请参阅[在 Azure 中还原应用](web-sites-restore.md)。
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 04/28/2017
 * 最多可备份 10GB 的应用和数据库内容。 如果备份大小超过此限制，将会出错。 
 
 ## <a name="manualbackup" id="create-a-manual-backup"></a> 创建手动备份
-1. 在 [Azure 门户预览版](https://portal.azure.cn)中，导航到应用的边栏选项卡，选择“设置”，然后选择“备份”。 将显示“备份”  边栏选项卡。
+1. 在 [Azure 门户预览](https://portal.azure.cn)中，导航到应用的边栏选项卡，选择“设置”，然后选择“备份”。 将显示“备份”  边栏选项卡。
 
     ![“备份”页面][ChooseBackupsPage]
 
@@ -132,7 +133,7 @@ ms.lasthandoff: 04/28/2017
 2. 创建名为 `_backup.filter` 的文件并将上述列表放在文件中，但删除 `D:\home`。 每行列出一个目录或文件。 文件的内容应为：
 
     \site\wwwroot\Logs  \LogFiles  \site\wwwroot\Images\2013  \site\wwwroot\Images\2014  \site\wwwroot\Images\brand.png
-3. 使用 [ftp](web-sites-deploy.md#ftp) 或任何其他方法，将此文件上载到站点 `D:\home\site\wwwroot\` 目录。 如果你愿意，可以直接在 `http://{yourapp}.scm.chinacloudsites.cn/DebugConsole` 中创建文件并在那里插入内容。
+3. 使用 [ftp](web-sites-deploy.md#ftp) 或任何其他方法，将此文件上传到站点 `D:\home\site\wwwroot\` 目录。 如果你愿意，可以直接在 `http://{yourapp}.scm.chinacloudsites.cn/DebugConsole` 中创建文件并在那里插入内容。
 4. 采用通常使用的相同方式运行备份，即[手动](#create-a-manual-backup)或[自动](#configure-automated-backups)。
 
 现在，`_backup.filter` 中指定的所有文件和文件夹都会从备份中排除。 在此示例中，将不再对日志文件，2013 年和 2014 年的映像文件以及 brand.png 进行备份。

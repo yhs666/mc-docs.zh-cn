@@ -1,6 +1,6 @@
 ---
-title: "使用 Git 创建 PHP-SQL Web 应用并将其部署到 Azure App Service"
-description: "本教程演示如何创建在 Azure SQL 数据库中存储数据的 PHP Web 应用并使用 Git 部署到 Azure App Service。"
+title: "使用 Git 创建 PHP-SQL Web 应用并将其部署到 Azure 应用服务"
+description: "本教程演示如何创建在 Azure SQL 数据库中存储数据的 PHP Web 应用并使用 Git 部署到 Azure 应用服务。"
 services: app-service\web, sql-database
 documentationcenter: php
 author: rmcmurray
@@ -12,18 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 wacn.date: 
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 8bff81af9e1b21fdad1f57f87d6f8fb0b9b62b40
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 7c9bfa24526f5078e1724286f5015841b743e1e6
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="create-a-php-sql-web-app-and-deploy-to-azure-app-service-using-git"></a>使用 Git 创建 PHP-SQL Web 应用并将其部署到 Azure App Service
-本教程演示如何在 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services)中创建连接到 Azure SQL 数据库的 PHP Web 应用以及如何使用 Git 部署该应用。 本教程假定你已在计算机上安装 [PHP][install-php]、[SQL Server Express][install-SQLExpress]、[Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) 和 [Git][install-git]。 完成本指南之后，将获得一个在 Azure 中运行的 PHP-SQL Web 应用。
+# <a name="create-a-php-sql-web-app-and-deploy-to-azure-app-service-using-git"></a>使用 Git 创建 PHP-SQL Web 应用并将其部署到 Azure 应用服务
+本教程演示如何在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)中创建连接到 Azure SQL 数据库的 PHP Web 应用以及如何使用 Git 部署该应用。 本教程假定你已在计算机上安装 [PHP][install-php]、[SQL Server Express][install-SQLExpress]、[Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) 和 [Git][install-git]。 完成本指南之后，将获得一个在 Azure 中运行的 PHP-SQL Web 应用。
 
 > [!NOTE]
 > 你可以使用 [Microsoft Web 平台安装程序](http://www.microsoft.com/web/downloads/platform.aspx)安装和配置 PHP、SQL Server Express 和 Microsoft Drivers for SQL Server for PHP。
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/28/2017
 
 学习内容：
 
-* 如何使用 [Azure 门户预览版](/azure/app-service-web/app-service-web-app-azure-portal)创建 Azure Web 应用和 SQL 数据库。 由于在应用服务 Web 应用中已默认启用 PHP，因此运行 PHP 代码没有任何特殊要求。
+* 如何使用 [Azure 门户预览](/app-service-web/app-service-web-app-azure-portal)创建 Azure Web 应用和 SQL 数据库。 由于在应用服务 Web 应用中已默认启用 PHP，因此运行 PHP 代码没有任何特殊要求。
 * 如何使用 Git 将应用程序发布和重新发布到 Azure。
 
 通过按照本教程中的说明进行操作，你将在 PHP 中构建简单的注册 Web 应用程序。 该应用程序将在 Azure 网站中托管。 以下是已完成应用程序的屏幕快照：
@@ -44,7 +45,7 @@ ms.lasthandoff: 04/28/2017
 ## <a name="create-an-azure-web-app-and-set-up-git-publishing"></a>创建 Azure Web 应用并设置 Git 发布
 按照以下步骤创建 Azure Web 应用和 SQL 数据库：
 
-1. 登录到 [Azure 门户预览版](https://portal.azure.cn/)。
+1. 登录到 [Azure 门户预览](https://portal.azure.cn/)。
 2. 单击仪表板左上方的“新建”图标打开 Azure 应用商店，接着单击应用商店旁的“全选”，然后选择“Web + 移动”。
 3. 在应用商店中，选择“Web + 移动” 。
 4. 单击“Web 应用”图标。
@@ -58,7 +59,7 @@ ms.lasthandoff: 04/28/2017
 
     Web 应用创建完成后，“通知”按钮将闪烁绿色的“成功”字样，资源组边栏选项卡会打开，以显示该组中的 Web 应用和 SQL 数据库。
 8. 如果以前未设置 Git 存储库，请登录到 [Azure 经典管理门户](https://manage.windowsazure.cn/)，找到你的应用，然后单击“速览”下的“仪表板” > “重置部署凭据”，为应用设置部署凭据。
-8. 返回到 [Azure 门户预览版](https://portal.azure.cn)。 单击资源组边栏选项卡中 Web 应用的图标，以打开 Web 应用的边栏选项卡。
+8. 返回到 [Azure 门户预览](https://portal.azure.cn)。 单击资源组边栏选项卡中 Web 应用的图标，以打开 Web 应用的边栏选项卡。
 
     ![Web 应用的资源组](./media/web-sites-php-sql-database-deploy-use-git/resource-group-blade.png)
 9. 在“设置”中，单击“连续部署” > “配置所需设置”。 选择“本地 Git 存储库”，然后单击“确定”。
@@ -73,7 +74,7 @@ ms.lasthandoff: 04/28/2017
 2. 在 SQL 数据库的边栏选项卡中，单击“设置” > “属性”，然后单击“显示数据库连接字符串”。 
 
     ![查看数据库属性](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
-3. 从结果对话框的“PHP”部分，记下 `Server`、`SQL Database` 和 `User Name` 的值。 稍后将 PHP Web 应用发布到 Azure App Service 时，将使用这些值。
+3. 从结果对话框的“PHP”部分，记下 `Server`、`SQL Database` 和 `User Name` 的值。 稍后将 PHP Web 应用发布到 Azure 应用服务时，将使用这些值。
 
 ## <a name="build-and-test-your-application-locally"></a>本地构建和测试应用程序
 注册应用程序是一个简单的 PHP 应用程序，在该应用程序中提供姓名和电子邮件地址即可注册事件。 以前的注册者的信息将显示在表中。 注册信息将存储在 SQL 数据库实例中。 应用程序由两个文件组成（复制/粘贴以下可用代码）：
@@ -261,10 +262,11 @@ ms.lasthandoff: 04/28/2017
 3. 浏览到 **http://[web app name].chinacloudsites.cn/index.php** 以查看你的更改。
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
 [install-Drivers]: http://www.microsoft.com/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
+

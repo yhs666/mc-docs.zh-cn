@@ -9,15 +9,16 @@ editor: tysonn
 ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
 ms.service: application-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 wacn.date: 
 ms.author: gwallace
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
 ms.openlocfilehash: 53cfe8ed2aef020aa6b6683b0c7305d2448eb140
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/25/2017
 
 
@@ -271,7 +272,7 @@ WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 **问：是否可以使用应用程序网关设置警报？**
 
-可以，应用程序网关确实支持警报。可以基于指标设置警报。  应用程序网关目前提供“吞吐量”指标，可以使用它来配置警报。 若要了解有关警报的详细信息，请访问 [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)（接收警报通知）。
+可以，应用程序网关确实支持警报。可以基于指标设置警报。  应用程序网关目前提供“吞吐量”指标，可以使用它来配置警报。
 
 **问：后端运行状况返回未知状态，原因是什么？**
 

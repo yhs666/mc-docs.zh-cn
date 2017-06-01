@@ -1,6 +1,6 @@
 ---
-title: "将 Sails.js Web 应用部署到 Azure App Service | Azure"
-description: "学习如何将 Node.js 应用部署到 Azure App Service。 本教程说明如何部署 Sails.js Web 应用。"
+title: "将 Sails.js Web 应用部署到 Azure 应用服务 | Azure"
+description: "学习如何将 Node.js 应用部署到 Azure 应用服务。 本教程说明如何部署 Sails.js Web 应用。"
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,18 +15,19 @@ ms.topic: article
 ms.date: 12/16/2016
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 5f1fd54a67208cceb2bfae1b6a0a5880dd266c9f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
 ---
-# <a name="deploy-a-sailsjs-web-app-to-azure-app-service"></a>将 Sails.js Web 应用部署到 Azure App Service
+# <a name="deploy-a-sailsjs-web-app-to-azure-app-service"></a>将 Sails.js Web 应用部署到 Azure 应用服务
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程说明如何将 Sails.js 应用部署到 Azure App Service。 在此过程中，可以搜集一些有关如何将 Node.js 应用配置为在应用服务中运行的一般知识。
+本教程说明如何将 Sails.js 应用部署到 Azure 应用服务。 在此过程中，可以搜集一些有关如何将 Node.js 应用配置为在应用服务中运行的一般知识。
 
 在这里，可学习的有用技能包括：
 
@@ -72,7 +73,7 @@ ms.lasthandoff: 04/22/2017
         loggingEnabled: true
         logDirectory: iisnode
 
-    现在已为 Azure App Service 用于运行 Node.js 应用的 [iisnode](https://github.com/tjanczuk/iisnode) 服务器启用日志记录。 
+    现在已为 Azure 应用服务用于运行 Node.js 应用的 [iisnode](https://github.com/tjanczuk/iisnode) 服务器启用日志记录。 
     有关此方面原理的详细信息，请参阅 [如何在 Azure 应用服务中调试 Node.js Web 应用](web-sites-nodejs-debug.md)。
 
 2. 接下来，配置 Sails.js 应用使用 Azure 环境变量。 打开 config/env/production.js 来配置生产环境，并设置 `port` 和 `hookTimeout`：
@@ -188,7 +189,7 @@ ms.lasthandoff: 04/22/2017
 
 1. [创建具有 MongoDB 协议支持的 DocumentDB 帐户](../documentdb/documentdb-create-mongodb-account.md)。
 2. [创建 DocumentDB 集合和数据库](../documentdb/documentdb-create-collection.md)。 集合的名称不重要，但从 Sails.js 连接时需要数据库的名称。
-3. [查找 DocumentDB 数据库的连接信息](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize)。
+3. [查找 DocumentDB 数据库的连接信息](../documentdb/documentdb-connect-mongodb-account.md#GetCustomConnection)。
 2. 从命令行终端安装 MongoDB 适配器：
 
         npm install sails-mongo --save

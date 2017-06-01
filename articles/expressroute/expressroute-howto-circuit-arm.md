@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: ganesr;cherylmc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eece5b23ce0c05c9e6e8a1938c34faf0383fb06a
 ms.openlocfilehash: d8d07051bd1e0ffa98061af59b1520e8d17bdea1
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/25/2017
 
 ---
@@ -185,12 +186,12 @@ get-help Get-AzureRmExpressRouteCircuit -detailed
 
 
 
-当连接提供商正在为你启用线路时，线路将转为以下状态。
+当连接提供商正在为你启用线路时，线路将转为以下状态：
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
 
-ExpressRoute 线路必须处于以下状态时才能使用。
+ExpressRoute 线路必须处于以下状态时才能使用：
 
     ServiceProviderProvisioningState : Provisioned
     CircuitProvisioningState         : Enabled
@@ -372,7 +373,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 > 但是，你无法在不中断的情况下降低 ExpressRoute 线路的带宽。 带宽降级需要取消对 ExpressRoute 线路的预配，然后重新预配新的 ExpressRoute 线路。
 > 
 
-确定所需的大小后，可以使用以下命令调整线路的大小。
+确定所需的大小后，可以使用以下命令调整线路的大小：
 
 ```powershell
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"

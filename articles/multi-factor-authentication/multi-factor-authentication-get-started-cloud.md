@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: c543d8ce82c521dd91b9f0a2b2ae7f4ce56b7d74
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -67,7 +68,7 @@ ms.lasthandoff: 04/14/2017
 - 已禁用  
 
 > [!IMPORTANT]
-> 我们不建议将用户直接从“禁用”状态移到“强制”状态。 基于非浏览器的应用将停止工作，因为用户尚未通过 MFA 注册并获得[应用密码](multi-factor-authentication-whats-next.md#app-passwords)。 如果拥有非浏览器应用并需要应用密码，我们建议从“禁用”状态更改为“启用”状态。 这样，用户便可以注册并获取其应用密码。 之后，可将他们移到“强制”状态。
+> 我们不建议将用户直接从“禁用”状态移到“强制”状态。 
 
 可以选择使用 PowerShell 批量启用用户。 目前，Azure 门户未提供批量启用功能，需要单独选择每个用户。 如果有许多用户，则此任务会十分繁琐。 使用以下代码创建 PowerShell 脚本后，可循环访问用户列表并启用这些用户。
 

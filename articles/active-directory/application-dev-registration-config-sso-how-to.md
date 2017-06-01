@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 8161a8606118cebc126bf41f8927d07b94d9b343
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -44,5 +45,4 @@ ms.lasthandoff: 04/22/2017
 [AzureAD v2.0 聚合应用的许可和权限](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
-
 

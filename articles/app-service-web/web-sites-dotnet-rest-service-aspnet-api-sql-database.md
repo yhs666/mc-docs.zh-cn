@@ -16,18 +16,19 @@ ms.topic: article
 ms.date: 02/29/2016
 wacn.date: 
 ms.author: riande
-translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: fb59dd4ad3708ee1616e4d2acf6214b0e2a04fee
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 219479054c45e67df252f94d73c29bfc1c77a68a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="create-a-rest-service-using-aspnet-web-api-and-sql-database-in-azure-app-service"></a>在 Azure App Service 中使用 ASP.NET Web API 和 SQL 数据库创建 REST 服务
+# <a name="create-a-rest-service-using-aspnet-web-api-and-sql-database-in-azure-app-service"></a>在 Azure 应用服务中使用 ASP.NET Web API 和 SQL 数据库创建 REST 服务
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程将展示如何使用 Visual Studio 2013 或 Visual Studio 2013 社区版中的“发布 Web”向导将 ASP.NET Web 应用部署到 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services)。 
+本教程将展示如何使用 Visual Studio 2013 或 Visual Studio 2013 社区版中的“发布 Web”向导将 ASP.NET Web 应用部署到 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)。 
 
 你可以注册一个 Azure 帐户，如果你没有 Visual Studio 2013，此 SDK 会自动安装 Visual Studio 2013 for Web Express。 这样你就可以免费使用 Azure 进行开发了。
 
@@ -59,7 +60,7 @@ ms.lasthandoff: 04/28/2017
 
     ![无身份验证](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/GS13noauth.png)
 
-    你要创建的示例应用程序没有需要用户登录的功能。 有关如何实施身份验证和授权功能的信息，请参阅本教程末尾的[后续步骤](#nextsteps)部分。 
+    你要创建的示例应用程序没有需要用户登录的功能。 有关如何实施身份验证和授权功能的信息，请参阅本教程末尾的[后续步骤](#next-steps)部分。 
 6. 在“新建 ASP.NET 项目”对话框中，确保选中“在云中托管”，然后单击“确定”。
 
 如果事先未登录到 Azure，则系统会提示登录。
@@ -178,7 +179,7 @@ ms.lasthandoff: 04/28/2017
             }
         }
 
-**Contact** 类定义你将为每个联系人存储的数据以及数据库需要的主键 ContactID。 本教程末尾的 [后续步骤](#nextsteps) 部分提供了有关数据模型的详细信息。
+**Contact** 类定义你将为每个联系人存储的数据以及数据库需要的主键 ContactID。 本教程末尾的 [后续步骤](#next-steps) 部分提供了有关数据模型的详细信息。
 
 ### <a name="create-web-pages-that-enable-app-users-to-work-with-the-contacts"></a>创建使应用程序用户可以使用联系人的网页
 ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新和删除 (CRUD) 操作的代码。
@@ -293,7 +294,7 @@ ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新�
 ![数据的 MVC 视图][rxz3]
 
 ## <a name="edit-the-view"></a>编辑视图
-1. 打开 *Views\Home\Index.cshtml* 文件。 在下一步中，将生成的标记替换为使用 [jQuery](http://jquery.com/) 和 [Knockout.js](http://knockoutjs.com/) 的代码。 此新代码将使用 Web API 和 JSON 检索联系人列表，然后使用 knockout.js 将联系人数据绑定至 UI。 有关详细信息，请参阅本教程末尾的 [后续步骤](#nextsteps) 部分。 
+1. 打开 *Views\Home\Index.cshtml* 文件。 在下一步中，将生成的标记替换为使用 [jQuery](http://jquery.com/) 和 [Knockout.js](http://knockoutjs.com/) 的代码。 此新代码将使用 Web API 和 JSON 检索联系人列表，然后使用 knockout.js 将联系人数据绑定至 UI。 有关详细信息，请参阅本教程末尾的 [后续步骤](#next-steps) 部分。 
 2. 将文件的内容替换为以下代码。
 
         @model IEnumerable<ContactManager.Models.Contact>
@@ -676,12 +677,12 @@ XSRF 攻击不同于网络钓鱼攻击。 网络钓鱼攻击需要与受害者�
 * [你的第一个 ASP.NET Web API](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
 * [调试 WAWS](web-sites-dotnet-troubleshoot-visual-studio.md)
 
-本教程和示例应用程序由 [Rick Anderson](http://blogs.msdn.com/b/rickandy/) 在 Tom Dykstra 和 Barry Dorrans 的帮助下编写。
+本教程和示例应用程序由 [Rick Anderson](http://blogs.msdn.com/b/rickandy/) 在 Tom Dykstra 和 Barry Dorrans 的帮助下编写。 
 
 请提供有关你喜欢的内容或者你希望看到改善的内容的反馈，不仅关于教程本身，也关于它所演示的产品。 你的反馈将帮助我们确定优先改进哪些方面。 我们特别希望确定大家对于对配置和部署成员资格数据库的流程进行更多自动化的兴趣有多大。 
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth

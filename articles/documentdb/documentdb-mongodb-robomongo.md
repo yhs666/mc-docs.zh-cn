@@ -1,6 +1,6 @@
 ---
-title: "将适用于 MongoDB 的 Robomongo 与 Azure DocumentDB 配合使用 | Azure"
-description: "了解如何将 Robomongo 与 DocumentDB: API for MongoDB 帐户配合使用"
+title: "将 Robomongo 用于 DocumentDB | Microsoft Docs"
+description: "了解如何将 Robomongo 用于 DocumentDB: API for MongoDB 帐户"
 keywords: robomongo
 services: documentdb
 author: AndrewHoh
@@ -13,26 +13,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/28/2017
 wacn.date: 
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
-ms.openlocfilehash: a71a30e7e1ead2d13f316b09a1bdab7cd970f2c4
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: d0ac35826d9d5133e48b7bd9ec5cdf34bf6a1303
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
+
 
 ---
-
-# <a name="use-robomongo-with-a-documentdb-api-for-mongodb-account"></a>将 Robomongo 与 DocumentDB: API for MongoDB 帐户配合使用
-若要使用 Robomongo 连接到 Azure DocumentDB: API for MongoDB 帐户，必须：
+# <a name="use-robomongo-with-an-azure-documentdb-api-for-mongodb-account"></a>将 Robomongo 用于 DocumentDB: API for MongoDB 帐户
+若要使用 Robomongo 连接到 DocumentDB: API for MongoDB 帐户，必须：
 
 - 下载并安装 [Robomongo](https://robomongo.org/)
-- 具有 DocumentDB：MongoDB 帐户的 API [连接字符串](./documentdb-connect-mongodb-account.md)信息
+- 具有 DocumentDB: API for MongoDB 帐户的[连接字符串](documentdb-connect-mongodb-account.md)信息
 
 ## <a name="connect-using-robomongo"></a>使用 Robomongo 进行连接
 若要将 DocumentDB: API for MongoDB 帐户添加到 Robomongo MongoDB 连接，请执行以下步骤。
 
-1. 使用[此处](./documentdb-connect-mongodb-account.md)的指令检索 DocumentDB: API for MongoDB 帐户连接信息。
+1. 使用[此处](documentdb-connect-mongodb-account.md)的指令检索 DocumentDB: API for MongoDB 帐户连接信息。
 
     ![连接字符串边栏选项卡的屏幕截图](./media/documentdb-mongodb-robomongo/connectionstringblade.png)
 2. 运行 *Robomongo.exe*
@@ -52,5 +53,6 @@ ms.lasthandoff: 04/25/2017
 7. 最后，单击“测试”验证是否能够连接，然后单击“保存”。
 
 ## <a name="next-steps"></a>后续步骤
-- 浏览 MongoDB [示例](./documentdb-mongodb-samples.md)的 DocumentDB: API。
+- 浏览 DocumentDB: API for MongoDB [示例](documentdb-mongodb-samples.md)。
+
 

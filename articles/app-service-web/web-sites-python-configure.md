@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure App Service Web 应用配置 Python"
-description: "本教程介绍在 Azure App Service Web 应用中创作和配置符合基本 Web 服务器网关接口 (WSGI) 的 Python 应用程序的选项。"
+title: "使用 Azure 应用服务 Web 应用配置 Python"
+description: "本教程介绍在 Azure 应用服务 Web 应用中创作和配置符合基本 Web 服务器网关接口 (WSGI) 的 Python 应用程序的选项。"
 services: app-service
 documentationcenter: python
 tags: python
@@ -16,34 +16,35 @@ ms.topic: article
 ms.date: 02/26/2016
 wacn.date: 
 ms.author: huvalo
-translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 0d01470bdeca2512c2f9f7c0add091d57ff45dfe
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: afac3797de52f6a88cd501f8e4f8dd2a8606adbd
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="configuring-python-with-azure-app-service-web-apps"></a>使用 Azure App Service Web 应用配置 Python
-本教程介绍在 [Azure App Service Web 应用](/azure/app-service-web/app-service-changes-existing-services)中创作和配置符合基本 Web 服务器网关接口 (WSGI) 的 Python 应用程序的选项。
+# <a name="configuring-python-with-azure-app-service-web-apps"></a>使用 Azure 应用服务 Web 应用配置 Python
+本教程介绍在 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中创作和配置符合基本 Web 服务器网关接口 (WSGI) 的 Python 应用程序的选项。
 
 其中讲解了 Git 部署的一些功能，如使用 requirements.txt 安装虚拟环境和包。
 
 ## <a name="bottle-django-or-flask"></a>Bottle、Django 还是 Flask？
- 如果你正在 Azure App Service 中开发第一个 Web 应用，或者不熟悉 Git，我们建议你遵循以下教程之一，其中包括有关从 Windows 或 Mac 使用 Git 部署从库生成工作应用程序的分步说明：
+ 如果你正在 Azure 应用服务中开发第一个 Web 应用，或者不熟悉 Git，我们建议你遵循以下教程之一，其中包括有关从 Windows 或 Mac 使用 Git 部署从库生成工作应用程序的分步说明：
 
 * [使用 Bottle 创建 Web 应用](web-sites-python-create-deploy-bottle-app.md)
 * [使用 Django 创建 Web 应用](web-sites-python-create-deploy-django-app.md)
 * [使用 Flask 创建 Web 应用](web-sites-python-create-deploy-flask-app.md)
 
-## <a name="web-app-creation-on-azure-portal-preview"></a>在 Azure 门户预览版中创建 Web 应用
-本教程假设已有 Azure 订阅和 Azure 门户预览版访问权限。
+## <a name="web-app-creation-on-azure-portal-preview"></a>在 Azure 门户预览中创建 Web 应用
+本教程假设已有 Azure 订阅和 Azure 门户预览访问权限。
 
-如果没有现成的 Web 应用，则可从 [Azure 门户预览版](https://portal.azure.cn)中创建一个。  单击左上角的“新建”按钮，然后依次单击“Web + 移动” > “Web 应用”。
+如果没有现成的 Web 应用，则可从 [Azure 门户预览](https://portal.azure.cn)中创建一个。  单击左上角的“新建”按钮，然后依次单击“Web + 移动” > “Web 应用”。
 
 ## <a name="git-publishing"></a>Git 发布
-按照 [从本地 Git 部署到 Azure App Service](app-service-deploy-local-git.md)的说明为新创建的 Web 应用配置 Git 发布。 本教程使用 Git 来创建、管理 Python Web 应用以及将其发布到 Azure App Service。
+按照 [从本地 Git 部署到 Azure 应用服务](app-service-deploy-local-git.md)的说明为新创建的 Web 应用配置 Git 发布。 本教程使用 Git 来创建、管理 Python Web 应用以及将其发布到 Azure 应用服务。
 
-在设置 Git 发布之后，将创建 Git 存储库并使其与你的 Web 应用相关联。 随即会显示该存储库的 URL，之后其可用于将数据从本地开发环境推送到云。 若要通过 Git 发布应用程序，请确保还安装了 Git 客户端，并按照提供的说明将 Web 应用内容推送到 Azure App Service。
+在设置 Git 发布之后，将创建 Git 存储库并使其与你的 Web 应用相关联。 随即会显示该存储库的 URL，之后其可用于将数据从本地开发环境推送到云。 若要通过 Git 发布应用程序，请确保还安装了 Git 客户端，并按照提供的说明将 Web 应用内容推送到 Azure 应用服务。
 
 ## <a name="application-overview"></a>应用程序概述
 接下来几节将创建以下文件。 这些文件应放在 Git 存储库的根目录中。
@@ -55,7 +56,7 @@ ms.lasthandoff: 04/28/2017
     ptvs_virtualenv_proxy.py
 
 ## <a name="wsgi-handler"></a>WSGI 处理程序
-WSGI 是 [PEP 3333](http://www.python.org/dev/peps/pep-3333/) 所述的 Python 标准，用于定义 Web 服务器和 Python 之间的接口。 它提供了使用 Python 编写各种 Web 应用程序和框架所需的标准化接口。 当今常用的 Python Web 框架都使用 WSGI。 Azure App Service Web 应用支持任何此类框架；此外，高级用户可以创作自己的框架，只要自定义处理程序遵循 WSGI 规范准则即可。
+WSGI 是 [PEP 3333](http://www.python.org/dev/peps/pep-3333/) 所述的 Python 标准，用于定义 Web 服务器和 Python 之间的接口。 它提供了使用 Python 编写各种 Web 应用程序和框架所需的标准化接口。 当今常用的 Python Web 框架都使用 WSGI。 Azure 应用服务 Web 应用支持任何此类框架；此外，高级用户可以创作自己的框架，只要自定义处理程序遵循 WSGI 规范准则即可。
 
 下面是定义自定义处理程序的 `app.py` 的一个示例：
 
@@ -346,8 +347,8 @@ Python 3.4 的示例 `web.config` ：
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 ## <a name="next-steps"></a>后续步骤
-有关详细信息，请参阅 [Python 开发人员中心](https://www.azure.cn/develop/python/)。
+有关详细信息，请参阅 [Python 开发人员中心](/develop/python/)。
 
 ## <a name="whats-changed"></a>更改内容
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 

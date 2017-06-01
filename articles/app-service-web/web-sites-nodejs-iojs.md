@@ -1,6 +1,6 @@
 ---
-title: "如何将 io.js 与 Azure App Service Web Apps 配合使用"
-description: "了解如何将 Azure App Service 中的 Web 应用与 io.js 配合使用。"
+title: "如何将 io.js 与 Azure 应用服务 Web 应用配合使用"
+description: "了解如何将 Azure 应用服务中的 Web 应用与 io.js 配合使用。"
 services: app-service\web
 documentationcenter: nodejs
 author: rmcmurray
@@ -12,20 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 wacn.date: 
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: f975c62c49ebc87291f181b56eb9fe2f26e56c9d
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 1aa70d0679bf64e908ac0913753bcbf02d865467
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="how-to-use-iojs-with-azure-app-service-web-apps"></a>如何将 io.js 与 Azure App Service Web Apps 配合使用
+# <a name="how-to-use-iojs-with-azure-app-service-web-apps"></a>如何将 io.js 与 Azure 应用服务 Web 应用配合使用
 与 Joyent 的 Node.js 项目相比，流行的 Node 分叉 [io.js] 具有许多不同的特性，包括更加开放的监管模型、更快的发行周期，和更快地采纳新的和试验性的 JavaScript 功能。
 
-虽然 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services) Web 应用预装了许多 Node.js 版本，但它还允许使用用户提供的 Node.js 二进制文件。 本文将讨论在应用服务 Web 应用上启用 io.js 的两种方法：使用扩展的部署脚本（自动将 Azure 配置为使用最新的可用 io.js 版本），以及手动上载 io.js 二进制文件。 
+虽然 [Azure 应用服务](/app-service-web/app-service-changes-existing-services) Web 应用预装了许多 Node.js 版本，但它还允许使用用户提供的 Node.js 二进制文件。 本文将讨论在应用服务 Web 应用上启用 io.js 的两种方法：使用扩展的部署脚本（自动将 Azure 配置为使用最新的可用 io.js 版本），以及手动上传 io.js 二进制文件。 
 
 ## <a id="deploymentscript"></a>使用部署脚本
 在部署 Node.js 应用后，应用服务 Web 应用将运行大量的小命令来确保正确配置环境。 如果使用部署脚本，则可以将此过程自定义为包含 io.js 的下载和配置。
@@ -42,7 +43,7 @@ GitHub 上提供了 [io.js 部署脚本](https://github.com/felixrieseberg/iojs-
 ## <a id="manualinstallation"></a>使用手动安装
 手动安装自定义 io.js 版本只包括两个步骤。 首先，直接从 [io.js 分发包]中下载 **win-x64** 二进制文件。 需要两个文件 - **iojs.exe** 和 **iojs.lib**。 将这两个文件保存到 Web 应用上的某个文件夹中，例如，保存在 **bin/iojs** 中。
 
-若要将 Web Apps 配置为使用 **iojs.exe** 而不是预装的 Node 版本，请在应用程序的根目录中创建一个 **IISNode.yml** 文件，并添加以下行。
+若要将 Web 应用配置为使用 **iojs.exe** 而不是预装的 Node 版本，请在应用程序的根目录中创建一个 **IISNode.yml** 文件，并添加以下行。
 
     nodeProcessCommandLine: "D:\home\site\wwwroot\bin\iojs\iojs.exe"
 
@@ -55,7 +56,7 @@ GitHub 上提供了 [io.js 部署脚本](https://github.com/felixrieseberg/iojs-
 > 
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [io.js]: https://iojs.org
 [io.js 分发包]: https://iojs.org/dist/

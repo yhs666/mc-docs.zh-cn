@@ -17,9 +17,10 @@ ms.workload: big-data
 ms.date: 03/21/2017
 wacn.date: 
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: d3ea7c7326124efaea63bd745037da185996ad07
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -36,9 +37,9 @@ ms.lasthandoff: 04/28/2017
 
 **先决条件**
 
-* **Azure HDInsight 群集**：无论该群集是基于 Windows 还是基于 Linux 都行。
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+* **Azure HDInsight 群集**：无论该群集是基于 Windows 还是基于 Linux 都行。
 
     > [!IMPORTANT]
     > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
@@ -104,7 +105,7 @@ Azure PowerShell 提供 *cmdlet* ，可让你在 HDInsight 上远程运行 Hive 
         -Clustername $clusterName `
         -JobId $hiveJob.JobId `
         -HttpCredential $creds
-    ````
+    ```
 
 2. 打开一个新的 **Azure PowerShell** 命令提示符。 将目录更改为 **hivejob.ps1** 文件的所在位置，然后使用以下命令来运行脚本：
 
@@ -144,7 +145,7 @@ Azure PowerShell 提供 *cmdlet* ，可让你在 HDInsight 上远程运行 Hive 
     Invoke-AzureRmHDInsightHiveJob `
         -StatusFolder "statusout" `
         -Query $queryString
-    ````
+    ```
 
     输出类似于以下文本：
 
@@ -153,7 +154,7 @@ Azure PowerShell 提供 *cmdlet* ，可让你在 HDInsight 上远程运行 Hive 
         2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
 
     > [!NOTE]
-    > 对于较长的 HiveQL 查询，可以使用 Azure PowerShell **Here-Strings** cmdlet 或 HiveQL 脚本文件。 以下代码段显示了如何使用 **Invoke-Hive** cmdlet 来运行 HiveQL 脚本文件。 必须将 HiveQL 脚本文件上载到 wasb://。
+    > 对于较长的 HiveQL 查询，可以使用 Azure PowerShell **Here-Strings** cmdlet 或 HiveQL 脚本文件。 以下代码段显示了如何使用 **Invoke-Hive** cmdlet 来运行 HiveQL 脚本文件。 必须将 HiveQL 脚本文件上传到 wasb://。
     > <p>
     > `Invoke-AzureRmHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
     > <p>

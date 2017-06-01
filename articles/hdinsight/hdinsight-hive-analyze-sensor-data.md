@@ -17,9 +17,10 @@ ms.date: 04/14/2017
 wacn.date: 
 ms.author: larryfr
 ROBOTS: NOINDEX
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: dc940a4ad21d708e8219551d848a3a6a5a5265fc
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 

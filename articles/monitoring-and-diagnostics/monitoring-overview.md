@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: robb
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: e72d762ec776b08deb6ca4f9845287192096d62a
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -55,7 +56,7 @@ Azure Monitor 的视频演练位于
 
 对于计算资源来说，用户可以获取有关来宾 OS 和诊断模块（例如 Azure 诊断）的指标。 Azure 诊断有助于收集诊断数据，并可将诊断数据路由到其他位置（包括 Azure 存储）。
 
-[支持的指标](./monitoring-supported-metrics.md)中提供了当前可收集的指标列表。
+
 
 ### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>应用程序 - 诊断日志、应用程序日志和指标
 **仅计算**
@@ -139,7 +140,7 @@ Azure 的产品/服务可用于监视从裸机基础结构到应用程序遥测�
 详细了解以下内容
 
 * [Ignite 2016 的 Azure Monitor 视频](https://myignite.microsoft.com/videos/4977)
-* [Azure Monitor 入门](./monitoring-get-started.md)
+
 * [Azure 诊断](../azure-diagnostics.md) 如果要尝试诊断云服务、虚拟机或 Service Fabric 应用程序中的问题。
 * [Azure 存储故障诊断](../storage/storage-e2e-troubleshooting.md) 在使用存储 Blob、表或队列的情况下。
 

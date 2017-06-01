@@ -15,9 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: joflore
 ms.custom: end-user
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 4adfdef988cd5cab85905abe9340e0197887f569
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/28/2017
 
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 04/28/2017
 
 如果你在这里是要解锁自己的帐户，请执行下面的步骤。 在下面的步骤 6 看到“选择新密码”时，即可解锁或更改密码，然后你的帐户就解锁了。
 
-## <a name="reset-my-password"></a>重置我的密码
+## <a name="how-to-reset-your-password"></a>重置我的密码
 
 若要重新登录帐户，请执行以下步骤。
 
@@ -98,7 +99,6 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-- [如何通过注册来使用自助密码重置](active-directory-passwords-reset-register.md)
 - [密码重置注册页](https://login.partner.microsoftonline.cn)
 - [密码重置门户](https://passwordreset.microsoftonline.com/)
 

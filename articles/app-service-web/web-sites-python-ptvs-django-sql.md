@@ -1,6 +1,6 @@
 ---
 title: "具有 Python Tools 2.2 for Visual Studio 的 Azure 上的 Django 和 SQL 数据库"
-description: "了解如何使用 Python Tools for Visual Studio 来创建在 SQL 数据库实例中存储数据的 Django Web 应用，以及将应用部署到 Azure App Service Web Apps 中。"
+description: "了解如何使用 Python Tools for Visual Studio 来创建在 SQL 数据库实例中存储数据的 Django Web 应用，以及将应用部署到 Azure 应用服务 Web 应用中。"
 services: app-service\web
 tags: python
 documentationcenter: python
@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 07/07/2016
 wacn.date: 
 ms.author: huvalo
-translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 179c9644b72499877721616946f54e4abba55211
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 08dfb3c8452a2accd29f5a3fdb29791c58cfad82
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -29,9 +30,9 @@ ms.lasthandoff: 04/28/2017
 
 在本教程中，我们将使用 [Python Tools for Visual Studio] 通过一个 PTVS 样本模板创建简单的轮询 Web 应用。
 
-我们将了解如何使用在 Azure 上托管的 SQL 数据库、如何将 Web 应用配置为使用 SQL 数据库，以及如何将 Web 应用发布到 [Azure App Service Web 应用](/azure/app-service-web/app-service-changes-existing-services)中。
+我们将了解如何使用在 Azure 上托管的 SQL 数据库、如何将 Web 应用配置为使用 SQL 数据库，以及如何将 Web 应用发布到 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中。
 
-请访问 [Python 开发人员中心] ，查看更多有关使用 PTVS 以及 Bottle、Flask 和 Django Web 框架、Azure 表存储、MySQL、SQL 数据库服务开发 Azure 应用服务 Web 应用的文章。 虽然本文将着重介绍 App Service，但步骤与 [Azure 云服务]的开发步骤类似。
+请访问 [Python 开发人员中心] ，查看更多有关使用 PTVS 以及 Bottle、Flask 和 Django Web 框架、Azure 表存储、MySQL、SQL 数据库服务开发 Azure 应用服务 Web 应用的文章。 虽然本文将着重介绍应用服务，但步骤与 [Azure 云服务]的开发步骤类似。
 
 ## <a name="prerequisites"></a>先决条件
 * Visual Studio 2015
@@ -77,7 +78,7 @@ ms.lasthandoff: 04/28/2017
 
 你可通过以下步骤创建数据库。
 
-1. 登录到 [Azure 门户预览版]。
+1. 登录到 [Azure 门户预览]。
 2. 在导航窗格的底部，单击“新建”。 ，然后依次单击“数据 + 存储” > “SQL 数据库”。
 3. 通过新建资源组来配置新的 SQL 数据库，并为其选择相应的位置。
 4. 创建 SQL 数据库后，单击数据库边栏选项卡中的“在 Visual Studio 中打开”  。
@@ -124,8 +125,8 @@ ms.lasthandoff: 04/28/2017
     这将创建我们在上一节中创建的 SQL 数据库的表。 按照提示操作以创建用户，其并不一定要匹配第一节中创建的 sqlite 数据库中的用户。
 5. 使用 `F5`运行应用程序。 使用“创建样本轮询”  创建的轮询以及通过投票提交的数据会在 SQL 数据库中进行序列化。
 
-## <a name="publish-the-web-app-to-azure-app-service"></a>将 Web 应用发布到 Azure App Service
-借助 Azure.NET SDK，您可以轻松地将 Web 应用部署到 Azure App Service Web Apps 中。
+## <a name="publish-the-web-app-to-azure-app-service"></a>将 Web 应用发布到 Azure 应用服务
+借助 Azure.NET SDK，您可以轻松地将 Web 应用部署到 Azure 应用服务 Web 应用中。
 
 1. 在“解决方案资源管理器”中，右键单击项目节点，然后选择“发布”。
 
@@ -135,7 +136,7 @@ ms.lasthandoff: 04/28/2017
 4. 填写以下字段，然后单击“创建” 。
 
     * **Web 应用名称**
-    * **App Service 计划**
+    * **应用服务计划**
     * **资源组**
     * **区域**
     * 保持“数据库服务器”的“无数据库”设置不变
@@ -157,14 +158,14 @@ ms.lasthandoff: 04/28/2017
 * [SQL 数据库]
 
 ## <a name="whats-changed"></a>发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅 [Azure App Service 及其对现有 Azure 服务的影响](/azure/app-service-web/app-service-changes-existing-services)
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!--Link references-->
-[Python 开发人员中心]: https://www.azure.cn/develop/python/
+[Python 开发人员中心]: /develop/python/
 [Azure 云服务]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->
-[Azure 门户预览版]: https://portal.azure.cn
+[Azure 门户预览]: https://portal.azure.cn
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio 示例 VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
@@ -175,4 +176,4 @@ ms.lasthandoff: 04/28/2017
 [Web 项目]: http://go.microsoft.com/fwlink/?LinkId=624027
 [云服务项目]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Django 文档]: https://www.djangoproject.com/
-[SQL 数据库]: /azure/sql-database/
+[SQL 数据库]: /sql-database/
