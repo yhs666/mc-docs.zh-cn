@@ -49,7 +49,7 @@ ms.lasthandoff: 04/28/2017
 
 ## <a id="whatis"></a>什么是 Azure 虚拟网络？
 
-[Azure 虚拟网络](/azure/virtual-network/)允许创建包含需要用于解决方案的资源的安全永久性网络。
+[Azure 虚拟网络](/virtual-network/)允许创建包含需要用于解决方案的资源的安全永久性网络。
 
 以下是在虚拟网络中使用 HDInsight 时的注意事项列表：
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 04/28/2017
 有关虚拟网络特性、优势和功能的详细信息，请参阅 [Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
 
 > [!NOTE]
-> 在预配 HDInsight 群集前，创建 Azure 虚拟网络，然后在创建群集时指定该网络。 有关详细信息，请参阅[虚拟网络配置任务](/azure/virtual-network/)。
+> 在预配 HDInsight 群集前，创建 Azure 虚拟网络，然后在创建群集时指定该网络。 有关详细信息，请参阅[虚拟网络配置任务](/virtual-network/)。
 
 ## <a name="secured-virtual-networks"></a>受保护的虚拟网络
 
