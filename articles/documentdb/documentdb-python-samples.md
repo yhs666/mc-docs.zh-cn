@@ -1,14 +1,14 @@
 ---
-title: "用于 Azure Cosmos DB 的 DocumentDB API Python 示例 | Microsoft Docs"
-description: "在 github 上查找有关 Azure Cosmos DB 中常见任务的 Python 示例，包括 CRUD 操作。"
+title: "用于 DocumentDB 的 DocumentDB API Python 示例 | Microsoft Docs"
+description: "在 github 上查找有关 DocumentDB 中常见任务的 Python 示例，包括 CRUD 操作。"
 keywords: "python 示例"
-services: cosmosdb
+services: documentdb
 author: moderakh
 manager: jhubbard
 editor: monicar
 documentationcenter: python
 ms.assetid: 7f4f8db3-e9db-4645-92ef-7819d486a349
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -23,7 +23,7 @@ ms.contentlocale: zh-cn
 ms.lasthandoff: 05/19/2017
 
 ---
-# <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 示例
+# <a name="azure-documentdb-python-examples"></a>DocumentDB Python 示例
 > [!div class="op_single_selector"]
 > * [.NET 示例](documentdb-dotnet-samples.md)
 > * [Node.js 示例](documentdb-nodejs-samples.md)
@@ -32,7 +32,7 @@ ms.lasthandoff: 05/19/2017
 > 
 > 
 
-对 Azure Cosmos DB 资源执行 CRUD 操作和其他常见操作的示例解决方案包含在 [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) GitHub 存储库中。 本文将提供：
+对 DocumentDB 资源执行 CRUD 操作和其他常见操作的示例解决方案包含在 [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) GitHub 存储库中。 本文将提供：
 
 - 每个 Python 示例项目文件中的任务链接。 
 - 指向相关的 API 参考内容的链接。

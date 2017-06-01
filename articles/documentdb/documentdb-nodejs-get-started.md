@@ -1,14 +1,14 @@
 ---
-title: "适用于 Azure Cosmos DB 的 DocumentDB API 的 Node.js 教程 | Microsoft Docs"
-description: "本 Node.js 教程将创建采用 DocumentDB API 的 Cosmos DB。"
+title: "适用于 DocumentDB 的 DocumentDB API 的 Node.js 教程 | Microsoft Docs"
+description: "本 Node.js 教程将创建采用 DocumentDB API 的 DocumentDB。"
 keywords: "node.js 教程, 节点数据库"
-services: cosmosdb
+services: documentdb
 documentationcenter: node.js
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
 ms.assetid: 14d52110-1dce-4ac0-9dd9-f936afccd550
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
@@ -35,11 +35,11 @@ ms.lasthandoff: 05/19/2017
 >  
 > 
 
-欢迎使用 Azure Cosmos DB Node.js SDK 的 Node.js 教程！ 学习本教程后，你将拥有一个可创建并查询 Azure Cosmos DB 资源的控制台应用程序。
+欢迎使用 DocumentDB Node.js SDK 的 Node.js 教程！ 学习本教程后，你将拥有一个可创建并查询 DocumentDB 资源的控制台应用程序。
 
 我们将介绍：
 
-- 创建并连接到 Azure Cosmos DB 帐户
+- 创建并连接到 DocumentDB 帐户
 - 设置应用程序
 - 创建节点数据库
 - 创建集合
@@ -59,11 +59,11 @@ ms.lasthandoff: 05/19/2017
 请确保你具有以下内容：
 
 - 有效的 Azure 帐户。 如果没有，可以注册 [Azure 免费试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-    - 另外，对于本教程，也可以使用 [Azure Cosmos DB 模拟器](documentdb-nosql-local-emulator.md)。
+    - 另外，对于本教程，也可以使用 [DocumentDB 模拟器](documentdb-nosql-local-emulator.md)。
 - [Node.js](https://nodejs.org/) 版本 v0.10.29 或更高版本。
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>步骤 1：创建 Azure Cosmos DB 帐户
-创建一个 Azure Cosmos DB 帐户。 如果已经有想要使用的帐户，可以跳到 [安装 Node.js 应用程序](#SetupNode)。 如果使用 Azure Cosmos DB 模拟器，请遵循 [Azure Cosmos DB 模拟器](documentdb-nosql-local-emulator.md)中的步骤设置该模拟器，然后直接跳到[安装 Node.js 应用程序](#SetupNode)。
+## <a name="step-1-create-an-azure-documentdb-account"></a>步骤 1：创建 DocumentDB 帐户
+创建一个 DocumentDB 帐户。 如果已经有想要使用的帐户，可以跳到 [安装 Node.js 应用程序](#SetupNode)。 如果使用 DocumentDB 模拟器，请遵循 [DocumentDB 模拟器](documentdb-nosql-local-emulator.md)中的步骤设置该模拟器，然后直接跳到[安装 Node.js 应用程序](#SetupNode)。
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 05/19/2017
 
 然后，复制并粘贴以下代码片段，并将属性 ```config.endpoint``` 和 ```config.primaryKey``` 设置为 DocumentDB 终结点 URI 和主密钥。 这两项配置都可以在 [Azure 门户](https://portal.azure.cn)中找到。
 
-![Node.js 教程 - Azure 门户的屏幕截图，显示了一个 Azure Cosmos DB 帐户，在“Azure Cosmos DB 帐户”边栏选项卡上突出显示了“ACTIVE”中心、“密钥”按钮，在“密钥”边栏选项卡上突出显示了 URI、主密钥、辅助密钥的值 - Node 数据库][keys]
+![Node.js 教程 - Azure 门户的屏幕截图，显示了一个 DocumentDB 帐户，在“DocumentDB 帐户”边栏选项卡上突出显示了“ACTIVE”中心、“密钥”按钮，在“密钥”边栏选项卡上突出显示了 URI、主密钥、辅助密钥的值 - Node 数据库][keys]
 
     // ADD THIS PART TO YOUR CODE
     var config = {}
@@ -95,7 +95,7 @@ ms.lasthandoff: 05/19/2017
     config.endpoint = "~your DocumentDB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
-复制 ```database id```、```collection id``` 和 ```JSON documents``` 并将其粘贴到在其中设置了 ```config.endpoint``` 和 ```config.authKey``` 属性的 ```config``` 对象下面。 如果已有要在数据库中存储的数据，则可以使用 Azure Cosmos DB 的[数据迁移工具](documentdb-import-data.md)而不是添加文档定义。
+复制 ```database id```、```collection id``` 和 ```JSON documents``` 并将其粘贴到在其中设置了 ```config.endpoint``` 和 ```config.authKey``` 属性的 ```config``` 对象下面。 如果已有要在数据库中存储的数据，则可以使用 DocumentDB 的[数据迁移工具](documentdb-import-data.md)而不是添加文档定义。
 
     config.endpoint = "~your DocumentDB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
@@ -179,7 +179,7 @@ ms.lasthandoff: 05/19/2017
     // ADD THIS PART TO YOUR CODE
     module.exports = config;
 
-## <a id="Connect"></a> 步骤 4：连接到 Azure Cosmos DB 帐户
+## <a id="Connect"></a> 步骤 4：连接到 DocumentDB 帐户
 在文本编辑器中打开空的 ```app.js``` 文件。 复制并粘贴以下代码，以导入 ```documentdb``` 模块和新建的 ```config``` 模块。
 
     // ADD THIS PART TO YOUR CODE
@@ -261,7 +261,7 @@ ms.lasthandoff: 05/19/2017
 
 在终端中，找到 ```app.js``` 文件并运行命令：```node app.js```
 
-祝贺你！ 你已成功创建了 Azure Cosmos DB 数据库。
+祝贺你！ 你已成功创建了 DocumentDB 数据库。
 
 ## <a id="CreateColl"></a>步骤 6：创建集合
 > [!WARNING]
@@ -371,8 +371,8 @@ ms.lasthandoff: 05/19/2017
 
 ![Node.js 教程 - 说明帐户、数据库、集合和文档间层次关系的关系图 - 节点数据库](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
-## <a id="Query"></a>步骤 8：查询 Azure Cosmos DB 资源
-Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行[各种查询](documentdb-sql-query.md)。 下面的示例代码演示你可针对集合中文档运行的查询。
+## <a id="Query"></a>步骤 8：查询 DocumentDB 资源
+DocumentDB 支持对存储在每个集合中的 JSON 文档进行[各种查询](documentdb-sql-query.md)。 下面的示例代码演示你可针对集合中文档运行的查询。
 
 将 **queryCollection** 函数复制并粘贴到 app.js 文件中的 **getFamilyDocument** 函数下面。 DocumentDB 支持类似 SQL 的查询，如下所示。 有关构建复杂查询的详细信息，请参阅 [Query Playground](https://www.documentdb.com/sql/demo)（查询演练）和[查询文档](documentdb-sql-query.md)。
 
@@ -426,10 +426,10 @@ Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行[各种查
 
 在终端中，找到 ```app.js``` 文件并运行命令：```node app.js```
 
-祝贺你！ 你已成功查询了 Azure Cosmos DB 文档。
+祝贺你！ 你已成功查询了 DocumentDB 文档。
 
 ## <a id="ReplaceDocument"></a>步骤 9：替换文档
-Azure Cosmos DB 支持替换 JSON 文档。
+DocumentDB 支持替换 JSON 文档。
 
 将 **replaceFamilyDocument** 函数复制并粘贴到 app.js 文件中的 **queryCollection** 函数下面。
 
@@ -473,10 +473,10 @@ Azure Cosmos DB 支持替换 JSON 文档。
 
 在终端中，找到 ```app.js``` 文件并运行命令：```node app.js```
 
-祝贺你！ 你已成功替换了 Azure Cosmos DB 文档。
+祝贺你！ 你已成功替换了 DocumentDB 文档。
 
 ## <a id="DeleteDocument"></a>步骤 10：删除文档
-Azure Cosmos DB 支持删除 JSON 文档。
+DocumentDB 支持删除 JSON 文档。
 
 将 **deleteFamilyDocument** 函数复制并粘贴到 **replaceFamilyDocument** 函数下面。
 
@@ -517,7 +517,7 @@ Azure Cosmos DB 支持删除 JSON 文档。
 
 在终端中，找到 ```app.js``` 文件并运行命令：```node app.js```
 
-祝贺你！ 你已成功删除了 Azure Cosmos DB 文档。
+祝贺你！ 你已成功删除了 DocumentDB 文档。
 
 ## <a id="DeleteDatabase"></a>步骤 11：删除 Node 数据库
 删除已创建的数据库将删除该数据库及其所有子资源（集合、文档等）。
@@ -603,14 +603,14 @@ Azure Cosmos DB 支持删除 JSON 文档。
     Completed successfully
     Press any key to exit
 
-祝贺你！ 你已完成 Node.js 教程，并成功创建了你的第一个 Azure Cosmos DB 控制台应用程序！
+祝贺你！ 你已完成 Node.js 教程，并成功创建了你的第一个 DocumentDB 控制台应用程序！
 
 ## <a id="GetSolution"></a>获取完整的 Node.js 教程解决方案
 如果没有时间完成本教程中的步骤，或者只需下载代码，则可从 [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started) 获取。
 
 若要生成包含本文所有示例的 GetStarted 解决方案，需要以下内容：
 
-- [Azure Cosmos DB 帐户][documentdb-create-account]。
+- [DocumentDB 帐户][documentdb-create-account]。
 - GitHub 上提供的 [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) 解决方案。
 
 通过 npm 安装 **documentdb** 模块。 请使用以下命令：
@@ -624,10 +624,10 @@ Azure Cosmos DB 支持删除 JSON 文档。
 就这么简单，生成以后即可开始操作！ 
 
 ## <a name="next-steps"></a>后续步骤
-- 想要更复杂的 Node.js 示例？ 请参阅[使用 Azure Cosmos DB 生成 Node.js Web 应用程序](documentdb-nodejs-application.md)。
-- 了解如何[监视 Azure Cosmos DB 帐户](documentdb-monitor-accounts.md)。
+- 想要更复杂的 Node.js 示例？ 请参阅[使用 DocumentDB 生成 Node.js Web 应用程序](documentdb-nodejs-application.md)。
+- 了解如何[监视 DocumentDB 帐户](documentdb-monitor-accounts.md)。
 - 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
-- 在 [Azure Cosmos DB 文档页](/documentation/services/documentdb/)的“开发”部分了解有关编程模型的详细信息。
+- 在 [DocumentDB 文档页](/documentation/services/documentdb/)的“开发”部分了解有关编程模型的详细信息。
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: ./media/documentdb-nodejs-get-started/node-js-tutorial-keys.png

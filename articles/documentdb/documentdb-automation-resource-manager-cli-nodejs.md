@@ -1,14 +1,14 @@
 ---
-title: "Azure Cosmos DB 自动化 - Resource Manager - Azure CLI 1.0 | Microsoft Docs"
-description: "使用 Azure Resource Manager 模板或 CLI 来部署 Azure Cosmos DB 数据库帐户。 Azure Cosmos DB 是基于云的全局分布式数据库。"
-services: cosmosdb
+title: "DocumentDB 自动化 - Resource Manager - Azure CLI 1.0 | Microsoft Docs"
+description: "使用 Azure Resource Manager 模板或 CLI 来部署 DocumentDB 数据库帐户。 DocumentDB 是基于云的全局分布式数据库。"
+services: documentdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-resource-manager
 documentationcenter: 
 ms.assetid: eae5eec6-0e27-442c-abfc-ef6b7fd3f8d2
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -24,20 +24,21 @@ ms.openlocfilehash: 50719f7482550062b4bab8d78ebbefcd3c2e7978
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/19/2017
 
-
 ---
-# <a name="automate-azure-cosmos-db-account-creation-using-azure-cli-10-and-azure-resource-manager-templates"></a>使用 Azure CLI 1.0 和 Azure Resource Manager 模板自动创建 Azure Cosmos DB 帐户
+
+# <a name="automate-azure-documentdb-account-creation-using-azure-cli-10-and-azure-resource-manager-templates"></a>使用 Azure CLI 1.0 和 Azure Resource Manager 模板自动创建 DocumentDB 帐户
+
 > [!div class="op_single_selector"]
 > * [Azure 门户](documentdb-create-account.md)
 > * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
 > * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
 > * [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 
-本文说明如何使用 Azure Resource Manager 模板或直接使用 Azure 命令行界面 (CLI) 1.0 来创建 Azure Cosmos DB DocumentDB API 帐户。 若要使用 Azure 门户创建 Azure Cosmos DB 帐户，请参阅[使用 Azure 门户创建 Azure Cosmos DB 数据库帐户](documentdb-create-account.md)。
+本文说明如何使用 Azure Resource Manager 模板或直接使用 Azure 命令行界面 (CLI) 1.0 来创建 DocumentDB 帐户。 若要使用 Azure 门户创建 DocumentDB 帐户，请参阅[使用 Azure 门户创建 DocumentDB 数据库帐户](documentdb-create-account.md)。
 
-Azure Cosmos DB DocumentDB API 和 MongoDB API 数据库帐户是目前唯一可以使用 Resource Manager 模板和 Azure CLI 1.0 创建的 Azure Cosmos DB 资源。
+DocumentDB 和 MongoDB API 数据库帐户是目前唯一可以使用 Resource Manager 模板和 Azure CLI 1.0 创建的 DocumentDB 资源。
 
-若要使用 CLI 2.0 创建 Azure Cosmos DB DocumentDB API、表 API、图形 API 或 Mongo DB 帐户，请参阅[使用 Azure CLI 创建 Azure DocumentDB 帐户](documentdb-automation-resource-manager-cli.md)。
+若要使用 CLI 2.0 创建 DocumentDB、表 API、图形 API 或 Mongo DB 帐户，请参阅[使用 Azure CLI 创建 Azure DocumentDB 帐户](documentdb-automation-resource-manager-cli.md)。
 
 ## <a name="getting-ready"></a>做好准备
 必须拥有正确的 Azure CLI 版本和 Azure 帐户，才能将 Azure CLI 1.0 与 Azure 资源组配合使用。 如果没有 Azure CLI 1.0，[请安装](../cli-install-nodejs.md)。
@@ -106,7 +107,7 @@ info:    Executing command login
 如果需要，可以键入 `azure config mode asm`切换回到默认的命令集。
 
 ### <a name="create-or-retrieve-your-resource-group"></a>创建或检索资源组
-若要创建 Azure Cosmos DB 帐户，首先需要一个资源组。 如果已知道想要使用的资源组名称，请跳到 [步骤 2](#create-documentdb-account-cli)。
+若要创建 DocumentDB 帐户，首先需要一个资源组。 如果已知道想要使用的资源组名称，请跳到 [步骤 2](#create-documentdb-account-cli)。
 
 若要查看列有当前所有的资源组的列表，请运行以下命令，并记下想要使用的资源组名称：
 
@@ -117,7 +118,7 @@ info:    Executing command login
     azure group create <resourcegroupname> <resourcegrouplocation>
 
 - `<resourcegroupname>` 只能使用字母数字字符、句点、下划线、“-”字符和括号，且不能以句点结尾。
-- `<resourcegrouplocation>` 必须是已正式推出 Azure Cosmos DB 的区域之一。 [“Azure 区域”页](https://azure.microsoft.com/regions/#services)提供了当前的区域列表。
+- `<resourcegrouplocation>` 必须是已正式推出 DocumentDB 的区域之一。 [“Azure 区域”页](https://azure.microsoft.com/regions/#services)提供了当前的区域列表。
 
 输入示例：
 
@@ -140,17 +141,17 @@ info:    Executing command login
 如果遇到错误，请参阅 [故障排除](#troubleshooting)。
 
 ## <a name="understanding-resource-manager-templates-and-resource-groups"></a>了解 Azure Resource Manager 模板和资源组
-大多数应用程序是通过不同资源类型的组合（例如，一个或多个 Azure Cosmos DB 帐户、存储帐户、虚拟网络或内容交付网络）生成的。 默认 Azure 服务管理 API 和 Azure 门户使用基于服务的方法代表这些项。 这种方法需要你单独部署和管理各个服务（或查找其他具备相同功能的工具），而不是当作单个逻辑部署单元。
+大多数应用程序是通过不同资源类型的组合（例如，一个或多个 DocumentDB 帐户、存储帐户、虚拟网络或内容交付网络）生成的。 默认 Azure 服务管理 API 和 Azure 门户使用基于服务的方法代表这些项。 这种方法需要你单独部署和管理各个服务（或查找其他具备相同功能的工具），而不是当作单个逻辑部署单元。
 
 可以利用 Azure Resource Manager 模板将这些不同的资源声明为一个逻辑部署单元，然后进行部署和管理。 请不要以命令方式告知 Azure 逐一部署命令，而应该在 JSON 文件中描述整个部署 - 所有资源及关联的配置以及部署参数 - 然后告诉 Azure 将这些资源视为一个组进行部署。
 
 可在 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)中了解有关 Azure 资源组及其功能的详细信息。 若要了解如何创作模板，请参阅[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)。
 
-## <a id="quick-create-documentdb-account"></a>任务：创建单区域 Azure Cosmos DB 帐户
-根据本部分的说明创建单区域 Azure Cosmos DB 帐户。 可以在 Azure CLI 1.0 中使用或不使用 Resource Manager 模板完成此任务。
+## <a id="quick-create-documentdb-account"></a>任务：创建单区域 DocumentDB 帐户
+根据本部分的说明创建单区域 DocumentDB 帐户。 可以在 Azure CLI 1.0 中使用或不使用 Resource Manager 模板完成此任务。
 
-### <a id="create-single-documentdb-account-cli-arm"></a> 在 Azure CLI 1.0 中不使用 Resource Manager 模板创建单区域 Azure Cosmos DB 帐户
-在命令提示符处输入下列命令，在新的或现有的资源组中创建 Azure Cosmos DB 帐户：
+### <a id="create-single-documentdb-account-cli-arm"></a> 在 Azure CLI 1.0 中不使用 Resource Manager 模板创建单区域 DocumentDB 帐户
+在命令提示符处输入下列命令，在新的或现有的资源组中创建 DocumentDB 帐户：
 
 > [!TIP]
 > 如果在 Azure PowerShell 或 Windows PowerShell 中运行此命令，将收到关于意外的令牌的错误。 请改为在 Windows 命令提示符处运行此命令。
@@ -161,9 +162,9 @@ info:    Executing command login
 
 - `<resourcegroupname>` 只能使用字母数字字符、句点、下划线、“-”字符和括号，且不能以句点结尾。
 - `<resourcegrouplocation>` 是当前资源组的区域。
-- `<ip-range-filter>` 指定 IP 地址集合或者 CIDR 格式的 IP 地址范围，以便将这些地址作为指定数据库帐户所允许的客户端 IP 列表。 IP 地址/范围必须以逗号分隔，且不得包含空格。 有关详细信息，请参阅 [Azure Cosmos DB 防火墙支持](documentdb-firewall-support.md)
+- `<ip-range-filter>` 指定 IP 地址集合或者 CIDR 格式的 IP 地址范围，以便将这些地址作为指定数据库帐户所允许的客户端 IP 列表。 IP 地址/范围必须以逗号分隔，且不得包含空格。 有关详细信息，请参阅 [DocumentDB 防火墙支持](documentdb-firewall-support.md)
 - `<databaseaccountname>` 只能使用小写字母、数字及“-”字符，且长度必须为 3 到 50 个字符。
-- `<databaseaccountlocation>` 必须是已正式推出 Azure Cosmos DB 的区域之一。 [“Azure 区域”页](https://azure.microsoft.com/regions/#services)提供了当前的区域列表。
+- `<databaseaccountlocation>` 必须是已正式推出 DocumentDB 的区域之一。 [“Azure 区域”页](https://azure.microsoft.com/regions/#services)提供了当前的区域列表。
 
 输入示例：
 
@@ -187,10 +188,10 @@ info:    Executing command login
 
 如果遇到错误，请参阅[故障排除](#troubleshooting)。
 
-在此命令返回之后，在帐户更改为“联机”状态以准备好可供使用之前，该帐户将会进入“正在创建”状态数分钟的时间。 可以在 [Azure 门户](https://portal.azure.cn)的“Azure Cosmos DB 帐户”边栏选项卡上检查帐户的状态。
+在此命令返回之后，在帐户更改为“联机”状态以准备好可供使用之前，该帐户将会进入“正在创建”状态数分钟的时间。 可以在 [Azure 门户](https://portal.azure.cn)的“DocumentDB 帐户”边栏选项卡上检查帐户的状态。
 
-### <a id="create-single-documentdb-account-cli-arm"></a> 在 Azure CLI 1.0 中使用 Resource Manager 模板创建单区域 Azure Cosmos DB 帐户
-本部分中的说明介绍如何使用 Azure Resource Manager 模板和可选参数文件（二者都是 JSON 文件）来创建 Azure Cosmos DB 帐户。 使用模板可以准确描述所需的信息，并可重复使用而不会出现任何错误。
+### <a id="create-single-documentdb-account-cli-arm"></a> 在 Azure CLI 1.0 中使用 Resource Manager 模板创建单区域 DocumentDB 帐户
+本部分中的说明介绍如何使用 Azure Resource Manager 模板和可选参数文件（二者都是 JSON 文件）来创建 DocumentDB 帐户。 使用模板可以准确描述所需的信息，并可重复使用而不会出现任何错误。
 
 创建含有下列内容的本地模板文件。 将文件命名为 azuredeploy.json。
 
@@ -226,7 +227,7 @@ info:    Executing command login
         ]
     }
 
-由于这是单区域帐户，failoverPriority 必须设置为 0。 failoverPriority 为 0 表示此区域将保留为 [Azure Cosmos DB 帐户的写入区域][scaling-globally]。
+由于这是单区域帐户，failoverPriority 必须设置为 0。 failoverPriority 为 0 表示此区域将保留为 [DocumentDB 帐户的写入区域][scaling-globally]。
 可以在命令行中输入值，也可以创建参数文件来指定值。
 
 若要创建参数文件，请将下列内容复制到新文件中，然后将文件命名为 azuredeploy.parameters.json。 如果计划在命令提示符处指定数据库帐户名称，就可以继续操作而不需创建此文件。
@@ -244,9 +245,9 @@ info:    Executing command login
         }
     }
 
-在 azuredeploy.parameters.json 文件中，将 `"samplearmacct"` 的值字段更新为要使用的数据库名称，然后保存文件。 `"databaseAccountName"` 只能使用小写字母、数字及“-”字符，且长度必须为 3 到 50 个字符。 将 `"locationName1"` 的值字段更新为要在其中创建 Azure Cosmos DB 帐户的区域。
+在 azuredeploy.parameters.json 文件中，将 `"samplearmacct"` 的值字段更新为要使用的数据库名称，然后保存文件。 `"databaseAccountName"` 只能使用小写字母、数字及“-”字符，且长度必须为 3 到 50 个字符。 将 `"locationName1"` 的值字段更新为要在其中创建 DocumentDB 帐户的区域。
 
-若要在资源组中创建 Azure Cosmos DB 帐户，请运行下列命令，并提供模板文件的路径、参数文件的路径或参数值、要在其中进行部署的资源组的名称，以及部署名称（-n 为可选）。
+若要在资源组中创建 DocumentDB 帐户，请运行下列命令，并提供模板文件的路径、参数文件的路径或参数值、要在其中进行部署的资源组的名称，以及部署名称（-n 为可选）。
 
 若要使用参数文件：
 
@@ -254,7 +255,7 @@ info:    Executing command login
 
 - `<PathToTemplate>` 是步骤 1 中创建的 azuredeploy.json 文件的路径。 如果路径名称含有空格，请使用双引号括住此参数。
 - `<PathToParameterFile>` 是步骤 1 中创建的 azuredeploy.parameters.json 文件的路径。 如果路径名称含有空格，请使用双引号括住此参数。
-- `<resourcegroupname>` 是要在其中添加 Azure Cosmos DB 数据库帐户的现有资源组的名称。
+- `<resourcegroupname>` 是要在其中添加 DocumentDB 数据库帐户的现有资源组的名称。
 - `<deploymentname>` 是部署的可选名称。
 
 输入示例：
@@ -299,9 +300,9 @@ info:    Executing command login
 
 如果遇到错误，请参阅[故障排除](#troubleshooting)。  
 
-在此命令返回之后，在帐户更改为“联机”状态以准备好可供使用之前，该帐户将会进入“正在创建”状态数分钟的时间。 可以在 [Azure 门户](https://portal.azure.cn)的“Azure Cosmos DB 帐户”边栏选项卡上检查帐户的状态。
+在此命令返回之后，在帐户更改为“联机”状态以准备好可供使用之前，该帐户将会进入“正在创建”状态数分钟的时间。 可以在 [Azure 门户](https://portal.azure.cn)的“DocumentDB 帐户”边栏选项卡上检查帐户的状态。
 
-## <a id="quick-create-documentdb-with-mongodb-api-account"></a>任务：创建单区域 Azure Cosmos DB: API for MongoDB 帐户
+## <a id="quick-create-documentdb-with-mongodb-api-account"></a>任务：创建单区域 DocumentDB: API for MongoDB 帐户
 使用本部分中的说明为 MongoDB 帐户创建单区域 API。 可以在 Azure CLI 1.0 中使用 Resource Manager 模板完成此任务。
 
 ### <a id="create-single-documentdb-with-mongodb-api-account-cli-arm"></a>在 Azure CLI 1.0 中使用 Resource Manager 模板创建单区域 MongoDB 帐户
@@ -342,9 +343,9 @@ info:    Executing command login
         ]
     }
 
-若要指定此帐户支持 MongoDB API，必须将类型设置为 MongoDB。 如果不指定类型属性，则默认为 Azure Cosmos DB DocumentDB API 帐户。
+若要指定此帐户支持 MongoDB API，必须将类型设置为 MongoDB。 如果不指定类型属性，则默认为 DocumentDB 帐户。
 
-由于这是单区域帐户，failoverPriority 必须设置为 0。 failoverPriority 为 0 表示此区域将保留为 [Azure Cosmos DB 帐户的写入区域][scaling-globally]。
+由于这是单区域帐户，failoverPriority 必须设置为 0。 failoverPriority 为 0 表示此区域将保留为 [DocumentDB 帐户的写入区域][scaling-globally]。
 可以在命令行中输入值，也可以创建参数文件来指定值。
 
 若要创建参数文件，请将下列内容复制到新文件中，然后将文件命名为 azuredeploy.parameters.json。 如果计划在命令提示符处指定数据库帐户名称，就可以继续操作而不需创建此文件。
@@ -362,9 +363,9 @@ info:    Executing command login
         }
     }
 
-在 azuredeploy.parameters.json 文件中，将 `"samplearmacct"` 的值字段更新为要使用的数据库名称，然后保存文件。 `"databaseAccountName"` 只能使用小写字母、数字及“-”字符，且长度必须为 3 到 50 个字符。 将 `"locationName1"` 的值字段更新为要在其中创建 Azure Cosmos DB 帐户的区域。
+在 azuredeploy.parameters.json 文件中，将 `"samplearmacct"` 的值字段更新为要使用的数据库名称，然后保存文件。 `"databaseAccountName"` 只能使用小写字母、数字及“-”字符，且长度必须为 3 到 50 个字符。 将 `"locationName1"` 的值字段更新为要在其中创建 DocumentDB 帐户的区域。
 
-若要在资源组中创建 Azure Cosmos DB 帐户，请运行下列命令，并提供模板文件的路径、参数文件的路径或参数值、要在其中进行部署的资源组的名称，以及部署名称（-n 为可选）。
+若要在资源组中创建 DocumentDB 帐户，请运行下列命令，并提供模板文件的路径、参数文件的路径或参数值、要在其中进行部署的资源组的名称，以及部署名称（-n 为可选）。
 
 若要使用参数文件：
 
@@ -372,7 +373,7 @@ info:    Executing command login
 
 - `<PathToTemplate>` 是步骤 1 中创建的 azuredeploy.json 文件的路径。 如果路径名称含有空格，请使用双引号括住此参数。
 - `<PathToParameterFile>` 是步骤 1 中创建的 azuredeploy.parameters.json 文件的路径。 如果路径名称含有空格，请使用双引号括住此参数。
-- `<resourcegroupname>` 是要在其中添加 Azure Cosmos DB 数据库帐户的现有资源组的名称。
+- `<resourcegroupname>` 是要在其中添加 DocumentDB 数据库帐户的现有资源组的名称。
 - `<deploymentname>` 是部署的可选名称。
 
 输入示例：
@@ -417,13 +418,13 @@ info:    Executing command login
 
 如果遇到错误，请参阅[故障排除](#troubleshooting)。  
 
-在此命令返回之后，在帐户更改为“联机”状态以准备好可供使用之前，该帐户将会进入“正在创建”状态数分钟的时间。 可以在 [Azure 门户](https://portal.azure.cn)的“Azure Cosmos DB 帐户”边栏选项卡上检查帐户的状态。
+在此命令返回之后，在帐户更改为“联机”状态以准备好可供使用之前，该帐户将会进入“正在创建”状态数分钟的时间。 可以在 [Azure 门户](https://portal.azure.cn)的“DocumentDB 帐户”边栏选项卡上检查帐户的状态。
 
-## <a id="create-multi-documentdb-account"></a>任务：创建多区域 Azure Cosmos DB 帐户
-Azure Cosmos DB 能够跨不同的 [Azure 区域](https://azure.microsoft.com/regions/#services)[全局分配数据][distribute-globally]。 创建 Azure Cosmos DB 帐户时，可以指定要将服务放在哪个区域。 根据本部分的说明创建多区域 Azure Cosmos DB 帐户。 可以在 Azure CLI 1.0 中使用或不使用 Resource Manager 模板完成此任务。
+## <a id="create-multi-documentdb-account"></a>任务：创建多区域 DocumentDB 帐户
+DocumentDB 能够跨不同的 [Azure 区域](https://azure.microsoft.com/regions/#services)[全局分配数据][distribute-globally]。 创建 DocumentDB 帐户时，可以指定要将服务放在哪个区域。 根据本部分的说明创建多区域 DocumentDB 帐户。 可以在 Azure CLI 1.0 中使用或不使用 Resource Manager 模板完成此任务。
 
-### <a id="create-multi-documentdb-account-cli"></a> 在 Azure CLI 1.0 中不使用 Resource Manager 模板创建多区域 Azure Cosmos DB 帐户
-在命令提示符处输入下列命令，在新的或现有的资源组中创建 Azure Cosmos DB 帐户：
+### <a id="create-multi-documentdb-account-cli"></a> 在 Azure CLI 1.0 中不使用 Resource Manager 模板创建多区域 DocumentDB 帐户
+在命令提示符处输入下列命令，在新的或现有的资源组中创建 DocumentDB 帐户：
 
 > [!TIP]
 > 如果在 Azure PowerShell 或 Windows PowerShell 中运行此命令，将收到关于意外的令牌的错误。 请改为在 Windows 命令提示符处运行此命令。
@@ -434,9 +435,9 @@ Azure Cosmos DB 能够跨不同的 [Azure 区域](https://azure.microsoft.com/re
 
 - `<resourcegroupname>` 只能使用字母数字字符、句点、下划线、“-”字符和括号，且不能以句点结尾。
 - `<resourcegrouplocation>` 是当前资源组的区域。
-- `<ip-range-filter>` 指定 IP 地址集合或者 CIDR 格式的 IP 地址范围，以便将这些地址作为指定数据库帐户所允许的客户端 IP 列表。 IP 地址/范围必须以逗号分隔，且不得包含空格。 有关详细信息，请参阅 [Azure Cosmos DB 防火墙支持](documentdb-firewall-support.md)
+- `<ip-range-filter>` 指定 IP 地址集合或者 CIDR 格式的 IP 地址范围，以便将这些地址作为指定数据库帐户所允许的客户端 IP 列表。 IP 地址/范围必须以逗号分隔，且不得包含空格。 有关详细信息，请参阅 [DocumentDB 防火墙支持](documentdb-firewall-support.md)
 - `<databaseaccountname>` 只能使用小写字母、数字及“-”字符，且长度必须为 3 到 50 个字符。
-- `<databaseaccountlocation1>` 和 `<databaseaccountlocation2>` 必须是已正式推出 Azure Cosmos DB 的区域。 [“Azure 区域”页](https://azure.microsoft.com/regions/#services)提供了当前的区域列表。
+- `<databaseaccountlocation1>` 和 `<databaseaccountlocation2>` 必须是已正式推出 DocumentDB 的区域。 [“Azure 区域”页](https://azure.microsoft.com/regions/#services)提供了当前的区域列表。
 
 输入示例：
 
@@ -460,10 +461,10 @@ Azure Cosmos DB 能够跨不同的 [Azure 区域](https://azure.microsoft.com/re
 
 如果遇到错误，请参阅[故障排除](#troubleshooting)。
 
-在此命令返回之后，在帐户更改为“联机”状态以准备好可供使用之前，该帐户将会进入“正在创建”状态数分钟的时间。 可以在 [Azure 门户](https://portal.azure.cn)的“Azure Cosmos DB 帐户”边栏选项卡上检查帐户的状态。
+在此命令返回之后，在帐户更改为“联机”状态以准备好可供使用之前，该帐户将会进入“正在创建”状态数分钟的时间。 可以在 [Azure 门户](https://portal.azure.cn)的“DocumentDB 帐户”边栏选项卡上检查帐户的状态。
 
-### <a id="create-multi-documentdb-account-cli-arm"></a> 在 Azure CLI 1.0 中使用 Resource Manager 模板创建多区域 Azure Cosmos DB 帐户
-本部分中的说明介绍如何使用 Azure Resource Manager 模板和可选参数文件（二者都是 JSON 文件）来创建 Azure Cosmos DB 帐户。 使用模板可以准确描述所需的信息，并可重复使用而不会出现任何错误。
+### <a id="create-multi-documentdb-account-cli-arm"></a> 在 Azure CLI 1.0 中使用 Resource Manager 模板创建多区域 DocumentDB 帐户
+本部分中的说明介绍如何使用 Azure Resource Manager 模板和可选参数文件（二者都是 JSON 文件）来创建 DocumentDB 帐户。 使用模板可以准确描述所需的信息，并可重复使用而不会出现任何错误。
 
 创建含有下列内容的本地模板文件。 将文件命名为 azuredeploy.json。
 
@@ -506,9 +507,9 @@ Azure Cosmos DB 能够跨不同的 [Azure 区域](https://azure.microsoft.com/re
         ]
     }
 
-上面的模板文件可用于创建包含两个区域的 Azure Cosmos DB 帐户。 若要创建包含多个区域的帐户，请将该帐户添加到“locations”数组并添加相应的参数。
+上面的模板文件可用于创建包含两个区域的 DocumentDB 帐户。 若要创建包含多个区域的帐户，请将该帐户添加到“locations”数组并添加相应的参数。
 
-其中一个区域的 failoverPriority 值必须为 0，表示此区域将保留为 [Azure Cosmos DB 帐户的写入区域][scaling-globally]。 故障转移优先级值在各个位置中必须唯一，最高故障转移优先级值必须小于区域总数。 可以在命令行中输入值，也可以创建参数文件来指定值。
+其中一个区域的 failoverPriority 值必须为 0，表示此区域将保留为 [DocumentDB 帐户的写入区域][scaling-globally]。 故障转移优先级值在各个位置中必须唯一，最高故障转移优先级值必须小于区域总数。 可以在命令行中输入值，也可以创建参数文件来指定值。
 
 若要创建参数文件，请将下列内容复制到新文件中，然后将文件命名为 azuredeploy.parameters.json。 如果计划在命令提示符处指定数据库帐户名称，就可以继续操作而不需创建此文件。
 
@@ -528,9 +529,9 @@ Azure Cosmos DB 能够跨不同的 [Azure 区域](https://azure.microsoft.com/re
         }
     }
 
-在 azuredeploy.parameters.json 文件中，将 `"samplearmacct"` 的值字段更新为要使用的数据库名称，然后保存文件。 `"databaseAccountName"` 只能使用小写字母、数字及“-”字符，且长度必须为 3 到 50 个字符。 将 `"locationName1"` 和 `"locationName2"` 的值字段更新为要在其中创建 Azure Cosmos DB 帐户的区域。
+在 azuredeploy.parameters.json 文件中，将 `"samplearmacct"` 的值字段更新为要使用的数据库名称，然后保存文件。 `"databaseAccountName"` 只能使用小写字母、数字及“-”字符，且长度必须为 3 到 50 个字符。 将 `"locationName1"` 和 `"locationName2"` 的值字段更新为要在其中创建 DocumentDB 帐户的区域。
 
-若要在资源组中创建 Azure Cosmos DB 帐户，请运行下列命令，并提供模板文件的路径、参数文件的路径或参数值、要在其中进行部署的资源组的名称，以及部署名称（-n 为可选）。
+若要在资源组中创建 DocumentDB 帐户，请运行下列命令，并提供模板文件的路径、参数文件的路径或参数值、要在其中进行部署的资源组的名称，以及部署名称（-n 为可选）。
 
 若要使用参数文件：
 
@@ -538,7 +539,7 @@ Azure Cosmos DB 能够跨不同的 [Azure 区域](https://azure.microsoft.com/re
 
 - `<PathToTemplate>` 是步骤 1 中创建的 azuredeploy.json 文件的路径。 如果路径名称含有空格，请使用双引号括住此参数。
 - `<PathToParameterFile>` 是步骤 1 中创建的 azuredeploy.parameters.json 文件的路径。 如果路径名称含有空格，请使用双引号括住此参数。
-- `<resourcegroupname>` 是要在其中添加 Azure Cosmos DB 数据库帐户的现有资源组的名称。
+- `<resourcegroupname>` 是要在其中添加 DocumentDB 数据库帐户的现有资源组的名称。
 - `<deploymentname>` 是部署的可选名称。
 
 输入示例：
@@ -584,13 +585,13 @@ Azure Cosmos DB 能够跨不同的 [Azure 区域](https://azure.microsoft.com/re
 
 如果遇到错误，请参阅[故障排除](#troubleshooting)。  
 
-在此命令返回之后，在帐户更改为“联机”状态以准备好可供使用之前，该帐户将会进入“正在创建”状态数分钟的时间。 可以在 [Azure 门户](https://portal.azure.cn)的“Azure Cosmos DB 帐户”边栏选项卡上检查帐户的状态。
+在此命令返回之后，在帐户更改为“联机”状态以准备好可供使用之前，该帐户将会进入“正在创建”状态数分钟的时间。 可以在 [Azure 门户](https://portal.azure.cn)的“DocumentDB 帐户”边栏选项卡上检查帐户的状态。
 
 ## <a name="troubleshooting"></a>故障排除
 如果在创建资源组或数据库帐户时收到错误（例如 `Deployment provisioning state was not successful` ），有几个故障排除选项可供使用。
 
 > [!NOTE]
-> 在数据库帐户名称中提供不正确的字符，或提供无法使用 Azure Cosmos DB 的位置将导致部署错误。 数据库帐户名称只能使用小写字母、数字及“-”字符，且长度必须为 3 到 50 个字符。 [“Azure 区域”页](https://azure.microsoft.com/regions/#services)上列出了所有有效的数据库帐户位置。
+> 在数据库帐户名称中提供不正确的字符，或提供无法使用 DocumentDB 的位置将导致部署错误。 数据库帐户名称只能使用小写字母、数字及“-”字符，且长度必须为 3 到 50 个字符。 [“Azure 区域”页](https://azure.microsoft.com/regions/#services)上列出了所有有效的数据库帐户位置。
 >
 >
 
@@ -609,17 +610,17 @@ Azure Cosmos DB 能够跨不同的 [Azure 区域](https://azure.microsoft.com/re
     ![Azure 门户屏幕截图：如何导航到部署错误消息](./media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png)
 
 ## <a name="next-steps"></a>后续步骤
-有了 Azure Cosmos DB 帐户之后，接下来的步骤是创建 Azure Cosmos DB 数据库。 你可以使用下面其中一项来创建数据库：
+有了 DocumentDB 帐户之后，接下来的步骤是创建 DocumentDB 数据库。 你可以使用下面其中一项来创建数据库：
 
-- Azure 门户，如[使用 Azure 门户创建 Azure Cosmos DB 集合和数据库](documentdb-create-collection.md)中所述。
+- Azure 门户，如[使用 Azure 门户创建 DocumentDB 集合和数据库](documentdb-create-collection.md)中所述。
 - C# .NET 示例，位于 GitHub 上 [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) 存储库的 [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) 项目中。
-- [Azure Cosmos DB DocumentDB API SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)。 Azure Cosmos DB DocumentDB API 有 .NET、Java、Python、Node.js 和 JavaScript API SDK。
+- [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)。 DocumentDB 有 .NET、Java、Python、Node.js 和 JavaScript API SDK。
 
 创建数据库后，必须向数据库[添加一个或多个集合](documentdb-create-collection.md)，然后向集合[添加文档](documentdb-view-json-document-explorer.md)。
 
 当集合中有文档后，可以使用门户中的[查询资源管理器](documentdb-query-collections-query-explorer.md)、[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或某个 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 针对文档使用 [SQL](documentdb-sql-query.md) 来[执行查询](documentdb-sql-query.md#ExecutingSqlQueries)。
 
-若要详细了解 Azure Cosmos DB，请参阅 [Azure Cosmos DB 多模型简介](../cosmos-db/introduction.md)。
+若要详细了解 DocumentDB，请参阅 [DocumentDB 多模型简介](./documentdb-resources.md)。
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

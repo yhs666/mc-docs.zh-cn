@@ -1,13 +1,13 @@
 ---
-title: "请求增加 Azure Cosmos DB 帐户配额 | Microsoft Docs"
-description: "了解如何请求对 Azure Cosmos DB 数据库配额（如文档存储空间和每个集合的吞吐量）的调整。"
-services: cosmosdb
+title: "请求增加 DocumentDB 帐户配额 | Microsoft Docs"
+description: "了解如何请求对 DocumentDB 数据库配额（如文档存储空间和每个集合的吞吐量）的调整。"
+services: documentdb
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 68f7dc8d-534f-4301-a42c-bcd1bb1b77fe
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -23,8 +23,8 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="request-increased-azure-cosmos-db-account-quotas"></a>请求增加 Azure Cosmos DB 帐户配额
-[Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) 是全局缩放数据库，可对吞吐量和存储进行缩放，以满足应用程序的所有需求。 如果对 Azure Cosmos DB 提供的规模有任何问题，请发送电子邮件到 askdocdb@microsoft.com。
+# <a name="request-increased-azure-documentdb-account-quotas"></a>请求增加 DocumentDB 帐户配额
+[DocumentDB](https://www.azure.cn/home/features/documentdb/) 是全局缩放数据库，可对吞吐量和存储进行缩放，以满足应用程序的所有需求。 如果对 DocumentDB 提供的规模有任何问题，请发送电子邮件到 askdocdb@microsoft.com。
 
 本文介绍如何通过 Azure 支持请求增加配额。
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 05/19/2017
 2. 在“帮助和支持”边栏选项卡上，单击“新建支持请求”。
    
     ![创建支持票证的屏幕截图](./media/documentdb-increase-limits/getsupport.png)
-3. 在“新支持请求”边栏选项卡上，单击“基本”。 接下来，将“问题类型”设置为“配额”，将“订阅”设置为托管 Azure Cosmos DB 帐户的订阅，将“配额类型”设置为“Azure Cosmos DB”，并将“支持计划”设置为“配额支持 - 包括”。 然后单击“下一步”。
+3. 在“新支持请求”边栏选项卡上，单击“基本”。 接下来，将“问题类型”设置为“配额”，将“订阅”设置为托管 DocumentDB 帐户的订阅，将“配额类型”设置为“DocumentDB”，并将“支持计划”设置为“配额支持 - 包括”。 然后单击“下一步”。
    
     ![支持票证请求类型的屏幕截图](./media/documentdb-increase-limits/supportrequest1.png)
 4. 在“问题”边栏选项卡中，选择严重级别，并在“详细信息”中包含关于配额增加的信息。 单击“下一步”。

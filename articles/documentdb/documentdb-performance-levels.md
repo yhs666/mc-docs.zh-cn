@@ -1,13 +1,13 @@
 ---
 title: "DocumentDB API 性能级别 | Microsoft Docs"
 description: "了解如何通过 DocumentDB API 性能级别在每个容器的基础上保留吞吐量。"
-services: cosmosdb
+services: documentdb
 author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -45,7 +45,7 @@ ms.lasthandoff: 05/19/2017
 
 ## 为何要停用 S1、S2 和 S3 性能级别？ <a name="why-retired"></a>
 
-S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性。 使用 S1、S2、S3 性能级别时，吞吐量和存储容量都是预设的，没有任何弹性。 现在，Azure Cosmos DB 允许用户自定义吞吐量和存储，大幅提高随需求变化而缩放的灵活性。
+S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性。 使用 S1、S2、S3 性能级别时，吞吐量和存储容量都是预设的，没有任何弹性。 现在，DocumentDB 允许用户自定义吞吐量和存储，大幅提高随需求变化而缩放的灵活性。
 
 ## 单区集合和分区集合与 S1、S2、S3 性能级别有哪些区别？ <a name="compare"></a>
 
@@ -55,7 +55,7 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 ## 我需要做些什么才能确保不间断地访问我的数据？ <a name="uninterrupted-access"></a>
 
-不需要执行任何操作，Cosmos DB 会代你处理迁移。 如果你有 S1、S2 或 S3 集合，当前集合将在 2017 年 7 月 31 日迁移到单区集合。 
+不需要执行任何操作，DocumentDB 会代你处理迁移。 如果你有 S1、S2 或 S3 集合，当前集合将在 2017 年 7 月 31 日迁移到单区集合。 
 
 ## 迁移后，集合会发生怎样的变化？ <a name="collection-change"></a>
 
@@ -65,7 +65,7 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 如果你有 S3 集合，该集合将迁移到吞吐量为 2.5 K RU/s 的单区集合。 吞吐量级别没有可见变化。
 
-对于上面的每种情况，在迁移集合后，可自定义吞吐量级别，或将其缩放以向用户提供低延迟的访问。 若要在迁移集合后更改吞吐量级别，只需在 Azure 门户中打开 Cosmos DB 帐户，单击“缩放”，选择集合，然后如以下屏幕截图所示调整吞吐量级别：
+对于上面的每种情况，在迁移集合后，可自定义吞吐量级别，或将其缩放以向用户提供低延迟的访问。 若要在迁移集合后更改吞吐量级别，只需在 Azure 门户中打开 DocumentDB 帐户，单击“缩放”，选择集合，然后如以下屏幕截图所示调整吞吐量级别：
 
 ![如何在 Azure 门户中缩放吞吐量](./media/documentdb-performance-levels/azure-documentdb-portal-scale-throughput.png)
 
@@ -77,7 +77,7 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 ## 如果需要 10 GB 以上的存储，应该怎么做？  <a name="more-storage-needed"></a>
 
-无论使用 S1、S2 或 S3 性能级别的集合还是单区集合（其可用存储都是 10 GB），都可以使用 Cosmos DB 数据迁移工具将数据迁移到分区集合（存储几乎无限）。 有关分区集合优势的信息，请参阅 [Azure Cosmos DB 中的分区和缩放](documentdb-partition-data.md)。 有关如何将 S1、S2、S3 或单区集合迁移到分区集合的信息，请参阅[从单区迁移到分区集合](documentdb-partition-data.md#migrating-from-single-partition)。 
+无论使用 S1、S2 或 S3 性能级别的集合还是单区集合（其可用存储都是 10 GB），都可以使用 DocumentDB 数据迁移工具将数据迁移到分区集合（存储几乎无限）。 有关分区集合优势的信息，请参阅 [DocumentDB 中的分区和缩放](documentdb-partition-data.md)。 有关如何将 S1、S2、S3 或单区集合迁移到分区集合的信息，请参阅[从单区迁移到分区集合](documentdb-partition-data.md#migrating-from-single-partition)。 
 
 ## 在 2017 年 8 月 1 日之前，是否可以在 S1、S2 和 S3 性能级别之间切换？  <a name="change-before"></a>
 
@@ -85,7 +85,7 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 ## 如何了解集合已迁移？ <a name="when-migrated"></a>
 
-迁移将在 2017 年 7 月 31 日进行。 如果有使用 S1、S2 或 S3 性能级别的集合，Cosmos DB 团队将在进行迁移前通过电子邮件与你联系。 2017 年 8 月 1 日完成迁移后，Azure 门户将显示你的集合使用标准定价。
+迁移将在 2017 年 7 月 31 日进行。 如果有使用 S1、S2 或 S3 性能级别的集合，DocumentDB 团队将在进行迁移前通过电子邮件与你联系。 2017 年 8 月 1 日完成迁移后，Azure 门户将显示你的集合使用标准定价。
 
 ![如何确认集合已迁移到标准定价层](./media/documentdb-performance-levels/documentdb-portal-standard-pricing-applied.png)
 
@@ -95,9 +95,9 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 **使用 Azure 门户迁移到单区集合**
 
-1. 在 [**Azure 门户**](https://portal.azure.cn)中单击“Azure Cosmos DB”，然后选择要修改的 Cosmos DB 帐户。 
+1. 在 [**Azure 门户**](https://portal.azure.cn)中单击“DocumentDB”，然后选择要修改的 DocumentDB 帐户。 
  
-    如果跳转栏上没有“Azure Cosmos DB”，请单击 >，滚动到“数据库”，选择“Azure Cosmos DB”，然后选择 DocumentDB 帐户。  
+    如果跳转栏上没有“DocumentDB”，请单击 >，滚动到“数据库”，选择“DocumentDB”，然后选择 DocumentDB 帐户。  
 
 2. 在资源菜单中的“容器”下面单击“缩放”，从下拉列表中选择要修改的集合，然后单击“定价层”。 使用预定义吞吐量的帐户拥有定价层 S1、S2 或 S3。  在“选择定价层”边栏选项卡中，单击“标准”以更改为用户定义的吞吐量，然后单击“选择”保存更改。
 
@@ -149,10 +149,10 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 EA 客户在当前合同到期之前，价格将受到保护。
 
 ## <a name="next-steps"></a>后续步骤
-若要了解更多有关 Azure Cosmos DB 的定价和管理数据的信息，请浏览以下资源：
+若要了解更多有关 DocumentDB 的定价和管理数据的信息，请浏览以下资源：
 
-1. [对 Cosmos DB 中的数据进行分区](documentdb-partition-data.md)。 了解单区容器与分区容器的差异，以及有关实施分区策略以进行无缝缩放的提示。
-2. [Cosmos DB 定价](https://www.azure.cn/pricing/details/documentdb/)。 了解预配吞吐量和使用存储的费用。
+1. [对 DocumentDB 中的数据进行分区](documentdb-partition-data.md)。 了解单区容器与分区容器的差异，以及有关实施分区策略以进行无缝缩放的提示。
+2. [DocumentDB 定价](https://www.azure.cn/pricing/details/documentdb/)。 了解预配吞吐量和使用存储的费用。
 3. [请求单位](documentdb-request-units.md)。 了解不同操作类型（例如读取、写入和查询）的吞吐量消耗。
 
 
