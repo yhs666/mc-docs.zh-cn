@@ -31,7 +31,7 @@ ms.author: marsma
 
 ## 创建 Ruby 应用程序
 
-有关如何创建 Ruby 应用程序的说明，请参阅 [Azure VM 上的 Ruby on Rails Web 应用程序](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md)。
+有关如何创建 Ruby 应用程序的说明，请参阅 [Azure VM 上的 Ruby on Rails Web 应用程序](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)。
 
 ## 配置应用程序以访问存储
 要使用 Azure 存储，需下载和使用 Ruby Azure 包，其中包括与存储 REST 服务通信的一组方便的库。

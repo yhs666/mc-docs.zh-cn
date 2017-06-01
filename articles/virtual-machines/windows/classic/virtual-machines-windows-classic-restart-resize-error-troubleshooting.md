@@ -21,7 +21,7 @@ ms.author: delhan
 
 # 排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的经典部署问题
 > [!div class="op_single_selector"]
->- [经典](../../virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
+>- [经典](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 >- [Resource Manager](../../virtual-machines-windows-restart-resize-error-troubleshooting.md)
 
 在尝试启动已停止的 Azure 虚拟机 \(VM\)，或调整现有 Azure VM 的大小时，经常遇到的错误是分配失败。当群集或区域没有可用的资源或无法支持所请求的 VM 大小时，就会发生此错误。

@@ -258,7 +258,7 @@ Write-Output "_applicationSecret:" $secret
 
 ## 其他资源
 
-- [SQL 数据库](./index.md)
+- [SQL 数据库](/sql-database/)
 - [数据库类](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.management.sql.models.database.aspx)
 
 <!--Image references-->

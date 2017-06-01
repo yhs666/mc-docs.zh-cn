@@ -77,7 +77,7 @@ ms.tgt_pltfrm: NA
 ## 其他资源
 
 - [业务连续性概述](./sql-database-business-continuity.md)
-- [SQL 数据库文档](./index.md)
+- [SQL 数据库文档](/sql-database/)
 
 <!--Image references-->
 [1]: ./media/sql-database-scale-up/new-tier.png

@@ -98,7 +98,6 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 
 ## <a name="additional-resources"></a>其他资源
 * [SQL 数据库开发概述](sql-database-develop-overview.md)
-* [暂时性错误处理的一般指南](../best-practices-retry-general.md)
 * [用于 SQL 数据库和 SQL Server 的连接库](sql-database-libraries.md)
 
 

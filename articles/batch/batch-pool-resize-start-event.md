@@ -48,4 +48,3 @@ ms.lasthandoff: 05/05/2017
 |enableAutoScale|Bool|指定池大小是否随时间自动调整。|
 |isAutoPool|Bool|指定是否已通过作业的 AutoPool 机制创建池。|
 
-

@@ -24,9 +24,10 @@ ms.openlocfilehash: 50719f7482550062b4bab8d78ebbefcd3c2e7978
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/19/2017
 
-
 ---
+
 # <a name="automate-azure-documentdb-account-creation-using-azure-cli-10-and-azure-resource-manager-templates"></a>使用 Azure CLI 1.0 和 Azure Resource Manager 模板自动创建 DocumentDB 帐户
+
 > [!div class="op_single_selector"]
 > * [Azure 门户](documentdb-create-account.md)
 > * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
@@ -624,4 +625,4 @@ DocumentDB 能够跨不同的 [Azure 区域](https://azure.microsoft.com/regions
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [distribute-globally]:./documentdb-distribute-data-globally.md
-[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet/
+[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet

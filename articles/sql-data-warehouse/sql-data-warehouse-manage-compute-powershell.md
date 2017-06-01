@@ -111,7 +111,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 $resultDatabase
 ```
 
-## <a name="check-database-state-bk"></a>检查数据库状态
+## <a name="check-database-state-bk"></a><a name="check-database-state"></a>检查数据库状态
 
 如以上示例所示，用户可以使用 [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase] cmdlet 获取数据库的信息，从而不仅可以用来检查状态，而且还可以用作参数。 
 

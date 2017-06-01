@@ -24,7 +24,7 @@ ms.lasthandoff: 04/28/2017
 
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure 应用服务上的操作系统功能
-本文介绍了可供在 [Azure 应用服务](/azure/app-service-web/app-service-changes-existing-services)上运行的所有应用使用的常见基准操作系统功能。 这些功能包括文件、网络和注册表访问以及诊断日志和事件。 
+本文介绍了可供在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)上运行的所有应用使用的常见基准操作系统功能。 这些功能包括文件、网络和注册表访问以及诊断日志和事件。 
 
 ## <a id="tiers"></a> 应用服务计划层
 应用服务在多租户托管环境中运行客户应用。 部署在“免费”和“共享”层中的应用在共享虚拟机上的辅助进程中运行，而部署在“标准”和“高级”层中的应用在专用于与单个客户关联的应用的虚拟机上运行。

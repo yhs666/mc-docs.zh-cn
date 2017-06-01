@@ -22,7 +22,6 @@ ms.openlocfilehash: c9636ccc003d2ab64b6af1071b4ecdbee70aaf94
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/19/2017
 
-
 ---
 # <a name="create-an-azure-documentdb-account-using-powershell"></a>使用 PowerShell 创建 DocumentDB 帐户
 
@@ -203,8 +202,8 @@ ms.lasthandoff: 05/19/2017
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [powershell-install-configure]:../powershell-install-configure.md
-[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet/
+[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet
 [distribute-data-globally]:./documentdb-distribute-data-globally.md
-[azure-resource-groups]:../azure-resource-manager/resource-group-overview.md#resource-groups/
+[azure-resource-groups]:../azure-resource-manager/resource-group-overview.md#resource-groups
 [azure-resource-tags]:../azure-resource-manager/resource-group-using-tags.md
 [rp-rest-api]: https://docs.microsoft.com/en-us/rest/api/documentdbresourceprovider/

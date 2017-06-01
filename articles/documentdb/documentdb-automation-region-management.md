@@ -22,9 +22,9 @@ ms.openlocfilehash: 85e8db9bf543927175e300e31d73d1bd0f059d25
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/19/2017
 
-
 ---
 # <a name="automate-azure-documentdb-account-region-management-using-azure-cli-10-and-azure-resource-manager-templates"></a>使用 Azure CLI 1.0 和 Azure Resource Manager 模板自动管理 DocumentDB 帐户区域
+
 
 本文说明了如何使用 Azure CLI 1.0 命令和 Azure Resource Manager 模板在 DocumentDB 帐户中添加/删除区域。 也可通过 [Azure 门户](./documentdb-portal-global-replication.md)实现区域管理。 请注意，以下教程中的命令不可更改各个区域的故障转移优先级。 只可添加或删除读取区域。 不能添加或删除数据库帐户中的写入区域（故障转移优先级为 0）。
 
@@ -542,4 +542,4 @@ DocumentDB 能够跨不同的 [Azure 区域](https://azure.microsoft.com/regions
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [distribute-globally]:./documentdb-distribute-data-globally.md
-[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet/
+[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet

@@ -559,6 +559,5 @@ Azure 媒体服务允许你传送受 [Microsoft PlayReady DRM](https://www.micro
     }
     ```
 
-##<a name="see-also"></a>另请参阅
 
-[使用多重 DRM 的 CENC 和访问控制](./media-services-cenc-with-multidrm-access-control.md)
+

@@ -111,8 +111,5 @@ fsutil behavior query DisableDeleteNotify
 fsutil behavior set DisableDeleteNotify 0
 ```
 
-## <a name="next-steps"></a>后续步骤
-如果应用程序需要使用 D: 盘存储数据，可以[更改 Windows 临时磁盘的驱动器号](../../virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
-
 ## <a name="additional-resources"></a>其他资源
 [关于虚拟机的磁盘和 VHD](../../virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

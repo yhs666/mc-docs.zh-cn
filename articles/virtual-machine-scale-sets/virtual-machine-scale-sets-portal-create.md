@@ -40,7 +40,7 @@ ms.lasthandoff: 04/06/2017
 现在可使用默认设置并快速创建规模集。
 
 * 在 `Basics` 边栏选项卡上，输入规模集的名称。 此名称将成为规模集前端负载均衡器的 FQDN 的基础，因此请确保在整个 Azure 中，此名称是唯一的。
-* 选择所需的 OS 类型，输入所需的用户名，然后选择希望使用的身份验证类型。 如果选择使用密码，密码的长度必须至少为 12 个字符，并且必须符合以下四个复杂性要求中的其中三个：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符。 了解有关[用户名和密码要求](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm)的详细信息。 如果选择 `SSH public key`，请确保仅在公钥中粘贴，而不是在私钥中：
+* 选择所需的 OS 类型，输入所需的用户名，然后选择希望使用的身份验证类型。 如果选择使用密码，密码的长度必须至少为 12 个字符，并且必须符合以下四个复杂性要求中的其中三个：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符。 了解有关[用户名和密码要求](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm)的详细信息。 如果选择 `SSH public key`，请确保仅在公钥中粘贴，而不是在私钥中：
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 

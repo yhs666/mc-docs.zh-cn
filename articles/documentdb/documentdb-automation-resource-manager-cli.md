@@ -26,6 +26,7 @@ ms.lasthandoff: 05/19/2017
 ---
 # <a name="create-an-azure-documentdb-account-using-the-azure-cli"></a>使用 Azure CLI 创建 DocumentDB 帐户
 
+
 以下指南介绍了使用 Azure CLI 2.0 中提供的预览版命令自动管理 DocumentDB 数据库帐户的命令。 它还包括用于管理 [多区域数据库帐户][scaling-globally]的帐户密钥和故障转移优先级的命令。 更新数据库帐户可以修改一致性策略以及添加/删除区域。 对于 DocumentDB 数据库帐户的跨平台管理，可使用 [Azure Powershell](documentdb-manage-account-with-powershell.md)、[资源提供程序 REST API][rp-rest-api] 或 [Azure 门户](documentdb-create-account.md)。
 
 ## <a name="getting-started"></a>入门
@@ -249,7 +250,7 @@ az documentdb failover-priority-change "East US"=1 "West US"=0 "South Central US
 ```
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet/
+[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet
 [install-az-cli2]: https://docs.microsoft.com/cli/azure/install-az-cli2
 [az-documentdb-ref]: https://docs.microsoft.com/cli/azure/documentdb
 [az-documentdb-create-ref]: https://docs.microsoft.com/cli/azure/documentdb#create

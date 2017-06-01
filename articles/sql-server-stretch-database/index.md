@@ -26,7 +26,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/sql-server-stretch-database/sql-server-stretch-database-overview">
+        <a href="/sql-server-stretch-database/sql-server-stretch-database-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -62,7 +62,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/sql-server-stretch-database/sql-server-stretch-database-identify-databases">
+        <a href="/sql-server-stretch-database/sql-server-stretch-database-identify-databases">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -80,7 +80,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/sql-server-stretch-database/sql-server-stretch-database-wizard">
+        <a href="/sql-server-stretch-database/sql-server-stretch-database-wizard">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

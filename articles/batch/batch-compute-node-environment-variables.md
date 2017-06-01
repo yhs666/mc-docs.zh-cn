@@ -67,4 +67,3 @@ ms.lasthandoff: 05/05/2017
 [coord_cmd]:/documentation/articles/batch-mpi/#coordination-command/
 [app_cmd]:/documentation/articles/batch-mpi/#application-command/
 
-

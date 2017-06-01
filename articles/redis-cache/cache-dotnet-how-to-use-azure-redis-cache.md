@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/08/2017
+ms.date: 04/11/2017
 wacn.date: 
 ms.author: sdanie
 ms.translationtype: Human Translation
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/06/2017
 > 
 > 
 
-[AZURE.INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 本指南说明如何开始使用 **Azure Redis 缓存**。 Azure Redis 缓存以常用的开源 Redis 缓存为基础。 这使你能够访问 Azure.cn 管理的安全、专用的 Redis 缓存。 你可以通过 Azure 中的任何应用程序访问使用 Azure Redis 缓存创建的缓存。
 
@@ -240,9 +240,9 @@ Azure Redis 缓存可以缓存 .NET 对象以及基元数据类型，但在缓�
 
 <!-- LINKS -->
 [http://redis.io/clients]: http://redis.io/clients
-[Develop in other languages for Azure Redis Cache]: /azure/redis-cache
+[Develop in other languages for Azure Redis Cache]: /redis-cache
 [How to retrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
-[Azure Redis Session State Provider]: /azure/redis-cache/cache-aspnet-session-state-provider/
+[Azure Redis Session State Provider]: /redis-cache/cache-aspnet-session-state-provider
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/azure/gg618003.aspx
 [Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
@@ -257,16 +257,16 @@ Azure Redis 缓存可以缓存 .NET 对象以及基元数据类型，但在缓�
 [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Configure a cache in Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
-[StackExchange.Redis configuration model]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
+[StackExchange.Redis configuration model]: https://stackexchange.github.io/StackExchange.Redis/Configuration
 
-[Work with .NET objects in the cache]: /azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache/#working-with-caches
+[Work with .NET objects in the cache]: /redis-cache/cache-dotnet-how-to-use-azure-redis-cache#working-with-caches
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Cache Pricing Details]: https://www.azure.cn/pricing/details/redis-cache/
 [Azure portal preview]: https://portal.azure.cn/
 
-[Overview of Azure Redis Cache]: /azure/redis-cache/
-[Azure Redis Cache]: /azure/redis-cache/
+[Overview of Azure Redis Cache]: /redis-cache/
+[Azure Redis Cache]: /redis-cache/
 
 [Migrate to Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Azure Redis Cache Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
@@ -280,3 +280,4 @@ Azure Redis 缓存可以缓存 .NET 对象以及基元数据类型，但在缓�
 [a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
 
 [How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
+
