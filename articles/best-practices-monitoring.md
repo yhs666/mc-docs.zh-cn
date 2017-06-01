@@ -663,7 +663,6 @@ SLA 中经常会规定以下条款：
 - [Azure Redis Cache](https://www.azure.cn/home/features/redis-cache/)（Azure Redis 缓存）、[Azure DocumentDB](https://www.azure.cn/home/features/documentdb/) 和 [HDInsight](https://www.azure.cn/home/features/hdinsight/)
 - [如何使用 Service Bus 队列](./service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
 - [SQL Server business intelligence in Azure Virtual Machines（Azure 虚拟机中的 SQL Server Business Intelligence）](./virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
-- [Receive alert notifications](./monitoring-and-diagnostics/insights-receive-alert-notifications.md)（接收警报通知）和 [Track service health](./monitoring-and-diagnostics/insights-service-health.md)（跟踪服务运行状况）
 
 <!---HONumber=Mooncake_0206_2017-->
 <!--Update_Description: wording update-->

@@ -35,8 +35,6 @@ ms.lasthandoff: 04/14/2017
 ![步骤 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) 下载恢复服务代理并进行安装和注册。<br>
 ![步骤 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) 备份文件和文件夹。
 
-![如何使用 Azure 备份来备份 Windows 计算机](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
-
 ## <a name="get-an-azure-subscription"></a>获取 Azure 订阅
 如果没有 Azure 订阅，可以先创建一个 [试用帐户](/pricing/1rmb-trial/) ，这样就可以访问任何 Azure 服务。
 
@@ -142,7 +140,7 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="next-steps"></a>后续步骤
 - 详细了解如何 [备份 Windows 计算机](backup-configure-vault.md)。
-- 备份文件和文件夹后，可以 [管理保管库和服务器](backup-azure-manage-windows-server.md)。
+- 备份文件和文件夹后，可以 [管理保管库和服务器](backup-azure-manage-windows-server-classic.md)。
 - 如果需要还原备份，请参阅 [将文件还原到 Windows 计算机](backup-azure-restore-windows-server.md)一文。
 
 
