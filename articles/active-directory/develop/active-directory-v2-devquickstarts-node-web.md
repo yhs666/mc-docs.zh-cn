@@ -19,7 +19,8 @@ ms.author: brandwe
 
 # 将登录凭据添加到 nodeJS Web 应用
 
-> [!NOTE] v2.0 终结点并不支持所有 Azure Active Directory 方案和功能。若要确定是否应使用 v2.0 终结点，请阅读 [v2.0 限制](./active-directory-v2-limitations.md)。
+> [!NOTE] 
+> v2.0 终结点并不支持所有 Azure Active Directory 方案和功能。若要确定是否应使用 v2.0 终结点，请阅读 [v2.0 限制](./active-directory-v2-limitations.md)。
 
 我们将在此处使用 Passport 来执行以下操作：
 

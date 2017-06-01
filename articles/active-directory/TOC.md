@@ -21,7 +21,7 @@
 ## [管理密码](active-directory-manage-passwords.md)
 ### [更新自己的密码](active-directory-passwords-update-your-own-password.md)
 ### [了解策略和限制](active-directory-passwords-policy.md)
-### 重置密码
+### 重置密码/role-based-access-control-manage-ass
 #### [经典门户](active-directory-create-users-reset-password.md)
 ### [设置过期策略](active-directory-passwords-set-expiration-policy.md)
 
@@ -40,7 +40,6 @@
 ### [了解应用 SSO](active-directory-appssoaccess-whatis.md)
 
 ### 集成 SaaS 应用
-#### [Azure 门户](active-directory-enterprise-apps-manage-sso.md)
 #### [经典门户](active-directory-sso-integrate-saas-apps.md)
 
 ### 开发
@@ -74,11 +73,9 @@
 
 ## 委托对资源的访问权限
 ### [管理员角色](active-directory-assign-admin-roles.md)
-#### [分配管理员角色](active-directory-users-assign-role-azure-portal.md)
 ### [Azure 中的资源访问权限](active-directory-understanding-resource-access.md)
 ### [基于角色的访问控制](role-based-access-control-what-is.md)
 #### 管理访问权限
-##### [Azure 门户](role-based-access-control-manage-assignments.md)
 ##### [经典门户](role-based-access-control-configure.md)
 #### [内置角色](role-based-access-built-in-roles.md)
 #### [自定义角色](role-based-access-control-custom-roles.md)
@@ -95,7 +92,7 @@
 ### [Azure 虚拟网络中的副本域控制器](active-directory-install-replica-active-directory-domain-controller.md)
 ### [在 Azure 虚拟网络中新建林](active-directory-new-forest-virtual-machine.md)
 
-## [在 Azure 中部署 AD FS](active-directory-aadconnect-azure-adfs.md)
+## [在 Azure 中部署 AD FS](./connect/active-directory-aadconnect-azure-adfs.md)
 ### [高可用性](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [更改签名哈希算法](active-directory-federation-sha256-guidance.md)
 
@@ -112,7 +109,6 @@
 ## [多重身份验证](/azure/multi-factor-authentication/)
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [面向开发人员的 Azure AD](./develop/active-directory-how-to-integrate.md)
-## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # 资源
 ## [价格](https://azure.microsoft.com/pricing/details/active-directory/)

@@ -72,7 +72,7 @@ ms.lasthandoff: 04/14/2017
 ## 下载、安装和注册备份代理 <a name="download-install-register-backup-agent"></a>
 创建备份保管库并下载保管库凭据文件之后，必须在每台 Windows 计算机上安装一个代理。
 
-### <a name="to-download-install-and-register-the-agent"></a>下载、安装和注册代理
+### <a name="download-install-register-backup-agent"></a>下载、安装和注册代理
 1. 单击“**恢复服务**”，然后选择你要向其注册服务器的备份保管库。
 2. 在“快速启动”页上，单击“**Windows Server、System Center Data Protection Manager 或 Windows 客户端的代理**”。 。
 
