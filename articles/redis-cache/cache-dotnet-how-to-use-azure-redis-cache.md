@@ -33,7 +33,7 @@ ms.lasthandoff: 04/06/2017
 > 
 > 
 
-[AZURE.INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 本指南说明如何开始使用 **Azure Redis 缓存**。 Azure Redis 缓存以常用的开源 Redis 缓存为基础。 这使你能够访问 Azure.cn 管理的安全、专用的 Redis 缓存。 你可以通过 Azure 中的任何应用程序访问使用 Azure Redis 缓存创建的缓存。
 

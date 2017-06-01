@@ -70,7 +70,7 @@ ms.lasthandoff: 05/19/2017
 
     此命令将提供 Azure Resource Manager 模板的输入。
 
-    有关如何在密钥保管库中创建自签名证书的示例，请参阅[Service Fabric 群集安全方案](/azure/service-fabric-cluster-security)。
+    有关如何在密钥保管库中创建自签名证书的示例，请参阅[Service Fabric 群集安全方案](/service-fabric-cluster-security)。
 
 2.  更改 Resource Manager 模板。
 

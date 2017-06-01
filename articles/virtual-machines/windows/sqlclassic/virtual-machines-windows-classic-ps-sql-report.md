@@ -153,7 +153,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
 * 使用脚本来配置报表服务器
 * 使用配置管理器配置报表服务器。
 
-有关更多详细步骤，请参阅[连接到虚拟机并启动 Reporting Services 配置管理器](../../virtual-machines-windows-classic-ps-sql-bi.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager)。
+有关更多详细步骤，请参阅[连接到虚拟机并启动 Reporting Services 配置管理器](virtual-machines-windows-classic-ps-sql-bi.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager)。
 
 **身份验证说明：**Windows 身份验证是建议的身份验证方法，并且它是默认的 Reporting Services 身份验证方法。只有在 VM 配置的用户可以访问 Reporting Services 并分配给 Reporting Services 角色。
 

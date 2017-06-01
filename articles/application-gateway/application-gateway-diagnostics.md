@@ -299,8 +299,6 @@ Azure 默认生成此日志（以前称为“操作日志”）。  日志在 Az
 
 ![警报规则视图][9]
 
-若要了解有关警报通知的详细信息，请参阅[接收警报通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
-
 若要了解有关 webhook 以及如何与其搭配使用警报的详细信息，请参阅[针对 Azure 指标警报配置 webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
 ## <a name="next-steps"></a>后续步骤

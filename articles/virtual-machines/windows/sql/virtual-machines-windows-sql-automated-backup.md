@@ -43,9 +43,6 @@ ms.author: jroth
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
 
-> [!IMPORTANT]
-自动备份适用于 SQL Server 2014。如果使用的是 SQL Server 2016，可以使用自动备份 v2 来备份数据库。有关详细信息，请参阅[适用于 SQL Server 2016 Azure 虚拟机的自动备份 v2](../../virtual-machines-windows-sql-automated-backup-v2.md)。
-
 **数据库配置**：
 
 - 目标数据库必须使用完整恢复模式。
@@ -108,7 +105,7 @@ ms.author: jroth
 在预配 SQL VM 后，使用 PowerShell 来配置自动备份。开始之前，必须：
 
 - [下载并安装最新的 Azure PowerShell](http://aka.ms/webpi-azps)。
-- 打开 Windows PowerShell 并将其关联到你的帐户。可以遵循预配主题的[配置订阅](../../virtual-machines-windows-ps-sql-create.md#configure-your-subscription)部分中的步骤执行此操作。
+- 打开 Windows PowerShell 并将其关联到你的帐户。可以遵循预配主题的[配置订阅](virtual-machines-windows-ps-sql-create.md#configure-your-subscription)部分中的步骤执行此操作。
 
 下面的 PowerShell 示例将为现有 SQL Server 2014 VM 配置自动备份。**AzureRM.Compute\\New-AzureVMSqlServerAutoBackupConfig** 命令将自动备份设置配置为在与虚拟机相关联的 Azure 存储帐户中存储备份。这些备份将保留 10 天。**Set-AzureRmVMSqlServerExtension** 命令使用这些设置更新指定的 Azure VM。
 

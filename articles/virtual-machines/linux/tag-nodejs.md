@@ -49,10 +49,7 @@ ms.lasthandoff: 04/06/2017
 
 ## <a name="next-steps"></a>后续步骤
 * 若要详细了解如何标记 Azure 资源，请参阅 [Azure Resource Manager 概述][Azure Resource Manager Overview]和[使用标记来组织 Azure 资源][Using Tags to organize your Azure Resources]。
-* 若要了解标记如何帮助你管理 Azure 资源的使用，请参阅[了解 Azure 帐单][Understanding your Azure Bill]。
 
 [Azure CLI environment]: ../../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
-[Understanding your Azure Bill]: ../../billing-understand-your-bill.md
-

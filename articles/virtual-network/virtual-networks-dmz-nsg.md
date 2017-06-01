@@ -19,7 +19,7 @@ ms.author: jonor
 ---
 
 # 示例 1 - 将 NSG 与 Azure Resource Manager 模板配合使用，构建简单的外围网络
-[返回安全边界最佳实践页面][HOME]
+
 > [!div class="op_single_selector"]
 >- [Resource Manager 模板](./virtual-networks-dmz-nsg.md)
 >- [经典 - PowerShell](./virtual-networks-dmz-nsg-asm.md)
@@ -74,7 +74,7 @@ ms.author: jonor
 
 将这些规则绑定到每个子网后，如果有从 Internet 到 Web 服务器的入站 HTTP 请求，那么规则 3（允许）和规则 5（拒绝）均适用，但由于规则 3 具有较高的优先级，因此只应用规则 3，忽略规则 5。这样就会允许 HTTP 请求传往 Web 服务器。如果相同的流量尝试传往 DNS01 服务器，则会先应用规则 5（拒绝），因此不允许该流量传递到服务器。规则 6（拒绝）阻止前端子网与后端子网对话（规则 1 和 4 允许的流量除外），此规则集可在攻击者入侵前端 Web 应用程序时保护后端网络，攻击者只能对后端“受保护”的网络进行有限制的访问（只能访问 AppVM01 服务器上公开的资源）。
 
-有一个默认出站规则可允许流量外流到 Internet。在此示例中，我们允许出站流量，且未修改任何出站规则。若要对两个方向的流量应用安全策略，需使用“用户定义的路由”，详见[安全边界最佳实践页面][HOME]上的“示例 3”。
+有一个默认出站规则可允许流量外流到 Internet。在此示例中，我们允许出站流量，且未修改任何出站规则。
 
 下面对每个规则进行了更详细的讨论：
 
@@ -317,8 +317,6 @@ ms.author: jonor
 ## 结束语
 这是一个相对简单的示例，直观演示了如何将后端子网与入站流量隔离。
 
-可以在[此处][HOME]找到更多示例和网络安全边界的概述。
-
 ## 参考
 ### Azure Resource Manager 模板
 本示例使用由 Microsoft 维护并对社区开放的 GitHub 存储库的预定义 Azure Resource Manager 模板。该模板可直接从 GitHub 部署，也可在下载后根据需要进行修改。
@@ -358,7 +356,6 @@ ms.author: jonor
 
 <!--Link References-->
 
-[HOME]: ../security/best-practices-network-security.md
 [Template]: https://github.com/Azure/azure-quickstart-templates/tree/master/301-dmz-nsg
 [SampleApp]: ./virtual-networks-sample-app.md
 

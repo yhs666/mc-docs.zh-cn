@@ -32,7 +32,7 @@ ms.lasthandoff: 04/22/2017
 若要完成本教程，需要满足以下条件：
 
 * Azure 订阅。 如果还没有，可以[注册一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
-* [自动化帐户](automation-sec-configure-azure-runas-account.md) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。 此帐户必须有权启动和停止虚拟机。
+* 自动化帐户 ，用来保存 Runbook 以及向 Azure 资源进行身份验证。 此帐户必须有权启动和停止虚拟机。
 * Azure 虚拟机。 我们需停止和启动该虚拟机，因此其不应为生产用 VM。
 
 ## <a name="step-1---create-new-runbook"></a>步骤 1 - 创建新的 Runbook

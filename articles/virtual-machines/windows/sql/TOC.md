@@ -1,6 +1,5 @@
 # 概述
 ## [Azure VM 上的 SQL Server 是什么？](virtual-machines-windows-sql-server-iaas-overview.md) 
-## [定价](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [常见问题](virtual-machines-windows-sql-server-iaas-faq.md)
 
 # 入门

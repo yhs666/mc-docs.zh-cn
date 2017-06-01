@@ -338,8 +338,6 @@ ms.lasthandoff: 05/12/2017
 
 更新时间：2016 年 9 月
 
-[可在此处找到此指南](../virtual-machines-linux-sap-hana-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 ## <a name="quickstart-guide-for-netweaver-on-suse-linux-on-azure"></a>Azure 上 SUSE Linux 中 NetWeaver 的快速入门指南
 标题：在 Azure SUSE Linux VM 上测试 SAP NetWeaver 
 

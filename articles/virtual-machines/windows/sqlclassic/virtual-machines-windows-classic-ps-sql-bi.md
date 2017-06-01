@@ -156,8 +156,6 @@ SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式�
         Myservice.chinacloudapp.cn:63133
         ```
 
-        有关详细信息，请参阅[什么是云服务？](../../../fundamentals-application-models.md)。
-
 **启动 Reporting Services 配置管理器。**
 
 1. 在 **Windows Server 2012/2016** 中：
