@@ -59,7 +59,7 @@ IoT 套件包含预配置解决方案，可让你快速使用并浏览常见 IoT
 [lnk-azure-storage]: ../storage/index.md
 [lnk-document-db]: ../documentdb/index.md
 [lnk-power-bi]: https://powerbi.microsoft.com/
-[lnk-web-apps]: ../app-service-web/index.md
+[lnk-web-apps]: ../app-service-web/index.yml
 [iot-suite-what-is-azure-iot]:./iot-suite-what-is-azure-iot.md
 [lnk-what-are-preconfig]:./iot-suite-what-are-preconfigured-solutions.md
 [lnk-device-management]: ../iot-hub/iot-hub-device-management-overview.md

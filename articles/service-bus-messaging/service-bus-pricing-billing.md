@@ -22,7 +22,7 @@ wacn.date: 03/20/2017
 服务总线推出基本和标准两种层级。可以为你创建的每个服务总线服务命名空间选择一个服务层，此服务层选择将应用于该命名空间中创建的所有实体。
 
 >[!NOTE]
-> 有关当前服务总线定价的详细信息，请参阅 [Azure 服务总线定价页](https://www.azure.cn/pricing/details/messaging/)和[服务总线常见问题解答](./service-bus-faq.md#service-bus-pricing)。
+> 有关当前服务总线定价的详细信息，请参阅 [Azure 服务总线定价页](https://www.azure.cn/pricing/details/messaging/)和[服务总线常见问题解答](./service-bus-faq.md#pricing)。
 
 服务总线将以下两种测定仪用于队列和主题/订阅：
 
@@ -111,9 +111,6 @@ wacn.date: 03/20/2017
 
 ## <a name="FAQ"></a> 常见问题
 
-### 如何计算中继小时数？
-
-请参阅[此主题](./service-bus-pricing-faq.md#how-is-the-relay-hours-meter-calculated)。
 
 ### 什么是中转连接，它的计费方式是怎样的？
 
@@ -139,7 +136,7 @@ wacn.date: 03/20/2017
 
 - 有关服务总线定价的更多详细信息，请参阅 [Azure 服务总线定价页](https://www.azure.cn/pricing/details/messaging/)。
 
-- 有关服务总线定价和计费的一些常见问题解答，请参阅[服务总线常见问题解答](./service-bus-faq.md#service-bus-pricing)。
+- 有关服务总线定价和计费的一些常见问题解答，请参阅[服务总线常见问题解答](./service-bus-faq.md#pricing)。
 
 [Azure 经典管理门户]: http://manage.windowsazure.cn
 

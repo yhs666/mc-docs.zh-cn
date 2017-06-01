@@ -113,6 +113,6 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 ## <a name="additional-resources"></a>其他资源
 
-[如何配置云服务](./cloud-services-how-to-configure.md/)
+[如何配置云服务](./cloud-services-how-to-configure.md)
 [云服务常见问题 - 远程桌面](./cloud-services-faq.md#remote-desktop)
 

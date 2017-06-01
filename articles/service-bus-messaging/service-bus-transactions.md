@@ -77,6 +77,5 @@ using (scope = new TransactionScope())
 - [自动转发示例](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AutoForward)
 - [服务总线中的原子事务示例](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions)
 - [比较 Azure 队列和服务总线队列](./service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- [如何使用服务总线队列](./service-bus-dotnet-how-to-use-queues.md)
 
 <!---HONumber=Mooncake_0620_2016-->
