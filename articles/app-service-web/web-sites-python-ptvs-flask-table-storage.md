@@ -26,8 +26,6 @@ ms.lasthandoff: 05/19/2017
 ---
 # <a name="flask-and-azure-table-storage-on-azure-with-python-tools-22-for-visual-studio"></a>具有 Python Tools 2.2 for Visual Studio 的 Azure 上的 Flask 和 Azure 表存储
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
-
 在本教程中，我们将使用 [Python Tools for Visual Studio] 通过一个 PTVS 样本模板创建简单的轮询 Web 应用。
 
 轮询 Web 应用是对存储库的抽象界定，因此可以轻松地在不同类型的存储库（内存、Azure 表存储、MongoDB）之间进行切换。
@@ -44,6 +42,8 @@ ms.lasthandoff: 05/19/2017
 * [Python 2.7（32 位）]或 [Python 3.4（32 位）]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
 ## <a name="create-the-project"></a>创建项目
 在此部分中，我们将使用样本模板创建 Visual Studio 项目。 我们将创建虚拟环境并安装所需软件包。 然后，我们将使用默认内存中存储库在本地运行应用程序。

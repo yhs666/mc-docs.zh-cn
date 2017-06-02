@@ -9,7 +9,7 @@
 * [在可用性集中配置多个虚拟机以确保冗余]
 * [将每个应用程序层配置到不同的可用性集中]
 * [将负载均衡器与可用性集组合在一起]
-* [在可用性集中对 VM 使用托管磁盘]
+* [为每个可用性集使用多个存储帐户]
 
 ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>在可用性集中配置多个虚拟机以确保冗余
 若要为应用程序提供冗余，建议你将两个或更多虚拟机组合到一个可用性集中。 这种配置可以确保在发生计划内或计划外维护事件时，至少有一个虚拟机可用，并满足 99.95% 的 Azure SLA 要求。 有关详细信息，请参阅[虚拟机的 SLA](https://www.azure.cn/support/sla/virtual-machines/)。
@@ -37,20 +37,20 @@
 
 如果没有将负载均衡器配置为对多个虚拟机上的流量进行平衡，则任何计划内维护事件都会影响唯一的那个处理流量的虚拟机，导致应用程序层中断。 将同一层的多个虚拟机置于相同的负载均衡器和可用性集下可以确保至少有一个虚拟机实例能够持续处理流量。
 
-## <a name="use-managed-disks-for-vms-in-availability-set"></a>在可用性集中对 VM 使用托管磁盘
-如果当前使用的 VM 没有托管磁盘，则强烈建议你[在可用性集中转换 VM，以便使用托管磁盘](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set)。
+## <a name="use-multiple-storage-accounts-for-each-availability-set"></a> 为每个可用性集使用多个存储帐户
 
-通过确保可用性集中的 VM 的磁盘彼此之间完全隔离以避免单点故障，[托管磁盘](../articles/storage/storage-managed-disks-overview.md)为可用性集提供了更佳的可靠性。 它通过自动将磁盘放置在不同的存储缩放单位（模块）中来实现这一点。 如果某个模块因硬件或软件故障而失败，则只有其磁盘在该模块上的 VM 实例会失败。 
+>[!NOTE]
+> Azure 中国区尚无法使用 Azure 托管磁盘。
 
-如果计划使用包含[非托管磁盘](../articles/storage/storage-about-disks-and-vhds-windows.md#types-of-disks)的 VM，请按下述针对存储帐户的最佳做法进行操作。在这些存储帐户中，VM 的虚拟硬盘 (VHD) 以[页 Blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) 形式存储。 
+关于 VM 中虚拟硬盘 (VHD) 所使用的存储帐户，请遵循以下最佳做法（前提是使用非托管磁盘）。在 Azure 存储帐户中，每个磁盘 (VHD) 是一个页 blob。请务必确保存储帐户之间存在冗余和隔离，以便为可用性集中的 VM 提供高可用性。
 
-1. **将与同一 VM 关联的所有磁盘（OS 和数据）放置在同一存储帐户中**
-2. 在向存储帐户添加更多 VHD 之前，请**查看存储帐户中非托管磁盘的数量[限制](../articles/storage/storage-scalability-targets.md)**
-3. **为可用性集中的每个 VM 使用单独的存储帐户。** 同一可用性集中的多个 VM 不能共享存储帐户。 不同可用性集中的 VM 共享存储帐户是可以接受的，只要遵循上述最佳做法即可
+1. **将与 VM 关联的所有磁盘（OS 磁盘和数据磁盘）保留在同一存储帐户中**
+2. 向存储帐户添加更多 VHD 时，**应考虑存储帐户[限制](../articles/storage/storage-scalability-targets.md)**
+3. **为可用性集中的每个 VM 使用单独的存储帐户。** 同一可用性集中的多个 VM 绝对不能共享存储帐户。在遵循上述最佳做法的前提下，不同可用性集之间的 VM 可共享存储帐户
 
 <!-- Link references -->
 [在可用性集中配置多个虚拟机以确保冗余]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
 [将每个应用程序层配置到不同的可用性集中]: #configure-each-application-tier-into-separate-availability-sets
 [将负载均衡器与可用性集组合在一起]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
-[在可用性集中对 VM 使用托管磁盘]: #use-managed-disks-for-vms-in-availability-set
+[为每个可用性集使用多个存储帐户]: #use-multiple-storage-accounts-for-each-availability-set

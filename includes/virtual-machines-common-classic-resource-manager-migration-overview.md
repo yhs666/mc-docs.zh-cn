@@ -94,8 +94,4 @@ Resource Manager 除了可让你通过模板部署复杂的应用程序之外，
 | 网络 |包含虚拟机和 Web 角色/辅助角色的虚拟网络 |目前不支持。 |
 | Azure App Service |包含应用服务环境的虚拟网络 |目前不支持。 |
 | Azure HDInsight |包含 HDInsight 服务的虚拟网络 |目前不支持。 |
-| Microsoft Dynamics Lifecycle Services |包含由 Dynamics Lifecycle Services 管理的虚拟机的虚拟网络 |目前不支持。 |
-| Azure AD 域服务 |包含 Azure AD 域服务的虚拟网络 |目前不支持。 |
-| Azure RemoteApp |包含 Azure RemoteApp 部署的虚拟网络 |目前不支持。 |
-| Azure API 管理 |包含 Azure API 管理部署的虚拟网络 |目前不支持。 若要迁移 IaaS VNET，请更改 API 管理部署的 VNET（该部署不会造成停机）。 |
 | 计算 |Azure 安全中心扩展，其中包含的 VNET 拥有 VPN 网关（具有传输连接）或 ExpressRoute 网关（在本地 DNS 服务器上） |Azure 安全中心在虚拟机上自动安装扩展，用于监视其安全性并引发警报。 如果在订阅上启用了 Azure 安全中心策略，通常会自动安装这些扩展。 目前不支持 ExpressRoute 网关迁移，而具有传输连接的 VPN 网关则会失去本地访问权限。 如果删除 ExpressRoute 网关或迁移具有传输连接的 VPN 网关，那么继续执行迁移时，会失去对 VM 存储帐户的 Internet 访问权限。 发生这种情况时无法进行迁移，因为来宾代理状态 blob 无法填充。 建议在进行迁移时提前 3 小时禁用订阅的 Azure 安全中心策略。 |

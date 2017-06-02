@@ -34,7 +34,7 @@ ms.lasthandoff: 04/06/2017
 ## <a name="install-new-software-on-a-platform-image-at-deployment-time"></a>部署时在平台映像中安装新软件
 在本文的语境中，平台映像是指从 Azure 应用商店获取的操作系统映像，例如 Ubuntu 16.04、Windows Server 2012 R2 等。
 
-可以使用 [VM 扩展](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)在平台映像中安装新软件。 VM 扩展是部署 VM 时运行的软件。 可以使用自定义脚本扩展，在部署时运行所需的任何代码。 [这](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale)是一个示例 Azure Resource Manager 模板。该模板使用 [Azure Desired State Configuration (DSC) 扩展](virtual-machine-scale-sets-dsc.md)来安装 IIS 以及与 Azure 自动缩放集成的 .NET MVC 应用程序。
+可以使用 [VM 扩展](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)在平台映像中安装新软件。 VM 扩展是部署 VM 时运行的软件。 可以使用自定义脚本扩展，在部署时运行所需的任何代码。
 
 此方法的优点是在应用程序代码与 OS 之间提供某种程度的隔离，可以单独维护应用程序。 当然，这也意味着会出现更多的运动组件，如果脚本需要下载和配置的项很多，VM 部署时间也可能更长。
 
@@ -43,9 +43,6 @@ ms.lasthandoff: 04/06/2017
 
 ## <a name="create-a-custom-vm-image-that-includes-both-the-os-and-the-application-in-a-single-vhd"></a>创建在单个 VHD 中包含 OS 和应用程序的自定义 VM 映像 
 此处的规模集由一组 VM 构成，这些 VM 是从创建的映像复制的，必须对其进行维护。 这种方法不需要在部署 VM 时进行额外的配置。 但是，在 `2016-03-30` 版（和更低版本）的 VM 规模集中，VM 的 OS 磁盘限制为一个存储帐户。 因此，一个规模集中最多能包含 40 个 VM，而不像在平台映像中，每个规模集限制为 100 个 VM。 有关详细信息，请参阅[规模集设计概述](virtual-machine-scale-sets-design-overview.md)。
-
->[!NOTE]
->VM 规模集 API 版本 `2016-04-30-preview` 支持对操作系统磁盘和任何额外数据磁盘使用 Azure 托管磁盘。 有关详细信息，请参阅[托管磁盘概述](../storage/storage-managed-disks-overview.md)和[使用附加数据磁盘](virtual-machine-scale-sets-attached-disks.md)。 
 
 ## <a name="deploy-a-platform-or-a-custom-image-as-a-container-host-and-your-app-as-one-or-more-containers"></a>将平台或自定义映像部署为容器主机，并将应用部署为一个或多个容器
 平台或自定义映像基本上是一个容器主机，因此可以将应用程序安装为一个或多个容器。  可以使用 orchestrator 或配置管理工具来管理应用程序容器。 这种方法的优势是可以从应用程序层抽象化云基础结构，并且可以独立维护应用程序。

@@ -65,7 +65,7 @@ Azure 具有用于创建和处理资源的两个不同的部署模型：[Resourc
     # Create a public IP address resource with a static IP address using the --allocation-method Static option.
     # If you do not specify this option, the address is allocated dynamically. The address is assigned to the
     # resource from a pool of IP adresses unique to each Azure region. The DnsName must be unique within the
-    # Azure location it's created in. Download and view the file from https://www.microsoft.com/download/details.aspx?id=41653#
+    # Azure location it's created in. Download and view the file from https://www.microsoft.com/download/details.aspx?id=42064#
     # that lists the ranges for each region.
 
     PipName="PIPWEB1"
@@ -130,12 +130,13 @@ Azure 具有用于创建和处理资源的两个不同的部署模型：[Resourc
     --size $VmSize \
     --nics $NicName \
     --admin-username $Username \
-    --ssh-key-value $SshKeyValue
+    --ssh-key-value $SshKeyValue \
     # If creating a Windows VM, remove the previous line and you'll be prompted for the password you want to configure for the VM.
+    --use-unmanaged-disk
     ```
 
 除了创建 VM，该脚本还创建：
-- 单个高级托管磁盘（默认情况下），但对于可以创建的磁盘类型，可以有其他选择。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文。
+- 使用非托管磁盘，并自动创建 Azure 存储账户。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文。
 - 虚拟网络、子网、NIC 和公共 IP 地址资源。 也可以使用 *现有* 虚拟网络、子网、NIC 或公共 IP 地址资源。 若要了解如何使用现有网络资源，而不是创建其他资源，请输入 `az vm create -h`。
 
 ## <a name = "validate"></a>验证 VM 创建和公共 IP 地址

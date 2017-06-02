@@ -78,7 +78,7 @@ curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/cl
 > [!IMPORTANT]
 本文档中的 Bash 示例作出以下假设：
 >
-> *群集的登录名是 `admin` 的默认值。
+> * 群集的登录名是 `admin` 的默认值。
 > * `$PASSWORD` 包含 HDInsight 登录命令的密码。可使用 `PASSWORD='mypassword'` 设置该值。
 > * `$CLUSTERNAME` 包含群集名称。可使用 `set CLUSTERNAME='clustername'` 设置该值。
 

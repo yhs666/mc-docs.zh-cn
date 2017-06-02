@@ -38,7 +38,7 @@ Azure Redis 缓存在“设置”边栏选项卡上提供以下设置。
 
 ![Redis 缓存设置](./media/cache-configure/redis-cache-settings.png)
 
-* [支持和故障排除设置](#support-amp-troubleshooting-settings)
+* [支持和故障排除设置](#support--troubleshooting-settings)
 * [常规设置](#general-settings)
     * [属性](#properties)
     * [访问密钥](#access-keys)
@@ -321,7 +321,7 @@ Azure 门户预览中的“用户”部分对基于角色的访问控制 (RBAC) 
 > 无法使用 `StackExchange.Redis.IServer.ConfigSet` 方法更改本部分中的设置。 如果使用此部分中的任一命令调用此方法，将引发如下异常：  
 > <p> 
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
-> <p> 任何可配置的值（例如 **max-memory-policy**）都可以通过 Azure 门户预览或命令行管理工具（例如 Azure CLI 或 PowerShell）进行配置。> 
+> <p> 任何可配置的值（例如 **max-memory-policy**）都可以通过 Azure 门户预览或命令行管理工具（例如 Azure CLI 或 PowerShell）进行配置。
 
 | 设置 | 默认值 | 说明 |
 | --- | --- | --- |
