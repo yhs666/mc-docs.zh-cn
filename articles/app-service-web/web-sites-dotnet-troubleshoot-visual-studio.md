@@ -28,7 +28,9 @@ ms.lasthandoff: 05/26/2017
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 ## <a name="overview"></a>概述
-本教程介绍如何使用 Visual Studio 工具，通过远程运行[调试模式](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)或查看应用程序日志和 Web 服务器日志帮助调试[应用服务](/app-service-web/app-service-changes-existing-services)中的 Web 应用。
+本教程介绍如何使用 Visual Studio 工具，通过远程运行调试模式或查看应用程序日志和 Web 服务器日志帮助调试[应用服务](/app-service-web/app-service-changes-existing-services)中的 Web 应用。
+
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 

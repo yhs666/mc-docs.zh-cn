@@ -82,7 +82,7 @@ ASP.NET 5/DNX（.NET 执行环境）是精简的 .NET 堆栈，用于构建在 O
 ## <a name="create-the-web-app"></a>创建 Web 应用
 本部分说明如何创建新应用 ASP.NET Web 应用的基架。 你将使用 node 程序包管理器 (npm) 来安装 [Yeoman](http://yeoman.io/)（应用程序基架工具 - 相当于 Visual Studio“文件”>“新建项目”操作的 VS Code）、[Grunt](http://gruntjs.com/)（JavaScript 任务运行程序）和 [Bower](http://bower.io/)（客户端程序包管理器）。 
 
-1. 以管理员权限打开命令提示符，并导航到你要在其中创建 ASP.NET 项目的位置。 例如，在 C:\. 根目录中创建一个 *vscodeprojects* 目录
+1. 以管理员权限打开命令提示符，并导航到你要在其中创建 ASP.NET 项目的位置。 例如，在 C: 根目录中创建一个 *vscodeprojects* 目录
 2. 在命令提示符下输入以下命令以安装 Yeoman 和支持工具。
 
         npm install -g yo grunt-cli generator-aspnet bower

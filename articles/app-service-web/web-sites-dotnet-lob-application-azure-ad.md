@@ -50,6 +50,8 @@ ms.lasthandoff: 05/26/2017
 * Visual Studio 2013 Update 4 或更高版本
 * [Azure SDK 2.8.1 或更高版本](/downloads/)
 
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+
 ## <a name="bkmk_deploy"></a> 创建 Web 应用并将其部署到 Azure
 1. 在 Visual Studio 中，依次单击“文件” > “新建” > “项目”。
 2. 选择“ASP.NET Web 应用程序”、为项目命名，然后单击“确定”。
@@ -347,11 +349,11 @@ ms.lasthandoff: 05/26/2017
         AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
 
     > [!NOTE]
-    > 之所以需要这一行代码，是因为默认的 MVC 模板对某些操作使用 <code>[ValidateAntiForgeryToken]</code> 修饰。 由于存在 [Brock Allen](https://twitter.com/BrockLAllen) 在 [MVC 4、AntiForgeryToken 和声明](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/)中所述的行为，HTTP POST 可能无法通过防伪令牌验证，因为：
+    > 之所以需要这一行代码，是因为默认的 MVC 模板对某些操作使用 <code>[ValidateAntiForgeryToken]</code> 修饰。 由于存在 Brock Allen 在 [MVC 4、AntiForgeryToken 和声明](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/)中所述的行为，HTTP POST 可能无法通过防伪令牌验证，因为：
     > * Azure Active Directory 不发送防伪令牌默认所需的 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider。
     > * 如果 Azure Active Directory 是与 AD FS 同步的目录，默认情况下 AD FS 信任不发送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 声明，尽管可以手动配置 AD FS 以发送此声明。
-    > <p> 
-    > `ClaimTypes.NameIdentifies` 指定 Azure Active Directory 提供的声明 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`。  > 
+    >
+    > `ClaimTypes.NameIdentifies` 指定 Azure Active Directory 提供的声明 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`。
 15. 现在，请发布更改。 右键单击项目，然后单击“发布”。
 16. 单击“设置”，确保提供 SQL 数据库的连接字符串，选择“更新数据库”更改模型的架构，然后单击“发布”。
 

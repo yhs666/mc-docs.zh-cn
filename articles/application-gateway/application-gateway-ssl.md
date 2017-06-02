@@ -28,7 +28,7 @@ ms.author: gwallace
 
 ## 开始之前
 
-1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。可以从[“下载”](https://www.azure.cn/downloads/)页的“Windows PowerShell”部分下载并安装最新版本。
+1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。可以从[“下载”](/downloads/)页的“Windows PowerShell”部分下载并安装最新版本。
 2. 请确认你已创建包含有效子网、可正常运行的虚拟网络。请确保没有虚拟机或云部署正在使用子网。应用程序网关必须单独位于虚拟网络子网中。
 3. 必须存在配置为使用应用程序网关的服务器，或者必须在虚拟网络中为其创建终结点，或者必须为其分配公共 IP/VIP。
 

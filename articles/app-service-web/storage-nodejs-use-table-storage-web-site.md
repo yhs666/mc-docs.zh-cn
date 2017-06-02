@@ -133,7 +133,7 @@ ms.lasthandoff: 04/28/2017
 
     [...]
 
-接下来，输入以下命令，以安装 [Azure]、[node-uuid]、[nconf] 和 [异步] 模块：
+接下来，输入以下命令，以安装 [azure]、[node-uuid]、[nconf] 和 [async] 模块：
 
     npm install azure-storage node-uuid async nconf --save
 
@@ -444,8 +444,8 @@ ms.lasthandoff: 04/28/2017
 
 > [!NOTE]
 > 也可以使用 [Azure 门户预览](https://portal.azure.cn/)执行这些步骤。 请参阅 [Build and deploy a Node.js web app in Azure App Service]（在 Azure 应用服务中构建和部署 Node.js Web 应用）。
-> <p> 
-> <p> 如果这是创建的第一个 Web 应用，则必须使用 Azure 门户预览部署此应用程序。> 
+>
+> 如果这是创建的第一个 Web 应用，则必须使用 Azure 门户预览部署此应用程序。
 
 若要开始，请在命令行中输入以下命令以安装 [Azure CLI] ：
 
@@ -552,7 +552,7 @@ ms.lasthandoff: 04/28/2017
 <!-- URLs -->
 
 [Build and deploy a Node.js web app in Azure App Service]: app-service-web-get-started-nodejs.md
-[Azure Developer Center]: https://www.azure.cn/develop/nodejs/
+[Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com
@@ -562,10 +562,10 @@ ms.lasthandoff: 04/28/2017
 
 [Azure CLI]:../cli-install-nodejs.md
 
-[Azure]: https://github.com/Azure/azure-sdk-for-node
+[azure]: https://github.com/Azure/azure-sdk-for-node
 [node-uuid]: https://www.npmjs.com/package/node-uuid
 [nconf]: https://www.npmjs.com/package/nconf
-[异步]: https://www.npmjs.com/package/async
+[async]: https://www.npmjs.com/package/async
 
 [Azure Portal Preview]: https://portal.azure.cn
 

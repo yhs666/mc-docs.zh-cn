@@ -34,7 +34,7 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-* **一个 Azure 订阅**。 在开始学习本教程之前，你必须有一个 Azure 订阅。 请参阅[立即创建 Azure 试用帐户](https://azure.microsoft.com/free)。
+* **一个 Azure 订阅**。 在开始学习本教程之前，你必须有一个 Azure 订阅。 请参阅[立即创建 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 * **Azure HDInsight Spark 群集**。 在本文中，将创建 Spark 2.0 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](hdinsight-apache-spark-jupyter-spark-sql.md)。
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 04/28/2017
 
 3. 从 Jupyter 笔记本中，单击右上角的“上传”，然后导航至克隆 GitHub 存储库的位置。
 
-    ![将 Jupyter 笔记本上传到 Azure HDInsight Spark 群集](./media/hdinsight-apache-spark-microsoft-cognitive-toolkit.md/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Upload Jupyter notebook to Azure HDInsight Spark cluster")
+    ![将 Jupyter 笔记本上传到 Azure HDInsight Spark 群集](./media/hdinsight-apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Upload Jupyter notebook to Azure HDInsight Spark cluster")
 
 4. 再次单击“上传”。
 

@@ -193,7 +193,7 @@ redis-cli -h <hostname-for-redis-cache> -a <primary-key-for-redis-cache> -p 6379
 [2]: http://manage.windowsazure.cn
 [3]: http://portal.azure.cn
 [4]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[5]: https://www.azure.cn/downloads
+[5]: /downloads
 [6]: http://pecl.php.net
 [7]: http://pecl.php.net/package/memcache
 [8]: http://blog.syntaxc4.net/post/2015/02/05/how-to-enable-a-site-extension-in-azure-websites.aspx

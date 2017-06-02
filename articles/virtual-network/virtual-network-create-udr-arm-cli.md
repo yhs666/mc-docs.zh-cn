@@ -111,10 +111,10 @@ ms.author: jdial
 
     ```azurecli
     az network vnet subnet update \
-    > --resource-group testrg \
-    > --vnet-name testvnet \
-    > --name FrontEnd \
-    > --route-table UDR-FrontEnd
+    --resource-group testrg \
+    --vnet-name testvnet \
+    --name FrontEnd \
+    --route-table UDR-FrontEnd
     ```
 
     输出：
@@ -207,9 +207,9 @@ ms.author: jdial
 
     ```azurecli
         az network nic update \
-        > --resource-group testrg \
-        > --name nicfw1 \
-        > --ip-forwarding true
+        --resource-group testrg \
+        --name nicfw1 \
+        --ip-forwarding true
     ```
 
     可以查看流式传输到控制台的输出，或者仅针对特定的 **enableIpForwarding** 值进行重新测试：
@@ -226,7 +226,7 @@ ms.author: jdial
 
     参数：
 
-    * **--ip-forwarding**。*true* 或 *false*。
+    **--ip-forwarding**: *true* 或 *false*。
 
 <!---HONumber=Mooncake_0327_2017-->
 <!--Update_Description: change from CLI 1.0 to CLI 2.0-->

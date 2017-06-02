@@ -192,7 +192,7 @@ az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --v
 
 ## <a name="next-steps"></a>后续步骤
 
-*  连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/#pivot=services&panel=Compute)。
+*  连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/virtual-machines/)。
 * 有关 BGP 的信息，请参阅 [BGP 概述](vpn-gateway-bgp-overview.md)和[如何配置 BGP](vpn-gateway-bgp-resource-manager-ps.md)。
 * 有关强制隧道的信息，请参阅[配置强制隧道](vpn-gateway-forced-tunneling-rm.md)。
 * 有关网络 Azure CLI 命令的列表，请参阅 [Azure CLI](https://docs.microsoft.com/cli/azure/network)。

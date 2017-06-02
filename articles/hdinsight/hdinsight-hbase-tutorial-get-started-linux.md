@@ -149,7 +149,7 @@ HBase 提供了多种方法用于将数据载入表中。  有关详细信息，
 
 > [!NOTE]
 > 如果 Hive 和 HBase 位于同一 VNet 的不同群集中，则需在调用 Hive shell 时传递 zookeeper 仲裁：
-> <p>
+>
 >`hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.chinacloudapp.cn,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.chinacloudapp.cn,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.chinacloudapp.cn --hiveconf zookeeper.znode.parent=/hbase-unsecure`
 >
 >
@@ -172,8 +172,10 @@ HBase 提供了多种方法用于将数据载入表中。  有关详细信息，
 ## <a name="use-hbase-rest-apis-using-curl"></a>通过 Curl 使用 HBase REST API
 > [!NOTE]
 > 使用 Curl 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须提供 HDInsight 群集管理员用户名和密码对请求进行身份验证。 此外，还必须使用群集名称作为用来向服务器发送请求的统一资源标识符 (URI) 的一部分。
-> <p> 对本部分中的所有命令，请将 **USERNAME**替换为在群集上进行身份验证的用户，并将 **PASSWORD** 替换为用户帐户的密码。 将 **CLUSTERNAME** 替换为群集名称。
-> <p> REST API 通过 [基本身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 你始终应该使用安全 HTTP (HTTPS) 来发出请求，以确保安全地将凭据发送到服务器。> 
+>
+> 对本部分中的所有命令，请将 **USERNAME**替换为在群集上进行身份验证的用户，并将 **PASSWORD** 替换为用户帐户的密码。 将 **CLUSTERNAME** 替换为群集名称。
+>
+> REST API 通过 [基本身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 你始终应该使用安全 HTTP (HTTPS) 来发出请求，以确保安全地将凭据发送到服务器。
 
 1. 在命令行中，使用以下命令验证你是否可以连接到 HDInsight 群集。
 
@@ -227,7 +229,6 @@ HBase 提供了多种方法用于将数据载入表中。  有关详细信息，
 
 有关 HBase Rest 的详细信息，请参阅 [Apache HBase 参考指南](https://hbase.apache.org/book.html#_rest)。
 
->
 > [!NOTE]
 > Thrift 不受 HDInsight 中的 HBase 支持。
 >
@@ -276,7 +277,7 @@ HDInsight 中的 HBase 随附了一个 Web UI 用于监视群集。 使用该 We
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [azure-portal]: https://portal.azure.cn/
-[azure-create-storageaccount]: /azure/storage-create-storage-account/
+[azure-create-storageaccount]: /storage/storage-create-storage-account
 
 [img-hdinsight-hbase-cluster-quick-create]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-quick-create.png
 [img-hdinsight-hbase-hive-editor]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hive-editor.png

@@ -59,6 +59,6 @@ ms.lasthandoff: 04/28/2017
 [用于 .NET 的 Azure SDK 2.0 发行说明](https://msdn.microsoft.com/library/azure/dn169556.aspx)
 
 ## <a name="related-topics"></a>相关主题
-[用于 .NET 的 Azure SDK](https://www.azure.cn/downloads/)
+[用于 .NET 的 Azure SDK](/downloads/)
 
 [MSDN 上的 Azure SDK 发行说明](https://msdn.microsoft.com/library/azure/dn627519.aspx)

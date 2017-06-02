@@ -25,11 +25,11 @@ ms.lasthandoff: 05/26/2017
 ---
 # <a name="deploy-an-aspnet-mvc-5-mobile-web-app-in-azure-app-service"></a>在 Azure 应用服务上部署 ASP.NET MVC 5 移动 Web 应用
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
-
 本教程介绍有关如何生成一个方便移动的 ASP.NET MVC 5 Web 应用并将其部署到 Azure 应用服务的基础知识。 学习本教程需要安装 [Visual Studio Express 2013 for Web][Visual Studio Express 2013] 或者 Visual Studio 专业版（如果已有）。 你可以使用 [Visual Studio 2015] ，但屏幕截图可能有所不同，并且必须使用 ASP.NET 4.x 模板。
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
 ## <a name="what-youll-build"></a>所需操作
 在本教程，你将在 [初学者项目][StarterProject]提供的简单会议列表应用程序中添加移动功能。 以下屏幕截图显示了已完成的应用程序中的 ASP.NET 会话，如在 Internet Explorer 11 F12 开发人员工具的浏览器模拟器中所见。
@@ -96,7 +96,7 @@ ms.lasthandoff: 05/26/2017
     ![][DeployPublishSite]
 
     在 Visual Studio 完成将初学者项目发布到 Azure Web 应用后，将打开桌面浏览器并显示实时 Web 应用。
-15. 启动移动浏览器模拟器，将会议应用程序 (*<prefix>*.chinacloudsites.cn) URL 复制到模拟器，然后单击右上角的按钮并选择“按标记浏览”。 如果使用 Internet Explorer 11 作为默认浏览器，则只需依次键入 `F12` 和 `Ctrl+8`，然后将浏览器配置文件更改为“Windows Phone”。 下图显示纵向模式下的 *AllTags* 视图（选择“按标签浏览”后显示）。
+15. 启动移动浏览器模拟器，将会议应用程序 (*\<prefix\>*.chinacloudsites.cn) URL 复制到模拟器，然后单击右上角的按钮并选择“按标记浏览”。 如果使用 Internet Explorer 11 作为默认浏览器，则只需依次键入 `F12` 和 `Ctrl+8`，然后将浏览器配置文件更改为“Windows Phone”。 下图显示纵向模式下的 *AllTags* 视图（选择“按标签浏览”后显示）。
 
     ![][AllTags]
 

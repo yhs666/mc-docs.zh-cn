@@ -3,7 +3,7 @@
 若要运行此示例，请确保已安装最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 若要开始，请运行 `az login` 以创建与 Azure 的连接。
 
 >[!NOTE]
->运行 `az login` 之前，请打开 Azure CLI 2.0 配置文件（位于 C:\\Users\\<\%USERPROFILE\%\>\\.azure\\config），请务必将云名称设置为 AzureChinaCloud。
+>运行 `az login` 之前，请打开 Azure CLI 2.0 配置文件（位于 `%USERPROFILE%\.azure\config` (Windows) 或者 `~/.azure/config` (Linux)），请务必将云名称设置为 AzureChinaCloud。
 >```
 >[cloud]
 >name = AzureChinaCloud

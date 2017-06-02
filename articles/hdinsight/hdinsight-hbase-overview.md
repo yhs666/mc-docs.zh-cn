@@ -78,7 +78,7 @@ HDInsight 实施利用 HBase 的横向扩展架构来提供表自动分片、使
 
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 
-[hbase-get-started]: /azure/hdinsight-hbase-get-started/
+[hbase-get-started]: /hdinsight/hdinsight-hbase-get-started/
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/

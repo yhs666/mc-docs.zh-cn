@@ -43,7 +43,7 @@ ms.lasthandoff: 04/22/2017
 本文适用于通过 Azure Resource Manager 部署模型创建的 VM 和 NIC。 Azure 建议通过 Resource Manager 部署模型创建资源，而不是通过经典部署模型。 如果你不熟悉这两个模型之间的差别，请参阅[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)一文。
 
 本文的剩余部分提供了所有 NIC 相关任务的执行步骤。 每节分别列出了：
-- 在 Azure 门户预览中完成任务的步骤。 要完成这些步骤，必须登录 [Azure 门户预览](http://portal.azure.cn)。 如果没有帐户，请注册 [试用帐户](https://azure.microsoft.com/free) 。
+- 在 Azure 门户预览中完成任务的步骤。 要完成这些步骤，必须登录 [Azure 门户预览](http://portal.azure.cn)。 如果没有帐户，请注册 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/) 。
 - 使用 Azure PowerShell 完成任务的命令，内附命令参考链接。 请完成[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文中的步骤安装和配置 PowerShell。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
 - 用于通过 Azure 命令行接口 (CLI) 完成任务的命令，以及相关命令的命令参考链接。 请完成[如何安装和配置 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文中的步骤安装 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> -h`。
 
@@ -126,7 +126,7 @@ Azure 门户预览会使用动态专用 IP 地址创建名为 **ipconfig1** 的�
 - 接收未流向某 IP 地址的网络流量，该地址被分配给 NIC 获得任意 IP 配置。
 - 发送其源 IP 地址与分配给其某个 IP 配置的地址不同的网络流量。
 
-对于接收 VM 需转发的流量的 VM，必须向其附加的每个 NIC 启用该设置。 无论 VM 上附加了一个或多个 NIC，其均可转发流量。 IP 转发是一项 Azure 设置，但 VM 还必须运行可转发流量的应用程序，如防火墙、WAN 优化和负载均衡应用程序。 运行网络应用程序的 VM 通常称为网络虚拟设备 (NVA)。 可在 [Azure 应用商店](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)中查看可直接部署的 NVA 列表。 IP 转发通常用于用户定义的路由。 若要详细了解用户定义的路由，请阅读[用户定义的路由](virtual-networks-udr-overview.md)一文。
+对于接收 VM 需转发的流量的 VM，必须向其附加的每个 NIC 启用该设置。 无论 VM 上附加了一个或多个 NIC，其均可转发流量。 IP 转发是一项 Azure 设置，但 VM 还必须运行可转发流量的应用程序，如防火墙、WAN 优化和负载均衡应用程序。 运行网络应用程序的 VM 通常称为网络虚拟设备 (NVA)。 可在 Azure 应用商店中查看可直接部署的 NVA 列表。 IP 转发通常用于用户定义的路由。 若要详细了解用户定义的路由，请阅读[用户定义的路由](virtual-networks-udr-overview.md)一文。
 
 若要更改 NIC 的 IP 转发设置，请完成以下步骤：
 

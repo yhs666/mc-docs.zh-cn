@@ -115,22 +115,22 @@ PowerShell 的用法比 Azure CLI 更复杂。 Azure CLI 为网络相关的资�
 2. Get-AzureRMVMImageOffer
 3. Get-AzureRmVMImageSku
 
-cmdlet 的运行结果可以按顺序通过管道传送。 以下示例演示如何获取其发布服务器包含名称 **microsoft** 的**中国北部 2 区**的所有映像。
+cmdlet 的运行结果可以按顺序通过管道传送。 以下示例演示如何获取其发布服务器包含名称 **microsoft** 的**中国北部**的所有映像。
 
 ```powershell
 Get-AzureRMVMImagePublisher -Location ChinaNorth | Where-Object PublisherName -Like *microsoft* | Get-AzureRMVMImageOffer | Get-AzureRmVMImageSku | Select-Object PublisherName, Offer, Skus
 ```
 
 ```
-PublisherName              Offer                    Skus
--------------              -----                    ----
-microsoft-ads              linux-data-science-vm    linuxdsvm
-microsoft-ads              standard-data-science-vm standard-data-science-vm
-MicrosoftAzureSiteRecovery Process-Server           Windows-2012-R2-Datacenter
-MicrosoftBizTalkServer     BizTalk-Server           2013-R2-Enterprise
-MicrosoftBizTalkServer     BizTalk-Server           2013-R2-Standard
-MicrosoftBizTalkServer     BizTalk-Server           2016-Developer
-MicrosoftBizTalkServer     BizTalk-Server           2016-Enterprise
+PublisherName              Offer          Skus
+-------------              -----          ----
+MicrosoftAzureSiteRecovery Process-Server Windows-2012-R2-Datacenter
+MicrosoftOSTC              FreeBSD        10.3
+MicrosoftOSTC              FreeBSD        11.0
+MicrosoftRServer           RServer-CentOS Enterprise
+MicrosoftRServer           RServer-RedHat Enterprise
+MicrosoftRServer           RServer-Ubuntu Enterprise
+MicrosoftRServer           RServer-WS2016 Enterprise
 ...
 ```
 
@@ -184,7 +184,5 @@ New-AzureRmVmss -ResourceGroupName vmss-test-1 -Name my-scale-set -VirtualMachin
 Azure 门户预览提供了快速创建规模集的简便方式。 有关详细信息，请参阅[如何使用 Azure 门户预览创建虚拟机规模集](virtual-machine-scale-sets-portal-create.md)。
 
 ## <a name="next-steps"></a>后续步骤
-
-了解有关[数据磁盘](virtual-machine-scale-sets-attached-disks.md)的详细信息。
 
 了解如何[管理应用](virtual-machine-scale-sets-deploy-app.md)。

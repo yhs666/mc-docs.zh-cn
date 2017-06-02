@@ -118,8 +118,6 @@ Azure Redis 缓存非常容易上手。 若要开始使用，需要首先设置�
         }
     }
 
-有关高级连接配置选项的详细信息，请参阅 [StackExchange.Redis 配置模型][StackExchange.Redis configuration model]。
-
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 建立连接后，通过调用 `ConnectionMultiplexer.GetDatabase` 方法返回对 Redis 缓存数据库的引用。 从 `GetDatabase` 方法返回的对象是一个轻型直通对象，不需要存储。

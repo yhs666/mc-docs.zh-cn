@@ -50,7 +50,7 @@ ms.lasthandoff: 04/28/2017
 
 在此模板中，定义应用程序所需的资源。 还可指定部署参数以输入不同环境的值。 模板中包含用于为部署构造值的 JSON 和表达式。
 
-可在 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/?term=hdinsight)中找到 HDInsight 模板示例。 将跨平台 [Visual Studio 代码](https://code.visualstudio.com/#alt-downloads)与 [Resource Manager 扩展](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)或文本编辑器配合使用，将模板保存到工作站上的文件中。 了解如何使用不同方法调用模板。
+可在 [Azure 快速启动模板](https://github.com/azure/azure-quickstart-templates/)中找到 HDInsight 模板示例。 将跨平台 [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) 与 [Resource Manager 扩展](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)或文本编辑器配合使用，将模板保存到工作站上的文件中。 了解如何使用不同方法调用模板。
 
 有关 Resource Manager 模板的详细信息，请参阅以下文章：
 
