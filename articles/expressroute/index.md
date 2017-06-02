@@ -50,7 +50,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/expressroute/expressroute-prerequisites">
+        <a href="/expressroute/expressroute-prerequisites">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
