@@ -768,7 +768,7 @@ Oozie UI 对于排查 Oozie 作业问题很有帮助，因为它可让你轻松�
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
 [apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
-[powershell-download]: https://www.azure.cn/downloads/
+[powershell-download]: /downloads/
 [powershell-about-profiles]: https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Profiles
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx

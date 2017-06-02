@@ -132,7 +132,11 @@ ms.lasthandoff: 04/28/2017
     > 最后一行显示了你可以排除单个文件以及文件夹。
 2. 创建名为 `_backup.filter` 的文件并将上述列表放在文件中，但删除 `D:\home`。 每行列出一个目录或文件。 文件的内容应为：
 
-    \site\wwwroot\Logs  \LogFiles  \site\wwwroot\Images\2013  \site\wwwroot\Images\2014  \site\wwwroot\Images\brand.png
+        \site\wwwroot\Logs
+        \LogFiles
+        \site\wwwroot\Images\2013
+        \site\wwwroot\Images\2014
+        \site\wwwroot\Images\brand.png
 3. 使用 [ftp](web-sites-deploy.md#ftp) 或任何其他方法，将此文件上传到站点 `D:\home\site\wwwroot\` 目录。 如果你愿意，可以直接在 `http://{yourapp}.scm.chinacloudsites.cn/DebugConsole` 中创建文件并在那里插入内容。
 4. 采用通常使用的相同方式运行备份，即[手动](#create-a-manual-backup)或[自动](#configure-automated-backups)。
 

@@ -86,7 +86,7 @@ Azure 应用服务是针对复杂业务应用程序的理想解决方案。 你�
 * 遵守 ISO、SOC2 和 PCI 的要求。
 * 与 Azure Active Directory 集成
 
-### <a id="corp">我需要一种可靠的方式来托管公司网站，既可以进行良好地扩展也能实现全国性覆盖。</a>
+### <a id="corp"></a>我需要一种可靠的方式来托管公司网站，既可以进行良好地扩展也能实现全国性覆盖。
 Azure 应用服务是托管公司网站的理想解决方案。 通过 Web 应用，你可以轻松快速地缩放站点，满足整个数据中心全国网络的需求。 它涵盖了本地范围，提供了容错和智能流量管理功能。 所有内容均位于提供世界级管理工具的平台上，让你可以快速轻松地更深入了解站点运行状况和站点流量。 Azure 应用服务针对 Web 应用提供三个 9 的 SLA，且能够：
 
 * 在自愈性自动修补云平台上安全可靠地运行网站。
@@ -104,7 +104,7 @@ Azure 应用服务可轻松避免在迁移较旧的 IIS6 应用程序时带来�
 * 自动转移 SQL 数据库与旧的应用程序。
 
 ### <a id="smallbusiness"></a>我是小型企业所有者，我需要使用一种成本较低的方式来托管站点，同时也要兼顾将来的业务增长。
-Azure 应用服务是适合该情况的强大解决方案，原因是其可免费使用且随后可按需添加更多功能。 每个免费 Web 应用都附带一个 Azure 提供的域 (<你的公司名称>.chinacloudsites.cn)，并且平台中包含集成的部署和管理工具。 还有许多其他服务和扩展选项，让站点可以随着用户需求的增加而发展。 通过 Azure 应用服务，可以：
+Azure 应用服务是适合该情况的强大解决方案，原因是其可免费使用且随后可按需添加更多功能。 每个免费 Web 应用都附带一个 Azure 提供的域 (\<你的公司名称\>.chinacloudsites.cn)，并且平台中包含集成的部署和管理工具。 还有许多其他服务和扩展选项，让站点可以随着用户需求的增加而发展。 通过 Azure 应用服务，可以：
 
 * 从免费层开始，然后根据需要向上扩展。
 * 设置常用的 Web 应用程序，如 WordPress。
@@ -172,10 +172,10 @@ Azure 应用服务是适合该情况的强大解决方案，原因是其可免�
 [ClearDB]: http://www.cleardb.com/
 [WebJobs]: /app-service-web/websites-webjobs-resources
 [Configuring an SSL certificate for an Azure Website]: /app-service-web/web-sites-configure-ssl-certificate
-[dotnet]: https://www.azure.cn/develop/net/
-[nodejs]: https://www.azure.cn/develop/nodejs/
-[PHP]: https://www.azure.cn/develop/php/
-[Python]: https://www.azure.cn/develop/python/
+[dotnet]: /develop/net/
+[nodejs]: /develop/nodejs/
+[PHP]: /develop/php/
+[Python]: /develop/python/
 [servicebus]: /service-bus/
 [sqldatabase]: /sql-database/
 [Storage]: /storage/

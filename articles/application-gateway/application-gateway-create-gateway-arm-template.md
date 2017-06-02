@@ -87,9 +87,9 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
     * **properties**。 资源的属性列表。 此模板在应用程序网关创建过程中，使用虚拟网络与公共 IP 地址。
 
     > [!NOTE]
-    > 有关模板的详细信息，请参阅：[Resource Manager 模板参考](https://docs.microsoft.com/templates/)
+    > 有关模板的详细信息，请参阅：[Resource Manager 模板参考](https://github.com/Azure/azure-quickstart-templates/)
 
-1. 导航回 [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf)。
+1. 导航回 [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf)。
 1. 单击 **azuredeploy-parameters.json**，然后单击 **RAW**。
 1. 将该文件保存到计算机上的本地文件夹中。
 1. 打开保存的文件并编辑参数的值。 使用以下值部署本方案中所述的应用程序网关。

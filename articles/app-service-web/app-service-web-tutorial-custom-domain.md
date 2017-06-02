@@ -38,7 +38,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="before-you-begin"></a>开始之前
 
-由于本教程将介绍如何将 DNS 名称映射到 Azure 应用服务，因此你对相应域提供商（例如 GoDaddy）的 DNS 配置页面必须拥有管理访问权限。 例如，若要为 `contoso.com` 和 `www.contoso.com` 添加映射，需要能够配置 `contoso.com` 的 DNS 条目。
+由于本教程将介绍如何将 DNS 名称映射到 Azure 应用服务，因此你对相应域提供商的 DNS 配置页面必须拥有管理访问权限。 例如，若要为 `contoso.com` 和 `www.contoso.com` 添加映射，需要能够配置 `contoso.com` 的 DNS 条目。
 
 ## <a name="step-1---prepare-your-app"></a>步骤 1 - 准备应用
 若要映射自定义 DNS 名称，[应用服务计划](https://www.azure.cn/pricing/details/app-service/)必须位于**共享**层或更高层。 在此步骤中，请确保 Azure 应用位于受支持的定价层。
@@ -182,7 +182,7 @@ ms.lasthandoff: 04/22/2017
 > 建议使用 CNAME 映射。 如果你删除并重新创建应用，或者从专用托管层更改回**共享**层，则应用的虚拟 IP 地址可能会发生更改。 在经历这样的更改后，CNAME 映射仍然保持有效，但 A 映射可能会因新的 IP 地址而失效。 
 > <p>
 > 但是，请_不要_为根域（即“根记录”）创建 CNAME 记录。 有关详细信息，请参阅 [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain)（为什么不能将 CNAME 记录用于根域）。
-> 若要将根域映射到 Azure 应用，请改用 [A 记录](#a) 。> 
+> 若要将根域映射到 Azure 应用，请改用 [A 记录](#a) 。
 
 下表显示了如何为受支持的域类型配置 CNAME 记录映射。
 

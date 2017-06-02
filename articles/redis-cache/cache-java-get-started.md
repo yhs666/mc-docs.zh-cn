@@ -13,8 +13,8 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/10/2017
-wacn.date: 03/03/2017
+ms.date: 04/13/2017
+wacn.date: 05/31/2017
 ms.author: sdanie
 ---
 
@@ -49,7 +49,7 @@ Azure Redis 缓存可让你访问 Azure.cn 管理的专用 Redis 缓存。可从
 ```
 boolean useSsl = true;
 /* In this line, replace <name> with your cache name: */
-JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.chinacloudapi.cn", 6379, useSsl);
+JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.chinacloudapi.cn", 6380, useSsl);
 shardInfo.setPassword("<key>"); /* Use your access key. */
 ```
 
@@ -70,7 +70,7 @@ public class App
   {
     boolean useSsl = true;
     /* In this line, replace <name> with your cache name: */
-    JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.chinacloudapi.cn", 6379, useSsl);
+    JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.chinacloudapi.cn", 6380, useSsl);
     shardInfo.setPassword("<key>"); /* Use your access key. */
     Jedis jedis = new Jedis(shardInfo);
     jedis.set("foo", "bar");

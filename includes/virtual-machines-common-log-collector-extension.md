@@ -29,7 +29,7 @@
 ## 先决条件
 
 - 你需要一个用于扩展的存储帐户，以便保存生成的 zip 文件。
-- 你必须确保使用的是 Azure PowerShell Cmdlets V0.8.0 或更高版本。有关详细信息，请参阅 [Azure 下载](https://www.azure.cn/downloads/)。
+- 你必须确保使用的是 Azure PowerShell Cmdlets V0.8.0 或更高版本。有关详细信息，请参阅 [Azure 下载](/downloads/)。
 
 ## 添加扩展
 

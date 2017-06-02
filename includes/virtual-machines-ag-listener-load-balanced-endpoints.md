@@ -6,7 +6,7 @@
 
 1. 验证你想要使用的侦听器终结点“名称”和“公用端口”是否已被使用。在下面的示例中，名称为“MyEndpoint”，端口为“1433”。
 
-1. 在你本地的客户端上，下载并安装[最新的 PowerShell 模块](https://www.azure.cn/downloads/)。
+1. 在你本地的客户端上，下载并安装[最新的 PowerShell 模块](/downloads/)。
 
 1. 启动 Azure PowerShell。将打开新的 PowerShell 会话，其中加载了 Azure 管理模块。
 

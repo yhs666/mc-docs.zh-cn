@@ -43,7 +43,7 @@ Hadoop 为 MapReduce 提供了一个流式处理 API，这样，除 Java 外，�
 * 文本编辑器
 
     > [!IMPORTANT]
-    > 文本编辑器必须使用 LF 作为行尾。 如果使用 CRLF，则在基于 Linux 的 HDInsight 群集上运行 MapReduce 作业时会出错。 如果不确定它使用哪种行尾，请使用 [运行 MapReduce](#run-mapreduce) 部分中的可选步骤，将所有 CRLF 转换为 LF。
+    > 文本编辑器必须使用 LF 作为行尾。 如果使用 CRLF，则在基于 Linux 的 HDInsight 群集上运行 MapReduce 作业时会出错。 如果不确定它使用哪种行尾，请使用 [运行 MapReduce](#run-mapreduce-ssh) 部分中的可选步骤，将所有 CRLF 转换为 LF。
 
 * **熟悉 SSH 和 SCP**。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 

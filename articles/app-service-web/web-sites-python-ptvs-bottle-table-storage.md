@@ -25,8 +25,6 @@ ms.lasthandoff: 05/19/2017
 ---
 # <a name="bottle-and-azure-table-storage-on-azure-with-python-tools-22-for-visual-studio"></a>具有 Python Tools 2.2 for Visual Studio 的 Azure 上的 Bottle 和 Azure 表存储
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
-
 在本教程中，我们将使用 [Python Tools for Visual Studio] 通过一个 PTVS 样本模板创建简单的轮询 Web 应用。
 
 轮询 Web 应用是对存储库的抽象界定，因此可以轻松地在不同类型的存储库（内存、Azure 表存储、MongoDB）之间进行切换。

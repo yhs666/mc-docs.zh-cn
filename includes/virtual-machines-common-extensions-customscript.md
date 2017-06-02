@@ -9,7 +9,7 @@ Azure 资源管理器模板可让你通过定义资源之间的依赖关系，�
 
 ### 先决条件
 
-1. 从[此处](https://www.azure.cn/downloads)安装最新的 Azure PowerShell Cmdlet 或 Azure CLI。
+1. 从[此处](/downloads)安装最新的 Azure PowerShell Cmdlet 或 Azure CLI。
 2. 如果脚本将在现有 VM 上运行，请确保已在该 VM 上启用了 VM 代理，如果没有启用，请根据 [Linux](../articles/virtual-machines/virtual-machines-linux-classic-manage-extensions.md) 或者 [Windows](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md) 指引来安装一个。
 3. 将你要在 VM 上运行的脚本上载到 Azure 存储。脚本可以来自单个或多个存储容器。
 4. 或者，也可以将脚本上载到 Github 帐户。
