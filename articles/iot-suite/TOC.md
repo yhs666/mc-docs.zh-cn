@@ -29,9 +29,9 @@
 ## [安全基础知识](securing-iot-ground-up.md)
 
 # 相关内容
-## [流分析](/azure/stream-analytics/)
-## [事件中心](/azure/event-hubs/)
-## [IoT 中心](/azure/iot-hub/)
+## [流分析](/stream-analytics/)
+## [事件中心](/event-hubs/)
+## [IoT 中心](/iot-hub/)
 
 
 # 资源
