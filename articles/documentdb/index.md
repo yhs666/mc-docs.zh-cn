@@ -21,7 +21,7 @@ ms.author: carolz
 
 <ul class="panelContent cardsFTitle">
      <li>
-        <a href="/documentation/articles//">
+        <a href="./documentdb-introduction.md">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -38,7 +38,7 @@ ms.author: carolz
     </li>
 
     <li>
-        <a href="/documentation/articles//">
+        <a href="./documentdb-resources.md">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -54,7 +54,7 @@ ms.author: carolz
         </a>
     </li>
     <li>
-        <a href="/documentation/articles//">
+        <a href="./documentdb-get-started.md">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -70,7 +70,7 @@ ms.author: carolz
         </a>
     </li>
      <li>
-        <a href="/documentation/articles//">
+        <a href="./documentdb-dotnet-application.md">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,7 +86,7 @@ ms.author: carolz
         </a>
     </li>
     <li>
-        <a href="/documentation/articles//">
+        <a href="./documentdb-nodejs-get-started.md">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -102,7 +102,7 @@ ms.author: carolz
         </a>
     </li>
     <li>
-        <a href="/documentation/articles//">
+        <a href="./documentdb-nodejs-application.md">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -118,7 +118,7 @@ ms.author: carolz
         </a>
     </li>
     <li>
-        <a href="/documentation/articles//">
+        <a href="./documentdb-java-application.md">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -134,7 +134,7 @@ ms.author: carolz
         </a>
     </li>
     <li>
-        <a href="/documentation/articles//">
+        <a href="./documentdb-python-application.md">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -162,11 +162,11 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="/documentation/articles//">.NET</a></p>
-                        <p><a href="/documentation/articles//">.NET Core</a></p>
-                        <p><a href="/documentation/articles//">Java</a></p>
-                        <p><a href="/documentation/articles//">Node.js</a></p>
-                        <p><a href="/documentation/articles//">Python</a></p>
+                        <p><a href="./documentdb-sdk-dotnet.md">.NET</a></p>
+                        <p><a href="./documentdb-sdk-dotnet-core.md">.NET Core</a></p>
+                        <p><a href="./documentdb-sdk-java.md">Java</a></p>
+                        <p><a href="./documentdb-sdk-node.md">Node.js</a></p>
+                        <p><a href="./documentdb-sdk-java.md">Python</a></p>
                     </div>
                 </div>
             </div>
@@ -178,8 +178,8 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/documentdb/">REST API</a></p>
-                        <p><a href="/rest/api/documentdbresourceprovider/">资源提供程序 REST API</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/documentdb/">REST API</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/documentdbresourceprovider/">资源提供程序 REST API</a></p>
                     </div>
                 </div>
             </div>
