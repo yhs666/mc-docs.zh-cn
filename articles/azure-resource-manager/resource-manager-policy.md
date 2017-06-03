@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 05/03/2017
 wacn.date: 
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: b5436e7de21f3358006a33f8f0439150f9fe7a43
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: e8730f39d060aba97bb9e3d6e0346af791449987
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 05/26/2017
+
 
 ---
-
 # <a name="resource-policy-overview"></a>资源策略概述
 使用资源策略可在组织中建立资源约定。 通过定义约定，可以控制成本并更轻松地管理资源。 例如，可以指定仅允许某些类型的虚拟机，或要求所有资源都带有特定的标记。 策略由所有子资源继承。 因此，如果将策略应用到资源组，则其适用于该资源组中的所有资源。
 
@@ -31,7 +31,8 @@ ms.lasthandoff: 04/22/2017
 * 策略定义 - 描述何时强制执行策略，以及要采取的操作
 * 策略分配 - 应用策略定义的范围（订阅或资源组）
 
-<!-- Not suitfor Azure.cn 本主题重点介绍策略定义。 有关策略分配的信息，请参阅[分配和管理策略](./resource-manager-policy-create-assign.md)。-->
+<!-- Not Available on resource-manager-policy-create-assign.md-->
+
 Azure 提供一些内置的策略定义，可减少需要定义的策略数目。 如果内置策略定义适用于你的方案，请在分配到范围时使用该定义。
 
 将在创建和更新资源（PUT 和 PATCH 操作）时评估策略。
@@ -143,7 +144,7 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 ### <a name="logical-operators"></a>逻辑运算符
 支持的逻辑运算符为：
 
-* `"not": {condition or operator}`
+* `"not": {condition  or operator}`
 * `"allOf": [{condition or operator},{condition or operator}]`
 * `"anyOf": [{condition or operator},{condition or operator}]`
 
@@ -173,12 +174,15 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 
 * `"equals": "value"`
 * `"like": "value"`
+* `"match": "value"`
 * `"contains": "value"`
 * `"in": ["value1","value2"]`
 * `"containsKey": "keyName"`
 * `"exists": "bool"`
 
 在使用 **like** 条件时，可以在值中提供通配符 (*)。
+
+使用 **match** 条件时，请提供 `#` 来表示数字，提供 `?` 来表示字母，提供任何其他字符来表示该实际字符。 有关示例，请参阅[设置命名约定](#set-naming-convention)。
 
 ### <a name="fields"></a>字段
 使用字段构成条件。 字段显示用于描述资源状态的资源请求负载属性。  
@@ -238,8 +242,9 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 
 以下主题包含策略示例：
 
-<!-- Not suitfor Azure.cn * 有关标记策略的示例，请参阅[将资源策略应用于标记](./resource-manager-policy-tags.md)。-->
-* 有关虚拟机策略的示例，请参阅[将资源策略应用于 Linux VM](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 和[将资源策略应用于 Windows WM](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+<!-- Not Available on  resource-manager-policy-tags.md -->
+<!-- Not Available on  resource-manager-policy-storage -->
+* 有关虚拟机策略的示例，请参阅[将资源策略应用于 Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 和[将资源策略应用于 Windows WM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ### <a name="allowed-resource-locations"></a>允许的资源位置
 若要指定允许的位置，请参阅 [策略定义结构](#policy-definition-structure) 部分中的示例。 若要分配此策略定义，请使用带有资源 ID `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`的内置策略。
@@ -325,7 +330,37 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 }
 ```
 
-## <a name="next-steps"></a>后续步骤
+若要指定资源名称与某个模式匹配，请使用 match 条件。 下面的示例要求名称以 `contoso` 开头并包含六个其他字母：
 
-* 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](./resource-manager-subscription-governance.md)。
+```json
+{
+  "if": {
+    "not": {
+      "field": "name",
+      "match": "contoso??????"
+    }
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+若要求日期模式为两个数字、短划线、三个字母、短划线和四个数字，请使用以下代码：
+
+```json
+{
+  "if": {
+    "field": "tags.date",
+    "match": "##-???-####"
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+## <a name="next-steps"></a>后续步骤
+<!-- Not Available on resource-manager-policy-portal.md /  resource-manager-policy-create-assign.md-->
+* 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
 * 该策略架构已在 [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json)中发布。

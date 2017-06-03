@@ -17,14 +17,17 @@
 ### [网络安全组](virtual-networks-nsg.md)
 
 ## 部署
-### 虚拟网络
-#### [门户](virtual-networks-create-vnet-arm-pportal.md)
-#### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [CLI](virtual-networks-create-vnet-arm-cli.md)
-#### [模板](virtual-networks-create-vnet-arm-template-click.md)
-#### [门户（经典）](virtual-networks-create-vnet-classic-pportal.md)
-#### [PowerShell（经典）](virtual-networks-create-vnet-classic-netcfg-ps.md)
-#### [CLI（经典）](virtual-networks-create-vnet-classic-cli.md)
+### 虚拟网络 (VNet)
+#### [创建、更改或删除 VNet](virtual-network-manage-network.md)
+#### [创建、更改或删除子网](virtual-network-manage-subnet.md)
+#### [创建 VNet - 多个子网](virtual-networks-create-vnet-arm-pportal.md) 
+##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+##### [CLI](virtual-networks-create-vnet-arm-cli.md)
+##### [模板](virtual-networks-create-vnet-arm-template-click.md)
+#### 创建 VNet - 多个子网 [经典]
+##### [门户](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### 网络安全组
 #### [门户](virtual-networks-create-nsg-arm-pportal.md)
@@ -46,20 +49,22 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [模板](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### [网络接口](virtual-network-network-interface.md)
+### 网络接口 (NIC)
+#### [创建、更改或删除 NIC](virtual-network-network-interface.md)
+#### [添加、更改或删除 IP 地址](virtual-network-network-interface-addresses.md)
 
 ### [公共 IP 地址](virtual-network-public-ip-address.md)
 
 ### 虚拟机
-
-#### 静态公共 IP 地址
+#### [添加或删除网络接口](virtual-network-network-interface-vm.md) 
+#### 创建具有静态公共 IP 地址的 VM
 ##### [门户](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [模板](virtual-network-deploy-static-pip-arm-template.md)
 ##### [PowerShell（经典）](virtual-networks-reserved-public-ip.md)
 
-#### 静态专用 IP 地址
+#### 使用静态专用 IP 地址创建 VM
 ##### [门户](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [CLI](virtual-networks-static-private-ip-arm-cli.md)
@@ -67,14 +72,13 @@
 ##### [PowerShell（经典）](virtual-networks-static-private-ip-classic-ps.md)
 ##### [CLI（经典）](virtual-networks-static-private-ip-classic-cli.md)
 
-#### 多个网络接口
-##### [PowerShell](virtual-network-deploy-multinic-arm-ps.md)
-##### [CLI](virtual-network-deploy-multinic-arm-cli.md)
-##### [模板](virtual-network-deploy-multinic-arm-template.md)
+#### 创建具有多个网络接口的 VM
+##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [PowerShell（经典）](virtual-network-deploy-multinic-classic-ps.md)
 ##### [CLI（经典）](virtual-network-deploy-multinic-classic-cli.md)
 
-#### 多个 IP 地址
+#### 创建具有多个 IP 地址的 VM
 ##### [Azure 门户预览](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
@@ -88,6 +92,7 @@
 
 ### 安全方案
 #### [使用虚拟设备保护网络](virtual-network-scenario-udr-gw-nva.md)
+#### [云服务和网络安全](../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [使用 NSG 的简单外围网络](virtual-networks-dmz-nsg-asm.md)
 ##### [使用防火墙和 NSG 的外围网络](virtual-networks-dmz-nsg-fw-asm.md)
 ##### [使用防火墙、UDR 和 NSG 的外围网络](virtual-networks-dmz-nsg-fw-udr-asm.md)
@@ -120,8 +125,8 @@
 ### [吞吐量测试](virtual-network-bandwidth-testing.md)
 
 # 引用
-## [PowerShell (Resource Manager)](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
-## [PowerShell（经典）](https://docs.microsoft.com/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [PowerShell (Resource Manager)](https://docs.microsoft.com/powershell/module/azurerm.network)
+## [PowerShell（经典）](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
 ## [Java](https://docs.microsoft.com/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)

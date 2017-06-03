@@ -16,10 +16,10 @@ ms.date: 03/09/2017
 wacn.date: 
 ms.author: elioda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: feb55746a0f999f2bf36c4e317e2c1ef9a7adba6
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 58a77464b40fe29ad7cc4886750e3683480b5a03
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -170,6 +170,45 @@ ms.lasthandoff: 04/07/2017
     ```
 3. **替换所需属性**。 解决方案后端可以使用此操作完全覆盖所有现有的所需属性，并使用新 JSON 文档替代 `properties/desired`。
 4. **替换标记**。 解决方案后端可以使用此操作完全覆盖所有现有标记，并使用新 JSON 文档替代 `tags`。
+5. **接收孪生通知**。 此操作允许解决方案后端在修改孪生时收到通知。 为此，IoT 解决方案需要创建一个路由，并且将“数据源”设置为等于 *twinChangeEvents*。 默认情况下，不会发送孪生通知，即，无此类路由预先存在。 如果更改速率太高，或由于其他原因（例如内部故障），IoT 中心可能会只发送一个包含所有更改的通知。 因此，如果应用程序需要可靠的审核和记录所有中间状态，则仍建议使用 D2C 消息。 孪生通知消息包括属性和正文。
+
+    - 属性
+
+    | 名称 | 值 |
+    | --- | --- |
+    $content-type | application/json |
+    $iothub-enqueuedtime |  发送通知的时间 |
+    $iothub-message-source | twinChangeEvents |
+    $content-encoding | utf-8 |
+    deviceId | 设备 ID |
+    hubName | IoT 中心的名称 |
+    operationTimestamp | ISO8601 操作时间戳 |
+    iothub-message-schema | deviceLifecycleNotification |
+    opType | “replaceTwin”或“updateTwin” |
+
+    消息系统属性以 `'$'` 符号作为前缀。
+
+    - 正文
+        
+    本部分包括 JSON 格式的所有孪生更改。 它使用与修补程序相同的格式，不同的是它可以包含所有孪生节：标记、properties.reported、properties.desired，并且它包含“$metadata”元素。 例如，
+    ```
+    {
+        "properties": {
+            "desired": {
+                "$metadata": {
+                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
+                },
+                "$version": 1
+            },
+            "reported": {
+                "$metadata": {
+                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
+                },
+                "$version": 1
+            }
+        }
+    }
+    ``` 
 
 上述所有操作支持[乐观并发][lnk-concurrency]，需要[安全性][lnk-security]一文中定义的 **ServiceConnect** 权限。
 
