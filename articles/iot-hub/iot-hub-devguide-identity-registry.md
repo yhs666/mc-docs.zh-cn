@@ -12,14 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
-wacn.date: 
+ms.date: 05/04/2017
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: a9e1d6bfdcad36302d06ceb5d6b0835346dbbec2
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 21132cc63ebbdf66983e00127fe88fcb946aa656
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 05/26/2017
+
 
 ---
 
@@ -83,14 +84,16 @@ IoT 解决方案通常具有不同的解决方案特定存储，其中包含应�
 * 若要了解有关如何运行导入和导出作业的详细信息，请参阅 [Bulk management of IoT Hub device identities][lnk-bulk-identity]（批量管理 IoT 中心的设备标识）。
 
 ## <a name="device-provisioning"></a>Device Provisioning
-给定的 IoT 解决方案存储的设备数据取决于该解决方案的特定要求。 但是，解决方案必须至少存储设备标识和身份验证密钥。 Azure IoT 中心包含标识注册表，可以存储每个设备的值，例如 ID、身份验证密钥和状态代码。 解决方案可以使用其他 Azure 服务（例如 Azure 表存储、Azure Blob 存储或 Azure DocumentDB）来存储任何其他设备数据。
+
+给定的 IoT 解决方案存储的设备数据取决于该解决方案的特定要求。 但是，解决方案必须至少存储设备标识和身份验证密钥。 Azure IoT 中心包含标识注册表，可以存储每个设备的值，例如 ID、身份验证密钥和状态代码。 解决方案可以使用其他 Azure 服务（例如 Azure 表存储、Azure Blob 存储或 Azure Cosmos DB）来存储任何其他设备数据。
 
 *设备预配* 是将初始设备数据添加到解决方案中存储中的过程。 若要使新设备能够连接到中心，必须将新设备 ID 和密钥添加到 IoT 中心的标识注册表。 在预配过程中，你可能需要初始化其他解决方案存储中的设备特定数据。
 
 ## <a name="device-heartbeat"></a>检测信号
+
 IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和调试期间仅使用 **connectionState** 字段。 IoT 解决方案不应在运行时查询该字段（例如，为了检查设备是否已连接以确定是否要发送从云到设备的消息或短信）。
 
-如果 IoT 解决方案需要知道设备是否已连接（在运行时或在比 **connectionState** 属性提供的值更精确时），解决方案应实施检测信号模式。
+如果 IoT 解决方案需要知道设备是否已连接（在运行时或在具有的值比 **connectionState** 属性提供的值更精确时），解决方案应实施*检测信号模式*。
 
 在检测信号模式下，设备每隔固定时间至少发送一次设备到云的消息（例如，每小时至少一次）。 因此，即使设备没有任何要发送的数据，仍会发送空的设备到云的消息（通常具有可供识别为检测信号的属性）。 在服务端，该解决方案维护着与每个设备收到的最后一个检测信号的映射。 如果设备在预计时间内未收到检测信号消息，则该解决方案认为设备有问题。
 
@@ -98,8 +101,50 @@ IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和�
 
 > [!NOTE]
 > 如果 IoT 解决方案只根据设备连接状态来决定是否发送云到设备的消息，并且没有把消息广播到大量设备，则可以考虑使用更简单的模式，即使用较短的到期时间。 此模式达到的效果与使用检测信号模式维护设备连接状态注册表达到的效果一样，而且更加有效。 IoT 中心还可以通过请求消息确认来通知哪些设备可以接收消息、哪些设备脱机或不能接收消息。
-> 
-> 
+
+## <a name="device-lifecycle-notifications"></a>设备生命周期通知
+
+创建或删除设备标识时，IoT 中心可通过发送设备生命周期通知来通知 IoT 解决方案。 为此，IoT 解决方案需要创建一个路由，并将“数据源”设置为等于 *DeviceLifecycleEvents*。 默认情况下，不会发送生命周期通知，即无此类路由预先存在。 通知消息包括属性和正文。
+
+- 属性
+
+消息系统属性以 `'$'` 符号作为前缀。
+
+| 名称 | 值 |
+| --- | --- |
+$content-type | application/json |
+$iothub-enqueuedtime |  发送通知的时间 |
+$iothub-message-source | deviceLifecycleEvents |
+$content-encoding | utf-8 |
+opType | “createDeviceIdentity”或“deleteDeviceIdentity” |
+hubName | IoT 中心的名称 |
+deviceId | 设备 ID |
+operationTimestamp | ISO8601 操作时间戳 |
+iothub-message-schema | deviceLifecycleNotification |
+
+- 正文
+
+本部分采用 JSON 格式，表示创建的设备标识的孪生。 例如，
+``` 
+{
+    "deviceId":"11576-ailn-test-0-67333793211",
+    "etag":"AAAAAAAAAAE=",
+    "properties": {
+        "desired": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        },
+        "reported": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        }
+    }
+}
+```
 
 ## <a name="reference-topics"></a>参考主题：
 以下参考主题提供有关标识注册表的详细信息。
@@ -129,7 +174,7 @@ IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和�
 ## <a name="additional-reference-material"></a>其他参考资料
 IoT 中心开发人员指南中的其他参考主题包括：
 
-* [IoT 中心终结点][lnk-endpoints]，介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
+* [IoT 中心终结点][lnk-endpoints] ，介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
 * [限制和配额][lnk-quotas]，说明了适用于 IoT 中心服务的配额，以及使用服务时预期会碰到的限制行为。
 * [Azure IoT 设备和服务 SDK][lnk-sdks]，列出了在开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
 * [设备孪生和作业的 IoT 中心查询语言][lnk-query]，介绍了在 IoT 中心检索设备孪生和作业相关信息时可使用的 IoT 中心查询语言。

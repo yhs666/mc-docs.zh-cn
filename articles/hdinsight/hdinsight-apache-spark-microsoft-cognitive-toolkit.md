@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2017
+ms.date: 05/04/2017
 wacn.date: 
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: a5415b06a5d30acb7d3caf8c429e81a8824751cf
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: bb948ae5f3f25661baebfea026e56a9b56cf817a
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-* **一个 Azure 订阅**。 在开始学习本教程之前，你必须有一个 Azure 订阅。 请参阅[立即创建 Azure 试用帐户](https://azure.microsoft.com/free)。
+* **一个 Azure 订阅**。 在开始学习本教程之前，你必须有一个 Azure 订阅。 请参阅[立即创建 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 * **Azure HDInsight Spark 群集**。 在本文中，将创建 Spark 2.0 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](hdinsight-apache-spark-jupyter-spark-sql.md)。
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 04/28/2017
 
 * 对于 **Bash 脚本 URI**，输入 `https://raw.githubusercontent.com/Azure-Samples/hdinsight-pyspark-cntk-integration/master/cntk-install.sh`。
 
-* 确保仅在头节点上运行脚本。 清除辅助角色节点和 Zookeeper 节点的复选框。
+* 请确保仅在头节点和工作节点上运行脚本并清除其他所有复选框。
 
 * 单击“创建” 。
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 04/28/2017
 
 3. 从 Jupyter 笔记本中，单击右上角的“上传”，然后导航至克隆 GitHub 存储库的位置。
 
-    ![将 Jupyter 笔记本上传到 Azure HDInsight Spark 群集](./media/hdinsight-apache-spark-microsoft-cognitive-toolkit.md/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Upload Jupyter notebook to Azure HDInsight Spark cluster")
+    ![将 Jupyter 笔记本上传到 Azure HDInsight Spark 群集](./media/hdinsight-apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Upload Jupyter notebook to Azure HDInsight Spark cluster")
 
 4. 再次单击“上传”。
 
@@ -101,7 +101,6 @@ ms.lasthandoff: 04/28/2017
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](hdinsight-apache-spark-eventhub-streaming.md)
-* [使用 HDInsight 中的 Spark 分析网站日志](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序
 * [使用 Scala 创建独立的应用程序](hdinsight-apache-spark-create-standalone-application.md)
@@ -126,3 +125,4 @@ ms.lasthandoff: 04/28/2017
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [azure-management-portal]: https://manage.windowsazure.cn/
 [azure-create-storageaccount]: storage-create-storage-account.md
+

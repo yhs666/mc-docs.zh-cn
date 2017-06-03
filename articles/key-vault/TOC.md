@@ -34,15 +34,13 @@
 
 # 相关内容
 ## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
-## [Azure Rights Management](https://technet.microsoft.com/zh-cn/dn175750)
-## [Extensible key management using Key Vault](https://msdn.microsoft.com/zh-cn/library/azure/dn198405)（使用 Key Vault 的可扩展密钥管理）
+## [Azure Rights Management](https://technet.microsoft.com/en-US/dn175750)
+## [Extensible key management using Key Vault](https://msdn.microsoft.com/en-us/library/azure/dn198405)
 ## [多重身份验证](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # 资源
-## [About Keys and Secrets](https://msdn.microsoft.com/zh-cn/library/azure/dn903623)（关于密钥和机密）
+## [About Keys and Secrets](https://msdn.microsoft.com/en-us/library/azure/dn903623)
 ## [代码示例](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [价格](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [博客](http://blogs.technet.com/b/kv/)
-## [论坛](https://social.msdn.microsoft.com/forums/azure/zh-cn/home?forum=AzureKeyVault)
-
-<!---HONumber=Mooncake_0220_2017-->
+## [论坛](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
