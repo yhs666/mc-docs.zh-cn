@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 05/04/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: a49f4c420c2a53f71482f9ad37f5627e1e9dac6e
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 11ff6991ce38debbedb040258a8eee52465b40b7
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -137,7 +137,7 @@ Set-AzureRmIotHub `
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南][lnk-devguide]
-* [使用 IoT 网关 SDK 模拟设备][lnk-gateway]
+* [使用 IoT Edge 模拟设备][lnk-gateway]
 * [从根本上保护 IoT 解决方案][lnk-securing]
 
 [lnk-upload]: ./iot-hub-devguide-file-upload.md
@@ -149,9 +149,9 @@ Set-AzureRmIotHub `
 [lnk-devguide]: ./iot-hub-devguide.md
 [lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-securing]: ./iot-hub-security-ground-up.md
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs/
-[lnk-powershell-storage]: https://docs.microsoft.com/powershell/storage/
-[lnk-powershell-iothub]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.iothub/v1.1.0/new-azurermiothub
+[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-powershell-storage]: https://docs.microsoft.com/powershell/module/azurerm.storage/
+[lnk-powershell-iothub]: https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub
 [lnk-portal-hub]: ./iot-hub-create-through-portal.md
 [lnk-free-trial]: /pricing/1rmb-trial/
 [lnk-portal-storage]: ../storage/storage-create-storage-account.md
