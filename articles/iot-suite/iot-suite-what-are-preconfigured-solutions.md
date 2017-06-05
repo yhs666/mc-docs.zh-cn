@@ -45,7 +45,6 @@ Azure IoT 套件预配置解决方案是你可以使用订阅部署到 Azure 的
 | --- | --- | --- | --- | --- | --- | --- |
 | [远程监视][lnk-getstarted-preconfigured] |是 |是 |是 |是 |是 |- |
 | [前瞻性维护][lnk-predictive-maintenance] |是 |是 |- |是 |是 |是 |
-| [连接的工厂][lnk-getstarted-factory] |是 |是 |是 |是 |是 |- |
 
 * *数据提取*：向云中大规模输入数据。
 * *设备标识*：管理唯一设备标识，并控制对解决方案的设备访问权限。
@@ -171,5 +170,5 @@ DeviceInfo 和规则 ASA 作业将其输出发送到事件中心以传递到其�
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-getstarted-factory]: iot-suite-connected-factory-overview.md
+
 

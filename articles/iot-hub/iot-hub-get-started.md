@@ -45,7 +45,7 @@ ms.lasthandoff: 05/26/2017
 | Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
 | Sparkfun ESP8266 Thing Dev      | [Arduino][Th_Ard]              |
 | Adafruit Feather M0             | [Arduino][M0_Ard]              |
-| 模拟设备                | [.NET][Sim_NET]、[Java][Sim_Jav]、[Node.js][Sim_Nd]、[Python][Sim_Pyth]              |
+| 模拟设备                | [.NET][Sim_NET]、[Java][Sim_Jav]、[Node.js][Sim_Nd]、Python              |
 
 此外，还可以使用网关使设备能够连接到 IoT 中心。
 
@@ -62,7 +62,6 @@ ms.lasthandoff: 05/26/2017
 |---------------------------------------------|------------------------------------|
 | [管理 IoT 中心消息][Mg_IoT_Hub_Msg]                    | iothub-explorer 工具               |
 | [管理 IoT 设备][Mg_IoT_Dv]               | iothub-explorer 工具               |
-| [将 IoT 中心消息保存到 Azure 存储][Sv_IoT_Msg_Stor]                      | Azure 表存储               |
 | [直观显示传感器数据][Vis_Data]             | Microsoft Power BI、Azure Web 应用 |
 
 ## <a name="next-steps"></a>后续步骤
@@ -80,13 +79,11 @@ ms.lasthandoff: 05/26/2017
 [Sim_NET]: ./iot-hub-csharp-csharp-getstarted.md
 [Sim_Jav]: ./iot-hub-java-java-getstarted.md
 [Sim_Nd]: ./iot-hub-node-node-getstarted.md
-[Sim_Pyth]: ./iot-hub-python-getstarted.md
 [NUC_Lnx]: ./iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
 [Sim_Lnx]: ./iot-hub-linux-gateway-sdk-get-started.md
 [Sim_Win]: ./iot-hub-windows-gateway-sdk-get-started.md
 [Mg_IoT_Hub_Msg]: ./iot-hub-explorer-cloud-device-messaging.md
 [Mg_IoT_Dv]: ./iot-hub-device-management-iothub-explorer.md
-[Sv_IoT_Msg_Stor]: ./iot-hub-store-data-in-azure-table-storage.md
 [Vis_Data]: ./iot-hub-live-data-visualization-in-power-bi.md
 [lnk-dev-guide]: ./iot-hub-devguide.md
 [lnk-how-to]: ./iot-hub-how-to.md
