@@ -16,10 +16,10 @@ ms.date: 03/31/2017
 wacn.date: 
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: d5c24b6248a20718368db79ac7f0d9e2b6b92c09
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: c4e53ff6a790555505ec8f72f654a36060100399
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -33,24 +33,25 @@ ms.lasthandoff: 04/22/2017
 * 不一定要唯一的资源名称，不过，提供的名称应可帮助根据上下文识别资源。
 * 通用的资源名称。
 
+<!-- Not Available /guidance/guidance-naming-conventions.md -->
 有关建立命名约定的帮助，请参阅 [Azure 基础结构命名准则](../virtual-machines/virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ### <a name="unique-resource-names"></a>唯一的资源名称
-对于具有数据访问终结点的任何资源类型，必须提供唯一的资源名称。 需要唯一名称的一些常见类型包括：
+对于具有数据访问终结点的任何资源类型，必须提供唯一的资源名称。 需要唯一名称的一些常见资源类型包括：
 
 * Azure 存储<sup>1</sup> 
 * Azure 应用服务的 Web 应用功能
 * SQL Server
 * Azure Key Vault
 * Azure Redis 缓存
-* Azure 批处理
+* Azure Batch
 * Azure 流量管理器
 * Azure 搜索
 * Azure HDInsight
 
 <sup>1</sup> 存储帐户名必须使用小写字母，包含 24 个或更少的字符，并且不包含任何连字符。
 
-如果为某个资源名称提供参数，必须在部署该资源时提供唯一的名称。 或者，可以改为创建使用 [uniqueString()](resource-group-template-functions.md#uniquestring) 函数的变量来生成名称。 
+如果为某个资源名称提供参数，必须在部署该资源时提供唯一的名称。 或者，可以改为创建使用 [uniqueString()](resource-group-template-functions-string.md#uniquestring) 函数的变量来生成名称。 
 
 可能还需要在 **uniqueString** 结果中添加一个前缀或后缀。 修改唯一的名称可以更方便地通过名称识别资源类型。 例如，可以使用以下变量生成存储帐户的唯一名称：
 
@@ -108,7 +109,7 @@ ms.lasthandoff: 04/22/2017
 使用参数时，以下信息可以提供帮助：
 
 * 尽量不要使用参数。 尽可能地使用变量或文本值。 只针对以下场合使用参数：
-   
+
    * 想要根据环境使用不同变体的设置（SKU、大小、容量）。
    * 想要方便识别而指定的资源名称。
    * 经常用来完成其他任务的值（例如管理员用户名）。
@@ -169,14 +170,14 @@ ms.lasthandoff: 04/22/2017
     ]
     ```
    
-   如果只有有限数量的位置支持某种资源类型，你可能需要在模板中直接指定有效的位置。 如果必须使用 **location** 参数，请尽量与可能需要位于同一位置的资源共享该参数值。 这样可以最大程度地减少用户必须提供位置信息的次数。
+    如果只有有限数量的位置支持某种资源类型，你可能需要在模板中直接指定有效的位置。 如果必须使用 **location** 参数，请尽量与可能需要位于同一位置的资源共享该参数值。 这样可以最大程度地减少用户必须提供位置信息的次数。
 * 避免对资源类型的 API 版本使用参数或变量。 资源的属性和值可能会因版本号的不同而异。 如果将 API 版本设置为参数或变量，代码编辑器中的 IntelliSense 无法确定正确架构。 并且会在模板中将 API 版本硬编码。
 
 ## <a name="variables"></a>变量
 使用变量时，以下信息可以提供帮助：
 
 * 针对需要在模板中多次使用的值使用变量。 如果一次只使用一个值，则硬编码值可使模板更易于阅读。
-* 不能在模板的 **variables** 节中使用 [reference](resource-group-template-functions.md#reference) 函数。 **reference** 函数从资源的运行时状态中派生其值。 但是，变量是在初始模板分析期间解析的。 直接在模板的 **resources** 或 **outputs** 节中构造需要 **reference** 函数的值。
+* 不能在模板的 **variables** 节中使用 [reference](resource-group-template-functions-resource.md#reference) 函数。 **reference** 函数从资源的运行时状态中派生其值。 但是，变量是在初始模板分析期间解析的。 直接在模板的 **resources** 或 **outputs** 节中构造需要 **reference** 函数的值。
 * 根据[资源名称](#resource-names)中所述，针对必须保持唯一的资源名称包含变量。
 * 可以将变量组合成复杂对象。 使用 **variable.subentry** 格式引用复杂对象中的值。 组合变量有助于跟踪相关的变量。 此外，还可以提高模板的可读性。 下面是一个示例：
 
@@ -201,12 +202,12 @@ ms.lasthandoff: 04/22/2017
     ]
     ```
    
-   > [!NOTE]
-   > 复杂对象不能包含从复杂对象引用值的表达式。 若要进行这种引用，可以定义一个单独的变量。
-   > 
-   > 
+    > [!NOTE]
+    > 复杂对象不能包含从复杂对象引用值的表达式。 若要进行这种引用，可以定义一个单独的变量。
+    > 
+    > 
    
-     有关使用复杂对象作为变量的高级示例，请参阅[在 Azure Resource Manager 模板中共享状态](best-practices-resource-manager-state.md)。
+    有关使用复杂对象作为变量的高级示例，请参阅[在 Azure Resource Manager 模板中共享状态](best-practices-resource-manager-state.md)。
 
 ## <a name="resources"></a>资源
 使用资源时，以下信息可以提供帮助：
@@ -238,7 +239,7 @@ ms.lasthandoff: 04/22/2017
     }
     ```
    
-   如果在创建的同一模板中部署存储帐户，则引用资源时不需要指定提供程序命名空间。 下面是简化的语法：
+    如果在创建的同一模板中部署存储帐户，则引用资源时不需要指定提供程序命名空间。 下面是简化的语法：
    
     ```json
     "osDisk": {
@@ -249,7 +250,7 @@ ms.lasthandoff: 04/22/2017
     }
     ```
    
-   如果在模板中包含配置为使用公共命名空间的其他值，请更改这些值以反映相同的 **reference** 函数。 例如，可以设置虚拟机诊断配置文件的 **storageUri** 属性：
+    如果在模板中包含配置为使用公共命名空间的其他值，请更改这些值以反映相同的 **reference** 函数。 例如，可以设置虚拟机诊断配置文件的 **storageUri** 属性：
    
     ```json
     "diagnosticsProfile": {
@@ -260,7 +261,7 @@ ms.lasthandoff: 04/22/2017
     }
     ```
    
-   还可以引用不同资源组中的现有存储帐户：
+    还可以引用不同资源组中的现有存储帐户：
 
     ```json
     "osDisk": {
@@ -275,6 +276,7 @@ ms.lasthandoff: 04/22/2017
    
     有关连接到虚拟机的详细信息，请参阅：
    
+    <!-- Not Available guidance/guidance-compute-n-tier-vm.md-->
     * [在 Azure Resource Manager 中设置对 VM 的 WinRM 访问](../virtual-machines/windows/winrm.md)
     * [使用 Azure 门户实现对 VM 的外部访问](../virtual-machines/windows/nsg-quickstart-portal.md)
     * [使用 PowerShell 实现对 VM 的外部访问](../virtual-machines/windows/nsg-quickstart-powershell.md)
@@ -394,7 +396,7 @@ ms.lasthandoff: 04/22/2017
 另外，一个不错的想法是设置 JSON 的格式以以提高可读性。 可以为本地编辑器使用 JSON 格式化程序包。 在 Visual Studio 中，按 **Ctrl+K、Ctrl+D** 设置文档的格式。 在 Visual Studio Code 中，按 **Alt+Shift+F**。 如果你的本地编辑器无法设置文档格式，你可以使用 [联机格式化程序](https://www.bing.com/search?q=json+formatter)。
 
 ## <a name="next-steps"></a>后续步骤
-
+<!-- Not Available on Guidance Directory-->
 * 有关设置存储帐户的指导，请参阅 [Azure 存储性能和可伸缩性清单](../storage/storage-performance-checklist.md)。
-* 有关虚拟网络的帮助，请参阅[网络基础结构准则](../virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
-* 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](./resource-manager-subscription-governance.md)。
+* 有关虚拟网络的帮助，请参阅[网络基础结构指南](../virtual-machines/windows/infrastructure-networking-guidelines.md)。
+* 若要了解企业如何使用 Resource Manager 有效管理订阅，请参阅 [Azure 企业基架：规范性订阅管理](resource-manager-subscription-governance.md)。

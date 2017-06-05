@@ -21,7 +21,7 @@ ms.author: carolz
 
 <ul class="panelContent cardsFTitle">
      <li>
-        <a href="./documentdb-introduction.md">
+        <a href="/documentdb/documentdb-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -38,7 +38,7 @@ ms.author: carolz
     </li>
 
     <li>
-        <a href="./documentdb-resources.md">
+        <a href="/documentdb/documentdb-resources">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -54,7 +54,7 @@ ms.author: carolz
         </a>
     </li>
     <li>
-        <a href="./documentdb-get-started.md">
+        <a href="/documentdb/documentdb-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -70,7 +70,7 @@ ms.author: carolz
         </a>
     </li>
      <li>
-        <a href="./documentdb-dotnet-application.md">
+        <a href="/documentdb/documentdb-dotnet-application">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,7 +86,7 @@ ms.author: carolz
         </a>
     </li>
     <li>
-        <a href="./documentdb-nodejs-get-started.md">
+        <a href="/documentdb/documentdb-nodejs-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -102,7 +102,7 @@ ms.author: carolz
         </a>
     </li>
     <li>
-        <a href="./documentdb-nodejs-application.md">
+        <a href="/documentdb/documentdb-nodejs-application">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -118,7 +118,7 @@ ms.author: carolz
         </a>
     </li>
     <li>
-        <a href="./documentdb-java-application.md">
+        <a href="/documentdb/documentdb-java-application">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -134,7 +134,7 @@ ms.author: carolz
         </a>
     </li>
     <li>
-        <a href="./documentdb-python-application.md">
+        <a href="/documentdb/documentdb-python-application">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -162,11 +162,11 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="./documentdb-sdk-dotnet.md">.NET</a></p>
-                        <p><a href="./documentdb-sdk-dotnet-core.md">.NET Core</a></p>
-                        <p><a href="./documentdb-sdk-java.md">Java</a></p>
-                        <p><a href="./documentdb-sdk-node.md">Node.js</a></p>
-                        <p><a href="./documentdb-sdk-java.md">Python</a></p>
+                        <p><a href="/documentdb/documentdb-sdk-dotnet">.NET</a></p>
+                        <p><a href="/documentdb/documentdb-sdk-dotnet-core">.NET Core</a></p>
+                        <p><a href="/documentdb/documentdb-sdk-java">Java</a></p>
+                        <p><a href="/documentdb/documentdb-sdk-node">Node.js</a></p>
+                        <p><a href="/documentdb/documentdb-sdk-java">Python</a></p>
                     </div>
                 </div>
             </div>

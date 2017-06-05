@@ -18,10 +18,10 @@ ms.date: 04/12/2017
 wacn.date: 
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
-ms.openlocfilehash: 57a96781c4f0cd78021981500dcb26a1f1bcc847
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 677eeb4c228fee7bdd13b10ab02785f12b316229
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -50,7 +50,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
     * [将 Apache Pig 和 HDInsight 配合使用](hdinsight-use-pig.md)
 
-* HDInsight 群集上的 Hadoop。 有关创建群集的详细信息，请参阅[创建 HDInsight 群集](hdinsight-provision-clusters.md)。
+* HDInsight 群集上的 Hadoop。 有关创建群集的详细信息，请参阅[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
@@ -59,6 +59,8 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 * __基于 Linux 的 HDInsight__ 群集使用 [Mono (https://mono-project.com)](https://mono-project.com) 运行 .NET 应用程序。 Mono 版本 4.2.1 包含在 HDInsight 版本 3.5 中。
 
     有关 Mono 与 .NET Framework 版本的兼容性的详细信息，请参阅 [Mono 兼容性](http://www.mono-project.com/docs/about-mono/compatibility/)。
+
+    若要使用 Mono 的特定版本，请参阅[安装或更新 Mono](hdinsight-hadoop-install-mono.md) 文档。
 
 * __基于 Windows 的 HDInsight__ 群集使用 Microsoft .NET CLR 运行 .NET 应用程序。
 

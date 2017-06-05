@@ -14,7 +14,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
      <li>
-        <a href="/azure/iot-hub/iot-hub-what-is-iot-hub">
+        <a href="/iot-hub/iot-hub-what-is-iot-hub">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -50,7 +50,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-csharp-csharp-getstarted">
+        <a href="/iot-hub/iot-hub-csharp-csharp-getstarted">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -68,7 +68,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-java-java-getstarted">
+        <a href="/iot-hub/iot-hub-java-java-getstarted">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,7 +86,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-node-node-getstarted">
+        <a href="/iot-hub/iot-hub-node-node-getstarted">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
