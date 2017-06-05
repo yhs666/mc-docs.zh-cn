@@ -63,6 +63,8 @@ ms.lasthandoff: 05/19/2017
 
 ### <a name="log-in-to-your-azure-account"></a>登录到 Azure 帐户
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 1. 使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
 
   ```azurecli

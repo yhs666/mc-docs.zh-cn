@@ -38,7 +38,7 @@ ms.lasthandoff: 05/05/2017
 ## <a name="detach-a-data-disk-using-cli-20"></a>使用 CLI 2.0 分离数据磁盘
 
 ```azurecli
-az vm disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
+az vm unmanaged-disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
 ```
 
 磁盘保留在存储中，但不再附加到虚拟机。

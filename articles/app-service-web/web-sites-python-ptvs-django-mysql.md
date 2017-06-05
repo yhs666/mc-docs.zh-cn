@@ -26,8 +26,6 @@ ms.lasthandoff: 05/19/2017
 # <a name="django-and-mysql-on-azure-with-python-tools-22-for-visual-studio"></a>Azure 上具有 Python Tools 2.2 for Visual Studio 的 Django 和 MySQL
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
-
 本教程介绍使用 [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python) 通过一个 PTVS 样本模板创建简单的轮询 Web 应用。 了解如何使用在 Azure 上托管的 MySQL 服务、如何将 Web 应用配置为使用 MySQL，以及如何将 Web 应用发布到 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中。
 
 请访问 [Python 开发人员中心] ，查看更多有关使用 PTVS 以及 Bottle、Flask 和 Django Web 框架、Azure 表存储、MySQL、SQL 数据库服务开发 Azure 应用服务 Web 应用的文章。 虽然本文将着重介绍应用服务，但步骤与 [Azure 云服务]的开发步骤类似。
@@ -41,6 +39,8 @@ ms.lasthandoff: 05/19/2017
 * Django 1.9 或更高版本
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 ## <a name="create-the-project"></a>创建项目
 本节介绍使用样本模板创建 Visual Studio 项目。 你将创建虚拟环境并安装所需软件包。 你将创建一个使用 sqlite 的本地数据库。 然后你将在本地运行应用程序。

@@ -30,8 +30,6 @@ ms.lasthandoff: 05/19/2017
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 ## <a name="sample-script"></a>示例脚本
 
 ```azurecli-interactive

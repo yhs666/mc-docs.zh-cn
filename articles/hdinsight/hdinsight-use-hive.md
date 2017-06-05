@@ -228,7 +228,7 @@ HDInsight 在交互式 Hive 群集类型中提供 LLAP。 有关详细信息，�
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: /hdinsight/hdinsight-connect-excel-power-query/
+[import-to-excel]: /hdinsight/hdinsight-connect-excel-power-query
 [hivetask]: http://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
 [connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
 [ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
