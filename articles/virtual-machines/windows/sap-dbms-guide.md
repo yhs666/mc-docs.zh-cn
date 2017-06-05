@@ -281,7 +281,6 @@ ms.lasthandoff: 05/12/2017
 * [Azure 虚拟机 (VM) 上的 SAP NetWeaver - 规划和实施指南][planning-guide]
 * [Azure 虚拟机 (VM) 上的 SAP NetWeaver - 部署指南][deployment-guide]
 * [Azure 虚拟机 (VM) 上的 SAP NetWeaver - DBMS 部署指南（本文档）][dbms-guide]
-* [Azure 虚拟机 (VM) 上的 SAP NetWeaver - 高可用性部署指南][ha-guide]
 
 以下 SAP 说明与 Azure 上的 SAP 主题相关：
 

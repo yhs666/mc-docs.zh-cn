@@ -186,7 +186,7 @@ ms.lasthandoff: 05/05/2017
 
 注意事项：
 
-- 将迁移与其他活动绑定。  大多数客户倾向于应用程序维护时段。  如果是这样，你可能需要利用该停机时间启用加密和迁移到托管磁盘等其他 Azure Resource Manager 功能。
+- 将迁移与其他活动绑定。  大多数客户倾向于应用程序维护时段。  如果是这样，你可能需要利用该停机时间启用加密和迁移到其他 Azure Resource Manager 功能。
 - 再次浏览 Azure Resource Manager 的技术和业务原因；启用仅在应用于环境的 Azure Resource Manager 上适用的其他服务。
 - 使用 PaaS 服务实现环境现代化。
 

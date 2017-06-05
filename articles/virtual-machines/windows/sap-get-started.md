@@ -385,5 +385,3 @@ ms.lasthandoff: 05/12/2017
 摘要：本文档介绍如何在 Azure 中保护 SAP 单点故障组件，如 SAP ASCS/SCS 和 DBMS。 SAP ASCS/SCS、DBMS 和应用程序服务器的组合对于 SAP NetWeaver 系统（例如 SAP NetWeaver ABAP、SAP NetWeaver Java、SAP NetWeaver ABAP+Java 系统）的功能至关重要。 因此，高可用性功能需要落实到位，以确保这些组件可以承受服务器或 VM 失败，就像祼机和 Hyper-V 环境的 Windows 群集配置所做的那样。
 
 更新时间：2016 年 12 月
-
-[可在此处找到此指南][ha-guide]

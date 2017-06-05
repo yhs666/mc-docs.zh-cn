@@ -359,7 +359,6 @@ Azure 是 Microsoft 提供的一个云服务平台，它提供了各种新的可
 * [Azure 虚拟机 (VM) 上的 SAP NetWeaver - 规划和实施指南（本文档）][planning-guide]
 * [Azure 虚拟机 (VM) 上的 SAP NetWeaver - 部署指南][deployment-guide]
 * [Azure 虚拟机 (VM) 上的 SAP NetWeaver - DBMS 部署指南][dbms-guide]
-* [Azure 虚拟机 (VM) 上的 SAP NetWeaver - 高可用性部署指南][ha-guide]
 
 > [!IMPORTANT]
 > 在可能的情况下，请访问所述《SAP 安装指南》的链接（InstGuide-01 参考文档，请参阅 <http://service.sap.com/instguides>）。 在满足先决条件和安装过程中，始终应该仔细阅读《SAP NetWeaver 安装指南》，因为本文档只包括了有关 Azure 虚拟机中安装的 SAP NetWeaver 系统的具体任务。

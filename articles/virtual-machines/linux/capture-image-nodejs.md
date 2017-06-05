@@ -24,7 +24,7 @@ ms.lasthandoff: 04/14/2017
 
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>捕获在 Azure 上运行的 Linux 虚拟机
-遵循本文中的步骤可在 Resource Manager 部署模型中通用化和捕获 Azure Linux 虚拟机 (VM)。 通用化 VM 时，将删除个人帐户信息，并准备要用作映像的 VM。 然后捕获 OS 的通用化虚拟硬盘 (VHD) 映像、附加的数据磁盘的 VHD，以及新 VM 部署的 [Resource Manager 模板](../../azure-resource-manager/resource-group-overview.md)。 本文详细介绍了如何使用 Azure CLI 1.0 为使用非托管磁盘的 VM 捕获 VM 映像。 也可以[使用 Azure CLI 2.0 捕获使用 Azure 托管磁盘的 VM](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 托管磁盘由 Azure 平台处理，无需任何准备或位置来存储它们。 有关详细信息，请参阅 [Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 
+遵循本文中的步骤可在 Resource Manager 部署模型中通用化和捕获 Azure Linux 虚拟机 (VM)。 通用化 VM 时，将删除个人帐户信息，并准备要用作映像的 VM。 然后捕获 OS 的通用化虚拟硬盘 (VHD) 映像、附加的数据磁盘的 VHD，以及新 VM 部署的 [Resource Manager 模板](../../azure-resource-manager/resource-group-overview.md)。 本文详细介绍了如何使用 Azure CLI 1.0 为使用非托管磁盘的 VM 捕获 VM 映像。
 
 若要使用映像创建 VM，请为每个新 VM 设置网络资源，并使用模板（JavaScript 对象表示法或 JSON 文件）从捕获的 VHD 映像部署它。 这样，可以复制具有其当前软件配置的 VM，与在 Azure 应用商店中使用映像的方式类似。
 

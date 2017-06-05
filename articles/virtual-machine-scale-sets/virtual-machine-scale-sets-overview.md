@@ -142,10 +142,6 @@ Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGr
 
 **答：** 所有区域都支持规模集。
 
-**问：** 如何使用自定义映像创建规模集？
-
-**答：** 根据自定义映像 VHD 创建托管磁盘，然后在规模集模板中引用该磁盘。 [下面是一个示例](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os)。
-
 **问：** 如果我将规模集容量从 20 减少到 15，将删除哪些 VM？
 
 **答：** 将从跨更新域和容错域的规模集中均匀地删除虚拟机，以最大限度地提高可用性。 首先删除 ID 最大的 VM。
