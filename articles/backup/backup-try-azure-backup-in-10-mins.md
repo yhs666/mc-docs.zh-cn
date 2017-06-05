@@ -84,7 +84,7 @@ ms.lasthandoff: 04/14/2017
 > [!NOTE]
 > 尚未推出通过 Azure 门户启用备份这一功能。 请使用 Azure 恢复服务代理备份文件和文件夹。
 
-若要详细了解如何下载、安装和注册代理，可参阅[此文](./backup-configure-vault-classic.md/#download-install-register-backup-agent)。
+若要详细了解如何下载、安装和注册代理，可参阅[此文](./backup-configure-vault-classic.md#download-install-register-backup-agent)。
 
 ## <a name="back-up-your-files-and-folders"></a>备份文件和文件夹
 初始备份包括两个关键任务：
