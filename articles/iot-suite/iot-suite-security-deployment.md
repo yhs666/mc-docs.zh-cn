@@ -126,7 +126,7 @@ Azure IoT 中心引入的数据可供多种服务（例如 Azure 流分析和 Az
 [img-overview]: ./media/iot-suite-security-deployment/overview.png
 
 [lnk-security-tokens]: ../iot-hub/iot-hub-devguide-security.md#security-token-structure
-[lnk-sas-tokens]: ../iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
+[lnk-sas-tokens]: ../iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-client
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-protocols]: ../iot-hub/iot-hub-devguide-security.md
 [lnk-custom-auth]: ../iot-hub/iot-hub-devguide-security.md#custom-device-authentication

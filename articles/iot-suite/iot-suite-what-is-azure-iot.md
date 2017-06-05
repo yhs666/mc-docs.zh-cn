@@ -27,7 +27,7 @@ ms.lasthandoff: 05/19/2017
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## <a name="azure-iot-suite"></a>Azure IoT 套件
-Azure IoT 套件是企业级解决方案，让用户能够通过一组可扩展的预配置解决方案快速入门。 这些解决方案用于处理常见 IoT 场景，例如[远程监视][lnk-preconfigured-solutions]、[预见性维护][lnk-predictive-maintenance]和[连接工厂][lnk-connected-factory]。 这些解决方案是本文所述的 IoT 解决方案体系结构的实现。
+Azure IoT 套件是企业级解决方案，让用户能够通过一组可扩展的预配置解决方案快速入门。 这些解决方案用于处理常见 IoT 场景，例如[远程监视][lnk-preconfigured-solutions]、[预见性维护][lnk-predictive-maintenance]。 这些解决方案是本文所述的 IoT 解决方案体系结构的实现。
 
 预配置的解决方案是完整有效的端到端解决方案，其中包括：
 
@@ -56,4 +56,3 @@ Azure IoT 套件是企业级解决方案，让用户能够通过一组可扩展�
 [Azure Machine Learning]: https://www.azure.cn/home/features/machine-learning/
 [Azure storage]: https://www.azure.cn/home/features/storage/
 [lnk-predictive-maintenance]: ./iot-suite-predictive-overview.md
-[lnk-connected-factory]: ./iot-suite-connected-factory-overview.md
