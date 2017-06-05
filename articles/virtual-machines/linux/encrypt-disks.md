@@ -30,7 +30,7 @@ ms.lasthandoff: 05/05/2017
 ## <a name="quick-commands"></a>快速命令
 如果需要快速完成任务，请参阅以下部分，其中详细说明了用于加密 VM 中虚拟磁盘的基本命令。 本文档的余下部分（[从此处开始](#overview-of-disk-encryption)）提供了每个步骤的更详细信息和上下文。
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 需要安装最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) 并已使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录到 Azure 帐户。 在以下示例中，请将示例参数名称替换为自己的值。 示例参数名称包括 `myResourceGroup`、`myKey` 和 `myVM`。
 

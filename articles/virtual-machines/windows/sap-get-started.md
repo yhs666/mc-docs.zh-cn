@@ -345,8 +345,6 @@ ms.lasthandoff: 05/12/2017
 
 更新时间：2016 年 9 月
 
-[可在此处找到此指南](../virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 ## <a name="deploying-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>在 Azure 上为 SAP ERP 6.0 部署 SAP IDE EHP7 SP3
 标题：在 Azure VM 上手动安装 SAP HANA 的快速入门指南
 
@@ -380,8 +378,6 @@ ms.lasthandoff: 05/12/2017
 摘要：此文介绍了应与 SAP 一起运行的 DBMS 系统的规划和实现注意事项。 在第一部分中，列出并提供了一般注意事项。 此文的以下部分与在 Azure 中部署 SAP 所支持的不同 DBMS 相关。 提供的不同 DBMS 为 SQL Server、SAP ASE 和 Oracle。 在这些特定部分中，讨论了在 Azure 上将 SAP 系统与这些 DBMS 一起运行时必须考虑的注意事项。 提供了 Azure 上的不同 DBMS 支持的备份和高可用性方法等主题，以便用于 SAP 应用程序。
 
 更新时间：2016 年 8 月
-
-[可在此处找到此指南][dbms-guide]
 
 ## <a name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>高可用性部署指南
 标题：Azure 虚拟机 (VM) 上的 SAP NetWeaver - 高可用性部署指南
