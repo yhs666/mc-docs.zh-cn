@@ -170,7 +170,7 @@ HDInsight 提供可集成到 HDInsight 群集中的 R Server 选项。 这将允
 `ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.cn`
 
 > [!NOTE]
-> 也可以依次选择群集、“所有设置”、“应用”和“RServer”，在 Azure 门户预览版中找到 `USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.cn` 地址。 这会显示边缘节点的 SSH 终结点信息。
+> 也可以依次选择群集、“所有设置”、“应用”和“RServer”，在 Azure 门户预览中找到 `USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.cn` 地址。 这会显示边缘节点的 SSH 终结点信息。
 > <p>
 > ![边缘节点 SSH 终结点的图像](./media/hdinsight-getting-started-with-r/sshendpoint.png)
 >
@@ -487,7 +487,7 @@ rxSparkDisconnect(myHadoopCluster)
 
     > [!NOTE]
     > 1. 默认情况下，将从与安装的 R Server 版本一致的 Microsoft MRAN 存储库快照中安装所有 R 包。  如果想要安装更新版本的包，则会出现不兼容的风险，不过，这种做法是可行的，只需指定 `useCRAN` 作为包列表的第一个元素即可，例如 `useCRAN bitops, stringr, arules`。  
-    > 2. 某些 R 包需要额外的 Linux 系统库。 为方便起见，我们已预先安装了最流行的 100 个 R 包所需的依赖项。 但是，如果安装的 R 包需要除此之外的库，则必须下载此处使用的基本脚本，并添加安装系统库的步骤。 接下来，必须将修改的脚本上载到 Azure 存储中的公共 Blob 容器，并使用修改的脚本来安装包。
+    > 2. 某些 R 包需要额外的 Linux 系统库。 为方便起见，我们已预先安装了最流行的 100 个 R 包所需的依赖项。 但是，如果安装的 R 包需要除此之外的库，则必须下载此处使用的基本脚本，并添加安装系统库的步骤。 接下来，必须将修改的脚本上传到 Azure 存储中的公共 Blob 容器，并使用修改的脚本来安装包。
     >    有关开发脚本操作的详细信息，请参阅[脚本操作开发](hdinsight-hadoop-script-actions-linux.md)。  
     >
     >

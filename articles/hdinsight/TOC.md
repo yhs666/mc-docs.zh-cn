@@ -147,7 +147,7 @@
 ### [使用 Ambari Web UI 管理群集](hdinsight-hadoop-manage-ambari.md)
 #### [使用 Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
 ### [添加存储帐户](hdinsight-hadoop-add-storage.md)
-### [上载 Hadoop 作业的数据](hdinsight-upload-data.md)
+### [上传 Hadoop 作业的数据](hdinsight-upload-data.md)
 ### [使用 Sqoop 导入和导出数据](hdinsight-use-sqoop.md)
 #### [使用 SSH 进行连接](hdinsight-use-sqoop-mac-linux.md)
 #### [使用 cURL 运行](hdinsight-hadoop-use-sqoop-curl.md)

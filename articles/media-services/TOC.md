@@ -35,12 +35,12 @@
 #### [跨多个存储帐户管理资产](meda-services-managing-multiple-storage-accounts.md)
 ### [配额和限制](media-services-quotas-and-limitations.md)
 
-## 上载内容
-### 将文件上载到帐户中
+## 上传内容
+### 将文件上传到帐户中
 #### [门户](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
-### [使用 Aspera 上载大型文件](media-services-upload-files-with-aspera.md)
+### [使用 Aspera 上传大型文件](media-services-upload-files-with-aspera.md)
 ### [复制现有 Blob](media-services-copying-existing-blob.md)
 
 ## [对内容进行编码](media-services-encode-asset.md)
