@@ -147,12 +147,12 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 
 | 名称 | 脚本 |
 | --- | --- |
-| **添加 Azure 存储帐户** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh。 请参阅[将其他存储添加到 HDInsight 群集中](hdinsight-hadoop-add-storage.md)。 |
-| **安装 Hue** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh。 请参阅[在 HDInsight 群集上安装并使用 Hue](hdinsight-hadoop-hue-linux.md)。 |
-| **安装 R** |https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh。 请参阅[在 HDInsight 群集上安装并使用 R](hdinsight-hadoop-r-scripts-linux.md)。 |
-| **安装 Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh。 请参阅[在 HDInsight 群集上安装并使用 Solr](hdinsight-hadoop-solr-install-linux.md)。 |
-| **安装 Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh。 请参阅[在 HDInsight 群集上安装并使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
-| **预加载 Hive 库** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh。 请参阅[在 HDInsight 群集上添加 Hive 库](hdinsight-hadoop-add-hive-libraries.md) |
+| **添加 Azure 存储帐户** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh 。 请参阅[将其他存储添加到 HDInsight 群集中](hdinsight-hadoop-add-storage.md)。 |
+| **安装 Hue** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh 。 请参阅[在 HDInsight 群集上安装并使用 Hue](hdinsight-hadoop-hue-linux.md)。 |
+| **安装 R** |https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh 。 请参阅[在 HDInsight 群集上安装并使用 R](hdinsight-hadoop-r-scripts-linux.md)。 |
+| **安装 Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh 。 请参阅[在 HDInsight 群集上安装并使用 Solr](hdinsight-hadoop-solr-install-linux.md)。 |
+| **安装 Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh 。 请参阅[在 HDInsight 群集上安装并使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
+| **预加载 Hive 库** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh 。 请参阅[在 HDInsight 群集上添加 Hive 库](hdinsight-hadoop-add-hive-libraries.md) |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>在创建群集期间使用脚本操作
 

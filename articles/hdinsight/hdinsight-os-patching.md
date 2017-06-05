@@ -44,7 +44,7 @@ ms.lasthandoff: 04/28/2017
 ## <a name="how-to-use-the-script"></a>如何使用此脚本 
 
 使用此脚本需要以下信息：
-1. 脚本位置：https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh。
+1. 脚本位置：https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh 。
      HDInsight 使用此 URI 在群集中的所有虚拟机上查找并运行脚本。
 
 2. 脚本所适用的群集节点类型：头节点、辅助角色节点、zookeeper。 此脚本必须适用于群集中的所有节点类型。 如果此脚本不适用于某个节点类型，则该节点类型的虚拟机会继续使用以前的修补计划。
