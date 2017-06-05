@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 03/30/2017
 wacn.date: 
 ms.author: adegeo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: dc829203d0b4d093bcdc004ec7444499f4692134
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/22/2017
 # <a name="create-and-deploy-a-virtual-machine-scale-set"></a>创建和部署虚拟机规模集
 使用虚拟机规模集可以轻松地将相同的虚拟机作为集来进行部署和管理。 规模集为超大规模应用程序提供高度可缩放且可自定义的计算层，并且它们支持 Windows 平台映像、Linux 平台映像、自定义映像和扩展。 有关规模集的详细信息，请参阅[虚拟机规模集](virtual-machine-scale-sets-overview.md)。
 
-本教程介绍如何**不**使用 Azure 门户预览版就创建虚拟机规模集。 有关如何使用 Azure 门户预览版的信息，请参阅[如何使用 Azure 门户预览版创建虚拟机规模集](virtual-machine-scale-sets-portal-create.md)。
+本教程介绍如何**不**使用 Azure 门户预览就创建虚拟机规模集。 有关如何使用 Azure 门户预览的信息，请参阅[如何使用 Azure 门户预览创建虚拟机规模集](virtual-machine-scale-sets-portal-create.md)。
 
 >[!NOTE]
 >有关 Azure Resource Manager 资源的详细信息，请参阅 [Azure Resource Manager 与经典部署](../azure-resource-manager/resource-manager-deployment-model.md)。
@@ -114,22 +115,22 @@ PowerShell 的用法比 Azure CLI 更复杂。 Azure CLI 为网络相关的资�
 2. Get-AzureRMVMImageOffer
 3. Get-AzureRmVMImageSku
 
-cmdlet 的运行结果可以按顺序通过管道传送。 以下示例演示如何获取其发布服务器包含名称 **microsoft** 的**中国北部 2 区**的所有映像。
+cmdlet 的运行结果可以按顺序通过管道传送。 以下示例演示如何获取其发布服务器包含名称 **microsoft** 的**中国北部**的所有映像。
 
 ```powershell
 Get-AzureRMVMImagePublisher -Location ChinaNorth | Where-Object PublisherName -Like *microsoft* | Get-AzureRMVMImageOffer | Get-AzureRmVMImageSku | Select-Object PublisherName, Offer, Skus
 ```
 
 ```
-PublisherName              Offer                    Skus
--------------              -----                    ----
-microsoft-ads              linux-data-science-vm    linuxdsvm
-microsoft-ads              standard-data-science-vm standard-data-science-vm
-MicrosoftAzureSiteRecovery Process-Server           Windows-2012-R2-Datacenter
-MicrosoftBizTalkServer     BizTalk-Server           2013-R2-Enterprise
-MicrosoftBizTalkServer     BizTalk-Server           2013-R2-Standard
-MicrosoftBizTalkServer     BizTalk-Server           2016-Developer
-MicrosoftBizTalkServer     BizTalk-Server           2016-Enterprise
+PublisherName              Offer          Skus
+-------------              -----          ----
+MicrosoftAzureSiteRecovery Process-Server Windows-2012-R2-Datacenter
+MicrosoftOSTC              FreeBSD        10.3
+MicrosoftOSTC              FreeBSD        11.0
+MicrosoftRServer           RServer-CentOS Enterprise
+MicrosoftRServer           RServer-RedHat Enterprise
+MicrosoftRServer           RServer-Ubuntu Enterprise
+MicrosoftRServer           RServer-WS2016 Enterprise
 ...
 ```
 
@@ -178,12 +179,10 @@ New-AzureRmVmss -ResourceGroupName vmss-test-1 -Name my-scale-set -VirtualMachin
 
 使用 Visual Studio 可以创建 Azure 资源组项目，并在其中添加虚拟机规模集模板。 可以选择是要从 GitHub 还是 Azure Web 应用程序库导入该模板。 还会为你生成部署 PowerShell 脚本。 有关详细信息，请参阅[如何使用 Visual Studio 创建虚拟机规模集](virtual-machine-scale-sets-vs-create.md)。
 
-## <a name="create-from-the-azure-portal-preview"></a>在 Azure 门户预览版中创建
+## <a name="create-from-the-azure-portal-preview"></a>在 Azure 门户预览中创建
 
-Azure 门户预览版提供了快速创建规模集的简便方式。 有关详细信息，请参阅[如何使用 Azure 门户预览版创建虚拟机规模集](virtual-machine-scale-sets-portal-create.md)。
+Azure 门户预览提供了快速创建规模集的简便方式。 有关详细信息，请参阅[如何使用 Azure 门户预览创建虚拟机规模集](virtual-machine-scale-sets-portal-create.md)。
 
 ## <a name="next-steps"></a>后续步骤
-
-了解有关[数据磁盘](virtual-machine-scale-sets-attached-disks.md)的详细信息。
 
 了解如何[管理应用](virtual-machine-scale-sets-deploy-app.md)。

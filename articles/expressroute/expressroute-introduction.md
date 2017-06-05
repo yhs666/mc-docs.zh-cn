@@ -13,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: cherylmc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
 ms.openlocfilehash: 179bf42505bf0fa109b0bcbcaf544cdcb155590b
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/25/2017
 
 ---

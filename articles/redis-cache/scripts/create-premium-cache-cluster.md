@@ -16,9 +16,10 @@ ms.workload: tbd
 ms.date: 04/14/2017
 wacn.date: 
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: ec0ea9a6a66f72ddef45779178245effeab71945
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -28,8 +29,6 @@ ms.lasthandoff: 04/22/2017
 本方案介绍如何创建大小为 6 GB、启用了群集功能且包含两个分片的高级层 Azure Redis 缓存。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="sample-script"></a>示例脚本
 

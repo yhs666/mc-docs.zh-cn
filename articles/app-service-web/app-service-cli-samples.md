@@ -16,9 +16,10 @@ ms.workload: app-service
 ms.date: 03/08/2017
 wacn.date: 
 ms.author: cfowler
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 81886dd418d0c0f69a54d31bed23aa19b44f8776
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

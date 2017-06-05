@@ -14,9 +14,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 1f0676402c5f022b6b9b8d973da227cd0d64a448
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/22/2017
 
 安全身份验证要求为应用定义新的 URL 方案。 此方案允许在完成身份验证过程后，身份验证系统重定向到应用。 在本教程中，我们自始至终使用 URL 方案 _appname_ 。 但是，可以使用任何你所选的 URL 方案。 对于你的移动应用程序而言，它应是唯一的。 在服务器端启用重定向：
 
-1. 在 [Azure 门户]中，选择应用服务。
+1. 在 [Azure 门户预览](https://portal.azure.cn)中，选择应用服务。
 
 2. 单击“身份验证/授权”菜单选项。
 
@@ -46,7 +47,7 @@ ms.lasthandoff: 04/22/2017
 ## <a name="permissions"></a>将权限限制给已经过身份验证的用户
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-* 在 Android Studio 中，打开你按照[Get started with Mobile Apps]教程完成的项目。 从“运行”菜单中单击“运行应用”；验证启动该应用后，是否会引发状态代码为 401（“未授权”）的未经处理的异常。
+* 在 Android Studio 中，打开你按照[Get started with Mobile Apps][]教程完成的项目。 从“运行”菜单中单击“运行应用”；验证启动该应用后，是否会引发状态代码为 401（“未授权”）的未经处理的异常。
 
      发生此异常的原因是应用尝试以未经身份验证的用户身份访问后端，但 TodoItem 表现在要求身份验证。
 
@@ -63,9 +64,8 @@ ms.lasthandoff: 04/22/2017
 ## <a name="next-steps"></a>后续步骤
 完成此基本身份验证教程后，请考虑继续学习以下教程之一：
 
-+ [将推送通知添加到 Android 应用](./app-service-mobile-android-get-started-push.md) 了解如何将移动应用后端配置为使用 Azure 通知中心发送推送通知。
 
-+ [为 Android 应用启用脱机同步](./app-service-mobile-android-get-started-offline-data.md) 了解如何使用移动应用后端向应用添加脱机支持。 使用脱机同步，用户可以与移动应用进行交互&mdash;查看、添加或修改数据&mdash;，即使在没有网络连接时也是如此。
++ [为 Android 应用启用脱机同步](./app-service-mobile-android-get-started-offline-data.md) 了解如何使用移动应用后端向应用添加脱机支持。 使用脱机同步，用户可以与移动应用进行交互&mdash;查看、添加或修改数据&mdash;即使在没有网络连接时也是如此。
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register

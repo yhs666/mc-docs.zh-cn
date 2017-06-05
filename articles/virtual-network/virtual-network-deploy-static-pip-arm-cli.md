@@ -17,9 +17,10 @@ ms.date: 03/15/2016
 wacn.date: 
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: e01b221f15a937d2e96bdb7ebe001d5e90bdfebb
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/22/2017
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建具有静态公共 IP 地址的 VM
 
 > [!div class="op_single_selector"]
-> * [Azure 门户预览版](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure 门户预览](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
@@ -36,7 +37,7 @@ ms.lasthandoff: 04/22/2017
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-Azure 具有用于创建和处理资源的两个不同的部署模型： [资源管理器和经典](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是经典部署模型。
+Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是经典部署模型。
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
@@ -64,7 +65,7 @@ Azure 具有用于创建和处理资源的两个不同的部署模型： [资源
     # Create a public IP address resource with a static IP address using the --allocation-method Static option.
     # If you do not specify this option, the address is allocated dynamically. The address is assigned to the
     # resource from a pool of IP adresses unique to each Azure region. The DnsName must be unique within the
-    # Azure location it's created in. Download and view the file from https://www.microsoft.com/download/details.aspx?id=41653#
+    # Azure location it's created in. Download and view the file from https://www.microsoft.com/download/details.aspx?id=42064#
     # that lists the ranges for each region.
 
     PipName="PIPWEB1"
@@ -129,12 +130,13 @@ Azure 具有用于创建和处理资源的两个不同的部署模型： [资源
     --size $VmSize \
     --nics $NicName \
     --admin-username $Username \
-    --ssh-key-value $SshKeyValue
+    --ssh-key-value $SshKeyValue \
     # If creating a Windows VM, remove the previous line and you'll be prompted for the password you want to configure for the VM.
+    --use-unmanaged-disk
     ```
 
 除了创建 VM，该脚本还创建：
-- 单个高级托管磁盘（默认情况下），但对于可以创建的磁盘类型，可以有其他选择。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文。
+- 使用非托管磁盘，并自动创建 Azure 存储账户。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文。
 - 虚拟网络、子网、NIC 和公共 IP 地址资源。 也可以使用 *现有* 虚拟网络、子网、NIC 或公共 IP 地址资源。 若要了解如何使用现有网络资源，而不是创建其他资源，请输入 `az vm create -h`。
 
 ## <a name = "validate"></a>验证 VM 创建和公共 IP 地址

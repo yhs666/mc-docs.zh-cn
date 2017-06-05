@@ -16,9 +16,10 @@ ms.workload: big-compute
 ms.date: 03/15/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: e7be25b2dd6fecfd88a6f8deb6b1ef333f6bdf87
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/14/2017
 - 通过在同一应用程序中使用 Batch Management .NET、[Azure Active Directory][aad_about] 和 [Azure Resource Manager][resman_overview]，用户可以**结合其他 Azure 服务的功能**获得全功能管理体验。 使用这些功能及其 API 可以提供顺畅的身份验证体验、创建和删除资源组以及上述功能，以获取端到端管理解决方案。
 
 > [!NOTE]
-> 尽管本文着重介绍以编程方式管理 Batch 帐户、密钥和配额，但你也可以使用 [Azure 门户][azure_portal]执行其中的许多活动。 有关详细信息，请参阅[使用 Azure 门户预览版创建 Azure 批处理帐户](batch-account-create-portal.md)以及 [Azure 批处理服务的配额和限制](batch-quota-limit.md)。
+> 尽管本文着重介绍以编程方式管理 Batch 帐户、密钥和配额，但你也可以使用 [Azure 门户][azure_portal]执行其中的许多活动。 有关详细信息，请参阅[使用 Azure 门户预览创建 Azure 批处理帐户](batch-account-create-portal.md)以及 [Azure 批处理服务的配额和限制](batch-quota-limit.md)。
 > 
 > 
 
@@ -143,13 +144,13 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 ```
 
 > [!IMPORTANT]
-> 尽管 Azure 订阅和服务有默认配额，但许多限制都可以通过在 [Azure 门户预览版][azure_portal]中提出请求来提高。 例如，可以参阅 [Azure Batch 服务的配额和限制](batch-quota-limit.md)以获取有关提高 Batch 帐户配额的说明。
+> 尽管 Azure 订阅和服务有默认配额，但许多限制都可以通过在 [Azure 门户预览][azure_portal]中提出请求来提高。 例如，可以参阅 [Azure Batch 服务的配额和限制](batch-quota-limit.md)以获取有关提高 Batch 帐户配额的说明。
 > 
 > 
 
 ## <a name="use-azure-ad-with-batch-management-net"></a>将 Azure AD 和 Batch 管理 .NET 配合使用
 
-Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource Manager][resman_overview] 配合使用以编程方式管理帐户资源。 Azure AD 需要对通过任何 Azure 资源提供程序客户端（包括 Batch 管理 .NET 库）和 [Azure Resource Manager][resman_overview] 发出的请求进行身份验证。 有关将 Azure AD 和 Batch 管理 .NET 库配合使用的信息，请参阅[使用 Azure Active Directory 对 Batch 解决方案进行身份验证](batch-aad-auth.md)。 
+Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource Manager][resman_overview] 配合使用以编程方式管理帐户资源。 Azure AD 需要对通过任何 Azure 资源提供程序客户端（包括 Batch 管理 .NET 库）和 [Azure Resource Manager][resman_overview] 发出的请求进行身份验证。 
 
 ## GitHub 上的示例项目 <a name="sample"></a>
 
@@ -171,14 +172,11 @@ Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource
    - 删除新建的帐户。
 7. 删除该资源组。
 
-删除新建的批处理帐户和资源组之前，可以在 [Azure 门户预览版][azure_portal]中查看它们：
-
-若要成功运行示例应用程序，必须首先在 Azure 门户中将其注册到 Azure AD 租户，并向 Azure Resource Manager API 授予权限。 按照[使用 Azure AD 对 Batch 管理应用程序进行身份验证](batch-aad-auth.md#use-azure-ad-with-batch-service-solutions)中提供的步骤操作。
-
+删除新建的批处理帐户和资源组之前，可以在 [Azure 门户预览][azure_portal]中查看它们：
 
 [aad_about]: ../active-directory/active-directory-whatis.md
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md
+[aad_adal]: ../active-directory/develop/active-directory-authentication-libraries.md
+[aad_auth_scenarios]: ../active-directory/develop/active-directory-authentication-scenarios.md
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx

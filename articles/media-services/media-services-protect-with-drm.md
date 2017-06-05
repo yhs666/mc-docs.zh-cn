@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/16/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 0ed5680a59ac884c112a9dfbce5ca561b7967deb
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -50,7 +51,7 @@ Azure 媒体服务允许你传送受 [Microsoft PlayReady DRM](https://www.micro
 
 下面是使用 PlayReady 保护资产时需要执行的常规步骤，这些步骤使用媒体服务许可证传送服务，也使用动态加密。
 
-1. 创建资产并将文件上载到资产。
+1. 创建资产并将文件上传到资产。
 2. 将包含文件的资产编码为自适应比特率 MP4 集。
 3. 创建内容密钥并将其与编码资产相关联。 在媒体服务中，内容密钥包含资产的加密密钥。
 4. 配置内容密钥授权策略。 你必须配置内容密钥授权策略，客户端必须遵守该策略，才能将内容密钥传送到客户端。
@@ -75,15 +76,15 @@ Azure 媒体服务允许你传送受 [Microsoft PlayReady DRM](https://www.micro
 如果你添加或更新资产的传送策略，则必须删除关联的定位符（如果有）并创建新定位符。
 
 
-## <a name="create-an-asset-and-upload-files-into-the-asset"></a>创建资产并将文件上载到资产
-为了对视频进行管理、编码和流式处理，必须首先将内容上载到 Azure 媒体服务中。 上载完成后，相关内容即安全地存储在云中供后续处理和流式处理。
+## <a name="create-an-asset-and-upload-files-into-the-asset"></a>创建资产并将文件上传到资产
+为了对视频进行管理、编码和流式处理，必须首先将内容上传到 Azure 媒体服务中。 上传完成后，相关内容即安全地存储在云中供后续处理和流式处理。
 
-有关详细信息，请参阅 [将文件上载到媒体服务帐户](media-services-dotnet-upload-files.md)。
+有关详细信息，请参阅 [将文件上传到媒体服务帐户](media-services-dotnet-upload-files.md)。
 
 ## <a name="encode-the-asset-containing-the-file-to-the-adaptive-bitrate-mp4-set"></a>将包含文件的资产编码为自适应比特率 MP4 集。
 使用动态加密时，你只需创建包含一组多码率 MP4 文件或多码率平滑流源文件的资产。 然后，按需流式处理服务器会确保你以选定的协议按清单和分段请求中的指定格式接收流。 因此，你只需以单一存储格式存储文件并为其付费，然后媒体服务服务就会基于客户端的请求构建并提供相应响应。 有关详细信息，请参阅 [动态打包概述](media-services-dynamic-packaging-overview.md) 主题。
 
-有关如何编码的说明，请参阅 [如何使用媒体编码器标准版对资产进行编码](media-services-dotnet-encode-with-media-encoder-standard.md)。
+有关如何编码的说明，请参阅 [如何使用 Media Encoder Standard 对资产进行编码](media-services-dotnet-encode-with-media-encoder-standard.md)。
 
 ## <a id="create_contentkey"></a>创建内容密钥并将其与编码资产相关联
 在媒体服务中，内容密钥包含用于加密资产的密钥。
@@ -367,9 +368,6 @@ Azure 媒体服务允许你传送受 [Microsoft PlayReady DRM](https://www.micro
 
                 // Configure PlayReady license templates.
                 string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
-
-
-
                 IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
                     _context.ContentKeyAuthorizationPolicyOptions.Create("",
                         ContentKeyDeliveryType.PlayReadyLicense,
@@ -403,8 +401,6 @@ Azure 媒体服务允许你传送受 [Microsoft PlayReady DRM](https://www.micro
 
                 // Configure PlayReady license templates.
                 string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
-
-
                 IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
                     _context.ContentKeyAuthorizationPolicyOptions.Create("Token option",
                         ContentKeyDeliveryType.PlayReadyLicense,
@@ -563,6 +559,5 @@ Azure 媒体服务允许你传送受 [Microsoft PlayReady DRM](https://www.micro
     }
     ```
 
-##<a name="see-also"></a>另请参阅
 
-[使用多重 DRM 的 CENC 和访问控制](./media-services-cenc-with-multidrm-access-control.md)
+

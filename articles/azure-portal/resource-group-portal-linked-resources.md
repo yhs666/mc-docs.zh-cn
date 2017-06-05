@@ -9,9 +9,10 @@ editor:
 ms.service: azure-portal
 ms.date: 07/16/2015
 wacn.date: 
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 827bb6d871fe501b50c33182e000a620cd2b9f9c
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 ---

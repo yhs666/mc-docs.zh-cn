@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 wacn.date: 
 ms.author: annahar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 209e9a5bb6989ddf2be55c273a84d54b47fa6fda
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 04/22/2017
     # Create a public IP address resource with a static IP address using the `--allocation-method Static` option. If you
     # do not specify this option, the address is allocated dynamically. The address is assigned to the resource from a pool
     # of IP adresses unique to each Azure region. Download and view the file from
-    # https://www.microsoft.com/download/details.aspx?id=41653 that lists the ranges for each region.
+    # https://www.microsoft.com/download/details.aspx?id=42064 that lists the ranges for each region.
 
     PipName="myPublicIP"
 
@@ -155,12 +156,13 @@ ms.lasthandoff: 04/22/2017
     --size $VmSize \
     --nics $NicName \
     --admin-username $Username \
-    --ssh-key-value $SshKeyValue
+    --ssh-key-value $SshKeyValue \
+    --use-unmanaged-disk
     ```
 
 除了创建具有附带 3 个 IP 配置的 NIC 的 VM，该脚本还创建：
 
-- 创建单个高级托管磁盘（默认情况下），但对于可以创建的磁盘类型，你可以有其他选择。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文。
+- 使用非托管磁盘，并自动创建 Azure 存储账户。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文。
 - 一个包含 1 个子网和 2 个公共 IP 地址的虚拟网络。 或者，可以使用*现有*虚拟网络、子网、NIC 或公共 IP 地址资源。 若要了解如何使用现有网络资源，而不是创建其他资源，请输入 `az vm create -h`。
 
 公共 IP 地址会产生少许费用。 有关 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。 可在一个订阅中使用的公共 IP 地址数有限制。 有关限制的详细信息，请阅读 [Azure limits](../azure-subscription-service-limits.md#networking-limits)（Azure 限制）一文。

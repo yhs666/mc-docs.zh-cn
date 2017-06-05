@@ -15,9 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 wacn.date: 
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 6ee59cb73f7d75d016d041df31c51aed689059cd
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -35,7 +36,7 @@ NSG 包含以下属性：
 | 属性 | 说明 | 约束 | 注意事项 |
 | --- | --- | --- | --- |
 | Name |NSG 的名称 |必须在区域内唯一。<br/>可以包含字母、数字、下划线、句点和连字符。<br/>必须以字母或数字开头。<br/>必须以字母、数字或下划线结尾。<br/>不能超过 80 个字符。 |由于你可能需要创建多个 NSG，因此请确保设置命名约定，以便轻松标识 NSG 的功能。 |
-| 区域 |在其中创建 NSG 的 Azure [区域](https://azure.microsoft.com/regions)。 |只能将多个 NSG 关联到该 NSG 所在区域中的资源。 |若要了解一个区域可以有多少 NSG，请阅读 [Azure 限制](../azure-subscription-service-limits.md#virtual-networking-limits-classic)一文。|
+| 区域 |在其中创建 NSG 的 Azure 区域。 |只能将多个 NSG 关联到该 NSG 所在区域中的资源。 |若要了解一个区域可以有多少 NSG，请阅读 [Azure 限制](../azure-subscription-service-limits.md#virtual-networking-limits-classic)一文。|
 | 资源组 |NSG 所在的[资源组](../azure-resource-manager/resource-group-overview.md#resource-groups)。 |虽然 NSG 存在于一个资源组中，但可将其关联到任意资源组中的资源，只要该资源与 NSG 属于同一 Azure 区域。 |资源组用于以部署单元的形式集中管理多个资源。<br/>可以考虑将 NSG 与相关联的资源组合在一起。 |
 | 规则 |入站或出站规则，用于定义允许或拒绝的具体流量。 | |请参阅本文的 [NSG 规则](#Nsg-rules)部分。 |
 
@@ -69,7 +70,7 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 
 * **VirtualNetwork** (Resource Manager)（如果是经典部署模型，则为 **VIRTUAL_NETWORK**）：此标记包括虚拟网络地址空间（Azure 中定义的 CIDR 范围）、所有连接的本地地址空间，以及连接的 Azure VNet（本地网络）。
 * **AzureLoadBalancer** (Resource Manager)（如果是经典部署模型，则为 **AZURE_LOADBALANCER**）：此标记表示 Azure 的基础结构负载均衡器。 此标记将转换为 Azure 数据中心 IP，Azure 的运行状况探测源于该 IP。
-* **Internet** (Resource Manager)（如果是经典部署模型，则为 **INTERNET**）：此标记表示虚拟网络外部的 IP 地址空间，可以通过公共 Internet 进行访问。 范围包括 [Azure 拥有的公共 IP 空间](https://www.microsoft.com/download/details.aspx?id=41653)。
+* **Internet** (Resource Manager)（如果是经典部署模型，则为 **INTERNET**）：此标记表示虚拟网络外部的 IP 地址空间，可以通过公共 Internet 进行访问。 范围包括 [Azure 拥有的公共 IP 空间](https://www.microsoft.com/download/details.aspx?id=42064)。
 
 ### <a name="Default-Rules" id="default-rules"></a> 默认规则
 所有 NSG 都包含一组默认规则。 默认规则无法删除，但由于给它们分配的优先级最低，可以用创建的规则来重写它们。 
@@ -123,9 +124,9 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 ## <a name="implementation"></a>实现
 可以使用以下工具，在 Resource Manager 部署模型或经典部署模型中实现 NSG：
 
-| 部署工具 | 经典 | 资源管理器 |
+| 部署工具 | 经典 | Resource Manager |
 | --- | --- | --- |
-| Azure 门户预览版   | 是 | [是](virtual-networks-create-nsg-arm-pportal.md) |
+| Azure 门户预览   | 是 | [是](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [是](virtual-networks-create-nsg-classic-ps.md) | [是](virtual-networks-create-nsg-arm-ps.md) |
 | Azure CLI **V1**   | [是](virtual-networks-create-nsg-classic-cli.md) | [是](virtual-networks-create-nsg-cli-nodejs.md) |
 | Azure CLI **V2**   | 否 | [是](virtual-networks-create-nsg-arm-cli.md) |
@@ -136,8 +137,6 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 
 1. 你想要使用什么类型的资源来筛选出入流量？ 可以连接多种资源，例如 NIC (Resource Manager)、VM（经典）、云服务、应用程序服务环境以及 VM 规模集。 
 2. 需要过滤其出入流量的资源是否连接到现有 VNet 中的子网？
-
-若要详细了解如何针对 Azure 中的网络安全进行规划，请阅读[云服务和网络安全](../best-practices-network-security.md)一文。 
 
 ## <a name="design-considerations"></a>设计注意事项
 了解[规划](#Planning)部分问题的答案以后，请查看以下部分的内容，然后再定义 NSG：
@@ -263,5 +262,5 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 * [部署 NSG (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md)。
 * [部署 NSG（经典）](virtual-networks-create-nsg-classic-ps.md)。
 * [管理 NSG 日志](virtual-network-nsg-manage-log.md)。
-* [NSG 故障排除] (virtual-network-nsg-troubleshoot-portal.md)
+* [NSG 故障排除](virtual-network-nsg-troubleshoot-portal.md)
 

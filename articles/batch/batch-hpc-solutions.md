@@ -15,9 +15,10 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 8e6455b0d0dce9aff93f87789b85fab7e5fabdce
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -108,7 +109,7 @@ Azure 计算服务是大型计算解决方案的核心，不同的计算服务�
 ### <a name="data-and-analysis-services"></a>数据和分析服务
 某些大型计算方案涉及到大规模数据流，或者会生成需要进一步处理或分析的数据。 Azure 提供多个数据和分析服务，包括：
 
-- [SQL 数据库](../sql-database/index.md) - 提供托管服务中 Microsoft SQL Server 关系数据库管理系统的主要功能。
+- [SQL 数据库](/sql-database/) - 提供托管服务中 Microsoft SQL Server 关系数据库管理系统的主要功能。
 - [HDInsight](../hdinsight/index.md) - 在云中部署和预配基于 Windows Server 或 Linux 的 Apache Hadoop 群集，用于管理、分析和报告大数据。
 
 ### <a name="additional-services"></a>其他服务
@@ -116,7 +117,7 @@ Azure 计算服务是大型计算解决方案的核心，不同的计算服务�
 
 - [虚拟网络](../virtual-network/index.md) - 在 Azure 中创建逻辑隔离的区域，将 Azure 资源彼此连接或连接到本地数据中心。 有了跨界虚拟网络，大型计算应用程序就可以访问本地数据、Active Directory 服务和许可证服务器
 - [ExpressRoute](../expressroute/index.md) - 在 Microsoft 数据中心与本地环境或共同租用环境中的基础结构之间创建专用连接。 与基于 Internet 的典型连接相比，ExpressRoute 的安全性更高，可靠性更强，速度更快且延迟更轻微。
-- [服务总线](../service-bus/index.md) - 提供多种机制让应用程序进行通信或交换数据，无论这些应用程序位于 Azure、另一个云平台还是数据中心。
+- [服务总线](../service-bus-messaging/index.md) - 提供多种机制让应用程序进行通信或交换数据，无论这些应用程序位于 Azure、另一个云平台还是数据中心。
 
 ## <a name="next-steps"></a>后续步骤
 - 请参阅 [Batch 和 HPC 的技术资源](big-compute-resources.md) ，查找用于生成解决方案的技术指导。

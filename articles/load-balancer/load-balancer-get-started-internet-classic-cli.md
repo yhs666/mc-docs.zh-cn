@@ -15,9 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 9ed15784fbc04f9ddd57cebef6def4443a253aae
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---

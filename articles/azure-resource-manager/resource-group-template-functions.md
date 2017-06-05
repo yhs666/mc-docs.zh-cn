@@ -1,6 +1,6 @@
 ---
 title: "Resource Manager 模板函数 | Azure"
-description: "介绍在 Azure 资源管理器模板中检索值、处理字符串和数字以及检索部署信息时所用的函数。"
+description: "介绍在 Azure Resource Manager 模板中检索值、处理字符串和数字以及检索部署信息时所用的函数。"
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -15,20 +15,21 @@ ms.workload: na
 ms.date: 03/14/2017
 wacn.date: 
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: ec60a13abe94fdaa15afc0e53973ac4d632f1f13
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
 
-# <a name="azure-resource-manager-template-functions"></a>Azure 资源管理器模板函数
+# <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager 模板函数
 本主题介绍可以在 Azure Resource Manager 模板中使用的所有函数。
 
 模板函数及其参数不区分大小写。 例如，Resource Manager 将 **variables('var1')** 和 **VARIABLES('VAR1')** 视为相同。 在求值时，除非函数明确修改大小写（例如，使用 toUpper 或 toLower 进行修改），否则函数将保留大小写。 某些资源类型可能会提出大小写要求，而不考虑函数求值方式。
 
 ## <a name="numeric-functions"></a>数值函数
-资源管理器提供以下用于处理整数的函数：
+Resource Manager 提供以下用于处理整数的函数：
 
 * [添加](#add)
 * [copyIndex](#copyindex)
@@ -266,7 +267,7 @@ ms.lasthandoff: 04/22/2017
     ```
 
 ## <a name="string-functions"></a>字符串函数
-资源管理器提供以下用于处理字符串的函数：
+Resource Manager 提供以下用于处理字符串的函数：
 
 * [base64](#base64)
 * [concat](#concat)
@@ -703,7 +704,7 @@ ms.lasthandoff: 04/22/2017
     ```
 
 ## <a name="array-functions"></a>数组函数
-资源管理器提供以下用于处理数组值的函数。
+Resource Manager 提供以下用于处理数组值的函数。
 
 * [concat](#concatarray)
 * [length](#length)
@@ -843,7 +844,7 @@ ms.lasthandoff: 04/22/2017
     ```
 
 ## <a name="deployment-value-functions"></a>部署值函数
-资源管理器提供以下函数，用于从与部署相关的模板和值部分获取值：
+Resource Manager 提供以下函数，用于从与部署相关的模板和值部分获取值：
 
 * [部署](#deployment)
 * [参数](#parameters)
@@ -964,7 +965,7 @@ ms.lasthandoff: 04/22/2017
     ```
 
 ## <a name="resource-functions"></a>资源函数
-资源管理器提供以下用于获取资源值的函数：
+Resource Manager 提供以下用于获取资源值的函数：
 
 * [listKeys 和 list{Value}](#listkeys)
 * [providers](#providers)

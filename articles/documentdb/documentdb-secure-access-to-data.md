@@ -1,5 +1,5 @@
 ---
-title: "了解如何保护对 DocumentDB 中的数据的访问 | Azure"
+title: "了解如何保护对 DocumentDB 中数据的访问 |Microsoft Docs"
 description: "了解有关 DocumentDB 中的访问控制概念，包括主密钥、只读密钥、用户和权限。"
 services: documentdb
 author: mimig1
@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
-wacn.date: 
+ms.date: 03/23/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 49144d9c2550e610ec539d0eec6dd2c1bf6ef25c
-ms.lasthandoff: 04/07/2017
+wacn.date: 
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: d87da8d37b4839f22b2bf65444c85b9eb00b6109
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
+
 
 ---
-
-# <a name="securing-access-to-documentdb-data"></a>保护对 DocumentDB 数据的访问
-本文概述了如何保护对存储在 [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/)中的数据的访问。
+# <a name="securing-access-to-azure-documentdb-data"></a>保护对 DocumentDB 数据的访问
+本文概述了如何保护对存储在 [DocumentDB](https://www.azure.cn/home/features/documentdb/) 中的数据的访问。
 
 DocumentDB 使用两种类型的密钥来验证用户身份并提供其数据和资源的访问权限。 
 
@@ -44,7 +45,7 @@ DocumentDB 使用两种类型的密钥来验证用户身份并提供其数据和
 
 DocumentDB 帐户除了有两个主密钥以外，还有两个只读密钥。 这些只读密钥只允许针对帐户执行读取操作。 只读密钥不提供对资源的读取权限。
 
-可以使用 Azure 门户检索和重新生成主要、辅助、只读和读写主密钥。 有关说明，请参阅[查看、复制和重新生成访问密钥](./documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys)。
+可以使用 Azure 门户检索和重新生成主要、辅助、只读和读写主密钥。 有关说明，请参阅[查看、复制和重新生成访问密钥](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys)。
 
 ![Azure 门户中的访问控制 (IAM) - 演示 NoSQL 数据库安全性](./media/documentdb-secure-access-to-data/nosql-database-security-master-key-portal.png)
 
@@ -58,7 +59,7 @@ DocumentDB 帐户除了有两个主密钥以外，还有两个只读密钥。 �
 
 ```csharp
 //Read the DocumentDB endpointUrl and authorization keys from config.
-//These values are available from the Azure portal on the NOSQL (DocumentDB) account blade under "Keys".
+//These values are available from the Azure portal on the DocumentDB account blade under "Keys".
 //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
 private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
@@ -74,10 +75,10 @@ Database database = await client.CreateDatabaseAsync(
     });
 ```
 
-## 资源令牌 <a id="resource-tokens"></a>
+## 资源令牌 <a name="resource-tokens"></a>
 
 资源令牌提供对数据库中应用程序资源的访问权限。 资源令牌：
-- 提供对特定集合、文档、附件、存储过程、触发器和 UDF 的访问权限。
+- 提供对特定集合、分区键、文档、附件、存储过程、触发器和 UDF 的访问权限。
 - 向[用户](#users)授予对特定资源的[权限](#permissions)时创建。
 - 通过 POST、GET 或 PUT 调用操作权限资源时重新创建。
 - 使用专门针对用户、资源和权限构造的哈希资源令牌。
@@ -85,7 +86,7 @@ Database database = await client.CreateDatabaseAsync(
 - 可以安全替代主密钥。 
 - 使客户端能够根据它们的权限读取、写入和删除 DocumentDB 帐户中的资源。
 
-如果想要为不能通过主密钥得到信任的客户端提供对 DocumentDB 帐户中资源的访问权限，你可以使用资源令牌（通过创建 DocumentDB 用户和权限）。  
+如果想要为不能通过主密钥得到信任的客户端提供对 DocumentDB 帐户中资源的访问权限，可以使用资源令牌（通过创建 DocumentDB 用户和权限来使用）。  
 
 DocumentDB 资源令牌提供一种安全的替代方案，使客户端能够根据授予的权限读取、写入和删除 DocumentDB 帐户中的资源，而无需主密钥或只读密钥。
 
@@ -102,11 +103,11 @@ DocumentDB 资源令牌提供一种安全的替代方案，使客户端能够根
 
     ![DocumentDB 资源令牌工作流](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
- 资源令牌的生成和管理由本机 DocumentDB 客户端库处理；但是，如果使用 REST，必须构造请求/身份验证标头。 有关为 REST 创建身份验证标头的详细信息，请参阅 [DocumentDB 资源的访问控制](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources)或 [SDK 源代码](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js)。
+资源令牌的生成和管理由本机 DocumentDB 客户端库处理；但是，如果使用 REST，必须构造请求/身份验证标头。 有关为 REST 创建身份验证标头的详细信息，请参阅 [DocumentDB 资源的访问控制](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources)或 [SDK 源代码](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js)。
 
- 有关用于生成或代理资源令牌的中间层服务的示例，请参阅 [ResourceTokenBroker 应用](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers)。
+有关用于生成或代理资源令牌的中间层服务的示例，请参阅 [ResourceTokenBroker 应用](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers)。
 
-## 用户 <a id="users"></a>
+## 用户 <a name="users"></a>
 DocumentDB 用户与 DocumentDB 数据库关联。  每个数据库可以包含零个或多个 DocumentDB 用户。  以下代码示例演示如何创建 DocumentDB 用户资源。
 
 ```csharp
@@ -124,7 +125,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 > 
 > 
 
-## 权限 <a id="permissions"></a>
+## 权限 <a name="permissions"></a>
 DocumentDB 权限资源与 DocumentDB 用户关联。  每个用户可能包含零个或多个 DocumentDB 权限。  权限资源提供对用户在尝试访问某个特定应用程序资源时需要的安全令牌的访问权限。
 权限资源提供两种可用的访问级别：
 
@@ -148,7 +149,7 @@ Permission docPermission = new Permission
     ResourceLink = documentCollection.SelfLink,
     Id = "readperm"
 };
-
+  
 docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission);
 Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
 ```
@@ -163,8 +164,7 @@ Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
 //Read a permission feed.
 FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(
   UriFactory.CreateUserUri("db", "myUser"));
-
-List<Permission> permList = new List<Permission>();
+ List<Permission> permList = new List<Permission>();
 
 foreach (Permission perm in permFeed)
 {
@@ -174,10 +174,9 @@ foreach (Permission perm in permFeed)
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
-> [!TIP]
-> 资源令牌的有效时间跨度默认为 1 小时。  但是，令牌生存期可以显式指定为最多 5 个小时。
-
 ## <a name="next-steps"></a>后续步骤
-- 若要详细了解 DocumentDB 数据库安全性，请参阅 [DocumentDB：NoSQL 数据库安全性](./documentdb-nosql-database-security.md)。
-- 若要了解如何管理主密钥和只读密钥，请参阅[如何管理 DocumentDB 帐户](./documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys)。
-- 若要了解如何构造 DocumentDB 授权令牌，请参阅 [DocumentDB 资源的访问控制](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources)。
+- 若要详细了解 DocumentDB 数据库安全性，请参阅 [DocumentDB：数据库安全性](documentdb-nosql-database-security.md)。
+- 若要了解如何管理主密钥和只读密钥，请参阅[如何管理 DocumentDB 帐户](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys)。
+- 若要了解如何构造 DocumentDB 授权令牌，请参阅 [DocumentDB 资源的访问控制](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources)。
+
+

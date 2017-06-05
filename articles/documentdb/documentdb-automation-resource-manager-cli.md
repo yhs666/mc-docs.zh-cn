@@ -1,6 +1,6 @@
 ---
-title: "DocumentDB 自动化 - Azure CLI 2.0 | Azure"
-description: "使用 Azure CLI 2.0 管理 DocumentDB 数据库帐户。 DocumentDB 是用于 JSON 数据的云端 NoSQL 数据库。"
+title: "DocumentDB 自动化 - Azure CLI 2.0 | Microsoft Docs"
+description: "使用 Azure CLI 2.0 创建和管理 DocumentDB 帐户。 DocumentDB 是高度可用的全局分布式数据库。"
 services: documentdb
 author: dmakwana
 manager: jhubbard
@@ -8,29 +8,26 @@ editor:
 tags: azure-resource-manager
 documentationcenter: 
 ms.assetid: 6158c27f-6b9a-404e-a234-b5d48c4a5b29
+ms.custom: quick start create
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
-ms.date: 02/17/2017
-wacn.date: 
+ms.date: 04/20/2017
 ms.author: dimakwan
-translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 03d9dcb2eb9ba2a60bde7c1cfb403a82c39e8619
-ms.lasthandoff: 04/07/2017
+wacn.date: 
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 3451ee67056f741c750136402ccbe6e4b95e25cc
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 ---
+# <a name="create-an-azure-documentdb-account-using-the-azure-cli"></a>使用 Azure CLI 创建 DocumentDB 帐户
 
-# <a name="automate-azure-documentdb-account-management-using-azure-cli-20"></a>使用 Azure CLI 2.0 自动管理 Azure DocumentDB 帐户
-> [!div class="op_single_selector"]
->- [Azure 门户](./documentdb-create-account.md)
->- [Azure CLI 1.0](./documentdb-automation-resource-manager-cli-nodejs.md)
->- [Azure CLI 2.0](./documentdb-automation-resource-manager-cli.md)
->- [Azure PowerShell](./documentdb-manage-account-with-powershell.md)
 
-以下指南介绍了使用 Azure CLI 2.0 中提供的 DocumentDB 预览版命令自动管理 DocumentDB 数据库帐户的命令。 还介绍了用于管理[多区域数据库帐户][scaling-globally]中的帐户密钥和故障转移优先级的命令。 更新数据库帐户可以修改一致性策略以及添加/删除区域。 对于 DocumentDB 数据库帐户的跨平台管理，可使用 [Azure Powershell](./documentdb-manage-account-with-powershell.md)、[资源提供程序 REST API][rp-rest-api] 或 [Azure 门户](./documentdb-create-account.md)。
+以下指南介绍了使用 Azure CLI 2.0 中提供的预览版命令自动管理 DocumentDB 数据库帐户的命令。 它还包括用于管理 [多区域数据库帐户][scaling-globally]的帐户密钥和故障转移优先级的命令。 更新数据库帐户可以修改一致性策略以及添加/删除区域。 对于 DocumentDB 数据库帐户的跨平台管理，可使用 [Azure Powershell](documentdb-manage-account-with-powershell.md)、[资源提供程序 REST API][rp-rest-api] 或 [Azure 门户](documentdb-create-account.md)。
 
 ## <a name="getting-started"></a>入门
 
@@ -38,31 +35,40 @@ ms.lasthandoff: 04/07/2017
 
 执行以下命令并按照屏幕上的步骤登录到 Azure 帐户。
 
-```
+```azurecli
 az login -e AzureChinaCloud
 ```
 
 如果目前没有[资源组](../azure-resource-manager/resource-group-overview.md#resource-groups)，请创建资源组：
 
-```
+```azurecli
 az group create --name <resourcegroupname> --location <resourcegrouplocation>
 az group list
 ```
 
-`<resourcegrouplocation>` 必须是已正式推出 DocumentDB 的区域之一。 [Azure 区域页面](https://azure.microsoft.com/regions/#services)提供当前的区域列表。
+`<resourcegrouplocation>` 必须是已正式推出 DocumentDB 的区域之一。 [“Azure 区域”页](https://azure.microsoft.com/regions/#services)提供了当前的区域列表。
 
 ### <a name="notes"></a>说明
 
 - 执行“az documentdb -h”可获取可用命令的完整列表，或访问[参考页][az-documentdb-ref]。
-- 执行“az documentdb <command> -h”可获取每个命令的必需和可选参数的详细信息列表。
+- 执行“az documentdb &lt;命令&gt; -h”可获取每个命令的必需和可选参数的详细信息列表。
+
+## <a name="register-your-subscription-to-use-azure-documentdb"></a>注册可使用 DocumentDB 的订阅
+
+此命令通过 CLI 注册可使用 DocumentDB 的订阅。
+
+```azurecli
+az provider register -n Microsoft.DocumentDB 
+```
 
 ## <a id="create-documentdb-account-cli"></a> 创建 DocumentDB 数据库帐户
 
-此命令可创建 DocumentDB 数据库帐户。 可以将新数据库帐户配置为具有特定[一致性策略](./documentdb-consistency-levels.md)的单区域或[多区域][scaling-globally]。 
+此命令可创建 DocumentDB 数据库帐户。 可以将新数据库帐户配置为具有特定[一致性策略](documentdb-consistency-levels.md)的单区域或[多区域][scaling-globally]。
 
 ```
 Arguments
-    --name -n           [Required]: Name of the DocumentDB database account.
+    --name -n           [Required]: Name of the DocumentDB database account. The account 
+                                    name must be unique.
     --resource-group -g [Required]: Name of the resource group.
     --default-consistency-level   : Default consistency level of the DocumentDB database account.
                                     Allowed values: BoundedStaleness, Eventual, Session, Strong.
@@ -87,6 +93,10 @@ Arguments
                                     range for this value is 1 - 2,147,483,647.  Default: 100.
 ```
 
+```azurecli
+az documentdb create -g <resourcegroupname> -n <uniquedocumentdbaccountname> --kind <typeofdatabaseaccount>
+```
+
 示例: 
 
 ```
@@ -97,8 +107,9 @@ az documentdb create -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.
 az documentdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
 ```
 
-### <a name="notes"></a>说明
-- 位置必须是已正式推出 DocumentDB 的区域。 [Azure 区域页面](https://azure.microsoft.com/regions/#services)提供当前的区域列表。
+### <a name="notes"></a>说明 
+- 这些位置必须是已正式推出 DocumentDB 的区域。 [“Azure 区域”页](https://azure.microsoft.com/regions/#services)提供了当前的区域列表。
+- 若要启用门户访问，请在 ip-range-filter 中包含你所在区域的 Azure 门户的 IP 地址（按照[配置 IP 访问控制策略](documentdb-firewall-support.md#configure-ip-policy)中的指定）。
 
 ## <a id="update-documentdb-account-cli"></a> 更新 DocumentDB 数据库帐户
 
@@ -118,7 +129,7 @@ Arguments
                                     IPs for a given database account. IP addresses/ranges must be comma
                                     separated and must not contain any spaces.
     --locations                   : Space separated locations in 'regionName=failoverPriority' format.
-                                    E.g "East US"=0. Failover priority values are 0 for write regions
+                                    E.g "China East"=0. Failover priority values are 0 for write regions
                                     and greater than 0 for read regions. A failover priority value must
                                     be unique and less than the total number of regions.
     --max-interval                : When used with Bounded Staleness consistency, this value represents
@@ -160,9 +171,7 @@ Arguments
 
 示例：
 
-```
-az documentdb delete -g rg-test -n docdb-test
-```
+    az documentdb delete -g rg-test -n docdb-test
 
 ## <a id="get-documentdb-properties-cli"></a> 获取 DocumentDB 数据库帐户的属性
 
@@ -176,13 +185,11 @@ Arguments
 
 示例：
 
-```
-az documentdb show -g rg-test -n docdb-test
-```
+    az documentdb show -g rg-test -n docdb-test
 
 ## <a id="list-account-keys-cli"></a> 列出帐户密钥
 
-当你创建 DocumentDB 帐户时，服务生成两个主访问密钥，用于访问 DocumentDB 帐户时的身份验证。 通过提供两个访问密钥，DocumentDB 允许你在不中断 DocumentDB 帐户连接的情况下重新生成密钥。 还提供用于对只读操作进行身份验证的只读密钥。 有两个读写密钥（主密钥和辅助密钥）和两个只读密钥（主密钥和辅助密钥）。
+当创建 DocumentDB 帐户时，服务生成两个主访问密钥，用于访问 DocumentDB 帐户时的身份验证。 DocumentDB 提供两个访问密钥是为了让你在不中断 DocumentDB 帐户连接的情况下重新生成密钥。 还提供用于对只读操作进行身份验证的只读密钥。 有两个读写密钥（主密钥和辅助密钥）和两个只读密钥（主密钥和辅助密钥）。
 
 ```
 Arguments
@@ -192,13 +199,25 @@ Arguments
 
 示例：
 
+    az documentdb list-keys -g rg-test -n docdb-test
+
+## <a id="list-connection-strings-cli"></a> 列出连接字符串
+
+对于 MongoDB 帐户，可以使用以下命令检索将 MongoDB 应用连接到数据库帐户的连接字符串。
+
 ```
-az documentdb list-keys -g rg-test -n docdb-test
+Arguments
+    --name -n           [Required]: Name of the DocumentDB database account.
+    --resource-group -g [Required]: Name of the resource group.
 ```
+
+示例：
+
+    az documentdb list-connection-strings -g rg-test -n docdb-test
 
 ## <a id="regenerate-account-key-cli"></a> 重新生成帐户密钥
 
-你应定期将访问密钥更改为你的 DocumentDB 帐户，使你的连接更安全。 分配了两个访问密钥，你可以使用一个访问密钥保持与 DocumentDB 帐户的连接，同时，你可以重新生成另一个访问密钥。
+应定期更改 DocumentDB 帐户的访问密钥，加强连接的安全性。 为你分配两个访问密钥是为了让你使用一个访问密钥保持与 DocumentDB 帐户的连接，同时可以重新生成另一个访问密钥。
 
 ```
 Arguments
@@ -210,13 +229,11 @@ Arguments
 
 示例：
 
-```
-az documentdb regenerate-key -g rg-test -n docdb-test --key-kind secondary
-```
+    az documentdb regenerate-key -g rg-test -n docdb-test --key-kind secondary
 
 ## <a id="modify-failover-priority-cli"></a> 修改 DocumentDB 数据库帐户的故障转移优先级
 
-对于多区域数据库帐户，可以更改 DocumentDB 数据库帐户所在的各个区域的故障转移优先级。 若要深入了解 DocumentDB 数据库帐户中的故障转移，请参阅 [使用 DocumentDB 全局分配数据][distribute-data-globally]。
+对于多区域数据库帐户，可以更改 DocumentDB 数据库帐户所在的各个区域的故障转移优先级。 有关 DocumentDB 数据库帐户中的故障转移的详细信息，请参阅[使用 DocumentDB 来全局分配数据](documentdb-distribute-data-globally.md)。
 
 ```
 Arguments
@@ -232,24 +249,11 @@ Arguments
 az documentdb failover-priority-change "East US"=1 "West US"=0 "South Central US"=2
 ```
 
-## <a name="next-steps"></a>后续步骤
-现在你已经有了 DocumentDB 帐户，下一步是创建 DocumentDB 数据库。 你可以使用下面其中一项来创建数据库：
-
-- Azure 门户，如[使用 Azure 门户创建 DocumentDB 集合和数据库](./documentdb-create-collection.md)中所述。
-- C# .NET 示例，位于 GitHub 上 [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) 存储库的 [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) 项目中。
-- [DocumentDB SDK](./documentdb-sdk-dotnet.md)。 DocumentDB 有 .NET、Java、Python、Node.js 和 JavaScript API SDK。
-
-创建数据库后，必须向数据库[添加一个或多个集合](./documentdb-create-collection.md)，然后向集合[添加文档](./documentdb-view-json-document-explorer.md)。
-
-当集合中有文档后，可以使用门户中的[查询资源管理器](./documentdb-query-collections-query-explorer.md)、[REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx) 或某个 [SDK](https://msdn.microsoft.com/zh-cn/library/azure/dn781482.aspx)针对文档使用 [DocumentDB SQL](./documentdb-sql-query.md) [执行查询](./documentdb-sql-query.md#ExecutingSqlQueries)。
-
-若要详细了解 DocumentDB，请浏览以下资源：
-
-- [DocumentDB 资源模型和概念](./documentdb-resources.md)
-
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet/
-[install-az-cli2]: https://docs.microsoft.com/en-us/cli/azure/install-az-cli2
-[az-documentdb-ref]: https://docs.microsoft.com/en-us/cli/azure/documentdb
-[az-documentdb-create-ref]: https://docs.microsoft.com/en-us/cli/azure/documentdb#create
-[rp-rest-api]: https://docs.microsoft.com/en-us/rest/api/documentdbresourceprovider/
+[scaling-globally]:./documentdb-distribute-data-globally.md#scaling-across-the-planet
+[install-az-cli2]: https://docs.microsoft.com/cli/azure/install-az-cli2
+[az-documentdb-ref]: https://docs.microsoft.com/cli/azure/documentdb
+[az-documentdb-create-ref]: https://docs.microsoft.com/cli/azure/documentdb#create
+[rp-rest-api]: https://docs.microsoft.com/rest/api/documentdbresourceprovider/
+
+

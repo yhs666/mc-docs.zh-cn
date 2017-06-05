@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: nkolli;giridham;markgal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 69d39f5c97548d88206f3a22225b87b6313bdbad
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -63,7 +64,7 @@ System Center DPM 备份文件和应用程序数据。 备份到 DPM 的数据�
   > [!IMPORTANT]
   > 从 2017 年 3 月开始，无法再使用经典管理门户来创建备份保管库。 仍支持现有备份保管库，并且可以[使用 Azure PowerShell 创建备份保管库](./backup-client-automation-classic.md#create-a-backup-vault)。 不过，Microsoft 建议你为所有部署创建恢复服务保管库，因为将来只会对恢复服务保管库进行增强。
 
-2. **下载保管库凭据** — 在 Azure 备份中，将你创建的管理证书上载到保管库。
+2. **下载保管库凭据** — 在 Azure 备份中，将你创建的管理证书上传到保管库。
 3. **安装 Azure 备份代理并注册服务器** — 通过 Azure 备份，在每个 DPM 服务器上安装代理，并在备份保管库中注册 DPM 服务器。
 
 [!INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]

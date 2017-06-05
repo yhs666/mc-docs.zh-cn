@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: c242728d7376e1ff4d2588cbfae6a7f772b8a58f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -33,5 +34,4 @@ ms.lasthandoff: 04/22/2017
 
   - [我对应用程序许可的工作原理感到迷惑](https://docs.microsoft.com/azure/active-directory/application-dev-consent-framework/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
   - [我不了解委派权限与应用程序权限之间的差别](https://docs.microsoft.com/azure/active-directory/application-dev-delegated-and-app-perms/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
-
 

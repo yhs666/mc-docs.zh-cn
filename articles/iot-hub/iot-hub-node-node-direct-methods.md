@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
-wacn.date: 
+ms.date: 04/05/2017
 ms.author: nberdy
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: f7ac52363ea34484fa8a148e6e0ff5041a871ec7
-ms.lasthandoff: 04/14/2017
+ms.custom: H1Hack27Feb2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
+ms.openlocfilehash: b28f398b50145202513c2aa5189ce9fd75f698e5
+ms.contentlocale: zh-cn
+ms.lasthandoff: 04/28/2017
+
 
 ---
-
 # <a name="use-direct-methods-on-your-iot-device-with-nodejs"></a>通过 Node.js 使用 IoT 设备上的直接方法
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
@@ -47,13 +48,13 @@ ms.lasthandoff: 04/14/2017
 ## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
 在本部分，用户需创建一个 Node.js 控制台应用，用于响应通过云调用的方法。
 
-1. 新建名为 **simulateddevice**的空文件夹。 在 **simulateddevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。 接受所有默认值：
-
+1. 新建名为 **simulateddevice**的空文件夹。 在命令提示符下使用以下命令，在 **simulateddevice** 文件夹中创建一个 package.json 文件。 接受所有默认值：
+   
     ```
     npm init
     ```
 2. 在 **simulateddevice** 文件夹的命令提示符处，运行下述命令以安装 **azure-iot-device** 设备 SDK 包和 **azure-iot-device-mqtt** 包：
-
+   
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
@@ -109,13 +110,13 @@ ms.lasthandoff: 04/14/2017
 ## <a name="call-a-method-on-a-device"></a>调用设备上的方法
 在此部分中，会创建一个 Node.js 控制台应用，该应用在模拟设备应用上调用方法并随后显示响应。
 
-1. 新建名为 **callmethodondevice**的空文件夹。 在 **callmethodondevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。 接受所有默认值：
-
+1. 新建名为 **callmethodondevice** 的空文件夹。 在 **callmethodondevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。 接受所有默认值：
+   
     ```
     npm init
     ```
 2. 在 **callmethodondevice** 文件夹的命令提示符处，运行以下命令以安装 **azure-iothub** 包：
-
+   
     ```
     npm install azure-iothub --save
     ```
@@ -144,7 +145,7 @@ ms.lasthandoff: 04/14/2017
     ```
     var methodParams = {
         methodName: methodName,
-        payload: 'a line to be written',
+        payload: 'hello world',
         timeoutInSeconds: 30
     };
 

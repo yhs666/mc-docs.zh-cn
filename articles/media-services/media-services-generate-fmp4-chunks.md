@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 3015c1722a657f7b59dac944677193a6ea538570
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -85,8 +86,6 @@ ms.lasthandoff: 04/14/2017
 
                         // Used the chached credentials to create CloudMediaContext.
                         _context = new CloudMediaContext(_apiServer, _cachedCredentials);
-
-
                 // Get an uploaded asset.
                 var asset = _context.Assets.FirstOrDefault();
 

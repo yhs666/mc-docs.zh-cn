@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 03/29/2017
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 565367691c28abb53ccac54c9d414e42be866598
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/22/2017
 
 你还需要对相应域提供商的 DNS 配置页拥有管理访问权限。 例如，若要添加 `www.contoso.com`，需要能够配置 `contoso.com` 的 DNS 条目。
 
-最后，对于要上载和绑定的 SSL 证书，需要具有一个有效的 .PFX 文件及其密码。 应配置此 SSL 证书来保护所需的自定义域名。 在上面的示例中，SSL 证书应保护 `www.contoso.com`。 
+最后，对于要上传和绑定的 SSL 证书，需要具有一个有效的 .PFX 文件及其密码。 应配置此 SSL 证书来保护所需的自定义域名。 在上面的示例中，SSL 证书应保护 `www.contoso.com`。 
 
 ## <a name="step-1---create-an-azure-web-app"></a>步骤 1 - 创建 Azure Web 应用
 
@@ -61,16 +62,16 @@ az group create --name myResourceGroup --location chinanorth
 
 > [!NOTE] 
 > 应用服务计划表示用于托管应用的物理资源集合。 分配到应用服务计划的所有应用程序将共享该计划定义的资源，在托管多个应用时可以节省成本。 
-> <p> 
-> <p> 应用服务计划定义： 
-> <p> * 区域（中国北部、中国东部） 
-> <p> * 实例大小（小、中、大） 
-> <p> * 规模计数（一个、两个、三个实例，等等） 
-> <p> * SKU（免费、共享、基本、标准、高级）> 
+> 
+> 应用服务计划定义： 
+> * 区域（中国北部、中国东部） 
+> * 实例大小（小、中、大） 
+> * 规模计数（一个、两个、三个实例，等等） 
+> * SKU（免费、共享、基本、标准、高级）> 
 
 以下示例创建一个名为 `myAppServicePlan` 且使用**基本**定价层的应用服务计划。
 
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
+    az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
 
 创建应用服务计划后，Azure CLI 将显示类似于以下示例的信息。 
 
@@ -174,9 +175,9 @@ http://www.contoso.com
 
 若要通过自定义域名访问 Web 应用，需要将自定义域的 SSL 证书绑定到该 Web 应用。 你将在此步骤中执行此操作。 
 
-### <a name="upload-the-ssl-certificate"></a>上载 SSL 证书
+### <a name="upload-the-ssl-certificate"></a>上传 SSL 证书
 
-使用 [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#upload) 命令将自定义域的 SSL 证书上载到 Web 应用。
+使用 [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#upload) 命令将自定义域的 SSL 证书上传到 Web 应用。
 
 在以下命令中，请将 `<app_name>` 替换为唯一的应用名称，将 `<path_to_ptx_file>` 替换为 .PFX 文件的路径，将 `<password>` 替换为证书的密码。 
 
@@ -184,7 +185,7 @@ http://www.contoso.com
 az appservice web config ssl upload --name <app_name> --resource-group myResourceGroup --certificate-file <path_to_pfx_file> --certificate-password <password> 
 ```
 
-上载证书后，Azure CLI 将显示类似于以下示例的信息：
+上传证书后，Azure CLI 将显示类似于以下示例的信息：
 
 ```json
 {
@@ -220,15 +221,15 @@ ificates/9FD1D2D06E2293673E2A8D1CA484A092BD016D00__China North_myResourceGroup",
 }
 ```
 
-在 JSON 输出中，`thumbprint` 显示了上载的证书的指纹。 请复制其值供下一步骤使用。
+在 JSON 输出中，`thumbprint` 显示了上传的证书的指纹。 请复制其值供下一步骤使用。
 
-### <a name="bind-the-uploaded-ssl-certificate-to-the-web-app"></a>将上载的 SSL 证书绑定到 Web 应用
+### <a name="bind-the-uploaded-ssl-certificate-to-the-web-app"></a>将上传的 SSL 证书绑定到 Web 应用
 
-Web 应用现在具有了所需的自定义域名，并且它还具有一个用于保护该自定义域的 SSL 证书。 剩下的唯一要做的事情就是将已上载的证书绑定到 Web 应用。 可以使用 [az appservice web config ssl bind](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#bind) 命令实现此目的。
+Web 应用现在具有了所需的自定义域名，并且它还具有一个用于保护该自定义域的 SSL 证书。 剩下的唯一要做的事情就是将已上传的证书绑定到 Web 应用。 可以使用 [az appservice web config ssl bind](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#bind) 命令实现此目的。
 
 在以下命令中，请将 `<app_name>` 替换为唯一的应用名称，将 `<thumbprint-from-previous-output>` 替换为通过前面所示的命令获取的证书指纹。 
 
-az appservice web config ssl bind --name <app_name> --resource-group myResourceGroup --certificate-thumbprint <thumbprint-from-previous-output> --ssl-type SNI
+    az appservice web config ssl bind --name <app_name> --resource-group myResourceGroup --certificate-thumbprint <thumbprint-from-previous-output> --ssl-type SNI
 
 将证书绑定到 Web 应用后，Azure CLI 将显示类似于以下示例的信息：
 

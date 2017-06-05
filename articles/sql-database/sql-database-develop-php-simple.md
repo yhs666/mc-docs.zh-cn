@@ -15,9 +15,10 @@ ms.devlang: php
 ms.topic: article
 ms.date: 02/13/2017
 ms.author: meetb
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 11932dd0ab9d523a564c171fba3ffe606de2f2de
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 

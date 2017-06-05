@@ -17,9 +17,10 @@ ms.date: 02/02/2016
 wacn.date: 
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: d31f443e0433c4aa41bc3a904d4bec96f45441c0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -57,7 +58,7 @@ ms.lasthandoff: 04/22/2017
     --location $Location
 
     # The address is assigned to the resource from a pool of IP adresses unique to each Azure region. 
-    # Download and view the file from https://www.microsoft.com/download/details.aspx?id=41653 that lists
+    # Download and view the file from https://www.microsoft.com/download/details.aspx?id=42064 that lists
     # the ranges for each region.
 
     PipName="PIP-WEB"
@@ -158,11 +159,12 @@ ms.lasthandoff: 04/22/2017
     --size $VmSize \
     --nics $Nic1Name $Nic2Name \
     --admin-username $Username \
-    --ssh-key-value $SshKeyValue
+    --ssh-key-value $SshKeyValue \
+    --use-unmanaged-disk
     ```
 
 除了创建具有两个 NIC 的 VM，该脚本还创建：
-- 单个高级托管磁盘（默认情况下），但对于可以创建的磁盘类型，可以有其他选择。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文。
+- 使用非托管磁盘，并自动创建 Azure 存储账户。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文。
 - 一个包含两个子网和单个公共 IP 地址的虚拟网络。 也可以使用 *现有* 虚拟网络、子网、NIC 或公共 IP 地址资源。 若要了解如何使用现有网络资源，而不是创建其他资源，请输入 `az vm create -h`。
 
 ## <a name = "validate"></a>验证 VM 创建和 NIC

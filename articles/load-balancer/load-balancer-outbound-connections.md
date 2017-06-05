@@ -15,10 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2016
 wacn.date: 
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: ed1fab7cf1e0ea85b03c9f2e141dffa1245cb0bf
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
+ms.openlocfilehash: 6e87350b658750b767403ae0c44fee940a284083
+ms.contentlocale: zh-cn
+ms.lasthandoff: 04/28/2017
 
 ---
 
@@ -42,15 +43,15 @@ Azure 提供三种不同的方法来实现出站连接。 每种方法都有自�
 
 SNAT 端口是可能会被耗尽的有限资源。 因此了解它们的使用方式很重要。 每个到单个目标 IP 地址的流使用一个 SNAT 端口。 对于到相同的目标 IP 地址的多个流，每个流使用一个 SNAT 端口。 这可以确保源自相同的公共 IP 地址，并到相同的目标 IP 地址的流的唯一性。 每个流到不同的目标 IP 地址的多个流对于每个目标使用一个 SNAT 端口。 目标 IP 地址使流具有唯一性。
 
-可使用[用于负载均衡器的 Log Analytics](./load-balancer-monitor-log.md) 和[针对 SNAT 端口耗尽消息要监视的警报事件日志](./load-balancer-monitor-log.md#alert-event-log)。 如果 SNAT 端口资源已经耗尽，那么在现有流释放 SNAT 端口之前出站流将失败。 负载均衡器对于回收 SNAT 端口使用 4 分钟的空闲超时时间。
+可使用[用于负载均衡器的 Log Analytics](load-balancer-monitor-log.md) 和[针对 SNAT 端口耗尽消息要监视的警报事件日志](load-balancer-monitor-log.md#alert-event-log)。 如果 SNAT 端口资源已经耗尽，那么在现有流释放 SNAT 端口之前出站流将失败。 负载均衡器对于回收 SNAT 端口使用 4 分钟的空闲超时时间。
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>负载均衡的 VM（无实例级公共 IP 地址）
 
-在此场景中，VM 是 Azure 负载均衡器池的一部分。 没有分配给 VM 的公共 IP 地址。 当负载平衡的 VM 创建出站流时，Azure 将此出站流的专用源 IP 地址转换为公共负载均衡器前端的公共 IP 地址。 Azure 使用源网络地址转换 (SNAT) 来执行此功能。 使用负载均衡器的公共 IP 地址的临时端口区分由 VM 产生的各个流。 创建出站流后 SNAT 动态分配临时端口。 在此情况下，用于 SNAT 的临时端口被称为 SNAT 端口。
+在此场景中，VM 是 Azure 负载均衡器池的一部分。 没有分配给 VM 的公共 IP 地址。 当负载均衡的 VM 创建出站流时，Azure 将此出站流的专用源 IP 地址转换为公共负载均衡器前端的公共 IP 地址。 Azure 使用源网络地址转换 (SNAT) 来执行此功能。 使用负载均衡器的公共 IP 地址的临时端口区分由 VM 产生的各个流。 创建出站流后 SNAT 动态分配临时端口。 在此情况下，用于 SNAT 的临时端口被称为 SNAT 端口。
 
 SNAT 端口是可能会被耗尽的有限资源。 因此了解它们的使用方式很重要。 每个到单个目标 IP 地址的流使用一个 SNAT 端口。 对于到相同的目标 IP 地址的多个流，每个流使用一个 SNAT 端口。 这可以确保源自相同的公共 IP 地址，并到相同的目标 IP 地址的流的唯一性。 每个流到不同的目标 IP 地址的多个流对于每个目标使用一个 SNAT 端口。 目标 IP 地址使流具有唯一性。
 
-可使用[用于负载均衡器的 Log Analytics](./load-balancer-monitor-log.md) 和[针对 SNAT 端口耗尽消息要监视的警报事件日志](./load-balancer-monitor-log.md#alert-event-log)。 如果 SNAT 端口资源已经耗尽，那么在现有流释放 SNAT 端口之前出站流将失败。 负载均衡器对于回收 SNAT 端口使用 4 分钟的空闲超时时间。
+可使用[用于负载均衡器的 Log Analytics](load-balancer-monitor-log.md) 和[针对 SNAT 端口耗尽消息要监视的警报事件日志](load-balancer-monitor-log.md#alert-event-log)。 如果 SNAT 端口资源已经耗尽，那么在现有流释放 SNAT 端口之前出站流将失败。 负载均衡器对于回收 SNAT 端口使用 4 分钟的空闲超时时间。
 
 ## <a name="vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer"></a>具有实例级公共 IP 地址的 VM（有或没有负载均衡器）
 
@@ -60,12 +61,16 @@ SNAT 端口是可能会被耗尽的有限资源。 因此了解它们的使用�
 
 有多种方法来确定出站连接的公共源 IP 地址。 OpenDNS 提供了一种服务可以向你显示 VM 的公共 IP 地址。 使用 nslookup 命令，可以将名称 myip.opendns.com 的 DNS 查询发送到 OpenDNS 解析程序。 该服务返回用于发送此查询的源 IP 地址。 在 VM 中执行以下查询时，返回的是用于该 VM 的公共 IP。
 
-```
-nslookup myip.opendns.com resolver1.opendns.com
-```
+    nslookup myip.opendns.com resolver1.opendns.com
 
-## <a name="preventing-public-connectivity"></a> 阻止公共连接
+## <a name="preventing-public-connectivity"></a>阻止公共连接
 
 有时允许 VM 创建出站流是不可取的，或者可能需要管理哪些目标可以通过出站流进行访问。 在此情况下，使用[网络安全组 (NSG)](../virtual-network/virtual-networks-nsg.md) 管理 VM 可以访问的目标。 将 NSG 应用于负载均衡的 VM 时，需要注意[默认标记](../virtual-network/virtual-networks-nsg.md#default-tags)和[默认规则](../virtual-network/virtual-networks-nsg.md#default-rules)。
 
 必须确保 VM 可以接收来自 Azure 负载均衡器的运行状况探测请求。 如果 NSG 阻止来自 AZURE_LOADBALANCER 默认标记的运行状况探测请求，那么 VM 的运行状况探测程序将失败，并且 VM 被标记为停机。 负载均衡器停止向此 VM 发送新流。
+
+## <a name="limitations"></a>限制
+
+尽管不保证，但当前可用的最大 SNAT 端口数为 64,511（65,535 - 1024 个特权端口）。  这不会直接转换为连接数，有关何时和如何分配 SNAT 端口以及如何管理此可耗尽资源的详细信息，请参见上文。
+
+如果[多个（公共）IP 地址与一个负载均衡器关联](load-balancer-multivip-overview.md)，则所有这些公共 IP 地址皆是出站流的候选项。

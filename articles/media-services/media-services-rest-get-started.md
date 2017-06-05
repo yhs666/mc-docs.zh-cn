@@ -1,5 +1,5 @@
 ---
-title: "使用 REST 按需传送内容入门 | Microsoft Docs"
+title: "开始使用 REST 按需传送内容 | Azure"
 description: "本教程介绍了使用 Azure 媒体服务和 REST API 实现点播内容传送应用程序的步骤。"
 services: media-services
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 74489e62445dacc8e689462b39b63558c6a8b492
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
+ms.openlocfilehash: a3f24c90912ce9a06ae7a13a7691d17c6cda193e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -153,17 +154,17 @@ Content-Length: 670
 
 确保监视访问令牌的“expires_in”值，并在必要时使用新令牌更新你的 REST API 调用。
 
-###<a name="connecting-to-the-media-services-uri"></a>连接到媒体服务 URI
+### <a name="connecting-to-the-media-services-uri"></a>连接到媒体服务 URI
 
 
-用于上载和下载资产文件的根 URI 为 https://yourstorageaccount.blob.core.chinacloudapi.cn/，其中的存储帐户名为你在媒体服务帐户设置期间使用的同一帐户名。
+用于上传和下载资产文件的根 URI 为 https://yourstorageaccount.blob.core.chinacloudapi.cn/，其中的存储帐户名为你在媒体服务帐户设置期间使用的同一帐户名。
 
 以下示例演示了发往中国东部区域 (https://wamsshaclus001rest-hs.chinacloudapp.cn/API/) 的媒体服务的 HTTP 请求。 
 
 **HTTP 请求**：
 
 ```
-GET https://wamsshaclus001rest-hs.chinacloudapp.cn/ HTTP/1.1
+GET https://wamsshaclus001rest-hs.chinacloudapp.cn/api/ HTTP/1.1
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
 x-ms-version: 2.11
 Accept: application/json
@@ -191,15 +192,15 @@ Date: Sat, 17 Jan 2015 07:44:52 GMT
 
 
 
-## <a id="upload"></a>使用 REST API 创建新资产并上载视频文件
+## <a id="upload"></a>使用 REST API 创建新资产并上传视频文件
 
-在媒体服务中，可以将数字文件上载到资产中。 **资产**实体可以包含视频、音频、图像、缩略图集合、文本轨道和隐藏式字幕文件（以及这些文件的相关元数据。）将文件上载到资产后，相关内容即安全地存储在云中供后续处理和流式处理。
+在媒体服务中，可以将数字文件上传到资产中。 **资产**实体可以包含视频、音频、图像、缩略图集合、文本轨道和隐藏式字幕文件（以及这些文件的相关元数据。）将文件上传到资产后，相关内容即安全地存储在云中供后续处理和流式处理。
 
 创建资产时必须提供的值之一是资产创建选项。 **Options** 属性是一个枚举值，描述可用于创建资产的加密选项。 有效值为以下列表中的某个值，而不是此列表中值的组合：
 
 * **None** = **0** - 不使用加密。 使用此选项时，内容在传送过程中或静态存储过程中都不会受到保护。
     如果计划使用渐进式下载交付 MP4，则使用此选项。
-* **StorageEncrypted** = **1** - 使用 AES-256 位加密在本地加密明文内容，然后将其上传到 Azure 存储，在其中以加密形式静态存储相关内容。 受存储加密保护的资产将在编码前自动解密并放入经过加密的文件系统中，并可选择在重新上载为新的输出资产前重新加密。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。
+* **StorageEncrypted** = **1** - 使用 AES-256 位加密在本地加密明文内容，然后将其上传到 Azure 存储，在其中以加密形式静态存储相关内容。 受存储加密保护的资产将在编码前自动解密并放入经过加密的文件系统中，并可选择在重新上传为新的输出资产前重新加密。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。
 * **CommonEncryptionProtected** = **2** - 上传经过通用加密或 PlayReady DRM 加密并受其保护的内容（例如，受 PlayReady DRM 保护的平滑流式处理）时使用此选项。
 * **EnvelopeEncryptionProtected** = **4** - 如果要上传使用 AES 加密的 HLS，请使用此选项。 Transform Manager 必须已对文件进行编码和加密。
 
@@ -376,7 +377,7 @@ Date: Sun, 18 Jan 2015 22:18:06 GMT
 }
 ```
 
-### <a name="get-the-upload-url"></a>获取上载 URL
+### <a name="get-the-upload-url"></a>获取上传 URL
 
 若要检索实际上传 URL，请创建一个 SAS 定位符。 定位符为希望访问资产中文件的客户端定义连接终结点的开始时间和类型。 可以为给定 AccessPolicy 和资产对创建多个定位符实体，以处理不同的客户端请求和需求。 这其中的任一定位符都可使用 AccessPolicy 的 StartTime 值和 DurationInMinutes 值来确定可以使用某 URL 的时间长度。 有关详细信息，请参阅 [定位符](https://docs.microsoft.com/rest/api/media/operations/locator)。
 
@@ -453,10 +454,10 @@ Date: Mon, 19 Jan 2015 03:01:29 GMT
 ```
 
 ### <a name="upload-a-file-into-a-blob-storage-container"></a>将文件上传到 Blob 存储容器
-设置 AccessPolicy 和定位符后，即可使用 Azure 存储 REST API 将具体的文件上载到 Azure Blob 存储容器。 必须将文件作为块 blob 上载。 页 blob 不受 Azure 媒体服务支持。  
+设置 AccessPolicy 和定位符后，即可使用 Azure 存储 REST API 将具体的文件上传到 Azure Blob 存储容器。 必须将文件作为块 blob 上传。 页 blob 不受 Azure 媒体服务支持。  
 
 >[!NOTE]
-> 必须将要上载的文件的文件名添加到在上一节收到的定位符 **Path** 值中。 例如，https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 。 。 。 
+> 必须将要上传的文件的文件名添加到在上一节收到的定位符 **Path** 值中。 例如，https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 。 。 。 
 
 有关使用 Azure 存储 blob 的详细信息，请参阅 [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API)。
 
@@ -541,7 +542,7 @@ HTTP/1.1 204 No Content
 
 如前所述，使用 Azure 媒体服务最常见的方案之一是将自适应比特率流传送至客户端。 媒体服务可将一组自适应比特率 MP4 文件动态打包为以下格式之一：HTTP Live Streaming (HLS)、平滑流式处理、MPEG DASH。
 
-以下部分说明了如何创建包含一个编码任务的作业。 该任务指定使用 **媒体编码器标准版**将夹层文件转码成一组自适应比特率 MP4。 该部分还说明了如何监视作业处理进度。 作业完成后，可创建所需的定位符来获取对资产的访问权限。
+以下部分说明了如何创建包含一个编码任务的作业。 该任务指定使用 **Media Encoder Standard** 将夹层文件转码成一组自适应比特率 MP4。 该部分还说明了如何监视作业处理进度。 作业完成后，可创建所需的定位符来获取对资产的访问权限。
 
 ### <a name="get-a-media-processor"></a>获取媒体处理器
 在媒体服务中，媒体处理器是完成特定处理任务（例如，对媒体内容进行编码、格式转换、加密或解密）的组件。 对于本教程中所示的编码任务，将使用 Media Encoder Standard。
@@ -551,7 +552,7 @@ HTTP/1.1 204 No Content
 **HTTP 请求**
 
 ```
-    GET https://wamsbayclus001rest-hs.cloudapp.net/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
+    GET https://wamsshaclus001rest-hs.chinacloudapp.cn/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
 DataServiceVersion: 1.0;NetFx
 MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
@@ -616,7 +617,7 @@ Content-Length: 482
    "InputMediaAssets":[  
       {  
          "__metadata":{  
-            "uri":"https://wamsbayclus001rest-hs.net/api/Assets('nb%3Acid%3AUUID%3A9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1')"
+            "uri":"https://wamsshaclus001rest-hs.net/api/Assets('nb%3Acid%3AUUID%3A9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1')"
          }
       }
    ],
@@ -1012,7 +1013,7 @@ DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
 x-ms-version: 2.11
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
-Host: wamsbayclus001rest-hs
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 182
 Expect: 100-continue
 

@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/24/2017
 wacn.date: 
 ms.author: jdial;annahar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: c13ff082785efe483776734174d75148a2cbbe66
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -268,7 +269,7 @@ ms.lasthandoff: 04/22/2017
         -AllocationMethod Static
         ```
 
-         若要新建具有静态专用 IP 地址和关联的 myPublicIp3 公共 IP 地址资源的 IP 配置，请输入下面的命令：
+        若要新建具有静态专用 IP 地址和关联的 myPublicIp3 公共 IP 地址资源的 IP 配置，请输入下面的命令：
 
         ```powershell
         Add-AzureRmNetworkInterfaceIpConfig `

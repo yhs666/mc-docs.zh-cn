@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 3297af909b08aca40b45845719ef189d8fe59a41
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -35,7 +36,10 @@ ms.lasthandoff: 04/22/2017
 4. 在“快速设置”屏幕上，单击“使用快速设置”。  
    ![欢迎使用 Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
 5. 在“连接到 Azure AD”屏幕上，输入 Azure AD 的全局管理员用户名和密码。 单击“下一步” 。  
-   ![连接到 Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png)如果收到错误消息并出现连接问题，请参阅[排查连接问题](active-directory-aadconnect-troubleshoot-connectivity.md)。
+
+	![连接到 Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png)
+
+	如果收到错误消息并出现连接问题，请参阅[排查连接问题](active-directory-aadconnect-troubleshoot-connectivity.md)。
 6. 在“连接到 AD DS”屏幕上，输入企业管理员帐户的用户名和密码。 可以采用 NetBios 或 FQDN 格式输入域部分，即 FABRIKAM\administrator 或 fabrikam.com\administrator。 单击“下一步”。  
    ![连接到 AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. 只有在未完成[先决条件](active-directory-aadconnect-prerequisites.md)中的[验证域](../active-directory-add-domain.md)步骤时，才会显示 [**Azure AD 登录配置**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration)页。
@@ -44,7 +48,9 @@ ms.lasthandoff: 04/22/2017
 8. 在“准备好配置”屏幕上，单击“安装”。
    - 在“已准备好配置”页上，可以取消选中“配置完成后立即开始同步过程”  复选框。 如果想要进行其他配置（例如[筛选](active-directory-aadconnectsync-configure-filtering.md)），应取消选中此复选框。 如果取消选择此选项，向导将配置同步，但会保持禁用计划程序。 在[重新运行安装向导](active-directory-aadconnectsync-installation-wizard.md)手动启用计划程序之前，计划程序不会运行。
    - 如果本地 Active Directory 中有 Exchange，也可以选择启用 [**Exchange 混合部署**](https://technet.microsoft.com/library/jj200581.aspx)。 如果打算同时在云中和本地设置 Exchange 邮箱，请启用此选项。
-     ![已准备好配置 Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
+
+        ![已准备好配置 Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
+
 9. 安装完成后，单击“退出” 。
 10. 安装完成后，请注销并再次登录，然后即可使用同步服务管理器或同步规则编辑器。
 

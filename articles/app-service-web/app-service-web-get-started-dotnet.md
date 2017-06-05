@@ -15,9 +15,10 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 19ca3a66248c4e79a953293582e5e345da215b7f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -66,13 +67,13 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-在“创建应用服务”对话框中单击“添加帐户”，然后登录到你的 Azure 订阅。 如果已登录到 Microsoft 帐户，请确保该帐户包含你的 Azure 订阅。 如果已登录的 Microsoft 帐户不包含你的 Azure 订阅，请单击该帐户以添加正确的帐户。
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
+
+在“创建应用服务”对话框中单击“添加帐户”，然后登录到你的 Azure 订阅。 如果已登录到 Azure 帐户，请确保该帐户包含你的 Azure 订阅。
 
 ![登录 Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
 
 登录后，可在此对话框中创建 Azure Web 应用所需的所有资源。
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -158,7 +159,7 @@ URL 使用前面指定的 Web 应用名称，其格式为 `http://<app_name>.chi
 
 ## <a name="manage-your-new-azure-web-app"></a>管理新 Azure Web 应用
 
-转到 Azure 门户预览版，查看刚刚创建的 Web 应用。 
+转到 Azure 门户预览，查看刚刚创建的 Web 应用。 
 
 为此，请登录到 [https://portal.azure.cn](https://portal.azure.cn)。
 
@@ -170,7 +171,7 @@ URL 使用前面指定的 Web 应用名称，其格式为 `http://<app_name>.chi
 
 默认情况下，Web 应用的边栏选项卡显示“概述”页。 在此页中可以查看应用的运行状况。 在此处还可以执行基本的管理任务，例如浏览、停止、启动、重新启动和删除。 边栏选项卡左侧的选项卡显示可以打开的不同配置页。 
 
-![Azure 门户预览版中的“应用服务”边栏选项卡](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+![Azure 门户预览中的“应用服务”边栏选项卡](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
 边栏选项卡中的这些选项卡显示了可添加到 Web 应用的许多强大功能。 以下列表只是列出了一部分可用的功能：
 

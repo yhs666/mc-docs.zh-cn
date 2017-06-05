@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 4822f8bc83825b30b25fc8320542d3ecfa179aae
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 

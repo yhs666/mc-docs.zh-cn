@@ -16,9 +16,10 @@ ms.topic: get-started-article
 ms.date: 03/26/2017
 wacn.date: 
 ms.author: magoedte;bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: f5b71edf8211b2cfa4cb802eb72d15e5e27eb2d9
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 04/22/2017
 若要完成本教程，需要满足以下条件：
 
 * Azure 订阅。 如果还没有，可以[注册一个帐户](https://www.azure.cn/pricing/1rmb-trial)。
-* [自动化帐户](automation-sec-configure-azure-runas-account.md) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。 此帐户必须有权启动和停止虚拟机。
+* 自动化帐户 ，用来保存 Runbook 以及向 Azure 资源进行身份验证。 此帐户必须有权启动和停止虚拟机。
 * Azure 虚拟机。 我们需停止和启动该虚拟机，因此其不应为生产用 VM。
 
 ## <a name="step-1---create-new-runbook"></a>步骤 1 - 创建新的 Runbook
@@ -86,7 +87,7 @@ ms.lasthandoff: 04/22/2017
 2. 我们不再需要 **Write-Output** 行，因此请直接删除它。
 3. 将光标放在大括号之间的空白行上。
 3. 单击“插入” > “设置” > “获取 Windows PowerShell 凭据”，然后选择所需的凭据。
-4. 如果没有凭据，可单击“管理” > “添加凭据”以创建并添加凭据。 有关详细信息，请参阅 [Azure Active Directory 用户和自动化凭据资产](/documentation/articles/automation-configuring/)。
+4. 如果没有凭据，可单击“管理” > “添加凭据”以创建并添加凭据。
 5. 在 **Get-AutomationPSCredential**前面，输入 *$Credential =* 以将凭据分配给变量。 
 3. 在下一行中键入 *Add-AzureRmAccount -Credential $Credential -EnvironmentName AzureChinaCloud*。
 
@@ -104,13 +105,13 @@ ms.lasthandoff: 04/22/2017
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>步骤 6 – 添加用于启动虚拟机的代码
 现在我们的 Runbook 要对 Azure 订阅进行身份验证，我们可以管理资源。 我们将添加一个命令，用于启动虚拟机。 你可以在 Azure 订阅中选取任何虚拟机。而现在，我们需将该名称硬编码到 Runbook。
 
-1. 在 *Add-AzureRmAccount -EnvironmentName AzureChinaCloud* 后面，键入 *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'*（提供要启动的虚拟机的名称和资源组名称）。  
+1. 在 *Add-AzureRmAccount* 后面，键入 *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'*（提供要启动的虚拟机的名称和资源组名称）。  
 
     ```
     workflow MyFirstRunbook-Workflow
     {
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    Add-AzureRMAccount –EnvironmentName AzureChinaCloud -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
     }
     ```
@@ -129,7 +130,7 @@ ms.lasthandoff: 04/22/2017
       [string]$ResourceGroupName
      )  
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    Add-AzureRMAccount –EnvironmentName AzureChinaCloud -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
     }
     ```
@@ -137,5 +138,5 @@ ms.lasthandoff: 04/22/2017
 3. 关闭“测试”窗格。
 4. 单击“发布”以发布 Runbook 的新版本  。
 5. 停止在上一步中启动的虚拟机。
-6. 单击“启动”以启动 Runbook **ResourceGroupName** 。 键入要启动的虚拟机的 **VMName** 和 **ResourceGroupName**。
+6. 单击“启动”以启动 Runbook 。 键入要启动的虚拟机的 **VMName** 和 **ResourceGroupName**。
 7. 一旦 Runbook 完成后，检查已启动的虚拟机。

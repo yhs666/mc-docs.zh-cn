@@ -1,6 +1,6 @@
 ---
-title: "从本地 Git 部署到 Azure App Service"
-description: "了解如何实现从本地 Git 部署到 Azure App Service。"
+title: "从本地 Git 部署到 Azure 应用服务"
+description: "了解如何实现从本地 Git 部署到 Azure 应用服务。"
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 06/13/2016
 wacn.date: 
 ms.author: dariagrigoriu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 57d74d7680f5426fa3f6318b93c878f051aa74db
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
 ---
-# <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure App Service
-本教程说明如何将应用从本地计算机上的 Git 存储库部署到 [Azure App Service] 。 应用服务支持结合 [Azure 门户预览版]中的“本地 Git”部署选项使用此方法。  
+# <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
+本教程说明如何将应用从本地计算机上的 Git 存储库部署到 [Azure 应用服务] 。 应用服务支持结合 [Azure 门户预览]中的“本地 Git”部署选项使用此方法。  
 在根据[此处](app-service-web-get-started.md)所述使用 [Azure 命令行接口]创建应用服务应用时，将自动执行本文中所述的许多 Git 命令。
 
 ## <a name="prerequisites"></a>先决条件
@@ -59,7 +60,7 @@ ms.lasthandoff: 04/22/2017
 ## <a name="Step3"></a>步骤 3：启用应用服务应用存储库
 执行以下步骤为应用服务应用启用 Git 存储库。
 
-1. 登录到 [Azure 门户预览版]。
+1. 登录到 [Azure 门户预览]。
 2. 在应用服务应用的边栏选项卡中，单击“设置”>“部署源”。 依次单击“选择源”、“本地 Git 存储库”、“确定”。  
 
     ![本地 Git 存储库](./media/app-service-deploy-local-git/local_git_selection.png)
@@ -68,7 +69,7 @@ ms.lasthandoff: 04/22/2017
 ## <a name="Step4"></a>步骤 4：部署项目
 使用以下步骤通过本地 Git 将应用发布到应用服务。
 
-1. 在 Azure 门户预览版的应用边栏选项卡中，单击“Git URL”的“设置”>“属性”。
+1. 在 Azure 门户预览的应用边栏选项卡中，单击“Git URL”的“设置”>“属性”。
 
     ![](./media/app-service-deploy-local-git/git_url.png)
 
@@ -86,7 +87,7 @@ ms.lasthandoff: 04/22/2017
         git push azure master
 
     在 Azure 经典管理门户中重置部署凭据时，系统会提示你输入以前创建的密码。 输入该密码（请注意，在键入密码时，Gitbash 不会将星号回显到控制台）。 
-5. 返回到 Azure 门户预览版中的应用。 最近推送的日志条目应显示在“部署”边栏选项卡中。 
+5. 返回到 Azure 门户预览中的应用。 最近推送的日志条目应显示在“部署”边栏选项卡中。 
 
     ![](./media/app-service-deploy-local-git/deployment_history.png)
 6. 单击应用边栏选项卡顶部的“浏览”按钮来验证是否已部署内容。 
@@ -99,7 +100,7 @@ ms.lasthandoff: 04/22/2017
 
 **原因**：如果应用无法正常工作，则会发生该错误。
 
-**解决方法**：在 Azure 门户预览版中启动应用。 在应用运行之前，Git 部署无法进行。 
+**解决方法**：在 Azure 门户预览中启动应用。 在应用运行之前，Git 部署无法进行。 
 
 - - -
 **症状**：无法解析主机“主机名”
@@ -157,12 +158,12 @@ ms.lasthandoff: 04/22/2017
 * [如何使用适用于 Azure 的 PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 * [如何使用 Azure 命令行接口](../cli-install-nodejs.md)
 
-[Azure App Service]: /azure/app-service-changes-existing-services/
-[Azure Developer Center]: https://www.azure.cn/develop/overview/
-[Azure 门户预览版]: https://portal.azure.cn
+[Azure 应用服务]: /app-service-web/app-service-changes-existing-services
+[Azure Developer Center]: /develop/overview/
+[Azure 门户预览]: https://portal.azure.cn
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
-[Azure 命令行接口]: /azure/xplat-cli-azure-resource-manager/
+[Azure 命令行接口]: /xplat-cli-azure-resource-manager
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart

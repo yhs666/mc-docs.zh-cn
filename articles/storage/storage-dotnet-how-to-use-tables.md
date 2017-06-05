@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 04/10/2017
 ms.author: marsma
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: aa81e2c73a61786c56e0168f8087323273d500bc
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -38,7 +39,7 @@ Azure 表存储是一项用于在云中存储结构化 NoSQL 数据的服务，�
 若要成功完成本教程，需要具备以下先决条件：
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
-* [适用于 .NET 的 Azure 存储空间客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [适用于 .NET 的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [适用于 .NET 的 Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure 存储帐户](storage-create-storage-account.md#create-a-storage-account)
 

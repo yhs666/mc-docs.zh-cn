@@ -13,30 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/06/2017
+ms.date: 04/04/2017
 wacn.date: 
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 0d6b9cd2dabadc0afe0f7c8d411952fb82859090
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
+ms.openlocfilehash: 84e2550b743a67b762f5f9982ea495192838964a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/05/2017
 
 ---
 
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>以编程方式创建流分析作业监视器
- 本文说明如何对流分析作业启用监视功能。 通过 REST API、Azure SDK 或 Powershell 创建的流分析作业并不默认启用监视功能。  可以在 Azure 门户中手动启用此功能，只需导航到作业的“监视”页并单击“启用”按钮即可；也可以按本文所述步骤自动执行此过程。 流分析作业的监视数据将显示在 Azure 门户的“监视”选项卡中。
-
-![作业监视器作业选项卡](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
+ 本文说明如何对流分析作业启用监视功能。 通过 REST API、Azure SDK 或 Powershell 创建的流分析作业并不默认启用监视功能。  可以在 Azure 门户中手动启用此功能，只需导航到作业的“监视”页并单击“启用”按钮即可；也可以按本文所述步骤自动执行此过程。 流分析作业的监视数据将显示在 Azure 门户的“指标”区域。
 
 ## <a name="prerequisites"></a>先决条件
 在开始阅读本文前，你必须具有：
 
 * Visual Studio 2017 或 2015。
-* 下载并安装 [Azure .NET SDK](/downloads/)。
+* 下载并安装 [Azure .NET SDK](https://www.azure.cn/downloads/)。
 * 需要启用监视功能的现有流分析作业。
 
-## <a name="setup-a-project"></a>设置项目
-
+## <a name="create-a-project"></a>创建一个项目
 1. 创建 Visual Studio C# .Net 控制台应用程序。
 2. 在程序包管理器控制台中运行以下命令来安装 NuGet 包。 第一个是 Azure 流分析管理 .NET SDK。 第二个是 Azure Monitor SDK，用于启用监视功能。 最后一个是用于进行身份验证的 Azure Active Directory 客户端。
 
@@ -45,7 +43,6 @@ ms.lasthandoff: 04/07/2017
     Install-Package Microsoft.Azure.Insights -Pre
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
-
 3. 将下面的 appSettings 部分添加到 App.config 文件。
 
     ```
@@ -63,13 +60,11 @@ ms.lasthandoff: 04/07/2017
        <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
     </appSettings>
     ```
-
     将 *SubscriptionId* 和 *ActiveDirectoryTenantId* 的值替换为 Azure 订阅 ID 和租户 ID。 你可以通过运行以下 PowerShell cmdlet 来获取这些值：
 
     ```
     Get-AzureAccount
     ```
-
 4. 将以下 using 语句添加到项目中的源文件 (Program.cs)。
 
     ```
@@ -128,34 +123,31 @@ ms.lasthandoff: 04/07/2017
 ## <a name="create-management-clients"></a>创建管理客户端
 以下代码可设置必需变量和管理客户端。
 
-```
-string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
-string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
+    string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
+    string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
 
-// Get authentication token
-TokenCloudCredentials aadTokenCredentials =
-    new TokenCloudCredentials(
-        ConfigurationManager.AppSettings["SubscriptionId"],
-        GetAuthorizationHeader());
+    // Get authentication token
+    TokenCloudCredentials aadTokenCredentials =
+        new TokenCloudCredentials(
+            ConfigurationManager.AppSettings["SubscriptionId"],
+            GetAuthorizationHeader());
 
-Uri resourceManagerUri = new
-Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
+    Uri resourceManagerUri = new
+    Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
-// Create Stream Analytics and Insights management client
-StreamAnalyticsManagementClient streamAnalyticsClient = new
-StreamAnalyticsManagementClient(aadTokenCredentials, resourceManagerUri);
-InsightsManagementClient insightsClient = new
-InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
-```
+    // Create Stream Analytics and Insights management client
+    StreamAnalyticsManagementClient streamAnalyticsClient = new
+    StreamAnalyticsManagementClient(aadTokenCredentials, resourceManagerUri);
+    InsightsManagementClient insightsClient = new
+    InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>对现有流分析作业启用监视功能
-
 以下代码将为 **现有** 流分析作业启用监视功能。 代码的第一部分针对流分析服务执行 GET 请求，目的是检索特定流分析作业的信息。 它使用“Id”属性（从 GET 请求检索而得）作为代码第二部分中 Put 方法的参数，目的是将 PUT 请求发送到 Insights 服务，从而对流分析作业启用监视功能。
 
 > [!WARNING]
 > 如果你此前为其他流分析作业启用了监视功能，不管是通过 Azure 门户进行的还是通过以下代码以编程方式完成的， **我们都建议你在提供存储帐户名称时提供你此前在启用监视功能时所使用的那个相同的存储帐户名称。**
 > 
-> 存储帐户与你创建流分析作业时所在的区域相关联，并不特定于作业本身。 
+> 存储帐户与你创建流分析作业时所在的区域相关联，并不特定于作业本身。
 > 
 > 该区域的所有流分析作业（以及所有其他的 Azure 资源）在存储监视数据时将共享这个存储帐户。 如果提供其他的存储帐户，可能会产生意想不到的副作用，影响监视其他流分析作业和/或其他 Azure 资源。
 > 
@@ -163,32 +155,29 @@ InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
 > 
 > 
 
-```
-// Get an existing Stream Analytics job
-JobGetParameters jobGetParameters = new JobGetParameters()
-{
-    PropertiesToExpand = "inputs,transformation,outputs"
-};
-JobGetResponse jobGetResponse = streamAnalyticsClient.StreamingJobs.Get(resourceGroupName, streamAnalyticsJobName, jobGetParameters);
+    // Get an existing Stream Analytics job
+    JobGetParameters jobGetParameters = new JobGetParameters()
+    {
+        PropertiesToExpand = "inputs,transformation,outputs"
+    };
+    JobGetResponse jobGetResponse = streamAnalyticsClient.StreamingJobs.Get(resourceGroupName, streamAnalyticsJobName, jobGetParameters);
 
-// Enable monitoring
-ServiceDiagnosticSettingsPutParameters insightPutParameters = new ServiceDiagnosticSettingsPutParameters()
-{
-        Properties = new ServiceDiagnosticSettings()
-        {
-            StorageAccountName = "<YOUR STORAGE ACCOUNT NAME>"
-        }
-};
-insightsClient.ServiceDiagnosticSettingsOperations.Put(jobGetResponse.Job.Id, insightPutParameters);
-```
+    // Enable monitoring
+    ServiceDiagnosticSettingsPutParameters insightPutParameters = new ServiceDiagnosticSettingsPutParameters()
+    {
+            Properties = new ServiceDiagnosticSettings()
+            {
+                StorageAccountName = "<YOUR STORAGE ACCOUNT NAME>"
+            }
+    };
+    insightsClient.ServiceDiagnosticSettingsOperations.Put(jobGetResponse.Job.Id, insightPutParameters);
 
 ## <a name="get-support"></a>获取支持
-如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。 
+如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>后续步骤
-
-* [Azure 流分析简介](./stream-analytics-introduction.md)
-* [Azure 流分析入门](./stream-analytics-get-started.md)
-* [缩放 Azure 流分析作业](./stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/zh-cn/library/azure/dn835031.aspx)
+* [Azure 流分析简介](stream-analytics-introduction.md)
+* [Azure 流分析入门](stream-analytics-get-started.md)
+* [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
+* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 3/14/2017
 ms.author: markgal;trinadhk
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 89a728b2ede78b04ef58beca7b2545bf505a965d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -27,7 +28,7 @@ Azure 备份服务具有两种类型的保管库：备份保管库和恢复服�
 | **部署类型** | **门户** | **保管库名称** |
 | --- | --- | --- |
 | 经典 |经典 |备份保管库 |
-| 资源管理器 |Azure |恢复服务保管库 |
+| Resource Manager |Azure |恢复服务保管库 |
 
 > [!NOTE]
 > 备份保管库无法保护使用 Resource Manager 部署的解决方案。 但是，可以使用恢复服务保管库保护使用经典部署的服务器和 VM。  
@@ -77,6 +78,5 @@ Azure 备份服务具有两种类型的保管库：备份保管库和恢复服�
     ![删除备份数据](./media/backup-azure-delete-vault/classic-portal-delete-vault-confirmation-1.png)
 
     该保管库随即已删除，界面返回到经典管理门户仪表板。
-
 
 

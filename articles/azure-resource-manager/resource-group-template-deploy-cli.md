@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/10/2017
 wacn.date: 
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 924b4ab45e7c58a28a1527fed4682fcb297b581a
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -121,7 +122,7 @@ ms.lasthandoff: 04/22/2017
 > 
 
 ### <a name="add-private-template-to-storage-account"></a>将专用模板添加到存储帐户
-以下示例设置专用存储帐户容器并上载模板：
+以下示例设置专用存储帐户容器并上传模板：
 
     ```azurecli
     az group create --name "ManageGroup" --location "China East"

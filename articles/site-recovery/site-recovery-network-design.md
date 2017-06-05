@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: pratshar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: dd94e4ee0d1e88087e2ec2985ad9c1f12d118ade
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 

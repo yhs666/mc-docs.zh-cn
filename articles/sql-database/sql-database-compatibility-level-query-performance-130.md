@@ -15,9 +15,10 @@ ms.tgt_pltfrm: NA
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: alainl
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: d19d6dfb743d1c4a7e38a807446a72d2d1c0418d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 

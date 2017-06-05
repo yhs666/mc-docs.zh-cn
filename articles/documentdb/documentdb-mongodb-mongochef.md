@@ -1,6 +1,6 @@
 ---
-title: "将适用于 MongoDB 的 MongoChef 与 Azure DocumentDB 配合使用 | Azure"
-description: "了解如何将 MongoChef 与 DocumentDB: API for MongoDB 帐户配合使用"
+title: "将 MongoChef 用于 DocumentDB | Microsoft Docs"
+description: "了解如何将 MongoChef 用于 DocumentDB: API for MongoDB 帐户"
 keywords: mongochef
 services: documentdb
 author: AndrewHoh
@@ -13,27 +13,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/27/2017
 wacn.date: 
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
-ms.openlocfilehash: 5dc500e2c011f2544975bc9f9d0b7d07d98ff3ad
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 7f1d782b376b7904ef7fc773444ff87c5acd8c2d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
+
 
 ---
+# <a name="use-mongochef-with-an-azure-documentdb-api-for-mongodb-account"></a>将 MongoChef 用于 DocumentDB: API for MongoDB 帐户
 
-# <a name="use-mongochef-with-a-documentdb-api-for-mongodb-account"></a>将 MongoChef 与 DocumentDB: API for MongoDB 帐户配合使用
-
-若要连接到 Azure DocumentDB: API for MongoDB 帐户，必须：
+若要连接到 DocumentDB: API for MongoDB 帐户，必须：
 
 - 下载并安装 [MongoChef](http://3t.io/mongochef)
-- 具有 DocumentDB: API for MongoDB 帐户的[连接字符串](./documentdb-connect-mongodb-account.md)信息
+- 具有 DocumentDB: API for MongoDB 帐户的[连接字符串](documentdb-connect-mongodb-account.md)信息
 
 ## <a name="create-the-connection-in-mongochef"></a>在 MongoChef 中创建连接
 若要将 DocumentDB: API for MongoDB 帐户添加到 MongoChef 连接管理器，请执行以下步骤。
 
-1. 使用[此处](./documentdb-connect-mongodb-account.md)的指令检索 DocumentDB: API for MongoDB 连接信息。
+1. 使用[此处](documentdb-connect-mongodb-account.md)的指令检索 DocumentDB: API for MongoDB 连接信息。
 
     ![连接字符串边栏选项卡的屏幕截图](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 2. 单击“连接”以打开“连接管理器”，然后单击“新建连接”
@@ -69,57 +70,54 @@ ms.lasthandoff: 04/25/2017
     ![MongoChef“添加文档”菜单项的屏幕截图](./media/documentdb-mongodb-mongochef/AddDocument1.png)
 5. 在“添加文档”对话框中粘贴以下内容，然后单击“添加文档”。
 
-    ```
-    {
-    "_id": "AndersenFamily",
-    "lastName": "Andersen",
-    "parents": [
-           { "firstName": "Thomas" },
-           { "firstName": "Mary Kay"}
-    ],
-    "children": [
-       {
-           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-           "pets": [{ "givenName": "Fluffy" }]
-       }
-    ],
-    "address": { "state": "WA", "county": "King", "city": "seattle" },
-    "isRegistered": true
-    }
-    ```
+        {
+        "_id": "AndersenFamily",
+        "lastName": "Andersen",
+        "parents": [
+               { "firstName": "Thomas" },
+               { "firstName": "Mary Kay"}
+        ],
+        "children": [
+           {
+               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+               "pets": [{ "givenName": "Fluffy" }]
+           }
+        ],
+        "address": { "state": "WA", "county": "King", "city": "seattle" },
+        "isRegistered": true
+        }
 6. 添加另一个文档，但这次使用以下内容。
 
-    ```
-    {
-    "_id": "WakefieldFamily",
-    "parents": [
-        { "familyName": "Wakefield", "givenName": "Robin" },
-        { "familyName": "Miller", "givenName": "Ben" }
-    ],
-    "children": [
         {
-            "familyName": "Merriam",
-             "givenName": "Jesse",
-            "gender": "female", "grade": 1,
-            "pets": [
-                { "givenName": "Goofy" },
-                { "givenName": "Shadow" }
-            ]
-        },
-        {
-            "familyName": "Miller",
-             "givenName": "Lisa",
-             "gender": "female",
-             "grade": 8 }
-    ],
-    "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
-    "isRegistered": false
-    }
-    ```
+        "_id": "WakefieldFamily",
+        "parents": [
+            { "familyName": "Wakefield", "givenName": "Robin" },
+            { "familyName": "Miller", "givenName": "Ben" }
+        ],
+        "children": [
+            {
+                "familyName": "Merriam",
+                 "givenName": "Jesse",
+                "gender": "female", "grade": 1,
+                "pets": [
+                    { "givenName": "Goofy" },
+                    { "givenName": "Shadow" }
+                ]
+            },
+            {
+                "familyName": "Miller",
+                 "givenName": "Lisa",
+                 "gender": "female",
+                 "grade": 8 }
+        ],
+        "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+        "isRegistered": false
+        }
 7. 执行示例查询。 例如，搜索姓氏为“Andersen”的家庭，并返回父母和州/省字段。
 
     ![Mongo Chef 查询结果的屏幕截图](./media/documentdb-mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>后续步骤
-- 浏览 MongoDB [示例](./documentdb-mongodb-samples.md)的 DocumentDB: API。
+- 浏览 DocumentDB: API for MongoDB [示例](documentdb-mongodb-samples.md)。
+
 

@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: d6650363bc52ab752447d286d7166a2abe5c717a
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 
@@ -50,11 +51,11 @@ ms.lasthandoff: 04/07/2017
 ## <a name="create-a-blank-sql-database"></a>创建空的 SQL 数据库
 1. 登录 [Azure 门户预览](https://portal.azure.cn/)。
 2. 单击“新建” > “数据 + 存储” > “SQL 数据库”。
-3. 在新服务器或现有服务器上创建名为 **Clinic** 的**空**数据库。 若要深入了解如何在 Azure 门户预览版中创建数据库，请参阅[你的第一个 Azure SQL 数据库](sql-database-get-started.md)。
+3. 在新服务器或现有服务器上创建名为 **Clinic** 的**空**数据库。 若要深入了解如何在 Azure 门户预览中创建数据库，请参阅[你的第一个 Azure SQL 数据库](sql-database-get-started.md)。
    
     ![创建空数据库](./media/sql-database-always-encrypted/create-database.png)
 
-本教程后面的步骤中将会用到连接字符串。 创建数据库后，转到新的 Clinic 数据库并复制连接字符串。 你可以在任何时候获取连接字符串，但在 Azure 门户预览版中时很容易对其进行复制。
+本教程后面的步骤中将会用到连接字符串。 创建数据库后，转到新的 Clinic 数据库并复制连接字符串。 你可以在任何时候获取连接字符串，但在 Azure 门户预览中时很容易对其进行复制。
 
 1. 单击“SQL 数据库” > “Clinic” > “显示数据库连接字符串”。
 2. 复制 **ADO.NET** 的连接字符串。

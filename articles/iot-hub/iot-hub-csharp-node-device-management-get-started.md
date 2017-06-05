@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 11/17/2016
 wacn.date: 
 ms.author: juanpere
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 402613a5879faeb4f69af6a6025afb2873b8adbc
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -252,14 +253,14 @@ IoT 解决方案可扩展已定义的设备管理模式集，或通过使用设�
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
-[lnk-fwupdate]: ./iot-hub-node-node-firmware-update.md/
+[lnk-fwupdate]: ./iot-hub-node-node-firmware-update.md
 [Azure portal]: https://portal.azure.cn/
-[Using resource groups to manage your Azure resources]: ../resource-group-portal.md/
+[Using resource groups to manage your Azure resources]: ../resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
-[lnk-tutorial-jobs]: ./iot-hub-node-node-schedule-jobs.md/
-[lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md/
+[lnk-tutorial-jobs]: ./iot-hub-node-node-schedule-jobs.md
+[lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
 
-[lnk-devtwin]: ./iot-hub-devguide-device-twins.md/
-[lnk-c2dmethod]: ./iot-hub-devguide-direct-methods.md/
+[lnk-devtwin]: ./iot-hub-devguide-device-twins.md
+[lnk-c2dmethod]: ./iot-hub-devguide-direct-methods.md
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

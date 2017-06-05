@@ -15,9 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 03/09/2017
 ms.author: ronitr; ronmat
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: cf13c0290cc0356db0885d6762a4ebebac304431
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 

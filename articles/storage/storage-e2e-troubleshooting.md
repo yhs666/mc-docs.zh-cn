@@ -13,9 +13,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: robinsh
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 14983f3b0dab6c1332d911dd68d31b905d160617
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -37,14 +38,14 @@ ms.lasthandoff: 04/14/2017
   * **存储指标** 用于跟踪存储帐户的事务指标和容量指标。 使用指标，你可以确定应用程序如何根据各种不同的指标执行。 若要深入了解存储分析跟踪的指标类型，请参阅 [Storage Analytics Metrics Table Schema](https://docs.microsoft.com/rest/api/storageservices/fileservices/Storage-Analytics-Metrics-Table-Schema)（存储分析指标表架构）。
   * **存储日志记录** 可以在服务器端日志中记录发送到 Azure 存储服务的每个请求。 日志用于跟踪每个请求的详细数据，包括执行的操作、操作的状态和延迟信息。 若要深入了解存储分析写入日志的请求和响应数据，请参阅 [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/Storage-Analytics-Log-Format)（存储分析日志格式）。
 
-* **Azure 门户预览版**。 可在 [Azure 门户预览版](https://portal.azure.com)中配置存储帐户的指标和日志记录。 还可以查看显示应用程序在各时间段执行情况的图表和图形，以及配置警报，以便在应用程序的特定指标不同于预期时接收通知。
+* **Azure 门户预览**。 可在 [Azure 门户预览](https://portal.azure.com)中配置存储帐户的指标和日志记录。 还可以查看显示应用程序在各时间段执行情况的图表和图形，以及配置警报，以便在应用程序的特定指标不同于预期时接收通知。
   
-    请参阅[在 Azure 门户预览版中监视存储帐户](storage-monitor-storage-account.md)，了解如何在 Azure 门户预览版中配置监视功能。
+    请参阅[在 Azure 门户预览中监视存储帐户](storage-monitor-storage-account.md)，了解如何在 Azure 门户预览中配置监视功能。
 * **AzCopy**。 Azure 存储的服务器日志存储为 Blob，因此你可以使用 AzCopy 将日志 Blob 复制到本地目录，以使用 Microsoft Message Analyzer 进行分析。 若要深入了解 AzCopy，请参阅[使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)。
 * **Microsoft Message Analyzer**。 Message Analyzer 是一个工具，它使用日志文件并以可视格式显示日志数据，方便你筛选、搜索日志数据，以及将日志数据组合成有用的集，用于分析错误和性能问题。 若要深入了解 Message Analyzer，请参阅 [Microsoft Message Analyzer Operating Guide](http://technet.microsoft.com/library/jj649776.aspx)（Microsoft Message Analyzer 操作指南）。
 
 ## <a name="about-the-sample-scenario"></a>关于示例情景
-在本教程中，我们将介绍 Azure 存储指标指示调用 Azure 存储的应用程序成功率较低的情景。 低成功率指标（在 [Azure 门户预览版](https://portal.azure.com)和指标表中显示为 **PercentSuccess**）用于跟踪已经成功，但返回的 HTTP 状态代码大于 299 的操作。 在服务器端存储日志文件中，这些操作将使用事务状态 **ClientOtherErrors**进行记录。 若要深入了解低成功率指标，请参阅[指标显示低 PercentSuccess，或者分析日志项包含事务状态为 ClientOtherErrors 的操作](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success)。
+在本教程中，我们将介绍 Azure 存储指标指示调用 Azure 存储的应用程序成功率较低的情景。 低成功率指标（在 [Azure 门户预览](https://portal.azure.com)和指标表中显示为 **PercentSuccess**）用于跟踪已经成功，但返回的 HTTP 状态代码大于 299 的操作。 在服务器端存储日志文件中，这些操作将使用事务状态 **ClientOtherErrors**进行记录。 若要深入了解低成功率指标，请参阅[指标显示低 PercentSuccess，或者分析日志项包含事务状态为 ClientOtherErrors 的操作](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success)。
 
 Azure 存储操作可能返回 HTTP 状态代码大于 299 作为其正常功能的一部分。 但在某些情况下，这些错误指示你可能能够优化客户端应用程序以提高性能。
 
@@ -83,16 +84,16 @@ Azure 存储操作可能返回 HTTP 状态代码大于 299 作为其正常功能
 * **HTTP 网络跟踪日志**，它收集有关 HTTP/HTTPS 请求的数据和响应数据，包括针对 Azure 存储的操作的数据。 在本教程中，我们将通过 Message Analyzer 生成网络跟踪。
 
 ### <a name="configure-server-side-logging-and-metrics"></a>配置服务器端日志记录和指标
-首先，我们需要配置 Azure 存储日志记录和指标，以便可以从客户端应用程序获取要分析的数据。 可以通过不同的方式配置日志记录和指标 - 通过 [Azure 门户预览版](https://portal.azure.cn)、使用 PowerShell 或以编程方式。 有关配置日志记录和指标的详细信息，请参阅 MSDN 上的 [Enabling Storage Metrics and Viewing Metrics Data](http://msdn.microsoft.com/library/azure/dn782843.aspx)（启用存储指标和查看指标数据）及 [Enabling Storage Logging and Accessing Log Data](http://msdn.microsoft.com/library/azure/dn782840.aspx)（启用存储日志记录和访问日志数据）。
+首先，我们需要配置 Azure 存储日志记录和指标，以便可以从客户端应用程序获取要分析的数据。 可以通过不同的方式配置日志记录和指标 - 通过 [Azure 门户预览](https://portal.azure.cn)、使用 PowerShell 或以编程方式。 有关配置日志记录和指标的详细信息，请参阅 MSDN 上的 [Enabling Storage Metrics and Viewing Metrics Data](http://msdn.microsoft.com/library/azure/dn782843.aspx)（启用存储指标和查看指标数据）及 [Enabling Storage Logging and Accessing Log Data](http://msdn.microsoft.com/library/azure/dn782840.aspx)（启用存储日志记录和访问日志数据）。
 
-**通过 Azure 门户预览版**
+**通过 Azure 门户预览**
 
-若要使用 [Azure 门户预览版](https://portal.azure.cn)配置存储帐户的日志记录和指标，请遵循[在 Azure 门户中监视存储帐户](storage-monitor-storage-account.md)中的说明。
+若要使用 [Azure 门户预览](https://portal.azure.cn)配置存储帐户的日志记录和指标，请遵循[在 Azure 门户中监视存储帐户](storage-monitor-storage-account.md)中的说明。
 
 > [!NOTE]
-> 无法使用 Azure 门户预览版设置分钟指标。 但是，对于本教程，我们建议你设置分钟指标，它还可以调查应用程序的性能问题。 可以使用 PowerShell（如下所示）设置分钟指标，也可以使用存储客户端库通过编程方式来进行。
+> 无法使用 Azure 门户预览设置分钟指标。 但是，对于本教程，我们建议你设置分钟指标，它还可以调查应用程序的性能问题。 可以使用 PowerShell（如下所示）设置分钟指标，也可以使用存储客户端库通过编程方式来进行。
 > 
-> 请注意，Azure 门户预览版无法显示分钟指标，而只显示小时指标。
+> 请注意，Azure 门户预览无法显示分钟指标，而只显示小时指标。
 > 
 > 
 
@@ -167,17 +168,17 @@ Azure 存储操作可能返回 HTTP 状态代码大于 299 作为其正常功能
 
 有关详细信息，请参阅 Technet 上的 [Using the Network Tracing Features](http://technet.microsoft.com/library/jj674819.aspx)（使用网络跟踪功能）。
 
-## <a name="review-metrics-data-in-the-azure-portal-preview"></a>在 Azure 门户预览版中查看指标数据
-应用程序运行一段时间后，便可查看 [Azure 门户预览版](https://portal.azure.cn)中显示的指标图表，以观察服务的性能。
+## <a name="review-metrics-data-in-the-azure-portal-preview"></a>在 Azure 门户预览中查看指标数据
+应用程序运行一段时间后，便可查看 [Azure 门户预览](https://portal.azure.cn)中显示的指标图表，以观察服务的性能。
 
-首先，在 Azure 门户预览版中导航到存储帐户。 默认情况下，包含“成功百分比”的监视图显示在帐户边栏选项卡上。 如果以前修改过此图表以显示不同指标，则请添加“成功百分比”指标。
+首先，在 Azure 门户预览中导航到存储帐户。 默认情况下，包含“成功百分比”的监视图显示在帐户边栏选项卡上。 如果以前修改过此图表以显示不同指标，则请添加“成功百分比”指标。
 
 现在，监视图中会显示“成功百分比”，以及可能已添加的任何其他指标。 接下来要在 Message Analyzer 中通过分析日志进行调查，在此情况下，成功率百分比略低于 100%。
 
 有关添加和自定义指标图表的更多详细信息，请参阅[自定义指标图表](storage-monitor-storage-account.md#customize-metrics-charts)。
 
 > [!NOTE]
-> 启用存储指标后，可能需要经过一段时间，指标数据才会显示在 Azure 门户中。 这是因为，只有在当前小时已过后，前一个小时的小时指标才会显示在 Azure 门户预览版中。 此外，分钟指标当前不会显示在 Azure 门户中。 因此，根据启用指标的时间，最多可能需要两个小时才能看到指标数据。
+> 启用存储指标后，可能需要经过一段时间，指标数据才会显示在 Azure 门户中。 这是因为，只有在当前小时已过后，前一个小时的小时指标才会显示在 Azure 门户预览中。 此外，分钟指标当前不会显示在 Azure 门户中。 因此，根据启用指标的时间，最多可能需要两个小时才能看到指标数据。
 > 
 > 
 
@@ -202,7 +203,7 @@ Message Analyzer 包括 Azure 存储的资产，可帮助你分析服务器、�
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>下载并安装 Message Analyzer 和 Azure 存储资产
 1. 从 Microsoft 下载中心下载 [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226)，并运行安装程序。
 2. 启动 Message Analyzer。
-3. 从“工具”菜单中选择“资产管理器”。 在“资产管理器”对话框中，选择“下载”，然后筛选“Azure 存储”。 你将会看到 Azure 存储空间资产，如下图中所示。
+3. 从“工具”菜单中选择“资产管理器”。 在“资产管理器”对话框中，选择“下载”，然后筛选“Azure 存储”。 你将会看到 Azure 存储资产，如下图中所示。
 4. 单击“同步所有显示的项”以安装 Azure 存储资产。 可用的资产包括：
    * **Azure 存储颜色规则**：Azure 存储颜色规则可让你定义特殊筛选器，以使用颜色、文本和字体样式突出显示跟踪中包含特定信息的消息。
    * **Azure 存储图表**：Azure 存储图表是根据服务器日志数据绘制的预定义图表。 请注意，若要在此时使用 Azure 存储图表，可以只将服务器日志加载到分析网格中。
@@ -262,14 +263,14 @@ Message Analyzer 的存储资产包括 Azure 存储视图布局，它们是预�
 > 
 > 
 
-除了使用 Azure 存储空间视图布局以外，还可以定义并保存自己的视图布局。 可以选择其他所需字段来分组数据，并将分组另存为自定义布局的一部分。
+除了使用 Azure 存储视图布局以外，还可以定义并保存自己的视图布局。 可以选择其他所需字段来分组数据，并将分组另存为自定义布局的一部分。
 
 ### <a name="apply-color-rules-to-the-analysis-grid"></a>将颜色规则应用到分析网格
 存储资产还包括颜色规则，用于以直观方式在分析网格中标识不同类型的错误。 预定义的颜色规则将应用到 HTTP 错误，因此它们仅对服务器日志和网络跟踪显示。
 
-若要应用颜色规则，请从工具栏功能区中选择“颜色规则”。 你将在菜单中看到 Azure 存储空间颜色规则。 对于本教程，请选择“客户端错误(介于 400 和 499 之间的状态代码)”，如下图中所示。
+若要应用颜色规则，请从工具栏功能区中选择“颜色规则”。 你将在菜单中看到 Azure 存储颜色规则。 对于本教程，请选择“客户端错误(介于 400 和 499 之间的状态代码)”，如下图中所示。
 
-![Azure 存储空间视图布局](./media/storage-e2e-troubleshooting/color-rules-menu.png)
+![Azure 存储视图布局](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
 除了使用 Azure 存储颜色规则以外，还可以定义并保存自己的颜色规则。
 
@@ -369,6 +370,6 @@ Message Analyzer 将查找并选择搜索条件与客户端请求 ID 匹配的�
 
 * [对 Azure 存储进行监视、诊断和故障排除](storage-monitoring-diagnosing-troubleshooting.md)
 * [存储分析](http://msdn.microsoft.com/library/azure/hh343270.aspx)
-* [在 Azure 门户预览版中监视存储帐户](storage-monitor-storage-account.md)
+* [在 Azure 门户预览中监视存储帐户](storage-monitor-storage-account.md)
 * [使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)
 * [Microsoft Message Analyzer Operating Guide](http://technet.microsoft.com/library/jj649776.aspx)（Microsoft Message Analyzer 操作指南）

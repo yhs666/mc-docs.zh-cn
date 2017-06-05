@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 021bfd45ab2becf32b2881028df965c62113d20d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/14/2017
 
 ## <a id="assets"></a>资产和存储
 ### <a name="assets"></a>资产
-[资产](https://docs.microsoft.com/rest/api/media/operations/asset)包含数字文件（包括视频、音频、图像、缩略图集合、文本轨道和隐藏式字幕文件）以及这些文件的相关元数据。 数字文件在上载到资产中后，即可用于媒体服务编码和流式处理工作流。
+[资产](https://docs.microsoft.com/rest/api/media/operations/asset)包含数字文件（包括视频、音频、图像、缩略图集合、文本轨道和隐藏式字幕文件）以及这些文件的相关元数据。 数字文件在上传到资产中后，即可用于媒体服务编码和流式处理工作流。
 
 资产将映射到 Azure 存储帐户中的 blob 容器，资产中的文件则作为块 blob 存储在该容器中。 页 blob 不受 Azure 媒体服务支持。
 
@@ -49,13 +50,13 @@ ms.lasthandoff: 04/14/2017
 
 如果计划使用渐进式下载交付 MP4，则使用此选项上传内容。
 
-**StorageEncrypted** - 使用此选项可以通过 AES 256 位加密在本地加密明文内容，然后将其上传到 Azure 存储空间中以加密形式静态存储相关内容。 受存储加密保护的资产将在编码前自动解密并放入经过加密的文件系统中，并可选择在重新上传为新的输出资产前重新加密。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。 
+**StorageEncrypted** - 使用此选项可以通过 AES 256 位加密在本地加密明文内容，然后将其上传到 Azure 存储中以加密形式静态存储相关内容。 受存储加密保护的资产将在编码前自动解密并放入经过加密的文件系统中，并可选择在重新上传为新的输出资产前重新加密。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。 
 
 若要传送存储加密资产，必须配置资产的传送策略，以使媒体服务了解要如何传送内容。 在流式传输资产之前，流式处理服务器会删除存储加密，然后再使用指定的传传送策略（例如 AES、PlayReady 或无加密）流式传输你的内容。 
 
 **CommonEncryptionProtected** - 如果要采用通用加密或 PlayReady DRM 加密（或上传已加密的）内容（例如，受 PlayReady DRM 保护的平滑流式处理），请使用此选项。
 
-**EnvelopeEncryptionProtected** - 如果要保护（或上传已加密的）采用高级加密标准 (AES) 加密的 HTTP Live Streaming (HLS)，请使用此选项。 请注意，如果上载已采用 AES 加密的 HLS，则该 HLS 必须已经由 Transform Manager 加密。
+**EnvelopeEncryptionProtected** - 如果要保护（或上传已加密的）采用高级加密标准 (AES) 加密的 HTTP Live Streaming (HLS)，请使用此选项。 请注意，如果上传已采用 AES 加密的 HLS，则该 HLS 必须已经由 Transform Manager 加密。
 
 ### <a name="access-policy"></a>访问策略
 [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) 定义对资产的访问权限（如读取、写入和列出）和持续时间。 通常将 AccessPolicy 对象传递给某个定位符，然后使用该定位符来访问资产中包含的文件。
@@ -74,12 +75,12 @@ ms.lasthandoff: 04/14/2017
 ### <a id="locators"></a>定位符
 [定位符](https://docs.microsoft.com/rest/api/media/operations/locator)提供访问资产中包含的文件的入口点。 访问策略用于定义客户端对给定资产具有的访问权限和持续时间。 定位符与访问策略的关系可以为多对一的关系，因此，不同定位符可以向不同客户端提供不同的开始时间和连接类型，而全部使用相同的权限和持续时间设置；但是，由于 Azure 存储服务设置的共享访问策略限制，一项给定的资产一次最多只能与五个唯一的定位符相关联。 
 
-媒体服务支持两种类型的定位符：OnDemandOrigin 定位符，用于对媒体进行流式处理（例如，MPEG DASH、HLS 或平滑流式处理）；渐进式下载媒体和 SAS URL 定位符，用于与 Azure 存储空间相互上传或下载媒体文件。 
+媒体服务支持两种类型的定位符：OnDemandOrigin 定位符，用于对媒体进行流式处理（例如，MPEG DASH、HLS 或平滑流式处理）；渐进式下载媒体和 SAS URL 定位符，用于与 Azure 存储相互上传或下载媒体文件。 
 
 请注意，创建 OnDemandOrigin 定位符时，不应使用列表权限 (AccessPermissions.List)。 
 
 ### <a name="storage-account"></a>存储帐户
-对 Azure 存储空间进行的所有访问都要通过存储帐户完成。 一个媒体服务帐户可与一个或多个存储帐户相关联。 一个帐户可以包含无限个容器，只要每个帐户的容器总大小不超过 500TB 即可。  媒体服务提供 SDK 级工具，可用于管理多个存储帐户，并在上传到这些帐户时基于指标或随机分发使资产分发达到负载均衡。 有关详细信息，请参阅[使用 Azure 存储](https://msdn.microsoft.com/library/azure/dn767951.aspx)。 
+对 Azure 存储进行的所有访问都要通过存储帐户完成。 一个媒体服务帐户可与一个或多个存储帐户相关联。 一个帐户可以包含无限个容器，只要每个帐户的容器总大小不超过 500TB 即可。  媒体服务提供 SDK 级工具，可用于管理多个存储帐户，并在上传到这些帐户时基于指标或随机分发使资产分发达到负载均衡。 有关详细信息，请参阅[使用 Azure 存储](https://msdn.microsoft.com/library/azure/dn767951.aspx)。 
 
 ## <a name="jobs-and-tasks"></a>作业和任务
 [作业](https://https://docs.microsoft.com/rest/api/media/operations/job)通常用于处理（例如，索引或编码）音频/视频演示。 如果要处理多个视频，应为要编码的每个视频创建一个作业。
@@ -219,7 +220,7 @@ http://amstest1.streaming.mediaservices.chinacloudapi.cn/3c5fe676-199c-4620-9b03
 
     {流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest(format=m3u8-aapl-v3)
 
-http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+    http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
 
 

@@ -1,10 +1,10 @@
 ---
-title: "如何通过 C++ 使用文件存储 | Microsoft Docs"
+title: "如何通过 C++ 使用文件存储 | Azure"
 description: "使用 Azure 文件存储在云中存储文件数据。"
 services: storage
 documentationcenter: .net
-author: seguler
-manager: jahogg
+author: renashahmsft
+manager: aungoo
 editor: tysonn
 ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: seguler
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 7474a07034e464d8f0c6438ecda7c4042d21e886
-ms.lasthandoff: 04/14/2017
+ms.date: 05/11/2017
+ms.author: renashahmsft
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
+ms.openlocfilehash: 0be418ee84dbb2d68859b20fcc4193f505fa355c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -53,7 +54,7 @@ Install-Package wastorage
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>设置 Azure 存储连接字符串
-若要使用文件存储，你需要连接到你的 Azure 存储帐户。 第一步是配置连接字符串，我们会使用该字符串连接到存储帐户。 为此，我们需要定义一个静态变量。
+若要使用文件存储，你需要连接到你的 Azure 存储帐户。 第一步是配置连接字符串，该字符串将用于连接到存储帐户。 为此，我们需要定义一个静态变量。
 
 ```cpp
 // Define the connection-string with your values.
@@ -349,9 +350,9 @@ if (share.exists())
 若要深入了解如何创建和使用共享访问签名，请参阅[使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md)。
 
 ## <a name="next-steps"></a>后续步骤
-若要了解有关 Azure 存储空间的详细信息，请参阅以下资源：
+若要了解有关 Azure 存储的详细信息，请参阅以下资源：
 
 * [适用于 C++ 的存储客户端库](https://github.com/Azure/azure-storage-cpp)
 * [Azure Storage File Service Samples in C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)（C++ 中的 Azure 存储文件服务示例）
-* [Azure 存储空间资源管理器](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Azure 存储资源管理器](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure 存档文档](./index.md)

@@ -1,0 +1,24 @@
+- name: 认知服务
+  href: /
+- name: 人脸识别 API
+  href: /
+  items:
+  - name: 概览
+    href: https://www.microsoft.com/cognitive-services/en-us/face-api/documentation/overview
+  - name: API 参考
+    href: https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d
+- name: 情绪识别 API
+  href: /
+  items:
+  - name: 概览
+    href: https://www.microsoft.com/cognitive-services/en-us/emotion-api/documentation
+  - name: API 参考
+    href: https://dev.cognitive.azure.cn/docs/services/5639d931ca73072154c1ce89
+- name: 计算机视觉 API
+  href: /
+  items:
+  - name: 概览
+    href: https://www.microsoft.com/cognitive-services/en-us/computer-vision-api/documentation
+  - name: API 参考
+    href: https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739
+    

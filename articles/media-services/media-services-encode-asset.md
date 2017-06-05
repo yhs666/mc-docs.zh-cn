@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 9d5d9607ea4256162b55d7f913e960126e5cf0c1
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Azure 按需媒体编码器概述和比较
+# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Azure 点播媒体编码器概述和比较
 ## <a name="encoding-overview"></a>编码概述
 Azure 媒体服务提供了多个用于在云中对媒体进行编码的选项。
 
@@ -44,7 +45,7 @@ Azure 媒体服务提供了多个用于在云中对媒体进行编码的选项�
 >[!NOTE]
 >默认情况下每个媒体服务帐户同时只能有一个活动的编码任务。 你可以保留编码单元，使用它们可以同时运行多个编码任务，你购买的每个编码保留单位对应一个任务。 有关信息，请参阅[缩放编码单位](media-services-scale-media-processing-overview.md)。
 
-## <a name="media-encoder-standard"></a>媒体编码器标准版
+## <a name="media-encoder-standard"></a>Media Encoder Standard
 ### <a name="how-to-use"></a>如何使用
 [如何使用 Media Encoder Standard 进行编码](media-services-dotnet-encode-with-media-encoder-standard.md)
 

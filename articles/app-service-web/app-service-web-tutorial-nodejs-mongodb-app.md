@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 03/30/2017
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 379165b13b1fb6c276a10c317e4bf3bfb31aeba3
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -69,7 +70,7 @@ npm start
 
 ## <a name="step-2---create-a-mongodb-database"></a>步骤 2 - 创建 MongoDB 数据库
 
-在此步骤中，你要将应用程序连接到 MongoDB 数据库。 对于 MongoDB，本教程使用支持 MongoDB 客户端连接的 [Azure DocumentDB](/azure/documentdb/)。 换而言之，Node.js 应用程序只知道它要连接到 MongoDB 数据库。 连接由 DocumentDB 数据库支持的事实对于应用程序是完全透明的。
+在此步骤中，你要将应用程序连接到 MongoDB 数据库。 对于 MongoDB，本教程使用支持 MongoDB 客户端连接的 [Azure DocumentDB](/documentdb/)。 换而言之，Node.js 应用程序只知道它要连接到 MongoDB 数据库。 连接由 DocumentDB 数据库支持的事实对于应用程序是完全透明的。
 
 ### <a name="log-in-to-azure"></a>登录 Azure
 
@@ -236,13 +237,13 @@ Node.js 应用程序已准备就绪，可供部署。
 
 > [!NOTE] 
 > 应用服务计划表示用于托管应用的物理资源集合。 分配到应用服务计划的所有应用程序将共享该计划定义的资源，在托管多个应用时可以节省成本。 
-> <p> 
-> <p> 应用服务计划定义： 
-> <p> 
-> <p> * 区域（中国北部、中国东部、中国北部） 
-> <p> * 实例大小（小、中、大） 
-> <p> * 规模计数（一个、两个、三个实例，等等） 
-> <p> * SKU（免费、共享、基本、标准、高级）> 
+> 
+> 应用服务计划定义： 
+> 
+> * 区域（中国北部、中国东部） 
+> * 实例大小（小、中、大） 
+> * 规模计数（一个、两个、三个实例，等等） 
+> * SKU（免费、共享、基本、标准、高级）> 
 
 以下示例使用**免费**定价层创建名为 `myAppServicePlan` 的应用服务计划。
 
@@ -363,11 +364,11 @@ To https://<app_name>.scm.chinacloudsites.cn/<app_name>.git
 
 > [!NOTE]
 > 你可能已注意到，部署过程先运行 `npm install`，再运行 [Gulp](http://gulpjs.com/)。 与其他某些 Node.js 应用程序一样，MEAN.js 使用 Gulp 来自动执行部署任务。 具体而言，它使用 Gulp 来缩减和捆绑用于生产的脚本。 在部署过程中，应用服务默认不会运行 Gulp 或 Grunt 任务，因此，此示例存储库的根目录中提供了两个附加文件来启用此功能： 
-> <p>
-> <p> - `.deployment` - 此文件告知应用服务要以自定义部署脚本的形式运行 `bash deploy.sh`。
-> <p> - `deploy.sh` - 自定义部署脚本。 查看该文件可以发现，它先运行 `npm install` 和 `bower install`，再运行 `gulp prod`。 
-> <p>
-> <p> 可以使用此方法将任何步骤添加到基于 Git 的部署。
+>
+> - `.deployment` - 此文件告知应用服务要以自定义部署脚本的形式运行 `bash deploy.sh`。
+> - `deploy.sh` - 自定义部署脚本。 查看该文件可以发现，它先运行 `npm install` 和 `bower install`，再运行 `gulp prod`。 
+>
+> 可以使用此方法将任何步骤添加到基于 Git 的部署。
 >
 
 ### <a name="browse-to-the-azure-web-app"></a>浏览到 Azure Web 应用 

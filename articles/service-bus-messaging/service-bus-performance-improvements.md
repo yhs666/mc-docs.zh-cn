@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: sethm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: e5f303c42b2afc8ff37f15fa3db1c625d4fef0e2
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
 
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服务总线消息传递改进性能的最佳实践
-本文介绍如何使用 [Azure 服务总线消息传递](../service-bus/index.md)在交换中转消息时优化性能。 本主题的第一部分介绍有助于提高性能的各种不同机制。 第二部分指导用户如何针对给定方案以能够提供最佳性能的方式使用服务总线。
+本文介绍如何使用 [Azure 服务总线消息传递](../service-bus-messaging/index.md)在交换中转消息时优化性能。 本主题的第一部分介绍有助于提高性能的各种不同机制。 第二部分指导用户如何针对给定方案以能够提供最佳性能的方式使用服务总线。
 
 在本主题中，术语“客户端”是指任何访问服务总线的实体。 客户端可以充当发送方或接收方的角色。 术语“发送方”用于向服务总线队列或主题发送消息的服务总线队列或主题客户端。 术语“接收方”是指从服务总线队列或订阅接收消息的服务总线队列或订阅客户端。
 

@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: daleche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: e218ed14225eb3eef32630e0d256862f44afa1e0
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 
@@ -97,7 +98,6 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 
 ## <a name="additional-resources"></a>其他资源
 * [SQL 数据库开发概述](sql-database-develop-overview.md)
-* [暂时性错误处理的一般指南](../best-practices-retry-general.md)
 * [用于 SQL 数据库和 SQL Server 的连接库](sql-database-libraries.md)
 
 

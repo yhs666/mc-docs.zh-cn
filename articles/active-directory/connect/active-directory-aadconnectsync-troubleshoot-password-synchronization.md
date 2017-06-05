@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 83a061392d2ec273054a7c036734766cf8bcb769
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 

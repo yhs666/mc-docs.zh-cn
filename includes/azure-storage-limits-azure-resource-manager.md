@@ -1,4 +1,4 @@
-仅当使用 Azure 资源管理器和 Azure 资源组时，以下限制才适用。
+仅当使用 Azure Resource Manager 和 Azure 资源组时，以下限制才适用。
 
 | 资源 | 默认限制 |
 | --- | --- |

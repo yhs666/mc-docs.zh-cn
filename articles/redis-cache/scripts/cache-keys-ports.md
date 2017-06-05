@@ -16,9 +16,10 @@ ms.workload: tbd
 ms.date: 04/14/2017
 wacn.date: 
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 8f3c01ff7ef37eedae66496ab4891bfb2cb7023a
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -28,8 +29,6 @@ ms.lasthandoff: 04/22/2017
 本方案介绍如何检索用于连接到 Azure Redis 缓存实例的主机名、端口和密钥。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="sample-script"></a>示例脚本
 

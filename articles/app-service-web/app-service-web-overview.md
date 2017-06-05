@@ -1,6 +1,6 @@
 ---
-title: "Web Apps 概述 | Azure"
-description: "了解 Azure App Service 如何帮助用户开发和托管 Web 应用程序"
+title: "Web 应用概述 | Azure"
+description: "了解 Azure 应用服务如何帮助用户开发和托管 Web 应用程序"
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -15,14 +15,15 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 wacn.date: 
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 2fd5d0cefb8b93cf81862ffe546352631793af61
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
 ---
-# <a name="web-apps-overview"></a>Web Apps 概述
+# <a name="web-apps-overview"></a>Web 应用概述
 *应用服务 Web 应用* 是一个完全托管的计算平台，非常适合用来托管网站和 Web 应用程序。 Azure 提供的这个 [平台即服务](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) 产品，使你可以在 Azure 维护用于运行和扩展应用的基础结构时，重点关注业务逻辑。
 
 ## <a name="what-is-a-web-app-in-app-service"></a>应用服务中的 Web 应用是什么？
@@ -30,11 +31,11 @@ ms.lasthandoff: 04/22/2017
 
 该计算资源可能位于共享虚拟机 (VM) 上，也可能位于专用虚拟机上，具体取决于你选择的定价层。 你的应用程序代码在独立于其他客户的托管 VM 中运行。
 
-你的代码可以使用 [Azure App Service](../app-service/app-service-value-prop-what-is.md)支持的任何语言或框架，例如 ASP.NET、Node.js、Java、PHP 或 Python。 也可以在 Web 应用中运行使用 [PowerShell 和其他脚本语言](web-sites-create-web-jobs.md#acceptablefiles) 的脚本。
+你的代码可以使用 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)支持的任何语言或框架，例如 ASP.NET、Node.js、Java、PHP 或 Python。 也可以在 Web 应用中运行使用 [PowerShell 和其他脚本语言](web-sites-create-web-jobs.md#acceptablefiles) 的脚本。
 
 有关可使用 Web 应用的典型应用程序的应用场景示例，请参阅 **Azure 应用服务、虚拟机、Service Fabric 和云服务的比较**的[应用场景和建议](choose-web-site-cloud-service-vm.md#scenarios)部分。
 
-## <a name="why-use-web-apps"></a>为何使用 Web Apps？
+## <a name="why-use-web-apps"></a>为何使用 Web 应用？
 以下是适用于 Web 应用的一些主要应用服务功能：
 
 * **多种语言和框架** — 应用服务为 ASP.NET、Node.js、Java、PHP 和 Python 提供一流支持。 也可以在应用服务 VM 上运行 [PowerShell 和其他脚本或可执行文件](web-sites-create-web-jobs.md) 。
@@ -44,9 +45,9 @@ ms.lasthandoff: 04/22/2017
 * **安全性和合规性** - 应用服务符合 [ISO、SOC 和 PCI](https://www.trustcenter.cn/)的要求。
 * **Visual Studio 集成** — Visual Studio 中的专用工具可简化创建、部署和调试工作。
 
-此外，Web 应用可利用 [API 应用](../app-service-api/app-service-api-apps-why-best-platform.md)提供的 CORS 支持等功能和[移动应用](../app-service-mobile/app-service-mobile-value-prop.md)提供的推送通知等功能。 有关应用服务中应用类型的详细信息，请参阅 [Azure App Service 概述](../app-service/app-service-value-prop-what-is.md)。
+此外，Web 应用可利用 [API 应用](../app-service-api/app-service-api-apps-why-best-platform.md)提供的 CORS 支持等功能和[移动应用](../app-service-mobile/app-service-mobile-value-prop.md)提供的推送通知等功能。 有关应用服务中应用类型的详细信息，请参阅 [Azure 应用服务概述](../app-service/app-service-value-prop-what-is.md)。
 
-除了应用服务中的 Web 应用，Azure 还提供可用来托管网站和 Web 应用程序的其他服务。 大多数情况下，Web Apps 是最佳选择。  对于微服务体系结构，请考虑使用 [Service Fabric](/azure/service-fabric)；如果需要更好地控制运行代码的 VM，请考虑使用 [Azure 虚拟机](/azure/virtual-machines/)。 有关如何在这些 Azure 服务之间做出选择的详细信息，请参阅 [Azure App Service、虚拟机、Service Fabric 和云服务的比较](choose-web-site-cloud-service-vm.md)。
+除了应用服务中的 Web 应用，Azure 还提供可用来托管网站和 Web 应用程序的其他服务。 大多数情况下，Web 应用是最佳选择。  对于微服务体系结构，请考虑使用 [Service Fabric](/service-fabric)；如果需要更好地控制运行代码的 VM，请考虑使用 [Azure 虚拟机](/virtual-machines/)。 有关如何在这些 Azure 服务之间做出选择的详细信息，请参阅 [Azure 应用服务、虚拟机、Service Fabric 和云服务的比较](choose-web-site-cloud-service-vm.md)。
 
 ## <a name="getting-started"></a>入门
 若要首先在应用服务中向新 Web 应用部署示例代码，请遵循以下下拉框中的教程之一。 需要一个 Azure 试用帐户。

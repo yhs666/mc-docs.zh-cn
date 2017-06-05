@@ -15,9 +15,10 @@ ms.workload: na
 ms.date: 03/16/2017
 wacn.date: 
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: bb9010e66772464d88d12f4756e76459769c0cd8
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -280,15 +281,15 @@ ms.lasthandoff: 04/07/2017
 [lnk-hub-sdks]: ./iot-hub-devguide-sdks.md
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-portal]: https://portal.azure.cn/
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: ./iot-hub-devguide.md#identityregistry
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-dotnet-standard-getstarted-send.md
+[lnk-devguide-identity]: ./iot-hub-devguide-identity-registry.md
 [lnk-servicebus-nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-what-is-event-hubs.md
 
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-device-nuget]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
-[lnk-device-management]: ./iot-hub-device-management-get-started.md/
+[lnk-device-management]: ./iot-hub-device-management-overview.md
 [lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: /develop/iot/

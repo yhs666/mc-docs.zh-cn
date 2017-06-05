@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 04/03/2017
 wacn.date: 
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: a5c85010cec0eaed7aaea89bf5eb98dc5e1e6871
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -56,7 +57,7 @@ ms.lasthandoff: 04/22/2017
 
     Select-AzureRmSubscription -SubscriptionName ContosoSubscription
 
-在可以将 Windows PowerShell 与 Azure 资源管理器一起使用之前，你需要具备以下项：
+在可以将 Windows PowerShell 与 Azure Resource Manager 一起使用之前，你需要具备以下项：
 
 * Windows PowerShell 3.0 版或 4.0 版。 若要查找 Windows PowerShell 的版本，请键入：`$PSVersionTable` 并验证 `PSVersion` 的值是否为 3.0 或 4.0。 若要安装兼容版本，请参阅 [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)。
 
@@ -107,9 +108,9 @@ ms.lasthandoff: 04/22/2017
 使用 [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet 创建新的 Azure Redis 缓存实例。
 
 > [!IMPORTANT]
-> 第一次使用 Azure 门户预览版在订阅中创建 Redis 缓存时，门户将为该订阅注册 `Microsoft.Cache` 命名空间。 如果尝试使用 PowerShell 在订阅中创建第一个 Redis 缓存，必须首先使用以下命令注册命名空间；否则，诸如 `New-AzureRmRedisCache` 和 `Get-AzureRmRedisCache` 的 cmdlet 将失败。
-> <p> 
-> `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`> 
+> 第一次使用 Azure 门户预览在订阅中创建 Redis 缓存时，门户将为该订阅注册 `Microsoft.Cache` 命名空间。 如果尝试使用 PowerShell 在订阅中创建第一个 Redis 缓存，必须首先使用以下命令注册命名空间；否则，诸如 `New-AzureRmRedisCache` 和 `Get-AzureRmRedisCache` 的 cmdlet 将失败。
+>
+> `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
 若要查看 `New-AzureRmRedisCache` 的可用参数列表及其说明，请运行以下命令。
 
@@ -271,14 +272,15 @@ ms.lasthandoff: 04/22/2017
 
 > [!NOTE]
 > 使用 PowerShell 缩放缓存受到的限制和要遵循的准则与在 Azure 门户预览中缩放缓存相同。 你可以扩展到不同定价层，但有以下限制。
-> <p> 
+>
 > * 不能从较高的定价层缩放到较低的定价层。
-> <p> * 不能从“高级”缓存向下缩放到“标准”或“基本”缓存。
-> <p> * 不能从“标准”缓存向下缩放到“基本”缓存。
-> <p> * 可以从“基本”缓存缩放到“标准”缓存，但不能同时更改大小。 如果你需要不同大小，则可以执行后续缩放操作以缩放为所需大小。
-> <p> * 不能从“基本”缓存直接缩放到“高级”缓存。 必须在一个缩放操作中从**基本**缩放到**标准**，然后在后续的缩放操作中从**标准**缩放到**高级**。
-> <p> * 不能从较大的大小减小为 **C0 (250 MB)** 大小。
-> <p> 有关详细信息，请参阅[如何缩放 Azure Redis 缓存](cache-how-to-scale.md)。> 
+> * 不能从“高级”缓存向下缩放到“标准”或“基本”缓存。
+> * 不能从“标准”缓存向下缩放到“基本”缓存。
+> * 可以从“基本”缓存缩放到“标准”缓存，但不能同时更改大小。 如果你需要不同大小，则可以执行后续缩放操作以缩放为所需大小。
+> * 不能从“基本”缓存直接缩放到“高级”缓存。 必须在一个缩放操作中从**基本**缩放到**标准**，然后在后续的缩放操作中从**标准**缩放到**高级**。
+> * 不能从较大的大小减小为 **C0 (250 MB)** 大小。
+>
+> 有关详细信息，请参阅[如何缩放 Azure Redis 缓存](cache-how-to-scale.md)。> 
 
 以下示例演示了如何将名为 `myCache` 的缓存缩放为 2.5 GB 缓存。 请注意，此命令适用于基本或标准缓存。
 
@@ -701,7 +703,7 @@ ms.lasthandoff: 04/22/2017
 
 * [MSDN 上的 Azure Redis 缓存 cmdlet 文档](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 * [Azure Resource Manager Cmdlet](https://msdn.microsoft.com/library/azure/mt125356.aspx)：了解如何在 Azure Resource Manager 模块中使用这些 cmdlet。
-* [使用资源组来管理 Azure 资源](../azure-resource-manager/resource-group-template-deploy-portal.md)：了解如何在 Azure 门户预览版中创建和管理资源组。
+* [使用资源组来管理 Azure 资源](../azure-resource-manager/resource-group-template-deploy-portal.md)：了解如何在 Azure 门户预览中创建和管理资源组。
 * [Azure 博客](https://www.azure.cn/blog/)：了解 Azure 中的新功能。
 * [Windows PowerShell 博客](http://blogs.msdn.com/powershell)：了解 Windows PowerShell 中的新功能。
 * [“你好，脚本编写专家！”博客](http://blogs.technet.com/b/heyscriptingguy/)：从 Windows PowerShell 社区获取实用提示和技巧。

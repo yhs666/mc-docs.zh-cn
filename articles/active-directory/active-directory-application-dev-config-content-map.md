@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 11a83c8672c89e5493e85f23f2ff0a75a9018e3a
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 
@@ -46,5 +47,4 @@ ms.lasthandoff: 04/22/2017
   - [我不知道如何更改应用程序的令牌生存期默认值](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-change-token-lifetime-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
   - [我对应用程序许可的工作原理感到迷惑](https://docs.microsoft.com/azure/active-directory/application-dev-consent-framework/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
   - [我不了解委派权限与应用程序权限之间的差别](https://docs.microsoft.com/azure/active-directory/application-dev-delegated-and-app-perms/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
-
 

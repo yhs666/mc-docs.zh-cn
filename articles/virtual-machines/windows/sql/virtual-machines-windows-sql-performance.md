@@ -16,9 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 wacn.date: 
 ms.author: jroth
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: acdb4cf2895e478045bfc2f97073b709db93edaa
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="overview"></a>概述
 本主题提供有关优化 SQL Server 在 Azure 虚拟机中性能的最佳实践。 在 Azure 虚拟机中运行 SQL Server 时，我们建议你继续使用适用于本地服务器环境中的 SQL Server 的相同数据库性能优化选项。 但是，关系数据库在公有云中的性能取决于许多因素，如虚拟机的大小和数据磁盘的配置。
 
-创建 SQL Server 映像时， [考虑在 Azure 门户预览版中预配 VM](virtual-machines-windows-portal-sql-server-provision.md)。 使用 Resource Manager 在门户中预配的 SQL Server VM 将实施所有这些最佳实践，包括存储配置。
+创建 SQL Server 映像时， [考虑在 Azure 门户预览中预配 VM](virtual-machines-windows-portal-sql-server-provision.md)。 使用 Resource Manager 在门户中预配的 SQL Server VM 将实施所有这些最佳实践，包括存储配置。
 
 本文重点介绍获得 SQL Server 在 Azure VM 上的 *最佳* 性能。 如果你的工作负荷要求较低，可能不需要下面列出的每项优化。 评估这些建议时应考虑性能需求和工作负荷模式。
 
@@ -38,7 +39,7 @@ ms.lasthandoff: 04/14/2017
 
 | 区域 | 优化 |
 | --- | --- |
-| [VM 大小](#vm-size-guidance) |SQL Enterprise 版：[DS3](../../virtual-machines-windows-sizes.md#ds-series) 或更高。<br/><br/>SQL Standard 和 Web 版：[DS2](../../virtual-machines-windows-sizes.md#ds-series) 或更高。 |
+| [VM 大小](#vm-size-guidance) |SQL Enterprise 版：[DS3](../../virtual-machines-windows-sizes.md) 或更高。<br/><br/>SQL Standard 和 Web 版：[DS2](../../virtual-machines-windows-sizes.md) 或更高。 |
 | [存储](#storage-guidance) |使用[高级存储](../../../storage/storage-premium-storage.md)。 仅建议将标准存储用于开发/测试。<br/><br/>将[存储帐户](../../../storage/storage-create-storage-account.md)和 SQL Server VM 保存在相同的区域。<br/><br/>在存储帐户上禁用 Azure [异地冗余存储](../../../storage/storage-redundancy.md)（异地复制）。 |
 | [磁盘](#disks-guidance) |使用至少 2 个 [P30 磁盘](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets)（一个用于日志，另一个用于数据文件和 TempDB）。<br/><br/>避免使用操作系统或临时磁盘进行数据库存储或日志记录。<br/><br/>在托管数据文件和 TempDB 的磁盘上启用读取缓存。<br/><br/>不要在托管日志文件的磁盘上启用缓存。<br/><br/>重要说明：更改 Azure VM 磁盘的缓存设置时，请停止 SQL Server 服务。<br/><br/>条带化多个 Azure 数据磁盘，提高 IO 吞吐量。<br/><br/>使用规定的分配大小格式化。 |
 | [I/O](#io-guidance) |启用数据库页面压缩。<br/><br/>对数据文件启用即时文件初始化。<br/><br/>限制或禁用数据库自动增长。<br/><br/>禁用数据库自动收缩。<br/><br/>将所有数据库（包括系统数据库）转移到数据磁盘。<br/><br/>将 SQL Server 错误日志和跟踪文件目录移到数据磁盘。<br/><br/>设置默认的备份和数据库文件位置。<br/><br/>启用锁定页面。<br/><br/>应用 SQL Server 性能修复程序。 |

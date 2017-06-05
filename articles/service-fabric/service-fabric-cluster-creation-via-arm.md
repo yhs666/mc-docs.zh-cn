@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/22/2017
 ms.author: chackdan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: d8233d9507689ad3bede8eabe91389fc3f3ef151
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -38,7 +39,7 @@ ms.lasthandoff: 04/14/2017
 
 安全的群集可防止未经授权访问管理操作。 包括部署、升级和删除应用程序、服务及其所包含的数据。 不安全的群集是任何人都可以随时连接并执行管理操作的群集。 虽然可创建不安全的群集，但强烈建议一开始就创建安全的群集。 因为不安全的群集无法在事后受到保护 - 若要保护群集，必须创建新群集。
 
-无论是 Linux 或 Windows 群集，创建安全群集的概念是相同的。 有关创建安全的 Linux 群集的详细信息和协助脚本，请参阅[在 Linux 上创建安全群集](#secure-linux-clusters)。
+无论是 Linux 或 Windows 群集，创建安全群集的概念是相同的。
 
 ## <a name="sign-in-to-your-azure-account"></a>登录到 Azure 帐户
 本指南使用 [Azure PowerShell][azure-powershell]。 开始新的 PowerShell 会话时，请登录到 Azure 帐户并选择订阅，然后执行 Azure 命令。
@@ -611,7 +612,7 @@ FabricClient 和 FabricGateway 执行相互身份验证。 使用 Azure AD 身�
 [azure-classic-portal]: https://manage.windowsazure.cn
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [service-fabric-cluster-security]: ./service-fabric-cluster-security.md
-[active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
+[active-directory-howto-tenant]: ../active-directory/develop/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: ./service-fabric-visualizing-your-cluster.md
 [service-fabric-manage-application-in-visual-studio]: ./service-fabric-manage-application-in-visual-studio.md
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip

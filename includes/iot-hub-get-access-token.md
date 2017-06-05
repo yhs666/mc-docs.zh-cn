@@ -1,4 +1,4 @@
-## <a name="obtain-a-resource-manager-token"></a>获取资源管理器令牌
+## <a name="obtain-a-resource-manager-token"></a>获取 Resource Manager 令牌
 
 Azure Active Directory 必须使用 Azure Resource Manager 来验证所有针对资源执行的任务。 此处显示的示例使用密码身份验证。有关其他方法，请参阅[对 Azure Resource Manager 请求进行身份验证][lnk-authenticate-arm]。
 

@@ -16,9 +16,10 @@ ms.author: ddove
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: d2965e285f55f44d0c8e7c0a671a59801b6ec131
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/07/2017
 
 
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/07/2017
 
 SQL 数据库弹性池是一种简单且经济高效的解决方案，用于管理和缩放具有不断变化且不可预测的使用需求的多个数据库。 同一弹性池中的所有数据库位于单个 Azure SQL 数据库服务器上，并以固定价格共享固定数量的资源。
 
-可以使用 [Azure 门户预览版](sql-database-elastic-pool-manage-portal.md)、[PowerShell](sql-database-elastic-pool-manage-powershell.md)、[Transact-SQL](sql-database-elastic-pool-manage-tsql.md)、[C#](sql-database-elastic-pool-manage-csharp.md) 和 REST API 创建和管理弹性池。 弹性池资源是按 [eDTU](sql-database-what-is-a-dtu.md) 度量的。
+可以使用 [Azure 门户预览](sql-database-elastic-pool-manage-portal.md)、[PowerShell](sql-database-elastic-pool-manage-powershell.md)、[Transact-SQL](sql-database-elastic-pool-manage-tsql.md)、[C#](sql-database-elastic-pool-manage-csharp.md) 和 REST API 创建和管理弹性池。 弹性池资源是按 [eDTU](sql-database-what-is-a-dtu.md) 度量的。
 
 
 > [!NOTE]
@@ -37,7 +38,7 @@ SQL 数据库弹性池是一种简单且经济高效的解决方案，用于管�
 >
 
 
-## <a name="how-do-elastic-pools-help-manage-database-resources"></a>弹性池如何帮助管理数据库资源？
+## <a name="how-do-elastic-pools-help-manage-database-resources"></a><a name="elastic-database-pool-pricing-tier-recommendations"></a>弹性池如何帮助管理数据库资源？
 
 常见的 SaaS 应用程序模式是单租户数据库模型：每个客户（数据库）都有其自己的数据库。 每个客户对内存、IO 和 CPU 具有不可预测的资源要求。 由于需求有高峰和低谷，如何有效地分配资源和节省成本？ 通常有两个选项：(1) 基于高峰使用情况过度设置资源，因此需要支付额外的费用，或者 (2) 为了节省成本而采用低配，但在高峰期间会出现性能下降而导致客户满意度降低。 弹性池通过确保数据库在需要时获得所需的性能资源来解决此问题。 它们在可预测的预算内提供简单的资源分配机制。 若要深入了解如何通过弹性池设计 SaaS 应用程序的模式，请参阅 [具有 Azure SQL 数据库的多租户 SaaS 应用程序的设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
 
@@ -59,7 +60,7 @@ SQL 数据库弹性池是一种简单且经济高效的解决方案，用于管�
 
 [弹性池的价格和性能注意事项](sql-database-elastic-pool-guidance.md)。
 
-## <a name="edtu-and-storage-limits-for-elastic-pools"></a>弹性池的 eDTU 和存储限制
+## <a name="edtu-and-storage-limits-for-elastic-pools"></a><a name="eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases"></a><a name="edtu-and-storage-limits-for-elastic-pools-and-elastic-databases"></a>弹性池的 eDTU 和存储限制
 
 下表描述了基本、标准和高级弹性池的特征。
 
@@ -67,7 +68,7 @@ SQL 数据库弹性池是一种简单且经济高效的解决方案，用于管�
 
 如果使用了弹性池的所有 DTU，那么池中的每个数据库将接收相同数量的资源来处理查询。  SQL 数据库服务通过确保相等的计算时间片段，在数据库之间提供资源共享的公平性。 弹性池资源共享公平性是在将每个数据库的 DTU 最小值设为非零值时，对另外为每个数据库保证的任意资源量的补充。
 
-## <a name="elastic-pool-properties"></a>弹性池属性
+## <a name="elastic-pool-properties"></a><a name="elastic-database-pool-properties"></a>弹性池属性
 
 下表描述了弹性池和入池数据库的限制。
 
@@ -102,11 +103,11 @@ SQL 数据库弹性池是一种简单且经济高效的解决方案，用于管�
 当数据库因其所在的区域发生事故而不可用时，异地还原会提供默认的恢复选项。 请参阅[还原 Azure SQL 数据库或故障转移到辅助数据库](sql-database-disaster-recovery.md)
 
 ### <a name="active-geo-replication"></a>活动异地复制
-对于具有异地还原无法提供的更强烈的恢复要求的应用程序，可使用 [Azure 门户预览版](sql-database-geo-replication-portal.md)、[PowerShell](sql-database-geo-replication-powershell.md) 或 [Transact-SQL](sql-database-geo-replication-transact-sql.md) 配置活动异地复制。
+对于具有异地还原无法提供的更强烈的恢复要求的应用程序，可使用 [Azure 门户预览](sql-database-geo-replication-portal.md)、[PowerShell](sql-database-geo-replication-powershell.md) 或 [Transact-SQL](sql-database-geo-replication-transact-sql.md) 配置活动异地复制。
 
 ## <a name="next-steps"></a>后续步骤
 
-* 可以使用 [Azure 门户预览版](sql-database-elastic-pool-manage-portal.md)、[PowerShell](sql-database-elastic-pool-manage-powershell.md)、[Transact-SQL](sql-database-elastic-pool-manage-tsql.md)、[C#](sql-database-elastic-pool-manage-csharp.md) 和 REST API 创建和管理弹性池。
+* 可以使用 [Azure 门户预览](sql-database-elastic-pool-manage-portal.md)、[PowerShell](sql-database-elastic-pool-manage-powershell.md)、[Transact-SQL](sql-database-elastic-pool-manage-tsql.md)、[C#](sql-database-elastic-pool-manage-csharp.md) 和 REST API 创建和管理弹性池。
 * 有关何时使用弹性池的指导，请参阅[弹性池指导](sql-database-elastic-pool-guidance.md)。
 * 有关视频，请参阅[有关 Azure SQL 数据库弹性功能的 Microsoft 虚拟大学视频课程](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 

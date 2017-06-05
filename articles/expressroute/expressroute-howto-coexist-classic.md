@@ -15,16 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 73b0248c2a549c009b4a9f4716f6ab8ead765182
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/22/2017
 
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>配置 ExpressRoute 和站点到站点并存连接（经典）
 > [!div class="op_single_selector"]
->- [PowerShell - 资源管理器](./expressroute-howto-coexist-resource-manager.md/)
->- [PowerShell - 经典](./expressroute-howto-coexist-classic.md/)
+>- [PowerShell - Resource Manager](./expressroute-howto-coexist-resource-manager.md)
+>- [PowerShell - 经典](./expressroute-howto-coexist-classic.md)
 > 
 > 
 
@@ -46,7 +47,7 @@ ms.lasthandoff: 04/22/2017
 - **不支持传输路由。** 无法在通过站点到站点 VPN 连接的本地网络与通过 ExpressRoute 连接的本地网络之间进行路由（通过 Azure）。
 - **不支持点到站点路由。** 不能启用与连接到 ExpressRoute 的同一 VNet 的点到站点 VPN 连接。 对于同一 VNet 而言，点到站点 VPN 和 ExpressRoute 不能共存。
 - **不能在站点到站点 VPN 网关上启用强制隧道。** 仅可“强制”所有面向 Internet 的流量通过 ExpressRoute 回到本地网络。
-- **不支持基本 SKU 网关。** 必须为 [ExpressRoute 网关](expressroute-about-virtual-network-gateways.md)和 [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md/)使用非基本 SKU 网关。
+- **不支持基本 SKU 网关。** 必须为 [ExpressRoute 网关](expressroute-about-virtual-network-gateways.md)和 [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md)使用非基本 SKU 网关。
 - **仅支持基于路由的 VPN 网关。** 必须使用基于路由的 [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)使用非基本 SKU 网关。
 - **应该为 VPN 网关配置静态路由。** 如果本地网络同时连接到 ExpressRoute 和站点到站点 VPN，则必须在本地网络中配置静态路由，以便将站点到站点 VPN 连接路由到公共 Internet。
 - **必须先配置 ExpressRoute 网关。** 必须先创建 ExpressRoute 网关，然后才能添加站点到站点 VPN 网关。
@@ -120,9 +121,9 @@ ms.lasthandoff: 04/22/2017
           </VirtualNetworkSite>
         ```
 
-3. 在创建并配置 xml 架构文件之后，将文件上载。 这将创建你的虚拟网络。
+3. 在创建并配置 xml 架构文件之后，将文件上传。 这将创建你的虚拟网络。
 
-    使用以下 cmdlet 上载文件，并将值替换为你自己的值。
+    使用以下 cmdlet 上传文件，并将值替换为你自己的值。
 
     ```
     Set-AzureVNetConfig -ConfigurationPath 'C:\NetworkConfig.xml'
@@ -202,7 +203,7 @@ ms.lasthandoff: 04/22/2017
         OperationStatus      : Succeeded
 
 
-8. 配置本地 VPN 设备以连接到新网关。 配置 VPN 设备时，使用在步骤 6 中检索到的信息。 有关 VPN 设备配置的详细信息，请参阅 [VPN 设备配置](../vpn-gateway/vpn-gateway-about-vpn-devices.md/)。
+8. 配置本地 VPN 设备以连接到新网关。 配置 VPN 设备时，使用在步骤 6 中检索到的信息。 有关 VPN 设备配置的详细信息，请参阅 [VPN 设备配置](../vpn-gateway/vpn-gateway-about-vpn-devices.md)。
 
 9. 将 Azure 上的站点到站点 VPN 网关连接到本地网关。
 
@@ -253,4 +254,4 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 ExpressRoute 的详细信息，请参阅 [ExpressRoute 常见问题](./expressroute-faqs.md/)
+有关 ExpressRoute 的详细信息，请参阅 [ExpressRoute 常见问题](./expressroute-faqs.md)

@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 06a48b2cf7cdec38c354b3ae4e8f5192d363d66d
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/14/2017
 
 
@@ -58,7 +59,6 @@ ms.lasthandoff: 04/14/2017
    ![删除应用密码](./media/multi-factor-authentication-manage-users-and-devices/deleteapppasswords.png)
 9. 单击“保存”。
 10. 单击“关闭”。
-
 
 
 
