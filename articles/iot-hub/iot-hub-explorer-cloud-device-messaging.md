@@ -25,7 +25,7 @@ ms.lasthandoff: 05/26/2017
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>使用 iothub-explorer 在设备与 IoT 中心之间发送和接收消息
 
-![端到端关系图](media/iot-hub-get-started-e2e-diagram/2.png)
+![端到端关系图](./media/iot-hub-get-started-e2e-diagram/2.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 

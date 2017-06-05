@@ -78,7 +78,7 @@ ms.lasthandoff: 05/26/2017
 
    以下是命令输出的示例。
 
-   ![显示 Intel NUC IP 的 ifconfig 输出](media/iot-hub-gateway-kit-lessons/lesson1/ifconfig.png)
+   ![显示 Intel NUC IP 的 ifconfig 输出](./media/iot-hub-gateway-kit-lessons/lesson1/ifconfig.png)
 
    在此示例中，`inet addr:` 后面的值是计划从主计算机远程连接到 Intel NUC 时所需的 IP 地址。
 

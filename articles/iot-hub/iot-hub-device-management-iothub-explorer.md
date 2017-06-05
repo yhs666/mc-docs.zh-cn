@@ -25,7 +25,7 @@ ms.lasthandoff: 05/26/2017
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>使用 iothub-explorer 进行 Azure IoT 中心设备管理
 
-![端到端关系图](media/iot-hub-get-started-e2e-diagram/2.png)
+![端到端关系图](./media/iot-hub-get-started-e2e-diagram/2.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
