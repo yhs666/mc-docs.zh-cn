@@ -53,7 +53,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
 1. 在 Azure 门户预览中，导航到托管副本的每个 VM 并查看详细信息。
 2. 单击每个 VM 的“终结点”选项卡。
 3. 验证你想要使用的侦听器终结点“名称”和“公用端口”是否已被使用。在下面的示例中，名称为“MyEndpoint”，端口为“1433”。
-4. 在你本地的客户端上，下载并安装[最新的 PowerShell 模块](https://www.azure.cn/downloads/)。
+4. 在你本地的客户端上，下载并安装[最新的 PowerShell 模块](/downloads/)。
 5. 启动 Azure PowerShell。将打开新的 PowerShell 会话，其中加载了 Azure 管理模块。
 6. 运行 Get-AzurePublishSettingsFile。此 cmdlet 将你定向到浏览器，以将发布设置文件下载到本地目录。系统可能会提示输入 Azure 订阅的登录凭据。
 7. 运行 Import-azurepublishsettingsfile 命令以及你下载发布设置文件的路径：

@@ -32,6 +32,8 @@ ms.lasthandoff: 04/06/2017
 - [Azure CLI 1.0] - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
 - [Azure CLI 2.0](create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
+<br/>
+
 ```
 # One command to create a resource group holding a VM with LAMP already on it
 $ azure group create -n uniqueResourceGroup -l chinanorth --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json
@@ -39,11 +41,11 @@ $ azure group create -n uniqueResourceGroup -l chinanorth --template-uri https:/
 
 * 在现有 VM 上部署 LAMP
 
-```
-# Two commands: one updates packages, the other installs Apache, MySQL, and PHP
-user@ubuntu$ sudo apt-get update
-user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
-```
+    ```
+    # Two commands: one updates packages, the other installs Apache, MySQL, and PHP
+    user@ubuntu$ sudo apt-get update
+    user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
+    ```
 
 ## <a name="deploy-lamp-on-new-vm-walkthrough"></a>在新的 VM 上部署 LAMP 的演练
 可以首先创建一个包含新 VM 的[资源组](../../azure-resource-manager/resource-group-overview.md)：

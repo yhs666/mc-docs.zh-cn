@@ -53,7 +53,8 @@ az vm create \
     --image Debian \
     --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --nics myNic
+    --nics myNic \
+    --use-unmanaged-disk
 ```
 
 ## <a name="detailed-walkthrough"></a>详细演练
@@ -149,7 +150,7 @@ az network nic create \
 
 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 若要详细了解与 Azure CLI 2.0 结合使用以部署完整的 VM 的标志，请参阅[使用 Azure CLI 创建完整的 Linux 环境](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
-以下示例使用 Azure 托管磁盘创建 VM。 这些磁盘由 Azure 平台处理，无需任何准备或位置来存储它们。 有关托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md)。 如果想要使用非托管磁盘，请参阅下面的附加说明。
+以下示例使用 Azure 非托管磁盘创建 VM。
 
 ```azurecli
 az vm create \
@@ -158,12 +159,7 @@ az vm create \
     --image Debian \
     --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --nics myNic
-```
-
-如果使用托管磁盘，请跳过此步骤。 如果想要使用非托管磁盘，需将以下附加参数添加到上述命令，在名为 `mystorageaccount`的存储帐户中创建非托管磁盘： 
-
-```azurecli
+    --nics myNic \
     --use-unmanaged-disk \
     --storage-account mystorageaccount
 ```

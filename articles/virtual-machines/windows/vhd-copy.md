@@ -50,13 +50,13 @@ Azure 门户预览中该 VM 的“状态”将从“已停止”更改为“已�
 
 可以使用 Azure 门户预览或 Azure PowerShell 获取 URL：
 
-* **门户**：单击“更多服务” > “存储帐户” > <storage account>“Blob”，源 VHD 文件可能在 **vhd** 容器中。 单击容器的“属性”并复制标记为 **URL** 的文本。 你将需要用到源和目标容器的 URL。 
+* **门户**：单击“更多服务” > “存储帐户” > “Blob”，源 VHD 文件可能在 **vhd** 容器中。 单击容器的“属性”并复制标记为 **URL** 的文本。 你将需要用到源和目标容器的 URL。 
 * **Powershell**：使用 `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` 可获取资源组 **myResourceGroup** 中名为 **myVM** 的 VM 的信息。 在结果中，查看 **Vhd Uri** 的 **Storage profile** 部分。 URI 的第一部分是容器的 URL，最后一部分是 VM 的 OS VHD 名称。
 
 ## <a name="get-the-storage-access-keys"></a>获取存储访问密钥
 查找源和目标存储帐户的访问密钥。 有关访问密钥的详细信息，请参阅[关于 Azure 存储帐户](../../storage/storage-create-storage-account.md)。
 
-* **门户**：单击“更多服务” > “存储帐户” > <storage account>“所有设置” > “访问密钥”。 复制标记为 **key1** 的密钥。
+* **门户**：单击“更多服务” > “存储帐户” > “所有设置” > “访问密钥”。 复制标记为 **key1** 的密钥。
 * **Powershell**：使用 `Get-AzureRmStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup` 可获取资源组 **myResourceGroup** 中存储帐户 **mystorageaccount** 的存储密钥。 复制标记为 **key1** 的密钥。
 
 ## <a name="copy-the-vhd"></a>复制 VHD

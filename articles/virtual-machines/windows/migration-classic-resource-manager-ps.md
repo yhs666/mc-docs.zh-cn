@@ -221,8 +221,6 @@ Get-AzureRmVMUsage -Location "China North"
 
 ## <a name="step-62-migrate-virtual-machines-in-a-virtual-network"></a>步骤 6.2：迁移虚拟网络中的虚拟机
 若要迁移虚拟网络中的虚拟机，可迁移虚拟网络。 虚拟机随虚拟网络自动迁移。 选取要迁移的虚拟网络。 
-> [!NOTE]
-> 通过使用虚拟机的 VHD（OS 和数据）文件创建新的使用托管磁盘的 Resource Manager 虚拟机来[迁移单个经典虚拟机](migrate-single-classic-to-resource-manager.md)。 
 
 此示例将虚拟网络名称设置为 **myVnet**。 使用自己的虚拟网络名称替换示例名称。 
 

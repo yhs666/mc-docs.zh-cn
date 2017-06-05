@@ -134,7 +134,8 @@ az vm create \
     --image UbuntuLTS \
     --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --custom-data cloud-init.txt
+    --custom-data cloud-init.txt \
+    --use-unmanaged-disk
 ```
 
 登录并验证新 VM 的主机名。
@@ -163,7 +164,8 @@ az vm create \
     --image UbuntuLTS \
     --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --custom-data cloud_config_apt_upgrade.txt
+    --custom-data cloud_config_apt_upgrade.txt \
+    --use-unmanaged-disk
 ```
 
 登录并验证所有包是否都已更新。
@@ -204,7 +206,8 @@ az vm create \
     --image UbuntuLTS \
     --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --custom-data cloud_config_add_users.txt
+    --custom-data cloud_config_add_users.txt \
+    --use-unmanaged-disk
 ```
 
 登录并验证新建的用户。

@@ -98,6 +98,7 @@ az vmss create \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
+  --use-unmanaged-disk \
   --generate-ssh-keys      
 ```
 

@@ -34,6 +34,8 @@ ms.lasthandoff: 05/05/2017
 az login
 ```
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 需要使用 [](https://docs.microsoft.com/cli/azure/group#create) 创建一个资源组才能创建任何其他 Azure 资源。 以下示例在 `chinanorth` 位置创建名为 `myResourceGroup` 的资源组：
 
 ```azurecli
@@ -50,6 +52,7 @@ az vm availability-set create \
     --resource-group myResourceGroup \
     --name myAvailabilitySet \
     --platform-fault-domain-count 3 \
+    --unmanaged \
     --platform-update-domain-count 2
 ```
 
@@ -57,7 +60,7 @@ az vm availability-set create \
 Azure 负载均衡器使用负载均衡器规则将流量分配到一组定义的 VM。 运行状况探测器监视每个 VM 上的给定端口，并仅将流量分配给可操作的 VM。
 
 ### <a name="create-a-public-ip-address"></a>创建公共 IP 地址
-若要在 Internet 上访问你的应用，请为负载均衡器分配公共 IP 地址。 使用 [az network public-ip create](https://docs.microsoft.com/cli/azure/public-ip#create) 创建公共 IP 地址。 下例创建名为 `myPublicIP` 的公共 IP 地址：
+若要在 Internet 上访问你的应用，请为负载均衡器分配公共 IP 地址。 使用 [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) 创建公共 IP 地址。 下例创建名为 `myPublicIP` 的公共 IP 地址：
 
 ```azurecli
 az network public-ip create --resource-group myResourceGroup --name myPublicIP
@@ -111,7 +114,7 @@ az network lb rule create \
 每个 VM 都有一个或多个连接到某个虚拟网络的虚拟网络接口卡 (NIC)。 该虚拟网络基于定义的访问规则筛选流量，确保安全。
 
 ### <a name="create-a-virtual-network"></a>创建虚拟网络
-若要为 VM 提供网络连接，请使用 [az network vnet create](https://docs.microsoft.com/cli/azure/vnet#create) 创建虚拟网络。 以下示例创建一个名为 `myVnet` 的虚拟网络和名为 `mySubnet` 的子网：
+若要为 VM 提供网络连接，请使用 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) 创建虚拟网络。 以下示例创建一个名为 `myVnet` 的虚拟网络和名为 `mySubnet` 的子网：
 
 ```azurecli
 az network vnet create --resource-group myResourceGroup --name myVnet --subnet-name mySubnet
@@ -222,6 +225,7 @@ for i in `seq 1 3`; do
         --admin-username azureuser \
         --generate-ssh-keys \
         --custom-data cloud-init.txt \
+        --use-unmanaged-disk \
         --no-wait
 done
 ```
@@ -275,7 +279,7 @@ az network nic ip-config address-pool add \
 ```
 
 ## <a name="next-steps"></a>后续步骤
-本教程使用单个 Azure 资源构建高度可用的应用程序基础结构。 还可以使用虚拟机规模集自动增加或减少应用上运行的 VM 数量。 继续学习下一个教程 - [使用虚拟机规模集在 Linux 上创建高度可用的应用程序](tutorial-convert-to-vmss.md)。
+本教程使用单个 Azure 资源构建高度可用的应用程序基础结构。 还可以使用虚拟机规模集自动增加或减少应用上运行的 VM 数量。
 
 若要详细了解本教程中介绍的一些高可用性功能，请参阅以下信息：
 

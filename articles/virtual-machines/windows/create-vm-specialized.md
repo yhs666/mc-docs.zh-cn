@@ -1,6 +1,6 @@
 ---
 title: "从 Azure 中的专用磁盘创建 VM | Azure"
-description: "在 Resource Manager 部署模型中，通过附加专用托管磁盘或非托管磁盘来创建新 VM。"
+description: "在 Resource Manager 部署模型中，通过附加专用非托管磁盘来创建新 VM。"
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/14/2017
 ---
 # <a name="create-a-vm-from-a-specialized-disk"></a>从专用磁盘创建 VM
 
-通过使用 Powershell 将专用磁盘附加为 OS 磁盘来创建新 VM。 专用磁盘是保留原始 VM 中的用户帐户、应用程序和其他状态数据的现有 VM 中 VHD 的副本。 可以使用专用[托管磁盘](../../storage/storage-managed-disks-overview.md)或专用非托管磁盘创建新 VM。
+通过使用 Powershell 将专用磁盘附加为 OS 磁盘来创建新 VM。 专用磁盘是保留原始 VM 中的用户帐户、应用程序和其他状态数据的现有 VM 中 VHD 的副本。 可以使用专用非托管磁盘创建新 VM。
 
 ## <a name="before-you-begin"></a>开始之前
 如果使用 PowerShell，请确保使用的是最新版本的 AzureRM.Compute PowerShell 模块。 运行以下命令来安装该模块。
@@ -120,27 +120,8 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 ### <a name="option-1-create-a-managed-disk-from-an-unmanaged-specialized-disk"></a>选项 1：通过非托管专用磁盘创建托管磁盘
 
-1. 通过存储帐户的现有专用 VHD 创建托管磁盘。 此示例使用 **myOSDisk1** 作为磁盘名称，将磁盘置于 **StandardLRS** 存储中并使用 **https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vh.vhd** 作为源 VHD 的 URI。
-
-    ```powershell
-    $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk (New-AzureRmDiskConfig `
-    -AccountType StandardLRS  -Location $location -CreationDataCreateOption Import `
-    -SourceUri https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vh.vhd) `
-    -ResourceGroupName $rgName
-    ```
-
-2. 将 OS 磁盘添加到配置。 此示例将磁盘大小设置为 **128 GB** 并附加托管磁盘作为 **Windows** OS 磁盘。
-
-    ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
-    -DiskSizeInGB 128 -CreateOption Attach -Windows
-    ```
-
-可选：附加其他托管磁盘作为数据磁盘。 此选项假定通过[创建托管数据磁盘](create-managed-disk-ps.md)创建了托管数据磁盘。 
-
-```powershell
-$vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
-```
+>[!NOTE]
+> Azure 中国区尚无法使用 Azure 托管磁盘。
 
 ### <a name="option-2-attach-a-vhd-that-is-in-an-existing-storage-account"></a>选项 2：附加现有存储帐户中的 VHD
 

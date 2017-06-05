@@ -30,7 +30,7 @@ ms.lasthandoff: 04/06/2017
 务必安装最新的 Azure PowerShell 模块，以确保具有维护和创建规模集所需的 PowerShell cmdlet。
 转到[此处](http://aka.ms/webpi-azps)的命令行工具，获取最新的可用 Azure 模块。
 
-若要查找 VMSS 相关的 cmdlet，请使用搜索字符串 \*VMSS\*。 例如，_gcm *vmss*_
+若要查找 VMSS 相关的 cmdlet，请使用搜索字符串 \*VMSS\*。 例如，_gcm \*vmss\*_
 
 ## <a name="creating-a-vmss"></a>创建 VMSS
 #### <a name="create-resource-group"></a>创建资源组
