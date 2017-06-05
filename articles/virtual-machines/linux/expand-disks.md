@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 中扩展 Linux VM 上的虚拟硬盘 | Azure"
-description: "了解如何使用 Azure CLI 2.0 在 Linux VM 上扩展虚拟硬盘"
+title: "使用 Azure CLI 1.0 扩展 Linux VM 上的 OS 磁盘 | Azure"
+description: "了解如何使用 Azure CLI 1.0 和 Resource Manager 部署模型扩展 Linux VM 上的操作系统 (OS) 虚拟磁盘"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -12,63 +12,65 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/22/2017
+ms.date: 02/10/2017
 wacn.date: 
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 9f2eb7520d1ae882cb1d29074e6fc42c74085b9f
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
+ms.openlocfilehash: ac837ea672be97fe89ce7fc30833f3dad8e006e1
+ms.lasthandoff: 04/06/2017
+
 
 ---
 
-# <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli-20"></a>如何使用 Azure CLI 2.0 在 Linux VM 上扩展虚拟硬盘
-在 Azure 的 Linux 虚拟机 (VM) 上，操作系统 (OS) 的默认虚拟硬盘大小通常为 30 GB。 可通过[添加数据磁盘](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)来扩充存储空间，也可扩展 OS 磁盘或现有的数据磁盘。 本文详述如何使用 Azure CLI 2.0 扩展 Linux VM 的托管磁盘。 也可使用 [Azure CLI 1.0](expand-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 扩展非托管 OS 磁盘。
+# <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>结合使用 Azure CLI 和 Azure CLI 1.0 扩展 Linux VM 上的 OS 磁盘
+在 Azure 的 Linux 虚拟机 (VM) 上，操作系统 (OS) 的默认虚拟硬盘大小通常为 30 GB。 可以通过[添加数据磁盘](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)来扩充存储空间，也可扩展 OS 磁盘。 本文详述如何使用 Azure CLI 1.0 为使用非托管磁盘的 Linux VM 扩展 OS 磁盘
 
-## <a name="expand-managed-disk"></a>扩展托管磁盘
-确保已安装了最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) 并已使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录到 Azure 帐户。
+## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
+可使用以下 CLI 版本之一完成任务：
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+- [Azure CLI 1.0](#prerequisites) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
+- Azure CLI 2.0 - 由于托管磁盘在 Azure 中国暂时还不能使用，所以此功能不能用 CLI 2.0 实现
+
+## <a name="prerequisites"></a>先决条件
+需要安装[最新的 Azure CLI 1.0](../../cli-install-nodejs.md)，然后按如下所示，使用 Resource Manager 模式登录 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)：
+
+```azurecli
+azure config mode arm
+```
 
 在以下示例中，请将示例参数名称替换为你自己的值。 示例参数名称包括 `myResourceGroup` 和 `myVM`。
 
-1. 当 VM 正在运行时，无法执行虚拟硬盘上的操作。 使用 [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate) 解除分配 VM。 以下示例在名为 `myResourceGroup` 的资源组中解除分配名为 `myVM` 的 VM：
+## <a name="expand-os-disk"></a>扩展 OS 磁盘
+
+1. VM 正在运行时，无法在虚拟硬盘上执行操作。 以下示例在名为 `myResourceGroup` 的资源组中停止和释放名为 `myVM` 的 VM：
 
     ```azurecli
-    az vm deallocate --resource-group myResourceGroup --name myVM
+    azure vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
     > [!NOTE]
-    > `az vm stop` 不释放计算资源。 若要释放计算资源，请使用 `az vm deallocate`。 只有释放 VM 才能扩展虚拟硬盘。
+    > `azure vm stop` 不释放计算资源。 若要释放计算资源，请使用 `azure vm deallocate`。 只有释放 VM 才能扩展虚拟硬盘。
 
-2. 使用 [az disk list](https://docs.microsoft.com/cli/azure/disk#list) 查看资源组中的托管磁盘列表。 以下示例显示名为 `myResourceGroup` 的资源组中的托管磁盘列表：
-
-    ```azurecli
-    az disk list -g myResourceGroup \
-        --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' \
-        --output table
-    ```
-
-    使用 [az disk update](https://docs.microsoft.com/cli/azure/disk#update) 扩展所需磁盘。 以下示例将名为 `myDataDisk` 的托管磁盘的大小扩展为 `200` GB：
+2. 使用 `azure vm set` 命令更新 OS 非托管磁盘的大小。 以下示例将名为 `myResourceGroup` 的资源组中名为 `myVM` 的 VM 更新为 `50` GB：
 
     ```azurecli
-    az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 200
+    azure vm set --resource-group myResourceGroup --name myVM --new-os-disk-size 50
     ```
 
-    > [!NOTE]
-    > 扩展托管磁盘时，更新的大小会映射到最近的托管磁盘大小。 有关可用托管磁盘大小和层的表，请参阅 [Azure 托管磁盘概述 - 定价和计费](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#pricing-and-billing)。
-
-3. 使用 [az vm start](https://docs.microsoft.com/cli/azure/vm#start) 启动 VM。 以下示例在名为 `myResourceGroup` 的资源组中启动名为 `myVM` 的 VM：
+3. 启动 VM，如下所示：
 
     ```azurecli
-    az vm start --resource-group myResourceGroup --name myVM
+    azure vm start --resource-group myResourceGroup --name myVM
     ```
 
-4. 使用适当的凭据，通过 SSH 登录到 VM。 若要验证是否已调整 OS 磁盘的大小，请使用 `df -h`。 以下示例输出显示主分区 (`/dev/sda1`) 现在为 200 GB：
+4. 使用相应的凭据通过 SSH 连接到 VM。 若要验证是否已调整 OS 磁盘的大小，请使用 `df -h`。 以下示例输出显示主分区 (`/dev/sda1`) 现在为 50 GB：
 
     ```bash
-    Filesystem      Size   Used  Avail Use% Mounted on
-    /dev/sdc1        194G   52M   193G   1% /datadrive
+    Filesystem      Size  Used Avail Use% Mounted on
+    udev            1.7G     0  1.7G   0% /dev
+    tmpfs           344M  5.0M  340M   2% /run
+    /dev/sda1        49G  1.3G   48G   3% /
     ```
 
 ## <a name="next-steps"></a>后续步骤

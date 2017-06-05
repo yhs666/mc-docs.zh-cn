@@ -37,7 +37,7 @@ ms.lasthandoff: 04/06/2017
 
 ## <a name="ssh-keys-use-and-benefits"></a>SSH 密钥的使用和优势
 
-Azure 要求至少 2048 位的 SSH 协议版本 2 RSA 格式的公钥和私钥；公钥文件使用 `.pub` 容器格式。 （经典管理门户使用 `.pem` 文件格式。 请参阅 ）为了创建密钥，将使用 `ssh-keygen`（会询问一系列问题），然后编写私钥和匹配的公钥。 创建 Azure VM 以后，Azure 将公钥复制到 VM 中的 `~/.ssh/authorized_keys` 文件夹。 `~/.ssh/authorized_keys` 中的 SSH 密钥用于在 SSH 登录连接时质询客户端以匹配相应的私钥。  使用 SSH 密钥创建 Azure Linux VM 进行身份验证时，Azure 会将 SSHD 服务器配置为不允许密码登录，仅允许 SSH 密钥登录。  因此，使用 SSH 密钥创建 Azure Linux VM 可确保 VM 部署的安全，不必进行通常在部署完后需要进行的配置步骤（即在 **sshd_config** 文件中禁用密码）。
+Azure 要求至少 2048 位的 SSH 协议版本 2 RSA 格式的公钥和私钥；公钥文件使用 `.pub` 容器格式。 （经典管理门户使用 `.pem` 文件格式为了创建密钥，将使用 `ssh-keygen`（会询问一系列问题），然后编写私钥和匹配的公钥。 创建 Azure VM 以后，Azure 将公钥复制到 VM 中的 `~/.ssh/authorized_keys` 文件夹。 `~/.ssh/authorized_keys` 中的 SSH 密钥用于在 SSH 登录连接时质询客户端以匹配相应的私钥。  使用 SSH 密钥创建 Azure Linux VM 进行身份验证时，Azure 会将 SSHD 服务器配置为不允许密码登录，仅允许 SSH 密钥登录。  因此，使用 SSH 密钥创建 Azure Linux VM 可确保 VM 部署的安全，不必进行通常在部署完后需要进行的配置步骤（即在 **sshd_config** 文件中禁用密码）。
 
 ## <a name="using-ssh-keygen"></a>使用 ssh-keygen
 
@@ -58,7 +58,7 @@ ssh-keygen \
 
 `ssh-keygen` = 用于创建密钥的程序
 
-`-t rsa` = 要创建的密钥的类型，采用 RSA 格式 [wikipedia](https://en.wikipedia.org/wiki/RSA_(cryptosystem)
+`-t rsa` = 要创建的密钥的类型，采用 RSA 格式 [wikipedia](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
 
 `-b 2048` = 密钥的位数
 

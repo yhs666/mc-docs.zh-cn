@@ -40,7 +40,7 @@ ms.lasthandoff: 04/14/2017
         az group create --name myResourceGroup --location chinanorth
         ```
 
-    * 此示例使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建名为 `myVM` 的 VM，将最新 Debian 映像与 Azure 托管磁盘以及名为 `id_rsa.pub` 的公钥配合使用：
+    * 此示例使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建名为 `myVM` 的 VM，将最新 Debian 映像与 Azure 非托管磁盘以及名为 `id_rsa.pub` 的公钥配合使用：
 
         ```azurecli
         az vm create \
@@ -50,10 +50,9 @@ ms.lasthandoff: 04/14/2017
         --public-ip-address-dns-name myPublicDNS \
         --resource-group myResourceGroup \
         --location chinanorth \
-        --name myVM
+        --name myVM \
+        --use-unmanaged-disk
         ```
-
-        * 若要使用非托管磁盘，请向上面的命令添加 `--use-unmanaged-disks` 标志。 将为你创建存储帐户。 有关详细信息，请参阅 [Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md)。
 
 * [使用 Azure 模板创建受保护的 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -70,13 +69,6 @@ ms.lasthandoff: 04/14/2017
     * 包括在可用性集中创建负载均衡器和多个 VM。
 
 * [将磁盘添加到 Linux VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-    * 以下示例使用 [az vm disk attach-new](https://docs.microsoft.com/cli/azure/vm/disk#attach-new) 将 50 Gb 托管磁盘添加到名为 `myVM` 的现有 VM：
-
-        ```azurecli
-        az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk  \
-        --new --size-gb 50
-        ```
 
 ## <a name="azure-portal-preview"></a>Azure 门户预览
 在 [Azure 门户预览](https://portal.azure.cn) 中可以快速创建 VM，因为不需要在系统上安装任何组件。 使用 Azure 门户预览创建 VM：

@@ -30,8 +30,6 @@ ms.lasthandoff: 05/05/2017
 
 如果要基于存储帐户中的专用 VHD 创建 VM，请参阅[从专用 VHD 创建 VM](create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-若要了解如何使用托管磁盘而不是存储帐户中的磁盘，请参阅[创建托管 VM 映像](capture-image-resource.md)和[从托管映像创建 VM](create-vm-generalized-managed.md)。
-
 ## <a name="prerequisites"></a>先决条件
 如果打算使用从本地 VM 上传的 VHD（类似于使用 Hyper-V 创建的 VHD），应确保遵循[准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 中的说明。 
 

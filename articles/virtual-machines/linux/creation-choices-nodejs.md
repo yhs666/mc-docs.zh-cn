@@ -108,7 +108,6 @@ azure vm image list --location ChinaNorth --publisher Canonical --offer UbuntuSe
 | CoreOS |CoreOS |CoreOS |Stable |最新 |
 | Debian |credativ |Debian |8 |最新 |
 | openSUSE |SUSE |openSUSE |13.2 |最新 |
-| RHEL |Redhat |RHEL |7.2 |最新 |
 | SLES |SLES |SLES |12-SP1 |最新 |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.3-LTS |最新 |
 

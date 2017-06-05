@@ -50,8 +50,7 @@ ms.lasthandoff: 04/14/2017
 ```azurecli
 az group create --name myResourceGroup --location chinanorth
 ```
-
-此后续步骤是可选的。 使用 Azure CLI 2.0 创建 VM 时的默认操作是使用 Azure 托管磁盘。 有关 Azure 托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md)。 如果要改为使用非托管磁盘，需要使用 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) 创建存储帐户。 以下示例创建一个名为 `mystorageaccount` 的存储帐户。 （存储帐户名称必须唯一，因此，请提供自己的唯一名称。）
+使用非托管磁盘，需要使用 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) 创建存储帐户。 以下示例创建一个名为 `mystorageaccount` 的存储帐户。 （存储帐户名称必须唯一，因此，请提供自己的唯一名称。）
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location chinanorth \
@@ -166,7 +165,7 @@ az vm availability-set create --resource-group myResourceGroup --location chinan
   --platform-fault-domain-count 3 --platform-update-domain-count 2
 ```
 
-使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create)创建第一个 Linux VM。 以下示例使用 Azure 托管磁盘创建名为 `myVM1` 的 VM。 如果想要使用非托管磁盘，请参阅下面的附加说明。
+使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create)创建第一个 Linux VM。 以下示例使用 Azure 非托管磁盘创建名为 `myVM1` 的 VM。
 
 ```azurecli
 az vm create \
@@ -177,14 +176,9 @@ az vm create \
     --nics myNic1 \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username azureuser
-```
-
-如果使用 Azure 托管磁盘，请跳过此步骤。 如果想要使用非托管磁盘，并且已在前面的步骤中创建了存储帐户，则需要将一些附加参数添加到正在执行的命令中。 将以下附加参数添加到正在执行的命令，在名为 `mystorageaccount`的存储帐户中创建非托管磁盘： 
-
-```azurecli
-  --use-unmanaged-disk \
-  --storage-account mystorageaccount
+    --admin-username azureuser \
+    --use-unmanaged-disk \
+    --storage-account mystorageaccount
 ```
 
 再次使用 **az vm create**创建第二个 Linux VM。 以下示例创建名为 `myVM2`的 VM：
@@ -198,15 +192,10 @@ az vm create \
     --nics myNic2 \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username azureuser
+    --admin-username azureuser \
+    --use-unmanaged-disk \
+    --storage-account mystorageaccount
 ```
-
-同样，如果不使用默认 Azure 托管磁盘，请将以下附加参数添加到正在执行的命令，在名为 `mystorageaccount`的存储帐户中创建非托管磁盘：
-
-```azurecli
-  --use-unmanaged-disk \
-  --storage-account mystorageaccount
-``` 
 
 使用 [az vm show](https://docs.microsoft.com/cli/azure/vm#show)验证所有项是否均已正确生成：
 
@@ -250,9 +239,8 @@ az group create --name myResourceGroup --location chinanorth
 ```
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
-此后续步骤是可选的。 使用 Azure CLI 2.0 创建 VM 时的默认操作是使用 Azure 托管磁盘。 这些磁盘由 Azure 平台处理，无需任何准备或位置来存储它们。 有关 Azure 托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md)。 如果想要使用 Azure 托管磁盘，请跳到 [创建虚拟网络和子网](#create-a-virtual-network-and-subnet) 。 
 
-如果想要使用非托管磁盘，需要为 VM 磁盘和想要添加的其他任何数据磁盘创建存储帐户。
+使用非托管磁盘，需要为 VM 磁盘和想要添加的其他任何数据磁盘创建存储帐户。
 
 此处，我们使用 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create)，并传递帐户的位置、控制该帐户的资源组，以及所需的存储支持类型。 以下示例创建名为 `mystorageaccount`的存储帐户：
 
@@ -409,7 +397,7 @@ az network public-ip create --resource-group myResourceGroup --location chinanor
 公共 IP 地址资源已经以逻辑方式分配，但尚未分配有特定地址。 若要获取 IP 地址，需要一个负载均衡器，但该负载均衡器尚未创建。
 
 ## <a name="create-a-load-balancer-and-ip-pools"></a>创建负载均衡器和 IP 池
-创建负载均衡器时，可以将流量分散到多个 VM。 负载平衡器还可以在执行维护或承受重负载时运行多个 VM 来响应用户请求，为应用程序提供冗余。 以下示例使用 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) 创建一个名为 `myLoadBalancer` 的负载均衡器、一个名为 `myFrontEndPool` 的前端 IP 池，并挂接 `myPublicIP` 资源：
+创建负载均衡器时，可以将流量分散到多个 VM。 负载均衡器还可以在执行维护或承受重负载时运行多个 VM 来响应用户请求，为应用程序提供冗余。 以下示例使用 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) 创建一个名为 `myLoadBalancer` 的负载均衡器、一个名为 `myFrontEndPool` 的前端 IP 池，并挂接 `myPublicIP` 资源：
 
 ```azurecli
 az network lb create --resource-group myResourceGroup --location chinanorth \
@@ -1002,7 +990,7 @@ az vm availability-set create --resource-group myResourceGroup --location chinan
 
 我们还将指定要用于身份验证的 SSH 密钥。 如果你没有任何 SSH 密钥，可以根据[这些说明](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)创建它们。 或者，可以在创建 VM 之后，使用 `--admin-password` 方法对 SSH 连接进行身份验证。 此方法通常不太安全。
 
-我们使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 命令并结合所有资源和信息来创建 VM。 以下示例使用 Azure 托管磁盘创建一个名为 `myVM1` 的 VM。 如果想要使用非托管磁盘，请参阅下面的附加说明。
+我们使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 命令并结合所有资源和信息来创建 VM。 以下示例使用 Azure 非托管磁盘创建一个名为 `myVM1` 的 VM。
 
 ```azurecli
 az vm create \
@@ -1013,14 +1001,9 @@ az vm create \
     --nics myNic1 \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username azureuser
-```
-
-如果使用 Azure 托管磁盘，请跳过此步骤。 如果想要使用非托管磁盘，并且已在前面的步骤中创建了存储帐户，则需要将一些附加参数添加到正在执行的命令中。 将以下附加参数添加到正在执行的命令，在名为 `mystorageaccount`的存储帐户中创建非托管磁盘： 
-
-```azurecli
-  --use-unmanaged-disk \
-  --storage-account mystorageaccount
+    --admin-username azureuser \
+    --use-unmanaged-disk \
+    --storage-account mystorageaccount
 ```
 
 输出：
@@ -1075,14 +1058,9 @@ az vm create \
     --nics myNic2 \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username azureuser
-```
-
-同样，如果不使用默认 Azure 托管磁盘，请将以下附加参数添加到正在执行的命令，在名为 `mystorageaccount` 的存储帐户中创建非托管磁盘：
-
-```azurecli
-  --use-unmanaged-disk \
-  --storage-account mystorageaccount
+    --admin-username azureuser \
+    --use-unmanaged-disk \
+    --storage-account mystorageaccount
 ```
 
 此时，已在 Azure 中运行了一个位于负载均衡器后面的 Ubuntu VM，只能使用 SSH 密钥对登录到该 VM（因为密码已禁用）。 可以安装 nginx 或 httpd、部署 Web 应用，以及查看流量是否通过负载均衡器流向两个 VM。

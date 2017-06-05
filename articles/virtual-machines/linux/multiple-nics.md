@@ -79,7 +79,7 @@ az network nic create --resource-group myResourceGroup --name myNic2 \
 ## <a name="create-a-vm-and-attach-the-nics"></a>创建 VM 并附加 NIC
 创建 VM 时，请使用 `--nics`指定所创建的 NIC。 还需要谨慎选择 VM 的大小。 可添加到 VM 的 NIC 数目有限制。 详细了解 [Linux VM 大小](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 
 
-使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 以下示例使用 [Azure 托管磁盘](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)创建一个名为 `myVM` 的 VM：
+使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 以下示例使用 Azure 非托管磁盘创建一个名为 `myVM` 的 VM：
 
 ```azurecli
 az vm create \
@@ -89,7 +89,8 @@ az vm create \
     --size Standard_DS2_v2 \
     --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --nics myNic1 myNic2
+    --nics myNic1 myNic2 \
+    --use-unmanaged-disk
 ```
 
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>使用 Resource Manager 模板创建多个 NIC

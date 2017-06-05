@@ -48,7 +48,14 @@ ms.lasthandoff: 04/14/2017
 | 容器名称 |`azure storage container list -a <sourcestorageaccountname>` |
 | 源 VM VHD 文件名 |`azure storage blob list --container <containerName>` |
 
-* 需要对新 VM 做出一些选择：   <br> -容器名称    <br> -VM 名称    <br> -VM 大小    <br> -vNet 名称    <br> -子网名称    <br> -IP 名称    <br> -NIC 名称
+* 需要对新 VM 做出一些选择：
+    - 容器名称
+    - VM 名称
+    - VM 大小
+    - vNet 名称
+    - 子网名称
+    - IP 名称
+    - NIC 名称
 
 ## <a name="login-and-set-your-subscription"></a>登录并设置订阅
 1. 登录到 CLI。

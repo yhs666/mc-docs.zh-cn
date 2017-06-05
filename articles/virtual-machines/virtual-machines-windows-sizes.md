@@ -32,7 +32,7 @@ ms.lasthandoff: 05/05/2017
 >* 有关不同大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)。 
 >* 若要查看 Azure VM 的一般限制，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
 >* 存储成本根据存储帐户中的已使用页数进行单独计算。 有关详细信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)。
-> * 了解有关 [Azure 计算单元 (ACU)](windows/acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。
+>* 了解有关 [Azure 计算单元 (ACU)](windows/acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。
 >
 >
 <br>    
@@ -41,7 +41,7 @@ ms.lasthandoff: 05/05/2017
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [常规用途](virtual-machines-windows-sizes-general.md)          | DSv2、Dv2、DS、D、Av2、A0-7 | CPU 与内存之比平衡。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 |
 | [计算优化](virtual-machines-windows-sizes-compute.md)        | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        |
-| [内存优化](virtual-machines-windows-sizes-memory.md)         | GS, G, DSv2, DS   | 高内存与内核之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
+| [内存优化](virtual-machines-windows-sizes-memory.md)         | DSv2, DS, Dv2, D   | 高内存与内核之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
 
 <br>
 

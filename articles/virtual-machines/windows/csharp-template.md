@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>使用 C# 和 Resource Manager 模板部署 Azure 虚拟机
 本文介绍如何使用 C# 部署 Azure Resource Manager 模板。 此[模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json)在包含单个子网的新虚拟网络中部署运行 Windows Server 的单个虚拟机。
 
-有关虚拟机资源的详细说明，请参阅 [Azure Resource Manager 模板中的虚拟机](template-description.md)。 有关模板中所有资源的详细信息，请参阅 [Azure Resource Manager 模板演练](../../azure-resource-manager/resource-manager-template-walkthrough.md)。
+有关虚拟机资源的详细说明，请参阅 [Azure Resource Manager 模板中的虚拟机](template-description.md)。
 
 完成这些步骤大约需要 10 分钟。
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 04/06/2017
     - 将 *myResourceGroup* 替换为要创建的资源组的名称。
     - 将 *subscriptionId* 替换为订阅标识符。 在 Azure 门户预览的“订阅”边栏选项卡上，可找到订阅标识符。
     - 将 *deploymentName* 替换为部署的名称。
-    - 将 *location* 替换为想要在其中创建资源的 [Azure 区域](https://azure.microsoft.com/regions/)。
+    - 将 *location* 替换为想要在其中创建资源的 Azure 区域。
 
 2. 将以下方法添加到 Program 类，以创建资源组：
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 04/06/2017
       string subscriptionId,
       string location)
     {
-      var resourceManagementClient = new ResourceManagementClient(credential)
+      var resourceManagementClient = new ResourceManagementClient(new Uri("https://management.chinacloudapi.cn/"), credential)
         { SubscriptionId = subscriptionId };
 
       Console.WriteLine("Creating the resource group...");
@@ -186,7 +186,7 @@ ms.lasthandoff: 04/06/2017
       string subscriptionId)
     {
 
-      var resourceManagementClient = new ResourceManagementClient(credential)
+      var resourceManagementClient = new ResourceManagementClient(new Uri("https://management.chinacloudapi.cn/"), credential)
         { SubscriptionId = subscriptionId };
 
       Console.WriteLine("Creating the template deployment...");

@@ -146,7 +146,7 @@ az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecov
 2. 现在从 VM 中分离虚拟硬盘。 退出故障排除 VM 的 SSH 会话。 使用 [az vm unmanaged-disk list](https://docs.microsoft.com/cli/azure/vm/unmanaged-disk#list) 列出附加到故障排除 VM 的数据磁盘。 以下示例列出附加到名为 `myResourceGroup` 的资源组中名为 `myVMRecovery` 的 VM 的数据磁盘：
 
     ```azurecli
-    azure vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
+    az vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
         --query '[].{Disk:vhd.uri}' --output table
     ```
 

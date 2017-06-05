@@ -31,7 +31,7 @@ ms.author: kyliel
 
 - **Azure 订阅** - 如果你没有帐户，只需花费几分钟就能创建一个帐户。请参阅[创建试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-- **Azure PowerShell 工具** - 必须安装 Azure PowerShell 模块并将其配置为使用你的 Azure 订阅。若要下载该模块，请参阅 [Azure 下载](https://www.azure.cn/downloads/)。可在此处获取介绍如何安装和配置该模块的教程。使用 [Azure 下载](https://www.azure.cn/downloads/) cmdlet 上载 VHD。
+- **Azure PowerShell 工具** - 必须安装 Azure PowerShell 模块并将其配置为使用你的 Azure 订阅。若要下载该模块，请参阅 [Azure 下载](/downloads/)。可在此处获取介绍如何安装和配置该模块的教程。使用 [Azure 下载](/downloads/) cmdlet 上载 VHD。
 
 - **安装在 .vhd 文件中的 FreeBSD 操作系统** - 必须将受支持的 FreeBSD 操作系统安装到虚拟硬盘。可使用多个工具创建 .vhd 文件。例如，可使用虚拟化解决方案（如 Hyper-V）创建 .vhd 文件并安装操作系统。有关如何安装和使用 Hyper-V 的说明，请参阅[安装 Hyper-V 和创建虚拟机](http://technet.microsoft.com/zh-cn/library/hh846766.aspx)。
 

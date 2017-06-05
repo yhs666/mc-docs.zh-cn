@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 模板中的虚拟机
 
-本文介绍 Azure Resource Manager 模板中与虚拟机相关的方面。 本文不会介绍用于创建虚拟机的完整模板；在完整的模板中，需要提供存储帐户、网络接口、公共 IP 地址和虚拟网络的资源定义。 有关如何统一定义这些资源的详细信息，请参阅 [Resource Manager 模板演练](../../azure-resource-manager/resource-manager-template-walkthrough.md)。
+本文介绍 Azure Resource Manager 模板中与虚拟机相关的方面。 本文不会介绍用于创建虚拟机的完整模板；在完整的模板中，需要提供存储帐户、网络接口、公共 IP 地址和虚拟网络的资源定义。
 
 [在库中](https://github.com/Azure/azure-quickstart-templates/?term=VM) 有许多包含 VM 资源的模板。 本文并未介绍可在模板中包含的所有元素。
 
@@ -64,6 +64,10 @@ ms.lasthandoff: 04/06/2017
         }, 
         "osDisk": { 
           "name": "[concat('myOSDisk', copyindex())]" 
+          "vhd": { 
+            "uri": "[concat('https://', variables('storageName'), 
+              '.blob.core.chinacloudapi.cn/vhds/myOSDisk', copyindex(),'.vhd')]" 
+          }, 
           "caching": "ReadWrite", 
           "createOption": "FromImage" 
         }
@@ -72,6 +76,10 @@ ms.lasthandoff: 04/06/2017
             "name": "[concat('myDataDisk', copyindex())]",
             "diskSizeGB": "100",
             "lun": 0,
+            "vhd": {
+              "uri": "[concat('https://', variables('storageName'), 
+                '.blob.core.chinacloudapi.cn/vhds/myDataDisk', copyindex(),'.vhd')]"
+            },  
             "createOption": "Empty"
           }
         ] 
@@ -234,17 +242,12 @@ ms.lasthandoff: 04/06/2017
 另请注意，在本示例中，为资源指定某些值时使用了循环索引。 例如，如果输入实例计数 3，则操作系统磁盘的名称是 myOSDisk1、myOSDisk2 和 myOSDisk3：
 
 ```
-"osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
-  "caching": "ReadWrite", 
-  "createOption": "FromImage" 
-}
+"vhd": { 
+  "uri": "[concat('https://', variables('storageName'), 
+    '.blob.core.chinacloudapi.cn/vhds/myOSDisk', 
+    copyindex(),'.vhd')]" 
+},
 ```
-
-> [!NOTE] 
->此示例将托管磁盘用于虚拟机。
->
->
 
 请记住，如果为模板中的一个资源创建了循环，则创建或访问其他资源时，可能需要使用该循环。 例如，多个 VM 不能使用同一个网络接口，因此，如果模板反复创建三个 VM，则它也必须反复创建三个网络接口。 将网络接口分配到 VM 时，会使用循环索引来标识该接口：
 
@@ -279,6 +282,22 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
 ```
 
 若要设置此属性，网络接口必须存在。 因此，需要指定依赖关系。 如果在一个资源（父级）内部定义了另一个资源（子级），则也需要设置依赖关系。 例如，诊断设置和自定义脚本扩展都定义为虚拟机的子资源。 只有存在该虚拟机，才能创建这些子资源。 因此，这两个资源都标记为依赖于该虚拟机。
+
+你可能会疑惑，为什么虚拟机资源不依赖于存储帐户？虚拟机包含指向存储帐户的元素。
+
+```
+"osDisk": { 
+  "name": "[concat('myOSDisk', copyindex())]" 
+  "vhd": { 
+    "uri": "[concat('https://', variables('storageName'), 
+      '.blob.core.chinacloudapi.cn/vhds/myOSDisk', copyindex(),'.vhd')]" 
+  }, 
+  "caching": "ReadWrite", 
+  "createOption": "FromImage" 
+}
+```
+
+在这种情况下，我们假设存储帐户已存在。如果存储帐户部署在同一个模板中，则需要设置与存储帐户之间的依赖关系。
 
 ## <a name="profiles"></a>配置文件
 
@@ -318,64 +337,83 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
 },
 ```
 
-操作系统磁盘的配置设置是使用 osDisk 元素分配的。 此示例定义了一个新的托管磁盘，其缓存模式设置为 **ReadWrite**，并且该磁盘是从[平台映像](cli-ps-findimage.md)创建的：
+磁盘的配置设置是使用 osDisk 元素分配的。本示例定义了磁盘存储中的位置、磁盘的缓存模式，以及要从[平台映像](cli-ps-findimage.md)创建磁盘：
 
 ```
 "osDisk": { 
   "name": "[concat('myOSDisk', copyindex())]",
+  "vhd": { 
+    "uri": "[concat('https://', variables('storageName'), 
+      '.blob.core.chinacloudapi.cn/vhds/myOSDisk', copyindex(),'.vhd')]" 
+  }, 
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
 }
 ```
 
-### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>从现有托管磁盘创建新虚拟机
+### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>从现有磁盘创建新虚拟机
 
 若要从现有磁盘创建虚拟机，请删除 imageReference 和 osProfile 元素，然后定义以下磁盘设置：
 
 ```
 "osDisk": { 
+  "name": "[concat('myOSDisk', copyindex())]", 
   "osType": "Windows",
-  "managedDisk": { 
-    "id": "[resourceId('Microsoft.Compute/disks', [concat('myOSDisk', copyindex())])]" 
+  "vhd": { 
+    "[concat('https://', variables('storageName'),
+      '.blob.core.chinacloudapi.cn/vhds/myOSDisk', copyindex(),'.vhd')]" 
   }, 
   "caching": "ReadWrite",
   "createOption": "Attach" 
 }
 ```
 
-### <a name="create-new-virtual-machines-from-a-managed-image"></a>从托管映像创建新虚拟机
+在本示例中，uri 指向现有的 vhd 文件，而不是新文件的位置。createOption 设置为附加现有磁盘。
 
-若要从托管映像创建虚拟机，请更改 imageReference 元素，然后定义以下磁盘设置：
+### <a name="create-new-virtual-machines-from-a-managed-image"></a>从自定义映像创建新虚拟机
+
+若要从[自定义映像](upload-image.md)创建虚拟机，请删除 imageReference 元素，然后定义以下磁盘设置：
 
 ```
-"storageProfile": { 
-  "imageReference": {
-    "id": "[resourceId('Microsoft.Compute/images', 'myImage')]"
+"osDisk": { 
+  "name": "[concat('myOSDisk', copyindex())]",
+  "osType": "Windows", 
+  "vhd": { 
+    "uri": "[concat('https://', variables('storageName'), 
+      '.blob.core.chinacloudapi.cn/vhds/myOSDisk', copyindex(),'.vhd')]"
   },
-  "osDisk": { 
-    "name": "[concat('myOSDisk', copyindex())]",
-    "osType": "Windows",
-    "caching": "ReadWrite", 
-    "createOption": "FromImage" 
-  }
+  "image": {
+    "uri": "[concat('https://', variables('storageName'), 
+      'blob.core.chinacloudapi.cn/images/myImage.vhd"
+  },
+  "caching": "ReadWrite", 
+  "createOption": "FromImage" 
 }
 ```
 
+在本示例中，vhd uri 指向新磁盘的存储位置，映像 uri 指向要使用的自定义映像。
+
 ### <a name="attach-data-disks"></a>附加数据磁盘
 
-可以选择性地将数据磁盘添加到 VM。 [磁盘数目](../virtual-machines-windows-sizes.md)取决于要使用的操作系统磁盘的大小。 如果 VM 的大小设置为 Standard_DS1_v2，则可添加到 VM 的数据磁盘数目上限为 2。 在本示例中，将向每个 VM 添加一个托管数据磁盘：
+可以选择性地将数据磁盘添加到 VM。 [磁盘数目](../virtual-machines-windows-sizes.md)取决于要使用的操作系统磁盘的大小。 如果 VM 的大小设置为 Standard_DS1_v2，则可添加到 VM 的数据磁盘数目上限为 2。 在本示例中，将向每个 VM 添加一个数据磁盘：
 
 ```
 "dataDisks": [
   {
     "name": "[concat('myDataDisk', copyindex())]",
     "diskSizeGB": "100",
-    "lun": 0, 
+    "lun": 0,
+    "vhd": {
+      "uri": "[concat('https://', variables('storageName'), 
+        '.blob.core.chinacloudapi.cn/vhds/myDataDisk', copyindex(),'.vhd')]"
+    },  
     "caching": "ReadWrite",
     "createOption": "Empty"
   }
 ]
 ```
+
+本示例中的 vhd 是为磁盘创建的新文件。可将 uri 设置为现有 vhd，将 createOption 设置为 **Attach**。
 
 ## <a name="extensions"></a>扩展
 

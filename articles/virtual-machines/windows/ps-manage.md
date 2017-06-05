@@ -30,7 +30,7 @@ ms.lasthandoff: 04/06/2017
 有关安装最新版 Azure PowerShell、选择订阅和登录到帐户的信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 
 > [!NOTE]
-> 可能需要重新安装 Azure PowerShell 才能使用本文中的功能。 版本 3.5 和更高版本提供托管磁盘功能。
+> 可能需要重新安装 Azure PowerShell 才能使用本文中的功能。
 > 
 > 
 
@@ -194,40 +194,7 @@ Restart-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM
 
 ### <a name="managed-data-disk"></a>托管数据磁盘
 
-```powershell
-$diskConfig = New-AzureRmDiskConfig -AccountType PremiumLRS -Location $location -CreateOption Empty -DiskSizeGB 128
-$dataDisk = New-AzureRmDisk -DiskName "myDataDisk1" -Disk $diskConfig -ResourceGroupName $myResourceGroup
-$vm = Get-AzureRmVM -Name $myVM -ResourceGroupName $myResourceGroup
-Add-AzureRmVMDataDisk -VM $vm -Name "myDataDisk1" -VhdUri "https://mystore1.blob.core.chinacloudapi.cn/vhds/myDataDisk1.vhd" -LUN 0 -Caching ReadWrite -DiskSizeinGB 1 -CreateOption Empty
-Update-AzureRmVM -ResourceGroupName $myResourceGroup -VM $vm
-```
-
-运行 Add-AzureRmVMDataDisk 以后，所看到的结果应如以下示例所示：
-
-    ResourceGroupName        : myResourceGroup
-    Id                       : /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/
-                               Microsoft.Compute/virtualMachines/myVM
-    VmId                     : ########-####-####-####-############
-    Name                     : myVM
-    Type                     : Microsoft.Compute/virtualMachines
-    Location                 : chinaeast
-    Tags                     : {}
-    AvailabilitySetReference : {Id}
-    DiagnosticsProfile       : {BootDiagnostics}
-    HardwareProfile          : {VmSize}
-    NetworkProfile           : {NetworkInterfaces}
-    OSProfile                : {ComputerName, AdminUsername, WindowsConfiguration, Secrets}
-    ProvisioningState        : Succeeded
-    StorageProfile           : {ImageReference, OsDisk, DataDisks}
-    DataDiskNames            : {myDataDisk1}
-    NetworkInterfaceIDs      : {/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/
-                               Microsoft.Network/networkInterfaces/myNIC}
-
-运行 Update-AzureRmVM 以后，所看到的结果应如以下示例所示：
-
-    RequestId IsSuccessStatusCode StatusCode ReasonPhrase
-    --------- ------------------- ---------- ------------
-                             True         OK OK
+Azure 中国目前暂时不支持托管磁盘
 
 ### <a name="unmanaged-data-disk"></a>非托管数据磁盘
 

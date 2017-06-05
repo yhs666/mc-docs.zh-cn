@@ -133,7 +133,7 @@ Tomcat 运行后，可通过在虚拟机浏览器中输入 URL <http://localhost
     让 Tomcat 自动启动的好处是，在虚拟机重启时（例如在安装需重启的软件更新后），Tomcat 即开始运行。
 
 ## <a name="next-steps"></a>后续步骤
-可了解可能要在 Java 应用程序中包含的其他服务（例如 Azure 存储、服务总线和 SQL 数据库）。 查看 [Java 开发人员中心](https://www.azure.cn/develop/java/)上提供的信息。
+可了解可能要在 Java 应用程序中包含的其他服务（例如 Azure 存储、服务总线和 SQL 数据库）。 查看 [Java 开发人员中心](/develop/java/)上提供的信息。
 
 [virtual_machine_tomcat]: ./media/java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
 

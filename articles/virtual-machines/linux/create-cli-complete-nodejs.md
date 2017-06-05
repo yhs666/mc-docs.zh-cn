@@ -31,7 +31,7 @@ ms.lasthandoff: 04/14/2017
 该环境包含：
 
 * 两个位于可用性集中的 VM。
-* 端口 80 上有一个带负载平衡规则的负载均衡器。
+* 端口 80 上有一个带负载均衡规则的负载均衡器。
 * 网络安全组 (NSG) 规则，阻止 VM 接受不需要的流量。
 
 ![基本环境概述](../media/virtual-machines-linux-create-cli-complete/environment_overview.png)
