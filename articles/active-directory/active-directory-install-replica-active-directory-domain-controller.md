@@ -102,7 +102,7 @@ DC 将使用 Active Directory 复制功能在彼此之间以及与本地 DC 相�
 
 ## <a name="additional-resources"></a>其他资源
 - [在 Azure 虚拟机上部署 Windows Server Active Directory 的指南](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-- [如何使用 Azure PowerShell 将现有的本地 Hyper-V 域控制器上载到 Azure](http://support.microsoft.com/zh-cn/kb/2904015)
+- [如何使用 Azure PowerShell 将现有的本地 Hyper-V 域控制器上传到 Azure](http://support.microsoft.com/zh-cn/kb/2904015)
 - [在 Azure 虚拟网络中安装新的 Active Directory 林](active-directory-new-forest-virtual-machine.md)
 - [Azure 虚拟网络](../virtual-network/virtual-networks-overview.md)
 - [Azure IT Pro IaaS：(01) 虚拟机基础知识](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)

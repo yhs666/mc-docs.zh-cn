@@ -29,8 +29,9 @@
 ### [将 VM 与虚拟网络或云服务连接](connect-vms.md)
 
 ## 部署映像
-### [创建并上载 VHD](create-upload-vhd.md)
-### [创建并上载 FreeBSD VHD](freebsd-create-upload-vhd.md)
+### [创建并上传 VHD](create-upload-vhd.md)
+### [创建并上传 FreeBSD VHD](freebsd-create-upload-vhd.md)
+### [Oracle VM 映像列表](oracle-images.md)
 
 ## 管理工作负荷
 ### MySQL 和 MariaDB
@@ -40,7 +41,7 @@
 #### [优化 MySQL 性能](optimize-mysql.md)
 
 ## 运行应用程序
-### [Ruby on Rails Web 应用程序](../linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)
+### [Ruby on Rails Web 应用程序](virtual-machines-linux-classic-ruby-rails-web-app.md)
 ### [Cassandra 和 Node.js 客户端](cassandra-nodejs.md)
 ### [LAMP 堆栈](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)

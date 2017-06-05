@@ -150,7 +150,7 @@
 # 如何
 ## [处理设备到云的消息教程 (.NET)](iot-hub-csharp-csharp-process-d2c.md)
 ## [处理设备到云的消息教程 (Java)](iot-hub-java-java-process-d2c.md)
-## [从设备上载文件的教程](iot-hub-csharp-csharp-file-upload.md)
+## [从设备上传文件的教程](iot-hub-csharp-csharp-file-upload.md)
 ## [发送云到设备的消息 (.NET)](iot-hub-csharp-csharp-c2d.md)
 ## [发送云到设备的消息 (Java)](iot-hub-java-java-c2d.md)
 ## [发送云到设备的消息 (Node)](iot-hub-node-node-c2d.md)
@@ -176,7 +176,7 @@
 ### [发送和接收消息](iot-hub-devguide-messaging.md)
 ### [设备到云功能指南](iot-hub-devguide-d2c-guidance.md)
 ### [云到设备功能指南](iot-hub-devguide-c2d-guidance.md)
-### [从设备上载文件](iot-hub-devguide-file-upload.md)
+### [从设备上传文件](iot-hub-devguide-file-upload.md)
 ### [管理设备标识](iot-hub-devguide-identity-registry.md)
 ### [控制 IoT 中心的访问权限](iot-hub-devguide-security.md)
 ### [了解设备孪生](iot-hub-devguide-device-twins.md)

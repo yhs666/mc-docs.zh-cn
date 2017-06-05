@@ -14,7 +14,7 @@ ms.lasthandoff: 05/26/2017
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/service-bus-relay/relay-what-is-it">
+        <a href="/azure/service-bus-relay/relay-what-is-it">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -50,7 +50,7 @@ ms.lasthandoff: 05/26/2017
         </a>
     </li>
     <li>
-        <a href="/service-bus-relay/relay-create-namespace-portal">
+        <a href="/azure/service-bus-relay/relay-create-namespace-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -68,7 +68,7 @@ ms.lasthandoff: 05/26/2017
         </a>
     </li>    
     <li>
-        <a href="/service-bus-relay/relay-hybrid-connections-dotnet-get-started">
+        <a href="/azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,7 +86,7 @@ ms.lasthandoff: 05/26/2017
         </a>
     </li>
     <li>
-        <a href="/service-bus-messaging/service-bus-sas">
+        <a href="/azure/service-bus-messaging/service-bus-sas">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -115,7 +115,7 @@ ms.lasthandoff: 05/26/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>示例</h3>
-                        <p><a href="/service-bus-relay/service-bus-relay-samples">服务总线中继示例</a></p>
+                        <p><a href="/azure/service-bus-relay/service-bus-relay-samples">服务总线中继示例</a></p>
                     </div>
                 </div>
             </div>

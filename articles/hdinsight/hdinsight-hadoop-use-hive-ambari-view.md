@@ -43,7 +43,7 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="open-the-hive-view"></a>打开 Hive 视图
 
-可从 Azure 门户预览版中获取 Ambari 视图；选择 HDInsight 群集，然后从“快速链接”部分选择“Ambari 视图”。
+可从 Azure 门户预览中获取 Ambari 视图；选择 HDInsight 群集，然后从“快速链接”部分选择“Ambari 视图”。
 
 ![“快速链接”部分](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 05/26/2017
     * `SELECT` - 选择 t4 列包含值 [ERROR] 的所有行的计数。
 
     > [!NOTE]
-    > 如果希望通过外部源更新基础数据，应使用外部表。 例如，自动执行的数据上载过程，或其他 MapReduce 操作。 删除外部表 *不会* 删除数据，只会删除表定义。
+    > 如果希望通过外部源更新基础数据，应使用外部表。 例如，自动执行的数据上传过程，或其他 MapReduce 操作。 删除外部表 *不会* 删除数据，只会删除表定义。
 
 2. 若要启动查询，请单击查询编辑器底部的“执行”  按钮。 该按钮将变为橙色并且文本将更改为“停止执行” 。 “查询进程结果”  部分应出现在“查询编辑器”下方，并显示有关作业的信息。
 

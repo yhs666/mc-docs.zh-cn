@@ -25,6 +25,8 @@
 ### [配置角色的流量规则](cloud-services-enable-communication-role-instances.md)
 ### [处理云服务生命周期事件](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
+### [使用 Twilio 拨打电话 (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
+### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### 配置启动任务
 #### [创建启动任务](cloud-services-startup-tasks.md)
@@ -89,6 +91,7 @@
 #### [使用持续传送实现远程调试](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [适用于云服务的选项](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [使用 Visual Studio 调用本地云服务](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
+#### [使用 Visual Studio 调试已发布的云服务](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)
 ### [云服务分配失败](cloud-services-allocation-failures.md)
 ### [云服务角色回收的常见原因](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)
 ### [角色的默认 TEMP 文件夹大小太小](cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md)

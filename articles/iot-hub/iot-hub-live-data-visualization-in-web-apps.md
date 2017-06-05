@@ -38,7 +38,7 @@ ms.lasthandoff: 05/26/2017
 - 在 Azure 门户中创建一个 Azure Web 应用。
 - 添加一个使用者组，让 IoT 中心做好数据访问准备。
 - 将 Web 应用配置为从 IoT 中心读取传感器数据。
-- 上载要在 Web 应用中托管的 Web 应用程序。
+- 上传要在 Web 应用中托管的 Web 应用程序。
 - 打开该 Web 应用，查看 IoT 中心的实时温度和湿度数据。
 
 ## <a name="what-you-need"></a>需要什么
@@ -73,9 +73,9 @@ ms.lasthandoff: 05/26/2017
 
    ![将包含键值对的设置添加到 Azure Web 应用](./media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
 
-## <a name="upload-a-web-application-to-be-hosted-by-the-web-app"></a>上载要在 Web 应用中托管的 Web 应用程序
+## <a name="upload-a-web-application-to-be-hosted-by-the-web-app"></a>上传要在 Web 应用中托管的 Web 应用程序
 
-我们在 GitHub 中提供了一个 Web 应用程序，它可以显示 IoT 中心的实时传感器数据。 你只需将 Web 应用配置为使用 Git 存储库，从 GitHub 下载该 Web 应用程序，然后将它上载到 Azure，以便在 Web 应用中托管。
+我们在 GitHub 中提供了一个 Web 应用程序，它可以显示 IoT 中心的实时传感器数据。 你只需将 Web 应用配置为使用 Git 存储库，从 GitHub 下载该 Web 应用程序，然后将它上传到 Azure，以便在 Web 应用中托管。
 
 1. 在 Web 应用中，单击“部署选项” > “选择源” > “本地 Git 存储库”。
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 05/26/2017
    ![获取 Azure Web 应用的 git 克隆 URL](./media/iot-hub-live-data-visualization-in-web-apps/7_web-app-git-clone-url-azure.png)
 
 1. 在本地计算机上打开命令提示符或终端窗口。
-1. 从 GitHub 下载 Web 应用程序并将它上载到 Azure，以便在 Web 应用中托管。 为此，请运行以下命令：
+1. 从 GitHub 下载 Web 应用程序并将它上传到 Azure，以便在 Web 应用中托管。 为此，请运行以下命令：
 
    ```bash
    git clone https://github.com/Azure-Samples/web-apps-node-iot-hub-data-visualization.git

@@ -86,7 +86,7 @@ ms.lasthandoff: 05/26/2017
 
 **从 Visual Studio 连接到 Azure 门户预览**
 
-* 在“服务器资源管理器”中，展开“Azure” > “HDInsight”，右键单击 HDInsight 群集，然后单击“在 Azure 门户预览版中管理群集”。
+* 在“服务器资源管理器”中，展开“Azure” > “HDInsight”，右键单击 HDInsight 群集，然后单击“在 Azure 门户预览中管理群集”。
 
 **通过 Visual Studio 提出问题并提供反馈**
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 05/26/2017
 
 ![用于 Visual Studio 的 Data Lake 工具服务器资源管理器列出所链接的资源](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.linked.resources.png "列出所链接的资源")
 
-打开容器后，可使用以下按钮来上载、删除和下载 Blob：
+打开容器后，可使用以下按钮来上传、删除和下载 Blob：
 
 ![用于 Visual Studio 的 Data Lake 工具服务器资源管理器 Blob 操作](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png "上传、删除和下载 Blob")
 
