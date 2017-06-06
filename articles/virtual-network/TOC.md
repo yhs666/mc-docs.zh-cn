@@ -92,7 +92,6 @@
 
 ### 安全方案
 #### [使用虚拟设备保护网络](virtual-network-scenario-udr-gw-nva.md)
-#### [云服务和网络安全](../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [使用 NSG 的简单外围网络](virtual-networks-dmz-nsg-asm.md)
 ##### [使用防火墙和 NSG 的外围网络](virtual-networks-dmz-nsg-fw-asm.md)
 ##### [使用防火墙、UDR 和 NSG 的外围网络](virtual-networks-dmz-nsg-fw-udr-asm.md)

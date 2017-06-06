@@ -1,11 +1,9 @@
 # 概述
 ## [关于 HDInsight 和 Hadoop](hdinsight-hadoop-introduction.md)
 ## [HDInsight 上的 Hadoop 组件](hdinsight-component-versioning.md)
-## [R Server](hdinsight-hadoop-r-server-overview.md)
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
 ## [HBase](hdinsight-hbase-overview.md)
 ## [Apache Storm](hdinsight-storm-overview.md)
-## [Kafka（预览版）](hdinsight-apache-kafka-introduction.md)
 ## 发行说明
 ### [最近](hdinsight-release-notes.md)
 ### [存档](hdinsight-release-notes-archive.md)
@@ -13,11 +11,9 @@
 # 入门
 ## [Hadoop 入门](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [Spark 入门](hdinsight-apache-spark-jupyter-spark-sql.md)
-## [从 R Server 开始](hdinsight-hadoop-r-server-get-started.md)
 ## [HBase 和 NoSQL 入门](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Storm 入门](hdinsight-apache-storm-tutorial-get-started-linux.md)
 ## [Interactive Hive（预览版）入门](hdinsight-hadoop-use-interactive-hive.md)
-## [Kafka（预览版）入门](hdinsight-apache-kafka-get-started.md)
 ## [Hadoop 沙盒](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake 工具与 Hortonworks 沙盒](hdinsight-hadoop-emulator-visual-studio.md)
 ## [适用于 Visual Studio 的工具](hdinsight-hadoop-visual-studio-tools-get-started.md)
@@ -49,11 +45,6 @@
 #### [使用远程桌面](hdinsight-hadoop-use-pig-remote-desktop.md)
 ### [将 DataFu 与 Pig 配合使用](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [提交 Hadoop 作业](hdinsight-submit-hadoop-jobs-programmatically.md)
-## 使用 R Server
-### [存储选项](hdinsight-hadoop-r-server-storage.md)
-### [安装 RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
-### [计算上下文](hdinsight-hadoop-r-server-compute-contexts.md)
-### [ScaleR 和 SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## 使用 Spark 进行内存中处理
 ### [使用 BI 工具](hdinsight-apache-spark-use-bi-tools.md)
 ### [创建独立应用](hdinsight-apache-spark-create-standalone-application.md)
@@ -89,11 +80,6 @@
 #### [处理车辆传感器数据](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [关联各个时间的事件](hdinsight-storm-correlation-topology.md)
 #### [使用 Python 开发拓扑](hdinsight-storm-develop-python-topology.md)
-## 使用 Kafka（预览版）
-### [复制 Kafka 数据](hdinsight-apache-kafka-mirroring.md)
-### [与虚拟网络配合使用](hdinsight-apache-kafka-connect-vpn-gateway.md)
-### [与 Spark 配合使用](hdinsight-apache-spark-with-kafka.md)
-### [与 Storm 配合使用](hdinsight-apache-storm-with-kafka.md)
 ## 开发
 ### [开发 C# 流式处理 MapReduce 程序](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [开发 Java MapReduce 程序](hdinsight-develop-deploy-java-mapreduce-linux.md)

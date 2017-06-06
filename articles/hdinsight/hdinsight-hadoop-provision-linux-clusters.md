@@ -63,8 +63,6 @@ Azure HDInsight 目前提供了以下几种群集类型，每种类型都具有�
 | [HBase](hdinsight-hbase-overview.md) |NoSQL 数据存储 |
 | [Storm](hdinsight-storm-overview.md) |实时事件处理 |
 | [Spark](hdinsight-apache-spark-overview.md) |内存中处理、交互式查询、微批流处理 |
-| [Kafka（预览版）](hdinsight-apache-kafka-introduction.md) | 分布式流式处理平台，可用于构建实时流数据管道和应用程序 |
-| [R Server](hdinsight-hadoop-r-server-overview.md) |各种不同的大数据统计信息、预测模型和机器学习功能 |
 | [交互式 Hive（预览版）](hdinsight-hadoop-use-interactive-hive.md) |更快的交互式 Hive 查询的内存中缓存 |
 
 每个群集类型在群集中具有自身的节点数目、在群集中使用自身的节点术语，对每个节点类型具有默认的 VM 大小。 下表中的括号内列出了每个节点类型的节点数目。
@@ -117,14 +115,6 @@ Azure HDInsight 目前提供了以下几种群集类型，每种类型都具有�
 
 ### <a name="version"></a>Version
 此选项用于确定该群集所需的 HDInsight 版本。 有关详细信息，请参阅[支持的 HDInsight 版本](hdinsight-component-versioning.md#supported-hdinsight-versions)。
-
-### <a name="cluster-tiers"></a>群集层
-
-Azure HDInsight 提供了两个类别的大数据云产品/服务：标准和高级。  有关详细信息，请参阅 [HDInsight Standard 和 HDInsight Premium]](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)。
-
-以下屏幕截图显示了用于选择群集类型的 Azure 门户预览信息。
-
-![HDInsight 高级版配置](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
 
 ### <a name="credentials"></a>凭据
 使用 HDInsight 群集时，可以在群集创建期间配置两个用户帐户：

@@ -45,7 +45,6 @@ HDInsight 上的 Spark 群集提供完全托管的 Spark 服务。 下面列出�
 | 易于使用 |HDInsight 中的 Spark 群集包括 Jupyter 和 Zeppelin Notebook。 你可以使用这些笔记本执行交互式数据处理和可视化。|
 | REST API |HDInsight 中的 Spark 群集包含 [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)，它是基于 REST-API 的 Spark 作业服务器，用于远程提交和监视作业。 |
 | 与 Azure 服务集成 |HDInsight 上的 Spark 群集随附了 Azure 事件中心的连接器。 除了 Spark 提供的 [Kafka](http://kafka.apache.org/)之外，客户还可以使用事件中心来生成流式处理应用程序。 |
-| 支持 R Server | 可以在 HDInsight Spark 群集上设置 R Server，以 Spark 群集承诺的速度运行分布式 R 计算。 有关详细信息，请参阅 [开始使用 HDInsight 上的 R Server](hdinsight-hadoop-r-server-get-started.md)。 |
 | 与第三方 IDE 集成 | HDInsight 为 IntelliJ IDEA 和 Eclipse 之类的 IDE 提供插件，可以使用这些插件创建应用程序并将其提交到 HDInsight Spark 群集。 |
 | 并发查询 |HDInsight 中的 Spark 群集支持并发查询。 它允许一个用户运行多个查询，或者不同的用户运行多个查询，以及让应用程序共享相同的群集资源。 |
 | SSD 缓存 |你可以选择将数据缓存在内存中，或缓存在已附加到群集节点的 SSD 中。 内存缓存提供最佳的查询性能，但可能费用不菲；SSD 缓存是改善查询性能的绝佳选项，而且你不需要根据内存中的整个数据集创建满足其需求的群集规模。 |
