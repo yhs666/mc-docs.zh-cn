@@ -31,7 +31,7 @@ ms.author: iainfou
 
 ## 安装 MongoDB
 > [!IMPORTANT]
-默认情况下，不启用 MongoDB 安全功能，例如身份验证和 IP 地址绑定。在将 MongoDB 部署到生产环境之前，应启用安全功能。有关详细信息，请参阅 [MongoDB Security and Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication)（MongoDB 安全性和身份验证）。
+> 默认情况下，不启用 MongoDB 安全功能，例如身份验证和 IP 地址绑定。在将 MongoDB 部署到生产环境之前，应启用安全功能。有关详细信息，请参阅 [MongoDB Security and Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication)（MongoDB 安全性和身份验证）。
 > 
 > 
 
@@ -70,7 +70,7 @@ ms.author: iainfou
         ```
 
         > [!NOTE]
-        请务必添加前置分号 \(`;`\)，指明要将一个位置添加到 `PATH` 变量。
+        > 请务必添加前置分号 \(`;`\)，指明要将一个位置添加到 `PATH` 变量。
         > 
         > 
 2. 在数据磁盘上创建 MongoDB 数据和日志目录。在“开始”菜单中，选择“命令提示符”。以下示例在 F: 驱动器中创建目录：
@@ -157,7 +157,7 @@ New-NetFirewallRule -DisplayName "Allow MongoDB" -Direction Inbound `
 如有需要，创建一个网络安全组规则，以允许从现有 Azure 虚拟网络子网外部访问 MongoDB。可使用 [Azure 门户预览](nsg-quickstart-portal.md)或 [Azure PowerShell](nsg-quickstart-powershell.md) 创建网络安全组规则。与创建 Windows 防火墙规则时一样，允许通过 TCP 端口 27017 连接到 MongoDB VM 的虚拟网络接口。
 
 > [!NOTE]
-TCP 端口 27017 是 MongoDB 使用的默认端口。可以在启动 `mongod.exe` 时使用 `--port` 参数手动更改此端口，或者通过某个服务更改此端口。如果更改了端口，请确保在前面的步骤中更新 Windows 防火墙和网络安全组规则。
+> TCP 端口 27017 是 MongoDB 使用的默认端口。可以在启动 `mongod.exe` 时使用 `--port` 参数手动更改此端口，或者通过某个服务更改此端口。如果更改了端口，请确保在前面的步骤中更新 Windows 防火墙和网络安全组规则。
 > 
 > 
 

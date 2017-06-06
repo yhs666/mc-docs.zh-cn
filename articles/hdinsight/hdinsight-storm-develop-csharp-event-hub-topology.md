@@ -32,14 +32,14 @@ Azure 事件中心可处理网站、应用和设备的大量数据。借助事�
 * **EventHubReader**：从事件中心读取数据并将数据记录到 Storm 日志中
 
 > [!NOTE] 
-如需此项目的 Java 版，请参阅[使用 Storm on HDInsight 从 Azure 事件中心处理事件 (Java)](./hdinsight-storm-develop-java-event-hub-topology.md)。
+> 如需此项目的 Java 版，请参阅[使用 Storm on HDInsight 从 Azure 事件中心处理事件 (Java)](./hdinsight-storm-develop-java-event-hub-topology.md)。
 
 ## SCP.NET
 
 这些项目使用 SCP.NET，后者是一个 NuGet 包，方便用户创建适用于 Storm on HDInsight 的 C# 拓扑和组件。
 
 > [!IMPORTANT]
-虽然本文档中的步骤依赖于带 Visual Studio 的 Windows 开发环境，但是也可将编译的项目提交到使用 Linux 的 Storm on HDInsight 群集。__仅在 2016 年 10 月 28 日以后创建的基于 Linux 的群集支持 SCP.NET 拓扑。__
+> 虽然本文档中的步骤依赖于带 Visual Studio 的 Windows 开发环境，但是也可将编译的项目提交到使用 Linux 的 Storm on HDInsight 群集。__仅在 2016 年 10 月 28 日以后创建的基于 Linux 的群集支持 SCP.NET 拓扑。__
 
 ### 群集版本控制
 
@@ -48,7 +48,7 @@ Azure 事件中心可处理网站、应用和设备的大量数据。借助事�
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 HDInsight 3.4 及更高版本使用 Mono 运行 C# 拓扑。大多数功能适用于 Mono。但应查看 [Mono 兼容性](http://www.mono-project.com/docs/about-mono/compatibility/)文档，了解可能的不兼容性。
 
@@ -59,7 +59,7 @@ C# 拓扑还必须针对 .NET 4.5 运行。
 Microsoft 提供一组 Java 组件，适用于与 Storm 拓扑中的 Azure 事件中心通信。如需包含这些组件的最新版本的 jar 文件，可访问 [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/)。
 
 > [!IMPORTANT]
-虽然组件是以 Java 编写的，但可通过 C# 拓扑轻松使用它们。
+> 虽然组件是以 Java 编写的，但可通过 C# 拓扑轻松使用它们。
 
 此示例使用了以下组件：
 
@@ -93,7 +93,7 @@ topologyBuilder.SetEventHubSpout(
 上面的示例创建了名为 __EventHubSpout__ 的全新 Spout 组件，并将其配置为与事件中心通信。组件的并行度提示设置为事件中心的分区数。此设置允许 Storm 为每个分区创建一个组件实例。
 
 > [!WARNING]
-从 2017 年 1 月 1 日开始，使用 SetEventHubSpout 和 EventHubSpoutConfig 方法创建的 Spout 可以在从事件中心读取数据时使用 String 编码。
+> 从 2017 年 1 月 1 日开始，使用 SetEventHubSpout 和 EventHubSpoutConfig 方法创建的 Spout 可以在从事件中心读取数据时使用 String 编码。
 
 创建 Spout 时，也可使用泛型 JavaComponentConstructor 方法。以下示例演示如何使用 JavaComponentConstructor 方法创建 Spout。它还演示了如何将 Spout 配置为使用 UTF-8 编码而非 String 来读取数据。
 
@@ -131,7 +131,7 @@ topologyBuilder.SetJavaSpout("EventHubSpout", eventHubSpout, eventHubPartitions)
 ```
 
 > [!IMPORTANT]
-UnicodeEventDataScheme 仅在 9.5 版事件中心组件中提供，该版本可从 [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/) 获取。
+> UnicodeEventDataScheme 仅在 9.5 版事件中心组件中提供，该版本可从 [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/) 获取。
 
 ### Bolt 用法示例
 
@@ -163,7 +163,7 @@ topologyBuilder.SetJavaBolt(
 ```
 
 > [!NOTE]
-该示例使用以字符串形式传递的 Clojure 表达式，而不是像 Spout 示例那样使用 JavaComponentConstructor 创建 EventHubBoltConfig。上述任一方法均有效。使用最适合你的方法。
+> 该示例使用以字符串形式传递的 Clojure 表达式，而不是像 Spout 示例那样使用 JavaComponentConstructor 创建 EventHubBoltConfig。上述任一方法均有效。使用最适合你的方法。
 
 ## 下载已完成的项目
 
@@ -174,7 +174,7 @@ topologyBuilder.SetJavaBolt(
 * 一个 [3\.5 版 Apache Storm on HDInsight 群集](./hdinsight-apache-storm-tutorial-get-started-linux.md)
 
     > [!WARNING]
-    本文档中使用的示例需要 3.5 版 Storm on HDInsight。由于重大类名更改，该示例不适用于旧版 HDInsight。如需此示例的版本（兼容旧式群集），请参阅 [https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases)。
+    > 本文档中使用的示例需要 3.5 版 Storm on HDInsight。由于重大类名更改，该示例不适用于旧版 HDInsight。如需此示例的版本（兼容旧式群集），请参阅 [https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases)。
 
 * [Azure 事件中心](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 

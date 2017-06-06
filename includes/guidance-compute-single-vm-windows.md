@@ -3,7 +3,7 @@
 本文概述了在 Azure 上运行 Windows 虚拟机 (VM) 的一套经过验证的做法，这些做法注重可扩展性、可用性、可管理性和安全性。
 
 > [!NOTE]
-Azure 有两个不同的部署模型：[Azure Resource Manager][resource-manager-overview] 和经典模型。本文使用 Resource Manager，Azure 建议将它用于新部署。
+> Azure 有两个不同的部署模型：[Azure Resource Manager][resource-manager-overview] 和经典模型。本文使用 Resource Manager，Azure 建议将它用于新部署。
 > 
 > 
 
@@ -120,7 +120,7 @@ azure vm deallocate <resource-group> <vm-name>
 **操作。** 使用[基于角色的访问控制][rbac] (RBAC) 来控制对你部署的 Azure 资源的访问权限。RBAC 允许你将授权角色分配给开发运营团队的成员。例如，“读者”角色可以查看 Azure 资源，但不能创建、管理或删除这些资源。某些角色特定于特定的 Azure 资源类型。例如，“虚拟机参与者”角色可以执行重启或解除分配 VM、重置管理员密码、创建新的 VM 等操作。可能对此参考体系结构有用的其他[内置 RBAC 角色][rbac-roles]包括 [DevTest Lab 用户][rbac-devtest]和[网络参与者][rbac-network]。可将用户分配给多个角色，并且可以创建自定义角色以实现更细化的权限。
 
 > [!NOTE]
-RBAC 不限制已登录到 VM 的用户可以执行的操作。这些权限由来宾 OS 上的帐户类型决定。
+> RBAC 不限制已登录到 VM 的用户可以执行的操作。这些权限由来宾 OS 上的帐户类型决定。
 > 
 > 
 

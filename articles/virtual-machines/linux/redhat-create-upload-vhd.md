@@ -99,7 +99,7 @@ ms.lasthandoff: 05/05/2017
     图形引导和无人参与引导不适用于云环境，在该环境中我们想要将所有日志都发送到串行端口。  如果需要，可以保留配置的 `crashkernel` 选项。 请注意，此参数可以将虚拟机中的可用内存量减少 128 MB 或更多。 在遇到较小的虚拟机大小时，此配置可能会有问题。
 
     >[!Important]
-    RHEL 6.5 和更早版本还必须设置 `numa=off` 内核参数。 请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
+    > RHEL 6.5 和更早版本还必须设置 `numa=off` 内核参数。 请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
 
 11. 请确保安全外壳 (SSH) 服务器已安装且已配置为在引导时启动（默认采用此配置）。 修改 /etc/ssh/sshd_config 以包含以下行：
 
@@ -285,7 +285,7 @@ ms.lasthandoff: 05/05/2017
     图形引导和无人参与引导不适用于云环境，在该环境中我们想要将所有日志都发送到串行端口。 如果需要，可以保留配置的 `crashkernel` 选项。 请注意，此参数可以将虚拟机中的可用内存量减少 128 MB 或更多，遇到较小的虚拟机大小时，此配置可能会有问题。
 
     >[!Important]
-    RHEL 6.5 和更早版本还必须设置 `numa=off` 内核参数。 请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
+    > RHEL 6.5 和更早版本还必须设置 `numa=off` 内核参数。 请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
 
 10. 将 Hyper-V 模块添加到 initramfs 中：  
 

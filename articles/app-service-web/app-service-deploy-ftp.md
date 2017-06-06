@@ -37,7 +37,7 @@ ms.author: cephalin;dariac
     ![FTP 连接信息](./media/web-sites-deploy/FTP-Connection-Info.PNG)  
 
     > [!NOTE]
-    必须输入 Azure 门户预览中显示的“FTP/部署用户”值（包括应用名称），以便为 FTP 服务器提供适当的上下文。在左侧菜单中选择“属性”时，可以找到相同信息。
+    > 必须输入 Azure 门户预览中显示的“FTP/部署用户”值（包括应用名称），以便为 FTP 服务器提供适当的上下文。在左侧菜单中选择“属性”时，可以找到相同信息。
     >
     > 此外，永远不会显示部署密码。如果忘记了部署密码，请返回到[步骤 1](#step1)，重置部署密码。
     >
@@ -50,7 +50,7 @@ ms.author: cephalin;dariac
 4. 浏览到你的应用的 URL，以验证该应用是否正在正常运行。
 
 > [!NOTE] 
-与[基于 Git 的部署](./app-service-deploy-local-git.md)不同，FTP 部署不支持以下部署自动化：
+> 与[基于 Git 的部署](./app-service-deploy-local-git.md)不同，FTP 部署不支持以下部署自动化：
 >
 > - 依赖项还原（如 NuGet、NPM、PIP 和 Composer 自动化）
 > - 编译 .NET 二进制文件 

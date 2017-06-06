@@ -278,7 +278,7 @@ require_once(ABSPATH. 'wp-settings.php');
     ![交换 WordPress 的预览更改](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)  
 
     > [!NOTE]
-    如果方案需要仅推送文件（而不推送数据库更新），那么在执行**交换**操作前，在 Azure 门户预览的“Web 应用设置”边栏选项卡中，选中所有数据库相关的 *应用设置* 和 *连接字符串设置* 的“槽设置”。在此情况下，执行**交换**操作时，不应在预览更改中显示 DB\_NAME、DB\_HOST、DB\_PASSWORD、DB\_USER 和默认连接字符串设置。在此情况下，完成**交换**操作后，WordPress Web 应用只具有更新文件。
+    > 如果方案需要仅推送文件（而不推送数据库更新），那么在执行**交换**操作前，在 Azure 门户预览的“Web 应用设置”边栏选项卡中，选中所有数据库相关的 *应用设置* 和 *连接字符串设置* 的“槽设置”。在此情况下，执行**交换**操作时，不应在预览更改中显示 DB\_NAME、DB\_HOST、DB\_PASSWORD、DB\_USER 和默认连接字符串设置。在此情况下，完成**交换**操作后，WordPress Web 应用只具有更新文件。
     >
     >
 

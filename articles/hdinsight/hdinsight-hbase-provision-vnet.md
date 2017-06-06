@@ -38,7 +38,7 @@ ms.author: jgao
 在本部分中，通过 [Azure Resource Manager 模板](../azure-resource-manager/resource-group-template-deploy.md)在 Azure 虚拟网络中使用从属 Azure 存储帐户创建基于 Linux 的 HBase 群集。对于其他群集创建方法以及了解设置，请参阅 [Create HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md)（创建 HDInsight 群集）。有关使用模板在 HDInsight 中创建 Hadoop 群集的详细信息，请参阅[使用 Azure Resource Manager 模板在 HDInsight 中创建 Hadoop 群集](./hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]
-某些属性已在模板中硬编码。例如：
+> 某些属性已在模板中硬编码。例如：
 >
 > * **位置**：中国东部
 > * **群集版本**：3.5
@@ -82,7 +82,7 @@ ms.author: jgao
     * **子网**：subnet1
 
     > [!IMPORTANT]
-    使用在之前步骤中创建 HDInsight 群集时使用的名称替换<群集名称>。
+    > 使用在之前步骤中创建 HDInsight 群集时使用的名称替换<群集名称>。
     >
     >
 
@@ -248,7 +248,7 @@ ms.author: jgao
 ```
 
 > [!NOTE]
-有关 Azure 虚拟网络中的名称解析的详细信息，包括如何使用自己的 DNS 服务器，请参阅[名称解析 (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
+> 有关 Azure 虚拟网络中的名称解析的详细信息，包括如何使用自己的 DNS 服务器，请参阅[名称解析 (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 >
 >
 

@@ -119,7 +119,7 @@ azure group create --name myResourceGroup --location ChinaNorth \
 ```
 
 > [!NOTE]
-创建部署后的几秒内，Azure CLI 会返回到提示符，但安装和配置需要几分钟才能完成。使用 `azure group deployment show myResourceGroup` 检查部署状态，并相应地输入资源组的名称。等到 `ProvisioningState` 显示“成功”，然后尝试通过 SSH 连接到 VM。
+> 创建部署后的几秒内，Azure CLI 会返回到提示符，但安装和配置需要几分钟才能完成。使用 `azure group deployment show myResourceGroup` 检查部署状态，并相应地输入资源组的名称。等到 `ProvisioningState` 显示“成功”，然后尝试通过 SSH 连接到 VM。
 > 
 > 
 
@@ -158,7 +158,7 @@ test
 * [CentOS 上的 MongoDB 分片群集](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
-部署这种复杂 MongoDB 分片群集需要 20 个以上的核心（每个区域中一个订阅的默认核心计数通常为 20 个）。请提出 Azure 支持请求，以增加核心计数。
+> 部署这种复杂 MongoDB 分片群集需要 20 个以上的核心（每个区域中一个订阅的默认核心计数通常为 20 个）。请提出 Azure 支持请求，以增加核心计数。
 > 
 > 
 
@@ -173,7 +173,7 @@ azure group create --name myResourceGroup --location ChinaNorth \
 ```
 
 > [!NOTE]
-创建部署后的几秒内，Azure CLI 会返回到提示符，但安装和配置可能需要一小时以上才能完成。使用 `azure group deployment show myResourceGroup` 检查部署状态，并相应地调整资源组的名称。等到 `ProvisioningState` 显示“成功”，然后连接到 VM。
+> 创建部署后的几秒内，Azure CLI 会返回到提示符，但安装和配置可能需要一小时以上才能完成。使用 `azure group deployment show myResourceGroup` 检查部署状态，并相应地调整资源组的名称。等到 `ProvisioningState` 显示“成功”，然后连接到 VM。
 > 
 > 
 

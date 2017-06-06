@@ -54,7 +54,7 @@ ms.author: nitinme
     ![启动 YARN UI](./media/hdinsight-apache-spark-resource-manager/launch-yarn-ui.png)
 
     > [!TIP]
-    或者，也可以从 Ambari UI 启动 YARN UI。若要启动 Ambari UI，请在群集边栏选项卡中单击“群集仪表板”，然后单击“HDInsight 群集仪表板”。在 Ambari UI 中，依次单击“YARN”、“快速链接”、活动的 Resource Manager 和“ResourceManager UI”。
+    > 或者，也可以从 Ambari UI 启动 YARN UI。若要启动 Ambari UI，请在群集边栏选项卡中单击“群集仪表板”，然后单击“HDInsight 群集仪表板”。在 Ambari UI 中，依次单击“YARN”、“快速链接”、活动的 Resource Manager 和“ResourceManager UI”。
     >
     >
 

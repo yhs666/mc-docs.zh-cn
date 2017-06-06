@@ -23,7 +23,7 @@ ms.author: jgao
 了解如何使用 Ambari API 监视 HDInsight 群集。
 
 > [!NOTE]
-本文中的信息主要针对提供 Ambari REST API 只读版本的基于 Windows 的 HDInsight 群集。对于基于 Linux 的群集，请参阅[使用 Ambari 管理 Hadoop 群集](./hdinsight-hadoop-manage-ambari.md)。
+> 本文中的信息主要针对提供 Ambari REST API 只读版本的基于 Windows 的 HDInsight 群集。对于基于 Linux 的群集，请参阅[使用 Ambari 管理 Hadoop 群集](./hdinsight-hadoop-manage-ambari.md)。
 > 
 > 
 
@@ -40,7 +40,7 @@ HDInsight 目前仅支持 Ambari 监视功能。Ambari API 1.0 受 HDInsight 版
 * （可选）[cURL][curl]。若要安装它，请参阅 [cURL 版本和下载][curl-download]。
 
     > [!NOTE]
-    在 Windows 中使用 cURL 命令时，对选项值使用双引号而非单引号。
+    > 在 Windows 中使用 cURL 命令时，对选项值使用双引号而非单引号。
     > 
     > 
 * **一个 Azure HDInsight 群集**。有关群集预配的说明，请参阅[开始使用 HDInsight][hdinsight-get-started] 或[预配 HDInsight 群集][hdinsight-provision]。你需要以下数据才能完成本教程：

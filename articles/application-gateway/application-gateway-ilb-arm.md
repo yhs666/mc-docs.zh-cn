@@ -187,7 +187,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 此步骤会配置应用程序网关的实例大小。
 
 > [!NOTE]
-*InstanceCount* 的默认值为 2，最大值为 10。*GatewaySize* 的默认值为 Medium。可以在 Standard\_Small、Standard\_Medium 和 Standard\_Large 之间进行选择。
+> *InstanceCount* 的默认值为 2，最大值为 10。*GatewaySize* 的默认值为 Medium。可以在 Standard\_Small、Standard\_Medium 和 Standard\_Large 之间进行选择。
 
 ## 使用 New-AzureApplicationGateway 创建应用程序网关
 
@@ -246,7 +246,7 @@ Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 ```
 
 > [!NOTE]
-可以使用 **-force** 开关来禁止显示该删除的确认消息。
+> 可以使用 **-force** 开关来禁止显示该删除的确认消息。
 
 若要验证是否已删除服务，可以使用 `Get-AzureRmApplicationGateway` cmdlet。此步骤不是必需的。
 

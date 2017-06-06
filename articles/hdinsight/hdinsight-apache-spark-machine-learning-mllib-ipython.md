@@ -21,7 +21,7 @@ ms.author: nitinme
 
 # 机器学习：结合使用 MLlib 与 HDInsight 上的 Apache Spark 群集对食品检测数据进行预测分析
 > [!TIP]
-本教程也可用作在 HDInsight 中创建的 Spark (Linux) 群集上的 Jupyter 笔记本。笔记本体验将通过笔记本本身运行 Python 代码段。若要在笔记本中执行本教程，请创建 Spark 群集，启动 Jupyter 笔记本 (`https://CLUSTERNAME.azurehdinsight.cn/jupyter`)，然后运行 **Python** 文件夹下的笔记本“Spark 机器学习 - 使用 MLLib.ipynb 对食品检测数据进行预测分析”。
+> 本教程也可用作在 HDInsight 中创建的 Spark (Linux) 群集上的 Jupyter 笔记本。笔记本体验将通过笔记本本身运行 Python 代码段。若要在笔记本中执行本教程，请创建 Spark 群集，启动 Jupyter 笔记本 (`https://CLUSTERNAME.azurehdinsight.cn/jupyter`)，然后运行 **Python** 文件夹下的笔记本“Spark 机器学习 - 使用 MLLib.ipynb 对食品检测数据进行预测分析”。
 >
 >
 
@@ -53,7 +53,7 @@ ms.author: nitinme
 1. 在“Spark 群集”边栏选项卡中，单击“群集仪表板”，然后单击“Jupyter 笔记本”。出现提示时，请输入群集的管理员凭据。
 
     > [!NOTE]
-    也可以在浏览器中打开以下 URL 来访问群集的 Jupyter 笔记本。将 **CLUSTERNAME** 替换为群集的名称：
+    > 也可以在浏览器中打开以下 URL 来访问群集的 Jupyter 笔记本。将 **CLUSTERNAME** 替换为群集的名称：
     >
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
     >

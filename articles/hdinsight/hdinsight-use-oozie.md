@@ -56,7 +56,7 @@ Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。它与 Had
 2. Sqoop 操作将 HiveQL 输出导出到 Azure SQL 数据库中的表。有关 Sqoop 的详细信息，请参阅[将 Hadoop Sqoop 与 HDInsight 配合使用][hdinsight-use-sqoop]。
 
 > [!NOTE]
-有关在 HDInsight 群集上支持的 Oozie 版本，请参阅 [HDInsight 提供的 Hadoop 群集版本有哪些新增功能？][hdinsight-versions]。
+> 有关在 HDInsight 群集上支持的 Oozie 版本，请参阅 [HDInsight 提供的 Hadoop 群集版本有哪些新增功能？][hdinsight-versions]。
 > 
 > 
 

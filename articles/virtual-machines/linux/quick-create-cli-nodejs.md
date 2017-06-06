@@ -28,7 +28,7 @@ ms.lasthandoff: 05/05/2017
 本文说明如何使用 Azure 命令行接口 (LI ) 中的 `azure vm quick-create` 命令在 Azure 上快速部署 Linux 虚拟机 (VM)。 `quick-create` 命令可将 VM 部署在基本且安全的基础结构内，可让你快速构建原型或测试概念。
 
 > [!NOTE]
-若要使用 Azure CLI 2.0 创建 VM，请参阅[使用 Azure CLI 创建 VM](../windows/quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+> 若要使用 Azure CLI 2.0 创建 VM，请参阅[使用 Azure CLI 创建 VM](../windows/quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 也可以使用 [Azure 门户预览](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)快速部署 Linux VM。
 

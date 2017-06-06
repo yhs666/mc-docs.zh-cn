@@ -24,7 +24,7 @@ ms.author: nitinme
 了解如何使用 Giraph 通过脚本操作来自定义基于 Windows 的 HDInsight 群集，以及如何使用 Giraph 来处理大型关系图。有关在基于 Linux 的群集中使用 Giraph 的信息，请参阅[在 HDInsight Hadoop 群集 (Linux) 上安装 Giraph](./hdinsight-hadoop-giraph-install-linux.md)。
 
 > [!IMPORTANT]
-本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。有关如何在基于 Linux 的 HDInsight 群集上安装 Giraph 的信息，请参阅[在 HDInsight Hadoop 群集 (Linux) 上安装 Giraph](./hdinsight-hadoop-giraph-install-linux.md)。
+> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。有关如何在基于 Linux 的 HDInsight 群集上安装 Giraph 的信息，请参阅[在 HDInsight Hadoop 群集 (Linux) 上安装 Giraph](./hdinsight-hadoop-giraph-install-linux.md)。
 
 可以使用*脚本操作*，在 Azure HDInsight 的任何一种群集（Hadoop、Storm、HBase、Spark）上安装 Giraph。用于在 HDInsight 群集上安装 Giraph 的示例脚本可通过 [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1) 上的只读 Azure 存储 Blob 获得。示例脚本仅适用于 HDInsight 群集版本 3.1。有关 HDInsight 群集版本的详细信息，请参阅 [HDInsight 群集版本](./hdinsight-component-versioning.md)。
 
@@ -86,7 +86,7 @@ ms.author: nitinme
 2. 运行 SimpleShortestPathsComputation 示例。使用 tiny\_graph.txt 文件作为输入，通过以下 Azure PowerShell cmdlet 来运行该示例。
 
     > [!IMPORTANT]
-    Azure PowerShell 对于使用 Azure Service Manager 管理 HDInsight 资源的支持已**弃用**，将于 2017 年 1 月 1 日删除。本文档中的步骤使用的是与 Azure Resource Manager 兼容的新 HDInsight cmdlet。
+    > Azure PowerShell 对于使用 Azure Service Manager 管理 HDInsight 资源的支持已**弃用**，将于 2017 年 1 月 1 日删除。本文档中的步骤使用的是与 Azure Resource Manager 兼容的新 HDInsight cmdlet。
     >
     > 请按照 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)（安装和配置 Azure PowerShell）中的步骤安装最新版本的 Azure PowerShell。如果你的脚本需要修改才能使用与 Azure Resource Manager 兼容的新 cmdlet，请参阅[迁移到适用于 HDInsight 群集的基于 Azure Resource Manager 的开发工具](./hdinsight-hadoop-development-using-azure-resource-manager.md)，了解详细信息。
 

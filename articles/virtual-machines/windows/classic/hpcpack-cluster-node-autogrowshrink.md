@@ -82,7 +82,7 @@ Set-HpcClusterProperty -ExcludeNodeGroups <group1,group2,group3>
 ```
 
 >[!NOTE] 
-从 HPC Pack 2016 开始支持此参数
+> 从 HPC Pack 2016 开始支持此参数
 >
 
 ### <a name="AutoGrowShrink-parameters"></a>AutoGrowShrink 参数
@@ -92,7 +92,7 @@ Set-HpcClusterProperty -ExcludeNodeGroups <group1,group2,group3>
 * **ParamSweepTasksPerCore** - 用于扩展一个核心的参数扫描任务数目。默认为每个任务扩展一个核心。
 
   > [!NOTE]
-  HPC Pack QFE KB3134307 将 **ParamSweepTasksPerCore** 更改为 **TasksPerResourceUnit**。它基于作业资源类型，可以是节点、套接字或核心。
+  > HPC Pack QFE KB3134307 将 **ParamSweepTasksPerCore** 更改为 **TasksPerResourceUnit**。它基于作业资源类型，可以是节点、套接字或核心。
   >
   >
 * **GrowThreshold** - 用于触发自动扩展的排队任务的阈值。默认值为 1，这意味着，如果有 1 个或多个任务处于排队状态，将自动扩展节点。
@@ -104,18 +104,18 @@ Set-HpcClusterProperty -ExcludeNodeGroups <group1,group2,group3>
 * **SoaJobGrowThreshold** - 传入 SOA 请求以触发自动扩展过程的阈值。默认值为 50000。
 
   > [!NOTE]
-  从 HPC Pack 2012 R2 Update 3 开始支持此参数。
+  > 从 HPC Pack 2012 R2 Update 3 开始支持此参数。
   >
   >
 * **SoaRequestsPerCore** - 用于扩展一个核心的传入 SOA 请求数目。默认值为 20000。
 
   > [!NOTE]
-  从 HPC Pack 2012 R2 Update 3 开始支持此参数。
+  > 从 HPC Pack 2012 R2 Update 3 开始支持此参数。
   >
 * **ExcludeNodeGroups** - 指定的节点组中的节点不会自动扩展和收缩。
 
   > [!NOTE]
-  从 HPC Pack 2016 开始支持此参数。
+  > 从 HPC Pack 2016 开始支持此参数。
   >
 
 ### MPI 示例

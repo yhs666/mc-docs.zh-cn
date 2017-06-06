@@ -116,7 +116,7 @@ ms.author: cynthn
 如果 SSH 配置处于某种意外状态，你可能会丢失对 VM 的访问权限。可以使用 VMAccess 扩展将配置重置为其默认状态。为此，只需将“reset\_ssh”键设置为“True”。该扩展将重新启动 SSH 服务器，打开 VM 上的 SSH 端口，然后将 SSH 配置重置为默认值。将不会更改用户帐户（名称、密码或 SSH 密钥）。
 
 > [!NOTE]
-重置后的 SSH 配置文件位于 /etc/ssh/sshd\_config 中。
+> 重置后的 SSH 配置文件位于 /etc/ssh/sshd\_config 中。
 > 
 > 
 

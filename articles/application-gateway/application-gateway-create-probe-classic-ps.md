@@ -58,7 +58,7 @@ Get-AzureApplicationGateway AppGwTest
 ```
 
 > [!NOTE]
-*InstanceCount* 的默认值为 2，最大值为 10。*GatewaySize* 的默认值为 Medium。可以选择 Small、Medium 或 Large。
+> *InstanceCount* 的默认值为 2，最大值为 10。*GatewaySize* 的默认值为 Medium。可以选择 Small、Medium 或 Large。
 > 
 > 
 
