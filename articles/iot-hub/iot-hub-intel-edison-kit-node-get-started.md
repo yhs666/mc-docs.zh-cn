@@ -26,8 +26,9 @@ ms.lasthandoff: 05/26/2017
 ---
 
 # <a name="connect-intel-edison-to-azure-iot-hub-nodejs"></a>将 Intel Edison 连接到 Azure IoT 中心 (Node.js)
-
-[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
+>[!div class="op_single_selector"]
+>- [Node.JS](./iot-hub-intel-edison-kit-node-get-started.md)
+>- [C](./iot-hub-intel-edison-kit-c-get-started.md)
 
 在本教程中，从学习如何使用 Intel Edison 的基础知识开始。 然后将学习如何使用 [Azure IoT 中心](./iot-hub-what-is-iot-hub.md)将设备无缝连接到云。
 
