@@ -37,7 +37,7 @@ az group create --name myResourceGroupVMSS --location chinanorth
 ```
 
 ## <a name="step-2---define-your-app"></a>步骤 2 - 定义应用程序
-使用创建高度可用、负载均衡的应用程序时所用教程中的同一 **cloud-init** 配置。 有关使用 **cloud-init** 的详细信息，请参阅[在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+使用创建高度可用、负载均衡的应用程序时所用教程中的同一 **cloud-init** 配置。 有关使用 **cloud-init** 的详细信息，请参阅[在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 创建名为 `cloud-init.txt` 的文件并粘贴下面的配置：
 

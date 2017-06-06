@@ -58,7 +58,7 @@ Azure 中的维护以迭代方式进行计划。 初始迭代范围较小，目�
 虚拟机规模集是一种 Azure 计算资源，支持将一组相同的 VM 作为单个资源进行部署和管理。
 规模集采用更新域的形式向可用性集提供相似的保证。 
 
-有关配置虚拟机以实现高可用性的详细信息，请参阅[*管理 Windows 虚拟机的可用性*](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+有关配置虚拟机以实现高可用性的详细信息，请参阅[*管理 Windows 虚拟机的可用性*](../linux/manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ### <a name="scheduled-events"></a>计划事件
 

@@ -352,7 +352,7 @@ ms.lasthandoff: 05/12/2017
 
 更新时间：2016 年 9 月
 
-[可在此处找到此指南](sap-cal-ides-erp6-ehp7-sp3-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[可在此处找到此指南](sap-cal-ides-erp6-ehp7-sp3-sql.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>规划和实现
 标题：Azure 虚拟机 (VM) 上的 SAP NetWeaver - 规划和实施指南

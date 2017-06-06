@@ -75,5 +75,5 @@ ms.lasthandoff: 04/06/2017
 | 删除公共 IP 地址 |[Remove-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v3.4.0/Remove-AzureRmPublicIpAddress)-Name "myIPAddress" -ResourceGroupName $myResourceGroup<BR><BR>从资源组中删除指定的公共 IP 地址。 |
 
 ## <a name="next-steps"></a>后续步骤
-* 使用[创建 VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 时创建的网络接口。
+* 使用[创建 VM](../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 时创建的网络接口。
 * 了解如何[创建具有多个网络接口的 VM](../../virtual-network/virtual-networks-multiple-nics.md)。

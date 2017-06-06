@@ -98,7 +98,7 @@ IIS 已安装，并且现在已从 Internet 打开 VM 上的端口 80 - 你可�
 
 ## <a name="next-steps"></a>后续步骤
 
-[安装角色和配置防火墙教程](hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[安装角色和配置防火墙教程](hero-role.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[浏览 VM 部署 CLI 示例](cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[浏览 VM 部署 CLI 示例](cli-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 

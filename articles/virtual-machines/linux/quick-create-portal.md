@@ -113,7 +113,7 @@ NGINX 已安装，并且现在已从 Internet 打开 VM 上的端口 80 - 可以
 
 ## <a name="next-steps"></a>后续步骤
 
-[创建高可用性虚拟机教程](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[创建高可用性虚拟机教程](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[浏览 VM 部署 CLI 示例](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[浏览 VM 部署 CLI 示例](../windows/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 

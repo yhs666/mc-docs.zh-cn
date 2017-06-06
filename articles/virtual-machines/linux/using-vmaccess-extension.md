@@ -26,7 +26,7 @@ ms.lasthandoff: 04/14/2017
 # <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>配合使用 VMAccess 扩展和 Azure CLI 2.0 管理用户、SSH，并检查或修复 Linux VM 上的磁盘
 Linux VM 上的磁盘显示错误。 不知道怎样重置 Linux VM 的根密码，或者不小心删除了 SSH 私钥。 如果在数据中心时代发生这种情况，则需要开车到那里，然后打开 KVM 访问服务器控制台。 请将 Azure VMAccess 扩展想像成该 KVM 交换机，它允许你访问控制台以重置 Linux 访问或执行磁盘级维护。
 
-本文说明如何使用 Azure VMAcesss 扩展检查或修复磁盘、重置用户访问权限、管理用户帐户，或重置 Linux 上的 SSHD 配置。 也可以使用 [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
+本文说明如何使用 Azure VMAcesss 扩展检查或修复磁盘、重置用户访问权限、管理用户帐户，或重置 Linux 上的 SSHD 配置。 也可以使用 [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>使用 VMAccess 扩展的方法
 可通过两种方法在 Linux VM 上使用 VMAccess 扩展：
@@ -233,8 +233,8 @@ az vm extension set \
 ## <a name="next-steps"></a>后续步骤
 使用 Azure VMAccess 扩展更新 Linux 是对运行中 Linux VM 进行更改的一种方法。 也可以使用 cloud-init 等工具和 Azure Resource Manager 在 Linux VM 启动时对其进行修改。
 
-[关于虚拟机扩展和功能](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[关于虚拟机扩展和功能](extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[使用 Linux VM 扩展创作 Azure Resource Manager 模板](extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[使用 Linux VM 扩展创作 Azure Resource Manager 模板](extensions-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

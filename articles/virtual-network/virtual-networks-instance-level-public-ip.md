@@ -27,7 +27,7 @@ ms.lasthandoff: 04/22/2017
 实例层级公共 IP (ILPIP) 是可直接分配至 VM 或云服务角色实例（而非 VM 或角色实例所在的云服务）的公共 IP 地址。 ILPIP 不会取代分配给云服务的虚拟 IP (VIP)。 而是可以用来直接连接到 VM 或角色实例的其他 IP 地址。
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 本文介绍使用经典部署模型的情况。 Azure 建议通过 Resource Manager 创建 VM。 请确保你了解 [IP 地址](virtual-network-ip-addresses-overview-classic.md)在 Azure 中的工作原理。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)。 本文介绍使用经典部署模型的情况。 Azure 建议通过 Resource Manager 创建 VM。 请确保你了解 [IP 地址](virtual-network-ip-addresses-overview-classic.md)在 Azure 中的工作原理。
 
 ![ILPIP 和 VIP 之间的差异](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
@@ -122,7 +122,7 @@ Get-AzureVM -ServiceName FTPService -Name FTPInstance | Set-AzurePublicIP -Publi
 
 若要将 ILPIP 添加到云服务角色实例，请完成以下步骤：
 
-1. 通过完成[如何配置云服务](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg)文章中的步骤，下载云服务的 .cscfg 文件。
+1. 通过完成[如何配置云服务](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg)文章中的步骤，下载云服务的 .cscfg 文件。
 2. 通过添加 `InstanceAddress` 元素更新 .cscfg 文件。 以下示例将名为 *MyPublicIP* 的 ILPIP 添加到名为 *WebRole1* 的角色实例中： 
 
     ```xml
@@ -145,7 +145,7 @@ Get-AzureVM -ServiceName FTPService -Name FTPInstance | Set-AzurePublicIP -Publi
       </NetworkConfiguration>
     </ServiceConfiguration>
     ```
-3. 通过完成[如何配置云服务](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg)文章中的步骤，上传云服务的 .cscfg 文件。
+3. 通过完成[如何配置云服务](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg)文章中的步骤，上传云服务的 .cscfg 文件。
 
 ## <a name="next-steps"></a>后续步骤
 * 了解 [IP 寻址](virtual-network-ip-addresses-overview-classic.md)在经典部署模型中的工作原理。
