@@ -12,15 +12,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 05/03/2017
 wacn.date: 
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: b1e9e258b15d221cd76aa3604b041ff038203b30
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 6fc5f9c99e652c8ad263da1c90700066c9704d8a
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -130,10 +130,17 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters
 
 如果存储帐户与 HDInsight 群集不在同一个区域中，你可能会遇到性能不佳的情况。 访问不同区域中的数据会在区域 Azure 数据中心外部跨公共 Internet 发送网络流量，从而会导致延迟。
 
+> [!WARNING]
+> 不支持在 HDInsight 群集之外的其他区域中使用存储帐户。
+
 ### <a name="additional-charges"></a>额外费用
 
 如果存储帐户与 HDInsight 群集不在同一个区域中，你可能会在 Azure 帐单上发现额外出口费用。 当数据离开区域数据中心时，会产生出口费用，即使流量的目标为不同区域中的另一个 Azure 数据中心，也是如此。
 
+> [!WARNING]
+> 不支持在 HDInsight 群集之外的其他区域中使用存储帐户。
+
 ## <a name="next-steps"></a>后续步骤
 
 你已学习如何将其他存储帐户添加到现有 HDInsight 群集。 有关脚本操作的详细信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)
+
