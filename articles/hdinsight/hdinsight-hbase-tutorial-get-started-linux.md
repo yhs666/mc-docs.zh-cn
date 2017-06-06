@@ -204,14 +204,15 @@ REST API 通过 [基本身份验证](http://en.wikipedia.org/wiki/Basic_access_a
 
 > [!NOTE]
 > Thrift 不受 HDInsight 中的 HBase 支持。
-> <p>
+>
 > 使用 Curl 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须提供 HDInsight 群集管理员用户名和密码对请求进行身份验证。 此外，还必须使用群集名称作为用来向服务器发送请求的统一资源标识符 (URI) 的一部分：
-> <p>
+>
 >```
 >curl -u <UserName>:<Password> \
->-G https://<ClusterName>.azurehdinsight.cn/templeton/v1/status ```
->You should receive a response similar to the following response:
-> <p>
+>-G https://<ClusterName>.azurehdinsight.cn/templeton/v1/status
+>```
+>会得到跟下面相似的回复：
+>
 > `{"status":"ok","version":"v1"}`
 
 ## <a name="check-cluster-status"></a>检查群集状态

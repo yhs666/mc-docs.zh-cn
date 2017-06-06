@@ -49,7 +49,7 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="log-in-to-your-azure-subscription"></a>登录到 Azure 订阅
 
-按照 [从 Azure 命令行接口 (Azure CLI) 连接到 Azure 订阅](../xplat-cli-connect.md) 中所述的步骤，使用 **登录** 方法连接到订阅。
+按照 [从 Azure 命令行接口 (Azure CLI) 连接到 Azure 订阅](../xplat-cli-connect.md) 中所述的步骤，使用 **login** 方法连接到订阅。
 
 ## <a name="create-a-cluster"></a>创建群集
 

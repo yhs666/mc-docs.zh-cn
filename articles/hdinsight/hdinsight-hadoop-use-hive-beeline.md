@@ -33,7 +33,7 @@ ms.lasthandoff: 05/26/2017
 Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 Beeline 使用 JDBC 连接到 HiveServer2，后者是 HDInsight 群集上托管的一项服务。 还可以使用 Beeline 通过 Internet 远程访问 Hive on HDInsight。 下表提供与 Beeline 结合使用的连接字符串：
 
 | 运行 Beeline 的位置 | Parameters |
-| --- | --- | --- |
+| --- | --- |
 | 与头节点或边缘节点的 SSH 连接 | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin` |
 | 群集外部 | `-u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password` |
 

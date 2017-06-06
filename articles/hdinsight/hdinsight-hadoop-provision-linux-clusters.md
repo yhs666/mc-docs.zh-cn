@@ -78,16 +78,14 @@ Azure HDInsight 目前提供了以下几种群集类型，每种类型都具有�
 
 <!-- need to be verified -->
 
-| 群集类型 | Hadoop | HBase | Storm | Spark | R Server |
-| --- | --- | --- | --- | --- | --- |
-| 头：默认 VM 大小 |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
-| 头：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |A3、A4、A5 |D12 v2、D13 v2、D14 v2 |D12 v2、D13 v2、D14 v2 |
-| 辅助角色：默认 VM 大小 |D3 v2 |D3 v2 |D3 v2 |Windows：D12 v2；Linux：D4 v2 |Windows：D12 v2；Linux：D4 v2 |
-| 辅助角色：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
-| Zookeeper：默认 VM 大小 | |A3 |A2 | | |
-| Zookeeper：建议的 VM 大小 | |A3、A4、A5 |A2、A3、A4 | | |
-| 边缘：默认 VM 大小 | | | | |Windows：D12 v2；Linux：D4 v2 |
-| 边缘：建议的 VM 大小 | | | | |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
+| 群集类型 | Hadoop | HBase | Storm | Spark |
+| --- | --- | --- | --- | --- |
+| 头：默认 VM 大小 |D3 v2 |D3 v2 |A3 |D12 v2 |
+| 头：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |A3、A4、A5 |D12 v2、D13 v2、D14 v2 |
+| 辅助角色：默认 VM 大小 |D3 v2 |D3 v2 |D3 v2 |Windows：D12 v2；Linux：D4 v2 |
+| 辅助角色：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
+| Zookeeper：默认 VM 大小 | |A3 |A2 | |
+| Zookeeper：建议的 VM 大小 | |A3、A4、A5 |A2、A3、A4 | |
 
 > [!NOTE]
 > 头称为 Storm 群集类型的 *Nimbus* 。 辅助角色称为 HBase 群集类型的“区域”以及 Storm 群集类型的“监督程序”。

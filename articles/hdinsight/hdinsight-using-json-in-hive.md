@@ -250,7 +250,7 @@ SerDe 是用于分析嵌套 JSON 文档的最佳选择，不但可定义 JSON �
 
 * [将 Hive 和 HiveQL 与 HDInsight 中的 Hadoop 配合使用以分析示例 Apache log4j 文件](hdinsight-use-hive.md)
 * [使用 HDInsight 中的 Hive 分析航班延误数据](hdinsight-analyze-flight-delay-data.md)
-* [使用 Azure Cosmos DB 和 HDInsight 运行 Hadoop 作业](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
+* [使用 Azure DocumentDb 和 HDInsight 运行 Hadoop 作业](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]: hdinsight-python.md
 

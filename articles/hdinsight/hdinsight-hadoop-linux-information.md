@@ -72,7 +72,7 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
 
     > [!IMPORTANT]
     > 某些 Web UI 可使用内部域名通过 Ambari 访问节点。 内部域名不可通过 Internet 公开访问。 在尝试通过 Internet 访问某些功能时，可能会收到“找不到服务器”错误。
-    > <p>
+    >
     > 若要使用 Ambari web UI 的全部功能，请使用 SSH 隧道通过代理将 Web 流量传送到群集头节点。 请参阅[使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;群集名称>.azurehdinsight.cn/ambari

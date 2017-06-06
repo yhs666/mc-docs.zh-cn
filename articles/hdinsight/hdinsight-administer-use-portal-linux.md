@@ -119,7 +119,7 @@ HDInsight 使用各种 Hadoop 组件。 有关已获得验证和支持的组件�
     * **主机名**：群集名称。
     * **群集 URL**。 Ambari Web 界面的 URL。
     * **状态**：包括“已终止”、“已接受”、ClusterStorageProvisioned、AzureVMConfiguration、HDInsightConfiguration、“正常运行”、“正在运行”、“错误”、“正在删除”、“已删除”、“超时”、DeleteQueued、DeleteTimedout、DeleteError、PatchQueued、CertRolloverQueued、ResizeQueued、ClusterCustomization
-    * **区域**：Azure 位置。 有关受支持的 Azure 位置的列表，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)中的“已列出区域”。
+    * **区域**：Azure 位置。 有关受支持的 Azure 位置的列表，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)中的“上市地区”。
     * **创建日期**。
     * **操作系统**：**Windows** 或 **Linux**。
     * **类型**：Hadoop、HBase、Storm、Spark。 

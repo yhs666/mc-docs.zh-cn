@@ -64,7 +64,6 @@ Azure 门户预览会公开大部分的群集属性。 使用 Azure Resource Man
         * **操作系统**：选择“Linux”。
 
         * **版本**：如果不知道要选择哪个版本，请使用默认版本。 有关详细信息，请参阅 [HDInsight 群集版本](hdinsight-component-versioning.md)。
-        * **群集层**：Azure HDInsight 提供两个类别的大数据云产品：标准层和高级层。 有关详细信息，请参阅 [群集层](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers)。
 
     * 对于“群集登录用户名”和“群集登录密码”，请分别为管理员用户提供用户名和密码。
 
@@ -100,7 +99,8 @@ Azure 门户预览会公开大部分的群集属性。 使用 Azure Resource Man
 
     > [!IMPORTANT]
     > 如果你计划使用 32 个以上的工作节点（在创建群集时或是在创建之后通过扩展群集进行），则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
-    > <p> 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。> 
+    >
+    > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
     单击“下一步”以保存节点定价配置。
 

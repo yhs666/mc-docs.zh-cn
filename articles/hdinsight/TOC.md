@@ -51,6 +51,7 @@
 ### [处理流事件](hdinsight-apache-spark-eventhub-streaming.md)
 ### [预测 HVAC 性能](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [预测食品检测结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+### [分析网站日志](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 ### [使用 Caffe 深入学习](hdinsight-deep-learning-caffe-spark.md)
 ### [使用 Microsoft 认知工具包](hdinsight-apache-spark-microsoft-cognitive-toolkit.md)
 ### [使用 Zeppelin 笔记本](hdinsight-apache-spark-zeppelin-notebook.md)
@@ -101,6 +102,7 @@
 ## 扩展群集
 ### [使用 Bootstrap 自定义群集](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [使用脚本操作自定义群集](hdinsight-hadoop-customize-cluster-linux.md)
+### [添加 Hive 库](hdinsight-hadoop-add-hive-libraries.md)
 ### [开发脚本操作](hdinsight-hadoop-script-actions-linux.md)
 ### [安装或更新 Mono](hdinsight-hadoop-install-mono.md)
 ### [添加 Hive 库](hdinsight-hadoop-add-hive-libraries.md)

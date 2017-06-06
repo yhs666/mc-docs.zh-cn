@@ -50,11 +50,11 @@ ms.lasthandoff: 05/26/2017
 
     > [!NOTE]
     > 如果要使用 PowerShell 运行本文档中的命令，必须先删除默认创建的 `curl` 别名。 此别名使用 Invoke-WebRequest，而不是 cURL。 如果不删除此别名，在使用某些本文中所用的命令时可能会收到错误。
-    > <p>
+    >
     > 若要删除此别名，请从 PowerShell 提示符使用以下命令：
-    > <p>
+    >
     > `Remove-item alias:curl`
-    > <p>
+    >
     > 删除别名后，你应该能够使用系统上安装的 cURL 版本。
 
 ## <a name="create-a-template"></a>创建模板
@@ -365,7 +365,7 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
 
 > [!NOTE]
 > 如果将模板保存到了文件中，则可以使用以下命令而不是 `-d "{ template and parameters}"`：
-> <p>
+>
 > `--data-binary "@/path/to/file.json"`
 
 如果此请求成功，将收到 200 系列响应，且响应正文包含一个 JSON 文档，其中包含有关部署操作的信息。
