@@ -311,7 +311,7 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
 
 ## <a name="disks-and-images"></a>磁盘和映像
 
-在 Azure 中，vhd 文件可以表示[磁盘或映像](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 如果 vhd 文件中的操作系统专用于特定的 VM，则该文件称为磁盘。 如果 vhd 文件中的操作系统经过通用化，用于创建许多 VM，则该文件称为映像。   
+在 Azure 中，vhd 文件可以表示[磁盘或映像](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 如果 vhd 文件中的操作系统专用于特定的 VM，则该文件称为磁盘。 如果 vhd 文件中的操作系统经过通用化，用于创建许多 VM，则该文件称为映像。   
 
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>从平台映像创建新虚拟机和新磁盘
 

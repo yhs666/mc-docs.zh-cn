@@ -25,17 +25,17 @@ ms.lasthandoff: 04/14/2017
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>捕获使用经典部署模型创建的 Azure Windows 虚拟机的映像。
 > [!IMPORTANT]
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关 Resource Manager 模型的信息，请参阅[为 Azure 中运行的 Windows VM 创建副本](../vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关 Resource Manager 模型的信息，请参阅[为 Azure 中运行的 Windows VM 创建副本](../vhd-copy.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 本文将演示如何捕获运行 Windows 的 Azure 虚拟机，可以将它用作映像来创建其他虚拟机。 此映像包含操作系统磁盘和任何附加到虚拟机的数据磁盘。 由于其不包括网络配置，因此创建使用此映像的其他虚拟机时，需设置网络配置。
 
-Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure 服务时列出的**计算**服务。 上传的任何映像都会存储在同一位置。 有关映像的详细信息，请参阅[关于虚拟机的映像](about-images.md?toc=%2fazure%2fvirtual-machines%2fWindows%2fclassic%2ftoc.json)。
+Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure 服务时列出的**计算**服务。 上传的任何映像都会存储在同一位置。 有关映像的详细信息，请参阅[关于虚拟机的映像](about-images.md?toc=%2fvirtual-machines%2fWindows%2fclassic%2ftoc.json)。
 
 ## <a name="before-you-begin"></a>开始之前
 这些步骤假定已创建了 Azure 虚拟机并配置了操作系统，包括附加任何数据磁盘。 如果尚未执行此操作，请参阅以下文章以了解如何创建和准备虚拟机：
 
-* [从映像创建虚拟机](createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [如何将数据磁盘附加到虚拟机](attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [从映像创建虚拟机](createportal.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [如何将数据磁盘附加到虚拟机](attach-disk.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * 确保 Sysprep 支持服务器角色。 有关详细信息，请参阅 [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)（Sysprep 对服务器角色的支持）。
 
 > [!WARNING]
@@ -74,7 +74,7 @@ Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure �
     ![成功捕获映像](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>后续步骤
-该映像已就绪，可用于创建虚拟机了。 为此，通过在服务菜单底部选择“更多服务”菜单项，然后在“计算”组中选择“VM 映像(经典)”来创建虚拟机。 有关说明，请参阅[从映像创建虚拟机](createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
+该映像已就绪，可用于创建虚拟机了。 为此，通过在服务菜单底部选择“更多服务”菜单项，然后在“计算”组中选择“VM 映像(经典)”来创建虚拟机。 有关说明，请参阅[从映像创建虚拟机](createportal.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
 [How to sign in to a virtual machine running Windows Server]: connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx

@@ -171,4 +171,4 @@ az group delete --name myResourceGroup
 ## <a name="next-steps"></a>后续步骤
 本教程使用单个 Azure 资源创建单个虚拟机。 下一个教程基于这些概念，创建高度可用的应用程序，这些应用程序负载均衡且具有针对维护事件的弹性。 继续学习下一个教程 - [在 Azure 中的 Linux 虚拟机上生成负载均衡的高可用性应用程序](tutorial-load-balance-nodejs.md)。
 
-示例 - [Azure CLI 示例脚本](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+示例 - [Azure CLI 示例脚本](../windows/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

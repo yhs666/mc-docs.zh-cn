@@ -131,7 +131,7 @@ ms.lasthandoff: 05/12/2017
     按照位于页面顶部的过程来创建新网关： [创建 VPN 网关](#create-a-vpn-gateway)。
 
 ## <a name="next-steps"></a>后续步骤
-你可以将虚拟机添加到虚拟网络。 请参阅[如何创建自定义虚拟机](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
+你可以将虚拟机添加到虚拟网络。 请参阅[如何创建自定义虚拟机](../virtual-machines/windows/classic/createportal.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
 如果要配置点到站点 VPN 连接，请参阅[配置点到站点 VPN 连接](vpn-gateway-point-to-site-create.md)。
 

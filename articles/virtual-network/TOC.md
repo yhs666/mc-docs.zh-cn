@@ -73,8 +73,8 @@
 ##### [CLI（经典）](virtual-networks-static-private-ip-classic-cli.md)
 
 #### 创建具有多个网络接口的 VM
-##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)
+##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)
 ##### [PowerShell（经典）](virtual-network-deploy-multinic-classic-ps.md)
 ##### [CLI（经典）](virtual-network-deploy-multinic-classic-cli.md)
 
@@ -85,10 +85,10 @@
 ##### [模板](virtual-network-multiple-ip-addresses-template.md)
 
 ### 连接方案
-#### [虚拟网络 (VNet) 到 VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-#### [VNet (Resource Manager) 到 VNet（经典）](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-#### [VNet 到本地网络 (VPN)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-#### [VNet 到本地网络 (ExpressRoute)](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+#### [虚拟网络 (VNet) 到 VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fvirtual-network%2ftoc.json)
+#### [VNet (Resource Manager) 到 VNet（经典）](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fvirtual-network%2ftoc.json)
+#### [VNet 到本地网络 (VPN)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)
+#### [VNet 到本地网络 (ExpressRoute)](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fvirtual-network%2ftoc.json)
 
 ### 安全方案
 #### [使用虚拟设备保护网络](virtual-network-scenario-udr-gw-nva.md)

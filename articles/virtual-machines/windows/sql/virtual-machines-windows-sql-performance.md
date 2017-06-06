@@ -48,7 +48,7 @@ ms.lasthandoff: 04/14/2017
 有关*如何*和*为何*进行这些优化的详细信息，请参阅以下部分提供的详细信息与指导。
 
 ## <a name="vm-size-guidance"></a> VM 大小指导原则
-对于性能敏感型应用程序，建议使用以下[虚拟机大小](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)：
+对于性能敏感型应用程序，建议使用以下[虚拟机大小](../../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)：
 
 * **SQL Server Enterprise 版本**：DS3 或更高
 * **SQL Server Standard 和 Web 版本**：DS2 或更高
@@ -86,12 +86,12 @@ D 系列、Dv2 系列和 G 系列 VM 上的临时驱动器基于 SSD。 如果�
 
 ### <a name="data-disks"></a>数据磁盘数
 * **将数据磁盘用于数据和日志文件**：至少使用两个高级存储 [P30 磁盘](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets)，一个磁盘包含日志文件，另一个包含数据和 TempDB 文件。 每个高级存储磁盘均根据其大小提供了许多 IOP 和带宽 (MB/s)，如以下文章所述：[使用高级存储磁盘](../../../storage/storage-premium-storage.md)。 
-* **磁盘条带化**：为提高吞吐量，可以添加更多的数据磁盘，并使用磁盘条带化。 若要确定数据磁盘的数量，需要分析日志文件以及数据和 TempDB 文件所需的 IOPS 数量和带宽。 请注意，不同的 VM 大小对受支持的 IOP 数量和带宽有不同的限制，请参阅每个 [VM 大小](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)的 IOPS 表。 遵循以下指南：
+* **磁盘条带化**：为提高吞吐量，可以添加更多的数据磁盘，并使用磁盘条带化。 若要确定数据磁盘的数量，需要分析日志文件以及数据和 TempDB 文件所需的 IOPS 数量和带宽。 请注意，不同的 VM 大小对受支持的 IOP 数量和带宽有不同的限制，请参阅每个 [VM 大小](../../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)的 IOPS 表。 遵循以下指南：
 
     * 对于 Windows 8/Windows Server 2012 或更高版本，使用[存储空间](https://technet.microsoft.com/library/hh831739.aspx)。 对于 OLTP 工作负荷，将条带大小设置为 64 KB，对于数据仓库工作负荷，将条带大小设置为 256 KB，以避免分区定位错误导致的性能影响。 此外，设置卷计数 = 物理磁盘的数量。 若要配置具有 8 个以上磁盘的存储空间，必须使用 PowerShell（而不是服务器管理器 UI）来显式设置卷数以匹配磁盘数。 有关如何配置[存储空间](https://technet.microsoft.com/library/hh831739.aspx)的详细信息，请参阅 [Windows PowerShell 中的存储空间 Cmdlet](https://technet.microsoft.com/library/jj851254.aspx)
     * 对于 Windows 2008 R2 或更早版本，你可以使用动态磁盘（操作系统条带化卷），条带大小始终为 64 KB。 请注意，从 Windows 8/Windows Server 2012 开始不推荐使用此选项。 有关信息，请参阅[虚拟磁盘服务正在过渡到 Windows 存储管理 API](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx) 中的支持声明。
-    * 如果你的工作负荷不是日志密集型的并且不需要专用的 IOPS，你可以只配置一个存储池。 否则，请创建两个存储池，一个用于日志文件，另一个用于数据文件和 TempDB。 根据负载预期确定与每个存储池相关联的磁盘数。 请记住，不同的 VM 大小允许不同数量的附加数据磁盘。 有关详细信息，请参阅[虚拟机的大小](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
-    * 如果使用的不是高级存储（开发/测试方案），建议添加 [VM 大小](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)支持的最大数量的数据磁盘并使用磁盘条带化。
+    * 如果你的工作负荷不是日志密集型的并且不需要专用的 IOPS，你可以只配置一个存储池。 否则，请创建两个存储池，一个用于日志文件，另一个用于数据文件和 TempDB。 根据负载预期确定与每个存储池相关联的磁盘数。 请记住，不同的 VM 大小允许不同数量的附加数据磁盘。 有关详细信息，请参阅[虚拟机的大小](../../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+    * 如果使用的不是高级存储（开发/测试方案），建议添加 [VM 大小](../../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)支持的最大数量的数据磁盘并使用磁盘条带化。
 * **缓存策略**：对于高级存储数据磁盘，请只在托管数据文件和 TempDB 的数据磁盘上启用读取缓存。 如果使用的不是高级存储，不要在任何数据磁盘上启用任何缓存。 有关配置磁盘缓存的说明，请参阅以下主题：[Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) 和 [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx)。
 
     > [!WARNING]
