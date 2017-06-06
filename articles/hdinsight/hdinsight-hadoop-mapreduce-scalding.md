@@ -30,7 +30,7 @@ Scalding 是一种 Scala 库，它可以让你轻松地创建 Hadoop MapReduce �
 * **HDInsight 群集上基于 Windows 或 Linux 的 Hadoop**。有关详细信息，请参阅[在 HDInsight 上预配基于 Linux 的 Hadoop](./hdinsight-hadoop-provision-linux-clusters.md) 或[在 HDInsight 上预配基于 Windows 的 Hadoop](./hdinsight-hadoop-provision-linux-clusters.md)。
 
     > [!IMPORTANT]
-    Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 * **[Maven](http://maven.apache.org/)**
 
@@ -199,7 +199,7 @@ Scalding 是一种 Scala 库，它可以让你轻松地创建 Hadoop MapReduce �
 ## 在基于 Linux 的群集上运行作业
 
 > [!NOTE]
-以下步骤使用 SSH 和 Hadoop 命令。有关运行 MapReduce 作业的其他方法，请参阅[在 Hadoop on HDInsight 中使用 MapReduce](./hdinsight-use-mapreduce.md)。
+> 以下步骤使用 SSH 和 Hadoop 命令。有关运行 MapReduce 作业的其他方法，请参阅[在 Hadoop on HDInsight 中使用 MapReduce](./hdinsight-use-mapreduce.md)。
 
 1. 使用以下命令将该程序包上载到你的 HDInsight 群集：
 
@@ -210,7 +210,7 @@ Scalding 是一种 Scala 库，它可以让你轻松地创建 Hadoop MapReduce �
     这样就会将两个文件从本地系统复制到头节点。
 
     > [!NOTE]
-    如果使用了密码来保护 SSH 帐户，系统会提示你输入密码。如果你使用了 SSH 密钥，你可能必须使用 `-i` 参数和私钥的路径。例如 `scp -i /path/to/private/key target/scaldingwordcount-1.0-SNAPSHOT.jar username@clustername-ssh.azurehdinsight.cn:.`
+    > 如果使用了密码来保护 SSH 帐户，系统会提示你输入密码。如果你使用了 SSH 密钥，你可能必须使用 `-i` 参数和私钥的路径。例如 `scp -i /path/to/private/key target/scaldingwordcount-1.0-SNAPSHOT.jar username@clustername-ssh.azurehdinsight.cn:.`
     > 
     > 
 2. 输入以下命令连接到群集头节点：
@@ -220,7 +220,7 @@ Scalding 是一种 Scala 库，它可以让你轻松地创建 Hadoop MapReduce �
     ```
 
     > [!NOTE]
-    如果你使用了密码来保护 SSH 帐户，系统会提示你输入密码。如果你使用了 SSH 密钥，你可能必须使用 `-i` 参数和私钥的路径。例如 `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.cn`
+    > 如果你使用了密码来保护 SSH 帐户，系统会提示你输入密码。如果你使用了 SSH 密钥，你可能必须使用 `-i` 参数和私钥的路径。例如 `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.cn`
 
 3. 连接到头节点后，使用以下命令运行该单词计数作业
 
@@ -276,7 +276,7 @@ Scalding 是一种 Scala 库，它可以让你轻松地创建 Hadoop MapReduce �
     ```
 
     > [!NOTE]
-    可以使用 `Get-AzureRMSubscription` 获取与你的帐户关联的所有订阅列表，包括每个订阅的订阅 ID。
+    > 可以使用 `Get-AzureRMSubscription` 获取与你的帐户关联的所有订阅列表，包括每个订阅的订阅 ID。
 
 3. 使用以下脚本上传和运行 WordCount 作业。将 `CLUSTERNAME` 替换为 HDInsight 群集的名称，并确保 `$fileToUpload` 是 **scaldingwordcount-1.0-SNAPSHOT.jar** 文件的正确路径。
 

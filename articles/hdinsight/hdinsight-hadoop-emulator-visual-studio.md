@@ -65,7 +65,7 @@ ms.author: larryfr
     ![错误和更新按钮](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)  
 
     > [!NOTE]
-    在更新过程，使用 Ambari 将 Hortonworks 沙盒配置修改为用于 Visual Studio 的 Azure Data Lake 工具所需的配置。
+    > 在更新过程，使用 Ambari 将 Hortonworks 沙盒配置修改为用于 Visual Studio 的 Azure Data Lake 工具所需的配置。
 
     验证完成后，请选择“完成”以完成配置。
 
@@ -116,7 +116,7 @@ Hive 提供类似于 SQL 的查询语言 (HiveQL) 来处理结构化数据。使
     交互式查询会将处理期间生成的输出日志流式传输到“HiveServer2 输出”窗口。
 
     > [!NOTE]
-    此信息与完成作业后使用“作业日志”链接所看到的信息相同。
+    > 此信息与完成作业后使用“作业日志”链接所看到的信息相同。
 
     ![HiveServer2 输出](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)  
 

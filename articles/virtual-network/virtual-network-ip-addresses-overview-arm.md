@@ -26,7 +26,7 @@ ms.author: jdial
 * **专用 IP 地址**：用于在 Azure 虚拟网络 (VNet) 中通信，以及在本地网络中通信（当你使用 VPN 网关或 ExpressRoute 线路将网络扩展到 Azure 时）。
 
 > [!NOTE]
-Azure 提供用于创建和处理资源的两种部署模型：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是[经典部署模型](./virtual-network-ip-addresses-overview-classic.md)。
+> Azure 提供用于创建和处理资源的两种部署模型：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是[经典部署模型](./virtual-network-ip-addresses-overview-classic.md)。
 > 
 
 如果熟悉经典部署模型，请参阅 [经典部署与 Resource Manager IP 寻址间的差异](./virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments)。
@@ -47,7 +47,7 @@ Azure 提供用于创建和处理资源的两种部署模型：[Resource Manager
 若要确保所关联资源的 IP 地址保持不变，可将分配方法显式设置为 *静态* 。在这种情况下，创建时立即分配 IP 地址。只有删除资源或将其分配方法改为 *动态* 时，才会释放该地址。
 
 > [!NOTE]
-即使将分配方法设置为 *静态* ，也无法通过指定方式将实际 IP 地址分配到 *公共 IP 资源* ，而只能在创建资源时所在的 Azure 位置通过包含可用 IP 地址的池对 IP 地址进行分配。
+> 即使将分配方法设置为 *静态* ，也无法通过指定方式将实际 IP 地址分配到 *公共 IP 资源* ，而只能在创建资源时所在的 Azure 位置通过包含可用 IP 地址的池对 IP 地址进行分配。
 >
 
 以下情况通常使用静态公共 IP 地址：
@@ -58,14 +58,14 @@ Azure 提供用于创建和处理资源的两种部署模型：[Resource Manager
 * 使用链接到 IP 地址的 SSL 证书。
 
 > [!NOTE]
-将公共 IP 地址（动态/静态）分配给 Azure 资源时所依据的 IP 范围列表已在 [Azure Datacenter IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=42064)（Azure 数据中心 IP 范围）中发布。
+> 将公共 IP 地址（动态/静态）分配给 Azure 资源时所依据的 IP 范围列表已在 [Azure Datacenter IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=42064)（Azure 数据中心 IP 范围）中发布。
 >
 
 ### DNS 主机名解析
 可以为公共 IP 资源指定一个 DNS 域名标签，以便在 Azure 托管的 DNS 服务器中创建  *domainnamelabel* . *location* .chinacloudapp.cn 到公共 IP 地址的映射。例如，如果创建公共 IP 资源将 *domainnamelabel* 指定为“contoso”、将 Azure *location* 指定为“中国北部”，则完全限定域名 (FQDN) **contoso.chinanorth.chinacloudapp.cn** 将解析为该资源的公共 IP 地址。可以使用此 FQDN 创建指向 Azure 中的公共 IP 地址的自定义域 CNAME 记录。
 
 > [!IMPORTANT]
-所创建的每个域名标签在其 Azure 位置必须是唯一的。
+> 所创建的每个域名标签在其 Azure 位置必须是唯一的。
 >
 
 ### 虚拟机

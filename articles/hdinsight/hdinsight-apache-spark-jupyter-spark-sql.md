@@ -53,7 +53,7 @@ ms.author: nitinme
 3. 选择“固定到仪表板”；在“法律条款”中，单击“购买”；然后，单击“创建”。你会看到一个标题为“为模板部署提交部署”的新磁贴。创建群集大约需要 20 分钟时间。
 
 > [!NOTE]
-本文创建使用 [Azure 存储 Blob 作为群集存储](./hdinsight-hadoop-use-blob-storage.md)的 Spark 群集。
+> 本文创建使用 [Azure 存储 Blob 作为群集存储](./hdinsight-hadoop-use-blob-storage.md)的 Spark 群集。
 >
 >
 
@@ -84,7 +84,7 @@ ms.author: nitinme
     ![HDInsight 群集仪表板](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-azure-portal-cluster-dashboards.png "HDInsight 群集仪表板")  
 
     > [!NOTE]
-    也可以在浏览器中打开以下 URL 来访问群集的 Jupyter 笔记本。将 **CLUSTERNAME** 替换为群集的名称：
+    > 也可以在浏览器中打开以下 URL 来访问群集的 Jupyter 笔记本。将 **CLUSTERNAME** 替换为群集的名称：
     >
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`  
 

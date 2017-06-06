@@ -39,7 +39,7 @@ ms.author: mikeray
 上图显示了名为 SQL-3 的新虚拟机。SQL-3 位于不同的 Azure 区域中。SQL-3 已添加到 Windows Server 故障转移群集。SQL-3 可以托管可用性组副本。最后，请注意，SQL-3 所在的 Azure 区域具有一个新的 Azure 负载均衡器。
 
 >[!NOTE]
-如果同一区域中有多个虚拟机，则需要创建 Azure 可用性集。如果区域中只有一个虚拟机，则不需要可用性集。只能在创建虚拟机时将虚拟机放入可用性集。如果虚拟机已在可用性集中，以后可为附加的副本添加虚拟机。
+> 如果同一区域中有多个虚拟机，则需要创建 Azure 可用性集。如果区域中只有一个虚拟机，则不需要可用性集。只能在创建虚拟机时将虚拟机放入可用性集。如果虚拟机已在可用性集中，以后可为附加的副本添加虚拟机。
 
 在此体系结构中，远程区域中的副本通常配置了异步提交可用性模式和手动故障转移模式。
 
@@ -53,7 +53,7 @@ ms.author: mikeray
 ![可用性组](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)  
 
 >[!IMPORTANT]
-在 Azure 区域之间复制数据时，使用此体系结构需支付出站数据费用。
+> 在 Azure 区域之间复制数据时，使用此体系结构需支付出站数据费用。
 
 ## 创建远程副本
 
@@ -64,7 +64,7 @@ ms.author: mikeray
 1. [使用 Azure 门户预览配置 VNet 到 VNet 连接](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)。
 
     >[!NOTE]
-    在某些情况下，可能需要使用 PowerShell 创建 VNet 到 VNet 连接。例如，如果使用不同的 Azure 帐户，则无法在门户中配置该连接。对于这种情况，请参阅[使用 Azure 门户预览配置 VNet 到 VNet 连接](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)。
+    > 在某些情况下，可能需要使用 PowerShell 创建 VNet 到 VNet 连接。例如，如果使用不同的 Azure 帐户，则无法在门户中配置该连接。对于这种情况，请参阅[使用 Azure 门户预览配置 VNet 到 VNet 连接](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)。
 
 1. [在新区域中创建域控制器](../../../active-directory/active-directory-new-forest-virtual-machine.md)。
 
@@ -118,7 +118,7 @@ ms.author: mikeray
     ![可用性组](./media/virtual-machines-windows-portal-sql-availability-group-dr/50-configure-dependency-multiple-ip.png)  
 
     >[!IMPORTANT]
-    该群集资源组包含这两个 IP 地址。这两个 IP 地址是侦听器客户端接入点的依赖项。在群集依赖项配置中使用 **OR** 运算符。
+    > 该群集资源组包含这两个 IP 地址。这两个 IP 地址是侦听器客户端接入点的依赖项。在群集依赖项配置中使用 **OR** 运算符。
 
 1. [在 PowerShell 中设置群集参数](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam)。
 

@@ -21,7 +21,7 @@ ms.author: hanuk;robmcm
 
 # 在 Azure 上同时运行 Cassandra 和 Linux 并通过 Node.js 进行访问
 > [!IMPORTANT] 
-Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。请参阅 [Datastax Enterprise](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax)的 Resource Manager 模板和 [Spark 群集与 Cassandra on CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/spark-and-cassandra-on-centos/)。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。请参阅 [Datastax Enterprise](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax)的 Resource Manager 模板和 [Spark 群集与 Cassandra on CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/spark-and-cassandra-on-centos/)。
 
 ## 概述
 Azure 是一个开放式云平台，可运行 Microsoft 软件和非 Microsoft 软件，包括操作系统、应用程序服务器、消息传递中间件，以及来自商业和开源模型的 SQL 数据库和 NoSQL 数据库。在包括 Azure 在内的公共云上构建可复原的服务，需要针对应用程序服务器和存储层进行仔细规划，并精心设计体系结构。Cassandra 的分布式存储体系结构，自然有助于构建高可用性的系统，此类系统在发生群集故障时容错性很强。Cassandra 是 Apache Software Foundation 在 cassandra.apache.org 上维护的云规模 NoSQL 数据库；Cassandra 以 Java 编写，因此可在 Windows 和 Linux 平台上运行。
