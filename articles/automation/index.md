@@ -22,7 +22,7 @@ ms.lasthandoff: 05/26/2017
 ---
 # <a name="automation-documentation"></a>自动化文档
 
-了解如何使用自动化节省时间并提高在云环境中执行的常规管理任务的可靠性。 教程、API 参考和其他文档演示如何使用 Runbook 实现过程的自动化，或者使用 Desired State Configuration 实现配置管理的自动化。
+了解如何使用自动化节省时间并提高在云环境中执行的常规管理任务的可靠性。 教程、API 参考和其他文档演示如何使用 Runbook 实现过程的自动化。
 
 <ul class="panelContent cardsFTitle">
     <li>
