@@ -28,11 +28,11 @@ ms.lasthandoff: 05/05/2017
 本文说明如何使用 Azure 命令行接口 (LI ) 中的 `azure vm quick-create` 命令在 Azure 上快速部署 Linux 虚拟机 (VM)。 `quick-create` 命令可将 VM 部署在基本且安全的基础结构内，可让你快速构建原型或测试概念。
 
 > [!NOTE]
-若要使用 Azure CLI 2.0 创建 VM，请参阅[使用 Azure CLI 创建 VM](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+若要使用 Azure CLI 2.0 创建 VM，请参阅[使用 Azure CLI 创建 VM](../windows/quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-也可以使用 [Azure 门户预览](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)快速部署 Linux VM。
+也可以使用 [Azure 门户预览](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)快速部署 Linux VM。
 
-本文需要 [SSH 公钥和私钥文件](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+本文需要 [SSH 公钥和私钥文件](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -50,7 +50,7 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 
 ## <a name="vm-quick-create-aliases"></a>VM quick-create 别名
 
-选择分发的便捷方法是使用映射到最常见 OS 分发的 Azure CLI 别名。 下表列出了别名（截止到 Azure 0.10 版）。 使用 `quick-create` 的所有部署默认为部署到由固态硬盘 (SSD) 存储提供支持的 VM，这些 VM 提供更快的预配性能和高性能磁盘访问。 （这些别名表示 Azure 上的一小部分可用分发。 在 Azure 应用商店中查找更多映像（可以[在 PowerShell 中搜索映像](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)），或者[上传自己的自定义映像](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。）
+选择分发的便捷方法是使用映射到最常见 OS 分发的 Azure CLI 别名。 下表列出了别名（截止到 Azure 0.10 版）。 使用 `quick-create` 的所有部署默认为部署到由固态硬盘 (SSD) 存储提供支持的 VM，这些 VM 提供更快的预配性能和高性能磁盘访问。 （这些别名表示 Azure 上的一小部分可用分发。 在 Azure 应用商店中查找更多映像（可以[在 PowerShell 中搜索映像](../windows/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)），或者[上传自己的自定义映像](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。）
 
 | 别名 | 发布者 | 产品 | SKU | 版本 |
 |:--- |:--- |:--- |:--- |:--- |
@@ -203,7 +203,7 @@ myAdminUser@myVM:~$
 ## <a name="next-steps"></a>后续步骤
 使用 `azure vm quick-create` 命令可以快速部署 VM，以便可以登录到 bash shell 开始工作。 但是，使用 `vm quick-create` 不会为用户提供广泛的控制，也不会让用户创建更复杂的环境。  若要部署针对基础结构自定义的 Linux VM，可以遵循下列任一文章操作：
 
-* [使用 Azure Resource Manager 模板创建特定部署](../windows/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [直接使用 Azure CLI 命令创建自定义的 Linux VM 环境](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [使用模板在 Azure 上创建受 SSH 保护的 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 Azure Resource Manager 模板创建特定部署](../windows/cli-deploy-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [直接使用 Azure CLI 命令创建自定义的 Linux VM 环境](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用模板在 Azure 上创建受 SSH 保护的 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 

@@ -47,7 +47,7 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a> 连接到 Linux VM 以装入新磁盘
 > [!NOTE]
-> 本主题使用用户名和密码连接到 VM。 若要使用公钥和私钥对与 VM 通信，请参阅 [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)（如何在 Azure 上将 SSH 用于 Linux）。 
+> 本主题使用用户名和密码连接到 VM。 若要使用公钥和私钥对与 VM 通信，请参阅 [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（如何在 Azure 上将 SSH 用于 Linux）。 
 > 
 > 
 
@@ -282,5 +282,5 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 
 ## <a name="next-steps"></a>后续步骤
 * 请记住，除非将该信息写入 [fstab](http://en.wikipedia.org/wiki/Fstab) 文件，否则即使重新启动 VM，新磁盘也无法供 VM 使用。
-* 为确保正确配置 Linux VM，请查看有关[优化 Linux 计算机性能](optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的建议。
-* 可以添加更多的磁盘来扩展存储容量，[配置 RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 来提高性能。
+* 为确保正确配置 Linux VM，请查看有关[优化 Linux 计算机性能](optimization.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)的建议。
+* 可以添加更多的磁盘来扩展存储容量，[配置 RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 来提高性能。

@@ -264,4 +264,4 @@ ms.lasthandoff: 04/06/2017
 ## <a name="next-steps"></a>后续步骤
 * 如果部署出现问题，后续措施是参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](../../azure-resource-manager/resource-manager-common-deployment-errors.md)。
 * 若要了解如何部署虚拟机及其支持的资源，请查看[使用 C# 部署 Azure 虚拟机](csharp.md)。
-* 查看[使用 Azure Resource Manager 和 C# 管理 Azure 虚拟机](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)，了解如何管理创建的虚拟机。
+* 查看[使用 Azure Resource Manager 和 C# 管理 Azure 虚拟机](csharp-manage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，了解如何管理创建的虚拟机。

@@ -25,12 +25,12 @@ ms.lasthandoff: 04/14/2017
 ---
 
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>创建虚拟网络接口卡，以及在 Azure 上使用内部 DNS 进行 VM 名称解析
-本文介绍了如何通过 Azure CLI 2.0 使用虚拟网络接口卡 (vNic) 和 DNS 标签名称为 Linux VM 设置静态内部 DNS 名称。 也可以使用 [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。 静态 DNS 名称用于永久基础结构服务，如本文档所使用的 Jenkins 生成服务器或 Git 服务器。
+本文介绍了如何通过 Azure CLI 2.0 使用虚拟网络接口卡 (vNic) 和 DNS 标签名称为 Linux VM 设置静态内部 DNS 名称。 也可以使用 [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。 静态 DNS 名称用于永久基础结构服务，如本文档所使用的 Jenkins 生成服务器或 Git 服务器。
 
 要求包括：
 
 * [一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)
-* [SSH 公钥和私钥文件](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [SSH 公钥和私钥文件](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>快速命令
 如果需要快速完成任务，以下部分详细介绍所需的命令。 本文档的余下部分（[从此处开始](#detailed-walkthrough)）提供了每个步骤的更详细信息和上下文。 若要执行这些步骤，需要安装最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)，并使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录到 Azure 帐户。
@@ -82,7 +82,7 @@ az group create --name myResourceGroup --location chinanorth
 
 ## <a name="create-the-virtual-network"></a>创建虚拟网络
 
-下一步是构建虚拟网络，以便在其中启动 VM。 该虚拟网络包含本演练中使用的一个子网。 有关 Azure 虚拟网络的详细信息，请参阅[使用 Azure CLI 创建虚拟网络](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 
+下一步是构建虚拟网络，以便在其中启动 VM。 该虚拟网络包含本演练中使用的一个子网。 有关 Azure 虚拟网络的详细信息，请参阅[使用 Azure CLI 创建虚拟网络](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 
 
 使用 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) 创建虚拟网络。 以下示例创建一个名为 `myVnet` 的虚拟网络和名为 `mySubnet` 的子网：
 
@@ -96,7 +96,7 @@ az network vnet create \
 ```
 
 ## <a name="create-the-network-security-group"></a>创建网络安全组
-Azure 网络安全组相当于网络层防火墙。 有关网络安全组的详细信息，请参阅[如何在 Azure CLI 中创建 NSG](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 
+Azure 网络安全组相当于网络层防火墙。 有关网络安全组的详细信息，请参阅[如何在 Azure CLI 中创建 NSG](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 
 
 使用 [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create)创建网络安全组。 以下示例创建名为 `myNetworkSecurityGroup`的网络安全组：
 
@@ -169,6 +169,6 @@ az vm create \
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 Azure Resource Manager 模板创建特定部署](cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [直接使用 Azure CLI 命令创建自定义的 Linux VM 环境](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [使用模板在 Azure 上创建 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 Azure Resource Manager 模板创建特定部署](cli-deploy-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [直接使用 Azure CLI 命令创建自定义的 Linux VM 环境](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用模板在 Azure 上创建 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

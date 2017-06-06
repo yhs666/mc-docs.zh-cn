@@ -247,7 +247,7 @@ Update-AzureRmVM -ResourceGroupName $myResourceGroup -VM $vm
     ---------  -------------------  ----------  ------------
                               True          OK  OK
 
-有关虚拟机的可用大小列表，请参阅 [Azure 中的虚拟机大小](../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 。
+有关虚拟机的可用大小列表，请参阅 [Azure 中的虚拟机大小](../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 。
 
 ## <a name="delete-a-virtual-machine"></a>删除虚拟机
 
@@ -277,5 +277,5 @@ Remove-AzureRmVM -ResourceGroupName $myResourceGroup -Name $myVM
 ## <a name="next-steps"></a>后续步骤
 
 - 如果部署出现问题，可以参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](../../azure-resource-manager/resource-manager-common-deployment-errors.md)
-- 阅读[使用 Resource Manager 和 PowerShell 创建 Windows VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)，了解如何使用 Azure PowerShell 创建虚拟机
-- 参考 [使用 Resource Manager 模板创建 Windows 虚拟机](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- 阅读[使用 Resource Manager 和 PowerShell 创建 Windows VM](../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，了解如何使用 Azure PowerShell 创建虚拟机
+- 参考 [使用 Resource Manager 模板创建 Windows 虚拟机](ps-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)

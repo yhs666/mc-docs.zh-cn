@@ -526,4 +526,4 @@ ms.lasthandoff: 04/06/2017
 
 - 如果部署出现问题，可以参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](../../azure-resource-manager/resource-manager-common-deployment-errors.md)。
 - 若要了解如何部署虚拟机及其支持的资源，请查看[使用 C# 部署 Azure 虚拟机](csharp.md)。
-- 参考[使用 C# 和 Resource Manager 模板部署 Azure 虚拟机](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中的信息，利用模板创建虚拟机。
+- 参考[使用 C# 和 Resource Manager 模板部署 Azure 虚拟机](csharp-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中的信息，利用模板创建虚拟机。

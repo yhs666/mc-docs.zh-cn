@@ -55,4 +55,4 @@ az vm unmanaged-disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
 磁盘保留在存储中，但不再附加到虚拟机。
 
 ## <a name="next-steps"></a>后续步骤
-若要重新使用数据磁盘，只需[将其附加到其他 VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 即可。
+若要重新使用数据磁盘，只需[将其附加到其他 VM](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 即可。

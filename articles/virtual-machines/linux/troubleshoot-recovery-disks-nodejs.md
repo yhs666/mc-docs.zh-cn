@@ -30,7 +30,7 @@ ms.lasthandoff: 04/14/2017
 可使用以下 CLI 版本之一完成任务：
 
 - [Azure CLI 1.0](#recovery-process-overview) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
-- [Azure CLI 2.0](troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
+- [Azure CLI 2.0](troubleshoot-recovery-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="recovery-process-overview"></a> 恢复过程概述
 故障排除过程如下：
@@ -231,4 +231,4 @@ azure vm enable-diag --resource-group myResourceGroup --name myDeployedVM
 ```
 
 ## <a name="next-steps"></a>后续步骤
-如果在连接到 VM 时遇到问题，请参阅[排查 Azure VM 的 SSH 连接问题](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 如果在访问 VM 上运行的应用时遇到问题，请参阅[排查 Linux VM 上的应用程序连接问题](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+如果在连接到 VM 时遇到问题，请参阅[排查 Azure VM 的 SSH 连接问题](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果在访问 VM 上运行的应用时遇到问题，请参阅[排查 Linux VM 上的应用程序连接问题](troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。

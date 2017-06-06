@@ -217,4 +217,4 @@ info:    vm image list command OK
 ```
 
 ## <a name="next-steps"></a>后续步骤
-现在，你可以确切地选择想要使用的映像。 若要使用刚刚找到的 URN 信息快速创建虚拟机，或要使用包含该 URN 信息的模板，请参阅[使用 Azure CLI 创建 Linux VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+现在，你可以确切地选择想要使用的映像。 若要使用刚刚找到的 URN 信息快速创建虚拟机，或要使用包含该 URN 信息的模板，请参阅[使用 Azure CLI 创建 Linux VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
