@@ -41,7 +41,7 @@ ms.author: iainfou
 如需更详细的步骤和说明，请继续阅读余下的内容。验证本地网络设备（例如路由器和防火墙）是否如[详细的 RDP 故障排除方案](detailed-troubleshoot-rdp.md)中所述，未阻止出站 TCP 端口 3389。
 
 > [!TIP]
-如果 VM 的“连接”按钮在门户中灰显，且未通过 [Express Route](../../expressroute/expressroute-introduction.md) 或[站点到站点 VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 连接连接到 Azure，则必须先为 VM 创建并分配一个公共 IP 地址，然后才能使用 RDP。有关详细信息，请参阅 [Azure 中的公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)。
+> 如果 VM 的“连接”按钮在门户中灰显，且未通过 [Express Route](../../expressroute/expressroute-introduction.md) 或[站点到站点 VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 连接连接到 Azure，则必须先为 VM 创建并分配一个公共 IP 地址，然后才能使用 RDP。有关详细信息，请参阅 [Azure 中的公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)。
 > 
 > 
 
@@ -118,7 +118,7 @@ ms.author: iainfou
 以下示例使用 `myResourceGroup`、`myVM` 和 `myVMAccessExtension` 等变量。请将这些变量名称和位置替换为自己的值。
 
 > [!NOTE]
-可以使用 [Set-AzureRmVMAccessExtension PowerShell](https://msdn.microsoft.com/zh-cn/library/mt619447.aspx) cmdlet 重置用户凭据和 RDP 配置。在以下示例中，`myVMAccessExtension` 是在重置过程中指定的名称。如果以前使用过 VMAccessAgent，可以使用 `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` 检查 VM 的属性，从而获取现有的扩展名称。若要查看名称，请查看输出的“Extensions”节中的内容。
+> 可以使用 [Set-AzureRmVMAccessExtension PowerShell](https://msdn.microsoft.com/zh-cn/library/mt619447.aspx) cmdlet 重置用户凭据和 RDP 配置。在以下示例中，`myVMAccessExtension` 是在重置过程中指定的名称。如果以前使用过 VMAccessAgent，可以使用 `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` 检查 VM 的属性，从而获取现有的扩展名称。若要查看名称，请查看输出的“Extensions”节中的内容。
 > 
 > 
 

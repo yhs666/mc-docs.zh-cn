@@ -31,7 +31,7 @@ ms.custom: H1Hack27Feb2017
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
 > [!NOTE]
-Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是经典部署模型。
+> Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是经典部署模型。
 > 
 
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
@@ -93,7 +93,7 @@ info:    network nsg show command OK
 ```
 
 > [!NOTE]
-还可以使用 `azure network nsg rule list --resource-group RG-NSG --nsg-name NSG-FrontEnd` 列出 **NSG-FrontEnd** NSG 中的规则。
+> 还可以使用 `azure network nsg rule list --resource-group RG-NSG --nsg-name NSG-FrontEnd` 列出 **NSG-FrontEnd** NSG 中的规则。
 >
 
 ### <a name="View-NSGs-associations"></a>查看 NSG 关联项
@@ -207,7 +207,7 @@ azure network nsg rule delete --resource-group RG-NSG \
 ```
 
 > [!NOTE]
-`--quiet` 参数可确保无需确认删除。
+> `--quiet` 参数可确保无需确认删除。
 >
 
 预期输出：
@@ -269,7 +269,7 @@ azure network nic set --resource-group RG-NSG --name TestNICWeb1 --network-secur
 ```
 
 > [!NOTE]
-请注意 `network-security-group-id` 参数的 ""（空）值。这就是删除 NSG 关联项的方式。不能对 `network-security-group-name` 参数执行相同操作。
+> 请注意 `network-security-group-id` 参数的 ""（空）值。这就是删除 NSG 关联项的方式。不能对 `network-security-group-name` 参数执行相同操作。
 > 
 
 预期结果：
@@ -339,7 +339,7 @@ azure network vnet subnet set --resource-group RG-NSG \
 ```
 
 > [!NOTE]
-上述命令能起作用是因为 **NSG-FrontEnd** NSG 与虚拟网络 **TestVNet** 处于同一个资源组中。如果 NSG 在不同的资源组中，则需要改用 `--network-security-group-id` 参数，并提供 NSG 的完整 ID。可通过运行 `azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd --json` 并查找 **id** 属性来检索 ID。
+> 上述命令能起作用是因为 **NSG-FrontEnd** NSG 与虚拟网络 **TestVNet** 处于同一个资源组中。如果 NSG 在不同的资源组中，则需要改用 `--network-security-group-id` 参数，并提供 NSG 的完整 ID。可通过运行 `azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd --json` 并查找 **id** 属性来检索 ID。
 > 
 
 预期输出：

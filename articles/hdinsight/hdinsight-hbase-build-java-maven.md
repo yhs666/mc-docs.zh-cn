@@ -25,7 +25,7 @@ ms.author: larryfr
 [Maven](http://maven.apache.org/) 是一种软件项目管理和综合工具，可用于为 Java 项目构建软件、文档和报告。在本文中，可了解如何使用 Maven 创建一个基本的 Java 应用程序，该应用程序可在 Azure HDInsight 群集中创建、查询和删除 HBase 表。
 
 > [!IMPORTANT]
-本文档中的步骤需要使用 Windows 的 HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> 本文档中的步骤需要使用 Windows 的 HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 ## 要求
 
@@ -36,7 +36,7 @@ ms.author: larryfr
 * [装有 HBase 的基于 Windows 的 HDInsight 群集](./hdinsight-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
 
     > [!NOTE] 
-    本文档中的步骤已在 HDInsight 群集版本 3.2 和 3.3 中测试。示例中提供的默认值适用于 HDInsight 3.3 群集。
+    > 本文档中的步骤已在 HDInsight 群集版本 3.2 和 3.3 中测试。示例中提供的默认值适用于 HDInsight 3.3 群集。
 
 ## 创建项目
 1. 在开发环境中，通过命令行将目录更改为要创建项目的位置，例如 `cd code\hdinsight`。
@@ -66,7 +66,7 @@ ms.author: larryfr
     此部分会告知 Maven，项目需要 **hbase-client** 版本 **1.1.2**。在编译时，从默认的 Maven 存储库下载此依赖项。你可以使用 [Maven 中央存储库](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar)搜索来了解有关此依赖性的详细信息。
 
     > [!IMPORTANT]
-    版本号必须与 HDInsight 群集随附的 HBase 版本匹配。可以使用下表来查找正确的版本号。
+    > 版本号必须与 HDInsight 群集随附的 HBase 版本匹配。可以使用下表来查找正确的版本号。
     > 
     > 
 
@@ -137,7 +137,7 @@ ms.author: larryfr
     `<resources>` 部分会配置包含 HBase 配置信息的资源 (**conf\\hbase-site.xml**)。
 
     > [!NOTE]
-    你也可以通过代码设置配置值。有关如何完成此操作的说明，请参阅所采用的 **CreateTable** 示例中的注释。
+    > 你也可以通过代码设置配置值。有关如何完成此操作的说明，请参阅所采用的 **CreateTable** 示例中的注释。
     > 
     > 
 
@@ -190,7 +190,7 @@ ms.author: larryfr
     此文件将用于加载 HDInsight 群集的 HBase 配置。
 
     > [!NOTE]
-    这是最小的 hbase-site.xml 文件，其中包含 HDInsight 群集的最低基本设置。
+    > 这是最小的 hbase-site.xml 文件，其中包含 HDInsight 群集的最低基本设置。
 
 6. 保存 **hbase-site.xml** 文件。
 
@@ -382,7 +382,7 @@ ms.author: larryfr
 3. 完成该命令后，**hbaseapp\\target** 目录会包含名为 **hbaseapp-1.0-SNAPSHOT.jar** 的文件。
 
     > [!NOTE]
-    **hbaseapp-1.0-SNAPSHOT.jar** 文件是 uber jar（有时称为 fat jar），其中包含运行应用程序所需的所有依赖项。
+    > **hbaseapp-1.0-SNAPSHOT.jar** 文件是 uber jar（有时称为 fat jar），其中包含运行应用程序所需的所有依赖项。
 
 ## 上载 JAR 文件并启动作业
 你可以使用多种方法将文件上载到 HDInsight 群集，如[在 HDInsight 中为 Hadoop 作业上载数据](./hdinsight-upload-data.md)中所述。以下步骤使用 Azure PowerShell。

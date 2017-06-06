@@ -54,7 +54,7 @@ shardInfo.setPassword("<key>"); /* Use your access key. */
 ```
 
 > [!NOTE]
-为新的 Azure Redis 缓存实例禁用了非 SSL 端口。如果使用的是不支持 SSL 的不同客户端，请参阅[如何启用非 SSL 端口](./cache-configure.md#access-ports)。
+> 为新的 Azure Redis 缓存实例禁用了非 SSL 端口。如果使用的是不支持 SSL 的不同客户端，请参阅[如何启用非 SSL 端口](./cache-configure.md#access-ports)。
 > 
 > 
 

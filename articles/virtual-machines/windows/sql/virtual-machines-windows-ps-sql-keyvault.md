@@ -55,7 +55,7 @@ SQL Server 加密功能多种多样，包括[透明数据加密 \(TDE\)](https:/
 完成后，单击“SQL Server 配置”边栏选项卡底部的“确定”按钮，以保存更改。
 
 > [!NOTE]
-你还可以使用模板配置 AKV 集成。有关详细信息，请参阅 [Azure quickstart template for Azure Key Vault integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update)（用于 Azure 密钥保管库集成的 Azure 快速入门模板）。
+> 你还可以使用模板配置 AKV 集成。有关详细信息，请参阅 [Azure quickstart template for Azure Key Vault integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update)（用于 Azure 密钥保管库集成的 Azure 快速入门模板）。
 > 
 > 
 

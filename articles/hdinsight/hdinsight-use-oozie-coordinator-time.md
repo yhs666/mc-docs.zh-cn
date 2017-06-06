@@ -26,7 +26,7 @@ ms.author: jgao
 在本文中，将学习如何定义工作流和协调器，以及如何基于时间触发协调器作业。阅读本文前，浏览[将 Oozie 与 HDInsight 配合使用][hdinsight-use-oozie]很有帮助。除了 Oozie，还可以使用 Azure 数据工厂来计划作业。
 
 > [!NOTE]
-本文需要基于 Windows 的 HDInsight 群集。有关在基于 Linux 的群集上使用 Oozie 的信息（包括基于时间的作业），请参阅[在基于 Linux 的 HDInsight 上将 Oozie 与 Hadoop 配合使用以定义和运行工作流](./hdinsight-use-oozie-linux-mac.md)
+> 本文需要基于 Windows 的 HDInsight 群集。有关在基于 Linux 的群集上使用 Oozie 的信息（包括基于时间的作业），请参阅[在基于 Linux 的 HDInsight 上将 Oozie 与 Hadoop 配合使用以定义和运行工作流](./hdinsight-use-oozie-linux-mac.md)
 
 ## <a id="whatisoozie"></a> 什么是 Oozie
 Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。该系统与 Hadoop 堆栈集成，支持 Apache MapReduce、Apache Pig、Apache Hive 和 Apache Sqoop 的 Hadoop 作业。此外，还可用于调度系统特定作业，如 Java 程序或 shell 脚本。
@@ -61,7 +61,7 @@ Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。该系统�
 2. Sqoop 操作将 HiveQL 操作输出结果导出到 Azure SQL 数据库中的表。有关 Sqoop 的详细信息，请参阅[将 Sqoop 与 HDInsight 配合使用][hdinsight-use-sqoop]。
 
 > [!NOTE]
-有关 HDInsight 群集上支持的 Oozie 版本，请参阅 [HDInsight 提供的群集版本有哪些新功能？][hdinsight-versions]。
+> 有关 HDInsight 群集上支持的 Oozie 版本，请参阅 [HDInsight 提供的群集版本有哪些新功能？][hdinsight-versions]。
 >
 >
 
@@ -71,7 +71,7 @@ Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。该系统�
 * **配备 Azure PowerShell 的工作站**。
 
     > [!IMPORTANT]
-    Azure PowerShell 对于使用 Azure Service Manager 管理 HDInsight 资源的支持已**弃用**，将于 2017 年 1 月 1 日删除。本文档中的步骤使用的是与 Azure Resource Manager 兼容的新 HDInsight cmdlet。
+    > Azure PowerShell 对于使用 Azure Service Manager 管理 HDInsight 资源的支持已**弃用**，将于 2017 年 1 月 1 日删除。本文档中的步骤使用的是与 Azure Resource Manager 兼容的新 HDInsight cmdlet。
     >
     > 请按照 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)（安装和配置 Azure PowerShell）中的步骤安装最新版本的 Azure PowerShell。如果你的脚本需要修改才能使用与 Azure Resource Manager 兼容的新 cmdlet，请参阅[迁移到适用于 HDInsight 群集的基于 Azure Resource Manager 的开发工具](./hdinsight-hadoop-development-using-azure-resource-manager.md)，了解详细信息。
 
@@ -96,10 +96,10 @@ Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。该系统�
     </table>
 
     > [!NOTE]
-    默认情况下，可从 Azure 服务（如 Azure HDInsight）连接 Azure SQL 数据库。如果禁用此防火墙设置，则必须从 Azure 门户预览启用。有关创建 SQL 数据库和配置防火墙规则的说明，请参阅[创建和配置 SQL 数据库][sqldatabase-get-started]。
+    > 默认情况下，可从 Azure 服务（如 Azure HDInsight）连接 Azure SQL 数据库。如果禁用此防火墙设置，则必须从 Azure 门户预览启用。有关创建 SQL 数据库和配置防火墙规则的说明，请参阅[创建和配置 SQL 数据库][sqldatabase-get-started]。
 
 > [!NOTE]
-填写表中的值。这将有助于学习本教程。
+> 填写表中的值。这将有助于学习本教程。
 
 ## <a id="defineworkflow"></a> 定义 Oozie 工作流和相关 HiveQL 脚本
 Oozie 工作流定义以 hPDL（XML 过程定义语言）编写。默认的工作流文件名为 *workflow.xml*。可在本地保存工作流文件，并在本教程后面使用 Azure PowerShell 将其部署到 HDInsight 群集。
@@ -112,7 +112,7 @@ Oozie 工作流定义以 hPDL（XML 过程定义语言）编写。默认的工�
 4. **INSERT OVERWRITE 语句**从 log4j Hive 表统计每个日志级类型的次数，并将输出结果保存到 Azure Blob 存储位置。
 
 > [!NOTE]
-有一个已知的 Hive 路径问题。将会在提交 Oozie 作业时遇到此问题。可在 TechNet Wiki 上找到解决此问题的说明：[HDInsight Hive 错误:无法重命名][technetwiki-hive-error]。
+> 有一个已知的 Hive 路径问题。将会在提交 Oozie 作业时遇到此问题。可在 TechNet Wiki 上找到解决此问题的说明：[HDInsight Hive 错误:无法重命名][technetwiki-hive-error]。
 
 **定义由工作流调用的 HiveQL 脚本文件**
 
@@ -274,7 +274,7 @@ wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/<path>
 ```
 
 > [!NOTE]
-HDInsight 群集版本 3.0 仅支持 *wasb://* 语法。较早的 *asv://* 语法在 HDInsight 2.1 和 1.6 群集中受支持，但在 HDInsight 3.0 群集中不受支持。
+> HDInsight 群集版本 3.0 仅支持 *wasb://* 语法。较早的 *asv://* 语法在 HDInsight 2.1 和 1.6 群集中受支持，但在 HDInsight 3.0 群集中不受支持。
 >
 > wasb:// 路径是虚拟路径。有关详细信息，请参阅[将 Azure Blob 存储与 HDInsight 配合使用][hdinsight-storage]。
 
@@ -316,7 +316,7 @@ tutorials/useoozie/workflow.xml
     系统将提示输入 Azure 帐户凭据。添加订阅连接的此方法会超时，12 小时后必须重新运行 cmdlet。
 
     > [!NOTE]
-    如果拥有多个 Azure 订阅，而默认订阅不是要使用的订阅，则可以使用 <strong>Select-AzureSubscription</strong> 选择订阅。
+    > 如果拥有多个 Azure 订阅，而默认订阅不是要使用的订阅，则可以使用 <strong>Select-AzureSubscription</strong> 选择订阅。
 
 3. 将以下脚本复制到脚本窗格，然后设置前六个变量：
 
@@ -552,7 +552,7 @@ tutorials/useoozie/workflow.xml
     ```
 
     > [!NOTE]
-    与工作流提交有效负载文件相比，主要区别是变量 **oozie.coord.application.path**。提交工作流作业时，使用 **oozie.wf.application.path**。
+    > 与工作流提交有效负载文件相比，主要区别是变量 **oozie.coord.application.path**。提交工作流作业时，使用 **oozie.wf.application.path**。
 
 4. 将以下内容追加到脚本。此部分检查 Oozie Web 服务状态：
 
@@ -595,7 +595,7 @@ tutorials/useoozie/workflow.xml
     ```
 
     > [!NOTE]
-    提交工作流作业时，必须在创建作业后进行另一次 Web 服务调用以启动作业。在这种情况下，协调器作业会按时间触发。作业将自动启动。
+    > 提交工作流作业时，必须在创建作业后进行另一次 Web 服务调用以启动作业。在这种情况下，协调器作业会按时间触发。作业将自动启动。
 
 6. 将以下内容追加到脚本。此部分检查 Oozie 作业状态：
 

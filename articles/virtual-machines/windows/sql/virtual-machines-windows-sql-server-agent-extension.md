@@ -69,7 +69,7 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 如果更新到最新版本的 SQL IaaS 代理扩展，则必须在更新该扩展后重启虚拟机。
 
 > [!NOTE]
-如果在 Windows Server VM 上手动安装 SQL Server IaaS 代理扩展，必须通过 PowerShell 命令使用和管理该扩展的功能。门户界面仅适用于 SQL Server 库映像。
+> 如果在 Windows Server VM 上手动安装 SQL Server IaaS 代理扩展，必须通过 PowerShell 命令使用和管理该扩展的功能。门户界面仅适用于 SQL Server 库映像。
 > 
 > 
 

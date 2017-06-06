@@ -23,7 +23,7 @@ ms.author: jroth
 本主题介绍了在 Azure 虚拟机 \(VM\) 上运行 SQL Server 的选项，提供了[门户映像链接](#option-1-create-a-sql-vm-with-per-minute-licensing)，同时概述了[常见任务](#manage-your-sql-vm)。
 
 > [!NOTE]
-如果用户已熟悉 SQL Server，只是想了解如何部署 SQL Server VM，则请参阅[在 Azure 门户预览中预配 SQL Server 虚拟机](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)。
+> 如果用户已熟悉 SQL Server，只是想了解如何部署 SQL Server VM，则请参阅[在 Azure 门户预览中预配 SQL Server 虚拟机](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)。
 > 
 > 
 

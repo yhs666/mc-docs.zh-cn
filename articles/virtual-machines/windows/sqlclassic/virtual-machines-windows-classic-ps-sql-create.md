@@ -24,7 +24,7 @@ ms.author: jroth
 本文提供了使用 PowerShell cmdlet 在 Azure 中创建 SQL Server 虚拟机的步骤。
 
 > [!IMPORTANT] 
-Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。
 
 有关此主题中的 Resource Manager 版本，请参阅[使用 Azure PowerShell Resource Manager 预配 SQL Server 虚拟机](../../virtual-machines-windows-ps-sql-create.md)。
 
@@ -71,10 +71,10 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
     ```
 
     > [!NOTE]
-    如果需要新的存储帐户，请先使用 New-AzureStorageAccoun 命令创建全部小写的存储帐户名称，如下例中所示：**New-AzureStorageAccount -StorageAccountName "\<storage account name\>" -Location $dcLocation**
+    > 如果需要新的存储帐户，请先使用 New-AzureStorageAccoun 命令创建全部小写的存储帐户名称，如下例中所示：**New-AzureStorageAccount -StorageAccountName "\<storage account name\>" -Location $dcLocation**
     > 
     > 
-4. 将目标存储帐户名称分配给 **$staccount**。然后使用 **Set-azuresubscription** 设置订阅和当前存储帐户。
+> 4. 将目标存储帐户名称分配给 **$staccount**。然后使用 **Set-azuresubscription** 设置订阅和当前存储帐户。
 
     ```
     $staccount="<storage account name>"
@@ -126,7 +126,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
     ```
 
 > [!NOTE]
-有关更多说明和配置选项，请参阅[使用 Azure PowerShell 创建和预配置基于 Windows 的虚拟机](../../virtual-machines-windows-classic-create-powershell.md)中的**构建你的命令集**部分。
+> 有关更多说明和配置选项，请参阅[使用 Azure PowerShell 创建和预配置基于 Windows 的虚拟机](../../virtual-machines-windows-classic-create-powershell.md)中的**构建你的命令集**部分。
 > 
 > 
 

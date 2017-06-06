@@ -59,7 +59,7 @@ R 脚本可以在 HDInsight 中使用创建用于安装 R 环境的脚本操作�
 本部分提供有关如何在使用 Azure 门户预览创建新群集时使用脚本的说明。
 
 > [!NOTE]
-Azure PowerShell、Azure CLI、HDInsight .NET SDK 或 Azure Resource Manager 模板也可用于应用脚本操作。你也可以将脚本操作应用于已在运行的群集。有关详细信息，请参阅 [Customize HDInsight clusters with Script Actions](./hdinsight-hadoop-customize-cluster-linux.md)（使用脚本操作自定义 HDInsight 群集）。
+> Azure PowerShell、Azure CLI、HDInsight .NET SDK 或 Azure Resource Manager 模板也可用于应用脚本操作。你也可以将脚本操作应用于已在运行的群集。有关详细信息，请参阅 [Customize HDInsight clusters with Script Actions](./hdinsight-hadoop-customize-cluster-linux.md)（使用脚本操作自定义 HDInsight 群集）。
 > 
 > 
 

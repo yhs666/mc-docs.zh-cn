@@ -48,7 +48,7 @@ ms.author: jroth
 如果不是在进行预配，则可按照[本文中手动配置连接的步骤](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm)来手动配置 SQL Server 和虚拟机。
 
 > [!NOTE]
-SQL Server Express 版本的虚拟机映像不会自动启用 TCP/IP 协议。对于 Express 版本，必须在创建 VM 后使用 SQL Server 配置管理器来[手动启用 TCP/IP 协议](#configure-sql-server-to-listen-on-the-tcp-protocol)。
+> SQL Server Express 版本的虚拟机映像不会自动启用 TCP/IP 协议。对于 Express 版本，必须在创建 VM 后使用 SQL Server 配置管理器来[手动启用 TCP/IP 协议](#configure-sql-server-to-listen-on-the-tcp-protocol)。
 > 
 > 
 
@@ -65,7 +65,7 @@ SQL Server Express 版本的虚拟机映像不会自动启用 TCP/IP 协议。�
 ```
 
 > [!NOTE]
-务必注意，使用此方法与 SQL Server 通信时，Azure 数据中心的所有传出数据都将服从一般[出站数据传输定价](https://www.azure.cn/pricing/details/data-transfer/)。
+> 务必注意，使用此方法与 SQL Server 通信时，Azure 数据中心的所有传出数据都将服从一般[出站数据传输定价](https://www.azure.cn/pricing/details/data-transfer/)。
 > 
 > 
 
@@ -77,7 +77,7 @@ SQL Server Express 版本的虚拟机映像不会自动启用 TCP/IP 协议。�
 如果使用门户通过 Resource Manager 来预配 SQL Server 虚拟机映像，则可选择“专用”作为 SQL 连接选项，以便在虚拟网络上设置通信所需的适当防火墙规则。如果不是在进行预配，则可按照[本文中手动配置连接的步骤](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm)来手动配置 SQL Server 和虚拟机。但如果你计划配置域环境和 Windows 身份验证，则不需要使用本文中的步骤来配置 SQL 身份验证和登录。你也不需要配置通过 Internet 进行访问的网络安全组规则。
 
 > [!NOTE]
-SQL Server Express 版本的虚拟机映像不会自动启用 TCP/IP 协议。对于 Express 版本，必须在创建 VM 后使用 SQL Server 配置管理器来[手动启用 TCP/IP 协议](#configure-sql-server-to-listen-on-the-tcp-protocol)。
+> SQL Server Express 版本的虚拟机映像不会自动启用 TCP/IP 协议。对于 Express 版本，必须在创建 VM 后使用 SQL Server 配置管理器来[手动启用 TCP/IP 协议](#configure-sql-server-to-listen-on-the-tcp-protocol)。
 > 
 > 
 

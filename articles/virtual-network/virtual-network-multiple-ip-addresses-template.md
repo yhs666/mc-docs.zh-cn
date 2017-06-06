@@ -81,7 +81,7 @@ ms.author: jdial
     若要确定 OSVersion、ImagePublisher 和 imageOffer 参数的有效值，请完成[导航并选择 Windows VM 映像](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md)一文中的步骤。
 
     >[!TIP]
-    如果不确定 dnslabelprefix 是否可用，请输入 `Test-AzureRmDnsAvailability -DomainNameLabel <name-you-want-to-use> -Location <location>` 命令进行查找。如果可用，该命令会返回 `True`。
+    > 如果不确定 dnslabelprefix 是否可用，请输入 `Test-AzureRmDnsAvailability -DomainNameLabel <name-you-want-to-use> -Location <location>` 命令进行查找。如果可用，该命令会返回 `True`。
 
 2. 部署 VM 后，连接到 VM 并将专用 IP 地址添加到部署的操作系统，只需完成本文[将 IP 地址添加到 VM 操作系统](#os-config)部分的步骤即可。请勿向操作系统添加公共 IP 地址。
 

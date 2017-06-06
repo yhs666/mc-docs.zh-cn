@@ -30,7 +30,7 @@ ms.author: jgao
 * [**10-GB Graysort**][hdinsight-sample-10gb-graysort]：使用 HDInsight 对 10 GB 文件运行常规用途的 GraySort。有三个作业要运行：Teragen 生成数据，Terasort 对数据排序，而 Teravalidate 确认数据已正确排序。
 
 > [!NOTE]
-可以在附录中找到源代码。
+> 可以在附录中找到源代码。
 
 Web 上有许多介绍 Hadoop 相关技术（例如基于 Java 的 MapReduce 编程和流式处理）的其他文档，以及有关 Windows PowerShell 脚本中使用的 cmdlet 的文档。有关这些资源的详细信息，请参阅：
 
@@ -50,7 +50,7 @@ Web 上有许多介绍 Hadoop 相关技术（例如基于 Java 的 MapReduce 编
 * **配备 Azure PowerShell 的工作站**。
 
     > [!IMPORTANT]
-    Azure PowerShell 对于使用 Azure Service Manager 管理 HDInsight 资源的支持已**弃用**，将于 2017 年 1 月 1 日删除。本文档中的步骤使用的是与 Azure Resource Manager 兼容的新 HDInsight cmdlet。
+    > Azure PowerShell 对于使用 Azure Service Manager 管理 HDInsight 资源的支持已**弃用**，将于 2017 年 1 月 1 日删除。本文档中的步骤使用的是与 Azure Resource Manager 兼容的新 HDInsight cmdlet。
     >
     > 请按照 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)（安装和配置 Azure PowerShell）中的步骤安装最新版本的 Azure PowerShell。如果你的脚本需要修改才能使用与 Azure Resource Manager 兼容的新 cmdlet，请参阅[迁移到适用于 HDInsight 群集的基于 Azure Resource Manager 的开发工具](./hdinsight-hadoop-development-using-azure-resource-manager.md)。
 
@@ -124,7 +124,7 @@ Web 上有许多介绍 Hadoop 相关技术（例如基于 Java 的 MapReduce 编
 Hadoop 向 MapReduce 提供流式处理 API，利用它，可以采用 Java 以外的语言编写映射函数和化简函数。
 
 > [!NOTE]
-本教程中的步骤仅适用于基于 Windows 的 HDInsight 群集。有关基于 Linux 的 HDInsight 群集流式处理的示例，请参阅[开发适用于 HDInsight 的 Python 流式处理程序](./hdinsight-hadoop-streaming-python.md)。
+> 本教程中的步骤仅适用于基于 Windows 的 HDInsight 群集。有关基于 Linux 的 HDInsight 群集流式处理的示例，请参阅[开发适用于 HDInsight 的 Python 流式处理程序](./hdinsight-hadoop-streaming-python.md)。
 
 在示例中，映射器和化简器都是可执行的，它们从 [stdin][stdin-stdout-stderr] 读取输入（逐行）并将输出结果发送到 [stdout][stdin-stdout-stderr]。程序计算文本中所有单词的数量。
 

@@ -52,7 +52,7 @@ Microsoft 提供了以下实用程序让你使用 Azure Blob 存储：
 | [Hadoop 命令](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-虽然可从 Azure 外部使用 Azure CLI、Azure PowerShell 和 AzCopy，但是 Hadoop 命令只能在 HDInsight 群集上使用，而且只能将数据从本地文件系统加载到 Azure Blob 存储。
+> 虽然可从 Azure 外部使用 Azure CLI、Azure PowerShell 和 AzCopy，但是 Hadoop 命令只能在 HDInsight 群集上使用，而且只能将数据从本地文件系统加载到 Azure Blob 存储。
 >
 >
 
@@ -98,7 +98,7 @@ Azure CLI 是一个跨平台工具，可用于管理 Azure 服务。使用以下
         ```
 
 > [!NOTE]
-如果始终使用同一个存储帐户，可以不用为每条命令指定帐户和密钥，而是设置以下环境变量：
+> 如果始终使用同一个存储帐户，可以不用为每条命令指定帐户和密钥，而是设置以下环境变量：
 >
 > * **AZURE\_STORAGE\_ACCOUNT**：存储帐户名称 
 > * **AZURE\_STORAGE\_ACCESS\_KEY**：存储帐户密钥
@@ -177,7 +177,7 @@ wasbs://<ContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/example/
 有关用于处理文件的其他 Hadoop 命令列表，请参阅 [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]
-在 HBase 群集上，当写入数据为 256KB 时使用默认块大小。尽管使用 HBase API 或 REST API 时这正常工作，但使用 `hadoop` 或 `hdfs dfs` 命令写入大于 ~12GB 的数据会导致错误。有关详细信息，请参阅下面的[写入 blob 时的存储异常](#storageexception)。
+> 在 HBase 群集上，当写入数据为 256KB 时使用默认块大小。尽管使用 HBase API 或 REST API 时这正常工作，但使用 `hadoop` 或 `hdfs dfs` 命令写入大于 ~12GB 的数据会导致错误。有关详细信息，请参阅下面的[写入 blob 时的存储异常](#storageexception)。
 >
 >
 
