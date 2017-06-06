@@ -1,5 +1,5 @@
 ---
-title: "创建第一个 Azure Resource Manager 模板 | Microsoft Docs"
+title: "创建第一个 Azure Resource Manager 模板 | Azure"
 description: "分步指南：创建第一个 Azure Resource Manager 模板。 本指南介绍如何使用存储帐户的模板参考来创建模板。"
 services: azure-resource-manager
 documentationcenter: 
@@ -11,14 +11,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/21/2017
+ms.date: 04/18/2017
+wacn.date: 
 ms.topic: get-started-article
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 8fa431b1fe69cdb6771f499bd20ba5a62c72e9e1
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 4cd3d07221305eb96bc468cdd0c78171fdb1bd21
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -60,9 +61,10 @@ ms.lasthandoff: 04/22/2017
 3. 将该文件另存为 **azuredeploy.json**。 
 
 ## <a name="add-storage-account"></a>添加存储帐户
-1. 若要定义用于部署的存储帐户，请将该存储帐户添加到模板的 **resources** 节。 若要查找适用于存储帐户的值，请参阅[存储帐户模板参考](/azure/templates/microsoft.storage/storageaccounts)。 复制针对存储帐户显示的 JSON。 
+<!-- Not Available /templates/microsoft.storage/storageaccounts/  -->
+1. 若要定义用于部署的存储帐户，请将该存储帐户添加到模板的 **resources** 节。
 
-3. 将该 JSON 粘贴到模板的 **resources** 节中，如以下示例所示： 
+2. 将该 JSON 粘贴到模板的 **resources** 节中，如以下示例所示： 
 
     ```json
     {
@@ -108,7 +110,8 @@ ms.lasthandoff: 04/22/2017
 
 现在可以设置存储帐户的值。 
 
-1. 再次查看在其中复制了 JSON 的[存储帐户模板参考](/azure/templates/microsoft.storage/storageaccounts)。 有几个表描述了相关属性并提供了可用值。 
+<!-- Not Available /templates/microsoft.storage/storageaccounts-->
+1. 再看一下复制 JSON 的位置。 有几个表描述了相关属性并提供了可用值。 
 
 2. 请注意，在 **properties** 元素中，**customDomain**、**encryption** 和 **accessTier** 均被列为“非必需”。 这些值对于你的方案可能很重要，但为了简单起见，本示例需删除它们。
 
@@ -132,13 +135,13 @@ ms.lasthandoff: 04/22/2017
 
 3. 目前，**kind** 元素设置为占位符值 ("string")。 VS Code 提供的许多功能有助于你了解那些在模板中使用的值。 请注意，VS Code 指示该值无效。 若将鼠标悬停在 "string" 上，则会看到 VS Code 为 **kind** 建议的有效值为 `Storage` 或 `BlobStorage`。 
 
-   ![显示 VS Code 建议的值](./media/resource-manager-create-first-template/vs-code-show-values.png)
+    ![显示 VS Code 建议的值](./media/resource-manager-create-first-template/vs-code-show-values.png)
 
-   若要查看可用值，请删除双引号之间的字符，然后选择 **Ctrl+Space**。 从可用选项中选择“Storage”。
-  
-   ![显示 Intellisense](./media/resource-manager-create-first-template/intellisense.png)
+    若要查看可用值，请删除双引号之间的字符，然后选择 **Ctrl+Space**。 从可用选项中选择“Storage”。
 
-   如果使用的不是 VS Code，请参阅存储帐户模板参考页。 请注意，说明列出了相同的有效值。 将元素设置为 **Storage**。
+    ![显示 Intellisense](./media/resource-manager-create-first-template/intellisense.png)
+
+    如果使用的不是 VS Code，请参阅存储帐户模板参考页。 请注意，说明列出了相同的有效值。 将元素设置为 **Storage**。
 
     ```json
     "kind": "Storage",

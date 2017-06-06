@@ -16,15 +16,15 @@ ms.date: 03/23/2017
 wacn.date: 
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 7f4c7ec84ea9a14c941318640c832a20476d2749
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 2aa26c55aeae6d02d85f3869361fb931fd70c973
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 05/26/2017
+
 
 ---
-
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
-应用程序的体系结构通常由许多组件构成 – 其中可能包括虚拟机、存储帐户、虚拟网络、Web 应用、数据库、数据库服务器和第三方服务。 这些组件不会以独立的实体出现，而是以单个实体的相关部件和依赖部件出现。 如果你希望以组的方式部署、管理和监视这些这些组件， 那么，你可以使用 Azure Resource Manager 以组的方式处理解决方案中的资源。 可以通过一个协调的操作为解决方案部署、更新或删除所有资源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 Resource Manager 提供安全、审核和标记功能，以帮助你在部署后管理资源。 
+应用程序的基础结构通常由许多组件构成：可能有虚拟机、存储帐户和虚拟网络，或 Web 应用、数据库、数据库服务器和第三方服务。 这些组件不会以独立的实体出现，而是以单个实体的相关部件和依赖部件出现。 如果你希望以组的方式部署、管理和监视这些这些组件， 那么，你可以使用 Azure Resource Manager 以组的方式处理解决方案中的资源。 可以通过一个协调的操作为解决方案部署、更新或删除所有资源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 Resource Manager 提供安全、审核和标记功能，以帮助你在部署后管理资源。 
 
 ## <a name="terminology"></a>术语
 如果你不熟悉 Azure Resource Manager，则可能不熟悉某些术语。
@@ -46,7 +46,7 @@ Resource Manager 提供多种优势：
 * 可以将标记应用到资源，以逻辑方式组织订阅中的所有资源。
 * 可以通过查看一组共享相同标记的资源的成本来明确组织的帐单。  
 
-Resource Manager 提供了一种新方法来部署和管理您的解决方案。 如果使用早期的部署模型并想了解这些更改，请参阅[了解 Resource Manager 部署和经典部署](./resource-manager-deployment-model.md)。
+Resource Manager 提供了一种新方法来部署和管理您的解决方案。 如果使用早期的部署模型并想了解这些更改，请参阅[了解 Resource Manager 部署和经典部署](resource-manager-deployment-model.md)。
 
 ## <a name="consistent-management-layer"></a> 一致的管理层
 Resource Manager 针对通过 Azure PowerShell、Azure CLI、Azure 门户、REST API 和开发工具执行的任务提供一致的管理层。 所有工具使用一组通用操作。 可以使用最合适的工具，并且可以换用这些工具而不发生混淆。 
@@ -63,9 +63,9 @@ Resource Manager 针对通过 Azure PowerShell、Azure CLI、Azure 门户、REST
 3. 运行强制性命令来管理资源，例如启动或停止应用或计算机。
 4. 排列资源组中具有相同生命周期的资源。 使用标记来组织其他所有资源。
 
-有关模板的建议，请参阅[创建 Azure Resource Manager 模板的最佳实践](./resource-manager-template-best-practices.md)。
+有关模板的建议，请参阅[创建 Azure Resource Manager 模板的最佳实践](resource-manager-template-best-practices.md)。
 
-有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](./resource-manager-subscription-governance.md)。
+有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
 
 ## <a name="resource-groups"></a> 资源组
 定义资源组时，需要考虑以下几个重要因素：
@@ -73,7 +73,7 @@ Resource Manager 针对通过 Azure PowerShell、Azure CLI、Azure 门户、REST
 1. 组中的所有资源应该共享相同的生命周期。 将这些资源一同部署、更新和删除。 如果某个资源（例如数据库服务器）需要采用不同的部署周期，则它应在另一个资源组中。
 2. 每个资源只能在一个资源组中。
 3. 你随时可以在资源组添加或删除资源。
-4. 可以将资源从一个资源组移到另一个组。 有关详细信息，请参阅[将资源移到新资源组或订阅](./resource-group-move-resources.md)。
+4. 可以将资源从一个资源组移到另一个组。 有关详细信息，请参阅[将资源移到新资源组或订阅](resource-group-move-resources.md)。
 5. 资源组可以包含位于不同区域的资源。
 6. 资源组可用于划分对管理操作的访问控制。
 7. 资源可与其他资源组中的资源进行交互。 两个资源相关但并不共享相同生命周期时（例如，连接到数据库的 Web 应用），这种交互会很常见。
@@ -170,24 +170,24 @@ REQUEST BODY
 
 ![层模板](./media/resource-group-overview/tier-templates.png)
 
-有关设计模板的更多建议，请参阅 [设计 Azure Resource Manager 模板的最佳实践](./best-practices-resource-manager-design-templates.md)。 有关嵌套模板的信息，请参阅[将链接的模板用于 Azure Resource Manager](./resource-group-linked-templates.md)。
+有关设计模板的更多建议，请参阅 [设计 Azure Resource Manager 模板的最佳实践](best-practices-resource-manager-design-templates.md)。 有关嵌套模板的信息，请参阅[将链接的模板用于 Azure Resource Manager](resource-group-linked-templates.md)。
 
-有关自动部署的四部分系列，请参阅[将应用程序自动部署到 Azure 虚拟机](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 此系列教程介绍了应用程序体系结构、访问与安全性、可用性与伸缩性，以及应用程序部署。
+有关自动部署的四部分系列，请参阅[将应用程序自动部署到 Azure 虚拟机](../virtual-machines/windows/dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 此系列教程介绍了应用程序体系结构、访问与安全性、可用性与伸缩性，以及应用程序部署。
 
-Azure Resource Manager 会分析依赖关系，以确保按正确的顺序创建资源。 如果一个资源依赖于另一个资源（例如虚拟机需要存储帐户才能访问磁盘）中的值，请设置依赖关系。 有关详细信息，请参阅[在 Azure Resource Manager 模板中定义依赖关系](./resource-group-define-dependencies.md)。
+Azure Resource Manager 会分析依赖关系，以确保按正确的顺序创建资源。 如果一个资源依赖于另一个资源（例如虚拟机需要存储帐户才能访问磁盘）中的值，请设置依赖关系。 有关详细信息，请参阅[在 Azure Resource Manager 模板中定义依赖关系](resource-group-define-dependencies.md)。
 
 还可以使用模板对基础结构进行更新。 例如，可以将资源添加到解决方案，并为已部署的资源添加配置规则。 如果模板指定要创建资源，但该资源已存在，则 Azure Resource Manager 将执行更新而不是创建新资产。 Azure Resource Manager 会将现有资产更新到相同状态，就如同该资产是新建的一样。  
 
-如果你需要其他操作（例如，安装未包含在安装程序中的特定软件）时，Resource Manager 可提供所需的扩展。 如果你已在使用配置管理服务（如 DSC、Chef 或 Puppet），则可以使用扩展来继续处理该服务。 有关虚拟机扩展的信息，请参阅[关于虚拟机扩展和功能](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
+如果你需要其他操作（例如，安装未包含在安装程序中的特定软件）时，Resource Manager 可提供所需的扩展。 如果你已在使用配置管理服务（如 DSC、Chef 或 Puppet），则可以使用扩展来继续处理该服务。 有关虚拟机扩展的信息，请参阅[关于虚拟机扩展和功能](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
 
 最后，该模板将成为应用程序源代码的一部分。 你可以将它签入源代码存储库，并随着应用程序的发展更新该模板。 你可以通过 Visual Studio 编辑模板。
 
 定义模板后，便可以将资源部署到 Azure。 有关部署资源的命令，请参阅：
 
-* [使用 Resource Manager 模板和 Azure PowerShell 部署资源](./resource-group-template-deploy.md)
-* [使用 Resource Manager 模板和 Azure CLI 部署资源](./resource-group-template-deploy-cli.md)
-* [使用 Resource Manager 模板和 Azure 门户部署资源](./resource-group-template-deploy-portal.md)
-* [使用 Resource Manager 模板和 Resource Manager REST API 部署资源](./resource-group-template-deploy-rest.md)
+* [使用 Resource Manager 模板和 Azure PowerShell 部署资源](resource-group-template-deploy.md)
+* [使用 Resource Manager 模板和 Azure CLI 部署资源](resource-group-template-deploy-cli.md)
+* [使用 Resource Manager 模板和 Azure 门户部署资源](resource-group-template-deploy-portal.md)
+* [使用 Resource Manager 模板和 Resource Manager REST API 部署资源](resource-group-template-deploy-rest.md)
 
 ## <a name="tags"></a>标记
 Resource Manager 提供了标记功能，让你根据管理或计费要求为资源分类。 如果你有一系列复杂的资源组和资源，并想要以最有利的方式可视化这些资产，则可以使用标记。 例如，你可以标记组织中充当类似角色或者属于同一部门的资源。 如果不使用标记，组织中的用户可以创建多个资源，这可能会使将来的标识和管理变得困难。 例如，你可能会希望删除特定项目的所有资源。 如果这些资源没有针对项目进行标记，则必须手动查找它们。 标记是降低不必要的订阅成本的重要方法。 
@@ -254,16 +254,16 @@ Azure 还提供资源特定的多种角色。 一些常见的角色包括：
 
 有关角色及允许操作的完整列表，请参阅 [RBAC：内置角色](../active-directory/role-based-access-built-in-roles.md)。 有关基于角色的访问控制的详细信息，请参阅 [Azure 基于角色的访问控制](../active-directory/role-based-access-control-configure.md)。 
 
-某些情况下，可能需要运行代码或脚本以访问资源，但最好不使用用户的凭据运行。 在某些情况下，我们想要为应用程序创建名为服务主体的标识，并为该服务主体分配适当的角色。 在 Resource Manager 中可为应用程序创建凭据，以编程方式对应用程序进行身份验证。 若要了解如何创建服务主体，请参阅以下主题之一：
+在某些情况下，可能需要运行访问资源的代码或脚本，但不是希望在用户的凭据下运行它。 在某些情况下，我们想要为应用程序创建名为服务主体的标识，并为该服务主体分配适当的角色。 在 Resource Manager 中可为应用程序创建凭据，以编程方式对应用程序进行身份验证。 若要了解如何创建服务主体，请参阅以下主题之一：
 
-* [使用 Azure PowerShell 创建服务主体来访问资源](./resource-group-authenticate-service-principal.md)
-* [使用 Azure CLI 创建服务主体来访问资源](./resource-group-authenticate-service-principal-cli.md)
-* [使用门户创建可访问资源的 Active Directory 应用程序和服务主体](./resource-group-create-service-principal-portal.md)
+* [使用 Azure PowerShell 创建服务主体来访问资源](resource-group-authenticate-service-principal.md)
+* [使用 Azure CLI 创建服务主体来访问资源](resource-group-authenticate-service-principal-cli.md)
+* [使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体](resource-group-create-service-principal-portal.md)
 
-你可以显式锁定关键资源，以防止用户删除或修改这些资源。 有关详细信息，请参阅 [使用 Azure Resource Manager 锁定资源](./resource-group-lock-resources.md)。
+你可以显式锁定关键资源，以防止用户删除或修改这些资源。 有关详细信息，请参阅 [使用 Azure Resource Manager 锁定资源](resource-group-lock-resources.md)。
 
 ## <a name="activity-logs"></a>活动日志
-Resource Manager 记录所有创建、修改或删除资源的操作。 活动日志可用于在故障排除时查找错误，或用于监视组织内用户对资源的修改。 若要查看日志，请在某资源组的“设置”边栏选项卡选择“活动日志”。 可按多个值筛选日志，包括启动操作的用户。 有关使用活动日志的信息，请参阅[查看活动日志以管理 Azure 资源](./resource-group-audit.md)。
+Resource Manager 记录所有创建、修改或删除资源的操作。 活动日志可用于在故障排除时查找错误，或用于监视组织内用户对资源的修改。 若要查看日志，请在某资源组的“设置”边栏选项卡选择“活动日志”。 可按多个值筛选日志，包括启动操作的用户。 有关使用活动日志的信息，请参阅[查看活动日志以管理 Azure 资源](resource-group-audit.md)。
 
 ## <a name="customized-policies"></a>自定义的策略
 Resource Manager 可让你创建自定义策略来管理资源。 创建的策略类型可包括各种方案。 可以在资源上实施命名约定，限制可部署的资源的类型和实例，或限制可托管资源类型的区域。 可以要求资源上的标记值按部门组织计费。 可以通过创建策略来降低成本并在订阅中保持一致性。 
@@ -286,7 +286,7 @@ Resource Manager 可让你创建自定义策略来管理资源。 创建的策�
 }
 ```
 
-还可以创建其他类型的策略。 有关详细信息，请参阅 [使用策略来管理资源和控制访问](./resource-manager-policy.md)。
+还可以创建其他类型的策略。 有关详细信息，请参阅 [使用策略来管理资源和控制访问](resource-manager-policy.md)。
 
 ## <a name="sdks"></a>SDK
 Azure SDK 适用于多种语言和平台。
@@ -303,41 +303,41 @@ AutoRest 将这些 RESTful API 规范转换成采用多种语言的客户端库�
 [.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
 
 > [!NOTE]
-> 如果 SDK 未提供所需的功能，也可以直接调用 [Azure REST API](https://docs.microsoft.com/zh-cn/rest/api/resources/) 。
+> 如果 SDK 未提供所需的功能，也可以直接调用 [Azure REST API](https://docs.microsoft.com/rest/api/resources/) 。
 > 
 > 
 
 ## <a name="samples"></a>示例
 ### <a name="net"></a>.NET
-* [管理 Azure 资源和资源组](https://azure.microsoft.com/zh-cn/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-* [使用模板部署启用 SSH 的 VM](https://azure.microsoft.com/zh-cn/documentation/samples/resource-manager-dotnet-template-deployment/)
+* [管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-dotnet-resources-and-groups/)
+* [使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-dotnet-template-deployment/)
 
 ### <a name="java"></a>Java
-* [管理 Azure 资源](https://azure.microsoft.com/zh-cn/documentation/samples/resources-java-manage-resource/)
-* [管理 Azure 资源组](https://azure.microsoft.com/zh-cn/documentation/samples/resources-java-manage-resource-group/)
-* [使用模板部署启用 SSH 的 VM](https://azure.microsoft.com/zh-cn/documentation/samples/resources-java-deploy-using-arm-template/)
+* [管理 Azure 资源](https://github.com/Azure-Samples/resources-java-manage-resource/)
+* [管理 Azure 资源组](https://github.com/Azure-Samples/resources-java-manage-resource-group/)
+* [使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resources-java-deploy-using-arm-template/)
 
 ### <a name="nodejs"></a>Node.js
-* [管理 Azure 资源和资源组](https://azure.microsoft.com/zh-cn/documentation/samples/resource-manager-node-resources-and-groups/)
-* [使用模板部署启用 SSH 的 VM](https://azure.microsoft.com/zh-cn/documentation/samples/resource-manager-node-template-deployment/)
+* [管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-node-resources-and-groups/)
+* [使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-node-template-deployment/)
 
 ### <a name="python"></a>Python
-* [管理 Azure 资源和资源组](https://azure.microsoft.com/zh-cn/documentation/samples/resource-manager-python-resources-and-groups/)
-* [使用模板部署启用 SSH 的 VM](https://azure.microsoft.com/zh-cn/documentation/samples/resource-manager-python-template-deployment/)
+* [管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-python-resources-and-groups/)
+* [使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-python-template-deployment/)
 
 ### <a name="ruby"></a>Ruby
-* [管理 Azure 资源和资源组](https://azure.microsoft.com/zh-cn/documentation/samples/resource-manager-ruby-resources-and-groups/)
-* [使用模板部署启用 SSH 的 VM](https://azure.microsoft.com/zh-cn/documentation/samples/resource-manager-ruby-template-deployment/)
+* [管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
+* [使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/)
 
 除了这些示例，还可以在示例库中搜索示例。
 
-[.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
+[.NET](https://github.com/Azure-Samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://github.com/Azure-Samples/?service=azure-resource-manager&platform=java) | [Node.js](https://github.com/Azure-Samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://github.com/Azure-Samples/?service=azure-resource-manager&platform=python) | [Ruby](https://github.com/Azure-Samples/?service=azure-resource-manager&platform=ruby)
 
 ## <a name="next-steps"></a>后续步骤
-* 有关使用模板的简单介绍，请参阅[从现有资源导出 Azure Resource Manager 模板](./resource-manager-export-template.md)。
-* 有关如何创建模板的更全面演练，请参阅[创建第一个 Azure Resource Manager 模板](./resource-manager-create-first-template.md)。
-* 若要了解可以在模板中使用的函数，请参阅[模板函数](./resource-group-template-functions.md)
-* 有关将 Visual Studio 与 Resource Manager 配合使用的信息，请参阅[通过 Visual Studio 创建和部署 Azure 资源组](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)。
+* 有关使用模板的简单介绍，请参阅[从现有资源导出 Azure Resource Manager 模板](resource-manager-export-template.md)。
+* 有关如何创建模板的更全面演练，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。
+* 若要了解可以在模板中使用的函数，请参阅[模板函数](resource-group-template-functions.md)
+* 有关将 Visual Studio 与 Resource Manager 配合使用的信息，请参阅[通过 Visual Studio 创建和部署 Azure 资源组](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)。
 
 
 下面是本概述主题的演示视频：
