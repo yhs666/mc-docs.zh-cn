@@ -186,7 +186,8 @@ Azure 提供用于创建和处理资源的两个不同的[部署模型](../azure
     ![创建存储帐户](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)  
 
 >[!NOTE]
-> <p>1.我们不支持跨资源组移动使用[新 Azure 门户](../storage/storage-create-storage-account.md)创建的存储帐户。<p>2.对于用于部署 Site Recovery 的存储帐户，不支持在同一订阅中跨资源组[迁移](../azure-resource-manager/resource-group-move-resources.md)，或者跨订阅迁移。
+> 1.我们不支持跨资源组移动使用[新 Azure 门户](../storage/storage-create-storage-account.md)创建的存储帐户。
+> 2.对于用于部署 Site Recovery 的存储帐户，不支持在同一订阅中跨资源组[迁移](../azure-resource-manager/resource-group-move-resources.md)，或者跨订阅迁移。
 
 ## 步骤 5：创建和配置保护组
 保护组是用户想要使用相同保护设置保护的虚拟机的逻辑分组。可以将保护设置应用到保护组，这些设置将应用到添加到组中的所有虚拟机。
