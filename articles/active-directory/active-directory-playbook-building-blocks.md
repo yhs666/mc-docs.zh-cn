@@ -1,32 +1,34 @@
 ---
-title: "Azure Active Directory PoC 演练手册的构建基块 | Microsoft Docs"
+
+title: "Azure Active Directory 概念证明操作手册：构建基块 | Microsoft Docs"
 description: "研究并快速实现标识和访问管理方案"
 services: active-directory
 keywords: "azure active directory, 演练手册, 概念证明, PoC"
 documentationcenter: 
 author: dstefanMSFT
-manager: asuthar
+manager: femila
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2017
+ms.date: 05/04/2017
 ms.author: dstefan
+wacn.date: 
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 5198eb391cb441acf42f73756c8444e3a9d7476c
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 2e7ca8ffa4a9c8f3691644de235100a8e7d00242
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念证明演练手册：构建基块
+# <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念证明操作手册：构建基块
 
-## <a name="catalog-of-actors"></a>执行组件目录
+## <a name="catalog-of-roles"></a>角色的目录
 
-| 执行组件 | 说明 | PoC 责任 |
+| 角色 | 说明 | 概念证明 (PoC) 责任 |
 | --- | --- | --- |
 | **标识体系结构/开发团队** | 此团队通常是设计解决方案、实现原型、推动审批以及最后将解决方案转交给运营部门的团队 | 他们提供环境并从管理角度评估不同的方案 |
 | **本地标识运营团队** | 管理不同的本地标识源：Active Directory 林、LDAP 目录、HR 系统和联合标识提供程序。 | 提供 PoC 方案所需的本地资源的访问权限。<br/>应该尽量减少与此团队的交互|
@@ -37,6 +39,8 @@ ms.lasthandoff: 04/22/2017
 | **安全团队** | 定义安全策略，分析来自各种源的安全报告，跟进结果。 | 提供目标安全性评估方案 |
 
 ## <a name="common-prerequisites-for-all-building-blocks"></a>所有构建基块的一般先决条件
+
+以下是使用 Azure AD Premium 进行任何 POC 所需的部分先决条件。
 
 | 先决条件 | 资源 |
 | --- | --- |
@@ -101,7 +105,7 @@ ms.lasthandoff: 04/22/2017
 | 添加通用 LDAP 连接器 | [通用 LDAP 连接器技术参考：创建新连接器](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
 | 为创建的连接器创建运行配置文件（完整导入、增量导入、完整同步、增量同步、导出） | [创建管理代理运行配置文件](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [将连接器与 Azure AD Connect Sync Service Manager 配合使用](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | 运行完整导入配置文件，并验证连接器空间中是否有对象 | [搜索连接器空间对象](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[将连接器与 Azure AD Connect Sync Service Manager 配合使用：搜索连接器空间](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
-| 创建同步规则，使 Metaverse 中的对象具有工作负荷的必要属性 | [Azure AD Connect 同步：有关更改默认配置的最佳做法：对同步规则的更改](/connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules/)<br/>[Azure AD Connect 同步：了解声明性预配](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect 同步：了解声明性预配表达式](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
+| 创建同步规则，使 Metaverse 中的对象具有工作负荷的必要属性 | [Azure AD Connect 同步：有关更改默认配置的最佳做法：对同步规则的更改](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect 同步：了解声明性预配](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect 同步：了解声明性预配表达式](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | 启动完整同步周期 | [Azure AD Connect 同步：计划程序：启动计划程序](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
 | 出现问题时执行故障排除 | [排查对象无法同步到 Azure AD 的问题](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
 | 验证 LDAP 用户是否可以登录及访问应用程序 | https://login.partner.microsoftonline.cn |
@@ -155,7 +159,7 @@ ms.lasthandoff: 04/22/2017
 | 步骤 | 资源 |
 | --- | --- |
 | 在 ADFS 中启用“证书身份验证” | [配置身份验证策略：在 Windows Server 2012 R2 中全局配置主要身份验证](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-authentication-policies#to-configure-primary-authentication-globally-in-windows-server-2012-r2) |
-| 可选：在适用于 Exchange Active Sync 客户端的 Azure AD 中启用证书身份验证 | [Azure Active Directory 中基于证书的身份验证入门](active-directory-certificate-based-authentication-get-started.md) |
+| 可选：在适用于 Exchange Active Sync 客户端的 Azure AD 中启用证书身份验证 | [Azure Active Directory 中基于证书的身份验证入门](./active-directory-certificate-based-authentication-get-started.md) |
 | 导航到访问面板并使用用户证书进行身份验证 | https://login.partner.microsoftonline.cn |
 
 ### <a name="considerations"></a>注意事项
@@ -168,5 +172,4 @@ ms.lasthandoff: 04/22/2017
 
 
 [!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-steps.md)]
-
 
