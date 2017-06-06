@@ -1,6 +1,6 @@
 ---
 title: "Azure 应用服务 - API 应用文档 - 教程 | Azure"
-description: "了解如何使用 Azure 应用服务中的 API 应用在云中和本地开发、托管和使用 API。 教程、视频和其他文档。"
+description: "了解如何使用 Azure 应用服务中的 API 应用在云中和本地开发、托管和使用 API。 教程和其他文档。"
 services: app-service\api
 author: carolz
 manager: carolz

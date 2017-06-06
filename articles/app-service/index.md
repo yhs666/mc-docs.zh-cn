@@ -1,6 +1,6 @@
 ---
 title: "Azure 应用服务文档 - 教程和 API 参考 | Azure"
-description: "了解如何借助教程、视频、API 参考和其他文档，使用应用服务为任何平台或设备创建 Web 应用和移动应用。"
+description: "了解如何借助教程、API 参考和其他文档，使用应用服务为任何平台或设备创建 Web 应用和移动应用。"
 services: app-service
 author: carolz
 manager: carolz

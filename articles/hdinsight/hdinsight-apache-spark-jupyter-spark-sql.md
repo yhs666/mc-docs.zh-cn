@@ -94,7 +94,7 @@ ms.lasthandoff: 05/26/2017
 
     > [!NOTE]
     > 也可以在浏览器中打开以下 URL 来访问群集的 Jupyter Notebook。 将 **CLUSTERNAME** 替换为群集的名称：
-    > <p>
+    >
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter` >
 3. 创建 Notebook。 单击“新建”，然后单击“PySpark”。
 
