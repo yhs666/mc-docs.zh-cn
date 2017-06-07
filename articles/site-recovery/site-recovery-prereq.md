@@ -29,7 +29,7 @@ Azure Site Recovery 服务可协调本地物理服务器和虚拟机到云 (Azur
 
 本文汇总了开始使用 Site Recovery 复制到 Azure 时所要满足的先决条件。
 
-## <a name="azure-requirements"></a>Azure 要求
+## <a name="azure-requirements"></a><a name="Azure requirements"></a>Azure 要求
 
 **要求** | **详细信息**
 --- | ---
