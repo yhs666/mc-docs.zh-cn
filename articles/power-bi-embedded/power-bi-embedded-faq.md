@@ -82,7 +82,7 @@ Power BI Embedded 服务使用“应用令牌”进行身份验证和授权，�
 ## <a name="how-does-the-tenancy-model-work-for-power-bi-embedded"></a>Power BI Embedded 的租户模型如何工作？
 在 Power BI Embedded 模型中，明确要求 Azure AD 租户中必须存在客户。 可以为客户选择是否需要 Azure AD。 这样，应用程序的体系结构和基础结构就可以用来确定 Power BI Embedded 要求的租户模型。
 
-开发人员/员工操作或创建应用程序时将需要具有 AAD 用户帐户才能通过 Azure 门户管理 Azure 订阅和工作区集合。 开发人员可以使用编程 API 导入报表、修改连接字符串、获取嵌入式 URL、改用应用令牌进行身份验证，因此无需使用 AAD。 有关如何使用 API 和 Azure 门户的详细信息，请参阅 Azure.com 中的 [Power BI Embedded documentation ](./power-bi-embedded/index.md) （Power BI Embedded 文档）页。
+开发人员/员工操作或创建应用程序时将需要具有 AAD 用户帐户才能通过 Azure 门户管理 Azure 订阅和工作区集合。 开发人员可以使用编程 API 导入报表、修改连接字符串、获取嵌入式 URL、改用应用令牌进行身份验证，因此无需使用 AAD。 有关如何使用 API 和 Azure 门户的详细信息，请参阅 Azure.com 中的 [Power BI Embedded documentation ](index.md) （Power BI Embedded 文档）页。
 
 ## <a name="where-can-i-learn-more"></a>可以从何处了解详细信息？
 可以访问 [Power BI Embedded documentation](http://go.microsoft.com/fwlink/?LinkId=760526)（Power BI Embedded 文档）页。 通过访问 [Power BI 开发人员博客](http://blogs.msdn.com/powerbidev) 或通过访问 dev.powerbi.com 中的 Power BI 开发人员中心，可以了解该服务的最新信息。 也可以在 [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi)上提问。

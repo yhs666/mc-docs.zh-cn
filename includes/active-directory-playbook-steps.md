@@ -9,7 +9,7 @@
      - [将本地标识扩展到云](../articles/active-directory/active-directory-playbook-implementation.md#extending-your-on-premises-identity-to-the-cloud)  
    - [主题 - 多个应用，一个标识](../articles/active-directory/active-directory-playbook-implementation.md#theme---lots-of-apps-one-identity)
      - [SSO 和标识生命周期事件](../articles/active-directory/active-directory-playbook-implementation.md#sso-and-identity-lifecycle-events)
-     - [将 LDAP 标识同步到 Azure AD](../articles/active-directory/active-directory-playbook-implementation/#synchronize-ldap-identities-to-azure-ad)
+     - [将 LDAP 标识同步到 Azure AD](../articles/active-directory/active-directory-playbook-implementation.md#synchronize-ldap-identities-to-azure-ad)
    - [主题 - 增强安全性](../articles/active-directory/active-directory-playbook-implementation.md#theme---increase-your-security)
      - [确保管理员帐户访问安全](../articles/active-directory/active-directory-playbook-implementation.md#secure-administrator-account-access)
      - [使用基于证书的身份验证，在没有密码的情况下进行身份验证](../articles/active-directory/active-directory-playbook-implementation.md#authenticate-without-passwords-using-certificate-based-authentication)
