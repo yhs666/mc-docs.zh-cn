@@ -23,7 +23,7 @@ ms.lasthandoff: 05/19/2017
 - **[教程](#tutorial)**：在 30 分钟内从头开始构建快速入门应用。
 
 ## <a name="prerequisites"></a>先决条件
-- 有效的 Azure 帐户。 如果没有，可以注册 [试用版](/pricing/1rmb-trial/)。
+- 有效的 Azure 帐户。 如果没有，可以注册 [试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 - [Visual Studio 2013 或 Visual Studio 2015](http://www.visualstudio.com/)。
 - .NET Framework 4.6
 
@@ -194,7 +194,7 @@ ms.lasthandoff: 05/19/2017
 
 ## <a id="CreateColl"></a>步骤 5：创建集合
 > [!WARNING]
-> **CreateDocumentCollectionAsync** 将创建一个具有保留吞吐量的新集合，它牵涉定价。 有关详细信息，请访问 [定价页](/pricing/details/documentdb/)。
+> **CreateDocumentCollectionAsync** 将创建一个具有保留吞吐量的新集合，它牵涉定价。 有关详细信息，请访问 [定价页](https://www.azure.cn/pricing/details/documentdb/)。
 > 
 > 
 
@@ -585,7 +585,7 @@ DocumentDB 支持删除 JSON 文档。
 - 希望使用 DocumentDB 执行规模和性能测试？ 请参阅[使用 DocumentDB 执行性能和规模测试](documentdb-performance-testing.md)
 - 了解如何[监视 DocumentDB 帐户](documentdb-monitor-accounts.md)。
 - 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
-- 在 [DocumentDB 文档页](/documentation/services/documentdb/)的“Develop”（开发）部分中了解有关编程模型的详细信息。
+- 在 [DocumentDB 文档页](index.md)的“Develop”（开发）部分中了解有关编程模型的详细信息。
 
 [documentdb-create-account]:./documentdb-create-account.md
 [keys]: ./media/documentdb-get-started-quickstart/nosql-tutorial-keys.png

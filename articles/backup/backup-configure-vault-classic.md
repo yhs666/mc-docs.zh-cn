@@ -39,7 +39,7 @@ ms.lasthandoff: 04/14/2017
 >
 
 ## <a name="before-you-start"></a>开始之前
-若要将服务器或客户端备份到 Azure，你需要一个 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个 [试用帐户](/pricing/1rmb-trial/) 。
+若要将服务器或客户端备份到 Azure，你需要一个 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/) 。
 
 ## <a name="create-a-backup-vault"></a>创建备份保管库
 若要从服务器或客户端备份文件和文件夹，需要在要存储数据的地理区域内创建一个备份保管库。
@@ -166,7 +166,7 @@ ms.lasthandoff: 04/14/2017
 ![IR 完成](./media/backup-configure-vault-classic/ircomplete.png)
 
 ## <a name="next-steps"></a>后续步骤
-- 注册 [Azure 帐户](/pricing/1rmb-trial/)。
+- 注册 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 有关备份 VM 或其他工作负荷的详细信息，请参阅：
 

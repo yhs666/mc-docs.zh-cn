@@ -52,7 +52,7 @@ ms.lasthandoff: 05/12/2017
 - Emulator Express 与 IIS Web 服务器不兼容。
 - 您的云服务可以包含多个角色，但每个角色只能有一个实例。
 - 无法访问 1000 以下的端口号。 如果所用的某个身份验证提供程序通常使用低于 1000 的端口，则可能需要将此值更改为 1000 以上的端口号。
-- 适用于 Azure 计算模拟器的任何限制也适用于 Emulator Express。 例如，每个部署的角色实例数不能超过 50 个。 有关 Azure 计算模拟器的详细信息，请参阅[在计算模拟器中运行 Azure 应用程序](/documentation/articles/vs-azure-tools-performance-profiling-cloud-services/)。
+- 适用于 Azure 计算模拟器的任何限制也适用于 Emulator Express。 例如，每个部署的角色实例数不能超过 50 个。 有关 Azure 计算模拟器的详细信息，请参阅[在计算模拟器中运行 Azure 应用程序](./vs-azure-tools-performance-profiling-cloud-services.md)。
 
 ## <a name="next-steps"></a>后续步骤
 [调试 Azure 云服务](https://msdn.microsoft.com/library/azure/ee405479.aspx)
