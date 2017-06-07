@@ -63,7 +63,6 @@
 # 相关内容
 ## [虚拟网络](/virtual-network/)
 ## [应用程序网关](/application-gateway/)
-## [Azure DNS](/dns/)
 ## [流量管理器](/traffic-manager/)
 ## [负载均衡器](/load-balancer/)
 ## [ExpressRoute](/expressroute/)

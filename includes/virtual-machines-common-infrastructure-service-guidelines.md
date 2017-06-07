@@ -415,8 +415,6 @@ Contoso 决定将以下名称用于其 Azure 虚拟机：
 
 [Azure 存储空间可伸缩性和性能目标](../articles/storage/storage-scalability-targets.md)
 
-[云平台集成框架（Azure 体系结构模式）](../articles/azure-architectures-cpif-overview.md)
-
 [数据中心扩展参考体系结构关系图](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 <!---HONumber=Mooncake_1207_2015-->
