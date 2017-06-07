@@ -1,6 +1,6 @@
 ---
 title: "使用 Intel NUC 将网关连接到 Azure IoT 套件 | Azure"
-description: "使用 Microsoft IoT 商业网关工具包和远程监视预配置解决方案。 使用网关将 SensorTag 设备连接到远程监视解决方案，将遥测数据发送到云中，并响应从解决方案仪表板调用的方法。"
+description: "使用 Microsoft IoT 商业网关工具包和远程监控预配置解决方案。 使用网关将 SensorTag 设备连接到远程监控解决方案，将遥测数据发送到云中，并响应从解决方案仪表板调用的方法。"
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -22,22 +22,22 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="connect-your-azure-iot-gateway-to-the-remote-monitoring-preconfigured-solution-and-send-telemetry-from-a-sensortag"></a>将 Azure IoT 网关连接到远程监视预配置解决方案并通过 SensorTag 发送模拟遥测数据
+# <a name="connect-your-azure-iot-gateway-to-the-remote-monitoring-preconfigured-solution-and-send-telemetry-from-a-sensortag"></a>将 Azure IoT 网关连接到远程监控预配置解决方案并通过 SensorTag 发送模拟遥测数据
 
 [!INCLUDE [iot-suite-gateway-kit-selector](../../includes/iot-suite-gateway-kit-selector.md)]
 
-本教程介绍如何使用 Azure IoT Edge 将 SensorTag 设备中的温度和湿度数据发送到远程监视预配置解决方案。 SensorTag 使用蓝牙连接到 Intel NUC 网关。 本教程使用：
+本教程介绍如何使用 Azure IoT Edge 将 SensorTag 设备中的温度和湿度数据发送到远程监控预配置解决方案。 SensorTag 使用蓝牙连接到 Intel NUC 网关。 本教程使用：
 
 - Azure IoT Edge 实现示例网关。
-- IoT 套件远程监视预配置解决方案作为基于云的后端。
+- IoT 套件远程监控预配置解决方案作为基于云的后端。
 
 ## <a name="overview"></a>概述
 
 在本教程中，将完成以下步骤：
 
-- 将远程监视预配置解决方案的实例部署到 Azure 订阅。 此步骤会自动部署并配置多个 Azure 服务。
-- 将 Intel NUC 网关设备设置为与计算机和远程监视解决方案通信。
-- 将 Intel NUC 网关设置为从 SensorTag 设备接收遥测数据，并将其发送到远程监视仪表板。
+- 将远程监控预配置解决方案的实例部署到 Azure 订阅。 此步骤会自动部署并配置多个 Azure 服务。
+- 将 Intel NUC 网关设备设置为与计算机和远程监控解决方案通信。
+- 将 Intel NUC 网关设置为从 SensorTag 设备接收遥测数据，并将其发送到远程监控仪表板。
 
 [!INCLUDE [iot-suite-gateway-kit-prerequisites](../../includes/iot-suite-gateway-kit-prerequisites.md)]
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 05/19/2017
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 > [!WARNING]
-> 远程监视解决方案在 Azure 订阅中预配了一组 Azure 服务。 部署反映实际企业体系结构。 若要避免产生不必要的 Azure 使用费用，请在使用完预配置解决方案的实例后，在 azureiotsuite.com 上将其删除。 如果再次需要预配置解决方案，可以轻松地重新创建它。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。
+> 远程监控解决方案在 Azure 订阅中预配了一组 Azure 服务。 部署反映实际企业体系结构。 若要避免产生不必要的 Azure 使用费用，请在使用完预配置解决方案的实例后，在 azureiotsuite.cn 上将其删除。 如果再次需要预配置解决方案，可以轻松地重新创建它。 若要详细了解如何在远程监控解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。
 
 [!INCLUDE [iot-suite-gateway-kit-view-solution](../../includes/iot-suite-gateway-kit-view-solution.md)]
 
@@ -114,7 +114,7 @@ ms.lasthandoff: 05/19/2017
 
 ## <a name="build-the-custom-gateway-module"></a>生成自定义网关模块
 
-现在，可以生成自定义网关模块，使网关能够将消息发送到远程监视解决方案。 有关配置网关和网关模块的详细信息，请参阅 [Azure IoT Edge 概念][lnk-gateway-concepts]。
+现在，可以生成自定义网关模块，使网关能够将消息发送到远程监控解决方案。 有关配置网关和网关模块的详细信息，请参阅 [Azure IoT Edge 概念][lnk-gateway-concepts]。
 
 使用以下命令从 GitHub 下载自定义模块的源代码：
 
@@ -136,7 +136,7 @@ sed -i -e 's/\r$//' build.sh
 
 ## <a name="configure-and-run-the-gateway"></a>配置并运行网关
 
-现在可以配置网关，将 SensorTag 设备中的遥测数据发送到远程监视仪表板。 有关配置网关和网关模块的详细信息，请参阅 [Azure IoT Edge 概念][lnk-gateway-concepts]。
+现在可以配置网关，将 SensorTag 设备中的遥测数据发送到远程监控仪表板。 有关配置网关和网关模块的详细信息，请参阅 [Azure IoT Edge 概念][lnk-gateway-concepts]。
 
 > [!TIP]
 > 本教程使用 Intel NUC 上的标准 `vi` 文本编辑器。 如果以前未使用过 `vi`，应完成简介教程（例如 [Unix - vi 编辑器教程][lnk-vi-tutorial]）来熟悉此编辑器。 或者，可以使用命令 `smart install nano -y` 安装更友好的 [nano](https://www.nano-editor.org/) 编辑器。
@@ -171,7 +171,7 @@ args": [
 ]
 ```
 
-将 **macAddress** 占位符替换为前面记下的 SensorTag MAC 地址。 将 **deviceID** 和 **deviceKey** 占位符替换为前面在远程监视解决方案中创建的两个设备的 ID 和密钥。
+将 **macAddress** 占位符替换为前面记下的 SensorTag MAC 地址。 将 **deviceID** 和 **deviceKey** 占位符替换为前面在远程监控解决方案中创建的两个设备的 ID 和密钥。
 
 在 SensorTag 模块的配置中找到以下行：
 
@@ -194,7 +194,7 @@ cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
 /usr/share/azureiotgatewaysdk/samples/ble_gateway/ble_gateway remote_monitoring.json
 ```
 
-网关将在 Intel NUC 上启动，并将 SensorTag 中的遥测数据发送到远程监视解决方案：
+网关将在 Intel NUC 上启动，并将 SensorTag 中的遥测数据发送到远程监控解决方案：
 
 ![网关发送 SensorTag 中的遥测数据][img-telemetry]
 
@@ -202,7 +202,7 @@ cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
 
 ## <a name="view-the-telemetry"></a>查看遥测数据
 
-网关现在正将 SensorTag 设备中的遥测数据发送到远程监视解决方案。 可以在解决方案仪表板上查看遥测数据。 此外，可以在解决方案仪表板中通过通过网关向 SensorTag 设备发送命令。
+网关现在正将 SensorTag 设备中的遥测数据发送到远程监控解决方案。 可以在解决方案仪表板上查看遥测数据。 此外，可以在解决方案仪表板中通过通过网关向 SensorTag 设备发送命令。
 
 - 导航到解决方案仪表板。
 - 在“要查看的设备”下拉列表中，选择在网关中配置的、代表 SensorTag 的设备。
@@ -211,7 +211,7 @@ cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
 ![显示 SensorTag 设备中的遥测数据][img-telemetry-display]
 
 > [!WARNING]
-> 如果让远程监视解决方案在 Azure 帐户中保持运行状态，系统会按其运行时间计费。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。 请在用完预配置的解决方案后将其从 Azure 帐户中删除。
+> 如果让远程监控解决方案在 Azure 帐户中保持运行状态，系统会按其运行时间计费。 若要详细了解如何在远程监控解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。 请在用完预配置的解决方案后将其从 Azure 帐户中删除。
 
 
 ## <a name="next-steps"></a>后续步骤

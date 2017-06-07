@@ -120,7 +120,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 
 [Best practices for performance improvements using Service Bus]: ./service-bus-performance-improvements.md
 [Best practices for insulating applications against Service Bus outages and disasters]: ./service-bus-outages-disasters.md
-[Pricing overview]: /pricing/details/messaging/
+[Pricing overview]: www.azure.cn/pricing/details/messaging/
 [Quotas overview]: ./service-bus-quotas.md
 [Exceptions overview]: ./service-bus-messaging-exceptions.md
 [Shared Access Signatures]: ./service-bus-sas.md
