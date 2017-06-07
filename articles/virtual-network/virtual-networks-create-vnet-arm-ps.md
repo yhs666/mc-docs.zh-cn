@@ -91,7 +91,7 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。Azure 建
     ```
 
    > [!TIP]
-   可通过运行 `$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location chinaeast` 合并步骤 3 和步骤 4。
+   > 可通过运行 `$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location chinaeast` 合并步骤 3 和步骤 4。
    > 
 
 5. 将子网添加到新的 VNet 变量中：

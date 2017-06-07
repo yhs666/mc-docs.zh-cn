@@ -107,7 +107,7 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
 
 > [!NOTE]
-添加磁盘时需指定磁盘的大小。我们在附加现有磁盘时，会将 `-DiskSizeInGB` 指定为 `$null`。此值可确保正确附加数据磁盘，无需确定数据磁盘的实际大小。
+> 添加磁盘时需指定磁盘的大小。我们在附加现有磁盘时，会将 `-DiskSizeInGB` 指定为 `$null`。此值可确保正确附加数据磁盘，无需确定数据磁盘的实际大小。
 
 ## 装载附加的数据磁盘
 

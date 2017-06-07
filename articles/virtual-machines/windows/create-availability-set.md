@@ -33,7 +33,7 @@ ms.lasthandoff: 04/14/2017
 
 如果希望 VM 属于某个可用性集，需要先创建该可用性集或在该集中创建第一个 VM。
 
-有关创建和使用可用性集的详细信息，请参阅[管理虚拟机的可用性](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+有关创建和使用可用性集的详细信息，请参阅[管理虚拟机的可用性](manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ## <a name="use-the-portal-to-create-an-availability-set-before-creating-your-vms"></a>在创建 VM 之前使用门户创建可用性集
 1. 在中心菜单中，单击“浏览”，然后选择“可用性集”。
@@ -86,4 +86,4 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 * 创建 VM 时，如果所需的可用性集不在门户的下拉列表中，则表示可能已在不同的资源组中创建该可用性集。 如果不知道可用性集所属的资源组，请转到中心菜单并单击“浏览”>“可用性集”，以查看可用性集及其所属资源组的列表。
 
 ## <a name="next-steps"></a>后续步骤
-通过添加附加[数据磁盘](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)，向 VM 添加附加存储。
+通过添加附加[数据磁盘](attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，向 VM 添加附加存储。

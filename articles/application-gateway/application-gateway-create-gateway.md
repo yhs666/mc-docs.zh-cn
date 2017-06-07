@@ -57,7 +57,7 @@ Azure 应用程序网关是第 7 层负载均衡器。它在不同服务器之�
 3. 将配置提交到新建的应用程序网关资源。
 
 > [!NOTE]
-如果你需要为应用程序网关配置自定义探测，请参阅 [Create an application gateway with custom probes by using PowerShell](./application-gateway-create-probe-classic-ps.md)（使用 PowerShell 创建带自定义探测的应用程序网关）。有关详细信息，请查看 [custom probes and health monitoring](./application-gateway-probe-overview.md)（自定义探测和运行状况监视）。
+> 如果你需要为应用程序网关配置自定义探测，请参阅 [Create an application gateway with custom probes by using PowerShell](./application-gateway-create-probe-classic-ps.md)（使用 PowerShell 创建带自定义探测的应用程序网关）。有关详细信息，请查看 [custom probes and health monitoring](./application-gateway-probe-overview.md)（自定义探测和运行状况监视）。
 > 
 > 
 
@@ -94,7 +94,7 @@ DnsName       :
 ```
 
 > [!NOTE]
-*InstanceCount* 的默认值为 2，最大值为 10。*GatewaySize* 的默认值为 Medium。你可以选择 Small、Medium 或 Large。
+> *InstanceCount* 的默认值为 2，最大值为 10。*GatewaySize* 的默认值为 Medium。你可以选择 Small、Medium 或 Large。
 > 
 > 
 
@@ -222,7 +222,7 @@ Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 以下示例演示如何使用配置对象配置应用程序网关。必须单独配置所有的配置项，然后将其添加到应用程序网关配置对象。创建配置对象之后，使用 `Set-AzureApplicationGateway` 命令将配置提交到前面创建的应用程序网关资源。
 
 > [!NOTE]
-在为每个配置对象分配值之前，需要声明 PowerShell 用于存储的对象类型。在其中创建单个项的第一行定义了要使用哪个 **Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(对象名称)**。
+> 在为每个配置对象分配值之前，需要声明 PowerShell 用于存储的对象类型。在其中创建单个项的第一行定义了要使用哪个 **Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(对象名称)**。
 > 
 > 
 
@@ -356,7 +356,7 @@ Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 配置网关后，使用 `Start-AzureApplicationGateway` cmdlet 来启动网关。成功启动网关后，将开始计收应用程序网关的费用。
 
 > [!NOTE]
-`Start-AzureApplicationGateway` cmdlet 最多可能需要 15 到 20 分钟才能完成。
+> `Start-AzureApplicationGateway` cmdlet 最多可能需要 15 到 20 分钟才能完成。
 > 
 > 
 

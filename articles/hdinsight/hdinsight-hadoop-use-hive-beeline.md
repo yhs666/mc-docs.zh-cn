@@ -147,7 +147,7 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.cn
 
     > [!NOTE]
     > 如果希望通过外部源更新基础数据，应使用外部表。 例如，自动化数据上传进程或 MapReduce 操作。
-    > <p>
+    >
     > 删除外部表**不会**删除数据，只会删除表定义。
 
     此命令的输出类似于以下文本：

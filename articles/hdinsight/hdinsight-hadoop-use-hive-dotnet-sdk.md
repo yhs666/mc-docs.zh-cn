@@ -25,7 +25,7 @@ ms.author: jgao
 了解如何使用 HDInsight .NET SDK 提交 Hive 查询。
 
 > [!NOTE]
-必须从 Windows 客户端执行本文中的步骤。有关使用 Linux、OS X 或 Unix 客户端处理 Hive 的信息，请使用本文顶部显示的选项卡选择器。
+> 必须从 Windows 客户端执行本文中的步骤。有关使用 Linux、OS X 或 Unix 客户端处理 Hive 的信息，请使用本文顶部显示的选项卡选择器。
 > 
 > 
 

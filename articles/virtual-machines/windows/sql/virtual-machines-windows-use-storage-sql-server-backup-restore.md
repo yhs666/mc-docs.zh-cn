@@ -59,7 +59,7 @@ SQL Server 2016 引入了新功能；可以使用[文件快照备份](http://msd
 | **凭据** |连接到 Azure Blob 存储服务并通过其进行身份验证所需的信息将存储为凭据。为了使 SQL Server 将备份写入 Azure Blob 或从中进行还原，必须创建 SQL Server 凭据。有关详细信息，请参阅 [SQL Server 凭据](https://msdn.microsoft.com/zh-cn/library/ms189522.aspx)。 |
 
 > [!NOTE]
-如果选择将备份文件复制并上传到 Azure Blob 存储服务中，并且打算使用此文件执行还原操作，则必须将页 Blob 类型作为存储选项。从块 Blob 类型执行 RESTORE 命令将失败并报错。
+> 如果选择将备份文件复制并上传到 Azure Blob 存储服务中，并且打算使用此文件执行还原操作，则必须将页 Blob 类型作为存储选项。从块 Blob 类型执行 RESTORE 命令将失败并报错。
 > 
 > 
 

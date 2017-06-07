@@ -31,7 +31,7 @@ ms.author: narayan;annahar
 1. 如果你从未使用过 Azure PowerShell，请参阅 [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)（如何安装和配置 Azure PowerShell），并始终按照说明进行操作，以登录到 Azure 并选择你的订阅。
 
     > [!NOTE]
-    用于管理 VNet 对等互连的 PowerShell cmdlet 随附于 [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0)。
+    > 用于管理 VNet 对等互连的 PowerShell cmdlet 随附于 [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0)。
     > 
     > 
 2. 以下文本显示基于上述方案的从 VNet1 到 VNet2 的 VNet 对等互连链接定义。复制以下内容并将其保存到名为 VNetPeeringVNet1.json 的文件中。
@@ -111,7 +111,7 @@ ms.author: narayan;annahar
     ```
 
     > [!NOTE]
-    适当替换资源组名称和模板文件。
+    > 适当替换资源组名称和模板文件。
     > 
     > 
 
@@ -196,7 +196,7 @@ ms.author: narayan;annahar
     ```
 
     > [!IMPORTANT]
-    如果要在通过 Azure Resource Manager 部署模型创建的两个 VNet 之间创建对等互连，请继续执行本部分中的余下步骤。如果两个 VNet 是通过不同部署模型创建的，请跳过本部分的余下步骤并完成本文的[将通过不同部署模型创建的虚拟网络对等互连](#x-model)部分中所述的步骤。
+    > 如果要在通过 Azure Resource Manager 部署模型创建的两个 VNet 之间创建对等互连，请继续执行本部分中的余下步骤。如果两个 VNet 是通过不同部署模型创建的，请跳过本部分的余下步骤并完成本文的[将通过不同部署模型创建的虚拟网络对等互连](#x-model)部分中所述的步骤。
 
 3. 在用户 A 的登录会话中，运行以下 cmdlet：
 

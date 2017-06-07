@@ -33,7 +33,7 @@ ms.author: magoedte;bwren
 创建变量时，可以指定将其加密存储。当变量加密后，它将安全地存储在 Azure 自动化中，并且不能从 Azure PowerShell 模块随附的 [Get-AzureAutomationVariable](http://msdn.microsoft.com/zh-cn/library/dn913772.aspx) cmdlet 检索变量值。可以检索加密值的唯一方法是从 Runbook 中的 **Get-AutomationVariable** 活动检索。
 
 > [!NOTE]
-Azure 自动化中的安全资产包括凭据、证书、连接和加密的变量。这些资产已使用针对每个自动化帐户生成的唯一密钥加密并存储在 Azure 自动化中。此密钥由主证书加密，并存储在 Azure 自动化中。在存储安全资产之前，会先使用主证书来解密自动化帐户的密钥，然后使用该密钥来加密资产。
+> Azure 自动化中的安全资产包括凭据、证书、连接和加密的变量。这些资产已使用针对每个自动化帐户生成的唯一密钥加密并存储在 Azure 自动化中。此密钥由主证书加密，并存储在 Azure 自动化中。在存储安全资产之前，会先使用主证书来解密自动化帐户的密钥，然后使用该密钥来加密资产。
 
 ## <a id="variable-types"></a> 变量类型
 
@@ -50,7 +50,7 @@ Azure 自动化中的安全资产包括凭据、证书、连接和加密的变�
 * Null
 
 >[!NOTE]
-变量资产限制为 1024 个字符。
+> 变量资产限制为 1024 个字符。
 
 ## Cmdlet 和工作流活动
 
@@ -71,7 +71,7 @@ Azure 自动化中的安全资产包括凭据、证书、连接和加密的变�
 |Set-AutomationVariable|设置现有变量的值。|
 
 > [!NOTE] 
-应避免在 Runbook 中的 **Get-AutomationVariable** 的 -Name 参数中使用变量，因为这可能会使设计时发现 Runbook 与自动化变量之间的依赖关系变得复杂化。
+> 应避免在 Runbook 中的 **Get-AutomationVariable** 的 -Name 参数中使用变量，因为这可能会使设计时发现 Runbook 与自动化变量之间的依赖关系变得复杂化。
 
 ## 创建自动化变量
 

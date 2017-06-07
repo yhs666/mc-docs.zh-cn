@@ -27,8 +27,8 @@ ms.lasthandoff: 05/05/2017
 # <a name="create-a-copy-of-a-specialized-windows-vm-running-in-azure"></a>为 Azure 中运行的专用 Windows VM 创建副本
 本文说明如何使用 AZCopy 工具从 Azure 中运行的专用 Windows VM 创建 VHD 副本。 然后可以使用 VHD 的副本创建新的 VM。 
 
-* 如果要复制一般化 VM，请参阅[如何从现有一般化 Azure VM 创建 VM 映像](capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
-* 如果想要从本地 VM（例如，使用 Hyper-V 创建的 VM）上载 VHD，请参阅 [Upload a Windows VHD from an on-premises VM to Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（将 Windows VHD 从本地 VM 上载到 Azure）。
+* 如果要复制一般化 VM，请参阅[如何从现有一般化 Azure VM 创建 VM 映像](capture-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 如果想要从本地 VM（例如，使用 Hyper-V 创建的 VM）上载 VHD，请参阅 [Upload a Windows VHD from an on-premises VM to Azure](upload-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（将 Windows VHD 从本地 VM 上载到 Azure）。
 
 ## <a name="before-you-begin"></a>开始之前
 请确保：
@@ -98,5 +98,5 @@ Elapsed time:            00.00:13:07
 * 使用 AZCopy 时，如果看到错误“服务器无法对请求进行身份验证”，请确保授权标头的值构成正确（包括签名）。 如果使用的是密钥 2 或辅助存储密钥，则请尝试使用主密钥或第一个存储密钥。
 
 ## <a name="next-steps"></a>后续步骤
-* 可通过[将 VHD 的副本作为 OS 磁盘附加到 VM](create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 创建新 VM。
+* 可通过[将 VHD 的副本作为 OS 磁盘附加到 VM](create-vm-specialized.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 创建新 VM。
 

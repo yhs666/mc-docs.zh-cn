@@ -23,14 +23,14 @@ ms.author: jgao
 了解如何为 HDInsight 编写脚本操作脚本。有关如何使用脚本操作脚本的信息，请参阅[使用脚本操作自定义 HDInsight 群集](./hdinsight-hadoop-customize-cluster.md)。有关针对基于 Linux 的 HDInsight 群集编写的相同文章，请参阅[为 HDInsight 开发脚本操作脚本](./hdinsight-hadoop-script-actions-linux.md)。
 
 > [!IMPORTANT]
-本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。有关在基于 Linux 的群集上使用脚本操作的信息，请参阅 [Script action development with HDInsight (Linux)](./hdinsight-hadoop-script-actions-linux.md)（使用 HDInsight 进行脚本操作开发 (Linux)）。
+> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。有关在基于 Linux 的群集上使用脚本操作的信息，请参阅 [Script action development with HDInsight (Linux)](./hdinsight-hadoop-script-actions-linux.md)（使用 HDInsight 进行脚本操作开发 (Linux)）。
 >
 >
 
 脚本操作可用于安装运行在 Hadoop 群集上的其他软件，或更改安装在群集上的应用程序的配置。脚本操作是在部署 HDInsight 群集时运行在群集节点上的脚本，这些脚本在群集中的节点完成 HDInsight 配置后执行。脚本操作根据系统管理员帐户权限执行，提供对群集节点的完全访问权限。每个群集可能都提供有要按指定顺序执行的脚本操作的列表。
 
 > [!NOTE]
-如果你遇到以下错误消息：
+> 如果你遇到以下错误消息：
 >
 > System.Management.Automation.CommandNotFoundException；ExceptionMessage: 术语“Save-HDIFile”无法识别为 cmdlet、函数、脚本文件或可操作程序的名称。请检查名称的拼写，如果包含路径，请验证该路径是否正确，然后重试。这是因为你没有包括帮助器方法。请参阅[自定义脚本的帮助器方法](./hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts)。
 >
@@ -108,7 +108,7 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装附加组件�
 脚本操作可以通过 Azure 门户预览、Azure PowerShell 或 HDInsight .NET SDK 来部署。有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集][hdinsight-cluster-customize]。
 
 > [!NOTE]
-示例脚本仅适用于 HDInsight 群集 3.1 或更高版本。有关 HDInsight 群集版本的详细信息，请参阅 [HDInsight 群集版本](./hdinsight-component-versioning.md)。
+> 示例脚本仅适用于 HDInsight 群集 3.1 或更高版本。有关 HDInsight 群集版本的详细信息，请参阅 [HDInsight 群集版本](./hdinsight-component-versioning.md)。
 >
 >
 

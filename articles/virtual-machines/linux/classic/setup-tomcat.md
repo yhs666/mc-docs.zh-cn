@@ -23,7 +23,7 @@ ms.author: ningk
 Apache Tomcat（简称 Tomcat，以前也称为 Jakarta Tomcat）是由 Apache Software Foundation \(ASF\) 开发的一个开源 Web 服务器和 servlet 容器。Tomcat 实现 Sun Microsystems 提出的 Java Servlet 和 JavaServer Pages \(JSP\) 规范。Tomcat 提供用于运行 Java 代码的纯 Java HTTP Web 服务器环境。在最简单的配置中，Tomcat 在单个操作系统进程中运行。此进程运行 Java 虚拟机 \(JVM\)。浏览器向 Tomcat 发出的每个 HTTP 请求在 Tomcat 进程中作为单独线程进行处理。
 
 > [!IMPORTANT]
-Azure 具有用于创建和处理资源的两个不同的部署模型：[Azure Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。我们建议在大多数新部署中使用 Resource Manager 模型。若要使用 Resource Manager 模板通过 Open JDK 和 Tomcat 部署 Ubuntu VM，请参阅[此文](https://github.com/Azure/azure-quickstart-templates/tree/master/openjdk-tomcat-ubuntu-vm/)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Azure Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。我们建议在大多数新部署中使用 Resource Manager 模型。若要使用 Resource Manager 模板通过 Open JDK 和 Tomcat 部署 Ubuntu VM，请参阅[此文](https://github.com/Azure/azure-quickstart-templates/tree/master/openjdk-tomcat-ubuntu-vm/)。
 
 在本文中，我们将在 Linux 映像中安装 Tomcat7，并将其部署到 Azure。
 
@@ -127,7 +127,7 @@ TCP 端口 8080 是 Tomcat 用来侦听的默认端口号。如果使用 Azure �
 Tomcat 用 Java 编写。有两种类型的 Java 开发工具包 \(JDK\)：OpenJDK 和 Oracle JDK。可以选择所需的工具包。
 
 > [!NOTE]
-这两个 JDK 对于 Java API 中的类，几乎包含相同的代码，但用于虚拟机的代码不同。OpenJDK 倾向于使用开放库，而 Oracle JDK 倾向于使用封闭库。Oracle JDK 包含更多类并且修复了一些 bug，比 OpenJDK 更稳定。
+> 这两个 JDK 对于 Java API 中的类，几乎包含相同的代码，但用于虚拟机的代码不同。OpenJDK 倾向于使用开放库，而 Oracle JDK 倾向于使用封闭库。Oracle JDK 包含更多类并且修复了一些 bug，比 OpenJDK 更稳定。
 
 #### 安装 OpenJDK  
 
@@ -250,7 +250,7 @@ sudo vi  /etc/tomcat7/tomcat-users.xml
 ![显示 sudo vi 命令输出的屏幕截图][17]
 
 > [!NOTE]
-为管理员用户名创建强密码。
+> 为管理员用户名创建强密码。
 
 编辑此文件之后，应使用以下命令重新启动 Tomcat7 服务，确保所做的更改生效：
 
@@ -303,7 +303,7 @@ sudo /etc/init.d/tomcat7 restart
     ```
 
     > [!IMPORTANT]
-    确保将上述行放置在全局限制访问权限的所有行上面，如下所示：-A INPUT -j REJECT --reject-with icmp-host-prohibited
+    > 确保将上述行放置在全局限制访问权限的所有行上面，如下所示：-A INPUT -j REJECT --reject-with icmp-host-prohibited
 
 若要重新加载 iptables，请运行以下命令：
 

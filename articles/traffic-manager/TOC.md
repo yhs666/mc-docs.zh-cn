@@ -36,7 +36,6 @@
 # 相关内容
 ## [应用程序网关](/application-gateway/)
 ## [负载均衡器](/load-balancer/)
-## [Azure DNS](/dns/)
 
 # 资源
 ## [定价](https://www.azure.cn/pricing/details/traffic-manager/)

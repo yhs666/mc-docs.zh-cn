@@ -28,7 +28,7 @@ ms.author: aelnably
 若要了解管理资源组的相关信息，请参阅[使用 Azure CLI 管理 Azure 资源和资源组](../azure-resource-manager/xplat-cli-azure-resource-manager.md)。
 
 > [!NOTE] 
-还可试用 [Azure CLI 2.0（预览版）](https://github.com/Azure/azure-cli)，它是使用 Python 为资源管理部署模型编写的下一代 CLI。
+> 还可试用 [Azure CLI 2.0（预览版）](https://github.com/Azure/azure-cli)，它是使用 Python 为资源管理部署模型编写的下一代 CLI。
 >
 >
 

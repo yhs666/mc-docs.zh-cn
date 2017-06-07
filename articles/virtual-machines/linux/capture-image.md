@@ -29,7 +29,7 @@ ms.lasthandoff: 04/14/2017
 若要使用映像创建 VM，请为每个新 VM 设置网络资源，并使用模板（JavaScript 对象表示法或 JSON 文件）从捕获的 VHD 映像部署它。 这样，可以复制具有其当前软件配置的 VM，与在 Azure 应用商店中使用映像的方式类似。
 
 > [!TIP]
-> 如果要创建具有其专用备份或调试状态的现有 Linux VM 的副本，请参阅[创建在 Azure 上运行的 Linux 虚拟机的副本](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 如果要从本地 VM 上载 Linux VHD，请参阅[上载自定义磁盘映像并从其创建 Linux VM](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。  
+> 如果要创建具有其专用备份或调试状态的现有 Linux VM 的副本，请参阅[创建在 Azure 上运行的 Linux 虚拟机的副本](copy-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果要从本地 VM 上载 Linux VHD，请参阅[上载自定义磁盘映像并从其创建 Linux VM](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。  
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可使用以下 CLI 版本之一完成任务：
@@ -40,13 +40,13 @@ ms.lasthandoff: 04/14/2017
 ## <a name="before-you-begin"></a> 准备工作
 请确保符合以下先决条件：
 
-* **在 Resource Manager 部署模型中创建的 Azure VM** - 如果尚未创建 Linux VM，则可以使用[门户](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)、[Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或 [Resource Manager 模板](cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 
+* **在 Resource Manager 部署模型中创建的 Azure VM** - 如果尚未创建 Linux VM，则可以使用[门户](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)、[Azure CLI](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [Resource Manager 模板](cli-deploy-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 
 
-    根据需要配置 VM。 例如， [添加数据磁盘](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)、应用更新和安装应用程序。 
+    根据需要配置 VM。 例如， [添加数据磁盘](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)、应用更新和安装应用程序。 
 * **Azure CLI** - 在本地计算机上安装 [Azure CLI](../../cli-install-nodejs.md)。
 
 ## <a name="step-1-remove-the-azure-linux-agent"></a>步骤 1：删除 Azure Linux 代理
-首先，在 Linux VM 上使用 **deprovision** 参数运行 **waagent** 命令。 此命令将删除文件和数据，使 VM 准备好进行通用化。 有关详细信息，请参阅 [Azure Linux 代理用户指南](agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+首先，在 Linux VM 上使用 **deprovision** 参数运行 **waagent** 命令。 此命令将删除文件和数据，使 VM 准备好进行通用化。 有关详细信息，请参阅 [Azure Linux 代理用户指南](agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 1. 使用 SSH 客户端连接到 Linux VM。
 2. 在 SSH 窗口中，键入以下命令：
@@ -207,4 +207,4 @@ azure vm create -g myResourceGroup1 -n myNewVM -l chinaeast -y Linux \
 对于其他命令选项，运行 `azure help vm create`。
 
 ## <a name="next-steps"></a>后续步骤
-若要使用 CLI 管理 VM，请参阅[使用 Azure Resource Manager 模板和 Azure CLI 部署和管理虚拟机](cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)中的任务。
+若要使用 CLI 管理 VM，请参阅[使用 Azure Resource Manager 模板和 Azure CLI 部署和管理虚拟机](cli-deploy-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中的任务。

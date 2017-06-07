@@ -23,7 +23,7 @@ ms.lasthandoff: 04/14/2017
 
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>如何在 Linux VM 上安装和配置 MongoDB
-[MongoDB](http://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。 本文介绍如何使用 Azure CLI 2.0 在 Linux VM 上安装和配置 MongoDB。 还可以使用 [Azure CLI 1.0](install-mongodb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。 文中提供了一些示例，详细说明如何执行以下操作：
+[MongoDB](http://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。 本文介绍如何使用 Azure CLI 2.0 在 Linux VM 上安装和配置 MongoDB。 还可以使用 [Azure CLI 1.0](install-mongodb-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。 文中提供了一些示例，详细说明如何执行以下操作：
 
 * [手动安装和配置基本的 MongoDB 实例](#manually-install-and-configure-mongodb-on-a-vm)
 * [使用 Resource Manager 模板创建基本的 MongoDB 实例](#create-basic-mongodb-instance-on-centos-using-a-template)
@@ -223,8 +223,8 @@ az group deployment show --resource-group myResourceGroup --name myMongoDBCluste
 ```
 
 ## <a name="next-steps"></a>后续步骤
-在上述示例中，你已在本地从 VM 连接到 MongoDB 实例。 如果想要从另一个 VM 或网络连接到 MongoDB 实例，请确保[创建相应的网络安全组规则](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+在上述示例中，你已在本地从 VM 连接到 MongoDB 实例。 如果想要从另一个 VM 或网络连接到 MongoDB 实例，请确保[创建相应的网络安全组规则](nsg-quickstart.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 有关使用模板创建这些规则的详细信息，请参阅 [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)。
 
-Azure Resource Manager 模板使用自定义脚本扩展在 VM 上下载并执行脚本。 有关详细信息，请参阅[在 Linux 虚拟机上使用 Azure 自定义脚本扩展](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+Azure Resource Manager 模板使用自定义脚本扩展在 VM 上下载并执行脚本。 有关详细信息，请参阅[在 Linux 虚拟机上使用 Azure 自定义脚本扩展](extensions-customscript.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。

@@ -160,7 +160,7 @@ HDInsight 群集与其默认存储帐户必须位于相同的 Azure 位置。
 
 > [!NOTE]
 > 群集大小限制因 Azure 订阅而异。 要提高限制的大小，请联系计费支持人员。
-> <p>
+>
 > 群集使用的节点不视为虚拟机，因为用于节点的虚拟机映像是 HDInsight 服务的实现细节。 节点使用的计算核心会计入可供订阅使用的计算核心总数。 创建 HDInsight 群集时，可以在“节点定价层”边栏选项卡的摘要部分中查看可用核心数以及群集要使用的核心数  。
 >
 
@@ -201,7 +201,7 @@ HDInsight 群集与其默认存储帐户必须位于相同的 Azure 位置。
 | Standard_D13_v2 |8 |56 GB |8 |临时磁盘 (SSD) = 400 GB |16 |16x500 |
 | Standard_D14_v2 |16 |112 GB |8 |临时磁盘 (SSD) = 800 GB |32 |32x500 |
 
-有关在计划使用这些资源时要考虑的部署注意事项，请参阅[虚拟机的大小](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 有关不同大小的定价信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。   
+有关在计划使用这些资源时要考虑的部署注意事项，请参阅[虚拟机的大小](../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 有关不同大小的定价信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。   
 
 > [!IMPORTANT]
 > 如果计划使用 32 个以上的工作节点（在创建群集时配置或者是在创建之后通过扩展群集来配置），必须选择至少具有 8 个核心和 14 GB RAM 的头节点大小。
@@ -286,7 +286,7 @@ HDInsight 群集与其默认存储帐户必须位于相同的 Azure 位置。
 
 > [!NOTE]
 > 如果在将 JAR 文件部署到 HDInsight 群集或调用 HDInsight 群集上的 JAR 文件时遇到问题，请联系 [Azure.cn 支持](https://www.azure.cn/support/contact/)。
-> <p>
+>
 > HDInsight 不支持级联，因此不符合 Microsoft 技术支持的条件。 有关支持的组件的列表，请参阅 [HDInsight 提供的群集版本有哪些新功能？](hdinsight-component-versioning.md)。
 >
 

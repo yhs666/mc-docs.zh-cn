@@ -14,10 +14,40 @@ ms.lasthandoff: 05/26/2017
     <div class="container">
         <ul class="cardsY panelContent featuredContent">
             <li>
+                <a href="/articles/">
+                    <div class="cardSize">
+                        <div class="cardPadding">
+                            <div class="card">
+                                <div class="cardImageOuter">
+                                    <div class="cardImage">
+                                        <img data-hoverimage="media/index/getstarted-developer.svg" src="media/index/getstarted-developer.png" alt="" />
+                                    </div>
+                                </div>
+                                <div class="cardText">
+                                    <span class="likeAnH3">Azure 常用操作指南</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </li>
             <li>
-            </li>
-            <li>
+                <a href="/articles/developerdifferences">
+                    <div class="cardSize">
+                        <div class="cardPadding">
+                            <div class="card">
+                                <div class="cardImageOuter">
+                                    <div class="cardImage">
+                                        <img data-hoverimage="media/index/getstarted-itoperator.svg" src="media/index/getstarted-itoperator.png" alt="" />
+                                    </div>
+                                </div>
+                                <div class="cardText">
+                                    <span class="likeAnH3">中国区 Azure 应用程序开发说明</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </li>
         </ul>
     </div>
@@ -1892,7 +1922,7 @@ ms.lasthandoff: 05/26/2017
                                             <div class="cardText">
                                                 <h3>Azure CLI </h3>
                                                 <p>
-                                                    <a href="/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">入门</a>
+                                                    <a href="/xplat-cli-install?toc=%2fvirtual-machines%2flinux%2ftoc.json">入门</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://aka.ms/linux-azure-cli">下载用于 Linux 的 Azure CLI</a>

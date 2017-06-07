@@ -132,4 +132,4 @@ Windows-Server-Technical-Preview
 从上面的列表中复制选择的 SKU 名称，你已获得 `Set-AzureRMVMSourceImage` PowerShell cmdlet 或资源组模板的所有信息。
 
 ## <a name="next-steps"></a>后续步骤
-现在，你可以确切地选择想要使用的映像。 若要使用刚刚找到的映像信息快速创建虚拟机，或要使用包含该映像信息的模板，请参阅[使用 Resource Manager 和 PowerShell 创建 Windows VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+现在，你可以确切地选择想要使用的映像。 若要使用刚刚找到的映像信息快速创建虚拟机，或要使用包含该映像信息的模板，请参阅[使用 Resource Manager 和 PowerShell 创建 Windows VM](../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。

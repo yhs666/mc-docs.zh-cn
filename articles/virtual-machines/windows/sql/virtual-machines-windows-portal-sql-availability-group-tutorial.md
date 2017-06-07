@@ -415,7 +415,7 @@ ms.lasthandoff: 05/05/2017
 下一步是在故障转移群集上配置可用性组侦听器。
 
 > [!NOTE]
-> 本教程说明如何创建单个侦听器，该侦听器只使用一个 ILB IP 地址。 若要使用一个或多个 IP 地址创建一个或多个侦听器，请参阅[创建可用性组侦听器和负载均衡器 | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+> 本教程说明如何创建单个侦听器，该侦听器只使用一个 ILB IP 地址。 若要使用一个或多个 IP 地址创建一个或多个侦听器，请参阅[创建可用性组侦听器和负载均衡器 | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 >
 >
 

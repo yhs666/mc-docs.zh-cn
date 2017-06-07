@@ -27,7 +27,7 @@ ms.author: larryfr
 [安全外壳 (SSH)](https://zh.wikipedia.org/wiki/Secure_Shell) 可使用命令行接口在基于 Linux 的 HDInsight 群集上远程执行操作。本文档提供有关如何通过使用 PuTTY SSH 客户端在基于 Windows 的客户端中连接到 HDInsight 的信息。
 
 > [!NOTE]
-本文中的步骤假设用户使用的是基于 Windows 的系统，该系统装有 PuTTY SSH 客户端。如果用户使用的是提供 `ssh` 命令的 Linux、Unix、OS X 或 Windows 系统，请参阅[在 Linux、Unix 或 OS X 中的 HDInsight 上将 SSH 与基于 Linux 的 Hadoop 配合使用](./hdinsight-hadoop-linux-use-ssh-unix.md)。
+> 本文中的步骤假设用户使用的是基于 Windows 的系统，该系统装有 PuTTY SSH 客户端。如果用户使用的是提供 `ssh` 命令的 Linux、Unix、OS X 或 Windows 系统，请参阅[在 Linux、Unix 或 OS X 中的 HDInsight 上将 SSH 与基于 Linux 的 Hadoop 配合使用](./hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## 先决条件
 
@@ -73,17 +73,17 @@ SSH 用户可以使用密码或公钥进行身份验证。密码仅仅是你编�
     ![通行短语](./media/hdinsight-hadoop-linux-use-ssh-windows/key.png)  
 
     > [!NOTE]
-    强烈建议你为密钥使用安全的通行短语。但是，如果你忘记了通行短语，将没有办法恢复它。
+    > 强烈建议你为密钥使用安全的通行短语。但是，如果你忘记了通行短语，将没有办法恢复它。
 
 5. 单击“保存私钥”以在 **.ppk** 文件中保存密钥。在基于 Linux 的 HDInsight 群集上进行身份验证时，将要用到此密钥。
 
     > [!NOTE]
-    应该将此密钥存储在安全位置，因为它可以用来访问基于 Linux 的 HDInsight 群集。
+    > 应该将此密钥存储在安全位置，因为它可以用来访问基于 Linux 的 HDInsight 群集。
 
 6. 单击“保存公钥”以在 **.txt** 文件中保存此密钥。当你以后创建其他基于 Linux 的 HDInsight 群集时，可以重复使用该公钥。
 
     > [!NOTE]
-    公钥也显示在 PuTTYGen 的顶部。利用 Azure 门户预览创建群集时，可右键单击此字段，复制值，然后将其粘贴到窗体中。
+    > 公钥也显示在 PuTTYGen 的顶部。利用 Azure 门户预览创建群集时，可右键单击此字段，复制值，然后将其粘贴到窗体中。
 
 ## <a name="connect-to-a-linux-based-hdinsight-cluster"></a> 创建基于 Linux 的 HDInsight 群集
 
@@ -135,12 +135,12 @@ SSH 用户可以使用密码或公钥进行身份验证。密码仅仅是你编�
 5. 单击“打开”以连接到群集。
 
     > [!NOTE]
-    如果这是第一次连接到群集，你将收到安全警报。这是一般警报。选择“是”缓存服务器的 RSA2 密钥以继续。
+    > 如果这是第一次连接到群集，你将收到安全警报。这是一般警报。选择“是”缓存服务器的 RSA2 密钥以继续。
 
 6. 出现提示时，请输入你在创建群集时输入的用户。如果你为用户提供了密码，则系统仍将提示你输入该密码。
 
 > [!NOTE]
-上述步骤假设使用的是端口 22，它将连接到 HDInsight 群集上的主头节点。若使用端口 23，将连接到次要节点。有关头节点的详细信息，请参阅 [HDInsight 中的 Hadoop 群集的可用性和可靠性](./hdinsight-high-availability-linux.md)。
+> 上述步骤假设使用的是端口 22，它将连接到 HDInsight 群集上的主头节点。若使用端口 23，将连接到次要节点。有关头节点的详细信息，请参阅 [HDInsight 中的 Hadoop 群集的可用性和可靠性](./hdinsight-high-availability-linux.md)。
 
 ### 连接到从节点
 
@@ -157,7 +157,7 @@ SSH 用户可以使用密码或公钥进行身份验证。密码仅仅是你编�
 3. 在“浏览”对话框出现时，选择包含密钥的 .ppk 文件，然后单击“打开”。此时将向 Pageant 添加密钥，在连接到群集时，Pageant 将向 PuTTY 提供该密钥。
 
     > [!IMPORTANT]
-    如果你使用了 SSH 密钥保护帐户，则必须完成以前的步骤，然后才能连接到辅助节点。
+    > 如果你使用了 SSH 密钥保护帐户，则必须完成以前的步骤，然后才能连接到辅助节点。
 
 4. 打开 PuTTY。
 
@@ -190,7 +190,7 @@ SSH 用户可以使用密码或公钥进行身份验证。密码仅仅是你编�
     将 *USERNAME* 替换为你的 SSH 用户名，并将 *FQDN* 替换为辅助节点的 FQDN。例如，`workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.chinacloudapp.cn`。
 
     > [!NOTE]
-    如果你使用密码对 SSH 会话进行身份验证，则系统将提示你重新输入该密码。如果你使用 SSH 密钥，则连接应在没有任何提示的情况下完成。
+    > 如果你使用密码对 SSH 会话进行身份验证，则系统将提示你重新输入该密码。如果你使用 SSH 密钥，则连接应在没有任何提示的情况下完成。
 
 9. 在建立会话后，你的 PuTTY 会话的提示符将从 `username@hn#-clustername` 更改为 `username@wn#-clustername`，指示你已连接到辅助节点。你此时运行的任何命令都将在从节点上运行。
 
@@ -235,7 +235,7 @@ SSH 用户可以使用密码或公钥进行身份验证。密码仅仅是你编�
 可以使用 SSH 来以隧道方式将本地请求（例如 Web 请求）传送到 HDInsight 群集。然后，请求将路由到请求的资源，就像它是来源于 HDInsight 群集头节点一样。
 
 > [!IMPORTANT]
-访问某些 Hadoop 服务的 Web UI 需要使用 SSH 隧道。例如，作业历史记录 UI 或资源管理器 UI 只能使用 SSH 隧道访问。
+> 访问某些 Hadoop 服务的 Web UI 需要使用 SSH 隧道。例如，作业历史记录 UI 或资源管理器 UI 只能使用 SSH 隧道访问。
 
 有关创建和使用 SSH 隧道的详细信息，请参阅[使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI](./hdinsight-linux-ambari-ssh-tunnel.md)。
 

@@ -21,7 +21,7 @@ ms.author: jparrel
 
 # 使用负载均衡的集来群集化 Linux 上的 MySQL
 > [!IMPORTANT]
-Azure 提供两个不同的部署模型用于创建和处理资源：[Azure Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md) 模型和经典模型。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。如果需要部署 MySQL 群集，可以使用 [Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/mysql-replication/)。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Azure Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md) 模型和经典模型。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。如果需要部署 MySQL 群集，可以使用 [Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/mysql-replication/)。
 
 本文探讨并演示在 Azure 上部署基于 Linux 的高度可用服务时可用的不同方法，并在 MySQL Server 高可用性方面提供入门性的探讨。演示此方法的视频可在[第 9 频道](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL)上找到。
 
@@ -169,7 +169,7 @@ GRANT ALL ON things.\* TO root;
 ```
 
 > [!WARNING]
-此最后一条语句有效地对该表中的根用户禁用身份验证。这应替换为生产级别 GRANT 语句，并且仅为说明目的才包括在内。
+> 此最后一条语句有效地对该表中的根用户禁用身份验证。这应替换为生产级别 GRANT 语句，并且仅为说明目的才包括在内。
 
 如果要从 VM 外部进行查询，则还需要为 MySQL 启用网络（这是本指南的目的）。在两个 VM 上打开 `/etc/mysql/my.cnf` 并转到 `bind-address`。将地址从 127.0.0.1 更改为 0.0.0.0。保存该文件之后，在当前主节点上发出 `sudo service mysql restart`。
 
@@ -212,7 +212,7 @@ Azure 上 Corosync 的主要约束是 Corosync 首选多播，其次广播，再
 幸运的是，Corosync 提供一种可行的单播模式。唯一的真正约束是，由于并非所有节点之间都可互相通信，因此需要在配置文件中定义节点，包括其 IP 地址。我们可以对单播使用 Corosync 示例文件，更改绑定地址、节点列表和日志记录目录（Ubuntu 使用 `/var/log/corosync`，而示例文件使用 `/var/log/cluster`），并启用仲裁工具。
 
 > [!NOTE]
-使用以下 `transport: udpu` 指令以及为两个节点手动定义的 IP 地址。
+> 使用以下 `transport: udpu` 指令以及为两个节点手动定义的 IP 地址。
 
 在 `/etc/corosync/corosync.conf` 上针对两个节点运行以下代码：
 
@@ -369,7 +369,7 @@ primitive st-azure stonith:external/azure \
 ```
 
 > [!NOTE]
-该脚本不执行向上/向下检查。原始 SSH 资源使用 15 次 ping 检查，但 Azure VM 的恢复时间可能更多变。
+> 该脚本不执行向上/向下检查。原始 SSH 资源使用 15 次 ping 检查，但 Azure VM 的恢复时间可能更多变。
 
 ## 限制
 以下限制适用：
