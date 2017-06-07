@@ -50,16 +50,15 @@
 ## [监视和故障排除](site-recovery-monitoring-and-troubleshooting.md)
 
 # 引用
-## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
-## [PowerShell 经典](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
+## [PowerShell 经典](https://docs.microsoft.com/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
 ## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # 相关内容
-## [Azure 自动化](/azure/automation/)
+## [Azure 自动化](/automation/)
 
 # 资源
-## [学习路径](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
 ## [论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
 ## [博客](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
-## [价格](https://azure.microsoft.com/pricing/details/site-recovery/)
-## [服务更新](https://azure.microsoft.com/updates/?product=site-recovery)
+## [价格](https://www.azure.cn/pricing/details/site-recovery/)
+

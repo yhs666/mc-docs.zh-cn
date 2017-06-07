@@ -28,7 +28,7 @@
 
 ## 表存储
 ### [.NET](storage-dotnet-how-to-use-tables.md)
-### [F#](/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage)
+### [F#](https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage)
 ### [Java](storage-java-how-to-use-table-storage.md)
 ### [Node.js](storage-nodejs-how-to-use-table-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-tables.md)
