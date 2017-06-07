@@ -70,6 +70,8 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 
 在此详细的演练中，我们创建所需的先决条件，即先创建文件存储共享，然后通过 SMB 将其装载到 Linux VM 上。
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 1. 使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组，以便保存文件共享。
 
     若要在“中国北部”位置创建名为 `myResourceGroup` 的资源组，请使用以下示例：

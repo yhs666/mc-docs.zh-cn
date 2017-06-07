@@ -124,7 +124,7 @@ ms.lasthandoff: 04/28/2017
 <!--MSDN references-->
 [sys.database_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
-[sqlcmd]: /azure/sql-data-warehouse-get-started-connect-sqlcmd/
+[sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [博客]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/

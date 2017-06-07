@@ -44,22 +44,22 @@
 ### [获取 ARP 表（经典）](expressroute-troubleshooting-arp-classic.md)
 
 # 参考
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](../powershell-install-configure.md)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST（经典）](https://msdn.microsoft.com/library/azure/dn606310)
 
 # 相关内容
-## [虚拟网络](/azure/virtual-network/)
-## [VPN 网关](/azure/vpn-gateway/)
-## [虚拟机](/azure/virtual-machines/)
-## [负载均衡器](/azure/load-balancer/)
-## [流量管理器](/azure/traffic-manager/)
+## [虚拟网络](/virtual-network/)
+## [VPN 网关](/vpn-gateway/)
+## [虚拟机](/virtual-machines/)
+## [负载均衡器](/load-balancer/)
+## [流量管理器](/traffic-manager/)
 
 # 资源
 ## [价格](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [网络博客](https://azure.microsoft.com/blog/topics/networking/)
 ## [案例研究](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
-## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [SLA](https://www.azure.cn/support/legal/sla/)
 ## [订阅和服务限制](../azure-subscription-service-limits.md)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [创建 ExpressRoute 线路](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)

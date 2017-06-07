@@ -32,7 +32,7 @@ ms.lasthandoff: 05/05/2017
 
 若要完成本教程，请确保已安装最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) 模块。
 
-首先，使用 Login-AzureRmAccount -EnvironmentName AzureChinaCloud 命令登录到 Azure 订阅，并按屏幕说明操作。
+首先，使用 Login-AzureRmAccount 命令登录到 Azure 订阅，并按屏幕说明操作。
 
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud

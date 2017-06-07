@@ -39,7 +39,7 @@ ms.lasthandoff: 05/12/2017
 
 如果使用 [Azure Active Directory](../active-directory/active-directory-whatis.md)，则完全无需管理副本中的凭据。 但是，将数据库复制到新服务器时，基于登录名的访问可能不起作用，因为登录名在新服务器上不存在。 若要了解如何在将数据库复制到其他逻辑服务器时管理登录名，请参阅[灾难恢复后如何管理 Azure SQL 数据库安全性](sql-database-geo-replication-security-config.md)。 
 
-复制成功之后，重新映射其他用户之前，只有启动复制的登录名，即数据库所有者 (DBO)，才能登录到新数据库。 若要在复制操作完成后解析登录名，请参阅[解析登录名](sql-database-copy.md#resolve-logins.md)
+复制成功之后，重新映射其他用户之前，只有启动复制的登录名，即数据库所有者 (DBO)，才能登录到新数据库。 若要在复制操作完成后解析登录名，请参阅[解析登录名](sql-database-copy.md#resolve-logins)
 
 ## <a name="database-copy-using-the-azure-portal-preview"></a>使用 Azure 门户预览复制数据库
 

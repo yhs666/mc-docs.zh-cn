@@ -44,10 +44,10 @@
 ### [一键式 PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # 参考
-## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
-## [.NET](/dotnet/api/streamanalytics.tests.operationtests)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
+## [.NET](https://docs.microsoft.com/dotnet/api/streamanalytics.tests.operationtests)
 ## [查询语言](https://msdn.microsoft.com/library/azure/dn834998)
-## [REST](/rest/api/streamanalytics)
+## [REST](https://docs.microsoft.com/rest/api/streamanalytics)
 
 # 资源
 <!-- Not Available ## [发行说明](stream-analytics-release-notes.md) -->

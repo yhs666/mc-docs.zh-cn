@@ -590,7 +590,7 @@ Azure 存储提供持久性存储，以及 SAN 存储所具有的典型保护和
 
 有关 Azure 存储的详细信息，请参阅：
 
-* </storage/>
+* <https://review.docs.azure.cn/storage/>
 * <https://azure.microsoft.com/services/site-recovery>
 * <https://msdn.microsoft.com/library/windowsazure/ee691964.aspx>
 * <https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview.aspx>
@@ -648,7 +648,7 @@ Azure 将提供一种网络基础结构，可让我们映射想要使用 SAP 软
 * 在客户的本地网络与 Azure 网络之间建立跨界连接
 * 在 Azure 站点之间建立跨 Azure 区域或数据中心的连接
 
-可在以下网页中找到更多信息：</virtual-network/>
+可在以下网页中找到更多信息：<https://review.docs.azure.cn/virtual-network/>
 
 可以通过许多不同的方式配置 Azure 中的名称解析和 IP 解析。 在本文档中，仅限云的方案依赖于使用 Azure DNS 的默认方式（与定义自己的 DNS 服务不同）。 此外，还可使用新的 Azure DNS 服务，而不是设置自己的 DNS 服务器。 有关详细信息，请参阅[此文][virtual-networks-manage-dns-in-vnet]的[此页](https://www.azure.cn/home/features/dns/)。
 
@@ -708,26 +708,26 @@ Azure 现在也可让为一个 Azure 订阅创建多站点 VPN 连接。 以前�
 
 
 #### <a name="vnet-to-vnet-connection"></a>VNet 到 VNet 连接
-使用多站点 VPN 时，需要在每个区域中配置不同的 Azure 虚拟网络。 但是，通常必须让不同区域中的软件组件能够彼此通信。 在理想情况下，此通信应该从一个 Azure 区域路由到本地，再由此路由到其他 Azure 区域。 简而言之，Azure 可让设置从某个区域中的一个 Azure 虚拟网络到托管在另一个区域中的另一个 Azure 虚拟网络的连接。 此功能称为 VNet 对 VNet 连接。 有关此功能的详细信息，请参阅：</vpn-gateway/vpn-gateway-vnet-vnet-rm-ps/>。
+使用多站点 VPN 时，需要在每个区域中配置不同的 Azure 虚拟网络。 但是，通常必须让不同区域中的软件组件能够彼此通信。 在理想情况下，此通信应该从一个 Azure 区域路由到本地，再由此路由到其他 Azure 区域。 简而言之，Azure 可让设置从某个区域中的一个 Azure 虚拟网络到托管在另一个区域中的另一个 Azure 虚拟网络的连接。 此功能称为 VNet 对 VNet 连接。 有关此功能的详细信息，请参阅：<https://review.docs.azure.cn/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps/>。
 
 #### <a name="private-connection-to-azure---expressroute"></a>与 Azure 建立专用连接 – ExpressRoute
 使用 Azure ExpressRoute 可在 Azure 数据中心与客户本地环境或共置环境中的基础结构之间建立专用连接。 ExpressRoute 由不同的 MPLS（数据包交换）VPN 提供商或其他网络服务提供商提供。 ExpressRoute 连接不通过公共 Internet 。 与通过 Internet 建立的典型连接相比，ExpressRoute 连接可通过多个并行线路提供更高的安全性、更高的可靠性、更快的速度和更小的延迟。
 
 有关 Azure ExpressRoute 和产品的详细信息，请参阅：
 
-* </expressroute/>
+* <https://review.docs.azure.cn/expressroute/>
 * <https://www.azure.cn/pricing/details/expressroute/>
-* </expressroute/expressroute-faqs/>
+* <https://review.docs.azure.cn/expressroute/expressroute-faqs/>
 
 如文中所述，使用 Express Route 可通过一条 ExpressRoute 线路启用多个 Azure 订阅
 
-* </expressroute/expressroute-howto-linkvnet-arm/>
-* </expressroute/expressroute-howto-circuit-arm/>
+* <https://review.docs.azure.cn/expressroute/expressroute-howto-linkvnet-arm/>
+* <https://review.docs.azure.cn/expressroute/expressroute-howto-circuit-arm/>
 
 #### <a name="forced-tunneling-in-case-of-cross-premise"></a>跨界方案中的强制隧道
 要使 VM 通过站点到站点连接、点到站点连接或 ExpressRoute 加入到本地域，还需要确保为这些 VM 中的所有用户部署 Internet 代理设置。 默认情况下，这些 VM 中运行的软件或者使用浏览器访问 Internet 的用户不会通过公司代理，而是直接通过 Azure 连接到 Internet。 但是，即使进行了代理设置，也不能完全保证能够通过公司代理定向流量，因为检查代理是软件和服务的责任。 如果 VM 中运行的软件不执行这种检查，或者由管理员处理这些设置，则定向到 Internet 的流量可能会再次直接通过 Azure 改道发往 Internet。
 
-若要避免此问题，可以在本地与 Azure 之间配置具有站点到站点连接的强制隧道。 有关强制隧道功能的详细说明，请参阅 </vpn-gateway/vpn-gateway-forced-tunneling-rm/>
+若要避免此问题，可以在本地与 Azure 之间配置具有站点到站点连接的强制隧道。 有关强制隧道功能的详细说明，请参阅 <https://review.docs.azure.cn/vpn-gateway/vpn-gateway-forced-tunneling-rm/>
 
 ExpressRoute 强制隧道由通过 ExpressRoute BGP 对等互连会话广告默认路由的客户启用。
 
@@ -803,7 +803,7 @@ Windows PowerShell 是一个功能强大的可扩展框架，在 Azure 中部署
 
 部署适用于 SAP 的 Azure 监视扩展（请参阅本文档中的[适用于 SAP 的 Azure 监视解决方案][planning-guide-9.1]一章）只能通过 PowerShell 或 CLI 完成。 因此，在 Azure 中部署或管理 SAP NetWeaver 系统时，必须安装并配置 PowerShell 或 CLI。  
 
-随着 Azure 提供的功能越来越多，我们将会添加新的 PS cmdlet，这就需要你更新 cmdlet。 因此，最好是每月至少查看 Azure 下载站点 </downloads/> 一次，以获取新版 cmdlet。 只需覆盖旧版本安装新版本即可。
+随着 Azure 提供的功能越来越多，我们将会添加新的 PS cmdlet，这就需要你更新 cmdlet。 因此，最好是每月至少查看 Azure 下载站点 <https://review.docs.azure.cn/downloads/> 一次，以获取新版 cmdlet。 只需覆盖旧版本安装新版本即可。
 
 有关 Azure 相关的 PowerShell 命令的综合列表，请查看以下网页：<https://msdn.microsoft.com/library/azure/dn708514.aspx>.
 
@@ -1720,14 +1720,14 @@ Azure 虚拟机上目前没有提供单一 VM SLA。 若要大致了解单一 VM
 * 计划内维护事件是指由 Microsoft 对底层 Azure平台进行定期更新，以改进虚拟机运行时所在的平台基础结构的总体可靠性、性能和安全性。
 * 计划外维护事件见于虚拟机所在硬件或物理基础结构出现某类故障的情况。 此类故障可能包括：本地网络故障、本地磁盘故障，或者其他机架级别的故障。 检测到此类故障时，Azure 平台会自动将虚拟机从所在的不健康物理服务器迁移到健康的物理服务器。 此类事件很少见，但也会导致虚拟机重启。
 
-可在以下文档中找到更多详细信息：</virtual-machines/virtual-machines-manage-availability>
+可在以下文档中找到更多详细信息：<https://review.docs.azure.cn/virtual-machines/virtual-machines-manage-availability>
 
 #### <a name="azure-storage-redundancy"></a>Azure 存储冗余
 始终复制 Azure 存储帐户中的数据以确保持久性和高可用性，并且即使在遇到临时硬件故障时也符合 Azure 存储 SLA 要求
 
 由于 Azure 存储默认保留 3 个数据映像，因此不需要部署跨多个 Azure 磁盘的 RAID5 或 RAID1。
 
-可在以下文章中找到更多详细信息：</storage/storage-redundancy/>
+可在以下文章中找到更多详细信息：<https://review.docs.azure.cn/storage/storage-redundancy/>
 
 #### <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-applications"></a>利用 Azure 基础结构 VM 重新启动来实现 SAP 应用程序的“更高可用性”
 如果确定不使用 Windows Server 故障转移群集 (WSFC) 或 Linux 等效项等功能（Azure 尚未支持后者可配合 SAP 软件使用），可以利用 Azure VM 重新启动来保护 SAP 系统，以防止 Azure 物理服务器基础结构和整体基础 Azure 平台发生计划内和计划外的停机。
@@ -1858,7 +1858,7 @@ SAP 提供了相应的功能，用于在启动 VM 中的 OS 后立即启动 SAP 
 根据所选的 SAP 配置（第 2 层或第 3 层），可能需要执行备份。 备份包括 VM 自身的内容以及数据库。 应该使用数据库方法执行 DBMS 相关的备份。 可以在 [DBMS Guide][dbms-guide]（DBMS 指南）中找到针对不同数据库的详细说明。 另外，SAP 数据可以通过本部分所述的脱机方式（也包括数据库内容）或者下一部分所述的联机方式来备份。
 
 简单而言，执行脱机备份要求通过 Azure 门户预览关闭 VM，然后将基础 VM 磁盘以及所有附加的 VHD 复制到 VM。 这样就能保存 VM 及其关联磁盘的时间点映像。 建议将“备份”复制到一个不同的 Azure 存储帐户。 因此，可以应用本文档的 [在 Azure 存储帐户之间复制磁盘][planning-guide-5.4.2] 一章中所述的过程。
-除了使用 Azure 门户预览关机之外，也可以按如下所述通过 Powershell 或 CLI 来执行此操作：</virtual-machines/virtual-machines-deploy-rmtemplates-powershell/>
+除了使用 Azure 门户预览关机之外，也可以按如下所述通过 Powershell 或 CLI 来执行此操作：<https://review.docs.azure.cn/virtual-machines/virtual-machines-deploy-rmtemplates-powershell/>
 
 还原该状态将要删除基础 VM 以及基础 VM 的原始磁盘和装载的 VHD，将保存的 VHD 复制回到原始存储帐户，然后重新部署系统。
 以下文章说明了如何使用 Powershell 编写此过程的脚本：<http://www.westerndevs.com/azure-snapshots/>
@@ -1879,9 +1879,9 @@ SAP 提供了相应的功能，用于在启动 VM 中的 OS 后立即启动 SAP 
 > 理论上，如果 DBMS 系统支持 Windows VSS（卷影复制服务 <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx>），则与 SQL Server 一样，将以一致的方式备份运行数据库的 VM。
 > 不过请注意，无法根据 Azure VM 备份时间点来还原数据库。 因此，建议使用 DBMS 功能执行数据库的备份，而不要依赖于 Azure VM 备份
 >
-> 若要熟悉 Azure 虚拟机备份，请从此处着手：</backup/backup-azure-vms/>。
+> 若要熟悉 Azure 虚拟机备份，请从此处着手：<https://review.docs.azure.cn/backup/backup-azure-vms/>。
 >
-> 也可以结合使用安装在 Azure VM 中的 Microsoft Data Protection Manager 及 Azure 备份来备份/还原数据库。 有关详细信息，请参阅：</backup/backup-azure-dpm-introduction/>。  
+> 也可以结合使用安装在 Azure VM 中的 Microsoft Data Protection Manager 及 Azure 备份来备份/还原数据库。 有关详细信息，请参阅：<https://review.docs.azure.cn/backup/backup-azure-dpm-introduction/>。  
 >
 > ![Linux][Logo_Linux] Linux
 >

@@ -79,7 +79,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>命令行</h3>
-                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="../powershell-install-configure.md">PowerShell</a></p>
                     </div>
                 </div>
             </div>
