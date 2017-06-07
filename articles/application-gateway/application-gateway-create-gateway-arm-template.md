@@ -188,6 +188,8 @@ New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroup
 
 ### <a name="step-2"></a>步骤 2
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 如有必要，请运行 `az group create` 命令创建一个资源组，如以下代码片段中所示。 请注意命令的输出。 在输出后显示的列表说明了所使用的参数。 有关资源组的详细信息，请访问 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)。
 
 ```azurecli

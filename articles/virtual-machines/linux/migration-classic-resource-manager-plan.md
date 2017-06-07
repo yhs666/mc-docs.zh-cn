@@ -87,6 +87,8 @@ ms.lasthandoff: 05/05/2017
 
 ### <a name="patterns-of-success"></a>成功模式
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 下面是在许多大型迁移中发现的问题。 这个列表并不详尽，有关详细信息，请参阅[不支持的功能和配置](migration-classic-resource-manager-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations)。 你不一定会遇到这些技术问题，但如果遇到，在尝试迁移前先解决这些问题可确保体验更流畅。
 
 - **执行验证/准备/中止试运行** - 这可能是确保经典部署模型成功迁移到 Azure Resource Manager 部署模型最重要的步骤。 迁移 API 包括三个主要步骤：验证、准备和提交。 验证将读取经典环境的状态并返回所有问题的结果。 但是，由于某些问题可能存在于 Azure Resource Manager 堆栈中，因此验证并不会捕获所有内容。 作为迁移过程下一步的“准备”有助于公开这些问题。 “准备”会将元数据从经典部署模型移动到 Azure Resource Manager 部署模型，但不会提交移动，且不会删除或更改经典部署模型端的任何内容。 试运行涉及准备迁移，然后中止（**而不是提交**）迁移准备。 验证/准备/中止试运行的目标是查看 Azure Resource Manager 堆栈中的所有元数据，对其进行检查（以编程方式或在门户中），然后验证所有内容是否正确迁移以及解决技术问题。  它还可让你对迁移持续时间有一些认识，以便可以相应地规划停机时间。  验证/准备/中止操作不会导致任何用户停机时间：因此，它对应用程序使用不具有破坏性。

@@ -34,6 +34,8 @@ ms.lasthandoff: 05/05/2017
 
 首先，使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令打开终端并登录 Azure 订阅。
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ```azurecli
 az login
 ```

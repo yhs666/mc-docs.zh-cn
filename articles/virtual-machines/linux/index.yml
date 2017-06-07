@@ -53,17 +53,7 @@ sections:
     style: ordered
     items:
     - html: <a href="/virtual-machines/linux/tutorial-manage-vm">Create and manage Linux VMs</a>
-    - html: <a href="/virtual-machines/linux/tutorial-manage-disks">Create and manage VM disks</a></li>
-    - html: <a href="/virtual-machines/linux/tutorial-automate-vm-deployment">Automate VM configuration</a>
-    - html: <a href="/virtual-machines/linux/tutorial-custom-images">Create custom VM images</a>
-    - html: <a href="/virtual-machines/linux/tutorial-availability-sets">Create highly available VMs</a>
     - html: <a href="/virtual-machines/linux/tutorial-create-vmss">Create a VM scale set</a>
-    - html: <a href="/virtual-machines/linux/tutorial-load-balancer">Load balance VMs</a>
-    - html: <a href="/virtual-machines/linux/tutorial-virtual-network">Manage VMs and virtual networks</a>
-    - html: <a href="/virtual-machines/linux/tutorial-backup-vms">Backup VMs</a>
-    - html: <a href="/virtual-machines/linux/tutorial-monitoring">Monitor VMs</a>
-    - html: <a href="/virtual-machines/linux/tutorial-azure-security">Manage security on VMs</a>
-    - html: <a href="/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a CI/CD infrastructure with Jenkins, Docker, and GitHub</a>
 - title: 免费 PluralSight 视频培训
   items:
   - type: list
@@ -101,6 +91,6 @@ sections:
     - title: 命令行
       html: <p><a href="https://docs.microsoft.com/cli/azure/vm">Azure CLI</a></p><p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
     - title: 语言
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="https://docs.microsoft.com/java/api">Java</a></p><p><a href="/develop/nodejs/#azure-sdk">Node​.js</a></p><p><a href="/develop/python/">Python</a></p>
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="https://docs.microsoft.com/java/api">Java</a></p><p><a href="/develop/nodejs/">Node​.js</a></p><p><a href="/develop/python/">Python</a></p>
     - title: REST
       html: <p><a href="https://docs.microsoft.com/rest/api/compute">REST API Reference</a></p>
