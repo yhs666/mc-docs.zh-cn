@@ -222,9 +222,9 @@
 ## [REST（设备消息传送）REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 
 # 相关内容
-## [Azure IoT 套件](../iot-suite/index.md)
-## [Azure 事件中心](../event-hubs/index.md)
-## [流分析](../stream-analytics/index.md)
+## [Azure IoT 套件](/iot-suite/)
+## [Azure 事件中心](/event-hubs/)
+## [流分析](/stream-analytics/)
 
 
 # 资源
