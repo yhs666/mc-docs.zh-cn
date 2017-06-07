@@ -44,6 +44,8 @@ users:
 
 使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建一个要在其中启动 VM 的资源组。 以下示例创建名为 `myResourceGroup` 的资源组：
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ```azurecli
 az group create --name myResourceGroup --location chinanorth
 ```
