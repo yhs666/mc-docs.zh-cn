@@ -558,7 +558,7 @@ ms.lasthandoff: 05/19/2017
 - 希望使用 DocumentDB 执行规模和性能测试？ 请参阅[使用 DocumentDB 执行性能和规模测试](documentdb-performance-testing.md)
 - 了解如何[监视 DocumentDB 帐户](documentdb-monitor-accounts.md)。
 - 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
-- 浏览 [DocumentDB 文档](/documentation/services/documentdb/)。
+- 浏览 [DocumentDB 文档](index.md)。
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

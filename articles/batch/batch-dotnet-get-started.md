@@ -752,7 +752,7 @@ Sample complete, hit ENTER to exit...
 - 通过 [TopNWords][github_topnwords] 示例了解有关使用 Batch 处理“前 N 个单词”工作负荷的不同实现方式。
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
-[azure_free_account]: /pricing/1rmb-trial/
+[azure_free_account]: https://www.azure.cn/pricing/1rmb-trial/
 [azure_portal]: https://portal.azure.cn
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer

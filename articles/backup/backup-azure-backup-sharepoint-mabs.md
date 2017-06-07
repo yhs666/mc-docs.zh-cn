@@ -126,7 +126,7 @@ MABS 以 LocalSystem 帐户的形式运行。 若要备份 SQL Server 数据库�
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > MABS 然后可用的最新磁盘备份点从到 Azure 提供最多两个每日备份。 Azure 备份还可以使用 [Azure 备份网络限制](/documentation/articles/backup-configure-vault/#enable-network-throttling/)，来控制高峰期和非高峰期用于备份的 WAN 带宽量。
+    > MABS 然后可用的最新磁盘备份点从到 Azure 提供最多两个每日备份。 Azure 备份还可以使用 [Azure 备份网络限制](./backup-configure-vault.md#enable-network-throttling)，来控制高峰期和非高峰期用于备份的 WAN 带宽量。
     >
     >
 11. 根据选择的备份计划，在“**指定联机保留策略**”页上，选择每日、每周、每月和每年备份点的保留策略。

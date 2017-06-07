@@ -237,10 +237,11 @@ ms.lasthandoff: 04/22/2017
 输入要用作 Web 应用程序代理服务器的服务器。 Web 应用程序代理服务器部署在外围网络中（面向 Extranet），支持来自 Extranet 的身份验证请求。 可以根据容量规划需求添加一个或多个服务器。 Microsoft 建议安装一台 Web 应用程序代理服务器用于测试和试验部署。 然后，在完成初始配置之后通过再次运行 Azure AD Connect，根据缩放需求添加和部署更多的服务器。 我们建议使用数量相当的代理服务器，以满足来自 Intranet 的身份验证要求。
 
 > [!NOTE]
+> <ul>
 > <li> 如果使用的帐户不是 AD FS 服务器上的本地管理员，系统将提示提供管理员凭据。</li>
 > <li> 在运行此步骤之前，请确保 Azure AD Connect 服务器与 Web 应用程序代理服务器之间已建立 HTTP/HTTPS 连接。</li>
 > <li> 确保 Web 应用程序服务器与 AD FS 服务器之间的 HTTP/HTTPS 连接允许通过身份验证请求。</li>
->
+> </ul>
 
 ![Web 应用](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
 

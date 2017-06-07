@@ -327,7 +327,7 @@ foreach (ApplicationSummary app in applications)
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples
-[storage_pricing]: /pricing/details/storage/
+[storage_pricing]: https://www.azure.cn/pricing/details/storage/
 [net_appops]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.aspx
 [net_appops_listappsummaries]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.listapplicationsummaries.aspx
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
