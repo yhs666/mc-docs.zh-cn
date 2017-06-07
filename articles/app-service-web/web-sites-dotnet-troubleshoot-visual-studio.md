@@ -66,7 +66,7 @@ ms.lasthandoff: 05/26/2017
     >
     >
 
-    有关从 Visual Studio 连接至 Azure 资源的详细信息，请参阅[管理帐户、订阅和管理角色](/active-directory/role-based-access-control-configure#BKMK_AccountVCert)。
+    有关从 Visual Studio 连接至 Azure 资源的详细信息，请参阅[管理帐户、订阅和管理角色](/active-directory/role-based-access-control-configure)。
 2. 在“服务资源管理器”中，展开“Azure”，然后展开“应用服务”。
 3. 展开包含在 [Azure 和 ASP.NET 入门][GetStarted]中创建的 Web 应用的资源组，右键单击该 Web 应用节点，然后单击“查看设置”。
 

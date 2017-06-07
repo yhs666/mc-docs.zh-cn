@@ -40,6 +40,8 @@ ms.lasthandoff: 05/26/2017
 - 如果使用 PowerShell 命令完成本文中的任务，请按[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json) 一文中的步骤安装和配置 Azure PowerShell。 确保已安装最新版本的 Azure PowerShell cmdlet。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
 - 如果使用 Azure 命令行接口 (CLI) 命令完成本文中的任务，请按[如何安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fvirtual-network%2ftoc.json) 一文中的步骤安装和配置 Azure CLI。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ## <a name="create-nic"></a>创建 NIC
 使用 Azure 门户预览创建 VM 时，门户将使用默认设置创建一个 NIC。 如果想要指定所有 NIC 设置，可以使用自定义设置创建 NIC 并在创建 VM 时将该 NIC 附加到 VM。 还可以创建 NIC 并将其添加到现有的 VM。 若要了解如何创建包含现有 NIC 的 VM，或者要在现有 VM 中添加或删除 NIC，请参阅[添加或删除 NIC](virtual-network-network-interface-vm.md) 一文。 创建 NIC 之前，创建 NIC 时所在的同一位置和订阅中必须存在现有的虚拟网络 (VNet)。 若要了解如何创建 VNet，请参阅[创建 VNet](virtual-networks-create-vnet-arm-pportal.md) 一文。
 
