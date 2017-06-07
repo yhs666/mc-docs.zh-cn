@@ -183,7 +183,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 [Azure 门户]: https://portal.azure.cn/
 
 
-[Hadoop]: /documentation/services/hdinsight/
+[Hadoop]: ../hdinsight/index.md
 
 [使用 IoT 中心发送云到设备消息]: ./iot-hub-csharp-csharp-c2d.md
 [处理设备到云的消息]: ./iot-hub-csharp-csharp-process-d2c.md

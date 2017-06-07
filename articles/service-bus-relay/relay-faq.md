@@ -24,7 +24,7 @@ ms.lasthandoff: 05/05/2017
 ---
 # <a name="relay-faq"></a>中继常见问题解答
 
-本文回答了一些关于 [Microsoft Azure 中继](/documentation/services/service-bus/)的常见问题。 还可以访问 [Azure 支持常见问题](http://go.microsoft.com/fwlink/?LinkID=185083)了解一般的 Azure 定价和支持信息。
+本文回答了一些关于 [Microsoft Azure 中继](../service-bus-messaging/index.md)的常见问题。 还可以访问 [Azure 支持常见问题](http://go.microsoft.com/fwlink/?LinkID=185083)了解一般的 Azure 定价和支持信息。
 
 ## <a name="general-questions"></a>一般问题
 ### <a name="what-is-azure-relay"></a>什么是 Azure 中继？
@@ -98,7 +98,7 @@ ms.lasthandoff: 05/05/2017
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>什么是共享访问签名？哪些语言支持生成签名？
 共享访问签名是基于 SHA–256 安全哈希或 URI 的身份验证机制。 有关如何在 Node、PHP、Java 和 C\# 中生成自有签名的信息，请参阅[共享访问签名][Shared Access Signatures]一文。
 
-[Pricing overview]: /pricing/details/messaging/
+[Pricing overview]: https://www.azure.cn/pricing/details/messaging
 [Relay exceptions]: ./relay-exceptions.md
 [Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md
 

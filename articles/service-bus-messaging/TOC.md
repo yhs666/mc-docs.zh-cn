@@ -55,10 +55,10 @@
 ### [使用 PowerShell 预配实体](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus/)
 
 # 引用
-## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
-## [.NET](/dotnet/api/microsoft.azure.management.servicebus)
-## [Java](/java/api/com.microsoft.azure.servicebus.amqp)
-## [REST](/rest/api/servicebus)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicebus)
+## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.servicebus.amqp)
+## [REST](https://docs.microsoft.com/rest/api/servicebus)
 
 # 资源
 ## [SQLFilter 语法](service-bus-messaging-sql-filter.md)
