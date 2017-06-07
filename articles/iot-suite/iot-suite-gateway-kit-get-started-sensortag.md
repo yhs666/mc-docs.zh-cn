@@ -216,7 +216,7 @@ cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure IoT 的更多示例和文档，请访问 [Azure IoT 开发人员中心](/develop/iot/)。
+有关 Azure IoT 的更多示例和文档，请访问 [Azure IoT 开发人员中心](http://www.auzre.cn/develop/iot/)。
 
 [img-telemetry]: ./media/iot-suite-gateway-kit-get-started-sensortag/appoutput.png
 
