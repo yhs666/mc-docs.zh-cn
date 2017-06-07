@@ -179,7 +179,7 @@ ms.lasthandoff: 04/22/2017
 
     如果未提供匹配的语法，该模板将生成一个意外的值。
 
-    当你收到此类错误时，请仔细检查表达式语法。 考虑使用 [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 或 [Visual Studio Code](/documentation/articles/resource-manager-vs-code/) 等 JSON 编辑器，此类编辑器在出现语法错误时可以发出警告。
+    当你收到此类错误时，请仔细检查表达式语法。 考虑使用 [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 或 [Visual Studio Code](resource-manager-vs-code.md) 等 JSON 编辑器，此类编辑器在出现语法错误时可以发出警告。
 
 - 段长度不正确
 
