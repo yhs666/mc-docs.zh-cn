@@ -39,7 +39,7 @@ IoT 中心让设备能够在端口 8883 上使用 [MQTT v3.1.1][lnk-mqtt-org] �
 | 语言 | 协议参数 |
 | --- | --- |
 | [Node.js][lnk-sample-node] |azure-iot-device-mqtt |
-| [Java][lnk-sample-java] |IotHubClientProtocol.MQTT |
+| Java |IotHubClientProtocol.MQTT |
 | [C][lnk-sample-c] |MQTT_Protocol |
 | [C#][lnk-sample-csharp] |TransportType.Mqtt |
 | [Python][lnk-sample-python] |IoTHubTransportProvider.MQTT |
@@ -149,7 +149,7 @@ request id 可以是消息属性值的任何有效值（如 [IoT 中心消息传
 1. 然后，服务发送一条响应消息，其中包含主题 `$iothub/twin/res/{status}/?$rid={request id}`的已报告属性集合的全新 ETag 值。 此响应消息使用与请求相同的**请求 ID**。
 
 请求消息正文包含一个 JSON 文档，该文档提供报告属性的新值（不可修改任何其他属性或元数据）。
-JSON 文档中的每个成员都会在设备克隆文档中更新或添加相应成员。 设置为 `null`的成员会从包含的对象中删除成员。 例如：
+JSON 文档中的每个成员都会在设备孪生文档中更新或添加相应成员。 设置为 `null`的成员会从包含的对象中删除成员。 例如：
 
 ```
     {
@@ -219,7 +219,6 @@ JSON 文档中的每个成员都会在设备克隆文档中更新或添加相应
 [lnk-mqtt-org]: http://mqtt.org/
 [lnk-mqtt-docs]: http://mqtt.org/documentation
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
-[lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/tree/master/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device/samples
 [lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples

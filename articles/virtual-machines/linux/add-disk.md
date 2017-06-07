@@ -30,6 +30,8 @@ ms.lasthandoff: 04/21/2017
 ## <a name="quick-commands"></a>快速命令
 以下示例将 `50`GB 磁盘附加到名为 `myResourceGroup` 的资源组中名为 `myVM` 的 VM：
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 使用非托管磁盘：
 
 ```azurecli

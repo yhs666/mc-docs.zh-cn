@@ -201,7 +201,7 @@ Value : https://myvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c09
   * 密钥保管库
     * 群集服务器身份验证证书
 
-</a "create-cluster-portal" ></a>
+<a name="create-cluster-portal" ></a>
 
 ## <a name="create-cluster-in-the-azure-portal-preview"></a>在 Azure 门户预览中创建群集
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>搜索 Service Fabric 群集资源

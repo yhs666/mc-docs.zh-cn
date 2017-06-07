@@ -28,7 +28,7 @@
 
 ## 表存储
 ### [.NET](storage-dotnet-how-to-use-tables.md)
-### [F#](/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage)
+### [F#](https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage)
 ### [Java](storage-java-how-to-use-table-storage.md)
 ### [Node.js](storage-nodejs-how-to-use-table-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-tables.md)
@@ -67,7 +67,6 @@
 ## 使用磁盘
 ### [Windows VM 的磁盘和 VHD](storage-about-disks-and-vhds-windows.md)
 ### [Linux VM 的磁盘和 VHD](storage-about-disks-and-vhds-linux.md)
-### [Azure 托管磁盘概述](storage-managed-disks-overview.md)
 ### [有关 Azure IaaS VM 磁盘的常见问题](storage-faq-for-disks.md)
 ### 高级存储
 #### [适用于 VM 磁盘的高性能高级存储](storage-premium-storage.md)

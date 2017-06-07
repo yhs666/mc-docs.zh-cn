@@ -33,7 +33,7 @@ ms.lasthandoff: 04/22/2017
 * 不一定要唯一的资源名称，不过，提供的名称应可帮助根据上下文识别资源。
 * 通用的资源名称。
 
-有关建立命名约定的帮助，请参阅 [Azure 基础结构命名准则](../virtual-machines/virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+有关建立命名约定的帮助，请参阅 [Azure 基础结构命名准则](../virtual-machines/virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ### <a name="unique-resource-names"></a>唯一的资源名称
 对于具有数据访问终结点的任何资源类型，必须提供唯一的资源名称。 需要唯一名称的一些常见类型包括：
@@ -396,5 +396,5 @@ ms.lasthandoff: 04/22/2017
 ## <a name="next-steps"></a>后续步骤
 
 * 有关设置存储帐户的指导，请参阅 [Azure 存储性能和可伸缩性清单](../storage/storage-performance-checklist.md)。
-* 有关虚拟网络的帮助，请参阅[网络基础结构准则](../virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 有关虚拟网络的帮助，请参阅[网络基础结构准则](../virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](./resource-manager-subscription-governance.md)。
