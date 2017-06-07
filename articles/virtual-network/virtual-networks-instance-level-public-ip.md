@@ -46,7 +46,7 @@ ms.lasthandoff: 04/22/2017
 ## <a name="why-would-i-request-an-ilpip"></a>为什么要请求 ILPIP？
 如果你想要能够通过直接向其分配的 IP 地址链接到 VM 或角色实例，请为 VM 或角色实例请求 ILPIP，而不是使用云服务VIP:&lt;端口号&gt;。
 
-* **主动 FTP** - 通过为 VM 分配 ILPIP，可在任何端口上接收流量。 VM 不需要终结点来接收流量。  请参阅 (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP 协议概述]，了解有关 FTP 协议的详细信息。
+* **主动 FTP** - 通过为 VM 分配 ILPIP，可在任何端口上接收流量。 VM 不需要终结点来接收流量。  请参阅 [FTP 协议概述](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)，了解有关 FTP 协议的详细信息。
 * **出站 IP** - 源自 VM 的出站流量映射到 ILPIP，以便源和 ILPIP 可唯一标识针对外部实体的 VM。
 
 > [!NOTE]

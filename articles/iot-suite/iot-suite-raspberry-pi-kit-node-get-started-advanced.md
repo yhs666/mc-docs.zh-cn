@@ -160,7 +160,7 @@ HostName=youriothubname.azure-devices.cn;DeviceId=yourdeviceid;SharedAccessKey=y
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure IoT 的更多示例和文档，请访问 [Azure IoT 开发人员中心](/develop/iot/)。
+有关 Azure IoT 的更多示例和文档，请访问 [Azure IoT 开发人员中心](https://www.azure.cn/develop/iot/)。
 
 
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-node-get-started-advanced/app-output.png

@@ -67,7 +67,7 @@ ms.lasthandoff: 05/26/2017
 
      有关这些属性的详细说明，请参阅 [在 HDInsight 中创建 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 
-3. 单击“法律条款”，然后单击“创建”。 确认已选中“固定到仪表板”复选框，然后单击“创建”。 你会在门户仪表板上看到一个标题为“对模板部署进行部署”  的新磁贴。 创建群集大约需要 20 分钟时间。 创建群集后，磁贴的标题被更改为指定的资源组名称。 门户将自动在新的边栏选项卡中打开资源组。 可以看到列出了群集和默认存储。
+3. 单击“法律条款”，然后单击“购买”。 确认已选中“固定到仪表板”复选框，然后单击“创建”。 你会在门户仪表板上看到一个标题为“对模板部署进行部署”  的新磁贴。 创建群集大约需要 20 分钟时间。 创建群集后，磁贴的标题被更改为指定的资源组名称。 门户将自动在新的边栏选项卡中打开资源组。 可以看到列出了群集和默认存储。
 
     ![HDInsight Linux 入门资源组](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight 群集资源组")。
 
