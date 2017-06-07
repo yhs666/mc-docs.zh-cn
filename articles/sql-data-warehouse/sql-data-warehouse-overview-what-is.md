@@ -144,7 +144,7 @@ SQL 数据仓库提供产品级别的服务级别协议 (SLA) 作为 Microsoft O
 <!--MSDN references-->
 
 <!--Other Web references-->
-[客户成功案例]: https://customers.microsoft.com/search?sq=&ff=story_products_services%26%3EAzure%2FAzure%2FAzure%20SQL%20Data%20Warehouse%26%26story_product_families%26%3EAzure%2FAzure%26%26story_product_categories%26%3EAzure&p=0
+[客户成功案例]: https://azure.microsoft.com/en-us/case-studies/?service=sql-data-warehouse
 [博客]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [客户顾问团队博客]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [功能请求]: https://feedback.azure.com/forums/307516-sql-data-warehouse
