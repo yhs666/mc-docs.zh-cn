@@ -35,7 +35,7 @@
 <sup>6</sup> 不同的 AMS 策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 
 
 >[!NOTE]
-> 如果经常使用相同的天数/访问权限等，则应使用相同的策略 ID。有关信息和示例，请参阅[此](media-services-dotnet-manage-entities.md#limit-access-policies/)部分。
+> 如果经常使用相同的天数/访问权限等，则应使用相同的策略 ID。有关信息和示例，请参阅[此](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies/)部分。
 
 <sup>7</sup>如果要将内容上传到 Azure 媒体服务中的资产，并且意图是要使用 Microsoft 服务中的媒体处理器之一（例如，Media Encoder Standard 和 Media Encoder Premium Workflow 等编码器，或者 Face Detector 等分析引擎）对此内容进行处理，则应注意以下限制。 
 

@@ -7,8 +7,6 @@
 ## [观看简介](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # 入门
-## [将 VMWare VM 复制到 Azure](site-recovery-vmware-to-azure.md)
-## [在多租户部署中将 VMware VM 复制到 Azure (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 ## [将 Hyper-V VM 复制到 Azure（包含 VMM）](site-recovery-vmm-to-azure.md)
 ## [将 Hyper-V VM 复制到 Azure](site-recovery-hyper-v-site-to-azure.md)
 ## [将 Hyper-V VM 复制到辅助站点（包含 VMM）](site-recovery-vmm-to-vmm.md)
