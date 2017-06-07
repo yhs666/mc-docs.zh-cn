@@ -20,7 +20,7 @@
 ## 管理
 ### 帐户
 #### [PowerShell](media-services-manage-with-powershell.md)
-#### [REST](/rest/api/media/mediaservice)
+#### [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
 ### 实体
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
@@ -176,14 +176,13 @@
 ### [重试逻辑](media-services-retry-logic-in-dotnet-sdk.md)
 
 # 引用
-## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
-## [PowerShell（服务管理）](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
-## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media)
+## [PowerShell (Resource Manager)](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
+## [PowerShell（服务管理）](https://docs.microsoft.com/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [REST](https://docs.microsoft.com/rest/api/media)
 
 # 资源
 ## [发行说明](media-services-release-notes.md)
-## [价格](https://azure.microsoft.com/pricing/details/media-services/)
-## [视频](https://azure.microsoft.com/resources/videos/index/?services=media-services)
+## [价格](https://www.azure.cn/pricing/details/media-services/)
 
 <!---HONumber=Mooncake_0306_2017-->
