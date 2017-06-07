@@ -192,7 +192,7 @@ DocumentDB 支持使用 [deleteDocument](http://azure.github.io/azure-documentdb
 - 需要 Java Web 应用教程？ 请参阅[通过 Java 构建使用 DocumentDB 的 Web 应用程序](documentdb-java-application.md)。
 - 了解如何[监视 DocumentDB 帐户](documentdb-monitor-accounts.md)。
 - 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
-- 在 [DocumentDB 文档页](/documentation/services/documentdb/)的“Develop”（开发）部分中了解有关编程模型的详细信息。
+- 在 [DocumentDB 文档页](index.md)的“Develop”（开发）部分中了解有关编程模型的详细信息。
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png

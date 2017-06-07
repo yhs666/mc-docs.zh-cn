@@ -113,7 +113,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 如果遵循以下步骤，应用可以收集租户中所有用户的权限，包括受管理员限制的范围。若要查看实现这些步骤的代码示例，请参阅[受管理员限制的范围示例](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2)。
 
 ### 在应用注册门户中请求权限
-1. 在[应用程序注册门户](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)中转到你的应用程序，或[创建一个应用](./active-directory-v2-app-registration.md)（如果尚未创建）。
+1. 在[应用程序注册门户](https://apps.dev.microsoft.com)中转到你的应用程序，或[创建一个应用](./active-directory-v2-app-registration.md)（如果尚未创建）。
 2. 找到“Microsoft Graph 权限”部分，然后添加应用所需的权限。
 3. 请务必**保存**应用注册。
 
@@ -141,7 +141,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | 参数 | 条件 | 说明 |
 | --- | --- | --- |
 | tenant |必选 |要向其请求权限的目录租户。可以使用 GUID 或友好的名称格式提供。 |
-| client\_id |必选 |[应用程序注册门户](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)为应用分配的应用程序 ID。 |
+| client\_id |必选 |[应用程序注册门户](https://apps.dev.microsoft.com)为应用分配的应用程序 ID。 |
 | redirect\_uri |必选 |要向其发送响应，供应用处理的重定向 URI。必须与在应用注册门户中注册的重定向 URI 之一完全匹配。 |
 | state |建议 |同样随令牌响应返回的请求中所包含的值。可以是所需的任何内容的字符串。使用该状态可在身份验证请求出现之前，在应用中编码用户的状态信息，例如用户过去所在的页面或视图。 |
 

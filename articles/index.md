@@ -1777,7 +1777,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="http://aka.ms/webpi-azure-cli">下载用于 Windows 的 Azure CLI</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/azure-cli-arm-commands/">参考</a>
+                                                    <a href="/azure-cli-arm-commands/">参考</a>
                                                 </p>
                                             </div>
                                         </div>

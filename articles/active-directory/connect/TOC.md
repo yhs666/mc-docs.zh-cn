@@ -75,13 +75,6 @@
 ### [技术概念](active-directory-aadconnectsync-technical-concepts.md)
 ### [服务功能](active-directory-aadconnectsyncservice-features.md)
 
-
-
-
-# 相关内容
-## [混合标识设计指南](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
-
-
 # 资源
 ##[Azure AD Connect 常见问题解答](active-directory-aadconnect-faq.md)
 ##[DirSync 弃用](active-directory-aadconnect-dirsync-deprecated.md)

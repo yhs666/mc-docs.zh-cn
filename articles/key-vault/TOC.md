@@ -25,23 +25,23 @@
 ### [使用 CLI 进行创建和管理](key-vault-manage-with-cli.md)
 
 # 参考
-## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
-## [Azure 2.0 CLI（预览版）](/cli/azure/keyvault)
-## [.NET](/dotnet/api/microsoft.azure.keyvault)
-## [Java](/java/api/com.microsoft.azure.keyvault)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
+## [Azure 2.0 CLI（预览版）](https://docs.microsoft.com/cli/azure/keyvault)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault)
+## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
-## [REST](/rest/api/keyvault)
+## [REST](https://docs.microsoft.com/rest/api/keyvault)
 
 # 相关内容
-## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
+## [Azure Active Directory](/active-directory/)
 ## [Azure Rights Management](https://technet.microsoft.com/zh-cn/dn175750)
 ## [Extensible key management using Key Vault](https://msdn.microsoft.com/zh-cn/library/azure/dn198405)（使用 Key Vault 的可扩展密钥管理）
-## [多重身份验证](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+## [多重身份验证](/multi-factor-authentication)
 
 # 资源
 ## [About Keys and Secrets](https://msdn.microsoft.com/zh-cn/library/azure/dn903623)（关于密钥和机密）
 ## [代码示例](https://www.microsoft.com/download/details.aspx?id=45343)
-## [价格](https://azure.microsoft.com/pricing/details/key-vault/)
+## [价格](https://www.azure.cn/pricing/details/key-vault/)
 ## [博客](http://blogs.technet.com/b/kv/)
 ## [论坛](https://social.msdn.microsoft.com/forums/azure/zh-cn/home?forum=AzureKeyVault)
 

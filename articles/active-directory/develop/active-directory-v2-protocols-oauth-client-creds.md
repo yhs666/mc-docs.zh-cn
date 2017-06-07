@@ -56,7 +56,7 @@ v2.0 终结点并不支持所有 Azure Active Directory 方案和功能。若要
 若要在应用中使用应用程序权限，请执行后续部分所述的步骤。
 
 #### 在应用注册门户中请求权限
-1. 在[应用程序注册门户](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)中转到你的应用程序，或[创建一个应用](./active-directory-v2-app-registration.md)（如果尚未创建）。创建应用时，需使用至少一个应用程序机密。
+1. 在[应用程序注册门户](https://apps.dev.microsoft.com)中转到你的应用程序，或[创建一个应用](./active-directory-v2-app-registration.md)（如果尚未创建）。创建应用时，需使用至少一个应用程序机密。
 2. 找到“直接应用程序权限”部分，然后添加应用所需的权限。
 3. **保存**应用注册。
 
@@ -84,7 +84,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | 参数 | 条件 | 说明 |
 | --- | --- | --- |
 | tenant |必选 |要向其请求权限的目录租户。此参数可采用 GUID 或友好名称格式。如果不知道用户属于哪个租户并想让他们登录到任一租户，请使用 `common`。 |
-| client\_id |必选 |[应用程序注册门户](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)为应用分配的应用程序 ID。 |
+| client\_id |必选 |[应用程序注册门户](https://apps.dev.microsoft.com)为应用分配的应用程序 ID。 |
 | redirect\_uri |必选 |要向其发送响应，供应用处理的重定向 URI。它必须与门户中注册的其中一个重定向 URI 完全匹配，否则必须经过 URL 编码并可包含其他路径段。 |
 | state |建议 |同样随令牌响应返回的请求中所包含的值。可以是所需的任何内容的字符串。该 state 用于在身份验证请求出现之前，于应用中编码用户的状态信息，例如之前所在的页面或视图。 |
 
@@ -132,7 +132,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | 参数 | 条件 | 说明 |
 | --- | --- | --- |
-| client\_id |必选 |[应用程序注册门户](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)为应用分配的应用程序 ID。 |
+| client\_id |必选 |[应用程序注册门户](https://apps.dev.microsoft.com)为应用分配的应用程序 ID。 |
 | scope |必选 |在此请求中针对 `scope` 参数传递的值应该是所需资源的资源标识符（应用程序 ID URI），附有 `.default` 后缀。在 Microsoft Graph 示例中，该值为 `https://graph.microsoft.com/.default`。此值通知 v2.0 终结点为应用配置的所有直接应用程序权限，终结点应该为与要使用的资源关联的对象颁发令牌。 |
 | client\_secret |必选 |在应用注册门户中为应用生成的应用程序机密。 |
 | grant\_type |必选 |必须是 `client_credentials`。 |
