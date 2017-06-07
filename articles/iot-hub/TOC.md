@@ -212,13 +212,11 @@
 ### [保护你的 IoT 部署](iot-hub-security-deployment.md)
 
 # 引用
-## [Azure CLI 2.0 预览版](/cli/azure/iot)
-## [.NET（服务）](/dotnet/api/microsoft.azure.devices)
-## [.NET（设备）](/dotnet/api/microsoft.azure.devices.client)
-## [Java（服务）](/java/api/com.microsoft.azure.iot.service.auth)
-## [Java（设备）](/java/api/com.microsoft.azure.iothub)
-## [Azure IoT SDK](http://azure.github.io/azure-iot-sdks/)
-## [网关 SDK](http://azure.github.io/azure-iot-gateway-sdk)
+## [Azure CLI 2.0 预览版](https://docs.microsoft.com/cli/azure/iot)
+## [.NET（服务）](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices)
+## [.NET（设备）](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client)
+## [Java（服务）](https://docs.microsoft.com/java/api/com.microsoft.azure.iot.service.auth)
+## [Java（设备）](https://docs.microsoft.com/java/api/com.microsoft.azure.iothub)
 ## [REST（资源提供程序）](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
 ## [REST（设备标识）](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
 ## [REST（设备消息传送）REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)

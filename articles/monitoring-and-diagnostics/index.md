@@ -116,7 +116,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>命令行</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.20041">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.20041">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/monitor/">REST API 参考</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/monitor/">REST API 参考</a></p>
                     </div>
                 </div>
             </div>
