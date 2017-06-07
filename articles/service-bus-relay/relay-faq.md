@@ -37,7 +37,7 @@ ms.lasthandoff: 05/05/2017
 以前命名的服务总线**中继**服务现在称为 WCF 中继。 你可以继续照常使用此服务。 混合连接是从 BizTalk 移植的服务的更新版本。 今后将继续支持 WCF 中继和混合连接。
 
 ## <a name="pricing"></a>定价
-本部分回答了一些关于中继定价结构的常见问题。 你还可以访问 [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)（Azure 支持常见问题）了解一般的 Microsoft Azure 定价信息。 有关中继定价的完整信息，请参阅[服务总线定价详细信息](/pricing/details/messaging/)。
+本部分回答了一些关于中继定价结构的常见问题。 你还可以访问 [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)（Azure 支持常见问题）了解一般的 Microsoft Azure 定价信息。 有关中继定价的完整信息，请参阅[服务总线定价详细信息](https://www.azure.cn/pricing/details/messaging/)。
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>如何对混合连接和 WCF 中继收费？
 有关中继定价的完整信息，请参阅[服务总线定价详细信息][Pricing overview]。 除标示的价格外，你还需为在其中部署应用程序的数据中心之外的相关数据输出支付费用。
