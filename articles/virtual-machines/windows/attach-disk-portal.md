@@ -42,7 +42,7 @@ ms.lasthandoff: 05/05/2017
 
     ![打开磁盘设置](./media/attach-disk-portal/find-disk-settings.png)
 
-按照附加[新磁盘](#option-1-attach-a-new-disk)或[现有磁盘](#option-2-attach-an-existing-disk)的说明继续操作。
+按照附加[新磁盘](#option-1-attach-and-initialize-a-new-disk)或[现有磁盘](#option-2-attach-an-existing-disk)的说明继续操作。
 
 ## <a name="option-1-attach-and-initialize-a-new-disk"></a>选项 1：附加并初始化新的磁盘
 1. 在“磁盘”边栏选项卡上，单击“附加新磁盘”。
