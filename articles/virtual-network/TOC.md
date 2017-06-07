@@ -130,7 +130,6 @@
 # 相关内容
 ## [虚拟机](/virtual-machines/)
 ## [应用程序网关](/application-gateway/)
-## [Azure DNS](/dns/)
 ## [流量管理器](/traffic-manager/)
 ## [负载均衡器](/load-balancer/)
 ## [VPN 网关](/vpn-gateway/)

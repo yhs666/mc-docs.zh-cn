@@ -200,7 +200,7 @@ Python 虚拟环境。 如果在 Web 应用上尚不存在兼容的虚拟环境�
 
 首次部署将需要一些时间，因为它将创建虚拟环境、 安装包等。
 
-Visual Studio 不会显示部署的进度。 如果你想要查看输出，请参阅 [故障排除 - 部署](#troubleshooting-deployment)上的相关部分。
+Visual Studio 不会显示部署的进度。
 
 浏览到 Azure URL 要查看您的更改。
 

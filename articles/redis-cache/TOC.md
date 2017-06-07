@@ -45,10 +45,10 @@
 ###[使用 Redis 群集来缩小/扩大](cache-how-to-premium-clustering.md)
 
 # 引用
-## [PowerShell](/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
-## [Azure CLI 2.0 预览版](/cli/azure/redis)
-## [.NET](/dotnet/api/microsoft.azure.management.redis)
-## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [Azure CLI 2.0 预览版](https://docs.microsoft.com/cli/azure/redis)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.redis)
+## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Redis 客户端](http://redis.io/clients)
 ## [Redis 命令](http://redis.io/commands#)
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
