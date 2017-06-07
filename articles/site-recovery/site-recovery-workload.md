@@ -137,7 +137,7 @@ Site Recovery 可按如下所示帮助保护 Exchange：
 
 ## 后续步骤
 
-[准备 Site Recovery 部署](/documentation/articles/site-recovery-best-practices/)
+[准备 Site Recovery 部署](site-recovery-best-practices.md)
 
 <!---HONumber=Mooncake_0306_2017-->
 <!--Update_Description: wording update-->

@@ -85,8 +85,8 @@ Azure 托管磁盘通过管理与 VM 磁盘关联的[存储帐户](./storage-int
 
 若要了解有关如何使用托管磁盘创建快照的详细信息，请查看下列资源：
 
-* [在 Windows 中使用快照创建存储为托管磁盘的 VHD 副本](/documentation/articles/virtual-machines-windows-snapshot-copy-managed-disk/)
-* [在 Linux 中使用快照创建存储为托管磁盘的 VHD 副本](/documentation/articles/virtual-machines-linux-snapshot-copy-managed-disk/)
+* [在 Windows 中使用快照创建存储为托管磁盘的 VHD 副本](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [在 Linux 中使用快照创建存储为托管磁盘的 VHD 副本](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 有关托管磁盘的详细定价信息，请参阅[托管磁盘定价](https://www.azure.cn/pricing/details/managed-disks/)。
 
@@ -95,8 +95,8 @@ Azure 托管磁盘通过管理与 VM 磁盘关联的[存储帐户](./storage-int
 托管磁盘还支持创建托管自定义映像。可以从存储帐户中的自定义 VHD 创建映像，也可以直接从正在运行的 VM 创建映像。这会将与正在运行的 VM 关联的所有托管磁盘捕获到单个映像中，包括 OS 和数据磁盘。这样，便可以使用自定义映像创建数百个 VM，且无需复制或管理任何存储帐户。
 
 有关创建映像的信息，请查看以下文章：
-* [如何捕获 Azure 中通用 VM 的托管映像](/documentation/articles/virtual-machines-windows-capture-image-resource/)
-* [如何使用 Azure CLI 2.0（预览版）通用化和捕获 Linux 虚拟机](../virtual-machines/virtual-machines-linux-capture-image.md)
+* [如何捕获 Azure 中通用 VM 的托管映像](../virtual-machines/windows/capture-image-resource/)
+* [如何使用 Azure CLI 2.0（预览版）通用化和捕获 Linux 虚拟机](../virtual-machines/linux/virtual-machines-linux-capture-image.md)
 
 ## 映像与快照
 
@@ -108,7 +108,7 @@ Azure 托管磁盘通过管理与 VM 磁盘关联的[存储帐户](./storage-int
 
 ## Azure 备份服务支持 
 
-可以使用 Azure 备份来备份具有非托管磁盘的虚拟机。[更多详细信息](/documentation/articles/backup-azure-vms-first-look-arm/)。
+可以使用 Azure 备份来备份具有非托管磁盘的虚拟机。
 
 还可将 Azure 备份服务与托管磁盘配合使用，以创建具有基于时间备份的备份作业、轻松 VM 还原和备份保留策略。可以在[对具有托管磁盘的 VM 使用 Azure 备份服务](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)中阅读详细内容。
 
@@ -126,13 +126,13 @@ Azure 存储支持自动对写入到存储帐户中的数据进行加密。有�
 
 ### 托管磁盘入门 
 
-* [使用 Resource Manager 和 PowerShell 创建 VM](/documentation/articles/virtual-machines-windows-ps-create/)
+* [使用 Resource Manager 和 PowerShell 创建 VM](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [使用 Azure CLI 2.0（预览版）创建 Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [使用 Azure CLI 2.0（预览版）创建 Linux VM](../virtual-machines/linux/quick-create-cli.md)
 
-* [使用 PowerShell 将托管数据磁盘附加到 Windows VM](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+* [使用 PowerShell 将托管数据磁盘附加到 Windows VM](../virtual-machines/windows/attach-disk-ps.md)
 
-* [将托管磁盘添加到 Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [将托管磁盘添加到 Linux VM](../virtual-machines/linux/quick-create-cli.md)
 
 ### 托管磁盘存储选项的比较 
 
@@ -142,8 +142,8 @@ Azure 存储支持自动对写入到存储帐户中的数据进行加密。有�
 
 ### 操作指南
 
-* [从 AWS 和其他平台迁移到 Azure 中的托管磁盘](/documentation/articles/virtual-machines-windows-on-prem-to-azure/)
+* [从 AWS 和其他平台迁移到 Azure 中的托管磁盘](../virtual-machines/windows/on-prem-to-azure.md)
 
-* [将 Azure VM 转换为 Azure 中的托管磁盘](/documentation/articles/virtual-machines-windows-migrate-to-managed-disks/)
+* [将 Azure VM 转换为 Azure 中的托管磁盘](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
 
 <!---HONumber=Mooncake_0313_2017-->

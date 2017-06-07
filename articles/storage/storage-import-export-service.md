@@ -39,7 +39,7 @@ ms.lasthandoff: 05/19/2017
 * 备份：将本地数据备份后存储在 Azure Blob 存储中。
 * 数据恢复：恢复存储在 Blob 存储中的大量数据，然后将其递送到本地位置。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a><a name="pre-requisites"></a>先决条件
 本部分列出了使用此服务需要满足的先决条件。 请在寄送驱动器之前仔细查看这些先决条件。
 
 ### <a name="storage-account"></a>存储帐户
@@ -158,7 +158,7 @@ Azure 导入/导出服务支持将数据复制到中国北部的 Azure 存储帐
   
     ![图 2：导出作业流](./media/storage-import-export-service/exportjob.png)
 
-### <a name="viewing-your-job-and-drive-status"></a>查看作业和驱动器状态
+### <a name="viewing-your-job-and-drive-status"></a><a name="viewing-your-job-status"></a>查看作业和驱动器状态
 可以从 Azure 门户跟踪导入或导出作业的状态。 单击“导入/导出”选项卡。 作业的列表将出现在该页上。
 
 ![查看作业状态](./media/storage-import-export-service/jobstate.png)
@@ -213,7 +213,7 @@ Azure 门户中的此映像会显示示例作业的驱动器状态：
 
 **事务费用**
 
-将数据导入 Blob 存储没有事务费用。 将数据从 Blob 存储导出时，需支付标准的传出费用。 有关事务费用的更多详细信息，请参阅 [数据传输定价](https://azure.microsoft.com/pricing/details/data-transfers/)
+将数据导入 Blob 存储没有事务费用。 将数据从 Blob 存储导出时，需支付标准的传出费用。 有关事务费用的更多详细信息，请参阅 [数据传输定价](https://www.azure.cn/pricing/details/data-transfer/)
 
 ## <a name="quick-start"></a>快速启动
 此部分提供创建导入和导出作业的分步说明。 请确保在执行下一步操作之前符合所有 [先决条件](#pre-requisites) 。
