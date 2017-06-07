@@ -231,9 +231,9 @@ Remove-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "sca
 
 通过更改规模集的容量，可添加或删除虚拟机。获取要更改的规模集，按需设置容量，然后使用新容量更新规模集。在这些命令中，将带引号的值替换为资源组和规模集的名称。
 
-  $vmss = Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
-  $vmss.sku.capacity = 5
-  Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
+    $vmss = Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+    $vmss.sku.capacity = 5
+    Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
 
 如果要从规模集中删除虚拟机，则首先需要删除 ID 最高的虚拟机。
 
