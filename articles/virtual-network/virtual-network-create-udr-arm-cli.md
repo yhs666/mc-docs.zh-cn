@@ -47,6 +47,8 @@ ms.author: jdial
 ## <a name="Create-the-UDR-for-the-front-end-subnet"></a> 为前端子网创建 UDR
 若要根据上述方案为前端子网创建所需的路由表和路由，请按照下面的步骤操作。
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 1. 使用 [az network route-table create](https://docs.microsoft.com/cli/azure/network/route-table#create) 命令为前端子网创建路由表：
 
     ```azurecli
