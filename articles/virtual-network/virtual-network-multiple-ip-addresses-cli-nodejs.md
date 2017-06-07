@@ -61,7 +61,7 @@ ms.lasthandoff: 04/22/2017
 5. 为 VM 创建存储帐户。 运行以下命令之前，请使用唯一名称替换 mystorageaccount。 该名称在 Azure 中必须唯一。
 
     ```azurecli
-    az storage account create --resource-group $RgName --location $Location --name mystorageaccount \
+    azure storage account create --resource-group $RgName --location $Location --name mystorageaccount \
     --kind Storage --sku Standard_LRS
     ```
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 04/22/2017
 7. 创建 Linux VM 
 
     ```azurecli
-    az vm create --resource-group $RgName --name myVM1 --location $Location --nics myNic1 \
+    azure vm create --resource-group $RgName --name myVM1 --location $Location --nics myNic1 \
     --image UbuntuLTS --ssh-key-value ~/.ssh/id_rsa.pub --admin-username azureuser
     ```
 

@@ -49,6 +49,8 @@ ms.lasthandoff: 05/05/2017
 
 Azure 中的底层基础结构分为多个硬件群集。 每个硬件群集可支持许多不同的 VM 大小。 任何时候都只能在单个硬件群集上托管可用性集。 因此，可在单个可用性集中存在的 VM 大小范围被限制为硬件群集支持的 VM 大小范围。 在可用性集中部署第一个 VM 时或在可用性集（所有 VM 当前均处于停止-解除分配状态）中启动第一个 VM 时，可用性集的硬件群集处于选中状态。 可使用以下 CLI 命令来确定可用于可用性集的 VM 大小范围：“az vm list-sizes --location \<string\>”
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 每个硬件群集分为多个更新域和容错域。 这些域是按共享公用更新周期或共享相同物理基础结构（如电源和网络）的主机定义的。 Azure 将自动跨域分布可用性集中的 VM，以维持可用性和容错能力。 根据应用程序的大小和可用性集内的 VM 数，可以调整要使用的域的数目。 参阅有关[管理更新域和容错域的可用性和使用](manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)的详细信息。
 
 设计应用程序基础结构时，请规划好要使用的应用程序层。 将服务于同一目的的 VM 分为一组，放到可用性集中，例如用于容纳运行 nginx 或 Apache 的前端 VM 的可用性集。 为运行 MongoDB 或 MySQL 的后端 VM 创建另一个可用性集。 这么做的目的是确保应用程序的每个组件都受到可用性集的保护，且至少一个实例将始终保持运行。
