@@ -31,10 +31,98 @@ ms.lasthandoff: 04/14/2017
 
 在本教程中，从学习如何使用 Intel Edison 的基础知识开始。 然后将学习如何使用 [Azure IoT 中心](./iot-hub-what-is-iot-hub.md)将设备无缝连接到云。
 
-还没有工具包？ 从 [此处](/develop/iot/starter-kits)
+还没有工具包？ 从 [此处](/develop/iot/iot-starter-kits)
 
-## <a name="lesson-1-configure-your-device"></a>第 1 课：配置设备
-![第 1 课端到端关系图](./media/iot-hub-intel-edison-lessons/e2e-lesson1.png)
+## <a name="what-you-do"></a>准备工作
+
+* 安装 Intel Edison 和 Grove 模块。
+* 创建 IoT 中心。
+* 在 IoT 中心内为 Edison 注册设备。
+* 在 Edison 上运行示例应用程序，以将传感器数据发送到 IoT 中心。
+
+将 Intel Edison 连接到创建的 IoT 中心。 然后，在 Edison 上运行示例应用程序，从 Grove 温度传感器收集温度和湿度数据。 最后，将传感器数据发送到 IoT 中心。
+
+## <a name="what-you-learn"></a>学习内容
+
+* 如何创建 Azure IoT 中心以及如何获取新的设备连接字符串。
+* 如何将 Edison 与 Grove 温度传感器连接起来。
+* 如何通过在 Edison 上运行示例应用程序收集传感器数据。
+* 如何将传感器数据发送到 IoT 中心。
+
+## <a name="what-you-need"></a>需要什么
+
+![需要什么](./media/iot-hub-intel-edison-kit-node-get-started/0_kit.png)
+
+* Intel Edison 开发板
+* Arduino 扩展板
+* 一个有效的 Azure 订阅。 如果没有 Azure 帐户，只需花费几分钟就能[创建一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 运行 Windows 或 Linux 的 Mac 或电脑。
+* Internet 连接。
+* Micro B - Type A USB 线缆
+* 直流 (DC) 电源。 电源应符合以下条件：
+  - 7-15V DC
+  - 至少 1500mA
+  - 中心/内部插头应为电源的正极
+
+以下项可选：
+
+* Grove Base Shield V2
+* Grove - 温度传感器
+* Grove 电缆
+* 垫条或螺钉（随附在工具包内），其中包括两颗螺钉（用于将模块固定到扩展板上）以及四组螺钉和塑料垫片。
+
+> [!NOTE] 
+上述项为可选项，因为代码示例支持模拟的传感器数据。
+
+[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
+
+## <a name="setup-intel-edison"></a>安装 Intel Edison
+
+### <a name="assemble-your-board"></a>组装开发板
+
+本部分包括将 Intel® Edison 模块连接到扩展板的步骤。
+
+1. 将 Intel® Edison 模块放在扩展板的白色区域内，将模块上的孔对准扩展板上的螺钉。
+
+2. 将手指放在 `What will you make?` 文字上方，按压模板，直至感觉模块已就位。
+
+   ![组装开发板 2](./media/iot-hub-intel-edison-kit-node-get-started/1_assemble_board2.jpg)
+
+3. 用两颗六角螺母（随附在工具包内）将模块固定到扩展板上。
+
+   ![组装开发板 3](./media/iot-hub-intel-edison-kit-node-get-started/2_assemble_board3.jpg)
+
+4. 将一颗螺钉插入扩展板上的一个角孔（共四个）。 在螺钉上放置白色塑料垫片，转动并拧紧。
+
+   ![组装开发板 4](./media/iot-hub-intel-edison-kit-node-get-started/3_assemble_board4.jpg)
+
+5. 重复上述步骤安装其他三个角垫。
+
+   ![组装开发板 5](./media/iot-hub-intel-edison-kit-node-get-started/4_assemble_board5.jpg)
+
+现在，开发板就已组装完毕。
+
+   ![组装开发板](./media/iot-hub-intel-edison-kit-node-get-started/5_assembled_board.jpg)
+
+### <a name="connect-the-grove-base-shield-and-the-temperature-sensor"></a>连接 Grove Base Shield 和温度传感器
+
+1. 将 Grove Base Shield 放在板上。 确保所有引脚都紧紧插入板中。
+   
+   ![Grove Base Shield](./media/iot-hub-intel-edison-kit-node-get-started/6_grove_base_sheild.jpg)
+
+2. 通过 Grove 线缆将 Grove 温度传感器连接到 Grove Base Shield A0 端口。
+
+   ![连接到温度传感器](./media/iot-hub-intel-edison-kit-node-get-started/7_temperature_sensor.jpg)
+
+   ![Edison 和传感器连接](./media/iot-hub-intel-edison-kit-node-get-started/16_edion_sensor.png)
+
+传感器现准备就绪。
+
+### <a name="power-up-edison"></a>为 Edison 接通电源
+
+1. 插入电源。
+
+   ![插入电源](./media/iot-hub-intel-edison-kit-node-get-started/8_plug_power.jpg)
 
 在本课中，会为 Intel Edison 配置操作系统、设置开发环境，以及将应用程序部署到 Edison。
 

@@ -34,7 +34,7 @@ Azure 服务总线支持一组基于云的、面向消息的中间件技术，�
 
 使用队列在消息创建方与使用方之间中继可在各组件之间提供固有的松散耦合。 由于创建方和使用方互不相识，因此，可升级使用方，而不会对创建方产生任何影响。
 
-创建队列是一个多步骤过程。 可通过 [Microsoft.ServiceBus.NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) 类执行服务总线消息传送实例（队列和主题）的管理操作，该类可通过提供服务总线命名空间的基址和用户凭据进行构建。 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) 提供了创建、枚举和删除消息传送实体的方法。 在使用 SAS 名称和密钥创建 [Microsoft.ServiceBus.TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#microsoft_servicebus_tokenprovider) 对象以及一个服务命名空间管理对象之后，可使用 [Microsoft.ServiceBus.NamespaceManager.CreateQueue](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateQueue_System_String_) 方法来创建队列。 例如：
+创建队列是一个多步骤过程。 可通过 [Microsoft.ServiceBus.NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) 类执行服务总线消息传送实例（队列和主题）的管理操作，该类可通过提供服务总线命名空间的基址和用户凭据进行构建。 [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) 提供了创建、枚举和删除消息传送实体的方法。 在使用 SAS 名称和密钥创建 [Microsoft.ServiceBus.TokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.tokenprovider#microsoft_servicebus_tokenprovider) 对象以及一个服务命名空间管理对象之后，可使用 [Microsoft.ServiceBus.NamespaceManager.CreateQueue](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateQueue_System_String_) 方法来创建队列。 例如：
 
 ```csharp
 // Create management credentials
@@ -155,7 +155,7 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 使用此订阅筛选器，仅 `StoreName` 属性设置为 `Store1` 的消息将被复制到 `Dashboard` 订阅的虚拟队列。
 
-有关可能的筛选器值的详细信息，请参阅文档 [SqlFilter](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 和 [SqlRuleAction](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) 类。 另请参阅[中转消息传送：高级筛选器](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)和[主题筛选器](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)示例。
+有关可能的筛选器值的详细信息，请参阅文档 [SqlFilter](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 和 [SqlRuleAction](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) 类。 另请参阅[中转消息传送：高级筛选器](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)。
 
 ## <a name="next-steps"></a>后续步骤
 有关使用服务总线消息传送的详细信息和示例，请参阅以下高级主题。
@@ -163,5 +163,4 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 - [服务总线消息传送概述](./service-bus-messaging-overview.md)
 - [服务总线中转消息传送 .NET 教程](./service-bus-dotnet-get-started-with-queues.md)
 - [服务总线中转消息传送 REST 教程](./service-bus-dotnet-get-started-with-queues.md)
-- [主题筛选器示例](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
 - [Brokered Messaging: Advanced Filters sample](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)（中转消息传送：高级筛选器示例）
