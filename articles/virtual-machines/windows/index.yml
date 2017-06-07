@@ -51,18 +51,6 @@ sections:
     text: Learn how to deploy, manage, and monitor Windows VMs on Azure
   - type: list
     style: ordered
-    items:
-    - html: <a href="/virtual-machines/windows/tutorial-manage-vm">Create and manage Windows VMs</a>
-    - html: <a href="/virtual-machines/windows/tutorial-manage-data-disk">Create and manage VM disks</a>
-    - html: <a href="/virtual-machines/windows/tutorial-automate-vm-deployment">Automate VM configuration</a>
-    - html: <a href="/virtual-machines/windows/tutorial-custom-images">Create custom VM images</a>
-    - html: <a href="/virtual-machines/windows/tutorial-availability-sets">Create highly available VMs</a>
-    - html: <a href="/virtual-machines/windows/tutorial-create-vmss">Create a VM scale set</a>
-    - html: <a href="/virtual-machines/windows/tutorial-load-balancer">Load balance VMs</a>
-    - html: <a href="/virtual-machines/windows/tutorial-virtual-network">Manage VMs with virtual networks</a>
-    - html: <a href="/virtual-machines/windows/tutorial-backup-vms">Backup VMs</a>
-    - html: <a href="/virtual-machines/windows/tutorial-monitoring">Monitor VMs</a>
-    - html: <a href="/virtual-machines/windows/tutorial-azure-security">Manage security on VMs</a>
 - title: 免费 PluralSight 视频培训
   items:
   - type: list
@@ -100,6 +88,6 @@ sections:
     - title: 命令行
       html: <p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/vm">Azure CLI</a></p>
     - title: 语言
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="https://docs.microsoft.com/java/api">Java</a></p><p><a href="/develop/nodejs/#azure-sdk">Node​.js</a></p><p><a href="/develop/python/">Python</a></p>
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="https://docs.microsoft.com/java/api">Java</a></p><p><a href="/develop/nodejs/">Node​.js</a></p><p><a href="/develop/python/">Python</a></p>
     - title: REST
       html: <p><a href="https://docs.microsoft.com/rest/api/compute">Compute REST API Reference</a></p>

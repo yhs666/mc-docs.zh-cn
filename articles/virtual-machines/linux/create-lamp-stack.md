@@ -28,6 +28,8 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="quick-command-summary"></a>快速命令摘要
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 1. 在本地计算机上根据需要保存和编辑 [azuredeploy.parameters.json 文件](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.parameters.json)。
 2. 通过运行以下两个命令创建资源组，然后部署模板：
 

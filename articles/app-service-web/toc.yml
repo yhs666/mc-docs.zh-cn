@@ -197,11 +197,11 @@
 - name: 引用
   items:
   - name: CLI 2.0
-    href: /cli/azure/appservice
+    href: https://docs.microsoft.com/cli/azure/appservice
   - name: PowerShell
-    href: /powershell
+    href: https://docs.microsoft.com/powershell
   - name: REST API
-    href: /rest/api/appservice/
+    href: https://docs.microsoft.com/rest/api/appservice/
 - name: 资源
   items:
   - name: 故障排除
