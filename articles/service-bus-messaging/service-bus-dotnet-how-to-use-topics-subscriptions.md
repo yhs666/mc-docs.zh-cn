@@ -99,7 +99,7 @@ ms.lasthandoff: 05/12/2017
 使用从 [Azure 门户][Azure portal]检索到的 SAS 名称和密钥值，如前所述。
 
 ## <a name="create-a-topic"></a>创建主题
-可以通过 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 类为服务总线主题和订阅执行管理操作。 此类提供了创建、枚举和删除主题的方法。
+可以通过 [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) 类为服务总线主题和订阅执行管理操作。 此类提供了创建、枚举和删除主题的方法。
 
 以下示例使用带连接字符串的 Azure `CloudConfigurationManager` 类构造 `NamespaceManager` 对象，此连接字符串包含服务总线命名空间的基址和有权管理该命名空间的相应 SAS 凭据。 此连接字符串的形式如下。
 
@@ -313,7 +313,6 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 现在，你已了解有关服务总线主题和订阅的基础知识，请访问下面的链接以获取详细信息。
 
 -   [队列、主题和订阅][]。
--   [主题筛选器示例][]
 -   [SqlFilter][]的 API 参考。
 -   构建向服务总线队列发送消息以及从中接收消息的工作应用程序： [服务总线中转消息传送 .NET 教程][]。
 -   服务总线示例：从 [Azure 示例][]下载，或参阅[概述](./service-bus-samples.md)。
@@ -323,7 +322,6 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
   [队列、主题和订阅]: ./service-bus-queues-topics-subscriptions.md
-  [主题筛选器示例]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
   [SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter
   [SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
   [服务总线中转消息传送 .NET 教程]: ./service-bus-dotnet-get-started-with-queues.md

@@ -15,10 +15,12 @@
 ### [将活动日志流式传输到事件中心](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
 ### [使用 Resource Manager 执行审核操作](../azure-resource-manager/resource-group-audit.md)
 
-# 参考
-## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
+
+
+# 引用
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
-## [REST](/rest/api/monitor/)
+## [REST](https://docs.microsoft.com/rest/api/monitor/)
 
 # 资源
 ## [PowerShell 示例](../monitoring-and-diagnostics/insights-powershell-samples.md)
