@@ -26,7 +26,7 @@ ms.lasthandoff: 05/19/2017
 # <a name="how-to-distribute-data-globally-with-azure-documentdb"></a>如何使用 DocumentDB 全局分配数据？
 Azure 无所不在 - 跨 30 多个地理区域，遍布全球并且仍在持续扩展中。 遍及全球的 Azure 为开发人员提供一种差异化功能，让他们轻松构建、部署和管理全球分布的应用程序。 
 
-[DocumentDB](./documentdb-resources.md) 是 Microsoft 针对任务关键型应用程序提供的全局分布式多模型数据库服务。 DocumentDB 在全球范围内提供[统包全局分发](documentdb-distribute-data-globally.md)、吞吐量和存储的弹性扩展、99% 的情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](documentdb-consistency-levels.md)以及得到保证的高可用性，所有这些均由[行业领先的 SLA](/support/legal/sla/documentdb/v1_1/) 提供支持。 DocumentDB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键-值、图形和列式数据模型。 作为一种基于云的服务，DocumentDB 通过多租户和全局分发获得了全面彻底的精心设计。
+[DocumentDB](./documentdb-resources.md) 是 Microsoft 针对任务关键型应用程序提供的全局分布式多模型数据库服务。 DocumentDB 在全球范围内提供[统包全局分发](documentdb-distribute-data-globally.md)、吞吐量和存储的弹性扩展、99% 的情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](documentdb-consistency-levels.md)以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/legal/sla) 提供支持。 DocumentDB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键-值、图形和列式数据模型。 作为一种基于云的服务，DocumentDB 通过多租户和全局分发获得了全面彻底的精心设计。
 
 **已分区并分布在三个 Azure 区域的单个 DocumentDB 集合**
 

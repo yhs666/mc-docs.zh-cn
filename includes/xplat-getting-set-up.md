@@ -1,6 +1,6 @@
 
 ## <a name="using-azure-cli"></a>使用 Azure CLI
-完成以下步骤即可轻松使用包含相应订阅的最新版 Azure CLI。 如果需要安装 Azure CLI 并首先连接到帐户，请参阅[Azure 命令行接口 (Azure CLI)](/documentation/articles/cli-install-nodejs/)。
+完成以下步骤即可轻松使用包含相应订阅的最新版 Azure CLI。 如果需要安装 Azure CLI 并首先连接到帐户，请参阅[Azure 命令行接口 (Azure CLI)](../articles/cli-install-nodejs.md)。
 
 ### <a name="step-1-update-azure-cli-version"></a>步骤 1：更新 Azure CLI 版本
 若要将 Azure CLI 用于带服务管理模式的祈使性命令，应尽可能安装最新版。 要验证你的版本，请键入 `azure --version`。 你应看到类似如下的内容：

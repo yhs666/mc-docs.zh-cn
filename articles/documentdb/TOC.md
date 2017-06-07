@@ -101,7 +101,7 @@
 ## [SQL 语法备忘单](documentdb-sql-query-cheat-sheet.md)
 
 # 资源
-## [价格](https://azure.microsoft.com/pricing/details/documentdb/)
+## [价格](https://www.azure.cn/pricing/details/documentdb/)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-documentdb)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=documentdb)

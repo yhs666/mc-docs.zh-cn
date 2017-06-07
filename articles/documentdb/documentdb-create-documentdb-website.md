@@ -144,7 +144,7 @@ ms.lasthandoff: 05/19/2017
 - 有关从旧门户更改为新门户的指南，请参阅：[有关在 Azure 经典管理门户中导航的参考](../app-service-web/app-service-web-app-azure-portal.md)
 
 > [!NOTE]
-> 如果想要在注册 Azure 帐户之前开始使用 Azure 应用服务，请转到[试用应用服务](/documentation/services/app-service/)，然后在其中立即创建一个生存期较短的入门 Web 应用。 你不需要使用信用卡，也不需要做出承诺。
+> 如果想要在注册 Azure 帐户之前开始使用 Azure 应用服务，请转到[试用应用服务](../app-service/index.md)，然后在其中立即创建一个生存期较短的入门 Web 应用。 你不需要使用信用卡，也不需要做出承诺。
 > 
 > 
 
