@@ -28,7 +28,7 @@ ms.lasthandoff: 05/26/2017
 
 在本教程中，从学习如何使用 Intel Edison 的基础知识开始。 然后将学习如何使用 [Azure IoT 中心](./iot-hub-what-is-iot-hub.md)将设备无缝连接到云。
 
-还没有工具包？ 从 [此处](/develop/iot/starter-kits)
+还没有工具包？ 从 [此处](/develop/iot/iot-starter-kits)
 
 ## <a name="what-you-do"></a>准备工作
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 05/26/2017
 
 * Intel Edison 开发板
 * Arduino 扩展板
-* 一个有效的 Azure 订阅。 如果没有 Azure 帐户，只需花费几分钟就能创建一个 [Azure 试用帐户](/pricing/1rmb-trial/)。
+* 一个有效的 Azure 订阅。 如果没有 Azure 帐户，只需花费几分钟就能创建一个 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 * 运行 Windows 或 Linux 的 Mac 或 PC。
 * Internet 连接。
 * Micro B - Type A USB 线缆
@@ -60,6 +60,11 @@ ms.lasthandoff: 05/26/2017
   - 7-15V DC
   - 至少 1500mA
   - 中心/内部插头应为电源的正极
+
+以下项可选：
+
+### <a name="create-and-deploy-the-blink-application"></a>创建和部署 blink 应用程序
+克隆 GitHub 提供的示例 blink 应用程序，并使用 gulp 将此应用程序部署到 Intel Edison 板。 此示例应用程序每隔两秒让连接到板的 LED 闪烁一次。
 
 以下项可选：
 

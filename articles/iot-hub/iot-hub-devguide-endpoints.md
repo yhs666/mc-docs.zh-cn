@@ -75,7 +75,7 @@ IoT 中心需要这些服务终结点的写入权限，以便使用消息路由�
 ## <a name="field-gateways"></a>现场网关
 在 IoT 解决方案中， *现场网关* 位于设备和 IoT 中心终结点之间。 它通常位于靠近设备的位置。 设备使用设备支持的协议，直接与现场网关通信。 现场网关使用 IoT 中心支持的协议连接到 IoT 中心终结点。 现场网关可以是高度专业化的硬件，也可以是运行软件的低功率计算机，只需能够完成网关所适用的端到端方案即可。
 
-可使用 [Azure IoT Edge][lnk-gateway-sdk] 实现现场网关。 IoT Edge 提供特定功能，例如能够在同一个 IoT 中心连接上多路复用来自多个设备的通信。
+可以使用 [Azure IoT 网关 SDK][lnk-gateway-sdk] 实现现场网关。 此 SDK 提供特定功能，例如能够在同一个 IoT 中心连接上多路复用来自多个设备的通信。
 
 ## <a name="next-steps"></a>后续步骤
 此 IoT 中心开发人员指南中的其他参考主题包括：
@@ -84,14 +84,14 @@ IoT 中心需要这些服务终结点的写入权限，以便使用消息路由�
 * [配额和限制][lnk-devguide-quotas]
 * [IoT 中心 MQTT 支持][lnk-devguide-mqtt]
 
-[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
+[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
 [img-endpoints]: ./media/iot-hub-devguide-endpoints/endpoints.png
 [lnk-amqp]: https://www.amqp.org/
 [lnk-mqtt]: http://mqtt.org/
 [lnk-websockets]: https://tools.ietf.org/html/rfc6455
 [lnk-arm]: ../azure-resource-manager/resource-group-overview.md
-[lnk-event-hubs]: /documentation/services/event-hubs/
+[lnk-event-hubs]: ../event-hubs/index.md
 
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 
