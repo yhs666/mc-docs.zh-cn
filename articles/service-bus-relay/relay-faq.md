@@ -98,7 +98,7 @@ ms.lasthandoff: 05/05/2017
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>什么是共享访问签名？哪些语言支持生成签名？
 共享访问签名是基于 SHA–256 安全哈希或 URI 的身份验证机制。 有关如何在 Node、PHP、Java 和 C\# 中生成自有签名的信息，请参阅[共享访问签名][Shared Access Signatures]一文。
 
-[Pricing overview]: www.azure.cn/pricing/details/messaging/
+[Pricing overview]: www.azure.cn/pricing/details/messaging
 [Relay exceptions]: ./relay-exceptions.md
 [Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md
 
