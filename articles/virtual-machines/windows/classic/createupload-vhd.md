@@ -106,7 +106,7 @@ ms.author: cynthn
 
 ## 步骤 4：将映像添加到自定义映像列表
 
-使用 [Add-AzureVMImage])(https://msdn.microsoft.com/zh-cn/library/mt589167.aspx) cmdlet 将映像添加到自定义映像列表。
+使用 [Add-AzureVMImage](https://msdn.microsoft.com/zh-cn/library/mt589167.aspx) cmdlet 将映像添加到自定义映像列表。
 
 ```
     Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.chinacloudapi.cn/<ContainerName>/<vhdName>.vhd" -OS "Windows"

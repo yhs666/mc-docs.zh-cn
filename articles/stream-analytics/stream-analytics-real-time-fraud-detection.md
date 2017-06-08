@@ -42,7 +42,7 @@ ms.lasthandoff: 05/05/2017
 * 或者，从 [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator)
 
 ## <a name="create-azure-event-hubs-input-and-consumer-group"></a>创建 Azure 事件中心输入和使用者组
-示例应用程序会生成事件并将其推送到事件中心实例进行实时处理。 Service Bus 事件中心是适合流分析的首选事件引入方法。 在 [Azure 服务总线文档](/azure/service-bus/)中可以了解关于事件中心的详细信息。
+示例应用程序会生成事件并将其推送到事件中心实例进行实时处理。 Service Bus 事件中心是适合流分析的首选事件引入方法。 在 [Azure 服务总线文档](/service-bus/)中可以了解关于事件中心的详细信息。
 
 创建事件中心的步骤：
 

@@ -123,7 +123,7 @@ ms.lasthandoff: 05/15/2017
 [api_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 
 [azure_portal]: https://portal.azure.cn
-[batch_pricing]: /pricing/details/batch/
+[batch_pricing]: https://www.azure.cn/pricing/details/batch/
 
 [4]: ./media/batch-account-create-portal/batch_acct_04.png "重新生成存储帐户密钥"
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG

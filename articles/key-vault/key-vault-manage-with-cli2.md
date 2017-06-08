@@ -23,7 +23,7 @@ ms.lasthandoff: 04/28/2017
 
 ---
 # <a name="manage-key-vault-using-cli-20"></a>使用 CLI 2.0 管理 Key Vault
-在大多数区域中提供了 Azure 密钥保管库。 有关详细信息，请参阅 [密钥保管库定价页](/pricing/details/key-vault/)。
+在大多数区域中提供了 Azure 密钥保管库。 有关详细信息，请参阅 [密钥保管库定价页](https://www.azure.cn/pricing/details/key-vault/)。
 
 ## <a name="introduction"></a>介绍
 本教程将会帮助你开始使用 Azure 密钥保管库在 Azure 中创建强化容器（保管库），以存储和管理 Azure 中的加密密钥和机密。 本教程将引导你完成使用 Azure 跨平台命令行接口创建包含密钥或密码（稍后可用于 Azure 应用程序）的保管库程序。 然后，将会介绍应用程序后续如何使用该密钥或密码。
@@ -42,7 +42,7 @@ ms.lasthandoff: 04/28/2017
 ## <a name="prerequisites"></a>先决条件
 要完成本教程，必须具备以下先决条件：
 
-- Azure 订阅。 如果你没有订阅，可以注册 [试用版](/pricing/1rmb-trial/)。
+- Azure 订阅。 如果你没有订阅，可以注册 [试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 - 命令行接口版本 2.0 或更高版本。 若要安装最新版本并连接到 Azure 订阅，请参阅[安装和配置 Azure 跨平台命令行接口 2.0](/cli/azure/install-azure-cli/)。
 - 配置为使用你在本教程中所创建的密钥或密码的应用程序。 可以从 [Microsoft 下载中心](http://www.microsoft.com/download/details.aspx?id=45343)获取示例应用程序。 有关说明，请参阅随附的自述文件。
 

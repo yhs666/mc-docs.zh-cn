@@ -36,7 +36,7 @@ ms.lasthandoff: 05/19/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure IoT 的更多示例和文档，请访问 [Azure IoT 开发人员中心](/develop/iot/)。
+有关 Azure IoT 的更多示例和文档，请访问 [Azure IoT 开发人员中心](https://www.azure.cn/develop/iot/)。
 
 [lnk-node-simulator]: ./iot-suite-raspberry-pi-kit-node-get-started-simulator.md
 [lnk-node-basic]: ./iot-suite-raspberry-pi-kit-node-get-started-basic.md

@@ -431,7 +431,7 @@ Azure 流分析设计为能够弹性缩放，以便处理大量数据。 Azure �
 本教程介绍 Azure 流分析服务。 其中演示如何为流分析作业配置输入和输出。 本教程还使用收费站数据方案来解释数据空间不断变化时所引发的常见问题类型，以及如何在 Azure 流分析中使用类似于 SQL 的简单查询来解决这些问题。 本教程介绍用于处理临时数据的 SQL 扩展构造。 其中说明如何联接不同的数据流、如何使用静态参考数据来扩充数据流，以及如何扩大查询来获得更高的吞吐量。
 
 尽管本教程提供详细的简介，但它绝对不是完整的说明。 可通过在[常用流分析使用模式的查询示例](stream-analytics-stream-analytics-query-patterns.md)中使用 SAQL 语言，发现更多查询模式。
-若要了解有关 Azure 流分析的详细信息，请参阅[联机文档](/azure/stream-analytics/)。
+若要了解有关 Azure 流分析的详细信息，请参阅[联机文档](/stream-analytics/)。
 
 ## <a name="clean-up-your-azure-account"></a>清理 Azure 帐户
 1. 在 Azure 门户中停止流分析作业。

@@ -239,7 +239,7 @@ Azure 提供一些内置的策略定义，可减少需要定义的策略数目�
 以下主题包含策略示例：
 
 <!-- Not suitfor Azure.cn * 有关标记策略的示例，请参阅[将资源策略应用于标记](./resource-manager-policy-tags.md)。-->
-* 有关虚拟机策略的示例，请参阅[将资源策略应用于 Linux VM](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 和[将资源策略应用于 Windows WM](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+* 有关虚拟机策略的示例，请参阅[将资源策略应用于 Linux VM](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure-resource-manager%2ftoc.json) 和[将资源策略应用于 Windows WM](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure-resource-manager%2ftoc.json)
 
 ### <a name="allowed-resource-locations"></a>允许的资源位置
 若要指定允许的位置，请参阅 [策略定义结构](#policy-definition-structure) 部分中的示例。 若要分配此策略定义，请使用带有资源 ID `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`的内置策略。
