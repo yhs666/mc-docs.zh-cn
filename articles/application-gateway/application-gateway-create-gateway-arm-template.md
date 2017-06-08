@@ -165,7 +165,7 @@ Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 ### <a name="step-4"></a>步骤 4
 
-如有必要，请使用 **New-AzureResourceGroup** cmdlet 创建资源组。 在下面的示例中，将在“中国东部”位置创建名为 AppgatewayRG 的资源组。
+如有必要，请使用 **New-AzureResourceGroup** cmdlet 创建资源组。 在下面的示例中，将在“中国北部”位置创建名为 AppgatewayRG 的资源组。
 
 ```powershell
 New-AzureRmResourceGroup -Name AppgatewayRG -Location "China North"
@@ -230,7 +230,7 @@ az group deployment create --resource-group appgatewayRG --name TestAppgatewayDe
 
 ### <a name="step-4"></a>步骤 4
 
-选择“我同意上述条款和条件”，然后单击“购买”。
+选择“法律条款”，然后单击“购买”。
 
 ### <a name="step-5"></a>步骤 5
 

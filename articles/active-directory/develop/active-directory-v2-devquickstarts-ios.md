@@ -51,7 +51,7 @@ git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.g
 ```
 
 ## 注册应用程序
-在[应用程序注册门户](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)创建新的应用，或按照[如何使用 v2.0 终结点注册应用](./active-directory-v2-app-registration.md)中的详细步骤操作。请确保：
+在[应用程序注册门户](https://apps.dev.microsoft.com)创建新的应用，或按照[如何使用 v2.0 终结点注册应用](./active-directory-v2-app-registration.md)中的详细步骤操作。请确保：
 
 - 复制分配给应用的“应用程序 ID”，因为稍后将要用到。
 - 为应用添加**移动**平台。

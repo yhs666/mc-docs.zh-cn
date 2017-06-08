@@ -7,7 +7,7 @@
 
    **名称**：它是 IoT 中心的名称。 如果输入的名称有效，将显示一个绿色复选标记。
 
-   **定价和缩放级别**：选择免费的 F1 级别。 此选项对于本演示来说已足够。 请参阅[定价和缩放级别](/pricing/details/iot-hub/)。
+   **定价和缩放级别**：选择免费的 F1 级别。 此选项对于本演示来说已足够。 请参阅[定价和缩放级别](https://www.azure.cn/pricing/details/iot-hub/)。
 
    **资源组**：创建用于托管 IoT 中心的资源组，或使用现有的资源组。 请参阅[使用资源组管理 Azure 资源](../articles/azure-resource-manager/resource-group-portal.md)。
 

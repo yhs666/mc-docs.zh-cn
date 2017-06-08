@@ -37,7 +37,7 @@ ms.lasthandoff: 04/14/2017
 ![备份过程的步骤](./media/backup-configure-vault/initial-backup-process.png)
 
 ## <a name="before-you-start"></a>开始之前
-若要将服务器或客户端备份到 Azure，你需要一个 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个 [试用帐户](/pricing/1rmb-trial/) 。
+若要将服务器或客户端备份到 Azure，你需要一个 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/) 。
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 恢复服务保管库是存储所有按时间创建的备份和恢复点的实体。 恢复服务保管库还包含应用到受保护文件和文件夹的备份策略。 创建恢复服务保管库时，也应选择适当的存储冗余选项。

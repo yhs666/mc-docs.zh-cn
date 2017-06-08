@@ -121,7 +121,7 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 - **缩放策略**
 
     对于动态工作负荷，可以编写 [自动缩放公式](#scaling-compute-resources) 并将其应用到池中。 Batch 服务将定期计算该公式，并根据可以指定的各个池、作业、和任务参数，调整池中的节点数目。
-- **任务计划策略**
+- **任务计划策略** <a name="task-scheduling-policy"></a>
 
     [每个节点的最大任务数](batch-parallel-node-tasks.md) 配置选项确定了可以在池中每个计算节点上并行运行的最大任务数。
 
@@ -244,7 +244,7 @@ Batch 提供作业准备任务来设置作业前的执行。 作业释放任务�
 
 有关作业准备和释放任务的详细信息，请参阅 [在 Azure Batch 计算节点上运行作业准备和完成任务](batch-job-prep-release.md)。
 
-### <a name="multi-instance-task"></a>多实例任务
+### <a name="multi-instance-tasks"></a>多实例任务
 [多实例任务](batch-mpi.md) 是经过配置后可以在多个计算节点上同时运行的任务。 通过多实例任务，可以启用等高性能计算方案（例如消息传递接口 (MPI)），此类方案需要将一组计算节点分配到一起来处理单个工作负荷。
 
 有关在 Batch 中使用 Batch .NET 库运行 MPI 作业的详细介绍，请参阅 [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](batch-mpi.md)（在 Azure Batch 中使用多实例任务来执行消息传递接口 (MPI) 应用程序）。
