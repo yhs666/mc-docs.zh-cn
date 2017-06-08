@@ -107,7 +107,7 @@ info:    Executing command login
 如果需要，可以键入 `azure config mode asm`切换回到默认的命令集。
 
 ### <a name="create-or-retrieve-your-resource-group"></a>创建或检索资源组
-若要创建 DocumentDB 帐户，首先需要一个资源组。 如果已知道想要使用的资源组名称，请跳到 [步骤 2](#create-documentdb-account-cli)。
+若要创建 DocumentDB 帐户，首先需要一个资源组。 
 
 若要查看列有当前所有的资源组的列表，请运行以下命令，并记下想要使用的资源组名称：
 
