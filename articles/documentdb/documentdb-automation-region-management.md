@@ -111,7 +111,7 @@ info:    config mode command OK
 
 ### <a name="create-or-retrieve-your-resource-group"></a>创建或检索资源组
 
-若要创建 DocumentDB 帐户，首先需要有一个资源组。 如果已知道想要使用的资源组名称，请跳到 [步骤 2](#create-documentdb-account-cli)。 
+若要创建 DocumentDB 帐户，首先需要有一个资源组。 
 
 若要查看列有你当前所有的资源组的列表，请运行下列命令，并记下你想要使用的资源组名称： 
 

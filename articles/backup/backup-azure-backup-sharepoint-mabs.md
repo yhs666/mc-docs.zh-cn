@@ -205,7 +205,7 @@ MABS 以 LocalSystem 帐户的形式运行。 若要备份 SQL Server 数据库�
     >
     >
 
-## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>使用 DPM 从 Azure 还原 SharePoint 数据库
+## <a name="restore-a-sharepoint-item-from-disk-using-dpm"></a>使用 DPM 从 Azure 还原 SharePoint 数据库
 1. 若要恢复 SharePoint 内容数据库，请浏览各个恢复点（如上所示），并选择要还原的恢复点。
 
     ![MABS SharePoint 保护 8](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection9.png)

@@ -88,8 +88,8 @@
 ## [.NET Core](documentdb-sdk-dotnet-core.md)
 ## [Node.js](documentdb-sdk-node.md)
 ## [Python](documentdb-sdk-python.md)
-## [REST](/rest/api/documentdb/)
-## [REST 资源提供程序](/rest/api/documentdbresourceprovider/)
+## [REST](https://docs.microsoft.com/rest/api/documentdb/)
+## [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 
 # 相关内容
 ## [.NET 示例](documentdb-dotnet-samples.md)
