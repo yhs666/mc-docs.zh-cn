@@ -44,11 +44,11 @@ v2.0 终结点目前不支持以下类型的应用。有关受支持应用类型
 可以使用 OAuth 2.0 JSON Web 令牌 (JWT) 持有者凭据授权（也称为“代理流”）来创建此方案。但是，v2.0 终结点目前不支持代理流。若要查看此流在正式版 Azure AD 服务中的工作原理，请参阅 [GitHub 上的代理代码示例](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet)。
 
 ## 应用注册限制
-目前，对于想要与 v2.0 终结点集成的每个应用，必须在新的 [Microsoft 应用程序注册门户](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)中创建一个应用注册。现有的 Azure AD 或 Microsoft 帐户应用不兼容 v2.0 终结点。不是在应用程序注册门户中注册的应用不兼容 v2.0 终结点。我们已计划在将来提供一种方法，使现有应用程序可用作 v2.0 应用。不过，现有的应用目前没有迁移路径，无法与 v2.0 终结点配合工作。
+目前，对于想要与 v2.0 终结点集成的每个应用，必须在新的 [Microsoft 应用程序注册门户](https://apps.dev.microsoft.com)中创建一个应用注册。现有的 Azure AD 或 Microsoft 帐户应用不兼容 v2.0 终结点。不是在应用程序注册门户中注册的应用不兼容 v2.0 终结点。我们已计划在将来提供一种方法，使现有应用程序可用作 v2.0 应用。不过，现有的应用目前没有迁移路径，无法与 v2.0 终结点配合工作。
 
 在应用程序注册门户中注册的应用无法与原始的 Azure AD 身份验证终结点配合工作。但是，可以使用在应用程序注册门户中创建的应用，成功地与 Microsoft 帐户身份验证终结点 `https://login.live.com` 集成。
 
-此外，在[应用程序注册门户](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)中创建的应用注册具有以下注意事项：
+此外，在[应用程序注册门户](https://apps.dev.microsoft.com)中创建的应用注册具有以下注意事项：
 
 - 不支持**主页**属性（也称为*登录 URL*）。在没有主页的情况下，这些应用程序不会显示在 Office MyApps 面板中。
 - 目前，每个应用程序 ID 只允许有两个应用机密。

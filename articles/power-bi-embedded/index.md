@@ -14,7 +14,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/power-bi-embedded/power-bi-embedded-what-is-power-bi-embedded">
+        <a href="/power-bi-embedded/power-bi-embedded-what-is-power-bi-embedded">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -32,25 +32,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=power-bi-embedded">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure Power BI Embedded 视频库</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/power-bi-embedded/power-bi-embedded-get-started">
+        <a href="/power-bi-embedded/power-bi-embedded-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -68,7 +50,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/power-bi-embedded/power-bi-embedded-get-started-sample">
+        <a href="/power-bi-embedded/power-bi-embedded-get-started-sample">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +79,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>命令行</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -109,7 +91,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.powerbiembedded">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.powerbiembedded">.NET</a></p>
                         <p><a href="https://www.nuget.org/profiles/powerbi">.NET SDK 下载</a></p>
                         <p><a href="https://github.com/Microsoft/PowerBI-JavaScript">JavaScript</a></p>
                    </div>
@@ -123,7 +105,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/powerbiembedded/">REST API 参考</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/powerbiembedded/">REST API 参考</a></p>
                     </div>
                 </div>
             </div>

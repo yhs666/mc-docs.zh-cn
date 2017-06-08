@@ -62,7 +62,7 @@
 ## [价格](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [网络博客](https://azure.microsoft.com/blog/topics/networking/)
 ## [案例研究](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
-## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [SLA](https://www.azure.cn/support/legal/sla/)
 ## [订阅和服务限制](../azure-subscription-service-limits.md)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [创建 ExpressRoute 线路](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)

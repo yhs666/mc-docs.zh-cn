@@ -7,8 +7,6 @@
 ## [观看简介](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # 入门
-## [将 VMWare VM 复制到 Azure](site-recovery-vmware-to-azure.md)
-## [在多租户部署中将 VMware VM 复制到 Azure (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 ## [将 Hyper-V VM 复制到 Azure（包含 VMM）](site-recovery-vmm-to-azure.md)
 ## [将 Hyper-V VM 复制到 Azure](site-recovery-hyper-v-site-to-azure.md)
 ## [将 Hyper-V VM 复制到辅助站点（包含 VMM）](site-recovery-vmm-to-vmm.md)
@@ -50,16 +48,15 @@
 ## [监视和故障排除](site-recovery-monitoring-and-troubleshooting.md)
 
 # 引用
-## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
-## [PowerShell 经典](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
+## [PowerShell 经典](https://docs.microsoft.com/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
 ## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # 相关内容
-## [Azure 自动化](/azure/automation/)
+## [Azure 自动化](/automation/)
 
 # 资源
-## [学习路径](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
 ## [论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
 ## [博客](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
-## [价格](https://azure.microsoft.com/pricing/details/site-recovery/)
-## [服务更新](https://azure.microsoft.com/updates/?product=site-recovery)
+## [价格](https://www.azure.cn/pricing/details/site-recovery/)
+

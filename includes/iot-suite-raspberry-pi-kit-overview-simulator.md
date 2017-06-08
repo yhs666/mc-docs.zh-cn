@@ -32,4 +32,4 @@
 - 以太网电缆
 
 [lnk-starter-kits]: /develop/iot/iot-starter-kits/
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial

@@ -52,7 +52,6 @@ ms.lasthandoff: 05/12/2017
 - [API 管理](#api-management-limits)
 - [应用服务](#app-service-limits)
 - [应用程序网关](#application-gateway-limits)
-- [Application Insights](#application-insights-limits)
 - [自动化](#automation-limits)
 - [Azure Redis 缓存](#azure-redis-cache-limits)
 - [Azure RemoteApp](#azure-remoteapp-limits)
@@ -60,8 +59,6 @@ ms.lasthandoff: 05/12/2017
 - [批处理](#batch-limits)
 - [CDN](#cdn-limits)
 - [云服务](#cloud-services-limits)
-- [Data Factory](#data-factory-limits)
-- [数据湖分析](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
 - [事件中心](#event-hubs-limits)
@@ -80,7 +77,6 @@ ms.lasthandoff: 05/12/2017
 - [站点恢复](#site-recovery-limits)
 - [SQL 数据库](#sql-database-limits)
 - [存储](#storage-limits)
-
 - [流分析](#stream-analytics-limits)
 - [订阅](#subscription-limits)
 - [流量管理器](#traffic-manager-limits)
@@ -211,9 +207,6 @@ DocumentDB 是一个全规模数据库，该数据库对吞吐量和存储进行
 
 ### <a name="site-recovery-limits"></a>站点恢复限制
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
-
-### <a name="application-insights-limits"></a>Application Insights 限制
-[!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 ### <a name="api-management-limits"></a>API 管理限制
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]

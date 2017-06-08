@@ -65,6 +65,6 @@
 [2]: ./media/iot-hub-gateway-sdk-simulated-selector/image2.png
 
 <!-- Links -->
-[模拟设备云上传示例]: https://github.com/Azure/iot-edge/blob/master/samples/simulated_device_cloud_upload/README.md
-[lnk-sdk]: https://github.com/Azure/iot-edge
+[模拟设备云上载示例]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/sample_simulated_device_cloud_upload.md
+[lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md

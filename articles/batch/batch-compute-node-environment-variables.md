@@ -27,7 +27,7 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="environment-variable-visibility"></a>环境变量的可见性
 
-这些环境变量仅在**任务用户**（即执行任务的节点上的用户帐户）的上下文中可见。 如果通过远程桌面协议 (RDP) 或安全外壳 (SSH) [远程连接](/documentation/articles/batch-api-basics/#connecting-to-compute-nodes/)到计算节点并列出环境变量，将*看不到*这些变量。 这是因为，用于远程连接的用户帐户与任务使用的帐户不同。
+这些环境变量仅在**任务用户**（即执行任务的节点上的用户帐户）的上下文中可见。 如果通过远程桌面协议 (RDP) 或安全外壳 (SSH) [远程连接](./batch-api-basics.md#connecting-to-compute-nodes)到计算节点并列出环境变量，将*看不到*这些变量。 这是因为，用于远程连接的用户帐户与任务使用的帐户不同。
 
 ## <a name="command-line-expansion-of-environment-variables"></a>环境变量的命令行扩展
 
@@ -62,8 +62,8 @@ ms.lasthandoff: 05/05/2017
 | `AZ_BATCH_IS_CURRENT_NODE_MASTER` | 指定当前节点是否为[多实例任务][multi_instance]的主节点。 可能的值为 `true` 和 `false`。| 多实例主要和子任务。 | `true` |
 
 
-[files_dirs]:/documentation/articles/batch-api-basics/#files-and-directories/
-[multi_instance]: /documentation/articles/batch-mpi/
-[coord_cmd]:/documentation/articles/batch-mpi/#coordination-command/
-[app_cmd]:/documentation/articles/batch-mpi/#application-command/
+[files_dirs]: ./batch-api-basics.md#files-and-directories
+[multi_instance]: ./batch-mpi.md
+[coord_cmd]:./batch-mpi.md#coordination-command
+[app_cmd]:./batch-mpi.md#application-command
 

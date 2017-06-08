@@ -57,7 +57,7 @@
 ## [REST](/rest/api/notificationhubs)
 
 # 资源
-## [价格](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [价格](https://www.azure.cn/pricing/details/notification-hubs/)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-notificationhub)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)
