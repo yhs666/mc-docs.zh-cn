@@ -188,7 +188,7 @@ PolyBase 还支持名为“递归文件夹遍历”的功能。 你可以使用�
 <!--Azure Data Factory (ADF) Not supported in ACN-->
 <!--[Azure Data Factory]: http://azure.microsoft.com/services/data-factory/-->
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
-[ExpressRoute documentation]: /azure/expressroute/
+[ExpressRoute documentation]: /expressroute/
 
 [production version]: http://aka.ms/downloadazcopy/
 [preview version]: http://aka.ms/downloadazcopypr/

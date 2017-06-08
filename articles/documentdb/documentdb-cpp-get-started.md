@@ -289,7 +289,7 @@ DocumentDB 支持删除 JSON 文档，为此，可以复制以下代码并将其
 ## <a name="next-steps"></a>后续步骤
 - 了解如何[监视 DocumentDB 帐户](documentdb-monitor-accounts.md)。
 - 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
-- 在 [DocumentDB 文档页](/documentation/services/documentdb/)的“开发”部分了解有关编程模型的详细信息。
+- 在 [DocumentDB 文档页](index.md)的“开发”部分了解有关编程模型的详细信息。
 
 [documentdb-create-account]: documentdb-create-account.md
 

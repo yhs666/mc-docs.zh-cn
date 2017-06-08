@@ -57,7 +57,7 @@ Azure 应用程序网关是第 7 层负载均衡器。它在不同服务器之�
 3. 将配置提交到新建的应用程序网关资源。
 
 > [!NOTE]
-> 如果你需要为应用程序网关配置自定义探测，请参阅 [Create an application gateway with custom probes by using PowerShell](./application-gateway-create-probe-classic-ps.md)（使用 PowerShell 创建带自定义探测的应用程序网关）。有关详细信息，请查看 [custom probes and health monitoring](./application-gateway-probe-overview.md)（自定义探测和运行状况监视）。
+> 如果你需要为应用程序网关配置自定义探测，请参阅[使用 PowerShell 创建带自定义探测的应用程序网关](./application-gateway-create-probe-classic-ps.md)。有关详细信息，请查看[自定义探测和运行状况监视](./application-gateway-probe-overview.md)。
 > 
 > 
 
@@ -437,9 +437,9 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 ## 后续步骤
 
-如果你要配置 SSL 卸载，请参阅 [Configure an application gateway for SSL offload](./application-gateway-ssl.md)（配置应用程序网关以进行 SSL 卸载）。
+如果你要配置 SSL 卸载，请参阅[配置应用程序网关以进行 SSL 卸载](./application-gateway-ssl.md)。
 
-如果你想要将应用程序网关配置为与内部负载均衡器配合使用，请参阅 [Create an application gateway with an internal load balancer (ILB)](./application-gateway-ilb.md)（创建具有内部负载均衡器 (ILB) 的应用程序网关）。
+如果你想要将应用程序网关配置为与内部负载均衡器配合使用，请参阅 [创建具有内部负载均衡器 (ILB) 的应用程序网关](./application-gateway-ilb.md)。
 
 如需负载均衡选项的其他常规信息，请参阅：
 

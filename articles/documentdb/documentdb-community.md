@@ -214,7 +214,7 @@ fluent-plugin-documentdb 是用于输出到 DocumentDB 的 Fluentd 插件。
 ### <a name="other-projects"></a>其他项目
 | 名称 | GitHub | 网站 |
 | --- | --- | --- |
-| 文档 |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[文档网站](/documentation/services/documentdb/) |
+| 文档 |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[文档网站](index.md) |
 | Hadoop 连接器 |[azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | 数据迁移工具 |[azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) |[Microsoft 下载中心](http://www.microsoft.com/download/details.aspx?id=46436) |
 

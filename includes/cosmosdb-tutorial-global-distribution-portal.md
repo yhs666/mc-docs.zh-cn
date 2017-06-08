@@ -10,7 +10,7 @@ Azure Cosmos DB 在全球范围的所有 [Azure 区域][azureregions]中推出�
 1. 在 [Azure 门户预览](https://portal.azure.cn/)的左侧栏中，单击“Azure Cosmos DB”。
 2. 在“Azure Cosmos DB”边栏选项卡中，选择要修改的数据库帐户。
 3. 在“帐户”边栏选项卡上的菜单中单击“全局复制数据”。
-4. 在“全局复制数据”边栏选项卡中，通过单击地图中的区域选择要添加或删除的区域，然后单击“保存”。 添加区域会产生费用，有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/cosmos-db/)或[使用 DocumentDB 全局分发数据](../articles/documentdb/documentdb-distribute-data-globally.md)。
+4. 在“全局复制数据”边栏选项卡中，通过单击地图中的区域选择要添加或删除的区域，然后单击“保存”。 添加区域会产生费用，有关详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/documentdb/)或[使用 DocumentDB 全局分发数据](../articles/documentdb/documentdb-distribute-data-globally.md)。
 
     ![单击图中的区域可以添加或删除区域][1]
 

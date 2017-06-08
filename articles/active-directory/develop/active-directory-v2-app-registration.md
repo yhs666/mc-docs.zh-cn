@@ -27,7 +27,7 @@ v2.0 终结点并不支持所有 Azure Active Directory 方案和功能。若要
 > 
 
 ## 访问 Microsoft 应用注册门户
-第一件事就是先浏览到 [https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)。这是新的应用注册门户，可供你管理 Microsoft 应用。
+第一件事就是先浏览到 [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com)。这是新的应用注册门户，可供你管理 Microsoft 应用。
 
 使用 Microsoft 个人或工作或学校帐户进行登录。如果你没有任何帐户，请注册新的个人帐户。请继续进行，这不需要很长的时间 — 我们会在此等候。
 
@@ -44,7 +44,7 @@ v2.0 终结点并不支持所有 Azure Active Directory 方案和功能。若要
 你可以选择在“配置文件”部分中自定义登录页面的外观。在继续操作之前，请务必单击“保存”。
 
 > [!NOTE]
-使用 [https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList) 创建应用程序时，系统将在用于登录门户的帐户的主租户中注册该应用程序。这表示你不能使用 Microsoft 个人帐户在 Azure AD 租户中注册应用程序。如果你明确地想要在特定的租户中注册应用程序，请使用最初在该租户中创建的帐户登录。
+使用 [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com) 创建应用程序时，系统将在用于登录门户的帐户的主租户中注册该应用程序。这表示你不能使用 Microsoft 个人帐户在 Azure AD 租户中注册应用程序。如果你明确地想要在特定的租户中注册应用程序，请使用最初在该租户中创建的帐户登录。
 > 
 > 
 
