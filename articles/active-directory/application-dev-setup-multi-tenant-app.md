@@ -26,8 +26,8 @@ ms.lasthandoff: 04/22/2017
 
 若要详细了解多租户应用程序，请参阅下面列出的建议主题：
 
-- 大致了解[多租户应用程序的涵义](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application)
-- 如需更深入的了解，请参阅[如何以端到端方式对多租户应用程序进行配置和编码](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)，包括：如何注册和使用“常用”终结点；如何使用“用户”和“管理员”许可；如何实现更高级的多层方案
+- 大致了解[多租户应用程序的涵义](develop/active-directory-dev-glossary.md#multi-tenant-application)
+- 如需更深入的了解，请参阅[如何以端到端方式对多租户应用程序进行配置和编码](develop/active-directory-devhowto-multi-tenant-overview.md)，包括：如何注册和使用“常用”终结点；如何使用“用户”和“管理员”许可；如何实现更高级的多层方案
 
 ## <a name="next-steps"></a>后续步骤
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
