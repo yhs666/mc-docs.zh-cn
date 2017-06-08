@@ -35,7 +35,7 @@ ms.author: jgao
 * **配备 Azure PowerShell 的工作站**。请参阅[安装和使用 Azure PowerShell](../powershell-install-configure.md)。
 
 ## 在虚拟网络上创建 HBase 群集
-在本部分中，通过 [Azure Resource Manager 模板](../azure-resource-manager/resource-group-template-deploy.md)在 Azure 虚拟网络中使用从属 Azure 存储帐户创建基于 Linux 的 HBase 群集。对于其他群集创建方法以及了解设置，请参阅 [Create HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md)（创建 HDInsight 群集）。有关使用模板在 HDInsight 中创建 Hadoop 群集的详细信息，请参阅[使用 Azure Resource Manager 模板在 HDInsight 中创建 Hadoop 群集](./hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+在本部分中，通过 [Azure Resource Manager 模板](../azure-resource-manager/resource-group-template-deploy.md)在 Azure 虚拟网络中使用从属 Azure 存储帐户创建基于 Linux 的 HBase 群集。对于其他群集创建方法以及了解设置，请参阅[创建 HDInsight 群集](./hdinsight-hadoop-provision-linux-clusters.md)。有关使用模板在 HDInsight 中创建 Hadoop 群集的详细信息，请参阅[使用 Azure Resource Manager 模板在 HDInsight 中创建 Hadoop 群集](./hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]
 > 某些属性已在模板中硬编码。例如：
@@ -86,7 +86,7 @@ ms.author: jgao
     >
     >
 
-    使用这些值可将虚拟机放置在与 HDInsight 群集相同的虚拟网络和子网中。此配置让它们能够直接相互通信。有一种方法可使用空的边缘节点创建 HDInsight 群集。该边缘节点可用于管理群集。有关详细信息，请参阅 [Use empty edge nodes in HDInsight](./hdinsight-apps-use-edge-node.md)（在 HDInsight 中使用空边缘节点）。
+    使用这些值可将虚拟机放置在与 HDInsight 群集相同的虚拟网络和子网中。此配置让它们能够直接相互通信。有一种方法可使用空的边缘节点创建 HDInsight 群集。该边缘节点可用于管理群集。有关详细信息，请参阅[在 HDInsight 中使用空边缘节点](./hdinsight-apps-use-edge-node.md)。
 
 2. 使用 Java 应用程序远程连接到 HBase 时，必须使用完全限定域名 (FQDN)。要确定这一点，你必须获取 HBase 群集的连接特定的 DNS 后缀。为此，可以使用以下方法之一：
 
