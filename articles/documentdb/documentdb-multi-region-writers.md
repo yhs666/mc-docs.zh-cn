@@ -321,6 +321,5 @@ DocumentDB 支持统包的[全局复制](documentdb-distribute-data-globally.md)
 - 了解 DocumentDB 如何支持 [全局分布](documentdb-distribute-data-globally.md)
 - 了解 [DocumentDB 中的自动和手动故障转移](documentdb-regional-failovers.md)
 - 了解 [DocumentDB 的全局一致性](documentdb-consistency-levels.md)
-- 使用 [DocumentDB - DocumentDB API](./documentdb-portal-global-replication.md) 通过多个区域进行开发
 
 
