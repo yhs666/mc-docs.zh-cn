@@ -29,7 +29,7 @@ HDInsight Spark 群集包括可用于运行 Spark 作业 Zeppelin 笔记本。�
 **先决条件：**
 
 * Azure 订阅。请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* HDInsight 上的 Apache Spark 群集。有关说明，请参阅 [Create Apache Spark clusters in Azure HDInsight](./hdinsight-apache-spark-jupyter-spark-sql.md)（在 Azure HDInsight 中创建 Apache Spark 群集）。
+* HDInsight 上的 Apache Spark 群集。有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](./hdinsight-apache-spark-jupyter-spark-sql.md)。
 
 ## 启动 Zeppelin 笔记本。
 1. 在“Spark 群集”边栏选项卡中，单击“群集仪表板”，然后单击“Zeppelin 笔记本”。出现提示时，请输入群集的管理员凭据。

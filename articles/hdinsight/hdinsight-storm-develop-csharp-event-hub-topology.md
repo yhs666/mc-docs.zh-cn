@@ -212,7 +212,7 @@ Spout 和 Bolt 以名为 **eventhubs-storm-spout-#.#-jar-with-dependencies.jar**
 
 ## 配置 EventHubWriter
 
-1. 如果尚未安装最新版本的 HDInsight Tools for Visual Studio，请参阅 [Get started using HDInsight Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md)（开始使用 HDInsight Tools for Visual Studio）。
+1. 如果尚未安装最新版本的 HDInsight Tools for Visual Studio，请参阅[开始使用 HDInsight Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md)。
 
 2. 从 [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub) 下载解决方案。
 
