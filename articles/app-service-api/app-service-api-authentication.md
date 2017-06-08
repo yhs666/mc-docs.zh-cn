@@ -22,7 +22,7 @@ ms.author: rachelap
 ## 概述 
 
 > [!NOTE]
-> 本主题将会移入 [App Service Authentication / Authorization](../app-service/app-service-authentication-overview.md)（应用服务身份验证/授权）合并主题，其中涉及 Web 应用、移动应用和 API 应用。
+> 本主题将会移入[应用服务身份验证/授权](../app-service/app-service-authentication-overview.md)合并主题，其中涉及 Web 应用、移动应用和 API 应用。
 
 Azure 应用服务提供内置的身份验证与授权服务，可实现 [OAuth 2.0](#oauth) 和 [OpenID Connect](#oauth)。本文介绍 Azure 应用服务中 API 应用可用的服务和选项。
 
@@ -73,15 +73,15 @@ Azure 应用服务提供内置的身份验证与授权服务，可实现 [OAuth 
 
 ![](./media/app-service-api-authentication/actiontotake.png)
 
-有关如何配置身份验证的详细信息，请参阅 [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)（如何将应用服务应用程序配置为使用 Azure Active Directory 登录）。此文章适用于 API 应用和移动应用，并链接到有关其他身份验证提供程序的其他文章。
+有关如何配置身份验证的详细信息，请参阅[如何将应用服务应用程序配置为使用 Azure Active Directory 登录](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)。此文章适用于 API 应用和移动应用，并链接到有关其他身份验证提供程序的其他文章。
 
 ## <a id="internal"></a>服务帐户身份验证
 
 应用服务身份验证适用于从某个 API 应用调用另一个 API 应用之类的内部方案。在此方案中，可以使用服务帐户凭据（而不是用户凭据）来获取令牌。在 Azure Active Directory 中，服务帐户也称为 *服务主体* ，使用此类帐户的身份验证也称为服务到服务方案。
 
-对于服务到服务方案，请使用 Azure Active Directory 保护所调用的 API 应用，并在调用 API 应用时提供 AAD 服务主体授权令牌。通过提供客户端 ID 和客户端机密，可以从 AAD 应用程序获取令牌。不需要像过去处理移动服务 Zumo 令牌时那样使用仅限 Azure 的特殊代码。[Service principal authentication for API Apps](./app-service-api-dotnet-service-principal-auth.md)（API 应用的服务主体身份验证）教程讲解了这种使用 ASP.NET API 应用的方案示例。
+对于服务到服务方案，请使用 Azure Active Directory 保护所调用的 API 应用，并在调用 API 应用时提供 AAD 服务主体授权令牌。通过提供客户端 ID 和客户端机密，可以从 AAD 应用程序获取令牌。不需要像过去处理移动服务 Zumo 令牌时那样使用仅限 Azure 的特殊代码。[API 应用的服务主体身份验证](./app-service-api-dotnet-service-principal-auth.md)教程讲解了这种使用 ASP.NET API 应用的方案示例。
 
-若要处理服务到服务方案但不使用应用服务身份验证，请使用客户端证书或基本身份验证。有关 Azure 中客户端证书的信息，请参阅 [How To Configure TLS Mutual Authentication for Web Apps](../app-service-web/app-service-web-configure-tls-mutual-auth.md)（如何为 Web 应用配置 TLS 相互身份验证）。有关 ASP.NET 中基本身份验证的信息，请参阅 [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters)（ASP.NET Web API 2 中的身份验证筛选器）。
+若要处理服务到服务方案但不使用应用服务身份验证，请使用客户端证书或基本身份验证。有关 Azure 中客户端证书的信息，请参阅[如何为 Web 应用配置 TLS 相互身份验证](../app-service-web/app-service-web-configure-tls-mutual-auth.md)。有关 ASP.NET 中基本身份验证的信息，请参阅 [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters)（ASP.NET Web API 2 中的身份验证筛选器）。
 
 ## 移动客户端身份验证
 
@@ -92,7 +92,7 @@ Azure 应用服务提供内置的身份验证与授权服务，可实现 [OAuth 
 有关 Azure 应用服务中的身份验证和授权的详细信息，请参阅以下资源：
 
 * [Expanding App Service authentication / authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)（扩展应用服务身份验证/授权）
-* [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)（如何将应用服务应用程序配置为使用 Azure Active Directory 登录）（页面顶部提供了其他身份验证提供程序的链接）。
+* [如何将应用服务应用程序配置为使用 Azure Active Directory 登录](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)（页面顶部提供了其他身份验证提供程序的链接）。
 
 <a name="oauth"></a>
 
@@ -104,8 +104,8 @@ Azure 应用服务提供内置的身份验证与授权服务，可实现 [OAuth 
 
 有关 Azure Active Directory 的详细信息，请参阅以下资源。
 
-* [Azure AD scenarios](../active-directory/develop/active-directory-authentication-scenarios.md)（Azure AD 方案）
-* [Azure AD developers' guide](../active-directory/develop/active-directory-developers-guide.md)（Azure AD 开发人员指南）
+* [Azure AD 方案](../active-directory/develop/active-directory-authentication-scenarios.md)
+* [Azure AD 开发人员指南](../active-directory/develop/active-directory-developers-guide.md)
 * [Azure AD 示例](https://github.com/azure-samples?query=active-directory)
 
 ## 后续步骤
