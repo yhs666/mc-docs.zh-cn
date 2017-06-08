@@ -48,7 +48,7 @@ HPC Pack 是在 Azure 和 Windows Server 技术基础之上构建的 Microsoft �
 - [下载 HPC Pack 2016](https://www.microsoft.com/download/details.aspx?id=54507)
 - [下载 HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49922)
 - [文档](https://technet.microsoft.com/library/jj899572.aspx)
-- Azure 中的 HPC Pack 群集选项：[Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
+- Azure 中的 HPC Pack 群集选项：[Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 
 - [使用 HPC Pack 迸发到 Azure 辅助角色实例](https://technet.microsoft.com/library/gg481749.aspx)
 - [使用 HPC Pack 迸发到 Azure Batch](https://technet.microsoft.com/library/mt612877.aspx)
 - [Windows HPC 论坛](https://social.microsoft.com/Forums/home?category=windowshpc)
@@ -76,7 +76,7 @@ HPC Pack 是在 Azure 和 Windows Server 技术基础之上构建的 Microsoft �
 - [MPI 论坛](https://social.microsoft.com/Forums/en-us/home?forum=windowshpcmpi)
 
 ## <a name="compute-intensive-instances"></a>计算密集型实例
-Azure 提供适合运行 Linux 和 Windows HPC 工作负荷的 [VM 大小范围](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
+Azure 提供适合运行 Linux 和 Windows HPC 工作负荷的 [VM 大小范围](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
 
 有关 GPU 密集型工作负载，请查看 [NC 和NV 大小](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/)。
 
