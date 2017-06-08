@@ -31,24 +31,6 @@ ms.lasthandoff: 05/12/2017
         </div>
         </a>
     </li>
-     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=iot-hub">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure IoT 中心视频库</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
     <li>
         <a href="/iot-hub/iot-hub-csharp-csharp-getstarted">
         <div class="cardSize">
@@ -129,22 +111,6 @@ ms.lasthandoff: 05/12/2017
                         <h3>语言</h3>
                         <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.devices">.NET（服务）</a></p>
                         <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client">.NET（设备）</a></p>
-                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.iot.service.auth">Java（服务）</a></p>
-                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.iothub">Java（设备）</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest">REST API（资源提供程序）</a></p>
-                        <p><a href="https://docs.microsoft.com/rest/api/iothub/device-identities-rest">REST API（设备标识）</a></p>
-                        <p><a href="https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis">REST API（设备消息传送）</a></p>
                     </div>
                 </div>
             </div>
