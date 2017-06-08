@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 4/10/2017
+ms.date: 04/10/2017
 wacn.date: 
 ms.author: jotaub;sethm
 ms.translationtype: Human Translation
