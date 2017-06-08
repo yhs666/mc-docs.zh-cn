@@ -28,8 +28,6 @@ ms.lasthandoff: 04/07/2017
 
 有关创建模板的详细信息，请参阅 [创作 Azure Resource Manager 模板][Authoring Azure Resource Manager templates]。
 
-有关针对 Azure 资源命名约定的实践和模式的详细信息，请参阅 [Azure 资源命名约定][Azure Resources Naming Conventions]。
-
 有关完整的模板，请参阅 GitHub 上的 [事件中心和启用存档模板][Event Hub and enable Archive template] 。
 
 > [!NOTE]
@@ -288,5 +286,4 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
-[Azure Resources Naming Conventions]: /documentation/articles/guidance-naming-conventions/
 [Event Hub and enable Archive template]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive
