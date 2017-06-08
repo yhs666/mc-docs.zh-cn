@@ -30,7 +30,7 @@ ms.author: cynthn
 
 可以使用适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (CLI) 模块管理可供 Azure 订阅使用的映像。也可以使用 Azure 经典管理门户完成某些映像任务，但命令行提供更多选项。
 
-有关这些工具的用例，请参阅 [Common Azure CLI commands on Linux and Mac](../cli-manage.md)（Linux 和 Mac 上的常用 Azure CLI 命令）。
+有关这些工具的用例，请参阅[Linux 和 Mac 上的常用 Azure CLI 命令](../cli-manage.md)。
 
 ## 后续步骤
 

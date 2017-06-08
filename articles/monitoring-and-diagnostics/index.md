@@ -15,7 +15,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/monitoring-and-diagnostics/monitoring-overview">
+        <a href="/monitoring-and-diagnostics/monitoring-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>    
     <li>
-        <a href="/azure/monitoring-and-diagnostics/insights-alerts-portal">
+        <a href="/monitoring-and-diagnostics/insights-alerts-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -51,7 +51,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/monitoring-and-diagnostics/insights-alerts-command-line-interface">
+        <a href="/monitoring-and-diagnostics/insights-alerts-command-line-interface">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -69,7 +69,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/azure/monitoring-and-diagnostics/insights-alerts-powershell">
+        <a href="/monitoring-and-diagnostics/insights-alerts-powershell">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -80,24 +80,6 @@ ms.lasthandoff: 05/12/2017
                     </div>
                     <div class="cardText">
                         <h3>使用 PowerShell 为 Azure 服务创建警报</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/monitoring-and-diagnostics/monitoring-enable-alerts-using-template">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>使用 Resource Manager 模板创建指标警报</h3>
                     </div>
                 </div>
             </div>

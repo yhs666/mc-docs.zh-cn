@@ -59,11 +59,11 @@ R 脚本可以在 HDInsight 中使用创建用于安装 R 环境的脚本操作�
 本部分提供有关如何在使用 Azure 门户预览创建新群集时使用脚本的说明。
 
 > [!NOTE]
-> Azure PowerShell、Azure CLI、HDInsight .NET SDK 或 Azure Resource Manager 模板也可用于应用脚本操作。你也可以将脚本操作应用于已在运行的群集。有关详细信息，请参阅 [Customize HDInsight clusters with Script Actions](./hdinsight-hadoop-customize-cluster-linux.md)（使用脚本操作自定义 HDInsight 群集）。
+> Azure PowerShell、Azure CLI、HDInsight .NET SDK 或 Azure Resource Manager 模板也可用于应用脚本操作。你也可以将脚本操作应用于已在运行的群集。有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](./hdinsight-hadoop-customize-cluster-linux.md)。
 > 
 > 
 
-1. 使用 [Provision Linux-based HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md)（预配基于 Linux 的 HDInsight 群集）中的步骤开始预配群集，但不要完成预配。
+1. 使用[预配基于 Linux 的 HDInsight 群集](./hdinsight-hadoop-provision-linux-clusters.md)中的步骤开始预配群集，但不要完成预配。
 2. 在“可选配置”边栏选项卡上，选择“脚本操作”，并提供以下信息：
 
     * **名称**：输入脚本操作的友好名称。
@@ -73,7 +73,7 @@ R 脚本可以在 HDInsight 中使用创建用于安装 R 环境的脚本操作�
     * **ZOOKEEPER**：选中此选项以在 Zookeeper 节点上安装。
     * **参数**：将此字段留空
 3. 在“脚本操作”的底部，使用“选择”按钮保存配置。最后，使用“可选配置”边栏选项卡底部的“选择”按钮保存可选配置信息。
-4. 根据 [Provision Linux-based HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md)（预配基于 Linux 的 HDInsight 群集）中所述继续预配群集。
+4. 根据[预配基于 Linux 的 HDInsight 群集](./hdinsight-hadoop-provision-linux-clusters.md)中所述继续预配群集。
 
 ## 运行 R 脚本
 在群集完成预配后，执行以下步骤，使用 R 在 群集上执行 MapReduce 操作。
@@ -137,10 +137,10 @@ R 脚本可以在 HDInsight 中使用创建用于安装 R 环境的脚本操作�
     ```
 
 ## 后续步骤
-* [Install and use Hue on HDInsight clusters](./hdinsight-hadoop-hue-linux.md)（在 HDInsight 群集上安装并使用 Hue）。Hue 是一种 Web UI，可让你轻松创建、运行及保存 Pig 和 Hive 作业，以及浏览 HDInsight 群集的默认存储。
+* [在 HDInsight 群集上安装并使用 Hue](./hdinsight-hadoop-hue-linux.md)。Hue 是一种 Web UI，可让你轻松创建、运行及保存 Pig 和 Hive 作业，以及浏览 HDInsight 群集的默认存储。
 * [在 HDInsight 群集上安装 Giraph](./hdinsight-hadoop-giraph-install.md)。使用群集自定义在 HDInsight Hadoop 群集上安装 Giraph。Giraph 可让你使用 Hadoop 执行图形处理，并可以在 Azure HDInsight 上使用。
 * [在 HDInsight 群集上安装 Solr](./hdinsight-hadoop-solr-install.md)。使用群集自定义在 HDInsight Hadoop 群集上安装 Solr。Solr 允许你对存储的数据执行功能强大的搜索操作。
-* [Install Hue on HDInsight clusters](./hdinsight-hadoop-hue-linux.md)（在 HDInsight 群集上安装 Hue）。使用群集自定义在 HDInsight Hadoop 群集上安装 Hue。Hue 是用来与 Hadoop 群集交互的一系列 Web 应用程序。
+* [在 HDInsight 群集上安装 Hue](./hdinsight-hadoop-hue-linux.md)。使用群集自定义在 HDInsight Hadoop 群集上安装 Hue。Hue 是用来与 Hadoop 群集交互的一系列 Web 应用程序。
 
 [hdinsight-cluster-customize]: ./hdinsight-hadoop-customize-cluster-linux.md
 

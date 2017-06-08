@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2017
+ms.date: 01/17/2017
 wacn.date: 03/03/2017
 ms.author: dkshir;chackdan;maburlik
 ---

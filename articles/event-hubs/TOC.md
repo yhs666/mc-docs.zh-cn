@@ -42,7 +42,7 @@
 ### [Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs)
 ### [Microsoft.Azure.EventHubs.Processor](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)
 ### [Microsoft.ServiceBus.Messaging](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.ServiceBus.EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
+### [Microsoft.Azure.ServiceBus.EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 ### [Microsoft.Azure.Management.EventHub](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.eventhub)
 ## Java
 ### [com.microsoft.azure.eventhubs](https://docs.microsoft.com/java/api/com.microsoft.azure.eventhubs)
@@ -53,7 +53,7 @@
 
 # 资源
 ## [代码示例](event-hubs-samples.md)
-## [价格](https://azure.microsoft.com/pricing/details/event-hubs/)
+## [价格](https://www.azure.cn/pricing/details/event-hubs/)
 ## [学习路径](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [服务更新](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-eventhub)

@@ -41,7 +41,7 @@ SQL Server 加密功能多种多样，包括[透明数据加密 \(TDE\)](https:/
 
 ![SQL Azure 密钥保管库集成](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)  
 
-有关预配的详细演练，请参阅 [Provision a SQL Server virtual machine in the Azure Portal Preview](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)（在 Azure 门户预览中预配 SQL Server 虚拟机）。
+有关预配的详细演练，请参阅[在 Azure 门户预览中预配 SQL Server 虚拟机](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)。
 
 ### 现有 VM
 对于现有的 SQL Server 虚拟机，请选择你的 SQL Server 虚拟机。然后选择“设置”边栏选项卡的“SQL Server 配置”部分。

@@ -39,7 +39,7 @@ ms.author: larryfr
 | HDInsight .NET SDK |✓ |✓ |
 | Azure Resource Manager 模板 |✓ |&nbsp; |
 
-有关使用这些方法应用脚本操作的详细信息，请参阅 [Customize HDInsight clusters using script actions](./hdinsight-hadoop-customize-cluster-linux.md)（使用脚本操作自定义 HDInsight 群集）。
+有关使用这些方法应用脚本操作的详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](./hdinsight-hadoop-customize-cluster-linux.md)。
 
 ## <a name="bestPracticeScripting"></a>脚本开发最佳实践
 
@@ -61,7 +61,7 @@ ms.author: larryfr
 
 ### <a name="bPS1"></a>选择目标 Hadoop 版本
 
-不同版本的 HDInsight 有不同版本的 Hadoop 服务和已安装的组件。如果脚本需要特定版本的服务或组件，你应该只在包含所需组件的 HDInsight 版本中使用该脚本。可以使用 [HDInsight component versioning](./hdinsight-component-versioning.md)（HDInsight 组件版本控制）来查找有关 HDInsight 随附组件版本的信息。
+不同版本的 HDInsight 有不同版本的 Hadoop 服务和已安装的组件。如果脚本需要特定版本的服务或组件，你应该只在包含所需组件的 HDInsight 版本中使用该脚本。可以使用 [HDInsight 组件版本控制](./hdinsight-component-versioning.md)来查找有关 HDInsight 随附组件版本的信息。
 
 ### <a name="bps10"></a> 选择目标 OS 版本
 
@@ -320,7 +320,7 @@ fi
 
 ## <a name="runScriptAction"></a>如何运行脚本操作
 
-可以通过 Azure 门户预览、Azure PowerShell、Azure Resource Manager 模板或 HDInsight .NET SDK 使用脚本操作来自定义 HDInsight 群集。有关说明，请参阅 [How to use script action](./hdinsight-hadoop-customize-cluster-linux.md)（如何使用脚本操作）。
+可以通过 Azure 门户预览、Azure PowerShell、Azure Resource Manager 模板或 HDInsight .NET SDK 使用脚本操作来自定义 HDInsight 群集。有关说明，请参阅[如何使用脚本操作](./hdinsight-hadoop-customize-cluster-linux.md)。
 
 ## <a name="sampleScripts"></a>自定义脚本示例
 
@@ -332,7 +332,7 @@ Microsoft 提供了在 HDInsight 群集上安装组件的示例脚本。示例�
 * [在 HDInsight 群集上安装并使用 Giraph](./hdinsight-hadoop-giraph-install-linux.md)
 
 > [!NOTE]
-> 上面链接的文档针对基于 Linux 的 HDInsight 群集。有关适用于基于 Windows 的 HDInsight 的脚本，请参阅 [Script action development with HDInsight (Windows)](./hdinsight-hadoop-script-actions.md)（使用 HDInsight 进行脚本操作开发 (Windows)）或使用每篇文章顶部提供的链接。
+> 上面链接的文档针对基于 Linux 的 HDInsight 群集。有关适用于基于 Windows 的 HDInsight 的脚本，请参阅[使用 HDInsight 进行脚本操作开发 (Windows)](./hdinsight-hadoop-script-actions.md)或使用每篇文章顶部提供的链接。
 
 ## 故障排除
 

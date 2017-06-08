@@ -299,7 +299,7 @@ OEE 使用与生产相关的关键运营参数来评价制造过程的效率。 
 [cf-img-alert-filter]: ./media/iot-suite-connected-factory-overview/cf-filter.png
 [cf-img-alert-filter-funnel]: ./media/iot-suite-connected-factory-overview/cf-filter-funnel.png
 
-[lnk_free_trial]: /pricing/1rmb-trial/
+[lnk_free_trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-preconfigured-solutions]: ./iot-suite-what-are-preconfigured-solutions.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.cn
 [lnk-portal]: http://portal.azure.cn/

@@ -27,9 +27,9 @@ ms.author: mahender
 
 参阅以下教程之一即可立即入门：
 
-- [Add authentication to your iOS app][iOS]（向 iOS 应用添加身份验证）（或者其他针对 [Android]、[Windows]、[Xamarin.iOS]、[Xamarin.Android]、[Xamarin.Forms] 或 [Cordova] 应用的教程）
-- [User authentication for API Apps in Azure App Service][apia-user]（Azure 应用服务中 API 应用的用户身份验证）
-- [Get started with Azure App Service - Part 2][web-getstarted]（Azure 应用服务入门 - 第 2 部分）
+- [向 iOS 应用添加身份验证][iOS]（或者其他针对 [Android]、[Windows]、[Xamarin.iOS]、[Xamarin.Android]、[Xamarin.Forms] 或 [Cordova] 应用的教程）
+- [Azure 应用服务中 API 应用的用户身份验证][apia-user]
+- [Azure 应用服务入门 - 第 2 部分][web-getstarted]
 
 ## 应用服务中的身份验证机制
 
@@ -68,9 +68,9 @@ ms.author: mahender
 >[!IMPORTANT]
 > 由于移动应用在客户设备上运行，因此移动应用程序_不_算可信应用程序，不应使用服务主体流，而应使用此前详细介绍过的用户流。
 
-对于服务到服务方案，应用服务可通过 Azure Active Directory 保护应用程序。调用应用程序只需提供 Azure Active Directory 服务主体授权令牌即可，而该令牌可通过在 Azure Active Directory 中提供客户端 ID 和客户端机密来获取。[Service principal authentication for API Apps][apia-service]（API 应用的服务主体身份验证）教程介绍了使用 ASP.NET API 应用的此类方案的示例。
+对于服务到服务方案，应用服务可通过 Azure Active Directory 保护应用程序。调用应用程序只需提供 Azure Active Directory 服务主体授权令牌即可，而该令牌可通过在 Azure Active Directory 中提供客户端 ID 和客户端机密来获取。[API 应用的服务主体身份验证][apia-service]教程介绍了使用 ASP.NET API 应用的此类方案的示例。
 
-若要通过应用服务身份验证处理服务到服务方案，可使用客户端证书或基本身份验证。有关 Azure 中客户端证书的信息，请参阅 [How To Configure TLS Mutual Authentication for Web Apps](../app-service-web/app-service-web-configure-tls-mutual-auth.md)（如何为 Web 应用配置 TLS 相互身份验证）。有关 ASP.NET 中基本身份验证的信息，请参阅 [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters)（ASP.NET Web API 2 中的身份验证筛选器）。
+若要通过应用服务身份验证处理服务到服务方案，可使用客户端证书或基本身份验证。有关 Azure 中客户端证书的信息，请参阅[如何为 Web 应用配置 TLS 相互身份验证](../app-service-web/app-service-web-configure-tls-mutual-auth.md)。有关 ASP.NET 中基本身份验证的信息，请参阅 [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters)（ASP.NET Web API 2 中的身份验证筛选器）。
 
 ## <a name="authorization"></a>应用服务中的授权机制
 
@@ -101,33 +101,33 @@ ms.author: mahender
 
 使用任何语言或框架编写的代码均可从这些标头获取所需信息。对于 ASP.NET 4.6 应用，**ClaimsPrincipal** 会自动设置为相应的值。
 
-应用程序也可在其 `/.auth/me` 终结点上通过 HTTP GET 获取其他用户详细信息。如果请求中包含有效的令牌，则会返回 JSON 有效负载，并详细说明所使用的提供者、基础性提供者令牌，以及一些其他的用户信息。移动应用服务器 SDK 提供处理该数据的帮助器方法。有关详细信息，请参阅 [How to use the Azure Mobile Apps Node.js SDK](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity)（如何使用 Azure 移动应用 Node.js SDK）和 [Work with the .NET backend server SDK for Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info)（使用适用于 Azure 移动应用的 .NET 后端服务器 SDK）。
+应用程序也可在其 `/.auth/me` 终结点上通过 HTTP GET 获取其他用户详细信息。如果请求中包含有效的令牌，则会返回 JSON 有效负载，并详细说明所使用的提供者、基础性提供者令牌，以及一些其他的用户信息。移动应用服务器 SDK 提供处理该数据的帮助器方法。有关详细信息，请参阅[如何使用 Azure 移动应用 Node.js SDK](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) 和[使用适用于 Azure 移动应用的 .NET 后端服务器 SDK](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info)。
 
 ## 文档和其他资源
 
 ### 标识提供者
 以下教程说明了如何将应用服务配置为使用不同的身份验证提供者：
 
-- [How to configure your app to use Azure Active Directory login][AAD]（如何将应用配置为使用 Azure Active Directory 登录）
-- [How to configure your app to use Microsoft Account login][MSA]（如何将应用配置为使用 Microsoft Account 登录）
+- [如何将应用配置为使用 Azure Active Directory 登录][AAD]
+- [如何将应用配置为使用 Microsoft Account 登录][MSA]
 
 若要使用此处未提供的其他标识系统，也可使用[移动应用 .NET 服务器 SDK 中的预览版自定义身份验证支持][custom-auth]，后者适用于 Web 应用、移动应用或 API 应用。
 
 ### Web 应用程序
 以下教程介绍如何向 Web 应用程序添加身份验证：
 
-- [Get started with Azure App Service - Part 2][web-getstarted]（Azure 应用服务入门 - 第 2 部分）
+- [Azure 应用服务入门 - 第 2 部分][web-getstarted]
 
 ### 移动应用程序
 以下教程介绍如何通过服务器定向流向移动客户端添加身份验证：
 
-- [Add authentication to your iOS app][iOS]（向 iOS 应用添加身份验证）
-- [Add Authentication to your Android app][Android]（向 Android 应用添加身份验证）
-- [Add Authentication to your Windows app][Windows]（向 Windows 应用添加身份验证）
-- [Add authentication to your Xamarin.iOS app][Xamarin.iOS]（向 Xamarin.iOS 应用添加身份验证）
-- [Add authentication to your Xamarin.Android app][Xamarin.Android]（向 Xamarin.Android 应用添加身份验证）
-- [Add authentication to your Xamarin.Forms app][Xamarin.Forms]（向 Xamarin.Forms 应用添加身份验证）
-- [Add Authentication to your Cordova app][Cordova]（向 Cordova 应用添加身份验证）
+- [向 iOS 应用添加身份验证][iOS]
+- [向 Android 应用添加身份验证][Android]
+- [向 Windows 应用添加身份验证][Windows]
+- [向 Xamarin.iOS 应用添加身份验证][Xamarin.iOS]
+- [向 Xamarin.Android 应用添加身份验证][Xamarin.Android]
+- [向 Xamarin.Forms 应用添加身份验证][Xamarin.Forms]
+- [向 Cordova 应用添加身份验证][Cordova]
 
 若要使用 Azure Active Directory 的客户端定向流，请参阅以下资源：
 
@@ -138,8 +138,8 @@ ms.author: mahender
 ### API 应用程序
 以下教程介绍了如何保护 API 应用：
 
-- [User authentication for API Apps in Azure App Service][apia-user]（Azure 应用服务中 API 应用的用户身份验证）
-- [Service principal authentication for API Apps in Azure App Service][apia-service]（Azure 应用服务中 API 应用的服务主体身份验证）
+- [Azure 应用服务中 API 应用的用户身份验证][apia-user]
+- [Azure 应用服务中 API 应用的服务主体身份验证][apia-service]
 
 [apia-user]: ../app-service-api/app-service-api-dotnet-user-principal-auth.md
 [apia-service]: ../app-service-api/app-service-api-dotnet-service-principal-auth.md

@@ -4,7 +4,7 @@ description:
 keywords: 
 author: jeffgilb
 manager: femila
-ms.date: 5/1/2017
+ms.date: 05/01/2017
 ms.topic: article
 ms.prod: 
 ms.service: azure
@@ -19,6 +19,7 @@ ms.lasthandoff: 05/26/2017
 
 
 ---
+
 # <a name="fundamentals-of-azure-identity-management"></a>Azure 标识管理基础知识
 随着公司的数字资源逐渐转向公司网络外部、云中和设备上，为了对用户访问公司应用程序和数据的方式和时间进行控制和监视，最好的方式是使用卓越的基于云的标识和访问管理解决方案。
 
