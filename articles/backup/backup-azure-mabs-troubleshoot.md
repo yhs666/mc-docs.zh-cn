@@ -12,7 +12,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/24/2017
+ms.date: 03/24/2017
 ms.author: pullabhk;markgal;
 wacn.date: 
 ms.translationtype: Human Translation
