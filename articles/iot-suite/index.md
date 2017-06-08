@@ -30,24 +30,6 @@ Microsoft Azure IoT 套件快速入门。 使用预配置解决方案，并加�
         </div>
         </a>
     </li>
-    <li>
-        <a href="/iot-suite/iot-solution-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>IoT 预配置解决方案入门</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>    
 </ul>
 
 ---

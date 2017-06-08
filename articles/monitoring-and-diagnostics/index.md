@@ -86,24 +86,6 @@ ms.lasthandoff: 05/12/2017
         </div>
         </a>
     </li>
-    <li>
-        <a href="/monitoring-and-diagnostics/monitoring-enable-alerts-using-template">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>使用 Resource Manager 模板创建指标警报</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
 </ul>
 
 ---
