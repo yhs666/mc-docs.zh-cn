@@ -134,7 +134,7 @@ ms.lasthandoff: 05/12/2017
 #### <a name="virtual-machine-disk-limits"></a>虚拟机磁盘限制 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-有关其他详细信息，请参阅[虚拟机大小](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+有关其他详细信息，请参阅[虚拟机大小](virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 #### <a name="managed-virtual-machine-disks"></a>托管虚拟机磁盘
 
@@ -229,7 +229,7 @@ DocumentDB 是一个全规模数据库，该数据库对吞吐量和存储进行
 ## <a name="see-also"></a>另请参阅
 [了解 Azure 限制和增加](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Azure 的虚拟机和云服务大小](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Azure 的虚拟机和云服务大小](virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [云服务的大小](cloud-services/cloud-services-sizes-specs.md)
 

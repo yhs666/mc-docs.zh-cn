@@ -109,7 +109,7 @@ ms.lasthandoff: 04/14/2017
 
 对于 Linux VM：
 
-- 按照[更新 Linux VM 代理](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/)上的说明进行操作。
+- 按照[更新 Linux VM 代理](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/)上的说明进行操作。
 
 ### <a name="validating-vm-agent-installation"></a>验证 VM 代理安装
 如何检查 Windows VM 上的 VM 代理版本：
