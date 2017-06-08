@@ -19,7 +19,7 @@
 ### [禁用 Stretch Database](sql-server-stretch-database-disable.md)
 
 # 资源
-## [价格](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)
+## [价格](https://www.azure.cn/pricing/details/sql-server-stretch-database/)
 ## [博客](https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/)
 ## [服务更新](https://azure.microsoft.com/updates/?product=sql-server-stretch-database)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database)
