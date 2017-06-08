@@ -515,9 +515,9 @@ var customer1 = cache.Wait(task1);
 var customer2 = cache.Wait(task2);
 ```
 
-Microsoft 网站上的 [Azure Redis Cache documentation](./redis-cache/index.md)（Azure Redis 缓存文档）页提供了有关如何编写可以使用 Azure Redis 缓存的客户端应用程序的详细信息。StackExchange.Redis 网站上的 [Basic usage page](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md)（基本用法）页提供了更多信息。
+Microsoft 网站上的 [Azure Redis Cache documentation](./redis-cache/index.md)（Azure Redis 缓存文档）页提供了有关如何编写可以使用 Azure Redis 缓存的客户端应用程序的详细信息。
 
-同一网站上的 [Pipelines and multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md)（管道与多路复用器）页提供了有关使用 Redis 和 StackExchange 库执行异步操作和管道传输的详细信息。本文的下一部分“使用 Redis 缓存”提供了一些更高级技巧的示例，你可以对 Redis 缓存中保存的数据运用这些技巧。
+本文的下一部分“使用 Redis 缓存”提供了一些更高级技巧的示例，你可以对 Redis 缓存中保存的数据运用这些技巧。
 
 ## 使用 Redis 缓存
 
@@ -610,8 +610,6 @@ Console.WriteLine("Result of decrement: {0}", tx2.Result);
 请记住，Redis 事务不同于关系数据库中的事务。`Execute` 方法只是将构成运行事务的所有命令排入队列，如果其中任何一个命令格式不当，则事务停止。如果已成功将所有命令排入队列，将以异步方式运行每个命令。
 
 如果任何命令失败，其他命令仍将继续处理。如果需要验证命令是否已成功完成，必须使用相应任务的 **Result** 属性来提取命令的结果，如上述示例中所示。读取 **Result** 属性将会阻塞调用线程，直到任务完成。
-
-有关详细信息，请参阅 StackExchange.Redis 网站上的 [Redis 中的事务](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md)页。
 
 执行批处理操作时，可以使用 StackExchange 库的 `IBatch` 接口。此接口可用于访问 `IDatabase` 接口所访问的类似一组方法，不过，所有方法是异步的。
 
@@ -920,7 +918,6 @@ subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 - Microsoft 网站上的 [Azure Redis 缓存常见问题](./redis-cache/cache-faq.md)页
 - Microsoft 网站上的 [Configuration model](http://msdn.microsoft.com/zh-cn/library/windowsazure/hh914149.aspx)（配置模型）页
 - Microsoft 网站上的 [Task-based Asynchronous Pattern](http://msdn.microsoft.com/zh-cn/library/hh873175.aspx)（基于任务的异步模式）页
-- StackExchange.Redis GitHub 存储库上的 [Pipelines and multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md)（管道和多路复用器）页
 - Redis 网站上的 [Redis persistence](http://redis.io/topics/persistence)（Redis 持久性）页
 - Redis 网站上的 [Replication](http://redis.io/topics/replication)（复制）页
 - Redis 网站上的 [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial)（Redis 群集教程）页
@@ -933,8 +930,6 @@ subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 - Microsoft 网站上的 [Azure Redis 缓存的 ASP.NET 会话状态提供程序](./redis-cache/cache-aspnet-session-state-provider.md)页
 - Microsoft 网站上的 [Azure Redis 缓存的 ASP.NET 输出缓存提供程序](./redis-cache/cache-aspnet-output-cache-provider.md)页
 - Redis 网站上的 [An Introduction to Redis data types and abstractions](http://redis.io/topics/data-types-intro)（Redis 数据类型和抽象简介）页
-- StackExchange.Redis 网站上的 [Basic usage](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md)（基本用法）页
-- StackExchange.Redis 存储库上的 [Transactions in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md)（Redis 中的事务）页
 - Microsoft 网站上的 [Data partitioning guide](http://msdn.microsoft.com/zh-cn/library/dn589795.aspx)（数据分区指南）
 
 <!---HONumber=Mooncake_0725_2016-->

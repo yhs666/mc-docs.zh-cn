@@ -123,7 +123,6 @@ ms.lasthandoff: 05/12/2017
                         <h3>语言</h3>
                         <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.batch">.NET</a></p>
                         <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.batch">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html">Python</a></p>
                     </div>
                 </div>

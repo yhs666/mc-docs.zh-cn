@@ -100,9 +100,9 @@
 
 
 # 引用
-## [PowerShell cmdlets](/powershell/ )
-## [Java API 参考](/java/api)
-## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
+## [PowerShell cmdlets](https://docs.microsoft.com/powershell/ )
+## [Java API 参考](https://docs.microsoft.com/java/api)
+## [.NET API](https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [服务限制和局限性](active-directory-service-limits-restrictions.md)
 
 # 相关内容

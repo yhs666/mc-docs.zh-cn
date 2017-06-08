@@ -264,7 +264,7 @@ DocumentDB 允许在容器（表）级别设置一致性。 SDK 还允许通过�
 高级表 API（预览）利用 DocumentDB 的全球分布式平台。 若要确保应用程序能够容许数据中心停机，需要在 DocumentDB 门户中为帐户额外启用至少一个区域。请参阅[使用多区域 DocumentDB 帐户进行开发](documentdb-regional-failovers.md)。 可以使用门户设置区域的优先级。请参阅[使用多区域 DocumentDB 帐户进行开发](documentdb-regional-failovers.md)。 可为帐户添加任意数目的区域，并通过提供优先级来控制可将该帐户故障转移到哪个位置。 当然，毫无疑问还需要在帐户中提供一个应用程序，以利用数据库。 这样，客户就不会遇到停机情况。 客户端 SDK 可自动寻址 - 它能够检测到有故障的区域，并自动故障转移到新区域。
 
 ### <a name="is-premium-table-api-preview-enabled-for-backups"></a>高级表 API（预览）是否支持备份？
-是的，高级表 API（预览）利用 DocumentDB 的平台进行备份。 可自动创建备份。 [使用 DocumentDB 联机备份和还原](C:\Users\govindk\azure-docs-pr\articles\documentdb\documentdb-online-backup-and-restore.md)中已介绍 DocumentDB 备份
+是的，高级表 API（预览）利用 DocumentDB 的平台进行备份。 可自动创建备份。 [使用 DocumentDB 联机备份和还原](documentdb-online-backup-and-restore.md)中已介绍 DocumentDB 备份
 
  
 ### <a name="does-the-table-api-preview-index-all-attributes-of-entities-by-default"></a>默认情况下，表 API（预览）是否为实体的所有属性编制索引？
