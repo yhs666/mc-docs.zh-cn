@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/8/2016
+ms.date: 11/08/2016
 wacn.date: 03/28/2017
 ms.author: jdial
 ---
