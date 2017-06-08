@@ -47,8 +47,8 @@
 ### [在 Azure 备份中备份文件和文件夹时速度缓慢](./backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # 引用
-## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
-## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # 资源
 ## [价格](https://www.azure.cn/pricing/details/backup/)

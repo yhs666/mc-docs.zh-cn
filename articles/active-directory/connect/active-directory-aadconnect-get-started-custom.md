@@ -27,8 +27,6 @@ ms.lasthandoff: 04/22/2017
 
 开始安装 Azure AD Connect 之前，确保[下载 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)，完成 [Azure AD Connect：硬件和先决条件](active-directory-aadconnect-prerequisites.md)中的预备步骤。 此外请确保你拥有 [Azure AD Connect 帐户和权限](active-directory-aadconnect-accounts-permissions.md)所述的可用的必需帐户。
 
-如果自定义的设置不匹配拓扑，例如，升级 DirSync，请参阅 [相关文档](#related-documentation) ，了解其他情况。
-
 ## <a name="custom-settings-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义设置安装
 ### <a name="express-settings"></a>快速设置
 在此页面上，单击“自定义”  ，开始自定义的设置安装。

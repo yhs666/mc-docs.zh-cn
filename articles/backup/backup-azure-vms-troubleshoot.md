@@ -146,7 +146,7 @@ VM 备份依赖于向底层存储发出快照命令。 如果无法访问存储�
 
 1. 将 Azure 数据中心 IP 范围加入允许列表。
    - 获取要列入允许列表的 [Azure 数据中心 IP](https://www.microsoft.com/download/details.aspx?id=41653) 列表。
-   - 使用 [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet 取消阻止 IP。 在 Azure VM 上提升权限的 PowerShell 窗口中运行此 cmdlet（以管理员身份运行）。
+   - 使用 New-NetRoute cmdlet 取消阻止 IP。 在 Azure VM 上提升权限的 PowerShell 窗口中运行此 cmdlet（以管理员身份运行）。
    - 向 NSG 添加规则（如果已创建规则），以允许访问这些 IP。
 2. 为 HTTP 流量创建路径
    - 如果你指定了某种网络限制（例如网络安全组），请部署 HTTP 代理服务器来路由流量。 可在[此处](backup-azure-vms-prepare.md#network-connectivity)找到部署 HTTP 代理服务器的步骤。

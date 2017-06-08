@@ -17,6 +17,6 @@
 4. [构建基块](../articles/active-directory/active-directory-playbook-building-blocks.md)
    - [执行组件目录](../articles/active-directory/active-directory-playbook-building-blocks.md#catalog-of-actors)
    - [所有构建基块的常见先决条件](../articles/active-directory/active-directory-playbook-building-blocks.md#common-prerequisites-for-all-building-blocks)
-   - [目录同步 - 密码哈希同步 (PHS) - 新安装](../articles/active-directory/active-directory-playbook-building-blocks.md#directory-synchronization---password-hash-sync-phs---new-installation)
+   - [目录同步 - 密码哈希同步 (PHS) - 新安装](../articles/active-directory/active-directory-playbook-building-blocks.md#directory-synchronization--password-hash-sync-phs--new-installation)
    - [通用 LDAP 连接器配置](../articles/active-directory/active-directory-playbook-building-blocks.md#generic-ldap-connector-configuration)
    - [配置基于证书的身份验证](../articles/active-directory/active-directory-playbook-building-blocks.md#configuring-certificate-based-authentication)
