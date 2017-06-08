@@ -91,7 +91,7 @@ Azure 还为开发人员和合作伙伴提供一整套功能、体系结构选�
 > 
 
 ### <a name="compute-services"></a>计算服务
-Azure 计算服务是大型计算解决方案的核心，不同的计算服务适用于不同的方案。 在基本级别中，这些服务为使用 Windows Server Hyper-V 技术，由 Azure 提供的基于虚拟机的计算实例上运行的应用程序提供不同模式。 这些实例可以运行标准的和自定义的 Linux 和 Windows 操作系统与工具。 Azure 允许选择 [实例大小](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/) ，可对 CPU 核心、内存、磁盘容量和其他特征进行不同配置。 用户可以根据需要将实例扩展到数千个核心，并在需要较少的资源时相应减少。
+Azure 计算服务是大型计算解决方案的核心，不同的计算服务适用于不同的方案。 在基本级别中，这些服务为使用 Windows Server Hyper-V 技术，由 Azure 提供的基于虚拟机的计算实例上运行的应用程序提供不同模式。 这些实例可以运行标准的和自定义的 Linux 和 Windows 操作系统与工具。 Azure 允许选择 [实例大小](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json/) ，可对 CPU 核心、内存、磁盘容量和其他特征进行不同配置。 用户可以根据需要将实例扩展到数千个核心，并在需要较少的资源时相应减少。
 
 
 | 服务 | 说明 |
