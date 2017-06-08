@@ -132,7 +132,7 @@ azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1
 [lnk-azure-portal]: https://portal.azure.cn/
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-CLI-install]:../cli-install-nodejs.md
-[lnk-rest-api]: https://msdn.microsoft.com/zh-cn/library/mt589014.aspx
+
 [lnk-CLI-arm]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
