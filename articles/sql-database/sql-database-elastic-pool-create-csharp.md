@@ -73,7 +73,7 @@ namespace SqlElasticPoolConsoleApp
         {
 
         // For details about these four (4) values, see
-        // https://wwww.azure.cn/documentation/articles/resource-group-authenticate-service-principal/
+        // https://www.azure.cn/documentation/articles/resource-group-authenticate-service-principal/
         static string _subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
         static string _tenantId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
         static string _applicationId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
