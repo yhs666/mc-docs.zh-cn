@@ -43,24 +43,6 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/site-recovery/site-recovery-vmware-to-azure">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure Site Recovery 入门</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
         <a href="/site-recovery/site-recovery-hyper-v-site-to-azure">
         <div class="cardSize">
             <div class="cardPadding">
