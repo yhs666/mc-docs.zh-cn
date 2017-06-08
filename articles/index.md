@@ -1544,10 +1544,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="https://docs.microsoft.com/dotnet/api">API 参考</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">获取示例</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/">了解详细信息</a>
+                                                    <a href="/develop/net/">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1574,10 +1571,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API 参考</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">获取示例</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/python">了解详细信息</a>
+                                                    <a href="/develop/python">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1604,10 +1598,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="http://azure.github.io/azure-storage-node/index.html">API 参考</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">获取示例</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs">了解详细信息</a>
+                                                    <a href="/develop/nodejs">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1634,10 +1625,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="https://docs.microsoft.com/java/api/">API 参考</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=java">获取示例</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/java/">了解详细信息</a>
+                                                    <a href="/develop/java/">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1664,10 +1652,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API 参考</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">获取示例</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/ruby/">了解详细信息</a>
+                                                    <a href="/develop/ruby/">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1689,9 +1674,6 @@ ms.lasthandoff: 05/12/2017
                                                 </h3>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/rest/api">参考</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">获取示例</a>
                                                 </p>
                                             </div>
                                         </div>
