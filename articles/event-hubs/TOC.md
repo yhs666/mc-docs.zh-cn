@@ -53,7 +53,7 @@
 
 # 资源
 ## [代码示例](event-hubs-samples.md)
-## [价格](https://azure.microsoft.com/pricing/details/event-hubs/)
+## [价格](https://www.azure.cn/pricing/details/event-hubs/)
 ## [学习路径](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [服务更新](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-eventhub)
