@@ -26,7 +26,7 @@ ms.lasthandoff: 05/19/2017
 # <a name="automate-azure-documentdb-account-region-management-using-azure-cli-10-and-azure-resource-manager-templates"></a>使用 Azure CLI 1.0 和 Azure Resource Manager 模板自动管理 DocumentDB 帐户区域
 
 
-本文说明了如何使用 Azure CLI 1.0 命令和 Azure Resource Manager 模板在 DocumentDB 帐户中添加/删除区域。 也可通过 [Azure 门户](./documentdb-portal-global-replication.md)实现区域管理。 请注意，以下教程中的命令不可更改各个区域的故障转移优先级。 只可添加或删除读取区域。 不能添加或删除数据库帐户中的写入区域（故障转移优先级为 0）。
+本文说明了如何使用 Azure CLI 1.0 命令和 Azure Resource Manager 模板在 DocumentDB 帐户中添加/删除区域。 请注意，以下教程中的命令不可更改各个区域的故障转移优先级。 只可添加或删除读取区域。 不能添加或删除数据库帐户中的写入区域（故障转移优先级为 0）。
 
 DocumentDB 数据库帐户是目前唯一可以使用 [Azure Resource Manager 模板和 Azure CLI 1.0](documentdb-automation-resource-manager-cli.md) 创建或修改的 DocumentDB 资源。 
 

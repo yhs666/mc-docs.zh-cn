@@ -53,7 +53,7 @@ ms.lasthandoff: 05/19/2017
 
 *这就是所有的操作！*
 
-有关详细说明，请参阅[创建帐户](documentdb-create-mongodb-account.md)和[连接到帐户](documentdb-connect-mongodb-account.md)。
+有关详细说明，请参阅[创建帐户](documentdb-create-account.md)和[连接到帐户](documentdb-connect-mongodb-account.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

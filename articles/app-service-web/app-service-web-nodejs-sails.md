@@ -180,7 +180,7 @@ ms.lasthandoff: 04/22/2017
 ## <a name="connect-to-a-database-in-azure"></a>连接到 Azure 中的数据库
 若要连接到 Azure 中的数据库，可以在 Azure 中创建所选的数据库，例如 Azure SQL 数据库、MySQL、MongoDB、Azure (Redis) 缓存等，并使用相应的[数据存储适配器](https://github.com/balderdashy/sails#compatibility)连接到该数据库。 本部分中的步骤说明如何使用 [Azure DocumentDB](../documentdb/documentdb-protocol-mongodb.md) 数据库（支持 MongoDB 客户端连接）连接到 MongoDB。
 
-1. [创建具有 MongoDB 协议支持的 DocumentDB 帐户](../documentdb/documentdb-create-mongodb-account.md)。
+1. [创建具有 MongoDB 协议支持的 DocumentDB 帐户](../documentdb/documentdb-create-account.md)。
 2. [创建 DocumentDB 集合和数据库](../documentdb/documentdb-create-collection.md)。 集合的名称不重要，但从 Sails.js 连接时需要数据库的名称。
 3. [查找 DocumentDB 数据库的连接信息](../documentdb/documentdb-connect-mongodb-account.md#GetCustomConnection)。
 2. 从命令行终端安装 MongoDB 适配器：
