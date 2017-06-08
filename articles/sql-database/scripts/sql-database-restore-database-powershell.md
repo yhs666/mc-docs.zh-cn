@@ -110,7 +110,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 | [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/restore-azurermsqldatabase) | 还原 SQL 数据库。 |
 |[Remove-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/remove-azurermsqldatabase) | 删除 Azure SQL 数据库。 |
 | [Get-AzureRmSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/get-azurermsqldeleteddatabasebackup) | 获取可以还原的已删除数据库。 |
-| [Remove-AzureRmResourceGroup]() | 删除资源组，包括所有嵌套的资源。 |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.0.0) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

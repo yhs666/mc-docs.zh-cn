@@ -171,11 +171,11 @@ Azure 存储资源可以通过任何发出 HTTP/HTTPS 请求的语言来进行�
 * [存储服务 REST API](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [适用于 .NET、Windows Phone 和 Windows 运行时的存储空间客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [适用于 C++ 的存储客户端库](https://github.com/Azure/azure-storage-cpp)
-* [适用于 Java/Android 的存储空间客户端库](https://wwww.azure.cn/develop/java/)
+* [适用于 Java/Android 的存储空间客户端库](https://www.azure.cn/develop/java/)
 * [适用于 Node.js 的存储空间客户端库](http://azure.github.io/azure-storage-node/)
-* [适用于 PHP 的存储空间客户端库](https://wwww.azure.cn/develop/php/)
-* [适用于 Ruby 的存储空间客户端库](https://wwww.azure.cn/develop/ruby/)
-* [适用于 Python 的存储空间客户端库](https://wwww.azure.cn/develop/python/)
+* [适用于 PHP 的存储空间客户端库](https://www.azure.cn/develop/php/)
+* [适用于 Ruby 的存储空间客户端库](https://www.azure.cn/develop/ruby/)
+* [适用于 Python 的存储空间客户端库](https://www.azure.cn/develop/python/)
 * [适用于 PowerShell 1.0 的存储空间 Cmdlet](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
 ### <a name="azure-storage-management-services"></a>Azure 存储管理服务
