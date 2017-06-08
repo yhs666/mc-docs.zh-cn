@@ -35,7 +35,7 @@ Azure 术语以及上述两份参考文档提供了适用于 Azure 和云行业�
 
 ### <a name="availability-set"></a>可用性集
 可一起管理的、用于提供应用程序冗余和可靠性的虚拟机集合。使用可用性集可确保在计划内或计划外维护事件期间，至少有一个虚拟机可用。
-另请参阅[管理 Windows 虚拟机的可用性](./virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/)或[管理 Linux 虚拟机的可用性](./virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/)
+另请参阅[管理 Windows 虚拟机的可用性](./virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json/)或[管理 Linux 虚拟机的可用性](./virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/)
 
 ### <a name="classic-model"></a>Azure 经典部署模型
 用于在 Azure 中部署资源的两个[部署模型](./azure-resource-manager/resource-manager-deployment-model.md)中的一个（新模型是 Azure资源管理器）。可以将一些 Azure 资源部署在其中一个模型中，并将另一些资源部署在这两个模型中。适用于单个 Azure 资源的指导详细说明了可以使用哪些模型来部署资源。
@@ -52,7 +52,7 @@ Azure 术语以及上述两份参考文档提供了适用于 Azure 和云行业�
 
 ### <a name="fault-domain"></a>容错域
 可用性集中可能会同时发生故障的虚拟机集合。一个例子是机架中共用一个电源和网络交换机的计算机组。在 Azure 中，可用性集内的虚拟机将自动分布在多个容错域中。
-另请参阅[管理 Windows 虚拟机的可用性](./virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/)或[管理 Linux 虚拟机的可用性](./virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/)
+另请参阅[管理 Windows 虚拟机的可用性](./virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json/)或[管理 Linux 虚拟机的可用性](./virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/)
 
 ### <a name="geo-replication"></a>异地复制
 在区域对中自动复制内容（例如 Blob、表和队列）的过程。
@@ -60,7 +60,7 @@ Azure 术语以及上述两份参考文档提供了适用于 Azure 和云行业�
 
 ### <a name="image"></a>映像
 包含操作系统和应用程序配置的文件，可用于创建任意数目的虚拟机。Azure 中有两种类型的映像：VM 映像和 OS 映像。VM 映像包括在创建该映像时附加到虚拟机的操作系统和所有磁盘。OS 映像仅包含通用化操作系统，而不包含任何数据磁盘配置。
-另请参阅[使用 PowerShell 或 CLI 在 Azure 中浏览和选择 Windows 虚拟机映像](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/)
+另请参阅[使用 PowerShell 或 CLI 在 Azure 中浏览和选择 Windows 虚拟机映像](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json/)
 
 ### <a name="limits"></a>限制
 可以创建的资源数目或可实现的性能基准。限制通常与订阅、服务和产品关联。
@@ -106,7 +106,7 @@ Azure 术语以及上述两份参考文档提供了适用于 Azure 和云行业�
 
 ### <a name="update-domain"></a>更新域
 可用性集中可同时更新的虚拟机集合。同一个更新域中的虚拟机将在计划维护期间一起重新启动。Azure 永远不会一次性重新启动多个更新域。也称为升级域。
-另请参阅[管理 Windows 虚拟机的可用性](./virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/)或[管理 Linux 虚拟机的可用性](./virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/)
+另请参阅[管理 Windows 虚拟机的可用性](./virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json/)或[管理 Linux 虚拟机的可用性](./virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/)
 
 ### <a name="vm"></a>虚拟机
 运行操作系统的物理计算机的软件实现。多个虚拟机可以在同一个硬件上同时运行。在 Azure 中，虚拟机具有不同的大小。
@@ -114,7 +114,7 @@ Azure 术语以及上述两份参考文档提供了适用于 Azure 和云行业�
 
 ### <a name="vm-extension"></a>虚拟机扩展
 一个实现行为或功能的资源，可帮助其他程序正常工作，或提供与运行中计算机交互的能力。例如，你可以使用 VM 访问扩展来重置或修改 Azure 虚拟机上的远程访问值。
-另请参阅[关于虚拟机的扩展和功能 (Windows)](./virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/) 或[关于虚拟机的扩展和功能 (Linux)](./virtual-machines/virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/)
+另请参阅[关于虚拟机的扩展和功能 (Windows)](./virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json/) 或[关于虚拟机的扩展和功能 (Linux)](./virtual-machines/virtual-machines-linux-extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/)
 
 ### <a name="vnet"></a>虚拟网络
 在 Azure 资源之间提供连接并与其他所有 Azure 租户隔离的网络。它可以通过 [Azure VPN 网关](./vpn-gateway/vpn-gateway-about-vpngateways.md)连接到其他 Azure 虚拟网络，以及使用[多个选项](./vpn-gateway/vpn-gateway-plan-design.md)连接到本地网络。你可以完全控制该网络中的 IP 地址块、DNS 设置、安全策略和路由表。

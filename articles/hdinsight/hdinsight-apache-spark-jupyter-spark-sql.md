@@ -29,7 +29,7 @@ ms.author: nitinme
 * **一个 Azure 订阅**。在开始学习本教程之前，你必须有一个 Azure 订阅。请参阅[立即创建 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## 创建 Spark 群集
-在此部分中，会使用 [Azure Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-spark-linux/)在 HDInsight 中创建 Spark 群集。有关其他群集创建方法，请参阅 [Create HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md)（创建 HDInsight 群集）。
+在此部分中，会使用 [Azure Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-spark-linux/)在 HDInsight 中创建 Spark 群集。有关其他群集创建方法，请参阅[创建 HDInsight 群集](./hdinsight-hadoop-provision-linux-clusters.md)。
 
 1. 单击下面的图像可在 Azure 门户预览中打开模板。
 

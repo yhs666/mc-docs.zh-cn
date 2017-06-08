@@ -31,24 +31,6 @@ Microsoft Azure IoT 套件快速入门。 使用预配置解决方案，并加�
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/resources/videos/index/?services=internet-of-things">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure 视频库</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
         <a href="/iot-suite/iot-solution-get-started">
         <div class="cardSize">
             <div class="cardPadding">

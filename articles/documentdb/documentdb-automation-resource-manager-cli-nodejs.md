@@ -68,7 +68,7 @@ info:    Executing command login
 ```
 
 > [!NOTE]
-> 如果没有 Azure 帐户，则会看到一条错误消息，指出需要不同类型的帐户。 若要从当前 Azure 帐户创建一个帐户，请参阅[在 Azure Active Directory 中创建工作或学校标识](../virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+> 如果没有 Azure 帐户，则会看到一条错误消息，指出需要不同类型的帐户。 若要从当前 Azure 帐户创建一个帐户，请参阅[在 Azure Active Directory 中创建工作或学校标识](../virtual-machines/windows/create-aad-work-id.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 >
 >
 

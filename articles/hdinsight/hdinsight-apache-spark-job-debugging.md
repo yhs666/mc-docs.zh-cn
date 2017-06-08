@@ -22,8 +22,8 @@ wacn.date: 03/28/2017
 必须满足以下条件：
 
 - Azure 订阅。请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-- HDInsight 上的 Apache Spark 群集。有关说明，请参阅 [Create Apache Spark clusters in Azure HDInsight](./hdinsight-apache-spark-jupyter-spark-sql.md)（在 Azure HDInsight 中创建 Apache Spark 群集）。
-- 应已开始运行笔记本，相关信息请参阅 **[Machine learning: Predictive analysis on food inspection data using MLLib](./hdinsight-apache-spark-machine-learning-mllib-ipython.md)**（机器学习：使用 MLLib 对食品检测数据进行预测分析））。有关如何运行此笔记本的说明，请单击以下链接。
+- HDInsight 上的 Apache Spark 群集。有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](./hdinsight-apache-spark-jupyter-spark-sql.md)。
+- 应已开始运行笔记本，相关信息请参阅**[机器学习：使用 MLLib 对食品检测数据进行预测分析](./hdinsight-apache-spark-machine-learning-mllib-ipython.md)**）。有关如何运行此笔记本的说明，请单击以下链接。
 
 ## 在 YARN UI 中跟踪应用程序
 
@@ -131,9 +131,9 @@ wacn.date: 03/28/2017
 
 * [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](./hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-* [Use external packages with Jupyter notebooks](./hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)（将外部包与 Jupyter 笔记本配合使用）
+* [将外部包与 Jupyter 笔记本配合使用](./hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](./hdinsight-apache-spark-jupyter-notebook-install-locally.md)（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）
+* [在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集](./hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### 管理资源
 

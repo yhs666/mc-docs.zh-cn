@@ -137,9 +137,6 @@ ms.author: raynew
     ![服务器](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 13. 当服务器出现在站点恢复控制台中后，请在“源”>“准备源”中选择 VMM 服务器，然后选择 Hyper-V 主机所在的云。然后，单击“确定”。
 
-也可以从命令行安装提供程序：
-
-[!INCLUDE [site-recovery-rw-provider-command-line](../../includes/site-recovery-rw-provider-command-line.md)]
 
 ## 设置目标环境
 
