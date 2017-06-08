@@ -28,7 +28,7 @@ ms.author: MikeRayMSFT
 本主题说明如何使用**内部负载均衡器 \(ILB\)** 为 AlwaysOn 可用性组配置侦听器。
 
 > [!IMPORTANT] 
-Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。
 
 若要为 Resource Manager 模型中的 Always On 可用性组配置 ILB 侦听器，请参阅[在 Azure 中为 Always On 可用性组配置内部负载均衡器](../../virtual-machines-windows-portal-sql-alwayson-int-listener.md)。
 
@@ -38,7 +38,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
 请注意有关 Azure 中使用 ILB 的可用性组侦听器的以下准则：
 
 * Windows Server 2008 R2、Windows Server 2012 和 Windows Server 2012 R2 支持可用性组侦听器。
-* 每个云服务只支持一个内部可用性组侦听器，因为该侦听器将配置给 ILB，而每个云服务只有一个 ILB。但是，可以创建多个外部侦听器。有关详细信息，请参阅 [Configure an external listener for Always On Availability Groups in Azure](../../virtual-machines-windows-classic-ps-sql-ext-listener.md)（在 Azure 中配置 AlwaysOn 可用性组的外部侦听器）。
+* 每个云服务只支持一个内部可用性组侦听器，因为该侦听器将配置给 ILB，而每个云服务只有一个 ILB。但是，可以创建多个外部侦听器。有关详细信息，请参阅[在 Azure 中配置 AlwaysOn 可用性组的外部侦听器](../../virtual-machines-windows-classic-ps-sql-ext-listener.md)。
 
 ## 确定侦听器的可访问性
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
@@ -53,7 +53,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
 1. 在 Azure 门户预览中，导航到托管副本的每个 VM 并查看详细信息。
 2. 单击每个 VM 的“终结点”选项卡。
 3. 验证你想要使用的侦听器终结点“名称”和“公用端口”是否已被使用。在下面的示例中，名称为“MyEndpoint”，端口为“1433”。
-4. 在你本地的客户端上，下载并安装[最新的 PowerShell 模块](https://www.azure.cn/downloads/)。
+4. 在你本地的客户端上，下载并安装[最新的 PowerShell 模块](/downloads/)。
 5. 启动 Azure PowerShell。将打开新的 PowerShell 会话，其中加载了 Azure 管理模块。
 6. 运行 Get-AzurePublishSettingsFile。此 cmdlet 将你定向到浏览器，以将发布设置文件下载到本地目录。系统可能会提示输入 Azure 订阅的登录凭据。
 7. 运行 Import-azurepublishsettingsfile 命令以及你下载发布设置文件的路径：
@@ -98,7 +98,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
 6. 设置变量后，将脚本从文本编辑器复制到 Azure PowerShell 会话中运行。如果提示符仍然显示 \>\>，请再次按 Enter，以确保脚本开始运行。注意：
 
 > [!NOTE]
-Azure 经典管理门户目前不支持内部负载均衡器，因此在 Azure 经典管理门户中看不到 ILB 或终结点。但是，如果负载均衡器在某个内部 IP 地址上运行，则 **Get-AzureEndpoint** 将返回该地址。否则，将返回 null。
+> Azure 经典管理门户目前不支持内部负载均衡器，因此在 Azure 经典管理门户中看不到 ILB 或终结点。但是，如果负载均衡器在某个内部 IP 地址上运行，则 **Get-AzureEndpoint** 将返回该地址。否则，将返回 null。
 > 
 > 
 

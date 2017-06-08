@@ -15,7 +15,8 @@ az group create --location chinanorth --name myResourceGroup
 ```azurecli
 az vmss create --resource-group myResourceGroup --name myVmss \
     --image UbuntuLTS --admin-username azureuser \
-    --authentication-type password --admin-password P4$$w0rd
+    --authentication-type password --admin-password P4$$w0rd \
+    --use-unmanaged-disk
 ```
 
 以下示例将创建具有相同配置的 Windows 规模集：
@@ -23,7 +24,8 @@ az vmss create --resource-group myResourceGroup --name myVmss \
 ```azurecli
 az vmss create --resource-group myResourceGroup --name myVmss \
     --image Win2016Datacenter --admin-username azureuser \
-    --authentication-type password --admin-password P4$$w0rd
+    --authentication-type password --admin-password P4$$w0rd \
+    --use-unmanaged-disk
 ```
 
 如果想选择不同的操作系统映像，可使用命令 `az vm image list` 或 `az vm image list --all` 查看可用映像。 若要查看规模集中 VM 的连接信息，请使用命令 `az vmss list_instance_connection_info`：

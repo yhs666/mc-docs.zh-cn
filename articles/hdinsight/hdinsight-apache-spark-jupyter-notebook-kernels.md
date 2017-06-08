@@ -31,7 +31,7 @@ HDInsight Spark 群集提供了可在 Jupyter Notebook 中使用的内核，以�
 
 ## 先决条件
 
-* HDInsight 中的 Apache Spark 群集。有关说明，请参阅 [Create Apache Spark clusters in Azure HDInsight](./hdinsight-apache-spark-jupyter-spark-sql.md)（在 Azure HDInsight 中创建 Apache Spark 群集）。
+* HDInsight 中的 Apache Spark 群集。有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](./hdinsight-apache-spark-jupyter-spark-sql.md)。
 
 ## 创建 Jupyter 笔记本
 
@@ -44,7 +44,7 @@ HDInsight Spark 群集提供了可在 Jupyter Notebook 中使用的内核，以�
 3. 单击“Jupyter 笔记本”。出现提示时，请输入群集的管理员凭据。
 
     > [!NOTE]
-    也可以在浏览器中打开以下 URL 访问群集的 Jupyter 笔记本。将 **CLUSTERNAME** 替换为群集的名称：
+    > 也可以在浏览器中打开以下 URL 访问群集的 Jupyter 笔记本。将 **CLUSTERNAME** 替换为群集的名称：
     >
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`  
 
@@ -91,7 +91,7 @@ HDInsight Spark 群集提供了可在 Jupyter Notebook 中使用的内核，以�
     | cleanup |`%%cleanup -f` |删除当前 Livy 终结点的所有会话，包括此笔记本的会话。force 标志 -f 是必需的。 |
 
     > [!NOTE]
-    除了 PySpark 内核添加的 magic 以外，还可以使用[内置的 IPython magic](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics)（包括 `%%sh`）。可以使用 `%%sh` magic 在群集头节点上运行脚本和代码块。
+    > 除了 PySpark 内核添加的 magic 以外，还可以使用[内置的 IPython magic](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics)（包括 `%%sh`）。可以使用 `%%sh` magic 在群集头节点上运行脚本和代码块。
     >
     >
 2. **自动可视化**。**Pyspark** 内核自动将 Hive 和 SQL 查询的输出可视化。可以选择多种不同类型的视觉效果，包括表、饼图、折线图、分区图和条形图。

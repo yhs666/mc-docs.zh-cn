@@ -40,7 +40,7 @@
 #### [优化 MySQL 性能](optimize-mysql.md)
 
 ## 运行应用程序
-### [Ruby on Rails Web 应用程序](../linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)
+### [Ruby on Rails Web 应用程序](virtual-machines-linux-classic-ruby-rails-web-app.md)
 ### [Cassandra 和 Node.js 客户端](cassandra-nodejs.md)
 ### [LAMP 堆栈](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)
@@ -55,7 +55,7 @@
 ## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
 ## [Java](https://docs.microsoft.com/java/api)
-## [创建 Resource Manager 模板](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [创建 Resource Manager 模板](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 ## [社区模板](https://github.com/Azure/azure-quickstart-templates)
 ## [计算 REST](https://docs.microsoft.com/rest/api/compute)
 ## [网络 REST](https://docs.microsoft.com/rest/api)

@@ -42,7 +42,7 @@ ms.lasthandoff: 04/22/2017
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 1. 安装 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) （若尚未安装）。
-2. 通过完成[为 Linux VM 创建 SSH 公钥和私钥对](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json)中的步骤创建适用于 Linux VM 的 SSH 公钥和私钥对。
+2. 通过完成[为 Linux VM 创建 SSH 公钥和私钥对](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fvirtual-network%2ftoc.json)中的步骤创建适用于 Linux VM 的 SSH 公钥和私钥对。
 3. 从命令行界面，使用 `az login`命令登录。
 4. 执行 Linux 或 Mac 计算机上的脚本进行 VM 创建。 该脚本创建一个资源组、一个包含两个子网的虚拟网络 (VNet)、两个 NIC 和一个附加有两个 NIC 的 VM。 其中一个 NIC 连接到一个子网，并分配有一个静态公共 IP 地址和一个静态专用 IP 地址。 另一个 NIC 连接到其他子网，并分配有一个静态专用 IP 地址，未分配公共 IP 地址。 NIC、公共 IP 地址、虚拟网络和 VM 资源均必须位于同一位置和订阅。 虽然资源并非都必须位于同一资源组，但在以下脚本中如此。
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 04/22/2017
     --location $Location
 
     # The address is assigned to the resource from a pool of IP adresses unique to each Azure region. 
-    # Download and view the file from https://www.microsoft.com/download/details.aspx?id=41653 that lists
+    # Download and view the file from https://www.microsoft.com/download/details.aspx?id=42064 that lists
     # the ranges for each region.
 
     PipName="PIP-WEB"
@@ -159,11 +159,12 @@ ms.lasthandoff: 04/22/2017
     --size $VmSize \
     --nics $Nic1Name $Nic2Name \
     --admin-username $Username \
-    --ssh-key-value $SshKeyValue
+    --ssh-key-value $SshKeyValue \
+    --use-unmanaged-disk
     ```
 
 除了创建具有两个 NIC 的 VM，该脚本还创建：
-- 单个高级托管磁盘（默认情况下），但对于可以创建的磁盘类型，可以有其他选择。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文。
+- 使用非托管磁盘，并自动创建 Azure 存储账户。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fvirtual-network%2ftoc.json) 一文。
 - 一个包含两个子网和单个公共 IP 地址的虚拟网络。 也可以使用 *现有* 虚拟网络、子网、NIC 或公共 IP 地址资源。 若要了解如何使用现有网络资源，而不是创建其他资源，请输入 `az vm create -h`。
 
 ## <a name = "validate"></a>验证 VM 创建和 NIC

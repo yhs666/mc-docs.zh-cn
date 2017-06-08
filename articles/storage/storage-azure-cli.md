@@ -93,7 +93,7 @@ Subgroups:
     table    : NoSQL key-value storage using semi-structured datasets.
 ```
 
-## <a name="connect-the-cli-to-your-azure-subscription"></a>将 CLI 连接到 Azure 订阅
+## <a name="connect-the-cli-to-your-azure-subscription"></a><a name="connect-to-your-azure-subscription"></a>将 CLI 连接到 Azure 订阅
 
 若要使用 Azure 订阅中的资源，必须首先使用 `az login`登录到 Azure 帐户。 登录方法有多种：
 

@@ -25,7 +25,7 @@ ms.author: larryfr
 在本文中，你将学习如何使用安全外壳 (SSH) 连接到 HDInsight 群集上的 Hadoop，然后使用 Hive 命令行界面 (CLI) 以交互方式提交 Hive 查询。
 
 > [!IMPORTANT]
-当 Hive 命令在 HDInsight 群集上可用时，应考虑使用 Beeline。Beeline 是可与 Hive 配合使用的较新客户端，是 HDInsight 群集附带的。有关使用此客户端的详细信息，请参阅[通过 Beeline 将 Hive 与 HDInsight 中的 Hadoop 配合使用](./hdinsight-hadoop-use-hive-beeline.md)。
+> 当 Hive 命令在 HDInsight 群集上可用时，应考虑使用 Beeline。Beeline 是可与 Hive 配合使用的较新客户端，是 HDInsight 群集附带的。有关使用此客户端的详细信息，请参阅[通过 Beeline 将 Hive 与 HDInsight 中的 Hadoop 配合使用](./hdinsight-hadoop-use-hive-beeline.md)。
 
 ## <a id="prereq"></a>先决条件
 若要完成本文中的步骤，你将需要：
@@ -33,7 +33,7 @@ ms.author: larryfr
 * 基于 Linux 的 HDInsight 上的 Hadoop 群集。
 
     > [!IMPORTANT]
-    Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 * SSH 客户端。SSH 客户端上应该装有 Linux、Unix 和 Mac OS。Windows 用户必须下载 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 之类的客户端。
 
@@ -85,7 +85,7 @@ Windows 未提供内置的 SSH 客户端。建议使用可从 [http://www.chiark
     * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** - 告诉 Hive，我们只应返回以 .log 结尾的文件中的数据。此项将搜索限定于包含数据的 sample.log 文件，并阻止搜索返回与所定义架构不匹配的其他示例数据文件中的数据。
 
      > [!NOTE]
-     如果希望以外部源更新基础数据（例如自动化数据上载过程），或以其他 MapReduce 操作更新基础数据，但希望 Hive 查询始终使用最新数据时，必须使用外部表。
+     > 如果希望以外部源更新基础数据（例如自动化数据上载过程），或以其他 MapReduce 操作更新基础数据，但希望 Hive 查询始终使用最新数据时，必须使用外部表。
      > 
      > 删除外部表**不会**删除数据，只会删除表定义。
      > 
@@ -110,7 +110,7 @@ Windows 未提供内置的 SSH 客户端。建议使用可从 [http://www.chiark
      应返回三行数据，所有行都包含列 t4 中的 **[ERROR]**。
 
      > [!NOTE]
-     与外部表不同，删除内部表会同时删除基础数据。
+     > 与外部表不同，删除内部表会同时删除基础数据。
      > 
      > 
 

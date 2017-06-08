@@ -41,7 +41,7 @@ ms.lasthandoff: 04/07/2017
 ## <a name="send-messages-to-event-hubs"></a>将消息发送到事件中心
 在本部分中，我们将编写用于将事件发送到事件中心的 C 应用。 我们将从 [Apache Qpid 项目](http://qpid.apache.org/)使用 Proton AMQP 库。 这类似于从 C 中将服务总线队列和主题与 AMQP 配合使用，如 [此处](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504)所示。 有关详细信息，请参阅 [Qpid Proton 文档](http://qpid.apache.org/proton/index.html)。
 
-1. 从 [Qpid AMQP Messenger 页](http://qpid.apache.org/components/messenger/index.html)中，单击“安装 Qpid Proton”链接，并根据你的环境，按照说明操作。
+1. 从 [Qpid AMQP Messenger 页](http://qpid.apache.org/components/index.html)中，单击“安装 Qpid Proton”链接，并根据你的环境，按照说明操作。
 2. 若要编译 Proton 库，请安装以下程序包：
 
     ```shell
@@ -154,7 +154,7 @@ ms.lasthandoff: 04/07/2017
     ```
 
     > [!NOTE]
-    > 在此代码中，我们使用传出窗口 1 以强制尽快发出消息。 通常，你的应用程序应尝试批处理消息，以提高吞吐量。 请参阅 [Qpid AMQP Messenger 页](http://qpid.apache.org/components/messenger/index.html)，详细了解如何在此环境及其他环境中以及从为其提供了绑定的平台（目前为 Perl、PHP、Python 和 Ruby）中使用 Qpid Proton 库。
+    > 在此代码中，我们使用传出窗口 1 以强制尽快发出消息。 通常，你的应用程序应尝试批处理消息，以提高吞吐量。 请参阅 [Qpid AMQP Messenger 页](http://qpid.apache.org/components/index.html)，详细了解如何在此环境及其他环境中以及从为其提供了绑定的平台（目前为 Perl、PHP、Python 和 Ruby）中使用 Qpid Proton 库。
 
 ## <a name="next-steps"></a>后续步骤
 访问以下链接可以了解有关事件中心的详细信息：
@@ -170,6 +170,6 @@ ms.lasthandoff: 04/07/2017
 <!-- Links -->
 [Azure Classic Management Portal]: https://manage.windowsazure.cn/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: /documentation/articles/event-hubs-overview/
+[Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3

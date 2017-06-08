@@ -34,7 +34,7 @@ ms.author: larryfr
 * HDInsight 群集上的 Hadoop。可以使用基于 Linux 或基于 Windows 的群集。
 
     > [!IMPORTANT]
-    Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/)。SQuirreL 是 JDBC 客户端应用程序。
 
@@ -83,7 +83,7 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
             将 **USERNAME** 替换为群集的 SSH 用户帐户名称。将 **CLUSTERNAME** 替换为 HDInsight 群集名称。
 
         > [!NOTE]
-        在 Windows 环境中，可能没有 `scp` 命令。如果是这样，请改用 PSCP 实用程序。可以从 [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 安装该程序。
+        > 在 Windows 环境中，可能没有 `scp` 命令。如果是这样，请改用 PSCP 实用程序。可以从 [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 安装该程序。
 
     * 对于**基于 Windows 的 HDInsight**，请使用以下步骤下载 jar 文件。
 
@@ -104,7 +104,7 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
             * C:\\apps\\dist\\hadoop-2.6.0.2.2.9.1-7\\share\\hadoop\\common\\lib\\hadoop-auth-2.6.0.2.2.9.1-7.jar
 
             > [!NOTE]
-            群集的路径和文件名中包含的版本号可能会有所不同。
+            > 群集的路径和文件名中包含的版本号可能会有所不同。
 
         4. 文件复制完成后，断开远程桌面会话的连接。
 

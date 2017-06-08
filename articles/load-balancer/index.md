@@ -123,11 +123,11 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.network.models">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network.models">.NET</a></p>
                         <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.network">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node​.js</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers">Ruby</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations#azure.mgmt.network.operations.LoadBalancersOperations">Python</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html">Python</a></p>
                    </div>
                 </div>
             </div>

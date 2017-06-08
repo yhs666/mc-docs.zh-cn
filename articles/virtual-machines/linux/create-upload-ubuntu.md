@@ -42,7 +42,7 @@ Ubuntu 现已发布正式 Azure VHD，可从 [http://cloud-images.ubuntu.com/](h
 
 ## 手动步骤
 > [!NOTE]
-尝试为 Azure 创建自定义 Ubuntu 映像前，请考虑改用 [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) 中预生成的经过测试的映像。
+> 尝试为 Azure 创建自定义 Ubuntu 映像前，请考虑改用 [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) 中预生成的经过测试的映像。
 > 
 > 
 
@@ -136,7 +136,7 @@ Ubuntu 现已发布正式 Azure VHD，可从 [http://cloud-images.ubuntu.com/](h
     ```
 
     >[!NOTE]
-    `walinuxagent` 包会删除 `NetworkManager` 和 `NetworkManager-gnome` 包（如果已安装）。
+    > `walinuxagent` 包会删除 `NetworkManager` 和 `NetworkManager-gnome` 包（如果已安装）。
 
 8. 运行以下命令可取消预配虚拟机，并做好准备以便在 Azure 上进行预配：
 

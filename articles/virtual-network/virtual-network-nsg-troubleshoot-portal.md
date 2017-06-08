@@ -28,7 +28,7 @@ ms.author: anithaa
 
 使用 NSG 可以控制流入和流出虚拟机 (VM) 的流量类型。可对 Azure 虚拟网络 (VNet) 中的子网和/或网络接口 (NIC) 应用 NSG。对 NIC 应用的有效规则是对 NIC 应用的 NSG 以及对 NIC 所连接到的子网应用的 NSG 的规则聚合。这些 NSG 的规则有时互相冲突，影响 VM 的网络连接。
 
-可以查看 NSG 中对 VM NIC 应用的所有有效安全规则。本文说明如何在 Azure Resource Manager 部署模型中使用这些规则来排查 VM 连接问题。如果你不熟悉 VNet 与 NSG 的概念，请参阅 [Virtual network](./virtual-networks-overview.md)（虚拟网络）和 [Network security groups](./virtual-networks-nsg.md)（网络安全组）概述文章。
+可以查看 NSG 中对 VM NIC 应用的所有有效安全规则。本文说明如何在 Azure Resource Manager 部署模型中使用这些规则来排查 VM 连接问题。如果你不熟悉 VNet 与 NSG 的概念，请参阅[虚拟网络](./virtual-networks-overview.md)和[网络安全组](./virtual-networks-nsg.md)概述文章。
 
 ## 使用有效的安全规则排查 VM 流量流问题
 
@@ -125,8 +125,8 @@ ms.author: anithaa
 
     >[!NOTE]
     > 如果只向空子网应用了 NSG，则不会列出 VM。如果将 NSG 应用到不与 VM 相关联的 NIC，也不会列出这些 NIC。
-    - **网络接口：**一个 VM 可以有多个网络接口。可以选择附加到选定 VM 的网络接口。
-    - **AssociatedNSGs**：无论何时，一个 NIC 最多只能有两个有效 NSG，一个应用到 NIC，另一个应用到子网。尽管选择的范围为 VM1-nsg，但如果 NIC 具有有效的子网 NSG，则输出会显示两个 NSG。
+    > - **网络接口：**一个 VM 可以有多个网络接口。可以选择附加到选定 VM 的网络接口。
+    > - **AssociatedNSGs**：无论何时，一个 NIC 最多只能有两个有效 NSG，一个应用到 NIC，另一个应用到子网。尽管选择的范围为 VM1-nsg，但如果 NIC 具有有效的子网 NSG，则输出会显示两个 NSG。
 4. 可以直接编辑与 NIC 或子网关联的 NSG 的规则。若要了解操作方法，请阅读**查看虚拟机的有效安全规则**部分中的步骤 8。
 
 若要详细了解显示的其他信息，请阅读**查看虚拟机的有效安全规则**部分中的步骤 6。
@@ -141,7 +141,7 @@ ms.author: anithaa
 - 默认的 NSG 规则会阻止来自 Internet 的入站访问，只允许 VNet 入站流量。若要允许来自 Internet 的入站访问，应该根据需要显式添加规则。
 - 如果没有任何 NSG 安全规则导致 VM 出现网络连接失败，则问题的起源可能是：
     - VM 操作系统中运行的防火墙软件
-    - 为虚拟设备或本地流量配置的路由。Internet 流量可以通过强制隧道重定向到本地。根据本地网络硬件处理此流量的方式，可能无法使用此设置通过 RDP/SSH 从 Internet 连接到 VM。请阅读 [Troubleshooting Routes](./virtual-network-routes-troubleshoot-powershell.md)（排查路由问题）一文，了解如何诊断可能妨碍流量流入和流出 VM 的路由问题。
+    - 为虚拟设备或本地流量配置的路由。Internet 流量可以通过强制隧道重定向到本地。根据本地网络硬件处理此流量的方式，可能无法使用此设置通过 RDP/SSH 从 Internet 连接到 VM。请阅读[排查路由问题](./virtual-network-routes-troubleshoot-powershell.md)一文，了解如何诊断可能妨碍流量流入和流出 VM 的路由问题。
 - 如果已创建对等互连的 VNet，则默认情况下，VIRTUAL\_NETWORK 标记会自动扩展，包含对等互连的 VNet 的前缀。可以在 **ExpandedAddressPrefix** 列表中查看这些前缀，排查与 VNet 对等互连相关的任何问题。
 - 仅当有 NSG 与 VM 的 NIC 和/或子网关联时，才会显示有效安全规则。
 - 如果没有任何 NSG 与 NIC 或子网关联，并且向 VM 分配了公共 IP 地址，则会打开所有端口以便进行入站和出站访问。如果 VM 使用公共 IP 地址，我们强烈建议对 NIC 或子网应用 NSG。

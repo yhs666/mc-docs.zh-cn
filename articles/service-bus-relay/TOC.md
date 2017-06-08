@@ -20,8 +20,8 @@
 
 # 引用
 ## .NET
-### [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
-### [Microsoft.ServiceBus](/dotnet/api/Microsoft.ServiceBus)
+### [Microsoft.Azure.Relay](https://docs.microsoft.com/dotnet/api/microsoft.azure.relay)
+### [Microsoft.ServiceBus](https://docs.microsoft.com/dotnet/api/Microsoft.ServiceBus)
 ## [异常](relay-exceptions.md)
 ## [端口设置](relay-port-settings.md)
 

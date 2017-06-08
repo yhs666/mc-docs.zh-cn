@@ -57,16 +57,14 @@ Hadoop 群集由用于对群集中的任务进行分布式处理的多个虚拟�
 
 <!-- need to be verified -->
 
-| 群集类型 | Hadoop | HBase | Storm | Spark | R Server |
-| --- | --- | --- | --- | --- | --- |
-| 头：默认 VM 大小 |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
-| 头：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |A3、A4、A5 |D12 v2、D13 v2、D14 v2 |D12 v2、D13 v2、D14 v2 |
-| 辅助角色：默认 VM 大小 |D3 v2 |D3 v2 |D3 v2 |Windows：D12 v2；Linux：D4 v2 |Windows：D12 v2；Linux：D4 v2 |
-| 辅助角色：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
-| Zookeeper：默认 VM 大小 | |A3 |A2 | | |
-| Zookeeper：建议的 VM 大小 | |A3、A4、A5 |A2、A3、A4 | | |
-| 边缘：默认 VM 大小 | | | | |Windows：D12 v2；Linux：D4 v2 |
-| 边缘：建议的 VM 大小 | | | | |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
+| 群集类型 | Hadoop | HBase | Storm | Spark |
+| --- | --- | --- | --- | --- |
+| 头：默认 VM 大小 |D3 v2 |D3 v2 |A3 |D12 v2 |
+| 头：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |A3、A4、A5 |D12 v2、D13 v2、D14 v2 |
+| 辅助角色：默认 VM 大小 |D3 v2 |D3 v2 |D3 v2 |Windows：D12 v2；Linux：D4 v2 |
+| 辅助角色：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
+| Zookeeper：默认 VM 大小 | |A3 |A2 | |
+| Zookeeper：建议的 VM 大小 | |A3、A4、A5 |A2、A3、A4 | |
 
 > [!NOTE]
 > 头称为 Storm 群集类型的 *Nimbus* 。 辅助角色称为 HBase 群集类型的“区域”以及 Storm 群集类型的“监督程序”。
@@ -89,23 +87,6 @@ Hadoop 群集由用于对群集中的任务进行分布式处理的多个虚拟�
 
 有关在一个 Azure 虚拟网络中使用两种群集类型的示例，请参阅[使用 Storm 和 HBase 分析传感器数据](hdinsight-storm-sensor-data-analysis.md)。
 
-## <a name="cluster-tiers"></a>群集层
-Azure HDInsight 提供了两个类别的大数据云产品/服务：标准和[高级](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)。 HDInsight 高级版包括 R 和其他附加组件。 只有 HDInsight 3.5 版才支持 HDInsight 高级版。
-
-下表列出了 HDInsight 群集类型和 HDInsight 高级版支持矩阵。
-
-| 群集类型 | 标准 | 高级 |
-| --- | --- | --- |
-| Hadoop |是 |是 |
-| Spark |是 |是 |
-| HBase |是 |否 |
-| Storm |是 |否 |
-| Spark 上的 R Server |否 |是 |
-
-随着 HDInsight 高级版中包含的群集类型更多，此表也会随之更新。 以下屏幕截图显示了用于选择群集类型的 Azure 门户预览信息。
-
-![HDInsight 高级版配置](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
-
 ## <a name="basic-configuration-options"></a>基本配置选项
 下面是用于创建 HDInsight 群集的基本配置选项。
 
@@ -116,7 +97,7 @@ Azure HDInsight 提供了两个类别的大数据云产品/服务：标准和[�
 * 字段只能包含字母、数字和连字符。
 
 ### <a name="cluster-type"></a>群集类型
-请参阅[群集类型](#cluster-types)和[群集层](#cluster-tiers)。
+请参阅[群集类型](#cluster-types)。
 
 ### <a name="operating-system"></a>操作系统
 可以在以下两个操作系统之一上创建 HDInsight 群集：
@@ -179,7 +160,7 @@ HDInsight 群集与其默认存储帐户必须位于相同的 Azure 位置。
 
 > [!NOTE]
 > 群集大小限制因 Azure 订阅而异。 要提高限制的大小，请联系计费支持人员。
-> <p>
+>
 > 群集使用的节点不视为虚拟机，因为用于节点的虚拟机映像是 HDInsight 服务的实现细节。 节点使用的计算核心会计入可供订阅使用的计算核心总数。 创建 HDInsight 群集时，可以在“节点定价层”边栏选项卡的摘要部分中查看可用核心数以及群集要使用的核心数  。
 >
 
@@ -220,7 +201,7 @@ HDInsight 群集与其默认存储帐户必须位于相同的 Azure 位置。
 | Standard_D13_v2 |8 |56 GB |8 |临时磁盘 (SSD) = 400 GB |16 |16x500 |
 | Standard_D14_v2 |16 |112 GB |8 |临时磁盘 (SSD) = 800 GB |32 |32x500 |
 
-有关在计划使用这些资源时要考虑的部署注意事项，请参阅[虚拟机的大小](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 有关不同大小的定价信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。   
+有关在计划使用这些资源时要考虑的部署注意事项，请参阅[虚拟机的大小](../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 有关不同大小的定价信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。   
 
 > [!IMPORTANT]
 > 如果计划使用 32 个以上的工作节点（在创建群集时配置或者是在创建之后通过扩展群集来配置），必须选择至少具有 8 个核心和 14 GB RAM 的头节点大小。
@@ -304,8 +285,8 @@ HDInsight 群集与其默认存储帐户必须位于相同的 Azure 位置。
 某些本机 Java 组件（如 Mahout 和 Cascading）可以在群集上作为 Java 存档 (JAR) 文件运行。 可以通过 Hadoop 作业提交机制将这些 JAR 文件分发到 Azure 存储，然后提交到 HDInsight 群集。 有关详细信息，请参阅[以编程方式提交 Hadoop 作业](hdinsight-submit-hadoop-jobs-programmatically.md)。
 
 > [!NOTE]
-> 如果在将 JAR 文件部署到 HDInsight 群集或调用 HDInsight 群集上的 JAR 文件时遇到问题，请联系 [Microsoft 支持](https://www.azure.cn/support/contact/)。
-> <p>
+> 如果在将 JAR 文件部署到 HDInsight 群集或调用 HDInsight 群集上的 JAR 文件时遇到问题，请联系 [Azure.cn 支持](https://www.azure.cn/support/contact/)。
+>
 > HDInsight 不支持级联，因此不符合 Microsoft 技术支持的条件。 有关支持的组件的列表，请参阅 [HDInsight 提供的群集版本有哪些新功能？](hdinsight-component-versioning.md)。
 >
 

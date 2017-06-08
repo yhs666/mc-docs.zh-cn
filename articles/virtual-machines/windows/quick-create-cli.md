@@ -116,7 +116,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-[安装角色和配置防火墙教程](hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[安装角色和配置防火墙教程](hero-role.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[浏览 VM 部署 CLI 示例](cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[浏览 VM 部署 CLI 示例](cli-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 

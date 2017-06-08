@@ -20,7 +20,7 @@ ms.author: cynthn
 
 # 创建 Windows Server VHD 并将其上载到 Azure
 
-本文说明如何上载自己的通用化 VM 映像作为虚拟硬盘 (VHD)，以便使用它来创建虚拟机。有关 Azure 中的磁盘和 VHD 的更多详细信息，请参阅 [About Disks and VHDs for Virtual Machines](../../../storage/storage-about-disks-and-vhds-linux.md)（关于虚拟机的磁盘和 VHD）。
+本文说明如何上载自己的通用化 VM 映像作为虚拟硬盘 (VHD)，以便使用它来创建虚拟机。有关 Azure 中的磁盘和 VHD 的更多详细信息，请参阅[关于虚拟机的磁盘和 VHD](../../../storage/storage-about-disks-and-vhds-linux.md)。
 
 > [!IMPORTANT]
 > Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器和经典](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。也可以使用 Resource Manager 模型来[捕获](../capture-image.md)和[上载](../upload-image.md)虚拟机。
@@ -106,7 +106,7 @@ ms.author: cynthn
 
 ## 步骤 4：将映像添加到自定义映像列表
 
-使用 [Add-AzureVMImage])(https://msdn.microsoft.com/zh-cn/library/mt589167.aspx) cmdlet 将映像添加到自定义映像列表。
+使用 [Add-AzureVMImage](https://msdn.microsoft.com/zh-cn/library/mt589167.aspx) cmdlet 将映像添加到自定义映像列表。
 
 ```
     Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.chinacloudapi.cn/<ContainerName>/<vhdName>.vhd" -OS "Windows"

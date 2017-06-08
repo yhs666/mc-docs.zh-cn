@@ -59,7 +59,7 @@ az group create --name myResourceGroup --location chinanorth
 下面的示例创建一个名为 `myVM` 的 VM，并且在默认密钥位置中不存在 SSH 密钥时创建这些密钥。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。  
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
+az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys --use-unmanaged-disk
 ```
 
 创建 VM 后，Azure CLI 将显示类似于以下示例的信息。 记下 `publicIpAddress`。 此地址用于访问 VM。

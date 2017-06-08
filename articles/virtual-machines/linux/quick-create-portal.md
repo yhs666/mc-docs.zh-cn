@@ -58,7 +58,7 @@ ssh-keygen -t rsa -b 2048
 
     ![显示 VM 大小的屏幕截图](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. 在“设置”边栏选项卡上，在“使用托管磁盘”下选择“是”，为其余设置保留默认值，然后单击“确定”。
+5. 在“设置”边栏选项卡中，为其余设置保留默认值，然后单击“确定”。
 
 6. 在摘要页上，单击“确定”以开始虚拟机部署。
 
@@ -113,7 +113,7 @@ NGINX 已安装，并且现在已从 Internet 打开 VM 上的端口 80 - 可以
 
 ## <a name="next-steps"></a>后续步骤
 
-[创建高可用性虚拟机教程](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[创建高可用性虚拟机教程](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[浏览 VM 部署 CLI 示例](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[浏览 VM 部署 CLI 示例](../windows/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 

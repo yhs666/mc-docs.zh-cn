@@ -25,7 +25,7 @@
 ### [可用 API](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET framework](event-hubs-dotnet-framework-api-overview.md)
-#### [诊断日志](event-hubs-diagnostic-logs.md)
+<!-- Not Available #### [诊断日志](event-hubs-diagnostic-logs.md)-->
 ### [身份验证和授权](../service-bus-messaging/service-bus-sas.md)
 ### [AMQP 1.0 协议指南](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## 管理
@@ -39,21 +39,21 @@
 
 # 参考
 ## .NET
-### [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
-### [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
-### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
-### [Microsoft.Azure.Management.EventHub](/dotnet/api/microsoft.azure.management.eventhub)
+### [Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs)
+### [Microsoft.Azure.EventHubs.Processor](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)
+### [Microsoft.ServiceBus.Messaging](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.ServiceBus.EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
+### [Microsoft.Azure.Management.EventHub](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.eventhub)
 ## Java
-### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
-### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
-## [REST](/rest/api/eventhub)
+### [com.microsoft.azure.eventhubs](https://docs.microsoft.com/java/api/com.microsoft.azure.eventhubs)
+### [com.microsoft.azure.eventprocessorhost](https://docs.microsoft.com/java/api/com.microsoft.azure.eventprocessorhost)
+## [REST](https://docs.microsoft.com/rest/api/eventhub)
 ## [异常](event-hubs-messaging-exceptions.md)
 ## [配额](event-hubs-quotas.md)
 
 # 资源
 ## [代码示例](event-hubs-samples.md)
-## [价格](https://azure.microsoft.com/pricing/details/event-hubs/)
+## [价格](https://www.azure.cn/pricing/details/event-hubs/)
 ## [学习路径](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [服务更新](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-eventhub)

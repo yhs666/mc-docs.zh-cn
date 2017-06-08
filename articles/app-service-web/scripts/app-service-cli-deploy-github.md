@@ -29,8 +29,6 @@ ms.lasthandoff: 05/19/2017
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 ## <a name="create-app-sample"></a>创建应用示例
 
 ```azurecli-interactive

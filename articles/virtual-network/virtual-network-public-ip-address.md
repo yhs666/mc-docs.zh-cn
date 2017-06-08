@@ -32,6 +32,8 @@ ms.author: jdial
 - 使用 Azure PowerShell 完成任务的命令，内附命令参考链接。请完成[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 文章中的步骤，安装和配置 PowerShell。若要获取 PowerShell 命令的帮助，请在示例中键入 `get-help <command> -full`。
 - 使用 Azure 命令行接口 (CLI) 完成任务的命令，内附命令参考链接。请完成[如何安装和配置 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) 文章中的步骤安装 Azure CLI。若要获取 CLI 命令的帮助，请键入 `az <command> -h`。
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 公共 IP 地址会产生少许费用。若要查看定价，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。仅可在一个订阅中使用有限数量的公共 IP 地址。若要查看限制，请参阅 [Azure 限制](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)一文。
 
 完成以下各节中的步骤，创建、更改或删除公共 IP 地址资源：
@@ -71,7 +73,7 @@ ms.author: jdial
     - **更改：**单击“配置”。使用本文[创建公共 IP 地址](#create)部分的步骤 4 中的信息更改设置。若要将分配从静态更改为动态，必须先从与其关联的 IP 配置中取消关联公共 IP 地址。然后，可将分配方法更改为动态，然后单击“关联”将 IP 地址关联到相同的 IP 配置或其他配置，还可将其保留为取消关联状态。若要取消关联公共 IP 地址，请在“概述”部分单击“取消关联”。
 
 >[!WARNING]
-将分配方法从静态更改为动态时，将丢失分配给公共 IP 地址的 IP 地址。虽然 Azure 公共 DNS 服务器会保持静态/动态地址与任何 DNS 名称标签（若已定义）之间的映射，但在 VM 处于停止（已释放）状态后，动态 IP 地址可能出现变化。为防止地址变化，请分配静态 IP 地址。
+> 将分配方法从静态更改为动态时，将丢失分配给公共 IP 地址的 IP 地址。虽然 Azure 公共 DNS 服务器会保持静态/动态地址与任何 DNS 名称标签（若已定义）之间的映射，但在 VM 处于停止（已释放）状态后，动态 IP 地址可能出现变化。为防止地址变化，请分配静态 IP 地址。
 
 |**工具**|**命令**|
 |---|---|

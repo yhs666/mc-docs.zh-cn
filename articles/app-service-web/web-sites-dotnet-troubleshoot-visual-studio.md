@@ -28,7 +28,9 @@ ms.lasthandoff: 05/26/2017
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 ## <a name="overview"></a>概述
-本教程介绍如何使用 Visual Studio 工具，通过远程运行[调试模式](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)或查看应用程序日志和 Web 服务器日志帮助调试[应用服务](/app-service-web/app-service-changes-existing-services)中的 Web 应用。
+本教程介绍如何使用 Visual Studio 工具，通过远程运行调试模式或查看应用程序日志和 Web 服务器日志帮助调试[应用服务](/app-service-web/app-service-changes-existing-services)中的 Web 应用。
+
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -64,7 +66,7 @@ ms.lasthandoff: 05/26/2017
     >
     >
 
-    有关从 Visual Studio 连接至 Azure 资源的详细信息，请参阅[管理帐户、订阅和管理角色](/active-directory/role-based-access-control-configure#BKMK_AccountVCert)。
+    有关从 Visual Studio 连接至 Azure 资源的详细信息，请参阅[管理帐户、订阅和管理角色](/active-directory/role-based-access-control-configure)。
 2. 在“服务资源管理器”中，展开“Azure”，然后展开“应用服务”。
 3. 展开包含在 [Azure 和 ASP.NET 入门][GetStarted]中创建的 Web 应用的资源组，右键单击该 Web 应用节点，然后单击“查看设置”。
 

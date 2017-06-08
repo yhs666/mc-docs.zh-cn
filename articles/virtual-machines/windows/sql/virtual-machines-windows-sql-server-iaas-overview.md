@@ -23,7 +23,7 @@ ms.author: jroth
 本主题介绍了在 Azure 虚拟机 \(VM\) 上运行 SQL Server 的选项，提供了[门户映像链接](#option-1-create-a-sql-vm-with-per-minute-licensing)，同时概述了[常见任务](#manage-your-sql-vm)。
 
 > [!NOTE]
-如果用户已熟悉 SQL Server，只是想了解如何部署 SQL Server VM，则请参阅[在 Azure 门户预览中预配 SQL Server 虚拟机](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)。
+> 如果用户已熟悉 SQL Server，只是想了解如何部署 SQL Server VM，则请参阅[在 Azure 门户预览中预配 SQL Server 虚拟机](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)。
 > 
 > 
 
@@ -41,7 +41,7 @@ ms.author: jroth
 ## 创建新的 SQL VM
 以下部分提供了直接链接，可链接到 Azure 门户预览的 SQL Server 虚拟机库映像。
 
-有关教程中此过程的分步指导，请参阅[在 Azure 门户预览中预配 SQL Server 虚拟机](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)。另请查看 [Performance best practices for SQL Server VMs](../../windows/sql/virtual-machines-windows-sql-performance.md)（SQL Server VM 的性能最佳实践），该文介绍了如何在预配期间选择适当的虚拟机大小和其他可用功能。
+有关教程中此过程的分步指导，请参阅[在 Azure 门户预览中预配 SQL Server 虚拟机](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)。另请查看 [SQL Server VM 的性能最佳实践](../../windows/sql/virtual-machines-windows-sql-performance.md)，该文介绍了如何在预配期间选择适当的虚拟机大小和其他可用功能。
 
 ## <a name="option-1-create-a-sql-vm-with-per-minute-licensing"></a> 选项 1：使用每分钟许可创建 SQL VM
 下表提供了虚拟机库中提供的最新 SQL Server 映像的矩阵。单击任何链接，即可开始创建具有指定版本和操作系统的新 SQL VM。
@@ -62,7 +62,7 @@ ms.author: jroth
 其中一个最基本的管理步骤是，通过工具连接到 SQL Server VM，如 SQL Server Management Studio \(SSMS\)。有关如何连接到新 SQL Server VM 的说明，请参阅[连接到 Azure 上的 SQL Server 虚拟机](../../virtual-machines-windows-sql-connect.md)。
 
 ### 迁移数据
-如果已有数据库，你会想要将该数据库移至新预配的 SQL VM。有关迁移选项的列表和指导，请参阅 [Migrating a Database to SQL Server on an Azure VM](../../windows/sql/virtual-machines-windows-migrate-sql.md)（将数据库迁移到 Azure VM 上的 SQL Server）。
+如果已有数据库，你会想要将该数据库移至新预配的 SQL VM。有关迁移选项的列表和指导，请参阅[将数据库迁移到 Azure VM 上的 SQL Server](../../windows/sql/virtual-machines-windows-migrate-sql.md)。
 
 ### 配置高可用性
 如果你需要高可用性，请考虑配置 SQL Server 可用性组。这涉及虚拟网络中的多个 Azure VM。如果想要手动配置可用性组和关联的侦听器，请参阅[在 Azure VM 中配置 AlwaysOn 可用性组](../../virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)。
@@ -70,7 +70,7 @@ ms.author: jroth
 有关其他高可用性注意事项，请参阅 [Azure 虚拟机中 SQL Server 的高可用性和灾难恢复](../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md)。
 
 ### 备份数据
-Azure VM 可以利用[自动备份](../../virtual-machines-windows-sql-automated-backup.md)，定期创建数据库到 Blob 存储的备份。你也可以手动使用此技术。有关详细信息，请参阅 [Use Azure Storage for SQL Server Backup and Restore](../../virtual-machines-windows-use-storage-sql-server-backup-restore.md)（使用 Azure 存储进行 SQL Server 备份和还原）。有关所有备份和还原选项的概述，请参阅 [Backup and Restore for SQL Server in Azure Virtual Machines](../../virtual-machines-windows-sql-backup-recovery.md)（Azure 虚拟机中 SQL Server 的备份和还原）。
+Azure VM 可以利用[自动备份](../../virtual-machines-windows-sql-automated-backup.md)，定期创建数据库到 Blob 存储的备份。你也可以手动使用此技术。有关详细信息，请参阅[使用 Azure 存储进行 SQL Server 备份和还原](../../virtual-machines-windows-use-storage-sql-server-backup-restore.md)。有关所有备份和还原选项的概述，请参阅 [Azure 虚拟机中 SQL Server 的备份和还原](../../virtual-machines-windows-sql-backup-recovery.md)。
 
 ### 自动更新
 Azure VM 可以使用[自动修补](../../virtual-machines-windows-sql-automated-patching.md)来安排维护时段，以便自动安装重要的 Windows 和 SQL Server 更新。

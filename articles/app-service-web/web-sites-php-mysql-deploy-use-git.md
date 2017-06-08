@@ -257,7 +257,7 @@ ms.lasthandoff: 05/19/2017
 [install-mysql]: http://dev.mysql.com/downloads/mysql/
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [management-portal]: https://portal.azure.cn
-[sql-database-editions]: /pricing/details/sql-database/
+[sql-database-editions]: https://www.azure.cn/pricing/details/sql-database/
 
 <!-- IMG List -->
 

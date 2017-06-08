@@ -25,7 +25,7 @@ ms.lasthandoff: 04/14/2017
 
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上装载 Azure 文件存储
 
-本文说明如何通过 Azure CLI 2.0 使用 SMB 装载利用 Linux VM 上的 Azure 文件存储服务。 Azure 文件存储使用标准 SMB 协议在云中提供文件共享。 还可以使用 [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。 要求如下：
+本文说明如何通过 Azure CLI 2.0 使用 SMB 装载利用 Linux VM 上的 Azure 文件存储服务。 Azure 文件存储使用标准 SMB 协议在云中提供文件共享。 还可以使用 [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。 要求如下：
 
 - [一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)
 - [SSH 公钥和私钥文件](mac-create-ssh-keys.md)
@@ -69,6 +69,8 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 将文件从 VM 移至托管在文件存储上的 SMB 装载，可以很轻松地调试日志。 这是因为同一 SMB 共享可以通过本地方式装载到 Mac、Linux 或 Windows 工作站。 SMB 不会是实时流式处理 Linux 或应用程序日志的最佳解决方案，因为 SMB 协议并非为处理那样重的日志记录任务而构建。 专用统一的日志记录层工具（如 Fluentd）会是 SMB 之上的更好选择，可收集 Linux 和应用程序日志记录输出。
 
 在此详细的演练中，我们创建所需的先决条件，即先创建文件存储共享，然后通过 SMB 将其装载到 Linux VM 上。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 1. 使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组，以便保存文件共享。
 
@@ -145,6 +147,6 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 
 ## <a name="next-steps"></a>后续步骤
 
-- [在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [将磁盘添加到 Linux VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [使用 Azure CLI 加密 Linux VM 上的磁盘](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+- [将磁盘添加到 Linux VM](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+- [使用 Azure CLI 加密 Linux VM 上的磁盘](encrypt-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

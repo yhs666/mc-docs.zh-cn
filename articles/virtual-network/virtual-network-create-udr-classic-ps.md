@@ -30,7 +30,7 @@ ms.author: jdial
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-在使用 Azure 资源之前，请务必了解 Azure 当前使用两种部署模型：Azure Resource Manager 部署模型和经典部署模型。在使用任何 Azure 资源前，请确保了解[部署模型和工具](../azure-resource-manager/resource-manager-deployment-model.md)。可选择本文顶部的选项，查看不同工具的文档。本文介绍经典部署模型。
+> 在使用 Azure 资源之前，请务必了解 Azure 当前使用两种部署模型：Azure Resource Manager 部署模型和经典部署模型。在使用任何 Azure 资源前，请确保了解[部署模型和工具](../azure-resource-manager/resource-manager-deployment-model.md)。可选择本文顶部的选项，查看不同工具的文档。本文介绍经典部署模型。
 > 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
@@ -49,13 +49,6 @@ ms.author: jdial
     -Label "Route table for front end subnet"
     ```
 
-    输出：
-
-    ```
-    Name         Location   Label                          
-    ----         --------   -----                          
-    UDR-FrontEnd China North    Route table for front end subnet
-    ```
 2. 运行以下命令，在路由表中创建路由，将流向后端子网 (192.168.2.0/24) 的所有流量发送到 **FW1** VM (192.168.0.4)：
 
     ```powershell
@@ -65,17 +58,6 @@ ms.author: jdial
     -NextHopIpAddress 192.168.0.4
     ```
 
-    输出：
-
-    ```
-    Name     : UDR-FrontEnd
-    Location : China North
-    Label    : Route table for frontend subnet
-    Routes   : 
-               Name                 Address Prefix    Next hop type        Next hop IP address
-               ----                 --------------    -------------        -------------------
-               RouteToBackEnd       192.168.2.0/24    VirtualAppliance     192.168.0.4  
-    ```
 3. 运行以下命令，将路由表与 **FrontEnd** 子网关联：
 
     ```powershell
@@ -98,8 +80,10 @@ ms.author: jdial
 2. 运行以下命令，在路由表中创建路由，将流向前端子网 (192.168.1.0/24) 的所有流量发送到 **FW1** VM (192.168.0.4)：
 
     ```powershell
-    Get-AzureRouteTable UDR-BackEnd `
-    |Set-AzureRoute -RouteName RouteToFrontEnd -AddressPrefix 192.168.1.0/24 `
+    Get-AzureRouteTable UDR-BackEnd
+    | Set-AzureRoute `
+    -RouteName RouteToFrontEnd `
+    -AddressPrefix 192.168.1.0/24 `
     -NextHopType VirtualAppliance `
     -NextHopIpAddress 192.168.0.4
     ```
@@ -123,11 +107,6 @@ ms.author: jdial
     | Get-AzureIPForwarding
     ```
 
-    输出：
-
-    ```
-    Disabled
-    ```
 2. 运行以下命令，为 *FW1* VM 启用 IP 转发：
 
     ```powershell

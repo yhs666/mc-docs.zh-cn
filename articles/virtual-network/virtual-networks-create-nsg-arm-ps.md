@@ -135,7 +135,7 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。Azure 建
     ```
 
     > [!WARNING]
-    上述命令的输出显示虚拟网络配置对象的内容，该对象仅存在于运行 PowerShell 的计算机上。若要将这些设置保存到 Azure，需要运行 `Set-AzureRmVirtualNetwork` cmdlet。
+    > 上述命令的输出显示虚拟网络配置对象的内容，该对象仅存在于运行 PowerShell 的计算机上。若要将这些设置保存到 Azure，需要运行 `Set-AzureRmVirtualNetwork` cmdlet。
     > 
     > 
 7. 将新的 VNet 设置保存到 Azure。

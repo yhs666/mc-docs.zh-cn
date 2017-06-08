@@ -78,7 +78,7 @@ git clone https://github.com/cephalin/DotNetAppSqlDb.git
 
 ### <a name="sign-in-to-azure"></a>登录 Azure
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 在“创建应用服务”对话框中单击“添加帐户”，然后登录到你的 Azure 订阅。 如果已登录到 Azure 帐户，请确保该帐户包含你的 Azure 订阅。 如果登录的 Azure 帐户不包含你的 Azure 订阅，请单击该帐户添加正确的帐户。
 
@@ -105,13 +105,13 @@ Azure Web 应用还需要一个_应用服务计划_。
 
 > [!NOTE]
 > 应用服务计划表示用于托管应用的物理资源集合。 分配到应用服务计划的所有应用将共享该计划定义的资源，在托管多个应用时可以节省成本。 
-> <p>
-> <p> 应用服务计划定义：
-> <p>
-> <p> - 区域（中国北部、中国东部）
-> <p> - 实例大小（小、中、大）
-> <p> - 规模计数（一个、两个、三个实例，等等） 
-> <p> - SKU（免费、共享、基本、标准、高级）
+>
+> 应用服务计划定义：
+>
+> - 区域（中国北部、中国东部）
+> - 实例大小（小、中、大）
+> - 规模计数（一个、两个、三个实例，等等） 
+> - SKU（免费、共享、基本、标准、高级）
 >
 
 在“应用服务计划”旁边单击“新建”。 

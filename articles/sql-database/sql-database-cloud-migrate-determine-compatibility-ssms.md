@@ -23,7 +23,7 @@ ms.author: carlrab
 # 在迁移到 Azure SQL 数据库之前，使用 SQL Server Management Studio 确定 SQL 数据库的兼容性
 
 > [!div class="op_single_selector"]
->- [SSDT](./sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+>- [SSDT](./sql-database-cloud-migrate.md)
 >- [SqlPackage](./sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 >- [SSMS](./sql-database-cloud-migrate-determine-compatibility-ssms.md)
 >- [SAMW](./sql-database-cloud-migrate-fix-compatibility-issues.md)

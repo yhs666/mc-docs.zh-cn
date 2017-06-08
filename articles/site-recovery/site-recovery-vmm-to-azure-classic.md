@@ -56,7 +56,7 @@ Azure Site Recovery 服务有助于业务连续性和灾难恢复 (BCDR) 策略�
 --- | ---
 **VMM** | <p>至少需要一台部署为单独的物理或虚拟服务器（或虚拟群集）的 VMM 服务器。</p><p>VMM 服务器应运行安装了最新累积更新的 System Center 2012 R2。</p><p>需要在 VMM 服务器上配置至少一个云。</p><p>要保护的源云必须包含一个或多个 VMM 主机组。</p><p>若要了解有关如何设置 VMM 云的详细信息，请参阅 Keith Mayer 博客文章上的[演练：使用 System Center 2012 SP1 VMM 创建私有云](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx)。</p>
 **Hyper-V** | <p>需要在 VMM 云中有一个或多个 Hyper-V 主机服务器或群集。主机服务器应该有一个或多个 VM。</p><p>Hyper-V 服务器必须至少运行包含 Hyper-V 角色或 **Microsoft Hyper-V Server 2012 R2** 的 **Windows Server 2012 R2**，并安装了最新更新。</p><p>任何包含所要保护的 VM 的 Hyper-V 服务器都必须位于 VMM 云中。</p><p>若要在群集中运行 Hyper-V，请注意，如果群集是基于静态 IP 地址的群集，则不会自动创建群集代理。需要手动配置群集代理。在 Aidan Finn 的博客文章中[了解详细信息](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters)。</p>
-**受保护的计算机** | 要保护的 VM 应该符合 [Azure 要求](/documentation/articles/site-recovery-best-practices/#azure-virtual-machine-requirements)。
+**受保护的计算机** | 要保护的 VM 应该符合 [Azure 要求](site-recovery-best-practices.md#azure-virtual-machine-requirements)。
 
 ## 网络映射先决条件
 当在 Azure 中保护虚拟机时，网络映射会在源 VMM 服务器上的 VM 网络与目标 Azure 网络之间进行映射以实现以下功能：
@@ -264,7 +264,7 @@ marsagentinstaller.exe /q /nu
 ## 步骤 8：为虚拟机启用保护
 在正确配置服务器、云和网络后，可以在云中为虚拟机启用保护。注意以下事项：
 
-- 虚拟机必须满足 [Azure 要求](/documentation/articles/site-recovery-best-practices/#azure-virtual-machine-requirements)。
+- 虚拟机必须满足 [Azure 要求](site-recovery-best-practices.md#azure-virtual-machine-requirements)。
 - 若要启用保护，必须为虚拟机设置操作系统和操作系统磁盘属性。当使用虚拟机模板在 VMM 中创建虚拟机时，可以设置属性。也可以在虚拟机属性的“常规”和“硬件配置”选项卡中为现有虚拟机设置这些属性。如果未在 VMM 中设置这些属性，可以在 Azure Site Recovery 门户中配置它们。
 
     ![创建虚拟机](./media/site-recovery-vmm-to-azure-classic/enable-new.png)

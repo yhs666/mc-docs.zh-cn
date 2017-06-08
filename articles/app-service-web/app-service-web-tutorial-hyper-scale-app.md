@@ -293,7 +293,7 @@ az appservice web create --name $appName-east --resource-group myResourceGroup -
 ### <a name="configure-the-connection-string-for-redis"></a>配置 Redis 的连接字符串
 使用 [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) 将中国东部缓存的连接字符串添加到该 Web 应用。
 
-az appservice web config appsettings update --settings "RedisConnection=$($redis.hostname):$($redis.sslPort),password=$($redis.accessKeys.primaryKey),ssl=True,abortConnect=False" --name $appName-east --resource-group myResourceGroup
+    az appservice web config appsettings update --settings "RedisConnection=$($redis.hostname):$($redis.sslPort),password=$($redis.accessKeys.primaryKey),ssl=True,abortConnect=False" --name $appName-east --resource-group myResourceGroup
 
 ### <a name="configure-git-deployment-for-the-china-east-app"></a>配置中国东部应用的 Git 部署。
 使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config-local-git) 配置第二个 Web 应用的本地 Git 部署。
@@ -359,5 +359,3 @@ az appservice web config appsettings update --settings "Region=China East" --nam
 ### <a name="complete"></a>搞定！
 
 现在，请尝试通过不同地理区域中的浏览器访问流量管理器配置文件的 URL。 中国北部的客户端浏览器应显示“ASP.NET China North”，中国东部的客户端浏览器应显示“ASP.NET China East”。
-
-## <a name="more-resources"></a>更多资源

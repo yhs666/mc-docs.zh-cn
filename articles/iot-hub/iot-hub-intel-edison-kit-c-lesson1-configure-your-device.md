@@ -14,7 +14,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/7/2016
+ms.date: 11/07/2016
 wacn.date: 01/23/2017
 ms.author: xshi
 ---
@@ -90,7 +90,7 @@ ms.author: xshi
 
 ## 将 Edison 连接到计算机
 
-1. 向下扳动微动开关，使之朝向两个 micro USB 端口，将 Edison 设置为设备模式。有关设备模式与主机模式的区别，请参阅[此处](https://software.intel.com/zh-CN/node/628233#usb-device-mode-vs-usb-host-mode)。
+1. 向下扳动微动开关，使之朝向两个 micro USB 端口，将 Edison 设置为设备模式。
 
     ![向下扳动微动开关](./media/iot-hub-intel-edison-lessons/lesson1/toggle_down_microswitch.jpg)  
 

@@ -33,7 +33,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
 
 > [!IMPORTANT]
 > 本文中的步骤创建了包含一个工作节点的群集。 如果你计划使用 32 个以上的工作节点（在创建群集时或是在创建之后通过扩展群集进行），则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
-> <p>
+>
 > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
 ## <a name="prerequisites"></a>先决条件
@@ -102,7 +102,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
             private const string NewClusterPassword = "<Enter HTTP User Password>";
             private const string NewClusterSshUserName = "sshuser";
 
-            // You can use eitehr password or public key.  See https://www.azure.cn/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/ or https://www.azure.cn/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/
+            // You can use eitehr password or public key.  See https://www.azure.cn/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/
             private const string NewClusterSshPassword = "<Enter SSH User Password>";
             private const string NewClusterSshPublicKey = @"---- BEGIN SSH2 PUBLIC KEY ----
                 Comment: ""rsa-key-20150731""

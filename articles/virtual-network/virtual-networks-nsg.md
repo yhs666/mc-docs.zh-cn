@@ -36,7 +36,7 @@ NSG 包含以下属性：
 | 属性 | 说明 | 约束 | 注意事项 |
 | --- | --- | --- | --- |
 | Name |NSG 的名称 |必须在区域内唯一。<br/>可以包含字母、数字、下划线、句点和连字符。<br/>必须以字母或数字开头。<br/>必须以字母、数字或下划线结尾。<br/>不能超过 80 个字符。 |由于你可能需要创建多个 NSG，因此请确保设置命名约定，以便轻松标识 NSG 的功能。 |
-| 区域 |在其中创建 NSG 的 Azure [区域](https://azure.microsoft.com/regions)。 |只能将多个 NSG 关联到该 NSG 所在区域中的资源。 |若要了解一个区域可以有多少 NSG，请阅读 [Azure 限制](../azure-subscription-service-limits.md#virtual-networking-limits-classic)一文。|
+| 区域 |在其中创建 NSG 的 Azure 区域。 |只能将多个 NSG 关联到该 NSG 所在区域中的资源。 |若要了解一个区域可以有多少 NSG，请阅读 [Azure 限制](../azure-subscription-service-limits.md#virtual-networking-limits-classic)一文。|
 | 资源组 |NSG 所在的[资源组](../azure-resource-manager/resource-group-overview.md#resource-groups)。 |虽然 NSG 存在于一个资源组中，但可将其关联到任意资源组中的资源，只要该资源与 NSG 属于同一 Azure 区域。 |资源组用于以部署单元的形式集中管理多个资源。<br/>可以考虑将 NSG 与相关联的资源组合在一起。 |
 | 规则 |入站或出站规则，用于定义允许或拒绝的具体流量。 | |请参阅本文的 [NSG 规则](#Nsg-rules)部分。 |
 
@@ -51,7 +51,7 @@ NSG 规则包含以下属性：
 | --- | --- | --- | --- |
 | **Name** |规则的名称。 |必须在区域内唯一。<br/>可以包含字母、数字、下划线、句点和连字符。<br/>必须以字母或数字开头。<br/>必须以字母、数字或下划线结尾。<br/>不能超过 80 个字符。 |一个 NSG 中可以有多个规则，因此请确保遵循命名约定，以便标识规则的功能。 |
 | **协议** |要与规则匹配的协议。 |TCP、UDP 或 * |使用 * 作为协议时，会包括 ICMP（仅限东西通信），以及 UDP 和 TCP，可能会减少所需规则的数量。<br/>同时，使用 * 可能是过于宽泛的方法，因此建议只在必要时使用 *。 |
-| **Source port range** |要与规则匹配的源端口范围。 |单个端口号（从 1 到 65535）、端口范围（示例：1-65635）、或 *（表示所有端口）。 |源端口可以是暂时的。 除非客户端程序在使用特定端口，否则请在大多数情况下使用 *。<br/>尽可能尝试使用端口范围，这样就不需使用多个规则。<br/>不能使用逗号对多个端口或端口范围分组。 |
+| **Source port range** |要与规则匹配的源端口范围。 |单个端口号（从 1 到 65535）、端口范围（示例：1-65535）、或 *（表示所有端口）。 |源端口可以是暂时的。 除非客户端程序在使用特定端口，否则请在大多数情况下使用 *。<br/>尽可能尝试使用端口范围，这样就不需使用多个规则。<br/>不能使用逗号对多个端口或端口范围分组。 |
 | **Destination port range** |要与规则匹配的目标端口范围。 |单个端口号（从 1 到 65535）、端口范围（示例：1-65535）、或 \*（表示所有端口）。 |尽可能尝试使用端口范围，这样就不需使用多个规则。<br/>不能使用逗号对多个端口或端口范围分组。 |
 | **Source address prefix** |要与规则匹配的源地址前缀或标记。 |单个 IP 地址（示例：10.10.10.10）、IP 子网（示例：192.168.1.0/24）、[默认标记](#default-tags)或 *（表示所有地址）。 |考虑使用范围、默认标记和 * 来减少规则数。 |
 | **Destination address prefix** |要与规则匹配的目标地址前缀或标记。 | 单个 IP 地址（示例：10.10.10.10）、IP 子网（示例：192.168.1.0/24）、[默认标记](#default-tags)或 *（表示所有地址）。 |考虑使用范围、默认标记和 * 来减少规则数。 |
@@ -70,7 +70,7 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 
 * **VirtualNetwork** (Resource Manager)（如果是经典部署模型，则为 **VIRTUAL_NETWORK**）：此标记包括虚拟网络地址空间（Azure 中定义的 CIDR 范围）、所有连接的本地地址空间，以及连接的 Azure VNet（本地网络）。
 * **AzureLoadBalancer** (Resource Manager)（如果是经典部署模型，则为 **AZURE_LOADBALANCER**）：此标记表示 Azure 的基础结构负载均衡器。 此标记将转换为 Azure 数据中心 IP，Azure 的运行状况探测源于该 IP。
-* **Internet** (Resource Manager)（如果是经典部署模型，则为 **INTERNET**）：此标记表示虚拟网络外部的 IP 地址空间，可以通过公共 Internet 进行访问。 范围包括 [Azure 拥有的公共 IP 空间](https://www.microsoft.com/download/details.aspx?id=41653)。
+* **Internet** (Resource Manager)（如果是经典部署模型，则为 **INTERNET**）：此标记表示虚拟网络外部的 IP 地址空间，可以通过公共 Internet 进行访问。 范围包括 [Azure 拥有的公共 IP 空间](https://www.microsoft.com/download/details.aspx?id=42064)。
 
 ### <a name="Default-Rules" id="default-rules"></a> 默认规则
 所有 NSG 都包含一组默认规则。 默认规则无法删除，但由于给它们分配的优先级最低，可以用创建的规则来重写它们。 
@@ -262,5 +262,5 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 * [部署 NSG (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md)。
 * [部署 NSG（经典）](virtual-networks-create-nsg-classic-ps.md)。
 * [管理 NSG 日志](virtual-network-nsg-manage-log.md)。
-* [NSG 故障排除] (virtual-network-nsg-troubleshoot-portal.md)
+* [NSG 故障排除](virtual-network-nsg-troubleshoot-portal.md)
 

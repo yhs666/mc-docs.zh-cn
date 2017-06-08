@@ -25,11 +25,8 @@ ms.lasthandoff: 05/19/2017
 ---
 # <a name="restore-an-app-in-azure"></a>在 Azure 中还原应用
 本文将演示如何在 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)中还原已事先备份的应用（请参阅[在 Azure 中备份应用](web-sites-backup.md)）。 可以根据需要将应用及其链接的数据库还原到以前的状态，或者基于原始应用的备份之一创建新的应用。 Azure 应用服务支持用于备份和还原的以下数据库：
-- [SQL 数据库](https://azure.microsoft.com/services/sql-database/)
-- [用于 MySQL 的 Azure 数据库（预览版）](https://azure.microsoft.com/services/mysql)
-- [用于 PostgreSQL 的 Azure 数据库（预览版）](https://azure.microsoft.com/services/postgres)
-- [ClearDB MySQL](https://azuremarketplace.microsoft.com/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview)
-- [MySQL 应用内产品](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
+- [SQL 数据库](https://www.azure.cn/home/features/sql-database/)
+- [用于 MySQL 的 Azure 数据库（预览版）](https://www.azure.cn/home/features/mysql/)
 
 从备份还原适用于在**标准**和**高级**层中运行的应用。 有关向上缩放应用的信息，请参阅[在 Azure 中向上缩放应用](web-sites-scale.md)。 相比于**标准**层，**高级**层允许执行更多的每日备份量。
 

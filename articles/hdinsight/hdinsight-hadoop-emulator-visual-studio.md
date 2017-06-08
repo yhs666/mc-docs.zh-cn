@@ -28,11 +28,11 @@ ms.author: larryfr
 
 ## 先决条件
 
-* 在开发环境上的虚拟机中运行的 Hortonworks 沙盒。本文档是根据 Oracle VirtualBox 中运行的沙盒编写和测试的，而该沙盒是使用 [Get started in the Hadoop ecosystem](./hdinsight-hadoop-emulator-get-started.md)（Hadoop 生态系统入门）文档配置的。
+* 在开发环境上的虚拟机中运行的 Hortonworks 沙盒。本文档是根据 Oracle VirtualBox 中运行的沙盒编写和测试的，而该沙盒是使用[Hadoop 生态系统入门](./hdinsight-hadoop-emulator-get-started.md)文档配置的。
 
 * Visual Studio 2013、2015 或 2017，任何版本均可。
 
-* [用于 .NET 的 Azure SDK](https://www.azure.cn/downloads/) 2.7.1 或更高版本。
+* [用于 .NET 的 Azure SDK](/downloads/) 2.7.1 或更高版本。
 
 * [用于 Visual Studio 的 Azure Data Lake 工具](https://www.microsoft.com/download/details.aspx?id=49504)。
 
@@ -65,7 +65,7 @@ ms.author: larryfr
     ![错误和更新按钮](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)  
 
     > [!NOTE]
-    在更新过程，使用 Ambari 将 Hortonworks 沙盒配置修改为用于 Visual Studio 的 Azure Data Lake 工具所需的配置。
+    > 在更新过程，使用 Ambari 将 Hortonworks 沙盒配置修改为用于 Visual Studio 的 Azure Data Lake 工具所需的配置。
 
     验证完成后，请选择“完成”以完成配置。
 
@@ -116,7 +116,7 @@ Hive 提供类似于 SQL 的查询语言 (HiveQL) 来处理结构化数据。使
     交互式查询会将处理期间生成的输出日志流式传输到“HiveServer2 输出”窗口。
 
     > [!NOTE]
-    此信息与完成作业后使用“作业日志”链接所看到的信息相同。
+    > 此信息与完成作业后使用“作业日志”链接所看到的信息相同。
 
     ![HiveServer2 输出](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)  
 

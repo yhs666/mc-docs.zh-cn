@@ -26,16 +26,14 @@ ms.lasthandoff: 05/05/2017
 ---
 # <a name="create-a-vm-from-a-generalized-vhd-image-in-a-storage-account"></a>基于存储帐户中的通用 VHD 映像创建 VM 
 
-本主题介绍如何基于存储帐户中的通用非托管磁盘创建 VM。 通用 VHD 映像包含使用 [Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 删除的所有个人帐户信息。 若要创建通用 VHD，可在本地 VM 上运行 Sysprep，然后[将 VHD 上传到 Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)；或者在现有 Azure VM 上运行 Sysprep，然后[复制 VHD](vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+本主题介绍如何基于存储帐户中的通用非托管磁盘创建 VM。 通用 VHD 映像包含使用 [Sysprep](generalize-vhd.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 删除的所有个人帐户信息。 若要创建通用 VHD，可在本地 VM 上运行 Sysprep，然后[将 VHD 上传到 Azure](upload-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)；或者在现有 Azure VM 上运行 Sysprep，然后[复制 VHD](vhd-copy.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-如果要基于存储帐户中的专用 VHD 创建 VM，请参阅[从专用 VHD 创建 VM](create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
-
-若要了解如何使用托管磁盘而不是存储帐户中的磁盘，请参阅[创建托管 VM 映像](capture-image-resource.md)和[从托管映像创建 VM](create-vm-generalized-managed.md)。
+如果要基于存储帐户中的专用 VHD 创建 VM，请参阅[从专用 VHD 创建 VM](create-vm-specialized.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ## <a name="prerequisites"></a>先决条件
-如果打算使用从本地 VM 上传的 VHD（类似于使用 Hyper-V 创建的 VHD），应确保遵循[准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 中的说明。 
+如果打算使用从本地 VM 上传的 VHD（类似于使用 Hyper-V 创建的 VHD），应确保遵循[准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 中的说明。 
 
-在使用此方法创建 VM 之前，必须先通用化上载的 VHD 和现有的 Azure VM VHD。 有关详细信息，请参阅 [Generalize a Windows virtual machine using Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（使用 Sysprep 通用化 Windows 虚拟机）。 
+在使用此方法创建 VM 之前，必须先通用化上载的 VHD 和现有的 Azure VM VHD。 有关详细信息，请参阅 [Generalize a Windows virtual machine using Sysprep](generalize-vhd.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（使用 Sysprep 通用化 Windows 虚拟机）。 
 
 ## <a name="set-the-uri-of-the-vhd"></a>设置 VHD 的 URI
 
@@ -85,7 +83,7 @@ $imageURI = "https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myV
 ## <a name="create-the-network-security-group-and-an-rdp-rule"></a>创建网络安全组和 RDP 规则
 若要使用 RDP 登录到 VM，需要创建一个允许在端口 3389 上进行 RDP 访问的安全规则。 
 
-此示例创建名为 **myNsg** 的 NSG，其中包含一个允许通过端口 3389 传输 RDP 流量的、名为 **myRdpRule** 的规则。 有关 NSG 的详细信息，请参阅 [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（使用 PowerShell 在 Azure 中打开 VM 端口）。
+此示例创建名为 **myNsg** 的 NSG，其中包含一个允许通过端口 3389 传输 RDP 流量的、名为 **myRdpRule** 的规则。 有关 NSG 的详细信息，请参阅 [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（使用 PowerShell 在 Azure 中打开 VM 端口）。
 
 ```powershell
 $nsgName = "myNsg"
@@ -173,5 +171,5 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
 ## <a name="next-steps"></a>后续步骤
-若要使用 Azure PowerShell 管理新虚拟机，请参阅[使用 Azure Resource Manager 与 PowerShell 来管理虚拟机](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+若要使用 Azure PowerShell 管理新虚拟机，请参阅[使用 Azure Resource Manager 与 PowerShell 来管理虚拟机](ps-manage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 

@@ -33,7 +33,7 @@ ms.lasthandoff: 04/14/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-还可以使用 [Azure CLI 1.0](tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
+还可以使用 [Azure CLI 1.0](tag-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
 
 你可以使用此命令查看给定虚拟机的所有属性，包括标记：
 

@@ -29,8 +29,8 @@ ms.author: anithaa
 路由表与子网关联，在该子网中的所有网络接口 (NIC) 上有效。可将以下类型的路由应用到每个网络接口：
 
 - **系统路由：**默认情况下，在 Azure 虚拟网络 (VNet) 中创建的每个子网都具有系统路由表，允许传送本地 VNet 流量、通过 VPN 网关的本地流量以及 Internet 流量。对等互连的 VNet 也有系统路由。
-- **BGP 路由：**通过 ExpressRoute 或站点到站点 VPN 连接传播到网络接口。阅读 [BGP with VPN gateways](../vpn-gateway/vpn-gateway-bgp-overview.md)（使用 VPN 网关的 BGP）和 [ExpressRoute overview](../expressroute/expressroute-introduction.md)（ExpressRoute 概述）文章，了解有关 BGP 路由的详细信息。
-- **用户定义的路由 (UDR)：**如果使用网络虚拟设备或强制隧道通过站点到站点 VPN 将流量传送到本地网络，可将用户定义的路由 (UDR) 与子网路由表相关联。如果你不熟悉 UDR，请阅读 [user-defined routes](./virtual-networks-udr-overview.md#user-defined-routes)（用户定义的路由）一文。
+- **BGP 路由：**通过 ExpressRoute 或站点到站点 VPN 连接传播到网络接口。阅读[使用 VPN 网关的 BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) 和 [ExpressRoute 概述](../expressroute/expressroute-introduction.md)文章，了解有关 BGP 路由的详细信息。
+- **用户定义的路由 (UDR)：**如果使用网络虚拟设备或强制隧道通过站点到站点 VPN 将流量传送到本地网络，可将用户定义的路由 (UDR) 与子网路由表相关联。如果你不熟悉 UDR，请阅读[用户定义的路由](./virtual-networks-udr-overview.md#user-defined-routes)一文。
 
 由于可将各种路由应用到网络接口，因此有时难以确定哪些聚合路由是有效的。为了帮助排查 VM 网络连接问题，可以查看 Azure Resource Manager 部署模型中某个网络接口的所有有效路由。
 
@@ -146,6 +146,6 @@ ms.author: anithaa
     - 通过 BGP 播发默认路由时
 - 要使 VNet 对等互连流量正常工作，对等互连的 VNet 的前缀范围中必须存在 **nextHopType** 为 *VNetPeering* 的系统路由。如果没有此类路由，并且 VNet 对等互连链接看起来正常：
     - 如果是新建立的对等互连链接，请等待几秒钟并重试。有时需要花费较长的时间才能将路由传播到子网中的所有网络接口。
-    - 网络安全组 (NSG) 规则可能会影响流量流。有关详细信息，请参阅 [Troubleshoot Network Security Groups](./virtual-network-nsg-troubleshoot-portal.md)（排查网络安全组问题）一文。
+    - 网络安全组 (NSG) 规则可能会影响流量流。有关详细信息，请参阅[排查网络安全组问题](./virtual-network-nsg-troubleshoot-portal.md)一文。
 
 <!---HONumber=Mooncake_1107_2016-->

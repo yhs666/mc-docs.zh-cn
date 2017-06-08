@@ -30,7 +30,7 @@ ms.author: jdial
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
 > [!NOTE]
-Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是[经典部署模型](./virtual-network-deploy-multinic-classic-ps.md)。
+> Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是[经典部署模型](./virtual-network-deploy-multinic-classic-ps.md)。
 >
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
@@ -45,7 +45,7 @@ Azure 具有两种不同的部署模型，用于创建和处理资源：[Resourc
 3. 如果需要，更改参数值，然后按照 Azure 门户预览中的步骤部署资源组。
 
 > [!IMPORTANT]
-请确保存储帐户名称是唯一的。Azure 中不能存在重复的存储帐户名称。
+> 请确保存储帐户名称是唯一的。Azure 中不能存在重复的存储帐户名称。
 > 
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]

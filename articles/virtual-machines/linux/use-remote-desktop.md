@@ -23,13 +23,13 @@ ms.lasthandoff: 04/14/2017
 
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>安装和配置远程桌面以连接到 Azure 中的 Linux VM
-通常使用安全外壳 (SSH) 连接从命令行管理 Azure 中的 Linux 虚拟机 (VM)。 如果不熟悉 Linux，或者要快速进行故障排除，使用远程桌面可能会更方便。 本文详细介绍如何使用 Resource Manager 部署模型为 Linux VM 安装和配置桌面环境 ([xfce](https://www.xfce.org)) 和远程桌面 ([xrdp](http://www.xrdp.org))。 还可以[使用经典部署模型对 VM 执行这些步骤](classic/remote-desktop.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)。
+通常使用安全外壳 (SSH) 连接从命令行管理 Azure 中的 Linux 虚拟机 (VM)。 如果不熟悉 Linux，或者要快速进行故障排除，使用远程桌面可能会更方便。 本文详细介绍如何使用 Resource Manager 部署模型为 Linux VM 安装和配置桌面环境 ([xfce](https://www.xfce.org)) 和远程桌面 ([xrdp](http://www.xrdp.org))。 还可以[使用经典部署模型对 VM 执行这些步骤](classic/remote-desktop.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)。
 
 ## <a name="prerequisites"></a>先决条件
 本文需要 Azure 中的现有 Linux VM。 如果需要创建 VM，请使用以下方法之一：
 
-- [Azure CLI 2.0](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或 [Azure CLI 1.0](quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Azure 门户预览](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure CLI 2.0](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [Azure CLI 1.0](quick-create-cli-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure 门户预览](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 用户还需登录到[活动 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -70,6 +70,8 @@ sudo passwd ops
 ```
 
 退出 Linux VM 的 SSH 会话。 使用本地计算机上的 Azure CLI 创建网络安全组规则，以允许远程桌面流量。 将 [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) 与 Azure CLI 2.0 配合使用。 以下示例在 `myNetworkSecurityGroup` 中创建一个名为 `myNetworkSecurityGroupRule` 的规则，以允许 tcp 端口 3389 上的流量：
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup \
@@ -143,7 +145,7 @@ sudo passwd ops
 > 指定密码不会将 sshd 配置更新为允许密码登录（如果当前不允许）。 从安全角度看，你可能想要使用基于密钥的身份验证通过 SSH 隧道连接到 VM，然后连接到 xrdp。 如果是这样，请跳过以下创建网络安全组规则的步骤，以允许远程桌面流量。
 
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>为远程桌面流量创建网络安全组规则
-若要允许远程桌面流量到达 Linux VM，需要创建网络安全组规则以允许端口 3389 上的 TCP 访问 VM。 有关网络安全组规则的详细信息，请参阅[什么是网络安全组？](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 还可以[使用 Azure 门户预览创建网络安全组规则](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+若要允许远程桌面流量到达 Linux VM，需要创建网络安全组规则以允许端口 3389 上的 TCP 访问 VM。 有关网络安全组规则的详细信息，请参阅[什么是网络安全组？](../../virtual-network/virtual-networks-nsg.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 还可以[使用 Azure 门户预览创建网络安全组规则](../windows/nsg-quickstart-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 以下示例创建名为 `myNetworkSecurityGroupRule` 的网络安全组规则以 `allow` `tcp` 端口 `3389` 上的流量。
 
@@ -204,9 +206,9 @@ tail -f /var/log/syslog
 
 其他 Linux 分发（例如，Red Hat Enterprise Linux 和 SUSE）重新启动服务的方式可能有所不同，并且可能需要更换要查看的日志文件位置。
 
-如果用户在远程桌面客户端中未收到任何响应，并且在系统日志中看不到任何事件，则此行为指示远程桌面流量无法到达 VM。 查看网络安全组规则，以确保有规则允许端口 3389 上的 TCP。 有关详细信息，请参阅[排查应用程序连接问题](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+如果用户在远程桌面客户端中未收到任何响应，并且在系统日志中看不到任何事件，则此行为指示远程桌面流量无法到达 VM。 查看网络安全组规则，以确保有规则允许端口 3389 上的 TCP。 有关详细信息，请参阅[排查应用程序连接问题](troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="next-steps"></a>后续步骤
-有关为 Linux VM 创建 SSH 密钥和在 Linux VM 上使用 SSH 密钥的详细信息，请参阅[在 Azure 中为 Linux VM 创建 SSH 密钥](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+有关为 Linux VM 创建 SSH 密钥和在 Linux VM 上使用 SSH 密钥的详细信息，请参阅[在 Azure 中为 Linux VM 创建 SSH 密钥](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-有关从 Windows 使用 SSH 的信息，请参阅[如何在 Windows 中使用 SSH 密钥](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+有关从 Windows 使用 SSH 的信息，请参阅[如何在 Windows 中使用 SSH 密钥](ssh-from-windows.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。

@@ -39,7 +39,7 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="prerequisites"></a>先决条件
 若要完成本教程，需要满足以下先决条件：
-* 完成[使用流分析构建 IoT 解决方案教程](/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics)中**创建流分析作业**前面的步骤。 
+* 完成[使用流分析构建 IoT 解决方案教程](/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics)中**创建流分析作业**前面的步骤。 
 * Visual Studio 2015、Visual Studio 2013 Update 4 或 Visual Studio 2012。 支持 Enterprise (Ultimate/Premium)、Professional、Community 版本；不支持 Express 版本。 目前不支持 Visual Studio 2017。 
 * 用于 .NET 的 Microsoft Azure SDK 2.7.1 或更高版本。  可以使用 [Web 平台安装程序](http://www.microsoft.com/web/downloads/platform.aspx)安装它。
 * 安装 [用于 Visual Studio 的 Azure 流分析工具](http://aka.ms/asatoolsvs)。

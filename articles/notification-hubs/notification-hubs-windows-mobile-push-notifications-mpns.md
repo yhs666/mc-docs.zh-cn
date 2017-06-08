@@ -52,8 +52,6 @@ wacn.date: 11/22/2016
 </li>
 </ol>
 
-&emsp;&emsp;![Azure 门户 - 启用未经身份验证的推送通知](./media/notification-hubs-windows-phone-get-started/create-1.png)
-
 你的中心现已创建，并已配置为向 Windows Phone 发送未经身份验证的通知。
 
 > [!NOTE]

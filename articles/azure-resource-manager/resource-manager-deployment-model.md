@@ -214,5 +214,5 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
 可以在 [Azure Resource Manager 快速入门模板](https://azure.microsoft.com/zh-cn/documentation/templates/)中找到一系列综合的初学者模板。
 
 ## <a name="next-steps"></a>后续步骤
-* 若要演练如何创建用于定义虚拟机、存储帐户和虚拟网络的模板，请参阅 [Resource Manager 模板演练](/documentation/articles/resource-manager-template-walkthrough/)。
+* 若要演练如何创建用于定义虚拟机、存储帐户和虚拟网络的模板，请参阅 [Resource Manager 模板演练](resource-manager-template-walkthrough.md)。
 * 若要查看用于部署模板的命令，请参阅[使用 Azure Resource Manager 模板部署应用程序](./resource-group-template-deploy.md)。

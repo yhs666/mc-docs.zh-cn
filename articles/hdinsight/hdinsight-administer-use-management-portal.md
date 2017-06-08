@@ -26,7 +26,7 @@ ms.author: jgao
 本文中的信息仅适用于基于 Windows 的 HDInsight 群集。有关管理基于 Linux 的群集的信息，请参阅[使用 Azure 门户预览在 HDInsight 中管理 Hadoop 群集](./hdinsight-administer-use-portal-linux.md)。
 
 > [!IMPORTANT]
-Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 ## 先决条件
 
@@ -60,7 +60,7 @@ HDInsight 使用各种 Hadoop 组件。有关已获得验证和支持的组件�
 * 一些本机 Java 组件（如 Mahout 和 Cascading）可以在群集上作为 JAR 文件运行。可以通过 Hadoop 作业提交机制将这些 JAR 文件分发到 Azure Blob 存储，并提交到 HDInsight 群集。有关详细信息，请参阅[以编程方式提交 Hadoop 作业](./hdinsight-submit-hadoop-jobs-programmatically.md)。
 
     > [!NOTE]
-    如果在将 JAR 文件部署到 HDInsight 群集或调用 HDInsight 群集上的 JAR 文件时遇到问题，请联系 [Azure.cn 技术支持](https://www.azure.cn/support/contact/)。
+    > 如果在将 JAR 文件部署到 HDInsight 群集或调用 HDInsight 群集上的 JAR 文件时遇到问题，请联系 [Azure.cn 技术支持](https://www.azure.cn/support/contact/)。
     >
     > Cascading 不受 HDInsight 支持，因此不符合 Azure.cn 技术支持的条件。有关支持的组件列表，请参阅 [HDInsight 提供的群集版本有哪些新功能](./hdinsight-component-versioning.md)。
     >
@@ -87,14 +87,14 @@ HDInsight 使用各种 Hadoop 组件。有关已获得验证和支持的组件�
     * **用户 (![用户图标](./media/hdinsight-administer-use-portal-linux/users.png))**：设置 Azure 订阅的其他用户对此群集的门户管理权限。
 
         > [!IMPORTANT]
-        这*只会*影响在 Azure 门户预览中对此群集的访问和权限，对于连接到 HDInsight 群集或将作业提交到其上的用户并没有作用。
+        > 这*只会*影响在 Azure 门户预览中对此群集的访问和权限，对于连接到 HDInsight 群集或将作业提交到其上的用户并没有作用。
         >
         >
     * **标记 (![标记图标](./media/hdinsight-administer-use-portal-linux/tags.png))**：通过标记可设置键/值对，定义云服务的自定义分类。例如，你可以创建名为 **project** 的键，然后对与特定项目关联的所有服务使用一个公用值。
     * **Ambari 视图**：Ambari Web 的链接。
 
         > [!IMPORTANT]
-        若要管理 HDInsight 群集提供的服务，必须使用 Ambari Web 或 Ambari REST API。有关如何使用 Ambari 的详细信息，请参阅 [Manage HDInsight clusters using Ambari](./hdinsight-hadoop-manage-ambari.md)（使用 Ambari 管理 HDInsight 群集）
+        > 若要管理 HDInsight 群集提供的服务，必须使用 Ambari Web 或 Ambari REST API。有关如何使用 Ambari 的详细信息，请参阅[使用 Ambari 管理 HDInsight 群集](./hdinsight-hadoop-manage-ambari.md)
         >
         >
 
@@ -115,7 +115,7 @@ HDInsight 使用各种 Hadoop 组件。有关已获得验证和支持的组件�
     * **记录合作伙伴**：
 
         > [!NOTE]
-        这是可用设置的常规列表；并非所有存在的设置都适用于所有群集类型。
+        > 这是可用设置的常规列表；并非所有存在的设置都适用于所有群集类型。
         >
         >
 6. 单击“属性”：
@@ -129,7 +129,7 @@ HDInsight 使用各种 Hadoop 组件。有关已获得验证和支持的组件�
     * **已创建的数据**。
     * **操作系统**：**Windows** 或 **Linux**。
     * **类型**：Hadoop、HBase、Storm、Spark。
-    * **版本**。请参阅 [HDInsight versions](./hdinsight-component-versioning.md)（HDInsight 版本）
+    * **版本**。请参阅 [HDInsight 版本](./hdinsight-component-versioning.md)
     * **订阅**：订阅名称。
     * **订阅 ID**。
     * **主数据源**。用作默认 Hadoop 文件系统的 Azure Blob 存储帐户。
@@ -149,7 +149,7 @@ HDInsight 使用各种 Hadoop 组件。有关已获得验证和支持的组件�
 使用群集缩放功能，可更改 Azure HDInsight 中运行的群集使用的辅助节点数，而无需重新创建群集。
 
 > [!NOTE]
-只支持使用 HDInsight 3.1.3 或更高版本的群集。如果不确定群集的版本，可以查看“属性”页面。请参阅[列出并显示群集](#list-and-show-clusters)。
+> 只支持使用 HDInsight 3.1.3 或更高版本的群集。如果不确定群集的版本，可以查看“属性”页面。请参阅[列出并显示群集](#list-and-show-clusters)。
 >
 >
 
@@ -209,9 +209,9 @@ HDInsight 使用各种 Hadoop 组件。有关已获得验证和支持的组件�
 
 可以通过许多方式对此过程进行程序性处理：
 
-* 使用 Azure PowerShell。请参阅 [Analyze flight delay data](./hdinsight-analyze-flight-delay-data.md)（分析航班延误数据）。
-* 使用 Azure CLI。请参阅 [Manage HDInsight clusters using Azure CLI](./hdinsight-administer-use-command-line.md)（使用 Azure CLI 管理 HDInsight 群集）。
-* 使用 HDInsight .NET SDK。请参阅 [Submit Hadoop jobs](./hdinsight-submit-hadoop-jobs-programmatically.md)（提交 Hadoop 作业）。
+* 使用 Azure PowerShell。请参阅[分析航班延误数据](./hdinsight-analyze-flight-delay-data.md)。
+* 使用 Azure CLI。请参阅[使用 Azure CLI 管理 HDInsight 群集](./hdinsight-administer-use-command-line.md)。
+* 使用 HDInsight .NET SDK。请参阅[提交 Hadoop 作业](./hdinsight-submit-hadoop-jobs-programmatically.md)。
 
 有关定价信息，请参阅 [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/)（HDInsight 定价）。要从门户中删除群集，请参阅[删除群集](#delete-clusters)
 
@@ -240,7 +240,7 @@ HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样
 默认情况下，将授权这些服务进行访问。可以从 Azure 门户预览撤消/授予访问权限。
 
 > [!NOTE]
-通过授予/撤消访问权限，你将重置群集用户名和密码。
+> 通过授予/撤消访问权限，你将重置群集用户名和密码。
 >
 >
 
@@ -306,7 +306,7 @@ HDInsight 查询控制台包括下列功能：
 HDInsight 群集边栏选项卡的“使用情况”部分会显示相关信息，方便了解订阅中可以用于 HDInsight 的核心数、分配给此群集的核心数，以及这些核心是如何分配给此群集中的节点的。请参阅 [List and show clusters](#list-and-show-clusters)（列出和显示群集）。
 
 > [!IMPORTANT]
-若要监视 HDInsight 群集提供的服务，必须使用 Ambari Web 或 Ambari REST API。有关如何使用 Ambari 的详细信息，请参阅[使用 Ambari 管理 HDInsight 群集](./hdinsight-hadoop-manage-ambari.md)
+> 若要监视 HDInsight 群集提供的服务，必须使用 Ambari Web 或 Ambari REST API。有关如何使用 Ambari 的详细信息，请参阅[使用 Ambari 管理 HDInsight 群集](./hdinsight-hadoop-manage-ambari.md)
 >
 >
 
@@ -331,7 +331,7 @@ HDInsight 群集边栏选项卡的“使用情况”部分会显示相关信息�
     “到期日期”的默认值为“一周”。
 
     > [!NOTE]
-    也可以使用 HDInsight .NET SDK 在群集上启用远程桌面。按以下方式使用 HDInsight 客户端对象上的 **EnableRdp** 方法：**client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**。同样，要在群集上禁用远程桌面，可以使用 **client.DisableRdp(clustername, location)**。有关这些方法的详细信息，请参阅 [HDInsight .NET SDK 参考](https://msdn.microsoft.com/zh-cn/library/azure/dn469975.aspx)。这仅适用于在 Windows 上运行的 HDInsight 群集。
+    > 也可以使用 HDInsight .NET SDK 在群集上启用远程桌面。按以下方式使用 HDInsight 客户端对象上的 **EnableRdp** 方法：**client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**。同样，要在群集上禁用远程桌面，可以使用 **client.DisableRdp(clustername, location)**。有关这些方法的详细信息，请参阅 [HDInsight .NET SDK 参考](https://msdn.microsoft.com/zh-cn/library/azure/dn469975.aspx)。这仅适用于在 Windows 上运行的 HDInsight 群集。
     >
     >
 

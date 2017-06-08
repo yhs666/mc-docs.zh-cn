@@ -25,13 +25,13 @@ ms.lasthandoff: 04/14/2017
 # <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建在 Azure 上运行的 Linux 虚拟机副本
 本文说明如何使用 Resource Manager 部署模型创建运行 Linux 的 Azure 虚拟机 (VM) 副本。 首先，通过操作系统和数据磁盘复制到新容器，然后设置网络资源并创建新虚拟机。
 
-还可以[上载自定义磁盘映像并从中创建 VM](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+还可以[上载自定义磁盘映像并从中创建 VM](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可使用以下 CLI 版本之一完成任务：
 
 - Azure CLI 1.0 - 用于经典部署模型和资源管理部署模型（本文）的 CLI
-- [Azure CLI 2.0](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
+- [Azure CLI 2.0](copy-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="before-you-begin"></a>开始之前
 在开始执行相关步骤前，请先确保符合以下先决条件：
@@ -48,7 +48,14 @@ ms.lasthandoff: 04/14/2017
 | 容器名称 |`azure storage container list -a <sourcestorageaccountname>` |
 | 源 VM VHD 文件名 |`azure storage blob list --container <containerName>` |
 
-* 需要对新 VM 做出一些选择：   <br> -容器名称    <br> -VM 名称    <br> -VM 大小    <br> -vNet 名称    <br> -子网名称    <br> -IP 名称    <br> -NIC 名称
+* 需要对新 VM 做出一些选择：
+    - 容器名称
+    - VM 名称
+    - VM 大小
+    - vNet 名称
+    - 子网名称
+    - IP 名称
+    - NIC 名称
 
 ## <a name="login-and-set-your-subscription"></a>登录并设置订阅
 1. 登录到 CLI。

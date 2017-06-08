@@ -49,7 +49,7 @@ DocumentDB 中发生的更改将持久保存，并能够以异步方式进行处
 
 ![用于引入和查询的基于 DocumentDB 的 lambda 管道](./media/documentdb-change-feed/lambda.png)
 
-可以使用 DocumentDB 接收和存储设备、传感器、基础结构和应用程序发出的事件数据，然后使用 [Azure 流分析](../stream-analytics/stream-analytics-documentdb-output.md)、[Apache Storm](../hdinsight/hdinsight-storm-overview.md) 或 [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md) 实时处理这些事件。 
+可以使用 DocumentDB 接收和存储设备、传感器、基础结构和应用程序发出的事件数据，然后使用 Azure 流分析、[Apache Storm](../hdinsight/hdinsight-storm-overview.md) 或 [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md) 实时处理这些事件。 
 
 在 Web 应用和移动应用中，可以跟踪各种事件（例如，对客户配置文件、首选项或位置的更改），以触发特定的操作，例如，使用[应用服务](https://www.azure.cn/home/features/app-service/)向客户的设备发送推送通知。 例如，若要使用 DocumentDB 来构建游戏，可以使用更改源，根据已完成的游戏的分数实时更新排行榜。
 

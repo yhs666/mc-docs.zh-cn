@@ -23,7 +23,7 @@ ms.author: larryfr
 HDInsight 群集计费在创建群集之后便会开始，删除群集后才会停止。HDInsight 群集按分钟收费，因此不再需要使用群集时，应将其删除。本文档介绍如何使用 Azure 门户预览、Azure PowerShell 和 Azure CLI 删除群集。
 
 > [!IMPORTANT]
-删除 HDInsight 群集不会删除与该群集关联的 Azure 存储帐户。由于不会删除存储帐户，因此数据将保留，并可在日后重复使用。
+> 删除 HDInsight 群集不会删除与该群集关联的 Azure 存储帐户。由于不会删除存储帐户，因此数据将保留，并可在日后重复使用。
 
 ## Azure 门户预览
 

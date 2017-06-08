@@ -189,7 +189,7 @@ ms.lasthandoff: 05/26/2017
     * 名称 ID (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - 可用于防伪验证。 若要详细了解如何使其适用于防伪验证，请参阅[使用 Azure Active Directory 身份验证创建业务线 Azure 应用](web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud)中的**添加业务线功能**部分。
 
     > [!NOTE]
-    > 需要为应用程序配置的声明类型取决于应用程序的需求。 有关 Azure Active Directory 应用程序支持的声明列表（即 RP 信任），请参阅[支持的令牌和声明类型](/active-directory/active-directory-token-and-claims/)。
+    > 需要为应用程序配置的声明类型取决于应用程序的需求。 有关 Azure Active Directory 应用程序支持的声明列表（即 RP 信任），请参阅[支持的令牌和声明类型](/active-directory/develop/active-directory-token-and-claims/)。
     > 
     > 
 11. 在“编辑声明规则”对话框中，单击“添加规则”。

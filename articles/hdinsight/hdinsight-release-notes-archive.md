@@ -13,7 +13,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/06/2017
+ms.date: 04/06/2017
 wacn.date: 
 ms.author: nitinme
 ROBOTS: NOINDEX
@@ -31,13 +31,6 @@ ms.lasthandoff: 04/29/2017
 
 > [!IMPORTANT]
 > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 版本控制文章](hdinsight-component-versioning.md)。
-
-## <a name="08172016---release-of-r-server-on-hdinsight"></a>2016 年 8 月 17 日：发行 R Server on HDInsight
-* R Server 8.0.5 – 主要为 Bug 修复版本。 有关详细信息，请参阅 [R Server Release Notes](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) （R Server 发行说明）。
-* 边缘节点上的 AzureML 包 – [该 R 包](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)使 R 模型能够被发布并用作 Azure ML Web 服务。
-* [前 100 个最受欢迎的 R 包](https://github.com/metacran/cranlogs)的 Linux 依赖项 – 现在都预安装了这些 Linux 包依赖项。
-* 将 R 包添加到数据节点时的 CRAN 存储库使用选项。
-* 改进在创建群集时进行 R Server 预配的可靠性。
 
 ## <a name="notes-for-08012016-release-of-hdinsight"></a>HDInsight 2016 年 8 月 1 日发行说明
 随此版本一起部署的基于 Linux 的 HDInsight 群集的所有版本号：
@@ -191,8 +184,6 @@ ms.lasthandoff: 04/29/2017
 | 标题 | 说明 | 受影响区域（例如服务、组件或 SDK） | 群集类型（例如 Hadoop、HBase 或 STORM） | JIRA（如果适用） |
 | --- | --- | --- | --- | --- |
 | 添加了 HDInsight 3.4 版本并更新了所有 HDInsight 群集的 HDP 版本 |在此版本中，我们添加了 HDInsight v3.4（基于 HDP 2.4）并更新了其他 HDP 版本。 [此处](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html)提供了 HDP 2.4 发行说明；[此处](hdinsight-component-versioning.md)提供了有关 HDInsight 版本的详细信息。 |服务 |所有 Linux 群集 |不适用 |
-| HDInsight 高级版 |现在提供两种类别的 HDInsight - 标准版和高级版。 HDInsight 高级版现在为预览版，仅适用于 Linux 上的 Hadoop 和 Spark 群集。 有关详细信息，请参阅[此文](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)。 |服务 |Linux 上的 Hadoop 和 Spark |不适用 |
-| Microsoft R Server |HDInsight 高级版提供的 Microsoft R Server 可能随附在 Linux 的 Hadoop 和 Spark 群集中。 |服务 |Linux 上的 Hadoop 和 Spark |不适用 |
 | Spark 1.6.0 |HDInsight 3.4 群集现在包括 Spark 1.6.0 |服务 |Linux 上的 Spark 群集 |不适用 |
 | Jupyter 笔记本增强功能 |适用于 Spark 群集的 Jupyter 笔记本现在提供更多的 Spark 内核。 其中还包括了增强功能，例如使用 %%magic、自动可视化和与 Python 可视化库集成（如 matplotlib）。 有关详细信息，请参阅 [Jupyter 笔记本的可用内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)。 |服务 |Linux 上的 Spark 群集 |不适用 |
 

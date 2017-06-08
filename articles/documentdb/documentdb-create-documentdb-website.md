@@ -136,7 +136,7 @@ ms.lasthandoff: 05/19/2017
 祝贺你！ 你已使用 Azure Resource Manager 模板部署了 DocumentDB、应用服务 Web 应用以及示例 Web 应用程序。
 
 - 若要了解有关 DocumentDB 的详细信息，请单击[此处](./index.md)。
-- 若要了解有关 Azure 应用服务 Web 应用的详细信息，请单击[此处](../app-service-web/index.md)。
+- 若要了解有关 Azure 应用服务 Web 应用的详细信息，请单击[此处](../app-service-web/index.yml)。
 - 若要了解有关 Azure Resource Manager 模板的详细信息，请单击[此处](https://msdn.microsoft.com/library/azure/dn790549.aspx)。
 
 ## <a name="whats-changed"></a>发生的更改
@@ -144,7 +144,7 @@ ms.lasthandoff: 05/19/2017
 - 有关从旧门户更改为新门户的指南，请参阅：[有关在 Azure 经典管理门户中导航的参考](../app-service-web/app-service-web-app-azure-portal.md)
 
 > [!NOTE]
-> 如果想要在注册 Azure 帐户之前开始使用 Azure 应用服务，请转到[试用应用服务](/documentation/services/app-service/)，然后在其中立即创建一个生存期较短的入门 Web 应用。 你不需要使用信用卡，也不需要做出承诺。
+> 如果想要在注册 Azure 帐户之前开始使用 Azure 应用服务，请转到[试用应用服务](../app-service/index.md)，然后在其中立即创建一个生存期较短的入门 Web 应用。 你不需要使用信用卡，也不需要做出承诺。
 > 
 > 
 

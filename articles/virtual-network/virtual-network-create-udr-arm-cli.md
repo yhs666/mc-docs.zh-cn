@@ -47,6 +47,8 @@ ms.author: jdial
 ## <a name="Create-the-UDR-for-the-front-end-subnet"></a> 为前端子网创建 UDR
 若要根据上述方案为前端子网创建所需的路由表和路由，请按照下面的步骤操作。
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 1. 使用 [az network route-table create](https://docs.microsoft.com/cli/azure/network/route-table#create) 命令为前端子网创建路由表：
 
     ```azurecli
@@ -111,10 +113,10 @@ ms.author: jdial
 
     ```azurecli
     az network vnet subnet update \
-    > --resource-group testrg \
-    > --vnet-name testvnet \
-    > --name FrontEnd \
-    > --route-table UDR-FrontEnd
+    --resource-group testrg \
+    --vnet-name testvnet \
+    --name FrontEnd \
+    --route-table UDR-FrontEnd
     ```
 
     输出：
@@ -207,9 +209,9 @@ ms.author: jdial
 
     ```azurecli
         az network nic update \
-        > --resource-group testrg \
-        > --name nicfw1 \
-        > --ip-forwarding true
+        --resource-group testrg \
+        --name nicfw1 \
+        --ip-forwarding true
     ```
 
     可以查看流式传输到控制台的输出，或者仅针对特定的 **enableIpForwarding** 值进行重新测试：
@@ -226,7 +228,7 @@ ms.author: jdial
 
     参数：
 
-    * **--ip-forwarding**。*true* 或 *false*。
+    **--ip-forwarding**: *true* 或 *false*。
 
 <!---HONumber=Mooncake_0327_2017-->
 <!--Update_Description: change from CLI 1.0 to CLI 2.0-->

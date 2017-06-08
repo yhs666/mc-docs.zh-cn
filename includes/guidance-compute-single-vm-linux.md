@@ -3,7 +3,7 @@
 本文概述了在 Azure 上运行 Linux 虚拟机 (VM) 的一套经过验证的做法，这些做法注重可扩展性、可用性、可管理性和安全性。Azure 支持运行大量常用的 Linux 分发，包括 CentOS、Debian、Red Hat Enterprise、Ubuntu 和 FreeBSD。有关详细信息，请参阅 [Azure 和 Linux][azure-linux]。
 
 > [!NOTE]
-Azure 具有两个不同的部署模型：[Resource Manager][resource-manager-overview] 和经典。本文使用 Resource Manager，Azure 建议将它用于新部署。
+> Azure 具有两个不同的部署模型：[Resource Manager][resource-manager-overview] 和经典。本文使用 Resource Manager，Azure 建议将它用于新部署。
 > 
 > 
 
@@ -139,7 +139,7 @@ azure vm deallocate <resource-group> <vm-name>
 可将用户分配给多个角色，并且可以创建自定义角色以实现更细化的权限。
 
 > [!NOTE]
-RBAC 不限制已登录到 VM 的用户可以执行的操作。这些权限由来宾 OS 上的帐户类型决定。
+> RBAC 不限制已登录到 VM 的用户可以执行的操作。这些权限由来宾 OS 上的帐户类型决定。
 > 
 > 
 
@@ -156,8 +156,8 @@ RBAC 不限制已登录到 VM 的用户可以执行的操作。这些权限由�
     * 从“位置”下拉框中选择区域。
     * 请勿编辑“模板根 URI”或“参数根 URI”文本框。
     * 在“OS 类型”下拉框中，选择“Linux”。
-    * 查看条款和条件，然后单击“我同意上述条款和条件”复选框。
-    * 单击“购买”按钮。
+    * 选择“法律条款”，查看条款和条件，单击“购买”按钮。
+    * 单击“创建”按钮。
 3. 等待部署完成。
 4. 参数文件包括硬编码管理员用户名和密码，强烈建议你立即更改它们。在 Azure 门户预览中，单击名为 `ra-single-vm0 ` 的 VM。然后，单击“支持 + 疑难解答”部分中的“重置密码”。在“模式”下拉框中选择“重置密码”，然后选择新的“用户名”和“密码”。单击“更新”按钮来持久保存新的用户名和密码。
 

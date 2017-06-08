@@ -23,7 +23,7 @@ ms.author: larryfr
 使用脚本操作可以通过指定群集配置设置，或者在群集上安装额外的服务、工具或其他软件，来自定义 Azure HDInsight 群集。你可以在创建群集期间或者在运行中的群集上使用脚本操作。
 
 > [!IMPORTANT]
-本文档中的步骤需要使用 Linux 的 HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 ## 什么是脚本操作？
 
@@ -39,7 +39,7 @@ ms.author: larryfr
 | HDInsight .NET SDK |✓ |✓ |
 | Azure Resource Manager 模板 |✓ |&nbsp; |
 
-有关使用这些方法应用脚本操作的详细信息，请参阅 [Customize HDInsight clusters using script actions](./hdinsight-hadoop-customize-cluster-linux.md)（使用脚本操作自定义 HDInsight 群集）。
+有关使用这些方法应用脚本操作的详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](./hdinsight-hadoop-customize-cluster-linux.md)。
 
 ## <a name="bestPracticeScripting"></a>脚本开发最佳实践
 
@@ -57,11 +57,11 @@ ms.author: larryfr
 * [使用重试逻辑从暂时性错误中恢复](#bps9)
 
 > [!IMPORTANT]
-脚本操作必须在 60 分钟内完成，否则将会超时。在节点预配期间，脚本将与其他安装和配置进程一同运行。争用 CPU 时间和网络带宽等资源可能导致完成脚本所需的时间要长于在开发环境中所需的时间。
+> 脚本操作必须在 60 分钟内完成，否则将会超时。在节点预配期间，脚本将与其他安装和配置进程一同运行。争用 CPU 时间和网络带宽等资源可能导致完成脚本所需的时间要长于在开发环境中所需的时间。
 
 ### <a name="bPS1"></a>选择目标 Hadoop 版本
 
-不同版本的 HDInsight 有不同版本的 Hadoop 服务和已安装的组件。如果脚本需要特定版本的服务或组件，你应该只在包含所需组件的 HDInsight 版本中使用该脚本。可以使用 [HDInsight component versioning](./hdinsight-component-versioning.md)（HDInsight 组件版本控制）来查找有关 HDInsight 随附组件版本的信息。
+不同版本的 HDInsight 有不同版本的 Hadoop 服务和已安装的组件。如果脚本需要特定版本的服务或组件，你应该只在包含所需组件的 HDInsight 版本中使用该脚本。可以使用 [HDInsight 组件版本控制](./hdinsight-component-versioning.md)来查找有关 HDInsight 随附组件版本的信息。
 
 ### <a name="bps10"></a> 选择目标 OS 版本
 
@@ -115,7 +115,7 @@ fi
 最佳做法是下载订阅上 Azure 存储帐户中的所有内容并将其存档。
 
 > [!IMPORTANT]
-使用的存储帐户必须是群集的默认存储帐户，或其他任何存储帐户的公共只读容器。
+> 使用的存储帐户必须是群集的默认存储帐户，或其他任何存储帐户的公共只读容器。
 
 例如，Microsoft 提供的示例存储在 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 存储帐户中，这是 HDInsight 团队维护的公共只读容器。
 
@@ -134,7 +134,7 @@ fi
 基于 Linux 的 HDInsight 群集提供在群集中保持活动状态的两个头节点，而脚本操作将针对这两个节点运行。如果安装的组件预期只有一个头节点，则必须将脚本设计为只在群集中两个头节点之一上安装组件。
 
 > [!IMPORTANT]
-安装为 HDInsight 一部分的默认服务旨在根据需要在两个头节点之间故障转移，但是此功能未扩展到通过脚本操作安装的自定义组件。如果需要让通过脚本操作安装的组件高度可用，则必须实现自己的、使用两个可用头节点的故障转移机制。
+> 安装为 HDInsight 一部分的默认服务旨在根据需要在两个头节点之间故障转移，但是此功能未扩展到通过脚本操作安装的自定义组件。如果需要让通过脚本操作安装的组件高度可用，则必须实现自己的、使用两个可用头节点的故障转移机制。
 
 ### <a name="bPS6"></a>配置自定义组件以使用 Azure Blob 存储
 
@@ -151,7 +151,7 @@ hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 系统将会记录脚本执行期间写入 STDOUT 和 STDERR 的信息，你可以使用 Ambari Web UI 来查看这些信息。
 
 > [!NOTE]
-只有在成功创建群集之后，才能使用 Ambari。如果在群集创建期间使用脚本操作但创建失败，请参阅 [Customize HDInsight clusters using script action](./hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)（使用脚本操作自定义 HDInsight 群集）的故障排除部分，以了解访问所记录信息的其他方式。
+> 只有在成功创建群集之后，才能使用 Ambari。如果在群集创建期间使用脚本操作但创建失败，请参阅 [Customize HDInsight clusters using script action](./hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)（使用脚本操作自定义 HDInsight 群集）的故障排除部分，以了解访问所记录信息的其他方式。
 
 大多数实用工具和安装包会将信息写入 STDOUT 和 STDERR，不过你可能想要添加更多日志记录。若要将文本发送到 STDOUT，可使用 `echo`。例如：
 
@@ -290,7 +290,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 将文件存储在群集可访问的 Azure 存储帐户（例如默认存储帐户）中可以提供快速访问，因为此存储在 Azure 网络内。
 
 > [!NOTE]
-用于引用脚本的 URI 格式因所使用的服务而异。对于与 HDInsight 群集关联的存储帐户，请使用 `wasb://` 或 `wasbs://`。对于可公开读取的 URI，请使用 `http://` 或 `https://`。
+> 用于引用脚本的 URI 格式因所使用的服务而异。对于与 HDInsight 群集关联的存储帐户，请使用 `wasb://` 或 `wasbs://`。对于可公开读取的 URI，请使用 `http://` 或 `https://`。
 
 ### 检查操作系统版本
 
@@ -320,7 +320,7 @@ fi
 
 ## <a name="runScriptAction"></a>如何运行脚本操作
 
-可以通过 Azure 门户预览、Azure PowerShell、Azure Resource Manager 模板或 HDInsight .NET SDK 使用脚本操作来自定义 HDInsight 群集。有关说明，请参阅 [How to use script action](./hdinsight-hadoop-customize-cluster-linux.md)（如何使用脚本操作）。
+可以通过 Azure 门户预览、Azure PowerShell、Azure Resource Manager 模板或 HDInsight .NET SDK 使用脚本操作来自定义 HDInsight 群集。有关说明，请参阅[如何使用脚本操作](./hdinsight-hadoop-customize-cluster-linux.md)。
 
 ## <a name="sampleScripts"></a>自定义脚本示例
 
@@ -332,7 +332,7 @@ Microsoft 提供了在 HDInsight 群集上安装组件的示例脚本。示例�
 * [在 HDInsight 群集上安装并使用 Giraph](./hdinsight-hadoop-giraph-install-linux.md)
 
 > [!NOTE]
-上面链接的文档针对基于 Linux 的 HDInsight 群集。有关适用于基于 Windows 的 HDInsight 的脚本，请参阅 [Script action development with HDInsight (Windows)](./hdinsight-hadoop-script-actions.md)（使用 HDInsight 进行脚本操作开发 (Windows)）或使用每篇文章顶部提供的链接。
+> 上面链接的文档针对基于 Linux 的 HDInsight 群集。有关适用于基于 Windows 的 HDInsight 的脚本，请参阅[使用 HDInsight 进行脚本操作开发 (Windows)](./hdinsight-hadoop-script-actions.md)或使用每篇文章顶部提供的链接。
 
 ## 故障排除
 
@@ -347,7 +347,7 @@ Microsoft 提供了在 HDInsight 群集上安装组件的示例脚本。示例�
 *解决方法*：如果文本编辑器提供了选项，请选择 Unix 格式或 LF 作为行尾。也可以在 Unix 系统上使用以下命令，将 CRLF 更改为 LF：
 
 > [!NOTE]
-以下命令大致相当于将 CRLF 行尾更改为 LF。根据系统中提供的实用工具选择一种解决方法。
+> 以下命令大致相当于将 CRLF 行尾更改为 LF。根据系统中提供的实用工具选择一种解决方法。
 
 | 命令 | 说明 |
 | --- | --- |

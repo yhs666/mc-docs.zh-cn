@@ -12,7 +12,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/23/2017
+ms.date: 01/23/2017
 ms.author: trinadhk;markgal;
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -109,7 +109,7 @@ ms.lasthandoff: 04/14/2017
 
 对于 Linux VM：
 
-- 按照[更新 Linux VM 代理](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/)上的说明进行操作。
+- 按照[更新 Linux VM 代理](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/)上的说明进行操作。
 
 ### <a name="validating-vm-agent-installation"></a>验证 VM 代理安装
 如何检查 Windows VM 上的 VM 代理版本：

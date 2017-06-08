@@ -29,7 +29,7 @@ ms.author: gwallace
 
 ## 准备阶段
 
-1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。可以从[下载页](https://www.azure.cn/downloads/)的“Windows PowerShell”部分下载并安装最新版本。
+1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。可以从[下载页](/downloads/)的“Windows PowerShell”部分下载并安装最新版本。
 2. 将为应用程序网关创建虚拟网络和子网。请确保没有虚拟机或云部署正在使用子网。应用程序网关必须单独位于虚拟网络子网中。
 3. 必须存在配置为使用应用程序网关的服务器，或者必须在虚拟网络中为其创建终结点，或者必须为其分配公共 IP/VIP。
 
@@ -187,7 +187,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 此步骤会配置应用程序网关的实例大小。
 
 > [!NOTE]
-*InstanceCount* 的默认值为 2，最大值为 10。*GatewaySize* 的默认值为 Medium。可以在 Standard\_Small、Standard\_Medium 和 Standard\_Large 之间进行选择。
+> *InstanceCount* 的默认值为 2，最大值为 10。*GatewaySize* 的默认值为 Medium。可以在 Standard\_Small、Standard\_Medium 和 Standard\_Large 之间进行选择。
 
 ## 使用 New-AzureApplicationGateway 创建应用程序网关
 
@@ -246,7 +246,7 @@ Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 ```
 
 > [!NOTE]
-可以使用 **-force** 开关来禁止显示该删除的确认消息。
+> 可以使用 **-force** 开关来禁止显示该删除的确认消息。
 
 若要验证是否已删除服务，可以使用 `Get-AzureRmApplicationGateway` cmdlet。此步骤不是必需的。
 
@@ -262,7 +262,7 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 ## 后续步骤
 
-如果你要配置 SSL 卸载，请参阅 [Configure an application gateway for SSL offload](./application-gateway-ssl.md)（配置应用程序网关以进行 SSL 卸载）。
+如果你要配置 SSL 卸载，请参阅[配置应用程序网关以进行 SSL 卸载](./application-gateway-ssl.md)。
 
 若要将应用程序网关配置为与 ILB 配合使用，请参阅[创建具有内部负载均衡器 (ILB) 的应用程序网关](./application-gateway-ilb.md)。
 

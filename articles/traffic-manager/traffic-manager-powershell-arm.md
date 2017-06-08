@@ -153,7 +153,7 @@ New-AzureRmTrafficManagerEndpoint -Name MyIpEndpoint -ProfileName MyProfile -Res
 指定外部终结点时：
 
 * 必须使用“Target”参数指定终结点域名
-* 如果使用“性能”流量路由方法，则需要“EndpointLocation”。 否则，该参数是可选的。 该值必须是 [有效的 Azure 区域名称](https://azure.microsoft.com/regions/)。
+* 如果使用“性能”流量路由方法，则需要“EndpointLocation”。 否则，该参数是可选的。 该值必须是有效的 Azure 区域名称。
 * “加权”和“优先级”是可选项。
 
 ### <a name="example-1-adding-external-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>示例 1：使用 `Add-AzureRmTrafficManagerEndpointConfig` 和 `Set-AzureRmTrafficManagerProfile` 添加外部终结点
@@ -182,7 +182,7 @@ New-AzureRmTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -Reso
 在父配置文件中使用特定的终结点类型“NestedEndpoints”配置嵌套式终结点。 指定嵌套式终结点时：
 
 * 必须使用“targetResourceId”参数指定终结点
-* 如果使用“性能”流量路由方法，则需要“EndpointLocation”。 否则，该参数是可选的。 该值必须是 [有效的 Azure 区域名称](http://azure.microsoft.com/regions/)。
+* 如果使用“性能”流量路由方法，则需要“EndpointLocation”。 否则，该参数是可选的。 该值必须是有效的 Azure 区域名称。
 * 与指定 Azure 终结点时一样，“Weight”和“Priority”是可选的。
 * “MinChildEndpoints”参数是可选的。 默认值为“1”。 如果可用终结点数低于此阈值，则父配置文件会将此子配置文件视为“已降级”，并将流量转移到父配置文件中的其他终结点。
 

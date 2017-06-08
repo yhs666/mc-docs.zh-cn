@@ -32,7 +32,7 @@ ms.lasthandoff: 04/28/2017
 
 > [!IMPORTANT]
 > 本文中的步骤需要使用 HDInsight 群集上基于 Linux 的 Storm。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。 
-> <p>
+>
 > 有关在基于 Windows 的 HDInsight 上部署和监视拓扑的详细信息，请参阅 [在基于 Windows 的 HDInsight 上部署和管理 Apache Storm 拓扑](hdinsight-storm-deploy-monitor-topology.md)
 
 ## <a name="prerequisites"></a>先决条件
@@ -62,7 +62,7 @@ HDInsight Tools 可用于将 C# 或混合拓扑提交到 Storm 群集。 以下�
 
     > [!NOTE]
     > 针对 Visual Studio 的 Data Lake 工具以前称为 Visual Studio 的 HDInsight 工具。
-    > <p>
+    >
     > 针对 Visual Studio 的 Data Lake 工具包含在 Visual Studio 2017 的 __Azure 工作负荷__中。
 
 2. 打开 Visual Studio，选择“文件” > “新建” > “项目”。
@@ -92,10 +92,10 @@ HDInsight Tools 可用于将 C# 或混合拓扑提交到 Storm 群集。 以下�
 
     此命令启动群集上的示例 WordCount 拓扑。 此拓扑随机生成句子，并统计句子中每个单词的出现次数。
 
-   > [!NOTE]
-   > 将拓扑提交到群集时，必须先复制包含群集的 jar 文件，然后才能使用 `storm` 命令。 若要将文件复制到群集，可以使用 `scp` 命令。 例如： `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:FILENAME.jar`
-   >
-   > WordCount 示例和其他 Storm 初学者示例已经包含在群集中，其位置为 `/usr/hdp/current/storm-client/contrib/storm-starter/`。
+    > [!NOTE]
+    > 将拓扑提交到群集时，必须先复制包含群集的 jar 文件，然后才能使用 `storm` 命令。 若要将文件复制到群集，可以使用 `scp` 命令。 例如： `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:FILENAME.jar`
+    >
+    > WordCount 示例和其他 Storm 初学者示例已经包含在群集中，其位置为 `/usr/hdp/current/storm-client/contrib/storm-starter/`。
 
 ## <a name="submit-a-topology-programmatically"></a>提交拓扑：以编程方式
 

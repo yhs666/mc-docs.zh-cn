@@ -54,7 +54,7 @@ ms.lasthandoff: 05/05/2017
 |-------------|----------|-----------|
 |id|String|池的 id。|
 |displayName|String|池的显示名称。|
-|vmSize|String|池中虚拟机的大小。 池中所有虚拟机的大小相同。 <br/><br/> 有关云服务池（使用 cloudServiceConfiguration 创建的池）的虚拟机可用大小的信息，请参阅[云服务的大小](/documentation/articles/cloud-services-sizes-specs/)。 批处理支持除 `ExtraSmall` 以外的所有云服务 VM 大小。<br/><br/> 有关使用虚拟机应用商店中映像的池（使用 virtualMachineConfiguration 创建的池）的可用 VM 大小的信息，请参阅[虚拟机的大小](/documentation/articles/virtual-machines-linux-sizes/) (Linux) 或[虚拟机的大小](/documentation/articles/virtual-machines-windows-sizes/) (Windows)。 Batch 支持除 `STANDARD_A0` 和高级存储大小（`STANDARD_GS`、`STANDARD_DS` 和 `STANDARD_DSV2` 系列）以外所有的 Azure VM 大小。|
+|vmSize|String|池中虚拟机的大小。 池中所有虚拟机的大小相同。 <br/><br/> 有关云服务池（使用 cloudServiceConfiguration 创建的池）的虚拟机可用大小的信息，请参阅[云服务的大小](../cloud-services/cloud-services-sizes-specs.md)。 批处理支持除 `ExtraSmall` 以外的所有云服务 VM 大小。<br/><br/> 有关使用虚拟机应用商店中映像的池（使用 virtualMachineConfiguration 创建的池）的可用 VM 大小的信息，请参阅[虚拟机的大小](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) 或[虚拟机的大小](../virtual-machines/virtual-machines-windows-sizes.md) (Windows)。 Batch 支持除 `STANDARD_A0` 和高级存储大小（`STANDARD_GS`、`STANDARD_DS` 和 `STANDARD_DSV2` 系列）以外所有的 Azure VM 大小。|
 |[cloudServiceConfiguration](#bk_csconf)|复杂类型|池的云服务配置。|
 |[virtualMachineConfiguration](#bk_vmconf)|复杂类型|池的虚拟机配置。|
 |[networkConfiguration](#bk_netconf)|复杂类型|池的网络配置。|
@@ -70,8 +70,8 @@ ms.lasthandoff: 05/05/2017
 
 |元素名称|类型|说明|
 |------------------|----------|-----------|
-|osFamily|String|要安装在池中虚拟机上的 Azure 来宾 OS 系列。<br /><br /> 可能的值包括：<br /><br /> **2** - OS 系列 2，等效于 Windows Server 2008 R2 SP1。<br /><br /> **3** - OS 系列 3，等效于Windows Server 2012。<br /><br /> **4** - OS 系列 4，等效于 Windows Server 2012 R2。<br /><br /> 有关详细信息，请参阅 [Azure 来宾 OS 版本](/documentation/articles/cloud-services-guestos-update-matrix/#releases/)。|
-|targetOSVersion|String|要安装在池中虚拟机上的 Azure 来宾 OS 版本。<br /><br /> 默认值为 **\***，用于指定特定系列的最新操作系统版本。<br /><br /> 有关其他允许的值的信息，请参阅 [Azure 来宾 OS 版本](/documentation/articles/cloud-services-guestos-update-matrix/#releases/)。|
+|osFamily|String|要安装在池中虚拟机上的 Azure 来宾 OS 系列。<br /><br /> 可能的值包括：<br /><br /> **2** - OS 系列 2，等效于 Windows Server 2008 R2 SP1。<br /><br /> **3** - OS 系列 3，等效于Windows Server 2012。<br /><br /> **4** - OS 系列 4，等效于 Windows Server 2012 R2。<br /><br /> 有关详细信息，请参阅 [Azure 来宾 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)。|
+|targetOSVersion|String|要安装在池中虚拟机上的 Azure 来宾 OS 版本。<br /><br /> 默认值为 **\***，用于指定特定系列的最新操作系统版本。<br /><br /> 有关其他允许的值的信息，请参阅 [Azure 来宾 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)。|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 

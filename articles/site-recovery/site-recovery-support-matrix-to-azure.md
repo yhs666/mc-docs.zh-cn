@@ -22,7 +22,7 @@ ms.author: rajanaki
 >- [复制到 Azure](./site-recovery-support-matrix-to-azure.md)
 >- [复制到客户所有的辅助站点](./site-recovery-support-matrix-to-sec-site.md)
 
-本文汇总了复制和恢复到 Azure 时 Azure Site Recovery 支持的配置和组件。有关 Azure Site Recovery 先决条件的详细信息，请参阅 [Site Recovery 最佳做法](/documentation/articles/site-recovery-best-practices/)。
+本文汇总了复制和恢复到 Azure 时 Azure Site Recovery 支持的配置和组件。有关 Azure Site Recovery 先决条件的详细信息，请参阅 [Site Recovery 最佳做法](site-recovery-best-practices.md)。
 
 ## 部署选项支持
 
@@ -54,7 +54,7 @@ ms.author: rajanaki
 
 ##<a name="support-for-replicated-machine-os-versions"></a> 复制计算机 OS 版本支持
 
-复制到 Azure 时，受保护的虚拟机必须符合 [Azure 要求](/documentation/articles/site-recovery-best-practices/#azure-virtual-machine-requirements)。下表总结了使用 Azure Site Recovery 时的各种部署方案中的复制操作系统支持。此支持适用于在所述的 OS 上运行的任何工作负荷。
+复制到 Azure 时，受保护的虚拟机必须符合 [Azure 要求](site-recovery-best-practices.md#azure-virtual-machine-requirements)。下表总结了使用 Azure Site Recovery 时的各种部署方案中的复制操作系统支持。此支持适用于在所述的 OS 上运行的任何工作负荷。
 
  物理服务器** | **Hyper V（无 Virtual Machine Manager）** | **Hyper V（有 Virtual Machine Manager）**
 --- | --- | ---
@@ -183,6 +183,6 @@ HUB | 是 | 是 | 是
 **Azure 恢复服务 (MARS) 代理** | <p>协调 Hyper-V VM 与 Azure 之间的复制</p><p>安装在本地 Hyper-V 服务器（具有或不具有 Virtual Machine Manager 服务器）上</p> | 最新代理（[可从门户获取](http://aka.ms/latestmarsagent)） |
 
 ## 后续步骤
-[准备部署](/documentation/articles/site-recovery-best-practices/)
+[准备部署](site-recovery-best-practices.md)
 
 <!---HONumber=Mooncake_0227_2017-->

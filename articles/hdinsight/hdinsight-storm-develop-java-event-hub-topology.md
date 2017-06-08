@@ -32,9 +32,9 @@ Azure 事件中心可用于处理网站、应用程序和设备中的大量数�
 
 ## <a name="prerequisites"></a>先决条件
 
-* 一个 3.5 版 Apache Storm on HDInsight 群集。 有关详细信息，请参阅 [Storm on HDInsight 群集入门](hdinsight-apache-storm-tutorial-get-started-linux.md)。
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+* 一个 3.5 版 Apache Storm on HDInsight 群集。 有关详细信息，请参阅 [Storm on HDInsight 群集入门](hdinsight-apache-storm-tutorial-get-started-linux.md)。
 
     > [!IMPORTANT]
     > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅[弃用 HDInsight 3.3 和 3.4](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
@@ -355,7 +355,7 @@ HdfsBolt 一般用于将数据存储到 Hadoop 分布式文件系统 (HDFS)。 �
 
     > [!NOTE]
     > 如果使用了 SSH 帐户的密码，则系统将提示你输入该密码。 如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。 以下示例从 `~/.ssh/id_rsa` 加载私钥：
-    > <p>
+    >
     > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`
 
 3. 使用以下命令启动拓扑：

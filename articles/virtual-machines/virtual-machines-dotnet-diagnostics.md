@@ -31,6 +31,8 @@ ms.lasthandoff: 05/05/2017
 ### <a name="pre-requisites"></a>先决条件
 本演练假定你具有 Azure 订阅，并将 Visual Studio 2013 与 Azure SDK 结合使用。 如果没有 Azure 订阅，可以注册[试用版][Trial]。 请确保[安装并配置 Azure PowerShell 0.8.7 版或更高版本][Install and configure Azure PowerShell version 0.8.7 or later]。
 
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
+
 ### <a name="step-1-create-a-virtual-machine"></a>步骤 1：创建虚拟机
 1. 在开发计算机上启动 Visual Studio 2013。
 2. 在 Visual Studio 服务器资源管理器中，展开“Azure”，右键单击“虚拟机”然后选择“创建虚拟机”。
@@ -173,4 +175,4 @@ ms.lasthandoff: 05/05/2017
 [Debugging an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Trial]: https://www.azure.cn/pricing/1rmb-trial/
-[Install and configure Azure PowerShell version 0.8.7 or later]: /azure/install-configure-powershell/
+[Install and configure Azure PowerShell version 0.8.7 or later]: /powershell-install-configure/

@@ -244,8 +244,4 @@ Azure 以 Azure DNS 的形式提供高度可用的高性能外部 DNS 解决方�
 
 外围网络设计和外围网络部署决策有许多变数，如果决定使用外围网络，要使用的外围网络类型应该根据网络安全要求来确定。
 
-了解详细信息：
-
-- [Azure 网络安全](./best-practices-network-security.md)
-
 <!---HONumber=Mooncake_1024_2016-->

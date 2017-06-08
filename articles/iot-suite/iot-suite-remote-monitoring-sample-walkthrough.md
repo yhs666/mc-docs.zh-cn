@@ -1,6 +1,6 @@
 ---
-title: "远程监视预配置解决方案演练 | Azure"
-description: "介绍 Azure IoT 预配置解决方案远程监视及其体系结构。"
+title: "远程监控预配置解决方案演练 | Azure"
+description: "介绍 Azure IoT 预配置解决方案远程监控及其体系结构。"
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -24,11 +24,11 @@ ms.lasthandoff: 05/19/2017
 
 ---
 
-# <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>远程监视预配置解决方案演练
+# <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>远程监控预配置解决方案演练
 
-IoT 套件远程监视[预配置解决方案][lnk-preconfigured-solutions]是适用于在远程位置运行的多个计算机的端到端监视解决方案实现。 该解决方案结合了关键 Azure 服务来提供业务方案的通用实现。 可以将其用作自己实现的起点，并可以根据特定的业务要求[自定义][lnk-customize]该解决方案。
+IoT 套件远程监控[预配置解决方案][lnk-preconfigured-solutions]是适用于在远程位置运行的多个计算机的端到端监视解决方案实现。 该解决方案结合了关键 Azure 服务来提供业务方案的通用实现。 可以将其用作自己实现的起点，并可以根据特定的业务要求[自定义][lnk-customize]该解决方案。
 
-本文将逐步讲解远程监视解决方案的一些关键要素，以帮助你了解其工作原理。 该知识有助于：
+本文将逐步讲解远程监控解决方案的一些关键要素，以帮助你了解其工作原理。 该知识有助于：
 
 - 排除解决方案中的问题。
 - 规划如何定制解决方案来满足自身的特定需求。 
@@ -40,7 +40,7 @@ IoT 套件远程监视[预配置解决方案][lnk-preconfigured-solutions]是适
 ![逻辑体系结构](./media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## <a name="simulated-devices"></a>模拟设备
-在该预配置解决方案中，模拟设备表示冷却设备（例如建筑物空调或设施空气处理单位）。 部署预配置解决方案时，还会自动预配 4 个在 [Azure WebJob][lnk-webjobs] 中运行的模拟设备。 模拟设备可让你轻松观测解决方案的行为，而不需要部署任何物理设备。 若要部署实际的物理设备，请参阅[将设备连接到远程监视预配置解决方案][lnk-connect-rm]教程。
+在该预配置解决方案中，模拟设备表示冷却设备（例如建筑物空调或设施空气处理单位）。 部署预配置解决方案时，还会自动预配 4 个在 [Azure WebJob][lnk-webjobs] 中运行的模拟设备。 模拟设备可让你轻松观测解决方案的行为，而不需要部署任何物理设备。 若要部署实际的物理设备，请参阅[将设备连接到远程监控预配置解决方案][lnk-connect-rm]教程。
 
 ### <a name="device-to-cloud-messages"></a>设备到云的消息
 每个模拟设备可将以下消息类型发送到 IoT 中心：
@@ -52,7 +52,7 @@ IoT 套件远程监视[预配置解决方案][lnk-preconfigured-solutions]是适
 | 遥测 |设备会定期发送 **遥测** 消息，报告从设备的模拟传感器收集到的温度和湿度模拟值。 |
 
 > [!NOTE]
-> 解决方案将设备支持的命令列表存储在 Cosmos DB 数据库中，而不是存储在设备孪生中。
+> 解决方案将设备支持的命令列表存储在 DocumentDB 数据库中，而不是存储在设备孪生中。
 > 
 > 
 
@@ -128,7 +128,7 @@ IoT 套件远程监视[预配置解决方案][lnk-preconfigured-solutions]是适
 - 计划作业，为多个设备设置属性或者在多个设备上调用方法。
 
 ## <a name="azure-stream-analytics"></a>Azure 流分析
-在远程监视解决方案中，[Azure 流分析][lnk-asa] (ASA) 将 IoT 中心接收的设备消息分发到其他后端组件进行处理或存储。 不同的 ASA 作业根据消息内容执行特定的功能。
+在远程监控解决方案中，[Azure 流分析][lnk-asa] (ASA) 将 IoT 中心接收的设备消息分发到其他后端组件进行处理或存储。 不同的 ASA 作业根据消息内容执行特定的功能。
 
 **作业 1：设备信息** 会筛选来自传入消息流的设备信息消息，并将它们发送到事件中心终结点。 设备会在启动时发送设备信息消息，并且响应 **SendDeviceInfo** 命令。 此作业使用以下查询定义来识别 **设备信息** 消息：
 
@@ -232,11 +232,11 @@ GROUP BY
 
 ## <a name="webjobs"></a>Web 作业
 
-除了托管设备模拟器以外，解决方案中的 Web 作业还托管 Azure Web 作业中运行的、用于处理命令响应的 **事件处理器** 。 它使用命令响应消息来更新设备命令历史记录（存储在 Cosmos DB 数据库中）。
+除了托管设备模拟器以外，解决方案中的 Web 作业还托管 Azure Web 作业中运行的、用于处理命令响应的 **事件处理器** 。 它使用命令响应消息来更新设备命令历史记录（存储在 DocumentDB 数据库中）。
 
-## <a name="cosmos-db"></a>Cosmos DB
+## <a name="document-db"></a>DocumentDB
 
-该解决方案使用 Cosmos DB 数据库来存储有关连接到该解决方案的设备信息。 此信息包括从解决方案门户发送到设备的命令以及从解决方案门户调用的方法的历史记录。
+该解决方案使用 DocumentDB 数据库来存储有关连接到该解决方案的设备信息。 此信息包括从解决方案门户发送到设备的命令以及从解决方案门户调用的方法的历史记录。
 
 ## <a name="solution-portal"></a>解决方案门户
 
@@ -248,22 +248,22 @@ Web 应用中的此页面使用 PowerBI javascript 控件（请参阅 [PowerBI-v
 ### <a name="device-list"></a>列出设备
 在解决方案门户的此页面中，可以：
 
-* 预配新设备。 此操作会设置唯一设备 ID 并生成身份验证密钥。 将有关设备的信息同时写入 IoT 中心标识注册表以及特定于解决方案的 Cosmos DB 数据库。
+* 预配新设备。 此操作会设置唯一设备 ID 并生成身份验证密钥。 将有关设备的信息同时写入 IoT 中心标识注册表以及特定于解决方案的 DocumentDB 数据库。
 * 管理设备属性。 该操作包括查看现有属性和使用新数据进行更新。
 * 将命令发送到设备。
 * 查看设备的命令历史记录。
 * 启用和禁用设备。
 
 ## <a name="next-steps"></a>后续步骤
-以下 TechNet 博客文章提供了有关远程监视预配置解决方案的更多详细信息：
+以下 TechNet 博客文章提供了有关远程监控预配置解决方案的更多详细信息：
 
-- [IoT Suite - Under The Hood - Remote Monitoring（IoT 套件 - 幕后 - 远程监视）](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
-- [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices（IoT 套件 - 远程监视 - 添加实时与模拟设备）](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
+- [IoT Suite - Under The Hood - Remote Monitoring（IoT 套件 - 幕后 - 远程监控）](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
+- [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices（IoT 套件 - 远程监控 - 添加实时与模拟设备）](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
 你可以通过阅读以下文章继续开始使用 IoT 套件：
 
-- [将设备连接到远程监视预配置解决方案][lnk-connect-rm]
-- [azureiotsuite.com 网站上的权限][lnk-permissions] 
+- [将设备连接到远程监控预配置解决方案][lnk-connect-rm]
+- [azureiotsuite.cn 网站上的权限][lnk-permissions] 
 
 
 [lnk-preconfigured-solutions]: ./iot-suite-what-are-preconfigured-solutions.md 

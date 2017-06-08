@@ -241,7 +241,7 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-有关创建虚拟机和分配 NIC 的指南，请参阅[使用 PowerShell 创建 Azure VM](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)。
+有关创建虚拟机和分配 NIC 的指南，请参阅[使用 PowerShell 创建 Azure VM](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fload-balancer%2ftoc.json)。
 
 ## <a name="add-the-network-interface-to-the-load-balancer"></a>向负载均衡器添加网络接口
 

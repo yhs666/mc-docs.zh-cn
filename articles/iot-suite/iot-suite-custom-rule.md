@@ -225,7 +225,7 @@ ms.author: dobett
 
 [lnk_free_trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-node]: http://nodejs.org
-[lnk-builtin-rule]: ./iot-suite-getstarted-preconfigured-solutions.md#add-a-rule-for-the-new-device
+[lnk-builtin-rule]: ./iot-suite-getstarted-preconfigured-solutions.md#add-a-rule
 [lnk-dynamic-telemetry]: ./iot-suite-dynamic-telemetry.md
 
 <!---HONumber=Mooncake_0327_2017-->

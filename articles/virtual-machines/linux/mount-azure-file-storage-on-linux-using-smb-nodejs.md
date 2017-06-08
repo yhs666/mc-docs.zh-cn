@@ -34,7 +34,7 @@ ms.lasthandoff: 04/14/2017
 可以使用以下命令行界面 (CLI) 版本之一来完成任务：
 
 - [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
-- [Azure CLI 2.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
+- [Azure CLI 2.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="quick-commands"></a> 快速命令
 若要快速完成任务，请按照本部分的步骤执行操作。 如下更多详细信息和上下文，请从[“详细演练”](mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough)部分开始。
@@ -131,6 +131,6 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 
 ## <a name="next-steps"></a>后续步骤
 
-- [在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [将磁盘添加到 Linux VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [使用 Azure CLI 加密 Linux VM 上的磁盘](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+- [将磁盘添加到 Linux VM](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+- [使用 Azure CLI 加密 Linux VM 上的磁盘](encrypt-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

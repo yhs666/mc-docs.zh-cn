@@ -14,7 +14,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
      <li>
-        <a href="/azure/iot-hub/iot-hub-what-is-iot-hub">
+        <a href="/iot-hub/iot-hub-what-is-iot-hub">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -31,26 +31,8 @@ ms.lasthandoff: 05/12/2017
         </div>
         </a>
     </li>
-     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=iot-hub">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure IoT 中心视频库</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-csharp-csharp-getstarted">
+        <a href="/iot-hub/iot-hub-csharp-csharp-getstarted">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -68,7 +50,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-java-java-getstarted">
+        <a href="/iot-hub/iot-hub-java-java-getstarted">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,7 +68,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-node-node-getstarted">
+        <a href="/iot-hub/iot-hub-node-node-getstarted">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -115,7 +97,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>命令行</h3>
-                        <p><a href="/cli/azure/iot">Azure CLI</a></p>
+                        <p><a href="https://docs.microsoft.com/cli/azure/iot">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
@@ -127,26 +109,8 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.devices">.NET（服务）</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET（设备）</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">Java（服务）</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iothub">Java（设备）</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDK</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-gateway-sdk">网关 SDK</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest">REST API（资源提供程序）</a></p>
-                        <p><a href="/rest/api/iothub/device-identities-rest">REST API（设备标识）</a></p>
-                        <p><a href="/rest/api/iothub/device-messaging-rest-apis">REST API（设备消息传送）</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.devices">.NET（服务）</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client">.NET（设备）</a></p>
                     </div>
                 </div>
             </div>

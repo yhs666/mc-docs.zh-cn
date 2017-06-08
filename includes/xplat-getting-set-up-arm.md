@@ -13,7 +13,7 @@ wacn.date: 12/17/2015
 
 ## 将 Azure CLI 与 Azure 资源管理器 (ARM) 配合使用
 
-通过资源管理器命令和模板使用 Azure CLI 以利用资源组部署 Azure 资源和工作负荷之前，你将需要一个 Azure 帐户（这是当然的）。如果没有帐户，你可以[在此处获取免费 Azure 试用帐户](http://azure.microsoft.com/pricing/free-trial/)。
+通过资源管理器命令和模板使用 Azure CLI 以利用资源组部署 Azure 资源和工作负荷之前，你将需要一个 Azure 帐户（这是当然的）。如果没有帐户，你可以[在此处获取 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ### 步骤 1：验证 Azure CLI 版本
 

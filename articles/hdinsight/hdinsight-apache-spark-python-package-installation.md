@@ -27,7 +27,7 @@ ms.author: nitinme
 了解如何使用脚本操作在 HDInsight (Linux) 上配置 Apache Spark 群集，以使用未现成包含在群集中的、由社区贡献的 **python** 外部包。
 
 > [!NOTE]
-此外可以通过使用 `%%configure` magic 配置 Jupyter 笔记本以使用外部包。请参阅[在 HDInsight 上的 Apache Spark 群集中将外部包与 Jupyter 笔记本配合使用](./hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)，了解相关说明。
+> 此外可以通过使用 `%%configure` magic 配置 Jupyter 笔记本以使用外部包。请参阅[在 HDInsight 上的 Apache Spark 群集中将外部包与 Jupyter 笔记本配合使用](./hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)，了解相关说明。
 > 
 > 
 
@@ -39,10 +39,10 @@ ms.author: nitinme
 必须满足以下条件：
 
 * Azure 订阅。请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* HDInsight 上的 Apache Spark 群集。有关说明，请参阅 [Create Apache Spark clusters in Azure HDInsight](./hdinsight-apache-spark-jupyter-spark-sql.md)（在 Azure HDInsight 中创建 Apache Spark 群集）。
+* HDInsight 上的 Apache Spark 群集。有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](./hdinsight-apache-spark-jupyter-spark-sql.md)。
 
     > [!NOTE]
-    如果 HDInsight Linux 上还没有 Spark 群集，则可以在群集创建过程中运行脚本操作。访问有关[如何使用自定义脚本操作](./hdinsight-hadoop-customize-cluster-linux.md)的文档。
+    > 如果 HDInsight Linux 上还没有 Spark 群集，则可以在群集创建过程中运行脚本操作。访问有关[如何使用自定义脚本操作](./hdinsight-hadoop-customize-cluster-linux.md)的文档。
     > 
     > 
 
@@ -53,7 +53,7 @@ ms.author: nitinme
 2. 在 Spark 群集边栏选项卡中，单击“使用情况”下的“脚本操作”。运行用于在头节点和工作节点中安装 TensorFlow 的自定义操作。可以参考 https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh 中的 bash 脚本；访问有关[如何使用自定义脚本操作](./hdinsight-hadoop-customize-cluster-linux.md)的文档。
 
     > [!NOTE]
-    群集中有两个 python 安装。Spark 将使用位于 `/usr/bin/anaconda/bin` 中的 Anaconda python 安装。通过 `/usr/bin/anaconda/bin/pip` 和 `/usr/bin/anaconda/bin/conda` 在自定义操作中引用该安装。
+    > 群集中有两个 python 安装。Spark 将使用位于 `/usr/bin/anaconda/bin` 中的 Anaconda python 安装。通过 `/usr/bin/anaconda/bin/pip` 和 `/usr/bin/anaconda/bin/conda` 在自定义操作中引用该安装。
     > 
     > 
 

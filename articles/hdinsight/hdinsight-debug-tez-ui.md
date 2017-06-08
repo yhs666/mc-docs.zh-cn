@@ -22,13 +22,13 @@ ms.author: larryfr
 Tez UI 是一个网页，可用于了解和调试在基于 Windows 的 HDInsight 群集上将 Tez 用作执行引擎的作业。利用 Tez UI，你可以将作业显示为包含已连接项目的图形、深入了解每个项目并检索统计信息和日志记录信息。
 
 > [!IMPORTANT]
-本文档中的步骤需要使用 Windows 的 HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> 本文档中的步骤需要使用 Windows 的 HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 ## 先决条件
 * 基于 Windows 的 HDInsight 群集。有关新建群集的步骤，请参阅[开始使用基于 Windows 的 HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md)。
 
     > [!IMPORTANT]
-    Tez UI 只在 2016 年 2 月 8 日以后创建的基于 Windows 的 HDInsight 群集上提供。
+    > Tez UI 只在 2016 年 2 月 8 日以后创建的基于 Windows 的 HDInsight 群集上提供。
     > 
     > 
 * 基于 Windows 的远程桌面客户端。
@@ -76,7 +76,7 @@ Tez UI 包含数据的前提是使用 Tez 引擎的作业当前正在运行或�
 
 ## 使用 Tez UI
 > [!NOTE]
-Tez UI 只能从群集头节点的桌面使用，因此必须使用远程桌面连接到头节点。
+> Tez UI 只能从群集头节点的桌面使用，因此必须使用远程桌面连接到头节点。
 > 
 > 
 
@@ -89,7 +89,7 @@ Tez UI 只能从群集头节点的桌面使用，因此必须使用远程桌面�
     ![“远程桌面连接”图标](./media/hdinsight-debug-tez-ui/remotedesktopconnect.png)  
 
     > [!NOTE]
-    如果尚未启用远程桌面连接，请提供用户名、密码和到期日期，然后选择“启用”来启用远程桌面。一旦启用，即可使用前面的步骤进行连接。
+    > 如果尚未启用远程桌面连接，请提供用户名、密码和到期日期，然后选择“启用”来启用远程桌面。一旦启用，即可使用前面的步骤进行连接。
     > 
     > 
 3. 连接后，在远程桌面上打开 Internet Explorer、在浏览器的右上角选择齿轮图标，然后选择“兼容性视图设置”。
@@ -113,7 +113,7 @@ Tez UI 只能从群集头节点的桌面使用，因此必须使用远程桌面�
     * **所有 TaskAttempts** 显示有关尝试针对此 DAG 运行任务的信息。
 
     > [!NOTE]
-    如果滚动“顶点”、“任务”和“TaskAttempts”的列显示，你会注意到存在查看“计数器”的链接，以及每个行的“查看或下载日志”链接。
+    > 如果滚动“顶点”、“任务”和“TaskAttempts”的列显示，你会注意到存在查看“计数器”的链接，以及每个行的“查看或下载日志”链接。
     > 
     > 
 
@@ -127,7 +127,7 @@ Tez UI 只能从群集头节点的桌面使用，因此必须使用远程桌面�
 10. 请注意，此时页面顶部会存在与顶点和任务相关的链接。
 
     > [!NOTE]
-    你还可以通过以下方式访问此页：回到“DAG 详细信息”、选择“顶点详细信息”，然后选择“映射 1”顶点。
+    > 你还可以通过以下方式访问此页：回到“DAG 详细信息”、选择“顶点详细信息”，然后选择“映射 1”顶点。
     > 
     > 
 
@@ -137,7 +137,7 @@ Tez UI 只能从群集头节点的桌面使用，因此必须使用远程桌面�
     * **源和接收器**显示此顶点的数据源和接收器。
 
     > [!NOTE]
-    与前一菜单一样，你可以滚动“任务”、“任务尝试”、“源和接收器”的列显示，以便显示每个项的详细信息链接。
+    > 与前一菜单一样，你可以滚动“任务”、“任务尝试”、“源和接收器”的列显示，以便显示每个项的详细信息链接。
     > 
     > 
 11. 选择“任务”，然后选择名为“00\_000000”的项。这将显示此任务的“任务详细信息”。在此屏幕中，你可以查看“任务计数器”和“任务尝试”。

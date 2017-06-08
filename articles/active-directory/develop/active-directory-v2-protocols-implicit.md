@@ -66,7 +66,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 参数 | | 说明 |
 | --- | --- | --- |
 | tenant |必填 |请求路径中的 `{tenant}` 值可用于控制哪些用户可以登录应用程序。允许的值为 `common`、`organizations`、`consumers` 和租户标识符。有关更多详细信息，请参阅[协议基础知识](./active-directory-v2-protocols.md#endpoints)。 |
-| client\_id |必填 |注册门户 ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)) 分配给应用的应用程序 ID。 |
+| client\_id |必填 |注册门户 ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) 分配给应用的应用程序 ID。 |
 | response\_type |必填 |必须包含 OpenID Connect 登录的 `id_token`。也可以包含 response\_type `token`。此处使用 `token`，让应用能够立即从授权终结点接收访问令牌，而无需向授权终结点发出第二次请求。如果使用 `token` response\_type，`scope` 参数必须包含范围，以指出要对哪个资源发出令牌。 |
 | redirect\_uri |建议 |应用的 redirect\_uri，应用可在此发送及接收身份验证响应。其必须完全符合在门户中注册的其中一个 redirect\_uris，否则必须是编码的 url。 |
 | 作用域 |必填 |范围的空格分隔列表。对于 OpenID Connect，它必须包含范围 `openid`，该范围在同意 UI 中将转换为“将你登录”权限。（可选）可能需要包含 `email` 或 `profile` [范围](./active-directory-v2-scopes.md)，以获取对其他用户数据的访问权限。也可以在此请求中包含其他范围，以请求同意各种资源。 |
@@ -165,7 +165,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 | 参数 | | 说明 |
 | --- | --- | --- |
 | tenant |必填 |请求路径中的 `{tenant}` 值可用于控制哪些用户可以登录应用程序。允许的值为 `common`、`organizations`、`consumers` 和租户标识符。有关更多详细信息，请参阅[协议基础知识](./active-directory-v2-protocols.md#endpoints)。 |
-| client\_id |必填 |注册门户 ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)) 分配给应用的应用程序 ID。 |
+| client\_id |必填 |注册门户 ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) 分配给应用的应用程序 ID。 |
 | response\_type |必填 |必须包含 OpenID Connect 登录的 `id_token`。还可以包含其他 response\_type，例如 `code`。 |
 | redirect\_uri |建议 |应用的 redirect\_uri，应用可在此发送及接收身份验证响应。其必须完全符合在门户中注册的其中一个 redirect\_uris，否则必须是编码的 url。 |
 | 作用域 |必填 |范围的空格分隔列表。若要获取令牌，请包含相应资源请求的所有[范围](./active-directory-v2-scopes.md)。 |

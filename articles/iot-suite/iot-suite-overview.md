@@ -41,14 +41,14 @@ Azure 物联网 (IoT) 服务提供有各种功能。 这些企业级服务让你
 
 * Azure IoT 套件的核心是 [Azure IoT 中心][lnk-iot-hub] 服务。 该服务提供设备到云和云到设备的消息传送功能，并充当云和其他主要 IoT 套件服务的网关。 该服务允许你从你的设备大量接收消息，并将命令发送给你的设备。 使用该服务还可以 [管理设备][lnk-device-management]。 例如，可以对连接到中心的一个或多个设备进行配置、重新启动，或执行恢复出厂设置。
 * [Azure 流分析][lnk-asa] 提供移动中的数据分析。 IoT 套件使用该服务来处理传入遥测、执行聚合以及检测事件。 预配置解决方案也会使用流分析来处理包含数据（例如元数据或来自设备的命令响应）的信息消息。 这些解决方案使用流分析来处理来自你设备的消息，并将这些消息传送给其他服务。
-* [Azure 存储][lnk-azure-storage]和 [Azure Cosmos DB][lnk-document-db] 提供数据存储功能。 预配置解决方案使用 blob 存储来存储遥测数据并使其可用于分析。 这些解决方案使用 Cosmos DB 来存储设备元数据，以及启用解决方案的设备管理功能。
+* [Azure 存储][lnk-azure-storage]和 [Azure DocumentDB][lnk-document-db] 提供数据存储功能。 预配置解决方案使用 blob 存储来存储遥测数据并使其可用于分析。 这些解决方案使用 DocumentDB 来存储设备元数据，以及启用解决方案的设备管理功能。
 * [Azure Web 应用][lnk-web-apps]和 [Microsoft Power BI][lnk-power-bi] 提供数据可视化功能。 借助 Power BI 的灵活性，你可以快速生成自己的交互式仪表板（使用 IoT 套件数据）。
 
 有关典型 IoT 解决方案体系结构的概述，请参阅 [Azure 和物联网 (IoT)][iot-suite-what-is-azure-iot]。
 
 ## <a name="preconfigured-solutions"></a>预配置解决方案
 
-IoT 套件包含预配置解决方案，可让你快速使用并浏览常见 IoT 方案，例如“远程监视”、“预见性维护”和“连接工厂”。 你可以将这些解决方案部署到 Azure 订阅，然后运行完整的端到端 IoT 方案。
+IoT 套件包含预配置解决方案，可让你快速使用并浏览常见 IoT 方案，例如“远程监控”和“预测性维护”。 你可以将这些解决方案部署到 Azure 订阅，然后运行完整的端到端 IoT 方案。
 
 ## <a name="next-steps"></a>后续步骤
 现在，你已概要了解 IoT 套件可以执行哪些操作以及其主要组件是什么，接下来你可以详细了解 IoT 套件中的预配置解决方案。 有关详细信息，请参阅 [什么是 Azure IoT 预配置解决方案?][lnk-what-are-preconfig]

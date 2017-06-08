@@ -61,7 +61,7 @@ ms.lasthandoff: 05/12/2017
     ![Azure 云服务的服务配置列表](./media/vs-azure-tools-configure-roles-for-cloud-service/cloud-service-service-configuration-property.png)
 
 ## <a name="change-the-number-of-role-instances"></a>更改角色实例的数目
-若要提高云服务的性能，可根据用户或某个特定角色的预期负载的数目，更改正在运行的角色实例的数目。 当云服务在 Azure 中运行时，将为每个角色实例创建单独的虚拟机。 这会影响部署此云服务的计费。 有关计费的详细信息，请参阅 [了解你的 Azure 帐单](billing/billing-understand-your-bill.md)。
+若要提高云服务的性能，可根据用户或某个特定角色的预期负载的数目，更改正在运行的角色实例的数目。 当云服务在 Azure 中运行时，将为每个角色实例创建单独的虚拟机。 这会影响部署此云服务的计费。 有关计费的详细信息，请参阅 [了解你的 Azure 帐单](./billing-understand-your-bill.md)。
 
 1. 在 Visual Studio 中创建或打开 Azure 云服务项目。
 

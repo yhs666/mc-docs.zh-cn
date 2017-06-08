@@ -134,7 +134,7 @@ ms.author: szark
     ```
 
     >[!NOTE]
-    本指南其余部分假设用户至少使用 `[openlogic]` 存储库，用于安装以下 Azure Linux 代理。
+    > 本指南其余部分假设用户至少使用 `[openlogic]` 存储库，用于安装以下 Azure Linux 代理。
 
 9. 将以下行添加到 /etc/yum.conf：
 
@@ -159,7 +159,7 @@ ms.author: szark
 11. （可选）安装适用于 Linux Integration Services (LIS) 的驱动程序。
 
     >[!IMPORTANT]
-    此步骤对于 CentOS 6.3 及更低版本来说是**必需**步骤，对于更高版本来说是可选步骤。
+    > 此步骤对于 CentOS 6.3 及更低版本来说是**必需**步骤，对于更高版本来说是可选步骤。
 
     ```
     # sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
@@ -193,7 +193,7 @@ ms.author: szark
     图形和静默引导不适用于要将所有日志发送到串行端口的云环境。根据需要可以配置 `crashkernel` 选项，但请注意此参数会使 VM 中的可用内存量减少 128 MB 或更多，这在较小的 VM 上可能会出现问题。
 
     >[!IMPORTANT]
-    CentOS 6.5 及更低版本还必须设置内核参数 `numa=off`。请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
+    > CentOS 6.5 及更低版本还必须设置内核参数 `numa=off`。请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
 
 14. 请确保已安装 SSH 服务器且已将其配置为在引导时启动。这通常是默认设置。
 
@@ -304,7 +304,7 @@ ms.author: szark
     ```
 
     >[!NOTE]
-    本指南其余部分假设用户至少使用 `[openlogic]` 存储库，用于安装以下 Azure Linux 代理。
+    > 本指南其余部分假设用户至少使用 `[openlogic]` 存储库，用于安装以下 Azure Linux 代理。
 
 7. 运行以下命令以清除当前 yum 元数据并安装所有更新：
 

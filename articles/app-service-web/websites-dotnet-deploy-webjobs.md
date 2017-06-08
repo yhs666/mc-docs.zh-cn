@@ -113,7 +113,7 @@ ms.lasthandoff: 05/19/2017
     ![“新建 Azure Web 作业项目”菜单项](./media/websites-dotnet-deploy-webjobs/nawj.png)
 
     此时将显示“添加 Azure Web 作业”[](#configure)对话框。
-2. 完成“添加 Azure Web 作业”[](#configure)对话框，然后单击“确定”。
+2. 完成[“添加 Azure Web 作业”](#configure)对话框，然后单击“确定”。
 
 ## <a id="configure"></a>添加 Azure Web 作业对话框
 “添加 Azure Web 作业”对话框用于输入 Web 作业的名称和计划设置。 

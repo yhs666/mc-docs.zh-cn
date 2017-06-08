@@ -34,7 +34,6 @@
 ### [导入数据](documentdb-import-data.md)
 ### [数据建模](documentdb-modeling-data.md)
 ### [使用地理空间数据](documentdb-geospatial.md)
-### [针对多个区域进行开发](documentdb-developing-with-multiple-regions.md)
 ### [自动使数据过期](documentdb-time-to-live.md)
 ### [自定义索引](documentdb-indexing-policies.md)
 ### [安全访问数据](documentdb-secure-access-to-data.md)
@@ -46,7 +45,7 @@
 #### [添加或删除区域](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [防火墙支持](documentdb-firewall-support.md)
-### [提升帐户](documentdb-supercharge-your-account.md)
+### [提升帐户](documentdb-performance-levels.md)
 
 ## 开发
 ### [SQL 查询](documentdb-sql-query.md)
@@ -57,7 +56,7 @@
 
 ## 使用对 MongoDB 的 DocumentDB 支持
 ### [针对 MongoDB 的协议支持](documentdb-protocol-mongodb.md)
-### [创建帐户](documentdb-create-mongodb-account.md)
+### [创建帐户](documentdb-create-account.md)
 ### [连接到帐户](documentdb-connect-mongodb-account.md)
 ### [迁移数据](documentdb-mongodb-migrate.md)
 ### [使用 Robomongo](documentdb-mongodb-robomongo.md)
@@ -67,7 +66,6 @@
 ## 使用门户
 ### [创建数据库帐户](documentdb-create-account.md)
 ### [创建集合](documentdb-create-collection.md)
-### [添加全局复制](documentdb-portal-global-replication.md)
 ### [添加和编辑文档](documentdb-view-json-document-explorer.md)
 ### [查询文档](documentdb-query-collections-query-explorer.md)
 ### [管理帐户](documentdb-manage-account.md)
@@ -101,7 +99,7 @@
 ## [SQL 语法备忘单](documentdb-sql-query-cheat-sheet.md)
 
 # 资源
-## [价格](https://azure.microsoft.com/pricing/details/documentdb/)
+## [价格](https://www.azure.cn/pricing/details/documentdb/)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-documentdb)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=documentdb)
