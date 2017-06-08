@@ -168,11 +168,6 @@
         href: oracle-create-upload-vhd.md
   - name: 管理 VM 存储
     items:
-    - name: Azure 托管磁盘
-      href: ../../storage/storage-managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-      items:
-      - name: 常见问题
-        href: ../../storage/storage-faq-for-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
     - name: 将文件复制到 Linux VM
       href: copy-files-to-linux-vm-using-scp.md
     - name: 添加磁盘
