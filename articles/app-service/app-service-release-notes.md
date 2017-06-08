@@ -27,7 +27,7 @@ ms.author: juliako
 
 - 与 **Web 工具扩展**相关的新功能\\方案。
 
-    - Azure 网站已重命名为 Azure 应用服务。有关详细信息，请参阅 [Azure App Service and existing Azure Services](../app-service-web/app-service-changes-existing-services.md)（Azure 应用服务和现有的 Azure 服务）。
+    - Azure 网站已重命名为 Azure 应用服务。有关详细信息，请参阅 [Azure 应用服务和现有的 Azure 服务](../app-service-web/app-service-changes-existing-services.md)。
     - 增加了 Azure API 应用（预览版）支持，因此客户可以将 ASP.NET 项目作为 API 应用发布，然后在 C# 项目中使用“添加”>“Azure API 应用客户端”手势根据已部署 API 应用的结构生成代码。
     - 已弃用服务器资源管理器中的“网站”节点，代之以“Azure 应用服务”节点，该节点支持对 Azure API 应用、移动应用和 Web 应用进行以资源组为基础的分组。
     - 增加了 Azure 移动应用（预览版）支持，因此客户可以创建新的移动应用项目、添加移动应用控制器、发布项目，以及对应用程序进行远程调试。

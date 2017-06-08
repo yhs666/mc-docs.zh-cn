@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 2/7/2017
+ms.date: 02/07/2017
 wacn.date: 
 ms.author: rasquill
 translationtype: Human Translation

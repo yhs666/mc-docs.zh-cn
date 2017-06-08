@@ -100,7 +100,7 @@ Publish-AzureAutomationRunbook -AutomationAccountName $automationAccountName -Na
 ```
 
 ## 后续步骤
-- 若要了解你可以如何从 Runbook 和 PowerShell 模块库中受益，请参阅 [Runbook and module galleries for Azure Automation](./automation-runbook-gallery.md)（Azure 自动化的 Runbook 和模块库）
-- 若要了解有关使用文本编辑器编辑 PowerShell 和 PowerShell 工作流 Runbook 的详细信息，请参阅 [Editing textual runbooks in Azure Automation](./automation-edit-textual-runbook.md)（编辑 Azure 自动化中的文本 Runbook）
+- 若要了解你可以如何从 Runbook 和 PowerShell 模块库中受益，请参阅 [Azure 自动化的 Runbook 和模块库](./automation-runbook-gallery.md)
+- 若要了解有关使用文本编辑器编辑 PowerShell 和 PowerShell 工作流 Runbook 的详细信息，请参阅[编辑 Azure 自动化中的文本 Runbook](./automation-edit-textual-runbook.md)
 
 <!---HONumber=Mooncake_Quality_Review_1230_2016-->
