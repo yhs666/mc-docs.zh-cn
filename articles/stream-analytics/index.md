@@ -97,42 +97,6 @@ ms.lasthandoff: 05/12/2017
         </div>
         </a>
     </li>
-     <li>
-        <a href="/Stream-Analytics/stream-analytics-twitter-sentiment-analysis-trends">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>开始使用流分析构建 Twitter 情绪分析解决方案</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/Stream-Analytics/stream-analytics-machine-learning-integration-tutorial">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>开始使用 Azure 机器学习构建实时评分解决方案</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
 </ul>
 
 ---
@@ -157,7 +121,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/zh-cn/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
                         <p><a href="https://msdn.microsoft.com/zh-cn/library/azure/dn834998">查询语言</a></p>
                     </div>
                 </div>
