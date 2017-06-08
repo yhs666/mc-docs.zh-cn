@@ -21,11 +21,11 @@
 ### [Power BI Embedded 的行级别安全性 ](power-bi-embedded-rls.md)
 
 # 引用
-## [PowerShell](/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded)
-## [.NET](/dotnet/api/microsoft.azure.management.powerbiembedded)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [.NET SDK 下载](https://www.nuget.org/profiles/powerbi)
 ## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [REST](/rest/api/powerbiembedded/)
+## [REST](https://docs.microsoft.com/rest/api/powerbiembedded/)
 
 
 # 资源
