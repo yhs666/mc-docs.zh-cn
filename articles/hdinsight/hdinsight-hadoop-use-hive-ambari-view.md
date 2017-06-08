@@ -26,7 +26,7 @@ ms.author: larryfr
 Ambari 是一个管理和监控实用程序，随基于 Linux 的 HDInsight 群集一起提供。通过 Ambari 提供的功能之一是可用于运行 Hive 查询的 Web UI。这就是“Hive 视图”，它是随 HDInsight 群集一起提供的 Ambari 视图的一部分。
 
 > [!NOTE]
-> Ambari 还有许多本文档中未讨论的功能。有关详细信息，请参阅 [Manage HDInsight clusters by using the Ambari Web UI](./hdinsight-hadoop-manage-ambari.md)（使用 Ambari Web UI 管理 HDInsight 群集）。
+> Ambari 还有许多本文档中未讨论的功能。有关详细信息，请参阅[使用 Ambari Web UI 管理 HDInsight 群集](./hdinsight-hadoop-manage-ambari.md)。
 
 ## 先决条件
 

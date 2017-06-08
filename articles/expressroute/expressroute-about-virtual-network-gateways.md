@@ -57,7 +57,7 @@ ms.lasthandoff: 04/14/2017
 |**经典** | **Resource Manager**|
 |-----|----|
 |[PowerShell](https://msdn.microsoft.com/library/mt270335.aspx)|[PowerShell](https://msdn.microsoft.com/zh-cn/library/mt163510.aspx)|
-|[REST API](https://msdn.microsoft.com/library/jj154113.aspx)|[REST API](https://msdn.microsoft.com/zh-cn/library/mt163859.aspx)|
+|[REST API](https://msdn.microsoft.com/library/jj154113.aspx)||
 
 ## <a name="next-steps"></a>后续步骤
 

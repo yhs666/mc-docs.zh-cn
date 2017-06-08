@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/19/2017
+ms.date: 01/19/2017
 wacn.date: 03/20/2017
 ms.author: robinsh
 ---

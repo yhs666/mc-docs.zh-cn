@@ -212,7 +212,7 @@ Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -Des
 ### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>从运行 Windows 的 Azure 虚拟机装载文件共享
 为了演示如何装载 Azure 文件共享，现在我们将创建一个运行 Windows 的 Azure 虚拟机，并远程登录到它内部以装载共享。
 
-1. 首先，按照[在 Azure 门户预览中创建 Windows 虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中的说明创建新的 Azure 虚拟机。
+1. 首先，按照[在 Azure 门户预览中创建 Windows 虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中的说明创建新的 Azure 虚拟机。
 2. 接下来，按照[使用 Azure 门户预览登录到 Windows 虚拟机](../virtual-machines/virtual-machines-windows-connect-logon.md)中的说明远程登录到虚拟机。
 3. 在该虚拟机上打开 PowerShell 窗口。
 

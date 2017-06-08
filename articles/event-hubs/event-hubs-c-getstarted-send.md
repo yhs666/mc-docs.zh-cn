@@ -154,7 +154,7 @@ ms.lasthandoff: 04/07/2017
     ```
 
     > [!NOTE]
-    > 在此代码中，我们使用传出窗口 1 以强制尽快发出消息。 通常，你的应用程序应尝试批处理消息，以提高吞吐量。 请参阅 [Qpid AMQP Messenger 页](http://qpid.apache.org/components/messenger/index.html)，详细了解如何在此环境及其他环境中以及从为其提供了绑定的平台（目前为 Perl、PHP、Python 和 Ruby）中使用 Qpid Proton 库。
+    > 在此代码中，我们使用传出窗口 1 以强制尽快发出消息。 通常，你的应用程序应尝试批处理消息，以提高吞吐量。 请参阅 [Qpid AMQP Messenger 页](http://qpid.apache.org/components/index.html)，详细了解如何在此环境及其他环境中以及从为其提供了绑定的平台（目前为 Perl、PHP、Python 和 Ruby）中使用 Qpid Proton 库。
 
 ## <a name="next-steps"></a>后续步骤
 访问以下链接可以了解有关事件中心的详细信息：

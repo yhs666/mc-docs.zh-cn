@@ -153,5 +153,5 @@ Set-AzureRmIotHub `
 [lnk-powershell-storage]: https://docs.microsoft.com/powershell/module/azurerm.storage/
 [lnk-powershell-iothub]: https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub
 [lnk-portal-hub]: ./iot-hub-create-through-portal.md
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-portal-storage]: ../storage/storage-create-storage-account.md

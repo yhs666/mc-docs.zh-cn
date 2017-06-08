@@ -14,7 +14,7 @@ ms.lasthandoff: 05/26/2017
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/service-bus-relay/relay-what-is-it">
+        <a href="/service-bus-relay/relay-what-is-it">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -32,25 +32,7 @@ ms.lasthandoff: 05/26/2017
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus-relay">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure 服务总线中继视频库</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/service-bus-relay/relay-create-namespace-portal">
+        <a href="/service-bus-relay/relay-create-namespace-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -68,7 +50,7 @@ ms.lasthandoff: 05/26/2017
         </a>
     </li>    
     <li>
-        <a href="/azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started">
+        <a href="/service-bus-relay/relay-hybrid-connections-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,7 +68,7 @@ ms.lasthandoff: 05/26/2017
         </a>
     </li>
     <li>
-        <a href="/azure/service-bus-messaging/service-bus-sas">
+        <a href="/service-bus-messaging/service-bus-sas">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -114,21 +96,9 @@ ms.lasthandoff: 05/26/2017
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>示例</h3>
-                        <p><a href="/azure/service-bus-relay/service-bus-relay-samples">服务总线中继示例</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
                         <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.relay">Microsoft.Azure.Relay</a></p>
+                        <p><a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
+                        <p><a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.relay">Microsoft.Azure.Relay</a></p>
                     </div>
                 </div>
             </div>

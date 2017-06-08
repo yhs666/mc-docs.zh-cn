@@ -28,8 +28,8 @@ Azure 存储帐户提供可用于操作系统磁盘和任意数据磁盘的存�
 ## 可以使用哪些虚拟硬盘类型？
 Azure 只支持固定的 VHD 格式的虚拟硬盘。如果你想在 Azure 中使用 VHDX，需先使用 Hyper-V 管理器或 [convert-VHD](https://technet.microsoft.com/zh-cn/library/hh848454.aspx) cmdlet 对其进行转换。完成该操作后，使用 [Add-AzureVHD](https://msdn.microsoft.com/zh-cn/library/azure/dn495173.aspx) cmdlet（在服务管理模式下）将 VHD 上传到 Azure 中的存储帐户，以便将其用于虚拟机。
 
-* 有关 Linux 说明，请参阅 [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)（创建并上载包含 Linux 操作系统的虚拟硬盘）。
-* 有关 Windows 说明，请参阅 [Create and upload a Windows Server VHD to Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)（创建 Windows Server VHD 并将其上载到 Azure）。
+* 有关 Linux 说明，请参阅[创建并上载包含 Linux 操作系统的虚拟硬盘](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)。
+* 有关 Windows 说明，请参阅[创建 Windows Server VHD 并将其上载到 Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)。
 
 ## 这些虚拟机是否与 Hyper-V 虚拟机相同？
 在许多方面，它们与“第 1 代”Hyper-V VM 类似，但并非完全相同。两种类型的虚拟机都提供虚拟化硬件，并且兼容 VHD 格式虚拟硬盘。这意味着可以在 Hyper-V 与 Azure 之间交换使用它们。同时存在以下三大区别，有时也会使 Hyper-V 用户感到惊讶：
@@ -39,23 +39,23 @@ Azure 只支持固定的 VHD 格式的虚拟硬盘。如果你想在 Azure 中�
 * Azure VM 不支持第 2 代 Hyper-V VM 功能。有关这些功能的详细信息，请参阅 [Virtual Machine Specifications for Hyper-V](http://technet.microsoft.com/zh-cn/library/dn592184.aspx)（Hyper-V 虚拟机规范）和 [Generation 2 Virtual Machine Overview](https://technet.microsoft.com/zh-cn/library/dn282285.aspx)（第 2 代虚拟机概述）。
 
 ## 这些虚拟机可否使用现有的本地网络基础结构？
-对于通过经典部署模型创建的虚拟机，可以使用 Azure 虚拟网络扩展现有的基础结构。该方法类似于设立分支机构。可以预配和管理 Azure 中的虚拟专用网络 \(VPN\)，并将其安全连接到本地 IT 基础结构。有关详细信息，请参阅 [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md)（虚拟网络概述）。
+对于通过经典部署模型创建的虚拟机，可以使用 Azure 虚拟网络扩展现有的基础结构。该方法类似于设立分支机构。可以预配和管理 Azure 中的虚拟专用网络 \(VPN\)，并将其安全连接到本地 IT 基础结构。有关详细信息，请参阅[虚拟网络概述](../articles/virtual-network/virtual-networks-overview.md)。
 
 创建虚拟机时，需要指定虚拟机所属的网络。不能将现有虚拟机加入虚拟网络。不过，将虚拟硬盘 \(VHD\) 与现有虚拟机分离即可解决此问题，然后可以用于创建具有所需网络配置的新虚拟机。
 
 ## 如何访问我的虚拟机？
 你需要通过适用于 Windows VM 的远程桌面连接或适用于 Linux VM 的安全外壳 \(SSH\) 建立登录虚拟机所需的远程连接。有关说明，请参阅：
 
-* [How to Log on to a Virtual Machine Running Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md)（如何登录到运行 Windows Server 的虚拟机）。除非将服务器配置为远程桌面服务会话主机，否则最多支持 2 个并发连接。
-* [How to Log on to a Virtual Machine Running Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)（如何登录到运行 Linux 的虚拟机）。默认情况下，SSH 最多允许 10 个并发连接。通过编辑配置文件，可以增加此数量。
+* [如何登录到运行 Windows Server 的虚拟机](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md)。除非将服务器配置为远程桌面服务会话主机，否则最多支持 2 个并发连接。
+* [如何登录到运行 Linux 的虚拟机](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)。默认情况下，SSH 最多允许 10 个并发连接。通过编辑配置文件，可以增加此数量。
 
 如果在使用远程桌面或 SSH 时遇到问题，请安装和使用 [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md) 扩展帮助解决问题。
 
 Windows VM 的其他选项包括：
 
 * 在 Azure 经典管理门户中找到 VM，然后单击命令栏中的“重置远程访问”。
-* 查看 [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)（对与基于 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除）。
-* 使用 Windows PowerShell 远程连接到 VM，或创建其他终结点以方便其他资源连接到 VM。有关详细信息，请参阅 [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)（如何设置虚拟机的终结点）。
+* 查看[对与基于 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)。
+* 使用 Windows PowerShell 远程连接到 VM，或创建其他终结点以方便其他资源连接到 VM。有关详细信息，请参阅[如何设置虚拟机的终结点](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)。
 
 如果熟悉 Hyper-V，可以查找与 VMConnect 类似的工具。Azure 不提供类似工具，因为不支持通过控制台访问虚拟机。
 
