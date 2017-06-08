@@ -1777,7 +1777,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="http://aka.ms/webpi-azure-cli">下载用于 Windows 的 Azure CLI</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/azure-cli-arm-commands/">参考</a>
+                                                    <a href="/virtual-machines/azure-cli-arm-commands/">参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1875,7 +1875,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="http://storageexplorer.com/">存储资源管理器</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">入门</a>
+                                                    <a href="/vs-azure-tools-storage-manage-with-storage-explorer/">入门</a>
                                                 </p>
                                                 <p>
                                                      <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">适用于 Linux 的下载项</a>

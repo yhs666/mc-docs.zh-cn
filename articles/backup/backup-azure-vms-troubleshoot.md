@@ -104,7 +104,7 @@ ms.lasthandoff: 05/05/2017
 
 对于 Linux VM：
 
-- 按照[更新 Linux VM 代理](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)上的说明进行操作。
+- 按照[更新 Linux VM 代理](../virtual-machines/linux/update-agent.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)上的说明进行操作。
 我们 **强烈建议** 只通过分发存储库更新代理。 我们不建议直接从 github 下载代理代码并更新。 如果最新的代理不可用于用户的分发版，请联系分发版支持人员，获取如何安装最新代理的说明。 可在 github 存储库中查找最新 [Azure Linux 代理](https://github.com/Azure/WALinuxAgent/releases) 的信息。
 
 ### <a name="validating-vm-agent-installation"></a>验证 VM 代理安装

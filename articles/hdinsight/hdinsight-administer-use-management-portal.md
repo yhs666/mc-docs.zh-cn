@@ -94,7 +94,7 @@ HDInsight 使用各种 Hadoop 组件。有关已获得验证和支持的组件�
     * **Ambari 视图**：Ambari Web 的链接。
 
         > [!IMPORTANT]
-        > 若要管理 HDInsight 群集提供的服务，必须使用 Ambari Web 或 Ambari REST API。有关如何使用 Ambari 的详细信息，请参阅 [Manage HDInsight clusters using Ambari](./hdinsight-hadoop-manage-ambari.md)（使用 Ambari 管理 HDInsight 群集）
+        > 若要管理 HDInsight 群集提供的服务，必须使用 Ambari Web 或 Ambari REST API。有关如何使用 Ambari 的详细信息，请参阅[使用 Ambari 管理 HDInsight 群集](./hdinsight-hadoop-manage-ambari.md)
         >
         >
 
@@ -129,7 +129,7 @@ HDInsight 使用各种 Hadoop 组件。有关已获得验证和支持的组件�
     * **已创建的数据**。
     * **操作系统**：**Windows** 或 **Linux**。
     * **类型**：Hadoop、HBase、Storm、Spark。
-    * **版本**。请参阅 [HDInsight versions](./hdinsight-component-versioning.md)（HDInsight 版本）
+    * **版本**。请参阅 [HDInsight 版本](./hdinsight-component-versioning.md)
     * **订阅**：订阅名称。
     * **订阅 ID**。
     * **主数据源**。用作默认 Hadoop 文件系统的 Azure Blob 存储帐户。
@@ -209,9 +209,9 @@ HDInsight 使用各种 Hadoop 组件。有关已获得验证和支持的组件�
 
 可以通过许多方式对此过程进行程序性处理：
 
-* 使用 Azure PowerShell。请参阅 [Analyze flight delay data](./hdinsight-analyze-flight-delay-data.md)（分析航班延误数据）。
-* 使用 Azure CLI。请参阅 [Manage HDInsight clusters using Azure CLI](./hdinsight-administer-use-command-line.md)（使用 Azure CLI 管理 HDInsight 群集）。
-* 使用 HDInsight .NET SDK。请参阅 [Submit Hadoop jobs](./hdinsight-submit-hadoop-jobs-programmatically.md)（提交 Hadoop 作业）。
+* 使用 Azure PowerShell。请参阅[分析航班延误数据](./hdinsight-analyze-flight-delay-data.md)。
+* 使用 Azure CLI。请参阅[使用 Azure CLI 管理 HDInsight 群集](./hdinsight-administer-use-command-line.md)。
+* 使用 HDInsight .NET SDK。请参阅[提交 Hadoop 作业](./hdinsight-submit-hadoop-jobs-programmatically.md)。
 
 有关定价信息，请参阅 [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/)（HDInsight 定价）。要从门户中删除群集，请参阅[删除群集](#delete-clusters)
 

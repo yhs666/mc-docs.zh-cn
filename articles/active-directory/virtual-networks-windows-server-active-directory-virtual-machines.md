@@ -31,7 +31,7 @@ ms.lasthandoff: 04/28/2017
 ## <a name="how-to-articles"></a>操作指南文章
 - [在 Azure 虚拟网络中安装新的 Active Directory 林](active-directory-new-forest-virtual-machine.md)
 - [在 Azure 虚拟网络中安装 Active Directory 域控制器副本](active-directory-install-replica-active-directory-domain-controller.md)
-- [设置用于测试的混合云环境](../virtual-machines/windows/ps-hybrid-cloud-test-env-sim.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [设置用于测试的混合云环境](../virtual-machines/windows/ps-hybrid-cloud-test-env-sim.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="additional-resources"></a>其他资源
 - [以组织身份注册 Azure](sign-up-organization.md)
