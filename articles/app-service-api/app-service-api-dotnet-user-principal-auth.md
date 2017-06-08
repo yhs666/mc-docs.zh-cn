@@ -23,7 +23,7 @@ ms.author: rachelap
 
 ## 概述
 
-本文说明如何保护 Azure API 应用，以便只有经过身份验证的用户可以调用它。本文假设读者已阅读 [Azure App Service authentication overview](../app-service/app-service-authentication-overview.md)（Azure 应用服务身份验证概述）。
+本文说明如何保护 Azure API 应用，以便只有经过身份验证的用户可以调用它。本文假设读者已阅读 [Azure 应用服务身份验证概述](../app-service/app-service-authentication-overview.md)。
 
 学习内容：
 
@@ -52,7 +52,7 @@ ms.author: rachelap
 
     * 如果要让所有调用进入 API 应用，请选择“允许请求(无操作)”。可以使用此选项将未经身份验证的调用方定向到所选的身份验证提供程序。若要使用此选项，必须编写代码来处理授权。
 
-    有关详细信息，请参阅 [Authentication and authorization for API Apps in Azure App Service](./app-service-api-authentication.md#multiple-protection-options)（Azure 应用服务中 API 应用的身份验证和授权）。
+    有关详细信息，请参阅 [Azure 应用服务中 API 应用的身份验证和授权](./app-service-api-authentication.md#multiple-protection-options)。
 
 5. 选择一个或多个**身份验证提供程序**。
 
@@ -62,7 +62,7 @@ ms.author: rachelap
 
     选择身份验证提供程序后，门户将显示该提供程序的配置边栏选项卡。
 
-    有关如何配置身份验证提供程序配置边栏选项卡的详细说明，请参阅 [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)（如何将应用服务应用程序配置为使用 Azure Active Directory 登录）。（单击该链接会转到有关 Azure AD 的文章，但该文章本身包含指向其他身份验证提供程序文章的选项卡。）
+    有关如何配置身份验证提供程序配置边栏选项卡的详细说明，请参阅[如何将应用服务应用程序配置为使用 Azure Active Directory 登录](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)。（单击该链接会转到有关 Azure AD 的文章，但该文章本身包含指向其他身份验证提供程序文章的选项卡。）
 
 7. 完成身份验证提供程序配置边栏选项卡中的操作后，单击“确定”。
 
@@ -74,7 +74,7 @@ ms.author: rachelap
 
 ## <a id="tutorialstart"></a>继续学习 .NET API 应用教程
 
-如果要遵循适用于 API 应用的 Node.js 或 Java 教程，请跳到下一篇文章：[service principal authentication for API apps](./app-service-api-dotnet-service-principal-auth.md)（API 应用的服务主体身份验证）。
+如果要遵循适用于 API 应用的 Node.js 或 Java 教程，请跳到下一篇文章：[API 应用的服务主体身份验证](./app-service-api-dotnet-service-principal-auth.md)。
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
@@ -336,7 +336,7 @@ ms.author: rachelap
 
 有关如何使用 Web API 2 后端创建 AngularJS 单页应用程序的信息，请参阅 [Hands On Lab: Build a Single Page Application (SPA) with ASP.NET Web API and Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs)（动手实验：使用 ASP.NET Web API 和 Angular.js 构建单页应用程序 (SPA)）。有关如何添加 Azure AD 身份验证代码的信息，请参阅以下资源：
 
-* [Securing AngularJS Single Page Apps with Azure AD](../active-directory/develop/active-directory-devquickstarts-angular.md)（使用 Azure AD 保护 AngularJS 单页应用程序）。
+* [使用 Azure AD 保护 AngularJS 单页应用程序](../active-directory/develop/active-directory-devquickstarts-angular.md)。
 * [Introducing ADAL JS v1](http://www.cloudidentity.com/blog/2015/02/19/introducing-adal-js-v1/)（ADAL JS v1 简介）
 
 ## <a name="troubleshooting"></a>故障排除

@@ -31,7 +31,7 @@ ms.author: rachelap
 3. 已安装 [Git](https://git-scm.com/)
 4. [GitHub](https://github.com/) 帐户
 
-尽管应用服务支持多种将代码部署到 API 应用的方法，但本教程只演示 Git 方法，并假设读者具备使用 Git 的基础知识。有关其他部署方法的相关信息，请参阅 [Deploy your app to Azure App Service](../app-service-web/web-sites-deploy.md)（将应用部署到 Azure 应用服务）。
+尽管应用服务支持多种将代码部署到 API 应用的方法，但本教程只演示 Git 方法，并假设读者具备使用 Git 的基础知识。有关其他部署方法的相关信息，请参阅[将应用部署到 Azure 应用服务](../app-service-web/web-sites-deploy.md)。
 
 ## 获取示例代码
 1. 打开可以运行 Node.js 和 Git 命令的命令行接口。
@@ -202,7 +202,7 @@ ms.author: rachelap
 
     ![创建应用服务计划](./media/app-service-api-nodejs-api-app/newappserviceplan.png)
 
-    在以下步骤中，你将为新资源组创建 App Service 计划。应用服务计划指定 API 应用运行所在的计算资源。例如，如果你选择免费层，则 API 应用程序将在共享 VM 上运行；如果你选择某些付费层，则它在专用 VM 上运行。有关应用服务计划的信息，请参阅 [App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)（应用服务计划概述）。
+    在以下步骤中，你将为新资源组创建 App Service 计划。应用服务计划指定 API 应用运行所在的计算资源。例如，如果你选择免费层，则 API 应用程序将在共享 VM 上运行；如果你选择某些付费层，则它在专用 VM 上运行。有关应用服务计划的信息，请参阅[应用服务计划概述](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
 6. 在“应用服务计划”边栏选项卡中输入“NodejsAPIAppPlan”或其他喜好的名称。
 7. 在“位置”下拉列表中，选择最靠近的位置。
 

@@ -253,7 +253,7 @@ DnsSettings              : {
 
 ## 后续步骤
 
-如果要将应用程序网关配置为与内部负载均衡器 (ILB) 配合使用，请参阅 [Create an application gateway with an internal load balancer (ILB)](./application-gateway-ilb.md)（创建具有内部负载均衡器 (ILB) 的应用程序网关）。
+如果要将应用程序网关配置为与内部负载均衡器 (ILB) 配合使用，请参阅[创建具有内部负载均衡器 (ILB) 的应用程序网关](./application-gateway-ilb.md)。
 
 如需负载均衡选项的其他常规信息，请参阅：
 

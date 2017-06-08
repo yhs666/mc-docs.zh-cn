@@ -14,7 +14,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/7/2016
+ms.date: 11/07/2016
 wacn.date: 01/23/2017
 ms.author: xshi
 ---

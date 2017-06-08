@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: NA
 ms.topic: article
-ms.date: 2/21/2017
+ms.date: 02/21/2017
 wacn.date: 
 ms.author: juluk
 translationtype: Human Translation
