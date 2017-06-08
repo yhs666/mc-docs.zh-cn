@@ -42,6 +42,6 @@ Windows 分数是通过在 Windows Server 上运行 [SPECint 2006](https://www.s
 
 ## 后续步骤
 
-* 有关存储容量、磁盘详细信息以及选择 VM 大小的注意事项，请参阅 [Sizes for virtual machines](../virtual-machines-windows-sizes.md)（虚拟机的大小）。
+* 有关存储容量、磁盘详细信息以及选择 VM 大小的注意事项，请参阅[虚拟机的大小](../virtual-machines-windows-sizes.md)。
 
 <!---HONumber=Mooncake_0829_2016-->
