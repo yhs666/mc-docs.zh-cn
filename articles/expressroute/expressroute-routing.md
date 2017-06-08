@@ -80,7 +80,6 @@ Microsoft 对等互连路径使用户能够连接到不支持通过 Azure 公共
 
 - [ARIN](https://www.arin.net/)
 - [APNIC](https://www.apnic.net/)
-- [AFRINIC](https://www.afrinic.net/)
 - [LACNIC](http://www.lacnic.net/)
 - [RIPENCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)

@@ -215,11 +215,6 @@
 ## [Azure CLI 2.0 预览版](https://docs.microsoft.com/cli/azure/iot)
 ## [.NET（服务）](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices)
 ## [.NET（设备）](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client)
-## [Java（服务）](https://docs.microsoft.com/java/api/com.microsoft.azure.iot.service.auth)
-## [Java（设备）](https://docs.microsoft.com/java/api/com.microsoft.azure.iothub)
-## [REST（资源提供程序）](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [REST（设备标识）](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [REST（设备消息传送）REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 
 # 相关内容
 ## [Azure IoT 套件](/iot-suite/)

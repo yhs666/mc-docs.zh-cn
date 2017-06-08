@@ -75,7 +75,7 @@ ms.author: larryfr
     | 3\.2 |0\.98.4-hadoop2 |
     | 3\.3 |1\.1.2 |
 
-    有关 HDInsight 版本和组件的详细信息，请参阅 [What are the different Hadoop components available with HDInsight](./hdinsight-component-versioning.md)（HDInsight 提供哪些不同的 Hadoop 组件）。
+    有关 HDInsight 版本和组件的详细信息，请参阅[HDInsight 提供哪些不同的 Hadoop 组件](./hdinsight-component-versioning.md)。
 2. 如果使用 HDInsight 3.3 群集，则还必须将以下代码添加到 `<dependencies>` 节：
 
     ```

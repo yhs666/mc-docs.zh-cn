@@ -101,9 +101,6 @@ ms.lasthandoff: 05/19/2017
 
 ![如何在 Azure 门户中删除 DocumentDB 帐户](./media/documentdb-manage-account/delete-account-confirm.png)
 
-## <a id="next"></a>后续步骤
-了解如何[开始使用 DocumentDB 帐户](./documentdb-get-started-quickstart.md)。
-
 <!--Image references-->
 [1]: ./media/documentdb-manage-account/documentdb_add_region-1.png
 [2]: ./media/documentdb-manage-account/documentdb_add_region-2.png

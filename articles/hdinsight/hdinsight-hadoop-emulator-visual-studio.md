@@ -28,7 +28,7 @@ ms.author: larryfr
 
 ## 先决条件
 
-* 在开发环境上的虚拟机中运行的 Hortonworks 沙盒。本文档是根据 Oracle VirtualBox 中运行的沙盒编写和测试的，而该沙盒是使用 [Get started in the Hadoop ecosystem](./hdinsight-hadoop-emulator-get-started.md)（Hadoop 生态系统入门）文档配置的。
+* 在开发环境上的虚拟机中运行的 Hortonworks 沙盒。本文档是根据 Oracle VirtualBox 中运行的沙盒编写和测试的，而该沙盒是使用[Hadoop 生态系统入门](./hdinsight-hadoop-emulator-get-started.md)文档配置的。
 
 * Visual Studio 2013、2015 或 2017，任何版本均可。
 

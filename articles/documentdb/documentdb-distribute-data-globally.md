@@ -98,7 +98,7 @@ DocumentDB 支持在发生一个或多个区域性故障时自动进行故障转
 ### <a id="MultiHomingAPIs"></a>DocumentDB 中的多宿主 API
 DocumentDB 允许使用逻辑（区域不可知）或物理（特定于区域）终结点与数据库交互。 使用逻辑终结点可确保发生故障转移时，应用程序可以透明方式采用多个宿主。 后者（物理终结点）提供对应用程序的细粒度控制，以将读取和写入重定向到特定区域。
 
-可在相应的链接文章中找到有关如何为 [DocumentDB](./documentdb-portal-global-replication.md)、图形、表和 MongoDB API 配置读取首选项的信息。
+可在相应的链接文章中找到有关如何为 DocumentDB、图形、表和 MongoDB API 配置读取首选项的信息。
 
 ### <a id="TransparentSchemaMigration"></a>透明且一致的数据库架构和索引迁移 
 DocumentDB 完全与[架构无关](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)。 其数据库引擎的特殊设计允许其自动且同步地索引所有其引入的数据，而无需要求用户提供任何架构或辅助索引。 这使用户能够快速地循环访问全局分布式应用程序，而无需担心数据库架构和索引迁移或者协调多阶段应用程序的架构更改推出。 DocumentDB 保证用户对索引策略进行的任何显式更改不会导致性能或可用性的降低。  
@@ -227,7 +227,6 @@ DocumentDB 以透明方式公开吞吐量、延迟、一致性和可用性指标
 ![DocumentDB 中客户可见的 SLA 指标](./media/documentdb-distribute-data-globally/documentdb-customer-slas.png)
 
 ## <a id="Next Steps"></a>后续步骤
-- 若要使用 Azure 门户实现 DocumentDB 帐户的全局复制，请参阅[如何使用 Azure 门户执行 DocumentDB 全局数据库复制](./documentdb-portal-global-replication.md)。
 - 若要了解如何通过 DocumentDB 实现多主体系结构，请参阅[使用 DocumentDB 实现的多主数据库体系结构 ](documentdb-multi-region-writers.md)。
 - 若要深入了解 DocumentDB 中自动和手动故障转移如何工作，请参阅 [DocumentDB 中的区域故障转移](documentdb-regional-failovers.md)。
 

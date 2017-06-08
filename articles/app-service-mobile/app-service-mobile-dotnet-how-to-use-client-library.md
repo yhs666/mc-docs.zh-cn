@@ -1115,7 +1115,7 @@ public async Task CallClientWithHandler()
 [EnableQueryAttribute]: https://msdn.microsoft.com/zh-cn/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/zh-cn/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/zh-cn/library/windows/apps/Hh701916
-[Windows 开发人员中心]: https://dev.windows.com/overview
+[Windows 开发人员中心]: https://developer.microsoft.com/en-us/dashboard/apps/signup
 [DelegatingHandler]: https://msdn.microsoft.com/zh-cn/library/system.net.http.delegatinghandler(v=vs.110).aspx
 [Windows Live SDK]: https://msdn.microsoft.com/zh-cn/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/en-us/library/windows/apps/windows.security.credentials.passwordvault.aspx
