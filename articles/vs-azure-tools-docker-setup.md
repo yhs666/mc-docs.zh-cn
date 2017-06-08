@@ -9,7 +9,13 @@ editor: ''
 
 ms.service: multiple
 ms.date: 06/08/2016
+ms.author: mlearned
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: multiple
 wacn.date: 06/20/2016
+
 ---
 
 # 使用 VirtualBox 配置 Docker 主机
