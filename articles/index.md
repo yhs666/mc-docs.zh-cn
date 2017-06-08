@@ -1875,7 +1875,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="http://storageexplorer.com/">存储资源管理器</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">入门</a>
+                                                    <a href="/vs-azure-tools-storage-manage-with-storage-explorer/">入门</a>
                                                 </p>
                                                 <p>
                                                      <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">适用于 Linux 的下载项</a>

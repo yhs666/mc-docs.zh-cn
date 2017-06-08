@@ -106,7 +106,7 @@
 ## [服务限制和局限性](active-directory-service-limits-restrictions.md)
 
 # 相关内容
-## [多重身份验证](/azure/multi-factor-authentication/)
+## [多重身份验证]../multi-factor-authentication/index.md)
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [面向开发人员的 Azure AD](./develop/active-directory-how-to-integrate.md)
 

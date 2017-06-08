@@ -98,8 +98,8 @@ await myCloudPool.CommitAsync();
   - [云服务的大小](../cloud-services/cloud-services-sizes-specs.md)（仅 Windows）
 - **VirtualMachineConfiguration** 池
 
-  - [Azure 中虚拟机的大小](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/) (Linux)
-  - [Azure 中虚拟机的大小](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/) (Windows)
+  - [Azure 中虚拟机的大小](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/) (Linux)
+  - [Azure 中虚拟机的大小](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json/) (Windows)
 
 > [!NOTE]
 > 若要充分利用 [Linux 计算节点](batch-linux-nodes.md)上的 RDMA，必须使用节点上的 **Intel MPI**。 有关 CloudServiceConfiguration 和 VirtualMachineConfiguration 池的详细信息，请参阅[批处理功能概述](batch-api-basics.md)的“池”部分。
