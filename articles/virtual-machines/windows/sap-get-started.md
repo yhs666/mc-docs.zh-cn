@@ -345,8 +345,6 @@ ms.lasthandoff: 05/12/2017
 
 更新时间：2016 年 9 月
 
-[可在此处找到此指南](../virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 ## <a name="deploying-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>在 Azure 上为 SAP ERP 6.0 部署 SAP IDE EHP7 SP3
 标题：在 Azure VM 上手动安装 SAP HANA 的快速入门指南
 
@@ -354,7 +352,7 @@ ms.lasthandoff: 05/12/2017
 
 更新时间：2016 年 9 月
 
-[可在此处找到此指南](sap-cal-ides-erp6-ehp7-sp3-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[可在此处找到此指南](sap-cal-ides-erp6-ehp7-sp3-sql.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>规划和实现
 标题：Azure 虚拟机 (VM) 上的 SAP NetWeaver - 规划和实施指南
@@ -381,13 +379,9 @@ ms.lasthandoff: 05/12/2017
 
 更新时间：2016 年 8 月
 
-[可在此处找到此指南][dbms-guide]
-
 ## <a name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>高可用性部署指南
 标题：Azure 虚拟机 (VM) 上的 SAP NetWeaver - 高可用性部署指南
 
 摘要：本文档介绍如何在 Azure 中保护 SAP 单点故障组件，如 SAP ASCS/SCS 和 DBMS。 SAP ASCS/SCS、DBMS 和应用程序服务器的组合对于 SAP NetWeaver 系统（例如 SAP NetWeaver ABAP、SAP NetWeaver Java、SAP NetWeaver ABAP+Java 系统）的功能至关重要。 因此，高可用性功能需要落实到位，以确保这些组件可以承受服务器或 VM 失败，就像祼机和 Hyper-V 环境的 Windows 群集配置所做的那样。
 
 更新时间：2016 年 12 月
-
-[可在此处找到此指南][ha-guide]

@@ -39,7 +39,7 @@ ms.lasthandoff: 05/19/2017
 
 若要使用此示例，必须：
 
-- [创建](documentdb-create-mongodb-account.md) DocumentDB: API for MongoDB 帐户。
+- [创建](documentdb-create-account.md) DocumentDB: API for MongoDB 帐户。
 - 检索 MongoDB [连接字符串](documentdb-connect-mongodb-account.md)信息。
 
 ## <a name="create-the-app"></a>创建应用程序

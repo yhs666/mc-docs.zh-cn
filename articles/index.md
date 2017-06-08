@@ -14,10 +14,40 @@ ms.lasthandoff: 05/12/2017
     <div class="container">
         <ul class="cardsY panelContent featuredContent">
             <li>
+                <a href="/articles/">
+                    <div class="cardSize">
+                        <div class="cardPadding">
+                            <div class="card">
+                                <div class="cardImageOuter">
+                                    <div class="cardImage">
+                                        <img data-hoverimage="media/index/getstarted-developer.svg" src="media/index/getstarted-developer.png" alt="" />
+                                    </div>
+                                </div>
+                                <div class="cardText">
+                                    <span class="likeAnH3">Azure 常用操作指南</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </li>
             <li>
-            </li>
-            <li>
+                <a href="/articles/developerdifferences">
+                    <div class="cardSize">
+                        <div class="cardPadding">
+                            <div class="card">
+                                <div class="cardImageOuter">
+                                    <div class="cardImage">
+                                        <img data-hoverimage="media/index/getstarted-itoperator.svg" src="media/index/getstarted-itoperator.png" alt="" />
+                                    </div>
+                                </div>
+                                <div class="cardText">
+                                    <span class="likeAnH3">中国区 Azure 应用程序开发说明</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </li>
         </ul>
     </div>
@@ -325,12 +355,6 @@ ms.lasthandoff: 05/12/2017
                                             <a href="/monitoring-and-diagnostics/">
                                                 <img src="media/index/AzureMonitoring.svg" alt="" />
                                                 <p>Azure Monitor</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/billing/">
-                                                <img src="media/index/billing.svg" alt="" />
-                                                <p>计费</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1467,25 +1491,6 @@ ms.lasthandoff: 05/12/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/billing/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/billing.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>计费</h3>
-                                                    <p>了解如何阅读/理解 Azure 订阅的使用情况和计费</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure-resource-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1760,7 +1765,7 @@ ms.lasthandoff: 05/12/2017
                                             <div class="cardText">
                                                 <h3>Azure CLI </h3>
                                                 <p>
-                                                    <a href="/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">入门</a>
+                                                    <a href="/xplat-cli-install?toc=%2fvirtual-machines%2flinux%2ftoc.json">入门</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://aka.ms/linux-azure-cli">下载用于 Linux 的 Azure CLI</a>
@@ -1772,7 +1777,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="http://aka.ms/webpi-azure-cli">下载用于 Windows 的 Azure CLI</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/azure-cli-arm-commands/">参考</a>
+                                                    <a href="/virtual-machines/azure-cli-arm-commands/">参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1870,7 +1875,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="http://storageexplorer.com/">存储资源管理器</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">入门</a>
+                                                    <a href="/vs-azure-tools-storage-manage-with-storage-explorer/">入门</a>
                                                 </p>
                                                 <p>
                                                      <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">适用于 Linux 的下载项</a>

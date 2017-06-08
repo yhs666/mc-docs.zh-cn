@@ -24,7 +24,7 @@ ms.author: nitinme
 了解如何使用 Azure HDInsight 中的 Apache Spark 分析原始示例数据集，然后使用 BI 工具可视化这些数据。本文介绍如何将 BI 工具（例如 Power BI 和 Tableau）与 HDInsight Spark 群集配合使用。
 
 > [!NOTE]
-本文所述的通过 BI 工具进行的连接在 Azure HDInsight 3.6 预览版的 Spark 2.1 上不受支持。仅支持 Spark 版本 1.6 和 2.0（分别为 HDInsight 3.4、3.5）。
+> 本文所述的通过 BI 工具进行的连接在 Azure HDInsight 3.6 预览版的 Spark 2.1 上不受支持。仅支持 Spark 版本 1.6 和 2.0（分别为 HDInsight 3.4、3.5）。
 >
 
 本教程也适用于在 HDInsight 中创建的 Spark (Linux) 群集上的 Jupyter 笔记本。笔记本体验将通过笔记本本身运行 Python 代码段。要在笔记本中执行本教程，请创建 Spark 群集，启动 Jupyter 笔记本 (`https://CLUSTERNAME.azurehdinsight.cn/jupyter`)，然后运行 **Python** 文件夹中的笔记本“将 BI 工具与 HDInsight.ipynb 上的 Apache Spark 配合使用”。
@@ -32,7 +32,7 @@ ms.author: nitinme
 ## 先决条件
 
 * Azure 订阅。请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* HDInsight 上的 Apache Spark 群集。有关说明，请参阅 [Create Apache Spark clusters in Azure HDInsight](./hdinsight-apache-spark-jupyter-spark-sql.md)（在 Azure HDInsight 中创建 Apache Spark 群集）。
+* HDInsight 上的 Apache Spark 群集。有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](./hdinsight-apache-spark-jupyter-spark-sql.md)。
 
 ## <a name="hivetable"></a>将原始数据另存为表
 
@@ -44,7 +44,7 @@ ms.author: nitinme
 2. 在“Spark 群集”边栏选项卡中，单击“群集仪表板”，然后单击“Jupyter 笔记本”。出现提示时，请输入群集的管理员凭据。
 
     > [!NOTE]
-    也可以在浏览器中打开以下 URL 访问群集的 Jupyter 笔记本。将 **CLUSTERNAME** 替换为群集的名称：
+    > 也可以在浏览器中打开以下 URL 访问群集的 Jupyter 笔记本。将 **CLUSTERNAME** 替换为群集的名称：
     >
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`  
     >
@@ -163,7 +163,7 @@ ms.author: nitinme
 ## <a name="tableau"></a>使用 Tableau Desktop 分析表中的数据
 
 > [!NOTE]
-本部分仅适用于在 Azure HDInsight 中创建的 Spark 1.5.2 群集。
+> 本部分仅适用于在 Azure HDInsight 中创建的 Spark 1.5.2 群集。
 >
 >
 

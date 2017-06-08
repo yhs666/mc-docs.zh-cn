@@ -65,7 +65,7 @@ Visual Studio 解决方案包含三个项目：
 
 * Azure 帐户 - 可以[打开 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-* Visual Studio 2015 和[用于 .NET 的 Azure SDK](https://www.azure.cn/downloads/) - SDK 会自动安装 Visual Studio 2015（如果尚未安装）。
+* Visual Studio 2015 和[用于 .NET 的 Azure SDK](/downloads/) - SDK 会自动安装 Visual Studio 2015（如果尚未安装）。
 
     * 在 Visual Studio 中，单击“帮助”->“关于 Microsoft Visual Studio”，确保安装了“Azure App Service Tools v2.9.1”或更高版本。
 
@@ -221,7 +221,7 @@ ASP.NET Web API 项目可以使用 [Swashbuckle](https://www.nuget.org/packages/
 Swashbuckle 可用于任何 ASP.NET Web API 项目。如果要将 Swagger 元数据生成添加到现有项目，只需安装 Swashbuckle 包。
 
 >[!NOTE]
-> Swagger 元数据包含每个 API 操作的唯一 ID。默认情况下，Swashbuckle 可能为 Web API 控制器方法生成重复的 Swagger 操作 ID。如果控制器有重载的 HTTP 方法（例如 `Get()` 和 `Get(id)`），就会发生这种情况。有关如何处理重载的信息，请参阅 [Customize Swashbuckle-generated API definitions](./app-service-api-dotnet-swashbuckle-customize.md)（自定义 Swashbuckle 生成的 API 定义）。如果在 Visual Studio 中使用 Azure API 应用模板创建 Web API 项目，*SwaggerConfig.cs* 文件中会自动添加用于生成唯一操作 ID 的代码。
+> Swagger 元数据包含每个 API 操作的唯一 ID。默认情况下，Swashbuckle 可能为 Web API 控制器方法生成重复的 Swagger 操作 ID。如果控制器有重载的 HTTP 方法（例如 `Get()` 和 `Get(id)`），就会发生这种情况。有关如何处理重载的信息，请参阅[自定义 Swashbuckle 生成的 API 定义](./app-service-api-dotnet-swashbuckle-customize.md)。如果在 Visual Studio 中使用 Azure API 应用模板创建 Web API 项目，*SwaggerConfig.cs* 文件中会自动添加用于生成唯一操作 ID 的代码。
 
 ## <a id="createapiapp"></a>在 Azure 中创建 API 应用并向其部署代码
 
@@ -265,7 +265,7 @@ Swashbuckle 可用于任何 ASP.NET Web API 项目。如果要将 Swagger 元数
 
     ![“创建应用服务”对话框](./media/app-service-api-dotnet-get-started/createas.png)
 
-    以下步骤为新资源组创建应用服务计划。应用服务计划指定 API 应用运行所在的计算资源。例如，如果你选择免费层，则 API 应用程序将在共享 VM 上运行；如果你选择某些付费层，则它在专用 VM 上运行。有关应用服务计划的信息，请参阅 [App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)（应用服务计划概述）。
+    以下步骤为新资源组创建应用服务计划。应用服务计划指定 API 应用运行所在的计算资源。例如，如果你选择免费层，则 API 应用程序将在共享 VM 上运行；如果你选择某些付费层，则它在专用 VM 上运行。有关应用服务计划的信息，请参阅[应用服务计划概述](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
 
 8. 在“配置应用服务计划”对话框中，输入“ToDoListPlan”或其他喜好的名称。
 
@@ -497,11 +497,11 @@ ToDoListAPI 项目已有生成的客户端代码，但在以下步骤中，要�
 
 * 两个项目名称非常类似（ToDoListAPI、ToDoListDataAPI）。处理项目时，如果项目名称不同于说明中所述，请确保打开的是正确的项目。
 
-* 如果在企业网络中并尝试通过防火墙部署到 Azure 应用服务，请确保已针对 Web 部署打开端口 443 和 8172。如果无法打开这些端口，可以使用其他部署方法。请参阅 [Deploy your app to Azure App Service](../app-service-web/web-sites-deploy.md)（将应用部署到 Azure 应用服务）。
+* 如果在企业网络中并尝试通过防火墙部署到 Azure 应用服务，请确保已针对 Web 部署打开端口 443 和 8172。如果无法打开这些端口，可以使用其他部署方法。请参阅[将应用部署到 Azure 应用服务](../app-service-web/web-sites-deploy.md)。
 
 * “路由名称必须唯一”错误 -- 如果不小心将错误的项目部署到 API 应用，稍后再将正确的项目部署到其中，可能会收到这些错误。若要更正此问题，请将正确的项目重新部署到 API 应用，然后在“发布 Web”向导的“设置”选项卡上选择“删除目标位置的其他文件”。
 
-在 Azure 应用服务中运行 ASP.NET API 应用后，可能想要深入了解可简化故障排解的 Visual Studio 功能。有关日志记录、远程调试等功能的信息，请参阅 [Troubleshooting Azure App Service apps in Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)（在 Visual Studio 中对 Azure 应用服务应用进行故障排除）。
+在 Azure 应用服务中运行 ASP.NET API 应用后，可能想要深入了解可简化故障排解的 Visual Studio 功能。有关日志记录、远程调试等功能的信息，请参阅[在 Visual Studio 中对 Azure 应用服务应用进行故障排除](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)。
 
 ## 后续步骤
 

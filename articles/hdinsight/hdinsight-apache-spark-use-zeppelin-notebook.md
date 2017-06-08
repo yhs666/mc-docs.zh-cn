@@ -13,8 +13,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-wacn.date: 
+ms.date: 04/03/2017
+wacn.date: 05/08/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22

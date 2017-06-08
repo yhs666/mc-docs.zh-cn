@@ -25,7 +25,7 @@ ms.author: jgao
 了解如何使用 HDInsight .NET SDK 提交 MapReduce 作业。HDInsight 群集附带了一个 jar 文件，其中包含一些 MarReduce 示例。该 jar 文件是 */example/jars/hadoop-mapreduce-examples.jar*。其中一个示例是 *wordcount*。你开发一个 C# 控制台应用程序以提交 wordcount 作业。该作业读取*/example/data/gutenberg/davinci.txt* 文件，并将结果输出到 */example/data/davinciwordcount*。如果要重新运行该应用程序，必须清理输出文件夹。
 
 > [!NOTE]
-必须从 Windows 客户端执行本文中的步骤。有关使用 Linux、OS X 或 Unix 客户端处理 Hive 的信息，请使用本文顶部显示的选项卡选择器。
+> 必须从 Windows 客户端执行本文中的步骤。有关使用 Linux、OS X 或 Unix 客户端处理 Hive 的信息，请使用本文顶部显示的选项卡选择器。
 > 
 > 
 

@@ -48,7 +48,7 @@ ms.lasthandoff: 05/05/2017
 
     ![显示 VM 大小的屏幕截图](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-6. 在“设置”边栏选项卡上，在“使用托管磁盘”下选择“是”，为其余设置保留默认值，然后单击“确定”。
+6. 设置保留默认值，然后单击“确定”。
 
 7. 在摘要页上，单击“确定”以开始虚拟机部署。
 
@@ -98,7 +98,7 @@ IIS 已安装，并且现在已从 Internet 打开 VM 上的端口 80 - 你可�
 
 ## <a name="next-steps"></a>后续步骤
 
-[安装角色和配置防火墙教程](hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[安装角色和配置防火墙教程](hero-role.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[浏览 VM 部署 CLI 示例](cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[浏览 VM 部署 CLI 示例](cli-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 

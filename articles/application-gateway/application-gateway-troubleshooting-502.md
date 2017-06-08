@@ -108,7 +108,7 @@ BackendAddressPoolsText：
 * 如果 BackendHttpSetting 指定的端口不是 80，则应将默认站点配置为侦听指定的端口。
 * 对 http://127.0.0.1:port 的调用应返回 HTTP 结果代码 200。 应在 30 秒超时期限内返回此代码。
 * 确保配置的端口已打开，并且没有任何防火墙或 Azure 网络安全组在配置的端口上阻止传入或传出流量。
-* 如果对 Azure 经典 VM 或云服务使用 FQDN 或公共 IP，请确保打开相应的[终结点](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)。
+* 如果对 Azure 经典 VM 或云服务使用 FQDN 或公共 IP，请确保打开相应的[终结点](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fapplication-gateway%2ftoc.json)。
 * 如果 VM 是通过 Azure Resource Manager 配置的并且位于应用程序网关部署所在的 VNet 的外部，则必须将[网络安全组](../virtual-network/virtual-networks-nsg.md)配置为允许在所需端口上进行访问。
 
 ## <a name="problems-with-custom-health-probe"></a>自定义运行状况探测出现问题

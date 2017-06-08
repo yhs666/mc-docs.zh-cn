@@ -39,6 +39,8 @@ ssh-keygen -t rsa -b 2048
 ## <a name="use-the-ssh-key-pair"></a>使用 SSH 密钥对
 放置在 Azure 中 Linux VM 上的公钥默认存储在 `~/.ssh/id_rsa.pub` 中，除非你在创建该公钥时更改了位置。 如果使用 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure) 创建 VM，请在将 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 与 `--ssh-key-path` 选项结合使用时指定该公钥的位置。 如果复制和粘贴要在 Azure 门户预览或 Resource Manager 模板中使用的公钥文件的内容，请确保不复制额外的空格。 例如，如果使用 OS X，则可将公钥文件（默认为 **~/.ssh/id_rsa.pub**）通过管道传送到 **pbcopy**，以便复制内容（也可通过其他 Linux 程序（例如 `xclip`）执行此类操作）。 
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 如果不熟悉 SSH 公钥，则可通过运行 `cat` 来查看公钥（如下所示），注意需将 `~/.ssh/id_rsa.pub` 替换为你自己的公钥文件位置：
 
 ```bash
@@ -59,6 +61,6 @@ ssh azureuser@myvm.chinanorth.chinacloudapp.cn
 
 可以通过 Azure 门户预览、CLI 和模板创建使用 SSH 密钥对的 VM：
 
-* [使用 Azure 门户预览创建安全 Linux VM](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [使用 Azure CLI 2.0 创建安全的 Linux VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [使用 Azure 模板创建安全 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 Azure 门户预览创建安全 Linux VM](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 Azure CLI 2.0 创建安全的 Linux VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 Azure 模板创建安全 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

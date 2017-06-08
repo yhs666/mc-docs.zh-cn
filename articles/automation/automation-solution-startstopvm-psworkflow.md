@@ -199,7 +199,7 @@ foreach ($VM in $VMs)
 
 ## 后续步骤
 
-- 若要了解有关使用子 Runbook 的详细信息，请参阅 [Child runbooks in Azure Automation](./automation-child-runbooks.md)（Azure 自动化中的子 Runbook）
-- 若要详细了解执行 Runbook 期间的输出消息和日志记录以帮助进行故障排除，请参阅 [Runbook output and messages in Azure Automation](./automation-runbook-output-and-messages.md)（Azure 自动化中的 Runbook 输出和消息）
+- 若要了解有关使用子 Runbook 的详细信息，请参阅 [Azure 自动化中的子 Runbook](./automation-child-runbooks.md)
+- 若要详细了解执行 Runbook 期间的输出消息和日志记录以帮助进行故障排除，请参阅 [Azure 自动化中的 Runbook 输出和消息](./automation-runbook-output-and-messages.md)
 
 <!---HONumber=Mooncake_Quality_Review_1230_2016-->

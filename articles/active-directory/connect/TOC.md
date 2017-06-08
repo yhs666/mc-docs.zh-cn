@@ -42,7 +42,7 @@
 ### [计划程序](active-directory-aadconnectsync-feature-scheduler.md)
 ### [目录扩展](active-directory-aadconnectsync-feature-directory-extensions.md)
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
-#### [操作](active-directory-aadconnectsync-service-manager-ui-operations.md?toc=%2fazure%2factive-directory%2faad-connect%2ftoc.json)
+#### [操作](active-directory-aadconnectsync-service-manager-ui-operations.md?toc=%2factive-directory%2faad-connect%2ftoc.json)
 #### [连接器](active-directory-aadconnectsync-service-manager-ui-connectors.md)
 #### [Metaverse 设计器](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
 #### [Metaverse 搜索](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
@@ -74,13 +74,6 @@
 ### [Azure AD 联合身份验证兼容性列表](active-directory-aadconnect-federation-compatibility.md)
 ### [技术概念](active-directory-aadconnectsync-technical-concepts.md)
 ### [服务功能](active-directory-aadconnectsyncservice-features.md)
-
-
-
-
-# 相关内容
-## [混合标识设计指南](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
-
 
 # 资源
 ##[Azure AD Connect 常见问题解答](active-directory-aadconnect-faq.md)

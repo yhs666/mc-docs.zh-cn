@@ -22,11 +22,11 @@ ms.author: jgao
 了解如何在 HDInsight 中使用 [Apache Phoenix](http://phoenix.apache.org/)，以及如何在工作站上安装和配置 SQuirrel 以连接到 HDInsight 中的 HBase 群集。有关 Phoenix 的详细信息，请参阅[在 15 分钟或以下了解 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。有关 Phoenix 语法，请参阅 [Phoenix 语法](http://phoenix.apache.org/language/index.html)。
 
 > [!NOTE]
-有关 HDInsight 中的 Phoenix 版本信息，请参阅 [HDInsight 提供的 Hadoop 群集版本有有何变化？](./hdinsight-component-versioning.md)。
+> 有关 HDInsight 中的 Phoenix 版本信息，请参阅 [HDInsight 提供的 Hadoop 群集版本有有何变化？](./hdinsight-component-versioning.md)。
 >
 
 > [!IMPORTANT]
-本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。有关在基于 Linux 的 HDInsight 上使用 Phoenix 的信息，请参阅 [Use Apache Phoenix with Linux-based HBase clusters in HDInsight](./hdinsight-hbase-phoenix-squirrel-linux.md)（将 Apache Phoenix 与 HDInsight 中基于 Linux 的 HBase 群集配合使用）。
+> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。有关在基于 Linux 的 HDInsight 上使用 Phoenix 的信息，请参阅[将 Apache Phoenix 与 HDInsight 中基于 Linux 的 HBase 群集配合使用](./hdinsight-hbase-phoenix-squirrel-linux.md)。
 >
 
 ## 使用 SQLLine
@@ -146,7 +146,7 @@ ms.author: jgao
     请勿关闭命令提示符。下一个过程中将使用它。
 
     > [!NOTE]
-    因为创建了将从其生成客户端证书的根证书，可能需要导出此根证书及其私钥，并将其保存到可以恢复的安全位置。
+    > 因为创建了将从其生成客户端证书的根证书，可能需要导出此根证书及其私钥，并将其保存到可以恢复的安全位置。
     >
     >
 
@@ -210,7 +210,7 @@ ms.author: jgao
 4. 指定你具有写入权限的路径，然后单击“下一步”。
 
     > [!NOTE]
-    默认的安装文件夹为 C:\\Program Files\\squirrel-sql-3.6 文件夹。若要写入此路径，必须为安装程序授予管理员权限。可以管理员身份打开命令提示符，导航到 Java 的 bin 文件夹，然后运行：
+    > 默认的安装文件夹为 C:\\Program Files\\squirrel-sql-3.6 文件夹。若要写入此路径，必须为安装程序授予管理员权限。可以管理员身份打开命令提示符，导航到 Java 的 bin 文件夹，然后运行：
     >
     >`java.exe -jar [the path of the SQuirreL jar file]`  
 
@@ -239,7 +239,7 @@ C:\apps\dist\phoenix-4.0.0.2.1.11.0-2316\phoenix-4.0.0.2.1.11.0-2316-client.jar
     * **类名**：org.apache.phoenix.jdbc.PhoenixDriver
 
         > [!WARNING]
-        在“示例 URL”中使用全小写。当其中一个主机关闭时，可以使用整个 zookeeper 仲裁。主机名为 zookeeper0、zookeeper1 和 zookeeper2。
+        > 在“示例 URL”中使用全小写。当其中一个主机关闭时，可以使用整个 zookeeper 仲裁。主机名为 zookeeper0、zookeeper1 和 zookeeper2。
         >
         >
 

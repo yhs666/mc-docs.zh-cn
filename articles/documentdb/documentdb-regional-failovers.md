@@ -119,7 +119,6 @@ DocumentClient usClient = new DocumentClient(
 ## <a id="NextSteps"></a>后续步骤
 - 了解 DocumentDB 如何支持[全球分布](documentdb-distribute-data-globally.md)
 - 了解 [DocumentDB 的全局一致性](documentdb-consistency-levels.md)
-- 使用 DocumentDB 的 [DocumentDB SDK](./documentdb-portal-global-replication.md) 通过多个区域进行开发
 - 了解如何使用 Azure DocumentDB 构建[多区域编写器体系结构](documentdb-multi-region-writers.md)
 
 

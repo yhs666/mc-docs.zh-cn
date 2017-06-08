@@ -87,7 +87,7 @@ ms.author: cephalin
 
 ## 检查（或编辑）AZUREDEPLOY.JSON ##
 
-现在让我们看看如何设置 GitHub 存储库。你将使用 Azure.NET SDK 中的 JSON 编辑器，所以如果尚未安装 [Azure .NET SDK 2.6](https://www.azure.cn/downloads/)，请立刻安装。
+现在让我们看看如何设置 GitHub 存储库。你将使用 Azure.NET SDK 中的 JSON 编辑器，所以如果尚未安装 [Azure .NET SDK 2.6](/downloads/)，请立刻安装。
 
 1. 使用你最喜欢的 git 工具克隆 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 存储库。在下面的屏幕截图中，我将在 Visual Studio 2013 的团队资源管理器中执行此操作。
 

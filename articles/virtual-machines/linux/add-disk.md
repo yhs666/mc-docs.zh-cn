@@ -30,12 +30,7 @@ ms.lasthandoff: 04/21/2017
 ## <a name="quick-commands"></a>快速命令
 以下示例将 `50`GB 磁盘附加到名为 `myResourceGroup` 的资源组中名为 `myVM` 的 VM：
 
-使用托管磁盘：
-
-```azurecli
-az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
-  --new --size-gb 50
-```
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 使用非托管磁盘：
 
@@ -43,57 +38,6 @@ az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
 az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
   --new --size-gb 50
 ```
-
-## <a name="attach-a-managed-disk"></a>附加托管磁盘
-
-使用托管磁盘，可专注于 VM 及其磁盘，而不必担心 Azure 存储帐户。 可以使用相同的 Azure 资源组快速创建托管磁盘并将其附加到 VM，也可以创建任意数量的磁盘，然后将其附加。
-
-### <a name="attach-a-new-disk-to-a-vm"></a>将新磁盘附加到 VM
-
-如果 VM 上只需要一个新磁盘，可以使用 `az vm disk attach` 命令。
-
-```azurecli
-az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
-  --new --size-gb 50
-```
-
-### <a name="attach-an-existing-disk"></a>附加现有磁盘 
-
-在许多情况下会附加已创建的磁盘。 首先找到磁盘 id，然后将其传递给 `az vm disk attach` 命令。 以下示例使用通过 `az disk create -g myResourceGroup -n myDataDisk --size-gb 50` 创建的磁盘。
-
-```azurecli
-# find the disk id
-diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
-az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
-```
-
-输出类似于以下形式（可将 `-o table` 选项用于任何命令来格式化输出）：
-
-```json
-{
-  "accountType": "Standard_LRS",
-  "creationData": {
-    "createOption": "Empty",
-    "imageReference": null,
-    "sourceResourceId": null,
-    "sourceUri": null,
-    "storageAccountId": null
-  },
-  "diskSizeGb": 50,
-  "encryptionSettings": null,
-  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
-  "location": "chinanorth",
-  "name": "myDataDisk",
-  "osType": null,
-  "ownerId": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "tags": null,
-  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
-  "type": "Microsoft.Compute/disks"
-}
-```
-
 ## <a name="attach-an-unmanaged-disk"></a>附加非托管磁盘
 
 如果不介意在与 VM 相同的存储帐户中创建磁盘，则可快速附加新磁盘。 键入 `azure vm disk attach-new` 可为 VM 创建和连接新的 GB 磁盘。 如果你未显式标识存储帐户，则创建的任何磁盘将位于 OS 磁盘所在的同一个存储帐户中。 以下示例将一个 `50`GB 的磁盘附加到资源组 `myResourceGroup` 中名为 `myVM` 的 VM：
@@ -105,7 +49,7 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a> 连接到 Linux VM 以装入新磁盘
 > [!NOTE]
-> 本主题使用用户名和密码连接到 VM。 若要使用公钥和私钥对与 VM 通信，请参阅 [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)（如何在 Azure 上将 SSH 用于 Linux）。 
+> 本主题使用用户名和密码连接到 VM。 若要使用公钥和私钥对与 VM 通信，请参阅 [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（如何在 Azure 上将 SSH 用于 Linux）。 
 > 
 > 
 
@@ -340,5 +284,5 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 
 ## <a name="next-steps"></a>后续步骤
 * 请记住，除非将该信息写入 [fstab](http://en.wikipedia.org/wiki/Fstab) 文件，否则即使重新启动 VM，新磁盘也无法供 VM 使用。
-* 为确保正确配置 Linux VM，请查看有关[优化 Linux 计算机性能](optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的建议。
-* 可以添加更多的磁盘来扩展存储容量，[配置 RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 来提高性能。
+* 为确保正确配置 Linux VM，请查看有关[优化 Linux 计算机性能](optimization.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)的建议。
+* 可以添加更多的磁盘来扩展存储容量，[配置 RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 来提高性能。

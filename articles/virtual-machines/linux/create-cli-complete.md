@@ -24,9 +24,9 @@ ms.lasthandoff: 04/14/2017
 
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建完整的 Linux 环境
-在本文中，我们将构建一个简单网络，其中包含一个负载均衡器，以及一对可用于开发和简单计算的 VM。 将以逐条命令的方式完成整个过程，直到创建两个可以从 Internet 上的任何位置连接的有效且安全的 Linux VM。 然后，便可以继续构建更复杂的网络和环境。 本文详细介绍如何使用 Azure CLI 2.0 构建环境。 还可以使用 [Azure CLI 1.0](create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
+在本文中，我们将构建一个简单网络，其中包含一个负载均衡器，以及一对可用于开发和简单计算的 VM。 将以逐条命令的方式完成整个过程，直到创建两个可以从 Internet 上的任何位置连接的有效且安全的 Linux VM。 然后，便可以继续构建更复杂的网络和环境。 本文详细介绍如何使用 Azure CLI 2.0 构建环境。 还可以使用 [Azure CLI 1.0](create-cli-complete-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
 
-在此过程中，你将了解 Resource Manager 部署模型提供的依赖性层次结构及其提供的功能。 明白系统是如何构建的以后，即可使用 [Azure Resource Manager 模板](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)更快速地重新构建系统。 此外，了解环境的各个部分如何彼此配合运行后，可以更轻松创建模板以实现自动化。
+在此过程中，你将了解 Resource Manager 部署模型提供的依赖性层次结构及其提供的功能。 明白系统是如何构建的以后，即可使用 [Azure Resource Manager 模板](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)更快速地重新构建系统。 此外，了解环境的各个部分如何彼此配合运行后，可以更轻松创建模板以实现自动化。
 
 该环境包含：
 
@@ -50,8 +50,7 @@ ms.lasthandoff: 04/14/2017
 ```azurecli
 az group create --name myResourceGroup --location chinanorth
 ```
-
-此后续步骤是可选的。 使用 Azure CLI 2.0 创建 VM 时的默认操作是使用 Azure 托管磁盘。 有关 Azure 托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md)。 如果要改为使用非托管磁盘，需要使用 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) 创建存储帐户。 以下示例创建一个名为 `mystorageaccount` 的存储帐户。 （存储帐户名称必须唯一，因此，请提供自己的唯一名称。）
+使用非托管磁盘，需要使用 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) 创建存储帐户。 以下示例创建一个名为 `mystorageaccount` 的存储帐户。 （存储帐户名称必须唯一，因此，请提供自己的唯一名称。）
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location chinanorth \
@@ -166,7 +165,7 @@ az vm availability-set create --resource-group myResourceGroup --location chinan
   --platform-fault-domain-count 3 --platform-update-domain-count 2
 ```
 
-使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create)创建第一个 Linux VM。 以下示例使用 Azure 托管磁盘创建名为 `myVM1` 的 VM。 如果想要使用非托管磁盘，请参阅下面的附加说明。
+使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create)创建第一个 Linux VM。 以下示例使用 Azure 非托管磁盘创建名为 `myVM1` 的 VM。
 
 ```azurecli
 az vm create \
@@ -177,14 +176,9 @@ az vm create \
     --nics myNic1 \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username azureuser
-```
-
-如果使用 Azure 托管磁盘，请跳过此步骤。 如果想要使用非托管磁盘，并且已在前面的步骤中创建了存储帐户，则需要将一些附加参数添加到正在执行的命令中。 将以下附加参数添加到正在执行的命令，在名为 `mystorageaccount`的存储帐户中创建非托管磁盘： 
-
-```azurecli
-  --use-unmanaged-disk \
-  --storage-account mystorageaccount
+    --admin-username azureuser \
+    --use-unmanaged-disk \
+    --storage-account mystorageaccount
 ```
 
 再次使用 **az vm create**创建第二个 Linux VM。 以下示例创建名为 `myVM2`的 VM：
@@ -198,15 +192,10 @@ az vm create \
     --nics myNic2 \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username azureuser
+    --admin-username azureuser \
+    --use-unmanaged-disk \
+    --storage-account mystorageaccount
 ```
-
-同样，如果不使用默认 Azure 托管磁盘，请将以下附加参数添加到正在执行的命令，在名为 `mystorageaccount`的存储帐户中创建非托管磁盘：
-
-```azurecli
-  --use-unmanaged-disk \
-  --storage-account mystorageaccount
-``` 
 
 使用 [az vm show](https://docs.microsoft.com/cli/azure/vm#show)验证所有项是否均已正确生成：
 
@@ -250,9 +239,8 @@ az group create --name myResourceGroup --location chinanorth
 ```
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
-此后续步骤是可选的。 使用 Azure CLI 2.0 创建 VM 时的默认操作是使用 Azure 托管磁盘。 这些磁盘由 Azure 平台处理，无需任何准备或位置来存储它们。 有关 Azure 托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md)。 如果想要使用 Azure 托管磁盘，请跳到 [创建虚拟网络和子网](#create-a-virtual-network-and-subnet) 。 
 
-如果想要使用非托管磁盘，需要为 VM 磁盘和想要添加的其他任何数据磁盘创建存储帐户。
+使用非托管磁盘，需要为 VM 磁盘和想要添加的其他任何数据磁盘创建存储帐户。
 
 此处，我们使用 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create)，并传递帐户的位置、控制该帐户的资源组，以及所需的存储支持类型。 以下示例创建名为 `mystorageaccount`的存储帐户：
 
@@ -409,7 +397,7 @@ az network public-ip create --resource-group myResourceGroup --location chinanor
 公共 IP 地址资源已经以逻辑方式分配，但尚未分配有特定地址。 若要获取 IP 地址，需要一个负载均衡器，但该负载均衡器尚未创建。
 
 ## <a name="create-a-load-balancer-and-ip-pools"></a>创建负载均衡器和 IP 池
-创建负载均衡器时，可以将流量分散到多个 VM。 负载平衡器还可以在执行维护或承受重负载时运行多个 VM 来响应用户请求，为应用程序提供冗余。 以下示例使用 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) 创建一个名为 `myLoadBalancer` 的负载均衡器、一个名为 `myFrontEndPool` 的前端 IP 池，并挂接 `myPublicIP` 资源：
+创建负载均衡器时，可以将流量分散到多个 VM。 负载均衡器还可以在执行维护或承受重负载时运行多个 VM 来响应用户请求，为应用程序提供冗余。 以下示例使用 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) 创建一个名为 `myLoadBalancer` 的负载均衡器、一个名为 `myFrontEndPool` 的前端 IP 池，并挂接 `myPublicIP` 资源：
 
 ```azurecli
 az network lb create --resource-group myResourceGroup --location chinanorth \
@@ -536,7 +524,7 @@ az network lb inbound-nat-rule create --resource-group myResourceGroup \
 ```
 
 ## <a name="create-a-load-balancer-health-probe"></a>创建负载均衡器运行状况探测
-运行状况探测定期检查受负载均衡器后面的 VM，以确保它们可以根据定义操作和响应请求。 否则，将从操作中删除这些 VM，确保不会将用户定向到它们。 可以针对运行状况探测定义自定义检查，以及间隔和超时值。 有关运行状况探测的详细信息，请参阅 [Load Balancer probes](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)（负载均衡器探测）。 以下示例使用 [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) 创建一个名为 `myHealthProbe` 的 TCP 运行状况探测：
+运行状况探测定期检查受负载均衡器后面的 VM，以确保它们可以根据定义操作和响应请求。 否则，将从操作中删除这些 VM，确保不会将用户定向到它们。 可以针对运行状况探测定义自定义检查，以及间隔和超时值。 有关运行状况探测的详细信息，请参阅 [Load Balancer probes](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（负载均衡器探测）。 以下示例使用 [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) 创建一个名为 `myHealthProbe` 的 TCP 运行状况探测：
 
 ```azurecli
 az network lb probe create --resource-group myResourceGroup --lb-name myLoadBalancer \
@@ -995,14 +983,14 @@ az vm availability-set create --resource-group myResourceGroup --location chinan
 
 升级域表示虚拟机组以及可同时重新启动的基础物理硬件。 在计划内维护期间，升级域的重新启动顺序可能不会按序进行，但一次只重新启动一个升级域。 同样，将多个 VM 放入一个可用性站点时，Azure 会自动将它们分散到升级域。
 
-请阅读有关[管理 VM 可用性](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的详细信息。
+请阅读有关[管理 VM 可用性](manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)的详细信息。
 
 ## <a name="create-the-linux-vms"></a>创建 Linux VM
-现已创建用于支持可访问 Internet 的 VM 的网络资源。 接下来，我们创建 VM 并使用不含密码的 SSH 密钥保护其安全。 在此情况下，我们需要基于最新的 LTS 创建 Ubuntu VM。 我们将根据 [finding Azure VM images](cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)（查找 Azure VM 映像）中所述，使用 [az vm image list](https://docs.microsoft.com/cli/azure/vm/image#list) 来查找该映像信息。
+现已创建用于支持可访问 Internet 的 VM 的网络资源。 接下来，我们创建 VM 并使用不含密码的 SSH 密钥保护其安全。 在此情况下，我们需要基于最新的 LTS 创建 Ubuntu VM。 我们将根据 [finding Azure VM images](cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（查找 Azure VM 映像）中所述，使用 [az vm image list](https://docs.microsoft.com/cli/azure/vm/image#list) 来查找该映像信息。
 
-我们还将指定要用于身份验证的 SSH 密钥。 如果你没有任何 SSH 密钥，可以根据[这些说明](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)创建它们。 或者，可以在创建 VM 之后，使用 `--admin-password` 方法对 SSH 连接进行身份验证。 此方法通常不太安全。
+我们还将指定要用于身份验证的 SSH 密钥。 如果你没有任何 SSH 密钥，可以根据[这些说明](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)创建它们。 或者，可以在创建 VM 之后，使用 `--admin-password` 方法对 SSH 连接进行身份验证。 此方法通常不太安全。
 
-我们使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 命令并结合所有资源和信息来创建 VM。 以下示例使用 Azure 托管磁盘创建一个名为 `myVM1` 的 VM。 如果想要使用非托管磁盘，请参阅下面的附加说明。
+我们使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 命令并结合所有资源和信息来创建 VM。 以下示例使用 Azure 非托管磁盘创建一个名为 `myVM1` 的 VM。
 
 ```azurecli
 az vm create \
@@ -1013,14 +1001,9 @@ az vm create \
     --nics myNic1 \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username azureuser
-```
-
-如果使用 Azure 托管磁盘，请跳过此步骤。 如果想要使用非托管磁盘，并且已在前面的步骤中创建了存储帐户，则需要将一些附加参数添加到正在执行的命令中。 将以下附加参数添加到正在执行的命令，在名为 `mystorageaccount`的存储帐户中创建非托管磁盘： 
-
-```azurecli
-  --use-unmanaged-disk \
-  --storage-account mystorageaccount
+    --admin-username azureuser \
+    --use-unmanaged-disk \
+    --storage-account mystorageaccount
 ```
 
 输出：
@@ -1075,26 +1058,21 @@ az vm create \
     --nics myNic2 \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username azureuser
-```
-
-同样，如果不使用默认 Azure 托管磁盘，请将以下附加参数添加到正在执行的命令，在名为 `mystorageaccount` 的存储帐户中创建非托管磁盘：
-
-```azurecli
-  --use-unmanaged-disk \
-  --storage-account mystorageaccount
+    --admin-username azureuser \
+    --use-unmanaged-disk \
+    --storage-account mystorageaccount
 ```
 
 此时，已在 Azure 中运行了一个位于负载均衡器后面的 Ubuntu VM，只能使用 SSH 密钥对登录到该 VM（因为密码已禁用）。 可以安装 nginx 或 httpd、部署 Web 应用，以及查看流量是否通过负载均衡器流向两个 VM。
 
 ## <a name="export-the-environment-as-a-template"></a>将环境导出为模板
-现已构建此环境，如果要使用相同的参数创建与其相符的额外开发环境或生产环境，该怎么办？ Resource Manager 使用定义了所有环境参数的 JSON 模板。 通过引用此 JSON 模板构建出整个环境。 可以[手动构建 JSON 模板](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，也可以通过导出现有环境来替你创建 JSON 模板。 使用 [az group export](https://docs.microsoft.com/cli/azure/group#export) 导出资源组，如下所示：
+现已构建此环境，如果要使用相同的参数创建与其相符的额外开发环境或生产环境，该怎么办？ Resource Manager 使用定义了所有环境参数的 JSON 模板。 通过引用此 JSON 模板构建出整个环境。 可以[手动构建 JSON 模板](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，也可以通过导出现有环境来替你创建 JSON 模板。 使用 [az group export](https://docs.microsoft.com/cli/azure/group#export) 导出资源组，如下所示：
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-此命令在当前工作目录中创建 `myResourceGroup.json` 文件。 从此模板创建环境时，系统会提示输入所有资源名称，包括负载均衡器、网络接口或 VM 的名称。 可以通过向前面所示的 **az group export** 命令添加 `--include-parameter-default-value` 参数，在模板文件中填充这些名称。 请编辑 JSON 模板以指定资源名称，或[创建 parameters.json 文件](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)来指定资源名称。
+此命令在当前工作目录中创建 `myResourceGroup.json` 文件。 从此模板创建环境时，系统会提示输入所有资源名称，包括负载均衡器、网络接口或 VM 的名称。 可以通过向前面所示的 **az group export** 命令添加 `--include-parameter-default-value` 参数，在模板文件中填充这些名称。 请编辑 JSON 模板以指定资源名称，或[创建 parameters.json 文件](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)来指定资源名称。
 
 若要从模板创建环境，请使用 [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create) ，如下所示：
 
@@ -1103,7 +1081,7 @@ az group deployment create --resource-group myNewResourceGroup \
   --template-file myResourceGroup.json
 ```
 
-可能需要阅读[有关通过模板进行部署的详细信息](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 了解如何对环境进行增量更新、如何使用参数文件，以及如何从单个存储位置访问模板。
+可能需要阅读[有关通过模板进行部署的详细信息](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 了解如何对环境进行增量更新、如何使用参数文件，以及如何从单个存储位置访问模板。
 
 ## <a name="next-steps"></a>后续步骤
 现在，已准备好开始使用多个网络组件和 VM。 可以使用本文介绍的核心组件，通过此示例环境构建应用程序。

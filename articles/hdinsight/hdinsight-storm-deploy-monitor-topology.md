@@ -30,9 +30,9 @@ ms.author: larryfr
 HDInsight 工具中的 Storm 仪表板和 Storm 功能依赖于 Storm REST API，此 API 可用于创建你自己的监视和管理解决方案。
 
 > [!IMPORTANT]
-本文档中的步骤需要将 Windows 作为操作系统的 Storm on HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> 本文档中的步骤需要将 Windows 作为操作系统的 Storm on HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 >
-> 有关在使用 Linux 的 HDInsight 群集上部署和管理 Storm 拓扑的信息，请参阅 [Deploy and manage Apache Storm topologies on Linux-based HDInsight](./hdinsight-storm-deploy-monitor-topology-linux.md)（在基于 Linux 的 HDInsight 上部署和管理 Apache Storm 拓扑）
+> 有关在使用 Linux 的 HDInsight 群集上部署和管理 Storm 拓扑的信息，请参阅[在基于 Linux 的 HDInsight 上部署和管理 Apache Storm 拓扑](./hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ## 先决条件
 
@@ -64,7 +64,7 @@ Storm 仪表板是 Storm 群集上提供的网页。URL 是 **https://&lt;cluste
 ![Storm UI][storm-dashboard-ui]  
 
 > [!NOTE]
-在某些版本的 Internet Explorer 中，你可能会发现，在首次访问 Storm UI 后它并不会刷新。例如，可能不显示已提交的新拓扑，或者将以前停用的拓扑显示为活动状态。Microsoft 已意识此问题，并在努力找出相应的解决方法。
+> 在某些版本的 Internet Explorer 中，你可能会发现，在首次访问 Storm UI 后它并不会刷新。例如，可能不显示已提交的新拓扑，或者将以前停用的拓扑显示为活动状态。Microsoft 已意识此问题，并在努力找出相应的解决方法。
 
 #### 主页面
 
@@ -126,7 +126,7 @@ HDInsight 工具可用于将 C# 或混合拓扑提交到 Storm 群集。以下�
 
 使用以下步骤将示例部署到 Storm on HDInsight 群集，然后查看和管理拓扑。
 
-1. 如果尚未安装最新版本的 HDInsight Tools for Visual Studio，请参阅 [Get started using HDInsight Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md)（开始使用 HDInsight Tools for Visual Studio）。
+1. 如果尚未安装最新版本的 HDInsight Tools for Visual Studio，请参阅[开始使用 HDInsight Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md)。
 
 2. 打开 Visual Studio，选择“文件”>“新建”>“项目”。
 
@@ -137,7 +137,7 @@ HDInsight 工具可用于将 C# 或混合拓扑提交到 Storm 群集。以下�
 4. 在“解决方案资源管理器”中，右键单击项目，然后选择“提交到 Storm on HDInsight”。
 
     > [!NOTE]
-    如果出现提示，请输入 Azure 订阅的登录凭据。如果有多个订阅，请登录包含 Storm on HDInsight 群集的订阅。
+    > 如果出现提示，请输入 Azure 订阅的登录凭据。如果有多个订阅，请登录包含 Storm on HDInsight 群集的订阅。
 
 5. 从“Storm 群集”下拉列表中选择你的 Storm on HDInsight 群集，然后选择“提交”。你可以使用“输出”窗口监视提交是否成功。
 
@@ -146,17 +146,17 @@ HDInsight 工具可用于将 C# 或混合拓扑提交到 Storm 群集。以下�
     ![visual studio 监视器](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
     > [!NOTE]
-    你也可以依次展开“Azure”和“HDInsight”，右键单击 Storm on HDInsight 群集，然后选择“查看 Storm 拓扑”，从“服务器资源管理器”查看“Storm 拓扑”。
+    > 你也可以依次展开“Azure”和“HDInsight”，右键单击 Storm on HDInsight 群集，然后选择“查看 Storm 拓扑”，从“服务器资源管理器”查看“Storm 拓扑”。
 
     选择 Spout 或 Bolt 的形状可查看有关这些组件的信息。每选择一项都会打开一个新窗口。
 
     > [!NOTE]
-    拓扑的名称是拓扑的类名（在此示例中为 `HelloWord`）并追加了时间戳。
+    > 拓扑的名称是拓扑的类名（在此示例中为 `HelloWord`）并追加了时间戳。
 
 7. 从“拓扑摘要”视图中，选择“终止”以停止拓扑。
 
     > [!NOTE]
-    Storm 拓扑会一直运行，直到它被停止，或者群集被删除。
+    > Storm 拓扑会一直运行，直到它被停止，或者群集被删除。
 
 ## REST API
 
@@ -173,7 +173,7 @@ REST API on HDInsight 群集的基本 URI 是 **https://&lt;clustername>.azurehd
 对 REST API 的请求必须使用**基本身份验证**，因此应该使用 HDInsight 群集管理员名称和密码。
 
 > [!NOTE]
-由于基本身份验证是使用明文发送的，因此**始终**应该使用 HTTPS 来保护与群集之间的通信。
+> 由于基本身份验证是使用明文发送的，因此**始终**应该使用 HTTPS 来保护与群集之间的通信。
 
 ### 返回值
 

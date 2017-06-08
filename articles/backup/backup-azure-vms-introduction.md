@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/5/2017
+ms.date: 04/05/2017
 ms.author: markgal;trinadhk
 wacn.date: 
 ms.translationtype: Human Translation
@@ -126,7 +126,7 @@ Azure 备份提供脚本框架。 若要确保备份 Linux VM 时的应用程序
 在备份过程中，Azure 备份不会加密数据。 但是，可以在 VM 中加密数据，然后无缝备份保护的数据（阅读有关[加密数据备份](backup-azure-vms-encryption.md)的详细信息）。
 
 ## <a name="calculating-the-cost-of-protected-instances"></a>计算受保护实例的成本
-通过 Azure 备份进行备份的 Azure 虚拟机的收费依据 [Azure 备份定价](/pricing/details/backup/)。 受保护的实例计算基于虚拟机的实际大小，即虚拟机中除“资源磁盘”外的所有数据之和。
+通过 Azure 备份进行备份的 Azure 虚拟机的收费依据 [Azure 备份定价](https://www.azure.cn/pricing/details/backup/)。 受保护的实例计算基于虚拟机的实际大小，即虚拟机中除“资源磁盘”外的所有数据之和。
 
 VM 备份定价*并非*基于附加到虚拟机的每个数据磁盘的最大支持大小。 定价基于数据磁盘中存储的实际数据。 与此类似，备份存储的收费是基于 Azure 备份中存储的数据量，即每个恢复点中实际数据之和。
 

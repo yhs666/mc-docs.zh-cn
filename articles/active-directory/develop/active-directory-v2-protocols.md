@@ -39,7 +39,7 @@ v2.0 终结点并不支持所有 Azure Active Directory 方案和功能。若要
 - **资源服务器**是资源或数据所在的位置。它信任授权服务器来安全验证和授权 OAuth 客户端，并使用持有者 access\_token 来确保可以授予对资源的访问权限。
 
 ## 应用注册  <a name="openid-connect-sign-in-flow"></a>
-所有使用 v2.0 终结点的应用都必须先在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList) 上注册，然后才能使用 OAuth 或 OpenID Connect 进行交互。应用注册进程会收集一些值并将其分配到应用：
+所有使用 v2.0 终结点的应用都必须先在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 上注册，然后才能使用 OAuth 或 OpenID Connect 进行交互。应用注册进程会收集一些值并将其分配到应用：
 
 - 用于唯一标识应用的**应用程序 ID**
 - 可用于将响应定向回应用的**重定向 URI** 或**包标识符**

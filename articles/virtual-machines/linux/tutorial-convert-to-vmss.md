@@ -43,6 +43,8 @@ exit
 
 有关捕获的详细概述，请参阅[捕获 Linux 虚拟机](capture-image.md)。
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 使用 [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate) 解除分配 VM：
 
 ```azurecli

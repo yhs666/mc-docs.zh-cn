@@ -90,7 +90,7 @@ HDInsight 使用各种 Hadoop 组件。 有关已获得验证和支持的组件�
     * **属性**：查看群集属性。
     * **存储帐户**：查看存储帐户和密钥。 存储帐户是在群集创建过程中进行配置。
     * **群集 AAD 标识**： 
-    * **新建支持请求**：允许用户使用 Microsoft 支持创建支持票证。
+    * **新建支持请求**：允许用户使用 Azure.cn 支持创建支持票证。
 
 6. 单击“属性”： 
 
@@ -99,7 +99,7 @@ HDInsight 使用各种 Hadoop 组件。 有关已获得验证和支持的组件�
     * **主机名**：群集名称。
     * **群集 URL**。 Ambari Web 界面的 URL。
     * **状态**：包括“已终止”、“已接受”、ClusterStorageProvisioned、AzureVMConfiguration、HDInsightConfiguration、“正常运行”、“正在运行”、“错误”、“正在删除”、“已删除”、“超时”、DeleteQueued、DeleteTimedout、DeleteError、PatchQueued、CertRolloverQueued、ResizeQueued、ClusterCustomization
-    * **区域**：Azure 位置。 有关受支持的 Azure 位置的列表，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)中的“区域”下拉列表框。
+    * **区域**：Azure 位置。 有关受支持的 Azure 位置的列表，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)中的“上市地区”。
     * **创建日期**。
     * **操作系统**：**Windows** 或 **Linux**。
     * **类型**：Hadoop、HBase、Storm、Spark。 
@@ -142,7 +142,6 @@ HDInsight 使用各种 Hadoop 组件。 有关已获得验证和支持的组件�
         >hbase shell
         >balancer
 
-    有关使用 HBase shell 的详细信息，请参阅 []
 * Storm
 
     可在 Storm 群集运行时顺利添加或删除数据节点。 但是，缩放操作成功完成后，需要重新平衡拓扑。
@@ -160,10 +159,12 @@ HDInsight 使用各种 Hadoop 组件。 有关已获得验证和支持的组件�
 
     以下是有关如何使用 CLI 命令重新平衡 Storm 拓扑的示例：
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 **缩放群集**
 
@@ -199,7 +200,7 @@ HDInsight 群集可以有两个用户帐户。 HDInsight 群集用户帐户（�
 > 
 > 
 
-1. 使用 HDInsight 群集用户凭据登录到 Ambari Web UI。 默认的用户名为 **admin**。 URL 为 **https://&lt;HDInsight Cluster Name>azurehdinsight.cn**。
+1. 使用 HDInsight 群集用户凭据登录到 Ambari Web UI。 默认的用户名为 **admin**。 URL 为 **https://&lt;HDInsight Cluster Name>.azurehdinsight.cn**。
 2. 在顶部菜单中单击“管理”，然后单击“管理 Ambari”。 
 3. 在左侧菜单中，单击“用户”。
 4. 单击“管理”。

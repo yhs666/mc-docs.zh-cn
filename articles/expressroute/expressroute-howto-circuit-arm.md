@@ -32,7 +32,7 @@ ms.lasthandoff: 04/25/2017
 
 
 ## <a name="before-you-begin"></a>开始之前
-* 安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关详细信息，请参阅 [Azure PowerShell 概述](/powershell/azureps-cmdlets-docs)。
+* 安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关详细信息，请参阅 [Azure PowerShell 概述](../powershell-install-configure.md)。
 * 在开始配置之前，请查看[先决条件](./expressroute-prerequisites.md)和[工作流](./expressroute-workflows.md)。
 
 

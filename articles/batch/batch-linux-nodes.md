@@ -37,7 +37,7 @@ ms.lasthandoff: 04/14/2017
 
 “云服务配置”*只*提供 Windows 计算节点。 [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md)（云服务的大小）中列出了可用的计算节点大小，[Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md)（Azure 来宾 OS 版本和 SDK 兼容性对照表）中列出了可用的操作系统。 创建包含 Azure 云服务节点的池时，只需指定可在上述文章中所述的节点大小及其“OS 系列”。 对于 Windows 计算节点池，最常使用的是云服务。
 
-“虚拟机配置”为计算节点提供 Linux 和 Windows 映像。 [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/)（Azure 中虚拟机的大小）(Linux) 和  [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/)（Azure 中虚拟机的大小）(Windows) 中列出了可用的计算节点大小。 创建包含虚拟机配置节点的池时，必须指定节点的大小、虚拟机映像引用，以及要在节点上安装的 Batch 节点代理 SKU。
+“虚拟机配置”为计算节点提供 Linux 和 Windows 映像。 [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/)（Azure 中虚拟机的大小）(Linux) 和  [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json/)（Azure 中虚拟机的大小）(Windows) 中列出了可用的计算节点大小。 创建包含虚拟机配置节点的池时，必须指定节点的大小、虚拟机映像引用，以及要在节点上安装的 Batch 节点代理 SKU。
 
 ### <a name="virtual-machine-image-reference"></a>虚拟机映像引用
 Batch 服务使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)提供 Linux 计算节点。 这些虚拟机的操作系统映像由 [Azure 应用商店][vm_marketplace]提供。 配置虚拟机映像引用时，需指定应用商店虚拟机映像的属性。 创建虚拟机映像引用时，需提供以下属性：
@@ -50,7 +50,7 @@ Batch 服务使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-mac
 | Version |latest |
 
 > [!TIP]
-> 可以在 [Navigate and select Linux virtual machine images in Azure with CLI or PowerShell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/)（使用 CLI 或 PowerShell 在 Azure 中导航和选择 Linux 虚拟机映像）中详细了解这些属性，以及如何列出应用商店映像。 请注意，目前并非所有应用商店映像都与 Batch 兼容。 有关详细信息，请参阅 [节点代理 SKU](#node-agent-sku)。
+> 可以在 [Navigate and select Linux virtual machine images in Azure with CLI or PowerShell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/)（使用 CLI 或 PowerShell 在 Azure 中导航和选择 Linux 虚拟机映像）中详细了解这些属性，以及如何列出应用商店映像。 请注意，目前并非所有应用商店映像都与 Batch 兼容。 有关详细信息，请参阅 [节点代理 SKU](#node-agent-sku)。
 >
 >
 
@@ -328,7 +328,7 @@ MSDN 上的 [Azure Batch 论坛][forum] 是探讨 Batch 服务以及咨询其相
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[cloud_services_pricing]: /pricing/details/cloud-services/
+[cloud_services_pricing]: https://www.azure.cn/pricing/details/cloud-services/
 [forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_py]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
@@ -350,6 +350,6 @@ MSDN 上的 [Azure Batch 论坛][forum] 是探讨 Batch 服务以及咨询其相
 [py_imagereference]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.models.html#azure.batch.models.ImageReference
 [py_list_skus]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
-[vm_pricing]: /pricing/details/virtual-machines/
+[vm_pricing]: https://www.azure.cn/pricing/details/virtual-machines/
 
 

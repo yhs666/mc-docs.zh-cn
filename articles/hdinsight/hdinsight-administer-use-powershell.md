@@ -79,7 +79,7 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
 使用群集缩放功能，可更改 Azure HDInsight 中运行的群集使用的辅助节点数，而无需重新创建群集。
 
 > [!NOTE]
-只支持使用 HDInsight 3.1.3 或更高版本的群集。如果不确定群集的版本，可以查看“属性”页面。请参阅[列出并显示群集](./hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。
+> 只支持使用 HDInsight 3.1.3 或更高版本的群集。如果不确定群集的版本，可以查看“属性”页面。请参阅[列出并显示群集](./hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。
 > 
 > 
 
@@ -162,7 +162,7 @@ Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredenti
 ```
 
 > [!NOTE]
-通过授予/撤消访问权限，你将重置群集用户名和密码。
+> 通过授予/撤消访问权限，你将重置群集用户名和密码。
 > 
 > 
 

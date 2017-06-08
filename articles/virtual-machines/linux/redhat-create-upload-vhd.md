@@ -37,7 +37,7 @@ ms.lasthandoff: 05/05/2017
 * Azure 不支持 VHDX 格式。 Azure 仅支持固定 VHD。 可使用 Hyper-V 管理器将磁盘转换为 VHD 格式，也可以使用 convert-vhd cmdlet。 如果使用 VirtualBox，则选择“固定大小”，而不是在创建磁盘时默认动态分配选项。
 * Azure 仅支持第 1 代虚拟机。 可以将第 1 代虚拟机从 VHDX 转换为 VHD 文件格式，从动态扩展磁盘转换为固定大小磁盘。 但无法更改虚拟机的代次。 有关详细信息，请参阅[是否应在 Hyper-V 中创建第 1 代或第 2 代虚拟机？](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)。
 * VHD 允许的最大大小为 1,023 GB。
-* 在安装 Linux 操作系统时，建议使用标准分区而不是逻辑卷管理器 (LVM)（通常是许多安装的默认设置）。 这种做法可以避免 LVM 名称与克隆的虚拟机冲突，尤其是当你需要将操作系统磁盘附加到另一台相同的虚拟机进行故障排除时。 [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 可以在数据磁盘上使用。
+* 在安装 Linux 操作系统时，建议使用标准分区而不是逻辑卷管理器 (LVM)（通常是许多安装的默认设置）。 这种做法可以避免 LVM 名称与克隆的虚拟机冲突，尤其是当你需要将操作系统磁盘附加到另一台相同的虚拟机进行故障排除时。 [LVM](configure-lvm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 可以在数据磁盘上使用。
 * 需要装载通用磁盘格式 (UDF) 文件系统的内核支持。 在 Azure 上首次启动时，附加到来宾的 UDF 格式媒体会将预配配置传递到 Linux 虚拟机。 Azure Linux 代理必须能够装载 UDF 文件系统才能读取其配置和预配虚拟机。
 * 早于 2.6.37 的 Linux 内核版本不支持虚拟机比较大的 Hyper-V 上的非一致性内存访问 (NUMA)。 此问题主要影响使用上游 Red Hat 2.6.32 内核的旧分发版，在 RHEL 6.6 (kernel-2.6.32-504) 中已得到解决。 运行版本低于 2.6.37 的自定义内核的系统或者版本低于 2.6.32-504 的基于 RHEL 的内核必须在 grub.conf 中的内核命令行上设置启动参数 `numa=off`。 有关详细信息，请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
 * 不要在操作系统磁盘上配置交换分区。 可以配置 Linux 代理，然后在临时资源磁盘上创建交换文件。  可以在以下步骤中找到有关此内容的详细信息。
@@ -99,7 +99,7 @@ ms.lasthandoff: 05/05/2017
     图形引导和无人参与引导不适用于云环境，在该环境中我们想要将所有日志都发送到串行端口。  如果需要，可以保留配置的 `crashkernel` 选项。 请注意，此参数可以将虚拟机中的可用内存量减少 128 MB 或更多。 在遇到较小的虚拟机大小时，此配置可能会有问题。
 
     >[!Important]
-    RHEL 6.5 和更早版本还必须设置 `numa=off` 内核参数。 请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
+    > RHEL 6.5 和更早版本还必须设置 `numa=off` 内核参数。 请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
 
 11. 请确保安全外壳 (SSH) 服务器已安装且已配置为在引导时启动（默认采用此配置）。 修改 /etc/ssh/sshd_config 以包含以下行：
 
@@ -285,7 +285,7 @@ ms.lasthandoff: 05/05/2017
     图形引导和无人参与引导不适用于云环境，在该环境中我们想要将所有日志都发送到串行端口。 如果需要，可以保留配置的 `crashkernel` 选项。 请注意，此参数可以将虚拟机中的可用内存量减少 128 MB 或更多，遇到较小的虚拟机大小时，此配置可能会有问题。
 
     >[!Important]
-    RHEL 6.5 和更早版本还必须设置 `numa=off` 内核参数。 请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
+    > RHEL 6.5 和更早版本还必须设置 `numa=off` 内核参数。 请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
 
 10. 将 Hyper-V 模块添加到 initramfs 中：  
 
@@ -895,7 +895,7 @@ ms.lasthandoff: 05/05/2017
 有关详细信息，请参阅有关 [重新生成 initramfs](https://access.redhat.com/solutions/1958)的信息。
 
 ## <a name="next-steps"></a>后续步骤
-现在，你可以使用 Red Hat Enterprise Linux 虚拟硬盘在 Azure 中创建新的虚拟机。 如果这是第一次将 .vhd 文件上传到 Azure，请参阅[创建和上传包含 Linux 操作系统的虚拟硬盘](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)中的步骤 2 和步骤 3。
+现在，你可以使用 Red Hat Enterprise Linux 虚拟硬盘在 Azure 中创建新的虚拟机。 如果这是第一次将 .vhd 文件上传到 Azure，请参阅[创建和上传包含 Linux 操作系统的虚拟硬盘](classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)中的步骤 2 和步骤 3。
 
 有关已通过认证可运行 Red Hat Enterprise Linux 的虚拟机监控程序的更多详细信息，请参阅 [Red Hat 网站](https://access.redhat.com/certified-hypervisors)。
 

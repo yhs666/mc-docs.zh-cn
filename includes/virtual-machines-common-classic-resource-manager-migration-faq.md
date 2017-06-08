@@ -34,7 +34,7 @@
 
 ## <a name="what-if-im-using-azure-site-recovery-or-azure-backup-today"></a>如果我目前正在使用 Azure Site Recovery 或 Azure 备份，该怎么办？ 
 
-若要迁移允许进行备份的虚拟机，请参阅[已经在备份保管库中备份了经典 VM。想要将 VM 从经典模型迁移到 Resource Manager 模型，如何在恢复服务保管库中备份它们？](../articles/backup/backup-azure-backup-ibiza-faq.md)我已在备份保管库中备份经典 VM。 想要将 VM 从经典模型迁移到 Resource Manager 模型，  如何在恢复服务保管库中备份它们？
+若要迁移允许进行备份的虚拟机，请参阅[已经在备份保管库中备份了经典 VM。想要将 VM 从经典模型迁移到 Resource Manager 模型，如何在恢复服务保管库中备份它们？](../articles/backup/backup-azure-backup-ibiza-faq.md)
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>我是否可以验证订阅或资源，以查看其是否能够迁移？ 
 

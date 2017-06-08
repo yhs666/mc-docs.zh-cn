@@ -135,12 +135,12 @@ Azure 使用以下设置在 SQL Server VM 上创建存储池。
 | **数据仓库** |针对分析和报告工作负荷优化存储 |跟踪标志 610<br/>跟踪标志 1117 |
 
 > [!NOTE]
-只有通过在预配 SQL 虚拟机时，在存储配置步骤中进行选择，才能指定工作负荷类型。
+> 只有通过在预配 SQL 虚拟机时，在存储配置步骤中进行选择，才能指定工作负荷类型。
 >
 >
 
 ## 后续步骤
-有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [SQL Server on Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)（Azure 虚拟机上的 SQL Server）。
+有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [Azure 虚拟机上的 SQL Server](../../virtual-machines-windows-sql-server-iaas-overview.md)。
 
 <!---HONumber=Mooncake_0220_2017-->
 <!--Update_Description: wording update-->

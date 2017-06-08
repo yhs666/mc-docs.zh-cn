@@ -150,7 +150,7 @@
 # 如何
 ## [处理设备到云的消息教程 (.NET)](iot-hub-csharp-csharp-process-d2c.md)
 ## [处理设备到云的消息教程 (Java)](iot-hub-java-java-process-d2c.md)
-## [从设备上载文件的教程](iot-hub-csharp-csharp-file-upload.md)
+## [从设备上传文件的教程](iot-hub-csharp-csharp-file-upload.md)
 ## [发送云到设备的消息 (.NET)](iot-hub-csharp-csharp-c2d.md)
 ## [发送云到设备的消息 (Java)](iot-hub-java-java-c2d.md)
 ## [发送云到设备的消息 (Node)](iot-hub-node-node-c2d.md)
@@ -176,7 +176,7 @@
 ### [发送和接收消息](iot-hub-devguide-messaging.md)
 ### [设备到云功能指南](iot-hub-devguide-d2c-guidance.md)
 ### [云到设备功能指南](iot-hub-devguide-c2d-guidance.md)
-### [从设备上载文件](iot-hub-devguide-file-upload.md)
+### [从设备上传文件](iot-hub-devguide-file-upload.md)
 ### [管理设备标识](iot-hub-devguide-identity-registry.md)
 ### [控制 IoT 中心的访问权限](iot-hub-devguide-security.md)
 ### [了解设备孪生](iot-hub-devguide-device-twins.md)
@@ -212,21 +212,14 @@
 ### [保护你的 IoT 部署](iot-hub-security-deployment.md)
 
 # 引用
-## [Azure CLI 2.0 预览版](/cli/azure/iot)
-## [.NET（服务）](/dotnet/api/microsoft.azure.devices)
-## [.NET（设备）](/dotnet/api/microsoft.azure.devices.client)
-## [Java（服务）](/java/api/com.microsoft.azure.iot.service.auth)
-## [Java（设备）](/java/api/com.microsoft.azure.iothub)
-## [Azure IoT SDK](http://azure.github.io/azure-iot-sdks/)
-## [网关 SDK](http://azure.github.io/azure-iot-gateway-sdk)
-## [REST（资源提供程序）](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [REST（设备标识）](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [REST（设备消息传送）REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
+## [Azure CLI 2.0 预览版](https://docs.microsoft.com/cli/azure/iot)
+## [.NET（服务）](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices)
+## [.NET（设备）](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client)
 
 # 相关内容
-## [Azure IoT 套件](../iot-suite/index.md)
-## [Azure 事件中心](../event-hubs/index.md)
-## [流分析](../stream-analytics/index.md)
+## [Azure IoT 套件](/iot-suite/)
+## [Azure 事件中心](/event-hubs/)
+## [流分析](/stream-analytics/)
 
 
 # 资源

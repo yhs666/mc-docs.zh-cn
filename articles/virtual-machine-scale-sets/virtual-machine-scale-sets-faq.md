@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/09/2017
+ms.date: 05/09/2017
 wacn.date: 
 ms.author: negat
 ms.custom: na
@@ -70,7 +70,7 @@ ms.lasthandoff: 05/19/2017
 
     此命令将提供 Azure Resource Manager 模板的输入。
 
-    有关如何在密钥保管库中创建自签名证书的示例，请参阅[Service Fabric 群集安全方案](/service-fabric-cluster-security)。
+    有关如何在密钥保管库中创建自签名证书的示例，请参阅[Service Fabric 群集安全方案](/service-fabric/service-fabric-cluster-security)。
 
 2.  更改 Resource Manager 模板。
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 05/19/2017
         }
 ```
 
-bpt id="p1" xmlns="urn:oasis:names:tc:xliff:document:1.2"> [</bpt>101-vm-sshkey GitHub 快速入门模板](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json) 中使用了此 JSON 块。
+[101-vm-sshkey GitHub 快速入门模板](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json) 中使用了此 JSON 块。
 
 [grelayhost.json GitHub 快速启动模板](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json)中也使用了此 OS 配置文件。
 
@@ -219,7 +219,7 @@ CRP 组件不会持久保留客户机密。 如果对虚拟机规模集中的所
 
 扩大时不会遇到此问题，因为（单 Fabric 租户模型中的）Azure Service Fabric 中存在机密的缓存副本。
 
-### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurecn443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenariosservice-fabricservice-fabric-cluster-security"></a>如 [Service Fabric 群集安全方案](/service-fabric/service-fabric-cluster-security/)中所述，为什么必须指定证书 URL (https://\<name of the vault\>.vault.azure.cn:443/secrets/\<exact location\>) 的确切位置？
+### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurecn443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenariosservice-fabricservice-fabric-cluster-security"></a>如 [Service Fabric 群集安全方案](/service-fabric/service-fabric-cluster-security)中所述，为什么必须指定证书 URL (https://\<name of the vault\>.vault.azure.cn:443/secrets/\<exact location\>) 的确切位置？
 
 根据 Azure Key Vault 文档，在未指定版本的情况下，Get Secret REST API 应返回最新版本的机密。
 

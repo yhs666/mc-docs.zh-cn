@@ -41,14 +41,10 @@ ms.lasthandoff: 04/28/2017
 2. 设置重新启动的频率（两次重新启动相隔的天数）
 3. 设置在星期几重新启动
 
-> [!NOTE]
-> 此脚本操作将仅适用于在 2016 年 8 月 1 日以后创建的基于 Linux 的 HDInsight 群集。 修补程序在 VM 重新启动后才生效。 
->
-
 ## <a name="how-to-use-the-script"></a>如何使用此脚本 
 
 使用此脚本需要以下信息：
-1. 脚本位置：https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh。
+1. 脚本位置：https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh 。
      HDInsight 使用此 URI 在群集中的所有虚拟机上查找并运行脚本。
 
 2. 脚本所适用的群集节点类型：头节点、辅助角色节点、zookeeper。 此脚本必须适用于群集中的所有节点类型。 如果此脚本不适用于某个节点类型，则该节点类型的虚拟机会继续使用以前的修补计划。
@@ -64,7 +60,7 @@ ms.lasthandoff: 04/28/2017
 
 > [!NOTE]
 > 将其应用于现有群集时，必须将此脚本标记为持久化。 否则，通过缩放操作创建的任何新节点都将使用默认修补计划。
-如果在群集创建过程中应用该脚本，则其会自动持久化。
+> 如果在群集创建过程中应用该脚本，则其会自动持久化。
 >
 
 ## <a name="next-steps"></a>后续步骤

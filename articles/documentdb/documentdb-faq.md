@@ -31,7 +31,7 @@ DocumentDB 是全球复制的多模型数据库服务，可针对无架构数据
 
 DocumentDB 在 2010 年末开始解决 Microsoft 内部大型应用程序开发人员所面临的难题。 由于构建全球分布式应用程序不是 Microsoft 的独家问题，因此我们让该服务以 Azure DocumentDB 的形式在外部供所有 Azure 开发人员使用。 DocumentDB 是 DocumentDB 发展过程中的下一个重大飞跃，现已提供给大家使用。 作为此 DocumentDB 版本的一部分，DocumentDB 客户（及其数据）将自动成为 DocumentDB 客户。 该转换是无缝进行的，这些客户现在有权访问 DocumentDB 提供的更广泛的新功能。 
 
-有关部署和使用此服务的更多数据库问题、解答及说明，请参阅 [DocumentDB 文档页面](/documentation/services/documentdb/)。
+有关部署和使用此服务的更多数据库问题、解答及说明，请参阅 [DocumentDB 文档页面](index.md)。
 
 ### <a name="what-happened-to-documentdb"></a>DocumentDB 有哪些变化？
 DocumentDB API 是适用于 DocumentDB 的受支持 API 和数据模型之一。 此外，DocumentDB 支持图形 API（预览）、表 API（预览）和 MongoDB API。 
@@ -103,7 +103,7 @@ GitHub 上提供 DocumentDB API [.NET](documentdb-dotnet-samples.md)、[Java](ht
 ### <a name="what-is-a-collection"></a>什么是集合？
 集合是一组文档及其关联的 JavaScript 应用程序逻辑。 集合是一个计费实体，其[成本](documentdb-performance-levels.md)由所使用的吞吐量和存储确定。 集合可以跨一个或多个分区/服务器，并且能伸缩以处理几乎无限制增长的存储或吞吐量。
 
-集合也是 DocumentDB 的计费实体。 每个集合根据预配的吞吐量和使用的存储空间按小时计费。 有关详细信息，请参阅 [DocumentDB API 定价](/pricing/details/documentdb/)。  
+集合也是 DocumentDB 的计费实体。 每个集合根据预配的吞吐量和使用的存储空间按小时计费。 有关详细信息，请参阅 [DocumentDB API 定价](https://www.azure.cn/pricing/details/documentdb/)。  
 
 ### <a name="how-do-i-create-a-database"></a>我如何创建数据库？
 可以根据[创建 DocumentDB 集合和数据库](documentdb-create-collection.md)中所述使用 Azure 门户、某个 [DocumentDB SDK](documentdb-sdk-dotnet.md) 或 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 来创建数据库。  
@@ -240,9 +240,6 @@ DocumentDB 允许使用横向缩放提供无限的存储。 我们的服务将�
 
 ### <a name="do-i-need-to-migrate-existing-azure-table-based-application-to-new-sdk-if-i-do-not-want-to-use-table-api-preview-features"></a>如果不想要使用表 API（预览）功能，是否需要将现有的基于 Azure 表的应用程序迁移到新的 SDK？
 不需要，现有客户可以创建和使用现有的标准表资产，不会遇到任何类型的中断。 但是，如果不使用新的表 API（预览），则无法受益于自动索引、其他一致性选项或全局分发。 
-
-### <a name="how-do-i-add-replication-for-the-data-in-premium-table-api-preview-across-multiple-regions-of-azure"></a>如何为高级表 API（预览）中跨多个 Azure 区域的数据添加复制功能？
-可以使用 DocumentDB 门户中的[全局复制设置](documentdb-portal-global-replication.md)来添加适合应用程序的区域。 若要开发全局分布式应用程序，还应添加其 PreferredLocation 信息已设置为本地区域的应用程序，以提供较低的读取延迟。 
 
 ### <a name="how-do-i-change-the-primary-write-region-for-the-account-in--premium-table-apipreview"></a>如何更改高级表 API（预览）中的帐户的主要写入区域？
 可以使用 DocumentDB 的全局复制门户窗格添加区域，然后故障转移到所需的区域。 有关说明，请参阅[使用多区域 DocumentDB 帐户进行开发](documentdb-regional-failovers.md)。 

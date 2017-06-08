@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2017
+ms.date: 03/10/2017
 ms.author: markgal;trinadhk;
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -39,7 +39,7 @@ ms.lasthandoff: 04/14/2017
 >
 
 ## <a name="before-you-start"></a>开始之前
-若要将服务器或客户端备份到 Azure，你需要一个 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个 [试用帐户](/pricing/1rmb-trial/) 。
+若要将服务器或客户端备份到 Azure，你需要一个 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/) 。
 
 ## <a name="create-a-backup-vault"></a>创建备份保管库
 若要从服务器或客户端备份文件和文件夹，需要在要存储数据的地理区域内创建一个备份保管库。
@@ -72,7 +72,7 @@ ms.lasthandoff: 04/14/2017
 ## 下载、安装和注册备份代理 <a name="download-install-register-backup-agent"></a>
 创建备份保管库并下载保管库凭据文件之后，必须在每台 Windows 计算机上安装一个代理。
 
-### <a name="download-install-register-backup-agent"></a>下载、安装和注册代理
+### 下载、安装和注册代理
 1. 单击“**恢复服务**”，然后选择你要向其注册服务器的备份保管库。
 2. 在“快速启动”页上，单击“**Windows Server、System Center Data Protection Manager 或 Windows 客户端的代理**”。 。
 
@@ -166,7 +166,7 @@ ms.lasthandoff: 04/14/2017
 ![IR 完成](./media/backup-configure-vault-classic/ircomplete.png)
 
 ## <a name="next-steps"></a>后续步骤
-- 注册 [Azure 帐户](/pricing/1rmb-trial/)。
+- 注册 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 有关备份 VM 或其他工作负荷的详细信息，请参阅：
 

@@ -27,6 +27,6 @@ ms.author: cynthn
 
 ## 后续步骤 
 
-有关经典部署的其他文章，请参阅 [Linux and open-source computing on Azure](../opensource-links.md)（Azure 上的 Linux 和开源计算）。
+有关经典部署的其他文章，请参阅 [Azure 上的 Linux 和开源计算](../opensource-links.md)。
 
 <!---HONumber=Mooncake_Quality_Review_1215_2016-->

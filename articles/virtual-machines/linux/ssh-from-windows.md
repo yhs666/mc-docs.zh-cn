@@ -25,8 +25,8 @@ ms.lasthandoff: 04/14/2017
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>如何在 Azure 上的 Windows 中使用 SSH 密钥
 > [!div class="op_single_selector"]
-> * [Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-> * [Linux/Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> * [Windows](ssh-from-windows.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+> * [Linux/Mac](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 >
 >
 
@@ -182,8 +182,8 @@ PuTTY 是适用于 Windows 的常用 SSH 客户端。 不过，你可以根据�
 4. 单击“打开”  以连接到你的虚拟机
 
 ## <a name="next-steps"></a>后续步骤
-还可以[使用 OS X 和 Linux](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 生成公钥和私钥。
+还可以[使用 OS X 和 Linux](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 生成公钥和私钥。
 
 有关 Bash for Windows 的详细信息以及在 Windows 计算机上提前准备好 OSS 工具的好处，请参阅 [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about)（Windows 上的 Ubuntu Bash）。
 
-如果在使用 SSH 连接到 Linux VM 时遇到问题，请参阅 [Troubleshoot SSH connections to an Azure Linux VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)（通过 SSH 连接到 Azure Linux VM 故障排除）。
+如果在使用 SSH 连接到 Linux VM 时遇到问题，请参阅 [Troubleshoot SSH connections to an Azure Linux VM](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（通过 SSH 连接到 Azure Linux VM 故障排除）。

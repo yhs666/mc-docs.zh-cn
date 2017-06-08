@@ -80,7 +80,22 @@ ms.lasthandoff: 05/12/2017
 [azure-subscription-service-limits]:../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../azure-subscription-service-limits.md#subscription-limits
 
-[dbms-guide]:sap-dbms-guide.md (Azure 虚拟机 (VM) 上的 SAP NetWeaver - DBMS 部署指南) [dbms-guide-2.1]:#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (VM 和 VHD 的缓存) [dbms-guide-2.2]:#c8e566f9-21b7-4457-9f7f-126036971a91 (软件 RAID) [dbms-guide-2.3]:#10b041ef-c177-498a-93ed-44b3441ab152 (Azure 存储) [dbms-guide-2]:#65fa79d6-a85f-47ee-890b-22e794f51a64 (RDBMS 部署结构) [dbms-guide-3]:#871dfc27-e509-4222-9370-ab1de77021c3 (Azure VM 的高可用性和灾难恢复) [dbms-guide-5.5.1]:#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 SP1 CU4 和更高版本) [dbms-guide-5.5.2]:#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 SP1 CU3 和更低版本) [dbms-guide-5.6]:#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (使用来自 Azure 应用商店的 SQL Server 映像) [dbms-guide-5.8]:#9053f720-6f3b-4483-904d-15dc54141e30 (适用于 Azure 上的 SAP 的 SQL Server 总体摘要) [dbms-guide-5]:#3264829e-075e-4d25-966e-a49dad878737 (有关 SQL Server RDBMS 的具体信息) [dbms-guide-8.4.1]:#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (存储配置) [dbms-guide-8.4.2]:#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (备份和还原) [dbms-guide-8.4.3]:#77cd2fbb-307e-4cbf-a65f-745553f72d2c (备份和还原的性能注意事项) [dbms-guide-8.4.4]:#f77c1436-9ad8-44fb-a331-8671342de818 (其他) [dbms-guide-900-sap-cache-server-on-premises]:#642f746c-e4d4-489d-bf63-73e80177a0a8
+[dbms-guide]:sap-dbms-guide.md (Azure 虚拟机 (VM) 上的 SAP NetWeaver - DBMS 部署指南)
+[dbms-guide-2.1]:#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (VM 和 VHD 的缓存)
+[dbms-guide-2.2]:#c8e566f9-21b7-4457-9f7f-126036971a91 (软件 RAID)
+[dbms-guide-2.3]:#10b041ef-c177-498a-93ed-44b3441ab152 (Azure 存储)
+[dbms-guide-2]:#65fa79d6-a85f-47ee-890b-22e794f51a64 (RDBMS 部署结构)
+[dbms-guide-3]:#871dfc27-e509-4222-9370-ab1de77021c3 (Azure VM 的高可用性和灾难恢复)
+[dbms-guide-5.5.1]:#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 SP1 CU4 和更高版本)
+[dbms-guide-5.5.2]:#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 SP1 CU3 和更低版本)
+[dbms-guide-5.6]:#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (使用来自 Azure 应用商店的 SQL Server 映像)
+[dbms-guide-5.8]:#9053f720-6f3b-4483-904d-15dc54141e30 (适用于 Azure 上的 SAP 的 SQL Server 总体摘要)
+[dbms-guide-5]:#3264829e-075e-4d25-966e-a49dad878737 (有关 SQL Server RDBMS 的具体信息)
+[dbms-guide-8.4.1]:#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (存储配置)
+[dbms-guide-8.4.2]:#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (备份和还原)
+[dbms-guide-8.4.3]:#77cd2fbb-307e-4cbf-a65f-745553f72d2c (备份和还原的性能注意事项)
+[dbms-guide-8.4.4]:#f77c1436-9ad8-44fb-a331-8671342de818 (其他)
+[dbms-guide-900-sap-cache-server-on-premises]:#642f746c-e4d4-489d-bf63-73e80177a0a8
 
 [dbms-guide-figure-100]:./media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]:./media/virtual-machines-shared-sap-dbms-guide/200-ha-set-for-dbms-ha.png
@@ -92,7 +107,24 @@ ms.lasthandoff: 05/12/2017
 [dbms-guide-figure-800]:./media/virtual-machines-shared-sap-dbms-guide/800-azure-vm-sap-content-server.png
 [dbms-guide-figure-900]:./media/virtual-machines-shared-sap-dbms-guide/900-sap-cache-server-on-premises.png
 
-[deployment-guide]:sap-deployment-guide.md (Azure 虚拟机 (VM) 上的 SAP NetWeaver - 部署指南) [deployment-guide-2.2]:sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (SAP 资源) [deployment-guide-3.1.2]:sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab (使用自定义映像部署 VM) [deployment-guide-3.2]:sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 (方案 1：为 SAP 部署来自 Azure 应用商店的 VM) [deployment-guide-3.3]:sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 (方案 2：使用自定义映像为 SAP 部署 VM) [deployment-guide-3.4]:sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 (方案 3：使用包含 SAP 的非通用化 Azure VHD 从本地移动 VM) [deployment-guide-3]:sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e (Azure 上 SAP 的 VM 部署方案) [deployment-guide-4.1]:sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (部署 Azure PowerShell cmdlets) [deployment-guide-4.2]:sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e (下载并导入 SAP 相关的 PowerShell cmdlets) [deployment-guide-4.3]:sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (将 VM 加入本地域 - 仅限 Windows) [deployment-guide-4.4.2]:sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 (Linux) [deployment-guide-4.4]:sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (下载、安装并启用 Azure VM 代理) [deployment-guide-4.5.1]:sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell) [deployment-guide-4.5.2]:sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f (Azure CLI) [deployment-guide-4.5]:sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (配置适用于 SAP 的 Azure 增强型监视扩展) [deployment-guide-5.1]:sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (适用于 SAP 的 Azure 增强型监视的就绪状态检查) [deployment-guide-5.2]:sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Azure 监视基础结构配置的运行状况检查) [deployment-guide-5.3]:sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (对适用于 SAP 的 Azure 监视基础结构进一步执行故障排查)
+[deployment-guide]:sap-deployment-guide.md (Azure 虚拟机 (VM) 上的 SAP NetWeaver - 部署指南)
+[deployment-guide-2.2]:sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (SAP 资源)
+[deployment-guide-3.1.2]:sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab (使用自定义映像部署 VM)
+[deployment-guide-3.2]:sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 (方案 1：为 SAP 部署来自 Azure 应用商店的 VM)
+[deployment-guide-3.3]:sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 (方案 2：使用自定义映像为 SAP 部署 VM)
+[deployment-guide-3.4]:sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 (方案 3：使用包含 SAP 的非通用化 Azure VHD 从本地移动 VM)
+[deployment-guide-3]:sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e (Azure 上 SAP 的 VM 部署方案)
+[deployment-guide-4.1]:sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (部署 Azure PowerShell cmdlets)
+[deployment-guide-4.2]:sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e (下载并导入 SAP 相关的 PowerShell cmdlets)
+[deployment-guide-4.3]:sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (将 VM 加入本地域 - 仅限 Windows)
+[deployment-guide-4.4.2]:sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 (Linux)
+[deployment-guide-4.4]:sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (下载、安装并启用 Azure VM 代理)
+[deployment-guide-4.5.1]:sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell)
+[deployment-guide-4.5.2]:sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f (Azure CLI)
+[deployment-guide-4.5]:sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (配置适用于 SAP 的 Azure 增强型监视扩展)
+[deployment-guide-5.1]:sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (适用于 SAP 的 Azure 增强型监视的就绪状态检查)
+[deployment-guide-5.2]:sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Azure 监视基础结构配置的运行状况检查)
+[deployment-guide-5.3]:sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (对适用于 SAP 的 Azure 监视基础结构进一步执行故障排查)
 
 [deployment-guide-configure-monitoring-scenario-1]:sap-deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Configure Monitoring)
 [deployment-guide-configure-proxy]:sap-deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d (Configure Proxy)
@@ -149,7 +181,33 @@ ms.lasthandoff: 05/12/2017
 
 [msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
-[planning-guide]:sap-planning-guide.md (Azure 虚拟机 (VM) 上的 SAP NetWeaver - 规划和实施指南) [planning-guide-1.2]:sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (资源) [planning-guide-11]:sap-planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 (Azure 虚拟机上运行的 SAP NetWeaver 的高可用性 (HA) 和灾难恢复 (DR)) [planning-guide-11.4.1]:sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (SAP 应用程序服务器的高可用性) [planning-guide-11.5]:sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f (对 SAP 实例使用 Autostart) [planning-guide-2.1]:sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (仅限云 - 在不将依赖项部署到本地客户网络的情况下将虚拟机部署到 Azure 中) [planning-guide-2.2]:sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (跨界 - 将单个或多个 SAP VM 部署到 Azure 中并要求完全集成到本地网络) [planning-guide-3.1]:sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a (Azure 区域) [planning-guide-3.2.1]:sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 (容错域) [planning-guide-3.2.2]:sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (升级域) [planning-guide-3.2.3]:sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Azure 可用性集) [planning-guide-3.2]:sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Azure 虚拟机概念) [planning-guide-3.3.2]:sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure 高级存储) [planning-guide-5.1.1]:sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (使用非通用化磁盘将 VM 从本地移至 Azure) [planning-guide-5.1.2]:sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (使用特定于客户的映像部署 VM) [planning-guide-5.2.1]:sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (准备使用非通用化磁盘将 VM 从本地移至 Azure) [planning-guide-5.2.2]:sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 (准备使用特定于客户的映像为 SAP 部署 VM) [planning-guide-5.2]:sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 (为 Azure 准备包含 SAP 的 VM) [planning-guide-5.3.1]:sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 (Azure 磁盘与 Azure 映像之间的差异) [planning-guide-5.3.2]:sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (将 VHD 从本地上传到 Azure) [planning-guide-5.4.2]:sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (在 Azure 存储帐户之间复制磁盘) [planning-guide-5.5.1]:sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (SAP 部署的 VM/VHD 结构) [planning-guide-5.5.3]:sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (为附加的磁盘设置自动装载) [planning-guide-7.1]:sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (用于 SAP NetWeaver 演示/培训方案的单一 VM) [planning-guide-7]:sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (SAP 实例的仅限云部署的概念) [planning-guide-9.1]:sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (适用于 SAP 的 Azure 监视解决方案) [planning-guide-azure-premium-storage]:sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure 高级存储)
+[planning-guide]:sap-planning-guide.md (Azure 虚拟机 (VM) 上的 SAP NetWeaver - 规划和实施指南)
+[planning-guide-1.2]:sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (资源)
+[planning-guide-11]:sap-planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 (Azure 虚拟机上运行的 SAP NetWeaver 的高可用性 (HA) 和灾难恢复 (DR))
+[planning-guide-11.4.1]:sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (SAP 应用程序服务器的高可用性)
+[planning-guide-11.5]:sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f (对 SAP 实例使用 Autostart)
+[planning-guide-2.1]:sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (仅限云 - 在不将依赖项部署到本地客户网络的情况下将虚拟机部署到 Azure 中)
+[planning-guide-2.2]:sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (跨界 - 将单个或多个 SAP VM 部署到 Azure 中并要求完全集成到本地网络)
+[planning-guide-3.1]:sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a (Azure 区域)
+[planning-guide-3.2.1]:sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 (容错域)
+[planning-guide-3.2.2]:sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (升级域)
+[planning-guide-3.2.3]:sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Azure 可用性集)
+[planning-guide-3.2]:sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Azure 虚拟机概念)
+[planning-guide-3.3.2]:sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure 高级存储)
+[planning-guide-5.1.1]:sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (使用非通用化磁盘将 VM 从本地移至 Azure)
+[planning-guide-5.1.2]:sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (使用特定于客户的映像部署 VM)
+[planning-guide-5.2.1]:sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (准备使用非通用化磁盘将 VM 从本地移至 Azure)
+[planning-guide-5.2.2]:sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 (准备使用特定于客户的映像为 SAP 部署 VM)
+[planning-guide-5.2]:sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 (为 Azure 准备包含 SAP 的 VM)
+[planning-guide-5.3.1]:sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 (Azure 磁盘与 Azure 映像之间的差异)
+[planning-guide-5.3.2]:sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (将 VHD 从本地上传到 Azure)
+[planning-guide-5.4.2]:sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (在 Azure 存储帐户之间复制磁盘)
+[planning-guide-5.5.1]:sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (SAP 部署的 VM/VHD 结构)
+[planning-guide-5.5.3]:sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (为附加的磁盘设置自动装载)
+[planning-guide-7.1]:sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (用于 SAP NetWeaver 演示/培训方案的单一 VM)
+[planning-guide-7]:sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (SAP 实例的仅限云部署的概念)
+[planning-guide-9.1]:sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (适用于 SAP 的 Azure 监视解决方案)
+[planning-guide-azure-premium-storage]:sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure 高级存储)
 
 [planning-guide-figure-100]:./media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:./media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
@@ -281,7 +339,6 @@ ms.lasthandoff: 05/12/2017
 * [Azure 虚拟机 (VM) 上的 SAP NetWeaver - 规划和实施指南][planning-guide]
 * [Azure 虚拟机 (VM) 上的 SAP NetWeaver - 部署指南][deployment-guide]
 * [Azure 虚拟机 (VM) 上的 SAP NetWeaver - DBMS 部署指南（本文档）][dbms-guide]
-* [Azure 虚拟机 (VM) 上的 SAP NetWeaver - 高可用性部署指南][ha-guide]
 
 以下 SAP 说明与 Azure 上的 SAP 主题相关：
 
@@ -494,7 +551,7 @@ Azure 可用性集是 VM 或服务的逻辑分组，可确保 VM 和其他服务
 
 如果想要创建 DBMS 部署的高可用配置（不依赖于所使用的单项 DBMS HA 功能），DBMS VM 需要：
 
-* 将 VM 添加到相同的 Azure 虚拟网络 (</virtual-network/>)
+* 将 VM 添加到相同的 Azure 虚拟网络 (<https://review.docs.azure.cn/virtual-network/>)
 * HA 配置的 VM 也应该位于相同的子网中。 在仅限云的部署中，无法在不同子网之间进行名称解析，只能进行 IP 解析。 在跨界部署中使用站点到站点或 ExpressRoute 连接，就已经建立了包含至少一个子网的网络。 名称解析将根据本地 AD 策略和网络基础结构来完成。
 
 
@@ -660,8 +717,8 @@ SQL Server 2014 引入了一项称为缓冲池扩展的新功能。 此功能使
 #### <a name="managing-backup-blobs"></a>管理备份 BLOB
 你需要自行管理备份。 经常执行事务日志备份预期会创建多个 Blob，因此，管理这些 Blob 很容易使 Azure 门户预览过载。 因此，建议使用 Azure 存储资源管理器。 有几个不错的工具可帮助管理 Azure 存储帐户
 
-* 安装了 Azure SDK 的 Microsoft Visual Studio (</downloads/>)
-* Azure 存储资源管理器 (</downloads/>)
+* 安装了 Azure SDK 的 Microsoft Visual Studio (<https://review.docs.azure.cn/downloads/>)
+* Azure 存储资源管理器 (<https://review.docs.azure.cn/downloads/>)
 * 第三方工具
 
 

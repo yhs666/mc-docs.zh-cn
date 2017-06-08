@@ -74,7 +74,7 @@ HDInsight 群集包含以下组件和实用程序。
 * **[ZooKeeper](#zookeeper)**：协调分布式系统中的进程。
 
 > [!NOTE]
-有关特定组件的信息和版本信息，请参阅 [HDInsight 中的 Hadoop 组件、版本和服务产品][component-versioning]
+> 有关特定组件的信息和版本信息，请参阅 [HDInsight 中的 Hadoop 组件、版本和服务产品][component-versioning]
 >
 >
 

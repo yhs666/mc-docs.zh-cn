@@ -117,14 +117,13 @@ HDInsight 群集附带了某些示例数据。以后会用到以下两个示例�
 * **Azure SQL 数据库**：必须为 Azure SQL 数据库服务器配置防火墙规则，允许从工作站进行访问。有关创建 Azure SQL 数据库和配置防火墙的说明，请参阅 [Azure SQL 数据库入门][sqldatabase-get-started]。
 
     > [!NOTE]
-    默认情况下，可以从 Azure HDInsight 这样的 Azure 服务连接 Azure SQL 数据库。如果禁用此防火墙设置，则必须从 Azure 门户预览启用。有关创建 Azure SQL 数据库和配置防火墙规则的说明，请参阅[创建和配置 SQL 数据库][sqldatabase-create-configue]。
+    > 默认情况下，可以从 Azure HDInsight 这样的 Azure 服务连接 Azure SQL 数据库。如果禁用此防火墙设置，则必须从 Azure 门户预览启用。有关创建 Azure SQL 数据库和配置防火墙规则的说明，请参阅[创建和配置 SQL 数据库][sqldatabase-create-configue]。
     > 
     > 
-    <a name="sql_server_condition"></a>
 * **SQL Server**：如果 HDInsight 群集与 SQL Server 位于 Azure 中的同一虚拟网络，则可以使用本文中的步骤将数据导入或导出 SQL Server 数据库。
 
     > [!NOTE]
-    HDInsight 仅支持基于位置的虚拟网络，并且当前不适用于基于地缘组的虚拟网络。
+    > HDInsight 仅支持基于位置的虚拟网络，并且当前不适用于基于地缘组的虚拟网络。
     > 
     > 
 
@@ -133,14 +132,14 @@ HDInsight 群集附带了某些示例数据。以后会用到以下两个示例�
         * 在数据中心使用 SQL Server 时，必须将虚拟网络配置为*站点到站点*或*点到站点*。
 
             > [!NOTE]
-            对于**点到站点**虚拟网络，SQL Server 必须运行 VPN 客户端配置应用程序，该应用程序可从 Azure 虚拟网络配置的“仪表板”中获得。
+            > 对于**点到站点**虚拟网络，SQL Server 必须运行 VPN 客户端配置应用程序，该应用程序可从 Azure 虚拟网络配置的“仪表板”中获得。
             > 
             > 
         * 在 Azure 虚拟机上使用 SQL Server 时，如果托管 SQL Server 的虚拟机是 HDInsight 所在虚拟网络的成员，则可以使用任何虚拟网络配置。
     * 若要在虚拟网络上创建 HDInsight 群集，请参阅[使用自定义选项在 HDInsight 中创建 Hadoop 群集](./hdinsight-hadoop-provision-linux-clusters.md)
 
     > [!NOTE]
-    SQL Server 还必须允许身份验证。必须使用 SQL Server 登录名来完成本文中的步骤。
+    > SQL Server 还必须允许身份验证。必须使用 SQL Server 登录名来完成本文中的步骤。
     > 
     > 
 
@@ -220,11 +219,11 @@ PowerShell 示例将执行以下步骤：
     源文件为 tutorials/usesqoop/data/sample.log。数据导出到的表的名称为 log4jlogs。
 
     > [!NOTE]
-    除了连接字符串信息，此部分中的步骤还应适用于 Azure SQL 数据库或 SQL Server。这些步骤已经过以下配置测试：
+    > 除了连接字符串信息，此部分中的步骤还应适用于 Azure SQL 数据库或 SQL Server。这些步骤已经过以下配置测试：
     > 
-    > *Azure 虚拟网络点到站点配置**：虚拟网络已将 HDInsight 群集连接到专用数据中心的 SQL Server。有关详细信息，请参阅[在管理门户中配置点到站点 VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md)。
+    > * **Azure 虚拟网络点到站点配置**：虚拟网络已将 HDInsight 群集连接到专用数据中心的 SQL Server。有关详细信息，请参阅[在管理门户中配置点到站点 VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md)。
     > * **Azure HDInsight 3.1**：有关在虚拟网络上创建群集的信息，请参阅[使用自定义选项在 HDInsight 中创建 Hadoop 群集](./hdinsight-hadoop-provision-linux-clusters.md)。
-    > *SQL Server 2014**：已配置为允许身份验证和运行 VPN 客户端配置包，可以安全地连接到虚拟网络。
+    > * **SQL Server 2014**：已配置为允许身份验证和运行 VPN 客户端配置包，可以安全地连接到虚拟网络。
     > 
     > 
 7. 将 Hive 表导出到 Azure SQL 数据库。

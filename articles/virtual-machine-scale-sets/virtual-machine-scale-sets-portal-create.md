@@ -44,11 +44,9 @@ ms.lasthandoff: 04/06/2017
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 
-* 选择是否要将规模集设置为单个组或它是否应跨越多个放置组。 允许规模集跨越放置组可以实现容量上超过 100 个 VM 的规模集（最多 1,000），不过具有某些限制。 有关详细信息，请参阅[此文档](./virtual-machine-scale-sets-placement-groups.md)。
 * 输入所需的资源组名称和位置，然后单击 `OK` 。
 * 在 `Virtual machine scale set service settings` 边栏选项卡上：输入所需的域名标签（规模集前端负载均衡器的 FQDN 的基础）。 在整个 Azure 中，此标签必须是唯一的。
 * 选择所需的操作系统磁盘映像、实例计数和计算机大小。
-* 选择所需磁盘类型：托管或非托管。 有关详细信息，请参阅[此文档](./virtual-machine-scale-sets-managed-disks.md)。 如果选择让规模集跨越多个放置组，则此选项不可用，因为需要托管磁盘才能使规模集跨越放置组。
 
 ![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
 

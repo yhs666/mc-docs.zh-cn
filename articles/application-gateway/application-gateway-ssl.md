@@ -20,15 +20,15 @@ ms.author: gwallace
 # 使用经典部署模型配置应用程序网关以进行 SSL 卸载
 
 > [!div class="op_single_selector"]
--[Azure Portal Preview](./application-gateway-ssl-portal.md)
--[Azure Resource Manager PowerShell](./application-gateway-ssl-arm.md)
--[Azure Classic PowerShell](./application-gateway-ssl.md)
+> -[Azure Portal Preview](./application-gateway-ssl-portal.md)
+> -[Azure Resource Manager PowerShell](./application-gateway-ssl-arm.md)
+> -[Azure Classic PowerShell](./application-gateway-ssl.md)
 
 可将 Azure 应用程序网关配置为在网关上终止安全套接字层 (SSL) 会话，以避免 Web 场中出现开销较高的 SSL 解密任务。SSL 卸载还简化了 Web 应用程序的前端服务器设置与管理。
 
 ## 开始之前
 
-1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。可以从[“下载”](https://www.azure.cn/downloads/)页的“Windows PowerShell”部分下载并安装最新版本。
+1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。可以从[“下载”](/downloads/)页的“Windows PowerShell”部分下载并安装最新版本。
 2. 请确认你已创建包含有效子网、可正常运行的虚拟网络。请确保没有虚拟机或云部署正在使用子网。应用程序网关必须单独位于虚拟网络子网中。
 3. 必须存在配置为使用应用程序网关的服务器，或者必须在虚拟网络中为其创建终结点，或者必须为其分配公共 IP/VIP。
 

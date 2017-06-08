@@ -24,9 +24,9 @@ ms.lasthandoff: 05/19/2017
 ---
 # <a name="get-started-with-the-preconfigured-solutions"></a>预配置的解决方案入门
 
-Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了多项 Azure IoT 服务，以提供可实现常见 IoT 商业应用场景的端到端解决方案。 *远程监视* 预配置解决方案将连接并监视设备。 可使用解决方案分析设备发出的数据流，并让进程自动响应该数据流来提升业务绩效。
+Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了多项 Azure IoT 服务，以提供可实现常见 IoT 商业应用场景的端到端解决方案。 *远程监控* 预配置解决方案将连接并监视设备。 可使用解决方案分析设备发出的数据流，并让进程自动响应该数据流来提升业务绩效。
 
-本教程演示如何预配远程监视预配置解决方案。 此外，还逐步讲解了预配置解决方案的基本功能。 可通过随预配置解决方案一起部署的解决方案 *仪表板* 来访问其中的多项功能：
+本教程演示如何预配远程监控预配置解决方案。 此外，还逐步讲解了预配置解决方案的基本功能。 可通过随预配置解决方案一起部署的解决方案 *仪表板* 来访问其中的多项功能：
 
 ![远程监控预配置解决方案仪表板][img-dashboard]
 
@@ -39,7 +39,7 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
 ## <a name="scenario-overview"></a>方案概述
 
-部署远程监视预配置解决方案时，可以通过预先填充在其中的资源来逐步执行常见的远程监视方案。 在本方案中，与解决方案连接的多个设备将报告意外的温度值。 以下部分介绍如何：
+部署远程监控预配置解决方案时，可以通过预先填充在其中的资源来逐步执行常见的远程监控方案。 在本方案中，与解决方案连接的多个设备将报告意外的温度值。 以下部分介绍如何：
 
 * 标识发送意外温度值的设备。
 * 将这些设备配置为发送更详细的遥测数据。
@@ -52,7 +52,7 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
 该解决方案仪表板可让你管理部署的解决方案。 例如，你可以查看遥测数据、添加设备以及配置规则。
 
-1. 当预配完成且预配置解决方案的磁贴指示“就绪”时，请选择“启动”，在新的选项卡中打开远程监视解决方案门户。
+1. 当预配完成且预配置解决方案的磁贴指示“就绪”时，请选择“启动”，在新的选项卡中打开远程监控解决方案门户。
 
     ![启动预配置解决方案][img-launch-solution]
 
@@ -74,7 +74,7 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 ![TODO：解决方案仪表板上的警报历史记录][img-alarms]
 
 > [!NOTE]
-> 这些警报是通过预配置解决方案中包含的规则生成的。 当设备发送的温度值超过 60 时，该规则会生成警报。 用户可以通过在左侧菜单中选择[规则](#add-a-rule)和[操作](#add-an-action)，定义自己的规则和操作。
+> 这些警报是通过预配置解决方案中包含的规则生成的。 当设备发送的温度值超过 60 时，该规则会生成警报。 用户可以通过在左侧菜单中选择[规则](#add-a-rule)和操作，定义自己的规则和操作。
 
 ## <a name="view-devices"></a>查看设备
 
@@ -101,7 +101,7 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
 ## <a name="filter-the-device-list"></a>筛选设备列表
 
-若只需显示那些发送意外温度值的设备，可以使用筛选器。 远程监视预配置解决方案包含一个“不正常设备”筛选器，用于显示平均温度值超过 60 的设备。 用户还可以[创建自己的筛选器](#add-a-filter)。
+若只需显示那些发送意外温度值的设备，可以使用筛选器。 远程监控预配置解决方案包含一个“不正常设备”筛选器，用于显示平均温度值超过 60 的设备。 用户还可以创建自己的筛选器。
 
 1. 选择“打开保存的筛选器”以显示可用筛选器的列表。 Then choose **Unhealthy devices** to apply the filter:
 
@@ -184,7 +184,7 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
 ## <a name="other-features"></a>其他功能
 
-以下部分介绍了远程监视预配置解决方案的其他一些功能，这些功能未在前面的方案中介绍。
+以下部分介绍了远程监控预配置解决方案的其他一些功能，这些功能未在前面的方案中介绍。
 
 ### <a name="customize-columns"></a>自定义列
 
@@ -211,7 +211,7 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
 ### <a name="add-a-device"></a>添加设备
 
-部署预配置解决方案时，会自动预配在设备列表中可见的 25 个示例设备。 这些设备是在 Azure Web 作业中运行的 *模拟设备* 。 模拟设备可让你试验预配置解决方案，而不需要部署实际的物理设备。 若要将实际设备连接到解决方案，请参阅 [将设备连接到远程监视预配置解决方案][lnk-connect-rm] 教程。
+部署预配置解决方案时，会自动预配在设备列表中可见的 25 个示例设备。 这些设备是在 Azure Web 作业中运行的 *模拟设备* 。 模拟设备可让你试验预配置解决方案，而不需要部署实际的物理设备。 若要将实际设备连接到解决方案，请参阅 [将设备连接到远程监控预配置解决方案][lnk-connect-rm] 教程。
 
 以下步骤说明了如何向解决方案添加模拟设备：
 
@@ -225,7 +225,7 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
     ![在仪表板中设置新设备详细信息][img-addnew]
 
-    如果选择创建“自定义设备”，则除了创建新的模拟设备，也可以添加物理设备。 若要深入了解如何将物理设备连接到解决方案，请参阅[将设备连接到 IoT 套件远程监视预配置解决方案][lnk-connect-rm]。
+    如果选择创建“自定义设备”，则除了创建新的模拟设备，也可以添加物理设备。 若要深入了解如何将物理设备连接到解决方案，请参阅[将设备连接到 IoT 套件远程监控预配置解决方案][lnk-connect-rm]。
 
 1. 选择“自行定义设备 ID”，然后输入唯一的设备 ID 名称，例如 **mydevice_01**。
 
@@ -249,7 +249,7 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
 ![禁用并删除设备][img-disable]
 
-### <a name="add-a-rule-for-the-new-device"></a> 添加规则
+### <a name="add-a-rule"></a> 添加规则
 
 刚才添加的新设备没有规则。 在本节中，你将添加一个规则，以便在新设备所报告的温度超过 47 度时触发警报。 在开始之前，请注意仪表板上新设备的遥测历史记录显示设备温度绝不会超过 45 度。
 
@@ -339,24 +339,24 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
 你可以查看每个资源的设置，方法是在资源组中的资源列表中选择该资源。
 
-你也可以查看预配置解决方案的源代码。 远程监视预配置解决方案源代码位于 [azure-iot-remote-monitoring][lnk-rmgithub] GitHub 存储库中：
+你也可以查看预配置解决方案的源代码。 远程监控预配置解决方案源代码位于 [azure-iot-remote-monitoring][lnk-rmgithub] GitHub 存储库中：
 
 - **DeviceAdministration** 文件夹包含仪表板的源代码。
 - **Simulator** 文件夹包含模拟设备的源代码。
 - **EventProcessor** 文件夹包含后端进程的源代码，可用于处理传入遥测。
 
-完成后，可在 [azureiotsuite.com][lnk-azureiotsuite] 站点的 Azure 订阅中删除预配置解决方案。 通过该站点，可轻松删除创建预配置解决方案时预配的所有资源。
+完成后，可在 [azureiotsuite.cn][lnk-azureiotsuite] 站点的 Azure 订阅中删除预配置解决方案。 通过该站点，可轻松删除创建预配置解决方案时预配的所有资源。
 
 > [!NOTE]
-> 若要确保删除与预配置解决方案相关的所有内容，请在 [azureiotsuite.com][lnk-azureiotsuite] 站点中删除这些内容，而不是删除门户中的资源组。
+> 若要确保删除与预配置解决方案相关的所有内容，请在 [azureiotsuite.cn][lnk-azureiotsuite] 站点中删除这些内容，而不是删除门户中的资源组。
 
 ## <a name="next-steps"></a>后续步骤
 
 部署正常工作的预配置解决方案后，可以继续通过阅读以下文章开始使用 IoT 套件：
 
-- [远程监视预配置解决方案演练][lnk-rm-walkthrough]
-- [将设备连接到远程监视预配置解决方案][lnk-connect-rm]
-- [azureiotsuite.com 站点权限][lnk-permissions]
+- [远程监控预配置解决方案演练][lnk-rm-walkthrough]
+- [将设备连接到远程监控预配置解决方案][lnk-connect-rm]
+- [azureiotsuite.cn 站点权限][lnk-permissions]
 
 [img-launch-solution]: ./media/iot-suite-getstarted-preconfigured-solutions/launch.png
 [img-dashboard]: ./media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
@@ -401,7 +401,7 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 [img-healthy]: ./media/iot-suite-getstarted-preconfigured-solutions/healthy.png
 [1rmb-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-preconfigured-solutions]:./iot-suite-what-are-preconfigured-solutions.md
-[lnk-azureiotsuite]: https://www.azureiotsuite.com
+[lnk-azureiotsuite]: https://www.azureiotsuite.cn
 [lnk-portal]: http://portal.azure.cn/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-rm-walkthrough]: ./iot-suite-remote-monitoring-sample-walkthrough.md

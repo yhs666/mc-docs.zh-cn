@@ -26,14 +26,14 @@ ms.author: larryfr
 Ambari 是一个管理和监控实用程序，随基于 Linux 的 HDInsight 群集一起提供。通过 Ambari 提供的功能之一是可用于运行 Hive 查询的 Web UI。这就是“Hive 视图”，它是随 HDInsight 群集一起提供的 Ambari 视图的一部分。
 
 > [!NOTE]
-Ambari 还有许多本文档中未讨论的功能。有关详细信息，请参阅 [Manage HDInsight clusters by using the Ambari Web UI](./hdinsight-hadoop-manage-ambari.md)（使用 Ambari Web UI 管理 HDInsight 群集）。
+> Ambari 还有许多本文档中未讨论的功能。有关详细信息，请参阅[使用 Ambari Web UI 管理 HDInsight 群集](./hdinsight-hadoop-manage-ambari.md)。
 
 ## 先决条件
 
 * 基于 Linux 的 HDInsight 群集。有关创建群集的信息，请参阅[基于 Linux 的 HDInsight 入门](./hdinsight-hadoop-linux-tutorial-get-started.md)。
 
 > [!IMPORTANT]
-本文档中的步骤需要使用 Linux 的 HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 ## 打开 Hive 视图
 
@@ -46,7 +46,7 @@ Ambari 还有许多本文档中未讨论的功能。有关详细信息，请参�
 ![选择 Ambari 视图](./media/hdinsight-hadoop-use-hive-ambari-view/selecthiveview.png)。
 
 > [!NOTE]
-访问 Ambari 时，系统将提示向该站点进行身份验证。请输入创建群集时使用的管理员（默认为 `admin`）帐户名和密码。
+> 访问 Ambari 时，系统将提示向该站点进行身份验证。请输入创建群集时使用的管理员（默认为 `admin`）帐户名和密码。
 
 你应看到类似于下面的页面：
 
@@ -86,12 +86,12 @@ Ambari 还有许多本文档中未讨论的功能。有关详细信息，请参�
     * **SELECT** - 选择 t4 列包含值 [ERROR] 的所有行的计数。
 
      > [!NOTE]
-     当需要外部源更新基础数据时，应使用外部表。例如，自动执行的数据上载过程，或其他 MapReduce 操作。删除外部表*不会*删除数据，只会删除表定义。
+     > 当需要外部源更新基础数据时，应使用外部表。例如，自动执行的数据上载过程，或其他 MapReduce 操作。删除外部表*不会*删除数据，只会删除表定义。
 
 2. 若要启动查询，请单击查询编辑器底部的“执行”按钮。该按钮将变为橙色并且文本将更改为“停止执行”。“查询进程结果”部分应出现在“查询编辑器”下方，并显示有关作业的信息。
 
     > [!IMPORTANT]
-    某些浏览器可能无法正确刷新日志或结果信息。如果运行一个作业，而它看上去似乎会永久运行下去而不更新日志或返回结果，请尝试改为使用 Mozilla FireFox 或 Google Chrome。
+    > 某些浏览器可能无法正确刷新日志或结果信息。如果运行一个作业，而它看上去似乎会永久运行下去而不更新日志或返回结果，请尝试改为使用 Mozilla FireFox 或 Google Chrome。
 
 3. 查询完成后，“查询进程结果”部分将显示该操作的结果。查询完成后，“停止执行”按钮也将变回绿色“执行”按钮。“结果”选项卡应包含以下信息：
 
@@ -103,7 +103,7 @@ Ambari 还有许多本文档中未讨论的功能。有关详细信息，请参�
     “日志”选项卡可用于查看作业创建的日志记录信息。
 
     > [!TIP]
-    T“查询进程结果”部分右上角的“保存结果”下拉对话框允许你下载或保存结果。
+    > T“查询进程结果”部分右上角的“保存结果”下拉对话框允许你下载或保存结果。
 
 4. 选择此查询的前四行，然后选择“执行”。请注意，作业完成时没有结果。在选择了查询的一部分时使用“执行”按钮只会运行所选语句。在这种情况下，所选内容不包括会从表中检索行的最后一条语句。如果只选择该行并使用“执行”，应该会看到预期的结果。
 

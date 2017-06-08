@@ -45,12 +45,15 @@ ms.lasthandoff: 04/28/2017
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](hdinsight-apache-spark-jupyter-spark-sql.md)。
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>将外部包与 Jupyter 笔记本配合使用
+
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+
 1. 在 [Azure 门户预览](https://portal.azure.cn/)上的启动板中，单击 Spark 群集的磁贴（如果已将它固定到启动板）。 也可以单击“全部浏览” > “HDInsight 群集”导航到群集。   
 2. 在 Spark 群集边栏选项卡中单击“快速链接”，然后在“群集仪表板”边栏选项卡中单击“Jupyter 笔记本”。 出现提示时，请输入群集的管理员凭据。
 
     > [!NOTE]
     > 也可以在浏览器中打开以下 URL 访问群集的 Jupyter 笔记本。 将 **CLUSTERNAME** 替换为群集的名称：
-    > <p> 
+    >
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter` 
 
 3. 创建新的笔记本。 单击“新建”，然后单击“Spark”。
@@ -65,8 +68,6 @@ ms.lasthandoff: 04/28/2017
 
     >[!IMPORTANT] 
     >如果忘记了在第一个单元中配置内核，可以结合 `-f` 参数使用 `%%configure`，但这会重新启动会话，导致所有进度都会丢失。
-
-    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
     | HDInsight 版本 | 命令 |
     |-------------------|---------|

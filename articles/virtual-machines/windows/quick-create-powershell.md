@@ -156,7 +156,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-[安装角色和配置防火墙教程](hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[安装角色和配置防火墙教程](hero-role.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[浏览 VM 部署 PowerShell 示例](powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[浏览 VM 部署 PowerShell 示例](powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 

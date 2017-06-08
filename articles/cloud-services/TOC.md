@@ -25,6 +25,8 @@
 ### [配置角色的流量规则](cloud-services-enable-communication-role-instances.md)
 ### [处理云服务生命周期事件](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
+### [使用 Twilio 拨打电话 (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
+### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### 配置启动任务
 #### [创建启动任务](cloud-services-startup-tasks.md)

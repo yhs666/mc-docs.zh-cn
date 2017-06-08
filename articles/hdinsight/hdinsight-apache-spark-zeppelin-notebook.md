@@ -13,8 +13,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
-wacn.date: 03/28/2017
+ms.date: 04/03/2017
+wacn.date: 05/31/2017
 ms.author: nitinme
 ---
 
@@ -22,20 +22,20 @@ ms.author: nitinme
 HDInsight Spark 群集包括可用于运行 Spark 作业 Zeppelin 笔记本。本文中你将了解如何在 HDInsight 群集中使用 Zeppelin 笔记本。
 
 > [!NOTE]
-默认情况下，Zeppelin 笔记本仅适用于 HDInsight 群集版本 3.5 上的 Spark 1.6.2。如果要在其他版本的 HDInsight Spark 群集上使用 Zeppelin，可以使用脚本操作安装 Zeppelin。有关说明，请参阅[为 HDInsight Linux 上的 Apache Spark 群集安装 Zeppelin 笔记本](./hdinsight-apache-spark-use-zeppelin-notebook.md)。
+> 默认情况下，Zeppelin 笔记本仅适用于 HDInsight 群集版本 3.5 上的 Spark 1.6.2。如果要在其他版本的 HDInsight Spark 群集上使用 Zeppelin，可以使用脚本操作安装 Zeppelin。有关说明，请参阅[为 HDInsight Linux 上的 Apache Spark 群集安装 Zeppelin 笔记本](./hdinsight-apache-spark-use-zeppelin-notebook.md)。
 > 
 >
 
 **先决条件：**
 
 * Azure 订阅。请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* HDInsight 上的 Apache Spark 群集。有关说明，请参阅 [Create Apache Spark clusters in Azure HDInsight](./hdinsight-apache-spark-jupyter-spark-sql.md)（在 Azure HDInsight 中创建 Apache Spark 群集）。
+* HDInsight 上的 Apache Spark 群集。有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](./hdinsight-apache-spark-jupyter-spark-sql.md)。
 
 ## 启动 Zeppelin 笔记本。
 1. 在“Spark 群集”边栏选项卡中，单击“群集仪表板”，然后单击“Zeppelin 笔记本”。出现提示时，请输入群集的管理员凭据。
 
     > [!NOTE]
-    也可以在浏览器中打开以下 URL 来访问群集的 Zeppelin 笔记本。将 **CLUSTERNAME** 替换为群集的名称：
+    > 也可以在浏览器中打开以下 URL 来访问群集的 Zeppelin 笔记本。将 **CLUSTERNAME** 替换为群集的名称：
     > 
     > `https://CLUSTERNAME.azurehdinsight.cn/zeppelin`
     > 

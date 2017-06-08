@@ -28,7 +28,7 @@ ms.author: jdial
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
 > [!NOTE]
-Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是经典部署模型。
+> Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是经典部署模型。
 > 
 
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
@@ -79,7 +79,7 @@ Azure 具有两种不同的部署模型，用于创建和处理资源：[Resourc
 4. 在“设置”选项卡中，单击“出站安全规则”，查看出站规则。
 
     > [!NOTE]
-    若要查看默认规则，请单击显示规则的边栏选项卡顶部的“默认规则”图标。
+    > 若要查看默认规则，请单击显示规则的边栏选项卡顶部的“默认规则”图标。
     > 
 
 ### 查看 NSG 关联项
@@ -151,7 +151,7 @@ Azure 具有两种不同的部署模型，用于创建和处理资源：[Resourc
     ![Azure 门户预览 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure13.png)  
 
 > [!NOTE]
-还可使用此边栏选项卡将 NIC 关联到任意现有 NSG。
+> 还可使用此边栏选项卡将 NIC 关联到任意现有 NSG。
 >
 
 ### <a name="Dissociate-an-NSG-from-a-subnet"></a>取消 NSG 与子网之间的关联
@@ -177,7 +177,7 @@ Azure 具有两种不同的部署模型，用于创建和处理资源：[Resourc
 3. 在“FrontEnd”边栏选项卡中，单击“保存”。
 
 > [!NOTE]
-还可以在 NSG 的“设置”边栏选项卡中将 NSG 关联到子网。
+> 还可以在 NSG 的“设置”边栏选项卡中将 NSG 关联到子网。
 > 
 
 ## 删除 NSG

@@ -28,7 +28,7 @@
 
 ## 表存储
 ### [.NET](storage-dotnet-how-to-use-tables.md)
-### [F#](/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage)
+### [F#](https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage)
 ### [Java](storage-java-how-to-use-table-storage.md)
 ### [Node.js](storage-nodejs-how-to-use-table-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-tables.md)
@@ -48,8 +48,6 @@
 ### [使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md)
 ### [使用 PowerShell 将托管磁盘附加到 Windows VM](../virtual-machines/windows/attach-disk-ps.md)
 ### [将托管磁盘添加到 Linux VM](../virtual-machines/linux/add-disk.md)
-### [使用 Windows 中的快照创建作为托管磁盘存储的 VHD 的副本](../virtual-machines/windows/snapshot-copy-managed-disk.md)
-### [使用 Linux 中的快照创建作为托管磁盘存储的 VHD 的副本](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 # 如何
 ## [创建存储帐户](storage-create-storage-account.md)
@@ -69,8 +67,6 @@
 ## 使用磁盘
 ### [Windows VM 的磁盘和 VHD](storage-about-disks-and-vhds-windows.md)
 ### [Linux VM 的磁盘和 VHD](storage-about-disks-and-vhds-linux.md)
-### [Azure 托管磁盘概述](storage-managed-disks-overview.md)
-### [从 AWS 和其他平台迁移到托管磁盘](../virtual-machines/windows/on-prem-to-azure.md)
 ### [有关 Azure IaaS VM 磁盘的常见问题](storage-faq-for-disks.md)
 ### 高级存储
 #### [适用于 VM 磁盘的高性能高级存储](storage-premium-storage.md)

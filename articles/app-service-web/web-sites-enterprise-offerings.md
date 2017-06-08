@@ -74,24 +74,14 @@ Web 平台和框架越来越多地被用于开发、测试和托管业务线应�
 ### <a name="enterprise-class-hosting"></a>企业类托管
 应用服务 Web 应用提供了一个稳定、可靠的平台，后者已被证实能够满足从小型内部开发和测试工作负荷到高度可扩展的高流量网站的各种业务需求。 通过使用 Web 应用，你可以使用与 Microsoft 公司用于处理高价值 Web 工作负荷相同的企业类托管平台。 Web 应用以及 Azure 平台上的所有服务均符合安全要求和遵从法规要求，如 ISO (ISO/IEC 27001:2005)；SOC1 和 SOC2 SSAE 16/ISAE 3402 Attestations、HIPAA BAA、PCI 和 Fedramp，是每个元素和功能的核心，有关详细信息，请参阅[https://www.azure.cn/support/trust-center/compliance/](https://www.azure.cn/support/trust-center/compliance/)。
 
-Azure 平台支持基于角色的身份验证控制，从而支持对 Web 应用内的资源进行企业级控制。 RBAC 支持企业在 Azure 环境中为其所有资产实施自己的访问管理策略，将用户分配到组并反过来根据 Web 应用等资产将所需的权限分配给这些组。 关于 Azure 中 RBAC 的详细信息，请参阅 [http://aka.ms/azurerbac](../active-directory/role-based-access-control-configure.md)。 通过利用 Web 应用，你可以确保将 Web 应用程序部署在安全可靠的环境中，并完全地控制要将资产部署到的区域。
+Azure 平台支持基于角色的身份验证控制，从而支持对 Web 应用内的资源进行企业级控制。 RBAC 支持企业在 Azure 环境中为其所有资产实施自己的访问管理策略，将用户分配到组并反过来根据 Web 应用等资产将所需的权限分配给这些组。 关于 Azure 中 RBAC 的详细信息，请参阅 [role-based-access-control-configure](../active-directory/role-based-access-control-configure.md)。 通过利用 Web 应用，你可以确保将 Web 应用程序部署在安全可靠的环境中，并完全地控制要将资产部署到的区域。
 
 通过支持往回连接到你的内部资源（如数据仓库或 SharePoint 环境），应用服务 Web 应用还能够充分利用你的本地投资。 如之前在[高级别的解决方案](#high-level-solution)中所讨论的，可以使用虚拟网络连接建立到本地基础结构和服务的连接。
-
-### <a name="global-scale"></a>全球扩展
-应用服务 Web 应用是一个全球和可扩展的平台，使你的 Web 应用程序能够增长并快速适应不断成长的企业的需求，只需要最少的长期规划和最低的成本。 在典型的本地基础架构场景中，本地和地理上需求的扩展和增长都需要大量的管理、规划和支出以供应和管理额外的基础架构。 Web 应用支持根据需求的变化扩展你的 Web 应用程序。 例如，下面我们使用开支应用程序作为例子，在一个月的大部分时间内，你的用户很少会使用该应用程序，但是随着每个月支出提交截止日期的邻近，应用程序的使用会增加，Web 应用能够自动为你的应用程序供应更多基础架构，一旦应用程序的使用再次减少，它能够缩放回你所定义的基线基础架构。
-
-Web 应用现在在全球 24 个数据中心提供，且还在不断增长。 有关最新的区域和位置列表，请参阅 [https://azure.microsoft.com/regions/](https://azure.microsoft.com/regions/)。 借助 Web 应用，你的企业能够轻松实现全球覆盖和扩展。 随着你的公司发展到新区域，你在 Web 应用上使用和托管的报表应用程序仪表板可以被轻松地部署到其他数据中心，并通过 Web 应用和 Azure Traffic Manager 组合更快地服务本地用户，其附加效益在于底层的可扩展基础架构能够随着区域办事处需求的变化而缩小和扩展。
 
 ## <a name="solution-details"></a>解决方案详细信息
 让我们看一个应用程序迁移方案的示例。 这概述了应用服务 Web 应用的各种功能如何协同提供出色解决方案和业务价值的详细信息。
 
 在整个示例中，我们要讨论的业务线应用程序是一个支出报表应用程序，它使员工能够提交费用进行报销。 该应用程序托管于运行 IIS6 的 Windows Server 2003 R2 上，数据库是 SQL Server 2005 数据库。 我们选择较旧服务器的原因在于 Windows Server 2003 R2 和 SQL Server 2005 的服务即将到期。 基于这一点，此示例中所使用的模式将适用于各种迁移场景。
-
-### <a name="migrate-existing-application"></a>迁移现有应用程序
-将业务线应用程序迁移到 Web 应用的总体解决方案中的第一步是确定现有应用程序资产和体系结构。 本白皮书中的示例是托管在单个 IIS 服务器上的 ASP.NET web 应用程序，以及托管在单独的 SQL Server 上的数据库（如图中所示）。 员工使用用户名和密码组合登录到系统，输入支出的详细信息并将每项开支收据的扫描副本上传到数据库。
-
-![](./media/web-sites-enterprise-offerings/on-premise-app-example.png)
 
 ### <a name="alternatives-to-using-azure-sql-database"></a>使用 Azure SQL 数据库的替代方法
 Azure 平台允许使用一些替代方法（而非 Azure SQL 数据库）作为 Web 应用程序的主数据库，这将允许使用不同的工作负荷 （即，使用 NoSQL 解决方案）或者使该平台可以满足企业的各种数据需求。 例如，企业可能会保留不得存储在非现场或公有云环境中的数据，因此期待维护对其本地数据库的使用。

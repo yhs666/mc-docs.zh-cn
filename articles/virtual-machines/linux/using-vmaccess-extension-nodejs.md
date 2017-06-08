@@ -34,7 +34,7 @@ ms.lasthandoff: 04/14/2017
 可使用以下 CLI 版本之一完成任务：
 
 - [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
-- [Azure CLI 2.0](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
+- [Azure CLI 2.0](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="quick-commands"></a> 快速命令
 有两种方法可在 Linux VM 上使用 VMAccess：
@@ -264,8 +264,8 @@ azure vm extension set \
 ## <a name="next-steps"></a>后续步骤
 使用 Azure VMAccess 扩展更新 Linux 是一种对正在运行的 Linux VM 进行更改的方法。  还可以使用 cloud-init 和 Azure 模板之类的工具在 Linux VM 启动时对其进行修改。
 
-[关于虚拟机扩展和功能](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[关于虚拟机扩展和功能](extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[使用 Linux VM 扩展创作 Azure Resource Manager 模板](extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[使用 Linux VM 扩展创作 Azure Resource Manager 模板](extensions-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

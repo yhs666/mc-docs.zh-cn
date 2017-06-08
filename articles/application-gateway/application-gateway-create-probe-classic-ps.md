@@ -58,7 +58,7 @@ Get-AzureApplicationGateway AppGwTest
 ```
 
 > [!NOTE]
-*InstanceCount* 的默认值为 2，最大值为 10。*GatewaySize* 的默认值为 Medium。可以选择 Small、Medium 或 Large。
+> *InstanceCount* 的默认值为 2，最大值为 10。*GatewaySize* 的默认值为 Medium。可以选择 Small、Medium 或 Large。
 > 
 > 
 
@@ -217,6 +217,6 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 如果要配置安全套接字层 (SSL) 卸载，请参阅[配置应用程序网关以进行 SSL 卸载](./application-gateway-ssl.md)。
 
-如果你想要将应用程序网关配置为与内部负载均衡器配合使用，请参阅 [Create an application gateway with an internal load balancer (ILB)](./application-gateway-ilb.md)（创建具有内部负载均衡器 (ILB) 的应用程序网关）。
+如果你想要将应用程序网关配置为与内部负载均衡器配合使用，请参阅[创建具有内部负载均衡器 (ILB) 的应用程序网关](./application-gateway-ilb.md)。
 
 <!---HONumber=Mooncake_Quality_Review_0104_2017-->

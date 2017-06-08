@@ -56,7 +56,7 @@ ms.lasthandoff: 04/14/2017
 
 通过开发 API 提供的功能也可通过命令行工具提供： 
 
-- [批处理 PowerShell cmdlet][batch_ps]：[Azure PowerShell](/documentation/articles/powershell-install-configure/) 模块中的 Azure 批处理 cmdlet 可让用户使用 PowerShell 管理批处理资源。
+- [批处理 PowerShell cmdlet][batch_ps]：[Azure PowerShell](../powershell-install-configure.md) 模块中的 Azure 批处理 cmdlet 可让用户使用 PowerShell 管理批处理资源。
 - [Azure CLI](../cli-install-nodejs.md)：Azure 命令行接口 (Azure CLI) 是一个跨平台工具集，提供用来与许多 Azure 服务（包括 Batch）交互的 shell 命令。
 
 ## <a name="batch-resource-management"></a>Batch 资源管理
@@ -99,7 +99,7 @@ ms.lasthandoff: 04/14/2017
 [api_sample_java]: https://github.com/Azure/azure-batch-samples/tree/master/Java/
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
-[free_account]: /pricing/1rmb-trial/
+[free_account]: https://www.azure.cn/pricing/1rmb-trial/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [storage_explorer]: http://storageexplorer.com/

@@ -38,7 +38,7 @@
 ## [Azure 中的大型计算：技术资源](./big-compute-resources.md)
 
 # 资源
-## [价格](https://azure.microsoft.com/pricing/details/batch/)
+## [价格](https://www.azure.cn/pricing/details/batch/)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=batch)

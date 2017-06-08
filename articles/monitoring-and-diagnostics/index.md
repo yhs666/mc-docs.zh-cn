@@ -15,7 +15,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/monitoring-and-diagnostics/monitoring-overview">
+        <a href="/monitoring-and-diagnostics/monitoring-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>    
     <li>
-        <a href="/azure/monitoring-and-diagnostics/insights-alerts-portal">
+        <a href="/monitoring-and-diagnostics/insights-alerts-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -51,7 +51,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/monitoring-and-diagnostics/insights-alerts-command-line-interface">
+        <a href="/monitoring-and-diagnostics/insights-alerts-command-line-interface">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -69,7 +69,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/azure/monitoring-and-diagnostics/insights-alerts-powershell">
+        <a href="/monitoring-and-diagnostics/insights-alerts-powershell">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -87,7 +87,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/monitoring-and-diagnostics/monitoring-enable-alerts-using-template">
+        <a href="/monitoring-and-diagnostics/monitoring-enable-alerts-using-template">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -116,7 +116,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>命令行</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.20041">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.20041">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/monitor/">REST API 参考</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/monitor/">REST API 参考</a></p>
                     </div>
                 </div>
             </div>

@@ -45,7 +45,7 @@ ms.author: dastrock
 - [v2.0 令牌参考](./active-directory-v2-tokens.md)
 - [v2.0 库参考](./active-directory-v2-libraries.md)
 - [v2.0 终结点中的范围和许可](./active-directory-v2-scopes.md)
-- [Microsoft 应用注册门户](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)
+- [Microsoft 应用注册门户](https://apps.dev.microsoft.com)
 - [Office 365 REST API 参考](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Microsoft Graph](https://graph.microsoft.io)
 

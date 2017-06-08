@@ -13,13 +13,13 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/21/2017
+ms.date: 03/21/2017
 ms.author: xshi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 51ecb2052a1db1ceb85dcbc2e31f0d17463bd685
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: b10cbfd7c8131bdf51758ba1c8bdc637072c5148
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/28/2017
 ## <a name="what-you-will-do"></a>执行的操作
 
 - 将 Intel NUC 设置为 IoT 网关。
-- 在 Intel NUC 上安装 Azure IoT 网关 SDK 包。
+- 在 Intel NUC 上安装 Azure IoT Edge 包。
 - 在 Intel NUC 上运行“hello_world”示例应用程序，验证网关功能。
 
   > 如果有任何问题，请在[故障排除页面](./iot-hub-gateway-kit-c-troubleshooting.md)上查找解决方案。
@@ -78,7 +78,7 @@ ms.lasthandoff: 04/28/2017
 
    以下是命令输出的示例。
 
-   ![显示 Intel NUC IP 的 ifconfig 输出](media/iot-hub-gateway-kit-lessons/lesson1/ifconfig.png)
+   ![显示 Intel NUC IP 的 ifconfig 输出](./media/iot-hub-gateway-kit-lessons/lesson1/ifconfig.png)
 
    在此示例中，`inet addr:` 后面的值是计划从主计算机远程连接到 Intel NUC 时所需的 IP 地址。
 
@@ -90,16 +90,16 @@ ms.lasthandoff: 04/28/2017
    通过主计算机在 Intel NUC 上执行操作更高效。 需要 Intel NUC 的 IP 地址、用户名和密码才能通过 SSH 客户端与它建立连接。 下面是在 macOS 使用 SSH 客户端的示例。
    ![在 macOS 上运行的 SSH 客户端](./media/iot-hub-gateway-kit-lessons/lesson1/ssh.png)
 
-## <a name="install-the-azure-iot-gateway-sdk-package"></a>安装 Azure IoT 网关 SDK 包
+## <a name="install-the-azure-iot-edge-package"></a>安装 Azure IoT Edge 包
 
-Azure IoT 网关 SDK 包中包含 SDK 及其依赖项的预编译二进制文件。 这些二进制文件包括 Azure IoT 网关 SDK、Azure IoT SDK 和相应的工具。 该包还包含用于验证网关功能的“hello_world”示例应用程序。 SDK 是网关的核心部分。 
+Azure IoT Edge 包中包含 IoT Edge 及其依赖项的预编译二进制文件。 这些二进制文件包括 Azure IoT Edge、Azure IoT SDK 和相应的工具。 该包还包含用于验证网关功能的“hello_world”示例应用程序。 IoT Edge 是网关的核心部分。 
 
 执行以下步骤安装该包。
 
 1. 在终端窗口中运行以下命令，添加 IoT 云存储库：
 
    ```bash
-   rpm --import http://iotdk.intel.com/misc/iot_pub2.key
+   rpm --import https://iotdk.intel.com/misc/iot_pub2.key
    smart channel --add IoT_Cloud type=rpm-md name="IoT_Cloud" baseurl=http://iotdk.intel.com/repos/iot-cloud/wrlinux7/rcpl13/ -y
    smart channel --add WR_Repo type=rpm-md baseurl=https://distro.windriver.com/release/idp-3-xt/public_feeds/WR-IDP-3-XT-Intel-Baytrail-public-repo/RCPL13/corei7_64/
    ```
@@ -134,9 +134,9 @@ Azure IoT 网关 SDK 包中包含 SDK 及其依赖项的预编译二进制文件
 
    安装此包后，Intel NUC 可用作网关。
 
-## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>运行 Azure IoT 网关 SDK“hello_world”示例应用程序
+## <a name="run-the-azure-iot-edge-helloworld-sample-application"></a>运行 Azure IoT Edge“hello_world”示例应用程序
 
-此示例应用程序通过 `hello_world.json` 文件创建网关，并使用 Azure IoT 网关 SDK 体系结构的基本组件每隔 5 秒将“hello world”消息记录到文件 (log.txt)。
+以下示例应用程序通过 `hello_world.json` 文件创建网关，并使用 Azure IoT Edge 体系结构的基本组件每隔 5 秒将“hello world”消息记录到文件 (log.txt)。
 
 可以通过执行以下命令来运行 Hello World 示例：
 

@@ -210,8 +210,6 @@ ms.author: wesmc
 
 * **Node.js**：[如何通过 Node.js 使用通知中心](./notification-hubs-nodejs-push-notification-tutorial.md)。
 
-* **Azure 移动服务**：有关如何从与通知中心集成的 Azure 移动服务后端发送推送通知的示例，请参阅“移动服务中的推送通知入门”（[.NET 后端](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md) | [JavaScript 后端](../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md)）。
-
 * **Java/PHP**：有关如何使用 REST API 发送推送通知的示例，请参阅“如何通过 Java/PHP 使用通知中心”([Java](./notification-hubs-java-push-notification-tutorial.md) | [PHP](./notification-hubs-php-push-notification-tutorial.md))。
 
 ####（可选）通过 .NET 控制台应用发送推送通知
