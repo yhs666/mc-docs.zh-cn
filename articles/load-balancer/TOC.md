@@ -58,7 +58,7 @@
 
 
 # 资源
-## [价格](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [价格](https://www.azure.cn/pricing/details/load-balancer/)
 ## [服务更新](https://azure.microsoft.com/updates/?product=load-balancer)
 
 <!---HONumber=Mooncake_0227_2017-->
