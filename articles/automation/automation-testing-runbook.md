@@ -33,6 +33,6 @@ ms.author: magoedte;bwren
 
 - 若要了解如何创建或导入 Runbook，请参阅[在 Azure 自动化中创建或导入 Runbook](./automation-creating-importing-runbook.md)
 - 若要开始使用 PowerShell 工作流 Runbook，请参阅[我的第一个 PowerShell 工作流 Runbook](./automation-first-runbook-textual.md)
-- 若要详细了解如何配置 Runbook 以返回状态消息和错误（包括建议的做法），请参阅 [Runbook output and messages in Azure Automation](./automation-runbook-output-and-messages.md)（Azure 自动化中的 Runbook 输出和消息）
+- 若要详细了解如何配置 Runbook 以返回状态消息和错误（包括建议的做法），请参阅 [Azure 自动化中的 Runbook 输出和消息](./automation-runbook-output-and-messages.md)
 
 <!---HONumber=Mooncake_Quality_Review_0104_2017-->
