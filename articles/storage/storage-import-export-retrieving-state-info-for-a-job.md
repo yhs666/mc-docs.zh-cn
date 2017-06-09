@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 wacn.date: 12/29/2016
-ms.author: renash
+ms.author: v-johch
 ---
 
 # 检索作业的状态信息

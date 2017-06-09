@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 wacn.date: 12/26/2016
-ms.author: annemill
+ms.author: v-johch
 ---
 
 # SQL 数据库开发概述

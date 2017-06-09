@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 wacn.date: 03/10/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 使用脚本操作自定义基于 Windows 的 HDInsight 群集

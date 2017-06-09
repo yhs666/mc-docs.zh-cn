@@ -13,14 +13,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/21/2017
-ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: a8ac3eea4e63cd746df9455541f83884569fcf5e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.date: 10/28/2016
+wacn.date: 01/23/2017
+ms.author: v-yiso
 ---
 
 # <a name="set-up-intel-nuc-as-an-iot-gateway"></a>将 Intel NUC 设置为 IoT 网关

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: seguler
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 9473e0fc4b74ca417bef1be176aea04f512e11ee

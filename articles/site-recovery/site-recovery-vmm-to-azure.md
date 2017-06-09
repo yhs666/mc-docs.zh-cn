@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-=article
 ms.date: 04/05/2017
-ms.author: raynew
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 19fc08c275b3e60d59cedd823c18c45e442fda20

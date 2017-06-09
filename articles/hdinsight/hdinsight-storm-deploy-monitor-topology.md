@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 wacn.date: 04/27/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 在基于 Windows 的 HDInsight 上部署和管理 Apache Storm 拓扑

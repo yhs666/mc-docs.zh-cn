@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 wacn.date: 04/11/2017
-ms.author: ambapat
+ms.author: v-junlch
 ---
 
 # 访问防火墙后面的 Azure 密钥保管库

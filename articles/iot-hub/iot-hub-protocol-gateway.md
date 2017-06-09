@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 wacn.date: 02/10/2017
-ms.author: kdotchko
+ms.author: v-yiso
 ---
 
 # 支持 IoT 中心的其他协议

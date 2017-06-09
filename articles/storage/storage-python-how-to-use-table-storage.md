@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 05/16/2017
-ms.author: marsma
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 9a649438b2d9a7141d88c4c85aa3ec10f099ed2f

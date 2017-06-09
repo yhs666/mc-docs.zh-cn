@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/23/2017
 wacn.date: 03/31/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用 Ambari REST API 管理 HDInsight 群集

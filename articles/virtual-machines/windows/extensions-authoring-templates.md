@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 wacn.date: 06/29/2016
-ms.author: kundanap
+ms.author: v-dazen
 ---
 
 # 使用 VM 扩展创作 Windows 资源管理器模板。

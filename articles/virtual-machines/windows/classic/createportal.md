@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 wacn.date: 03/28/2017
-ms.author: cynthn
+ms.author: v-dazen
 ---
 
 # 使用经典部署模型创建运行 Windows 的自定义虚拟机

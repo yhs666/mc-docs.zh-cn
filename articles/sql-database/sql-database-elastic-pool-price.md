@@ -11,7 +11,7 @@ ms.service: sql-database
 ms.devlang: NA
 ms.date: 05/27/2016
 wacn.date: 12/26/2016
-ms.author: srinia
+ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA

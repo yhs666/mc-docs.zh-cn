@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 wacn.date: 01/05/2017
-ms.author: saurabh
+ms.author: v-dazen
 ---
 
 # 使用 PowerShell 在运行 Windows 的 Azure 虚拟机中启用诊断

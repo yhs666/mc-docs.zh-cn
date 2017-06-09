@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2017
 wacn.date: 03/24/2017
-ms.author: daleche
+ms.author: v-johch
 ---
 
 # 排查、诊断和防止 SQL 数据库中的 SQL 连接错误和暂时性错误

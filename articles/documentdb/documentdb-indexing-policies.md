@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/25/2017
 wacn.date: 
-ms.author: arramac
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 1219d2a8d74c4bbb1ab854ddba1353ea125b7716

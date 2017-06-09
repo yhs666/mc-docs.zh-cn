@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/05/2017
 wacn.date: 03/31/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 结合使用 Azure Site Recovery 和 Azure 门户将 Hyper-V 虚拟机（不带 VMM）复制到 Azure

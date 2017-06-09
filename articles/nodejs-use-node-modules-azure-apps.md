@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/22/2016
 wacn.date: 02/14/2017
-ms.author: robmcm
+ms.author: v-junlch
 ---
 
 # 将 Node.js 模块与 Azure 应用程序一起使用

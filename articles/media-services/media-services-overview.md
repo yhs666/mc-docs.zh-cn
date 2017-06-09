@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/05/2017
 wacn.date: 02/24/2017
-ms.author: juliako;anilmur
+ms.author: v-johch
 ---
 
 # Azure 媒体服务概述和常见应用场景

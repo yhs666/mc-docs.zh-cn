@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/13/2017
 wacn.date: 03/31/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 入门：在 Azure HDInsight 中创建 Apache Spark 群集并使用 Spark SQL 运行交互式查询

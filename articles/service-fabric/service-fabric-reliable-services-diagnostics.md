@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 wacn.date: 02/20/2017
-ms.author: alanwar
+ms.author: v-johch
 ---
 
 # 有状态 Reliable Services 的诊断功能

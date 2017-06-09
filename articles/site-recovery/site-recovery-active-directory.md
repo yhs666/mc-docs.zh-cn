@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/17/2017
 wacn.date: 03/31/2017
-ms.author: pratshar
+ms.author: v-johch
 ---
 
 # 使用 Azure Site Recovery 保护 Active Directory 和 DNS

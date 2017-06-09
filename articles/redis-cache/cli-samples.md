@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/14/2017
 wacn.date: 
-ms.author: sdanie
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 4ab299350d0f55999a6a77c041d9cebe392dcc6d

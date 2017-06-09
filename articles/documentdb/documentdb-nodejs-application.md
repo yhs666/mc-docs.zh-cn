@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 12/16/2016
 wacn.date: 
-ms.author: syamk
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 49004fc2f92190cd14a1d20a8581b29cc257ef6a

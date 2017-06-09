@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: 03/20/2017
-ms.author: mausher;barbkess
+ms.author: v-yeche
 ---
 
 # 使用 Redgate Data Platform Studio 加载数据

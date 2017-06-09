@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/03/2017
 wacn.date: 03/31/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用 HDInsight 中的 .NET SDK for Hadoop 运行 Pig 作业

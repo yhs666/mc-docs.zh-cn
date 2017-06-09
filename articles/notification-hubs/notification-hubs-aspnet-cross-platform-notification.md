@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: wesmc
+ms.author: v-junlch
 wacn.date: 01/19/2017
 ---
 

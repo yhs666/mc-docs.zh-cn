@@ -11,7 +11,7 @@ ms.topic: article
 ms.assetid: 3990f0c8-b627-432f-9551-5ce10f9bb0ca
 caps.latest.revision: 14
 author: tamram
-ms.author: tamram
+ms.author: v-junlch
 manager: timlt
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18

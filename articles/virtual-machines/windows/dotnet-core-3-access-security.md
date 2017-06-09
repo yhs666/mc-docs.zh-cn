@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 wacn.date: 12/20/2016
-ms.author: nepeters
+ms.author: v-dazen
 ---
 
 # Azure Resource Manager 模板中的访问权限和安全性

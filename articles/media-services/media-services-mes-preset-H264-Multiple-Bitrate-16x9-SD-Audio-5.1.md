@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: 02/24/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # H264 多比特率 16x9 SD 音频 5.1

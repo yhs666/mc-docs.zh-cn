@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 wacn.date: 03/28/2017
-ms.author: marsma
+ms.author: v-johch
 ---
 
 # 监视 Azure 门户预览中的存储帐户

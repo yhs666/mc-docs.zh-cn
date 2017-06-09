@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 wacn.date: 12/30/2016
-ms.author: nepeters
+ms.author: v-dazen
 ---
 
 # 使用 Azure Resource Manager 模板的应用程序体系结构

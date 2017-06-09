@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 wacn.date: 03/30/2017
-ms.author: tarcher
+ms.author: v-junlch
 ---
 
 # 使用 Azure Tools 发布云服务

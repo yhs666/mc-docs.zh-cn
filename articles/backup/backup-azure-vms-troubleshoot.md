@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2017
 wacn.date: 
-ms.author: trinadhk;markgal;jpallavi;
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 4e4baef014b6a8dcec7a81a0454b746782a952bd

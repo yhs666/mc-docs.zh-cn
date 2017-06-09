@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 wacn.date: 12/26/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # 向 Xamarin.Forms 应用添加身份验证

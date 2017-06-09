@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/08/2017
 wacn.date: 03/03/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 使用 Azure Site Recovery 复制到辅助站点时的支持矩阵

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2016
 wacn.date: 01/06/2017
-ms.author: xshi
+ms.author: v-yiso
 ---
 
 # 读取保存在 Azure 存储中的消息

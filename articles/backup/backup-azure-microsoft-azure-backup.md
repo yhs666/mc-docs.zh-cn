@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 wacn.date: 03/31/2017
-ms.author: jimpark;trinadhk;pullabhk;markgal
+ms.author: v-junlch
 ---
 
 # 准备使用 Azure 备份服务器来备份工作负荷

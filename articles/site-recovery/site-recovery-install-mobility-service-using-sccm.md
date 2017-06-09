@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 wacn.date: 02/10/2017
-ms.author: anoopkv
+ms.author: v-johch
 ---
 
 # 使用软件部署工具自动安装移动服务

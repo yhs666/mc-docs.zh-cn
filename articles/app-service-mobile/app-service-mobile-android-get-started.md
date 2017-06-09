@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 10/01/2016
 wacn.date: 11/21/2016
-ms.author: yuaxu
+ms.author: v-yiso
 ---
 
 #创建 Android 应用

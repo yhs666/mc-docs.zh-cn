@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 wacn.date: 01/13/2017
-ms.author: v-livech
+ms.author: v-dazen
 ---
 
 # 使用 SCP 将文件移到 Linux VM 和从 Linux VM 移动文件

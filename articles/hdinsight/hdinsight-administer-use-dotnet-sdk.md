@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 wacn.date: 04/27/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 使用 .NET SDK 管理 HDInsight 中的 Hadoop 群集

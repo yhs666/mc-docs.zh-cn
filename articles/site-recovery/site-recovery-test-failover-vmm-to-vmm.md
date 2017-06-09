@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/15/2017
 wacn.date: 03/31/2017
-ms.author: pratshar
+ms.author: v-johch
 ---
 
 # Site Recovery 中的测试故障转移（VMM 到 VMM）

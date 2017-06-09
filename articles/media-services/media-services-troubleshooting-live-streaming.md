@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2016
 wacn.date: 12/16/2016
-ms.author: juliako
+ms.author: v-johch
 ---
 
 #实时流式处理故障排除指南

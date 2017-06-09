@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/12/2017
 wacn.date: 01/25/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用查询控制台运行 Hive 查询

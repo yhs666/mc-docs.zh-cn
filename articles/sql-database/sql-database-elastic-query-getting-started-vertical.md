@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 wacn.date: 12/26/2016
-ms.author: torsteng
+ms.author: v-johch
 ---
 
 # 跨数据库查询（垂直分区）入门（预览）

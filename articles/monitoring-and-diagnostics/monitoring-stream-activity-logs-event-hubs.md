@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 wacn.date: 01/03/2017
-ms.author: johnkem
+ms.author: v-yiso
 ---
 
 # 将 Azure 活动日志流式传输到事件中心

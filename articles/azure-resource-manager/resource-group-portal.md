@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 wacn.date: 01/25/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 通过门户管理 Azure 资源

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 wacn.date: 03/10/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 在 HDInsight 中提交 Hadoop 作业

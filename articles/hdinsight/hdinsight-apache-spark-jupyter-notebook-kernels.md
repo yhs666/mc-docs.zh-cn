@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 wacn.date: 03/31/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # HDInsight 中的 Jupyter 笔记本内核与 Apache Spark 群集 

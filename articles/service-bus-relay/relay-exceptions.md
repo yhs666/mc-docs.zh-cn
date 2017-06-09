@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: sethm;jotaub
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 52987e1596d39fae2ba83b1e6d6e5bcb58786a82

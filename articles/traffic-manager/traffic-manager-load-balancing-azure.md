@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 wacn.date: 01/03/2017
-ms.author: limichel
+ms.author: v-dazen
 ---
 
 # 在 Azure 中使用负载均衡服务

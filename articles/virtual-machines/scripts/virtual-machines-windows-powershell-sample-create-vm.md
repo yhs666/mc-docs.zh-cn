@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/02/2017
 wacn.date: 
-ms.author: nepeters
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 7d7ba64488392d4e8d9d79b5de064496ac9cd065

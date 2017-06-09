@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 wacn.date: 
-ms.author: juliako
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: c5d6a79ff711367dfaa6de5e7c9bb44dd79e1b5c

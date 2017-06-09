@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 wacn.date: 12/29/2016
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # Azure 存储的客户端加密和 Azure 密钥保管库

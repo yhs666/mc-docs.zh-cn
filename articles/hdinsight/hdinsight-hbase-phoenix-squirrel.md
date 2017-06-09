@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2017
 wacn.date: 03/10/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 将 Apache Phoenix 和 SQuirreL 与 HDInsight 中基于 Windows 的 HBase 群集配合使用

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 wacn.date: 01/18/2017
-ms.author: monicar
+ms.author: v-junlch
 ---
 
 # Azure 词汇表：Azure 平台上的云术语字典

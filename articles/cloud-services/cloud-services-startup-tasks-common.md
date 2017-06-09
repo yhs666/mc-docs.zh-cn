@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 wacn.date: 01/25/2017
-ms.author: adegeo
+ms.author: v-yiso
 ---
 
 # 常见的云服务启动任务

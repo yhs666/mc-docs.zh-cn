@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2016
 wacn.date: 03/10/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 #如何在使用 Azure 媒体服务时配置本地编码器以创建多比特率流

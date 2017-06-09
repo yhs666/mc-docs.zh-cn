@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/21/2017
 wacn.date: 04/05/2017
-ms.author: kgremban
+ms.author: v-junlch
 ---
 
 # Azure 基于角色的访问控制的内置角色

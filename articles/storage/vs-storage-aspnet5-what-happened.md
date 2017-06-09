@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 wacn.date: 01/06/2017
-ms.author: tarcher
+ms.author: v-johch
 ---
 
 # 我的 ASP.NET 5 项目（Visual Studio Azure 存储连接服务）发生了什么情况？

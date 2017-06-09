@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/06/2017
 wacn.date: 03/15/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 将 VMM 云中的 Hyper-V 虚拟机复制到 Azure

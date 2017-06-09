@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/29/2016
 wacn.date: 10/25/2016
-ms.author: rasquill
+ms.author: v-dazen
 ---
 
 # 使用 Azure Resource Manager 模板部署常用应用程序框架

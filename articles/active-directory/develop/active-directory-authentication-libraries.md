@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/13/2017
 wacn.date: 02/07/2017
-ms.author: mbaldwin
+ms.author: v-junlch
 ---
 
 # Azure Active Directory 身份验证库

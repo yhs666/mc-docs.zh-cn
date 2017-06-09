@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: 12/19/2016
-ms.author: jrj;barbkess;sonyama
+ms.author: v-yeche
 ---
 
 # 对 SQL 数据仓库中的表进行分区

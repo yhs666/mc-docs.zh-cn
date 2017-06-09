@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 wacn.date: 01/13/2017
-ms.author: elioda
+ms.author: v-yiso
 ---
 
 # 使用所需属性配置设备 \(Node\)

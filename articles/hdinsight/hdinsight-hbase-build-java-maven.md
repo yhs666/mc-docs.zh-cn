@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 wacn.date: 03/10/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 借助 Maven 构建可将 HBase 与基于 Windows 的 HDInsight (Hadoop) 配合使用的 Java 应用程序

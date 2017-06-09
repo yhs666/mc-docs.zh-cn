@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 wacn.date: 02/24/2017
-ms.author: jroth
+ms.author: v-dazen
 ---
 
 # 适用于 SQL Server VM 的 SQL Server 代理扩展 \(Resource Manager\)

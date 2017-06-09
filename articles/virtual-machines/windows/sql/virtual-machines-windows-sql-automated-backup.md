@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/30/2017
 wacn.date: 03/20/2017
-ms.author: jroth
+ms.author: v-dazen
 ---
 
 # SQL Server 2014 虚拟机的自动备份 (Resource Manager)

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/05/2016
 wacn.date: 01/04/2017
-ms.author: douglasl
+ms.author: v-yeche
 ---
 
 # 通过运行“为数据库启用延伸向导”开始操作

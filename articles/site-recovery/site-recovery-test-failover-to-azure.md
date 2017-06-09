@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/15/2017
 wacn.date: 03/10/2017
-ms.author: pratshar
+ms.author: v-johch
 ---
 
 # 在 Site Recovery 中执行到 Azure 的测试故障转移

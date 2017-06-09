@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2016
 wacn.date: 01/05/2017
-ms.author: cynthn
+ms.author: v-dazen
 ---
 
 # 使用经典部署模型创建的 Azure Linux 虚拟机的常见问题

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 wacn.date: 04/05/2017
-ms.author: curtand
+ms.author: v-junlch
 ---
 
 # 在 Azure 经典管理门户中重置用户的密码

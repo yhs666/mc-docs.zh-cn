@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 wacn.date: 02/21/2017
-ms.author: cephalin
+ms.author: v-dazen
 ---
 
 # 按可预见的方式在 Azure 中设置和部署微服务 #

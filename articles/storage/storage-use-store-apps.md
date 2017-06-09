@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 wacn.date: 01/06/2017
-ms.author: marsma
+ms.author: v-johch
 ---
 
 # 如何在 Windows 应用商店应用中使用 Azure 存储

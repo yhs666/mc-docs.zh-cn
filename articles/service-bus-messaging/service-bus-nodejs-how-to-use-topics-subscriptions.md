@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 01/12/2017
-ms.author: sethm
+ms.author: v-yiso
 wacn.date: 02/20/2017
 ---
 

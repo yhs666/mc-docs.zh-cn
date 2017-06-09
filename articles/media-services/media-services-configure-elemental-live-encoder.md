@@ -15,7 +15,7 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: 02/24/2017
-ms.author: cenkd;anilmur;juliako
+ms.author: v-johch
 ---
 
 #使用 Elemental Live 编码器发送单比特率实时流

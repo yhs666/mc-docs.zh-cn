@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 wacn.date: 01/20/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 创建并上载包含 Linux 操作系统的虚拟硬盘

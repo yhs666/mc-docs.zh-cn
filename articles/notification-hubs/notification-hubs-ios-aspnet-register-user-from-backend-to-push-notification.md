@@ -14,7 +14,7 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 wacn.date: 02/06/2017
-ms.author: wesmc
+ms.author: v-junlch
 ---
 
 # 通过使用 ASP.NET 注册推送通知的当前用户

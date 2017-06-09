@@ -15,7 +15,7 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: 02/13/2017
-ms.author: brandwe
+ms.author: v-junlch
 ---
 
 # 使用 v2.0 终结点，通过图形 API 将登录添加到使用第三方库的 iOS 应用

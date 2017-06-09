@@ -12,7 +12,7 @@ ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
 ms.date: 03/06/2017
-ms.author: ddove
+ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA

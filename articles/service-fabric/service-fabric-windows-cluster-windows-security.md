@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/17/2017
 wacn.date: 03/03/2017
-ms.author: ryanwi
+ms.author: v-johch
 ---
 
 # 使用 Windows 安全性保护 Windows 上的独立群集

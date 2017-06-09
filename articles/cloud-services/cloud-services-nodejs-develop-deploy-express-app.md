@@ -14,7 +14,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/22/2016
 wacn.date: 03/03/2017
-ms.author: robmcm
+ms.author: v-yiso
 ---
 
 # 使用 Express 在 Azure 云服务中生成 Node.js Web 应用程序

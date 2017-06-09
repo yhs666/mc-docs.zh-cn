@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 wacn.date: 01/25/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 跟踪异步 Azure 操作

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2017
 wacn.date: 03/24/2017
-ms.author: daleche
+ms.author: v-johch
 ---
 
 # 如何从 Azure SQL 数据库备份中还原单个表

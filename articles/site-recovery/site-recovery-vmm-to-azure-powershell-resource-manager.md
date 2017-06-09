@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 wacn.date: 03/10/2017
-ms.author: rajanaki
+ms.author: v-johch
 ---
 
 # 使用 PowerShell 和 Azure Resource Manager 将 VMM 云中的 Hyper-V 虚拟机复制到 Azure

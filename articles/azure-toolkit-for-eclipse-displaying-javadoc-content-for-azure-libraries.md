@@ -15,7 +15,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 12/22/2016
 wacn.date: 02/14/2017
-ms.author: robmcm
+ms.author: v-junlch
 ---
 
 # 在 Eclipse 中显示 Azure Libraries Package for Java 的 Javadoc 内容

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/14/2017
 wacn.date: 03/10/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 创建恢复计划

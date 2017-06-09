@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 wacn.date: 03/03/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 在 Azure Resource Manager 模板中来回共享状态

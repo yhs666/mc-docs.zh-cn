@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2017
 wacn.date: 03/10/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 通过 SSH 将 Hive 与 HDInsight 中的 Hadoop 配合使用

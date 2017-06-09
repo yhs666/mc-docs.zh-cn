@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 wacn.date: 04/10/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 #使用 Azure 媒体服务传送 DRM 许可证或 AES 密钥

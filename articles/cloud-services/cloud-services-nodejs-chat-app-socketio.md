@@ -14,7 +14,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/22/2016
 wacn.date: 04/24/2017
-ms.author: robmcm
+ms.author: v-yiso
 ---
 
 # 在 Azure 云服务中使用 Socket.IO 生成 Node.js 聊天应用程序

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2017
 wacn.date: 03/10/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # Azure IoT 中心开发人员指南

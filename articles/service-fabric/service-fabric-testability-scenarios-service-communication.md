@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 wacn.date: 02/20/2017
-ms.author: vturecek
+ms.author: v-johch
 ---
 
 # Service Fabric 可测试性方案：服务通信

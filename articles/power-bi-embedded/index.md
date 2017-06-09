@@ -1,6 +1,18 @@
 ---
-layout: LandingPage
+title: Azure Power BI Embedded 文档 - 教程, API 参考 | Azure
 description: "了解如何将 Power BI 数据可视化效果和交互式报表嵌入应用。 教程、API 参考和其他文档。"
+services: power-bi-embedded
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: power-bi-embedded
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 08270fca90bb74f166c94e0f4acc406bca936eb8

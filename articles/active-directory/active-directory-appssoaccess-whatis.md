@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 wacn.date: 12/15/2016
-ms.author: asmalser-msft
+ms.author: v-junlch
 ---
 
 #Azure Active Directory 的应用程序访问与单一登录是什么？

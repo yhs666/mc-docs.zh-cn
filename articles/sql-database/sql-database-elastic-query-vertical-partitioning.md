@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 wacn.date: 12/26/2016
-ms.author: torsteng
+ms.author: v-johch
 ---
 
 # 跨具有不同架构的云数据库进行查询（预览）

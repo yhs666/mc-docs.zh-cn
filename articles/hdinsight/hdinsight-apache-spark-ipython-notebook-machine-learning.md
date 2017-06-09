@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/28/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 构建机器学习应用程序运行 HDInsight 上的 Apache Spark 群集

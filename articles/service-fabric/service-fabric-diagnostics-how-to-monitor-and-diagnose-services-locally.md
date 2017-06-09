@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 wacn.date: 02/20/2017
-ms.author: toddabel
+ms.author: v-johch
 ---
 
 # 在本地计算机开发安装过程中监视和诊断服务

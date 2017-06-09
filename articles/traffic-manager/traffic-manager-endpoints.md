@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/17/2016
 wacn.date: 01/03/2017
-ms.author: sewhee
+ms.author: v-dazen
 ---
 
 # 添加、禁用、启用或删除终结点

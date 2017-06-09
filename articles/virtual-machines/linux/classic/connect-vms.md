@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 wacn.date: 08/23/2016
-ms.author: cynthn
+ms.author: v-dazen
 ---
 
 # 如何将 Linux 虚拟机连接到虚拟网络或云服务

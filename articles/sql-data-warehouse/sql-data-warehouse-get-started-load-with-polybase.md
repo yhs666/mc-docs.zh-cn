@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 03/01/2017
 wacn.date: 
-ms.author: cakarst
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 9c24523ea3fb5ee1de2807fcf6c829fcfd6b4c40

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/19/2017
 wacn.date: 03/31/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 使用 Azure Site Recovery 和 SAN 将 VMM 云中的 Hyper-V VM 复制到辅助站点

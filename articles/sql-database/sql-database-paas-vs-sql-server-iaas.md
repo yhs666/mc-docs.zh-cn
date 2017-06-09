@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/01/2017
 wacn.date: 04/06/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 选择云 SQL Server 选项：Azure SQL (PaaS) 数据库或 Azure VM 上的 SQL Server (IaaS)

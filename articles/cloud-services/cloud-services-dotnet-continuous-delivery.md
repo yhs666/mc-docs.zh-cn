@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/18/2016
 wacn.date: 01/03/2017
-ms.author: tarcher
+ms.author: v-yiso
 ---
 
 # 在 Azure 中持续交付云服务

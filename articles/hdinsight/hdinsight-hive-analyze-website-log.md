@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2016
 wacn.date: 03/10/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 将 Hive 与基于 Windows 的 HDInsight 配合使用来分析网站的日志

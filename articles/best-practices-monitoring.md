@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2016
 wacn.date: 02/14/2017
-ms.author: masashin
+ms.author: v-junlch
 ---
 
 # 监视和诊断指南

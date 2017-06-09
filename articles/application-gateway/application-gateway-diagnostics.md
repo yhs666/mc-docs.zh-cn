@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 wacn.date: 
-ms.author: amitsriva
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: ed0f03066a8067b88152ea4fe9ab722732fb4384

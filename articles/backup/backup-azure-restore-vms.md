@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 wacn.date: 01/04/2017
-ms.author: trinadhk; jimpark;
+ms.author: v-junlch
 ---
 
 # 还原 Azure 中的虚拟机

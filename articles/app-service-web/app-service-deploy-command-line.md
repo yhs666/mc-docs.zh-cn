@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: 03/17/2017
-ms.author: cephalin
+ms.author: v-dazen
 ---
 
 # 使用命令行工具自动执行 Azure 应用部署

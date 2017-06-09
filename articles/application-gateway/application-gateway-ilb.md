@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 03/28/2017
-ms.author: gwallace
+ms.author: v-dazen
 ---
 
 # 创建具有内部负载均衡器 (ILB) 的应用程序网关

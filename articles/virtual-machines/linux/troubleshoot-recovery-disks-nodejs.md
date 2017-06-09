@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: e6cc17f105c91e8e88aeca1f141a73b2d1d32093

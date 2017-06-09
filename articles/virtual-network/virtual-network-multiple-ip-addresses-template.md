@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/08/2016
 wacn.date: 03/31/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 使用 Azure Resource Manager 模板将多个 IP 地址分配给虚拟机

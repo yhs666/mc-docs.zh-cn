@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2016
 wacn.date: 03/07/2017
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # Azure Active Directory 中可配置的令牌生存期（公共预览版）

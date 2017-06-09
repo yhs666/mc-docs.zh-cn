@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 wacn.date: 03/17/2017
-ms.author: rachelap
+ms.author: v-dazen
 ---
 
 # 用于 API 恢复和代码生成的应用服务 API 应用元数据 

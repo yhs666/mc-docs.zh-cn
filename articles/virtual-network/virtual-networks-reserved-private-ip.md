@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 wacn.date: 12/12/2016
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 如何设置静态内部专用 IP

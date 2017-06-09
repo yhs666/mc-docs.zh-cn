@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 11/16/2016
 wacn.date: 
-ms.author: denlee
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: e2dd6c8926bb7691a5fb716730f657fb4f0ffe76

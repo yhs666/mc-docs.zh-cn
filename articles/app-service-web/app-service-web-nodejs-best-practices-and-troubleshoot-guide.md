@@ -14,7 +14,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/06/2016
 wacn.date: 09/26/2016
-ms.author: ranjithr;wadeh
+ms.author: v-dazen
 ---
 
 # Azure Web Apps 上节点应用程序的最佳做法和故障排除指南

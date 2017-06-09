@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
 wacn.date: 
-ms.author: rclaus
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9

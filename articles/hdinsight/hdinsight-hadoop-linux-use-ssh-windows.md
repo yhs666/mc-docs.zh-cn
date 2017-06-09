@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/12/2017
 wacn.date: 01/25/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 在 Windows 上通过 PuTTY 将 SSH 与 HDInsight (Hadoop) 配合使用

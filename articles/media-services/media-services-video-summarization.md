@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/16/2017
 wacn.date: 03/10/2017
-ms.author: milanga;juliako;
+ms.author: v-johch
 ---
 
 #使用 Azure 媒体视频缩略图创建视频摘要

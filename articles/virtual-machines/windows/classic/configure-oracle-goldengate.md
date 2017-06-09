@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/06/2016
 wacn.date: 10/25/2016
-ms.author: rclaus
+ms.author: v-dazen
 ---
 
 #配置适用于 Azure 的 Oracle GoldenGate

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 wacn.date: 12/21/2016
-ms.author: kmouss;aglick
+ms.author: v-dazen
 ---
 
 # 发生影响 Azure 虚拟机的 Azure 服务中断事件时该怎么办

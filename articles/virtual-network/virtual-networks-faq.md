@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 wacn.date: 03/24/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # Azure 虚拟网络常见问题 (FAQ)

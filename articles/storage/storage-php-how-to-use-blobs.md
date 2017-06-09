@@ -15,7 +15,7 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 12/08/2016
 wacn.date: 03/27/2017
-ms.author: marsma
+ms.author: v-johch
 ---
 
 # 如何通过 PHP 使用 Blob 存储

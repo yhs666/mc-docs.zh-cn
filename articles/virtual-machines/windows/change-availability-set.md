@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 wacn.date: 10/17/2016
-ms.author: drewm
+ms.author: v-dazen
 ---
 
 # 更改 Windows VM 的可用性集

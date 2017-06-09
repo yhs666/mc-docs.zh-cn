@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 wacn.date: 05/31/2017
-ms.author: cynthn
+ms.author: v-dazen
 ---
 
 # Windows VM 的计算基准测试分数
