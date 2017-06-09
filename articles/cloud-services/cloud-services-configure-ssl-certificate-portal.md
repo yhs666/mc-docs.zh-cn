@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 01/04/2017
 wacn.date: 03/31/2017
+ms.author: v-yiso
 ---
 
 # 在 Azure 中为应用程序配置 SSL

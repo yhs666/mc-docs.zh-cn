@@ -9,8 +9,10 @@ editor: cgronlun
 tags: azure-portal
 
 ms.service: hdinsight
+ms.topic: article
 ms.date: 07/28/2015
 wacn.date: 02/06/2017
+ms.author: v-dazen
 ---
 
 # 在 Hdinsight 中优化 Hadoop 的 Hive 查询

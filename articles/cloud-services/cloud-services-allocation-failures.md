@@ -9,8 +9,10 @@ editor: ''
 tags: top-support-issue
 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 01/06/2017
 wacn.date: 04/27/2017
+ms.author: v-yiso
 ---
 
 # 对在 Azure 中部署云服务时的分配失败进行故障排除
