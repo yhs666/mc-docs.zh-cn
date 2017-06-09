@@ -1,2 +1,2 @@
-# [服务总线](/azure/service-bus-messaging)
-# [服务总线中继](/azure/service-bus-relay)
+# [服务总线](/service-bus-messaging)
+# [服务总线中继](/service-bus-relay)
