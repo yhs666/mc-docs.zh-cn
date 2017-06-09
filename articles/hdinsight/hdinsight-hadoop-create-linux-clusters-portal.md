@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/10/2017
 wacn.date: 
-ms.author: nitinme
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: f6144a8f5e916b0c2e3866904cc64c5114412331

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
 wacn.date: 02/24/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # 使用 REST 配置 Azure 媒体服务遥测

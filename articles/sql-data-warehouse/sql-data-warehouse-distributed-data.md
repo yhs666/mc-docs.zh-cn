@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: 03/20/2017
-ms.author: barbkess
+ms.author: v-yeche
 ---
 
 # 适用于大规模并行处理 (MPP) 的分布式数据和分布式表

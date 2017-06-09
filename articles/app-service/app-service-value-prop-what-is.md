@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/02/2016
 wacn.date: 01/03/2017
-ms.author: byvinyal
+ms.author: v-dazen
 ---
 
 # 什么是 Azure 应用服务？

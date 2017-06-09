@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
-ms.author: barbkess;jrj
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: cd48a35bc8a0bef299c241f358dc98e3ea4ba3ed

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/04/2017
-ms.author: janeng
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: f6202773a8de4fbddbfa99d806d243d3696ee7e8

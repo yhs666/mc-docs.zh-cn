@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 wacn.date: 
-ms.author: sdanie
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 7e22356e9dc817fdc36e26fc835a1835e3476074

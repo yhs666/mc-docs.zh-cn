@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 12/20/2016
 wacn.date: 03/01/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 对在 Azure 虚拟机上运行的应用程序的访问进行故障排除

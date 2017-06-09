@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 01/25/2017
 wacn.date: 03/15/2017
-ms.author: bharatn
+ms.author: v-johch
 ---
 
 # Reliable Services 基于 WCF 的通信堆栈

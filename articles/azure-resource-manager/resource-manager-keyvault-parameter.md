@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2016
 wacn.date: 01/06/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 在部署过程中使用密钥保管库传递安全参数值

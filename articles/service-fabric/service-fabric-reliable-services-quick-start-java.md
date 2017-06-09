@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2017
 wacn.date: 03/03/2017
-ms.author: vturecek
+ms.author: v-johch
 ---
 
 # Reliable Services 入门

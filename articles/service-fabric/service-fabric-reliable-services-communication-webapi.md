@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 02/10/2017
 wacn.date: 03/03/2017
-ms.author: vturecek
+ms.author: v-johch
 ---
 
 # 入门：Service Fabric Web API 服务与 OWIN 自托管

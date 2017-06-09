@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 10/13/2016
 wacn.date: 10/31/2016
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Azure SQL 数据库动态缩放规模

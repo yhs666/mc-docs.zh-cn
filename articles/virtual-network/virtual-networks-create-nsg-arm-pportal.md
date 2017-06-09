@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 wacn.date: 12/16/2016
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 如何使用门户预览管理 NSG

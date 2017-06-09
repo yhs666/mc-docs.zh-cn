@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 wacn.date: 
-ms.author: juanpere
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 7d74b9959254889c2f4e8de7ba5da0ab8443a1ea

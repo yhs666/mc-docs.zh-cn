@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: service-bus
+ms.topic: article
 ms.date: 01/12/2017
 wacn.date: 02/20/2017
+ms.author: v-yiso
 ---
 
 # 如何使用服务总线主题和订阅

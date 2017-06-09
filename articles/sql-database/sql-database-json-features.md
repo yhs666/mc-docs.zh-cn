@@ -12,7 +12,7 @@ ms.service: sql-database
 ms.devlang: NA
 ms.date: 11/15/2016
 wacn.date: 12/19/2016
-ms.author: jovanpop
+ms.author: v-johch
 ms.workload: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2016
 wacn.date: 
-ms.author: cephalin;riande
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 0840fcd13f4cebaee723877f436dc57d8681ed74

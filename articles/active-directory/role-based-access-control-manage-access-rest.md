@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/07/2017
-ms.author: kgremban
+ms.author: v-junlch
 ---
 
 # 使用 REST API 管理基于角色的访问控制

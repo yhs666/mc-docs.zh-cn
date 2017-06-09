@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2016
 wacn.date: 01/03/2017
-ms.author: aelnably
+ms.author: v-dazen
 ---
 
 # 使用用于 Azure App Service 的基于 Azure Resource Manager 的 XPlat CLI

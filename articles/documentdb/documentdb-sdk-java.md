@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: khdang
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 wacn.date: 
 ms.translationtype: Human Translation

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: hero-article
 ms.date: 04/04/2017
-ms.author: carlrab
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 4cdc67c73fff8d85ed7383b35d3f26b2581a7e99

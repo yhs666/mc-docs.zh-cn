@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 wacn.date: 01/19/2017
-ms.author: wesmc
+ms.author: v-junlch
 ---
 
 # 如何：发送预定通知

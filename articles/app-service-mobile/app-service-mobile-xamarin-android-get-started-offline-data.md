@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 wacn.date: 11/21/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # 为 Xamarin.Android 移动应用启用脱机同步

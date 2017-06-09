@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 wacn.date: 04/27/2017
-ms.author: tarcher
+ms.author: v-junlch
 ---
 
 # 存储资源管理器（预览版）入门

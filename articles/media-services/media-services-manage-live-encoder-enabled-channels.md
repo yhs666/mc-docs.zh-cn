@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: 02/24/2017
-ms.author: juliako;anilmur
+ms.author: v-johch
 ---
 
 # 使用 Azure 媒体服务执行实时流式处理以创建多比特率流

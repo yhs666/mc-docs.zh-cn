@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
 wacn.date: 03/30/2017
-ms.author: tarcher
+ms.author: v-junlch
 ---
 
 # 从服务器资源管理器访问 Azure 虚拟机

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 wacn.date: 02/10/2017
-ms.author: magoedte; bwren
+ms.author: v-dazen
 ---
 
 # Azure 自动化中的连接资产

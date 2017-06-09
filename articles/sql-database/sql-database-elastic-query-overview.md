@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 wacn.date: 12/30/2016
-ms.author: torsteng
+ms.author: v-johch
 ---
 
 # Azure SQL 数据库弹性数据库查询概述（预览版）

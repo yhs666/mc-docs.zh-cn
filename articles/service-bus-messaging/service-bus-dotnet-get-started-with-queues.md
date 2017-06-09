@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/30/2016
-ms.author: jotaub;sethm
+ms.author: v-yiso
 wacn.date: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8

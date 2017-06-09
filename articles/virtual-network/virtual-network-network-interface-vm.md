@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 wacn.date: 
-ms.author: jdial
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 6528cbe13acd9f3333c292b62d4cfb509e045dd8
@@ -37,8 +37,8 @@ ms.lasthandoff: 05/26/2017
 
 - 若要了解每种 Linux 和 Windows VM 大小支持的 NIC 数量，请参阅有关 [Linux](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) 或 [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-network%2ftoc.json) VM 大小的文章。
 - 使用 Azure 帐户登录到 Azure 门户预览、Azure 命令行界面 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册[试用帐户](https://azure.microsoft.com/free)。
-- 如果使用 PowerShell 命令完成本文中的任务，请按[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json) 一文中的步骤安装和配置 Azure PowerShell。 确保已安装最新版本的 Azure PowerShell cmdlet。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
-- 如果使用 Azure 命令行界面 (CLI) 命令完成本文中的任务，请按[如何安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fvirtual-network%2ftoc.json) 一文中的步骤安装和配置 Azure CLI。 确保已安装最新版本的 Azure CLI。若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
+- 如果使用 PowerShell 命令完成本文中的任务，请按[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文中的步骤安装和配置 Azure PowerShell。 确保已安装最新版本的 Azure PowerShell cmdlet。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
+- 如果使用 Azure 命令行界面 (CLI) 命令完成本文中的任务，请按[如何安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文中的步骤安装和配置 Azure CLI。 确保已安装最新版本的 Azure CLI。若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
 
 ## <a name="about"></a>关于 NIC 和 VM
 
@@ -67,8 +67,8 @@ ms.lasthandoff: 05/26/2017
 
 |工具|命令|
 |---|---|
-|CLI|[az vm create](https://docs.microsoft.com/cli/azure/vm?toc=%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[New-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/new-azurermvm?toc=%2fvirtual-network%2ftoc.json)|
+|CLI|[az vm create](https://docs.microsoft.com/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|PowerShell|[New-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>将现有 NIC 添加到现有 VM
 
@@ -76,8 +76,8 @@ ms.lasthandoff: 05/26/2017
 
 |工具|命令|
 |---|---|
-|CLI|[az vm nic add](https://docs.microsoft.com/cli/azure/vm/nic?toc=%2fvirtual-network%2ftoc.json#add)|
-|PowerShell|[Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/add-azurermvmnetworkinterface?toc=%2fvirtual-network%2ftoc.json)|
+|CLI|[az vm nic add](https://docs.microsoft.com/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#add)|
+|PowerShell|[Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-view-nic"></a> 查看 VM 的 NIC
 
@@ -92,8 +92,8 @@ ms.lasthandoff: 05/26/2017
 
 |工具|命令|
 |---|---|
-|CLI|[az vm show](https://docs.microsoft.com/cli/azure/vm?toc=%2fvirtual-network%2ftoc.json#show)|
-|PowerShell|[Get-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v1.3.4/get-azurermvm?toc=%2fvirtual-network%2ftoc.json)|
+|CLI|[az vm show](https://docs.microsoft.com/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
+|PowerShell|[Get-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v1.3.4/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-remove-nic"></a> 从 VM 中删除 NIC
 
@@ -103,8 +103,8 @@ ms.lasthandoff: 05/26/2017
 
 |工具|命令|
 |---|---|
-|CLI|[az vm nic remove](https://docs.microsoft.com/cli/azure/vm/nic?toc=%2fvirtual-network%2ftoc.json#remove)|
-|PowerShell|[Remove-AzureRMVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/remove-azurermvmnetworkinterface?toc=%2fvirtual-network%2ftoc.json)|
+|CLI|[az vm nic remove](https://docs.microsoft.com/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove)|
+|PowerShell|[Remove-AzureRMVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>后续步骤
 若要创建具有多个 NIC 或 IP 地址的 VM，请阅读以下文章：

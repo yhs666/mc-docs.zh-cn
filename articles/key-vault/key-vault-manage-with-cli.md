@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: 04/11/2017
-ms.author: bruceper
+ms.author: v-junlch
 ---
 
 # 使用 CLI 管理密钥保管库

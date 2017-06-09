@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/26/2016
 wacn.date: 12/19/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # 概述：SQL 数据库的活动异地复制

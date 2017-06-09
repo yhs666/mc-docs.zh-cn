@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 wacn.date: 
-ms.author: jdial
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: c8088b89393b56af026be1a729e47ce58969389f
@@ -40,8 +40,8 @@ ms.lasthandoff: 05/26/2017
 - 如果你不熟悉子网，我们建议在阅读本文之前，先完成[创建第一个 Azure 虚拟网络](virtual-network-get-started-vnet-subnet.md)中的练习。 该练习可帮助你熟悉 VNet。
 - 查看 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文，了解 VNet 的限制。
 - 使用 Azure 帐户登录到 Azure 门户预览、Azure 命令行接口 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册[试用帐户](https://azure.microsoft.com/free)。
-- 如果使用 Azure PowerShell 命令来完成本文中的任务，首先必须[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure PowerShell cmdlet。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
-- 如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，首先必须[安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
+- 如果使用 Azure PowerShell 命令来完成本文中的任务，首先必须[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure PowerShell cmdlet。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
+- 如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，首先必须[安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
 
 ## <a name="create-vnet"></a>创建虚拟网络
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 05/26/2017
 2. 在 Azure 门户预览中单击“新建”。 在显示的“新建”边栏选项卡中，单击“网络”。 在显示的“网络”边栏选项卡中，单击“虚拟网络”。
 3. 在显示的“虚拟网络”边栏选项卡中，保留“选择部署模型”框中选中的“Resource Manager”，然后单击“创建”。
 4. 在显示的“创建虚拟网络”边栏选项卡中，输入或选择以下设置的值，然后单击“创建”：
-    - **名称**：该名称在选择创建 VNet 的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)中必须唯一。 创建 VNet 后无法更改其名称。 随着时间的推移，可以创建多个 VNet。 有关命名建议，请参阅[命名约定](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions)一文，以便管理多个 VNet。
+    - **名称**：该名称在选择创建 VNet 的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)中必须唯一。 创建 VNet 后无法更改其名称。 随着时间的推移，可以创建多个 VNet。 有关命名建议，请参阅[命名约定](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions)一文，以便管理多个 VNet。
     - **地址空间**：以 CIDR 表示法指定。 定义的地址空间可以是公共或专用 (RFC 1918) 地址。 不管是定义公共还是专用地址空间，都只能从 VNet、互连 VNet 以及已连接到 VNet 的任何本地网络内部访问该地址空间。 无法添加以下的地址空间：
         - 224.0.0.0/4（多播）
         - 255.255.255.255/32（广播）
@@ -79,8 +79,8 @@ ms.lasthandoff: 05/26/2017
 
 |工具|命令|
 |---|---|
-|CLI|[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fvirtual-network%2ftoc.json)|
+|CLI|[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|PowerShell|[New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name = "view-vnet"></a>查看虚拟网络和设置
 
@@ -106,8 +106,8 @@ ms.lasthandoff: 05/26/2017
 
 |**工具**|**命令**|
 |---|---|
-|CLI|[az network vnet show](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fvirtual-network%2ftoc.json#show)|
-|PowerShell|[Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.8.0/get-azurermvirtualnetwork/?toc=%2fvirtual-network%2ftoc.json)|
+|CLI|[az network vnet show](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
+|PowerShell|[Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.8.0/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="address-spaces"></a>添加/删除地址空间
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 05/26/2017
 
 |工具|命令|
 |---|---|
-|CLI|仅限 Resource Manager|[az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fvirtual-network%2ftoc.json#update)|
+|CLI|仅限 Resource Manager|[az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetwork?view=azurermps-3.8.0?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="dns-servers"></a>添加、更改和删除 DNS 服务器
@@ -156,7 +156,7 @@ ms.lasthandoff: 05/26/2017
 
 |工具|命令|
 |---|---|
-|CLI|[az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fvirtual-network%2ftoc.json#update)|
+|CLI|[az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetwork?view=azurermps-3.8.0?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="delete-vnet"></a>删除虚拟网络
@@ -174,7 +174,7 @@ ms.lasthandoff: 05/26/2017
 
 |工具|命令|
 |---|---|
-|CLI|[azure network vnet delete](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fvirtual-network%2ftoc.json#delete)|
+|CLI|[azure network vnet delete](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
 |PowerShell|[Remove-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetwork?view=azurermps-3.8.0?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>后续步骤

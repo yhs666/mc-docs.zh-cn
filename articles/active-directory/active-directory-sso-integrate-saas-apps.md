@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/13/2017
 wacn.date: 03/07/2017
-ms.author: curtand
+ms.author: v-junlch
 ---
 
 # 将 Azure Active Directory 单一登录与 SaaS 应用相集成  

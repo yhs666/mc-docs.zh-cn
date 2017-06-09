@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 wacn.date: 01/24/2017
-ms.author: giridham;jimpark;trinadhk;markgal
+ms.author: v-junlch
 ---
 
 # 从备份保管库中的另一台 Azure 备份服务器恢复数据

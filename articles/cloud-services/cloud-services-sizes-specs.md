@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/12/2017
-ms.author: adegeo
+ms.author: v-yiso
 wacn.date: 03/24/2017
 ---
 

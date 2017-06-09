@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 wacn.date: 04/05/2017
-ms.author: femila
+ms.author: v-junlch
 ---
 
 # Azure AD 和应用程序：将用户分配到应用程序

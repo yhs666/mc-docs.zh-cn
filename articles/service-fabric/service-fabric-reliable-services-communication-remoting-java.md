@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 03/09/2017
-ms.author: pakunapa
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 3b881acb1d2d2698a68ad37b6ee7eea6160819e8

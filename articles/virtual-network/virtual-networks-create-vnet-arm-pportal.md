@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 wacn.date: 
-ms.author: jdial
+ms.author: v-dazen
 ms.custom: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
@@ -81,7 +81,7 @@ az network vnet subnet create \
 ```
 
 ## <a name="powershell"></a>PowerShell
-1. 安装最新版本的 Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请阅读 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json)一文。
+1. 安装最新版本的 Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请阅读 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)一文。
 2. 单击 Windows“开始”按钮，键入 PowerShell，然后在搜索结果中单击“PowerShell”，启动 PowerShell 会话。
 3. 在 PowerShell 窗口中输入 `login-azurermaccount` 命令，使用 Azure [帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录。 如果还没有帐户，可以注册[试用版](https://azure.microsoft.com/offers/ms-azr-0044p)。
 4. 在浏览器中复制以下脚本：

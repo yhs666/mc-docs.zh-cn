@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 wacn.date: 02/20/2017
-ms.author: nepeters
+ms.author: v-dazen
 ---
 
 # 使用经典部署模型完成的适用于 Windows 的自定义脚本扩展

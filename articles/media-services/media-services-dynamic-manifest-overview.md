@@ -15,7 +15,7 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/07/2016
 wacn.date: 01/13/2017
-ms.author: cenkd;juliako
+ms.author: v-johch
 ---
 
 # 筛选器和动态清单

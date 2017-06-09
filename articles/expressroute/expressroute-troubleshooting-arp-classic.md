@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/30/2017
 wacn.date: 03/24/2017
-ms.author: ganesr
+ms.author: v-yiso
 ---
 
 # ExpressRoute 故障排除指南：在经典部署模型中获取 ARP 表

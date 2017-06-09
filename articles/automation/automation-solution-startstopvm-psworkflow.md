@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/06/2016
 wacn.date: 01/03/2017
-ms.author: bwren
+ms.author: v-dazen
 ---
 
 # Azure 自动化方案 - 启动和停止虚拟机

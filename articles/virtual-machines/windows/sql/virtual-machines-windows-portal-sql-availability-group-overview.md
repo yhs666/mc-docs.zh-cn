@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 wacn.date: 03/20/2017
-ms.author: mikeray
+ms.author: v-dazen
 ---
 
 # Azure 虚拟机上的 SQL Server AlwaysOn 可用性组简介 #

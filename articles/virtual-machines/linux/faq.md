@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2016
 wacn.date: 
-ms.author: cynthn
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 6785ae9a0898b990f17d6d8406c01887af19cae1

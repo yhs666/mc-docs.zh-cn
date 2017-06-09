@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 10/24/2016
 wacn.date: 03/28/2017
-ms.author: sumuth
+ms.author: v-dazen
 ---
 
 # 对 Web 应用有效使用 DevOps 环境

@@ -12,7 +12,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/03/2017
-ms.author: osamam
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: c389522d8e4fa2f4ac2cf0133606353a6d8fb1c1

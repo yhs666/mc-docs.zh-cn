@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 wacn.date: 01/03/2017
-ms.author: tarcher
+ms.author: v-yiso
 ---
 
 # 在 Azure 计算模拟器中使用 Visual Studio 探查器本地测试云服务的性能

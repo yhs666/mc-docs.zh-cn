@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 03/22/2017
-ms.author: vturecek
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: d259a0a42948c9a9b3caaf88dc66fa1e9cb581a8

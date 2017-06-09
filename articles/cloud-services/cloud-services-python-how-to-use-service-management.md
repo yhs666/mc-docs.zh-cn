@@ -14,7 +14,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/06/2016
 wacn.date: 12/12/2016
-ms.author: lmazuel
+ms.author: v-yiso
 ---
 
 # 如何从 Python 使用服务管理

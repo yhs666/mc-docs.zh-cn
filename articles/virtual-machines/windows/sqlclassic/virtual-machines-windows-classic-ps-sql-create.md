@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 wacn.date: 03/28/2017
-ms.author: jroth
+ms.author: v-dazen
 ---
 
 # 使用 Azure PowerShell 预配 SQL Server 虚拟机（经典）

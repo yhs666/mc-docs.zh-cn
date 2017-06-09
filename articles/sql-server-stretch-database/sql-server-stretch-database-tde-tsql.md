@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/24/2017
-ms.author: anvang
+ms.author: v-yeche
 ---
 
 # 为 Azure 上的 Stretch Database 启用透明数据加密 (TDE) (Transact-SQL)

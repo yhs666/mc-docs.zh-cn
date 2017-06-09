@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 wacn.date: 05/31/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 使用 Ambari API 在 HDInsight 中监视 Hadoop 群集

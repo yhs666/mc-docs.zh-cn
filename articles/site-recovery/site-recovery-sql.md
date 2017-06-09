@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 wacn.date: 03/31/2017
-ms.author: pratshar
+ms.author: v-johch
 ---
 
 # 使用 SQL Server 灾难恢复和 Azure Site Recovery 来保护 SQL Server

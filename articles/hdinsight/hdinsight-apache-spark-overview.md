@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/12/2017
 wacn.date: 
-ms.author: nitinme
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: a3a8383e050a48115bbb475505ae3033b2255a3a

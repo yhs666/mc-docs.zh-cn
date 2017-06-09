@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 05/27/2016
 wacn.date: 12/26/2016
-ms.author: srinia
+ms.author: v-johch
 ---
 
 # 使用 Transact-SQL 监视和管理弹性数据库池  

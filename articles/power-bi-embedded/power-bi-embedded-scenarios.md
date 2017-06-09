@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/06/2017
 wacn.date: 02/22/2017
-ms.author: asaxton
+ms.author: v-junlch
 ---
 
 # 常见 Power BI Embedded 方案

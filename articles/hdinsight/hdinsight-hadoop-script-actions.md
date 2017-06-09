@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/10/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 为 HDInsight 基于 Windows 的群集开发脚本操作脚本

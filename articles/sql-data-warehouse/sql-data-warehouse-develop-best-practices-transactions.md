@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: 01/17/2017
-ms.author: jrj;barbkess
+ms.author: v-yeche
 ---
 
 # 优化 SQL 数据仓库的事务

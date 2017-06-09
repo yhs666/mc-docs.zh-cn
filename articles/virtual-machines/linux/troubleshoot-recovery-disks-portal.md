@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 wacn.date: 01/20/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 通过使用 Azure 门户预览将 OS 磁盘附加到恢复 VM 来对 Linux VM 进行故障排除

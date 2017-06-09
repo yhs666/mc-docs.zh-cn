@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 wacn.date: 03/28/2017
-ms.author: rachelap
+ms.author: v-dazen
 ---
 
 # Azure 应用服务中 API 应用的用户身份验证

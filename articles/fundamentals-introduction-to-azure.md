@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 wacn.date: 11/21/2016
-ms.author: robb
+ms.author: v-junlch
 ---
 
 # 介绍 Azure

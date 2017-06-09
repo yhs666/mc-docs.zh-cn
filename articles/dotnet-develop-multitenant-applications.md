@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 wacn.date: 01/21/2016
-ms.author: wpickett
+ms.author: v-junlch
 ---
 
 # Azure 中的多租户应用程序

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 wacn.date: 03/28/2017
-ms.author: szark
+ms.author: v-dazen
 ---
 
 # 为 Azure 准备 Debian VHD

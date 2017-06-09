@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/16/2016
-ms.author: dastrock
+ms.author: v-junlch
 wacn.date: 01/09/2017
 ---
 

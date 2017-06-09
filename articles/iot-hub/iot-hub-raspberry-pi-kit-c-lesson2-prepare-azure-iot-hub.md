@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2016
 wacn.date: 02/10/2017
-ms.author: xshi
+ms.author: v-yiso
 ---
 
 # 创建 IoT 中心并注册 Raspberry Pi 3

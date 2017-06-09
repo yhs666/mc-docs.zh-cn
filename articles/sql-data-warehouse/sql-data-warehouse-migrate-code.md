@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 01/30/2017
 wacn.date: 03/20/2017
-ms.author: jrj;barbkess
+ms.author: v-yeche
 ---
 
 # 将 SQL 代码迁移到 SQL 数据仓库

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: sethm;lmazuel
+ms.author: v-yiso
 wacn.date: 02/20/2017
 ---
 

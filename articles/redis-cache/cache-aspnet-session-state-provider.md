@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 03/22/2017
 wacn.date: 
-ms.author: sdanie
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: dc3a54edf5d8ce17df83c2e5fc24e4937c33fb2d

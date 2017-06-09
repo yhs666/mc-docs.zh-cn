@@ -15,7 +15,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/13/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # 将登录凭据添加到 AngularJS 单页应用 - NodeJS

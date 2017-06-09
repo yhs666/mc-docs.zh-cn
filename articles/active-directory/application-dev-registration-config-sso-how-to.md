@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: asteen
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 8161a8606118cebc126bf41f8927d07b94d9b343
@@ -30,19 +30,19 @@ ms.lasthandoff: 04/22/2017
 
 - 若要生成移动应用，可能需要进行其他配置才能启用中转或非中转 SSO。
 
-对于 Android，请参阅[在 Android 中启用跨应用 SSO](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android)。<br>
+对于 Android，请参阅[在 Android 中启用跨应用 SSO](develop/active-directory-sso-android.md)。<br>
 
-对于 iOS，请参阅[在 iOS 中启用跨应用 SSO](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios)。
+对于 iOS，请参阅[在 iOS 中启用跨应用 SSO](develop/active-directory-sso-ios.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure AD SSO](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)<br>
+[Azure AD SSO](active-directory-appssoaccess-whatis.md)<br>
 
-[在 Android 中启用跨应用 SSO](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android)<br>
+[在 Android 中启用跨应用 SSO](develop/active-directory-sso-android.md)<br>
 
-[在 iOS 中启用跨应用 SSO](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios)<br>
+[在 iOS 中启用跨应用 SSO](develop/active-directory-sso-ios.md)<br>
 
-[AzureAD v2.0 聚合应用的许可和权限](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[AzureAD v2.0 聚合应用的许可和权限](develop/active-directory-v2-scopes.md)<br>
 
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 

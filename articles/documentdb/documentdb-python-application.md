@@ -15,7 +15,7 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 11/16/2016
 wacn.date: 
-ms.author: syamk
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e

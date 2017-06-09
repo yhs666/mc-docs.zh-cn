@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 wacn.date: 03/31/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 使用 Azure Resource Manager 查看部署操作

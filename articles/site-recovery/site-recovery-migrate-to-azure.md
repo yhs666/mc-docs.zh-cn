@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2017
 wacn.date: 02/10/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 使用 Site Recovery 迁移到 Azure

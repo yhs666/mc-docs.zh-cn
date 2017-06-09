@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 wacn.date: 11/21/2016
-ms.author: DouglasL
+ms.author: v-yeche
 ---
 
 # 有关 Azure SQL Server Stretch Database 服务的所有主题

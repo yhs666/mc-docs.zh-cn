@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 wacn.date: 03/20/2017
-ms.author: asaxton
+ms.author: v-dazen
 ---
 
 # Azure 虚拟机中的 SQL Server Business Intelligence

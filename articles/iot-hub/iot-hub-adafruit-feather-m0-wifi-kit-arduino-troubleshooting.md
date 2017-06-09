@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2016
 wacn.date: 02/10/2017
-ms.author: xshi
+ms.author: v-yiso
 ---
 
 # 故障排除

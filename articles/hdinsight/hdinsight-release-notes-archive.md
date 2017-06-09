@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2017
 wacn.date: 
-ms.author: nitinme
+ms.author: v-dazen
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22

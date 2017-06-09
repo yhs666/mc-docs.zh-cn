@@ -11,7 +11,7 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.devlang: NA
 ms.date: 10/12/2016
-ms.author: sstein
+ms.author: v-johch
 ms.workload: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: 01/25/2017
-ms.author: ronitr
+ms.author: v-johch
 ---
 
 # SQL 数据库 - 针对审核的下层客户端支持和 IP 终结点更改

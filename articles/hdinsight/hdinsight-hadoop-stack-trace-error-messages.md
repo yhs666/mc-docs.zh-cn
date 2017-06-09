@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: big-data
 ms.date: 04/26/2017
 wacn.date: 
-ms.author: gao
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 00d061c326f87de0124776a425a8867b7aee0a7c

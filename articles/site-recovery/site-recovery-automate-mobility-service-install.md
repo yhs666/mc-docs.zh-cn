@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/10/2017
-ms.author: krnese
+ms.author: v-johch
 ---
 
 # 使用 Azure Automation DSC 部署移动服务以复制 VM

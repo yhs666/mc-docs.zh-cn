@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/06/2016
 wacn.date: 12/19/2016
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Azure SQL 数据库的一般性限制和指导原则

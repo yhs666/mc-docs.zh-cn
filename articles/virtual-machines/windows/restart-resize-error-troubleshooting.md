@@ -16,7 +16,7 @@ ms.devlang: na
 ms.workload: required
 ms.date: 01/10/2017
 wacn.date: 02/24/2017
-ms.author: delhan
+ms.author: v-dazen
 ---
 
 # 排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的 Resource Manager 部署问题

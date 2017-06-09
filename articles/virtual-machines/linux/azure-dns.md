@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 wacn.date: 12/30/2016
-ms.author: rclaus
+ms.author: v-dazen
 ---
 
 # Azure 中 Linux VM 的 DNS 名称解析选项

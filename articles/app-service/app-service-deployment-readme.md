@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 wacn.date: 09/26/2016
-ms.author: dariagrigoriu
+ms.author: v-dazen
 ---
 
 # Azure 应用服务部署概述

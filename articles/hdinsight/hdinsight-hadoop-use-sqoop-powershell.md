@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/28/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 使用 HDInsight 中的 Azure PowerShell for Hadoop 运行 Sqoop 作业

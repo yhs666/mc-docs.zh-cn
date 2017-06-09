@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: sql-database
 ms.date: 10/12/2016
 wacn.date: 10/31/2016
-ms.author: bonova
+ms.author: v-johch
 ---
 
 #使用保留策略管理临时表中的历史数据

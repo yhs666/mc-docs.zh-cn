@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/07/2017
 wacn.date: 03/07/2017
-ms.author: markvi
+ms.author: v-junlch
 ---
 
 # Azure Active Directory 常见问题

@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/13/2017
-ms.author: jotaub;sethm
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 45f2f8ffda5982af5389dd17bdf9935e185f1ee4
