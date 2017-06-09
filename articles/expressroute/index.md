@@ -1,6 +1,18 @@
 ---
-layout: LandingPage
+title: Azure ExpressRoute 文档 - 教程, API 参考 | Azure
 description: "了解如何配置和管理专用 ExpressRoute 连接，从本地基础结构或共置设施连接到 Microsoft 云服务。"
+services: expressroute
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: expressroute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: carolz
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: f27eeb74d07064c616e1a77200b56a7aee154f48
