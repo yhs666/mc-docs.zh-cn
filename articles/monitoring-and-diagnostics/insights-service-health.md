@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 wacn.date: 12/05/2016
-ms.author: robb
+ms.author: v-yiso
 ---
 
 # 使用 Azure Monitor 活动日志跟踪 Azure 服务运行状况

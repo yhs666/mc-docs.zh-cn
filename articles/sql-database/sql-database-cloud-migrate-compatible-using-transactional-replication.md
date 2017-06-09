@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 12/09/2016
 wacn.date: 01/20/2017
-ms.author: carlrab; jognanay;
+ms.author: v-johch
 ---
 
 # 使用事务复制将 SQL Server 数据库迁移到 Azure SQL 数据库

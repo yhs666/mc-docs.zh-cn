@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/07/2017
-ms.author: inhenk
+ms.author: v-junlch
 ---
 
 # Azure AD 和应用程序：要求进行用户分配

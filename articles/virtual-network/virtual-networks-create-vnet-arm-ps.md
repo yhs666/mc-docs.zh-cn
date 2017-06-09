@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 wacn.date: 03/28/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 使用 PowerShell 创建虚拟网络

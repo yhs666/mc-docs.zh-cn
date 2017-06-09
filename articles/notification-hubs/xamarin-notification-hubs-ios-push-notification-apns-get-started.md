@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/29/2016
 wacn.date: 01/10/2017
-ms.author: wesmc
+ms.author: v-junlch
 ---
 
 # 使用通知中心针对 Xamarin 应用发送 iOS 推送通知

@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/13/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # 将登录凭据添加到 .NET MVC Web 应用

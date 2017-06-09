@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 wacn.date: 03/24/2017
-ms.author: ronitr; giladm
+ms.author: v-johch
 ---
 
 # 使用 REST API 配置和管理 SQL 数据库审核

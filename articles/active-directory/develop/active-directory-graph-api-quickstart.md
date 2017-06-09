@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/07/2017
 wacn.date: 02/07/2017
-ms.author: patricka
+ms.author: v-junlch
 ---
 
 # Azure AD 图形 API 快速入门

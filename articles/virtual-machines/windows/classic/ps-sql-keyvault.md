@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/17/2017
 wacn.date: 03/28/2017
-ms.author: jroth
+ms.author: v-dazen
 ---
 
 # 在 Azure VM 上配置 SQL Serve 的 Azure 密钥保管库集成（经典）

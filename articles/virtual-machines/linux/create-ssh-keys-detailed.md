@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/06/2016
 wacn.date: 
-ms.author: rasquill
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: ee98682bd39fd6b8444c1a6472879d18051a75bf

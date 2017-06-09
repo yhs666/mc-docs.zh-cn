@@ -13,7 +13,7 @@ ms.service: sql-database
 ms.devlang: NA
 ms.date: 11/17/2016
 wacn.date: 12/19/2016
-ms.author: ninarn
+ms.author: v-johch
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA

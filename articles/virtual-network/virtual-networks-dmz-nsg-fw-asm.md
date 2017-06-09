@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 wacn.date: 12/12/2016
-ms.author: jonor;sivae
+ms.author: v-dazen
 ---
 
 # 示例 2 – 构建外围网络以通过防火墙和 NSG 保护应用程序

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2016
 wacn.date: 10/31/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # 使用 SQL Server Management Studio 管理 Azure SQL 数据库 

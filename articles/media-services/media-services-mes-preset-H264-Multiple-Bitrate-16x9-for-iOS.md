@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 wacn.date: 01/13/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # 适用于 iOS 的 H264 多比特率 16x9

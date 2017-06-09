@@ -15,7 +15,7 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 wacn.date: 12/12/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # 试用 SQL 数据库：使用 C# 通过适用于 .NET 的 SQL 数据库库创建 SQL 数据库

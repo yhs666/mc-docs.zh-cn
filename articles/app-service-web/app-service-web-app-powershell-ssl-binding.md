@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 wacn.date: 09/26/2016
-ms.author: ahmedelnably
+ms.author: v-dazen
 ---
 
 # 使用 PowerShell 创建 Azure App Service SSL 证书绑定 #

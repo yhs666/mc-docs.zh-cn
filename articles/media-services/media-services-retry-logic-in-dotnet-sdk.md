@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 wacn.date: 12/12/2016
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # 用于 .NET 的媒体服务 SDK 中的重试逻辑

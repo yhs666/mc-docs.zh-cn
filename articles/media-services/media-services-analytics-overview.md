@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/24/2016
 wacn.date: 12/12/2016
-ms.author: milanga;juliako;johndeu
+ms.author: v-johch
 ---
 
 # Azure 媒体服务分析概述

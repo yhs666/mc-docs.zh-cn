@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 wacn.date: 02/20/2017
-ms.author: seanmck;mikhegn
+ms.author: v-johch
 ---
 
 # 使用 Visual Studio 简化 Service Fabric 应用程序的编写和管理

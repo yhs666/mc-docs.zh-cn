@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2016
 wacn.date: 01/13/2017
-ms.author: xshi
+ms.author: v-yiso
 ---
 
 # 更改 LED 的开关行为

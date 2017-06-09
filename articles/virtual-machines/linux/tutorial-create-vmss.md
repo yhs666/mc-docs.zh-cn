@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/05/2017
 wacn.date: 
-ms.author: adegeo
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 89524108d60c46a8325cc89badc0667d76d80c3d

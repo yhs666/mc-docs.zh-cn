@@ -15,7 +15,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 11/10/2015
 wacn.date: 05/24/2016
-ms.author: crwilcox
+ms.author: v-dazen
 ---
 
 # Azure 上的 Jupyter Notebook

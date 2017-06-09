@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 wacn.date: 11/15/2016
-ms.author: adigan;giridham; jimpark;markgal;trinadhk
+ms.author: v-junlch
 ---
 
 # 使用 DPM 为 SQL 工作负荷配置 Azure 备份

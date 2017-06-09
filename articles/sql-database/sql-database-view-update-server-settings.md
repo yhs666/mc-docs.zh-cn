@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.date: 11/14/2016
 wacn.date: 01/20/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 查看和更新 Azure SQL 数据库服务器及其设置

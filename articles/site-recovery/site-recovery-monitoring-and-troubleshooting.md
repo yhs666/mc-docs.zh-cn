@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 01/19/2017
 wacn.date: 03/10/2017
-ms.author: rajanaki
+ms.author: v-johch
 ---
 
 # 监视虚拟机和物理服务器的保护及其故障排除

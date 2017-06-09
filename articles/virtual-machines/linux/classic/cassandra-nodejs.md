@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/22/2016
 wacn.date: 03/01/2017
-ms.author: hanuk;robmcm
+ms.author: v-dazen
 ---
 
 # 在 Azure 上同时运行 Cassandra 和 Linux 并通过 Node.js 进行访问

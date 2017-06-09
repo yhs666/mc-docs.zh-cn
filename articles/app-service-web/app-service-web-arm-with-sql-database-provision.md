@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 wacn.date: 01/03/2017
-ms.author: cephalin
+ms.author: v-dazen
 ---
 
 # 设置使用 SQL 数据库的 Web 应用

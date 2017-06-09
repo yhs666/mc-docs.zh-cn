@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2017
 wacn.date: 03/24/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 如何删除 HDInsight 群集

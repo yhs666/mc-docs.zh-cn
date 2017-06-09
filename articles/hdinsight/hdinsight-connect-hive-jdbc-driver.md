@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/13/2017
 wacn.date: 03/24/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用 Hive JDBC 驱动程序连接到 Azure HDInsight 上的 Hive

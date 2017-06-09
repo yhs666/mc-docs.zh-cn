@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/22/2016
 wacn.date: 02/14/2017
-ms.author: robmcm
+ms.author: v-junlch
 ---
 
 # 在 Azure 应用程序中指定 Node.js 版本

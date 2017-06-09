@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 wacn.date: 03/03/2017
-ms.author: vturecek
+ms.author: v-johch
 ---
 
 # Reliable Services 编程模型的高级用法

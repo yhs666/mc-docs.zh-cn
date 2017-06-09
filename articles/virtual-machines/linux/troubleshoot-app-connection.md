@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 12/20/2016
 wacn.date: 03/01/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 故障排除：无法启动、访问或连接到 Azure 虚拟机上运行的应用程序

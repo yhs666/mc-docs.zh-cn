@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2017
 wacn.date: 03/28/2017
-ms.author: cynthn
+ms.author: v-dazen
 ---
 
 #关于 Azure 中的 Windows 虚拟机 

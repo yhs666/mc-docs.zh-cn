@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/23/2017
 wacn.date: 03/13/2017
-ms.author: skwan;bryanla
+ms.author: v-junlch
 ---
 
 # 如何使用多租户应用程序模式将任何 Azure Active Directory (AD) 用户登录

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 wacn.date: 01/13/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # Azure 媒体服务遥测

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 wacn.date: 03/31/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # 在远程监控预配置解决方案中创建自定义规则

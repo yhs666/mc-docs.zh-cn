@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2017
 wacn.date: 03/07/2017
-ms.author: markvi
+ms.author: v-junlch
 ---
 
 # Azure Active Directory 中基于证书的身份验证入门

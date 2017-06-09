@@ -15,7 +15,7 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
 wacn.date: 03/30/2017
-ms.author: tarcher
+ms.author: v-junlch
 ---
 
 # 测试云服务的性能

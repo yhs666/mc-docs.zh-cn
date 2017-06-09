@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 wacn.date: 01/04/2017
-ms.author: cherylmc
+ms.author: v-yiso
 ---
 
 # ExpressRoute 线路预配工作流和线路状态

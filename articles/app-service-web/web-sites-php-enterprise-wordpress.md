@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 10/24/2016
 wacn.date: 
-ms.author: sumuth
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 201bc3ba5f607fd592bea42cba23c93fc96c4dd6

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 wacn.date: 03/28/2017
-ms.author: ninarn
+ms.author: v-dazen
 ---
 
 # SQL Server VM 的存储配置

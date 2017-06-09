@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 09/20/2016
-ms.author: denlee
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 wacn.date: 
 ms.translationtype: Human Translation

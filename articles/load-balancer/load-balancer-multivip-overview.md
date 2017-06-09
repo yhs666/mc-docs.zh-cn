@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/11/2016
 wacn.date: 
-ms.author: chkuhtz
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 36e77840e52c41f85d6659e5dba0b47a5af3a85e

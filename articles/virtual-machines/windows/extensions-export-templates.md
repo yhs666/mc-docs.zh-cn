@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 wacn.date: 03/28/2017
-ms.author: nepeters
+ms.author: v-dazen
 ---
 
 # 导出包含 VM 扩展的资源组

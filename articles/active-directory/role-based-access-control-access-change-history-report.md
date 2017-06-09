@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 wacn.date: 04/05/2017
-ms.author: kgremban
+ms.author: v-junlch
 ---
 
 # 为基于角色的访问控制创建访问报告

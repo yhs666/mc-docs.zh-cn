@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 wacn.date: 12/16/2016
-ms.author: juliako
+ms.author: v-johch
 ---
 
 #媒体服务 PlayReady 许可证模板概述

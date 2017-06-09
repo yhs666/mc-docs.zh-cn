@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2017
 wacn.date: 03/03/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 使用门户创建可访问资源的 Active Directory 应用程序和服务主体

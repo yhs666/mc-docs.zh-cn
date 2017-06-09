@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/07/2017
 wacn.date: 02/27/2017
-ms.author: bruceper
+ms.author: v-junlch
 ---
 
 # Azure 密钥保管库 .NET 2.0 - 发行说明和迁移指南

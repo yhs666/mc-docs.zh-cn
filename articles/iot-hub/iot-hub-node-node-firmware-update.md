@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2017
 wacn.date: 03/10/2017
-ms.author: juanpere
+ms.author: v-yiso
 ---
 
 # 使用设备管理进行设备固件更新 (Node/Node)

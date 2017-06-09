@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/02/2017
 wacn.date: 04/27/2017
-ms.author: SubramaR
+ms.author: v-johch
 ---
 
 # Linux 上的 Service Fabric

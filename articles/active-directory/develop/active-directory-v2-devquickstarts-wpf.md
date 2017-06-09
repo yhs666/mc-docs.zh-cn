@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/30/2016
 wacn.date: 11/08/2016
-ms.author: dastrock; vittorib
+ms.author: v-junlch
 ---
 
 # 将登录凭据添加到 Windows 桌面应用

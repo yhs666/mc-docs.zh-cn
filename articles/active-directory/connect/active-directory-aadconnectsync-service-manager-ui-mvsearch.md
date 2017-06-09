@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 wacn.date: 04/05/2017
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # Sync Service Manager Metaverse 搜索

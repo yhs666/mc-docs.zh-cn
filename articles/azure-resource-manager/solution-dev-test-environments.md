@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2016
 wacn.date: 02/10/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # Azure 中的开发和测试环境

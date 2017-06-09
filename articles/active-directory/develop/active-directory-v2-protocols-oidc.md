@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 wacn.date: 03/13/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # Azure Active Directory v2.0 和 OpenID Connect 协议

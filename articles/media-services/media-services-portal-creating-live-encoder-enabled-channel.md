@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/05/2017
 wacn.date: 02/24/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 #如何使用 Azure 媒体服务执行实时传送视频流以通过 Azure 经典管理门户创建多比特率流

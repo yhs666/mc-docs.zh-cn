@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2017
 wacn.date: 03/31/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 将资源部署到 Azure

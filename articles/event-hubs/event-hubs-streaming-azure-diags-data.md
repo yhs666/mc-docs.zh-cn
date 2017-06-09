@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2016
 wacn.date: 03/24/2017
-ms.author: sethm
+ms.author: v-yeche
 ---
 
 # 使用事件中心流式处理热路径中的 Azure 诊断数据

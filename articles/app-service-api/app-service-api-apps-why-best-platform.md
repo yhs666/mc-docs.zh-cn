@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2016
 wacn.date: 11/25/2016
-ms.author: rachelap
+ms.author: v-dazen
 ---
 
 # API 应用概述

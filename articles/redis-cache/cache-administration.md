@@ -15,7 +15,7 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/14/2017
 wacn.date: 03/03/2017
-ms.author: sdanie
+ms.author: v-dazen
 ---
 
 # 如何管理 Azure Redis 缓存

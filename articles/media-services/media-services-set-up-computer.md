@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 wacn.date: 03/10/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # 设置媒体服务开发环境

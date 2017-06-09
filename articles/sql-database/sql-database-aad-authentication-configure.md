@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/23/2017
 wacn.date: 03/24/2017
-ms.author: rickbyh
+ms.author: v-johch
 ---
 
 # 使用 SQL 数据库或 SQL 数据仓库配置和管理 Azure Active Directory 身份验证

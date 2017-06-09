@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 wacn.date: 
-ms.author: mimig
+ms.author: v-junlch
 redirect_url: https://aka.ms/acdbclisamples
 ROBOTS: NOINDEX, NOFOLLOW
 ms.translationtype: Human Translation

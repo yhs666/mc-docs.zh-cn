@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2015
 wacn.date: 10/17/2016
-ms.author: robb
+ms.author: v-yiso
 ---
 
 # 启用监视和诊断

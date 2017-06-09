@@ -16,7 +16,7 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/22/2016
 wacn.date: 03/01/2017
-ms.author: robmcm
+ms.author: v-dazen
 ---
 
 # Azure VM 上的 Ruby on Rails Web 应用程序

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 wacn.date: 04/11/2017
-ms.author: joflore
+ms.author: v-junlch
 ---
 
 # IT 管理员的 Azure Active Directory 密码重置

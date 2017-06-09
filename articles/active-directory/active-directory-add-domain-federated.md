@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/04/2016
-ms.author: curtand;jeffsta
+ms.author: v-junlch
 wacn.date: 01/09/2017
 ---
 

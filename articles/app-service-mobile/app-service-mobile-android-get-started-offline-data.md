@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 10/01/2016
 wacn.date: 12/26/2016
-ms.author: yuaxu
+ms.author: v-yiso
 ---
 
 # 为 Android 移动应用启用脱机同步

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/18/2016
 wacn.date: 01/03/2017
-ms.author: cawa
+ms.author: v-yiso
 ---
 
 # 使用 Azure PowerShell 命令创建空云服务容器

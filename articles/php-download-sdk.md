@@ -14,7 +14,7 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 06/01/2016
 wacn.date: 07/04/2016
-ms.author: allclark;yaqiyang
+ms.author: v-junlch
 ---
 
 # 下载 Azure SDK for PHP

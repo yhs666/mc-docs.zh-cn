@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/07/2017
 wacn.date: 02/07/2017
-ms.author: mbaldwin
+ms.author: v-junlch
 ---
 
 # Azure AD 的身份验证方案

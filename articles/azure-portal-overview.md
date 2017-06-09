@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 wacn.date: 05/13/2016
-ms.author: dwrede
+ms.author: v-junlch
 ---
 
 #  Azure 门户预览概述

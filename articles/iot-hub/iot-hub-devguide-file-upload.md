@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 wacn.date: 02/10/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # 使用 IoT 中心上传文件

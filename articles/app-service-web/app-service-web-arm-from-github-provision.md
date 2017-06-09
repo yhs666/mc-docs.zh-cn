@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 wacn.date: 01/03/2017
-ms.author: cephalin
+ms.author: v-dazen
 ---
 
 # 部署链接到 GitHub 存储库的 Web 应用

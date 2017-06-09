@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2016
 wacn.date: 01/13/2017
-ms.author: elioda
+ms.author: v-yiso
 ---
 
 # Azure IoT 中心定价信息

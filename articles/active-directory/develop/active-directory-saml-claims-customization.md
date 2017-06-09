@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2016
 wacn.date: 02/06/2017
-ms.author: asmalser
+ms.author: v-junlch
 ---
 
 #在 Azure Active Directory 中为预先集成的应用自定义 SAML 令牌中颁发的声明

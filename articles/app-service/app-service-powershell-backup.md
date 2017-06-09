@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 wacn.date: 01/05/2017
-ms.author: nicking
+ms.author: v-dazen
 ---
 
 # 使用 PowerShell 备份和还原应用服务应用

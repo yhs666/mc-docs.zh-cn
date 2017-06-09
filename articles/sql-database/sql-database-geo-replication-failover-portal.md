@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 11/22/2016
 wacn.date: 01/20/2017
-ms.author: sashan;carlrab
+ms.author: v-johch
 ---
 
 # 使用 Azure 门户预览为 Azure SQL 数据库启动计划内或计划外故障转移

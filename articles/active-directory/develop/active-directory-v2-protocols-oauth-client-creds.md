@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: 02/13/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # Azure Active Directory v2.0 和 OAuth 2.0 客户端凭据流

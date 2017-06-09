@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 wacn.date: 
-ms.author: carolz
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: e5e2271e1b027f7f6a3950f174922a301ae3c8a8

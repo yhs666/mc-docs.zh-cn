@@ -14,7 +14,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 08/04/2015
 wacn.date: 03/28/2017
-ms.author: huvalo
+ms.author: v-dazen
 ---
 
 # Django Hello World Web 应用

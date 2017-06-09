@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Daxko/CSI 使用 Azure 来加速其开发周期和增强其客户服务与性能

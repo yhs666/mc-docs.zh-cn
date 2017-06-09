@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 wacn.date: 12/12/2016
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 如何在 Azure CLI 中创建 NSG（经典）

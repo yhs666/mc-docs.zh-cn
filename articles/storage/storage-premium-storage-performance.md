@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 wacn.date: 12/05/2016
-ms.author: aungoo
+ms.author: v-johch
 ---
 
 # Azure 高级存储：高性能设计

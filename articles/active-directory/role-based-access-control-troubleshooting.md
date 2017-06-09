@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 wacn.date: 04/05/2017
-ms.author: kgremban
+ms.author: v-junlch
 ---
 
 # 基于角色的访问控制故障排除

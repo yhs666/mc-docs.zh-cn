@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2017
 wacn.date: 03/03/2017
-ms.author: toddabel
+ms.author: v-johch
 ---
 
 # 监视和诊断 Azure Service Fabric 应用程序

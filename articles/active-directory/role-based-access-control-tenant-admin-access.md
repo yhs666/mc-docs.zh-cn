@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2017
 wacn.date: 03/07/2017
-ms.author: kgremban
+ms.author: v-junlch
 ---
 
 # 使用基于角色的访问控制提升作为租户管理员的访问权限

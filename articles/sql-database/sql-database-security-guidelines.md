@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/18/2016
 wacn.date: 12/19/2016
-ms.author: rickbyh
+ms.author: v-johch
 ---
 
 # Azure SQL 数据库安全指导原则和限制

@@ -11,7 +11,7 @@ ms.topic: reference
 ms.assetid: 2fda4d9c-f782-4088-9320-656b450e3100
 caps.latest.revision: 7
 author: tamram
-ms.author: tamram
+ms.author: v-junlch
 manager: timlt
 wacn.date: 
 ms.translationtype: Human Translation

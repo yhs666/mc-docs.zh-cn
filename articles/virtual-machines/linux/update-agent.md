@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2015
 wacn.date: 12/26/2016
-ms.author: mingzhan
+ms.author: v-dazen
 ---
 
 # 如何从 GitHub 将 VM 上的 Azure Linux 代理更新到最新版本

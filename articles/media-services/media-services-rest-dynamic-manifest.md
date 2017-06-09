@@ -15,7 +15,7 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/10/2017
 wacn.date: 02/24/2017
-ms.author: juliako;cenkdin
+ms.author: v-johch
 ---
 
 #使用 Azure 媒体服务 REST API 创建筛选器

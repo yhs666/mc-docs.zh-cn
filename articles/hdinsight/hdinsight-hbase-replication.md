@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/22/2017
 wacn.date: 04/27/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 配置 HBase 复制

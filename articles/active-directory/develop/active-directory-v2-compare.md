@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: 02/13/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # v2.0 终结点有什么不同？

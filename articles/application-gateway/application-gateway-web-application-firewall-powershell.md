@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 wacn.date: 05/31/2017
-ms.author: gwallace
+ms.author: v-dazen
 ---
 
 # 在新的或现有的应用程序网关上配置 Web 应用程序防火墙

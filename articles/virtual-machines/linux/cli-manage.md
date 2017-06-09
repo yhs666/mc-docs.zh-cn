@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/23/2016
 wacn.date: 11/07/2016
-ms.author: rclaus
+ms.author: v-dazen
 ---
 
 # Linux 和 Mac 上的常用 Azure CLI 命令

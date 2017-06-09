@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
 ms.date: 03/17/2017
-ms.author: danlep
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 9d585f7048e0ddefe1b1743ed3df42b7b1f2f78c

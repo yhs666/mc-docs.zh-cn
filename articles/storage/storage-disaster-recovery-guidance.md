@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/19/2017
 wacn.date: 03/20/2017
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # 在 Azure 存储空间中断时该怎么办

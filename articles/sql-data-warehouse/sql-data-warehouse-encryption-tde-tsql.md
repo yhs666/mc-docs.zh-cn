@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 wacn.date: 01/17/2017
-ms.author: rortloff;barbkess
+ms.author: v-yeche
 ---
 
 # 透明数据加密 (TDE) 入门

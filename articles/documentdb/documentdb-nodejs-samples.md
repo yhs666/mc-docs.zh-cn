@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2017
 wacn.date: 
-ms.author: moderakh
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 5bc3cff917c80decd1836ef255d6cadd0560e57f

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 wacn.date: 03/31/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 使用标记整理 Azure 资源

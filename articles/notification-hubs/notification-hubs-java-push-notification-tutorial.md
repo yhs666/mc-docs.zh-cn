@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 wacn.date: 08/23/2016
-ms.author: wesmc
+ms.author: v-junlch
 ---
 
 # 如何通过 Java 使用通知中心

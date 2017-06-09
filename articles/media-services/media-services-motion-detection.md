@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/10/2016
 wacn.date: 11/25/2016
-ms.author: milanga;juliako;
+ms.author: v-johch
 ---
 
 # 使用 Azure 媒体分析检测动作

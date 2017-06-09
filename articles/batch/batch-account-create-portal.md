@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/27/2017
-ms.author: tamram
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 wacn.date: 
 ms.translationtype: Human Translation

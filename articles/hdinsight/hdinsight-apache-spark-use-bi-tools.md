@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 wacn.date: 03/31/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 将 BI 工具与 Azure HDInsight 上的 Apache Spark 群集配合使用

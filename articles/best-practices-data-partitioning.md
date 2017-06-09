@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 wacn.date: 02/14/2017
-ms.author: masashin
+ms.author: v-junlch
 ---
 
 # 数据分区指南

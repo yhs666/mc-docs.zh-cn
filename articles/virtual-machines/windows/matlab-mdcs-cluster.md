@@ -14,7 +14,7 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 wacn.date: 12/26/2016
-ms.author: markscu
+ms.author: v-dazen
 ---
 
 # 在 Azure VM 上创建 MATLAB 分布式计算服务器群集 

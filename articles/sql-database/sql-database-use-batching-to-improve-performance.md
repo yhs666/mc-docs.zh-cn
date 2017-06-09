@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/12/2016
 wacn.date: 11/16/2016
-ms.author: annemill
+ms.author: v-johch
 ---
 
 # 如何使用批处理来改善 SQL 数据库应用程序的性能

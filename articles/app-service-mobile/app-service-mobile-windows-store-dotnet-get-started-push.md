@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 wacn.date: 12/26/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # 向 Windows 应用添加推送通知

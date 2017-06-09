@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 01/09/2017
 wacn.date: 02/24/2017
-ms.author: jroth
+ms.author: v-dazen
 ---
 
 # Azure 虚拟机中的 SQL Server 概述

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/25/2016
 wacn.date: 12/20/2016
-ms.author: v-livech
+ms.author: v-dazen
 ---
 
 # Azure 和 Linux VM 网络概述

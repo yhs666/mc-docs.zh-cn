@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2016
 wacn.date: 02/20/2017
-ms.author: lemai
+ms.author: v-johch
 ---
 
 # 将启动节点 API 和停止节点 API 替换为节点转换 API

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/16/2016
 wacn.date: 12/26/2016
-ms.author: sashan
+ms.author: v-johch
 ---
 
 # 使用 SQL 数据库弹性池的应用程序的灾难恢复策略 

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/10/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 在 Blob 存储中收集堆转储以调试和分析 Hadoop 服务
