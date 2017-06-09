@@ -1,6 +1,18 @@
 ---
-layout: LandingPage
+title: Azure 监视和诊断文档 - 教程, API 参考 | Azure
 description: "了解如何使用监视和诊断服务跟踪性能、维护安全和确定趋势。 API 参考、最佳做法等。"
+services: monitoring-and-diagnostics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: monitoring-and-diagnostics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: carolz
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 0ee9faf763dbedd4046547764c5ad5ad9e3d2d07
