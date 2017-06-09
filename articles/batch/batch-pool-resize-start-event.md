@@ -11,7 +11,7 @@ ms.topic: reference
 ms.assetid: 8bd33e8b-6390-4a34-95dc-2e63d8bce941
 caps.latest.revision: 6
 author: tamram
-ms.author: tamram
+ms.author: v-junlch
 manager: timlt
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
