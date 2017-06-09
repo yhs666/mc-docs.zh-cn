@@ -13,7 +13,7 @@ ms.custom: multiple databases
 ms.devlang: NA
 ms.date: 12/19/2016
 wacn.date: 01/20/2017
-ms.author: sstein;carlrab
+ms.author: v-johch
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA

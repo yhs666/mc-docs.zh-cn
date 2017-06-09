@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 wacn.date: 03/28/2017
-ms.author: ningk
+ms.author: v-dazen
 ---
 
 # 使用 Azure 在 Linux 虚拟机上设置 Tomcat7

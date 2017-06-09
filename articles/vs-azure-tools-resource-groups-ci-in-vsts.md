@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 wacn.date: 02/04/2017
-ms.author: mlearned
+ms.author: v-junlch
 ---
 
 # 使用 Azure 资源组部署项目在 Visual Studio Team Services 中连续集成

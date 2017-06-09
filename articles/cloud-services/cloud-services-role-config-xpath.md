@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 wacn.date: 12/26/2016
-ms.author: adegeo
+ms.author: v-yiso
 ---
 
 # 使用 XPath 将角色配置设置公开为环境变量

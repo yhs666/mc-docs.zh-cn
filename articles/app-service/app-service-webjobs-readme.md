@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2015
 wacn.date: 09/26/2016
-ms.author: chrande
+ms.author: v-dazen
 ---
 
 # 在 Azure 应用服务中使用 WebJobs

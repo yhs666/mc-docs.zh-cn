@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
 wacn.date: 12/26/2016
-ms.author: robb
+ms.author: v-yiso
 ---
 
 # 使用 Azure 诊断跟踪云服务应用程序的流

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/07/2017
 wacn.date: 02/15/2017
-ms.author: mbaldwin
+ms.author: v-junlch
 ---
 
 # 故障排除：“Active Directory”项缺失或不可用

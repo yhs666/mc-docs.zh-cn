@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 wacn.date: 10/17/2016
-ms.author: johnkem
+ms.author: v-yiso
 ---
 
 # 存档 Azure 活动日志

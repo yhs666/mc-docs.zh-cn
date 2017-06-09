@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 wacn.date: 03/28/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 使用 Azure 门户预览创建虚拟网络

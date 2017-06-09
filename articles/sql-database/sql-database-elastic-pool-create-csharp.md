@@ -14,7 +14,7 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 wacn.date: 01/06/2017
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # 使用 C# 创建弹性数据库池

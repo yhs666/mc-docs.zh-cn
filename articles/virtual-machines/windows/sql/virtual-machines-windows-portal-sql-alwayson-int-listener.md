@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/28/2016
 wacn.date: 02/20/2017
-ms.author: mikeray
+ms.author: v-dazen
 ---
 
 # 在 Azure 中为 AlwaysOn 可用性组配置内部负载均衡器

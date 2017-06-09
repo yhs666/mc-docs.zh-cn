@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 wacn.date: 12/19/2016
-ms.author: thmullan;torsteng
+ms.author: v-johch
 ---
 
 # 具有弹性数据库工具和行级安全性的多租户应用程序 

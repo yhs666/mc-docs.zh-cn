@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 wacn.date: 12/27/2016
-ms.author: torsteng
+ms.author: v-johch
 ---
 
 # 拆分/合并安全配置  

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Umbraco 使用 Azure SQL 数据库为云中数千个租户快速预配和缩放服务

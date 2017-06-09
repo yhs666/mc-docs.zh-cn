@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 wacn.date: 
-ms.author: barbkess
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: f536b20d454fb84ccccaccafebdead90a814cc63

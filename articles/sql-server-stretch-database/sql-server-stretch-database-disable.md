@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/05/2016
 wacn.date: 01/04/2017
-ms.author: douglasl
+ms.author: v-yeche
 ---
 
 # 禁用延伸数据库和移回远程数据

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 wacn.date: 03/28/2017
-ms.author: glimoli;genli
+ms.author: v-dazen
 ---
 
 # 准备好要上传到 Azure 的 Windows VHD 或 VHDX

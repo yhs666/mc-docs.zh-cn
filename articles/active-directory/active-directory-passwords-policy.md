@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 wacn.date: 04/11/2017
-ms.author: curtand
+ms.author: v-junlch
 ---
 
 # Azure Active Directory 中的密码策略和限制

@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 11/18/2016
 wacn.date: 
-ms.author: shigu;barbkess
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: e08c70926c46bb78d92e741d05c7d36506f76aee

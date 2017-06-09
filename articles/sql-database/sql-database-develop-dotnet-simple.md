@@ -16,7 +16,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/03/2017
 wacn.date: 03/24/2017
-ms.author: tobiast
+ms.author: v-johch
 ---
 
 # 使用 .NET (C#) 连接到 SQL 数据库

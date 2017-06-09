@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 wacn.date: 03/28/2017
-ms.author: asabbour
+ms.author: v-dazen
 ---
 
 # MariaDB \(MySQL\) 群集：Azure 教程

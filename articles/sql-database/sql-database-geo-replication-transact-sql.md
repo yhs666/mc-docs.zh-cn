@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2017
 wacn.date: 03/24/2016
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 使用 Transact-SQL 为 Azure SQL 数据库配置活动异地复制

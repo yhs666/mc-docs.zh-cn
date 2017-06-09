@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 wacn.date: 12/19/2016
-ms.author: genemi
+ms.author: v-johch
 ---
 
 # 规划和准备升级到 SQL 数据库 V12

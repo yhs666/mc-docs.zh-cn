@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2017
 wacn.date: 03/28/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # 将设备连接到远程监控预配置解决方案 (Linux)

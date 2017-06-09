@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 wacn.date: 03/20/2017
-ms.author: markgal;trinadhk;
+ms.author: v-junlch
 ---
 
 # 备份 Azure 虚拟机

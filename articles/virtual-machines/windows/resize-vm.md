@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 wacn.date: 03/06/2017
-ms.author: drewm
+ms.author: v-dazen
 ---
 
 # 调整 Windows VM 的大小

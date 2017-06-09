@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 wacn.date: 01/03/2017
-ms.author: seanmck
+ms.author: v-yiso
 ---
 
 # 如何在 PowerShell 中缩放云服务

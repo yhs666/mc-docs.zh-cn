@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
 wacn.date: 02/06/2017
-ms.author: shoatman
+ms.author: v-junlch
 ---
 
 # 如何以及为何将应用程序添加到 Azure AD

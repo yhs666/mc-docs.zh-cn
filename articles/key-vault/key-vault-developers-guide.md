@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/17/2017
 wacn.date: 03/14/2017
-ms.author: bruceper
+ms.author: v-junlch
 ---
 
 # Azure 密钥保管库开发人员指南

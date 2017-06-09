@@ -14,7 +14,7 @@ ms.devlang: cpp
 ms.topic: hero-article
 ms.date: 12/25/2016
 wacn.date: 
-ms.author: aasthan
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 456ea12b06c6ede437dbcc7193103439322f3eac

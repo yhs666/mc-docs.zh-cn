@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 wacn.date: 04/27/2017
-ms.author: rasquill
+ms.author: v-dazen
 ---
 
 #关于虚拟机代理和扩展

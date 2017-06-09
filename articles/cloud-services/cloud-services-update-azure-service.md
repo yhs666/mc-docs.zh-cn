@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2016
 wacn.date: 12/26/2016
-ms.author: adegeo
+ms.author: v-yiso
 ---
 
 # 如何更新云服务

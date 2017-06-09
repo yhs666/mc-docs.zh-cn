@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2016
 wacn.date: 
-ms.author: glenga
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: a54bb0869ab5252647b9fb159d9533b1ad0f126a

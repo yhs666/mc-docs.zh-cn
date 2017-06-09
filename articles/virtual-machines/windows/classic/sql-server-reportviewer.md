@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 01/11/2017
 wacn.date: 03/28/2017
-ms.author: asaxton
+ms.author: v-dazen
 ---
 
 # 在 Azure 中托管的网站中使用 ReportViewer

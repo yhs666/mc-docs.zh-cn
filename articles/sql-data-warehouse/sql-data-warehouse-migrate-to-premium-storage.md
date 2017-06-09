@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 11/29/2016
 wacn.date: 01/13/2017
-ms.author: rortloff;barbkess
+ms.author: v-yeche
 ---
 
 # 将数据仓库迁移到高级存储

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 12/09/2016
 wacn.date: 01/25/2017
-ms.author: tarcher
+ms.author: v-dazen
 ---
 
 # 在 Visual Studio 中创建和管理 Linux 虚拟机

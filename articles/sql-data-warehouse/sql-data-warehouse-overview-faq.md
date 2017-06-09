@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.custom: overview
 ms.date: 03/01/2017
 wacn.date: 
-ms.author: elbutter
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 5b8246bd732b99e7fe24acb97dea95125fa66f8b

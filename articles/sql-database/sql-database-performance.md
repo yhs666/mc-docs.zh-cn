@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/19/2016
 wacn.date: 01/11/2017
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # SQL 数据库性能见解

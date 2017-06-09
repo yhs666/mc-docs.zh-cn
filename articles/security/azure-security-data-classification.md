@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2016
 wacn.date: 09/26/2016
-ms.author: yurid
+ms.author: v-johch
 ---
 
 # Azure 的数据分类

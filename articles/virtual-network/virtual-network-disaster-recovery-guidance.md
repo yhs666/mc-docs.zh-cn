@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 wacn.date: 12/26/2016
-ms.author: narayan;aglick
+ms.author: v-dazen
 ---
 
 # 虚拟网络 - 业务连续性

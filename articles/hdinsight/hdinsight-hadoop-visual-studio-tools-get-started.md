@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/07/2017
 wacn.date: 03/31/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 开始使用用于 Visual Studio 的 Azure Data Lake (HDInsight) 工具来运行 Hive 查询

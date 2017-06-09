@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 wacn.date: 03/20/2017
-ms.author: genli;markgal;
+ms.author: v-junlch
 ---
 
 # 排查 Azure 备份故障：快照 VM 子任务超时

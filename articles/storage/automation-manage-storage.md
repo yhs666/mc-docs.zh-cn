@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 wacn.date: 12/19/2016
-ms.author: jolevy
+ms.author: v-johch
 ---
 
 #使用 Azure 自动化管理 Azure 存储

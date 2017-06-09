@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 04/11/2017
 wacn.date: 
-ms.author: sdanie
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 690e73e5842057c22e6db8d865b49a0fbfc1b7a5

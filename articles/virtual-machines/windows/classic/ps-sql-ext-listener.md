@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 11/28/2016
 wacn.date: 02/24/2017
-ms.author: MikeRayMSFT
+ms.author: v-dazen
 ---
 
 # 在 Azure 中配置 AlwaysOn 可用性组的外部侦听器

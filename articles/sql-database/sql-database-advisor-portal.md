@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/30/2016
 wacn.date: 10/31/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # 在 Azure 门户预览中使用 SQL 数据库顾问

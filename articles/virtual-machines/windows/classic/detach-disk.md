@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 wacn.date: 04/27/2017
-ms.author: cynthn
+ms.author: v-dazen
 ---
 
 # 如何从 Windows 虚拟机分离磁盘

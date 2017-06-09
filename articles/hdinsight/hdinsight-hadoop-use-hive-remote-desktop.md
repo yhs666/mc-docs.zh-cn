@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/12/2017
 wacn.date: 01/25/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 通过远程桌面将 Hive 与 HDInsight 上的 Hadoop 配合使用

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/08/2016
 wacn.date: 12/26/2016
-ms.author: kmouss
+ms.author: v-dazen
 ---
 
 # 启用或禁用 Azure VM 监视

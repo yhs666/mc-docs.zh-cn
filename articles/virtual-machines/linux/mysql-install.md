@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
 wacn.date: 03/28/2016
-ms.author: mingzhan
+ms.author: v-dazen
 ---
 
 #如何在 Azure 上安装 MySQL

@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/20/2017
-ms.author: yuaxu
+ms.author: v-yiso
 ---
 
 # Add authentication to your iOS app（将身份验证添加到 iOS 应用）

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/20/2016
 wacn.date: 04/10/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 如何使用 Azure CLI 1.0 在 Linux VM 上安装和配置 MongoDB

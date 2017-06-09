@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 02/01/2017
 wacn.date: 03/13/2017
-ms.author: brandwe
+ms.author: v-junlch
 ---
 
 # 通过 Azure AD 实现 Java Web 应用登录和注销

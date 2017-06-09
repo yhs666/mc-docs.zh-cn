@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2015
 wacn.date: 12/05/2016
-ms.author: naziml
+ms.author: v-dazen
 ---
 
 # Azure 应用服务安全性

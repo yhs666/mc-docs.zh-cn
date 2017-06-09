@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 wacn.date: 
-ms.author: mimig
+ms.author: v-junlch
 redirect_url: http://azure.cn/documentation/articles/documentdb-use-cases
 ROBOTS: NOINDEX, NOFOLLOW
 ms.translationtype: Human Translation

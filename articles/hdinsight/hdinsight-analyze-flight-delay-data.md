@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/24/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 使用 HDInsight 中的 Hive 分析航班延误数据

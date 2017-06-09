@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/30/2016
-ms.author: sethm
+ms.author: v-yiso
 wacn.date: 02/20/2017
 ---
 

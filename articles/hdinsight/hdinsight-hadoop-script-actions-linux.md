@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 wacn.date: 03/10/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用 HDInsight 进行脚本操作开发

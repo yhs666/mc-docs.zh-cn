@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/27/2016
 wacn.date: 03/24/2017
-ms.author: douglasl
+ms.author: v-yeche
 ---
 
 # Stretch Database 简介

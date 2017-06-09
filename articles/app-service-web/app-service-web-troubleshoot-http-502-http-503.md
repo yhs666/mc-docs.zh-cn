@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 wacn.date: 09/26/2016
-ms.author: cephalin
+ms.author: v-dazen
 ---
 
 # 排查 Azure Web 应用中的“502 错误的网关”和“503 服务不可用”HTTP 错误

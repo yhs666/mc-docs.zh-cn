@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/20/2017
-ms.author: dineshm
+ms.author: v-johch
 ---
 
 # 使用 C++ 列出 Azure 存储资源

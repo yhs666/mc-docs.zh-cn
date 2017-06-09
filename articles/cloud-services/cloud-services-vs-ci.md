@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/02/2016
 wacn.date: 03/17/2017
-ms.author: cawa
+ms.author: v-yiso
 ---
 
 # 使用 Visual Studio Online 安全地保存云服务诊断存储密钥及设置对 Azure 的持续集成和部署

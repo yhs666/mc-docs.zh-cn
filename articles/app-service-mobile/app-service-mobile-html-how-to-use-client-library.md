@@ -14,7 +14,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 wacn.date: 01/23/2017
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # 如何使用适用于 Azure 移动应用的 JavaScript 客户端库

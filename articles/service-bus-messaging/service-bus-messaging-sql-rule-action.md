@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2016
 wacn.date: 01/23/2017
-ms.author: sethm
+ms.author: v-yiso
 ---
 
 # SQLRuleAction 语法

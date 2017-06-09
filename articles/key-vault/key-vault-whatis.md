@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/07/2017
 wacn.date: 02/27/2017
-ms.author: cabailey
+ms.author: v-junlch
 ---
 
 # 什么是 Azure 密钥保管库？

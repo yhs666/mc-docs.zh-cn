@@ -15,7 +15,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 12/08/2016
 wacn.date: 01/06/2017
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # 如何通过 Python 使用队列存储

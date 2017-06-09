@@ -16,7 +16,7 @@ ms.tgt_pltfrm: sqldb-performance
 ms.workload: data-management
 ms.date: 11/08/2016
 wacn.date: 12/19/2016
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 在 Azure SQL 数据库中操作 Query Store

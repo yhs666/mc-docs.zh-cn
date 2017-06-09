@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 wacn.date: 03/20/2017
-ms.author: genli
+ms.author: v-johch
 ---
 
 # 删除 Resource Manager 部署中的 Azure 存储帐户、容器或 VHD 时对错误进行故障排除

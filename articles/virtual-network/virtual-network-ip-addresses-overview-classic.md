@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 wacn.date: 03/28/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # Azure 中的 IP 地址（经典）

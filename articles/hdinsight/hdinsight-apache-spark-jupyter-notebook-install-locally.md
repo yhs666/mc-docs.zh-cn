@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2017
 wacn.date: 03/24/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 在计算机上安装 Jupyter 笔记本并连接到 HDInsight 上的 Apache Spark 群集

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2016
 wacn.date: 03/16/2017
-ms.author: cgronlun
+ms.author: v-dazen
 ---
 
 # Azure HDInsight 上的 Hadoop 生态系统简介

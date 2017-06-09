@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 02/10/2017
 wacn.date: 03/03/2017
-ms.author: vturecek
+ms.author: v-johch
 ---
 
 # 通过 Reliable Services 进行服务远程处理

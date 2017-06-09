@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 wacn.date: 04/28/2016
-ms.author: asmalser-msft
+ms.author: v-junlch
 ---
 
 #使用 SCIM 启用从 Azure Active Directory 到应用程序的用户和组自动预配

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 wacn.date: 12/19/2016
-ms.author: genemi
+ms.author: v-johch
 ---
 
 # SQL 数据库 V12 的新增功能

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 wacn.date: 03/03/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 标记 Azure Resource Manager 模板中的资源

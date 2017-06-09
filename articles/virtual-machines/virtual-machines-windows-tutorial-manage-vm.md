@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/21/2017
 wacn.date: 05/15/2017
-ms.author: davidmu
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: f1dd2a2d0f7502d0181b5603e99cdb5a84c8f16d

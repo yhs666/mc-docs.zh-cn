@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 wacn.date: 02/24/2017
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # 如何使用 Azure 移动应用的托管客户端

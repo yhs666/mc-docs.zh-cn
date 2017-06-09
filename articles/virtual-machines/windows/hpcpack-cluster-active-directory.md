@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 11/14/2016
 wacn.date: 01/20/2017
-ms.author: danlep
+ms.author: v-dazen
 ---
 
 # 使用 Azure Active Directory 管理 Azure 中的 HPC Pack 群集

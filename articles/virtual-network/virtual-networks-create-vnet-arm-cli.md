@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 wacn.date: 03/24/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 使用 Azure CLI 创建虚拟网络

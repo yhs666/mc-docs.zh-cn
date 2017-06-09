@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 wacn.date: 03/31/2017
-ms.author: kgremban
+ms.author: v-junlch
 ---
 
 # Azure 多重身份验证中的用户状态

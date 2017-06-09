@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 wacn.date: 03/31/2017
-ms.author: narayan;annahar
+ms.author: v-dazen
 ---
 
 # 使用 Azure 门户预览创建虚拟网络对等互连

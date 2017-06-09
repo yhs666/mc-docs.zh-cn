@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 wacn.date: 01/25/2017
-ms.author: danlep
+ms.author: v-dazen
 ---
 
 # 在 Azure 中根据群集工作负荷自动扩展和收缩 HPC Pack 群集资源

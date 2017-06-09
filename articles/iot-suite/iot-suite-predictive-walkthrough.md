@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2017
 wacn.date: 04/27/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # 预测性维护预配置解决方案演练

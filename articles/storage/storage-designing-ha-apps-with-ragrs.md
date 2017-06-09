@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/19/2017
 wacn.date: 03/20/2017
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # 使用 RA-GRS 设计高度可用的应用程序

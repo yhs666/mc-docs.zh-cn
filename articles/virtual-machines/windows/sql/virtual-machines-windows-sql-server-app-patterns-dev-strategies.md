@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 wacn.date: 02/24/2017
-ms.author: lvargas
+ms.author: v-dazen
 ---
 
 # Azure 虚拟机中的 SQL Server 的应用程序模式和开发策略

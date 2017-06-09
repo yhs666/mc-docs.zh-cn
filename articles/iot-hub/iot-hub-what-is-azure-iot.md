@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 wacn.date: 03/10/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]

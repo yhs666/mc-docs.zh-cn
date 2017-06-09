@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 wacn.date: 03/10/2017
-ms.author: jeffstok
+ms.author: v-yeche
 ---
 
 # 参考体系结构：使用 Azure 流分析进行实时事件处理

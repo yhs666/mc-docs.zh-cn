@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 02/12/2017
 wacn.date: 03/15/2017
-ms.author: bsiva
+ms.author: v-johch
 ---
 
 # 使用 Azure Site Recovery 将 Amazon Web Services (AWS) 中的虚拟机迁移到 Azure

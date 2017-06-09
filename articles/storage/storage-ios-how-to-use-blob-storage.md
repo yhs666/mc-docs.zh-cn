@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: michaelhauss
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 088c917587601413445776255ae1548f6f301ea6

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 01/05/2017
 wacn.date: 02/20/2017
-ms.author: suchia
+ms.author: v-johch
 ---
 
 # 在 Azure Service Fabric 中帮助保护服务的通信

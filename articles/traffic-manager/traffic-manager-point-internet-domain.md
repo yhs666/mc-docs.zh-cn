@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 wacn.date: 01/03/2017
-ms.author: sewhee
+ms.author: v-dazen
 ---
 
 # 将公司 Internet 域指向 Azure 流量管理器域

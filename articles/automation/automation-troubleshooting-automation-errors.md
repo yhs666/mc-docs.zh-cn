@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2017
 wacn.date: 03/28/2017
-ms.author: sngun; v-reagie
+ms.author: v-dazen
 ---
 
 # 常见 Azure 自动化错误的错误处理提示

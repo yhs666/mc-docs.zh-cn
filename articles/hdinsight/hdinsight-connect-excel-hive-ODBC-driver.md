@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/06/2017
 wacn.date: 03/31/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 Hadoop

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2017
 wacn.date: 03/07/2017
-ms.author: curtand
+ms.author: v-junlch
 ---
 
 # 在 Azure 虚拟网络中安装副本 Active Directory 域控制器

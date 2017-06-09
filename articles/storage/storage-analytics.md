@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 wacn.date: 03/31/2017
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # 存储分析

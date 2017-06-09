@@ -15,7 +15,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: 02/07/2017
-ms.author: brandwe
+ms.author: v-junlch
 ---
 
 # 节点 WEB API 入门

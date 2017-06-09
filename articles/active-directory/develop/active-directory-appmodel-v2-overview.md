@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: 02/07/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # 在单个应用中登录 Microsoft 帐户和 Azure AD 用户

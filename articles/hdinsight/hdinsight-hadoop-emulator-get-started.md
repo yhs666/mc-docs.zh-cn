@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 wacn.date: 01/25/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 在虚拟机上使用 Hadoop 沙盒，开始了解 Hadoop 生态系统

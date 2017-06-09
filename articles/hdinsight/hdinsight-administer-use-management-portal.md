@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2017
 wacn.date: 03/24/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 使用 Azure 门户预览在 HDInsight 中管理基于 Windows 的 Hadoop 群集

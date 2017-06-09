@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/31/2016
 wacn.date: 03/20/2017
-ms.author: lakshmir;barbkess
+ms.author: v-yeche
 ---
 
 # SQL 数据仓库备份

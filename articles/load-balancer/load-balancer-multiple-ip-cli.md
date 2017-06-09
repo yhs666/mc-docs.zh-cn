@@ -18,7 +18,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 wacn.date: ''
-ms.author: annahar
+ms.author: v-yeche
 ---
 
 # <a name="load-balancing-on-multiple-ip-configurations"></a>在多个 IP 配置上进行负载均衡
