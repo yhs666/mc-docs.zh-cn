@@ -7,9 +7,11 @@ author: sethmanheim
 manager: timlt
 editor: ''
 
+ms.topic: article
 ms.date: 01/18/2017
 ms.service: service-bus
 wacn.date: 03/20/2017
+ms.author: v-yiso
 ---
 
 # 使用 Azure Resource Manager 模板创建包含主题、订阅和规则的服务总线命名空间

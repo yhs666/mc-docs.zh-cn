@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: service-bus
+ms.topic: article
 ms.date: 02/02/2017
 wacn.date: 03/20/2017
+ms.author: v-yiso
 ---
 
 # 服务总线事务处理概述
