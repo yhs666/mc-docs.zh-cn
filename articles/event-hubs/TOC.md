@@ -42,7 +42,7 @@
 ### [Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs)
 ### [Microsoft.Azure.EventHubs.Processor](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)
 ### [Microsoft.ServiceBus.Messaging](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.ServiceBus.EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+### [Microsoft.ServiceBus.Messaging.EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 ### [Microsoft.Azure.Management.EventHub](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.eventhub)
 ## Java
 ### [com.microsoft.azure.eventhubs](https://docs.microsoft.com/java/api/com.microsoft.azure.eventhubs)
