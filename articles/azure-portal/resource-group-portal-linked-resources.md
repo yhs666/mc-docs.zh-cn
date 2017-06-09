@@ -7,8 +7,10 @@ authors: adamabdelhamed
 manager: wpickett
 editor: 
 ms.service: azure-portal
+ms.topic: article
 ms.date: 07/16/2015
 wacn.date: 
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 827bb6d871fe501b50c33182e000a620cd2b9f9c
