@@ -420,7 +420,7 @@ Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "
 
 [了解详细信息](./site-recovery-failover.md#run-an-unplanned-failover)
 
-## 完成虚拟机到 Azure 的迁移
+##<a name="Complete-migration-of-your-virtual-machines-to-Azure"></a> 完成虚拟机到 Azure 的迁移
 
 >[!NOTE]
 > 以下步骤仅适用于将虚拟机迁移到 Azure
