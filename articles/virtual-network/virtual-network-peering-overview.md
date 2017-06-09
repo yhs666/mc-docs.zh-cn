@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/17/2016
 wacn.date: 03/24/2017
-ms.author: narayan
+ms.author: v-dazen
 ---
 
 # 虚拟网络对等互连

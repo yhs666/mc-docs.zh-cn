@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 04/05/2017
-ms.author: meetb;carlrab;sstein
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 3245e1e56111995016dc49d7aed5de58ccbc26b3

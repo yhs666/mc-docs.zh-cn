@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 wacn.date: 05/31/2017
-ms.author: sewhee
+ms.author: v-dazen
 ---
 
 # 嵌套式流量管理器配置文件

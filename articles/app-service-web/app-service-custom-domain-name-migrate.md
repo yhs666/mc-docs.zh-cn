@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 wacn.date: 03/03/2017
-ms.author: cephalin
+ms.author: v-dazen
 ---
 
 # 将活动的自定义域迁移到 Azure 应用服务

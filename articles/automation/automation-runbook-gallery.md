@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
 wacn.date: 01/25/2017
-ms.author: magoedte;bwren
+ms.author: v-dazen
 ---
 
 # Azure 自动化的 Runbook 和模块库

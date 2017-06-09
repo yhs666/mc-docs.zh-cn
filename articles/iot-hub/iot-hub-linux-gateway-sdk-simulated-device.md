@@ -13,12 +13,9 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2017
-ms.author: andbuc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 3a7a7e8331464b34fc3f6c168af703741f1afefd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
+wacn.date: 03/10/2017
+ms.author: v-yiso
+---
 
 ---
 # <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-linux"></a>使用 Azure IoT Edge，通过模拟设备发送设备到云的消息 (Linux)

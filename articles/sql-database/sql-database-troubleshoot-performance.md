@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 wacn.date: 03/24/2017
-ms.author: v-shysun
+ms.author: v-johch
 ---
 
 # SQL 数据库性能调整提示

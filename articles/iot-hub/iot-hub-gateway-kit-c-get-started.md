@@ -13,14 +13,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/21/2017
-ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: fe7e4543713589c5ffbc5ded1880bba8648259c4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.date: 10/21/2016
+wacn.date: 01/23/2017
+ms.author: v-yiso
 ---
 
 # <a name="get-started-with-iot-gateway-starter-kit-with-a-sensortag"></a>通过 SensorTag 开始使用 IoT 网关初学者工具包

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/09/2017
 wacn.date: 03/28/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 使用 Azure 门户预览打开 Azure 中 VM 的端口

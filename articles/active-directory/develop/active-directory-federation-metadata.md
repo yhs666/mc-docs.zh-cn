@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: 02/07/2017
-ms.author: priyamo
+ms.author: v-junlch
 ---
 
 # 联合元数据

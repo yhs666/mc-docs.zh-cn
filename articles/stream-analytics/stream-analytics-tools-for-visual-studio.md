@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 wacn.date: 
-ms.author: sujie
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: acb0e5f991c353f81cc4d687f2a4dca3bebba629

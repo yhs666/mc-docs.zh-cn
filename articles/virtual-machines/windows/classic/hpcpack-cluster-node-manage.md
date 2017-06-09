@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 wacn.date: 03/28/2017
-ms.author: danlep
+ms.author: v-dazen
 ---
 
 # 管理 Azure 的 HPC Pack 群集中计算节点的数量和可用性

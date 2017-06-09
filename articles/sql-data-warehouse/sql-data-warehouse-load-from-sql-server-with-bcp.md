@@ -17,7 +17,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: 03/20/2017
-ms.author: barbkess
+ms.author: v-yeche
 ---
 
 # 将数据从 SQL Server 载入 Azure SQL 数据仓库（平面文件）

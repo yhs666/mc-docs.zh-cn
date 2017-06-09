@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/13/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # 使用 Azure AD 提供的持有者令牌帮助保护 Web API

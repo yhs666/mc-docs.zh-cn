@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 01/10/2017
 wacn.date: 01/25/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 使用 Transact-SQL 为 Azure SQL 数据库启动计划内或计划外故障转移

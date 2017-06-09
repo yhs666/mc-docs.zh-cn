@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/10/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 在基于 Windows 的 HDInsight 上访问 YARN 应用程序日志

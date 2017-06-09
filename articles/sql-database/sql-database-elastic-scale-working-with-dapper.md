@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 wacn.date: 12/26/2016
-ms.author: torsteng
+ms.author: v-johch
 ---
 
 # 将弹性数据库客户端库与 Dapper 配合使用 

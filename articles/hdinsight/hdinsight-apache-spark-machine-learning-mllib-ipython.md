@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 wacn.date: 03/28/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 机器学习：结合使用 MLlib 与 HDInsight 上的 Apache Spark 群集对食品检测数据进行预测分析

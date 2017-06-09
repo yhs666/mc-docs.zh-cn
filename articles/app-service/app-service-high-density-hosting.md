@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/11/2017
 wacn.date: 02/24/2017
-ms.author: byvinyal
+ms.author: v-dazen
 ---
 
 # 在 Azure 应用服务上进行高密度托管

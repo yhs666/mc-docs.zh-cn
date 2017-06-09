@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/16/2016
 wacn.date: 01/20/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 将 Windows 虚拟机重新部署到新的 Azure 节点

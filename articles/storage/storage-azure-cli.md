@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: marsma
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: ef3645f34fd38ba46d5b65670e0fc684b5927828

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 wacn.date: 12/19/2016
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 使用 SqlPackage.exe 确定 SQL 数据库兼容性

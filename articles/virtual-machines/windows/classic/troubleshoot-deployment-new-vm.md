@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 wacn.date: 01/25/2017
-ms.author: cjiang
+ms.author: v-dazen
 ---
 
 # 排查在 Azure 中新建 Windows 虚拟机时遇到的经典部署问题

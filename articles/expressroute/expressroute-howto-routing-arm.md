@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
-ms.author: ganesr;cherylmc
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 6b84a7b558d97cf0d324eeaeb419b128af15059c

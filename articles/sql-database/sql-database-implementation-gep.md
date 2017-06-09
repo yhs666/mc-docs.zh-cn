@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Azure 实现 GEP 全球覆盖并提高效率

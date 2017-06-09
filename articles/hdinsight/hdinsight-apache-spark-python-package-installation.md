@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 wacn.date: 04/27/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 在 HDInsight 上的 Apache Spark 群集中使用建本操作安装适用于 Jupyter 笔记本的外部 Python 包

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
 wacn.date: 02/06/2017
-ms.author: asmalser
+ms.author: v-junlch
 ---
 
 #如何在 Azure Active Directory 中调试对应用程序进行基于 SAML 的单一登录

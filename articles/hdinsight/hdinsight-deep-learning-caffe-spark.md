@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 wacn.date: 03/31/2017
-ms.author: xiaoyzhu
+ms.author: v-dazen
 ---
 
 # 使用 Caffe on Azure HDInsight Spark 进行分布式深度学习

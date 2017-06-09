@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2017
 wacn.date: 03/03/2017
-ms.author: vturecek;mikhegn
+ms.author: v-johch
 ---
 
 # 使用 Eclipse 调试 Java Service Fabric 应用程序

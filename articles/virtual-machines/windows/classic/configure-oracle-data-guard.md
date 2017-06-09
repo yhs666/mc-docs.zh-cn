@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/06/2016
 wacn.date: 10/24/2016
-ms.author: rclaus
+ms.author: v-dazen
 ---
 
 #为 Azure 配置 Oracle 数据防护

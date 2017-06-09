@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2016
 wacn.date: 
-ms.author: xshi
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
 ms.openlocfilehash: c77f77993e121fe42de56f6fab31129bf3882c5e

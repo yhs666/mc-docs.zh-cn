@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 wacn.date: 03/20/2017
-ms.author: muralikk
+ms.author: v-johch
 ---
 
 # 使用复制日志文件查看 Azure 导入/导出作业状态

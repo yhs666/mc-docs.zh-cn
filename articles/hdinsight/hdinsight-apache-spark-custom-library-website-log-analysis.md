@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/28/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 结合使用自定义库和 HDInsight Linux 上的 Apache Spark 群集来分析网站日志

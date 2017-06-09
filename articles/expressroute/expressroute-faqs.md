@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
-ms.author: cherylmc
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 4d5c8cd3130c375cb53c41f0d8fcd8af1fce96d7

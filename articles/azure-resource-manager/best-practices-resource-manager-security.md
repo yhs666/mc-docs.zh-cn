@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2016
 wacn.date: 12/26/2016
-ms.author: georgem;tomfitz
+ms.author: v-yeche
 ---
 
 # Azure 资源管理器的安全注意事项

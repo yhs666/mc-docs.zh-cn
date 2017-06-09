@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/25/2016
 wacn.date: 
-ms.author: syamk
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: f7f1383d091f5b88e7e1a35d939e85b5d2557d3b

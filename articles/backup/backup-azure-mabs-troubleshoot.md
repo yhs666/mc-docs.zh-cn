@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: pullabhk;markgal;
+ms.author: v-junlch
 wacn.date: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3ff18e6f95d8bbc27348658bc5fce50c3320cf0a

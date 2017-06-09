@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 wacn.date: 03/13/2017
-ms.author: priyamo
+ms.author: v-junlch
 ---
 
 # 单一注销 SAML 协议

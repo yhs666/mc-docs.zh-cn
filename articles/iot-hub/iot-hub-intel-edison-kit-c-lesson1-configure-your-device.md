@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 wacn.date: 01/23/2017
-ms.author: xshi
+ms.author: v-yiso
 ---
 
 # 配置 Intel Edison

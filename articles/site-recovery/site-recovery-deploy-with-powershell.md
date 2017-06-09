@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/10/2017
-ms.author: bsiva
+ms.author: v-johch
 ---
 
 # 在经典门户中使用 PowerShell 将 Hyper-V VM 复制到 Azure

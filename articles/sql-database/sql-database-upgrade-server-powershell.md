@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 wacn.date: 12/12/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # 使用 PowerShell 升级到 Azure SQL 数据库 V12

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 03/03/2017
-ms.author: magoedte;bwren
+ms.author: v-dazen
 ---
 
 # 了解重要的适用于自动化 Runbook 的 Windows PowerShell 工作流概念 

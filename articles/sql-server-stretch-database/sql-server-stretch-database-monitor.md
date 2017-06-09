@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2016
 wacn.date: 01/04/2017
-ms.author: douglasl
+ms.author: v-yeche
 ---
 
 # 数据迁移的监视和故障排除（SQL Server Stretch Database）

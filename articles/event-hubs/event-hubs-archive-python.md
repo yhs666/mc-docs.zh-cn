@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
 wacn.date: 03/24/2017
-ms.author: darosa;sethm
+ms.author: v-yeche
 ---
 
 # 事件中心存档演练：Python

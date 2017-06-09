@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: markvi;andkjell
+ms.author: v-junlch
 wacn.date: 03/13/2017
 ---
 

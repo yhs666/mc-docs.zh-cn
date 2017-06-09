@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 07/10/2016
 wacn.date: 03/24/2017
-ms.author: ronmat; ronitr
+ms.author: v-johch
 ---
 
 # SQL 数据库威胁检测

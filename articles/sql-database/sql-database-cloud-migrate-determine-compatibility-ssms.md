@@ -17,7 +17,7 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 01/10/2017
 wacn.date: 01/25/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 在迁移到 Azure SQL 数据库之前，使用 SQL Server Management Studio 确定 SQL 数据库的兼容性

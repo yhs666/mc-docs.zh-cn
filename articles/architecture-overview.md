@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2016
 wacn.date: 12/15/2016
-ms.author: robb
+ms.author: v-junlch
 ---
 
 #Azure 上的应用程序体系结构

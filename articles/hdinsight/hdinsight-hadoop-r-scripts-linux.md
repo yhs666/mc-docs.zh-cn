@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 wacn.date: 02/20/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 在 HDInsight Hadoop 群集上安装并使用 R

@@ -17,7 +17,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 wacn.date: 02/24/2017
-ms.author: zachal
+ms.author: v-dazen
 ---
 
 # Azure Desired State Configuration 扩展处理程序简介

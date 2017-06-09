@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 wacn.date: 03/30/2017
-ms.author: tarcher
+ms.author: v-junlch
 ---
 
 # 使用存储资源管理器（预览版）管理 Azure Blob 存储资源

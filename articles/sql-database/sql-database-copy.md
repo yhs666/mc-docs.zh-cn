@@ -11,7 +11,7 @@ ms.service: sql-database
 ms.custom: move data
 ms.devlang: NA
 ms.date: 04/05/2017
-ms.author: sashan;carlrab
+ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA

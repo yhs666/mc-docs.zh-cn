@@ -13,14 +13,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
-wacn.date: 
-ms.author: obloch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 7dce8dd3383f86ba203ad334708bbecdcb27313f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+wacn.date: 03/10/2017
+ms.author: v-yiso
 ---
 
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>适用于 C 语言的 Azure IoT 设备 SDK - 有关序列化程序的详细信息

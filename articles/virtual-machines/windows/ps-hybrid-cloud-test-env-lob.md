@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
 wacn.date: 12/16/2016
-ms.author: josephd
+ms.author: v-dazen
 ---
 
 # 在混合云中设置基于 Web 的 LOB 应用程序以用于测试

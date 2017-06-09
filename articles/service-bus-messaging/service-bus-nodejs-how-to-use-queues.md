@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: sethm
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 59cc5058f94c8bbd3eb61bc0601e6074c80e20f8

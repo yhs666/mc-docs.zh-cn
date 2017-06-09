@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 wacn.date: 01/06/2017
-ms.author: tarcher
+ms.author: v-johch
 ---
 
 # 开始使用 Azure 队列存储和 Visual Studio 连接服务（WebJob 项目）

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 wacn.date: 02/10/2017
-ms.author: navale;tomfitz;
+ms.author: v-yeche
 ---
 
 # Resource Manager REST API

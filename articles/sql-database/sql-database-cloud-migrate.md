@@ -17,7 +17,7 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 wacn.date: 03/24/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 #<a name="migrate-a-compatible-sql-server-database-to-sql-database"></a> 将 SQL Server 数据库迁移到云中的 SQL 数据库

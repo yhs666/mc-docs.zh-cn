@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 wacn.date: 03/10/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 #跨多个存储帐户管理媒体服务资产

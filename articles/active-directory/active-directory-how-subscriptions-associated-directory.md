@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2017
 wacn.date: 03/07/2017
-ms.author: curtand
+ms.author: v-junlch
 ---
 
 # Azure 订阅与 Azure Active Directory 的关联方式

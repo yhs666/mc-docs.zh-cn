@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 wacn.date: 03/31/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 公共 IP 地址

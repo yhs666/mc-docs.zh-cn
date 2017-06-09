@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 wacn.date: 
-ms.author: singhkay
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: c3351597d01f437b6af97e163a1dc03cc4902293

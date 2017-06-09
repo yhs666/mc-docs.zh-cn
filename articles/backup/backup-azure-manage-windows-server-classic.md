@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 wacn.date: 11/15/2016
-ms.author: jimpark;markgal
+ms.author: v-junlch
 ---
 
 # 使用经典部署模型管理 Azure 备份保管库和服务器

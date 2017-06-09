@@ -16,7 +16,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/25/2016
 wacn.date: 12/13/2016
-ms.author: yuaxu
+ms.author: v-junlch
 ---
 
 # 使用 Azure 通知中心和 Node.js 发送推送通知

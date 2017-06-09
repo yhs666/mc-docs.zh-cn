@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 wacn.date: 01/13/2017
-ms.author: elioda
+ms.author: v-yiso
 ---
 
 # IoT 中心高可用性和灾难恢复

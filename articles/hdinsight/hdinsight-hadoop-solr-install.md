@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2016
 wacn.date: 03/10/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 在基于 Windows 的 HDInsight 群集上安装并使用 Solr

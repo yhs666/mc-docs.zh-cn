@@ -16,7 +16,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2017
 wacn.date: 
-ms.author: mimig
+ms.author: v-junlch
 redirect_url: https://aka.ms/documentdb
 ROBOTS: NOINDEX, NOFOLLOW
 ms.translationtype: Human Translation

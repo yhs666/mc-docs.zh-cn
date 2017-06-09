@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
 wacn.date: 03/03/2017
-ms.author: cherylmc
+ms.author: v-dazen
 ---
 
 # 关于 VPN 网关配置设置

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/06/2017
 wacn.date: 03/28/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 使用 Curl 在 HDInsight 中的 Hadoop 上运行 Sqoop 作业

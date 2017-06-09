@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2016
 wacn.date: 01/09/2017
-ms.author: cherylmc
+ms.author: v-yiso
 ---
 
 # 在经典管理门户中为 ExpressRoute 创建虚拟网络

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 wacn.date: 10/25/2016
-ms.author: anandy;billmath
+ms.author: v-junlch
 ---
 
 #使用 Azure 流量管理器在 Azure 中部署高可用性跨地域 AD FS

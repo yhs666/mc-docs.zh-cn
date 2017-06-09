@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 wacn.date: 11/14/2016
-ms.author: anithaa
+ms.author: v-dazen
 ---
 
 # 使用 Azure 门户预览排查路由问题

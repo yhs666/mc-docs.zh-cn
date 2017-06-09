@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 wacn.date: 11/07/2016
-ms.author: yushwang
+ms.author: v-dazen
 ---
 
 # 高可用性跨界连接与 VNet 到 VNet 连接

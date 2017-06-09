@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 wacn.date: 03/03/2017
-ms.author: ryanwi
+ms.author: v-johch
 ---
 
 # 连接到安全群集

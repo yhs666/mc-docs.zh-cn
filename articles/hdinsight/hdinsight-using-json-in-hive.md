@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/22/2015
 wacn.date: 01/25/2017
-ms.author: rashimg
+ms.author: v-dazen
 ---
 
 # 使用 HDInsight 中的 Hive 处理和分析 JSON 文档

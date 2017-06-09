@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2017
 wacn.date: 03/10/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # 使用 REST 将文件上传到媒体服务帐户

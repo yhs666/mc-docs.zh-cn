@@ -15,7 +15,7 @@ ms.devlang: node
 ms.topic: get-started-article
 ms.date: 05/26/2016
 wacn.date: 03/24/2017
-ms.author: rachelap
+ms.author: v-dazen
 ---
 
 # 构建 Node.js RESTful API 并将它部署到 Azure 中的 API 应用

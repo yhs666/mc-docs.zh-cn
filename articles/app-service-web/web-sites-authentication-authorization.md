@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 08/31/2016
 wacn.date: 
-ms.author: cephalin
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 48463c03b4e9ef83a363a7b7bebc489cb5b5f182

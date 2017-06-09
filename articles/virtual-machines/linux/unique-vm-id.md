@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/23/2017
 wacn.date: 03/28/2017
-ms.author: kmouss
+ms.author: v-dazen
 ---
 
 # 访问和使用 Azure VM 唯一 ID

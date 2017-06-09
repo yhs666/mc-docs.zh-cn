@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 wacn.date: 12/26/2016
-ms.author: Ning
+ms.author: v-dazen
 ---
 
 # 使用 Linux 诊断扩展监视 Linux VM 的性能和诊断数据

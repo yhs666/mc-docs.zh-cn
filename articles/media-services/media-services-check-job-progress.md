@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 wacn.date: 12/16/2016
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # 使用 .NET 监视作业进度

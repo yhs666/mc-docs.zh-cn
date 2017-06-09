@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 wacn.date: 
-ms.author: jeffstok
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 4d6131630e3fe63e55232e3b9828ca4cf8e88a31

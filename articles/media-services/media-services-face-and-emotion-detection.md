@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/17/2017
-ms.author: milanga;juliako;
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: e1df1f9e781d9d1bd8eef1606dc847e43c5d6f86

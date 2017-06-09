@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/23/2016
 wacn.date: 01/23/2017
-ms.author: sethm
+ms.author: v-yiso
 ---
 
 # Azure 服务总线中的 AMQP 1.0：基于请求/响应的操作

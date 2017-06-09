@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2016
 wacn.date: 12/26/2016
-ms.author: v-shysun
+ms.author: v-johch
 ---
 
 # 如何在 Azure SQL 数据库中执行重置管理员密码等常见管理任务

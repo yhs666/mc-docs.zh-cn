@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 06/09/2016
 wacn.date: 12/14/2016
-ms.author: thmullan;jackr
+ms.author: v-johch
 ---
 
 # 保护你的 SQL 数据库

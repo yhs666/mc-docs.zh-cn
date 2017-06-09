@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2017
 wacn.date: 03/10/2017
-ms.author: yurid
+ms.author: v-yiso
 ---
 
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]

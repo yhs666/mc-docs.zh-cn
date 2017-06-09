@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 wacn.date: 05/31/2017
-ms.author: sewhee
+ms.author: v-dazen
 ---
 
 # 使用动态 DNS 在自己的 DNS 服务器中注册主机名

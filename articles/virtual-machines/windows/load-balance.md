@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2016
 wacn.date: 03/28/2016
-ms.author: sewhee
+ms.author: v-dazen
 ---
 
 # Azure 基础结构服务的负载均衡#

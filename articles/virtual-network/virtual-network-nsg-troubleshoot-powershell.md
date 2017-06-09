@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 wacn.date: 01/05/2017
-ms.author: anithaa
+ms.author: v-dazen
 ---
 
 # 使用 Azure PowerShell 排查网络安全组问题

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/30/2016
 wacn.date: 02/20/2017
-ms.author: masnider
+ms.author: v-johch
 ---
 
 # 缩放 Service Fabric 应用程序

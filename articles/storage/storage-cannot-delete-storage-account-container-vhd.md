@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 wacn.date: 03/20/2017
-ms.author: genli
+ms.author: v-johch
 ---
 
 # 对在经典部署中删除 Azure 存储帐户、容器或 VHD 进行故障排除

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2017
 wacn.date: 03/24/2017
-ms.author: steveesp
+ms.author: v-dazen
 ---
 
 # 优化 Azure 虚拟机的网络吞吐量

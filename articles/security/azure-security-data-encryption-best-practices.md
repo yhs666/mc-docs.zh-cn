@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 wacn.date: 10/31/2016
-ms.author: yuridio
+ms.author: v-johch
 ---
 
 #Azure 数据安全与加密最佳实践

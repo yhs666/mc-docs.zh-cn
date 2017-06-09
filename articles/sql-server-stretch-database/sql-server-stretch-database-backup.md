@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/24/2017
-ms.author: douglasl
+ms.author: v-yeche
 ---
 
 # 备份启用了延伸的数据库

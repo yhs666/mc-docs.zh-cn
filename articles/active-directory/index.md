@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
+ms.author: v-junlch
 ---
 
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 文档

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/19/2016
 wacn.date: 11/28/2016
-ms.author: lemai
+ms.author: v-johch
 ---
 
 # 如何在服务中调用数据丢失

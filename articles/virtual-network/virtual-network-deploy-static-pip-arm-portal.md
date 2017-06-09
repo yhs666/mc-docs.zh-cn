@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 wacn.date: 12/26/2016
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 使用 Azure 门户预览创建具有静态公共 IP 的 VM

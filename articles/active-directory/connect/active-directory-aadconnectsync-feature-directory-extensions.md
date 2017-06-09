@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/08/2017
 wacn.date: 03/13/2017
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # Azure AD Connect 同步：目录扩展

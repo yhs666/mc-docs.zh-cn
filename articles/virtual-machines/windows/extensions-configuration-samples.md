@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 wacn.date: 12/16/2016
-ms.author: kundanap
+ms.author: v-dazen
 ---
 
 # Azure Windows VM 扩展配置示例

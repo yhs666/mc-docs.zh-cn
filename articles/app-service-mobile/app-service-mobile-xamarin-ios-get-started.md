@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 wacn.date: 11/21/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # 创建 Xamarin iOS 应用

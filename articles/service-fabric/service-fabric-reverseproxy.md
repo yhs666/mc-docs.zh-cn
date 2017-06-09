@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/07/2017
-ms.author: bharatn
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 7b719db402f65c74e6ff3d3f6c77a6f31a13498a

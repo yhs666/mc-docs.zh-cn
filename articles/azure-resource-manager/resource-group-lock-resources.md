@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 wacn.date: 03/03/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 锁定资源，以防止意外更改 

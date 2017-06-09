@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 wacn.date: 02/20/2017
-ms.author: ningk
+ms.author: v-dazen
 ---
 
 # 优化 Azure Linux VM 上的 MySQL 性能

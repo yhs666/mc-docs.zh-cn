@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: sql-database
 ms.date: 05/27/2016
 wacn.date: 12/26/2016
-ms.author: torsteng
+ms.author: v-johch
 ---
 
 # 跨云数据库的分布式事务

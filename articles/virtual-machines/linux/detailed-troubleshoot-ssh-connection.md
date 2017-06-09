@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 03/07/2017
 wacn.date: 04/27/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # SSH 详细故障排除步骤

@@ -14,7 +14,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/06/2016
 wacn.date: 10/24/2016
-ms.author: lmazuel
+ms.author: v-junlch
 ---
 
 # 安装 Python 和 SDK
