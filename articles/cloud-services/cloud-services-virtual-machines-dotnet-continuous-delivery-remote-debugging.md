@@ -7,8 +7,10 @@ authors: TomArcher
 manager: douge
 editor: 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 11/18/2016
 wacn.date: 05/17/2016
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 9acd7ad4513c0c3a86a9765e38271c72fef66c71

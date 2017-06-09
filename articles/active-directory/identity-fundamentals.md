@@ -11,6 +11,7 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 wacn.date: 
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 65d9b4a4d6905099dfd134f85f93f6a963114f32
