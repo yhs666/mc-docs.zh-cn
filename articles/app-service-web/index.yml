@@ -66,7 +66,6 @@ sections:
     items:
     - html: Create an application using <a href="/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">.NET with Azure SQL DB</a> or <a href="/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>
     - html: <a href="/app-service-web/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
-    - html: <a href="/app-service-web/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a>
 - title: 免费 PluralSight 视频培训
   items:
   - type: list
