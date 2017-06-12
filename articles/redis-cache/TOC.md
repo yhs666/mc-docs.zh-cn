@@ -1,12 +1,11 @@
 # 概述
-##[为何使用 Redis 缓存](https://azure.microsoft.com/services/cache/)
+##[为何使用 Redis 缓存](https://www.azure.cn/home/features/redis-cache/)
 ##[探究高级层功能](cache-premium-tier-intro.md)
 ## 方案
 ###[访问缓存中的项目](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)
-###[配置高可用性](https://azure.microsoft.com/pricing/details/cache/)
+###[配置高可用性](https://www.azure.cn/pricing/details/redis-cache/)
 ###[使用 SSL 进行安全连接](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)
 ###[缓存模式与实践指南](../best-practices-caching.md?toc=%2fredis-cache%2ftoc.json)
-
 
 # 入门
 ##[ASP.NET](cache-web-app-howto.md)
@@ -25,7 +24,7 @@
 ###[使用群集功能分配缓存](cache-how-to-premium-clustering.md)
 ## 自动化
 ###[使用 Powershell 进行部署和管理](cache-howto-manage-redis-cache-powershell.md)
-###[使用 Azure CLI 进行部署和管理](cache-manage-cli.md)
+###[使用 Azure CLI 进行部署和管理](cli-samples.md)
 ###[预配 Redis 缓存](cache-redis-cache-arm-provision.md)
 ###[使用 Redis 缓存预配 Web 应用](cache-web-app-arm-with-redis-cache-provision.md)
 ## 与 ASP.NET 集成
@@ -45,7 +44,7 @@
 ###[使用 Redis 群集来缩小/扩大](cache-how-to-premium-clustering.md)
 
 # 引用
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.rediscache)
 ## [Azure CLI 2.0 预览版](https://docs.microsoft.com/cli/azure/redis)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.redis)
 ## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.redis._redis_cache)
@@ -55,6 +54,4 @@
 
 # 资源
 ## [Redis 缓存示例](cache-redis-samples.md)
-## [价格](https://azure.microsoft.com/pricing/details/cache/)
-
-<!---HONumber=Mooncake_0206_2017-->
+## [定价](https://www.azure.cn/pricing/details/redis-cache/)
