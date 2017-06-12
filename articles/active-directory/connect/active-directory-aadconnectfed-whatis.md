@@ -19,7 +19,7 @@ ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: e802054eec0f846f226a25293be299abd7b0ba91
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/12/2017
-
+wacn.date: 06/12/2017
 
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect 和联合身份验证

@@ -678,7 +678,7 @@ HDInsight 服务提供多种方式来使用自定义组件。 不论在群集上
 
 ### <a name="using-the-ambari-web-ui"></a>使用 Ambari Web UI
 
-1. 在浏览器中，导航到 https://CLUSTERNAME.azurehdinsight.cn。 将 CLUSTERNAME 替换为 HDInsight 群集的名称。
+1. 在浏览器中，导航到 https://CLUSTERNAME.azurehdinsight.cn 。 将 CLUSTERNAME 替换为 HDInsight 群集的名称。
 
     出现提示时，为群集输入管理员帐户名 (admin) 和密码。 你可能需要在 Web 窗体中重新输入管理员凭据。
 

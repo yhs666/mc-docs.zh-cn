@@ -39,10 +39,8 @@
 ## [多重身份验证](/multi-factor-authentication)
 
 # 资源
-## [About Keys and Secrets](https://msdn.microsoft.com/zh-cn/library/azure/dn903623)（关于密钥和机密）
+## [About Keys and Secrets](https://msdn.microsoft.com/en-us/library/azure/dn903623)
 ## [代码示例](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [价格](https://www.azure.cn/pricing/details/key-vault/)
 ## [博客](http://blogs.technet.com/b/kv/)
-## [论坛](https://social.msdn.microsoft.com/forums/azure/zh-cn/home?forum=AzureKeyVault)
-
-<!---HONumber=Mooncake_0220_2017-->
+## [论坛](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
