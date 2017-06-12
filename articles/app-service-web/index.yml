@@ -16,15 +16,6 @@ metadata:
   ms.author: carolz
 abstract:
   description: 使用 Azure Web 应用可以采用所选编程语言构建和托管 Web 应用程序，而无需管理基础结构。 它提供自动缩放和高可用性，支持 Windows 和 Linux，并允许从 GitHub、Team Services 或任何 Git 存储库进行自动部署。 使用我们的快速入门、教程和示例了解如何使用 Azure Web 应用。
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: /app-service-web/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
-      width: 250  
-    title: '使用 Node.js 和 Azure 应用服务创建 Web 应用。 (2:41)'
-    href: https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
-    width: 250
 sections:
 - title: 5 分钟快速入门
   items:
@@ -66,20 +57,6 @@ sections:
     items:
     - html: Create an application using <a href="/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">.NET with Azure SQL DB</a> or <a href="/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>
     - html: <a href="/app-service-web/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
-- title: 免费 PluralSight 视频培训
-  items:
-  - type: list
-    style: cards
-    className: cardsW
-    items:
-    - html: <p><a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Developing with .NET</a></p>
-      image: 
-        src: /app-service-web/media/index/video-training-dotnet.png
-        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: <p><a href="https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Developing with Node.js</a></p>
-      image: 
-        src: /app-service-web/media/index/video-training-nodejs.png
-        href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
 - title: 示例
   items:
   - type: paragraph

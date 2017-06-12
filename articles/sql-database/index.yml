@@ -45,19 +45,6 @@ sections:
     items:
     - html: <a href="/sql-database/sql-database-design-first-database">Create and design the schema for a new SQL Database</a>
     - html: <a href="/sql-database/sql-database-migrate-your-sql-server-database">Migrate an existing SQL Server Database to use Azure SQL Database</a>
-    - html: <a href="/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
-    - html: <a href="/sql-database/sql-database-performance-tutorial">Improve SQL Database performance</a>
-    - html: <a href="/sql-database/sql-database-multi-tenant-application">Implement a multi-tenant SaaS application using SQL DB</a>
-- title: 免费 PluralSight 视频培训
-  items:
-  - type: list
-    style: cards
-    className: cardsW
-    items:
-    - html: <p><a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Developing with .NET</a></p>
-      image: 
-        src: /sql-database/media/index/video-training-dotnet.png
-        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
 - title: 示例
   items:
   - type: paragraph
