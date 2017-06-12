@@ -98,7 +98,6 @@ ms.lasthandoff: 05/12/2017
         </div>
         </a>
     </li>
-    <li>
 </ul>
 
 ---

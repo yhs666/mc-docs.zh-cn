@@ -106,7 +106,6 @@ New-AzureRmResourceGroup -Name testrg -Location 'China North'
     $subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/27
     $subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
     ```
-
 2. 创建 VNet。
 
     ```powershell
@@ -121,13 +120,11 @@ New-AzureRmResourceGroup -Name testrg -Location 'China North'
     ```powershell
     $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
     ```
-
 2. 创建网关子网。
 
-    ```powershell
-    Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/27 -VirtualNetwork $vnet
-    ```
-
+      ```powershell
+      Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/27 -VirtualNetwork $vnet
+      ```
 3. 设置配置。
 
     ```powershell
@@ -214,14 +211,12 @@ $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -Subnet
 接下来，将在虚拟网络网关和 VPN 设备之间创建站点到站点 VPN 连接。 请务必替换为你自己的值。 共享密钥必须与你用于 VPN 设备配置的值匹配。 请注意，站点到站点的“-ConnectionType”为 IPsec。
 
 1. 设置变量。
-
     ```powershell
     $gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
     $local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
     ```
 
 2. 创建连接。
-
     ```powershell
     New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName testrg `
     -Location 'China North' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `

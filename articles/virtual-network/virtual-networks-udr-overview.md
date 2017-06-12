@@ -17,10 +17,10 @@ wacn.date:
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 3be54bf8fff646755e9e0557484da12e8f1cb12b
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: e3936454b217a4be3b34c4175e0d7210adbd528d
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -48,7 +48,7 @@ ms.lasthandoff: 04/22/2017
 ![Azure 中的系统路由](./media/virtual-networks-udr-overview/Figure2.png)
 
 > [!IMPORTANT]
-> 用户定义的路由只会应用于离开子网的流量。 例如，无法创建路由以指定流量如何从 Internet 流入子网。 此外，流量所转发到的目标设备不能与流量的来源设备位于同一子网中。 必须为设备创建一个单独的子网。 
+> 用户定义的路由适用于从子网中的任意资源（例如附加到 VM 的网络接口）离开子网的流量。 例如，无法通过创建路由来指定流量如何从 Internet 进入子网。 流量所转发到的设备不能与流量来源设备位于同一子网中。 必须为设备创建一个单独的子网。 
 > 
 > 
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 04/22/2017
 * **本地规则**：此规则适用于要发送到本地地址范围的所有流量，并使用 VPN 网关作为下一跃点目标。
 * **Internet 规则**：此规则处理要发送到公共 Internet（地址前缀 0.0.0.0/0）的所有流量，并使用基础结构 Internet 网关作为要发送到 Internet 的所有流量的下一跃点。
 
-### <a name="user-defined-routes"></a> 用户定义的路由
+### <a name="user-defined-routes"></a>用户定义路由
 对于大多数环境，仅需要 Azure 已定义的系统路由。 不过，你可能需要创建路由表，在特定情况下还要添加一个或多个路由，例如：
 
 * 强制通过本地网络以隧道方式连接到 Internet。
@@ -105,7 +105,7 @@ ms.lasthandoff: 04/22/2017
 > 
 > 
 
-## <a name="ip-forwarding" id="IP-forwarding"></a> IP 转发
+## <a name="ip-forwarding"></a>IP 转发
 如上所述，之所以要创建用户定义的路由，其中一个主要原因是为了将流量转发到虚拟设备。 虚拟设备只是一个 VM，该 VM 所运行的应用程序用于通过某种方式（例如防火墙或 NAT 设备）处理网络流量。
 
 此虚拟设备 VM 必须能够接收不以其自身为目标的传入流量。 若要允许 VM 接收发送到其他目标的流量，必须为该 VM 启用 IP 转发。 这是 Azure 设置，不是来宾操作系统中的设置。
