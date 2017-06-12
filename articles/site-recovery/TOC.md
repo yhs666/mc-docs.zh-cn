@@ -15,8 +15,6 @@
 ## 计划
 ### [部署先决条件](site-recovery-prereq.md)
 ### [规划网络基础结构](site-recovery-network-design.md)
-### [规划容量以及缩放 VMware 在 Azure 中的复制](site-recovery-plan-capacity-vmware.md)
-### [用于将 VMware 复制到 Azure 的 Deployment Planner](site-recovery-deployment-planner.md)
 ### [用于 Hyper-V 复制的 Capacity Planner](site-recovery-capacity-planner.md)
 
 
@@ -25,7 +23,6 @@
 ### [设置恢复计划](site-recovery-create-recovery-plans.md)
 #### [将 Azure Runbook 添加到恢复计划](site-recovery-runbook-automation.md)
 ### [运行测试故障转移](site-recovery-test-failover-to-azure.md)
-### [在故障转移后重新保护计算机](site-recovery-how-to-reprotect.md)
 
 ## 迁移
 ### [迁移到 Azure](site-recovery-migrate-to-azure.md)
@@ -34,8 +31,6 @@
 ## 工作负荷
 ### [Active Directory 和 DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
-### [SharePoint](site-recovery-sharepoint.md)
-### [Dynamics AX](site-recovery-dynamicsax.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
