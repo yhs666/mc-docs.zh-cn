@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 3e74db5825098cf7821654328a5132b8936e2019
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: f5dfda908b19a262ca9202db52ef784110424d49
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -229,7 +229,7 @@ ms.lasthandoff: 04/28/2017
     然后，该代码会每隔 10 秒钟查询一次存储在 IoT 中心的设备孪生，并打印所需遥测配置和报告遥测配置。 若要了解如何在所有设备中生成丰富的报告，请参阅 [IoT 中心查询语言][lnk-query]。
    
    > [!IMPORTANT]
-   > 为进行说明，此应用程序每 10 秒查询 IoT 中心一次。 使用查询跨多个设备生成面向用户的报表，而不检测更改。 如果解决方案需要设备事件的实时通知，请使用 [设备到云的消息][lnk-d2c]。
+   > 为进行说明，此应用程序每 10 秒查询 IoT 中心一次。 使用查询跨多个设备生成面向用户的报表，而不检测更改。 如果解决方案需要设备事件的实时通知，请使用[孪生通知][lnk-twin-notifications]。
    > 
    > 
 7. 最后，在 **Main** 方法中添加以下行：
@@ -270,7 +270,7 @@ Use the following resources to learn how to:
 
 [lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md
 [lnk-query]: ./iot-hub-devguide-query-language.md
-[lnk-d2c]: ./iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-twin-notifications]: ./iot-hub-devguide-device-twins.md#back-end-operations
 [lnk-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-dm-overview]: ./iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: ./iot-hub-node-node-twin-getstarted.md
@@ -278,7 +278,6 @@ Use the following resources to learn how to:
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
 [lnk-iothub-getstarted]: ./iot-hub-node-node-getstarted.md
 [lnk-methods-tutorial]: ./iot-hub-node-node-direct-methods.md
 

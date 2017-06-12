@@ -55,4 +55,3 @@ Azure IoT 套件是企业级解决方案，让用户能够通过一组可扩展�
 [Azure Stream Analytics]: https://www.azure.cn/home/features/stream-analytics/
 [Azure storage]: https://www.azure.cn/home/features/storage/
 [lnk-predictive-maintenance]: ./iot-suite-predictive-overview.md
-[lnk-connected-factory]: ./iot-suite-connected-factory-overview.md

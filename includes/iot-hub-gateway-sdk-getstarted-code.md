@@ -36,7 +36,7 @@
 
 ### <a name="gateway-creation"></a>创建网关
 
-开发人员必须编写 *网关进程*。 此程序创建内部基础结构（中转站）、加载模块，以及进行正常运行所需的所有设置。 该 SDK 提供 **Gateway\_Create\_From\_JSON** 函数，让你从 JSON 文件启动网关。 若要使用 **Gateway\_Create\_From\_JSON** 函数，必须将 JSON 文件的路径传递给它，以便指定要加载的模块。
+开发人员必须编写 *网关进程*。 此程序创建内部基础结构（中转站）、加载模块，以及进行正常运行所需的所有设置。 IoT Edge 提供 **Gateway\_Create\_From\_JSON** 函数，用于从 JSON 文件启动网关。 若要使用 **Gateway\_Create\_From\_JSON** 函数，必须将 JSON 文件的路径传递给它，以便指定要加载的模块。
 
 可以在 Hello World 示例的 [main.c][lnk-main-c] 文件中找到网关进程的代码。 为了增强可读性，以下代码片段显示的是简化版网关进程代码。 此示例程序创建一个网关，在解除该网关之前，会等待用户按 **ENTER** 键。
 
@@ -62,7 +62,7 @@ int main(int argc, char** argv)
 JSON 设置文件包含要加载的模块的列表以及模块之间的链接。 每个模块必须指定：
 
 * **name**：模块的唯一名称。
-* **loader**：一个知道如何加载所需模块的加载程序。 加载程序是一个扩展点，用于加载不同类型的模块。 我们提供了用于以原生 C、Node.js、Java 和 .NET 编写的模块的加载程序。 Hello World 示例仅使用了本机 C 加载程序，因为此示例中的所有模块都是以 C 编写的动态库。有关如何使用以不同语言编写的模块的详细信息，请参阅 [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/nodejs_simple_sample/)、[Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/java_sample) 或 [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/dotnet_binding_sample) 示例。
+* **loader**：一个知道如何加载所需模块的加载程序。 加载程序是一个扩展点，用于加载不同类型的模块。 我们提供了用于以原生 C、Node.js、Java 和 .NET 编写的模块的加载程序。 Hello World 示例仅使用了本机 C 加载程序，因为此示例中的所有模块都是以 C 编写的动态库。有关如何使用以不同语言编写的模块的详细信息，请参阅 [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/)、[Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample) 或 [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample) 示例。
     * **name**：用来加载模块的加载程序的名称。
     * **entrypoint**：包含模块的库的路径。 在 Linux 上，此库是一个 .so 文件；在 Windows 上，此库是一个 .dll 文件。 该入口点特定于所使用的加载程序的类型。 Node.js 加载程序的入口点是一个 .js 文件。 Java 加载程序的入口点是类路径加类名。 .NET 加载程序的入口点是程序集名加类名。
 
@@ -223,14 +223,14 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解如何使用 IoT 网关 SDK，请参阅以下文章：
+若要了解如何使用 Azure IoT Edge，请参阅以下文章：
 
-- [IoT 网关 SDK - 使用 Linux 通过模拟设备发送设备到云消息][lnk-gateway-simulated]。
-- [Azure IoT Gateway SDK][lnk-gateway-sdk] （Azure IoT 网关 SDK）。
+* [IoT Edge - 使用 Linux 通过模拟设备发送设备到云消息][lnk-gateway-simulated]。
+* GitHub 上的 [Azure IoT Edge][lnk-gateway-sdk]。
 
 <!-- Links -->
-[lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
-[lnk-helloworld-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/hello_world/src/hello_world.c
-[lnk-logger-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/logger/src/logger.c
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
+[lnk-main-c]: https://github.com/Azure/iot-edge/blob/master/samples/hello_world/src/main.c
+[lnk-helloworld-c]: https://github.com/Azure/iot-edge/blob/master/modules/hello_world/src/hello_world.c
+[lnk-logger-c]: https://github.com/Azure/iot-edge/blob/master/modules/logger/src/logger.c
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md

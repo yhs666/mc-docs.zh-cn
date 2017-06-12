@@ -74,7 +74,6 @@
 ### Xamarin.Forms
 #### [启用脱机同步](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 #### [添加身份验证](app-service-mobile-xamarin-forms-get-started-users.md)
-#### [在 Xamarin.Forms 应用中连接到 Azure 存储](app-service-mobile-xamarin-forms-blob-storage.md)
 #### [使用客户端 SDK](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.iOS
@@ -182,8 +181,6 @@
 #### [将 Azure Resource Manager 与 PowerShell 配合使用](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [使用 Azure 自动化管理应用](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## 集成
-### [在 Xamarin.Forms 应用中连接到 Azure 存储](app-service-mobile-xamarin-forms-blob-storage.md)
 
 
 ## 故障排除

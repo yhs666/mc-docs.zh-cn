@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 713f0e6404d96caeb64654ed979a117895c2b3d1
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 5373db8701fdc5178cbb4c47a9c98061663dc6d0
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -237,7 +237,7 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
 
 若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅[教程：如何更新固件][lnk-fwupdate]。
 
-若要继续完成 IoT 中心入门内容，请参阅 [IoT 网关 SDK 入门][lnk-gateway-SDK]。
+若要继续完成 IoT 中心入门内容，请参阅 [IoT Edge 入门][lnk-gateway-SDK]。
 
 <!-- images -->
 [img-servicenuget]: ./media/iot-hub-csharp-node-schedule-jobs/servicesdknuget.png

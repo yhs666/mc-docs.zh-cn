@@ -120,7 +120,6 @@ ms.lasthandoff: 05/26/2017
                                                     <h4>应用模型</h4>
                                                     <ul class="noBullet">
                                                         <li><a class="barLink" href="/app-service-web/">Web 应用</a></li>
-                                                        <li><a class="barLink" href="/azure-functions/">无服务器函数</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -137,17 +136,12 @@ ms.lasthandoff: 05/26/2017
                                                 <h4>关系数据库</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/sql-database/">SQL 数据库即服务</a></li>
-                                                    <li><a class="barLink" href="/postgresql/">PostgreSQL 数据库即服务</a></li>
                                                     <li><a class="barLink" href="/mysql/">MySQL 数据库即服务</a></li>
-                                                </ul>
-                                                <h4>NoSQL</h4>
-                                                <ul class="noBullet">
-                                                    <li><a class="barLink" href="/cosmos-db/">Cosmos DB</a></li>
                                                 </ul>
                                                 <h4>AI 和认知服务</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/cognitive-services/computer-vision/">计算机视觉 API</a></li>
-                                                    <li><a class="barLink" href="/cognitive-services/face/">人脸 API</a></li>
+                                                    <li><a class="barLink" href="https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236">计算机视觉 API</a></li>
+                                                    <li><a class="barLink" href="https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa">人脸 API</a></li>
                                                 </ul>
                                             </div>
                                         </div>
