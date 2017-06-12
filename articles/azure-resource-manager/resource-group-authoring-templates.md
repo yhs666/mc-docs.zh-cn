@@ -16,14 +16,15 @@ ms.date: 03/23/2017
 wacn.date: 
 ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 9ba1612c3f279668c705fcbc2e79778792fb62a7
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: e88392a96f5dd6f752bdb10ba5993785aa0e20f5
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 05/26/2017
+
 
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 模板的结构和语法
-本主题介绍 Azure Resource Manager 模板的结构， 演示了模板的不同部分，以及可在相应部分使用的属性。 模板中包含可用于为部署构造值的 JSON 和表达式。 有关创建模板的分步教程，请参阅[创建第一个 Azure Resource Manager 模板](./resource-manager-create-first-template.md)。
+本主题介绍 Azure Resource Manager 模板的结构， 演示了模板的不同部分，以及可在相应部分使用的属性。 模板中包含可用于为部署构造值的 JSON 和表达式。 有关创建模板的分步教程，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。
 
 将模板大小限制为 1 MB 以内，每个参数文件大小限制为 64 KB 以内。 通过迭代资源定义及变量和参数的值扩展模板后，1 MB 的限制适用于模板的最终状态。 
 
@@ -123,7 +124,7 @@ ms.lasthandoff: 04/22/2017
 }
 ```
 
-有关模板函数的完整列表，请参阅 [Azure Resource Manager 模板函数](./resource-group-template-functions.md)。 
+有关模板函数的完整列表，请参阅 [Azure Resource Manager 模板函数](resource-group-template-functions.md)。 
 
 ## <a name="parameters"></a>参数
 在模板的 parameters 节中，你可以指定在部署资源时能够输入的值。 提供针对特定环境（例如开发、测试和生产环境）定制的参数值可以自定义部署。 无需在模板中提供参数，但如果没有参数，模板始终部署具有相同名称、位置和属性的相同资源。
@@ -219,7 +220,7 @@ ms.lasthandoff: 04/22/2017
 }
 ```
 
-若要了解如何在部署过程中输入参数值，请参阅 [Deploy an application with Azure Resource Manager template](./resource-group-template-deploy.md)（使用 Azure Resource Manager 模板部署应用程序）。 
+若要了解如何在部署过程中输入参数值，请参阅 [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)（使用 Azure Resource Manager 模板部署应用程序）。 
 
 ## <a name="variables"></a>变量
 在 variables 节中构造可在整个模板中使用的值。 不需要定义变量，但使用变量可以减少复杂的表达式，从而简化模板。
@@ -273,7 +274,7 @@ ms.lasthandoff: 04/22/2017
 ```
 
 ## <a name="resources"></a>资源
-在 resources 节，可以定义部署或更新的资源。 此节可能比较复杂，因为用户必须了解要部署哪些类型才能提供正确的值。 
+在 resources 节，可以定义部署或更新的资源。 此节可能比较复杂，因为用户必须了解要部署哪些类型才能提供正确的值。 有关需要设置的资源特定值（apiVersion、type 和 properties），请参阅[在 Azure Resource Manager 模板中定义资源](/templates/)。 
 
 使用以下结构定义资源：
 
@@ -306,12 +307,12 @@ ms.lasthandoff: 04/22/2017
 | apiVersion |是 |用于创建资源的 REST API 版本。 |
 | type |是 |资源的类型。 此值是资源提供程序的命名空间和资源类型（例如 **Microsoft.Storage/storageAccounts**）的组合。 |
 | 名称 |是 |资源的名称。 该名称必须遵循 RFC3986 中定义的 URI 构成部分限制。 此外，向第三方公开资源名称的 Azure 服务将验证名称，以确保它不是尝试窃取另一个身份。 |
-| location |多种多样 |提供的资源支持的地理位置。 可以选择任何可用位置，但通常选取靠近用户的位置。 通常还会将彼此交互的资源置于同一区域。 大多数资源类型需要一个位置，但某些类型 （如角色分配）不需要位置。 请参阅[在 Azure Resource Manager 模板中设置资源位置](./resource-manager-template-location.md)。 |
-| 标记 |否 |与资源关联的标记。 请参阅[标记 Azure Resource Manager 模板中的资源](./resource-manager-template-tags.md)。 |
+| location |多种多样 |提供的资源支持的地理位置。 可以选择任何可用位置，但通常选取靠近用户的位置。 通常还会将彼此交互的资源置于同一区域。 大多数资源类型需要一个位置，但某些类型 （如角色分配）不需要位置。 请参阅[在 Azure Resource Manager 模板中设置资源位置](resource-manager-template-location.md)。 |
+| 标记 |否 |与资源关联的标记。 请参阅[标记 Azure Resource Manager 模板中的资源](resource-manager-template-tags.md)。 |
 | 注释 |否 |用于描述模板中资源的注释 |
-| dependsOn |否 |部署此资源之前必须部署的资源。 Resource Manager 将评估资源之间的依赖关系，并按正确的顺序部署资源。 如果资源不相互依赖，则可并行部署资源。 该值可以是资源名称或资源唯一标识符的逗号分隔列表。 在此模板中仅部署列出的资源。 此模板中未定义的资源必须已存在。 避免添加不必要的依赖项，因为这些依赖项可能会降低部署速度并创建循环依赖项。 有关设置依赖项的指导，请参阅[在 Azure Resource Manager 模板中定义依赖项](./resource-group-define-dependencies.md)。 |
+| dependsOn |否 |部署此资源之前必须部署的资源。 Resource Manager 将评估资源之间的依赖关系，并按正确的顺序部署资源。 如果资源不相互依赖，则可并行部署资源。 该值可以是资源名称或资源唯一标识符的逗号分隔列表。 在此模板中仅部署列出的资源。 此模板中未定义的资源必须已存在。 避免添加不必要的依赖项，因为这些依赖项可能会降低部署速度并创建循环依赖项。 有关设置依赖项的指导，请参阅[在 Azure Resource Manager 模板中定义依赖项](resource-group-define-dependencies.md)。 |
 | 属性 |否 |特定于资源的配置设置。 properties 的值与创建资源时，在 REST API 操作（PUT 方法）的请求正文中提供的值相同。 |
-| 复制 |否 |如果需要多个实例，则为要创建的资源数。 有关详细信息，请参阅[在 Azure Resource Manager 中创建多个资源实例](./resource-group-create-multiple.md)。 |
+| 复制 |否 |如果需要多个实例，则为要创建的资源数。 有关详细信息，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。 |
 | 资源 |否 |依赖于所定义的资源的子资源。 只能提供父资源的架构允许的资源类型。 子资源的完全限定类型包含父资源类型，例如 **Microsoft.Web/sites/extensions**。 不隐式表示对父资源的依赖。 必须显式定义该依赖关系。 |
 
 resources 节包含要部署的资源数组。 在每个资源内，还可以定义子资源数组。 因此，resources 节的结构可能类似于：
@@ -338,7 +339,7 @@ resources 节包含要部署的资源数组。 在每个资源内，还可以定
 ]
 ```      
 
-有关定义子资源的详细信息，请参阅[在 Resource Manager 模板中设置子资源的名称和类型](./resource-manager-template-child-resource.md)。
+有关定义子资源的详细信息，请参阅[在 Resource Manager 模板中设置子资源的名称和类型](resource-manager-template-child-resource.md)。
 
 ## <a name="outputs"></a>Outputs
 在 Outputs 节中，可以指定从部署返回的值。 例如，可能会返回用于访问已部署资源的 URI。
@@ -371,12 +372,12 @@ resources 节包含要部署的资源数组。 在每个资源内，还可以定
 }
 ```
 
-有关如何处理输出的详细信息，请参阅 [Sharing state in Azure Resource Manager templates](./best-practices-resource-manager-state.md)（在 Azure Resource Manager 模板中共享状态）。
+有关如何处理输出的详细信息，请参阅 [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md)（在 Azure Resource Manager 模板中共享状态）。
 
 ## <a name="next-steps"></a>后续步骤
-* 若要查看许多不同类型的解决方案的完整模型，请参阅 [Azure Quickstart Templates](https://azure.microsoft.com/zh-cn/documentation/templates/)（Azure 快速入门模板）。
-* 有关用户可以使用的来自模板中的函数的详细信息，请参阅 [Azure Resource Manager Template Functions](./resource-group-template-functions.md)（Azure Resource Manager 模板函数）。
-* 若要在部署期间合并多个模板，请参阅 [Using linked templates with Azure Resource Manager](./resource-group-linked-templates.md)（将已链接的模板与 Azure Resource Manager 配合使用）。
-* 你可能需要使用不同资源组中的资源。 使用跨多个资源组共享的存储帐户或虚拟网络时，此方案很常见。 有关详细信息，请参阅 [resourceId 函数](./resource-group-template-functions.md#resourceid)。
+* 若要查看许多不同类型的解决方案的完整模型，请参阅 [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/)（Azure 快速入门模板）。
+* 有关用户可以使用的来自模板中的函数的详细信息，请参阅 [Azure Resource Manager Template Functions](resource-group-template-functions.md)（Azure Resource Manager 模板函数）。
+* 若要在部署期间合并多个模板，请参阅 [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)（将已链接的模板与 Azure Resource Manager 配合使用）。
+* 你可能需要使用不同资源组中的资源。 使用跨多个资源组共享的存储帐户或虚拟网络时，此方案很常见。 有关详细信息，请参阅 [resourceId 函数](resource-group-template-functions-resource.md#resourceid)。
 
-[deployment2cmdlet]: https://docs.microsoft.com/zh-cn/powershell/resourcemanager/azurerm.resources/v3.2.0/new-azurermresourcegroupdeployment
+[deployment2cmdlet]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/new-azurermresourcegroupdeployment

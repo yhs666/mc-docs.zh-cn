@@ -25,7 +25,6 @@
 ### [可用 API](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET framework](event-hubs-dotnet-framework-api-overview.md)
-<!-- Not Available #### [诊断日志](event-hubs-diagnostic-logs.md)-->
 ### [身份验证和授权](../service-bus-messaging/service-bus-sas.md)
 ### [AMQP 1.0 协议指南](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## 管理
