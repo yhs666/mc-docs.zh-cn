@@ -45,9 +45,6 @@ sections:
     items:
     - html: <a href="/sql-database/sql-database-design-first-database">Create and design the schema for a new SQL Database</a>
     - html: <a href="/sql-database/sql-database-migrate-your-sql-server-database">Migrate an existing SQL Server Database to use Azure SQL Database</a>
-    - html: <a href="/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
-    - html: <a href="/sql-database/sql-database-performance-tutorial">Improve SQL Database performance</a>
-    - html: <a href="/sql-database/sql-database-multi-tenant-application">Implement a multi-tenant SaaS application using SQL DB</a>
 - title: 免费 PluralSight 视频培训
   items:
   - type: list
