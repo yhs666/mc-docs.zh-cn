@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: f361a9fbccb5c425a0edd7effd420c7a80f292b0
@@ -236,7 +236,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
     * 创建 *sudo* 用户帐户。
     * 重置 SSH 配置。
 * 检查 VM 的资源运行状况，了解是否存在任何平台问题。<br>
-   选择 VM 并向下滚动到“设置” > “检查运行状况”********。
+   选择 VM 并向下滚动到“**设置**” > “**检查运行状况**”。
 
 ## <a name="additional-resources"></a>其他资源
 * 如果在执行后续步骤之后仍然无法通过 SSH 连接到 VM，请参阅[更详细的故障排除步骤](detailed-troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，查看其他可以解决问题的步骤。

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 wacn.date: 03/31/2017
-ms.author: gwallace
+ms.author: v-dazen
 ---
 
 # 使用 Azure CLI 2.0 创建应用程序网关

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 wacn.date: 03/10/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 使用脚本操作自定义基于 Windows 的 HDInsight 群集
@@ -55,12 +55,12 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装以下组件�
 | **安装 R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1 。请参阅[在 HDInsight 群集上安装并使用 R][hdinsight-install-r]。 |
 | **安装 Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 。请参阅[在 HDInsight 群集上安装并使用 Solr](./hdinsight-hadoop-solr-install.md)。 |
 | - **安装 Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 。请参阅[在 HDInsight 群集上安装并使用 Giraph](./hdinsight-hadoop-giraph-install.md)。 |
-| **预加载 Hive 库** |https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1 。请参阅 [Add Hive libraries on HDInsight clusters](./hdinsight-hadoop-add-hive-libraries.md)（在 HDInsight 群集上添加 Hive 库） |
+| **预加载 Hive 库** |https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1 。请参阅[在 HDInsight 群集上添加 Hive 库](./hdinsight-hadoop-add-hive-libraries.md) |
 
 ## 使用 Azure 门户预览调用脚本
 **在 Azure 门户预览中**
 
-1. 根据 [Create Hadoop clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md)（在 HDInsight 中创建 Hadoop 群集）中所述开始创建群集。
+1. 根据[在 HDInsight 中创建 Hadoop 群集](./hdinsight-hadoop-provision-linux-clusters.md)中所述开始创建群集。
 2. 在“脚本操作”边栏选项卡的“可选配置”下，单击“添加脚本操作”，提供有关脚本操作的详细信息，如下所示：
 
     ![使用脚本操作自定义群集](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "使用脚本操作自定义群集")  

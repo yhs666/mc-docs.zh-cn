@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 2d42b33e1aff3a0e6ca12a6b51500dcede5433d5
@@ -25,7 +25,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/site-recovery/site-recovery-overview">
+        <a href="/site-recovery/site-recovery-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,43 +43,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=recovery-manager">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure Site Recovery 视频库</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/site-recovery/site-recovery-vmware-to-azure">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure Site Recovery 入门</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/site-recovery/site-recovery-hyper-v-site-to-azure">
+        <a href="/site-recovery/site-recovery-hyper-v-site-to-azure">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +61,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/site-recovery/site-recovery-vmm-to-azure">
+        <a href="/site-recovery/site-recovery-vmm-to-azure">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -126,8 +90,8 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>命令行</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery">PowerShell</a></p>
-                        <p><a href="/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery">PowerShell 经典</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery">PowerShell 经典</a></p>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 11/16/2016
 wacn.date: 
-ms.author: denlee
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: e2dd6c8926bb7691a5fb716730f657fb4f0ffe76
@@ -233,7 +233,7 @@ ms.lasthandoff: 05/19/2017
                 return collectionCache;
             }
         }
-4. 下一步是编写一些代码将 TodoItem 保存到集合中。 本示例将使用 [Gson](https://code.google.com/p/google-gson/)将 TodoItem 普通 Java 对象 (POJO) 序列化到 JSON 文档和从中反序列化 POJO。 [Jackson](http://jackson.codehaus.org/) 或你自己的自定义序列化程序也是用于序列化 POJO 的很好的替代项。
+4. 下一步是编写一些代码将 TodoItem 保存到集合中。 本示例将使用 [Gson](https://code.google.com/p/google-gson/)将 TodoItem 普通 Java 对象 (POJO) 序列化到 JSON 文档和从中反序列化 POJO。 Jackson 或你自己的自定义序列化程序也是用于序列化 POJO 的很好的替代项。
    
         // We'll use Gson for POJO <=> JSON serialization for this example.
         private static Gson gson = new Gson();

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2016
 wacn.date: 01/05/2017
-ms.author: singhkay
+ms.author: v-dazen
 ---
 
 # 将策略应用到 Azure Resource Manager 虚拟机

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 wacn.date: 03/28/2017
-ms.author: jroth
+ms.author: v-dazen
 ---
 
 # 连接到 Azure 上的 SQL Server 虚拟机（经典部署）

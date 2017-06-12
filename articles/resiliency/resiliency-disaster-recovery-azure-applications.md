@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 wacn.date: 02/20/2017
-ms.author: aglick
+ms.author: v-yeche
 ---
 
 # 构建在 Azure 基础之上的应用程序灾难恢复

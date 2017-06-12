@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 wacn.date: 
-ms.author: tomfitz
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: d3155ab26e9781406a5ac9cbce5486098b777563
@@ -262,8 +262,8 @@ ms.lasthandoff: 04/22/2017
     ```
 
 ## <a name="next-steps"></a>后续步骤
-* 有关通过 .NET 客户端库部署资源的示例，请参阅[使用 .NET 库和模板部署资源](../virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 有关通过 .NET 客户端库部署资源的示例，请参阅[使用 .NET 库和模板部署资源](../virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 若要在模板中定义参数，请参阅[创作模板](./resource-group-authoring-templates.md#parameters)。
 * 有关将解决方案部署到不同环境的指南，请参阅 [Azure 中的开发和测试环境](./solution-dev-test-environments.md)。
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](./resource-manager-subscription-governance.md)。
-* 有关自动部署的四部分系列，请参阅[将应用程序自动部署到 Azure 虚拟机](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 此系列教程介绍了应用程序体系结构、访问与安全性、可用性与缩放性，以及应用程序部署。
+* 有关自动部署的四部分系列，请参阅[将应用程序自动部署到 Azure 虚拟机](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 此系列教程介绍了应用程序体系结构、访问与安全性、可用性与缩放性，以及应用程序部署。

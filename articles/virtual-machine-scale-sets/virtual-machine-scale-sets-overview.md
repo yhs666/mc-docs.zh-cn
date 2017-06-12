@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/10/2017
 wacn.date: 
-ms.author: guybo
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
@@ -51,6 +51,8 @@ ms.lasthandoff: 04/22/2017
 若要在 Azure 门户预览中更改规模集的容量，可单击“设置”下的“缩放”部分。 
 
 若要在命令行中更改规模集容量，请在 [Azure CLI](https://github.com/Azure/azure-cli) 中使用 **scale** 命令。 例如，使用以下命令可将规模集设置为 10 个 VM 的容量：
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```bash
 az vmss scale -g resourcegroupname -n scalesetname --new-capacity 10 

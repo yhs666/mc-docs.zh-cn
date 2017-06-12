@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 wacn.date: 03/31/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用 Power BI 直观显示 Apache Storm 拓扑中的数据
@@ -39,7 +39,7 @@ Power BI 允许以可视方式将数据显示为报表。本文档提供了如�
 ## 先决条件
 
 * 具有 [Power BI](https://powerbi.com) 访问权限的 Azure Active Directory 用户。
-* HDInsight 群集。有关详细信息，请参阅 [Get started with Storm on HDInsight](./hdinsight-apache-storm-tutorial-get-started-linux.md)（Storm on HDInsight 入门）。
+* HDInsight 群集。有关详细信息，请参阅 [Storm on HDInsight 入门](./hdinsight-apache-storm-tutorial-get-started-linux.md)。
 
     > [!IMPORTANT]
     > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
@@ -73,7 +73,7 @@ Power BI 允许以可视方式将数据显示为报表。本文档提供了如�
 
 1. 若要创建数据库，请按照 [SQL 数据库教程](../sql-database/sql-database-get-started.md)文档中的步骤进行操作。
 
-2. 按照 [Connect to a SQL Database with Visual Studio](../sql-database/sql-database-connect-query.md)（使用 Visual Studio 连接到 SQL 数据库）文档中的步骤连接到数据库。
+2. 按照[使用 Visual Studio 连接到 SQL 数据库](../sql-database/sql-database-connect-query.md)文档中的步骤连接到数据库。
 
 3. 在对象资源管理器中，右键单击数据库，然后选择“新建查询”。将下载的项目中包含的 **IISLogsTable.sql** 文件的内容粘贴到查询窗口中，然后按 Ctrl+Shift+E 执行查询。应收到“命令已成功完成”消息。
 

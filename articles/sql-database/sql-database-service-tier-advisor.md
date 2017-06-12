@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 08/08/2016
 wacn.date: 12/26/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # SQL 数据库定价层建议

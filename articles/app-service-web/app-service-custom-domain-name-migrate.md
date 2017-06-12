@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 wacn.date: 03/03/2017
-ms.author: cephalin
+ms.author: v-dazen
 ---
 
 # 将活动的自定义域迁移到 Azure 应用服务
@@ -74,6 +74,6 @@ ms.author: cephalin
     DNS 传播开始后，应立即将用户流量重定向至 Azure 应用。
 
 ## 后续步骤
-请参阅 [using an SSL certificate from elsewhere](./web-sites-configure-ssl-certificate.md)（使用在其他地方购买的 SSL 证书），了解如何使用 HTTPS 保护自定义域名。
+请参阅[使用在其他地方购买的 SSL 证书](./web-sites-configure-ssl-certificate.md)，了解如何使用 HTTPS 保护自定义域名。
 
 <!---HONumber=Mooncake_0227_2017-->

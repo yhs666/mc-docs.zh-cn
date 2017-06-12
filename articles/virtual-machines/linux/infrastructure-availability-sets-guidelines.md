@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
@@ -48,6 +48,8 @@ ms.lasthandoff: 05/05/2017
 最佳做法是，不要将应用程序驻留在单个 VM 上。 当 Azure 平台发生计划内或计划外事件时，包含单个 VM 的可用性集得不到任何保护。 [Azure SLA](https://www.azure.cn/support/sla/virtual-machines) 要求一个可用性集内有两台或更多 VM，以允许在底层基础结构内分布 VM。 如果使用[Azure 高级存储](../../storage/storage-premium-storage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，则 Azure SLA 适用于单个 VM。
 
 Azure 中的底层基础结构分为多个硬件群集。 每个硬件群集可支持许多不同的 VM 大小。 任何时候都只能在单个硬件群集上托管可用性集。 因此，可在单个可用性集中存在的 VM 大小范围被限制为硬件群集支持的 VM 大小范围。 在可用性集中部署第一个 VM 时或在可用性集（所有 VM 当前均处于停止-解除分配状态）中启动第一个 VM 时，可用性集的硬件群集处于选中状态。 可使用以下 CLI 命令来确定可用于可用性集的 VM 大小范围：“az vm list-sizes --location \<string\>”
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 每个硬件群集分为多个更新域和容错域。 这些域是按共享公用更新周期或共享相同物理基础结构（如电源和网络）的主机定义的。 Azure 将自动跨域分布可用性集中的 VM，以维持可用性和容错能力。 根据应用程序的大小和可用性集内的 VM 数，可以调整要使用的域的数目。 参阅有关[管理更新域和容错域的可用性和使用](manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)的详细信息。
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 04/05/2017
-ms.author: andrela;sstein;carlrab
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 06f33fcde998740f39a4f8c68e61a217b013b38f

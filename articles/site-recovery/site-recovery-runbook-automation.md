@@ -15,7 +15,7 @@ ms.topic: article
 ms.workload: required
 ms.date: 02/22/2017
 wacn.date: 03/31/2017
-ms.author: ruturajd@microsoft.com
+ms.author: v-johch
 ---
 
 # 将 Azure 自动化 Runbook 添加到恢复计划

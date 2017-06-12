@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 wacn.date: 04/05/2017
-ms.author: curtand
+ms.author: v-junlch
 ---
 
 # 在 Azure Active Directory 中设置密码过期策略

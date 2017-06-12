@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/05/2017
 wacn.date: 
-ms.author: adegeo
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 76ea30156a067744548057a0a2a32dffd1e29cbb
@@ -42,6 +42,8 @@ exit
 ## <a name="step-2---capture-an-image-of-the-vm"></a>步骤 2 - 捕获 VM 的映像
 
 有关捕获的详细概述，请参阅[捕获 Linux 虚拟机](capture-image.md)。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 使用 [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate) 解除分配 VM：
 

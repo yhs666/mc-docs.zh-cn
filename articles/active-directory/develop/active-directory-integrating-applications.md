@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/08/2017
 wacn.date: 03/13/2017
-ms.author: mbaldwin;bryanla
+ms.author: v-junlch
 ---
 
 # 将应用程序与 Azure Active Directory 集成

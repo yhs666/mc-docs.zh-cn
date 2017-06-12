@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 wacn.date: 01/13/2017
-ms.author: v-livech
+ms.author: v-dazen
 ---
 
 # 使用门户将 Linux VM 部署到现有 VNet 和 NSG 中

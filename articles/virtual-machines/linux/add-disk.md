@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.date: 02/02/2017
 wacn.date: 
-ms.author: rasquill
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -29,6 +29,8 @@ ms.lasthandoff: 04/21/2017
 
 ## <a name="quick-commands"></a>快速命令
 以下示例将 `50`GB 磁盘附加到名为 `myResourceGroup` 的资源组中名为 `myVM` 的 VM：
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 使用非托管磁盘：
 

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: c4f98ba3d13e0fdb8367b9f56e38c20e222c15ce
@@ -70,6 +70,8 @@ sudo passwd ops
 ```
 
 退出 Linux VM 的 SSH 会话。 使用本地计算机上的 Azure CLI 创建网络安全组规则，以允许远程桌面流量。 将 [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) 与 Azure CLI 2.0 配合使用。 以下示例在 `myNetworkSecurityGroup` 中创建一个名为 `myNetworkSecurityGroupRule` 的规则，以允许 tcp 端口 3389 上的流量：
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup \

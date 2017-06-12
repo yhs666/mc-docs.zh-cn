@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 04/11/2017
-ms.author: sethm
+ms.author: v-yiso
 wacn.date: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
@@ -421,7 +421,7 @@ ms.lasthandoff: 05/12/2017
   [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
   [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-  [sbdocs]: /documentation/services/service-bus/  
+  [sbdocs]: /service-bus-messaging/  
   [sbacom]: ../service-bus/index.md  
   [sbacomqhowto]: ./service-bus-dotnet-get-started-with-queues.md  
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

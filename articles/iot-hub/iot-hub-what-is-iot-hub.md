@@ -12,7 +12,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2017
-ms.author: dobett
+ms.author: v-yiso
 wacn.date: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
@@ -86,7 +86,7 @@ Azure IoT 中心会实现 [服务辅助通信][lnk-service-assisted-pattern] 模
 - 对于因为电源或连接性而导致连接不稳定的设备而言，可通过保留命令和设备通知直到设备连接并接收它们，进而促进其双向通信。 IoT 中心会为发送的命令维护设备特定的队列。
 - 针对通过网关到特定服务的受保护传输，应用程序有效负载数据会受到单独保护。
 
-移动行业大规模地使用了服务辅助通信模式来实现推送通知服务，例如 [Windows 推送通知服务][lnk-wns]和 [Apple Push Notification 服务][lnk-apple-push]。
+移动行业大规模地使用了服务辅助通信模式来实现推送通知服务，例如 [Windows 推送通知服务][lnk-wns]。
 
 支持通过 ExpressRoute 的公共对等路径访问 IoT 中心。
 
@@ -111,7 +111,6 @@ Azure IoT 中心会实现 [服务辅助通信][lnk-service-assisted-pattern] 模
 [lnk-devguide-security]: ./iot-hub-devguide-security.md
 [lnk-wns]: https://msdn.microsoft.com/zh-cn/library/windows/apps/mt187203.aspx
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
-[lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk

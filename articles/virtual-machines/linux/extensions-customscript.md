@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/22/2016
 wacn.date: 03/28/2017
-ms.author: nepeters
+ms.author: v-dazen
 ---
 
 # 在 Linux 虚拟机上使用 Azure 自定义脚本扩展

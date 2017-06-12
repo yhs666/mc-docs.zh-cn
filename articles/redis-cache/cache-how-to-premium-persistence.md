@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 wacn.date: 03/03/2017
-ms.author: sdanie
+ms.author: v-dazen
 ---
 
 # 如何为高级 Azure Redis 缓存配置数据暂留

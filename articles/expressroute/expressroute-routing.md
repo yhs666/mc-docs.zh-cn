@@ -12,7 +12,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/03/2017
-ms.author: osamam
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: c389522d8e4fa2f4ac2cf0133606353a6d8fb1c1
@@ -44,7 +44,7 @@ ms.lasthandoff: 04/14/2017
  - 如果使用 /29 子网，它将拆分成两个 /30 子网。 
      - 第一个 /30 子网用于主链路，第二个 /30 子网用于辅助链路。
      - 对于每个 /30 子网，必须在路由器上使用 /30 子网的第一个 IP 地址。 Microsoft 使用 /30 子网的第二个 IP 地址设置 BGP 会话。
-     - [可用性 SLA](https://azure.microsoft.com/support/legal/sla/) 只有在设置两个 BGP 会话后才有效。  
+     - [可用性 SLA](https://www.azure.cn/support/legal/sla/) 只有在设置两个 BGP 会话后才有效。  
 
 #### <a name="example-for-private-peering"></a>专用对等互连示例
 
@@ -80,7 +80,6 @@ Microsoft 对等互连路径使用户能够连接到不支持通过 Azure 公共
 
 - [ARIN](https://www.arin.net/)
 - [APNIC](https://www.apnic.net/)
-- [AFRINIC](https://www.afrinic.net/)
 - [LACNIC](http://www.lacnic.net/)
 - [RIPENCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)

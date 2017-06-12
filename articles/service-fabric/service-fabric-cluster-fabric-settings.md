@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/15/2017
 wacn.date: 03/03/2017
-ms.author: chackdan
+ms.author: v-johch
 ---
 
 # 自定义 Service Fabric 群集设置和结构升级策略

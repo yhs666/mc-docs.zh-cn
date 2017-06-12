@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 wacn.date: 09/26/2016
-ms.author: cephalin
+ms.author: v-dazen
 ---
 
 # 在生产环境中 Web Apps 的测试入门

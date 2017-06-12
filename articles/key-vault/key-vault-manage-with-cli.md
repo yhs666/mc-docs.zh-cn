@@ -13,8 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
-wacn.date: 
-ms.author: bruceper
+wacn.date: 06/12/2017
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 72ee0de361ee286c6b27c338c3d43be9b22d8316

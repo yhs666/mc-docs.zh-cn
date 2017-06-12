@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/28/2017
 wacn.date: 
-ms.author: nepeters
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: a2084798dc02ec48962e8f31cfcc70d04ed399fa
@@ -33,6 +33,8 @@ ms.lasthandoff: 05/05/2017
 ## <a name="step-1---log-in-to-azure"></a>步骤 1 - 登录 Azure
 
 首先，使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令打开终端并登录 Azure 订阅。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
 az login

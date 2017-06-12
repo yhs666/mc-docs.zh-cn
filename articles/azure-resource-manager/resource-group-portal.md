@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 wacn.date: 01/25/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 通过门户管理 Azure 资源
@@ -110,8 +110,6 @@ ms.author: tomfitz
 
 ## 锁定资源
 可以锁定订阅、资源组或资源，以防止组织中的其他用户意外删除或修改关键资源。有关详细信息，请参阅[使用 Azure 资源管理器锁定资源](./resource-group-lock-resources.md)。
-
-[!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## 查看订阅和成本
 可以查看有关订阅的信息以及所有资源的汇总成本。选择“订阅”以及要查看的订阅。可能只能选择一个订阅。

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 wacn.date: 03/13/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # Azure Active Directory v2.0 和 OpenID Connect 协议
@@ -99,7 +99,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 参数 | 条件 | 说明 |
 | --- | --- | --- |
 | tenant |必选 |可以在请求路径中使用 `{tenant}` 值来控制谁可以登录到应用程序。允许的值为 `common`、`organizations`、`consumers` 和租户标识符。有关详细信息，请参阅[协议基础知识](./active-directory-v2-protocols.md#endpoints)。 |
-| client\_id |必选 |[应用程序注册门户](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)为应用分配的应用程序 ID。 |
+| client\_id |必选 |[应用程序注册门户](https://apps.dev.microsoft.com)为应用分配的应用程序 ID。 |
 | response\_type |必选 |必须包含 OpenID Connect 登录的 `id_token`。还可以包含其他 `response_types` 值，例如 `code`。 |
 | redirect\_uri |建议 |应用的重定向 URI，应用可在其中发送和接收身份验证响应。必须完全符合在门户中注册的重定向 URI 之一，否则必须是编码的 URL。 |
 | scope |必选 |范围的空格分隔列表。针对 OpenID Connect，即必须包含范围 `openid`，其在许可 UI 中转换为“将你登录”权限。也可以在此请求中包含其他范围来请求许可。 |

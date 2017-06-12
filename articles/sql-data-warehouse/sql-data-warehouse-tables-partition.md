@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: 12/19/2016
-ms.author: jrj;barbkess;sonyama
+ms.author: v-yeche
 ---
 
 # 对 SQL 数据仓库中的表进行分区
@@ -147,7 +147,7 @@ AND     rp.[name]    = 'SloDWPool'
 
 ## 分区切换
 
-SQL 数据仓库支持分区拆分、合并和切换。这些函数中，每个都是使用 [ALTER TABLE][] 语句执行的。
+SQL 数据仓库支持分区拆分、合并和切换。这些函数中，每个都是使用 [ALTER TABLE][ALTER TABLE] 语句执行的。
 
 若要切换两个表间的分区，必须确定分区对齐其各自的边界，而且表定义匹配。检查约束不适用于强制表中的值范围，源表必须包含与目标表相同的分区边界。如果情况不是如此，则分区切换将失败，因为分区元数据不会同步。
 

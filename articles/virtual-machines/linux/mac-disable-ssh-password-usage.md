@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2016
 wacn.date: 12/20/2016
-ms.author: v-livech
+ms.author: v-dazen
 ---
 
 # 通过配置 SSHD 禁用 Linux VM 上的 SSH 密码

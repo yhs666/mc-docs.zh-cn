@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2017
 wacn.date: 
-ms.author: arramac
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
@@ -321,6 +321,5 @@ DocumentDB 支持统包的[全局复制](documentdb-distribute-data-globally.md)
 - 了解 DocumentDB 如何支持 [全局分布](documentdb-distribute-data-globally.md)
 - 了解 [DocumentDB 中的自动和手动故障转移](documentdb-regional-failovers.md)
 - 了解 [DocumentDB 的全局一致性](documentdb-consistency-levels.md)
-- 使用 [DocumentDB - DocumentDB API](./documentdb-portal-global-replication.md) 通过多个区域进行开发
 
 

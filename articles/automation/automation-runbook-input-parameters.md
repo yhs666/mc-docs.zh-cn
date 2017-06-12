@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 wacn.date: 03/28/2017
-ms.author: sngun
+ms.author: v-dazen
 ---
 
 # Runbook 输入参数
@@ -185,7 +185,7 @@ https://management.core.chinacloudapi.cn/<subscription-id>/cloudServices/<cloud-
 ## 后续步骤
 
 - 有关 Runbook 输入和输出的详细信息，请参阅 [Azure Automation: runbook input, output, and nested runbooks](https://azure.microsoft.com/blog/azure-automation-runbook-input-output-and-nested-runbooks/)（Azure 自动化：Runbook 输入、输出和嵌套 Runbook）。
-- 有关以不同方式启动 Runbook 的详细信息，请参阅 [Starting a runbook](./automation-starting-a-runbook.md)（启动 Runbook）。
-- 若要编辑文本 Runbook，请参阅 [Editing textual runbooks](./automation-edit-textual-runbook.md)（编辑文本 Runbook）。
+- 有关以不同方式启动 Runbook 的详细信息，请参阅[启动 Runbook](./automation-starting-a-runbook.md)。
+- 若要编辑文本 Runbook，请参阅[编辑文本 Runbook](./automation-edit-textual-runbook.md)。
 
 <!---HONumber=Mooncake_Quality_Review_0117_2017-->

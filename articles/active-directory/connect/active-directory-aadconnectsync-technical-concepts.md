@@ -13,8 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
-wacn.date: 
-ms.author: markvi;andkjell
+wacn.date: 06/12/2017
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: ad433677fd0082ec74f7d7d2e37957112f67695b

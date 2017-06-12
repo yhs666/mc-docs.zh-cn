@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/28/2016
 wacn.date: 02/10/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 删除服务器并禁用保护

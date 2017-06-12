@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/03/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22

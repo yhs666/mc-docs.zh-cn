@@ -15,7 +15,7 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
 wacn.date: 03/03/2017
-ms.author: sdanie
+ms.author: v-dazen
 ---
 
 # 如何将 Azure Redis 缓存与 Node.js 配合使用

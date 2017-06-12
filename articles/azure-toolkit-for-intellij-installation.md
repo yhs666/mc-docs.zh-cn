@@ -15,7 +15,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 12/22/2016
 wacn.date: 02/14/2017
-ms.author: robmcm
+ms.author: v-junlch
 ---
 
 # 安装 Azure Toolkit for IntelliJ

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 wacn.date: 04/27/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 在 HDInsight 中将 Oozie 与 Hadoop 配合使用以定义和运行工作流

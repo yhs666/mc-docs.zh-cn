@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/5/2017
+ms.date: 01/05/2017
 wacn.date: 03/24/2017
-ms.author: rambala
+ms.author: v-yiso
 ---
 
 # 验证 ExpressRoute 连接

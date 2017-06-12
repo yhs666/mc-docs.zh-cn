@@ -12,8 +12,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
-wacn.date: 
-ms.author: bruceper
+wacn.date: 06/12/2017
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 4927517ca2b6b944e2c6c8dbf3b39470ff6b57c6

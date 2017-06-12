@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 wacn.date: 04/27/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 网络基础结构准则

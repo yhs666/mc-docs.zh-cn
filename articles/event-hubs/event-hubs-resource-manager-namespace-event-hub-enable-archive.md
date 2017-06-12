@@ -14,7 +14,7 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 03/07/2017
 wacn.date: 
-ms.author: shvija;sethm
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 89ced1f70d294586eec2d6d315c21360554636e8
@@ -27,8 +27,6 @@ ms.lasthandoff: 04/07/2017
 本文介绍如何使用 Azure Resource Manager 模板创建包含一个事件中心的事件中心类型命名空间，并在事件中心上启用存档功能。 本文介绍如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求
 
 有关创建模板的详细信息，请参阅 [创作 Azure Resource Manager 模板][Authoring Azure Resource Manager templates]。
-
-有关针对 Azure 资源命名约定的实践和模式的详细信息，请参阅 [Azure 资源命名约定][Azure Resources Naming Conventions]。
 
 有关完整的模板，请参阅 GitHub 上的 [事件中心和启用存档模板][Event Hub and enable Archive template] 。
 
@@ -288,5 +286,4 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
-[Azure Resources Naming Conventions]: /documentation/articles/guidance-naming-conventions/
 [Event Hub and enable Archive template]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive

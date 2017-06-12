@@ -56,7 +56,7 @@
 # 引用
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network)
 ## [PowerShell（经典）](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST](https://msdn.microsoft.com/library/mt163859)
+## [REST](https://docs.microsoft.com/zh-tw/rest/api/network/virtualnetworkgateways)
 ## [REST（经典）](https://msdn.microsoft.com/library/jj154113)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
 

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2017
 wacn.date: 03/24/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用 Tez UI 调试基于 Windows 的 HDInsight 上的 Tez 作业

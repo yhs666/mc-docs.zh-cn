@@ -40,11 +40,10 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
 - [使用 SAS 附加存储帐户](#attach-storage-account-using-sas) - 使用 SAS 管理属于另一 Azure 订阅的存储资源。
 - [使用 SAS 附加服务](#attach-service-using-sas) - 使用 SAS 管理属于另一 Azure 订阅的特定存储服务（Blob 容器、队列或表）。
 
-## <a name="connect-to-an-azure-subscription"></a>连接到 Azure 订阅
+## 连接到 Azure 订阅 <a name="connect-to-an-azure-subscription"></a>
+
 > [!NOTE]
-> 如果没有 Azure 帐户，可以注册[试用版](/pricing/1rmb-trial/?WT.mc_id=A261C142F/)。
->
->
+> 如果没有 Azure 帐户，可以[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 1. 在存储资源管理器（预览版）中，选择“Azure 帐户设置”。
 

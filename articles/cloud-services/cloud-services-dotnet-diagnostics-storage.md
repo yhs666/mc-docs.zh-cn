@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 wacn.date: 01/03/2017
-ms.author: robb
+ms.author: v-yiso
 ---
 
 # 在 Azure 存储中存储和查看诊断数据

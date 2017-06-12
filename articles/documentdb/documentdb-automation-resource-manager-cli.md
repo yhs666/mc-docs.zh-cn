@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/20/2017
-ms.author: dimakwan
+ms.author: v-junlch
 wacn.date: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
@@ -231,7 +231,7 @@ Arguments
 
     az documentdb regenerate-key -g rg-test -n docdb-test --key-kind secondary
 
-## <a id="modify-failover-priority-cli"></a> 修改 DocumentDB 数据库帐户的故障转移优先级
+## <a id="modify-failover-priority-powershell"></a> 修改 DocumentDB 数据库帐户的故障转移优先级
 
 对于多区域数据库帐户，可以更改 DocumentDB 数据库帐户所在的各个区域的故障转移优先级。 有关 DocumentDB 数据库帐户中的故障转移的详细信息，请参阅[使用 DocumentDB 来全局分配数据](documentdb-distribute-data-globally.md)。
 

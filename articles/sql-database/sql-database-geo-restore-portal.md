@@ -15,7 +15,7 @@ ms.tgt_pltfrm: powershell
 ms.workload: NA
 ms.date: 12/19/2016
 wacn.date: 03/24/2017
-ms.author: sstein; carlrab
+ms.author: v-johch
 ---
 
 # 使用 Azure 门户预览从异地冗余备份中还原 Azure SQL 数据库

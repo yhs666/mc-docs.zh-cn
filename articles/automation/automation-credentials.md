@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 wacn.date: 05/31/2017
-ms.author: bwren
+ms.author: v-dazen
 ---
 
 # Azure 自动化中的凭据资产

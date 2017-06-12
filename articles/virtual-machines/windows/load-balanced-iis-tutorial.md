@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/30/2017
 wacn.date: 
-ms.author: davidmu
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: b2ff5040288ca0b9850c11f900610ac177fa4df4
@@ -32,7 +32,7 @@ ms.lasthandoff: 05/05/2017
 
 若要完成本教程，请确保已安装最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) 模块。
 
-首先，使用 Login-AzureRmAccount -EnvironmentName AzureChinaCloud 命令登录到 Azure 订阅，并按屏幕说明操作。
+首先，使用 Login-AzureRmAccount 命令登录到 Azure 订阅，并按屏幕说明操作。
 
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud

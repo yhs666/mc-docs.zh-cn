@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/6/2017
+ms.date: 02/06/2017
 wacn.date: 03/03/2017
-ms.author: msfussell
+ms.author: v-johch
 ---
 
 # 预览：Service Fabric 和容器
@@ -72,7 +72,7 @@ Service Fabric 提供多种容器功能，可帮助用户构建由容器化的�
 ## 后续步骤
 你可以在本文中了解容器，Service Fabric 是一个容器协调器，并且 Service Fabric 具有支持容器的功能。接下来，我们将演示其中的每项功能并说明其用法。
 
-[将 Docker 容器部署到 Linux 上的 Service Fabric](/documentation/articles/service-fabric-deploy-container/)
+[将 Docker 容器部署到 Linux 上的 Service Fabric](service-fabric-deploy-container-linux.md)
 
 [Image1]: ./media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
 

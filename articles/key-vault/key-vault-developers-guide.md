@@ -9,8 +9,8 @@ ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 05/10/2017
-wacn.date: 
-ms.author: bruceper
+wacn.date: 06/12/2017
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 9b528a470412e98174d74ab429b8d42c611a77b4

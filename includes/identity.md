@@ -24,7 +24,7 @@
 
 ![虚拟机中的 Azure Active Directory](./media/identity/identity_01_ADinVM.png)
 
-<a name="Fig1"></a>图 1：Windows Server Active Directory 可在使用 Azure 虚拟网络连接到组织的本地数据中心的 Azure VM 中运行。
+<a name="fig1"></a>图 1：Windows Server Active Directory 可在使用 Azure 虚拟网络连接到组织的本地数据中心的 Azure VM 中运行。
 
 在此处显示的示例中，Windows Server AD 在使用 Azure 虚拟机（平台的 IaaS 技术）创建的 VM 中运行。 这些 VM 和其他一些 VM 分组到使用 Azure 虚拟网络技术连接到本地数据中心的虚拟网络 (VNET)。 该 VNET 将创建一个包含云 VM 的组，这些云 VM 通过虚拟专用网络 (VPN) 连接与本地网络交互。 这样做可让这些 Azure VM 看起来就像是连接到本地数据中心的另一个子网一样。 如图所示，其中两个 VM 在 Windows Server AD 域控制器中运行。 VNET 中的其他 VM 可能运行应用程序（如 SharePoint），或者用于其他目的，例如开发和测试。 本地数据中心也可以运行两个 Windows Server AD 域控制器。
 

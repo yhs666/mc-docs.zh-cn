@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 08/08/2016
 wacn.date: 12/19/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # Web 和企业版停用常见问题

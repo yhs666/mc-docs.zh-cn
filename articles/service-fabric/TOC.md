@@ -196,17 +196,12 @@
 ### [服务移动](service-fabric-cluster-resource-manager-movement-cost.md)
 
 # 引用
-## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
-## [Java API](/java/api/microsoft.servicefabric.services)
-## [.NET](/dotnet/api/microsoft.servicefabric.services)
-## [REST](/rest/api/servicefabric)
+## [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/servicefabric)
+## [Java API](https://docs.microsoft.com/java/api/microsoft.servicefabric.services)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services)
+## [REST](https://docs.microsoft.com/rest/api/servicefabric)
 
 # 资源
 ## [有关 Service Fabric 的常见问题](service-fabric-common-questions.md)
 ## [Service Fabric 支持选项](service-fabric-support.md)
-## [代码示例](http://aka.ms/servicefabricsamples)
-## [学习路径](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [价格](https://azure.microsoft.com/pricing/details/service-fabric/)
-## [服务更新](https://azure.microsoft.com/updates/?product=service-fabric)
-## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
-## [视频](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
+## [价格](https://www.azure.cn/pricing/details/service-fabric/)

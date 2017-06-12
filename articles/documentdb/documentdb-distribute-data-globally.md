@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2017
 wacn.date: 
-ms.author: arramac
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: ee628332ede0150fc3278426dc7d1e3cf01b6f78
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/19/2017
 # <a name="how-to-distribute-data-globally-with-azure-documentdb"></a>如何使用 DocumentDB 全局分配数据？
 Azure 无所不在 - 跨 30 多个地理区域，遍布全球并且仍在持续扩展中。 遍及全球的 Azure 为开发人员提供一种差异化功能，让他们轻松构建、部署和管理全球分布的应用程序。 
 
-[DocumentDB](./documentdb-resources.md) 是 Microsoft 针对任务关键型应用程序提供的全局分布式多模型数据库服务。 DocumentDB 在全球范围内提供[统包全局分发](documentdb-distribute-data-globally.md)、吞吐量和存储的弹性扩展、99% 的情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](documentdb-consistency-levels.md)以及得到保证的高可用性，所有这些均由[行业领先的 SLA](/support/legal/sla/documentdb/v1_1/) 提供支持。 DocumentDB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键-值、图形和列式数据模型。 作为一种基于云的服务，DocumentDB 通过多租户和全局分发获得了全面彻底的精心设计。
+[DocumentDB](./documentdb-resources.md) 是 Microsoft 针对任务关键型应用程序提供的全局分布式多模型数据库服务。 DocumentDB 在全球范围内提供[统包全局分发](documentdb-distribute-data-globally.md)、吞吐量和存储的弹性扩展、99% 的情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](documentdb-consistency-levels.md)以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/legal/sla) 提供支持。 DocumentDB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键-值、图形和列式数据模型。 作为一种基于云的服务，DocumentDB 通过多租户和全局分发获得了全面彻底的精心设计。
 
 **已分区并分布在三个 Azure 区域的单个 DocumentDB 集合**
 
@@ -98,7 +98,7 @@ DocumentDB 支持在发生一个或多个区域性故障时自动进行故障转
 ### <a id="MultiHomingAPIs"></a>DocumentDB 中的多宿主 API
 DocumentDB 允许使用逻辑（区域不可知）或物理（特定于区域）终结点与数据库交互。 使用逻辑终结点可确保发生故障转移时，应用程序可以透明方式采用多个宿主。 后者（物理终结点）提供对应用程序的细粒度控制，以将读取和写入重定向到特定区域。
 
-可在相应的链接文章中找到有关如何为 [DocumentDB](./documentdb-portal-global-replication.md)、图形、表和 MongoDB API 配置读取首选项的信息。
+可在相应的链接文章中找到有关如何为 DocumentDB、图形、表和 MongoDB API 配置读取首选项的信息。
 
 ### <a id="TransparentSchemaMigration"></a>透明且一致的数据库架构和索引迁移 
 DocumentDB 完全与[架构无关](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)。 其数据库引擎的特殊设计允许其自动且同步地索引所有其引入的数据，而无需要求用户提供任何架构或辅助索引。 这使用户能够快速地循环访问全局分布式应用程序，而无需担心数据库架构和索引迁移或者协调多阶段应用程序的架构更改推出。 DocumentDB 保证用户对索引策略进行的任何显式更改不会导致性能或可用性的降低。  
@@ -227,7 +227,6 @@ DocumentDB 以透明方式公开吞吐量、延迟、一致性和可用性指标
 ![DocumentDB 中客户可见的 SLA 指标](./media/documentdb-distribute-data-globally/documentdb-customer-slas.png)
 
 ## <a id="Next Steps"></a>后续步骤
-- 若要使用 Azure 门户实现 DocumentDB 帐户的全局复制，请参阅[如何使用 Azure 门户执行 DocumentDB 全局数据库复制](./documentdb-portal-global-replication.md)。
 - 若要了解如何通过 DocumentDB 实现多主体系结构，请参阅[使用 DocumentDB 实现的多主数据库体系结构 ](documentdb-multi-region-writers.md)。
 - 若要深入了解 DocumentDB 中自动和手动故障转移如何工作，请参阅 [DocumentDB 中的区域故障转移](documentdb-regional-failovers.md)。
 

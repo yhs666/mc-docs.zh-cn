@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 wacn.date: 01/05/2017
-ms.author: nicking
+ms.author: v-dazen
 ---
 
 # 使用 PowerShell 备份和还原应用服务应用
@@ -23,12 +23,12 @@ ms.author: nicking
 >- [PowerShell](./app-service-powershell-backup.md)
 >- [REST API](../app-service-web/websites-csm-backup.md)
 
-了解如何使用 Azure PowerShell 备份和还原[应用服务应用](https://www.azure.cn/home/features/app-service/web-apps/)。有关 Web 应用备份的详细信息（包括要求和限制），请参阅 [Back up a web app in Azure App Service](../app-service-web/web-sites-backup.md)（在 Azure 应用服务中备份 Web 应用）。
+了解如何使用 Azure PowerShell 备份和还原[应用服务应用](https://www.azure.cn/home/features/app-service/web-apps/)。有关 Web 应用备份的详细信息（包括要求和限制），请参阅[在 Azure 应用服务中备份 Web 应用](../app-service-web/web-sites-backup.md)。
 
 ## 先决条件
 若要使用 PowerShell 管理应用备份，需满足以下条件：
 
-- **一个 SAS URL**，用于通过读写方式访问 Azure 存储容器。如需 SAS URL 的说明，请参阅 [Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md)（了解 SAS 模型）。如需通过 PowerShell 管理 Azure 存储的示例，请参阅 [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md)（对 Azure 存储使用 Azure PowerShell）。
+- **一个 SAS URL**，用于通过读写方式访问 Azure 存储容器。如需 SAS URL 的说明，请参阅[了解 SAS 模型](../storage/storage-dotnet-shared-access-signature-part-1.md)。如需通过 PowerShell 管理 Azure 存储的示例，请参阅[对 Azure 存储使用 Azure PowerShell](../storage/storage-powershell-guide-full.md)。
 - **一个数据库连接字符串**，用于备份数据库和 Web 应用。
 
 ### 如何生成可用于 Web 应用备份 cmdlet 的 SAS URL

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 wacn.date: 02/06/2017
-ms.author: asmalser-msft
+ms.author: v-junlch
 ---
 
 #在 Azure Active Directory 中管理用于联合单一登录的证书

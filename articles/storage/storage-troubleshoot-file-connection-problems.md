@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 wacn.date: 03/20/2017
-ms.author: genli
+ms.author: v-johch
 ---
 
 # Azure 文件存储问题疑难解答

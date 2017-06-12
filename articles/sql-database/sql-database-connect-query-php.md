@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
 ms.date: 04/05/2017
-ms.author: meetb;carlrab;sstein
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 4f18738b119cd06c6f7208161b00e134dc450311

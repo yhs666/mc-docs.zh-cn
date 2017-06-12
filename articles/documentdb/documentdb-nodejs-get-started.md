@@ -15,7 +15,7 @@ ms.devlang: node
 ms.topic: hero-article
 ms.date: 12/25/2016
 wacn.date: 
-ms.author: anhoh
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: a2ad41441ae81efb465d68ce8e9aec9f23b95cc1
@@ -58,7 +58,7 @@ ms.lasthandoff: 05/19/2017
 ## <a name="prerequisites-for-the-nodejs-tutorial"></a>Node.js 教程的先决条件
 请确保你具有以下内容：
 
-- 有效的 Azure 帐户。 如果没有，可以注册 [Azure 免费试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+- 有效的 Azure 帐户。 如果没有，可以注册 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
     - 另外，对于本教程，也可以使用 [DocumentDB 模拟器](documentdb-nosql-local-emulator.md)。
 - [Node.js](https://nodejs.org/) 版本 v0.10.29 或更高版本。
 
@@ -627,7 +627,7 @@ DocumentDB 支持删除 JSON 文档。
 - 想要更复杂的 Node.js 示例？ 请参阅[使用 DocumentDB 生成 Node.js Web 应用程序](documentdb-nodejs-application.md)。
 - 了解如何[监视 DocumentDB 帐户](documentdb-monitor-accounts.md)。
 - 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
-- 在 [DocumentDB 文档页](/documentation/services/documentdb/)的“开发”部分了解有关编程模型的详细信息。
+- 在 [DocumentDB 文档页](index.md)的“开发”部分了解有关编程模型的详细信息。
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: ./media/documentdb-nodejs-get-started/node-js-tutorial-keys.png

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/28/2017
 wacn.date: 03/31/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 将用于 Visual Studio 的 Azure Data Lake 工具与 Hortonworks 沙盒配合使用
@@ -28,7 +28,7 @@ ms.author: larryfr
 
 ## 先决条件
 
-* 在开发环境上的虚拟机中运行的 Hortonworks 沙盒。本文档是根据 Oracle VirtualBox 中运行的沙盒编写和测试的，而该沙盒是使用 [Get started in the Hadoop ecosystem](./hdinsight-hadoop-emulator-get-started.md)（Hadoop 生态系统入门）文档配置的。
+* 在开发环境上的虚拟机中运行的 Hortonworks 沙盒。本文档是根据 Oracle VirtualBox 中运行的沙盒编写和测试的，而该沙盒是使用[Hadoop 生态系统入门](./hdinsight-hadoop-emulator-get-started.md)文档配置的。
 
 * Visual Studio 2013、2015 或 2017，任何版本均可。
 

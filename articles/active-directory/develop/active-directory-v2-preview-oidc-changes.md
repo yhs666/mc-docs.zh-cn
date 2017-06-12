@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 wacn.date: 10/25/2016
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # v2.0 身份验证协议的重要更新

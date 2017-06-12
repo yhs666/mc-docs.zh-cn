@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: 12/19/2016
-ms.author: sonyama;barbkess
+ms.author: v-yeche
 ---
 
 # 查询 Azure SQL 数据仓库 (Visual Studio)

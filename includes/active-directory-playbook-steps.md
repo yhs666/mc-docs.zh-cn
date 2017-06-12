@@ -4,9 +4,8 @@
     - [主题](../articles/active-directory/active-directory-playbook-ingredients.md)
     - [环境](../articles/active-directory/active-directory-playbook-ingredients.md#theme)
     - [目标用户](../articles/active-directory/active-directory-playbook-ingredients.md#environment)
-
 3. [实现](../articles/active-directory/active-directory-playbook-implementation.md)
-   - [Foundation - 将 AD 同步到 Azure AD](../articles/active-directory/active-directory-playbook-implementation.md#foundation---syncing-ad-to-azure-ad)
+   - [基础 - 将 AD 同步到 Azure AD](../articles/active-directory/active-directory-playbook-implementation.md#foundation---syncing-ad-to-azure-ad)
      - [将本地标识扩展到云](../articles/active-directory/active-directory-playbook-implementation.md#extending-your-on-premises-identity-to-the-cloud)  
    - [主题 - 多个应用，一个标识](../articles/active-directory/active-directory-playbook-implementation.md#theme---lots-of-apps-one-identity)
      - [SSO 和标识生命周期事件](../articles/active-directory/active-directory-playbook-implementation.md#sso-and-identity-lifecycle-events)

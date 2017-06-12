@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 wacn.date: 02/24/2017
-ms.author: danlep
+ms.author: v-dazen
 ---
 
 # 使用 HPC Pack IaaS 部署脚本创建 Windows 高性能计算 \(HPC\) 群集

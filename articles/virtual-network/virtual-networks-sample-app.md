@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 wacn.date: 02/10/2017
-ms.author: jonor
+ms.author: v-dazen
 ---
 
 # 适用于外围网络的示例应用程序

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 wacn.date: 03/28/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 在基于 Windows 的 HDInsight 中运行 Hadoop MapReduce 示例

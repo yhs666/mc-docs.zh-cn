@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2017
 wacn.date: 
-ms.author: jotaub;sethm
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 28b600cc68f3bc3fe5bc7545d0a9427e4b2770ce
@@ -30,23 +30,23 @@ ms.lasthandoff: 04/07/2017
 撰写本文时，事件中心示例位于多个不同位置：
 
 - [MSDN 开发人员代码示例](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
-- [GitHub](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples)
+- [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs)
 
-若要深入了解 .NET Framework 的不同版本，请参阅 [框架和目标](/dotnet/articles/standard/frameworks)。
+若要深入了解 .NET Framework 的不同版本，请参阅 [框架和目标](https://docs.microsoft.com/dotnet/articles/standard/frameworks)。
 
 后续将添加更多示例，因此请时常回访本网站获取更新。
 
 ## <a name="net-standard"></a>.NET Standard
 
-下面的示例演示如何使用 [.NET Standard 库](/dotnet/articles/standard/library)的[事件中心客户端](https://github.com/Azure/azure-event-hubs-dotnet/blob/master/readme.md)发送和接收事件。
+下面的示例演示如何使用 [.NET Standard 库](https://docs.microsoft.com/dotnet/articles/standard/library)的[事件中心客户端](https://github.com/Azure/azure-event-hubs-dotnet/blob/master/readme.md)发送和接收事件。
 
 ### <a name="send-events"></a>发送事件 
 
-[发送入门](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender)示例演示如何编写可将事件发送到事件中心的 .NET Core 控制台应用程序。
+[发送入门](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender)示例演示如何编写可将事件发送到事件中心的 .NET Core 控制台应用程序。
 
 ### <a name="receive-events"></a>接收事件 
 
-[使用事件处理程序主机接收入门](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver)示例是一个使用 `Event Processor Host` 从事件中心接收消息的 .NET Core 控制台应用程序。
+[使用事件处理程序主机接收入门](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)示例是一个使用 `Event Processor Host` 从事件中心接收消息的 .NET Core 控制台应用程序。
 
 ## <a name="net-framework"></a>.NET framework    
 

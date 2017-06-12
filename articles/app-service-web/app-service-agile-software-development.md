@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 wacn.date: 01/05/2017
-ms.author: cephalin
+ms.author: v-dazen
 ---
 
 # 使用 Azure App Service 进行敏捷软件开发 #

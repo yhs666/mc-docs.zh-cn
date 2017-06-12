@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
 wacn.date: 03/10/2017
-ms.author: milanga;cenkdin;juliako
+ms.author: v-johch
 ---
 
 #更改存储访问密钥后更新媒体服务

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 wacn.date: 
-ms.author: mimig
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 49c40641133bffaeb7bc43ba6aca0fd9d6505bd5

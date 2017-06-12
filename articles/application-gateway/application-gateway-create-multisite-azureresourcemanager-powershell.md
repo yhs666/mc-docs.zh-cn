@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 wacn.date: 02/21/2017
-ms.author: amsriva
+ms.author: v-dazen
 ---
 
 # 创建托管多个 Web 应用程序的应用程序网关
@@ -102,7 +102,7 @@ Azure 资源管理器要求所有资源组指定一个位置。此位置将用�
 在上面的示例中，我们创建了名为“appgw-RG”的资源组，位置为“中国北部”。
 
 > [!NOTE]
-> 如果你需要为应用程序网关配置自定义探测，请参阅 [Create an application gateway with custom probes by using PowerShell](./application-gateway-create-probe-ps.md)（使用 PowerShell 创建带自定义探测的应用程序网关）。有关详细信息，请参阅[自定义探测和运行状况监视](./application-gateway-probe-overview.md)。
+> 如果你需要为应用程序网关配置自定义探测，请参阅[使用 PowerShell 创建带自定义探测的应用程序网关](./application-gateway-create-probe-ps.md)。有关详细信息，请参阅[自定义探测和运行状况监视](./application-gateway-probe-overview.md)。
 
 ## 创建虚拟网络和子网
 

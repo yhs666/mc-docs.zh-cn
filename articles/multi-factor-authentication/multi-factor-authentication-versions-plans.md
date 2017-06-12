@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.author: kgremban
-wacn.date: 
+ms.author: v-junlch
+wacn.date: 06/12/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: f1c300be6529468608d4a3f4afe4d04470403884
@@ -31,7 +31,7 @@ ms.lasthandoff: 05/26/2017
 本文说明提供给管理员的版本与完整 Azure MFA 版本之间的差别，并介绍每个版本提供的功能。 如果已准备好部署完整的 Azure MFA 产品，可在后续部分中了解实施选项，以及 Microsoft 如何计算使用量。
 
 >[!IMPORTANT]
->本文旨在指导用户如何以不同的方式购买 Azure 多重身份验证。 有关定价和计费的具体详细信息，请始终参阅[多重身份验证定价页](/pricing/details/multi-factor-authentication/)。
+>本文旨在指导用户如何以不同的方式购买 Azure 多重身份验证。 有关定价和计费的具体详细信息，请始终参阅[多重身份验证定价页](https://www.azure.cn/pricing/details/multi-factor-authentication/)。
 
 ## <a name="available-versions-of-azure-multi-factor-authentication"></a>可用的 Azure 多重身份验证版本
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关定价详细信息，请参阅 [Azure MFA 定价](/pricing/details/multi-factor-authentication/)。
+- 有关定价详细信息，请参阅 [Azure MFA 定价](https://www.azure.cn/pricing/details/multi-factor-authentication/)。
 
 - 选择是要将 Azure MFA 部署[在云中还是本地](./multi-factor-authentication-get-started-cloud.md)
 

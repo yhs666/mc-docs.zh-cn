@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2016
 wacn.date: 02/10/2017
-ms.author: cephalin;dariac
+ms.author: v-dazen
 ---
 
 # 使用 FTP/S 将应用部署到 Azure 应用服务

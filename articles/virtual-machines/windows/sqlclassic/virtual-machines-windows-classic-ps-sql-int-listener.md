@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 03/01/2017
 wacn.date: 04/27/2017
-ms.author: MikeRayMSFT
+ms.author: v-dazen
 ---
 
 # 在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听器
@@ -38,7 +38,7 @@ ms.author: MikeRayMSFT
 请注意有关 Azure 中使用 ILB 的可用性组侦听器的以下准则：
 
 * Windows Server 2008 R2、Windows Server 2012 和 Windows Server 2012 R2 支持可用性组侦听器。
-* 每个云服务只支持一个内部可用性组侦听器，因为该侦听器将配置给 ILB，而每个云服务只有一个 ILB。但是，可以创建多个外部侦听器。有关详细信息，请参阅 [Configure an external listener for Always On Availability Groups in Azure](../../virtual-machines-windows-classic-ps-sql-ext-listener.md)（在 Azure 中配置 AlwaysOn 可用性组的外部侦听器）。
+* 每个云服务只支持一个内部可用性组侦听器，因为该侦听器将配置给 ILB，而每个云服务只有一个 ILB。但是，可以创建多个外部侦听器。有关详细信息，请参阅[在 Azure 中配置 AlwaysOn 可用性组的外部侦听器](../../virtual-machines-windows-classic-ps-sql-ext-listener.md)。
 
 ## 确定侦听器的可访问性
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]

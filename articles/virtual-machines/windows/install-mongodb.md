@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2016
 wacn.date: 02/24/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 在 Azure 中的 Windows VM 上安装和配置 MongoDB

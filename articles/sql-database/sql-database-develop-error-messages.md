@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 wacn.date: 12/19/2016
-ms.author: annemill
+ms.author: v-johch
 ---
 
 # SQL 数据库客户端应用程序的 SQL 错误代码：数据库连接错误和其他问题

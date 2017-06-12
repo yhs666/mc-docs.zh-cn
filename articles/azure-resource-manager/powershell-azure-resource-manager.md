@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 wacn.date: 03/31/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 使用 Azure PowerShell 和 Resource Manager 管理资源

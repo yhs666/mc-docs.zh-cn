@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2016
 wacn.date: 04/11/2017
-ms.author: cabailey
+ms.author: v-junlch
 ---
 
 # Azure 密钥保管库入门

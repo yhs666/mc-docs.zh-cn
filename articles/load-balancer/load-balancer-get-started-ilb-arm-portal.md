@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 03/03/2017
-ms.author: kumud
+ms.author: v-yeche
 ---
 
 # 在 Azure 门户中创建内部负载均衡器

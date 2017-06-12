@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/22/2016
 wacn.date: 01/20/2017
-ms.author: suchia
+ms.author: v-johch
 ---
 
 # 配置 Reliable Actors 的 FabricTransport 设置

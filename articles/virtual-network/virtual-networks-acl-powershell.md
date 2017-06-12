@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 wacn.date: 12/12/2016
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 如何使用 PowerShell 管理终结点的访问控制列表 (ACL)

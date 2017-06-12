@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/28/2017
 wacn.date: 05/31/2017
-ms.author: jroth
+ms.author: v-dazen
 ---
 
 # 连接到 Azure \(Resource Manager\) 上的 SQL Server 虚拟机
@@ -113,7 +113,7 @@ ms.author: jroth
 
 [探索学习路径](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/)：Azure 虚拟机上的 SQL Server。
 
-有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [SQL Server on Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)（Azure 虚拟机上的 SQL Server）。
+有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [Azure 虚拟机上的 SQL Server](../../virtual-machines-windows-sql-server-iaas-overview.md)。
 
 <!---HONumber=Mooncake_0213_2017-->
 <!--Update_Description: wording update-->

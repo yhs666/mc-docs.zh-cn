@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/22/2017
 wacn.date: 04/27/2017
-ms.author: rashimg;jgao
+ms.author: v-dazen
 ---
 
 # 在 Azure HDInsight 的 Hadoop 中使用 Hive 内存设置解决内存不足 (OOM) 错误

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 wacn.date: 03/28/2017
-ms.author: ninarn
+ms.author: v-dazen
 ---
 
 # SQL Server VM 的存储配置
@@ -140,7 +140,7 @@ Azure 使用以下设置在 SQL Server VM 上创建存储池。
 >
 
 ## 后续步骤
-有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [SQL Server on Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)（Azure 虚拟机上的 SQL Server）。
+有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [Azure 虚拟机上的 SQL Server](../../virtual-machines-windows-sql-server-iaas-overview.md)。
 
 <!---HONumber=Mooncake_0220_2017-->
 <!--Update_Description: wording update-->

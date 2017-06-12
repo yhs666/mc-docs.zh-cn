@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 wacn.date: 04/27/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 在 HDInsight 中上传 Hadoop 作业的数据
@@ -283,7 +283,7 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 ![通过 Ambari Web UI 更改值的图像](./media/hdinsight-upload-data/hbase-change-block-write-size.png)  
 
-有关如何使用 Ambari 的详细信息，请参阅 [Manage HDInsight clusters using the Ambari Web UI](./hdinsight-hadoop-manage-ambari.md)（使用 Ambari Web UI 管理 HDInsight 群集）。
+有关如何使用 Ambari 的详细信息，请参阅[使用 Ambari Web UI 管理 HDInsight 群集](./hdinsight-hadoop-manage-ambari.md)。
 
 ## 后续步骤
 现在，你已了解如何将数据导入 HDInsight，请阅读以下文章了解如何执行分析：

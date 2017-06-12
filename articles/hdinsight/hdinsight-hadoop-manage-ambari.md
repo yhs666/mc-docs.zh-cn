@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2017
 wacn.date: 03/10/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用 Ambari Web UI 管理 HDInsight 群集
@@ -48,7 +48,7 @@ Ambari Web UI 在 HDInsight 群集（网址为 HTTPS://CLUSTERNAME.azurehdidnsig
 > [!NOTE]
 > 尽管可以直接通过 Internet 访问群集的 Ambari，但 Ambari Web UI 中的某些链接（例如 JobTracker 的链接）并未在 Internet 上公开。因此，除非使用安全外壳 (SSH) 隧道来代理对群集头节点的 Web 流量，否则在尝试访问这些功能时会收到“找不到服务器”错误。
 
-有关创建 SSH 隧道以使用 Ambari 的信息，请参阅 [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](./hdinsight-linux-ambari-ssh-tunnel.md)（使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI）。
+有关创建 SSH 隧道以使用 Ambari 的信息，请参阅[使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI](./hdinsight-linux-ambari-ssh-tunnel.md)。
 
 ## Ambari Web UI
 
@@ -144,7 +144,7 @@ Ambari 提供许多警报，其状态为以下其中一种：
 > [!NOTE]
 > 选择任何服务的“快速链接”链接将会导致出现“找不到服务器”的错误，除非使用安全套接字层 (SSL) 隧道通过代理将 Web 流量发送到群集。这是因为用来显示此信息的 Web 应用程序不在 Internet 上公开。
 > 
-> 有关将 SSH 隧道与 HDInsight 配合使用的信息，请参阅 [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](./hdinsight-linux-ambari-ssh-tunnel.md)（使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI）
+> 有关将 SSH 隧道与 HDInsight 配合使用的信息，请参阅[使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI](./hdinsight-linux-ambari-ssh-tunnel.md)
 
 ## 管理
 
@@ -194,7 +194,7 @@ Ambari 提供许多警报，其状态为以下其中一种：
 ![服务操作](./media/hdinsight-hadoop-manage-ambari/service-actions.png)  
 
 > [!WARNING]
-> 虽然此菜单中列出了“添加服务”，但是不应使用它将服务添加到 HDInsight 群集。应在群集预配过程中使用脚本操作添加新服务。有关使用脚本操作的详细信息，请参阅 [Customize HDInsight clusters using Script Actions](./hdinsight-hadoop-customize-cluster-linux.md)（使用脚本操作自定义 HDInsight 群集）。
+> 虽然此菜单中列出了“添加服务”，但是不应使用它将服务添加到 HDInsight 群集。应在群集预配过程中使用脚本操作添加新服务。有关使用脚本操作的详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](./hdinsight-hadoop-customize-cluster-linux.md)。
 
 虽然“操作”按钮可以重新启动所有服务，但你要启动、停止或重新启动的往往是特定服务。使用以下步骤来对单个服务执行操作：
 

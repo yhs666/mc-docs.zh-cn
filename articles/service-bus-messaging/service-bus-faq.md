@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2017
-ms.author: sethm;jotaub
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: f1de8588a700c65a28eb0e59727f4b25ced415d7
@@ -120,7 +120,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 
 [Best practices for performance improvements using Service Bus]: ./service-bus-performance-improvements.md
 [Best practices for insulating applications against Service Bus outages and disasters]: ./service-bus-outages-disasters.md
-[Pricing overview]: /pricing/details/messaging/
+[Pricing overview]: http://www.azure.cn/pricing/details/messaging
 [Quotas overview]: ./service-bus-quotas.md
 [Exceptions overview]: ./service-bus-messaging-exceptions.md
 [Shared Access Signatures]: ./service-bus-sas.md

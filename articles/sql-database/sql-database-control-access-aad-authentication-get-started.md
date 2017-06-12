@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/17/2017
 wacn.date: 01/25/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # SQL 数据库教程：AAD 身份验证、登录名和用户帐户、数据库角色、权限、服务器级防火墙规则和数据库级防火墙规则

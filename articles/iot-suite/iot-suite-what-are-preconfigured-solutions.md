@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2017
-ms.author: dobett
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: bc57ec3b869088dbdfa71236ccb43bc9cdd22420
@@ -43,7 +43,7 @@ Azure IoT 套件预配置解决方案是你可以使用订阅部署到 Azure 的
 
 | 解决方案 | 数据引入 | 设备标识 | 设备管理 | 命令和控制 | 规则和操作 | 预测分析 |
 | --- | --- | --- | --- | --- | --- | --- |
-| [远程监视][lnk-getstarted-preconfigured] |是 |是 |是 |是 |是 |- |
+| [远程监控][lnk-getstarted-preconfigured] |是 |是 |是 |是 |是 |- |
 | [前瞻性维护][lnk-predictive-maintenance] |是 |是 |- |是 |是 |是 |
 | [连接的工厂][lnk-getstarted-factory] |是 |是 |是 |是 |是 |- |
 
@@ -75,13 +75,13 @@ Azure IoT 套件预配置解决方案是你可以使用订阅部署到 Azure 的
 
 有关这些不同方法的比较，请参阅 [云到设备的通信指南][lnk-c2d-guidance]。
 
-在预配置解决方案中，当设备首次连接到 IoT 中心时，会向中心发送设备信息消息，该消息枚举了设备可以响应的方法。 在远程监视预配置解决方案中，模拟设备支持以下方法：
+在预配置解决方案中，当设备首次连接到 IoT 中心时，会向中心发送设备信息消息，该消息枚举了设备可以响应的方法。 在远程监控预配置解决方案中，模拟设备支持以下方法：
 
 * *启动固件更新*：此方法在设备上启动异步任务以执行固件更新。 此异步任务使用报告的属性将状态更新传送给解决方案仪表板。
 * *重新启动*：此方法使模拟设备重新启动。
 * *FactoryReset*：此方法会触发模拟设备上的出厂设置恢复。
 
-在预配置解决方案中，当设备首次连接到 IoT 中心时，会向中心发送设备信息消息，该消息枚举设备可以响应的命令。 在远程监视预配置解决方案中，模拟设备支持以下命令：
+在预配置解决方案中，当设备首次连接到 IoT 中心时，会向中心发送设备信息消息，该消息枚举设备可以响应的命令。 在远程监控预配置解决方案中，模拟设备支持以下命令：
 
 * *Ping 设备*：设备通过确认响应此命令。 此命令对于检查设备是否仍然活动且正在侦听很有用。
 * *开始遥测*：指示设备开始发送遥测数据。
@@ -110,7 +110,7 @@ IoT 中心通过服务端遥测数据读取终结点使收到的遥测数据可�
 ## <a name="azure-stream-analytics"></a>Azure 流分析
 此预配置的解决方案使用三种 [Azure 流分析][lnk-asa] (ASA) 作业筛选设备的遥测数据流：
 
-* DeviceInfo 作业 - 将数据输出到事件中心，该中心将特定于设备注册的消息路由到解决方案设备注册表（一种 Azure Cosmos DB 数据库）。 设备第一次连接或者响应 **更改设备状态** 命令时会发送此消息。
+* DeviceInfo 作业 - 将数据输出到事件中心，该中心将特定于设备注册的消息路由到解决方案设备注册表（一种 Azure DocumentDB 数据库）。 设备第一次连接或者响应 **更改设备状态** 命令时会发送此消息。
 * *遥测数据作业* - 将所有原始遥测数据发送到 Azure blob 存储进行冷存储，并计算在解决方案仪表板中显示的遥测汇总数据。
 * 规则作业 - 筛选超出了任何规则阈值的遥测数据流，并将数据输出到事件中心。 触发规则时，解决方案门户仪表板视图会在警报历史记录表中将此事件显示为新行。 这些规则也可以基于解决方案门户中“规则”和“操作”视图上定义的设置来触发操作。
 
@@ -120,10 +120,10 @@ IoT 中心通过服务端遥测数据读取终结点使收到的遥测数据可�
 在此预配置的解决方案中，事件处理器是典型的 **IoT 解决方案体系结构** 中 [IoT 解决方案后端][lnk-what-is-azure-iot]的组成部分。
 
 DeviceInfo 和规则 ASA 作业将其输出发送到事件中心以传递到其他后端服务。 该解决方案使用 [Web 作业][lnk-web-job]中运行的 [EventProcessorHost][lnk-event-processor] 实例从这些事件中心读取消息。 **EventProcessorHost** ：
-- DeviceInfo 数据更新 Cosmos DB 数据库中的设备数据。
+- DeviceInfo 数据更新 DocumentDB 数据库中的设备数据。
 - 使用 **规则** 数据调用逻辑应用，并更新解决方案门户中显示的警报。
 
-## <a name="device-identity-registry-device-twin-and-cosmos-db"></a>设备标识注册表、设备孪生和 Cosmos DB
+## <a name="device-identity-registry-device-twin-and-document-db"></a>设备标识注册表、设备孪生和 DocumentDB
 每个 IoT 中心都包括存储设备密钥的 [设备标识注册表][lnk-identity-registry] 。 IoT 中心使用此信息对设备进行身份验证 - 设备必须已注册，并具有有效的密钥，然后才能连接到中心。
 
 [设备孪生][lnk-device-twin] 是由 IoT 中心管理的 JSON 文档。 设备的设备孪生包含：
@@ -132,9 +132,9 @@ DeviceInfo 和规则 ASA 作业将其输出发送到事件中心以传递到其�
 - 想要发送到设备的所需属性。 可以在解决方案门户中设置这些属性。
 - 只有设备孪生中存在标记，设备上没有。 可以使用这些标记来筛选解决方案门户中的设备列表。
 
-此解决方案使用设备孪生来管理设备元数据。 解决方案还使用 Cosmos DB 数据库来存储特定于解决方案的其他设备数据，例如每个设备支持的命令和命令历史记录。
+此解决方案使用设备孪生来管理设备元数据。 解决方案还使用 DocumentDB 数据库来存储特定于解决方案的其他设备数据，例如每个设备支持的命令和命令历史记录。
 
-该解决方案必须保持设备标识注册表中的信息与 Cosmos DB 数据库的内容同步。 EventProcessorHost 使用来自 DeviceInfo 流分析作业的数据来管理同步。
+该解决方案必须保持设备标识注册表中的信息与 DocumentDB 数据库的内容同步。 EventProcessorHost 使用来自 DeviceInfo 流分析作业的数据来管理同步。
 
 ## <a name="solution-portal"></a>解决方案门户
 ![解决方案门户][img-dashboard]
@@ -155,7 +155,7 @@ DeviceInfo 和规则 ASA 作业将其输出发送到事件中心以传递到其�
 
 有关 IoT 解决方案体系结构的详细信息，请参阅 [Azure IoT services: Reference Architecture（Azure IoT 服务：参考体系结构）][lnk-refarch]。
 
-现在你已了解什么是预配置解决方案，接下来你可以通过部署 *远程监视* 预配置解决方案来开始入门，请参阅： [Get started with the preconfigured solutions][lnk-getstarted-preconfigured]（预配置解决方案入门）。
+现在你已了解什么是预配置解决方案，接下来你可以通过部署 *远程监控* 预配置解决方案来开始入门，请参阅： [Get started with the preconfigured solutions][lnk-getstarted-preconfigured]（预配置解决方案入门）。
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png

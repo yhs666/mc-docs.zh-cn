@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 wacn.date: 03/31/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用 Storm on HDInsight 从 Azure 事件中心处理事件 (C#)
@@ -212,7 +212,7 @@ Spout 和 Bolt 以名为 **eventhubs-storm-spout-#.#-jar-with-dependencies.jar**
 
 ## 配置 EventHubWriter
 
-1. 如果尚未安装最新版本的 HDInsight Tools for Visual Studio，请参阅 [Get started using HDInsight Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md)（开始使用 HDInsight Tools for Visual Studio）。
+1. 如果尚未安装最新版本的 HDInsight Tools for Visual Studio，请参阅[开始使用 HDInsight Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md)。
 
 2. 从 [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub) 下载解决方案。
 

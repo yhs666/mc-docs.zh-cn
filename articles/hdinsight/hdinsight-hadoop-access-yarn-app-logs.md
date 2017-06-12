@@ -16,14 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/10/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 在基于 Windows 的 HDInsight 上访问 YARN 应用程序日志
 本主题介绍如何访问在 Azure HDInsight 中基于 Windows 的 Hadoop 群集上完成的 YARN (Yet Another Resource Negotiator) 应用程序日志
 
 > [!IMPORTANT]
-> 本文档中的信息仅适用于基于 Windows 的 HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。有关在基于 Linux 的 HDInsight 群集上访问 YARN 日志的信息，请参阅 [Access YARN application logs on Linux-based Hadoop on HDInsight](./hdinsight-hadoop-access-yarn-app-logs-linux.md)（在 HDInsight 上基于 Linux 的 Hadoop 中访问 YARN 应用程序日志）
+> 本文档中的信息仅适用于基于 Windows 的 HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。有关在基于 Linux 的 HDInsight 群集上访问 YARN 日志的信息，请参阅[在 HDInsight 上基于 Linux 的 Hadoop 中访问 YARN 应用程序日志](./hdinsight-hadoop-access-yarn-app-logs-linux.md)
 > 
 
 ### 先决条件

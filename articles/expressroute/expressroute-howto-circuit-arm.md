@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
-ms.author: ganesr;cherylmc
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: eece5b23ce0c05c9e6e8a1938c34faf0383fb06a
 ms.openlocfilehash: d8d07051bd1e0ffa98061af59b1520e8d17bdea1
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/25/2017
 
 
 ## <a name="before-you-begin"></a>开始之前
-* 安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关详细信息，请参阅 [Azure PowerShell 概述](/powershell/azureps-cmdlets-docs)。
+* 安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关详细信息，请参阅 [Azure PowerShell 概述](../powershell-install-configure.md)。
 * 在开始配置之前，请查看[先决条件](./expressroute-prerequisites.md)和[工作流](./expressroute-workflows.md)。
 
 

@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/24/2017
-ms.author: genemi
+ms.author: v-johch
 ---
 
 # SQL 数据库中扩展事件的事件文件目标代码

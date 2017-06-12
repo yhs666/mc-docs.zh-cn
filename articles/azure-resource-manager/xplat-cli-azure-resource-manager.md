@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2016
 wacn.date: 02/10/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 使用 Azure CLI 管理 Azure 资源和资源组

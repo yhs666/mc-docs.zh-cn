@@ -14,7 +14,7 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 wacn.date: 03/20/2017
-ms.author: yuaxu
+ms.author: v-yiso
 ---
 
 # 启用 iOS 移动应用的脱机同步功能

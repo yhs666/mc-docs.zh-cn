@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 wacn.date: 03/31/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # HDInsight 中的 Jupyter 笔记本内核与 Apache Spark 群集 
@@ -31,7 +31,7 @@ HDInsight Spark 群集提供了可在 Jupyter Notebook 中使用的内核，以�
 
 ## 先决条件
 
-* HDInsight 中的 Apache Spark 群集。有关说明，请参阅 [Create Apache Spark clusters in Azure HDInsight](./hdinsight-apache-spark-jupyter-spark-sql.md)（在 Azure HDInsight 中创建 Apache Spark 群集）。
+* HDInsight 中的 Apache Spark 群集。有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](./hdinsight-apache-spark-jupyter-spark-sql.md)。
 
 ## 创建 Jupyter 笔记本
 

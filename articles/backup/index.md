@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 3b8940bd3f00d4ce5c76c745bf2c2fb75c5ba77e
@@ -25,7 +25,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/backup/backup-introduction-to-azure-backup">
+        <a href="/backup/backup-introduction-to-azure-backup">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -42,26 +42,8 @@ ms.lasthandoff: 05/12/2017
         </div>
         </a>
     </li>
-     <li>
-        <a href="/documentation/videos/index/?services=backup">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure 备份视频库</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-   <li>
-        <a href="/azure/backup/backup-try-azure-backup-in-10-mins">
+    <li>
+        <a href="/backup/backup-try-azure-backup-in-10-mins">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +61,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/azure/backup/backup-azure-vms-first-look">
+        <a href="/backup/backup-azure-vms-first-look">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -90,24 +72,6 @@ ms.lasthandoff: 05/12/2017
                     </div>
                     <div class="cardText">
                         <h3>开始使用 Azure 备份来备份 Azure 虚拟机</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/azure/backup/backup-azure-vms-first-look">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="./media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>开始使用 Azure 备份保护 Azure 虚拟机</h3>
                     </div>
                 </div>
             </div>
@@ -126,7 +90,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>命令行</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -138,7 +102,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
                     </div>
                 </div>
             </div>

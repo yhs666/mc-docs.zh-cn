@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 wacn.date: 
-ms.author: tomfitz
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 9fe5cf581613b71126583d240796c8fa40fe928f
@@ -133,7 +133,7 @@ DSC 可以使用最热门机制的一些资源扩展 - PowerShell DSC、Chef 和
 ### <a name="free-form-configurations"></a>自由格式配置
 表面上，自由格式配置听起来很实用。 它们允许你选择 VM 类型，并提供任意数目的节点以及这些节点的附加磁盘用作模板的参数。 但是，有些方案不适合使用此方法。
 
-[虚拟机大小](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)介绍了不同的 VM 类型和可用大小，以及每种可附加的持久性磁盘数目（2、4、8、16 或 32）。 每个附加的磁盘提供 500 IOPS，可将这些磁盘的倍数组建成池，以成倍提高 IOPS 数目。 例如，可将 16 个磁盘组建成池，以提供 8,000 IOPS。 可以使用 Microsoft Windows 存储空间或者在 Linux 使用价格便宜的磁盘冗余阵列 (RAID)，使用操作系统中的配置来实现池的组建。
+[虚拟机大小](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)介绍了不同的 VM 类型和可用大小，以及每种可附加的持久性磁盘数目（2、4、8、16 或 32）。 每个附加的磁盘提供 500 IOPS，可将这些磁盘的倍数组建成池，以成倍提高 IOPS 数目。 例如，可将 16 个磁盘组建成池，以提供 8,000 IOPS。 可以使用 Microsoft Windows 存储空间或者在 Linux 使用价格便宜的磁盘冗余阵列 (RAID)，使用操作系统中的配置来实现池的组建。
 
 自由格式配置允许选择多个 VM 实例，并为这些实例选择多个 VM 类型和大小，每个 VM 类型可选择多个磁盘，还可选择一个或多个脚本来配置 VM 内容。
 

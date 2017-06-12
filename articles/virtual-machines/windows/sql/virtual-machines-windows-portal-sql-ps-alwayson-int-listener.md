@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/28/2016
 wacn.date: 02/20/2017
-ms.author: mikeray
+ms.author: v-dazen
 ---
 
 # 配置一个或多个 Always On 可用性组侦听器 - Resource Manager

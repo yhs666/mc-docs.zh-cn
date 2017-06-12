@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/10/2017
 wacn.date: 01/25/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 通过 Visual Studio 创建和部署 Azure 资源组

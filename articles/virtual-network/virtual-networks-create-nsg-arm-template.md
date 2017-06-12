@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 wacn.date: 01/05/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 如何使用模板创建 NSG

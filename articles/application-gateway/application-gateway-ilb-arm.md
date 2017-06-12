@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 03/28/2017
-ms.author: gwallace
+ms.author: v-dazen
 ---
 
 # 使用 Azure Resource Manager 创建具有内部负载均衡器 (ILB) 的应用程序网关
@@ -262,7 +262,7 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 ## 后续步骤
 
-如果你要配置 SSL 卸载，请参阅 [Configure an application gateway for SSL offload](./application-gateway-ssl.md)（配置应用程序网关以进行 SSL 卸载）。
+如果你要配置 SSL 卸载，请参阅[配置应用程序网关以进行 SSL 卸载](./application-gateway-ssl.md)。
 
 若要将应用程序网关配置为与 ILB 配合使用，请参阅[创建具有内部负载均衡器 (ILB) 的应用程序网关](./application-gateway-ilb.md)。
 

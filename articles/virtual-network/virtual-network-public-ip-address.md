@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 wacn.date: 03/31/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 公共 IP 地址
@@ -31,6 +31,8 @@ ms.author: jdial
 - 在 Azure 门户预览中完成任务的步骤。要完成这些步骤，必须登录 [Azure 门户预览](http://portal.azure.cn)。如果没有帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 - 使用 Azure PowerShell 完成任务的命令，内附命令参考链接。请完成[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 文章中的步骤，安装和配置 PowerShell。若要获取 PowerShell 命令的帮助，请在示例中键入 `get-help <command> -full`。
 - 使用 Azure 命令行接口 (CLI) 完成任务的命令，内附命令参考链接。请完成[如何安装和配置 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) 文章中的步骤安装 Azure CLI。若要获取 CLI 命令的帮助，请键入 `az <command> -h`。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 公共 IP 地址会产生少许费用。若要查看定价，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。仅可在一个订阅中使用有限数量的公共 IP 地址。若要查看限制，请参阅 [Azure 限制](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)一文。
 

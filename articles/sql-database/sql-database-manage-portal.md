@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.date: 01/10/2017
 wacn.date: 01/25/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 使用 Azure 门户预览管理 Azure SQL 数据库

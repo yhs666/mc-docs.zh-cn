@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/02/2017
-ms.author: asaxton
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 5b1c68750589590134d83022e731005e1140df8d
@@ -45,7 +45,7 @@ ms.lasthandoff: 04/14/2017
 
     >[!IMPORTANT]
     > 本示例中的某些 URL 只能在全球环境中使用。 若要在 Azure 中国区环境中使用它，必须执行一些替换。
-    > 例如：在文件 \ProvisionSample\App.config 中将 https://api.powerbi.com 替换为 https://api.powerbi.cn ，将 https://management.azure.com 替换为 https://management.chinacloudapi.cn ，在文件 \ProvisionSample\Program.cs 中将 https://management.core.windows.net 替换为 https://management.core.chinacloudapi.cn ，在文件 \ProvisionSample\ProgramExtensions.cs 中将 https://login.windows.net 替换为 https://login.chinacloudapi.cn 。 有关全球环境与中国区环境中 URL 的差别的详细信息，请参阅 [此文](/documentation/articles/developerdifferences/)。
+    > 例如：在文件 \ProvisionSample\App.config 中将 https://api.powerbi.com 替换为 https://api.powerbi.cn ，将 https://management.azure.com 替换为 https://management.chinacloudapi.cn ，在文件 \ProvisionSample\Program.cs 中将 https://management.core.windows.net 替换为 https://management.core.chinacloudapi.cn ，在文件 \ProvisionSample\ProgramExtensions.cs 中将 https://login.windows.net 替换为 https://login.chinacloudapi.cn 。 有关全球环境与中国区环境中 URL 的差别的详细信息，请参阅 [此文](/articles/developerdifferences)。
 
 2. 在 Visual Studio 中打开“PowerBI embedded.sln”  。 可能需要在 NuGET 程序包管理器控制台中执行“Update-Package”  命令来更新此解决方案中使用的程序包。
 3. 生成解决方案。

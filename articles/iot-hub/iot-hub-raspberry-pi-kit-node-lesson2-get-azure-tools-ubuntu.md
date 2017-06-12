@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2016
 wacn.date: 01/13/2017
-ms.author: xshi
+ms.author: v-yiso
 ---
 
 # 获取 Azure 工具 \(Ubuntu 16.04\)

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2017
 wacn.date: 03/24/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 在计算机上安装 Jupyter 笔记本并连接到 HDInsight 上的 Apache Spark 群集
@@ -35,7 +35,7 @@ ms.author: nitinme
 此处所列的先决条件不适用于安装 Jupyter。这些先决条件适用于安装笔记本之后将 Jupyter 笔记本连接到 HDInsight 群集。
 
 * Azure 订阅。请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* HDInsight 上的 Apache Spark 群集。有关说明，请参阅 [Create Apache Spark clusters in Azure HDInsight](./hdinsight-apache-spark-jupyter-spark-sql.md)（在 Azure HDInsight 中创建 Apache Spark 群集）。
+* HDInsight 上的 Apache Spark 群集。有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](./hdinsight-apache-spark-jupyter-spark-sql.md)。
 
 ## 在计算机上安装 Jupyter 笔记本
 必须先安装 Python 才能安装 Jupyter 笔记本。Python 和 Jupyter 都是作为 [Ananconda分发版](https://www.continuum.io/downloads)的一部分提供的。当你安装 Anaconda 时，实际上安装的是某个 Python 分发版。安装 Anaconda 之后，可通过运行一个命令来添加 Jupyter 安装。本部分提供必须遵循的说明。

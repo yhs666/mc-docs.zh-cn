@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/08/2017
 wacn.date: 
-ms.author: jotaub;sethm
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 22be9cf77635657b6f8f412629ef3a3ff9b4035e
@@ -172,7 +172,7 @@ ms.lasthandoff: 04/07/2017
 > 
 
 <!-- Links -->
-[Event Hubs Overview]: /documentation/articles/event-hubs-overview/
+[Event Hubs Overview]: event-hubs-overview.md
 [Event Hubs Programming Guide]: ./event-hubs-programming-guide.md
 [Azure Storage account]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
@@ -181,7 +181,7 @@ ms.lasthandoff: 04/07/2017
 ## <a name="next-steps"></a>后续步骤
 现在已生成了一个可以创建事件中心以及发送和接收数据的有效应用程序，接下来请访问以下链接，继续学习：
 
-* [事件处理程序主机](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+* [事件处理程序主机](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 * [事件中心概述][Event Hubs overview]
 * [事件中心常见问题](./event-hubs-faq.md)
 
@@ -193,5 +193,5 @@ ms.lasthandoff: 04/07/2017
 
 <!-- Links -->
 [EventProcessorHost]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: /documentation/articles/event-hubs-overview/
+[Event Hubs overview]: event-hubs-overview.md
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3

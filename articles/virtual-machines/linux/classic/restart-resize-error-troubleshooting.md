@@ -15,7 +15,7 @@ ms.workload: required
 ms.date: 01/10/2017
 wacn.date: 03/01/2017
 ms.devlang: na
-ms.author: delhan
+ms.author: v-dazen
 ---
 
 # 排查在 Azure 中重新启动现有 Linux 虚拟机或调整其大小时遇到的经典部署问题
