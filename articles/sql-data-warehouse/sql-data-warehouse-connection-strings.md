@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: 12/12/2016
-ms.author: sonyama;barbkess
+ms.author: v-yeche
 ---
 
 # Azure SQL 数据仓库的驱动程序

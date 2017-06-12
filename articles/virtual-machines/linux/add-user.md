@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2016
 wacn.date: 10/24/2016
-ms.author: v-livech
+ms.author: v-dazen
 ---
 
 # 将用户添加到 Azure VM

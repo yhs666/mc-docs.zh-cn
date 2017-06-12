@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/05/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: ad1aacee73edca9a8067817974d0919ed14edc27
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/26/2017
 Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 Beeline 使用 JDBC 连接到 HiveServer2，后者是 HDInsight 群集上托管的一项服务。 还可以使用 Beeline 通过 Internet 远程访问 Hive on HDInsight。 下表提供与 Beeline 结合使用的连接字符串：
 
 | 运行 Beeline 的位置 | Parameters |
-| --- | --- | --- |
+| --- | --- |
 | 与头节点或边缘节点的 SSH 连接 | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin` |
 | 群集外部 | `-u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password` |
 
@@ -137,7 +137,7 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
     > [!NOTE]
     > 如果希望通过外部源更新基础数据，应使用外部表。 例如，自动化数据上传进程或 MapReduce 操作。
-    > <p>
+    >
     > 删除外部表**不会**删除数据，只会删除表定义。
 
     此命令的输出类似于以下文本：

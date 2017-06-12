@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 wacn.date: 02/20/2017
-ms.author: seanmck
+ms.author: v-johch
 ---
 
 # 使用 Service Fabric Explorer 可视化群集

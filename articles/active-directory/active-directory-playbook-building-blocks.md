@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-wacn.date: 
+wacn.date: 06/12/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 2e7ca8ffa4a9c8f3691644de235100a8e7d00242
@@ -48,7 +48,7 @@ ms.lasthandoff: 05/26/2017
 | Azure AD 全局管理员凭据 | 在 Azure Active Directory 中分配管理员角色 |
 | 可选但强烈建议：用作应急措施的并行实验室环境 | [Azure AD Connect 的先决条件](./connect/active-directory-aadconnect-prerequisites.md) |
 
-## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>目录同步 - 密码哈希同步 (PHS) - 新安装
+## <a name="directory-synchronization--password-hash-sync-phs--new-installation"></a>目录同步 - 密码哈希同步 (PHS) - 新安装
 
 大约完成时间：一小时（如果 PoC 用户数不超过 1,000 个）
 

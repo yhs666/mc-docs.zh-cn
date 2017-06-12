@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/06/2017
-ms.author: dobett
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 06c5cbe5f123e605849ed50ee4946c3edaa48375
@@ -205,7 +205,7 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
    SharedAccessBlobPermissions.Read
    ```
 
-*  一个*字符串*，其中包含用作作业*输出*的 [Azure 存储](/documentation/services/storage/) Blob 容器的 URI。 作业在此容器中创建块 Blob，用于存储已完成的导入 **作业**中的任何错误信息。 SAS 令牌必须包含这些权限：
+*  一个*字符串*，其中包含用作作业*输出*的 [Azure 存储](../storage/index.md) Blob 容器的 URI。 作业在此容器中创建块 Blob，用于存储已完成的导入 **作业**中的任何错误信息。 SAS 令牌必须包含这些权限：
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete

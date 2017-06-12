@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/17/2016
 wacn.date: 
-ms.author: juliako
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: cf1003b15ff71d5fccfa5e9316f4426689451ed5
@@ -59,6 +59,6 @@ ms.lasthandoff: 04/28/2017
 [用于 .NET 的 Azure SDK 2.0 发行说明](https://msdn.microsoft.com/library/azure/dn169556.aspx)
 
 ## <a name="related-topics"></a>相关主题
-[用于 .NET 的 Azure SDK](https://www.azure.cn/downloads/)
+[用于 .NET 的 Azure SDK](/downloads/)
 
 [MSDN 上的 Azure SDK 发行说明](https://msdn.microsoft.com/library/azure/dn627519.aspx)

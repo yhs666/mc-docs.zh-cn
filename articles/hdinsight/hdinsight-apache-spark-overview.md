@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/12/2017
 wacn.date: 
-ms.author: nitinme
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: a3a8383e050a48115bbb475505ae3033b2255a3a
@@ -44,9 +44,7 @@ HDInsight 上的 Spark 群集提供完全托管的 Spark 服务。 下面列出�
 | 方便创建 Spark 群集 |可以使用 Azure 门户预览、Azure PowerShell 或 HDInsight .NET SDK，在几分钟之内于 HDInsight 上创建新的 Spark 群集。 请参阅 [HDInsight 中的 Spark 群集入门](hdinsight-apache-spark-jupyter-spark-sql.md) |
 | 易于使用 |HDInsight 中的 Spark 群集包括 Jupyter 和 Zeppelin Notebook。 你可以使用这些笔记本执行交互式数据处理和可视化。|
 | REST API |HDInsight 中的 Spark 群集包含 [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)，它是基于 REST-API 的 Spark 作业服务器，用于远程提交和监视作业。 |
-| 与 Azure 服务集成 |HDInsight 上的 Spark 群集随附了 Azure 事件中心的连接器。 除了 Spark 提供的 [Kafka](http://kafka.apache.org/)之外，客户还可以使用事件中心来生成流式处理应用程序。 |
-| 支持 R Server | 可以在 HDInsight Spark 群集上设置 R Server，以 Spark 群集承诺的速度运行分布式 R 计算。 有关详细信息，请参阅 [开始使用 HDInsight 上的 R Server](hdinsight-hadoop-r-server-get-started.md)。 |
-| 与第三方 IDE 集成 | HDInsight 为 IntelliJ IDEA 和 Eclipse 之类的 IDE 提供插件，可以使用这些插件创建应用程序并将其提交到 HDInsight Spark 群集。 |
+| 与 Azure 服务集成 |HDInsight 上的 Spark 群集随附了 Azure 事件中心的连接器。客户还可以使用事件中心来生成流式处理应用程序。 |
 | 并发查询 |HDInsight 中的 Spark 群集支持并发查询。 它允许一个用户运行多个查询，或者不同的用户运行多个查询，以及让应用程序共享相同的群集资源。 |
 | SSD 缓存 |你可以选择将数据缓存在内存中，或缓存在已附加到群集节点的 SSD 中。 内存缓存提供最佳的查询性能，但可能费用不菲；SSD 缓存是改善查询性能的绝佳选项，而且你不需要根据内存中的整个数据集创建满足其需求的群集规模。 |
 | 与 BI 工具集成 |HDInsight 上的 Spark 群集提供 BI 工具（如 [Power BI](http://www.powerbi.com/) 和 [Tableau](http://www.tableau.com/products/desktop)）的连接器，用于数据分析。 |
@@ -94,6 +92,7 @@ HDInsight 上的 Spark 群集还提供 [ODBC 驱动程序](http://go.microsoft.c
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](hdinsight-apache-spark-eventhub-streaming.md)
+* [使用 HDInsight 中的 Spark 分析网站日志](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序
 * [使用 Scala 创建独立的应用程序](hdinsight-apache-spark-create-standalone-application.md)

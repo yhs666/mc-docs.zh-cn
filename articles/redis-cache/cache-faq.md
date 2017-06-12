@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 wacn.date: 
-ms.author: sdanie
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 1183246b6c6ff8b6d60e8b17cef0a7f4b8dd2293

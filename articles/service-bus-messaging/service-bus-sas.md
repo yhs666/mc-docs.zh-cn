@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2017
 wacn.date: 03/20/2017
-ms.author: sethm
+ms.author: v-yiso
 ---
 
 # 服务总线的共享访问签名身份验证

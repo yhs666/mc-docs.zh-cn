@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 wacn.date: 
-ms.author: davidmu
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: c661878795039483fbec373ed5bb7b646d9d7ac2
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/06/2017
 
 如果运行本文中的多个命令，以下一些变量可能将对你有用：
 
-- $location - 网络资源的位置。 可以使用 [Get-AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation) 查找适合你的[地理区域](https://azure.microsoft.com/regions/)。
+- $location - 网络资源的位置。 可以使用 [Get-AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation) 查找适合你的地理区域。
 - $myResourceGroup - 网络资源所在的资源组名称。
 
 ## <a name="create-network-resources"></a>创建网络资源
@@ -75,5 +75,5 @@ ms.lasthandoff: 04/06/2017
 | 删除公共 IP 地址 |[Remove-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v3.4.0/Remove-AzureRmPublicIpAddress)-Name "myIPAddress" -ResourceGroupName $myResourceGroup<BR><BR>从资源组中删除指定的公共 IP 地址。 |
 
 ## <a name="next-steps"></a>后续步骤
-* 使用[创建 VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 时创建的网络接口。
+* 使用[创建 VM](../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 时创建的网络接口。
 * 了解如何[创建具有多个网络接口的 VM](../../virtual-network/virtual-networks-multiple-nics.md)。

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 02/06/2017
 wacn.date: 03/10/2017
-ms.author: bsiva
+ms.author: v-johch
 ---
 
 # 使用 PowerShell 和 Azure Resource Manager 在本地 Hyper-V 虚拟机与 Azure 之间复制
@@ -57,7 +57,7 @@ Site Recovery PowerShell cmdlet 在 Azure PowerShell for Azure Resource Manager 
 
 - 需要一台运行 Windows Server 2012 R2 或 Microsoft Hyper-V Server 2012 R2 的 Hyper-V 主机，其中包含一个或多个虚拟机。
 - Hyper-V 服务器应直接或通过代理连接到 Internet。
-- 要保护的虚拟机应符合[虚拟机先决条件](/documentation/articles/site-recovery-best-practices/#azure-virtual-machine-requirements)。
+- 要保护的虚拟机应符合[虚拟机先决条件](site-recovery-best-practices.md#azure-virtual-machine-requirements)。
 
 ## 步骤 1：登录到你的 Azure 帐户
 

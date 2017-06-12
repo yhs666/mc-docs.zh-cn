@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/30/2017
 wacn.date: 03/20/2017
-ms.author: jroth
+ms.author: v-dazen
 ---
 
 # SQL Server 2014 虚拟机的自动备份 (Resource Manager)
@@ -58,7 +58,7 @@ ms.author: jroth
 - 如果打算使用 PowerShell 配置自动备份，请[安装最新的 Azure PowerShell 命令](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 
 > [!NOTE]
-自动备份依赖 SQL Server IaaS 代理扩展。当前的 SQL 虚拟机库映像默认添加此扩展。有关详细信息，请参阅 [SQL Server IaaS 代理扩展](../../virtual-machines-windows-sql-server-agent-extension.md)。
+> 自动备份依赖 SQL Server IaaS 代理扩展。当前的 SQL 虚拟机库映像默认添加此扩展。有关详细信息，请参阅 [SQL Server IaaS 代理扩展](../../virtual-machines-windows-sql-server-agent-extension.md)。
 
 ## 设置
 下表描述了可为自动备份配置的选项。实际配置步骤根据你使用的是 Azure 门户预览还是 Azure Windows PowerShell 命令而有所不同。
@@ -97,7 +97,7 @@ ms.author: jroth
 当你首次启用自动备份时，Azure 将在后台配置 SQL Server IaaS 代理。在此期间，Azure 门户预览可能不会显示自动备份已配置。请等待几分钟，以便安装和配置代理。之后，Azure 门户预览将显示新的设置。
 
 > [!NOTE]
-你也可以使用模板来配置自动备份。有关详细信息，请参阅 [Azure quickstart template for Automated Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update)（用于自动备份的 Azure 快速入门模板）。
+> 你也可以使用模板来配置自动备份。有关详细信息，请参阅 [Azure quickstart template for Automated Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update)（用于自动备份的 Azure 快速入门模板）。
 > 
 > 
 
@@ -134,7 +134,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig -VMName $v
 若要禁用自动备份，请对 **AzureRM.Compute\\New-AzureVMSqlServerAutoBackupConfig** 命令运行不带 **-Enable** 参数的同一个脚本。缺少 **-Enable** 参数将向该命令发出指示以禁用此功能。与安装一样，可能需要花费几分钟时间来禁用自动备份。
 
 > [!NOTE]
-删除 SQL Server IaaS 代理不会删除以前配置的自动备份设置。应该在禁用或卸载 SQL Server IaaS 代理之前禁用自动备份。
+> 删除 SQL Server IaaS 代理不会删除以前配置的自动备份设置。应该在禁用或卸载 SQL Server IaaS 代理之前禁用自动备份。
 > 
 > 
 

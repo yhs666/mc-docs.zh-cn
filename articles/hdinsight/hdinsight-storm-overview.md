@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/12/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 7fdf1d5c3f9c3fa8ea82ee9ecbf880c7e389d168
@@ -57,9 +57,9 @@ Storm on HDInsight 具有下述重要优势：
 
     * Azure 存储
 
-    * Azure Cosmos DB
+    * Azure DocumentDb
 
-* 使用虚拟网络，将多个 HDInsight 群集的功能安全地组合在一起。 可以创建使用 Storm、Kafka、Spark、HBase 或 Hadoop 群集的分析管道。
+* 使用虚拟网络，将多个 HDInsight 群集的功能安全地组合在一起。 可以创建使用 Storm、Spark、HBase 或 Hadoop 群集的分析管道。
 
 有关在实时分析解决方案中使用 Apache Storm 的公司的列表，请参阅[使用 Apache Storm 的公司](https://storm.apache.org/documentation/Powered-By.html)。
 
@@ -103,7 +103,7 @@ Storm 运行的是拓扑，而不是你可能熟悉的 MapReduce 作业。 Storm
 
     * [使用 Storm on HDInsight 从 Azure 事件中心处理事件 (C#)](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
-* __SQL 数据库__、__Cosmos DB__、__事件中心__和 __HBase__：针对 Visual Studio 的 Data Lake 工具包含模板示例。 有关详细信息，请参阅[为 Storm on HDInsight 开发 C# 拓扑](hdinsight-storm-develop-csharp-visual-studio-topology.md)。
+* __SQL 数据库__、__DocumentDb__、__事件中心__和 __HBase__：针对 Visual Studio 的 Data Lake 工具包含模板示例。 有关详细信息，请参阅[为 Storm on HDInsight 开发 C# 拓扑](hdinsight-storm-develop-csharp-visual-studio-topology.md)。
 
 ## <a name="reliability"></a>可靠性
 

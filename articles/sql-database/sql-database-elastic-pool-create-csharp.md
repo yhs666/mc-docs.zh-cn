@@ -14,7 +14,7 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 wacn.date: 01/06/2017
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # 使用 C# 创建弹性数据库池
@@ -73,7 +73,7 @@ namespace SqlElasticPoolConsoleApp
         {
 
         // For details about these four (4) values, see
-        // https://wwww.azure.cn/documentation/articles/resource-group-authenticate-service-principal/
+        // https://www.azure.cn/documentation/articles/resource-group-authenticate-service-principal/
         static string _subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
         static string _tenantId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
         static string _applicationId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";

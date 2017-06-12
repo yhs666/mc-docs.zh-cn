@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 wacn.date: 01/20/2017
-ms.author: ddove
+ms.author: v-johch
 ---
 
 # 使用 RecoveryManager 类解决分片映射问题

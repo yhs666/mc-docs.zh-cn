@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 wacn.date: 
-ms.author: cephalin
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 223debd3b55d625d391ecfa1f1a8906be2f1198f
@@ -89,7 +89,7 @@ ms.lasthandoff: 04/28/2017
 
         certreq -new myrequest.txt myrequest.csr
 
-    **myrequest.csr** 。
+    现已在当前工作目录中创建 **myrequest.csr** 。
 3. 向 CA 提交 **myrequest.csr** 以获取 SSL 证书。 上传文件，或将其内容从文本编辑器复制到 Web 窗体。
 
     有关 Microsoft 信任的 CA 列表，请参阅 [Microsoft 信任的根证书程序：参与者][cas]。
@@ -118,7 +118,7 @@ ms.lasthandoff: 04/28/2017
 
     ![提供文件路径][certwiz4]
 
-现可将导出的 PFX 文件上传到应用服务。 请参阅[步骤 2。上传和绑定自定义 SSL 证书](#bkmk_configuressl)。
+现可将导出的 PFX 文件上传到应用服务。 请参阅[步骤 2. 上传和绑定自定义 SSL 证书](#bkmk_configuressl)。
 
 ### <a name="bkmk_iismgr"></a>使用 IIS 管理器获取证书
 1. 使用 IIS 管理器生成要发送给 CA 的 CSR。 有关生成 CSR 的详细信息，请参阅[申请 Internet 服务器证书 (IIS 7)][iiscsr]。
@@ -132,11 +132,14 @@ ms.lasthandoff: 04/28/2017
 
     > [!IMPORTANT]
     > 在“证书导出向导”中，确保选择“是，导出私钥”  
-    > <p> ![导出私钥][certwiz1]
-    > <p> 还可选择“个人信息交换- PKCS #12”、“将所有证书包括在证书路径内(如可能)”和“导出所有扩展属性”。
-    > <p> ![包括所有证书和扩展的属性][certwiz2]> 
+    >
+    > ![导出私钥][certwiz1]
+    >
+    > 还可选择“个人信息交换- PKCS #12”、“将所有证书包括在证书路径内(如可能)”和“导出所有扩展属性”。
+    >
+    > ![包括所有证书和扩展的属性][certwiz2]
 
-现可将导出的 PFX 文件上传到应用服务。 请参阅[步骤 2。上传和绑定自定义 SSL 证书](#bkmk_configuressl)。
+现可将导出的 PFX 文件上传到应用服务。 请参阅[步骤 2. 上传和绑定自定义 SSL 证书](#bkmk_configuressl)。
 
 ### <a name="bkmk_openssl"></a>使用 OpenSSL 获取证书
 1. 在命令行终端，通过 `CD` 转到工作目录并运行以下命令来生成私钥和 CSR：
@@ -188,11 +191,12 @@ ms.lasthandoff: 04/28/2017
 
     > [!NOTE]
     > 如果 CA 使用中间证书，必须用 `-certfile` 参数包含它们。 这些证书通常从 CA 单独下载，会针对不同的 Web 服务器类型提供多种格式。 选择具有 `.pem` 扩展名的版本。
-    > <p> `openssl -export` 命令应与下例中类似，它创建包含 **intermediate-cets.pem** 文件内的中间证书的 .pfx 文件：
-    > <p> 
+    >
+    > `openssl -export` 命令应与下例中类似，它创建包含 **intermediate-cets.pem** 文件内的中间证书的 .pfx 文件：
+    > 
     > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`> 
 
-现可将导出的 PFX 文件上传到应用服务。 请参阅[步骤 2。上传和绑定自定义 SSL 证书](#bkmk_configuressl)。
+现可将导出的 PFX 文件上传到应用服务。 请参阅[步骤 2. 上传和绑定自定义 SSL 证书](#bkmk_configuressl)。
 
 ### <a name="bkmk_subjectaltname"></a> 使用 OpenSSL 获取 SubjectAltName 证书
 1. 创建名为 **sancert.cnf**的文件，向其复制以下文本，再将其保存到工作目录中：
@@ -271,11 +275,12 @@ ms.lasthandoff: 04/28/2017
 
     > [!NOTE]
     > 如果 CA 使用中间证书，必须用 `-certfile` 参数包含它们。 这些证书通常从 CA 单独下载，会针对不同的 Web 服务器类型提供多种格式。 选择具有 `.pem` 扩展名的版本。
-    > <p> `openssl -export` 命令应与下例中类似，它创建包含 **intermediate-cets.pem** 文件内的中间证书的 .pfx 文件：
-    > <p> 
+    >
+    > `openssl -export` 命令应与下例中类似，它创建包含 **intermediate-cets.pem** 文件内的中间证书的 .pfx 文件：
+    > 
     > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`> 
 
-现可将导出的 PFX 文件上传到应用服务。 请参阅[步骤 2。上传和绑定自定义 SSL 证书](#bkmk_configuressl)。
+现可将导出的 PFX 文件上传到应用服务。 请参阅[步骤 2. 上传和绑定自定义 SSL 证书](#bkmk_configuressl)。
 
 ### <a name="bkmk_sscertreq"></a>使用 Certreq.exe 生成自签名证书
 > [!IMPORTANT]
@@ -327,7 +332,7 @@ ms.lasthandoff: 04/28/2017
 
     ![提供文件路径][certwiz4]
 
-现可将导出的 PFX 文件上传到应用服务。 请参阅[步骤 2。上传和绑定自定义 SSL 证书](#bkmk_configuressl)。
+现可将导出的 PFX 文件上传到应用服务。 请参阅[步骤 2. 上传和绑定自定义 SSL 证书](#bkmk_configuressl)。
 
 ### <a name="bkmk_ssopenssl"></a>使用 OpenSSL 生成自签名证书
 > [!IMPORTANT]
@@ -379,9 +384,9 @@ ms.lasthandoff: 04/28/2017
 
     系统提示后，定义密码以保护该 .pfx 文件。
 
-现可将导出的 PFX 文件上传到应用服务。 请参阅[步骤 2。上传和绑定自定义 SSL 证书](#bkmk_configuressl)。
+现可将导出的 PFX 文件上传到应用服务。 请参阅[步骤 2.上传和绑定自定义 SSL 证书](#bkmk_configuressl)。
 
-## <a name="bkmk_configuressl"></a>步骤 2。 上传和绑定自定义 SSL 证书
+## <a name="bkmk_configuressl"></a>步骤 2. 上传和绑定自定义 SSL 证书
 继续操作之前，请查看 [所需条件](#bkmk_domainname) 部分并验证：
 
 * 是否有映射到 Azure 应用的自定义域，
@@ -402,7 +407,7 @@ ms.lasthandoff: 04/28/2017
 
     > [!NOTE] 
     > **基于 IP 的 SSL** 通过将服务器的专用公共 IP 地址映射到域名，将证书与域名相关联。 这要求与你的服务相关联的每个域名（contoso.com、fabricam.com 等）都具有专用 IP 地址。 这是将 SSL 证书与某一 Web 服务器相关联的传统方法。  
-    > <p>
+    >
     > **基于 SNI 的 SSL** 是对 SSL 和**[传输层安全性](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) 的扩展，它允许多个域共享同一 IP 地址，并向每个域提供单独的安全证书。 大多数新式浏览器（包括 Internet Explorer、Chrome、Firefox 和 Opera）都支持 SNI，但是较旧的浏览器可能不支持 SNI。 有关 SNI 的详细信息，请参阅维基百科上的文章 - **[服务器名称指示](http://en.wikipedia.org/wiki/Server_Name_Indication)**。 
 
 9. 单击“添加绑定”以保存更改并启用 SSL。
@@ -482,7 +487,7 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="more-resources"></a>更多资源
 * [Azure 信任中心](https://www.azure.cn/support/trust-center/security/)
-* [Azure 网站中解锁的配置选项](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
+* [Azure 网站中解锁的配置选项](https://www.azure.cn/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
 * [启用诊断日志记录](web-sites-enable-diagnostic-log.md)
 * [在 Azure 应用服务中配置 Web 应用](web-sites-configure.md)
 * [Azure 管理门户](https://manage.windowsazure.cn)

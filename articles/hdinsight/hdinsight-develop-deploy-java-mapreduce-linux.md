@@ -16,7 +16,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 02/17/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: e2c609da661e30367605b552dea77d46da465fac
@@ -294,7 +294,7 @@ scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:
 * [将 Pig 与 HDInsight 配合使用][hdinsight-use-pig]
 * [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
 
-有关详细信息，另请参阅 [Java 开发人员中心](https://www.azure.cn/develop/java/)。
+有关详细信息，另请参阅 [Java 开发人员中心](/develop/java/)。
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/

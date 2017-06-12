@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 wacn.date: 03/20/2017
-ms.author: jarrettr
+ms.author: v-johch
 ---
 
 # 将数据移入和移出 Azure 存储

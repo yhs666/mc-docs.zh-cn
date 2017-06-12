@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/12/2017
 wacn.date: 
-ms.author: nitinme
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: e2d4b032a351d2de556edbe78f385c4ba3ca0a21
@@ -34,7 +34,7 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-* **一个 Azure 订阅**。 在开始学习本教程之前，你必须有一个 Azure 订阅。 请参阅[立即创建 Azure 试用帐户](https://azure.microsoft.com/free)。
+* **一个 Azure 订阅**。 在开始学习本教程之前，你必须有一个 Azure 订阅。 请参阅[立即创建 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="create-hdinsight-spark-cluster"></a>创建 HDInsight Spark 群集
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 05/26/2017
 
     > [!NOTE]
     > 也可以在浏览器中打开以下 URL 来访问群集的 Jupyter Notebook。 将 **CLUSTERNAME** 替换为群集的名称：
-    > <p>
+    >
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter` >
 3. 创建 Notebook。 单击“新建”，然后单击“PySpark”。
 

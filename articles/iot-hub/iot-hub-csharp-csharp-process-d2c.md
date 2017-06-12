@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2017
 wacn.date: 
-ms.author: dobett
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 8ccf68a31e5590780c89ae82f1a4e9e7c25d085c
@@ -203,22 +203,22 @@ private static async void SendDeviceToCloudMessagesAsync()
 <!-- Links -->
 
 [Azure Blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
-[Azure Data Factory]: /documentation/services/data-factory/
-[HDInsight (Hadoop)]: /documentation/services/hdinsight/
+
+[HDInsight (Hadoop)]: ../hdinsight/index.md
 [Service Bus Queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
 [Azure IoT Hub developer guide - Device to cloud]: ./iot-hub-devguide-messaging.md
 
-[Azure 存储]: /documentation/services/storage/
-[Azure 服务总线]: /documentation/services/service-bus/
+[Azure 存储]: ../storage/index.md
+[Azure 服务总线]: ../service-bus-messaging/index.md
 
 [IoT 中心开发人员指南]: ./iot-hub-devguide.md
 [IoT 中心入门]: ./iot-hub-csharp-csharp-getstarted.md
 [lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md
 [Azure IoT 开发人员中心]: /develop/iot
-[lnk-service-fabric]: /documentation/services/service-fabric/
-[lnk-stream-analytics]: /documentation/services/stream-analytics/
-[lnk-event-hubs]: /documentation/services/event-hubs/
+[lnk-service-fabric]: ../service-fabric/index.md
+[lnk-stream-analytics]: ../stream-analytics/index.md
+[lnk-event-hubs]: ../event-hubs/index.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
 
 <!-- Links -->
@@ -234,4 +234,4 @@ private static async void SendDeviceToCloudMessagesAsync()
 
 [lnk-classic-portal]: https://manage.windowsazure.cn
 [lnk-c2d]: ./iot-hub-csharp-csharp-process-d2c.md
-[lnk-suite]: /documentation/services/iot-suite/
+[lnk-suite]: ../iot-suite/index.md

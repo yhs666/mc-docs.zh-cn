@@ -14,7 +14,7 @@ ms.tgt_pltfrm: windows
 ms.workload: na
 ms.date: 02/29/2016
 wacn.date: 
-ms.author: cfowler
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 65e504a425060c591206a97859538575e7bd85af
@@ -193,7 +193,7 @@ redis-cli -h <hostname-for-redis-cache> -a <primary-key-for-redis-cache> -p 6379
 [2]: http://manage.windowsazure.cn
 [3]: http://portal.azure.cn
 [4]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[5]: https://www.azure.cn/downloads
+[5]: /downloads
 [6]: http://pecl.php.net
 [7]: http://pecl.php.net/package/memcache
 [8]: http://blog.syntaxc4.net/post/2015/02/05/how-to-enable-a-site-extension-in-azure-websites.aspx

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/27/2016
 wacn.date: 01/25/2017
-ms.author: adegeo
+ms.author: v-yiso
 ---
 
 # 如何管理云服务

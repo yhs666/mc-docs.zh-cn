@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 wacn.date: 
-ms.author: jdial
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: fd5b08371259808ffa1f5bf5f55669e98282839a
@@ -29,7 +29,7 @@ ms.lasthandoff: 05/26/2017
 
 了解公共 IP 地址以及如何创建、更改和删除它们。 公共 IP 地址是一种自带可配置设置的资源。 通过将公共 IP 地址分配给其他 Azure 资源，可以：
 - 与 Azure 虚拟机 (VM)、Azure 虚拟机规模集、Azure VPN 网关和面向 Internet 的 Azure 负载均衡器等资源建立入站 Internet 连接。
-- 与未经过网络地址转换 (NAT) 的 Internet 建立出站连接。 例如，VM 可在未分配有公共 IP 地址的情况下出站连接到 Internet，但其地址是由 Azure 转换的网络地址。 若要详细了解从 Azure 资源的出站连接，请阅读[了解出站连接](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)一文。
+- 与未经过网络地址转换 (NAT) 的 Internet 建立出站连接。 例如，VM 可在未分配有公共 IP 地址的情况下出站连接到 Internet，但其地址是由 Azure 转换的网络地址。 若要详细了解从 Azure 资源的出站连接，请阅读[了解出站连接](../load-balancer/load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json)一文。
 
 本文介绍了如何处理通过 Azure Resource Manager 部署模型部署的公共 IP 地址。
 
@@ -37,16 +37,18 @@ ms.lasthandoff: 05/26/2017
 
 请在完成本文任何部分中的任何步骤之前完成以下任务：
 
-- 查看 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文，了解对公共 IP 地址的限制。
-- 使用 Azure 帐户登录到 Azure 门户预览、Azure 命令行界面 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册一个[试用帐户](https://azure.microsoft.com/free)。
+- 查看 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文，了解对公共 IP 地址的限制。
+- 使用 Azure 帐户登录到 Azure 门户预览、Azure 命令行界面 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用 PowerShell 命令完成本文中的任务，请按[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文中的步骤安装和配置 Azure PowerShell。 确保已安装最新版本的 Azure PowerShell cmdlet。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
 - 如果使用 Azure 命令行接口 (CLI) 命令完成本文中的任务，请按[如何安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文中的步骤安装和配置 Azure CLI。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 公共 IP 地址会产生少许费用。 若要查看定价，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。 
 
 ## <a name="create"></a>创建公共 IP 地址
 
-1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到 [Azure 门户预览](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
+1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到 [Azure 门户预览](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
 2. 在 Azure 门户预览顶部带“搜索资源”文本的框中，键入*公共 IP 地址*。 在搜索结果中出现 **公共 IP 地址** 时，单击该地址。
 3. 在出现的“公共 IP 地址”边栏选项卡中单击“+ 添加”。
 4. 在出现的“创建公共 IP 地址”边栏选项卡中，为以下设置输入或选择值，然后单击“创建”：
@@ -57,9 +59,9 @@ ms.lasthandoff: 05/26/2017
     |IP 地址分配|是|**动态：** 仅在将公共 IP 地址与附加到 VM 的 NIC 进行关联，并且 VM 首次启动后，才会分配动态地址。 如果 NIC 附加到的 VM 已停止（解除分配），则动态地址可能会更改。 如果 VM 重启或停止（但未解除分配），该地址将保持不变。 **静态：** 创建公共 IP 地址时，将分配静态地址。 即使 VM 处于停止（解除分配）状态，静态地址也不会发生更改。 该地址仅在删除 NIC 后才会释放。 创建 NIC 后，即可更改分配方法。|
     |空闲超时(分钟)|否|在不依赖客户端发送保持连接消息的情况下，TCP 或 HTTP 连接持续打开的分钟数。|
     |DNS 名称标签|否|必须在创建名称的 Azure 位置中（在所有订阅和所有客户中）保持唯一。 Azure 公共 DNS 服务会自动注册名称和 IP 地址，便于你连接到具有名称的资源。 Azure 会将 *location.chinacloudapp.cn*（其中 location 是你选择的位置）追加到你提供的名称上，来创建完全限定的 DNS 名称。|
-    |订阅|是|必须与要将公共 IP 地址关联到的资源位于同一[订阅](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)中。|
-    |资源组|是|可与要将公共 IP 地址关联到的资源位于相同或不同的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)中。|
-    |位置|是|必须与要将公共 IP 地址关联到的资源位于同一[位置](https://azure.microsoft.com/regions)（也称为“区域”）。|
+    |订阅|是|必须与要将公共 IP 地址关联到的资源位于同一[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)中。|
+    |资源组|是|可与要将公共 IP 地址关联到的资源位于相同或不同的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)中。|
+    |位置|是|必须与要将公共 IP 地址关联到的资源位于同一位置（也称为“区域”）。|
 
 **命令**
 
@@ -70,7 +72,7 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="change"></a>更改公共 IP 地址的设置或删除公共 IP 地址
 
-1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到 [Azure 门户预览](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
+1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到 [Azure 门户预览](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
 2. 在 Azure 门户预览顶部带“搜索资源”文本的框中，键入*公共 IP 地址*。 在搜索结果中出现 **公共 IP 地址** 时，单击该地址。
 3. 在显示的“公共 IP 地址”  边栏选项卡中，单击要更改其设置或要删除的公共 IP 地址的名称。
 4. 在显示的公共 IP 地址边栏选项卡中，根据是否要删除或更改公共 IP 地址完成以下相应选项。
@@ -90,9 +92,9 @@ ms.lasthandoff: 05/26/2017
 ## <a name="next-steps"></a>后续步骤
 创建以下 Azure 资源时，将分配公共 IP 地址：
 
-- [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虚拟机
-- [面向 Internet 的 Azure 负载均衡器](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure 应用程序网关](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [使用 Azure VPN 网关建立站点到站点连接](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure 虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fvirtual-network%2ftoc.json) 虚拟机
+- [面向 Internet 的 Azure 负载均衡器](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fvirtual-network%2ftoc.json)
+- [Azure 应用程序网关](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fvirtual-network%2ftoc.json)
+- [使用 Azure VPN 网关建立站点到站点连接](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)
+- [Azure 虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fvirtual-network%2ftoc.json)
 

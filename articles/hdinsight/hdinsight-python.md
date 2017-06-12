@@ -15,7 +15,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/27/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -30,9 +30,9 @@ Hive 和 Pig 非常适用于在 HDInsight 中处理数据，但有时需要使�
 
 ## <a name="requirements"></a>要求
 
-* HDInsight 群集
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+* HDInsight 群集
 
     > [!IMPORTANT]
     > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。

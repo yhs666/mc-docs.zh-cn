@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
-ms.author: rajanaki
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: cf8beb6e09b06edf48aeaa6f28c766a819f5373f
@@ -29,7 +29,7 @@ Azure Site Recovery 服务可协调本地物理服务器和虚拟机到云 (Azur
 
 本文汇总了开始使用 Site Recovery 复制到 Azure 时所要满足的先决条件。
 
-## <a name="azure-requirements"></a>Azure 要求
+## <a name="azure-requirements"></a><a name="Azure requirements"></a>Azure 要求
 
 **要求** | **详细信息**
 --- | ---

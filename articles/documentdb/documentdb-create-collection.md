@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 wacn.date: 
-ms.author: mimig
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: d0fc3b786d25db9ed1bdbaf3c656731debff8beb
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/19/2017
 # <a name="how-to-create-an-azure-documentdb-collection-and-database-using-the-azure-portal"></a>如何使用 Azure 门户创建 DocumentDB 集合和数据库
 若要使用 DocumentDB，必须拥有 [DocumentDB 帐户](documentdb-create-account.md)、数据库、集合和文档。 本主题说明如何在 Azure 门户中创建 DocumentDB 集合。
 
-不确定集合是什么？ 请参阅[什么是 DocumentDB 集合？](#what-is-a-documentdb-collection)。
+不确定集合是什么？ 请参阅[什么是 DocumentDB 集合？](#what-is-an-azure-documentdb-collection)。
 
 可采用两种方式在门户中创建集合：使用“添加集合”按钮，或使用[数据资源管理器（预览版）](#data-explorer)。
 

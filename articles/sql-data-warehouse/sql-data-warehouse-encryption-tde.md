@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 wacn.date: 12/12/2016
-ms.author: rortloff;barbkess;sonyama
+ms.author: v-yeche
 ---
 
 # SQL 数据仓库中的透明数据加密 (TDE) 入门

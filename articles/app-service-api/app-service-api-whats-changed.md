@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 wacn.date: 02/21/2017
-ms.author: rachelap
+ms.author: v-dazen
 ---
 
 # 应用服务 API 应用 - 功能更改
@@ -37,7 +37,7 @@ API 应用更新的关键设计原则是让用户以所选的语言直接使用 
 - **服务到服务或“内部”访问**：如果有后台程序进程或其他某个客户端需要在不提供接口的情况下访问 API，可以使用 AAD 服务主体来请求令牌，并将它传递给应用服务，以便在应用程序中进行身份验证。
 - **延迟授权**：许多应用程序对于应用程序的不同部分有各种不同的访问限制。用户可能希望某些 API 可公开访问，但另一些 API 要求登录。原始身份验证/授权功能采用“全有或全无”的模式，整个站点都要求登录。此选项仍然存在，但也可以选择允许应用程序代码在应用服务对用户进行身份验证之后提出访问决策。
 
-有关新身份验证功能的详细信息，请参阅 [Authentication and authorization for API Apps in Azure App Service](./app-service-api-authentication.md)（Azure 应用服务中 API 应用的身份验证和授权）。有关如何将现有 API 应用从以前的 API 应用模型迁移到新模型的详细信息，请参阅本文稍后的[迁移现有 API 应用](#migrating-existing-api-apps)。
+有关新身份验证功能的详细信息，请参阅 [Azure 应用服务中 API 应用的身份验证和授权](./app-service-api-authentication.md)。有关如何将现有 API 应用从以前的 API 应用模型迁移到新模型的详细信息，请参阅本文稍后的[迁移现有 API 应用](#migrating-existing-api-apps)。
 
 ### CORS
 现在，Azure 管理门户中提供了一个边栏选项卡用于配置 CORS，而不再提供以逗号分隔的 **MS\_CrossDomainOrigins** 应用设置。也可以使用 Azure PowerShell、CLI 等 Resource Manager 工具进行配置。在 **&lt;site name&gt;/web** 资源的 **Microsoft.Web/sites/config** 资源类型中设置 **cors** 属性。例如：
@@ -73,7 +73,7 @@ Web 应用、移动应用和 API 应用中各自提供了 API 定义边栏选项
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-大多数 Web 应用工具适用于新的 API 应用，因为它们共享相同的基础 **Microsoft.Web/sites** 资源类型。但是，应该将 Azure Visual Studio 工具升级到 2.8.1 或更高版本，因为它公开一些特定于 API 的功能。从 [Azure 下载页](https://www.azure.cn/downloads/)下载 SDK。
+大多数 Web 应用工具适用于新的 API 应用，因为它们共享相同的基础 **Microsoft.Web/sites** 资源类型。但是，应该将 Azure Visual Studio 工具升级到 2.8.1 或更高版本，因为它公开一些特定于 API 的功能。从 [Azure 下载页](/downloads/)下载 SDK。
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
@@ -108,7 +108,7 @@ Web 应用、移动应用和 API 应用中各自提供了 API 定义边栏选项
 但是，具体对于 Azure Active Directory 而言，如果直接使用 AAD 令牌，则不需要任何特定于应用服务的 SDK。
 
 ### 内部访问
-以前的 API 应用模型包含内置的内部访问级别。这需要使用 SDK 为请求签名。如前所述，在 API 应用模型中，可以使用 AAD 服务主体代替服务到服务身份验证，而不需要特定于应用服务的 SDK。在 [Service principal authentication for API Apps in Azure App Service](./app-service-api-dotnet-service-principal-auth.md)（Azure 应用服务中 API 应用的服务主体身份验证）中了解详细信息。
+以前的 API 应用模型包含内置的内部访问级别。这需要使用 SDK 为请求签名。如前所述，在 API 应用模型中，可以使用 AAD 服务主体代替服务到服务身份验证，而不需要特定于应用服务的 SDK。在 [Azure 应用服务中 API 应用的服务主体身份验证](./app-service-api-dotnet-service-principal-auth.md)中了解详细信息。
 
 ### 发现
 以前的 API 应用模型提供相应的 API，用于在运行时发现同一网关后面同一资源组中的其他 API 应用。在实现微服务模式的体系结构中，此功能特别有用。可以使用许多选项（但这些选项不一定直接受支持）：

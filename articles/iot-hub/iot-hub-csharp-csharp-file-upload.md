@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2017
 wacn.date: 
-ms.author: elioda
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 53e457f9ac6c92b23271e9a973a9d5b9312577e4
@@ -183,7 +183,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 [Azure 门户]: https://portal.azure.cn/
 
 
-[Hadoop]: /documentation/services/hdinsight/
+[Hadoop]: ../hdinsight/index.md
 
 [使用 IoT 中心发送云到设备消息]: ./iot-hub-csharp-csharp-c2d.md
 [处理设备到云的消息]: ./iot-hub-csharp-csharp-process-d2c.md

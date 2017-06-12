@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/01/2017
 wacn.date: 
-ms.author: jgao
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: c0e4c1bc713a158fb9c89764fac8eaf4cf1099a6
@@ -63,8 +63,6 @@ Azure HDInsight 目前提供了以下几种群集类型，每种类型都具有�
 | [HBase](hdinsight-hbase-overview.md) |NoSQL 数据存储 |
 | [Storm](hdinsight-storm-overview.md) |实时事件处理 |
 | [Spark](hdinsight-apache-spark-overview.md) |内存中处理、交互式查询、微批流处理 |
-| [Kafka（预览版）](hdinsight-apache-kafka-introduction.md) | 分布式流式处理平台，可用于构建实时流数据管道和应用程序 |
-| [R Server](hdinsight-hadoop-r-server-overview.md) |各种不同的大数据统计信息、预测模型和机器学习功能 |
 | [交互式 Hive（预览版）](hdinsight-hadoop-use-interactive-hive.md) |更快的交互式 Hive 查询的内存中缓存 |
 
 每个群集类型在群集中具有自身的节点数目、在群集中使用自身的节点术语，对每个节点类型具有默认的 VM 大小。 下表中的括号内列出了每个节点类型的节点数目。
@@ -80,16 +78,14 @@ Azure HDInsight 目前提供了以下几种群集类型，每种类型都具有�
 
 <!-- need to be verified -->
 
-| 群集类型 | Hadoop | HBase | Storm | Spark | R Server |
-| --- | --- | --- | --- | --- | --- |
-| 头：默认 VM 大小 |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
-| 头：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |A3、A4、A5 |D12 v2、D13 v2、D14 v2 |D12 v2、D13 v2、D14 v2 |
-| 辅助角色：默认 VM 大小 |D3 v2 |D3 v2 |D3 v2 |Windows：D12 v2；Linux：D4 v2 |Windows：D12 v2；Linux：D4 v2 |
-| 辅助角色：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
-| Zookeeper：默认 VM 大小 | |A3 |A2 | | |
-| Zookeeper：建议的 VM 大小 | |A3、A4、A5 |A2、A3、A4 | | |
-| 边缘：默认 VM 大小 | | | | |Windows：D12 v2；Linux：D4 v2 |
-| 边缘：建议的 VM 大小 | | | | |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
+| 群集类型 | Hadoop | HBase | Storm | Spark |
+| --- | --- | --- | --- | --- |
+| 头：默认 VM 大小 |D3 v2 |D3 v2 |A3 |D12 v2 |
+| 头：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |A3、A4、A5 |D12 v2、D13 v2、D14 v2 |
+| 辅助角色：默认 VM 大小 |D3 v2 |D3 v2 |D3 v2 |Windows：D12 v2；Linux：D4 v2 |
+| 辅助角色：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
+| Zookeeper：默认 VM 大小 | |A3 |A2 | |
+| Zookeeper：建议的 VM 大小 | |A3、A4、A5 |A2、A3、A4 | |
 
 > [!NOTE]
 > 头称为 Storm 群集类型的 *Nimbus* 。 辅助角色称为 HBase 群集类型的“区域”以及 Storm 群集类型的“监督程序”。
@@ -117,14 +113,6 @@ Azure HDInsight 目前提供了以下几种群集类型，每种类型都具有�
 
 ### <a name="version"></a>Version
 此选项用于确定该群集所需的 HDInsight 版本。 有关详细信息，请参阅[支持的 HDInsight 版本](hdinsight-component-versioning.md#supported-hdinsight-versions)。
-
-### <a name="cluster-tiers"></a>群集层
-
-Azure HDInsight 提供了两个类别的大数据云产品/服务：标准和高级。  有关详细信息，请参阅 [HDInsight Standard 和 HDInsight Premium]](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)。
-
-以下屏幕截图显示了用于选择群集类型的 Azure 门户预览信息。
-
-![HDInsight 高级版配置](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
 
 ### <a name="credentials"></a>凭据
 使用 HDInsight 群集时，可以在群集创建期间配置两个用户帐户：
@@ -203,7 +191,7 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 
 > [!NOTE]
 > 群集大小限制因 Azure 订阅而异。 要提高限制的大小，请联系计费支持人员。
-> <p>
+>
 > 群集使用的节点不视为虚拟机，因为用于节点的虚拟机映像是 HDInsight 服务的实现细节。 节点使用的计算核心会计入可供订阅使用的计算核心总数。 创建 HDInsight 群集时，可在“群集大小”边栏选项卡的摘要部分中查看可用核心数以及群集要使用的核心数。
 >
 
@@ -244,7 +232,7 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 | Standard_D13_v2 |8 |56 GB |8 |临时磁盘 (SSD) = 400 GB |16 |16x500 |
 | Standard_D14_v2 |16 |112 GB |8 |临时磁盘 (SSD) = 800 GB |32 |32x500 |
 
-有关在计划使用这些资源时要考虑的部署注意事项，请参阅[虚拟机的大小](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 有关不同大小的定价信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。   
+有关在计划使用这些资源时要考虑的部署注意事项，请参阅[虚拟机的大小](../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 有关不同大小的定价信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。   
 
 > [!IMPORTANT]
 > 如果计划使用 32 个以上的工作节点（在创建群集时配置或者是在创建之后通过扩展群集来配置），必须选择至少具有 8 个核心和 14 GB RAM 的头节点大小。
@@ -266,9 +254,9 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 某些本机 Java 组件（如 Mahout 和 Cascading）可以在群集上作为 Java 存档 (JAR) 文件运行。 可以通过 Hadoop 作业提交机制将这些 JAR 文件分发到 Azure 存储，然后提交到 HDInsight 群集。 有关详细信息，请参阅[以编程方式提交 Hadoop 作业](hdinsight-submit-hadoop-jobs-programmatically.md)。
 
 > [!NOTE]
-> 如果在将 JAR 文件部署到 HDInsight 群集或调用 HDInsight 群集上的 JAR 文件时遇到问题，请联系 [Microsoft 支持](https://www.azure.cn/support/contact/)。
+> 如果在将 JAR 文件部署到 HDInsight 群集或调用 HDInsight 群集上的 JAR 文件时遇到问题，请联系 [Azure.cn 支持](https://www.azure.cn/support/contact/)。
 >
-> HDInsight 不支持级联，因此不符合 Microsoft 技术支持的条件。 有关支持的组件的列表，请参阅 [HDInsight 提供的群集版本有哪些新功能？](hdinsight-component-versioning.md)。
+> HDInsight 不支持级联，因此不符合 Azure.cn 技术支持的条件。 有关支持的组件的列表，请参阅 [HDInsight 提供的群集版本有哪些新功能？](hdinsight-component-versioning.md)。
 >
 >
 

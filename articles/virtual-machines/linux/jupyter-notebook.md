@@ -15,7 +15,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 11/10/2015
 wacn.date: 05/24/2016
-ms.author: crwilcox
+ms.author: v-dazen
 ---
 
 # Azure 上的 Jupyter Notebook
@@ -209,7 +209,7 @@ Jupyter Notebook 为交互访问 Azure 上的 Python 生态系统的功能提供
 
 ## 后续步骤
 
-有关详细信息，请参阅 [Python 开发人员中心](https://www.azure.cn/develop/python/)。
+有关详细信息，请参阅 [Python 开发人员中心](/develop/python/)。
 
 [portal-vm-linux]: quick-create-portal.md
 [存储库]: https://github.com/ipython/ipython

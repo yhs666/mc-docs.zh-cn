@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 1180789ad284d082a6fd8b042fa9838b9c44c967
@@ -215,7 +215,7 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 > [!WARNING]
 > 如需再次运行此命令，则还必须删除输出目录。 使用以下命令删除此目录：
-> <p>
+>
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
 
 ## <a name="next-steps"></a>后续步骤

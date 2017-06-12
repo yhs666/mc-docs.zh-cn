@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 wacn.date: 
-ms.author: mimig
+ms.author: v-junlch
 redirect_url: http://azure.cn/documentation/articles/documentdb-use-cases
 ROBOTS: NOINDEX, NOFOLLOW
 ms.translationtype: Human Translation
@@ -48,7 +48,7 @@ ms.lasthandoff: 05/19/2017
 当然，我们也可以使用一个功能足够强大的超大 SQL 实例来解决数以千计的查询，其中可以使用许多这些连接来为我们提供内容，但当已经有一个更简单的解决方案存在时，我们为什么还要选择这种呢？
 
 ## <a name="the-nosql-road"></a>NoSQL 加载
-有许多特殊图形数据库可以[在 Azure 上运行](http://neo4j.com/developer/guide-cloud-deployment/#_windows_azure)，但它们成本较高且需要 IaaS 服务（基础结构即服务，主要是虚拟机）和维护。 本文介绍的成本更低的解决方案适用于在 Azure 的 NoSQL 数据库 [DocumentDB](https://www.azure.cn/home/features/documentdb/) 上运行的大多数方案。 使用 [NoSQL](https://zh.wikipedia.org/wiki/NoSQL) 方法以 JSON 格式存储数据并应用[非规范化](https://en.wikipedia.org/wiki/Denormalization)，就可以将我们以前的复杂帖子转换为单个[文档](https://en.wikipedia.org/wiki/Document-oriented_database)：
+有许多特殊图形数据库可以[在 Azure 上运行](http://neo4j.com/developer/guide-cloud-deployment/#_windows_azure)，但它们成本较高且需要 IaaS 服务（基础结构即服务，主要是虚拟机）和维护。 本文介绍的成本更低的解决方案适用于在 Azure 的 NoSQL 数据库 [DocumentDB](https://www.azure.cn/home/features/documentdb/) 上运行的大多数方案。 使用 [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 方法以 JSON 格式存储数据并应用[非规范化](https://en.wikipedia.org/wiki/Denormalization)，就可以将我们以前的复杂帖子转换为单个[文档](https://en.wikipedia.org/wiki/Document-oriented_database)：
 
     {
         "id":"ew12-res2-234e-544f",
@@ -216,7 +216,7 @@ Azure 搜索可实现它们称之为 [索引器](https://msdn.microsoft.com/libr
 
 由于想要深入了解，你可能会认为自己需要更多数学科学方面的知识才能提取出简单数据库和文件之外的这些模式和信息，其实不然。
 
-[Cortana Intelligence 套件](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx)的一部分，是一个全面托管的云服务，使你可以在简单的拖放界面中使用算法创建工作流、为 [R](https://zh.wikipedia.org/wiki/R_\(programming_language\)) 中自己的算法进行编码，或使用部分已生成的或现成的 API（如[文本分析](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2)、[内容审查器](https://www.microsoft.com/moderator)或[建议](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2)）。
+[Cortana Intelligence 套件](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx)的一部分，是一个全面托管的云服务，使你可以在简单的拖放界面中使用算法创建工作流、为 [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) 中自己的算法进行编码，或使用部分已生成的或现成的 API（如[文本分析](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2)、[内容审查器](https://www.microsoft.com/moderator)或[建议](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2)）。
 
 另一个可用的选项是使用 [Microsoft 认知服务](https://www.microsoft.com/cognitive-services) 分析用户内容：不仅可以更好地理解它们（通过分析使用 [文本分析 API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)编写的内容），而且还可以检测不需要或不成熟的内容，然后使用[计算机构想 API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api)解决相关问题。 认知服务包括大量不需要使用任何一种机器学习知识的现成的可用解决方案。
 
@@ -235,7 +235,7 @@ DocumentDB 根据给定的**分区键**（定义为文档中的一个属性）�
 
 但是你很快会意识到他们在平台的体验并不理想；他们与运营区域相距太远，延迟问题非常严重，你显然不希望他们因此退出平台。 如果有一种简单的方法可以**扩展全球覆盖范围**就好了······确实有！
 
-通过 DocumentDB，只需单击数次即可通过透明方式[全局复制数据](./documentdb-portal-global-replication.md)，并从[客户端代码](./documentdb-portal-global-replication.md)中自动选择可用区域。 这也意味着可以拥有[多个故障转移区域](documentdb-regional-failovers.md)。 
+通过 DocumentDB，只需单击数次即可通过透明方式全局复制数据，并从客户端代码中自动选择可用区域。 这也意味着可以拥有[多个故障转移区域](documentdb-regional-failovers.md)。 
 
 全局复制数据时，需确保客户端可以利用该数据。 如果要使用 Web 前端或从移动客户端访问 API，则可以部署 [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)并在所有所需区域克隆 Azure 应用服务（方法是通过使用[性能配置](../app-service-web/web-sites-traffic-manager.md)支持扩展的全球覆盖范围）。 客户端访问前端或 API 时，将被路由到最近的应用服务，而该应用服务将连接到本地的 DocumentDB 副本。
 

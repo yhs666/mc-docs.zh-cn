@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 wacn.date: 01/25/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 在虚拟机上使用 Hadoop 沙盒，开始了解 Hadoop 生态系统
@@ -54,7 +54,7 @@ ms.author: nitinme
 1. 在“Hortonworks 沙盒”页的“开始”步骤中，选择“查看高级选项”。使用此页上的信息通过 SSH 登录到沙盒。使用提供的名称和密码。
 
     > [!NOTE]
-    如果未安装 SSH 客户端，可以使用虚拟机在 **http://localhost:4200/** 上提供的基于 Web 的 SSH。
+    > 如果未安装 SSH 客户端，可以使用虚拟机在 **http://localhost:4200/** 上提供的基于 Web 的 SSH。
     > 
 
     首次使用 SSH 建立连接时，系统会提示更改 root 帐户的密码。输入新密码，将来使用 SSH 登录时要用到它。

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/30/2017
 wacn.date: 03/24/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 在 Azure 经典管理门户中使用 netcfg 文件创建虚拟网络（经典）

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2017
-wacn.date: 
+wacn.date: 06/12/2017
 ms.author: joflore
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
@@ -35,16 +35,12 @@ ms.lasthandoff: 05/26/2017
   - 在任何时间
 - 遵循你以管理员身份定义的策略
 
-如果已准备就绪，可以遵循我们的[快速入门指南](active-directory-passwords-getting-started.md)开始使用 Azure AD SSPR 并快速让用户重置其自己的密码。
-
 ## <a name="what-is-possible"></a>可以实现的功能
 
 - **自助密码更改**允许最终用户或管理员更改其密码，不需要管理员协助
 - **自助服务帐户解锁**允许最终用户解锁其自己的帐户，不需要管理员协助
 - **自助服务密码重置**允许最终用户或管理员自动重置其密码，不需要管理员协助。 自助服务密码重置需要 Azure AD 高级版或基本版 - [Azure Active Directory 版本](active-directory-editions.md)。
-- **管理员启动的密码重置**允许管理员通过 [Azure 门户](https://docs.microsoft.com/azure/azure-portal-overview)重置最终用户或其他管理员的密码
-- **密码管理活动报告**允许管理员深入了解在其组织中发生的密码重置和注册活动 - [管理报表](active-directory-passwords-reporting.md)
-- **密码写回**允许从云端管理本地密码，因此，上述所有方案都可以由联合用户或密码同步用户本人或其代表来执行。 密码写回功能需要 [Azure AD Premium](active-directory-get-started-premium.md)。
+- **管理员启动的密码重置**允许管理员通过 Azure 门户重置最终用户或其他管理员的密码
 
 ## <a name="why-choose-azure-ad-self-service-password-reset"></a>为何选择 Azure AD 自助服务密码重置
 

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 wacn.date: 05/02/2017
-ms.author: charwen
+ms.author: v-yiso
 ---
 
 # 使用 Resource Manager 和 PowerShell 为 ExpressRoute 配置虚拟网络网关

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 wacn.date: 
-ms.author: davidmu
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 700a318a8ac7362ab65695d491dc6c7a7a64715b
@@ -128,7 +128,7 @@ ms.lasthandoff: 04/06/2017
 
     - 将以 *my* 开头的所有资源名称替换为对你的环境有意义的名称。
     - 将 *subscriptionId* 替换为订阅标识符。 在 Azure 门户预览的“订阅”边栏选项卡上，可找到订阅标识符。
-    - 将 *location* 替换为想要在其中创建资源的 [Azure 区域](https://azure.microsoft.com/regions/)。
+    - 将 *location* 替换为想要在其中创建资源的 Azure 区域。
     - 将 *adminName* 替换为虚拟机上管理员帐户的名称。
     - 将 *adminPassword* 替换为管理员帐户密码。
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 04/06/2017
     ```
 
     > [!NOTE]
-    > 本教程创建运行 Windows Server 操作系统版本的虚拟机。 若要详细了解如何选择其他映像，请参阅[使用 Windows PowerShell 和 Azure CLI 来导航和选择 Azure 虚拟机映像](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+    > 本教程创建运行 Windows Server 操作系统版本的虚拟机。 若要详细了解如何选择其他映像，请参阅[使用 Windows PowerShell 和 Azure CLI 来导航和选择 Azure 虚拟机映像](../linux/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
     > 
     >
 
@@ -571,5 +571,5 @@ ms.lasthandoff: 04/06/2017
 3. 在创建虚拟机之后、按 **Enter** 开始删除资源之前，可能需要在 Azure 门户预览中花几分钟时间来检查资源。
 
 ## <a name="next-steps"></a>后续步骤
-* 参考[使用 C# 和 Resource Manager 模板部署 Azure 虚拟机](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中的信息，利用模板创建虚拟机。
-* 查看[使用 Azure Resource Manager 和 C# 管理 Azure 虚拟机](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)，了解如何管理创建的虚拟机。
+* 参考[使用 C# 和 Resource Manager 模板部署 Azure 虚拟机](csharp-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中的信息，利用模板创建虚拟机。
+* 查看[使用 Azure Resource Manager 和 C# 管理 Azure 虚拟机](csharp-manage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，了解如何管理创建的虚拟机。

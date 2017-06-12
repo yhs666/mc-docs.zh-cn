@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2017
 wacn.date: 
-ms.author: glenga
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 1b8ed6fc72afd54bc7587943ca1ce7436c7f1c45
@@ -109,8 +109,8 @@ Azure 门户预览中的 Web 作业仪表板提供了强大的管理功能，可
 * [Magnus Mårtensson 的博客](http://magnusmartensson.com/)
 
 ## <a name="gethelp"></a>获取有关 Web 作业的帮助
-* [Azure Functions 堆栈溢出](http://stackoverflow.com/questions/tagged/azure-functions)
+
 * [Azure 和 ASP.NET 论坛](http://forums.asp.net/1247.aspx)
 * [Azure 应用服务 Web 应用论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazurewebsitespreview)
-* [Azure Web 应用 User Voice 站点](https://feedback.azure.com/forums/169385-websites/)
+* [Azure 产品反馈](https://www.azure.cn/product-feedback)
 * [报告 WebJobs 错误或问题](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)

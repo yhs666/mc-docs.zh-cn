@@ -13,14 +13,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2017
-wacn.date: 
-ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 5e61915465b4d610344c2064681b4d58282a14ca
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+wacn.date: 03/10/2017
+ms.author: v-yiso
 ---
 
 # <a name="comparison-of-azure-iot-hub-and-azure-event-hubs"></a>Azure IoT 中心和 Azure 事件中心比较

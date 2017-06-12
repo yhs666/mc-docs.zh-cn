@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/24/2017
-wacn.date: 
+wacn.date: 06/12/2017
 ms.author: markvi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
@@ -172,12 +172,6 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 - [Azure AD 的身份验证方案](./develop/active-directory-authentication-scenarios.md)
 - [Active Directory 身份验证协议](./develop/active-directory-developers-guide.md)
 - [Azure Active Directory 中单一登录的工作原理是什么？](./active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
-
-- - -
-
-**问：SaaS 应用程序的自动用户预配是什么？**
-
-**答：** 使用 Azure AD 可在许多流行的云 (SaaS) 应用程序中自动创建、维护和删除用户标识。
 
 - - -
 **问：是否可以通过 Azure AD 设置安全的 LDAP 连接？**

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
-ms.author: dobett
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 46f44171701ceea3c526e6cb5ab48a7eee67dbc8
@@ -131,7 +131,6 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "China East"
 ## <a name="next-steps"></a>后续步骤
 现在，已使用 Azure Resource Manager 模板和 PowerShell 部署了一个 IoT 中心，接下来可以进一步进行探索：
 
-- 阅读了解 [IoT 中心资源提供程序 REST API][lnk-rest-api]的相关功能。
 - 有关 Azure Resource Manager 功能的详细信息，请参阅 [Azure Resource Manager 概述][lnk-azure-rm-overview] 。
 
 若要详细了解如何开发 IoT 中心，请参阅以下文章：
@@ -147,7 +146,6 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "China East"
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azure-portal]: https://portal.azure.cn/
 [lnk-powershell-install]: ../powershell-install-configure.md
-[lnk-rest-api]: https://msdn.microsoft.com/zh-cn/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-powershell-arm]: ../azure-resource-manager/powershell-azure-resource-manager.md
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 wacn.date: 01/20/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 通过使用 Azure 门户预览将 OS 磁盘附加到恢复 VM 来对 Linux VM 进行故障排除
@@ -90,7 +90,7 @@ ms.author: iainfou
 ## 装载附加的数据磁盘
 
 > [!NOTE]
-以下示例详细说明了在 Ubuntu VM 上需要执行的步骤。如果使用不同的 Linux 分发版（如 Red Hat Enterprise Linux 或 SUSE），日志文件位置和 `mount` 命令可能稍有不同。请参阅具体分发版的文档，了解命令中有哪些相应的变化。
+> 以下示例详细说明了在 Ubuntu VM 上需要执行的步骤。如果使用不同的 Linux 分发版（如 Red Hat Enterprise Linux 或 SUSE），日志文件位置和 `mount` 命令可能稍有不同。请参阅具体分发版的文档，了解命令中有哪些相应的变化。
 
 1. 使用相应的凭据通过 SSH 连接到故障排除 VM。如果此磁盘是附加到故障排除 VM 的第一个数据磁盘，则它可能已连接到 `/dev/sdc`。使用 `dmseg` 列出附加的磁盘：
 

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/18/2017
 wacn.date: 03/30/2017
-ms.author: cawa
+ms.author: v-junlch
 ---
 
 # Azure 存储资源管理器 0.8.7（预览版）

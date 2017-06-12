@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2017
 wacn.date: 
-ms.author: cynthn
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 3da52d5bf2ca7c27bbf9036614931f9fe0405c84
@@ -28,8 +28,6 @@ ms.lasthandoff: 05/05/2017
 本文逐步说明如何在资源组或订阅之间移动 Linux VM。 如果在个人订阅中创建了 VM，现在想要将其移到公司的订阅，则在订阅之间移动 VM 会很方便。
 
 > [!IMPORTANT]
->不可在此时移动托管磁盘。 
->
 >在移动过程中将创建新的资源 ID。 移动 VM 后，需要更新工具和脚本以使用新的资源 ID。 
 > 
 > 

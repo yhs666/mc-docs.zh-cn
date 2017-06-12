@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
 wacn.date: 
-ms.author: 
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 4029874bf46e84dce9a8584ad72f57b8cedcfee7
@@ -47,8 +47,7 @@ Azure 中的维护以迭代方式进行计划。 初始迭代范围较小，目�
 
 ### <a name="paired-regions"></a>配对区域
 
-每个 Azure 区域与同一地理位置中另一个区域配对。 执行维护时，Azure 将只更新区域对中单个区域的虚拟机实例。 例如，更新中国北部的虚拟机时，Azure 不会同时更新中国南部的任何虚拟机。 后者会安排在其他时间进行，以便在区域之间进行故障转移或负载均衡。 但是，中国北部等其他区域可以与中国东部同时进行维护。
-阅读关于 [Azure 区域对](/best-practices-availability-paired-regions)的详细信息。
+每个 Azure 区域与同一地理位置中另一个区域配对。 执行维护时，Azure 将只更新区域对中单个区域的虚拟机实例。 例如，更新中国北部的虚拟机时，Azure 不会同时更新中国东部的任何虚拟机。 后者会安排在其他时间进行，以便在区域之间进行故障转移或负载均衡。
 
 ### <a name="single-instance-vms-vs-availability-set-or-vm-scale-set"></a>单实例 VM 与可用性集或 VM 规模集之对比
 
@@ -59,7 +58,7 @@ Azure 中的维护以迭代方式进行计划。 初始迭代范围较小，目�
 虚拟机规模集是一种 Azure 计算资源，支持将一组相同的 VM 作为单个资源进行部署和管理。
 规模集采用更新域的形式向可用性集提供相似的保证。 
 
-有关配置虚拟机以实现高可用性的详细信息，请参阅[*管理 Windows 虚拟机的可用性*](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+有关配置虚拟机以实现高可用性的详细信息，请参阅[*管理 Windows 虚拟机的可用性*](../linux/manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ### <a name="scheduled-events"></a>计划事件
 

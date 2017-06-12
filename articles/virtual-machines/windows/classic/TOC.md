@@ -1,6 +1,6 @@
 # 概述
 ## [关于虚拟机](../../virtual-machines-windows-about.md)
-## [磁盘和 VHD](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [磁盘和 VHD](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [虚拟网络](../../../virtual-network/virtual-networks-overview.md)
 ## [常见问题](faq.md)
 ## [VM、网站和云服务对比](../../../app-service-web/choose-web-site-cloud-service-vm.md)
@@ -92,6 +92,5 @@
 
 # 资源
 ## [定价](https://www.azure.cn/pricing/details/virtual-machines/#Windows)
-## [区域可用性](https://azure.microsoft.com/regions/services/)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

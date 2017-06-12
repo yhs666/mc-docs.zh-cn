@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/29/2016
 wacn.date: 12/26/2016
-ms.author: mikewasson
+ms.author: v-dazen
 ---
 
 # 在 Azure 上运行 Windows VM 的最佳实践

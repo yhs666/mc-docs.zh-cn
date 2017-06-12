@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 11/28/2016
 wacn.date: 02/24/2017
-ms.author: MikeRayMSFT
+ms.author: v-dazen
 ---
 
 # 在 Azure 中配置 AlwaysOn 可用性组的外部侦听器
@@ -27,7 +27,7 @@ ms.author: MikeRayMSFT
 本主题说明如何为 AlwaysOn 可用性组配置一个可以通过 Internet 从外部访问的侦听器。这是通过将云服务的**公共虚拟 IP \(VIP\)** 地址与侦听器关联来实现的。
 
 > [!IMPORTANT] 
-Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。
 
 你的可用性组可以仅包含本地副本或 Azure 副本，也可以跨越本地和 Azure 以实现混合配置。Azure 副本可以位于同一区域，也可以跨越使用多个虚拟网络 \(VNet\) 的多个区域。以下步骤假设你已[配置了一个可用性组](../../windows/sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)但是没有配置侦听器。
 
@@ -53,7 +53,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
 1. 在 Azure 门户预览中，导航到托管副本的每个 VM 并查看详细信息。
 2. 单击每个 VM 的“终结点”选项卡。
 3. 验证你想要使用的侦听器终结点“名称”和“公用端口”是否已被使用。在下面的示例中，名称为“MyEndpoint”，端口为“1433”。
-4. 在你本地的客户端上，下载并安装[最新的 PowerShell 模块](https://www.azure.cn/downloads/)。
+4. 在你本地的客户端上，下载并安装[最新的 PowerShell 模块](/downloads/)。
 5. 启动 Azure PowerShell。将打开新的 PowerShell 会话，其中加载了 Azure 管理模块。
 6. 运行 Get-AzurePublishSettingsFile。此 cmdlet 将你定向到浏览器，以将发布设置文件下载到本地目录。系统可能会提示输入 Azure 订阅的登录凭据。
 7. 运行 Import-azurepublishsettingsfile 命令以及你下载发布设置文件的路径：

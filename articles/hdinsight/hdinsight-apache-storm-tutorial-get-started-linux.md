@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/17/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
@@ -106,7 +106,7 @@ Apache Storm 是一个可扩展的、具有容错能力的分布式实时计算�
 
     > [!NOTE]
     > 将自己的拓扑提交到群集时，必须先复制包含群集的 jar 文件，然后再使用 `storm` 命令。 使用 `scp` 命令来复制该文件。 例如 `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:FILENAME.jar`
-    > <p>
+    >
     > WordCount 示例和其他 Storm 初学者示例已经包含在群集中，其位置为 `/usr/hdp/current/storm-client/contrib/storm-starter/`。
 
 如果有兴趣查看 storm 初学者示例的源，可以在以下网页中找到代码：[https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter)。 此链接针对与 HDInsight 3.5 一起提供的 Storm 1.0.x。 对于其他版本的 Storm，可使用页面顶部的“分支”按钮选择不同的 Storm 版本。

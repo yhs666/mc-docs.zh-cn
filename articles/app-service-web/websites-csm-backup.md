@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 wacn.date: 
-ms.author: nicking
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: a40f80e430eac170058d832225a36c81a736e988

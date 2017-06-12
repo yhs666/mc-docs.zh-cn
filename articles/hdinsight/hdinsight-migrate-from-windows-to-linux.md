@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/12/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
 ms.openlocfilehash: 8f16d685f2ac0f96079e96d2c572e7e480dda92b
@@ -151,7 +151,7 @@ ms.lasthandoff: 04/29/2017
 
 ## <a name="management-and-monitoring"></a>监视和管理
 
-与基于 Windows 的 HDInsight 配合使用的许多 Web UI（例如作业历史记录或 Yarn UI）均可通过 Ambari 使用。 此外，Ambari Hive 视图提供使用 Web 浏览器运行 Hive 查询的方法。 基于 Linux 的群集可从以下位置获得 Ambari Web UI：https://CLUSTERNAME.azurehdinsight.cn。
+与基于 Windows 的 HDInsight 配合使用的许多 Web UI（例如作业历史记录或 Yarn UI）均可通过 Ambari 使用。 此外，Ambari Hive 视图提供使用 Web 浏览器运行 Hive 查询的方法。 基于 Linux 的群集可从以下位置获得 Ambari Web UI：https://CLUSTERNAME.azurehdinsight.cn 。
 
 有关使用 Ambari 的详细信息，请参阅以下文档：
 
@@ -164,7 +164,7 @@ Ambari 提供能够通知群集潜在问题的警报系统。 警报将以红色
 
 > [!IMPORTANT]
 > Ambari 警报表示可能有问题，而不表示已发生问题。 例如，你可能会收到无法访问 HiveServer2 的警报，但实际上仍可以正常访问它。
-> <p>
+>
 > 许多警报都是针对某项服务实现为基于间隔的查询，并预期在特定的时间范围内收到响应。 因此警报本身并不代表服务已关闭，而只是单纯表示该服务没有在预期时间范围内返回结果。
 
 应该先评估某个警报是否已长时间持续发生，或者反映了已报告的用户问题，然后对它采取措施。

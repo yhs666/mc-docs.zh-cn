@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: 02/07/2017
-ms.author: brandwe
+ms.author: v-junlch
 ---
 
 # 将 Azure AD 集成到 Android 应用中

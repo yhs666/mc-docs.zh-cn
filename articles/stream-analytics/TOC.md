@@ -23,7 +23,7 @@
 ### [使用引用数据](stream-analytics-use-reference-data.md)
 <!-- Not Available ### [Output to Azure Functions](stream-analytics-functions-redis.md) -->
 <!-- Not Available ### [Output to Data Lake Store](stream-analytics-data-lake-output.md) -->
-### [输出到 DocumentDB](stream-analytics-documentdb-output.md)
+<!-- Not Available ### [输出到 DocumentDB](stream-analytics-documentdb-output.md) -->
 <!--Not Available ### [Analyze data with Power BI](stream-analytics-power-bi-dashboard.md) -->
 ### [JavaScript UDF 集成](stream-analytics-javascript-user-defined-functions.md)
 <!-- Not Available ### [REST API & Machine Learning integration](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)-->
@@ -31,7 +31,7 @@
 ### [窗口函数](stream-analytics-window-functions.md)
 
 ## 管理
-### [作业可靠性](stream-analytics-job-reliability.md)
+<!-- Not Available ### [作业可靠性](stream-analytics-job-reliability.md) -->
 ### [监视作业](stream-analytics-monitoring.md)
 <!-- Not Available ### [Diagnostic logs](stream-analytics-job-diagnostic-logs.md) -->
 ### [以编程方式监视作业](stream-analytics-monitor-jobs.md)
@@ -44,15 +44,15 @@
 ### [一键式 PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # 参考
-## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
-## [.NET](/dotnet/api/streamanalytics.tests.operationtests)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [查询语言](https://msdn.microsoft.com/library/azure/dn834998)
-## [REST](/rest/api/streamanalytics)
+## [REST](https://docs.microsoft.com/rest/api/streamanalytics)
 
 # 资源
-## [发行说明](stream-analytics-release-notes.md)
+<!-- Not Available ## [发行说明](stream-analytics-release-notes.md)  -->
 ## [学习路径](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
-## [价格](https://azure.microsoft.com/pricing/details/stream-analytics/)
+## [价格](https://www.azure.cn/pricing/details/stream-analytics/)
 ## [博客](http://blogs.msdn.com/b/streamanalytics/)
 ## [论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-stream-analytics)

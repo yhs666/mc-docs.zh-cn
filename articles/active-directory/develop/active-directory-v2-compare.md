@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: 02/13/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # v2.0 终结点有什么不同？
@@ -34,7 +34,7 @@ v2.0 终结点允许开发人员编写可接受使用单一身份验证终结点
 将应用与 Microsoft 帐户和 Azure AD 帐户集成现在是一个简单的过程。你可以使用一组终结点、单个资源库和单个应用注册来进入消费者和企业的世界。若要深入了解 v2.0 终结点，请查看[概述](./active-directory-appmodel-v2-overview.md)。
 
 ## 新的应用注册门户
-v2.0 终结点只能在下列新位置中注册：[apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)。可以在这个门户获取应用程序 ID、自定义应用程序登录页面的外观等等。访问门户时唯一需要的是 Microsoft 支持的帐户 — 个人帐户或工作/学校帐户。
+v2.0 终结点只能在下列新位置中注册：[apps.dev.microsoft.com](https://apps.dev.microsoft.com)。可以在这个门户获取应用程序 ID、自定义应用程序登录页面的外观等等。访问门户时唯一需要的是 Microsoft 支持的帐户 — 个人帐户或工作/学校帐户。
 
 随着时间推移，我们会不断地将越来越多的功能添加到这个应用注册门户中。此门户的用途是成为可用于管理与 Microsoft 应用程序相关的所有一切的新位置。
 

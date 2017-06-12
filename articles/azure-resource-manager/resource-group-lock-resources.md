@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2017
 wacn.date: 
-ms.author: tomfitz
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: cd32245f937790ea7f7623a73e131fef1312a5a9
@@ -42,8 +42,12 @@ Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到
 ## <a name="who-can-create-or-delete-locks-in-your-organization"></a>谁可以在组织中创建或删除锁
 若要创建或删除管理锁，必须有权执行 `Microsoft.Authorization/*` 或 `Microsoft.Authorization/locks/*` 操作。 在内置角色中，只有“所有者”和“用户访问管理员”有权执行这些操作。
 
+
+<!-- Not Available due to resource-manager-lock-resources.md not be translated -->
+<!-- 
 ## <a name="portal"></a>门户
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
+-->
 
 ## <a name="template"></a>模板
 以下示例演示在存储帐户上创建锁的模板。 要对其应用锁的存储帐户将以参数形式提供。 锁名是通过将包含 **/Microsoft.Authorization/** 的资源名称与锁名（本例中为 **myLock**）连接起来创建的。

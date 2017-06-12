@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2017
 wacn.date: 02/14/2017
-ms.author: danlep
+ms.author: v-junlch
 ---
 
 # Azure 服务管理 (asm) 模式下的 Azure CLI 命令

@@ -11,7 +11,7 @@ ms.topic: reference
 ms.assetid: 2fda4d9c-f782-4088-9320-656b450e3100
 caps.latest.revision: 7
 author: tamram
-ms.author: tamram
+ms.author: v-junlch
 manager: timlt
 wacn.date: 
 ms.translationtype: Human Translation
@@ -24,7 +24,7 @@ ms.lasthandoff: 05/15/2017
 # <a name="batch-analytics"></a>批处理分析
 批处理分析中的主题包含可用于批处理服务资源的事件和警报的参考信息。
 
-有关启用和使用批处理诊断日志的详细信息，请参阅 [Azure 批处理诊断日志记录](/documentation/articles/batch-diagnostics/)。
+有关启用和使用批处理诊断日志的详细信息，请参阅 [Azure 批处理诊断日志记录](./batch-diagnostics.md)。
 
 ## <a name="diagnostic-logs"></a>诊断日志
 

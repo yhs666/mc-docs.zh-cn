@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/21/2017
 wacn.date: 
-ms.author: cynthn
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 1b686d16dd9d9e672d3983ff7148322278f71b28
@@ -37,6 +37,8 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="detach-a-data-disk-using-cli-20"></a>使用 CLI 2.0 分离数据磁盘
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ```azurecli
 az vm unmanaged-disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
 ```
@@ -55,4 +57,4 @@ az vm unmanaged-disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
 磁盘保留在存储中，但不再附加到虚拟机。
 
 ## <a name="next-steps"></a>后续步骤
-若要重新使用数据磁盘，只需[将其附加到其他 VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 即可。
+若要重新使用数据磁盘，只需[将其附加到其他 VM](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 即可。

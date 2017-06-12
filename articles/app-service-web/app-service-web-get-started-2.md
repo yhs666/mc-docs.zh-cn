@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/12/2016
 wacn.date: 09/26/2016
-ms.author: cephalin
+ms.author: v-dazen
 ---
 
 # 在第一个 Web 应用中添加功能

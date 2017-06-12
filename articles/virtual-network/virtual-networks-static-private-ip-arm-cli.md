@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 wacn.date: 03/31/2017
-ms.author: jdial
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
 
@@ -40,7 +40,7 @@ ms.custom: H1Hack27Feb2017
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-下面的 Azure CLI 2.0 命令示例需要一个已创建好的简单环境。若要按本文档所示运行命令，首先需要构建[创建 VNet](./virtual-networks-create-vnet-arm-cli.md) 中所述的测试环境。
+> 下面的 Azure CLI 2.0 命令示例需要一个已创建好的简单环境。若要按本文档所示运行命令，首先需要构建[创建 VNet](./virtual-networks-create-vnet-arm-cli.md) 中所述的测试环境。
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a> 在创建 VM 时指定静态专用 IP 地址
 
@@ -51,7 +51,7 @@ ms.custom: H1Hack27Feb2017
 2. 通过 [azure network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) 命令为该 VM 创建公共 IP。在输出后显示的列表说明了所用的参数。
 
     > [!NOTE]
-    根据你的环境，可能需在该步骤及后续步骤中使用不同的参数值。
+    > 根据你的环境，可能需在该步骤及后续步骤中使用不同的参数值。
 
     ```azurecli
     az network public-ip create \
@@ -271,7 +271,7 @@ rivateIpAllocationMethod,PublicAddress:publicIpAddress}'
     ```
 
     > [!NOTE]
-    如果 VM 的空间足以拥有多个 NIC，请运行 **azure network nic delete** 命令删除旧版 NIC。
+    > 如果 VM 的空间足以拥有多个 NIC，请运行 **azure network nic delete** 命令删除旧版 NIC。
 
 ## 后续步骤
 * 了解[保留公共 IP](./virtual-networks-reserved-public-ip.md) 地址。

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 wacn.date: 04/05/2017
-ms.author: femila
+ms.author: v-junlch
 ---
 
 # 有关在 Azure 虚拟机上部署 Windows Server Active Directory 的指导

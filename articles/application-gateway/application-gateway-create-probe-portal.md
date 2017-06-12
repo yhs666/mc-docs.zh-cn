@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 03/28/2017
-ms.author: gwallace
+ms.author: v-dazen
 ---
 
 # 使用门户创建应用程序网关的自定义探测
@@ -59,7 +59,7 @@ ms.author: gwallace
 * **不正常阈值** - 系统认为不正常的失败尝试次数。阈值为 0 意味着，如果运行状况检查失败，则会立即将后端确定为不正常。
 
 > [!IMPORTANT]
-主机名不同于服务器名。此值是运行在应用程序服务器上的虚拟主机的名称。探测发送到 http://(host 名):(httpsetting 中的端口)/urlPath
+> 主机名不同于服务器名。此值是运行在应用程序服务器上的虚拟主机的名称。探测发送到 http://(host 名):(httpsetting 中的端口)/urlPath
 
 ![探测配置设置][3]
 

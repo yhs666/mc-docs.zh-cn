@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 wacn.date: 03/01/2017
-ms.author: sdanie
+ms.author: v-dazen
 ---
 
 # Azure Redis 缓存高级层简介

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 
-ms.author: gwallace
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: ed9ec5a3c0269b6cbc3ce84984845ebdf8c981f2
@@ -87,9 +87,9 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
     * **properties**。 资源的属性列表。 此模板在应用程序网关创建过程中，使用虚拟网络与公共 IP 地址。
 
     > [!NOTE]
-    > 有关模板的详细信息，请参阅：[Resource Manager 模板参考](https://docs.microsoft.com/templates/)
+    > 有关模板的详细信息，请参阅：[Resource Manager 模板参考](https://github.com/Azure/azure-quickstart-templates/)
 
-1. 导航回 [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf)。
+1. 导航回 [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf)。
 1. 单击 **azuredeploy-parameters.json**，然后单击 **RAW**。
 1. 将该文件保存到计算机上的本地文件夹中。
 1. 打开保存的文件并编辑参数的值。 使用以下值部署本方案中所述的应用程序网关。
@@ -165,7 +165,7 @@ Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 ### <a name="step-4"></a>步骤 4
 
-如有必要，请使用 **New-AzureResourceGroup** cmdlet 创建资源组。 在下面的示例中，将在“中国东部”位置创建名为 AppgatewayRG 的资源组。
+如有必要，请使用 **New-AzureResourceGroup** cmdlet 创建资源组。 在下面的示例中，将在“中国北部”位置创建名为 AppgatewayRG 的资源组。
 
 ```powershell
 New-AzureRmResourceGroup -Name AppgatewayRG -Location "China North"
@@ -187,6 +187,8 @@ New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroup
 如果从未使用过 Azure CLI，请参阅[安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)，并按照说明进行操作，直到选择 Azure 帐户和订阅。
 
 ### <a name="step-2"></a>步骤 2
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 如有必要，请运行 `az group create` 命令创建一个资源组，如以下代码片段中所示。 请注意命令的输出。 在输出后显示的列表说明了所使用的参数。 有关资源组的详细信息，请访问 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)。
 
@@ -228,7 +230,7 @@ az group deployment create --resource-group appgatewayRG --name TestAppgatewayDe
 
 ### <a name="step-4"></a>步骤 4
 
-选择“我同意上述条款和条件”，然后单击“购买”。
+选择“法律条款”，然后单击“购买”。
 
 ### <a name="step-5"></a>步骤 5
 

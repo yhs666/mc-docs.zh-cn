@@ -13,9 +13,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/23/2017
+ms.date: 01/23/2017
 wacn.date: 03/28/2017
-ms.author: saurabh
+ms.author: v-dazen
 ---
 
 # 使用 Azure 资源管理器模板创建具有监视和诊断功能的 Windows 虚拟机

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 wacn.date: 12/30/2016
-ms.author: kirpas
+ms.author: v-dazen
 ---
 
 # 如何扩展 Azure 资源组中虚拟机的 OS 驱动器

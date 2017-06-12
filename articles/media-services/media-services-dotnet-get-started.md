@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 01/10/2017
 wacn.date: 02/24/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # 使用 .NET SDK 开始传送点播内容

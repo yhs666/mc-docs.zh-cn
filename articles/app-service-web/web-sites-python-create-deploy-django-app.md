@@ -15,7 +15,7 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 02/19/2016
 wacn.date: 
-ms.author: huvalo
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 139ff85e7a0101b4e3f1f28f50218791ca753bac
@@ -59,8 +59,8 @@ ms.lasthandoff: 05/19/2017
 创建应用的第一步是通过 [Azure 门户预览](https://portal.azure.cn)创建 Web 应用。
 
 1. 登录到 Azure 门户预览，然后单击左下角的“新建”按钮。
-2. 在搜索框中，键入“python”。
-3. 在搜索结果中，选择 **Django**（由 PTVS 发布），然后单击“创建”。
+2. 单击“Web + 移动”。
+3. 单击”Web 应用”。
 4. 配置新的 Django 应用，如为其创建新的应用服务计划和新的资源组。 然后单击 **创建**。
 5. 按照 [从本地 Git 部署到 Azure 应用服务](app-service-deploy-local-git.md)的说明为新创建的 Web 应用配置 Git 发布。
 
@@ -200,7 +200,7 @@ Python 虚拟环境。 如果在 Web 应用上尚不存在兼容的虚拟环境�
 
 首次部署将需要一些时间，因为它将创建虚拟环境、 安装包等。
 
-Visual Studio 不会显示部署的进度。 如果你想要查看输出，请参阅 [故障排除 - 部署](#troubleshooting-deployment)上的相关部分。
+Visual Studio 不会显示部署的进度。
 
 浏览到 Azure URL 要查看您的更改。
 

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 wacn.date: 03/20/2017
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # 关于 Azure 存储帐户

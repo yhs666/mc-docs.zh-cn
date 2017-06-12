@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 wacn.date: 03/28/2017
-ms.author: asabbour
+ms.author: v-dazen
 ---
 
 # MariaDB \(MySQL\) 群集：Azure 教程
 > [!IMPORTANT]
-Azure 有两种用于创建和处理资源的不同部署模型：[Azure Resource Manager 部署模型](../../../azure-resource-manager/resource-manager-deployment-model.md)和经典部署模型。本文介绍经典部署模型。Azure 建议大多数新部署使用 Azure Resource Manager 模型。
+> Azure 有两种用于创建和处理资源的不同部署模型：[Azure Resource Manager 部署模型](../../../azure-resource-manager/resource-manager-deployment-model.md)和经典部署模型。本文介绍经典部署模型。Azure 建议大多数新部署使用 Azure Resource Manager 模型。
 
 本文介绍如何创建 [MariaDB](https://mariadb.org/en/about/) 的多主机 [Galera](http://galeracluster.com/products/) 群集（MySQL 的嵌入式替代版本，稳健、可缩放且可靠），适用于 Azure 虚拟机中的高可用性环境。
 
@@ -37,7 +37,7 @@ Azure 有两种用于创建和处理资源的不同部署模型：[Azure Resourc
 ![系统体系结构](./media/mariadb-mysql-cluster/Setup.png)  
 
 > [!NOTE]
-本主题使用 [Azure CLI](../../../xplat-cli-install.md) 工具，请确保按照说明进行下载并连接到你的 Azure 订阅。如需 Azure CLI 中可用命令的参考，可查看 [Azure CLI 命令参考](../../../virtual-machines-command-line-tools.md)。另外还需[创建用于身份验证的 SSH 密钥]，并记下 .pem 文件的位置。
+> 本主题使用 [Azure CLI](../../../xplat-cli-install.md) 工具，请确保按照说明进行下载并连接到你的 Azure 订阅。如需 Azure CLI 中可用命令的参考，可查看 [Azure CLI 命令参考](../../../virtual-machines-command-line-tools.md)。另外还需[创建用于身份验证的 SSH 密钥]，并记下 .pem 文件的位置。
 >
 >
 
@@ -229,7 +229,7 @@ Azure 有两种用于创建和处理资源的不同部署模型：[Azure Resourc
     b.编辑 **\[mariadb\]** 部分，追加以下内容：
 
     > [!NOTE]
-    建议将 innodb\_buffer\_pool\_size 设置为 VM 的 70% 内存。在此示例中，已针对 RAM 为 3.5 GB 的中型 Azure VM 将其设置为 2.45 GB。
+    > 建议将 innodb\_buffer\_pool\_size 设置为 VM 的 70% 内存。在此示例中，已针对 RAM 为 3.5 GB 的中型 Azure VM 将其设置为 2.45 GB。
     >
     >
 
@@ -272,7 +272,7 @@ Azure 有两种用于创建和处理资源的不同部署模型：[Azure Resourc
  - 传递 SSH 证书 .pem 文件，将 /path/to/key.pem 替换为生成的 .pem SSH 密钥的存储路径。
 
     > [!NOTE]
-    为清楚起见，以下命令拆开显示在多行内，但每个都应作为一整行进行输入。
+    > 为清楚起见，以下命令拆开显示在多行内，但每个都应作为一整行进行输入。
     >
     >
         azure vm create

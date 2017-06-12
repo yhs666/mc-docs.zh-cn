@@ -12,8 +12,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/1/2017
-ms.author: saurse;trinadhk;markgal;
+ms.date: 02/01/2017
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 18fc02d2f08465b0d004567086676ba20855c8e0

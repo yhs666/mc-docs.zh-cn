@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/19/2016
 wacn.date: 10/31/2016
-ms.author: yuridio
+ms.author: v-johch
 ---
 
 #Microsoft Azure 安全入门

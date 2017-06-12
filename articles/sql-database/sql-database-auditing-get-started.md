@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 wacn.date: 12/19/2016
-ms.author: CarlRabeler; ronitr; giladm
+ms.author: v-johch
 ---
 
 # SQL 数据库审核入门

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 wacn.date: 
-ms.author: kumud
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 66cd7dfff55f26a738084fd9d0b7aa098e827293
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/19/2017
 
 ### <a name="to-create-a-traffic-manager-profile"></a>创建流量管理器配置文件
 
-1. 在浏览器中，登录 [Azure 门户预览](http://portal.azure.cn)。 如果还没有帐户，可注册 [1 个月期限的免费试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
+1. 在浏览器中，登录 [Azure 门户预览](http://portal.azure.cn)。 如果还没有帐户，可注册 [1 个月期限的试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
 2. 在“中心”菜单上，单击“新建” > “网络” > “全部查看”，单击“流量管理器配置文件”，打开“创建流量管理器配置文件”边栏选项卡，然后单击“创建”。
 3. 在“创建流量管理器配置文件”边栏选项卡上，按如下所示完成输入：
     1. 在**名称**中，提供配置文件的名称。 此名称必须在 trafficmanager.cn 区域中唯一，并将生成 DNS 名称 (<name>,trafficmanager.cn)，该名称用于访问流量管理器配置文件。

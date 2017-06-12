@@ -13,9 +13,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2016
-wacn.date: 01/05/2017
-ms.author: igalf
+ms.date: 03/23/2017
+wacn.date: 05/31/2017
+ms.author: v-dazen
 ---
 
 # 如何在 Azure VM 上安排计划内的维护

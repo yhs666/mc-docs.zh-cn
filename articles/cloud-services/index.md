@@ -1,6 +1,18 @@
 ---
-layout: LandingPage
+title: Azure 云服务文档 - 教程, API 参考 | Azure
 description: "教程、API 参考和其他文档介绍了如何使用云服务托管和运行高度可用且可伸缩的云应用程序和 API。"
+services: cloud-services
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: cloud-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 69bcbae09192ecbb6b375bac522b433f8cd5391f
@@ -14,7 +26,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https:/cloud-services/cloud-services-choose-me">
+        <a href="/cloud-services/cloud-services-choose-me">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,24 +37,6 @@ ms.lasthandoff: 05/12/2017
                     </div>
                     <div class="cardText">
                         <h3>了解云服务</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=cloud-services">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>云服务视频库</h3>
                     </div>
                 </div>
             </div>

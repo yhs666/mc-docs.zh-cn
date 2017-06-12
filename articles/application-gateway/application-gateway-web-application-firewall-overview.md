@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
-wacn.date: ''
-ms.author: amsriva
+ms.date: 03/28/2017
+wacn.date: 05/31/2017
+ms.author: v-dazen
 ---
 
 # 应用程序网关 Web 应用程序防火墙（预览版）

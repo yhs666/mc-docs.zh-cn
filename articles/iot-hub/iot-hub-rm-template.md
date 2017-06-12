@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2017
 wacn.date: 
-ms.author: dobett
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: ab67fb09b09735c9b3110aa70d218a9d4b4057ed
@@ -191,7 +191,6 @@ ms.lasthandoff: 04/14/2017
 ## <a name="next-steps"></a>后续步骤
 现在，已使用 Azure Resource Manager 模板和 C# 程序部署了一个 IoT 中心，接下来可以进一步进行探索：
 
-- 阅读了解 [IoT 中心资源提供程序 REST API][lnk-rest-api]的相关功能。
 - 有关 Azure Resource Manager 功能的详细信息，请参阅 [Azure Resource Manager 概述][lnk-azure-rm-overview] 。
 
 若要详细了解如何开发 IoT 中心，请参阅以下文章：
@@ -208,7 +207,6 @@ ms.lasthandoff: 04/14/2017
 [lnk-azure-portal]: https://portal.azure.cn/
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
-[lnk-rest-api]: https://msdn.microsoft.com/zh-cn/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md

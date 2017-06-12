@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
-ms.author: dobett
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 335d23a0aab852805ce1857f57ff4499082c34f3
@@ -27,12 +27,12 @@ ms.lasthandoff: 05/19/2017
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## <a name="azure-iot-suite"></a>Azure IoT 套件
-Azure IoT 套件是企业级解决方案，让用户能够通过一组可扩展的预配置解决方案快速入门。 这些解决方案用于处理常见 IoT 场景，例如[远程监视][lnk-preconfigured-solutions]、[预见性维护][lnk-predictive-maintenance]。 这些解决方案是本文所述的 IoT 解决方案体系结构的实现。
+Azure IoT 套件是企业级解决方案，让用户能够通过一组可扩展的预配置解决方案快速入门。 这些解决方案用于处理常见 IoT 场景，例如[远程监控][lnk-preconfigured-solutions]、[预测性维护][lnk-predictive-maintenance]。 这些解决方案是本文所述的 IoT 解决方案体系结构的实现。
 
 预配置的解决方案是完整有效的端到端解决方案，其中包括：
 
 - 帮助入门的模拟设备。
-- 预配置的 Azure 服务，例如 [Azure IoT 中心][Azure IoT Hub]、[Azure 事件中心][Azure Event Hubs]、[Azure 流分析][Azure Stream Analytics]、[Azure 机器学习][Azure Machine Learning]和 [Azure 存储][Azure storage]。
+- 预配置的 Azure 服务，例如 [Azure IoT 中心][Azure IoT Hub]、[Azure 事件中心][Azure Event Hubs]、[Azure 流分析][Azure Stream Analytics]和 [Azure 存储][Azure storage]。
 - 解决方案特定的管理控制台。
 
 预配置的解决方案包含经过验证的可用于生产的代码，你可以自定义和扩展该代码以实现你自己的特定 IoT 场景。
@@ -53,6 +53,5 @@ Azure IoT 套件是企业级解决方案，让用户能够通过一组可扩展�
 [Azure IoT Hub]: https://www.azure.cn/home/features/iot-hub/
 [Azure Event Hubs]: https://www.azure.cn/home/features/event-hubs/
 [Azure Stream Analytics]: https://www.azure.cn/home/features/stream-analytics/
-[Azure Machine Learning]: https://www.azure.cn/home/features/machine-learning/
 [Azure storage]: https://www.azure.cn/home/features/storage/
 [lnk-predictive-maintenance]: ./iot-suite-predictive-overview.md

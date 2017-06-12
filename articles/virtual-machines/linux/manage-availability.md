@@ -13,9 +13,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
-wacn.date: 12/30/2016
-ms.author: cynthn
+ms.date: 03/21/2017
+wacn.date: 05/31/2017
+ms.author: v-dazen
 ---
 
 # 管理虚拟机的可用性

@@ -1,4 +1,4 @@
-# [入门]
+# 入门
 ## [概述](security-get-started-overview.md)
 ## [安全服务与技术](azure-security-services-technologies.md)
 ## [Azure 安全入门](azure-security-getting-started.md)
@@ -11,7 +11,6 @@
 ## 网络安全性
 ### [概述](security-network-overview.md)
 ### [网络安全最佳做法](azure-security-network-security-best-practices.md)
-### [边界安全](../best-practices-network-security.md)
 
 ## 存储安全
 ### [概述](security-storage-overview.md)

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 wacn.date: 03/24/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 使用 Azure CLI 创建虚拟网络
@@ -116,7 +116,7 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。Azure 建
 
     ```
     Where      Name      Group
-    ---------  --------  -------
+
     chinaeast  TestVNet  myVNet
     ```
 
@@ -168,7 +168,7 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。Azure 建
 
     ```
     Name      Where      Group    Status       SubnetCount
-    --------  ---------  -------  ---------  -------------
+
     TestVNet  chinaeast  myVNet   Succeeded              2
     ```
 
@@ -186,7 +186,7 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。Azure 建
 
     ```
     Name      CIDR            Status
-    --------  --------------  ---------
+
     FrontEnd  192.168.1.0/24  Succeeded
     BackEnd   192.168.2.0/24  Succeeded
     ```

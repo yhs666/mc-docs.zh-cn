@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/12/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 88f72151e94d825dd159e1d932eac312df0d1875
@@ -149,8 +149,7 @@ Hive on HDInsight 中预先加载了名为 `hivesampletable` 的内部表。 HDI
 
 > [!NOTE]
 > 如果希望通过外部源更新基础数据，应使用外部表。 例如，自动化数据上传过程或 MapReduce 操作。
-> <p>
-> 删除外部表**不会**删除数据，只会删除表定义。
+> > 删除外部表**不会**删除数据，只会删除表定义。
 
 若要创建**内部**表而非外部表，请使用以下 HiveQL：
 
@@ -179,9 +178,9 @@ Hive on HDInsight 中预先加载了名为 `hivesampletable` 的内部表。 HDI
 
 > [!NOTE]
 > 对于基于 Windows 的 HDInsight 群集来说，Tez 目前默认处于关闭状态，因此必须启用。 若要充分利用 Tez，你必须设置 Hive 查询的以下值：
-> <p>
+>
 > `set hive.execution.engine=tez;`
-> <p>
+>
 > Tez 是用于基于 Linux 的 HDInsight 群集的默认引擎。
 
 [Hive on Tez 设计文档](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez)包含有关实现选项和优化配置的详细信息。

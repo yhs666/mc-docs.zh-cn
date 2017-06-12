@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: pratshar
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: ab5cab5927a406db12c38656aa023543a62a8057
@@ -105,7 +105,7 @@ Site Recovery 可与表中汇总的本机 SQL Server BCDR 技术集成，以提�
 Site Recovery 本身支持 SQL AlwaysOn。 如果已创建 SQL 可用性组并已将 Azure 虚拟机设置为辅助位置，则可以使用 Site Recovery 来管理可用性组的故障转移。
 
 > [!NOTE]
-> 此功能目前以预览版提供。 当主站点中的 Hyper-V 主机服务器在 System Center VMM 云中管理，或者已设置 [VMware 复制](./site-recovery-vmware-to-azure.md)时，可以使用此功能。 此功能目前无法在新的 Azure 门户中使用。 如果使用新 Azure 门户，请按照[本部分](./site-recovery-sql.md#integrate-with-sql-server-alwayson-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server)中的步骤操作。
+> 此功能目前以预览版提供。 当主站点中的 Hyper-V 主机服务器在 System Center VMM 云中管理，可以使用此功能。 此功能目前无法在新的 Azure 门户中使用。 如果使用新 Azure 门户，请按照[本部分](./site-recovery-sql.md#integrate-with-sql-server-alwayson-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server)中的步骤操作。
 >
 >
 
@@ -320,7 +320,7 @@ Site Recovery 本身支持 SQL AlwaysOn。 如果已创建 SQL 可用性组并�
 6. 创建可用性组侦听器，或更新现有的侦听器，以包含异步副本虚拟机。
 7. 确保应用程序场是使用侦听器设置的。 如果它是使用数据库服务器名称设置的，请将其更新为使用侦听器，以便不需要在故障转移后重新配置该场。
 
-对于使用分布式事务的应用程序，我们建议使用 [SAN 复制](./site-recovery-vmm-san.md)或 [VMware/物理服务器站点到站点复制](./site-recovery-vmware-to-vmware.md)部署 Site Recovery。
+对于使用分布式事务的应用程序，我们建议使用 [SAN 复制](./site-recovery-vmm-san.md)部署 Site Recovery。
 
 ### <a name="recovery-plan-considerations"></a>恢复计划注意事项
 1. 将此示例脚本添加到主站点和辅助站点上的 VMM 库。
@@ -345,7 +345,7 @@ Site Recovery 本身支持 SQL AlwaysOn。 如果已创建 SQL 可用性组并�
 
 ### <a name="on-premises-to-on-premises"></a>本地到本地
 
-* 如果应用使用分布式事务，我们建议针对 Hyper-V 环境使用 [SAN 复制](./site-recovery-vmm-san.md)，或者针对 VMware 环境使用 [VMware/物理服务器到 VMware 的复制](./site-recovery-vmware-to-vmware.md)，来部署 Site Recovery。
+* 如果应用使用分布式事务，我们建议针对 Hyper-V 环境使用 [SAN 复制](./site-recovery-vmm-san.md)，来部署 Site Recovery。
 * 对于非 DTC 应用程序，可以使用上述方法通过利用本地高安全性 DB 镜像将群集恢复为独立服务器。
 
 ### <a name="on-premises-to-azure"></a>本地到 Azure
@@ -354,7 +354,7 @@ Site Recovery 本身支持 SQL AlwaysOn。 如果已创建 SQL 可用性组并�
 
 1. 在本地站点中配置其他独立 SQL Server 实例。
 2. 将此实例配置为需要保护的数据库的镜像。 在高安全模式下配置镜像。
-3. 在本地站点上为 [Hyper-V](./site-recovery-hyper-v-site-to-azure.md) 或 [VMware VM/物理服务器](./site-recovery-vmware-to-azure-classic.md)配置 Site Recovery。
+3. 在本地站点上为 [Hyper-V](./site-recovery-hyper-v-site-to-azure.md) 配置 Site Recovery。
 4. 使用 Site Recovery 复制将新的 SQL Server 实例复制到 Azure。 由于该实例是高安全性镜像副本，因此会将它与主群集同步，但会使用 Site Recovery 复制将它复制到 Azure。
 
 ![标准群集](./media/site-recovery-sql/BCDRStandaloneClusterLocal.png)

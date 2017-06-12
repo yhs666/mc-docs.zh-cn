@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: sql-database
 ms.date: 01/10/2017
 wacn.date: 01/25/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 #Azure SQL 数据库中的临时表入门

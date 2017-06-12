@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 054281db37a6d958a64c3e19fc3b32a08c7f13eb
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/key-vault/key-vault-whatis">
+        <a href="/key-vault/key-vault-whatis">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -44,25 +44,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/documentation/videos/index/?services=key-vault">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>密钥保管库视频库</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/key-vault/key-vault-get-started/">
+        <a href="/key-vault/key-vault-get-started/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -80,7 +62,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/key-vault/key-vault-use-from-web-application">
+        <a href="/key-vault/key-vault-use-from-web-application">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -98,7 +80,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/key-vault/key-vault-key-rotation-log-monitoring">
+        <a href="/key-vault/key-vault-key-rotation-log-monitoring">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -127,8 +109,8 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>命令行</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault">PowerShell</a></p>
-                         <p><a href="/cli/azure/keyvault">Azure CLI 2.0</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault">PowerShell</a></p>
+                         <p><a href="https://docs.microsoft.com/cli/azure/keyvault">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -140,10 +122,10 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.keyvault">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.keyvault">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest">Node.js</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.keyvault">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault">Java</a></p>
                     </div>
                 </div>
             </div>
@@ -155,7 +137,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/keyvault">REST API</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/keyvault">REST API</a></p>
                     </div>
                 </div>
             </div>

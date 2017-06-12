@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 wacn.date: 04/05/2017
-ms.author: vakarand
+ms.author: v-junlch
 ---
 
 # 排查同步过程中发生的错误

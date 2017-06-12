@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 wacn.date: 02/06/2017
-ms.author: magoedte;csand
+ms.author: v-junlch
 ---
 
 #使用 Azure 自动化管理 Azure 密钥保管库

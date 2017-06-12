@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/24/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 使用 HDInsight 中的 Hive 分析航班延误数据
@@ -25,7 +25,7 @@ ms.author: jgao
 Hive 提供了通过类似 SQL 的脚本语言（称为 *[HiveQL][hadoop-hiveql]*）运行 Hadoop MapReduce 作业的方法，此方法可用于对大量数据进行汇总、查询和分析。
 
 > [!IMPORTANT]
-本文档中的步骤要求使用基于 Windows 的 HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。有关适用于基于 Linux 的群集的步骤，请参阅[使用 HDInsight (Linux) 中的 Hive 分析航班延误数据](./hdinsight-analyze-flight-delay-data-linux.md)。
+> 本文档中的步骤要求使用基于 Windows 的 HDInsight 群集。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。有关适用于基于 Linux 的群集的步骤，请参阅[使用 HDInsight (Linux) 中的 Hive 分析航班延误数据](./hdinsight-analyze-flight-delay-data-linux.md)。
 
 Azure HDInsight 的主要优势之一就是隔离数据存储和计算。HDInsight 将 Azure Blob 存储用于数据存储。典型的作业包含三部分：
 
@@ -49,7 +49,7 @@ Azure HDInsight 的主要优势之一就是隔离数据存储和计算。HDInsig
 在附录中，你可以找到有关上载航班延误数据、创建/上载 Hive 查询字符串和针对 Sqoop 作业准备 Azure SQL 数据库的说明。
 
 > [!NOTE]
-本文档中的步骤特定于基于 Windows 的 HDInsight 群集。有关适用于基于 Linux 的群集的步骤，请参阅[使用 HDInsight (Linux) 中的 Hive 分析航班延误数据](./hdinsight-analyze-flight-delay-data-linux.md)
+> 本文档中的步骤特定于基于 Windows 的 HDInsight 群集。有关适用于基于 Linux 的群集的步骤，请参阅[使用 HDInsight (Linux) 中的 Hive 分析航班延误数据](./hdinsight-analyze-flight-delay-data-linux.md)
 
 ### <a id="prerequisite"></a>先决条件
 要阅读本教程，必须具备以下项：
@@ -58,7 +58,7 @@ Azure HDInsight 的主要优势之一就是隔离数据存储和计算。HDInsig
 * **配备 Azure PowerShell 的工作站**。
 
     > [!IMPORTANT]
-    Azure PowerShell 对于使用 Azure Service Manager 管理 HDInsight 资源的支持已**弃用**，将于 2017 年 1 月 1 日删除。本文档中的步骤使用的是与 Azure Resource Manager 兼容的新 HDInsight cmdlet。
+    > Azure PowerShell 对于使用 Azure Service Manager 管理 HDInsight 资源的支持已**弃用**，将于 2017 年 1 月 1 日删除。本文档中的步骤使用的是与 Azure Resource Manager 兼容的新 HDInsight cmdlet。
     >
     > 请按照 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)（安装和配置 Azure PowerShell）中的步骤安装最新版本的 Azure PowerShell。如果你的脚本需要修改才能使用与 Azure Resource Manager 兼容的新 cmdlet，请参阅[迁移到适用于 HDInsight 群集的基于 Azure Resource Manager 的开发工具](./hdinsight-hadoop-development-using-azure-resource-manager.md)，了解详细信息。
 
@@ -245,7 +245,7 @@ Hadoop MapReduce 属于批处理。运行 Hive 作业时，最具成本效益的
 * **使用与 HDInsight 群集默认文件系统不同的 Azure 存储帐户。** 如果选择了此项，你必须修改[创建 HDInsight 群集和运行 Hive/Sqoop 作业](#runjob)中的 Windows PowerShell 脚本的创建部分，以链接该存储帐户作为额外的存储帐户。有关说明，请参阅[在 HDInsight 中创建 Hadoop 群集][hdinsight-provision]。这样，HDInsight 群集就会知道存储帐户的访问密钥。
 
 > [!NOTE]
-数据文件的 WASB 路径会在 HiveQL 脚本文件中进行硬编码。必须相应地进行更新。
+> 数据文件的 WASB 路径会在 HiveQL 脚本文件中进行硬编码。必须相应地进行更新。
 
 **下载航班数据**
 
@@ -355,7 +355,7 @@ wasbs://<ContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/tutorial
 路径 tutorials/flightdelay/data 是上传文件时创建的虚拟文件夹。验证是否有 12 个文件，每个月对应一个文件。
 
 > [!NOTE]
-必须更新 Hive 查询，才能从新位置进行读取。
+> 必须更新 Hive 查询，才能从新位置进行读取。
 >
 > 必须配置容器访问权限，使其成为公用，或者将存储帐户绑定到 HDInsight 群集。否则，Hive 查询字符串将无法访问数据文件。
 
@@ -699,7 +699,7 @@ HiveQL 脚本将执行以下操作：
     ```
 
     > [!NOTE]
-    该脚本使用具象状态传输 (REST) 服务 http://bot.whatismyipaddress.com 来检索外部 IP 地址。IP 地址用于创建 SQL 数据库服务器的防火墙规则。
+    > 该脚本使用具象状态传输 (REST) 服务 http://bot.whatismyipaddress.com 来检索外部 IP 地址。IP 地址用于创建 SQL 数据库服务器的防火墙规则。
 
     该脚本中使用的某些变量：
 

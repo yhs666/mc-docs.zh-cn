@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 67c7d55b7c8603b3e18e8c765b30ff6a28c56128
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/14/2017
 
 以下示例使用 Azure CLI 2.0。 请阅读每篇文章，了解有关所示命令的更多详细信息。 也可通过 [Azure CLI 1.0](creation-choices-nodejs.md) 查找有关 Linux 创建选项的示例。
 
-* [使用 Azure CLI 2.0 创建 Linux VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 Azure CLI 2.0 创建 Linux VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
     * 此示例使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建名为 `myResourceGroup` 的资源组： 
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 04/14/2017
         az group create --name myResourceGroup --location chinanorth
         ```
 
-    * 此示例使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建名为 `myVM` 的 VM，将最新 Debian 映像与 Azure 托管磁盘以及名为 `id_rsa.pub` 的公钥配合使用：
+    * 此示例使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建名为 `myVM` 的 VM，将最新 Debian 映像与 Azure 非托管磁盘以及名为 `id_rsa.pub` 的公钥配合使用：
 
         ```azurecli
         az vm create \
@@ -50,12 +50,11 @@ ms.lasthandoff: 04/14/2017
         --public-ip-address-dns-name myPublicDNS \
         --resource-group myResourceGroup \
         --location chinanorth \
-        --name myVM
+        --name myVM \
+        --use-unmanaged-disk
         ```
 
-        * 若要使用非托管磁盘，请向上面的命令添加 `--use-unmanaged-disks` 标志。 将为你创建存储帐户。 有关详细信息，请参阅 [Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md)。
-
-* [使用 Azure 模板创建受保护的 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 Azure 模板创建受保护的 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
     * 以下示例使用 [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create) 通过存储在 GitHub 上的模板创建 VM：
 
@@ -65,24 +64,17 @@ ms.lasthandoff: 04/14/2017
           --parameters @myparameters.json
         ```
 
-* [使用 Azure CLI 创建完整的 Linux 环境](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 Azure CLI 创建完整的 Linux 环境](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
     * 包括在可用性集中创建负载均衡器和多个 VM。
 
-* [将磁盘添加到 Linux VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-    * 以下示例使用 [az vm disk attach-new](https://docs.microsoft.com/cli/azure/vm/disk#attach-new) 将 50 Gb 托管磁盘添加到名为 `myVM` 的现有 VM：
-
-        ```azurecli
-        az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk  \
-        --new --size-gb 50
-        ```
+* [将磁盘添加到 Linux VM](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="azure-portal-preview"></a>Azure 门户预览
 在 [Azure 门户预览](https://portal.azure.cn) 中可以快速创建 VM，因为不需要在系统上安装任何组件。 使用 Azure 门户预览创建 VM：
 
-* [使用 Azure 门户预览创建 Linux VM](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
-* [使用 Azure 门户预览附加磁盘](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 Azure 门户预览创建 Linux VM](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 
+* [使用 Azure 门户预览附加磁盘](attach-disk-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="operating-system-and-image-choices"></a>操作系统和映像选项
 创建 VM 时，可根据要运行的操作系统选择映像。 Azure 及其合作伙伴提供了许多映像，其中一些映像包括预安装的应用程序和工具。 也可上载自己的某个映像（请参阅[以下部分](#use-your-own-image)）。
@@ -114,7 +106,7 @@ az vm image list-skus --publisher Canonical --offer UbuntuServer --location Chin
 az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --location ChinaNorth
 ```
 
-请参阅[使用 Azure CLI 导航并选择 Azure 虚拟机映像](cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，获取有关浏览和使用可用映像的更多示例。
+请参阅[使用 Azure CLI 导航并选择 Azure 虚拟机映像](cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，获取有关浏览和使用可用映像的更多示例。
 
 **az vm create** 命令具有一些别名，可用于快速访问较常见的分发版及其最新版本。 使用别名通常比每次创建 VM 时指定发布者、产品、SKU 和版本更加快捷：
 
@@ -131,9 +123,9 @@ az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --
 ### <a name="use-your-own-image"></a>使用你自己的映像
 若要进行具体的自定义，可以通过 *捕获* 现有 Azure VM 来使用基于该 VM 的映像。 也可以上载本地创建的映像。 有关受支持的发行版以及如何使用你自己的映像的详细信息，请参阅以下文章：
 
-* [Azure endorsed distributions（Azure 认可的分发版）](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Information for non-endorsed distributions（有关未认可分发版的信息）](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [如何捕获用作 Resource Manager 模板的 Linux 虚拟机](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+* [Azure endorsed distributions（Azure 认可的分发版）](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Information for non-endorsed distributions（有关未认可分发版的信息）](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [如何捕获用作 Resource Manager 模板的 Linux 虚拟机](capture-image.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
     * 快速入门 **az vm** 示例命令，可捕获使用非托管磁盘的现有 VM：
 
@@ -144,6 +136,6 @@ az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --
         ```
 
 ## <a name="next-steps"></a>后续步骤
-* 通过[门户](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)、[CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或 [Azure Resource Manager 模板](cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)创建 Linux VM。
-* 创建 Linux VM 后，可[添加数据磁盘](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
-* [重置密码或 SSH 密钥和管理用户](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* 通过[门户](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)、[CLI](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [Azure Resource Manager 模板](cli-deploy-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)创建 Linux VM。
+* 创建 Linux VM 后，可[添加数据磁盘](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+* [重置密码或 SSH 密钥和管理用户](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

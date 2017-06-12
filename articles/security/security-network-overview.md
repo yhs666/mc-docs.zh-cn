@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2016
 wacn.date: 10/31/2016
-ms.author: terrylan
+ms.author: v-johch
 ---
 
 # Azure 网络安全概述
@@ -243,9 +243,5 @@ Azure 以 Azure DNS 的形式提供高度可用的高性能外部 DNS 解决方�
 许多企业组织使用外围网络将其网络分段，在 Internet 与其服务之间创建一个缓冲区。网络的外围网络部分被视为低安全性区域，不应在该网段中放置高价值资产。通常会看到网络安全设备在外围网络段上有一个网络接口，另有一个网络接口连接到包含接受 Internet 入站连接的虚拟机和服务的网络。
 
 外围网络设计和外围网络部署决策有许多变数，如果决定使用外围网络，要使用的外围网络类型应该根据网络安全要求来确定。
-
-了解详细信息：
-
-- [Azure 网络安全](./best-practices-network-security.md)
 
 <!---HONumber=Mooncake_1024_2016-->

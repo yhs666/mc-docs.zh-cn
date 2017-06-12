@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 11/28/2016
 wacn.date: 02/24/2017
-ms.author: jroth
+ms.author: v-dazen
 ---
 
 # 将 Azure 高级存储用于虚拟机上的 SQL Server
@@ -24,7 +24,7 @@ ms.author: jroth
 [Azure 高级存储](../../../storage/storage-premium-storage.md)是可提供低延迟和高吞吐量 IO 的下一代存储。它最适用于关键 IO 密集型工作负荷，例如 IaaS [虚拟机](https://www.azure.cn/home/features/virtual-machines/)上的 SQL Server。
 
 > [!IMPORTANT] 
-Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。
 
 本文提供迁移运行 SQL Server 的虚拟机以使用高级存储的规划和指南。这包括迁移 Azure 基础结构（网络、存储）以及来宾 Windows VM 的步骤。若要全面了解端到端迁移，熟知如何将迁移较大 VM 以通过 PowerShell 利用改进的本地 SSD 存储，请参阅[附录](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)中的示例。
 
@@ -51,7 +51,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
 在新的云服务中创建 VM 时，只能将 DS\* VM 用于高级存储。如果在 Azure 中使用 SQL Server AlwaysOn，则 AlwaysOn 侦听器将引用与云服务关联的 Azure 内部或外部负载均衡器 IP 地址。本文重点介绍如何在此场景中迁移，同时保持可用性。
 
 > [!NOTE]
-DS\* 系列必须是部署到新的云服务的第一个 VM。
+> DS\* 系列必须是部署到新的云服务的第一个 VM。
 >
 >
 
@@ -112,7 +112,7 @@ New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "Ch
 因为针对附加 VHD 有不同的缓存设置建议，你可能会决定将 VHD 复制到高级存储帐户。但是，在将它们重新附加到新的 DS 系列 VM 时，可能需要变更缓存设置。当对 SQL 数据文件和日志文件使用单独的 VHD（而不是同时包含这两种文件的单个 VHD）时，应用高级存储建议的缓存设置将更为简单。
 
 > [!NOTE]
-如果将 SQL Server 数据和日志文件存储在同一卷上，则所选的缓存选项将取决于数据库工作负荷的 IO 访问模式。只有测试才能演示哪个缓存选项最适用于这种情况。
+> 如果将 SQL Server 数据和日志文件存储在同一卷上，则所选的缓存选项将取决于数据库工作负荷的 IO 访问模式。只有测试才能演示哪个缓存选项最适用于这种情况。
 >
 >
 
@@ -161,7 +161,7 @@ New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "Ch
 第一个示例演示了如何利用现有 Azure 库映像。第二个示例演示了如何使用现有标准存储帐户中的自定义 VM 映像。
 
 > [!NOTE]
-这些示例假定你已创建区域 VNET。
+> 这些示例假定你已创建区域 VNET。
 >
 >
 
@@ -332,7 +332,7 @@ Add-AzureVMImage -ImageName $newimageName -MediaLocation $imageMediaLocation
 ```
 
 > [!NOTE]
-你可能会发现即使状态报告为成功，你也仍会收到磁盘租约错误。在这种情况下，请等待大约 10 分钟。
+> 你可能会发现即使状态报告为成功，你也仍会收到磁盘租约错误。在这种情况下，请等待大约 10 分钟。
 >
 >
 
@@ -371,7 +371,7 @@ $vmConfigsl2 | New-AzureVM -ServiceName $destcloudsvc -VNetName $vnet
 
 ## 未使用 AlwaysOn 可用性组的现有部署
 > [!NOTE]
-对于现有部署，请首先参阅本主题的[先决条件](#prerequisites-for-premium-storage)部分。
+> 对于现有部署，请首先参阅本主题的[先决条件](#prerequisites-for-premium-storage)部分。
 >
 >
 
@@ -381,7 +381,7 @@ $vmConfigsl2 | New-AzureVM -ServiceName $destcloudsvc -VNetName $vnet
 * **迁移现有 SQL Server VM**。这将需要使 SQL Server VM 脱机，然后将其传输到新的云服务，包括将其所有附加 VHD 复制到高级存储帐户。当 VM 联机时，应用程序将像以前一样引用服务器主机名。请注意，现有磁盘的大小会影响性能特性。例如，400 GB 磁盘将向上舍入到 P20。如果确定自己不需要该磁盘性能，则可以将 VM 重新创建为 DS 系列 VM，并附加具有所需大小/性能指标的高级存储 VHD。然后，可以分离并重新附加 SQL DB 文件。
 
 > [!NOTE]
-复制 VHD 磁盘时应注意大小，大小决定了这些磁盘将归入的高级存储磁盘类型，这将确定磁盘性能指标。Azure 将向上舍入到最接近的磁盘大小，因此，如果你有一个 400GB 磁盘，则此磁盘将向上舍入到 P20。根据操作系统 VHD 的现有 IO 要求，你可能不需要将此 VHD 迁移到高级存储帐户。
+> 复制 VHD 磁盘时应注意大小，大小决定了这些磁盘将归入的高级存储磁盘类型，这将确定磁盘性能指标。Azure 将向上舍入到最接近的磁盘大小，因此，如果你有一个 400GB 磁盘，则此磁盘将向上舍入到 P20。根据操作系统 VHD 的现有 IO 要求，你可能不需要将此 VHD 迁移到高级存储帐户。
 >
 >
 
@@ -389,7 +389,7 @@ $vmConfigsl2 | New-AzureVM -ServiceName $destcloudsvc -VNetName $vnet
 
 ## 使用 AlwaysOn 可用性组的现有部署
 > [!NOTE]
-对于现有部署，请首先参阅本主题的[先决条件](#prerequisites-for-premium-storage)部分。
+> 对于现有部署，请首先参阅本主题的[先决条件](#prerequisites-for-premium-storage)部分。
 >
 >
 
@@ -402,7 +402,7 @@ $vmConfigsl2 | New-AzureVM -ServiceName $destcloudsvc -VNetName $vnet
 在 Azure 中，只能将一个 IP 地址分配给 VM 上的 NIC，因此，为了实现与本地相同的抽象层，Azure 将利用分配给内部/外部负载均衡器 \(ILB/ELB\) 的 IP 地址。在服务器间共享的 IP 资源将设置为与 ILB/ELB 相同的 IP。此 IP 在 DNS 中发布，客户端流量将通过 ILB/ELB 传递到主 SQL Server 副本。ILB/ELB 知道哪个 SQL Server 是主服务器，因为它使用探测器来探测 AlwaysOn IP 资源。在前面的示例中，它会探测 ELB/ILB 引用的终结点所在的每个节点，做出响应的则是主 SQL Server。
 
 > [!NOTE]
-ILB 和 ELB 都分配给特定 Azure 云服务，因此 Azure 中的任何云迁移都很可能意味着负载均衡器 IP 将更改。
+> ILB 和 ELB 都分配给特定 Azure 云服务，因此 Azure 中的任何云迁移都很可能意味着负载均衡器 IP 将更改。
 >
 >
 
@@ -426,7 +426,7 @@ ILB 和 ELB 都分配给特定 Azure 云服务，因此 Azure 中的任何云迁
 ![DeploymentsUseAlwaysOn2][7]  
 
 > [!NOTE]
-运行验证前，应停止使用存储池的所有 SQL Server 实例。
+> 运行验证前，应停止使用存储池的所有 SQL Server 实例。
 >
 ##### 高级步骤
 
@@ -436,7 +436,7 @@ ILB 和 ELB 都分配给特定 Azure 云服务，因此 Azure 中的任何云迁
 4. 新建内部负载均衡器 \(ILB\) 或使用外部负载均衡器 \(ELB\)，然后在这两个新节点上设置负载均衡终结点。
 
     > [!NOTE]
-    继续下一步之前，检查所有节点的终结点配置是否正确
+    > 继续下一步之前，检查所有节点的终结点配置是否正确
     >
     >
 5. 禁止用户/应用程序访问 SQL Server（如果使用存储池）。
@@ -496,7 +496,7 @@ ILB 和 ELB 都分配给特定 Azure 云服务，因此 Azure 中的任何云迁
 * 如果选择使 AlwaysOn 群集组脱机以提取 IP 地址，则停机时间会增加。可对添加的 IP 地址资源使用 OR 依赖关系和可能的所有者，进而避免出现这种情况。请参阅[附录](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)的“在同一子网中添加 IP 地址资源”部分。
 
 > [!NOTE]
-如果想让添加的节点用作 AlwaysOn 故障转移伙伴，需要添加引用负载均衡集的 Azure 终结点。通过运行 **Add-AzureEndpoint** 命令来执行此操作时，当前连接将保持打开，但在更新负载均衡器之前，将无法与侦听器建立新连接。在测试时，此现像持续了 90 到 120 秒，应该对此进行测试。
+> 如果想让添加的节点用作 AlwaysOn 故障转移伙伴，需要添加引用负载均衡集的 Azure 终结点。通过运行 **Add-AzureEndpoint** 命令来执行此操作时，当前连接将保持打开，但在更新负载均衡器之前，将无法与侦听器建立新连接。在测试时，此现像持续了 90 到 120 秒，应该对此进行测试。
 >
 >
 

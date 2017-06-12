@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/05/2017
 wacn.date: 
-ms.author: adegeo
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 89524108d60c46a8325cc89badc0667d76d80c3d
@@ -30,6 +30,8 @@ ms.lasthandoff: 05/05/2017
 ## <a name="step-1---create-a-resource-group"></a>步骤 1 - 创建资源组
 若要完成本教程，请确保已安装最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 如果尚未登录到 Azure 订阅，请使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录，然后按照屏幕上的说明进行操作。
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组。 以下示例在 `chinanorth` 位置创建名为 `myResourceGroupVMSS` 的资源组：
 
 ```azurecli
@@ -37,7 +39,7 @@ az group create --name myResourceGroupVMSS --location chinanorth
 ```
 
 ## <a name="step-2---define-your-app"></a>步骤 2 - 定义应用程序
-使用创建高度可用、负载均衡的应用程序时所用教程中的同一 **cloud-init** 配置。 有关使用 **cloud-init** 的详细信息，请参阅[在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+使用创建高度可用、负载均衡的应用程序时所用教程中的同一 **cloud-init** 配置。 有关使用 **cloud-init** 的详细信息，请参阅[在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 创建名为 `cloud-init.txt` 的文件并粘贴下面的配置：
 
@@ -98,6 +100,7 @@ az vmss create \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
+  --use-unmanaged-disk \
   --generate-ssh-keys      
 ```
 

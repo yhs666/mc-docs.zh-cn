@@ -15,7 +15,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/20/2016
 wacn.date: 
-ms.author: huvalo
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 5ebb78301e312de98076e8bf2d567faaed5e732e
@@ -60,8 +60,7 @@ ms.lasthandoff: 05/19/2017
 
 1. 登录到 Azure 门户预览，然后单击左下角的“新建”按钮。 
 2. 单击“Web + 移动” 。
-3. 在搜索框中，键入“python”。
-4. 在搜索结果中，选择“Flask”，然后单击”创建”。
+3. 单击”Web 应用”。
 5. 配置新的 Flask 应用，如为其创建新的应用服务计划和新的资源组。 然后单击 **创建**。
 6. 按照 [从本地 Git 部署到 Azure 应用服务](app-service-deploy-local-git.md)的说明为新创建的 Web 应用配置 Git 发布。
 

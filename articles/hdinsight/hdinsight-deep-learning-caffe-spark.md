@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 wacn.date: 03/31/2017
-ms.author: xiaoyzhu
+ms.author: v-dazen
 ---
 
 # 使用 Caffe on Azure HDInsight Spark 进行分布式深度学习
@@ -249,7 +249,7 @@ java.lang.IllegalStateException: Insufficient training data. Please adjust hyper
     at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$2.run(ApplicationMaster.scala:627)
 ```
 
-有时，问题可能会发生在执行程序而非驱动程序中。在这种情况下，需检查容器日志。你始终可以获取驱动程序容器日志，然后获取发生故障的容器。例如，可能会在运行 Caffe 时遇到这种故障。
+有时，问题可能会发生在执行程序而非驱动程序中。在这种情况下，需检查容器日志。你始终可以获取容器日志，然后获取发生故障的容器。例如，可能会在运行 Caffe 时遇到这种故障。
 
 ```
 17/02/01 07:12:05 WARN YarnAllocator: Container marked as failed: container_1485916338528_0008_05_000005 on host: 10.0.0.14. Exit status: 134. Diagnostics: Exception from container-launch.

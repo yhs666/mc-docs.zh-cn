@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: cherylmc
+ms.author: v-yiso
 wacn.date: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -57,7 +57,7 @@ ms.lasthandoff: 04/14/2017
 |**经典** | **Resource Manager**|
 |-----|----|
 |[PowerShell](https://msdn.microsoft.com/library/mt270335.aspx)|[PowerShell](https://msdn.microsoft.com/zh-cn/library/mt163510.aspx)|
-|[REST API](https://msdn.microsoft.com/library/jj154113.aspx)|[REST API](https://msdn.microsoft.com/zh-cn/library/mt163859.aspx)|
+|[REST API](https://msdn.microsoft.com/library/jj154113.aspx)||
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
-ms.author: dobett
+ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
@@ -85,7 +85,7 @@ IoT 解决方案通常具有不同的解决方案特定存储，其中包含应�
 
 ## <a name="device-provisioning"></a>Device Provisioning
 
-给定的 IoT 解决方案存储的设备数据取决于该解决方案的特定要求。 但是，解决方案必须至少存储设备标识和身份验证密钥。 Azure IoT 中心包含标识注册表，可以存储每个设备的值，例如 ID、身份验证密钥和状态代码。 解决方案可以使用其他 Azure 服务（例如 Azure 表存储、Azure Blob 存储或 Azure Cosmos DB）来存储任何其他设备数据。
+给定的 IoT 解决方案存储的设备数据取决于该解决方案的特定要求。 但是，解决方案必须至少存储设备标识和身份验证密钥。 Azure IoT 中心包含标识注册表，可以存储每个设备的值，例如 ID、身份验证密钥和状态代码。 解决方案可以使用其他 Azure 服务（例如 Azure 表存储、Azure Blob 存储或 Azure DocumentDB）来存储任何其他设备数据。
 
 *设备预配* 是将初始设备数据添加到解决方案中存储中的过程。 若要使新设备能够连接到中心，必须将新设备 ID 和密钥添加到 IoT 中心的标识注册表。 在预配过程中，你可能需要初始化其他解决方案存储中的设备特定数据。
 

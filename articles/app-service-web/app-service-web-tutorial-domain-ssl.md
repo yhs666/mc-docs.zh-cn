@@ -14,7 +14,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/29/2017
 wacn.date: 
-ms.author: cephalin
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 565367691c28abb53ccac54c9d414e42be866598
@@ -62,16 +62,16 @@ az group create --name myResourceGroup --location chinanorth
 
 > [!NOTE] 
 > 应用服务计划表示用于托管应用的物理资源集合。 分配到应用服务计划的所有应用程序将共享该计划定义的资源，在托管多个应用时可以节省成本。 
-> <p> 
-> <p> 应用服务计划定义： 
-> <p> * 区域（中国北部、中国东部） 
-> <p> * 实例大小（小、中、大） 
-> <p> * 规模计数（一个、两个、三个实例，等等） 
-> <p> * SKU（免费、共享、基本、标准、高级）> 
+> 
+> 应用服务计划定义： 
+> * 区域（中国北部、中国东部） 
+> * 实例大小（小、中、大） 
+> * 规模计数（一个、两个、三个实例，等等） 
+> * SKU（免费、共享、基本、标准、高级）> 
 
 以下示例创建一个名为 `myAppServicePlan` 且使用**基本**定价层的应用服务计划。
 
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
+    az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
 
 创建应用服务计划后，Azure CLI 将显示类似于以下示例的信息。 
 
@@ -229,7 +229,7 @@ Web 应用现在具有了所需的自定义域名，并且它还具有一个用�
 
 在以下命令中，请将 `<app_name>` 替换为唯一的应用名称，将 `<thumbprint-from-previous-output>` 替换为通过前面所示的命令获取的证书指纹。 
 
-az appservice web config ssl bind --name <app_name> --resource-group myResourceGroup --certificate-thumbprint <thumbprint-from-previous-output> --ssl-type SNI
+    az appservice web config ssl bind --name <app_name> --resource-group myResourceGroup --certificate-thumbprint <thumbprint-from-previous-output> --ssl-type SNI
 
 将证书绑定到 Web 应用后，Azure CLI 将显示类似于以下示例的信息：
 

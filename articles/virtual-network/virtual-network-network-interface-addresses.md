@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 wacn.date: 
-ms.author: jdial
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 08573697c737ebcc324396acb095910ec4301502
@@ -35,23 +35,23 @@ ms.lasthandoff: 05/26/2017
 
 请在完成本文任何部分中的任何步骤之前完成以下任务：
 
-- 查看 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文，了解对公共和专用 IP 地址的限制。
-- 使用 Azure 帐户登录到 Azure 门户预览、Azure 命令行界面 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册一个[试用帐户](https://azure.microsoft.com/free)。
+- 查看 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文，了解对公共和专用 IP 地址的限制。
+- 使用 Azure 帐户登录到 Azure 门户预览、Azure 命令行界面 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用 PowerShell 命令完成本文中的任务，请按[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文中的步骤安装和配置 Azure PowerShell。 确保已安装最新版本的 Azure PowerShell cmdlet。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
 - 如果使用 Azure 命令行接口 (CLI) 命令完成本文中的任务，请按[如何安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文中的步骤安装和配置 Azure CLI。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
 
 ## <a name="about"></a>关于 NIC 和 IP 地址
 
-可以为每个 NIC 分配多个专用和公共 IP 地址，只要符合 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)即可。 在以下场景中，有必要为 NIC 分配多个 IP 地址：
+可以为每个 NIC 分配多个专用和公共 IP 地址，只要符合 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)即可。 在以下场景中，有必要为 NIC 分配多个 IP 地址：
 - 在一台服务器上托管具有不同 IP 地址和 SSL 证书的多个网站或服务。
 - VM 用作网络虚拟设备，例如防火墙或负载均衡器。
-- 能够将任何 NIC 的任意专用 IP 地址添加到 Azure 负载均衡器后端池。 过去，只有主 NIC 的主 IP 地址才能添加到后端池。 若要详细了解如何对多个 IP 配置进行负载均衡，请阅读[对多个 IP 配置进行负载均衡](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json)一文。
+- 能够将任何 NIC 的任意专用 IP 地址添加到 Azure 负载均衡器后端池。 过去，只有主 NIC 的主 IP 地址才能添加到后端池。 若要详细了解如何对多个 IP 配置进行负载均衡，请阅读[对多个 IP 配置进行负载均衡](../load-balancer/load-balancer-multiple-ip.md?toc=%2fvirtual-network%2ftoc.json)一文。
 
 IP 地址分配给 IP 配置。 始终为 NIC 分配一个**主** IP 配置，但还可为其分配多个**辅助**配置。 将为每个 IP 配置分配以下一种或两种地址类型：
-- **专用：**VM 可以通过专用 IP 地址与 NIC 所在的 VNet 所连接的其他资源进行通信。 一个 IP 配置必须分配有一个专用 IP 地址。 Azure DHCP 服务器将 NIC 的主 IP 配置的专用 IP 地址分配到 VM 操作系统中的 NIC。 VM 也可通过专用 IP 地址与 Internet 进行出站通信。 出站连接是转换的源网络地址 (SNAT)。 若要了解 Azure 出站 Internet 连接的详细信息，请阅读 [Azure 出站 Internet 连接](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)一文。 不能从 Internet 与 VM 的专用 IP 地址进行入站通信。
+- **专用：**VM 可以通过专用 IP 地址与 NIC 所在的 VNet 所连接的其他资源进行通信。 一个 IP 配置必须分配有一个专用 IP 地址。 Azure DHCP 服务器将 NIC 的主 IP 配置的专用 IP 地址分配到 VM 操作系统中的 NIC。 VM 也可通过专用 IP 地址与 Internet 进行出站通信。 出站连接是转换的源网络地址 (SNAT)。 若要了解 Azure 出站 Internet 连接的详细信息，请阅读 [Azure 出站 Internet 连接](../load-balancer/load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json)一文。 不能从 Internet 与 VM 的专用 IP 地址进行入站通信。
 - **公共：**可以从 Internet 通过公共 IP 地址与 VM 建立入站连接。 到 Internet 的出站连接未进行 SNAT 处理。 可以为 IP 配置分配公共 IP 地址，但这不是必需的。 若要详细了解公共 IP 地址，请阅读[公共 IP 地址](virtual-network-public-ip-address.md)一文。
 
-可分配到 NIC 的公共和专用 IP 地址数有限制。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文。
+可分配到 NIC 的公共和专用 IP 地址数有限制。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文。
 
 可以使用以下分配方法来分配公共和专用 IP 地址：
 - **动态：**默认情况下会分配动态专用和公共 IP 地址。 如果将 VM 置于“已停止”（“已解除分配”）状态，然后将其重启，动态地址可能会更改。 如果不希望 IP 地址在 VM 的生命周期内更改，请使用静态地址。
@@ -59,9 +59,9 @@ IP 地址分配给 IP 配置。 始终为 NIC 分配一个**主** IP 配置，�
 
 ## <a name="create-ip-config"></a>添加 IP 地址
 
-可将任意数量的 IP 地址添加到 NIC，只要不超过 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文中所列的限制即可。
+可将任意数量的 IP 地址添加到 NIC，只要不超过 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文中所列的限制即可。
 
-1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到 [Azure 门户预览](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
+1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到 [Azure 门户预览](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
 2. 在 Azure 门户预览顶部包含“搜索资源”文本的框中，键入“网络接口”。 在搜索结果中出现“网络接口”  时，单击该接口。
 3. 在显示的“网络接口”边栏选项卡中，单击要为其添加 IP 地址的 NIC。
 4. 在所选 NIC 的边栏选项卡的“设置”部分，单击“IP 配置”。
@@ -87,7 +87,7 @@ IP 地址分配给 IP 配置。 始终为 NIC 分配一个**主** IP 配置，�
 
 可能需要更改 IP 地址的分配方法、更改静态 IP 地址，或者更改分配到 NIC 的公共 IP 地址。 如果要更改与 VM 中的辅助 NIC关联的辅助 IP 配置的专用 IP 地址（有关详细信息，请参阅[主 NIC 和辅助 NIC](virtual-network-network-interface-vm.md#about)），请将该 VM 置于“已停止”（“已解除分配”）状态，然后再完成以下步骤： 
 
-1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到 [Azure 门户预览](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
+1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到 [Azure 门户预览](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
 2. 在 Azure 门户预览顶部包含“搜索资源”文本的框中，键入“网络接口”。 在搜索结果中出现“网络接口”  时，单击该接口。
 3. 在显示的“网络接口”边栏选项卡中，单击想要查看或更改其 IP 地址设置的 NIC。
 4. 在所选 NIC 的边栏选项卡的“设置”部分，单击“IP 配置”。
@@ -108,7 +108,7 @@ IP 地址分配给 IP 配置。 始终为 NIC 分配一个**主** IP 配置，�
 
 可以从 NIC 中删除专用和公共 IP 地址，但 NIC 必须始终有一个分配的专用 IP 地址。
 
-1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到 [Azure 门户预览](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
+1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到 [Azure 门户预览](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
 2. 在 Azure 门户预览顶部包含“搜索资源”文本的框中，键入“网络接口”。 在搜索结果中出现“网络接口”  时，单击该接口。
 3. 在显示的“网络接口”边栏选项卡中，单击要从其删除 IP 地址的 NIC。
 4. 在所选 NIC 的边栏选项卡的“设置”部分，单击“IP 配置”。
@@ -129,7 +129,7 @@ IP 地址分配给 IP 配置。 始终为 NIC 分配一个**主** IP 配置，�
 
 |任务|工具|
 |---|---|
-|创建具有多个 NIC 的 VM|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-||[PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|创建具有多个 NIC 的 VM|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)|
+||[PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)|
 |创建具有多个 IP 地址的单 NIC VM|[CLI](virtual-network-multiple-ip-addresses-cli.md)|
 ||[PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

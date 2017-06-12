@@ -12,7 +12,7 @@
 
 多实例配置可跨物理计算机、电源和网络提供冗余，若要确保应用程序的可用性，建议采用此配置。 可用性集中的所有虚拟机应对应用程序具有相同的用途。
 
-有关配置虚拟机以实现高可用性的详细信息，请参阅[管理 Windows 虚拟机的可用性](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)或[管理 Linux 虚拟机的可用性](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+有关配置虚拟机以实现高可用性的详细信息，请参阅[管理 Windows 虚拟机的可用性](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)或[管理 Linux 虚拟机的可用性](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 相反，单实例配置用于未放置在可用性集中的独立虚拟机。 这些虚拟机不符合服务级别协议 (SLA) 的要求，SLA 要求在同一可用性集中部署两个或更多虚拟机。
 
@@ -78,4 +78,4 @@ Azure 会提前发送电子邮件通信，提醒用户即将执行计划内维�
 <!--Link references-->
 [Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 wacn.date: 
-ms.author: mikeray
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 2492d863935df9a0b2340727c4f7cb275e5a015d
@@ -484,7 +484,7 @@ Azure 虚拟机 (VM) 可帮助数据库管理员降低高可用性 SQL Server �
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. 从[为 Azure VM 中的 AlwaysOn 可用性组创建故障转移群集](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)，将 **CreateAzureFailoverCluster.ps1** 下载到本地工作目录中。 将使用此脚本创建一个正常运行的故障转移群集。 有关 Windows 故障转移群集如何与 Azure 网络交互的重要信息，请参阅 [Azure 虚拟机中 SQL Server 的高可用性和灾难恢复](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)。
+7. 从[为 Azure VM 中的 AlwaysOn 可用性组创建故障转移群集](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)，将 **CreateAzureFailoverCluster.ps1** 下载到本地工作目录中。 将使用此脚本创建一个正常运行的故障转移群集。 有关 Windows 故障转移群集如何与 Azure 网络交互的重要信息，请参阅 [Azure 虚拟机中 SQL Server 的高可用性和灾难恢复](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)。
 8. 切换至工作目录并使用下载的脚本创建故障转移群集。
 
         Set-ExecutionPolicy Unrestricted -Force

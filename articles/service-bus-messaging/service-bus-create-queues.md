@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: service-bus
+ms.topic: article
 ms.date: 02/15/2017
 wacn.date: 03/20/2017
+ms.author: v-yiso
 ---
 
 # 创建使用服务总线队列的应用程序

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 wacn.date: 
-ms.author: byvinyal
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: af9e05d9e78edc06c423843b7408279c529f4645
@@ -79,8 +79,8 @@ ms.lasthandoff: 05/19/2017
 
 可以在浏览应用服务计划或创建应用的过程中创建空的应用服务计划。
 
-在 [Azure 门户预览](https://portal.azure.cn)中，单击“新建”**** > 
-“Web + 移动”****，然后选择“Web 应用”****或其他应用服务应用类型。
+在 [Azure 门户预览](https://portal.azure.cn)中，单击**“新建”** > 
+**“Web + 移动”**，然后选择**“Web 应用”**或其他应用服务应用类型。
 ![在 Azure 门户预览中创建应用。][createWebApp]
 
 然后即可为新应用选择或创建应用服务计划。

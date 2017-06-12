@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 wacn.date: 
-ms.author: dariagrigoriu
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 57d74d7680f5426fa3f6318b93c878f051aa74db
@@ -158,12 +158,12 @@ ms.lasthandoff: 04/22/2017
 * [如何使用适用于 Azure 的 PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 * [如何使用 Azure 命令行接口](../cli-install-nodejs.md)
 
-[Azure 应用服务]: /app-service-changes-existing-services/
-[Azure Developer Center]: https://www.azure.cn/develop/overview/
+[Azure 应用服务]: /app-service-web/app-service-changes-existing-services
+[Azure Developer Center]: /develop/overview/
 [Azure 门户预览]: https://portal.azure.cn
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
-[Azure 命令行接口]: /xplat-cli-azure-resource-manager/
+[Azure 命令行接口]: /xplat-cli-azure-resource-manager
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart

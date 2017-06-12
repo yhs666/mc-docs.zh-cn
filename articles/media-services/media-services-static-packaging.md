@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 wacn.date: 12/26/2016
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # 使用 Azure 媒体包装器完成静态打包任务

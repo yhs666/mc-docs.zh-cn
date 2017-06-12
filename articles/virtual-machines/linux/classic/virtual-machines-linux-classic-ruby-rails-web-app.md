@@ -16,7 +16,7 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/22/2016
 wacn.date: 03/01/2017
-ms.author: robmcm
+ms.author: v-dazen
 ---
 
 # Azure VM 上的 Ruby on Rails Web 应用程序
@@ -25,7 +25,7 @@ ms.author: robmcm
 本教程使用 Ubuntu Server 14.04 LTS 进行验证。如果使用其他 Linux 发行版，可能需要修改安装 Rails 的步骤。
 
 > [!IMPORTANT]
-Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。
+> Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。
 > 
 > 
 

@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: 04/10/2017
-ms.author: juliako;mingfeiy
+ms.author: v-johch
 ---
 
 #使用 .NET SDK 配置资产传送策略

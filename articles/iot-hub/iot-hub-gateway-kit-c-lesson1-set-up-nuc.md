@@ -13,8 +13,8 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/21/2017
-ms.author: xshi
+ms.date: 03/21/2017
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: b10cbfd7c8131bdf51758ba1c8bdc637072c5148

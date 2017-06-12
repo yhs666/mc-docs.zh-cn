@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 10/24/2016
 wacn.date: 12/19/2016
-ms.author: ddove
+ms.author: v-johch
 ---
 
 # 迁移要扩展的现有数据库

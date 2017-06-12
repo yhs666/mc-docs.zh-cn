@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/11/2017
 wacn.date: 
-ms.author: cgronlun
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 8cbcd90d258559aee84222878fc5bc15a7bbd23a
@@ -68,10 +68,8 @@ HDInsight 提供以下群集类型：
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**：使用 [HDFS](#hdfs)、[YARN](#yarn) 资源管理和简单的 [MapReduce](#mapreduce) 编程模型并行处理和分析数据。
 * **[Apache Spark](http://spark.apache.org/)**：一种并行处理框架，支持内存中处理，提升大数据分析应用程序的性能；Spark 适用于 SQL、流式数据处理和机器学习。 请参阅[什么是 HDInsight 中的 Apache Spark？](hdinsight-apache-spark-overview.md)
 * **[Apache HBase](http://hbase.apache.org/)**：构建于 Hadoop 上的 NoSQL 数据库，用于为大量非结构化和半结构化数据（可能为数十亿行乘以数百万列）提供随机访问和高度一致性。 请参阅[什么是 HBase on HDInsight？](hdinsight-hbase-overview.md)
-* **[Microsoft R Server](https://msdn.microsoft.com/microsoft-r/rserver)**：用于托管和管理并行分布式 R 进程的服务器。 它可让数据科研人员、统计人员和 R 程序员根据需要访问 HDInsight 上可缩放的分布式分析方法。 请参阅 [Overview of R Server on HDInsight](hdinsight-hadoop-r-server-overview.md)（R Server on HDInsight 概述）。
 * **[Apache Storm](https://storm.incubator.apache.org/)**：分布式实时计算系统，用于快速处理大型数据流。 Storm 以 HDInsight 中的托管群集形式提供。 请参阅 [使用 Storm 和 Hadoop 分析实时传感器数据](hdinsight-storm-sensor-data-analysis.md)。
 * **[Apache 交互式 Hive 预览版（AKA：Live Long and Process）](https://cwiki.apache.org/confluence/display/Hive/LLAP)**：内存中缓存，用于实现交互式且更快的 Hive 查询。 请参阅 [Use Interactive Hive in HDInsight](hdinsight-hadoop-use-interactive-hive.md)（在 HDInsight 中使用交互式 Hive）。
-* **[Apache Kafka](https://kafka.apache.org/)**：一种开源平台，用于生成流式处理的数据管道和应用程序。 Kafka 还提供了消息队列功能，可用于发布和订阅数据流。 请参阅 [Apache Kafka on HDInsight 简介](hdinsight-apache-kafka-introduction.md)。
 * **[具有脚本操作的自定义集群](hdinsight-hadoop-customize-cluster-linux.md)**：脚本在预配期间运行且安装其他组件的群集。
 
 ### <a name="example-cluster-customization-scripts"></a>群集自定义脚本示例
@@ -174,9 +172,6 @@ HDInsight 群集支持以下特定于 Hadoop 技术堆栈的语言：
 * 用于 Pig 作业的 Pig Latin
 * 用于 Hive 作业的 HiveQL 和 SparkSQL
 
-## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight 标准版和 HDInsight 高级版
-HDInsight 提供两个类别的大数据云产品：标准和高级。 HDInsight 标准版提供企业级群集，组织可使用它运行其大数据工作负荷。 HDInsight 高级版基于标准功能生成，提供针对 HDInsight 群集的高级分析和安全功能。 有关详细信息，请参阅 [Azure HDInsight 高级版](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)
-
 ## <a name="microsoft-business-intelligence-and-hdinsight"></a>Microsoft 商业智能和 HDInsight
 大家熟悉的商业智能 (BI) 工具使用 Power Query 外接程序或 Microsoft Hive ODBC 驱动程序来检索、分析和报告与 HDInsight 集成的数据：
 
@@ -190,7 +185,6 @@ HDInsight 提供两个类别的大数据云产品：标准和高级。 HDInsight
 
 * [Get started with Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)（HDInsight 中的 Hadoop 入门）：有关预配 HDInsight Hadoop 群集和运行示例 Hive 查询的快速入门教程。
 * [HDInsight 中的 Spark 入门](hdinsight-apache-spark-jupyter-spark-sql.md)：有关创建 Spark 群集和运行交互式 Spark SQL 查询的快速入门教程。
-* [在 HDInsight 上使用 R Server](hdinsight-hadoop-r-server-get-started.md)：开始在 HDInsight 高级版中使用 R Server。
 * [预配 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)：了解如何通过 Azure 门户预览、Azure CLI 或 Azure PowerShell 预配 HDInsight Hadoop 群集。
 
 [component-versioning]: hdinsight-component-versioning.md

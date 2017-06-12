@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 04/11/2017
 wacn.date: 
-ms.author: sdanie
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 690e73e5842057c22e6db8d865b49a0fbfc1b7a5
@@ -117,8 +117,6 @@ Azure Redis 缓存非常容易上手。 若要开始使用，需要首先设置�
             return lazyConnection.Value;
         }
     }
-
-有关高级连接配置选项的详细信息，请参阅 [StackExchange.Redis 配置模型][StackExchange.Redis configuration model]。
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 

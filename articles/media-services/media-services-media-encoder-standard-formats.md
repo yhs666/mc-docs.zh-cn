@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 wacn.date: 12/16/2016
-ms.author: juliako;anilmur
+ms.author: v-johch
 ---
 
 #Media Encoder Standard 格式和编解码器

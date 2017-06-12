@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
 wacn.date: 
-ms.author: dariagrigoriu
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 1f53d356062251966107053a9aab341cbf0a5e4c
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/14/2017
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程说明如何为 [Azure 应用服务]应用配置连续部署工作流。 将应用服务与 BitBucket、GitHub 和 [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) 集成可以实现一种连续部署工作流，在其中，Azure 可以从发布到其中一种服务的项目中拉取最近的更新。 连续部署选项非常适合用于频繁集成多个分发内容的项目。
+本教程说明如何为 [Azure 应用服务]应用配置连续部署工作流。 将应用服务与 BitBucket 和 GitHub 集成可以实现一种连续部署工作流，在其中，Azure 可以从发布到其中一种服务的项目中拉取最近的更新。 连续部署选项非常适合用于频繁集成多个分发内容的项目。
 
 若要了解如何通过 Azure 门户预览中未列出的云存储库（如 [GitLab](https://gitlab.com/)）手动配置连续部署，请参阅 [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)（使用手动步骤设置连续部署）。
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/14/2017
 
 1. 将应用内容发布到用于连续部署的存储库。  
 
-    若要深入了解如何将项目发布到这些服务，请参阅[创建存储库 (GitHub)]、[创建存储库 (BitBucket)] 和 [VSTS 入门]。 以下步骤仅适用于 GitHub 存储库。 有关 GitHub 以外的存储库，请参阅 [手动触发部署](https://github.com/projectkudu/kudu/wiki/Manually-triggering-a-deployment) 以设置 Webhook。
+    若要深入了解如何将项目发布到这些服务，请参阅[创建存储库 (GitHub)]。 以下步骤仅适用于 GitHub 存储库。 有关 GitHub 以外的存储库，请参阅 [手动触发部署](https://github.com/projectkudu/kudu/wiki/Manually-triggering-a-deployment) 以设置 Webhook。
 
 2. 访问 [Azure 门户预览]，在你的应用的菜单边栏选项卡中单击“应用部署”>“部署选项”。 单击“选择源”，然后选择“外部存储库”。
 2. 输入 GitHub 存储库的 URL 并输入要跟踪的分支。 将“存储库类型”保留为“Git”，并单击“确定”
@@ -87,7 +87,7 @@ ms.lasthandoff: 04/14/2017
 * [项目 Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Use Azure to automatically generate a CI/CD pipeline to deploy an ASP.NET 4 app](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)（使用 Azure 自动生成部署 ASP.NET 4 应用的 CI/CD 管道）
 
-[Azure 应用服务]: /app-service-changes-existing-services/
+[Azure 应用服务]: /app-service-web/app-service-changes-existing-services
 [Azure 门户预览]: https://portal.azure.cn
 [VSTS Portal]: https://www.visualstudio.com/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git

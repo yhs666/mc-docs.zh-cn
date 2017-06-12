@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: 02/24/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # 通过自定义 MES 预设执行高级编码 

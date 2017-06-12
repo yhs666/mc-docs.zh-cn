@@ -13,8 +13,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2017
-ms.author: xshi
+ms.date: 11/07/2016
+wacn.date: 
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 82e414b0ee547bc4110bc80b768c077d950e3be4
@@ -28,7 +29,7 @@ ms.lasthandoff: 05/26/2017
 
 在本教程中，从学习如何使用 Intel Edison 的基础知识开始。 然后将学习如何使用 [Azure IoT 中心](./iot-hub-what-is-iot-hub.md)将设备无缝连接到云。
 
-还没有工具包？ 从 [此处](/develop/iot/starter-kits)
+还没有工具包？ 从 [此处](https://www.azure.cn/develop/iot/iot-starter-kits)
 
 ## <a name="what-you-do"></a>准备工作
 
@@ -52,7 +53,7 @@ ms.lasthandoff: 05/26/2017
 
 * Intel Edison 开发板
 * Arduino 扩展板
-* 一个有效的 Azure 订阅。 如果没有 Azure 帐户，只需花费几分钟就能创建一个 [Azure 试用帐户](/pricing/1rmb-trial/)。
+* 一个有效的 Azure 订阅。 如果没有 Azure 帐户，只需花费几分钟就能创建一个 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 * 运行 Windows 或 Linux 的 Mac 或 PC。
 * Internet 连接。
 * Micro B - Type A USB 线缆
@@ -60,6 +61,11 @@ ms.lasthandoff: 05/26/2017
   - 7-15V DC
   - 至少 1500mA
   - 中心/内部插头应为电源的正极
+
+以下项可选：
+
+### <a name="create-and-deploy-the-blink-application"></a>创建和部署 blink 应用程序
+克隆 GitHub 提供的示例 blink 应用程序，并使用 gulp 将此应用程序部署到 Intel Edison 板。 此示例应用程序每隔两秒让连接到板的 LED 闪烁一次。
 
 以下项可选：
 

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 892189c80b0afab1b9b93b3c9e5f8a87bd301f9c
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/14/2017
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>如何捕获经典 Linux 虚拟机以用作映像
 > [!IMPORTANT]
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何[使用 Resource Manager 模型执行这些步骤](../capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何[使用 Resource Manager 模型执行这些步骤](../capture-image.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 本文将演示如何捕获运行 Linux 的经典 Azure 虚拟机 (VM) 作为创建其他虚拟机的映像。 此映像包括 OS 磁盘和附加到 VM 的数据磁盘。 它不包括网络配置，因此在使用此映像创建其他 VM 时需要进行网络配置。
 
@@ -35,7 +35,7 @@ Azure 在“映像”下存储映像 ，以及任何已上载的映像。 有关
 这些步骤假定已使用经典部署模型创建了 Azure VM 并配置了操作系统，包括附加任何数据磁盘。 如果需要创建 VM，请阅读 [如何创建 Linux 虚拟机][How to Create a Linux Virtual Machine]。
 
 ## <a name="capture-the-virtual-machine"></a>捕获虚拟机
-1. 使用所选 SSH 客户端[连接到 VM](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+1. 使用所选 SSH 客户端[连接到 VM](../mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 2. 在 SSH 窗口中，键入以下命令。 `waagent` 的输出结果可能会因此实用程序的版本而略有差异：
 
     ```bash
@@ -99,7 +99,7 @@ Azure 在“映像”下存储映像 ，以及任何已上载的映像。 有关
 
 此外，也可以使用 [Azure 经典管理门户][Azure Classic Management Portal]创建自定义 VM，方法是使用**从库中**方法并选择所创建的映像。 有关详细信息，请参阅 [如何创建自定义 VM][How to Create a Custom Virtual Machine]。
 
-**另请参阅：**[Azure Linux 代理用户指南](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+**另请参阅：**[Azure Linux 代理用户指南](../agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Azure Classic Management Portal]: http://manage.windowsazure.cn
 [About Virtual Machine Images in Azure]: about-images.md

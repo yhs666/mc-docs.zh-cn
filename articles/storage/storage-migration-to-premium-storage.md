@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/20/2017
-ms.author: yuemlu
+ms.author: v-johch
 ---
 
 # 迁移到 Azure 高级存储（非托管磁盘）

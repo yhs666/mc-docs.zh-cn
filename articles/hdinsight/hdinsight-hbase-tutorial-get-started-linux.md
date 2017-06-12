@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/09/2017
 wacn.date: 
-ms.author: jgao
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 4bb1087c4caa78cb0b388377faa41028408a00dd
@@ -60,7 +60,7 @@ ms.lasthandoff: 05/26/2017
         其他参数是可选的。  
 
         每个群集都有一个 Azure 存储帐户依赖项。 删除群集后，数据将保留在存储帐户中。 群集的默认存储帐户名为群集名称后接“store”。 该名称已在模板 variables 节中硬编码。
-3. 单击“法律条款”，然后单击“创建”。 确认已选中“固定到仪表板”复选框，然后单击“创建”。
+3. 单击“法律条款”，然后单击“购买”。 确认已选中“固定到仪表板”复选框，然后单击“创建”。
 
 > [!NOTE]
 > 删除 HBase 群集后，可使用同一默认 Blob 容器创建另一 HBase 群集。 新群集将选取你在原始群集中创建的 HBase 表。 为了避免不一致，建议你在删除群集之前先禁用 HBase 表。
@@ -204,14 +204,15 @@ REST API 通过 [基本身份验证](http://en.wikipedia.org/wiki/Basic_access_a
 
 > [!NOTE]
 > Thrift 不受 HDInsight 中的 HBase 支持。
-> <p>
+>
 > 使用 Curl 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须提供 HDInsight 群集管理员用户名和密码对请求进行身份验证。 此外，还必须使用群集名称作为用来向服务器发送请求的统一资源标识符 (URI) 的一部分：
-> <p>
+>
 >```
 >curl -u <UserName>:<Password> \
->-G https://<ClusterName>.azurehdinsight.cn/templeton/v1/status ```
->You should receive a response similar to the following response:
-> <p>
+>-G https://<ClusterName>.azurehdinsight.cn/templeton/v1/status
+>```
+>会得到跟下面相似的回复：
+>
 > `{"status":"ok","version":"v1"}`
 
 ## <a name="check-cluster-status"></a>检查群集状态

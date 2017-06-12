@@ -13,9 +13,9 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2016
+ms.date: 12/02/2016
 wacn.date: 01/25/2017
-ms.author: ryanwi
+ms.author: v-johch
 ---
 
 # 基于 REST 的应用程序生命周期示例

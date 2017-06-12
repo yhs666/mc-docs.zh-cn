@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/6/2017
+ms.date: 01/06/2017
 wacn.date: 04/27/2017
-ms.author: v-six
+ms.author: v-yiso
 ---
 
 # 云服务 Web 角色/辅助角色的默认 TEMP 文件夹大小太小

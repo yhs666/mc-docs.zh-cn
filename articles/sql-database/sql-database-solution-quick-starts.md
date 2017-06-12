@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-quickstart
 ms.date: 01/10/2017
 wacn.date: 01/25/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 浏览 Azure SQL 数据库解决方案快速入门

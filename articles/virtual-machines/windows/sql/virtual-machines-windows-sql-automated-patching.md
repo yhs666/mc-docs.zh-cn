@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 wacn.date: 03/28/2017
-ms.author: jroth
+ms.author: v-dazen
 ---
 
 # Azure 虚拟机中 SQL Server 的自动修补 \(Resource Manager\)
@@ -49,7 +49,7 @@ ms.author: jroth
 * 如果打算使用 PowerShell 配置自动修补，请[安装最新的 Azure PowerShell 命令](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 
 > [!NOTE]
-自动修补依赖 SQL Server IaaS 代理扩展。当前的 SQL 虚拟机库映像默认添加此扩展。有关详细信息，请参阅 [SQL Server IaaS 代理扩展](./virtual-machines-windows-sql-server-agent-extension.md)。
+> 自动修补依赖 SQL Server IaaS 代理扩展。当前的 SQL 虚拟机库映像默认添加此扩展。有关详细信息，请参阅 [SQL Server IaaS 代理扩展](./virtual-machines-windows-sql-server-agent-extension.md)。
 > 
 > 
 
@@ -90,7 +90,7 @@ ms.author: jroth
 当你首次启用自动修补时，Azure 将在后台配置 SQL Server IaaS 代理。在此期间，Azure 门户预览可能不会显示已配置自动修补。请等待几分钟，以便安装和配置代理。之后，Azure 门户预览显示新的设置。
 
 > [!NOTE]
-你也可以使用模板来配置自动修补。有关详细信息，请参阅 [Azure quickstart template for Automated Patching](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autopatching-update)（用于自动备份的 Azure 快速入门模板）。
+> 你也可以使用模板来配置自动修补。有关详细信息，请参阅 [Azure quickstart template for Automated Patching](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autopatching-update)（用于自动备份的 Azure 快速入门模板）。
 > 
 > 
 

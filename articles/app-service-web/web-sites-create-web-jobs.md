@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2016
 wacn.date: 
-ms.author: glenga
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 6b9eaf0ea44238f2d6b5731ae1f060a304132f7d
@@ -34,6 +34,8 @@ ms.lasthandoff: 04/28/2017
 Azure WebJobs SDK 简化了许多 Web 作业编程任务。 有关详细信息，请参阅[什么是 WebJobs SDK](websites-dotnet-webjobs-sdk.md)。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
 ## <a name="acceptablefiles"></a>可接受的脚本或程序文件类型
 接受以下文件类型：
@@ -69,8 +71,8 @@ Azure WebJobs SDK 简化了许多 Web 作业编程任务。 有关详细信息�
 
 > [!NOTE]
 > 如果 Web 应用在多个实例上运行，则连续运行的 Web 作业会在所有实例上运行。 按需和按计划 Web 作业在 Azure 针对负载均衡所选择的单个实例上运行。
-> <p> 
-> 要使连续 Web 作业在所有实例上可靠运行，请启用 Web 应用的 AlwaysOn* 配置设置；否则，Web 作业将在 SCM 主机站点闲置时间太长时停止运行。> 
+>
+> 要使连续 Web 作业在所有实例上可靠运行，请启用 Web 应用的 AlwaysOn* 配置设置；否则，Web 作业将在 SCM 主机站点闲置时间太长时停止运行。
 
 ## <a name="CreateScheduledCRON"></a>使用 CRON 表达式创建计划的 Web 作业
 此方法可用于在基本、标准或高级模式下运行的 Web 应用，但需要应用上启用 “AlwaysOn”  设置。

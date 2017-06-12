@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 wacn.date: 04/27/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 创建非交互式身份验证 .NET HDInsight 应用程序
@@ -25,7 +25,7 @@ ms.author: jgao
 从非交互式 .NET 应用程序，需要：
 
 * Azure 订阅租户 ID（A.K.A 目录 ID）。请参阅[获取租户 ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id)。
-* Azure Directory 应用程序客户端 ID。请参阅[创建 Active Directory 应用程序](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-active-directory-application)和[获取应用程序 ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
+* Azure Directory 应用程序客户端 ID。请参阅[创建 Active Directory 应用程序](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)和[获取应用程序 ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
 * Azure Directory 应用程序密钥。请参阅[获取应用程序身份验证密钥](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
 
 ## 先决条件

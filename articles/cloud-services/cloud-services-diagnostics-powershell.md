@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
 wacn.date: 03/24/2017
-ms.author: adegeo
+ms.author: v-yiso
 ---
 
 # 使用 PowerShell 在 Azure 云服务中启用诊断

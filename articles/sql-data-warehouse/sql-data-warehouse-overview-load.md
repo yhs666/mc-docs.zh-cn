@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: v-yeche
 wacn.date: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -132,4 +132,4 @@ SQL 数据仓库支持通过 PolyBase 从 HDInsight 加载数据。 该过程和
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Import/Export]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
+[Import/Export]: ../storage/storage-import-export-service.md

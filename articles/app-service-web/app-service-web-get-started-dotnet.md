@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/27/2017
 wacn.date: 
-ms.author: cephalin
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 19ca3a66248c4e79a953293582e5e345da215b7f
@@ -67,13 +67,13 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-在“创建应用服务”对话框中单击“添加帐户”，然后登录到你的 Azure 订阅。 如果已登录到 Microsoft 帐户，请确保该帐户包含你的 Azure 订阅。 如果已登录的 Microsoft 帐户不包含你的 Azure 订阅，请单击该帐户以添加正确的帐户。
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
+
+在“创建应用服务”对话框中单击“添加帐户”，然后登录到你的 Azure 订阅。 如果已登录到 Azure 帐户，请确保该帐户包含你的 Azure 订阅。
 
 ![登录 Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
 
 登录后，可在此对话框中创建 Azure Web 应用所需的所有资源。
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="create-a-resource-group"></a>创建资源组
 

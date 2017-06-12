@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 wacn.date: 01/20/2017
-ms.author: jodebrui
+ms.author: v-johch
 ---
 
 # 监视 In-Memory OLTP 存储

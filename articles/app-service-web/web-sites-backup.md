@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 wacn.date: 
-ms.author: cephalin
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 8c778336bc72b3aa0a68e44b30e76a0b1999470e
@@ -132,7 +132,11 @@ ms.lasthandoff: 04/28/2017
     > 最后一行显示了你可以排除单个文件以及文件夹。
 2. 创建名为 `_backup.filter` 的文件并将上述列表放在文件中，但删除 `D:\home`。 每行列出一个目录或文件。 文件的内容应为：
 
-    \site\wwwroot\Logs  \LogFiles  \site\wwwroot\Images\2013  \site\wwwroot\Images\2014  \site\wwwroot\Images\brand.png
+        \site\wwwroot\Logs
+        \LogFiles
+        \site\wwwroot\Images\2013
+        \site\wwwroot\Images\2014
+        \site\wwwroot\Images\brand.png
 3. 使用 [ftp](web-sites-deploy.md#ftp) 或任何其他方法，将此文件上传到站点 `D:\home\site\wwwroot\` 目录。 如果你愿意，可以直接在 `http://{yourapp}.scm.chinacloudsites.cn/DebugConsole` 中创建文件并在那里插入内容。
 4. 采用通常使用的相同方式运行备份，即[手动](#create-a-manual-backup)或[自动](#configure-automated-backups)。
 
@@ -140,8 +144,8 @@ ms.lasthandoff: 04/28/2017
 
 > [!NOTE]
 > 采用与[还原定期备份](web-sites-restore.md)相同的方式，还原站点的部分备份。 还原过程会执行正确的操作。
-> <p> 
-> <p> 还原完整备份后，站点上的所有内容都被替换为备份中的所有内容。 如果文件在站点上但不在备份中，则会将其删除。 但是，还原部分备份时，位于其中一个方块列表目录或任何方块列表文件中的任何内容都保持不变。> 
+>
+> 还原完整备份后，站点上的所有内容都被替换为备份中的所有内容。 如果文件在站点上但不在备份中，则会将其删除。 但是，还原部分备份时，位于其中一个方块列表目录或任何方块列表文件中的任何内容都保持不变。> 
 
 ## <a name="aboutbackups" id="moreaboutstorage"></a> 如何存储备份
 对应用进行了一次或多次备份后，将在存储帐户的“容器”边栏选项卡中看到备份以及应用。 在存储帐户中，每个备份都由一个 .zip 文件和一个 .xml 文件组成，前者包含备份数据，后者包含 .zip 文件内容的清单。 如果你想要在无需实际执行应用还原的情况下访问备份，则可以解压缩并浏览这些文件。

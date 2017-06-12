@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/13/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: e44e29b0eda81d5bac1c7a9c3d8ae70f0dd934c0
@@ -40,9 +40,9 @@ ms.lasthandoff: 04/28/2017
 
 * Azure CLI 2.0：有关详细信息，请参阅 [安装和配置 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)。
 
-    [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 * Azure PowerShell：有关详细信息，请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 > [!NOTE]
 > 本文档中的步骤需要最新版本的 Azure CLI 和 Azure PowerShell。 如果你使用的是较旧版本，则命令可能会有所不同。 为获得最佳结果，请使用以上链接来安装最新版本。
@@ -113,21 +113,6 @@ HDInsight 服务是一种托管服务，并需要在预配期间和运行时访�
 > [!NOTE]
 > 这些操作不需要完全访问 Internet。 限制 Internet 访问时，允许在端口 443 上进行以下 IP 地址的入站访问。 这将使 Azure 能够管理 HDInsight：
 
-应允许的 IP 地址专门用于 HDInsight 群集和虚拟网络所在的区域。 使用下表查找正在使用的区域的 IP 地址。
-
-| 国家/地区 | 区域 | 允许的 IP 地址 | 允许的端口 |
-| ---- | ---- | ---- | ---- |
-| 巴西 | 巴西南部 | 191.235.84.104</br>191.235.87.113 | 443 |
-| 加拿大 | 加拿大东部 | 52.229.127.96</br>52.229.123.172 | 443 |
-| &nbsp; | 加拿大中部 | 52.228.37.66</br>52.228.45.222 | 443 |
-| 印度 | 印度中部 | 52.172.153.209</br>52.172.152.49 | 443 |
-| 英国 | 英国西部 | 51.141.13.110</br>51.141.7.20 | 443 |
-| &nbsp; | 英国南部 | 51.140.47.39</br>51.140.52.16 | 443 |
-| 美国 | 中国西北部 | 52.161.23.15</br>52.161.10.167 | 443 |
-| &nbsp; | 中国北部 2 | 52.175.211.210</br>52.175.222.222 | 443 |
-
-__如果所在区域未列在表中__，允许流量到达以下 IP 地址的端口 __443__：
-
 * 168.61.49.99
 * 23.99.5.239
 * 168.61.48.131
@@ -140,7 +125,7 @@ __如果所在区域未列在表中__，允许流量到达以下 IP 地址的端
 
 如果阻止 Internet 访问，将无法使用通常通过群集的公共网关公开的 HDInsight 服务。 这些服务包括 Ambari 和 SSH。 相反，必须使用群集头节点的内部 IP 地址来访问服务。
 
-若要查找头节点的内部 IP 地址，请使用[内部 IP 和 FQDN](#internal-ips-and-fqdns) 部分中的脚本。
+若要查找头节点的内部 IP 地址，请使用[内部 IP 和 FQDN](#retrieve-internal-ips-and-fqdns) 部分中的脚本。
 
 ### <a name="example-secured-virtual-network"></a>示例：受保护的虚拟网络
 
@@ -163,9 +148,9 @@ __如果所在区域未列在表中__，允许流量到达以下 IP 地址的端
 
 **示例：Azure 资源管理模板**
 
-使用 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/)中的以下资源管理模板在 VNet 中创建具备安全网络配置的 HDInsight 群集：
+使用 [Azure 快速启动模板](https://github.com/azure/azure-quickstart-templates)中的以下资源管理模板在 VNet 中创建具备安全网络配置的 HDInsight 群集：
 
-[在 VNet 中部署安全的 Azure VNet 和 HDInsight Hadoop 群集](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
+[在 VNet 中部署安全的 Azure VNet 和 HDInsight Hadoop 群集](https://github.com/azure/azure-quickstart-templates/tree/master/101-hdinsight-secure-vnet/)
 
 **示例：Azure PowerShell**
 
@@ -282,13 +267,13 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 
 > [!IMPORTANT]
 > 使用前面的步骤只可访问 Azure 云上的 HDInsight 运行状况和管理服务。 任何从虚拟网络外部对 HDInsight 群集的其他访问将会被阻止。 若要从虚拟网络之外启用访问，必须添加其他的虚拟网络安全组规则。
-> <p>
+>
 > 以下示例演示了如何从 Internet 启用 SSH 访问：
-> <p>
+>
 > ```powershell
 > Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound
 > ```
-> <p>
+>
 > ```azurecli
 > az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
 > ```

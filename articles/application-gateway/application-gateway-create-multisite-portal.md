@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 03/28/2017
-ms.author: gwallace
+ms.author: v-dazen
 ---
 
 # 配置托管多个 Web 应用程序的现有应用程序网关
@@ -95,7 +95,7 @@ ms.author: gwallace
 ![侦听器属性边栏选项卡][3]  
 
 > [!NOTE]
-在 Azure 门户预览中创建应用程序网关的侦听器是一项长时间运行的任务，可能需要一些时间才能在此方案中创建两个侦听器。完成时，侦听器会显示在门户中，如下图所示：
+> 在 Azure 门户预览中创建应用程序网关的侦听器是一项长时间运行的任务，可能需要一些时间才能在此方案中创建两个侦听器。完成时，侦听器会显示在门户中，如下图所示：
 
 ![侦听器概述][4]  
 

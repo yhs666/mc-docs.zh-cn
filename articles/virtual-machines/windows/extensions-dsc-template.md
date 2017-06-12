@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 09/15/2016
 wacn.date: 01/05/2017
-ms.author: zachal
+ms.author: v-dazen
 ---
 
 # 在 Azure Resource Manager 模板中使用 Windows VMSS 和 Desired State Configuration

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 wacn.date: 03/20/2017
-ms.author: seguler
+ms.author: v-johch
 ---
 
 # 使用 AzCopy 命令行实用程序传输数据

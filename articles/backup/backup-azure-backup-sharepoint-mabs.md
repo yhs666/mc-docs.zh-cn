@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: pullabhk
+ms.author: v-junlch
 wacn.date: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3ff18e6f95d8bbc27348658bc5fce50c3320cf0a
@@ -126,7 +126,7 @@ MABS 以 LocalSystem 帐户的形式运行。 若要备份 SQL Server 数据库�
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > MABS 然后可用的最新磁盘备份点从到 Azure 提供最多两个每日备份。 Azure 备份还可以使用 [Azure 备份网络限制](/documentation/articles/backup-configure-vault/#enable-network-throttling/)，来控制高峰期和非高峰期用于备份的 WAN 带宽量。
+    > MABS 然后可用的最新磁盘备份点从到 Azure 提供最多两个每日备份。 Azure 备份还可以使用 [Azure 备份网络限制](./backup-configure-vault.md#enable-network-throttling)，来控制高峰期和非高峰期用于备份的 WAN 带宽量。
     >
     >
 11. 根据选择的备份计划，在“**指定联机保留策略**”页上，选择每日、每周、每月和每年备份点的保留策略。
@@ -205,7 +205,7 @@ MABS 以 LocalSystem 帐户的形式运行。 若要备份 SQL Server 数据库�
     >
     >
 
-## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>使用 DPM 从 Azure 还原 SharePoint 数据库
+## <a name="restore-a-sharepoint-item-from-disk-using-dpm"></a>使用 DPM 从 Azure 还原 SharePoint 数据库
 1. 若要恢复 SharePoint 内容数据库，请浏览各个恢复点（如上所示），并选择要还原的恢复点。
 
     ![MABS SharePoint 保护 8](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection9.png)

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/28/2016
 wacn.date: 01/20/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Azure SQL 数据库概述

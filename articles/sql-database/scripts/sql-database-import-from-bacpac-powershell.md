@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 03/07/2017
-ms.author: janeng
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: e8c26bd7df9703fcc26a90c62c096d39409ed27d
@@ -117,11 +117,11 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 | 命令 | 说明 |
 |---|---|
-| [New-AzureRmResourceGroup]() | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmSqlServer]() | 创建用于托管 SQL 数据库的逻辑服务器。 |
-| [New-AzureRmSqlServerFirewallRule]() | 创建一个防火墙规则，以允许从输入的 IP 地址范围访问服务器上的所有 SQL 数据库。 |
-| [New-AzureRmSqlDatabase]() | 在逻辑服务器中创建 SQL 数据库。 |
-| [Remove-AzureRmResourceGroup]() | 删除资源组，包括所有嵌套的资源。 |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.0.0) | 创建用于存储所有资源的资源组。 |
+| [New-AzureRmSqlServer](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/new-azurermsqlserver?view=azurermps-4.0.0) | 创建用于托管 SQL 数据库的逻辑服务器。 |
+| [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.0.0) | 创建一个防火墙规则，以允许从输入的 IP 地址范围访问服务器上的所有 SQL 数据库。 |
+| [New-AzureRmSqlDatabase](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/new-azurermsqldatabase?view=azurermps-4.0.0) | 在逻辑服务器中创建 SQL 数据库。 |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.0.0) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

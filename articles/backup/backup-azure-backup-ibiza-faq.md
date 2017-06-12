@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/21/2016
 wacn.date: 12/21/2016
-ms.author: trinadhk; markgal; jimpark;
+ms.author: v-junlch
 ---
 
 # 恢复服务保管库 - 常见问题

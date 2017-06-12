@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
-ms.author: dobett
+ms.date: 03/23/2017
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 11ff6991ce38debbedb040258a8eee52465b40b7
@@ -153,5 +153,5 @@ Set-AzureRmIotHub `
 [lnk-powershell-storage]: https://docs.microsoft.com/powershell/module/azurerm.storage/
 [lnk-powershell-iothub]: https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub
 [lnk-portal-hub]: ./iot-hub-create-through-portal.md
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-portal-storage]: ../storage/storage-create-storage-account.md

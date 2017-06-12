@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 wacn.date: 01/17/2017
-ms.author: ganesr
+ms.author: v-yiso
 ---
 
 # 将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型

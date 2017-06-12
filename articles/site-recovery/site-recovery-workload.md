@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
-ms.author: raynew
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 0d5d05beeba0cad3228fc8567dffd248b625c48f
@@ -88,9 +88,6 @@ Azure Site Recovery 可帮助保护 SharePoint 部署，如下所示：
 * 简化应用程序部署和管理。 部署到主站点的更新将自动复制，因此可在故障转移和恢复辅助站点中的场之后使用。 此外，还可降低使备用场保持最新状态的管理复杂性和相关成本。
 * 按照副本环境的需要创建一个与生产类似的副本来进行测试和调试，从而简化 SharePoint 应用程序的开发与测试。
 * 使用 Site Recovery 将 SharePoint 部署迁移到 Azure，从而简化到云的过渡过程。
-
-[详细了解](site-recovery-sharepoint.md)如何保护 SharePoint。
-
 
 ## <a name="protect-rds"></a>保护 RDS
 远程桌面服务 (RDS) 允许虚拟桌面基础结构 (VDI)、基于会话的桌面和应用程序，让用户能够在任何地方工作。 使用 Azure Site Recovery 可以：

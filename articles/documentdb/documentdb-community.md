@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 wacn.date: 
-ms.author: andrl
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 79f5a8bfb8b13d62e93c3d8f033d4c2559162536
@@ -118,7 +118,6 @@ fluent-plugin-documentdb 是用于输出到 DocumentDB 的 Fluentd 插件。
 | [SQLBits XV](https://sqlbits.com/) |Andrew Liu、Aravind Ramachandran |英国利物浦 |2016 年 5 月 4 日至 5 月 7 日 |不适用 |
 | [Meetup: NYC .NET Developers Group](http://www.meetup.com/NYC-NET-Developers/events/230396260/) |Leonard Lobel |纽约州纽约市 |2016 年 4 月 21 日 |不适用 |
 | [集成用户组](http://www.integrationusergroup.com/#) |Howard Edidin |网络研讨会 |2016 年 4 月 25 日 |不适用 |
-| [Global Azure Bootcamp: SoCal](http://xprs.imcreator.com/free/vishalishere/gab2016) |Leonard Lobel |加州奥兰治县 |2016 年 4 月 16 日 |不适用 |
 | [Global Azure Bootcamp: Redmond](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) |David Makogon |华盛顿州雷德蒙德 |2016 年 4 月 16 日 |不适用 |
 | [SQL Saturday #481 - Israel 2016](http://www.sqlsaturday.com/481/Sessions/Details.aspx?sid=40912) |Leonard Lobel |以色列中央区 |2016 年 4 月 4 日 |不适用 |
 | [Build 2016](https://build.microsoft.com/) |John Macintyre |加州旧金山 |2016 年 3 月 31 日 |[Delivering Applications at Scale with DocumentDB, Azure's NoSQL Document Database](https://channel9.msdn.com/Events/Build/2016/B840)（使用 DocumentDB、Azure 的 NoSQL 文档数据库大规模交付应用程序） |
@@ -214,7 +213,7 @@ fluent-plugin-documentdb 是用于输出到 DocumentDB 的 Fluentd 插件。
 ### <a name="other-projects"></a>其他项目
 | 名称 | GitHub | 网站 |
 | --- | --- | --- |
-| 文档 |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[文档网站](/documentation/services/documentdb/) |
+| 文档 |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[文档网站](index.md) |
 | Hadoop 连接器 |[azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | 数据迁移工具 |[azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) |[Microsoft 下载中心](http://www.microsoft.com/download/details.aspx?id=46436) |
 

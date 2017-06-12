@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 04/06/2017
-ms.author: ramankum
+ms.author: v-johch
 ---
 
 # 高性能高级存储以及非托管 Azure VM 磁盘

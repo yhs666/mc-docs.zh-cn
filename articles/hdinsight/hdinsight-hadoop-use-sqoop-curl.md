@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/06/2017
 wacn.date: 03/28/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 使用 Curl 在 HDInsight 中的 Hadoop 上运行 Sqoop 作业
@@ -27,7 +27,7 @@ ms.author: jgao
 本文档使用 Curl 演示如何使用原始 HTTP 请求来与 HDInsight 交互，以便运行、监视和检索 Sqoop 作业的结果。要执行这些操作，需要使用 HDInsight 群集提供的 WebHCat REST API（前称 Templeton）。
 
 > [!NOTE]
-如果已熟悉如何使用基于 Linux 的 Hadoop 服务器，但刚接触 HDInsight，请参阅[有关在 Linux 上使用 HDInsight 的信息](./hdinsight-hadoop-linux-information.md)。
+> 如果已熟悉如何使用基于 Linux 的 Hadoop 服务器，但刚接触 HDInsight，请参阅[有关在 Linux 上使用 HDInsight 的信息](./hdinsight-hadoop-linux-information.md)。
 > 
 > 
 
@@ -40,7 +40,7 @@ ms.author: jgao
 
 ## 使用 Curl 提交 Sqoop 作业
 > [!NOTE]
-使用 Curl 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须提供 HDInsight 群集管理员用户名和密码对请求进行身份验证。此外，还必须使用群集名称作为用来向服务器发送请求的统一资源标识符 (URI) 的一部分。
+> 使用 Curl 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须提供 HDInsight 群集管理员用户名和密码对请求进行身份验证。此外，还必须使用群集名称作为用来向服务器发送请求的统一资源标识符 (URI) 的一部分。
 > 
 > 对本部分中的所有命令，请将 **USERNAME** 替换为在群集上进行身份验证的用户，并将 **PASSWORD** 替换为用户帐户的密码。将 **CLUSTERNAME** 替换为群集名称。
 > 
@@ -97,7 +97,7 @@ ms.author: jgao
     如果作业已完成，状态将是 **SUCCEEDED**。
 
     > [!NOTE]
-    此 Curl 请求返回具有作业相关信息的 JavaScript 对象表示法 (JSON) 文档；使用 jq 可以仅检索状态值。
+    > 此 Curl 请求返回具有作业相关信息的 JavaScript 对象表示法 (JSON) 文档；使用 jq 可以仅检索状态值。
     > 
     > 
 2. 在作业的状态更改为 **SUCCEEDED** 后，可以从 Azure Blob 存储中检索作业的结果。随查询一起传递的 `statusdir` 参数包含输出文件的位置；在本例中为 **wasbs:///example/curl**。此地址会将作业的输出存储在 HDInsight 群集所用的默认存储容器的 **example/curl** 目录中。
@@ -115,7 +115,7 @@ ms.author: jgao
     ```
 
     > [!NOTE]
-    必须使用 `-a` 和 `-k` 参数指定包含 Blob 的存储帐户名称，或者设置 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORAGE\_ACCESS\_KEY** 环境变量。请参阅 <a href="./hdinsight-upload-data.md" target="\_blank" 了解详细信息。
+    > 必须使用 `-a` 和 `-k` 参数指定包含 Blob 的存储帐户名称，或者设置 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORAGE\_ACCESS\_KEY** 环境变量。请参阅 <a href="./hdinsight-upload-data.md" target="\_blank" 了解详细信息。
     > 
     > 
 

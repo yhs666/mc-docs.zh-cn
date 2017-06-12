@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/17/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: ea9d5ee3acfb9f3be1667e279b43479ec702d622
@@ -50,11 +50,11 @@ ms.lasthandoff: 05/26/2017
 
     > [!NOTE]
     > 如果要使用 PowerShell 运行本文档中的命令，必须先删除默认创建的 `curl` 别名。 此别名使用 Invoke-WebRequest，而不是 cURL。 如果不删除此别名，在使用某些本文中所用的命令时可能会收到错误。
-    > <p>
+    >
     > 若要删除此别名，请从 PowerShell 提示符使用以下命令：
-    > <p>
+    >
     > `Remove-item alias:curl`
-    > <p>
+    >
     > 删除别名后，你应该能够使用系统上安装的 cURL 版本。
 
 ## <a name="create-a-template"></a>创建模板
@@ -251,7 +251,7 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
 
 > [!IMPORTANT]
 > 此模板对 HDInsight 群集使用默认数目（4 个）的辅助角色节点。 如果计划使用 32 个以上的辅助角色节点，则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
-> <p>
+>
 > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
 ## <a name="log-in-to-your-azure-subscription"></a>登录到 Azure 订阅
@@ -365,7 +365,7 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
 
 > [!NOTE]
 > 如果将模板保存到了文件中，则可以使用以下命令而不是 `-d "{ template and parameters}"`：
-> <p>
+>
 > `--data-binary "@/path/to/file.json"`
 
 如果此请求成功，将收到 200 系列响应，且响应正文包含一个 JSON 文档，其中包含有关部署操作的信息。

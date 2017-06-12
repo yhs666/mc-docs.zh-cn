@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 wacn.date: 03/31/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 使用 Bootstrap 自定义 HDInsight 群集

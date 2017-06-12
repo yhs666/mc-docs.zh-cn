@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2017
-ms.author: dobett
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: fd12c0dd792dbf9e3a4cdd23943a8075341f3bda
@@ -231,6 +231,6 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 
 [lnk-classic-portal]: https://manage.windowsazure.cn
 [lnk-c2d]: ./iot-hub-java-java-process-d2c.md
-[lnk-suite]: /documentation/services/iot-suite/
+[lnk-suite]: ../iot-suite/index.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-create-an-iot-hub]: ./iot-hub-java-java-getstarted.md#create-an-iot-hub

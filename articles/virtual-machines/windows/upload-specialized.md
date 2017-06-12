@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 wacn.date: 
-ms.author: cynthn
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
@@ -27,16 +27,15 @@ ms.lasthandoff: 04/06/2017
 
 # <a name="how-to-upload-a-specialized-vhd-to-create-a-vm-in-azure"></a>如何上载专用 VHD，以便在 Azure 中创建 VM
 
-用 VHD 保留原始 VM 中的用户帐户、应用程序和其他状态数据。 可将专用 VHD 上传到 Azure，并借其创建使用托管磁盘或非托管存储帐户的 VM。 建议使用[托管磁盘](../../storage/storage-managed-disks-overview.md)，以利用托管磁盘提供的简化管理功能和其他功能。
+用 VHD 保留原始 VM 中的用户帐户、应用程序和其他状态数据。 可将专用 VHD 上传到 Azure，并借其创建使用非托管存储帐户的 VM。
 
 > [!IMPORTANT]
-> 将任何 VHD 上传到 Azure 之前，应按照[准备要上传到 Azure 的 Windows VHD 或 VHDX](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 进行操作
+> 将任何 VHD 上传到 Azure 之前，应按照[准备要上传到 Azure 的 Windows VHD 或 VHDX](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 进行操作
 >
 >
 
 * 有关各种 VM 大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/#Windows)。
 * 有关存储定价的信息，请参阅[存储定价](https://www.azure.cn/pricing/details/storage/blob/)。 
-* 如需了解 Azure 区域中各种 VM 大小的可用性，请参阅 [可用产品（按区域）](https://azure.microsoft.com/regions/services/)。
 * 若要查看 Azure VM 的一般限制，请参阅 [Azure 订阅和服务限制、配额与约束](../../azure-subscription-service-limits.md)。
 
 ## <a name="before-you-begin"></a>开始之前
@@ -52,8 +51,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 如果计划按原样使用专用 VHD 创建新的 VM，请确保完成以下步骤。 
 
-* 如果要使用托管磁盘，请查看[计划迁移到托管磁盘](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)。
-* [准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 **不要**使用 Sysprep 通用化 VM。
+* [准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 **不要**使用 Sysprep 通用化 VM。
 * 删除 VM 上安装的所有来宾虚拟化工具和代理（例如 VMware 工具）。
 * 确保 VM 配置为通过 DHCP 来提取其 IP 地址和 DNS 设置。 这确保服务器在启动时在 VNet 中获取 IP 地址。 
 * 在继续操作之前，请关闭 VM。
@@ -80,7 +78,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ## <a name="get-the-storage-account"></a>获取存储帐户
 需要在 Azure 中创建存储帐户来存储上传的 VM 映像。 可以使用现有存储帐户，也可以创建新存储帐户。 
 
-如果将使用 VHD 为 VM 创建托管磁盘，存储帐户位置必须与要创建 VM 的位置相同。
+如果将使用 VHD 为 VM 创建非托管磁盘，存储帐户位置必须与要创建 VM 的位置相同。
 
 显示可用的存储帐户，请键入：
 
@@ -146,7 +144,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
 
 完成执行此命令可能需要一段时间，具体取决于网络连接速度和 VHD 文件的大小
 
-如果要使用上载的 VHD 创建托管磁盘或新 VM，请保存 **目标 URI** 路径供稍后使用。
+如果要使用上载的 VHD 创建非托管磁盘或新 VM，请保存 **目标 URI** 路径供稍后使用。
 
 ### <a name="other-options-for-uploading-a-vhd"></a>用于上传 VHD 的其他选项
 
@@ -217,7 +215,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 
 ```
 
-有关终结点和 NSG 规则的详细信息，请参阅 [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（使用 PowerShell 在 Azure 中打开 VM 端口）。
+有关终结点和 NSG 规则的详细信息，请参阅 [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（使用 PowerShell 在 Azure 中打开 VM 端口）。
 
 ## <a name="set-the-vm-name-and-size"></a>设置 VM 名称和大小
 
@@ -240,7 +238,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 可选择以下两个选项之一：
 
-- **选项 1**：通过现有存储帐户的专用 VHD 创建专用托管磁盘，将其用作 OS 磁盘。
+- **选项 1**：通过现有存储帐户的专用 VHD 创建专用托管磁盘，将其用作 OS 磁盘。Azure 中国暂时还不支持托管磁盘。
 
 或 
 
@@ -248,26 +246,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 ### <a name="option-1-create-a-managed-disk-from-an-unmanaged-specialized-disk"></a>选项 1：通过非托管专用磁盘创建托管磁盘
 
-1. 通过存储帐户的现有专用 VHD 创建托管磁盘。 此示例使用 **myOSDisk1** 作为磁盘名称，将磁盘置于 **StandardLRS** 存储中并使用 **https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vh.vhd** 作为源 VHD 的 URI。
-
-    ```powershell
-    $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk (New-AzureRmDiskConfig `
-    -AccountType StandardLRS  -Location $location -CreationDataCreateOption Import `
-    -SourceUri $urlOfUploadedImageVhd -ResourceGroupName $rgName
-    ```
-
-2. 将 OS 磁盘添加到配置。 此示例将磁盘大小设置为 **128 GB** 并附加托管磁盘作为 **Windows** OS 磁盘。
-
-    ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -ManagedDiskStorageAccountType StandardLRS `
-    -DiskSizeInGB 128 -CreateOption Attach -Windows
-    ```
-
-可选：附加其他托管磁盘作为数据磁盘。 此选项假定通过[创建托管数据磁盘](create-managed-disk-ps.md)创建了托管数据磁盘。 
-
-```powershell
-$vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
-```
+Azure 中国暂时还不支持托管磁盘。
 
 ### <a name="option-2-attach-a-vhd-that-is-in-an-existing-storage-account"></a>选项 2：附加现有存储帐户中的 VHD
 
@@ -318,4 +297,4 @@ $vmList.Name
 ```
 
 ## <a name="next-steps"></a>后续步骤
-若要登录到新虚拟机，请在[门户](https://portal.azure.cn)中浏览到该 VM，单击“连接”，然后打开远程桌面 RDP 文件。 使用原始虚拟机的帐户凭据登录到新虚拟机。 有关详细信息，请参阅 [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（如何连接并登录到运行 Windows 的 Azure 虚拟机）。
+若要登录到新虚拟机，请在[门户](https://portal.azure.cn)中浏览到该 VM，单击“连接”，然后打开远程桌面 RDP 文件。 使用原始虚拟机的帐户凭据登录到新虚拟机。 有关详细信息，请参阅 [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（如何连接并登录到运行 Windows 的 Azure 虚拟机）。

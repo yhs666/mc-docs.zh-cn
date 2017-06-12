@@ -15,7 +15,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 12/22/2016
 wacn.date: 02/14/2017
-ms.author: robmcm;asirveda
+ms.author: v-junlch
 ---
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/zh-cn/library/azure/hh694271.aspx -->

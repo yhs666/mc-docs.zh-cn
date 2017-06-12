@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 wacn.date: 01/05/2017
-ms.author: cynthn
+ms.author: v-dazen
 ---
 
 # 创建运行 Linux 的自定义虚拟机

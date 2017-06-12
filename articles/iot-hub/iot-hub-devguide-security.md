@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
-ms.author: dobett
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 6237045893a7fc7ac5db60fa3c67f71c2d951c2c
@@ -194,7 +194,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 > 
 > 
 
-### <a name="use-sas-tokens-in-a-device-client"></a> 在设备应用中使用 SAS 令牌
+### <a name="use-sas-tokens-in-a-device-app"></a>在设备应用中使用 SAS 令牌
 有两种方法可以使用安全令牌来获取 IoT 中心的 **DeviceConnect** 权限：使用[标识注册表中的对称设备密钥](#use-a-symmetric-key-in-the-identity-registry)，或者使用[共享访问密钥](#use-a-shared-access-policy)。
 
 请记住，可从设备访问的所有功能都故意显示在前缀为 `/devices/{deviceId}` 的终结点上。
@@ -309,7 +309,7 @@ SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices&sig=JdyscqTpXdEJs49elI
 
 * **现有的 X.509 证书**。 设备可能已有与之关联的 X.509 证书。 设备可以使用此证书向 IoT 中心进行身份验证。
 * **自行生成和自签名的 X-509 证书**。 设备制造商或内部部署人员可以生成这些证书，并将相应的私钥（和证书）存储在设备上。 可以将工具（如 [OpenSSL][lnk-openssl] 和 [Windows SelfSignedCertificate][lnk-selfsigned] 实用程序）用于此目的。
-* **CA 签名的 X.509 证书**。 还可以使用证书颁发机构 (CA) 生成和签名的的 X.509 证书来识别设备并通过 IoT 中心对设备进行身份验证。 IoTHub 仅验证提供的指纹是否与配置的指纹匹配。 IotHub 不会验证证书链。
+* **CA 签名的 X.509 证书**。 还可以使用证书颁发机构 (CA) 生成和签名的的 X.509 证书来识别设备并通过 IoT 中心对设备进行身份验证。
 
 设备可以使用 X.509 证书或安全令牌进行身份验证，但不能同时使用这两者。
 
@@ -345,7 +345,7 @@ await registryManager.AddDeviceAsync(device);
 [用于 .NET 的 Azure IoT 设备 SDK][lnk-client-sdk]（版本 1.0.11+）支持使用 X.509 证书。
 
 ### <a name="c-support"></a>C\# 支持
-类 **DeviceAuthenticationWithX509Certificate** 支持使用 X.509 证书创建  **DeviceClient** 实例。 X.509 证书必须采用 PFX（也称为 PKCS #12）格式，其中包含私钥。
+类 **DeviceAuthenticationWithX509Certificate** 支持使用 X.509 证书创建  **DeviceClient** 实例。 X.509 证书必须采用 PFX（也称为 PKCS #12）格式，其中包含私钥。 
 
 下面是示例代码片段：
 
@@ -397,7 +397,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 ## <a name="additional-reference-material"></a>其他参考资料
 IoT 中心开发人员指南中的其他参考主题包括：
 
-* [IoT 中心终结点][lnk-endpoints] ，介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
+* [IoT 中心终结点][lnk-endpoints]，介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
 * [限制和配额][lnk-quotas]，说明了适用于 IoT 中心服务的配额，以及使用服务时预期会碰到的限制行为。
 * [Azure IoT 设备和服务 SDK][lnk-sdks]，列出了在开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
 * [设备孪生和作业的 IoT 中心查询语言][lnk-query]，介绍了在 IoT 中心检索设备孪生和作业相关信息时可使用的 IoT 中心查询语言。
@@ -427,7 +427,7 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-openssl]: https://www.openssl.org/
 [lnk-selfsigned]: https://technet.microsoft.com/zh-cn/library/hh848633
 
-[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
+[lnk-resource-provider-apis]: https://msdn.microsoft.com/zh-cn/library/mt548492.aspx
 [lnk-sas-tokens]: ./iot-hub-devguide-security.md#security-tokens
 [lnk-amqp]: https://www.amqp.org/
 [lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md

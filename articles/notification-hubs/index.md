@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 49727cff3dbf5fda9ec268fc714573655339bfd9
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/notification-hubs/notification-hubs-push-notification-overview">
+        <a href="/notification-hubs/notification-hubs-push-notification-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -44,43 +44,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/documentation/videos/index/?services=notification-hubs">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>通知中心视频库</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>开始使用 Azure 通知中心向 Android (FCM) 发送推送通知</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/notification-hubs/notification-hubs-baidu-china-android-notifications-get-started">
+        <a href="/notification-hubs/notification-hubs-baidu-china-android-notifications-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -98,25 +62,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/notification-hubs/notification-hubs-chrome-push-notifications-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>开始使用 Azure 通知中心向 Chrome 应用发送推送通知</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started">
+        <a href="/notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -134,7 +80,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification">
+        <a href="/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -152,7 +98,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification">
+        <a href="/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -181,7 +127,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>命令行</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -193,7 +139,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
                    </div>
                 </div>
             </div>
@@ -205,7 +151,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/notificationhubs">REST API 参考</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/notificationhubs">REST API 参考</a></p>
                     </div>
                 </div>
             </div>

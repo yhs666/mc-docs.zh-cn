@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 wacn.date: 03/31/2017
-ms.author: jdial
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
 
@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 可使用 PowerShell 在同一虚拟网络 (VNet) 的不同子网之间移动 VM（经典）。可通过编辑 CSCFG 文件（而非使用 PowerShell）移动角色实例。
 
 > [!NOTE]
-本文介绍如何仅通过经典部署模型移动部署后的 VM。
+> 本文介绍如何仅通过经典部署模型移动部署后的 VM。
 > 
 > 
 

@@ -4,7 +4,7 @@ description: "了解如何在 Web 应用中设置监视"
 services: App-Service
 keywords: 
 author: btardif
-ms.author: byvinyal
+ms.author: v-dazen
 ms.date: 04/04/2017
 wacn.date: 
 ms.topic: article

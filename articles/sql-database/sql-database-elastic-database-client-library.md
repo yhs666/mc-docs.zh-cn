@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 wacn.date: 12/19/2016
-ms.author: ddove
+ms.author: v-johch
 ---
 
 # 构建可缩放的云数据库

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
 wacn.date: 
-ms.author: glenga
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 0766fab7ce4bf35ee0c93f8922c3be6b03c6f973
@@ -48,7 +48,7 @@ ms.lasthandoff: 05/19/2017
 
 > [!NOTE]
 > <a name="note"></a>完成本教程需要 Azure 帐户：
-> <p>
+>
 > * 你可以[注册一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)：获取可用来试用付费版 Azure 服务的信用额度，甚至在用完信用额度后，仍可以保留帐户和使用免费的 Azure 服务（如网站）。 不会收取任何费用，除非明确更改设置并要求收费。
 >
 
@@ -209,8 +209,8 @@ Azure 存储帐户可提供在云中存储队列和 Blob 数据的资源。 并�
 6. 在“在 Azure 上创建 Web 应用”对话框框中，在“Web 应用名称”框中输入唯一名称。
 
     完整的 URL 将包含你在此处输入的内容和 .chinacloudsites.cn（如“Web 应用名称”文本框的旁边所示）。 例如，如果 Web 应用名称为 ContosoAds，则 URL 将为 ContosoAds.chinacloudsites.cn。
-7. 在“应用服务计划”[](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)下拉列表中，选择“创建新的应用服务计划”。 输入应用服务计划的名称，例如 ContosoAdsPlan。
-8. 在“资源组”[](../azure-resource-manager/resource-group-overview.md)下拉列表中，选择“新建资源组”。
+7. 在[“应用服务计划”](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)下拉列表中，选择“创建新的应用服务计划”。 输入应用服务计划的名称，例如 ContosoAdsPlan。
+8. 在[“资源组”](../azure-resource-manager/resource-group-overview.md)下拉列表中，选择“新建资源组”。
 9. 输入资源组的名称，例如 ContosoAdsGroup。
 10. 在“区域”下拉列表中，选择你为存储帐户所选的同一区域。
 
@@ -387,7 +387,7 @@ Web 项目和 Web 作业项目都处理 SQL 数据库，因此两者都需要引
 ### <a name="add-code-and-configuration-files"></a>添加代码和配置文件
 本教程未说明如何[使用基架创建 MVC 控制器和视图](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)、如何[编写适用于 SQL Server 数据库的实体框架代码](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)，或者[ASP.NET 4.5 的异步编程基础知识](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async)。 因此，其余所有操作是将已下载解决方案中的代码和配置文件复制到新解决方案。 完成该操作后，以下部分将演示并说明代码的关键部分。
 
-要将文件添加到某个项目或文件夹，请右键单击该项目或文件夹，然后单击“添加” > “现有项”。 选择所需的文件，然后单击“添加”。 。
+要将文件添加到某个项目或文件夹，请右键单击该项目或文件夹，然后单击“添加” > “现有项”。 选择所需的文件，然后单击“添加”。如果询问是否想要替换现有文件，请单击“是”。
 
 1. 在 ContosoAdsCommon 项目中，删除 *Class1.cs* 文件，并在其原位置添加已下载项目中的以下文件。
 

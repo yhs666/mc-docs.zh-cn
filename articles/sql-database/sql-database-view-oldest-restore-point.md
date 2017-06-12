@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.date: 12/07/2016
 wacn.date: 01/20/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 查看服务生成的 Azure SQL 数据库备份的最早还原点

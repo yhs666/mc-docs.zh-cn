@@ -15,7 +15,7 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 wacn.date: 
-ms.author: robmcm
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 41c1d766282d5a15c6bd495a658fdb522c685a56
@@ -257,7 +257,7 @@ ms.lasthandoff: 05/19/2017
 [install-mysql]: http://dev.mysql.com/downloads/mysql/
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [management-portal]: https://portal.azure.cn
-[sql-database-editions]: /pricing/details/sql-database/
+[sql-database-editions]: https://www.azure.cn/pricing/details/sql-database/
 
 <!-- IMG List -->
 

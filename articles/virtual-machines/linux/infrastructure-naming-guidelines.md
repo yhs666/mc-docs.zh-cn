@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -99,7 +99,7 @@ ms.lasthandoff: 04/14/2017
 建议 Azure VM 名称应该与基础操作系统计算机名称相同。
 
 ## <a name="storage-account-names"></a>存储帐户名称
-本节不适用于 [Azure 托管磁盘](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，因为无需创建单独的存储帐户。 对于非托管磁盘，存储帐户具有适用于其名称的特殊规则。 你只能使用小写字母和数字。 有关详细信息，请参阅[创建存储帐户](../../storage/storage-create-storage-account.md#create-a-storage-account)。 此外，存储帐户名称与 core.chinacloudapi.cn 组合在一起应该是一个全局有效的唯一 DNS 名称。 例如，如果存储帐户名为 mystorageaccount，则下面生成的 DNS 名称应该是唯一的：
+存储帐户具有适用于其名称的特殊规则。 你只能使用小写字母和数字。 有关详细信息，请参阅[创建存储帐户](../../storage/storage-create-storage-account.md#create-a-storage-account)。 此外，存储帐户名称与 core.chinacloudapi.cn 组合在一起应该是一个全局有效的唯一 DNS 名称。 例如，如果存储帐户名为 mystorageaccount，则下面生成的 DNS 名称应该是唯一的：
 
 * mystorageaccount.blob.core.chinacloudapi.cn
 * mystorageaccount.table.core.chinacloudapi.cn

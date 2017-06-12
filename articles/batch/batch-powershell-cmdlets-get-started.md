@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -247,7 +247,7 @@ New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudSe
 可以在[使用 Azure 批处理应用程序包部署应用程序](batch-application-packages.md)中找到有关应用程序包的详细信息。
 
 > [!IMPORTANT]
-> 若要使用应用程序包，必须 [将 Azure 存储帐户链接](#linked-storage-account-autostorage) 到 Batch 帐户。
+> 若要使用应用程序包，必须将 Azure 存储帐户链接到 Batch 帐户。
 > 
 > 
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 wacn.date: 12/26/2016
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 查看和修改主机名

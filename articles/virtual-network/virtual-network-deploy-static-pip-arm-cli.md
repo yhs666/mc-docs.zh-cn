@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 wacn.date: 
-ms.author: jdial
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/22/2017
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是经典部署模型。
+Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)。 本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是经典部署模型。
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
@@ -48,7 +48,7 @@ Azure 具有用于创建和处理资源的两个不同的部署模型：[Resourc
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 1. 安装 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) （若尚未安装）。
-2. 通过完成[为 Linux VM 创建 SSH 公钥和私钥对](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json)中的步骤创建适用于 Linux VM 的 SSH 公钥和私钥对。
+2. 通过完成[为 Linux VM 创建 SSH 公钥和私钥对](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fvirtual-network%2ftoc.json)中的步骤创建适用于 Linux VM 的 SSH 公钥和私钥对。
 3. 从命令行界面，使用 `az login`命令登录。
 4. 执行 Linux 或 Mac 计算机上的脚本进行 VM 创建。 Azure 公共 IP 地址、虚拟网络、网络接口和 VM 资源必须存在于同一位置。 虽然资源并非都必须位于同一资源组，但在以下脚本中如此。
 
@@ -65,7 +65,7 @@ Azure 具有用于创建和处理资源的两个不同的部署模型：[Resourc
     # Create a public IP address resource with a static IP address using the --allocation-method Static option.
     # If you do not specify this option, the address is allocated dynamically. The address is assigned to the
     # resource from a pool of IP adresses unique to each Azure region. The DnsName must be unique within the
-    # Azure location it's created in. Download and view the file from https://www.microsoft.com/download/details.aspx?id=41653#
+    # Azure location it's created in. Download and view the file from https://www.microsoft.com/download/details.aspx?id=42064#
     # that lists the ranges for each region.
 
     PipName="PIPWEB1"
@@ -130,12 +130,13 @@ Azure 具有用于创建和处理资源的两个不同的部署模型：[Resourc
     --size $VmSize \
     --nics $NicName \
     --admin-username $Username \
-    --ssh-key-value $SshKeyValue
+    --ssh-key-value $SshKeyValue \
     # If creating a Windows VM, remove the previous line and you'll be prompted for the password you want to configure for the VM.
+    --use-unmanaged-disk
     ```
 
 除了创建 VM，该脚本还创建：
-- 单个高级托管磁盘（默认情况下），但对于可以创建的磁盘类型，可以有其他选择。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文。
+- 使用非托管磁盘，并自动创建 Azure 存储账户。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fvirtual-network%2ftoc.json) 一文。
 - 虚拟网络、子网、NIC 和公共 IP 地址资源。 也可以使用 *现有* 虚拟网络、子网、NIC 或公共 IP 地址资源。 若要了解如何使用现有网络资源，而不是创建其他资源，请输入 `az vm create -h`。
 
 ## <a name = "validate"></a>验证 VM 创建和公共 IP 地址

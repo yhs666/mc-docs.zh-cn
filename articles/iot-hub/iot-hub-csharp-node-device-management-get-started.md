@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/17/2016
 wacn.date: 
-ms.author: juanpere
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: e5d88eea2f6c0b83b8654790fab47e06cac53661
@@ -29,7 +29,7 @@ ms.lasthandoff: 05/26/2017
 ## <a name="introduction"></a>介绍
 后端应用可以使用 Azure IoT 中心的基元（即设备孪生和直接方法）远程启动和监视设备上的设备管理操作。  此文章提供有关后端应用和设备如何使用 IoT 中心协同工作来启动和监视远程设备重新启动的指导和代码。
 
-若要从基于云的后端应用启动和监视设备上的设备管理操作，请使用 IoT 中心基元（如[设备克隆][lnk-devtwin]和[直接方法][lnk-c2dmethod]）。 本教程说明后端应用和设备如何协同工作，实现从 IoT 中心启动和监视远程设备重新启动。
+若要从基于云的后端应用启动和监视设备上的设备管理操作，请使用 IoT 中心基元（如[设备孪生][lnk-devtwin]和[直接方法][lnk-c2dmethod]）。 本教程说明后端应用和设备如何协同工作，实现从 IoT 中心启动和监视远程设备重新启动。
 
 使用直接方法可从云中的后端应用启动设备管理操作，例如重新启动、恢复出厂设置以及固件更新。 设备负责以下操作：
 

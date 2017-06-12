@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
 wacn.date: 
-ms.author: cynthn
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: e0600d9b5ed10b5e1c50b3fe358e8fefd6078f4e
@@ -61,5 +61,5 @@ Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
 有关详细信息，请参阅 [Remove-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/remove-azurermvmdatadisk)。
 
 ## <a name="next-steps"></a>后续步骤
-如果想要重新使用数据磁盘，只需将它[附加到另一个 VM](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+如果想要重新使用数据磁盘，只需将它[附加到另一个 VM](attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 

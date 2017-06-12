@@ -1,5 +1,3 @@
-<!-- need to be verified -->
-
 ---
 title: 无法通过 RDP 连接到 Azure 中的 Windows VM | Azure
 description: 排查无法使用远程桌面连接到 Azure 中 Windows 虚拟机的问题
@@ -19,7 +17,7 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 02/09/2017
 wacn.date: 03/20/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 排查 Azure 虚拟机的远程桌面连接问题
@@ -41,7 +39,7 @@ ms.author: iainfou
 如需更详细的步骤和说明，请继续阅读余下的内容。验证本地网络设备（例如路由器和防火墙）是否如[详细的 RDP 故障排除方案](detailed-troubleshoot-rdp.md)中所述，未阻止出站 TCP 端口 3389。
 
 > [!TIP]
-如果 VM 的“连接”按钮在门户中灰显，且未通过 [Express Route](../../expressroute/expressroute-introduction.md) 或[站点到站点 VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 连接连接到 Azure，则必须先为 VM 创建并分配一个公共 IP 地址，然后才能使用 RDP。有关详细信息，请参阅 [Azure 中的公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)。
+> 如果 VM 的“连接”按钮在门户中灰显，且未通过 [Express Route](../../expressroute/expressroute-introduction.md) 或[站点到站点 VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 连接连接到 Azure，则必须先为 VM 创建并分配一个公共 IP 地址，然后才能使用 RDP。有关详细信息，请参阅 [Azure 中的公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)。
 > 
 > 
 
@@ -118,7 +116,7 @@ ms.author: iainfou
 以下示例使用 `myResourceGroup`、`myVM` 和 `myVMAccessExtension` 等变量。请将这些变量名称和位置替换为自己的值。
 
 > [!NOTE]
-可以使用 [Set-AzureRmVMAccessExtension PowerShell](https://msdn.microsoft.com/zh-cn/library/mt619447.aspx) cmdlet 重置用户凭据和 RDP 配置。在以下示例中，`myVMAccessExtension` 是在重置过程中指定的名称。如果以前使用过 VMAccessAgent，可以使用 `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` 检查 VM 的属性，从而获取现有的扩展名称。若要查看名称，请查看输出的“Extensions”节中的内容。
+> 可以使用 [Set-AzureRmVMAccessExtension PowerShell](https://msdn.microsoft.com/zh-cn/library/mt619447.aspx) cmdlet 重置用户凭据和 RDP 配置。在以下示例中，`myVMAccessExtension` 是在重置过程中指定的名称。如果以前使用过 VMAccessAgent，可以使用 `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` 检查 VM 的属性，从而获取现有的扩展名称。若要查看名称，请查看输出的“Extensions”节中的内容。
 > 
 > 
 
@@ -256,8 +254,8 @@ ms.author: iainfou
 如果未发生上述任何错误但仍无法通过远程桌面连接到 VM，请阅读详细的[远程桌面故障排除指南](detailed-troubleshoot-rdp.md)。
 
 * [Azure IaaS (Windows) 诊断程序包](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
-* 有关排查访问 VM 上运行的应用程序时遇到的问题的步骤，请参阅 [Troubleshoot access to an application running on an Azure VM](../linux/troubleshoot-app-connection.md)（排查访问 Azure VM 上运行的应用程序时遇到的问题）。
-* 如果在 Azure 中使用安全外壳 (SSH) 连接到 Linux VM 时遇到问题，请参阅 [Troubleshoot SSH connections to a Linux VM in Azure](../linux/troubleshoot-ssh-connection.md)（排查 Azure 中 Linux VM 的 SSH 连接问题）。
+* 有关排查访问 VM 上运行的应用程序时遇到的问题的步骤，请参阅[排查访问 Azure VM 上运行的应用程序时遇到的问题](../linux/troubleshoot-app-connection.md)。
+* 如果在 Azure 中使用安全外壳 (SSH) 连接到 Linux VM 时遇到问题，请参阅[排查 Azure 中 Linux VM 的 SSH 连接问题](../linux/troubleshoot-ssh-connection.md)。
 
 <!---HONumber=Mooncake_0313_2017-->
 <!--Update_Description: wording update-->

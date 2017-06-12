@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/14/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: ff16f1e2766eaf0d733d5eac15cdacd61d1706b0
@@ -40,9 +40,9 @@ ms.lasthandoff: 04/28/2017
 
 > [!NOTE]
 > 使用 cURL 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须提供 HDInsight 群集管理员的用户名和密码以对请求进行身份验证。
-> <p>
+>
 > 对本部分中的所有命令，请将 **USERNAME**替换为在群集上进行身份验证的用户，并将 **PASSWORD** 替换为用户帐户的密码。 将 **CLUSTERNAME** 替换为群集名称。
-> <p>
+>
 > REST API 通过 [基本身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 为了有助于确保将凭据安全地发送到服务器，应始终使用安全 HTTP (HTTPS) 发出请求。
 
 1. 在命令行中，使用以下命令验证你是否可以连接到 HDInsight 群集。
@@ -90,7 +90,7 @@ ms.lasthandoff: 04/28/2017
 
         > [!NOTE]
         > 如果希望通过外部源更新基础数据，应使用外部表。 例如，使用自动化数据上传过程或其他 MapReduce 操作。
-        > <p>
+        >
         > 删除外部表**不会**删除数据，只会删除表定义。
 
     * **ROW FORMAT** - 如何设置数据的格式。 每个日志中的字段都用空格分隔。
@@ -172,7 +172,7 @@ ms.lasthandoff: 04/28/2017
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: /azure/hdinsight-connect-excel-power-query/
+[import-to-excel]: /hdinsight/hdinsight-connect-excel-power-query/
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md

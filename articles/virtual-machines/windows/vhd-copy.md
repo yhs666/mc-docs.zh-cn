@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 wacn.date: 
-ms.author: cynthn
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: d44c30d52ca51beb734f623ab44d55b4006e9ebb
@@ -27,8 +27,8 @@ ms.lasthandoff: 05/05/2017
 # <a name="create-a-copy-of-a-specialized-windows-vm-running-in-azure"></a>为 Azure 中运行的专用 Windows VM 创建副本
 本文说明如何使用 AZCopy 工具从 Azure 中运行的专用 Windows VM 创建 VHD 副本。 然后可以使用 VHD 的副本创建新的 VM。 
 
-* 如果要复制一般化 VM，请参阅[如何从现有一般化 Azure VM 创建 VM 映像](capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
-* 如果想要从本地 VM（例如，使用 Hyper-V 创建的 VM）上载 VHD，请参阅 [Upload a Windows VHD from an on-premises VM to Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（将 Windows VHD 从本地 VM 上载到 Azure）。
+* 如果要复制一般化 VM，请参阅[如何从现有一般化 Azure VM 创建 VM 映像](capture-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 如果想要从本地 VM（例如，使用 Hyper-V 创建的 VM）上载 VHD，请参阅 [Upload a Windows VHD from an on-premises VM to Azure](upload-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（将 Windows VHD 从本地 VM 上载到 Azure）。
 
 ## <a name="before-you-begin"></a>开始之前
 请确保：
@@ -50,13 +50,13 @@ Azure 门户预览中该 VM 的“状态”将从“已停止”更改为“已�
 
 可以使用 Azure 门户预览或 Azure PowerShell 获取 URL：
 
-* **门户**：单击“更多服务” > “存储帐户” > <storage account>“Blob”，源 VHD 文件可能在 **vhd** 容器中。 单击容器的“属性”并复制标记为 **URL** 的文本。 你将需要用到源和目标容器的 URL。 
+* **门户**：单击“更多服务” > “存储帐户” > “Blob”，源 VHD 文件可能在 **vhd** 容器中。 单击容器的“属性”并复制标记为 **URL** 的文本。 你将需要用到源和目标容器的 URL。 
 * **Powershell**：使用 `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` 可获取资源组 **myResourceGroup** 中名为 **myVM** 的 VM 的信息。 在结果中，查看 **Vhd Uri** 的 **Storage profile** 部分。 URI 的第一部分是容器的 URL，最后一部分是 VM 的 OS VHD 名称。
 
 ## <a name="get-the-storage-access-keys"></a>获取存储访问密钥
 查找源和目标存储帐户的访问密钥。 有关访问密钥的详细信息，请参阅[关于 Azure 存储帐户](../../storage/storage-create-storage-account.md)。
 
-* **门户**：单击“更多服务” > “存储帐户” > <storage account>“所有设置” > “访问密钥”。 复制标记为 **key1** 的密钥。
+* **门户**：单击“更多服务” > “存储帐户” > “所有设置” > “访问密钥”。 复制标记为 **key1** 的密钥。
 * **Powershell**：使用 `Get-AzureRmStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup` 可获取资源组 **myResourceGroup** 中存储帐户 **mystorageaccount** 的存储密钥。 复制标记为 **key1** 的密钥。
 
 ## <a name="copy-the-vhd"></a>复制 VHD
@@ -98,5 +98,5 @@ Elapsed time:            00.00:13:07
 * 使用 AZCopy 时，如果看到错误“服务器无法对请求进行身份验证”，请确保授权标头的值构成正确（包括签名）。 如果使用的是密钥 2 或辅助存储密钥，则请尝试使用主密钥或第一个存储密钥。
 
 ## <a name="next-steps"></a>后续步骤
-* 可通过[将 VHD 的副本作为 OS 磁盘附加到 VM](create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 创建新 VM。
+* 可通过[将 VHD 的副本作为 OS 磁盘附加到 VM](create-vm-specialized.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 创建新 VM。
 

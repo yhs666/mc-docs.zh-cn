@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/28/2017
 wacn.date: 
-ms.author: nepeters
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: a2084798dc02ec48962e8f31cfcc70d04ed399fa
@@ -33,6 +33,8 @@ ms.lasthandoff: 05/05/2017
 ## <a name="step-1---log-in-to-azure"></a>步骤 1 - 登录 Azure
 
 首先，使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令打开终端并登录 Azure 订阅。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
 az login
@@ -75,7 +77,7 @@ runcmd:
 
 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 命令创建虚拟机。 
 
-创建虚拟机时，可使用多个选项，例如操作系统映像、磁盘大小调整和管理凭据。 在此示例中，创建了一个名为 `myVM` 的运行 Ubuntu 的虚拟机。 使用 `--data-disk-sizes-gb` 参数创建了一个 50 GB 的磁盘并将其附加到了 VM。 `--custom-data` 参数接受 cloud-init 配置，并将其暂存在 VM 上。 最后，如果不存在 SSH 密钥，则会进行创建。
+创建虚拟机时，可使用多个选项，例如操作系统映像、磁盘大小调整和管理凭据。 在此示例中，创建了一个名为 `myVM` 的运行 Ubuntu 的虚拟机。`--custom-data` 参数接受 cloud-init 配置，并将其暂存在 VM 上。 最后，如果不存在 SSH 密钥，则会进行创建。
 
 ```azurecli
 az vm create \
@@ -83,7 +85,7 @@ az vm create \
   --name myVM \
   --image Canonical:UbuntuServer:14.04.3-LTS:latest \
   --generate-ssh-keys \
-  --data-disk-sizes-gb 50 \
+  --use-unmanaged-disk \
   --custom-data cloud-init.txt
 ```
 
@@ -122,75 +124,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ![NGINX 默认站点](./media/tutorial-manage-vm/nginx.png)  
 
-## <a name="step-6---snapshot-virtual-machine"></a>步骤 6 - 虚拟机快照
-
-拍摄磁盘快照可创建磁盘的只读时间点副本。 在此步骤中，将拍摄 VM 操作系统磁盘的快照。 通过操作系统磁盘快照，可将虚拟机快速还原到特定状态，或者可使用快照创建具有相同状态的新虚拟机。
-
-### <a name="create-snapshot"></a>创建快照
-
-创建快照前，需要磁盘 ID 或名称。 使用 [az vm show](https://docs.microsoft.com/cli/azure/vm#show) 命令获取磁盘 ID。 在此示例中，磁盘 ID 存储在变量中，将在稍后的步骤中用到。
-
-```azurecli
-osdiskid=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
-```
-
-获取磁盘 ID 后，使用以下命令可创建快照。
-
-```azurcli
-az snapshot create -g myResourceGroup --source "$osdiskid" --name osDisk-backup
-```
-
-### <a name="create-disk-from-snapshot"></a>从快照创建磁盘
-
-然后，可将此快照转换为可用于重新创建虚拟机的磁盘。
-
-```azurecli
-az disk create --resource-group myResourceGroup --name mySnapshotDisk --source osDisk-backup
-```
-
-### <a name="restore-virtual-machine-from-snapshot"></a>从快照还原虚拟机
-
-若要演示如何还原虚拟机，请删除现有虚拟机。 
-
-```azurecli
-az vm delete --resource-group myResourceGroup --name myVM
-```
-
-重新创建虚拟机时，将重新使用现有网络接口。 这可确保保留网络安全配置。
-
-使用 [az network nic list](https://docs.microsoft.com/cli/azure/network/nic#list) 命令获取网络接口名称。 此示例将名称放在名为 `nic` 的变量中，将在下一步中使用该变量。
-
-```azurecli
-nic=$(az network nic list --resource-group myResourceGroup --query "[].[name]" -o tsv)
-```
-
-从快照磁盘创建新虚拟机。
-
-```azurecli
-az vm create --resource-group myResourceGroup --name myVM --attach-os-disk mySnapshotDisk --os-type linux --nics $nic
-```
-
-记下新的公共 IP 地址，并使用 Internet 浏览器浏览到该地址。 将看到 NGINX 正在还原的虚拟机中运行。 
-
-### <a name="reconfigure-data-disk"></a>重新配置数据磁盘
-
-现可将数据磁盘重新附加到虚拟机。 
-
-先使用 [az disk list](https://docs.microsoft.com/cli/azure/disk#list) 命令找到数据磁盘名称。 此示例将磁盘名称放在名为 `datadisk` 的变量中，将在下一步中使用该变量。
-
-```azurecli
-datadisk=$(az disk list -g myResourceGroup --query "[?contains(name,'myVM')].[name]" -o tsv)
-```
-
-使用 [ az vm disk attach ](https://docs.microsoft.com/cli/azure/vm/disk#attach) 命令附加磁盘。
-
-```azurecli
-az vm disk attach -g myResourceGroup --vm-name myVM --disk $datadisk
-```
-
-还需将磁盘安装到操作系统。 若要安装磁盘，请连接虚拟机并运行 `sudo mount /dev/sdc1 /datadrive`，或使用首选磁盘安装操作。 
-
-## <a name="step-7---management-tasks"></a>步骤 7 - 管理任务
+## <a name="step-7---management-tasks"></a>步骤 6 - 管理任务
 
 在虚拟机生命周期中，你可能需要运行管理任务，例如启动、停止或删除虚拟机。 此外，可能还需要创建脚本来自动执行重复或复杂的任务。 使用 Azure CLI，可从命令行或脚本运行许多常见的管理任务。 
 
@@ -239,4 +173,4 @@ az group delete --name myResourceGroup
 ## <a name="next-steps"></a>后续步骤
 本教程使用单个 Azure 资源创建单个虚拟机。 下一个教程基于这些概念，创建高度可用的应用程序，这些应用程序负载均衡且具有针对维护事件的弹性。 继续学习下一个教程 - [在 Azure 中的 Linux 虚拟机上生成负载均衡的高可用性应用程序](tutorial-load-balance-nodejs.md)。
 
-示例 - [Azure CLI 示例脚本](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+示例 - [Azure CLI 示例脚本](../windows/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

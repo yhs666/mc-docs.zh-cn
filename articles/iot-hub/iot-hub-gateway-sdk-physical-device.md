@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
-ms.author: andbuc
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 6fa7757d815840f2c6d8c6a816b1bf2733f90c0f
@@ -228,7 +228,7 @@ BLE 模块通过 BlueZ 堆栈与蓝牙硬件通信。 需要 BlueZ 5.37 版才�
 ### <a name="configure-two-sample-devices-in-your-iot-hub"></a>在 IoT 中心中配置两个示例设备
 
 * 若要在 Azure 订阅中[创建 IoT 中心][lnk-create-hub]，需要使用中心的名称来完成本演练。 如果没有帐户，只需几分钟即可创建一个[免费帐户][lnk-free-trial]。
-* 将名为 **SensorTag_01** 的设备添加到 IoT 中心，记下其 ID 和设备密钥。 可使用[设备资源管理器或 iothub-explorer][lnk-explorer-tools] 工具将此设备添加至上一步中创建的 IoT 中心，然后检索其密钥。 配置网关时，可将此设备映射到 SensorTag 设备。
+* 将名为 **SensorTag_01** 的设备添加到 IoT 中心，记下其 ID 和设备密钥。 可使用设备资源管理器或 iothub-explorer 工具将此设备添加至上一步中创建的 IoT 中心，然后检索其密钥。 配置网关时，可将此设备映射到 SensorTag 设备。
 
 ### <a name="build-azure-iot-edge-on-your-raspberry-pi-3"></a>在 Raspberry Pi 3 上生成 Azure IoT Edge
 
@@ -513,7 +513,7 @@ BLE 模块还支持从 IoT 中心向设备发送命令。 可使用[设备资源
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/iot-edge/tree/master/samples/ble_gateway
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
-[lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
+
 [lnk-sdk]: https://github.com/Azure/iot-edge/
 [lnk-noobs]: https://www.raspberrypi.org/documentation/installation/noobs.md
 [lnk-raspbian]: https://www.raspberrypi.org/downloads/raspbian/

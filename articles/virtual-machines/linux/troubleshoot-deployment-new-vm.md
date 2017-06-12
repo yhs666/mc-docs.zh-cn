@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2016
 wacn.date: 02/20/2017
-ms.author: cjiang
+ms.author: v-dazen
 ---
 
 # 排查在 Azure 中创建新 Linux 虚拟机时遇到的 Resource Manager 部署问题

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 04/10/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 #动态加密：配置内容密钥授权策略

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 wacn.date: 12/26/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # 使用 C# 监视和管理弹性数据库池 
@@ -108,7 +108,7 @@ newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "s
 ## 其他资源
 
 - [SQL 数据库客户端应用程序的 SQL 错误代码：数据库连接错误和其他问题](./sql-database-develop-error-messages.md)。
-- [SQL 数据库](./index.md)
+- [SQL 数据库](./index.yml)
 - [Azure 资源管理 API](https://msdn.microsoft.com/zh-cn/library/azure/dn948464.aspx)
 - [使用 C# 创建新的弹性数据库池](./sql-database-elastic-pool-create-csharp.md)
 - [何时使用弹性数据库池？](./sql-database-elastic-pool-guidance.md)

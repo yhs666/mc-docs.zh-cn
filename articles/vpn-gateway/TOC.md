@@ -1,7 +1,7 @@
 # 概述
 ## [关于 VPN 网关](vpn-gateway-about-vpngateways.md)
 ## [VPN 网关常见问题](vpn-gateway-vpn-faq.md)
-## [订阅和服务限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+## [订阅和服务限制](../azure-subscription-service-limits.md?toc=%2fvpn-gateway%2ftoc.json)
 
 # 入门
 ## [规划和设计 VPN 网关](vpn-gateway-plan-design.md)
@@ -28,7 +28,7 @@
 ## 在部署模型之间配置 VNet 到 VNet 连接
 ### [Azure 门户预览](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## [配置站点到站点与 ExpressRoute 共存连接](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+## [配置站点到站点与 ExpressRoute 共存连接](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fvpn-gateway%2ftoc.json)
 ## 配置强制隧道
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell（经典）](vpn-gateway-about-forced-tunneling.md)
@@ -56,14 +56,13 @@
 # 引用
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network)
 ## [PowerShell（经典）](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST](https://msdn.microsoft.com/library/mt163859)
+## [REST](https://docs.microsoft.com/zh-tw/rest/api/network/virtualnetworkgateways)
 ## [REST（经典）](https://msdn.microsoft.com/library/jj154113)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
 
 # 相关内容
 ## [虚拟网络](/virtual-network/)
 ## [应用程序网关](/application-gateway/)
-## [Azure DNS](/dns/)
 ## [流量管理器](/traffic-manager/)
 ## [负载均衡器](/load-balancer/)
 ## [ExpressRoute](/expressroute/)

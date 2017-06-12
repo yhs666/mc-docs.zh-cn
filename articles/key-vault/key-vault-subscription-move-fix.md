@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 wacn.date: 02/27/2017
-ms.author: ambapat
+ms.author: v-junlch
 ---
 
 # 订阅移动后更改密钥保管库租户 ID

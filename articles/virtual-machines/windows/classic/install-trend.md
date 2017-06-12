@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 6f6059c4331d76d3acdfadf1b545a9fc36545203
@@ -30,33 +30,23 @@ ms.lasthandoff: 05/05/2017
 
 本文演示了如何在运行 Windows Server 的新的或现有虚拟机 (VM) 上安装和配置 Trend Micro Deep Security 即服务。 Deep Security 即服务包括反恶意软件保护、防火墙、入侵防御系统和完整性监视。
 
-该客户端通过 VM 代理作为安全扩展插件进行安装。 在新虚拟机上安装 Deep Security Agent，因为 VM 代理由 Azure 门户预览自动创建。
-
-使用经典管理门户、Azure CLI 或 PowerShell 创建的现有 VM 可能没有 VM 代理。 对于未安装 VM 代理的现有虚拟机，需要先下载并安装 VM 代理。 本文介绍这两种情况。
+该客户端通过 VM 代理作为安全扩展插件进行安装。在新虚拟机上，可随 Deep Security Agent 一起安装 VM 代理。在未安装 VM 代理的现有虚拟机上，需要先下载并安装 VM 代理。本文介绍这两种情况。
 
 如果已经有针对本地解决方案的 Trend Micro 当前订阅，则可用它来帮助保护 Azure 虚拟机。 如果还不是客户，则可注册试用订阅。 有关此解决方案的详细信息，请参阅 Trend Micro 博客文章 [Azure VM Agent Extension For Deep Security](http://blog.trendmicro.com/microsoft-azure-vm-agent-extension-for-deep-security/)（用于 Deep Security 的 Azure VM 代理扩展）。
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>在新 VM 上安装 Deep Security Agent
 
-<!-- old portal [Azure Classic Management Portal](http://manage.windowsazure.cn) -->
+使用“从库中”选项创建虚拟机时，[Azure 经典管理门户](http://manage.windowsazure.cn)允许安装 VM 代理和 Trend Micro 安全扩展插件。如果要创建的是单个虚拟机，则可通过此门户轻松地添加来自 Trend Micro 的保护。
 
-使用**应用商店**中的映像创建虚拟机时，[Azure 门户预览](http://portal.azure.cn)允许安装 Trend Micro 安全扩展。 如果要创建的是单个虚拟机，则可通过此门户轻松地添加来自 Trend Micro 的保护。
+此**“从库中”**选项会打开帮助你设置虚拟机的向导。该向导的最后一页用于安装 VM 代理和 Trend Micro 安全扩展插件。有关常规说明，请参阅[在 Azure 经典管理门户中创建运行 Windows 的虚拟机](tutorial.md)。进入向导的最后一页时，请执行以下操作：
 
-使用**应用商店**中的某个条目会打开一个向导，帮助用户设置虚拟机。 使用该向导的第三个面板“设置”边栏选项卡安装 Trend Micro 安全扩展。  有关常规说明，请参阅[在 Azure 门户预览中创建运行 Windows 的虚拟机](tutorial.md)。
+1. 在“VM 代理”下，选中“安装 VM 代理”。
 
-进入向导的“设置”边栏选项卡时，请执行以下步骤：
+2. 在“安全扩展插件”下，选中“Trend Micro Deep Security Agent”。
 
-1. 单击“扩展”，然后在下一个窗格中单击“添加扩展”。
+    ![安装 VM 代理和 Deep Security Agent](../../media/virtual-machines-windows-classic-install-trend/InstallVMAgentandTrend.png)  
 
-   ![开始添加扩展][1]
-
-2. 在“新建资源”窗格中选择“Deep Security Agent”。 在 Deep Security Agent 窗格中，单击“创建”。
-
-   ![标识 Deep Security Agent][2]
-
-3. 为扩展输入“租户标识符”和“租户激活密码”。 （可选）可输入“安全策略标识符”。 然后，单击“确定”添加客户端。
-
-   ![提供扩展详细信息][3]
+3. 单击复选标记可创建虚拟机。
 
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>在现有 VM 上安装 Deep Security Agent
 若要在现有 VM 上安装代理，需要以下各项：
@@ -100,5 +90,5 @@ ms.lasthandoff: 05/05/2017
 
 <!-- Link references -->
 [如何登录到运行 Windows Server 的虚拟机]:connect-logon.md
-[Azure VM 扩展和功能]: /azure/virtual-machines/windows/extensions-features
+[Azure VM 扩展和功能]: /virtual-machines/windows/extensions-features
 

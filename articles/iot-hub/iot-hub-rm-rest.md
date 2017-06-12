@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2017
 wacn.date: 
-ms.author: dobett
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 219fb7ccffe772adf0207877c42c363e245b9b81
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/14/2017
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>介绍
-你可以通过编程方式使用 [IoT 中心资源提供程序 REST API][lnk-rest-api] 创建和管理 Azure IoT 中心。 本教程介绍如何使用 IoT 中心资源提供程序 REST API 通过 C# 程序创建 IoT 中心。
+你可以通过编程方式使用 IoT 中心资源提供程序 REST API 创建和管理 Azure IoT 中心。 本教程介绍如何使用 IoT 中心资源提供程序 REST API 通过 C# 程序创建 IoT 中心。
 
 > [!NOTE]
 > Azure 提供了用于创建和使用资源的两个不同部署模型：[Azure Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍了如何使用 Azure Resource Manager 部署模型。
@@ -77,7 +77,7 @@ ms.lasthandoff: 04/14/2017
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
 ## <a name="use-the-resource-provider-rest-api-to-create-an-iot-hub"></a>使用资源提供程序 REST API 创建 IoT 中心
-在资源组中使用 [IoT 中心资源提供程序 REST API][lnk-rest-api] 创建 IoT 中心。 还可使用资源提供程序 REST API 更改现有的 IoT 中心。
+在资源组中使用 IoT 中心资源提供程序 REST API 创建 IoT 中心。 还可使用资源提供程序 REST API 更改现有的 IoT 中心。
 
 1. 将以下方法添加到 Program.cs：
 
@@ -164,7 +164,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="next-steps"></a>后续步骤
 现已使用资源提供程序 REST API 部署了 IoT 中心，接下来可更进一步探索：
 
-- 阅读了解 [IoT 中心资源提供程序 REST API][lnk-rest-api]的相关功能。
+- 阅读了解 IoT 中心资源提供程序 REST API的相关功能。
 - 有关 Azure Resource Manager 功能的详细信息，请参阅 [Azure Resource Manager 概述][lnk-azure-rm-overview] 。
 
 若要详细了解如何开发 IoT 中心，请参阅以下文章：
@@ -181,7 +181,6 @@ ms.lasthandoff: 04/14/2017
 [lnk-azure-portal]: https://portal.azure.cn/
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
-[lnk-rest-api]: https://msdn.microsoft.com/zh-cn/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md

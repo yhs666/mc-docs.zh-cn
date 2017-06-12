@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 wacn.date: 03/10/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # 使用 REST 管理媒体服务实体 

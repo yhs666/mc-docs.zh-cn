@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2017
 wacn.date: 03/10/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 从远程桌面连接运行 Pig 作业
@@ -25,7 +25,7 @@ ms.author: larryfr
 本文档演练了如何使用 Pig 命令从到基于 Windows 的 HDInsight 群集的远程桌面连接运行 Pig Latin 语句。Pig Latin 允许通过描述数据转换创建 MapReduce 应用程序，而不是创建映射和化简函数。
 
 > [!IMPORTANT]
-远程桌面只能在使用 Windows 作为操作系统的 HDInsight 群集上使用。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> 远程桌面只能在使用 Windows 作为操作系统的 HDInsight 群集上使用。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 >
 > 有关 HDInsight 3.4 或更高版本，请参阅[将 Pig 与 HDInsight 和 SSH 配合使用](./hdinsight-hadoop-use-pig-ssh.md)，了解如何通过命令行直接在群集上以交互方式运行 Pig 作业。
 
@@ -91,7 +91,7 @@ ms.author: larryfr
     ```
 
     > [!NOTE]
-    数据将存储到文件中名为 **part-nnnnn** 的指定目录。如果该目录已存在，你将收到错误消息。
+    > 数据将存储到文件中名为 **part-nnnnn** 的指定目录。如果该目录已存在，你将收到错误消息。
     >
     >
 7. 若要退出 grunt 提示符，请输入以下语句。

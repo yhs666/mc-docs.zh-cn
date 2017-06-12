@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 wacn.date: 
-ms.author: cfowler
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 522784739f33102805dbf10e91ac387f06591294
@@ -189,7 +189,7 @@ http://<app_name>.chinacloudsites.cn
 
 ## <a name="configure-to-use-python"></a>配置为使用 Python
 
-使用 [az appservice web config update](https://docs.microsoft.com/cli/azure/app-service-web/config#update) 命令将 Web 应用配置为使用 Python 版本 `7.0.x`。
+使用 [az appservice web config update](https://docs.microsoft.com/cli/azure/app-service/web/config#update) 命令将 Web 应用配置为使用 Python 版本 `7.0.x`。
 
 > [!TIP]
 > 以这种方式设置 Python 版本会使用平台提供的默认容器。如果你想要使用自己的容器，请参阅 [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) 命令的 CLI 参考文章。

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 wacn.date: 12/20/2016
-ms.author: drewm
+ms.author: v-dazen
 ---
 
 # 调整在经典部署模型中创建的 Windows VM 的大小

@@ -15,7 +15,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 02/25/2016
 wacn.date: 
-ms.author: v-donntr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 9e2d728001e94284bb9d9cde84561e719bd1a2ed
@@ -211,7 +211,7 @@ AzureWebDemo 应用程序的目的是创建应用服务 Web 应用，因此请�
 * `webSpaceName` 应是 [WebSpaceNames][WebSpaceNames] 类中定义的值之一。
 * `appServicePlanName` 应按照以上所示进行指定。
 
-> **注意：**每次运行此应用程序时，需要更改 `webAppName` 和 `appServicePlanName` 的值（或在 Azure 门户上删除 Web 应用），然后再次运行应用程序。 否则，由于 Azure 上已存在相同的资源，所以执行会失败。
+> **注意：**每次运行此应用程序时，需要更改 `webAppName` 和 `appServicePlanName` 的值（或在 Azure 门户预览上删除 Web 应用），然后再次运行应用程序。 否则，由于 Azure 上已存在相同的资源，所以执行会失败。
 > 
 > 
 
@@ -465,7 +465,7 @@ JSPHello.war 自身首先会显示在目录区域中：
 可用于发布应用程序的另一个工具是 FileZilla，这是一个带有便捷式图形 UI 的常用第三方 FTP 客户端。 如果尚未安装，则可从 [http://filezilla-project.org/](http://filezilla-project.org/) 中下载并安装 FileZilla。 有关使用客户端的详细信息，请参阅 [FileZilla 文档](https://wiki.filezilla-project.org/Documentation) 和 [FTP Clients - Part 4: FileZilla](http://blogs.msdn.com/b/robert_mcmurray/archive/2008/12/17/ftp-clients-part-4-filezilla.aspx)（FTP 客户端 - 第 4 部分：FileZilla）上的此博客条目。
 
 1. 在 FileZilla 中，单击“文件”>“站点管理员”。
-2. 在“站点管理员”对话框中，单击“新建站点”。 随后，“选择条目”中会出现新的空白 FTP 站点，提示你提供名称。 `AzureWebDemo-FTP`。
+2. 在“站点管理员”对话框中，单击“新建站点”。 随后，“选择条目”中会出现新的空白 FTP 站点，提示你提供名称。对于此过程，请将它命名为 `AzureWebDemo-FTP`。
 
     在“常规”选项卡上指定以下设置：
 

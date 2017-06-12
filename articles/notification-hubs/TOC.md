@@ -52,12 +52,12 @@
 ### [诊断指南](notification-hubs-push-notification-fixer.md)
 
 # 参考
-## [PowerShell](/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs)
-## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
-## [REST](/rest/api/notificationhubs)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs)
+## [REST](https://docs.microsoft.com/rest/api/notificationhubs)
 
 # 资源
-## [价格](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [价格](https://www.azure.cn/pricing/details/notification-hubs/)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-notificationhub)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)

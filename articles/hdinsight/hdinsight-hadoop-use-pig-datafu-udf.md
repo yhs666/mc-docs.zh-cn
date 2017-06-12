@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/04/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 73b5a9e6b1be4f3e7497af3d5f59277db8450c54
@@ -45,7 +45,7 @@ ms.lasthandoff: 05/26/2017
 
 > [!NOTE]
 > DataFu 将安装在基于 Linux 的群集 3.3 版和更高版本上，以及基于 Windows 的群集上。 它不会安装在早于 3.3 版的基于 Linux 的群集上。
-> <p>
+>
 > 如果使用的是基于 Linux 的群集 3.3 版或更高版本或者基于 Windows 的群集，则可以跳过本部分。
 
 可以从 Maven 存储库下载和安装 DataFu。 使用以下步骤将 DataFu 添加到 HDInsight 群集：
@@ -73,9 +73,9 @@ ms.lasthandoff: 05/26/2017
 
 > [!IMPORTANT]
 > 在基于 Linux 的 HDInsight 群集上通过 Pig 使用 DataFu 时，必须先注册 jar 文件。
-> <p>
+>
 > 如果群集使用 Azure 存储，请使用 `wasb://` 路径。 例如，`register wasb:///example/jars/datafu-1.2.0.jar`。
-> <p>
+>
 > 默认情况下，会在基于 Windows 的 HDInsight 群集上注册 DataFu。
 
 通常，将为 DataFu 函数定义别名。 例如：

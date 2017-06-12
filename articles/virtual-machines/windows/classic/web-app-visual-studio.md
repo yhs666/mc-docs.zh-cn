@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2016
 wacn.date: 01/25/2017
-ms.author: tarcher
+ms.author: v-dazen
 ---
 
 # 使用 Visual Studio 创建用于Web 应用程序的虚拟机

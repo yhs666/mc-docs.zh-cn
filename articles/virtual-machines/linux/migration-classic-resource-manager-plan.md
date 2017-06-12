@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 wacn.date: 
-ms.author: kasing
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 8c27617c36ee6a7965b993d100f3dcce6d412b8b
@@ -43,7 +43,7 @@ ms.lasthandoff: 05/05/2017
 1. 为什么组织需要 Azure Resource Manager？  迁移的业务原因有哪些？
 2. Azure Resource Manager 的技术原因有哪些？  想要利用其他哪些 Azure 服务（如果有）？
 3. 迁移包括哪些应用程序（或虚拟机集）？
-4. 迁移 API 支持哪些方案？  请参阅[不支持的功能和配置](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations)。
+4. 迁移 API 支持哪些方案？  请参阅[不支持的功能和配置](migration-classic-resource-manager-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations)。
 5. 运营团队目前是否支持经典部署模型和 Azure Resource Manager 中的应用程序/VM？
 6. Azure Resource Manager 如何更改 VM 部署、管理、监视和报告过程（如果有）？  部署脚本是否需要更新？
 7. 用于提醒利益干系人（最终用户、应用程序所有者和基础结构所有者）的通信计划有哪些？
@@ -56,26 +56,26 @@ ms.lasthandoff: 05/05/2017
 
 成功的客户采用详尽的计划，其中会讨论、记录并控制上述问题。  确保与发起人和利益干系人就迁移计划进行广泛交流。  使用迁移选项的知识武装自身，强烈建议浏览下面的迁移文档集。
 
-* [平台支持的从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移概述](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [规划从经典部署模型到 Azure Resource Manager 的 IaaS 资源迁移](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [使用 PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [使用 CLI 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager](migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [用于帮助将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型的社区工具](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [查看最常见的迁移错误](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [查看有关将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型的最常见问题](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [平台支持的从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移概述](migration-classic-resource-manager-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](migration-classic-resource-manager-deep-dive.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [规划从经典部署模型到 Azure Resource Manager 的 IaaS 资源迁移](migration-classic-resource-manager-plan.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+* [使用 CLI 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager](migration-classic-resource-manager-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [用于帮助将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型的社区工具](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+* [查看最常见的迁移错误](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [查看有关将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型的最常见问题](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="pitfalls-to-avoid"></a>需避免的错误
 
 - 未能规划。  该迁移的技术步骤证实是非常有效的，且结果是可预测的。
-- 平台支持的迁移 API 将适用于所有方案的假设。 请参阅[不受支持的功能和配置](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations)，了解支持的方案有哪些。
+- 平台支持的迁移 API 将适用于所有方案的假设。 请参阅[不受支持的功能和配置](migration-classic-resource-manager-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations)，了解支持的方案有哪些。
 - 未针对最终用户规划可能的应用程序故障。  计划足够的缓冲区来充分警告最终用户可能不可用的应用程序时间。
 
 ## <a name="lab-test"></a>实验室测试 
 
 **复制环境并执行测试迁移**
   > [!NOTE]
-  > 使用社区贡献的、Microsoft 支持部门尚不正式支持的工具按原样复制现有环境。 因此，它是**可选**步骤，但它是无需接触生产环境即可找到问题的最佳办法。 如果不能使用社区提供的工具，请阅读下面的验证/准备/中止试运行建议。
+  > 使用社区贡献的、Azure.cn 支持部门尚不正式支持的工具按原样复制现有环境。 因此，它是**可选**步骤，但它是无需接触生产环境即可找到问题的最佳办法。 如果不能使用社区提供的工具，请阅读下面的验证/准备/中止试运行建议。
   >
 
   针对确切方案（计算、网络和存储）执行实验室测试是确保顺利迁移的最佳办法。 这有助于确保：
@@ -87,7 +87,9 @@ ms.lasthandoff: 05/05/2017
 
 ### <a name="patterns-of-success"></a>成功模式
 
-下面是在许多大型迁移中发现的问题。 这个列表并不详尽，有关详细信息，请参阅[不支持的功能和配置](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations)。 你不一定会遇到这些技术问题，但如果遇到，在尝试迁移前先解决这些问题可确保体验更流畅。
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
+下面是在许多大型迁移中发现的问题。 这个列表并不详尽，有关详细信息，请参阅[不支持的功能和配置](migration-classic-resource-manager-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations)。 你不一定会遇到这些技术问题，但如果遇到，在尝试迁移前先解决这些问题可确保体验更流畅。
 
 - **执行验证/准备/中止试运行** - 这可能是确保经典部署模型成功迁移到 Azure Resource Manager 部署模型最重要的步骤。 迁移 API 包括三个主要步骤：验证、准备和提交。 验证将读取经典环境的状态并返回所有问题的结果。 但是，由于某些问题可能存在于 Azure Resource Manager 堆栈中，因此验证并不会捕获所有内容。 作为迁移过程下一步的“准备”有助于公开这些问题。 “准备”会将元数据从经典部署模型移动到 Azure Resource Manager 部署模型，但不会提交移动，且不会删除或更改经典部署模型端的任何内容。 试运行涉及准备迁移，然后中止（**而不是提交**）迁移准备。 验证/准备/中止试运行的目标是查看 Azure Resource Manager 堆栈中的所有元数据，对其进行检查（以编程方式或在门户中），然后验证所有内容是否正确迁移以及解决技术问题。  它还可让你对迁移持续时间有一些认识，以便可以相应地规划停机时间。  验证/准备/中止操作不会导致任何用户停机时间：因此，它对应用程序使用不具有破坏性。
   - 以下各项需要在试运行前解决，但如果错过了，试运行测试也会安全刷新这些准备步骤。 企业迁移期间，我们发现试运行是确保迁移准备就绪的安全且重要的方法。
@@ -171,7 +173,7 @@ ms.lasthandoff: 05/05/2017
 
 ### <a name="patterns-of-success"></a>成功模式
 
-实际迁移前，应考虑和缓解上面的“实验室测试”部分中的技术指南。  通过充分测试，实际上迁移不属于事件。  对于生产环境，具有其他支持，如受信任的 Microsoft 合作伙伴或 Microsoft 高级服务等会很有帮助。
+实际迁移前，应考虑和缓解上面的“实验室测试”部分中的技术指南。  通过充分测试，实际上迁移不属于事件。  对于生产环境，具有其他支持，如受信任的 Azure.cn 合作伙伴或 Azure.cn 高级服务等会很有帮助。
 
 ### <a name="pitfalls-to-avoid"></a>需避免的错误
 
@@ -185,7 +187,7 @@ ms.lasthandoff: 05/05/2017
 
 注意事项：
 
-- 将迁移与其他活动绑定。  大多数客户倾向于应用程序维护时段。  如果是这样，你可能需要利用该停机时间启用加密和迁移到托管磁盘等其他 Azure Resource Manager 功能。
+- 将迁移与其他活动绑定。  大多数客户倾向于应用程序维护时段。  如果是这样，你可能需要利用该停机时间启用加密和迁移到其他 Azure Resource Manager 功能。
 - 再次浏览 Azure Resource Manager 的技术和业务原因；启用仅在应用于环境的 Azure Resource Manager 上适用的其他服务。
 - 使用 PaaS 服务实现环境现代化。
 
@@ -205,10 +207,10 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-* [平台支持的从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移概述](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [规划从经典部署模型到 Azure Resource Manager 的 IaaS 资源迁移](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [使用 PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [用于帮助将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型的社区工具](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [查看最常见的迁移错误](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [查看有关将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型的最常见问题](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [平台支持的从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移概述](migration-classic-resource-manager-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](migration-classic-resource-manager-deep-dive.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [规划从经典部署模型到 Azure Resource Manager 的 IaaS 资源迁移](migration-classic-resource-manager-plan.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+* [用于帮助将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型的社区工具](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+* [查看最常见的迁移错误](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [查看有关将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型的最常见问题](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

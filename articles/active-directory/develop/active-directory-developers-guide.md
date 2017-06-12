@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/09/2016
 wacn.date: 01/05/2017
-ms.author: mbaldwin
+ms.author: v-junlch
 ---
 
 # Azure Active Directory 开发人员指南

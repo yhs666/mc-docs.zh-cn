@@ -16,7 +16,7 @@ ms.workload: required
 ms.date: 01/10/2017
 wacn.date: 03/01/2017
 ms.devlang: na
-ms.author: delhan
+ms.author: v-dazen
 ---
 
 # 排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的经典部署问题
@@ -27,7 +27,7 @@ ms.author: delhan
 在尝试启动已停止的 Azure 虚拟机 \(VM\)，或调整现有 Azure VM 的大小时，经常遇到的错误是分配失败。当群集或区域没有可用的资源或无法支持所请求的 VM 大小时，就会发生此错误。
 
 > [!IMPORTANT]
-Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。
+> Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。
 > 
 > 
 
@@ -53,7 +53,7 @@ Azure 具有两种不同的部署模型，用于创建和处理资源：[Resourc
 如果在尝试创建新的云服务时收到错误，请稍后再试一次，或更改云服务的区域。
 
 > [!IMPORTANT]
-新的云服务将有新的名称和 VIP，因此需要针对现有云服务中依赖于此信息的所有项目更改该信息。
+> 新的云服务将有新的名称和 VIP，因此需要针对现有云服务中依赖于此信息的所有项目更改该信息。
 > 
 > 
 

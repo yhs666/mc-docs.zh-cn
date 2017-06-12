@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -49,7 +49,7 @@ Adventure Works Cycles 想要在 Azure 中生成一个在线商店应用程序�
 
 * Azure 订阅和帐户
 * 单个资源组
-* Azure 托管磁盘
+* 存储帐户
 * 包含两个子网的虚拟网络
 * 具有类似角色的 VM 的可用性集
 * 虚拟机
@@ -58,6 +58,8 @@ Adventure Works Cycles 想要在 Azure 中生成一个在线商店应用程序�
 
 * Adventure Works Cycles 使用 **[IT 工作负荷]-[位置]-[Azure 资源]** 作为前缀
     * 在本示例中，IT 工作负荷名为 **azos**（Azure On-line Store，Azure 在线商店），位置为 **che**（China East，中国东部）
+* 存储帐户使用 adventureazoschesa**[描述]**
+    * 请注意，“adventure”已添加到前缀以确保唯一性，并且存储帐户名称不支持使用连字符。
 * 虚拟网络使用 AZOS-CHE-VN**[number]**
 * 可用性集使用 azos-che-as-**[role]**
 * 虚拟机名称使用 azos-che-vm-**[vmname]**
@@ -65,11 +67,12 @@ Adventure Works Cycles 想要在 Azure 中生成一个在线商店应用程序�
 ## <a name="azure-subscriptions-and-accounts"></a>Azure 订阅和帐户
 Adventure Works Cycles 使用名为 Adventure Works 企业订阅的企业订阅为此 IT 工作负荷提供计费。
 
-## <a name="storage"></a>存储
-Adventure Works Cycles 确定其应使用 Azure 托管磁盘。 创建 VM 时，会使用两种存储可用的存储层：
+## 存储帐户
 
-* **标准存储**用于 Web 服务器、应用程序服务器和域控制器及其数据磁盘。
-* 用于 MongoDB 分片群集服务器及其数据磁盘的**高级存储**。
+Adventure Works Cycles 确定他们需要以下两个存储帐户：
+
+- **adventureazoschesawebapp** 用于 Web 服务器、应用程序服务器、域控制器及其数据磁盘的标准存储。
+- **adventureazoschesadbclust** 用于 MongoDB 分片群集服务器及其数据磁盘的高级存储。
 
 ## <a name="virtual-network-and-subnets"></a>虚拟网络和子网
 由于虚拟网络不需要持续连接到 Adventure Work Cycles 本地网络，因此，他们决定选择仅限云的虚拟网络。
@@ -113,7 +116,7 @@ Adventure Works Cycles 决定为其 Azure VM 使用以下名称：
 此配置引入以下项：
 
 * 包含两个子网（FrontEnd 和 BackEnd）的仅限云虚拟网络
-* 同时使用标准磁盘和高级磁盘的 Azure 托管磁盘
+* 两个存储帐户
 * 四个可用性集，每个在线商店层一个
 * 四个层中的虚拟机
 * 用于从 Internet 到 Web 服务器的基于 HTTPS 的 Web 流量的外部负载均衡集

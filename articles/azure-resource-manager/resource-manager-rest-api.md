@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 wacn.date: 
-ms.author: navale;tomfitz;
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 1a0fcac4707bf00e4a205fb883957fae0b05ad35
@@ -102,7 +102,7 @@ Invoke-RestMethod -Uri https://login.chinacloudapi.cn/<Azure AD Tenant ID>/oauth
 
 ```HTTP
 GET /subscriptions?api-version=2015-01-01 HTTP/1.1
-Host: management.azure.com
+Host: management.chinacloudapi.cn
 Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 ```
@@ -135,7 +135,7 @@ Content-Type: application/json
 
 ```HTTP
 GET /subscriptions/SUBSCRIPTION_ID/resourcegroups?api-version=2015-01-01 HTTP/1.1
-Host: management.azure.com
+Host: management.chinacloudapi.cn
 Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 ```
@@ -177,7 +177,7 @@ Content-Type: application/json
 
 ```HTTP
 PUT /subscriptions/SUBSCRIPTION_ID/resourcegroups/RESOURCE_GROUP_NAME?api-version=2015-01-01 HTTP/1.1
-Host: management.azure.com
+Host: management.chinacloudapi.cn
 Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 
@@ -218,7 +218,7 @@ Content-Type: application/json
 
 ```HTTP
 PUT /subscriptions/SUBSCRIPTION_ID/resourcegroups/RESOURCE_GROUP_NAME/providers/microsoft.resources/deployments/DEPLOYMENT_NAME?api-version=2015-01-01 HTTP/1.1
-Host: management.azure.com
+Host: management.chinacloudapi.cn
 Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 
