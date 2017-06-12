@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 wacn.date: 
-ms.author: cynthn
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 194a9513fce8b042811d16dfb7373ac6a5b3d248
@@ -24,13 +24,13 @@ ms.lasthandoff: 04/14/2017
 
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-vm-in-the-azure-portal-preview"></a>如何在 Azure 门户预览中将数据磁盘附加到 Linux VM
-本文介绍如何通过 Azure 门户预览将新磁盘和现有磁盘附加到 Linux 虚拟机。 还可以[在 Azure 门户预览中将数据磁盘附加到 Windows VM](../windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+本文介绍如何通过 Azure 门户预览将新磁盘和现有磁盘附加到 Linux 虚拟机。 还可以[在 Azure 门户预览中将数据磁盘附加到 Windows VM](../windows/attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 将磁盘附加到 VM 前，请查看以下提示：
 
-* 虚拟机的大小决定了可以附加多少个磁盘。 有关详细信息，请参阅[虚拟机大小](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
-* 若要使用高级存储，需要一个 DS 系列或 FS 系列虚拟机。 可以将高级磁盘和标准磁盘用于这些虚拟机。 高级存储只在某些区域可用。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
-* 附加到虚拟机的磁盘实际上是存储在 Azure 中的 .vhd 文件。 有关详细信息，请参阅[关于虚拟机的磁盘和 VHD](../../storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+* 虚拟机的大小决定了可以附加多少个磁盘。 有关详细信息，请参阅[虚拟机大小](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+* 若要使用高级存储，需要一个 DS 系列或 FS 系列虚拟机。 可以将高级磁盘和标准磁盘用于这些虚拟机。 高级存储只在某些区域可用。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../storage/storage-premium-storage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+* 附加到虚拟机的磁盘实际上是存储在 Azure 中的 .vhd 文件。 有关详细信息，请参阅[关于虚拟机的磁盘和 VHD](../../storage/storage-about-disks-and-vhds-linux.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="find-the-virtual-machine"></a>查找虚拟机
 1. 登录 [Azure 门户预览](https://portal.azure.cn/)。

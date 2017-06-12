@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
-ms.author: xshi
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 72727d89e4199fa3aeb0ca11f0ffa1032ff27c3f
@@ -79,7 +79,7 @@ ms.lasthandoff: 05/05/2017
    ![创建 IoT 中心所需的基本信息](./media/iot-hub-sparkfun-thing-dev-get-started/4_iot-hub-provide-basic-info.png)
 
    * **名称**：IoT 中心的名称。 如果输入的名称有效，将显示一个绿色复选标记。
-   * **定价和缩放级别**：选择免费的 F1 级别对于本演示教程已足够。 请参阅[定价和缩放级别](/pricing/details/iot-hub/)。
+   * **定价和缩放级别**：选择免费的 F1 级别对于本演示教程已足够。 请参阅[定价和缩放级别](https://www.azure.cn/pricing/details/iot-hub)。
    * **资源组**：创建用于托管 IoT 中心的资源组，或使用现有的资源组。 请参阅[使用资源组管理 Azure 资源](../azure-resource-manager/resource-group-portal.md)。
    * **位置**：选择与创建的 IoT 中心最靠近的位置。
    * **固定仪表板**：选中此选项可以方便地从仪表板访问 IoT 中心。

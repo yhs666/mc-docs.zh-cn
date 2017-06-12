@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2017
 wacn.date: 03/03/2017
-ms.author: motanv;heeldin
+ms.author: v-johch
 ---
 
 # 可测试性操作

@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 wacn.date: 03/28/2017
-ms.author: danlep
+ms.author: v-dazen
 ---
 
 # 管理 Azure 的 HPC Pack 群集中计算节点的数量和可用性
 如果在 Azure VM 中创建了一个 HPC Pack 2012 R2 群集，可能需要有轻松添加、删除、启动（设置）或停止（取消设置）群集中一些计算节点 VM 的方法。若要执行这些任务，请运行头节点 VM 中安装的 Azure PowerShell 脚本。这些脚本可帮助你控制 HPC Pack 群集资源的数量和可用性，以便你可以控制成本。
 
 > [!IMPORTANT] 
-本文仅适用于 Azure 中使用经典部署模型创建的 HPC Pack 2012 R2 群集。Azure 建议大多数新部署使用 Resource Manager 模型。另外，本文中介绍的 PowerShell 脚本在 HPC Pack 2016 中不可用。
+> 本文仅适用于 Azure 中使用经典部署模型创建的 HPC Pack 2012 R2 群集。Azure 建议大多数新部署使用 Resource Manager 模型。另外，本文中介绍的 PowerShell 脚本在 HPC Pack 2016 中不可用。
 
 ## 先决条件
 * **Azure VM 中的 HPC Pack 2012 R2 群集**：在经典部署模型中创建 HPC Pack 2012 R2 群集。例如，可以通过使用 Azure 应用商店的 HPC Pack 2012 R2 VM 映像和 Azure PowerShell 脚本，自动化部署。有关信息和先决条件，请参阅[使用 HPC Pack IaaS 部署脚本创建 HPC 群集](hpcpack-cluster-powershell-script.md)。

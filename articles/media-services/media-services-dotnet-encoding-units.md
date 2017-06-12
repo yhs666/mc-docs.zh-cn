@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/10/2017
-ms.author: juliako;milangada;
+ms.author: v-johch
 ---
 
 #如何使用 .NET SDK 缩放编码

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 wacn.date: 11/21/2016
-ms.author: byvinyal
+ms.author: v-dazen
 ---
 
 # Azure 应用服务：缩放应用服务应用程序

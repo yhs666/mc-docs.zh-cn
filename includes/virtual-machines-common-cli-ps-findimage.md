@@ -68,7 +68,7 @@ az vm image show -l chinanorth -f debian -p credativ --skus 8 --version 8.0.2017
 ## Azure CLI 1.0 
 
 > [!NOTE]
-本文介绍如何使用安装的 Azure CLI 1.0 或 Azure PowerShell（支持 Azure Resource Manager 部署模型）来导航和选择虚拟机映像。首先，请切换到 Resource Manager 模式。使用 Azure CLI 时，键入 `azure config mode arm` 即可进入该模式。
+> 本文介绍如何使用安装的 Azure CLI 1.0 或 Azure PowerShell（支持 Azure Resource Manager 部署模型）来导航和选择虚拟机映像。首先，请切换到 Resource Manager 模式。使用 Azure CLI 时，键入 `azure config mode arm` 即可进入该模式。
 > 
 
 查找映像的最快速方式是调用 `azure vm image list` 命令，并传递位置、发布者名称（不区分大小写！）和产品/服务（如果知道）。例如，如果你知道“Canonical”是“UbuntuServer”产品的发布者，则以下列表只是简短的示例（许多列表相当长）。
@@ -193,7 +193,7 @@ info:    vm image list command OK
 
 ## <a name="powershell"></a> PowerShell
 > [!NOTE]
-下载并配置[最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。如果使用低于 1.0 版本的 Azure PowerShell 模块，则仍使用以下命令，但必须先执行 `Switch-AzureMode AzureResourceManager`。
+> 下载并配置[最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。如果使用低于 1.0 版本的 Azure PowerShell 模块，则仍使用以下命令，但必须先执行 `Switch-AzureMode AzureResourceManager`。
 > 
 > 
 

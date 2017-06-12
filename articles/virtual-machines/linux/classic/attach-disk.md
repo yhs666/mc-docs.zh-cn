@@ -16,17 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 wacn.date: 03/28/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 如何将数据磁盘附加到 Linux 虚拟机
 > [!IMPORTANT] 
-Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。请参阅如何[使用 Resource Manager 部署模型附加数据磁盘](../add-disk.md)。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。请参阅如何[使用 Resource Manager 部署模型附加数据磁盘](../add-disk.md)。
 
 可以将空磁盘和包含数据的磁盘附加到 Azure VM。这两种类型的磁盘是驻留在 Azure 存储帐户中的 .vhd 文件。与将任何磁盘添加到 Linux 计算机一样，附加磁盘之后需要将它初始化和格式化才可供使用。本文将详细说明如何附加空磁盘和附加包含数据的磁盘到 VM，以及初始化和格式化新磁盘的方法。
 
 > [!NOTE]
-最佳做法是使用一个或多个不同的磁盘来存储虚拟机的数据。在创建 Azure 虚拟机时，该虚拟机有一个操作系统磁盘和一个临时磁盘。**不要使用临时磁盘来存储持久性数据。** 顾名思义，它仅提供临时存储。它不提供冗余或备份，因为它不驻留在 Azure 存储中。临时磁盘通常由 Azure Linux 代理管理并且自动装载到 **/mnt/resource**（或 Ubuntu 映像上的 **/mnt**）。另一方面，数据磁盘可以由 Linux 内核命名为 `/dev/sdc` 这样的形式，而用户则需对该资源进行分区、格式化和安装。有关详细信息，请参阅 [Azure Linux 代理用户指南][Agent]。
+> 最佳做法是使用一个或多个不同的磁盘来存储虚拟机的数据。在创建 Azure 虚拟机时，该虚拟机有一个操作系统磁盘和一个临时磁盘。**不要使用临时磁盘来存储持久性数据。** 顾名思义，它仅提供临时存储。它不提供冗余或备份，因为它不驻留在 Azure 存储中。临时磁盘通常由 Azure Linux 代理管理并且自动装载到 **/mnt/resource**（或 Ubuntu 映像上的 **/mnt**）。另一方面，数据磁盘可以由 Linux 内核命名为 `/dev/sdc` 这样的形式，而用户则需对该资源进行分区、格式化和安装。有关详细信息，请参阅 [Azure Linux 代理用户指南][Agent]。
 > 
 > 
 
@@ -111,7 +111,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
     ![创建文件系统](./media/attach-disk/mkfsext4.png)  
 
     > [!NOTE]
-    对于 ext4 文件系统，SuSE Linux Enterprise 11 系统仅支持只读访问。对于这些系统，建议将新文件系统格式化为 ext3 而非 ext4。
+    > 对于 ext4 文件系统，SuSE Linux Enterprise 11 系统仅支持只读访问。对于这些系统，建议将新文件系统格式化为 ext3 而非 ext4。
 
 9. 创建一个目录来装载新的文件系统，如下所示：
 
@@ -146,7 +146,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
     ```
 
     > [!NOTE]
-    错误地编辑 **/etc/fstab** 文件可能会导致系统无法引导。如果没有把握，请参考分发的文档来获取有关如何正确编辑该文件的信息。另外，建议在编辑之前创建 /etc/fstab 文件的备份。
+    > 错误地编辑 **/etc/fstab** 文件可能会导致系统无法引导。如果没有把握，请参考分发的文档来获取有关如何正确编辑该文件的信息。另外，建议在编辑之前创建 /etc/fstab 文件的备份。
 
     接下来，请在文本编辑器中打开 **/etc/fstab** 文件：
 
@@ -167,7 +167,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
     ```
 
     > [!NOTE]
-    即使文件系统已损坏或磁盘在引导时不存在，`nofail` 选项也能确保 VM 启动。如果不使用此选项，可能会遇到 [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)（由于 FSTAB 错误而无法通过 SSH 连接到 Linux VM）中所述的行为。
+    > 即使文件系统已损坏或磁盘在引导时不存在，`nofail` 选项也能确保 VM 启动。如果不使用此选项，可能会遇到 [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)（由于 FSTAB 错误而无法通过 SSH 连接到 Linux VM）中所述的行为。
 
     现在，可以通过卸载并重新装载文件系统（即使用在之前的步骤中创建的示例装载点 `/datadrive`）来测试文件系统是否已正确装载：
 
@@ -185,7 +185,7 @@ Azure 提供两个不同的部署模型用于创建和处理资源：[Resource M
     ```
 
     > [!NOTE]
-    之后，在不编辑 fstab 的情况下删除数据磁盘可能会导致 VM 无法引导。如果这是一种常见情况，则请注意，大多数分发都提供了 `nofail` 和/或 `nobootwait` fstab 选项，这些选项使系统在磁盘无法装载的情况下也能引导。有关这些参数的详细信息，请查阅分发文档。
+    > 之后，在不编辑 fstab 的情况下删除数据磁盘可能会导致 VM 无法引导。如果这是一种常见情况，则请注意，大多数分发都提供了 `nofail` 和/或 `nobootwait` fstab 选项，这些选项使系统在磁盘无法装载的情况下也能引导。有关这些参数的详细信息，请查阅分发文档。
 
 ### Azure 中对 Linux 的 TRIM/UNMAP 支持
 某些 Linux 内核支持 TRIM/UNMAP 操作以放弃磁盘上未使用的块。这些操作主要适用于标准存储，以通知 Azure 已删除的页不再有效可以丢弃。如果创建了较大的文件，然后将其删除，则放弃页可以节省成本。

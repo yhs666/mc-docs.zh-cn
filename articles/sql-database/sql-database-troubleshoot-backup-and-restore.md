@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2016
 wacn.date: 10/17/2016
-ms.author: daleche
+ms.author: v-johch
 ---
 
 # 将数据库还原到以前的时间点、还原已删除的数据库，或者在数据中心服务中断的情况下进行恢复

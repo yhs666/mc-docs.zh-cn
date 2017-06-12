@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
@@ -70,7 +70,7 @@ Azure 使用一个操作系统磁盘、一个临时磁盘和零个或更多可�
 ## <a name="striped-disks"></a>条带化的磁盘
 除了允许创建大于 1023 GB 的磁盘外，在许多情况下，对数据磁盘使用条带化还可增强性能，因为允许多个 blob 支持单个卷的存储。 使用条带化时，将会并行处理针对单个逻辑磁盘写入和读取数据所需的 I/O。
 
-Azure 将对可用的数据磁盘数和带宽加以限制，具体取决于 VM 大小。 有关详细信息，请参阅[虚拟机大小](../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+Azure 将对可用的数据磁盘数和带宽加以限制，具体取决于 VM 大小。 有关详细信息，请参阅[虚拟机大小](../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 如果要对 Azure 数据磁盘使用磁盘条带化，请考虑以下准则：
 

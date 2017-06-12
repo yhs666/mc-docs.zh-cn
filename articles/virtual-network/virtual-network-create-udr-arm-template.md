@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 wacn.date: 01/05/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 使用模板创建用户定义的路由 (UDR)
@@ -28,7 +28,7 @@ ms.author: jdial
 >- [CLI（经典）](./virtual-network-create-udr-classic-cli.md)
 
 > [!IMPORTANT]
-在使用 Azure 资源之前，请务必了解 Azure 当前使用两种部署模型：Azure Resource Manager 部署模型和经典部署模型。在使用任何 Azure 资源前，请确保了解[部署模型和工具](../azure-resource-manager/resource-manager-deployment-model.md)。可以通过单击本文顶部的选项卡来查看不同工具的文档。本文介绍 Resource Manager 部署模型。
+> 在使用 Azure 资源之前，请务必了解 Azure 当前使用两种部署模型：Azure Resource Manager 部署模型和经典部署模型。在使用任何 Azure 资源前，请确保了解[部署模型和工具](../azure-resource-manager/resource-manager-deployment-model.md)。可以通过单击本文顶部的选项卡来查看不同工具的文档。本文介绍 Resource Manager 部署模型。
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -416,7 +416,7 @@ ms.author: jdial
     ```
 
 > [!TIP]
-如果看不到所有资源，可运行 `azure group deployment show` 命令以确保部署的预配状态为“成功”。
+> 如果看不到所有资源，可运行 `azure group deployment show` 命令以确保部署的预配状态为“成功”。
 > 
 
 <!---HONumber=Mooncake_1219_2016-->

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: 03/24/2017
-ms.author: douglasl
+ms.author: v-yeche
 ---
 
 # 通过运行 Stretch Database 顾问，识别符合 Stretch Database 条件的数据库和表

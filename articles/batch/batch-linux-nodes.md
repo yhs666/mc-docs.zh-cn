@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/14/2017
 
 “云服务配置”*只*提供 Windows 计算节点。 [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md)（云服务的大小）中列出了可用的计算节点大小，[Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md)（Azure 来宾 OS 版本和 SDK 兼容性对照表）中列出了可用的操作系统。 创建包含 Azure 云服务节点的池时，只需指定可在上述文章中所述的节点大小及其“OS 系列”。 对于 Windows 计算节点池，最常使用的是云服务。
 
-“虚拟机配置”为计算节点提供 Linux 和 Windows 映像。 [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/)（Azure 中虚拟机的大小）(Linux) 和  [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/)（Azure 中虚拟机的大小）(Windows) 中列出了可用的计算节点大小。 创建包含虚拟机配置节点的池时，必须指定节点的大小、虚拟机映像引用，以及要在节点上安装的 Batch 节点代理 SKU。
+“虚拟机配置”为计算节点提供 Linux 和 Windows 映像。 [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/)（Azure 中虚拟机的大小）(Linux) 和  [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json/)（Azure 中虚拟机的大小）(Windows) 中列出了可用的计算节点大小。 创建包含虚拟机配置节点的池时，必须指定节点的大小、虚拟机映像引用，以及要在节点上安装的 Batch 节点代理 SKU。
 
 ### <a name="virtual-machine-image-reference"></a>虚拟机映像引用
 Batch 服务使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)提供 Linux 计算节点。 这些虚拟机的操作系统映像由 [Azure 应用商店][vm_marketplace]提供。 配置虚拟机映像引用时，需指定应用商店虚拟机映像的属性。 创建虚拟机映像引用时，需提供以下属性：
@@ -50,7 +50,7 @@ Batch 服务使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-mac
 | Version |latest |
 
 > [!TIP]
-> 可以在 [Navigate and select Linux virtual machine images in Azure with CLI or PowerShell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/)（使用 CLI 或 PowerShell 在 Azure 中导航和选择 Linux 虚拟机映像）中详细了解这些属性，以及如何列出应用商店映像。 请注意，目前并非所有应用商店映像都与 Batch 兼容。 有关详细信息，请参阅 [节点代理 SKU](#node-agent-sku)。
+> 可以在 [Navigate and select Linux virtual machine images in Azure with CLI or PowerShell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/)（使用 CLI 或 PowerShell 在 Azure 中导航和选择 Linux 虚拟机映像）中详细了解这些属性，以及如何列出应用商店映像。 请注意，目前并非所有应用商店映像都与 Batch 兼容。 有关详细信息，请参阅 [节点代理 SKU](#node-agent-sku)。
 >
 >
 
@@ -67,9 +67,9 @@ Batch 节点代理是一个程序，它在池中的每个节点上运行，并�
 >
 
 ## <a name="create-a-linux-pool-batch-python"></a>创建 Linux 池：Batch Python
-以下代码片段示范如何使用 [用于 Python 的 Azure Batch 客户端库][py_batch_package] 创建 Ubuntu Server 计算节点池。 有关 Batch Python 模块的参考文档可在“阅读文档”上的 [azure.batch package][py_batch_docs] 处找到。
+以下代码片段示范如何使用 [用于 Python 的 Azure Batch 客户端库][py_batch_package] 创建 Ubuntu Server 计算节点池。 有关 Batch Python 模块的参考文档可在“阅读文档”上的 azure.batch package 处找到。
 
-此代码片段显式创建 [ImageReference][py_imagereference]，并指定它的每个属性（publisher、offer、SKU、version）。 但是，我们建议在生产代码中使用 [list_node_agent_skus][py_list_skus] 方法在运行时从可用映像和节点代理 SKU 组合中做出决定和选择。
+此代码片段显式创建 ImageReference，并指定它的每个属性（publisher、offer、SKU、version）。 但是，我们建议在生产代码中使用 list_node_agent_skus 方法在运行时从可用映像和节点代理 SKU 组合中做出决定和选择。
 
 ```python
 # Import the required modules from the
@@ -125,7 +125,7 @@ new_pool.virtual_machine_configuration = vmc
 client.pool.add(new_pool)
 ```
 
-如上所述，我们建议不要显式创建 [ImageReference][py_imagereference]，而是使用 [list_node_agent_skus][py_list_skus] 方法从当前支持的节点代理/应用商店映像组合中动态选择。 以下 Python 代码片段演示了此方法的用法。
+如上所述，我们建议不要显式创建 ImageReference，而是使用 list_node_agent_skus 方法从当前支持的节点代理/应用商店映像组合中动态选择。 以下 Python 代码片段演示了此方法的用法。
 
 ```python
 # Get the list of node agents from the Batch service
@@ -208,7 +208,7 @@ ImageReference imageReference = new ImageReference(
 ```
 
 ## <a name="list-of-virtual-machine-images"></a>虚拟机映像列表
-下表列出了本文上次更新时，与可用 Batch 节点代理兼容的应用商店虚拟机映像。 请务必注意，此列表并非永久不变，因为可能随时会添加或删除映像和节点代理。 建议 Batch 应用程序和服务始终使用 [list_node_agent_skus][py_list_skus] (Python) 和 [ListNodeAgentSkus][net_list_skus] (Batch .NET)，从当前可用的 SKU 中做出决定和选择。
+下表列出了本文上次更新时，与可用 Batch 节点代理兼容的应用商店虚拟机映像。 请务必注意，此列表并非永久不变，因为可能随时会添加或删除映像和节点代理。 建议 Batch 应用程序和服务始终使用 list_node_agent_skus (Python) 和 [ListNodeAgentSkus][net_list_skus] (Batch .NET)，从当前可用的 SKU 中做出决定和选择。
 
 > [!WARNING]
 > 以下列表可随时更改。 请始终使用 Batch API 中提供的 **列出节点代理 SKU** 方法来列出，然后在运行 Batch 作业时从兼容的虚拟机和节点代理 SKU 中做出选择。
@@ -310,7 +310,7 @@ tvm-1219235766_3-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50002
 tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 ```
 
-请注意，在节点上创建用户时不需要指定密码，而可以指定 SSH 公钥。 在 Python SDK 中，此操作可通过在 [ComputeNodeUser][py_computenodeuser] 上使用 **ssh_public_key** 参数来完成。 在 .NET 中，此操作可通过使用 [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key] 属性来完成。
+请注意，在节点上创建用户时不需要指定密码，而可以指定 SSH 公钥。 在 Python SDK 中，此操作可通过在 ComputeNodeUser 上使用 **ssh_public_key** 参数来完成。 在 .NET 中，此操作可通过使用 [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key] 属性来完成。
 
 ## <a name="pricing"></a>定价
 Azure Batch 构建在 Azure 云服务和 Azure 虚拟机技术基础之上。 Batch 服务本身是免费提供的，这意味着，只需支付 Batch 解决方案使用的计算资源费用。 如果选择“云服务配置”，我们会根据[云服务定价][cloud_services_pricing]结构收费。 如果选择“虚拟机配置”，我们会根据[虚拟机定价][vm_pricing]结构收费。
@@ -328,7 +328,7 @@ MSDN 上的 [Azure Batch 论坛][forum] 是探讨 Batch 服务以及咨询其相
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[cloud_services_pricing]: /pricing/details/cloud-services/
+[cloud_services_pricing]: https://www.azure.cn/pricing/details/cloud-services/
 [forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_py]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
@@ -344,12 +344,8 @@ MSDN 上的 [Azure Batch 论坛][forum] 是探讨 Batch 服务以及咨询其相
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [py_account_ops]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations
 [py_azure_sdk]: https://pypi.python.org/pypi/azure
-[py_batch_docs]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.html
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
-[py_computenodeuser]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.models.html#azure.batch.models.ComputeNodeUser
-[py_imagereference]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.models.html#azure.batch.models.ImageReference
-[py_list_skus]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
-[vm_pricing]: /pricing/details/virtual-machines/
+[vm_pricing]: https://www.azure.cn/pricing/details/virtual-machines/
 
 

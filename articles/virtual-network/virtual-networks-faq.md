@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 wacn.date: 03/24/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # Azure 虚拟网络常见问题 (FAQ)
@@ -124,7 +124,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。它是
 Azure 提供的 DNS 是由 Azure.cn 提供的多租户 DNS 服务。Azure 在此服务中注册所有 VM 和云服务角色实例。此服务通过主机名为相同云服务内包含的 VM 和角色实例提供名称解析，并通过 FQDN 为相同 VNet 中的 VM 和角色实例提供名称解析。请参阅 [VM 和角色实例的名称解析](./virtual-networks-name-resolution-for-vms-and-role-instances.md)一文，了解有关 DNS 的详细信息。
 
 > [!NOTE]
-目前，使用 Azure 提供的 DNS 进行跨租户名称解析时，VNet 中的前 100 个云服务存在限制。如果使用自己的 DNS 服务器，此限制则不适用。
+> 目前，使用 Azure 提供的 DNS 进行跨租户名称解析时，VNet 中的前 100 个云服务存在限制。如果使用自己的 DNS 服务器，此限制则不适用。
 > 
 > 
 

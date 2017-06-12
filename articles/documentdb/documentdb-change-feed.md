@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: arramac
+ms.author: v-junlch
 wacn.date: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
@@ -68,7 +68,7 @@ DocumentDB 的更改源默认已针对所有帐户启用，不会在帐户中产
 
 ![DocumentDB 更改源的分布式处理](./media/documentdb-change-feed/changefeedvisual.png)
 
-以下部分将介绍如何使用 DocumentDB REST API 和 SDK 访问更改源。 对于 .NET 应用程序，建议使用[更改源处理器库]()处理来自更改源的事件。
+以下部分将介绍如何使用 DocumentDB REST API 和 SDK 访问更改源。 对于 .NET 应用程序，建议使用更改源处理器库处理来自更改源的事件。
 
 ## <a id="rest-apis"></a>使用 REST API 和 SDK
 DocumentDB 为存储和吞吐量提供了称为**集合**的弹性容器。 集合中的数据已使用[分区键](documentdb-partition-data.md)进行逻辑分组，以提高可伸缩性与性能。 DocumentDB 提供了各种 API 来访问这些数据，包括按 ID（读取/获取）、查询和读取源（扫描）进行查找。 可以通过在 DocumentDB `ReadDocumentFeed` API 中填充两个新请求标头来获取更改源，然后跨多个分区键范围并行处理更改源。

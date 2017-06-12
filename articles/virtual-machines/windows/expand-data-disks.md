@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/02/2017
 wacn.date: 
-ms.author: cynthn
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: cadc7c639f4a332b33550007db0409fe7759448e
@@ -113,4 +113,4 @@ Resize-Partition -DriveLetter $driveLetter -Size $MaxSize
 ```
 
 ## <a name="next-steps"></a>后续步骤
-- [深入了解磁盘和 VHD](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [深入了解磁盘和 VHD](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)

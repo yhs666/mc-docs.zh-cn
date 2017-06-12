@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 wacn.date: 03/13/2017
-ms.author: markvi
+ms.author: v-junlch
 ---
 
 # 标识同步和重复属性复原

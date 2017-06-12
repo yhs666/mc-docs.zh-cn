@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 wacn.date: 01/03/2017
-ms.author: adegeo
+ms.author: v-yiso
 ---
 
 # 如何配置和运行云服务的启动任务

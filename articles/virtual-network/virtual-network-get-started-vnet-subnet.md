@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 wacn.date: 03/31/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 创建首个虚拟网络
@@ -179,7 +179,7 @@ VNet 和子网创建完毕后，即可创建 VM。虽然两个 VM 可运行 Azur
 该远程连接指向分配给公共 IP 地址资源的公共 IP 地址，其中该资源是在本文[创建包含两个子网的虚拟网络](#create-vnet)部分的步骤 5 中由门户创建的。允许该连接的原因是，**MyWebServer-nsg** NSG 中创建的默认规则允许通过 TCP/3389 (RDP) 从任意源 IP 地址入站到 VM。如果尝试通过任何其他端口连接到 VM，则连接将失败，除非在允许其他端口的 NSG 中添加了其他入站规则。
 
 >[!NOTE]
-向 NSG 添加其他入站规则时，请确保 Windows 防火墙上的相同端口是打开的，否则连接将失败。
+> 向 NSG 添加其他入站规则时，请确保 Windows 防火墙上的相同端口是打开的，否则连接将失败。
 >
 
 ### <a name="connect-to-internet"></a>从 Web 服务器 VM 连接到 Internet

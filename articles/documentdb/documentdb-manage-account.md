@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 wacn.date: 
-ms.author: kirillg
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: ac7c5722462aa453714676ccc1bd1514b2596795
@@ -100,9 +100,6 @@ ms.lasthandoff: 05/19/2017
 4. 单击“删除”按钮。
 
 ![如何在 Azure 门户中删除 DocumentDB 帐户](./media/documentdb-manage-account/delete-account-confirm.png)
-
-## <a id="next"></a>后续步骤
-了解如何[开始使用 DocumentDB 帐户](./documentdb-get-started-quickstart.md)。
 
 <!--Image references-->
 [1]: ./media/documentdb-manage-account/documentdb_add_region-1.png

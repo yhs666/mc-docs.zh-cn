@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/30/2016
 wacn.date: 12/26/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # 获取对应用程序进行身份验证所需的值以便通过代码访问 SQL 数据库

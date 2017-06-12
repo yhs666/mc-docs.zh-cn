@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/22/2017
 wacn.date: 04/27/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 配置 HBase 复制
@@ -104,7 +104,7 @@ HBase 复制使用 ZooKeeper VM 的 IP 地址。必须为目标 HBase ZooKeeper 
 >[!NOTE]
 > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；把允许的地域改成“China North”和“China East”；把 HDInsight Linux 版本改为 Azure 中国所支持的 3.5。
 
-在两个虚拟网络之间创建 VPN 网关。有关说明，请参阅 [Create a VNet with a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)（创建使用站点到站点连接的 VNet）。
+在两个虚拟网络之间创建 VPN 网关。有关说明，请参阅[创建使用站点到站点连接的 VNet](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)。
 
 HBase 复制使用 ZooKeeper VM 的 IP 地址。必须为目标 HBase ZooKeeper 节点配置静态 IP 地址。若要配置静态 IP，请参阅本文中的“在同一区域中配置两个虚拟网络”部分。
 

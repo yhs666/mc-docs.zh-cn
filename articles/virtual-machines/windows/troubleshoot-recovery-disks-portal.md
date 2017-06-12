@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2016
 wacn.date: 01/13/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 通过使用 Azure 门户预览将 OS 磁盘附加到恢复 VM 来对 Windows VM 进行故障排除

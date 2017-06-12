@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 wacn.date: 01/13/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # 自定义 Media Encoder Standard 预设

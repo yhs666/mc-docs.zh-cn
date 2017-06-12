@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/19/2017
 wacn.date: 03/31/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 使用 Azure Site Recovery 在 Azure 区域之间迁移 Azure IaaS 虚拟机

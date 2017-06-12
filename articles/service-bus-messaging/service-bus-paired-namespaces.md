@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: service-bus
+ms.topic: article
 ms.date: 02/16/2017
 wacn.date: 03/20/2017
+ms.author: v-yiso
 ---
 
 # 配对命名空间实现详细信息和成本影响

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 wacn.date: 03/31/2017
-ms.author: narayan;annahar
+ms.author: v-dazen
 ---
 
 # 使用 Azure 门户预览创建虚拟网络对等互连
@@ -62,7 +62,7 @@ ms.author: narayan;annahar
     ![最终链接状态 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure08.png)  
 
     > [!NOTE]
-    仅当两个链接已连接在一起时，才会建立 VNET 对等互连。
+    > 仅当两个链接已连接在一起时，才会建立 VNET 对等互连。
     > 
     > 
 
@@ -95,12 +95,12 @@ VNet 对等互连中的每个链接都有上述属性集。在门户中，可以
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)  
 
     > [!NOTE]
-    可以在浏览器中同时注销和登录两个用户会话，确保成功启用授权。
+    > 可以在浏览器中同时注销和登录两个用户会话，确保成功启用授权。
     >
     >
 
     > [!IMPORTANT]
-    如果要在通过 Azure Resource Manager 部署模型创建的两个 VNet 之间创建对等互连，请继续执行本部分中的余下步骤。如果两个 VNet 是通过不同部署模型创建的，请跳过本部分的余下步骤并完成本文的[将通过不同部署模型创建的虚拟网络对等互连](#x-model)部分中所述的步骤。
+    > 如果要在通过 Azure Resource Manager 部署模型创建的两个 VNet 之间创建对等互连，请继续执行本部分中的余下步骤。如果两个 VNet 是通过不同部署模型创建的，请跳过本部分的余下步骤并完成本文的[将通过不同部署模型创建的虚拟网络对等互连](#x-model)部分中所述的步骤。
 
 6. 以用户 A 的身份登录到门户，导航到“VNET3”边栏选项卡，单击“对等互连”、选中“我知道我的资源 ID”复选框，然后采用下例中的格式键入 VNET5 的资源 ID：
 

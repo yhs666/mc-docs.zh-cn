@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/24/2016
 wacn.date: 01/03/2017
-ms.author: raiye
+ms.author: v-yiso
 ---
 
 # Azure 来宾 OS 可支持性和停用策略

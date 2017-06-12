@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2016
-ms.author: vittorib;bryanla
+ms.author: v-junlch
 wacn.date: 12/09/2016
 ---
 

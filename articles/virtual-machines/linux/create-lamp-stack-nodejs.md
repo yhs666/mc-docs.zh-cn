@@ -13,9 +13,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: NA
 ms.topic: article
-ms.date: 2/21/2017
+ms.date: 02/21/2017
 wacn.date: 
-ms.author: juluk
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 442b5e509200e191d4defe2ab4743d99f308d4b0
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/06/2017
 可使用以下 CLI 版本之一完成任务：
 
 - [Azure CLI 1.0] - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
-- [Azure CLI 2.0](create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
+- [Azure CLI 2.0](create-lamp-stack.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 <br/>
 
@@ -104,7 +104,7 @@ $ azure group create -n uniqueResourceGroup -l chinanorth --template-uri https:/
 现在你已创建已安装 LAMP 的 Linux VM。 可以根据需要跳转到[验证是否已成功安装 LAMP](#verify-lamp-successfully-installed) 来验证此安装。
 
 ## <a name="deploy-lamp-on-existing-vm-walkthrough"></a>在现有 VM 上部署 LAMP 的演练
-如果需要有关创建 Linux VM 方面的帮助，可以转到[此处了解如何创建 Linux VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 接下来，需通过 SSH 登录 Linux VM。 如果需要有关创建 SSH 密钥方面的帮助，可以转到[此处了解如何在 Linux/Mac 上创建 SSH 密钥](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+如果需要有关创建 Linux VM 方面的帮助，可以转到[此处了解如何创建 Linux VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 接下来，需通过 SSH 登录 Linux VM。 如果需要有关创建 SSH 密钥方面的帮助，可以转到[此处了解如何在 Linux/Mac 上创建 SSH 密钥](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 如果已有 SSH 密钥，请继续操作，使用 `ssh exampleUsername@exampleDNS` 从命令行通过 SSH 登录 Linux VM。
 
 现在你是在 Linux VM 中操作，我们可以指导你在基于 Debian 的分发版上安装 LAMP 堆栈。 对于其他 Linux 分发版，确切的命令可能会有所不同。

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 wacn.date: 
-ms.author: dugill;tomfitz
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 8ea446e589c29f0808759f5b137d77380b2ff957
@@ -33,8 +33,6 @@ ms.lasthandoff: 04/22/2017
 2. **仅限应用的访问**：适用于运行守护程序服务和计划作业的应用。 应用的标识获得资源的直接访问权限。 此方法适用于需要长期无提示（无人参与）访问 Azure 的应用。
 
 本主题提供创建应用来利用这两种授权方法的逐步说明。 其中说明如何使用 REST API 或 C# 执行每个步骤。 完整的 ASP.NET MVC 应用程序可在 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense) 中找到。
-
-本主题的所有代码都将作为 Web 应用运行，可以在 [http://vipswapper.chinacloudsites.cn/cloudsense](http://vipswapper.chinacloudsites.cn/cloudsense)上试用。 
 
 ## <a name="what-the-web-app-does"></a>Web 应用的功能
 Web 应用：

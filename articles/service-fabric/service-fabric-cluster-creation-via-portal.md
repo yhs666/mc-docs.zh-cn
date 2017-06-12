@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/21/2017
-ms.author: chackdan
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: a9be0c40e4d9e49cad60d7cc248b42f18120235d
@@ -201,7 +201,7 @@ Value : https://myvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c09
   * 密钥保管库
     * 群集服务器身份验证证书
 
-</a "create-cluster-portal" ></a>
+<a name="create-cluster-portal" ></a>
 
 ## <a name="create-cluster-in-the-azure-portal-preview"></a>在 Azure 门户预览中创建群集
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>搜索 Service Fabric 群集资源

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 wacn.date: 03/24/2017
-ms.author: jotaub
+ms.author: v-yeche
 ---
 
 # 事件中心 .NET Standard API 概述

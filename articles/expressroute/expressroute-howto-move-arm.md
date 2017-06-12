@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/03/2017
 wacn.date: 03/24/2017
-ms.author: ganesr;cherylmc
+ms.author: v-yiso
 ---
 
 # 使用 PowerShell 将 ExpressRoute 线路从经典部署模型移动到 Resource Manager 部署模型

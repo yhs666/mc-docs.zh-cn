@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/28/2017
-ms.author: arramac
+ms.author: v-junlch
 wacn.date: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
@@ -62,7 +62,7 @@ ms.lasthandoff: 05/19/2017
 ## <a name="prerequisites"></a>先决条件
 请确保你具有以下内容：
 
-- 有效的 Azure 帐户。 如果没有，可以注册[试用版](/pricing/1rmb-trial/)。 
+- 有效的 Azure 帐户。 如果没有，可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
     - 另外，对于本教程，也可以使用 [DocumentDB 模拟器](documentdb-nosql-local-emulator.md)。
 - [Visual Studio 2017](https://www.visualstudio.com/vs/) 
     - 如果在 MacOS 或 Linux 上操作，可以通过安装适用于所选平台的 [.NET Core SDK](https://www.microsoft.com/net/core#macos)，从命令行开发 .NET Core 应用。 
@@ -210,7 +210,7 @@ private async Task GetStartedDemo()
 
 ## <a id="CreateColl"></a>步骤 5：创建集合
 > [!WARNING]
-> **CreateDocumentCollectionAsync** 将创建一个具有保留吞吐量的新集合，它牵涉定价。 有关详细信息，请访问 [定价页](/pricing/details/documentdb/)。
+> **CreateDocumentCollectionAsync** 将创建一个具有保留吞吐量的新集合，它牵涉定价。 有关详细信息，请访问 [定价页](https://www.azure.cn/pricing/details/documentdb/)。
 
 可以通过使用 **DocumentClient** 类的 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 方法来创建[集合](documentdb-resources.md#collections)。 集合是 JSON 文档和相关联的 JavaScript 应用程序逻辑的容器。
 
@@ -585,7 +585,7 @@ End of demo, press any key to exit.
 ## <a id="GetSolution"></a> 获取完整的教程解决方案
 若要生成包含本文所有示例的 GetStarted 解决方案，你将需要以下内容：
 
-- 有效的 Azure 帐户。 如果没有，可以注册[试用版](/pricing/1rmb-trial/)。
+- 有效的 Azure 帐户。 如果没有，可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 - [DocumentDB 帐户][documentdb-create-account]。
 - GitHub 上提供的 [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started) 解决方案。
 
@@ -597,7 +597,7 @@ End of demo, press any key to exit.
 - 希望使用 DocumentDB 执行规模和性能测试？ 请参阅[使用 DocumentDB 执行性能和规模测试](documentdb-performance-testing.md)
 - 了解如何[监视 DocumentDB 帐户](documentdb-monitor-accounts.md)。
 - 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
-- 在 [DocumentDB 文档页](/documentation/services/documentdb/)的“Develop”（开发）部分中了解有关编程模型的详细信息。
+- 在 [DocumentDB 文档页](index.md)的“Develop”（开发）部分中了解有关编程模型的详细信息。
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: ./media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png

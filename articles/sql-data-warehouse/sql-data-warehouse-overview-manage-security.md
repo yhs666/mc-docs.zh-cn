@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: 12/19/2016
-ms.author: rortloff;barbkess;sonyama
+ms.author: v-yeche
 ---
 
 # 保护 SQL 数据仓库中的数据库

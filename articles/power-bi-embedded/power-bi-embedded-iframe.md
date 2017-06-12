@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 02/06/2017
 wacn.date: 04/28/2017
-ms.author: asaxton
+ms.author: v-junlch
 ---
 
 # 如何将 Power BI Embedded 与 REST 配合使用

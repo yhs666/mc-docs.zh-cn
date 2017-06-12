@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2016
 wacn.date: 02/06/2017
-ms.author: mbaldwin
+ms.author: v-junlch
 ---
 
 # Azure 密钥保管库服务限制

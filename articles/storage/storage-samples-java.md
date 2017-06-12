@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/12/2017
 wacn.date: 02/24/2017
-ms.author: seguler
+ms.author: v-johch
 ---
 
 # 使用 Java 的 Azure 存储示例

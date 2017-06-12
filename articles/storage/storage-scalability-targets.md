@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 03/07/2017
-ms.author: robinsh
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: e25a3ad32ba09205fd8321472f4ca43505376b1f
@@ -38,7 +38,7 @@ ms.lasthandoff: 04/14/2017
 
 如果应用程序的需求超过了单个存储帐户的可伸缩性目标值，可以创建应用程序以使用多个存储帐户，并将数据对象分布到这些存储帐户中。 有关批量定价的信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/) 。
 
-## <a name="scalability-targets-for-blobs-queues-tables-and-files"></a>Blob、队列、表和文件的可伸缩性目标
+## <a name="scalability-targets-for-blobs-queues-tables-and-files"></a><a name="standard-storage-accounts"></a>Blob、队列、表和文件的可伸缩性目标
 [!INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->

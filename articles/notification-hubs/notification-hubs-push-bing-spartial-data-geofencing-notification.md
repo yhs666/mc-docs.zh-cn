@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/31/2016
 wacn.date: 01/09/2017
-ms.author: dendeli
+ms.author: v-junlch
 ---
 
 # 使用 Azure 通知中心和必应空间数据发送地域隔离的推送通知

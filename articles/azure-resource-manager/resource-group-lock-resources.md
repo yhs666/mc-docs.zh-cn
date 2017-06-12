@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 wacn.date: 03/03/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 锁定资源，以防止意外更改 
@@ -35,8 +35,11 @@ Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到
 ## 谁可以在组织中创建或删除锁
 若要创建或删除管理锁，必须有权执行 `Microsoft.Authorization/*` 或 `Microsoft.Authorization/locks/*` 操作。在内置角色中，只有**所有者**和**用户访问管理员**有权执行这些操作。
 
+<!-- Not Available due to resource-manager-lock-resources.md not be translated -->
+<!-- 
 ## 通过门户创建锁
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
+-->
 
 ## 在模板上创建锁
 以下示例演示在存储帐户上创建锁的模板。要对其应用锁的存储帐户将以参数形式提供。锁名是通过将包含 **/Microsoft.Authorization/** 的资源名称与锁名连接起来创建的（本例中为 **myLock**）。

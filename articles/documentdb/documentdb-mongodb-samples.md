@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 wacn.date: 
-ms.author: anhoh
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 28fba4297c8342fdfeaf04deeb90d089e8a07125
@@ -39,7 +39,7 @@ ms.lasthandoff: 05/19/2017
 
 若要使用此示例，必须：
 
-- [创建](documentdb-create-mongodb-account.md) DocumentDB: API for MongoDB 帐户。
+- [创建](documentdb-create-account.md) DocumentDB: API for MongoDB 帐户。
 - 检索 MongoDB [连接字符串](documentdb-connect-mongodb-account.md)信息。
 
 ## <a name="create-the-app"></a>创建应用程序

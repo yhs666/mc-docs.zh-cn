@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2016
 wacn.date: 05/24/2016
-ms.author: cjiang
+ms.author: v-dazen
 ---
 
 # 在 Azure 中创建、重新启动 Linux VM 或调整其大小时排查分配失败

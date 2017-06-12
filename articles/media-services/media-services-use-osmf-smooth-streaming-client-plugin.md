@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 wacn.date: 11/21/2016
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # 如何使用适用于 Adobe Open Source Media Framework 的 Microsoft 平滑流式处理插件

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 wacn.date: 
-ms.author: carolz
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 81be0d123382068e1cd4155b2e9b09fa5b006e89
@@ -42,24 +42,7 @@ ms.lasthandoff: 05/12/2017
             </div>
         </div>
         </a>
-    </li><li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=redis-cache">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure Redis 缓存视频库</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>   
+    </li>
    <li>
         <a href="/redis-cache/cache-dotnet-how-to-use-azure-redis-cache">
         <div class="cardSize">

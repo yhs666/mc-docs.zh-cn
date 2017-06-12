@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/08/2017
 wacn.date: 
-ms.author: nepeters
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 39ffdb7d6238eb991a7c917c399996caa7020193
@@ -30,10 +30,10 @@ ms.lasthandoff: 04/06/2017
 | | |
 |---|---|
 |**创建虚拟机**||
-| [创建虚拟机](../scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 使用最小配置创建 Linux 虚拟机。 |
-| [创建完全配置的虚拟机](../scripts/virtual-machines-linux-cli-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 创建资源组、虚拟机以及所有相关资源。|
-| [创建高度可用的虚拟机](../scripts/virtual-machines-linux-cli-sample-nlb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 使用高度可用且负载均衡的配置创建多个虚拟机。 |
-| [创建 VM 并运行配置脚本](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 创建一个虚拟机，并使用 Azure 自定义脚本扩展安装 NGINX。 |
-| [创建安装有 WordPress 的 VM](../scripts/virtual-machines-linux-cli-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 创建一个虚拟机，并使用 Azure 自定义脚本扩展安装 WordPress。 |
+| [创建虚拟机](../scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 使用最小配置创建 Linux 虚拟机。 |
+| [创建完全配置的虚拟机](../scripts/virtual-machines-linux-cli-sample-create-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 创建资源组、虚拟机以及所有相关资源。|
+| [创建高度可用的虚拟机](../scripts/virtual-machines-linux-cli-sample-nlb.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 使用高度可用且负载均衡的配置创建多个虚拟机。 |
+| [创建 VM 并运行配置脚本](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 创建一个虚拟机，并使用 Azure 自定义脚本扩展安装 NGINX。 |
+| [创建安装有 WordPress 的 VM](../scripts/virtual-machines-linux-cli-sample-create-vm-wordpress.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 创建一个虚拟机，并使用 Azure 自定义脚本扩展安装 WordPress。 |
 |**网络虚拟机**||
-| [保护虚拟机之间的网络流量](../scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 创建两个虚拟机、所有相关资源以及内部和外部网络安全组 (NSG)。 |
+| [保护虚拟机之间的网络流量](../scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 创建两个虚拟机、所有相关资源以及内部和外部网络安全组 (NSG)。 |

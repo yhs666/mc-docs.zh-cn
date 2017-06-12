@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 wacn.date: 02/24/2017
-ms.author: tarcher
+ms.author: v-johch
 ---
 
 # 开始使用 Azure Blob 存储和 Visual Studio 连接服务 (ASP.NET)

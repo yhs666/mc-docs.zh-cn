@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 wacn.date: 12/26/2016
-ms.author: juliako
+ms.author: v-johch
 ---
 
 #如何使用 Media Encoder Standard 通过 .NET 生成缩略图

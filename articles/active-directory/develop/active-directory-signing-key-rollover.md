@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2016
 wacn.date: 01/19/2017
-ms.author: gsacavdm
+ms.author: v-junlch
 ---
 
 # Azure Active Directory 中的签名密钥滚动更新

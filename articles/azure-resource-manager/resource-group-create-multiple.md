@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 wacn.date: 03/31/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 在 Azure Resource Manager 模板中部署多个资源实例

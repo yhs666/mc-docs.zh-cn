@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/10/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 将 VMM 云中的 Hyper-V 虚拟机复制到辅助 VMM 站点

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/21/2017
 ms.topic: get-started-article
-ms.author: tomfitz
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 8fa431b1fe69cdb6771f499bd20ba5a62c72e9e1
@@ -60,7 +60,7 @@ ms.lasthandoff: 04/22/2017
 3. 将该文件另存为 **azuredeploy.json**。 
 
 ## <a name="add-storage-account"></a>添加存储帐户
-1. 若要定义用于部署的存储帐户，请将该存储帐户添加到模板的 **resources** 节。 若要查找适用于存储帐户的值，请参阅[存储帐户模板参考](/azure/templates/microsoft.storage/storageaccounts)。 复制针对存储帐户显示的 JSON。 
+1. 若要定义用于部署的存储帐户，请将该存储帐户添加到模板的 **resources** 节。
 
 3. 将该 JSON 粘贴到模板的 **resources** 节中，如以下示例所示： 
 
@@ -108,7 +108,7 @@ ms.lasthandoff: 04/22/2017
 
 现在可以设置存储帐户的值。 
 
-1. 再次查看在其中复制了 JSON 的[存储帐户模板参考](/azure/templates/microsoft.storage/storageaccounts)。 有几个表描述了相关属性并提供了可用值。 
+1. 再次查看在其中复制了 JSON。有几个表描述了相关属性并提供了可用值。 
 
 2. 请注意，在 **properties** 元素中，**customDomain**、**encryption** 和 **accessTier** 均被列为“非必需”。 这些值对于你的方案可能很重要，但为了简单起见，本示例需删除它们。
 

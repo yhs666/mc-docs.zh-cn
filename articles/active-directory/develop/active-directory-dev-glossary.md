@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/20/2017
 wacn.date: 
-ms.author: bryanla
+ms.author: v-junlch
 translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 74def0f7e05fdea60dfeec64a218945041da08d8
@@ -163,7 +163,7 @@ Azure AD 目录的实例称为 Azure AD 租户。 所提供的功能包括：
 在预配订阅的过程中，还会将租户与 Azure AD 或 Office 365 订阅相关联，为订阅提供标识和访问管理功能。 有关访问租户的各种方式的详细信息，请参阅[如何获取 Azure Active Directory 租户][AAD-How-To-Tenant]。 若要了解订阅和 Azure AD 租户之间的详细关系，请参阅 [How Azure subscriptions are associated with Azure Active Directory][AAD-How-Subscriptions-Assoc] （Azure 订阅与 Azure Active Directory 的关联方式）。
 
 ## <a name="token-endpoint"></a>令牌终结点
-[授权服务器](#authorization-server)为了支持 OAuth2 [权限授予](#authorization-grant)而实现的终结点之一。 根据具体的授权，可将其用于获取[客户端](#client-application)的[访问令牌](#access-token)（和相关的“刷新”令牌）或 [ID 令牌](#ID-token)（使用 [OpenID Connect][OpenIDConnect] 协议时）。
+[授权服务器](#authorization-server)为了支持 OAuth2 [权限授予](#authorization-grant)而实现的终结点之一。 根据具体的授权，可将其用于获取[客户端](#client-application)的[访问令牌](#access-token)（和相关的“刷新”令牌）或 [ID 令牌](#id-token)（使用 [OpenID Connect][OpenIDConnect] 协议时）。
 
 ## <a name="user-agent-based-client"></a>基于用户代理的客户端
 一种[客户端应用程序](#client-application)，例如单页应用程序 (SPA)，可从 Web 服务器下载代码并在用户代理（例如 Web 浏览器）中执行。 由于所有代码都在设备上执行，因此设备因为无法隐私/秘密地存储凭据而被视为“公共”客户端。 有关详细信息，请参阅 [OAuth2 client types and profiles][OAuth2-Client-Types] （OAuth2 客户端类型和配置文件）。
@@ -191,7 +191,7 @@ Azure AD 目录的实例称为 Azure AD 租户。 所提供的功能包括：
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-Subscriptions-Assoc]:../active-directory-how-subscriptions-associated-directory.md
-[AAD-How-To-Integrate]:/documentation/articles/active-directory-how-to-integrate/
+[AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]:./active-directory-howto-tenant.md
 [AAD-Integrating-Apps]:./active-directory-integrating-applications.md
 [AAD-Multi-Tenant-Overview]:./active-directory-devhowto-multi-tenant-overview.md

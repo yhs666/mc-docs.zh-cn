@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 wacn.date: 
-ms.author: sethm;babanisa
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 3a3db384a725bcb8565ac86b3b292782e8e9fbc7

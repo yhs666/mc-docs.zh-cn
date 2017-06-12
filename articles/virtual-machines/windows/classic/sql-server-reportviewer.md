@@ -16,17 +16,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 01/11/2017
 wacn.date: 03/28/2017
-ms.author: asaxton
+ms.author: v-dazen
 ---
 
 # 在 Azure 中托管的网站中使用 ReportViewer
 > [!IMPORTANT] 
-Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。
 
 可使用 Visual Studio ReportViewer 控件构建 Azure 网站，该控件用于显示 Azure 虚拟机上存储的报表。ReportViewer 控件位于使用 ASP.NET Web 应用程序模板生成的 Web 应用程序中。
 
 > [!IMPORTANT]
-ASP.NET MVC Web 应用程序模板不支持 ReportViewer 控件。
+> ASP.NET MVC Web 应用程序模板不支持 ReportViewer 控件。
 > 
 > 
 
@@ -40,7 +40,7 @@ ASP.NET MVC Web 应用程序模板不支持 ReportViewer 控件。
 请查看 [Azure 虚拟机的 SQL Server Business Intelligence](../../virtual-machines-windows-classic-ps-sql-bi.md) 中的“常规建议和最佳实践”部分。
 
 > [!NOTE]
-ReportViewer 控件随 Visual Studio Standard Edition 或更高版本提供。如果你使用的是 Web Developer Express Edition，则必须安装 [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) 才能使用 ReportViewer 运行时功能。
+> ReportViewer 控件随 Visual Studio Standard Edition 或更高版本提供。如果你使用的是 Web Developer Express Edition，则必须安装 [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) 才能使用 ReportViewer 运行时功能。
 > 
 >Azure 中不支持在本地处理模式下配置的 ReportViewer。
 > 
@@ -82,7 +82,7 @@ ReportViewer 需要使用正确的凭据向报表服务器进行身份验证，�
 有关将 ASP.NET Web 应用程序发布到 Azure 的说明，请参阅[如何：从 Visual Studio 将 Web 应用程序迁移和发布到 Azure](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) 和 [Web Apps 和 ASP.NET 入门](../../../app-service-web/web-sites-dotnet-get-started.md)。
 
 > [!IMPORTANT]
-如果在解决方案资源管理器中的快捷菜单中未显示添加Azure 部署项目或添加 Azure 云服务项目命令，你可能需要将该项目的目标框架更改为 .NET Framework 4。
+> 如果在解决方案资源管理器中的快捷菜单中未显示添加Azure 部署项目或添加 Azure 云服务项目命令，你可能需要将该项目的目标框架更改为 .NET Framework 4。
 > 
 > 两个命令提供基本相同的功能。其中一个命令将在快捷菜单中显示，具体取决于安装的 Azure SDK 版本。
 > 

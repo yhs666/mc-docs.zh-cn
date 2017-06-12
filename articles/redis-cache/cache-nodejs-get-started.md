@@ -15,7 +15,7 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
 wacn.date: 03/03/2017
-ms.author: sdanie
+ms.author: v-dazen
 ---
 
 # 如何将 Azure Redis 缓存与 Node.js 配合使用
@@ -58,7 +58,7 @@ var client = redis.createClient(6380,'<name>.redis.cache.chinacloudapi.cn', {aut
 ```
 
 > [!NOTE]
-为新的 Azure Redis 缓存实例禁用了非 SSL 端口。如果使用的是不支持 SSL 的不同客户端，请参阅[如何启用非 SSL 端口](./cache-configure.md#access-ports)。
+> 为新的 Azure Redis 缓存实例禁用了非 SSL 端口。如果使用的是不支持 SSL 的不同客户端，请参阅[如何启用非 SSL 端口](./cache-configure.md#access-ports)。
 > 
 > 
 

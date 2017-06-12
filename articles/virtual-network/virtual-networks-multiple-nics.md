@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 wacn.date: 01/05/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 创建具有多个 NIC 的 VM（经典）
@@ -27,7 +27,7 @@ ms.author: jdial
 该图显示了带三个 NIC 的 VM，每个 NIC 都连接到不同的子网。
 
 > [!IMPORTANT]
-Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager。
+> Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager。
 
 * 仅在“默认”NIC 上支持面向 Internet 的 VIP（经典部署）。默认 NIC 的 IP 只有一个对应的 VIP。
 * 多 NIC VM 目前不支持实例级公共 IP (LPIP) 地址（经典部署）。
@@ -123,7 +123,7 @@ Azure 具有两种不同的部署模型，用于创建和处理资源：[Resourc
     ```
 
     > [!NOTE]
-    此处指定的 VNet 必须已存在（如先决条件中所述）。下述示例指定名为“MultiNIC-VNet”的虚拟网络。
+    > 此处指定的 VNet 必须已存在（如先决条件中所述）。下述示例指定名为“MultiNIC-VNet”的虚拟网络。
     >
 
 ## 限制
@@ -137,7 +137,7 @@ Azure 具有两种不同的部署模型，用于创建和处理资源：[Resourc
 默认情况下，辅助 NIC 不会配置默认网关，因为辅助 NIC 上的通信流将限制在同一子网内。如果用户要启用辅助 NIC，以在其自己的子网之外进行对话，则需要在路由表中添加一个条目来配置网关，如下所述。
 
 > [!NOTE]
-2015 年 7 月之前创建的 VM 可能会为所有 NIC 配置默认网关。重新启动这些 VM 之前，不会删除辅助 NIC 的默认网关。使用弱主机路由模型的操作系统（如 Linux）中，如果流入和出口流量使用不同 NIC，Internet 连接可能会中断。
+> 2015 年 7 月之前创建的 VM 可能会为所有 NIC 配置默认网关。重新启动这些 VM 之前，不会删除辅助 NIC 的默认网关。使用弱主机路由模型的操作系统（如 Linux）中，如果流入和出口流量使用不同 NIC，Internet 连接可能会中断。
 > 
 
 ### 配置 Windows VM

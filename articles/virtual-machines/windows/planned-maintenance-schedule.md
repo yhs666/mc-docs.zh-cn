@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 wacn.date: 05/31/2017
-ms.author: igalf
+ms.author: v-dazen
 ---
 
 # 如何在 Azure VM 上安排计划内的维护

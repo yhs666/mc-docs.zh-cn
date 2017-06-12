@@ -15,7 +15,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/13/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # 将登录凭据添加到 AngularJS 单页应用 - NodeJS
@@ -42,7 +42,7 @@ git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-NodeJS.git
 ```
 
 ## 注册应用
-首先，在[应用注册门户](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)中创建应用，或遵循以下[详细步骤](./active-directory-v2-app-registration.md)。请确保：
+首先，在[应用注册门户](https://apps.dev.microsoft.com)中创建应用，或遵循以下[详细步骤](./active-directory-v2-app-registration.md)。请确保：
 
 - 为应用添加 **Web** 平台。
 - 输入正确的**重定向 URI**。本示例的默认值为 `http://localhost:8080`。

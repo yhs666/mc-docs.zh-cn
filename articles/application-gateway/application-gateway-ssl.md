@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 03/28/2017
-ms.author: gwallace
+ms.author: v-dazen
 ---
 
 # 使用经典部署模型配置应用程序网关以进行 SSL 卸载
 
 > [!div class="op_single_selector"]
--[Azure Portal Preview](./application-gateway-ssl-portal.md)
--[Azure Resource Manager PowerShell](./application-gateway-ssl-arm.md)
--[Azure Classic PowerShell](./application-gateway-ssl.md)
+> -[Azure Portal Preview](./application-gateway-ssl-portal.md)
+> -[Azure Resource Manager PowerShell](./application-gateway-ssl-arm.md)
+> -[Azure Classic PowerShell](./application-gateway-ssl.md)
 
 可将 Azure 应用程序网关配置为在网关上终止安全套接字层 (SSL) 会话，以避免 Web 场中出现开销较高的 SSL 解密任务。SSL 卸载还简化了 Web 应用程序的前端服务器设置与管理。
 

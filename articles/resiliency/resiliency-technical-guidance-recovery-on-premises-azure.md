@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 wacn.date: 03/24/2017
-ms.author: aglick
+ms.author: v-yeche
 ---
 
 # Azure 复原技术指南：从本地恢复到 Azure

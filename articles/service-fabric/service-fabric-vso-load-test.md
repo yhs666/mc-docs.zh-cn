@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
 wacn.date: 01/25/2017
-ms.author: cawa
+ms.author: v-johch
 ---
 
 # 使用 Visual Studio Team Services 对应用程序进行负载测试

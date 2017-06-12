@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2017
 wacn.date: 03/10/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 使用 Azure 门户将 VMM 云中的 Hyper-V 虚拟机复制到辅助 VMM 站点
@@ -27,7 +27,7 @@ ms.author: raynew
 
 本文介绍如何在 Azure 门户中使用 [Azure Site Recovery](./site-recovery-overview.md) 将 System Center Virtual Machine Manager (VMM) 云中管理的本地 Hyper-V 虚拟机复制到辅助站点。详细了解此[方案体系结构](./site-recovery-components.md#replicate-hyper-v-vms-to-a-secondary-site)。
 
-## 先决条件
+##<a name="prerequisites"></a> 先决条件
 
 **先决条件** | **详细信息**
 --- | ---
@@ -37,7 +37,7 @@ ms.author: raynew
 **Hyper-V** | <p>Hyper-V 服务器必须至少运行具有 Hyper-V 角色且安装了最新更新的 Windows Server 2012。</p><p> Hyper-V 服务器应包含一个或多个 VM。</p><p> Hyper-V 主机服务器应位于主要和辅助 VMM 云中的主机组内。</p><p> 如果在 Windows Server 2012 R2 的群集中运行 Hyper-V，请安装更新 [2961977](https://support.microsoft.com/zh-cn/kb/2961977)</p><p>如果在 Windows Server 2012 的群集中运行 Hyper-V，并且使用基于静态 IP 地址的群集，则系统不会自动创建群集代理。请手动配置群集代理。[了解详细信息](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx)。</p><p> Hyper-V 服务器需要访问 Internet。</p>
 **URL** | <p>VMM 服务器和 Hyper-V 主机应能够访问以下 URL：</p><p> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]</p>
 
-## 步骤
+##<a name="single-vmm-server-deployment"></a> 步骤
 
 下面是需要执行的操作：
 
@@ -137,9 +137,6 @@ ms.author: raynew
     ![服务器](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 13. 当服务器出现在站点恢复控制台中后，请在“源”>“准备源”中选择 VMM 服务器，然后选择 Hyper-V 主机所在的云。然后，单击“确定”。
 
-也可以从命令行安装提供程序：
-
-[!INCLUDE [site-recovery-rw-provider-command-line](../../includes/site-recovery-rw-provider-command-line.md)]
 
 ## 设置目标环境
 
@@ -174,7 +171,7 @@ ms.author: raynew
 
      ![复制策略](./media/site-recovery-vmm-to-vmm/policy-associate.png)  
 
-###<a name="prepare-for-network-mapping"></a> 配置网络映射
+###<a name="prepare-for-network-mapping"></a><a name="network-mapping-overview"></a> 配置网络映射
 
 - 开始之前，请先了解[网络映射](#prepare-for-network-mapping)。
 - 验证 VMM 服务器上的虚拟机是否已连接到 VM 网络。
@@ -207,7 +204,7 @@ ms.author: raynew
 - 下载并运行 [Azure Site Recovery Capacity Planner](./site-recovery-capacity-planner.md) 来收集有关复制环境的信息，包括 VM、每个 VM 的磁盘以及每个磁盘的存储。
 - 收集实时复制信息后，可以修改 NetQos 策略以控制用于 VM 的复制带宽。阅读 Thomas Maurer 的博客文章 [Throttling Hyper-V Replica Traffic](http://www.thomasmaurer.ch/2013/12/throttling-hyper-v-replica-traffic/)（限制 Hyper-V 复本流量）了解详细信息。获取有关 [New-NetQosPolicy cmdlet](https://technet.microsoft.com/zh-cn/library/hh967468.aspx.) 的详细信息。
 
-## 启用复制
+##<a name="prepare-for-initial-offline-replication"></a> 启用复制
 
 1. 单击“步骤 2: 复制应用程序”>“源”。首次启用复制后，请在保管库中单击“+复制”，对其他计算机启用复制。
 
@@ -364,7 +361,7 @@ ms.author: raynew
 3. 按照本文中的说明创建保管库、注册服务器并设置保护。需要在恢复服务保管库中注册群集中的每个 VMM 服务器。若要执行此操作，请在活动节点上安装提供程序并注册 VMM 服务器。然后在其他节点上安装提供程序。
 4. 发生中断时，VMM 服务器及其相应的 SQL Server 数据库会故障转移，可从辅助站点进行访问。
 
-## 准备存储映射
+##<a name="prepare-for-storage-mapping"></a> 准备存储映射
 
 设置存储映射时，可在源和目标 VMM 服务器上映射存储分类来实现以下功能：
 

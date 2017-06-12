@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: billmath
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 3752849b27d5952c127534ddbe4d6927257975d4
@@ -146,7 +146,7 @@ Azure AD Connect 安装向导提供提供两种不同的路径：
 
 ![VSA](./media/active-directory-aadconnect-accounts-permissions/aadsyncvsa.png)
 
-VSA 适用于同步引擎与 SQL 位于同一台服务器上的场合。 如果你使用远程 SQL，则我们建议改用[组托管服务帐户](#managed-service-account)。
+VSA 适用于同步引擎与 SQL 位于同一台服务器上的场合。 如果你使用远程 SQL，则我们建议改用[组托管服务帐户](#group-managed-service-account)。
 
 此功能需要 Windows Server 2008 R2 或更高版本。 如果你在 Windows Server 2008 上安装 Azure AD Connect，则安装将会重新使用[用户帐户](#user-account)。
 

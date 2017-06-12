@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 wacn.date: 11/21/2016
-ms.author: mahender
+ms.author: v-yiso
 ---
 
 # 如何将应用服务应用程序配置为使用 Microsoft 帐户登录

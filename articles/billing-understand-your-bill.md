@@ -13,8 +13,9 @@ ms.topic: "article"
 ms.tgt_pltfrm: "na"
 ms.workload: "na"
 ms.date: "02/03/2017"
+ms.author: v-junlch
 wacn.date: "03/31/2017"
-
+ 
 ---
 
 # 了解你的 Azure 帐单

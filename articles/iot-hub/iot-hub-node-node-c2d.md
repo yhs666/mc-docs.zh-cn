@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2017
 wacn.date: 04/24/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # 使用 IoT 中心发送云到设备的消息 \(Node\)

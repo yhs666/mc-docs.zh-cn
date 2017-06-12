@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: 02/13/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # v2.0 协议 - OAuth 2.0 授权代码流
@@ -59,7 +59,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 参数 | | 说明 |
 | --- | --- | --- |
 | tenant |必填 |请求路径中的 `{tenant}` 值可用于控制哪些用户可以登录应用程序。允许的值为 `common`、`organizations`、`consumers` 和租户标识符。有关更多详细信息，请参阅[协议基础知识](./active-directory-v2-protocols.md#endpoints)。 |
-| client\_id |必填 |注册门户 ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)) 分配给应用的应用程序 ID。 |
+| client\_id |必填 |注册门户 ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) 分配给应用的应用程序 ID。 |
 | response\_type |必填 |必须包括授权代码流的 `code`。 |
 | redirect\_uri |建议 |应用的 redirect\_uri，应用可在此发送及接收身份验证响应。必须完全符合在门户中注册的其中一个 redirect\_uri，否则必须是编码的 url。对于本机和移动应用，应使用默认值 `https://login.microsoftonline.com/common/oauth2/nativeclient`。 |
 | scope |必填 |希望用户同意的[范围](./active-directory-v2-scopes.md)的空格分隔列表。 |
@@ -140,7 +140,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 参数 | | 说明 |
 | --- | --- | --- |
 | tenant |必填 |请求路径中的 `{tenant}` 值可用于控制哪些用户可以登录应用程序。允许的值为 `common`、`organizations`、`consumers` 和租户标识符。有关更多详细信息，请参阅[协议基础知识](./active-directory-v2-protocols.md#endpoints)。 |
-| client\_id |必填 |注册门户 ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)) 分配给应用的应用程序 ID。 |
+| client\_id |必填 |注册门户 ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) 分配给应用的应用程序 ID。 |
 | grant\_type |必填 |必须是授权代码流的 `authorization_code`。 |
 | scope |必填 |范围的空格分隔列表。在此阶段请求的范围必须相当于或为第一个阶段中所请求的范围子集。如果此请求中指定的范围遍及多个资源服务器，v2.0 终结点将返回第一个范围内所指定资源的令牌。有关范围的更详细说明，请参阅[权限、同意和范围](./active-directory-v2-scopes.md)。 |
 | code |必填 |在流的第一个阶段获取的 authorization\_code。 |
@@ -249,7 +249,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 参数 | | 说明 |
 | --- | --- | --- |
 | tenant |必填 |请求路径中的 `{tenant}` 值可用于控制哪些用户可以登录应用程序。允许的值为 `common`、`organizations`、`consumers` 和租户标识符。有关更多详细信息，请参阅[协议基础知识](./active-directory-v2-protocols.md#endpoints)。 |
-| client\_id |必填 |注册门户 ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)) 分配给应用的应用程序 ID。 |
+| client\_id |必填 |注册门户 ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) 分配给应用的应用程序 ID。 |
 | grant\_type |必填 |必须是授权代码流的此阶段的 `refresh_token`。 |
 | scope |必填 |范围的空格分隔列表。在此阶段请求的范围必须等效于或者为原始 authorization\_code 请求阶段中所请求的范围子集。如果此请求中指定的范围遍及多个资源服务器，v2.0 终结点将返回第一个范围内所指定资源的令牌。有关范围的更详细说明，请参阅[权限、同意和范围](./active-directory-v2-scopes.md)。 |
 | refresh\_token |必填 |在流的第二个阶段获取的 refresh\_token。 |

@@ -8,8 +8,10 @@ manager: erikre
 editor: ''
 
 ms.service: media-services
+ms.topic: article
 ms.date: 06/22/2016
 wacn.date: 12/27/2016
+ms.author: v-johch
 ---
 
 # 创建 Azure 媒体服务帐户

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/16/2016
 wacn.date: 01/25/2017
-ms.author: amsriva
+ms.author: v-dazen
 ---
 
 # 应用程序网关 WebSocket 支持

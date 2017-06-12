@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: billmath
+ms.author: v-junlch
 wacn.date: 03/07/2017
 ---
 
@@ -31,7 +31,7 @@ Azure AD Connect 同步在安装向导创建的服务帐户下运行。此服务
 ## 对计划程序的更改
 从内部版本 1.1（2016 年 2 月）开始，你可以将[计划程序](./active-directory-aadconnectsync-feature-scheduler.md)配置为使用非默认的同步周期（默认周期为 30 分钟）。
 
-## 对同步规则的更改
+## 对同步规则的更改 <a name="changes-to-synchronization-rules"></a>
 安装向导提供的配置应该适用于最常见的方案。如果需要对配置进行更改，必须遵循这些规则，以便仍保留支持的配置。
 
 - 如果默认的直接属性流不适用于组织，可以[更改属性流](./active-directory-aadconnectsync-change-the-configuration.md#other-common-attribute-flow-changes)。

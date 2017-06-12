@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2017
 wacn.date: 
-ms.author: tomfitz
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 7f4c7ec84ea9a14c941318640c832a20476d2749
@@ -172,13 +172,13 @@ REQUEST BODY
 
 有关设计模板的更多建议，请参阅 [设计 Azure Resource Manager 模板的最佳实践](./best-practices-resource-manager-design-templates.md)。 有关嵌套模板的信息，请参阅[将链接的模板用于 Azure Resource Manager](./resource-group-linked-templates.md)。
 
-有关自动部署的四部分系列，请参阅[将应用程序自动部署到 Azure 虚拟机](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 此系列教程介绍了应用程序体系结构、访问与安全性、可用性与伸缩性，以及应用程序部署。
+有关自动部署的四部分系列，请参阅[将应用程序自动部署到 Azure 虚拟机](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 此系列教程介绍了应用程序体系结构、访问与安全性、可用性与伸缩性，以及应用程序部署。
 
 Azure Resource Manager 会分析依赖关系，以确保按正确的顺序创建资源。 如果一个资源依赖于另一个资源（例如虚拟机需要存储帐户才能访问磁盘）中的值，请设置依赖关系。 有关详细信息，请参阅[在 Azure Resource Manager 模板中定义依赖关系](./resource-group-define-dependencies.md)。
 
 还可以使用模板对基础结构进行更新。 例如，可以将资源添加到解决方案，并为已部署的资源添加配置规则。 如果模板指定要创建资源，但该资源已存在，则 Azure Resource Manager 将执行更新而不是创建新资产。 Azure Resource Manager 会将现有资产更新到相同状态，就如同该资产是新建的一样。  
 
-如果你需要其他操作（例如，安装未包含在安装程序中的特定软件）时，Resource Manager 可提供所需的扩展。 如果你已在使用配置管理服务（如 DSC、Chef 或 Puppet），则可以使用扩展来继续处理该服务。 有关虚拟机扩展的信息，请参阅[关于虚拟机扩展和功能](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
+如果你需要其他操作（例如，安装未包含在安装程序中的特定软件）时，Resource Manager 可提供所需的扩展。 如果你已在使用配置管理服务（如 DSC、Chef 或 Puppet），则可以使用扩展来继续处理该服务。 有关虚拟机扩展的信息，请参阅[关于虚拟机扩展和功能](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
 
 最后，该模板将成为应用程序源代码的一部分。 你可以将它签入源代码存储库，并随着应用程序的发展更新该模板。 你可以通过 Visual Studio 编辑模板。
 
@@ -225,7 +225,7 @@ az resource list --tag costCenter=Finance
 
 也可通过 Azure 门户查看标记的资源。
 
-订阅的[使用情况报告](/documentation/articles/billing-understand-your-bill/)包括标记名称和值，可用于按标记对成本进行细分。 有关标记的详细信息，请参阅 [使用标记来组织 Azure 资源](./resource-group-using-tags.md)。
+订阅的[使用情况报告](../billing-understand-your-bill.md)包括标记名称和值，可用于按标记对成本进行细分。 有关标记的详细信息，请参阅 [使用标记来组织 Azure 资源](./resource-group-using-tags.md)。
 
 ## <a name="access-control"></a>访问控制
 Resource Manager 可让你控制谁有权访问组织的特定操作。 Resource Manager 原生地在管理平台中集成了基于角色的访问控制 (RBAC)，并向资源组中的所有服务应用该访问控制。 

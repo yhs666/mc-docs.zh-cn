@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
 wacn.date: 11/21/2016
-ms.author: josephd
+ms.author: v-dazen
 ---
 
 # 设置用于测试的模拟混合云环境

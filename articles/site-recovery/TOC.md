@@ -6,7 +6,6 @@
 ## [常见问题](site-recovery-faq.md)
 
 # 入门
-## [将物理服务器复制到 Azure](site-recovery-physical-servers-to-azure.md)
 ## [将 Hyper-V VM 复制到 Azure（包含 VMM）](site-recovery-vmm-to-azure.md)
 ## [将 Hyper-V VM 复制到 Azure](site-recovery-hyper-v-site-to-azure.md)
 ## [将 Hyper-V VM 复制到辅助站点（包含 VMM）](site-recovery-vmm-to-vmm.md)
@@ -54,6 +53,10 @@
 ## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # 相关内容
-## [Azure 自动化](/azure/automation/)
+## [Azure 自动化](/automation/)
 
+# 资源
+## [论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
+## [博客](https://www.azure.cn/blog/tags/站点恢复)
+## [价格](https://www.azure.cn/pricing/details/site-recovery/)
 

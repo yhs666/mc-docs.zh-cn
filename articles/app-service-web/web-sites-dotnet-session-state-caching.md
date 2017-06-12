@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 06/27/2016
 wacn.date: 
-ms.author: riande
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: d47901f6477f5706b6fccc7451288beb6013366d

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 wacn.date: 03/28/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 使用模板创建虚拟网络
@@ -61,7 +61,7 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。Azure 建
    | **subnet2Prefix** | 第二个子网的 CIDR 块 |
 
    > [!IMPORTANT]
-   在 GitHub 中维护的 Azure Resource Manager 模板可能随着时间的推移发生变化。请确保在使用该模板之前对其进行检查。
+   > 在 GitHub 中维护的 Azure Resource Manager 模板可能随着时间的推移发生变化。请确保在使用该模板之前对其进行检查。
    > 
    > 
 6. 查看 **resources** 下的内容，并注意以下项：

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 wacn.date: 12/19/2016
-ms.author: ddove
+ms.author: v-johch
 ---
 
 # 用于访问弹性数据库客户端库的凭据

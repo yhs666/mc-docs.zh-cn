@@ -14,7 +14,7 @@ ms.devlang: cpp
 ms.topic: hero-article
 ms.date: 12/25/2016
 wacn.date: 
-ms.author: aasthan
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 456ea12b06c6ede437dbcc7193103439322f3eac
@@ -64,7 +64,7 @@ ms.lasthandoff: 05/19/2017
 - [Visual Studio](https://www.visualstudio.com/downloads/)，安装了 C++ 语言组件。
 
 ## <a name="step-1-create-an-azure-documentdb-account"></a>步骤 1：创建 DocumentDB 帐户
-创建一个 DocumentDB 帐户。 如果已经有想要使用的帐户，可以跳到 [安装 C++ 应用程序](#SetupNode)。
+创建一个 DocumentDB 帐户。 如果已经有想要使用的帐户，可以跳到 [安装 C++ 应用程序](#SetupC++)。
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -289,7 +289,7 @@ DocumentDB 支持删除 JSON 文档，为此，可以复制以下代码并将其
 ## <a name="next-steps"></a>后续步骤
 - 了解如何[监视 DocumentDB 帐户](documentdb-monitor-accounts.md)。
 - 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
-- 在 [DocumentDB 文档页](/documentation/services/documentdb/)的“开发”部分了解有关编程模型的详细信息。
+- 在 [DocumentDB 文档页](index.md)的“开发”部分了解有关编程模型的详细信息。
 
 [documentdb-create-account]: documentdb-create-account.md
 

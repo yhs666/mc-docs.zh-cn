@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 wacn.date: 01/05/2017
-ms.author: nepeters
+ms.author: v-dazen
 ---
 
 # 使用 Azure Resource Manager 模板部署应用程序

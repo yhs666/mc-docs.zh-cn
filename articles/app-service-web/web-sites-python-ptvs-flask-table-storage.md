@@ -15,7 +15,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 07/07/2016
 wacn.date: 
-ms.author: huvalo
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 9c601f07b26df1fde484d8ea5455f984becb28cf
@@ -43,7 +43,7 @@ ms.lasthandoff: 05/19/2017
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 ## <a name="create-the-project"></a>创建项目
 在此部分中，我们将使用样本模板创建 Visual Studio 项目。 我们将创建虚拟环境并安装所需软件包。 然后，我们将使用默认内存中存储库在本地运行应用程序。

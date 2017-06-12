@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 11/22/2016
 wacn.date: 03/24/2017
-ms.author: ronitr; ronmat
+ms.author: v-johch
 ---
 
 # 使用 Azure 门户预览进行 SQL 数据库动态数据屏蔽入门

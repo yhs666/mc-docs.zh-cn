@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/28/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 构建机器学习应用程序运行 HDInsight 上的 Apache Spark 群集
@@ -27,7 +27,7 @@ ms.author: nitinme
 必须满足以下条件：
 
 - Azure 订阅。请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-- HDInsight 上的 Apache Spark 群集。有关说明，请参阅 [Create Apache Spark clusters in Azure HDInsight](./hdinsight-apache-spark-jupyter-spark-sql.md)（在 Azure HDInsight 中创建 Apache Spark 群集）。
+- HDInsight 上的 Apache Spark 群集。有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](./hdinsight-apache-spark-jupyter-spark-sql.md)。
 
 ##<a name="data"></a>讲解数据
 

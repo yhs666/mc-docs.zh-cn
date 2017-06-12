@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
-ms.author: kgremban
+ms.author: v-junlch
 ms.custom: end-user
 wacn.date: 
 ms.translationtype: Human Translation
@@ -37,7 +37,6 @@ ms.lasthandoff: 04/14/2017
 | [通过拨打我的手机或办公电话](#signing-in-with-a-phone-call) |
 | [通过向我的手机发送短信](#signing-in-with-a-text-message)
 | [使用来自 Microsoft 验证器应用的通知](#signing-in-with-the-microsoft-authenticator-app-using-notification) |
-| [使用来自 Microsoft 验证器应用的验证代码](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |
 | [使用备用方法，因为我暂时无法使用首选方法](#signing-in-with-an-alternate-method) |
 
 ## 电话登录 <a name="signing-in-with-a-phone-call"></a>

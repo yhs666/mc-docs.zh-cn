@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 wacn.date: 03/31/2017
-ms.author: gwallace
+ms.author: v-dazen
 ---
 
 # 使用 Azure CLI 2.0 创建应用程序网关
@@ -42,7 +42,7 @@ Azure 应用程序网关是第 7 层负载均衡器。它在不同服务器之�
 若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2)。
 
 > [!NOTE]
-如果没有 Azure 帐户，则需要注册一个。请[在此处注册试用版](../active-directory/sign-up-organization.md)。
+> 如果没有 Azure 帐户，则需要注册一个。请[在此处注册试用版](../active-directory/sign-up-organization.md)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -60,7 +60,7 @@ Azure 应用程序网关是第 7 层负载均衡器。它在不同服务器之�
 ![方案示例][scenario]  
 
 > [!NOTE]
-针对应用程序网关进行的其他配置（包括自定义运行状况探测、后端池地址以及其他规则）是在对应用程序网关配置以后配置的，不是在初始部署期间配置的。
+> 针对应用程序网关进行的其他配置（包括自定义运行状况探测、后端池地址以及其他规则）是在对应用程序网关配置以后配置的，不是在初始部署期间配置的。
 
 ## 开始之前
 
@@ -138,7 +138,7 @@ az network application-gateway create \
 ```
 
 > [!NOTE]
-如需在创建过程中能够提供的参数的列表，请运行以下命令：**az network application-gateway create --help**。
+> 如需在创建过程中能够提供的参数的列表，请运行以下命令：**az network application-gateway create --help**。
 
 此示例会创建基本的应用程序网关，提供的默认设置适用于侦听器、后端池、后端 http 设置以及规则。它还会配置 SSL 卸载。预配成功后，即可根据部署修改这些设置。如果在之前的步骤中已使用后端池定义 Web 应用程序，则在创建后，负载均衡即会开始。
 

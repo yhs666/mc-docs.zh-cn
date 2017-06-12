@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 wacn.date: 04/27/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 在 Azure 门户预览中创建完全限定的域名

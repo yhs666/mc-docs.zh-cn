@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 wacn.date: 03/10/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
@@ -35,7 +35,7 @@ Azure IoT 中心是一项 Azure 服务，可在解决方案后端和数百万台
 
 若要开始编写一些代码并运行一些示例，请参阅[《IoT 中心入门》][lnk-getstarted]教程。
 
-你也可能会对 [Azure IoT 套件][lnk-iot-suite]有兴趣，这是一套预配置的解决方案。IoT 套件可让你快速入门和扩展 IoT 项目，以应对常见的 IoT 情形，例如远程监视、资产管理和预测性维护。
+你也可能会对 [Azure IoT 套件][lnk-iot-suite]有兴趣，这是一套预配置的解决方案。IoT 套件可让你快速入门和扩展 IoT 项目，以应对常见的 IoT 情形，例如远程监控、资产管理和预测性维护。
 
 [lnk-getstarted]: ./iot-hub-csharp-csharp-getstarted.md
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md

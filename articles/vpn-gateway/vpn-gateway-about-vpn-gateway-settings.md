@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
 wacn.date: 03/03/2017
-ms.author: cherylmc
+ms.author: v-dazen
 ---
 
 # 关于 VPN 网关配置设置
@@ -137,7 +137,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'China North' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
-有时需要修改本地网络网关设置。例如，在添加或修改地址范围时，或 VPN 设备的 IP 地址发生变化时。对于经典 VNet，可以在经典管理门户上的“局域网”页上更改这些设置。对于 Resource Manager，请参阅 [Modify local network gateway settings using PowerShell](./vpn-gateway-modify-local-network-gateway.md)（使用 PowerShell 修改本地网络网关设置）。
+有时需要修改本地网络网关设置。例如，在添加或修改地址范围时，或 VPN 设备的 IP 地址发生变化时。对于经典 VNet，可以在经典管理门户上的“局域网”页上更改这些设置。对于 Resource Manager，请参阅[使用 PowerShell 修改本地网络网关设置](./vpn-gateway-modify-local-network-gateway.md)。
 
 ## <a name="resources"></a>REST API 和 PowerShell cmdlet
 有关将 REST API 和 PowerShell cmdlet 用于 VPN 网关配置的其他技术资源和具体语法要求，请参阅以下页面：
@@ -148,7 +148,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 | [REST API](https://msdn.microsoft.com/zh-cn/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/zh-cn/library/mt163859.aspx) |
 
 ## 后续步骤
-有关可用连接配置的详细信息，请参阅 [About VPN Gateway](./vpn-gateway-about-vpngateways.md)（关于 VPN 网关）。
+有关可用连接配置的详细信息，请参阅[关于 VPN 网关](./vpn-gateway-about-vpngateways.md)。
 
 <!---HONumber=Mooncake_0227_2017-->
 <!--Update_Description: wording update-->

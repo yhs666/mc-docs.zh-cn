@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: daleche
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: e218ed14225eb3eef32630e0d256862f44afa1e0
@@ -69,7 +69,7 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 3. 由于数据库即将达到其资源限制，因此错误看起来像是暂时性连接问题。 请参阅[解决性能问题](sql-database-troubleshoot-performance.md)。
 4. 如果连接问题继续存在，或者应用程序发生错误的持续时间超过 60 秒或在特定的一天中看到错误多次发生，请通过在 [Azure 支持](https://www.azure.cn/support/contact/)网站上选择“**获取支持**”提出 Azure 支持请求。
 
-## <a name="troubleshoot-persistent-errors-non-transient-errors"></a>对永久性错误（非暂时性错误）进行故障排除
+## <a name="troubleshoot-persistent-errors-non-transient-errors"></a><a name="troubleshoot-the-persistent-errors"></a>对永久性错误（非暂时性错误）进行故障排除
 如果应用程序一直无法连接到 Azure SQL 数据库，通常表示下列其中一项出现了问题：
 
 * 防火墙配置。 Azure SQL 数据库或客户端防火墙阻止了与 Azure SQL 数据库的连接。

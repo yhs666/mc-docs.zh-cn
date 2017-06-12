@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 wacn.date: 12/26/2016
-ms.author: SilviaDoomra
+ms.author: v-johch
 ---
 
 # 跨已扩展的云数据库进行报告（预览）

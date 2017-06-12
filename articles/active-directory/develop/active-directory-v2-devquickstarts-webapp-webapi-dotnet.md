@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/13/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # 从 .NET Web 应用调用 API
@@ -40,7 +40,7 @@ git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-Web
 ```
 
 ## 注册应用程序
-在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList) 中创建新的应用程序，或遵循以下[详细步骤](./active-directory-v2-app-registration.md)。请确保：
+在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 中创建新的应用程序，或遵循以下[详细步骤](./active-directory-v2-app-registration.md)。请确保：
 
 - 复制分配给应用程序的**应用程序 ID**，因为稍后将要用到。
 - 创建**密码**类型的**应用密码**，并复制其值以备后用
@@ -81,7 +81,7 @@ public void ConfigureAuth(IAppBuilder app)
         {
 
                     // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
-                    // The `Scope` describes the permissions that your app will need.  See https://azure.cn/documentation/articles/active-directory-v2-scopes/
+                    // The `Scope` describes the permissions that your app will need. 
                     // In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
 
                     ClientId = clientId,

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 wacn.date: 05/31/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 管理 Azure HDInsight 上 Apache Spark 群集的资源
@@ -54,7 +54,7 @@ ms.author: nitinme
     ![启动 YARN UI](./media/hdinsight-apache-spark-resource-manager/launch-yarn-ui.png)
 
     > [!TIP]
-    或者，也可以从 Ambari UI 启动 YARN UI。若要启动 Ambari UI，请在群集边栏选项卡中单击“群集仪表板”，然后单击“HDInsight 群集仪表板”。在 Ambari UI 中，依次单击“YARN”、“快速链接”、活动的 Resource Manager 和“ResourceManager UI”。
+    > 或者，也可以从 Ambari UI 启动 YARN UI。若要启动 Ambari UI，请在群集边栏选项卡中单击“群集仪表板”，然后单击“HDInsight 群集仪表板”。在 Ambari UI 中，依次单击“YARN”、“快速链接”、活动的 Resource Manager 和“ResourceManager UI”。
     >
     >
 

@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/20/2017
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # 使用 Azure 存储度量值和日志记录、AzCopy 和 Message Analyzer 进行端到端故障排除

@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 01/10/2017
 wacn.date: 03/01/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 排查发送到 Azure 中 Windows VM 的特定 RDP 错误消息
@@ -100,7 +100,7 @@ ms.author: iainfou
 如果未发生这些错误，而是在使用 RDP 进行连接时遇到未知问题，请参阅[远程桌面故障排除指南](troubleshoot-rdp-connection.md)。
 
 * [Azure IaaS (Windows) 诊断程序包](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
-* 有关排查访问 VM 上运行的应用程序时遇到的问题的步骤，请参阅 [Troubleshoot access to an application running on an Azure VM](../linux/troubleshoot-app-connection.md)（排查访问 Azure VM 上运行的应用程序时遇到的问题）。
-* 如果在 Azure 中使用安全外壳 (SSH) 连接到 Linux VM 时遇到问题，请参阅 [Troubleshoot SSH connections to a Linux VM in Azure](../linux/troubleshoot-ssh-connection.md)（排查 Azure 中 Linux VM 的 SSH 连接问题）。
+* 有关排查访问 VM 上运行的应用程序时遇到的问题的步骤，请参阅[排查访问 Azure VM 上运行的应用程序时遇到的问题](../linux/troubleshoot-app-connection.md)。
+* 如果在 Azure 中使用安全外壳 (SSH) 连接到 Linux VM 时遇到问题，请参阅[排查 Azure 中 Linux VM 的 SSH 连接问题](../linux/troubleshoot-ssh-connection.md)。
 
 <!---HONumber=Mooncake_1212_2016-->

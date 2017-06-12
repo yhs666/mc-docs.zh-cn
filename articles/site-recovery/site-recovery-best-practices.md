@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 wacn.date: 03/31/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 准备部署 Azure Site Recovery
@@ -50,7 +50,7 @@ ms.author: raynew
 **Azure** | <p>**订阅**：需要 Site Recovery 服务的订阅。</p><p> **存储帐户**：需要一个已启用异地复制的存储帐户。该帐户应该位于 Site Recovery 保管库所在的区域中，并与相同订阅关联。</p><p> **配置服务器**：需将配置服务器设置为 Azure VM </p><p> **主目标服务器**：需将主目标服务器设置为 Azure VM </p><p> 在 Windows 中配置 Windows 计算机保护，或者在 Linux 中配置 Linux 计算机保护。</p><p> **Azure 虚拟网络**：需要一个 Azure 虚拟网络，配置服务器和主目标服务器将部署在该网络上。它应该位于 Azure Site Recovery 保管库所在的订阅和区域中 </p>| 不可用  
 **虚拟机/物理服务器** | <p>至少一个物理 Windows/Linux 服务器。</p><p>部署期间将在每个计算机上安装移动服务</p>| <p>至少一个物理 Windows/Linux 服务器。</p><p> 部署期间将在每个计算机上安装统一代理。</p>
 
-##<a name="azure-virtual-machine-requirements"></a> Azure 虚拟机要求
+##<a name="azure-virtual-machine-requirements"></a><a name="virtual-machines"></a> Azure 虚拟机要求
 
 可以部署站点恢复以复制运行受 Azure 支持的任何操作系统的虚拟机和物理服务器。这包括大多数的 Windows 和 Linux 版本。需确保你想要保护的本地虚拟机符合 Azure 请求。
 

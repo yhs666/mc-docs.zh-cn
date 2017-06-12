@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 wacn.date: 01/03/2017
-ms.author: tarcher
+ms.author: v-yiso
 ---
 
 # 在 Azure 计算模拟器中使用 Visual Studio 探查器本地测试云服务的性能
@@ -26,8 +26,7 @@ ms.author: tarcher
 
 ## 1：配置 Visual Studio 以进行分析
 
-首先，提供了一些 Visual Studio 配置选项，这些选项在分析时可能会有用。若要使分析报告变得有意义，将需要用于应用程序的符号（.pdb 文件）以及系统库的符号。还需要确保引用可用的符号服务器。为此，请在 Visual Studio 中的“工具”菜单上，依次选择“选项”、“调试”和“符号”。确保**符号文件 (.pdb) 位置**下方列出了 Microsoft 符号服务器。还可以引用 http://referencesource.microsoft.com/symbols ，其中可能包含其他符号文件。
-
+首先，提供了一些 Visual Studio 配置选项，这些选项在分析时可能会有用。若要使分析报告变得有意义，将需要用于应用程序的符号（.pdb 文件）以及系统库的符号。还需要确保引用可用的符号服务器。为此，请在 Visual Studio 中的“工具”菜单上，依次选择“选项”、“调试”和“符号”。确保**符号文件 (.pdb) 位置**下方列出了 Microsoft 符号服务器。
 ![“符号”选项][4]
 
 如果需要，可通过设置“仅我的代码”简化探查器生成的报告。通过启用“仅我的代码”简化函数调用堆栈，以便从报告中隐藏对库和 .NET Framework 的完全内部调用。在“工具”菜单上，选择“选项”。然后，展开“性能工具”节点，并选择“常规”。选中“为探查器报告启用‘仅我的代码’”复选框。

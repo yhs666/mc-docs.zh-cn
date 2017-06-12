@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 wacn.date: 01/04/2017
-ms.author: douglasl
+ms.author: v-yeche
 ---
 
 # Stretch Database 的限制

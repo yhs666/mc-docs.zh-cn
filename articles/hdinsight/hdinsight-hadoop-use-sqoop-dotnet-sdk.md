@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/28/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 使用 HDInsight 中的 .NET SDK for Hadoop 运行 Sqoop 作业
@@ -25,7 +25,7 @@ ms.author: jgao
 了解如何使用 HDInsight .NET SDK 在 HDInsight 中运行 Sqoop 作业，以在 HDInsight 群集和 Azure SQL 数据库或 SQL Server 数据库之间进行导入和导出。
 
 > [!NOTE]
-可以对基于 Linux 或 Windows 的 HDInsight 群集使用本文中的步骤，但是，只能从 Windows 客户端执行这些步骤。使用本文顶部的选项卡选择器选择其他方法。
+> 可以对基于 Linux 或 Windows 的 HDInsight 群集使用本文中的步骤，但是，只能从 Windows 客户端执行这些步骤。使用本文顶部的选项卡选择器选择其他方法。
 > 
 > 
 

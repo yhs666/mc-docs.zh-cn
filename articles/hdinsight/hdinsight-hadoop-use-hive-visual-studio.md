@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/28/2017
 wacn.date: 03/31/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用适用于 Visual Studio 的 HDInsight 工具运行 Hive 查询
@@ -36,7 +36,7 @@ ms.author: larryfr
 * Azure HDInsight（HDInsight 上的 Hadoop）群集
 
     > [!IMPORTANT]
-    Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 * Visual Studio（以下版本之一）：
 
@@ -70,7 +70,7 @@ ms.author: larryfr
     * `CREATE EXTERNAL TABLE`：在 Hive 中创建一个新的“外部”表。外部表仅在 Hive 中存储表定义；数据会保留在原始位置。
 
         > [!NOTE]
-        如果希望以外部源更新基础数据（例如自动化数据上载过程），或以其他 MapReduce 操作更新基础数据，但希望 Hive 查询始终使用最新数据，则必须使用外部表。
+        > 如果希望以外部源更新基础数据（例如自动化数据上载过程），或以其他 MapReduce 操作更新基础数据，但希望 Hive 查询始终使用最新数据，则必须使用外部表。
         > 
         > 删除外部表**不会**删除数据，只会删除表定义。
 
@@ -107,7 +107,7 @@ ms.author: larryfr
     * `CREATE TABLE IF NOT EXISTS`：如果表尚不存在，则将创建表。由于未使用 `EXTERNAL` 关键字，因此此语句将创建内部表。内部表存储在 Hive 数据仓库中，并由 Hive 托管。
 
         > [!NOTE]
-        与 `EXTERNAL` 表不同，删除内部表会同时删除基础数据。
+        > 与 `EXTERNAL` 表不同，删除内部表会同时删除基础数据。
 
     * `STORED AS ORC`：以优化的行纵栏式 (ORC) 格式存储数据。ORC 是高度优化且有效的 Hive 数据存储格式。
 

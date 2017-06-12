@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 wacn.date: 
-ms.author: byvinyal
+ms.author: v-dazen
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 81a1ded6c2874b6258e14ebe940576c804e931c8
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 016d7d8a561c4e2298751dbb23cab54888d6e27c
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -150,9 +150,9 @@ ms.lasthandoff: 04/28/2017
 可以在此处了解有关度量值的详细信息：[监视服务度量值](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
 
 ## <a name="alerts-and-autoscale"></a>警报和自动缩放
-可将应用或应用服务计划的度量值连接到警报；
+可以将应用或应用服务计划的指标挂接到警报
 
-托管在基本、标准或高级应用服务计划中的应用服务应用支持 **自动缩放**。 这使你可以配置监视应用服务计划度量值的规则，还能增加或减少根据需要提供其他资源或在过度预配时节约资金的实例计数。 可以在此处了解有关自动缩放的详细信息：[如何缩放](../monitoring-and-diagnostics/insights-how-to-scale.md)
+托管在基本、标准或高级应用服务计划中的应用服务应用支持 **自动缩放**。 这使你可以配置监视应用服务计划度量值的规则，还能增加或减少根据需要提供其他资源或在过度预配时节约资金的实例计数。
 
 ## <a name="whats-changed"></a>发生的更改
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 wacn.date: 02/10/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 限制 Resource Manager 请求数

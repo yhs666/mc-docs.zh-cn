@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 wacn.date: 
-ms.author: jeffstok
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: f04c00a0930c165d004fb571e1df2a9fd8c97324
@@ -29,78 +29,8 @@ ms.lasthandoff: 05/05/2017
 
 为了启用多种应用程序模式，Azure 流分析提供了不同的选项来存储输出和查看分析结果。 这样可以轻松地查看作业输出，并可灵活地使用和存储作业输出，以便进行数据仓库操作和其他操作。 必须先存在作业中配置的输出，然后才能启动作业并开始事件的流动。 例如，如果你使用 Blob 存储作为输出，该作业将不会自动创建存储帐户。 在启动 ASA 作业之前，需要由用户创建该存储帐户。
 
-<!-- Data Lake Not supported on Azure.cn-->
-<!--
-## Azure Data Lake Store
-Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). This storage enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. Further, Stream Analytics needs to be authorized to access the Data Lake Store. Details on authorization and how to sign up for the Data Lake Store (if needed) are discussed in the [Data Lake output article](./stream-analytics-data-lake-output.md).
--->
-
-<!--
-### Authorize an Azure Data Lake Store
-When Data Lake Storage is selected as an output in the Azure Management portal, you will be prompted to authorize a connection to an existing Data Lake Store.  
-
-![Authorize Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
-
-Then fill out the properties for the Data Lake Store output as seen below:
-
-![Authorize Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
-
-The table below lists the property names and their description needed for creating a Data Lake Store output.
-
-<table>
-<tbody>
-<tr>
-<td><B>PROPERTY NAME</B></td>
-<td><B>DESCRIPTION</B></td>
-</tr>
-<tr>
-<td>Output Alias</td>
-<td>This is a friendly name used in queries to direct the query output to this Data Lake Store.</td>
-</tr>
-<tr>
-<td>Account Name</td>
-<td>The name of the Data Lake Storage account where you are sending your output. You will be presented with a drop down list of Data Lake Store accounts to which the user logged in to the portal has access to.</td>
-</tr>
-<tr>
-<td>Path Prefix Pattern [<I>optional</I>]</td>
-<td>The file path used to write your files within the specified Data Lake Store Account. <BR>{date}, {time}<BR>Example 1: folder1/logs/{date}/{time}<BR>Example 2: folder1/logs/{date}</td>
-</tr>
-<tr>
-<td>Date Format [<I>optional</I>]</td>
-<td>If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD</td>
-</tr>
-<tr>
-<td>Time Format [<I>optional</I>]</td>
-<td>If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH.</td>
-</tr>
-<tr>
-<td>Event Serialization Format</td>
-<td>Serialization format for output data. JSON, CSV, and Avro are supported.</td>
-</tr>
-<tr>
-<td>Encoding</td>
-<td>If CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time.</td>
-</tr>
-<tr>
-<td>Delimiter</td>
-<td>Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab and vertical bar.</td>
-</tr>
-<tr>
-<td>Format</td>
-<td>Only applicable for JSON serialization. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects.</td>
-</tr>
-</tbody>
-</table>
-
-### Renew Data Lake Store Authorization
-You will need to re-authenticate your Data Lake Store account if its password has changed since your job was created or last authenticated.
-
-![Authorize Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
-
--->
-
 ## <a name="sql-database"></a>SQL 数据库
-可以将 [Azure SQL 数据库](https://www.azure.cn/home/features/sql-database/)用作本质上为关系型数据的输出，也可以将其用于所依赖的内容在关系数据库中托管的应用程序。 流分析作业将写入到 Azure SQL 数据库的现有表中。  请注意表架构必须与字段及其正从作业输出的类型完全匹配。 [Azure SQL 数据仓库](/azure/sql-data-warehouse/)也可以通过 SQL 数据库输出选项指定为输出（此项为预览功能）。 下表列出了属性名称和用于创建 SQL 数据库输出的属性说明。
+可以将 [Azure SQL 数据库](https://www.azure.cn/home/features/sql-database/)用作本质上为关系型数据的输出，也可以将其用于所依赖的内容在关系数据库中托管的应用程序。 流分析作业将写入到 Azure SQL 数据库的现有表中。  请注意表架构必须与字段及其正从作业输出的类型完全匹配。 [Azure SQL 数据仓库](/sql-data-warehouse/)也可以通过 SQL 数据库输出选项指定为输出（此项为预览功能）。 下表列出了属性名称和用于创建 SQL 数据库输出的属性说明。
 
 | 属性名称 | 说明 |
 | --- | --- |

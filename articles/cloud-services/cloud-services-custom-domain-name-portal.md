@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 12/14/2016
 wacn.date: 03/31/2017
+ms.author: v-yiso
 ---
 
 # 为 Azure 云服务配置自定义域名

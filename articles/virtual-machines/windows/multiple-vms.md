@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 wacn.date: 03/06/2017
-ms.author: guybo
+ms.author: v-dazen
 ---
 
 # 创建多个 Azure 虚拟机

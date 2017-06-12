@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/05/2017
 wacn.date: 02/24/2017
-ms.author: masnider
+ms.author: v-johch
 ---
 
 # Service Fabric 群集资源管理器简介

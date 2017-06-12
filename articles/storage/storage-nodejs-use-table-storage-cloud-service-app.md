@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 wacn.date: 01/06/2017
-ms.author: marsma
+ms.author: v-johch
 ---
 
 # 使用存储构建 Node.js Web 应用程序

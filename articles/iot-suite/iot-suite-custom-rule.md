@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 wacn.date: 03/31/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # 在远程监控预配置解决方案中创建自定义规则
@@ -225,7 +225,7 @@ ms.author: dobett
 
 [lnk_free_trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-node]: http://nodejs.org
-[lnk-builtin-rule]: ./iot-suite-getstarted-preconfigured-solutions.md#add-a-rule-for-the-new-device
+[lnk-builtin-rule]: ./iot-suite-getstarted-preconfigured-solutions.md#add-a-rule
 [lnk-dynamic-telemetry]: ./iot-suite-dynamic-telemetry.md
 
 <!---HONumber=Mooncake_0327_2017-->

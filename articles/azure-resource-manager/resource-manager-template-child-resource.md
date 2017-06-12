@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 wacn.date: 03/31/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 在 Resource Manager 模板中设置子资源的名称和类型

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/12/2017
 wacn.date: 01/25/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 通过远程桌面在 HDInsight 上的 Hadoop 中使用 MapReduce
@@ -27,7 +27,7 @@ ms.author: larryfr
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-远程桌面只能在基于 Windows 的 HDInsight 群集上使用。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> 远程桌面只能在基于 Windows 的 HDInsight 群集上使用。Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 >
 > 有关 HDInsight 3.4 或更高版本，请参阅[将 MapReduce 与 SSH 配合使用](./hdinsight-hadoop-use-mapreduce-ssh.md)，了解如何连接到 HDInsight 群集以及如何运行 MapReduce 作业。
 
@@ -46,7 +46,7 @@ ms.author: larryfr
 1. 从 HDInsight 桌面启动“Hadoop 命令行”。这将在 **c:\\apps\\dist\\hadoop-&lt;version number>** 目录中打开新的命令提示符。
 
     > [!NOTE]
-    Hadoop 更新时，版本号也会发生变化。**HADOOP\_HOME** 环境变量可用来查找路径。例如，`cd %HADOOP_HOME%` 会将目录更改为 Hadoop 目录，而不需要你知道版本号。
+    > Hadoop 更新时，版本号也会发生变化。**HADOOP\_HOME** 环境变量可用来查找路径。例如，`cd %HADOOP_HOME%` 会将目录更改为 Hadoop 目录，而不需要你知道版本号。
     >
     >
 2. 若要使用 **Hadoop** 命令运行示例 MapReduce 作业，请使用以下命令：
@@ -58,7 +58,7 @@ ms.author: larryfr
     这将启动 **wordcount** 类（包含在当前目录中的 **hadoop-mapreduce-examples.jar** 文件内）。它使用 **wasbs://example/data/gutenberg/davinci.txt** 文档作为输入，输出将存储到 **wasbs:///example/data/WordCountOutput**。
 
     > [!NOTE]
-    有关此 MapReduce 作业和示例数据的详细信息，请参阅<a href="./hdinsight-use-mapreduce.md">在 HDInsight Hadoop 中使用 MapReduce</a>。
+    > 有关此 MapReduce 作业和示例数据的详细信息，请参阅<a href="./hdinsight-use-mapreduce.md">在 HDInsight Hadoop 中使用 MapReduce</a>。
     >
     >
 3. 作业在处理时提供详细信息，并在完成时返回如下信息：
@@ -78,7 +78,7 @@ ms.author: larryfr
     这应会显示两个文件：**\_SUCCESS** 和 **part-r-00000**。**part-r-00000** 文件包含此作业的输出。
 
     > [!NOTE]
-    某些 MapReduce 作业可能会将结果拆分成多个 **part-r-#####** 文件。如果是这样，请使用 ##### 后缀指示文件的顺序。
+    > 某些 MapReduce 作业可能会将结果拆分成多个 **part-r-#####** 文件。如果是这样，请使用 ##### 后缀指示文件的顺序。
     >
     >
 5. 要查看输出，请使用以下命令：

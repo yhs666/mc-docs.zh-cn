@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 wacn.date: 12/21/2016
-ms.author: JPallavi
+ms.author: v-junlch
 ---
 
 # 使用 Azure 备份还原已加密 VM 的密钥保管库密钥和机密

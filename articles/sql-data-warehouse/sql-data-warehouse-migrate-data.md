@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 10/31/2016
 wacn.date: 
-ms.author: jrj;barbkess
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: e0c0e7e7994d1fc8b985dc54b7bdcd9fb17a0136
@@ -188,7 +188,7 @@ PolyBase 还支持名为“递归文件夹遍历”的功能。 你可以使用�
 <!--Azure Data Factory (ADF) Not supported in ACN-->
 <!--[Azure Data Factory]: http://azure.microsoft.com/services/data-factory/-->
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
-[ExpressRoute documentation]: /azure/expressroute/
+[ExpressRoute documentation]: /expressroute/
 
 [production version]: http://aka.ms/downloadazcopy/
 [preview version]: http://aka.ms/downloadazcopypr/

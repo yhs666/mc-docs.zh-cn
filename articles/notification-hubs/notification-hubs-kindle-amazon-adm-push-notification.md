@@ -14,7 +14,7 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 06/29/2016
 wacn.date: 08/23/2016
-ms.author: wesmc
+ms.author: v-junlch
 ---
 
 # 通知中心入门（Kindle 应用）

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/30/2017
 wacn.date: 
-ms.author: tomfitz
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 1adbd32d0aef08558b7291ef6ab958864eacb077
@@ -393,7 +393,7 @@ ms.lasthandoff: 04/22/2017
 ```
 
 ### <a name="virtual-machine-extension"></a>虚拟机扩展
-如需虚拟机扩展的示例，请参阅 [Azure Windows VM 扩展配置示例](../virtual-machines/virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+如需虚拟机扩展的示例，请参阅 [Azure Windows VM 扩展配置示例](../virtual-machines/virtual-machines-windows-extensions-configuration-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ### <a name="virtual-network-gateway"></a>虚拟网络网关
 添加虚拟网络网关资源类型。

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.date: 02/06/2017
 wacn.date: 03/24/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 使用 Azure 门户预览创建和管理 Azure SQL 数据库服务器

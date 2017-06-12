@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2017
 wacn.date: 03/24/2017
-ms.author: jotaub
+ms.author: v-yeche
 ---
 
 # 可用的事件中心 API

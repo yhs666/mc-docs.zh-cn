@@ -246,10 +246,10 @@
 ### [排查本地群集的故障](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # 引用
-## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
-## [Java API](/java/api/microsoft.servicefabric.services)
-## [.NET](/dotnet/api/microsoft.servicefabric.services)
-## [REST](/rest/api/servicefabric)
+## [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/servicefabric)
+## [Java API](https://docs.microsoft.com/java/api/microsoft.servicefabric.services)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services)
+## [REST](https://docs.microsoft.com/rest/api/servicefabric)
 
 # 资源
 ## [有关 Service Fabric 的常见问题](service-fabric-common-questions.md)

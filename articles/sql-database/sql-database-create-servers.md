@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.date: 11/23/2016
 wacn.date: 01/20/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 创建 Azure SQL 数据库服务器

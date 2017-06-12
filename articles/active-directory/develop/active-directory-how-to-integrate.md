@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 5cb663ae5da749691abaefe7268fc668a923c4c4
@@ -64,7 +64,7 @@ Azure Active Directory 为组织的云应用程序提供企业级标识管理。
 **Azure AD 已将 Active Directory 扩展到云中，以便你的应用程序可与 AD 集成。**  世界各地的许多组织都在使用 Active Directory 作为首要登录和标识管理系统，并要求它们的应用程序与 AD 配合使用。  与 Azure AD 集成可将你的应用与 Active Directory 相集成。
 
 ### <a name="advanced-security-features"></a>高级安全功能
-**多重身份验证。**  Azure AD 提供本机多重身份验证。  IT 管理员可以要求访问应用程序之前经过多重身份验证，因此你无需编写此项支持的代码。  了解有关 [多重身份验证](/documentation/services/multi-factor-authentication/)的详细信息。
+**多重身份验证。**  Azure AD 提供本机多重身份验证。  IT 管理员可以要求访问应用程序之前经过多重身份验证，因此你无需编写此项支持的代码。  了解有关 [多重身份验证](../../multi-factor-authentication/index.md)的详细信息。
 
 ### <a name="easy-development"></a>易于开发
 **行业标准协议。**  Microsoft 承诺支持行业标准。  Azure AD 支持 SAML 2.0、OpenID Connect 1.0、OAuth 2.0 和 WS-Federation 1.2 身份验证协议。  图形 API 符合 OData 4.0 规范。  如果你的应用程序已支持使用 SAML 2.0 或 OpenID Connect 1.0 进行联合登录，可以直接添加对 Azure AD 的支持。  深入了解 [Azure AD 支持的身份验证协议](active-directory-authentication-protocols.md)。

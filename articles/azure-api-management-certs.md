@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2016
 wacn.date: 06/13/2016
-ms.author: adegeo
+ms.author: v-junlch
 ---
 
 # 上载 Azure Management API 管理证书

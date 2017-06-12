@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2017
 wacn.date: 
-ms.author: sethm;jotaub;shvija
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 027069e7bee618db5418c1fc4331dc9221a6eb0c
@@ -105,9 +105,6 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>事件中心生成的异常有哪些，建议采取什么操作？
 有关可能的事件中心异常的列表，请参阅[异常概述](./event-hubs-messaging-exceptions.md)。
-
-### <a name="diagnostic-logs"></a>诊断日志
-事件中心支持两种类型的[诊断日志](./event-hubs-diagnostic-logs.md)：存档错误日志和操作日志；这两种日志都用 json 表示并可以通过 Azure 门户预览启用。
 
 ### <a name="support-and-sla"></a>支持和 SLA
 事件中心的技术支持可通过 [社区论坛](https://social.msdn.microsoft.com/forums/azure/home)获得。 计费和订阅管理支持免费提供。

@@ -1,5 +1,5 @@
 ---
-title: "使用 CLI 管理密钥保管库 | Microsoft Docs"
+title: "使用 CLI 管理 Azure Key Vault | Microsoft Docs"
 description: "使用本教程通过 CLI 2.0 自动执行 Key Vault 中的常见任务"
 services: key-vault
 documentationcenter: 
@@ -12,18 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: ambapat
+ms.date: 05/08/2017
+ms.author: v-junlch
+wacn.date: 06/12/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 2bab5b7dffe08796ca9251fbf06ec25f8f093797
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: da2b7706a8df28e651a86732ea927741bb127dc4
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="manage-key-vault-using-cli-20"></a>使用 CLI 2.0 管理 Key Vault
-在大多数区域中提供了 Azure 密钥保管库。 有关详细信息，请参阅 [密钥保管库定价页](/pricing/details/key-vault/)。
+在大多数区域中提供了 Azure 密钥保管库。 有关详细信息，请参阅 [密钥保管库定价页](https://www.azure.cn/pricing/details/key-vault/)。
 
 ## <a name="introduction"></a>介绍
 本教程将会帮助你开始使用 Azure 密钥保管库在 Azure 中创建强化容器（保管库），以存储和管理 Azure 中的加密密钥和机密。 本教程将引导你完成使用 Azure 跨平台命令行接口创建包含密钥或密码（稍后可用于 Azure 应用程序）的保管库程序。 然后，将会介绍应用程序后续如何使用该密钥或密码。
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/28/2017
 > [!NOTE]
 > 本教程未说明如何编写其中一个步骤所包括的 Azure 应用程序，但说明了如何授权应用程序使用密钥保管库中的密钥或机密。
 >
-> 本教程使用最新的 Azure CLI 2.0。 有关使用更低版本（基于 node.js）CLI 的说明，请参阅[此对应教程](key-vault-manage-with-cli.md)。
+> 本教程使用最新的 Azure CLI 2.0。
 >
 >
 
@@ -42,8 +43,8 @@ ms.lasthandoff: 04/28/2017
 ## <a name="prerequisites"></a>先决条件
 要完成本教程，必须具备以下先决条件：
 
-- Azure 订阅。 如果你没有订阅，可以注册 [试用版](/pricing/1rmb-trial/)。
-- 命令行接口版本 2.0 或更高版本。 若要安装最新版本并连接到 Azure 订阅，请参阅[安装和配置 Azure 跨平台命令行接口 2.0](/cli/azure/install-azure-cli/)。
+- Azure 订阅。 如果你没有订阅，可以注册 [试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+- 命令行接口版本 2.0 或更高版本。 若要安装最新版本并连接到 Azure 订阅，请参阅[安装和配置 Azure 跨平台命令行接口 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli/)。
 - 配置为使用你在本教程中所创建的密钥或密码的应用程序。 可以从 [Microsoft 下载中心](http://www.microsoft.com/download/details.aspx?id=45343)获取示例应用程序。 有关说明，请参阅随附的自述文件。
 
 ## <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>获得 Azure 跨平台命令行接口帮助
@@ -60,8 +61,8 @@ az account set -h
 
 还可阅读以下教程以熟悉如何在 Azure 跨平台命令行接口中使用 Azure Resource Manager：
 
-- [安装 Azure CLI](/cli/azure/install-azure-cli/)
-- [Azure CLI 2.0 入门](/cli/azure/get-started-with-azure-cli/)
+- [安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli/)
+- [Azure CLI 2.0 入门](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli/)
 
 ## <a name="connect-to-your-subscriptions"></a>连接到订阅
 要使用组织帐户登录，请使用以下命令：
@@ -88,7 +89,7 @@ az account list
 az account set --subscription <subscription name or ID>
 ```
 
-有关配置 Azure 跨平台命令行接口的详细信息，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli/)。
+有关配置 Azure 跨平台命令行接口的详细信息，请参阅[安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli/)。
 
 ## <a name="create-a-new-resource-group"></a>创建新的资源组
 使用 Azure Resource Manager 时，会在资源组中创建所有相关资源。 在本教程中，我们将创建新资源组“ContosoResourceGroup”。
@@ -160,7 +161,11 @@ az keyvault secret set --vault-name 'ContosoKeyVault' --name 'SQLPassword' --val
 要在 Azure Active Directory 中注册应用程序，请执行以下操作：
 
 1. 登录到 Azure 门户。
-2. 单击左侧的“Azure Active Directory”，然后选择要在其中注册应用程序的目录。 <br> <br> 注意：必须选择包含用于创建密钥保管库的 Azure 订阅的相同目录。 如果你不知道是哪个目录，请单击“设置”，找到用于创建密钥保管库的订阅，并记下最后一列中显示的目录名称。
+2. 单击左侧的“Azure Active Directory”，然后选择要在其中注册应用程序的目录。 <br> <br> 
+
+> [!Note] 
+> 必须选择包含用于创建 Key Vault 的 Azure 订阅的相同目录。 如果你不知道是哪个目录，请单击“设置”，找到用于创建密钥保管库的订阅，并记下最后一列中显示的目录名称。
+
 3. 单击“应用程序” 。 如果你的目录中尚未添加任何应用程序，则此页只会显示“添加应用程序”链接  。 单击该链接，或者单击命令栏上的“添加”。
 4. 在“添加应用程序”向导的“要执行什么操作?”页面上，单击“添加我的组织正在开发的应用程序”。
 5. 在“向我们说明你的应用程序”页上，指定应用程序名称，然后选择“Web 应用程序和/或 Web API”（默认值）。 单击“下一步”图标。
@@ -182,33 +187,6 @@ az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec
 ```
 az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
-## <a name="if-you-want-to-use-a-hardware-security-module-hsm"></a>如果要使用硬件安全模块 (HSM)
-为了提高可靠性，你可以在硬件安全模块 (HSM) 中导入或生成永不超出 HSM 边界的密钥。 这些 HSM 都通过 FIPS 140-2 第 2 级验证。 如果此要求对你不适用，请跳过本部分并转到 [删除密钥保管库以及关联的密钥和机密](#delete-the-key-vault-and-associated-keys-and-secrets)。
-
-若要创建这些受 HSM 保护的密钥，必须具有支持 HSM 保护密钥的保管库订阅。
-
-创建密钥保管库时，添加“sku”参数：
-
-```
-az keyvault create --name 'ContosoKeyVaultHSM' --resource-group 'ContosoResourceGroup' --location 'China East' --sku 'Premium'
-```
-你可以将软件保护的密钥（如前所示）和 HSM 保护的密钥添加到此保管库。 若要创建受 HSM 保护的密钥，请将 Destination 参数设为“HSM”：
-
-```
-az keyvault key create --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --protection 'hsm'
-```
-
-你可以使用以下命令，从计算机上的 .pem 文件导入密钥。 此命令会将密钥导入到密钥保管库服务中的 HSM：
-
-```
-az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --protection 'hsm' --pem-password 'PaSSWORD'
-```
-下一个命令会导入“自带密钥”(BYOK) 包。 这样，你就可以在本地 HSM 中生成密钥，并将其传输到密钥保管库服务中的 HSM，而密钥不会超出 HSM 界限：
-
-```
-az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --protection 'hsm'
-```
-
 ## <a name="delete-the-key-vault-and-associated-keys-and-secrets"></a>删除密钥保管库以及关联的密钥和机密
 如果不再需要 Key Vault 及其包含的密钥或机密，可以使用 `az keyvault delete` 命令删除 Key Vault：
 
@@ -247,7 +225,7 @@ az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
 
 
 ## <a name="next-steps"></a>后续步骤
-有关 Key Vault 命令的完整 Azure CLI 参考，请参阅[Key Vault CLI 参考](/cli/azure/keyvault/)
+有关 Key Vault 命令的完整 Azure CLI 参考，请参阅[Key Vault CLI 参考](https://docs.microsoft.com/cli/azure/keyvault/)
 
 有关编程参考，请参阅 [Azure 密钥保管库开发人员指南](key-vault-developers-guide.md)。
 

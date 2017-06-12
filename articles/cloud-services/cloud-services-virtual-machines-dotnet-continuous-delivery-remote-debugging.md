@@ -7,8 +7,10 @@ authors: TomArcher
 manager: douge
 editor: 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 11/18/2016
 wacn.date: 05/17/2016
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 9acd7ad4513c0c3a86a9765e38271c72fef66c71
@@ -27,7 +29,6 @@ ms.lasthandoff: 04/14/2017
 
     * [用于 Visual Studio 2017 的远程工具](https://go.microsoft.com/fwlink/?LinkId=746570)
     * [用于 Visual Studio 2015 的远程工具](https://go.microsoft.com/fwlink/?LinkId=615470)
-    * [用于 Visual Studio 2013 Update 5 的远程工具](https://www.microsoft.com/download/details.aspx?id=48156)
 
     或者，也可以从装有 Visual Studio 的系统复制远程调试二进制文件。
 

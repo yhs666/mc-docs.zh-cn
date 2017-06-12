@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2016
 wacn.date: 09/26/2016
-ms.author: ahmedelnably
+ms.author: v-dazen
 ---
 
 # 使用 Azure 门户预览克隆 Azure App Service 应用#
@@ -35,7 +35,7 @@ Web 应用必须在“高级”模式下运行，才能为 Web 应用创建副�
     ![][1]
 
     > [!NOTE]
-    如果 Web 应用不是处于“高级”模式，你将收到消息，指出应用克隆支持的模式。此时，你可以选择“升级”。
+    > 如果 Web 应用不是处于“高级”模式，你将收到消息，指出应用克隆支持的模式。此时，你可以选择“升级”。
 
 3. “克隆应用”边栏选项卡中提供了新 Web 应用、资源组和 App Service 计划的名称。用户也可以选择是否克隆多个源 Web 应用设置。
 

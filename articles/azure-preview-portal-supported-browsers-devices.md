@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2015
 wacn.date: 05/13/2016
-ms.author: micflan
+ms.author: v-junlch
 ---
 
 #支持的浏览器和设备

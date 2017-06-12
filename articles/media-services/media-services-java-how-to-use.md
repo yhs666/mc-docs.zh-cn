@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 01/10/2017
 wacn.date: 02/24/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # 开始使用 Java 传送点播内容

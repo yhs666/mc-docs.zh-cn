@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
 wacn.date: 
-ms.author: glenga
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 0766fab7ce4bf35ee0c93f8922c3be6b03c6f973
@@ -48,7 +48,7 @@ ms.lasthandoff: 05/19/2017
 
 > [!NOTE]
 > <a name="note"></a>完成本教程需要 Azure 帐户：
-> <p>
+>
 > * 你可以[注册一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)：获取可用来试用付费版 Azure 服务的信用额度，甚至在用完信用额度后，仍可以保留帐户和使用免费的 Azure 服务（如网站）。 不会收取任何费用，除非明确更改设置并要求收费。
 >
 

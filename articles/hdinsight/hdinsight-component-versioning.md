@@ -1,6 +1,7 @@
 ---
 title: "Hadoop 组件和版本 - Azure HDInsight | Azure"
 description: "了解 HDInsight 中的 Hadoop 组件和版本以及此 HortonWorks 数据平台的云分发中可用的服务级别。"
+keywords: "hadoop 版本,hadoop 生态系统组件,hadoop 组件,如何检查 hadoop 版本"
 services: hdinsight
 editor: cgronlun
 manager: asadk
@@ -9,36 +10,37 @@ tags: azure-portal
 documentationcenter: 
 ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 wacn.date: 
-ms.author: bprakash
+ms.author: v-dazen
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
-ms.openlocfilehash: dc2708bb86b27e59a949d8604050b87e074b53c5
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: fb920e2866a96c08ec96071750bbe71a6b902e00
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="what-are-the-different-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight 可使用哪些不同的 Hadoop 组件和版本？
+# <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight 提供了哪些 Hadoop 组件和版本？
 
 了解有关为 Azure HDInsight 以及其内含的 Hadoop 生态系统组件和版本提供的服务级别。 每个 HDInsight 版本都是某个版本的 Hortonworks 数据平台 (HDP) 的云分发。
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-### <a name="pricing-and-sla"></a>定价和 SLA
-有关 HDInsight 高级版的定价和 SLA 的信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
+每个 HDInsight 版本都是某个版本的 Hortonworks 数据平台 (HDP) 的云分发。
 
 ## <a name="hadoop-components-available-with-different-hdinsight-versions"></a>可与不同 HDInsight 版本使用的 Hadoop 组件
-Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版本选项创建 Hortonworks 数据平台 (HDP) 分发的特定版本和该分发内包含的一组组件。 下表中逐项列出了与 HDInsight 群集版本关联的组件版本。
+Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版本选项创建 Hortonworks 数据平台 (HDP) 分发的特定版本和该分发内包含的一组组件。 Azure HDInsight 使用的默认群集当前版本为 3.5，基于 HDP 2.5。
+
+下表中逐项列出了与 HDInsight 群集版本关联的组件版本： 
 
 > [!NOTE]
-> 服务默认版本随时可更改，恕不另行通知。 如果依赖某个版本，我们建议在创建群集时使用 .NET SDK/Azure PowerShell 和 Azure CLI 指定版本。
+> 服务默认版本随时可更改，恕不另行通知。 如果依赖某个版本，我们建议在创建群集时使用 .NET SDK/Azure PowerShell 和 Azure CLI 指定版本。 
 >
 >
 
@@ -65,11 +67,16 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版�
 | Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 
-**获取当前组件版本信息**
+## <a name="how-to-check-current-hadoop-component-version-information"></a>如何检查当前的 Hadoop 组件版本信息
 
-与 HDInsight 群集版本关联的组件版本可能在将来的 HDInsight 更新中更改。 确定可用组件并验证正在使用哪些群集版本的一种方法是使用 Ambari REST API。 **GetComponentInformation** 命令可用于检索有关服务组件的信息。 有关详细信息，请参阅 [Ambari 文档][ambari-docs]。 获取此信息的另一个方法是使用远程桌面登录到群集并直接检查“C:\apps\dist\" 目录的内容。
+与 HDInsight 群集版本关联的 Hadoop 生态系统组件版本可能会随 HDInsight 的更新而更改。 若要检查 Hadoop 组件并验证正在为群集使用哪些版本，请使用 Ambari REST API。 **GetComponentInformation** 命令检索有关服务组件的信息。 有关详细信息，请参阅 [Ambari 文档][ambari-docs]。
 
-**发行说明**
+仅适用于基于 Windows 的群集：获取组件版本的另一种方法是使用远程桌面登录到群集并直接检查“C:\apps\dist\" 目录的内容。
+
+> [!IMPORTANT]
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 3.3 弃用](#hdi-version-33-nearing-deprecation-date)。 
+
+### <a name="release-notes"></a>发行说明
 
 请参阅 [HDInsight 发行说明](hdinsight-release-notes.md)，了解 HDInsight 最新版本的更多发行说明。
 

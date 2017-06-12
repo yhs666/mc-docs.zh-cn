@@ -13,7 +13,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: 
-ms.author: barbkess
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: f54d8f576cd4ca14ab36b274e54fde4bb6c56b80
@@ -94,7 +94,7 @@ ms.lasthandoff: 04/14/2017
 [PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 
-[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[How to install and configure Azure PowerShell]: https://msdn.microsoft.com/powershell/azureps-cmdlets-docs
 [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
 [Create an Azure SQL database in the Azure Portal]: ../sql-database/sql-database-get-started.md
 [Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-get-started-powershell.md

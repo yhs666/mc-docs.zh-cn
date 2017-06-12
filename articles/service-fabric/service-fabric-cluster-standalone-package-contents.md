@@ -12,9 +12,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/15/2017
+ms.date: 02/15/2017
 wacn.date: 03/03/2017
-ms.author: chackdan;maburlik
+ms.author: v-johch
 ---
 
 # 打包适用于 Windows Server 的 Service Fabric 独立包的内容

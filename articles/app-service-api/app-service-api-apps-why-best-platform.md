@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2016
 wacn.date: 11/25/2016
-ms.author: rachelap
+ms.author: v-dazen
 ---
 
 # API 应用概述
@@ -33,9 +33,9 @@ Azure 应用服务中的 API 应用提供各种功能，用于轻松在云中和
 
 - **保留现有的 API** - 无需更改现有 API 的任何代码就能使用 API 应用，只需将代码部署到 API 应用即可。API 可以使用应用服务支持的任何语言或框架，包括 ASP.NET 和 C#、Java、PHP、Node.js 和 Python。
 
-- **易于使用** - 通过 [Swagger API 元数据](http://swagger.io/)的集成支持，各种客户端都能轻松使用 API。使用各种语言（包括 C#、Java 和 Javascript）为 API 自动生成客户端代码。轻松配置 [CORS](./app-service-api-cors-consume-javascript.md) 而无需更改代码。有关详细信息，请参阅 [App Service API Apps metadata for API discovery and code generation](./app-service-api-metadata.md)（用于 API 发现和代码生成的应用服务 API 应用元数据）和 [Consume an API app from JavaScript using CORS](./app-service-api-cors-consume-javascript.md)（借助 CORS 从 JavaScript 使用 API 应用）。
+- **易于使用** - 通过 [Swagger API 元数据](http://swagger.io/)的集成支持，各种客户端都能轻松使用 API。使用各种语言（包括 C#、Java 和 Javascript）为 API 自动生成客户端代码。轻松配置 [CORS](./app-service-api-cors-consume-javascript.md) 而无需更改代码。有关详细信息，请参阅[用于 API 发现和代码生成的应用服务 API 应用元数据](./app-service-api-metadata.md)和[借助 CORS 从 JavaScript 使用 API 应用](./app-service-api-cors-consume-javascript.md)。
 
-- **简单的访问控制** - 可以保护 API 应用避免其遭到未经身份验证的访问，且无需更改代码。其他服务或代表用户的客户端访问 API 时，内置的身份验证服务将提供保护。支持的标识提供者包括 Azure Active Directory 和 Microsoft 帐户。客户端可以使用 Active Directory 身份验证库 (ADAL) 或移动应用 SDK。有关详细信息，请参阅 [Authentication and authorization for API Apps in Azure App Service](./app-service-api-authentication.md)（Azure 应用服务中 API 应用的身份验证和授权）。
+- **简单的访问控制** - 可以保护 API 应用避免其遭到未经身份验证的访问，且无需更改代码。其他服务或代表用户的客户端访问 API 时，内置的身份验证服务将提供保护。支持的标识提供者包括 Azure Active Directory 和 Microsoft 帐户。客户端可以使用 Active Directory 身份验证库 (ADAL) 或移动应用 SDK。有关详细信息，请参阅 [Azure 应用服务中 API 应用的身份验证和授权](./app-service-api-authentication.md)。
 
 - **Visual Studio 集成** - Visual Studio 中的专用工具可以简化创建、部署、使用、调试和管理 API 应用的工作。有关详细信息，请参阅 [Announcing the Azure SDK 2.8.1 for .NET](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/)（宣告推出用于 .NET 的 Azure SDK 2.8.1）。
 

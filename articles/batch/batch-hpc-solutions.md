@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: danlep
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -83,7 +83,7 @@ Azure 还为开发人员和合作伙伴提供一整套功能、体系结构选�
 | **将并行应用程序横向扩展到 Azure**<br/><br/>[![Azure 批处理][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>了解更多：<br/>• [Azure 批处理基础知识](batch-technical-overview.md)<br/><br/>• [用于 .NET 的 Azure 批处理库入门](batch-dotnet-get-started.md) |• 使用 [Azure 批处理](./index.md)进行开发，横向扩展各种大型计算工作负荷，使其在 Windows 或 Linux 虚拟机池中运行。<br/><br/>• 使用 Azure 平台服务来管理虚拟机的部署和自动缩放、作业计划、灾难恢复、数据移动、依赖项管理以及应用程序部署。 |
 
 ## <a name="azure-services-for-big-compute"></a>用于大型计算的 Azure 服务
-下面是有关计算、数据、网络和相关服务的详细信息，可以将它们组合用于大型计算解决方案和工作流。 有关 Azure 服务的深入指导，请参阅 Azure 服务 [文档](/documentation/)。 本文前面的 [方案](#scenarios) 仅显示了这些服务的部分使用方法。
+下面是有关计算、数据、网络和相关服务的详细信息，可以将它们组合用于大型计算解决方案和工作流。 有关 Azure 服务的深入指导，请参阅 Azure 服务文档。 本文前面的 [方案](#scenarios) 仅显示了这些服务的部分使用方法。
 
 > [!NOTE]
 > Azure 会定期推出新的服务，这些服务可能适用于你的方案。 如有疑问，请联系 [Azure 合作伙伴](https://pinpoint.microsoft.com/en-US/search?keyword=azure)或者向 *bigcompute@microsoft.com* 发送电子邮件。
@@ -91,7 +91,7 @@ Azure 还为开发人员和合作伙伴提供一整套功能、体系结构选�
 > 
 
 ### <a name="compute-services"></a>计算服务
-Azure 计算服务是大型计算解决方案的核心，不同的计算服务适用于不同的方案。 在基本级别中，这些服务为使用 Windows Server Hyper-V 技术，由 Azure 提供的基于虚拟机的计算实例上运行的应用程序提供不同模式。 这些实例可以运行标准的和自定义的 Linux 和 Windows 操作系统与工具。 Azure 允许选择 [实例大小](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/) ，可对 CPU 核心、内存、磁盘容量和其他特征进行不同配置。 用户可以根据需要将实例扩展到数千个核心，并在需要较少的资源时相应减少。
+Azure 计算服务是大型计算解决方案的核心，不同的计算服务适用于不同的方案。 在基本级别中，这些服务为使用 Windows Server Hyper-V 技术，由 Azure 提供的基于虚拟机的计算实例上运行的应用程序提供不同模式。 这些实例可以运行标准的和自定义的 Linux 和 Windows 操作系统与工具。 Azure 允许选择 [实例大小](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json/) ，可对 CPU 核心、内存、磁盘容量和其他特征进行不同配置。 用户可以根据需要将实例扩展到数千个核心，并在需要较少的资源时相应减少。
 
 
 | 服务 | 说明 |

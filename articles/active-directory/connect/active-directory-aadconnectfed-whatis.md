@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/9/2016
-ms.author: anandy
+ms.date: 04/09/2016
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: e802054eec0f846f226a25293be299abd7b0ba91
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/12/2017
-
+wacn.date: 06/12/2017
 
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect 和联合身份验证

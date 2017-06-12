@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 wacn.date: 03/31/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用 Power BI 直观显示 Apache Storm 拓扑中的数据
@@ -28,7 +28,7 @@ Power BI 允许以可视方式将数据显示为报表。本文档提供了如�
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
 > [!NOTE]
-虽然本文档中的步骤依赖于带 Visual Studio 的 Windows 开发环境，但是也可将编译的项目提交到基于 Linux 或 Windows 的 HDInsight 群集。仅在 2016 年 10 月 28 日以后创建的基于 Linux 的群集支持 SCP.NET 拓扑。
+> 虽然本文档中的步骤依赖于带 Visual Studio 的 Windows 开发环境，但是也可将编译的项目提交到基于 Linux 或 Windows 的 HDInsight 群集。仅在 2016 年 10 月 28 日以后创建的基于 Linux 的群集支持 SCP.NET 拓扑。
 > 
 > 若要将 C# 拓扑用于基于 Linux 的群集，请将项目所使用的 Microsoft.SCP.Net.SDK NuGet 包更新为 0.10.0.6 版或更高版本。包的版本还必须与 HDInsight 上安装的 Storm 的主要版本相符。例如，Storm on HDInsight 版本 3.3 和 3.4 使用 Storm 版本 0.10.x，而 HDInsight 3.5 使用 Storm 1.0.x。
 > 
@@ -39,10 +39,10 @@ Power BI 允许以可视方式将数据显示为报表。本文档提供了如�
 ## 先决条件
 
 * 具有 [Power BI](https://powerbi.com) 访问权限的 Azure Active Directory 用户。
-* HDInsight 群集。有关详细信息，请参阅 [Get started with Storm on HDInsight](./hdinsight-apache-storm-tutorial-get-started-linux.md)（Storm on HDInsight 入门）。
+* HDInsight 群集。有关详细信息，请参阅 [Storm on HDInsight 入门](./hdinsight-apache-storm-tutorial-get-started-linux.md)。
 
     > [!IMPORTANT]
-    Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 * Visual Studio（以下版本之一）
 
@@ -63,7 +63,7 @@ Power BI 允许以可视方式将数据显示为报表。本文档提供了如�
 * **IISLogsTable.sql**：Transact-SQL 语句，用于生成存储数据的数据库。
 
 > [!WARNING]
-在 HDInsight 群集上启动拓扑前，请先在 SQL 数据库中创建表。
+> 在 HDInsight 群集上启动拓扑前，请先在 SQL 数据库中创建表。
 
 ## 下载示例
 
@@ -73,7 +73,7 @@ Power BI 允许以可视方式将数据显示为报表。本文档提供了如�
 
 1. 若要创建数据库，请按照 [SQL 数据库教程](../sql-database/sql-database-get-started.md)文档中的步骤进行操作。
 
-2. 按照 [Connect to a SQL Database with Visual Studio](../sql-database/sql-database-connect-query.md)（使用 Visual Studio 连接到 SQL 数据库）文档中的步骤连接到数据库。
+2. 按照[使用 Visual Studio 连接到 SQL 数据库](../sql-database/sql-database-connect-query.md)文档中的步骤连接到数据库。
 
 3. 在对象资源管理器中，右键单击数据库，然后选择“新建查询”。将下载的项目中包含的 **IISLogsTable.sql** 文件的内容粘贴到查询窗口中，然后按 Ctrl+Shift+E 执行查询。应收到“命令已成功完成”消息。
 
@@ -96,7 +96,7 @@ Power BI 允许以可视方式将数据显示为报表。本文档提供了如�
 1. 在“解决方案资源管理器”中，右键单击“StormToSQL”项目，然后选择“提交到 Storm on HDInsight”。从“Storm 群集”下拉对话框中选择 HDInsight 群集。
 
     > [!NOTE]
-    “Storm 群集”下拉对话框中填充服务器名称可能需要几秒钟时间。
+    > “Storm 群集”下拉对话框中填充服务器名称可能需要几秒钟时间。
     > 
     > 如果出现提示，请输入 Azure 订阅的登录凭据。如果有多个订阅，请登录包含 Storm on HDInsight 群集的订阅。
 
@@ -136,7 +136,7 @@ Power BI 允许以可视方式将数据显示为报表。本文档提供了如�
 4. 输入信息以连接到 Azure SQL 数据库。可以通过访问 [Azure 门户预览](https://portal.azure.cn)并选择 SQL 数据库查找此信息。
 
     > [!NOTE]
-    还可以通过在连接对话框中使用“启用高级选项”，以设置刷新间隔和自定义筛选器。
+    > 还可以通过在连接对话框中使用“启用高级选项”，以设置刷新间隔和自定义筛选器。
 
 5. 连接后，将显示一个名称与连接的数据库相同的新数据集。选择该数据集以开始设计报表。
 

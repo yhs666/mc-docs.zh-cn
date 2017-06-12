@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 wacn.date: 01/13/2017
-ms.author: cenkd;juliako
+ms.author: v-johch
 ---
 
 # Azure 媒体服务分片 MP4 实时引入规范

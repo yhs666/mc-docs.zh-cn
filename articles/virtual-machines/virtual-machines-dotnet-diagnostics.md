@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/16/2016
 wacn.date: 
-ms.author: davidmu
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: d1fd11f824eab4b94f3403d53c00b5f8b2ccda8f
@@ -175,4 +175,4 @@ ms.lasthandoff: 05/05/2017
 [Debugging an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Trial]: https://www.azure.cn/pricing/1rmb-trial/
-[Install and configure Azure PowerShell version 0.8.7 or later]: /install-configure-powershell/
+[Install and configure Azure PowerShell version 0.8.7 or later]: /powershell-install-configure/

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 wacn.date: 03/28/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 如何创建自定义 Linux VM

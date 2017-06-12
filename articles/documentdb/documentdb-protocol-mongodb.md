@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2017
 wacn.date: 
-ms.author: anhoh
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: aac8cd6e558da0944465dae7b446070504115eb4
@@ -53,7 +53,7 @@ ms.lasthandoff: 05/19/2017
 
 *这就是所有的操作！*
 
-有关详细说明，请参阅[创建帐户](documentdb-create-mongodb-account.md)和[连接到帐户](documentdb-connect-mongodb-account.md)。
+有关详细说明，请参阅[创建帐户](documentdb-create-account.md)和[连接到帐户](documentdb-connect-mongodb-account.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

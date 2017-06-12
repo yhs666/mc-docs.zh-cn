@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 wacn.date: 12/26/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # 向 Windows 应用添加推送通知
@@ -40,7 +40,7 @@ ms.author: adrianha
 
 3. 成功创建应用注册后，选择新应用名称，再依次单击“下一步”和“关联”。这会将所需的 Windows 应用商店注册信息添加到应用程序清单中。
 
-7. 导航到 [Windows 开发人员中心](https://dev.windows.com/overview)，使用 Microsoft 帐户登录，单击“我的应用”中的新应用注册，然后展开“服务”>“推送通知”。
+7. 导航到 [Windows 开发人员中心](https://developer.microsoft.com/en-us/dashboard/apps/signup)，使用 Microsoft 帐户登录，单击“我的应用”中的新应用注册，然后展开“服务”>“推送通知”。
 
 8. 在“推送通知”页中，单击“Azure 移动服务”下的“Live 服务站点”。
 

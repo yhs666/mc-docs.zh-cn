@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 wacn.date: 04/27/2017
-ms.author: sewhee
+ms.author: v-dazen
 ---
 
 # 流量管理器终结点监视和故障转移
@@ -85,7 +85,7 @@ Azure 流量管理器包括内置的终结点监视和终结点自动故障转�
 >- 超时（超时阈值为 10 秒）
 >- 无法连接
 
->有关针对失败的检查进行故障排除的详细信息，请参阅 [Troubleshooting Degraded status on Azure Traffic Manager](./traffic-manager-troubleshooting-degraded.md)（排查 Azure 流量管理器中的降级状态）。
+>有关针对失败的检查进行故障排除的详细信息，请参阅[排查 Azure 流量管理器中的降级状态](./traffic-manager-troubleshooting-degraded.md)。
 
 以下时间线详细描述了监视过程。
 
@@ -124,7 +124,7 @@ Azure 流量管理器包括内置的终结点监视和终结点自动故障转�
 
 >此行为的一个结果是，即使流量管理器运行状况检查没有正确进行配置，但从流量路由的角度来看，流量管理器似乎也正常运行。但在这种情况下，不能发生会影响应用程序总体可用性的终结点故障转移。必须检查配置文件是否显示“联机”状态而不是“已降级”状态。状态为“联机”表示流量管理器运行状况检查按预期进行。
 
-有关针对失败的运行状况检查进行故障排除的详细信息，请参阅 [Troubleshooting Degraded status on Azure Traffic Manager](./traffic-manager-troubleshooting-degraded.md)（排查 Azure 流量管理器中的降级状态）。
+有关针对失败的运行状况检查进行故障排除的详细信息，请参阅[排查 Azure 流量管理器中的降级状态](./traffic-manager-troubleshooting-degraded.md)。
 
 ## 常见问题
 

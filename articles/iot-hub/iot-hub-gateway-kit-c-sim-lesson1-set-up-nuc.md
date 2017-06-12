@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2016
 wacn.date: 01/23/2017
-ms.author: xshi
+ms.author: v-yiso
 ---
 
 # 将 Intel NUC 设置为 IoT 网关

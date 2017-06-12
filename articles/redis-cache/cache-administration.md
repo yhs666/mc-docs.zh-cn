@@ -15,14 +15,14 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/14/2017
 wacn.date: 03/03/2017
-ms.author: sdanie
+ms.author: v-dazen
 ---
 
 # 如何管理 Azure Redis 缓存
 本主题介绍如何执行管理任务，如[重新启动](#reboot) Azure Redis 缓存实例和为 Azure Redis 缓存实例[计划更新](#schedule-updates)。
 
 > [!IMPORTANT]
-本文中所述的设置和功能仅适用于高级层缓存。
+> 本文中所述的设置和功能仅适用于高级层缓存。
 > 
 > 
 
@@ -49,7 +49,7 @@ ms.author: sdanie
 * **已启用群集的高级缓存的节点** - 重新启动已启用群集的高级缓存的一个或多个节点时，所选节点的行为与重新启动非群集缓存的相应节点时相同。
 
 > [!IMPORTANT]
-重新启动仅适用于高级层缓存。
+> 重新启动仅适用于高级层缓存。
 > 
 > 
 
@@ -67,7 +67,7 @@ ms.author: sdanie
 能，如果重新启动缓存，将清除所有客户端连接。当所有客户端连接均已用完（由于客户端应用程序中的逻辑错误或 Bug）时，重新启动很有用。每个定价层对于不同大小都有不同的[客户端连接数限制](./cache-configure.md#default-redis-server-configuration)，达到这些限制后，将不再接受客户端连接。通过重新启动缓存可以清除所有客户端连接。
 
 > [!IMPORTANT]
-如果通过重新启动缓存来清除客户端连接，则一旦 Redis 节点重回联机状态，StackExchange.Redis 就会自动重新连接。如果未解决这一基本问题，客户端连接会继续用完。
+> 如果通过重新启动缓存来清除客户端连接，则一旦 Redis 节点重回联机状态，StackExchange.Redis 就会自动重新连接。如果未解决这一基本问题，客户端连接会继续用完。
 > 
 > 
 
@@ -86,7 +86,7 @@ ms.author: sdanie
 使用“计划更新”边栏选项卡可以为缓存指定维护时段。指定维护时段后，将在此时段内进行任何 Redis 服务器更新。
 
 > [!NOTE] 
-维护时段仅适用于 Redis 服务器更新，不适用于任何 Azure 更新或托管缓存的 VM 的操作系统更新。
+> 维护时段仅适用于 Redis 服务器更新，不适用于任何 Azure 更新或托管缓存的 VM 的操作系统更新。
 > 
 > 
 
@@ -95,7 +95,7 @@ ms.author: sdanie
 若要指定维护时段，请勾选合适的日期，然后指定每天的维护时段开始时间，最后再单击“确定”。请注意，维护时段使用 UTC 时间。
 
 > [!NOTE]
-更新的默认维护时段为五小时。此值不可以在 Azure 门户预览中配置，但可以在 PowerShell 中使用 [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/new-azurermrediscachescheduleentry) cmdlet 的 `MaintenanceWindow` 参数进行配置。有关详细信息，请参阅[能否使用 PowerShell、CLI 或其他管理工具管理计划的更新？](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+> 更新的默认维护时段为五小时。此值不可以在 Azure 门户预览中配置，但可以在 PowerShell 中使用 [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/new-azurermrediscachescheduleentry) cmdlet 的 `MaintenanceWindow` 参数进行配置。有关详细信息，请参阅[能否使用 PowerShell、CLI 或其他管理工具管理计划的更新？](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
 > 
 > 
 

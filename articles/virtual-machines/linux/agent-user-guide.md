@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 wacn.date: 11/21/2016
-ms.author: szark
+ms.author: v-dazen
 ---
 
 # Azure Linux 代理用户指南

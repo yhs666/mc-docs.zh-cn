@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 wacn.date: 12/26/2016
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 如何在 Azure CLI 中设置静态专用 IP 地址（经典）

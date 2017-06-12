@@ -16,14 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 wacn.date: 02/20/2017
-ms.author: ningk
+ms.author: v-dazen
 ---
 
 # 优化 Azure Linux VM 上的 MySQL 性能
 影响 Azure 上 MySQL 性能的因素有很多，主要体现在虚拟硬件选择和软件配置两个方面。本文重点介绍如何通过存储、系统和数据库配置优化性能。
 
 > [!IMPORTANT]
-Azure 有两种用于创建和处理资源的不同部署模型：[Azure Resource Manager 部署模型](../../../azure-resource-manager/resource-manager-deployment-model.md)和经典部署模型。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。若要了解如何通过 Resource Manager 模型进行 Linux VM 优化，请参阅[优化 Azure 上的 Linux VM](../optimization.md)。
+> Azure 有两种用于创建和处理资源的不同部署模型：[Azure Resource Manager 部署模型](../../../azure-resource-manager/resource-manager-deployment-model.md)和经典部署模型。本文介绍使用经典部署模型的情况。Azure 建议大多数新部署使用 Resource Manager 模型。若要了解如何通过 Resource Manager 模型进行 Linux VM 优化，请参阅[优化 Azure 上的 Linux VM](../optimization.md)。
 
 ## 利用 Azure 虚拟机上的 RAID
 存储是影响云环境中的数据库性能的关键因素。与单个磁盘相比，RAID 可以通过并发访问提供更快的访问速度。有关详细信息，请参阅 [Standard RAID levels](http://en.wikipedia.org/wiki/Standard_RAID_levels)（标准 RAID 级别）。
@@ -34,7 +34,7 @@ Azure 有两种用于创建和处理资源的不同部署模型：[Azure Resourc
 
 可能还需要考虑区块大小。通常，区块越大，开销越低，对于大型写入操作尤其如此。不过，区块太大时，可能会有额外的开销，导致用户无法利用 RAID。当前的默认大小为 512 KB，已被证明是大多数常见生产环境的最佳大小。有关详细信息，请参阅[附录 C](#AppendixC)。
 
-对于不同的虚拟机类型，可添加的磁盘数量存在多种限制。[Virtual machine and cloud service sizes for Azure](../../../cloud-services/cloud-services-sizes-specs.md)（Azure 的虚拟机和云服务大小）中详细介绍了这些限制。可以选择设置磁盘较少的 RAID，不过，在本文的 RAID 示例中，需要附加 4 个数据磁盘。
+对于不同的虚拟机类型，可添加的磁盘数量存在多种限制。[Azure 的虚拟机和云服务大小](../../../cloud-services/cloud-services-sizes-specs.md)中详细介绍了这些限制。可以选择设置磁盘较少的 RAID，不过，在本文的 RAID 示例中，需要附加 4 个数据磁盘。
 
 本文假定你已经创建 Linux 虚拟机，并且安装和配置了 MYSQL。有关入门的详细信息，请参阅“如何在 Azure 上安装 MySQL”。
 
@@ -72,7 +72,7 @@ sudo grep SCSI /var/log/dmesg
 以下步骤介绍如何[在 Linux 上配置软件 RAID](../configure-raid.md)。
 
 > [!NOTE]
-如果使用的是 XFS 文件系统，请在创建 RAID 后执行以下步骤。
+> 如果使用的是 XFS 文件系统，请在创建 RAID 后执行以下步骤。
 >
 >
 
@@ -149,7 +149,7 @@ root@mysqlnode1:~# update-grub
 ```
 
 > [!NOTE]
-对 /dev/sda 单独进行此设置毫无用处。必须对数据库所在的所有数据磁盘进行设置。
+> 对 /dev/sda 单独进行此设置毫无用处。必须对数据库所在的所有数据磁盘进行设置。
 >
 >
 
@@ -296,7 +296,7 @@ fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -b
 ```
 
 > [!NOTE]
-此测试的工作负荷使用 64 个线程，尝试达到 RAID 的上限。
+> 此测试的工作负荷使用 64 个线程，尝试达到 RAID 的上限。
 >
 >
 

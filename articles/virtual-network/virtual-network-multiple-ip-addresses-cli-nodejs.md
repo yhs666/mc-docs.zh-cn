@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 wacn.date: 
-ms.author: annahar
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: cda5161993658aa537382efe4fc26c1308400931
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/22/2017
 
 可以使用 Azure CLI 1.0（本文）或 [Azure CLI 2.0](virtual-network-multiple-ip-addresses-cli.md) 完成此任务。 下面的步骤说明如何根据方案中所述，创建具有多个 IP 地址的示例 VM。 在自己的实施项目中，需要更改变量名称和 IP 地址类型。
 
-1. 按照[安装和配置 Azure CLI](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文中的步骤安装并配置 Azure CLI 1.0，然后使用 `azure-login` 命令登录到 Azure 帐户。
+1. 按照[安装和配置 Azure CLI](../cli-install-nodejs.md?toc=%2fvirtual-network%2ftoc.json) 一文中的步骤安装并配置 Azure CLI 1.0，然后使用 `azure-login` 命令登录到 Azure 帐户。
 
 2. 创建资源组：
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 04/22/2017
 5. 为 VM 创建存储帐户。 运行以下命令之前，请使用唯一名称替换 mystorageaccount。 该名称在 Azure 中必须唯一。
 
     ```azurecli
-    az storage account create --resource-group $RgName --location $Location --name mystorageaccount \
+    azure storage account create --resource-group $RgName --location $Location --name mystorageaccount \
     --kind Storage --sku Standard_LRS
     ```
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 04/22/2017
 7. 创建 Linux VM 
 
     ```azurecli
-    az vm create --resource-group $RgName --name myVM1 --location $Location --nics myNic1 \
+    azure vm create --resource-group $RgName --name myVM1 --location $Location --nics myNic1 \
     --image UbuntuLTS --ssh-key-value ~/.ssh/id_rsa.pub --admin-username azureuser
     ```
 
@@ -132,7 +132,7 @@ ms.lasthandoff: 04/22/2017
 
 完成以下步骤，可将其他专用和公共 IP 地址添加到现有 NIC。 示例根据本文所述的 [方案](#Scenario) 生成。
 
-1. 打开 Azure CLI，在单个 CLI 会话中完成本部分的剩余步骤。 如果尚未安装并配置 Azure CLI，请完成[安装和配置 Azure CLI](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文中的步骤，然后登录到你的 Azure 帐户。
+1. 打开 Azure CLI，在单个 CLI 会话中完成本部分的剩余步骤。 如果尚未安装并配置 Azure CLI，请完成[安装和配置 Azure CLI](../cli-install-nodejs.md?toc=%2fvirtual-network%2ftoc.json) 一文中的步骤，然后登录到你的 Azure 帐户。
 
 2. 根据要求完成以下部分之一中的步骤：
 
