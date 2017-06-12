@@ -5,7 +5,8 @@ services: cognitive-services
 author: forester123
 manager: 
 layout: LandingPage
-ms.assetid: 'ms.service: cognitive-services'
+ms.assetid: 
+ms.service: cognitive-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
