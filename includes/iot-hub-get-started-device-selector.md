@@ -9,5 +9,6 @@
 > * [将 Intel Edison 与 Node.js 配合使用](../articles/iot-hub/iot-hub-intel-edison-kit-node-get-started.md)
 > * [将 Intel Edison 与 C 配合使用](../articles/iot-hub/iot-hub-intel-edison-kit-c-get-started.md)
 > * [将 Adafruit Feather HUZZAH ESP8266 与 Arduino IDE 配合使用](../articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md)
+> * [将 Sparkfun ESP8266 Thing Dev 与 Arduino IDE 配合使用](../articles/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 > * [将 Adafruit Feather M0 与 Arduino IDE 配合使用](../articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 > * [将 Intel NUC 设置为 IoT 网关](../articles/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
