@@ -84,7 +84,7 @@ ms.lasthandoff: 04/22/2017
 
 **UserPrincipalName** - 属性 userPrincipalName 是用户登录 Azure AD 和 Office 365 时使用的属性。 应在同步处理用户前在 Azure AD 中对使用的域（也称为 UPN 后缀）进行验证。 Microsoft 建议保留默认属性 userPrincipalName。 如果此属性不可路由且无法验证，可以选择另一个属性。 例如，可以选择 email 作为保存登录 ID 的属性。 使用除 userPrincipalName 以外的其他属性被称为“替代 ID” 。 “替代 ID”属性值必须遵循 RFC822 标准。 替代 ID 可以配合密码同步和联合使用。
 
->[!NOTE]
+> [!NOTE]
 > 启用直通身份验证时必须具有至少一个已验证的域，以便继续完成此向导。
 
 > [!WARNING]
@@ -182,8 +182,8 @@ ms.lasthandoff: 04/22/2017
 
 ![启用单一登录](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
 
->[!NOTE]
->如果不想要对某个特定的林使用单一登录，可以跳过该林。
+> [!NOTE]
+> 如果不想要对某个特定的林使用单一登录，可以跳过该林。
 
 #### <a name="configure-the-intranet-zone-for-client-machines"></a>配置客户端计算机的 Intranet 区域
 为了确保客户端在 Intranet 区域中自动登录，需确保两个 URL 是 Intranet 区域的一部分。 这样就可以确保已加入域的计算机在连接到企业网络后，向 Azure AD 自动发送 Kerberos 票证。

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 554e5d29da38ab8d91fa19458c008da37b7a755e
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/12/2017
+wacn.date: 06/12/2017
 
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>将连接器与 Azure AD Connect Sync Service Manager 配合使用
@@ -41,7 +42,7 @@ ms.lasthandoff: 05/12/2017
 | 导入连接器 |请勿使用。 |
 | 更新连接器 |请勿使用。 |
 | 刷新架构 |刷新缓存架构。 最好改为在安装向导中使用此选项，因为它也会更新同步规则。 |
-| [搜索连接器空间](#search-connector-space) |用于查找对象。 |
+| [搜索连接器空间](#search-connector-space) |用于查找对象，以及在整个系统中跟踪对象及其数据。 |
 
 =======
 ### <a name="delete"></a>删除

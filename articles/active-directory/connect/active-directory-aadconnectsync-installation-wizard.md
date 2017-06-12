@@ -77,7 +77,7 @@ wacn.date: 03/13/2017
 ## 更改用户登录
 此选项可让你从密码同步更改为联合身份验证，反之亦然。但不能更改为“不配置”。
 
-有关此选项的详细信息，请参阅[用户登录](./active-directory-aadconnect-user-signin.md#changing-user-sign-in-method)。
+有关此选项的详细信息，请参阅[用户登录](./active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method)。
 
 ## 后续步骤
 
