@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2016
 wacn.date: 04/26/2016
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 在服务配置文件中指定 DNS 设置

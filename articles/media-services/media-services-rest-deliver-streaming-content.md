@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 wacn.date: 12/16/2016
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # 使用 REST 发布 Azure 媒体服务内容

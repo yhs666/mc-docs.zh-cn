@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
-wacn.date: 
-ms.author: dobett
+ms.date: 03/22/2017
+ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 5bca1dededbeec3ebeb5efe744042a0bf7f7a533
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 7f45c5f5117d5e0b3fad64e756a899a638dc7e61
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 

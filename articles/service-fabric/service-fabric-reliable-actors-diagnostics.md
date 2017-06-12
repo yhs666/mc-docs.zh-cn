@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 wacn.date: 02/20/2017
-ms.author: abhisram
+ms.author: v-johch
 ---
 
 # Reliable Actors 的诊断和性能监视

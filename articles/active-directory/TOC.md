@@ -100,18 +100,18 @@
 
 
 # 引用
-## [PowerShell cmdlets](/powershell/ )
-## [Java API 参考](/java/api)
-## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
+## [PowerShell cmdlets](https://docs.microsoft.com/powershell/ )
+## [Java API 参考](https://docs.microsoft.com/java/api)
+## [.NET API](https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [服务限制和局限性](active-directory-service-limits-restrictions.md)
 
 # 相关内容
-## [多重身份验证](/azure/multi-factor-authentication/)
+## [多重身份验证]../multi-factor-authentication/index.md)
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [面向开发人员的 Azure AD](./develop/active-directory-how-to-integrate.md)
 
 # 资源
-## [价格](https://azure.microsoft.com/pricing/details/active-directory/)
+## [价格](https://www.azure.cn/pricing/details/identity/)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

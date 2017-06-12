@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2016
 wacn.date: 
-ms.author: cynthn
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: a627f7ae37d747aa30656a854da3e7a47a625f8a
@@ -25,13 +25,13 @@ ms.lasthandoff: 04/14/2017
 # <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建在 Azure 上运行的 Linux 虚拟机副本
 本文说明如何使用 Resource Manager 部署模型创建运行 Linux 的 Azure 虚拟机 (VM) 副本。 首先，通过操作系统和数据磁盘复制到新容器，然后设置网络资源并创建新虚拟机。
 
-还可以[上载自定义磁盘映像并从中创建 VM](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+还可以[上载自定义磁盘映像并从中创建 VM](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可使用以下 CLI 版本之一完成任务：
 
 - Azure CLI 1.0 - 用于经典部署模型和资源管理部署模型（本文）的 CLI
-- [Azure CLI 2.0](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
+- [Azure CLI 2.0](copy-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="before-you-begin"></a>开始之前
 在开始执行相关步骤前，请先确保符合以下先决条件：

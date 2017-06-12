@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2017
-ms.author: seanmck
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 9a254cde6944c0d6754280debfc9d41d4780108e

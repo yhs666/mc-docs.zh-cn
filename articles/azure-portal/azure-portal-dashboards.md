@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 wacn.date: 10/17/2016
-ms.author: sewatson
+ms.author: v-yiso
 ---
 
 # 在 Azure 门户中创建和共享仪表板

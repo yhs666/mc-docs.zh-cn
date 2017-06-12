@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/05/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 0ce7089552bdf5a652fc10a23dfab1a13160f323
@@ -147,7 +147,7 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.cn
 
     > [!NOTE]
     > 如果希望通过外部源更新基础数据，应使用外部表。 例如，自动化数据上传进程或 MapReduce 操作。
-    > <p>
+    >
     > 删除外部表**不会**删除数据，只会删除表定义。
 
     此命令的输出类似于以下文本：

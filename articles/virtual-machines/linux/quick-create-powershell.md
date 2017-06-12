@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/03/2017
 wacn.date: 
-ms.author: nepeters
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: f56805bf76a62a2c3b066eacab15af971de3230d
@@ -33,7 +33,7 @@ Azure PowerShell 用于从 PowerShell 命令行或脚本创建和管理 Azure �
 
 另请确保已安装了 Azure PowerShell 模块的最新版本。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 
-最后，需要在 Windows 用户配置文件的 `.ssh` 目录中存储名为 `id_rsa.pub` 的公共 SSH 密钥。 有关创建适用于 Azure 的 SSH 密钥的详细信息，请参阅[创建适用于 Azure 的 SSH 密钥](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+最后，需要在 Windows 用户配置文件的 `.ssh` 目录中存储名为 `id_rsa.pub` 的公共 SSH 密钥。 有关创建适用于 Azure 的 SSH 密钥的详细信息，请参阅[创建适用于 Azure 的 SSH 密钥](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -130,7 +130,7 @@ New-AzureRmVM -ResourceGroupName myResourceGroup -Location chinanorth -VM $vmCon
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-在装有 SSH 的系统中，使用以下命令连接到虚拟机。 如果在 Windows 上操作，可以使用 [Putty](/virtual-machines/virtual-machines-linux-ssh-from-windows?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty) 来创建连接。 
+在装有 SSH 的系统中，使用以下命令连接到虚拟机。 如果在 Windows 上操作，可以使用 [Putty](/virtual-machines/linux/ssh-from-windows?toc=%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty) 来创建连接。 
 
 ```bash 
 ssh <Public IP Address>
@@ -167,7 +167,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-[创建高可用性虚拟机教程](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[创建高可用性虚拟机教程](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[浏览 VM 部署 PowerShell 示例](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[浏览 VM 部署 PowerShell 示例](../windows/powershell-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 wacn.date: 03/03/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 查看活动日志，以便审核对资源的操作

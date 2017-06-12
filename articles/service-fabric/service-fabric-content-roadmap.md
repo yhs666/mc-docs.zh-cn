@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/13/2017
-ms.author: ryanwi
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 0fbead014b90359c8c4489db95bd7a101e9b89f4
@@ -143,7 +143,7 @@ Service Fabric 提供了多种方法来编写和管理服务。 服务可以选�
 可在运行 Windows Server 或 Linux 的任何虚拟机或计算机上创建 Service Fabric 群集。 可在包含一组互连 Windows Server 或 Linux 计算机（本地计算机、Microsoft Azure 计算机或任何云提供商的计算机）的任何环境中部署和运行 Service Fabric 应用程序。
 
 ### <a name="clusters-on-azure"></a>Azure 上的群集
-在 Azure 上运行 Service Fabric 群集可提供与其他 Azure 功能和服务的集成，这样可使群集的操作和管理更容易且更可靠。  群集是 Azure Resource Manager 资源，因此可以像 Azure 中的其他资源一样对群集进行建模。 Resource Manager 还可以轻松管理群集作为单个单元使用的所有资源。  Azure 上的群集与 Azure 诊断和 Log Analytics 集成。  群集 nodetype 是[虚拟机规模集](/azure/virtual-machine-scale-sets/index)，因此自动缩放功能是内置的。
+在 Azure 上运行 Service Fabric 群集可提供与其他 Azure 功能和服务的集成，这样可使群集的操作和管理更容易且更可靠。  群集是 Azure Resource Manager 资源，因此可以像 Azure 中的其他资源一样对群集进行建模。 Resource Manager 还可以轻松管理群集作为单个单元使用的所有资源。  Azure 上的群集与 Azure 诊断和 Log Analytics 集成。  群集 nodetype 是[虚拟机规模集](/virtual-machine-scale-sets/index)，因此自动缩放功能是内置的。
 
 可以通过 [Azure 门户预览](service-fabric-cluster-creation-via-portal.md)、[模板](service-fabric-cluster-creation-via-arm.md)或 [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md) 在 Azure 上创建群集。
 

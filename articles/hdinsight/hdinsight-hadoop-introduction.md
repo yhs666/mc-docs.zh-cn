@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2016
 wacn.date: 03/16/2017
-ms.author: cgronlun
+ms.author: v-dazen
 ---
 
 # Azure HDInsight 上的 Hadoop 生态系统简介
@@ -74,7 +74,7 @@ HDInsight 群集包含以下组件和实用程序。
 * **[ZooKeeper](#zookeeper)**：协调分布式系统中的进程。
 
 > [!NOTE]
-有关特定组件的信息和版本信息，请参阅 [HDInsight 中的 Hadoop 组件、版本和服务产品][component-versioning]
+> 有关特定组件的信息和版本信息，请参阅 [HDInsight 中的 Hadoop 组件、版本和服务产品][component-versioning]
 >
 >
 

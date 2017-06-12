@@ -14,7 +14,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/22/2016
 wacn.date: 01/25/2017
-ms.author: robmcm
+ms.author: v-yiso
 ---
 
 # 在 Azure 中暂存应用程序

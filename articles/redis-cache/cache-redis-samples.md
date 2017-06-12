@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/28/2017
-ms.author: sdanie
+ms.author: v-dazen
 ---
 
 # Azure Redis 缓存示例 

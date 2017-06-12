@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: 03/20/2017
-ms.author: barbkess
+ms.author: v-yeche
 ---
 
 # 管理 Azure SQL 数据仓库中的计算能力（Azure 门户）

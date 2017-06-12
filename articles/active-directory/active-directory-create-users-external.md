@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/10/2017
 wacn.date: 03/07/2017
-ms.author: curtand
+ms.author: v-junlch
 ---
 
 # 在 Azure Active Directory 中添加来自其他目录或合作伙伴公司的用户

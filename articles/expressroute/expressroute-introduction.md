@@ -12,7 +12,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
-ms.author: cherylmc
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
 ms.openlocfilehash: 179bf42505bf0fa109b0bcbcaf544cdcb155590b
@@ -46,7 +46,7 @@ Microsoft Azure ExpressRoute 可让你通过连接服务提供商所提供的专
 Microsoft 采用行业标准动态路由协议 (BGP)，在本地网络、Azure 中的实例和 Microsoft 公共地址之间交换路由。  我们根据不同的流量配置文件来与网络建立多个 BGP 会话。 有关详细信息，请参阅 [ExpressRoute 线路和路由域](./expressroute-circuit-peerings.md) 一文。
 
 ### <a name="redundancy"></a>冗余
-每个 ExpressRoute 线路有两道连接，用于从连接服务提供商/你的网络边缘连接到两个 Microsoft 企业边缘路由器 (MSEE)。 Microsoft 要求从连接服务提供商/你的一端建立双重 BGP 连接 – 各自连接到每个 MSEE。 你可以选择不要在你的一端部署冗余设备/以太网路线。 但是，连接服务提供商会使用冗余设备，确保以冗余方式将你的连接移交给 Microsoft。 冗余的第 3 层连接配置是 Microsoft [SLA](https://azure.microsoft.com/support/legal/sla/) 生效的条件。 
+每个 ExpressRoute 线路有两道连接，用于从连接服务提供商/你的网络边缘连接到两个 Microsoft 企业边缘路由器 (MSEE)。 Microsoft 要求从连接服务提供商/你的一端建立双重 BGP 连接 – 各自连接到每个 MSEE。 你可以选择不要在你的一端部署冗余设备/以太网路线。 但是，连接服务提供商会使用冗余设备，确保以冗余方式将你的连接移交给 Microsoft。 冗余的第 3 层连接配置是 Microsoft [SLA](https://www.azure.cn/support/legal/sla/) 生效的条件。 
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>与 Microsoft 云服务建立连接
 

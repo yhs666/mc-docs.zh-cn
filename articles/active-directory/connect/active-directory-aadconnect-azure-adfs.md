@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
 wacn.date: 04/05/2017
-ms.author: anandy;billmath
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ---
 

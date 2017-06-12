@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 wacn.date: 
-ms.author: tomfitz
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: f496264e88c3ecba32f9724e9ef9ad77a9e3cdba
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="ensure-tag-consistency-with-policies"></a>确保标记与策略一致
 
-使用资源策略，可以为你的组织创建标准规则。 可以创建策略，以确保使用适当的值标记资源。<!-- For more information, see [Apply resource policies for tags](/documentation/articles/resource-manager-policy-tags/).-->
+使用资源策略，可以为你的组织创建标准规则。 可以创建策略，以确保使用适当的值标记资源。
 
 ## <a name="templates"></a>模板
 

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: jotaub;sethm
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 130b1f76d9653ab871f7ba7be7000e7ac9f6a74b
@@ -24,7 +24,7 @@ ms.lasthandoff: 05/05/2017
 ---
 # <a name="relay-faq"></a>中继常见问题解答
 
-本文回答了一些关于 [Microsoft Azure 中继](/documentation/services/service-bus/)的常见问题。 还可以访问 [Azure 支持常见问题](http://go.microsoft.com/fwlink/?LinkID=185083)了解一般的 Azure 定价和支持信息。
+本文回答了一些关于 [Microsoft Azure 中继](../service-bus-messaging/index.md)的常见问题。 还可以访问 [Azure 支持常见问题](http://go.microsoft.com/fwlink/?LinkID=185083)了解一般的 Azure 定价和支持信息。
 
 ## <a name="general-questions"></a>一般问题
 ### <a name="what-is-azure-relay"></a>什么是 Azure 中继？
@@ -37,7 +37,7 @@ ms.lasthandoff: 05/05/2017
 以前命名的服务总线**中继**服务现在称为 WCF 中继。 你可以继续照常使用此服务。 混合连接是从 BizTalk 移植的服务的更新版本。 今后将继续支持 WCF 中继和混合连接。
 
 ## <a name="pricing"></a>定价
-本部分回答了一些关于中继定价结构的常见问题。 你还可以访问 [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)（Azure 支持常见问题）了解一般的 Microsoft Azure 定价信息。 有关中继定价的完整信息，请参阅[服务总线定价详细信息](/pricing/details/messaging/)。
+本部分回答了一些关于中继定价结构的常见问题。 你还可以访问 [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)（Azure 支持常见问题）了解一般的 Microsoft Azure 定价信息。 有关中继定价的完整信息，请参阅[服务总线定价详细信息](https://www.azure.cn/pricing/details/messaging/)。
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>如何对混合连接和 WCF 中继收费？
 有关中继定价的完整信息，请参阅[服务总线定价详细信息][Pricing overview]。 除标示的价格外，你还需为在其中部署应用程序的数据中心之外的相关数据输出支付费用。
@@ -98,7 +98,7 @@ ms.lasthandoff: 05/05/2017
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>什么是共享访问签名？哪些语言支持生成签名？
 共享访问签名是基于 SHA–256 安全哈希或 URI 的身份验证机制。 有关如何在 Node、PHP、Java 和 C\# 中生成自有签名的信息，请参阅[共享访问签名][Shared Access Signatures]一文。
 
-[Pricing overview]: /pricing/details/messaging/
+[Pricing overview]: https://www.azure.cn/pricing/details/messaging
 [Relay exceptions]: ./relay-exceptions.md
 [Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md
 

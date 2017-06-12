@@ -16,14 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 wacn.date: 10/17/2016
-ms.author: cynthn
+ms.author: v-dazen
 ---
 
 # 体验在 Windows VM 上安装角色
 
 在第一个虚拟机 (VM) 启动并正常运行之后，可以接着安装软件和服务。本教程将使用 Windows Server VM 上的服务器管理器安装 IIS。然后，使用 Azure 门户预览为 IIS 流量打开端口 80，创建网络安全组 (NSG)。
 
-如果尚未创建第一个 VM，应先返回 [Create your first Windows virtual machine in the Azure portal](../virtual-machines-windows-hero-tutorial.md)（在 Azure 门户预览中创建第一个 Windows 虚拟机），然后继续学习本教程。
+如果尚未创建第一个 VM，应先返回[在 Azure 门户预览中创建第一个 Windows 虚拟机](../virtual-machines-windows-hero-tutorial.md)，然后继续学习本教程。
 
 ## 确保 VM 正在运行
 

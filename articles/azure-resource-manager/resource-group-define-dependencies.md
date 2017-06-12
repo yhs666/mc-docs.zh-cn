@@ -13,6 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
+<<<<<<< HEAD
 wacn.date: 
 ms.author: tomfitz
 ms.translationtype: Human Translation
@@ -21,6 +22,10 @@ ms.openlocfilehash: 0d7555c2b96f81be17708aafb1478d17f05f4d70
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/26/2017
 
+=======
+wacn.date: 03/31/2017
+ms.author: v-yeche
+>>>>>>> live-origin
 ---
 
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>定义在 Azure Resource Manager 模板中部署资源的顺序

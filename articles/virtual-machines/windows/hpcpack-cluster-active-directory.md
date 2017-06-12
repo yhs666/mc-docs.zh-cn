@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 11/14/2016
 wacn.date: 01/20/2017
-ms.author: danlep
+ms.author: v-dazen
 ---
 
 # 使用 Azure Active Directory 管理 Azure 中的 HPC Pack 群集
@@ -43,7 +43,7 @@ HPC Pack 群集与 Azure AD 集成可帮助用户实现以下目标：
 * **在 Azure 虚拟机中部署的 HPC Pack 2016 群集** - 需要获得头节点的 DNS 名称和群集管理员的凭据才能完成本文中的步骤。
 
     > [!NOTE]
-    在 HPC Pack 2016 之前的 HPC Pack 版本中不支持 Azure Active Directory 集成。
+    > 在 HPC Pack 2016 之前的 HPC Pack 版本中不支持 Azure Active Directory 集成。
 
 * **客户端计算机** - 需要有可运行 HPC Pack 客户端实用工具的 Windows 或 Windows Server 客户端计算机。如果只想使用 HPC Pack Web 门户或 REST API 来提交作业，则可以使用自选的任意客户端计算机。
 
@@ -147,7 +147,7 @@ HPC Pack 群集与 Azure AD 集成可帮助用户实现以下目标：
 现在可以运行 HPC Pack 命令或通过 HPC Pack 作业管理器 GUI 使用 Azure AD 帐户提交和管理群集作业。有关作业提交选项，请参阅[将 HPC 作业提交到 Azure 中的 HPC Pack 群集](hpcpack-cluster-submit-jobs.md#step-3-run-test-jobs-on-the-cluster)。
 
 > [!NOTE]
-首次尝试连接到 Azure 中的 HPC Pack 群集时，将显示弹出窗口。输入用于登录的 Azure AD 凭据。然后缓存令牌。除非身份验证更改或已清除缓存令牌，否则以后连接 Azure 中的群集时将使用缓存令牌。
+> 首次尝试连接到 Azure 中的 HPC Pack 群集时，将显示弹出窗口。输入用于登录的 Azure AD 凭据。然后缓存令牌。除非身份验证更改或已清除缓存令牌，否则以后连接 Azure 中的群集时将使用缓存令牌。
 >
 
 例如，完成前面的步骤后，可以从本地客户端查询作业，如下所示：

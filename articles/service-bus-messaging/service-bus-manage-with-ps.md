@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/06/2017
-ms.author: sethm
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: b84ae9d37a62d7f9634652215ad5ecc082a3ae7b
@@ -24,7 +24,7 @@ ms.lasthandoff: 05/12/2017
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>使用 PowerShell 管理服务总线资源
 
-Microsoft Azure PowerShell 是一个脚本编写环境，可用于控制和自动执行 Azure 服务的部署和管理。 本文介绍如何通过本地 Azure PowerShell 控制台或脚本，使用[服务总线 Resource Manager PowerShell 模块](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus)来预配和管理服务总线实体（命名空间、队列、主题和订阅）。
+Microsoft Azure PowerShell 是一个脚本编写环境，可用于控制和自动执行 Azure 服务的部署和管理。 本文介绍如何通过本地 Azure PowerShell 控制台或脚本，使用[服务总线 Resource Manager PowerShell 模块](https://docs.microsoft.com/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus)来预配和管理服务总线实体（命名空间、队列、主题和订阅）。
 
 还可以使用 Azure Resource Manager 模板管理服务总线实体。 有关详细信息，请参阅[使用 Azure Resource Manager 模板创建服务总线资源](./service-bus-resource-manager-overview.md)一文。
 
@@ -33,16 +33,16 @@ Microsoft Azure PowerShell 是一个脚本编写环境，可用于控制和自�
 在开始之前，你需要具备以下项：
 
 * Azure 订阅。 
-* 配备 Azure PowerShell 的计算机。 有关说明，请参阅 [Azure PowerShell cmdlet 入门](/powershell/azure/get-started-azureps)。
+* 配备 Azure PowerShell 的计算机。 有关说明，请参阅 [Azure PowerShell cmdlet 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
 * 大致了解 PowerShell 脚本、NuGet 包和 .NET Framework。
 
 ## <a name="get-started"></a>入门
 
-第一步是使用 PowerShell 登录 Azure 帐户和 Azure 订阅。 按照 [Azure PowerShell cmdlet 入门](/powershell/azure/get-started-azureps)中的说明登录 Azure 帐户，检索并访问 Azure 订阅中的资源。
+第一步是使用 PowerShell 登录 Azure 帐户和 Azure 订阅。 按照 [Azure PowerShell cmdlet 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)中的说明登录 Azure 帐户，检索并访问 Azure 订阅中的资源。
 
 ## <a name="provision-a-service-bus-namespace"></a>设置 Service Bus 命名空间
 
-使用服务总线命名空间时，可以使用 [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace)、[New-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace)、[Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace) 和 [Set-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace) cmdlet。
+使用服务总线命名空间时，可以使用 [Get-AzureRmServiceBusNamespace](https://docs.microsoft.com/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace)、[New-AzureRmServiceBusNamespace](https://docs.microsoft.com/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace)、[Remove-AzureRmServiceBusNamespace](https://docs.microsoft.com/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace) 和 [Set-AzureRmServiceBusNamespace](https://docs.microsoft.com/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace) cmdlet。
 
 本示例在脚本中创建几个本地变量：`$Namespace` 和 `$Location`。
 
@@ -82,7 +82,7 @@ Microsoft Azure PowerShell 是一个脚本编写环境，可用于控制和自�
 
 ### <a name="create-a-namespace-authorization-rule"></a>创建命名空间授权规则
 
-下面的示例演示如何使用 [New-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule)、[Get-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule)、[Set-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule) 和 [Remove-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule) cmdlet 管理命名空间授权规则。
+下面的示例演示如何使用 [New-AzureRmServiceBusNamespaceAuthorizationRule](https://docs.microsoft.com/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule)、[Get-AzureRmServiceBusNamespaceAuthorizationRule](https://docs.microsoft.com/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule)、[Set-AzureRmServiceBusNamespaceAuthorizationRule](https://docs.microsoft.com/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule) 和 [Remove-AzureRmServiceBusNamespaceAuthorizationRule](https://docs.microsoft.com/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule) cmdlet 管理命名空间授权规则。
 
 ```powershell
 # Query to see if rule exists
@@ -146,7 +146,7 @@ else
 
 ### <a name="modify-queue-properties"></a>修改队列属性
 
-执行上一部分中的脚本后，可以使用 [Set-AzureRmServiceBusQueue](/powershell/module/azurerm.servicebus/set-azurermservicebusqueue) cmdlet 更新队列的属性，如以下示例所示：
+执行上一部分中的脚本后，可以使用 [Set-AzureRmServiceBusQueue](https://docs.microsoft.com/powershell/module/azurerm.servicebus/set-azurermservicebusqueue) cmdlet 更新队列的属性，如以下示例所示：
 
 ```powershell
 $CurrentQ.DeadLetteringOnMessageExpiration = $True
@@ -159,11 +159,11 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 ## <a name="provisioning-other-service-bus-entities"></a>设置其他 Service Bus 实体
 
-可以使用[服务总线 PowerShell 模块](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus)预配其他实体，例如主题和订阅。 这些 cmdlet 在语法上与上一部分所示的队列创建 cmdlet 类似。
+可以使用[服务总线 PowerShell 模块](https://docs.microsoft.com/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus)预配其他实体，例如主题和订阅。 这些 cmdlet 在语法上与上一部分所示的队列创建 cmdlet 类似。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关服务总线 Resource Manager PowerShell 模块的完整文档，请参阅[此处](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus)。 此页列出所有可用的 cmdlet。
+- 有关服务总线 Resource Manager PowerShell 模块的完整文档，请参阅[此处](https://docs.microsoft.com/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus)。 此页列出所有可用的 cmdlet。
 - 有关使用 Azure Resource Manager 模板的信息，请参阅[使用 Azure Resource Manager 模板创建服务总线资源](./service-bus-resource-manager-overview.md)一文。
 - 有关[服务总线 .NET 管理库](./service-bus-management-libraries.md)的信息。
 

@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 wacn.date: 11/21/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 #在 Xamarin.Forms 应用中连接到 Azure 存储

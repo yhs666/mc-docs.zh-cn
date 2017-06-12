@@ -15,7 +15,7 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: 02/24/2017
-ms.author: cenkdin;juliako
+ms.author: v-johch
 ---
 
 #如何使用 .NET 通过本地编码器执行实时传送视频流

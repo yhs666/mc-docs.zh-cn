@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 wacn.date: 03/10/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 可以通过 Azure Site Recovery 保护哪些工作负荷？
@@ -137,7 +137,7 @@ Site Recovery 可按如下所示帮助保护 Exchange：
 
 ## 后续步骤
 
-[准备 Site Recovery 部署](/documentation/articles/site-recovery-best-practices/)
+[准备 Site Recovery 部署](site-recovery-best-practices.md)
 
 <!---HONumber=Mooncake_0306_2017-->
 <!--Update_Description: wording update-->

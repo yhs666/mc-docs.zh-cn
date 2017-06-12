@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 wacn.date: 03/13/2017
-ms.author: markvi;andkjell
+ms.author: v-junlch
 ---
 
 # Azure AD Connect 同步：技术概念

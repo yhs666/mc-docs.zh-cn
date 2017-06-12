@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 5810b8f61c16d877400ceb56b9fe2c18752fdfb1
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
      <li>
-        <a href="/azure/stream-analytics/stream-analytics-introduction">
+        <a href="/stream-analytics/stream-analytics-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -62,7 +62,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/Stream-Analytics/">
+        <a href="/Stream-Analytics/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -80,7 +80,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/azure/Stream-Analytics/stream-analytics-build-an-iot-solution-using-stream-analytics">
+        <a href="/Stream-Analytics/stream-analytics-build-an-iot-solution-using-stream-analytics">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -91,42 +91,6 @@ ms.lasthandoff: 05/12/2017
                     </div>
                     <div class="cardText">
                         <h3>开始使用流分析构建 IoT 解决方案</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/azure/Stream-Analytics/stream-analytics-twitter-sentiment-analysis-trends">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>开始使用流分析构建 Twitter 情绪分析解决方案</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/azure/Stream-Analytics/stream-analytics-machine-learning-integration-tutorial">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>开始使用 Azure 机器学习构建实时评分解决方案</h3>
                     </div>
                 </div>
             </div>
@@ -157,7 +121,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>语言</h3>
-                        <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/zh-cn/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
                         <p><a href="https://msdn.microsoft.com/zh-cn/library/azure/dn834998">查询语言</a></p>
                     </div>
                 </div>

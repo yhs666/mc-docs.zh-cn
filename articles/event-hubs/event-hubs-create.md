@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2017
 wacn.date: 03/24/2017
-ms.author: jotaub
+ms.author: v-yeche
 ---
 
 # 使用 Azure 门户预览创建事件中心命名空间和事件中心

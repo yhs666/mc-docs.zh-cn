@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/28/2015
 wacn.date: 12/05/2016
-ms.author: robb
+ms.author: v-yiso
 ---
 
 # 查看事件和活动日志

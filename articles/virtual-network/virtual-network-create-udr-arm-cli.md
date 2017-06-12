@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2017
 wacn.date: 03/31/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 使用 Azure CLI 2.0 创建用户定义的路由 (UDR)
@@ -46,6 +46,8 @@ ms.author: jdial
 
 ## <a name="Create-the-UDR-for-the-front-end-subnet"></a> 为前端子网创建 UDR
 若要根据上述方案为前端子网创建所需的路由表和路由，请按照下面的步骤操作。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 1. 使用 [az network route-table create](https://docs.microsoft.com/cli/azure/network/route-table#create) 命令为前端子网创建路由表：
 

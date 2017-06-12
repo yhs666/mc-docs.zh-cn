@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 4b4b5d4e6a4c5dc40d6a9ab14b26ec8faf84f59b
@@ -171,7 +171,7 @@ ms.lasthandoff: 04/28/2017
 
     > [!NOTE]
     > 如果使用了 SSH 帐户的密码，则系统将提示你输入该密码。 如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。 以下示例从 `~/.ssh/id_rsa`加载私钥：
-    > <p>
+    >
     > `scp -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml`
 
 ## <a name="create-the-application"></a>创建应用程序
@@ -386,7 +386,7 @@ ms.lasthandoff: 04/28/2017
 
     > [!NOTE]
     > 如果使用了 SSH 帐户的密码，则系统将提示你输入该密码。 如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。 以下示例从 `~/.ssh/id_rsa`加载私钥：
-    > <p>
+    >
     > `scp -i ~/.ssh/id_rsa ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:hbaseapp-1.0-SNAPSHOT.jar`
 
 2. 使用 SSH 连接到 HDInsight 群集。 将 **USERNAME** 替换为 SSH 登录名。 将 **CLUSTERNAME** 替换为 HDInsight 群集名称：
@@ -395,7 +395,7 @@ ms.lasthandoff: 04/28/2017
 
     > [!NOTE]
     > 如果使用了 SSH 帐户的密码，则系统将提示你输入该密码。 如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。 以下示例从 `~/.ssh/id_rsa`加载私钥：
-    > <p>
+    >
     > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`
 
 3. 连接后，使用以下命令在 Java 应用程序中创建 HBase 表：

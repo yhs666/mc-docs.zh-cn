@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/02/2017
 wacn.date: 04/27/2017
-ms.author: rasquill
+ms.author: v-dazen
 ---
 
 #关于虚拟机代理和扩展

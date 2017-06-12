@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/02/2017
 wacn.date: 
-ms.author: nepeters
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 7d7ba64488392d4e8d9d79b5de064496ac9cd065
@@ -108,4 +108,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)。
 
-可以在 [Azure Windows VM 文档](../virtual-machines-windows-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
+可以在 [Azure Windows VM 文档](../virtual-machines-windows-powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。

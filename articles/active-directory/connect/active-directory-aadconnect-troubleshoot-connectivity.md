@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 wacn.date: 03/07/2017
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # 使用 Azure AD Connect 排查连接问题

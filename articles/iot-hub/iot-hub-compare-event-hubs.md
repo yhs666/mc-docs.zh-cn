@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2017
 wacn.date: 03/10/2017
-ms.author: elioda
+ms.author: v-yiso
 ---
 
 # Azure IoT 中心和 Azure 事件中心比较

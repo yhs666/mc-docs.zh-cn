@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2016
 wacn.date: 01/20/2017
-ms.author: mthalman;mikhegn
+ms.author: v-johch
 ---
 
 # 使用 Visual Studio Team Services 设置 Service Fabric 持续集成和部署

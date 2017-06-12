@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 12/16/2016
 wacn.date: 
-ms.author: syamk
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 49004fc2f92190cd14a1d20a8581b29cc257ef6a
@@ -558,7 +558,7 @@ ms.lasthandoff: 05/19/2017
 - 希望使用 DocumentDB 执行规模和性能测试？ 请参阅[使用 DocumentDB 执行性能和规模测试](documentdb-performance-testing.md)
 - 了解如何[监视 DocumentDB 帐户](documentdb-monitor-accounts.md)。
 - 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
-- 浏览 [DocumentDB 文档](/documentation/services/documentdb/)。
+- 浏览 [DocumentDB 文档](index.md)。
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

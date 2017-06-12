@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/22/2015
 wacn.date: 01/25/2017
-ms.author: rashimg
+ms.author: v-dazen
 ---
 
 # 使用 HDInsight 中的 Hive 处理和分析 JSON 文档
@@ -151,7 +151,7 @@ SerDe 是用于分析嵌套 JSON 文档的最佳选择，不但可定义 JSON �
 1. 安装 [Java SE 开发工具包 7u55 JDK 1.7.0\_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR)。如果要使用 HDInsight 的 Windows 部署，可选择 Windows X64 版本的 JDK。
 
     > [!WARNING]
-    JDK 1.8 不适用于此 SerDe。
+    > JDK 1.8 不适用于此 SerDe。
     > 
     > 
 

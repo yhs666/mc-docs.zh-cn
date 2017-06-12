@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/04/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 828c5d36c40ff780cab6902052c1ef0e87fa8f51
@@ -126,7 +126,7 @@ ms.lasthandoff: 04/28/2017
 
     > [!IMPORTANT]
     > 此示例创建一个具有两个辅助节点的群集。 如果计划（在创建或扩展群集时）辅助节点在 32 个以上，则必须选择至少具有 8 个核心和 14GB RAM 的头节点大小。 可以使用 `--headNodeSize` 参数设置头节点大小。
-    > <p>
+    >
     > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
     可能需要几分钟时间才能完成群集创建过程。 通常大约为 15 分钟。

@@ -13,8 +13,8 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/25/2017
-ms.author: ronitr;giladm
+ms.date: 02/25/2017
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 467b1fa436c0937761136f5746ae7ae0fb8cad0c
@@ -98,7 +98,7 @@ Blob 审核日志以 blob 文件集合的形式保存在名为“**sqldbauditlog
 可通过多种方法查看 Blob 审核日志：
 
 * 通过 [Azure 门户预览](https://portal.azure.cn) - 打开相关数据库。 在数据库的“审核和威胁检测”边栏选项卡顶部，单击“查看审核日志”。
-
+    <a name="auditing-screenshot"></a>
     ![导航窗格][10]
 
     此时将打开“审核记录”边栏选项卡，可在其中查看日志。

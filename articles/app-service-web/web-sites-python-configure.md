@@ -15,7 +15,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 wacn.date: 
-ms.author: huvalo
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: afac3797de52f6a88cd501f8e4f8dd2a8606adbd

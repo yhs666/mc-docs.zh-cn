@@ -15,7 +15,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: 02/07/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # 如何使用 Azure AD 保护 AngularJS 单页面应用

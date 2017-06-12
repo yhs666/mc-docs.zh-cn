@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 wacn.date: 04/05/2017
-ms.author: markvi
+ms.author: v-junlch
 ---
 
 # 有关 Azure Active Directory 中应用程序管理的文章索引

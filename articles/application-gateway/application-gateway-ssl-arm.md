@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 03/28/2017
-ms.author: gwallace
+ms.author: v-dazen
 ---
 
 # 使用 Azure Resource Manager 配置应用程序网关以进行 SSL 卸载
@@ -209,7 +209,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 此示例配置应用程序网关的实例大小。
 
 > [!NOTE]
-*InstanceCount* 的默认值为 2，最大值为 10。*GatewaySize* 的默认值为 Medium。你可以在 Standard\_Small、Standard\_Medium 和 Standard\_Large 之间进行选择。
+> *InstanceCount* 的默认值为 2，最大值为 10。*GatewaySize* 的默认值为 Medium。你可以在 Standard\_Small、Standard\_Medium 和 Standard\_Large 之间进行选择。
 > 
 > 
 
@@ -253,7 +253,7 @@ DnsSettings              : {
 
 ## 后续步骤
 
-如果要将应用程序网关配置为与内部负载均衡器 (ILB) 配合使用，请参阅 [Create an application gateway with an internal load balancer (ILB)](./application-gateway-ilb.md)（创建具有内部负载均衡器 (ILB) 的应用程序网关）。
+如果要将应用程序网关配置为与内部负载均衡器 (ILB) 配合使用，请参阅[创建具有内部负载均衡器 (ILB) 的应用程序网关](./application-gateway-ilb.md)。
 
 如需负载均衡选项的其他常规信息，请参阅：
 

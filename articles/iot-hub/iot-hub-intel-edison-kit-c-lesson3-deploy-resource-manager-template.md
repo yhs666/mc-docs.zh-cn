@@ -14,9 +14,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 11/08/2016
 wacn.date: 02/10/2017
-ms.author: xshi
+ms.author: v-yiso
 ---
 
 # 创建 Azure 函数应用和 Azure 存储帐户

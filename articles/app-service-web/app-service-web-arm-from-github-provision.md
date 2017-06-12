@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 wacn.date: 01/03/2017
-ms.author: cephalin
+ms.author: v-dazen
 ---
 
 # 部署链接到 GitHub 存储库的 Web 应用
@@ -132,7 +132,7 @@ az resource group deployment create -g {resource-group-name} --template-file pat
 ```
 
 > [!NOTE] 
-有关参数 JSON 文件的内容，请参阅 [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.parameters.json)。
+> 有关参数 JSON 文件的内容，请参阅 [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.parameters.json)。
 >
 >
 

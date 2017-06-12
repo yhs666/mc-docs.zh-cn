@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2016
 wacn.date: 10/31/2016
-ms.author: terrylan
+ms.author: v-johch
 ---
 
 # Azure 虚拟机安全概述

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2017
 wacn.date: 03/28/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用 Apache Storm on HDInsight 处理 Azure 事件中心的车辆传感器数据

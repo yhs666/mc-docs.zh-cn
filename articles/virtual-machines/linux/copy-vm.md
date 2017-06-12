@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 wacn.date: 
-ms.author: cynthn
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 7c4f6b1ddac26659057bcee15690ae5657dddbcd
@@ -25,9 +25,9 @@ ms.lasthandoff: 04/14/2017
 
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-20-and-managed-disks"></a>使用 Azure CLI 2.0 和非托管磁盘创建 Azure Linux VM 的副本
 
-本文说明了如何使用 Azure CLI 2.0 和 Azure Resource Manager 部署模型创建运行 Linux 的 Azure 虚拟机 (VM) 的副本。 还可以使用 [Azure CLI 1.0](copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
+本文说明了如何使用 Azure CLI 2.0 和 Azure Resource Manager 部署模型创建运行 Linux 的 Azure 虚拟机 (VM) 的副本。 还可以使用 [Azure CLI 1.0](copy-vm-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
 
-还可以[上载 VHD 并从中创建 VM](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+还可以[上载 VHD 并从中创建 VM](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="prerequisites"></a>先决条件
 

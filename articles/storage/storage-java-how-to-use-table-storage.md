@@ -15,7 +15,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 12/08/2016
 wacn.date: 01/06/2017
-ms.author: marsma
+ms.author: v-johch
 ---
 
 # 如何通过 Java 使用表存储

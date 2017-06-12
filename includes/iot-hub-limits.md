@@ -1,4 +1,4 @@
-下表列出了与不同服务层（S1、S2、S3、F1）关联的限制。 有关每个层中每个*单位*的成本信息，请参阅 [IoT 中心定价](https://azure.microsoft.com/pricing/details/iot-hub/)。
+下表列出了与不同服务层（S1、S2、S3、F1）关联的限制。 有关每个层中每个*单位*的成本信息，请参阅 [IoT 中心定价](https://www.azure.cn/pricing/details/iot-hub/)。
 
 | 资源 | S1 标准 | S2 标准 | S3 标准 | F1 免费 |
 | --- | --- | --- | --- | --- |

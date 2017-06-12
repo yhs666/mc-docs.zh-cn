@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 wacn.date: 
-ms.author: jgao
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 64f19dddec865e2e25439616be62f88aaa5ca819
@@ -83,7 +83,7 @@ ms.lasthandoff: 04/28/2017
     * **群集名称**：输入现有 HDInsight 群集的名称。
     * **边缘节点大小**：选择一个 VM 大小。 VM 大小必须满足工作节点 VM 大小要求。 有关建议的工作节点 vm 的大小信息，请参阅[在 HDInsight 中创建 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。
     * **边缘节点前缀**：默认值为 **new**。  如果使用默认值，边缘节点的名称为 **new-edgenode**。  可以通过门户自定义前缀。 也可以通过模板自定义完整名称。
-4. 选中“我同意上述条款和条件”，然后单击“购买”创建边缘节点。
+4. 选择“法律条款”，然后单击“购买”创建边缘节点。
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>创建群集时添加边缘节点
 本部分介绍如何使用 Resource Manager 模板创建包含边缘节点的 HDInsight 群集。  可以在 [Azure 快速启动模板库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-edge-node/)中找到 Resource Manager 模板。 Resource Manager 模板调用位于 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh 的脚本操作脚本。 该脚本不执行任何操作。  此处只是演示如何从 Resource Manager 模板调用脚本操作。
@@ -111,7 +111,7 @@ ms.lasthandoff: 04/28/2017
     * **安装脚本操作**：保留本教程自始至终使用的默认值。
 
     模板中已硬编码某些属性：群集类型、群集辅助角色节点计数、边缘节点大小和边缘节点名称。
-4. 选中“我同意上述条款和条件”，然后单击“购买”，以创建包含该边缘节点的群集。
+4. 选择“法律条款”，然后单击“购买”，然后点击“创建”，以创建包含该边缘节点的群集。
 
 ## <a name="access-an-edge-node"></a>访问边缘节点
 边缘节点 ssh 终结点为 &lt;边缘节点名称>.&lt;群集名称>-ssh.azurehdinsight.cn:22。  例如，new-edgenode.myedgenode0914-ssh.azurehdinsight.cn:22。

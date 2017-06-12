@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 wacn.date: 
-ms.author: annahar
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: f0a4868683c28acda995419d92797c9c14820d42
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/22/2017
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal-preview"></a>使用 Azure 门户预览将多个 IP 地址分配给虚拟机
 
 >[!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
->
+
 本文介绍如何使用 Azure 门户预览通过 Azure Resource Manager 部署模型创建虚拟机 (VM)。 无法将多个 IP 地址分配给通过经典部署模型创建的资源。 若要详细了解 Azure 部署模型，请阅读 [Understand deployment models](../resource-manager-deployment-model.md)（了解部署模型）一文。
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]

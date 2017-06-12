@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/17/2017
 wacn.date: 03/24/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # SQL Server 身份验证、访问和数据库级防火墙规则

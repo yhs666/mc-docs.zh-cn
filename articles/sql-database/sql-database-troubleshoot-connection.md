@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2017
 wacn.date: 03/24/2017
-ms.author: daleche
+ms.author: v-johch
 ---
 
 # 连接到 SQL 数据库时发生“服务器上的数据库当前不可用”错误

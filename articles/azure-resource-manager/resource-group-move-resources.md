@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 wacn.date: 
-ms.author: tomfitz
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: e4473b82258829bdc535e33f24c8cb05db95f9b1
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/26/2017
 
-
 ---
+
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 本主题说明如何将资源移到新订阅或同一订阅的新资源组中。 可以使用门户、PowerShell、Azure CLI 或 REST API 移动资源。 本主题中的移动操作无需任何 Azure 支持的协助即可供使用。
 
@@ -30,9 +30,8 @@ ms.lasthandoff: 05/26/2017
 
 您不能更改该资源的位置。 移动资源仅能够将其移动到新的资源组。 新的资源组可能有不同的位置，但这不会更改该资源的位置。
 
-<!-- billing-how-to-switch-azure-offer not exist in Azure.cn-->
 > [!NOTE]
-> 本文介绍如何在现有 Azure 帐户产品/服务中移动资源。<!-- If you actually want to change your Azure account offering (such as upgrading from pay-as-you-go to pre-pay) while continuing to work with your existing resources, see [Switch your Azure subscription to another offer](../billing/billing-how-to-switch-azure-offer.md). -->
+> 本文介绍如何在现有 Azure 帐户产品/服务中移动资源。
 > 
 > 
 
@@ -83,7 +82,7 @@ ms.lasthandoff: 05/26/2017
 * CDN
 * 云服务 - 请参阅 [经典部署限制](#classic-deployment-limitations)
 * 认知服务
-* Azure Cosmos DB
+* DocumentDB
 * 事件中心
 * HDInsight 群集 - 请参阅 [HDInsight 限制](#hdinsight-limitations)
 * IoT 中心

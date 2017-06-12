@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 wacn.date: 
-ms.author: cynthn
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 2a4910e4a0e163ac3fdd98477a2b478dc8086825
@@ -26,18 +26,18 @@ ms.lasthandoff: 04/14/2017
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>将数据磁盘附加到使用经典部署模型创建的 Windows 虚拟机
 <!--
 Refernce article:
-    If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal preview](../attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal preview](../attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 -->
 
 本文介绍如何通过 Azure 门户预览将通过经典部署模型创建的新磁盘和现有磁盘附加到 Windows 虚拟机。
 
-也可以[在 Azure 门户预览中将数据磁盘附加到 Linux VM](../../linux/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+也可以[在 Azure 门户预览中将数据磁盘附加到 Linux VM](../../linux/attach-disk-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 附加磁盘之前，请查看以下提示：
 
-* 虚拟机的大小决定了可以附加多少个磁盘。 有关详细信息，请参阅[虚拟机大小](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 虚拟机的大小决定了可以附加多少个磁盘。 有关详细信息，请参阅[虚拟机大小](../../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-* 若要使用高级存储，需要使用 DS 系列或 GS 序列虚拟机。 可以从高级存储帐户和标准存储帐户通过这些虚拟机使用磁盘。 高级存储只在某些区域可用。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 若要使用高级存储，需要使用 DS 系列或 GS 序列虚拟机。 可以从高级存储帐户和标准存储帐户通过这些虚拟机使用磁盘。 高级存储只在某些区域可用。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../../storage/storage-premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 * 对于新磁盘，你不必首先创建它，因为 Azure 将在附加磁盘时创建该磁盘。
 
@@ -66,7 +66,7 @@ Refernce article:
 
 ### <a name="initialize-a-new-data-disk"></a>初始化新的数据磁盘
 
-1. 连接到虚拟机。 有关说明，请参阅[如何连接并登录到运行 Windows 的 Azure 虚拟机](../connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+1. 连接到虚拟机。 有关说明，请参阅[如何连接并登录到运行 Windows 的 Azure 虚拟机](../connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 2. 在登录虚拟机后，打开“服务器管理器” 。 在左窗格中，选择“文件和存储服务” 。
 
     ![打开服务器管理器](./media/attach-disk/fileandstorageservices.png)
@@ -112,4 +112,4 @@ fsutil behavior set DisableDeleteNotify 0
 ```
 
 ## <a name="additional-resources"></a>其他资源
-[关于虚拟机的磁盘和 VHD](../../virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[关于虚拟机的磁盘和 VHD](../../virtual-machines-linux-about-disks-vhds.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

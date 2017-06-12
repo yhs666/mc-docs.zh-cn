@@ -1,9 +1,9 @@
 # 概述
 ## [什么是 Resource Manager？](resource-group-overview.md)
-## [支持的服务](resource-manager-supported-services.md)
-## [Resource Manager 部署和经典部署](resource-manager-deployment-model.md)
-## [订阅管理](resource-manager-subscription-governance.md)
-<!-- Not Available ## [Managed Applications](managed-application-overview.md)-->
+## [受支持的服务、区域，以及 API 版本](resource-manager-supported-services.md)
+## [了解 Resource Manager 和经典部署](resource-manager-deployment-model.md)
+## [出于合规目的监管订阅](resource-manager-subscription-governance.md)
+## [企业监管示例](resource-manager-subscription-examples.md)
 
 # 入门
 ## [导出模板](resource-manager-export-template.md)
@@ -22,6 +22,7 @@
 ### [模板最佳实践](resource-manager-template-best-practices.md)
 ### [模板节](resource-group-authoring-templates.md)
 ### [链接到其他模板](resource-group-linked-templates.md)
+### [模板函数](resource-group-template-functions.md)
 ### [定义资源之间的依赖关系](resource-group-define-dependencies.md)
 ### [创建多个实例](resource-group-create-multiple.md)
 ### [设置位置](resource-manager-template-location.md)
@@ -31,6 +32,7 @@
 ### [对参数使用对象](resource-manager-objects-as-parameters.md)
 ### [在链接模板之间共享状态](best-practices-resource-manager-state.md)
 ### [用于设计模板的模式](best-practices-resource-manager-design-templates.md)
+
 ## 部署
 ### PowerShell
 #### [部署模板](resource-group-template-deploy.md)
@@ -66,17 +68,8 @@
 ### [安全注意事项](best-practices-resource-manager-security.md)
 ## 设置资源策略
 ### [什么是资源策略？](resource-manager-policy.md)
-<!-- Not Available ### [Portal policy assignment](resource-manager-policy-portal.md) -->
-<!-- Not Available ### [Script policy assignment](resource-manager-policy-create-assign.md) -->
-<!-- Not Available ### [Resource tag policies](resource-manager-policy-tags.md) -->
-<!-- Not Available ### [Storage policies](resource-manager-policy-storage.md) -->
 ### [Linux VM 策略](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Windows VM 策略](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-
-<!-- Not Available ## Use managed applications -->
-<!-- Not Available ### [Publish managed application](managed-application-publishing.md) -->
-<!-- Not Available ### [Consume managed application](managed-application-consumption.md) -->
-<!-- Not Available ### [Create UI definitions](managed-application-createuidefinition-overview.md) -->
 
 ## 审核
 ### [查看活动日志](resource-group-audit.md)
@@ -86,7 +79,6 @@
 ### [常见部署错误](resource-manager-common-deployment-errors.md)
 
 # 引用
-<!-- Not Available ## [Template format](/templates/) -->
 ## [模板函数](resource-group-template-functions.md)
 ### [数组和对象函数](resource-group-template-functions-array.md)
 ### [比较函数](resource-group-template-functions-comparison.md)
@@ -94,21 +86,6 @@
 ### [数值函数](resource-group-template-functions-numeric.md)
 ### [资源函数](resource-group-template-functions-resource.md)
 ### [字符串函数](resource-group-template-functions-string.md)
-<!-- Not Available ## [UI definition functions](managed-application-createuidefinition-functions.md) -->
-<!-- Not Available ## [UI definition elements](managed-application-createuidefinition-elements.md) -->
-<!-- Not Available ### [Microsoft.Common.DropDown](managed-application-microsoft-common-dropdown.md) -->
-<!-- Not Available ### [Microsoft.Common.FileUpload](managed-application-microsoft-common-fileupload.md) -->
-<!-- Not Available ### [Microsoft.Common.OptionsGroup](managed-application-microsoft-common-optionsgroup.md) -->
-<!-- Not Available ### [Microsoft.Common.PasswordBox](managed-application-microsoft-common-passwordbox.md) -->
-<!-- Not Available ### [Microsoft.Common.Section](managed-application-microsoft-common-section.md) -->
-<!-- Not Available ### [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md) -->
-<!-- Not Available ### [Microsoft.Compute.CredentialsCombo](managed-application-microsoft-compute-credentialscombo.md) -->
-<!-- Not Available ### [Microsoft.Compute.SizeSelector](managed-application-microsoft-compute-sizeselector.md) -->
-<!-- Not Available ### [Microsoft.Compute.UserNameTextBox](managed-application-microsoft-compute-usernametextbox.md) -->
-<!-- Not Available ### [Microsoft.Network.PublicIpAddressCombo](managed-application-microsoft-network-publicipaddresscombo.md) -->
-<!-- Not Available ### [Microsoft.Network.VirtualNetworkCombo](managed-application-microsoft-network-virtualnetworkcombo.md) -->
-<!-- Not Available ### [Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md) -->
-<!-- Not Available ### [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md) -->
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.resources)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/resource)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.resourcemanager)

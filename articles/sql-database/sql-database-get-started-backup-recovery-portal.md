@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/08/2016
 wacn.date: 04/06/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 教程：使用 Azure 门户预览备份和还原 Azure SQL 数据库

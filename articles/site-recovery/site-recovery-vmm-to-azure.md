@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-=article
 ms.date: 04/05/2017
-ms.author: raynew
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 19fc08c275b3e60d59cedd823c18c45e442fda20
@@ -54,7 +54,7 @@ ms.lasthandoff: 04/22/2017
 
 
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a><a name="on-premises-prerequisites"></a>先决条件
 
 
 **支持要求** | **详细信息**
@@ -107,7 +107,7 @@ ms.lasthandoff: 04/22/2017
 
     ![新保管库](./media/site-recovery-vmm-to-azure/new-vault3.png)
 3. 在“名称” 中，指定一个友好名称以标识该保管库。 如果你有多个订阅，请选择其中一个。
-4. [创建一个资源组](../azure-resource-manager/resource-group-template-deploy-portal.md)或选择现有的资源组。 指定 Azure 区域。 计算机将复制到此区域。 若要查看受支持的区域，请参阅 [Azure Site Recovery 定价详细信息](https://azure.microsoft.com/pricing/details/site-recovery/)中的“地域可用性”
+4. [创建一个资源组](../azure-resource-manager/resource-group-template-deploy-portal.md)或选择现有的资源组。 指定 Azure 区域。 计算机将复制到此区域。 若要查看受支持的区域，请参阅 [Azure Site Recovery 定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)中的“地域可用性”
 5. 如果要从仪表板快速访问保管库，请单击“固定到仪表板” > “创建保管库”。
 
     ![新保管库](./media/site-recovery-vmm-to-azure/new-vault.png)

@@ -17,7 +17,7 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
 ms.date: 02/01/2017
 wacn.date: 03/24/2017
-ms.author: srinia
+ms.author: v-johch
 ---
 
 # 多租户 SaaS 应用程序与 Azure SQL 数据库的设计模式

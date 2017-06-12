@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 wacn.date: 
-ms.author: mikeray
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 4e3a66d5e8fd15a60ba863d3054a50c860984a0c
@@ -415,7 +415,7 @@ ms.lasthandoff: 05/05/2017
 下一步是在故障转移群集上配置可用性组侦听器。
 
 > [!NOTE]
-> 本教程说明如何创建单个侦听器，该侦听器只使用一个 ILB IP 地址。 若要使用一个或多个 IP 地址创建一个或多个侦听器，请参阅[创建可用性组侦听器和负载均衡器 | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+> 本教程说明如何创建单个侦听器，该侦听器只使用一个 ILB IP 地址。 若要使用一个或多个 IP 地址创建一个或多个侦听器，请参阅[创建可用性组侦听器和负载均衡器 | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 >
 >
 

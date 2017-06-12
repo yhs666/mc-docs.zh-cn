@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 wacn.date: 12/26/2016
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 虚拟设备方案

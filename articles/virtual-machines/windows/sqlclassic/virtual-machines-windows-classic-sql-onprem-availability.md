@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/03/2017
 wacn.date: 
-ms.author: mikeray
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 779e7936e05100629f6b9956504943a91db7c1d2

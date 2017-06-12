@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 wacn.date: 03/07/2017
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # 混合标识所需的端口和协议

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 wacn.date: 03/20/2017
-ms.author: asaxton
+ms.author: v-dazen
 ---
 
 # Azure 虚拟机中的 SQL Server Business Intelligence
 > [!IMPORTANT] 
-Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。
 
 Azure 虚拟机库包括含有 SQL Server 安装的映像。库映像中支持的 SQL Server 版本是可以安装到本地计算机和虚拟机的相同安装文件。本主题汇总了映像上安装的 SQL Server Business Intelligence (BI) 功能和设置虚拟机后所需的配置步骤。本主题还介绍了 BI 功能的支持部署拓扑和最佳实践。
 
@@ -103,7 +103,7 @@ get-service | Where-Object{ $_.DisplayName -like '*SQL*' } | Select DisplayName,
     ![SQL Server 服务](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)  
 
     > [!NOTE]
-    支持的 BI 方案中需要 SQL Server 数据库引擎。在单服务器 VM 拓扑中，数据库引擎需要在同一个 VM 上运行。
+    > 支持的 BI 方案中需要 SQL Server 数据库引擎。在单服务器 VM 拓扑中，数据库引擎需要在同一个 VM 上运行。
 
     有关详细信息，请参阅以下部分：[卸载 Reporting Services](https://msdn.microsoft.com/zh-cn/library/hh479745.aspx) 和[卸载 Analysis Services 实例](https://msdn.microsoft.com/zh-cn/library/ms143687.aspx)。
 * 检查 **Windows 更新**以获取新的“重要更新”。Azure 虚拟机映像会经常刷新；但在最近刷新 VM 映像后，**Windows 更新**可能还会提供重要更新。
@@ -138,7 +138,7 @@ Analysis Services、Reporting Services、SQL Server 数据库引擎和数据源�
 SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式，但未配置报表服务器。本部分中的步骤配置 Reporting Services 报表服务器。有关配置 Reporting Services 本机模式的更多详细信息，请参阅[安装 Reporting Services 本机模式报表服务器 (SSRS)](https://msdn.microsoft.com/zh-cn/library/ms143711.aspx)。
 
 > [!NOTE]
-有关使用 Windows PowerShell 脚本配置报表服务器的类似内容，请参阅[使用 PowerShell 创建运行本机模式报表服务器的 Azure VM](../../virtual-machines-windows-classic-ps-sql-report.md)。
+> 有关使用 Windows PowerShell 脚本配置报表服务器的类似内容，请参阅[使用 PowerShell 创建运行本机模式报表服务器的 Azure VM](../../virtual-machines-windows-classic-ps-sql-report.md)。
 
 ### <a name="connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager"></a> 连接到虚拟机并启动 Reporting Services 配置管理器
 连接到 Azure 虚拟机有两个常见工作流：
@@ -258,7 +258,7 @@ SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式�
 或者运行 C:\\SQLServer\_13.0_full\\setup.exe、C:\\SQLServer_12.0_full\\setup.exe 或 C:\\SQLServer_11.0\_full\\setup.exe
 
 > [!NOTE]
-首次运行 SQL Server 安装程序时可能会下载更多安装文件并需要重新启动虚拟机和重新启动 SQL Server 安装程序。
+> 首次运行 SQL Server 安装程序时可能会下载更多安装文件并需要重新启动虚拟机和重新启动 SQL Server 安装程序。
 > 
 > 如果需要反复自定义从 Azure 虚拟机中选择的映像，请考虑创建自己的 SQL Server 映像。Analysis Services SysPrep 功能在 SQL Server 2012 SP1 CU2 中已启用。有关详细信息，请参阅[使用 SysPrep 安装 SQL Server 的注意事项](https://msdn.microsoft.com/zh-cn/library/ee210754.aspx)和 [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)（服务器角色的 Sysprep 支持）。
 > 

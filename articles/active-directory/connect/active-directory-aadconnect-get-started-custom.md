@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/30/2017
-ms.author: billmath
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: b39ee1fed6168d10ca797e5fadc22d3864dbf482
@@ -26,8 +26,6 @@ ms.lasthandoff: 04/22/2017
 如果希望有更多的安装选项，可以使用 Azure AD Connect“自定义设置”。 如果你拥有多个林或希望配置未覆盖在快速安装中的可选功能，可以使用它。 它适用于[**快速安装**](active-directory-aadconnect-get-started-express.md)不能满足部署或拓扑的所有情况。
 
 开始安装 Azure AD Connect 之前，确保[下载 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)，完成 [Azure AD Connect：硬件和先决条件](active-directory-aadconnect-prerequisites.md)中的预备步骤。 此外请确保你拥有 [Azure AD Connect 帐户和权限](active-directory-aadconnect-accounts-permissions.md)所述的可用的必需帐户。
-
-如果自定义的设置不匹配拓扑，例如，升级 DirSync，请参阅 [相关文档](#related-documentation) ，了解其他情况。
 
 ## <a name="custom-settings-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义设置安装
 ### <a name="express-settings"></a>快速设置
@@ -237,10 +235,11 @@ ms.lasthandoff: 04/22/2017
 输入要用作 Web 应用程序代理服务器的服务器。 Web 应用程序代理服务器部署在外围网络中（面向 Extranet），支持来自 Extranet 的身份验证请求。 可以根据容量规划需求添加一个或多个服务器。 Microsoft 建议安装一台 Web 应用程序代理服务器用于测试和试验部署。 然后，在完成初始配置之后通过再次运行 Azure AD Connect，根据缩放需求添加和部署更多的服务器。 我们建议使用数量相当的代理服务器，以满足来自 Intranet 的身份验证要求。
 
 > [!NOTE]
+> <ul>
 > <li> 如果使用的帐户不是 AD FS 服务器上的本地管理员，系统将提示提供管理员凭据。</li>
 > <li> 在运行此步骤之前，请确保 Azure AD Connect 服务器与 Web 应用程序代理服务器之间已建立 HTTP/HTTPS 连接。</li>
 > <li> 确保 Web 应用程序服务器与 AD FS 服务器之间的 HTTP/HTTPS 连接允许通过身份验证请求。</li>
->
+> </ul>
 
 ![Web 应用](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
 

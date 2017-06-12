@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/28/2016
 wacn.date: 02/20/2017
-ms.author: mikeray
+ms.author: v-dazen
 ---
 
 # 配置一个或多个 Always On 可用性组侦听器 - Resource Manager
@@ -98,7 +98,7 @@ foreach($VMName in $VMNames)
 前端端口是应用程序用来连接到 SQL Server 实例的端口。不同可用性组的 IP 地址可以使用相同的前端端口。
 
 > [!NOTE]
-对于 SQL Server 可用性组，每个 IP 地址需要一个特定的探测端口。例如，如果负载均衡器上有一个 IP 地址使用探测端口 59999，该负载均衡器上的其他任何 IP 地址就不能使用探测端口 59999。
+> 对于 SQL Server 可用性组，每个 IP 地址需要一个特定的探测端口。例如，如果负载均衡器上有一个 IP 地址使用探测端口 59999，该负载均衡器上的其他任何 IP 地址就不能使用探测端口 59999。
 
 * 有关负载均衡器限制的信息，请参阅[网络限制 - Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits) 下面的**每个负载均衡器的专用前端 IP**。
 * 有关可用性组限制的信息，请参阅 [Restrictions \(Availability Groups\)](http://msdn.microsoft.com/zh-cn/library/ff878487.aspx#RestrictionsAG)（限制（可用性组））。
@@ -179,7 +179,7 @@ $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConf
 SQLCMD 连接将自动连接到托管主副本的 SQL Server 实例。
 
 > [!NOTE]
-确保指定的端口已在两个 SQL Server 的防火墙上打开。这两个服务器需要所用 TCP 端口的入站规则。有关详细信息，请参阅 [Add or Edit Firewall Rule](http://technet.microsoft.com/zh-cn/library/cc753558.aspx)（添加或编辑防火墙规则）。
+> 确保指定的端口已在两个 SQL Server 的防火墙上打开。这两个服务器需要所用 TCP 端口的入站规则。有关详细信息，请参阅 [Add or Edit Firewall Rule](http://technet.microsoft.com/zh-cn/library/cc753558.aspx)（添加或编辑防火墙规则）。
 > 
 > 
 

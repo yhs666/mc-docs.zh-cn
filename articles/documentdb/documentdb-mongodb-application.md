@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/28/2017
 wacn.date: 
-ms.author: anhoh
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 00cfb2b197c1e0015f7d164f294e3abc0baf1643
@@ -30,7 +30,7 @@ ms.lasthandoff: 05/19/2017
 
 若要使用此示例，必须：
 
-- [创建](documentdb-create-mongodb-account.md) DocumentDB 数据库。
+- [创建](documentdb-create-account.md) DocumentDB 数据库。
 - 检索 MongoDB [连接字符串](documentdb-connect-mongodb-account.md)信息。
 
 可以参考[在 Azure 中创建连接到虚拟机上运行的 MongoDB 的 Web 应用](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md)教程（需进行少量修改），快速设置一个连接到 API for MongoDB 帐户的 MongoDB 应用程序（在本地或发布到 Azure Web 应用）。  

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2016
 wacn.date: 
-ms.author: arramac
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 7ee042fded4dae771776d3c67a01dd402e84a7e7
@@ -396,7 +396,7 @@ ms.lasthandoff: 05/19/2017
 
 就像有多种方法可在屏幕上表示一个数据片段一样，数据的建模方法也不会只有一种。 你需要了解你的应用程序以及它如何生成、使用和处理数据。 然后，通过应用此处提供的一些准则，你可以开始创建可满足你的应用程序当前需求的模型。 当你的应用程序需要进行更改时，你可以利用无架构数据库的灵活性欣然接受更改，并轻松改进你的数据模型。 
 
-若要了解有关 DocumentDB 的详细信息，请参阅服务的[文档](/documentation/services/documentdb/)页。 
+若要了解有关 DocumentDB 的详细信息，请参阅服务的[文档](index.md)页。 
 
 若要了解如何在 DocumentDB 中优化索引，请参阅有关[索引策略](documentdb-indexing-policies.md)的文章。
 

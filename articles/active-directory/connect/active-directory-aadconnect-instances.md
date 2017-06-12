@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 wacn.date: 03/07/2017
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # Azure AD Connect：有关实例的特殊注意事项

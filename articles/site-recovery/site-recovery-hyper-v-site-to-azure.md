@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/05/2017
 wacn.date: 03/31/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 结合使用 Azure Site Recovery 和 Azure 门户将 Hyper-V 虚拟机（不带 VMM）复制到 Azure
@@ -420,7 +420,7 @@ Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "
 
 [了解详细信息](./site-recovery-failover.md#run-an-unplanned-failover)
 
-## 完成虚拟机到 Azure 的迁移
+##<a name="Complete-migration-of-your-virtual-machines-to-Azure"></a> 完成虚拟机到 Azure 的迁移
 
 >[!NOTE]
 > 以下步骤仅适用于将虚拟机迁移到 Azure

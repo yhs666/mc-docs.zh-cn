@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2017
 wacn.date: 03/10/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用 Ambari Web UI 管理 HDInsight 群集
@@ -34,21 +34,21 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 默认已对使用 Linux 操作系统的 HDInsight 群集提供了 Ambari Web UI。
 
 > [!IMPORTANT]
-Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 ## 连接
 
 Ambari Web UI 在 HDInsight 群集（网址为 HTTPS://CLUSTERNAME.azurehdidnsight.net，其中 **CLUSTERNAME** 是群集的名称）上可用。
 
 > [!IMPORTANT]
-连接到 HDInsight 上的 Ambari 需要 HTTPS。此外，必须使用创建群集时提供的管理员帐户名（默认为 **admin**）和密码向 Ambari 进行身份验证。
+> 连接到 HDInsight 上的 Ambari 需要 HTTPS。此外，必须使用创建群集时提供的管理员帐户名（默认为 **admin**）和密码向 Ambari 进行身份验证。
 
 ## SSH 隧道（代理）
 
 > [!NOTE]
-尽管可以直接通过 Internet 访问群集的 Ambari，但 Ambari Web UI 中的某些链接（例如 JobTracker 的链接）并未在 Internet 上公开。因此，除非使用安全外壳 (SSH) 隧道来代理对群集头节点的 Web 流量，否则在尝试访问这些功能时会收到“找不到服务器”错误。
+> 尽管可以直接通过 Internet 访问群集的 Ambari，但 Ambari Web UI 中的某些链接（例如 JobTracker 的链接）并未在 Internet 上公开。因此，除非使用安全外壳 (SSH) 隧道来代理对群集头节点的 Web 流量，否则在尝试访问这些功能时会收到“找不到服务器”错误。
 
-有关创建 SSH 隧道以使用 Ambari 的信息，请参阅 [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](./hdinsight-linux-ambari-ssh-tunnel.md)（使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI）。
+有关创建 SSH 隧道以使用 Ambari 的信息，请参阅[使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI](./hdinsight-linux-ambari-ssh-tunnel.md)。
 
 ## Ambari Web UI
 
@@ -124,7 +124,7 @@ Ambari 提供许多警报，其状态为以下其中一种：
 ![服务边栏](./media/hdinsight-hadoop-manage-ambari/service-bar.png)  
 
 > [!NOTE]
-对于不同的 HDInsight 群集类型和版本，所显示的服务会有所不同。此处显示的服务可能不同于针对你的群集所显示的服务。
+> 对于不同的 HDInsight 群集类型和版本，所显示的服务会有所不同。此处显示的服务可能不同于针对你的群集所显示的服务。
 
 选择一个服务会显示有关该服务的更多详细信息。
 
@@ -142,9 +142,9 @@ Ambari 提供许多警报，其状态为以下其中一种：
 选择其中任何链接会在浏览器中打开新选项卡，新选项卡显示选择的页面。
 
 > [!NOTE]
-选择任何服务的“快速链接”链接将会导致出现“找不到服务器”的错误，除非使用安全套接字层 (SSL) 隧道通过代理将 Web 流量发送到群集。这是因为用来显示此信息的 Web 应用程序不在 Internet 上公开。
+> 选择任何服务的“快速链接”链接将会导致出现“找不到服务器”的错误，除非使用安全套接字层 (SSL) 隧道通过代理将 Web 流量发送到群集。这是因为用来显示此信息的 Web 应用程序不在 Internet 上公开。
 > 
-> 有关将 SSH 隧道与 HDInsight 配合使用的信息，请参阅 [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](./hdinsight-linux-ambari-ssh-tunnel.md)（使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI）
+> 有关将 SSH 隧道与 HDInsight 配合使用的信息，请参阅[使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI](./hdinsight-linux-ambari-ssh-tunnel.md)
 
 ## 管理
 
@@ -155,7 +155,7 @@ Ambari 提供许多警报，其状态为以下其中一种：
 ![主机页](./media/hdinsight-hadoop-manage-ambari/hosts.png)  
 
 > [!NOTE]
-对于 HDInsight 群集，不应使用添加、停用或重用主机的功能。
+> 对于 HDInsight 群集，不应使用添加、停用或重用主机的功能。
 
 1. 选择你要管理的主机。
 
@@ -180,12 +180,12 @@ Ambari 提供许多警报，其状态为以下其中一种：
     * **停用** - 从群集中删除主机。
 
         > [!NOTE]
-        请勿在 HDInsight 群集上使用此操作。
+        > 请勿在 HDInsight 群集上使用此操作。
 
     * **重用** - 将以前已停用的主机添加到群集中。
 
         > [!NOTE]
-        请勿在 HDInsight 群集上使用此操作。
+        > 请勿在 HDInsight 群集上使用此操作。
 
 ### <a id="service"></a>服务
 
@@ -194,7 +194,7 @@ Ambari 提供许多警报，其状态为以下其中一种：
 ![服务操作](./media/hdinsight-hadoop-manage-ambari/service-actions.png)  
 
 > [!WARNING]
-虽然此菜单中列出了“添加服务”，但是不应使用它将服务添加到 HDInsight 群集。应在群集预配过程中使用脚本操作添加新服务。有关使用脚本操作的详细信息，请参阅 [Customize HDInsight clusters using Script Actions](./hdinsight-hadoop-customize-cluster-linux.md)（使用脚本操作自定义 HDInsight 群集）。
+> 虽然此菜单中列出了“添加服务”，但是不应使用它将服务添加到 HDInsight 群集。应在群集预配过程中使用脚本操作添加新服务。有关使用脚本操作的详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](./hdinsight-hadoop-customize-cluster-linux.md)。
 
 虽然“操作”按钮可以重新启动所有服务，但你要启动、停止或重新启动的往往是特定服务。使用以下步骤来对单个服务执行操作：
 
@@ -205,12 +205,12 @@ Ambari 提供许多警报，其状态为以下其中一种：
     ![服务操作](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)  
 
     > [!NOTE]
-    在群集运行时重新启动某些服务可能会生成警报。若要避免这个问题，可以使用“服务操作”按钮来启用服务的“维护模式”，然后再执行重新启动。
+    > 在群集运行时重新启动某些服务可能会生成警报。若要避免这个问题，可以使用“服务操作”按钮来启用服务的“维护模式”，然后再执行重新启动。
 
 3. 选择某个操作后，页面顶部的“# 项操作”条目便会递增数字，指出正在进行后台操作。如果已配置为显示，则将显示后台操作的列表。
 
     > [!NOTE]
-    如果你已对服务启用了“维护模式”，请记得在操作完成后使用“服务操作”按钮来将它禁用。
+    > 如果你已对服务启用了“维护模式”，请记得在操作完成后使用“服务操作”按钮来将它禁用。
 
 若要配置服务，请使用以下步骤：
 

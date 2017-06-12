@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2017
 wacn.date: 03/10/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用 Curl 通过 HDInsight 上的 Hadoop 运行 Pig 作业
@@ -28,7 +28,7 @@ ms.author: larryfr
 使用 Curl 演示如何使用原始 HTTP 请求与 HDInsight 交互，以便运行、监视和检索 Pig 作业的结果。若要执行这些操作，需要使用 HDInsight 群集提供的 WebHCat REST API（以前称为 Templeton）。
 
 > [!NOTE]
-如果你已熟悉如何使用基于 Linux 的 Hadoop 服务器，但刚接触 HDInsight，请参阅[基于 Linux 的 HDInsight 提示](./hdinsight-hadoop-linux-information.md)。
+> 如果你已熟悉如何使用基于 Linux 的 Hadoop 服务器，但刚接触 HDInsight，请参阅[基于 Linux 的 HDInsight 提示](./hdinsight-hadoop-linux-information.md)。
 
 ## <a id="prereq"></a>先决条件
 
@@ -37,7 +37,7 @@ ms.author: larryfr
 * Azure HDInsight（HDInsight 上的 Hadoop）群集（基于 Linux 或 Windows）
 
     > [!IMPORTANT]
-    Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
@@ -45,7 +45,7 @@ ms.author: larryfr
 ## <a id="curl"></a>使用 Curl 运行 Pig 作业
 
 > [!NOTE]
-使用 Curl 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须提供 HDInsight 群集的管理员用户名和密码对请求进行身份验证。此外，还必须使用群集名称作为用来向服务器发送请求的统一资源标识符 (URI) 的一部分。
+> 使用 Curl 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须提供 HDInsight 群集的管理员用户名和密码对请求进行身份验证。此外，还必须使用群集名称作为用来向服务器发送请求的统一资源标识符 (URI) 的一部分。
 > 
 > 对于本部分中的命令，请将 **USERNAME** 替换为对群集进行身份验证的用户，并将 **PASSWORD** 替换为用户帐户的密码。将 **CLUSTERNAME** 替换为群集名称。
 > 
@@ -85,7 +85,7 @@ ms.author: larryfr
     * **statusdir**：此作业的状态要写入到的目录
 
     > [!NOTE]
-    请注意，在与 Curl 配合使用时，将使用 `+` 字符替换 Pig Latin 语句中的空格。
+    > 请注意，在与 Curl 配合使用时，将使用 `+` 字符替换 Pig Latin 语句中的空格。
 
     此命令应返回可用来检查作业状态的作业 ID，例如：
 
@@ -102,7 +102,7 @@ ms.author: larryfr
     如果作业已完成，状态将是 **SUCCEEDED**。
 
     > [!NOTE]
-    此 Curl 请求返回具有作业相关信息的 JavaScript 对象表示法 (JSON) 文档；使用 jq 可以仅检索状态值。
+    > 此 Curl 请求返回具有作业相关信息的 JavaScript 对象表示法 (JSON) 文档；使用 jq 可以仅检索状态值。
 
 ## <a id="results"></a>查看结果
 

@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/10/2017
 wacn.date: 01/25/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 使用动态管理视图监视 Azure SQL 数据库

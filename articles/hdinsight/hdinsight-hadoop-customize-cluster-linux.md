@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 30488be872b61ef1678b0244dd9b07cfdd09d28c
@@ -31,7 +31,7 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 
 > [!IMPORTANT]
 > 只有基于 Linux 的 HDInsight 群集能够在运行中的群集上使用脚本操作。
-> <p>
+>
 > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
 
 还可以将脚本操作作为 HDInsight 应用程序发布到 Azure 应用商店。 本文档中的某些示例将演示如何使用 PowerShell 和 .NET SDK 的脚本操作命令来安装 HDInsight 应用程序。
@@ -87,7 +87,7 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 
     > [!IMPORTANT]
     > 创建群集期间使用的脚本操作将自动持久保存下来。
-    > <p>
+    >
     > 即使明确指出应予保存，也不会持久保存失败的脚本。
 
 * 可以接受脚本在执行期间使用的 **参数** 。
@@ -119,7 +119,7 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 
 > [!IMPORTANT]
 > 脚本操作必须在 60 分钟内完成，否则将会超时。 在群集预配期间，脚本将与其他安装和配置进程一同运行。 争用 CPU 时间和网络带宽等资源可能导致完成脚本所需的时间要长于在开发环境中所需的时间。
-> <p>
+>
 > 若要让运行脚本所花费的时间降到最低，请避免从源下载和编译应用程序等任务。 应预先编译应用程序，并将二进制文件存储在 Azure 存储中，这样可将其快速下载到群集。
 
 ### <a name="script-action-on-a-running-cluster"></a>正在运行的群集上的脚本操作
@@ -128,7 +128,7 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 
 > [!IMPORTANT]
 > 这并不意味着正在运行的群集不受发生错误的脚本的影响。 例如，脚本可能会删除群集所需的文件，更改配置从而使服务失败，等等。
-> <p>
+>
 > 脚本操作以 root 权限运行，因此你应该先确保了解脚本的作用，然后再将它应用到群集。
 
 将脚本应用到群集时，如果脚本运行成功，群集状态将从“正在运行”更改为“已接受”，再更改为“HDInsight 配置”，最后回到“正在运行”。 脚本状态记录在脚本操作历史记录中，可以使用此状态来确定脚本是成功还是失败。 例如，可以使用 `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet 来查看脚本的状态。 这会返回类似于下面的信息：
@@ -661,7 +661,7 @@ HDInsight 服务中有两种类型的开放源代码组件：
 
 > [!WARNING]
 > 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门将帮助找出并解决与这些组件相关的问题。
-> <p>
+>
 > 自定义组件可获得合理范围的支持，有助于进一步解决问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
 
 HDInsight 服务提供多种方式来使用自定义组件。 不论在群集上使用组件或安装组件的方式为何，均适用相同级别的支持。 以下是可以在 HDInsight 群集上使用的自定义组件最常见方式的列表：

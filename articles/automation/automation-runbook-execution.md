@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/02/2016
 wacn.date: 01/09/2017
-ms.author: bwren
+ms.author: v-dazen
 ---
 
 # 在 Azure 自动化中执行 Runbook

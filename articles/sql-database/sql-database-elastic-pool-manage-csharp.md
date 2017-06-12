@@ -14,7 +14,7 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 wacn.date: 12/26/2016
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # 使用 C# 监视和管理弹性数据库池 

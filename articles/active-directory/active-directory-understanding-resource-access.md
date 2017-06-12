@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 wacn.date: 02/15/2017
-ms.author: markvi
+ms.author: v-junlch
 ---
 
 # 了解 Azure 中的资源访问权限

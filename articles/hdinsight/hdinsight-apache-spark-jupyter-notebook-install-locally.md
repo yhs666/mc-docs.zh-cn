@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2017
 wacn.date: 03/24/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 在计算机上安装 Jupyter 笔记本并连接到 HDInsight 上的 Apache Spark 群集
@@ -35,7 +35,7 @@ ms.author: nitinme
 此处所列的先决条件不适用于安装 Jupyter。这些先决条件适用于安装笔记本之后将 Jupyter 笔记本连接到 HDInsight 群集。
 
 * Azure 订阅。请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* HDInsight 上的 Apache Spark 群集。有关说明，请参阅 [Create Apache Spark clusters in Azure HDInsight](./hdinsight-apache-spark-jupyter-spark-sql.md)（在 Azure HDInsight 中创建 Apache Spark 群集）。
+* HDInsight 上的 Apache Spark 群集。有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](./hdinsight-apache-spark-jupyter-spark-sql.md)。
 
 ## 在计算机上安装 Jupyter 笔记本
 必须先安装 Python 才能安装 Jupyter 笔记本。Python 和 Jupyter 都是作为 [Ananconda分发版](https://www.continuum.io/downloads)的一部分提供的。当你安装 Anaconda 时，实际上安装的是某个 Python 分发版。安装 Anaconda 之后，可通过运行一个命令来添加 Jupyter 安装。本部分提供必须遵循的说明。
@@ -119,7 +119,7 @@ ms.author: nitinme
         ```
 
     >[!TIP]
-    将发送检测信号，以确保会话不会泄漏。请注意，当计算机转到睡眠或关闭状态时，将不会发送检测信号，从而导致会话被清除。对于群集 v3.4，如果要禁用此行为，可以从 Ambari UI 将 Livy 配置 `livy.server.interactive.heartbeat.timeout` 设置为 `0`。对于群集 v3.5，如果未设置上述 3.5 配置，会话将不会删除。
+    > 将发送检测信号，以确保会话不会泄漏。请注意，当计算机转到睡眠或关闭状态时，将不会发送检测信号，从而导致会话被清除。对于群集 v3.4，如果要禁用此行为，可以从 Ambari UI 将 Livy 配置 `livy.server.interactive.heartbeat.timeout` 设置为 `0`。对于群集 v3.5，如果未设置上述 3.5 配置，会话将不会删除。
 
 6. 启动 Jupyter。从命令提示符使用以下命令。
 
@@ -145,7 +145,7 @@ ms.author: nitinme
         如果可以成功检索输出，则表示与 HDInsight 群集的连接已经过测试。
 
     >[!TIP]
-    如果你想要更新笔记本配置以连接到不同的群集，请使用一组新值更新 config.json，如上述步骤 3 中所示。
+    > 如果你想要更新笔记本配置以连接到不同的群集，请使用一组新值更新 config.json，如上述步骤 3 中所示。
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>为何要在计算机上安装 Jupyter？
 你可能会出于多种原因而要在计算机上安装 Jupyter，然后将其连接到 HDInsight 上的 Spark 群集。
@@ -157,7 +157,7 @@ ms.author: nitinme
 * 配置自己的本地开发环境比在群集上配置 Jupyter 安装更容易。你可以利用本地安装的所有软件，而不需要配置一个或多个远程群集。
 
 > [!WARNING]
-在本地计算机上安装 Jupyter 后，多个用户可以同时在同一个 Spark 群集上运行同一个笔记本。在这种情况下，将会创建多个 Livy 会话。如果你遇到问题并想要调试，则跟踪哪个 Livy 会话属于哪个用户将是一项复杂的任务。
+> 在本地计算机上安装 Jupyter 后，多个用户可以同时在同一个 Spark 群集上运行同一个笔记本。在这种情况下，将会创建多个 Livy 会话。如果你遇到问题并想要调试，则跟踪哪个 Livy 会话属于哪个用户将是一项复杂的任务。
 >
 >
 

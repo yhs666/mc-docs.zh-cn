@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2017
 wacn.date: 03/16/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # Hadoop 教程：开始使用 HDInsight 中的 Hadoop
@@ -62,7 +62,7 @@ ms.author: jgao
 
      有关这些属性的详细说明，请参阅[在 HDInsight 中创建 Hadoop 群集](./hdinsight-hadoop-provision-linux-clusters.md)。
 
-3. 选中“我同意上述条款和条件”和“固定到仪表板”，然后单击“购买”。你会在门户仪表板上看到一个标题为“对模板部署进行部署”的新磁贴。创建群集大约需要 20 分钟时间。创建群集后，磁贴的标题被更改为指定的资源组名称。门户将自动在新的边栏选项卡中打开资源组。可以看到列出了群集和默认存储。
+3. 选择“法律条款”，然后单击“购买”，选中“固定到仪表板”，然后点击“创建”。你会在门户仪表板上看到一个标题为“对模板部署进行部署”的新磁贴。创建群集大约需要 20 分钟时间。创建群集后，磁贴的标题被更改为指定的资源组名称。门户将自动在新的边栏选项卡中打开资源组。可以看到列出了群集和默认存储。
 
     ![HDInsight Linux 入门之资源组](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png)。
 
@@ -85,7 +85,7 @@ HDInsight 中使用的组件中，[Apache Hive](./hdinsight-use-hive.md) 最为�
     ```
 
     > [!NOTE]
-    对于 Hive，需使用分号。
+    > 对于 Hive，需使用分号。
     > 
     > 
 5. 单击“执行”。“查询进程结果”部分应出现在“查询编辑器”下方，并显示有关作业的信息。
@@ -100,7 +100,7 @@ HDInsight 中使用的组件中，[Apache Hive](./hdinsight-use-hive.md) 最为�
     ```
 
     > [!TIP]
-    请注意“查询进程结果”部分左上角的“保存结果”下拉列表；可使用此下载结果，或将其作为 CSV 文件保存到 HDInsight 存储中。
+    > 请注意“查询进程结果”部分左上角的“保存结果”下拉列表；可使用此下载结果，或将其作为 CSV 文件保存到 HDInsight 存储中。
     > 
     > 
 7. 单击“历史记录”来获取作业列表。

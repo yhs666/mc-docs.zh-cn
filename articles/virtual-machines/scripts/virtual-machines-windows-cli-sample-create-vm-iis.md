@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/28/2017
 wacn.date: 
-ms.author: nepeters
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 9a3fec28b7ca3ad832123c1a7c1f6ae8618ed739
@@ -90,4 +90,4 @@ az group delete --name myResourceGroup --yes
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
-可以在 [Azure Windows VM 文档](../virtual-machines-windows-cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
+可以在 [Azure Windows VM 文档](../virtual-machines-windows-cli-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。

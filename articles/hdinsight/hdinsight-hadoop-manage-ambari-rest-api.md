@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/23/2017
 wacn.date: 03/31/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用 Ambari REST API 管理 HDInsight 群集
@@ -36,7 +36,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 ## 如何使用 Ambari REST API
 
 > [!IMPORTANT]
-本文档中的信息和示例需要使用 Linux 操作系统的 HDInsight 群集。有关详细信息，请参阅 [HDInsight 入门](./hdinsight-hadoop-linux-tutorial-get-started.md)。
+> 本文档中的信息和示例需要使用 Linux 操作系统的 HDInsight 群集。有关详细信息，请参阅 [HDInsight 入门](./hdinsight-hadoop-linux-tutorial-get-started.md)。
 
 本文档中的示例同时适用于 Bourne shell (bash) 和 PowerShell。Bash 示例使用 GNU bash 4.3.11 进行了测试，但也应适用于其他 Unix shell。PowerShell 示例使用 PowerShell 5.0 进行了测试，但也应适用于 PowerShell 3.0 或更高版本。
 
@@ -51,7 +51,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 HDInsight 上的 Ambari REST API 的基本 URI 为 https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME ，其中 **CLUSTERNAME** 是群集的名称。
 
 > [!IMPORTANT]
-URI 的完全限定域名 (FQDN) 部分 (CLUSTERNAME.azurehdinsight.cn) 中的群集名称不区分大小写，但 URI 中的其他部分则区分大小写。例如，如果群集命名为 `MyCluster`，则有效的 URI 如下所示：
+> URI 的完全限定域名 (FQDN) 部分 (CLUSTERNAME.azurehdinsight.cn) 中的群集名称不区分大小写，但 URI 中的其他部分则区分大小写。例如，如果群集命名为 `MyCluster`，则有效的 URI 如下所示：
 > 
 > `https://mycluster.azurehdinsight.cn/api/v1/clusters/MyCluster`  
 > 
@@ -76,7 +76,7 @@ curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/cl
 ```
 
 > [!IMPORTANT]
-本文档中的 Bash 示例作出以下假设：
+> 本文档中的 Bash 示例作出以下假设：
 >
 > * 群集的登录名是 `admin` 的默认值。
 > * `$PASSWORD` 包含 HDInsight 登录命令的密码。可使用 `PASSWORD='mypassword'` 设置该值。
@@ -89,7 +89,7 @@ $resp.Content
 ```
 
 > [!IMPORTANT]
-本文档中的 PowerShell 示例作出以下假设：
+> 本文档中的 PowerShell 示例作出以下假设：
 >
 > * `$creds` 是一个凭据对象，包含用于群集的管理员登录名和密码。通过使用 `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` 并在系统提示时提供密码，可设置该值。
 > * `$clusterName` 是一个包含群集名称的字符串。可使用 `$clusterName="clustername"` 设置该值。
@@ -135,7 +135,7 @@ $respObj.Clusters.health_report
 ```
 
 > [!NOTE]
-虽然本文档中的大多数示例使用 `ConvertFrom-Json` 显示响应文档中的元素，但是[更新 Ambari 配置](#example-update-ambari-configuration)示例使用 jq。本示例中使用 Jq 从 JSON 响应文档构造一个新模板。
+> 虽然本文档中的大多数示例使用 `ConvertFrom-Json` 显示响应文档中的元素，但是[更新 Ambari 配置](#example-update-ambari-configuration)示例使用 jq。本示例中使用 Jq 从 JSON 响应文档构造一个新模板。
 
 有关 REST API 的完整参考，请参阅 [Ambari API 参考 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)。
 
@@ -202,7 +202,7 @@ $respObj.Clusters.health_report
 ## 示例：获取群集节点的内部 IP 地址
 
 > [!IMPORTANT]
-本部分中的示例所返回的 IP 地址不可直接通过 Internet 进行访问。仅可在包含 HDInsight 群集的 Azure 虚拟网络内部对其进行访问。
+> 本部分中的示例所返回的 IP 地址不可直接通过 Internet 进行访问。仅可在包含 HDInsight 群集的 Azure 虚拟网络内部对其进行访问。
 >
 > 有关使用 HDInsight 和虚拟网络的详细信息，请参阅[通过使用自定义 Azure 虚拟网络扩展 HDInsight 功能](./hdinsight-extend-hadoop-virtual-network.md)。
 
@@ -249,14 +249,14 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 ```
 
 > [!IMPORTANT]
-这些示例会返回应用到服务器的第一个配置 (`service_config_version=1`)，其中包含此信息。如果要检索创建群集后修改的值，可能需要列出配置版本并检索最新版本。
+> 这些示例会返回应用到服务器的第一个配置 (`service_config_version=1`)，其中包含此信息。如果要检索创建群集后修改的值，可能需要列出配置版本并检索最新版本。
 
 返回值类似于以下其中一个示例：
 
 * `wasbs://CONTAINER@ACCOUNTNAME.blob.core.chinacloudapi.cn` - 此值指示群集正在将 Azure 存储帐户用于默认存储。值 `ACCOUNTNAME` 是存储帐户的名称。`CONTAINER` 部分是存储帐户中 Blob 容器的名称。容器是群集的 HDFS 兼容存储的根。
 
 > [!NOTE]
-[Azure PowerShell](https://docs.microsoft.com/powershell/) 提供的 `Get-AzureRmHDInsightCluster` cmdlet 还返回群集的存储信息。
+> [Azure PowerShell](https://docs.microsoft.com/powershell/) 提供的 `Get-AzureRmHDInsightCluster` cmdlet 还返回群集的存储信息。
 
 ## 示例：获取配置
 
@@ -481,7 +481,7 @@ This example returns a JSON document containing the current configuration for th
     ```
 
     > [!IMPORTANT]
-    此 URI 返回的 `href` 值正在使用群集节点的内部 IP 地址。若要从群集外部使用该地址，请将“10.0.0.18:8080”部分替换为群集的 FQDN。
+    > 此 URI 返回的 `href` 值正在使用群集节点的内部 IP 地址。若要从群集外部使用该地址，请将“10.0.0.18:8080”部分替换为群集的 FQDN。
 
     以下命令检索请求的状态：
 

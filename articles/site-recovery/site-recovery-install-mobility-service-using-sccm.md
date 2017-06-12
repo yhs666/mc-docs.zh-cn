@@ -12,9 +12,9 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2017
+ms.date: 01/10/2017
 wacn.date: 02/10/2017
-ms.author: anoopkv
+ms.author: v-johch
 ---
 
 # 使用软件部署工具自动安装移动服务
@@ -197,12 +197,8 @@ ms.author: anoopkv
 
 ## 移动服务的其他安装方法
 请阅读有关移动服务的其他安装方法的详细信息。
-* [使用 GUI 手动安装](./site-recovery-vmware-to-azure.md#install-the-mobility-service-manually)
-* [使用命令行手动安装](./site-recovery-vmware-to-azure.md#install-the-mobility-service-manually)
-* [使用配置服务器执行推送安装](./site-recovery-vmware-to-azure.md#install-the-mobility-service-manually)
+
 * [使用 Azure 自动化和 Desired State Configuration 自动安装](./site-recovery-automate-mobility-service-install.md)
 
-## 后续步骤
-现在，可为虚拟机[启用保护](./site-recovery-vmware-to-azure.md#enable-replicate)。
 
 <!---HONumber=Mooncake_0206_2017-->

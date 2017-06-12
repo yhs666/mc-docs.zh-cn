@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/29/2016
 wacn.date: 02/21/2017
-ms.author: cawa
+ms.author: v-johch
 ---
 
 # 使用 Visual Studio 将应用程序发布到远程群集

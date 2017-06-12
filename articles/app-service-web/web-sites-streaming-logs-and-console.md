@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2016
 wacn.date: 
-ms.author: byvinyal
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 25773c4f4f78516ee82c3aecceef5be7a7b29fec

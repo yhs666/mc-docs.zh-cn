@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2017
 wacn.date: 
-ms.author: radwiv;chadmat;genli
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 2c5e8cd6eb3f24d018f95c293b5e3bf82c2722f3
@@ -56,7 +56,7 @@ VPN 网关连接涉及以下组件：
 4.    确定 Internet 服务提供商 (ISP) 的带宽。
 5.    计算预期吞吐量 -（VM、网关、ISP）的最小带宽 * 0.8。
 
-如果计算得出的吞吐量无法满足应用程序的基准吞吐量需求，则需提高已被确定为瓶颈的资源的带宽。 若要调整 Azure VPN 网关的大小，请参阅[更改网关 SKU](/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku)。 若要调整虚拟机的大小，请参阅[调整 VM 的大小](../virtual-machines/virtual-machines-windows-resize-vm.md)。 如果 Internet 的带宽不及预期，可能还需要联系 ISP。
+如果计算得出的吞吐量无法满足应用程序的基准吞吐量需求，则需提高已被确定为瓶颈的资源的带宽。 若要调整 Azure VPN 网关的大小，请参阅[更改网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。 若要调整虚拟机的大小，请参阅[调整 VM 的大小](../virtual-machines/virtual-machines-windows-resize-vm.md)。 如果 Internet 的带宽不及预期，可能还需要联系 ISP。
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>使用性能工具验证网络吞吐量
 

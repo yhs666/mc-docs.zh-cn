@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 wacn.date: 12/19/2016
-ms.author: annemill
+ms.author: v-johch
 ---
 
 # 用于 ADO.NET 4.5 和 SQL 数据库 V12 的非 1433 端口

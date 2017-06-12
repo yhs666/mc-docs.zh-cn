@@ -14,10 +14,40 @@ ms.lasthandoff: 05/12/2017
     <div class="container">
         <ul class="cardsY panelContent featuredContent">
             <li>
+                <a href="/articles/">
+                    <div class="cardSize">
+                        <div class="cardPadding">
+                            <div class="card">
+                                <div class="cardImageOuter">
+                                    <div class="cardImage">
+                                        <img data-hoverimage="media/index/getstarted-developer.svg" src="media/index/getstarted-developer.png" alt="" />
+                                    </div>
+                                </div>
+                                <div class="cardText">
+                                    <span class="likeAnH3">Azure 常用操作指南</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </li>
             <li>
-            </li>
-            <li>
+                <a href="/articles/developerdifferences">
+                    <div class="cardSize">
+                        <div class="cardPadding">
+                            <div class="card">
+                                <div class="cardImageOuter">
+                                    <div class="cardImage">
+                                        <img data-hoverimage="media/index/getstarted-itoperator.svg" src="media/index/getstarted-itoperator.png" alt="" />
+                                    </div>
+                                </div>
+                                <div class="cardText">
+                                    <span class="likeAnH3">中国区 Azure 应用程序开发说明</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </li>
         </ul>
     </div>
@@ -1514,10 +1544,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="https://docs.microsoft.com/dotnet/api">API 参考</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">获取示例</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/">了解详细信息</a>
+                                                    <a href="/develop/net/">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1544,10 +1571,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API 参考</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">获取示例</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/python">了解详细信息</a>
+                                                    <a href="/develop/python">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1574,10 +1598,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="http://azure.github.io/azure-storage-node/index.html">API 参考</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">获取示例</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs">了解详细信息</a>
+                                                    <a href="/develop/nodejs">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1604,10 +1625,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="https://docs.microsoft.com/java/api/">API 参考</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=java">获取示例</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/java/">了解详细信息</a>
+                                                    <a href="/develop/java/">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1634,10 +1652,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API 参考</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">获取示例</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/ruby/">了解详细信息</a>
+                                                    <a href="/develop/ruby/">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1659,9 +1674,6 @@ ms.lasthandoff: 05/12/2017
                                                 </h3>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/rest/api">参考</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">获取示例</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1735,7 +1747,7 @@ ms.lasthandoff: 05/12/2017
                                             <div class="cardText">
                                                 <h3>Azure CLI </h3>
                                                 <p>
-                                                    <a href="/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">入门</a>
+                                                    <a href="/xplat-cli-install?toc=%2fvirtual-machines%2flinux%2ftoc.json">入门</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://aka.ms/linux-azure-cli">下载用于 Linux 的 Azure CLI</a>
@@ -1747,7 +1759,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="http://aka.ms/webpi-azure-cli">下载用于 Windows 的 Azure CLI</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/azure-cli-arm-commands/">参考</a>
+                                                    <a href="/virtual-machines/azure-cli-arm-commands/">参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1845,7 +1857,7 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="http://storageexplorer.com/">存储资源管理器</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">入门</a>
+                                                    <a href="/vs-azure-tools-storage-manage-with-storage-explorer/">入门</a>
                                                 </p>
                                                 <p>
                                                      <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">适用于 Linux 的下载项</a>

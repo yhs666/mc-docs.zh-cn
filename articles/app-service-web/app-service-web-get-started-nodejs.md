@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/28/2017
 wacn.date: 
-ms.author: cfowler
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 0369acfa64206d556f5d83942a47a84233c9c0b8
@@ -190,7 +190,7 @@ http://<app_name>.chinacloudsites.cn
 
 ## <a name="configure-to-use-nodejs"></a>配置为使用 Node.js
 
-使用 [az appservice web config update](https://docs.microsoft.com/cli/azure/app-service/web/config#update) 命令将 Web 应用配置为使用 Node.js 版本 `6.9.3`。
+使用 [az appservice web config update](https://docs.microsoft.com/cli/azure/appservice/web/config#update) 命令将 Web 应用配置为使用 Node.js 版本 `6.9.3`。
 
 > [!TIP]
 > 以这种方式设置 Node.js 版本会使用平台提供的默认容器。如果你想要使用自己的容器，请参阅 [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) 命令的 CLI 参考文章。

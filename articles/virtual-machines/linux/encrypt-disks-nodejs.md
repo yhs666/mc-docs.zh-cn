@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/06/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 2e6cc0fd7dc162ba06f1581e9ca7919f13b59673
@@ -31,7 +31,7 @@ ms.lasthandoff: 05/05/2017
 可使用以下 CLI 版本之一完成任务：
 
 - [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
-- [Azure CLI 2.0](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
+- [Azure CLI 2.0](encrypt-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="quick-commands"></a>快速命令
 如果需要快速完成任务，请参阅以下部分，其中详细说明了用于加密 VM 中虚拟磁盘的基本命令。 本文档的余下部分（[从此处开始](#overview-of-disk-encryption)）提供了每个步骤的更详细信息和上下文。

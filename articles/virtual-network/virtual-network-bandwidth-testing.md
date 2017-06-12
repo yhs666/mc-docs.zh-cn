@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 wacn.date: 03/31/2017
-ms.author: steveesp
+ms.author: v-dazen
 ---
 
 # 带宽/吞吐量测试 (NTTTCP)
@@ -36,7 +36,7 @@ ms.author: steveesp
 提示：第一次设置此测试时，可以尝试更短的测试时间，以更快地获取反馈。在工具按预期工作后，将测试时间延长到 300 秒，以获取最准确的结果。
 
 > [!NOTE]
-发送方**和**接收方必须指定**相同的**测试持续时间参数 (-t)。
+> 发送方**和**接收方必须指定**相同的**测试持续时间参数 (-t)。
 
 测试单个 TCP 流 10 秒：
 
@@ -45,7 +45,7 @@ ms.author: steveesp
 发送方参数：`ntttcp -s10.27.33.7 -t 10 -n 1 -P 1`
 
 > [!NOTE]
-以上示例应仅用于确认配置。本文档稍后会介绍测试的有效示例。
+> 以上示例应仅用于确认配置。本文档稍后会介绍测试的有效示例。
 
 ## 测试运行 WINDOWS 的 VM：
 

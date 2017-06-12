@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 wacn.date: 05/30/2016
-ms.author: telmos
+ms.author: v-junlch
 ---
 
 # Azure 部署模型

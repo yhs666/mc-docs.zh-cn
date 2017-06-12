@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 wacn.date: 01/19/2017
-ms.author: wesmc
+ms.author: v-junlch
 ---
 
 # 使用 PowerShell 部署和管理通知中心

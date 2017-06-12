@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: b08255187104d87ae59dbb6974f895ea4c8cfb9e
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/14/2017
 
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-during-creation"></a>在创建期间使用 cloud-init 自定义 Linux VM
-本文说明如何使用 Azure CLI 2.0 制作 cloud-init 脚本来设置主机名、更新已安装的包及管理用户帐户。  可以在创建 VM 时从 Azure CLI 调用 cloud-init 脚本。  还可以使用 [Azure CLI 1.0](using-cloud-init-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
+本文说明如何使用 Azure CLI 2.0 制作 cloud-init 脚本来设置主机名、更新已安装的包及管理用户帐户。  可以在创建 VM 时从 Azure CLI 调用 cloud-init 脚本。  还可以使用 [Azure CLI 1.0](using-cloud-init-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
 
 ## <a name="quick-commands"></a>快速命令
 创建 cloud-init.txt 脚本，用于设置主机名、更新所有包，并将 sudo 用户添加到 Linux。
@@ -43,6 +43,8 @@ users:
 ```
 
 使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建一个要在其中启动 VM 的资源组。 以下示例创建名为 `myResourceGroup` 的资源组：
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
 az group create --name myResourceGroup --location chinanorth
@@ -67,14 +69,14 @@ az vm create \
 Azure 有三种不同的方法可在部署或启动 Linux VM 时对其进行更改。
 
 * 使用 cloud-init 注入脚本。
-* 使用 Azure [VMAccess 扩展](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)注入脚本。
+* 使用 Azure [VMAccess 扩展](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)注入脚本。
 * 使用 cloud-init 的 Azure 模板。
-* 使用 [CustomScriptExtention](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 的 Azure 模板。
+* 使用 [CustomScriptExtention](extensions-customscript.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 的 Azure 模板。
 
 若要在启动后随时注入脚本，请执行以下操作：
 
 * 直接通过 SSH 运行命令
-* 以命令方式或在 Azure 模板中使用 Azure [VMAccess 扩展](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)注入脚本
+* 以命令方式或在 Azure 模板中使用 Azure [VMAccess 扩展](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)注入脚本
 * Ansible、Salt、Chef 和 Puppet 等配置管理工具。
 
 > [!NOTE]
@@ -230,6 +232,6 @@ myCloudInitAddedAdminUser:x:1000:
 ## <a name="next-steps"></a>后续步骤
 Cloud-init 正在成为一种在 Linux VM 启动时对其进行修改的标准方法。 Azure 还提供 VM 扩展，使用这些扩展可以在 LinuxVM 启动或运行时对其进行修改。 例如，可以使用 Azure VMAccessExtension 在 VM 运行时重置 SSH 或用户信息。 使用 cloud-init，需要重新启动才能重置密码。
 
-[关于虚拟机扩展和功能](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[关于虚拟机扩展和功能](extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[管理用户、SSH，并使用 VMAccess 扩展检查或修复 Azure Linux VM 上的磁盘](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[管理用户、SSH，并使用 VMAccess 扩展检查或修复 Azure Linux VM 上的磁盘](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

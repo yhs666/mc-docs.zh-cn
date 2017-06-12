@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2017
 wacn.date: 
-ms.author: trinadhk;markgal;jpallavi;
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 4e4baef014b6a8dcec7a81a0454b746782a952bd
@@ -104,7 +104,7 @@ ms.lasthandoff: 05/05/2017
 
 对于 Linux VM：
 
-- 按照[更新 Linux VM 代理](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)上的说明进行操作。
+- 按照[更新 Linux VM 代理](../virtual-machines/linux/update-agent.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)上的说明进行操作。
 我们 **强烈建议** 只通过分发存储库更新代理。 我们不建议直接从 github 下载代理代码并更新。 如果最新的代理不可用于用户的分发版，请联系分发版支持人员，获取如何安装最新代理的说明。 可在 github 存储库中查找最新 [Azure Linux 代理](https://github.com/Azure/WALinuxAgent/releases) 的信息。
 
 ### <a name="validating-vm-agent-installation"></a>验证 VM 代理安装
@@ -146,7 +146,7 @@ VM 备份依赖于向底层存储发出快照命令。 如果无法访问存储�
 
 1. 将 Azure 数据中心 IP 范围加入允许列表。
    - 获取要列入允许列表的 [Azure 数据中心 IP](https://www.microsoft.com/download/details.aspx?id=41653) 列表。
-   - 使用 [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet 取消阻止 IP。 在 Azure VM 上提升权限的 PowerShell 窗口中运行此 cmdlet（以管理员身份运行）。
+   - 使用 New-NetRoute cmdlet 取消阻止 IP。 在 Azure VM 上提升权限的 PowerShell 窗口中运行此 cmdlet（以管理员身份运行）。
    - 向 NSG 添加规则（如果已创建规则），以允许访问这些 IP。
 2. 为 HTTP 流量创建路径
    - 如果你指定了某种网络限制（例如网络安全组），请部署 HTTP 代理服务器来路由流量。 可在[此处](backup-azure-vms-prepare.md#network-connectivity)找到部署 HTTP 代理服务器的步骤。

@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2017
-ms.author: dstefan
+ms.date: 04/12/2017
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 5198eb391cb441acf42f73756c8444e3a9d7476c
@@ -44,7 +44,7 @@ ms.lasthandoff: 04/22/2017
 | Azure AD 全局管理员凭据 | 在 Azure Active Directory 中分配管理员角色 |
 | 可选但强烈建议：用作应急措施的并行实验室环境 | [Azure AD Connect 的先决条件](./connect/active-directory-aadconnect-prerequisites.md) |
 
-## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>目录同步 - 密码哈希同步 (PHS) - 新安装
+## <a name="directory-synchronization--password-hash-sync-phs--new-installation"></a>目录同步 - 密码哈希同步 (PHS) - 新安装
 
 大约完成时间：一小时（如果 PoC 用户数不超过 1,000 个）
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 04/22/2017
 | 添加通用 LDAP 连接器 | [通用 LDAP 连接器技术参考：创建新连接器](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
 | 为创建的连接器创建运行配置文件（完整导入、增量导入、完整同步、增量同步、导出） | [创建管理代理运行配置文件](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [将连接器与 Azure AD Connect Sync Service Manager 配合使用](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | 运行完整导入配置文件，并验证连接器空间中是否有对象 | [搜索连接器空间对象](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[将连接器与 Azure AD Connect Sync Service Manager 配合使用：搜索连接器空间](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
-| 创建同步规则，使 Metaverse 中的对象具有工作负荷的必要属性 | [Azure AD Connect 同步：有关更改默认配置的最佳做法：对同步规则的更改](/connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules/)<br/>[Azure AD Connect 同步：了解声明性预配](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect 同步：了解声明性预配表达式](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
+| 创建同步规则，使 Metaverse 中的对象具有工作负荷的必要属性 | [Azure AD Connect 同步：有关更改默认配置的最佳做法：对同步规则的更改](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect 同步：了解声明性预配](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect 同步：了解声明性预配表达式](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | 启动完整同步周期 | [Azure AD Connect 同步：计划程序：启动计划程序](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
 | 出现问题时执行故障排除 | [排查对象无法同步到 Azure AD 的问题](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
 | 验证 LDAP 用户是否可以登录及访问应用程序 | https://login.partner.microsoftonline.cn |

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 wacn.date: 
-ms.author: dariagrigoriu
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 57d74d7680f5426fa3f6318b93c878f051aa74db

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.date: 04/18/2017
 wacn.date: 
 ms.topic: get-started-article
-ms.author: tomfitz
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 4cd3d07221305eb96bc468cdd0c78171fdb1bd21
@@ -61,7 +61,6 @@ ms.lasthandoff: 05/26/2017
 3. 将该文件另存为 **azuredeploy.json**。 
 
 ## <a name="add-storage-account"></a>添加存储帐户
-<!-- Not Available /templates/microsoft.storage/storageaccounts/  -->
 1. 若要定义用于部署的存储帐户，请将该存储帐户添加到模板的 **resources** 节。
 
 2. 将该 JSON 粘贴到模板的 **resources** 节中，如以下示例所示： 
@@ -110,8 +109,7 @@ ms.lasthandoff: 05/26/2017
 
 现在可以设置存储帐户的值。 
 
-<!-- Not Available /templates/microsoft.storage/storageaccounts-->
-1. 再看一下复制 JSON 的位置。 有几个表描述了相关属性并提供了可用值。 
+1. 再看一下复制 JSON 的位置。 有几个表描述了相关属性并提供了可用值。
 
 2. 请注意，在 **properties** 元素中，**customDomain**、**encryption** 和 **accessTier** 均被列为“非必需”。 这些值对于你的方案可能很重要，但为了简单起见，本示例需删除它们。
 

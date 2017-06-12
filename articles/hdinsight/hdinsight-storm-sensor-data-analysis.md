@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: bdba5c33d4ca5596e33c09112a1a0b1200e87bb5
@@ -280,8 +280,8 @@ ms.lasthandoff: 04/28/2017
 
 3. 使用“基本”部分创建资源组或选择现有资源组。
 4. 在“资源组位置”下拉菜单中，选择与在“设置”部分为 **LOCATION** 参数所选的位置相同的位置。
-5. 阅读条款和条件，然后选择“我同意上述条款和条件”。
-6. 最后，选中“固定到仪表板”，然后选择“购买”。 创建群集大约需要 20 分钟时间。
+5. 选择“法律条款”，阅读条款和条件，然后选择“购买”。
+6. 最后，选中“固定到仪表板”，然后选择“创建”。 创建群集大约需要 20 分钟时间。
 
 创建资源后，系统会将用户重定向到包含群集和 Web 仪表板的资源组的边栏选项卡。
 

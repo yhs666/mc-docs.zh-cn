@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/14/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 7bcdde23873d8f59de7770dc55f1195a29846d72
@@ -23,7 +23,7 @@ ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="create-a-windows-vm-with-multiple-nics"></a>创建具有多个 NIC 的 Windows VM
-可以在 Azure 中创建附有多个虚拟网络接口 (NIC) 的虚拟机 (VM)。 一种常见方案是为前端和后端连接使用不同的子网，或者为监视或备份解决方案使用一个专用网络。 本文提供用于创建附有多个 NIC 的 VM 的快速命令。 有关详细信息，包括如何在自己的 PowerShell 脚本中创建多个 NIC，请阅读[部署具有多个 NIC 的 VM](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md)。 不同的 [VM 大小](../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)支持不同数目的 NIC，因此请相应地调整 VM 的大小。
+可以在 Azure 中创建附有多个虚拟网络接口 (NIC) 的虚拟机 (VM)。 一种常见方案是为前端和后端连接使用不同的子网，或者为监视或备份解决方案使用一个专用网络。 本文提供用于创建附有多个 NIC 的 VM 的快速命令。 有关详细信息，包括如何在自己的 PowerShell 脚本中创建多个 NIC，请阅读[部署具有多个 NIC 的 VM](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md)。 不同的 [VM 大小](../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)支持不同数目的 NIC，因此请相应地调整 VM 的大小。
 
 ## <a name="create-core-resources"></a>创建核心资源
 确保[已安装并配置最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。 登录 Azure 帐户：
@@ -82,7 +82,7 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
 通常，还会创建[网络安全组](../../virtual-network/virtual-networks-nsg.md)或[负载均衡器](../../load-balancer/load-balancer-overview.md)来帮助管理流量以及跨 VM 分布流量。 [更详细的多 NIC VM](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md) 一文将指导你创建网络安全组和分配 NIC。
 
 ## <a name="create-the-virtual-machine"></a>创建虚拟机
-立即开始构建 VM 配置。 每种 VM 大小限制了可添加到 VM 的 NIC 数目。 有关详细信息，请阅读 [Windows VM 大小](../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
+立即开始构建 VM 配置。 每种 VM 大小限制了可添加到 VM 的 NIC 数目。 有关详细信息，请阅读 [Windows VM 大小](../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
 
 首先，将你的 VM 凭据设置为 `$cred` 变量，如下所示：
 
@@ -209,4 +209,4 @@ Azure Resource Manager 模板使用声明性 JSON 文件来定义环境。 可�
 可以阅读[使用 Resource Manager 模板创建多个 NIC](../../virtual-network/virtual-network-deploy-multinic-arm-template.md) 的完整示例。
 
 ## <a name="next-steps"></a>后续步骤
-尝试创建具有多个 NIC 的 VM 时，请务必查看 [Windows VM 大小](../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 注意每个 VM 大小支持的 NIC 数目上限。
+尝试创建具有多个 NIC 的 VM 时，请务必查看 [Windows VM 大小](../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 注意每个 VM 大小支持的 NIC 数目上限。

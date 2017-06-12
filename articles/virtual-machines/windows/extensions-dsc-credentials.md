@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 09/15/2016
 wacn.date: 12/26/2016
-ms.author: zachal
+ms.author: v-dazen
 ---
 
 # 将凭据传递到 Azure DSC 扩展处理程序 #

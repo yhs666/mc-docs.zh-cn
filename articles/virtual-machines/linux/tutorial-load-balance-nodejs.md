@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/27/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 65568a1b5caa611e224b92e47c980662679aed20
@@ -160,7 +160,7 @@ done
 ```
 
 ## <a name="step-5---build-your-app"></a>步骤 5 - 生成应用
-**cloud-init** 是自定义 VM 的常用方法。 可使用 **cloud-init** 安装程序包和写入文件。 由于 **cloud-init** 在初始部署期间运行，因此没有其他步骤可让你的应用运行。 VM 完成部署且该应用运行后，负载均衡器将开始分配流量。 有关使用 **cloud-init** 的详细信息，请参阅[在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+**cloud-init** 是自定义 VM 的常用方法。 可使用 **cloud-init** 安装程序包和写入文件。 由于 **cloud-init** 在初始部署期间运行，因此没有其他步骤可让你的应用运行。 VM 完成部署且该应用运行后，负载均衡器将开始分配流量。 有关使用 **cloud-init** 的详细信息，请参阅[在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 以下 **cloud-init** 配置安装 **nodejs** 和 **npm**，然后安装并配置 **nginx** 作为你的应用的 Web 代理。 配置还会创建一个简单的“Hello World” Node.js 应用，然后使用 **Express** 初始化并启动应用。 如果想要使用其他应用程序框架，请相应地调整程序包和已部署的应用程序。
 
@@ -283,7 +283,7 @@ az network nic ip-config address-pool add \
 
 若要详细了解本教程中介绍的一些高可用性功能，请参阅以下信息：
 
-- [管理 Linux 虚拟机的可用性](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [管理 Linux 虚拟机的可用性](../windows/manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure 负载均衡器概述](../../load-balancer/load-balancer-overview.md)
 - [使用网络安全组控制网络流量](../../virtual-network/virtual-networks-nsg.md)
 - [Azure CLI 示例脚本](../windows/cli-samples.md)

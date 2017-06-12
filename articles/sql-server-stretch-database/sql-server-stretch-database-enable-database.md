@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/05/2016
 wacn.date: 01/03/2017
-ms.author: douglasl
+ms.author: v-yeche
 ---
 
 # 为数据库启用延伸数据库

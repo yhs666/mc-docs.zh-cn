@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/07/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 861a4460d35fa1978bc2bf5d6b615da914f1d631
@@ -24,10 +24,10 @@ ms.lasthandoff: 05/05/2017
 
 ---
 # <a name="how-to-reset-local-windows-password-for-azure-vm"></a>如何重置 Azure VM 的本地 Windows 密码
-如果已安装 Azure 来宾代理，可以使用 [Azure 门户预览或 Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 重置 Azure 中 VM 的本地 Windows 密码。 此方法是重置 Azure VM 密码的主要方法。 如果遇到了 Azure 来宾代理无响应的问题，或者上载自定义映像后无法安装，可以手动重置 Windows 密码。 本文详细说明如何通过将源 OS 虚拟磁盘附加到另一个 VM 来重置本地帐户密码。 
+如果已安装 Azure 来宾代理，可以使用 [Azure 门户预览或 Azure PowerShell](reset-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 重置 Azure 中 VM 的本地 Windows 密码。 此方法是重置 Azure VM 密码的主要方法。 如果遇到了 Azure 来宾代理无响应的问题，或者上载自定义映像后无法安装，可以手动重置 Windows 密码。 本文详细说明如何通过将源 OS 虚拟磁盘附加到另一个 VM 来重置本地帐户密码。 
 
 > [!WARNING]
-> 只有在万不得已的情况下才使用此过程。 始终应该先尝试使用 [Azure 门户预览或 Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 重置密码。
+> 只有在万不得已的情况下才使用此过程。 始终应该先尝试使用 [Azure 门户预览或 Azure PowerShell](reset-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 重置密码。
 > 
 > 
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 05/05/2017
 * 新 VM 启动时，创建的配置文件将会更新所需用户的密码。
 
 ## <a name="detailed-steps"></a>详细步骤
-在执行以下步骤之前，始终应该尝试使用 [Azure 门户预览或 Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 来重置密码。 在开始之前，请确保备份 VM。 
+在执行以下步骤之前，始终应该尝试使用 [Azure 门户预览或 Azure PowerShell](reset-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 来重置密码。 在开始之前，请确保备份 VM。 
 
 1. 在 Azure 门户预览中删除受影响的 VM。 删除 VM 只会删除元数据，以及 Azure 中对该 VM 的引用。 删除 VM 时，将会保留虚拟磁盘：
 
@@ -147,5 +147,5 @@ ms.lasthandoff: 05/05/2017
       * 删除 gpt.ini（如果 gpt.ini 事先已存在并已重命名为 gpt.ini.bak，请将 .bak 文件改回 gpt.ini）
 
 ## <a name="next-steps"></a>后续步骤
-如果仍然无法使用远程桌面建立连接，请参阅 [RDP 故障排除指南](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 [详细的 RDP 故障排除指南](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)探讨的是故障排除方法而不是具体的步骤。 也可以通过[提出 Azure 支持请求](https://www.azure.cn/support/contact/)来获得人工协助。
+如果仍然无法使用远程桌面建立连接，请参阅 [RDP 故障排除指南](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 [详细的 RDP 故障排除指南](detailed-troubleshoot-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)探讨的是故障排除方法而不是具体的步骤。 也可以通过[提出 Azure 支持请求](https://www.azure.cn/support/contact/)来获得人工协助。
 

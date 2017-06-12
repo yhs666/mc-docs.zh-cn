@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/04/2016
 wacn.date: 01/11/2017
-ms.author: raynew
+ms.author: v-johch
 redirect_url: site-recovery-support-matrix-to-azure
 ---
 
@@ -55,7 +55,7 @@ vCenter 5.5 版或 6.0 版（仅支持 5.5 版功能）<br/><br/>具有最新更
 
 ### 计算机（复制到 Azure）
 
-虚拟机必须满足 [Azure 要求](/documentation/articles/site-recovery-best-practices/#azure-virtual-machine-requirements)。
+虚拟机必须满足 [Azure 要求](site-recovery-best-practices.md#azure-virtual-machine-requirements)。
 
 **要求** | **Hyper-V（不包含 VMM）** | **Hyper-V（包含 VMM）**
 --- | --- | ---
@@ -240,6 +240,6 @@ HUB | 是 | 是
 
 ## 后续步骤
 
-[准备部署](/documentation/articles/site-recovery-best-practices/)
+[准备部署](site-recovery-best-practices.md)
 
 <!---HONumber=Mooncake_1226_2016-->

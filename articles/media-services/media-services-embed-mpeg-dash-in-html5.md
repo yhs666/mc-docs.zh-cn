@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 wacn.date: 11/14/2016
-ms.author: juliako
+ms.author: v-johch
 ---
 
 #使用 DASH.js 在 HTML5 应用程序中嵌入 MPEG-DASH 自适应流式处理视频

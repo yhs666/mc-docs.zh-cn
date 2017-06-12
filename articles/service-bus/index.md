@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 7297b2099e1dfc75c1f4dc3f41fa7c8426b0a48f
@@ -25,7 +25,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/service-bus-messaging/service-bus-queues-topics-subscriptions">
+        <a href="/service-bus-messaging/service-bus-queues-topics-subscriptions">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/service-bus-messaging/service-bus-create-namespace-portal">
+        <a href="/service-bus-messaging/service-bus-create-namespace-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues">
+        <a href="/service-bus-messaging/service-bus-dotnet-get-started-with-queues">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +97,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/azure/service-bus-messaging/service-bus-java-how-to-use-queues">
+        <a href="/service-bus-messaging/service-bus-java-how-to-use-queues">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -115,7 +115,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues">
+        <a href="/service-bus-messaging/service-bus-nodejs-how-to-use-queues">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -133,7 +133,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/azure/service-bus-messaging/service-bus-php-how-to-use-queues">
+        <a href="/service-bus-messaging/service-bus-php-how-to-use-queues">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -151,7 +151,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/azure/service-bus-messaging/service-bus-python-how-to-use-queues">
+        <a href="/service-bus-messaging/service-bus-python-how-to-use-queues">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -169,7 +169,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/azure/service-bus-messaging/service-bus-ruby-how-to-use-queues">
+        <a href="/service-bus-messaging/service-bus-ruby-how-to-use-queues">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -180,24 +180,6 @@ ms.lasthandoff: 05/12/2017
                     </div>
                     <div class="cardText">
                         <h3>通过 Ruby 开始使用服务总线队列</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/azure/service-bus-messaging/service-bus-brokered-tutorial-rest">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/rest.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>通过 REST 开始使用服务总线队列</h3>
                     </div>
                 </div>
             </div>
@@ -240,7 +222,7 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>其他</h3>
-                        <p><a href="/dotnet/api/">托管参考 API</a></p>
+                        <p><a href="https://docs.microsoft.com/en-us/dotnet/api/">托管参考 API</a></p>
                    </div>
                 </div>
             </div>

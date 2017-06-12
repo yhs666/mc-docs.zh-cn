@@ -12,6 +12,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
+<<<<<<< HEAD
 ms.date: 04/19/2017
 wacn.date: 
 ms.author: tomfitz
@@ -21,6 +22,11 @@ ms.openlocfilehash: 7ec6d311d8ee930c87625cb4accba87863555676
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/26/2017
 
+=======
+ms.date: 12/05/2016
+wacn.date: 03/31/2017
+ms.author: v-yeche
+>>>>>>> live-origin
 ---
 
 # <a name="manage-resources-with-azure-powershell-and-resource-manager"></a>使用 Azure PowerShell 和 Resource Manager 管理资源

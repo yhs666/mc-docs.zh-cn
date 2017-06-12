@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2016
 wacn.date: 
-ms.author: glenga
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: c95ede40e1e124ee87aec1dd5d6246befcd2d289

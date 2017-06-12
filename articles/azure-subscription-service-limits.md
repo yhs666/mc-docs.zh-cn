@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 wacn.date: 
-ms.author: byvinyal
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 4acfed2b89dba7563b72f72515f2a21b67ce5f4c
@@ -52,7 +52,6 @@ ms.lasthandoff: 05/12/2017
 - [API 管理](#api-management-limits)
 - [应用服务](#app-service-limits)
 - [应用程序网关](#application-gateway-limits)
-- [Application Insights](#application-insights-limits)
 - [自动化](#automation-limits)
 - [Azure Redis 缓存](#azure-redis-cache-limits)
 - [Azure RemoteApp](#azure-remoteapp-limits)
@@ -60,8 +59,6 @@ ms.lasthandoff: 05/12/2017
 - [批处理](#batch-limits)
 - [CDN](#cdn-limits)
 - [云服务](#cloud-services-limits)
-- [Data Factory](#data-factory-limits)
-- [数据湖分析](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
 - [事件中心](#event-hubs-limits)
@@ -80,7 +77,6 @@ ms.lasthandoff: 05/12/2017
 - [站点恢复](#site-recovery-limits)
 - [SQL 数据库](#sql-database-limits)
 - [存储](#storage-limits)
-
 - [流分析](#stream-analytics-limits)
 - [订阅](#subscription-limits)
 - [流量管理器](#traffic-manager-limits)
@@ -138,7 +134,7 @@ ms.lasthandoff: 05/12/2017
 #### <a name="virtual-machine-disk-limits"></a>虚拟机磁盘限制 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-有关其他详细信息，请参阅[虚拟机大小](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+有关其他详细信息，请参阅[虚拟机大小](virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 #### <a name="managed-virtual-machine-disks"></a>托管虚拟机磁盘
 
@@ -212,9 +208,6 @@ DocumentDB 是一个全规模数据库，该数据库对吞吐量和存储进行
 ### <a name="site-recovery-limits"></a>站点恢复限制
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
 
-### <a name="application-insights-limits"></a>Application Insights 限制
-[!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
-
 ### <a name="api-management-limits"></a>API 管理限制
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
@@ -236,7 +229,7 @@ DocumentDB 是一个全规模数据库，该数据库对吞吐量和存储进行
 ## <a name="see-also"></a>另请参阅
 [了解 Azure 限制和增加](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Azure 的虚拟机和云服务大小](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Azure 的虚拟机和云服务大小](virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [云服务的大小](cloud-services/cloud-services-sizes-specs.md)
 

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 wacn.date: 03/10/2017
-ms.author: rajanaki
+ms.author: v-johch
 ---
 
 # 使用 PowerShell 和 Azure Resource Manager 将 VMM 云中的 Hyper-V 虚拟机复制到 Azure
@@ -56,7 +56,7 @@ Azure Site Recovery 可在许多部署方案中安排虚拟机的复制、故障
 - 需要一个 [Azure](https://azure.cn/) 帐户。如果没有，请使用 [1rmb 试用版](https://www.azure.cn/pricing/1rmb-trial/)。此外，可以了解 [Azure Site Recovery Manager 定价](https://www.azure.cn/pricing/details/site-recovery/)。
 - 若要复制到 CSP 订阅方案，需要一个 CSP 订阅。若要详细了解 CSP 计划，请参阅[如何注册 CSP 计划](https://msdn.microsoft.com/zh-cn/library/partnercenter/mt156995.aspx)。
 - 你将需要一个 Azure v2 存储 (ARM) 帐户来存储复制到 Azure 的数据。需要为帐户启用地域复制。该帐户应位于 Azure Site Recovery 服务所在的同一区域，并与同一订阅或 CSP 订阅相关联。若要详细了解如何设置 Azure 存储，请参阅 [Azure 存储简介](../storage/storage-introduction.md)。
-- 需确保要保护的虚拟机符合 [Azure 虚拟机先决条件](/documentation/articles/site-recovery-best-practices/#azure-virtual-machine-requirements)。
+- 需确保要保护的虚拟机符合 [Azure 虚拟机先决条件](site-recovery-best-practices.md#azure-virtual-machine-requirements)。
 
 > [!NOTE]
 > 目前只能通过 Powershell 执行 VM 级别的操作。很快将提供对恢复计划级别操作的支持。现在，你只能在“受保护的 VM”粒度执行故障转移，而不能在恢复计划级别执行。
@@ -70,7 +70,7 @@ Azure Site Recovery 可在许多部署方案中安排虚拟机的复制、故障
     - 源 Hyper-V 服务器上有一个或多个虚拟机。
 - 了解有关设置 VMM 云的更多信息：
     - 在 [System Center 2012 R2 VMM 中私有云的新增功能](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/MDC-B357)及 [VMM 2012 和云](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html)中阅读有关私有 VMM 云的详细信息。
-    - 了解有关[配置 VMM 云结构](/documentation/articles/site-recovery-best-practices/)的更多信息
+    - 了解有关[配置 VMM 云结构](site-recovery-best-practices.md)的更多信息
     - 在你的云结构元素就位后，通过[在 VMM 中创建私有云](https://technet.microsoft.com/zh-cn/library/jj860425.aspx)和[Walkthrough: Creating private clouds with System Center 2012 SP1 VMM（演练：使用 System Center 2012 SP1 VMM 创建私有云）](https://blogs.technet.microsoft.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx)了解如何创建私有云。
 
 ### Hyper-V 先决条件
@@ -299,7 +299,7 @@ Azure Site Recovery 可在许多部署方案中安排虚拟机的复制、故障
 
  注意以下事项：
 
- - 虚拟机必须满足 Azure 要求。可以在规划指南中的[先决条件和支持](/documentation/articles/site-recovery-best-practices/)中查看这些要求。
+ - 虚拟机必须满足 Azure 要求。可以在规划指南中的[先决条件和支持](site-recovery-best-practices.md)中查看这些要求。
 
  - 若要启用保护，必须为虚拟机设置操作系统和操作系统磁盘属性。当你使用虚拟机模板在 VMM 中创建虚拟机时，可以设置属性。也可以在虚拟机属性的“常规”和“硬件配置”选项卡中为现有虚拟机设置这些属性。如果未在 VMM 中设置这些属性，可以在 Azure Site Recovery 门户中配置它们。
 

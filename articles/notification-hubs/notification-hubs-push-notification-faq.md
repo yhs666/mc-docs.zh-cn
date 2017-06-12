@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
-ms.author: yuaxu
+ms.author: v-junlch
 wacn.date: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
@@ -76,7 +76,7 @@ Azure 通知中心有两个资源级别：中心和命名空间。 中心是单�
 [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md)、Android、[Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)、[Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md)、[Kindle](notification-hubs-kindle-amazon-adm-push-notification.md)、[Android China（通过百度）](notification-hubs-baidu-china-android-notifications-get-started.md)、Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md)) 和 [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari) 支持推送通知。 有关详细信息，请转到[通知中心入门教程]页。
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>是否支持短信、电子邮件或 Web 通知？
-通知中心主要用于将通知发送到移动应用。 它不提供电子邮件或短信功能。 但是，提供这些功能的第三方平台可与通知中心集成，使用[移动应用]发送原生推送通知。
+通知中心主要用于将通知发送到移动应用。 它不提供电子邮件或短信功能。 但是，提供这些功能的第三方平台可与通知中心集成，使用移动应用发送原生推送通知。
 
 通知中心也不提供现成的浏览器内推送通知传递服务。 客户可以在支持的服务器端平台上使用 SignalR 实现此功能。 
 
@@ -86,7 +86,7 @@ Azure 通知中心有两个资源级别：中心和命名空间。 中心是单�
 ### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>如果通过通知中心发送推送通知，可以支持多少个设备？
 有关支持的设备数目的详细信息，请参阅[通知中心定价]页。
 
-如果需要支持超过 1000 万台已注册的设备，请直接[与我们联系](/support/contact/)，我们将帮助你扩展解决方案。
+如果需要支持超过 1000 万台已注册的设备，请直接[与我们联系](https://www.azure.cn/support/contact/)，我们将帮助你扩展解决方案。
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>我可以发送多少推送通知？
 Azure 通知中心根据系统中通过的通知数量自动向上扩展，具体取决于所选的层。
@@ -200,27 +200,26 @@ Azure 通知中心支持在 [Azure 经典管理门户]中查看遥测数据。 �
 我们还提供了以编程方式导出遥测数据的功能（在标准层）。 有关详细信息，请参阅[通知中心指标示例]。
 
 [Azure 经典管理门户]: https://manage.windowsazure.cn
-[通知中心定价]: /pricing/details/notification-hubs/
-[Notification Hubs SLA]: /support/legal/sla/
+[通知中心定价]: https://www.azure.cn/pricing/details/notification-hubs/
+[Notification Hubs SLA]: https://www.azure.cn/support/legal/sla/
 [案例研究：Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [案例研究：Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [案例研究：Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
 [案例研究：Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [案例研究：7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [通知中心 REST API]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[通知中心入门教程]: /documentation/articles/notification-hubs-ios-apple-push-notification-apns-get-started/
-[Mobile Services Pricing]: /pricing/details/mobile-services/
+[通知中心入门教程]: ./notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Mobile Services Pricing]: https://www.azure.cn/pricing/details/mobile-services/
 [后端注册指南]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [后端注册指南 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [通知中心安全模型]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[通知中心安全推送教程]: /documentation/articles/notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification/
-[通知中心故障排除]: /documentation/articles/notification-hubs-push-notification-fixer/
+[通知中心安全推送教程]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
+[通知中心故障排除]: ./notification-hubs-push-notification-fixer.md
 [通知中心指标]: https://msdn.microsoft.com/library/dn458822.aspx
 [通知中心指标示例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [注册信息导出/导入]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure portal]: https://portal.azure.cn
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
-[移动应用]: /documentation/services/mobile-services/
-[应用服务定价]: /pricing/details/app-service/
+[应用服务定价]: https://www.azure.cn/pricing/details/app-service/
 
 

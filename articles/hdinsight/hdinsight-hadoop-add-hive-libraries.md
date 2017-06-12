@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/14/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -63,14 +63,14 @@ ms.lasthandoff: 04/28/2017
 
     > [!NOTE]
     > 本文档假定你已创建存储帐户、blob 容器，并已将文件上传到该容器。
-    > <p>
+    >
     > 如果尚未创建存储帐户，可以通过 [Azure 门户预览](https://portal.azure.cn)创建该帐户。 然后可以使用实用工具（如 [Azure 存储资源管理器](http://storageexplorer.com/)）在帐户中创建容器并将文件上传到该容器。
 
 ## <a name="create-a-cluster-using-the-script"></a>使用脚本创建群集。
 
 > [!NOTE]
 > 以下步骤创建基于 Linux 的 HDInsight 群集。 若要创建基于 Windows 的群集，创建群集时请选择 **Windows** 作为群集 OS，并使用 Windows (PowerShell) 脚本而不是 bash 脚本。
-> <p>
+>
 > 也可以使用 Azure PowerShell 或 HDInsight .NET SDK 来使用此脚本创建群集。 有关使用这些方法的详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 1. 使用[预配 Linux 上的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)中的步骤开始预配群集，但不要完成预配。

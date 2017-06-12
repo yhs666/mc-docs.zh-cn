@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 12/20/2016
 wacn.date: 03/01/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 详细故障排除步骤：针对 Azure 中到 Windows VM 的远程桌面连接问题

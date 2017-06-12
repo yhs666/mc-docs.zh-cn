@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/03/2017
 wacn.date: 
-ms.author: jgao
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: a7fea2df8fccb61426b6f73b16abd4e0dcca1125
@@ -33,7 +33,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET Framework 应用
 
 > [!IMPORTANT]
 > 本文中的步骤创建了包含一个工作节点的群集。 如果你计划使用 32 个以上的工作节点（在创建群集时或是在创建之后通过扩展群集进行），则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
-> <p>
+>
 > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
 ## <a name="prerequisites"></a>先决条件

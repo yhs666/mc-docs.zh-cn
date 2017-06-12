@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/05/2017
-ms.author: lbosq
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: d7b6b1e7640013541dfb1faa11f3edf494f36475

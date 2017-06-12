@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/08/2017
-ms.author: arramac
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 wacn.date: 
 ms.translationtype: Human Translation

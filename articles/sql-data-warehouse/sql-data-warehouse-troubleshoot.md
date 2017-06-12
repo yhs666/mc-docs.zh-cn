@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 03/30/2017
 wacn.date: 
-ms.author: barbkess
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 14222fdecbaaf6877a921da9a7cc1234c9470610
@@ -124,7 +124,7 @@ ms.lasthandoff: 04/28/2017
 <!--MSDN references-->
 [sys.database_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
-[sqlcmd]: /azure/sql-data-warehouse-get-started-connect-sqlcmd/
+[sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [博客]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2016
 wacn.date: 01/23/2017
-ms.author: xshi
+ms.author: v-yiso
 ---
 
 # 运行示例应用程序，以便发送从设备到云的消息

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 wacn.date: 02/10/2017
-ms.author: jonor
+ms.author: v-dazen
 ---
 
 # 适用于外围网络的示例应用程序
@@ -152,7 +152,7 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 5. 关闭 IE 增强的安全性以方便从此服务器浏览
 
 > [!IMPORTANT]
-**最佳实践**：切勿在生产服务器上关闭“IE 增强的安全性”，并且通常不应从生产服务器浏览网页。此外，最好不要向匿名访问公开文件共享，此处这样做是为了简单起见。
+> **最佳实践**：切勿在生产服务器上关闭“IE 增强的安全性”，并且通常不应从生产服务器浏览网页。此外，最好不要向匿名访问公开文件共享，此处这样做是为了简单起见。
 > 
 > 
 

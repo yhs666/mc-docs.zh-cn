@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
-ms.author: billmath
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
@@ -41,7 +41,7 @@ ms.lasthandoff: 05/12/2017
 | 导入连接器 |请勿使用。 |
 | 更新连接器 |请勿使用。 |
 | 刷新架构 |刷新缓存架构。 最好改为在安装向导中使用此选项，因为它也会更新同步规则。 |
-| [搜索连接器空间](#search-connector-space) |用于查找对象，以及 [在整个系统中跟踪对象及其数据](#follow-an-object-and-its-data-through-the-system)。 |
+| [搜索连接器空间](#search-connector-space) |用于查找对象。 |
 
 =======
 ### <a name="delete"></a>删除

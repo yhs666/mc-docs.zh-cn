@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2017
 wacn.date: 04/11/2017
-ms.author: curtand
+ms.author: v-junlch
 ---
 
 # 在 Azure Active Directory 中管理密码

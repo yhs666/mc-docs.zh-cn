@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/17/2016
 wacn.date: 12/12/2016
-ms.author: stevestein
+ms.author: v-johch
 ---
 
 # 使用 Visual Studio 连接到 SQL 数据库

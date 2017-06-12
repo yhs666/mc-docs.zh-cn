@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/16/2017
 wacn.date: 
-ms.author: nitinme
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 827c788dfb8b604334aabf6c327b7d98a1136af0
@@ -102,7 +102,7 @@ Azure 门户预览会公开大部分的群集属性。 使用 Azure Resource Man
 
     > [!IMPORTANT]
     > 如果你计划使用 32 个以上的工作节点（在创建群集时或是在创建之后通过扩展群集进行），则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
-    > <p> 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
+    > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
     单击“下一步”以保存节点定价配置。
 

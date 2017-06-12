@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2016
 wacn.date: 12/30/2016
-ms.author: masashin
+ms.author: v-junlch
 ---
 
 # 可用性核对清单

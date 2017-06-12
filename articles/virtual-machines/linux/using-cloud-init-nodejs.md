@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 wacn.date: 
-ms.author: v-livech
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 5ed65774c30e0827fcad883859bdcba3d9da17a1
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/06/2017
 可使用以下 CLI 版本之一完成任务：
 
 - [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
-- [Azure CLI 2.0](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
+- [Azure CLI 2.0](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="quick-commands"></a>快速命令
 创建 cloud-init.txt 脚本，用于设置主机名、更新所有包，并将 sudo 用户添加到 Linux。
@@ -84,14 +84,14 @@ azure vm create \
 Azure 有三种不同的方法可在部署或启动 Linux VM 时对其进行更改。
 
 * 使用 cloud-init 注入脚本。
-* 使用 Azure [VMAccess 扩展](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)注入脚本。
+* 使用 Azure [VMAccess 扩展](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)注入脚本。
 * 使用 cloud-init 的 Azure 模板。
-* 使用 [CustomScriptExtention](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 的 Azure 模板。
+* 使用 [CustomScriptExtention](extensions-customscript.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 的 Azure 模板。
 
 若要在启动后随时注入脚本，请执行以下操作：
 
 * 直接通过 SSH 运行命令
-* 以命令方式或在 Azure 模板中使用 Azure [VMAccess 扩展](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)注入脚本
+* 以命令方式或在 Azure 模板中使用 Azure [VMAccess 扩展](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)注入脚本
 * Ansible、Salt、Chef 和 Puppet 等配置管理工具。
 
 > [!NOTE]
@@ -270,6 +270,6 @@ myCloudInitAddedAdminUser:x:1000:
 ## <a name="next-steps"></a>后续步骤
 Cloud-init 正成为在 Linux VM 启动时对其进行修改的一种标准方法。 Azure 还提供 VM 扩展，使用这些扩展可以在 LinuxVM 启动或运行时对其进行修改。 例如，可以使用 Azure VMAccessExtension 在 VM 运行时重置 SSH 或用户信息。 使用 cloud-init，需要重新启动才能重置密码。
 
-[关于虚拟机扩展和功能](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[关于虚拟机扩展和功能](extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[管理用户、SSH，并使用 VMAccess 扩展检查或修复 Azure Linux VM 上的磁盘](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[管理用户、SSH，并使用 VMAccess 扩展检查或修复 Azure Linux VM 上的磁盘](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

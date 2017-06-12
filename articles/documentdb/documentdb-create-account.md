@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/17/2017
 wacn.date: 
-ms.author: mimig
+ms.author: v-junlch
 redirect_url: https://aka.ms/acdbnetqa
 ROBOTS: NOINDEX, NOFOLLOW
 ms.translationtype: Human Translation

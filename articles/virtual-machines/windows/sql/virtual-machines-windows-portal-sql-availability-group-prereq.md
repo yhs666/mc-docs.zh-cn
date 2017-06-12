@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 wacn.date: 
-ms.author: mikeray
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 55848a4b7dc742cab3b7aa9302d110c1628b18d8
@@ -137,7 +137,7 @@ Azure 将返回到门户仪表板，并在创建好新网络时发出通知。
 
 ## <a name="create-availability-sets"></a>创建可用性集
 
-在创建虚拟机之前，需要创建可用性集。 可用性集可减少计划内或计划外维护事件的停机时间。 Azure 可用性集是 Azure 置于物理容错域和更新域上的逻辑资源组。 容错域可确保可用性集的成员具有单独的电源和网络资源。 更新域可确保可用性集的成员不会同时停机进行维护。 [管理虚拟机的可用性](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+在创建虚拟机之前，需要创建可用性集。 可用性集可减少计划内或计划外维护事件的停机时间。 Azure 可用性集是 Azure 置于物理容错域和更新域上的逻辑资源组。 容错域可确保可用性集的成员具有单独的电源和网络资源。 更新域可确保可用性集的成员不会同时停机进行维护。 [管理虚拟机的可用性](../../virtual-machines-windows-manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 需要两个可用性集。 一个用于域控制器。 另一个用于 SQL Server。
 
@@ -351,7 +351,7 @@ Azure 将创建虚拟机。
 <br/>
 
 > [!NOTE]
-> 此处建议的计算机大小适合用于在 Azure VM 中测试可用性组。 为获得生产工作负荷的最佳性能，请参阅 [Azure 虚拟机中 SQL Server 的性能最佳实践](virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中关于 SQL Server 计算机大小和配置的建议。
+> 此处建议的计算机大小适合用于在 Azure VM 中测试可用性组。 为获得生产工作负荷的最佳性能，请参阅 [Azure 虚拟机中 SQL Server 的性能最佳实践](virtual-machines-windows-sql-performance.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中关于 SQL Server 计算机大小和配置的建议。
 > 
 > 
 

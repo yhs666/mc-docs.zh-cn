@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/12/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
 ms.openlocfilehash: 8f16d685f2ac0f96079e96d2c572e7e480dda92b
@@ -164,7 +164,7 @@ Ambari 提供能够通知群集潜在问题的警报系统。 警报将以红色
 
 > [!IMPORTANT]
 > Ambari 警报表示可能有问题，而不表示已发生问题。 例如，你可能会收到无法访问 HiveServer2 的警报，但实际上仍可以正常访问它。
-> <p>
+>
 > 许多警报都是针对某项服务实现为基于间隔的查询，并预期在特定的时间范围内收到响应。 因此警报本身并不代表服务已关闭，而只是单纯表示该服务没有在预期时间范围内返回结果。
 
 应该先评估某个警报是否已长时间持续发生，或者反映了已报告的用户问题，然后对它采取措施。

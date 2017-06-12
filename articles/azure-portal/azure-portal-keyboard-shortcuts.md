@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/07/2016
 wacn.date: 06/21/2016
-ms.author: micflan
+ms.author: v-yiso
 ---
 
 # Azure 门户预览快捷键

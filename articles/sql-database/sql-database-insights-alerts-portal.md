@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 wacn.date: 03/24/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 使用 Azure 门户预览为 Azure SQL 数据库创建警报

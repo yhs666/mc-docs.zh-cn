@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/22/2017
 wacn.date: 
-ms.author: jgao
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 330b3884344c2616de752fdbf069c8e0f1f40633
@@ -78,7 +78,7 @@ HDInsight 实施利用 HBase 的横向扩展架构来提供表自动分片、使
 
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 
-[hbase-get-started]: /hdinsight/hdinsight-hbase-get-started/
+[hbase-get-started]: /hdinsight/hdinsight-hbase-tutorial-get-started-linux/
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 wacn.date: 12/19/2016
-ms.author: ddove
+ms.author: v-johch
 ---
 
 # 使用分片映射管理器扩大数据库

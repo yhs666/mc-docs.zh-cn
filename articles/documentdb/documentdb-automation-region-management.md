@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 wacn.date: 
-ms.author: dimakwan
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 85e8db9bf543927175e300e31d73d1bd0f059d25
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/19/2017
 # <a name="automate-azure-documentdb-account-region-management-using-azure-cli-10-and-azure-resource-manager-templates"></a>使用 Azure CLI 1.0 和 Azure Resource Manager 模板自动管理 DocumentDB 帐户区域
 
 
-本文说明了如何使用 Azure CLI 1.0 命令和 Azure Resource Manager 模板在 DocumentDB 帐户中添加/删除区域。 也可通过 [Azure 门户](./documentdb-portal-global-replication.md)实现区域管理。 请注意，以下教程中的命令不可更改各个区域的故障转移优先级。 只可添加或删除读取区域。 不能添加或删除数据库帐户中的写入区域（故障转移优先级为 0）。
+本文说明了如何使用 Azure CLI 1.0 命令和 Azure Resource Manager 模板在 DocumentDB 帐户中添加/删除区域。 请注意，以下教程中的命令不可更改各个区域的故障转移优先级。 只可添加或删除读取区域。 不能添加或删除数据库帐户中的写入区域（故障转移优先级为 0）。
 
 DocumentDB 数据库帐户是目前唯一可以使用 [Azure Resource Manager 模板和 Azure CLI 1.0](documentdb-automation-resource-manager-cli.md) 创建或修改的 DocumentDB 资源。 
 
@@ -111,7 +111,7 @@ info:    config mode command OK
 
 ### <a name="create-or-retrieve-your-resource-group"></a>创建或检索资源组
 
-若要创建 DocumentDB 帐户，首先需要有一个资源组。 如果已知道想要使用的资源组名称，请跳到 [步骤 2](#create-documentdb-account-cli)。 
+若要创建 DocumentDB 帐户，首先需要有一个资源组。 
 
 若要查看列有你当前所有的资源组的列表，请运行下列命令，并记下你想要使用的资源组名称： 
 

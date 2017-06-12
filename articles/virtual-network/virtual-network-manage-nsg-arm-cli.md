@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 wacn.date: 03/31/2017
-ms.author: jdial
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
 
@@ -34,7 +34,7 @@ ms.custom: H1Hack27Feb2017
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
 > [!NOTE]
-Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是经典部署模型。
+> Azure 具有两种不同的部署模型，用于创建和处理资源：[Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是经典部署模型。
 > 
 
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
@@ -84,7 +84,7 @@ rdp-rule                                                                        
 web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 ```
 > [!NOTE]
-还可以使用 [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule#list) 仅列出 NSG 中的自定义规则。
+> 还可以使用 [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule#list) 仅列出 NSG 中的自定义规则。
 >
 
 ## <a name="View-NSGs-associations"></a>查看 NSG 关联项

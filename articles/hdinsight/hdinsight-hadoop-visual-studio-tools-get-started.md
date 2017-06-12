@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/07/2017
 wacn.date: 03/31/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 开始使用用于 Visual Studio 的 Azure Data Lake (HDInsight) 工具来运行 Hive 查询
@@ -41,7 +41,7 @@ ms.author: jgao
     * Visual Studio 2013/2015/2017。
 
     > [!NOTE]
-    目前，用于 Visual Studio 的 Data Lake 工具仅有英文版本。
+    > 目前，用于 Visual Studio 的 Data Lake 工具仅有英文版本。
     > 
     > 
 
@@ -55,7 +55,7 @@ ms.author: jgao
 用于 Visual Studio 的 HDInsight 工具允许用户连接到 HDInsight 群集，执行一些基本的管理操作，并运行 Hive 查询。
 
 > [!NOTE]
-有关连接到常规 Hadoop 群集的信息，请参阅 [Write and submit Hive queries using Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx)（使用 Visual Studio 编写和提交 Hive 查询）。
+> 有关连接到常规 Hadoop 群集的信息，请参阅 [Write and submit Hive queries using Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx)（使用 Visual Studio 编写和提交 Hive 查询）。
 > 
 > 
 
@@ -66,7 +66,7 @@ ms.author: jgao
 3. 依次展开“Azure”和“HDInsight”。
 
     > [!NOTE]
-    请注意，应打开“HDInsight 任务列表”窗口。如果你未看到它，则在“视图”菜单中，单击“其他窗口”，然后单击“HDInsight 任务列表”窗口。
+    > 请注意，应打开“HDInsight 任务列表”窗口。如果你未看到它，则在“视图”菜单中，单击“其他窗口”，然后单击“HDInsight 任务列表”窗口。
     > 
     > 
 4. 输入 Azure 订阅凭据，然后单击“登录”。仅当尚未从此工作站上的 Visual Studio 连接到 Azure 订阅时，才需要此凭据。
@@ -146,7 +146,7 @@ ms.author: jgao
     ![Data Lake 工具：HDInsight Visual Studio Tools IntelliSense][14]
 
     > [!NOTE]
-    只建议 HDInsight 工具栏中已选择的群集元数据。
+    > 只建议 HDInsight 工具栏中已选择的群集元数据。
     > 
     > 
 4. （可选）：单击“验证脚本”以检查脚本语法错误。
@@ -189,7 +189,7 @@ ms.author: jgao
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!NOTE]
-此功能仅适用于 HDInsight 群集 3.2 和更高版本。
+> 此功能仅适用于 HDInsight 群集 3.2 和更高版本。
 > 
 > 
 
@@ -218,7 +218,7 @@ Data Lake 工具用于通过 [WebHCat](https://cwiki.apache.org/confluence/displ
 Data Lake 工具支持显示 Tez 执行引擎运行的 Hive 作业的性能图。有关启用 Tez 的信息，请参阅[使用 HDInsight 中的 Hive][hdinsight.hive]。提交 Visual Studio 中的 Hive 作业后，Visual Studio 将在作业完成时显示图形。你可能需要单击“刷新”按钮来获取最新的作业状态。
 
 > [!NOTE]
-此功能仅适用于高于 3.2.4.593 版的 HDInsight 群集，并且只能用于已完成的作业（如果你通过 WebHCat 提交作业，将在通过 HiveServer2 执行查询时显示此图形）。它适用于基于 Windows 和 Linux 的群集。
+> 此功能仅适用于高于 3.2.4.593 版的 HDInsight 群集，并且只能用于已完成的作业（如果你通过 WebHCat 提交作业，将在通过 HiveServer2 执行查询时显示此图形）。它适用于基于 Windows 和 Linux 的群集。
 > 
 > 
 

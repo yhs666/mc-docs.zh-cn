@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 wacn.date: 12/26/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # <a name="article-top"></a>将现有的 Azure 移动服务迁移到 Azure 应用服务

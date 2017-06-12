@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/17/2017
 wacn.date: 03/31/2017
-ms.author: jdial
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
 
@@ -87,7 +87,7 @@ ms.custom: H1Hack27Feb2017
 3. 通过 [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) 命令，创建允许从 Internet 访问端口 3389 (RDP) 的规则。
 
     > [!NOTE]
-    根据所使用的命令行界面，可能需要修改以下参数中的 `*` 字符，防止在执行前展开参数。
+    > 根据所使用的命令行界面，可能需要修改以下参数中的 `*` 字符，防止在执行前展开参数。
 
     ```azurecli
     az network nsg rule create \

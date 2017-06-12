@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
-ms.author: cawa
+ms.author: v-junlch
 wacn.date: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
@@ -263,6 +263,6 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
 - 查看[最新的存储资源管理器（预览版）发行说明和视频](http://www.storageexplorer.com/)。
 
-- 了解如何[使用 Azure Blob、表、队列和文件创建应用程序](/documentation/services/storage/)。
+- 了解如何[使用 Azure Blob、表、队列和文件创建应用程序](./storage/index.md)。
 
 

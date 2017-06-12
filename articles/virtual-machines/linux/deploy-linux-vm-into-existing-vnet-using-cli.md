@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 6a12a11c8b08ea9508b50c0fdc5814558ec8dee8
@@ -29,9 +29,9 @@ ms.lasthandoff: 04/14/2017
 本文说明如何使用 Azure CLI 2.0 将虚拟机 (VM) 部署到现有虚拟网络。 要求如下：
 
 - [一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)
-- [SSH 公钥和私钥文件](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SSH 公钥和私钥文件](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-还可以使用 [Azure CLI 1.0](deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
+还可以使用 [Azure CLI 1.0](deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
 
 ## <a name="quick-commands"></a>快速命令
 如果需要快速完成任务，以下部分详细介绍所需的命令。 本文档的余下部分（[从此处开始](#detailed-walkthrough)）提供了每个步骤的更详细信息和上下文。
@@ -67,7 +67,7 @@ az vm create \
 
 ## <a name="create-the-resource-group"></a>创建资源组
 
-首先创建 Azure 资源组，以便组织在本演练中创建的所有内容。 有关资源组的详细信息，请参阅 [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组。 以下示例在 `chinanorth` 位置创建名为 `myResourceGroup` 的资源组：
+首先创建 Azure 资源组，以便组织在本演练中创建的所有内容。 有关资源组的详细信息，请参阅 [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组。 以下示例在 `chinanorth` 位置创建名为 `myResourceGroup` 的资源组：
 
 ```azurecli
 az group create \
@@ -77,7 +77,7 @@ az group create \
 
 ## <a name="create-the-virtual-network"></a>创建虚拟网络
 
-现在创建一个 Azure 虚拟网络，以便在其中启动 VM。 有关 Azure 虚拟网络的详细信息，请参阅[使用 Azure CLI 创建虚拟网络](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 使用 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) 创建虚拟网络。 以下示例创建一个名为 `myVnet` 的虚拟网络和名为 `mySubnet` 的子网：
+现在创建一个 Azure 虚拟网络，以便在其中启动 VM。 有关 Azure 虚拟网络的详细信息，请参阅[使用 Azure CLI 创建虚拟网络](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 使用 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) 创建虚拟网络。 以下示例创建一个名为 `myVnet` 的虚拟网络和名为 `mySubnet` 的子网：
 
 ```azurecli
 az network vnet create \
@@ -91,7 +91,7 @@ az network vnet create \
 
 ## <a name="create-the-network-security-group"></a>创建网络安全组
 
-Azure 网络安全组相当于网络层防火墙。 有关网络安全组的详细信息，请参阅[如何在 Azure CLI 中创建网络安全组](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 使用 [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create)创建网络安全组。 以下示例创建名为 `myNetworkSecurityGroup`的网络安全组：
+Azure 网络安全组相当于网络层防火墙。 有关网络安全组的详细信息，请参阅[如何在 Azure CLI 中创建网络安全组](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 使用 [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create)创建网络安全组。 以下示例创建名为 `myNetworkSecurityGroup`的网络安全组：
 
 ```azurecli
 az network nsg create \
@@ -148,7 +148,7 @@ az network nic create \
 
 现在，我们已有一个虚拟网络、一个子网，以及一个充当防火墙的网络安全组，该网络安全组可以通过阻止所有入站流量（用于 SSH 的端口 22 除外）来保护子网。 现在，可将 VM 部署在这个现有的网络基础结构内。
 
-使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 若要详细了解与 Azure CLI 2.0 结合使用以部署完整的 VM 的标志，请参阅[使用 Azure CLI 创建完整的 Linux 环境](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 若要详细了解与 Azure CLI 2.0 结合使用以部署完整的 VM 的标志，请参阅[使用 Azure CLI 创建完整的 Linux 环境](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 以下示例使用 Azure 非托管磁盘创建 VM。
 
@@ -164,11 +164,11 @@ az vm create \
     --storage-account mystorageaccount
 ```
 
-通过使用 CLI 标志调用现有资源，我们指示 Azure 将 VM 部署在现有网络内部。 如前所述，部署虚拟网络和子网后，可将其作为静态资源或永久资源保留在 Azure 区域中。 在此示例中，我们没有为 VNic 创建并分配公共 IP 地址，因此，无法通过 Internet 公开访问该 VM。 有关详细信息，请参阅[使用 Azure CLI 创建具有静态公共 IP 的 VM](../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+通过使用 CLI 标志调用现有资源，我们指示 Azure 将 VM 部署在现有网络内部。 如前所述，部署虚拟网络和子网后，可将其作为静态资源或永久资源保留在 Azure 区域中。 在此示例中，我们没有为 VNic 创建并分配公共 IP 地址，因此，无法通过 Internet 公开访问该 VM。 有关详细信息，请参阅[使用 Azure CLI 创建具有静态公共 IP 的 VM](../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="next-steps"></a>后续步骤
 若要详细了解在 Azure 中创建虚拟机的各种方法，请参阅以下资源：
 
-* [使用 Azure Resource Manager 模板创建特定部署](cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [直接使用 Azure CLI 命令创建自定义的 Linux VM 环境](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [使用模板在 Azure 上创建 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 Azure Resource Manager 模板创建特定部署](cli-deploy-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [直接使用 Azure CLI 命令创建自定义的 Linux VM 环境](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用模板在 Azure 上创建 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

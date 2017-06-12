@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 wacn.date: 
-ms.author: singhkay
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: c3351597d01f437b6af97e163a1dc03cc4902293
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/06/2017
 可以使用以下 CLI 版本之一完成任务
 
 - Azure CLI 1.0 - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
-- [Azure CLI 2.0](key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
+- [Azure CLI 2.0](key-vault-setup.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="use-cli-10-to-set-up-key-vault"></a>使用 CLI 1.0 设置密钥保管库
 若要使用命令行接口 (CLI) 创建密钥保管库，请参阅[使用 CLI 管理密钥保管库](../../key-vault/key-vault-manage-with-cli.md#create-a-key-vault)。

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/13/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: e44e29b0eda81d5bac1c7a9c3d8ae70f0dd934c0
@@ -267,13 +267,13 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 
 > [!IMPORTANT]
 > 使用前面的步骤只可访问 Azure 云上的 HDInsight 运行状况和管理服务。 任何从虚拟网络外部对 HDInsight 群集的其他访问将会被阻止。 若要从虚拟网络之外启用访问，必须添加其他的虚拟网络安全组规则。
-> <p>
+>
 > 以下示例演示了如何从 Internet 启用 SSH 访问：
-> <p>
+>
 > ```powershell
 > Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound
 > ```
-> <p>
+>
 > ```azurecli
 > az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
 > ```

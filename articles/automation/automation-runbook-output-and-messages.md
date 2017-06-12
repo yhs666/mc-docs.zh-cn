@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 wacn.date: 01/09/2017
-ms.author: magoedte;bwren
+ms.author: v-dazen
 ---
 
 # Azure 自动化中的 Runbook 输出和消息
@@ -194,7 +194,7 @@ Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id 
 
 ## 后续步骤
 
-- 若要详细了解 Runbook 执行方式、如何监视 Runbook 作业和其他技术详细信息，请参阅 [Track a runbook job](./automation-runbook-execution.md)（跟踪 Runbook 作业）
+- 若要详细了解 Runbook 执行方式、如何监视 Runbook 作业和其他技术详细信息，请参阅[跟踪 Runbook 作业](./automation-runbook-execution.md)
 - 若要了解如何设计和使用子 Runbook，请参阅 [Azure 自动化中的子 Runbook](./automation-child-runbooks.md)
 
 <!---HONumber=Mooncake_Quality_Review_0104_2017-->

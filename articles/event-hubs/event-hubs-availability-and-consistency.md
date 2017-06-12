@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2017
 wacn.date: 
-ms.author: sethm;jotaub
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 505aa470845d94b8a54cb41ea77b6548f7eb4477

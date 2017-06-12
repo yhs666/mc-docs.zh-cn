@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: 02/13/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # Azure Active Directory v2.0 令牌参考

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2017
-ms.author: ryanwi
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 7b47ae124ad7edc62d26b689effcf9a4b2d3ac20

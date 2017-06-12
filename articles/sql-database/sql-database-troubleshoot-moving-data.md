@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 wacn.date: 03/24/2017
-ms.author: v-shysun
+ms.author: v-johch
 ---
 
 # 在服务器之间或订阅之间移动数据库，以及将数据库移入和移出 Azure

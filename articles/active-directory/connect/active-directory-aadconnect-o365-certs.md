@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 wacn.date: 03/07/2017
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # 续订 Office 365 和 Azure Active Directory 的联合身份验证证书

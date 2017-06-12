@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2016
 wacn.date: 03/24/2017
-ms.author: douglasl
+ms.author: v-yeche
 ---
 
 # 使用筛选器函数来选择要迁移的行 (Stretch Database)

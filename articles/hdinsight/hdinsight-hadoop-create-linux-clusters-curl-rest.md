@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/17/2017
 wacn.date: 03/10/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用 cURL 和 Azure REST API 创建 HDInsight 群集
@@ -28,7 +28,7 @@ ms.author: larryfr
 使用 Azure REST API，可以对托管在 Azure 平台中的服务执行管理操作，包括创建新资源（例如 HDInsight 群集）。
 
 > [!IMPORTANT]
-Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 ## 先决条件
 
@@ -43,7 +43,7 @@ Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。�
 * **cURL**。可通过包管理系统获取此实用工具，也可以从 [http://curl.haxx.se/](http://curl.haxx.se/) 下载此实用工具。
 
     > [!NOTE]
-    如果使用 PowerShell 运行本文档中的命令，则必须先删除默认创建的 `curl` 别名。此别名使用 Invoke-WebRequest，而不是 cURL。如果不删除此别名，在使用某些本文中所用的命令时可能会收到错误。
+    > 如果使用 PowerShell 运行本文档中的命令，则必须先删除默认创建的 `curl` 别名。此别名使用 Invoke-WebRequest，而不是 cURL。如果不删除此别名，在使用某些本文中所用的命令时可能会收到错误。
     >
     > 若要删除此别名，请从 PowerShell 提示符使用以下命令：
     >
@@ -248,7 +248,7 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
 本文档中的步骤使用了此示例。将“参数”部分中的示例值替换为群集的值。
 
 > [!IMPORTANT]
-该模板对 HDInsight 群集使用默认数目的辅助角色节点（4 个）。如果计划使用 32 个以上的辅助角色节点，则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
+> 该模板对 HDInsight 群集使用默认数目的辅助角色节点（4 个）。如果计划使用 32 个以上的辅助角色节点，则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
 >
 > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
@@ -259,7 +259,7 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
 ## 创建服务主体
 
 > [!NOTE]
-这些步骤是[使用 Azure CLI 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password)文档的*使用密码创建服务主体*部分的缩减版。这些步骤创建用于向 Azure REST API 进行身份验证的服务主体。
+> 这些步骤是[使用 Azure CLI 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password)文档的*使用密码创建服务主体*部分的缩减版。这些步骤创建用于向 Azure REST API 进行身份验证的服务主体。
 
 1. 从命令行使用以下命令列出 Azure 订阅。
 
@@ -278,7 +278,7 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
     将 `--display-name`、`--homepage` 和 `--identifier-uris` 的值替换为你自己的值。为新的 Active Directory 条目提供密码。
 
     > [!NOTE]
-    `--home-page` 和 `--identifier-uris` 值无需引用 Internet 上托管的实际网页。它们必须是唯一 URI。
+    > `--home-page` 和 `--identifier-uris` 值无需引用 Internet 上托管的实际网页。它们必须是唯一 URI。
 
     此命令返回的值是新应用程序的__应用 ID__。保存此值。
 
@@ -362,14 +362,14 @@ curl -X "POST" "https://login.chinacloudapi.cn/TenantID/oauth2/token" \
     ```
 
 > [!NOTE]
-如果将该模版保存到文件，则可以使用以下命令而不是 `-d "{ template and parameters}"`：
+> 如果将该模版保存到文件，则可以使用以下命令而不是 `-d "{ template and parameters}"`：
 >
 > `--data-binary "@/path/to/file.json"`  
 
 如果此请求成功，将收到 200 系列响应，且响应正文包含一个 JSON 文档，其中包含有关部署操作的信息。
 
 > [!IMPORTANT]
-部署已提交但目前尚未完成。部署通常需要大约 15 分钟才能完成。
+> 部署已提交但目前尚未完成。部署通常需要大约 15 分钟才能完成。
 
 ## 检查部署状态
 

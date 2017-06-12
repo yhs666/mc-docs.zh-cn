@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 wacn.date: 
-ms.author: bhanupr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: c23a62a837b44f4c2073afa47c503760ff73959b
@@ -60,7 +60,7 @@ ms.lasthandoff: 04/28/2017
 
 > [!NOTE]
 > 将其应用于现有群集时，必须将此脚本标记为持久化。 否则，通过缩放操作创建的任何新节点都将使用默认修补计划。
-如果在群集创建过程中应用该脚本，则其会自动持久化。
+> 如果在群集创建过程中应用该脚本，则其会自动持久化。
 >
 
 ## <a name="next-steps"></a>后续步骤

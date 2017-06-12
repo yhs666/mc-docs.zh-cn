@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/23/2017
-ms.author: markgal;
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 85b2a2000d3fc9f13d67e00090ad87e148f5b230
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/14/2017
 ![步骤 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) 备份文件和文件夹。
 
 ## <a name="get-an-azure-subscription"></a>获取 Azure 订阅
-如果没有 Azure 订阅，可以先创建一个 [试用帐户](/pricing/1rmb-trial/) ，这样就可以访问任何 Azure 服务。
+如果没有 Azure 订阅，可以先创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/) ，这样就可以访问任何 Azure 服务。
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 若要备份文件和文件夹，需在要存储数据的区域内创建恢复服务保管库。 还需确定存储复制方式。

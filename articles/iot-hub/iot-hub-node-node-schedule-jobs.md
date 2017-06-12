@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 wacn.date: 01/13/2017
-ms.author: juanpere
+ms.author: v-yiso
 ---
 
 # 计划和广播作业 \(Node\)

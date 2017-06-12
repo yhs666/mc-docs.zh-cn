@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 wacn.date: 
-ms.author: mikeray
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 3405d71a40a5ab35a097f8670ce58f31ad37f239
@@ -78,7 +78,7 @@ Azure 支持的 SQL Server HADR 技术包括：
 Azure VM、存储和网络的运行特征与本地非虚拟化的 IT 基础结构不同。 需要了解这些区别并设计可适应这些区别的解决方案，才能成功地在 Azure 中实现 HADR SQL Server 解决方案。
 
 ### <a name="high-availability-nodes-in-an-availability-set"></a>可用性集中的高可用性节点
-使用 Azure 中的高可用性集，可以将高可用性节点放置在单独的容错域 (FD) 和更新域 (UD) 中。 若要将 Azure VM 放入同一可用性集，必须将这些 VM 部署到同一云服务中。 只有同一云服务中的节点可加入同一可用性集。 有关详细信息，请参阅 [管理虚拟机的可用性](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+使用 Azure 中的高可用性集，可以将高可用性节点放置在单独的容错域 (FD) 和更新域 (UD) 中。 若要将 Azure VM 放入同一可用性集，必须将这些 VM 部署到同一云服务中。 只有同一云服务中的节点可加入同一可用性集。 有关详细信息，请参阅 [管理虚拟机的可用性](../../virtual-machines-windows-manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ### <a name="failover-cluster-behavior-in-azure-networking"></a>故障转移群集在 Azure 网络中的行为
 Azure 中的 DHCP 服务不符合 RFC 标准，可能会导致创建某些故障转移群集配置失败，因为向群集网络名称分配了重复的 IP 地址（例如 IP 地址与某个群集节点相同）。 实现 AlwaysOn 可用性组时，这种情况会产生一个问题，因为它依赖于 Windows 故障转移群集功能。

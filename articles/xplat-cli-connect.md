@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 wacn.date: 12/15/2016
-ms.author: danlep
+ms.author: v-junlch
 ---
 
 # 通过 Azure CLI 登录 Azure

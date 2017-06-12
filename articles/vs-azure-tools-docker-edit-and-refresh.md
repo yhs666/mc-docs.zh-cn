@@ -9,6 +9,10 @@ editor: ''
 
 ms.service: multiple
 ms.date: 07/22/2016
+ms.tgt_pltfrm: na
+ms.workload: multiple
+ms.author: v-junlch
+ms.topic: article
 wacn.date: 09/19/2016
 ---
 
@@ -31,15 +35,11 @@ Visual Studio Tools for Docker 提供了一致的方法在本地 Linux Docker �
 
 如果使用 Docker 工具箱，则需要[配置 Docker 客户端](./vs-azure-tools-docker-setup.md)
 
-## 1\.创建 Web 应用
-
-[!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
-
-## 2\.添加 Docker 支持
+## 1\.创建 Web 应用并添加 Docker 支持
 
 [!INCLUDE [添加 Docker 支持](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
-## 3\.编辑代码并刷新
+## 2\.编辑代码并刷新
 
 若要快速重复更改，可以在容器中启动应用程序，并继续进行更改，然后就像使用 IIS Express 一样查看这些更改。
 

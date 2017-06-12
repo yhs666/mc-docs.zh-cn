@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 03/03/2017
-ms.author: magoedte;bwren
+ms.author: v-dazen
 ---
 
 # 了解重要的适用于自动化 Runbook 的 Windows PowerShell 工作流概念 
@@ -219,7 +219,7 @@ Workflow Copy-Files
 ```
 
 > [!NOTE]
-我们不建议并行运行子 Runbook，这是由于这已被证实将导致不可靠的结果。来自子 Runbook 的输出有时将不会显示，一个子 Runbook 中的设置可能会影响其他并行子 Runbook
+> 我们不建议并行运行子 Runbook，这是由于这已被证实将导致不可靠的结果。来自子 Runbook 的输出有时将不会显示，一个子 Runbook 中的设置可能会影响其他并行子 Runbook
 >
 
 ## <a name="Checkpoints" id="checkpoints"></a> 检查点

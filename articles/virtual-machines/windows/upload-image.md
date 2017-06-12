@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 wacn.date: 
-ms.author: cynthn
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: cda212f12074a5fecac7863205cecb7cf9968be8
@@ -28,18 +28,18 @@ ms.lasthandoff: 04/06/2017
 
 有关如何使用非托管磁盘准备、上载和创建新 VM 的完整演练，请参阅[上载专用 VHD 以在 Azure 中创建 VM](upload-specialized.md)。
 
-有关 Azure 中的磁盘和 VHD 的更多详细信息，请参阅 [About disks and VHDs for virtual machines](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（关于虚拟机的磁盘和 VHD）。
+有关 Azure 中的磁盘和 VHD 的更多详细信息，请参阅 [About disks and VHDs for virtual machines](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（关于虚拟机的磁盘和 VHD）。
 
 ## <a name="prepare-the-vm"></a>准备 VM
 可以将通用和专用 VHD 上传到 Azure。 每种类型都需要在开始之前准备 VM。
 
 * **通用 VHD** - 通用 VHD 包含使用 Sysprep 删除所有个人帐户信息。 如果想要使用 VHD 作为映像来创建新的 VM，应该：
 
-    * [准备好要上载到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
-    * [使用 Sysprep 通用化虚拟机](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
+    * [准备好要上载到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
+    * [使用 Sysprep 通用化虚拟机](generalize-vhd.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
 * **专用 VHD** - 专用 VHD 保留原始 VM 中的用户帐户、应用程序和其他状态数据。 如果想要使用当前 VHD 创建新 VM，请确保完成以下步骤。 
 
-    * [准备好要上载到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 **不要**使用 Sysprep 通用化 VM。
+    * [准备好要上载到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 **不要**使用 Sysprep 通用化 VM。
     * 删除 VM 上安装的所有来宾虚拟化工具和代理（例如 VMware 工具）。
     * 确保 VM 配置为通过 DHCP 来提取其 IP 地址和 DNS 设置。 这确保服务器在启动时在 VNet 中获取 IP 地址。 
 
@@ -129,5 +129,5 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
 完成执行此命令可能需要一段时间，具体取决于网络连接速度和 VHD 文件的大小
 
 ## <a name="next-steps"></a>后续步骤
-* [基于通用 VHD 在 Azure 中创建 VM](create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* 创建新 VM 时将专用 VHD 附加为 OS 磁盘，[基于专用 VHD 在 Azure 中创建 VM](create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+* [基于通用 VHD 在 Azure 中创建 VM](create-vm-generalized.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+* 创建新 VM 时将专用 VHD 附加为 OS 磁盘，[基于专用 VHD 在 Azure 中创建 VM](create-vm-specialized.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。

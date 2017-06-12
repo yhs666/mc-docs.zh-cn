@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 03/28/2017
-ms.author: gwallace
+ms.author: v-dazen
 ---
 
 # 使用适用于 Azure 资源管理器的 PowerShell 创建 Azure 应用程序网关的自定义探测
@@ -28,7 +28,7 @@ ms.author: gwallace
 [!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
 > [!NOTE]
-Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器和经典](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是[经典部署模型](./application-gateway-create-probe-classic-ps.md)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器和经典](../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用 Resource Manager 部署模型。Azure 建议对大多数新的部署使用该模型，而不是[经典部署模型](./application-gateway-create-probe-classic-ps.md)。
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -188,7 +188,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 ```
 
 > [!NOTE]
-**InstanceCount** 的默认值为 2，最大值为 10。**GatewaySize** 的默认值为 Medium。可以在 **Standard\_Small**、**Standard\_Medium** 和 **Standard\_Large** 之间进行选择。
+> **InstanceCount** 的默认值为 2，最大值为 10。**GatewaySize** 的默认值为 Medium。可以在 **Standard\_Small**、**Standard\_Medium** 和 **Standard\_Large** 之间进行选择。
 > 
 > 
 

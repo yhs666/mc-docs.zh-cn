@@ -14,7 +14,7 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 wacn.date: 
-ms.author: robmcm
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: f5ab1818d3bebf889f1523858e4c4acdd391ac67
@@ -29,7 +29,7 @@ ms.lasthandoff: 05/19/2017
 
 本教程将介绍如何采用通过 Azure 中的库创建的现有 WordPress Web 应用并将其转换为 WordPress Multisite 安装。 此外，你还将了解如何将自定义域分配给安装中的每个子网站。
 
-本教程假定已存在 WordPress 安装。 如果你没有，请按照[在 Azure 中从库中创建 WordPress 网站][website-from-gallery]中提供的指南进行操作。
+本教程假定已存在 WordPress 安装。
 
 通常，将现有 WordPress 单站点安装转换为 Multisite 非常简单，此处的许多初始步骤直接来自 [WordPress Codex](http://codex.wordpress.org) 上[创建网络][wordpress-codex-create-a-network]页面。
 
@@ -127,7 +127,6 @@ WordPress Multisite 当前没有用于映射自定义域的内置方法。 但�
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com
-[website-from-gallery]: /develop/php/tutorials/website-from-gallery/
 [wordpress-codex-create-a-network]: http://codex.wordpress.org/Create_A_Network
 [website-w-mysql-and-ftp-ftp-setup]: /app-service-web/web-sites-php-mysql-deploy-use-ftp
 [website-w-mysql-and-git-git-setup]: /app-service-web/web-sites-php-mysql-deploy-use-git

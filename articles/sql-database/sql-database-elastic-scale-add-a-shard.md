@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 wacn.date: 12/19/2016
-ms.author: ddove
+ms.author: v-johch
 ---
 
 # 使用弹性数据库工具添加分片

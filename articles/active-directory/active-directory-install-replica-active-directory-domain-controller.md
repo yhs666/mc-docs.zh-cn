@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2017
 wacn.date: 03/07/2017
-ms.author: curtand
+ms.author: v-junlch
 ---
 
 # 在 Azure 虚拟网络中安装副本 Active Directory 域控制器
@@ -29,7 +29,7 @@ ms.author: curtand
 ## 方案示意图
 在此案例中，外部用户需要访问在添加域的服务器上运行的应用程序。运行应用程序服务器和副本 DC 的 VM 安装在 Azure 虚拟网络中。虚拟网络可通过[站点到站点 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) 连接方式连接到本地网络，如下图中所示，以便加快连接速度。
 
-应用程序服务器和 DC 将部署在独立的云服务中以分散计算处理，并在[可用性集](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/)中改进容错功能。DC 将使用 Active Directory 复制功能在彼此之间以及与本地 DC 相互复制。不需要任何同步工具。
+应用程序服务器和 DC 将部署在独立的云服务中以分散计算处理，并在[可用性集](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json/)中改进容错功能。DC 将使用 Active Directory 复制功能在彼此之间以及与本地 DC 相互复制。不需要任何同步工具。
 
 ![用图解法表示 pf Active Directory 域控制器 Azure vnet][1]
 
@@ -53,7 +53,7 @@ ms.author: curtand
 3. 在新的虚拟网络与本地 VPN 设备之间创建站点到站点 VPN 连接。有关说明，请参阅[配置虚拟网络网关](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md)。
 
 ## 为 DC 角色创建 Azure VM
-重复以下步骤，根据需要创建用于托管 DC 角色的 VM。应该至少部署两个虚拟 DC 以提供容错和冗余。如果 Azure 虚拟网络包含至少两个采用类似配置的 DC（即，它们都是 GC，都运行 DNS 服务器，并且都不包含任何 FSMO 角色，等等），则将运行这些 DC 的 VM 放在可用性集中，以获得更高的容错能力。若要使用 Windows PowerShell 而不是 UI 创建 VM，请参阅[使用 Azure PowerShell 创建和预配置基于 Windows 的虚拟机](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json/)
+重复以下步骤，根据需要创建用于托管 DC 角色的 VM。应该至少部署两个虚拟 DC 以提供容错和冗余。如果 Azure 虚拟网络包含至少两个采用类似配置的 DC（即，它们都是 GC，都运行 DNS 服务器，并且都不包含任何 FSMO 角色，等等），则将运行这些 DC 的 VM 放在可用性集中，以获得更高的容错能力。若要使用 Windows PowerShell 而不是 UI 创建 VM，请参阅[使用 Azure PowerShell 创建和预配置基于 Windows 的虚拟机](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json/)
 
 1. 在 [Azure 经典管理门户中](https://manage.windowsazure.cn)，单击“新建”>“计算”>“虚拟机”>“从库中”。使用以下值来完成向导。除非建议或必须使用其他值，否则请接受默认的设置值。
 
@@ -64,7 +64,7 @@ ms.author: curtand
 	| **虚拟机配置** |<p>云服务：针对第一个 VM 选择“创建新云服务”<b></b>，然后在创建其他将用于托管 DC 角色的 VM 时选择同一云服务名称。</p><p>云服务 DNS 名称：指定全局唯一的名称</p><p>区域/地缘组/虚拟网络：指定虚拟网络名称（例如 WestUSVNet）。</p><p>存储帐户：针对第一个 VM 选择“使用自动生成的存储帐户”<b></b>，然后在创建其他将用于托管 DC 角色的 VM 时选择同一存储帐户名称。</p><p>可用性集：选择“创建可用性集”<b></b>。</p><p>可用性集名称：创建第一个 VM 时键入可用性集的名称，然后在创建其他 VM 时选择同一名称。</p> | 
 	| **虚拟机配置** |<p>选择“安装VM代理”<b></b>和所需的任何其他扩展。</p> |
 
-2. 将磁盘附加到将运行 DC 服务器角色的每个 VM。需要提供额外的磁盘来存储 AD 数据库、日志和 SYSVOL。指定磁盘的大小（例如 10 GB）并将“主机缓存首选项”保持设置为“无”。有关步骤，请参阅[如何将数据磁盘附加到 Windows 虚拟机](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json/)。
+2. 将磁盘附加到将运行 DC 服务器角色的每个 VM。需要提供额外的磁盘来存储 AD 数据库、日志和 SYSVOL。指定磁盘的大小（例如 10 GB）并将“主机缓存首选项”保持设置为“无”。有关步骤，请参阅[如何将数据磁盘附加到 Windows 虚拟机](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json/)。
 
 3. 在首次登录 VM 之后，请打开“服务器管理器”>“文件和存储服务”，以使用 NTFS 在磁盘上创建一个卷。
 
@@ -96,7 +96,7 @@ ms.author: curtand
 
 2. 预配每个 VM 之后，登录 VM 并将其加入域。在“服务器管理器”中，单击“本地服务器”>“工作组”>“更改...”，然后选择“域”并键入本地域名。提供域用户的凭据，然后重新启动 VM 以完成加入域的操作。
 
-若要使用 Windows PowerShell 而不是 UI 创建 VM，请参阅[使用 Azure PowerShell 创建和预配置基于 Windows 的虚拟机](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json/)
+若要使用 Windows PowerShell 而不是 UI 创建 VM，请参阅[使用 Azure PowerShell 创建和预配置基于 Windows 的虚拟机](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json/)
 
 有关使用 Windows PowerShell 的详细信息，请参阅 [Azure Cmdlet 入门](https://msdn.microsoft.com/zh-cn/library/azure/jj554332.aspx)和 [Azure Cmdlet 参考](https://msdn.microsoft.com/zh-cn/library/azure/jj554330.aspx)。
 

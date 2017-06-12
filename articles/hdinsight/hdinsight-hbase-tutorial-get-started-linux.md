@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/22/2017
 wacn.date: 
-ms.author: jgao
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 538f649c06705614282f8e9ab538a5ebf5a1665c
@@ -63,7 +63,7 @@ ms.lasthandoff: 04/28/2017
         其他参数是可选的。  
 
         每个群集都有一个 Azure 存储帐户依赖项。 删除群集后，数据将保留在存储帐户中。 群集的默认存储帐户名为群集名称后接“store”。 该名称已在模板 variables 节中硬编码。
-3. 选择“我同意上述条款和条件”，然后单击“购买”。 创建群集大约需要 20 分钟时间。
+3. 选择“法律条款”，然后单击“购买”。点击“创建”。 创建群集大约需要 20 分钟时间。
 
 > [!NOTE]
 > 删除 HBase 群集后，可使用同一默认 Blob 容器创建另一 HBase 群集。 新群集将选取你在原始群集中创建的 HBase 表。 为了避免不一致，建议你在删除群集之前先禁用 HBase 表。

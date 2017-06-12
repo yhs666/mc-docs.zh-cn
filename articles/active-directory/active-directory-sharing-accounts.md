@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 wacn.date: 01/09/2017
-ms.author: stevenpo
+ms.author: v-junlch
 ---
 
 # 使用 Azure AD 共享帐户

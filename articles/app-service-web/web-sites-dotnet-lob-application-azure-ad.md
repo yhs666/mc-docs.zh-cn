@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 09/01/2016
 wacn.date: 
-ms.author: cephalin
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: ca2529c32796336e0a37879899ee74075e226d02
@@ -375,7 +375,7 @@ ms.lasthandoff: 05/26/2017
 * [在 Azure 中使用 AD FS 身份验证创建业务线应用](web-sites-dotnet-lob-application-adfs.md)
 * [App Service Auth and the Azure AD Graph API（应用服务身份验证和 Azure AD 图形 API）](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Azure Active Directory Samples and Documentation（Azure Active Directory 示例和文档）](https://github.com/AzureADSamples)
-* [Azure Active Directory 支持的令牌和声明类型](/active-directory/active-directory-token-and-claims/)
+* [Azure Active Directory 支持的令牌和声明类型](/active-directory/develop/active-directory-token-and-claims/)
 
 [Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
 

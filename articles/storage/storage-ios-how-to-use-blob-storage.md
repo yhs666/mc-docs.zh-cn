@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: michaelhauss
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 088c917587601413445776255ae1548f6f301ea6
@@ -225,7 +225,7 @@ Azure 存储中的每个 Blob 都必须驻留在一个容器中。 以下示例�
 
 * **continuationToken** - 继续标记表示列出操作应开始的位置。 如果未提供标记，它将从开头列出 Blob。 可以列出任意数目的 Blob，从零到最大集。 即使此方法返回零个结果，如果 `results.continuationToken` 不为空，则服务中也可能存在更多 blob 未列出。
 * **prefix** - 你可以指定要用于 blob 列出的前缀。 将仅列出以该前缀开头的 Blob。
-* **useFlatBlobListing** - 如 [命名和引用容器和 blob](#naming-and-referencing-containers-and-blobs) 部分中所述，虽然 Blob 服务是平面存储方案，但你可以通过命名具有路径信息的 blob 来创建虚拟层次结构。 但是，目前不支持非平面列表。 该功能即将推出。 目前，此值应为 **YES**。
+* **useFlatBlobListing** - 虽然 Blob 服务是平面存储方案，但你可以通过命名具有路径信息的 blob 来创建虚拟层次结构。 但是，目前不支持非平面列表。 该功能即将推出。 目前，此值应为 **YES**。
 * **blobListingDetails** - 你可以指定在列出 blob 时要包含哪些项
   * _AZSBlobListingDetailsNone_：仅列出已提交的 Blob，不返回 Blob 元数据。
   * _AZSBlobListingDetailsSnapshots_：列出已提交的 blob 和 blob 快照。

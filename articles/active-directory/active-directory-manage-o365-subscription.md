@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/13/2017
 wacn.date: 03/07/2017
-ms.author: curtand
+ms.author: v-junlch
 ---
 
 # 在 Azure 中管理 Office 365 订阅的目录

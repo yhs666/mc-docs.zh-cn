@@ -16,14 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/28/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 结合使用自定义库和 HDInsight Linux 上的 Apache Spark 群集来分析网站日志
 此笔记本演示如何结合使用自定义库和 HDInsight 上的 Spark 来分析日志数据。我们使用的自定义库是一个名为 **iislogparser.py** 的 Python 库。
 
 > [!TIP]
-本教程也可用作在 HDInsight 中创建的 Spark (Linux) 群集上的 Jupyter 笔记本。笔记本体验将通过笔记本本身运行 Python 代码段。要在笔记本中执行本教程，请创建 Spark 群集，启动 Jupyter 笔记本 (`https://CLUSTERNAME.azurehdinsight.cn/jupyter`)，然后运行 **PySpark** 文件夹下的笔记本“结合使用 Spark 和自定义 library.ipynb 分析日志”。
+> 本教程也可用作在 HDInsight 中创建的 Spark (Linux) 群集上的 Jupyter 笔记本。笔记本体验将通过笔记本本身运行 Python 代码段。要在笔记本中执行本教程，请创建 Spark 群集，启动 Jupyter 笔记本 (`https://CLUSTERNAME.azurehdinsight.cn/jupyter`)，然后运行 **PySpark** 文件夹下的笔记本“结合使用 Spark 和自定义 library.ipynb 分析日志”。
 >
 >
 
@@ -32,7 +32,7 @@ ms.author: nitinme
 你必须具有以下各项：
 
 * Azure 订阅。请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* HDInsight Linux 上的 Apache Spark 群集。有关说明，请参阅 [Create Apache Spark clusters in Azure HDInsight](./hdinsight-apache-spark-jupyter-spark-sql.md)（在 Azure HDInsight 中创建 Apache Spark 群集）。
+* HDInsight Linux 上的 Apache Spark 群集。有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](./hdinsight-apache-spark-jupyter-spark-sql.md)。
 
 ## 将原始数据另存为 RDD
 在本节中，使用与 HDInsight 中的 Apache Spark 群集关联的 [Jupyter](https://jupyter.org) 笔记本，运行处理原始数据示例并将其保存为 Hive 表的作业。数据示例是所有群集默认提供的 .csv 文件 (hvac.csv)。
@@ -43,7 +43,7 @@ ms.author: nitinme
 2. 在“Spark 群集”边栏选项卡中，单击“群集仪表板”，然后单击“Jupyter 笔记本”。出现提示时，请输入群集的管理员凭据。
 
     > [!NOTE]
-    也可以在浏览器中打开以下 URL 来访问群集的 Jupyter 笔记本。将 **CLUSTERNAME** 替换为群集的名称：
+    > 也可以在浏览器中打开以下 URL 来访问群集的 Jupyter 笔记本。将 **CLUSTERNAME** 替换为群集的名称：
     >
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
     >

@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/14/2017
+ms.date: 02/14/2017
 wacn.date: 
-ms.author: negat
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 479e96eee43284195d57845813095c63171ae38e

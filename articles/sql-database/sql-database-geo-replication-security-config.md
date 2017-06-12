@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/13/2016
 wacn.date: 12/26/2016
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 灾难恢复后如何管理 Azure SQL 数据库安全性

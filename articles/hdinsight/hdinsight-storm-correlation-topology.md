@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 wacn.date: 03/31/2017
-ms.author: larryfr
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
 
@@ -35,12 +35,12 @@ ms.custom: H1Hack27Feb2017
 * Apache Storm on HDInsight 群集（基于 Windows）。
 
     > [!IMPORTANT]
-    虽然 2016 年 10 月 28 日之后创建的基于 Linux 的 Storm 群集支持 SCP.NET 拓扑，但是 2016 年 10 月 28 日前提供的 HBase SDK for .NET 包无法在 Linux 上正常工作。
+    > 虽然 2016 年 10 月 28 日之后创建的基于 Linux 的 Storm 群集支持 SCP.NET 拓扑，但是 2016 年 10 月 28 日前提供的 HBase SDK for .NET 包无法在 Linux 上正常工作。
 
 * HDInsight 群集上的 Apache HBase（基于 Linux 或 Windows）。
 
     > [!IMPORTANT]
-    Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 * [Java](https://java.com) 1.7 或更高版本，适用于开发环境。将拓扑提交到 HDInsight 群集时，可以使用 Java 将拓扑打包。
 
@@ -73,7 +73,7 @@ ms.custom: H1Hack27Feb2017
 会话启动时，**开始**事件将通过拓扑接收，然后记录到 HBase。收到**结束**事件后，拓扑会检索**开始**事件并计算两个事件之间的时间。然后会将此**持续时间**值存储到 HBase 中，同时存储的还有**结束**事件信息。
 
 > [!IMPORTANT]
-虽然此拓扑演示了基本的模式，但生产型解决方案需要针对以下情况进行设计：
+> 虽然此拓扑演示了基本的模式，但生产型解决方案需要针对以下情况进行设计：
 > 
 > * 事件在到达时混乱无序 
 > * 重复的事件 
@@ -108,7 +108,7 @@ ms.custom: H1Hack27Feb2017
 * 版本：“cf”系列设置为每行保留 5 个版本。
 
     > [!NOTE]
-    可以使用版本来记录以前为特定行键存储的值。默认情况下，HBase 只返回行的最新版本的值。在这种情况下，同一行将用于所有事件（开始、结束）。每个版本的行通过时间戳值来标识。版本提供了针对特定 ID 记录的事件的历史视图。
+    > 可以使用版本来记录以前为特定行键存储的值。默认情况下，HBase 只返回行的最新版本的值。在这种情况下，同一行将用于所有事件（开始、结束）。每个版本的行通过时间戳值来标识。版本提供了针对特定 ID 记录的事件的历史视图。
 
 ## 下载项目
 
@@ -163,7 +163,7 @@ ms.custom: H1Hack27Feb2017
     * HBaseTableColumnFamily：列系列名称。此值是 SessionInfo 项目中使用的同一列系列名。
 
     > [!IMPORTANT]
-    请勿更改 HBaseTableColumnNames，因为其默认值是 **SessionInfo** 用来检索数据的名称。
+    > 请勿更改 HBaseTableColumnNames，因为其默认值是 **SessionInfo** 用来检索数据的名称。
 
 4. 保存属性，然后生成项目。
 
@@ -174,7 +174,7 @@ ms.custom: H1Hack27Feb2017
 6. 在“提交拓扑”对话框中，选择要将此拓扑部署到的 Storm 群集。
 
     > [!NOTE]
-    第一次提交拓扑时，可能需要几秒钟来检索 HDInsight 群集名称。
+    > 第一次提交拓扑时，可能需要几秒钟来检索 HDInsight 群集名称。
 
 7. 上载拓扑并将其提交到群集后，“Storm 拓扑视图”将打开并显示正在运行的拓扑。若要刷新数据，请选择 **CorrelationTopology**，然后使用页面右上角的刷新按钮。
 
@@ -183,7 +183,7 @@ ms.custom: H1Hack27Feb2017
     当拓扑开始生成数据时，“已发出”列中的值将递增。
 
     > [!NOTE]
-    如果“Storm 拓扑视图”未自动打开，可按以下步骤将其打开：
+    > 如果“Storm 拓扑视图”未自动打开，可按以下步骤将其打开：
     > 
     > 1.在“解决方案资源管理器”中，展开“Azure”，然后展开“HDInsight”。
     > 2.右键单击运行拓扑的 Storm 群集，然后选择“查看 Storm 拓扑”
@@ -211,7 +211,7 @@ Session fc9fa8e6-6892-4073-93b3-a587040d892e lasted 2 minutes, and ended at 6/5/
 ```
 
 > [!NOTE]
-虽然输入的时间值为本地时间，但从查询返回的时间将是 UTC 格式。
+> 虽然输入的时间值为本地时间，但从查询返回的时间将是 UTC 格式。
 
 ## 停止拓扑
 

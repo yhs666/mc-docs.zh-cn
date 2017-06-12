@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/18/2017
-ms.author: sethm;shvija
+ms.author: v-yiso
 wacn.date: 03/20/2017
 ---
 
