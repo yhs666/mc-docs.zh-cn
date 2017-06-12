@@ -74,7 +74,6 @@
 ### Xamarin.Forms
 #### [启用脱机同步](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 #### [添加身份验证](app-service-mobile-xamarin-forms-get-started-users.md)
-#### [在 Xamarin.Forms 应用中连接到 Azure 存储](app-service-mobile-xamarin-forms-blob-storage.md)
 #### [使用客户端 SDK](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.iOS
