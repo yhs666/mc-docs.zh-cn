@@ -44,7 +44,7 @@ ms.lasthandoff: 05/26/2017
 |:---:| --- |
 | 联合单一登录 |[排查基于 SAML 的单一登录问题](./develop/active-directory-saml-debugging.md) |
 | 基于密码的单一登录 | Internet Explorer 访问面板扩展疑难解答 |
-| 本地 AD 与 Azure AD 之间的单一登录 |[排查密码同步问题](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)|
+| 本地 AD 与 Azure AD 之间的单一登录 |[排查密码同步问题](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)|
 
 ## <a name="single-sign-on-sso"></a>单一登录 (SSO)
 ### <a name="federated-single-sign-on-sign-into-many-apps-using-one-identity"></a>联合单一登录：使用一个标识登录多个应用程序
