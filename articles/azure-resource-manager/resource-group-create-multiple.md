@@ -12,22 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-<<<<<<< HEAD
 ms.date: 05/12/2017
 wacn.date: 
-ms.author: tomfitz
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 1d3e15aec90696698d71054c8e0805282c1c0504
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/26/2017
 
-
-=======
-ms.date: 02/24/2017
-wacn.date: 03/31/2017
-ms.author: v-yeche
->>>>>>> live-origin
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 模板中部署资源或属性的多个实例
 本主题演示如何在您的 Azure Resource Manager 模板中进行迭代操作，以创建多个资源实例。

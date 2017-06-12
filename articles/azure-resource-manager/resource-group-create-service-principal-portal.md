@@ -13,20 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2017
-<<<<<<< HEAD
 wacn.date: 
-ms.author: tomfitz
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 6638c39f7f807849133267f498fa555ee6d55503
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/26/2017
-
-=======
-wacn.date: 03/03/2017
-ms.author: v-yeche
----
->>>>>>> live-origin
 
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体
