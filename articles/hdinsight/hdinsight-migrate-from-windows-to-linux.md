@@ -151,7 +151,7 @@ ms.lasthandoff: 04/29/2017
 
 ## <a name="management-and-monitoring"></a>监视和管理
 
-与基于 Windows 的 HDInsight 配合使用的许多 Web UI（例如作业历史记录或 Yarn UI）均可通过 Ambari 使用。 此外，Ambari Hive 视图提供使用 Web 浏览器运行 Hive 查询的方法。 基于 Linux 的群集可从以下位置获得 Ambari Web UI：https://CLUSTERNAME.azurehdinsight.cn。
+与基于 Windows 的 HDInsight 配合使用的许多 Web UI（例如作业历史记录或 Yarn UI）均可通过 Ambari 使用。 此外，Ambari Hive 视图提供使用 Web 浏览器运行 Hive 查询的方法。 基于 Linux 的群集可从以下位置获得 Ambari Web UI：https://CLUSTERNAME.azurehdinsight.cn 。
 
 有关使用 Ambari 的详细信息，请参阅以下文档：
 

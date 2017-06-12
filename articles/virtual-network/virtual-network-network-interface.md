@@ -36,7 +36,7 @@ ms.lasthandoff: 05/26/2017
 在完成本文的任何部分中的任何步骤之前完成以下任务：
 
 - 查看 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文，了解 NIC 的限制。
-- 使用 Azure 帐户登录到 Azure 门户预览、Azure 命令行接口 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册[试用帐户](https://azure.microsoft.com/free)。
+- 使用 Azure 帐户登录到 Azure 门户预览、Azure 命令行接口 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用 PowerShell 命令完成本文中的任务，请按[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文中的步骤安装和配置 Azure PowerShell。 确保已安装最新版本的 Azure PowerShell cmdlet。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
 - 如果使用 Azure 命令行接口 (CLI) 命令完成本文中的任务，请按[如何安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文中的步骤安装和配置 Azure CLI。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 05/26/2017
     |网络安全组|否| 保留设置为“无”，选择现有的网络安全组 (NSG)，或创建 NSG。 使用 NSG 可以筛选传入和传出 NIC 的网络流量。 有关 NSG 的详细信息，请参阅[网络安全组](virtual-networks-nsg.md)一文。 若要创建 NSG，请参阅[创建 NSG](virtual-networks-create-nsg-arm-pportal.md) 一文。 可以将零个或一个 NSG 应用到 NIC。 还可将零个或一个 NSG 应用于 NIC 连接到的子网。 将 NSG 应用到 NIC 以及 NIC 连接到的子网时，有时会发生意外的结果。 若要对应用到 NIC 和子网的 NSG 进行故障排除，请参阅 [NSG 故障排除](virtual-network-nsg-troubleshoot-portal.md#view-effective-security-rules-for-a-network-interface)一文。|
     |订阅|是|选择一个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)。 NIC 附加到的 VM 及将其连接到的 VNet 必须位于同一订阅。|
     |资源组|是|选择现有的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)或创建一个资源组。 NIC 可与它附加的 VM 或者连接到的 VNet 位于相同或不同的资源组中。|
-    |位置|是|将 NIC 附加到的 VM 以及将 NIC 连接的 VNet 必须位于同一个[位置](https://azure.microsoft.com/regions)（也称为区域）。|
+    |位置|是|将 NIC 附加到的 VM 以及将 NIC 连接的 VNet 必须位于同一个位置（也称为区域）。|
 
 创建 NIC 时，门户不会提供向 NIC 分配公共 IP 地址的选项，但使用门户创建 VM 时，它确实会向 NIC 分配公共 IP 地址。 若要了解在创建后如何将公共 IP 地址添加到 NIC，请参阅[添加、更改或删除 IP 地址](virtual-network-network-interface-addresses.md)一文。 若要使用公共 IP 地址创建 NIC，必须使用 CLI 或 PowerShell 创建 NIC。
 

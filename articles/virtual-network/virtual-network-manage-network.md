@@ -39,7 +39,7 @@ ms.lasthandoff: 05/26/2017
 
 - 如果你不熟悉子网，我们建议在阅读本文之前，先完成[创建第一个 Azure 虚拟网络](virtual-network-get-started-vnet-subnet.md)中的练习。 该练习可帮助你熟悉 VNet。
 - 查看 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文，了解 VNet 的限制。
-- 使用 Azure 帐户登录到 Azure 门户预览、Azure 命令行接口 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册[试用帐户](https://azure.microsoft.com/free)。
+- 使用 Azure 帐户登录到 Azure 门户预览、Azure 命令行接口 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用 Azure PowerShell 命令来完成本文中的任务，首先必须[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure PowerShell cmdlet。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
 - 如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，首先必须[安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 05/26/2017
     - **子网地址范围：**必须在为 VNet 输入的**地址空间**内。 可以指定的最小范围为 /29，为子网提供八个 IP 地址。 Azure 保留每个子网中的第一个地址和最后一个地址，以确保协议一致性。 此外还会保留三个地址供 Azure 服务使用。 因此，子网地址范围为 /29 的 VNet 有三个可用 IP 地址。 如果计划将 VNet 连接到 VPN 网关，则必须创建网关子网。 详细了解[网关子网地址范围具体考虑事项](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fvirtual-network%2ftoc.json#gwsub)。 在特定条件下，可以在子网创建后更改地址范围。 若要了解如何更改子网地址范围，请参阅[添加、更改或删除子网](#change-subnet)一文的[更改子网](virtual-network-manage-subnet.md)部分。
     - **订阅：**选择[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)。 VNet 不能跨订阅，但可以使用 Azure VPN 网关或 VNet 对等互连连接到其他订阅中的 VNet。 连接到 VNet 的 Azure 资源必须属于同一订阅。
     - **资源组：**选择现有[资源组](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#resource-groups)或创建新资源组。 连接到 VNet 的 Azure 资源可以属于相同或不同的资源组。
-    - **位置：**选择 Azure [位置](https://azure.microsoft.com/regions/)（也称为区域）。 VNet 不能跨 Azure 位置，但一个位置的 VNet 可以使用 Azure VPN 网关连接到另一个位置的 VNet。 连接到 VNet 的 Azure 资源必须在同一位置。
+    - **位置：**选择 Azure 位置（也称为区域）。 VNet 不能跨 Azure 位置，但一个位置的 VNet 可以使用 Azure VPN 网关连接到另一个位置的 VNet。 连接到 VNet 的 Azure 资源必须在同一位置。
 
 **命令**
 

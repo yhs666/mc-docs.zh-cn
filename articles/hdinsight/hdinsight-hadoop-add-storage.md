@@ -68,7 +68,7 @@ __要求__：
 
 有关通过 Azure 门户预览、Azure PowerShell 和 Azure CLI 使用脚本操作的信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)文档的“将脚本操作应用于正在运行的群集”部分。
 
-使用自定义文档中提供的信息时，请将任何示例脚本操作 URI 替换为此脚本的 URI (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)。 使用要添加到群集的存储帐户的 Azure 存储帐户名称和密钥替换任何示例参数。
+使用自定义文档中提供的信息时，请将任何示例脚本操作 URI 替换为此脚本的 URI (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh) 。 使用要添加到群集的存储帐户的 Azure 存储帐户名称和密钥替换任何示例参数。
 
 > [!NOTE]
 > 无需将此脚本标记为 __持久化__，因为它直接更新群集的 Ambari 配置。
@@ -109,7 +109,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters
 
 若要解决此问题，必须删除存储帐户的现有条目。 使用以下步骤删除现有条目：
 
-1. 在 Web 浏览器中，打开 HDInsight 群集的 Ambari Web UI。 该 URI 是 https://CLUSTERNAME.azurehdinsight.cn。 将 __CLUSTERNAME__ 替换为群集名称。
+1. 在 Web 浏览器中，打开 HDInsight 群集的 Ambari Web UI。 该 URI 是 https://CLUSTERNAME.azurehdinsight.cn 。 将 __CLUSTERNAME__ 替换为群集名称。
 
     出现提示时，输入群集的 HTTP 登录用户和密码。
 
