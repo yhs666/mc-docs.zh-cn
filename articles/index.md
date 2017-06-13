@@ -155,13 +155,13 @@ ms.lasthandoff: 05/26/2017
                                             <div class="cardText">
                                                 <h3>命令行工具</h3>
                                                 <div class="ico48Link">
-                                                    <a href="https://docs.microsoft.com/cli/azure/overview">
+                                                    <a href="/cli-install-nodejs">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
-                                                        <span>Azure<br />CLI</span>
+                                                        <span>Azure<br />CLI 1.0</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="https://docs.microsoft.com/powershell/azure/overview">
+                                                    <a href="/powershell-install-configure">
                                                         <img src="media/index/azure_dev-8.svg" alt="">
                                                         <span>Azure<br />PowerShell</span>
                                                     </a>
@@ -2115,7 +2115,7 @@ ms.lasthandoff: 05/26/2017
                                 </a>
                             </li>
                             <li>
-                                <a target="_blankhref="http://aka.ms/cloud-scenarios">
+                                <a target="_blank" href="http://aka.ms/cloud-scenarios">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
