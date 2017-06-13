@@ -2115,7 +2115,7 @@ ms.lasthandoff: 05/26/2017
                                 </a>
                             </li>
                             <li>
-                                <a target="_blankhref="http://aka.ms/cloud-scenarios">
+                                <a target="_blank" href="http://aka.ms/cloud-scenarios">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
