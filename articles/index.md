@@ -546,12 +546,6 @@ ms.lasthandoff: 05/26/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/billing/">
-                                                <img src="media/index/billing.svg" alt="" />
-                                                <p>计费</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                 <p>Azure Resource Manager</p>
@@ -1616,25 +1610,6 @@ ms.lasthandoff: 05/26/2017
                                                 <div class="cardText">
                                                     <h3>Azure Monitor</h3>
                                                     <p>对任何 Azure 资源进行高精度的实时数据监视</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/billing/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/billing.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>计费</h3>
-                                                    <p>了解如何阅读/理解 Azure 订阅的使用情况和计费</p>
                                                 </div>
                                             </div>
                                         </div>
