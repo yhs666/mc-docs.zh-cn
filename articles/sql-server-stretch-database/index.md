@@ -43,24 +43,6 @@ ms.lasthandoff: 05/12/2017
         </div>
         </a>
     </li>
-     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure SQL Server Stretch Database 视频库</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
     <li>
         <a href="/sql-server-stretch-database/sql-server-stretch-database-identify-databases">
         <div class="cardSize">
