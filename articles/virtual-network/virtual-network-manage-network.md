@@ -57,7 +57,7 @@ ms.lasthandoff: 05/26/2017
         - 169.254.0.0/16（本地链路）
         - 168.63.129.16/32（内部 DNS）
 
-      尽管创建 VNet 时只能定义一个地址空间，但创建 VNet 后可以添加更多地址空间。 若要了解如何操作，请完成本文[添加/删除地址空间](#add-address-spaces)部分中所述的步骤。
+      尽管创建 VNet 时只能定义一个地址空间，但创建 VNet 后可以添加更多地址空间。 若要了解如何操作，请完成本文[添加/删除地址空间](#address-spaces)部分中所述的步骤。
 
       >[!WARNING]
       >如果 VNet 的地址空间与其他 VNet 或本地网络重叠，它们不能连接在一起。 定义地址空间之前，请考虑将来可能要将 VNet 连接到的其他 VNet 或本地网络。
@@ -70,7 +70,7 @@ ms.lasthandoff: 05/26/2017
       >通常会创建不同的子网来筛选或控制它们之间的流量路由。 在定义子网之前，请考虑如何筛选和路由子网之间的流量。 若要详细了解如何筛选子网之间的流量，请参阅[网络安全组](virtual-networks-nsg.md)一文。 Azure 自动在子网之间路由，但你可以替代 Azure 的默认路由。 若要了解如何操作，请参阅[用户定义的路由](virtual-networks-udr-overview.md)一文。
       >
 
-    - **子网地址范围：**必须在为 VNet 输入的**地址空间**内。 可以指定的最小范围为 /29，为子网提供八个 IP 地址。 Azure 保留每个子网中的第一个地址和最后一个地址，以确保协议一致性。 此外还会保留三个地址供 Azure 服务使用。 因此，子网地址范围为 /29 的 VNet 有三个可用 IP 地址。 如果计划将 VNet 连接到 VPN 网关，则必须创建网关子网。 详细了解[网关子网地址范围具体考虑事项](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fvirtual-network%2ftoc.json#gwsub)。 在特定条件下，可以在子网创建后更改地址范围。 若要了解如何更改子网地址范围，请参阅[添加、更改或删除子网](#change-subnet)一文的[更改子网](virtual-network-manage-subnet.md)部分。
+    - **子网地址范围：**必须在为 VNet 输入的**地址空间**内。 可以指定的最小范围为 /29，为子网提供八个 IP 地址。 Azure 保留每个子网中的第一个地址和最后一个地址，以确保协议一致性。 此外还会保留三个地址供 Azure 服务使用。 因此，子网地址范围为 /29 的 VNet 有三个可用 IP 地址。 如果计划将 VNet 连接到 VPN 网关，则必须创建网关子网。 详细了解[网关子网地址范围具体考虑事项](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fvirtual-network%2ftoc.json#gwsub)。 在特定条件下，可以在子网创建后更改地址范围。 若要了解如何更改子网地址范围，请参阅[添加、更改或删除子网](virtual-network-manage-subnet.md)一文的[更改子网](virtual-network-manage-subnet.md#change-subnet)部分。
     - **订阅：**选择[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)。 VNet 不能跨订阅，但可以使用 Azure VPN 网关或 VNet 对等互连连接到其他订阅中的 VNet。 连接到 VNet 的 Azure 资源必须属于同一订阅。
     - **资源组：**选择现有[资源组](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#resource-groups)或创建新资源组。 连接到 VNet 的 Azure 资源可以属于相同或不同的资源组。
     - **位置：**选择 Azure 位置（也称为区域）。 VNet 不能跨 Azure 位置，但一个位置的 VNet 可以使用 Azure VPN 网关连接到另一个位置的 VNet。 连接到 VNet 的 Azure 资源必须在同一位置。

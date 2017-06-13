@@ -42,6 +42,7 @@ ms.lasthandoff: 05/26/2017
 
 ### <a name="resource-manager-templates"></a>Resource Manager 模板
 通过 Resource Manager 模板，可轻松地通过单个协调操作为应用程序创建以下内容：
+
 * HDInsight 群集及其依赖资源（例如默认存储帐户）
 * 其他资源（例如要使用 Apache Sqoop 的 Azure SQL 数据库）
 
@@ -147,6 +148,7 @@ ms.lasthandoff: 05/26/2017
     azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "C:\HDITutorials-ARM\hdinsight-arm-template.json"
 
 系统会提示输入：
+
 * 群集名称。
 * 群集用户密码。 （默认用户名为 **admin**。）
 * SSH 用户密码。 （默认 SSH 用户名为 **sshuser**。）
