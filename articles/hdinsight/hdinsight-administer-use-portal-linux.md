@@ -82,14 +82,14 @@ HDInsight 使用各种 Hadoop 组件。 有关已获得验证和支持的组件�
 
     ![Azure 门户预览中的 HDInsight 群集概要](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
 
-    **Overview menu:**
+    **概述菜单：**
 
     * **仪表板**：打开群集仪表板，即可用于基于 Linux 群集的 Ambari Web。
     * **安全外壳**：显示使用安全 Shell (SSH) 连接与群集建立连接的说明。
     * **缩放群集**：可更改此群集的辅助角色节点数。
     * **删除**：删除群集。
 
-    **Left menu:**
+    **左侧菜单：**
 
     * **活动日志**：显示和查询活动日志。
     * **访问控制 (IAM)**：使用角色分配。  请参阅[使用角色分配管理对 Azure 订阅资源的访问权限](../active-directory/role-based-access-control-configure.md)。

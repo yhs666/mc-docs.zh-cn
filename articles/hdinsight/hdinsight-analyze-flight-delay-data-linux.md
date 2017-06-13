@@ -254,7 +254,7 @@ ms.lasthandoff: 05/26/2017
     databaseName       dbo     delays      BASE TABLE
     ```
 
-5. 在 `exit` at the `1>` 以退出 tsql 实用工具。
+5. 在 `1>` 提示符下输入 `exit` 以退出 tsql 实用工具。
 
 ## <a name="export-data-with-sqoop"></a>使用 Sqoop 导出数据
 

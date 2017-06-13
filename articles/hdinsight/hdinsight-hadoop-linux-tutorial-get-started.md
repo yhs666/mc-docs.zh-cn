@@ -35,7 +35,7 @@ ms.lasthandoff: 05/26/2017
 ## <a name="prerequisites"></a>先决条件
 在开始阅读本教程前，必须具备以下条件：
 
-* **Azure 订阅**：若要创建免费试用一个月的帐户，请浏览到 [https://www.azure.cn/pricing/1rmb-trial/](https://www.azure.cn/pricing/1rmb-trial/)。
+* **Azure 订阅**：若要创建试用一个月的帐户，请浏览到 [https://www.azure.cn/pricing/1rmb-trial/](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="create-cluster"></a>创建群集
 
