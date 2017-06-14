@@ -30,7 +30,7 @@ sections:
       href: /virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fvirtual-machines%2flinux%2ftoc.json
     - image: 
         src: /virtual-machines/linux/media/index/portal.svg
-      text: Azure 门户预览
+      text: Azure 门户
       href: /virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fvirtual-machines%2flinux%2ftoc.json
     - image: 
         src: /virtual-machines/linux/media/index/logo_powershell.svg
