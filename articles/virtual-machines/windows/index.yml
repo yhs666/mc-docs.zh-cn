@@ -20,13 +20,13 @@ sections:
 - title: 5 分钟快速入门
   items:
   - type: paragraph
-    text: 'Learn how to deploy an IIS web-server within a Virtual Machine running Windows Server 2016:'
+    text: 了解如何在运行 Windows Server 2016 的虚拟机中部署 IIS Web 服务器：
   - type: list
     style: icon48
     items: 
     - image: 
         src: /virtual-machines/windows/media/index/portal.svg
-      text: Azure Portal Preview
+      text: Azure 门户预览
       href: /virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     - image: 
         src: /virtual-machines/windows/media/index/logo_powershell.svg
@@ -39,13 +39,13 @@ sections:
 - title: 分步教程
   items:
   - type: paragraph
-    text: Learn how to deploy, manage, and monitor Windows VMs on Azure
+    text: 了解如何在 Azure 上部署、管理和监视 Windows VM
   - type: list
     style: ordered
 - title: 示例
   items:
   - type: paragraph
-    text: Deploy your first application to Azure.
+    text: 将第一个应用程序部署到 Azure。
   - type: list
     style: unordered
     className: spaced noBullet
@@ -59,8 +59,8 @@ sections:
     className: cardsD
     items:
     - title: 命令行
-      html: <p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/vm">Azure CLI</a></p>
+      html: '<p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/vm">Azure CLI</a></p>'
     - title: 语言
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="https://docs.microsoft.com/java/api">Java</a></p><p><a href="/develop/nodejs/">Node​.js</a></p><p><a href="/develop/python/">Python</a></p>
+      html: '<p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="https://docs.microsoft.com/java/api">Java</a></p><p><a href="/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://docs.microsoft.com/develop/python/">Python</a></p>'
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/compute">Compute REST API Reference</a></p>
+      html: '<p><a href="https://docs.microsoft.com/rest/api/compute">计算 REST API 参考</a></p>'
