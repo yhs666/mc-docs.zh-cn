@@ -439,7 +439,7 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 如果你要配置 SSL 卸载，请参阅[配置应用程序网关以进行 SSL 卸载](./application-gateway-ssl.md)。
 
-如果你想要将应用程序网关配置为与内部负载均衡器配合使用，请参阅 [创建具有内部负载均衡器 (ILB) 的应用程序网关](./application-gateway-ilb.md)。
+如果你想要将应用程序网关配置为与内部负载均衡器配合使用，请参阅[创建具有内部负载均衡器 (ILB) 的应用程序网关](./application-gateway-ilb.md)。
 
 如需负载均衡选项的其他常规信息，请参阅：
 

@@ -35,8 +35,8 @@ Hadoop 群集由用于对群集中的任务进行分布式处理的多个虚拟�
 
 通过 [Azure 门户预览](https://portal.azure.cn)，可以使用“快速创建”或“自定义”来创建 HDInsight 群集。 本部分介绍了在“快速创建”选项中使用的基本配置设置。 自定义选项包括以下额外配置：
 
-- [应用程序](#hdinsight-applications)
-- [群集大小](#cluster-size)
+- [应用程序](#install-hdinsight-applications)
+- [群集大小](#configure-cluster-size)
 - 高级设置
 
   - [脚本操作](#customize-clusters-using-script-action)

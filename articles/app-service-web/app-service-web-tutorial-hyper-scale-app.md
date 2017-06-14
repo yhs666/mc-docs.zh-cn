@@ -67,6 +67,9 @@ Session.Add("visited", "true");
 在此步骤中，你将创建一个 Azure Web 应用并在其中部署示例 ASP.NET 应用程序。
 
 ### <a name="create-a-resource-group"></a>创建资源组   
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 在中国北部区域中创建一个[资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是放置你要统一管理的所有 Azure 资源（例如 Web 应用及其 SQL 数据库后端）的位置。
 
 ```azurecli

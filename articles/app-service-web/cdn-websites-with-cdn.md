@@ -39,6 +39,9 @@ ms.lasthandoff: 04/28/2017
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="what-you-will-build"></a>要生成的项目
+
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
+
 你需要在 Visual Studio 中使用默认的 ASP.NET MVC 模板将一个 Web 应用部署到 Azure 应用服务，需要添加代码来处理集成 Azure CDN 所提供的内容（例如映像、控制器操作结果、默认的 JavaScript 和 CSS 文件），还需要编写代码来配置回退机制以处理 CDN 脱机时提供的捆绑包。
 
 ## <a name="what-you-will-need"></a>所需的项目
@@ -49,7 +52,7 @@ ms.lasthandoff: 04/28/2017
 
 > [!NOTE]
 > 完成本教程需要有一个 Azure 帐户：
-> * 可以 [注册一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/) - 获取可用来试用付费版 Azure 服务的信用额度，甚至在用完信用额度后，仍可以保留帐户和使用免费的 Azure 服务（如 Web 应用）。
+> 可以 [注册一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/) - 获取可用来试用付费版 Azure 服务的信用额度，甚至在用完信用额度后，仍可以保留帐户和使用免费的 Azure 服务（如 Web 应用）。
 > 
 > 
 

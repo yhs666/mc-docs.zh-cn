@@ -36,7 +36,7 @@ ms.lasthandoff: 04/22/2017
 运行本示例之前，请在本地安装以下必备组件：
 
 1. [下载并安装 git](https://git-scm.com/)
-1. [下载并安装 Python](https://Python.net)
+1. [下载并安装 Python](http://Python.net)
 1. 下载并安装 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## <a name="download-the-sample"></a>下载示例
@@ -117,7 +117,7 @@ az group create --name myResourceGroup --location chinanorth
 > 应用服务计划表示用于托管应用的物理资源集合。 分配到应用服务计划的所有应用程序将共享该计划定义的资源，在托管多个应用时可以节省成本。
 >
 > 应用服务计划定义：
-> * 区域（中国北部、中国东部、中国北部）
+> * 区域（中国北部、中国东部）
 > * 实例大小（小、中、大）
 > * 规模计数（一个、两个、三个实例，等等）
 > * SKU（免费、共享、基本、标准、高级）
@@ -189,7 +189,7 @@ http://<app_name>.chinacloudsites.cn
 
 ## <a name="configure-to-use-python"></a>配置为使用 Python
 
-使用 [az appservice web config update](https://docs.microsoft.com/cli/azure/app-service/web/config#update) 命令将 Web 应用配置为使用 Python 版本 `7.0.x`。
+使用 [az appservice web config update](https://docs.microsoft.com/cli/azure/appservice/web/config#update) 命令将 Web 应用配置为使用 Python 版本 `7.0.x`。
 
 > [!TIP]
 > 以这种方式设置 Python 版本会使用平台提供的默认容器。如果你想要使用自己的容器，请参阅 [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) 命令的 CLI 参考文章。
@@ -292,13 +292,13 @@ git push azure master
 
 从左侧菜单中单击“应用服务”，然后单击 Azure Web 应用的名称。
 
-![在门户中导航到 Azure Web 应用](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-list.png)
+![在门户中导航到 Azure Web 应用](./media/app-service-web-get-started-python/python-docs-hello-world-app-service-list.png)
 
 现已进入 Web 应用的_边栏选项卡_（水平打开的门户页）。
 
 默认情况下，Web 应用的边栏选项卡显示“概述”页。 在此页中可以查看应用的运行状况。 在此处还可以执行基本的管理任务，例如浏览、停止、启动、重新启动和删除。 边栏选项卡左侧的选项卡显示可以打开的不同配置页。
 
-![Azure 门户预览中的“应用服务”边栏选项卡](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-detail.png)
+![Azure 门户预览中的“应用服务”边栏选项卡](./media/app-service-web-get-started-python/python-docs-hello-world-app-service-detail.png)
 
 边栏选项卡中的这些选项卡显示了可添加到 Web 应用的许多强大功能。 以下列表只是列出了一部分可用的功能：
 
