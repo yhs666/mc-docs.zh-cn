@@ -80,7 +80,7 @@ Tez UI 包含数据的前提是使用 Tez 引擎的作业当前正在运行或�
 > 
 > 
 
-1. 在 [Azure 门户预览](https://portal.azure.cn)中，选择 HDInsight 群集。在 HDInsight 边栏选项卡的顶部，选择“远程桌面”图标。这将显示远程桌面边栏选项卡
+1. 在 [Azure 门户](https://portal.azure.cn)中，选择 HDInsight 群集。在 HDInsight 边栏选项卡的顶部，选择“远程桌面”图标。这将显示远程桌面边栏选项卡
 
     ![“远程桌面”图标](./media/hdinsight-debug-tez-ui/remotedesktopicon.png)  
 

@@ -1,6 +1,6 @@
 ---
 title: "在 Azure 应用服务中监视应用 | Azure"
-description: "了解如何使用 Azure 门户预览在 Azure 应用服务中监视应用。"
+description: "了解如何使用 Azure 门户在 Azure 应用服务中监视应用。"
 services: app-service
 documentationcenter: 
 author: btardif
@@ -24,7 +24,7 @@ ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>如何：在 Azure 应用服务中监视 Web 应用
-[应用服务](/app-service-web/app-service-changes-existing-services)在 [Azure 门户预览](https://portal.azure.cn)中提供了内置监视功能。
+[应用服务](/app-service-web/app-service-changes-existing-services)在 [Azure 门户](https://portal.azure.cn)中提供了内置监视功能。
 还能查看应用的**配额**和**度量值**以及应用服务计划、设置**警报**，甚至基于这些度量值自动**缩放**。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -137,8 +137,8 @@ ms.lasthandoff: 05/26/2017
 * **小时**粒度级的度量值将保留 **30 天**
 * **天**粒度级的度量值将保留 **90 天**
 
-## <a name="monitoring-quotas-and-metrics-in-the-azure-portal-preview"></a>在 Azure 门户预览中监视配额和指标。
-可以在 [Azure 门户预览](https://portal.azure.cn)中查看影响应用程序的各种**配额**和**指标**。
+## <a name="monitoring-quotas-and-metrics-in-the-azure-portal-preview"></a>在 Azure 门户中监视配额和指标。
+可以在 [Azure 门户](https://portal.azure.cn)中查看影响应用程序的各种**配额**和**指标**。
 
 可以在“设置”>“配额”****下找到![][quotas]
 **配额**。 用户体验允许查看：(1) 配额名称、(2) 配额重置时间间隔、(3) 配额当前限制和 (4) 当前值。

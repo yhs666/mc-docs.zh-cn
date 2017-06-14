@@ -113,5 +113,5 @@ az resource list --tag Dept=Finance
 * 可以使用自定义策略对订阅应用限制和约定。 定义的策略可能要求所有资源都拥有针对特定标记的值。 有关详细信息，请参阅 [使用策略来管理资源和控制访问](resource-manager-policy.md)。
 * 有关部署资源时使用 Azure PowerShell 的说明，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](powershell-azure-resource-manager.md)。
 * 有关部署资源时使用 Azure CLI 的说明，请参阅 [将适用于 Mac、Linux 和 Windows 的 Azure CLI 与 Azure 资源管理配合使用](xplat-cli-azure-resource-manager.md)。
-* 如需门户使用简介，请参阅 [使用 Azure 门户预览管理 Azure 资源](resource-group-portal.md)  
+* 如需门户使用简介，请参阅 [使用 Azure 门户管理 Azure 资源](resource-group-portal.md)  
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。

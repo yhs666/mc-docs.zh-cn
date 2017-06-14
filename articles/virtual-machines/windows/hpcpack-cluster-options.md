@@ -34,7 +34,7 @@ ms.author: v-dazen
 ### PowerShell 部署脚本
 * [使用 HPC Pack IaaS 部署脚本创建 HPC 群集](classic/hpcpack-cluster-powershell-script.md)
 
-### 使用 Azure 门户预览手动部署
+### 使用 Azure 门户手动部署
 * [在 Azure VM 中设置 HPC Pack 群集的头节点](hpcpack-cluster-headnode.md)
 
 ### 群集管理

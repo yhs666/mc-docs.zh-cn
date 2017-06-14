@@ -127,7 +127,7 @@ ms.author: v-yeche
 
 <!--Other Web references-->
 
-[Azure 门户预览]: https://portal.azure.cn/
+[Azure 门户]: https://portal.azure.cn/
 
 <!---HONumber=Mooncake_0213_2017-->
 <!-- Update_Description: meta data; words updating; update link reference -->

@@ -197,7 +197,7 @@ Healthy|如果 FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False�
 可使用以下工具对遥测数据进行处理和可视化：
 
 - AMS 实时仪表板
-- Azure 门户预览（尚未发行）
+- Azure 门户（尚未发行）
 
 ### 如何管理数据保留期？
 

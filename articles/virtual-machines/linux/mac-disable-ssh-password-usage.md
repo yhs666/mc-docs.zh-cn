@@ -43,7 +43,7 @@ SSHD 是在 Linux VM 上运行的 SSH 服务器。SSH 是从 MacBook 或 Linux �
 * [在 Linux 和 Mac 上为 Azure 中的 Linux VM 创建 SSH 密钥](mac-create-ssh-keys.md)
 * Azure 帐户
     * [试用版注册](https://www.azure.cn/pricing/1rmb-trial/)
-    * [Azure 门户预览](http://portal.azure.cn)
+    * [Azure 门户](http://portal.azure.cn)
 * 在 Azure 上运行的 Linux VM
 * `~/.ssh/` 中的 SSH 公钥和私钥对
 * Linux VM 上的 `~/.ssh/authorized_keys` 中的 SSH 公钥

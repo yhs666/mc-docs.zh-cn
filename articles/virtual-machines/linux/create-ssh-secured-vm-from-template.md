@@ -26,7 +26,7 @@ ms.author: v-dazen
 * 已使用 `azure login -e AzureChinaCloud` 登录 [Azure CLI](../../xplat-cli-install.md)。
 * Azure CLI *必须处于* Azure Resource Manager 模式`azure config mode arm`。
 
-也可以使用 [Azure 门户预览](quick-create-portal.md)快速部署 Linux VM 模板。
+也可以使用 [Azure 门户](quick-create-portal.md)快速部署 Linux VM 模板。
 
 ## 快速命令摘要
 

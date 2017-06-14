@@ -77,7 +77,7 @@ P20 高级作业集合提供的功能与 P10 高级作业集合相同，但每�
 
  [Azure 计划程序的概念、术语和实体层次结构](scheduler-concepts-terms.md)
 
- [开始在 Azure 门户预览中使用计划程序](scheduler-get-started-portal.md)
+ [开始在 Azure 门户中使用计划程序](scheduler-get-started-portal.md)
 
  [Azure 计划程序 REST API 参考](https://msdn.microsoft.com/library/mt629143)
 

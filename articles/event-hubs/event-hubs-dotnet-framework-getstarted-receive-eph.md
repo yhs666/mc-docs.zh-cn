@@ -41,13 +41,13 @@ ms.lasthandoff: 04/07/2017
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>创建事件中心命名空间和事件中心
 
-第一步是使用 [Azure 门户预览](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 若要创建命名空间和事件中心，请按照[本文](./event-hubs-create.md)中的步骤进行操作，然后继续执行以下步骤。
+第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 若要创建命名空间和事件中心，请按照[本文](./event-hubs-create.md)中的步骤进行操作，然后继续执行以下步骤。
 
 ## <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 
 若要使用[事件处理程序主机][EventProcessorHost]，必须有一个 [Azure 存储帐户][Azure Storage account]：
 
-1. 登录到 [Azure 门户预览][Azure 门户预览]，然后单击屏幕左上角的“新建”。
+1. 登录到 [Azure 门户][Azure 门户]，然后单击屏幕左上角的“新建”。
 
 2. 单击“存储”，然后单击“存储帐户”。
 

@@ -54,7 +54,7 @@ ms.lasthandoff: 05/19/2017
 
 ![“网络设置”屏幕][wordpress-network-setup]
 
-本教程使用 *子目录* 站点架构，因为它应始终运行，我们在本教程的后面将为每个子站点设置自定义域。 但是，如果通过 [Azure 门户预览](https://portal.azure.cn)映射域并正确设置通配符 DNS，则应能够设置子域安装。
+本教程使用 *子目录* 站点架构，因为它应始终运行，我们在本教程的后面将为每个子站点设置自定义域。 但是，如果通过 [Azure 门户](https://portal.azure.cn)映射域并正确设置通配符 DNS，则应能够设置子域安装。
 
 有关子域和子目录设置的详细信息，请参阅 WordPress Codex 上的 [多站点网络的类型][wordpress-codex-types-of-networks] 一文。
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 05/19/2017
 ## <a name="enable-domain-mapping-to-the-web-app"></a>启用到 Web 应用的域映射
 **免费**的[应用服务](/app-service-web/app-service-changes-existing-services)计划模式不支持向 Web 应用添加自定义域。 需要切换到**共享**或**标准**模式。 为此，请按以下步骤操作：
 
-* 登录到 Azure 门户预览并找到你的 Web 应用。 
+* 登录到 Azure 门户并找到你的 Web 应用。 
 * 单击“设置”中的“向上缩放”选项卡。
 * 在“常规”下，选择“共享”或“标准”。
 * 单击“保存”
@@ -92,7 +92,7 @@ ms.lasthandoff: 05/19/2017
 由于 DNS 更改可能需要过段时间才能生效，因此，如果后续步骤无法立即运行，你可以先去冲杯咖啡，然后回来重试。
 
 ## <a name="add-the-domain-to-the-web-app"></a>将域添加到 Web 应用
-通过 Azure 门户预览返回到 Web 应用，单击“设置”，然后单击“自定义域和 SSL”。
+通过 Azure 门户返回到 Web 应用，单击“设置”，然后单击“自定义域和 SSL”。
 
 显示 *SSL 设置* 时，请在显示的字段里输入希望分配给 Web 应用的所有域。 如果某个域未在此处列出，则无法在 WordPress 中将该域用于映射，无论设置域 DNS 的方式如何。
 

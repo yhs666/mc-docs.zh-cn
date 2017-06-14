@@ -20,7 +20,7 @@ ms.author: v-johch
 # 使用 PowerShell 监视和管理弹性数据库池 
 
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./sql-database-elastic-pool-manage-portal.md)
+>- [Azure 门户](./sql-database-elastic-pool-manage-portal.md)
 >- [PowerShell](./sql-database-elastic-pool-manage-powershell.md)
 >- [C#](./sql-database-elastic-pool-manage-csharp.md)
 >- [T-SQL](./sql-database-elastic-pool-manage-tsql.md)

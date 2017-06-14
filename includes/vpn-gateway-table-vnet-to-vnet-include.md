@@ -1,4 +1,4 @@
-| **部署模型/方法** | **Azure 门户预览** | **经典管理门户** | **PowerShell** |
+| **部署模型/方法** | **Azure 门户** | **经典管理门户** | **PowerShell** |
 | --- | --- | --- | --- |
 | **经典** |[文章*](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md)|[文章*](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) |支持 |
 | **Resource Manager** |[文章+](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) |不支持 |[文章](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) |

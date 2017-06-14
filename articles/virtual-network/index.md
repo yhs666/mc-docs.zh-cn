@@ -54,7 +54,7 @@ ms.lasthandoff: 05/12/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>通过 Azure 门户预览开始使用虚拟网络</h3>
+                        <h3>通过 Azure 门户开始使用虚拟网络</h3>
                     </div>
                 </div>
             </div>

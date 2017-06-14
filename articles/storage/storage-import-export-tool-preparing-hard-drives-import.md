@@ -404,9 +404,9 @@ WAImportExport 工具逐批读取和写入文件，每个批最多包含 100000 
 
 ### <a name="waimportexport-output"></a>WAImportExport 输出
 
-#### <a name="there-are-two-journal-files-which-one-should-i-upload-to-azure-portal-preview"></a>有两个日记文件，应将哪一个上传到 Azure 门户预览？
+#### <a name="there-are-two-journal-files-which-one-should-i-upload-to-azure-portal-preview"></a>有两个日记文件，应将哪一个上传到 Azure 门户？
 
-.xml - 对于使用 WAImportExport 工具准备的每个硬盘驱动器，该工具将创建一个日记文件，文件名为“`<DriveID>.xml`”，其中，DriveID 是与该工具从磁盘读取的驱动器关联的序列号。 在 Azure 门户预览中创建导入作业时，需要使用所有驱动器中的日记文件。 在工具中断的情况下，还可使用此日记文件来恢复驱动器准备操作。
+.xml - 对于使用 WAImportExport 工具准备的每个硬盘驱动器，该工具将创建一个日记文件，文件名为“`<DriveID>.xml`”，其中，DriveID 是与该工具从磁盘读取的驱动器关联的序列号。 在 Azure 门户中创建导入作业时，需要使用所有驱动器中的日记文件。 在工具中断的情况下，还可使用此日记文件来恢复驱动器准备操作。
 
 .jrn - 带 `.jrn` 后缀的日志文件包含硬盘驱动器的所有复制会话的状态。 它还包含创建导入作业所需的信息。 运行 WAImportExport 工具时，始终必须指定一个日志文件，以及一个复制会话 ID。
 

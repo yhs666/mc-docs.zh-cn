@@ -35,7 +35,7 @@ HDInsight Spark 群集提供了可在 Jupyter Notebook 中使用的内核，以�
 
 ## 创建 Jupyter 笔记本
 
-1. 从 [Azure 门户预览](https://portal.azure.cn/)打开群集。请参阅[列出并显示群集](./hdinsight-administer-use-portal-linux.md#list-and-show-clusters)了解相关说明。群集将在新的门户边栏选项卡中打开。
+1. 从 [Azure 门户](https://portal.azure.cn/)打开群集。请参阅[列出并显示群集](./hdinsight-administer-use-portal-linux.md#list-and-show-clusters)了解相关说明。群集将在新的门户边栏选项卡中打开。
 
 2. 在“快速链接”部分中，单击“群集仪表板”，打开“群集仪表板”边栏选项卡。如果没有看到“快速链接”，请在边栏选项卡的左侧菜单中单击“概述”。
 

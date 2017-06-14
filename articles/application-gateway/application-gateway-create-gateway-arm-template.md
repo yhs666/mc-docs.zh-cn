@@ -26,7 +26,7 @@ ms.lasthandoff: 05/12/2017
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建应用程序网关
 
 > [!div class="op_single_selector"]
-> * [Azure 门户预览](application-gateway-create-gateway-portal.md)
+> * [Azure 门户](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure 经典 PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager 模板](application-gateway-create-gateway-arm-template.md)
@@ -210,7 +210,7 @@ az group deployment create --resource-group appgatewayRG --name TestAppgatewayDe
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-click-to-deploy"></a>使用“单击部署”来部署 Azure Resource Manager 模板
 
-“单击部署”是另一种使用 Azure Resource Manager 模板的方式。 这是将模板与 Azure 门户预览配合使用的简便方法。
+“单击部署”是另一种使用 Azure Resource Manager 模板的方式。 这是将模板与 Azure 门户配合使用的简便方法。
 
 ### <a name="step-1"></a>步骤 1
 

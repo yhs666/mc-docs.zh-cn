@@ -79,7 +79,7 @@
 ##### [CLI（经典）](virtual-network-deploy-multinic-classic-cli.md)
 
 #### 创建具有多个 IP 地址的 VM
-##### [Azure 门户预览](virtual-network-multiple-ip-addresses-portal.md)
+##### [Azure 门户](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [模板](virtual-network-multiple-ip-addresses-template.md)

@@ -59,7 +59,7 @@ Azure PowerShell 1.0：
     New-AzureRMResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 > [!NOTE]
-> 以编程方式创建的流分析作业默认情况下并不启用监视功能。  可以在 Azure 门户预览中手动启用监视功能，只需导航到作业的“监视”页，然后单击“启用”按钮即可；也可以通过编程方式来执行此操作，只需遵循 [Azure 流分析 - 以编程方式监视流分析作业](stream-analytics-monitor-jobs.md)中的步骤即可。
+> 以编程方式创建的流分析作业默认情况下并不启用监视功能。  可以在 Azure 门户中手动启用监视功能，只需导航到作业的“监视”页，然后单击“启用”按钮即可；也可以通过编程方式来执行此操作，只需遵循 [Azure 流分析 - 以编程方式监视流分析作业](stream-analytics-monitor-jobs.md)中的步骤即可。
 > 
 > 
 
@@ -406,7 +406,7 @@ Azure PowerShell 1.0：
 此 PowerShell 命令启动作业 StreamingJob，并将自定义输出开始时间设置为 2012 年 12 月 12 日 12:12:12（UTC）。
 
 ### <a name="stop-azurestreamanalyticsjob--stop-azurermstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
-以异步方式停止流分析作业在 Azure 中的运行，并取消分配所使用的资源。 在订阅中，始终可以通过 Azure 门户预览版和管理 API 来使用作业定义和元数据，以便编辑和重启该作业。 处于停止状态的作业不收费。
+以异步方式停止流分析作业在 Azure 中的运行，并取消分配所使用的资源。 在订阅中，始终可以通过 Azure 门户和管理 API 来使用作业定义和元数据，以便编辑和重启该作业。 处于停止状态的作业不收费。
 
 **示例 1**
 

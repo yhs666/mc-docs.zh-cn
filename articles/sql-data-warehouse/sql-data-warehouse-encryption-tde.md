@@ -31,7 +31,7 @@ ms.author: v-yeche
 ## 启用加密
 若要为 SQL 数据仓库启用 TDE，请遵循以下步骤：
 
-1. 在 [Azure 门户预览](https://portal.azure.cn/)中打开数据库
+1. 在 [Azure 门户](https://portal.azure.cn/)中打开数据库
 2. 在数据库边栏选项卡中，单击“设置”按钮
 3. 选择“透明数据加密”选项 
 ![][1]
@@ -43,7 +43,7 @@ ms.author: v-yeche
 ## 禁用加密
 若要为 SQL 数据仓库禁用 TDE，请遵循以下步骤：
 
-1. 在 [Azure 门户预览](https://portal.azure.cn/)中打开数据库
+1. 在 [Azure 门户](https://portal.azure.cn/)中打开数据库
 2. 在数据库边栏选项卡中，单击“设置”按钮
 3. 选择“透明数据加密”选项 
 ![][1]

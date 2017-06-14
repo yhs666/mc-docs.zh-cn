@@ -79,7 +79,7 @@ ms.lasthandoff: 04/28/2017
     ![](./media/cdn-websites-with-cdn/6-publish-website.png)
 
     发布完成后，你会在浏览器中看到发布的 Web 应用。 
-7. 若要创建一个 CDN 终结点，请登录到 [Azure 门户预览](https://portal.azure.cn)。 
+7. 若要创建一个 CDN 终结点，请登录到 [Azure 门户](https://portal.azure.cn)。 
 8. 单击**“+ 新建”** > **“媒体 + CDN”** > **“CDN”**。
 
     ![](./media/cdn-websites-with-cdn/create-cdn-profile.png)

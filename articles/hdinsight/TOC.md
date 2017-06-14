@@ -126,7 +126,7 @@
 #### [使用 cURL 和 Azure REST API](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
 #### [使用 .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 #### [使用 Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
-#### [使用 Azure 门户预览](hdinsight-hadoop-create-linux-clusters-portal.md)
+#### [使用 Azure 门户](hdinsight-hadoop-create-linux-clusters-portal.md)
 #### [使用 Azure Resource Manager 模板](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 ### [管理的 Hadoop 群集](hdinsight-administer-use-portal-linux.md)
 #### [使用 .NET SDK](hdinsight-administer-use-dotnet-sdk.md)
@@ -185,7 +185,7 @@
 ### [使用 Mahout 生成电影推荐](hdinsight-mahout.md)
 ### [分析航班延误数据](hdinsight-analyze-flight-delay-data.md)
 ### [开发脚本操作](hdinsight-hadoop-script-actions.md)
-### [使用 Azure 门户预览管理群集](hdinsight-administer-use-management-portal.md)
+### [使用 Azure 门户管理群集](hdinsight-administer-use-management-portal.md)
 ### [使用 Ambari API 监视群集](hdinsight-monitor-use-ambari-api.md)
 
 # 资源
