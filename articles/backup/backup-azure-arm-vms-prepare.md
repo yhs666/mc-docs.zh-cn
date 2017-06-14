@@ -103,7 +103,7 @@ Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 
 | 将 IP 范围加入允许列表 |无额外成本。<br><br>若要在 NSG 中打开访问权限，请使用 <i>Set-AzureNetworkSecurityRule</i> cmdlet。 |管理起来很复杂，因为受影响的 IP 范围会不断变化。<br><br>允许访问整个 Azure，而不只是存储。 |
 | HTTP 代理 |允许在代理中对存储 URL 进行精细控制。<br>对 VM 进行单点 Internet 访问。<br>不受 Azure IP 地址变化的影响。 |通过代理软件运行 VM 带来的额外成本。 |
 
-### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Whitelist the Azure datacenter IP ranges
+### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Azure 数据中心 IP 范围允许列表
 若要将 Azure 数据中心 IP 范围加入允许列表，请参阅 [Azure 网站](http://www.microsoft.com/en-us/download/details.aspx?id=41653)，获取有关 IP 范围的详细信息和说明。
 
 ### <a name="using-an-http-proxy-for-vm-backups"></a>使用 HTTP 代理进行 VM 备份
@@ -124,7 +124,7 @@ Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 
 
 若要使用 HTTP 代理来与公共 Internet 通信，请遵循以下步骤：
 
-#### <a name="step-1-configure-outgoing-network-connections"></a>步骤 1。 配置传出网络连接
+#### <a name="step-1-configure-outgoing-network-connections"></a>步骤 1 - 配置传出网络连接
 ###### <a name="for-windows-machines"></a>对于 Windows 计算机
 将为本地系统帐户设置代理服务器配置。
 
@@ -171,7 +171,7 @@ HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>步骤 2. 在代理服务器上允许传入连接：
+#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>步骤 2 - 在代理服务器上允许传入连接：
 1. 在代理服务器上打开 Windows 防火墙。 访问防火墙的最简单方法是搜索“具有高级安全性的 Windows 防火墙”。
 
     ![打开防火墙](./media/backup-azure-vms-prepare/firewall-01.png)
@@ -190,7 +190,7 @@ HttpProxy.Port=<proxy port>
 
      至于该向导的其余部分，可一路单击到最后，然后为此规则指定一个名称。
 
-#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>步骤 3. 向 NSG 添加例外规则：
+#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>步骤 3 - 向 NSG 添加例外规则：
 在 Azure PowerShell 命令提示符下输入以下命令：
 
 以下命令将在 NSG 中添加一个例外。 此例外允许从 10.0.0.5 上的任何端口流向端口 80 (HTTP) 或 443 (HTTPS) 上的任何 Internet 地址的 TCP 流量。 如果需要访问公共 Internet 中的特定端口，请确保也将该端口添加到 ```-DestinationPortRange```。
