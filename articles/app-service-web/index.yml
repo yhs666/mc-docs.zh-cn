@@ -20,7 +20,7 @@ sections:
 - title: 5 分钟快速入门
   items:
   - type: paragraph
-    text: 'Learn how to deploy your first application to the cloud using Web Apps:'
+    text: 了解如何使用 Web 应用将你的第一个应用程序部署到云：
   - type: list
     style: icon48
     items: 
@@ -51,22 +51,22 @@ sections:
 - title: 分步教程
   items:
   - type: paragraph
-    text: Learn how to deploy, manage, and monitor secure web applications on Azure
+    text: 了解如何在 Azure 上部署、管理和监视安全的 Web 应用程序
   - type: list
     style: ordered
     items:
-    - html: Create an application using <a href="/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">.NET with Azure SQL DB</a> or <a href="/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>
-    - html: <a href="/app-service-web/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
+    - html: 将 <a href="/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">.NET 与 Azure SQL DB 配合使用</a>或将 <a href="/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js 与 MongoDB 配合使用</a>来创建应用程序
+    - html: <a href="/app-service-web/app-service-web-tutorial-custom-domain">将现有自定义域映射到应用程序</a>
 - title: 示例
   items:
   - type: paragraph
-    text: Find scripts to manage common tasks.
+    text: 查找脚本来管理常见任务。
   - type: list
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-    - html: <a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a>
+    - html: '<a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a>'
+    - html: '<a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a>'
 - title: 引用
   items:
   - type: list
@@ -74,8 +74,8 @@ sections:
     className: cardsD
     items:
     - title: 命令行
-      html: <p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a></p>
+      html: '<p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a></p>'
     - title: 语言
-      html: <p><a href="https://docs.microsoft.com/dotnet/api">.NET</a></p><p><a href="https://docs.microsoft.com/java/api/">Java</a></p>
+      html: '<p><a href="https://docs.microsoft.com/dotnet/api">.NET</a></p><p><a href="https://docs.microsoft.com/java/api/">Java</a></p>'
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a></p>
+      html: '<p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a></p>'
