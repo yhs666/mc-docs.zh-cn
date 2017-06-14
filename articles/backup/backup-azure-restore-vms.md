@@ -47,7 +47,7 @@ ms.author: v-junlch
     ![恢复点](./media/backup-azure-restore-vms/recovery-points.png)
 3. 从“恢复点”表中选择恢复点，然后单击“下一步”箭头转到下一个屏幕。
 
-### 3.<a name="restoring-vms-with-special-network-configurations"></a>指定目标位置
+### 步骤 3：<a name="restoring-vms-with-special-network-configurations"></a>指定目标位置
 
 1. 在“选择还原实例”屏幕中，指定有关要将虚拟机还原到何处的详细信息。
 
