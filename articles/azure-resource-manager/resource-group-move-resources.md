@@ -361,5 +361,5 @@ POST https://management.chinacloudapi.cn/subscriptions/{source-subscription-id}/
 ## <a name="next-steps"></a>后续步骤
 * 若要了解管理订阅所需的 PowerShell cmdlet，请参阅[将 Azure PowerShell 与 Resource Manager 配合使用](powershell-azure-resource-manager.md)。
 * 若要了解管理订阅所需的 Azure CLI 命令，请参阅[将 Azure CLI 与 Resource Manager 配合使用](xplat-cli-azure-resource-manager.md)。
-* 若要了解管理订阅所需的门户功能，请参阅[使用 Azure 门户预览管理资源](resource-group-portal.md)。
+* 若要了解管理订阅所需的门户功能，请参阅[使用 Azure 门户管理资源](resource-group-portal.md)。
 * 若要了解如何向资源应用逻辑组织，请参阅[使用标记组织资源](resource-group-using-tags.md)。

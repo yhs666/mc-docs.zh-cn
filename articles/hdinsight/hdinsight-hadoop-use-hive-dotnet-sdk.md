@@ -143,7 +143,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
 
 * [Azure HDInsight 入门][hdinsight-get-started]
 * [在 HDInsight 中创建 Hadoop 群集][hdinsight-provision]
-* [使用 Azure 门户预览管理 HDInsight 中的 Hadoop 群集](./hdinsight-administer-use-management-portal.md)
+* [使用 Azure 门户管理 HDInsight 中的 Hadoop 群集](./hdinsight-administer-use-management-portal.md)
 * [HDInsight .NET SDK 参考](https://msdn.microsoft.com/zh-cn/library/mt271028.aspx)
 * [将 Pig 与 HDInsight 配合使用](./hdinsight-use-pig.md)
 * [将 Sqoop 与 HDInsight 配合使用](./hdinsight-use-sqoop-mac-linux.md)

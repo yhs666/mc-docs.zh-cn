@@ -1,6 +1,6 @@
 ---
 title: SQL 数据库威胁检测入门
-description: 如何开始在 Azure 门户预览中使用 SQL 数据库威胁检测
+description: 如何开始在 Azure 门户中使用 SQL 数据库威胁检测
 services: sql-database
 documentationCenter: ''
 authors: ronitr
@@ -29,7 +29,7 @@ ms.author: v-johch
 
 ##<a name="set-up-threat-detection-for-your-database"></a> 为数据库设置威胁检测
 
-1. 启动 Azure 门户预览 ([https://portal.azure.cn](https://portal.azure.cn))。
+1. 启动 Azure 门户 ([https://portal.azure.cn](https://portal.azure.cn))。
 
 2. 导航到要监视的 SQL 数据库的配置边栏选项卡。在“设置”边栏选项卡中，选择“审核和威胁检测”。
 
@@ -54,7 +54,7 @@ ms.author: v-johch
 
     ![导航窗格][4]
 
-2. 在电子邮件中，单击“Azure SQL 审核日志”链接以启动 Azure 门户预览，并显示发生可疑事件前后的相关审核记录。
+2. 在电子邮件中，单击“Azure SQL 审核日志”链接以启动 Azure 门户，并显示发生可疑事件前后的相关审核记录。
 
     ![导航窗格][5]
 

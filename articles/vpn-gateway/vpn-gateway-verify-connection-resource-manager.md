@@ -28,7 +28,7 @@ ms.lasthandoff: 05/19/2017
 
 本文介绍如何验证 Resource Manager 和经典部署模型的 VPN 网关连接。
 
-## <a name="verify-using-the-azure-portal-preview"></a>使用 Azure 门户预览进行验证
+## <a name="verify-using-the-azure-portal-preview"></a>使用 Azure 门户进行验证
 
 [!INCLUDE [Azure portal preview](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 05/19/2017
 
 [!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
-## <a name="verify-using-the-azure-portal-preview-classic"></a>使用 Azure 门户预览进行验证（经典）
+## <a name="verify-using-the-azure-portal-preview-classic"></a>使用 Azure 门户进行验证（经典）
 [!INCLUDE [Azure portal preview](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 ## <a name="verify-using-powershell-classic"></a>使用 PowerShell 验证（经典）

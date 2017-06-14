@@ -20,7 +20,7 @@ ms.author: v-dazen
 
 # 使用 Azure Resource Manager 配置应用程序网关以进行 SSL 卸载
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./application-gateway-ssl-portal.md)
+>- [Azure 门户](./application-gateway-ssl-portal.md)
 >- [Azure Resource Manager PowerShell](./application-gateway-ssl-arm.md)
 >- [Azure 经典 PowerShell](./application-gateway-ssl.md)
 

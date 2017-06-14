@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 门户预览为 Azure SQL 数据库启动计划内或计划外故障转移 | Azure
-description: 使用 Azure 门户预览为 Azure SQL 数据库启动计划内或计划外故障转移
+title: 使用 Azure 门户为 Azure SQL 数据库启动计划内或计划外故障转移 | Azure
+description: 使用 Azure 门户为 Azure SQL 数据库启动计划内或计划外故障转移
 services: sql-database
 documentationcenter: ''
 author: anosov1960
@@ -19,19 +19,19 @@ wacn.date: 01/20/2017
 ms.author: v-johch
 ---
 
-# 使用 Azure 门户预览为 Azure SQL 数据库启动计划内或计划外故障转移
+# 使用 Azure 门户为 Azure SQL 数据库启动计划内或计划外故障转移
 
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./sql-database-geo-replication-failover-portal.md)
+>- [Azure 门户](./sql-database-geo-replication-failover-portal.md)
 >- [PowerShell](./sql-database-geo-replication-failover-powershell.md)
 >- [T-SQL](./sql-database-geo-replication-failover-transact-sql.md)
 
-本文介绍了如何使用 [Azure 门户预览](http://portal.azure.cn)为辅助 SQL 数据库启动故障转移。若要配置异地复制，请参阅[为 Azure SQL 数据库配置异地复制](./sql-database-geo-replication-portal.md)。
+本文介绍了如何使用 [Azure 门户](http://portal.azure.cn)为辅助 SQL 数据库启动故障转移。若要配置异地复制，请参阅[为 Azure SQL 数据库配置异地复制](./sql-database-geo-replication-portal.md)。
 
 ## 启动故障转移
 辅助数据库可以通过切换变为主数据库。
 
-1. 在 [Azure 门户预览](http://portal.azure.cn)中浏览到异地复制合作关系中的主数据库。
+1. 在 [Azure 门户](http://portal.azure.cn)中浏览到异地复制合作关系中的主数据库。
 2. 在 SQL 数据库边栏选项卡中，选择“所有设置”>“异地复制”。
 3. 在“辅助数据库”列表中，选择想要其成为新的主数据库的数据库并单击“故障转移”。
 

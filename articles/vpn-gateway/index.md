@@ -72,7 +72,7 @@ ms.lasthandoff: 05/12/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>使用 Azure 门户预览创建站点到站点连接入门</h3>
+                        <h3>使用 Azure 门户创建站点到站点连接入门</h3>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@ ms.lasthandoff: 05/12/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>使用 Azure 门户预览创建点到站点连接入门</h3>
+                        <h3>使用 Azure 门户创建点到站点连接入门</h3>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@ ms.lasthandoff: 05/12/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>使用 Azure 门户预览创建 VNet 到 VNet 连接入门</h3>
+                        <h3>使用 Azure 门户创建 VNet 到 VNet 连接入门</h3>
                     </div>
                 </div>
             </div>

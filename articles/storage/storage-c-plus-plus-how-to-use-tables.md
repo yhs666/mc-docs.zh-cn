@@ -57,7 +57,7 @@ ms.lasthandoff: 04/14/2017
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>设置 Azure 存储连接字符串
-Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。 运行客户端应用程序时，必须提供以下格式的存储连接字符串。 使用 [Azure 门户预览](https://portal.azure.cn)中列出的存储帐户的存储帐户名称和存储访问密钥作为 AccountName 和 AccountKey 值。 有关存储帐户和访问密钥的信息，请参阅[关于 Azure 存储帐户](./storage-create-storage-account.md)。 此示例演示如何声明一个静态字段以保存连接字符串：  
+Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。 运行客户端应用程序时，必须提供以下格式的存储连接字符串。 使用 [Azure 门户](https://portal.azure.cn)中列出的存储帐户的存储帐户名称和存储访问密钥作为 AccountName 和 AccountKey 值。 有关存储帐户和访问密钥的信息，请参阅[关于 Azure 存储帐户](./storage-create-storage-account.md)。 此示例演示如何声明一个静态字段以保存连接字符串：  
 
 ```cpp
 // Define the connection string with your values.

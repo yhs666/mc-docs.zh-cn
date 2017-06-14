@@ -20,7 +20,7 @@ wacn.date: 03/08/2017
 # 如何创建和部署云服务
 
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./cloud-services-how-to-create-deploy-portal.md)
+>- [Azure 门户](./cloud-services-how-to-create-deploy-portal.md)
 >- [Azure 经典管理门户](./cloud-services-how-to-create-deploy.md)
 
 Azure 门户提供了两种创建和部署云服务的方法：“快速创建”和“自定义创建”。
@@ -64,7 +64,7 @@ Azure 门户提供了两种创建和部署云服务的方法：“快速创建�
 
 ## 创建和部署
 
-1. 登录到 [Azure 门户预览](https://portal.azure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 单击“新建”>“计算”，然后向下滚动到“云服务”并单击它。
 
     ![发布云服务](./media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)  

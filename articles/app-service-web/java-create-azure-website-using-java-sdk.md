@@ -211,7 +211,7 @@ AzureWebDemo 应用程序的目的是创建应用服务 Web 应用，因此请�
 * `webSpaceName` 应是 [WebSpaceNames][WebSpaceNames] 类中定义的值之一。
 * `appServicePlanName` 应按照以上所示进行指定。
 
-> **注意：**每次运行此应用程序时，需要更改 `webAppName` 和 `appServicePlanName` 的值（或在 Azure 门户预览上删除 Web 应用），然后再次运行应用程序。 否则，由于 Azure 上已存在相同的资源，所以执行会失败。
+> **注意：**每次运行此应用程序时，需要更改 `webAppName` 和 `appServicePlanName` 的值（或在 Azure 门户上删除 Web 应用），然后再次运行应用程序。 否则，由于 Azure 上已存在相同的资源，所以执行会失败。
 > 
 > 
 
@@ -398,7 +398,7 @@ AzureWebDemo 应用程序的目的是创建应用服务 Web 应用，因此请�
 #### <a name="get-ftp-connection-information"></a>获取 FTP 连接信息
 若要使用 FTP 将应用程序文件部署到新建的 Web 应用，你需要获取连接信息。 可通过两种方法获取连接信息。 一种方法是访问 Web 应用的“仪表板”  页；另一种方法是下载 Web 应用的发布配置文件。 发布配置文件是一个 XML 文件，它提供 Azure 应用服务中 Web 应用的 FTP 主机名和登录凭据等信息。 你可以使用此用户名和密码部署到与 Azure 帐户关联的所有订阅中的任何 Web 应用，而不仅仅是此 Web 应用。
 
-若要从 [Azure 门户预览][Azure Portal Preview]的 Web 应用边栏选项卡中获取 FTP 连接信息：
+若要从 [Azure 门户][Azure Portal Preview]的 Web 应用边栏选项卡中获取 FTP 连接信息：
 
 1. 在 **Essentials** 下查找并复制**FTP 主机名**。 这是类似于 `ftp://waws-prod-bay-NNN.ftp.azurewebsites.chinacloudapi.cn` 的 URI。
 2. 在 **Essentials** 下查找并复制 **FTP/部署用户名**。 此值的形式为 *webappname\deployment-username*；例如 `WebDemoWebApp\deployer77`。

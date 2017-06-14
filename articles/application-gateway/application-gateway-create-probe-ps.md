@@ -21,7 +21,7 @@ ms.author: v-dazen
 
 # 使用适用于 Azure 资源管理器的 PowerShell 创建 Azure 应用程序网关的自定义探测
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./application-gateway-create-probe-portal.md)
+>- [Azure 门户](./application-gateway-create-probe-portal.md)
 >- [Azure Resource Manager PowerShell](./application-gateway-create-probe-ps.md)
 >- [Azure 经典 PowerShell](./application-gateway-create-probe-classic-ps.md)
 

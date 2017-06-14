@@ -144,7 +144,7 @@ $certBytes = [System.Convert]::FromBase64String($vnet.Properties.certBlob)
 
 可在 **$Configuration.GeneratedCertificatePath** 指定的位置找到证书。
 
-若要手动上载证书，请在 [Azure 门户预览][azureportal]中，选择“浏览虚拟网络(经典)”>“VPN 连接”>“点到站点”>“管理证书”。从此处上载证书。
+若要手动上载证书，请在 [Azure 门户][azureportal]中，选择“浏览虚拟网络(经典)”>“VPN 连接”>“点到站点”>“管理证书”。从此处上载证书。
 
 ##### 获取点到站点包 #####
 

@@ -22,7 +22,7 @@ ms.author: v-johch
 # 使用 Transact-SQL 为 Azure SQL 数据库启动计划内或计划外故障转移
 
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./sql-database-geo-replication-failover-portal.md)
+>- [Azure 门户](./sql-database-geo-replication-failover-portal.md)
 >- [PowerShell](./sql-database-geo-replication-failover-powershell.md)
 >- [Transact-SQL](./sql-database-geo-replication-failover-transact-sql.md)
 

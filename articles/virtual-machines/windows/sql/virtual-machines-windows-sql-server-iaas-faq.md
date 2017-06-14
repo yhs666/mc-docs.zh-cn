@@ -27,7 +27,7 @@ ms.author: v-dazen
 ## 常见问题
 1. **如何创建装有 SQL Server 的 Azure 虚拟机？**
 
-    最简单的解决方法是创建包含 SQL Server 的虚拟机。有关注册 Azure 并从门户创建 SQL VM 的教程，请参阅[在 Azure 门户预览中预配 SQL Server 虚拟机](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)。可以选择按分钟支付 SQL Server 许可费的虚拟机映像，或者使用允许自带 SQL Server 许可证的映像。也可以选择手动在 VM 上安装 SQL Server，并重复使用本地许可证。如果自带许可证，必须提供 [Azure 上通过软件保障实现的许可移动性](https://www.azure.cn/pricing/license-mobility/)。
+    最简单的解决方法是创建包含 SQL Server 的虚拟机。有关注册 Azure 并从门户创建 SQL VM 的教程，请参阅[在 Azure 门户中预配 SQL Server 虚拟机](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)。可以选择按分钟支付 SQL Server 许可费的虚拟机映像，或者使用允许自带 SQL Server 许可证的映像。也可以选择手动在 VM 上安装 SQL Server，并重复使用本地许可证。如果自带许可证，必须提供 [Azure 上通过软件保障实现的许可移动性](https://www.azure.cn/pricing/license-mobility/)。
 2. **SQL VM 与 SQL 数据库服务之间的差别是什么？**
 
     从概念上讲，在 Azure 虚拟机上运行 SQL Server 与在远程数据中心运行 SQL Server 并没什么不同。相比之下，[SQL 数据库](../../../sql-database/sql-database-technical-overview.md)可提供数据库即服务。使用 SQL 数据库时，无法访问托管数据库的计算机。有关完整比较，请参阅[选择云 SQL Server 选项：Azure SQL (PaaS) 数据库或 Azure VM 上的 SQL Server (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)。
@@ -70,7 +70,7 @@ ms.author: v-dazen
 
 其他资源包括：
 
-* [在 Azure 门户预览中预配 SQL Server 虚拟机](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
+* [在 Azure 门户中预配 SQL Server 虚拟机](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
 * [将数据库迁移到 Azure VM 上的 SQL Server](../../windows/sql/virtual-machines-windows-migrate-sql.md)
 * [Azure 虚拟机中 SQL Server 的高可用性和灾难恢复](../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md)
 * [Azure 虚拟机中 SQL Server 的性能最佳实践](../../windows/sql/virtual-machines-windows-sql-performance.md)

@@ -31,7 +31,7 @@ ms.lasthandoff: 05/26/2017
 
 以下部分包含使用 Azure [门户](#portal)、Azure [命令行界面](#cli) (CLI)、Azure [PowerShell](#powershell) 和 Azure Resource Manager [模板](#template)部署 VNet 的步骤。 不管选择使用哪种工具来部署 VNet，结果都是一样的。 单击任一工具的链接会直接转到本文的相关部分。 若要详细了解所有的 VNet 和子网设置，请阅读[管理 VNet](virtual-network-manage-network.md) 和[管理子网](virtual-network-manage-subnet.md)这两篇文章。
 
-## <a name="portal"></a>Azure 门户预览
+## <a name="portal"></a>Azure 门户
 
 1. 在 Internet 浏览器中打开 Azure [门户](https://portal.azure.cn)并使用 Azure [帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录。 如果还没有帐户，可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial)。
 2. 在门户中，单击“+ 新建” > “网络” > “虚拟网络”。
@@ -124,7 +124,7 @@ az network vnet subnet create \
 ### <a name="template-portal"></a>门户
 
 1. 在浏览器中打开模板[网页](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)。
-2. 单击“部署到 Azure”按钮，打开 Azure 门户预览登录页。
+2. 单击“部署到 Azure”按钮，打开 Azure 门户登录页。
 3. 使用 Azure [帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录到门户。 如果还没有帐户，可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial)。
 4. 输入以下参数值：
 

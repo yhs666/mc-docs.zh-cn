@@ -185,7 +185,7 @@ HDInsight 群集支持以下特定于 Hadoop 技术堆栈的语言：
 
 * [Get started with Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)（HDInsight 中的 Hadoop 入门）：有关预配 HDInsight Hadoop 群集和运行示例 Hive 查询的快速入门教程。
 * [HDInsight 中的 Spark 入门](hdinsight-apache-spark-jupyter-spark-sql.md)：有关创建 Spark 群集和运行交互式 Spark SQL 查询的快速入门教程。
-* [预配 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)：了解如何通过 Azure 门户预览、Azure CLI 或 Azure PowerShell 预配 HDInsight Hadoop 群集。
+* [预配 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)：了解如何通过 Azure 门户、Azure CLI 或 Azure PowerShell 预配 HDInsight Hadoop 群集。
 
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/

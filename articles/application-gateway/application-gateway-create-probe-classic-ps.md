@@ -22,7 +22,7 @@ ms.author: v-dazen
 # 使用 PowerShell 创建 Azure 应用程序网关（经典）的自定义探测
 
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./application-gateway-create-probe-portal.md)
+>- [Azure 门户](./application-gateway-create-probe-portal.md)
 >- [Azure Resource Manager PowerShell](./application-gateway-create-probe-ps.md)
 >- [Azure 经典 PowerShell](./application-gateway-create-probe-classic-ps.md)
 

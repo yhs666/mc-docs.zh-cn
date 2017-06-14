@@ -21,7 +21,7 @@ ms.author: v-dazen
 
 # 使用门户创建具有 Web 应用程序防火墙的应用程序网关
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./application-gateway-web-application-firewall-portal.md)
+>- [Azure 门户](./application-gateway-web-application-firewall-portal.md)
 >- [Azure Resource Manager PowerShell](./application-gateway-web-application-firewall-powershell.md)
 
 Azure 应用程序网关中的 Web 应用程序防火墙 (WAF) 可保护 Web 应用程序，使其免受常见 Web 攻击的威胁，例如 SQL 注入、跨站点脚本攻击和会话劫持。Web 应用程序可以防止 OWASP 十大常见 Web 漏洞中的大部分漏洞。
@@ -53,7 +53,7 @@ Azure 应用程序网关需要自己的子网。在创建虚拟网络时，请�
 
 ### 步骤 1
 
-导航到 Azure 门户预览，然后选择现有的应用程序网关。
+导航到 Azure 门户，然后选择现有的应用程序网关。
 
 ![创建应用程序网关][1]  
 
@@ -86,7 +86,7 @@ Azure 应用程序网关需要自己的子网。在创建虚拟网络时，请�
 
 ### 步骤 1
 
-导航到 Azure 门户预览，单击“新建”>“网络”>“应用程序网关”
+导航到 Azure 门户，单击“新建”>“网络”>“应用程序网关”
 
 ![创建应用程序网关][1-1]  
 

@@ -49,7 +49,7 @@ ms.lasthandoff: 05/26/2017
 除了为缓存生成程序集引用，NuGet 包还在 *web.config* 文件中添加存根项。 
 
 1. 打开 *web.config* 并查找 **sessionState** 元素。
-2. 输入 `host`、`accessKey`、 `port` 的值（SSL 端口应为 6380），并将 `SSL` 设置为 `true`。 可以从 [Azure 门户预览](/app-service-web/app-service-web-app-azure-portal)边栏选项卡为缓存实例获取这些值。 有关详细信息，请参阅[连接到缓存](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache)。 请注意，默认情况下，将为新缓存禁用非 SSL 端口。 有关启用非 SSL 端口的详细信息，请参阅[在 Azure Redis 缓存中配置缓存](https://msdn.microsoft.com/library/azure/dn793612.aspx)主题中的[访问端口](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts)部分。 以下标记显示了对 *web.config* 文件所做的更改，具体而言，是对 *port*、*host*、accessKey* 和 *ssl* 的更改。
+2. 输入 `host`、`accessKey`、 `port` 的值（SSL 端口应为 6380），并将 `SSL` 设置为 `true`。 可以从 [Azure 门户](/app-service-web/app-service-web-app-azure-portal)边栏选项卡为缓存实例获取这些值。 有关详细信息，请参阅[连接到缓存](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache)。 请注意，默认情况下，将为新缓存禁用非 SSL 端口。 有关启用非 SSL 端口的详细信息，请参阅[在 Azure Redis 缓存中配置缓存](https://msdn.microsoft.com/library/azure/dn793612.aspx)主题中的[访问端口](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts)部分。 以下标记显示了对 *web.config* 文件所做的更改，具体而言，是对 *port*、*host*、accessKey* 和 *ssl* 的更改。
 
           <system.web>;
             <customErrors mode="Off" />;

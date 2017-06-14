@@ -39,7 +39,7 @@ ms.lasthandoff: 05/26/2017
 
 | 使用此方法来应用脚本... | 在创建群集期间... | 在运行中的群集上... |
 | --- |:---:|:---:|
-| Azure 门户预览 |✓ |✓ |
+| Azure 门户 |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
 | Azure CLI |&nbsp; |✓ |
 | HDInsight .NET SDK |✓ |✓ |
@@ -325,7 +325,7 @@ fi
 
 可以使用以下方法通过脚本操作自定义 HDInsight 群集：
 
-* Azure 门户预览
+* Azure 门户
 * Azure PowerShell
 * Azure Resource Manager 模板
 * HDInsight .NET SDK。

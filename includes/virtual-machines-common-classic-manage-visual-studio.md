@@ -157,6 +157,6 @@
 
 ## 后续步骤
 
-若要了解有关创建虚拟机的详细信息，请参阅[创建运行 Linux 的虚拟机](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md)和 [在 Azure 门户预览中创建运行 Windows 的虚拟机](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md)。
+若要了解有关创建虚拟机的详细信息，请参阅[创建运行 Linux 的虚拟机](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md)和 [在 Azure 门户中创建运行 Windows 的虚拟机](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md)。
 
 <!---HONumber=Mooncake_1114_2016-->

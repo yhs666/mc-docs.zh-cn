@@ -26,7 +26,7 @@ ms.lasthandoff: 05/19/2017
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>使用 PowerShell 从不同的部署模型连接虚拟网络
 
-本文介绍如何将经典 VNet 连接到 Resource Manager VNet，以使位于单独部署模型中的资源能够相互通信。 本文中的步骤使用 PowerShell 完成，但也可通过从此列表中选择文章使用 Azure 门户预览来创建此配置。
+本文介绍如何将经典 VNet 连接到 Resource Manager VNet，以使位于单独部署模型中的资源能够相互通信。 本文中的步骤使用 PowerShell 完成，但也可通过从此列表中选择文章使用 Azure 门户来创建此配置。
 
 > [!div class="op_single_selector"]
 > * [门户](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -150,7 +150,7 @@ Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
 
 ### <a name="part-6---create-the-gateway"></a>第 6 部分 - 创建网关
 
-运行此示例之前，请参阅所下载的网络配置文件，了解 Azure 所需要的确切名称。 网络配置文件包含经典虚拟网络的值。 有时候，在 Azure 门户预览中创建经典 VNet 设置时，会更改网络配置文件中的经典 VNet 的名称，因为部署模型中存在差异。 例如，如果使用 Azure 门户预览创建名为“Classic VNet”的经典 VNet，并且是在名为“ClassicRG”的资源组中创建，则包含在网络配置文件中的名称会转换为“Group ClassicRG Classic VNet”。 指定包含空格的 VNet 的名称时，请使用引号将值引起来。
+运行此示例之前，请参阅所下载的网络配置文件，了解 Azure 所需要的确切名称。 网络配置文件包含经典虚拟网络的值。 有时候，在 Azure 门户中创建经典 VNet 设置时，会更改网络配置文件中的经典 VNet 的名称，因为部署模型中存在差异。 例如，如果使用 Azure 门户创建名为“Classic VNet”的经典 VNet，并且是在名为“ClassicRG”的资源组中创建，则包含在网络配置文件中的名称会转换为“Group ClassicRG Classic VNet”。 指定包含空格的 VNet 的名称时，请使用引号将值引起来。
 
 使用以下示例创建动态路由网关：
 
@@ -290,7 +290,7 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-classic](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
-#### <a name="azure-portal-preview"></a>Azure 门户预览
+#### <a name="azure-portal-preview"></a>Azure 门户
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
@@ -300,7 +300,7 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 
 [!INCLUDE [vpn-gateway-verify-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-#### <a name="azure-portal-preview"></a>Azure 门户预览
+#### <a name="azure-portal-preview"></a>Azure 门户
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

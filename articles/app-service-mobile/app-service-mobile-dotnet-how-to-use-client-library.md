@@ -63,7 +63,7 @@ public class TodoItem
 
 [JsonPropertyAttribute][6] 用于定义客户端字段与表字段之间的 *PropertyName* 映射。
 
-若要了解如何在移动应用后端中创建表，请参阅 [.NET 服务器 SDK 主题][7]或 [Node.js 服务器 SDK 主题][8]。如果已在 Azure 门户预览中使用快速入门项目创建移动应用后端，也可以在 [Azure 门户预览]中使用“简易表”设置。
+若要了解如何在移动应用后端中创建表，请参阅 [.NET 服务器 SDK 主题][7]或 [Node.js 服务器 SDK 主题][8]。如果已在 Azure 门户中使用快速入门项目创建移动应用后端，也可以在 [Azure 门户]中使用“简易表”设置。
 
 ###如何安装托管的客户端 SDK 包
 
@@ -93,7 +93,7 @@ using Microsoft.WindowsAzure.MobileServices;
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-在上述代码中，请将 `MOBILE_APP_URL` 替换为移动应用后端的 URL，可以在 [Azure 门户预览]中移动应用后端的边栏选项卡内找到此 URL。MobileServiceClient 对象应为单一实例。
+在上述代码中，请将 `MOBILE_APP_URL` 替换为移动应用后端的 URL，可以在 [Azure 门户]中移动应用后端的边栏选项卡内找到此 URL。MobileServiceClient 对象应为单一实例。
 
 ## 使用表
 
@@ -1110,7 +1110,7 @@ public async Task CallClientWithHandler()
 [UpdateAsync]: https://msdn.microsoft.com/zh-cn/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: http://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/zh-cn/library/azure/dn250579(v=azure.10).aspx
-[Azure 门户预览]: https://portal.azure.cn/
+[Azure 门户]: https://portal.azure.cn/
 [Azure 经典管理门户]: https://manage.windowsazure.cn/
 [EnableQueryAttribute]: https://msdn.microsoft.com/zh-cn/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/zh-cn/library/system.guid.newguid(v=vs.110).aspx
