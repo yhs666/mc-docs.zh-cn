@@ -67,7 +67,8 @@ az group create --name myResourceGroup --location chinanorth
 > * 区域（中国北部、中国东部） 
 > * 实例大小（小、中、大） 
 > * 规模计数（一个、两个、三个实例，等等） 
-> * SKU（免费、共享、基本、标准、高级）> 
+> * SKU（免费、共享、基本、标准、高级）
+> 
 
 以下示例创建一个名为 `myAppServicePlan` 且使用**基本**定价层的应用服务计划。
 
