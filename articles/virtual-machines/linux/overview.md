@@ -54,7 +54,7 @@ Azure 支持运行由多家合作伙伴提供和维护的众多热门 Linux 分�
 * [Azure 模板](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure VMAccess](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-Azure 正在支持它的大多数 Linux 发行版中推出 [cloud-init](http://cloud-init.io/) 支持。  目前，默认情况下 Canonical Ubuntu VM 在启用 cloud-init 的情况下进行部署。  RedHats RHEL、CentOS 和 Fedora 支持 cloud-init，但 RedHat 维护的 Azure 映像未安装 cloud-init。  若要在 RedHat 系列 OS 上使用 cloud-init，必须创建安装了 cloud-init 的自定义映像。
+Azure 正在支持它的大多数 Linux 发行版中推出 [cloud-init](http://cloud-init.io/) 支持。  目前，默认情况下 Canonical Ubuntu VM 在启用 cloud-init 的情况下进行部署。  RedHats RHEL、CentOS 和 Fedora 支持 cloud-init。
 
 * [在 Azure Linux VM 上使用 cloud-init](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
