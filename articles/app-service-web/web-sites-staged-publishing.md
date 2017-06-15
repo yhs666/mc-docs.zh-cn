@@ -225,7 +225,7 @@ Azure CLI 提供了适用于 Azure 的跨平台命令，包括对管理应用服
 * 若要在 Azure CLI 中列出可用于 Azure 应用服务的命令，请调用 `azure site -h`。
 
 > [!NOTE] 
-> 若要了解部署槽的 [Azure CLI 2.0](https://github.com/Azure/azure-cli) 命令，请参阅 [az appservice web 部署槽](https://docs.microsoft.com/cli/azure/appservice/web/deployment/slot)。
+> 若要了解部署槽的 [Azure CLI 2.0](https://github.com/Azure/azure-cli) 命令，请参阅 [az appservice web 部署槽](https://docs.microsoft.com/cli/azure/webapp/deployment/slot)。
 
 - - -
 ### <a name="azure-site-list"></a>azure site list
