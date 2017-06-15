@@ -62,7 +62,7 @@ az appservice plan update --number-of-workers 2 --name AppServiceManualScalePlan
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | 创建应用服务计划。 这与 Azure Web 应用的服务器场类似。 |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) | 创建应用服务计划中的 Azure Web 应用。 |
+| [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) | 创建应用服务计划中的 Azure Web 应用。 |
 | [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#update) | 更新应用服务计划的属性。 |
 
 ## <a name="next-steps"></a>后续步骤
