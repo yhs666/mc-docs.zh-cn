@@ -307,7 +307,7 @@ require_once(ABSPATH. 'wp-settings.php');
 ### Umbraco
 在本部分中，会学习 Umbraco CMS 如何使用自定义模块跨多个 DevOps 环境进行部署。本示例提供用于管理多个开发环境的不同方法。
 
-[Umbraco CMS](http://umbraco.com/) 是许多开发人员使用的常用 .NET CMS 解决方案。它提供 [Courier2](http://umbraco.com/products/more-add-ons/courier-2) 模块，可用于从开发环境部署到过渡环境，再部署到生产环境。可使用 Visual Studio 或 WebMatrix 为 Umbraco CMS Web 应用轻松创建本地开发环境。
+[Umbraco CMS](http://umbraco.com/) 是许多开发人员使用的常用 .NET CMS 解决方案。它提供 Courier2 模块，可用于从开发环境部署到过渡环境，再部署到生产环境。可使用 Visual Studio 或 WebMatrix 为 Umbraco CMS Web 应用轻松创建本地开发环境。
 
 - [使用 Visual Studio 创建 Umbraco Web 应用](https://our.umbraco.org/documentation/Installation/install-umbraco-with-nuget)
 - [使用 WebMatrix 创建 Umbraco Web 应用](http://umbraco.tv/videos/umbraco-v7/implementor/fundamentals/installation/creating-umbraco-site-from-webmatrix-web-gallery/)
@@ -364,7 +364,7 @@ require_once(ABSPATH. 'wp-settings.php');
      </repositories>
     ```
 
-4. 在 `<repositories>` 下面输入生产站点 URL 和用户信息。如果使用默认的 Umbraco 成员资格提供程序，则在 <user> 部分中添加管理用户的 ID。如果使用自定义的 Umbraco 成员资格提供程序，则使用 Courier2 模块中的 `<login>`、`<password>` 连接到生产站点。有关更多详细信息，[请参阅 Courier2 模块文档](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation)。
+4. 在 `<repositories>` 下面输入生产站点 URL 和用户信息。如果使用默认的 Umbraco 成员资格提供程序，则在 <user> 部分中添加管理用户的 ID。如果使用自定义的 Umbraco 成员资格提供程序，则使用 Courier2 模块中的 `<login>`、`<password>` 连接到生产站点。
 
 5. 同样，在生产站点上安装 Courier2 模块，并在其相应的 courier.config 文件中将其配置为指向过渡 Web 应用，如下所示。
 

@@ -100,7 +100,6 @@ ms.lasthandoff: 04/28/2017
     [应用服务定价详细信息](https://www.azure.cn/pricing/details/app-service/)
 
     [应用服务定价详细信息 - SSL 连接](https://www.azure.cn/pricing/details/app-service/)
-* 有关 Azure 应用服务最佳实践（包括构建可缩放、有弹性的体系结构）的信息，请参阅 [Best Practices: Azure 应用服务 Web 应用](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)（最佳实践：Azure 应用服务 Web 应用）。
 
 <!-- LINKS -->
 [vmsizes]:https://www.azure.cn/pricing/details/app-service/

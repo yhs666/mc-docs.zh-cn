@@ -43,14 +43,14 @@ ms.lasthandoff: 05/26/2017
 * 如何查看 Web 服务器日志，包括详细的错误消息和失败请求跟踪。
 * 如何将诊断日志发送至 Azure 存储帐户并在其中进行查看。
 
-如果有 Visual Studio Ultimate，还可以使用 [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) 进行调试。 本教程未介绍 IntelliTrace。
+如果有 Visual Studio Ultimate，还可以使用 [IntelliTrace](http://msdn.microsoft.com/library/dd264915.aspx) 进行调试。 本教程未介绍 IntelliTrace。
 
 ## <a name="prerequisites"></a>先决条件
 本教程适用于 [Azure 和 ASP.NET 入门][GetStarted]中设置的开发环境、Web 项目和 Azure Web 应用。 对于 WebJobs 部分，需要用到在 [Azure WebJobs SDK 入门][GetStartedWJ]中创建的应用程序。
 
 在本教程中所示的代码示例适用于 C# MVC Web 应用程序，但对于 Visual Basic 和 Web 窗体应用程序，故障排除过程是一样的。
 
-本教程假设使用 Visual Studio 2015 或 2013。 如果使用 Visual Studio 2013，Web 作业功能需要 [Update 4](http://go.microsoft.com/fwlink/?LinkID=510314) 或更高版本。
+本教程假设使用 Visual Studio 2015 或 2013。 如果使用 Visual Studio 2013，Web 作业功能需要 [Update 4](https://www.microsoft.com/download/details.aspx?id=45326) 或更高版本。
 
 流式日志功能仅适用于面向 .NET Framework 4 或更高版本的应用程序。
 
@@ -77,8 +77,6 @@ ms.lasthandoff: 05/26/2017
     ![“Azure Web 应用”窗口](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
 
     本教程将介绍如何使用日志记录和跟踪下拉列表。 其中，还将用到远程调试，但会通过不同方式启用该调试。
-
-    有关该窗口中“应用程序设置”和“连接字符串”框的信息，请参阅 [Azure Web 应用：应用程序字符串和连接字符串的工作原理](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)。
 
     如果要执行的 Web 应用管理任务无法在此窗口进行，请单击“在管理门户中打开”，以便在浏览器窗口中打开 Azure 门户。
 
@@ -137,7 +135,7 @@ ms.lasthandoff: 05/26/2017
             ViewBag.Message = "The current time is " + currentTime;
             return View();
         }
-4. 在 `ViewBag.Message` 行上[设置一个断点](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)。
+4. 在 `ViewBag.Message` 行上设置一个断点。
 5. 在“解决方案资源管理器”中，右键单击该项目并单击“发布”。
 6. 在“配置文件”下拉列表中，选择与 [Azure 和 ASP.NET 入门][GetStarted]中所用相同的配置文件。
 7. 单击“设置”选项卡，将“配置”更改为“调试”，然后单击“发布”。
@@ -175,7 +173,7 @@ ms.lasthandoff: 05/26/2017
 
 1. 打开在 [Azure WebJobs SDK 入门][GetStartedWJ]中创建的 Web 项目。
 2. 在 ContosoAdsWebJob 项目中，打开 *Functions.cs*。
-3. 在 `GnerateThumbnail` 方法的第一个语句中[设置一个断点](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)。
+3. 在 `GnerateThumbnail` 方法的第一个语句中设置一个断点。
 
     ![设置断点](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 4. 在“解决方案资源管理器”中，右键单击该 Web 项目（而非 WebJob 项目），然后单击“发布”。
@@ -224,9 +222,9 @@ ms.lasthandoff: 05/26/2017
           <compilation debug="true" targetFramework="4.5" />
           <httpRuntime targetFramework="4.5" />
         </system.web>
-* 如果发现调试程序并未针对希望调试的代码展开行动，可能需要更改“仅我的代码”设置。  有关详细信息，请参阅[限制为仅逐行调试我的代码](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code)。
+* 如果发现调试程序并未针对希望调试的代码展开行动，可能需要更改“仅我的代码”设置。  有关详细信息，请参阅[限制为仅逐行调试我的代码](http://msdn.microsoft.com/library/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code)。
 * 启用远程调试功能时，服务器上会出现一个计时器，48 小时后该功能将自动关闭。 这一 48 小时的限制是出于安全性与性能的考虑。 可以根据需要轻松地多次重启该功能。 我们建议，在不主动进行调试的时候，保持其处于禁用状态。
-* 可以手动将调试器附加到任何进程，而不仅仅是 Web 应用进程 (w3wp.exe)。 有关如何在 Visual Studio 中使用调试模式的信息，请参阅[在 Visual Studio 中进行调试](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)。
+* 可以手动将调试器附加到任何进程，而不仅仅是 Web 应用进程 (w3wp.exe)。 有关如何在 Visual Studio 中使用调试模式的信息，请参阅[在 Visual Studio 中进行调试](http://msdn.microsoft.com/library/sc65sadd.aspx)。
 
 ## <a name="logsoverview"></a>诊断日志概述
 运行在 Azure Web 应用中的 ASP.NET 应用程序可以创建以下几类日志：
@@ -308,7 +306,7 @@ ms.lasthandoff: 05/26/2017
           </system.diagnostics>
 
     `WebPageTraceListener` 允许通过浏览至 `/trace.axd` 查看跟踪输出。
-3. 将<a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">跟踪元素</a>添加到 Web.config file 文件中的 `<system.web>` 下面，如下所示：
+3. 将<a href="http://msdn.microsoft.com/library/6915t83k(v=vs.100).aspx">跟踪元素</a>添加到 Web.config file 文件中的 `<system.web>` 下面，如下所示：
 
         <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 4. 按 Ctrl+F5 运行应用程序。
@@ -585,7 +583,7 @@ Azure Web 应用使用 IIS 7.0 及更高版本中提供的相同失败请求跟�
 * [CSDN](http://azure.csdn.net/)。
 
 ### <a name="debugging-in-visual-studio"></a>在 Visual Studio 中进行调试
-有关如何在 Visual Studio 中使用调试模式，请参阅[在 Visual Studio 中进行调试](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) MSDN 主题和[使用 Visual Studio 2010 进行调试的提示](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx)。
+有关如何在 Visual Studio 中使用调试模式，请参阅[在 Visual Studio 中进行调试](http://msdn.microsoft.com/library/sc65sadd.aspx) MSDN 主题和[使用 Visual Studio 2010 进行调试的提示](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx)。
 
 ### <a name="remote-debugging-in-azure"></a>在 Azure 中进行远程调试
 有关 Azure Web 应用和 WebJobs 远程调试的详细信息，请参阅以下资源：
