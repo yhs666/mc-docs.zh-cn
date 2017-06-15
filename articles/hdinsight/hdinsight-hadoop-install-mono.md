@@ -27,7 +27,7 @@ ms.lasthandoff: 05/26/2017
 
 # <a name="install-or-update-mono-on-hdinsight"></a>在 HDInsight 上安装或更新 Mono
 
-了解如何在 HDInsight 3.4 或更高版本上安装特定版本的 [Mono](https://www.mono-project.com)。
+了解如何在 HDInsight 3.4 或更高版本上安装特定版本的 [Mono](http://www.mono-project.com)。
 
 Mono 安装在 HDInsight 3.4 及更高版本上，用于运行 .NET 应用程序。 有关每个 HDInsight 版本包含的 Mono 版本的信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md)。 若要在群集上安装不同版本，请使用本文档中的脚本操作。 
 
