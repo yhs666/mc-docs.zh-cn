@@ -47,27 +47,6 @@ Microsoft Azure IoT 套件快速入门。 使用预配置解决方案，并加�
 
 ---
 
-<h2>引用</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>资源</h3>
-                        <p><a href="/iot-suite/iot-security-architecture">安全体系结构</a></p>
-                        <p><a href="/iot-suite/iot-security-best-practices">安全最佳实践</a></p>
-                        <p><a href="/iot-suite/iot-suite-security-deployment">保护你的 IoT 部署</a></p>
-                        <p><a href="/iot-suite/securing-iot-ground-up">安全基础知识</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
----
-
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-suite.pdf">
         <div class="img"></div>

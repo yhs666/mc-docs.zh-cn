@@ -586,8 +586,6 @@ ms.lasthandoff: 05/12/2017
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> <http://blogs.msdn.com/b/wats/archive/2014/02/17/bginfo-guest-agent-extension-for-azure-vms.aspx>
->
 > ![Linux][Logo_Linux] Linux
 >
 > [Azure Linux 代理用户指南][virtual-machines-linux-agent-user-guide]
