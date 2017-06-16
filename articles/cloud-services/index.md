@@ -80,38 +80,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
  </ul>
-
----
-
-<h2>参考</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>语言</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee758711">.csdef XMLSchema</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee758710">.cscfg XMLSchema</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee460812">REST API</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
+ 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cloud-services.pdf">
         <div class="img"></div>

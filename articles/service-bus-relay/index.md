@@ -86,22 +86,3 @@ ms.lasthandoff: 05/26/2017
         </a>
     </li>
 </ul>
-
----
-
-<h2>引用</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.relay">Microsoft.Azure.Relay</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
