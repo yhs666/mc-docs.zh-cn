@@ -62,39 +62,3 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
 </ul>
-
----
-
-<h2>引用</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>命令行</h3>
-                        <p><a href="/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">PowerShell cmdlet</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>语言</h3>
-                        <p><a href="/sql-data-warehouse/sql-data-warehouse-service-capacity-limits">容量限制</a></p>
-                        <p><a href="/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements">T-SQL 语言元素</a></p>
-                        <p><a href="/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements">T-SQL 语句</a></p>
-                        <p><a href="/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views">T-SQL 系统视图</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
-
-

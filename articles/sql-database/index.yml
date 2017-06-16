@@ -55,19 +55,3 @@ sections:
     items:
     - html: <a href="/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
     - html: <a href="/sql-database/sql-database-cli-samples">Azure CLI</a>
-- title: 引用
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: 命令行
-      html: <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">Azure PowerShell（弹性 DB）</a></p><p><a href="https://docs.microsoft.com/cli/azure/sql">Azure CLI 2.0</a></p>
-    - title: 语言
-      html: '<p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>'
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/sql/">REST API 参考</a></p>
-    - title: SQL Server 工具
-      html: '<p><a href="https://msdn.microsoft.com/library/mt238365.aspx">SQL Server 工具</a></p><p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p><p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SQL Server Data Tools (SSDT)</a></p><p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p><p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p><p><a href="https://msdn.microsoft.com/hh550080.aspx">SqlPackage</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">SQL 数据库管理库包</a></p>'
-    - title: SQL Server 驱动程序
-      html: '<p><a href="https://msdn.microsoft.com/library/mt654049.aspx">SQL Server 驱动程序</a></p><p><a href="https://msdn.microsoft.com/library/mt657768.aspx">ADO.NET</a></p><p><a href="https://msdn.microsoft.com/library/mt484311.aspx">JDBC</a></p><p><a href="https://msdn.microsoft.com/library/mt654048.aspx">ODBC</a></p>'
