@@ -16,20 +16,11 @@ metadata:
   ms.author: carolz
 abstract:
   description: 使用 Azure Web 应用可以采用所选编程语言构建和托管 Web 应用程序，而无需管理基础结构。 它提供自动缩放和高可用性，支持 Windows 和 Linux，并允许从 GitHub、Team Services 或任何 Git 存储库进行自动部署。 使用我们的快速入门、教程和示例了解如何使用 Azure Web 应用。
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: /app-service-web/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
-      width: 250  
-    title: '使用 Node.js 和 Azure 应用服务创建 Web 应用。 (2:41)'
-    href: https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
-    width: 250
 sections:
 - title: 5 分钟快速入门
   items:
   - type: paragraph
-    text: 'Learn how to deploy your first application to the cloud using Web Apps:'
+    text: 了解如何使用 Web 应用将你的第一个应用程序部署到云：
   - type: list
     style: icon48
     items: 
@@ -60,36 +51,22 @@ sections:
 - title: 分步教程
   items:
   - type: paragraph
-    text: Learn how to deploy, manage, and monitor secure web applications on Azure
+    text: 了解如何在 Azure 上部署、管理和监视安全的 Web 应用程序
   - type: list
     style: ordered
     items:
-    - html: Create an application using <a href="/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">.NET with Azure SQL DB</a> or <a href="/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>
-    - html: <a href="/app-service-web/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
-- title: 免费 PluralSight 视频培训
-  items:
-  - type: list
-    style: cards
-    className: cardsW
-    items:
-    - html: <p><a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Developing with .NET</a></p>
-      image: 
-        src: /app-service-web/media/index/video-training-dotnet.png
-        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: <p><a href="https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Developing with Node.js</a></p>
-      image: 
-        src: /app-service-web/media/index/video-training-nodejs.png
-        href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+    - html: 将 <a href="/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">.NET 与 Azure SQL DB 配合使用</a>或将 <a href="/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js 与 MongoDB 配合使用</a>来创建应用程序
+    - html: <a href="/app-service-web/app-service-web-tutorial-custom-domain">将现有自定义域映射到应用程序</a>
 - title: 示例
   items:
   - type: paragraph
-    text: Find scripts to manage common tasks.
+    text: 查找脚本来管理常见任务。
   - type: list
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-    - html: <a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a>
+    - html: '<a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a>'
+    - html: '<a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a>'
 - title: 引用
   items:
   - type: list
@@ -97,8 +74,8 @@ sections:
     className: cardsD
     items:
     - title: 命令行
-      html: <p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a></p>
+      html: '<p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a></p>'
     - title: 语言
-      html: <p><a href="https://docs.microsoft.com/dotnet/api">.NET</a></p><p><a href="https://docs.microsoft.com/java/api/">Java</a></p>
+      html: '<p><a href="https://docs.microsoft.com/dotnet/api">.NET</a></p><p><a href="https://docs.microsoft.com/java/api/">Java</a></p>'
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a></p>
+      html: '<p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a></p>'

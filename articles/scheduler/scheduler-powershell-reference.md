@@ -66,7 +66,7 @@ Get-Help <cmdlet name> -Full
 
  [Azure 计划程序的概念、术语和实体层次结构](scheduler-concepts-terms.md)
 
- [开始在 Azure 门户预览中使用计划程序](scheduler-get-started-portal.md)
+ [开始在 Azure 门户中使用计划程序](scheduler-get-started-portal.md)
 
  [Azure 计划程序中的计划和计费](scheduler-plans-billing.md)
 

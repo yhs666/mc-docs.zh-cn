@@ -155,13 +155,13 @@ ms.lasthandoff: 05/26/2017
                                             <div class="cardText">
                                                 <h3>命令行工具</h3>
                                                 <div class="ico48Link">
-                                                    <a href="https://docs.microsoft.com/cli/azure/overview">
+                                                    <a href="/cli-install-nodejs">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
-                                                        <span>Azure<br />CLI</span>
+                                                        <span>Azure<br />CLI 1.0</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="https://docs.microsoft.com/powershell/azure/overview">
+                                                    <a href="/powershell-install-configure">
                                                         <img src="media/index/azure_dev-8.svg" alt="">
                                                         <span>Azure<br />PowerShell</span>
                                                     </a>
@@ -543,12 +543,6 @@ ms.lasthandoff: 05/26/2017
                                             <a href="/monitoring-and-diagnostics/">
                                                 <img src="media/index/AzureMonitoring.svg" alt="" />
                                                 <p>Azure Monitor</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/billing/">
-                                                <img src="media/index/billing.svg" alt="" />
-                                                <p>计费</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1623,25 +1617,6 @@ ms.lasthandoff: 05/26/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/billing/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/billing.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>计费</h3>
-                                                    <p>了解如何阅读/理解 Azure 订阅的使用情况和计费</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure-resource-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1686,13 +1661,13 @@ ms.lasthandoff: 05/26/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">获取 .NET SDK</a>
+                                                    <a target="_blank" href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">获取 .NET SDK</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/develop/net/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/dotnet/api">API 参考</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/api">API 参考</a>
                                                 </p>
                                                 <p>
                                                     <a href="/develop/net/">了解详细信息</a>
@@ -1713,13 +1688,13 @@ ms.lasthandoff: 05/26/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://pypi.python.org/pypi/azure">获取 Python SDK</a>
+                                                    <a target="_blank" href="https://pypi.python.org/pypi/azure">获取 Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">入门</a>
+                                                    <a target="_blank" href="http://azure-sdk-for-python.readthedocs.io/en/latest/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API 参考</a>
+                                                    <a target="_blank" href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API 参考</a>
                                                 </p>
                                                 <p>
                                                     <a href="/develop/python">了解详细信息</a>
@@ -1740,13 +1715,13 @@ ms.lasthandoff: 05/26/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.npmjs.com/package/azure">获取 Node.js SDK</a>
+                                                    <a target="_blank" href="https://www.npmjs.com/package/azure">获取 Node.js SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-sdk-for-node/">入门</a>
+                                                    <a target="_blank" href="http://azure.github.io/azure-sdk-for-node/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-sdk-for-node/">API 参考</a>
+                                                    <a target="_blank" href="http://azure.github.io/azure-sdk-for-node/">API 参考</a>
                                                 </p>
                                                 <p>
                                                     <a href="/develop/nodejs">了解详细信息</a>
@@ -1767,13 +1742,13 @@ ms.lasthandoff: 05/26/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-java#download">获取 Java SDK</a>
+                                                    <a target="_blank" href="https://github.com/Azure/azure-sdk-for-java#download">获取 Java SDK</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/develop/java/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/java/api/">API 参考</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/java/api/">API 参考</a>
                                                 </p>
                                                 <p>
                                                     <a href="/develop/java/">了解详细信息</a>
@@ -1794,13 +1769,13 @@ ms.lasthandoff: 05/26/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://rubygems.org/gems/azure">获取 Ruby SDK</a>
+                                                    <a target="_blank" href="https://rubygems.org/gems/azure">获取 Ruby SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">入门</a>
+                                                    <a target="_blank" href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API 参考</a>
+                                                    <a target="_blank" href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API 参考</a>
                                                 </p>
                                                 <p>
                                                     <a href="/develop/ruby/">了解详细信息</a>
@@ -1821,10 +1796,10 @@ ms.lasthandoff: 05/26/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://docs.microsoft.com/rest/api/">REST 入门</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/rest/api/">REST 入门</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/rest/api">参考</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/rest/api">参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1848,13 +1823,13 @@ ms.lasthandoff: 05/26/2017
                                             <div class="cardText">
                                                 <h3>Azure CLI 2.0 预览版 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/cli/azure/get-started/">入门</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/get-started/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-cli">下载 Azure CLI 2.0</a>
+                                                    <a target="_blank" href="https://github.com/Azure/azure-cli">下载 Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/cli/azure">参考</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure">参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1876,10 +1851,10 @@ ms.lasthandoff: 05/26/2017
                                                     <a href="/powershell-install-configure">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/">下载 PowerShell</a>
+                                                    <a target="_blank" href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/">下载 PowerShell</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/powershell/">参考</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/">参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1901,13 +1876,13 @@ ms.lasthandoff: 05/26/2017
                                                     <a href="/xplat-cli-install?toc=%2fvirtual-machines%2flinux%2ftoc.json">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/linux-azure-cli">下载用于 Linux 的 Azure CLI</a>
+                                                    <a target="_blank" href="http://aka.ms/linux-azure-cli">下载用于 Linux 的 Azure CLI</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/mac-azure-cli">下载用于 Mac 的 Azure CLI</a>
+                                                    <a target="_blank" href="http://aka.ms/mac-azure-cli">下载用于 Mac 的 Azure CLI</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/webpi-azure-cli">下载用于 Windows 的 Azure CLI</a>
+                                                    <a target="_blank" href="http://aka.ms/webpi-azure-cli">下载用于 Windows 的 Azure CLI</a>
                                                 </p>
                                                 <p>
                                                     <a href="/virtual-machines/azure-cli-arm-commands/">参考</a>
@@ -1933,10 +1908,10 @@ ms.lasthandoff: 05/26/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Visual Studio Tools for Azure</a>
+                                                    <a target="_blank" href="https://www.visualstudio.com/vs/azure-tools/">Visual Studio Tools for Azure</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">下载</a>
+                                                    <a target="_blank" href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">下载</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1954,19 +1929,19 @@ ms.lasthandoff: 05/26/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://github.com/Microsoft/DockerToolsDocs">Docker 工具</a>
+                                                    <a target="_blank" href="https://github.com/Microsoft/DockerToolsDocs">Docker 工具</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker">入门</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680">适用于 Visual Studio 的下载项</a>
+                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=780680">适用于 Visual Studio 的下载项</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">适用于 Visual Studio Code 的下载项</a>
+                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=780681">适用于 Visual Studio Code 的下载项</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">适用于 Team Services 的下载项</a>
+                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=780682">适用于 Team Services 的下载项</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1984,10 +1959,10 @@ ms.lasthandoff: 05/26/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">PowerShell Tools for Visual Studio</a>
+                                                    <a target="_blank" href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">PowerShell Tools for Visual Studio</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">下载</a>
+                                                    <a target="_blank" href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">下载</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2005,19 +1980,19 @@ ms.lasthandoff: 05/26/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://storageexplorer.com/">存储资源管理器</a>
+                                                    <a target="_blank" href="http://storageexplorer.com/">存储资源管理器</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/vs-azure-tools-storage-manage-with-storage-explorer/">入门</a>
                                                 </p>
                                                 <p>
-                                                     <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">适用于 Linux 的下载项</a>
+                                                     <a  target="_blank" href="http://go.microsoft.com/fwlink/?LinkId=722418">适用于 Linux 的下载项</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708342">适用于 Mac 的下载项</a>
+                                                    <a target="_blank" href="http://go.microsoft.com/fwlink/?LinkId=708342">适用于 Mac 的下载项</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708343">适用于 Windows 的下载项</a>
+                                                    <a target="_blank" href="http://go.microsoft.com/fwlink/?LinkId=708343">适用于 Windows 的下载项</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2035,13 +2010,13 @@ ms.lasthandoff: 05/26/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python">Python Tools</a>
+                                                    <a target="_blank" href="https://www.visualstudio.com/vs/python">Python Tools</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://github.com/Microsoft/PTVS/wiki/PTVS-Installation">Visual Studio 入门</a>
+                                                    <a target="_blank" href="https://github.com/Microsoft/PTVS/wiki/PTVS-Installation">Visual Studio 入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python">Visual Studio Code 入门</a>
+                                                    <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python">Visual Studio Code 入门</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2064,7 +2039,7 @@ ms.lasthandoff: 05/26/2017
                                 </div>
                             </li>
                             <li>
-                                <a href="http://aka.ms/cloud-fundamentals">
+                                <a target="_blank" href="http://aka.ms/cloud-fundamentals">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2083,7 +2058,7 @@ ms.lasthandoff: 05/26/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="http://aka.ms/architecture">
+                                <a target="_blank" href="http://aka.ms/architecture">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2102,7 +2077,7 @@ ms.lasthandoff: 05/26/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="http://aka.ms/cloud-design-patterns">
+                                <a target="_blank" href="http://aka.ms/cloud-design-patterns">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2121,7 +2096,7 @@ ms.lasthandoff: 05/26/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="http://aka.ms/practices">
+                                <a target="_blank" href="http://aka.ms/practices">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2140,7 +2115,7 @@ ms.lasthandoff: 05/26/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="http://aka.ms/cloud-scenarios">
+                                <a target="_blank" href="http://aka.ms/cloud-scenarios">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

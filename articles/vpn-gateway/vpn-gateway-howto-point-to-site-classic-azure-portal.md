@@ -1,6 +1,6 @@
 ---
-title: "使用点到站点将计算机连接到 Azure 虚拟网络：Azure 门户预览：经典 | Azure"
-description: "使用 Azure 门户预览创建点到站点 VPN 网关连接，从而安全连接到经典 Azure 虚拟网络。"
+title: "使用点到站点将计算机连接到 Azure 虚拟网络：Azure 门户：经典 | Azure"
+description: "使用 Azure 门户创建点到站点 VPN 网关连接，从而安全连接到经典 Azure 虚拟网络。"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -24,16 +24,16 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal-preview-classic"></a>使用 Azure 门户预览（经典）配置与 VNet 的点到站点连接
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal-preview-classic"></a>使用 Azure 门户（经典）配置与 VNet 的点到站点连接
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-本文介绍如何在经典部署模型中使用 Azure 门户预览通过点到站点连接创建 VNet。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
+本文介绍如何在经典部署模型中使用 Azure 门户通过点到站点连接创建 VNet。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure 门户预览](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Resource Manager - Azure 门户](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [经典 - Azure 门户预览](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [经典 - Azure 门户](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 >
 
@@ -73,9 +73,9 @@ P2S 连接有以下要求：
 
 ### <a name="createvnet"></a>第 1 部分：创建虚拟网络
 
-如果还没有虚拟网络，请创建一个。 这些屏幕截图仅供参考。 请务必替换为你自己的值。 若要使用 Azure 门户预览创建 VNet，请执行以下步骤：
+如果还没有虚拟网络，请创建一个。 这些屏幕截图仅供参考。 请务必替换为你自己的值。 若要使用 Azure 门户创建 VNet，请执行以下步骤：
 
-1. 从浏览器导航到 [Azure 门户预览](http://portal.azure.cn)，必要时使用 Azure 帐户登录。
+1. 从浏览器导航到 [Azure 门户](http://portal.azure.cn)，必要时使用 Azure 帐户登录。
 2. 单击“新建” 。 在“搜索应用商店”字段中，键入“虚拟网络”。 从返回的列表中找到“虚拟网络”，单击打开“虚拟网络”边栏选项卡。
 
     ![搜索虚拟网络边栏选项卡](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
@@ -99,7 +99,7 @@ P2S 连接有以下要求：
 
 ### <a name="gateway"></a>第 2 部分：创建网关子网和动态路由网关
 
-本步骤创建网关子网和动态路由网关。 在经典部署模型的 Azure 门户预览中，可以通过相同的配置边栏选项卡创建网关子网和网关。
+本步骤创建网关子网和动态路由网关。 在经典部署模型的 Azure 门户中，可以通过相同的配置边栏选项卡创建网关子网和网关。
 
 1. 在门户中，导航到要为其创建网关的虚拟网络。
 2. 在虚拟网络“概述”边栏选项卡上的“VPN 连接”部分中，单击“网关”。
@@ -165,7 +165,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 
 ### <a name="part-1-generate-and-install-the-vpn-client-configuration-package"></a>第 1 部分 - 生成和安装 VPN 客户端配置包
 
-1. 在 Azure 门户预览中，在 VNet 的“概述”边栏选项卡上的“VPN 连接”中，单击客户端图形打开“点到站点 VPN 连接”边栏选项卡。
+1. 在 Azure 门户中，在 VNet 的“概述”边栏选项卡上的“VPN 连接”中，单击客户端图形打开“点到站点 VPN 连接”边栏选项卡。
 2. 在“点到站点 VPN 连接”边栏选项卡顶部，选择与要在其中进行安装的客户端操作系统对应的下载包： 
 
     * 对于 64 位客户端，请选择“VPN 客户端（64 位）”。

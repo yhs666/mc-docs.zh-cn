@@ -97,7 +97,7 @@ Azure Web 应用还需要一个_应用服务计划_。
 >
 > 应用服务计划定义：
 >
-> - 区域（中国北部、中国东部、中国北部）
+> - 区域（中国北部、中国东部）
 > - 实例大小（小、中、大）
 > - 规模计数（一个、两个、三个实例，等等） 
 > - SKU（免费、共享、基本、标准、高级）
@@ -159,7 +159,7 @@ URL 使用前面指定的 Web 应用名称，其格式为 `http://<app_name>.chi
 
 ## <a name="manage-your-new-azure-web-app"></a>管理新 Azure Web 应用
 
-转到 Azure 门户预览，查看刚刚创建的 Web 应用。 
+转到 Azure 门户，查看刚刚创建的 Web 应用。 
 
 为此，请登录到 [https://portal.azure.cn](https://portal.azure.cn)。
 
@@ -171,7 +171,7 @@ URL 使用前面指定的 Web 应用名称，其格式为 `http://<app_name>.chi
 
 默认情况下，Web 应用的边栏选项卡显示“概述”页。 在此页中可以查看应用的运行状况。 在此处还可以执行基本的管理任务，例如浏览、停止、启动、重新启动和删除。 边栏选项卡左侧的选项卡显示可以打开的不同配置页。 
 
-![Azure 门户预览中的“应用服务”边栏选项卡](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+![Azure 门户中的“应用服务”边栏选项卡](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
 边栏选项卡中的这些选项卡显示了可添加到 Web 应用的许多强大功能。 以下列表只是列出了一部分可用的功能：
 

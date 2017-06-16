@@ -66,7 +66,7 @@ ms.author: v-johch
 ## 后续步骤
 
 * 有关 Azure SQL 数据库多重身份验证的概述，请参阅[适用于 SQL Server Management Studio 的 Azure SQL 数据库多重身份验证概述](./sql-database-ssms-mfa-authentication.md)。
-* 向其他人授权访问你的数据库：[SQL 数据库身份验证和授权：授予访问权限](./sql-database-manage-logins.md) 确保其他人可以通过防火墙建立连接：[使用 Azure 门户预览配置 Azure SQL 数据库服务器级防火墙规则](./sql-database-configure-firewall-settings.md)
+* 向其他人授权访问你的数据库：[SQL 数据库身份验证和授权：授予访问权限](./sql-database-manage-logins.md) 确保其他人可以通过防火墙建立连接：[使用 Azure 门户配置 Azure SQL 数据库服务器级防火墙规则](./sql-database-configure-firewall-settings.md)
 
 [1]: ./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png
 [2]: ./media/sql-database-ssms-mfa-auth/2mfa-sign-in.png

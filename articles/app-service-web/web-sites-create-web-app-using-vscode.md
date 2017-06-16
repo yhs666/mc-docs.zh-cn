@@ -140,10 +140,10 @@ ASP.NET 5/DNX（.NET 执行环境）是精简的 .NET 堆栈，用于构建在 O
     ![浏览器中的本地 Web 应用](./media/web-sites-create-web-app-using-vscode/08-web-app.png)
 3. 关闭浏览器。 在**命令窗口**中，按 **Ctrl+C** 关闭应用程序并关闭**命令窗口**。 
 
-## <a name="create-a-web-app-in-the-azure-portal-preview"></a>在 Azure 门户预览中创建 Web 应用
-以下步骤将指导用户在 Azure 门户预览中创建 Web 应用。
+## <a name="create-a-web-app-in-the-azure-portal-preview"></a>在 Azure 门户中创建 Web 应用
+以下步骤将指导用户在 Azure 门户中创建 Web 应用。
 
-1. 登录到 [Azure 门户预览](https://portal.azure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 单击门户左上角的“新建”  。
 3. 单击“Web 应用”>“Web 应用”。
 
@@ -159,7 +159,7 @@ ASP.NET 5/DNX（.NET 执行环境）是精简的 .NET 堆栈，用于构建在 O
 ## <a name="enable-git-publishing-for-the-new-web-app"></a>为新 Web 应用启用 Git 发布
 Git 是分布式版本控制系统，可用于部署 Azure 应用服务 Web 应用。 你将在本地 Git 存储库中存储你为 Web 应用编写的代码，并通过推送到远程存储库将代码部署到 Azure。   
 
-1. 登录到 [Azure 门户预览](https://portal.azure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 单击“浏览” 。
 3. 单击“Web 应用”  ，查看与 Azure 订阅关联的 Web 应用的列表。
 4. 选择你在本教程中创建的 Web 应用。
@@ -173,7 +173,7 @@ Git 是分布式版本控制系统，可用于部署 Azure 应用服务 Web 应�
 8. 如果你事先未设置部署凭据用于发布 Web 应用或其他应用服务应用，现在请进行设置：
 
     登录到 [Azure 经典管理门户](https://manage.windowsazure.cn/)，找到你的应用，然后单击“速览”下的“仪表板” > “重置部署凭据”，为应用设置部署凭据。
-9. 返回到 [Azure 门户预览](https://portal.azure.cn)，单击“设置”>“属性”。 要部署到的远程 Git 存储库的 URL 将显示在“GIT URL”下。
+9. 返回到 [Azure 门户](https://portal.azure.cn)，单击“设置”>“属性”。 要部署到的远程 Git 存储库的 URL 将显示在“GIT URL”下。
 10. 复制“GIT URL”值以供教程稍后使用。
 
     ![Azure Git URL](./media/web-sites-create-web-app-using-vscode/17-azure-giturl.png)
@@ -232,7 +232,7 @@ Git 是分布式版本控制系统，可用于部署 Azure 应用服务 Web 应�
 * 打开浏览器并输入 Web 应用的名称，如下所示。   
 
         http://SampleWebAppDemo.chinacloudsites.cn
-* 在 Azure 门户预览中，找到 Web 应用的 Web 应用边栏选项卡，然后单击“浏览”以在默认游览器中 
+* 在 Azure 门户中，找到 Web 应用的 Web 应用边栏选项卡，然后单击“浏览”以在默认游览器中 
 * 查看应用。
 
 ![Azure Web 应用](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)

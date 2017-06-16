@@ -54,7 +54,7 @@
 
 + **Node.js 后端**：
 
-    1. 如果尚未执行此操作，请[下载快速启动项目](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)或使用 [Azure 门户预览中的在线编辑器](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)。
+    1. 如果尚未执行此操作，请[下载快速启动项目](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)或使用 [Azure 门户中的在线编辑器](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)。
 
     2. 用以下代码替换 todoitem.js 表脚本：
 

@@ -51,7 +51,7 @@ ms.lasthandoff: 04/28/2017
 ## <a name="create-a-storage-account"></a>创建存储帐户
 创建 Azure 存储帐户。 应用会使用此帐户存储待办事项。
 
-1. 登录到 [Azure 门户预览](https://portal.azure.cn/)。
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 单击门户左下角的“新建”图标，然后单击“数据 + 存储” > “存储”。 为存储帐户命名一个唯一名称，并为其新建一个[资源组](../azure-resource-manager/resource-group-overview.md)。
 
       ![新建按钮](./media/storage-nodejs-use-table-storage-web-site/configure-storage.png)
@@ -443,9 +443,9 @@ ms.lasthandoff: 04/28/2017
 本节中的步骤使用 Azure 命令行工具在应用服务中创建新的 Web 应用，然后使用 Git 部署应用程序。 若要执行这些步骤，你必须具有 Azure 订阅。
 
 > [!NOTE]
-> 也可以使用 [Azure 门户预览](https://portal.azure.cn/)执行这些步骤。 请参阅 [Build and deploy a Node.js web app in Azure App Service]（在 Azure 应用服务中构建和部署 Node.js Web 应用）。
+> 也可以使用 [Azure 门户](https://portal.azure.cn/)执行这些步骤。 请参阅 [Build and deploy a Node.js web app in Azure App Service]（在 Azure 应用服务中构建和部署 Node.js Web 应用）。
 >
-> 如果这是创建的第一个 Web 应用，则必须使用 Azure 门户预览部署此应用程序。
+> 如果这是创建的第一个 Web 应用，则必须使用 Azure 门户部署此应用程序。
 
 若要开始，请在命令行中输入以下命令以安装 [Azure CLI] ：
 
@@ -496,7 +496,7 @@ ms.lasthandoff: 04/28/2017
         info:   site create command OK
 
     > [!NOTE]
-    > 如果这是订阅的第一个应用服务 Web 应用，系统会指示使用 Azure 门户预览创建该 Web 应用。 有关详细信息，请参阅 [Build and deploy a Node.js web app in Azure App Service]（在 Azure 应用服务中构建和部署 Node.js Web 应用）。
+    > 如果这是订阅的第一个应用服务 Web 应用，系统会指示使用 Azure 门户创建该 Web 应用。 有关详细信息，请参阅 [Build and deploy a Node.js web app in Azure App Service]（在 Azure 应用服务中构建和部署 Node.js Web 应用）。
     > 
     > 
 
@@ -509,7 +509,7 @@ ms.lasthandoff: 04/28/2017
 
 将 **<storage account name>** 替换为你之前创建的存储帐户的名称，并将 **<storage access key>** 替换为你的存储帐户的主访问键。 （使用与你先前创建的 config.json 文件相同的值。）
 
-或者，可以在 [Azure 门户预览](https://portal.azure.cn/)中设置环境变量：
+或者，可以在 [Azure 门户](https://portal.azure.cn/)中设置环境变量：
 
 1. 通过单击“浏览” > “Web 应用”> 你的应用名称打开 Web 应用的边栏选项卡。
 2. 在 Web 应用边栏选项卡中，单击“所有设置” > “应用程序设置”。

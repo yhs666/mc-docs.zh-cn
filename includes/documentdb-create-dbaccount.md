@@ -1,4 +1,4 @@
-1. 在新窗口中，登录到 [Azure 门户预览](https://portal.azure.cn/)。
+1. 在新窗口中，登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 在跳转栏中，依次单击“新建”、“数据库”、“NoSQL (DocumentDB)”。
 
    ![Azure 门户的屏幕截图，突出显示更多服务和 DocumentDB (NoSQL)](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  

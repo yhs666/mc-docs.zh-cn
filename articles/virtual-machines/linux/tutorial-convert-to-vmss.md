@@ -182,7 +182,7 @@ az vmss extension set --publisher Microsoft.Azure.Extensions --version 2.0 --nam
 
 ## <a name="step-7---configure-autoscale-rules"></a>步骤 7 - 配置自动缩放规则
 
-目前，不能在 Azure CLI 中设置自动缩放规则。 使用 [Azure 门户预览](https://portal.azure.cn)配置自动缩放。
+目前，不能在 Azure CLI 中设置自动缩放规则。 使用 [Azure 门户](https://portal.azure.cn)配置自动缩放。
 
 ## <a name="step-8---management-tasks"></a>步骤 8 - 管理任务
 

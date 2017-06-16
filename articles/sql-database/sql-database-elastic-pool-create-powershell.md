@@ -20,7 +20,7 @@ ms.author: v-johch
 # 使用 PowerShell 创建新的弹性数据库池
 
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./sql-database-elastic-pool-create-portal.md)
+>- [Azure 门户](./sql-database-elastic-pool-create-portal.md)
 >- [PowerShell](./sql-database-elastic-pool-create-powershell.md)
 >- [C#](./sql-database-elastic-pool-create-csharp.md)
 

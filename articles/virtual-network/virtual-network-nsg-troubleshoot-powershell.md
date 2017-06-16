@@ -21,7 +21,7 @@ ms.author: v-dazen
 # 使用 Azure PowerShell 排查网络安全组问题
 
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./virtual-network-nsg-troubleshoot-portal.md)
+>- [Azure 门户](./virtual-network-nsg-troubleshoot-portal.md)
 >- [PowerShell](./virtual-network-nsg-troubleshoot-powershell.md)
 
 如果在虚拟机 (VM) 上配置网络安全组 (NSG) 时遇到 VM 连接问题，可以借助本文中概述的 NSG 诊断功能进行故障排除。

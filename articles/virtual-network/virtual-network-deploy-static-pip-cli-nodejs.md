@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 
 # 使用 Azure CLI 1.0 创建具有静态公共 IP 地址的 VM
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./virtual-network-deploy-static-pip-arm-portal.md)
+>- [Azure 门户](./virtual-network-deploy-static-pip-arm-portal.md)
 >- [PowerShell](./virtual-network-deploy-static-pip-arm-ps.md)
 >- [Azure CLI 2.0](./virtual-network-deploy-static-pip-arm-cli.md)
 >- [Azure CLI 1.0](./virtual-network-deploy-static-pip-cli-nodejs.md)

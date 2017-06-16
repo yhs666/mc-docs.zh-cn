@@ -27,7 +27,7 @@ ms.lasthandoff: 04/28/2017
 
 可以在 Azure 中使用不同类型的日志对负载均衡器进行管理和故障排除。 可通过门户访问其中某些日志。 可从 Azure Blob 存储提取所有日志并在 Excel 和 PowerBI 等各种工具中查看。 可从下表了解有关各种类型日志的详细信息。
 
-* **审核日志：**可以使用 [Azure 审核日志](../monitoring-and-diagnostics/insights-debugging-with-events.md)（旧称为“运行日志”）查看提交到 Azure 订阅的所有操作及其状态。 默认情况下，审核日志已启用，并可在 Azure 门户预览中查看。
+* **审核日志：**可以使用 [Azure 审核日志](../monitoring-and-diagnostics/insights-debugging-with-events.md)（旧称为“运行日志”）查看提交到 Azure 订阅的所有操作及其状态。 默认情况下，审核日志已启用，并可在 Azure 门户中查看。
 * **警报事件日志：**可以使用此日志查看负载均衡器引发的警报。 每隔五分钟收集一次负载均衡器的状态。 仅在引发了负载均衡器警报事件的情况下，才会向此日志写入相关内容。
 * **运行状况探测日志：**可以使用此日志查看运行状况探测器检测到的问题，例如后端池中由于运行状况探测失败未从负载均衡器接收请求的实例数。 当运行状况探测状态发生更改时，将写入此日志。
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 04/28/2017
 
 每个 Resource Manager 资源都会自动启用审核日志记录。 需启用事件和运行状况探测日志记录才能开始收集通过这些日志提供的数据。 使用以下步骤启用日志记录。
 
-登录到 [Azure 门户预览](http://portal.azure.cn)。 如果还没有负载均衡器，请先[创建负载均衡器](load-balancer-get-started-internet-arm-ps.md)，然后再继续。
+登录到 [Azure 门户](http://portal.azure.cn)。 如果还没有负载均衡器，请先[创建负载均衡器](load-balancer-get-started-internet-arm-ps.md)，然后再继续。
 
 1. 在门户中，单击“浏览” 。
 2. 选择“负载均衡器” 。
@@ -131,7 +131,7 @@ JSON 输出在属性字段显示了探测运行状况的基本信息。 *dipDown
 
 你可以使用任何以下方法查看和分析审核日志数据：
 
-* **Azure 工具：**通过 Azure PowerShell、Azure 命令行接口 (CLI)、Azure REST API 或 Azure 门户预览检索审计日志中的信息。 [使用 Resource Manager 审核操作](../azure-resource-manager/resource-group-audit.md)一文中详细介绍了每种方法的分步说明。
+* **Azure 工具：**通过 Azure PowerShell、Azure 命令行接口 (CLI)、Azure REST API 或 Azure 门户检索审计日志中的信息。 [使用 Resource Manager 审核操作](../azure-resource-manager/resource-group-audit.md)一文中详细介绍了每种方法的分步说明。
 * **Power BI：** 如果尚无 [Power BI](https://powerbi.microsoft.com/pricing) 帐户，可免费试用。 使用 [适用于 Power BI 的 Azure 审核日志内容包](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs)，可以借助预配置的仪表板分析数据，也可以自定义视图来满足自己的需求。
 
 ## <a name="view-and-analyze-the-health-probe-and-event-log"></a>查看和分析运行状况探测和事件日志

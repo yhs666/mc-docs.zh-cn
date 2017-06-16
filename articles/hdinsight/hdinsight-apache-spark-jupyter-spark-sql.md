@@ -40,12 +40,12 @@ ms.lasthandoff: 05/26/2017
 
 在本部分，你将使用 [Azure Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-spark-linux/)创建 HDInsight Spark 群集。 有关其他群集创建方法，请参阅[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 
-1. 单击下面的图像可在 Azure 门户预览中打开模板。         
+1. 单击下面的图像可在 Azure 门户中打开模板。         
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-spark-linux%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-spark-jupyter-spark-sql/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
     >[!NOTE]
-    > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，将一些终结点 -“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”；将允许的位置更改为“中国北部”和“中国东部”；将 HDInsight Linux 版本更改为 Azure 中国区支持的版本 3.5。
+    > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，将一些终结点 -“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”；将允许的位置更改为“China North”和“China East”；将 HDInsight Linux 版本更改为 Azure 中国区支持的版本 3.5。
 
 2. 输入以下值：
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 05/26/2017
 
 ### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>使用 PySpark 内核创建 Jupyter 笔记本
 
-1. 打开 [Azure 门户预览](https://portal.azure.cn/)。
+1. 打开 [Azure 门户](https://portal.azure.cn/)。
 
 2. 如果选择将群集固定到仪表板，请单击仪表板中的“群集”磁贴，启动“群集”边栏选项卡。
 
@@ -95,7 +95,8 @@ ms.lasthandoff: 05/26/2017
     > [!NOTE]
     > 也可以在浏览器中打开以下 URL 来访问群集的 Jupyter Notebook。 将 **CLUSTERNAME** 替换为群集的名称：
     >
-    > `https://CLUSTERNAME.azurehdinsight.cn/jupyter` >
+    > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
+    >
 3. 创建 Notebook。 单击“新建”，然后单击“PySpark”。
 
     ![创建 Jupyter Notebook 来运行交互式 Spark SQL 查询](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "创建 Jupyter Notebook 来运行交互式 Spark SQL 查询")

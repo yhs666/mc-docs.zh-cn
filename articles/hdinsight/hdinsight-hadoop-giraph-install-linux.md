@@ -61,7 +61,7 @@ ms.lasthandoff: 05/26/2017
 
     https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
-本部分说明了在通过 Azure 门户预览创建群集时如何使用该示例脚本。
+本部分说明了在通过 Azure 门户创建群集时如何使用该示例脚本。
 
 > [!NOTE]
 > 可以通过下列任一方法应用脚本操作：

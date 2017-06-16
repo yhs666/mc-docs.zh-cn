@@ -274,9 +274,9 @@ ms.author: v-dazen
 
 ## 将输出发布到 Azure 应用服务
 
-本部分介绍如何使用 Azure 门户预览创建新的 API 应用、准备该 API 应用以托管 Java 应用程序，然后将新建的 WAR 文件部署到 Azure 应用服务以运行新 API 应用。
+本部分介绍如何使用 Azure 门户创建新的 API 应用、准备该 API 应用以托管 Java 应用程序，然后将新建的 WAR 文件部署到 Azure 应用服务以运行新 API 应用。
 
-1. 在 [Azure 门户预览]中创建新的 API 应用：单击“新建”->“Web + 移动”->“API 应用”菜单项，输入应用详细信息，然后单击“创建”。
+1. 在 [Azure 门户]中创建新的 API 应用：单击“新建”->“Web + 移动”->“API 应用”菜单项，输入应用详细信息，然后单击“创建”。
 
     ![创建新的 API 应用][create-api-app]
 
@@ -290,7 +290,7 @@ ms.author: v-dazen
 
 3. 选择“从源控件设置部署”。在“设置部署”对话框中，选择“本地 Git 存储库”选项，然后单击“确定”。随后将创建在 Azure 中运行的、与 API 应用关联的 Git 存储库。每次将代码提交到 Git 存储库的 *master* 分支时，代码就会发布到实时运行的 API 应用实例。
 
-1. 回到 [Azure 门户预览]。将新的 Git 存储库 URL 复制到剪贴板。请保存此 URL，因为稍后它很重要。
+1. 回到 [Azure 门户]。将新的 Git 存储库 URL 复制到剪贴板。请保存此 URL，因为稍后它很重要。
 
     ![为应用设置新的 Git 存储库][copy-git-repo-url]
 
@@ -321,13 +321,13 @@ ms.author: v-dazen
 <!-- URL List -->
 
 [App Service API CORS]: ./app-service-api-cors-consume-javascript.md
-[Azure 门户预览]: https://portal.azure.cn/
+[Azure 门户]: https://portal.azure.cn/
 [Document DB Java SDK]: ../documentdb/documentdb-java-application.md
 [试用]: https://www.azure.cn/pricing/1rmb-trial/
 [Git]: http://www.git-scm.com/
 [Java Developer Center]: /develop/java/
 [Java 开发人员工具包 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-[Jax-RS]: https://jax-rs-spec.java.net/
+[Jax-RS]: http://docs.oracle.com/javaee/6/tutorial/doc/giepu.html
 [Maven]: https://maven.apache.org/
 [Azure]: https://www.azure.cn/
 [在线 Swagger 编辑器]: http://editor.swagger.io/

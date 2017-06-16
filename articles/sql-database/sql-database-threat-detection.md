@@ -31,6 +31,6 @@ ms.author: v-johch
 
 ## 后续步骤
 
-* 若要配置和管理威胁检测，请参阅[在 Azure 门户预览中配置和管理威胁检测](./sql-database-threat-detection-portal.md)。
+* 若要配置和管理威胁检测，请参阅[在 Azure 门户中配置和管理威胁检测](./sql-database-threat-detection-portal.md)。
 
 <!---HONumber=Mooncake_0320_2017-->

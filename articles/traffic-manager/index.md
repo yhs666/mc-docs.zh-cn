@@ -72,7 +72,7 @@ ms.lasthandoff: 05/12/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>使用 Azure 门户预览管理流量管理器终结点入门</h3>
+                        <h3>使用 Azure 门户管理流量管理器终结点入门</h3>
                     </div>
                 </div>
             </div>

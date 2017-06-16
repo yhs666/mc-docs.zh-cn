@@ -31,9 +31,9 @@ ms.lasthandoff: 05/19/2017
 > [!div class="op_single_selector"]
 > * [创建自签名证书 - PowerShell](vpn-gateway-certificates-point-to-site.md)
 > * [创建自签名证书 - Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
-> * [配置点到站点 - Resource Manager - Azure 门户预览](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [配置点到站点 - Resource Manager - Azure 门户](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [配置点到站点 - Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [配置点到站点 - 经典 - Azure 门户预览](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [配置点到站点 - 经典 - Azure 门户](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 > 
 > 
 

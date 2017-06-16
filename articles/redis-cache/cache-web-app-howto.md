@@ -711,7 +711,7 @@ ms.lasthandoff: 05/19/2017
 > 
 > 
 
-单击“部署到 Azure”  按钮会转到 Azure 门户预览，并启动创建模板所述资源的过程。
+单击“部署到 Azure”  按钮会转到 Azure 门户，并启动创建模板所述资源的过程。
 
 1. 在“基本情况”部分，选择要使用的 Azure 订阅，然后选择现有资源组或新建一个并指定资源组位置。
 2. 在“设备”部分，指定“管理员登录名”（不使用“admin”）、“管理员登录密码”和“数据库名称”。 为免费应用服务托管计划配置其他参数，为 SQL 数据库和 Azure Redis 缓存配置较低的成本选项，其中无免费层。
@@ -769,7 +769,7 @@ ms.lasthandoff: 05/19/2017
 ## <a name="delete-the-resources-when-you-are-finished-with-the-application"></a>完成应用程序的操作以后，删除相关资源
 完成示例性的教程应用程序以后，即可删除所用的 Azure 资源，以便节省成本和资源。 如果使用[预配 Azure 资源](#provision-the-azure-resources)部分的“部署到 Azure”按钮，并且所有资源都包含在同一资源组中，则可通过删除资源组这一个操作来删除所有资源。
 
-1. 登录到 [Azure 门户预览](https://portal.azure.cn)，然后单击“资源组”。
+1. 登录到 [Azure 门户](https://portal.azure.cn)，然后单击“资源组”。
 2. 在“筛选项目...”  文本框中键入资源组的名称。
 3. 单击资源组右侧的“...”  。
 4. 单击“删除” 。
@@ -793,7 +793,7 @@ ms.lasthandoff: 05/19/2017
 * 如果你有另一个现成的 Azure Redis 缓存实例，则可使用该实例在本地运行此示例。
 * 如果需要创建 Azure Redis 缓存实例，则可按 [创建缓存](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)中的步骤来执行操作。
 
-选择或创建要使用的缓存后，在 Azure 门户预览中浏览到该缓存，然后检索缓存的[主机名](cache-configure.md#properties)和[访问密钥](cache-configure.md#access-keys)。 有关说明，请参阅 [配置 Redis 缓存设置](cache-configure.md#configure-redis-cache-settings)。
+选择或创建要使用的缓存后，在 Azure 门户中浏览到该缓存，然后检索缓存的[主机名](cache-configure.md#properties)和[访问密钥](cache-configure.md#access-keys)。 有关说明，请参阅 [配置 Redis 缓存设置](cache-configure.md#configure-redis-cache-settings)。
 
 1. 使用所选编辑器打开在本教程的[配置应用程序以使用 Redis 缓存](#configure-the-application-to-use-redis-cache)步骤中创建的 `WebAppPlusCacheAppSecrets.config` 文件。
 2. 编辑 `value` 属性，将 `MyCache.redis.cache.chinacloudapi.cn` 替换为缓存的[主机名](cache-configure.md#properties)，并指定缓存的[主密钥或辅助密钥](cache-configure.md#access-keys)作为密码。
@@ -817,7 +817,7 @@ ms.lasthandoff: 05/19/2017
     * 有关 HealthClinic.biz 演示的多个快速入门，请参阅 [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)（Azure 开发人员工具快速入门）。
 * 详细了解 [对新数据库使用 Code First](https://msdn.microsoft.com/data/jj193542) 中介绍的本教程所用实体框架需要的方法。
 * 详细了解 [Azure 应用服务中的 Web 应用](../app-service-web/app-service-web-overview.md)。
-* 了解如何在 Azure 门户预览中[监视](cache-how-to-monitor.md)缓存。
+* 了解如何在 Azure 门户中[监视](cache-how-to-monitor.md)缓存。
 * 了解 Azure Redis 缓存高级功能
 
     * [如何为高级 Azure Redis 缓存配置暂留](cache-how-to-premium-persistence.md)

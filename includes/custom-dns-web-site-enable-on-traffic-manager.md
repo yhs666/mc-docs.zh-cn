@@ -12,7 +12,7 @@
 > 
 > 
 
-1. 在浏览器中，打开 [Azure 门户预览](https://portal.azure.cn)。
+1. 在浏览器中，打开 [Azure 门户](https://portal.azure.cn)。
 2. 在“Web 应用”选项卡中，单击 Web 应用的名称，选择“设置”，然后选择“自定义域”
 
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)

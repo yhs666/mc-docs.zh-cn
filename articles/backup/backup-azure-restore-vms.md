@@ -47,7 +47,7 @@ ms.author: v-junlch
     ![恢复点](./media/backup-azure-restore-vms/recovery-points.png)
 3. 从“恢复点”表中选择恢复点，然后单击“下一步”箭头转到下一个屏幕。
 
-### 3.<a name="restoring-vms-with-special-network-configurations"></a>指定目标位置
+### 步骤 3：<a name="restoring-vms-with-special-network-configurations"></a>指定目标位置
 
 1. 在“选择还原实例”屏幕中，指定有关要将虚拟机还原到何处的详细信息。
 
@@ -85,7 +85,7 @@ ms.author: v-junlch
 
 ![还原作业已完成](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-还原虚拟机后，你可能需要重新安装原始 VM 上的扩展，并在 Azure 门户预览中为虚拟机[修改终结点](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)。
+还原虚拟机后，你可能需要重新安装原始 VM 上的扩展，并在 Azure 门户中为虚拟机[修改终结点](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)。
 
 ## 还原后的步骤
 如果使用的是基于 cloud-init 的 Linux 分发（例如 Ubuntu），则会出于安全原因在还原后阻止密码。请在还原的 VM 上使用 VMAccess 扩展[重置密码](../virtual-machines/virtual-machines-linux-classic-reset-access.md)。建议在这些分发上使用 SSH 密钥来避免在还原后重置密码。

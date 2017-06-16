@@ -27,7 +27,7 @@ ms.author: v-dazen
 > [!IMPORTANT]
 > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。有关详细信息，请参阅 [HDInsight 在 Windows 上弃用](./hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
-也可以使用其他各种方法自定义 HDInsight 群集，例如包括其他 Azure 存储帐户、更改 hadoop 配置文件（core-site.xml、hive-site.xml 等），或者将共享库（如 Hive、Oozie）添加到群集中的共同位置。这些自定义可通过使用 Azure PowerShell、Azure HDInsight .NET SDK 或 Azure 门户预览来完成。有关详细信息，请参阅[在 HDInsight 中创建 Hadoop 群集][hdinsight-provision-cluster]。
+也可以使用其他各种方法自定义 HDInsight 群集，例如包括其他 Azure 存储帐户、更改 hadoop 配置文件（core-site.xml、hive-site.xml 等），或者将共享库（如 Hive、Oozie）添加到群集中的共同位置。这些自定义可通过使用 Azure PowerShell、Azure HDInsight .NET SDK 或 Azure 门户来完成。有关详细信息，请参阅[在 HDInsight 中创建 Hadoop 群集][hdinsight-provision-cluster]。
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
@@ -57,8 +57,8 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装以下组件�
 | - **安装 Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 。请参阅[在 HDInsight 群集上安装并使用 Giraph](./hdinsight-hadoop-giraph-install.md)。 |
 | **预加载 Hive 库** |https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1 。请参阅[在 HDInsight 群集上添加 Hive 库](./hdinsight-hadoop-add-hive-libraries.md) |
 
-## 使用 Azure 门户预览调用脚本
-**在 Azure 门户预览中**
+## 使用 Azure 门户调用脚本
+**在 Azure 门户中**
 
 1. 根据[在 HDInsight 中创建 Hadoop 群集](./hdinsight-hadoop-provision-linux-clusters.md)中所述开始创建群集。
 2. 在“脚本操作”边栏选项卡的“可选配置”下，单击“添加脚本操作”，提供有关脚本操作的详细信息，如下所示：

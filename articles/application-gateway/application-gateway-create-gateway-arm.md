@@ -26,7 +26,7 @@ ms.lasthandoff: 05/12/2017
 # <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 创建、启动或删除应用程序网关
 
 > [!div class="op_single_selector"]
-> * [Azure 门户预览](application-gateway-create-gateway-portal.md)
+> * [Azure 门户](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure 经典 PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager 模板](application-gateway-create-gateway-arm-template.md)

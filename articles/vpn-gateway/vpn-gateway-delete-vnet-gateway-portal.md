@@ -1,5 +1,5 @@
 ---
-title: "删除虚拟网络网关：Azure 门户预览：Resource Manager | Azure"
+title: "删除虚拟网络网关：Azure 门户：Resource Manager | Azure"
 description: "在 Resource Manager 部署模型中使用 PowerShell 删除虚拟网络网关。"
 services: vpn-gateway
 documentationcenter: na
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/12/2017
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>使用门户删除虚拟网络网关
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure 门户预览](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [Resource Manager - Azure 门户](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [经典 - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
@@ -44,7 +44,7 @@ ms.lasthandoff: 05/12/2017
 
 ### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>步骤 1：导航到虚拟网络网关
 
-在 [Azure 门户预览](https://portal.azure.cn)中的“所有资源”中，单击要删除的虚拟网络网关。 网关图形是：
+在 [Azure 门户](https://portal.azure.cn)中的“所有资源”中，单击要删除的虚拟网络网关。 网关图形是：
 
 ![找到虚拟网络网关](./media/vpn-gateway-delete-vnet-gateway-portal/gw.png)
 

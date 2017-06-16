@@ -61,7 +61,7 @@ ms.author: v-dazen
 }
 ```
 
-部署后，可以在 Azure 门户预览中查看虚拟机属性。
+部署后，可以在 Azure 门户中查看虚拟机属性。
 
 ![虚拟机](../media/virtual-machines-windows-dotnet-core/vm-win.png)  
 
@@ -100,7 +100,7 @@ ms.author: v-dazen
 }
 ```
 
-部署之后，可在 Azure 门户预览中查看存储帐户。
+部署之后，可在 Azure 门户中查看存储帐户。
 
 ![存储帐户](../media/virtual-machines-windows-dotnet-core/storacct-win.png)  
 
@@ -148,7 +148,7 @@ ms.author: v-dazen
 }
 ```
 
-在 Azure 门户预览中，虚拟网络如下图所示。请注意，使用模板部署的所有虚拟机都已附加到虚拟网络。
+在 Azure 门户中，虚拟网络如下图所示。请注意，使用模板部署的所有虚拟机都已附加到虚拟网络。
 
 ![虚拟网络](../media/virtual-machines-windows-dotnet-core/vnet-win.png)  
 
@@ -214,7 +214,7 @@ ms.author: v-dazen
 }
 ```
 
-在 Azure 门户预览中，网络接口如下图所示。可以在网络接口资源上看到内部 IP 地址与虚拟机的关联。
+在 Azure 门户中，网络接口如下图所示。可以在网络接口资源上看到内部 IP 地址与虚拟机的关联。
 
 ![网络接口](../media/virtual-machines-windows-dotnet-core/nic-win.png)  
 
@@ -259,7 +259,7 @@ ms.author: v-dazen
 }
 ```
 
-Azure 门户预览中显示的 SQL Server 和 MusicStore 数据库视图。
+Azure 门户中显示的 SQL Server 和 MusicStore 数据库视图。
 
 ![SQL Server](../media/virtual-machines-windows-dotnet-core/sql-win.png)  
 

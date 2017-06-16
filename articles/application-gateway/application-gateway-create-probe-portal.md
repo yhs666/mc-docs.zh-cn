@@ -1,5 +1,5 @@
 ---
-title: 创建自定义探测 - Azure 应用程序网关 - Azure 门户预览 | Azure
+title: 创建自定义探测 - Azure 应用程序网关 - Azure 门户 | Azure
 description: 了解如何使用门户创建应用程序网关的自定义探测
 services: application-gateway
 documentationcenter: na
@@ -21,7 +21,7 @@ ms.author: v-dazen
 
 # 使用门户创建应用程序网关的自定义探测
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./application-gateway-create-probe-portal.md)
+>- [Azure 门户](./application-gateway-create-probe-portal.md)
 >- [Azure Resource Manager PowerShell](./application-gateway-create-probe-ps.md)
 >- [Azure 经典 PowerShell](./application-gateway-create-probe-classic-ps.md)
 
@@ -37,7 +37,7 @@ ms.author: v-dazen
 
 ### 步骤 1
 
-导航到 [Azure 门户预览](http://portal.azure.cn)，然后选择现有的应用程序网关。
+导航到 [Azure 门户](http://portal.azure.cn)，然后选择现有的应用程序网关。
 
 ![应用程序网关概述][1]  
 

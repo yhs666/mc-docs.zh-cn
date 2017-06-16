@@ -29,9 +29,9 @@ ms.lasthandoff: 05/19/2017
 本文介绍如何在 Resource Manager 部署模型中使用 PowerShell 通过点到站点连接来创建 VNet。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure 门户预览](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Resource Manager - Azure 门户](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [经典 - Azure 门户预览](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [经典 - Azure 门户](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 >
 
@@ -200,7 +200,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 
 只要版本与客户端的体系结构匹配，就可以在每台客户端计算机上使用相同的 VPN 客户端配置包。 有关支持的客户端操作系统列表，请参阅本文末尾的[点到站点连接常见问题解答](#faq)。
 
-1. 创建网关后，可生成和下载客户端配置包。 此示例下载 64 位客户端包。 如果要下载 32 位客户端，请将“Amd64”替换为“x86”。 还可以使用 Azure 门户预览下载 VPN 客户端。
+1. 创建网关后，可生成和下载客户端配置包。 此示例下载 64 位客户端包。 如果要下载 32 位客户端，请将“Amd64”替换为“x86”。 还可以使用 Azure 门户下载 VPN 客户端。
 
     ```powershell
     Get-AzureRmVpnClientPackage -ResourceGroupName $RG `

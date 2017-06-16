@@ -75,7 +75,7 @@ ms.lasthandoff: 04/22/2017
 - “应用”指标提供有关 http 请求数/失败数和平均响应时间的信息。
 - “应用服务计划”指标提供有关资源利用率的信息。
 
-在 Azure 门户预览中，可以使用 **Azure Monitor** 快速直观地检查应用的指标，
+在 Azure 门户中，可以使用 **Azure Monitor** 快速直观地检查应用的指标，
 
 - 转到想要监视的应用的“概述”边栏选项卡即可。
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 04/22/2017
 > [!TIP]
 > 使用以下链接了解有关 Azure Monitor 的详细信息：
 > - [Azure Monitor 入门](..\monitoring-and-diagnostics\monitoring-overview.md)
-> - [Azure 门户预览仪表板](..\azure-portal\azure-portal-dashboards.md)
+> - [Azure 门户仪表板](..\azure-portal\azure-portal-dashboards.md)
 
 ## <a name="alerts"></a> 步骤 3 - 配置警报
 
@@ -158,7 +158,7 @@ public ActionResult Delete(Guid? id)
 > [!IMPORTANT]
 > 启用日志记录会对应用程序的性能和资源利用率造成影响。 对于生产方案，建议使用错误日志。 仅当需要调查问题时，才启用更详细的日志记录。
 
- ### <a name="web-server-diagnostics"></a>Web 服务器诊断
+### <a name="web-server-diagnostics"></a>Web 服务器诊断
 应用服务可以收集三种不同类型的服务器日志：
 
 - **Web 服务器日志记录** 

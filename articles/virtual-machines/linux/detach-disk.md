@@ -1,6 +1,6 @@
 ---
 title: "从 Linux VM 中分离数据磁盘 - Azure | Azure"
-description: "了解如何使用 CLI 2.0 或 Azure 门户预览从 Azure 虚拟机中分离数据磁盘。"
+description: "了解如何使用 CLI 2.0 或 Azure 门户从 Azure 虚拟机中分离数据磁盘。"
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn

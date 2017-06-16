@@ -121,11 +121,11 @@ Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提�
 #### <a name="the-export-and-import-method"></a>导出和导入方法
 1. 使用 [WordPress 导出][export] 导出您的现有网站。
 2. 使用 [创建 WordPress 站点](#create-a-wordpress-site) 部分的步骤，创建 Web 应用。
-3. 在 [Azure 门户预览][mgmtportal]上登录 WordPress 站点，然后单击“插件” > “新增”。 搜索并安装 **WordPress 导入程序**插件。
+3. 在 [Azure 门户][mgmtportal]上登录 WordPress 站点，然后单击“插件” > “新增”。 搜索并安装 **WordPress 导入程序**插件。
 4. 安装 WordPress 导入程序插件后，单击“工具” > “导入”，然后单击“WordPress”使用 WordPress 导入程序插件。
 5. 在“导入 WordPress”页面上，单击“选择文件”。 查找从现有 WordPress 站点导出的 WXR 文件，然后单击“上传文件和导入”。
 6. 单击“提交” 。 系统提示导入成功。
-7. 完成所有这些步骤后，从 [Azure 门户预览][mgmtportal]中的“应用服务”边栏选项卡重启站点。
+7. 完成所有这些步骤后，从 [Azure 门户][mgmtportal]中的“应用服务”边栏选项卡重启站点。
 
 导入站点后，请执行以下步骤，启用导入文件中不包含的设置。
 
@@ -144,9 +144,9 @@ Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提�
     1. 在“Azure 上的 MySQL 数据库”中创建一个数据库，或者在 [Windows][mysqlwindows] 或 [Linux][mysqllinux] 虚拟机上设置一个 MySQL 数据库。
     2. 使用 MySQL 客户端（如 [MySQL Workbench][workbench] ）连接到新数据库，然后导入 WordPress 数据库。
     3. 更新数据库，将域条目更改为新 Azure 应用服务域（如 mywordpress.chinacloudsites.cn）。 使用 [搜索和替换为 WordPress 数据库脚本][searchandreplace] ，安全地更改所有实例。
-4. 在 Azure 门户预览中创建 Web 应用并发布 WordPress 备份。
+4. 在 Azure 门户中创建 Web 应用并发布 WordPress 备份。
 
-    1. 若要创建带数据库的 Web 应用，请在 [Azure 门户预览][mgmtportal]中，单击“新建” > “Web + 移动” > “Web 应用” > “创建”。 配置所有所需的设置来创建空 Web 应用。
+    1. 若要创建带数据库的 Web 应用，请在 [Azure 门户][mgmtportal]中，单击“新建” > “Web + 移动” > “Web 应用” > “创建”。 配置所有所需的设置来创建空 Web 应用。
     2. 在 WordPress 备份中，找到 **wp-config.php** 文件，并在编辑器中打开。 将以下条目替换为新 MySQL 数据库的信息：
 
         * **DB_NAME**：数据库的用户名。
@@ -182,11 +182,6 @@ Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提�
 * [在 WordPress 中启用美观的固定链接](http://www.iis.net/learn/extensions/url-rewrite-module/enabling-pretty-permalinks-in-wordpress)
 * [如何在 Azure 应用服务上免费运行 WordPress](http://architects.dzone.com/articles/how-run-wordpress-azure)
 * [在 2 分钟或更短时间内在 Azure 上运行 WordPress](http://www.sitepoint.com/wordpress-windows-azure-2-minutes-less/)
-* [将 WordPress 博客移至 Azure - 第 1 部分：在 Azure 上创建 WordPress 博客](http://www.davebost.com/2013/07/10/moving-a-wordpress-blog-to-windows-azure-part-1)
-* [将 WordPress 博客移至 Azure - 第 2 部分：传输您的内容](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-transferring-your-content)
-* [将 WordPress 博客移至 Azure-第 3 部分：设置您的自定义域](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-3-setting-up-your-custom-domain)
-* [将 WordPress 博客移至 Azure - 第 4 部分：美观的固定链接和 URL 重写规则](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-4-pretty-permalinks-and-url-rewrite-rules)
-* [将 WordPress 博客移至 Azure - 第 5 部分：将一个子文件夹移动到根](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-5-moving-from-a-subfolder-to-the-root)
 * [如何在 Azure 帐户中设置 WordPress Web 应用](http://www.itexperience.net/2014/01/20/how-to-set-up-a-wordpress-website-in-your-windows-azure-account/)
 * [在 Azure 上支持 WordPress](http://www.johnpapa.net/wordpress-on-azure/)
 * [在 Azure 上支持 WordPress 的技巧](http://www.johnpapa.net/azurecleardbmysql/)

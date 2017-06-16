@@ -1,5 +1,5 @@
 ---
-title: "在 Azure 门户预览中启用存储指标 | Microsoft Docs"
+title: "在 Azure 门户中启用存储指标 | Microsoft Docs"
 description: "如何为 Blob、队列、表和文件服务启用存储指标"
 services: storage
 documentationcenter: 

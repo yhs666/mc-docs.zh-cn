@@ -141,8 +141,8 @@ Azure 中的全套[网络限制](../azure-subscription-service-limits.md#network
 公共 IP 地址可能会产生少许费用。有关 Azure 中 IP 地址定价的详细信息，请阅读 [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/)（IP 地址定价）页。
 
 ## 后续步骤
-* [使用 Azure 门户预览部署具有静态公共 IP 的 VM](./virtual-network-deploy-static-pip-arm-portal.md)
+* [使用 Azure 门户部署具有静态公共 IP 的 VM](./virtual-network-deploy-static-pip-arm-portal.md)
 * [使用模板为 VM 部署静态公共 IP](./virtual-network-deploy-static-pip-arm-template.md)
-* [使用 Azure 门户预览部署具有静态专用 IP 地址的 VM](./virtual-networks-static-private-ip-arm-pportal.md)
+* [使用 Azure 门户部署具有静态专用 IP 地址的 VM](./virtual-networks-static-private-ip-arm-pportal.md)
 
 <!---HONumber=Mooncake_1219_2016-->

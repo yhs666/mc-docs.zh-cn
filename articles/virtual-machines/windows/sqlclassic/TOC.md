@@ -4,7 +4,7 @@
 ## [常见问题](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # 入门
-## [在 Azure 门户预览中预配 VM](../sql/virtual-machines-windows-portal-sql-server-provision.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
+## [在 Azure 门户中预配 VM](../sql/virtual-machines-windows-portal-sql-server-provision.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## [使用 Azure PowerShell 预配 VM](../classic/ps-sql-create.md)
 ## [连接到 VM](../classic/sql-connect.md)
 ## [迁移 SQL Server 数据库](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)

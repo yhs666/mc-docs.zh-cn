@@ -33,7 +33,7 @@ ms.lasthandoff: 05/19/2017
 
 使用 Visual Studio 中集成的工具，可以顺利地创建、部署和管理 Web 作业。 可以从模板创建 Web 作业，还可以发布和管理（运行/停止/监视/调试）这些作业。 
 
-Azure 门户预览中的 Web 作业仪表板提供了强大的管理功能，可让你全面控制 Web 作业的执行，包括调用 Web 作业中的各个函数。 该仪表板还会显示函数运行时和日志记录输出。 
+Azure 门户中的 Web 作业仪表板提供了强大的管理功能，可让你全面控制 Web 作业的执行，包括调用 Web 作业中的各个函数。 该仪表板还会显示函数运行时和日志记录输出。 
 
 ## <a name="getstarted"></a>Web 作业和 WebJobs SDK 入门
 * [Azure Web 作业简介](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
@@ -53,7 +53,7 @@ Azure 门户预览中的 Web 作业仪表板提供了强大的管理功能，可
 
 ## <a name="deploy" id="deploying"></a>部署 Web 作业
 * [如何使用 Visual Studio 部署 Azure Web 作业](websites-dotnet-deploy-webjobs.md)
-* [如何使用 Azure 门户预览部署 Web 作业](web-sites-create-web-jobs.md)
+* [如何使用 Azure 门户部署 Web 作业](web-sites-create-web-jobs.md)
 * [启用 Azure Web 作业的命令行或连续传送](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [使用 Web 作业通过 Git 将 .NET 控制台应用程序部署到 Azure](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [将 F# Web 作业部署到 Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
@@ -61,7 +61,7 @@ Azure 门户预览中的 Web 作业仪表板提供了强大的管理功能，可
 
 ## <a name="schedule"></a>计划 Web 作业
 * [“添加 Azure Web 作业”对话框](websites-dotnet-deploy-webjobs.md#configure)
-* [在 Azure 门户预览中创建计划的 Web 作业](web-sites-create-web-jobs.md#CreateScheduled)
+* [在 Azure 门户中创建计划的 Web 作业](web-sites-create-web-jobs.md#CreateScheduled)
 * [将计划程序作业挂接到 Web 作业](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [通过 cron 表达式计划 Azure Web 作业](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [使用 WebJobs SDK TimerTrigger 计划单个 Web 作业函数](websites-dotnet-webjobs-sdk.md#schedule)
@@ -101,7 +101,7 @@ Azure 门户预览中的 Web 作业仪表板提供了强大的管理功能，可
 ## <a name="samples"></a>示例 Web 作业应用程序
 * [Web 作业团队在 GitHub 上提供的示例应用程序](https://github.com/azure/azure-webjobs-sdk-samples)
 * [使用 WebJobs SDK 创建包含 Web 作业后端的简单 Azure Web 应用](http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb)
-* [SiteMonitR](http://code.msdn.microsoft.com/SiteMonitR-dd4fcf77)。 演示计划 Web 作业和事件驱动型 Web 作业的用法。 请参阅博客文章 [使用 Azure WebJobs SDK 重新生成 SiteMonitR](http://www.bradygaster.com/post/rebuilding-the-sitemonitr-using-windows-azure-webjobs)。
+* [SiteMonitR](http://code.msdn.microsoft.com/SiteMonitR-dd4fcf77)。 演示计划 Web 作业和事件驱动型 Web 作业的用法。
 
 ## <a name="blogs"></a>博客
 * [Azure 博客](https://www.azure.cn/blog)
