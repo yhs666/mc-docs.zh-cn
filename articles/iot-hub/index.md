@@ -99,37 +99,6 @@ ms.lasthandoff: 05/12/2017
     </li>
 </ul>
 
----
- 
-<h2>引用</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>命令行</h3>
-                        <p><a href="https://docs.microsoft.com/cli/azure/iot">Azure CLI</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>语言</h3>
-                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.devices">.NET（服务）</a></p>
-                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client">.NET（设备）</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
         <div class="img"></div>

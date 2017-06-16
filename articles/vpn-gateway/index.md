@@ -116,35 +116,3 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
  </ul>
-
----
-
-<h2>引用</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>命令行</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt163510(v=azure.300)">PowerShell (Resource Manager)</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell（经典）</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt163859">REST (Resource Manager)</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST（经典）</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
