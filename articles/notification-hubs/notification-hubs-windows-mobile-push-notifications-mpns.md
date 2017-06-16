@@ -35,7 +35,7 @@ wacn.date: 11/22/2016
 
 本教程演示使用通知中心的简单广播方案。
 
-##先决条件
+## 先决条件
 
 本教程需要的内容如下：
 
@@ -43,7 +43,7 @@ wacn.date: 11/22/2016
 
 完成本教程是学习有关 Windows Phone 8 应用的所有其他通知中心教程的先决条件。
 
-##创建通知中心
+## 创建通知中心
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
@@ -57,11 +57,11 @@ wacn.date: 11/22/2016
 > [!NOTE]
 > 本教程使用未经身份验证模式下的 MPNS。MPNS 未经身份验证的模式对你可以发送到每个通道的通知有一些限制。通知中心支持 [MPNS 身份验证模式](http://msdn.microsoft.com/zh-cn/library/windowsphone/develop/ff941099.aspx)，它允许你上载证书。
 
-##将你的应用程序连接到通知中心
+## 将你的应用程序连接到通知中心
 
 1. 在 Visual Studio 中创建一个新的 Windows Phone 8 应用程序。
 
-       ![Visual Studio - 新建项目 - Windows Phone 应用][13]
+    ![Visual Studio - 新建项目 - Windows Phone 应用][13]
 
     在 Visual Studio 2013 Update 2 或更高版本中，必须改为创建 Windows Phone Silverlight 应用程序。
 
@@ -118,9 +118,9 @@ wacn.date: 11/22/2016
 
 6. 在解决方案资源管理器中，展开“属性”，打开 `WMAppManifest.xml` 文件，单击“功能”选项卡并确保选中 **ID\_CAP\_PUSH\_NOTIFICATION** 功能。
 
-       ![Visual Studio - Windows Phone 应用功能][14]
+    ![Visual Studio - Windows Phone 应用功能][14]
 
-       这样可确保你的应用程序可收到推送通知。如果没有它，则将无法成功向应用发送推送通知。
+    这样可确保你的应用程序可收到推送通知。如果没有它，则将无法成功向应用发送推送通知。
 
 7. 按 `F5` 键以运行应用。
 
@@ -131,7 +131,7 @@ wacn.date: 11/22/2016
    >[!NOTE]
    > 若要接收 toast 推送通知，则应用程序不得在前台运行。
 
-##从后端发送推送通知
+## 从后端发送推送通知
 
 你可以使用通知中心通过公共 <a href="http://msdn.microsoft.com/zh-cn/library/windowsazure/dn223264.aspx">REST 接口</a>从任意后端发送推送通知。在本教程中，你将使用 .NET 控制台应用程序来发送推送通知。
 
@@ -141,7 +141,7 @@ wacn.date: 11/22/2016
 
 1. 右键单击解决方案，选择“添加”和“新建项目...”，然后在“Visual C#”下依次单击“Windows”、“控制台应用程序”和“确定”。
 
-       ![Visual Studio - 新建项目 - 控制台应用程序][6]
+    ![Visual Studio - 新建项目 - 控制台应用程序][6]
 
     这会将新的 Visual C# 控制台应用程序添加到解决方案。你也可以在单独的解决方案中进行此项操作。
 
@@ -198,7 +198,7 @@ wacn.date: 11/22/2016
 
 可以在 MSDN 上的 [toast 目录]和[磁贴目录]主题中找到所有可能的负载。
 
-##后续步骤
+## 后续步骤
 
 在这个简单的示例中，你已将推送通知广播到所有 Windows Phone 8 设备。
 

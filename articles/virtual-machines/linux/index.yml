@@ -55,3 +55,16 @@ sections:
     items:
     - html: <a href="/virtual-machines/virtual-machines-linux-cli-samples">Azure CLI</a>
     - html: <a href="/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>
+- title: 引用
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: 命令行
+      html: '<p><a href="https://docs.microsoft.com/cli/azure/vm">Azure CLI</a></p><p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>'
+    - title: 语言
+      html: '<p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="https://docs.microsoft.com/java/api">Java</a></p><p><a href="/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="/develop/python/">Python</a></p>'
+    - title: REST
+      html: '<p><a href="https://docs.microsoft.com/rest/api/compute">REST API 参考</a></p>'
+

@@ -67,3 +67,16 @@ sections:
     items:
     - html: '<a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a>'
     - html: '<a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a>'
+- title: 引用
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: 命令行
+      html: '<p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a></p>'
+    - title: 语言
+      html: '<p><a href="https://docs.microsoft.com/dotnet/api">.NET</a></p><p><a href="https://docs.microsoft.com/java/api/">Java</a></p>'
+    - title: REST
+      html: '<p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a></p>'
+

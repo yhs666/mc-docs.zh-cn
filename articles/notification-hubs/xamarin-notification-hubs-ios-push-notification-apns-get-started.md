@@ -22,7 +22,7 @@ ms.author: v-junlch
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-##概述
+## 概述
 > [!IMPORTANT]
 > 若要完成本教程，你必须有一个有效的 Azure 帐户。如果你没有帐户，只需花费几分钟就能创建一个试用帐户。有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -31,7 +31,7 @@ ms.author: v-junlch
 
 本教程演示使用通知中心的简单推送消息广播方案。
 
-##先决条件
+## 先决条件
 
 本教程需要的内容如下：
 
@@ -68,13 +68,13 @@ ms.author: v-junlch
 
 -->
 
-##将你的应用连接到通知中心
+## 将你的应用连接到通知中心
 
 #### 创建新项目
 
 1. 在 Xamarin Studio 中，创建新的 iOS 项目，然后选择“统一 API”>“单视图应用程序”模板。
 
-       ![Xamarin Studio - 选择应用程序类型][31]
+    ![Xamarin Studio - 选择应用程序类型][31]
 
 2. 添加对 Azure 消息传送组件的引用。在“解决方案”视图中，右键单击你项目的“Components”文件夹，然后选择“获取更多组件”。搜索“Azure 消息传送”组件，并向你的项目添加该组件。
 
@@ -212,13 +212,13 @@ ms.author: v-junlch
 
 * **Java/PHP**：有关如何使用 REST API 发送推送通知的示例，请参阅“如何通过 Java/PHP 使用通知中心”([Java](./notification-hubs-java-push-notification-tutorial.md) | [PHP](./notification-hubs-php-push-notification-tutorial.md))。
 
-####（可选）通过 .NET 控制台应用发送推送通知
+#### （可选）通过 .NET 控制台应用发送推送通知
 
 在本部分，你将使用简单的 .NET 控制台应用发送推送通知。为了演示本示例，我们将切换到已安装 Visual Studio 的 Windows 开发环境。
 
 1. 在 Visual Studio 中创建新的 Visual C# 控制台应用程序：
 
-       ![Visual Studio - 新建控制台应用程序][213]
+    ![Visual Studio - 新建控制台应用程序][213]
 
 2. 在 Visual Studio 中，依次单击“工具”、“NuGet 包管理器”和“包管理器控制台”。
 
@@ -262,7 +262,7 @@ ms.author: v-junlch
 
 可以在 Apple [本地和推送通知编程指南]中找到所有可能的负载。
 
-####（可选）从移动服务发送通知
+#### （可选）从移动服务发送通知
 
 在本部分，我们将使用移动服务通过节点脚本来发送推送通知。
 
@@ -272,11 +272,11 @@ ms.author: v-junlch
 
 2. 选择顶部的“计划程序”选项卡。
 
-       ![Azure 经典门户 - 计划程序][215]
+    ![Azure 经典门户 - 计划程序][215]
 
 3. 创建新的计划作业，插入名称，然后选择“按需”。
 
-       ![Azure 经典门户 - 新建作业][216]
+    ![Azure 经典门户 - 新建作业][216]
 
 4. 创建作业时，单击该作业名称。然后单击顶部栏上的“脚本”选项卡。
 
@@ -303,7 +303,7 @@ ms.author: v-junlch
 
 6. 单击底部栏上的“运行一次”。你应在设备上收到警报。
 
-##后续步骤
+## 后续步骤
 
 在这个简单的示例中，你已将推送通知广播到所有 iOS 设备。若要针对特定客户，请参考教程[使用通知中心将通知推送到用户]。如果要按兴趣组划分用户，可以阅读[使用通知中心发送突发新闻]。请在[通知中心指南]和[适用于 iOS 的通知中心操作方法指南]中了解有关如何使用通知中心的详细信息。
 
