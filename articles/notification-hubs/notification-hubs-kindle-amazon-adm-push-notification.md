@@ -246,6 +246,7 @@ ms.author: v-junlch
 
 8. 在 `OnCreate` 方法的末尾添加以下代码：
 
+    ```
     final ADM adm = new ADM(this);
     if (adm.getRegistrationId() == null)
     {
@@ -263,6 +264,8 @@ ms.author: v-junlch
              }
            }.execute(null, null, null);
     }
+    ```
+
 ## 将 API 密钥添加到应用
 
 1. 在 Eclipse 中，在项目的目录资产中创建名为 **api\_key.txt** 的新文件。

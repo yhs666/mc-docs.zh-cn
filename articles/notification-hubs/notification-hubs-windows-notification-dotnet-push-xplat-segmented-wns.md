@@ -164,7 +164,7 @@ ms.author: v-junlch
 
 你的应用程序现在可以将一组类别存储在设备的本地存储区中了，每当用户更改所选类别时，会将这些类别注册到通知中心。
 
-##注册通知
+## 注册通知
 
 这些步骤用于在启动时将在本地存储区中存储的类别注册到通知中心。
 
@@ -204,11 +204,11 @@ ms.author: v-junlch
 
 应用程序现在已完成，可以在设备的本地存储区中存储一组类别了，每当用户更改所选类别时将使用这些类别注册到通知中心。接下来，我们将定义一个后端，它可将类别通知发送到此应用程序。
 
-##发送带标记的通知
+## 发送带标记的通知
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-##运行应用并生成通知
+## 运行应用并生成通知
 
 1. 在 Visual Studio 中，按 F5 编译并启动应用程序。
 
