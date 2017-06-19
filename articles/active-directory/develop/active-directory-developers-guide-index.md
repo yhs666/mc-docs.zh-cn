@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/07/2017
-ms.author: dastrock
+ms.author: v-junlch
 ms.custom: aaddev
 wacn.date: 
 ms.translationtype: Human Translation
