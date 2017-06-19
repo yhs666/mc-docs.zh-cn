@@ -304,7 +304,7 @@ Azure 移动应用 Node.js SDK 利用 [mssql Node.js 包]来建立和使用 SQL 
   6. 找到“IPAll”节点。在“TCP 端口”字段中输入 **1433**。
 
 
-      ![Configure SQL Express for TCP/IP][3]
+     ![Configure SQL Express for TCP/IP][3]
 
 
   7. 单击“确定”。在弹出对话框中单击“确定”。
@@ -320,7 +320,7 @@ Azure 移动应用 Node.js SDK 利用 [mssql Node.js 包]来建立和使用 SQL 
   4. 单击“确定”
 
 
-      ![Configure SQL Express Authentication][4]
+     ![Configure SQL Express Authentication][4]
 
 
   5. 在对象资源管理器中展开“安全性”>“登录”。
@@ -329,7 +329,7 @@ Azure 移动应用 Node.js SDK 利用 [mssql Node.js 包]来建立和使用 SQL 
   8. 单击“确定”
 
 
-      ![Add a new user to SQL Express][5]
+     ![Add a new user to SQL Express][5]
 
 
   9. 右键单击新登录名并选择“属性”

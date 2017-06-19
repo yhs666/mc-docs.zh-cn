@@ -113,7 +113,7 @@ ms.author: v-yiso
 
 6. 在 Visual Studio 或 Xamarin Studio 中，运行设备或模拟器中的客户端项目，并使用所选的标识提供者登录。
 
-       成功登录后，应用将显示登录 ID 和待办事项列表，用户可以对数据进行更新。
+    成功登录后，应用将显示登录 ID 和待办事项列表，用户可以对数据进行更新。
 
 <!-- URLs. -->
 [创建 Xamarin.Android 应用]: ./app-service-mobile-xamarin-android-get-started.md
