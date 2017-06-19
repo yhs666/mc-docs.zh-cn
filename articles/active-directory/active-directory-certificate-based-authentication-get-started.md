@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2017
 wacn.date: 06/12/2017
-ms.author: markvi
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 27be304ab12a857cf0f10ee1a10d5a5dd921a2b8

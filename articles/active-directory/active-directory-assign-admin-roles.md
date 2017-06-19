@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2017
 wacn.date: 06/12/2017
-ms.author: curtand
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: a64e50d94649d56e8bdd4fb7641e4b8c842c5e12

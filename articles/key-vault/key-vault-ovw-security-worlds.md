@@ -3,7 +3,7 @@ ms.assetid:
 title: "Azure Key Vault 安全体系 | Microsoft Docs"
 ms.service: key-vault
 author: BrucePerlerMS
-ms.author: bruceper
+ms.author: v-junlch
 manager: mbaldwin
 ms.date: 05/10/2017
 wacn.date: 
