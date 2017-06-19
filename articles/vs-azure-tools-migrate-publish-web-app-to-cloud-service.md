@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 wacn.date: 03/30/2017
-ms.author: tarcher
+ms.author: v-junlch
 ---
 
 # 如何：通过 Visual Studio 将 Web 应用程序迁移和发布到 Azure 云服务
@@ -63,7 +63,7 @@ ms.author: tarcher
 如果使用内部 SQL Server 数据库的 Web 应用程序具有连接字符串，必须将此连接字符串改为使用 Azure 托管的 SQL 数据库实例。
 
 > [!IMPORTANT]
-你的订阅必须允许你使用 SQL 数据库。如果从 [Azure 经典管理门户](https://manage.windowsazure.cn)访问订阅，便可确定订阅提供的服务。以下说明适用于已发行的 [Azure 经典管理门户](https://manage.windowsazure.cn)。如果你使用的是 [Azure 门户预览](http://portal.azure.cn)，请跳到下一过程。
+你的订阅必须允许你使用 SQL 数据库。如果从 [Azure 经典管理门户](https://manage.windowsazure.cn)访问订阅，便可确定订阅提供的服务。以下说明适用于已发行的 [Azure 经典管理门户](https://manage.windowsazure.cn)。如果你使用的是 [Azure 门户](http://portal.azure.cn)，请跳到下一过程。
 >
 >
 

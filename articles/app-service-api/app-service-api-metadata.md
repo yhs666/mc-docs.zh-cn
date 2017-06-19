@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 wacn.date: 03/17/2017
-ms.author: rachelap
+ms.author: v-dazen
 ---
 
 # 用于 API 恢复和代码生成的应用服务 API 应用元数据 
@@ -31,7 +31,7 @@ ms.author: rachelap
 
 ### 门户边栏选项卡
 
-可以在[Azure 门户预览的](https://portal.azure.cn/)“API 定义”边栏选项卡中查看和更改终结点 URL。
+可以在[Azure 门户的](https://portal.azure.cn/)“API 定义”边栏选项卡中查看和更改终结点 URL。
 
 ![](./media/app-service-api-metadata/apidefblade.png)
 

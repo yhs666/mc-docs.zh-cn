@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2016
 wacn.date: 
-ms.author: glenga
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: c95ede40e1e124ee87aec1dd5d6246befcd2d289
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/19/2017
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 ## <a name="overview"></a>概述
-本主题介绍如何使用 Visual Studio 将控制台应用程序项目作为 [Azure Web 作业](/app-service-web/websites-webjobs-resources)部署到[应用服务](/app-service-web/app-service-changes-existing-services)中的 Web 应用。 有关如何使用 [Azure 门户预览](https://portal.azure.cn)部署 Web 作业的信息，请参阅[使用 Web 作业运行后台任务](web-sites-create-web-jobs.md)。
+本主题介绍如何使用 Visual Studio 将控制台应用程序项目作为 [Azure Web 作业](/app-service-web/websites-webjobs-resources)部署到[应用服务](/app-service-web/app-service-changes-existing-services)中的 Web 应用。 有关如何使用 [Azure 门户](https://portal.azure.cn)部署 Web 作业的信息，请参阅[使用 Web 作业运行后台任务](web-sites-create-web-jobs.md)。
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 05/19/2017
 
 ![“添加 Azure Web 作业”对话框](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-此对话框中的字段对应于 Azure 门户预览中“新建作业”对话框中的字段。 有关详细信息，请参阅[使用 Web 作业运行后台任务](web-sites-create-web-jobs.md)。
+此对话框中的字段对应于 Azure 门户中“新建作业”对话框中的字段。 有关详细信息，请参阅[使用 Web 作业运行后台任务](web-sites-create-web-jobs.md)。
 
 对于计划的 Web 作业（而不是连续 Web 作业），Visual Studio 将创建 [Azure 计划程序](https://www.azure.cn/home/features/scheduler/)作业集合（如果不存在），然后在该集合中创建一个作业：
 

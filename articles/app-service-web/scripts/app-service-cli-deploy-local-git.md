@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 03/20/2017
 wacn.date: 
-ms.author: cephalin
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: a238cff6bc16cf33080c1bd16233cc909d0b6213
@@ -78,10 +78,10 @@ az appservice web browse --name $webappname --resource-group myResourceGroup
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | 创建应用服务计划。 |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | 创建 Azure Web 应用。 |
-| [az appservice web deployment user set](https://docs.microsoft.com/cli/azure/appservice/web/deployment/user#set) | 为应用服务设置帐户级别部署凭据。 |
-| [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config-local-git) | 为本地 Git 存储库创建源控件配置。 |
-| [az appservice web browse](https://docs.microsoft.com/cli/azure/appservice/web#browse) | 在浏览器中打开 Azure Web 应用。 |
+| [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#delete) | 创建 Azure Web 应用。 |
+| [az appservice web deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user#set) | 为应用服务设置帐户级别部署凭据。 |
+| [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/source-control#config-local-git) | 为本地 Git 存储库创建源控件配置。 |
+| [az appservice web browse](https://docs.microsoft.com/cli/azure/webapp#browse) | 在浏览器中打开 Azure Web 应用。 |
 
 ## <a name="next-steps"></a>后续步骤
 

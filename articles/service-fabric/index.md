@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
+ms.author: v-johch
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: aab4f1c2399bab81be01483cff5042405e480e64
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: de12771f650b6ae24e0f01c91cf4fb86745b123f
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 #<a name="service-fabric-documentation"></a>Service Fabric 文档
@@ -99,50 +99,3 @@ ms.lasthandoff: 05/12/2017
     
     
 </ul>
-
----
-
-<h2>引用</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>命令行</h3>
-                        <p><a href="https://docs.microsoft.com/powershell/servicefabric/vlatest/servicefabric">PowerShell</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>语言</h3>
-                        <p><a href="https://docs.microsoft.com/java/api/microsoft.servicefabric.services">Java API</a></p>
-                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services">.NET</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/servicefabric">REST API 参考</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>    
-
-
-
-

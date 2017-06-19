@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 wacn.date: 
-ms.author: cynthn
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: a3b4cdd03d3c9771017087134631eff4f4f41f4c
@@ -23,8 +23,8 @@ ms.lasthandoff: 04/14/2017
 
 
 ---
-# <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal-preview"></a>使用 Azure 门户预览登录到 Windows 虚拟机
-在 Azure 门户预览中，使用“连接”按钮启动远程桌面会话，然后登录到 Windows VM。
+# <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal-preview"></a>使用 Azure 门户登录到 Windows 虚拟机
+在 Azure 门户中，使用“连接”按钮启动远程桌面会话，然后登录到 Windows VM。
 
 是否要连接到 Linux VM？ 请参阅[如何登录到运行 Linux 的虚拟机](../../linux/mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
@@ -37,7 +37,7 @@ Learn how to [perform these steps using new Azure portal preview](../connect-log
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关如何使用 Resource Manager 模型登录到 VM 的信息，请参阅[此处](../connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ## <a name="connect-to-the-virtual-machine"></a>连接到虚拟机
-1. 登录 Azure 门户预览。
+1. 登录 Azure 门户。
 2. 单击要访问的虚拟机。 其名称在“所有资源”窗格中列出。
 
     ![Virtual-machine-locations](./media/connect-logon/azureportaldashboard.png)

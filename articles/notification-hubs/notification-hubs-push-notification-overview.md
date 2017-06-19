@@ -13,7 +13,7 @@ ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/17/2017
-ms.author: yuaxu
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 672c4b6338c8e0cf8ff34716e675f8fd73780e8d

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2016
 wacn.date: 02/10/2017
-ms.author: xshi
+ms.author: v-yiso
 ---
 
 # 故障排除
@@ -91,8 +91,8 @@ npm install -g iothub-explorer@latest
 iothub-explorer help
 ```
 
-### Azure 门户预览
-完整的 CLI 体验有助于用户创建和管理其所有 Azure 资源。还可能需要借助 [Azure 门户预览](../azure-portal-overview.md)对 Azure 资源进行预配、管理和调试。
+### Azure 门户
+完整的 CLI 体验有助于用户创建和管理其所有 Azure 资源。还可能需要借助 [Azure 门户](../azure-portal-overview.md)对 Azure 资源进行预配、管理和调试。
 
 ## Azure 存储问题
 [Microsoft Azure 存储资源管理器（预览版）](http://storageexplorer.com)是 Microsoft 推出的一款独立的应用，可用于在 Windows、OS X 和 Linux 上处理 Azure 存储数据。可以使用此工具连接到表并查看其中的数据。可以使用此工具排查 Azure 存储问题。

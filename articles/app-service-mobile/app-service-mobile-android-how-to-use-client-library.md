@@ -12,7 +12,7 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: adrianha
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 46f35823e07db31b81401594ca194db058adf615
@@ -1076,8 +1076,29 @@ MobileServiceUser user = mClient
 1. 根据[如何为 Active Directory 登录配置应用服务][22]教程的说明，为 AAD 登录配置移动应用。 请务必完成注册本机客户端应用程序的可选步骤。
 2. 通过修改 build.gradle 文件并包含以下定义来安装 ADAL：
 
-    repositories {      mavenCentral()      flatDir {          dirs 'libs'      }      maven {          url "YourLocalMavenRepoPath\\.m2\\repository"      }  }  packagingOptions {      exclude 'META-INF/MSFTSIG.RSA'      exclude 'META-INF/MSFTSIG.SF'  }  dependencies {      compile fileTree(dir: 'libs', include: ['*.jar'])      compile('com.microsoft.aad:adal:1.1.1') {          exclude group: 'com.android.support'      } // Recent version is 1.1.1      compile 'com.android.support:support-v4:23.0.0'  }
-
+    ```
+    repositories {
+        mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
+        maven {
+            url "YourLocalMavenRepoPath\\.m2\\repository"
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/MSFTSIG.RSA'
+        exclude 'META-INF/MSFTSIG.SF'
+    }
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        compile('com.microsoft.aad:adal:1.1.1') {
+            exclude group: 'com.android.support'
+        } // Recent version is 1.1.1
+        compile 'com.android.support:support-v4:23.0.0'
+    }
+    ```
+    
 3. 将以下代码添加到应用程序并进行以下替换：
 
 * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 
@@ -1146,7 +1167,7 @@ private void authenticate() {
         mContext.onActivityResult(requestCode, resultCode, data);
     }
     }
-    ```
+```
 
 ## <a name="filters"></a>Adjust the Client-Server Communication
 

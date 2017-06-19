@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 wacn.date: 
-ms.author: jeffstok
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 4d6131630e3fe63e55232e3b9828ca4cf8e88a31
@@ -214,7 +214,7 @@ Windows 会自动阻止 .ps1、.dll 和 .exe 文件，因此需要在运行该�
 2. 出现提示时，单击“Microsoft SQL Server”作为数据源。
 
     ![“更改数据源”对话框](./media/stream-analytics-build-an-iot-solution-using-stream-analytics/image16.png)
-3. 在“服务器名称”字段中，粘贴在上一部分从 Azure 门户预览版复制的名称（即，*servername*.database.chinacloudapi.cn）。
+3. 在“服务器名称”字段中，粘贴在上一部分从 Azure 门户复制的名称（即，*servername*.database.chinacloudapi.cn）。
 4. 单击“使用 SQL Server 身份验证” 。
 5. 在“用户名”字段中输入“tolladmin”，并在“密码”字段中输入“123toll!” 。
 6. 单击“选择或输入数据库名称”，然后选择“TollDataDB”作为数据库。

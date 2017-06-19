@@ -14,7 +14,7 @@ ms.devlang: python
 ms.topic: get-started-article
 ms.date: 07/07/2016
 wacn.date: 
-ms.author: huvalo
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 7dece0eefad0f9f9825bc0463771aaae0e9574cf
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/19/2017
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 ## <a name="create-the-project"></a>创建项目
 本节介绍使用样本模板创建 Visual Studio 项目。 你将创建虚拟环境并安装所需软件包。 你将创建一个使用 sqlite 的本地数据库。 然后你将在本地运行应用程序。

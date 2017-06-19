@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 wacn.date: 03/20/2017
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # <a name="getting-started"></a>什么是移动应用？

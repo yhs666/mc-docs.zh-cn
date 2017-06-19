@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2016
 wacn.date: 01/04/2017
-ms.author: douglasl
+ms.author: v-yeche
 ---
 
 # 延伸数据库的管理和故障排除

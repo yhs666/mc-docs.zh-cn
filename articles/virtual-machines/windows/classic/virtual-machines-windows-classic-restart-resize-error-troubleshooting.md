@@ -16,7 +16,7 @@ ms.workload: required
 ms.date: 01/10/2017
 wacn.date: 03/01/2017
 ms.devlang: na
-ms.author: delhan
+ms.author: v-dazen
 ---
 
 # 排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的经典部署问题
@@ -36,7 +36,7 @@ ms.author: delhan
 ## 收集审核日志
 若要开始故障排除，请收集审核日志，以识别与问题相关的错误。
 
-在 Azure 门户预览中，单击“浏览”\>“虚拟机”\> *你的 Windows 虚拟机* \>“设置”\>“审核日志”。
+在 Azure 门户中，单击“浏览”\>“虚拟机”\> *你的 Windows 虚拟机* \>“设置”\>“审核日志”。
 
 ## 问题：启动已停止的 VM 时发生错误
 尝试启动已停止的 VM，但出现分配失败错误。

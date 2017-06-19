@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2017
 wacn.date: 
-ms.author: dobett
+ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: bb9010e66772464d88d12f4756e76459769c0cd8
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 2325b0d84eb9372437f2b9a53332b040271fecb9
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 04/07/2017
 若要完成本教程，您需要以下各项：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-* 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）
+* 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -104,6 +104,7 @@ ms.lasthandoff: 04/07/2017
 > 
 > 
 
+<a id="D2C_csharp"></a>
 ## <a name="receive-device-to-cloud-messages"></a>接收设备到云的消息
 本部分将创建一个 .NET 控制台应用，用于从 IoT 中心读取设备到云的消息。 IoT 中心公开与 [Azure 事件中心][lnk-event-hubs-overview]兼容的终结点，以让用户读取设备到云的消息。 为了简单起见，本教程创建的基本读取器不适用于高吞吐量部署。 若要了解如何大规模处理设备到云的消息，请参阅[处理设备到云的消息][lnk-process-d2c-tutorial]教程。 若要深入了解如何处理来自事件中心的消息，请参阅[事件中心入门][lnk-eventhubs-tutorial]教程。 （本教程适用与 IoT 中心和事件中心相兼容的终结点。）
 
@@ -194,34 +195,36 @@ ms.lasthandoff: 04/07/2017
     static string deviceKey = "{device key}";
     ```
 6. 将以下方法添加到 **Program** 类：
-
-    ```
-    private static async void SendDeviceToCloudMessagesAsync()
-    {
-        double avgWindSpeed = 10; // m/s
-        Random rand = new Random();
-
-        while (true)
+   
+        private static async void SendDeviceToCloudMessagesAsync()
         {
-            double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
-
-            var telemetryDataPoint = new
+            double minTemperature = 20;
+            double minHumidity = 60;
+            Random rand = new Random();
+   
+            while (true)
             {
-                deviceId = "myFirstDevice",
-                windSpeed = currentWindSpeed
-            };
-            var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
-            var message = new Message(Encoding.ASCII.GetBytes(messageString));
-
-            await deviceClient.SendEventAsync(message);
-            Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, messageString);
-
-            Task.Delay(1000).Wait();
+                double currentTemperature = minTemperature + rand.NextDouble() * 15;
+                double currentHumidity = minHumidity + rand.NextDouble() * 20;
+   
+                var telemetryDataPoint = new
+                {
+                    deviceId = "myFirstDevice",
+                    temperature = currentTemperature,
+                    humidity = currentHumidity
+                };
+                var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
+                var message = new Message(Encoding.ASCII.GetBytes(messageString));
+                message.Properties.Add("temperatureAlert", (currentTemperature > 30) ? "true" : "false");
+   
+                await deviceClient.SendEventAsync(message);
+                Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, messageString);
+   
+                await Task.Delay(1000);
+            }
         }
-    }
-    ```
-
-    此方法每隔一秒发送一条新的设备到云消息。 该消息包含一个具有设备 ID 的 JSON 序列化对象和一个随机生成的编号，用于模拟风速传感器。
+   
+    此方法每隔一秒发送一条新的设备到云消息。 该消息包含一个具有设备 ID 的 JSON 序列化对象和一个随机生成的编号，用于模拟温度传感器和湿度传感器。
 7. 最后，在 **Main** 方法中添加以下行：
 
     ```
@@ -261,7 +264,7 @@ ms.lasthandoff: 04/07/2017
 
 * [连接你的设备][lnk-connect-device]
 * [设备管理入门][lnk-device-management]
-* [IoT 网关 SDK 入门][lnk-gateway-SDK]
+* [IoT Edge 入门][lnk-gateway-SDK]
 
 若要了解如何扩展 IoT 解决方案和如何大规模处理设备到云的消息，请参阅 [Process device-to-cloud messages][lnk-process-d2c-tutorial] （处理设备到云的消息）教程。
 
@@ -281,15 +284,15 @@ ms.lasthandoff: 04/07/2017
 [lnk-hub-sdks]: ./iot-hub-devguide-sdks.md
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-portal]: https://portal.azure.cn/
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-dotnet-standard-getstarted-send.md
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: ./iot-hub-devguide-identity-registry.md
 [lnk-servicebus-nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs-what-is-event-hubs.md
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-device-nuget]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
-[lnk-device-management]: ./iot-hub-device-management-overview.md
+[lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: /develop/iot/

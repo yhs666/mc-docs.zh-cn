@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 wacn.date: 
-ms.author: cephalin
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 0c56d3a06880a09b8a534a4eed38194268e2547f
@@ -42,7 +42,7 @@ ms.lasthandoff: 04/28/2017
 
 <a name="scalingsharedorbasic"></a>
 ## <a name="scalingstandard"></a> 增加定价层
-1. 在浏览器中，打开 [Azure 门户预览][portal]。
+1. 在浏览器中，打开 [Azure 门户][portal]。
 2. 在应用的边栏选项卡中，单击“所有设置”，然后单击“向上缩放”。
 
     ![导航到向上缩放 Azure 应用。][ChooseWHP]
@@ -100,7 +100,6 @@ ms.lasthandoff: 04/28/2017
     [应用服务定价详细信息](https://www.azure.cn/pricing/details/app-service/)
 
     [应用服务定价详细信息 - SSL 连接](https://www.azure.cn/pricing/details/app-service/)
-* 有关 Azure 应用服务最佳实践（包括构建可缩放、有弹性的体系结构）的信息，请参阅 [Best Practices: Azure 应用服务 Web 应用](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)（最佳实践：Azure 应用服务 Web 应用）。
 
 <!-- LINKS -->
 [vmsizes]:https://www.azure.cn/pricing/details/app-service/

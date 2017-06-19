@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 wacn.date: 
-ms.author: cynthn
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 06080a449443800921883312b1c6222192a53e33
@@ -36,7 +36,7 @@ ms.lasthandoff: 05/05/2017
 ## <a name="attach-the-data-disk"></a>附加数据磁盘
 首先，需要将数据磁盘附加到虚拟机。 
 
-* 若要使用门户，请参阅[如何在 Azure 门户预览中附加数据磁盘](attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+* 若要使用门户，请参阅[如何在 Azure 门户中附加数据磁盘](attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * 若要使用经典管理门户，请参阅[如何将数据磁盘附加到 Windows 虚拟机](classic/attach-disk.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。 
 
 ## <a name="temporarily-move-pagefilesys-to-c-drive"></a>将 pagefile.sys 暂时移到 C 盘

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 04/05/2017
-ms.author: andrela;sstein;carlrab
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 4597286cd70bbafc0056670bac02b256dc84b484
@@ -67,9 +67,9 @@ sudo apt-get install dotnet-dev-1.0.1
 
 ## <a name="get-connection-information"></a>获取连接信息
 
-在 Azure 门户预览中获取连接字符串。 请使用连接字符串连接到 Azure SQL 数据库。
+在 Azure 门户中获取连接字符串。 请使用连接字符串连接到 Azure SQL 数据库。
 
-1. 登录到 [Azure 门户预览](https://portal.azure.cn/)。
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
 3. 在数据库的“概要”窗格中，查看完全限定的服务器名称。 
 

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 wacn.date: 12/19/2016
-ms.author: ddove
+ms.author: v-johch
 ---
 
 # 在扩大云数据库之间移动数据

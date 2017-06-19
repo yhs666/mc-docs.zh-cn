@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 892189c80b0afab1b9b93b3c9e5f8a87bd301f9c
@@ -90,7 +90,7 @@ Azure 在“映像”下存储映像 ，以及任何已上载的映像。 有关
     azure vm image list
     ```
 
-    在 [Azure 门户预览](http://portal.azure.cn)中，新映像会出现在属于“计算”服务的“VM 映像(经典)”中。 可通过在 Azure 服务列表底部单击“更多服务”，然后在“计算”服务中查找来访问“VM 映像(经典)”。   
+    在 [Azure 门户](http://portal.azure.cn)中，新映像会出现在属于“计算”服务的“VM 映像(经典)”中。 可通过在 Azure 服务列表底部单击“更多服务”，然后在“计算”服务中查找来访问“VM 映像(经典)”。   
 
     ![成功捕获映像](./media/capture-image/VMCapturedImageAvailable.png)
 

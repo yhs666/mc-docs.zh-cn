@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 wacn.date: 
-ms.author: kasing
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 2587d2d258f58453cda2565e1a450faf4820f718

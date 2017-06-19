@@ -14,7 +14,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/10/2017
 wacn.date: 
-ms.author: rnagpal
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
@@ -140,7 +140,7 @@ Microsoft 至少会在停用 SDK 的 **12 个月**之前发出通知，以便顺
 | [1.6.0](#1.6.0) |2016 年 3 月 29 日 |--- |
 | [1.5.0](#1.5.0) |2016 年 1 月 3日 |--- |
 | [1.4.2](#1.4.2) |2015 年 10 月 6 日 |--- |
-| [1.4.1](#1.4.1) |2015 年 10 月 6 日 |--- |
+| 1.4.1           |2015 年 10 月 6 日 |--- |
 | [1.2.0](#1.2.0) |2015 年 8 月 6 日 |--- |
 | [1.1.0](#1.1.0) |2015 年 7 月 9 日 |--- |
 | [1.0.1](#1.0.1) |2015 年 5 月 25 日 |--- |

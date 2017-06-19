@@ -14,7 +14,7 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 wacn.date: 02/06/2017
-ms.author: wesmc
+ms.author: v-junlch
 ---
 
 # 通过使用 ASP.NET 注册推送通知的当前用户
@@ -22,11 +22,11 @@ ms.author: wesmc
 > [!div class="op_single_selector"]
 >- [iOS](./notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 
-##概述
+## 概述
 
 本主题演示在 ASP.NET Web API 执行注册时如何请求向 Azure 通知中心注册推送通知。本主题是对教程[使用通知中心通知用户]的扩展。你必须在该教程中已完成创建经过身份验证的移动服务所需的步骤。有关通知用户方案的详细信息，请参阅[使用通知中心通知用户]。
 
-##更新应用程序  
+## 更新应用程序  
 
 1. 在 MainStoryboard\_iPhone.storyboard 中，从对象库添加以下组件：
 
@@ -40,20 +40,21 @@ ms.author: wesmc
 
     此时，你的 Storyboard 应与下图类似：
 
-       ![][0]
+    ![][0]
 
 2. 在助手编辑器中，创建所有带开关的控件的容器并调用它们，连接文本字段与视图控制器（委派），并创建“登录”按钮的“操作”。
 
-       ![][1]
+    ![][1]
 
-       BreakingNewsViewController.h 文件现在应包含以下代码：
+    BreakingNewsViewController.h 文件现在应包含以下代码：
 
-        @property (weak, nonatomic) IBOutlet UILabel *installationId;
-        @property (weak, nonatomic) IBOutlet UITextField *User;
-        @property (weak, nonatomic) IBOutlet UITextField *Password;
+    ```
+    @property (weak, nonatomic) IBOutlet UILabel *installationId;
+    @property (weak, nonatomic) IBOutlet UITextField *User;
+    @property (weak, nonatomic) IBOutlet UITextField *Password;
 
-        - (IBAction)login:(id)sender;
-
+    - (IBAction)login:(id)sender;
+    ```
 5. 创建名为 **DeviceInfo** 的类，将以下代码复制到 DeviceInfo.h 文件的接口部分：
 
     ```

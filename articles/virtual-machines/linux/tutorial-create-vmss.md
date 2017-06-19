@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/05/2017
 wacn.date: 
-ms.author: adegeo
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 89524108d60c46a8325cc89badc0667d76d80c3d
@@ -148,7 +148,7 @@ az network public-ip show \
 az vmss scale --resource-group myResourceGroupVMSS --name myScaleSet --new-capacity 5
 ```
 
-利用自动缩放规则，可以定义如何根据网络流量或 CPU 使用率等需求，增加或减少规模集中 VM 的数目。 目前，不能在 Azure CLI 2.0 中设置这些规则。 使用 [Azure 门户预览](https://portal.azure.cn)配置自动缩放。
+利用自动缩放规则，可以定义如何根据网络流量或 CPU 使用率等需求，增加或减少规模集中 VM 的数目。 目前，不能在 Azure CLI 2.0 中设置这些规则。 使用 [Azure 门户](https://portal.azure.cn)配置自动缩放。
 
 ### <a name="get-connection-info"></a>获取连接信息
 若要获取有关规模集中 VM 的连接信息，请使用 [az vmss list-instance-connection-info](https://docs.microsoft.com/cli/azure/vmss#list-instance-connection-info)。 此命令为每个允许采用 SSH 进行连接的 VM 输出公共 IP 地址和端口：

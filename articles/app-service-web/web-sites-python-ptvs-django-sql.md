@@ -15,7 +15,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 07/07/2016
 wacn.date: 
-ms.author: huvalo
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 08dfb3c8452a2accd29f5a3fdb29791c58cfad82
@@ -78,7 +78,7 @@ ms.lasthandoff: 05/19/2017
 
 你可通过以下步骤创建数据库。
 
-1. 登录到 [Azure 门户预览]。
+1. 登录到 [Azure 门户]。
 2. 在导航窗格的底部，单击“新建”。 ，然后依次单击“数据 + 存储” > “SQL 数据库”。
 3. 通过新建资源组来配置新的 SQL 数据库，并为其选择相应的位置。
 4. 创建 SQL 数据库后，单击数据库边栏选项卡中的“在 Visual Studio 中打开”  。
@@ -165,7 +165,7 @@ ms.lasthandoff: 05/19/2017
 [Azure 云服务]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->
-[Azure 门户预览]: https://portal.azure.cn
+[Azure 门户]: https://portal.azure.cn
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio 示例 VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025

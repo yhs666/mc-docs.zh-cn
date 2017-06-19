@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 
-ms.author: kumud
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: e4a7e778a7fccc4528b7f5b234041e7d5efc41fa
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/07/2017
 
 # <a name="create-an-internal-load-balancer-by-using-the-azure-cli"></a>使用 Azure CLI 创建内部负载均衡器
 > [!div class="op_single_selector"]
-> * [Azure 门户预览](./load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure 门户](./load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](./load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](./load-balancer-get-started-ilb-arm-cli.md)
 > * [模板](./load-balancer-get-started-ilb-arm-template.md)

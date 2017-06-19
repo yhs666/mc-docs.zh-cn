@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure 门户预览部署 Azure 资源 | Azure"
+title: "使用 Azure 门户部署 Azure 资源 | Azure"
 description: "使用 Azure 门户和 Azure Resource Manager 来部署资源。"
 services: azure-resource-manager,azure-portal
 documentationcenter: 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 wacn.date: 
-ms.author: tomfitz
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 450b3b80389760f957ec4c85b76bbd1e8f7daf68

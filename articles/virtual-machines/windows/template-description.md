@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 wacn.date: 
-ms.author: davidmu
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
 ms.openlocfilehash: 50701aed7de8e816dbf35eaaca373776793197fb
@@ -491,7 +491,7 @@ start.ps1 脚本可以完成许多配置任务。 例如，在本示例中已添
 
 部署模板时，Azure 将会跟踪以组的形式部署的资源，并自动为这个部署的组分配一个名称。 部署名称与模板名称相同。
 
-如果你很想知道部署中的资源状态，可以使用 Azure 门户预览中的“资源组”边栏选项卡：
+如果你很想知道部署中的资源状态，可以使用 Azure 门户中的“资源组”边栏选项卡：
 
 ![获取部署信息](./media/template-description/virtual-machines-deployment-info.png)
 

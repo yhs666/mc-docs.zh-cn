@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 03/03/2017
-ms.author: annahar
+ms.author: v-yeche
 ---
 
 # 使用 Azure 门户创建面向 Internet 的负载均衡器
@@ -48,12 +48,12 @@ ms.author: annahar
 
 可在以下网页中获取有关 Azure Resource Manager 的负载均衡器组件的详细信息：[Azure Resource Manager support for load balancer](./load-balancer-arm.md)（Azure Resource Manager 对负载均衡器的支持）。
 
-## 在 Azure 门户预览中设置负载均衡器
+## 在 Azure 门户中设置负载均衡器
 
 > [!IMPORTANT]
 本示例假定已有名为 **myVNet** 的虚拟网络。请参考[创建虚拟网络](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)完成此操作。本示例还假定 **myVNet** 内有一个名为 **LB-Subnet-BE** 的子网以及两个分别名为 **web1** 和 **web2** 的 VM，这两个 VM 都位于 **myVNet** 中名为 **myAvailSet** 的可用性集中。请参考[此链接](../virtual-machines/virtual-machines-windows-hero-tutorial.md)创建 VM。
 
-1. 从浏览器导航到 Azure 门户预览：[http://portal.azure.cn](http://portal.azure.cn)，并使用你的 Azure 帐户登录。
+1. 从浏览器导航到 Azure 门户：[http://portal.azure.cn](http://portal.azure.cn)，并使用你的 Azure 帐户登录。
 2. 在屏幕的左上方，选择“新建”>“网络”>“负载均衡器”。
 3. 在“创建负载均衡器”边栏选项卡中，为负载均衡器键入一个名称。此例中使用名称 **myLoadBalancer**。
 4. 在“类型”下，选择“公共”。

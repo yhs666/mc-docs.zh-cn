@@ -14,13 +14,13 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 wacn.date: 01/06/2017
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # 使用 C# 创建弹性数据库池
 
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./sql-database-elastic-pool-create-portal.md)
+>- [Azure 门户](./sql-database-elastic-pool-create-portal.md)
 >- [PowerShell](./sql-database-elastic-pool-create-powershell.md)
 >- [C#](./sql-database-elastic-pool-create-csharp.md)
 

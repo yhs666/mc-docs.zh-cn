@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 wacn.date: 05/31/2017
-ms.author: amsriva
+ms.author: v-dazen
 ---
 
 # 应用程序网关 Web 应用程序防火墙（预览版）

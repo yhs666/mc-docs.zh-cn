@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 wacn.date: 11/15/2016
-ms.author: jimpark;markgal
+ms.author: v-junlch
 ---
 
 # 使用经典部署模型管理 Azure 备份保管库和服务器
@@ -25,7 +25,7 @@ ms.author: jimpark;markgal
 
 本文概述了可通过 Azure 经典管理门户和 Azure 备份代理完成的备份管理任务。
 
-[!INCLUDE [了解部署模型](../../includes/learn-about-deployment-models-classic-include.md)] 资源管理器部署模型。
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## 经典管理门户任务
 1. 登录到[经典管理门户](https://manage.windowsazure.cn)。

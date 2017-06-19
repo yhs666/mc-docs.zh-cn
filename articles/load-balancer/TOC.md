@@ -36,11 +36,12 @@
 ## [结合使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fload-balancer%2ftoc.json)
 ## [使用多个 IP 配置](load-balancer-multiple-ip.md)
 ### [使用多个 IP 配置 (CLI)](load-balancer-multiple-ip-cli.md)
+### [使用多个 IP 配置 (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Azure 负载均衡器的 Log Analytics](load-balancer-monitor-log.md)
 
 # 引用
 ## [PowerShell](https://docs.microsoft.com/zh-cn/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
-## [Azure CLI 2.0（预览版）](https://docs.microsoft.com/zh-cn/cli/azure/network/lb)
+## [Azure CLI 2.0](https://docs.microsoft.com/zh-cn/cli/azure/network/lb)
 ## [.NET](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](https://docs.microsoft.com/zh-cn/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
@@ -61,4 +62,3 @@
 ## [价格](https://www.azure.cn/pricing/details/load-balancer/)
 ## [服务更新](https://azure.microsoft.com/updates/?product=load-balancer)
 
-<!---HONumber=Mooncake_0227_2017-->

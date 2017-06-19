@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 wacn.date: 03/10/2017
-ms.author: nisoneji
+ms.author: v-johch
 ---
 
 # 在 Azure Site Recovery 中规划用于保护虚拟机和物理服务器的容量

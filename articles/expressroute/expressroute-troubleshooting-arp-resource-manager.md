@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/30/2017
-ms.author: ganesr
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
 ms.openlocfilehash: 658cef32efdda79c3d2516751bd7ada4ec6773a5
@@ -119,10 +119,10 @@ ARP 表示例：
 
 ### <a name="arp-table-when-a-circuit-is-in-operational-state-expected-state"></a>当线路处于运行状态（预期状态）时的 ARP 表
 
- - ARP 表会有一个针对本地端且带有有效 IP 地址和 MAC 地址的条目，以及一个类似的针对 Microsoft 端的条目。 
+ - ARP 表会有一个针对本地端且带有有效 IP 地址和 MAC 地址的条目，以及一个类似的针对 Azure 端的条目。 
  - 本地 IP 地址的最后一个八位字节将始终是奇数。
  - Microsoft IP 地址的最后一个八位字节将始终是偶数。
- - 所有 3 种对等互连（主/辅助）在 Microsoft 端都会显示相同的 MAC 地址。 
+ - 所有 3 种对等互连（主/辅助）在 Azure 端都会显示相同的 MAC 地址。 
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    

@@ -14,7 +14,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 wacn.date: 
-ms.author: robmcm
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 98bb89ac554a4de05bcdfe7985b4463aa95e766a
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/26/2017
 # <a name="upload-a-custom-java-web-app-to-azure"></a>将自定义 Java Web 应用上传到 Azure
 本主题介绍如何将自定义 Java Web 应用上传到 [Azure 应用服务] Web 应用。 包括适用于所有 Java 网站或 Web 应用的信息和一部分特定应用程序示例。
 
-请注意，Azure 提供了一种使用 Azure 门户预览的配置 UI 创建 Java Web 应用的方法，如[在 Azure 应用服务中创建 Java Web 应用](web-sites-java-get-started.md)中所述。 本教程适用于无需使用 Azure 门户预览配置 UI 的方案。  
+请注意，Azure 提供了一种使用 Azure 门户的配置 UI 创建 Java Web 应用的方法，如[在 Azure 应用服务中创建 Java Web 应用](web-sites-java-get-started.md)中所述。 本教程适用于无需使用 Azure 门户配置 UI 的方案。  
 
 ## <a name="configuration-guidelines"></a>配置指南
 下面描述了 Azure 上自定义 Java Web 应用的预期设置。

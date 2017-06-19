@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: 02/07/2017
-ms.author: brandwe
+ms.author: v-junlch
 ---
 
 # 如何使用 ADAL 在 Android 上启用跨应用 SSO

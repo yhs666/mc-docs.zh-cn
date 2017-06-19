@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2017
-ms.author: saysa
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: a0c43d26f52ff4d1012f4cebe232de5369918120
@@ -99,7 +99,7 @@ Service Fabric 为**适用于 Java IDE 的 Eclipse Neon** 提供了一个插件�
 <!-- Links -->
 * [使用 Yeoman 在 Linux 上创建和部署第一个 Service Fabric Java 应用程序](service-fabric-create-your-first-linux-application-with-java.md)
 * [使用适用于 Eclipse 的 Service Fabric 插件在 Linux 上创建和部署第一个 Service Fabric Java 应用程序](service-fabric-get-started-eclipse.md)
-* [在 Azure 门户预览中创建 Service Fabric 群集](service-fabric-cluster-creation-via-portal.md)
+* [在 Azure 门户中创建 Service Fabric 群集](service-fabric-cluster-creation-via-portal.md)
 * [使用 Azure Resource Manager 创建 Service Fabric 群集](service-fabric-cluster-creation-via-arm.md)
 * [了解 Service Fabric 应用程序模型](service-fabric-application-model.md)
 

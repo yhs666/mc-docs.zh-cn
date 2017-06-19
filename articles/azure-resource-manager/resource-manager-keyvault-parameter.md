@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2016
 wacn.date: 01/06/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 在部署过程中使用密钥保管库传递安全参数值
@@ -28,7 +28,7 @@ ms.author: tomfitz
 
 可通过 Resource Manager 模板部署密钥保管库和密钥。请在创建密钥保管库时将 **enabledForTemplateDeployment** 属性设置为 **true**，以便从其他 Resource Manager 模板引用它。
 
-或者，可通过 Azure 门户预览创建密钥保管库和密钥。
+或者，可通过 Azure 门户创建密钥保管库和密钥。
 
 1. 选择“新建”->“安全性 + 标识”->“密钥保管库”。
 

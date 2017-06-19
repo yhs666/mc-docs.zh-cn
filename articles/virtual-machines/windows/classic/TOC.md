@@ -29,7 +29,7 @@
 ### [创建自定义 VM](createportal.md)
 ### [使用 Azure PowerShell 创建和配置 VM](create-powershell.md)
 ### [捕获 Windows VM](capture-image.md)
-### [使用 PowerShell 创建和上载 VHD](createupload-vhd.md)
+### [使用 PowerShell 创建和上传 VHD](createupload-vhd.md)
 ### [使用 Chef 自动化 Azure VM 部署](../../virtual-machines-windows-chef-automation.md)
 ### [在 Visual Studio 中创建和管理 VM](manage-visual-studio.md)
 ### [使用 Visual Studio 为 Web 应用创建 VM](web-app-visual-studio.md)
@@ -92,6 +92,5 @@
 
 # 资源
 ## [定价](https://www.azure.cn/pricing/details/virtual-machines/#Windows)
-## [区域可用性](https://azure.microsoft.com/regions/services/)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

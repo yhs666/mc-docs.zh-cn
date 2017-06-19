@@ -12,28 +12,28 @@
 
 # 如何
 ## 配置站点到站点连接
-### [Azure 门户预览](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+### [Azure 门户](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-### [Azure 门户预览（经典）](vpn-gateway-howto-site-to-site-classic-portal.md)
+### [Azure 门户（经典）](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [经典管理门户（经典）](vpn-gateway-site-to-site-create.md)
 ## 配置点到站点连接
-### [Azure 门户预览](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+### [Azure 门户](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-### [Azure 门户预览（经典）](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### [Azure 门户（经典）](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 ## 配置 VNet 到 VNet 连接
-### [Azure 门户预览](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+### [Azure 门户](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-### [Azure 门户预览（经典）](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+### [Azure 门户（经典）](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## 在部署模型之间配置 VNet 到 VNet 连接
-### [Azure 门户预览](vpn-gateway-connect-different-deployment-models-portal.md)
+### [Azure 门户](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 ## [配置站点到站点与 ExpressRoute 共存连接](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fvpn-gateway%2ftoc.json)
 ## 配置强制隧道
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell（经典）](vpn-gateway-about-forced-tunneling.md)
 ## 配置多个站点到站点连接
-### [Azure 门户预览](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+### [Azure 门户](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell（经典）](vpn-gateway-multi-site.md)
 ## [为 VPN 网关配置 BGP](vpn-gateway-bgp-resource-manager-ps.md)
 ## [配置高度可用的主动-主动连接](vpn-gateway-activeactive-rm-powershell.md)
@@ -43,7 +43,7 @@
 ## [验证 VPN 网关连接](vpn-gateway-verify-connection-resource-manager.md)
 ## [重置 VPN 网关](vpn-gateway-resetgw-classic.md)
 ## 删除 VPN 网关
-### [Azure 门户预览](vpn-gateway-delete-vnet-gateway-portal.md)
+### [Azure 门户](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell（经典）](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## 为点到站点连接创建自签名证书
@@ -56,7 +56,7 @@
 # 引用
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network)
 ## [PowerShell（经典）](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST](https://msdn.microsoft.com/library/mt163859)
+## [REST](https://docs.microsoft.com/zh-tw/rest/api/network/virtualnetworkgateways)
 ## [REST（经典）](https://msdn.microsoft.com/library/jj154113)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
 

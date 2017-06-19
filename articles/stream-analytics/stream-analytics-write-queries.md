@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 wacn.date: 
-ms.author: jeffstok
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 4a6d1f4721ee0c2a6c944883b5c295d18ee7a7fd
@@ -46,7 +46,7 @@ ms.lasthandoff: 05/05/2017
 可以通过在浏览器中使用一个或多个包含测试数据的本地 JSON 文件来运行查询，从而测试查询的行为。 这不会启动作业，也不会对计费有任何影响。
 
 > [!NOTE]
-> 当前 Azure 门户预览版不支持浏览器内查询测试。  
+> 当前 Azure 门户不支持浏览器内查询测试。  
 > 
 > 
 

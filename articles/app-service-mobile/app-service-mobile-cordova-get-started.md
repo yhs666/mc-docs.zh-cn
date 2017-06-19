@@ -17,7 +17,7 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 10/30/2016
 wacn.date: 01/23/2017
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # 创建 Apache Cordova 应用

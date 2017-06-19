@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/28/2015
 wacn.date: 01/03/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # 如何获取 Azure Active Directory 租户

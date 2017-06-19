@@ -11,7 +11,7 @@ ms.service: sql-database
 ms.devlang: NA
 ms.date: 10/12/2016
 wacn.date: 01/11/2017
-ms.author: sstein
+ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -20,7 +20,7 @@ ms.tgt_pltfrm: NA
 # 更改 SQL 数据库的服务层和性能级别（定价层）
 
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./sql-database-scale-up.md)
+>- [Azure 门户](./sql-database-scale-up.md)
 >- [PowerShell](./sql-database-scale-up-powershell.md)
 
 服务层和性能级别描述了适用于你的 SQL 数据库的功能和资源，并且可以随着应用程序更改的需要进行更新。有关详细信息，请参阅[服务层](./sql-database-service-tiers.md)。
@@ -46,7 +46,7 @@ ms.tgt_pltfrm: NA
 
 打开要增加或减少的数据库的 SQL 数据库边栏选项卡：
 
-1. 在 [Azure 门户预览](https://portal.azure.cn)中，依次单击“更多服务”>“SQL 数据库”。
+1. 在 [Azure 门户](https://portal.azure.cn)中，依次单击“更多服务”>“SQL 数据库”。
 2. 单击要更改的数据库。
 3. 在“SQL 数据库”边栏选项卡中单击“定价层(缩放 DTU)”：
 

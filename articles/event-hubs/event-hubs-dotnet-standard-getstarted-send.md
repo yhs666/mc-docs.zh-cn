@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 wacn.date: 
-ms.author: jotaub;sethm
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: d00e41fc56c3a3602aca7d90147e0cfc3c1c90dd
@@ -61,141 +61,141 @@ ms.lasthandoff: 04/28/2017
 
 1. 在 Program.cs 文件顶部添加以下 `using` 语句。
 
-        ```csharp
-        using Microsoft.Azure.EventHubs;
-        using System.Text;
-        using System.Threading.Tasks;
-        ```
+    ```csharp
+    using Microsoft.Azure.EventHubs;
+	using System.Text;
+	using System.Threading.Tasks;
+    ```
 
 2. 向 `Program` 类添加常量作为事件中心连接字符串和实体路径（单个事件中心名称）。 将括号中的占位符替换为在创建事件中心时获得的相应值。
 
-        ```csharp
-        private static EventHubClient eventHubClient;
-        private const string EhConnectionString = "{Event Hubs connection string}";
-        private const string EhEntityPath = "{Event Hub path/name}";
-        ```
+    ```csharp
+    private static EventHubClient eventHubClient;
+    private const string EhConnectionString = "{Event Hubs connection string}";
+    private const string EhEntityPath = "{Event Hub path/name}";
+    ```
 
 3. 将名为 `MainAsync` 的新方法添加到 `Program` 类，如下所示：
 
-        ```csharp
-        private static async Task MainAsync(string[] args)
+    ```csharp
+    private static async Task MainAsync(string[] args)
+    {
+        // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
+        // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
+        // we are using the connection string from the namespace.
+        var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
         {
-            // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-            // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-            // we are using the connection string from the namespace.
-            var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
-            {
-                EntityPath = EhEntityPath
-            };
+            EntityPath = EhEntityPath
+        };
 
-            eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
+        eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
 
-            await SendMessagesToEventHub(100);
+        await SendMessagesToEventHub(100);
 
-            await eventHubClient.CloseAsync();
+        await eventHubClient.CloseAsync();
 
-            Console.WriteLine("Press ENTER to exit.");
-            Console.ReadLine();
-        }
-        ```
+        Console.WriteLine("Press ENTER to exit.");
+        Console.ReadLine();
+    }
+    ```
 
 4. 将名为 `SendMessagesToEventHub` 的新方法添加到 `Program` 类，如下所示：
 
-        ```csharp
-        // Creates an Event Hub client and sends 100 messages to the event hub.
-        private static async Task SendMessagesToEventHub(int numMessagesToSend)
+    ```csharp
+    // Creates an event hub client and sends 100 messages to the event hub.
+    private static async Task SendMessagesToEventHub(int numMessagesToSend)
+    {
+        for (var i = 0; i < numMessagesToSend; i++)
         {
-            for (var i = 0; i < numMessagesToSend; i++)
+            try
             {
-                try
-                {
-                    var message = $"Message {i}";
-                    Console.WriteLine($"Sending message: {message}");
-                    await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(message)));
-                }
-                catch (Exception exception)
-                {
-                    Console.WriteLine($"{DateTime.Now} > Exception: {exception.Message}");
-                }
-
-                await Task.Delay(10);
+                var message = $"Message {i}";
+                Console.WriteLine($"Sending message: {message}");
+                await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(message)));
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine($"{DateTime.Now} > Exception: {exception.Message}");
             }
 
-            Console.WriteLine($"{numMessagesToSend} messages sent.");
+            await Task.Delay(10);
         }
-        ```
+
+        Console.WriteLine($"{numMessagesToSend} messages sent.");
+    }
+    ```
 
 5. 在 `Program` 类的 `Main` 方法中添加以下代码。
 
-        ```csharp
-        MainAsync(args).GetAwaiter().GetResult();
-        ```
+    ```csharp
+    MainAsync(args).GetAwaiter().GetResult();
+    ```
 
     Program.cs 文件的内容如下所示。
 
-        ```csharp
-        namespace SampleSender
-        {
-            using System;
-            using System.Text;
-            using System.Threading.Tasks;
-            using Microsoft.Azure.EventHubs;
+	```csharp
+	namespace SampleSender
+	{
+	    using System;
+	    using System.Text;
+	    using System.Threading.Tasks;
+	    using Microsoft.Azure.EventHubs;
 
-            public class Program
-            {
-                private static EventHubClient eventHubClient;
-                private const string EhConnectionString = "{Event Hubs connection string}";
-                private const string EhEntityPath = "{Event Hub path/name}";
+	    public class Program
+	    {
+	        private static EventHubClient eventHubClient;
+	        private const string EhConnectionString = "{Event Hubs connection string}";
+	        private const string EhEntityPath = "{Event Hub path/name}";
 
-                public static void Main(string[] args)
-                {
-                    MainAsync(args).GetAwaiter().GetResult();
-                }
+	        public static void Main(string[] args)
+	        {
+	            MainAsync(args).GetAwaiter().GetResult();
+	        }
 
-                private static async Task MainAsync(string[] args)
-                {
-                    // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-                    // Typically, the connection string should have the Entity Path in it, but for the sake of this simple scenario
-                    // we are using the connection string from the namespace.
-                    var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
-                    {
-                        EntityPath = EhEntityPath
-                    };
+	        private static async Task MainAsync(string[] args)
+	        {
+	            // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
+	            // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
+	            // we are using the connection string from the namespace.
+	            var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
+	            {
+	                EntityPath = EhEntityPath
+	            };
 
-                    eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
+	            eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
 
-                    await SendMessagesToEventHub(100);
+	            await SendMessagesToEventHub(100);
 
-                    await eventHubClient.CloseAsync();
+	            await eventHubClient.CloseAsync();
 
-                    Console.WriteLine("Press ENTER to exit.");
-                    Console.ReadLine();
-                }
+	            Console.WriteLine("Press ENTER to exit.");
+	            Console.ReadLine();
+	        }
 
-                // Creates an Event Hub client and sends 100 messages to the event hub.
-                private static async Task SendMessagesToEventHub(int numMessagesToSend)
-                {
-                    for (var i = 0; i < numMessagesToSend; i++)
-                    {
-                        try
-                        {
-                            var message = $"Message {i}";
-                            Console.WriteLine($"Sending message: {message}");
-                            await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(message)));
-                        }
-                        catch (Exception exception)
-                        {
-                            Console.WriteLine($"{DateTime.Now} > Exception: {exception.Message}");
-                        }
+	        // Creates an event hub client and sends 100 messages to the event hub.
+	        private static async Task SendMessagesToEventHub(int numMessagesToSend)
+	        {
+	            for (var i = 0; i < numMessagesToSend; i++)
+	            {
+	                try
+	                {
+	                    var message = $"Message {i}";
+	                    Console.WriteLine($"Sending message: {message}");
+	                    await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(message)));
+	                }
+	                catch (Exception exception)
+	                {
+	                    Console.WriteLine($"{DateTime.Now} > Exception: {exception.Message}");
+	                }
 
-                        await Task.Delay(10);
-                    }
+	                await Task.Delay(10);
+	            }
 
-                    Console.WriteLine($"{numMessagesToSend} messages sent.");
-                }
-            }
-        }
-        ```
+	            Console.WriteLine($"{numMessagesToSend} messages sent.");
+	        }
+	    }
+	}
+	```
 
 6. 运行程序，并确保没有任何错误。
 

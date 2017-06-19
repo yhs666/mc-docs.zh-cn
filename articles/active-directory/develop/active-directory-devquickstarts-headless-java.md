@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/13/2017
-ms.author: brandwe
+ms.author: v-junlch
 ---
 
 # 通过 Azure AD 使用 Java 命令行应用访问 API

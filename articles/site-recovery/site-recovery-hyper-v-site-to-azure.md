@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/05/2017
 wacn.date: 03/31/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 结合使用 Azure Site Recovery 和 Azure 门户将 Hyper-V 虚拟机（不带 VMM）复制到 Azure
@@ -25,7 +25,7 @@ ms.author: raynew
 >- [Azure 经典](./site-recovery-hyper-v-site-to-azure-classic.md)
 >- [PowerShell - Resource Manager](./site-recovery-deploy-with-powershell-resource-manager.md)
 
-本文介绍如何在 Azure 门户预览中使用 [Azure Site Recovery](./site-recovery-overview.md) 将本地 Hyper-V 虚拟机复制到 Azure。
+本文介绍如何在 Azure 门户中使用 [Azure Site Recovery](./site-recovery-overview.md) 将本地 Hyper-V 虚拟机复制到 Azure。
 
 可以将 Hyper-V VM 复制到 Azure 存储，将 VM 故障转移到 Azure（如果主站点不可用）。可以访问 Azure 中的工作负荷，并在本地恢复正常运行时故障回复到本地。也可根据本文的说明将 VM 迁移到 Azure。在迁移方案中，你需要复制并故障转移 VM，但不需要再次对其执行故障回复操作。
 
@@ -420,7 +420,7 @@ Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "
 
 [了解详细信息](./site-recovery-failover.md#run-an-unplanned-failover)
 
-## 完成虚拟机到 Azure 的迁移
+##<a name="Complete-migration-of-your-virtual-machines-to-Azure"></a> 完成虚拟机到 Azure 的迁移
 
 >[!NOTE]
 > 以下步骤仅适用于将虚拟机迁移到 Azure

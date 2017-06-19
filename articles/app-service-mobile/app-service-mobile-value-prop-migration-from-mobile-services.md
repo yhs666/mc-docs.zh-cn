@@ -12,7 +12,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: cccf8aaaaef7c83ef25667e801ed00037e71093e
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/14/2017
 - 新主机功能包括 Web 作业、自定义 CName 和更完善的监视
 - 现成地与流量管理器集成
 - 除了混合连接以外，还可使用 VPN 和 VNet 连接到本地资源
-- 使用 NewRelic 或 AppInsights 对应用进行监视、发出警报和故障排除
+- 使用 NewRelic 对应用进行监视、发出警报和故障排除
 - 更广泛的基础计算资源与定价层
 - 内置自动缩放、负载均衡和性能监视。
 - 内置过渡、备份、回滚和生产测试功能

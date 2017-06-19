@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 wacn.date: 12/12/2016
-ms.author: rortloff;barbkess;sonyama
+ms.author: v-yeche
 ---
 
 # SQL 数据仓库中的透明数据加密 (TDE) 入门
@@ -31,7 +31,7 @@ ms.author: rortloff;barbkess;sonyama
 ## 启用加密
 若要为 SQL 数据仓库启用 TDE，请遵循以下步骤：
 
-1. 在 [Azure 门户预览](https://portal.azure.cn/)中打开数据库
+1. 在 [Azure 门户](https://portal.azure.cn/)中打开数据库
 2. 在数据库边栏选项卡中，单击“设置”按钮
 3. 选择“透明数据加密”选项 
 ![][1]
@@ -43,7 +43,7 @@ ms.author: rortloff;barbkess;sonyama
 ## 禁用加密
 若要为 SQL 数据仓库禁用 TDE，请遵循以下步骤：
 
-1. 在 [Azure 门户预览](https://portal.azure.cn/)中打开数据库
+1. 在 [Azure 门户](https://portal.azure.cn/)中打开数据库
 2. 在数据库边栏选项卡中，单击“设置”按钮
 3. 选择“透明数据加密”选项 
 ![][1]

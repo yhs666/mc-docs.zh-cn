@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 67c7d55b7c8603b3e18e8c765b30ff6a28c56128
@@ -70,11 +70,11 @@ ms.lasthandoff: 04/14/2017
 
 * [将磁盘添加到 Linux VM](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="azure-portal-preview"></a>Azure 门户预览
-在 [Azure 门户预览](https://portal.azure.cn) 中可以快速创建 VM，因为不需要在系统上安装任何组件。 使用 Azure 门户预览创建 VM：
+## <a name="azure-portal-preview"></a>Azure 门户
+在 [Azure 门户](https://portal.azure.cn) 中可以快速创建 VM，因为不需要在系统上安装任何组件。 使用 Azure 门户创建 VM：
 
-* [使用 Azure 门户预览创建 Linux VM](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 
-* [使用 Azure 门户预览附加磁盘](attach-disk-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 Azure 门户创建 Linux VM](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 
+* [使用 Azure 门户附加磁盘](attach-disk-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="operating-system-and-image-choices"></a>操作系统和映像选项
 创建 VM 时，可根据要运行的操作系统选择映像。 Azure 及其合作伙伴提供了许多映像，其中一些映像包括预安装的应用程序和工具。 也可上载自己的某个映像（请参阅[以下部分](#use-your-own-image)）。

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 wacn.date: 
-ms.author: cephalin
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 4e4d3792fcb8926f57bf90d4cb9ad2b09ac5b50d
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/28/2017
     * **位置**：域注册机构自己的管理工具（例如 Azure DNS、GoDaddy 等）。
     * **原因**：这样域注册机构便知道要将所需的自定义域解析到 Azure 应用。
 3. [为 Azure 应用启用自定义域名](#enable)。
-    * **位置**： [Azure 门户预览](https://portal.azure.cn)。
+    * **位置**： [Azure 门户](https://portal.azure.cn)。
     * **原因**：这样应用便知道响应对自定义域名所发出的请求。
 4. [验证 DNS 传播](#verify)。
 
@@ -67,7 +67,7 @@ CNAME 的优点是其不会随 IP 地址的更改而更改。 如果删除和重
 ## <a name="vip"></a> 步骤 1。 *（仅限 A 记录）*获取应用的 IP 地址。
 若要使用 A 记录映射自定义域名，则需要 Azure 应用的 IP 地址。 如果要使用 CNAME 记录进行映射，请跳过此步骤并转到下一节。
 
-1. 登录到 [Azure 门户预览](https://portal.azure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在左侧菜单上，单击“应用服务”  。
 3. 单击你的应用，然后单击“自定义域”。
 4. 记下“主机名”部分上方的 IP 地址。
@@ -167,10 +167,10 @@ CNAME 的优点是其不会随 IP 地址的更改而更改。 如果删除和重
 </table>
 
 ## <a name="enable"></a> 步骤3。 为应用启用自定义域名
-返回 Azure 门户预览中的“自定义域”边栏选项卡（请参阅[步骤 1](#vip)），需要将自定义域的完全限定域名 (FQDN) 添加到列表中。
+返回 Azure 门户中的“自定义域”边栏选项卡（请参阅[步骤 1](#vip)），需要将自定义域的完全限定域名 (FQDN) 添加到列表中。
 
-1. 登录到 [Azure 门户预览](https://portal.azure.cn)（如果尚未登录）。
-2. 在 Azure 门户预览中，单击左侧菜单中的“应用程序服务”  。
+1. 登录到 [Azure 门户](https://portal.azure.cn)（如果尚未登录）。
+2. 在 Azure 门户中，单击左侧菜单中的“应用程序服务”  。
 3. 单击你的应用，然后单击“自定义域” > “添加域”。
 4. 将你的自定义域的 FQDN 添加到列表中（例如 **www.contoso.com**）。
 

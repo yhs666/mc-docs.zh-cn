@@ -15,7 +15,7 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 wacn.date: 
-ms.author: gwallace
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8d9ebf488efbf22957f23f3ca28f83f5ea8266f4
 ms.openlocfilehash: 96f858a7de6370cdb39421ae8a96e95af217fabb

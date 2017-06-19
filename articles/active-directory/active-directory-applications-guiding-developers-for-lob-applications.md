@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 wacn.date: 04/05/2017
-ms.author: kgremban
+ms.author: v-junlch
 ---
 
 # 开发适用于 Azure Active Directory 的业务线应用
@@ -32,7 +32,7 @@ ms.author: kgremban
 
 - 获取 Azure AD 识别的应用程序标识
 - 获取应用程序可用于向 AD 验证其身份的一个或多个机密/密钥
-- 在 Azure 门户预览中使用自定义名称、徽标等指定应用程序的品牌
+- 在 Azure 门户中使用自定义名称、徽标等指定应用程序的品牌
 - 对应用应用 Azure AD 授权功能，包括：
 
   - 基于角色的访问控制 (RBAC)

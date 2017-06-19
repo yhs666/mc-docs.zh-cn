@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/09/2016
 wacn.date: 01/03/2017
-ms.author: rsinha
+ms.author: v-johch
 ---
 
 # Service Fabric 体系结构

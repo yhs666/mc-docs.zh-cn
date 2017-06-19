@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 wacn.date: 07/11/2016
-ms.author: SilviaDoomra
+ms.author: v-johch
 ---
 
 # 分片映射管理器的性能计数器

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: 01/03/2017
-ms.author: barbkess;jrj;sonyama
+ms.author: v-yeche
 ---
 
 # 将解决方案迁移到 SQL 数据仓库

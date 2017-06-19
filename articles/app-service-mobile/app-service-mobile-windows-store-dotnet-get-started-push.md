@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 wacn.date: 12/26/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # 向 Windows 应用添加推送通知
@@ -113,7 +113,7 @@ ms.author: adrianha
 
 ### <a name="nodejs"></a>Node.js 后端项目
 
-1. 如果尚未执行此操作，请[下载快速启动项目](./app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)或使用 [Azure 门户预览中的在线编辑器](./app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)。
+1. 如果尚未执行此操作，请[下载快速启动项目](./app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)或使用 [Azure 门户中的在线编辑器](./app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)。
 
 2. 将 todoitem.js 文件中的现有代码替换为以下内容：
 

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 wacn.date: 
-ms.author: cephalin;dariac
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 7497647d68cd022df9ba10d949bdbeecf7f12900
@@ -62,7 +62,7 @@ Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等�
 * 部署时间可能很长，因为许多 FTP 工具不提供仅差异复制，而只是复制所有文件。  
 
 ### <a name="howtoftp"></a>如何使用 FTP 上传文件
-[Azure 门户预览](https://portal.azure.cn)为用户提供所有需要的信息，以便使用 FTP 或 FTPS 连接到应用的目录。
+[Azure 门户](https://portal.azure.cn)为用户提供所有需要的信息，以便使用 FTP 或 FTPS 连接到应用的目录。
 
 * [使用 FTP 将应用部署到 Azure 应用服务](app-service-deploy-ftp.md)
 
@@ -85,7 +85,7 @@ Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等�
 
 * [连续部署到 Azure 应用服务](app-service-continuous-deployment.md)。 
 
-若要了解如何通过 Azure 门户预览中未列出的云存储库（如 [GitLab](https://gitlab.com/)）手动配置连续部署，请参阅 [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)（使用手动步骤设置连续部署）。
+若要了解如何通过 Azure 门户中未列出的云存储库（如 [GitLab](https://gitlab.com/)）手动配置连续部署，请参阅 [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)（使用手动步骤设置连续部署）。
 
 ## <a name="localgitdeployment"></a>从本地 Git 部署
 如果你的开发团队使用基于 Git 的本地源代码管理 (SCM) 服务，可将它配置为应用服务的部署源。 
@@ -102,7 +102,7 @@ Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等�
 * 连续部署没有任何现成的解决方案。 
 
 ### <a name="vsts"></a>如何从本地 Git 部署
-在 [Azure 门户预览](https://portal.azure.cn)中，可以配置本地 Git 部署。
+在 [Azure 门户](https://portal.azure.cn)中，可以配置本地 Git 部署。
 
 * [从本地 Git 部署到 Azure 应用服务](app-service-deploy-local-git.md)。 
 * [从任何 git/hg 存储库发布到 Web 应用](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html)。  
@@ -135,6 +135,8 @@ Visual Studio 支持所有这三种部署过程（FTP、Git 和 Web 部署），
 * [将包含成员资格、OAuth 和 SQL 数据库的安全 ASP.NET MVC 5 应用部署到 Web 应用](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)。 如何使用 Visual Studio、Web 部署和 Entity Framework Code First 迁移通过 SQL 数据库来创建和部署 ASP.NET MVC Web 项目。
 * [使用 Visual Studio 的 ASP.NET Web 部署](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction)。 共 12 篇的系列教程涵盖了比此列表中其他部署任务更完整的部署任务。 自编写本教程以来添加了一些 Azure 部署功能，但注释是后来添加的，说明缺少哪些内容。
 * [在 Visual Studio 2012 中直接从 Git 存储库将 ASP.NET 网站部署到 Azure](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881)。 说明如何在 Visual Studio 中部署 ASP.NET Web 项目（使用 Git 插件将代码提交到 Git 并将 Azure 连接到 Git 存储库）。 从 Visual Studio 2013 开始，Git 支持是内置的，不需要安装插件。
+
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
 ## <a name="automate"></a>使用命令行工具自动部署
 如果你偏好命令行终端作为所选开发环境，则可使用命令行工具针对应用服务应用编写部署任务的脚本。 

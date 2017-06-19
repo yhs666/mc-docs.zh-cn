@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2016
 wacn.date: 02/10/2017
-ms.author: xshi
+ms.author: v-yiso
 ---
 
 # 故障排除
@@ -160,9 +160,9 @@ npm install -g iothub-explorer@latest
 iothub-explorer help
 ```
 
-### Azure 门户预览
+### Azure 门户
 
-完整的 CLI 体验有助于用户创建和管理其所有 Azure 资源。还可能需要借助 [Azure 门户预览](../azure-portal-overview.md)对 Azure 资源进行预配、管理和调试。
+完整的 CLI 体验有助于用户创建和管理其所有 Azure 资源。还可能需要借助 [Azure 门户](../azure-portal-overview.md)对 Azure 资源进行预配、管理和调试。
 
 ## Azure 存储问题
 

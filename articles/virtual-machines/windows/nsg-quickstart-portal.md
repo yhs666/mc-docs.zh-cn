@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 门户预览打开 VM 的端口 | Azure
-description: 了解如何使用 Azure 门户预览中的 Resource Manager 部署模型在 Windows VM 上打开端口/创建终结点
+title: 使用 Azure 门户打开 VM 的端口 | Azure
+description: 了解如何使用 Azure 门户中的 Resource Manager 部署模型在 Windows VM 上打开端口/创建终结点
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
@@ -15,10 +15,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/09/2017
 wacn.date: 03/28/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
-# 使用 Azure 门户预览打开 Azure 中 VM 的端口
+# 使用 Azure 门户打开 Azure 中 VM 的端口
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## 快速命令

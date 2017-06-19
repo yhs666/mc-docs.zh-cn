@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/02/2017
 wacn.date: 04/27/2017
-ms.author: cynthn
+ms.author: v-dazen
 ---
 
 # 使用 Resource Manager 创建 Windows 虚拟机的不同方法
 
 由于虚拟机适合不同的用户和目的，因此 Azure 可提供创建虚拟机的不同方法。这意味着需要对虚拟机及其创建方法做出选择。本文提供了选择摘要和说明链接。
 
-## Azure 门户预览
+## Azure 门户
 
-使用 Azure 门户预览是试用虚拟机的一种简单方法，尤其是在刚开始使用 Azure 时。
+使用 Azure 门户是试用虚拟机的一种简单方法，尤其是在刚开始使用 Azure 时。
 
 [使用门户创建运行 Windows 的虚拟机](../virtual-machines-windows-hero-tutorial.md)
 

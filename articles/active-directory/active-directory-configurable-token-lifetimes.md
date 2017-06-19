@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2016
 wacn.date: 03/07/2017
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # Azure Active Directory 中可配置的令牌生存期（公共预览版）
@@ -286,7 +286,7 @@ Get-AzureADPolicy
 
 &nbsp;&nbsp;2.**将策略分配到 Web API**。
 
-接下来，将此新策略链接到应用程序。还需要通过某种方式访问应用程序的 **ObjectId**。查找应用的 **ObjectId** 的最佳方式是使用 [Azure 门户预览](https://portal.azure.cn/)。
+接下来，将此新策略链接到应用程序。还需要通过某种方式访问应用程序的 **ObjectId**。查找应用的 **ObjectId** 的最佳方式是使用 [Azure 门户](https://portal.azure.cn/)。
 
 获取 **ObjectId** 后，运行以下命令。
 

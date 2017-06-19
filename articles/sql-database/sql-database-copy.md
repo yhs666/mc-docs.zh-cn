@@ -11,7 +11,7 @@ ms.service: sql-database
 ms.custom: move data
 ms.devlang: NA
 ms.date: 04/05/2017
-ms.author: sashan;carlrab
+ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -25,7 +25,7 @@ ms.lasthandoff: 05/12/2017
 ---
 # <a name="copy-an-azure-sql-database"></a>复制 Azure SQL 数据库
 
-通过 Azure SQL 数据库，可以以多种方式在相同或不同的服务器上创建现有 Azure SQL 数据库的事务一致性副本。 可以使用 Azure 门户预览、PowerShell 或 T-SQL 复制 SQL 数据库。 
+通过 Azure SQL 数据库，可以以多种方式在相同或不同的服务器上创建现有 Azure SQL 数据库的事务一致性副本。 可以使用 Azure 门户、PowerShell 或 T-SQL 复制 SQL 数据库。 
 
 ## <a name="overview"></a>概述
 
@@ -41,9 +41,9 @@ ms.lasthandoff: 05/12/2017
 
 复制成功之后，重新映射其他用户之前，只有启动复制的登录名，即数据库所有者 (DBO)，才能登录到新数据库。 若要在复制操作完成后解析登录名，请参阅[解析登录名](sql-database-copy.md#resolve-logins)
 
-## <a name="database-copy-using-the-azure-portal-preview"></a>使用 Azure 门户预览复制数据库
+## <a name="database-copy-using-the-azure-portal-preview"></a>使用 Azure 门户复制数据库
 
-若要使用 Azure 门户预览复制数据库，请打开数据库页，并在工具栏上单击“复制”。 
+若要使用 Azure 门户复制数据库，请打开数据库页，并在工具栏上单击“复制”。 
 
    ![数据库复制](./media/sql-database-copy/database-copy.png)
 

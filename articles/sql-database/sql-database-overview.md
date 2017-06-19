@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/28/2016
 wacn.date: 01/20/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Azure SQL 数据库概述
@@ -51,7 +51,7 @@ Azure SQL 数据库使用的默认数据库排序规则是 **SQL\_LATIN1\_GENERA
 
 可以使用几种方法管理 Azure SQL 数据库逻辑服务器：
 
-- [Azure 门户预览](./sql-database-manage-portal.md)
+- [Azure 门户](./sql-database-manage-portal.md)
 - [PowerShell](./sql-database-manage-powershell.md)
 - [Transact-SQL](./sql-database-manage-azure-ssms.md)
 - [REST](https://docs.microsoft.com/rest/api/sql/)

@@ -1,6 +1,6 @@
 ---
 title: 创建 Azure 事件中心 | Azure
-description: 使用 Azure 门户预览创建 Azure 事件中心命名空间和事件中心
+description: 使用 Azure 门户创建 Azure 事件中心命名空间和事件中心
 services: event-hubs
 documentationcenter: na
 author: jtaubensee
@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2017
 wacn.date: 03/24/2017
-ms.author: jotaub
+ms.author: v-yeche
 ---
 
-# 使用 Azure 门户预览创建事件中心命名空间和事件中心
+# 使用 Azure 门户创建事件中心命名空间和事件中心
 
 ## 创建事件中心命名空间
 

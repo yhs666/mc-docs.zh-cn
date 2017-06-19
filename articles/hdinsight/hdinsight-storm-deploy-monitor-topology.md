@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 wacn.date: 04/27/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 在基于 Windows 的 HDInsight 上部署和管理 Apache Storm 拓扑
@@ -44,9 +44,9 @@ HDInsight 工具中的 Storm 仪表板和 Storm 功能依赖于 Storm REST API�
 
     下列其中一个版本的 Visual Studio：
 
-    * Visual Studio 2012 [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+    * Visual Studio 2012 Update 4
 
-    * Visual Studio 2013 [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) 或 [Visual Studio 2013 Community](http://download.microsoft.com/download/7/1/B/71BA74D8-B9A0-4E6C-9159-A8335D54437E/vs_community.exe)
+    * Visual Studio 2013 [Update 4](https://www.microsoft.com/download/details.aspx?id=45326) 或 [Visual Studio 2013 Community](http://download.microsoft.com/download/7/1/B/71BA74D8-B9A0-4E6C-9159-A8335D54437E/vs_community.exe)
     * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
 ## Storm 仪表板

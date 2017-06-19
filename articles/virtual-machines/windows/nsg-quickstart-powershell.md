@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/09/2017
 wacn.date: 03/28/2017
-ms.author: iainfou
+ms.author: v-dazen
 ---
 
 # 使用 PowerShell 打开 Azure 中 VM 的端口和终结点
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## 快速命令
-若要创建网络安全组和 ACL 规则，需要[安装最新版本的 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。用户也可以[使用 Azure 门户预览执行这些步骤](nsg-quickstart-portal.md)。
+若要创建网络安全组和 ACL 规则，需要[安装最新版本的 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。用户也可以[使用 Azure 门户执行这些步骤](nsg-quickstart-portal.md)。
 
 登录 Azure 帐户：
 

@@ -10,7 +10,7 @@
 
 ## 构建流式处理解决方案
 ### [物联网](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
-<!-- Not Available ### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md) -->
+<!-- ### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md) -->
 ### [使用 Power BI 的传感器数据](https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
 <!-- Not Available ### [Real-time scoring with Machine Learning](stream-analytics-machine-learning-integration-tutorial.md) -->
 ### [实时事件处理](stream-analytics-real-time-event-processing-reference-architecture.md)
@@ -24,14 +24,14 @@
 <!-- Not Available ### [Output to Azure Functions](stream-analytics-functions-redis.md) -->
 <!-- Not Available ### [Output to Data Lake Store](stream-analytics-data-lake-output.md) -->
 <!-- Not Available ### [输出到 DocumentDB](stream-analytics-documentdb-output.md) -->
-<!-- Not Available ### [Analyze data with Power BI](stream-analytics-power-bi-dashboard.md) -->
+<!--Not Available ### [Analyze data with Power BI](stream-analytics-power-bi-dashboard.md) -->
 ### [JavaScript UDF 集成](stream-analytics-javascript-user-defined-functions.md)
 <!-- Not Available ### [REST API & Machine Learning integration](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)-->
 ### [使用 Management .NET SDK](stream-analytics-dotnet-management-sdk.md)
 ### [窗口函数](stream-analytics-window-functions.md)
 
 ## 管理
-<!-- Not Available ### [作业可靠性](stream-analytics-job-reliability.md)-->
+<!-- Not Available ### [作业可靠性](stream-analytics-job-reliability.md) -->
 ### [监视作业](stream-analytics-monitoring.md)
 <!-- Not Available ### [Diagnostic logs](stream-analytics-job-diagnostic-logs.md) -->
 ### [以编程方式监视作业](stream-analytics-monitor-jobs.md)
@@ -45,12 +45,12 @@
 
 # 参考
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
-## [.NET](https://docs.microsoft.com/dotnet/api/streamanalytics.tests.operationtests)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [查询语言](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](https://docs.microsoft.com/rest/api/streamanalytics)
 
 # 资源
-<!-- Not Available ## [发行说明](stream-analytics-release-notes.md) -->
+<!-- Not Available ## [发行说明](stream-analytics-release-notes.md)  -->
 ## [学习路径](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
 ## [价格](https://www.azure.cn/pricing/details/stream-analytics/)
 ## [博客](http://blogs.msdn.com/b/streamanalytics/)

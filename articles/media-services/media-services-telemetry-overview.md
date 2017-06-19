@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 wacn.date: 01/13/2017
-ms.author: juliako
+ms.author: v-johch
 ---
 
 # Azure 媒体服务遥测
@@ -197,7 +197,7 @@ Healthy|如果 FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False�
 可使用以下工具对遥测数据进行处理和可视化：
 
 - AMS 实时仪表板
-- Azure 门户预览（尚未发行）
+- Azure 门户（尚未发行）
 
 ### 如何管理数据保留期？
 

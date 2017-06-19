@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2016
-ms.author: trinadhk; jimpark; markgal;
+ms.author: v-junlch
 wacn.date: 01/19/2017
 ---
 
@@ -192,7 +192,7 @@ wacn.date: 01/19/2017
 
 若要查看某个备份保管库的相应操作日志，请执行以下操作：
 
-1. 导航到 Azure 门户预览中的“管理服务”，然后单击“操作日志”选项卡。
+1. 导航到 Azure 门户中的“管理服务”，然后单击“操作日志”选项卡。
 
     ![操作日志](./media/backup-azure-manage-vms/ops-logs.png)
 

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 wacn.date: 
-ms.author: gwallace
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 31c727b28abff0b25d35748b2bf06b3facb0a8fc
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/12/2017
 # <a name="create-an-application-gateway-by-using-the-portal"></a>使用门户创建应用程序网关
 
 > [!div class="op_single_selector"]
-> * [Azure 门户预览](application-gateway-create-gateway-portal.md)
+> * [Azure 门户](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure 经典 PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager 模板](application-gateway-create-gateway-arm-template.md)
@@ -40,7 +40,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 ## <a name="scenario"></a>方案
 
-此方案介绍如何使用 Azure 门户预览创建应用程序网关。
+此方案介绍如何使用 Azure 门户创建应用程序网关。
 
 此方案将：
 
@@ -62,7 +62,7 @@ Azure 应用程序网关需要自己的子网。 在创建虚拟网络时，请�
 
 ### <a name="step-1"></a>步骤 1
 
-导航到 Azure 门户预览，依次单击“新建” > “网络” > “应用程序网关”
+导航到 Azure 门户，依次单击“新建” > “网络” > “应用程序网关”
 
 ![创建应用程序网关][1]
 

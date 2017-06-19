@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 wacn.date: 03/31/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 使用 Azure Site Recovery 在本地 Hyper-V 虚拟机与 Azure 之间复制（不使用 VMM）
@@ -28,7 +28,7 @@ ms.author: raynew
 
 ## Azure 门户中的 Site Recovery
 
-Azure 提供用于创建和处理资源的两个不同的[部署模型](../azure-resource-manager/resource-manager-deployment-model.md) – Azure Resource Manager 模型和经典模型。Azure 还提供两个门户 – Azure 经典管理门户和 Azure 门户预览。
+Azure 提供用于创建和处理资源的两个不同的[部署模型](../azure-resource-manager/resource-manager-deployment-model.md) – Azure Resource Manager 模型和经典模型。Azure 还提供两个门户 – Azure 经典管理门户和 Azure 门户。
 
 本文介绍如何在经典管理门户中部署。经典管理门户可用于维护现有保管库。无法使用经典管理门户创建新的保管库。
 

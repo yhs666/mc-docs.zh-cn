@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/08/2016
 wacn.date: 03/31/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 使用 Azure Resource Manager 模板将多个 IP 地址分配给虚拟机
@@ -57,11 +57,11 @@ ms.author: jdial
 - **在 GitHub 上查看模板：**如果熟悉模板，可以在[模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json)中查看设置。
 - **查看部署后的设置：**如果不熟悉模板，则可使用以下某个部分的步骤来部署模板，在部署后查看设置。
 
-可以使用 Azure 门户预览、PowerShell 或 Azure 命令行接口 (CLI) 部署模板。所有方法都产生相同的结果。若要部署模板，请完成以下某个部分的步骤：
+可以使用 Azure 门户、PowerShell 或 Azure 命令行接口 (CLI) 部署模板。所有方法都产生相同的结果。若要部署模板，请完成以下某个部分的步骤：
 
-## 使用 Azure 门户预览进行部署
+## 使用 Azure 门户进行部署
 
-若要使用 Azure 门户预览部署模板，请完成以下步骤：
+若要使用 Azure 门户部署模板，请完成以下步骤：
 
 1. 根据需要修改模板。模板部署本文的[资源](#resources)部分列出的资源和设置。若要详细了解模板及其创作方法，请阅读[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)一文。
 2. 使用以下方法之一部署模板：
@@ -74,7 +74,7 @@ ms.author: jdial
 
 若要使用 PowerShell 部署模板，请完成以下步骤：
 
-1. 通过完成[使用 PowerShell 部署模板](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy)一文中的步骤来部署模板。本文介绍多个用于部署模板的选项。如果选择通过 `-TemplateUri parameter` 进行部署，则请注意，该模板的 URI 为 *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*。如果选择通过 `-TemplateFile` 参数进行部署，则可将[模板文件](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json)的内容从 GitHub 复制到计算机的新文件中。根据需要修改模板内容。模板部署本文的[资源](#resources)部分列出的资源和设置。若要详细了解模板及其创作方法，请阅读[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)一文。
+1. 通过完成[使用 PowerShell 部署模板](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy-local-template)一文中的步骤来部署模板。本文介绍多个用于部署模板的选项。如果选择通过 `-TemplateUri parameter` 进行部署，则请注意，该模板的 URI 为 *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*。如果选择通过 `-TemplateFile` 参数进行部署，则可将[模板文件](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json)的内容从 GitHub 复制到计算机的新文件中。根据需要修改模板内容。模板部署本文的[资源](#resources)部分列出的资源和设置。若要详细了解模板及其创作方法，请阅读[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)一文。
 
     不管选择哪个选项来部署模板，都必须为本文[参数](#parameters)部分列出的参数提供值。如果选择使用参数文件提供参数，请将[参数文件](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json)的内容从 GitHub 复制到计算机上的新文件中。修改文件中的值。使用所创建的文件作为 `-TemplateParameterFile` 参数的值。
 
@@ -89,7 +89,7 @@ ms.author: jdial
 
 若要使用 Azure CLI 1.0 部署模板，请完成以下步骤：
 
-1. 通过完成[使用 Azure CLI 部署模板](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy)一文中的步骤来部署模板。本文介绍多个用于部署模板的选项。如果选择通过 `--template-uri` (-f) 进行部署，则请注意，该模板的 URI 为 *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*。如果选择通过 `--template-file` (-f) 参数进行部署，则可将[模板文件](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json)的内容从 GitHub 复制到计算机的新文件中。根据需要修改模板内容。模板部署本文的[资源](#resources)部分列出的资源和设置。若要详细了解模板及其创作方法，请阅读[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)一文。
+1. 通过完成[使用 Azure CLI 部署模板](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy-local-template)一文中的步骤来部署模板。本文介绍多个用于部署模板的选项。如果选择通过 `--template-uri` (-f) 进行部署，则请注意，该模板的 URI 为 *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*。如果选择通过 `--template-file` (-f) 参数进行部署，则可将[模板文件](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json)的内容从 GitHub 复制到计算机的新文件中。根据需要修改模板内容。模板部署本文的[资源](#resources)部分列出的资源和设置。若要详细了解模板及其创作方法，请阅读[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)一文。
 
     不管选择哪个选项来部署模板，都必须为本文[参数](#parameters)部分列出的参数提供值。如果选择使用参数文件提供参数，请将[参数文件](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json)的内容从 GitHub 复制到计算机上的新文件中。修改文件中的值。使用所创建的文件作为 `--parameters-file` (-e) 参数的值。
 

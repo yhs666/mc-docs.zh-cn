@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 wacn.date: 11/21/2016
-ms.author: mahender
+ms.author: v-yiso
 ---
 
 # 如何将应用服务应用程序配置为使用 Azure Active Directory 登录
@@ -25,7 +25,7 @@ ms.author: mahender
 
 ## <a name="express"></a>使用快速设置配置 Azure Active Directory
 
-13. 在 [Azure 门户预览]中，导航到应用程序。依次单击“设置”和“身份验证/授权”。
+13. 在 [Azure 门户]中，导航到应用程序。依次单击“设置”和“身份验证/授权”。
 
 14. 如果“身份验证/授权”功能未启用，请切换为“打开”。
 
@@ -48,7 +48,7 @@ ms.author: mahender
 
 ### <a name="register"></a>将应用程序注册到 Azure Active Directory
 
-1. 登录到 [Azure 门户预览]并导航到应用程序。复制 **URL**。稍后要使用此信息配置 Azure Active Directory 应用。
+1. 登录到 [Azure 门户]并导航到应用程序。复制 **URL**。稍后要使用此信息配置 Azure Active Directory 应用。
 
 3. 登录到 [Azure 经典管理门户]并导航到“Active Directory”。
 
@@ -74,7 +74,7 @@ ms.author: mahender
 
 ### <a name="secrets"></a>将 Azure Active Directory 信息添加到应用程序
 
-13. 返回 [Azure 门户预览]，导航到应用程序。依次单击“设置”和“身份验证/授权”。
+13. 返回 [Azure 门户]，导航到应用程序。依次单击“设置”和“身份验证/授权”。
 
 14. 如果“身份验证/授权”功能未启用，请切换为“打开”。
 
@@ -102,7 +102,7 @@ Azure Active Directory 还允许注册权限映射控制度更高的本机客户
 
 4. 在“添加应用程序”向导中，为应用程序输入**名称**，并单击“本机客户端应用程序”类型。然后单击以继续。
 
-5. 在“重定向 URI”框中，使用 HTTPS 方案输入站点的 _/.auth/login/done_ 终结点。此值应类似于 \_https://contoso.chinacloudsites.cn/.auth/login/done_ 。如果要创建 Windows 应用程序，请改用[包 SID](./app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) 作为 URI。
+5. 在“重定向 URI”框中，使用 HTTPS 方案输入站点的 _/.auth/login/done_ 终结点。此值应类似于  _https://contoso.chinacloudsites.cn/.auth/login/done_ 。如果要创建 Windows 应用程序，请改用[包 SID](./app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) 作为 URI。
 
 6. 添加本机应用程序后，单击“配置”选项卡。找到**客户端 ID**并记下此值。
 
@@ -127,7 +127,7 @@ Azure Active Directory 还允许注册权限映射控制度更高的本机客户
 
 <!-- URLs. -->
 
-[Azure 门户预览]: https://portal.azure.cn/
+[Azure 门户]: https://portal.azure.cn/
 [Azure 经典管理门户]: https://manage.windowsazure.cn/
 [alternative method]: #advanced
 

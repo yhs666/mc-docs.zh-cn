@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 wacn.date: 
-ms.author: carolz
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 81be0d123382068e1cd4155b2e9b09fa5b006e89
@@ -132,51 +132,5 @@ ms.lasthandoff: 05/12/2017
             </div>
         </div>
         </a>
-    </li>
-</ul>
-
----
-
-<h2>引用</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>命令行</h3>
-                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache">PowerShell</a></p>
-                        <p><a href="https://docs.microsoft.com/cli/azure/redis">Azure CLI 2.0（预览版）</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>语言</h3>
-                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.redis">.NET</a></p>
-                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.redis._redis_cache">Java</a></p>
-                        <p><a href="http://redis.io/clients">Redis 客户端</a></p>
-                        <p><a href="http://redis.io/commands#">Redis 命令</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/redis/">REST API 参考</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </li>
 </ul>

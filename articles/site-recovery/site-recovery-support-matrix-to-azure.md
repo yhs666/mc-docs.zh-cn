@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 01/25/2017
 wacn.date: 04/06/2017
-ms.author: rajanaki
+ms.author: v-johch
 ---
 
 # 复制到 Azure 时的 Azure Site Recovery 支持矩阵
@@ -148,7 +148,7 @@ GRS | 是 | 是 | 是
 可用性集 | 否 | 否 | 否
 HUB | 是 | 是 | 是
 
-##<a name="failed-over-azure-vm-requirements"></a> 故障转移 Azure VM 要求
+##<a name="failed-over-azure-vm-requirements"></a><a name="azure-virtual-machine-requirements"></a> 故障转移 Azure VM 要求
 
 可以部署 Site Recovery 以复制运行受 Azure 支持的任何操作系统的虚拟机和物理服务器。这包括大多数的 Windows 和 Linux 版本。复制到 Azure 时，想要复制的本地 VM 必须符合以下 Azure 要求。
 

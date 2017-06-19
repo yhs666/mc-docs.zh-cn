@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 07/12/2016
 wacn.date: 02/24/2017
-ms.author: MikeRayMSFT
+ms.author: v-dazen
 ---
 
 # 将本地 AlwaysOn 可用性组扩展到 Azure

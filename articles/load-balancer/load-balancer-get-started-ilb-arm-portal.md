@@ -1,6 +1,6 @@
 ---
-title: 创建内部负载均衡器 - Azure 门户预览 | Azure
-description: 了解如何使用 Azure 门户预览在 Resource Manager 中创建内部负载均衡器
+title: 创建内部负载均衡器 - Azure 门户 | Azure
+description: 了解如何使用 Azure 门户在 Resource Manager 中创建内部负载均衡器
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 03/03/2017
-ms.author: kumud
+ms.author: v-yeche
 ---
 
 # 在 Azure 门户中创建内部负载均衡器

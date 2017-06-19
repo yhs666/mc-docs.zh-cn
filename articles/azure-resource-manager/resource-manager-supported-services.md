@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2017
 wacn.date: 
-ms.author: tomfitz
+ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 142c96c2a40e74dc24bfb63af8dd466200041a7c
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 36c51e40e7a4ce38bae78c29a7b2e96981913620
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 05/26/2017
+
 
 ---
-
 # <a name="resource-manager-providers-regions-api-versions-and-schemas"></a>Resource Manager 提供程序、区域、API 版本和架构
 本主题提供支持 Azure Resource Manager 的资源提供程序列表。
 
 部署资源时，你还需要知道哪些区域支持这些资源，以及哪些 API 版本可用于资源。 [支持的区域](#supported-regions) 部分说明了如何找出哪些区域支持相应的订阅和资源。 [支持的 API 版本](#supported-api-versions) 部分说明了如何判断可以使用哪些 API 版本。
 
-若要查看 Azure 门户预览和经典管理门户支持哪些服务，请参阅 [Azure 门户可用性图表](https://azure.microsoft.com/features/azure-portal/availability/)。 若要查看哪些服务支持移动资源，请参阅[将资源移到新资源组或订阅](./resource-group-move-resources.md)。
+若要查看 Azure 门户和经典管理门户支持哪些服务，请参阅 [Azure 门户可用性图表](https://www.azure.cn/support/service-dashboard/)。 若要查看哪些服务支持移动资源，请参阅[将资源移到新资源组或订阅](resource-group-move-resources.md)。
 
 下表列出哪些 Microsoft 服务可通过 Resource Manager 支持部署和管理，哪些则不可以。 此外，还有许多第三方资源提供程序支持 Resource Manager。 了解如何在 [资源提供程序和类型](#resource-providers-and-types) 部分查看所有资源提供程序。
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 04/22/2017
 | 虚拟机（经典） |受限制 |- |- |
 | 云服务（经典） |有限（参阅下文） |- |- |
 
-虚拟机（经典）是指已通过经典部署模型部署的资源，而不是通过 Resource Manager 部署模型部署的资源。 一般而言，这些资源不支持 Resource Manager 操作，但已启用某些操作。 有关这些部署模型的详细信息，请参阅[了解 Resource Manager 部署和经典部署](./resource-manager-deployment-model.md)。 
+虚拟机（经典）是指已通过经典部署模型部署的资源，而不是通过 Resource Manager 部署模型部署的资源。 一般而言，这些资源不支持 Resource Manager 操作，但已启用某些操作。 有关这些部署模型的详细信息，请参阅[了解 Resource Manager 部署和经典部署](resource-manager-deployment-model.md)。 
 
 云服务（经典）可与其他经典资源配合使用。 但是，经典资源不能充分利用所有 Resource Manager 功能，并且不太适合未来的解决方案。 应该考虑将你的应用程序基础结构更改为使用 Microsoft.Compute、Microsoft.Storage 和 Microsoft.Network 命名空间中的资源。
 
@@ -59,12 +59,12 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="storage"></a>存储
 | 服务 | 已启用 Resource Manager | REST API | 模板格式 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | 存储 |是 |[存储 REST](https://docs.microsoft.com/rest/api/storagerp) |[存储资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Storage%22&type=Code) |
 
 ## <a name="databases"></a>数据库
 | 服务 | 已启用 Resource Manager | REST API | 模板格式 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | DocumentDB |是 |[DocumentDB REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider) |[DocumentDB 资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DocumentDb%22&type=Code) |
 | Redis 缓存 |是 | [Redis 缓存 REST](https://docs.microsoft.com/rest/api/redis) |[Redis 资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cache%22&type=Code) |
 | SQL 数据库 |是 |[SQL 数据库 REST](https://docs.microsoft.com/rest/api/sql) |[SQL 数据库资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
@@ -77,8 +77,8 @@ ms.lasthandoff: 04/22/2017
 | API 管理 |是 |[API 管理 REST](https://docs.microsoft.com/rest/api/apimanagement) |[API 管理资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ApiManagement%22&type=Code) |
 | Function App |是 | [Function App REST](https://docs.microsoft.com/rest/api/appservice) |[Function App 资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22functionApp%22&type=Code) |
 | 逻辑应用 |是 |[逻辑应用 REST](https://docs.microsoft.com/rest/api/logic) |[逻辑应用资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Logic%22&type=Code) |
-| 移动应用 |是 | [应用服务 REST](https://docs.microsoft.com/rest/api/appservice) |[移动应用资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22mobileApp%22&type=Code) |
-| Mobile Engagements |是 |[Mobile Engagement REST](https://msdn.microsoft.com/zh-cn/library/azure/mt683754.aspx) |[Mobile Engagements 资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.MobileEngagement%22&type=Code) |
+| 移动应用 |是 |[应用服务 REST](https://docs.microsoft.com/rest/api/appservice) |[移动应用资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22mobileApp%22&type=Code) |
+| Mobile Engagements |是 | [Mobile Engagement REST](https://msdn.microsoft.com/zh-cn/library/azure/mt683754.aspx) |[Mobile Engagements 资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.MobileEngagement%22&type=Code) |
 | 搜索 |是 |[搜索 REST](https://docs.microsoft.com/rest/api/searchservice) |[搜索资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Search%22&type=Code) |
 | Web 应用 |是 | [Web 应用 REST](https://docs.microsoft.com/rest/api/appservice/webapps) |[Web 应用架构](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |[Microsoft.Web](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Web%22&type=Code) |
 
@@ -103,10 +103,9 @@ ms.lasthandoff: 04/22/2017
 | CDN |是 |[CDN REST](https://docs.microsoft.com/rest/api/cdn) |[CDN 资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cdn%22&type=Code) |
 | 媒体服务 |是 |[媒体服务 REST](https://docs.microsoft.com/rest/api/media) |[媒体资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Media%22&type=Code)  |
 
-## <a name="hybrid-integration"></a>混合集成
+## <a name="enterprise-integration"></a>企业集成
 | 服务 | 已启用 Resource Manager | REST API | 模板格式 |
 | --- | --- | --- | --- |
-| 恢复服务 |是 |[恢复服务 REST](https://docs.microsoft.com/rest/api/recoveryservices) |[恢复服务资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.RecoveryServices%22&type=Code) |
 | 服务总线 |是 |[服务总线 REST](https://docs.microsoft.com/rest/api/servicebus) |[服务总线资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
 
 ## <a name="identity--access-management"></a>标识和访问管理
@@ -123,19 +122,20 @@ Azure Active Directory 可以使用 Resource Manager 为订阅启用基于角色
 | 自动化 |是 |[自动化 REST](https://msdn.microsoft.com/en-us/library/azure/mt662285.aspx) |[自动化资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
 | 密钥保管库 |是 |[密钥保管库 REST](https://docs.microsoft.com/rest/api/keyvault) |[Key Vault 资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.KeyVault%22&type=Code) |
 | 操作见解 |是 | | |
+| 恢复服务 |是 |[恢复服务 REST](https://docs.microsoft.com/rest/api/recoveryservices) |[恢复服务资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.RecoveryServices%22&type=Code) |
 | 计划程序 |是 |[计划程序 REST](https://docs.microsoft.com/rest/api/scheduler) |[计划程序资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Scheduler%22&type=Code) |
-| 安全性（预览版） |是 |[安全 REST](https://msdn.microsoft.com/zh-cn/library/azure/mt704034.aspx) |[安全资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Security%22&type=Code) |
+| 安全 |是 |[安全 REST](https://msdn.microsoft.com//library/azure/mt704034.aspx) |[安全资源](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Security%22&type=Code) |
 
 ## <a name="resource-manager"></a>Resource Manager
 | 功能 | 已启用 Resource Manager | REST API | 模板格式 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | 授权 |是 |[授权 REST](https://docs.microsoft.com/rest/api/authorization) |[资源锁](resource-manager-template-lock.md)<br /> [Microsoft.Authorization](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Authorization%22&type=Code) |
 | 资源 |是 |[资源 REST](https://docs.microsoft.com/rest/api/resources) | [资源链接](resource-manager-template-links.md) <br/> [Microsoft.Resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Resources%22&type=Code) |
 
 ## <a name="resource-providers-and-types"></a> 资源提供程序和类型
 部署资源时，经常需要检索有关资源提供程序和类型的信息。 可以通过 REST API、Azure PowerShell 或 Azure CLI 检索此信息。
 
-若要使用资源提供程序，该资源提供程序必须已注册到你的帐户。 默认情况下，会自动注册多个资源提供程序；但是，你可能需要手动注册某些资源提供程序。 下面的示例演示如何获取资源提供程序的注册状态，并注册资源提供程序（如果需要）。
+若要使用资源提供程序，该资源提供程序必须已注册到你的帐户。 默认情况下，会自动注册多个资源提供程序；但是，你可能需要手动注册某些资源提供程序。 本节中的示例演示如何获取资源提供程序的注册状态，并注册资源提供程序。
 
 ### <a name="portal"></a>门户
 从订阅边栏选项卡选择“资源提供程序”  即可轻松查看支持的资源提供程序列表。 若要向资源提供程序注册订阅，请选择“注册”  链接。
@@ -182,11 +182,6 @@ az provider show --namespace Microsoft.Web
 ```azurecli
 az provider register --namespace Microsoft.ServiceBus
 ```
-
-## <a name="supported-regions"></a> 支持的区域
-部署资源时，通常需要指定资源的区域。 所有区域都支持 Resource Manager，但部署的资源可能无法在所有区域中受到支持。 此外，订阅可能存在一些限制，以防止用户使用某些支持该资源的区域。 这些限制可能与所在国家/地区的税务问题有关，或者与由订阅管理员所放置，只能使用特定区域的策略结果有关。 
-
-有关所有 Azure 服务支持的所有区域的完整列表，请参阅 [各区域推出的服务](https://azure.microsoft.com/regions/#services)。 但是，此列表可能包含你的订阅不支持的区域。 可以通过门户、REST API、PowerShell 或 Azure CLI 来确定订阅支持的特定资源类型所在的区域。
 
 ### <a name="portal"></a>门户
 可以通过以下步骤查看资源类型的支持区域：
@@ -257,5 +252,5 @@ az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* 若要了解如何创建 Resource Manager 模板，请参阅[创作 Azure Resource Manager 模板](./resource-group-authoring-templates.md)。
-* 若要了解如何部署资源，请参阅[使用 Azure Resource Manager 模板部署应用程序](./resource-group-template-deploy.md)。
+* 若要了解如何创建 Resource Manager 模板，请参阅[创作 Azure Resource Manager 模板](resource-group-authoring-templates.md)。
+* 若要了解如何部署资源，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。

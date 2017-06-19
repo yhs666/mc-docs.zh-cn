@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/17/2017
 wacn.date: 03/24/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # SQL Server 身份验证、访问和数据库级防火墙规则
@@ -49,21 +49,21 @@ ms.author: carlrab
 ## 使用 Azure 帐户登录到 Azure 门户
 本过程中的步骤说明如何使用 [Azure 帐户](https://account.windowsazure.cn/Home/Index) 连接到 Azure 门户。
 
-1. 打开所选浏览器并连接到 [Azure 门户预览](https://portal.azure.cn/)。
-2. 登录到 [Azure 门户预览](https://portal.azure.cn/)。
+1. 打开所选浏览器并连接到 [Azure 门户](https://portal.azure.cn/)。
+2. 登录到 [Azure 门户](https://portal.azure.cn/)。
 3. 在“登录”页上，提供订阅的凭据。
 
    ![登录](./media/sql-database-get-started/login.png)  
 
 <a name="create-logical-server-bk"></a>
 
-## 在 Azure 门户预览中查看逻辑服务器安全信息
+## 在 Azure 门户中查看逻辑服务器安全信息
 
-本过程中的步骤说明如何在 Azure 门户预览中查看有关逻辑服务器安全配置的信息。
+本过程中的步骤说明如何在 Azure 门户中查看有关逻辑服务器安全配置的信息。
 
 1. 打开服务器的“SQL Server”边栏选项卡，在“概述”页中查看信息。
 
-       ![Azure 门户预览中的服务器管理员帐户](./media/sql-database-control-access-sql-authentication-get-started/sql_admin_portal.png)  
+       ![Azure 门户中的服务器管理员帐户](./media/sql-database-control-access-sql-authentication-get-started/sql_admin_portal.png)  
 
 2. 记下逻辑服务器上服务器管理员的名称。
 

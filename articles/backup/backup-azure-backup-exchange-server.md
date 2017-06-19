@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 wacn.date: 01/24/2017
-ms.author: anuragm;jimpark;delhan;trinadhk;markgal
+ms.author: v-junlch
 ---
 
 # 使用 System Center 2012 R2 DPM 将 Exchange Server 备份到 Azure 备份

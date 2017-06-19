@@ -1,6 +1,6 @@
 ---
 title: "将 Azure SQL 数据库导出到 BACPAC 文件 | Azure"
-description: "使用 Azure 门户预览将 Azure SQL 数据库导出到 BACPAC 文件"
+description: "使用 Azure 门户将 Azure SQL 数据库导出到 BACPAC 文件"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -11,7 +11,7 @@ ms.service: sql-database
 ms.custom: move data
 ms.devlang: NA
 ms.date: 04/05/2017
-ms.author: carlrab
+ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/12/2017
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>将 Azure SQL 数据库导出到 BACPAC 文件
 
 本文讨论如何将 Azure SQL 数据库导出到 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 文件。 本文讨论如何使用以下方法进行导出：
-- [Azure 门户预览](https://portal.azure.cn)
+- [Azure 门户](https://portal.azure.cn)
 - [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) 命令行实用工具
 - [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport) cmdlet
 - [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) 中的[导出数据层应用程序](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)向导。
@@ -56,9 +56,9 @@ ms.lasthandoff: 05/12/2017
 > BACPAC 不能用于备份和还原操作。 Azure SQL 数据库会自动为每个用户数据库创建备份。 有关详细信息，请参阅[业务连续性概述](sql-database-business-continuity.md)和 [SQL 数据库备份](sql-database-automated-backups.md)。  
 > 
 
-## <a name="azure-portal-preview"></a>Azure 门户预览
+## <a name="azure-portal-preview"></a>Azure 门户
 
-若要使用 Azure 门户预览导出数据库，请打开数据库页，并在工具栏上单击“导出”。 指定 *.bacpac 文件名，为导出提供 Azure 存储帐户和容器，并提供用于连接到源数据库的凭据。  
+若要使用 Azure 门户导出数据库，请打开数据库页，并在工具栏上单击“导出”。 指定 *.bacpac 文件名，为导出提供 Azure 存储帐户和容器，并提供用于连接到源数据库的凭据。  
 
    ![数据库导出](./media/sql-database-export/database-export.png)
 
@@ -102,7 +102,7 @@ $importStatus
 ### <a name="export-sql-database-example"></a>导出 SQL 数据库示例
 下面的示例将现有 Azure SQL 数据库导出到 BACPAC，然后说明如何查看导出操作的状态。
 
-若要运行示例，需将几个变量替换为数据库和存储帐户中的特定值。 在 [Azure 门户预览](https://portal.azure.cn)中，浏览存储帐户，以获取存储帐户名称、blob 容器名称和密钥值。 可单击存储帐户边栏选项卡上的“访问密钥”  查找密钥。
+若要运行示例，需将几个变量替换为数据库和存储帐户中的特定值。 在 [Azure 门户](https://portal.azure.cn)中，浏览存储帐户，以获取存储帐户名称、blob 容器名称和密钥值。 可单击存储帐户边栏选项卡上的“访问密钥”  查找密钥。
 
 将以下 `VARIABLE-VALUES` 替换为特定 Azure 资源中的值。 数据库名称就是要导出的现有数据库。
 

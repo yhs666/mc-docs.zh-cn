@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2016
 wacn.date: 08/01/2016
-ms.author: masashin
+ms.author: v-junlch
 ---
 
 # 缓存指南
@@ -300,15 +300,15 @@ Azure 经典管理门户包含便利的图形画面，可让你监视缓存的�
 
 ### Azure Redis 缓存
 
-Azure Redis 缓存对 Azure 数据中心托管的 Redis 服务器提供访问。它充当提供访问控制与安全性的机制。你可以使用 Azure 门户预览来预配缓存。
+Azure Redis 缓存对 Azure 数据中心托管的 Redis 服务器提供访问。它充当提供访问控制与安全性的机制。你可以使用 Azure 门户来预配缓存。
 
 此门户提供了许多预定义的配置。这些配置包括作为专用服务运行的 53 GB 缓存、用于支持 SSL 通信（适用于隐私性）以及主/从复制配合 99.9% 可用性的 SLA，以及共享硬件上运行不含复制（无可用性保证）的 250 MB 缓存。
 
-使用 Azure 门户预览还可以配置缓存的逐出策略，并通过将用户添加到提供的角色来控制缓存的访问权限。这些角色定义成员可以执行的操作，包括所有者、参与者和读取者。例如，所有者角色成员拥有缓存（包含安全性）及其内容的完全控制权，参与者角色成员可以在缓存中读取和写入信息，而读取者角色成员只能从缓存检索数据。
+使用 Azure 门户还可以配置缓存的逐出策略，并通过将用户添加到提供的角色来控制缓存的访问权限。这些角色定义成员可以执行的操作，包括所有者、参与者和读取者。例如，所有者角色成员拥有缓存（包含安全性）及其内容的完全控制权，参与者角色成员可以在缓存中读取和写入信息，而读取者角色成员只能从缓存检索数据。
 
-大多数管理任务可通过 Azure 门户预览来执行。出于此原因，许多 Redis 标准版中的管理命令都不可用，包括以编程方式修改配置、关闭 Redis 服务器、配置其他从属服务器，或强制将数据存储到磁盘等功能。
+大多数管理任务可通过 Azure 门户来执行。出于此原因，许多 Redis 标准版中的管理命令都不可用，包括以编程方式修改配置、关闭 Redis 服务器、配置其他从属服务器，或强制将数据存储到磁盘等功能。
 
-Azure 门户预览包含便利的图形画面，可让你监视缓存的性能。例如，你可以查看创建的连接数、执行的请求数、读取和写入次数，以及缓存命中与缓存未命中次数。可以使用此信息来确定缓存的效率，并可根据需要切换到不同的配置，或更改逐出策略。
+Azure 门户包含便利的图形画面，可让你监视缓存的性能。例如，你可以查看创建的连接数、执行的请求数、读取和写入次数，以及缓存命中与缓存未命中次数。可以使用此信息来确定缓存的效率，并可根据需要切换到不同的配置，或更改逐出策略。
 
 此外，如果一个或多个关键度量值超过预期范围，你可以创建将电子邮件消息发送给管理员的警报。例如，如果缓存未命中次数在最后一小时超过指定的值，你可能想要提醒管理员，因为这意味着缓存可能太小或数据可能逐出得太快。
 
@@ -515,9 +515,9 @@ var customer1 = cache.Wait(task1);
 var customer2 = cache.Wait(task2);
 ```
 
-Microsoft 网站上的 [Azure Redis Cache documentation](./redis-cache/index.md)（Azure Redis 缓存文档）页提供了有关如何编写可以使用 Azure Redis 缓存的客户端应用程序的详细信息。StackExchange.Redis 网站上的 [Basic usage page](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md)（基本用法）页提供了更多信息。
+Microsoft 网站上的 [Azure Redis Cache documentation](./redis-cache/index.md)（Azure Redis 缓存文档）页提供了有关如何编写可以使用 Azure Redis 缓存的客户端应用程序的详细信息。
 
-同一网站上的 [Pipelines and multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md)（管道与多路复用器）页提供了有关使用 Redis 和 StackExchange 库执行异步操作和管道传输的详细信息。本文的下一部分“使用 Redis 缓存”提供了一些更高级技巧的示例，你可以对 Redis 缓存中保存的数据运用这些技巧。
+本文的下一部分“使用 Redis 缓存”提供了一些更高级技巧的示例，你可以对 Redis 缓存中保存的数据运用这些技巧。
 
 ## 使用 Redis 缓存
 
@@ -610,8 +610,6 @@ Console.WriteLine("Result of decrement: {0}", tx2.Result);
 请记住，Redis 事务不同于关系数据库中的事务。`Execute` 方法只是将构成运行事务的所有命令排入队列，如果其中任何一个命令格式不当，则事务停止。如果已成功将所有命令排入队列，将以异步方式运行每个命令。
 
 如果任何命令失败，其他命令仍将继续处理。如果需要验证命令是否已成功完成，必须使用相应任务的 **Result** 属性来提取命令的结果，如上述示例中所示。读取 **Result** 属性将会阻塞调用线程，直到任务完成。
-
-有关详细信息，请参阅 StackExchange.Redis 网站上的 [Redis 中的事务](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md)页。
 
 执行批处理操作时，可以使用 StackExchange 库的 `IBatch` 接口。此接口可用于访问 `IDatabase` 接口所访问的类似一组方法，不过，所有方法是异步的。
 
@@ -920,7 +918,6 @@ subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 - Microsoft 网站上的 [Azure Redis 缓存常见问题](./redis-cache/cache-faq.md)页
 - Microsoft 网站上的 [Configuration model](http://msdn.microsoft.com/zh-cn/library/windowsazure/hh914149.aspx)（配置模型）页
 - Microsoft 网站上的 [Task-based Asynchronous Pattern](http://msdn.microsoft.com/zh-cn/library/hh873175.aspx)（基于任务的异步模式）页
-- StackExchange.Redis GitHub 存储库上的 [Pipelines and multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md)（管道和多路复用器）页
 - Redis 网站上的 [Redis persistence](http://redis.io/topics/persistence)（Redis 持久性）页
 - Redis 网站上的 [Replication](http://redis.io/topics/replication)（复制）页
 - Redis 网站上的 [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial)（Redis 群集教程）页
@@ -933,8 +930,6 @@ subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 - Microsoft 网站上的 [Azure Redis 缓存的 ASP.NET 会话状态提供程序](./redis-cache/cache-aspnet-session-state-provider.md)页
 - Microsoft 网站上的 [Azure Redis 缓存的 ASP.NET 输出缓存提供程序](./redis-cache/cache-aspnet-output-cache-provider.md)页
 - Redis 网站上的 [An Introduction to Redis data types and abstractions](http://redis.io/topics/data-types-intro)（Redis 数据类型和抽象简介）页
-- StackExchange.Redis 网站上的 [Basic usage](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md)（基本用法）页
-- StackExchange.Redis 存储库上的 [Transactions in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md)（Redis 中的事务）页
 - Microsoft 网站上的 [Data partitioning guide](http://msdn.microsoft.com/zh-cn/library/dn589795.aspx)（数据分区指南）
 
 <!---HONumber=Mooncake_0725_2016-->

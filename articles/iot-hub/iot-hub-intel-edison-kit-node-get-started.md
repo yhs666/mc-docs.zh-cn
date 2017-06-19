@@ -1,12 +1,12 @@
 ---
-title: "将 Intel Edison (Node) 连接到 Azure IoT - 入门 | Azure"
-description: "开始使用 Intel Edison，创建 Azure IoT 中心，并将 Edison 连接到 IoT 中心"
+title: "Intel Edison 到云 (Node.js) - 将 Intel Edison 连接到 Azure IoT 中心 | Azure"
+description: "将 Intel Edison 连接到 Azure IoT 中心，以便 Intel Edison 向 Azure 云发送数据。"
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "intel edison 开发, azure iot 中心, 开始使用物联网, 物联网教程, adafruit 物联网, intel edison arduino, 开始使用 arduino"
+keywords: "azure iot intel edison, intel edison iot 中心, intel edison 发送数据到云, intel edison 到云"
 ms.assetid: a7c9cf2d-c102-41b0-aa45-41285c6877eb
 ms.service: iot-hub
 ms.devlang: nodejs
@@ -15,16 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 wacn.date: 
-ms.author: xshi
+ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 680a73596fb6b32c060ba41c58aaf763610d8495
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 9c0da9c406131737d012206c93dcce68e7b61374
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 05/26/2017
+
 
 ---
 
-# <a name="connect-your-intel-edison-device-to-your-iot-hub-using-nodejs"></a>使用 Node.js 将 Intel Edison 设备连接到 IoT 中心
+# <a name="connect-intel-edison-to-azure-iot-hub-nodejs"></a>将 Intel Edison 连接到 Azure IoT 中心 (Node.js)
 >[!div class="op_single_selector"]
 >- [Node.JS](./iot-hub-intel-edison-kit-node-get-started.md)
 >- [C](./iot-hub-intel-edison-kit-c-get-started.md)
@@ -124,110 +125,115 @@ ms.lasthandoff: 04/14/2017
 
    ![插入电源](./media/iot-hub-intel-edison-kit-node-get-started/8_plug_power.jpg)
 
-在本课中，会为 Intel Edison 配置操作系统、设置开发环境，以及将应用程序部署到 Edison。
+2. 此时，绿色 LED（Arduino* 扩展板上标记为 DS1）应点亮并持续这一状态。
 
-### <a name="configure-your-device"></a>配置设备
-首次配置 Intel Edison 进行使用的操作步骤如下：组装开发板，接通电源，在台式机操作系统中安装配置工具以刷写 Edison 固件、设置密码并将其连接到 Wi-Fi。  
+3. 稍等片刻，等待开发板完成启动。
 
-*完成的估计时间：30 分钟*
+   > [!NOTE]
+   > 如果没有 DC 电源，仍可通过 USB 端口为开发板供电。 有关详细信息，请参阅 `Connect Edison to your computer` 部分。 采用这种方式为开发板供电可能会导致开发板出现异常，尤其是在使用 Wi-Fi 或驱动电机时。
+   >
+   >
 
-转到 [配置设备][configure-your-device]。
 
-### <a name="get-the-tools"></a>获取工具
-下载相关工具和软件，为 Intel Edison 生成和部署第一个应用程序。
+### <a name="connect-edison-to-your-computer"></a>将 Edison 连接到计算机
 
-*估计完成时间：20 分钟*
+1. 向下扳动微动开关，使之朝向两个 micro USB 端口，将 Edison 设置为设备模式。 有关设备模式与主机模式的区别，请参阅 [此处](https://software.intel.com/en-us/node/628233#usb-device-mode-vs-usb-host-mode)。
 
-转到 [获取工具][get-the-tools]。
+   ![向下扳动微动开关](./media/iot-hub-intel-edison-kit-node-get-started/9_toggle_down_microswitch.jpg)
 
-### <a name="create-and-deploy-the-blink-application"></a>创建和部署 blink 应用程序
-克隆 GitHub 提供的示例 blink 应用程序，并使用 gulp 将此应用程序部署到 Intel Edison 板。 此示例应用程序每隔两秒让连接到板的 LED 闪烁一次。
+2. 将 micro USB 线缆插入顶部的 micro USB 端口。
 
-*估计完成时间：5 分钟*
+   ![顶部的 micro USB 端口](./media/iot-hub-intel-edison-kit-node-get-started/10_top_usbport.jpg)
 
-转到 [创建和部署 blink 应用程序][create-and-deploy-the-blink-application]。
+3. 将 USB 线缆的另一端插入计算机。
 
-## <a name="lesson-2-create-your-iot-hub"></a>第 2 课：创建 IoT 中心
-![第 2 课端到端关系图](./media/iot-hub-intel-edison-lessons/e2e-lesson2.png)
+   ![计算机 USB](./media/iot-hub-intel-edison-kit-node-get-started/11_computer_usb.jpg)
 
-在本课中，用户需创建免费的 Azure 帐户、预配 Azure IoT 中心，以及在 IoT 中心创建第一个设备。
+4. 如果计算机安装了新驱动器，则可确定开发板已完全初始化（就像将一张 SD 卡插入计算机）。
 
-开始本课之前，请完成第 1 课。
+## <a name="download-and-run-the-configuration-tool"></a>下载并运行配置工具
+请从[此链接](https://software.intel.com/en-us/iot/hardware/edison/downloads)（在 `Installers` 标题下列出）获取最新配置工具。 运行该工具，并按照屏幕上的说明进行操作，在需要时单击“下一步”
 
-### <a name="get-the-azure-tools"></a>获取 Azure 工具
-安装 Azure 命令行界面 (Azure CLI)。
+### <a name="flash-firmware"></a>刷写固件
+1. 在`Set up options`页面上，单击`Flash Firmware`。
+2. 执行以下操作之一选择要刷写到开发板上的映像：
+   - 若要下载 Intel 提供的最新固件映像并使用该映像来刷写开发板，请选择 `Download the latest image version xxxx`。
+   - 若要使用计算机上已保存的映像来刷写开发板，请选择 `Select the local image`。 浏览到要刷写到开发板的映像并选择。
+3. 安装工具将尝试刷写开发板。 整个刷写过程最长可能需要 10 分钟。
 
-*估计完成时间：10 分钟*
+### <a name="set-password"></a>设置密码
+1. 在`Set up options`页面上，单击`Enable Security`。
+2. 可为 Intel® Edison 开发板设置自定义名称。 这是可选的。
+3. 为开发板键入密码，然后单击 `Set password`。
+4. 记下密码，稍后会用到此密码。
 
-转到 [获取 Azure 工具][get-azure-tools]。
+### <a name="connect-wi-fi"></a>连接 Wi-Fi
+1. 在`Set up options`页面上，单击`Connect Wi-Fi`。 计算机将扫描可用的 Wi-Fi 网络，此过程最长可能需要 1 分钟。
+2. 从 `Detected Networks` 下拉列表中，选择网络。
+3. 从 `Security` 下拉列表中，选择网络的安全类型。
+4. 提供登录名和密码信息，然后单击 `Configure Wi-Fi`。
+5. 记下 IP 地址，稍后会用到此地址。
 
-### <a name="create-your-iot-hub-and-register-intel-edison"></a>创建 IoT 中心并注册 Intel Edison
-使用 Azure CLI 创建资源组、预配第一个 Azure IoT 中心，并将第一个设备添加到 IoT 中心。
+> [!NOTE]
+> 确保 Edison 与计算机连接到同一网络。 计算机通过 IP 地址连接到 Edison。
 
-*估计完成时间：10 分钟*
+   ![连接到温度传感器](./media/iot-hub-intel-edison-kit-node-get-started/12_configuration_tool.png)
 
-转到[创建 IoT 中心并注册 Intel Edison](./iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)。
+祝贺你！ Edison 已配置成功。
 
-## <a name="lesson-3-send-device-to-cloud-messages"></a>第 3 课：发送从设备到云的消息
-![第 3 课端到端关系图](./media/iot-hub-intel-edison-lessons/e2e-lesson3.png)
+## <a name="run-a-sample-application-on-intel-edison"></a>在 Intel Edison 上运行示例应用程序
 
-在本课中，会将消息从 Edison 发送到 IoT 中心。 此外还需创建一个 Azure 函数应用，以便获取 IoT 中心发出的传入消息并将其写入到 Azure 表存储。
+### <a name="prepare-the-azure-iot-device-sdk"></a>准备 Azure IoT 设备 SDK
 
-开始本课之前，请完成第 1 课和第 2 课。
+1. 使用主计算机的以下任一 SSH 客户端连接到 Intel Edison。 IP 地址来自配置工具，密码与该工具中设置的相同。
+    - [PuTTY](http://www.putty.org/) for Windows。
+    - Ubuntu 或 macOS 上的内置 SSH 客户端。
 
-### <a name="create-an-azure-function-app-and-azure-storage-account"></a>创建 Azure 函数应用和 Azure 存储帐户
-使用 Azure Resource Manager 模板创建 Azure 函数应用和 Azure 存储帐户。
+2. 将示例客户端应用克隆到设备中。 
+   
+   ```bash
+   git clone https://github.com/Azure-Samples/iot-hub-node-intel-edison-client-app
+   ```
 
-*估计完成时间：10 分钟*
+3. 然后导航至存储库文件夹，运行下列命令来安装所有程序包，该过程可能需要几分钟时间。
+   
+   ```bash
+   npm install
+   ```
 
-转到 [创建 Azure Function App 和 Azure 存储帐户][create-an-azure-function-app-and-azure-storage-account]。
 
-### <a name="run-a-sample-application-to-send-device-to-cloud-messages"></a>运行示例应用程序，以便发送从设备到云的消息
-在 Intel Edison 设备上部署并运行示例应用程序，将消息发送到 IoT 中心。
+### <a name="configure-and-run-the-sample-application"></a>配置并运行示例应用程序
 
-*估计完成时间：10 分钟*
+1. 通过运行以下命令，打开配置文件：
 
-转到 [运行示例应用程序，以便发送从设备到云的消息][send-device-to-cloud-messages]。
+   ```bash
+   nano config.json
+   ```
 
-### <a name="read-messages-persisted-in-azure-storage"></a>读取保存在 Azure 存储中的消息
-在将从设备到云的消息写入 Azure 存储时，对其进行监视。
+   ![配置文件](./media/iot-hub-intel-edison-kit-node-get-started/13_configure_file.png)
 
-*估计完成时间：5 分钟*
+   此文件中有两个可配置的宏。 第一个是 `INTERVAL`，它确定发送到云的两条消息之间的时间间隔。 第二个是 `SIMULATED_DATA`，它是一个布尔值，指示是否使用模拟的传感器数据。
 
-转到 [读取保存在 Azure 存储中的消息][read-messages-persisted-in-azure-storage]。
+   如果**没有传感器**，请将 `SIMULATED_DATA` 值设置为 `1`，使示例应用程序创建和使用模拟的传感器数据。
 
-## <a name="lesson-4-send-cloud-to-device-messages"></a>第 4 课：发送从云到设备的消息
-![第 4 课端到端关系图](./media/iot-hub-intel-edison-lessons/e2e-lesson4.png)
+1. 通过按“Ctrl-O”>“Enter”>“Ctrl-X”保存并退出。
 
-本课说明如何将消息从 Azure IoT 中心发送到 Intel Edison。 这些消息控制连接到 Edison 的 LED 的开关行为。 示例应用程序已准备就绪，你可以执行此任务了。
 
-开始本课之前，请完成第 1 课、第 2 课和第 3 课。
+1. 通过运行以下命令，生成示例应用程序：
 
-### <a name="run-the-sample-application-to-receive-cloud-to-device-messages"></a>运行示例应用程序，接收从云到设备的消息
-第 4 课中的示例应用程序在 Edison 上运行，并监视来自 IoT 中心的传入消息。 新的 gulp 任务会将消息从 IoT 中心发送到 Edison，使 LED 闪烁。
+   ```bash
+   sudo node index.js '<your Azure IoT hub device connection string>'
+   ```
 
-*估计完成时间：10 分钟*
+   > [!NOTE] 
+   确保将设备连接字符串复制并粘贴到单引号中。
 
-转到 [运行示例应用程序，接收从云到设备的消息][receive-cloud-to-device-messages]。
+应看到以下输出，其中显示传感器数据以及发送至 IoT 中心的消息。
 
-### <a name="optional-section-change-the-on-and-off-behavior-of-the-led"></a>可选部分：更改 LED 的开关行为
-自定义这些消息，以便更改 LED 的开关行为。
+![输出 - 从 Intel Edison 发送到 IoT 中心的传感器数据](./media/iot-hub-intel-edison-kit-node-get-started/15_message_sent.png)
 
-*估计完成时间：10 分钟*
+## <a name="next-steps"></a>后续步骤
 
-转到 [可选部分：更改 LED 的开关行为][change-the-on-and-off-behavior-of-the-led]。
+此时已运行示例应用程序，收集传感器数据并将其发送到 IoT 中心。
 
-## <a name="troubleshooting"></a>故障排除
-如果在课程中遇到任何问题，可在 [故障排除][troubleshooting] 一文中查找解决方案。
-<!-- Images and links -->
-
-[configure-your-device]: ./iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md
-[get-the-tools]: ./iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md
-[create-and-deploy-the-blink-application]: ./iot-hub-intel-edison-kit-node-lesson1-deploy-blink-app.md
-[get-azure-tools]: ./iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32.md
-[create-an-azure-function-app-and-azure-storage-account]: ./iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md
-[send-device-to-cloud-messages]: ./iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md
-[read-messages-persisted-in-azure-storage]: ./iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md
-[receive-cloud-to-device-messages]: ./iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md
-[change-the-on-and-off-behavior-of-the-led]: ./iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md
-[troubleshooting]: ./iot-hub-intel-edison-kit-node-troubleshooting.md
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

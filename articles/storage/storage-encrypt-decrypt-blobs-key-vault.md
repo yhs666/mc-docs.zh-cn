@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 01/23/2017
 wacn.date: 04/10/2017
-ms.author: adhurwit
+ms.author: v-johch
 ---
 
 # 教程：在 Azure 存储中使用 Azure 密钥保管库加密和解密 Blob

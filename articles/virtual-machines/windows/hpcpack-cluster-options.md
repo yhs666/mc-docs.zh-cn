@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 02/06/2017
 wacn.date: 03/28/2017
-ms.author: danlep
+ms.author: v-dazen
 ---
 
 # 在 Azure 中使用 HPC Pack 创建和管理 Windows HPC 群集时可用的选项
@@ -34,7 +34,7 @@ ms.author: danlep
 ### PowerShell 部署脚本
 * [使用 HPC Pack IaaS 部署脚本创建 HPC 群集](classic/hpcpack-cluster-powershell-script.md)
 
-### 使用 Azure 门户预览手动部署
+### 使用 Azure 门户手动部署
 * [在 Azure VM 中设置 HPC Pack 群集的头节点](hpcpack-cluster-headnode.md)
 
 ### 群集管理

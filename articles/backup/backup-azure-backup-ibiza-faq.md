@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/21/2016
 wacn.date: 12/21/2016
-ms.author: trinadhk; markgal; jimpark;
+ms.author: v-junlch
 ---
 
 # 恢复服务保管库 - 常见问题
@@ -36,6 +36,6 @@ ms.author: trinadhk; markgal; jimpark;
 很遗憾不可以，目前无法将备份保管库的内容迁移到恢复服务保管库。我们正着手添加此功能，但公共预览中并未提供。
 
 ## 恢复服务保管库是否支持经典 VM 或基于资源管理器的 VM？<br/>
-恢复服务保管库支持这两种模型。可以将经典管理门户中创建的 VM（经典模式 VM）或 Azure 门户预览中创建的 VM（基于资源管理器）备份到恢复服务保管库。
+恢复服务保管库支持这两种模型。可以将经典管理门户中创建的 VM（经典模式 VM）或 Azure 门户中创建的 VM（基于资源管理器）备份到恢复服务保管库。
 
 <!---HONumber=Mooncake_0801_2016-->

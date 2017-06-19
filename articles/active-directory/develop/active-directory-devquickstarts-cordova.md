@@ -15,7 +15,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: 02/07/2017
-ms.author: vittorib
+ms.author: v-junlch
 ---
 
 # 将 Azure AD 与 Apache Cordova 应用集成
@@ -157,7 +157,7 @@ clientId = "a5d92493-ae5a-4a9f-bcbf-9f1d354067d3",
 graphApiVersion = "2013-11-08";
 ```
 
-`redirectUri` 和 `clientId` 值应与 AAD 中用于描述应用程序的值匹配。如本教程前面的步骤 1 中所述，你可以在 Azure 门户预览的“配置”选项卡中找到这些值。
+`redirectUri` 和 `clientId` 值应与 AAD 中用于描述应用程序的值匹配。如本教程前面的步骤 1 中所述，你可以在 Azure 门户的“配置”选项卡中找到这些值。
 注意：如果你选择不在自己的租户中注册新应用，则只需按原样粘贴上述预配置值 - 这样你便可以看到示例的运行情况，不过，在生产环境中，你始终要为应用创建自己的条目。
 
 接下来，需要添加实际的令牌请求代码。在 `search `和 `renderdata `定义之间插入以下代码段。

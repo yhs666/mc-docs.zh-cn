@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
-ms.author: chackdan
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: a737a615ad6db164a4eff978558753008db5a421
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>使用门户添加辅助群集证书
 
-无法通过 Azure 门户预览添加辅助群集证书。 为此必须使用 Azure PowerShell。 本文档稍后将概述该过程。
+无法通过 Azure 门户添加辅助群集证书。 为此必须使用 Azure PowerShell。 本文档稍后将概述该过程。
 
 ## <a name="swap-the-cluster-certificates-using-the-portal"></a>使用门户交换群集证书
 

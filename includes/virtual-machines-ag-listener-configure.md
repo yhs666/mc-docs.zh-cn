@@ -50,7 +50,7 @@
 
 1. 右键单击 IP 资源，然后单击“属性”。 记下 IP 地址的名称。 将在 PowerShell 脚本的 `$IPResourceName` 变量中使用此名称。
 
-1. 在“IP 地址”下面，单击“静态 IP 地址”。 将 IP 地址设置为在 Azure 门户预览版上设置负载均衡器地址时所用的相同地址。
+1. 在“IP 地址”下面，单击“静态 IP 地址”。 将 IP 地址设置为在 Azure 门户上设置负载均衡器地址时所用的相同地址。
 
     ![IP 资源](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 

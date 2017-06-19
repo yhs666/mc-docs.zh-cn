@@ -14,7 +14,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 wacn.date: 01/23/2017
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # 如何使用适用于 Azure 移动应用的 JavaScript 客户端库
@@ -49,7 +49,7 @@ ms.author: adrianha
 还可直接从 CDN 下载使用预建版本的 SDK：
 
 ```html
-<script src="https://zumo.blob.core.windows.net/sdk/azure-mobile-apps-client.min.js"></script>
+<script src="https://zumo.blob.core.chinacloudapi.cn/sdk/azure-mobile-apps-client.min.js"></script>
 ```
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
@@ -72,7 +72,7 @@ Azure 应用服务支持使用各种外部标识提供者（包括 Microsoft 帐
 
 在本地运行可能会导致问题产生，因为默认情况下，应用服务身份验证只配置为允许从移动应用后端访问。使用以下步骤更改应用服务设置，允许在本地运行服务器时进行身份验证：
 
-1. 登录到 [Azure 门户预览]。
+1. 登录到 [Azure 门户]。
 2. 导航到移动应用后端。
 3. 选择“开发工具”菜单中的“资源浏览器”。
 4. 单击“转到”，在新选项卡或窗口中打开移动应用后端的资源浏览器。
@@ -93,7 +93,7 @@ Azure 应用服务支持使用各种外部标识提供者（包括 Microsoft 帐
 
 还需要将相同的环回 URL 添加到 CORS 允许列表设置：
 
-1. 导航回到 [Azure 门户预览]。
+1. 导航回到 [Azure 门户]。
 2. 导航到移动应用后端。
 3. 在“API”菜单中单击“CORS”。
 4. 在空的“允许的来源”文本框中输入每个 URL ，将创建新的文本框。
@@ -106,7 +106,7 @@ Azure 应用服务支持使用各种外部标识提供者（包括 Microsoft 帐
 [Get started with authentication]: ./app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: ./app-service-mobile-cordova-get-started-users.md
 
-[Azure 门户预览]: https://portal.azure.cn/
+[Azure 门户]: https://portal.azure.cn/
 [Azure 移动应用 JavaScript SDK]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/zh-cn/library/azure/jj613353.aspx
 

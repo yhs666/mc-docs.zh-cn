@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 04/09/2017
 wacn.date: 
-ms.author: cephalin
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: f89aa33afee2524077c4cb3c6af1748146dfca82
@@ -72,8 +72,8 @@ echo "You can now browse to http://$fqdn"
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | 创建应用服务计划。 |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | 创建 Web 应用。 |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | 将自定义域映射到 Web 应用。 |
+| [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#delete) | 创建 Web 应用。 |
+| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/webapp/config/hostname#add) | 将自定义域映射到 Web 应用。 |
 
 ## <a name="next-steps"></a>后续步骤
 

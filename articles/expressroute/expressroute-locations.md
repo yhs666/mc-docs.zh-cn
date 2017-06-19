@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 wacn.date: 05/02/2017
-ms.author: cherylmc
+ms.author: v-yiso
 ---
 
 > [!div class="op_single_selector"]

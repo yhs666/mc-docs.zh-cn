@@ -15,7 +15,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/17/2016
 wacn.date: 12/05/2016
-ms.author: tamram
+ms.author: v-johch
 ---
 
 # 使用 Blob 存储的本地应用程序

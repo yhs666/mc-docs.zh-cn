@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 wacn.date: 04/27/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 使用 Azure CLI 管理 HDInsight 中的 Hadoop 群集
@@ -100,7 +100,7 @@ azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
 ## 后续步骤
 在本文中，已了解如何执行不同的 HDInsight 群集管理任务。要了解更多信息，请参阅下列文章：
 
-* [使用 Azure 门户预览管理 HDInsight][hdinsight-admin-portal]
+* [使用 Azure 门户管理 HDInsight][hdinsight-admin-portal]
 * [使用 Azure PowerShell 管理 HDInsight][hdinsight-admin-powershell]
 * [Azure HDInsight 入门][hdinsight-get-started]
 * [如何使用 Azure CLI][azure-command-line-tools]

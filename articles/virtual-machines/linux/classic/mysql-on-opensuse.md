@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2016
 wacn.date: 09/30/2016
-ms.author: cynthn
+ms.author: v-dazen
 ---
 
 # 在 Azure 中运行 OpenSUSE Linux 的虚拟机上安装 MySQL

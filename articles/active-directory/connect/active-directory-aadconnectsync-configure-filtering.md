@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 wacn.date: 04/05/2017
-ms.author: billmath
+ms.author: v-junlch
 ---
 
 # Azure AD Connect 同步：配置筛选

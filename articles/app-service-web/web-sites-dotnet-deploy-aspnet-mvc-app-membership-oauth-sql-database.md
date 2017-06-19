@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2016
 wacn.date: 
-ms.author: riande
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 41f08394e3cfba3fdceb3872a0cdeeaefe4d047b
@@ -52,7 +52,7 @@ ms.lasthandoff: 04/28/2017
 ## <a name="prerequisites"></a>先决条件
 要完成本教程，你需要一个 Azure 帐户。 如果你没有帐户，可以[注册试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-要设置开发环境，则必须安装 [Visual Studio 2013 Update 5](http://go.microsoft.com/fwlink/?LinkId=390521) 或更高版本，以及最新版本的 [Azure SDK for .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)。 本文专为 Visual Studio Update 4 和 SDK 2.8.1 编写。 相同的说明同样适用于已安装最新 [Azure SDK for .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) 的 Visual Studio 2015，但有些屏幕看起来与插图不同。
+要设置开发环境，则必须安装 Visual Studio 2013 Update 5 或更高版本，以及最新版本的 [Azure SDK for .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)。 本文专为 Visual Studio Update 4 和 SDK 2.8.1 编写。 相同的说明同样适用于已安装最新 [Azure SDK for .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) 的 Visual Studio 2015，但有些屏幕看起来与插图不同。
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
@@ -524,7 +524,7 @@ ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新�
 1. 在“服务器资源管理器”中，导航到“Azure”>“应用服务”>“{你的资源组}”>“{你的 Web 应用}”。
 2. 右键单击 Web 应用，并选择“停止”。 
 
-    也可以从 [Azure 门户预览](https://portal.azure.cn/)中转到 Web 应用的边栏选项卡，然后单击边栏选项卡顶部的“停止”图标。
+    也可以从 [Azure 门户](https://portal.azure.cn/)中转到 Web 应用的边栏选项卡，然后单击边栏选项卡顶部的“停止”图标。
 
     ![停止 Web 应用门户](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/stopweb.png)
 

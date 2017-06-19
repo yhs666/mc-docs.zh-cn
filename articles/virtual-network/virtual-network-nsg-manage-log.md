@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 wacn.date: 03/31/2017
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 网络安全组 (NSG) 的日志分析
@@ -42,7 +42,7 @@ ms.author: jdial
 
 对于*每个* 需要为其收集数据的 NSG，必须启用诊断日志记录。如果还没有 NSG，请根据[创建网络安全组](./virtual-networks-create-nsg-arm-pportal.md)一文中的步骤创建一个。可以使用以下任意方法启用 NSG 诊断日志记录：
 
-### Azure 门户预览
+### Azure 门户
 
 若要使用门户来启用日志记录，请登录到[门户](https://portal.azure.cn)。单击“更多服务”，然后键入“网络安全组”。选择要为其启用日志记录的 NSG。选择 **NetworkSecurityGroupEvent**、**NetworkSecurityGroupRuleCounter**，或者两类日志都选择。
 

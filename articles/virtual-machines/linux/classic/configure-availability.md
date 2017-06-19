@@ -1,6 +1,6 @@
 ---
 title: 经典 Linux VM 的可用性集 |Azure
-description: 在经典部署模型中，使用 Azure 门户预览和 Azure PowerShell，为新的或现有的 Linux 虚拟机配置可用性集。
+description: 在经典部署模型中，使用 Azure 门户和 Azure PowerShell，为新的或现有的 Linux 虚拟机配置可用性集。
 services: virtual-machines-linux
 documentationCenter: ''
 authors: cynthn
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 wacn.date: 12/26/2016
-ms.author: cynthn
+ms.author: v-dazen
 ---
 
 # 如何在经典部署模型中为 Linux 虚拟机配置可用性集

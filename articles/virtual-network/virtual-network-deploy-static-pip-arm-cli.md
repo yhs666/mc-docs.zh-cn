@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 wacn.date: 
-ms.author: jdial
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/22/2017
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建具有静态公共 IP 地址的 VM
 
 > [!div class="op_single_selector"]
-> * [Azure 门户预览](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure 门户](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)

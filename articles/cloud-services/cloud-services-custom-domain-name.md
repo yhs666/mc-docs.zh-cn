@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 wacn.date: 01/03/2017
-ms.author: adegeo
+ms.author: v-yiso
 ---
 
 # 为 Azure 云服务配置自定义域名
 
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./cloud-services-custom-domain-name-portal.md)
+>- [Azure 门户](./cloud-services-custom-domain-name-portal.md)
 >- [Azure 经典管理门户](./cloud-services-custom-domain-name.md)
 
 创建云服务时，Azure 会将其分配给 chinacloudapp.cn 的子域。例如，如果你的云服务名为“contoso”，则用户能够通过类似 http://contoso.chinacloudapp.cn 的 URL 访问你的应用程序。Azure 还将分配虚拟 IP 地址。

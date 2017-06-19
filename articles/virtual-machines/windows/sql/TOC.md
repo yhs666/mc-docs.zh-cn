@@ -1,9 +1,10 @@
 # 概述
 ## [Azure VM 上的 SQL Server 是什么？](virtual-machines-windows-sql-server-iaas-overview.md) 
+## [定价](https://www.azure.cn/pricing/details/virtual-machines/)
 ## [常见问题](virtual-machines-windows-sql-server-iaas-faq.md)
 
 # 入门
-## [在 Azure 门户预览中预配 VM](virtual-machines-windows-portal-sql-server-provision.md)
+## [在 Azure 门户中预配 VM](virtual-machines-windows-portal-sql-server-provision.md)
 ## [使用 Azure PowerShell 预配 VM](virtual-machines-windows-ps-sql-create.md)
 ## [连接到 VM](virtual-machines-windows-sql-connect.md)
 ## [迁移 SQL Server 数据库](virtual-machines-windows-migrate-sql.md)

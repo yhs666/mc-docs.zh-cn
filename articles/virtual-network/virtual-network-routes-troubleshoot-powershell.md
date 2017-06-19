@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 wacn.date: 01/05/2017
-ms.author: anithaa
+ms.author: v-dazen
 ---
 
 # 使用 Azure PowerShell 排查路由问题
 
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./virtual-network-routes-troubleshoot-portal.md)
+>- [Azure 门户](./virtual-network-routes-troubleshoot-portal.md)
 >- [PowerShell](./virtual-network-routes-troubleshoot-powershell.md)
 
 如果与 Azure 虚拟机 (VM) 之间出现网络连接问题，路由可能会影响 VM 的流量流。本文概述路由诊断功能，帮助用户做进一步的故障排除。

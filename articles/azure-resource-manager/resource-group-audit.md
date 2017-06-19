@@ -1,6 +1,6 @@
 ---
 title: 查看 Azure 活动日志，以便监视资源 | Azure
-description: 使用活动日志查看用户操作和错误。显示 Azure 门户预览、PowerShell、Azure CLI 和 REST。
+description: 使用活动日志查看用户操作和错误。显示 Azure 门户、PowerShell、Azure CLI 和 REST。
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 wacn.date: 03/03/2017
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # 查看活动日志，以便审核对资源的操作

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 wacn.date: 05/31/2017
-ms.author: jgao
+ms.author: v-dazen
 ---
 
 # 使用 Ambari API 在 HDInsight 中监视 Hadoop 群集
@@ -162,7 +162,7 @@ curl -u <username>:<password> -k https://<ClusterName>.azurehdinsight.cn:443/amb
 ## 后续步骤
 现在已经学习了如何使用 Ambari 监视 API 调用。要了解更多信息，请参阅以下文章：
 
-* [使用 Azure 门户预览管理 HDInsight 群集][hdinsight-admin-portal]
+* [使用 Azure 门户管理 HDInsight 群集][hdinsight-admin-portal]
 * [使用 Azure PowerShell 管理 HDInsight 群集][hdinsight-admin-powershell]
 * [使用命令行界面管理 HDInsight 群集][hdinsight-admin-cli]
 * [HDInsight 文档][hdinsight-documentation]

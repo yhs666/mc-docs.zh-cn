@@ -16,17 +16,17 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.date: 01/10/2017
 wacn.date: 01/25/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
-# 使用 Azure 门户预览管理 Azure SQL 数据库
+# 使用 Azure 门户管理 Azure SQL 数据库
 
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./sql-database-manage-portal.md)
+>- [Azure 门户](./sql-database-manage-portal.md)
 >- [SSMS](./sql-database-manage-azure-ssms.md)
 >- [PowerShell](./sql-database-manage-powershell.md)
 
-在 [Azure 门户预览](https://portal.azure.cn)中，可以创建、监视和管理 Azure SQL 数据库与服务器。本文提供更多常见任务的快速说明和详细信息的链接。
+在 [Azure 门户](https://portal.azure.cn)中，可以创建、监视和管理 Azure SQL 数据库与服务器。本文提供更多常见任务的快速说明和详细信息的链接。
 
 > [!TIP]
 有关演示如何创建服务器、创建基于服务器的防火墙、查看服务器属性、使用 SQL Server Management Studio 进行连接、查询 master 数据库、创建示例数据库和空白数据库、查询数据库属性、使用 SQL Server Management Studio 进行连接和查询示例数据库的教程，请参阅[入门教程](./sql-database-get-started.md)。
@@ -144,7 +144,7 @@ ms.author: carlrab
 ## 其他资源
 
 - [SQL 数据库](./sql-database-technical-overview.md)
-- [使用 Azure 门户预览监视和管理弹性数据库池](./sql-database-elastic-pool-manage-portal.md)
+- [使用 Azure 门户监视和管理弹性数据库池](./sql-database-elastic-pool-manage-portal.md)
 
 <!---HONumber=Mooncake_0120_2017-->
 <!--Update_Description: add one tip tag-->

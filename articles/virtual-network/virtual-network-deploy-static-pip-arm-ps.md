@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 wacn.date: 12/26/2016
-ms.author: jdial
+ms.author: v-dazen
 ---
 
 # 使用 PowerShell 创建具有静态公共 IP 的 VM
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./virtual-network-deploy-static-pip-arm-portal.md)
+>- [Azure 门户](./virtual-network-deploy-static-pip-arm-portal.md)
 >- [PowerShell](./virtual-network-deploy-static-pip-arm-ps.md)
 >- [Azure CLI](./virtual-network-deploy-static-pip-arm-cli.md)
 >- [模板](./virtual-network-deploy-static-pip-arm-template.md)

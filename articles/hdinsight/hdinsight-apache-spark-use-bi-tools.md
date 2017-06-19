@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 wacn.date: 03/31/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 将 BI 工具与 Azure HDInsight 上的 Apache Spark 群集配合使用
@@ -40,7 +40,7 @@ ms.author: nitinme
 
 将数据另存为表以后，我们就会在下一部分使用 BI 工具连接到表并执行进一步的可视化效果操作。
 
-1. 在 [Azure 门户预览](https://portal.azure.cn/)上的启动板中，单击 Spark 群集的磁贴（如果已将它固定到启动板）。也可以在“全部浏览”>“HDInsight 群集”下导航到你的群集。
+1. 在 [Azure 门户](https://portal.azure.cn/)上的启动板中，单击 Spark 群集的磁贴（如果已将它固定到启动板）。也可以在“全部浏览”>“HDInsight 群集”下导航到你的群集。
 2. 在“Spark 群集”边栏选项卡中，单击“群集仪表板”，然后单击“Jupyter 笔记本”。出现提示时，请输入群集的管理员凭据。
 
     > [!NOTE]

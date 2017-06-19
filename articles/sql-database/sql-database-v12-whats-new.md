@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 wacn.date: 12/19/2016
-ms.author: genemi
+ms.author: v-johch
 ---
 
 # SQL 数据库 V12 的新增功能
@@ -108,7 +108,7 @@ V12 提供更有利的恢复点目标 (RPO) 与预计恢复时间 (ERT)：
 ## 已开始使用 V12 了吗？
 执行以下操作可以轻松判断是否在早期版本的 SQL 数据库服务上运行数据库或逻辑服务器：
 
-1. 转到 [Azure 门户预览](https://portal.azure.cn/)。
+1. 转到 [Azure 门户](https://portal.azure.cn/)。
 2. 单击“浏览”。
 3. 单击“SQL Server”。
 4. 服务器或数据库旁边的图标会告知实情：

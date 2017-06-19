@@ -15,7 +15,7 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 wacn.date: 
-ms.author: amsriva
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: ae5b4f05b42a25482bc5d464a9ac77b9ebe97b4e

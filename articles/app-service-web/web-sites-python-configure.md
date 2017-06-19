@@ -15,7 +15,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 wacn.date: 
-ms.author: huvalo
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: afac3797de52f6a88cd501f8e4f8dd2a8606adbd
@@ -36,10 +36,10 @@ ms.lasthandoff: 05/19/2017
 * [使用 Django 创建 Web 应用](web-sites-python-create-deploy-django-app.md)
 * [使用 Flask 创建 Web 应用](web-sites-python-create-deploy-flask-app.md)
 
-## <a name="web-app-creation-on-azure-portal-preview"></a>在 Azure 门户预览中创建 Web 应用
-本教程假设已有 Azure 订阅和 Azure 门户预览访问权限。
+## <a name="web-app-creation-on-azure-portal-preview"></a>在 Azure 门户中创建 Web 应用
+本教程假设已有 Azure 订阅和 Azure 门户访问权限。
 
-如果没有现成的 Web 应用，则可从 [Azure 门户预览](https://portal.azure.cn)中创建一个。  单击左上角的“新建”按钮，然后依次单击“Web + 移动” > “Web 应用”。
+如果没有现成的 Web 应用，则可从 [Azure 门户](https://portal.azure.cn)中创建一个。  单击左上角的“新建”按钮，然后依次单击“Web + 移动” > “Web 应用”。
 
 ## <a name="git-publishing"></a>Git 发布
 按照 [从本地 Git 部署到 Azure 应用服务](app-service-deploy-local-git.md)的说明为新创建的 Web 应用配置 Git 发布。 本教程使用 Git 来创建、管理 Python Web 应用以及将其发布到 Azure 应用服务。

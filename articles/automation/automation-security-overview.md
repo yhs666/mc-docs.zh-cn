@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2017
 wacn.date: 04/27/2017
-ms.author: magoedte
+ms.author: v-dazen
 ---
 
 # Azure 自动化安全性

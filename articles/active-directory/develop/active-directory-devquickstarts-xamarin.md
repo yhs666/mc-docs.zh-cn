@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 wacn.date: 02/07/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # 将 Azure AD 集成到 Xamarin 应用中
@@ -76,7 +76,7 @@ Xamarin 允许你使用 C# 编写可在 iOS、Android 和 Windows（移动设备
     ```
 
 - 你应会发现，每个项目中添加了两个库引用 - ADAL 的 PCL 部分和一个特定于平台的部分。
-- 在 DirectorySearcherLib 项目中，打开 `DirectorySearcher.cs`。更改类成员值以反映你在 Azure 门户预览中输入的值。只要使用 ADAL，你的代码就会引用这些值。
+- 在 DirectorySearcherLib 项目中，打开 `DirectorySearcher.cs`。更改类成员值以反映你在 Azure 门户中输入的值。只要使用 ADAL，你的代码就会引用这些值。
 
   - `tenant` 是 Azure AD 租户的域，例如 contoso.partner.onmschina.cn
   - `clientId` 是从门户复制的应用程序 clientId。

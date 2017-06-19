@@ -1,6 +1,6 @@
 ---
 title: Windows 经典 VM 的可用性集 | Azure
-description: 通过 Azure 门户预览和 Azure PowerShell，使用经典部署模型为新的或现有的 Windows 虚拟机配置可用性集。
+description: 通过 Azure 门户和 Azure PowerShell，使用经典部署模型为新的或现有的 Windows 虚拟机配置可用性集。
 services: virtual-machines-windows
 documentationCenter: ''
 authors: cynthn
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 wacn.date: 12/26/2016
-ms.author: cynthn
+ms.author: v-dazen
 ---
 
 # 如何用经典部署模型为 Windows 虚拟机配置可用性集

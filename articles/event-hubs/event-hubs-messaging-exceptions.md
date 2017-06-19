@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/07/2017
 wacn.date: 03/24/2017
-ms.author: sethm
+ms.author: v-yeche
 ---
 
 # 事件中心消息传送异常

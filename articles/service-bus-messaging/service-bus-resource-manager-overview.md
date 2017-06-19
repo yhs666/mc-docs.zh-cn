@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/18/2017
-ms.author: sethm
+ms.author: v-yiso
 wacn.date: 03/20/2017
 ---
 
@@ -144,7 +144,7 @@ Azure Resource Manager 模板可帮助你定义要为解决方案部署的资源
     }
 ```
 
-有关详细信息，请参阅[参数文件](../azure-resource-manager/resource-group-template-deploy.md#parameters)主题。
+有关详细信息，请参阅[参数文件](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)主题。
 
 ### 登录到 Azure 并设置 Azure 订阅
 

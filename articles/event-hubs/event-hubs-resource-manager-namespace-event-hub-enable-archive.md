@@ -14,7 +14,7 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 03/07/2017
 wacn.date: 
-ms.author: shvija;sethm
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 89ced1f70d294586eec2d6d315c21360554636e8

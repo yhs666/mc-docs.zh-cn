@@ -15,7 +15,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 07/07/2016
 wacn.date: 
-ms.author: huvalo
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 9c601f07b26df1fde484d8ea5455f984becb28cf
@@ -43,7 +43,7 @@ ms.lasthandoff: 05/19/2017
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 ## <a name="create-the-project"></a>创建项目
 在此部分中，我们将使用样本模板创建 Visual Studio 项目。 我们将创建虚拟环境并安装所需软件包。 然后，我们将使用默认内存中存储库在本地运行应用程序。
@@ -66,7 +66,7 @@ ms.lasthandoff: 05/19/2017
 ## <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 要使用存储操作，你需要一个 Azure 存储帐户。 可通过以下步骤创建存储帐户。
 
-1. 登录到 [Azure 门户预览](https://portal.azure.cn/)。
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 单击门户左上角的“新建”图标，然后依次单击“数据 + 存储” > “存储帐户”。 单击“创建”，然后为存储帐户指定一个唯一名称，并为它创建新的[资源组](../azure-resource-manager/resource-group-overview.md)。
 
       ![快速创建](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzureStorageCreate.png)
@@ -79,7 +79,7 @@ ms.lasthandoff: 05/19/2017
     我们将需要使用此信息在下一部分中配置您的项目。
 
 ## <a name="configure-the-project"></a>配置项目
-在此部分中，我们将配置应用程序以使用刚才创建的存储帐户。 我们将了解如何从 Azure 门户预览中获取连接设置。 然后我们将在本地运行应用程序。
+在此部分中，我们将配置应用程序以使用刚才创建的存储帐户。 我们将了解如何从 Azure 门户中获取连接设置。 然后我们将在本地运行应用程序。
 
 1. 在 Visual Studio 中，右键单击 Solution Explorer 中的项目节点，然后选择 **属性**。 单击“调试”  选项卡。
 
@@ -142,7 +142,7 @@ ms.lasthandoff: 05/19/2017
 ## <a name="configure-the-web-apps-instance"></a>配置 Web 应用实例
 在此部分中，我们将配置 Web 应用实例的环境变量。
 
-1. 在 [Azure 门户预览](https://portal.azure.cn)中，单击“浏览” > “应用服务”和 Web 应用名称，打开 Web 应用的边栏选项卡。
+1. 在 [Azure 门户](https://portal.azure.cn)中，单击“浏览” > “应用服务”和 Web 应用名称，打开 Web 应用的边栏选项卡。
 2. 在 Web 应用的边栏选项卡中，依次单击“所有设置”和“应用程序设置”。
 3. 向下滚动到“应用设置”部分并设置 **REPOSITORY\_NAME**、**STORAGE\_NAME** 和 **STORAGE\_KEY** 的值（如上面的**配置项目**部分中所述）。
 

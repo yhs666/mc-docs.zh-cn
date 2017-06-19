@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2016
 wacn.date: 12/20/2016
-ms.author: v-livech
+ms.author: v-dazen
 ---
 
 # 使用 Azure 模板创建 Linux VM
@@ -26,7 +26,7 @@ ms.author: v-livech
 * 已使用 `azure login -e AzureChinaCloud` 登录 [Azure CLI](../../xplat-cli-install.md)。
 * Azure CLI *必须处于* Azure Resource Manager 模式`azure config mode arm`。
 
-也可以使用 [Azure 门户预览](quick-create-portal.md)快速部署 Linux VM 模板。
+也可以使用 [Azure 门户](quick-create-portal.md)快速部署 Linux VM 模板。
 
 ## 快速命令摘要
 

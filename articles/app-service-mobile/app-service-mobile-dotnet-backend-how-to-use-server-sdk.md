@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 wacn.date: 02/21/2017
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # 使用适用于 Azure 移动应用的 .NET 后端服务器 SDK
@@ -35,7 +35,7 @@ ms.author: adrianha
 
 ## <a name="create-app"></a>如何创建 .NET 移动应用后端
 
-如果正在开始新项目，可以使用 [Azure 门户预览]或 Visual Studio 创建应用服务应用程序。可以在本地运行应用服务应用程序，或将项目发布到基于云的应用服务移动应用。
+如果正在开始新项目，可以使用 [Azure 门户]或 Visual Studio 创建应用服务应用程序。可以在本地运行应用服务应用程序，或将项目发布到基于云的应用服务移动应用。
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
@@ -523,7 +523,7 @@ Azure 应用服务提供多种适用于 ASP.NET 应用程序的调试和故障�
 
 在上述示例中，应该使用 HTTPS 方案将 Web.config 文件中的 _authAudience_ 和 _authIssuer_ 应用程序设置配置为应用程序根目录的 URL。同样，应该将 _authSigningKey_ 设置为应用程序的签名密钥值。获取签名密钥：
 
-1. 在 [Azure 门户预览]中导航到应用
+1. 在 [Azure 门户]中导航到应用
 2. 依次单击“工具”、“Kudu”和“转到”。
 3. 在 Kudu 管理站点中，单击“环境”。
 4. 查找 _WEBSITE\_AUTH\_SIGNING\_KEY_ 的值。
@@ -536,7 +536,7 @@ Azure 应用服务提供多种适用于 ASP.NET 应用程序的调试和故障�
 [4]: /downloads/
 [5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
 [6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
-[Azure 门户预览]: https://portal.azure.cn/
+[Azure 门户]: https://portal.azure.cn/
 [NuGet.org]: http://www.nuget.org/
 [Microsoft.Azure.Mobile.Server]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
 [Microsoft.Azure.Mobile.Server.Quickstart]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/

@@ -1,5 +1,5 @@
 # 概述
-## [Hadoop](hdinsight-hadoop-introduction.md)
+## [关于 HDInsight 和 Hadoop](hdinsight-hadoop-introduction.md)
 ## [HDInsight 上的 Hadoop 组件](hdinsight-component-versioning.md)
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
 ## [HBase](hdinsight-hbase-overview.md)
@@ -104,6 +104,8 @@
 ### [使用脚本操作自定义群集](hdinsight-hadoop-customize-cluster-linux.md)
 ### [添加 Hive 库](hdinsight-hadoop-add-hive-libraries.md)
 ### [开发脚本操作](hdinsight-hadoop-script-actions-linux.md)
+### [安装或更新 Mono](hdinsight-hadoop-install-mono.md)
+### [添加 Hive 库](hdinsight-hadoop-add-hive-libraries.md)
 ### [使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)
 ### [使用 Hue](hdinsight-hadoop-hue-linux.md)
 ### [使用 R](hdinsight-hadoop-r-scripts-linux.md)
@@ -124,7 +126,7 @@
 #### [使用 cURL 和 Azure REST API](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
 #### [使用 .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 #### [使用 Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
-#### [使用 Azure 门户预览](hdinsight-hadoop-create-linux-clusters-portal.md)
+#### [使用 Azure 门户](hdinsight-hadoop-create-linux-clusters-portal.md)
 #### [使用 Azure Resource Manager 模板](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 ### [管理的 Hadoop 群集](hdinsight-administer-use-portal-linux.md)
 #### [使用 .NET SDK](hdinsight-administer-use-dotnet-sdk.md)
@@ -133,7 +135,7 @@
 ### [使用 Ambari Web UI 管理群集](hdinsight-hadoop-manage-ambari.md)
 #### [使用 Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
 ### [添加存储帐户](hdinsight-hadoop-add-storage.md)
-### [上载 Hadoop 作业的数据](hdinsight-upload-data.md)
+### [上传 Hadoop 作业的数据](hdinsight-upload-data.md)
 ### [使用 Sqoop 导入和导出数据](hdinsight-use-sqoop.md)
 #### [使用 SSH 进行连接](hdinsight-use-sqoop-mac-linux.md)
 #### [使用 cURL 运行](hdinsight-hadoop-use-sqoop-curl.md)
@@ -159,7 +161,7 @@
 #### [Hive 查询性能](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # 引用
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.hdinsight)
 ## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
@@ -183,7 +185,7 @@
 ### [使用 Mahout 生成电影推荐](hdinsight-mahout.md)
 ### [分析航班延误数据](hdinsight-analyze-flight-delay-data.md)
 ### [开发脚本操作](hdinsight-hadoop-script-actions.md)
-### [使用 Azure 门户预览管理群集](hdinsight-administer-use-management-portal.md)
+### [使用 Azure 门户管理群集](hdinsight-administer-use-management-portal.md)
 ### [使用 Ambari API 监视群集](hdinsight-monitor-use-ambari-api.md)
 
 # 资源

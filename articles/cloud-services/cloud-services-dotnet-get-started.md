@@ -7,8 +7,10 @@ authors: Thraka
 manager: timlt
 editor: 
 ms.service: cloud-services
+ms.topic: article
 ms.date: 11/16/2016
 wacn.date: 04/20/2016
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 88b95c2d862df21066e975684c7dc66365e8e156

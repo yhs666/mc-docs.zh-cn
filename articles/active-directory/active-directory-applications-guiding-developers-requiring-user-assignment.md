@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 wacn.date: 03/07/2017
-ms.author: inhenk
+ms.author: v-junlch
 ---
 
 # Azure AD 和应用程序：要求进行用户分配
 ## 要求进行用户分配
-1. 使用管理员帐户登录到 Azure 门户预览。
+1. 使用管理员帐户登录到 Azure 门户。
 2. 在主菜单中单击“所有项”。
 3. 选择要用于应用程序的目录。
 4. 单击“应用程序”选项卡。

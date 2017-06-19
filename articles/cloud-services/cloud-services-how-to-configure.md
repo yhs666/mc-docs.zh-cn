@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 wacn.date: 01/25/2017
-ms.author: adegeo
+ms.author: v-yiso
 ---
 
 # 如何配置云服务
 
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./cloud-services-how-to-configure-portal.md)
+>- [Azure 门户](./cloud-services-how-to-configure-portal.md)
 >- [Azure 经典管理门户](./cloud-services-how-to-configure.md)
 
 你可以在 Azure 经典管理门户中配置最常使用的云服务设置。或者，如果希望直接更新配置文件，可下载要更新的服务配置文件，然后上传更新文件并通过配置更改更新云服务。无论使用哪种方法，配置更新都将应用于所有角色实例。

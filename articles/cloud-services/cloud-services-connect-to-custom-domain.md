@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 wacn.date: 01/25/2017
-ms.author: adegeo
+ms.author: v-yiso
 ---
 
 # 将 Azure 云服务角色连接到 Azure 中托管的自定义 AD 域控制器

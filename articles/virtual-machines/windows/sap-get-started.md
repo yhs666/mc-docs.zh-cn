@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/08/2016
 wacn.date: 
-ms.author: rclaus
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
@@ -334,7 +334,7 @@ ms.lasthandoff: 05/12/2017
 ## <a name="getting-started-with-sap-hana-on-azure"></a>在 Azure 上开始使用 SAP HANA
 标题：在 Azure VM 上手动安装 SAP HANA 的快速入门指南
 
-摘要：本快速入门指南帮助通过手动安装 SAP NetWeaver 7.5 和 SAP HANA SP12，在 Azure VM 上设置单实例 SAP HANA 原型/演示系统。 本指南假设读者熟悉 Azure IaaS 的基本概念，例如如何通过 Azure 门户预览或 Powershell/CLI 部署虚拟机或虚拟网络，包括使用 json 模板的选项。 此外还预期读者熟悉 SAP HANA、SAP NetWeaver 以及本地安装方式。
+摘要：本快速入门指南帮助通过手动安装 SAP NetWeaver 7.5 和 SAP HANA SP12，在 Azure VM 上设置单实例 SAP HANA 原型/演示系统。 本指南假设读者熟悉 Azure IaaS 的基本概念，例如如何通过 Azure 门户或 Powershell/CLI 部署虚拟机或虚拟网络，包括使用 json 模板的选项。 此外还预期读者熟悉 SAP HANA、SAP NetWeaver 以及本地安装方式。
 
 更新时间：2016 年 9 月
 

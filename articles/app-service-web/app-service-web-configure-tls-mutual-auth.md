@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 wacn.date: 11/25/2016
-ms.author: naziml
+ms.author: v-dazen
 ---
 
 # 如何为 Web 应用配置 TLS 相互身份验证

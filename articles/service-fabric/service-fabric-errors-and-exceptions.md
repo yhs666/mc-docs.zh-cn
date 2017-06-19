@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/16/2017
 wacn.date: 03/03/2017
-ms.author: ryanwi
+ms.author: v-johch
 ---
 
 # 使用 FabricClient API 时常见的异常和错误

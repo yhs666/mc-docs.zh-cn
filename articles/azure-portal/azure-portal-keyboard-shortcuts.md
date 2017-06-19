@@ -1,6 +1,6 @@
 ---
-title: Azure 门户预览快捷键 | Azure
-description: 本文始终列出可在整个 Azure 门户预览中使用的最新快捷键。单个服务可能有其自身的专用快捷键。
+title: Azure 门户快捷键 | Azure
+description: 本文始终列出可在整个 Azure 门户中使用的最新快捷键。单个服务可能有其自身的专用快捷键。
 services: azure-portal
 documentationCenter: ''
 authors: flanakin
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/07/2016
 wacn.date: 06/21/2016
-ms.author: micflan
+ms.author: v-yiso
 ---
 
-# Azure 门户预览快捷键
+# Azure 门户快捷键
 
 ## 打开中心
 

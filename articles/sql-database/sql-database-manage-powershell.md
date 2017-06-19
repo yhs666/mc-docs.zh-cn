@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 wacn.date: 03/24/2017
-ms.author: sstein
+ms.author: v-johch
 ---
 
 # 使用 PowerShell 管理 Azure SQL 数据库

@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: service-bus
+ms.topic: article
 ms.date: 12/05/2016
 wacn.date: 01/23/2017
+ms.author: v-yiso
 ---
 
 # 服务总线配额

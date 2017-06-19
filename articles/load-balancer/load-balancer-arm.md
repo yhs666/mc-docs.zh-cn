@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 wacn.date: 12/05/2016
-ms.author: sewhee
+ms.author: v-yeche
 ---
 
 # 将 Azure Resource Manager 支持与 Azure Load Balancer 配合使用

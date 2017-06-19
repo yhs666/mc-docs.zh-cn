@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/08/2017
 wacn.date: 
-ms.author: jotaub;sethm
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: dd1f8f2156e7deda4680d881762d58273bcbd9b2
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/07/2017
 ## <a name="introduction"></a>介绍
 事件中心是一个服务，可用于处理来自连接设备和应用程序的大量事件数据（遥测）。 将数据采集到事件中心后，可以使用任何实时分析提供程序或存储群集来转换和存储数据。 这种大规模事件收集和处理功能是现代应用程序体系结构（包括物联网 (IoT)）的重要组件。
 
-本教程介绍如何使用 [Azure 门户预览](https://portal.azure.cn) 创建事件中心。 此外，还介绍如何使用控制台应用程序（通过 .NET Framework 用 C# 编写）将事件发送到事件中心。 若要使用 .NET Framework 接收事件，请参阅[使用 .NET Framework 接收事件](./event-hubs-dotnet-framework-getstarted-receive-eph.md)一文，或者单击左侧目录中的相应接收语言。
+本教程介绍如何使用 [Azure 门户](https://portal.azure.cn) 创建事件中心。 此外，还介绍如何使用控制台应用程序（通过 .NET Framework 用 C# 编写）将事件发送到事件中心。 若要使用 .NET Framework 接收事件，请参阅[使用 .NET Framework 接收事件](./event-hubs-dotnet-framework-getstarted-receive-eph.md)一文，或者单击左侧目录中的相应接收语言。
 
 若要完成本教程，你需要以下各项：
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/07/2017
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>创建事件中心命名空间和事件中心
 
-第一步是使用 [Azure 门户预览](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 若要创建命名空间和事件中心，请按照[本文](./event-hubs-create.md)中的步骤进行操作，然后继续执行以下步骤。
+第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 若要创建命名空间和事件中心，请按照[本文](./event-hubs-create.md)中的步骤进行操作，然后继续执行以下步骤。
 
 ## <a name="create-a-console-application"></a>创建控制台应用程序
 在此部分中，你将编写用于将事件发送到事件中心的 Windows 控制台应用。

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 wacn.date: 03/28/2017
-ms.author: nepeters
+ms.author: v-dazen
 ---
 
 # 导出包含 VM 扩展的资源组
@@ -43,7 +43,7 @@ ms.author: nepeters
 
 若要将资源组导出到可重用模板中，请完成以下步骤：
 
-1. 登录到 Azure 门户预览
+1. 登录到 Azure 门户
 2. 在“中心”菜单上，单击“资源组”
 3. 从列表中选择目标资源组
 4. 在“资源组”边栏选项卡中，单击“自动化脚本”

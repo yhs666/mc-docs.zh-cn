@@ -1,6 +1,6 @@
 ---
 title: "将 Azure 虚拟网络连接到另一 VNet：门户 | Azure"
-description: "使用 Resource Manager 和 Azure 门户预览在 VNet 之间创建 VPN 网关连接。"
+description: "使用 Resource Manager 和 Azure 门户在 VNet 之间创建 VPN 网关连接。"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 wacn.date: 
-ms.author: cherylmc
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: f6d983ed26dd47b686c839eb25d41a678420c74b
@@ -24,15 +24,15 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal-preview"></a>使用 Azure 门户预览配置 VNet 到 VNet VPN 网关连接
+# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal-preview"></a>使用 Azure 门户配置 VNet 到 VNet VPN 网关连接
 
-本文介绍如何在虚拟网络之间创建 VPN 网关连接。 虚拟网络可位于相同或不同的区域，来自相同或不同的订阅。 本文中的步骤适用于 Resource Manager 部署模型和 Azure 门户预览。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
+本文介绍如何在虚拟网络之间创建 VPN 网关连接。 虚拟网络可位于相同或不同的区域，来自相同或不同的订阅。 本文中的步骤适用于 Resource Manager 部署模型和 Azure 门户。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure 门户预览](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Resource Manager - Azure 门户](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [经典 - Azure 门户预览](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [连接不同的部署模型 - Azure 门户预览](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [经典 - Azure 门户](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [连接不同的部署模型 - Azure 门户](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [连接不同的部署模型 - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >

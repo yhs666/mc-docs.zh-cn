@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2016
 wacn.date: 
-ms.author: byvinyal
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 25773c4f4f78516ee82c3aecceef5be7a7b29fec
@@ -25,13 +25,13 @@ ms.lasthandoff: 05/19/2017
 ---
 # <a name="streaming-logs-and-the-console"></a>流式传输日志和控制台
 ## <a name="streaming-logs"></a>流式传输日志
-**Azure 门户预览**提供集成的流式处理日志查看器，可用于实时查看来自**应用服务**应用的跟踪事件。  
+**Azure 门户**提供集成的流式处理日志查看器，可用于实时查看来自**应用服务**应用的跟踪事件。  
 
 设置此功能需要几个简单的步骤：
 
 * 在你的代码中编写跟踪
 * 启用应用的应用程序 **诊断日志**
-* 从 **Azure 门户预览**中的内置“流式处理日志”UI 中查看流。
+* 从 **Azure 门户**中的内置“流式处理日志”UI 中查看流。
 
 ### <a name="how-to-write-traces-in-your-code"></a>如何在你的代码中编写跟踪
 在你的代码中编写跟踪是很容易的。  在 C# 中，可以很简单地编写这样的代码：
@@ -68,10 +68,10 @@ console.log("My trace statement").
 > 
 > 
 
-![][StreamingLogsScreenshot]若要从 Azure 门户预览中查看**流式处理日志**，请单击同样位于设置菜单的“监视”部分中的“(1) 日志流”。 如果应用主动写入跟踪语句，则会以近乎实时的方式在 (2)“流式处理日志”UI 中看到它们。
+![][StreamingLogsScreenshot]若要从 Azure 门户中查看**流式处理日志**，请单击同样位于设置菜单的“监视”部分中的“(1) 日志流”。 如果应用主动写入跟踪语句，则会以近乎实时的方式在 (2)“流式处理日志”UI 中看到它们。
 
 ## <a name="console"></a>控制台
-**Azure 门户预览**提供对应用的控制台访问。 可以浏览应用的文件系统并运行 Powershell/cmd 脚本。 执行控制台命令时，受到与运行中的应用代码相同的权限集的约束。 访问受保护的目录或正在运行的脚本需要提升的权限，此类访问被阻止。  
+**Azure 门户**提供对应用的控制台访问。 可以浏览应用的文件系统并运行 Powershell/cmd 脚本。 执行控制台命令时，受到与运行中的应用代码相同的权限集的约束。 访问受保护的目录或正在运行的脚本需要提升的权限，此类访问被阻止。  
 
 ![][ConsoleScreenshot] 在“设置”菜单中，向下滚动到“开发工具”部分，并单击“(1) 控制台”，**(2) 控制台** UI 将在右侧打开。
 

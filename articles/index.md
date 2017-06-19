@@ -4,10 +4,10 @@ hide_bc: true
 title: "Microsoft Azure 文档 | Microsoft 文档"
 description: "了解如何使用 Microsoft Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 29a477ff1d858c7b9d2668b93913e3984f5cefca
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: f2ea1b11e87ff34749d4f140f7f35af9ebd43764
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 <div id="main" class="v2">
@@ -20,7 +20,7 @@ ms.lasthandoff: 05/12/2017
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/getstarted-developer.svg" src="media/index/getstarted-developer.png" alt="" />
+                                        <img data-hoverimage="media/index/aog.png" src="media/index/aog.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
@@ -38,7 +38,7 @@ ms.lasthandoff: 05/12/2017
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/getstarted-itoperator.svg" src="media/index/getstarted-itoperator.png" alt="" />
+                                        <img data-hoverimage="media/index/developer.png" src="media/index/developer.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
@@ -49,10 +49,160 @@ ms.lasthandoff: 05/12/2017
                     </div>
                 </a>
             </li>
+            <li>
+                <a href="/references">
+                    <div class="cardSize">
+                        <div class="cardPadding">
+                            <div class="card">
+                                <div class="cardImageOuter">
+                                    <div class="cardImage">
+                                        <img data-hoverimage="media/index/developer.png" src="media/index/developer.png" alt="" />
+                                    </div>
+                                </div>
+                                <div class="cardText">
+                                    <span class="likeAnH3">工具与 API 参考</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
         </ul>
     </div>
     <div class="container">
         <ul class="pivots">
+            <li>
+                <a href="#get-started">入门</a>
+                <ul id="get-started">
+                    <li>
+                        <a href="#get-started1"></a>
+                        <ul id="get-started1" class="cardsL">
+                            <li>
+                                <div class="container intro">
+                                    <h2 class="likeAnH1">Azure 入门</h2>
+                                    <p>使用快速入门、示例和教程探索我们最常用的服务。</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>部署基础结构</h3>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/virtual-machines/linux/">Linux 虚拟机</a></li>
+                                                    <li><a class="barLink" href="/virtual-machines/windows/">Windows 虚拟机</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>开发应用</h3>
+                                                <div class="ico48Link">
+                                                    <a href="/app-service-web/app-service-web-get-started-dotnet">
+                                                        <img src="media/index/logo_NET.svg" alt="">
+                                                        <span>.NET</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/app-service-web/app-service-web-get-started-nodejs">
+                                                        <img src="media/index/logo_nodejs.svg" alt="">
+                                                        <span>Node.js</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/app-service-web/app-service-web-get-started-php">
+                                                        <img src="media/index/logo_PHP.svg" alt="">
+                                                        <span>PHP</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/app-service-web/app-service-web-get-started-java">
+                                                        <img src="media/index/logo_java.svg" alt="">
+                                                        <span>Java</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/app-service-web/app-service-web-get-started-python">
+                                                        <img src="media/index/logo_python.svg" alt="">
+                                                        <span>Python</span>
+                                                    </a>
+                                                </div>
+                                                <div>
+                                                    <h4>应用模型</h4>
+                                                    <ul class="noBullet">
+                                                        <li><a class="barLink" href="/app-service-web/">Web 应用</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>管理数据和 AI</h3>
+                                                <h4>关系数据库</h4>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/sql-database/">SQL 数据库即服务</a></li>
+                                                    <li><a class="barLink" href="/mysql/">MySQL 数据库即服务</a></li>
+                                                </ul>
+                                                <h4>AI 和认知服务</h4>
+                                                <ul class="noBullet">
+                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236">计算机视觉 API</a></li>
+                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa">人脸 API</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>命令行工具</h3>
+                                                <div class="ico48Link">
+                                                    <a href="/cli-install-nodejs">
+                                                        <img src="media/index/azure_dev-7.svg" alt="">
+                                                        <span>Azure<br />CLI 1.0</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/powershell-install-configure">
+                                                        <img src="media/index/azure_dev-8.svg" alt="">
+                                                        <span>Azure<br />PowerShell</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li class="bottomRightItem">
+                                <a href="/#pivot=services&panel=all">
+                                <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">查看所有 Azure 服务<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
+                                </a>
+                            </li>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
             <li>
                 <a href="#services">服务</a>
                 <ul id="services">
@@ -82,21 +232,27 @@ ms.lasthandoff: 05/12/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/app-service-web/">
+                                                <img src="media/index/app-service-web.svg" alt="" />
+                                                <p>Web 应用</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/app-service/">
                                                 <img src="media/index/AppService.svg" alt="" />
                                                 <p>应用服务</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/service-fabric/">
-                                                <img src="media/index/Fabric.svg" alt="" />
-                                                <p>Service Fabric</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/batch/">
                                                 <img src="media/index/Batch.svg" alt="" />
                                                 <p>批处理</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/service-fabric/">
+                                                <img src="media/index/Fabric.svg" alt="" />
+                                                <p>Service Fabric</p>
                                             </a>
                                         </li>
                                         <li>
@@ -133,48 +289,36 @@ ms.lasthandoff: 05/12/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/mysql/">
+                                                <img src="media/index/MySQL.svg" alt="" />
+                                                <p>MySQL</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/redis-cache/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
                                                 <p>Redis 缓存</p>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="/mysql/">
-                                                <img src="media/index/mysql.svg" alt="" />
-                                                <p>MySQL Database on Azure</p>
-                                            </a>
-                                        </li>
                                     </ul>
-                                    <h3>安全性 + 标识 </h3>
+                                    <h3>企业集成</h3>
                                     <ul>
                                         <li>
-                                            <a href="/key-vault/">
-                                                <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>密钥保管库</p>
+                                            <a href="/service-bus/">
+                                                <img src="media/index/ServiceBus.svg" alt="" />
+                                                <p>服务总线</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/active-directory/">
-                                                <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Azure Active Directory</p>
-                                            </a>
-                                        </li>                                       
-                                        <li>
-                                            <a href="/multi-factor-authentication/">
-                                                <img src="media/index/MultiFactorAuthentication.svg" alt="" />
-                                                <p>多重身份验证</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/security/">
-                                                <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>安全信息</p>
+                                            <a href="/sql-server-stretch-database/">
+                                                <img src="media/index/SQLDatabase.svg" alt="" />
+                                                <p>SQL Server Stretch Database</p>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="group">
-                                    <h3>联网</h3>
+                                    <h3>网络</h3>
                                     <ul>
                                         <li>
                                             <a href="/virtual-network/">
@@ -219,50 +363,8 @@ ms.lasthandoff: 05/12/2017
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>智能 + 分析</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/hdinsight/">
-                                                <img src="media/index/HDInsight.svg" alt="" />
-                                                <p>HDInsight</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/stream-analytics/">
-                                                <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>流分析</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>认知服务</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/power-bi-embedded/">
-                                                <img src="media/index/PowerBIEmbedded.svg" alt="" />
-                                                <p>Power BI Embedded</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>开发人员工具</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="https://www.visualstudio.com/docs/overview">
-                                                <img src="media/index/VisualStudioTeamServices.svg" alt="" />
-                                                <p>Visual Studio Team Services</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://support.hockeyapp.net/kb">
-                                                <img src="media/index/HockeyApp.svg" alt="" />
-                                                <p>HockeyApp</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>                             
-                             </li>
+                                </div>
+                            </li>
                             <li>
                                 <div class="group">
                                     <h3>存储</h3>
@@ -283,6 +385,42 @@ ms.lasthandoff: 05/12/2017
                                             <a href="/site-recovery/">
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
                                                 <p>站点恢复</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>数据 + 分析</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/hdinsight/">
+                                                <img src="media/index/HDInsight.svg" alt="" />
+                                                <p>HDInsight</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/stream-analytics/">
+                                                <img src="media/index/StreamAnalytics.svg" alt="" />
+                                                <p>流分析</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-bi-embedded/">
+                                                <img src="media/index/PowerBIEmbedded.svg" alt="" />
+                                                <p>Power BI Embedded</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>开发人员工具</h3>
+                                    <ul>
+                                        <li>
+                                            <a target="_blank" href="https://www.visualstudio.com/docs/overview">
+                                                <img src="media/index/VisualStudioTeamServices.svg" alt="" />
+                                                <p>Visual Studio Team Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="https://support.hockeyapp.net/kb">
+                                                <img src="media/index/HockeyApp.svg" alt="" />
+                                                <p>HockeyApp</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -325,6 +463,74 @@ ms.lasthandoff: 05/12/2017
                                             </a>
                                         </li>
                                     </ul>
+                                </div>
+                                <div class="group">
+                                    <h3>Web + 移动</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/app-service-web/">
+                                                <img src="media/index/app-service-web.svg" alt="" />
+                                                <p>Web 应用</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/app-service-mobile/">
+                                                <img src="media/index/app-service-mobile.svg" alt="" />
+                                                <p>Mobile Apps</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/app-service-api/">
+                                                <img src="media/index/app-service-api.svg" alt="" />
+                                                <p>API Apps</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/cdn/">
+                                                <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
+                                                <p>CDN</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/media-services/">
+                                                <img src="media/index/MediaServices.svg" alt="" />
+                                                <p>媒体服务</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/notification-hubs/">
+                                                <img src="media/index/NotificationHubs.svg" alt="" />
+                                                <p>通知中心</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>安全性 + 标识</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/key-vault/">
+                                                <img src="media/index/KeyVault.svg" alt="" />
+                                                <p>密钥保管库</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/active-directory/">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>Azure Active Directory</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/multi-factor-authentication/">
+                                                <img src="media/index/MultiFactorAuthentication.svg" alt="" />
+                                                <p>多重身份验证</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/security/">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
+                                                <p>安全信息</p>
+                                            </a>
+                                        </li>
+                                    </ul>
                                     <h3>监视 + 管理</h3>
                                     <ul>
                                         <li>
@@ -360,69 +566,7 @@ ms.lasthandoff: 05/12/2017
                                         <li>
                                             <a href="/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
-                                                <p>Azure 资源管理器</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="group">
-                                    <h3>Web + 移动 </h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/app-service/">
-                                                <img src="media/index/AppService.svg" alt="" />
-                                                <p>应用服务</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/app-service-web">
-                                                <img src="media/index/app-service-web.svg" alt="" />
-                                                <p>Web 应用</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/app-service-mobile">
-                                                <img src="media/index/app-service-mobile.svg" alt="" />
-                                                <p>Mobile Apps</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/app-service-api">
-                                                <img src="media/index/app-service-api.svg" alt="" />
-                                                <p>API Apps</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/cdn/">
-                                                <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
-                                                <p>CDN</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/media-services/">
-                                                <img src="media/index/MediaServices.svg" alt="" />
-                                                <p>媒体服务</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/notification-hubs/">
-                                                <img src="media/index/NotificationHubs.svg" alt="" />
-                                                <p>通知中心</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>企业集成</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/service-bus/">
-                                                <img src="media/index/ServiceBus.svg" alt="" />
-                                                <p>服务总线</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/sql-server-stretch-database/">
-                                                <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>SQL Server Stretch Database</p>
+                                                <p>Azure Resource Manager</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -491,6 +635,25 @@ ms.lasthandoff: 05/12/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/app-service-web">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/app-service-web.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Web 应用</h3>
+                                                    <p>快速创建并大规模部署任务关键型 Web 应用</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/app-service/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -502,26 +665,7 @@ ms.lasthandoff: 05/12/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>应用服务</h3>
-                                                    <p>为任何平台和任何设备创建 Web 和移动应用</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/service-fabric/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Fabric.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Service Fabric</h3>
-                                                    <p>生成和运行始终联机、可缩放的分布式应用程序</p>
+                                                    <p>在 Linux 上使用容器部署 Web 应用</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -540,7 +684,26 @@ ms.lasthandoff: 05/12/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>批处理</h3>
-                                                    <p>运行大规模的并行批处理计算作业</p>
+                                                    <p>使用容器运行计算作业</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/service-fabric/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Service Fabric</h3>
+                                                    <p>在 Windows 或 Linux 上开发微服务和协调容器</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -772,25 +935,6 @@ ms.lasthandoff: 05/12/2017
                         <a href="#web">Web + 移动</a>
                         <ul id="web" class="cardsA">
                             <li>
-                                <a href="/app-service/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/AppService.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>应用服务</h3>
-                                                    <p>了解如何生成可缩放的 Web 应用和移动应用</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/app-service-web">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -986,6 +1130,25 @@ ms.lasthandoff: 05/12/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/mysql/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MySQL.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>MySQL</h3>
+                                                    <p>面向应用开发人员的托管 MySQL 数据库服务</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/redis-cache/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1004,29 +1167,10 @@ ms.lasthandoff: 05/12/2017
                                     </div>
                                 </a>
                             </li>
-                            <li>
-                                <a href="/mysql/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/mysql.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>MySQL Database on Azure</h3>
-                                                    <p>MySQL 关系型数据库服务，提供性能稳定、操作简单、高安全性的数据库平台</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">智能 + 分析</a>
+                        <a href="#analytics">数据 + 分析</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/hdinsight/">
@@ -1353,7 +1497,7 @@ ms.lasthandoff: 05/12/2017
                         <a href="#devtools">开发人员工具</a>
                         <ul id="devtools" class="cardsA">
                             <li>
-                                <a href="https://www.visualstudio.com/docs/overview">
+                                <a target="_blank" href="https://www.visualstudio.com/docs/overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1372,7 +1516,7 @@ ms.lasthandoff: 05/12/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="https://support.hockeyapp.net/kb">
+                                <a target="_blank" href="https://support.hockeyapp.net/kb">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1501,7 +1645,7 @@ ms.lasthandoff: 05/12/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure 资源管理器</h3>
+                                                    <h3>Azure Resource Manager</h3>
                                                     <p>部署和管理 Azure 资源</p>
                                                 </div>
                                             </div>
@@ -1535,19 +1679,16 @@ ms.lasthandoff: 05/12/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">获取 .NET SDK</a>
+                                                    <a target="_blank" href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">获取 .NET SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/dotnet/api/">入门</a>
+                                                    <a href="/develop/net/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/dotnet/api">API 参考</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/api">API 参考</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">获取示例</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/">了解详细信息</a>
+                                                    <a href="/develop/net/">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1565,19 +1706,16 @@ ms.lasthandoff: 05/12/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://pypi.python.org/pypi/azure">获取 Python SDK</a>
+                                                    <a target="_blank" href="https://pypi.python.org/pypi/azure">获取 Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">入门</a>
+                                                    <a target="_blank" href="http://azure-sdk-for-python.readthedocs.io/en/latest/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API 参考</a>
+                                                    <a target="_blank" href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API 参考</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">获取示例</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/python">了解详细信息</a>
+                                                    <a href="/develop/python">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1595,19 +1733,16 @@ ms.lasthandoff: 05/12/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.npmjs.com/package/azure">获取 Node.js SDK</a>
+                                                    <a target="_blank" href="https://www.npmjs.com/package/azure">获取 Node.js SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-sdk-for-node/">入门</a>
+                                                    <a target="_blank" href="http://azure.github.io/azure-sdk-for-node/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-storage-node/index.html">API 参考</a>
+                                                    <a target="_blank" href="http://azure.github.io/azure-sdk-for-node/">API 参考</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">获取示例</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs">了解详细信息</a>
+                                                    <a href="/develop/nodejs">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1625,19 +1760,16 @@ ms.lasthandoff: 05/12/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-java#download">获取 Java SDK</a>
+                                                    <a target="_blank" href="https://github.com/Azure/azure-sdk-for-java#download">获取 Java SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/java/api/">入门</a>
+                                                    <a href="/develop/java/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/java/api/">API 参考</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/java/api/">API 参考</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=java">获取示例</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/java/">了解详细信息</a>
+                                                    <a href="/develop/java/">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1655,19 +1787,16 @@ ms.lasthandoff: 05/12/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://rubygems.org/gems/azure">获取 Ruby SDK</a>
+                                                    <a target="_blank" href="https://rubygems.org/gems/azure">获取 Ruby SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">入门</a>
+                                                    <a target="_blank" href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API 参考</a>
+                                                    <a target="_blank" href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API 参考</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">获取示例</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/ruby/">了解详细信息</a>
+                                                    <a href="/develop/ruby/">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1685,13 +1814,10 @@ ms.lasthandoff: 05/12/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://docs.microsoft.com/rest/api/">REST 入门</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/rest/api/">REST 入门</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/rest/api">参考</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">获取示例</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/rest/api">参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1715,13 +1841,13 @@ ms.lasthandoff: 05/12/2017
                                             <div class="cardText">
                                                 <h3>Azure CLI 2.0 预览版 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/cli/azure/get-started/">入门</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/get-started/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-cli">下载 Azure CLI 2.0</a>
+                                                    <a target="_blank" href="https://github.com/Azure/azure-cli">下载 Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/cli/azure">参考</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure">参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1743,10 +1869,10 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="/powershell-install-configure">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/">下载 PowerShell</a>
+                                                    <a target="_blank" href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/">下载 PowerShell</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/powershell/">参考</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/">参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1768,13 +1894,13 @@ ms.lasthandoff: 05/12/2017
                                                     <a href="/xplat-cli-install?toc=%2fvirtual-machines%2flinux%2ftoc.json">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/linux-azure-cli">下载用于 Linux 的 Azure CLI</a>
+                                                    <a target="_blank" href="http://aka.ms/linux-azure-cli">下载用于 Linux 的 Azure CLI</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/mac-azure-cli">下载用于 Mac 的 Azure CLI</a>
+                                                    <a target="_blank" href="http://aka.ms/mac-azure-cli">下载用于 Mac 的 Azure CLI</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/webpi-azure-cli">下载用于 Windows 的 Azure CLI</a>
+                                                    <a target="_blank" href="http://aka.ms/webpi-azure-cli">下载用于 Windows 的 Azure CLI</a>
                                                 </p>
                                                 <p>
                                                     <a href="/virtual-machines/azure-cli-arm-commands/">参考</a>
@@ -1800,10 +1926,10 @@ ms.lasthandoff: 05/12/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Visual Studio Tools for Azure</a>
+                                                    <a target="_blank" href="https://www.visualstudio.com/vs/azure-tools/">Visual Studio Tools for Azure</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">下载</a>
+                                                    <a target="_blank" href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">下载</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1821,19 +1947,19 @@ ms.lasthandoff: 05/12/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://github.com/Microsoft/DockerToolsDocs">Docker 工具</a>
+                                                    <a target="_blank" href="https://github.com/Microsoft/DockerToolsDocs">Docker 工具</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker">入门</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680">适用于 Visual Studio 的下载项</a>
+                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=780680">适用于 Visual Studio 的下载项</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">适用于 Visual Studio Code 的下载项</a>
+                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=780681">适用于 Visual Studio Code 的下载项</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">适用于 Team Services 的下载项</a>
+                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=780682">适用于 Team Services 的下载项</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1851,10 +1977,10 @@ ms.lasthandoff: 05/12/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">PowerShell Tools for Visual Studio</a>
+                                                    <a target="_blank" href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">PowerShell Tools for Visual Studio</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">下载</a>
+                                                    <a target="_blank" href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">下载</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1872,19 +1998,19 @@ ms.lasthandoff: 05/12/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://storageexplorer.com/">存储资源管理器</a>
+                                                    <a target="_blank" href="http://storageexplorer.com/">存储资源管理器</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/vs-azure-tools-storage-manage-with-storage-explorer/">入门</a>
                                                 </p>
                                                 <p>
-                                                     <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">适用于 Linux 的下载项</a>
+                                                     <a  target="_blank" href="http://go.microsoft.com/fwlink/?LinkId=722418">适用于 Linux 的下载项</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708342">适用于 Mac 的下载项</a>
+                                                    <a target="_blank" href="http://go.microsoft.com/fwlink/?LinkId=708342">适用于 Mac 的下载项</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708343">适用于 Windows 的下载项</a>
+                                                    <a target="_blank" href="http://go.microsoft.com/fwlink/?LinkId=708343">适用于 Windows 的下载项</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1902,13 +2028,13 @@ ms.lasthandoff: 05/12/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python">Python Tools</a>
+                                                    <a target="_blank" href="https://www.visualstudio.com/vs/python">Python Tools</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://github.com/Microsoft/PTVS/wiki/PTVS-Installation">Visual Studio 入门</a>
+                                                    <a target="_blank" href="https://github.com/Microsoft/PTVS/wiki/PTVS-Installation">Visual Studio 入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python">Visual Studio Code 入门</a>
+                                                    <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python">Visual Studio Code 入门</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1931,13 +2057,13 @@ ms.lasthandoff: 05/12/2017
                                 </div>
                             </li>
                             <li>
-                                <a href="http://aka.ms/cloud-fundamentals">
+                                <a target="_blank" href="http://aka.ms/cloud-fundamentals">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img data-scaleimage="media/index/azure-arch-1.svg" src="media/index/azure-arch-1.svg" alt="" />
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_fundamentals.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1950,13 +2076,13 @@ ms.lasthandoff: 05/12/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="http://aka.ms/architecture">
+                                <a target="_blank" href="http://aka.ms/architecture">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img data-scaleimage="media/index/azure-arch-2.svg" src="media/index/azure-arch-2.svg" alt="" />
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_reference-archictectures.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1969,13 +2095,13 @@ ms.lasthandoff: 05/12/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="http://aka.ms/cloud-design-patterns">
+                                <a target="_blank" href="http://aka.ms/cloud-design-patterns">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img data-scaleimage="media/index/azure-arch-3.svg" src="media/index/azure-arch-3.svg" alt="" />
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_patterns.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1988,13 +2114,13 @@ ms.lasthandoff: 05/12/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="http://aka.ms/practices">
+                                <a target="_blank" href="http://aka.ms/practices">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img data-scaleimage="media/index/azure-arch-4.svg" src="media/index/azure-arch-4.svg" alt="" />
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_best-practices.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2007,13 +2133,13 @@ ms.lasthandoff: 05/12/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="http://aka.ms/cloud-scenarios">
+                                <a target="_blank" href="http://aka.ms/cloud-scenarios">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img data-scaleimage="media/index/azure-arch-5.svg" src="media/index/azure-arch-5.svg" alt="" />
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_scenarios.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">

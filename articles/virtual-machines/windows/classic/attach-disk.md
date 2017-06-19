@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 wacn.date: 
-ms.author: cynthn
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 2a4910e4a0e163ac3fdd98477a2b478dc8086825
@@ -29,9 +29,9 @@ Refernce article:
     If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal preview](../attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 -->
 
-本文介绍如何通过 Azure 门户预览将通过经典部署模型创建的新磁盘和现有磁盘附加到 Windows 虚拟机。
+本文介绍如何通过 Azure 门户将通过经典部署模型创建的新磁盘和现有磁盘附加到 Windows 虚拟机。
 
-也可以[在 Azure 门户预览中将数据磁盘附加到 Linux VM](../../linux/attach-disk-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+也可以[在 Azure 门户中将数据磁盘附加到 Linux VM](../../linux/attach-disk-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 附加磁盘之前，请查看以下提示：
 
@@ -47,7 +47,7 @@ Refernce article:
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。
 
 ## <a name="find-the-virtual-machine"></a>查找虚拟机
-1. 登录 [Azure 门户预览](https://portal.azure.cn/)。
+1. 登录 [Azure 门户](https://portal.azure.cn/)。
 2. 从仪表板上列出的资源中选择虚拟机。
 3. 在“设置”下的左窗格中，单击“磁盘”。
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
 wacn.date: 
-ms.author: rclaus
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -54,7 +54,7 @@ Azure 支持运行由多家合作伙伴提供和维护的众多热门 Linux 分�
 * [Azure 模板](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure VMAccess](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-Azure 正在支持它的大多数 Linux 发行版中推出 [cloud-init](http://cloud-init.io/) 支持。  目前，默认情况下 Canonical Ubuntu VM 在启用 cloud-init 的情况下进行部署。  RedHats RHEL、CentOS 和 Fedora 支持 cloud-init，但 RedHat 维护的 Azure 映像未安装 cloud-init。  若要在 RedHat 系列 OS 上使用 cloud-init，必须创建安装了 cloud-init 的自定义映像。
+Azure 正在支持它的大多数 Linux 发行版中推出 [cloud-init](http://cloud-init.io/) 支持。  目前，默认情况下 Canonical Ubuntu VM 在启用 cloud-init 的情况下进行部署。  RedHats RHEL、CentOS 和 Fedora 支持 cloud-init。
 
 * [在 Azure Linux VM 上使用 cloud-init](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -80,7 +80,7 @@ Microsoft 与合作伙伴紧密合作，以确保及时更新可用映像并针�
 使用 Azure 云的第一步是注册 Azure 帐户。  若要开始，请转到 [Azure 帐户注册](https://www.azure.cn/pricing/1rmb-trial/)页。
 
 ### <a name="install-the-cli"></a>安装 CLI
-使用新的 Azure 帐户，可以立即开始使用 Azure 门户预览（一个基于 Web 的管理面板）。  若要通过命令行管理 Azure 云，请安装 `azure-cli`。  在 Mac 或 Linux 工作站上安装 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install)。
+使用新的 Azure 帐户，可以立即开始使用 Azure 门户（一个基于 Web 的管理面板）。  若要通过命令行管理 Azure 云，请安装 `azure-cli`。  在 Mac 或 Linux 工作站上安装 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install)。
 
 ### <a name="create-an-ssh-key-pair"></a>创建 SSH 密钥对
 现在已有 Azure 帐户、Azure Web 门户和 Azure CLI。  下一步是创建 SSH 密钥对，使用它可以通过 SSH 连接到 Linux 而无需使用密码。  [在 Linux 和 Mac 上创建 SSH 密钥](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)可启用无密码登录和更高的安全性。
@@ -104,13 +104,13 @@ VM 现在正在 Azure 上运行，用户可以登录。  通过 SSH 使用密码
 ## <a name="storage"></a>存储
 * [Azure 存储简介](../../storage/storage-introduction.md)
 * [使用 azure-cli 将磁盘添加到 Linux VM](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-* [如何在 Azure 门户预览中将数据磁盘附加到 Linux VM](attach-disk-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [如何在 Azure 门户中将数据磁盘附加到 Linux VM](attach-disk-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="networking"></a>网络
 * [虚拟网络概述](../../virtual-network/virtual-networks-overview.md)
 * [Azure 中的 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [在 Azure 中打开 Linux VM 的端口](nsg-quickstart.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-* [在 Azure 门户预览中创建完全限定的域名](portal-create-fqdn.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [在 Azure 门户中创建完全限定的域名](portal-create-fqdn.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="next-steps"></a>后续步骤
 现在已概要了解 Azure 上的 Linux。  下一步是进一步的研究，并创建一些 VM 组件！

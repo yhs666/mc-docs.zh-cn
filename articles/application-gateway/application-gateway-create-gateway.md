@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 wacn.date: 01/25/2017
-ms.author: gwallace
+ms.author: v-dazen
 ---
 
 # 创建、启动或删除应用程序网关
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./application-gateway-create-gateway-portal.md)
+>- [Azure 门户](./application-gateway-create-gateway-portal.md)
 >- [Azure Resource Manager PowerShell](./application-gateway-create-gateway-arm.md)
 >- [Azure 经典 PowerShell](./application-gateway-create-gateway.md)
 >- [Azure Resource Manager 模板](./application-gateway-create-gateway-arm-template.md)
@@ -439,7 +439,7 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 如果你要配置 SSL 卸载，请参阅[配置应用程序网关以进行 SSL 卸载](./application-gateway-ssl.md)。
 
-如果你想要将应用程序网关配置为与内部负载均衡器配合使用，请参阅 [创建具有内部负载均衡器 (ILB) 的应用程序网关](./application-gateway-ilb.md)。
+如果你想要将应用程序网关配置为与内部负载均衡器配合使用，请参阅[创建具有内部负载均衡器 (ILB) 的应用程序网关](./application-gateway-ilb.md)。
 
 如需负载均衡选项的其他常规信息，请参阅：
 

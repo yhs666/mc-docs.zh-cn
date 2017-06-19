@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
 wacn.date: 02/21/2017
-ms.author: gwallace
+ms.author: v-dazen
 ---
 
 # 使用 PowerShell 通过应用程序网关配置 SSL 策略和端到端 SSL

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 wacn.date: 12/26/2016
-ms.author: danlep
+ms.author: v-dazen
 ---
 
 # 将 HPC 作业从本地计算机提交到部署在 Azure 中的 HPC Pack 群集

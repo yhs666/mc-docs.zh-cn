@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 wacn.date: 11/21/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # 创建 Xamarin iOS 应用
@@ -23,7 +23,7 @@ ms.author: adrianha
 
 ## 概述
 
-本教程说明如何使用 Azure 移动应用后端向 Xamarin.iOS 移动应用添加基于云的后端服务。创建一个新的移动应用后端以及一个简单的_待办事项列表_ Xamarin.iOS 应用，此应用将应用数据存储在 Azure 中。
+本教程说明如何使用 Azure 移动应用后端向 Xamarin.iOS 移动应用添加基于云的后端服务。创建一个新的移动应用后端以及一个简单的 _待办事项列表_ Xamarin.iOS 应用，此应用将应用数据存储在 Azure 中。
 
 只有在完成本教程后，才可以学习有关使用 Azure 应用服务中的移动应用功能的所有其他 Xamarin.iOS 教程。
 
@@ -56,7 +56,7 @@ ms.author: adrianha
 
 ## 下载并运行 Xamarin.iOS 应用
 
-1. 在浏览器窗口中，打开 [Azure 门户预览]。
+1. 在浏览器窗口中，打开 [Azure 门户]。
 
 2. 在移动应用的设置边栏选项卡上，单击“开始使用”>“Xamarin.iOS”。在步骤 3 下，单击“创建新应用”（如果尚未选择它）。接下来，单击“下载”按钮。
 
@@ -101,6 +101,6 @@ ms.author: adrianha
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Azure 门户预览]: https://portal.azure.cn/
+[Azure 门户]: https://portal.azure.cn/
 
 <!---HONumber=Mooncake_1114_2016-->

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 wacn.date: 
-ms.author: kumud
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 2c6cb346308f002ba9e924d19fa51ec730297ec1
@@ -85,7 +85,7 @@ Azure 负载均衡器可提高应用程序的可用性和网络性能。 它是�
 
     输入终结点侦听公共端口，并将流量转发到内部端口。 你可以对内部或外部终结点映射相同端口，也可以对其使用其他端口。 例如，你可以将 Web 服务器配置为侦听端口 81，而公共终结点映射则为端口 80。 创建公共终结点这一操作会触发负载均衡器实例的创建。
 
-    使用 Azure 门户预览进行创建时，该门户会针对远程桌面协议 (RDP) 和远程 Windows PowerShell 会话流量自动创建虚拟机的终结点。 你可以使用这些终结点通过 Internet 远程管理虚拟机。
+    使用 Azure 门户进行创建时，该门户会针对远程桌面协议 (RDP) 和远程 Windows PowerShell 会话流量自动创建虚拟机的终结点。 你可以使用这些终结点通过 Internet 远程管理虚拟机。
 
 * 自动重新配置
 

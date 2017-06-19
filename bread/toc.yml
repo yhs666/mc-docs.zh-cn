@@ -1,4 +1,4 @@
-- name: Azure in China
+- name: 中国区 Azure
   tocHref: /
   topicHref: /index
   items:
@@ -40,7 +40,7 @@
   - name: 门户
     tocHref: /azure-portal/
     topicHref: /azure-portal/
-  - name: 资源管理器
+  - name: Resource Manager
     tocHref: /azure-resource-manager/
     topicHref: /azure-resource-manager/
   - name: 备份
@@ -55,6 +55,9 @@
   - name: CDN
     tocHref: /cdn/
     topicHref: /cdn/
+  - name: 认知服务
+    tocHref: /cognitive-services/
+    topicHref: /cognitive-services/
   - name: 云服务
     tocHref: /cloud-services/
     topicHref: /cloud-services/

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 08/24/2016
 wacn.date: 12/12/2016
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 在迁移到 Azure SQL 数据库之前使用 SQL Azure 迁移向导解决 SQL Server 数据库兼容性问题

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/19/2017
 wacn.date: 03/31/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 使用 Azure Site Recovery 和 SAN 将 VMM 云中的 Hyper-V VM 复制到辅助站点
@@ -32,7 +32,7 @@ ms.author: raynew
 
 请注意：
 
-- 通过 SAN 实现的站点到站点复制在 Azure 门户预览中不可用。这种复制仅在经典管理门户中可用。无法在经典管理门户中创建新的保管库。可保留现有保管库。
+- 通过 SAN 实现的站点到站点复制在 Azure 门户中不可用。这种复制仅在经典管理门户中可用。无法在经典管理门户中创建新的保管库。可保留现有保管库。
 - 不支持从 SAN 复制到 Azure。
 - 无法复制通过 iSCSI 或光纤通道直接连接到 VM 的共享 VHDX 或逻辑单元 (LUN)。可以复制来宾群集。
 

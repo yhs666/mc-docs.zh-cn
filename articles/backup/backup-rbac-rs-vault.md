@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
-ms.author: trinadhk;markgal
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: c895ca9197f4027ee3a5dc0c114b71579ac4ef41
@@ -57,7 +57,7 @@ Azure 备份提供 3 个用于控制备份管理操作的内置角色。 详细�
 | 删除已注册的本地 Windows Server/客户端/SCDPM 或 Azure 备份服务器 | 备份参与者 |
 
 ## <a name="next-steps"></a>后续步骤
-- [基于角色的访问控制](../active-directory/role-based-access-control-configure.md)：Azure 门户预览中的 RBAC 入门。
+- [基于角色的访问控制](../active-directory/role-based-access-control-configure.md)：Azure 门户中的 RBAC 入门。
 - 了解如何通过以下方式管理访问权限：
   - [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   - [Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md)

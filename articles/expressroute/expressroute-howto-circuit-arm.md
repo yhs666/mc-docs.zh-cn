@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
-ms.author: ganesr;cherylmc
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: eece5b23ce0c05c9e6e8a1938c34faf0383fb06a
 ms.openlocfilehash: d8d07051bd1e0ffa98061af59b1520e8d17bdea1
@@ -78,14 +78,14 @@ Get-AzureRmExpressRouteServiceProvider
 如果还没有资源组，则在创建 ExpressRoute 线路前必须创建一个资源组。 为此，可以运行以下命令：
 
 ```powershell
-New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
+New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "China North"
 ```
 
 
-以下示例演示如何通过硅谷中的 Equinix 创建 200-Mbps 的 ExpressRoute 线路。 如果你使用的是其他提供商和其他设置，请在发出请求时替换该信息。 下面是请求新的服务密钥的示例：
+以下示例演示如何通过北京的 Beijing Telecom Ethernet 创建 200-Mbps 的 ExpressRoute 线路。 如果你使用的是其他提供商和其他设置，请在发出请求时替换该信息。 下面是请求新的服务密钥的示例：
 
 ```powershell
-New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
+New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "China North" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Beijing Telecom Ethernet" -PeeringLocation "Beijing" -BandwidthInMbps 200
 ```
 
 请确保指定合适的 SKU 层和 SKU 系列：
@@ -130,8 +130,8 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
     ServiceProviderProvisioningState  : NotProvisioned
     ServiceProviderNotes              :
     ServiceProviderProperties         : {
-                                          "ServiceProviderName": "Equinix",
-                                          "PeeringLocation": "Silicon Valley",
+                                          "ServiceProviderName": "Beijing Telecom Ethernet",
+                                          "PeeringLocation": "Beijing",
                                           "BandwidthInMbps": 200
                                         }
     ServiceKey                        : **************************************
@@ -161,8 +161,8 @@ Get-AzureRmExpressRouteCircuit
     ServiceProviderProvisioningState : NotProvisioned
     ServiceProviderNotes             :
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
+                                         "ServiceProviderName": "Beijing Telecom Ethernet",
+                                         "PeeringLocation": "Beijing",
                                          "BandwidthInMbps": 200
                                           }
     ServiceKey                       : **************************************
@@ -221,8 +221,8 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
+                                         "ServiceProviderName": "Beijing Telecom Ethernet",
+                                         "PeeringLocation": "Beijing",
                                          "BandwidthInMbps": 200
                                        }
     ServiceKey                       : **************************************
@@ -266,8 +266,8 @@ Get-AzureRmExpressRouteCircuit
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
     ServiceProviderProperties        : {
-                                            "ServiceProviderName": "Equinix",
-                                            "PeeringLocation": "Silicon Valley",
+                                            "ServiceProviderName": "Beijing Telecom Ethernet",
+                                            "PeeringLocation": "Beijing",
                                             "BandwidthInMbps": 200
                                           }
     ServiceKey                       : **************************************
@@ -298,8 +298,8 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
+                                         "ServiceProviderName": "Beijing Telecom Ethernet",
+                                         "PeeringLocation": "Beijing",
                                          "BandwidthInMbps": 200
                                           }
     ServiceKey                       : **************************************

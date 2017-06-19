@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 wacn.date: 02/20/2017
-ms.author: jparrel
+ms.author: v-dazen
 ---
 
 # 使用负载均衡的集来群集化 Linux 上的 MySQL

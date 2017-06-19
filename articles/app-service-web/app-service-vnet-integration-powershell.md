@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
 wacn.date: 11/25/2016
-ms.author: ccompy
+ms.author: v-dazen
 ---
 
 # 使用 PowerShell 将应用程序连接到虚拟网络 #
@@ -144,7 +144,7 @@ $certBytes = [System.Convert]::FromBase64String($vnet.Properties.certBlob)
 
 可在 **$Configuration.GeneratedCertificatePath** 指定的位置找到证书。
 
-若要手动上载证书，请在 [Azure 门户预览][azureportal]中，选择“浏览虚拟网络(经典)”>“VPN 连接”>“点到站点”>“管理证书”。从此处上载证书。
+若要手动上载证书，请在 [Azure 门户][azureportal]中，选择“浏览虚拟网络(经典)”>“VPN 连接”>“点到站点”>“管理证书”。从此处上载证书。
 
 ##### 获取点到站点包 #####
 

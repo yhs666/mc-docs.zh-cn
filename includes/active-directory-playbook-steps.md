@@ -1,4 +1,4 @@
-## <a name="playbook-steps"></a>演练手册步骤
+## 演练手册步骤 <a name="playbook-steps"></a>
 1. [介绍](../articles/active-directory/active-directory-playbook-intro.md)
 2. [成分](../articles/active-directory/active-directory-playbook-ingredients.md)
     - [主题](../articles/active-directory/active-directory-playbook-ingredients.md)
@@ -13,10 +13,11 @@
    - [主题 - 增强安全性](../articles/active-directory/active-directory-playbook-implementation.md#theme---increase-your-security)
      - [确保管理员帐户访问安全](../articles/active-directory/active-directory-playbook-implementation.md#secure-administrator-account-access)
      - [使用基于证书的身份验证，在没有密码的情况下进行身份验证](../articles/active-directory/active-directory-playbook-implementation.md#authenticate-without-passwords-using-certificate-based-authentication)
-   
+  
 4. [构建基块](../articles/active-directory/active-directory-playbook-building-blocks.md)
-   - [执行组件目录](../articles/active-directory/active-directory-playbook-building-blocks.md#catalog-of-actors)
+   - [角色的目录](../articles/active-directory/active-directory-playbook-building-blocks.md#catalog-of-roles)
    - [所有构建基块的常见先决条件](../articles/active-directory/active-directory-playbook-building-blocks.md#common-prerequisites-for-all-building-blocks)
-   - [目录同步 - 密码哈希同步 (PHS) - 新安装](../articles/active-directory/active-directory-playbook-building-blocks.md#directory-synchronization---password-hash-sync-phs---new-installation)
+   - [目录同步 - 密码哈希同步 (PHS) - 新安装](../articles/active-directory/active-directory-playbook-building-blocks.md#directory-synchronization--password-hash-sync-phs--new-installation)
    - [通用 LDAP 连接器配置](../articles/active-directory/active-directory-playbook-building-blocks.md#generic-ldap-connector-configuration)
    - [配置基于证书的身份验证](../articles/active-directory/active-directory-playbook-building-blocks.md#configuring-certificate-based-authentication)
+

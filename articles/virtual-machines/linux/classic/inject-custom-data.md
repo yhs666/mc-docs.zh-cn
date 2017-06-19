@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 wacn.date: 01/05/2017
-ms.author: rasquill
+ms.author: v-dazen
 ---
 
 #将自定义数据注入到 Azure 虚拟机中

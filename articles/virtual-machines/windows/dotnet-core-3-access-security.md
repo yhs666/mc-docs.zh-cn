@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 wacn.date: 12/20/2016
-ms.author: nepeters
+ms.author: v-dazen
 ---
 
 # Azure Resource Manager 模板中的访问权限和安全性
@@ -70,7 +70,7 @@ ms.author: nepeters
 ]
 ```
 
-Azure 门户预览中显示的公共 IP 地址。请注意，公共 IP 地址与负载均衡器而不是虚拟机关联。本系列教程的下一篇文档详细介绍了网络负载均衡器。
+Azure 门户中显示的公共 IP 地址。请注意，公共 IP 地址与负载均衡器而不是虚拟机关联。本系列教程的下一篇文档详细介绍了网络负载均衡器。
 
 ![公共 IP 地址](../media/virtual-machines-windows-dotnet-core/pubip-win.png)  
 
@@ -130,7 +130,7 @@ Azure 门户预览中显示的公共 IP 地址。请注意，公共 IP 地址与
 ]
 ```
 
-Azure 门户预览中的网络安全组如下所示。请注意，NSG 可与子网和/或网络接口关联。在本例中，NSG 与子网关联。在此配置中，入站规则应用到与子网连接的所有虚拟机。
+Azure 门户中的网络安全组如下所示。请注意，NSG 可与子网和/或网络接口关联。在本例中，NSG 与子网关联。在此配置中，入站规则应用到与子网连接的所有虚拟机。
 
 ![网络安全组](../media/virtual-machines-windows-dotnet-core/nsg-win.png)  
 

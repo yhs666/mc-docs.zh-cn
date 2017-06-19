@@ -16,13 +16,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 01/10/2017
 wacn.date: 01/25/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 使用 Transact-SQL 为 Azure SQL 数据库启动计划内或计划外故障转移
 
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./sql-database-geo-replication-failover-portal.md)
+>- [Azure 门户](./sql-database-geo-replication-failover-portal.md)
 >- [PowerShell](./sql-database-geo-replication-failover-powershell.md)
 >- [Transact-SQL](./sql-database-geo-replication-failover-transact-sql.md)
 

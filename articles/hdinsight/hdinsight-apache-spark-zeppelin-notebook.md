@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 wacn.date: 05/31/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 在 Apache HDInsight 上的 Apache Spark 群集中使用 Zeppelin 笔记本

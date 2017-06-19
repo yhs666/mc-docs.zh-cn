@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 wacn.date: 03/24/2017
-ms.author: jotaub;sethm
+ms.author: v-yeche
 ---
 
 # 使用 Java 将事件发送到 Azure 事件中心

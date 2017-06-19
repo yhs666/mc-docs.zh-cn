@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2015
 wacn.date: 11/12/2015
-ms.author: diviso
+ms.author: v-dazen
 ---
 
 # 使用 Chef 自动执行 Azure 虚拟机部署

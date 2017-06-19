@@ -14,7 +14,7 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 wacn.date: 11/21/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # 将现有 Node.js Azure 移动服务升级到应用服务
@@ -73,7 +73,7 @@ npm i -g azure-mobile-apps-compatibility
 
 ## <a name="obtain-ams-scripts"></a>获取 Azure 移动服务脚本
 
-- 登录到 [Azure 门户预览]。
+- 登录到 [Azure 门户]。
 - 使用“所有资源”或“应用程序服务”找到移动服务站点。
 - 在站点内单击“工具”->“Kudu”->“转到”，打开 Kudu 站点。
 - 单击“调试控制台”->“PowerShell”打开调试控制台。
@@ -96,7 +96,7 @@ scaffold-mobile-app scripts out
 
 在部署期间，需要执行以下操作：
 
-1. 在 [Azure 门户预览]中创建新的移动应用。
+1. 在 [Azure 门户]中创建新的移动应用。
 2. 对连接的数据库运行 `createViews.sql` 脚本。
 3. 将链接到移动服务的数据库链接到新的应用服务。
 4. 将任何其他资源（例如通知中心）链接到新的应用服务。
@@ -104,7 +104,7 @@ scaffold-mobile-app scripts out
 
 ### 创建新的移动应用
 
-1. 在 [Azure 门户预览]登录。
+1. 在 [Azure 门户]登录。
 
 2. 单击“+新建”>“Web + 移动”>“移动应用”，然后提供移动应用后端名称。
 
@@ -126,7 +126,7 @@ scaffold-mobile-app scripts out
 
 将现有数据库链接到应用服务：
 
-- 在 [Azure 门户预览]中，打开应用服务。
+- 在 [Azure 门户]中，打开应用服务。
 - 选择“所有设置”->“数据连接”。
 - 单击“+ 添加”。
 - 在下拉列表中，选择“SQL 数据库”
@@ -182,7 +182,7 @@ Azure 移动应用允许在服务中配置 Azure Active Directory 和 Microsoft 
 [Authentication Concepts]: ../app-service/app-service-authentication-overview.md
 [Authentication Quickstart]: ./app-service-mobile-auth.md
 
-[Azure 门户预览]: https://portal.azure.cn/
+[Azure 门户]: https://portal.azure.cn/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/10/2016
 wacn.date: 
-ms.author: zivr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: f1f6761cd213886d99550e6966b5c38300729003
@@ -59,7 +59,7 @@ Azure 元数据服务会公开在 VM 中使用 REST 终结点运行虚拟机的�
 第一次调用计划事件时，Azure 会在虚拟机上隐式启用该功能。 因此，第一次调用时应该会延迟响应最多两分钟。
 
 ### <a name="testing-your-logic-with-user-initiated-operations"></a>通过用户启动的操作对逻辑进行测试
-若要测试逻辑，可以使用 Azure 门户预览、API、CLI 或 PowerShell 启动生成计划事件的操作。 重新启动虚拟机会生成事件类型为“重新启动”的计划事件。 重新部署虚拟机会生成事件类型为“重新部署”的计划事件。
+若要测试逻辑，可以使用 Azure 门户、API、CLI 或 PowerShell 启动生成计划事件的操作。 重新启动虚拟机会生成事件类型为“重新启动”的计划事件。 重新部署虚拟机会生成事件类型为“重新部署”的计划事件。
 用户启动的操作在这两种情况下都需要更长的时间来完成，因为计划事件为应用程序留出更多的时间来正常关闭。 
 
 ## <a name="using-the-api"></a>使用 API

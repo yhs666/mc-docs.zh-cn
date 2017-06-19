@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
-ms.author: asaxton
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: b435325371e8ae70c2a1528ec7fe0cbce672c153
@@ -100,13 +100,13 @@ RLS 是在 Power BI Desktop 中编写的。 打开数据集和报表时，可以
 
 使用 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__) 方法创建令牌。 如果提供 username 属性，则也必须在角色中至少传递一个值。
 
-例如，可更改 EmbedSample。 DashboardController 第 55 行无法执行以下更新：从
+例如，可更改 EmbedSample。 DashboardController 第 55 行无法执行以下更新：把
 
 ```
 var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
 ```
 
-to
+改为
 
 ```
 var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id, "Andrew Ma", ["Manager"]);'

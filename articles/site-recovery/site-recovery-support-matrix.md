@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/04/2016
 wacn.date: 01/11/2017
-ms.author: raynew
+ms.author: v-johch
 redirect_url: site-recovery-support-matrix-to-azure
 ---
 

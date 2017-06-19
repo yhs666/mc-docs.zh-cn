@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2017
 wacn.date: 
-ms.author: sethm;jotaub;shvija
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 027069e7bee618db5418c1fc4331dc9221a6eb0c
@@ -37,7 +37,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 有关定价层的更多详细信息（包括专用事件中心），请参阅[事件中心定价详细信息](https://www.azure.cn/pricing/details/event-hubs/)。
 
 ### <a name="what-are-event-hubs-throughput-units"></a>什么是事件中心吞吐量单元？
-通过 Azure 门户预览或事件中心 Resource Manager 模板明确选择事件中心吞吐量单位。 吞吐量单位适用于事件中心命名空间中的所有事件中心，每个吞吐量单位为命名空间赋予以下功能：
+通过 Azure 门户或事件中心 Resource Manager 模板明确选择事件中心吞吐量单位。 吞吐量单位适用于事件中心命名空间中的所有事件中心，每个吞吐量单位为命名空间赋予以下功能：
 
 * 高达每秒 1 MB 的入口事件（发送到事件中心的事件），但每秒不超过 1000 个入口事件、管理操作或控制 API 调用。
 * 高达每秒 2 MB 的出口事件（从事件中心耗用的事件）。

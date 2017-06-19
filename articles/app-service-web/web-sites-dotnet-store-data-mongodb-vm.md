@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/29/2016
 wacn.date: 
-ms.author: cephalin
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 4cbbffd591d503577fedac6abd845a9c2d5ad5bd
@@ -410,7 +410,7 @@ MongoDB C# 驱动程序现已安装。  对 **MongoDB.Bson**、**MongoDB.Driver*
 
     private string connectionString = "mongodb://<vm-dns-name>";
 
-将 `<vm-dns-name>` 替换为运行 MongoDB 的虚拟机（在本教程的 [创建虚拟机并安装 MongoDB][Create a virtual machine and install MongoDB] 步骤中创建）的 DNS 名。  若要查找虚拟机的 DNS 名称，请转到 Azure 门户预览，选择“虚拟机”并找到“DNS 名称”。
+将 `<vm-dns-name>` 替换为运行 MongoDB 的虚拟机（在本教程的 [创建虚拟机并安装 MongoDB][Create a virtual machine and install MongoDB] 步骤中创建）的 DNS 名。  若要查找虚拟机的 DNS 名称，请转到 Azure 门户，选择“虚拟机”并找到“DNS 名称”。
 
 如果虚拟机的 DNS 名是“testlinuxvm.chinacloudapp.cn”而 MongoDB 在默认端口 27017 进行侦听，连接字符串代码行将如下所示：
 
@@ -438,7 +438,7 @@ MongoDB C# 驱动程序现已安装。  对 **MongoDB.Bson**、**MongoDB.Driver*
 ## <a name="summary"></a>摘要
 现在，已将 ASP.NET 应用程序成功部署到 Azure 应用服务 Web 应用。 查看 Web 应用：
 
-1. 登录到 Azure 门户预览。
+1. 登录到 Azure 门户。
 2. 单击“Web 应用”。 
 3. 在“Web 应用”列表中选择相应的 Web 应用。
 

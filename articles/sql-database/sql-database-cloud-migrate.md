@@ -17,7 +17,7 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 wacn.date: 03/24/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 #<a name="migrate-a-compatible-sql-server-database-to-sql-database"></a> 将 SQL Server 数据库迁移到云中的 SQL 数据库
@@ -48,7 +48,7 @@ ms.author: carlrab
 
 以下列表包含的建议可帮助你在导入过程中获得最佳性能。
 
-* 若要获得最高的传输性能，请在预算允许范围内选择最高的服务级别和性能层。为了节省资金，可以在迁移完成后缩减规模。请参阅[使用 Azure 门户预览更改单一数据库的服务层和性能级别](./sql-database-manage-single-databases-portal.md)、[使用 PowerShell 更改单一数据库的服务层和性能级别](./sql-database-manage-single-databases-powershell.md)、[使用 Transact-SQL 更改单一数据库的服务层和性能级别](./sql-database-manage-single-databases-tsql.md)
+* 若要获得最高的传输性能，请在预算允许范围内选择最高的服务级别和性能层。为了节省资金，可以在迁移完成后缩减规模。请参阅[使用 Azure 门户更改单一数据库的服务层和性能级别](./sql-database-manage-single-databases-portal.md)、[使用 PowerShell 更改单一数据库的服务层和性能级别](./sql-database-manage-single-databases-powershell.md)、[使用 Transact-SQL 更改单一数据库的服务层和性能级别](./sql-database-manage-single-databases-tsql.md)
 * 尽量缩短 .BACPAC 文件与目标数据中心之间的距离。
 * 在迁移过程中禁用自动统计
 * 将表和索引分区

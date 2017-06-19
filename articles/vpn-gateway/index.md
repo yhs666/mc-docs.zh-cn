@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 wacn.date: 
-ms.author: carolz
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: bab8cf785a88b6841de25dfca118c7f15c7eea4b
@@ -72,7 +72,7 @@ ms.lasthandoff: 05/12/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>使用 Azure 门户预览创建站点到站点连接入门</h3>
+                        <h3>使用 Azure 门户创建站点到站点连接入门</h3>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@ ms.lasthandoff: 05/12/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>使用 Azure 门户预览创建点到站点连接入门</h3>
+                        <h3>使用 Azure 门户创建点到站点连接入门</h3>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@ ms.lasthandoff: 05/12/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>使用 Azure 门户预览创建 VNet 到 VNet 连接入门</h3>
+                        <h3>使用 Azure 门户创建 VNet 到 VNet 连接入门</h3>
                     </div>
                 </div>
             </div>
@@ -116,35 +116,3 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
  </ul>
-
----
-
-<h2>引用</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>命令行</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt163510(v=azure.300)">PowerShell (Resource Manager)</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell（经典）</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt163859">REST (Resource Manager)</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST（经典）</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>

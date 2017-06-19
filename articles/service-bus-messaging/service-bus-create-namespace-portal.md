@@ -12,7 +12,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/30/2016
-ms.author: jotaub
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: d691ed3aa3885bf2c0a538dba120d8b5bf339e47

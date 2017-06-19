@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 wacn.date: 01/05/2017
-ms.author: cjiang
+ms.author: v-dazen
 ---
 
 # 排查在 Azure 中新建 Linux 虚拟机时遇到的经典部署问题
@@ -35,7 +35,7 @@ ms.author: cjiang
 
 若要开始故障排除，请收集审核日志，以识别与问题相关的错误。
 
-在 Azure 门户预览中，单击“浏览”>“虚拟机”> *你的 Windows 虚拟机* >“设置”>“审核日志”。
+在 Azure 门户中，单击“浏览”>“虚拟机”> *你的 Windows 虚拟机* >“设置”>“审核日志”。
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 wacn.date: 
-ms.author: jdial
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 6ee59cb73f7d75d016d041df31c51aed689059cd
@@ -126,7 +126,7 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 
 | 部署工具 | 经典 | Resource Manager |
 | --- | --- | --- |
-| Azure 门户预览   | 是 | [是](virtual-networks-create-nsg-arm-pportal.md) |
+| Azure 门户   | 是 | [是](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [是](virtual-networks-create-nsg-classic-ps.md) | [是](virtual-networks-create-nsg-arm-ps.md) |
 | Azure CLI **V1**   | [是](virtual-networks-create-nsg-classic-cli.md) | [是](virtual-networks-create-nsg-cli-nodejs.md) |
 | Azure CLI **V2**   | 否 | [是](virtual-networks-create-nsg-arm-cli.md) |

@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 wacn.date: 01/10/2017
-ms.author: wesmc
+ms.author: v-junlch
 ---
 
 # 注册管理

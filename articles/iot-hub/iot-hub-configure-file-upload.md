@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
-ms.author: dobett
+ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 038be9aa1a540d0a5e50e999f05da55fb284e2f4
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: e4272b32fd95a28434013dbe2621a7238f7d83fa
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 04/28/2017
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南][lnk-devguide]
-* [使用 IoT 网关 SDK 模拟设备][lnk-gateway]
+* [使用 IoT Edge 模拟设备][lnk-gateway]
 * [从根本上保护 IoT 解决方案][lnk-securing]
 
   [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png

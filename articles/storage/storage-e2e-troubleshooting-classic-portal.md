@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/20/2017
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # 使用 Azure 存储度量值和日志记录、AzCopy 和 Message Analyzer 进行端到端故障排除
@@ -91,7 +91,7 @@ Azure 存储操作可能返回 HTTP 状态代码大于 299 作为其正常功能
 
 **通过 Azure 经典管理门户**
 
-若要使用门户配置存储帐户的日志记录和度量值，请遵循[监视 Azure 门户预览中的存储帐户](./storage-monitor-storage-account.md)中的说明。
+若要使用门户配置存储帐户的日志记录和度量值，请遵循[监视 Azure 门户中的存储帐户](./storage-monitor-storage-account.md)中的说明。
 
 > [!NOTE]
 > 无法使用 Azure 经典管理门户设置分钟度量值。但是，对于本教程，我们建议你设置分钟度量值，它还可以调查应用程序的性能问题。可以使用 PowerShell（如下所示）设置分钟度量值，也可以通过编程方式或 Azure 经典管理门户设置。
@@ -375,7 +375,7 @@ Message Analyzer 将查找并选择搜索条件与客户端请求 ID 匹配的�
 
 - [对 Azure 存储进行监视、诊断和故障排除](./storage-monitoring-diagnosing-troubleshooting.md)
 - [存储分析](http://msdn.microsoft.com/zh-cn/library/azure/hh343270.aspx)
-- [监视 Azure 门户预览中的存储帐户](./storage-monitor-storage-account.md)
+- [监视 Azure 门户中的存储帐户](./storage-monitor-storage-account.md)
 - [使用 AzCopy 命令行实用工具传输数据](./storage-use-azcopy.md)
 - [Microsoft Message Analyzer 操作指南](http://technet.microsoft.com/zh-cn/library/jj649776.aspx)
 

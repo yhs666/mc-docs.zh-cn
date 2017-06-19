@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2016
 wacn.date: 
-ms.author: glenga
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: c137308ac77e52db924d74297a4c4a826be0b64f
@@ -97,7 +97,7 @@ Azure 应用服务是托管公司网站的理想解决方案。 通过 Web 应�
 * 与 Azure Active Directory 集成
 
 ### <a id="iis6"></a> 我具有在 Windows Server 2003 上运行的 IIS6 应用程序。
-Azure 应用服务可轻松避免在迁移较旧的 IIS6 应用程序时带来的基础结构成本。 因为与 Visual Studio 和常见的 CMS 工具集成，所以能够更轻松地将 IIS6 应用程序直接部署到云中。 部署后，Azure 门户预览可以提供强大的管理工具，帮助你通过缩减规模管理成本，并根据需要扩展规模来满足业务要求。 使用迁移工具可以：
+Azure 应用服务可轻松避免在迁移较旧的 IIS6 应用程序时带来的基础结构成本。 因为与 Visual Studio 和常见的 CMS 工具集成，所以能够更轻松地将 IIS6 应用程序直接部署到云中。 部署后，Azure 门户可以提供强大的管理工具，帮助你通过缩减规模管理成本，并根据需要扩展规模来满足业务要求。 使用迁移工具可以：
 
 * 轻松快速地将旧版 Windows Server 2003 Web 应用程序迁移到云中。
 * 选择在本地保留附加的 SQL 数据库，以创建混合应用程序。

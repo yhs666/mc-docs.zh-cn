@@ -1,5 +1,5 @@
 ---
-title: 创建面向 Internet 的负载均衡器 - Azure 门户预览经典 | Azure
+title: 创建面向 Internet 的负载均衡器 - Azure 门户经典 | Azure
 description: 了解如何使用 Azure 经典管理门户在经典部署模型中，创建面向 Internet 的负载均衡器
 services: load-balancer
 documentationcenter: na
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 03/03/2017
-ms.author: kumud
+ms.author: v-yeche
 ---
 
 # 开始在 Azure 经典管理门户中创建面向 Internet 的负载均衡器（经典）

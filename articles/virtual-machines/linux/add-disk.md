@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.date: 02/02/2017
 wacn.date: 
-ms.author: rasquill
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -40,7 +40,7 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
 ```
 ## <a name="attach-an-unmanaged-disk"></a>附加非托管磁盘
 
-如果不介意在与 VM 相同的存储帐户中创建磁盘，则可快速附加新磁盘。 键入 `azure vm disk attach-new` 可为 VM 创建和连接新的 GB 磁盘。 如果你未显式标识存储帐户，则创建的任何磁盘将位于 OS 磁盘所在的同一个存储帐户中。 以下示例将一个 `50`GB 的磁盘附加到资源组 `myResourceGroup` 中名为 `myVM` 的 VM：
+如果不介意在与 VM 相同的存储帐户中创建磁盘，则可快速附加新磁盘。 键入 `az vm unmanaged-disk attach` 可为 VM 创建和连接新的 GB 磁盘。 如果你未显式标识存储帐户，则创建的任何磁盘将位于 OS 磁盘所在的同一个存储帐户中。 以下示例将一个 `50`GB 的磁盘附加到资源组 `myResourceGroup` 中名为 `myVM` 的 VM：
 
 ```azurecli
 az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \

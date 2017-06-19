@@ -1,3 +1,3 @@
 ---
-redirect_url: /sql-database/scripts/sql-database-manage-single-databases-powershell
+redirect_url: /sql-database/sql-database-manage-single-databases-powershell
 ---

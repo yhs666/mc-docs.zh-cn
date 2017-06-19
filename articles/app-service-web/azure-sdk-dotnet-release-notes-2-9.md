@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 wacn.date: 
-ms.author: juliako;mikhegn
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: c844f50026936ecf7beec863c99be82d1a078e3d
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/14/2017
 
 本主题包括用于 .NET 的 Azure SDK 版本 2.9 和 2.9.6 的发行说明。
 
-##<a name="azure-sdk-for-net-296-release-summary"></a>用于 .NET 的 Azure SDK 2.9.6 版本摘要
+## <a name="azure-sdk-for-net-296-release-summary"></a>用于 .NET 的 Azure SDK 2.9.6 版本摘要
 
 发布日期：2016 年 11 月 16 日
 

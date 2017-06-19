@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2016
-ms.author: ganesr
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 0ca44f78c13c6f49a0d64839d452b87edd1c0a90
@@ -79,6 +79,7 @@ ms.lasthandoff: 04/22/2017
 
 线路所有者可授权其他订阅的管理员使用指定的线路。 在下面的示例中，线路 (Contoso IT) 管理员允许另一个订阅（开发-测试）的管理员最多将两个虚拟网络链接到线路。 Contoso IT 管理员可以通过指定开发-测试 Microsoft ID 启用此功能。 该 cmdlet 不会将电子邮件发送到指定的 Microsoft ID。 线路所有者需要显式通知其他订阅所有者：授权已完成。
 
+```
     New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
 
     Description         : Dev-Test Links
@@ -92,6 +93,7 @@ ms.lasthandoff: 04/22/2017
 
 The circuit owner can review all authorizations that are issued on a particular circuit by running the following cmdlet:
 
+```
     Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
 
     Description         : EngineeringTeam
@@ -111,12 +113,14 @@ The circuit owner can review all authorizations that are issued on a particular 
     LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
     MicrosoftIds        : salesadmin@contoso.com
     Used                : 2
+```
 
 
 **Updating authorizations**
 
 The circuit owner can modify authorizations by using the following cmdlet:
 
+```
     Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
 
     Description         : Dev-Test Links
@@ -124,13 +128,15 @@ The circuit owner can modify authorizations by using the following cmdlet:
     LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
     MicrosoftIds        : devtest@contoso.com
     Used                : 0
-
+```
 
 **Deleting authorizations**
 
 The circuit owner can revoke/delete authorizations to the user by running the following cmdlet:
 
+```
     Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
+```
 
 
 ### Circuit user operations
@@ -139,27 +145,31 @@ The circuit owner can revoke/delete authorizations to the user by running the fo
 
 The circuit user can review authorizations by using the following cmdlet:
 
+```
     Get-AzureAuthorizedDedicatedCircuit
 
     Bandwidth                        : 200
     CircuitName                      : ContosoIT
-    Location                         : Washington DC
+    Location                         : Beijing
     MaximumAllowedLinks              : 2
     ServiceKey                       : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-    ServiceProviderName              : equinix
+    ServiceProviderName              : Beijing Telecom Ethernet
     ServiceProviderProvisioningState : Provisioned
     Status                           : Enabled
     UsedLinks                        : 0
+```
 
 **Redeeming link authorizations**
 
 The circuit user can run the following cmdlet to redeem a link authorization:
 
+```
     New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
 
     State VnetName
     ----- --------
     Provisioned SalesVNET1
+```
 
 ## Next steps
 

@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 wacn.date: 01/06/2017
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # 如何通过 Node.js 使用队列存储
@@ -69,7 +69,7 @@ var azure = require('azure-storage');
 
 Azure 模块将读取环境变量 AZURE\_STORAGE\_ACCOUNT 和 AZURE\_STORAGE\_ACCESS\_KEY 或 AZURE\_STORAGE\_CONNECTION\_STRING 以获取连接到 Azure 存储帐户所需的信息。如果未设置这些环境变量，则必须在调用 **createQueueService** 时指定帐户信息。
 
-有关在 [Azure 门户预览](https://portal.azure.cn)中为 Azure 网站设置环境变量的示例，请参阅[使用 Azure 表服务的 Node.js Web 应用]。
+有关在 [Azure 门户](https://portal.azure.cn)中为 Azure 网站设置环境变量的示例，请参阅[使用 Azure 表服务的 Node.js Web 应用]。
 
 ## 如何：创建队列
 

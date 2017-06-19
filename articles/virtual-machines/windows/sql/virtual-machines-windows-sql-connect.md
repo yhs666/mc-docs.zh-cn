@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/28/2017
 wacn.date: 05/31/2017
-ms.author: jroth
+ms.author: v-dazen
 ---
 
 # 连接到 Azure \(Resource Manager\) 上的 SQL Server 虚拟机

@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/10/2017
 wacn.date: 
-ms.author: jotaub;sethm
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 0fadb5c3724bdfadb30f5b479ea7f8545549d063
@@ -49,39 +49,39 @@ ms.lasthandoff: 04/28/2017
 
 1. 使用 `Microsoft.IdentityModel.Clients.ActiveDirectory` 库从 Azure Active Directory 获取令牌。
 
-        ```csharp
-        var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
+    ```csharp
+    var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
 
-        var result = await context.AcquireTokenAsync(
-            "https://management.core.chinacloudapi.cn/",
-            new ClientCredential(clientId, clientSecret)
-        );
-        ```
+    var result = await context.AcquireTokenAsync(
+        "https://management.core.chinacloudapi.cn/",
+        new ClientCredential(clientId, clientSecret)
+    );
+    ```
 
 2. 创建 `EventHubManagementClient` 对象。
 
-        ```csharp
-        var creds = new TokenCredentials(token);
-        var ehClient = new EventHubManagementClient(creds)
-        {
-            SubscriptionId = SettingsCache["SubscriptionId"]
-        };
-        ```
+    ```csharp
+    var creds = new TokenCredentials(token);
+    var ehClient = new EventHubManagementClient(creds)
+    {
+        SubscriptionId = SettingsCache["SubscriptionId"]
+    };
+    ```
 
 3. 将 CreateOrUpdate 参数设置为指定的值。
 
-        ```csharp
-        var ehParams = new EventHubCreateOrUpdateParameters()
-        {
-            Location = SettingsCache["DataCenterLocation"]
-        };
-        ```
+    ```csharp
+    var ehParams = new EventHubCreateOrUpdateParameters()
+    {
+        Location = SettingsCache["DataCenterLocation"]
+    };
+    ```
 
 4. 执行调用。
 
-        ```csharp
-        await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
-        ```
+    ```csharp
+    await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
+    ```
 
 ## <a name="next-steps"></a>后续步骤
 * [.NET 管理示例](https://github.com/Azure-Samples/event-hubs-dotnet-management/)

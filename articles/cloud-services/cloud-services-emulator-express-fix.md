@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/02/2016
 wacn.date: 12/05/2016
-ms.author: cawa
+ms.author: v-yiso
 ---
 
 # 在 VS 2017 中使用 Emulator Express 调试云服务应用程序

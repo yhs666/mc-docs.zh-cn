@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
-ms.author: ganesr;cherylmc
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 6b84a7b558d97cf0d324eeaeb419b128af15059c
@@ -50,7 +50,7 @@ ms.lasthandoff: 04/22/2017
 > 
 > 
 
-你可以为 ExpressRoute 线路配置一到三个对等互连（Azure 专用、Azure 公共和 Microsoft）。 可以按照所选的任意顺序配置对等互连。 但是，你必须确保一次只完成一个对等互连的配置。 
+你可以为 ExpressRoute 线路配置一或两个对等互连（Azure 专用和Azure 公共互联）。 可以按照所选的任意顺序配置对等互连。 但是，你必须确保一次只完成一个对等互连的配置。 
 
 ## <a name="azure-private-peering"></a>Azure 专用对等互连
 本部分说明如何为 ExpressRoute 线路创建、获取、更新和删除 Azure 专用对等互连配置。 
@@ -107,7 +107,7 @@ ms.lasthandoff: 04/22/2017
     ```
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
+    Location                         : chinanorth
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -120,8 +120,8 @@ ms.lasthandoff: 04/22/2017
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             : 
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
+                                         "ServiceProviderName": "Beijing Telecom Ethernet",
+                                         "PeeringLocation": "Beijing",
                                          "BandwidthInMbps": 200
                                        }
     ServiceKey                       : **************************************
@@ -240,7 +240,7 @@ ms.lasthandoff: 04/22/2017
     ```
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
+    Location                         : chinanorth
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -253,8 +253,8 @@ ms.lasthandoff: 04/22/2017
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             : 
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
+                                         "ServiceProviderName": "Beijing Telecom Ethernet",
+                                         "PeeringLocation": "Beijing",
                                          "BandwidthInMbps": 200
                                        }
     ServiceKey                       : **************************************

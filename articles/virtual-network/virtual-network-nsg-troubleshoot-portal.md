@@ -1,6 +1,6 @@
 ---
 title: 排查网络安全组问题 - 门户 | Azure
-description: 了解如何使用 Azure 门户预览在 Azure Resource Manager 部署模型中排查网络安全组问题。
+description: 了解如何使用 Azure 门户在 Azure Resource Manager 部署模型中排查网络安全组问题。
 services: virtual-network
 documentationCenter: na
 authors: AnithaAdusumilli
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 wacn.date: 11/14/2016
-ms.author: anithaa
+ms.author: v-dazen
 ---
 
-# 使用 Azure 门户预览排查网络安全组问题
+# 使用 Azure 门户排查网络安全组问题
 
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./virtual-network-nsg-troubleshoot-portal.md)
+>- [Azure 门户](./virtual-network-nsg-troubleshoot-portal.md)
 >- [PowerShell](./virtual-network-nsg-troubleshoot-powershell.md)
 
 如果在虚拟机 (VM) 上配置网络安全组 (NSG) 时遇到 VM 连接问题，可以借助本文中概述的 NSG 诊断功能进行故障排除。
@@ -44,7 +44,7 @@ ms.author: anithaa
 
 可以从 VM 本身查看 NIC 上的完整有效安全规则列表。如果有相应的权限，也可以从有效规则的边栏选项卡添加、修改和删除 NIC 与子网的 NSG 规则。
 
-1. 登录到 Azure 门户预览 (https://portal.azure.cn)。
+1. 登录到 Azure 门户 (https://portal.azure.cn)。
 2. 单击“更多服务”，然后在显示的列表中单击“虚拟机”。
 3. 在显示的列表中选择要进行故障排除的 VM，随后会显示一个包含选项的 VM 边栏选项卡。
 4. 单击“诊断和解决问题”，然后选择一个常见问题。本示例选择了“无法连接到 Windows VM”。
@@ -95,7 +95,7 @@ ms.author: anithaa
 
 如果特定的 NIC 影响了 VM 流量流，可以完成以下步骤，从网络接口上下文查看 NIC 的完整有效规则列表：
 
-1. 登录到 Azure 门户预览 (https://portal.azure.cn)。
+1. 登录到 Azure 门户 (https://portal.azure.cn)。
 2. 单击“更多服务”，然后在显示的列表中单击“网络接口”。
 3. 选择一个网络接口。在下图中，已选择名为 *VM1-NIC1* 的 NIC。
 
@@ -112,7 +112,7 @@ ms.author: anithaa
 
 修改 NSG 规则时，可以查看在特定 VM 上添加规则产生的影响。可以查看应用了给定 NSG 的所有 NIC 的完整有效安全规则列表，而无需从给定 NSG 的边栏选项卡切换上下文。若要排查 NSG 中有效规则的问题，请完成以下步骤：
 
-1. 登录到 Azure 门户预览 (https://portal.azure.cn)。
+1. 登录到 Azure 门户 (https://portal.azure.cn)。
 2. 单击“更多服务”，然后在显示的列表中单击“网络安全组”。
 3. 选择一个 NSG。在下图中，已选择名为 VM1-nsg 的 NSG。
 

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 01/11/2017
 wacn.date: 03/28/2017
-ms.author: asaxton
+ms.author: v-dazen
 ---
 
 # 使用 PowerShell 创建运行本机模式报表服务器的 Azure VM
@@ -621,7 +621,6 @@ get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayna
 
     * [适用于 Visual Studio 2013 的 Microsoft SQL Server Data Tools-Business Intelligence](https://www.microsoft.com/download/details.aspx?id=42313)
     * [适用于 Visual Studio 2012 的 Microsoft SQL Server Data Tools-Business Intelligence](https://www.microsoft.com/download/details.aspx?id=36843)
-    * [SQL Server Data Tools 和 SQL Server Business Intelligence \(SSDT-BI\)](http://curah.microsoft.com/30004/sql-server-data-tools-ssdt-and-sql-server-business-intelligence)
 * **SQL Server Data Tools：远程**：在本地计算机上，在 SQL Server Data Tools 中创建一个包含 Reporting Services 报表的 Reporting Services 项目。将项目配置为连接到 web 服务 URL。
 
     ![SSRS 项目的 ssdt 项目属性](./media/ps-sql-report/IC650114.gif)  

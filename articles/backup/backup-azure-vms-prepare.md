@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
-ms.author: markgal;trinadhk;
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 96437da8d1d5f96a8c1fb5fe6807fece32fe3edc
@@ -107,7 +107,7 @@ ms.lasthandoff: 04/14/2017
 
 若要使用 HTTP 代理来与公共 Internet 通信，请遵循以下步骤：
 
-#### <a name="step-1-configure-outgoing-network-connections"></a>步骤 1。 配置传出网络连接
+#### <a name="step-1-configure-outgoing-network-connections"></a>步骤 1: 配置传出网络连接
 ###### <a name="for-windows-machines"></a>对于 Windows 计算机
 将为本地系统帐户设置代理服务器配置。
 
@@ -154,7 +154,7 @@ HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>步骤 2. 在代理服务器上允许传入连接：
+#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>步骤 2: 在代理服务器上允许传入连接：
 1. 在代理服务器上打开 Windows 防火墙。 访问防火墙的最简单方法是搜索“具有高级安全性的 Windows 防火墙”。
 
     ![打开防火墙](./media/backup-azure-vms-prepare/firewall-01.png)
@@ -173,7 +173,7 @@ HttpProxy.Port=<proxy port>
 
      至于该向导的其余部分，可一路单击到最后，然后为此规则指定一个名称。
 
-#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>步骤 3. 向 NSG 添加例外规则：
+#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>步骤 3: 向 NSG 添加例外规则：
 在 Azure PowerShell 命令提示符下输入以下命令：
 
 以下命令将在 NSG 中添加一个例外。 此例外允许从 10.0.0.5 上的任何端口流向端口 80 (HTTP) 或 443 (HTTPS) 上的任何 Internet 地址的 TCP 流量。 如果需要访问公共 Internet 中的特定端口，请确保也将该端口添加到 ```-DestinationPortRange```。

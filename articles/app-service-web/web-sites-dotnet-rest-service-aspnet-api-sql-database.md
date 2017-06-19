@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/29/2016
 wacn.date: 
-ms.author: riande
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 219479054c45e67df252f94d73c29bfc1c77a68a
@@ -200,7 +200,7 @@ ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新�
     Visual Studio 将为 **Contact** 对象的 CRUD 数据库操作创建控制器方法和视图。
 
 ## <a name="enable-migrations-create-the-database-add-sample-data-and-a-data-initializer"></a>启用迁移、创建数据库、添加示例数据和数据初始值设定项
-接下来的任务是启用 [Code First 迁移](http://curah.microsoft.com/55220)功能以便基于所创建的数据模型创建数据库。
+接下来的任务是启用 Code First 迁移功能以便基于所创建的数据模型创建数据库。
 
 1. 在“工具”菜单中，依次选择“库包管理器”和“程序包管理器控制台”。
 

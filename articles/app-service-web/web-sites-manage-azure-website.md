@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 wacn.date: 
-ms.author: rachelap
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: b862557b017180e6444d2130fe3847f79ad72433
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/26/2017
 
 在整个 Web 应用使用期内，您将执行各种管理任务，从初始部署到正常操作、维护与更新。
 
-许多 Web 应用管理任务都可在 Azure 门户预览中执行。
+许多 Web 应用管理任务都可在 Azure 门户中执行。
 
 ## <a name="before-you-deploy-your-web-app-to-production"></a>将 Web 应用部署到生产之前
 ### <a name="choose-a-tier"></a>选择层级
@@ -38,7 +38,7 @@ ms.lasthandoff: 05/26/2017
 * 在创建 Web 应用后可以随时[切换层](web-sites-scale.md)。
 
 ### <a name="configuration"></a>配置
-使用 [Azure 门户预览](https://portal.azure.cn/) 设置各种配置选项。 有关详细信息，请参阅[在 Azure 应用服务中配置 Web 应用](web-sites-configure.md)。 下面是快速核对清单：
+使用 [Azure 门户](https://portal.azure.cn/) 设置各种配置选项。 有关详细信息，请参阅[在 Azure 应用服务中配置 Web 应用](web-sites-configure.md)。 下面是快速核对清单：
 
 * 选择用于 .NET、PHP、Java 或 Python 的**运行时版本**（如果需要）。
 * 如果 Web 应用使用 WebSocket 协议，请启用 **WebSocket**。 （这包括使用 [ASP.NET SignalR](http://www.asp.net/signalr) 或 [socket.io](web-sites-nodejs-chat-app-socketio.md) 的应用。）
@@ -59,7 +59,7 @@ ms.lasthandoff: 05/26/2017
 在 Web 应用运行期间，您要确保其可用性，并能够进行缩放以满足用户流量。 您可能还需要解决错误。
 
 ### <a name="monitoring"></a>监视
-* 通过 Azure 门户预览，可以[添加性能指标](web-sites-monitor.md)（如 CPU 使用率和客户端请求数）。
+* 通过 Azure 门户，可以[添加性能指标](web-sites-monitor.md)（如 CPU 使用率和客户端请求数）。
 * [缩放 Web 应用](web-sites-scale.md)以响应流量。 您可以根据不同的层缩放虚拟机数量和/或虚拟机实例的大小。 在标准层和高级层中，您还可以设置自动缩放，那么您的 Web 应用将能够根据固定计划，或以负载为依据进行自动缩放。  
 
 ### <a name="backups"></a>备份

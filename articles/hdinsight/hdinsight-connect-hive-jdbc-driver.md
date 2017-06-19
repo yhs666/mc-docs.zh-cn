@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/13/2017
 wacn.date: 03/24/2017
-ms.author: larryfr
+ms.author: v-dazen
 ---
 
 # 使用 Hive JDBC 驱动程序连接到 Azure HDInsight 上的 Hive
@@ -87,7 +87,7 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
 
     * 对于**基于 Windows 的 HDInsight**，请使用以下步骤下载 jar 文件。
 
-        1. 在 Azure 门户预览中，选择 HDInsight 群集，然后选择“远程桌面”图标。
+        1. 在 Azure 门户中，选择 HDInsight 群集，然后选择“远程桌面”图标。
 
             ![“远程桌面”图标](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopicon.png)  
 

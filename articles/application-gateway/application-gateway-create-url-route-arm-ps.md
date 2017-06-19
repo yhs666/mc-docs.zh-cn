@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 wacn.date: 
-ms.author: gwallace
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 72201c01098c7a9fbc49934487fce8ee6ed3d8d2
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/12/2017
 # <a name="create-an-application-gateway-using-path-based-routing"></a>使用基于路径的路由创建应用程序网关
 
 > [!div class="op_single_selector"]
-> * [Azure 门户预览](application-gateway-create-url-route-portal.md)
+> * [Azure 门户](application-gateway-create-url-route-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
 
 借助基于 URL 路径的路由，可根据 Http 请求的 URL 路径来关联路由。 它将检查是否有路由连接到为应用程序网关中显示的 URL 配置的后端池，并将网络流量发送到定义的后端池。 基于 URL 的路由的常见用法是将不同内容类型的请求负载均衡到不同的后端服务器池。

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
 ms.date: 03/17/2017
-ms.author: danlep
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 9d585f7048e0ddefe1b1743ed3df42b7b1f2f78c
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/14/2017
 [Batch](https://azure.microsoft.com/services/batch/) 是一种平台服务，可让用户轻松地在 Linux 和 Windows 应用程序中启用云功能并运行作业，而无需设置和管理群集与作业计划程序。 使用 SDK 可将不同语言的客户端应用与 Azure 批处理集成，将数据迁移到 Azure，以及生成作业运行管道。
 
 - [文档](./index.md)
-- [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx)、[Python](http://azure-sdk-for-python.readthedocs.io/latest/)、[Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)、[Java](http://azure.github.io/azure-sdk-for-java/) 和 [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API 参考
+- [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx)、 Python、[Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)、[Java](http://azure.github.io/azure-sdk-for-java/) 和 [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API 参考
 - [Batch 管理 .NET 库](https://msdn.microsoft.com/library/mt463120.aspx)参考
 - 教程：[用于 .NET 的 Azure Batch 库](batch-dotnet-get-started.md)入门和 [Batch Python 客户端](batch-python-tutorial.md)入门
 - [Batch 论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=azurebatch)

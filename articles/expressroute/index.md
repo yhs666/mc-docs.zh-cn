@@ -1,6 +1,18 @@
 ---
-layout: LandingPage
+title: Azure ExpressRoute 文档 - 教程, API 参考 | Azure
 description: "了解如何配置和管理专用 ExpressRoute 连接，从本地基础结构或共置设施连接到 Microsoft 云服务。"
+services: expressroute
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: expressroute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: f27eeb74d07064c616e1a77200b56a7aee154f48
@@ -48,37 +60,6 @@ ms.lasthandoff: 05/12/2017
             </div>
         </div>
         </a>
-    </li>
-</ul>
-
----
-
-<h2>引用</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>命令行</h3>
-                        <p><a href="../powershell-install-configure.md">PowerShell</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API 参考</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn606310">经典 REST API 参考</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </li>
 </ul>
 

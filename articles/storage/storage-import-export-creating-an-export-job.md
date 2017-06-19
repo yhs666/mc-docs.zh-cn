@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/20/2017
-ms.author: muralikk
+ms.author: v-johch
 ---
 
 # 为 Azure 导入/导出服务创建导出作业
@@ -33,7 +33,7 @@ ms.author: muralikk
 
 -   接收从 21 世纪互联 寄回的驱动器。
 
- 有关导入/导出服务的概述以及演示如何使用 [Azure 门户预览](https://portal.azure.cn/)创建和管理导入和导出作业的教程，请参阅 [使用 Azure 导入/导出服务将数据传输到 Blob 存储](./storage-import-export-service.md)。
+ 有关导入/导出服务的概述以及演示如何使用 [Azure 门户](https://portal.azure.cn/)创建和管理导入和导出作业的教程，请参阅 [使用 Azure 导入/导出服务将数据传输到 Blob 存储](./storage-import-export-service.md)。
 
 ## 选择要导出的 Blob
  若要创建导出作业，需提供要从存储帐户导出的 Blob 的列表。可通过多种方法选择要导出的 Blob：

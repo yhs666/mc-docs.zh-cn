@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 wacn.date: 
-ms.author: mikeray
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 4e3a66d5e8fd15a60ba863d3054a50c860984a0c
@@ -316,9 +316,9 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="configure-internal-load-balancer"></a> 创建 Azure 负载均衡器
 
-在 Azure 虚拟机上， SQL Server 可用性组需要负载均衡器。 负载均衡器保存可用性组侦听器的 IP 地址。 本部分概述如何在 Azure 门户预览版中创建负载均衡器。
+在 Azure 虚拟机上， SQL Server 可用性组需要负载均衡器。 负载均衡器保存可用性组侦听器的 IP 地址。 本部分概述如何在 Azure 门户中创建负载均衡器。
 
-1. 在 Azure 门户预览中，转到 SQL Server 所在的资源组，然后单击“+ 添加”。
+1. 在 Azure 门户中，转到 SQL Server 所在的资源组，然后单击“+ 添加”。
 2. 搜索“负载均衡器” 。 选择 Microsoft 发布的负载均衡器。
 
     ![故障转移群集管理器中的可用性组](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
@@ -337,17 +337,17 @@ ms.lasthandoff: 05/05/2017
     | **订阅** |使用虚拟机所在的同一个订阅。 |
     | **位置** |使用虚拟机所在的同一个位置。 |
 
-    Azure 门户预览边栏选项卡应如下所示：
+    Azure 门户边栏选项卡应如下所示：
 
     ![创建负载均衡器](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/84-createloadbalancer.png)
 
 1. 单击“创建”以创建负载均衡器。
 
-若要配置负载均衡器，需要创建后端池、探测，并设置负载均衡规则。 请在 Azure 门户预览版中执行这些操作。
+若要配置负载均衡器，需要创建后端池、探测，并设置负载均衡规则。 请在 Azure 门户中执行这些操作。
 
 ### <a name="add-backend-pool"></a>添加后端池
 
-1. 在 Azure 门户预览版中，转到你的可用性组。 可能需要刷新视图才能看到新建的负载均衡器。
+1. 在 Azure 门户中，转到你的可用性组。 可能需要刷新视图才能看到新建的负载均衡器。
 
     ![在资源组中找到负载均衡器](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 

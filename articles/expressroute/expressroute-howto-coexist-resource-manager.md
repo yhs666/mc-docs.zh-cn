@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 wacn.date: 01/17/2017
-ms.author: charleywen
+ms.author: v-yiso
 ---
 
 # 为 Resource Manager 部署模型配置 ExpressRoute 和站点到站点共存的连接

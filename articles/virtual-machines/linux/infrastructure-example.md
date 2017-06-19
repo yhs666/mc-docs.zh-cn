@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 wacn.date: 
-ms.author: iainfou
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -77,7 +77,7 @@ Adventure Works Cycles 确定他们需要以下两个存储帐户：
 ## <a name="virtual-network-and-subnets"></a>虚拟网络和子网
 由于虚拟网络不需要持续连接到 Adventure Work Cycles 本地网络，因此，他们决定选择仅限云的虚拟网络。
 
-他们通过 Azure 门户预览使用以下设置创建了仅限云的虚拟网络：
+他们通过 Azure 门户使用以下设置创建了仅限云的虚拟网络：
 
 * 名称：AZOS-CHE-VN01
 * 位置：中国东部

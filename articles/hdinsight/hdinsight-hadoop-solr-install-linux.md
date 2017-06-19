@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 wacn.date: 
-ms.author: larryfr
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: eb3391c15c12dda10ac53fce01774e6c9580c3c1
@@ -321,8 +321,6 @@ sudo start solr
     ```bash
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
-
-有关使用 Solr 备份和还原的详细信息，请参阅[创建和还原 SolrCores 的备份](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores)。
 
 ## <a name="next-steps"></a>后续步骤
 

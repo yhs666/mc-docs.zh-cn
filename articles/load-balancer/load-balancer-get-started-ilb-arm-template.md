@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: 
-ms.author: kumud
+ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
 ms.openlocfilehash: 0e8f0dda2b9a24fe0ac7bc9a85903ebf9f06c573
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/07/2017
 
 # <a name="create-an-internal-load-balancer-using-a-template"></a>使用模板创建内部负载均衡器
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./load-balancer-get-started-ilb-arm-portal.md)
+>- [Azure 门户](./load-balancer-get-started-ilb-arm-portal.md)
 >- [PowerShell](./load-balancer-get-started-ilb-arm-ps.md)
 >- [Azure CLI](./load-balancer-get-started-ilb-arm-cli.md)
 >- [模板](./load-balancer-get-started-ilb-arm-template.md)

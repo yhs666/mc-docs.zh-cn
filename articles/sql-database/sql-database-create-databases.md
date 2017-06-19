@@ -1,6 +1,6 @@
 ---
 title: 创建 Azure SQL 数据库 | Azure
-description: 有关如何使用 Azure 门户预览、PowerShell、Transact-SQL 创建 Azure SQL 数据库的快速参考。
+description: 有关如何使用 Azure 门户、PowerShell、Transact-SQL 创建 Azure SQL 数据库的快速参考。
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler
@@ -15,16 +15,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.date: 11/14/2016
 wacn.date: 01/20/2017
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # 创建 Azure SQL 数据库
 
-可以使用 [Azure 门户预览](https://portal.azure.cn/)、PowerShell、Transact-SQL、REST API 或 C# 创建 Azure SQL 数据库。
+可以使用 [Azure 门户](https://portal.azure.cn/)、PowerShell、Transact-SQL、REST API 或 C# 创建 Azure SQL 数据库。
 
-## 使用 Azure 门户预览创建 Azure SQL 数据库
+## 使用 Azure 门户创建 Azure SQL 数据库
 
-1. 在 [Azure 门户预览](https://portal.azure.cn/)中打开“SQL 数据库”边栏选项卡。
+1. 在 [Azure 门户](https://portal.azure.cn/)中打开“SQL 数据库”边栏选项卡。
 
     ![SQL 数据库](./media/sql-database-get-started/sql-databases.png)  
 
@@ -33,7 +33,7 @@ ms.author: carlrab
     ![添加 SQL 数据库](./media/sql-database-get-started/add-sql-database.png)  
 
 > [!TIP]
-有关使用 Azure 门户预览和 SQL Server Management Studio 的入门教程，请参阅 [Get started with Azure SQL Database servers, databases and firewall rules by using the Azure portal and SQL Server Management Studio](./sql-database-get-started.md)（开始使用 Azure 门户预览和 SQL Server Management Studio 了解 Azure SQL 数据库服务器、数据库和防火墙规则）。
+有关使用 Azure 门户和 SQL Server Management Studio 的入门教程，请参阅 [Get started with Azure SQL Database servers, databases and firewall rules by using the Azure portal and SQL Server Management Studio](./sql-database-get-started.md)（开始使用 Azure 门户和 SQL Server Management Studio 了解 Azure SQL 数据库服务器、数据库和防火墙规则）。
 >
 
 ## 使用 PowerShell 创建 Azure SQL 数据库
@@ -73,12 +73,12 @@ $currentDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName 
 5. 在对象资源管理器中，右键单击“数据库”节点，然后单击“刷新”在对象资源管理器中查看新的数据库。
 
 > [!TIP]
-有关使用 Azure 门户预览和 SQL Server Management Studio 的入门教程，请参阅 [Get started with Azure SQL Database servers, databases and firewall rules by using the Azure portal and SQL Server Management Studio](./sql-database-get-started.md)（开始使用 Azure 门户预览和 SQL Server Management Studio 了解 Azure SQL 数据库服务器、数据库和防火墙规则）。
+有关使用 Azure 门户和 SQL Server Management Studio 的入门教程，请参阅 [Get started with Azure SQL Database servers, databases and firewall rules by using the Azure portal and SQL Server Management Studio](./sql-database-get-started.md)（开始使用 Azure 门户和 SQL Server Management Studio 了解 Azure SQL 数据库服务器、数据库和防火墙规则）。
 >
 
 ## 其他资源
 * 有关管理工具的概述，请参阅[管理工具概述](./sql-database-manage-overview.md)。
-* 若要了解如何使用 Azure 门户预览执行管理任务，请参阅[使用 Azure 门户预览管理 Azure SQL 数据库](./sql-database-manage-portal.md)。
+* 若要了解如何使用 Azure 门户执行管理任务，请参阅[使用 Azure 门户管理 Azure SQL 数据库](./sql-database-manage-portal.md)。
 * 若要了解如何使用 PowerShell 执行管理任务，请参阅[使用 PowerShell 管理 Azure SQL 数据库](./sql-database-manage-powershell.md)。
 * 若要了解如何使用 SQL Server Management Studio 执行管理任务，请参阅 [SQL Server Management Studio](./sql-database-manage-azure-ssms.md)。
 * 有关 SQL 数据库服务的信息，请参阅[什么是 SQL 数据库](./sql-database-technical-overview.md)。

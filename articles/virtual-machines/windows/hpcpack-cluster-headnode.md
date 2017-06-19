@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 wacn.date: 02/24/2017
-ms.author: danlep
+ms.author: v-dazen
 ---
 
 # 在 Azure VM 中使用应用商店映像创建 HPC Pack 群集的头节点

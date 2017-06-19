@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 wacn.date: 
-ms.author: annahar
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
 ms.openlocfilehash: 209e9a5bb6989ddf2be55c273a84d54b47fa6fda
@@ -175,7 +175,7 @@ ms.lasthandoff: 04/22/2017
 
 完成以下步骤，可将其他专用和公共 IP 地址添加到现有 NIC。 示例根据本文所述的 [方案](#Scenario) 生成。
 
-1. 打开命令行界面，然后在单个会话中完成本部分的剩余步骤。 如果尚未安装并配置 Azure CLI，请完成 [Azure CLI 2.0 安装](https://docs.microsoft.com/cli/azure/install-az-cli2?toc=%2fvirtual-network%2ftoc.json)一文中的步骤，然后使用 `az-login` 命令登录到 Azure 帐户。
+1. 打开命令行界面，然后在单个会话中完成本部分的剩余步骤。 如果尚未安装并配置 Azure CLI，请完成 [Azure CLI 2.0 安装](https://docs.microsoft.com/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json)一文中的步骤，然后使用 `az-login` 命令登录到 Azure 帐户。
 
 2. 根据要求完成以下部分之一中的步骤：
 

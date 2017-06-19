@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 wacn.date: 
-ms.author: cephalin
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 8c778336bc72b3aa0a68e44b30e76a0b1999470e
@@ -48,7 +48,7 @@ ms.lasthandoff: 04/28/2017
 * 最多可备份 10GB 的应用和数据库内容。 如果备份大小超过此限制，将会出错。 
 
 ## <a name="manualbackup" id="create-a-manual-backup"></a> 创建手动备份
-1. 在 [Azure 门户预览](https://portal.azure.cn)中，导航到应用的边栏选项卡，选择“设置”，然后选择“备份”。 将显示“备份”  边栏选项卡。
+1. 在 [Azure 门户](https://portal.azure.cn)中，导航到应用的边栏选项卡，选择“设置”，然后选择“备份”。 将显示“备份”  边栏选项卡。
 
     ![“备份”页面][ChooseBackupsPage]
 

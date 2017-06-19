@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/18/2017
 wacn.date: 03/20/2017
-ms.author: jroth
+ms.author: v-dazen
 ---
 
 # Azure 虚拟机中 SQL Server 的自动备份（经典）

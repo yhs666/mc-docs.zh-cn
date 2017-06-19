@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 wacn.date: 12/26/2016
-ms.author: szark
+ms.author: v-dazen
 ---
 
 # 为 Azure 准备 SLES 或 openSUSE 虚拟机

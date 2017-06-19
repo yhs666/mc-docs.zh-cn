@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 wacn.date: 01/05/2017
-ms.author: cynthn
+ms.author: v-dazen
 ---
 
 # 使用 Powershell 和经典部署模型创建 Windows 虚拟机 
@@ -188,7 +188,7 @@ $vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $protocol -LocalPort $loc
 New-AzureVM -ServiceName "<short name of the cloud service>" -VMs $vm1
 ```
 
-云服务的短名称是在 Azure 经典管理门户的云服务列表中或 Azure 门户预览的资源组列表中显示的名称。
+云服务的短名称是在 Azure 经典管理门户的云服务列表中或 Azure 门户的资源组列表中显示的名称。
 
 选项 2：在现有的云服务和虚拟网络中创建虚拟机。
 

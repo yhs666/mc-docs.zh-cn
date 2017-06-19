@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 10/31/2016
 wacn.date: 12/12/2016
-ms.author: elbutter;barbkess
+ms.author: v-yeche
 ---
 
 # 使用 SQL Server Management Studio (SSMS) 连接到 SQL 数据仓库

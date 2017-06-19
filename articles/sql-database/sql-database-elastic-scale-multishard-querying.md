@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2016
 wacn.date: 12/19/2016
-ms.author: torsteng
+ms.author: v-johch
 ---
 
 # 多分片查询

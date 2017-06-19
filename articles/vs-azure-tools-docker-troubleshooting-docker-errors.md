@@ -7,9 +7,16 @@ authors: allclark
 manager: douge
 editor: ''
 
+ms.assetid: 346f70b9-7b52-4688-a8e8-8f53869618d3
 ms.service: multiple
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: multiple
 ms.date: 06/08/2016
+ms.author: v-junlch
 wacn.date: 06/20/2016
+
 ---
 
 # Visual Studio Docker 开发故障排除

@@ -14,24 +14,24 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 wacn.date: 01/19/2017
-ms.author: wesmc
+ms.author: v-junlch
 ---
 
 # 使用通知中心发送突发新闻
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-##概述
+## 概述
 
 本主题说明如何使用 Azure 通知中心将突发新闻通知广播到 iOS 应用程序。完成时，你可以注册感兴趣的突发新闻类别并仅接收这些类别的推送通知。此方案对于很多应用程序来说是常见模式，在其中必须将通知发送到以前声明过对它们感兴趣的一组用户，这样的应用程序有 RSS 阅读器、针对音乐迷的应用程序等。
 
 在创建通知中心的注册时，通过加入一个或多个标记来启用广播方案。将通知发送到标签时，已注册该标签的所有设备将接收通知。因为标签是简单的字符串，它们不必提前设置。有关标记的详细信息，请参阅[通知中心路由和标记表达式](./notification-hubs-tags-segment-push-message.md)。
 
-##先决条件
+## 先决条件
 
 本主题以你在[通知中心入门][get-started]中创建的应用程序为基础。在开始本教程之前，必须先阅读[通知中心入门][get-started]。
 
-##向应用程序中添加类别选择
+## 向应用程序中添加类别选择
 
 第一步是向现有 Storyboard 添加 UI 元素，这些元素允许用户选择要注册的类别。用户选择的类别存储在设备上。应用程序启动时，使用所选类别作为标签在你的通知中心创建设备注册。
 
@@ -228,13 +228,13 @@ ms.author: wesmc
 
 应用程序现在可以在设备的本地存储区中存储一组类别，每当应用程序启动时，将使用这些类别注册到通知中心。用户可以在运行时更改选择的类别，然后单击 **subscribe** 方法来更新设备注册。接下来，你将更新应用程序，以直接从应用本身发送突发新闻通知。
 
-##（可选）发送带标记的通知
+## （可选）发送带标记的通知
 
 如果你无权访问 Visual Studio，可以跳到下一部分，并从应用内部发送通知。你还可以在 [Azure 经典管理门户]中使用通知中心的调试选项卡发送适当的模板通知。
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-##（可选）从设备发送通知
+## （可选）从设备发送通知
 
 通常，通知将由后端服务发送，但你也可以直接从应用发送突发新闻通知。为此，我们需要更新[通知中心入门][get-started]教程中所定义的 `SendNotificationRESTAPI` 方法。
 

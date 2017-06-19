@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2016
 wacn.date: 09/26/2016
-ms.author: yochayk
+ms.author: v-dazen
 ---
 
 # Azure App Service 和现有的 Azure 服务
@@ -50,7 +50,7 @@ App Service 将以下现有 Azure 服务 - [网站](https://www.azure.cn/home/fe
 <td align="left">Web Apps</td>
 <td align="left"><li>对于 Azure 网站，App Service 严格限制为将名称“网站”更改为“Web Apps”。
 <p><li>现在，Azure 中的所有现有网站实例均已成为 App Service 中的 Web Apps。</p>
-<p><li>你可以通过 <a href="./app-service-web-app-azure-portal.md">Azure 门户预览</a>访问现有网站，该门户的<em>“应用服务”</em>下列出了所有现有站点。</p>
+<p><li>你可以通过 <a href="./app-service-web-app-azure-portal.md">Azure 门户</a>访问现有网站，该门户的<em>“应用服务”</em>下列出了所有现有站点。</p>
 <p><li><em>Web 托管计划</em>现成为 <em>App Service 计划</em>。<em>App Service 计划</em>可以托管任何应用类型的 App Service，例如 Web、Mobile 或 API Apps。</p>
 <p><li>Azure App Service Web Apps 现已公开上市。</p>
 <p><li><a href="https://www.azure.cn/home/features/app-service/web-apps/">了解有关 Web Apps 的详细信息</a>。</p></td>

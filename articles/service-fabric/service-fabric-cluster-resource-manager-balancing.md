@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/05/2017
 wacn.date: 02/20/2017
-ms.author: masnider
+ms.author: v-johch
 ---
 
 # 均衡 Service Fabric 群集

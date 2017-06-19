@@ -14,7 +14,7 @@ ms.tgt_pltfrm: windows
 ms.workload: na
 ms.date: 02/29/2016
 wacn.date: 
-ms.author: cfowler
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: 65e504a425060c591206a97859538575e7bd85af
@@ -44,7 +44,7 @@ Web 应用 Memcache 填充码可以与任何应用程序一起使用，前提是
 部署可缩放的 WordPress 站点并设置 Redis 缓存实例后，你随时可以启用 Azure 应用服务 Web 应用中的 Memcache 填充码。
 
 ## <a name="enable-the-web-apps-memcache-shim"></a>启用 Web 应用 Memcache 填充码
-若要配置 Memcache 填充码，你必须创建三个应用设置。 可使用多种方法来完成，包括 [Azure 门户预览](/app-service-web/app-service-web-app-azure-portal)、[经典管理门户](https://manage.windowsazure.cn/)、[Azure PowerShell Cmdlet][4] 或 [Azure 命令行接口][5]。 本文将使用 [Azure 门户预览][3]来设置应用设置。 从 Redis 缓存实例的  “设置”边栏选项卡中，可以检索以下值。
+若要配置 Memcache 填充码，你必须创建三个应用设置。 可使用多种方法来完成，包括 [Azure 门户](/app-service-web/app-service-web-app-azure-portal)、[经典管理门户](https://manage.windowsazure.cn/)、[Azure PowerShell Cmdlet][4] 或 [Azure 命令行接口][5]。 本文将使用 [Azure 门户][3]来设置应用设置。 从 Redis 缓存实例的  “设置”边栏选项卡中，可以检索以下值。
 
 ![Azure Redis 缓存设置边栏选项卡](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -86,7 +86,7 @@ Web 应用 Memcache 填充码可以与任何应用程序一起使用，前提是
 ![PHP PECL 网站 Memcache 包](./media/web-sites-connect-to-redis-using-memcache-protocol/8-php-pecl-memcache-package.png)
 
 ### <a name="enable-the-phpmemcache-extension"></a>启用 php_memcache 扩展
-下载文件后，将 **php\_memcache.dll** 解压缩并上传到 **d:\\home\\site\\wwwroot\\bin\\ext\\** 目录。 将 php_memcache.dll 上传到 Web 应用后，你需要启用 PHP 运行时的扩展。 若要在 Azure 门户预览中启用 Memcache 扩展，请打开 Web 应用的“应用程序设置”边栏选项卡，然后添加密钥为 **PHP\_EXTENSIONS** 和值为 **bin\\ext\\php_memcache.dll** 的新应用设置。
+下载文件后，将 **php\_memcache.dll** 解压缩并上传到 **d:\\home\\site\\wwwroot\\bin\\ext\\** 目录。 将 php_memcache.dll 上传到 Web 应用后，你需要启用 PHP 运行时的扩展。 若要在 Azure 门户中启用 Memcache 扩展，请打开 Web 应用的“应用程序设置”边栏选项卡，然后添加密钥为 **PHP\_EXTENSIONS** 和值为 **bin\\ext\\php_memcache.dll** 的新应用设置。
 
 > [!NOTE]
 > 如果 Web 应用需要加载多个 PHP 扩展，则 PHP_EXTENSIONS 的值应为由逗号分隔的 DLL 文件相对路径的列表。
@@ -148,7 +148,7 @@ $memcached_servers = array(
 > 
 > 
 
-在 Azure 门户预览中，浏览到为此 Web 应用创建的 Redis 缓存实例。 打开缓存边栏选项卡后，单击“设置”  图标。
+在 Azure 门户中，浏览到为此 Web 应用创建的 Redis 缓存实例。 打开缓存边栏选项卡后，单击“设置”  图标。
 
 ![Azure Redis 缓存设置按钮](./media/web-sites-connect-to-redis-using-memcache-protocol/15-azure-redis-cache-settings-button.png)
 

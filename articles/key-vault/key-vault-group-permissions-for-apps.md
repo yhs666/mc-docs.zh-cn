@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 wacn.date: 01/05/2017
-ms.author: ambapat
+ms.author: v-junlch
 ---
 
 # 为多个应用程序授予密钥保管库的访问权限

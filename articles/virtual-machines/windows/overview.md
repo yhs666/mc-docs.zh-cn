@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/01/2017
 wacn.date: 04/27/2017
-ms.author: davidmu
+ms.author: v-dazen
 ---
 
 # Azure 中的 Windows 虚拟机概述
@@ -55,7 +55,7 @@ Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源
 
 | 方法 | 说明 |
 | --- | --- |
-| Azure 门户预览 |创建 VM 时，可从列表中选择位置。 |
+| Azure 门户 |创建 VM 时，可从列表中选择位置。 |
 | Azure PowerShell |使用 [Get-AzureRmLocation](https://msdn.microsoft.com/zh-cn/library/mt619449.aspx) 命令。 |
 | REST API |使用“[列出位置](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions#Subscriptions_ListLocations)”操作。 |
 
@@ -76,7 +76,7 @@ Azure 提供许多应用商店映像，这些映像可配合各种版本和类�
 
 | 方法 | 说明 |
 | --- | --- |
-| Azure 门户预览 |选择要使用的映像时，系统会自动指定值。 |
+| Azure 门户 |选择要使用的映像时，系统会自动指定值。 |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://msdn.microsoft.com/zh-cn/library/mt603484.aspx) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://msdn.microsoft.com/zh-cn/library/mt603824.aspx) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](https://msdn.microsoft.com/zh-cn/library/mt619458.aspx) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | REST API |[列出映像发布者](https://docs.microsoft.com/zh-cn/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[列出映像产品](https://docs.microsoft.com/zh-cn/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[列出映像 SKU](https://docs.microsoft.com/zh-cn/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
@@ -110,7 +110,7 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 
 | 方法 | 文章 |
 | --- | --- |
-| Azure 门户预览 |[使用门户创建运行 Windows 的虚拟机](../virtual-machines-windows-hero-tutorial.md) |
+| Azure 门户 |[使用门户创建运行 Windows 的虚拟机](../virtual-machines-windows-hero-tutorial.md) |
 | 模板 |[使用 Resource Manager 模板创建 Windows 虚拟机](ps-template.md) |
 | Azure PowerShell |[使用 PowerShell 创建 Windows VM](quick-create-powershell.md) |
 | 客户端 SDK |[使用 C# 部署 Azure 资源](csharp.md) |
@@ -126,13 +126,13 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 
 | 方法 | 说明 |
 | --- | --- |
-| Azure 门户预览 |在中心菜单中，单击“虚拟机”，然后从列表中选择 VM。在 VM 的边栏选项卡中，可以访问概述信息、设置值以及监视指标。 |
+| Azure 门户 |在中心菜单中，单击“虚拟机”，然后从列表中选择 VM。在 VM 的边栏选项卡中，可以访问概述信息、设置值以及监视指标。 |
 | Azure PowerShell |有关使用 PowerShell 管理 VM 的信息，请参阅 [Manage Azure Virtual Machines using Resource Manager and PowerShell](ps-manage.md)（使用 Resource Manager 与 PowerShell 来管理 Azure 虚拟机）。 |
 | REST API |使用“[获取 VM 信息](https://docs.microsoft.com/zh-cn/rest/api/compute/virtualmachines/virtualmachines-get)”操作获取有关 VM 的信息。|
 | 客户端 SDK |有关使用 C# 管理 VM 的信息，请参阅 [Manage Azure Virtual Machines using Azure Resource Manager and C#](csharp-manage.md)（使用 Azure Resource Manager 与 C# 来管理 Azure 虚拟机）。 |
 
 ### 登录到 VM
-使用 Azure 门户预览中的“连接”按钮[启动远程桌面 (RDP) 会话](connect-logon.md)。尝试使用远程连接时，有时可能会出错。如果遇到这种情况，请查看[对运行 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](troubleshoot-rdp-connection.md)中的帮助信息。
+使用 Azure 门户中的“连接”按钮[启动远程桌面 (RDP) 会话](connect-logon.md)。尝试使用远程连接时，有时可能会出错。如果遇到这种情况，请查看[对运行 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](troubleshoot-rdp-connection.md)中的帮助信息。
 
 ### 管理可用性
 必须知道如何[确保应用程序的高可用性](manage-availability.md)。此配置涉及到创建多个 VM，确保至少有一个 VM 在运行。

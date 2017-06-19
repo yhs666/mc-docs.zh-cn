@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/05/2017
 wacn.date: 02/20/2017
-ms.author: mfussell
+ms.author: v-johch
 ---
 
 # Azure Service Fabric 概述
@@ -54,7 +54,7 @@ Service Fabric 是跨计算机群集的微服务[协调器](./service-fabric-clu
 ## 随处创建 Service Fabric 群集
 可在许多环境（包括在 Azure 中或本地、在 Windows Server 或 Linux 上）中创建 Service Fabric 群集。此外，SDK 中的开发环境与生产环境完全相同，都不涉及模拟器。换而言之，在本地开发群集上运行的对象会部署到其他环境中的同一群集。
 
-有关在本地创建群集的详细信息，请阅读[在 Windows Server](./service-fabric-deploy-anywhere.md)，或[通过 Azure 门户预览](./service-fabric-cluster-creation-via-portal.md)针对 Azure 创建群集。
+有关在本地创建群集的详细信息，请阅读[在 Windows Server](./service-fabric-deploy-anywhere.md)，或[通过 Azure 门户](./service-fabric-cluster-creation-via-portal.md)针对 Azure 创建群集。
 
 ![Service Fabric 平台][Image1]  
 

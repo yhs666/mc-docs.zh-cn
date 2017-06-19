@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
-ms.author: billmath
+ms.author: v-junlch
 wacn.date: 04/05/2017
 ---
 
@@ -86,7 +86,7 @@ wacn.date: 04/05/2017
 
 [Azure AD Connect 客户支持](https://manage.windowsazure.cn/?getsupport=true)
 
-- 使用此链接通过 Azure 门户预览获取支持。
+- 使用此链接通过 Azure 门户获取支持。
 
 <!---HONumber=Mooncake_0327_2017-->
 <!---Update_Description: wording update -->

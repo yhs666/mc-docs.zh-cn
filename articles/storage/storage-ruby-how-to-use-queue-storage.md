@@ -15,7 +15,7 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 wacn.date: 01/06/2017
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # 如何通过 Ruby 使用队列存储
@@ -55,7 +55,7 @@ Azure.config.storage_access_key = "<your Azure storage access key>"
 
 在 Azure 门户中，从经典或 Resource Manager 存储帐户获取这些值：
 
-1. 登录到 [Azure 门户预览](https://portal.azure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 导航到要使用的存储帐户。
 3. 在右侧的“设置”边栏选项卡中，单击“访问密钥”。
 4. 在显示的“访问密钥”边栏选项卡中，可看到访问密钥 1 和访问密钥 2。可以使用其中任意一个密钥。

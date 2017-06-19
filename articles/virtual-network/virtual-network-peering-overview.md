@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/17/2016
 wacn.date: 03/24/2017
-ms.author: narayan
+ms.author: v-dazen
 ---
 
 # 虚拟网络对等互连
@@ -85,7 +85,7 @@ VNet 对等互连是一项特权操作。它是 VirtualNetworks 命名空间下�
 ## <a name="next-steps"></a>后续步骤
 了解如何通过以下方式创建 VNet 对等互连：
 
-* [Azure 门户预览](./virtual-networks-create-vnetpeering-arm-portal.md)
+* [Azure 门户](./virtual-networks-create-vnetpeering-arm-portal.md)
 * [Azure PowerShell](./virtual-networks-create-vnetpeering-arm-ps.md)
 * [Azure Resource Manager 模板](./virtual-networks-create-vnetpeering-arm-template-click.md)
 

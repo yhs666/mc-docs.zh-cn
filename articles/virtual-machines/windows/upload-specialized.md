@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 wacn.date: 
-ms.author: cynthn
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
 ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
@@ -289,7 +289,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ## <a name="verify-that-the-vm-was-created"></a>验证是否已创建 VM
-应会在 [Azure 门户预览](https://portal.azure.cn)的“浏览” > “虚拟机”下看到新建的 VM，也可以使用以下 PowerShell 命令查看该 VM：
+应会在 [Azure 门户](https://portal.azure.cn)的“浏览” > “虚拟机”下看到新建的 VM，也可以使用以下 PowerShell 命令查看该 VM：
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $rgName

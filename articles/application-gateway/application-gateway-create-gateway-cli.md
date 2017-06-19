@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 wacn.date: 03/31/2017
-ms.author: gwallace
+ms.author: v-dazen
 ---
 
 # 使用 Azure CLI 2.0 创建应用程序网关
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./application-gateway-create-gateway-portal.md)
+>- [Azure 门户](./application-gateway-create-gateway-portal.md)
 >- [Azure Resource Manager PowerShell](./application-gateway-create-gateway-arm.md)
 >- [Azure 经典 PowerShell](./application-gateway-create-gateway.md)
 >- [Azure Resource Manager 模板](./application-gateway-create-gateway-arm-template.md)
@@ -48,7 +48,7 @@ Azure 应用程序网关是第 7 层负载均衡器。它在不同服务器之�
 
 ## 方案
 
-此方案介绍如何使用 Azure 门户预览创建应用程序网关。
+此方案介绍如何使用 Azure 门户创建应用程序网关。
 
 此方案将：
 

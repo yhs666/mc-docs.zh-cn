@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/17/2016
 wacn.date: 12/26/2016
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # SQL 数据库教程：创建 SQL 数据库用户帐户以访问和管理数据库

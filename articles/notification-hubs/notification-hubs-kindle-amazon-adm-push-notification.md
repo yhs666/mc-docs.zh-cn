@@ -14,7 +14,7 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 06/29/2016
 wacn.date: 08/23/2016
-ms.author: wesmc
+ms.author: v-junlch
 ---
 
 # 通知中心入门（Kindle 应用）
@@ -246,6 +246,7 @@ ms.author: wesmc
 
 8. 在 `OnCreate` 方法的末尾添加以下代码：
 
+    ```
     final ADM adm = new ADM(this);
     if (adm.getRegistrationId() == null)
     {
@@ -263,6 +264,8 @@ ms.author: wesmc
              }
            }.execute(null, null, null);
     }
+    ```
+
 ## 将 API 密钥添加到应用
 
 1. 在 Eclipse 中，在项目的目录资产中创建名为 **api\_key.txt** 的新文件。

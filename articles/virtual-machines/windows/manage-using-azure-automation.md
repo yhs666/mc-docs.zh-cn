@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2016
 wacn.date: 06/29/2016
-ms.author: jolevy
+ms.author: v-dazen
 ---
 
 #使用 Azure Automation 管理 Azure 虚拟机

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/03/2017
 wacn.date: 03/24/2017
-ms.author: ganesr;cherylmc
+ms.author: v-yiso
 ---
 
 # 使用 PowerShell 将 ExpressRoute 线路从经典部署模型移动到 Resource Manager 部署模型
@@ -48,14 +48,18 @@ ms.author: ganesr;cherylmc
 
 3. 为 Azure 和 ExpressRoute 导入 PowerShell 模块。
 
+    ```
     # Import the PowerShell modules for Azure and ExpressRoute
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+    ```
 
 4. 使用下面的 cmdlet 获取所有 ExpressRoute 线路的服务密钥。检索密钥后，请复制要移动到 Resource Manager 部署模型的线路的**服务密钥**。
 
+    ```
     # Get the service keys of all your ExpressRoute circuits
     Get-AzureDedicatedCircuit
+    ```
 
 ### 步骤 2：登录并创建资源组
 登录 Resource Manager 环境并创建新的资源组。
@@ -74,8 +78,10 @@ ms.author: ganesr;cherylmc
 
 3. 如果还没有资源组，请修改下面的片段，创建新的资源组。
 
+    ```
     #Create a new resource group if you don't already have one
     New-AzureRmResourceGroup -Name "DemoRG" -Location "chinaeast"
+    ```
 
 ### 步骤 3：将 ExpressRoute 线路转移到 Resource Manager 部署模型
 现在，可以将 ExpressRoute 线路从经典部署模型移动到 Resource Manager 部署模型。在继续下一步之前，请先参阅[将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型](./expressroute-move.md)中提供的信息。
@@ -114,7 +120,9 @@ Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -L
 
 4. 运行以下 cmdlet 获取 ExpressRoute 线路的详细信息。服务密钥必须已列出。
 
+    ```
     Get-AzureDedicatedCircuit
+    ```
 
 5. 现在，可以使用经典 VNet 的经典部署模型命令以及 Resource Manager VNet 的 Resource Manager 命令来管理 ExpressRoute 线路的链接。以下文章将引导你了解如何管理 ExpressRoute 线路的链接：
 

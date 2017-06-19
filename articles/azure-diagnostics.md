@@ -13,6 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/25/2016
+ms.author: v-junlch
+ms.topic: article
 wacn.date: 12/23/2016
 ---
 

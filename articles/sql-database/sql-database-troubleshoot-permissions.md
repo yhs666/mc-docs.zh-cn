@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2016
 wacn.date: 12/26/2016
-ms.author: v-shysun
+ms.author: v-johch
 ---
 
 # 如何在 Azure SQL 数据库中执行重置管理员密码等常见管理任务
@@ -29,7 +29,7 @@ ms.author: v-shysun
 
 ## 重置逻辑服务器的管理员密码
 
-- 在 [Azure 门户预览](https://portal.azure.cn)中，单击“SQL Server”，从列表中选择服务器，然后单击“重置密码”。
+- 在 [Azure 门户](https://portal.azure.cn)中，单击“SQL Server”，从列表中选择服务器，然后单击“重置密码”。
 
 ## 帮助确保只允许经过授权的 IP 地址访问服务器
 - 请参阅[如何：在 SQL 数据库上配置防火墙设置](./sql-database-configure-firewall-settings.md)。

@@ -15,7 +15,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 wacn.date: 
-ms.author: robmcm
+ms.author: v-dazen
 translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 18c30e40efa8a048220da4feba874d240b4ffbeb
@@ -44,7 +44,7 @@ ms.lasthandoff: 04/14/2017
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>创建虚拟机
-1. 登录 [Azure 门户预览](https://portal.azure.cn)。  
+1. 登录 [Azure 门户](https://portal.azure.cn)。  
 2. 依次单击“新建”和“计算”，然后在“特色应用”中单击“全部查看”。
 3. 单击“JDK”，然后在“JDK”窗格中单击“JDK 8”。  
    如果安装的是尚不能在 JDK 8 中运行的旧版应用程序，可选择支持 **JDK 6** 和 **JDK 7** 的虚拟机映像。
@@ -64,7 +64,7 @@ ms.lasthandoff: 04/14/2017
 10. 在“**摘要**”边栏选项卡中，单击“**确定**”。
 
 ## <a name="to-remotely-sign-in-to-your-virtual-machine"></a>远程登录到虚拟机的步骤
-1. 登录到 [Azure 门户预览](https://portal.azure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 单击“虚拟机(经典)”。 必要时，请单击服务类别下方左下角的“更多服务”。 “虚拟机(经典)”条目列在“计算”组中。
 3. 单击要登录到的虚拟机的名称。
 4. 启动虚拟机后，可使用窗格顶部的菜单进行连接。
@@ -90,7 +90,7 @@ Tomcat 运行后，可通过在虚拟机浏览器中输入 URL <http://localhost
 若要从外部计算机查看 Tomcat 的运行，则需要创建一个终结点并开放一个端口。
 
 ## <a name="to-create-an-endpoint-for-your-virtual-machine"></a>为虚拟机创建终结点
-1. 登录 [Azure 门户预览](https://portal.azure.cn)。
+1. 登录 [Azure 门户](https://portal.azure.cn)。
 2. 单击“虚拟机(经典)”。
 3. 单击正在运行 Java 应用程序服务器的虚拟机的名称。
 4. 单击“终结点” 。

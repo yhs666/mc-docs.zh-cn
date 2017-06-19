@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2015
 wacn.date: 09/26/2016
-ms.author: chrande
+ms.author: v-dazen
 ---
 
 # 在 Azure 应用服务中使用 WebJobs
@@ -25,7 +25,7 @@ ms.author: chrande
 
 使用 Visual Studio 中集成的工具，可以顺利地创建、部署和管理 Web 作业。你可以从模板创建 Web 作业，还可以发布和管理（运行/停止/监视/调试）这些作业。
 
-Azure 门户预览中的 Web 作业仪表板提供了强大的管理功能，可让你全面控制 Web 作业的执行，包括调用 Web 作业中的各个函数。该仪表板还会显示函数运行时和日志记录输出。
+Azure 门户中的 Web 作业仪表板提供了强大的管理功能，可让你全面控制 Web 作业的执行，包括调用 Web 作业中的各个函数。该仪表板还会显示函数运行时和日志记录输出。
 
 [!INCLUDE [app-service-blueprint-webjobs](../../includes/app-service-blueprint-webjobs.md)]
 

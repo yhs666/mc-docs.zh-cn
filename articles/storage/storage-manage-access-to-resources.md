@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.author: marsma
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: c6a433b7f011c902c99c88d607350c5e4ca8d331
@@ -38,13 +38,13 @@ ms.lasthandoff: 05/19/2017
 
 可以通过以下方式来设置容器权限：
 
-* [Azure 门户预览](https://portal.azure.cn)
+* [Azure 门户](https://portal.azure.cn)
 * [Azure PowerShell](storage-powershell-guide-full.md#how-to-manage-azure-blobs)
 * [Azure CLI 2.0](storage-azure-cli.md#create-and-manage-blobs)
 * 通过使用一个存储客户端库或 REST API 以编程方式设置
 
-### <a name="set-container-permissions-in-the-azure-portal-preview"></a>在 Azure 门户预览中设置容器权限
-若要在 [Azure 门户预览](https://portal.azure.cn)中设置容器权限，请按以下步骤操作：
+### <a name="set-container-permissions-in-the-azure-portal-preview"></a>在 Azure 门户中设置容器权限
+若要在 [Azure 门户](https://portal.azure.cn)中设置容器权限，请按以下步骤操作：
 
 1. 在门户中打开“存储帐户”边栏选项卡。 通过在主门户菜单边栏选项卡中选择“存储帐户”，可以查找存储帐户。
 1. 在“菜单”边栏选项卡的“Blob 服务”下，选择“容器”。

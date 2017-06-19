@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 wacn.date: 02/24/2017
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # 如何使用 Azure 移动应用的托管客户端
@@ -63,7 +63,7 @@ public class TodoItem
 
 [JsonPropertyAttribute][6] 用于定义客户端字段与表字段之间的 *PropertyName* 映射。
 
-若要了解如何在移动应用后端中创建表，请参阅 [.NET 服务器 SDK 主题][7]或 [Node.js 服务器 SDK 主题][8]。如果已在 Azure 门户预览中使用快速入门项目创建移动应用后端，也可以在 [Azure 门户预览]中使用“简易表”设置。
+若要了解如何在移动应用后端中创建表，请参阅 [.NET 服务器 SDK 主题][7]或 [Node.js 服务器 SDK 主题][8]。如果已在 Azure 门户中使用快速入门项目创建移动应用后端，也可以在 [Azure 门户]中使用“简易表”设置。
 
 ###如何安装托管的客户端 SDK 包
 
@@ -93,7 +93,7 @@ using Microsoft.WindowsAzure.MobileServices;
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-在上述代码中，请将 `MOBILE_APP_URL` 替换为移动应用后端的 URL，可以在 [Azure 门户预览]中移动应用后端的边栏选项卡内找到此 URL。MobileServiceClient 对象应为单一实例。
+在上述代码中，请将 `MOBILE_APP_URL` 替换为移动应用后端的 URL，可以在 [Azure 门户]中移动应用后端的边栏选项卡内找到此 URL。MobileServiceClient 对象应为单一实例。
 
 ## 使用表
 
@@ -643,7 +643,7 @@ InvokeApiAsync\(\) 方法将“/api/”预置到要调用的 API，除非该 API
 可以使用 InvokeApiAsync 调用任何 WebAPI，包括未使用 Azure 移动应用定义的那些 WebAPI。使用 InvokeApiAsync\(\) 时，会将相应的标头（包括身份验证标头）与请求一起发送。
 
 ## <a name="authentication"></a>对用户进行身份验证
-移动应用支持使用各种外部标识提供者对应用程序用户进行身份验证和授权，这些提供者包括：Facebook、Google、Microsoft 帐户、Twitter 和 Azure Active Directory。你可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。你还可以在服务器脚本中使用已经过身份验证的用户的标识来实施授权规则。有关详细信息，请参阅[向应用程序添加身份验证]教程。
+移动应用支持使用各种外部标识提供者对应用程序用户进行身份验证和授权，这些提供者包括：Microsoft 帐户和 Azure Active Directory。你可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。你还可以在服务器脚本中使用已经过身份验证的用户的标识来实施授权规则。有关详细信息，请参阅[向应用程序添加身份验证]教程。
 
 支持两种身份验证流： *客户端托管* 流和 *服务器托管* 流。服务器托管流依赖于提供者的 Web 身份验证界面，因此可提供最简便的身份验证体验。客户端托管流依赖于提供者和设备特定的 SDK，因此允许与设备特定的功能进行更深入的集成。
 
@@ -1110,7 +1110,7 @@ public async Task CallClientWithHandler()
 [UpdateAsync]: https://msdn.microsoft.com/zh-cn/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: http://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/zh-cn/library/azure/dn250579(v=azure.10).aspx
-[Azure 门户预览]: https://portal.azure.cn/
+[Azure 门户]: https://portal.azure.cn/
 [Azure 经典管理门户]: https://manage.windowsazure.cn/
 [EnableQueryAttribute]: https://msdn.microsoft.com/zh-cn/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/zh-cn/library/system.guid.newguid(v=vs.110).aspx

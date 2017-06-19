@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/02/2017
 wacn.date: 03/03/2017
-ms.author: chackdan
+ms.author: v-johch
 ---
 
 # 向在 Windows Server 上运行的独立 Service Fabric 群集添加或删除节点

@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 10/01/2016
 wacn.date: 11/21/2016
-ms.author: yuaxu
+ms.author: v-yiso
 ---
 
 #创建 Android 应用
@@ -23,7 +23,7 @@ ms.author: yuaxu
 
 ## 概述
 
-本教程说明如何使用 Azure 移动应用后端向 Android 移动应用添加基于云的后端服务。将创建一个新的移动应用后端以及一个简单的_待办事项列表_ Android 应用，此应用将应用数据存储在 Azure 中。
+本教程说明如何使用 Azure 移动应用后端向 Android 移动应用添加基于云的后端服务。将创建一个新的移动应用后端以及一个简单的 _待办事项列表_ Android 应用，此应用将应用数据存储在 Azure 中。
 
 只有在完成本教程后，才可以学习有关使用 Azure 应用服务中的移动应用功能的所有其他 Android 教程。
 

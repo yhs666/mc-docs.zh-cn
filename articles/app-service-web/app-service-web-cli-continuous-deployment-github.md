@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 wacn.date: 
-ms.author: cephalin
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: e187eb3d0197adebc2fd95a8c1af76669ad2ffa3
@@ -84,9 +84,9 @@ az group delete --name $webappname
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | 创建应用服务计划。 |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | 创建 Web 应用。 |
-| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config) | 将 Web 应用与 Git 或 Mercurial 存储库相关联。 |
-| [az appservice web browse](https://docs.microsoft.com/cli/azure/appservice/web#browse) | 在浏览器中打开 Web 应用。 |
+| [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#delete) | 创建 Web 应用。 |
+| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/webapp/source-control#config) | 将 Web 应用与 Git 或 Mercurial 存储库相关联。 |
+| [az appservice web browse](https://docs.microsoft.com/cli/azure/webapp#browse) | 在浏览器中打开 Web 应用。 |
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 wacn.date: 
-ms.author: dimakwan
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 85e8db9bf543927175e300e31d73d1bd0f059d25
@@ -111,7 +111,7 @@ info:    config mode command OK
 
 ### <a name="create-or-retrieve-your-resource-group"></a>创建或检索资源组
 
-若要创建 DocumentDB 帐户，首先需要有一个资源组。 如果已知道想要使用的资源组名称，请跳到 [步骤 2](#create-documentdb-account-cli)。 
+若要创建 DocumentDB 帐户，首先需要有一个资源组。 
 
 若要查看列有你当前所有的资源组的列表，请运行下列命令，并记下你想要使用的资源组名称： 
 

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 wacn.date: 01/19/2017
-ms.author: wesmc
+ms.author: v-junlch
 ---
 
 # 使用 PowerShell 部署和管理通知中心
@@ -53,8 +53,6 @@ Azure PowerShell 中的 PowerShell cmdlet 尚不支持管理 Azure 通知中心�
 
 下面说明如何在 PowerShell 脚本中实现这些步骤：
 
-powershell
-
 ```powershell
     try
     {
@@ -80,8 +78,6 @@ powershell
 
 可以使用 Azure PowerShell 随附的 [Get-AzureSBAuthorizationRule] cmdlet 来检索用于提供连接字符串的授权规则。我们将在 `$NamespaceManager` 变量中存储对 `NamespaceManager` 实例的引用。我们将使用 `$NamespaceManager` 设置通知中心。
 
-powershell
-
 ```powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
 # Create the NamespaceManager object to create the hub
@@ -106,8 +102,6 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 + 脚本代码段使用 `NamespaceManager` 对象来检查 `$Path` 标识的通知中心是否存在。
 
 + 如果不存在，脚本将使用 WNS 凭据创建 `NotificationHubDescription`，并将其传递给 `NamespaceManager` 类 `CreateNotificationHub` 方法。
-
-powershell
 
 ```powershell
 $Namespace = "<Enter your namespace>"

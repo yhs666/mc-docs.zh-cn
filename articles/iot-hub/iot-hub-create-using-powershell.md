@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2017
 wacn.date: 
-ms.author: dobett
+ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: a949f1bff396bc5d0d05b2297ca8f4103f49e638
+ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
+ms.openlocfilehash: 1c666b330cb4dfaf599d19b459b82e8233faf94a
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -36,14 +36,26 @@ ms.lasthandoff: 04/07/2017
 要完成本教程，需要具备以下先决条件：
 
 * 有效的 Azure 帐户。 <br/>如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
-* [Azure PowerShell 1.0][lnk-powershell-install] 或更高版本。
-* [Azure Resource Manager cmdlet][lnk-rm-install]。
+* [Azure PowerShell cmdlet][lnk-powershell-install]。
 
 ## <a name="connect-to-your-azure-subscription"></a>连接到 Azure 订阅
 在 PowerShell 命令提示符中，输入以下命令以登录你的 Azure 订阅：
 
 ```powershell
 Login-AzureRmAccount -Environment $(Get-AzureRmEnvironment -Name AzureChinaCloud)
+```
+
+如果你有多个 Azure 订阅，则访问 Azure 即有权访问与凭据关联的所有 Azure 订阅。 使用以下命令，列出可供使用的 Azure 订阅：
+
+```powershell
+Get-AzureRMSubscription
+```
+
+使用以下命令，选择想要用于运行命令以创建 IoT 中心的订阅。 可使用上一命令输出中的订阅名称或 ID：
+
+```powershell
+Select-AzureRMSubscription `
+    -SubscriptionName "{your subscription name}"
 ```
 
 ## <a name="create-resource-group"></a>创建资源组
@@ -113,14 +125,13 @@ Remove-AzureRmResourceGroup -Name MyIoTRG1
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [使用 IoT 网关 SDK 模拟设备][lnk-gateway]
+* [使用 IoT Edge 模拟设备][lnk-gateway]
 
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
-[lnk-powershell-install]: https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs
-[lnk-iothub-cmdlets]: https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.iothub/v1.3.0/azurerm.iothub
-[lnk-rm-install]: https://docs.microsoft.com/en-us/powershell/resourcemanager/
-[lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
+[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-iothub-cmdlets]: https://docs.microsoft.com/powershell/module/azurerm.iothub/
+[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md

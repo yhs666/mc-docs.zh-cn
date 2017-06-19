@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 wacn.date: 03/13/2017
-ms.author: dastrock
+ms.author: v-junlch
 ---
 
 # 将 Azure AD 集成到 Windows 桌面 WPF 应用中
@@ -61,7 +61,7 @@ ms.author: dastrock
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
 
-- 在 DirectorySearcher 项目中，打开 `app.config`。替换 `<appSettings>` 中的元素值，以反映你在 Azure 门户预览中输入的值。只要使用 ADAL，你的代码就会引用这些值。
+- 在 DirectorySearcher 项目中，打开 `app.config`。替换 `<appSettings>` 中的元素值，以反映你在 Azure 门户中输入的值。只要使用 ADAL，你的代码就会引用这些值。
   - `ida:Tenant` 是 Azure AD 租户的域，例如 contoso.partner.onmschina.cn
   - `ida:ClientId` 是从门户复制的应用程序 clientId。
   - `ida:RedirectUri` 是在门户中注册的 URL。

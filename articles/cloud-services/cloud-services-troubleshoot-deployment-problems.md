@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/30/2016
 wacn.date: 01/03/2017
-ms.author: v-six
+ms.author: v-yiso
 ---
 
 # 排查云服务部署问题

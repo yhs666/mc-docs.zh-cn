@@ -13,20 +13,20 @@ ms.service: sql-database
 ms.devlang: NA
 ms.date: 11/17/2016
 wacn.date: 12/19/2016
-ms.author: ninarn
+ms.author: v-johch
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ---
 
-# 使用 Azure 门户预览创建新的弹性数据库池
+# 使用 Azure 门户创建新的弹性数据库池
 
 > [!div class="op_single_selector"]
->- [Azure 门户预览](./sql-database-elastic-pool-create-portal.md)
+>- [Azure 门户](./sql-database-elastic-pool-create-portal.md)
 >- [PowerShell](./sql-database-elastic-pool-create-powershell.md)
 >- [C#](./sql-database-elastic-pool-create-csharp.md)
 
-本文介绍如何使用 [Azure 门户预览](https://portal.azure.cn/)创建可缩放的[弹性池](./sql-database-elastic-pool.md)。可以通过两种方法创建池。如果知道自己想要的池设置，可以从头开始创建，或者也可以根据服务的建议着手创建。SQL 数据库具有内置智能，可以根据数据库过去的使用遥测数据，推荐更加经济高效的池设置。
+本文介绍如何使用 [Azure 门户](https://portal.azure.cn/)创建可缩放的[弹性池](./sql-database-elastic-pool.md)。可以通过两种方法创建池。如果知道自己想要的池设置，可以从头开始创建，或者也可以根据服务的建议着手创建。SQL 数据库具有内置智能，可以根据数据库过去的使用遥测数据，推荐更加经济高效的池设置。
 
 可以将多个池添加到服务器，但不能将数据库从不同的服务器添加到同一个池中。若要创建池，需要在 V12 服务器中至少有一个数据库。如果你没有这样的数据库，请参阅[创建首个 Azure SQL 数据库](./sql-database-get-started.md)。可以创建只有一个数据库的池，但是池只有在具有多个数据库时才会经济高效。请参阅[弹性数据库池的价格和性能注意事项](./sql-database-elastic-pool-guidance.md)。
 
@@ -40,7 +40,7 @@ ms.tgt_pltfrm: NA
 > [!NOTE]
 > 还可通过在**应用商店**中搜索 **SQL 弹性池**，或单击“SQL 弹性池”浏览边栏选项卡中的“+添加”来创建新池。可通过此池预配工作流指定新的或现有的服务器。
 
-1. 在 [Azure 门户预览](http://portal.azure.cn/)左侧的列表下面，单击“更多服务”**>**“SQL 服务器”，然后单击包含要添加到池的数据库的服务器。
+1. 在 [Azure 门户](http://portal.azure.cn/)左侧的列表下面，单击“更多服务”**>**“SQL 服务器”，然后单击包含要添加到池的数据库的服务器。
 2. 单击“新建池”。
 
     ![将池添加到服务器](./media/sql-database-elastic-pool-create-portal/new-pool.png)

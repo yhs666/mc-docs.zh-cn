@@ -12,7 +12,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
-ms.author: cherylmc
+ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
 ms.openlocfilehash: 179bf42505bf0fa109b0bcbcaf544cdcb155590b
@@ -22,7 +22,7 @@ ms.lasthandoff: 04/25/2017
 ---
 
 # <a name="expressroute-technical-overview"></a>ExpressRoute 技术概述
-Microsoft Azure ExpressRoute 可让你通过连接服务提供商所提供的专用连接，将本地网络扩展到 Microsoft 云。 使用 ExpressRoute 可与 Microsoft Azure、Office 365 和 CRM Online 等 Microsoft 云服务建立连接。 
+Azure ExpressRoute 可让你通过连接服务提供商所提供的专用连接，将本地网络扩展到 Azure 云。使用 ExpressRoute 可与 Azure云服务建立连接。
 
 可以从任意位置之间的 (IP VPN) 网络、点到点以太网或在共置设施上通过连接服务提供商的虚拟交叉连接来建立这种连接。 ExpressRoute 连接不通过公共 Internet 。 与通过 Internet 的典型连接相比，ExpressRoute 连接提供更高的可靠性、更快的速度、更低的延迟和更高的安全性。 若要了解如何使用 ExpressRoute 将网络连接到 Microsoft，请参阅 [ExpressRoute 连接模型](./expressroute-connectivity-models.md)。
 
@@ -54,9 +54,7 @@ Microsoft 采用行业标准动态路由协议 (BGP)，在本地网络、Azure �
 
 通过 ExpressRoute 连接可访问以下服务：
 
-- Microsoft Azure 服务
-- Microsoft Office 365 服务
-- Microsoft CRM Online 服务 
+- Azure 服务
 
 你可以访问 [ExpressRoute 常见问题](./expressroute-faqs.md) 页，以获取通过 ExpressRoute 支持的服务的详细列表。
 
@@ -65,8 +63,6 @@ Microsoft 采用行业标准动态路由协议 (BGP)，在本地网络、Azure �
 
 例如，如果你在阿姆斯特丹通过 ExpressRoute 连接到 Microsoft，则就能够访问在欧洲北部和欧洲西部托管的所有 Microsoft 云服务。 有关地缘政治地区、关联的 Microsoft 云区域和对应的 ExpressRoute 对等位置的概述，请参阅 [ExpressRoute 合作伙伴和对等位置](./expressroute-locations.md)。
 
-### <a name="global-connectivity-with-expressroute-premium-add-on"></a>使用 ExpressRoute 高级版附加组件建立全球连接
-你可以启用 ExpressRoute 高级版附加功能，将连接扩展为跨越地缘政治边界。 例如，如果你在阿姆斯特丹通过 ExpressRoute 连接到 Microsoft，则就能够访问全球所有区域托管的所有 Microsoft 云服务（不包括国家/地区云）。 就像访问欧洲北部和西部区域一样，你还可以访问部署在南美洲或澳大利亚的服务。
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>丰富的连接合作伙伴生态系统
 ExpressRoute 的连接服务提供商和 SI 合作伙伴生态系统不断发展。 有关最新信息，请参阅 [ExpressRoute 提供商和位置](./expressroute-locations.md) 一文。

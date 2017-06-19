@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 wacn.date: 
-ms.author: sedusch
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
@@ -358,10 +358,10 @@ ms.lasthandoff: 05/12/2017
 
 另请阅读 [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) ，其中包含适用于 Linux 的所有 SAP 说明。
 
-你应当使用过 Azure 体系结构，并知道如何部署和操作 Azure 虚拟机。 有关详细信息，请参阅 <https://azure.microsoft.com/documentation/>
+你应当使用过 Azure 体系结构，并知道如何部署和操作 Azure 虚拟机。 有关详细信息，请参阅 <https://www.azure.cn/documentation/>
 
 > [!NOTE]
-> 我们**不**讨论 Azure 平台的 Azure 平台即服务 (PaaS) 产品。 本文讨论如何在 Azure 虚拟机 (IaaS) 中运行数据库管理系统 (DBMS)，就像在本地环境中运行 DBMS 一样。 这两种产品的数据库性能与功能差异极大，不应混用。 另请参阅：<https://azure.microsoft.com/services/sql-database/>
+> 我们**不**讨论 Azure 平台的 Azure 平台即服务 (PaaS) 产品。 本文讨论如何在 Azure 虚拟机 (IaaS) 中运行数据库管理系统 (DBMS)，就像在本地环境中运行 DBMS 一样。 这两种产品的数据库性能与功能差异极大，不应混用。 另请参阅：<https://www.azure.cn/home/features/sql-database/>
 >
 >
 
@@ -509,7 +509,7 @@ Azure 存储帐户不只是一种管理构造，还是一个具有各种限制�
 
 根据客户部署和测试，可在单个 Azure 标准存储帐户上预配大约 30 到 40 个包含数据库数据文件和日志文件的 VHD，并且性能仍在可接受的范围内。 如先前所述，Azure 高级存储帐户的限制很可能是它可持有的数据容量，而不是 IOPS。
 
-与本地 SAN 设备一样，共享需要一些监视，以便最终能够检测到 Azure 存储帐户上的瓶颈。 适用于 SAP 的 Azure 监视扩展和 Azure 门户预览等工具可用于检测可能提供次优 IO 性能的忙碌 Azure 存储帐户。  如果检测到这种情况，建议将忙碌的 VM 移到另一个 Azure 存储帐户。 有关如何激活 SAP 主机监视功能的详细信息，请参阅 [部署指南][deployment-guide]。
+与本地 SAN 设备一样，共享需要一些监视，以便最终能够检测到 Azure 存储帐户上的瓶颈。 适用于 SAP 的 Azure 监视扩展和 Azure 门户等工具可用于检测可能提供次优 IO 性能的忙碌 Azure 存储帐户。  如果检测到这种情况，建议将忙碌的 VM 移到另一个 Azure 存储帐户。 有关如何激活 SAP 主机监视功能的详细信息，请参阅 [部署指南][deployment-guide]。
 
 可以在此处找到另一篇概述 Azure 标准存储和 Azure 标准存储帐户最佳做法的文章：<https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx>
 
@@ -558,7 +558,7 @@ Azure 可用性集是 VM 或服务的逻辑分组，可确保 VM 和其他服务
 #### <a name="ip-addresses"></a>IP 地址
 强烈建议以弹性方式来设置 HA 配置的 VM。 除非使用静态 IP 地址，否则，在 Azure 中依赖 IP 地址来处理 HA 配置内的 HA 伙伴并不可靠。 Azure 中有两种“关闭”概念：
 
-* 通过 Azure 门户预览或 Azure PowerShell cmdlet Stop-AzureRmVM 来关闭：在这种情况下，会关闭虚拟机并解除分配。 将不再针对此 VM 向你的 Azure 帐户收费，因此，只有在使用存储时才会向你收费。 不过，如果网络接口的专用 IP 地址不是静态的，则会释放该 IP 地址，并且不保证在重新启动 VM 之后，会将旧的 IP 地址重新分配给网络接口。 如果通过 Azure 门户预览或通过调用 Stop-AzureRmVM 来执行关闭，将自动解除分配。 如果不希望解除计算机分配，请使用 Stop-AzureRmVM -StayProvisioned
+* 通过 Azure 门户或 Azure PowerShell cmdlet Stop-AzureRmVM 来关闭：在这种情况下，会关闭虚拟机并解除分配。 将不再针对此 VM 向你的 Azure 帐户收费，因此，只有在使用存储时才会向你收费。 不过，如果网络接口的专用 IP 地址不是静态的，则会释放该 IP 地址，并且不保证在重新启动 VM 之后，会将旧的 IP 地址重新分配给网络接口。 如果通过 Azure 门户或通过调用 Stop-AzureRmVM 来执行关闭，将自动解除分配。 如果不希望解除计算机分配，请使用 Stop-AzureRmVM -StayProvisioned
 * 如果从 OS 层关闭 VM，VM 将关闭并且不解除分配。 不过，在此情况下，仍会针对 VM 向你的 Azure 帐户收费，即使关闭也一样。 在这种情况下，仍会将 IP 地址分配给已停止的 VM。 从中关闭 VM 并不会自动强制解除分配。
 
 实际上，在跨界方案中，关闭和解除分配都默认表示从 VM 中解除 IP 地址的分配，即使 DHCP 设置中的本地策略不同也一样。
@@ -581,7 +581,7 @@ Azure 可用性集是 VM 或服务的逻辑分组，可确保 VM 和其他服务
 自从有了 Azure，你就可以轻松地将构建于 Windows Server 平台的现有 SQL Server 应用程序迁移到 Azure 虚拟机。 借助虚拟机中的 SQL Server，你可以轻松地将这些应用程序迁移到 Azure，从而减少部署、管理和维护企业级应用程序的总拥有成本。 借助 Azure 虚拟机中的 SQL Server，管理员和开发人员仍然可以使用在本地可用的相同开发和管理工具。
 
 > [!IMPORTANT]
-> 请注意，我们不讨论 Azure SQL 数据库，它是 Azure 平台的“平台即服务”产品。 本文讨论的是如何运行 SQL Server 产品（已知适用于 Azure 虚拟机中的本地部署），以及如何运用 Azure 的“服务架构”功能。 这两种产品的数据库性能与功能差异很大，不应混用。 另请参阅：<https://azure.microsoft.com/services/sql-database/>
+> 请注意，我们不讨论 Azure SQL 数据库，它是 Azure 平台的“平台即服务”产品。 本文讨论的是如何运行 SQL Server 产品（已知适用于 Azure 虚拟机中的本地部署），以及如何运用 Azure 的“服务架构”功能。 这两种产品的数据库性能与功能差异很大，不应混用。 另请参阅：<https://www.azure.cn/home/features/sql-database/>
 >
 >
 
@@ -596,7 +596,7 @@ Azure 可用性集是 VM 或服务的逻辑分组，可确保 VM 和其他服务
 * **SQL 功能支持**：Azure 虚拟机支持大部分 SQL Server 功能，但有一些例外。 **不支持使用共享磁盘的 SQL Server 故障转移群集**。  单个 Azure 区域内支持数据库镜像、AlwaysOn 可用性组、复制、日志传送和 Service Broker 等分布式技术。 不同的 Azure 区域之间也支持 SQL Server AlwaysOn，如此处所述：<https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>。  有关更多详细信息，请查看 [支持声明](https://support.microsoft.com/kb/956893) 。 [此文][virtual-machines-workload-template-sql-alwayson] 提供了有关如何部署 AlwaysOn 配置的示例。 此外，请查看 [此处][virtual-machines-sql-server-infrastructure-services]
 * **SQL 性能**：相比其他公有云虚拟化产品，我们确信 Azure 托管的虚拟机将运行得非常顺利，但个别结果可能不同。 请查看 [此文][virtual-machines-sql-server-performance-best-practices] 。
 * **使用来自 Azure 应用商店的映像**：部署新 Azure VM 的最快方式是使用来自 Azure 应用商店的映像。 Azure 应用商店提供包含 SQL Server 的映像。 已经安装 SQL Server 的映像不能立即用于 SAP NetWeaver 应用程序。 原因是这些映像安装了默认的 SQL Server 排序规则，而不是 SAP NetWeaver 系统所需的排序规则。 若要使用此类映像，请查看 [使用来自 Azure 应用商店的 SQL Server 映像][dbms-guide-5.6] 一章中所述的步骤。
-* 有关详细信息，请查看 [定价详细信息](https://azure.microsoft.com/pricing/) 。 [SQL Server 2012 Licensing Guide](https://download.microsoft.com/download/7/3/C/73CAD4E0-D0B5-4BE5-AB49-D5B886A5AE00/SQL_Server_2012_Licensing_Reference_Guide.pdf)（SQL Server 2012 许可指南）和 [SQL Server 2014 Licensing Guide](https://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf)（SQL Server 2014 许可指南）也是相当重要的资源。
+* 有关详细信息，请查看 [定价详细信息](https://www.azure.cn/pricing/) 。 [SQL Server 2012 Licensing Guide](https://download.microsoft.com/download/7/3/C/73CAD4E0-D0B5-4BE5-AB49-D5B886A5AE00/SQL_Server_2012_Licensing_Reference_Guide.pdf)（SQL Server 2012 许可指南）和 [SQL Server 2014 Licensing Guide](https://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf)（SQL Server 2014 许可指南）也是相当重要的资源。
 
 ### <a name="sql-server-configuration-guidelines-for-sap-related-sql-server-installations-in-azure-vms"></a>在 Azure VM 中安装 SAP 相关 SQL Server 的 SQL Server 配置准则
 #### <a name="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments"></a>适用于 SAP 相关 SQL Server 部署的 VM/VHD 结构建议
@@ -715,7 +715,7 @@ SQL Server 2014 引入了一项称为缓冲池扩展的新功能。 此功能使
 不过，请记住，吞吐量还取决于用于备份的 Azure 存储帐户位置。 最好是将存储帐户放置在 VM 运行区域以外的区域。 例如 在中国北部运行 VM 配置，但将用于备份的存储帐户放在中国北部。 当然，这会对备份吞吐量产生影响，而且不大可能生成每秒 150MB 的吞吐量，因为似乎只有在目标存储和 VM 运行于同一个区域数据中心时才会生成这么高的吞吐量。
 
 #### <a name="managing-backup-blobs"></a>管理备份 BLOB
-你需要自行管理备份。 经常执行事务日志备份预期会创建多个 Blob，因此，管理这些 Blob 很容易使 Azure 门户预览过载。 因此，建议使用 Azure 存储资源管理器。 有几个不错的工具可帮助管理 Azure 存储帐户
+你需要自行管理备份。 经常执行事务日志备份预期会创建多个 Blob，因此，管理这些 Blob 很容易使 Azure 门户过载。 因此，建议使用 Azure 存储资源管理器。 有几个不错的工具可帮助管理 Azure 存储帐户
 
 * 安装了 Azure SDK 的 Microsoft Visual Studio (<https://review.docs.azure.cn/downloads/>)
 * Azure 存储资源管理器 (<https://review.docs.azure.cn/downloads/>)
@@ -836,8 +836,6 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 * [1590719]
 * [1973241]
 
-有关在 SAP ASE 上运行 SAP Business Suite 的常规信息可在 [SCN](https://scn.sap.com/community/ase)
-
 ### <a name="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms"></a>在 Azure VM 中安装 SAP 相关 SAP ASE 的 SAP ASE 配置准则
 #### <a name="structure-of-the-sap-ase-deployment"></a>SAP ASE 部署的结构
 按照一般的说明，SAP ASE 可执行文件应该位于或安装在 VM 的基础 VHD 的系统驱动器（驱动器 c:\) 中。 通常情况下，SAP NetWeaver 工作负荷对大部分 SAP ASE 系统和工具数据库的使用率并不很高。 因此，系统和工具数据库（master、model、saptools、sybmgmtdb、sybsystemdb）也可以保留在驱动器 C:\ 上。
@@ -911,7 +909,7 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 
 在此情况下，你需要确保：
 
-* 在 Azure 门户预览中，针对用来与 ICM 通信的 TCP/IP 端口，向网络安全组添加入站规则
+* 在 Azure 门户中，针对用来与 ICM 通信的 TCP/IP 端口，向网络安全组添加入站规则
 * 针对用来与 ICM 通信的 TCP/IP 端口，向 Windows 防火墙配置添加入站规则
 
 针对自动导入的所有可用修正，建议定期应用适用于 SAP 版本的修正集合 SAP 说明：
@@ -989,8 +987,6 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 * [1590719]
 * [1973241]
 
-有关在 SAP ASE 上运行 SAP Business Suite 的常规信息可在 [SCN](https://scn.sap.com/community/ase)
-
 ### <a name="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms"></a>在 Azure VM 中安装 SAP 相关 SAP ASE 的 SAP ASE 配置准则
 #### <a name="structure-of-the-sap-ase-deployment"></a>SAP ASE 部署的结构
 按照一般的说明，SAP ASE 可执行文件应该位于或安装在 VM 的根文件系统 (/sybase ) 中。 通常情况下，SAP NetWeaver 工作负荷对大部分 SAP ASE 系统和工具数据库的使用率并不很高。 因此，系统和工具数据库（master、model、saptools、sybmgmtdb、sybsystemdb）也可以保留在根文件系统上。
@@ -1064,7 +1060,7 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 
 在此情况下，你需要确保：
 
-* 在 Azure 门户预览中，针对用来与 ICM 通信的 TCP/IP 端口，向网络安全组添加入站规则
+* 在 Azure 门户中，针对用来与 ICM 通信的 TCP/IP 端口，向网络安全组添加入站规则
 * 针对用来与 ICM 通信的 TCP/IP 端口，向 Windows 防火墙配置添加入站规则
 
 针对自动导入的所有可用修正，建议定期应用适用于 SAP 版本的修正集合 SAP 说明：

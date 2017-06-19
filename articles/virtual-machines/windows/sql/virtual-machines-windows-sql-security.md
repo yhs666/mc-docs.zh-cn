@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 wacn.date: 02/24/2017
-ms.author: jroth
+ms.author: v-dazen
 ---
 
 # Azure 虚拟机中 SQL Server 的安全注意事项

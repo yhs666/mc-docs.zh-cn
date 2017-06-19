@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 wacn.date: 
-ms.author: cherylmc
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: f018af3330c35f2b1af99d73490d375a5283cb24
@@ -108,11 +108,11 @@ Azure VPN 使用 PSK（预共享密钥）身份验证。 我们在创建 VPN 隧
 #### <a name="resource-manager-deployment-model"></a>Resource Manager 部署模型
 
 * PowerShell：使用“AddressPrefix”指定本地网络网关的流量。
-* Azure 门户预览：导航到“本地网关”>“配置”>“地址空间”。
+* Azure 门户：导航到“本地网关”>“配置”>“地址空间”。
 
 #### <a name="classic-deployment-model"></a>经典部署模型
 
-* Azure 门户预览：导航到“经典虚拟网络”>“VPN 连接”>“站点到站点 VPN 连接”>“本地站点名称”>“本地站点”>“客户端地址空间”。 
+* Azure 门户：导航到“经典虚拟网络”>“VPN 连接”>“站点到站点 VPN 连接”>“本地站点名称”>“本地站点”>“客户端地址空间”。 
 * 经典管理门户：请在“本地网络”下的“网络”页上为虚拟网络添加要通过网关发送的每个范围。 
 
 ### <a name="can-i-configure-forced-tunneling"></a>是否可以配置强制隧道？

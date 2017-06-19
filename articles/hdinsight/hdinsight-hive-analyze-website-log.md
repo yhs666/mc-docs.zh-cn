@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2016
 wacn.date: 03/10/2017
-ms.author: nitinme
+ms.author: v-dazen
 ---
 
 # 将 Hive 与基于 Windows 的 HDInsight 配合使用来分析网站的日志
@@ -40,7 +40,7 @@ ms.author: nitinme
 * 必须拥有 [Microsoft Hive ODBC 驱动程序](http://www.microsoft.com/download/details.aspx?id=40886)，才能将数据从 Hive 导入 Excel。
 
 ## 运行示例
-1. 在 [Azure 门户预览](https://portal.azure.cn/)中，从启动板（如果已将群集固定在此处），单击要在其中运行示例的群集磁贴。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，从启动板（如果已将群集固定在此处），单击要在其中运行示例的群集磁贴。
 2. 在群集边栏选项卡中的“快速链接”下，单击“群集仪表板”，然后在“群集仪表板”边栏选项卡上，单击“HDInsight 群集仪表板”。或者，也可以直接使用以下 URL 打开仪表板：
 
     ```

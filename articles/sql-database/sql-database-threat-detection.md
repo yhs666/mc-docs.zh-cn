@@ -16,7 +16,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 07/10/2016
 wacn.date: 03/24/2017
-ms.author: ronmat; ronitr
+ms.author: v-johch
 ---
 
 # SQL 数据库威胁检测
@@ -31,6 +31,6 @@ ms.author: ronmat; ronitr
 
 ## 后续步骤
 
-* 若要配置和管理威胁检测，请参阅[在 Azure 门户预览中配置和管理威胁检测](./sql-database-threat-detection-portal.md)。
+* 若要配置和管理威胁检测，请参阅[在 Azure 门户中配置和管理威胁检测](./sql-database-threat-detection-portal.md)。
 
 <!---HONumber=Mooncake_0320_2017-->

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 wacn.date: 05/31/2017
-ms.author: sewhee
+ms.author: v-dazen
 ---
 
 # 嵌套式流量管理器配置文件
@@ -98,7 +98,7 @@ ms.author: sewhee
 
 ### 如何配置嵌套式配置文件？
 
-可以使用 Azure Resource Manager、经典 Azure REST API、Azure PowerShell cmdlet 和跨平台 Azure CLI 命令配置嵌套式流量管理器配置文件。也支持通过新 Azure 门户预览配置这些配置文件。不支持使用经典管理门户。
+可以使用 Azure Resource Manager、经典 Azure REST API、Azure PowerShell cmdlet 和跨平台 Azure CLI 命令配置嵌套式流量管理器配置文件。也支持通过新 Azure 门户配置这些配置文件。不支持使用经典管理门户。
 
 ### 流量管理器支持多少层嵌套？
 

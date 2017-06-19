@@ -1,5 +1,5 @@
 ---
-title: "创建基于路径的规则 - Azure 应用程序网关 - Azure 门户预览 | Azure"
+title: "创建基于路径的规则 - Azure 应用程序网关 - Azure 门户 | Azure"
 description: "了解如何使用门户为应用程序网关创建基于路径的规则"
 services: application-gateway
 documentationcenter: na
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 wacn.date: 
-ms.author: gwallace
+ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 9de5dbb36c36e3b3934697e817011e3a5e5d19d1
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/12/2017
 # <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-portal"></a>使用门户为应用程序网关创建基于路径的规则
 
 > [!div class="op_single_selector"]
-> * [Azure 门户预览](application-gateway-create-url-route-portal.md)
+> * [Azure 门户](application-gateway-create-url-route-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
 
 借助基于 URL 路径的路由，可根据 Http 请求的 URL 路径来关联路由。 它将检查是否有路由连接到为应用程序网关中列出的 URL 配置的后端池，并将网络流量发送到定义的后端池。 基于 URL 的路由的常见用法是将不同内容类型的请求负载均衡到不同的后端服务器池。
@@ -47,7 +47,7 @@ ms.lasthandoff: 05/12/2017
 
 ### <a name="step-1"></a>步骤 1
 
-导航到 [Azure 门户预览](http://portal.azure.cn) ，然后选择现有的应用程序网关。 单击“规则” 
+导航到 [Azure 门户](http://portal.azure.cn) ，然后选择现有的应用程序网关。 单击“规则” 
 
 ![应用程序网关概述][1]
 

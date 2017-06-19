@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/13/2017
-ms.author: ryanwi
+ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
 ms.openlocfilehash: 0fbead014b90359c8c4489db95bd7a101e9b89f4
@@ -145,7 +145,7 @@ Service Fabric 提供了多种方法来编写和管理服务。 服务可以选�
 ### <a name="clusters-on-azure"></a>Azure 上的群集
 在 Azure 上运行 Service Fabric 群集可提供与其他 Azure 功能和服务的集成，这样可使群集的操作和管理更容易且更可靠。  群集是 Azure Resource Manager 资源，因此可以像 Azure 中的其他资源一样对群集进行建模。 Resource Manager 还可以轻松管理群集作为单个单元使用的所有资源。  Azure 上的群集与 Azure 诊断和 Log Analytics 集成。  群集 nodetype 是[虚拟机规模集](/virtual-machine-scale-sets/index)，因此自动缩放功能是内置的。
 
-可以通过 [Azure 门户预览](service-fabric-cluster-creation-via-portal.md)、[模板](service-fabric-cluster-creation-via-arm.md)或 [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md) 在 Azure 上创建群集。
+可以通过 [Azure 门户](service-fabric-cluster-creation-via-portal.md)、[模板](service-fabric-cluster-creation-via-arm.md)或 [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md) 在 Azure 上创建群集。
 
 如同在 Windows 上一样，可以使用 Linux 上的 Service Fabric 预览版在 Linux 上构建、部署和管理高可用性、高度可缩放的应用程序。 Service Fabric 框架（Reliable Services 和 Reliable Actors）除了可在 C# (.NET Core) 中使用以外，也能在 Java on Linux 中使用。  还可以使用任何语言或框架来构建[来宾可执行的服务](service-fabric-deploy-existing-app.md)。 此外，预览版还支持协调 Docker 容器。 Docker 容器可以运行使用 Service Fabric 框架的来宾可执行文件或本机 Service Fabric 服务。 有关详细信息，请参阅 [Linux 上的 Service Fabric](service-fabric-linux-overview.md)。
 
@@ -174,7 +174,7 @@ Service Fabric 提供一个安装包，用于在本地或者与任何云提供�
 ### <a name="cluster-upgrades"></a>群集升级
 我们会定期发布新版本的 Service Fabric 运行时。  在群集上执行运行时或结构升级，以便你始终运行[受支持的版本](service-fabric-support.md)。  除了结构升级，还可以更新群集配置（例如证书或应用程序端口）。
 
-Service Fabric 群集是你拥有的，但部分由 Azure 管理的资源。  我们负责修补基础 OS 并在群集上执行结构升级。  当我们发布新版本时，你可以将群集设置为接收自动结构升级，或选择所需的受支持结构版本。  可通过 Azure 门户预览或 Resource Manager 设置结构和配置升级。  有关详细信息，请参阅[升级 Service Fabric 群集](service-fabric-cluster-upgrade.md)。  
+Service Fabric 群集是你拥有的，但部分由 Azure 管理的资源。  我们负责修补基础 OS 并在群集上执行结构升级。  当我们发布新版本时，你可以将群集设置为接收自动结构升级，或选择所需的受支持结构版本。  可通过 Azure 门户或 Resource Manager 设置结构和配置升级。  有关详细信息，请参阅[升级 Service Fabric 群集](service-fabric-cluster-upgrade.md)。  
 
 独立群集是你完全拥有的资源。  你负责修补基础 OS 和启动结构升级。  如果群集可以连接到 [https://www.microsoft.com/download](https://www.microsoft.com/download)，可以将群集设置为自动下载并预配新的 Service Fabric 运行时包。  然后会启动升级。  如果群集无法访问 [https://www.microsoft.com/download](https://www.microsoft.com/download)，可以从连接 Internet 的计算机手动下载新的运行时包，然后启动升级。  有关详细信息，请参阅[升级独立 Service Fabric 群集](service-fabric-cluster-upgrade-windows-server.md)。
 

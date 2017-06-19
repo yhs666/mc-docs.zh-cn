@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 01/23/2017
 wacn.date: 03/10/2017
-ms.author: raynew
+ms.author: v-johch
 ---
 
 # 使用 Site Recovery 进行本地到本地 Hyper-V 复制的测试结果

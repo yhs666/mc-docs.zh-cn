@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 wacn.date: 03/20/2017
-ms.author: mikeray
+ms.author: v-dazen
 ---
 
 # Azure 虚拟机上的 SQL Server AlwaysOn 可用性组简介 #
@@ -37,7 +37,7 @@ Azure 虚拟机中可用性组的主要区别是，Azure 虚拟机需要[负载�
 
 [在 Azure VM 中手动配置 Always On 可用性组 - Resource Manager](../../virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 
-## 在 Azure 门户预览中手动创建可用性组
+## 在 Azure 门户中手动创建可用性组
 
 还可以自行创建虚拟机，不需模板。首先完成先决条件，然后创建可用性组。请参阅以下主题：
 
