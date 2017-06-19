@@ -11,7 +11,7 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-=article
+ms.topic: hero-article
 ms.date: 04/05/2017
 ms.author: v-johch
 ms.translationtype: Human Translation
