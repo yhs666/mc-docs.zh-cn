@@ -76,145 +76,145 @@ ms.lasthandoff: 04/28/2017
 
 2. 打开 SimpleEventProcessor.cs 文件，并将以下 `using` 语句添加到文件顶部。
 
-        ```csharp
-        using Microsoft.Azure.EventHubs;
-        using Microsoft.Azure.EventHubs.Processor;
-        using System.Threading.Tasks;
-        ```
+    ```csharp
+    using Microsoft.Azure.EventHubs;
+    using Microsoft.Azure.EventHubs.Processor;
+    using System.Threading.Tasks;
+    ```
 
 3. 实现 `IEventProcessor` 接口。 将 `SimpleEventProcessor` 类的全部内容替换为以下代码：
 
-        ```csharp
-        public class SimpleEventProcessor : IEventProcessor
+    ```csharp
+    public class SimpleEventProcessor : IEventProcessor
+    {
+        public Task CloseAsync(PartitionContext context, CloseReason reason)
         {
-            public Task CloseAsync(PartitionContext context, CloseReason reason)
-            {
-                Console.WriteLine($"Processor Shutting Down. Partition '{context.PartitionId}', Reason: '{reason}'.");
-                return Task.CompletedTask;
-            }
-
-            public Task OpenAsync(PartitionContext context)
-            {
-                Console.WriteLine($"SimpleEventProcessor initialized. Partition: '{context.PartitionId}'");
-                return Task.CompletedTask;
-            }
-
-            public Task ProcessErrorAsync(PartitionContext context, Exception error)
-            {
-                Console.WriteLine($"Error on Partition: {context.PartitionId}, Error: {error.Message}");
-                return Task.CompletedTask;
-            }
-
-            public Task ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
-            {
-                foreach (var eventData in messages)
-                {
-                    var data = Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
-                    Console.WriteLine($"Message received. Partition: '{context.PartitionId}', Data: '{data}'");
-                }
-
-                return context.CheckpointAsync();
-            }
+            Console.WriteLine($"Processor Shutting Down. Partition '{context.PartitionId}', Reason: '{reason}'.");
+            return Task.CompletedTask;
         }
-        ```
+
+        public Task OpenAsync(PartitionContext context)
+        {
+            Console.WriteLine($"SimpleEventProcessor initialized. Partition: '{context.PartitionId}'");
+            return Task.CompletedTask;
+        }
+
+        public Task ProcessErrorAsync(PartitionContext context, Exception error)
+        {
+            Console.WriteLine($"Error on Partition: {context.PartitionId}, Error: {error.Message}");
+            return Task.CompletedTask;
+        }
+
+        public Task ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+        {
+            foreach (var eventData in messages)
+            {
+                var data = Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
+                Console.WriteLine($"Message received. Partition: '{context.PartitionId}', Data: '{data}'");
+            }
+
+            return context.CheckpointAsync();
+        }
+    }
+    ```
 
 ## <a name="write-a-main-console-method-that-uses-the-simpleeventprocessor-class-to-receive-messages"></a>编写使用 SimpleEventProcessor 类接收消息的主控制台方法
 
 1. 在 Program.cs 文件顶部添加以下 `using` 语句。
 
-        ```csharp
-        using Microsoft.Azure.EventHubs;
-        using Microsoft.Azure.EventHubs.Processor;
-        using System.Threading.Tasks;
-        ```
+    ```csharp
+    using Microsoft.Azure.EventHubs;
+    using Microsoft.Azure.EventHubs.Processor;
+    using System.Threading.Tasks;
+    ```
 
 2. 向 `Program` 类添加常量作为事件中心连接字符串、事件中心名称、存储帐户容器名称、存储帐户名称和存储帐户密钥。 添加以下代码，并将占位符替换为其对应的值。
 
-        ```csharp
-        private const string EhConnectionString = "{Event Hubs connection string}";
-        private const string EhEntityPath = "{Event Hub path/name}";
-        private const string StorageContainerName = "{Storage account container name}";
-        private const string StorageAccountName = "{Storage account name}";
-        private const string StorageAccountKey = "{Storage account key}";
+    ```csharp
+    private const string EhConnectionString = "{Event Hubs connection string}";
+    private const string EhEntityPath = "{Event Hub path/name}";
+    private const string StorageContainerName = "{Storage account container name}";
+    private const string StorageAccountName = "{Storage account name}";
+    private const string StorageAccountKey = "{Storage account key}";
 
-        private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
-        ```
+    private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
+    ```
 
 3. 将名为 `MainAsync` 的新方法添加到 `Program` 类，如下所示：
 
-        ```csharp
-        private static async Task MainAsync(string[] args)
-        {
-            Console.WriteLine("Registering EventProcessor...");
+    ```csharp
+    private static async Task MainAsync(string[] args)
+    {
+        Console.WriteLine("Registering EventProcessor...");
 
-            var eventProcessorHost = new EventProcessorHost(
-                EhEntityPath,
-                PartitionReceiver.DefaultConsumerGroupName,
-                EhConnectionString,
-                StorageConnectionString,
-                StorageContainerName);
+        var eventProcessorHost = new EventProcessorHost(
+            EhEntityPath,
+            PartitionReceiver.DefaultConsumerGroupName,
+            EhConnectionString,
+            StorageConnectionString,
+            StorageContainerName);
 
-            // Registers the Event Processor Host and starts receiving messages
-            await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
+        // Registers the Event Processor Host and starts receiving messages
+        await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
-            Console.WriteLine("Receiving. Press ENTER to stop worker.");
-            Console.ReadLine();
+        Console.WriteLine("Receiving. Press ENTER to stop worker.");
+        Console.ReadLine();
 
-            // Disposes of the Event Processor Host
-            await eventProcessorHost.UnregisterEventProcessorAsync();
-        }
-        ```
+        // Disposes of the Event Processor Host
+        await eventProcessorHost.UnregisterEventProcessorAsync();
+    }
+    ```
 
 3. 在 `Main` 方法中添加以下代码行：
 
-        ```csharp
-        MainAsync(args).GetAwaiter().GetResult();
-        ```
+    ```csharp
+    MainAsync(args).GetAwaiter().GetResult();
+    ```
 
     Program.cs 文件的内容如下所示：
 
-        ```csharp
-        namespace SampleEphReceiver
+    ```csharp
+    namespace SampleEphReceiver
+    {
+
+        public class Program
         {
+            private const string EhConnectionString = "{Event Hubs connection string}";
+            private const string EhEntityPath = "{Event Hub path/name}";
+            private const string StorageContainerName = "{Storage account container name}";
+            private const string StorageAccountName = "{Storage account name}";
+            private const string StorageAccountKey = "{Storage account key}";
 
-            public class Program
+            private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
+
+            public static void Main(string[] args)
             {
-                private const string EhConnectionString = "{Event Hubs connection string}";
-                private const string EhEntityPath = "{Event Hub path/name}";
-                private const string StorageContainerName = "{Storage account container name}";
-                private const string StorageAccountName = "{Storage account name}";
-                private const string StorageAccountKey = "{Storage account key}";
+                MainAsync(args).GetAwaiter().GetResult();
+            }
 
-                private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
+            private static async Task MainAsync(string[] args)
+            {
+                Console.WriteLine("Registering EventProcessor...");
 
-                public static void Main(string[] args)
-                {
-                    MainAsync(args).GetAwaiter().GetResult();
-                }
+                var eventProcessorHost = new EventProcessorHost(
+                    EhEntityPath,
+                    PartitionReceiver.DefaultConsumerGroupName,
+                    EhConnectionString,
+                    StorageConnectionString,
+                    StorageContainerName);
 
-                private static async Task MainAsync(string[] args)
-                {
-                    Console.WriteLine("Registering EventProcessor...");
+                // Registers the Event Processor Host and starts receiving messages
+                await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
-                    var eventProcessorHost = new EventProcessorHost(
-                        EhEntityPath,
-                        PartitionReceiver.DefaultConsumerGroupName,
-                        EhConnectionString,
-                        StorageConnectionString,
-                        StorageContainerName);
+                Console.WriteLine("Receiving. Press ENTER to stop worker.");
+                Console.ReadLine();
 
-                    // Registers the Event Processor Host and starts receiving messages
-                    await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
-
-                    Console.WriteLine("Receiving. Press ENTER to stop worker.");
-                    Console.ReadLine();
-
-                    // Disposes of the Event Processor Host
-                    await eventProcessorHost.UnregisterEventProcessorAsync();
-                }
+                // Disposes of the Event Processor Host
+                await eventProcessorHost.UnregisterEventProcessorAsync();
             }
         }
-        ```
+    }
+    ```
 
 4. 运行程序，并确保没有任何错误。
 
