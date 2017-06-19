@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/24/2017
 wacn.date: 06/12/2017
-ms.author: markvi
+ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 2d5aa4a4a6148a669421fa6f44fa600eeb842798
