@@ -47,7 +47,7 @@ ms.lasthandoff: 05/26/2017
 本主题介绍以下错误代码：
 
 * [AccountNameInvalid](#accountnameinvalid)
-* [授权失败](#authorization-failed)
+* [AuthorizationFailed](#authorization-failed)
 * [BadRequest](#badrequest)
 * [DeploymentFailed](#deploymentfailed)
 * [DisallowedOperation](#disallowedoperation)
@@ -528,7 +528,7 @@ az policy definition show --name regionPolicyAssignment
 
 有关策略的详细信息，请参阅[使用策略来管理资源和控制访问](resource-manager-policy.md)。
 
-### <a name="authorization-failed"></a> 授权失败
+### <a name="authorization-failed"></a> AuthorizationFailed
 你可能在部署期间收到错误，因为尝试部署资源的帐户或服务主体没有执行这些操作的访问权限。 Azure Active Directory 可让你或你的系统管理员非常精确地控制哪些标识可以访问哪些资源。 例如，如果你的帐户已分配到“读取者”角色，则无法创建资源。 在此情况下，将会出现一条错误消息，指出授权失败。
 
 有关基于角色的访问控制的详细信息，请参阅 [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)（Azure 基于角色的访问控制）。
@@ -588,7 +588,7 @@ az policy definition show --name regionPolicyAssignment
             }
         }
     }
-        ```
+    ```
 
 ### Create a troubleshooting template
 In some cases, the easiest way to troubleshoot your template is to test parts of it. You can create a simplified template that enables you to focus on the part that you believe is causing the error. For example, suppose you are receiving an error when referencing a resource. Rather than dealing with an entire template, create a template that returns the part that may be causing your problem. It can help you determine whether you are passing in the right parameters, using template functions correctly, and getting the resource you expect.
