@@ -7,6 +7,7 @@ ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: eaa3109e8be29886ab304d44fd73b1cad6e55d7d
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/26/2017
+ms.service: service-bus-relay
 
 ---
 # <a name="service-bus-relay-documentation"></a>服务总线中继文档
