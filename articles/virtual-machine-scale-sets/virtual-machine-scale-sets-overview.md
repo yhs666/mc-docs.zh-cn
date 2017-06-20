@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
-wacn.date: 
+origin.date: 03/10/2017
+ms.date: 05/02/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation

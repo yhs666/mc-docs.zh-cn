@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-wacn.date: 02/21/2017
+origin.date: 10/01/2016
+ms.date: 02/21/2017
 ms.author: v-yiso
 ---
 

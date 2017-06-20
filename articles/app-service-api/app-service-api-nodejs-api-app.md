@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: get-started-article
-ms.date: 05/26/2016
-wacn.date: 03/24/2017
+origin.date: 05/26/2016
+ms.date: 03/24/2017
 ms.author: v-dazen
 ---
 

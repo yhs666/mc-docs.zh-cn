@@ -12,9 +12,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+origin.date: 10/31/2016
 ms.author: v-yeche
-wacn.date: 
+ms.date: 04/24/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
 ms.openlocfilehash: 53315bc2be93dc3a03f5177c8ce85d4efb519934

@@ -13,8 +13,8 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/02/2016
-wacn.date: 
+origin.date: 02/02/2016
+ms.date: 05/02/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation

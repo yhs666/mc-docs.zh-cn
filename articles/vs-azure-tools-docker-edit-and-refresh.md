@@ -8,12 +8,12 @@ manager: douge
 editor: ''
 
 ms.service: multiple
-ms.date: 07/22/2016
+origin.date: 07/22/2016
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.author: v-junlch
 ms.topic: article
-wacn.date: 09/19/2016
+ms.date: 09/19/2016
 ---
 
 # 在本地 Docker 容器中调试应用

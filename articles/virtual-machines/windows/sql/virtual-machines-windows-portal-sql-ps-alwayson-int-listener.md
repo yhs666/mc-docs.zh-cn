@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/28/2016
-wacn.date: 02/20/2017
+origin.date: 12/28/2016
+ms.date: 02/20/2017
 ms.author: v-dazen
 ---
 

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/04/2016
-wacn.date: 01/11/2017
+origin.date: 12/04/2016
+ms.date: 01/11/2017
 ms.author: v-johch
 redirect_url: site-recovery-support-matrix-to-azure
 ---

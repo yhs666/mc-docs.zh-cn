@@ -13,8 +13,8 @@ ms.devlang: multiple
 ms.topic: release-notes
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2017
-wacn.date: 03/30/2017
+origin.date: 01/18/2017
+ms.date: 03/30/2017
 ms.author: v-junlch
 ---
 

@@ -12,9 +12,9 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/18/2017
+origin.date: 01/18/2017
 ms.author: v-yiso
-wacn.date: 03/20/2017
+ms.date: 03/20/2017
 ---
 
 # 使用 Azure Resource Manager 模板创建包含主题和订阅的服务总线命名空间

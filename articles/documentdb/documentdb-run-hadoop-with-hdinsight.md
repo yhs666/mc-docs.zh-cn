@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 09/20/2016
+origin.date: 09/20/2016
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-wacn.date: 
+ms.date: 05/31/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: ebddfac026b0949c1ee863398fe5b7ee74be209d

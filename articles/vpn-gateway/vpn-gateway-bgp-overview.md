@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/12/2017
-wacn.date: 03/01/2017
+origin.date: 01/12/2017
+ms.date: 03/01/2017
 ms.author: v-dazen
 ---
 

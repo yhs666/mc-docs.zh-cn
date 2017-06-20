@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/21/2017
-wacn.date: 
+origin.date: 04/21/2017
+ms.date: 06/12/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation

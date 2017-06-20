@@ -13,8 +13,8 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 11/16/2016
-wacn.date: 
+origin.date: 11/16/2016
+ms.date: 05/31/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation

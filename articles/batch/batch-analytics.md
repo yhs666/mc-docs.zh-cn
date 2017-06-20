@@ -1,7 +1,7 @@
 ---
 title: "批处理分析 - Azure | Microsoft Docs"
 ms.custom: 
-ms.date: 2017-02-01
+origin.date: 2017-02-01
 ms.prod: azure
 ms.reviewer: 
 ms.service: batch
@@ -13,7 +13,7 @@ caps.latest.revision: 7
 author: tamram
 ms.author: v-junlch
 manager: timlt
-wacn.date: 
+ms.date: 05/15/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3ff18e6f95d8bbc27348658bc5fce50c3320cf0a
 ms.openlocfilehash: 05d9916b043d6a66a920025cfff1141c34e47e0e

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+origin.date: 04/03/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
@@ -20,7 +20,7 @@ ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 554e5d29da38ab8d91fa19458c008da37b7a755e
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/12/2017
-wacn.date: 06/12/2017
+ms.date: 05/22/2017
 
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>将连接器与 Azure AD Connect Sync Service Manager 配合使用

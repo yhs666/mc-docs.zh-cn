@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2017
+origin.date: 04/07/2017
 ms.author: v-junlch
 ms.custom: aaddev
-wacn.date: 
+ms.date: 06/12/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: f41fc14cb87cf6c1828987421133a5cca09da4e1

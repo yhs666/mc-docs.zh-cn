@@ -4,7 +4,7 @@ description: "大致了解 Azure 标识解决方案的术语、概念和建议�
 keywords: 
 author: jeffgilb
 manager: femila
-ms.date: 5/12/2017
+origin.date: 5/12/2017
 ms.topic: article
 ms.prod: 
 ms.service: azure
@@ -12,7 +12,7 @@ ms.technology:
 ms.assetid: 
 ms.reviewer: jsnow
 ms.custom: it-pro
-wacn.date: 
+ms.date: 06/12/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 1c5347bdcac1a9e0bcdee87e0c67b88257b0b453

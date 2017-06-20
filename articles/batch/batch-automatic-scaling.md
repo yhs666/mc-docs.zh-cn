@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 04/03/2017
+origin.date: 04/03/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-wacn.date: 
+ms.date: 05/15/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3ff18e6f95d8bbc27348658bc5fce50c3320cf0a
 ms.openlocfilehash: 511bddb240f030897db00964b70fcec1f80b8435

@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/08/2016
-wacn.date: 
+origin.date: 11/08/2016
+ms.date: 05/22/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation

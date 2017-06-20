@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
-wacn.date: 02/13/2017
+origin.date: 01/07/2017
+ms.date: 02/13/2017
 ms.author: v-junlch
 ---
 

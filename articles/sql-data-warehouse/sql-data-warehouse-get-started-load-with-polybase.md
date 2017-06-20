@@ -12,8 +12,8 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 03/01/2017
-wacn.date: 
+origin.date: 03/01/2017
+ms.date: 04/24/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9

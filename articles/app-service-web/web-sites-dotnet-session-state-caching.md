@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 06/27/2016
-wacn.date: 
+origin.date: 06/27/2016
+ms.date: 12/12/2016
 ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577

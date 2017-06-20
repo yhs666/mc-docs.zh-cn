@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
+origin.date: 10/07/2016
 ms.author: v-yiso
-wacn.date: 01/04/2017
+ms.date: 01/04/2017
 ---
 
 # 服务总线消息传送示例

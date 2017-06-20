@@ -12,9 +12,9 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+origin.date: 12/07/2016
 ms.author: v-yiso
-wacn.date: 03/24/2017
+ms.date: 03/24/2017
 ---
 
 # 如何配置云服务

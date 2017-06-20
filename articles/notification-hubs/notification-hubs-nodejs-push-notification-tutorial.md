@@ -14,8 +14,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/25/2016
-wacn.date: 12/13/2016
+origin.date: 10/25/2016
+ms.date: 12/13/2016
 ms.author: v-junlch
 ---
 

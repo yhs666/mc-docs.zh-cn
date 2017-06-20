@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+origin.date: 04/26/2017
 ms.author: v-junlch
 ms.custom: end-user
 ms.translationtype: Human Translation
@@ -20,7 +20,7 @@ ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 7e4c83ab3ac375267e8f4a87dab3c4635656cb60
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/26/2017
-wacn.date: 06/12/2017
+ms.date: 06/12/2017
 
 ---
 # <a name="help-i-forgot-my-password"></a>帮助 我忘记了密码

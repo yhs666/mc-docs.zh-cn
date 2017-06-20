@@ -13,8 +13,8 @@ ms.workload: web
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 04/10/2017
-wacn.date: 
+origin.date: 04/10/2017
+ms.date: 05/02/2017
 ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac

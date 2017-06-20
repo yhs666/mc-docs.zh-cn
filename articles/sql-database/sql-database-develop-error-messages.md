@@ -13,8 +13,8 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
-wacn.date: 12/19/2016
+origin.date: 07/12/2016
+ms.date: 06/15/2017
 ms.author: v-johch
 ---
 

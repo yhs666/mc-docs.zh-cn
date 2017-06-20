@@ -12,9 +12,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/03/2016
+origin.date: 10/03/2016
 ms.author: v-junlch
-wacn.date: 01/19/2017
+ms.date: 01/19/2017
 ---
 
 #Azure 通知中心 - 诊断指南

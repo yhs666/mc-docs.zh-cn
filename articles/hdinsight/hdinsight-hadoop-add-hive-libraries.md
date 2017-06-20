@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
-wacn.date: 
+origin.date: 04/14/2017
+ms.date: 05/08/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: Human Translation

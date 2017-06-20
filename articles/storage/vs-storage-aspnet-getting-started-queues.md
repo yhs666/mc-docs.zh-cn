@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 12/23/2016
-wacn.date: 03/02/2017
+origin.date: 12/23/2016
+ms.date: 03/02/2017
 ms.author: v-johch
 ---
 

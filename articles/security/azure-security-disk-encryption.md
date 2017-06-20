@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
-wacn.date: 06/15/2017
+origin.date: 04/07/2017
+ms.date: 06/15/2017
 ms.author: kakhan
 ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
 ms.openlocfilehash: d2887e255e59c164bb6d733988053f514a118c7b

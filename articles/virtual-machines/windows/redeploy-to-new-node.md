@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/16/2016
-wacn.date: 01/20/2017
+origin.date: 12/16/2016
+ms.date: 01/20/2017
 ms.author: v-dazen
 ---
 

@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/13/2017
+origin.date: 01/13/2017
 ms.author: v-yiso
-wacn.date: 03/20/2017
+ms.date: 03/20/2017
 ---
 
 # 使用 AMQP 1.0 通过 .NET 使用服务总线

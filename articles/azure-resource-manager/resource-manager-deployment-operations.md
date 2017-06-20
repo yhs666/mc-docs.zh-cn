@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
-ms.date: 01/13/2017
-wacn.date: 03/31/2017
+origin.date: 01/13/2017
+ms.date: 03/31/2017
 ms.author: v-yeche
 ---
 
