@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
-wacn.date: 02/24/2017
+origin.date: 01/05/2017
+ms.date: 02/24/2017
 ms.author: v-johch
 ---
 

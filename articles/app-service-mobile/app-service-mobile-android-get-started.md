@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 10/01/2016
-wacn.date: 11/21/2016
+origin.date: 10/01/2016
+ms.date: 11/21/2016
 ms.author: v-yiso
 ---
 

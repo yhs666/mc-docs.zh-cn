@@ -5,8 +5,8 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: v-junlch
 manager: mbaldwin
-ms.date: 05/10/2017
-wacn.date: 
+origin.date: 05/10/2017
+ms.date: 06/12/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: 278e56ab12f360d4fbc9a8c7deb9b85577eb1d18

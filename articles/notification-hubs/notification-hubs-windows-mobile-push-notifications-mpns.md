@@ -13,9 +13,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/03/2016
+origin.date: 10/03/2016
 ms.author: v-junlch
-wacn.date: 11/22/2016
+ms.date: 11/22/2016
 ---
 
 # 在 Windows Phone 上借助 Azure 通知中心发送推送通知

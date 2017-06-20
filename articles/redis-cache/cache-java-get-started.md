@@ -13,8 +13,8 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 04/13/2017
-wacn.date: 05/31/2017
+origin.date: 04/13/2017
+ms.date: 05/31/2017
 ms.author: v-dazen
 ---
 

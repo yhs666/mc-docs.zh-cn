@@ -12,8 +12,8 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/10/2017
-wacn.date: 03/28/2017
+origin.date: 02/10/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 ---
 

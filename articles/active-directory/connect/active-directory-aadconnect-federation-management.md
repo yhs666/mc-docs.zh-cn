@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2016
+origin.date: 04/04/2016
 ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 0e55b5f8ca4618dac99a9da682693aed8664bab7
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/12/2017
-wacn.date: 06/12/2017
+ms.date: 05/22/2017
 
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自定义 Active Directory 联合身份验证服务

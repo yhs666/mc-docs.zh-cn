@@ -14,9 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+origin.date: 10/31/2016
 ms.author: v-junlch
-wacn.date: 12/09/2016
+ms.date: 12/09/2016
 ---
 
 # 更改 Office 365 信赖方信任的签名哈希算法

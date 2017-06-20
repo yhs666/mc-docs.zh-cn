@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+origin.date: 02/22/2017
 ms.author: v-junlch
-wacn.date: 04/05/2017
+ms.date: 04/05/2017
 ---
 
 # 有关 Azure Active Directory Connect 的常见问题

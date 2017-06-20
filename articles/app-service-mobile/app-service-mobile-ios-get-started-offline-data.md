@@ -12,8 +12,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-wacn.date: 03/20/2017
+origin.date: 10/01/2016
+ms.date: 03/20/2017
 ms.author: v-yiso
 ---
 

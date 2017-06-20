@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/28/2015
-wacn.date: 01/03/2017
+origin.date: 09/28/2015
+ms.date: 01/03/2017
 ms.author: v-junlch
 ---
 

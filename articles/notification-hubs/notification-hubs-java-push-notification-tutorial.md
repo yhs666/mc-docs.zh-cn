@@ -12,8 +12,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: java
 ms.devlang: java
 ms.topic: article
-ms.date: 06/29/2016
-wacn.date: 08/23/2016
+origin.date: 06/29/2016
+ms.date: 08/23/2016
 ms.author: v-junlch
 ---
 

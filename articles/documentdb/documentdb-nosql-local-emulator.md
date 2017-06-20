@@ -13,9 +13,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/10/2017
+origin.date: 05/10/2017
 ms.author: v-junlch
-wacn.date: 
+ms.date: 05/31/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 80b1702e78c3ee594231b8d3a3d3d41b0b40b7d2

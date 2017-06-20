@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/12/2017
+origin.date: 01/12/2017
 ms.author: v-yiso
-wacn.date: 03/24/2017
+ms.date: 03/24/2017
 ---
 
 # 云服务的大小

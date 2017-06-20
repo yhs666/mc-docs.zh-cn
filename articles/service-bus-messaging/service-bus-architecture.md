@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+origin.date: 11/30/2016
 ms.author: v-yiso
-wacn.date: 02/20/2017
+ms.date: 05/22/2017
 ---
 
 # 服务总线体系结构

@@ -12,8 +12,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: python
 ms.devlang: php
 ms.topic: article
-ms.date: 06/29/2016
-wacn.date: 01/19/2017
+origin.date: 06/29/2016
+ms.date: 01/19/2017
 ms.author: v-junlch
 ---
 

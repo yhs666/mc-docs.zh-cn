@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2017
-wacn.date: 
+origin.date: 03/14/2017
+ms.date: 05/31/2017
 ms.author: v-junlch
 redirect_url: https://aka.ms/documentdb
 ROBOTS: NOINDEX, NOFOLLOW

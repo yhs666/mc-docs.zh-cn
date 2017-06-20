@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/01/2016
-wacn.date: 10/25/2016
+origin.date: 09/01/2016
+ms.date: 10/25/2016
 ms.author: v-junlch
 ---
 

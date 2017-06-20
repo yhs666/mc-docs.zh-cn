@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/05/2015
-wacn.date: 01/21/2016
+origin.date: 06/05/2015
+ms.date: 01/21/2016
 ms.author: v-junlch
 ---
 

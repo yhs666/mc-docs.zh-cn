@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+origin.date: 04/21/2017
 ms.author: v-junlch
-wacn.date: 
+ms.date: 06/12/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: c258b00bc7641714a5d80e7a3f524e1b5cc36856

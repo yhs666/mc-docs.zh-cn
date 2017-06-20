@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+origin.date: 01/23/2017
 ms.author: v-yiso
-wacn.date: 03/03/2017
+ms.date: 03/03/2017
 ---
 
 # 对 Azure 活动日志警报调用 webhook

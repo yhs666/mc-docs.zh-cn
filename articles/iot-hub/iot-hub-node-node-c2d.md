@@ -13,8 +13,8 @@ ms.devlang: javascript
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2017
-wacn.date: 04/24/2017
+origin.date: 03/16/2017
+ms.date: 04/24/2017
 ms.author: v-yiso
 ---
 

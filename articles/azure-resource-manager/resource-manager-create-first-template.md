@@ -11,8 +11,8 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/18/2017
-wacn.date: 
+origin.date: 04/18/2017
+ms.date: 06/05/2017
 ms.topic: get-started-article
 ms.author: v-yeche
 ms.translationtype: Human Translation

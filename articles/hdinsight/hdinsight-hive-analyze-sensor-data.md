@@ -13,8 +13,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
-wacn.date: 
+origin.date: 04/14/2017
+ms.date: 06/05/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation

@@ -12,8 +12,8 @@ editor: ''
 ms.service: multiple
 ms.topic: article
 ms.author: v-dazen
+origin.date: 06/13/2017
 ms.date: 06/13/2017
-wacn.date: 06/13/2017
 ---
 
 # 参考

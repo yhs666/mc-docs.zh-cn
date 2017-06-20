@@ -13,8 +13,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
-wacn.date: 02/10/2017
+origin.date: 08/22/2016
+ms.date: 02/10/2017
 ms.author: v-yeche
 ---
 

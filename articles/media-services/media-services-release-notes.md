@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
-wacn.date: 04/27/2017
+origin.date: 03/02/2017
+ms.date: 06/15/2017
 ms.author: v-johch
 ---
 

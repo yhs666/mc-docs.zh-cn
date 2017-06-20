@@ -12,8 +12,8 @@ ms.workload: identity
 ms.topic: article
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
-ms.date: 02/20/2016
-wacn.date: 07/26/2016
+origin.date: 02/20/2016
+ms.date: 07/26/2016
 ms.author: v-junlch
 ---
 
