@@ -7,7 +7,7 @@ metadata:
   services: virtual-machines\linux
   author: bbetstcw
   manager: carolz
-  ms.service: virtual-machines\linux
+  ms.service: virtual-machines-linux
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
