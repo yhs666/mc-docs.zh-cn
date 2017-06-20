@@ -885,7 +885,7 @@ reboot
 
     ![openSUSE 13.2 安装](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
-3. 遵循 [为 Azure 准备 SLES 或 openSUSE 虚拟机](../virtual-machines/virtual-machines-linux-suse-create-upload-vhd.md#prepare-opensuse-131)中的说明准备 VM，以上传到 Azure。 不要运行最后一步（解除配置 VM）。
+3. 遵循 [为 Azure 准备 SLES 或 openSUSE 虚拟机](../virtual-machines/linux/suse-create-upload-vhd.md#prepare-opensuse-131)中的说明准备 VM，以上传到 Azure。 不要运行最后一步（解除配置 VM）。
 
 执行以下步骤，配置加密以与 Azure 一起工作：
 1. 编辑 /etc/dracut.conf 并添加以下行：
@@ -971,7 +971,7 @@ reboot
 
     ![CentOS 7 安装](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
-5. 通过 [为 Azure 准备基于 CentOS 的虚拟机](../virtual-machines/virtual-machines-linux-create-upload-centos.md#centos-70)中的“CentOS 7.0+”说明准备 VM 以上传到 Azure。 不要运行最后一步（解除配置 VM）。
+5. 通过 [为 Azure 准备基于 CentOS 的虚拟机](../virtual-machines/linux/create-upload-centos.md#centos-70)中的“CentOS 7.0+”说明准备 VM 以上传到 Azure。 不要运行最后一步（解除配置 VM）。
 
 6. 现在解除配置 VM，并[上传 VHD](#upload-encrypted-vhd-to-an-azure-storage-account) 到 Azure。
 
