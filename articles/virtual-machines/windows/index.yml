@@ -5,9 +5,9 @@ metadata:
   title: Azure Windows 虚拟机文档 - 教程和 API 参考
   meta.description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
   services: virtual-machines\windows
-  author: apexprodleads
+  author: bbetstcw
   manager: carolz
-  ms.service: virtual-machines\windows
+  ms.service: virtual-machines-windows
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page

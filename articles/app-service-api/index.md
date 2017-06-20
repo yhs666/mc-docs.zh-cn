@@ -6,7 +6,7 @@ author: carolz
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: app-service\api
+ms.service: app-service-api
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page

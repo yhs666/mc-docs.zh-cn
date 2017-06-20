@@ -8,8 +8,8 @@
 
 3. 重新运行 Windows 应用商店应用，在“插入 TodoItem”中键入文本，然后单击“保存”。
 
-       请注意，完成插入后，Windows Store 和 Windows Phone 应用会从 WNS 收到一条推送通知。即使在此应用未运行时，也在 Windows Phone 上显示此通知。
+    请注意，完成插入后，Windows Store 和 Windows Phone 应用会从 WNS 收到一条推送通知。即使在此应用未运行时，也在 Windows Phone 上显示此通知。
 
-       ![](./media/app-service-mobile-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
+    ![](./media/app-service-mobile-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
 
 <!---HONumber=Mooncake_0919_2016-->

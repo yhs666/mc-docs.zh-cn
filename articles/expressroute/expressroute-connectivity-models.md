@@ -7,6 +7,7 @@ author: cherylmc
 manager: timlt
 editor: ''
 
+ms.service: expressroute
 ms.assetid: 'ms.service: expressroute'
 ms.devlang: na
 ms.topic: get-started-article
