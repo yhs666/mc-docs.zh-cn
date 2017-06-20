@@ -73,6 +73,6 @@ Azure 门户使用远程桌面扩展方法，即使在部署应用程序之后�
 
 ## <a name="additional-resources"></a>其他资源
 
-[如何配置云服务](./cloud-services-how-to-configure.md)
-[云服务常见问题 - 远程桌面](./cloud-services-faq.md#remote-desktop)
+ - [如何配置云服务](./cloud-services-how-to-configure.md)
+ - [云服务常见问题 - 远程桌面](./cloud-services-faq.md#remote-desktop)
 
