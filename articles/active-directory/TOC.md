@@ -3,7 +3,6 @@
 ## [选择版本](./active-directory-editions.md)
 ## [关于 Azure 标识管理](./fundamentals-identity.md)
 
-
 # 入门
 ## [关联 Azure 订阅](./active-directory-how-subscriptions-associated-directory.md)
 ## [为组织获取 Azure](./sign-up-organization.md)
@@ -17,13 +16,14 @@
 #### [经典门户](./active-directory-create-users-external.md)
 ### [共享帐户](./active-directory-sharing-accounts.md)
 
-
 ## [管理密码](./active-directory-manage-passwords.md)
 ### [更新自己的密码](./active-directory-passwords-update-your-own-password.md)
 ### [了解策略和限制](./active-directory-passwords-policy.md)
+
 ### 重置密码
 #### [经典门户](./active-directory-create-users-reset-password.md)
 ### [设置过期策略](./active-directory-passwords-set-expiration-policy.md)
+
 ### 启用密码管理
 #### [设置自助密码重置](./active-directory-passwords.md)
 
@@ -48,7 +48,6 @@
 ### [使用 SCIM 预配用户](./active-directory-scim-provisioning.md)
 ### [文档库](active-directory-apps-index.md)
 
-
 ## 管理目录
 ### 自定义域名
 #### [概述](./active-directory-add-domain-concepts.md)
@@ -64,7 +63,6 @@
 ### [O365 目录](./active-directory-manage-o365-subscription.md)
 ### [自助注册](./active-directory-self-service-signup.md)
 ### [使用 Azure AD Connect 集成本地标识](./connect/active-directory-aadconnect.md)
-
 
 ## 委托对资源的访问权限
 ### [管理员角色](./active-directory-assign-admin-roles.md)
@@ -82,7 +80,6 @@
 #### [故障排除](./role-based-access-control-troubleshooting.md)
 ### [配置令牌生存期](./active-directory-configurable-token-lifetimes.md)
 
-
 ## [在 Azure VM 上部署](./virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Azure VM 上的 Windows Server Active Directory](./active-directory-deploying-ws-ad-guidelines.md)
 ### [Azure 虚拟网络中的副本域控制器](./active-directory-install-replica-active-directory-domain-controller.md)
@@ -92,7 +89,6 @@
 
 ## [故障排除](./active-directory-troubleshooting.md)
 
-
 # 引用
 ## [PowerShell cmdlets](https://docs.microsoft.com/powershell/ )
 ## [Java API 参考](https://docs.microsoft.com/java/api)
@@ -100,14 +96,13 @@
 ## [服务限制和局限性](active-directory-service-limits-restrictions.md)
 
 # 相关内容
-## [多重身份验证]../multi-factor-authentication/index.md)
+## [多重身份验证](../multi-factor-authentication/index.md)
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [面向开发人员的 Azure AD](./develop/active-directory-how-to-integrate.md)
 
 # 资源
 ## [价格](https://www.azure.cn/pricing/details/identity/)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-active-directory)
-## [视频](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
+## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [服务更新](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Azure 反馈论坛](https://feedback.azure.com/forums/169401-azure-active-directory)

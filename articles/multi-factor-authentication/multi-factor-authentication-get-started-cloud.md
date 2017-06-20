@@ -31,9 +31,7 @@ ms.lasthandoff: 04/14/2017
 ![云中的 MFA](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
 ## <a name="prerequisites"></a>先决条件
-若要为用户启用 Azure 多重身份验证，必须满足以下先决条件。
-
-1. [注册 Azure 订阅](https://www.azure.cn/pricing/1rmb-trial/) - 如果没有 Azure 订阅，则需要注册一个订阅。 对于只是在摸索如何使用 Azure MFA 的新手，可以使用试用版订阅
+若要为用户启用 Azure 多重身份验证，必须要有订阅。如果没有 Azure 订阅，则需要注册一个订阅。 对于只是在摸索如何使用 Azure MFA 的新手，可以使用[试用版订阅](https://www.azure.cn/pricing/1rmb-trial/)
 
 ## <a name="turn-on-two-step-verification-for-users"></a>为用户打开双重验证
 若要开始要求用户打开双重验证，请将用户状态从“禁用”更改为“启用”。  有关用户状态的详细信息，请参阅 [Azure 多重身份验证中的用户状态](multi-factor-authentication-get-started-user-states.md)
@@ -44,18 +42,29 @@ ms.lasthandoff: 04/14/2017
 1. 以管理员身份登录 [Azure 经典管理门户](https://manage.windowsazure.cn) 。
 2. 在左侧单击“Active Directory”。
 3. 在“目录”下选择要为用户启用的目录。
+
    ![单击目录](./media/multi-factor-authentication-get-started-cloud/directory1.png)
+
 4. 在顶部单击“用户”。
 5. 在页面底部，单击“管理多重身份验证”。 此时会打开新的浏览器选项卡。
+
    ![单击目录](./media/multi-factor-authentication-get-started-cloud/manage1.png)
+
 6. 找到要为其启用双重验证的用户。 你可能需要在顶部切换视图。 确保状态为“已禁用”****。
+
    ![启用用户](./media/multi-factor-authentication-get-started-cloud/enable1.png)
+
 7. **勾选** 其名称旁边的框。
 8. 在右侧，单击“启用”。
+
    ![启用用户](./media/multi-factor-authentication-get-started-cloud/user1.png)
+
 9. 单击“启用多重身份验证”。
+
    ![启用用户](./media/multi-factor-authentication-get-started-cloud/enable2.png)
+
 10. 请注意，用户状态已从“已禁用”更改为“已启用”。
+
     ![启用用户](./media/multi-factor-authentication-get-started-cloud/user.png)
 
 启用用户后，应通过电子邮件通知他们。 下次尝试登录时，系统会提示他们为帐户注册双重验证。 开始使用双重验证后，他们还需要设置应用密码，以免被挡在非浏览器应用外面。
@@ -73,11 +82,11 @@ ms.lasthandoff: 04/14/2017
 可以选择使用 PowerShell 批量启用用户。 目前，Azure 门户未提供批量启用功能，需要单独选择每个用户。 如果有许多用户，则此任务会十分繁琐。 使用以下代码创建 PowerShell 脚本后，可循环访问用户列表并启用这些用户。
 
 ```
-    $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-    $st.RelyingParty = "*"
-    $st.State = “Enabled”
-    $sta = @($st)
-    Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+$st.RelyingParty = "*"
+$st.State = “Enabled”
+$sta = @($st)
+Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 ```
 
 下面是一个示例：
