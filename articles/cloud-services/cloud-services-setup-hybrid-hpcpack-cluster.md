@@ -18,8 +18,6 @@ wacn.date: 03/24/2017
 ms.author: v-yiso
 ---
 
-ms.author="danlep"/>
-
 # 使用 Microsoft HPC Pack 和按需 Azure 计算节点设置混合高性能计算 (HPC) 群集
 
 使用 Microsoft HPC Pack 2012 R2 和 Azure 可以设置小型混合高性能计算 (HPC) 群集该群集将由一个本地头节点（运行 Windows Server 操作系统和 HPC Pack 的计算机）和一些计算节点（在 Azure 云服务中作为辅助角色实例按需部署）构成。可在混合群集上运行计算作业。
