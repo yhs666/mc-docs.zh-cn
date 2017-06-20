@@ -7,8 +7,8 @@ manager: timlt
 editor: tysonn
 
 ms.service: virtual-machine
-ms.date: 04/13/2015
-wacn.date: 12/17/2015
+origin.date: 04/13/2015
+ms.date: 12/17/2015
 ---
 
 ## 将 Azure CLI 与 Azure 资源管理器 (ARM) 配合使用

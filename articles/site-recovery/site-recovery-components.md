@@ -13,8 +13,8 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/14/2017
-wacn.date: 04/06/2017
+origin.date: 03/14/2017
+ms.date: 04/06/2017
 ms.author: v-johch
 ---
 

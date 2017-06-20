@@ -13,8 +13,8 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-wacn.date: 02/20/2017
+origin.date: 01/05/2017
+ms.date: 02/20/2017
 ms.author: v-johch
 ---
 

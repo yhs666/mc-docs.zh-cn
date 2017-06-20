@@ -15,8 +15,8 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/27/2016
-wacn.date: 03/24/2017
+origin.date: 06/27/2016
+ms.date: 03/24/2017
 ms.author: v-yeche
 ---
 

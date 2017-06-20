@@ -8,8 +8,8 @@ manager: adinah
 editor: ''
 
 ms.service: storsimple
-ms.date: 08/18/2015
-wacn.date: 10/3/2015
+origin.date: 08/18/2015
+ms.date: 10/03/2015
 ---
 
 | 限制标识符 | 限制 | 注释 |

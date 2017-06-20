@@ -8,13 +8,13 @@ manager: douge
 editor: ''
 
 ms.service: multiple
-ms.date: 06/08/2016
+origin.date: 06/08/2016
 ms.author: v-junlch
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-wacn.date: 06/20/2016
+ms.date: 06/20/2016
 
 ---
 

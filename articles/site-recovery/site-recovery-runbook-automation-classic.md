@@ -13,8 +13,8 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: required
-ms.date: 02/06/2017
-wacn.date: 03/10/2017
+origin.date: 02/06/2017
+ms.date: 03/10/2017
 ms.author: v-johch
 ---
 

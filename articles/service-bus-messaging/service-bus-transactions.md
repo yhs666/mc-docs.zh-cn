@@ -9,8 +9,8 @@ editor: ''
 
 ms.service: service-bus
 ms.topic: article
-ms.date: 02/02/2017
-wacn.date: 03/20/2017
+origin.date: 02/02/2017
+ms.date: 03/20/2017
 ms.author: v-yiso
 ---
 

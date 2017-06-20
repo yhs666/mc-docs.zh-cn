@@ -12,8 +12,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 06/09/2016
-wacn.date: 12/14/2016
+origin.date: 06/09/2016
+ms.date: 06/15/2017
 ms.author: v-johch
 ---
 

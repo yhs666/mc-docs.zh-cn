@@ -15,8 +15,8 @@ ms.workload: data-management
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2017
-wacn.date: 04/06/2017
+origin.date: 02/01/2017
+ms.date: 04/06/2017
 ms.author: v-johch
 ---
 

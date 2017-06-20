@@ -12,8 +12,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-wacn.date: 01/03/2017
+origin.date: 10/31/2016
+ms.date: 01/03/2017
 ms.author: v-yeche
 ---
 

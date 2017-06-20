@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: sqldb-performance
 ms.workload: data-management
-ms.date: 11/08/2016
-wacn.date: 12/19/2016
+origin.date: 11/08/2016
+ms.date: 12/19/2016
 ms.author: v-johch
 ---
 

@@ -8,8 +8,8 @@ manager: jwhit
 editor: ''
 
 ms.service: operational-insights
-ms.date: 07/01/2015
-wacn.date: 10/3/2015
+origin.date: 07/01/2015
+ms.date: 10/03/2015
 ---
 
 以下限制适用于 Operational Insights 订阅。

@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 01/11/2017
+origin.date: 01/11/2017
 ms.author: v-yiso
-wacn.date: 02/20/2017
+ms.date: 02/20/2017
 ---
 
 # 如何使用服务总线队列

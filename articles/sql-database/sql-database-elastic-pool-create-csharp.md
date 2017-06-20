@@ -12,8 +12,8 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
-ms.date: 10/04/2016
-wacn.date: 01/06/2017
+origin.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: v-johch
 ---
 

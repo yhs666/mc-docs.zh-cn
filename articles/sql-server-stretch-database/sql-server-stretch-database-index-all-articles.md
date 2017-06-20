@@ -12,8 +12,8 @@ ms.workload: sql-server-stretch-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
-wacn.date: 11/21/2016
+origin.date: 10/05/2016
+ms.date: 11/21/2016
 ms.author: v-yeche
 ---
 

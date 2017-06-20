@@ -11,8 +11,8 @@ editor: cgronlun
 ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
 ms.devlang: NA
-ms.date: 11/17/2016
-wacn.date: 01/11/2017
+origin.date: 11/17/2016
+ms.date: 01/11/2017
 ms.author: v-johch
 ms.workload: data-management
 ms.topic: article

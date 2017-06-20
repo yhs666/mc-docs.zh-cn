@@ -13,8 +13,8 @@ ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
-wacn.date: 
+origin.date: 02/22/2017
+ms.date: 04/27/2017
 ms.author: v-dazen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
