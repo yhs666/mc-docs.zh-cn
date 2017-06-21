@@ -24,7 +24,7 @@ ms.lasthandoff: 05/26/2017
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Azure 常用操作指南</span>
+                                    <span class="likeAnH3">中国区 Azure 常用操作指南</span>
                                 </div>
                             </div>
                         </div>
