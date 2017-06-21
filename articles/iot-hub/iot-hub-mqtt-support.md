@@ -227,7 +227,7 @@ JSON 文档中的每个成员都会在设备孪生文档中更新或添加相应
 [lnk-mqtt-devguide]: ./iot-hub-devguide-messaging.md#notes-on-mqtt-support
 [lnk-azure-protocol-gateway]: ./iot-hub-protocol-gateway.md
 
-[lnk-devices]: /documentation/articles/iot-hub-tested-configurations/
+[lnk-devices]: ./iot-hub-tested-configurations.md
 [lnk-protocols]: ./iot-hub-protocol-gateway.md
 [lnk-compare]: ./iot-hub-compare-event-hubs.md
 [lnk-scaling]: ./iot-hub-scaling.md

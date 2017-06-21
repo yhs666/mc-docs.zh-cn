@@ -244,8 +244,8 @@ ms.lasthandoff: 05/26/2017
             
 8. 在 **SimulateDeviceConfiguration.js** 处于运行状态的情况下，使用 **F5** 从 Visual Studio 运行 .NET 应用程序，此时会看到报告的配置状态从 **Success** 变为 **Pending**，再变为 **Success**，采用的全新活动发送频率为 5 分钟而非 24 小时。
    
-       > [AZURE.IMPORTANT]
-       设备报告操作与查询结果之间最多存在一分钟的延迟。这是为了使查询基础结构可以采用非常大的规模来工作。若要检索单个设备孪生的一致视图，请使用 **Registry** 类中的 **getDeviceTwin** 方法。
+       > [!IMPORTANT]
+       > 设备报告操作与查询结果之间最多存在一分钟的延迟。这是为了使查询基础结构可以采用非常大的规模来工作。若要检索单个设备孪生的一致视图，请使用 **Registry** 类中的 **getDeviceTwin** 方法。
        > 
        > 
 

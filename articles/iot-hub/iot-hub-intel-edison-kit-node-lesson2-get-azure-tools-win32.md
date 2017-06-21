@@ -20,7 +20,7 @@ ms.author: v-yiso
 ---
 
 # 获取 Azure 工具（Windows 7 及更高版本）
-> [AZURE.SELECOTR]
+> [!div class="op_single_selector"]
 - [Windows 7 及更高版本][windows]
 - [Ubuntu 16.04][ubuntu]
 - [macOS 10.10][macos]

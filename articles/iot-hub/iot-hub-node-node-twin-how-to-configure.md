@@ -271,7 +271,7 @@ ms.author: v-yiso
 [lnk-query]: ./iot-hub-devguide-query-language.md
 [lnk-d2c]: ./iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-methods]: ./iot-hub-devguide-direct-methods.md
-[lnk-dm-overview]: /documentation/articles/iot-hub-device-management-overview./
+[lnk-dm-overview]: ./iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: ./iot-hub-node-node-twin-getstarted.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-connect-device]: /develop/iot/
