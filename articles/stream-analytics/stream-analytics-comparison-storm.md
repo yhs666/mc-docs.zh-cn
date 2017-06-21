@@ -141,6 +141,7 @@ ms.lasthandoff: 04/25/2017
         </tr>
     </tbody>
 </table>
+
 ## 在每个分析平台上创作
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
@@ -265,6 +266,7 @@ UDF 可以使用 C#、Java 或用户选择的语言进行编写。
         </tr>
     </tbody>
 </table>
+
 ## 数据源和输出
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
@@ -354,6 +356,7 @@ UDF 可以使用 C#、Java 或用户选择的语言进行编写。
         </tr>
     </tbody>
 </table>
+
 ## 管理和操作
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
@@ -513,6 +516,7 @@ SLA：99.9% 的 Storm 群集运行时间。 Apache Storm 是一种容错性的�
         </tr>
     </tbody>
 </table>
+
 ## 高级功能
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
