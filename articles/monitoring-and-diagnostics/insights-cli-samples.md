@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+origin.date: 09/08/2016
 ms.author: v-yiso
-wacn.date: 12/05/2016
+ms.date: 12/05/2016
 ---
 
 # Azure Monitor 跨平台 CLI 快速启动示例

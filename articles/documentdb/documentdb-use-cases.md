@@ -12,9 +12,9 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+origin.date: 05/10/2017
 ms.author: v-junlch
-wacn.date: 
+ms.date: 05/31/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 3317027df5ba73b4f1fd5ece4c469f1183d29d77

@@ -13,8 +13,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2015
-wacn.date: 05/13/2016
+origin.date: 07/23/2015
+ms.date: 05/13/2016
 ms.author: v-junlch
 ---
 

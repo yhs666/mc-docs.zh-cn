@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
-wacn.date: 01/18/2017
+origin.date: 10/18/2016
+ms.date: 01/18/2017
 ms.author: v-dazen
 ---
 

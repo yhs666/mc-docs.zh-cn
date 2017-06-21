@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
-wacn.date: 
+origin.date: 11/28/2016
+ms.date: 05/22/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
@@ -73,6 +73,6 @@ Azure 门户使用远程桌面扩展方法，即使在部署应用程序之后�
 
 ## <a name="additional-resources"></a>其他资源
 
-[如何配置云服务](./cloud-services-how-to-configure.md)
-[云服务常见问题 - 远程桌面](./cloud-services-faq.md#remote-desktop)
+ - [如何配置云服务](./cloud-services-how-to-configure.md)
+ - [云服务常见问题 - 远程桌面](./cloud-services-faq.md#remote-desktop)
 

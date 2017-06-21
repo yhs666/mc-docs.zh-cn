@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/05/2017
-wacn.date: 03/31/2017
+origin.date: 03/05/2017
+ms.date: 01/03/2017
 ms.author: v-johch
 ---
 

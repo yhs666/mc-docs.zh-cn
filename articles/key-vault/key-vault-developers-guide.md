@@ -8,8 +8,8 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 05/10/2017
-wacn.date: 06/12/2017
+origin.date: 05/10/2017
+ms.date: 06/12/2017
 ms.author: v-junlch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577

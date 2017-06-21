@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 01/18/2017
+origin.date: 01/18/2017
 ms.author: v-yiso
-wacn.date: 03/20/2017
+ms.date: 03/20/2017
 ---
 
 # 如何使用服务总线主题和订阅

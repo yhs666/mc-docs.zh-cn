@@ -12,8 +12,8 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: python
 ms.topic: article
-ms.date: 08/04/2015
-wacn.date: 03/28/2017
+origin.date: 08/04/2015
+ms.date: 03/28/2017
 ms.author: v-dazen
 ---
 

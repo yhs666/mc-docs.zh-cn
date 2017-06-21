@@ -13,9 +13,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: hero-article
-ms.date: 10/03/2016
+origin.date: 10/03/2016
 ms.author: v-junlch
-wacn.date: 11/22/2016
+ms.date: 11/22/2016
 ---
 
 # 通过 Azure 通知中心向 iOS 发送推送通知

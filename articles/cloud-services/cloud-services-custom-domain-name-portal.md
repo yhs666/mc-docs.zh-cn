@@ -9,8 +9,8 @@ editor: ''
 
 ms.service: cloud-services
 ms.topic: article
-ms.date: 12/14/2016
-wacn.date: 03/31/2017
+origin.date: 12/14/2016
+ms.date: 03/31/2017
 ms.author: v-yiso
 ---
 
@@ -68,7 +68,7 @@ CNAME 记录会将特定的域（例如 **contoso.com** 或 **www.contoso.com** 
 
    * 安装并配置 [Azure Powershell](../powershell-install-configure.md)，然后使用以下命令：
 
-        Get-AzureDeployment -ServiceName yourservicename | Select Url
+           Get-AzureDeployment -ServiceName yourservicename | Select Url
 
     保存任一方法返回的 URL 中所使用的域名，因为创建 CNAME 记录时需要它。
 
@@ -105,7 +105,7 @@ CNAME 记录会将特定的域（例如 **contoso.com** 或 **www.contoso.com** 
 
    * 安装并配置 [Azure Powershell](../powershell-install-configure.md)，然后使用以下命令：
 
-        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
+           get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
 
     保存该 IP 地址，因为创建 A 记录时需要它。
 

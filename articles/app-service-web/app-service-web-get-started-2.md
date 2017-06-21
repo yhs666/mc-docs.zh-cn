@@ -12,8 +12,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/12/2016
-wacn.date: 09/26/2016
+origin.date: 05/12/2016
+ms.date: 09/26/2016
 ms.author: v-dazen
 ---
 

@@ -13,9 +13,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/19/2017
+origin.date: 01/19/2017
 ms.author: v-junlch
-wacn.date: 
+ms.date: 05/22/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 6d0e7ed330db0974087f3f689a5fd4fd8870bd0e

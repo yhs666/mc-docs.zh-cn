@@ -8,9 +8,9 @@ manager: timlt
 editor: ''
 
 ms.topic: article
-ms.date: 01/18/2017
+origin.date: 01/18/2017
 ms.service: service-bus
-wacn.date: 03/20/2017
+ms.date: 05/22/2017
 ms.author: v-yiso
 ---
 

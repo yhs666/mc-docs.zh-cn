@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+origin.date: 01/10/2017
 ms.author: v-yiso
-wacn.date: 02/20/2017
+ms.date: 05/22/2017
 ---
 
 # 创建使用服务总线主题和订阅的应用程序

@@ -13,8 +13,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
-wacn.date: 12/15/2016
+origin.date: 10/04/2016
+ms.date: 12/15/2016
 ms.author: v-junlch
 ---
 

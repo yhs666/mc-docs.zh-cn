@@ -9,15 +9,9 @@
       - name: 连接
         tocHref: /active-directory/connect/
         topicHref: /active-directory/connect/
-      - name: Connect Health
-        tocHref: /active-directory/connect-health/
-        topicHref: /active-directory/connect-health/
       - name: 开发
         tocHref: /active-directory/develop/
         topicHref: /active-directory/develop/
-      - name: Privileged Identity Management
-        tocHref: /active-directory/privileged-identity-management/
-        topicHref: /active-directory/privileged-identity-management/
   - name: 应用服务
     tocHref: /app-service/
     topicHref: /app-service/

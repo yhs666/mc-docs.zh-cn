@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+origin.date: 03/27/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-wacn.date: 
+ms.date: 05/15/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3ff18e6f95d8bbc27348658bc5fce50c3320cf0a
 ms.openlocfilehash: 9f054f55b43d6382fe550400f90e7ea41b4aa38f

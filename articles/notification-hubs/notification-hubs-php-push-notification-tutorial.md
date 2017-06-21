@@ -12,8 +12,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: php
 ms.devlang: php
 ms.topic: article
-ms.date: 06/07/2016
-wacn.date: 01/09/2017
+origin.date: 06/07/2016
+ms.date: 01/09/2017
 ms.author: v-junlch
 ---
 

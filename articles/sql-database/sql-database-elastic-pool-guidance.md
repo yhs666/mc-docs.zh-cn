@@ -11,8 +11,8 @@ ms.assetid: 3d3941d5-276c-4fd2-9cc1-9fe8b1e4c96c
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 12/19/2016
-wacn.date: 01/20/2017
+origin.date: 12/19/2016
+ms.date: 01/20/2017
 ms.author: v-johch
 ms.workload: data-management
 ms.topic: get-started-article

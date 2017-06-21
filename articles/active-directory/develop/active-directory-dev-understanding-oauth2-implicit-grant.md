@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+origin.date: 11/15/2016
 ms.author: v-junlch
-wacn.date: 12/09/2016
+ms.date: 12/09/2016
 ---
 
 # 了解 Azure Active Directory (AD) 中的 OAuth2 隐式授权流

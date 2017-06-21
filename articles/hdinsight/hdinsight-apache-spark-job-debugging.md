@@ -10,8 +10,8 @@ tags: azure-portal
 
 ms.service: hdinsight
 ms.topic: article
-ms.date: 02/06/2017
-wacn.date: 03/28/2017
+origin.date: 02/06/2017
+ms.date: 03/28/2017
 ms.author: v-dazen
 ---
 

@@ -13,8 +13,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/27/2016
-wacn.date: 12/12/2016
+origin.date: 06/27/2016
+ms.date: 12/12/2016
 ms.author: v-dazen
 ---
 

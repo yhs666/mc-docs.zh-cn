@@ -77,9 +77,9 @@ ms.lasthandoff: 04/25/2017
 
 **查看属性**
 
-```
+
 You can view the properties of the circuit by selecting it. On this blade, note the service key for the circuit. You must copy the circuit key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit key is specific to your circuit.
-```
+
 
 ![查看属性](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 

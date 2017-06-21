@@ -13,8 +13,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
-wacn.date: 12/26/2016
+origin.date: 08/24/2016
+ms.date: 12/26/2016
 ms.author: v-dazen
 ---
 
@@ -151,7 +151,7 @@ SUSE 还为用户构建自己的 VHD 提供了替代方法，在 VMDepot 发布�
 
 ----------
 
-## 准备 openSUSE 13.1+ ##
+## <a name="prepare-opensuse-131"></a> 准备 openSUSE 13.1+ ##
 
 1. 在 Hyper-V 管理器的中间窗格中，选择虚拟机。
 

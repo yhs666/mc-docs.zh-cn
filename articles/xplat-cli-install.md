@@ -14,8 +14,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
-ms.date: 01/21/2017
-wacn.date: 03/31/2017
+origin.date: 01/21/2017
+ms.date: 03/31/2017
 ms.author: v-junlch
 ---
 

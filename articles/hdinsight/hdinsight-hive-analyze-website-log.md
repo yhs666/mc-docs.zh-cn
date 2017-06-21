@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2016
-wacn.date: 03/10/2017
+origin.date: 05/17/2016
+ms.date: 03/10/2017
 ms.author: v-dazen
 ---
 

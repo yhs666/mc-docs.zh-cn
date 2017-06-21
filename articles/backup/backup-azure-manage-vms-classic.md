@@ -12,9 +12,9 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+origin.date: 08/31/2016
 ms.author: v-junlch
-wacn.date: 01/19/2017
+ms.date: 01/19/2017
 ---
 
 # 管理和监视 Azure 虚拟机备份

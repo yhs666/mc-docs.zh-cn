@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/10/2017
+origin.date: 05/10/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-wacn.date: 
+ms.date: 05/31/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: f553ebbeef38d16b6d87068602653a7209616b9b

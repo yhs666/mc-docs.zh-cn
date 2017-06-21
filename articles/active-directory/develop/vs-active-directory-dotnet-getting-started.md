@@ -12,8 +12,8 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
-wacn.date: 
+origin.date: 03/01/2017
+ms.date: 04/17/2017
 ms.author: v-junlch
 translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8

@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/06/2017
-wacn.date: 03/03/2017
+origin.date: 02/06/2017
+ms.date: 03/03/2017
 ms.author: v-johch
 ---
 

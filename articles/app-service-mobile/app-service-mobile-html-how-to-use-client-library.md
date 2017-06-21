@@ -12,8 +12,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-wacn.date: 01/23/2017
+origin.date: 10/30/2016
+ms.date: 01/23/2017
 ms.author: v-yiso
 ---
 

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 01/09/2017
-wacn.date: 02/24/2017
+origin.date: 01/09/2017
+ms.date: 02/24/2017
 ms.author: v-dazen
 ---
 

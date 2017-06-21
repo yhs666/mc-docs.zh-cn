@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+origin.date: 01/23/2017
 ms.author: v-junlch
-wacn.date: 03/13/2017
+ms.date: 03/13/2017
 ---
 
 # Azure AD Connect 同步：了解声明性设置表达式

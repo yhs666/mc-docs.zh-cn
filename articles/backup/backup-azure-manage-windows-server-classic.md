@@ -12,8 +12,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-wacn.date: 11/15/2016
+origin.date: 09/27/2016
+ms.date: 11/15/2016
 ms.author: v-junlch
 ---
 

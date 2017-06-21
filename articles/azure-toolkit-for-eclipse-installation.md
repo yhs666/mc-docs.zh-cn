@@ -15,8 +15,8 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
-wacn.date: 02/14/2017
+origin.date: 12/22/2016
+ms.date: 02/14/2017
 ms.author: v-junlch
 ---
 

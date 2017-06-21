@@ -17,7 +17,7 @@
   items:
   - name: 1 - 创建/管理 VM
     href: tutorial-manage-vm.md
-  - name: 6 - 创建 VM 规模集
+  - name: 2 - 创建 VM 规模集
     href: tutorial-create-vmss.md
 - name: 示例
   items:

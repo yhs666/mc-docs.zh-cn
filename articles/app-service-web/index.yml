@@ -5,14 +5,14 @@ metadata:
   title: Azure Web 应用文档 - 教程和 API 参考
   meta.description: Learn how to use App Service Web Apps to build and host websites and web applications.
   services: app-service
-  author: apexprodleads
+  author: bbetstcw
   manager: carolz
   ms.service: app-service
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/23/2017
-  wacn.date: ''
+  origin.date: 01/23/2017
+  ms.date: 06/02/2017
   ms.author: carolz
 abstract:
   description: 使用 Azure Web 应用可以采用所选编程语言构建和托管 Web 应用程序，而无需管理基础结构。 它提供自动缩放和高可用性，支持 Windows 和 Linux，并允许从 GitHub、Team Services 或任何 Git 存储库进行自动部署。 使用我们的快速入门、教程和示例了解如何使用 Azure Web 应用。

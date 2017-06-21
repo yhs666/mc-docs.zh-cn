@@ -13,8 +13,8 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
-wacn.date: 01/13/2017
+origin.date: 09/13/2016
+ms.date: 01/13/2017
 ms.author: v-yiso
 ---
 

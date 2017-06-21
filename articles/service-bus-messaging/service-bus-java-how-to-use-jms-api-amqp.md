@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 01/11/2017
+origin.date: 01/11/2017
 ms.author: v-yiso
-wacn.date: 02/20/2017
+ms.date: 02/20/2017
 ---
 
 # 如何将 Java 消息服务 (JMS) API 用于服务总线和 AMQP 1.0

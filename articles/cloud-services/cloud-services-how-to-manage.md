@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2016
-wacn.date: 01/25/2017
+origin.date: 12/27/2016
+ms.date: 01/25/2017
 ms.author: v-yiso
 ---
 

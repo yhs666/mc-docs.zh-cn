@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+origin.date: 05/15/2017
 ms.author: v-yiso
-wacn.date: 
+ms.date: 06/13/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
 ms.openlocfilehash: 702c52de37f9f2cb2406a36502a67b04896a61f1

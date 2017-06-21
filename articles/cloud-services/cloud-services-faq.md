@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+origin.date: 11/16/2016
 ms.author: v-yiso
-wacn.date: 
+ms.date: 05/22/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: e85c415dde18716f6433e505d81028c28e0b2da9
@@ -24,7 +24,7 @@ ms.lasthandoff: 05/12/2017
 ---
 
 # <a name="cloud-services-faq"></a>云服务常见问题
-本文回答了一些关于 Microsoft Azure 云服务的常见问题。 你还可以访问 [Azure 支持 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) 了解一般的 Azure 定价和支持信息。 还可以参阅[云服务 VM 大小页面](./cloud-services-sizes-specs.md)，了解大小信息。
+本文回答了一些关于 Azure 云服务的常见问题。 你还可以访问 [Azure 支持 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) 了解一般的 Azure 定价和支持信息。 还可以参阅[云服务 VM 大小页面](./cloud-services-sizes-specs.md)，了解大小信息。
 
 ## <a name="certificates"></a>证书
 ### <a name="where-should-i-install-my-certificate"></a>应该在何处安装我的证书？
