@@ -113,7 +113,7 @@ ms.date: 03/20/2017
 
 ### 如何计算中继小时数？
 
-请参阅[此主题](./service-bus-pricing-faq.md#how-is-the-relay-hours-meter-calculated/)。
+请参阅[此主题](./service-bus-pricing-faq.md#how-is-the-relay-hours-meter-calculated)。
 
 ### 什么是中转连接，它的计费方式是怎样的？
 
