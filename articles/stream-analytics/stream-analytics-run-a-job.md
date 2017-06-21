@@ -17,10 +17,10 @@ origin.date: 03/28/2017
 ms.date: 05/15/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 07dcad0b0a6da0529642bb258192c0a9deef02a7
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 608ec186f4d8db356e549d98a278c922eef08ec7
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -49,7 +49,7 @@ ms.lasthandoff: 05/05/2017
     ![Azure 门户流式处理作业进度](./media/stream-analytics-run-a-job/6-stream-analytics-run-a-job.png)  
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>后续步骤
 

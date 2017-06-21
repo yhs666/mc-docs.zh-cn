@@ -14,10 +14,10 @@ author: tamram
 ms.author: v-junlch
 manager: timlt
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: fa47cd86758122a0f63b27268f6a582da0fe0689
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 3553b5f98d60a2d334f04285dee9cddcd1bf5027
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 # <a name="pool-create-event"></a>池创建事件

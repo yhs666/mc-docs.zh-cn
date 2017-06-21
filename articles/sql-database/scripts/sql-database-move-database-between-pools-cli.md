@@ -11,16 +11,16 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: sample
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/04/2017
+ms.date: 04/24/2017
 ms.author: v-johch
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 15b8fd5fc1753828fa596e062b791108a26c8db4
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 9624db7c218380b8af71ed5c9ccec6bb2af3b0c1
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -28,9 +28,7 @@ ms.lasthandoff: 05/12/2017
 
 此示例 CLI 脚本创建两个弹性池，将数据库从一个弹性池移到另一个弹性池中，然后将数据库移出弹性池，移到单一数据库性能级别。 
 
-必要时，请使用 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中的说明安装 Azure CLI，然后运行 `az login` 创建与 Azure 的连接。
-
-此示例在 Bash shell 中正常工作。 有关在 Windows 上运行 Azure CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../../virtual-machines/virtual-machines-windows-cli-options.md)。
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>示例脚本
 

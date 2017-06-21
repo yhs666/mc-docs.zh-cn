@@ -17,10 +17,10 @@ origin.date: 03/28/2017
 ms.date: 05/15/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 30359c50e881c8d369e02f62409c8fd1bbd49a38
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 6607bfc445044753c0d354f2d8a8b47628937c6c
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -83,10 +83,10 @@ ms.lasthandoff: 05/05/2017
 
   ![操作详细信息](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)  
 
-如果你需要联系[支持团队](https://www.azure.cn/support/contact/)或通过 [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)向团队提供信息，请注明操作详细信息，尤其是**相关性 ID**。 
+如果你需要联系[支持团队](https://www.azure.cn/support/contact/)或通过 [MSDN 论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)向团队提供信息，请注明操作详细信息，尤其是**相关性 ID**。 
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

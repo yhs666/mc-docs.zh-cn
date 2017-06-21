@@ -17,10 +17,10 @@ origin.date: 03/28/2017
 ms.date: 05/15/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: c698cddac4b2010635a63dbf81084d4cd60d4467
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 4391445cecaf51185b3486588ac263c4f4780afd
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -143,18 +143,7 @@ Azure 流分析目前不允许在作业运行时替换输入/输出上的凭据�
 3. 保存所做的更改时，连接测试将自动启动，请确保连接测试已成功通过。
 4. 继续第 4 部分。
 
-### <a name="power-bi"></a>Power BI
-1. 单击“续订授权”：  
-
-    ![graphic35][graphic35]
-2. 你将获得以下确认：  
-
-    ![graphic36][graphic36]
-3. 单击“保存”命令，然后确认已保存所做的更改：  
-    ![graphic37][graphic37]
-4. 保存所做的更改时，连接测试将自动启动，请确保连接测试已成功通过。
-5. 继续第 4 部分。
-
+<!-- Not Available ### Power BI -->
 ### <a name="sql-database"></a>SQL 数据库
 1. 找到“用户名”和“密码”字段，然后将新创建的一组凭据粘贴到其中：  
     ![graphic38][graphic38]
@@ -197,7 +186,7 @@ Azure 流分析目前不允许在作业运行时替换输入/输出上的凭据�
     Command(s) completed successfully.
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

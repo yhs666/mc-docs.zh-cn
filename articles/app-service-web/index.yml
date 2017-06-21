@@ -12,8 +12,8 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 06/02/2017
-  ms.author: carolz
+  ms.date: 06/20/2017
+  ms.author: v-dazen
 abstract:
   description: 使用 Azure Web 应用可以采用所选编程语言构建和托管 Web 应用程序，而无需管理基础结构。 它提供自动缩放和高可用性，支持 Windows 和 Linux，并允许从 GitHub、Team Services 或任何 Git 存储库进行自动部署。 使用我们的快速入门、教程和示例了解如何使用 Azure Web 应用。
 sections:
@@ -57,6 +57,7 @@ sections:
     items:
     - html: 将 <a href="/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">.NET 与 Azure SQL DB 配合使用</a>或将 <a href="/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js 与 MongoDB 配合使用</a>来创建应用程序
     - html: <a href="/app-service-web/app-service-web-tutorial-custom-domain">将现有自定义域映射到应用程序</a>
+    - html: <a href="/app-service-web/app-service-web-tutorial-custom-SSL">将现有 SSL 证书绑定到应用程序</a>
 - title: 示例
   items:
   - type: paragraph

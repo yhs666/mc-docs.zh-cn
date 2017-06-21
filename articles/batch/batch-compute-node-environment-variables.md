@@ -1,5 +1,5 @@
 ---
-title: "Azure 批处理计算节点环境变量 | Microsoft Docs"
+title: "Azure Batch 计算节点环境变量 | Microsoft Docs"
 ms.custom: 
 ms.date: 2017-02-01
 ms.prod: azure
@@ -14,20 +14,20 @@ author: tamram
 ms.author: v-junlch
 manager: timlt
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: dd664e6476f7fc6d49c42da990553addfe733425
+ms.sourcegitcommit: cd90c53e4ba6faaae9c8dce1df24a1cf76e3a774
+ms.openlocfilehash: 1337e96d7b64cc8d794c35dda2ef96ae68e80adc
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 ---
-# <a name="azure-batch-compute-node-environment-variables"></a>Azure 批处理计算节点环境变量
-[Azure 批处理服务](https://azure.microsoft.com/services/batch/)在计算节点上设置以下环境变量。 可以在任务命令行中引用这些环境变量，也可在命令行运行的程序和脚本中引用它们。
+# <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch 计算节点环境变量
+[Azure Batch 服务](https://azure.microsoft.com/services/batch/)在计算节点上设置以下环境变量。 可以在任务命令行中引用这些环境变量，也可在命令行运行的程序和脚本中引用它们。
 
-有关将环境变量用于批处理的其他信息，请参阅[任务的环境设置](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks)。
+有关将环境变量用于批处理的其他信息，请参阅[任务的环境设置](batch-api-basics.md#environment-settings-for-tasks)。
 
 ## <a name="environment-variable-visibility"></a>环境变量的可见性
 
-这些环境变量仅在**任务用户**（即执行任务的节点上的用户帐户）的上下文中可见。 如果通过远程桌面协议 (RDP) 或安全外壳 (SSH) [远程连接](./batch-api-basics.md#connecting-to-compute-nodes)到计算节点并列出环境变量，将*看不到*这些变量。 这是因为，用于远程连接的用户帐户与任务使用的帐户不同。
+这些环境变量仅在**任务用户**（即执行任务的节点上的用户帐户）的上下文中可见。 如果通过远程桌面协议 (RDP) 或安全外壳 (SSH) [远程连接](batch-api-basics.md#connecting-to-compute-nodes)到计算节点并列出环境变量，将*看不到*这些变量。 这是因为，用于远程连接的用户帐户与任务使用的帐户不同。
 
 ## <a name="command-line-expansion-of-environment-variables"></a>环境变量的命令行扩展
 
@@ -62,8 +62,8 @@ ms.lasthandoff: 05/05/2017
 | `AZ_BATCH_IS_CURRENT_NODE_MASTER` | 指定当前节点是否为[多实例任务][multi_instance]的主节点。 可能的值为 `true` 和 `false`。| 多实例主要和子任务。 | `true` |
 
 
-[files_dirs]: ./batch-api-basics.md#files-and-directories
-[multi_instance]: ./batch-mpi.md
-[coord_cmd]:./batch-mpi.md#coordination-command
-[app_cmd]:./batch-mpi.md#application-command
+[files_dirs]: batch-api-basics.md#files-and-directories
+[multi_instance]: batch-mpi.md
+[coord_cmd]: batch-mpi.md#coordination-command
+[app_cmd]: batch-mpi.md#application-command
 

@@ -17,10 +17,10 @@ origin.date: 03/28/2017
 ms.date: 05/15/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: c3eb2b0cb35aca0f6024516bc69ad84ba57ab34f
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 8608749f9b2e6e64d433fcb6d98c3a5625c3cb46
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -78,7 +78,7 @@ FROM Input
 ```
 
 ## <a name="create-an-iot-hub-data-stream-input"></a>创建 IoT 中心数据流输入
-Azure Iot 中心是已针对 IoT 进行优化，具有高度可缩放性的发布-订阅事件引入器。
+Azure Iot 中心是已针对 IoT 进行优化，具有高度伸缩性的发布-订阅事件引入器。
 需要注意的是，来自流分析中 IoT 中心的事件默认时间戳是事件到达 IoT 中心的时间戳，即 EventEnqueuedUtcTime。 若要在事件负载中使用时间戳以流方式处理数据，必须使用 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 关键字。
 
 > [!NOTE]
@@ -118,7 +118,7 @@ Azure Iot 中心是已针对 IoT 进行优化，具有高度可缩放性的发�
 | IoTHub.StreamId |由发送方设备添加的自定义事件属性。 |
 
 ## <a name="create-a-blob-storage-data-stream-input"></a>创建 Blob 存储数据流输入
-<!-- /home/features/storage/blobs/ Not Exists -->
+<!-- Not Available /home/features/storage/blobs/ -->
 对于需要将大量非结构化数据存储在云中的情况，Blob 存储提供了一种经济高效且可缩放的解决方案。 通常情况下，可以将 [Blob 存储](https://www.azure.cn/home/features/storage/)中的数据视为“静态”数据，但这些数据可以作为数据流由流分析进行处理。 流分析使用 Blob 存储输入的一种常见情况是进行日志处理，即首先从某个系统捕获遥测数据，然后根据需要对这些数据进行分析和处理以提取有意义的数据。
 
 需要注意的是，流分析中 Blob 存储事件的默认时间戳是上次修改 blob 的时间戳，即 *isBlobLastModifiedUtcTime*。 若要在事件有效负载中使用时间戳以流方式处理数据，必须使用 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 关键字。
@@ -153,7 +153,7 @@ Azure Iot 中心是已针对 IoT 进行优化，具有高度可缩放性的发�
 <tr>
 <td>存储容器
 </td>
-<td>容器对存储在 Azure Blob 服务中的 blob 进行逻辑分组。 将 blob 上载到 Blob 服务时，必须为该 blob 指定一个容器。</td>
+<td>容器对存储在 Azure Blob 服务中的 blob 进行逻辑分组。 将 blob 上传到 Blob 服务时，必须为该 blob 指定一个容器。</td>
 </tr>
 <tr>
 <td>路径前缀模式 [可选]</td>
@@ -203,7 +203,7 @@ FROM Input
 ```
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>后续步骤
 你已经了解了 Azure 中针对流分析作业的数据连接选项。 若要了解有关流分析的详细信息，请参阅：

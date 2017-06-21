@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
 ms.custom: sample
-ms.devlang: CLI
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/16/2017
+ms.date: 04/24/2017
 ms.author: v-johch
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: eb513c8801d974078fc6e290a58c04c6e93a43c4
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: ba6f05923cbc99ee345e1d9b5bd3d2e156325491
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -28,9 +28,7 @@ ms.lasthandoff: 04/07/2017
 
 此示例 CLI 脚本创建 Azure SQL 数据库，并配置服务器级防火墙规则。 成功运行该脚本后，可以通过所有 Azure 服务和配置的 IP 地址访问 SQL 数据库。 
 
-必要时，请使用 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中的说明安装 Azure CLI，然后运行 `az login` 创建与 Azure 的连接。
-
-此示例在 Bash shell 中正常工作。 有关在 Windows 上运行 Azure CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../../virtual-machines/virtual-machines-windows-cli-options.md)。
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -91,7 +89,7 @@ az group delete --name myResourceGroup
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | 创建用于托管 SQL 数据库的逻辑服务器。 |
-| [az sql server firewall create](https://docs.microsoft.com/cli/azure/sql/server/firewall#create) | 创建一个防火墙规则，以允许从输入的 IP 地址范围访问服务器上的所有 SQL 数据库。 |
+| [az sql server firewall create](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#create) | 创建一个防火墙规则，以允许从输入的 IP 地址范围访问服务器上的所有 SQL 数据库。 |
 | [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) | 在逻辑服务器中创建 SQL 数据库。 |
 | [az group delete](https://docs.microsoft.com/cli/azure/resource#delete) | 删除资源组，包括所有嵌套的资源。 |
 

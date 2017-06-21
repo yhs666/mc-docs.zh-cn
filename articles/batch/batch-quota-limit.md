@@ -16,10 +16,10 @@ ms.date: 03/24/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: d87d4761c7b83b6f107e12b924281660d6b033f3
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 9a39e7ea5995265f7c09e9701ddb878cf2704125
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -44,12 +44,12 @@ ms.lasthandoff: 05/05/2017
 ## <a name="other-limits"></a>其他限制
 | **资源** | **最大限制** |
 | --- | --- |
-| 每个计算节点的[并发任务](batch-parallel-node-tasks.md)数 |4 x 节点核心数 |
-| 每个 Batch 帐户的[应用程序](batch-application-packages.md)数 |20 |
+| 每个计算节点的[并发任务](./batch-parallel-node-tasks.md)数 |4 x 节点核心数 |
+| 每个 Batch 帐户的[应用程序](./batch-application-packages.md)数 |20 |
 | 每个应用程序的应用程序包数 |40 |
 | 应用程序包大小（每个） |约 195GB<sup>1</sup> |
 
-<sup>1</sup> 最大的块 Blob 大小的 Azure 存储空间限制
+<sup>1</sup> 最大的块 Blob 大小的 Azure 存储限制
 
 ## <a name="view-batch-quotas"></a>查看 Batch 配额
 可在 [Azure 门户][portal]中查看批处理帐户配额。
@@ -94,8 +94,8 @@ ms.lasthandoff: 05/05/2017
 提交支持请求后，Azure 支持人员将与你取得联系。 请注意，完成该请求最多需要 2 个工作日。
 
 ## <a name="related-topics"></a>相关主题
-- [使用 Azure 门户创建 Azure Batch 帐户](batch-account-create-portal.md)
-- [Azure Batch 功能概述](batch-api-basics.md)
+- [使用 Azure 门户创建 Azure Batch 帐户](./batch-account-create-portal.md)
+- [Azure Batch 功能概述](./batch-api-basics.md)
 - [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.cn
@@ -103,5 +103,4 @@ ms.lasthandoff: 05/05/2017
 [support_sev]: http://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
-
 

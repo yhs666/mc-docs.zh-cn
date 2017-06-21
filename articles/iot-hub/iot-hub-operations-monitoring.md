@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: b12293a470ef1b0c9dc079ac0a1ee44f71a3c141
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: c946816331379b0f6933d2ca9f115dafbd6ab248
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -286,7 +286,7 @@ class Program
 若要进一步探索 IoT 中心的功能，请参阅：
 
 - [IoT 中心开发人员指南][lnk-devguide]
-- [使用 IoT 网关 SDK 模拟设备][lnk-gateway]
+* [使用 Azure IoT Edge 模拟设备][lnk-gateway]
 
 <!-- Links and images -->
 [1]: ./media/iot-hub-operations-monitoring/enable-OM-1.png

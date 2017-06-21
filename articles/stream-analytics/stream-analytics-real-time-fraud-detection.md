@@ -17,10 +17,10 @@ origin.date: 03/28/2017
 ms.date: 05/15/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 9b8224f4e5fe77560e742cd05c8dea5c6cc760bf
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: a302604418d96c2fcfe72f8b125628f261357495
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -191,7 +191,7 @@ ms.lasthandoff: 05/05/2017
     ![Timestand By 的查询结果](./media/stream-analytics-real-time-fraud-detection/stream-ananlytics-query-editor-rerun.png)
 
 ### <a name="sim-fraud-detection-with-a-self-join"></a>使用自联接进行 SIM 欺诈行为检测
-为了确定可能存在的欺诈性使用情况，我们需要查找从同一个用户发出但发出位置却位于不同地区且间隔时间不到 5 秒钟的呼叫。  我们会让呼叫事件流进行自我 [联接](https://msdn.microsoft.com/en-US/library/azure/dn835026.aspx) ，看是否存在此类情况。
+为了确定可能存在的欺诈性使用情况，我们需要查找从同一个用户发出但发出位置却位于不同地区且间隔时间不到 5 秒钟的呼叫。  我们会让呼叫事件流进行自我 [联接](https://msdn.microsoft.com/library/azure/dn835026.aspx) ，看是否存在此类情况。
 
 1. 在代码编辑器中将查询更改为：
 
@@ -246,7 +246,7 @@ ms.lasthandoff: 05/05/2017
 ![欺诈行为检测：实时查看欺诈性事件](./media/stream-analytics-real-time-fraud-detection/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## <a name="get-support"></a>获取支持
-如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

@@ -16,10 +16,10 @@ origin.date: 03/28/2017
 ms.date: 05/15/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: a8a6af5cb75c25028895408b5c011bbc9a892eb2
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 481907b2f423cc4a27fcb3f8b20c74e3ec2224dc
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -76,7 +76,7 @@ JavaScript 用户定义的函数支持仅用于计算的且不需要外部连接
         InputStream
     ```
 
-3. 若要上载示例数据文件，请右键单击作业输入。
+3. 若要上传示例数据文件，请右键单击作业输入。
 4. 若要测试查询，请选择“测试”。
 
 ## <a name="supported-javascript-objects"></a>支持的 JavaScript 对象
@@ -139,7 +139,7 @@ FROM
 ```
 
 ## <a name="get-help"></a>获取帮助
-如需更多帮助，请访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需更多帮助，请访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

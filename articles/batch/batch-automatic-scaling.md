@@ -17,10 +17,10 @@ ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.date: 05/15/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 3ff18e6f95d8bbc27348658bc5fce50c3320cf0a
-ms.openlocfilehash: 511bddb240f030897db00964b70fcec1f80b8435
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 3e8636ccb6522471042ba0e3a4f81654b28a11f9
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>创建用于缩放 Batch 池中的计算节点的自动缩放公式
@@ -34,7 +34,7 @@ ms.lasthandoff: 05/15/2017
 本文讨论构成自动缩放公式的各个实体，包括变量、运算符、操作和函数。 你会了解如何在 Batch 中获取各种计算资源和任务度量值。 你可以使用这些度量值，根据资源使用情况和任务状态对池的节点计数进行智能化调整。 然后，你将了解如何使用 Batch REST 和 .NET API 构建公式以及对池启用自动缩放。 最后，我们将讨论几个示例公式。
 
 > [!IMPORTANT]
-> 每个 Azure Batch 帐户都受限于可以用于处理的最大核心数（以及由此确定的计算节点数）。 Batch 服务只创建最多达到该核心数限制的新节点。 Batch 服务可能达不到自动缩放公式所指定的目标计算节点数。 请参阅 [Azure Batch 服务的配额和限制](batch-quota-limit.md)了解有关查看和提高帐户配额的信息。
+> 每个 Azure Batch 帐户都受限于可以用于处理的最大核心数（以及由此确定的计算节点数）。 Batch 服务只创建最多达到该核心数限制的新节点。 Batch 服务可能达不到自动缩放公式所指定的目标计算节点数。 请参阅 [Azure Batch 服务的配额和限制](./batch-quota-limit.md)了解有关查看和提高帐户配额的信息。
 > 
 > 
 
@@ -368,7 +368,7 @@ pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
 
-除了 Batch REST API 和 .NET SDK 之外，还可通过任何其他 [Batch SDK](batch-apis-tools.md#batch-development-apis)、[Batch PowerShell cmdlet](batch-powershell-cmdlets-get-started.md) 和 [ Batch CLI ](batch-cli-get-started.md) 使用自动缩放。
+除了 Batch REST API 和 .NET SDK 之外，还可通过任何其他 [Batch SDK](./batch-apis-tools.md#batch-development-apis)、[Batch PowerShell cmdlet](./batch-powershell-cmdlets-get-started.md) 和 [ Batch CLI ](./batch-cli-get-started.md) 使用自动缩放。
 
 > [!IMPORTANT]
 > 创建启用了自动缩放的池时，**请勿**指定 `targetDedicated` 参数。 另请注意，如果要手动调整启用自动缩放功能的池的大小（例如，使用 [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool] 来调整），则必须先**禁用**该池的自动缩放功能，然后再调整池的大小。
@@ -598,7 +598,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-3-accounting-for-parallel-tasks"></a>示例 3：考虑并行任务
-这是另一个示例，可根据任务数调整池大小。 此公式还考虑为池设置的 [MaxTasksPerComputeNode][net_maxtasks] 值。 在对池启用了[并行任务执行](batch-parallel-node-tasks.md)的情况下，此公式特别有用。
+这是另一个示例，可根据任务数调整池大小。 此公式还考虑为池设置的 [MaxTasksPerComputeNode][net_maxtasks] 值。 在对池启用了[并行任务执行](./batch-parallel-node-tasks.md)的情况下，此公式特别有用。
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past
@@ -643,8 +643,8 @@ string formula = string.Format(@"
 ```
 
 ## <a name="next-steps"></a>后续步骤
-- [通过并发节点任务最大限度地提高 Azure Batch 计算资源的利用率](batch-parallel-node-tasks.md)详细说明了如何在池中的计算节点上同时执行多个任务。 除了自动缩放以外，此功能还可帮助降低某些工作负荷的作业持续时间，从而节省资金。
-- 为了进一步提升效率，请确保 Batch 应用程序以最佳的方式查询 Batch 服务。 在[有效地查询 Azure Batch 服务](batch-efficient-list-queries.md)中，可以了解在查询数千个计算节点或任务的状态时，如何限制跨线数据量。
+- [通过并发节点任务最大限度地提高 Azure Batch 计算资源的利用率](./batch-parallel-node-tasks.md)详细说明了如何在池中的计算节点上同时执行多个任务。 除了自动缩放以外，此功能还可帮助降低某些工作负荷的作业持续时间，从而节省资金。
+- 为了进一步提升效率，请确保 Batch 应用程序以最佳的方式查询 Batch 服务。 在[有效地查询 Azure Batch 服务](./batch-efficient-list-queries.md)中，可以了解在查询数千个计算节点或任务的状态时，如何限制跨线数据量。
 
 [net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_batchclient]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
@@ -659,5 +659,4 @@ string formula = string.Format(@"
 [rest_autoscaleformula]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [rest_autoscaleinterval]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
-
 

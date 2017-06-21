@@ -17,10 +17,10 @@ origin.date: 03/28/2017
 ms.date: 05/15/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 1603ce7b085a0bbc9c02871688e437b80d5f70a7
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 90d296ce65b09e44846053be050c121007e2e8e8
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -102,7 +102,7 @@ Azure 流分析中的查询采用类似 SQL 的查询语言来表述，该语言
 **输出**：
 
 | 通过的车辆 | 时间 |
-| --- | --- | --- |
+| --- | ------ |
 | 1 辆 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 辆 Toyota |2015-01-01T00:00:10.0000000Z |
 
@@ -503,7 +503,7 @@ WHERE
 **说明**：此查询每隔 5 秒生成事件，并输出前面收到的最后一个事件。 [跳跃窗口](https://msdn.microsoft.com/library/dn835041.aspx "跳跃窗口 - Azure 流分析")持续时间确定多久后查询将查找最新事件（在本例中为 300 秒）。
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

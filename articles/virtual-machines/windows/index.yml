@@ -12,7 +12,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 06/02/2017
+  ms.date: 06/20/2017
   ms.author: carolz
 abstract:
   description: Azure Windows 虚拟机使用 Windows Server 按需提供具有高可伸缩性且十分安全的虚拟化基础结构。 使用我们的快速入门、教程和示例了解如何创建、配置、管理和缩放 Windows VM。
@@ -42,6 +42,15 @@ sections:
     text: 了解如何在 Azure 上部署、管理和监视 Windows VM
   - type: list
     style: ordered
+    items:
+    - html: <a href="/virtual-machines/windows/tutorial-manage-vm">创建和管理 Windows VM</a>
+    - html: <a href="/virtual-machines/windows/tutorial-automate-vm-deployment">自动执行 VM 配置</a>
+    - html: <a href="/virtual-machines/windows/tutorial-custom-images">创建自定义 VM 映像</a>
+    - html: <a href="/virtual-machines/windows/tutorial-availability-sets">创建高度可用的 VM</a>
+    - html: <a href="/virtual-machines/windows/tutorial-create-vmss">创建 VM 规模集</a>
+    - html: <a href="/virtual-machines/windows/tutorial-load-balancer">对 VM 进行负载均衡</a>
+    - html: <a href="/virtual-machines/windows/tutorial-virtual-network">管理 VM 与虚拟网络</a>
+    - html: <a href="/virtual-machines/windows/tutorial-monitoring">监视 VM</a>
 - title: 示例
   items:
   - type: paragraph

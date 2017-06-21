@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 7ad3b1c72bc5996db5b800fb4c16562a13e86502
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 9490d60ab07e93418de4bdb4fc84433c937f8674
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -98,11 +98,11 @@ await myCloudPool.CommitAsync();
   - [云服务的大小](../cloud-services/cloud-services-sizes-specs.md)（仅 Windows）
 - **VirtualMachineConfiguration** 池
 
-  - [Azure 中虚拟机的大小](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/) (Linux)
-  - [Azure 中虚拟机的大小](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json/) (Windows)
+  - [Azure 中虚拟机的大小](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
+  - [Azure 中虚拟机的大小](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> 若要充分利用 [Linux 计算节点](batch-linux-nodes.md)上的 RDMA，必须使用节点上的 **Intel MPI**。 有关 CloudServiceConfiguration 和 VirtualMachineConfiguration 池的详细信息，请参阅[批处理功能概述](batch-api-basics.md)的“池”部分。
+> 若要充分利用 [Linux 计算节点](./batch-linux-nodes.md)上的 RDMA，必须使用节点上的 **Intel MPI**。 有关 CloudServiceConfiguration 和 VirtualMachineConfiguration 池的详细信息，请参阅[批处理功能概述](./batch-api-basics.md)的“池”部分。
 >
 >
 
@@ -266,7 +266,7 @@ GitHub 上的 [MultiInstanceTasks][github_mpi] 代码示例演示了如何通过
 1. 执行 [How to compile and run a simple MS-MPI program][msmpi_howto]（如何编译和运行简单的 MS-MPI 程序）中的头两个步骤。 这样即可满足下一步的先决条件。
 2. 生成 *MPIHelloWorld* 示例 MPI 程序的 [发行][helloworld_proj] 版。 该程序是将在计算节点上通过多实例任务运行的程序。
 3. 创建包含 `MPIHelloWorld.exe`（在步骤 2 构建）和 `MSMpiSetup.exe`（在步骤 1 下载）的 zip 文件。 需在下一步将此 zip 文件作为应用程序包上传。
-4. 通过 [Azure 门户][portal]创建名为“MPIHelloWorld”的 Batch [应用程序](batch-application-packages.md)，并将在上一步创建的 zip 文件指定为“1.0”版应用程序包。 有关详细信息，请参阅[上传和管理应用程序](batch-application-packages.md#upload-and-manage-applications)。
+4. 通过 [Azure 门户][portal]创建名为“MPIHelloWorld”的 Batch [应用程序](./batch-application-packages.md)，并将在上一步创建的 zip 文件指定为“1.0”版应用程序包。 有关详细信息，请参阅[上传和管理应用程序](./batch-application-packages.md#upload-and-manage-applications)。
 
 > [!TIP]
 > 生成*发行*版 `MPIHelloWorld.exe`，这样就不需在应用程序包中包括任何其他依赖项（例如 `msvcp140d.dll` 或 `vcruntime140d.dll`）。
@@ -324,7 +324,7 @@ Sample complete, hit ENTER to exit...
 
 ## <a name="next-steps"></a>后续步骤
 - Microsoft HPC 和 Azure Batch 团队博客讨论 [Azure Batch 上针对 Linux 的 MPI 支持][blog_mpi_linux]，并介绍如何将 [OpenFOAM][openfoam] 与 Batch 配合使用。 可以查找适用于 [GitHub 上的 OpenFOAM 示例][github_mpi]的 Python 代码示例。
-- 了解如何[创建 Linux 计算节点池](batch-linux-nodes.md)，以便将其用在 Azure 批处理 MPI 解决方案中。
+- 了解如何[创建 Linux 计算节点池](./batch-linux-nodes.md)，以便将其用在 Azure Batch MPI 解决方案中。
 
 [helloworld_proj]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks/MPIHelloWorld
 
@@ -369,5 +369,4 @@ Sample complete, hit ENTER to exit...
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "多实例概述"
-
 

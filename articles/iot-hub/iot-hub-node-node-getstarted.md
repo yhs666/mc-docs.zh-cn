@@ -16,10 +16,10 @@ origin.date: 03/16/2017
 ms.date: 04/24/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: ab8fc4900ae18aa96ff061b806880b75ead9e27f
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: a1aacb101f2d75f9fd52d194ebf7acf3ef4b3d28
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 04/14/2017
 
 + Node.js 0.10.x 或更高版本。
 
-+ 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）
++ 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -109,6 +109,7 @@ ms.lasthandoff: 04/14/2017
 > 
 > 
 
+<a id="D2C_node"></a>
 ## <a name="receive-device-to-cloud-messages"></a>接收设备到云的消息
 本部分将创建一个 Node.js 控制台应用，用于读取来自 IoT 中心的设备到云消息。 IoT 中心公开与 [事件中心][lnk-event-hubs-overview]兼容的终结点，以便你可读取设备到云的消息。 为了简单起见，本教程创建的基本读取器不适用于高吞吐量部署。 [Process device-to-cloud messages][lnk-process-d2c-tutorial] （处理设备到云的消息）教程介绍了如何大规模处理设备到云的消息。 [事件中心入门][lnk-eventhubs-tutorial] 教程更详细地介绍了如何处理来自事件中心的消息，此教程也适用于与 IoT 中心事件中心兼容的终结点。
 
@@ -222,9 +223,11 @@ ms.lasthandoff: 04/14/2017
 
         // Create a message and send it to the IoT Hub every second
         setInterval(function(){
-            var windSpeed = 10 + (Math.random() * 4);
-            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', windSpeed: windSpeed });
+            var temperature = 20 + (Math.random() * 15);
+            var humidity = 60 + (Math.random() * 20);            
+            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
             var message = new Message(data);
+            message.properties.add('temperatureAlert', (temperature > 30) ? 'true' : 'false');
             console.log("Sending message: " + message.getData());
             client.sendEvent(message, printResultFor('send'));
         }, 1000);
@@ -240,6 +243,8 @@ ms.lasthandoff: 04/14/2017
 
 > [!NOTE]
 > 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按 MSDN 文章 [Transient Fault Handling][lnk-transient-faults]（暂时性故障处理）中所述实施重试策略（例如指数性的回退）。
+> 
+> 
 
 ## <a name="run-the-apps"></a>运行应用
 现在，已准备就绪，可以运行应用。
@@ -269,7 +274,7 @@ ms.lasthandoff: 04/14/2017
 
 - [连接你的设备][lnk-connect-device]
 - [设备管理入门][lnk-device-management]
-- [IoT 网关 SDK 入门][lnk-gateway-SDK]
+* [Azure IoT Edge 入门][lnk-gateway-SDK]
 
 若要了解如何扩展 IoT 解决方案和如何大规模处理设备到云的消息，请参阅 [Process device-to-cloud messages][lnk-process-d2c-tutorial] （处理设备到云的消息）教程。
 
@@ -281,11 +286,11 @@ ms.lasthandoff: 04/14/2017
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-dotnet-standard-getstarted-send.md
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: ./iot-hub-devguide-identity-registry.md
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs-what-is-event-hubs.md
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-process-d2c-tutorial]: ./iot-hub-csharp-csharp-process-d2c.md
 
 [lnk-hub-sdks]: ./iot-hub-devguide-sdks.md
@@ -294,4 +299,4 @@ ms.lasthandoff: 04/14/2017
 
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
-[lnk-connect-device]: /develop/iot/
+[lnk-connect-device]: https://www.azure.cn/develop/iot/

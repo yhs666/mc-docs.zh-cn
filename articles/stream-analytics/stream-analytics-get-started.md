@@ -17,10 +17,10 @@ origin.date: 03/28/2017
 ms.date: 05/15/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: b41f9a2487c5cde34da1a1153aca68f84b54dc8a
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: bbbf8c6085141f71c3afc84388fb90a4234696ec
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -47,7 +47,8 @@ ms.lasthandoff: 05/05/2017
 创建事件中心的步骤：
 
 1. 在 [Azure 门户](https://manage.windowsazure.cn/)中，依次单击“新建” > “应用服务” > “服务总线” > “事件中心” > “快速创建”。 提供创建新事件中心所需的名称、区域以及新的或现有的命名空间。  
-2. 最佳做法是让每个流分析作业都从单个事件中心使用者组进行读取。 我们将在下面向你详细介绍创建使用者组的过程，你可以[了解有关使用者组的详细信息](https://msdn.microsoft.com/library/azure/dn836025.aspx)。 若要创建使用者组，请导航到新创建的事件中心并单击“使用者组”选项卡，然后单击页面底部的“创建”，为使用者组提供一个名称。
+<!-- Notice: https://msdn.microsoft.com/library/azure/dn836025.aspx redirect to ../event-hubs/event-hubs-what-is-event-hubs-->
+2. 最佳做法是让每个流分析作业都从单个事件中心使用者组进行读取。 我们将在下面向你详细介绍创建使用者组的过程，你可以[了解有关使用者组的详细信息](../event-hubs/event-hubs-what-is-event-hubs.md)。 若要创建使用者组，请导航到新创建的事件中心并单击“使用者组”选项卡，然后单击页面底部的“创建”，为使用者组提供一个名称。
 3. 若要授予对事件中心的访问权限，需创建共享访问策略。  单击事件中心的“配置”选项卡。
 4. 在“共享访问策略”下，使用“管理”权限创建一个新策略。
 
@@ -72,9 +73,7 @@ ms.lasthandoff: 05/05/2017
 
 以下示例将生成 1000 个事件，在为时 2 小时的过程中，有 20% 的可能性会出现欺诈行为。
 
-    ```
     telcodatagen.exe 1000 .2 2
-    ```
 
 你会看到记录被发送到事件中心。 将在此实时欺诈检测应用程序中使用的某些关键字段定义如下：
 
@@ -145,6 +144,7 @@ ms.lasthandoff: 05/05/2017
     SELECT * FROM CallStream
     ```
 
+    > [!NOTE]
     > 请确保输入源的名称与你此前指定的输入名称相匹配。
     > 
     > 
@@ -242,7 +242,7 @@ ms.lasthandoff: 05/05/2017
 ![欺诈行为检测：实时查看欺诈性事件](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## <a name="get-support"></a>获取支持
-如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

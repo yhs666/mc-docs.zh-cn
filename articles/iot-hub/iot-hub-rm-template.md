@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/08/2017
-ms.date: 04/24/2017
+ms.date: 05/04/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: ab67fb09b09735c9b3110aa70d218a9d4b4057ed
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 17c62f7383e773a9af1a5ccfb8b51e049673699e
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -31,6 +30,8 @@ ms.lasthandoff: 04/14/2017
 
 > [!NOTE]
 > Azure 提供了用于创建和使用资源的两个不同部署模型：[Azure Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍了如何使用 Azure Resource Manager 部署模型。
+> 
+> 
 
 若要完成本教程，您需要以下各项：
 
@@ -187,6 +188,8 @@ ms.lasthandoff: 04/14/2017
 
 > [!NOTE]
 > 此示例应用程序添加用于计费的 S1 标准 IoT 中心。 可以通过 [Azure 门户][lnk-azure-portal] 删除该 IoT 中心，或者在完成后使用 **Remove-AzureRmResource** PowerShell cmdlet。
+> 
+> 
 
 ## <a name="next-steps"></a>后续步骤
 现在，已使用 Azure Resource Manager 模板和 C# 程序部署了一个 IoT 中心，接下来可以进一步进行探索：
@@ -200,7 +203,7 @@ ms.lasthandoff: 04/14/2017
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-- [使用 IoT 网关 SDK 模拟设备][lnk-gateway]
+* [使用 Azure IoT Edge 模拟设备][lnk-gateway]
 
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/

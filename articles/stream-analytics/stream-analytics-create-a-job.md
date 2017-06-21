@@ -17,10 +17,10 @@ origin.date: 03/28/2017
 ms.date: 05/15/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 927e67ad38f3fb9306a6b878951f800f5767e833
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: e88e659df6e9f58cc8c28a643a473d1be3d6f521
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -35,20 +35,17 @@ ms.lasthandoff: 05/05/2017
     ![数据分析处理作业向导](./media/stream-analytics-create-a-job/1-stream-analytics-create-a-job.png)  
 
     ![创建数据分析处理作业](./media/stream-analytics-create-a-job/4-stream-analytics-create-a-job.png)  
-
 3. 指定流分析作业所需的配置。
 
     * 在“作业名称”  框中，输入一个名称以标识该流分析作业。 对“作业名称”  进行验证后，作业名称框中会出现一个绿色的复选标记。 “作业名称”只能包含字母数字字符和字符“-”，且长度必须在 3 到 63 个字符之间。
     * 使用 Azure 门户中的“区域”或“位置”来指定要运行作业的地理位置。
     * 如果使用 Azure 门户，请选择或创建存储帐户以用作 **区域监视存储帐户**。 该存储帐户用来存储针对该区域内运行的所有流分析作业的监控数据。
     * 如果使用 Azure 门户，请指定新的或现有的 **资源组** 以保存应用程序的相关资源。
-
 4. 当新的流分析作业选项配置完成后，请单击“创建流分析作业” 。 创建流分析作业需要几分钟时间。 要查看状态，你可以在通知中心监视进度。
 
     ![数据分析处理作业通知中心](./media/stream-analytics-create-a-job/2-stream-analytics-create-a-job.png)  
 
     ![Azure 门户数据分析处理作业创建作业](./media/stream-analytics-create-a-job/5-stream-analytics-create-a-job.png)  
-
 5. 新作业在显示时的状态为 **“已创建”**。 请注意，“启动”  按钮被禁用。 你必须先配置作业输入、查询和输出，然后才能启动作业。
 
     ![数据分析处理作业作业状态](./media/stream-analytics-create-a-job/3-stream-analytics-create-a-job.png)  
@@ -56,7 +53,7 @@ ms.lasthandoff: 05/05/2017
     ![Azure 门户数据分析处理作业作业状态](./media/stream-analytics-create-a-job/6-stream-analytics-create-a-job.png)  
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

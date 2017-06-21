@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 03/10/2017
 ms.author: v-junlch
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 96437da8d1d5f96a8c1fb5fe6807fece32fe3edc
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 1ae3007158caced48e78bd2d5eecc02b2ff48f7e
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="prepare-your-environment-to-back-up-azure-virtual-machines"></a>准备环境以便备份 Azure 虚拟机
 > [!div class="op_single_selector"]
-> * [Resource Manager 模型](backup-azure-arm-vms-prepare.md)
-> * [经典模型](backup-azure-vms-prepare.md)
+> * [Resource Manager 模型](./backup-azure-arm-vms-prepare.md)
+> * [经典模型](./backup-azure-vms-prepare.md)
 >
 >
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/14/2017
 - 在 Azure 公共 Internet 地址和 Azure 存储终结点之间建立网络连接。
 - 在 VM 上安装 VM 代理。
 
-如果确定环境满足这些条件，请转到[备份 VM 的文章](backup-azure-vms.md)。 否则，请继续阅读本文，它将引导你逐步完成准备环境以便备份 Azure VM 的过程。
+如果确定环境满足这些条件，请转到[备份 VM 的文章](./backup-azure-vms.md)。 否则，请继续阅读本文，它将引导你逐步完成准备环境以便备份 Azure VM 的过程。
 
 ##<a name="supported-operating-system-for-backup"></a>支持用于备份的操作系统
  - **Linux**：Azure 备份支持 [Azure 认可的分发版列表](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/) ，但 Core OS Linux 除外。 _只要虚拟机上装有 VM 代理且支持 Python，其他自带 Linux 分发版应该也能正常运行。但是，我们不赞同将这些分发版用于备份。_
@@ -56,8 +56,8 @@ ms.lasthandoff: 04/14/2017
 - 不支持跨区域备份和恢复。
 - Azure 的所有公共区域都支持使用 Azure 备份服务来备份虚拟机（请参阅受支持区域的[清单](https://azure.microsoft.com/regions/#services)）。 在创建保管库期间，如果你要寻找的区域目前不受支持，则不会在下拉列表中显示它。
 - 只有特定操作系统版本才支持使用 Azure 备份服务备份虚拟机：
-- 仅支持通过 PowerShell 还原属于多 DC 配置的域控制器 (DC) VM。 阅读有关[还原多 DC 域控制器](backup-azure-restore-vms.md#restoring-domain-controller-vms)的详细信息。
-- 仅支持通过 PowerShell 还原采用以下特殊网络配置的虚拟机。 还原操作完成后，在 UI 中使用还原工作流创建的虚拟机将不采用这些网络配置。 若要了解详细信息，请参阅[还原采用特殊网络配置的 VM](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations)。
+- 仅支持通过 PowerShell 还原属于多 DC 配置的域控制器 (DC) VM。 阅读有关[还原多 DC 域控制器](./backup-azure-restore-vms.md#restoring-domain-controller-vms)的详细信息。
+- 仅支持通过 PowerShell 还原采用以下特殊网络配置的虚拟机。 还原操作完成后，在 UI 中使用还原工作流创建的虚拟机将不采用这些网络配置。 若要了解详细信息，请参阅[还原采用特殊网络配置的 VM](./backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations)。
   - 采用负载均衡器配置的虚拟机（内部和外部）
   - 使用多个保留 IP 地址的虚拟机
   - 使用多个网络适配器的虚拟机
@@ -76,7 +76,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="network-connectivity"></a>网络连接
 为了管理 VM 快照，备份扩展需要连接 Azure 公共 IP 地址。 如果未建立适当的 Internet 连接，虚拟机的 HTTP 请求将会超时，并且备份操作将会失败。 如果你的部署中配置了访问限制（如通过网络安全组 (NSG)），请选择其中一个选项来提供备份流量的明确路径：
 
-- [Whitelist the Azure datacenter IP ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653)（将 Azure 数据中心 IP 范围加入允许列表）— 请参阅相关文章，获取有关如何将 IP 地址加入允许列表的说明。
+- [Whitelist the Azure datacenter IP ranges](http://www.microsoft.com/en-us/download/details.aspx?id=42064)（将 Azure 数据中心 IP 范围加入允许列表）— 请参阅相关文章，获取有关如何将 IP 地址加入允许列表的说明。
 - 部署 HTTP 代理服务器来路由流量。
 
 确定要使用的选项时，需在可管理性、精度控制和成本之间进行取舍。
@@ -87,7 +87,7 @@ ms.lasthandoff: 04/14/2017
 | HTTP 代理 |允许在代理中对存储 URL 进行精细控制。<br>对 VM 进行单点 Internet 访问。<br>不受 Azure IP 地址变化的影响。 |通过代理软件运行 VM 带来的额外成本。 |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Whitelist the Azure datacenter IP ranges
-若要将 Azure 数据中心 IP 范围加入允许列表，请参阅 [Azure 网站](http://www.microsoft.com/en-us/download/details.aspx?id=41653) ，获取有关 IP 范围的详细信息和说明。
+若要将 Azure 数据中心 IP 范围加入允许列表，请参阅 [Azure 网站](http://www.microsoft.com/en-us/download/details.aspx?id=42064) ，获取有关 IP 范围的详细信息和说明。
 
 ### <a name="using-an-http-proxy-for-vm-backups"></a>使用 HTTP 代理进行 VM 备份
 备份 VM 时，VM 上的备份扩展会使用 HTTPS API 将快照管理命令发送到 Azure 存储。 将通过 HTTP 代理路由备份扩展流量，因为它是为了访问公共 Internet 而配置的唯一组件。
@@ -107,7 +107,7 @@ ms.lasthandoff: 04/14/2017
 
 若要使用 HTTP 代理来与公共 Internet 通信，请遵循以下步骤：
 
-#### <a name="step-1-configure-outgoing-network-connections"></a>步骤 1: 配置传出网络连接
+#### <a name="step-1-configure-outgoing-network-connections"></a>步骤 1。 配置传出网络连接
 ###### <a name="for-windows-machines"></a>对于 Windows 计算机
 将为本地系统帐户设置代理服务器配置。
 
@@ -154,7 +154,7 @@ HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>步骤 2: 在代理服务器上允许传入连接：
+#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>步骤 2. 在代理服务器上允许传入连接：
 1. 在代理服务器上打开 Windows 防火墙。 访问防火墙的最简单方法是搜索“具有高级安全性的 Windows 防火墙”。
 
     ![打开防火墙](./media/backup-azure-vms-prepare/firewall-01.png)
@@ -173,7 +173,7 @@ HttpProxy.Port=<proxy port>
 
      至于该向导的其余部分，可一路单击到最后，然后为此规则指定一个名称。
 
-#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>步骤 3: 向 NSG 添加例外规则：
+#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>步骤 3. 向 NSG 添加例外规则：
 在 Azure PowerShell 命令提示符下输入以下命令：
 
 以下命令将在 NSG 中添加一个例外。 此例外允许从 10.0.0.5 上的任何端口流向端口 80 (HTTP) 或 443 (HTTPS) 上的任何 Internet 地址的 TCP 流量。 如果需要访问公共 Internet 中的特定端口，请确保也将该端口添加到 ```-DestinationPortRange```。
@@ -210,8 +210,7 @@ VM 代理已存在于从 Azure 库创建的 VM 中。 但是，从本地数据�
 ## <a name="next-steps"></a>后续步骤
 现在你已准备好环境来备份 VM，下一个逻辑步骤是创建备份。 “计划”一文提供了有关备份 VM 的更详细信息。
 
-- [备份虚拟机](backup-azure-vms.md)
-- [规划 VM 备份基础结构](backup-azure-vms-introduction.md)
+- [备份虚拟机](./backup-azure-vms.md)
+- [规划 VM 备份基础结构](./backup-azure-vms-introduction.md)
 - [管理虚拟机备份](./backup-azure-manage-vms-classic.md)
-
 

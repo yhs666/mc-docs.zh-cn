@@ -12,7 +12,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 06/02/2017
+  ms.date: 06/20/2017
   ms.author: carolz
 abstract:
   description: Azure Linux 虚拟机使用所选 Red Hat、Ubuntu 或 Linux 分发按需提供具有高可伸缩性且十分安全的虚拟化基础结构。 使用我们的快速入门、教程和示例了解如何创建、配置、管理和缩放 Linux VM。
@@ -44,7 +44,13 @@ sections:
     style: ordered
     items:
     - html: <a href="/virtual-machines/linux/tutorial-manage-vm">创建和管理 Linux VM</a>
+    - html: <a href="/virtual-machines/linux/tutorial-automate-vm-deployment">自动执行 VM 配置</a>
+    - html: <a href="/virtual-machines/linux/tutorial-custom-images">创建自定义 VM 映像</a>
+    - html: <a href="/virtual-machines/linux/tutorial-availability-sets">创建高度可用的 VM</a>
     - html: <a href="/virtual-machines/linux/tutorial-create-vmss">创建 VM 规模集</a>
+    - html: <a href="/virtual-machines/linux/tutorial-load-balancer">对 VM 进行负载均衡</a>
+    - html: <a href="/virtual-machines/linux/tutorial-virtual-network">管理 VM 和虚拟网络</a>
+    - html: <a href="/virtual-machines/linux/tutorial-monitoring">监视 VM</a>
 - title: 示例
   items:
   - type: paragraph

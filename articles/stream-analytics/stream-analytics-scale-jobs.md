@@ -17,10 +17,10 @@ origin.date: 03/28/2017
 ms.date: 05/15/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 7451e0711ac9924305402bf14c2fe517e570cdb0
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: c147cda8ec99bdd09d48d64649bcbb73fed37d7e
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 05/05/2017
 ## <a name="configuring-streaming-units"></a>配置流式处理单位
 流式处理单位 (SU) 表示执行 Azure 流分析作业所需的资源和计算能力。 在已经对 CPU、内存以及读取和写入速率进行测量的情况下，可以使用 SU 描述相对的事件处理能力。 每个流式处理单位大致相当于 1MB/秒的吞吐量。 
 
-应根据输入的分区配置和为作业定义的查询选择特定作业所需的 SU 数目。 使用 Azure 经典管理门户选择作业的流式处理单位数时，最多可以选择配额数。 默认情况下，每个 Azure 订阅的配额为最多 50 个流式处理单位，这适用于特定区域的所有分析作业。 若要提高订阅的流式处理单位数，请联系 [Microsoft 支持](http://support.microsoft.com)。
+应根据输入的分区配置和为作业定义的查询选择特定作业所需的 SU 数目。 使用 Azure 经典管理门户选择作业的流式处理单位数时，最多可以选择配额数。 默认情况下，每个 Azure 订阅的配额为最多 50 个流式处理单位，这适用于特定区域的所有分析作业。 若要提高订阅的流式处理单位数，请联系 [Microsoft 支持](/support/contact/)。
 
 作业能够使用的流式处理单位数取决于输入的分区配置以及为作业定义的查询。 另请注意，必须使用有效的流单位值。 有效值以 1、3、6 开始，往上再按 6 递增，如下所示。
 
@@ -321,7 +321,7 @@ PowerBI 输出当前不支持分区。
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

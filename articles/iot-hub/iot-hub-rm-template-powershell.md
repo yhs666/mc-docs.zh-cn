@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/24/2017
+ms.date: 05/04/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 46f44171701ceea3c526e6cb5ab48a7eee67dbc8
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 5f772ca88c292d6b365a53e1a973e5af8c394584
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -43,15 +43,28 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="connect-to-your-azure-subscription"></a>连接到 Azure 订阅
 
-在 PowerShell 命令提示符中，输入以下命令以登录 Azure 订阅：
+在 PowerShell 命令提示符中，输入以下命令以登录你的 Azure 订阅：
 
-```
+```powershell
 Login-AzureRmAccount -Environment $(Get-AzureRmEnvironment -Name AzureChinaCloud)
+```
+
+如果你有多个 Azure 订阅，则访问 Azure 即有权访问与凭据关联的所有 Azure 订阅。 使用以下命令，列出可供使用的 Azure 订阅：
+
+```powershell
+Get-AzureRMSubscription
+```
+
+使用以下命令，选择想要用于运行命令以创建 IoT 中心的订阅。 可使用上一命令输出中的订阅名称或 ID：
+
+```powershell
+Select-AzureRMSubscription `
+    -SubscriptionName "{your subscription name}"
 ```
 
 可以使用以下命令来发现可部署 IoT 中心的位置和当前支持的 API 版本：
 
-```
+```powershell
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).Locations
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).ApiVersions
 ```
@@ -127,6 +140,8 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "China East"
 
 > [!NOTE]
 > 此示例应用程序添加用于计费的 S1 标准 IoT 中心。 可以通过 [Azure 门户][lnk-azure-portal] 删除该 IoT 中心，或者在完成后使用 **Remove-AzureRmResource** PowerShell cmdlet。
+> 
+> 
 
 ## <a name="next-steps"></a>后续步骤
 现在，已使用 Azure Resource Manager 模板和 PowerShell 部署了一个 IoT 中心，接下来可以进一步进行探索：
@@ -140,7 +155,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "China East"
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [使用 IoT 网关 SDK 模拟设备][lnk-gateway]
+* [使用 Azure IoT Edge 模拟设备][lnk-gateway]
 
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/

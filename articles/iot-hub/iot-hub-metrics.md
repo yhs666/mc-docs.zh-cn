@@ -16,10 +16,10 @@ origin.date: 02/22/2017
 ms.date: 04/24/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 0ef732686486a2af9fca01f202d5dc4fd00abcb3
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 1541b4e9c732dc27f7814c0d514a81b47347a9a0
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -102,7 +102,7 @@ IoT 中心提供多个度量值，帮助你大致了解中心的运行状况以�
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南][lnk-devguide]
-* [使用 IoT 网关 SDK 模拟设备][lnk-gateway]
+* [使用 Azure IoT Edge 模拟设备][lnk-gateway]
 
 <!-- Links and images -->
 [1]: ./media/iot-hub-metrics/enable-metrics-1.png

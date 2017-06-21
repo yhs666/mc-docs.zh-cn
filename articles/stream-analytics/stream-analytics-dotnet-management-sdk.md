@@ -17,10 +17,11 @@ origin.date: 03/06/2017
 ms.date: 05/15/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 6d5130c28a9165d4c677c19435ab9cda08457c31
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: ecc55b09f66b12882fdf00e5fb255b17dc8d0565
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
+
 
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>管理 .NET SDK：设置和运行使用 .NET 版 Azure 流分析 API 的分析作业
@@ -34,8 +35,8 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 在开始阅读本文前，你必须具有：
 
 * 安装 Visual Studio 2017 或 2015。
-* 下载并安装 [Azure .NET SDK](https://www.azure.cn/downloads/)。
-* 在订阅中创建 Azure 资源组。 下面是 Azure PowerShell 脚本示例。 有关 Azure PowerShell 的信息，请参阅 [安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)；  
+* 下载并安装 [Azure .NET SDK](/downloads/)。
+* 在订阅中创建 Azure 资源组。 下面是 Azure PowerShell 脚本示例。 有关 Azure PowerShell 的信息，请参阅 [安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)；  
 
         # Log in to your Azure account
         Add-AzureAccount -Environment AzureChinaCloud
@@ -129,7 +130,7 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 
 **resourceGroupName** 变量的值应该与你在先决条件步骤中创建或选取的资源组的名称相同。
 
-若要自动执行凭据演示方面的作业创建，请参阅[使用 Azure 资源管理器对服务主体进行身份验证](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
+若要自动执行凭据演示方面的作业创建，请参阅[使用 Azure Resource Manager 对服务主体进行身份验证](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
 
 本文的剩余部分假定此代码位于 **Main** 方法的开头。
 
@@ -294,7 +295,8 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
     LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
 ## <a name="get-support"></a>获取支持
-如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+<!-- Update the referenc link with correct URL-->
+如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>后续步骤
 你已经学习了使用 .NET SDK 来创建和运行分析作业的基础知识。 若要了解更多信息，请参阅下列文章：
@@ -312,8 +314,8 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 [7]: ./media/markdown-template-for-new-articles/channel-9.png
 
 <!--Link references-->
-[azure.blob.storage]: /azure/storage/
-[azure.blob.storage.use]: /azure/storage-dotnet-how-to-use-blobs/
+[azure.blob.storage]: /storage/
+[azure.blob.storage.use]: /storage-dotnet-how-to-use-blobs/
 
 [azure.event.hubs]: http://azure.microsoft.com/services/event-hubs/
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
