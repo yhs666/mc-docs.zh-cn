@@ -1,8 +1,8 @@
 ---
 layout: HubPage
 hide_bc: true
-title: "Microsoft Azure 文档 | Microsoft 文档"
-description: "了解如何使用 Microsoft Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
+title: "Azure 文档 | Microsoft 文档"
+description: "了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
 ms.openlocfilehash: f2ea1b11e87ff34749d4f140f7f35af9ebd43764
