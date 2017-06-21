@@ -25,7 +25,7 @@ ms.lasthandoff: 04/22/2017
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>创建和修改 ExpressRoute 线路的对等互连（经典）
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure 门户](./expressroute-howto-routing-portal-resource-manager.md)
+> * [资源管理器 - Azure 门户](./expressroute-howto-routing-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](./expressroute-howto-routing-arm.md)
 > * [经典 - PowerShell](./expressroute-howto-routing-classic.md)
 >
@@ -284,9 +284,9 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 ```
     Remove-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
 ```
+## 后续步骤
 
-## Next steps
+接下来，请[将 VNet 链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-classic.md)。
 
-Next, [Link a VNet to an ExpressRoute circuit](./expressroute-howto-linkvnet-classic.md).
--  For more information about workflows, see [ExpressRoute workflows](./expressroute-workflows.md).
--  For more information about circuit peering, see [ExpressRoute circuits and routing domains](./expressroute-circuit-peerings.md).
+- 有关工作流的详细信息，请参阅 [ExpressRoute 工作流](./expressroute-workflows.md)。
+- 有关线路对等互连的详细信息，请参阅 [ExpressRoute 线路和路由域](./expressroute-circuit-peerings.md)。

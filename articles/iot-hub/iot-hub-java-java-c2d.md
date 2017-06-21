@@ -54,7 +54,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 
 + Maven 3。  <br/> [准备开发环境][lnk-dev-setup] 介绍了如何在 Windows 或 Linux 上安装本教程所用的 Maven。
 
-+ 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）
++ 有效的 Azure 帐户。（如果没有帐户，只需花费几分钟就能创建一个[试用帐户][lnk-free-trial]。）
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>在模拟设备应用上接收消息
 在本部分中，你将修改在 [Get started with IoT Hub]中创建的模拟设备应用，以接收来自 IoT 中心的“云到设备”消息。

@@ -66,8 +66,8 @@ POST 操作对于所有基于度量值的警报包含以下 JSON 有效负载和
             "resourceName": "mysite1",
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
-            "resourceRegion": "centralus",
-            "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
+	    "resourceRegion": "chinanorth",
+	    "portalLink": "https://portal.azure.cn/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
 },
 "properties": {
               "key1": "value1",
@@ -79,29 +79,29 @@ POST 操作对于所有基于度量值的警报包含以下 JSON 有效负载和
 
 | 字段 | 必需 | 一组固定的值 | 说明 |
 |:--- |:--- |:--- |:--- |
-| status |Y |“Activated”, “Resolved” |以设置的条件为基础的警报的状态。 |
-| 上下文 |Y | |警报上下文。 |
-| timestamp |Y | |触发警报的时间。 |
-| id |Y | |每个警报规则都具有一个唯一的 ID。 |
-| name |Y | |警报名称。 |
-| description |Y | |警报的说明。 |
-| conditionType |Y |“Metric”, “Event” |支持两种类型的警报。 一种基于度量值条件，另一种基于活动日志中的事件。 使用此值可检查警报是基于度量值还是基于事件。 |
-| 条件 |Y | |根据 conditionType 要检查的特定字段。 |
-| metricName |用于指标警报 | |定义规则监视对象的指标的名称。 |
-| metricUnit |用于指标警报 |“Bytes”、“BytesPerSecond”、“Count”、“CountPerSecond”、“Percent”、“Seconds” |指标中允许使用的单位。 [允许的值列于此处](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx)。 |
-| metricValue |用于指标警报 | |导致警报的实际度量值。 |
-| 阈值 |用于指标警报 | |会激活警报的阈值。 |
-| windowSize |用于指标警报 | |用于根据阈值监视警报活动的时间段。 必须介于 5 分钟到 1 天之间。 ISO 8601 持续时间格式。 |
-| timeAggregation |用于指标警报 |“Average”、“Last”、“Maximum”、“Minimum”、“None”、“Total” |随着时间推移，收集的数据应如何组合。 默认值为 Average。 [允许的值列于此处](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx)。 |
-| operator |用于指标警报 | |用于比较当前度量值数据和所设阈值的运算符。 |
-| subscriptionId |Y | |Azure 订阅 ID。 |
-| resourceGroupName |Y | |受影响资源的资源组的名称。 |
+|status|Y|“Activated”, “Resolved”|以设置的条件为基础的警报的状态。|
+|context| Y | | 警报上下文。|
+|timestamp| Y | | 触发警报的时间。|
+|id | Y | | 每个警报规则都具有一个唯一的 ID。|
+|name |Y | | 警报名称。|
+|description |Y | |警报的说明。|
+|conditionType |Y |“Metric”, “Event” |支持两种类型的警报。一种基于度量值条件，另一种基于活动日志中的事件。使用此值可检查警报是基于度量值还是基于事件。|
+|condition |Y | | 根据 conditionType 要检查的特定字段。|
+|metricName |用于指标警报 | |定义规则监视对象的指标的名称。|
+|metricUnit |用于指标警报 |“Bytes”、“BytesPerSecond”、“Count”、“CountPerSecond”、“Percent”、“Seconds”|	 指标中允许使用的单位。[允许的值列于此处](https://msdn.microsoft.com/zh-cn/library/microsoft.azure.insights.models.unit.aspx)。|
+|metricValue |用于指标警报 | |导致警报的实际度量值。|
+|threshold |用于指标警报 | |会激活警报的阈值。|
+|windowSize |用于指标警报 | |用于根据阈值监视警报活动的时间段。必须介于 5 分钟到 1 天之间。ISO 8601 持续时间格式。|
+|timeAggregation |用于指标警报 |“Average”、“Last”、“Maximum”、“Minimum”、“None”、“Total” |	随着时间推移，收集的数据应如何组合。默认值为 Average。[允许的值列于此处](https://msdn.microsoft.com/zh-cn/library/microsoft.azure.insights.models.aggregationtype.aspx)。|
+|operator |用于指标警报 | |用于比较当前度量值数据和所设阈值的运算符。|
+|subscriptionId |Y | |Azure 订阅 ID。|
+|resourceGroupName |Y | |受影响资源的资源组的名称。|
 | resourceName |Y | |受影响资源的资源名称。 |
 | resourceType |Y | |受影响资源的资源类型。 |
-| resourceId |Y | |受影响资源的资源 ID。 |
-| resourceRegion |Y | |受影响资源的区域或位置。 |
-| portalLink |Y | |指向门户资源摘要页的直接链接。 |
-| 属性 |N |可选 |一组包含事件详细信息的 `<Key, Value>` 对（即 `Dictionary<String, String>`）。 properties 字段是可选的。 在自定义 UI 或基于逻辑应用的工作流中，用户可以输入键/值，该键/值可通过有效负载传递。 将自定义属性传递回 webhook 的替代方法是通过 webhook URI 本身（作为查询参数） |
+|resourceId |Y | |受影响资源的资源 ID。|
+|resourceRegion |Y | |受影响资源的区域或位置。|
+|portalLink |Y | |指向门户资源摘要页的直接链接。|
+|properties |N |可选 |一组包含事件详细信息的 `<Key, Value>` 对（即 `Dictionary<String, String>`）。properties 字段是可选的。在自定义 UI 或基于逻辑应用的工作流中，用户可以输入键/值，该键/值可通过有效负载传递。将自定义属性传递回 webhook 的替代方法是通过 webhook URI 本身（作为查询参数）|
 
 > [!NOTE]
 > 仅可以使用 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx) 设置属性字段。
@@ -109,8 +109,7 @@ POST 操作对于所有基于度量值的警报包含以下 JSON 有效负载和
 >
 
 ## <a name="next-steps"></a>后续步骤
-- 请在[将 Azure 警报与 PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080) 集成视频中了解有关 Azure 警报和 webhook 的详细信息
 - [Execute Azure Automation scripts (Runbooks) on Azure alerts](http://go.microsoft.com/fwlink/?LinkId=627081)（对 Azure 警报执行 Azure 自动化脚本 (Runbook)）
-- [Use Logic App to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)（使用逻辑应用通过 Twilio 从 Azure 警报发送短信）
-- [使用逻辑应用从 Azure 警报发送 Slack 消息](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-- [使用逻辑应用从 Azure 警报将消息发送到 Azure 队列](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+
+<!---HONumber=Mooncake_0227_2017-->
+<!--Update_Description:update wording and delete unavailable references -->

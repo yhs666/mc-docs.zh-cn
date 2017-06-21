@@ -103,7 +103,7 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
 若只需显示那些发送意外温度值的设备，可以使用筛选器。 远程监控预配置解决方案包含一个“不正常设备”筛选器，用于显示平均温度值超过 60 的设备。 用户还可以创建自己的筛选器。
 
-1. 选择“打开保存的筛选器”以显示可用筛选器的列表。 Then choose **Unhealthy devices** to apply the filter:
+1. 选择“打开保存的筛选器”以显示可用筛选器的列表。然后选择“不正常设备”应用该筛选器：
 
     ![显示筛选器列表][img-unhealthy-filter]
 
@@ -142,7 +142,7 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
 此固件版本可能是温度值不正常的根本原因，因为已确定其他正常设备最近更新到了 2.0 版。 用户可以使用内置的“旧固件设备”筛选器确定固件版本过旧的设备， 然后在门户中远程更新仍运行旧版固件的所有设备：
 
-1. 选择“打开保存的筛选器”以显示可用筛选器的列表。 Then choose **Old firmware devices** to apply the filter:
+1. 选择“打开保存的筛选器”以显示可用筛选器的列表。然后选择“旧固件设备”应用该筛选器：
 
     ![显示筛选器列表][img-old-filter]
 
@@ -267,7 +267,8 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
     ![添加设备规则][img-adddevicerule2]
 
-1. 从命令列表中选择“ChangeSetPointTemp”并将“SetPointTemp”设置为 45。 Then choose **Send Command**:
+
+1. 从命令列表中选择“ChangeSetPointTemp”并将“SetPointTemp”设置为 45。然后选择“发送命令”：
 
     ![添加设备规则][img-adddevicerule3]
 

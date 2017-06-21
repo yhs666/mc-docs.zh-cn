@@ -105,7 +105,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     此操作将打开“管理 NuGet 包”窗口。
 3. 搜索“Microsoft.Azure.Devices”，然后单击“安装”并接受使用条款。 
 
-    此操作会下载、安装 [Azure IoT 服务 SDK NuGet 包]并添加对它的引用。
+    此操作会下载、安装 [Azure IoT 服务 SDK NuGet 包][Azure IoT - Service SDK NuGet package]并添加对它的引用。
 
 4. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
 

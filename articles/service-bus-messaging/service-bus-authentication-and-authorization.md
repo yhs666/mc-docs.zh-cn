@@ -12,7 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+origin.date: 03/21/2017
+ms.date: 05/22/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
@@ -52,7 +53,7 @@ Azure .NET SDK 2.0 版和更高版本支持服务总线的 SAS 身份验证。 S
 
 ## <a name="acs-authentication"></a>ACS 身份验证
 
-使用 ACS 的服务总线身份验证通过随附的“-sb”ACS 命名空间进行管理。 如果你想为服务总线命名空间创建随附 ACS 命名空间，则不能使用 Azure 经典门户创建服务总线命名空间，而必须使用 [New-AzureSBNamespace](https://msdn.microsoft.com/library/azure/dn495165.aspx) PowerShell cmdlet 来创建命名空间。 例如：
+使用 ACS 的服务总线身份验证通过随附的“-sb”ACS 命名空间进行管理。如果你想为服务总线命名空间创建随附 ACS 命名空间，则不能使用 Azure 经典管理门户创建服务总线命名空间，而必须使用 [New-AzureSBNamespace](https://msdn.microsoft.com/zh-cn/library/azure/dn495165.aspx) PowerShell cmdlet 来创建命名空间。例如：
 
 ```powershell
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true
@@ -64,7 +65,7 @@ New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $false
 ```
 
-例如，如果创建名为 **contoso.servicebus.windows.net** 的服务总线命名空间，则将自动预配名为 **contoso-sb.accesscontrol.windows.net** 的随附 ACS 命名空间。 对于在 2014 年 8 月之前创建的所有命名空间，还将创建一个随附的 ACS 命名空间。
+例如，如果创建名为 **contoso.servicebus.chinacloudapi.cn** 的服务总线命名空间，则将自动预配名为 **contoso-sb.accesscontrol.chinacloudapi.cn** 的随附 ACS 命名空间。对于在 2014 年 8 月之前创建的所有命名空间，还将创建一个随附的 ACS 命名空间。
 
 默认情况下，此随附 ACS 命名空间中预配了默认服务标识“owner”，具有全部权限。 你可以借助 ACS 通过配置相应信任关系来获取对任何服务总线实体的精细化控制。 可以配置附加服务标识，用于管理对服务总线实体的访问权限。
 

@@ -40,7 +40,7 @@ ms.author: v-yiso
 提供了多种语言的 _服务 SDK_ ，以便于用户创建与 IoT 中心交互的 [后端应用](#back-end-app) 。 IoT 中心教程介绍了如何使用这些服务 SDK。 可以在此 GitHub [存储库](https://github.com/Azure/azure-iot-sdks)中找到有关服务 SDK 的源代码和进一步信息。
 
 ## <a name="azure-portal"></a>Azure 门户
-[Microsoft Azure 门户](https://portal.azure.cn) 是一个中心位置，可在其中预配和管理 Azure 资源。 该门户使用 _边栏选项卡_组织其内容。 在某些 IoT 中心教程中，可能会要求使用 [Azure 经典门户](https://manage.windowsazure.cn)。
+[Azure 门户](https://portal.azure.cn) 是一个中心位置，可在其中预配和管理 Azure 资源。 该门户使用 _边栏选项卡_ 组织其内容。 在某些 IoT 中心教程中，可能会要求使用 [Azure 经典门户](https://manage.windowsazure.cn)。
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 [Azure PowerShell](../powershell-install-configure.md) 是一个 cmdlet 集合，可用于通过 Windows PowerShell 管理 Azure。 你可以使用 cmdlet 来创建、测试、部署和管理通过 Azure 平台传送的解决方案和服务。
@@ -52,7 +52,7 @@ ms.author: v-yiso
 通过[服务总线](../service-bus-messaging/index.md)，可在云端使用企业消息传递进行通信，也可采用中继进行通信，帮助将本地解决方案与云端连接。 某些 IoT 中心教程使用服务总线[队列](../service-bus-messaging/service-bus-messaging-overview.md)。
 
 ## <a name="azure-storage"></a>Azure 存储
-[Azure 存储](../storage/storage-introduction.md)是一种云存储解决方案。 它包含可用于存储非结构化的对象数据的 Blob 存储服务。 某些 IoT 中心教程使用 blob 存储。
+[Azure 存储](../storage/storage-introduction.md)是云存储解决方案。 它包含可用于存储非结构化的对象数据的 Blob 存储服务。 某些 IoT 中心教程使用 blob 存储。
 
 ## <a name="back-end-app"></a>后端应用
 在 [IoT 中心](#iot-hub)环境中，后端应用是指连接到 IoT 中心的一个面向服务的终结点的应用。 例如，后端应用可以检索[设备到云](#device-to-cloud)的消息或管理[标识注册表](#identity-registry)。 通常，后端应用在云中运行，但在许多教程中，后端应用是在本地开发计算机上运行的控制台应用。
@@ -75,7 +75,7 @@ ms.author: v-yiso
 可在 IoT 中心创建自定义[终结点](./iot-hub-devguide-endpoints.md)来传递由[路由规则](#routing-rules)调度的消息。 自定义终结点会直接连接到事件中心、服务总线队列或服务总线主题。
 
 ## <a name="custom-gateway"></a>自定义网关
-网关使不能直接连接到 [IoT 中心](#iot-hub)的设备能建立连接。 可以使用 [Azure IoT 网关 SDK](#azure-iot-gateway-sdk) 生成自定义网关，以便使用自定义逻辑处理消息和自定义协议转换。
+网关使不能直接连接到 [IoT 中心](#iot-hub)的设备能建立连接。可以使用 Azure IoT 网关 SDK 生成自定义网关，以便使用自定义逻辑处理消息和自定义协议转换。
 
 ## <a name="data-point-message"></a>数据点消息
 数据点消息是指[设备到云](#device-to-cloud)的消息，其中包含[遥测](#telemetry)数据（例如风速或温度）。
@@ -149,8 +149,8 @@ IoT 中心公开了多个[终结点](./iot-hub-devguide-endpoints.md)，以便�
 ## <a name="field-gateway"></a>现场网关
 无法直接连接到 [IoT 中心](#iot-hub) 的设备可以通过现场网关进行连接，而现场网关通常与设备一起部署在本地。 有关详细信息，请参阅[什么是 Azure IoT 中心？](./iot-hub-what-is-iot-hub.md)
 
-## <a name="free-account"></a>免费帐户
-可以创建[免费的 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)，以便使用 IoT 中心服务（及其他 Azure 服务）完成 IoT 中心教程和试验。
+## 试用帐户
+可以创建[ Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，以便使用 IoT 中心服务（及其他 Azure 服务）完成 IoT 中心教程和试验。
 
 ## <a name="gateway"></a>网关
 网关使不能直接连接到 [IoT 中心](#iot-hub)的设备能建立连接。 另请参阅[现场网关](#field-gateway)、[云网关](#cloud-gateway)和[自定义网关](#custom-gateway)。
@@ -171,7 +171,7 @@ IoT 中心是一项完全托管的 Azure 服务，可在数百万个设备和一
 [IoT 中心查询语言](./iot-hub-devguide-query-language.md)是一种类似于 SQL 的语言，用于查询[作业](#job)和设备孪生。
 
 ## <a name="iot-hub-resource-provider-rest-api"></a>IoT 中心资源提供程序 REST API
-可以使用 [IoT 中心资源提供程序 REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) 管理 [Azure 订阅](#subscription)中的 IoT 中心，以便执行一些操作，例如创建、更新和删除中心。
+可以使用 IoT 中心资源提供程序 REST API 管理 [Azure 订阅](#subscription)中的 IoT 中心，以便执行一些操作，例如创建、更新和删除中心。
 
 ## <a name="iot-suite"></a>IoT 套件
 Azure IoT 套件将多个 Azure 服务和预配置解决方案打包在一起。 有了这些预配置解决方案，用户就可以快速启动常见 IoT 方案的端到端实现。 有关详细信息，请参阅 [什么是 Azure IoT 套件？](../iot-suite/iot-suite-overview.md)
@@ -216,12 +216,12 @@ Azure IoT 套件将多个 Azure 服务和预配置解决方案打包在一起。
 [Azure Resource Manager](#azure-resource-manager) 使用资源组将相关的资源组合在一起。 通过使用资源组，可以对组中的所有资源同时执行操作。
 
 ## <a name="retry-policy"></a>重试策略
-连接到云服务时使用重试策略来处理[暂时性错误](https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx)。
+连接到云服务时使用重试策略来处理[暂时性错误][]。
 ## <a name="routing-rules"></a>路由规则
 需要在 IoT 中心配置[路由规则](./iot-hub-devguide-messaging.md#routing-rules)，将设备到云消息路由到[内置终结点](#built-in-endpoints)或[自定义终结点](#custom-endpoints)，以供解决方案后端处理。
 
 ## <a name="sasl-plain"></a>SASL PLAIN
-SASL PLAIN 是一种协议， [AMQP](#advanced-message-queue-protocol) 协议使用它传输安全令牌。
+SASL PLAIN 是一种协议， AMQP 协议使用它传输安全令牌。
 
 ## <a name="shared-access-signature"></a>共享访问签名
 共享访问签名 (SAS) 是基于 SHA–256 安全哈希或 URI 的身份验证机制。 SAS 身份验证有两个组件：_共享访问策略_和_共享访问签名_（通常称为令牌）。 设备使用 SAS 在 IoT 中心进行身份验证。 [后端应用](#back-end-app) 也使用 SAS 在 IoT 中心的面向服务的终结点上进行身份验证。 通常，在 [连接字符串](#connection-string) 中包含 SAS 令牌，应用使用此令牌建立与 IoT 中心的连接。
@@ -229,8 +229,8 @@ SASL PLAIN 是一种协议， [AMQP](#advanced-message-queue-protocol) 协议使
 ## <a name="shared-access-policy"></a>共享访问策略
 共享访问策略定义向具有有效的 [主要密钥或次要密钥](#primary-and-secondary-keys) （与该策略相关联）的任何人授予的权限。 用户可以在 [门户](#azure-portal)中管理中心的共享访问策略和密钥。
 
-## <a name="simulated-device"></a>模拟设备
-为方便起见，许多 IoT 中心教程使用模拟设备，以便在本地计算机上运行示例。 相反， [物理设备](#physical-device) 是真实的设备，如连接到 IoT 中心的 Raspberry Pi。
+## <a name="simulated-device"></a> 模拟设备门户
+为方便起见，许多 IoT 中心教程使用模拟设备，以便在本地计算机上运行示例。相反，[物理设备](#physical-device)是真实的设备，如连接到 IoT 中心的 Raspberry Pi。
 
 ## <a name="solution"></a>解决方案
 _解决方案_ 可以是包含一个或多个项目的 Visual Studio 解决方案。 _解决方案_也可能是包括诸如设备、[设备应用](#device-app)、IoT 中心、其他 Azure 服务和[后端应用](#back-end-app)等元素的 IoT 解决方案。
@@ -252,3 +252,6 @@ Azure 订阅是发生计费的地方。 用户创建的每个 Azure 资源或使
 
 ## <a name="x509-client-certificate"></a>X.509 客户端证书
 设备可以使用 X.509 证书在 [IoT 中心](#iot-hub)进行身份验证。 使用 X.509 证书是使用 [SAS 令牌](#shared-access-signature)的替代方案。
+
+
+[暂时性错误]:  https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx

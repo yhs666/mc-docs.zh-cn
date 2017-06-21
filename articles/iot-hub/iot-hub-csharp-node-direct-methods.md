@@ -40,7 +40,7 @@ ms.lasthandoff: 04/07/2017
 
 * Visual Studio 2015 或 Visual Studio 2017。
 * Node.js 版本 0.10.x 或更高版本。
-* 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[免费帐户][lnk-free-trial]。）
+* 有效的 Azure 帐户。（如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -166,7 +166,9 @@ ms.lasthandoff: 04/07/2017
     ```
     node SimulatedDevice.js
     ```
-   等待模拟设备打开： ![][7]
+    等待模拟设备打开： 
+   
+    ![][7]
 2. 设备已连接，正在等待方法调用，此时可运行 .NET **CallMethodOnDevice** 应用，调用模拟设备应用中的方法。 此时会看到写入控制台的设备响应。
 
     ![][8]

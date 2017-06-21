@@ -12,7 +12,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+origin.date: 03/27/2017
+ms.date: 05/08/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -55,7 +56,6 @@ SKU 还确定了 IoT 中心对所有操作强制实施的限制。
 
 例如，如果你购买的是单一 S1 单位，则限制为每秒 100 个连接。 因此，若要连接 100,000 台设备，至少需要花费 1000 秒（大约 16 分钟）。 但是，同时连接的设备数可与用户在标识注册表中注册的设备数相同。
 
-有关 IoT 中心限制行为的深入讨论，请参阅博客文章 [IoT Hub throttling and you（IoT 中心限制与你息息相关）][lnk-throttle-blog]。
 
 > [!NOTE]
 > 无论何时，都可以通过增加 IoT 中心预配的单位来提高配额或限制。

@@ -54,7 +54,7 @@ ms.lasthandoff: 04/22/2017
 * [使用 Azure PowerShell 将线路从经典部署模型转移到 Resource Manager 部署模型](./expressroute-howto-move-arm.md)。
 * 使用 Azure 服务管理门户。 可以按照工作流[创建新的 ExpressRoute 线路](./expressroute-howto-circuit-portal-resource-manager.md)并选择导入选项。 
 
-此操作不涉及停机。 只要迁移正在进行，就可以继续在本地和 Microsoft 之间传输数据。
+此操作不涉及停机。 只要迁移正在进行，就可以继续在本地和 Azure 之间传输数据。
 
 ## <a name="prepare-your-virtual-network-for-migration"></a>针对迁移准备虚拟网络
 必须确保要迁移的虚拟网络的网络没有不必要的项目。 若要下载虚拟网络配置并根据需要对其进行更新，请运行以下 PowerShell cmdlet：
@@ -65,7 +65,7 @@ Select-AzureSubscription -SubscriptionName <VNET Subscription>
 Get-AzureVNetConfig -ExportToFile C:\virtualnetworkconfig.xml
 ```
       
-必须确保从要迁移的虚拟网络中删除对 <ConnectionsToLocalNetwork> 的所有引用。 以下代码片段演示了示例网络配置：
+必须确保从要迁移的虚拟网络中删除对  &lt;ConnectionsToLocalNetwork&gt;  的所有引用。 以下代码片段演示了示例网络配置：
 
 ```
     <VirtualNetworkSite name="MyVNet" Location="East US">
@@ -87,7 +87,7 @@ Get-AzureVNetConfig -ExportToFile C:\virtualnetworkconfig.xml
     </VirtualNetworkSite>
 ```
  
-如果 <ConnectionsToLocalNetwork> 不为空，请删除其下的引用，然后重新提交网络配置。 可以运行以下 PowerShell cmdlet 来实现此目的：
+如果 &lt;ConnectionsToLocalNetwork&gt; 不为空，请删除其下的引用，然后重新提交网络配置。 可以运行以下 PowerShell cmdlet 来实现此目的：
 
 ```powershell
 Set-AzureVNetConfig -ConfigurationPath c:\virtualnetworkconfig.xml
@@ -129,7 +129,7 @@ Set-AzureVNetConfig -ConfigurationPath c:\virtualnetworkconfig.xml
 3. 确保 ExpressRoute 线路可以同时在经典环境和 Resource Manager 环境中使用。 若要让线路能够同时在经典环境和 Resource Manager 环境中使用，请使用以下 PowerShell 脚本：
 
   ```powershell
-  Login-AzureRmAccount
+  Login-AzureRmAccount -Environment $(Get-AzureRmEnvironment -Name AzureChinaCloud)
   Select-AzureRmSubscription -SubscriptionName <My subscription>
   $circuit = Get-AzureRmExpressRouteCircuit -Name <CircuitName> -ResourceGroupName <ResourceGroup Name> 
   $circuit.AllowClassicOperations = $true

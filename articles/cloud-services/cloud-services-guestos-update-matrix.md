@@ -12,7 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/11/2017
+origin.date: 04/11/2017
+ms.date: 05/22/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
@@ -30,13 +31,8 @@ ms.lasthandoff: 05/12/2017
 > 
 > 
 
-<!-- -->
 
-> [!TIP]
-> 订阅来宾 OS 更新 RSS 源，以接收有关所有来宾 OS 更改的最新通知。
-> 
-> 
-
+不太确定什么是来宾 OS 或者来宾 OS 的工作原理？ 请阅读[此部分](#how-it-works)。
 
 ## <a name="news-updates"></a>新闻更新
 ###### <a name="april-10-2017"></a>**2017 年 4 月 10 日**
@@ -199,8 +195,8 @@ Windows Server 2016 将于 2016 年 11 月 1 日作为 OS 系列 5 推出，提�
 
 来宾 OS 的配置字符串嵌入了该相同信息，以及显示考虑为该发行版本包括哪些 MSRC 修补程序的日期。 在此示例中，考虑包括 2012 年 8 月之前（含该日期）为 Windows Server 2008 R2 开发的 MSRC 修补程序。 仅包括专门应用于该版本的 Windows Server 的修补程序。 例如，如果某个 MSRC 修补程序应用于 Microsoft Office，则它将不包括在内，因为该产品不属于 Windows Server 基本映像。 
 
-## <a name="guest-os-system-update-process"></a>来宾 OS 系统更新过程
-本页包含有关即将发布的来宾 OS 版本的信息。 客户已表明想知道什么时候发行版本，因为如果未设为“自动”更新，他们的云服务角色将重新启动。 来宾 OS 发行版本通常会在每月第二个星期二发布 MSRC 更新之后的至少 5 天发布。 新版本包含针对每个来宾 OS 系列的所有相关 MSRC 修补程序。 
+## <a name="how-it-works"></a> 来宾 OS 系统更新过程
+本页包含有关即将发布的来宾 OS 版本的信息。客户已表明想知道什么时候发行版本，因为如果未设为“自动”更新，他们的云服务角色将重新启动。来宾 OS 发行版本通常会在每月第二个星期二发布 MSRC 更新之后的至少 5 天发布。新版本包含针对每个来宾 OS 系列的所有相关 MSRC 修补程序。
 
 Azure 不断地发布更新。 来宾 OS 只不过是此类更新的其中一种。 一个发行版本会受到许多因素影响，不胜列举。 此外，Azure 实际上在成千上万的计算机上运行。 这意味着无法提供重新启动你角色的准确日期和时间。 我们将使用最新信息更新来宾 OS 更新 RSS 源，但会考虑到其时间和近似时间范围。 我们意识到这对于客户构成问题，并正在致力于限制重新启动或为重新启动定时的计划。 
 

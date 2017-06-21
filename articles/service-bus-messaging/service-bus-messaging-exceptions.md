@@ -24,7 +24,7 @@ ms.lasthandoff: 04/07/2017
 
 # <a name="service-bus-messaging-exceptions"></a>服务总线消息传送异常
 
-本文列出了 Microsoft Azure 服务总线消息传送 API 生成的一些异常。 这些参考信息可随时更改，请不时返回查看更新内容。
+本文列出了 Azure 服务总线消息传送 API 生成的一些异常。这些参考信息可随时更改，请不时返回查看更新内容。
 
 ## <a name="exception-categories"></a>异常类别
 消息传送 API 会生成以下类别的异常，以及你在尝试修复这些异常时可以采取的相关操作。 请注意，异常的含义和原因会因消息传送实体的类型（队列/主题或事件中心）而异：

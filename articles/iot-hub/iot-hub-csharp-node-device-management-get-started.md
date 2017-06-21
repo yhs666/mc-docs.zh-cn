@@ -54,7 +54,8 @@ ms.lasthandoff: 05/26/2017
 若要完成本教程，您需要以下各项：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-* Node.js 版本 0.12.x 或更高版本， <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
+* Node.js 版本 0.12.x 或更高版本。
+* [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -132,6 +133,7 @@ ms.lasthandoff: 05/26/2017
 * 触发模拟的设备重启
 * 使用报告属性，允许通过设备孪生查询标识设备及其上次重启的时间
 
+<br/>
 1. 新建名为 **manageddevice**的空文件夹。  在 **manageddevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
 
     ```

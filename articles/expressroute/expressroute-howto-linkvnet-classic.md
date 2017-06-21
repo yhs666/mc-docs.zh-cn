@@ -13,7 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+origin.date: 12/13/2016
+ms.date: 05/02/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
@@ -45,7 +46,7 @@ ms.lasthandoff: 04/22/2017
 3. 你必须有一个活动的 ExpressRoute 线路。 
     - 请按说明[创建 ExpressRoute 线路](./expressroute-howto-circuit-classic.md)，并让连接提供商启用该线路。
     - 确保为线路配置 Azure 专用对等互连。 有关路由说明，请参阅[配置路由](./expressroute-howto-routing-classic.md)一文。 
-    - 确保配置 Azure 专用对等互连，并运行用户网络和 Microsoft 之间的 BGP 对等互连，以便启用端到端连接。
+    - 确保配置 Azure 专用对等互连，并运行用户网络和 Azure 之间的 BGP 对等互连，以便启用端到端连接。
     - 必须已创建并完全预配虚拟网络和虚拟网络网关。 请按说明[为 ExpressRoute 配置虚拟网络](./expressroute-howto-vnet-portal-classic.md)。
 
 最多可以将 10 个虚拟网络链接到 ExpressRoute 线路。 所有虚拟网络都必须位于同一地缘政治区域。 如果已启用 ExpressRoute 高级外接程序，则可以将更多虚拟网络链接到 ExpressRoute 线路，或者链接其他地缘政治区域中的虚拟网络。 有关高级外接程序的更多详细信息，请参阅[常见问题解答](./expressroute-faqs.md)。
@@ -88,10 +89,9 @@ ms.lasthandoff: 04/22/2017
     MicrosoftIds        : devtest@contoso.com
     Used                : 0
 ```
+**查看授权**
 
-**Reviewing authorizations**
-
-The circuit owner can review all authorizations that are issued on a particular circuit by running the following cmdlet:
+线路所有者可以通过运行以下 cmdlet 查看针对特定线路发出的所有授权：
 
 ```
     Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
@@ -116,10 +116,9 @@ The circuit owner can review all authorizations that are issued on a particular 
 ```
 
 
-**Updating authorizations**
+**更新授权**
 
-The circuit owner can modify authorizations by using the following cmdlet:
-
+线路所有者可以使用以下 cmdlet 修改授权：
 ```
     Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
 
@@ -130,20 +129,18 @@ The circuit owner can modify authorizations by using the following cmdlet:
     Used                : 0
 ```
 
-**Deleting authorizations**
+**删除授权**
 
-The circuit owner can revoke/delete authorizations to the user by running the following cmdlet:
-
+线路所有者可以通过运行以下 cmdlet 撤消/删除对用户的授权：
 ```
     Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
 ```
 
+### 线路用户操作
 
-### Circuit user operations
+**查看授权**
 
-**Reviewing authorizations**
-
-The circuit user can review authorizations by using the following cmdlet:
+线路用户可以使用以下 cmdlet 查看授权：
 
 ```
     Get-AzureAuthorizedDedicatedCircuit
@@ -158,10 +155,9 @@ The circuit user can review authorizations by using the following cmdlet:
     Status                           : Enabled
     UsedLinks                        : 0
 ```
+**兑现链接授权**
 
-**Redeeming link authorizations**
-
-The circuit user can run the following cmdlet to redeem a link authorization:
+线路用户可以通过运行以下 cmdlet 兑现链接授权：
 
 ```
     New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
@@ -170,7 +166,6 @@ The circuit user can run the following cmdlet to redeem a link authorization:
     ----- --------
     Provisioned SalesVNET1
 ```
+## 后续步骤
 
-## Next steps
-
-For more information about ExpressRoute, see the [ExpressRoute FAQ](./expressroute-faqs.md).
+有关 ExpressRoute 的详细信息，请参阅 [ExpressRoute 常见问题](./expressroute-faqs.md)。

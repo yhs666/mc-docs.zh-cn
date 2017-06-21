@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/23/2016
+origin.date: 03/22/2017
 ms.date: 05/22/2017
 ms.author: v-yiso
 ---
 
 # Azure 服务总线中的 AMQP 1.0：基于请求/响应的操作
 
-本主题定义 Microsoft Azure 服务总线基于请求/响应的操作的列表。此信息基于 AMQP 管理版本 1.0 工作草案。
+本主题定义 Azure 服务总线基于请求/响应的操作的列表。此信息基于 AMQP 管理版本 1.0 工作草案。
 
 有关详细的线级 AMQP 1.0 协议指南（其中介绍了如何基于 OASIS AMQP 技术规范实现和建立服务总线），请参阅 [Azure 服务总线和事件中心的 AMQP 1.0 协议指南](./service-bus-amqp-protocol-guide.md)。
 
@@ -107,14 +107,10 @@ ms.author: v-yiso
 
 |实体类型|地址|示例|  
 |-----------------|-------------|-------------|  
-|queue|`<queue_name>`  
-|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
-|主题|`<topic_name>`  
-|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
-|订阅|`<topic_name>/Subscriptions/<subscription_name>`  
-|`“myTopic/Subscriptions/MySub”`  
-|  
-
+|queue| `<queue_name>` |`“myQueue”`<br /><br /> `“site1/myQueue”`|  
+|主题|`<topic_name>` |`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
+|订阅|`<topic_name>/Subscriptions/<subscription_name>` |`“myTopic/Subscriptions/MySub”`  |  
+  
 ## 消息操作  
 
 ### 消息续订锁  

@@ -1,6 +1,6 @@
 ---
 title: "如何为 ExpressRoute 线路配置路由（对等互连）：Resource Manager：PowerShell：Azure "
-description: "本文介绍完成创建和预配 ExpressRoute 线路的专用、公共和 Microsoft 对等互连的步骤。 本文还介绍了如何检查状态，以及如何更新或删除线路的对等互连。"
+description: "本文介绍完成创建和预配 ExpressRoute 线路的专用、公共对等互连的步骤。 本文还介绍了如何检查状态，以及如何更新或删除线路的对等互连。"
 documentationcenter: na
 services: expressroute
 author: ganesr
@@ -212,7 +212,7 @@ ms.lasthandoff: 04/22/2017
     登录到帐户
 
     ```
-    Login-AzureRmAccount
+    Login-AzureRmAccount -Environment $(Get-AzureRmEnvironment -Name AzureChinaCloud)
     ```
 
     选择要创建 ExpressRoute 线路的订阅

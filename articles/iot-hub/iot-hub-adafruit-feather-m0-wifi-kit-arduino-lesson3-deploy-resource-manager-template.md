@@ -13,7 +13,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/13/2016
+origin.date: 03/21/201
 ms.date: 02/10/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/28/2017
 ---
 
 # <a name="create-an-azure-function-app-and-azure-storage-account"></a>创建 Azure Function App 和 Azure 存储帐户
-Azure Functions 是一个用于轻松在云中运行*函数*（小段代码）的解决方案。 Azure Function App 主导函数在 Azure 中的执行。
+Azure Functions 是一种解决方案，特别适合在云中运行*函数*（小块代码）。Azure 函数应用在 Azure 中托管函数的执行。
 
 ## <a name="what-will-you-do"></a>执行的操作
 使用 Azure Resource Manager 模板创建 Azure 函数应用和 Azure 存储帐户。 Azure 函数应用可侦听 Azure IoT 中心事件、处理传入消息以及将其写入到 Azure 表存储。
