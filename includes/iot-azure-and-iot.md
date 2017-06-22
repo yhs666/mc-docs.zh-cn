@@ -13,7 +13,7 @@
 ![IoT 解决方案体系结构][img-solution-architecture]
 
 > [!NOTE]
-> 有关 IoT 体系结构的深入介绍，请参阅 [Microsoft Azure IoT Reference Architecture][lnk-refarch]（Microsoft Azure IoT 参考体系结构）。
+> 有关 IoT 体系结构的深入介绍，请参阅 [Azure IoT Reference Architecture][lnk-refarch]（Azure IoT 参考体系结构）。
 
 ### <a name="device-connectivity"></a>设备连接
 

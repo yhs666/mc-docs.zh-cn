@@ -5,11 +5,11 @@
 如果这是首次使用 Raspberry Pi，需使用工具包中随附的 SD 卡上的 NOOBS 来安装 Raspbian 操作系统。 [Raspberry Pi 软件指南][lnk-install-raspbian]介绍了如何在 Raspberry Pi 上安装操作系统。 本教程假定已在 Raspberry Pi 上安装 Raspbian 操作系统。
 
 > [!NOTE]
-> [适用于 Raspberry Pi 3 的 Microsoft Azure IoT 初学者工具包][lnk-starter-kits]随附的 SD 卡已安装 NOOBS。 可以从该卡启动 Raspberry Pi，然后选择安装 Raspbian OS。
+> [适用于 Raspberry Pi 3 的 Azure IoT 初学者工具包][lnk-starter-kits]随附的 SD 卡已安装 NOOBS。 可以从该卡启动 Raspberry Pi，然后选择安装 Raspbian OS。
 
 ### <a name="set-up-the-hardware"></a>安装硬件
 
-本教程使用[适用于 Raspberry Pi 3 的 Microsoft Azure IoT 初学者工具包][lnk-starter-kits]中随附的 BME280 传感器生成遥测数据。 它使用 LED 来指示 Raspberry Pi 何时处理解决方案仪表板中的方法调用。
+本教程使用[适用于 Raspberry Pi 3 的 Azure IoT 初学者工具包][lnk-starter-kits]中随附的 BME280 传感器生成遥测数据。 它使用 LED 来指示 Raspberry Pi 何时处理解决方案仪表板中的方法调用。
 
 试验板上的组件包括：
 
