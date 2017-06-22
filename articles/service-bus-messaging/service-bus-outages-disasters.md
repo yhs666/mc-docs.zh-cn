@@ -91,7 +91,7 @@ ms.lasthandoff: 05/12/2017
 若要了解有关灾难恢复的详细信息，请参阅这些文章：
 
 - [Azure SQL 数据库业务连续性][Azure SQL Database Business Continuity]
-- [设计适用于 Azure 的弹性应用程序][Azure resiliency technical guidance]
+
 
   [Service Bus Authentication]: ./service-bus-authentication-and-authorization.md
   [Partitioned messaging entities]: ./service-bus-partitioning.md

@@ -12,8 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+origin.date: 04/12/2017
 ms.author: v-yiso
+ms.date: 05/22/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
 ms.openlocfilehash: 4343b26caa8d9a47e20ea43592305a2482a9e27d
@@ -327,7 +328,6 @@ name 属性标识应与此令牌关联的实体。 在服务总线中，这是�
 - [针对服务总线分区队列和主题的 AMQP 1.0 支持]
 - [适用于 Windows Server 的服务总线中的 AMQP]
 
-[this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp-protocol-guide/amqp1.png
 [2]: ./media/service-bus-amqp-protocol-guide/amqp2.png
 [3]: ./media/service-bus-amqp-protocol-guide/amqp3.png

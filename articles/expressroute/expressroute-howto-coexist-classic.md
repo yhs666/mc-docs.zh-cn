@@ -13,7 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
+origin.date: 03/21/2017
+ms.date: 05/02/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
@@ -24,7 +25,7 @@ ms.lasthandoff: 04/22/2017
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>配置 ExpressRoute 和站点到站点并存连接（经典）
 > [!div class="op_single_selector"]
->- [PowerShell - Resource Manager](./expressroute-howto-coexist-resource-manager.md)
+>- [PowerShell - 资源管理器](./expressroute-howto-coexist-resource-manager.md)
 >- [PowerShell - 经典](./expressroute-howto-coexist-classic.md)
 > 
 > 

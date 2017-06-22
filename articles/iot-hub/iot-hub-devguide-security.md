@@ -12,7 +12,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+origin.date: 05/04/2017
+ms.date: 06/05/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
@@ -92,7 +93,7 @@ HTTP 通过在 **授权** 请求标头中包含有效的令牌来实施身份验
 #### <a name="example"></a>示例
 用户名（DeviceId 区分大小写）：`iothubname.azure-devices.net/DeviceId`
 
-密码（使用[设备资源管理器][lnk-device-explorer]工具生成 SAS 令牌）：`SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+密码（使用[设备资源管理器][lnk-device-explorer]工具生成 SAS 令牌）：`SharedAccessSignature sr=iothubname.azure-devices.cn%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
 > [Azure IoT SDK][lnk-sdks] 在连接到服务时自动生成令牌。 某些情况下，Azure IoT SDK 不支持部分协议或身份验证方法。
@@ -231,7 +232,7 @@ var token = generateSasToken(endpoint, deviceKey, null, 60);
 授权访问设备 1 的所有功能的安全令牌是：
 
 ```
-SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
+SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
 ```
 
 > [!NOTE]
@@ -294,9 +295,11 @@ SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices%2fdevice1&sig=13y8ejUk
 * 策略名称： `registryRead`，
 * 任何过期时间。
 
-    var endpoint ="myhub.azure-devices.cn/devices";   var policyName = 'device';   var policyKey = '...';
-
-    var token = generateSasToken(endpoint, policyKey, policyName, 60);
+        var endpoint ="myhub.azure-devices.cn/devices";
+        var policyName = 'device';
+        var policyKey = '...';
+    
+        var token = generateSasToken(endpoint, policyKey, policyName, 60)；
 
 授权读取所有设备标识权限的安全令牌是：
 

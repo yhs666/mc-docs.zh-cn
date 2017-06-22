@@ -71,7 +71,7 @@ Azure IoT 套件提供的预配置解决方案演示了套件中的服务如何�
 远程监控预配置解决方案模拟器中的预配置模拟器是发出温度和湿度遥测的冷却设备。 派生 GitHub 存储库后，可以修改 [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) 项目中的模拟器。
 
 ### <a name="available-locations-for-simulated-devices"></a>模拟设备的可用位置
-默认的位置集为美国华盛顿州西雅图/雷德蒙德。 可以 [SampleDeviceFactory.cs][lnk-sample-device-factory]中更改这些位置。
+默认的位置集为中国北京。可以 [SampleDeviceFactory.cs][lnk-sample-device-factory] 中更改这些位置。
 
 ### <a name="add-a-desired-property-update-handler-to-the-simulator"></a>将所需的属性更新处理程序添加到模拟器
 可在解决方案门户中设置设备所需属性的值。 当设备检索所需的属性值时，由设备负责处理属性更改请求。 若要通过所需的属性添加属性值更改支持，需要将一个处理程序添加到模拟器。
@@ -215,8 +215,6 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 ### <a name="number-of-devices-displayed-in-dashboard-dropdown"></a>仪表板下拉列表中显示的设备数
 默认值为 200。 可以在 [DashboardController.cs][lnk-dashboard-controller]中更改此数字。
 
-### <a name="number-of-pins-to-display-in-bing-map-control"></a>必应地图控件中显示的图钉数
-默认值为 200。 可以在 [TelemetryApiController.cs][lnk-telemetry-api-controller-01]中更改此数字。
 
 ### <a name="time-period-of-telemetry-graph"></a>遥测图形的时间段
 默认值为 10 分钟。 可以在 [TelmetryApiController.cs][lnk-telemetry-api-controller-02]中更改此值。

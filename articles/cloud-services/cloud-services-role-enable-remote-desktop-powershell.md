@@ -12,7 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+origin.date: 11/22/2016
+ms.date: 05/22/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/12/2017
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](./cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Azure 经典门户](./cloud-services-role-enable-remote-desktop.md)
+> * [Azure 经典管理门户](./cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 >

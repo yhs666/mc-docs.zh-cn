@@ -12,7 +12,8 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+origin.date: 03/23/2017
+ms.date: 05/08/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -36,7 +37,7 @@ ms.lasthandoff: 04/28/2017
 
 若要完成本教程，需要以下各项：
 
-* 有效的 Azure 帐户。 如果没有帐户，只需几分钟即可创建一个[免费帐户][lnk-free-trial]。
+* 有效的 Azure 帐户。如果没有帐户，只需几分钟即可创建一个[试用帐户][lnk-free-trial]。
 * [Azure CLI 2.0][lnk-CLI-install]。
 
 ## <a name="sign-in-and-set-your-azure-account"></a>登录并设置 Azure 帐户
@@ -50,6 +51,8 @@ ms.lasthandoff: 04/28/2017
     ```
 
     按照说明使用代码进行身份验证，并通过 Web 浏览器登录 Azure 帐户。
+    
+    [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 2. 如果有多个 Azure 订阅，登录 Azure 可获得与凭据关联的所有 Azure 帐户的访问权限。 使用以下 [命令，列出可供使用的 Azure 帐户][lnk-az-account-command] ：
     
@@ -74,7 +77,7 @@ ms.lasthandoff: 04/28/2017
     ```
 
     > [!TIP]
-    > 上一示例在美国西部位置创建资源组。 可运行 `az account list-locations -o table`命令，查看可用位置的列表。
+    > 上一示例在中国东部位置创建资源组。可运行 `az account list-locations -o table` 命令，查看可用位置的列表。
     >
     >
 

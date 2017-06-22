@@ -11,7 +11,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/03/2017
+origin.date: 03/03/2017
+ms.date: 04/24/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -93,7 +94,7 @@ ExpressRoute 不能配置为传输路由器。 必须依赖连接服务提供商
 
 例如，如果你在北京通过 ExpressRoute 连接到 Azure，则能够访问在上海托管的所有 Azure 云服务。
 
-有关地缘政治地区、关联的 Azure 区域和对应的 ExpressRoute 对等互连位置的详细列表，请参阅 [ExpressRoute 合作伙伴和对等位置](./expressroute-locations.md) 。
+有关地缘政治区域、关联的 Azure 区域和对应的 ExpressRoute 对等互连位置的详细列表，请参阅 [ExpressRoute 合作伙伴和对等位置](./expressroute-locations.md) 。
 
 可以针对每个地缘政治区域购买多个 ExpressRoute 线路。如果拥有多个连接，则可以从异地冗余中获得明显的高可用性优势。如果拥有多条 ExpressRoute 线路，将在公共对等互连路径上收到从 Azure 播发的同一组前缀。这意味着可以使用多个路径从用户网络接入 Azure。这可能会导致在网络中做出欠佳的路由决策。因此，可能会在不同的服务上遇到欠佳的连接体验。
 

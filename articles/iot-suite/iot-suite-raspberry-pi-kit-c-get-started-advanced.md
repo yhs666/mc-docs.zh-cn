@@ -1,6 +1,6 @@
 ---
 title: "使用 C 将 Raspberry Pi 连接到 Azure IoT 套件以支持固件更新 | Azure"
-description: "使用适用于 Raspberry Pi 3 的 Microsoft Azure IoT 初学者工具包和 Azure IoT 套件。 使用 C 将 Raspberry Pi 连接到远程监控解决方案，从传感器将遥测数据发送到云，并执行远程固件更新。"
+description: "使用适用于 Raspberry Pi 3 的 Azure IoT 初学者工具包和 Azure IoT 套件。 使用 C 将 Raspberry Pi 连接到远程监控解决方案，从传感器将遥测数据发送到云，并执行远程固件更新。"
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -87,7 +87,7 @@ HostName=youriothubname.azure-devices.cn;DeviceId=yourdeviceid;SharedAccessKey=y
 
 ## <a name="build-the-sample"></a>生成示例
 
-如果尚未这样做，请通过在 Raspberry Pi 上的终端中运行以下命令，为适用于 C 的 Microsoft Azure IoT 设备 SDK 安装必备组件包：
+如果尚未这样做，请通过在 Raspberry Pi 上的终端中运行以下命令，为适用于 C 的  Azure IoT 设备 SDK 安装必备组件包：
 
 `sudo apt-get update`
 

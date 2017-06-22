@@ -11,7 +11,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/19/2017
+origin.date: 01/19/2017
+ms.date: 04/17/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
@@ -166,7 +167,7 @@ Azure 支持两种队列机制：**存储队列**和**服务总线队列**。
 
 - 当客户端通过 TCP 协议与服务总线队列进行通信时，到单个服务总线队列的最大并发连接数不得超过 100。 此数值在发送方和接收方之间共享。 如果达到此配额，将拒绝后续的其他连接请求，调用代码将收到一个异常。 使用基于 REST 的 API 连接到队列的客户端不受此限制。
 
-- 如果在单个服务总线命名空间中需要超过 10,000 个队列，你可以联系 Azure 支持团队并请求增加数目。 若要使用服务总线扩展到 10,000 个以上的队列，你还可以使用 [Azure 经典门户][]创建其他命名空间。
+- 如果在单个服务总线命名空间中需要超过 10,000 个队列，你可以联系 Azure 支持团队并请求增加数目。若要使用服务总线扩展到 10,000 个以上的队列，你还可以使用 [Azure 经典管理门户][]创建其他命名空间。
 
 ## <a name="management-and-operations"></a>管理和操作
 本部分对存储队列和服务总线队列提供的管理功能进行了比较。
@@ -226,6 +227,8 @@ Azure 支持两种队列机制：**存储队列**和**服务总线队列**。
 - [Azure 服务总线中的队列和主题简介](http://www.code-magazine.com/article.aspx?quickid=1112041)
 - [服务总线开发人员指南](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
 - [在 Azure 中使用队列服务 ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
-- [了解 Azure 存储计费 - 带宽、事务和容量](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
-[Azure classic management portal]: http://manage.windowsazure.cn
+[Azure 经典管理门户]: http://manage.windowsazure.cn
+ 
+
+<!--Update_Description:update wording -->

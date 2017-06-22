@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Azure IoT 套件概述 | Azure"
+title: "Azure IoT 套件概述 | Azure"
 description: "概述 Azure IoT 套件如何提供物联网预配置解决方案，以收集、分析和存储数据，提供可视化效果，以及与其他系统集成。"
 services: 
 suite: iot-suite
@@ -13,7 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+origin.date: 04/24/2017
+ms.date: 06/13/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation

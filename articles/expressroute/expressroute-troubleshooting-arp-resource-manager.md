@@ -11,7 +11,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2017
+origin.date: 01/30/2017
+ms.date: 03/24/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/25/2017
 本文将指导你完成相关步骤，以便了解 ExpressRoute 线路的 ARP 表。 
 
 >[!IMPORTANT]
-> 本文档旨在帮助你诊断和修复简单问题。 它不是为了替代 Microsoft 支持部门。 如果无法通过下述指南解决问题，则必须通过 [Microsoft 支持](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)开具支持票证。
+> 本文档旨在帮助你诊断和修复简单问题。 它不是为了替代 Azure 支持部门。 如果无法通过下述指南解决问题，则必须通过 [Microsoft 支持](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)开具支持票证。
 
 ## <a name="address-resolution-protocol-arp-and-arp-tables"></a>地址解析协议 (ARP) 和 ARP 表
 地址解析协议 (ARP) 是在 [RFC 826](https://tools.ietf.org/html/rfc826) 中定义的第二层协议。 ARP 用于映射以太网地址（MAC 地址）和 IP 地址。
@@ -129,34 +130,23 @@ ARP 表示例：
          10 On-Prem           65.0.0.1 ffff.eeee.dddd
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
-### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>当本地端/连接提供商端出现问题时的 ARP 表
-如果本地或连接提供商有问题，则可能会看到只有一个条目出现在 ARP 表中，或者本地 MAC 地址将显示不完整。 此时会显示在 Microsoft 端使用的 MAC 地址与 IP 地址之间的映射。 
+### 当本地端/连接提供商端出现问题时的 ARP 表
 
-```
-   Age InterfaceProperty IpAddress  MacAddress    
-   --- ----------------- ---------  ----------    
-     0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
-```
-
-或
+ - 只有一个条目会出现在 ARP 表中。此时会显示在 Azure 端使用的 MAC 地址与 IP 地址之间的映射。 
 
 ```
    Age InterfaceProperty IpAddress  MacAddress    
    --- ----------------- ---------  ----------   
-     0 On-Prem           65.0.0.1   Incomplete
      0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 ```
 
 > [!NOTE]
-> 通过你的连接提供商提出支持请求，以便进行此类问题的调试。 如果 ARP 表没有将接口的 IP 地址映射到 MAC 地址，请查询以下信息：
-> 
-> 1. 为 MSEE-PR 和 MSEE 之间的链接分配的 /30 子网的第一个 IP 地址是否用在 MSEE-PR 的接口上。 Azure 始终使用 MSEE 的第二个 IP 地址。
-> 2. 验证客户型 (C-Tag) 和服务型 (S-Tag) VLAN 标记在 MSEE-PR 和 MSEE 对上是否均匹配。
+> 通过你的连接提供商提出支持请求，以便进行此类问题的调试。 \
 > 
 
 ### <a name="arp-table-when-microsoft-side-has-problems"></a>当 Microsoft 端出现问题时的 ARP 表
 
- - 如果 Microsoft 端存在问题，则不会为对等互连显示 ARP 表。 
+ - 如果 Azure 端存在问题，则不会为对等互连显示 ARP 表。 
  -  通过 [Microsoft 支持部门](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)开具一个支持票证。 指出你的第 2 层连接有问题。 
 
 ## <a name="next-steps"></a>后续步骤

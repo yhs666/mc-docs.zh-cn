@@ -13,7 +13,8 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+origin.date: 03/21/2017
+ms.date: 06/05/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
@@ -71,8 +72,6 @@ ms.lasthandoff: 05/26/2017
 1. 按下电源按钮打开 Intel NUC，然后登录。
 
    默认用户名和密码都是 `root`。
-
-       > Hit the enter key on your keyboard if you see either of the following errors when you boot: 'A TPM error (7) occurred attempting to read a pcr value.' or 'Timeout, No TPM chip found, activating TPM-bypass!'
 
 2. 在 Intel NUC 设备上运行 `ifconfig` 命令，Intel NUC 的 IP 地址。
 

@@ -12,7 +12,8 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+origin.date: 03/07/2017
+ms.date: 06/05/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -127,7 +128,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
     ```
 
 ## <a name="add-a-queue-to-your-iot-hub-and-route-messages-to-it"></a>向 IoT 中心添加一个队列并向其路由消息
-在本部分中，将创建一个服务总线队列并将其连接到 IoT 中心，还会配置 IoT 中心，根据消息上的现有属性发送消息到队列。 若要深入了解如何处理来自服务总线队列的消息，请参阅 [队列入门][Service Bus queue]教程。
+在本部分中，将创建一个门户队列并将其连接到 IoT 中心，还会配置 IoT 中心，根据消息上的现有属性发送消息到队列。 若要深入了解如何处理来自服务总线队列的消息，请参阅 [队列入门][Service Bus queue]教程。
 
 1. 按 [队列入门][Service Bus queue]中所述，创建服务总线队列。 记下命名空间和队列名称。
 
@@ -201,12 +202,11 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 <!-- Links -->
 
 [Azure Blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
-[Azure Data Factory]: ../data-factory/index.md
 [HDInsight (Hadoop)]: ../hdinsight/index.md
 [Service Bus queue]: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
 [lnk-sb-queues-java]: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
 
-[IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
+[IoT Hub developer guide - Device to cloud]: ./iot-hub-devguide-messaging.md
 
 [Azure 存储]: ../storage/index.md
 [Azure 服务总线]: ../service-bus/index.md

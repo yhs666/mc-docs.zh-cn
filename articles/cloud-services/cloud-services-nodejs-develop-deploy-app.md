@@ -194,7 +194,7 @@ Publish-AzureServiceProject -ServiceName $ServiceName  -Location "China East" -L
 <!-- URL List -->
 
 [Azure 网站、云服务和虚拟机的比较]: ../app-service-web/choose-web-site-cloud-service-vm.md
-[使用轻型 Web 应用]:../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[使用轻型 Web 应用]:../app-service-web/app-service-web-get-started-nodejs.md
 [Azure Powershell]: ../powershell-install-configure.md
 [将 PowerShell 连接]: ../powershell-install-configure.md#Connect
 [nodejs.org]: http://nodejs.org/

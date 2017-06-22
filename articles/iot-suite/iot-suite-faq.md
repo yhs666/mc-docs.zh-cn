@@ -13,7 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+origin.date: 05/15/2017
+ms.date: 06/13/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
@@ -55,23 +56,13 @@ ms.lasthandoff: 05/19/2017
 
 50 个。 可以创建 [Azure 支持票证][link-azuresupportticket]以提高此限制，但在默认情况下，对每个订阅只能预配 50 个 DocumentDB 实例。 
 
-### <a name="i-have-a-remote-monitoring-solution-deployment-with-a-static-map-how-do-i-add-an-interactive-bing-map"></a>我的远程监控解决方案部署具有静态地图，我如何添加交互式必应地图？
-1. 从 [Azure 门户][lnk-azure-portal]获取用于企业的必应地图 API 查询密钥： 
-   
-   1. 在 [Azure 门户][lnk-azure-portal]中导航到用于企业的必应地图 API 所处的资源组。
-   2. 单击“所有设置”，然后单击“密钥管理”。 
-   3. 可以看到两个密钥：**主密钥**和**查询密钥**。 复制**查询密钥**的值。
-      
-      > [!NOTE]
-      > 没有用于企业的必应地图 API 帐户？ 通过单击“+ 新建”、搜索用于企业的必应地图 API 并按照提示进行创建，在 [Azure 门户][lnk-azure-portal] 中创建一个帐户。
-      > 
-      > 
-2. 从 [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github]下拉最新代码。
-3. 在存储库的 /docs/ 文件夹中按照命令行部署指南运行本地或云部署。 
-4. 运行了本地或云部署之后，在根文件夹中查找在部署过程中创建的 *.user.config 文件。 在文本编辑器中打开此文件。 
-5. 更改以下行，以包含为 **查询密钥**复制的值： 
-   
-   `<setting name="MapApiQueryKey" value="" />`
+
+
+
+
+
+### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a> 如果有 Azure for DreamSpark，是否可以创建预配置解决方案？
+当前无法使用 Azure for DreamSpark 帐户创建预配置解决方案。但是，可以在几分钟内创建一个[试用帐户][1rmb-trial]，以便创建预配置的解决方案。
 
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>如果我有云解决方案提供商 (CSP) 订阅，是否可以创建预配置的解决方案？

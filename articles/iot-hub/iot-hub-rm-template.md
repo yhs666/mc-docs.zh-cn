@@ -74,7 +74,7 @@ ms.lasthandoff: 04/14/2017
 
 1. 在解决方案资源管理器中右键单击你的项目，单击“**添加**”，然后单击“**新建项**”。 将名为 **template.json** 的 JSON 文件添加到项目。
 
-2. 将 **template.json** 的内容替换为以下资源定义，以便在**中国东部**区域添加标准 IoT 中心：有关支持 IoT 中心的区域的最新列表，请参阅 [Azure 状态][lnk-status]：
+2. 将 **template.json** 的内容替换为以下资源定义，以便在**中国东部**区域添加标准 IoT 中心：
 
     ```
     {
@@ -205,7 +205,6 @@ ms.lasthandoff: 04/14/2017
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azure-portal]: https://portal.azure.cn/
-[lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md

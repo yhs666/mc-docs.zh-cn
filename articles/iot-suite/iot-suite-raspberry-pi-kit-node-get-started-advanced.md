@@ -1,6 +1,6 @@
 ---
 title: "使用 Node.js 将 Raspberry Pi 连接到 Azure IoT 套件以支持固件更新 | Azure"
-description: "使用适用于 Raspberry Pi 3 的 Microsoft Azure IoT 初学者工具包和 Azure IoT 套件。 使用 Node.js 将 Raspberry Pi 连接到远程监控解决方案，从传感器将遥测数据发送到云，并执行远程固件更新。"
+description: "使用适用于 Raspberry Pi 3 的 Azure IoT 初学者工具包和 Azure IoT 套件。 使用 Node.js 将 Raspberry Pi 连接到远程监控解决方案，从传感器将遥测数据发送到云，并执行远程固件更新。"
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/19/2017
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-selector](../../includes/iot-suite-raspberry-pi-kit-selector.md)]
 
-本教程演示如何使用适用于 Raspberry Pi 3 的 Microsoft Azure IoT 初学者工具包完成以下任务：
+本教程演示如何使用适用于 Raspberry Pi 3 的 Azure IoT 初学者工具包完成以下任务：
 
 * 开发可与云通信的温度和湿度读取器。
 * 启用并执行远程固件更新以更新 Raspberry Pi 上的客户端应用程序。
