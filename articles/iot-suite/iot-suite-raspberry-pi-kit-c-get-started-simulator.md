@@ -1,6 +1,6 @@
 ---
 title: "使用 C 与模拟遥测将 Raspberry Pi 连接到 Azure IoT 套件 | Azure"
-description: "使用适用于 Raspberry Pi 3 的 Microsoft Azure IoT 初学者工具包和 Azure IoT 套件。 使用 C 将 Raspberry Pi 连接到远程监控解决方案，将模拟遥测数据发送到云，并响应从解决方案仪表板调用的方法。"
+description: "使用适用于 Raspberry Pi 3 的 Azure IoT 初学者工具包和 Azure IoT 套件。 使用 C 将 Raspberry Pi 连接到远程监控解决方案，将模拟遥测数据发送到云，并响应从解决方案仪表板调用的方法。"
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/19/2017
 
 本教程演示如何使用 Raspberry Pi 3 模拟要发送到云的温度和湿度数据。 本教程使用：
 
-- Raspbian OS、C 编程语言和 Microsoft Azure IoT SDK for C 实现示例设备。
+- Raspbian OS、C 编程语言和 Azure IoT SDK for C 实现示例设备。
 - IoT 套件远程监控预配置解决方案作为基于云的后端。
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-overview-simulator](../../includes/iot-suite-raspberry-pi-kit-overview-simulator.md)]
@@ -71,7 +71,7 @@ static const char* connectionString = "HostName=[IoTHub Name].azure-devices.cn;D
 
 ## <a name="build-the-sample"></a>生成示例
 
-通过在 Raspberry Pi 上的终端中运行以下命令，为适用于 C 的 Microsoft Azure IoT 设备 SDK 安装必备组件包：
+通过在 Raspberry Pi 上的终端中运行以下命令，为适用于 C 的 Azure IoT 设备 SDK 安装必备组件包：
 
 `sudo apt-get update`
 

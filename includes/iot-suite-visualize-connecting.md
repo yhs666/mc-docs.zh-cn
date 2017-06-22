@@ -28,7 +28,7 @@
 ## <a name="next-steps"></a>后续步骤
 [自定义预配置解决方案][lnk-customize] 一文介绍了扩展本示例的一些方法。 可能的扩展包括使用真实传感器和实现其他命令。
 
-详细了解 [azureiotsuite.com 站点权限][lnk-permissions]。
+详细了解 [azureiotsuite.cn 站点权限][lnk-permissions]。
 
 [13]: ./media/iot-suite-visualize-connecting/suite4.png
 [14]: ./media/iot-suite-visualize-connecting/suite7-1.png
