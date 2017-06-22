@@ -22,7 +22,9 @@ ms.date: 06/13/2017
 ## 命令行
 
 ### [PowerShell (ARM)](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-
+<div class="panelItem">
+    <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
+        <li>
 <div class="cardSize">
     <div class="cardPadding">
         <div class="card">
@@ -1556,6 +1558,9 @@ ms.date: 06/13/2017
             </div>
         </div>
     </div>
+</div>
+        </li>
+    </ul>
 </div>
 
 ## 其他
