@@ -12,7 +12,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 06/22/2017
 ms.author: v-johch
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
@@ -77,7 +77,7 @@ WAImportExport 工具仅兼容 64 位 Windows 操作系统。 请参阅 [操作�
 >
 
 ### <a name="hard-disk-drives"></a>硬盘驱动器
-只支持将 2.5 英寸 SSD 或者 2.5/3.5 英寸 SATA II 或 III 内部 HDD 用于导入/导出服务。 单个导入/导出作业最多可有 10 个 HDD/SSD，且每个 HDD/SSD 大小不受限制。 大量驱动器可在多个作业中分布，且对可创建的作业数量没有限制。 
+只支持将 2.5 英寸 SSD, 2.5/3.5 英寸 SATA II/III 或 SAS 内部 HDD 用于导入/导出服务。 单个导入/导出作业最多可有 10 个 HDD/SSD，且每个 HDD/SSD 大小不受限制。 大量驱动器可在多个作业中分布，且对可创建的作业数量没有限制。如需使用连接磁盘阵列控制器的硬盘，请将磁盘阵列控制器设置为直通模式。
 
 对于导入作业，将处理驱动器上的第一个数据卷。 该数据卷必须使用 NTFS 进行格式化。
 
@@ -99,10 +99,11 @@ WAImportExport 工具仅兼容 64 位 Windows 操作系统。 请参阅 [操作�
 Windows 7 Enterprise、Windows 7 Ultimate、Windows 8 Pro、Windows 8 Enterprise、Windows 8.1 Pro、Windows 8.1 Enterprise、Windows 10<sup>1</sup>、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。 所有这些操作系统都支持 BitLocker 驱动器加密。
 
 ### <a name="locations"></a>位置
-Azure 导入/导出服务支持将数据复制到中国北部的 Azure 存储帐户，以及从后者进行复制。 可以将硬盘驱动器寄送到以下位置之一。 如果存储帐户所在的 Azure 位置未在此处指定，则使用 Azure 门户或导入/导出 REST API 创建作业时，系统会提供备用的寄送位置。
+Azure 导入/导出服务支持将数据复制到中国北部或中国东部的 Azure 存储帐户，以及从后者进行复制。 可以将硬盘驱动器寄送到以下位置之一。 如果存储帐户所在的 Azure 位置未在此处指定，则使用 Azure 门户或导入/导出 REST API 创建作业时，系统会提供备用的寄送位置。
 
 支持的寄送位置：
 - 中国北部
+- 中国东部
 
 ### <a name="shipping"></a>装运
 **将驱动器寄送到数据中心：**
