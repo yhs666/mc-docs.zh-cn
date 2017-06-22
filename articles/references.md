@@ -1594,62 +1594,345 @@ ms.date: 06/13/2017
 </div>
 
 ## 其他
+<div class="panelItem">
+    <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
+        <li>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>云服务</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://msdn.microsoft.com/library/azure/ee758711" data-linktype="relative-path">
+                                <img alt = "" src="media/index/CloudService.svg" data-linktype="relative-path">
+                                <p>.csdef XMLSchema</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://msdn.microsoft.com/library/azure/ee758710" data-linktype="relative-path">
+                                <img alt = "" src="media/index/CloudService.svg" data-linktype="relative-path">
+                                <p>.cscfg XMLSchema</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </li>
+    </ul>
+</div>
 
-### 云服务
 
-* [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
-* [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
 
 ### SQL 数据库
+<div class="panelItem">
+    <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
+        <li>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>编程语言</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>SQL Server 的 Node.js 驱动</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>SQL Server 的 python 驱动</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>SQL Server 的 Ruby 驱动</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>SQL Server 的 PHP 驱动</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/sql/t-sql/language-reference" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>T-SQL</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3><a href="https://docs.microsoft.com/sql/ssdt/sql-server-tools">SQL Server 工具</a></h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>SQL Server Management Studio (SSMS)</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>SQL Server Data Tools (SSDT)</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/sql/tools/bcp-utility" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>BCP</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/sql/tools/sqlcmd-utility" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>SQLCMD</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://msdn.microsoft.com/hh550080.aspx" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>SqlPackage</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>SQL Database Management Library package</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3><a href="https://docs.microsoft.com/sql/connect/sql-server-drivers">SQL Server 驱动程序</a></h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>ADO.NET</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>JDBC</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/sql/connect/odbc/microsoft-odbc-driver-for-sql-server" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>ODBC</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </li>
+    </ul>
+</div>
 
-#### 编程语言
-
-* [SQL Server 的 Node.js 驱动](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server)
-* [SQL Server 的 python 驱动](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server)
-* [SQL Server 的 Ruby 驱动](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server)
-* [SQL Server 的 PHP 驱动](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server)
-* [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
-
-#### [SQL Server 工具](https://docs.microsoft.com/sql/ssdt/sql-server-tools)
-
-* [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
-* [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
-* [BCP](https://docs.microsoft.com/sql/tools/bcp-utility)
-* [SQLCMD](https://docs.microsoft.com/sql/tools/sqlcmd-utility)
-* [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-* [SQL Database Management Library package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
-
-#### [SQL Server 驱动程序](https://docs.microsoft.com/sql/connect/sql-server-drivers)
-
-* [ADO.NET](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server)
-* [JDBC](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)
-* [ODBC](https://docs.microsoft.com/sql/connect/odbc/microsoft-odbc-driver-for-sql-server)
 
 ### Redis 缓存
+<div class="panelItem">
+    <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
+        <li>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="http://redis.io/clients" data-linktype="relative-path">
+                                <img alt = "" src="media/index/RedisCache.svg" data-linktype="relative-path">
+                                <p>Redis 客户端</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://redis.io/commands#" data-linktype="relative-path">
+                                <img alt = "" src="media/index/RedisCache.svg" data-linktype="relative-path">
+                                <p>Redis 命令</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </li>
+    </ul>
+</div>
 
-* [Redis 客户端](http://redis.io/clients)
-* [Redis 命令](https://redis.io/commands#)
 
 ### 网络
+<div class="panelItem">
+    <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
+        <li>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers" data-linktype="relative-path">
+                                <img alt = "" src="media/index/LoadBalancer.svg" data-linktype="relative-path">
+                                <p>Ruby - 负载均衡器</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/ApplicationGateways" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ApplicationGateway.svg" data-linktype="relative-path">
+                                <p>Ruby - 应用程序网关</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="http://www.rubydoc.info/gems/azure_mgmt_traffic_manager" data-linktype="relative-path">
+                                <img alt = "" src="media/index/TrafficManager.svg" data-linktype="relative-path">
+                                <p>Ruby - 流量管理器</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </li>
+    </ul>
+</div>
 
-* [Ruby - 负载均衡器](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
-* [Ruby - 应用程序网关](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/ApplicationGateways)
-* [Ruby - 流量管理器](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
 
 ### 存储
-
-* [.NET：数据移动](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement)
-* [C++](http://azure.github.io/azure-storage-cpp/)
-* [iOS](https://github.com/Azure/azure-storage-ios)
-* [Android](http://azure.github.io/azure-storage-android)
+<div class="panelItem">
+    <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
+        <li>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Storage.svg" data-linktype="relative-path">
+                                <p>.NET：数据移动</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="http://azure.github.io/azure-storage-cpp/" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Storage.svg" data-linktype="relative-path">
+                                <p>C++</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://github.com/Azure/azure-storage-ios" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Storage.svg" data-linktype="relative-path">
+                                <p>iOS</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="http://azure.github.io/azure-storage-android" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Storage.svg" data-linktype="relative-path">
+                                <p>Android</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </li>
+    </ul>
+</div>
 
 ### 流分析
-
-* [查询语言](https://msdn.microsoft.com/library/Dn834998.aspx)
+<div class="panelItem">
+    <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
+        <li>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://msdn.microsoft.com/library/Dn834998.aspx" data-linktype="relative-path">
+                                <img alt = "" src="media/index/StreamAnalytics.svg" data-linktype="relative-path">
+                                <p>查询语言</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </li>
+    </ul>
+</div>
 
 ### Power BI Embedded
+<div class="panelItem">
+    <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
+        <li>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://www.nuget.org/profiles/powerbi" data-linktype="relative-path">
+                                <img alt = "" src="media/index/PowerBIEmbedded.svg" data-linktype="relative-path">
+                                <p>.NET SDK 下载</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://github.com/Microsoft/PowerBI-JavaScript" data-linktype="relative-path">
+                                <img alt = "" src="media/index/PowerBIEmbedded.svg" data-linktype="relative-path">
+                                <p>JavaScript</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </li>
+    </ul>
+</div>
 
-* [.NET SDK 下载](https://www.nuget.org/profiles/powerbi)
-* [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
 
 
