@@ -39,7 +39,6 @@ Azure 媒体服务允许播放使用 DASH、平滑流式处理和 HLS 流式处�
 - [Azure 媒体播放器文档](http://amp.azure.net/libs/amp/latest/docs/)
 - [Azure 媒体播放器入门博客](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
 - [注册以保持最新版本的 Azure 媒体播放器](http://amp.azure.net/signup/)
-- [添加新的功能请求、想法和反馈](https://www.azure.cn/product-feedback/) 
 
 ##<a name="other-tools-for-creating-player-applications"></a>用于创建播放器应用程序的其他工具
 
