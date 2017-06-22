@@ -285,10 +285,14 @@ ms.date: 06/13/2017
         </div>
     </div>
 </div>
-
+</li>
+    </ul>
+</div>
 
 ### [PowerShell (经典)](https://docs.microsoft.com/en-ca/powershell/module/azure/)
-
+<div class="panelItem">
+    <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
+        <li>
 <div class="cardSize">
     <div class="cardPadding">
         <div class="card">
@@ -415,9 +419,14 @@ ms.date: 06/13/2017
         </div>
     </div>
 </div>
+</li>
+    </ul>
+</div>
 
 ### [Azure CLI](https://docs.microsoft.com/cli/azure/)
-
+<div class="panelItem">
+    <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
+        <li>
 <div class="cardSize">
     <div class="cardPadding">
         <div class="card">
@@ -659,12 +668,16 @@ ms.date: 06/13/2017
         </div>
     </div>
 </div>
-
+</li>
+    </ul>
+</div>
 
 ## 语言
 
 ### [.NET](https://docs.microsoft.com/dotnet/api)
-
+<div class="panelItem">
+    <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
+        <li>
 <div class="cardSize">
     <div class="cardPadding">
         <div class="card">
@@ -937,8 +950,14 @@ ms.date: 06/13/2017
         </div>
     </div>
 </div>
+</li>
+    </ul>
+</div>
 
 ### [Java](https://docs.microsoft.com/java/api)
+<div class="panelItem">
+    <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
+        <li>
 <div class="cardSize">
     <div class="cardPadding">
         <div class="card">
@@ -1139,6 +1158,9 @@ ms.date: 06/13/2017
         </div>
     </div>
 </div>
+</li>
+    </ul>
+</div>
 
 ### [Node.js](/develop/nodejs/)
 
@@ -1147,6 +1169,9 @@ ms.date: 06/13/2017
 ## REST
 
 ### [REST API (ARM)](https://docs.microsoft.com/rest/api/)
+<div class="panelItem">
+    <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
+        <li>
 <div class="cardSize">
     <div class="cardPadding">
         <div class="card">
@@ -1443,9 +1468,14 @@ ms.date: 06/13/2017
         </div>
     </div>
 </div>
-
+</li>
+    </ul>
+</div>
 
 ### REST API (经典)
+<div class="panelItem">
+    <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
+        <li>
 <div class="cardSize">
     <div class="cardPadding">
         <div class="card">
