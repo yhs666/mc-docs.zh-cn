@@ -14,7 +14,7 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/28/2016
+origin.date: 03/21/2017
 ms.date: 05/08/2017
 ms.author: v-yiso
 ---
@@ -35,7 +35,7 @@ ms.author: v-yiso
 
 ## 需要什么
 * 启用 Internet 连接的 Ubuntu 计算机。
-* 一个有效的 Azure 订阅。如果没有帐户，只需几分钟即可创建一个[帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 一个有效的 Azure 订阅。如果没有帐户，只需几分钟即可创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## 安装 Azure CLI
 Azure CLI 提供适用于 Azure 的多平台命令行体验，让用户能够直接通过命令行预配和管理资源。

@@ -45,7 +45,7 @@ ms.lasthandoff: 04/07/2017
 
 若要在中继场景中使用任意这些对象，Windows 应用程序可使用 Windows Communication Foundation (WCF)。 对于队列和主题，Windows 应用程序还可使用服务总线定义的消息传送 API。 为了更轻松地通过非 Windows 应用程序使用这些对象，Microsoft 提供了 Java、Node.js 和其他语言的 SDK。 此外，也可以使用 [REST API](https://docs.microsoft.com/en-us/rest/api/servicebus/) 通过 HTTP 访问队列和主题。 
 
-即使服务总线本身在云（即 Microsoft 的 Azure 数据中心）中运行，使用它的应用程序也能随处运行，了解这一点很重要。 您可以使用服务总线连接在 Azure 上运行的应用程序或在您自己的数据中心内运行的应用程序。 您也可以使用服务总线通过本地应用程序或通过平板电脑和手机来连接在 Azure 或其他云平台上运行的应用程序。 甚至可以将家用电器、传感器和其他设备连接到中央应用程序或其他应用程序。 服务总线是云中的通信机制，几乎可从任何位置对其进行访问。 使用服务总线的方式取决于应用程序需要执行的操作。
+即使服务总线本身在云（ Azure 数据中心）中运行，使用它的应用程序也能随处运行，了解这一点很重要。您可以使用服务总线连接在 Azure 上运行的应用程序或在您自己的数据中心内运行的应用程序。您也可以使用服务总线通过本地应用程序或通过平板电脑和手机来连接在 Azure 或其他云平台上运行的应用程序。甚至可以将家用电器、传感器和其他设备连接到中央应用程序或其他应用程序。服务总线是云中的通信机制，几乎可从任何位置对其进行访问。使用服务总线的方式取决于应用程序需要执行的操作。
 
 ## <a name="queues"></a>队列
 假设你决定使用服务总线队列连接两个应用程序。 图 2 说明了此情况。
@@ -114,6 +114,7 @@ ms.lasthandoff: 04/07/2017
 
 - 如何使用 [Service Bus 队列](./service-bus-dotnet-get-started-with-queues.md)。
 - 如何使用[服务总线主题](./service-bus-dotnet-how-to-use-topics-subscriptions.md)。
+- 如何使用[服务总线中继](./service-bus-dotnet-how-to-use-relay.md)。
 - [服务总线示例](./service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png

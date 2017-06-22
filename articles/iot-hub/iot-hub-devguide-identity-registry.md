@@ -12,7 +12,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+origin.date: 05/04/2017
+ms.date: 06/05/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
@@ -83,9 +84,8 @@ IoT 解决方案通常具有不同的解决方案特定存储，其中包含应�
 * 有关导入和导出 API 的详细信息，请参阅 [IoT 中心资源提供程序 REST API][lnk-resource-provider-apis]。
 * 若要了解有关如何运行导入和导出作业的详细信息，请参阅 [Bulk management of IoT Hub device identities][lnk-bulk-identity]（批量管理 IoT 中心的设备标识）。
 
-## <a name="device-provisioning"></a>Device Provisioning
-
-给定的 IoT 解决方案存储的设备数据取决于该解决方案的特定要求。 但是，解决方案必须至少存储设备标识和身份验证密钥。 Azure IoT 中心包含标识注册表，可以存储每个设备的值，例如 ID、身份验证密钥和状态代码。 解决方案可以使用其他 Azure 服务（例如 Azure 表存储、Azure Blob 存储或 Azure DocumentDB）来存储任何其他设备数据。
+## <a name="device-provisioning"></a> 设备预配
+给定的 IoT 解决方案存储的设备数据取决于该解决方案的特定要求。但是，解决方案必须至少存储设备标识和身份验证密钥。Azure IoT 中心包含标识注册表，可以存储每个设备的值，例如 ID、身份验证密钥和状态代码。解决方案可以使用其他 Azure 服务（例如 Azure 表存储、Azure Blob 存储或 Azure DocumentDB）来存储任何其他设备数据。
 
 *设备预配* 是将初始设备数据添加到解决方案中存储中的过程。 若要使新设备能够连接到中心，必须将新设备 ID 和密钥添加到 IoT 中心的标识注册表。 在预配过程中，你可能需要初始化其他解决方案存储中的设备特定数据。
 
@@ -93,7 +93,7 @@ IoT 解决方案通常具有不同的解决方案特定存储，其中包含应�
 
 IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和调试期间仅使用 **connectionState** 字段。 IoT 解决方案不应在运行时查询该字段（例如，为了检查设备是否已连接以确定是否要发送从云到设备的消息或短信）。
 
-如果 IoT 解决方案需要知道设备是否已连接（在运行时或在具有的值比 **connectionState** 属性提供的值更精确时），解决方案应实施*检测信号模式*。
+如果 IoT 解决方案需要知道设备是否已连接（在运行时或在比 **connectionState** 属性提供的值更精确时），解决方案应实施检测信号模式。
 
 在检测信号模式下，设备每隔固定时间至少发送一次设备到云的消息（例如，每小时至少一次）。 因此，即使设备没有任何要发送的数据，仍会发送空的设备到云的消息（通常具有可供识别为检测信号的属性）。 在服务端，该解决方案维护着与每个设备收到的最后一个检测信号的映射。 如果设备在预计时间内未收到检测信号消息，则该解决方案认为设备有问题。
 
@@ -112,15 +112,15 @@ IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和�
 
 | 名称 | 值 |
 | --- | --- |
-$content-type | application/json |
-$iothub-enqueuedtime |  发送通知的时间 |
-$iothub-message-source | deviceLifecycleEvents |
-$content-encoding | utf-8 |
-opType | “createDeviceIdentity”或“deleteDeviceIdentity” |
-hubName | IoT 中心的名称 |
-deviceId | 设备 ID |
-operationTimestamp | ISO8601 操作时间戳 |
-iothub-message-schema | deviceLifecycleNotification |
+|$content-type | application/json |
+|$iothub-enqueuedtime |  发送通知的时间 |
+|$iothub-message-source | deviceLifecycleEvents |
+|$content-encoding | utf-8 |
+|opType | “createDeviceIdentity”或“deleteDeviceIdentity” |
+|hubName | IoT 中心的名称 |
+|deviceId | 设备 ID |
+|operationTimestamp | ISO8601 操作时间戳 |
+|iothub-message-schema | deviceLifecycleNotification |
 
 - 正文
 
@@ -159,8 +159,8 @@ iothub-message-schema | deviceLifecycleNotification |
 | etag |必需，只读 |一个字符串，根据 [RFC7232][lnk-rfc7232] 表示设备标识的弱 ETag。 |
 | auth |可选 |包含身份验证信息和安全材料的复合对象。 |
 | auth.symkey |可选 |包含主密钥和辅助密钥的复合对象，以 base64 格式存储。 |
-| 状态 |必填 |访问指示器。 可以是 **Enabled** 或 **Disabled**。 如果是 **Enabled**，则允许设备连接。 如果是 **Disabled**，则此设备无法访问任何面向设备的终结点。 |
-| statusReason |可选 |128 个字符的字符串，用于存储设备标识状态的原因。 允许所有 UTF-8 字符。 |
+| status |必填 |访问指示器。可以是 **Enabled** 或 **Disabled**。如果是 **Enabled**，则允许设备连接。如果是 **Disabled**，则此设备无法访问任何面向设备的终结点。 |
+| statusReason |可选 |128 个字符的字符串，用于存储设备标识状态的原因。允许所有 UTF-8 字符。 |
 | statusUpdateTime |只读 |临时指示器，显示上次状态更新的日期和时间。 |
 | connectionState |只读 |指示连接状态的字段：**Connected** 或 **Disconnected**。 此字段表示设备连接状态的 IoT 中心视图。 **重要说明**：此字段只用于开发/调试目的。 仅使用 MQTT 或 AMQP 的设备才更新连接状态。 此外，它基于协议级别的 ping（MQTT ping 或 AMQP ping），并且最多只有 5 分钟的延迟。 出于这些原因，可能会发生误报，例如，将设备报告为已连接，但实际上已断开连接。 |
 | connectionStateUpdatedTime |只读 |临时指示器，显示上次更新连接状态的日期和时间。 |

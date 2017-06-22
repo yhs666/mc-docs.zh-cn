@@ -1,5 +1,5 @@
 ---
-title: "将 Raspberry Pi (Node) 连接到 Azure IoT - 第 1 课：配置设备 | Azure"
+title: "配置设备 | Azure"
 description: "对 Raspberry Pi 3 进行首次使用配置，并安装 Raspbian OS，这是一个免费操作系统，已针对 Raspberry Pi 硬件优化。"
 services: iot-hub
 documentationcenter: 
@@ -13,7 +13,7 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/28/2016
+origin.date: 03/21/2017
 ms.date: 05/08/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
@@ -66,11 +66,9 @@ ms.lasthandoff: 04/25/2017
 2. 将 Raspbian 安装到 microSD 卡。
    1. [下载](https://www.etcher.io) 并安装 Etcher SD 卡刻录机实用程序。
    2. 运行 Etcher 并选择已在步骤 1 中解压缩的 Raspbian 映像。
-   3. 选择 microSD 卡驱动器。
-      注意，Etcher 可能已选择了正确的驱动器。
-   4. 单击 **Flash** 来将 Raspbian 安装到 microSD 卡。
-   5. 在安装完成后，从计算机中移除 microSD 卡。
-      可以安全地直接取出 microSD 卡，因为 Etcher 会在完成后自动弹出或卸载 microSD 卡。
+   3. 选择 microSD 卡驱动器。请注意，Etcher 可能已选择正确的驱动器。
+   4. 单击“闪存”将 Raspbian 安装到 microSD 卡。
+   5. 安装完成后，从计算机中取出 microSD 卡。可以安全地直接取出 microSD 卡，因为 Etcher 会在完成后自动弹出或卸载 microSD 卡。
    6. 将 microSD 卡插入 Pi。
 
 ![插入 SD 卡](./media/iot-hub-raspberry-pi-lessons/lesson1/insert_sdcard.jpg)
@@ -81,10 +79,9 @@ ms.lasthandoff: 04/25/2017
 ![开启](./media/iot-hub-raspberry-pi-lessons/lesson1/micro_usb_power_on.jpg)
 
 > [!NOTE]
-> 必须使用工具包中至少为 2A 的电源以确保 Raspberry 具有足够的电能来正常工作。
-
-## <a name="enable-ssh"></a>启用 SSH
-自 2016 年 11 月版本起，Raspbian 在默认情况下禁用了 SSH 服务器。 需要手动启用它。 可以参阅[正式说明](https://www.raspberrypi.org/documentation/remote-access/ssh/)或连接监视器并转到“首选项”->“Raspberry Pi 配置”以启用 SSH。
+> 必须使用工具包中至少为 2 安 的电源，确保 Raspberry 有正常运行所需的足够电力。
+> 
+> 
 
 ## <a name="connect-raspberry-pi-3-to-the-network"></a>将 Raspberry Pi 3 连接到网络
 可以将 Pi 连接到有线网络或无线网络。 确保 Pi 与计算机连接到同一网络。 例如，可以将 Pi 与计算机连接到同一网关。
@@ -98,13 +95,14 @@ ms.lasthandoff: 04/25/2017
 按照 Raspberry Pi Foundation 提供的 [说明](https://www.raspberrypi.org/learning/software-guide/wifi/) ，将 Pi 连接到无线网络。 这些说明要求用户先将监视器和键盘连接到 Pi。
 
 ## <a name="connect-the-led-to-pi"></a>将 LED 连接到 Pi
-若要完成此任务，请使用[试验板](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard)、连接器电线、LED 和电阻器。 将它们连接到 Pi 的[通用输入/输出](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO) 端口。
+若要完成此任务，请使用[电路试验板](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard)、连接器电缆、LED 和电阻器。将它们连接到 Pi 的[通用输入/输出](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO) 端口。
 
-![试验板、LED 和电阻器](./media/iot-hub-raspberry-pi-lessons/lesson1/breadboard_led_resistor.jpg)
+![电路试验板、LED 和电阻器](./media/iot-hub-raspberry-pi-lessons/lesson1/breadboard_led_resistor.jpg)  
 
-1. 将 LED 的较短针脚连接到 **GPIO GND（引脚 6）**。
-2. 将 LED 的较长针脚连接到电阻器的一个针脚。
-3. 将电阻器的另一个针脚连接到 **GPIO 4（引脚 7）**。
+
+1. 将 LED 的短脚连接到 **GPIO GND（管脚 6）**。
+2. 将 LED 的长脚连接到电阻器的一个脚。
+3. 将电阻器的另一个脚连接到 **GPIO 4（管脚 7）**。
 
 请注意，LED 极性很重要。 此极性设置通常称为“低电平有效”。
 

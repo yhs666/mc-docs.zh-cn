@@ -58,7 +58,7 @@ Azure 门户提供了两种创建和部署云服务的方法：“快速创建�
 
 - 如果尚未安装 Azure SDK，请单击“安装 Azure SDK”以打开[ Azure 下载页](https://www.azure.cn/downloads/)，然后下载希望用于开发代码的相应语言的 SDK。（也可以稍后执行此操作。）
 
-- 如果任何角色实例需要证书，请创建这些证书。云服务需要带有私钥的 .pfx 文件。可以在创建和部署云服务时将这些证书上传到 Azure。
+- 如果任何角色实例需要证书，请创建这些证书。云服务需要带有私钥的 .pfx 文件。
 
 - 如果计划将云服务部署到关联组，请创建地缘组。可以使用地缘组将云服务和其他 Azure 服务部署到某个区域中的同一位置。你可以在 Azure 经典门户的“网络”区域中的“地缘组”页上创建地缘组。
 
@@ -104,7 +104,7 @@ Azure 门户提供了两种创建和部署云服务的方法：“快速创建�
 
     ![云服务\_速览](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
+
 
 ## 后续步骤
 

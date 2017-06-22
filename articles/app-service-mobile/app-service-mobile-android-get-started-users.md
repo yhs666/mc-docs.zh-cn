@@ -1,6 +1,6 @@
 ---
 title: "使用移动应用在 Android 中添加身份验证 | Azure"
-description: "了解如何使用 Azure 应用服务中的移动应用功能通过各种标识提供者（包括 Google、Facebook、Twitter 和 Microsoft）对 Android 应用的用户进行身份验证。"
+description="了解如何使用 Azure 应用服务中的移动应用功能，通过各种标识提供者对 Android 应用的用户进行身份验证。"
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
@@ -12,7 +12,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
+ms.date: 05/02/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
@@ -65,7 +66,8 @@ ms.lasthandoff: 04/22/2017
 完成此基本身份验证教程后，请考虑继续学习以下教程之一：
 
 
-+ [为 Android 应用启用脱机同步](./app-service-mobile-android-get-started-offline-data.md) 了解如何使用移动应用后端向应用添加脱机支持。 使用脱机同步，用户可以与移动应用进行交互&mdash;查看、添加或修改数据&mdash;即使在没有网络连接时也是如此。
++ [为 Android 应用启用脱机同步](./app-service-mobile-android-get-started-offline-data.md) 
+  了解如何使用移动应用后端向应用添加脱机支持。利用脱机同步，用户可与移动应用交互（查看、添加或修改数据），即使在没有网络连接时也是如此。
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register

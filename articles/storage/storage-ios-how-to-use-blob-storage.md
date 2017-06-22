@@ -394,4 +394,3 @@ Azure 存储中的每个 Blob 都必须驻留在一个容器中。 以下示例�
 * [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage)
 
 如果对此库有任何疑问，可随时将问题发布到我们的 [MSDN Azure 论坛](https://social.msdn.microsoft.com/forums/azure/zh-cn/home?forum=windowsazuredata)或 [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)。
-如果有任何 Azure 存储的功能建议，请将建议发布到 [Azure 存储反馈](https://www.azure.cn/product-feedback)。

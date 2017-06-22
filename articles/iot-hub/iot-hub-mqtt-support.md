@@ -38,11 +38,11 @@ IoT 中心让设备能够在端口 8883 上使用 [MQTT v3.1.1][lnk-mqtt-org] �
 
 | 语言 | 协议参数 |
 | --- | --- |
-| [Node.js][lnk-sample-node] |azure-iot-device-mqtt |
+| Node.js |azure-iot-device-mqtt |
 | Java |IotHubClientProtocol.MQTT |
-| [C][lnk-sample-c] |MQTT_Protocol |
-| [C#][lnk-sample-csharp] |TransportType.Mqtt |
-| [Python][lnk-sample-python] |IoTHubTransportProvider.MQTT |
+| C |MQTT\_Protocol |
+| C# |TransportType.Mqtt |
+| Python |IoTHubTransportProvider.MQTT |
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>将设备应用从 AMQP 迁移到 MQTT
 如果使用 [设备 SDK][lnk-device-sdks]，则需要在客户端初始化中更改协议参数才可将 AMQP 换用为 MQTT，如上所述。
@@ -58,8 +58,8 @@ IoT 中心让设备能够在端口 8883 上使用 [MQTT v3.1.1][lnk-mqtt-org] �
 - **ClientId** 字段使用 **deviceId**。 
 - “**用户名**”字段使用 `{iothubhostname}/{device_id}/api-version=2016-11-14`，其中 {iothubhostname} 是 IoT 中心的完整 CName。
 
-    例如，如果 IoT 中心的名称为 **contoso.azure-devices.cn**，设备的名称为 **MyDevice01**，则完整“用户名”字段应包含 `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`。
-- “密码”  字段使用 SAS 令牌。 对于 HTTP 和 AMQP 协议，SAS 令牌的格式是相同的：<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`。
+    例如，如果 IoT 中心的名称为 **contoso.azure-devices.cn**，设备的名称为 **MyDevice01**，则完整“用户名”字段应包含 `contoso.azure-devices.cn/MyDevice01/api-version=2016-11-14`。
+- “密码”字段使用 SAS 令牌。对于 HTTP 和 AMQP 协议，SAS 令牌的格式是相同的：<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`。
 
     有关如何生成 SAS 令牌的详细信息，请参阅 [使用 IoT 中心安全令牌][lnk-sas-tokens]的设备部分。
 
@@ -227,7 +227,7 @@ JSON 文档中的每个成员都会在设备孪生文档中更新或添加相应
 [lnk-mqtt-devguide]: ./iot-hub-devguide-messaging.md#notes-on-mqtt-support
 [lnk-azure-protocol-gateway]: ./iot-hub-protocol-gateway.md
 
-[lnk-devices]: https://catalog.azureiotsuite.com/
+[lnk-devices]: ./iot-hub-tested-configurations.md
 [lnk-protocols]: ./iot-hub-protocol-gateway.md
 [lnk-compare]: ./iot-hub-compare-event-hubs.md
 [lnk-scaling]: ./iot-hub-scaling.md

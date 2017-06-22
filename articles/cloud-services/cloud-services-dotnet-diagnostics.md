@@ -19,22 +19,20 @@ ms.author: v-yiso
 
 # 在 Azure 云服务中启用 Azure 诊断
 
-有关 Azure 诊断的背景信息，请参阅 [Azure 诊断概述](../azure-diagnostics.md)。
-
 ## 如何在辅助角色中启用诊断
 
 本演练介绍如何实现使用 .NET EventSource 类发出遥测数据的 Azure 辅助角色。Azure Diagnostics 用于收集遥测数据，并将其存储在一个 Azure 存储帐户中。创建辅助角色时，Visual Studio 将在适用于 .NET 2.4 和更低版本的 Azure SDK 中，自动启用 Diagnostics 1.0 作为解决方案的一部分。以下说明介绍了创建辅助角色、从解决方案禁用 Diagnostics 1.0，以及在辅助角色中部署 Diagnostics 1.2 或 1.3 的过程。
 
 ### 先决条件
-本文假定你具有 Azure 订阅，并将 Visual Studio 2013 与 Azure SDK 结合使用。如果你没有 Azure 订阅，你可以注册[试用版][]。确保 [安装和配置 Azure PowerShell 0.8.7 或更高版本][]。
+本文假定你具有 Azure 订阅，并将 Visual Studio 与 Azure SDK 结合使用。如果你没有 Azure 订阅，你可以注册[试用版][]。确保 [安装和配置 Azure PowerShell 0.8.7 或更高版本][]。
 
 ### 步骤 1：创建辅助角色
-1. 启动 **Visual Studio 2013**。
-2. 从面向 .NET Framework 4.5 的**云**模板创建一个新的 **Azure 云服务**项目。将该项目命名为“WadExample”。
-3. 选择“辅助角色”并单击“确定”。随后将创建该项目。
-4. 在“解决方案资源管理器”中，双击 **WorkerRole1** 属性文件。
-5. 在“配置”选项卡中，取消选中“启用诊断”以禁用 Diagnostics 1.0（Azure SDK 2.4 和更低版本）。
-6. 生成解决方案以验证无误。
+1.	启动 **Visual Studio**。
+2.	从面向 .NET Framework 4.5 的**云**模板创建一个新的 **Azure 云服务**项目。将该项目命名为“WadExample”。
+3.	选择“辅助角色”并单击“确定”。随后将创建该项目。
+4.	在“解决方案资源管理器”中，双击 **WorkerRole1** 属性文件。
+5.	在“配置”选项卡中，取消选中“启用诊断”以禁用 Diagnostics 1.0（Azure SDK 2.4 和更低版本）。
+6.	生成解决方案以验证无误。
 
 ### 步骤 2：检测代码
 将 WorkerRole.cs 的内容替换为以下代码。继承自 [EventSource 类][]的 SampleEventSourceWriter 类实现四个日志记录方法：**SendEnums**、**MessageMethod**、**SetOther** 和 **HighFreq**。**WriteEvent** 方法的第一个参数定义相关事件的 ID。Run 方法实现一个无限循环，该循环每隔 10 秒调用 **SampleEventSourceWriter** 类中实现的每个日志记录方法。
@@ -194,13 +192,6 @@ Set-AzureServiceDiagnosticsExtension、Get-AzureServiceDiagnosticsExtension 和 
 ## 配置文件架构
 
 诊断配置文件定义启动诊断代理时用于初始化诊断配置设置的值。有关有效值和示例，请参阅[最新架构参考](https://msdn.microsoft.com/zh-cn/library/azure/mt634524.aspx)。
-
-## 故障排除
-
-如果遇到问题，请参阅 [Azure 诊断故障排除](../azure-diagnostics-troubleshooting.md)，以获得有关常见问题的帮助。
-
-## 后续步骤
-若要更改所收集的数据、进行故障排除或者了解有关诊断的常规信息，请参阅[与虚拟机相关的 Azure 诊断文章列表](../azure-diagnostics.md#cloud-services-using-azure-diagnostics)。
 
 [EventSource Class]: http://msdn.microsoft.com/zh-cn/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

@@ -22,7 +22,7 @@ ms.lasthandoff: 05/12/2017
 ---
 # <a name="iot-suite-documentation"></a>IoT 套件文档
 
-Microsoft Azure IoT 套件快速入门。 使用预配置解决方案，并加快物联网 (IoT) 解决方案的开发。 使用适用于多个平台（包括 Linux、Windows 和实时操作系统）的设备 SDK 添加新设备并连接现有设备。 无论项目大小如何，均可从少数几个传感器轻松扩展至数百万台同步连接的设备，还可依赖 Azure 的全球可用性。
+Azure IoT 套件快速入门。 使用预配置解决方案，并加快物联网 (IoT) 解决方案的开发。 使用适用于多个平台（包括 Linux、Windows 和实时操作系统）的设备 SDK 添加新设备并连接现有设备。 无论项目大小如何，均可从少数几个传感器轻松扩展至数百万台同步连接的设备，还可依赖 Azure 的全球可用性。
 
 <ul class="panelContent cardsFTitle">
     <li>

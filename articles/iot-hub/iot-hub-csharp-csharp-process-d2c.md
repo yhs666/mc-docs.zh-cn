@@ -46,7 +46,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 若要完成本教程，您需要以下各项：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-* 有效的 Azure 帐户。 <br/>如果没有帐户，只需花费几分钟就能创建一个[免费帐户](https://azure.microsoft.com/free/)。
+* 有效的 Azure 帐户。<br/>如果没有帐户，只需花费几分钟就能创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 应具备 [Azure 存储]和 [Azure 服务总线]的一些基础知识。
 

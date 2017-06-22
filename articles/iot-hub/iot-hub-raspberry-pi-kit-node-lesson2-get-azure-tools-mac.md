@@ -14,7 +14,7 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/28/2016
+origin.date: 03/21/2017
 ms.date: 05/08/2017
 ms.author: v-yiso
 ---
@@ -35,7 +35,7 @@ ms.author: v-yiso
 
 ## 需要什么
 * 启用 Internet 连接的 Mac。
-* 一个有效的 Azure 订阅。如果没有 Azure 帐户，只需几分钟即可创建一个[帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 一个有效的 Azure 订阅。如果没有 Azure 帐户，只需几分钟即可创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## 安装 Python
 虽然 macOS 随附现成的 Python 2.7，但建议通过 Homebrew 安装 Python。请参阅 [Installing Python on macOS](http://docs.python-guide.org/en/latest/starting/install/osx/)（在 macOS 上安装 Python）。

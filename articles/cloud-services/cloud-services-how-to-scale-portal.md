@@ -26,7 +26,7 @@ ms.lasthandoff: 04/14/2017
 
 > [!div class="op_single_selector"]
 >- [Azure 门户](./cloud-services-how-to-scale-portal.md)
->- [Azure 经典门户](./cloud-services-how-to-scale.md)
+>- [Azure 经典管理门户](./cloud-services-how-to-scale.md)
 
 针对云服务辅助角色设置条件，以触发缩减或扩展操作。 针对角色的条件可以基于 CPU、磁盘或角色的网络负载。 也可以基于消息队列或与订阅关联的其他一些 Azure 资源的指标来设置条件。
 

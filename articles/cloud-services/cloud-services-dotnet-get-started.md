@@ -132,7 +132,7 @@ ms.lasthandoff: 04/14/2017
 
 Azure 云服务是该应用程序将运行的环境。
 
-1. 在你的浏览器中，打开 [Azure 管理门户](http://manage.windowsazure.cn)。
+1. 在你的浏览器中，打开 [Azure 经典管理门户](http://manage.windowsazure.cn)。
 
 2. 单击“新建”>“计算”>“云服务”>“快速创建”。
 
@@ -154,7 +154,7 @@ Azure 云服务是该应用程序将运行的环境。
 
 在云中运行应用程序时，它将使用基于云的数据库。
 
-1. 在 [Azure 管理门户](http://manage.windowsazure.cn)中，单击“新建”>“数据服务”>“SQL 数据库”>“快速创建”。
+1. 在 [Azure 经典管理门户](http://manage.windowsazure.cn)中，单击“新建”>“数据服务”>“SQL 数据库”>“快速创建”。
 
 1. 在“数据库名称”框中，输入 *contosoads*。
 
@@ -190,7 +190,7 @@ Azure 存储帐户提供在云中存储队列和 Blob 数据的资源。
 
 在实际应用程序中，您通常会为记录数据的应用程序数据创建单独的帐户，并且为生产数据的测试数据创建单独帐户。 对于本教程，你将只使用一个帐户。
 
-1. 在 [Azure 管理门户](http://manage.windowsazure.cn)中，单击“新建”>“数据服务”>“存储”>“快速创建”。
+1. 在 [Azure 经典管理门户](http://manage.windowsazure.cn)中，单击“新建”>“数据服务”>“存储”>“快速创建”。
 
 4. 在“URL”框中，输入 URL 前缀  。
 
@@ -232,15 +232,15 @@ Web 项目和辅助角色项目自身具有数据库连接字符串，并且当�
 
     保持文件打开进行编辑。
 
-2. 在 [Azure 管理门户](http://manage.windowsazure.cn)中，依次单击左窗格中的“SQL 数据库”、你在本教程中创建的数据库、“仪表板”选项卡、“显示连接字符串”。
+2. 在 [Azure 经典管理门户](http://manage.windowsazure.cn)中，依次单击左窗格中的“SQL 数据库”、你在本教程中创建的数据库、“仪表板”选项卡、“显示连接字符串”。
 
     ![显示连接字符串](./media/cloud-services-dotnet-get-started/showcs.png)
 
-    门户将显示连接字符串，其占位符用于输入密码。
+    经典管理门户将显示连接字符串，其占位符用于输入密码。
 
     ![连接字符串](./media/cloud-services-dotnet-get-started/connstrings.png)
 
-4. 在 *Web.Release.config* 转换文件中，删除 `{connectionstring}` 并在其位置粘贴 Azure 管理门户中的 ADO.NET 连接字符串。
+4. 在 *Web.Release.config* 转换文件中，删除 `{connectionstring}` 并在其位置粘贴 Azure 经典管理门户中的 ADO.NET 连接字符串。
 
 5. 在粘贴到 *Web.Release.config* 转换文件的连接字符串中，请用为新的 SQL 数据库创建的密码替换 `{your_password_here}`。
 
@@ -861,8 +861,6 @@ Contoso 广告应用程序有意保持入门教程的简单性。 例如，它�
 * [Azure 中的云服务基础知识](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649)。 一个综合示例，演示各种最佳实践，由 Microsoft 模式和实践组生产。
 
 有关云开发的常规信息，请参阅 [使用 Azure 构建实际的云应用](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)。
-
-有关 Azure 存储最佳实践和模式的视频介绍，请参阅 [Microsoft Azure 存储 – 新增功能、最佳实践和模式](http://channel9.msdn.com/Events/Build/2014/3-628)。
 
 有关详细信息，请参阅以下资源：
 

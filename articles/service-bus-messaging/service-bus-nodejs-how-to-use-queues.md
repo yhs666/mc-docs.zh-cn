@@ -11,7 +11,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/11/2017
+origin.date: 01/11/2017
+ms.date: 05/22/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
@@ -66,7 +67,7 @@ Azure 模块将读取环境变量 AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVIC
 
 有关在 Azure 云服务的配置文件中设置环境变量的示例，请参阅[使用存储的 Node.js 云服务][Node.js Cloud Service with Storage]。
 
-有关在 [Azure 经典门户][Azure classic portal]中为 Azure 网站设置环境变量的示例，请参阅[使用存储的 Node.js Web 应用程序][Node.js Web Application with Storage]。
+有关在 [Azure 经典管理门户][Azure classic portal]中为 Azure 网站设置环境变量的示例，请参阅[使用存储的 Node.js Web 应用程序][Node.js Web Application with Storage]。
 
 ## <a name="create-a-queue"></a>创建队列
 可以通过 **ServiceBusService** 对象处理服务总线队列。 以下代码创建 **ServiceBusService** 对象。 将它添加到靠近 **server.js** 文件顶部、用于导入 Azure 模块的语句之后的位置：

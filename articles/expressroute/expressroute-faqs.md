@@ -11,7 +11,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+origin.date: 03/29/2017
+ms.date: 05/22/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
@@ -24,7 +25,7 @@ ms.lasthandoff: 04/14/2017
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
 ## <a name="what-is-expressroute"></a>什么是 ExpressRoute？
-ExpressRoute 是一项 Azure 服务，允许在 Azure 数据中心与本地环境或共同租用设施中的基础结构之间创建专用连接。 ExpressRoute 连接不通过公共 Internet，与通过公共 Internet 的典型连接相比，可提供更高的安全性、可靠性、速度以及更低的延迟。
+ExpressRoute 是一项 Azure 服务，允许在 Azure 数据中心与本地环境或第三方托管设施中的基础结构之间创建专用连接。ExpressRoute 连接不通过公共 Internet，与通过公共 Internet 的典型连接相比，可提供更高的安全性、可靠性、速度以及更低的延迟。
 
 ### <a name="what-are-the-benefits-of-using-expressroute-and-private-network-connections"></a>使用 ExpressRoute 和专用网络连接有什么好处？
 ExpressRoute 连接不通过公共 Internet，与通过公共 Internet 的典型连接相比，可提供更高的安全性、可靠性、速度以及较低的一致延迟。 在某些情况下，使用 ExpressRoute 连接在本地设备和 Azure 之间传输数据可以产生显著的成本效益。
@@ -50,20 +51,25 @@ ExpressRoute 连接不通过公共 Internet，与通过公共 Internet 的典型
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>ExpressRoute 是否提供服务级别协议 (SLA)？
 有关详细信息，请参阅 [ExpressRoute SLA 页](https://www.azure.cn/support/legal/sla/)。
 
-## <a name="supported-services"></a>支持的服务
-ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适用于各种类型的服务。
+## <a name="supported-services"></a> 支持的服务
+ExpressRoute 支持[两种路由域](/documentation/articles/expressroute-circuit-peerings/)，适用于各种类型的服务。
 
 ### <a name="private-peering"></a>专用对等互连
 * 虚拟网络，包括所有虚拟机和云服务
 
 ### <a name="public-peering"></a>公共对等互连
-* Power BI
-* Dynamics 365 for Operations（以前称为 Dynamics AX Online）
-* 大多数 Azure 服务具有以下少数例外情况
-  * CDN
-  * Visual Studio Team Services 负载测试
-  * 多重身份验证
-  * 流量管理器
+
+ - 大多数 Azure 服务（有少数几个例外，例外的服务将在下面介绍）
+ - Power BI
+ - Dynamics 365 for Operations（以前称为 Dynamics AX Online）
+
+
+ExpressRoute 不支持以下 Azure 服务
+
+ - CDN
+ - Visual Studio Team Services 负载测试
+ - 多重身份验证
+ - 流量管理器
 
 ## <a name="data-and-connections"></a>数据和连接
 
@@ -111,7 +117,7 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 
 - 必须建立一条 ExpressRoute 线路并让服务提供商启用它。
 - 用户或提供商必须配置 BGP 对等互连。
-- 你必须将虚拟网络连接到 ExpressRoute 线路。
+- 必须将虚拟网络连接到 ExpressRoute 线路。
 
 有关详细信息，请参阅 [ExpressRoute 线路预配工作流和线路状态](./expressroute-workflows.md)。
 
@@ -136,7 +142,7 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 可以。 如果尚未通过 BGP 会话公布默认路由 (0.0.0.0/0) 或 Internet 路由前缀，将能够从连接到 ExpressRoute 线路的虚拟网络连接到 Internet。
 
 ### <a name="can-i-block-internet-connectivity-to-virtual-networks-connected-to-expressroute-circuits"></a>是否可以阻止与连接到 ExpressRoute 线路的虚拟网络建立 Internet 连接？
-可以。 可以公布默认路由 (0.0.0.0/0) 以阻止与部署在虚拟网络中的虚拟机建立所有 Internet 连接，并通过 ExpressRoute 线路路由所有流量。 请注意，如果播发默认路由，会强制将传送到通过公共对等互连提供的服务（如 Azure 存储和 SQL DB）的流量传回到本地。 必须将路由器配置为通过公共对等路径或通过 Internet 将流量传回到 Azure。
+可以。 可以公布默认路由 (0.0.0.0/0) 以阻止与部署在虚拟网络中的虚拟机建立所有 Internet 连接，并通过 ExpressRoute 线路路由所有流量。 请注意，如果播发默认路由，会强制将传送到通过公共对等互连提供的服务（如 Azure 存储空间和 SQL DB）的流量传回到本地。 必须将路由器配置为通过公共对等路径或通过 Internet 将流量传回到 Azure。
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>连接到同一 ExpressRoute 线路的虚拟网络是否可以相互通信？
 可以。 连接到同一 ExpressRoute 线路的虚拟网络中部署的虚拟机可以彼此通信。
@@ -189,7 +195,7 @@ ExpressRoute 高级版是下面列出的功能的集合。
 * 对于专用对等互连，将路由表限制从 4000 个路由提升为 10,000 个路由。
 * 已增加可连接到 ExpressRoute 线路的 VNet 数（默认数为 10 个）。 有关详细信息，请参阅下表。
 * 通过 Microsoft 核心网络建立全局连接。 现在，可以将一个地缘政治区域中的 VNet 链接到另一个区域中的 ExpressRoute 线路。 **示例：**可以将欧洲西部创建的 VNet 链接到硅谷创建的 ExpressRoute 线路。 **其他示例：**在公共对等互连中，会播发来自其他地缘政治区域的前缀，以便你可以进行连接，例如，通过硅谷的线路连接到欧洲西部地区的 SQL Azure。
-* 连接到 Office 365 服务和 CRM Online。
+
 
 ### <a name="how-many-vnets-can-i-link-to-an-expressroute-circuit-if-i-enabled-expressroute-premium"></a>如果启用 ExpressRoute 高级版，可将多少个 VNet 链接到 ExpressRoute 线路？
 下表显示了 ExpressRoute 限制和每条 ExpressRoute 线路的 VNet 数。

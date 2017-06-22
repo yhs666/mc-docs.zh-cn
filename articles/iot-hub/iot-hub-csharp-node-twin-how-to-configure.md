@@ -12,7 +12,8 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+origin.date: 03/30/2017
+ms.date: 06/05/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
@@ -239,24 +240,22 @@ ms.lasthandoff: 05/26/2017
     SetDesiredConfigurationAndQuery();
     Console.WriteLine("Press any key to quit.");
     Console.ReadLine();
-1. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **SetDesiredConfigurationAndQuery** project is **Start**. Build the solution.
-8. With **SimulateDeviceConfiguration.js** running, run the .NET application from Visual Studio using **F5** and you should see the reported configuration change from **Success** to **Pending** to **Success** again with the new active send frequency of five minutes instead of 24 hours.
-
- ![Device configured successfully][img-deviceconfigured]
+    ```
+            
+8. 在 **SimulateDeviceConfiguration.js** 处于运行状态的情况下，使用 **F5** 从 Visual Studio 运行 .NET 应用程序，此时会看到报告的配置状态从 **Success** 变为 **Pending**，再变为 **Success**，采用的全新活动发送频率为 5 分钟而非 24 小时。
    
-   > [!IMPORTANT]
-   > There is a delay of up to a minute between the device report operation and the query result. This is to enable the query infrastructure to work at very high scale. To retrieve consistent views of a single device twin use the **getDeviceTwin** method in the **Registry** class.
-   > 
-   > 
+       > [!IMPORTANT]
+       > 设备报告操作与查询结果之间最多存在一分钟的延迟。这是为了使查询基础结构可以采用非常大的规模来工作。若要检索单个设备孪生的一致视图，请使用 **Registry** 类中的 **getDeviceTwin** 方法。
+       > 
+       > 
 
-## Next steps
-In this tutorial, you set a desired configuration as *desired properties* from the solution back end, and wrote a device app to detect that change and simulate a multi-step update process reporting its status through the reported properties.
+## 后续步骤
+在本教程中，用户已从解决方案后端将所需配置设置为*所需属性*，此外还编写了一个设备应用来检测该更改并模拟多步骤更新过程（通过报告属性报告其状态）。
 
-Use the following resources to learn how to:
+充分利用以下资源：
 
-* send telemetry from devices with the [Get started with IoT Hub][lnk-iothub-getstarted] tutorial,
-* schedule or perform operations on large sets of devices see the [Schedule and broadcast jobs][lnk-schedule-jobs] tutorial.
-* control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods][lnk-methods-tutorial] tutorial.
+- 通过 [Get started with IoT Hub][lnk-iothub-getstarted]（IoT 中心入门）教程学习如何从设备发送遥测；
+- 通过 [Use direct methods][lnk-methods-tutorial]（使用直接方法）教程学习如何以交互方式控制设备（例如如何从用户控制的应用打开风扇）。
 
 <!-- images -->
 [img-servicenuget]: ./media/iot-hub-csharp-node-twin-how-to-configure/servicesdknuget.png
@@ -276,7 +275,7 @@ Use the following resources to learn how to:
 [lnk-twin-tutorial]: ./iot-hub-node-node-twin-getstarted.md
 [lnk-schedule-jobs]: ./iot-hub-node-node-schedule-jobs.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
-[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
+[lnk-connect-device]: https://www.azure.cn/develop/iot/
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-iothub-getstarted]: ./iot-hub-node-node-getstarted.md
 [lnk-methods-tutorial]: ./iot-hub-node-node-direct-methods.md

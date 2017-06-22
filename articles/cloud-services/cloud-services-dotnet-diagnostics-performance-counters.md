@@ -322,7 +322,6 @@ public class PerformanceCountersEntity : TableEntity
 }
 ```
 
-## 后续步骤
-[查看有关 Azure 诊断的其他文章](../azure-diagnostics.md)
+
 
 <!---HONumber=Mooncake_Quality_Review_1215_2016-->

@@ -1,18 +1,19 @@
 ---
 title: "通过 .NET 使用 Azure 服务总线主题 | Azure"
 description: "了解如何在 Azure 中通过 .NET 使用服务总线主题和订阅。 代码示例是针对 .NET 应用程序编写的。"
-services: service-bus-messaging
+services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 31d0bc29-6524-4b1b-9c7f-aa15d5a9d3b4
-ms.service: service-bus-messaging
+ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 03/23/2017
+origin.date: 03/23/2017
+ms.date: 05/22/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
@@ -99,12 +100,12 @@ ms.lasthandoff: 05/12/2017
 使用从 [Azure 门户][Azure portal]检索到的 SAS 名称和密钥值，如前所述。
 
 ## <a name="create-a-topic"></a>创建主题
-可以通过 [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) 类为服务总线主题和订阅执行管理操作。 此类提供了创建、枚举和删除主题的方法。
+可以通过 [NamespaceManager](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.namespacemanager?view=azureservicebus-4.0.0) 类为服务总线主题和订阅执行管理操作。 此类提供了创建、枚举和删除主题的方法。
 
 以下示例使用带连接字符串的 Azure `CloudConfigurationManager` 类构造 `NamespaceManager` 对象，此连接字符串包含服务总线命名空间的基址和有权管理该命名空间的相应 SAS 凭据。 此连接字符串的形式如下。
 
 ```xml
-Endpoint=sb://<yourNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<yourKey>
+Endpoint=sb://<yourNamespace>.servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<yourKey>
 ```
 
 考虑到上一部分中的配置设置，使用以下示例。

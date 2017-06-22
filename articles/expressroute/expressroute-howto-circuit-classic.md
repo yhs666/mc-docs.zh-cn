@@ -13,7 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
+origin.date: 03/21/2017
+ms.date: 05/02/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: eece5b23ce0c05c9e6e8a1938c34faf0383fb06a
@@ -212,7 +213,7 @@ ExpressRoute 线路必须处于以下状态时才能使用：
 
     Bandwidth                        : 1000
     CircuitName                      : MyAsiaCircuit
-    Location                         : Singapore
+    Location                         : China
     ServiceKey                       : #################################
     ServiceProviderName              : Beijing Telecom Ethernet
     ServiceProviderProvisioningState : Provisioned
@@ -320,7 +321,7 @@ ExpressRoute 线路必须处于以下状态时才能使用：
     Sku                              : Standard
     Status                           : Enabled
 
-已经在 Microsoft 端估计线路的大小。 必须联系连接提供商，以便根据此更改更新其配置。 请注意，将从现在开始按照已更新的带宽选项计费。
+已经在 Azure 端估计线路的大小。必须联系连接提供商，以便根据此更改更新其配置。请注意，将从现在开始按照已更新的带宽选项计费。
 
 如果在增加线路带宽时看到以下错误，这意味着创建现有线路的物理端口上没有足够的带宽可用。 必须删除此线路，然后创建所需大小的新线路。 
 

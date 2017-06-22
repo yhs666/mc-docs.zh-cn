@@ -12,7 +12,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+origin.date: 01/31/2017
+ms.date: 05/08/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -51,7 +52,7 @@ IoT 中心使用流式消息传递模式实现设备到云的消息传递。 与
 这种实现具有以下含义：
 
 * 与事件中心事件类似，设备到云的消息可持久保留在 IoT 中心的默认 **messages/events** 终结点多达 7 天。
-* 如同事件中心的事件，设备到云的消息最大可为 256 KB，而且可分成多个批以优化发送。 批最大可为 256 KB。
+* 如同事件中心的事件，设备到云的消息最大可为 256 KB，而且可分成多个批以优化发送。Batch 最大可为 256 KB。
 
 不过，IoT 中心的设备到云的消息传递与事件中心之间还有一些重要差异：
 
@@ -192,7 +193,7 @@ IoT 中心还支持用户管理内置设备到云接收终结点上的使用者�
 | --- | --- |
 | EnqueuedTimeUtc |指示消息结果出现时的时间戳。 例如，设备已完成或消息已过期。 |
 | OriginalMessageId |**MessageId** 。 |
-| StatusCode |必需的字符串。 在 IoT 中心生成的反馈消息中使用。 <br/> “Success” <br/> “Expired” <br/> “DeliveryCountExceeded” <br/> “Rejected” <br/> “Purged” |
+| StatusCode |必需的字符串。 在 IoT 中心生成的反馈消息中使用。 <br/> 0 = 成功 <br/> 1 = 消息过期 <br/> 2 = 超过最大传送数 <br/> 3 = 消息已被拒绝 |
 | 说明 |**StatusCode**的字符串值。 |
 | deviceId |**DeviceId** 。 |
 | DeviceGenerationId |**DeviceGenerationId** 。 |
@@ -395,9 +396,9 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-event-hubs-consuming-events]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
 [lnk-management-portal]: https://portal.azure.cn
 [lnk-servicebus]: ../service-bus/index.md
-[lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
+[lnk-eventhub-partitions]: ../event-hubs/event-hubs-what-is-event-hubs.md#partitions
 [lnk-portal]: ./iot-hub-create-through-portal.md
-[lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-getstarted-eh]: ../event-hubs/event-hubs-dotnet-standard-getstarted-send.md
 [lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
 

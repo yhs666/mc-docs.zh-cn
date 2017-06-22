@@ -12,7 +12,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+origin.date: 04/24/2017
+ms.date: 06/13/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
@@ -44,7 +45,7 @@ Azure IoT 套件预配置解决方案是你可以使用订阅部署到 Azure 的
 | 解决方案 | 数据引入 | 设备标识 | 设备管理 | 命令和控制 | 规则和操作 | 预测分析 |
 | --- | --- | --- | --- | --- | --- | --- |
 | [远程监控][lnk-getstarted-preconfigured] |是 |是 |是 |是 |是 |- |
-| [前瞻性维护][lnk-predictive-maintenance] |是 |是 |- |是 |是 |是 |
+| [预测性维护][lnk-predictive-maintenance] |是 |是 |- |是 |是 |是 |
 
 * *数据提取*：向云中大规模输入数据。
 * *设备标识*：管理唯一设备标识，并控制对解决方案的设备访问权限。

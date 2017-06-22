@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/08/2017
+origin.date: 04/03/2017
 ms.date: 05/08/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
@@ -164,7 +164,6 @@ ms.lasthandoff: 04/14/2017
 ## <a name="next-steps"></a>后续步骤
 现已使用资源提供程序 REST API 部署了 IoT 中心，接下来可更进一步探索：
 
-- 阅读了解 IoT 中心资源提供程序 REST API的相关功能。
 - 有关 Azure Resource Manager 功能的详细信息，请参阅 [Azure Resource Manager 概述][lnk-azure-rm-overview] 。
 
 若要详细了解如何开发 IoT 中心，请参阅以下文章：
@@ -179,7 +178,6 @@ ms.lasthandoff: 04/14/2017
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azure-portal]: https://portal.azure.cn/
-[lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 

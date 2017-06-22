@@ -76,6 +76,8 @@ ms.author: v-yiso
 
 ## 后续步骤
 
+* 发生事件时[接收警报通知](./insights-receive-alert-notifications.md)。
 * [监视服务指标](./insights-how-to-customize-monitoring.md)以确保你的服务可用且响应迅速。
+* [跟踪服务运行状况](./insights-service-health.md)以在 Azure 遇到性能下降或服务中断时及时发现。  
 
 <!---HONumber=Mooncake_0503_2016-->

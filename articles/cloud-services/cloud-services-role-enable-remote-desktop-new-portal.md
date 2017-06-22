@@ -26,7 +26,7 @@ ms.lasthandoff: 05/12/2017
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>为 Azure 云服务中的角色设置远程桌面连接
 > [!div class="op_single_selector"]
 > * [Azure 门户](./cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Azure 经典门户](./cloud-services-role-enable-remote-desktop.md)
+> * [Azure 经典管理门户](./cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 >

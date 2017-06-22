@@ -117,7 +117,7 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
+    Location                         : China North
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -148,7 +148,7 @@ Get-AzureRmExpressRouteCircuit
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
+    Location                         : China North
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -208,7 +208,7 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
+    Location                         : China North
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -253,7 +253,7 @@ Get-AzureRmExpressRouteCircuit
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
+    Location                         : China North
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -285,7 +285,7 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
+    Location                         : China North
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -384,7 +384,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 
-将在 Microsoft 端调整线路的大小。 然后，你必须联系连接提供商，让他们在那一边根据此更改更新配置。 在你发出此通知后，我们将开始向你计收更新后的带宽选项费用。
+将在 Azure 端调整线路的大小。然后，你必须联系连接提供商，让他们在那一边根据此更改更新配置。在你发出此通知后，Azure 将开始向你计收更新后的带宽选项费用。
 
 ### <a name="to-move-the-sku-from-metered-to-unlimited"></a>将 SKU 从按流量计费转为不受限制
 通过使用下面的 PowerShell 代码片段，你可以更改 ExpressRoute 线路的 SKU：

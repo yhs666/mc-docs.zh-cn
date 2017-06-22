@@ -245,7 +245,7 @@ Microsoft 使用上述体系结构来对 Azure IoT 进行威胁建模。因此�
 有关其他信息，请参阅以下文章：
 
 * [SDL Threat Modeling Tool（SDL 威胁建模工具）](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
-* [Microsoft Azure IoT reference architecture](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)（Microsoft Azure IoT 参考体系结构）
+* [Azure IoT reference architecture](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)（Azure IoT 参考体系结构）
 
 ## 另请参阅
 若要详细了解如何保护 IoT 解决方案，请参阅[保护你的 IoT 部署][lnk-security-deployment]。

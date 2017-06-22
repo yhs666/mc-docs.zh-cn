@@ -73,7 +73,7 @@ Azure 建议你将 Runbook 添加到你认为对其他客户有用的 Runbook �
 
 ## 请求 Runbook 或模块
 
-你可以将请求发送到[用户之声](https://www.azure.cn/product-feedback)。如果你需要 Runbook 编写帮助，或对 PowerShell 存有疑问，请将问题发布到我们的[论坛](http://social.msdn.microsoft.com/Forums/windowsazure/zh-cn/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)。
+如果你需要 Runbook 编写帮助，或对 PowerShell 存有疑问，请将问题发布到我们的[论坛](http://social.msdn.microsoft.com/Forums/windowsazure/zh-cn/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)。
 
 ## 后续步骤
 

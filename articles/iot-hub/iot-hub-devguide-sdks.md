@@ -12,7 +12,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+origin.date: 03/24/2017
+ms.date: 06/05/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
@@ -37,7 +38,7 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="azure-iot-device-sdks"></a>Azure IoT 设备 SDK
 
-Microsoft Azure IoT 设备 SDK 包含的代码可帮助构建连接到 Azure IoT 中心服务并由这些服务管理的设备和应用程序。
+Azure IoT 设备 SDK 包含的代码可帮助构建连接到 Azure IoT 中心服务并由这些服务管理的设备和应用程序。
 
 以下 Azure IoT 设备 SDK 可以从 GitHub 进行下载：
 
@@ -109,7 +110,7 @@ Azure IoT 服务 SDK 包含的代码可帮助生成直接与 IoT 中心进行交
 [lnk-node-service-sdk]: https://github.com/Azure/azure-iot-sdk-node/tree/master/service
 [lnk-python-device-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device
 [lnk-python-service-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/service
-[lnk-certified]: https://catalog.azureiotsuite.com/
+[lnk-certified]: ./iot-hub-tested-configurations.md
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
 [lnk-dotnet-ref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.devices

@@ -12,7 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+origin.date: 03/31/2017
+ms.date: 05/02/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
@@ -26,8 +27,6 @@ ms.lasthandoff: 04/22/2017
 # <a name="overview-of-azure-monitor"></a>Azure Monitor 概述
 本文提供有关监视 Azure 资源的概念性概述， 并提供有关特定类型资源的信息的导航。  如需要了解从非 Azure 角度监视应用程序的信息，请参阅[监视和诊断指南](../best-practices-monitoring.md)。
 
-Azure Monitor 的视频演练位于  
-[Azure Monitor 入门](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor)。 介绍可使用 Azure Monitor 的方案的另一个视频位于[探索 Microsoft Azure 监视和诊断](https://channel9.msdn.com/events/Ignite/2016/BRK2234)。  
 
 云应用程序很复杂，包含很多移动部件。 监视可以为用户提供数据，确保应用程序始终处于健康运行状态。 监视还有助于避免潜在问题，或者解决过去的问题。 此外，还可以利用监视数据深入了解应用程序的情况。 这些解析可帮助提升应用程序性能或维护性，或者将某些原本需要手动介入的操作自动化。
 
@@ -81,7 +80,6 @@ Azure Monitor 的视频演练位于
 可视化方法包括：
 
 * 使用 Azure 门户
-* 将数据路由到 Azure Application Insights
 * 将数据路由到 Microsoft PowerBI
 * 将数据路由到第三方可视化工具，可以使用实时传送视频流，也可以让工具从 Azure 存储中的存档读取。
 
@@ -108,7 +106,6 @@ Azure Monitor 的视频演练位于
 
 示例包括：
 
-* 发送到 Application Insights，以便使用其中的可视化工具。
 * 发送到事件中心，以便将其路由到第三方工具执行实时分析。
 
 ### <a name="automate"></a>自动化
@@ -133,14 +130,10 @@ Azure Monitor 的视频演练位于
 Azure 的产品/服务可用于监视从裸机基础结构到应用程序遥测在内的各种服务。 最佳监视策略综合使用了所有这三种方式，可以对服务的运行状况进行全面、细致的了解。
 
 * [Azure Monitor](http://aka.ms/azmondocs) — 对来自 Azure 基础结构（活动日志）和每个单独的 Azure 资源（诊断日志）的数据提供可视化、查询、路由、警报、自动调整规模和自动化功能。 本文是 Azure Monitor 文档的一部分。 “Azure 监视器”名称在 2016 年 9 月 25 日于 Ignite 发布。  以前的名称为“Azure Insights”。  
-* [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) – 针对用户服务的应用程序层的问题，提供各种检测和诊断方式，该服务基于 Azure 监视中的数据进行了良好的集成。 它是应用服务 Web 应用的默认诊断平台。  可以将数据从其他服务路由到此服务。  
-* [Operations Management Suite](https://www.microsoft.com/oms/) 中的 [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 组件 – 为本地基础结构和第三方基于云的基础结构（例如 AWS），以及 Azure 资源提供全方位的 IT 管理解决方案。  可以将来自 Azure Monitor 的数据直接路由到 Log Analytics，因此你可以在一个位置查看整个环境的指标和日志。     
 
 ## <a name="next-steps"></a>后续步骤
 详细了解以下内容
 
 * [Ignite 2016 的 Azure Monitor 视频](https://myignite.microsoft.com/videos/4977)
-
-* [Azure 诊断](../azure-diagnostics.md) 如果要尝试诊断云服务、虚拟机或 Service Fabric 应用程序中的问题。
 * [Azure 存储故障诊断](../storage/storage-e2e-troubleshooting.md) 在使用存储 Blob、表或队列的情况下。
 

@@ -12,7 +12,8 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2017
+origin.date: 03/20/2017
+ms.date: 06/05/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/28/2017
 
 适用于 C 语言的 Azure IoT 设备 SDK 以 ANSI C (C99) 编写，以获得最大可移植性。 此功能使得这些库很适合在多个平台和设备上运行，尤其是在以将磁盘和内存占用量降到最低作为优先考虑的情况下。
 
-SDK 已在许多平台上进行了测试（有关详细信息，请参阅 [Azure IoT 认证设备目录](https://catalog.azureiotsuite.com/)）。 尽管本文包含的是在 Windows 平台上运行的示例代码演示，但本文所述的代码在各种支持的平台上都完全相同。
+SDK 已在许多平台上进行了测试（有关详细信息，请参阅[平台和兼容性列表](./iot-hub-tested-configurations.md)）。尽管本文包含的是在 Windows 平台上运行的示例代码演示，但本文所述的代码在各种支持的平台上都完全相同。
 
 本文将介绍适用于 C 语言的 Azure IoT 设备 SDK 的体系结构，将演示如何初始化设备库，将数据发送到 IoT 中心，以及从 IoT 中心接收消息。 本文中的信息应足以让你开始使用 SDK，但同时也提供了有关库的其他信息的链接。
 
@@ -51,7 +52,7 @@ SDK 已在许多平台上进行了测试（有关详细信息，请参阅 [Azure
 
 ## <a name="before-you-run-the-samples"></a>运行示例之前
 
-在面向 C 的 Azure IoT 设备 SDK 中运行示例之前，必须在 Azure 订阅中[创建 IoT 中心服务的实例](iot-hub-create-through-portal.md)。 然后完成以下任务：
+在面向 C 的 Azure IoT 设备 SDK 中运行示例之前，必须在 Azure 订阅中[创建 IoT 中心服务的实例](./iot-hub-create-through-portal.md)。 然后完成以下任务：
 
 * 准备开发环境
 * 获取设备凭据。
@@ -74,7 +75,7 @@ SDK 已在许多平台上进行了测试（有关详细信息，请参阅 [Azure
 
 本教程使用图形*设备资源管理器*工具。 如果你偏好 CLI 工具，也可以使用 *iothub-explorer* 工具。
 
-设备资源管理器工具使用 Azure IoT 服务库在 IoT 中心执行各种功能（包括添加设备）。 若使用设备资源管理器工具添加设备，会获得设备的连接字符串。 需要此连接字符串才能运行示例应用程序。
+[设备资源管理器](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)工具使用 Azure IoT 服务库在 IoT 中心执行各种功能（包括添加设备）。若使用设备资源管理器工具添加设备，会获得设备的连接字符串。需要此连接字符串才能运行示例应用程序。
 
 如果你不熟悉设备资源管理器工具，请参阅以下过程，了解如何使用该工具来添加设备和获取设备连接字符串。
 

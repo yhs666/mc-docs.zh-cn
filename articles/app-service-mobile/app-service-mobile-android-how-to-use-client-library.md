@@ -11,7 +11,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 04/25/2017
+origin.date: 04/25/2017
+ms.date: 05/31/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
@@ -1101,13 +1102,13 @@ MobileServiceUser user = mClient
     
 3. 将以下代码添加到应用程序并进行以下替换：
 
-* 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 
+* 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。格式应为 https://login.chinacloudapi.cn/contoso.partner.onmschina.cn。
 
 * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取此客户端 ID。
 
 * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
 
-* 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点（使用 HTTPS 方案）。 此值应类似于 _https://contoso.azurewebsites.cn/.auth/login/done_。
+* 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点（使用 HTTPS 方案）。此值应类似于 _https://contoso.chinacloudsites.cn/.auth/login/done_ 。
 
 ```java
 private AuthenticationContext mContext;
@@ -1168,20 +1169,19 @@ private void authenticate() {
     }
     }
 ```
+## <a name="filters"></a> 调整客户端 - 服务器通信
 
-## <a name="filters"></a>Adjust the Client-Server Communication
+客户端连接通常是使用 Android SDK 提供的底层 HTTP 库的基本 HTTP 连接。 有以下几个原因要更改：
 
-The Client connection is normally a basic HTTP connection using the underlying HTTP library supplied with the Android SDK.  There are several reasons why you would want to change that:
+* 希望使用备用 HTTP 库调整超时。
+* 希望提供一个进度条。
+* 希望添加自定义标头以支持 API 管理功能。
+* 希望拦截失败的响应，以便可以重新认证。
+* 希望将后端请求记录到分析服务。
 
-* You wish to use an alternate HTTP library to adjust timeouts.
-* You wish to provide a progress bar.
-* You wish to add a custom header to support API management functionality.
-* You wish to intercept a failed response so that you can implement reauthentication.
-* You wish to log backend requests to an analytics service.
+### 使用备用 HTTP 库
 
-### Using an alternate HTTP Library
-
-Call the `.setAndroidHttpClientFactory()` method immediately after creating your client reference.  For example, to set the connection timeout to 60 seconds (instead of the default 10 seconds):
+在创建客户端引用后立即调用`.setAndroidHttpClientFactory()'方法。 例如，将连接超时设置为60秒（而不是默认的10秒）：
 
 ```java
 mClient = new MobileServiceClient("https://myappname.azurewebsites.net");
