@@ -1666,7 +1666,7 @@ ms.lasthandoff: 05/26/2017
                             <li>
                                 <div class="container">
                                     <h1>语言和框架</h1>
-                                    <h2>本页内容主要来自于 微软AZURE全球版标准服务网站，中国区 AZURE 对SDK/工具支持的区别请结合参考<a href="/article/developerdifferences">中国区 Azure 应用程序开发说明。</a><h2>
+                                    <p>本页内容主要来自于 微软 AZURE 全球版标准服务网站，中国区 AZURE 对 SDK/工具支持的区别请结合参考<a href="/article/developerdifferences">中国区 Azure 应用程序开发说明。</a><p>
                                 </div>
                             </li>
                             <li>
