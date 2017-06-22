@@ -1666,6 +1666,7 @@ ms.lasthandoff: 05/26/2017
                             <li>
                                 <div class="container">
                                     <h1>语言和框架</h1>
+                                    <h2>本页内容主要来自于 微软AZURE全球版标准服务网站，中国区 AZURE 对SDK/工具支持的区别请结合参考<a href="/article/developerdifferences">中国区 Azure 应用程序开发说明。</a><h2>
                                 </div>
                             </li>
                             <li>
@@ -1679,16 +1680,13 @@ ms.lasthandoff: 05/26/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">获取 .NET SDK</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/en-us/dotnet/azure/dotnet-sdk-azure-install?view=azure-dotnet">获取.NET Azure Libraries</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/develop/net/">入门</a>
+                                                    <a href="https://azure.microsoft.com/develop/net/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/api">API 参考</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/develop/net/">了解详细信息</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/en-us/dotnet/azure/?view=azure-dotnet ">API 参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1760,16 +1758,13 @@ ms.lasthandoff: 05/26/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://github.com/Azure/azure-sdk-for-java#download">获取 Java SDK</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/en-us/java/azure/java-sdk-azure-install">获取Java Azure Libraries</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/develop/java/">入门</a>
+                                                    <a href="https://docs.microsoft.com/en-us/java/azure/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/java/api/">API 参考</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/develop/java/">了解详细信息</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/en-us/java/api/overview/azure/">API 参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1841,13 +1836,13 @@ ms.lasthandoff: 05/26/2017
                                             <div class="cardText">
                                                 <h3>Azure CLI 2.0 预览版 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/get-started/">入门</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/en-us/cli/azure/overview">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://github.com/Azure/azure-cli">下载 Azure CLI 2.0</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli">下载 Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure">参考</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/en-us/cli/azure">参考</a>
                                                 </p>
                                             </div>
                                         </div>
