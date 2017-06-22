@@ -165,6 +165,5 @@ Runbook 作业失败，出现“``<cmdlet name>``: 无法将 ``<cmdlet name>`` �
 
 * 从 Azure 专家那里获取帮助。向 [MSDN Azure 或 CSDN Azure](https://www.azure.cn/support/forums/) 提交问题。
 * 提出 Azure 支持事件。转到[“Azure 支持站点”](https://www.azure.cn/support/contact/)，单击“技术和帐单支持”下的“获得支持”。
-* 将关于 Azure 自动化的反馈或功能请求发布到[用户之声](https://www.azure.cn/product-feedback)。
 
 <!---HONumber=Mooncake_Quality_Review_0117_2017-->

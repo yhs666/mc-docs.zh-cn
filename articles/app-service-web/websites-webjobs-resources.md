@@ -112,5 +112,4 @@ Azure 门户中的 Web 作业仪表板提供了强大的管理功能，可让你
 
 * [Azure 和 ASP.NET 论坛](http://forums.asp.net/1247.aspx)
 * [Azure 应用服务 Web 应用论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazurewebsitespreview)
-* [Azure 产品反馈](https://www.azure.cn/product-feedback)
 * [报告 WebJobs 错误或问题](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)

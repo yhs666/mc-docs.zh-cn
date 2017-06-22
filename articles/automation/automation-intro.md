@@ -74,6 +74,6 @@ Azure 自动化中的 Runbook 基于 Windows PowerShell 工作流，因此它们
 
 ## 我是否可以提供反馈？ 
 
-**欢迎提供反馈！** 如果您正在寻找 Azure 自动化 Runbook 解决方案或集成模块，请在脚本中心发布脚本请求。如果您有关于 Azure 自动化的反馈或功能请求，请将其发布在[用户之声](https://www.azure.cn/product-feedback)。谢谢！
+**欢迎提供反馈！** 如果您正在寻找 Azure 自动化 Runbook 解决方案或集成模块，请在脚本中心发布脚本请求。
 
 <!---HONumber=Mooncake_Quality_Review_1230_2016-->
