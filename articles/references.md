@@ -22,234 +22,1120 @@ ms.date: 06/13/2017
 
 ### [PowerShell (ARM)](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 
-* 计算
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>计算</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.compute/#virtual_machines" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VirtualMachine.svg" data-linktype="relative-path">
+                                <p>虚拟机</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.compute/#vm_scale_sets" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AvailabilitySetOld.svg" data-linktype="relative-path">
+                                <p>虚拟机规模集</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.websites/#app_service" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AppService.svg" data-linktype="relative-path">
+                                <p>应用服务</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.batch/#batch" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Batch.svg" data-linktype="relative-path">
+                                <p>批处理</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.servicefabric/#service_fabric" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Fabric.svg" data-linktype="relative-path">
+                                <p>Service Fabric</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>数据库</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.sql/#sql" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>SQL 数据库</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.rediscache/#redis_cache" data-linktype="relative-path">
+                                <img alt = "" src="media/index/RedisCache.svg" data-linktype="relative-path">
+                                <p>Redis 缓存</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>企业集成</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.servicebus/#service_bus" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ServiceBus.svg" data-linktype="relative-path">
+                                <p>服务总线</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>网络</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.network/#virtual_network" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VirtualNetwork.svg" data-linktype="relative-path">
+                                <p>虚拟网络</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.network/#load_balancer" data-linktype="relative-path">
+                                <img alt = "" src="media/index/LoadBalancer.svg" data-linktype="relative-path">
+                                <p>负载均衡器</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.network/#application_gateway" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ApplicationGateway.svg" data-linktype="relative-path">
+                                <p>应用程序网关</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.network/#vpn" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VPNGateway.svg" data-linktype="relative-path">
+                                <p>VPN 网关</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/#traffic_manager" data-linktype="relative-path">
+                                <img alt = "" src="media/index/TrafficManager.svg" data-linktype="relative-path">
+                                <p>流量管理器</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.network/#expressroute" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ExpressRoute.svg" data-linktype="relative-path">
+                                <p>ExpressRoute</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>存储</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.storage/#storage" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Storage.svg" data-linktype="relative-path">
+                                <p>存储</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.backup/#backup" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Backup.svg" data-linktype="relative-path">
+                                <p>备份</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.siterecovery/#site_recovery" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SiteRecovery.svg" data-linktype="relative-path">
+                                <p>Site Recovery</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.media/#media_services" data-linktype="relative-path">
+                                <img alt = "" src="media/index/MediaServices.svg" data-linktype="relative-path">
+                                <p>媒体服务</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>物联网</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.iothub/#iot" data-linktype="relative-path">
+                                <img alt = "" src="media/index/IoTHub.svg" data-linktype="relative-path">
+                                <p>IoT 中心</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.eventhub/#event_hub" data-linktype="relative-path">
+                                <img alt = "" src="media/index/EventHubs.svg" data-linktype="relative-path">
+                                <p>事件中心</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.notificationhubs/#notification_hubs" data-linktype="relative-path">
+                                <img alt = "" src="media/index/NotificationHubs.svg" data-linktype="relative-path">
+                                <p>通知中心</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>安全性 + 标识</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.keyvault/#key_vault" data-linktype="relative-path">
+                                <img alt = "" src="media/index/KeyVault.svg" data-linktype="relative-path">
+                                <p>Key Vault</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.resources/#active_directory" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ActiveDirectory.svg" data-linktype="relative-path">
+                                <p>Azure Active Directory</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>监视 + 管理</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.scheduler/#scheduler" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Scheduler.svg" data-linktype="relative-path">
+                                <p>计划程序</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.insights/#monitor" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AzureMonitoring.svg" data-linktype="relative-path">
+                                <p>监视和诊断</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.resources/#resources" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AzureDefaultBlack.svg" data-linktype="relative-path">
+                                <p>Azure Resource Manager</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    * [虚拟机](https://docs.microsoft.com/powershell/module/azurerm.compute/#virtual_machines)
-    * [虚拟机规模集](https://docs.microsoft.com/powershell/module/azurerm.compute/#vm_scale_sets)
-    * [应用服务](https://docs.microsoft.com/powershell/module/azurerm.websites/#app_service)
-    * [批处理](https://docs.microsoft.com/powershell/module/azurerm.batch/#batch)
-    * [Service Fabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/#service_fabric)
-
-* 数据库
-
-    * [SQL 数据库](https://docs.microsoft.com/powershell/module/azurerm.sql/#sql)
-    * [Redis 缓存](https://docs.microsoft.com/powershell/module/azurerm.rediscache/#redis_cache)
-
-* 企业集成
-
-    * [服务总线](https://docs.microsoft.com/powershell/module/azurerm.servicebus/#service_bus)
-
-* 网络
-
-    * [虚拟网络](https://docs.microsoft.com/powershell/module/azurerm.network/#virtual_network)
-    * [负载均衡器](https://docs.microsoft.com/powershell/module/azurerm.network/#load_balancer)
-    * [应用程序网关](https://docs.microsoft.com/powershell/module/azurerm.network/#application_gateway)
-    * [VPN 网关](https://docs.microsoft.com/powershell/module/azurerm.network/#vpn)
-    * [CDN](https://docs.microsoft.com/powershell/module/azurerm.cdn/#cdn)
-    * [流量管理器](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/#traffic_manager)
-    * [ExpressRoute](https://docs.microsoft.com/powershell/module/azurerm.network/#expressroute)
-
-* 存储
-
-    * [存储](https://docs.microsoft.com/powershell/module/azurerm.storage/#storage)
-    * [备份](https://docs.microsoft.com/powershell/module/azurerm.backup/#backup)
-    * [Site Recovery](https://docs.microsoft.com/powershell/module/azurerm.siterecovery/#site_recovery)
-    * [媒体服务](https://docs.microsoft.com/powershell/module/azurerm.media/#media_services)
-
-* 物联网
-
-    * [IoT 中心](https://docs.microsoft.com/powershell/module/azurerm.iothub/#iot)
-    * [事件中心](https://docs.microsoft.com/powershell/module/azurerm.eventhub/#event_hub)
-    * [通知中心](https://docs.microsoft.com/powershell/module/azurerm.notificationhubs/#notification_hubs)
-
-* 安全性 + 标识
-
-    * [Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/#key_vault)
-    * [Azure Active Directory](https://docs.microsoft.com/powershell/module/azurerm.resources/#active_directory)
-
-* 监视 + 管理
-
-    * [计划程序](https://docs.microsoft.com/powershell/module/azurerm.scheduler/#scheduler)
-    * [监视和诊断](https://docs.microsoft.com/powershell/module/azurerm.insights/#monitor)
-    * [Azure Resource Manager](https://docs.microsoft.com/powershell/module/azurerm.resources/#resources)
 
 ### [PowerShell (经典)](https://docs.microsoft.com/en-ca/powershell/module/azure/)
 
-* 计算
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>计算</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azure/#virtual_machines" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VirtualMachine.svg" data-linktype="relative-path">
+                                <p>虚拟机</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azure/#availability_sets" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AvailabilitySetOld.svg" data-linktype="relative-path">
+                                <p>虚拟机规模集</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>数据库</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azure/#sql" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>SQL 数据库</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.rediscache/#redis_cache" data-linktype="relative-path">
+                                <img alt = "" src="media/index/RedisCache.svg" data-linktype="relative-path">
+                                <p>Redis 缓存</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>网络</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azure/#networking" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VirtualNetwork.svg" data-linktype="relative-path">
+                                <p>虚拟网络</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azure/#load_balancer" data-linktype="relative-path">
+                                <img alt = "" src="media/index/LoadBalancer.svg" data-linktype="relative-path">
+                                <p>负载均衡器</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>存储</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azure/#storage" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Storage.svg" data-linktype="relative-path">
+                                <p>存储</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azure/#backup" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Backup.svg" data-linktype="relative-path">
+                                <p>备份</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    * [虚拟机](https://docs.microsoft.com/powershell/module/azure/#virtual_machines)
-    * [可用性集](https://docs.microsoft.com/powershell/module/azure/#availability_sets)
-
-* 数据库
-
-    * [SQL 数据库](https://docs.microsoft.com/powershell/module/azure/#sql)
-
-* 网络
-
-    * [虚拟网络](https://docs.microsoft.com/powershell/module/azure/#networking)
-    * [负载均衡器](https://docs.microsoft.com/powershell/module/azure/#load_balancer)
-
-* 存储
-
-    * [存储](https://docs.microsoft.com/powershell/module/azure/#storage)
-    * [备份](https://docs.microsoft.com/powershell/module/azure/#backup)
-
-* 安全性 + 标识
-
-    * [Key Vault](https://docs.microsoft.com/powershell/module/azure/#key_vault)
-    * [Azure Active Directory](https://docs.microsoft.com/powershell/module/azure/#active_directory)
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>安全性 + 标识</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azure/#key_vault" data-linktype="relative-path">
+                                <img alt = "" src="media/index/KeyVault.svg" data-linktype="relative-path">
+                                <p>Key Vault</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/powershell/module/azure/#active_directory" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ActiveDirectory.svg" data-linktype="relative-path">
+                                <p>Azure Active Directory</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 ### [Azure CLI](https://docs.microsoft.com/cli/azure/)
 
-* 计算
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>计算</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/vm" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VirtualMachine.svg" data-linktype="relative-path">
+                                <p>虚拟机</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/vmss" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AvailabilitySetOld.svg" data-linktype="relative-path">
+                                <p>虚拟机规模集</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/webapp" data-linktype="relative-path">
+                                <img alt = "" src="media/index/app-service-web.svg" data-linktype="relative-path">
+                                <p>Web 应用</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/appservice" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AppService.svg" data-linktype="relative-path">
+                                <p>应用服务</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/batch" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Batch.svg" data-linktype="relative-path">
+                                <p>批处理</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/sf" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Fabric.svg" data-linktype="relative-path">
+                                <p>Service Fabric</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/cloud" data-linktype="relative-path">
+                                <img alt = "" src="media/index/CloudService.svg" data-linktype="relative-path">
+                                <p>云服务</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    * [虚拟机](https://docs.microsoft.com/cli/azure/vm)
-    * [虚拟机规模集](https://docs.microsoft.com/cli/azure/vmss)
-    * [Web 应用](https://docs.microsoft.com/cli/azure/webapp)
-    * [应用服务](https://docs.microsoft.com/cli/azure/appservice)
-    * [批处理](https://docs.microsoft.com/cli/azure/batch)
-    * [Service Fabric](https://docs.microsoft.com/cli/azure/sf)
-    * [云服务](https://docs.microsoft.com/cli/azure/cloud)
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>数据库</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/sql" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>SQL 数据库</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/sql/dw" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDataWarehouse.svg" data-linktype="relative-path">
+                                <p>SQL 数据仓库</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/cosmosdb" data-linktype="relative-path">
+                                <img alt = "" src="media/index/DocumentDB.svg" data-linktype="relative-path">
+                                <p>DocumentDB</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/mysql" data-linktype="relative-path">
+                                <img alt = "" src="media/index/MySQL.svg" data-linktype="relative-path">
+                                <p>MySQL</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/redis" data-linktype="relative-path">
+                                <img alt = "" src="media/index/RedisCache.svg" data-linktype="relative-path">
+                                <p>Redis 缓存</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>网络</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/network/vnet" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VirtualNetwork.svg" data-linktype="relative-path">
+                                <p>虚拟网络</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/network/lb" data-linktype="relative-path">
+                                <img alt = "" src="media/index/LoadBalancer.svg" data-linktype="relative-path">
+                                <p>负载均衡器</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/network/application-gateway" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ApplicationGateway.svg" data-linktype="relative-path">
+                                <p>应用程序网关</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/network/vnet-gateway" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VPNGateway.svg" data-linktype="relative-path">
+                                <p>VPN 网关</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/network/traffic-manager" data-linktype="relative-path">
+                                <img alt = "" src="media/index/TrafficManager.svg" data-linktype="relative-path">
+                                <p>流量管理器</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/network/express-route" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ExpressRoute.svg" data-linktype="relative-path">
+                                <p>ExpressRoute</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-* 数据库
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>存储</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/storage" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Storage.svg" data-linktype="relative-path">
+                                <p>存储</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    * [SQL 数据库](https://docs.microsoft.com/cli/azure/sql)
-    * [SQL 数据仓库](https://docs.microsoft.com/cli/azure/sql/dw)
-    * [DocumentDB](https://docs.microsoft.com/cli/azure/cosmosdb)
-    * [MySQL](https://docs.microsoft.com/cli/azure/mysql)
-    * [Redis 缓存](https://docs.microsoft.com/cli/azure/redis)
 
-* 网络
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>物联网</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/iot" data-linktype="relative-path">
+                                <img alt = "" src="media/index/IoTHub.svg" data-linktype="relative-path">
+                                <p>IoT 中心</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    * [虚拟网络](https://docs.microsoft.com/cli/azure/network/vnet)
-    * [负载均衡器](https://docs.microsoft.com/cli/azure/network/lb)
-    * [应用程序网关](https://docs.microsoft.com/cli/azure/network/application-gateway)
-    * [VPN 网关](https://docs.microsoft.com/cli/azure/network/vnet-gateway)
-    * [CDN](https://docs.microsoft.com/cli/azure/cdn)
-    * [流量管理器](https://docs.microsoft.com/cli/azure/network/traffic-manager)
-    * [ExpressRoute](https://docs.microsoft.com/cli/azure/network/express-route)
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>安全性 + 标识</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/keyvault" data-linktype="relative-path">
+                                <img alt = "" src="media/index/KeyVault.svg" data-linktype="relative-path">
+                                <p>Key Vault</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/ad" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ActiveDirectory.svg" data-linktype="relative-path">
+                                <p>Azure Active Directory</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-* 存储
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>监视 + 管理</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/monitor" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AzureMonitoring.svg" data-linktype="relative-path">
+                                <p>监视和诊断</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/resource" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AzureDefaultBlack.svg" data-linktype="relative-path">
+                                <p>Azure Resource Manager</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    * [存储](https://docs.microsoft.com/cli/azure/storage)
-
-* 物联网
-
-    * [IoT 中心](https://docs.microsoft.com/cli/azure/iot)
-
-* 安全性 + 标识
-
-    * [Key Vault](https://docs.microsoft.com/cli/azure/keyvault)
-    * [Azure Active Directory](https://docs.microsoft.com/cli/azure/ad)
-
-* 监视 + 管理
-
-    * [监视和诊断](https://docs.microsoft.com/cli/azure/monitor)
-    * [Azure Resource Manager](https://docs.microsoft.com/cli/azure/resource)
 
 ## 语言
 
 ### [.NET](https://docs.microsoft.com/dotnet/api)
 
-* 计算
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>计算</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VirtualMachine.svg" data-linktype="relative-path">
+                                <p>虚拟机</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/appservice" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AppService.svg" data-linktype="relative-path">
+                                <p>应用服务</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/batch" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Batch.svg" data-linktype="relative-path">
+                                <p>批处理</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/servicefabric" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Fabric.svg" data-linktype="relative-path">
+                                <p>Service Fabric</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>数据库</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/sql" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>SQL 数据库</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/microsoft.azure.documents" data-linktype="relative-path">
+                                <img alt = "" src="media/index/DocumentDB.svg" data-linktype="relative-path">
+                                <p>DocumentDB</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/rediscache" data-linktype="relative-path">
+                                <img alt = "" src="media/index/RedisCache.svg" data-linktype="relative-path">
+                                <p>Redis 缓存</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    * [虚拟机](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines)
-    * [应用服务](https://docs.microsoft.com/dotnet/api/overview/azure/appservice)
-    * [批处理](https://docs.microsoft.com/dotnet/api/overview/azure/batch)
-    * [Service Fabric](https://docs.microsoft.com/dotnet/api/overview/azure/servicefabric)
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>企业集成</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/servicebus" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ServiceBus.svg" data-linktype="relative-path">
+                                <p>服务总线</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-* 数据库
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>网络</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/networking" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VirtualNetwork.svg" data-linktype="relative-path">
+                                <p>虚拟网络</p>
+                            </a>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/trafficmanager" data-linktype="relative-path">
+                                <img alt = "" src="media/index/TrafficManager.svg" data-linktype="relative-path">
+                                <p>流量管理器</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    * [SQL 数据库](https://docs.microsoft.com/dotnet/api/overview/azure/sql)
-    * [DocumentDB](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents)
-    * [Redis 缓存](https://docs.microsoft.com/dotnet/api/overview/azure/rediscache)
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>存储</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/storage" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Storage.svg" data-linktype="relative-path">
+                                <p>存储</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/backup" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Backup.svg" data-linktype="relative-path">
+                                <p>备份</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices" data-linktype="relative-path">
+                                <img alt = "" src="media/index/MediaServices.svg" data-linktype="relative-path">
+                                <p>媒体服务</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-* 企业集成
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>数据 + 分析</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/hdinsights" data-linktype="relative-path">
+                                <img alt = "" src="media/index/HDInsight.svg" data-linktype="relative-path">
+                                <p>HDInsight</p>
+                            </a>
+                            <ul>
+                                <li><a class="barLink" href="https://msdn.microsoft.com/library/mt271028.aspx">.NET (Hadoop)</a></li>
+                                <li><a class="barLink" href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></li>
+                                <li><a class="barLink" href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library">.NET (Avro)</a></li>
+                            </ul>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/streamanalytics" data-linktype="relative-path">
+                                <img alt = "" src="media/index/StreamAnalytics.svg" data-linktype="relative-path">
+                                <p>流分析</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/powerbi" data-linktype="relative-path">
+                                <img alt = "" src="media/index/PowerBIEmbedded.svg" data-linktype="relative-path">
+                                <p>Power BI Embedded</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    * [服务总线](https://docs.microsoft.com/dotnet/api/overview/azure/servicebus)
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>物联网</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/iot" data-linktype="relative-path">
+                                <img alt = "" src="media/index/IoTHub.svg" data-linktype="relative-path">
+                                <p>IoT 中心</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/devices" data-linktype="relative-path">
+                                <img alt = "" src="media/index/IoTHub.svg" data-linktype="relative-path">
+                                <p>IoT 设备</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/eventhub" data-linktype="relative-path">
+                                <img alt = "" src="media/index/EventHubs.svg" data-linktype="relative-path">
+                                <p>事件中心</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/notificationhubs" data-linktype="relative-path">
+                                <img alt = "" src="media/index/NotificationHubs.svg" data-linktype="relative-path">
+                                <p>通知中心</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-* 网络
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>安全性 + 标识</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/keyvault" data-linktype="relative-path">
+                                <img alt = "" src="media/index/KeyVault.svg" data-linktype="relative-path">
+                                <p>Key Vault</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ActiveDirectory.svg" data-linktype="relative-path">
+                                <p>Azure Active Directory</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    * [虚拟网络](https://docs.microsoft.com/dotnet/api/overview/azure/networking)
-    * [CDN](https://docs.microsoft.com/dotnet/api/overview/azure/cdn)
-    * [流量管理器](https://docs.microsoft.com/dotnet/api/overview/azure/trafficmanager)
-
-* 存储
-
-    * [存储](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    * [备份](https://docs.microsoft.com/dotnet/api/overview/azure/backup)
-    * [媒体服务](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices)
-
-* 数据 + 分析
-
-    * [HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsights)
-        * [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
-        * [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
-        * [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
-    * [流分析](https://docs.microsoft.com/dotnet/api/overview/azure/streamanalytics)
-    * [Power BI Embedded](https://docs.microsoft.com/dotnet/api/overview/azure/powerbi)
-
-* 物联网
-
-    * [IoT 中心](https://docs.microsoft.com/dotnet/api/overview/azure/iot)
-    * [IoT 设备](https://docs.microsoft.com/dotnet/api/overview/azure/devices)
-    * [事件中心](https://docs.microsoft.com/dotnet/api/overview/azure/eventhub)
-    * [通知中心](https://docs.microsoft.com/dotnet/api/overview/azure/notificationhubs)
-
-* 安全性 + 标识
-
-    * [Key Vault](https://docs.microsoft.com/dotnet/api/overview/azure/keyvault)
-    * [Azure Active Directory](https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
-
-* 监视 + 管理
-
-    * [监视和诊断](https://msdn.microsoft.com/library/azure/dn802153)
-    * [Azure Resource Manager](https://docs.microsoft.com/dotnet/api/overview/azure/resources)
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>监视 + 管理</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://msdn.microsoft.com/library/azure/dn802153" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AzureMonitoring.svg" data-linktype="relative-path">
+                                <p>监视和诊断</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/resources" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AzureDefaultBlack.svg" data-linktype="relative-path">
+                                <p>Azure Resource Manager</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 ### [Java](https://docs.microsoft.com/java/api)
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>计算</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/virtualmachines" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VirtualMachine.svg" data-linktype="relative-path">
+                                <p>虚拟机</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/appservice" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AppService.svg" data-linktype="relative-path">
+                                <p>应用服务</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/batch" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Batch.svg" data-linktype="relative-path">
+                                <p>批处理</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/servicefabric" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Fabric.svg" data-linktype="relative-path">
+                                <p>Service Fabric</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-* 计算
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>数据库</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/sql" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>SQL 数据库</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/rediscache" data-linktype="relative-path">
+                                <img alt = "" src="media/index/RedisCache.svg" data-linktype="relative-path">
+                                <p>Redis 缓存</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    * [虚拟机](https://docs.microsoft.com/java/api/overview/azure/virtualmachines)
-    * [应用服务](https://docs.microsoft.com/java/api/overview/azure/appservice)
-    * [批处理](https://docs.microsoft.com/java/api/overview/azure/batch)
-    * [Service Fabric](https://docs.microsoft.com/java/api/overview/azure/servicefabric)
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>企业集成</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/servicebus" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ServiceBus.svg" data-linktype="relative-path">
+                                <p>服务总线</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>网络</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/networking" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VirtualNetwork.svg" data-linktype="relative-path">
+                                <p>虚拟网络</p>
+                            </a>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/trafficmanager" data-linktype="relative-path">
+                                <img alt = "" src="media/index/TrafficManager.svg" data-linktype="relative-path">
+                                <p>流量管理器</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>存储</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/storage" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Storage.svg" data-linktype="relative-path">
+                                <p>存储</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-* 数据库
-
-    * [SQL 数据库](https://docs.microsoft.com/java/api/overview/azure/sql)
-    * [弹性 DB](https://docs.microsoft.com/powershell/module/ElasticDatabaseJobs/)
-    * [Redis 缓存](https://docs.microsoft.com/java/api/overview/azure/rediscache)
-
-* 企业集成
-
-    * [服务总线](https://docs.microsoft.com/java/api/overview/azure/servicebus)
-
-* 网络
-
-    * [虚拟网络](https://docs.microsoft.com/java/api/overview/azure/networking)
-    * [CDN](https://docs.microsoft.com/java/api/overview/azure/cdn)
-    * [流量管理器](https://docs.microsoft.com/java/api/overview/azure/trafficmanager)
-
-* 存储
-
-    * [存储](https://docs.microsoft.com/java/api/overview/azure/storage)
-
-* 物联网
-
-    * [IoT 中心](https://docs.microsoft.com/java/api/overview/azure/iot)
-    * [事件中心](https://docs.microsoft.com/java/api/overview/azure/eventhub)
-        * [com.microsoft.azure.eventhubs](https://docs.microsoft.com/java/api/com.microsoft.azure.eventhubs)
-        * [com.microsoft.azure.eventprocessorhost](https://docs.microsoft.com/java/api/com.microsoft.azure.eventprocessorhost)
-
-* 安全性 + 标识
-
-    * [Key Vault](https://docs.microsoft.com/java/api/overview/azure/keyvault)
-    * [Azure Active Directory](https://docs.microsoft.com/java/api/overview/azure/activedirectory)
-
-* 监视 + 管理
-
-    * [Azure Resource Manager](https://docs.microsoft.com/java/api/overview/azure/resources)
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>物联网</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/iot" data-linktype="relative-path">
+                                <img alt = "" src="media/index/IoTHub.svg" data-linktype="relative-path">
+                                <p>IoT 中心</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/eventhub" data-linktype="relative-path">
+                                <img alt = "" src="media/index/EventHubs.svg" data-linktype="relative-path">
+                                <p>事件中心</p>
+                            </a>
+                            <ul>
+                                <li><a class="barLink" href="https://docs.microsoft.com/java/api/com.microsoft.azure.eventhubs">com.microsoft.azure.eventhubs</a></li>
+                                <li><a class="barLink" href="https://docs.microsoft.com/java/api/com.microsoft.azure.eventprocessorhost">com.microsoft.azure.eventprocessorhost</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>安全性 + 标识</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/keyvault" data-linktype="relative-path">
+                                <img alt = "" src="media/index/KeyVault.svg" data-linktype="relative-path">
+                                <p>Key Vault</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/activedirectory" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ActiveDirectory.svg" data-linktype="relative-path">
+                                <p>Azure Active Directory</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>监视 + 管理</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/resources" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AzureDefaultBlack.svg" data-linktype="relative-path">
+                                <p>Azure Resource Manager</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 ### [Node.js](/develop/nodejs/)
 
@@ -258,88 +1144,418 @@ ms.date: 06/13/2017
 ## REST
 
 ### [REST API (ARM)](https://docs.microsoft.com/rest/api/)
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>计算</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/compute/virtualmachines" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VirtualMachine.svg" data-linktype="relative-path">
+                                <p>虚拟机</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/virtualmachinescalesets/" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AvailabilitySetOld.svg" data-linktype="relative-path">
+                                <p>虚拟机规模集</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/appservice" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AppService.svg" data-linktype="relative-path">
+                                <p>应用服务</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/batchservice/" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Batch.svg" data-linktype="relative-path">
+                                <p>批处理</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/servicefabric" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Fabric.svg" data-linktype="relative-path">
+                                <p>Service Fabric</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>数据库</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/sql" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>SQL 数据库</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/documentdb/" data-linktype="relative-path">
+                                <img alt = "" src="media/index/DocumentDB.svg" data-linktype="relative-path">
+                                <p>DocumentDB</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/redis" data-linktype="relative-path">
+                                <img alt = "" src="media/index/RedisCache.svg" data-linktype="relative-path">
+                                <p>Redis 缓存</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>企业集成</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/servicebus" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ServiceBus.svg" data-linktype="relative-path">
+                                <p>服务总线</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>网络</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/network" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VirtualNetwork.svg" data-linktype="relative-path">
+                                <p>虚拟网络</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/network/loadbalancer/" data-linktype="relative-path">
+                                <img alt = "" src="media/index/LoadBalancer.svg" data-linktype="relative-path">
+                                <p>负载均衡器</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/network/applicationgateway/" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ApplicationGateway.svg" data-linktype="relative-path">
+                                <p>应用程序网关</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/network/#network-gateway" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VPNGateway.svg" data-linktype="relative-path">
+                                <p>VPN 网关</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/trafficmanager" data-linktype="relative-path">
+                                <img alt = "" src="media/index/TrafficManager.svg" data-linktype="relative-path">
+                                <p>流量管理器</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/network/expressroutecircuits" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ExpressRoute.svg" data-linktype="relative-path">
+                                <p>ExpressRoute</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>存储</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/storageservices/" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Storage.svg" data-linktype="relative-path">
+                                <p>存储</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://msdn.microsoft.com/library/mt750497" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SiteRecovery.svg" data-linktype="relative-path">
+                                <p>Site Recovery</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/media" data-linktype="relative-path">
+                                <img alt = "" src="media/index/MediaServices.svg" data-linktype="relative-path">
+                                <p>媒体服务</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>数据 + 分析</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/hdinsight/" data-linktype="relative-path">
+                                <img alt = "" src="media/index/HDInsight.svg" data-linktype="relative-path">
+                                <p>HDInsight</p>
+                            </a>
+                            <ul>
+                                <li><a class="barLink" href="https://docs.microsoft.com/rest/api/hdinsightspark/">REST API (Spark)</a></li>
+                            </ul>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/streamanalytics" data-linktype="relative-path">
+                                <img alt = "" src="media/index/StreamAnalytics.svg" data-linktype="relative-path">
+                                <p>流分析</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/powerbiembedded/" data-linktype="relative-path">
+                                <img alt = "" src="media/index/PowerBIEmbedded.svg" data-linktype="relative-path">
+                                <p>Power BI Embedded</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-* 计算
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>物联网</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/iothub" data-linktype="relative-path">
+                                <img alt = "" src="media/index/IoTHub.svg" data-linktype="relative-path">
+                                <p>IoT 中心</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/eventhub" data-linktype="relative-path">
+                                <img alt = "" src="media/index/EventHubs.svg" data-linktype="relative-path">
+                                <p>事件中心</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/notificationhubs" data-linktype="relative-path">
+                                <img alt = "" src="media/index/NotificationHubs.svg" data-linktype="relative-path">
+                                <p>通知中心</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>安全性 + 标识</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/keyvault" data-linktype="relative-path">
+                                <img alt = "" src="media/index/KeyVault.svg" data-linktype="relative-path">
+                                <p>Key Vault</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/authorization/" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ActiveDirectory.svg" data-linktype="relative-path">
+                                <p>Azure Active Directory</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    * [虚拟机](https://docs.microsoft.com/rest/api/compute/virtualmachines)
-    * [虚拟机规模集](https://docs.microsoft.com/rest/api/virtualmachinescalesets/)
-    * [应用服务](https://docs.microsoft.com/rest/api/appservice)
-    * [批处理](https://docs.microsoft.com/rest/api/batchservice/)
-    * [Service Fabric](https://docs.microsoft.com/rest/api/servicefabric)
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>监视 + 管理</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/scheduler/" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Scheduler.svg" data-linktype="relative-path">
+                                <p>计划程序</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://msdn.microsoft.com/library/azure/dn802153" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AzureMonitoring.svg" data-linktype="relative-path">
+                                <p>监视和诊断</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://docs.microsoft.com/rest/api/resources" data-linktype="relative-path">
+                                <img alt = "" src="media/index/AzureDefaultBlack.svg" data-linktype="relative-path">
+                                <p>Azure Resource Manager</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-* 数据库
-
-    * [SQL 数据库](https://docs.microsoft.com/rest/api/sql)
-    * [DocumentDB](https://docs.microsoft.com/rest/api/documentdb/)
-    * [Redis 缓存](https://docs.microsoft.com/rest/api/redis)
-
-* 企业集成
-
-    * [服务总线](https://docs.microsoft.com/rest/api/servicebus)
-
-* 网络
-
-    * [虚拟网络](https://docs.microsoft.com/rest/api/network)
-    * [负载均衡器](https://docs.microsoft.com/rest/api/network/loadbalancer/)
-    * [应用程序网关](https://docs.microsoft.com/rest/api/network/applicationgateway/)
-    * [VPN 网关](https://docs.microsoft.com/rest/api/network/#network-gateway)
-    * [CDN](https://docs.microsoft.com/rest/api/cdn)
-    * [流量管理器](https://docs.microsoft.com/rest/api/trafficmanager)
-    * [ExpressRoute](https://docs.microsoft.com/rest/api/network/expressroutecircuits)
-
-* 存储
-
-    * [存储](https://docs.microsoft.com/rest/api/storageservices/)
-    * [Site Recovery](https://msdn.microsoft.com/library/mt750497)
-    * [媒体服务](https://docs.microsoft.com/rest/api/media)
-
-* 数据 + 分析
-
-    * [HDInsight](https://docs.microsoft.com/rest/api/hdinsight/)
-        * [REST API (Spark)](https://docs.microsoft.com/rest/api/hdinsightspark/)
-    * [流分析](https://docs.microsoft.com/rest/api/streamanalytics)
-    * [Power BI Embedded](https://docs.microsoft.com/rest/api/powerbiembedded/)
-
-* 物联网
-
-    * [IoT 中心](https://docs.microsoft.com/rest/api/iothub)
-    * [事件中心](https://docs.microsoft.com/rest/api/eventhub)
-    * [通知中心](https://docs.microsoft.com/rest/api/notificationhubs)
-
-* 安全性 + 标识
-
-    * [Key Vault](https://docs.microsoft.com/rest/api/keyvault)
-    * [Azure Active Directory](https://docs.microsoft.com/rest/api/authorization/)
-
-* 监视 + 管理
-
-    * [计划程序](https://docs.microsoft.com/rest/api/scheduler/)
-    * [监视和诊断](https://msdn.microsoft.com/library/azure/dn802153)
-    * [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources)
 
 ### REST API (经典)
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>计算</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://msdn.microsoft.com/library/azure/jj157206.aspx" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VirtualMachine.svg" data-linktype="relative-path">
+                                <p>虚拟机</p>
+                            </a>
+                        </li>
+                        <li style = "list-style-type:none !important" >
+                            <a class="barLink" href="https://msdn.microsoft.com/library/azure/ee460812" data-linktype="relative-path">
+                                <img alt = "" src="media/index/CloudService.svg" data-linktype="relative-path">
+                                <p>云服务</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>数据库</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://msdn.microsoft.com/library/azure/dn505719.aspx" data-linktype="relative-path">
+                                <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
+                                <p>SQL 数据库</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-* 计算
-
-    * [虚拟机](https://msdn.microsoft.com/library/azure/jj157206.aspx)
-    * [云服务](https://msdn.microsoft.com/library/azure/ee460812)
-
-* 数据库
-
-    * [SQL 数据库](https://msdn.microsoft.com/library/azure/dn505719.aspx)
-
-* 网络
-
-    * [虚拟网络](https://msdn.microsoft.com/library/azure/jj157182.aspx)
-    * [应用程序网关](https://msdn.microsoft.com/library/azure/mt299393)
-    * [VPN 网关](https://msdn.microsoft.com/library/jj154113)
-    * [流量管理器](https://msdn.microsoft.com/library/azure/hh758255.aspx)
-    * [ExpressRoute](https://msdn.microsoft.com/library/azure/dn606310)
-
-* 监视 + 管理
-
-    * [自动化](https://msdn.microsoft.com/library/azure/mt163781)
-    * [计划程序](https://msdn.microsoft.com/library/azure/dn528946.aspx)
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>网络</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://msdn.microsoft.com/library/azure/jj157182.aspx" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VirtualNetwork.svg" data-linktype="relative-path">
+                                <p>虚拟网络</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://msdn.microsoft.com/library/azure/mt299393" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ApplicationGateway.svg" data-linktype="relative-path">
+                                <p>应用程序网关</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://msdn.microsoft.com/library/jj154113" data-linktype="relative-path">
+                                <img alt = "" src="media/index/VPNGateway.svg" data-linktype="relative-path">
+                                <p>VPN 网关</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://msdn.microsoft.com/library/azure/hh758255.aspx" data-linktype="relative-path">
+                                <img alt = "" src="media/index/TrafficManager.svg" data-linktype="relative-path">
+                                <p>流量管理器</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://msdn.microsoft.com/library/azure/dn606310" data-linktype="relative-path">
+                                <img alt = "" src="media/index/ExpressRoute.svg" data-linktype="relative-path">
+                                <p>ExpressRoute</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cardSize">
+    <div class="cardPadding">
+        <div class="card">
+            <div class="group">
+                <div class="cardText">
+                    <h3>监视 + 管理</h3>
+                    <ul style = "margin-left:0px !important" >
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://msdn.microsoft.com/library/azure/mt163781" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Automation.svg" data-linktype="relative-path">
+                                <p>自动化</p>
+                            </a>
+                        </li>
+                        <li style="list-style-type:none !important">
+                            <a class="barLink" href="https://msdn.microsoft.com/library/azure/dn528946.aspx" data-linktype="relative-path">
+                                <img alt = "" src="media/index/Scheduler.svg" data-linktype="relative-path">
+                                <p>计划程序</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 ## 其他
 
