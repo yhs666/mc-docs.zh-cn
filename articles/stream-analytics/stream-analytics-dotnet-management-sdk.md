@@ -4,7 +4,7 @@ description: "流分析管理 .NET SDK 入门。 了解如何设置和运行分�
 keywords: ".net SDK, 分析 API"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5e93de87-0c6f-4f4b-be98-08d63f832897

@@ -4,7 +4,7 @@ description: "了解如何通过流分析创建实时欺诈行为检测解决方
 keywords: "异常检测, 欺诈行为检测, 实时异常检测"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 ms.assetid: d1ed7bd8-9296-4ff8-ade3-d2765541d377

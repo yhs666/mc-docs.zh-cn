@@ -4,7 +4,7 @@ description: "如何在 Azure 流分析中运行流式处理作业 | 学习路�
 keywords: "流式处理作业"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9d46950f-2b69-49ce-a567-df558c5dd820

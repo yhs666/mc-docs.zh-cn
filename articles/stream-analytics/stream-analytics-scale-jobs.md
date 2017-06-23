@@ -4,7 +4,7 @@ description: "了解如何通过配置输入分区、优化查询定义和设置
 keywords: "数据流式处理, 流式数据处理, 优化分析"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35

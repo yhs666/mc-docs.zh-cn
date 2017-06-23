@@ -4,7 +4,7 @@ description: "了解流分析作业监视"
 keywords: "查询监视器"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399

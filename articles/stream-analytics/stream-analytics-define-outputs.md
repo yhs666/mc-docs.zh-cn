@@ -4,7 +4,7 @@ description: "了解有关设定流分析数据输出选项（包括 Power BI）
 keywords: "数据转换, 分析结果, 数据存储选项"
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
 documentationcenter: 
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f

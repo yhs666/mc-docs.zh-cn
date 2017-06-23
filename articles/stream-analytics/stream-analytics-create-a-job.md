@@ -4,7 +4,7 @@ description: "为流分析创建数据分析处理作业 | 学习路径段。"
 keywords: "数据分析处理"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 ms.assetid: e825fbcf-69e9-443f-b402-3b7a4568f415

@@ -3,7 +3,7 @@ title: "Azure 流分析 JavaScript 用户定义的函数 | Azure"
 description: "使用 JavaScript 用户定义的函数执行高级查询机制"
 keywords: "javascript, 用户定义的函数, udf"
 services: stream-analytics
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 

@@ -4,7 +4,7 @@ description: "如何使用流分析操作日志"
 keywords: "服务日志"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 ms.assetid: a2ed9676-f0bd-4398-87c8-a592779ac728

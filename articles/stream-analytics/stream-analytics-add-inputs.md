@@ -4,7 +4,7 @@ description: "了解如何通过事件中心将数据源作为流数据挂接到
 keywords: "数据输入、流式数据"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd

@@ -4,7 +4,7 @@ description: "了解如何更新流分析输入和输出的凭据。"
 keywords: "登录凭据"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4

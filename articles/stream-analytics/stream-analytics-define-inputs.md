@@ -4,7 +4,7 @@ description: "了解如何设置连接到流分析的名为“输入”的数据
 keywords: "数据流, 数据连接, 事件流"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68

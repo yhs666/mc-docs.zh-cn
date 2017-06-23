@@ -4,7 +4,7 @@ description: "了解流分析中的三个开窗函数（翻转、跳跃、滑动
 keywords: "翻转窗口, 滑动窗口, 跳跃窗口"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
