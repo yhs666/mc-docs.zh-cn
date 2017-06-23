@@ -137,7 +137,7 @@ ms.lasthandoff: 05/26/2017
                                                 <div>
                                                     <h4>应用模型</h4>
                                                     <ul class="noBullet">
-                                                        <li><a class="barLink" href="/app-service-web/">Web 应用</a></li>
+                                                        <li><a class="barLink" href="/app-service-web/">Web 应用程序</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
