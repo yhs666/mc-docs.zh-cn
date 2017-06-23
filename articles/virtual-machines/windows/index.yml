@@ -2,6 +2,7 @@
 documentType: LandingData
 title: Windows 虚拟机文档
 metadata:
+  document_id: 1d98d530-28c7-635f-d41b-8da3ae02970c
   title: Azure Windows 虚拟机文档 - 教程和 API 参考
   meta.description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
   services: virtual-machines\windows
@@ -13,7 +14,7 @@ metadata:
   ms.topic: landing-page
   origin.date: 01/23/2017
   ms.date: 06/20/2017
-  ms.author: carolz
+  ms.author: v-dazen
 abstract:
   description: Azure Windows 虚拟机使用 Windows Server 按需提供具有高可伸缩性且十分安全的虚拟化基础结构。 使用我们的快速入门、教程和示例了解如何创建、配置、管理和缩放 Windows VM。
 sections:
