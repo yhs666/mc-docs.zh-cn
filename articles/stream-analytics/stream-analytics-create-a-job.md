@@ -5,7 +5,7 @@ keywords: "数据分析处理"
 documentationcenter: 
 services: stream-analytics
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: cgronlun
 ms.assetid: e825fbcf-69e9-443f-b402-3b7a4568f415
 ms.service: stream-analytics
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 05/15/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265

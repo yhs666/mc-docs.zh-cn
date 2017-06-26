@@ -5,7 +5,7 @@ keywords: "数据转换, 分析结果, 数据存储选项"
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
 documentationcenter: 
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: cgronlun
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
 ms.service: stream-analytics
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 05/15/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
