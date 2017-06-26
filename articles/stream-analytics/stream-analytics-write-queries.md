@@ -4,8 +4,8 @@ description: "使用流分析编写查询和查询数据 | 学习路径段。"
 keywords: "如何编写查询, 查询数据, 编写查询, 正在编写查询"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 ms.assetid: 0e9cdadd-0ee0-4bee-b65b-4a06fb863c95
 ms.service: stream-analytics
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 05/15/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 4a6d1f4721ee0c2a6c944883b5c295d18ee7a7fd
+ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
+ms.openlocfilehash: 7ec7d4758d1fe3b64c879323c5984a1c6889aa55
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -64,7 +64,7 @@ ms.lasthandoff: 05/05/2017
     ![查询摘要](./media/stream-analytics-write-queries/6-stream-analytics-write-queries.png)  
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

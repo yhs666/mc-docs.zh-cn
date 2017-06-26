@@ -16,10 +16,10 @@ origin.date: 09/30/2016
 ms.date: 04/24/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 7d74b9959254889c2f4e8de7ba5da0ab8443a1ea
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 4aeb05b8502c2c4432fe40f2935ff5f7cc7b7931
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -51,9 +51,8 @@ IoT 云应用程序可以使用 Azure IoT 中心中的基元（即设备孪生�
 
 若要完成本教程，需要以下各项：
 
-* Node.js 版本 0.12.x 或更高版本， <br/>  
-* [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
-* 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）
+* Node.js 版本 0.12.x 或更高版本， <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
+* 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -253,11 +252,13 @@ IoT 解决方案可扩展已定义的设备管理模式集，或通过使用设�
 ## <a name="next-steps"></a>后续步骤
 在本教程中，将使用直接方法触发设备上的远程重新启动。 使用报告属性报告设备上次重新启动时间，并查询设备孪生从云中发现设备上次重新启动时间。
 
-若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅：[教程：如何进行固件更新][lnk-fwupdate]。
+若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅：
 
-若要了解如何扩展 IoT 解决方案并在多个设备上计划方法调用，请参阅 [Schedule and broadcast jobs][lnk-tutorial-jobs]（计划和广播作业）教程。
+[教程：如何进行固件更新][lnk-fwupdate]
 
-若要继续完成 IoT 中心的入门内容，请参阅 [IoT 网关 SDK 入门][lnk-gateway-SDK]。
+若要了解如何扩展 IoT 解决方案并在多个设备上计划方法调用，请参阅 [Schedule and broadcast jobs][lnk-tutorial-jobs] （计划和广播作业）教程。
+
+若要继续完成 IoT 中心入门内容，请参阅 [Azure IoT Edge 入门][lnk-gateway-SDK]。
 
 <!-- images and links -->
 [img-output]: ./media/iot-hub-get-started-with-dm/image6.png
@@ -268,7 +269,7 @@ IoT 解决方案可扩展已定义的设备管理模式集，或通过使用设�
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-fwupdate]: ./iot-hub-node-node-firmware-update.md
 [Azure portal]: https://portal.azure.cn/
-[Using resource groups to manage your Azure resources]: ../azure-resource-manager/resource-group-portal.md
+[Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
 [lnk-tutorial-jobs]: ./iot-hub-node-node-schedule-jobs.md
 [lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md

@@ -17,20 +17,20 @@ origin.date: 01/24/2017
 ms.date: 03/10/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
-ms.openlocfilehash: 04c2e2e321f27491d6995b92e4d105335705b13c
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 63e77cca93899db5a7d671b30af9b3b54cfe661e
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 06/09/2017
+
 
 ---
-
 # <a name="help-choosing-a-streaming-analytics-platform-apache-storm-comparison-to-azure-stream-analytics"></a>帮助选择流分析平台：Apache Storm 与 Azure 流分析的比较
-
 使用 Apache Storm 与 Azure 流分析之间的这种比较获取有关选择云分析平台的指导。 了解流分析与 Apache Storm（Azure HDInsight 上的一种托管服务）的价值主张，为你的业务用例选择适当的解决方案。
 
 这两种分析平台都具有 PaaS 解决方案的优势，但几项主要功能却存在各种差异。 下面列出了这些服务的功能和限制，用于帮助你选择所需的解决方案来实现目标。
 
 ## <a name="storm-comparison-to-stream-analytics-general-features"></a>Storm 与流分析的比较：常规功能
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -142,7 +142,8 @@ ms.lasthandoff: 04/25/2017
     </tbody>
 </table>
 
-## 在每个分析平台上创作
+## <a name="authoring-on-each-analytics-platform"></a>在每个分析平台上创作 ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -238,7 +239,7 @@ ms.lasthandoff: 04/25/2017
             </td>
             <td width="204" valign="top">
                 <p>
-目前支持Javascript UDF。
+目前不支持 UDF。
                 </p>
             </td>
             <td width="246" valign="top">
@@ -267,7 +268,8 @@ UDF 可以使用 C#、Java 或用户选择的语言进行编写。
     </tbody>
 </table>
 
-## 数据源和输出
+## <a name="data-sources-and-outputs"></a>数据源和输出 ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -357,7 +359,8 @@ UDF 可以使用 C#、Java 或用户选择的语言进行编写。
     </tbody>
 </table>
 
-## 管理和操作
+## <a name="management-and-operations"></a>管理和操作 ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -517,7 +520,8 @@ SLA：99.9% 的 Storm 群集运行时间。 Apache Storm 是一种容错性的�
     </tbody>
 </table>
 
-## 高级功能
+## <a name="advanced-features"></a>高级功能 ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -567,7 +571,7 @@ Azure Blob（带有最大大小为 100 MB 的内存中查找缓存）提供引�
             </td>
             <td width="246" valign="top">
                 <p>
-数据大小没有限制。 连接器适用于 HBase、DocumentDB、SQL Server 和 Azure。 不支持的连接器可通过自定义代码来实现。
+数据大小没有限制。 连接器适用于 HBase、Azure DocumentDB、SQL Server 和 Azure。 不支持的连接器可通过自定义代码来实现。
                 </p>
                 <p>
 引用数据的刷新必须由自定义代码处理。

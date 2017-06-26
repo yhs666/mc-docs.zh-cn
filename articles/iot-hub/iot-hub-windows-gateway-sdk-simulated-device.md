@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure IoT 网关 SDK 模拟设备 (Windows) | Azure"
-description: "如何在 Windows 上使用 Azure IoT 网关 SDK 创建模拟设备，从而将遥测数据通过网关发送到 IoT 中心"
+title: "使用 Azure IoT Edge 模拟设备 (Windows)"
+description: "如何在 Windows 上使用 Azure IoT Edge 创建模拟设备，从而通过网关将遥测数据发送到 IoT 中心。"
 services: iot-hub
 documentationCenter: 
 author: chipalost
@@ -12,19 +12,16 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/29/2017
-ms.date: 05/15/2017
+ms.date: 03/29/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 5cb04f3d6da77ab42404d9fca9f6ed1edbd8473b
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 888c4ab1be45cff76bc67eb2ee7ef738866198e3
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 ---
-
-# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>使用 Azure IoT 网关 SDK，通过模拟设备发送设备到云消息 (Windows)
-
+# <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>使用 Azure IoT Edge，通过模拟设备发送设备到云消息 (Windows)
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## <a name="build-and-run-the-sample"></a>生成并运行示例
@@ -38,18 +35,18 @@ ms.lasthandoff: 05/05/2017
 生成示例：
 
 1. 打开“VS 2015 开发人员命令提示”或“VS 2017 开发人员命令提示”命令提示符。
-2. 浏览到本地 **azure-iot-gateway-sdk** 存储库副本中的根文件夹。
-3. 运行 **tools\\build.cmd** 脚本。 此脚本创建 Visual Studio 解决方案文件并生成解决方案。 你可以在本地 **azure-iot-gateway-sdk** 存储库副本的 **build** 文件夹中找到 Visual Studio 解决方案。 可为脚本提供其他参数，用于生成和运行单元测试和端到端测试。 这些参数分别是 **--run-unittests** 和 **--run-e2e-tests**。
+2. 浏览到 **iot-edge** 存储库本地副本中的根文件夹。
+3. 运行 **tools\\build.cmd** 脚本。 此脚本创建 Visual Studio 解决方案文件并生成解决方案。 可以在 **iot-edge** 存储库本地副本的 **build** 文件夹中找到 Visual Studio 解决方案。 可为脚本提供其他参数，用于生成和运行单元测试和端到端测试。 这些参数分别是 **--run-unittests** 和 **--run-e2e-tests**。
 
 运行示例：
 
-在文本编辑器中，打开本地 **azure-iot-gateway-sdk** 存储库副本中的文件 **samples\\simulated_device_cloud_upload\\src\\simulated_device_cloud_upload_win.json**。 此文件配置示例网关中的模块：
+在文本编辑器中，打开 **iot-edge** 存储库本地副本中的文件 **samples\\simulated_device_cloud_upload\\src\\simulated_device_cloud_upload_win.json**。 此文件配置示例网关中的模块：
 
 * **IoTHub** 模块连接到 IoT 中心。 将该模块配置为将数据发送到 IoT 中心。 具体而言，将 **IoTHubName** 值设置为 IoT 中心的名称，将 **IoTHubSuffix** 值设置为 **azure-devices.net**。 将“传输”值设置为“HTTP”、“AMQP”或“MQTT”其中的一个。 目前只有“HTTP”会针对所有设备消息共享一个 TCP 连接。 如果将值设置为“AMQP”或“MQTT”，则网关将为每个设备维护与 IoT 中心的单独 TCP 连接。
 * **mapping** 模块将模拟设备的 MAC 地址映射到 IoT 中心设备 ID。 确保 **deviceId** 值与添加到 IoT 中心的两台设备的 ID 一致，确保 **deviceKey** 值包含两台设备的密钥。
 * **BLE1** 和 **BLE2** 模块是模拟设备。 注意模块 MAC 地址如何与“映射”模块中的地址匹配。
 * **Logger** 模块将网关活动记录到一个文件中。
-* 以下示例中显示的 **module path** 值假定已将 IoT 网关 SDK 存储库克隆到 **C:** 驱动器的根目录。 如果将该存储库下载到其他位置，则需要相应地调整 **module path** 值。
+* 以下示例中显示的 **module path** 值假定已将 IoT Edge 存储库克隆到 **C:** 驱动器的根目录。 如果将该存储库下载到其他位置，则需要相应地调整 **module path** 值。
 * JSON 文件底部的 **links** 数组将 **BLE1** 和 **BLE2** 模块连接到 **mapping** 模块，并将 **mapping** 模块连接到 **IoTHub** 模块。 它还确保 **Logger** 模块记录所有消息。
 
 ```
@@ -141,7 +138,7 @@ ms.lasthandoff: 05/05/2017
 
 运行示例：
 
-1. 在命令提示符下，浏览到本地 **azure-iot-gateway-sdk** 存储库副本中的根文件夹。
+1. 在命令提示符下，导航到 **iot-edge** 存储库本地副本的根文件夹。
 2. 运行以下命令：
 
     ```
@@ -150,10 +147,10 @@ ms.lasthandoff: 05/05/2017
 3. 可使用[设备资源管理器][lnk-device-explorer]或 [iothub-explorer][lnk-iothub-explorer] 工具监视 IoT 中心从网关接收的消息。
 
 ## <a name="next-steps"></a>后续步骤
-如果想要深入了解 IoT 网关 SDK 并尝试一些代码示例，请访问以下开发人员教程和资源：
+如果想要深入了解 IoT Edge 并尝试一些代码示例，请访问以下开发人员教程和资源：
 
-- [使用 IoT 网关 SDK 从物理设备发送设备到云的消息][lnk-physical-device]
-- [Azure IoT 网关 SDK][lnk-gateway-sdk]
+* [使用 IoT Edge 从物理设备发送设备到云的消息][lnk-physical-device]
+* [Azure IoT Edge][lnk-gateway-sdk]
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
@@ -161,11 +158,11 @@ ms.lasthandoff: 05/05/2017
 - [从根本上保护 IoT 解决方案][lnk-securing]
 
 <!-- Links -->
-[lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
+[lnk-setupdevbox]: https://github.com/Azure/iot-edge/blob/master/doc/devbox_setup.md
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
 [lnk-iothub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge/
 
 [lnk-physical-device]: ./iot-hub-gateway-sdk-physical-device.md
 

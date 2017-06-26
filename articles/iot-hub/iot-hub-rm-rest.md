@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/03/2017
-ms.date: 05/08/2017
+ms.date: 05/04/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 219fb7ccffe772adf0207877c42c363e245b9b81
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 2440b716a8ed10d3a66b6aa27c88b2cb5847b6ba
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -27,7 +26,7 @@ ms.lasthandoff: 04/14/2017
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>介绍
-你可以通过编程方式使用 IoT 中心资源提供程序 REST API 创建和管理 Azure IoT 中心。 本教程介绍如何使用 IoT 中心资源提供程序 REST API 通过 C# 程序创建 IoT 中心。
+可以通过编程方式使用 IoT 中心资源提供程序 REST API 创建和管理 Azure IoT 中心。 本教程介绍如何使用 IoT 中心资源提供程序 REST API 通过 C# 程序创建 IoT 中心。
 
 > [!NOTE]
 > Azure 提供了用于创建和使用资源的两个不同部署模型：[Azure Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍了如何使用 Azure Resource Manager 部署模型。
@@ -160,6 +159,8 @@ ms.lasthandoff: 04/14/2017
 
 > [!NOTE]
 > 本示例应用程序将添加用于对你计费的 S1 标准 IoT 中心。 完成操作后，可以通过 [Azure 门户][lnk-azure-portal]删除该 IoT 中心，或者在完成后使用 **Remove-AzureRmResource** PowerShell cmdlet 删除。
+> 
+> 
 
 ## <a name="next-steps"></a>后续步骤
 现已使用资源提供程序 REST API 部署了 IoT 中心，接下来可更进一步探索：
@@ -173,11 +174,12 @@ ms.lasthandoff: 04/14/2017
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-- [使用 IOT 网关 SDK 模拟设备][lnk-gateway]
+* [使用 Azure IoT Edge 模拟设备][lnk-gateway]
 
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azure-portal]: https://portal.azure.cn/
+[lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 

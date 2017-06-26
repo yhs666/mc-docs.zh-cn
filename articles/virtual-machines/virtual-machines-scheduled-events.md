@@ -17,10 +17,10 @@ origin.date: 12/10/2016
 ms.date: 04/24/2017
 ms.author: v-dazen
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: f1f6761cd213886d99550e6966b5c38300729003
+ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
+ms.openlocfilehash: 3052a963d7a8a5b5f9a3dd0c570602801fafdc33
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -50,7 +50,11 @@ Azure 元数据服务会公开在 VM 中使用 REST 终结点运行虚拟机的�
 当虚拟机是在虚拟网络 (VNet) 中创建时，可以从不可路由的 IP 169.254.169.254 使用元数据服务。否则，在适用于云服务和经典 VM 的默认情况下，需要通过其他逻辑来发现要使用的终结点。 请参阅此示例，了解如何[发现主机终结点](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)
 
 ### <a name="versioning"></a>版本控制 
-元数据服务通过以下格式使用版本控制 API：http://{ip}/metadata/{version}/scheduledevents 建议你的服务使用以下网址提供的最新版本：http://{ip}/metadata/latest/scheduledevents
+已对实例元数据服务进行了版本控制。 版本是必需的，当前版本为 2017-03-01
+
+> [!NOTE] 
+> 支持的计划事件的前一预览版 {latest} 发布为 api-version。 此格式不再受支持，并且将在未来弃用。
+>
 
 ### <a name="using-headers"></a>使用标头
 查询元数据服务时，必须提供以下标头： *Metadata: true*。 
@@ -67,7 +71,7 @@ Azure 元数据服务会公开在 VM 中使用 REST 终结点运行虚拟机的�
 ### <a name="query-for-events"></a>查询事件
 进行以下调用即可查询计划事件
 
-    curl -H Metadata:true http://169.254.169.254/metadata/latest/scheduledevents
+    curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
 
 响应包含计划事件的数组。 数组为空意味着目前没有计划事件。
 如果有计划事件，响应会包含事件的数组： 
@@ -86,12 +90,24 @@ Azure 元数据服务会公开在 VM 中使用 REST 终结点运行虚拟机的�
      ]
     }
 
-EventType 捕获对虚拟机的预期影响，其中：
-- 冻结：虚拟机将计划暂停几秒。 对内存、打开文件或网络连接没有影响
-- Reboot：虚拟机计划重启（内存将被擦除）。
-- Redeploy：虚拟机计划移到另一节点（临时磁盘会丢失）。 
+### <a name="event-properties"></a>事件属性
+|属性  |  说明 |
+| - | - |
+| EventId |事件的全局唯一标识符。 <br><br> 示例： <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventType | 事件造成的影响。 <br><br> 值： <br><ul><li> <i>冻结</i>：虚拟机将计划暂停几秒。 对内存、打开文件或网络连接没有影响。 <li> <i>重新启动</i>：虚拟机将计划重新启动（擦除内存）。<li> <i>重新部署</i>：虚拟机将计划移到另一个节点（临时磁盘将丢失）。 |
+| ResourceType | 事件影响的资源的类型。 <br><br> 值： <ul><li>VirtualMachine|
+| 资源| 事件影响的资源的列表。 <br><br> 示例： <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| 事件状态 | 事件的状态。 <br><br> 值： <ul><li><i>已计划：</i>事件计划在 <i>NotBefore</i> 属性指定的时间之后启动。<li><i>已启动</i>：事件已启动。</i>
+| NotBefore| 事件可能会在之后启动的时间。 <br><br> 示例： <br><ul><li> 2016-09-19T18:29:47Z  |
 
-对事件进行计划以后 (Status = Scheduled)，Azure 会共享在其后可以启动事件的时间（在“NotBefore”字段中指定）。
+### <a name="event-scheduling"></a>事件计划
+将根据事件类型为每个事件计划将来的最小量时间。 此时间将反映在事件的 <i>NotBefore</i> 属性。 
+
+|EventType  | 最小值通知 |
+| - | - |
+| 冻结| 15 分钟 |
+| 重新启动 | 15 分钟 |
+| 重新部署 | 10 分钟 |
 
 ### <a name="starting-an-event-expedite"></a>启动事件（加快）
 
@@ -112,11 +128,13 @@ function GetScheduledEvents($uri)
 }
 
 # How to approve a scheduled event
-function ApproveScheduledEvent($eventId, $uri)
+function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
 {    
-    # Create the Scheduled Events Approval Json
+    # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
-    $scheduledEventsApproval = @{"StartRequests" = $startRequests} 
+    $scheduledEventsApproval = @{"StartRequests" = $startRequests; "DocumentIncarnation" = $docIncarnation} 
+
+    # Convert to JSON string
     $approvalString = ConvertTo-Json $scheduledEventsApproval
 
     Write-Host "Approving with the following: `n" $approvalString
@@ -135,7 +153,7 @@ function HandleScheduledEvents($scheduledEvents)
 
 # Set up the scheduled events uri for VNET enabled VM
 $localHostIP = "169.254.169.254"
-$scheduledEventURI = 'http://{0}/metadata/latest/scheduledevents' -f $localHostIP 
+$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
 
 # Get the document
 $scheduledEvents = GetScheduledEvents $scheduledEventURI
@@ -150,7 +168,7 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-    ApproveScheduledEvent $event.EventId $scheduledEventURI 
+    ApproveScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
     }
 }
 ``` 
@@ -166,7 +184,7 @@ foreach($event in $scheduledEvents.Events)
 
         public ScheduledEventsClient()
         {
-            scheduledEventsEndpoint = string.Format("http://{0}/metadata/latest/scheduledevents", defaultIpAddress);
+            scheduledEventsEndpoint = string.Format("http://{0}/metadata/scheduledevents?api-version=2017-03-01", defaultIpAddress);
         }
         /// Retrieve Scheduled Events 
         public string GetDocument()
@@ -197,6 +215,7 @@ foreach($event in $scheduledEvents.Events)
 ```csharp
     public class ScheduledEventsDocument
     {
+        public string DocumentIncarnation;
         public List<CloudControlEvent> Events { get; set; }
     }
 
@@ -207,11 +226,12 @@ foreach($event in $scheduledEvents.Events)
         public string EventType { get; set; }
         public string ResourceType { get; set; }
         public List<string> Resources { get; set; }
-        public DateTime NoteBefore { get; set; }
+        public DateTime? NotBefore { get; set; }
     }
 
     public class ScheduledEventsApproval
     {
+        public string DocumentIncarnation;
         public List<StartRequest> StartRequests = new List<StartRequest>();
     }
 
@@ -249,7 +269,11 @@ public class Program
             Console.ReadLine();
 
             // Approve events
-            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval();
+            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval()
+        {
+            DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
+        };
+
             foreach (CloudControlEvent ccevent in scheduledEventsDocument.Events)
             {
                 scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(ccevent.EventId));
@@ -289,7 +313,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url="http://169.254.169.254/metadata/latest/scheduledevents"
+metadata_url="http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01"
 headers="{Metadata:true}"
 this_host=socket.gethostname()
 
@@ -322,4 +346,5 @@ if __name__ == '__main__':
 
 ```
 ## <a name="next-steps"></a>后续步骤 
-[Azure 中虚拟机的计划内维护](./virtual-machines-linux-planned-maintenance.md)
+[Azure 中虚拟机的计划内维护](linux/planned-maintenance.md)
+

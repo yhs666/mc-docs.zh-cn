@@ -16,10 +16,10 @@ origin.date: 03/01/2017
 ms.date: 04/24/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 698cd40e13bfcfca456fa4945502e63d7aeafc71
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 05fc6813d2991207eee0f5b9a7b1cc3781a947e6
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -38,11 +38,11 @@ IoT 中心让设备能够在端口 8883 上使用 [MQTT v3.1.1][lnk-mqtt-org] �
 
 | 语言 | 协议参数 |
 | --- | --- |
-| Node.js |azure-iot-device-mqtt |
+| [Node.js][lnk-sample-node] |azure-iot-device-mqtt |
 | Java |IotHubClientProtocol.MQTT |
-| C |MQTT\_Protocol |
-| C# |TransportType.Mqtt |
-| Python |IoTHubTransportProvider.MQTT |
+| [C][lnk-sample-c] |MQTT_Protocol |
+| [C#][lnk-sample-csharp] |TransportType.Mqtt |
+| [Python][lnk-sample-python] |IoTHubTransportProvider.MQTT |
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>将设备应用从 AMQP 迁移到 MQTT
 如果使用 [设备 SDK][lnk-device-sdks]，则需要在客户端初始化中更改协议参数才可将 AMQP 换用为 MQTT，如上所述。
@@ -58,8 +58,8 @@ IoT 中心让设备能够在端口 8883 上使用 [MQTT v3.1.1][lnk-mqtt-org] �
 - **ClientId** 字段使用 **deviceId**。 
 - “**用户名**”字段使用 `{iothubhostname}/{device_id}/api-version=2016-11-14`，其中 {iothubhostname} 是 IoT 中心的完整 CName。
 
-    例如，如果 IoT 中心的名称为 **contoso.azure-devices.cn**，设备的名称为 **MyDevice01**，则完整“用户名”字段应包含 `contoso.azure-devices.cn/MyDevice01/api-version=2016-11-14`。
-- “密码”字段使用 SAS 令牌。对于 HTTP 和 AMQP 协议，SAS 令牌的格式是相同的：<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`。
+    例如，如果 IoT 中心的名称为 **contoso.azure-devices.cn**，设备的名称为 **MyDevice01**，则完整“用户名”字段应包含 `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`。
+- “密码”  字段使用 SAS 令牌。 对于 HTTP 和 AMQP 协议，SAS 令牌的格式是相同的：<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`。
 
     有关如何生成 SAS 令牌的详细信息，请参阅 [使用 IoT 中心安全令牌][lnk-sas-tokens]的设备部分。
 
@@ -85,6 +85,8 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 > [!NOTE]
 > 此 `{property_bag}` 元素使用的编码与 HTTP 协议中用于查询字符串的编码相同。
+>
+>
 
 设备应用还可使用 `devices/{device_id}/messages/events/{property_bag}` 作为 **Will 主题名称**，用于定义要作为遥测消息转发的 Will 消息。
 
@@ -149,7 +151,7 @@ request id 可以是消息属性值的任何有效值（如 [IoT 中心消息传
 1. 然后，服务发送一条响应消息，其中包含主题 `$iothub/twin/res/{status}/?$rid={request id}`的已报告属性集合的全新 ETag 值。 此响应消息使用与请求相同的**请求 ID**。
 
 请求消息正文包含一个 JSON 文档，该文档提供报告属性的新值（不可修改任何其他属性或元数据）。
-JSON 文档中的每个成员都会在设备孪生文档中更新或添加相应成员。 设置为 `null`的成员会从包含的对象中删除成员。 例如：
+JSON 文档中的每个成员都会在设备克隆文档中更新或添加相应成员。 设置为 `null`的成员会从包含的对象中删除成员。 例如：
 
 ```
     {
@@ -182,8 +184,9 @@ JSON 文档中的每个成员都会在设备孪生文档中更新或添加相应
 
 对于属性更新， `null` 值表示正在删除 JSON 对象成员。
 
-> [!IMPORTANT]
-> IoT 中心在仅在连接设备时才会生成更改通知，请确保实现 [设备重新连接流][lnk-devguide-twin-reconnection] ，让 IoT 中心和设备应用之间的所需属性保持同步。
+
+> [!IMPORTANT] 
+> IoT 中心仅在连接设备时才会生成更改通知。 请确保实现[设备重新连接流][lnk-devguide-twin-reconnection]，让 IoT 中心和设备应用之间的所需属性保持同步。
 
 有关详细信息，请参阅[设备孪生开发人员指南][lnk-devguide-twin]。
 
@@ -212,8 +215,8 @@ JSON 文档中的每个成员都会在设备孪生文档中更新或添加相应
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-- [IoT 中心开发人员指南][lnk-devguide]
-- [使用 IoT 网关 SDK 模拟设备][lnk-gateway]
+* [IoT 中心开发人员指南][lnk-devguide]
+* [使用 Azure IoT Edge 模拟设备][lnk-gateway]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-mqtt-org]: http://mqtt.org/
@@ -223,11 +226,11 @@ JSON 文档中的每个成员都会在设备孪生文档中更新或添加相应
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device/samples
 [lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-sas-tokens]: ./iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
+[lnk-sas-tokens]: ./iot-hub-devguide-security.md#use-sas-tokens-in-a-device-client
 [lnk-mqtt-devguide]: ./iot-hub-devguide-messaging.md#notes-on-mqtt-support
 [lnk-azure-protocol-gateway]: ./iot-hub-protocol-gateway.md
 
-[lnk-devices]: ./iot-hub-tested-configurations.md
+[lnk-devices]: https://catalog.azureiotsuite.com/
 [lnk-protocols]: ./iot-hub-protocol-gateway.md
 [lnk-compare]: ./iot-hub-compare-event-hubs.md
 [lnk-scaling]: ./iot-hub-scaling.md

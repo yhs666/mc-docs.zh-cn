@@ -12,8 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/24/2017
-ms.date: 05/08/2017
+ms.date: 03/24/2017
 ms.author: v-yiso
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
@@ -303,4 +302,4 @@ class Program
 [lnk-devguide]: ./iot-hub-devguide.md
 [lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-dotnet-standard-getstarted-send.md
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

@@ -4,7 +4,7 @@ description: "了解如何将 SQL Server 数据库迁移至 Azure SQL 数据库�
 services: sql-database
 documentationcenter: 
 author: janeng
-manager: jstrauss
+manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
@@ -14,34 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 04/04/2017
+ms.date: 05/07/2017
 ms.author: v-johch
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: e53f693e800c628575c7874d3a6f6f382c270444
+ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
+ms.openlocfilehash: f15b98c6c0038e9747696a4e47680deb4fb7fb85
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
 
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>将 SQL Server 数据库迁移到 Azure SQL 数据库
 
-本教程介绍如何使用 Microsoft Data Migration Assistant 将现有 SQL Server 数据库迁移到 Azure SQL 数据库，并完成准备迁移、执行实际数据迁移、以及迁移完成后连接到已迁移数据库的所需步骤。 
+将 SQL Server 数据库移到 Azure SQL 数据库的过程由三个部分组成 - 准备、导出和导入数据库。 本教程介绍以下内容：
 
-> [!IMPORTANT]
-> 若要解决兼容性问题，请使用 [Visual Studio Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)。 
->
+> [!div class="checklist"]
+> * 使用[数据迁移助手](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) 在 SQL Server 中准备要迁移到 Azure SQL 数据库的数据库
+> * 将数据库导出到 BACPAC 文件
+> * 将 BACPAC 文件导入 Azure SQL 数据库
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/1rmb-trial/)。
-
-若要完成本教程，请确保做好以下准备：
+在开始之前，请确保已具备以下项：
 
 - 最新版本的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。 安装 SSMS 就会安装最新版本的 SQLPackage，这是一个可用于自动执行一系列数据库开发任务的命令行实用工具。 
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA)。
-- 要迁移的数据库。 本教程在 SQL Server 2008R2 或更高版本的实例上使用 [SQL Server 2008R2 AdventureWorks OLTP 数据库](https://msftdbprodsamples.codeplex.com/releases/view/59211)，但你可以使用所选的任何数据库。 
+- 要迁移的数据库。 本教程在 SQL Server 2008R2 或更高版本的实例上使用 [SQL Server 2008R2 AdventureWorks OLTP 数据库](https://msftdbprodsamples.codeplex.com/releases/view/59211)，但你可以使用所选的任何数据库。 若要解决兼容性问题，请使用 [Visual Studio Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 
-## <a name="step-1---prepare-for-migration"></a>步骤 1 - 准备迁移
+## <a name="prepare-for-migration"></a>准备迁移
 
 现在可以准备迁移。 按照以下步骤使用 **[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)** 来评估数据库迁移到 Azure SQL 数据库的准备情况。
 
@@ -86,9 +85,9 @@ ms.lasthandoff: 05/12/2017
 10. 或者，单击“导出报告”将报告另存为 JSON 文件。
 11. 关闭 Data Migration Assistant。
 
-## <a name="step-2---export-to-bacpac-file"></a>步骤 2 - 导出到 BACPAC 文件 
+## <a name="export-to-bacpac-file"></a>导出到 BACPAC 文件 
 
-BACPAC 文件是扩展名为 BACPAC 的 ZIP 文件，其中包含来自 SQL Server 数据库的元数据和数据。 BACPAC 文件可以存储在 Azure Blob 存储或本地存储中，以进行存档或迁移（例如从 SQL Server 到 Azure SQL 数据库的迁移）。 若要使导出在事务上保持一致，必须确保在导出期间不会发生任何写入活动。
+BACPAC 文件是一个扩展名为 BACPAC 的 ZIP 文件，它包含来自 SQL Server 数据库的元数据和数据。 BACPAC 文件可以存储在 Azure Blob 存储或本地存储中，以进行存档或迁移（例如从 SQL Server 到 Azure SQL 数据库的迁移）。 若要使导出在事务上保持一致，必须确保在导出期间不会发生任何写入活动。
 
 请按照以下步骤使用 SQLPackage 命令行实用工具将 AdventureWorks2008R2 数据库导出到本地存储。
 
@@ -104,11 +103,11 @@ BACPAC 文件是扩展名为 BACPAC 的 ZIP 文件，其中包含来自 SQL Serv
 
 执行完成后，生成的 BCPAC 文件将存储在 sqlpackage 可执行文件所在的目录中。 在此示例中为 C:\Program Files (x86)\Microsoft SQL Server\130\DAC\bin。 
 
-## <a name="step-3-log-in-to-the-azure-portal-preview"></a>步骤 3：登录到 Azure 门户
+## <a name="step-3-log-in-to-the-azure-portal"></a>步骤 3：登录 Azure 门户
 
 登录到 [Azure 门户](https://portal.azure.cn/)。 从运行 SQLPackage 命令行实用工具的计算机登录有助于步骤 5 中的防火墙规则创建。
 
-## <a name="step-4-create-a-sql-database-logical-server"></a>步骤 4：创建 SQL 数据库逻辑服务器
+## <a name="create-a-sql-database-logical-server"></a>创建 SQL 数据库逻辑服务器
 
 [Azure SQL 数据库逻辑服务器](sql-database-features.md)充当多个数据库的中心管理点。 按照以下步骤创建 SQL 数据库逻辑服务器以包含已迁移的 Adventure Works OLTP SQL Server 数据库。 
 
@@ -134,7 +133,7 @@ BACPAC 文件是扩展名为 BACPAC 的 ZIP 文件，其中包含来自 SQL Serv
 
 5. 单击“创建”以预配逻辑服务器。 预配需要数分钟。 
 
-## <a name="step-5-create-a-server-level-firewall-rule"></a>步骤 5：创建服务器级防火墙规则
+## <a name="create-a-server-level-firewall-rule"></a>创建服务器级防火墙规则
 
 SQL 数据库服务[在服务器级别创建一个防火墙](sql-database-firewall-configure.md)。除非创建了防火墙规则来为特定的 IP 地址打开防火墙，否则会阻止外部应用程序和工具连接到服务器或服务器上的任何数据库。 按照以下步骤为运行 SQLPackage 命令行实用工具的计算机的 IP 地址创建 SQL 数据库服务器级防火墙规则。 这使 SQLPackage 能够通过 Azure SQL 数据库防火墙连接到 SQL 数据库逻辑服务器。 
 
@@ -156,7 +155,7 @@ SQL 数据库服务[在服务器级别创建一个防火墙](sql-database-firewa
 > 通过端口 1433 进行的 SQL 数据库通信。 如果尝试从企业网络内部进行连接，则该网络的防火墙可能不允许经端口 1433 的出站流量。 如果是这样，则无法连接到 Azure SQL 数据库服务器，除非 IT 部门打开了端口 1433。
 >
 
-## <a name="step-6---import-bacpac-file-to-azure-sql-database"></a>步骤 6 - 将 BACPAC 文件导入 Azure SQL 数据库 
+## <a name="import-bacpac-file-to-azure-sql-database"></a>将 BACPAC 文件导入 Azure SQL 数据库 
 
 SQLPackage 命令行实用工具的最新版本支持在指定[服务层和性能级别](sql-database-service-tiers.md)创建 Azure SQL 数据库。 为了在导入过程中获得最佳性能，请选择一个较高的服务层和性能级别，然后在导入后降低级别（如果此服务层和性能级别高于当前所需级别）。
 
@@ -174,7 +173,7 @@ SQLPackage 命令行实用工具的最新版本支持在指定[服务层和性�
 > Azure SQL 数据库逻辑服务器在端口 1433 上进行侦听。 如果尝试在企业防火墙内连接到 Azure SQL 数据库逻辑服务器，则必须在企业防火墙中打开此端口，否则无法成功进行连接。
 >
 
-## <a name="step-7---connect-using-sql-server-management-studio-ssms"></a>步骤 7 - 使用 SQL Server Management Studio (SSMS) 连接
+## <a name="connect-using-sql-server-management-studio-ssms"></a>使用 SQL Server Management Studio (SSMS) 连接
 
 使用 SQL Server Management Studio 建立到 Azure SQL 数据库服务器和新迁移的数据库的连接。 如果不在运行 SQLPackage 的计算机上运行 SQL Server Management Studio，请使用前面过程中的步骤为此计算机创建防火墙规则。
 
@@ -193,7 +192,7 @@ SQLPackage 命令行实用工具的最新版本支持在指定[服务层和性�
 
 4. 在对象资源管理器中展开“数据库”，然后展开 **myMigratedDatabase**，查看示例数据库中的对象。
 
-## <a name="step-8---change-database-properties"></a>步骤 8 - 更改数据库属性
+## <a name="change-database-properties"></a>更改数据库属性
 
 可以使用 SQL Server Management Studio 更改服务层、性能级别和兼容级别。
 
@@ -223,15 +222,17 @@ SQLPackage 命令行实用工具的最新版本支持在指定[服务层和性�
    ![更改兼容级别](./media/sql-database-migrate-your-sql-server-database/compat-level.png)
 
 ## <a name="next-steps"></a>后续步骤 
+本教程已介绍如何准备、导出和导入数据库。 已了解：
 
-- 有关迁移的概述，请参阅[数据库迁移](sql-database-cloud-migrate.md)。
-- 有关 T-SQL 差异的讨论，请参阅[解析迁移到 SQL 数据库的过程中的 Transact-SQL 差异](sql-database-transact-sql-information.md)。
-- 若要使用 Visual Studio Code 进行连接和查询，请参阅[使用 Visual Studio Code 进行连接和查询](sql-database-connect-query-vscode.md)。
-- 若要使用 .NET 进行连接和查询，请参阅[使用 .NET 进行连接和查询](sql-database-connect-query-dotnet.md)。
-- 若要使用 PHP 进行连接和查询，请参阅[使用 PHP 进行连接和查询](sql-database-connect-query-php.md)。
-- 若要使用 Node.js 进行连接和查询，请参阅[使用 Node.js 进行连接和查询](sql-database-connect-query-nodejs.md)。
-- 若要使用 Java 进行连接和查询，请参阅[使用 Java 进行连接和查询](sql-database-connect-query-java.md)。
-- 若要使用 Python 进行连接和查询，请参阅[使用 Python 进行连接和查询](sql-database-connect-query-python.md)。
-- 若要使用 Ruby 进行连接和查询，请参阅[使用 Ruby 进行连接和查询](sql-database-connect-query-ruby.md)。
+> [!div class="checklist"]
+> * 在 SQL Server 中准备要迁移到 Azure SQL 数据库的数据库
+> * 将数据库导出到 BACPAC 文件
+> * 将 BACPAC 文件导入 Azure SQL 数据库
+
+请转到下一教程，了解如何保护数据库。
+
+> [!div class="nextstepaction"]
+> [保护 Azure SQL 数据库](sql-database-security-tutorial.md)。
+
 
 

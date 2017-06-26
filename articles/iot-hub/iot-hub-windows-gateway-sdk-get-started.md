@@ -1,6 +1,6 @@
 ---
-title: "Azure IoT 网关 SDK 入门 (Windows) | Azure"
-description: "了解如何在 Windows 计算机上生成网关，并了解 Azure IoT 网关 SDK（如模块）和 JSON 配置文件中的重要概念。"
+title: "Azure IoT Edge 入门 (Windows)"
+description: "了解如何在 Windows 计算机上构建网关，以及 Azure IoT Edge 的重要概念，如模块和 JSON 配置文件。"
 services: iot-hub
 documentationCenter: 
 author: chipalost
@@ -12,20 +12,18 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/28/2017
-ms.date: 05/15/2017
+ms.date: 03/28/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 512d861cde395f1da4e987188739d731c90eadd6
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 2825ef4a359866ab6f14f94558dacfe85a66604d
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-
-# <a name="explore-the-iot-gateway-sdk-architecture-on-windows"></a>探索 Windows 上的 IoT 网关 SDK 体系结构
+# <a name="explore-azure-iot-edge-architecture-on-windows"></a>在 Windows 上浏览 Azure IoT Edge 体系结构
 
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
@@ -34,8 +32,8 @@ ms.lasthandoff: 05/05/2017
 开始之前，必须[设置开发环境][lnk-setupdevbox]，以便在 Windows 上使用 SDK。
 
 1. 打开“VS 2015 开发人员命令提示”或“VS 2017 开发人员命令提示”命令提示符。
-1. 浏览到本地 **azure-iot-gateway-sdk** 存储库副本中的根文件夹。
-1. 运行 **tools\\build.cmd** 脚本。 此脚本创建 Visual Studio 解决方案文件并生成解决方案。 你可以在本地 **azure-iot-gateway-sdk** 存储库副本的 **build** 文件夹中找到 Visual Studio 解决方案。 可为脚本提供其他参数，用于生成和运行单元测试和端到端测试。 这些参数分别是 **--run-unittests** 和 **--run-e2e-tests**。
+1. 浏览到 **iot-edge** 存储库本地副本中的根文件夹。
+1. 运行 **tools\\build.cmd** 脚本。 此脚本创建 Visual Studio 解决方案文件并生成解决方案。 可以在 **iot-edge** 存储库本地副本的 **build** 文件夹中找到 Visual Studio 解决方案。 可为脚本提供其他参数，用于生成和运行单元测试和端到端测试。 这些参数分别是 **--run-unittests** 和 **--run-e2e-tests**。
 
 ## <a name="how-to-run-the-sample"></a>如何运行示例
 
@@ -79,7 +77,8 @@ ms.lasthandoff: 05/05/2017
       ]
     }
     ```
-3. 浏览到 **azure-iot-gateway-sdk** 存储库的本地副本中的根文件夹。
+
+1. 浏览到 **iot-edge** 存储库本地副本的根文件夹。
 
 4. 运行以下命令：
 
@@ -90,4 +89,5 @@ ms.lasthandoff: 05/05/2017
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
 
 <!-- Links -->
-[lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
+[lnk-setupdevbox]: https://github.com/Azure/iot-edge/blob/master/doc/devbox_setup.md
+

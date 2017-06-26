@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 03/06/2017
+origin.date: 04/26/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 5af5fdd9c30b5fb536f4571e6592e633eba57974
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
+ms.openlocfilehash: d381ecd8552c6d1e0e89b154d20ffc44e7889dae
+ms.contentlocale: zh-cn
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -39,7 +40,7 @@ Azure 虚拟机扩展是小型应用程序，可在Azure 虚拟机上提供部�
 
 除了进程特定的扩展外，自定义脚本扩展也可用于 Windows 和 Linux 虚拟机。 适用于 Linux 的“自定义脚本”扩展允许在虚拟机上运行任何 Bash 脚本。 在设计需要本机 Azure 工具无法提供的配置的 Azure 部署时，自定义脚本很有用。 有关详细信息，请参阅 [Linux VM Custom Script extension](extensions-customscript.md)（Linux VM“自定义脚本”扩展）。
 
-若要完成在端到端应用程序部署中使用 VM 扩展的示例，请参阅[将应用程序自动部署到 Azure 虚拟机](dotnet-core-1-landing.md)。
+若要完成在端到端应用程序部署中使用 VM 扩展的示例，请参阅[将应用程序自动部署到 Azure 虚拟机](../windows/dotnet-core-1-landing.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -49,14 +50,16 @@ Azure 虚拟机扩展是小型应用程序，可在Azure 虚拟机上提供部�
 
 Azure VM 代理可管理 Azure 虚拟机与 Azure 结构控制器之间的交互。 VM 代理负责部署和管理 Azure 虚拟机的许多功能层面，包括运行 VM 扩展。 Azure VM 代理预先安装在 Azure 应用商店映像上，并可手动安装在支持的操作系统上。
 
-有关受支持的操作系统以及安装说明的信息，请参阅 [Azure virtual machine agent](classic/agents-and-extensions.md)（Azure 虚拟机代理）。
+有关受支持的操作系统以及安装说明的信息，请参阅 [Azure virtual machine agent](../windows/classic/agents-and-extensions.md)（Azure 虚拟机代理）。
 
 ## <a name="discover-vm-extensions"></a>发现 VM 扩展
 
 有许多不同的 VM 扩展可与 Azure 虚拟机配合使用。 若要查看完整列表，请使用 Azure CLI 运行以下命令，并将示例位置替换为所选位置。
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ```azurecli
-azure vm extension-image list chinanorth
+az vm extension image list --location chinanorth -o table
 ```
 
 ## <a name="run-vm-extensions"></a>运行 VM 扩展
@@ -67,12 +70,15 @@ Azure 虚拟机扩展可以在现有虚拟机上运行，当需要在已部署�
 
 ### <a name="azure-cli"></a>Azure CLI
 
-可以使用 `azure vm extension set` 命令针对现有虚拟机运行 Azure 虚拟机扩展。 此示例针对虚拟机运行自定义脚本扩展。
+可以使用 `az vm extension set` 命令针对现有虚拟机运行 Azure 虚拟机扩展。 此示例针对虚拟机运行自定义脚本扩展。
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version \
-  --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+az vm extension set `
+  --resource-group exttest `
+  --vm-name exttest `
+  --name customScript `
+  --publisher Microsoft.Azure.Extensions `
+  --settings '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
 脚本生成的输出类似于以下文本：
@@ -84,11 +90,11 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-### <a name="azure-portal-preview"></a>Azure 门户
+### <a name="azure-portal"></a>Azure 门户
 
 可通过 Azure 门户将 VM 扩展应用到现有虚拟机。 为此，请选择虚拟机，选择“扩展”，然后单击“添加”。 从可用扩展的列表中选择所需扩展，并按向导中的说明操作。
 
-下图演示了如何从 Azure 门户安装 Linux 自定义脚本扩展。
+下图展示了如何从 Azure 门户安装 Linux 自定义脚本扩展。
 
 ![安装自定义脚本扩展](./media/extensions-features/installscriptextensionlinux.png)
 
@@ -127,7 +133,7 @@ VM 扩展可添加到 Azure Resource Manager 模板，并在部署模板的过�
 }
 ```
 
-有关详细信息，请参阅 [Authoring Azure Resource Manager templates with Linux VM extensions](extensions-authoring-templates.md)（使用 Linux VM 扩展创作 Azure Resource Manager 模板）。
+有关详细信息，请参阅 [Authoring Azure Resource Manager templates with Linux VM extensions](../windows/extensions-authoring-templates.md)（使用 Linux VM 扩展创作 Azure Resource Manager 模板）。
 
 ## <a name="secure-vm-extension-data"></a>保护 VM 扩展数据
 
@@ -204,18 +210,15 @@ VM 扩展可添加到 Azure Resource Manager 模板，并在部署模板的过�
 针对虚拟机运行虚拟机扩展后，使用以下 Azure CLI 命令返回扩展状态。 请将示例参数名称替换为你自己的值。
 
 ```azurecli
-azure vm extension get myResourceGroup myVM
+az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
 输出类似于以下文本：
 
 ```azurecli
-info:    Executing command vm extension get
-+ Looking up the VM "myVM"
-data:    Publisher                   Name             Version  State
-data:    --------------------------  ---------------  -------  ---------
-data:    Microsoft.Azure.Extensions  XXXExtension  1.0      Succeeded
-info:    vm extension get command OK         :
+AutoUpgradeMinorVersion    Location    Name          ProvisioningState    Publisher                   ResourceGroup      TypeHandlerVersion  VirtualMachineExtensionType
+-------------------------  ----------  ------------  -------------------  --------------------------  ---------------  --------------------  -----------------------------
+True                       chinanorth      customScript  Succeeded            Microsoft.Azure.Extensions  exttest                             2  customScript
 ```
 
 此外，还可以在 Azure 门户中找到扩展执行状态。 若要查看扩展的状态，请选择虚拟机，选择“扩展” ，然后选择所需的扩展。
@@ -225,10 +228,10 @@ info:    vm extension get command OK         :
 在某些情况下，可能需要重新运行虚拟机扩展。 若要重新运行扩展，可以先删除扩展，然后使用所选执行方法重新运行扩展。 若要删除扩展，请使用 Azure CLI 模块运行以下命令。 请将示例参数名称替换为你自己的值。
 
 ```azurecli
-azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0
+az vm extension delete --name customScript --resource-group myResourceGroup --vm-name myVM
 ```
 
-可以在 Azure 门户中执行以下步骤来删除扩展：
+在 Azure 门户中可通过下列步骤删除扩展：
 
 1. 选择虚拟机。
 2. 选择“扩展” 。
@@ -242,3 +245,4 @@ azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.A
 | VM 访问扩展 |重新获取对 Azure 虚拟机的访问权限 |[VM 访问扩展](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure 诊断扩展 |管理 Azure 诊断 |[Azure 诊断扩展](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM 访问扩展 |管理用户和凭据 |[适用于 Linux 的 VM 访问扩展](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+

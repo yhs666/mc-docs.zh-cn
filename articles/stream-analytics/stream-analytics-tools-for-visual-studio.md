@@ -4,9 +4,9 @@ description: "用于 Visual Studio 的 Azure 流分析工具入门教程"
 keywords: visual studio
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
-editor: cgronlun
+author: rockboyfor
+manager: 
+editor: 
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
 ms.devlang: na
@@ -17,20 +17,19 @@ origin.date: 03/28/2017
 ms.date: 05/15/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: acb0e5f991c353f81cc4d687f2a4dca3bebba629
+ms.sourcegitcommit: 540b04d0ecd29d268c86fc2b6dad0e6f8602db84
+ms.openlocfilehash: b00c22f2589c49f16fa561843fc2305c3af0679a
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="use-azure-stream-analytics-tool-for-visual-studio"></a>使用用于 Visual Studio 的 Azure 流分析工具
-用于 Visual Studio 的 Azure 流分析工具现已推出正式版。 这些工具为流分析用户带来了更丰富的体验，可让他们进行故障排除以及编写复杂的查询，甚至可以在本地编写查询。 此外，还可让用户将流分析作业导出到 Visual Studio 项目中。
-
 ## <a name="introduction"></a>介绍
 本教程介绍如何使用用于 Visual Studio 的 Azure 流分析工具来创建、编写、本地测试、管理和调试 Azure 流分析作业。 
 
 完成本教程之后，你将能够：
+
 * 熟悉用于 Visual Studio 的 Azure 流分析工具。
 * 配置和部署流分析作业。
 * 使用本地示例数据在本地测试作业。
@@ -38,6 +37,7 @@ ms.lasthandoff: 05/05/2017
 * 将现有作业导出到项目。
 
 ## <a name="prerequisites"></a>先决条件
+
 若要完成本教程，需要满足以下先决条件：
 * 完成[使用流分析构建 IoT 解决方案教程](/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics)中**创建流分析作业**前面的步骤。 
 * Visual Studio 2015、Visual Studio 2013 Update 4 或 Visual Studio 2012。 支持 Enterprise (Ultimate/Premium)、Professional、Community 版本；不支持 Express 版本。 目前不支持 Visual Studio 2017。 
@@ -102,9 +102,9 @@ ms.lasthandoff: 05/05/2017
 ## <a name="define-output"></a>定义输出
 1. 在“解决方案资源管理器”中展开“输入”节点，然后双击“Output.json”。
 2. 将“输出别名”设置为 **output**，然后将“接收器”设置为“SQL 数据库”。
-2. 输入数据库名称：**TollDataDB**。
-3. 在“用户名”字段中输入“tolladmin”、在“密码”字段中输入“123toll!” ，并在“表”字段中输入“TollDataRefJoin”。
-4. 单击“保存” 。
+3. 输入数据库名称：**TollDataDB**。
+4. 在“用户名”字段中输入“tolladmin”、在“密码”字段中输入“123toll!” ，并在“表”字段中输入“TollDataRefJoin”。
+5. 单击“保存” 。
 
 ![定义输出](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
 
@@ -139,7 +139,7 @@ ms.lasthandoff: 05/05/2017
 
 ### <a name="testing-azure-stream-analytics-queries-locally"></a>在本地测试 Azure 流分析查询
 
-1. 首先可以编译查询，查看是否存在任何语法错误。 [TBD]
+1. 可以首先右键单击项目，然后选择“生成”编译查询，以查看是否存在语法错误。 
 2. 若要针对示例数据验证此查询，可以使用本地示例数据：右键单击输入并从上下文菜单中选择“添加本地输入”。
 
     ![添加本地输入](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
@@ -156,13 +156,15 @@ ms.lasthandoff: 05/05/2017
 
     ![本地运行](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-01.png)
 
-    可在控制台输出中找到输出路径，按任意键可打开结果文件夹。
-
     ![本地运行](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-02.png)
 
-4. 检查本地文件夹中的结果。
+    在 Visual Studio 中，可以按任意键查看“ASA 本地运行结果”窗口中的输出。 
 
-    ![本地运行](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-03.png)
+    ![本地运行](./media/stream-analytics-tools-for-vs/local-testing-output.png)
+
+4.  可以打开结果文件夹查看 CSV 和 JSON 格式的输出文件。
+
+    ![本地运行](./media/stream-analytics-tools-for-vs/local-testing-files.png)
 
 ### <a name="sample-input"></a>示例输入
 还可以将输入源中的输入数据采样到本地文件。 右键单击输入配置文件并选择“数据采样”。 
@@ -212,7 +214,6 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="list-job-in-server-explorer"></a>在服务器资源管理器中列出作业
 在“服务器资源管理器”中单击“流分析作业”，然后单击“刷新”。 “流分析作业”下面应会出现你的作业。
-
 ![列出作业](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-list-jobs-01.png)
 
 ## <a name="open-job-view"></a>打开作业视图
@@ -236,10 +237,8 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="known-issues-and-limitations"></a>已知问题和限制
 
-1. 如果查询包含地理空间函数，本地测试将无法运行。 
+1. 不支持 Power BI 输出和 ADLS 输出。
 2. 不支持在编辑器中添加或更改 JavaScript UDF。
-3. 本地测试不支持以 JSON 格式保存输出。 
-4. 不支持 Power BI 输出和 ADLS 输出。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

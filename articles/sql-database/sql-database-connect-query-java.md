@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 05/07/2017
 ms.author: v-johch
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 7dc86c514f02e638dba8b603faf8289feba78c94
+ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
+ms.openlocfilehash: 5ce901c6d99c34eb231b3a2b674fb0c692292f3c
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -34,8 +34,10 @@ ms.lasthandoff: 05/12/2017
 
 ## <a name="install-java-software"></a>安装 Java 软件
 
+本部分中的步骤假定你熟悉使用 Java 开发，但不熟悉如何使用 Azure SQL 数据库。 如果不熟悉如何使用 Java 进行开发，请转到[使用 SQL Server 生成应用](https://www.microsoft.com/en-us/sql-server/developer-get-started/)并选择 **Java**，然后选择操作系统。
+
 ### <a name="mac-os"></a>**Mac OS**
-打开终端并导航到要在其中创建 Java 项目的目录。 输入以下命令安装 **brew** 和 **Maven**。 
+打开终端并导航到要在其中创建 Java 项目的目录。 输入以下命令安装 **brew** 和 **Maven**： 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -44,30 +46,31 @@ brew install maven
 ```
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-打开终端并导航到要在其中创建 Java 项目的目录。 输入以下命令安装 **Maven**。 
+打开终端并导航到要在其中创建 Java 项目的目录。 输入以下命令安装 **Maven**：
 
 ```bash
 sudo apt-get install maven
 ```
 
 ### <a name="windows"></a>**Windows**
-使用官方安装程序安装 [Maven](https://maven.apache.org/download.cgi)。  
+使用官方安装程序安装 [Maven](https://maven.apache.org/download.cgi)。 使用 Maven 帮助管理依赖项、内部版本、测试和运行 Java 项目。 
 
 ## <a name="get-connection-information"></a>获取连接信息
 
-在 Azure 门户中获取连接字符串。 请使用连接字符串连接到 Azure SQL 数据库。
+获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称、数据库名称和登录信息。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
-3. 在数据库的“概要”窗格中，查看完全限定的服务器名称。 
+3. 在数据库的“概览”页上，查看如下图所示的完全限定的服务器名称。 可以将鼠标悬停在服务器名称上以打开“单击以复制”选项。 
 
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="server name" style="width: 780px;" />
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. 单击“显示数据库连接字符串”。
+4. 如果忘了服务器的登录信息，请导航到 SQL 数据库服务器页，查看服务器管理员名称并重置密码（如果需要）。
+5. 单击“显示数据库连接字符串”。
 
-5. 查看完整的 **JDBC** 连接字符串。
+6. 查看完整的 **JDBC** 连接字符串。
 
-    <img src="./media/sql-database-connect-query-jdbc/jdbc-connection-string.png" alt="JDBC connection string" style="width: 780px;" />
+    ![JDBC 连接字符串](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)   
 
 ### <a name="create-maven-project"></a>**创建 Maven 项目**
 从终端创建一个新的 Maven 项目。 
@@ -87,7 +90,7 @@ mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "
 
 ## <a name="select-data"></a>选择数据
 
-借助[连接](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection)和 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 语句，使用 Java 查询 Azure SQL 数据库中的数据。
+通过以下代码将 [connection](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) 类与 [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL 语句配合使用来按类别查询前 20 个产品。 将 hostHame、dbName、user 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。 
 
 ```java
 package com.sqldbsamples;
@@ -103,10 +106,10 @@ public class App {
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "yourserver";
-        String dbName = "yourdatabase";
-        String user = "yourusername";
-        String password = "yourpassword";
+        String hostName = "your_server.database.chinacloudapi.cn";
+        String dbName = "your_database";
+        String user = "your_username";
+        String password = "your_password";
         String url = String.format("jdbc:sqlserver://%s.database.chinacloudapi.cn:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;", hostName, dbName, user, password);
         Connection connection = null;
 
@@ -144,7 +147,7 @@ public class App {
 
 ## <a name="insert-data"></a>插入数据
 
-使用 [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) 和 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 语句将数据插入 Azure SQL 数据库。
+通过以下代码将 [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) 类与 [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL 语句配合使用来将新产品插入到 SalesLT.Product 表中。 将 hostHame、dbName、user 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。 
 
 ```java
 package com.sqldbsamples;
@@ -158,10 +161,10 @@ public class App {
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "yourserver";
-        String dbName = "yourdatabase";
-        String user = "yourusername";
-        String password = "yourpassword";
+        String hostName = "your_server.database.chinacloudapi.cn";
+        String dbName = "your_database";
+        String user = "your_username";
+        String password = "your_password";
         String url = String.format("jdbc:sqlserver://%s.database.chinacloudapi.cn:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;", hostName, dbName, user, password);
         Connection connection = null;
 
@@ -174,7 +177,7 @@ public class App {
                 System.out.println("=========================================");
 
                 // Prepared statement to insert data
-                String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, )" 
+                String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, " 
                     + " StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
                 java.util.Date date = new java.util.Date();
@@ -200,7 +203,7 @@ public class App {
 ```
 ## <a name="update-data"></a>更新数据
 
-使用 [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) 和 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 语句更新 Azure SQL 数据库中的数据。
+通过以下代码将 [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) 类与 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL 语句配合使用来更新 Azure SQL 数据库中的数据，从而更新之前添加的新产品。 将 hostHame、dbName、user 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。 
 
 ```java
 package com.sqldbsamples;
@@ -214,10 +217,10 @@ public class App {
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "yourserver";
-        String dbName = "yourdatabase";
-        String user = "yourusername";
-        String password = "yourpassword";
+        String hostName = "your_server.database.chinacloudapi.cn";
+        String dbName = "your_database";
+        String user = "your_username";
+        String password = "your_password";
         String url = String.format("jdbc:sqlserver://%s.database.chinacloudapi.cn:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;", hostName, dbName, user, password);
         Connection connection = null;
 
@@ -251,7 +254,7 @@ public class App {
 
 ## <a name="delete-data"></a>删除数据
 
-使用 [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) 和 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 语句删除 Azure SQL 数据库中的数据。
+通过以下代码将 [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) 与 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL 语句配合使用来删除之前添加的新产品。 将 hostHame、dbName、user 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。 
 
 ```java
 package com.sqldbsamples;
@@ -265,10 +268,10 @@ public class App {
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "yourserver";
-        String dbName = "yourdatabase";
-        String user = "yourusername";
-        String password = "yourpassword";
+        String hostName = "your_server.database.chinacloudapi.cn";
+        String dbName = "your_database";
+        String user = "your_username";
+        String password = "your_password";
         String url = String.format("jdbc:sqlserver://%s.database.chinacloudapi.cn:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;", hostName, dbName, user, password);
         Connection connection = null;
 
@@ -289,7 +292,7 @@ public class App {
                         int count = prep.executeUpdate();
                         System.out.println("Deleted: " + count + " row(s)");
                 }
-        }        
+        }       
         catch (Exception e) {
                 e.printStackTrace();
         }
@@ -298,15 +301,8 @@ public class App {
 ```
 
 ## <a name="next-steps"></a>后续步骤
-
-- [用于 SQL Server 的 Microsoft JDBC 驱动程序](https://github.com/microsoft/mssql-jdbc)的 GitHub 存储库。
-- [提出问题](https://github.com/microsoft/mssql-jdbc/issues)。
-- 若要使用 SQL Server Management Studio 进行连接和查询，请参阅[使用 SSMS 进行连接和查询](sql-database-connect-query-ssms.md)
-- 若要使用 Visual Studio 进行连接和查询，请参阅[使用 Visual Studio Code 进行连接和查询](sql-database-connect-query-vscode.md)。
-- 若要使用 .NET 进行连接和查询，请参阅[使用 .NET 进行连接和查询](sql-database-connect-query-dotnet.md)。
-- 若要使用 PHP 进行连接和查询，请参阅[使用 PHP 进行连接和查询](sql-database-connect-query-php.md)。
-- 若要使用 Node.js 进行连接和查询，请参阅[使用 Node.js 进行连接和查询](sql-database-connect-query-nodejs.md)。
-- 若要使用 Python 进行连接和查询，请参阅[使用 Python 进行连接和查询](sql-database-connect-query-python.md)。
-- 若要使用 Ruby 进行连接和查询，请参阅[使用 Ruby 进行连接和查询](sql-database-connect-query-ruby.md)。
+- [设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)
+- [用于 SQL Server 的 Microsoft JDBC 驱动程序](https://github.com/microsoft/mssql-jdbc)
+- [报告问题/提出问题](https://github.com/microsoft/mssql-jdbc/issues)
 
 

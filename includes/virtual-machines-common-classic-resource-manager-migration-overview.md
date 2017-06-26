@@ -76,7 +76,9 @@ Resource Manager 除了可让你通过模板部署复杂的应用程序之外，
 | 计算 |不关联的虚拟机磁盘。 | 迁移存储帐户时，将迁移这些磁盘后面的 VHD blob |
 | 计算 |虚拟机映像。 | 迁移存储帐户时，将迁移这些磁盘后面的 VHD blob |
 | 网络 |终结点 ACL。 | 删除终结点 ACL 并重试迁移。 |
-| 网络 |使用授权链接（请参阅常见问题）、应用程序网关的 ExpressRoute | 开始迁移之前请删除该网关，然后在迁移完成后重新创建该网关。 |
+| 网络 |使用 ExpressRoute 网关和 VPN 网关的虚拟网络  | 开始迁移之前请删除 VPN 网关，然后在迁移完成后重新创建 VPN 网关。 详细了解 [ExpressRoute 迁移](../articles/expressroute/expressroute-migration-classic-resource-manager.md)。|
+| 网络 |带授权链接的 ExpressRoute  | 在开始迁移之前，请删除 ExpressRoute 线路到虚拟网络的连接，在迁移完成后再重新创建该连接。 详细了解 [ExpressRoute 迁移](../articles/expressroute/expressroute-migration-classic-resource-manager.md)。 |
+| 网络 |应用程序网关 | 开始迁移之前请删除应用程序网关，然后在迁移完成后重新创建应用程序网关。 |
 | 网络 |使用 VNet 对等互连的虚拟网络。 | 将虚拟网络迁移到 Resource Manager，然后对等互连。 详细了解 [VNet 对等互连](../articles/virtual-network/virtual-network-peering-overview.md)。 | 
 
 ### <a name="unsupported-configurations"></a>不支持的配置
@@ -84,7 +86,7 @@ Resource Manager 除了可让你通过模板部署复杂的应用程序之外，
 
 | 服务 | 配置 | 建议 |
 | --- | --- | --- |
-| 资源管理器 |经典资源的基于角色的访问控制 (RBAC) |由于资源的 URI 在迁移后会进行修改，因此建议用户规划需要在迁移后进行的 RBAC 策略更新。 |
+| Resource Manager |经典资源的基于角色的访问控制 (RBAC) |由于资源的 URI 在迁移后会进行修改，因此建议用户规划需要在迁移后进行的 RBAC 策略更新。 |
 | 计算 |与 VM 关联的多个子网 |将子网配置更新为只引用子网。 |
 | 计算 |属于虚拟网络，但未分配显式子网的虚拟机 |你可以选择性地删除 VM。 |
 | 计算 |具有警报、自动缩放策略的虚拟机 |迁移进行下去时，这些设置会删除。 强烈建议用户在进行迁移之前先评估其环境。 或者，也可以在迁移完成之后重新配置警报设置。 |
@@ -92,6 +94,6 @@ Resource Manager 除了可让你通过模板部署复杂的应用程序之外，
 | 计算 |使用高级存储启动诊断 |在继续执行迁移之前，为 VM 禁用启动诊断功能。 在迁移完成之后，可以在 Resource Manager 堆栈中重新启用启动诊断。 此外，应删除正用于屏幕截图和串行日志的 blob，以便不会再为这些 blob 向你收费。 |
 | 计算 |包含 Web 角色/辅助角色的云服务 |目前不支持。 |
 | 网络 |包含虚拟机和 Web 角色/辅助角色的虚拟网络 |目前不支持。 |
-| Azure App Service |包含应用服务环境的虚拟网络 |目前不支持。 |
+| Azure 应用服务 |包含应用服务环境的虚拟网络 |目前不支持。 |
 | Azure HDInsight |包含 HDInsight 服务的虚拟网络 |目前不支持。 |
 | 计算 |Azure 安全中心扩展，其中包含的 VNET 拥有 VPN 网关（具有传输连接）或 ExpressRoute 网关（在本地 DNS 服务器上） |Azure 安全中心在虚拟机上自动安装扩展，用于监视其安全性并引发警报。 如果在订阅上启用了 Azure 安全中心策略，通常会自动安装这些扩展。 目前不支持 ExpressRoute 网关迁移，而具有传输连接的 VPN 网关则会失去本地访问权限。 如果删除 ExpressRoute 网关或迁移具有传输连接的 VPN 网关，那么继续执行迁移时，会失去对 VM 存储帐户的 Internet 访问权限。 发生这种情况时无法进行迁移，因为来宾代理状态 blob 无法填充。 建议在进行迁移时提前 3 小时禁用订阅的 Azure 安全中心策略。 |

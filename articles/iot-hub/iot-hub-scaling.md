@@ -11,14 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/19/2016
-ms.date: 04/24/2017
+ms.date: 09/19/2016
 ms.author: v-yiso
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 7c8281cb060e06d612623fc95d6e061cca8d6abb
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: 3c95861019583122b76572803ee339ebf49efa26
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -41,7 +40,7 @@ Azure IoT 中心可支持多达一百万台设备同时连接。 有关详细信
 | 层 | 持续吞吐量 | 持续发送速率 |
 | ---- | -------------------- | ------------------- |
 | S1 | 每个单元最多 1111 KB/分钟<br/>（1.5 GB/天/单元） | 每个单元平均 278 条消息/分钟<br/>（400000 条消息/天/单元） |
-| S2 | 每个单元最多 16 MB/分钟<br/>（22.8 GB/天/单元） | 每个单元平均 4167 条消息/分钟<br/>（600 万条消息/天/单元） |
+| S2 |每个单元最多 16 MB/分钟<br/>（22.8 GB/天/单元） |每个单元平均 4,167 条消息/分钟<br/>（600 万条消息/天/单元） |
 | S3 | 每个单元最多 814 MB/分钟<br/>（1144.4 GB/天/单元） | 每个单元平均 208,333 条消息/分钟<br/>（3 亿条消息/天/单元） |
 
 ## <a name="identity-registry-operation-throughput"></a>标识注册表操作吞吐量
@@ -57,7 +56,7 @@ Azure IoT 中心可支持多达一百万台设备同时连接。 有关详细信
 若要进一步探索 IoT 中心的功能，请参阅：
 
 - [IoT 中心开发人员指南][lnk-devguide]
-- [使用 IoT 网关 SDK 模拟设备][lnk-gateway]
+* [使用 Azure IoT Edge 模拟设备][lnk-gateway]
 
 [lnk-pricing]: https://www.azure.cn/pricing/details/iot-hub
 [IoT 中心配额和限制]: ./iot-hub-devguide-quotas-throttling.md

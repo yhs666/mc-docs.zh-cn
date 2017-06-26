@@ -4,7 +4,7 @@ description: "使用收费站方案了解流分析 IoT 解决方案的入门教�
 keywords: "iot 解决方案, 开窗函数"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: rockboyfor
 manager: jhubbard
 editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
@@ -17,16 +17,16 @@ origin.date: 03/28/2017
 ms.date: 05/15/2017
 ms.author: v-yeche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 4d6131630e3fe63e55232e3b9828ca4cf8e88a31
+ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
+ms.openlocfilehash: e7959904c94917fe12ecdd33c070050f3989f55c
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>使用流分析生成 IoT 解决方案
 ## <a name="introduction"></a>介绍
-在本教程中，会学习如何使用 Azure 流分析从数据获得实时见解。 开发人员可以轻松地将数据流（例如点击流、日志和设备生成的事件）与历史记录或参考数据结合，从中获得业务见解。 由 Azure 托管的 Azure 流分析是可完全托管的实时流计算服务，它具有内置的复原性、低延迟及可缩放性，可让你在几分钟内就上手。
+在本教程中，会学习如何使用 Azure 流分析从数据获得实时见解。 开发人员可以轻松地将数据流（例如点击流、日志和设备生成的事件）与历史记录或参考数据结合，从中获得业务见解。 由 Azure 托管的 Azure 流分析是可完全托管的实时流计算服务，它具有内置的复原性、低延迟及伸缩性，可让用户在几分钟内就上手。
 
 完成本教程之后，你将能够：
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 05/05/2017
 ## <a name="prerequisites"></a>先决条件
 若要完成本教程，需要满足以下先决条件：
 
-* 最新版本的 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+* 最新版本的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * Visual Studio 2017、2015 或免费版 [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * [Azure 订阅](https://www.azure.cn/pricing/1rmb-trial/)
 * 计算机的管理员权限
@@ -73,7 +73,7 @@ ms.lasthandoff: 05/05/2017
 | TollID |唯一标识收费亭的收费亭 ID |
 | EntryTime |车辆进入收费亭的日期和时间（世界协调时） |
 | LicensePlate |车辆的牌照号码 |
-| 状态 |美国的某个州 |
+| 状态 |指定的城市 |
 | 制造商 |汽车制造商 |
 | 模型 |车辆的型号 |
 | VehicleType |1 代表客车，2 代表商用车 |
@@ -131,7 +131,7 @@ ms.lasthandoff: 05/05/2017
 > 
 > 
 
-请务必按本文结尾处“清理 Azure 帐户”部分中的步骤操作，以便充分利用价值 $200 美元的免费 Azure 信用额度。
+<!--Not Avaliable Be sure to follow the steps in the "Clean up your Azure account" section at the end of this article so that you can make the best use of your $200 free Azure credit.-->
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>预配本教程所需的 Azure 资源
 本教程需要两个事件中心来接收“入口”和“出口”数据流。 Azure SQL 数据库输出流分析作业的结果。 Azure 存储会存储有关车辆登记的参考数据。
@@ -140,7 +140,7 @@ ms.lasthandoff: 05/05/2017
 
 下载并保存 [TollApp](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) 支持文件夹和文件。
 
-**以管理员身份** 打开 *Azure PowerShell*窗口。 如果还没有 Azure PowerShell，请根据 [安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 中的说明进行安装。
+**以管理员身份** 打开 *Azure PowerShell*窗口。 如果还没有 Azure PowerShell，请根据 [安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 中的说明进行安装。
 
 Windows 会自动阻止 .ps1、.dll 和 .exe 文件，因此需要在运行该脚本之前设置执行策略。 确保 *以管理员身份*运行 Azure PowerShell 窗口。 运行 **Set-ExecutionPolicy unrestricted**。 出现提示时键入 **Y**。
 
@@ -156,7 +156,7 @@ Windows 会自动阻止 .ps1、.dll 和 .exe 文件，因此需要在运行该�
 
 键入“.\\Setup.ps1”，设置 Azure 帐户，创建并配置所有所需资源，然后开始生成事件。 脚本将随机挑选一个区域来创建资源。 若要显式指定一个区域，可以传递 **-location** 参数，如以下示例所示：
 
-**.\\Setup.ps1 -location "中国北部"**
+**.\\Setup.ps1 -location "China East"**
 
 ![Azure 登录页的屏幕截图](./media/stream-analytics-build-an-iot-solution-using-stream-analytics/image5.png)
 
@@ -258,14 +258,14 @@ PowerShell 脚本使用 TollApp 示例应用程序自动开始发送事件。 �
 6. 源是 **事件中心**。
 7. **服务总线命名空间**应是下拉菜单中的 TollData。
 8. **事件中心名称**应设置为**条目**。
-9. **事件中心策略名称*是 **RootManageSharedAccessKey**（默认值）。
+9. **事件中心策略名称**为 **RootManageSharedAccessKey**（默认值）。
 10. 选择“JSON”作为“事件序列化格式”，选择“UTF8”作为“编码”。
 
     设置看起来类似于：
 
     ![事件中心设置](./media/stream-analytics-build-an-iot-solution-using-stream-analytics/image28.png)
 
-10. 单击页面底部的“创建”  完成向导。
+11. 单击页面底部的“创建”  完成向导。
 
     现在，已创建入口流，可执行相同的步骤来创建出口流。 请确保输入如以下屏幕截图所示的值。
 
@@ -276,12 +276,12 @@ PowerShell 脚本使用 TollApp 示例应用程序自动开始发送事件。 �
     ![Azure 门户中定义的输入流](./media/stream-analytics-build-an-iot-solution-using-stream-analytics/image32.png)
 
     接下来，为包含汽车注册数据的 blob 文件添加引用数据输入。
-11. 单击“添加”，然后执行与流输入相同的过程，但不同的是要选择“引用数据”而不是“数据流”，并且“输入别名”是“注册”。
+12. 单击“添加”，然后执行与流输入相同的过程，但不同的是要选择“引用数据”而不是“数据流”，并且“输入别名”是“注册”。
 
-12. 存储帐户以 **tolldata** 开头。 容器名称应为 **tolldata**，**路径模式**应为 **registration.json**。 此文件名区分大小写，且应该全为**小写**。
+13. 存储帐户以 **tolldata** 开头。 容器名称应为 **tolldata**，**路径模式**应为 **registration.json**。 此文件名区分大小写，且应该全为**小写**。
 
     ![博客存储设置](./media/stream-analytics-build-an-iot-solution-using-stream-analytics/image34.png)
-13. 单击“创建”  完成向导。
+14. 单击“创建”  完成向导。
 
 现在，已定义所有输入。
 
@@ -291,8 +291,8 @@ PowerShell 脚本使用 TollApp 示例应用程序自动开始发送事件。 �
     ![“输出”选项卡和“添加输出”选项](./media/stream-analytics-build-an-iot-solution-using-stream-analytics/image37.png)
 2. 单击 **“添加”**。
 3. 将“输出别名”设置为“output”，然后将“接收器”设置为“SQL 数据库”。
-3. 选择本文“从 Visual Studio 连接到数据库”部分中使用的服务器名称。 数据库名称为 **TollDataDB**。
-4. 在“用户名”字段中输入“tolladmin”、在“密码”字段中输入“123toll!” ，并在“表”字段中输入“TollDataRefJoin”。
+4. 选择本文“从 Visual Studio 连接到数据库”部分中使用的服务器名称。 数据库名称为 **TollDataDB**。
+5. 在“用户名”字段中输入“tolladmin”、在“密码”字段中输入“123toll!” ，并在“表”字段中输入“TollDataRefJoin”。
 
     ![SQL 数据库设置](./media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.png)
 5. 单击“创建” 。

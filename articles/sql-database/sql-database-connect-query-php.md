@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 05/07/2017
 ms.author: v-johch
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 4f18738b119cd06c6f7208161b00e134dc450311
+ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
+ms.openlocfilehash: a1125100d2eab4a0731b35de1840d4b416e4c05f
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -33,6 +33,9 @@ ms.lasthandoff: 05/12/2017
 - [创建 DB - CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-php-and-database-communications-software"></a>安装 PHP 和数据库通信软件
+
+本部分中的步骤假定你熟悉使用 PHP 开发，但不熟悉如何使用 Azure SQL 数据库。 如果不熟悉如何使用 PHP 进行开发，请转到[使用 SQL Server 生成应用](https://www.microsoft.com/en-us/sql-server/developer-get-started/)并选择 **PHP**，然后选择操作系统。
+
 ### <a name="mac-os"></a>**Mac OS**
 打开终端并输入以下命令，以安装 **brew**、**Microsoft ODBC Driver for Mac** 和 **Microsoft PHP Drivers for SQL Server**。 
 
@@ -74,24 +77,26 @@ sudo echo "extension= sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | s
 
 ## <a name="get-connection-information"></a>获取连接信息
 
-在 Azure 门户中获取连接字符串。 请使用连接字符串连接到 Azure SQL 数据库。
+获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称、数据库名称和登录信息。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
-3. 在数据库的“概要”窗格中，查看完全限定的服务器名称。 
+3. 在数据库的“概览”页上，查看如下图所示的完全限定的服务器名称。 可以将鼠标悬停在服务器名称上以打开“单击以复制”选项。  
 
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="connection strings" style="width: 780px;" />
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
+
+4. 如果忘了服务器的登录信息，请导航到 SQL 数据库服务器页，查看服务器管理员名称并重置密码（如果需要）。     
     
 ## <a name="select-data"></a>选择数据
-[sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) 函数可用于针对 SQL 数据库从查询中检索结果集。 此函数实际上可接受任何查询，并返回可使用 [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php) 循环访问的结果集。
+通过以下代码将 [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) 函数与 [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL 语句配合使用来按类别查询前 20 个产品。 sqlsrv_query 函数可用于针对 SQL 数据库从查询中检索结果集。 此函数可接受任何查询，并返回可使用 [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php) 循环访问的结果集。 将 server、database、username 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。 
 
 ```PHP
 <?php
-$serverName = "yourserver.database.chinacloudapi.cn";
+$serverName = "your_server.database.chinacloudapi.cn";
 $connectionOptions = array(
-    "Database" => "yourdatabase",
-    "Uid" => "yourusername",
-    "PWD" => "yourpassword"
+    "Database" => "your_database",
+    "Uid" => "your_username",
+    "PWD" => "your_password"
 );
 //Establishes the connection
 $conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -112,15 +117,15 @@ sqlsrv_free_stmt($getResults);
 
 
 ## <a name="insert-data"></a>插入数据
-在 SQL 数据库中，可以使用 [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) 属性和 [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) 对象自动生成[主键值](https://msdn.microsoft.com/library/ms179610.aspx)。 
+通过以下代码使用 [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) 函数和 [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL 语句来将新产品插入到 SalesLT.Product 表中。 将 server、database、username 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。 
 
 ```PHP
 <?php
-$serverName = "yourserver.database.chinacloudapi.cn";
+$serverName = "your_server.database.chinacloudapi.cn";
 $connectionOptions = array(
-    "Database" => "yourdatabase",
-    "Uid" => "yourusername",
-    "PWD" => "yourpassword"
+    "Database" => "your_database",
+    "Uid" => "your_username",
+    "PWD" => "your_password"
 );
 //Establishes the connection
 $conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -138,15 +143,15 @@ else{
 ```
 
 ## <a name="update-data"></a>更新数据
-可使用 [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) 函数执行 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 语句，更新 Azure SQL 数据库中的数据。
+通过以下代码使用 [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) 函数和 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL 语句来更新 Azure SQL 数据库中的数据。 将 server、database、username 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。
 
 ```PHP
 <?php
-$serverName = "yourserver.database.chinacloudapi.cn";
+$serverName = "your_server.database.chinacloudapi.cn";
 $connectionOptions = array(
-    "Database" => "yourdatabase",
-    "Uid" => "yourusername",
-    "PWD" => "yourpassword"
+    "Database" => "your_database",
+    "Uid" => "your_username",
+    "PWD" => "your_password"
 );
 //Establishes the connection
 $conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -164,15 +169,15 @@ else{
 ```
 
 ## <a name="delete-data"></a>删除数据
-可使用 [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) 函数执行 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 语句，删除 Azure SQL 数据库中的数据。
+通过以下代码使用 [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) 函数和 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL 语句来删除之前添加的新产品。 将 server、database、username 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。
 
 ```PHP
 <?php
-$serverName = "yourserver.database.chinacloudapi.cn";
+$serverName = "your_server.database.chinacloudapi.cn";
 $connectionOptions = array(
-    "Database" => "yourdatabase",
-    "Uid" => "yourusername",
-    "PWD" => "yourpassword"
+    "Database" => "your_database",
+    "Uid" => "your_username",
+    "PWD" => "your_password"
 );
 //Establishes the connection
 $conn = sqlsrv_connect($serverName, $connectionOptions);
@@ -189,14 +194,8 @@ else{
 ```
 
 ## <a name="next-steps"></a>后续步骤
+- [设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)
+- [用于 SQL Server 的 Microsoft PHP 驱动程序](https://github.com/Microsoft/msphpsql/)
+- [报告问题/提出问题](https://github.com/Microsoft/msphpsql/issues)
 
-- 有关 [Microsoft PHP Driver for SQL Server](https://github.com/Microsoft/msphpsql/) 的详细信息。
-- [提出问题](https://github.com/Microsoft/msphpsql/issues)。
-- 若要使用 SQL Server Management Studio 进行连接和查询，请参阅[使用 SSMS 进行连接和查询](sql-database-connect-query-ssms.md)
-- 若要使用 Visual Studio 进行连接和查询，请参阅[使用 Visual Studio Code 进行连接和查询](sql-database-connect-query-vscode.md)。
-- 若要使用 .NET 进行连接和查询，请参阅[使用 .NET 进行连接和查询](sql-database-connect-query-dotnet.md)。
-- 若要使用 Node.js 进行连接和查询，请参阅[使用 Node.js 进行连接和查询](sql-database-connect-query-nodejs.md)。
-- 若要使用 Java 进行连接和查询，请参阅[使用 Java 进行连接和查询](sql-database-connect-query-java.md)。
-- 若要使用 Python 进行连接和查询，请参阅[使用 Python 进行连接和查询](sql-database-connect-query-python.md)。
-- 若要使用 Ruby 进行连接和查询，请参阅[使用 Ruby 进行连接和查询](sql-database-connect-query-ruby.md)。
 
