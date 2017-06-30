@@ -32,7 +32,7 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="sample-script"></a>示例脚本
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Create the resource group if it doesn't exist

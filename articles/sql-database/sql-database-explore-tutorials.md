@@ -89,13 +89,6 @@ ms.author: v-johch
 | [临时表](./sql-database-temporal-tables.md) | 此教程介绍临时表。
 | [将实体框架与弹性工具配合使用](./sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) |此教程介绍需要在实体框架应用程序中做哪些更改才能与弹性数据库工具集成。 |
 
-## 数据同步
-此教程介绍[数据同步](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)。
-
-| 教程 | 说明 |
-| --- | --- | 
-| [Azure SQL 数据同步入门（预览）](./sql-database-get-started-sql-data-sync.md) | 本教程介绍使用 Azure 经典门户进行 Azure SQL 数据同步的基础知识。 |
-| | |
 
 ## 监视和优化
 以下教程介绍如何进行监视和优化。

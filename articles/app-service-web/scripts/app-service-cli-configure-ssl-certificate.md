@@ -35,7 +35,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="sample-script"></a>示例脚本
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 fqdn=<Replace with www.{yourdomain}>
