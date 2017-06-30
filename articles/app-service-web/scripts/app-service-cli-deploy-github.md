@@ -31,7 +31,7 @@ ms.lasthandoff: 05/19/2017
 
 ## <a name="create-app-sample"></a>创建应用示例
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 gitrepo=<Replace with a public GitHub repo URL. e.g. https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git>
