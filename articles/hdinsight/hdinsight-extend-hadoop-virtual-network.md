@@ -113,10 +113,12 @@ HDInsight 服务是一种托管服务，并需要在预配期间和运行时访�
 > [!NOTE]
 > 这些操作不需要完全访问 Internet。 限制 Internet 访问时，允许在端口 443 上进行以下 IP 地址的入站访问。 这将使 Azure 能够管理 HDInsight：
 
-* 168.61.49.99
-* 23.99.5.239
-* 168.61.48.131
-* 138.91.141.162
+应允许的 IP 地址专门用于 HDInsight 群集和虚拟网络所在的区域。 使用下表查找正在使用的区域的 IP 地址。
+
+| 区域 | 允许的 IP 地址 | 允许的端口 |
+| ---- | ---- | ---- |
+| 中国北部 | 42.159.96.170 <br/> 139.217.2.219 | 443 |
+| 中国东部 | 42.159.198.178 <br/> 42.159.234.157 | 443 |
 
 > [!IMPORTANT]
 > HDInsight 不支持限制出站流量，仅可限制入站流量。 当为包含 HDInsight 的子网定义网络安全组规则时，__只能使用入站规则__。
@@ -131,10 +133,10 @@ HDInsight 服务是一种托管服务，并需要在预配期间和运行时访�
 
 以下示例演示如何一个创建网络安全组，该组允许以下 IP 地址的端口 443 上的入站流量：
 
-* 168.61.49.99
-* 23.99.5.239
-* 168.61.48.131
-* 138.91.141.162
+* 42.159.96.170
+* 139.217.2.219
+* 42.159.198.178
+* 42.159.234.157
 
 > [!IMPORTANT]
 > 这些地址用于没有列出特定 IP 地址的区域。 若要查找你所在区域的 IP 地址，请使用[受保护的虚拟网络](#secured-virtual-networks)部分中的信息。
@@ -174,44 +176,44 @@ $nsg = New-AzureRmNetworkSecurityGroup `
     -Location $location `
     | Add-AzureRmNetworkSecurityRuleConfig `
         -name "hdirule1" `
-        -Description "HDI health and management address 168.61.49.99" `
+        -Description "HDI health and management address 42.159.96.170" `
         -Protocol "*" `
         -SourcePortRange "*" `
         -DestinationPortRange "443" `
-        -SourceAddressPrefix "168.61.49.99" `
+        -SourceAddressPrefix "42.159.96.170" `
         -DestinationAddressPrefix "VirtualNetwork" `
         -Access Allow `
         -Priority 300 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
         -Name "hdirule2" `
-        -Description "HDI health and management 23.99.5.239" `
+        -Description "HDI health and management 139.217.2.219" `
         -Protocol "*" `
         -SourcePortRange "*" `
         -DestinationPortRange "443" `
-        -SourceAddressPrefix "23.99.5.239" `
+        -SourceAddressPrefix "139.217.2.219" `
         -DestinationAddressPrefix "VirtualNetwork" `
         -Access Allow `
         -Priority 301 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
         -Name "hdirule3" `
-        -Description "HDI health and management 168.61.48.131" `
+        -Description "HDI health and management 42.159.198.178" `
         -Protocol "*" `
         -SourcePortRange "*" `
         -DestinationPortRange "443" `
-        -SourceAddressPrefix "168.61.48.131" `
+        -SourceAddressPrefix "42.159.198.178" `
         -DestinationAddressPrefix "VirtualNetwork" `
         -Access Allow `
         -Priority 302 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
         -Name "hdirule4" `
-        -Description "HDI health and management 138.91.141.162" `
+        -Description "HDI health and management 42.159.234.157" `
         -Protocol "*" `
         -SourcePortRange "*" `
         -DestinationPortRange "443" `
-        -SourceAddressPrefix "138.91.141.162" `
+        -SourceAddressPrefix "42.159.234.157" `
         -DestinationAddressPrefix "VirtualNetwork" `
         -Access Allow `
         -Priority 303 `
@@ -239,10 +241,10 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 2. 使用以下命令将规则添加新网络安全组，以允许从 Azure HDInsight 运行状况和管理服务通过端口 443 发起的入站通信。 将 **RESOURCEGROUPNAME** 替换为包含 Azure 虚拟网络的资源组的名称。
 
     ```azurecli
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.49.99/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule3 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule4 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "42.159.96.170/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "139.217.2.219/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule3 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "42.159.198.178/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule4 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "42.159.234.157/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
     ```
 
 3. 创建规则后，使用以下命令检索此网络安全组的唯一标识符：
