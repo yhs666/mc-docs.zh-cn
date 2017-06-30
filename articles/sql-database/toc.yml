@@ -254,8 +254,6 @@
     items:
     - name: 使用 BCP 加载数据
       href: sql-database-load-from-csv-with-bcp.md
-    - name: 同步数据
-      href: sql-database-get-started-sql-data-sync.md
   - name: 连接应用程序
     items:
     - name: C 和 C ++
