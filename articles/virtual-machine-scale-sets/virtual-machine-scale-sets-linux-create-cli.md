@@ -1,31 +1,8 @@
 ---
-title: "使用 Azure CLI 2.0 创建虚拟机规模集 | Azure"
-description: "了解如何使用 Azure CLI 2.0 创建虚拟机规模集"
-services: virtual-machine-scale-sets
-documentationcenter: 
-author: gatneil
-manager: madhana
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: 0901d4ca-98dd-4c78-bf6c-a79c932e5b89
-ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/21/2017
-ms.date: 04/17/2017
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: 004676c1017772866015589e5d8c8f0e58730dc9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/06/2017
-
-
+redirect_url: /virtual-machine-scale-sets/virtual-machine-scale-sets-create
+ms.openlocfilehash: f3cff448d3581edbd262103abe921c0c2cbb0cc4
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="create-a-linux-virtual-machine-scale-set-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建 Linux 虚拟机规模集
-
-本文使用 Azure CLI 2.0。 如果想使用 Azure CLI 1.0，请参阅[本文](./virtual-machine-scale-sets-linux-create-cli-nodejs.md)。
-
-[!INCLUDE [virtual-machines-linux-cli-vmss-quick-create-include](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]

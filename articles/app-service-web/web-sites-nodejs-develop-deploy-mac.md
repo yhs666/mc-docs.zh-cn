@@ -2,11 +2,9 @@
 redirect_url: /app-service-web/app-service-web-get-started-nodejs
 redirect_document_id: FALSE
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 3e59b0b131d792e49aa822ce2af79154b58488bb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: ba14d62bef4382c1d7da037292228ff7beb00d82
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-

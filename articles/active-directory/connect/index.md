@@ -1,10 +1,8 @@
 ---
 redirect_url: /active-directory/connect/active-directory-aadconnect
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 6b19c4edd034778abe1c65a79f4a0ce1cdf0fbc6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: fe4c654c8335c601b77bdc923d4b750bebe448c8
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-

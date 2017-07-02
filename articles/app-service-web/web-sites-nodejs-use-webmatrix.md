@@ -1,9 +1,8 @@
 ---
 redirect_url: https://www.microsoft.com/web/webmatrix/
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
 ms.openlocfilehash: e92ad31ee73d6b24581d923a4bc237a2ea6b88c3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
