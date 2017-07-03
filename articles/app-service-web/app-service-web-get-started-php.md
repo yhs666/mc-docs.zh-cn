@@ -204,7 +204,7 @@ az appservice web config update --linux-fx-version "PHP|7.0" --name <app_name> -
 
 可以通过不同的方法部署到 Web 应用，包括 FTP、本地 Git，以及 GitHub、Visual Studio Team Services 和 Bitbucket。
 
-使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/source-control#config-local-git) 命令配置对 Web 应用的本地 git 访问。
+使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) 命令配置对 Web 应用的本地 git 访问。
 
 ```azurecli
 az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv

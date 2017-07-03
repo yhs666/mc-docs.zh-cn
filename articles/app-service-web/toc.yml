@@ -219,10 +219,8 @@
   - name: 配额信息
     href: ../azure-subscription-service-limits.md#app-service-limits
   - name: 服务更新和发行说明
-    href: https://azure.microsoft.com/updates/?product=app-service
+    href: https://www.azure.cn/what-is-new/
   - name: 最佳实践
     href: app-service-best-practices.md
-  - name: 示例
-    href: https://azure.microsoft.com/resources/samples/?service=app-service
   - name: 视频
-    href: https://azure.microsoft.com/resources/videos/index/?services=app-service
+    href: https://www.azure.cn/video-center/

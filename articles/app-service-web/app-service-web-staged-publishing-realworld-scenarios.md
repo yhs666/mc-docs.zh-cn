@@ -335,7 +335,7 @@ require_once(ABSPATH. 'wp-settings.php');
 6. 将 Umbraco 本地 Web 应用成功发布到过渡 Web 应用后，浏览到过渡 Web 应用，并运行一些测试以便排除任何问题。
 
 #### 设置 Courier2 部署模块
-借助 [Courier2](http://umbraco.com/products/more-add-ons/courier-2) 模块，只需右键单击即可从过渡 Web 应用将内容、样式表和开发模块推送到生产 Web 应用。此过程可降低部署更新时中断生产 Web 应用的风险。为 `*.chinacloudsites.cn` 域和自定义域（例如 http://abc.com ）购买 Courier2 许可证。购买许可证后，将下载的许可证（.LIC 文件）放在 `bin` 文件夹中。
+借助 Courier2 模块，只需右键单击即可从过渡 Web 应用将内容、样式表和开发模块推送到生产 Web 应用。此过程可降低部署更新时中断生产 Web 应用的风险。为 `*.chinacloudsites.cn` 域和自定义域（例如 http://abc.com ）购买 Courier2 许可证。购买许可证后，将下载的许可证（.LIC 文件）放在 `bin` 文件夹中。
 
 ![将许可证文件放在 bin 文件夹下](./media/app-service-web-staged-publishing-realworld-scenarios/13droplic.png)  
 

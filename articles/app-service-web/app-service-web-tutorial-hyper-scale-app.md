@@ -105,7 +105,7 @@ az appservice web deployment user set --user-name <letters-numbers> --password <
 ```
 
 ### <a name="configure-git-deployment"></a>配置 Git 部署
-使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/source-control#config-local-git) 配置本地 Git 部署。
+使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) 配置本地 Git 部署。
 
 ```azurecli
 az appservice web source-control config-local-git --name $appName --resource-group myResourceGroup
@@ -299,7 +299,7 @@ az appservice web create --name $appName-east --resource-group myResourceGroup -
     az appservice web config appsettings update --settings "RedisConnection=$($redis.hostname):$($redis.sslPort),password=$($redis.accessKeys.primaryKey),ssl=True,abortConnect=False" --name $appName-east --resource-group myResourceGroup
 
 ### <a name="configure-git-deployment-for-the-china-east-app"></a>配置中国东部应用的 Git 部署。
-使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/source-control#config-local-git) 配置第二个 Web 应用的本地 Git 部署。
+使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) 配置第二个 Web 应用的本地 Git 部署。
 
 ```azurecli
 az appservice web source-control config-local-git --name $appName-east --resource-group myResourceGroup
