@@ -107,7 +107,7 @@ ms.lasthandoff: 05/26/2017
 |**工具**|**命令**|
 |---|---|
 |CLI|[az network vnet show](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
-|PowerShell|[Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.8.0/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="address-spaces"></a>添加/删除地址空间
 
