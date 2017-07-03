@@ -164,7 +164,7 @@ az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecov
 
 - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 
-该模板使用从前面的命令获得的 VHD URI 部署 VM。 使用 [az group deployment create](https://docs.microsoft.com/cli/azure/vm/deployment#create)部署模板。 将 URI 提供给原始 VHD，然后指定 OS 类型、VM 大小、VM 名称，如下所示：
+该模板使用从前面的命令获得的 VHD URI 部署 VM。 使用 [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create)部署模板。 将 URI 提供给原始 VHD，然后指定 OS 类型、VM 大小、VM 名称，如下所示：
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeployment \
