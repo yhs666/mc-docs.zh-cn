@@ -36,10 +36,10 @@ ms.lasthandoff: 06/14/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-本教程需要 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行升级，请参阅[安装 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+本教程需要 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
 ## <a name="create-vm"></a>创建 VM
-若要查看诊断和指标的状态，需要创建一个 VM。 首先，使用 [az group create](https://docs.microsoft.com/cli/azure/gropu#create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroupMonitor”的资源组。
+若要查看诊断和指标的状态，需要创建一个 VM。 首先，使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroupMonitor”的资源组。
 
 ```azurecli
 az group create --name myResourceGroupMonitor --location chinaeast
@@ -95,7 +95,7 @@ az vm boot-diagnostics enable \
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
-现在，请使用 [az vm start]( /cli/azure/vm#stop) 命令启动 VM，如下所示：
+现在，请使用 [az vm start](https://docs.microsoft.com/cli/azure/vm#stop) 命令启动 VM，如下所示：
 
 ```azurecli
 az vm start --resource-group myResourceGroupMonitor --name myVM

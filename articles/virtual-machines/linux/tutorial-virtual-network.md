@@ -38,7 +38,7 @@ Azure 虚拟机使用 Azure 网络进行内部和外部网络通信。 本教程
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-本教程需要 Azure CLI 2.0.4 或更高版本。 若要查找 CLI 版本，请运行 `az --version`。 如果需要进行升级，请参阅[安装 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+本教程需要 Azure CLI 2.0.4 或更高版本。 若要查找 CLI 版本，请运行 `az --version`。 如果需要进行升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
 ## <a name="vm-networking-overview"></a>VM 网络概述
 
@@ -121,7 +121,7 @@ az vm create \
 az vm deallocate --resource-group myRGNetwork --name myFrontEndVM
 ```
 
-使用 [az network public-ip update](/network/public-ip#update) 命令更新分配方法。 在本例中，`--allocaion-metod` 将设置为 *static*。
+使用 [az network public-ip update](https://docs.microsoft.com/cli/azure/network/public-ip#update) 命令更新分配方法。 在本例中，`--allocaion-metod` 将设置为 *static*。
 
 ```azurecli
 az network public-ip update --resource-group myRGNetwork --name myFrontEndIP --allocation-method static

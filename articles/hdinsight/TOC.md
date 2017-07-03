@@ -190,4 +190,3 @@
 
 # 资源
 ## [在论坛上获取帮助](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)
-## [学习路径](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)

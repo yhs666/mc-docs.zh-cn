@@ -98,7 +98,7 @@ runcmd:
   - nodejs index.js
 ```
 
-有关 cloud-init 配置选项的详细信息，请参阅 [cloud-init 配置示例](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)]
+有关 cloud-init 配置选项的详细信息，请参阅 [cloud-init 配置示例](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组，然后才能创建 VM。 以下示例在“chinaeast”位置创建名为“myResourceGroupAutomate”的资源组：
@@ -156,7 +156,7 @@ az keyvault create \
 ```
 
 ### <a name="generate-certificate-and-store-in-key-vault"></a>生成证书并将其存储在 Key Vault 中
-为供生产使用，应通过 [az keyvault certificate import](https://docs.microsoft.com/cli/azure/certificate#import) 导入由受信任的提供程序签名的有效证书。 在本教程中，以下示例显示了如何使用 [az keyvault certificate create](https://docs.microsoft.com/cli/azure/certificate#create) 生成使用默认证书策略的自签名证书：
+为供生产使用，应通过 [az keyvault certificate import](https://docs.microsoft.com/cli/azure/keyvault/certificate#import) 导入由受信任的提供程序签名的有效证书。 在本教程中，以下示例显示了如何使用 [az keyvault certificate create](https://docs.microsoft.com/cli/azure/keyvault/certificate#create) 生成使用默认证书策略的自签名证书：
 
 ```azurecli-interactive 
 az keyvault certificate create \

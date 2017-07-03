@@ -162,7 +162,7 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 * **私有(虚拟机内)** ：允许从同一虚拟网络中的虚拟机或服务连接到 SQL Server。
 
 > [!NOTE]
-> SQL Server Express Edition 的虚拟机映像不会自动启用 TCP/IP 协议。 即使对于 Public 和 Private 连接选项也是如此。 对于 Express 版本，必须在创建 VM 后使用 SQL Server 配置管理器来 [手动启用 TCP/IP 协议](#configure-sql-server-to-listen-on-the-tcp-protocol) 。
+> SQL Server Express Edition 的虚拟机映像不会自动启用 TCP/IP 协议。 即使对于 Public 和 Private 连接选项也是如此。 对于 Express 版本，必须在创建 VM 后使用 SQL Server 配置管理器来手动启用 TCP/IP 协议。
 > 
 > 
 

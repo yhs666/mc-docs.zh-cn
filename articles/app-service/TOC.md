@@ -117,5 +117,5 @@
 ## [REST](https://docs.microsoft.com/rest/api/appservice/)
 ## [定价](https://www.azure.cn/pricing/details/app-service/)  
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazurewebsitespreview)  
-## [视频](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
-## [服务更新](https://azure.microsoft.com/updates/?product=app-service)
+## [视频](https://www.azure.cn/video-center/) 
+## [服务更新](https://www.azure.cn/what-is-new/)
