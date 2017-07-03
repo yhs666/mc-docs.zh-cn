@@ -71,7 +71,7 @@ ms.lasthandoff: 05/26/2017
 |工具|命令|
 |---|---|
 |CLI|[az network nic create](https://docs.microsoft.com/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/new-azurermnetworkinterface/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|PowerShell|[New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="view-nics"></a>查看 NIC 设置
 
