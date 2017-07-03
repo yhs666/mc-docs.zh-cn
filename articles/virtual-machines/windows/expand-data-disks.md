@@ -34,9 +34,9 @@ ms.lasthandoff: 04/06/2017
 
 |                                                                    |                                                            |
 |--------------------------------------------------------------------|------------------------------------------------------------|
-| [Get-AzureRMStorageAccount](https://docs.microsoft.com/powershell/Get-AzureRMStorageAccount) | [Get-AzureRMVM](https://docs.microsoft.com/powershell/getazurermvm)                  |
-| [Stop-AzureRMVM](https://docs.microsoft.com/powershell/stop-azurermvm)                       | [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/Set-AzureRmVMDataDisk) |
-| [Update-AzureRmVM](https://docs.microsoft.com/powershell/update-azurermvm)                   | [Start-AzureRmVM](https://docs.microsoft.com/powershell/start-azurermvm)             |
+| [Get-AzureRMStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRMStorageAccount) | [Get-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm)                  |
+| [Stop-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm)                       | [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/Set-AzureRmVMDataDisk) |
+| [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm)                   | [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm)             |
 
 <br>
 

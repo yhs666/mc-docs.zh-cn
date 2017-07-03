@@ -80,7 +80,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
     -Name "myAvailabilitySet" -Location "China North" 
 ```
 
-有关详细信息，请参阅 [New-AzureRmAvailabilitySet](https://docs.microsoft.com/powershell/new-azurermavailabilityset)。
+有关详细信息，请参阅 [New-AzureRmAvailabilitySet](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermavailabilityset)。
 
 ## <a name="troubleshooting"></a>故障排除
 * 创建 VM 时，如果所需的可用性集不在门户的下拉列表中，则表示可能已在不同的资源组中创建该可用性集。 如果不知道可用性集所属的资源组，请转到中心菜单并单击“浏览”>“可用性集”，以查看可用性集及其所属资源组的列表。

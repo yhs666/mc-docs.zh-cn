@@ -26,7 +26,7 @@ ms.lasthandoff: 05/05/2017
 
 # <a name="convert-an-existing-azure-virtual-machine-to-a-scale-set"></a>将现有的 Azure 虚拟机转换为一个规模集
 
-本教程演示如何使用 Azure CLI 2.0 将虚拟机转换为虚拟机规模集。 还介绍如何在规模集中自动进行虚拟机配置。 有关如何安装 Azure CLI 2.0 的详细信息，请参阅 [Azure CLI 2.0 入门](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md)。 有关规模集的详细信息，请参阅[虚拟机规模集](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)。
+本教程演示如何使用 Azure CLI 2.0 将虚拟机转换为虚拟机规模集。 还介绍如何在规模集中自动进行虚拟机配置。 有关如何安装 Azure CLI 2.0 的详细信息，请参阅 [Azure CLI 2.0 入门](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)。 有关规模集的详细信息，请参阅[虚拟机规模集](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)。
 
 ## <a name="step-1---deprovision-the-vm"></a>步骤 1 - 取消设置 VM
 
