@@ -80,7 +80,7 @@ az appservice web browse --name $webappname --resource-group myResourceGroup
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | 创建应用服务计划。 |
 | [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#delete) | 创建 Azure Web 应用。 |
 | [az appservice web deployment slot create](https://docs.microsoft.com/cli/azure/webapp/deployment/slot#create) | 创建部署槽。 |
-| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/webapp/source-control#config) | 将 Azure Web 应用与 Git 或 Mercurial 存储库相关联。 |
+| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config) | 将 Azure Web 应用与 Git 或 Mercurial 存储库相关联。 |
 | [az appservice web browse](https://docs.microsoft.com/cli/azure/webapp#browse) | 在浏览器中打开 Azure Web 应用。 |
 | [az appservice web deployment slot swap](https://docs.microsoft.com/cli/azure/webapp/deployment/slot#swap) | 将指定的部署槽交换到生产环境。 |
 

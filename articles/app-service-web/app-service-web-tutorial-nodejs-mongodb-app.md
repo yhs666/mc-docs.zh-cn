@@ -313,7 +313,7 @@ az appservice web create --name <app_name> --resource-group myResourceGroup --pl
 az appservice web deployment user set --user-name <specify-a-username> --password <mininum-8-char-captital-lowercase-number>
 ```
 
-使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/source-control#config-local-git) 命令配置对 Azure Web 应用的本地 Git 访问。 
+使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) 命令配置对 Azure Web 应用的本地 Git 访问。 
 
 ```azurecli
 az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup
