@@ -1,9 +1,9 @@
 ---
-title: "SQL 数据仓库容量限制 | Microsoft 文档"
+title: "SQL 数据仓库容量限制 | Azure"
 description: "SQL 数据仓库的连接、数据库、表和查询的最大值。"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: rockboyfor
 manager: jhubbard
 editor: 
 ms.assetid: e1eac122-baee-4200-a2ed-f38bfa0f67ce
@@ -12,17 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: reference
+origin.date: 10/31/2016
 ms.date: 10/31/2016
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: cd48a35bc8a0bef299c241f358dc98e3ea4ba3ed
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: c96c41a3a86032717bb0aaaf32c71fd51c8ff869
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL 数据仓库容量限制
 下表包含 Azure SQL 数据仓库的各个组件允许的最大值。
 
@@ -35,6 +34,7 @@ ms.lasthandoff: 04/14/2017
 | 数据库连接 |预处理语句的最大内存 |20 MB |
 | [工作负荷管理][Workload management] |并发查询数上限 |32<br/><br/> 默认情况下，SQL 数据仓库可以执行最多 32 个并发查询并将剩余查询排列起来。<br/><br/>在将用户分配到更高的资源类或在使用较低 DWU 配置 SQL 数据仓库时，可能会降低并发级别。 某些查询（如 DMV 查询）始终可以运行。 |
 | [Tempdb][Tempdb] |Tempdb 的最大大小 |每 DW100 399 GB。 因此，在 DWU1000 的情况下，Tempdb 的大小为 3.99 TB |
+<!- Not Available [creating a support ticket][creating a support ticket] -->
 
 ## <a name="database-objects"></a>数据库对象
 | 类别 | 说明 | 最大值 |
@@ -101,7 +101,7 @@ ms.lasthandoff: 04/14/2017
 [Workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md
 [data type]: ./sql-data-warehouse-tables-data-types.md
-
+<!-- Not Available [creating a support ticket]: /sql-data-warehouse-get-started-create-support-ticket.md-->
 
 <!--MSDN references-->
 [Row-Overflow Data Exceeding 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx

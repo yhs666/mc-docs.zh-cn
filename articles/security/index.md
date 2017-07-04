@@ -13,12 +13,11 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 1d22dde9672970cd2cac1b1cbc03032fae65c569
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 7955d88d23dca49add03a2a355b83f6e340ddbfd
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="security-documentation"></a>安全文档
 

@@ -15,14 +15,12 @@ ms.workload: big-compute
 origin.date: 01/23/2017
 ms.date: 03/14/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 7223e4228a14bc7ca7990a2e8c63a4bde55f82a7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 265d1732ef270e5c1de894979396030a21e7491c
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="get-started-with-azure-batch-cli"></a>Azure Batch CLI 入门
 使用跨平台 Azure 命令行接口 (Azure CLI) 可以在 Linux、Mac 和 Windows 命令 shell 中管理 Batch 帐户和资源，例如池、作业和任务。 使用 Azure CLI，可以执行许多与通过 Batch API、Azure 门户和 Batch PowerShell cmdlet 执行的相同任务并为其编写脚本。
 

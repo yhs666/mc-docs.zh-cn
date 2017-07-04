@@ -9,16 +9,15 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: reference
 ms.assetid: feddca1e-c69c-4257-be44-a36172e77157
-caps.latest.revision: 4
+caps.latest.revision: "4"
 author: tamram
 ms.author: v-junlch
 manager: timlt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 5975da6c68ed5c14d0210723e14a5da76d00fa1d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 4c044f5b3e75c0522ac839023b30177113e2c1db
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="pool-delete-start-event"></a>池删除开始事件
 池删除开始事件日志正文
@@ -37,4 +36,3 @@ ms.lasthandoff: 05/05/2017
 |元素|类型|说明|
 |-------------|----------|-----------|
 |id|String|池的 id。|
-

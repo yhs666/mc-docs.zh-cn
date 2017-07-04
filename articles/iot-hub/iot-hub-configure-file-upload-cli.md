@@ -12,17 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+origin.date: 05/04/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: ca80ca4dae9f76e8039bb4a35efb65eeff25c265
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.date: 07/10/2017
+ms.openlocfilehash: d29877b7db59b5bd172731c1f86a0de2249cbeac
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>使用 Azure CLI 配置 IoT 中心文件上传
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
@@ -147,7 +145,7 @@ az iot hub show --name {your iot hub name}
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南][lnk-devguide]
-* [使用 IoT Edge 模拟设备][lnk-gateway]
+* [使用 IoT Edge 模拟设备][lnk-iotedge]
 * [从根本上保护 IoT 解决方案][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
@@ -161,7 +159,7 @@ az iot hub show --name {your iot hub name}
 [lnk-monitor]: ./iot-hub-operations-monitoring.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
 [lnk-securing]: ./iot-hub-security-ground-up.md
 
 

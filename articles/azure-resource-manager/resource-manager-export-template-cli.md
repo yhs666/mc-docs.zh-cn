@@ -3,7 +3,7 @@ title: "使用 Azure CLI 导出 Resource Manager 模板 | Azure"
 description: "使用 Azure Resource Manager 和 Azure CLI 从资源组导出模板。"
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
@@ -14,13 +14,11 @@ ms.workload: na
 origin.date: 05/01/2017
 ms.date: 06/05/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: aba7e6b47da2a121942c838961472658720b0451
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: a90bf7a407ef321324cb1d0f2d874b5e59957e84
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>使用 Azure CLI 导出 Azure Resource Manager 模板
 

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 14425cf6e92cc1dcf787f4267c0851198b206570
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: aac838a1cfe56bdc8939a00f3c39f39c1242db03
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="reliable-services-overview"></a>Reliable Services 概述
 Azure Service Fabric 可简化无状态和有状态 Reliable Services 的编写与管理。 本主题的内容：
@@ -119,4 +117,3 @@ Service Fabric 中常见的无状态服务使用示例是作为前端，它公�
 * [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services 高级用法](service-fabric-reliable-services-advanced-usage.md)
 * [Reliable Actors 编程模型](service-fabric-reliable-actors-introduction.md)
-

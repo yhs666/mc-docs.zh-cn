@@ -12,17 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/09/2017
-ms.date: 04/17/2017
+origin.date: 05/25/2017
+ms.date: 07/10/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 2ef9074e17dce993e7d3c4f47f78de99d31cea67
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 7f714dbea6d9a2d80c98ab39d49a0991e35f9414
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
 # <a name="cloud-to-device-communications-guidance"></a>从云到设备通信指南
 IoT 中心提供三个选项，允许设备应用向后端应用公开功能：
 
@@ -32,7 +30,7 @@ IoT 中心提供三个选项，允许设备应用向后端应用公开功能：
 
 下面详细比较了各种从云到设备的通信选项。
 
-|  | 直接方法 | 孪生的所需属性 | 云到设备的消息 |
+|  | 直接方法 | 克隆的所需属性 | 云到设备的消息 |
 | ---- | ------- | ---------- | ---- |
 | 方案 | 需要立即确认的命令，例如打开风扇。 | 旨在将设备置于某个所需状态的长时间运行命令。 例如，将遥测发送间隔设置为 30 分钟。 | 提供给设备应用的单向通知。 |
 | 数据流 | 双向。 设备应用可以立即响应方法。 解决方案后端根据上下文接收请求结果。 | 单向。 设备应用接收更改了属性的通知。 | 单向。 设备应用接收消息
@@ -52,7 +50,7 @@ IoT 中心提供三个选项，允许设备应用向后端应用公开功能：
 [lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md
 [lnk-query]: ./iot-hub-devguide-query-language.md
 [lnk-jobs]: ./iot-hub-devguide-jobs.md
-[lnk-c2d]: ./iot-hub-devguide-messaging.md#cloud-to-device-messages
+[lnk-c2d]: ./iot-hub-devguide-messages-c2d.md
 [lnk-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-methods-tutorial]: ./iot-hub-node-node-direct-methods.md
 [lnk-twin-properties]: ./iot-hub-node-node-twin-how-to-configure.md

@@ -44,7 +44,7 @@
 ### [获取 ARP 表（经典）](expressroute-troubleshooting-arp-classic.md)
 
 # 参考
-## [PowerShell](../powershell-install-configure.md)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST（经典）](https://msdn.microsoft.com/library/azure/dn606310)
 
@@ -56,7 +56,7 @@
 ## [流量管理器](/traffic-manager/)
 
 # 资源
-## [价格](https://azure.microsoft.com/pricing/details/expressroute/)
+## [价格](https://www.azure.cn/pricing/details/expressroute/)
 ## [网络博客](https://azure.microsoft.com/blog/topics/networking/)
 ## [案例研究](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [SLA](https://www.azure.cn/support/legal/sla/)

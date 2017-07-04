@@ -17,12 +17,11 @@ origin.date: 03/15/2017
 ms.date: 05/15/2017
 ms.author: v-junlch
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: c265a7a743f1d2b3182eadb34649a16f712df295
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 82c33e57b72283cb9060de54b231ff4120214a5b
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="having-trouble-with-two-step-verification"></a>执行双重验证时遇到问题
 本文讨论了执行双重验证时可能会遇到的一些问题。 如果此处没有包含你遇到的问题，请在注释部分中提供详细的反馈以便我们可以改进。
@@ -44,13 +43,13 @@ ms.lasthandoff: 05/05/2017
 3. 选择你有权访问的电话号码。
    
     ![备用号码](./media/multi-factor-authentication-end-user-manage/altphone2.png)
-4. 恢复帐户后，通过[管理设置](multi-factor-authentication-end-user-manage-settings.md)更改身份验证电话号码。
+4. 恢复帐户后，通过[管理设置](./multi-factor-authentication-end-user-manage-settings.md)更改身份验证电话号码。
 
 > [!IMPORTANT]
 > 必须配置辅助身份验证电话号码。 如果你的主电话号码和移动应用位于同一手机上，并且你的手机丢失或被盗，则你需要第三个选项。   
 
 ### <a name="clear-your-settings"></a>清除你的设置
-如果未配置辅助身份验证电话号码，则必须联系管理员以寻求帮助。 请管理员清除设置，以便在下次登录时重新收到[设置帐户](multi-factor-authentication-end-user-first-time.md)的提示。
+如果未配置辅助身份验证电话号码，则必须联系管理员以寻求帮助。 请管理员清除设置，以便在下次登录时重新收到[设置帐户](./multi-factor-authentication-end-user-first-time.md)的提示。
 
 ## <a name="i-am-not-receiving-a-text-or-call-on-my-phone"></a>我的手机上未收到短信或呼叫
 如果你可以尝试登录但没有收到短信或电话呼叫，可能有多个原因。 如果你的手机过去成功收到过短信或电话呼叫，则可能是手机提供商有问题，而不是你的帐户有问题。 请确保你的手机信号良好，并且如果尝试接收短信，请确保你的手机和服务计划支持短信。
@@ -64,9 +63,9 @@ ms.lasthandoff: 05/05/2017
    
     如果你收到了多个验证码，则只有最新的一个验证码才起作用。
 
-如果你没有配置其他方法，请联系管理员并要求他们清除你的设置。 下次登录时，系统将重新提示[设置多重身份验证](multi-factor-authentication-end-user-first-time.md)。
+如果你没有配置其他方法，请联系管理员并要求他们清除你的设置。 下次登录时，系统将重新提示[设置多重身份验证](./multi-factor-authentication-end-user-first-time.md)。
 
-如果经常由于手机信号不佳导致延迟，建议在智能手机上使用 [Microsoft Authenticator 应用](microsoft-authenticator-app-how-to.md)。 该应用可以生成用来登录的随机安全代码，这些代码不需要手机信号或 Internet 连接。
+如果经常由于手机信号不佳导致延迟，建议在智能手机上使用 [Microsoft Authenticator 应用](./microsoft-authenticator-app-how-to.md)。 该应用可以生成用来登录的随机安全代码，这些代码不需要手机信号或 Internet 连接。
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>我找不到我的问题的解答。
 如果你已尝试了这些故障排除步骤但仍然存在问题，请联系管理员或者联系为你设置多重身份验证的人员。 它们应该能够提供帮助。
@@ -90,8 +89,6 @@ ms.lasthandoff: 05/05/2017
 提供这些信息将有助于我们尽快为你解决问题。
 
 ## <a name="related-topics"></a>相关主题
-- [管理双重验证设置](multi-factor-authentication-end-user-manage-settings.md)  
-- [Microsoft Authenticator 应用程序常见问题](microsoft-authenticator-app-faq.md)
-
-
+- [管理双重验证设置](./multi-factor-authentication-end-user-manage-settings.md)  
+- [Microsoft Authenticator 应用程序常见问题](./microsoft-authenticator-app-faq.md)
 

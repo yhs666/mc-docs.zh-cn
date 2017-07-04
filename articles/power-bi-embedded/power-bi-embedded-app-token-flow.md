@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: ad674abf097861c81d04ee56f19021cb6e788911
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 9b29d58d6151d0a974f246ac17a20284b04f5cfd
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-embedded"></a>通过 Power BI Embedded 进行身份验证和授权
 
@@ -44,7 +42,7 @@ Power BI Embedded 服务使用**密钥**和**应用令牌**进行身份验证和
 | 声明 | 说明 |
 | --- | --- |
 | **ver** |应用令牌的版本。 当前版本为 0.2.0。 |
-| **aud** |令牌的目标接收方。 对于 Power BI Embedded，请使用： "https://analysis.chinacloudapi.cn/powerbi/api" 。 |
+| **aud** |令牌的目标接收方。 对于 Power BI Embedded，请使用：“https://analysis.chinacloudapi.cn/powerbi/api”。 |
 | **iss** |一个字符串，指示颁发了令牌的应用程序。 |
 | **type** |要创建的应用令牌的类型。 当前唯一支持的类型是 **embed**。 |
 | **wcn** |要为其颁发令牌的工作区集合名称。 |
@@ -185,6 +183,5 @@ Body
 [Power BI Embedded 入门](power-bi-embedded-get-started.md)  
 [PowerBI-CSharp Git 存储库](https://github.com/Microsoft/PowerBI-CSharp)  
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
-
 
 

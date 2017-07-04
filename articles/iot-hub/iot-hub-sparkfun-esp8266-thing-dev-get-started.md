@@ -14,15 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/15/2017
-ms.date: 05/15/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 72727d89e4199fa3aeb0ca11f0ffa1032ff27c3f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.date: 07/10//2017
+ms.openlocfilehash: fbda3eb7529593ba19ab6f76b84156b4e938457e
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>将 Sparkfun ESP8266 Thing Dev 连接到云中的 Azure IoT 中心
 
@@ -66,79 +64,7 @@ ms.lasthandoff: 05/05/2017
 * 试验板。
 * M/M 跳线。
 
-## <a name="create-an-iot-hub-and-register-a-device-for-sparkfun-esp8266-thing-dev"></a>创建 IoT 中心并注册 Sparkfun ESP8266 Thing Dev 的设备
-
-### <a name="create-your-azure-iot-hub-in-the-azure-portal"></a>在 Azure 门户中创建 Azure IoT 中心
-
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-1. 单击“新建” > “物联网” > “IoT 中心”。
-
-   ![创建 IoT 中心](./media/iot-hub-sparkfun-thing-dev-get-started/3_iot-hub-creation.png)
-
-1. 在“IoT 中心”窗格中，输入 IoT 中心的所需信息：
-
-   ![创建 IoT 中心所需的基本信息](./media/iot-hub-sparkfun-thing-dev-get-started/4_iot-hub-provide-basic-info.png)
-
-   * **名称**：IoT 中心的名称。 如果输入的名称有效，将显示一个绿色复选标记。
-   * **定价和缩放级别**：选择免费的 F1 级别对于本演示教程已足够。 请参阅[定价和缩放级别](https://www.azure.cn/pricing/details/iot-hub)。
-   * **资源组**：创建用于托管 IoT 中心的资源组，或使用现有的资源组。 请参阅[使用资源组管理 Azure 资源](../azure-resource-manager/resource-group-portal.md)。
-   * **位置**：选择与创建的 IoT 中心最靠近的位置。
-   * **固定仪表板**：选中此选项可以方便地从仪表板访问 IoT 中心。
-1. 单击“创建” 。 创建 IoT 中心可能需要几分钟时间。 可在“通知”窗格中查看进度。
-
-   ![在通知窗格中监视 IoT 中心创建进度](./media/iot-hub-sparkfun-thing-dev-get-started/5_iot-hub-monitor-creation-progress-notification-pane.png)
-
-1. 创建 IoT 中心后，请在仪表板中单击它。 记下“主机名”供稍后使用，然后单击“共享访问策略”。
-
-   ![获取 IoT 中心的主机名](./media/iot-hub-sparkfun-thing-dev-get-started/6_iot-hub-get-hostname.png)
-
-1. 在“共享访问策略”窗格中单击“iothubowner”策略，然后复制并记下 IoT 中心的**连接字符串**供稍后使用。 有关详细信息，请参阅[控制对 IoT 中心的访问](./iot-hub-devguide-security.md)。
-
-   ![获取 IoT 中心连接字符串](./media/iot-hub-sparkfun-thing-dev-get-started/7_iot-hub-get-connection-string.png)
-
-现在已创建 IoT 中心。 稍后将会用到记下的主机名和连接字符串。
-
-### <a name="register-a-device-for-sparkfun-esp8266-thing-dev-in-your-iot-hub"></a>在 IoT 中心注册 Sparkfun ESP8266 Thing Dev 的设备
-
-每个 IoT 中心都有一个标识注册表，存储允许连接到 IoT 中心的设备的相关信息。 IoT 中心的标识注册表中必须先有设备的条目，然后该设备才能连接到 IoT 中心。
-
-本部分将使用 CLI 工具 iothub explorer 在 IoT 中心的标识注册表中注册 ESP8266 Thing Dev 的设备。
-
-> [!NOTE]
-> iothub explorer 需要 Node.js 4.x 或更高版本才能正常工作。
-
-若要注册 ESP8266 Thing Dev 的设备，请执行以下步骤：
-
-1. [下载](https://nodejs.org/en/download/)并安装 Node.js 的最新 LTS 版本，包括 NPM。
-1. 使用 NPM 安装 iothub explorer。
-
-   * Windows 7 或更高版本：以管理员身份启动命令提示符。 运行以下命令安装 iothub explorer：
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-   * Ubuntu 16.04 或更高版本：使用快捷键 Ctrl+Alt+T 打开终端，然后运行以下命令：
-
-     ```bash
-     sudo npm install -g iothub-explorer
-     ```
-   * macOS 10.1 或更高版本：打开终端，然后运行以下命令：
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-1. 运行以下命令登录到 IoT 中心：
-
-   ```bash
-   iothub-explorer login [your iot hub connection string]
-   ```
-1. 注册新设备（`deviceID` 为 `new-device`），然后运行以下命令获取设备的连接字符串。
-
-   ```bash
-   iothub-explorer create new-device --connection-string
-   ```
-
-记下已注册设备的连接字符串，因为稍后将要用到。
+[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 ## <a name="connect-esp8266-thing-dev-with-the-sensor-and-your-computer"></a>将 ESP8266 Thing Dev 与传感器和计算机相连接
 
@@ -263,11 +189,11 @@ ms.lasthandoff: 05/05/2017
 ### <a name="deploy-the-sample-application-to-sparkfun-esp8266-thing-dev"></a>将示例应用程序部署到 Sparkfun ESP8266 Thing Dev
 
 1. 在 Arduino IDE 中，单击“Tool”（工具） > “Port”（端口），然后单击 Sparkfun ESP8266 Thing Dev 的串行端口。
-1. 单击“Sketch” > “Upload”（上载），生成示例应用程序并将其部署到 Sparkfun ESP8266 Thing Dev。
+1. 单击 “Sketch” > “Upload”（上传），生成示例应用程序并将其部署到 Sparkfun ESP8266 Thing Dev。
 
 ### <a name="enter-your-credentials"></a>输入凭据
 
-上载成功完成后，请执行以下步骤输入凭据：
+上传成功完成后，请执行以下步骤输入凭据：
 
 1. 在 Arduino IDE 中，单击“Tools”（工具） > “Serial Monitor”（串行监视器）。
 1. 在串行监视器窗口的右下角，可以看到两个下拉列表。
@@ -292,4 +218,3 @@ ms.lasthandoff: 05/05/2017
 现已成功将 Sparkfun ESP8266 Thing Dev 连接到 IoT 中心，并将捕获的传感器数据发送到了 IoT 中心。 
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

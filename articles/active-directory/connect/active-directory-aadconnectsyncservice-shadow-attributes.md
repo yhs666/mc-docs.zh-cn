@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: cae433df8e26aece5790ef9449aecb26411ea347
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: ef22d794c859394187d6f69a7b9e33805e69dfa0
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 同步服务影子属性
 大多数属性在 Azure AD 中的表示方式与其在本地 Active Directory 中的表示方式相同。 但是，一些属性有一些特殊的处理方式，而且 Azure AD 中的属性值可能不同于 Azure AD Connect 所同步的属性值。
@@ -76,5 +74,4 @@ ProxyCalc 可能需要一些时间才能处理对用户的更改，并且不与 
 ## <a name="see-also"></a>另请参阅
 - [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)。
-
 

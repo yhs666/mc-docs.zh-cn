@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: ddf95dc910c7f0a3d155e0b413b48d60850a10d4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 0595fe9745c8b6dfb37e453be7de492702fce3ff
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 #<a name="batch-documentation"></a>Batch 文档
 
@@ -25,7 +24,7 @@ ms.lasthandoff: 05/12/2017
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/batch/batch-technical-overview">
+        <a href="/azure/batch/batch-technical-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +42,25 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/Batch/batch-account-create-portal">
+        <a href="/documentation/videos/index/?services=batch">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure Batch 视频库</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/Batch/batch-account-create-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +78,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/batch/batch-dotnet-get-started">
+        <a href="/azure/batch/batch-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +96,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/batch/batch-python-tutorial">
+        <a href="/azure/batch/batch-python-tutorial">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

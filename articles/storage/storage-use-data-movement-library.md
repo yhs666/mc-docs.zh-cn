@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 2f028d36e99cc1224d86d2603697c9ae79e5de55
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 2af9b97f7e6f223b0f89a391b0e34cfa0971b47c
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="transfer-data-with-the-azure-storage-data-movement-library"></a>使用 Azure 存储数据移动库传输数据
 
@@ -585,7 +583,6 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
 在本入门教程中，我们创建了可与 Azure 存储交互的、在 Windows、Linux 和 macOS 上运行的应用程序。 本入门教程重点介绍有关 Blob 存储的操作。 但是，也可以针对文件存储运用这些知识。 若要了解详细信息，请查看 [Azure 存储数据移动库参考文档](https://azure.github.io/azure-storage-net-data-movement)。
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
-
 
 
 

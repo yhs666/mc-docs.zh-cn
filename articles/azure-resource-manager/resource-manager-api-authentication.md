@@ -3,8 +3,8 @@ title: "Azure Active Directory 身份验证和 Resource Manager | Azure"
 description: "指导开发人员使用 Azure Resource Manager API 和 Azure Active Directory 进行身份验证，将应用集成到其他 Azure 订阅。"
 services: azure-resource-manager,active-directory
 documentationcenter: na
-author: dushyantgill
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
@@ -13,15 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 12/27/2016
-ms.date: 06/05/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 2b3ed80060b6b4e348498a53d61228fe77faec5e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 347ca1f0b0e7cb57ea6d65a6b3c7a1461a176c28
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>使用 Resource Manager 身份验证 API 访问订阅
 ## <a name="introduction"></a>介绍
@@ -34,7 +32,7 @@ ms.lasthandoff: 05/26/2017
 
 本主题提供创建应用来利用这两种授权方法的逐步说明。 其中说明如何使用 REST API 或 C# 执行每个步骤。 完整的 ASP.NET MVC 应用程序可在 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense) 中找到。
 
-本主题的所有代码都将作为 Web 应用运行，可以在 [http://vipswapper.chinacloudsites.cn/cloudsense](http://vipswapper.chinacloudsites.cn/cloudsense)上试用。
+<!-- Not Available for the sample Site [http://vipswapper.chinacloudsites.cn/cloudsense](http://vipswapper.chinacloudsites.cn/cloudsense) -->
 
 ## <a name="what-the-web-app-does"></a>Web 应用的功能
 Web 应用：
@@ -105,6 +103,7 @@ Azure AD 还支持应用程序的证书凭据：创建自签名证书、保留�
 应用程序使用 OAuth 2.0 授权请求将用户重定向到 Azure AD - 以验证用户的凭据并取回授权代码。 应用程序使用授权代码来访问 Resource Manager 的令牌。 [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) 方法创建授权请求。
 
 本主题说明用于对用户进行身份验证的 REST API 请求。 也可以使用帮助库在代码中执行身份验证。 有关这些库的详细信息，请参阅 [Azure Active Directory 身份验证库](../active-directory/develop/active-directory-authentication-libraries.md)。 若要通过指南了解如何在应用程序中集成标识管理，请参阅 [Azure Active Directory 开发人员指南](../active-directory/develop/active-directory-developers-guide.md)。
+<!-- Not Available (../active-directory/active-directory-authentication-libraries.md) and (../active-directory/active-directory-authentication-libraries.md) -->
 
 ### <a name="auth-request-oauth-20"></a>授权请求 (OAuth 2.0)
 将 Open ID Connect/OAuth2.0 授权请求发送到 Azure AD 授权终结点：

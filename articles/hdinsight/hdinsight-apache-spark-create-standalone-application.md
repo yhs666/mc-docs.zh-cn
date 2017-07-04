@@ -14,16 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/06/2017
+origin.date: 05/10/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 8a9e40ed601d8daa68f597e96b9cd529093fccb7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 56415dd90f1d55a4342133178a99dbf7a9e0a4a4
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>创建要在 HDInsight 上的 Apache Spark 群集中运行的 Scala Maven 应用程序
 
@@ -58,10 +56,10 @@ ms.lasthandoff: 04/28/2017
 
     ![创建 Maven 项目](./media/hdinsight-apache-spark-create-standalone-application/create-maven-project.png)
 
-    * 选择“Maven”  作为项目类型。
-    * 指定“项目 SDK” 。 单击“新建”并导航到 Java 安装目录，通常是 `C:\Program Files\Java\jdk1.8.0_66`。
-    * 选择“从原型创建”  选项。
-    * 从原型列表中，选择“org.scala-tools.archetypes:scala-archetype-simple” 。 这将创建适当的目录结构，并下载所需的默认依赖项来编写 Scala 程序。
+   * 选择“Maven”  作为项目类型。
+   * 指定“项目 SDK” 。 单击“新建”并导航到 Java 安装目录，通常是 `C:\Program Files\Java\jdk1.8.0_66`。
+   * 选择“从原型创建”  选项。
+   * 从原型列表中，选择“org.scala-tools.archetypes:scala-archetype-simple” 。 这将创建适当的目录结构，并下载所需的默认依赖项来编写 Scala 程序。
 2. 提供 **GroupId**、**ArtifactId** 和 **Version** 的相关值。 单机“下一步”
 3. 在下一个对话框中（在其中指定 Maven 主目录和其他用户设置的位置），接受默认值，然后单击“下一步” 。
 4. 在最后一个对话框中，指定项目名称和位置，然后单击“完成”。
@@ -73,10 +71,10 @@ ms.lasthandoff: 04/28/2017
 
     ![配置 Maven 以进行自动下载](./media/hdinsight-apache-spark-create-standalone-application/configure-maven.png)
 
-    1. 在“文件”菜单中，单击“设置”。
-    2. 在“设置”对话框中，导航到“生成、执行、部署” > “生成工具” > “Maven” > “导入”。
-    3. 选择“自动导入 Maven 项目”选项。
-    4. 单击“应用”，然后单击“确定”。
+   1. 在“文件”菜单中，单击“设置”。
+   2. 在“设置”对话框中，导航到“生成、执行、部署” > “生成工具” > “Maven” > “导入”。
+   3. 选择“自动导入 Maven 项目”选项。
+   4. 单击“应用”，然后单击“确定”。
 8. 更新 Scala 源文件以包含应用程序代码。 打开并将当前示例代码替换为以下代码，然后保存所做的更改。 此代码从 HVAC.csv（所有 HDInsight Spark 群集均有该文件）中读取数据，检索第六列中只有一个数字的行，并将输出写入群集的默认存储容器下的 **/HVACOut**。
 
         package com.microsoft.spark.example
@@ -102,12 +100,12 @@ ms.lasthandoff: 04/28/2017
         }
 9. 更新 pom.xml。
 
-    1. 在 `<project>\<properties>` 中添加以下内容：
+   1. 在 `<project>\<properties>` 中添加以下内容：
 
             <scala.version>2.10.4</scala.version>
             <scala.compat.version>2.10.4</scala.compat.version>
             <scala.binary.version>2.10</scala.binary.version>
-    2. 在 `<project>\<dependencies>` 中添加以下内容：
+   2. 在 `<project>\<dependencies>` 中添加以下内容：
 
             <dependency>
               <groupId>org.apache.spark</groupId>
@@ -115,7 +113,7 @@ ms.lasthandoff: 04/28/2017
               <version>1.4.1</version>
             </dependency>
 
-        将更改保存到 pom.xml。
+      将更改保存到 pom.xml。
 10. 创建 .jar 文件。 IntelliJ IDEA 允许创建 JAR，作为项目的一个项目 (artifact)。 执行以下步骤。
 
     1. 在“文件”菜单中，单击“项目结构”。
@@ -152,7 +150,6 @@ ms.lasthandoff: 04/28/2017
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](hdinsight-apache-spark-eventhub-streaming.md)
-* [使用 HDInsight 中的 Spark 分析网站日志](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序
 * [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
@@ -166,4 +163,3 @@ ms.lasthandoff: 04/28/2017
 ### <a name="manage-resources"></a>管理资源
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](hdinsight-apache-spark-job-debugging.md)
-

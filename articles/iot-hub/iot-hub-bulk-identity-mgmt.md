@@ -13,15 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/06/2017
-ms.date: 06/05/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 06c5cbe5f123e605849ed50ee4946c3edaa48375
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.date: 07/10/2017
+ms.openlocfilehash: ccb5b777ce8b9261043f0d2362b0ec43b9f255d3
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>批量管理 IoT 中心设备标识
 
@@ -200,13 +198,13 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 
 **ImportDevicesAsync** 方法采用两个参数：
 
-* 一个字符串，其中包含作为作业的输入使用的 [Azure 存储](../storage/index.md) Blob 容器的 URI。 此 URI 必须包含可授予容器读取权限的 SAS 令牌。 此容器必须包含名为 **devices.txt** 的 Blob，其中包含要导入标识注册表的序列化设备数据。 导入数据包含的设备信息必须采用 **ExportImportDevice** 作业在创建 **devices.txt** Blob 时使用的同一种 JSON 格式。 SAS 令牌必须包含这些权限：
+* 一个字符串，其中包含作为作业的输入使用的 [Azure 存储](/storage/) Blob 容器的 URI。 此 URI 必须包含可授予容器读取权限的 SAS 令牌。 此容器必须包含名为 **devices.txt** 的 Blob，其中包含要导入标识注册表的序列化设备数据。 导入数据包含的设备信息必须采用 **ExportImportDevice** 作业在创建 **devices.txt** Blob 时使用的同一种 JSON 格式。 SAS 令牌必须包含这些权限：
 
    ```csharp
    SharedAccessBlobPermissions.Read
    ```
 
-*  一个*字符串*，其中包含用作作业*输出*的 [Azure 存储](../storage/index.md) Blob 容器的 URI。 作业在此容器中创建块 Blob，用于存储已完成的导入 **作业**中的任何错误信息。 SAS 令牌必须包含这些权限：
+*  一个*字符串*，其中包含用作作业*输出*的 [Azure 存储](/storage/) Blob 容器的 URI。 作业在此容器中创建块 Blob，用于存储已完成的导入 **作业**中的任何错误信息。 SAS 令牌必须包含这些权限：
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
@@ -409,10 +407,10 @@ static string GetContainerSasUri(CloudBlobContainer container)
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南][lnk-devguide]
-* [使用 IoT Edge 模拟设备][lnk-gateway]
+* [使用 IoT Edge 模拟设备][lnk-iotedge]
 
 [lnk-metrics]: ./iot-hub-metrics.md
 [lnk-monitor]: ./iot-hub-operations-monitoring.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md

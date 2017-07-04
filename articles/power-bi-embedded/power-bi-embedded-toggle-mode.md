@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 376e780c521871f423245b7e661ca4d0f7ab602c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 9cca56eee8f866feba1a7fdedad118d935971b7b
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-embedded"></a>在 Azure Power BI Embedded 中在报表的查看和编辑模式之间切换
 
@@ -123,5 +122,4 @@ report.switchMode("edit");
 [PowerBI-CSharp Git 存储库](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git 存储库](https://github.com/Microsoft/PowerBI-Node)  
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
-
 

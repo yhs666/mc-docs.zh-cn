@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 5094558dce70f1b4f4bfd7b3be52200fcd788a0b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 61897fe307280ab35b6b24cfaf66512d4d990c5d
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-the-classic-deployment-model"></a>使用经典部署模型将文件还原到 Windows Server 或 Windows 客户端计算机
 > [!div class="op_single_selector"]
-> * [经典管理门户](backup-azure-restore-windows-server-classic.md)
-> * [Azure 门户](backup-azure-restore-windows-server.md)
+> * [经典管理门户](./backup-azure-restore-windows-server-classic.md)
+> * [Azure 门户](./backup-azure-restore-windows-server.md)
 >
 >
 
@@ -227,12 +225,10 @@ ms.lasthandoff: 04/14/2017
 
 
 ## <a name="next-steps"></a>后续步骤
-- [Azure 备份常见问题](backup-azure-backup-faq.md)
+- [Azure 备份常见问题](./backup-azure-backup-faq.md)
 - 访问 [Azure 备份论坛](http://go.microsoft.com/fwlink/p/?LinkId=290933)。
 
 ## <a name="learn-more"></a>了解详细信息
 - [Azure 备份概述](http://go.microsoft.com/fwlink/p/?LinkId=222425)
-- [备份 Azure 虚拟机](backup-azure-vms-introduction.md)
+- [备份 Azure 虚拟机](./backup-azure-vms-introduction.md)
 - [备份 Microsoft 工作负荷](./backup-azure-dpm-introduction-classic.md)
-
-

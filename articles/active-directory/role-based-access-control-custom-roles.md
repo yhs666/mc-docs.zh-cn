@@ -15,15 +15,14 @@ ms.workload: identity
 ms.date: 03/21/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 41047be4bef215cb57e08bc50ce0be291ad6b7d5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: 5aafba23b25459514bae2056a450b4ef7575a761
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>创建用于 Azure 基于角色的访问控制的自定义角色
-如果没有符合你特定访问需求的内置角色，可在 Azure 基于角色的访问控制 (RBAC) 中创建自定义角色。 可以使用 [Azure PowerShell](role-based-access-control-manage-access-powershell.md)、[Azure 命令行接口](role-based-access-control-manage-access-azure-cli.md) (CLI) 和 [REST API](role-based-access-control-manage-access-rest.md) 创建自定义角色。 与内置角色一样，可以将自定义角色分配到订阅、资源组和资源范围内的用户、组和应用程序。 自定义角色存储在 Azure AD 租户中，并且可以在将该租户用作其 Azure AD 目录的所有订阅之间共享。
+如果没有符合你特定访问需求的内置角色，可在 Azure 基于角色的访问控制 (RBAC) 中创建自定义角色。 可以使用 [Azure PowerShell](./role-based-access-control-manage-access-powershell.md)、[Azure 命令行接口](./role-based-access-control-manage-access-azure-cli.md) (CLI) 和 [REST API](./role-based-access-control-manage-access-rest.md) 创建自定义角色。 与内置角色一样，可以将自定义角色分配到订阅、资源组和资源范围内的用户、组和应用程序。 自定义角色存储在 Azure AD 租户中，并且可以在将该租户用作其 Azure AD 目录的所有订阅之间共享。
 
 每个租户可以创建最多 2000 个自定义角色。 
 
@@ -118,11 +117,9 @@ azure provider operations show "Microsoft.Network/*"
     Azure RBAC 中的所有内置角色都允许查看可以进行分配的角色。 范围中能够执行 `Microsoft.Authorization/roleDefinition/read` 操作的用户可以查看能在该范围中进行分配的 RBAC 角色。
 
 ## <a name="see-also"></a>另请参阅
-- [基于角色的访问控制](role-based-access-control-configure.md)：Azure 门户中的 RBAC 入门。
+- [基于角色的访问控制](./role-based-access-control-configure.md)：Azure 门户中的 RBAC 入门。
 - 了解如何通过以下方式管理访问权限：
-  - [PowerShell](role-based-access-control-manage-access-powershell.md)
-  - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-  - [REST API](role-based-access-control-manage-access-rest.md)
-- [内置角色](role-based-access-built-in-roles.md)：获取有关 RBAC 中标配角色的详细信息。
-
-
+  - [PowerShell](./role-based-access-control-manage-access-powershell.md)
+  - [Azure CLI](./role-based-access-control-manage-access-azure-cli.md)
+  - [REST API](./role-based-access-control-manage-access-rest.md)
+- [内置角色](./role-based-access-built-in-roles.md)：获取有关 RBAC 中标配角色的详细信息。

@@ -16,13 +16,11 @@ ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
 ms.openlocfilehash: fc66a4bcececf53c671de4148b00cd8bd83d490d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-and-manage-an-elastic-pool-with-the-azure-portal"></a>使用 Azure 门户创建和管理弹性池
 本主题介绍如何使用 Azure 门户创建和管理可缩放的[弹性池](sql-database-elastic-pool.md)。 也可以使用 [PowerShell](sql-database-elastic-pool-manage-powershell.md)、REST API 或 [C#](sql-database-elastic-pool-manage-csharp.md) 创建和管理 Azure 弹性池。 此外还可以使用 [Transact-SQL](sql-database-elastic-pool-manage-tsql.md) 创建弹性池和将数据库移入和移出弹性池。

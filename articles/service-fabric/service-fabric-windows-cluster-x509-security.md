@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: e6476288fbc845f894576ae68525d8897fdbc503
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 67f1e7bfadc9a419bea0c79474870743392c998d
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>使用 X.509 证书在 Windows 上保护独立群集
 本文介绍如何使用 X.509 证书保护独立 Windows 群集的各个节点之间的通信，以及如何对连接到此群集的客户端进行身份验证。 这可确保只有经过授权的用户才能访问该群集和部署的应用程序，以及执行管理任务。  创建群集时，应在该群集上启用证书安全性。  
@@ -285,5 +283,4 @@ Connect-ServiceFabricCluster $ConnectArgs
 > 证书配置不正确会导致在部署时看不到群集。 若要对安全性问题进行自我诊断，请查看事件查看器组（*应用程序和服务日志* > *Microsoft-Service Fabric*）。
 > 
 > 
-
 

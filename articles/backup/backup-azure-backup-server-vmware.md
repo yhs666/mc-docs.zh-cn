@@ -14,12 +14,11 @@ ms.workload: storage-backup-recovery
 origin.date: 03/28/2017
 ms.author: v-junlch
 ms.date: 05/15/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3ff18e6f95d8bbc27348658bc5fce50c3320cf0a
-ms.openlocfilehash: f5a982ca12672217774803e2c19ce845deb3a8eb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/15/2017
-
+ms.openlocfilehash: c22ee6212cf0788c9c0aa563d573f6d07375e5fd
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="back-up-vmware-server-to-azure"></a>将 VMware 服务器备份到 Azure
 
@@ -343,4 +342,3 @@ Azure 备份服务器通过对指定 VMware 用户的凭据进行身份验证来
 可以使用 Azure 备份服务器保护的 VMware 工作负荷包括 [Microsoft Exchange Server](./backup-azure-exchange-mabs.md)、[Microsoft SharePoint 场](./backup-azure-backup-sharepoint-mabs.md)或 [SQL Server](./backup-azure-sql-mabs.md)。
 
 有关如何解决代理注册、保护组配置和备份作业问题的信息，请参阅[排查 Azure 备份服务器问题](./backup-azure-mabs-troubleshoot.md)。
-

@@ -13,16 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/08/2017
-ms.date: 06/05/2017
+ms.date: 07/10/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 53e457f9ac6c92b23271e9a973a9d5b9312577e4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 4c36c38d1294596c28e2bb122f2316f313449fe5
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
 # <a name="upload-files-from-your-simulated-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从模拟设备上传到云
 ## <a name="introduction"></a>介绍
 Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一个解决方案后端之间实现安全可靠的双向通信。 （[IoT 中心入门]和[使用 IoT 中心发送云到设备消息]）教程介绍了 IoT 中心提供的基本的设备到云和云到设备消息传递功能。 [处理设备到云的消息]教程介绍了一种在 Azure Blob 存储中可靠存储设备到云消息的方法。 但是，在某些情况下，你无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 例如，包含图像、视频、以高频率采样的震动数据或者某种形式的预处理数据的大型文件。 通常使用 [Hadoop] 堆栈等工具在云中批处理这些文件。 如果你偏好通过从设备上传文件来发送事件，仍可以使用 IoT 中心的安全性与可靠性功能。
@@ -169,7 +167,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [使用 IoT Edge 模拟设备][lnk-gateway]
+* [使用 IoT Edge 模拟设备][lnk-iotedge]
 
 <!-- Images. -->
 
@@ -183,12 +181,12 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 [Azure 门户]: https://portal.azure.cn/
 
 
-[Hadoop]: ../hdinsight/index.md
+[Hadoop]: /hdinsight/
 
 [使用 IoT 中心发送云到设备消息]: ./iot-hub-csharp-csharp-c2d.md
 [处理设备到云的消息]: ./iot-hub-csharp-csharp-process-d2c.md
 [IoT 中心入门]: ./iot-hub-csharp-csharp-getstarted.md
-[Azure IoT 开发人员中心]: /develop/iot
+[Azure IoT 开发人员中心]: https://www.azure.cn/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [Azure 存储]: ../storage/storage-create-storage-account.md#create-a-storage-account
@@ -200,4 +198,6 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-gateway]: ./iot-hub-windows-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-windows-iot-edge-simulated-device.md
+
+

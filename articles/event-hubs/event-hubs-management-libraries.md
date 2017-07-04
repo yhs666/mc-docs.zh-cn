@@ -4,8 +4,8 @@ description: "通过 .NET 管理事件中心命名空间和实体"
 services: event-hubs
 cloud: na
 documentationcenter: na
-author: jtaubensee
-manager: timlt
+author: rockboyfor
+manager: digimobile
 ms.assetid: 
 ms.service: event-hubs
 ms.workload: na
@@ -13,16 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 04/10/2017
-ms.date: 05/08/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 0fadb5c3724bdfadb30f5b479ea7f8545549d063
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: c2ffcfcdf9fda9dc9819d3f6b1c51e4a1457042e
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="event-hubs-management-libraries"></a>事件中心管理库
 
 事件中心管理库可以动态设置事件中心命名空间和实体。 这样可以实现复杂的部署和消息传递方案，以便能够以编程方式确定要设置的实体。 这些库目前可用于 .NET。
@@ -48,7 +46,6 @@ ms.lasthandoff: 04/28/2017
 所有事件中心资源的操纵模式都遵循常用协议：
 
 1. 使用 `Microsoft.IdentityModel.Clients.ActiveDirectory` 库从 Azure Active Directory 获取令牌。
-
     ```csharp
     var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
 
@@ -85,4 +82,4 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="next-steps"></a>后续步骤
 * [.NET 管理示例](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
-* [Microsoft.Azure.Management.EventHub 引用](http://docs.microsoft.com/zh-cn/dotnet/api/Microsoft.Azure.Management.EventHub)
+* [Microsoft.Azure.Management.EventHub 引用](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.EventHub)

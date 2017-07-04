@@ -3,8 +3,8 @@ title: "创建内部负载均衡器 - Azure CLI | Azure"
 description: "了解如何在 Resource Manager 中使用 Azure CLI 创建内部负载均衡器"
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 tags: azure-resource-manager
 ms.assetid: c7a24e92-b4da-43c0-90f2-841c1b7ce489
 ms.service: load-balancer
@@ -15,14 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 01/23/2017
 ms.date: 04/17/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: e4a7e778a7fccc4528b7f5b234041e7d5efc41fa
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: b8e036cdefe2e40385222f2cae3f470c325a4caf
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-
 # <a name="create-an-internal-load-balancer-by-using-the-azure-cli"></a>使用 Azure CLI 创建内部负载均衡器
 > [!div class="op_single_selector"]
 > * [Azure 门户](./load-balancer-get-started-ilb-arm-portal.md)

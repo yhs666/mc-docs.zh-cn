@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 7c1b87df3adc1867fc0b44644a348dda73a83762
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 8e4c226b09fd61395f7ac634a8c7ca4a27b3ef40
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>使用基于角色的访问控制管理 Azure Site Recovery
 
@@ -80,4 +78,3 @@ Azure 提供各种内置角色来控制资源管理操作。 详细了解 [Azure
   * [Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md)
   * [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 * [基于角色的访问控制故障排除](../active-directory/role-based-access-control-troubleshooting.md)：获取解决常见问题的建议。
-

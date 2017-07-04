@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 8f169f5b9087bc0cc5639844071b6f6eb7acf6c4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 328a614f093f56860867030d035235f4a61473c0
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>使用 Visual Studio 连接服务添加 Azure 存储
 在 Visual Studio 中，通过使用“添加连接服务”对话框可将以下任何服务连接到 Azure 存储：
@@ -75,6 +73,5 @@ ms.lasthandoff: 05/12/2017
 ## <a name="next-steps"></a>后续步骤
 - [MSDN 论坛：Azure 存储](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=windowsazuredata)
 - [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/)
-- [Azure 存储文档](https://docs.microsoft.com/azure/storage/)
-
+- [Azure 存储文档](/storage/)
 

@@ -16,15 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/08/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
 ms.openlocfilehash: f41b5486b9ef5458dfdd6cc41c343312f5f6eea8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="implement-a-multi-tenant-saas-application-using-azure-sql-database"></a>实现使用 Azure SQL 数据库的多租户 SaaS 应用程序
 
 多租户应用程序是指云环境中托管的应用程序，它向不共享数据或看不到彼此数据的数百或数千个租户提供一组相同的服务。 例如向云托管环境中的租户提供服务的 SaaS 应用程序。 此模型隔离每个租户的数据，并优化资源的分布以降低成本。 
@@ -519,7 +516,6 @@ Remove-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
 * 有关多租户 SaaS 应用程序的设计模式，请参阅[设计模式](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)
 
 * 有关常见 Azure 任务的 Java 示例，请参阅 [Java 开发人员中心](/develop/java/)
-
 
 
 

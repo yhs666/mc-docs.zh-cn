@@ -17,13 +17,11 @@ ms.workload: big-data
 origin.date: 05/03/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 1bbbbf51f7fd2d93967ab4cd1f2446fc63e084f8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: b2c85897b7dcc74e0efbb00fa4eb8816ef2de0c6
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>使用 REST 通过 HDInsight 上的 Hadoop 运行 Pig 作业
 
@@ -38,8 +36,8 @@ ms.lasthandoff: 05/26/2017
 
 * Azure HDInsight（HDInsight 上的 Hadoop）群集（基于 Linux 或 Windows）
 
-    > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+  > [!IMPORTANT]
+  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 * [Curl](http://curl.haxx.se/)
 
@@ -68,7 +66,7 @@ ms.lasthandoff: 05/26/2017
     * **-u**：用来对请求进行身份验证的用户名和密码。
     * **-G**：指示此请求是 GET 请求
 
-    所有请求的 URL 开头都是 **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**。 路径 **/status** 指示请求是要返回服务器的 WebHCat（也称为 Templeton）状态。
+     所有请求的 URL 开头都是 **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**。 路径 **/status** 指示请求是要返回服务器的 WebHCat（也称为 Templeton）状态。
 
 2. 使用以下代码将 Pig Latin 作业提交到群集：
 
@@ -126,4 +124,3 @@ HDInsight 可以使用 Azure 存储作为默认数据存储。 有关详细信�
 
 * [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
-

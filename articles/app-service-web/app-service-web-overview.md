@@ -15,13 +15,12 @@ ms.topic: get-started-article
 origin.date: 01/04/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 2fd5d0cefb8b93cf81862ffe546352631793af61
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.custom: mvc
+ms.openlocfilehash: bc736bd7b7efc30cdc6c2cd67b10d53aa84d8e42
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="web-apps-overview"></a>Web 应用概述
 *应用服务 Web 应用* 是一个完全托管的计算平台，非常适合用来托管网站和 Web 应用程序。 Azure 提供的这个 [平台即服务](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) 产品，使你可以在 Azure 维护用于运行和扩展应用的基础结构时，重点关注业务逻辑。
@@ -61,4 +60,3 @@ ms.lasthandoff: 04/22/2017
 > * [在 5 分钟内将第一个 HTML 站点部署到 Azure](app-service-web-get-started-html.md)
 > 
 >
-

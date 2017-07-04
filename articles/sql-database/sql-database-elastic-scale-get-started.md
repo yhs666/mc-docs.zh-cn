@@ -15,20 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: bb83af56b692771d3154d8e868780fc65ae5f03a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
-
+ms.openlocfilehash: 971651026870e7bbf097fe0f0f81ccfa7584f0f5
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="get-started-with-elastic-database-tools"></a>弹性数据库工具入门
 本文介绍开发人员运行示例应用时的体验。 此示例将创建一个简单的分片应用程序，并探讨弹性数据库工具的主要功能。 此示例演示[弹性数据库客户端库](sql-database-elastic-database-client-library.md)的功能
 
 若要安装该库，请转到 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。 该库和下述示例应用一起安装。
 
-## <a name="prerequisites"></a>先决条件
+##<a name="Getting-started-with-elastic-database-tools"></a>先决条件
 1. 必须安装 C# 版 Visual Studio 2012 或更高版本。 可以从 [Visual Studio 下载页面](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)下载免费版本。
 2. NuGet 2.7 或更高版本。 若要获取最新版本，请参阅 [安装 NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)
 

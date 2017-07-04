@@ -9,16 +9,15 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: reference
 ms.assetid: 8473bab4-6c16-4ee2-8d78-22fa3ca87487
-caps.latest.revision: 4
+caps.latest.revision: "4"
 author: tamram
 ms.author: v-junlch
 manager: timlt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
 ms.openlocfilehash: 3553b5f98d60a2d334f04285dee9cddcd1bf5027
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="pool-create-event"></a>池创建事件
 池创建事件日志正文
@@ -101,4 +100,3 @@ ms.lasthandoff: 06/09/2017
 |元素名称|类型|说明|
 |------------------|--------------|----------|
 |subnetId|String|指定创建池计算节点的子网的资源标识符。|
-

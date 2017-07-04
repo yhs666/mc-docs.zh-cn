@@ -3,7 +3,7 @@ title: "使用 PowerShell 管理 Azure 解决方案 | Azure"
 description: "使用 Azure PowerShell 和 Resource Manager 管理资源。"
 services: azure-resource-manager
 documentationcenter: 
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 ms.assetid: b33b7303-3330-4af8-8329-c80ac7e9bc7f
@@ -15,14 +15,12 @@ ms.topic: article
 origin.date: 04/19/2017
 ms.date: 06/05/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 7ec6d311d8ee930c87625cb4accba87863555676
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 8fadc27af4fc93a7214caec3c383fd94bd4bea8e
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="manage-resources-with-azure-powershell-and-resource-manager"></a>使用 Azure PowerShell 和 Resource Manager 管理资源
 > [!div class="op_single_selector"]
 > * [门户](resource-group-portal.md)

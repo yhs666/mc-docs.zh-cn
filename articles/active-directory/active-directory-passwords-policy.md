@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 04/26/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 926c9504ebe2e14e51bd3230deaa794a5db5a7da
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: eeefe03003ea6fd878489178a7f69ab5939ef738
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory 中的密码策略和限制
 
@@ -89,5 +87,4 @@ Microsoft 云服务的全局管理员可使用用于 Windows PowerShell 的 Azur
 
    - 若要将某一个用户的密码设置为永不过期，请使用用户主体名称 (UPN) 或该用户的用户 ID 运行以下 cmdlet：`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    - 若要将组织中所有用户的密码设置为永不过期，请运行以下 cmdlet： `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
-
 

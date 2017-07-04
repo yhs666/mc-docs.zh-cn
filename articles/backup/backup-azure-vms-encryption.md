@@ -15,14 +15,12 @@ ms.workload: storage-backup-recovery
 origin.date: 01/18/2017
 ms.date: 03/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: a1d85970a10545de0ff776381d44d1fdbd524cff
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 156410a8cb294bec4ddcf9d75ea9329f64f3748b
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="backup-and-restore-encrypted-vms-using-azure-backup"></a>使用 Azure 备份来备份和还原加密型 VM
 本文介绍使用 Azure 备份来备份和还原虚拟机的步骤， 同时提供有关支持的方案、先决条件和错误案例故障排除步骤的详细信息。
 

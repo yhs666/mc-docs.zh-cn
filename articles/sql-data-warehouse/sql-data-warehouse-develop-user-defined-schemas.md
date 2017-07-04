@@ -1,38 +1,45 @@
 ---
-title: SQL 数据仓库中用户定义的架构 | Azure
-description: 有关在开发解决方案时使用 Azure SQL 数据仓库中的 Transact-SQL 架构的技巧。
+title: "SQL 数据仓库中用户定义的架构 | Azure"
+description: "有关在开发解决方案时使用 Azure SQL 数据仓库中的 Transact-SQL 架构的技巧。"
 services: sql-data-warehouse
-documentationCenter: NA
-authors: jrowlandjones
-manager: barbkess
-editor: ''
-
+documentationcenter: NA
+author: rockboyfor
+manager: jhubbard
+editor: 
+ms.assetid: 52af5bd5-d5d3-4f9b-8704-06829fb924e3
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 origin.date: 10/31/2016
 ms.date: 01/17/2017
 ms.author: v-yeche
+ms.openlocfilehash: 06ece10c4a691056ffd1d3518da2126388f8b440
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
+# <a name="user-defined-schemas-in-sql-data-warehouse"></a>SQL 数据仓库中用户定义的架构
+传统数据仓库通常使用不同的数据库，根据工作负荷、域或安全性来创建应用程序边界。 例如，传统 SQL Server 数据仓库可能包含过渡数据库、数据仓库数据库和某些数据集市数据库。 在此拓扑中，每个数据库均作为体系结构中的工作负荷和安全边界来运行。
 
-# SQL 数据仓库中用户定义的架构
-传统数据仓库通常使用不同的数据库，根据工作负荷、域或安全性来创建应用程序边界。例如，传统 SQL Server 数据仓库可能包含过渡数据库、数据仓库数据库和某些数据集市数据库。在此拓扑中，每个数据库均作为体系结构中的工作负荷和安全边界来运行。
-
-相比之下，SQL 数据仓库在一个数据库中运行整个数据仓库工作负荷。不允许跨数据库联接。因此，SQL 数据仓库预期仓库使用的所有表都存储在一个数据库中。
+相比之下，SQL 数据仓库在一个数据库中运行整个数据仓库工作负荷。 不允许跨数据库联接。 因此，SQL 数据仓库预期仓库使用的所有表都存储在一个数据库中。
 
 > [!NOTE]
-> SQL 数据仓库不支持任何种类的跨数据库查询。因此，需要修改利用此模式的数据仓库实现。
+> SQL 数据仓库不支持任何种类的跨数据库查询。 因此，需要修改利用此模式的数据仓库实现。
+> 
+> 
 
-## 建议
+## <a name="recommendations"></a>建议
 以下是针对使用用户定义的架构合并工作负荷、安全性、域和功能边界的一些建议
 
 1. 使用一个 SQL 数据仓库数据库来运行整个数据仓库工作负荷
 2. 合并现有的数据仓库环境，以使用一个 SQL 数据仓库数据库
-3. 利用**用户定义的架构**来提供以前使用数据库实现的边界。
+3. 利用 **用户定义的架构** 来提供以前使用数据库实现的边界。
 
-如果以前尚未使用用户定义的架构，则就不会存在任何记录。只需使用旧数据库名称作为 SQL 数据仓库数据库中用户定义架构的基础。
+如果以前尚未使用用户定义的架构，则就不会存在任何记录。 只需使用旧数据库名称作为 SQL 数据仓库数据库中用户定义架构的基础。
 
 如果已使用架构，则你可以采用以下几个选项：
 
@@ -41,9 +48,11 @@ ms.author: v-yeche
 3. 在额外架构中的表上实现视图来重建旧架构结构，以保留旧架构名称。
 
 > [!NOTE]
-> 在首次检查时，选项 3 似乎像是最吸引人的选项。但是，细节决定成败。SQL 数据仓库中的视图为只读状态。任何表修改或数据修改只能针对基础表执行。选项 3 还在系统中引入了一个视图层。如果已在体系结构中使用视图，你可以再三考虑一下此选项。
+> 在首次检查时，选项 3 似乎像是最吸引人的选项。 但是，细节决定成败。 SQL 数据仓库中的视图为只读状态。 任何表修改或数据修改只能针对基础表执行。 选项 3 还在系统中引入了一个视图层。 如果已在体系结构中使用视图，你可以再三考虑一下此选项。
+> 
+> 
 
-### 示例:
+### <a name="examples"></a>示例:
 基于数据库名称实现用户定义的架构
 
 ```sql
@@ -62,7 +71,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 );
 ```
 
-在表名称前面附加旧架构名称，以保留旧架构名称。使用工作负荷边界的架构。
+在表名称前面附加旧架构名称，以保留旧架构名称。 使用工作负荷边界的架构。
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -90,12 +99,12 @@ GO
 CREATE SCHEMA [dim]; -- edw defines the legacy schema name boundary
 GO
 CREATE TABLE [stg].[customer] -- create the base staging tables in the staging boundary
-(       CustKey	BIGINT NOT NULL
+(       CustKey BIGINT NOT NULL
 ,       ...
 )
 GO
 CREATE TABLE [edw].[customer] -- create the base data warehouse tables in the data warehouse boundary
-(       CustKey	BIGINT NOT NULL
+(       CustKey BIGINT NOT NULL
 ,       ...
 )
 GO
@@ -103,23 +112,23 @@ CREATE VIEW [dim].[customer] -- create a view in the legacy schema name boundary
 AS
 SELECT  CustKey
 ,       ...
-FROM	[edw].customer
+FROM    [edw].customer
 ;
 ```
 
 > [!NOTE]
-> 如果架构策略发生任何更改，则需要检查数据库的安全模型。在许多情况下，你可以在架构级别分配权限，以简化安全模型。如果需要更高粒度的权限，可以使用数据库角色。
+> 如果架构策略发生任何更改，则需要检查数据库的安全模型。 在许多情况下，你可以在架构级别分配权限，以简化安全模型。 如果需要更高粒度的权限，可以使用数据库角色。
+> 
+> 
 
-## 后续步骤
-有关更多开发技巧，请参阅[开发概述][]。
+## <a name="next-steps"></a>后续步骤
+有关更多开发技巧，请参阅 [开发概述][development overview]。
 
 <!--Image references-->
 
 <!--Article references-->
-[开发概述]: ./sql-data-warehouse-overview-develop.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-<!---HONumber=Mooncake_Quality_Review_0117_2017-->

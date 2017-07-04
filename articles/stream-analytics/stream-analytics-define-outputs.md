@@ -16,13 +16,11 @@ ms.workload: data-services
 origin.date: 03/28/2017
 ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 9613116fb0cbb3fea2f563ffdcc0b7ce9345a82a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: 5a298e17839b1a923aeefb1231f4f241d34700fb
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>流分析输出：存储、分析选项
 创作流分析作业时，需考虑如何使用生成的数据。 如何查看流分析作业的结果？流分析作业的结果存储在何处？

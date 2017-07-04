@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 04/07/2016
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: c8bcc2601eca40b8b6958c70dcc41749c288db6a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 33e650a592c164c31206b624b9d55bb158787d26
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="deploy-a-guest-executable-to-service-fabric"></a>将来宾可执行文件部署到 Service Fabric
 可以在 Azure Service Fabric 中运行任何类型的应用程序，如 Node.js、Java 或本机应用程序。 Service Fabric 将这些类型的应用程序称为来宾可执行文件。
@@ -354,5 +352,4 @@ Yeoman 已创建应用程序包，其中包含相应的应用程序和清单文�
 * [使用 REST 通过命名服务进行通信的两种来宾可执行文件（C# 和 nodejs）示例](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 * [部署多个来宾可执行文件](service-fabric-deploy-multiple-apps.md)
 * [使用 Visual Studio 创建第一个 Service Fabric 应用程序](service-fabric-create-your-first-application-in-visual-studio.md)
-
 

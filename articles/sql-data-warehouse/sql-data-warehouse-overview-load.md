@@ -1,9 +1,9 @@
 ---
-title: "将数据加载到 Azure SQL 数据仓库 |Microsoft 文档"
-description: "了解将数据加载到 SQL 数据仓库的常见方案。 这些常见方案包括使用 PolyBase、Azure Blob 存储、平面文件以及磁盘寄送。 也可使用第三方工具。"
+title: "将数据载入 Azure SQL 数据仓库 | Azure"
+description: "了解将数据载入 SQL 数据仓库的常见方案。 这些常见方案包括使用 PolyBase、Azure Blob 存储、平面文件以及磁盘寄送。 也可使用第三方工具。"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: rockboyfor
 manager: jhubbard
 editor: 
 ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
@@ -12,17 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 origin.date: 10/31/2016
-ms.author: v-yeche
 ms.date: 04/24/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 02d57a17601f5cce34dbf10ab06aa42f22b4df7c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.author: v-yeche
+ms.openlocfilehash: 8113bdeb55bfc3af254587ffe4a05489205d5a17
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="load-data-into-azure-sql-data-warehouse"></a>将数据载入 Azure SQL 数据仓库
 本文汇总了将数据载入 SQL 数据仓库时的方案选项和建议。
 
@@ -33,7 +32,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="load-from-azure-blob-storage"></a>从 Azure Blob 存储加载
 将数据导入 SQL 数据仓库时，最快的方式是使用 PolyBase 从 Azure Blob 存储加载数据。 PolyBase 使用 SQL 数据仓库的大规模并行处理 (MPP) 设计以并行方式从 Azure Blob 存储加载数据。 若要使用 PolyBase，可以使用 T-SQL 命令或 Azure 数据工厂管道。
 
-### <a name="use-polybase-and-t-sql"></a>使用 PolyBase 和 T-SQL
+### <a name="1-use-polybase-and-t-sql"></a>1.使用 PolyBase 和 T-SQL
 加载过程摘要：
 
 1. 将数据移到 Azure Blob 存储并存储在文本文件中。    <!--Data Lake Store Not supported in ACN-->
@@ -43,7 +42,6 @@ ms.lasthandoff: 04/14/2017
 <!-- 5. Schedule and run a loading job. --> 
 
 有关教程，请参阅[将数据从 Azure Blob 存储加载到 SQL 数据仓库 (PolyBase)][Load data from Azure blob storage to SQL Data Warehouse (PolyBase)]。
-
 <!-- ADF Not supported in ACN-->
 
 ## <a name="load-from-sql-server"></a>从 SQL Server 加载
@@ -96,7 +94,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="load-from-hdinsight"></a>从 HDInsight 加载
 SQL 数据仓库支持通过 PolyBase 从 HDInsight 加载数据。 该过程和从 Azure Blob 存储加载数据一样 - 使用 PolyBase 连接到 HDInsight 以加载数据。 
 
-### <a name="use-polybase-and-t-sql"></a>使用 PolyBase 和 T-SQL
+### <a name="1-use-polybase-and-t-sql"></a>1.使用 PolyBase 和 T-SQL
 加载过程摘要：
 
 1. 将数据移到 HDInsight，并将其存储为文本文件、ORC 或 Parquet 格式。
@@ -106,7 +104,7 @@ SQL 数据仓库支持通过 PolyBase 从 HDInsight 加载数据。 该过程和
 有关教程，请参阅[将数据从 Azure Blob 存储加载到 SQL 数据仓库 (PolyBase)][Load data from Azure blob storage to SQL Data Warehouse (PolyBase)]。
 
 ## <a name="recommendations"></a>建议
-<!-- Not supported in Azure.cn 我们的很多合作伙伴都提供加载解决方案。 若要获取更多解决方案，请参阅我们的 [解决方案合作伙伴][solution partners]的列表。 -->
+<!-- Not supported in Azure.cn Many of our partners have loading solutions. To find out more, see a list of our [solution partners][solution partners]. -->
 如果你的数据来自非关系源，而你想要将其载入 SQL 数据仓库，则需在加载前先将其转换成行和列。 已转换的数据不需存储在数据库中，可以存储在文本文件中。
 
 基于新加载的数据创建统计信息。 Azure SQL 数据仓库尚不支持自动创建或自动更新统计信息。  为了获得查询的最佳性能，在首次加载数据或者在数据发生重大更改之后，创建所有表的所有列统计信息非常重要。  有关详细信息，请参阅 [统计信息][Statistics]。
@@ -118,7 +116,7 @@ SQL 数据仓库支持通过 PolyBase 从 HDInsight 加载数据。 该过程和
 
 <!--Article references-->
 [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory)]: /documentation/articles/sql-data-warehouse-load-from-azure-blob-storage-with-data-factory/
+[Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
 [Load data from SQL Server to Azure SQL Data Warehouse (SSIS)]: ./sql-data-warehouse-load-from-sql-server-with-integration-services.md
 [Load data from SQL Server to Azure SQL Data Warehouse (bcp)]: ./sql-data-warehouse-load-from-sql-server-with-bcp.md
 [Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)]: ./sql-data-warehouse-load-from-sql-server-with-azcopy.md

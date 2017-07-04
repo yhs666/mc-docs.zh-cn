@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2017
+origin.date: 02/16/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 004e2e58f3b2fe5d82196aa3e95cbc5a39eacfce
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.date: 07/10/2017
+ms.openlocfilehash: a4a641fe6cc2430aad6a2a94a18f9e6985849eef
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
 [!INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 
 ## <a name="see-also"></a>另请参阅
@@ -30,8 +29,8 @@ ms.lasthandoff: 06/09/2017
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [使用 Azure IoT Edge 模拟设备][lnk-gateway]
+* [使用 Azure IoT Edge 模拟设备][lnk-iotedge]
 
 [lnk-security-deployment]: ./iot-hub-security-deployment.md
 
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md

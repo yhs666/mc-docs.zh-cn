@@ -17,15 +17,12 @@ ms.topic: article
 origin.date: 04/04/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: a060146bc86b8b49ef5050c5e59c0b419931e8d1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 11d14e14975a69974c01cb8ddab0366ebdba8152
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="combining-scaler-and-sparkr-in-hdinsight"></a>在 HDInsight 中将 ScaleR 和 SparkR 合并
 
 了解如何结合使用用于在 Spark 中处理数据的 ScaleR 功能与用于分析的 Microsoft R Server 功能。 尽管这两个包在 Hadoop 的 Spark 执行引擎的顶层运行以利用分布式处理中的最新功能，但它们需要自身的 Spark 会话，因此无法共享内存中的数据。 在将来的 R Server 版本中解决此项限制之前，解决方法是保留非重叠的 Spark 会话，并通过中间文件交换数据。 可以看到，这两项要求的实现都相当直截了当。
@@ -543,11 +540,10 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 - 有关使用 Spark 上的 R Server 的详细信息，请参阅 [MSDN 上的入门指南](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
-- 有关 R Server 的一般信息，请参阅 [Get started with R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node)（R 入门）一文。
+- 有关 R Server 的一般信息，请参阅 [Get started with R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) （R 入门）一文。
 
 有关 SparkR 用法的详细信息，请参阅以下资源：
 
 - [Apache SparkR 文档](https://spark.apache.org/docs/2.1.0/sparkr.html)
 
 - [SparkR Overview](https://docs.databricks.com/spark/latest/sparkr/overview.html) （SparkR 概述）
-

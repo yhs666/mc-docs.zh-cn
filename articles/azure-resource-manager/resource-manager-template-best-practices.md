@@ -3,7 +3,7 @@ title: "有关创建 Resource Manager 模板的最佳做法 | Azure"
 description: "有关简化 Azure Resource Manager 模板的指导。"
 services: azure-resource-manager
 documentationcenter: 
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 ms.assetid: 31b10deb-0183-47ce-a5ba-6d0ff2ae8ab3
@@ -15,14 +15,12 @@ ms.topic: article
 origin.date: 03/31/2017
 ms.date: 06/05/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: c4e53ff6a790555505ec8f72f654a36060100399
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 31747f838b8ab5e0010f9b828ec1ae1b55324d1c
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>有关创建 Resource Manager 模板的最佳做法
 本文中的指导可帮助你创建可靠且易于使用的 Azure Resource Manager 模板。 这些指导只属于建议， 除非有明确的规定，否则不一定非要遵循。 在具体的场合下，可能需要对以下方法或示例之一做出变通。
 
@@ -33,8 +31,8 @@ ms.lasthandoff: 05/26/2017
 * 不一定要唯一的资源名称，不过，提供的名称应可帮助根据上下文识别资源。
 * 通用的资源名称。
 
+<!-- Not Available /guidance/guidance-naming-conventions.md -->
 有关建立命名约定的帮助，请参阅 [Azure 基础结构命名准则](../virtual-machines/virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-
 
 ### <a name="unique-resource-names"></a>唯一的资源名称
 对于具有数据访问终结点的任何资源类型，必须提供唯一的资源名称。 需要唯一名称的一些常见资源类型包括：
@@ -276,6 +274,7 @@ ms.lasthandoff: 05/26/2017
    
     有关连接到虚拟机的详细信息，请参阅：
    
+    <!-- Not Available guidance/guidance-compute-n-tier-vm.md-->
     * [在 Azure Resource Manager 中设置对 VM 的 WinRM 访问](../virtual-machines/windows/winrm.md)
     * [使用 Azure 门户实现对 VM 的外部访问](../virtual-machines/windows/nsg-quickstart-portal.md)
     * [使用 PowerShell 实现对 VM 的外部访问](../virtual-machines/windows/nsg-quickstart-powershell.md)
@@ -395,7 +394,7 @@ ms.lasthandoff: 05/26/2017
 另外，一个不错的想法是设置 JSON 的格式以以提高可读性。 可以为本地编辑器使用 JSON 格式化程序包。 在 Visual Studio 中，按 **Ctrl+K、Ctrl+D** 设置文档的格式。 在 Visual Studio Code 中，按 **Alt+Shift+F**。 如果你的本地编辑器无法设置文档格式，你可以使用 [联机格式化程序](https://www.bing.com/search?q=json+formatter)。
 
 ## <a name="next-steps"></a>后续步骤
-
+<!-- Not Available on Guidance Directory-->
 * 有关设置存储帐户的指导，请参阅 [Azure 存储性能和可伸缩性清单](../storage/storage-performance-checklist.md)。
 * 有关虚拟网络的帮助，请参阅[网络基础结构指南](../virtual-machines/windows/infrastructure-networking-guidelines.md)。
 * 若要了解企业如何使用 Resource Manager 有效管理订阅，请参阅 [Azure 企业基架：规范性订阅管理](resource-manager-subscription-governance.md)。

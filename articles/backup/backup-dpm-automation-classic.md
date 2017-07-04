@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 0efb062da6700b5b35ce03d049c27030d51f7879
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: cb546590709ea2ded542aab9be310ac914dba03c
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>使用 PowerShell 部署和管理 Data Protection Manager (DPM) 服务器的 Azure 备份
 > [!div class="op_single_selector"]
-> * [ARM](backup-dpm-automation.md)
-> * [经典](backup-dpm-automation-classic.md)
+> * [ARM](./backup-dpm-automation.md)
+> * [经典](./backup-dpm-automation-classic.md)
 >
 >
 
@@ -120,7 +118,7 @@ PS C:\> MARSAgentInstaller.exe /?
 | /pw | 代理密码 | - |
 
 ### <a name="registering-with-the-azure-backup-service"></a>注册到 Azure 备份服务
-在可注册 Azure 备份服务之前，需要确保符合[先决条件](backup-azure-dpm-introduction-classic.md)。 必须具备以下条件：
+在可注册 Azure 备份服务之前，需要确保符合[先决条件](./backup-azure-dpm-introduction-classic.md)。 必须具备以下条件：
 
 - 具备有效的 Azure 订阅
 - 有一个备份保管库
@@ -267,7 +265,7 @@ PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS -Onlin
 PS C:\> Set-DPMPolicyObjective -ProtectionGroup $MPG -RetentionRangeInDays 10 -SynchronizationFrequencyMinutes 360
 ```
 
-为了将备份转移到 Azure（DPM 将此称为联机备份），可将保留范围配置为[使用祖父-父-子方案 (GFS) 的长期保留](backup-azure-backup-cloud-as-tape.md)。 也就是说，你可以定义组合保留策略，其中包括每日、每周、每月和每年保留策略。 在此示例中，我们将创建一个用于表示所需复杂保留配置的数组，然后使用 [Set-DPMPolicyObjective](https://technet.microsoft.com/library/hh881762) cmdlet 配置保留范围。
+为了将备份转移到 Azure（DPM 将此称为联机备份），可将保留范围配置为[使用祖父-父-子方案 (GFS) 的长期保留](./backup-azure-backup-cloud-as-tape.md)。 也就是说，你可以定义组合保留策略，其中包括每日、每周、每月和每年保留策略。 在此示例中，我们将创建一个用于表示所需复杂保留配置的数组，然后使用 [Set-DPMPolicyObjective](https://technet.microsoft.com/library/hh881762) cmdlet 配置保留范围。
 
 ```
 PS C:\> $RRlist = @()
@@ -349,6 +347,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 可针对任何数据源类型轻松扩展这些命令。
 
 ## <a name="next-steps"></a>后续步骤
-- 有关适用于 DPM 的 Azure 备份的详细信息，请参阅[DPM 备份简介](backup-azure-dpm-introduction-classic.md)
-
-
+- 有关适用于 DPM 的 Azure 备份的详细信息，请参阅[DPM 备份简介](./backup-azure-dpm-introduction-classic.md)

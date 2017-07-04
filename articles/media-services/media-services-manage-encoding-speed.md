@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: a31b0be1a3923fa7d559b5375ab2bd93717be3fe
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 783a6efee9c31ac468fdb836bf9c14f8d2e7ea13
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 #  <a name="manage-speed-and-concurrency-of-your-encoding"></a>管理编码的速度和并发
 
@@ -37,7 +35,6 @@ ms.lasthandoff: 04/14/2017
 ## <a name="next-step"></a>后续步骤
 
 [缩放编码单位](media-services-scale-media-processing-overview.md)
-
 
 
 

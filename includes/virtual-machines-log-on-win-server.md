@@ -11,4 +11,4 @@
     **域控制器** - 如果 VM 是域控制器，请键入该域的域管理员帐户的用户名和密码。
 4. 单击“是”验证虚拟机的 ID 并完成登录。
 
-    ![显示有关验证 VM 标识的消息的屏幕截图。](./media/virtual-machines-log-on-win-server/cert-warning.png)
+   ![显示有关验证 VM 标识的消息的屏幕截图。](./media/virtual-machines-log-on-win-server/cert-warning.png)

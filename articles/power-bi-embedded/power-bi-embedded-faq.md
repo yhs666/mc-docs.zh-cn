@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/02/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 4decc8298845332291dd221d47d6fefc490f05e4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: a5c7787b2dda8e5f8199d9b9c80b450ceb1b3d5e
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="power-bi-embedded-faq"></a>Power BI Embedded 常见问题解答
 ## <a name="whats-your-most-recent-announcement-about-power-bi-embedded"></a>有关 Power BI Embedded 的最新公告是什么？
@@ -85,7 +83,7 @@ Power BI Embedded 服务使用“应用令牌”进行身份验证和授权，�
 开发人员/员工操作或创建应用程序时将需要具有 AAD 用户帐户才能通过 Azure 门户管理 Azure 订阅和工作区集合。 开发人员可以使用编程 API 导入报表、修改连接字符串、获取嵌入式 URL、改用应用令牌进行身份验证，因此无需使用 AAD。 有关如何使用 API 和 Azure 门户的详细信息，请参阅 Azure.com 中的 [Power BI Embedded documentation ](index.md) （Power BI Embedded 文档）页。
 
 ## <a name="where-can-i-learn-more"></a>可以从何处了解详细信息？
-可以访问 [Power BI Embedded documentation](http://go.microsoft.com/fwlink/?LinkId=760526)（Power BI Embedded 文档）页。 通过访问 Power BI 开发人员博客或通过访问 dev.powerbi.com 中的 Power BI 开发人员中心，可以了解该服务的最新信息。 也可以在 [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi)上提问。
+可以访问 [Power BI Embedded documentation](http://go.microsoft.com/fwlink/?LinkId=760526)（Power BI Embedded 文档）页。 通过访问 [Power BI 开发人员博客](http://blogs.msdn.com/powerbidev) 或通过访问 dev.powerbi.com 中的 Power BI 开发人员中心，可以了解该服务的最新信息。 也可以在 [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi)上提问。
 
 ## <a name="how-do-i-get-started"></a>如何开始？
 可以立即开始体验免费版！ 如果拥有 Azure 订阅，现在就可以直接从 Azure 门户预配 Power BI Embedded。  也可以创建自己的 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。 一旦 Power BI Embedded 服务预配完毕，就可以直接轻松使用 Power BI REST API，或使用 [GitHub](https://www.nuget.org/profiles/powerbi)上提供的开发人员 SDK。 关于如何使用开发人员 SDK 提供的示例。
@@ -97,6 +95,5 @@ Power BI Embedded 服务使用“应用令牌”进行身份验证和授权，�
 [示例入门](power-bi-embedded-get-started-sample.md)   
 [JavaScript 嵌入示例](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
-
 
 

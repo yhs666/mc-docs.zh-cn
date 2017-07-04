@@ -16,14 +16,12 @@ ms.workload: tbd
 origin.date: 04/14/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: a87e3f84151ef383f7696b2494357239e4a53d77
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: 407f6e16a3231ed15be58ee32b7139be4b55905f
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="create-an-azure-redis-cache"></a>创建 Azure Redis 缓存
 
 此方案介绍如何创建 Azure Redis 缓存。

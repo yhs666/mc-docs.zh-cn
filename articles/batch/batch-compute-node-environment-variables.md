@@ -9,16 +9,15 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 3990f0c8-b627-432f-9551-5ce10f9bb0ca
-caps.latest.revision: 14
+caps.latest.revision: "14"
 author: tamram
 ms.author: v-junlch
 manager: timlt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cd90c53e4ba6faaae9c8dce1df24a1cf76e3a774
 ms.openlocfilehash: 1337e96d7b64cc8d794c35dda2ef96ae68e80adc
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch 计算节点环境变量
 [Azure Batch 服务](https://azure.microsoft.com/services/batch/)在计算节点上设置以下环境变量。 可以在任务命令行中引用这些环境变量，也可在命令行运行的程序和脚本中引用它们。
@@ -66,4 +65,3 @@ ms.lasthandoff: 06/09/2017
 [multi_instance]: batch-mpi.md
 [coord_cmd]: batch-mpi.md#coordination-command
 [app_cmd]: batch-mpi.md#application-command
-

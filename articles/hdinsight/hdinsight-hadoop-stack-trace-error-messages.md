@@ -17,13 +17,11 @@ ms.workload: big-data
 origin.date: 04/26/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 00d061c326f87de0124776a425a8867b7aee0a7c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: e5a440c5c21fdd7a3e2a69bad249a806da5f1e64
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>HDInsight 中的 Hadoop 索引疑难解答文章
 这些文章已按错误类型进行组织。
@@ -41,4 +39,3 @@ ms.lasthandoff: 05/26/2017
 * [在 HDInsight 上基于 Linux 的 Hadoop 中访问 YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [在基于 Linux 的 HDInsight 上为 Hadoop 服务启用堆转储](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Azure HDInsight 上的 Hadoop 组件发行说明](hdinsight-release-notes.md)
-

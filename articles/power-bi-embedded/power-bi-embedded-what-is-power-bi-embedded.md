@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/20/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: f89115098ec980236f7216095cbecc291a5af48b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: c02bc7ef7740a0bd4949e1de4f39225a786dc744
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="what-is-power-bi-embedded"></a>Power BI Embedded 是什么？
 通过 **Power BI Embedded**，可以将 Power BI 报表集成到 web 或移动应用程序。
@@ -83,5 +81,4 @@ Power BI Embedded 是一项 **Azure 服务** ，使 ISV 能够在其自己的应
 [PowerBI-CSharp Git 存储库](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git 存储库](https://github.com/Microsoft/PowerBI-Node)  
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
-
 

@@ -16,14 +16,12 @@ ms.topic: article
 origin.date: 03/20/2017
 ms.date: 04/17/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: dd572eaa992332aee52b50b74a375ee3f9a43012
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 7d56f1ec16ff79a0841194f78be5a459fcf789ac
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="install-the-azure-cli-10"></a>安装 Azure CLI 1.0
 > [!div class="op_single_selector"]
 >- [PowerShell](./powershell-install-configure.md)

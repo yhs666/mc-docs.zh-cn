@@ -4,7 +4,7 @@ description: "说明如何解决使用 Azure Resource Manager 将资源部署到
 services: azure-resource-manager
 documentationcenter: 
 tags: top-support-issue
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 keywords: "部署错误, azure 部署, 部署到 azure"
@@ -17,13 +17,11 @@ ms.workload: na
 origin.date: 03/15/2017
 ms.date: 06/05/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 07af7725491b3f27156adead21d83bbca6726ad5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: c8c771b8cafeafe5f3efe377f055ecbdbeb0d867
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>排查使用 Azure Resource Manager 时的常见 Azure 部署错误
 本主题介绍如何解决可能遇到的一些常见 Azure 部署错误。
@@ -47,7 +45,7 @@ ms.lasthandoff: 05/26/2017
 本主题介绍以下错误代码：
 
 * [AccountNameInvalid](#accountnameinvalid)
-* [AuthorizationFailed](#authorization-failed)
+* [授权失败](#authorization-failed)
 * [BadRequest](#badrequest)
 * [DeploymentFailed](#deploymentfailed)
 * [DisallowedOperation](#disallowedoperation)
@@ -528,7 +526,7 @@ az policy definition show --name regionPolicyAssignment
 
 有关策略的详细信息，请参阅[使用策略来管理资源和控制访问](resource-manager-policy.md)。
 
-### <a name="authorization-failed"></a> AuthorizationFailed
+### <a name="authorization-failed"></a> 授权失败
 你可能在部署期间收到错误，因为尝试部署资源的帐户或服务主体没有执行这些操作的访问权限。 Azure Active Directory 可让你或你的系统管理员非常精确地控制哪些标识可以访问哪些资源。 例如，如果你的帐户已分配到“读取者”角色，则无法创建资源。 在此情况下，将会出现一条错误消息，指出授权失败。
 
 有关基于角色的访问控制的详细信息，请参阅 [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)（Azure 基于角色的访问控制）。
@@ -590,8 +588,8 @@ az policy definition show --name regionPolicyAssignment
     }
     ```
 
-### Create a troubleshooting template
-In some cases, the easiest way to troubleshoot your template is to test parts of it. You can create a simplified template that enables you to focus on the part that you believe is causing the error. For example, suppose you are receiving an error when referencing a resource. Rather than dealing with an entire template, create a template that returns the part that may be causing your problem. It can help you determine whether you are passing in the right parameters, using template functions correctly, and getting the resource you expect.
+### <a name="create-a-troubleshooting-template"></a>创建故障排除模板
+在某些情况下，排查模板问题的最简单方法是测试模板的部件。 可以创建一个简化的模板，专注于调查你认为是错误起源的部件。 例如，假设在引用资源时出现了错误。 请勿处理整个模板，而是创建可返回可能导致问题的部件的模板。 这可以帮助确定是否传入了正确的参数、是否正确使用了模板函数，以及是否获取了所需的资源。
 
 ```json
 {
@@ -681,7 +679,7 @@ Resource Manager 可在模板验证过程中确定循环依赖项。 它会返�
 | 尝试进行连接时的安全外壳 (SSH) 错误 |[到 Linux VM 的安全外壳连接](../virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) |
 | 连接到 VM 上运行的应用程序时出错 |[在 Windows VM 上运行的应用程序](../virtual-machines/windows/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)<br />或<br />[在 Linux VM 上运行的应用程序](../virtual-machines/linux/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) |
 | 远程桌面连接错误 |[到 Windows VM 的远程桌面连接](../virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |
-| 通过重新部署解决的连接错误 |[将虚拟机重新部署到新的 Azure 节点](../virtual-machines/windows/redeploy-to-new-node.md?toc%2fvirtual-machines%2fwindows%2ftoc.json) |
+| 通过重新部署解决的连接错误 |[将虚拟机重新部署到新的 Azure 节点](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |
 | 云服务错误 |[云服务部署问题](../cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
 
 下表列出了有关 Azure 服务的疑难解答主题。 它重点介绍与部署或配置资源相关的问题。 如果你需要帮助排查资源的运行时问题，请参阅该 Azure 服务的文档。

@@ -17,13 +17,11 @@ origin.date: 03/15/2016
 ms.date: 05/02/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: e01b221f15a937d2e96bdb7ebe001d5e90bdfebb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: ab507c545640d064aaaca150a19859441147d4b4
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建具有静态公共 IP 地址的 VM
 
@@ -52,91 +50,90 @@ Azure 具有用于创建和处理资源的两个不同的部署模型：[Resourc
 3. 从命令行界面，使用 `az login`命令登录。
 4. 执行 Linux 或 Mac 计算机上的脚本进行 VM 创建。 Azure 公共 IP 地址、虚拟网络、网络接口和 VM 资源必须存在于同一位置。 虽然资源并非都必须位于同一资源组，但在以下脚本中如此。
 
-    ```bash
-    RgName="IaaSStory"
-    Location="chinanorth"
+```bash
+RgName="IaaSStory"
+Location="chinanorth"
 
-    # Create a resource group.
+# Create a resource group.
 
-    az group create \
-    --name $RgName \
-    --location $Location
+az group create \
+--name $RgName \
+--location $Location
 
-    # Create a public IP address resource with a static IP address using the --allocation-method Static option.
-    # If you do not specify this option, the address is allocated dynamically. The address is assigned to the
-    # resource from a pool of IP adresses unique to each Azure region. The DnsName must be unique within the
-    # Azure location it's created in. Download and view the file from https://www.microsoft.com/download/details.aspx?id=42064#
-    # that lists the ranges for each region.
+# Create a public IP address resource with a static IP address using the --allocation-method Static option.
+# If you do not specify this option, the address is allocated dynamically. The address is assigned to the
+# resource from a pool of IP adresses unique to each Azure region. The DnsName must be unique within the
+# Azure location it's created in. Download and view the file from https://www.microsoft.com/download/details.aspx?id=41653#
+# that lists the ranges for each region.
 
-    PipName="PIPWEB1"
-    DnsName="iaasstoryws1"
-    az network public-ip create \
-    --name $PipName \
-    --resource-group $RgName \
-    --location $Location \
-    --allocation-method Static \
-    --dns-name $DnsName
+PipName="PIPWEB1"
+DnsName="iaasstoryws1"
+az network public-ip create \
+--name $PipName \
+--resource-group $RgName \
+--location $Location \
+--allocation-method Static \
+--dns-name $DnsName
 
-    # Create a virtual network with one subnet
+# Create a virtual network with one subnet
 
-    VnetName="TestVNet"
-    VnetPrefix="192.168.0.0/16"
-    SubnetName="FrontEnd"
-    SubnetPrefix="192.168.1.0/24"
-    az network vnet create \
-    --name $VnetName \
-    --resource-group $RgName \
-    --location $Location \
-    --address-prefix $VnetPrefix \
-    --subnet-name $SubnetName \
-    --subnet-prefix $SubnetPrefix
+VnetName="TestVNet"
+VnetPrefix="192.168.0.0/16"
+SubnetName="FrontEnd"
+SubnetPrefix="192.168.1.0/24"
+az network vnet create \
+--name $VnetName \
+--resource-group $RgName \
+--location $Location \
+--address-prefix $VnetPrefix \
+--subnet-name $SubnetName \
+--subnet-prefix $SubnetPrefix
 
-    # Create a network interface connected to the VNet with a static private IP address and associate the public IP address
-    # resource to the NIC.
+# Create a network interface connected to the VNet with a static private IP address and associate the public IP address
+# resource to the NIC.
 
-    NicName="NICWEB1"
-    PrivateIpAddress="192.168.1.101"
-    az network nic create \
-    --name $NicName \
-    --resource-group $RgName \
-    --location $Location \
-    --subnet $SubnetName \
-    --vnet-name $VnetName \
-    --private-ip-address $PrivateIpAddress \
-    --public-ip-address $PipName
+NicName="NICWEB1"
+PrivateIpAddress="192.168.1.101"
+az network nic create \
+--name $NicName \
+--resource-group $RgName \
+--location $Location \
+--subnet $SubnetName \
+--vnet-name $VnetName \
+--private-ip-address $PrivateIpAddress \
+--public-ip-address $PipName
 
-    # Create a new VM with the NIC
+# Create a new VM with the NIC
 
-    VmName="WEB1"
+VmName="WEB1"
 
-    # Replace the value for the VmSize variable with a value from the
-    # https://www.azure.cn/documentation/articles/virtual-machines-linux-sizes/ article.
-    VmSize="Standard_DS1"
+# Replace the value for the VmSize variable with a value from the
+# https://docs.azure.cn/virtual-machines/virtual-machines-linux-sizes article.
+VmSize="Standard_DS1"
 
-    # Replace the value for the OsImage variable with a value for *urn* from the output returned by entering
-    # the `az vm image list` command. 
+# Replace the value for the OsImage variable with a value for *urn* from the output returned by entering
+# the `az vm image list` command. 
 
-    OsImage="credativ:Debian:8:latest"
-    Username='adminuser'
+OsImage="credativ:Debian:8:latest"
+Username='adminuser'
 
-    # Replace the following value with the path to your public key file.
-    SshKeyValue="~/.ssh/id_rsa.pub"
+# Replace the following value with the path to your public key file.
+SshKeyValue="~/.ssh/id_rsa.pub"
 
-    az vm create \
-    --name $VmName \
-    --resource-group $RgName \
-    --image $OsImage \
-    --location $Location \
-    --size $VmSize \
-    --nics $NicName \
-    --admin-username $Username \
-    --ssh-key-value $SshKeyValue \
-    # If creating a Windows VM, remove the previous line and you'll be prompted for the password you want to configure for the VM.
-    --use-unmanaged-disk
-    ```
+az vm create \
+--name $VmName \
+--resource-group $RgName \
+--image $OsImage \
+--location $Location \
+--size $VmSize \
+--nics $NicName \
+--admin-username $Username \
+--ssh-key-value $SshKeyValue
+# If creating a Windows VM, remove the previous line and you'll be prompted for the password you want to configure for the VM.
+```
 
 除了创建 VM，该脚本还创建：
-- 使用非托管磁盘，并自动创建 Azure 存储账户。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fvirtual-network%2ftoc.json) 一文。
+- 单个高级托管磁盘（默认情况下），但对于可以创建的磁盘类型，可以有其他选择。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fvirtual-network%2ftoc.json) 一文。
 - 虚拟网络、子网、NIC 和公共 IP 地址资源。 也可以使用 *现有* 虚拟网络、子网、NIC 或公共 IP 地址资源。 若要了解如何使用现有网络资源，而不是创建其他资源，请输入 `az vm create -h`。
 
 ## <a name = "validate"></a>验证 VM 创建和公共 IP 地址
@@ -156,4 +153,3 @@ Azure 具有用于创建和处理资源的两个不同的部署模型：[Resourc
 ## <a name="next-steps"></a>后续步骤
 
 任何网络流量都可流入和流出本文中创建的 VM。 可以在 NSG 中定义入站和出站规则，以限制可以流入和流出网络接口和/或子网的流量。 若要了解有关 NSG 的详细信息，请阅读 [NSG 概述](virtual-networks-nsg.md)一文。
-

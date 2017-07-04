@@ -14,16 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/24/2017
+origin.date: 05/10/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: e4e83522c055ff07aed34f001e45e3416689f482
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: f42e875418b37c6caa7ac98b0992973db631f9ad
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight 上的 Apache Spark 群集的已知问题
 
@@ -108,8 +106,8 @@ ms.lasthandoff: 04/28/2017
 
 1. 通过以下方式释放 Spark 群集中的一些资源：
 
-    * 转到“关闭并停止”菜单或单击笔记本资源管理器中的“关闭”，以停止其他 Spark 笔记本。
-    * 通过 YARN 停止其他 Spark 应用程序。
+   * 转到“关闭并停止”菜单或单击笔记本资源管理器中的“关闭”，以停止其他 Spark 笔记本。
+   * 通过 YARN 停止其他 Spark 应用程序。
 2. 重新启动先前尝试启动的笔记本。 现在应有足够的资源用于创建会话。
 
 ## <a name="see-also"></a>另请参阅
@@ -120,7 +118,6 @@ ms.lasthandoff: 04/28/2017
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](hdinsight-apache-spark-eventhub-streaming.md)
-* [使用 HDInsight 中的 Spark 分析网站日志](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序
 * [使用 Scala 创建独立的应用程序](hdinsight-apache-spark-create-standalone-application.md)

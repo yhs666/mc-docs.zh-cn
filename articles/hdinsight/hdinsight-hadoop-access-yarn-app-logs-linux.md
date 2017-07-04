@@ -17,13 +17,11 @@ ms.topic: article
 origin.date: 05/04/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 7f380b1c013bd4f110cc92824c766760b3fa692b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: e9716fc44b118faa396b8d8661d1f4de5f926959
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上访问 YARN 应用程序日志
 
@@ -75,7 +73,7 @@ YARN 通过将资源管理与应用程序计划/监视相分离，来支持多�
 
 YARN ResourceManager UI 在群集头节点上运行。 可通过 Ambari web UI 访问它。 使用以下步骤查看 YARN 日志：
 
-1. 在 Web 浏览器中，导航到 https://CLUSTERNAME.azurehdinsight.cn 。 将 CLUSTERNAME 替换为 HDInsight 群集的名称。
+1. 在 Web 浏览器中，导航到 https://CLUSTERNAME.azurehdinsight.cn。 将 CLUSTERNAME 替换为 HDInsight 群集的名称。
 2. 从左侧的服务列表中，选择“YARN” 。
 
     ![选中的 Yarn 服务](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)
@@ -90,4 +88,3 @@ YARN ResourceManager UI 在群集头节点上运行。 可通过 Ambari web UI �
 [T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]:http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
-

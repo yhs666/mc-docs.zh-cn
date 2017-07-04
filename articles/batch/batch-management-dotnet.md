@@ -16,13 +16,11 @@ ms.workload: big-compute
 ms.date: 03/15/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
 ms.openlocfilehash: 0f39127746962673c588e000d76ef523b8765fa3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/14/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>通过用于 .NET 的 Batch Management 客户端库管理 Batch 帐户和配额
 
@@ -202,4 +200,3 @@ Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource
 [1]: ./media/batch-management-dotnet/portal-01.png
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
-

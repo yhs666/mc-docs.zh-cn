@@ -16,15 +16,12 @@ ms.topic: article
 origin.date: 05/11/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 6ab71150dc583fd2480807eb0910ee4036aee82e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: 3f8cadcf08144c320c456299187aad73cad971fc
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="how-to-deploy-a-linux-virtual-machine-into-an-existing-azure-virtual-network-with-the-azure-cli-10"></a>如何使用 Azure CLI 1.0 将 Linux 虚拟机部署到现有 Azure 虚拟网络
 
 本文说明如何使用 Azure CLI 1.0 将虚拟机 (VM) 部署到现有虚拟网络 (VNet)。 要求包括：
@@ -165,4 +162,3 @@ azure vm create myVM \
 * [使用 Azure Resource Manager 模板创建特定部署](../windows/cli-deploy-templates.md)
 * [直接使用 Azure CLI 命令创建自定义的 Linux VM 环境](create-cli-complete.md)
 * [使用模板在 Azure 上创建 Linux VM](create-ssh-secured-vm-from-template.md)
-

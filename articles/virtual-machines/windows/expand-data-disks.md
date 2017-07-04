@@ -16,17 +16,77 @@ ms.workload: infrastructure-services
 origin.date: 03/02/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: cadc7c639f4a332b33550007db0409fe7759448e
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: 730a1032963f8c5f50a1b9c082ae3ea87b61deef
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="increase-the-size-of-a-data-disk-attached-to-a-windows-vm"></a>增加附加到 Windows VM 的数据磁盘的大小
 
 若要增加附加到虚拟机的数据磁盘的大小，可以使用 PowerShell 增加大小。 在 Azure VM 设置中增加数据磁盘的大小后，还需在 VM 中分配新的磁盘空间。
+
+## <a name="use-powershell-to-increase-the-size-of-a-managed-data-disk"></a>使用 Powershell 增加托管数据磁盘的大小
+
+若要增加托管数据磁盘的大小，请使用以下 PowerShell cmdlet：
+
+|                                                                    |                                                            |
+|--------------------------------------------------------------------|------------------------------------------------------------|
+| [Get-AzureRMReseourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourcegroup) | [Get-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm)                 |
+| [Stop-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm)                        | [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk) |
+| [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm)                    | [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm)             |
+<br>
+
+以下脚本将引导你获取 VM 信息、选择数据磁盘和指定新的大小。
+
+```powershell
+# Select resource group
+
+    $rg = Get-AzureRMReseourceGroup | Out-GridView `
+        -Title "Select the resource group" `
+        -PassThru
+
+    $rgName = $rg.ResourceGroupName
+
+# Select the VM
+
+    $vm = Get-AzureRMVM -ResourceGroupName $rgName `
+        | Out-GridView `
+            -Title "Select a VM" `
+             -PassThru
+
+# Select data disk
+
+    $disk = $vm.dataDiskNames | Out-GridView `
+        -Title "Select a data disk" `
+        -PassThru
+
+# Specify a larger size for the data disk
+
+    $size =  Read-Host `
+        -Prompt "New size in GB"
+
+# Stop and Deallocate VM prior to resizing data disk
+
+    $vm | Stop-AzureRMVM -Force
+
+# Set the new disk size
+
+    Set-AzureRmVMDataDisk -VM $vm -Name "$disk" -DiskSizeInGB $size
+
+# View the new size of the data disk(s)
+
+    $vm.StorageProfile.DataDisks
+
+# Update the configuration in Azure
+
+    Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+
+# Start the VM
+
+    Start-AzureRmVM -ResourceGroupName $rgName -VMName $vm.name
+
+```
 
 ## <a name="use-powershell-to-increase-the-size-of-an-unmanaged-data-disk"></a>使用 PowerShell 增加非托管数据磁盘的大小
 
@@ -34,9 +94,9 @@ ms.lasthandoff: 04/06/2017
 
 |                                                                    |                                                            |
 |--------------------------------------------------------------------|------------------------------------------------------------|
-| [Get-AzureRMStorageAccount](https://docs.microsoft.com/powershell/Get-AzureRMStorageAccount) | [Get-AzureRMVM](https://docs.microsoft.com/powershell/getazurermvm)                  |
-| [Stop-AzureRMVM](https://docs.microsoft.com/powershell/stop-azurermvm)                       | [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/Set-AzureRmVMDataDisk) |
-| [Update-AzureRmVM](https://docs.microsoft.com/powershell/update-azurermvm)                   | [Start-AzureRmVM](https://docs.microsoft.com/powershell/start-azurermvm)             |
+| [Get-AzureRMStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount) | [Get-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm)                 |
+| [Stop-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm)                       | [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk) |
+| [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm)                   | [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm)             |
 
 <br>
 
@@ -67,7 +127,7 @@ ms.lasthandoff: 04/06/2017
             -Title "Select a data disk to resize" `
             -PassThru
 
-# Specify a larger data disk size 
+# Specify a larger data disk size
 
     $size =  Read-Host `
         -Prompt "New size in GB"
@@ -88,12 +148,12 @@ ms.lasthandoff: 04/06/2017
 # Start the VM
     Start-AzureRmVM -ResourceGroupName $rgName `
     -VMName $vm.name
-    
+
 ```
 
-## <a name="allocate-the-unallocated-disk-space"></a>分配未分配的磁盘空间 
+## <a name="allocate-the-unallocated-disk-space"></a>分配未分配的磁盘空间
 
-增加驱动器的大小后，需要从 VM 中分配新的未分配空间。 若要分配空间，可使用磁盘管理 (diskmgmt.msc) 连接到 VM。 或者，如果在创建 VM 时在其上启用了 WinRM 和证书，则可以使用远程 PowerShell 初始化该磁盘。 还可以使用自定义脚本扩展： 
+增加驱动器的大小后，需要从 VM 中分配新的未分配空间。 若要分配空间，可使用磁盘管理 (diskmgmt.msc) 连接到 VM。 或者，如果在创建 VM 时在其上启用了 WinRM 和证书，则可以使用远程 PowerShell 初始化该磁盘。 还可以使用自定义脚本扩展：
 
 ```powershell
     $location = "location-name"

@@ -15,13 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 05/11/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: f9643350f046413d40d3c6b269bb6b426fedc89e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: f896759d62af43af744ae5ddccfc72af6d60663d
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>使用 Azure CLI 打开 Linux VM 的端口和终结点
 通过在子网或 VM 网络接口上创建网络筛选器可为 Azure 中的虚拟机 (VM) 打开端口或创建终结点。 将这些筛选器（控制入站和出站流量）放在网络安全组中，并附加到将接收流量的资源。 让我们在端口 80 上使用 Web 流量的常见示例。 本文说明如何使用 Azure CLI 2.0 打开 VM 的端口。 也可以使用 [Azure CLI 1.0](nsg-quickstart-nodejs.md) 执行这些步骤。
@@ -86,4 +84,3 @@ az network vnet subnet update \
 * [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)
 * [什么是网络安全组 (NSG)？](../../virtual-network/virtual-networks-nsg.md)
 * [Azure Resource Manager 中负载均衡器的概述](../../load-balancer/load-balancer-arm.md)
-

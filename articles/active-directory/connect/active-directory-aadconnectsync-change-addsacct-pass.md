@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 2dcd02274c284a1bc5f5c897c5147fb8ba94d53b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 9bc36475a57db654459f7b717d66a3d476119c22
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="changing-the-ad-ds-account-password"></a>更改 AD DS 帐户密码
 AD DS 帐户是指 Azure AD Connect 用来与本地 Active Directory 通信的用户帐户。 如果更改 AD DS 帐户的密码，则必须使用新密码更新 Azure AD Connect 同步服务。 否则，同步服务将再也不能正确地通过本地 Active Directory 进行同步，你会遇到以下错误：
@@ -57,5 +55,4 @@ AD DS 帐户是指 Azure AD Connect 用来与本地 Active Directory 通信的�
 - [Azure AD Connect 同步：理解和自定义同步](active-directory-aadconnectsync-whatis.md)
 
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
-
 

@@ -1,26 +1,24 @@
 ---
 title: "通过 .NET 使用 Azure 服务总线主题 | Azure"
 description: "了解如何在 Azure 中通过 .NET 使用服务总线主题和订阅。 代码示例是针对 .NET 应用程序编写的。"
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 31d0bc29-6524-4b1b-9c7f-aa15d5a9d3b4
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-origin.date: 03/23/2017
-ms.date: 05/22/2017
+ms.date: 03/23/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 5704034e707cc72f01e24def8db2dafa263dbb38
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: a42f6da3d5abb4a4efa57160fda55d06eb0f7a96
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>如何使用服务总线主题和订阅
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
@@ -100,12 +98,12 @@ ms.lasthandoff: 05/12/2017
 使用从 [Azure 门户][Azure portal]检索到的 SAS 名称和密钥值，如前所述。
 
 ## <a name="create-a-topic"></a>创建主题
-可以通过 [NamespaceManager](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.namespacemanager?view=azureservicebus-4.0.0) 类为服务总线主题和订阅执行管理操作。 此类提供了创建、枚举和删除主题的方法。
+可以通过 [NamespaceManager](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) 类为服务总线主题和订阅执行管理操作。 此类提供了创建、枚举和删除主题的方法。
 
 以下示例使用带连接字符串的 Azure `CloudConfigurationManager` 类构造 `NamespaceManager` 对象，此连接字符串包含服务总线命名空间的基址和有权管理该命名空间的相应 SAS 凭据。 此连接字符串的形式如下。
 
 ```xml
-Endpoint=sb://<yourNamespace>.servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<yourKey>
+Endpoint=sb://<yourNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<yourKey>
 ```
 
 考虑到上一部分中的配置设置，使用以下示例。
@@ -314,6 +312,7 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 现在，你已了解有关服务总线主题和订阅的基础知识，请访问下面的链接以获取详细信息。
 
 -   [队列、主题和订阅][]。
+-   [主题筛选器示例][]
 -   [SqlFilter][]的 API 参考。
 -   构建向服务总线队列发送消息以及从中接收消息的工作应用程序： [服务总线中转消息传送 .NET 教程][]。
 -   服务总线示例：从 [Azure 示例][]下载，或参阅[概述](./service-bus-samples.md)。
@@ -323,6 +322,7 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
   [队列、主题和订阅]: ./service-bus-queues-topics-subscriptions.md
+  [主题筛选器示例]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
   [SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter
   [SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
   [服务总线中转消息传送 .NET 教程]: ./service-bus-dotnet-get-started-with-queues.md

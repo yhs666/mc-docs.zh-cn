@@ -15,14 +15,13 @@ ms.topic: article
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 9225ec7e8027a10c89e53f2a4354f2fd257056a2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 02aa6e26112bfbd271a27a132a37df980e10c260
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="assign-a-custom-domain-to-a-web-app"></a>将自定义域分配到 Web 应用
 
 此示例脚本使用其相关资源，在应用服务中创建 Web 应用，然后将 `www.<yourdomain>` 映射到它。 
@@ -51,7 +50,7 @@ Write-Host "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsi
 Read-Host "Press [Enter] key when ready ..."
 
 # Before continuing, go to your DNS configuration UI for your custom domain and follow the 
-# instructions at https://www.azure.cn/documentation/articles/web-sites-custom-domain-name/#step-2-create-the-dns-records to configure a CNAME record for the 
+# instructions at https://docs.azure.cn/app-service-web/web-sites-custom-domain-name#step-2-create-the-dns-records to configure a CNAME record for the 
 # hostname "www" and point it your web app's default domain name.
 
 # Upgrade App Service plan to Shared tier (minimum required by custom domains)
@@ -89,4 +88,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure PowerShell 示例](../app-service-powershell-samples.md)中找到 Azure 应用服务 Web 应用的其他 Azure Powershell 示例。
-

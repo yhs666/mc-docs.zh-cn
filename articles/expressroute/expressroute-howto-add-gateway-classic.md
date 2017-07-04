@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/21/2017
-ms.date: 05/02/2017
+ms.date: 03/21/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: becb0ba865157970cc0c19c757d8e2f9d6a34794
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: cbbe18ab511fc5719b6254ad6c8130cbfa4888a9
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>使用 PowerShell 配置 ExpressRoute 的虚拟网络网关（经典）
 > [!div class="op_single_selector"]

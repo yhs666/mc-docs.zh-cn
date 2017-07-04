@@ -16,13 +16,11 @@ ms.workload: data-services
 origin.date: 03/28/2017
 ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
-ms.openlocfilehash: 7ec7d4758d1fe3b64c879323c5984a1c6889aa55
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/14/2017
-
-
+ms.openlocfilehash: a526c61c975b2d738602787dc05a7fd16bfe877d
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
 # <a name="how-to-write-queries-in-stream-analytics"></a>如何使用流分析编写查询
 针对 Azure 流分析中的流处理逻辑编写查询将作为一种“现有查询”来实施，该查询在作业启动前定义并在数据抵达作业时对数据执行。 使用一种类似于 SQL 的查询语言来表示数据转换，这种语言大部分是 T-SQL 的一个子集，但增加了某些用于表示临时语义的语言扩展，例如 [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx)。

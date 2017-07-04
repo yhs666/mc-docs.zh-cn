@@ -13,11 +13,14 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/21/2016
-ms.date: 06/05/2017
+ms.date: 03/21/2017
 ms.author: v-yiso
+ms.openlocfilehash: a13da1be37533bc83307484231700f552e6dabb0
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="get-started-with-iot-gateway-starter-kit-with-a-sensortag"></a>通过 SensorTag 开始使用 IoT 网关初学者工具包
 >[!div class="op_single_selector"]
 [SensorTag](./iot-hub-gateway-kit-c-get-started.md)
@@ -101,4 +104,4 @@ ms.author: v-yiso
 如果在课程中遇到任何问题，可在[故障排除](./iot-hub-gateway-kit-c-troubleshooting.md)一文中查找解决方案。
 
 ## <a name="explore-more"></a>了解更多
-若要了解详细信息，请访问 [Intel IoT 网关工具包开发人员专区](http://software.intel.com/iot/microsoft-azure)。
+若要了解详细信息，请访问 [Intel IoT 网关工具包开发人员专区](http://software.intel.com/iot/microsoft-azure) 。

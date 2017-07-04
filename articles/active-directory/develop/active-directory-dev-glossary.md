@@ -15,13 +15,12 @@ ms.workload: identity
 origin.date: 03/20/2017
 ms.date: 04/17/2017
 ms.author: v-junlch
-translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 74def0f7e05fdea60dfeec64a218945041da08d8
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 2998e82062502e242ae87cb0fc6d8de6062e5a78
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 开发人员词汇表
 本文包含一些核心 Azure Active Directory (AD) 开发人员概念的定义，帮助你了解 Azure AD 的应用程序开发。
 
@@ -52,10 +51,10 @@ ms.lasthandoff: 04/07/2017
 
 有关详细信息，请参阅 [Integrating applications with Azure Active Directory][AAD-Integrating-Apps] （将应用程序与 Azure Active Directory 集成）。
 
-## <a name="authentication"></a>认证
+## <a name="authentication"></a>authentication
 向访问方质询合法凭据的措施，提供创建用于标识和访问控制的安全主体的基础。 例如，在 [OAuth2 授权](#authorization-grant)期间，访问方身份验证根据使用的授权填充[资源所有者](#resource-owner)或[客户端应用程序](#client-application)角色。
 
-## <a name="authorization"></a>授权
+## <a name="authorization"></a>authorization
 授权经过身份验证的安全主体执行某项操作的措施。 在 Azure AD 编程模型中有两个主要用例：
 
 - 在 [OAuth2 授权](#authorization-grant)流程中：[资源所有者](#resource-owner)向[客户端应用程序](#client-application)授权时，允许客户端访问资源所有者的资源。
@@ -153,7 +152,7 @@ ms.lasthandoff: 04/07/2017
 ## <a name="sign-out"></a>注销
 使最终用户变成未身份验证状态的过程，解除用户在[登录](#sign-in)期间与[客户端应用程序](#client-application)会话关联的状态
 
-## <a name="tenant"></a>租户
+## <a name="tenant"></a>tenant
 Azure AD 目录的实例称为 Azure AD 租户。 所提供的功能包括：
 
 - 适用于集成应用程序的注册表服务
@@ -163,7 +162,7 @@ Azure AD 目录的实例称为 Azure AD 租户。 所提供的功能包括：
 在预配订阅的过程中，还会将租户与 Azure AD 或 Office 365 订阅相关联，为订阅提供标识和访问管理功能。 有关访问租户的各种方式的详细信息，请参阅[如何获取 Azure Active Directory 租户][AAD-How-To-Tenant]。 若要了解订阅和 Azure AD 租户之间的详细关系，请参阅 [How Azure subscriptions are associated with Azure Active Directory][AAD-How-Subscriptions-Assoc] （Azure 订阅与 Azure Active Directory 的关联方式）。
 
 ## <a name="token-endpoint"></a>令牌终结点
-[授权服务器](#authorization-server)为了支持 OAuth2 [权限授予](#authorization-grant)而实现的终结点之一。 根据具体的授权，可将其用于获取[客户端](#client-application)的[访问令牌](#access-token)（和相关的“刷新”令牌）或 [ID 令牌](#id-token)（使用 [OpenID Connect][OpenIDConnect] 协议时）。
+[授权服务器](#authorization-server)为了支持 OAuth2 [权限授予](#authorization-grant)而实现的终结点之一。 根据具体的授权，可将其用于获取[客户端](#client-application)的[访问令牌](#access-token)（和相关的“刷新”令牌）或 [ID 令牌](#ID-token)（使用 [OpenID Connect][OpenIDConnect] 协议时）。
 
 ## <a name="user-agent-based-client"></a>基于用户代理的客户端
 一种[客户端应用程序](#client-application)，例如单页应用程序 (SPA)，可从 Web 服务器下载代码并在用户代理（例如 Web 浏览器）中执行。 由于所有代码都在设备上执行，因此设备因为无法隐私/秘密地存储凭据而被视为“公共”客户端。 有关详细信息，请参阅 [OAuth2 client types and profiles][OAuth2-Client-Types] （OAuth2 客户端类型和配置文件）。
@@ -191,11 +190,11 @@ Azure AD 目录的实例称为 Azure AD 租户。 所提供的功能包括：
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-Subscriptions-Assoc]:../active-directory-how-subscriptions-associated-directory.md
-[AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
+[AAD-How-To-Integrate]: active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]:./active-directory-howto-tenant.md
 [AAD-Integrating-Apps]:./active-directory-integrating-applications.md
 [AAD-Multi-Tenant-Overview]:./active-directory-devhowto-multi-tenant-overview.md
-[AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
+[AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:./active-directory-token-and-claims.md
 [AZURE-classic-portal]: https://manage.windowsazure.cn
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/

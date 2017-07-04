@@ -17,14 +17,12 @@ origin.date: 05/02/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 80c52b1d56d5da895403ab05a91e9d5b02d07557
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: c569d8b3287cbde99ddbd03a8d93cf66f39a3073
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="manage-azure-disks-with-powershell"></a>使用 PowerShell 管理 Azure 磁盘
 
 Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 创建 VM 时，请务必选择适用于所需工作负荷的磁盘大小和配置。 本教程介绍如何部署和管理 VM 磁盘。 学习内容：
@@ -152,4 +150,3 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 
 > [!div class="nextstepaction"]
 > [自动执行 VM 配置](./tutorial-automate-vm-deployment.md)
-

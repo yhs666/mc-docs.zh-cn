@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eece5b23ce0c05c9e6e8a1938c34faf0383fb06a
-ms.openlocfilehash: d8d07051bd1e0ffa98061af59b1520e8d17bdea1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: a54d24606d8091ec874e7cff5253e2a2c1f9598f
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 创建和修改 ExpressRoute 线路
 > [!div class="op_single_selector"]
@@ -78,14 +77,14 @@ Get-AzureRmExpressRouteServiceProvider
 如果还没有资源组，则在创建 ExpressRoute 线路前必须创建一个资源组。 为此，可以运行以下命令：
 
 ```powershell
-New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "China North"
+New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
 ```
 
 
-以下示例演示如何通过北京的 Beijing Telecom Ethernet 创建 200-Mbps 的 ExpressRoute 线路。 如果你使用的是其他提供商和其他设置，请在发出请求时替换该信息。 下面是请求新的服务密钥的示例：
+以下示例演示如何通过硅谷中的 Equinix 创建 200-Mbps 的 ExpressRoute 线路。 如果你使用的是其他提供商和其他设置，请在发出请求时替换该信息。 下面是请求新的服务密钥的示例：
 
 ```powershell
-New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "China North" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Beijing Telecom Ethernet" -PeeringLocation "Beijing" -BandwidthInMbps 200
+New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
 ```
 
 请确保指定合适的 SKU 层和 SKU 系列：
@@ -117,7 +116,7 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : China North
+    Location                         : westus
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -130,8 +129,8 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
     ServiceProviderProvisioningState  : NotProvisioned
     ServiceProviderNotes              :
     ServiceProviderProperties         : {
-                                          "ServiceProviderName": "Beijing Telecom Ethernet",
-                                          "PeeringLocation": "Beijing",
+                                          "ServiceProviderName": "Equinix",
+                                          "PeeringLocation": "Silicon Valley",
                                           "BandwidthInMbps": 200
                                         }
     ServiceKey                        : **************************************
@@ -148,7 +147,7 @@ Get-AzureRmExpressRouteCircuit
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : China North
+    Location                         : westus
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -161,8 +160,8 @@ Get-AzureRmExpressRouteCircuit
     ServiceProviderProvisioningState : NotProvisioned
     ServiceProviderNotes             :
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Beijing Telecom Ethernet",
-                                         "PeeringLocation": "Beijing",
+                                         "ServiceProviderName": "Equinix",
+                                         "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
                                           }
     ServiceKey                       : **************************************
@@ -208,7 +207,7 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : China North
+    Location                         : westus
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -221,8 +220,8 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Beijing Telecom Ethernet",
-                                         "PeeringLocation": "Beijing",
+                                         "ServiceProviderName": "Equinix",
+                                         "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
                                        }
     ServiceKey                       : **************************************
@@ -253,7 +252,7 @@ Get-AzureRmExpressRouteCircuit
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : China North
+    Location                         : westus
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -266,8 +265,8 @@ Get-AzureRmExpressRouteCircuit
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
     ServiceProviderProperties        : {
-                                            "ServiceProviderName": "Beijing Telecom Ethernet",
-                                            "PeeringLocation": "Beijing",
+                                            "ServiceProviderName": "Equinix",
+                                            "PeeringLocation": "Silicon Valley",
                                             "BandwidthInMbps": 200
                                           }
     ServiceKey                       : **************************************
@@ -285,7 +284,7 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : China North
+    Location                         : westus
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -298,8 +297,8 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Beijing Telecom Ethernet",
-                                         "PeeringLocation": "Beijing",
+                                         "ServiceProviderName": "Equinix",
+                                         "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
                                           }
     ServiceKey                       : **************************************
@@ -384,7 +383,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 
-将在 Azure 端调整线路的大小。然后，你必须联系连接提供商，让他们在那一边根据此更改更新配置。在你发出此通知后，Azure 将开始向你计收更新后的带宽选项费用。
+将在 Microsoft 端调整线路的大小。 然后，你必须联系连接提供商，让他们在那一边根据此更改更新配置。 在你发出此通知后，我们将开始向你计收更新后的带宽选项费用。
 
 ### <a name="to-move-the-sku-from-metered-to-unlimited"></a>将 SKU 从按流量计费转为不受限制
 通过使用下面的 PowerShell 代码片段，你可以更改 ExpressRoute 线路的 SKU：
@@ -422,4 +421,3 @@ Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup"
 
 - [创建和修改 ExpressRoute 线路的路由](./expressroute-howto-routing-arm.md)
 - [将虚拟网络链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-arm.md)
-

@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: feca68b61839593d8ce83e58ee6c67bdffcb296e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 6eaa91dc5659aa9899d21a69e8f63375cc9bc817
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>对 Azure 存储服务的跨域资源共享 (CORS) 支持
 从版本 2013-08-15 开始，Azure 存储服务支持 Blob、表、队列和文件服务的跨域资源共享 (CORS)。 CORS 是一项 HTTP 功能，使在一个域中运行的 Web 应用程序能够访问另一个域中的资源。 Web 浏览器实施一种称为[同源策略](http://www.w3.org/Security/wiki/Same_Origin_Policy)的安全限制，防止网页调用不同域中的 API；CORS 提供了一种安全的方法，允许一个域（源域）调用其他域中的 API。 有关 CORS 的详细信息，请参阅 [CORS 规范](http://www.w3.org/TR/cors/)。
@@ -191,5 +189,4 @@ Azure 存储服务支持为 **AllowedHeaders** 和 **ExposedHeaders** 两个元�
 [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx)（设置表服务属性）
 
 [W3C 跨域资源共享规范](http://www.w3.org/TR/cors/)
-
 

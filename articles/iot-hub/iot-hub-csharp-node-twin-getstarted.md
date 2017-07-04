@@ -12,16 +12,13 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/29/2017
-ms.date: 05/08/2017
+ms.date: 03/29/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 673bfcca723d1942cd66a24efa642ac50ae6e539
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: ac7f47cc1ebb84d5cf83904061b97b5aca561b0d
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="get-started-with-device-twins-netnode"></a>设备孪生入门 (.NET/Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -49,7 +46,7 @@ ms.lasthandoff: 04/28/2017
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-the-service-app"></a>创建服务应用
-在本部分中，将创建一个 .NET 控制台应用（使用 C#），该应用将位置元数据添加到与 **myDeviceId** 关联的设备孪生。 然后，该应用将选择位于中国的设备来查询存储在 IoT 中心的设备孪生，然后查询报告手机网络连接的设备孪生。
+在本部分中，将创建一个 .NET 控制台应用（使用 C#），该应用将位置元数据添加到与 **myDeviceId** 关联的设备孪生。 然后，该应用将选择位于美国的设备来查询存储在 IoT 中心的设备孪生，然后查询报告手机网络连接的设备孪生。
 
 1. 在 Visual Studio 中，使用“ **控制台应用程序** ”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 将项目命名为 **AddTagsAndQuery**。
    
@@ -204,5 +201,4 @@ ms.lasthandoff: 04/28/2017
 [lnk-twin-how-to-configure]: ./iot-hub-csharp-node-twin-how-to-configure.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
-
 

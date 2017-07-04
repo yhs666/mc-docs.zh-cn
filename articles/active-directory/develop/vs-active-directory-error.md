@@ -15,13 +15,12 @@ ms.topic: article
 origin.date: 03/05/2017
 ms.date: 04/17/2017
 ms.author: v-junlch
-translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 33379b2ff35d8e1aa71100924e5dff5c8dcd996e
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 7a75aff949659026eb1e7ab24c83ae3e60685de9
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="diagnosing-errors-with-the-azure-active-directory-connection-wizard"></a>使用 Azure Active Directory 连接向导诊断错误
 检测以前的身份验证代码时，向导检测到不兼容的身份验证类型。   
 

@@ -17,13 +17,11 @@ ms.topic: article
 origin.date: 05/10/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: cfff4aa2ade4f082628f5ac5b13f1240518697a6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 54dfec11f353168b133524fb44fe6b1a1613ad5e
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-cluster-on-hdinsight"></a>在计算机上安装 Jupyter 笔记本并连接到 HDInsight 上的 Apache Spark 群集
 
@@ -137,7 +135,7 @@ ms.lasthandoff: 05/26/2017
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>为何要在计算机上安装 Jupyter？
 你可能会出于多种原因而要在计算机上安装 Jupyter，然后将其连接到 HDInsight 上的 Spark 群集。
 
-* 尽管 Azure HDInsight 中的 Spark 群集上已提供 Jupyter 笔记本，但在计算机上安装 Jupyter 可以选择在本地创建笔记本，根据正在运行的群集测试你的应用程序，然后将笔记本上载到群集。 若要将笔记本上载到群集，可以使用群集上运行的 Jupyter 笔记本来上载，或者将它们保存到与群集关联的存储帐户中的 /HdiNotebooks 文件夹。 有关如何在群集上存储 notebook 的详细信息，请参阅 [Where are Jupyter notebooks stored？](hdinsight-apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)（Jupyter notebook 存储在何处？）
+* 尽管 Azure HDInsight 中的 Spark 群集上已提供 Jupyter 笔记本，但在计算机上安装 Jupyter 可以选择在本地创建笔记本，根据正在运行的群集测试你的应用程序，然后将笔记本上传到群集。 若要将笔记本上传到群集，可以使用群集上运行的 Jupyter 笔记本来上传，或者将它们保存到与群集关联的存储帐户中的 /HdiNotebooks 文件夹。 有关如何在群集上存储 notebook 的详细信息，请参阅 [Where are Jupyter notebooks stored？](hdinsight-apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)（Jupyter notebook 存储在何处？）
 * 使用本地提供的笔记本可以根据应用程序要求连接到不同的 Spark 群集。
 * 你可以使用 GitHub 实施源代码管理系统，并对笔记本进行版本控制。 此外，还可以建立一个协作环境，其中的多个用户可以使用同一个笔记本。
 * 你甚至不需要启动群集就能在本地使用笔记本。 只需创建一个群集以根据它来测试你的笔记本，而不需要手动管理笔记本或开发环境。
@@ -169,4 +167,3 @@ ms.lasthandoff: 05/26/2017
 ### <a name="manage-resources"></a>管理资源
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](hdinsight-apache-spark-job-debugging.md)
-

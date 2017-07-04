@@ -17,14 +17,12 @@ origin.date: 05/02/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 09467aed223a686c429be1261cbe98895066a75c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: c9f2a1b2667f3a3d84432fe86cf2287ec7a8751f
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>使用 Azure PowerShell 模块创建和管理 Windows VM
 
 Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azure 虚拟机的基本部署项目，例如选择 VM 大小、选择 VM 映像和部署 VM。 你将学习如何执行以下操作：
@@ -408,4 +406,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroupVM -Force
 
 > [!div class="nextstepaction"]
 > [创建和管理 VM 磁盘](./tutorial-manage-data-disk.md)
-

@@ -16,13 +16,11 @@ ms.workload: data-services
 origin.date: 04/20/2017
 ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
-ms.openlocfilehash: a2e5dfb3b7756f6f213a4b3a1ab42dfdab54afdd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/14/2017
-
-
+ms.openlocfilehash: 5ecaea61e540fd2e74c1f8758ce55d34aea2edc0
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>以编程方式创建流分析作业监视器
 

@@ -12,17 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/05/2017
-ms.date: 05/08/2017
+ms.date: 04/05/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: b28f398b50145202513c2aa5189ce9fd75f698e5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: a8f533ec767b9eaf7748f79b99b942ddba10b3a1
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="use-direct-methods-on-your-iot-device-with-nodejs"></a>通过 Node.js 使用 IoT 设备上的直接方法
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]

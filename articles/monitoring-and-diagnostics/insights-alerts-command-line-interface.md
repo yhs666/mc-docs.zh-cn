@@ -12,16 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/24/2016
-ms.date: 05/02/2017
+ms.date: 10/24/2016
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 94754c6f0b12312734e8f150fbecb05aec8cce87
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 21e1fe683f0e9163b9e17573d85705832c04f105
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>在 Azure Monitor 中为 Azure 服务创建指标警报 - 跨平台 CLI
 > [!div class="op_single_selector"]
@@ -56,7 +53,7 @@ ms.lasthandoff: 04/22/2017
 - [命令行接口 (CLI)](./insights-alerts-command-line-interface.md) 
 - [Azure 监视器 REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-可以随时通过键入命令并在结尾处放置 -help 来获取命令的帮助。 例如：
+可以随时通过键入命令并在结尾处放置 -help 来接收命令的帮助。 例如：
 
 ```console
 azure insights alerts -help
@@ -84,7 +81,7 @@ azure insights alerts actions email create -help
     - 可用于该资源的 **指标定义**
 
     获取资源 ID 的一种方法是使用 Azure 门户。 假设已创建该资源，在门户中选中它。 然后在下一个边栏选项卡中，选择“设置”分区下的“属性”。 *资源 ID* 是下一个边栏选项卡中的字段。 
-    下面是 Web 应用的一个示例资源 ID：
+    下面是 Web 应用的一个示例资源 ID： 
 
      ```console
      /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
@@ -114,7 +111,7 @@ azure insights alerts actions email create -help
 
     azure insights alerts actions webhook create https://www.contoso.com
 
-    azure insights alerts rule metric set myrulewithwebhookandemail chinaeast myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
+    azure insights alerts rule metric set myrulewithwebhookandemail eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
     ```
 
 6. 可以通过查看各个规则来验证是否已正确创建了警报。
@@ -139,6 +136,7 @@ azure insights alerts actions email create -help
 
 * [获取 Azure 监视概述](./monitoring-overview.md)，包括可收集和监视的信息的类型。
 * 了解[在警报中配置 Webhook](./insights-webhooks-alerts.md)的详细信息。
+
 * 了解关于 [Azure 自动化 Runbook](../automation/automation-starting-a-runbook.md) 的详细信息。
 
 * 获取[指标集合概述](./insights-how-to-customize-monitoring.md)以确保你的服务可用且响应迅速。

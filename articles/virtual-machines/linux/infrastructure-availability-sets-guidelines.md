@@ -17,13 +17,11 @@ origin.date: 03/17/2017
 ms.date: 05/15/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 73634a1cd5086a8a5fea5cca6711deab890ed760
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 5118a06b4d52f9d9d56775b2086536bb935be2c8
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="azure-availability-sets-guidelines-for-linux-vms"></a>适用于 Linux VM 的 Azure 可用性集准则
 
@@ -57,8 +55,7 @@ Azure 中的底层基础结构分为多个硬件群集。 每个硬件群集可�
 
 可对每个应用程序层利用负载均衡器，使其与可用性集一起工作，确保始终可将流量路由到正在运行的实例。 如果不使用负载均衡器，VM 可能会在计划内和计划外维护事件中继续运行；但如果主 VM 不可用，最终用户可能无法解决这些问题。
 
-使用非托管磁盘时，在存储层针对高可用性设计应用程序。 最佳实践是为可用性集中的每个 VM 使用单独的存储帐户。 将与同一 VM 关联的所有磁盘（OS 和数据）放置在同一存储帐户中。 向存储帐户中添加更多 VHD 时，考虑存储帐户[限制](../../storage/storage-scalability-targets.md)。
+在存储层针对高可用性设计应用程序。 最佳做法是[为可用性集中的 VM 使用托管磁盘](manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)。 如果当前使用的是未托管磁盘，我们强烈建议[在可用性集中转换 VM，以便使用托管磁盘](convert-unmanaged-to-managed-disks.md#convert-vm-in-an-availability-set-to-managed-disks)。
 
 ## <a name="next-steps"></a>后续步骤
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-

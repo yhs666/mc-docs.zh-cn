@@ -15,13 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/18/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 646eeb1144f64f17f58099aaf574e19fe108b2c6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 1cda2541569f8caabf03b5807801f62a86e92613
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="create-user-defined-routes-udr-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建用户定义的路由 (UDR)
 
@@ -38,7 +36,7 @@ ms.lasthandoff: 04/22/2017
 
 可使用以下 CLI 版本之一完成任务： 
 
-- [Azure CLI 1.0](#create-the-udr-for-the-front-end-subnet) - 适用于经典部署模型和资源管理部署模型的 CLI（本文）
+- [Azure CLI 1.0](#create-the-udr-for-the-front-end-subnet) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
 - [Azure CLI 2.0](virtual-network-create-udr-arm-cli.md) - 适用于资源管理部署模型的下一代 CLI 
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
@@ -72,9 +70,9 @@ ms.lasthandoff: 04/22/2017
 
     参数：
 
-    * **-g（或 --resource-group）**。 要在其中创建 UDR 的资源组的名称。 对于我们的方案，为 *TestRG*。
-    * **-l（或 --location）**。 要在其中创建新的 UDR 的 Azure 区域。 对于我们的方案，为 *chinanorth*。
-    * **-n（或 --name）**。 新 UDR 的名称。 对于我们的方案，为 *UDR-FrontEnd*。
+   * **-g（或 --resource-group）**。 要在其中创建 UDR 的资源组的名称。 对于我们的方案，为 *TestRG*。
+   * **-l（或 --location）**。 要在其中创建新的 UDR 的 Azure 区域。 对于我们的方案，为 *chinanorth*。
+   * **-n（或 --name）**。 新 UDR 的名称。 对于我们的方案，为 *UDR-FrontEnd*。
 2. 运行以下命令，在路由表中创建路由，将目标为后端子网 (192.168.2.0/24) 的所有流量发送到 **FW1** VM (192.168.0.4)：
 
     ```azurecli
@@ -98,10 +96,10 @@ ms.lasthandoff: 04/22/2017
 
     参数：
 
-    * **-r（或 --route-table-name）**。 要添加路由的路由表的名称。 对于我们的方案，为 *UDR-FrontEnd*。
-    * **-a（或 --address-prefix）**。 数据包的目标子网的地址前缀。 对于我们的方案，为 *192.168.2.0/24*。
-    * **-y（或 --next-hop-type）**。 要发送的对象流量的类型。 可能的值为 *VirtualAppliance*、*VirtualNetworkGateway*、*VNETLocal*、*Internet* 或 *None*。
-    * **-p（或 --next-hop-ip-address**）。 下一个跃点的 IP 地址。 对于我们的方案，为 *192.168.0.4*。
+   * **-r（或 --route-table-name）**。 要添加路由的路由表的名称。 对于我们的方案，为 *UDR-FrontEnd*。
+   * **-a（或 --address-prefix）**。 数据包的目标子网的地址前缀。 对于我们的方案，为 *192.168.2.0/24*。
+   * **-y（或 --next-hop-type）**。 要发送的对象流量的类型。 可能的值为 *VirtualAppliance*、*VirtualNetworkGateway*、*VNETLocal*、*Internet* 或 *None*。
+   * **-p（或 --next-hop-ip-address**）。 下一个跃点的 IP 地址。 对于我们的方案，为 *192.168.0.4*。
 3. 运行以下命令，将上面创建的路由表与 **FrontEnd** 子网关联：
 
     ```azurecli
@@ -134,7 +132,7 @@ ms.lasthandoff: 04/22/2017
 
     参数：
 
-    * **-e（或 --vnet-name）**。 子网所在的 VNet 的名称。 对于我们的方案，为 *TestVNet*。
+   * **-e（或 --vnet-name）**。 子网所在的 VNet 的名称。 对于我们的方案，为 *TestVNet*。
 
 ## <a name="create-the-udr-for-the-back-end-subnet"></a>为后端子网创建 UDR
 若要根据上述方案为后端子网创建所需的路由表和路由，请完成以下步骤：
@@ -229,4 +227,4 @@ ms.lasthandoff: 04/22/2017
 
     参数：
 
-    * **-f（或 --enable-ip-forwarding）**。 *true* 或 *false*。
+   * **-f（或 --enable-ip-forwarding）**。 *true* 或 *false*。

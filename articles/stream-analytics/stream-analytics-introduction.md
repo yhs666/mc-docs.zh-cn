@@ -16,13 +16,11 @@ ms.workload: data-services
 origin.date: 03/28/2017
 ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: d2773f56c3e967957315f426b0115745a5594957
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: b11ff4cc7876c7a57f3d026e57a2075db1fda7a1
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
 # <a name="what-is-stream-analytics"></a>什么是流分析？
 Azure 流分析是完全托管的、经济高效的实时事件处理引擎，帮助开启来自数据的深入见解。 通过流分析，可以针对设备、传感器、网站、社交媒体、应用程序、基础设施系统等的数据流，轻松地设置实时分析计算。

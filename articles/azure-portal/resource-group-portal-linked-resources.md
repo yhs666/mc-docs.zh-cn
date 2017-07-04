@@ -11,14 +11,12 @@ ms.topic: article
 origin.date: 07/16/2015
 ms.date: 04/24/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 827bb6d871fe501b50c33182e000a620cd2b9f9c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 2ba12901b637a961ca3344336d042f3329507d20
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="related-and-linked-resources-in-the-tile-gallery"></a>磁贴库中相关的资源与链接的资源
 
 使用磁贴库可以在磁贴中查找特定的资源，并将资源拖放到你当前边栏选项卡中。 你可以使用磁贴库创建跨资源的管理视图。 对于任何指定的资源，相关资源包含其资源组中的所有资源，以及与资源相互链接的任何资源。

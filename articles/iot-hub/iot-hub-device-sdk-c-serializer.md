@@ -13,10 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/06/2016
-ms.date: 06/05/2017
+ms.date: 07/10/2017
 ms.author: v-yiso
+ms.openlocfilehash: afc615566701ea92d54b2bb74bbab534903749e5
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>适用于 C 语言的 Azure IoT 设备 SDK - 有关序列化程序的详细信息
 
 此系列中的[第一篇文章](./iot-hub-device-sdk-c-intro.md)介绍了**适用于 C 语言的 Azure IoT 设备 SDK**。下一篇文章中提供了 [**IoTHubClient**](./iot-hub-device-sdk-c-iothubclient.md) 的更详细说明。 本文最后的部分将提供该 SDK 的剩余组件 **序列化程序** 库的更详细说明。
@@ -685,8 +689,8 @@ serializer_deinit();
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [使用 Azure IoT Edge 模拟设备][lnk-gateway]
+* [使用 Azure IoT Edge 模拟设备][lnk-iotedge]
 
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md

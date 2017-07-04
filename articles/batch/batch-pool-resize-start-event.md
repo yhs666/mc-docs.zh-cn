@@ -9,16 +9,15 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: reference
 ms.assetid: 8bd33e8b-6390-4a34-95dc-2e63d8bce941
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: tamram
 ms.author: v-junlch
 manager: timlt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 633134ee3186d09c8aec5cf4ce4ee9f447d1fb9f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: eb9826558f4414b72160e8f6e781f57a1f60cf55
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="pool-resize-start-event"></a>池调整大小开始事件
 池调整大小开始事件日志正文
@@ -47,4 +46,3 @@ ms.lasthandoff: 05/05/2017
 |targetDedicated|Int32|池请求的计算节点数。|
 |enableAutoScale|Bool|指定池大小是否随时间自动调整。|
 |isAutoPool|Bool|指定是否已通过作业的 AutoPool 机制创建池。|
-

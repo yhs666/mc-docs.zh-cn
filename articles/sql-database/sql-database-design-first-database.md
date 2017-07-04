@@ -16,15 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/07/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
 ms.openlocfilehash: ad9fabe1252e4874e458c16c6a385457455d66ad
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/14/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="design-your-first-azure-sql-database"></a>设计你的第一个 Azure SQL 数据库
 
 Azure SQL 数据库是使用 Microsoft SQL Server 引擎的关系数据库即服务。 本教程介绍基本数据库任务，例如创建数据库和表、加载和查询数据，以及将数据库还原到以前的时间点。 将了解如何： 
@@ -305,4 +302,3 @@ Azure SQL 数据库受防火墙保护。 默认情况下，将拒绝与服务器
 
 > [!div class="nextstepaction"]
 >[将 SQL Server 数据库迁移至 Azure SQL 数据库](sql-database-migrate-your-sql-server-database.md)
-

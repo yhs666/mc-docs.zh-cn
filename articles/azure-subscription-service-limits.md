@@ -16,18 +16,16 @@ ms.topic: article
 origin.date: 03/20/2017
 ms.date: 05/22/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 4acfed2b89dba7563b72f72515f2a21b67ce5f4c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: cfe75d38fffb2d662830a8a647da65593cab43f4
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将得以展开并更新，以便涵盖更多平台。
 
-若要了解有关 Azure 定价的详细信息，请访问 [Azure 定价概述](https://www.azure.cn/pricing/)。 在那里，你可以使用[定价计算器](https://www.azure.cn/pricing/calculator/)或访问某服务（例如，[Windows VM](https://www.azure.cn/pricing/details/virtual-machines/#Windows/)）的详情页面预估所需的成本。
+若要了解有关 Azure 定价的详细信息，请访问 [Azure 定价概述](https://www.azure.cn/pricing/)。 在那里，你可以使用[定价计算器](https://www.azure.cn/pricing/calculator/)或访问某服务（例如，[Windows VM](https://www.azure.cn/pricing/details/virtual-machines#Windows)）的详情页面预估所需的成本。
 
 > [!NOTE]
 > 如果想要提高限制或配额，使其超出**默认限制**，可以[打开免费的联机客户支持请求](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 无法将限制提高到超过下表中显示的 **最大限制** 值。 如果没有 **最大限制** 列，则资源没有可调整的限制。 
@@ -232,6 +230,5 @@ DocumentDB 是一个全规模数据库，该数据库对吞吐量和存储进行
 [Azure 的虚拟机和云服务大小](virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [云服务的大小](cloud-services/cloud-services-sizes-specs.md)
-
 
 

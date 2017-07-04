@@ -12,15 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+origin.date: 05/04/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 5f772ca88c292d6b365a53e1a973e5af8c394584
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.date: 07/10/2017
+ms.openlocfilehash: 0a51b45a1a7d9fe0fc44e0b969e9662405390bab
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>使用 Azure Resource Manager 模板创建 IoT 中心 (PowerShell)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -40,6 +39,8 @@ ms.lasthandoff: 06/09/2017
 
 > [!TIP]
 > [将 Azure PowerShell 与 Azure Resource Manager 配合使用][lnk-powershell-arm]一文提供了有关如何使用 PowerShell 脚本和 Azure Resource Manager 模板创建 Azure 资源的详细信息。 
+> 
+> 
 
 ## <a name="connect-to-your-azure-subscription"></a>连接到 Azure 订阅
 
@@ -132,7 +133,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "China East"
 2. 将 Azure Resource Manager 模板文件保存到本地计算机。 本示例假设将它保存在名为 **c:\templates** 的文件夹中。
 3. 运行以下命令部署新的 IoT 中心，并传递 IoT 中心的名称作为参数。 在本示例中，IoT 中心名称是 **abcmyiothub**（请注意，此名称必须全局唯一，因此应包含你的姓名或姓名的首字母缩写）：
    
-    ```
+    ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
 4. 输出将显示你创建的 IoT 中心的密钥。
@@ -146,7 +147,8 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "China East"
 ## <a name="next-steps"></a>后续步骤
 现在，已使用 Azure Resource Manager 模板和 PowerShell 部署了一个 IoT 中心，接下来可以进一步进行探索：
 
-- 有关 Azure Resource Manager 功能的详细信息，请参阅 [Azure Resource Manager 概述][lnk-azure-rm-overview] 。
+* 阅读了解 [IoT 中心资源提供程序 REST API][lnk-rest-api] 的相关功能。
+* 有关 Azure Resource Manager 功能的详细信息，请参阅 [Azure Resource Manager 概述][lnk-azure-rm-overview] 。
 
 若要详细了解如何开发 IoT 中心，请参阅以下文章：
 
@@ -155,16 +157,17 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "China East"
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [使用 Azure IoT Edge 模拟设备][lnk-gateway]
+* [使用 Azure IoT Edge 模拟设备][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azure-portal]: https://portal.azure.cn/
 [lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-powershell-arm]: ../azure-resource-manager/powershell-azure-resource-manager.md
 
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md

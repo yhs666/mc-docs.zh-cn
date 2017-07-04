@@ -5,7 +5,7 @@
 如果这是首次使用 Raspberry Pi，需使用工具包中随附的 SD 卡上的 NOOBS 来安装 Raspbian 操作系统。 [Raspberry Pi 软件指南][lnk-install-raspbian]介绍了如何在 Raspberry Pi 上安装操作系统。 本教程假定已在 Raspberry Pi 上安装 Raspbian 操作系统。
 
 > [!NOTE]
-> [适用于 Raspberry Pi 3 的 Azure IoT 初学者工具包][lnk-starter-kits]随附的 SD 卡已安装 NOOBS。 可以从该卡启动 Raspberry Pi，然后选择安装 Raspbian OS。
+> [适用于 Raspberry Pi 3 的 Microsoft Azure IoT 初学者工具包][lnk-starter-kits]随附的 SD 卡已安装 NOOBS。 可以从该卡启动 Raspberry Pi，然后选择安装 Raspbian OS。
 
 若要完成硬件设置，需执行以下操作：
 
@@ -43,4 +43,4 @@ Raspbian 的默认凭据为用户名 **pi** 和密码 **raspberry**。 在 GUI �
 [lnk-pi-ssh]: https://www.raspberrypi.org/documentation/remote-access/ssh/README.md
 [lnk-ssh-windows]: https://www.raspberrypi.org/documentation/remote-access/ssh/windows.md
 [lnk-ssh-linux]: https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md
-[lnk-starter-kits]: /develop/iot/iot-starter-kits/
+[lnk-starter-kits]: https://www.azure.cn/develop/iot/iot-starter-kits/

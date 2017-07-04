@@ -16,15 +16,12 @@ ms.workload: data-services
 origin.date: 04/20/2017
 ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 78cca283fdf74b2768a99c8b3527a425d2ba3ed7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: e2f9512e1740ab5789c5611747a44294d90662ca
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-
 # <a name="optimize-your-job-to-use-streaming-units-efficiently"></a>优化作业以高效使用流式处理单位
 
 Azure 流分析将运行作业的性能“权重”聚合到流式处理单位（SU）中。 SU 表示执行作业所消耗的计算资源。 在已经对 CPU、内存以及读取和写入速率进行测量的情况下，可以使用 SU 描述相对的事件处理能力。 此处理能力使你能够专注于查询逻辑，并且无需再了解存储层性能注意事项、无需手动为作业分配内存，以及无需计算及时运行作业所需的 CPU 核心计数的近似值。

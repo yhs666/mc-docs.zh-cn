@@ -17,13 +17,11 @@ ms.workload: na
 origin.date: 03/04/2016
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 22b13bc2b2717c9b726ae0bb18eb8ca5cd49f173
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 164d8e997ebf34d4f05eb2cf420a93c443ec18b0
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure 应用服务本地缓存概述
 Azure Web 应用内容存储在 Azure 存储中，作为内容共享持续提供。 此设计旨在兼容各种应用，具有以下特点：  
@@ -56,12 +54,12 @@ Azure 应用服务本地缓存功能允许通过 Web 角色来查看内容。 �
 * [Azure 门户](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
-### <a name="configure-local-cache-by-using-the-azure-portal-preview"></a>通过 Azure 门户配置本地缓存
+### <a name="configure-local-cache-by-using-the-azure-portal"></a>通过 Azure 门户配置本地缓存
 <a name="Configure-Local-Cache-Portal"></a>
 
 使用以下应用设置即可在每个 Web 应用的基础上启用本地缓存： `WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
 
-![Azure 门户应用设置：本地缓存](./media/app-service-local-cache/app-service-local-cache-configure-portal.png)
+![Azure 门户应用设置：本地缓存](media/app-service-local-cache/app-service-local-cache-configure-portal.png)
 
 ### <a name="configure-local-cache-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 配置本地缓存
 <a name="Configure-Local-Cache-ARM"></a>
@@ -117,4 +115,3 @@ Azure 应用服务本地缓存功能允许通过 Web 角色来查看内容。 �
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>本地缓存是否会阻止某些目录被复制到更快的本地驱动器？
 在复制存储内容过程中，将排除任何名为存储库的文件夹。 如果网站内容包含 Web 应用日常操作中可能不必要的源控件存储库，则此方法非常有用。
-

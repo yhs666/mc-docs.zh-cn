@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: a1e1a24b102d2308737f1007c54cfbb81fb80383
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 9323a7ae9ebc5e96cb518c4c87edfa39c692f161
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>使用 Visual Studio 调试 Service Fabric 应用程序
 > [!div class="op_single_selector"]

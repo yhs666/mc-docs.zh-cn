@@ -16,13 +16,11 @@ ms.workload: data-services
 origin.date: 04/20/2017
 ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 5a69466ded7ed823f8eed0ab8f675698fbfd2717
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: 01fa91d8feec9436069745e8c7f466fe66570aac
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
 # <a name="azure-stream-analytics-input-stream-sampling"></a>Azure 流分析输入流采样
 

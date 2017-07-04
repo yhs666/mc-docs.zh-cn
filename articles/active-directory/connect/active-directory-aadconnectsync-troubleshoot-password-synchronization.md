@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 83a061392d2ec273054a7c036734766cf8bcb769
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: b8bf6a3c52a07fbf865409a9780c9b7511f0fb39
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>排查 Azure AD Connect 同步的密码同步问题
 本主题提供了排查密码同步问题的步骤。 如果密码未按预期同步，请区分该密码是一部分用户的密码还是所有用户的密码。
@@ -36,7 +34,7 @@ ms.lasthandoff: 04/22/2017
 ![PowerShell 脚本从密码同步设置中返回的输出](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/psverifyconfig.png)  
 3. 如果未在 Azure AD 中启用该功能，或者未启用同步通道状态，请运行 Connect 安装向导。 选择“自定义同步选项”并取消选择密码同步。 此项更改会暂时禁用该功能。 然后再次运行向导并重新启用密码同步。 再次运行脚本，验证配置是否正确。
 4. 查看错误的事件日志。 查找下述事件，这些事件指示存在问题：
-    1. 源：“目录同步”ID：0、611、652、655 如果看到此类信息，则存在连接问题。 事件日志消息包含林信息（其中有问题）。 有关详细信息，请参阅[连接问题](#connectivity-problem)
+    1. 源：“目录同步”ID：0、611、652、655 如果看到此类信息，则存在连接问题。 事件日志消息包含林信息（其中有问题）。 有关详细信息，请参阅[连接问题](#connectivity problem)
 5. 如果没有看到检测信号，或者其他方面均为异常，则运行[触发所有密码的完全同步](#trigger-a-full-sync-of-all-passwords)。 只应运行该脚本一次。
 6. 阅读 [排查一个不同步密码的对象的问题](#one-object-is-not-synchronizing-passwords)部分。
 
@@ -71,7 +69,7 @@ ms.lasthandoff: 04/22/2017
     6. 找到正在查找的用户并单击“属性”以查看所有属性。 如果用户不在搜索结果中，则验证[筛选规则](active-directory-aadconnectsync-configure-filtering.md)，并确保运行[应用并验证更改](active-directory-aadconnectsync-configure-filtering.md#apply-and-verify-changes)以在 Connect 中显示用户。
     7. 若要查看对象在过去一周的密码同步详细信息，请单击“日志...”。  
     ![对象日志详细信息](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/csobjectlog.png)  
-    如果对象日志为空，则 Azure AD Connect 不能从 Active Directory 读取密码哈希。 继续进行针对[连接错误](#connectivity-problem)的故障排除。 如果看到除“成功”外的任何其他值，则参阅[密码同步日志](#password-sync-log)中的表。
+    如果对象日志为空，则 Azure AD Connect 不能从 Active Directory 读取密码哈希。 继续进行针对[连接错误](#connectivity-errors)的故障排除。 如果看到除“成功”外的任何其他值，则参阅[密码同步日志](#password-sync-log)中的表。
     8. 选择“沿袭”选项卡，确保至少有一个同步规则的“密码同步”显示为 **True**。 在默认配置中，同步规则的名称为 **In from AD - User AccountEnabled**。  
     ![有关用户的沿袭信息](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/cspasswordsync.png)  
     9. 单击“Metaverse 对象属性”。 将在用户中看到属性的列表。  
@@ -174,5 +172,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 - [使用 Azure AD Connect 同步实现密码同步](active-directory-aadconnectsync-implement-password-synchronization.md)
 - [Azure AD Connect Sync：自定义同步选项](active-directory-aadconnectsync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
-
 

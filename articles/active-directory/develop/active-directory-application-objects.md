@@ -2,8 +2,8 @@
 title: "Azure Active Directory 应用程序对象和服务主体对象 | Microsoft Docs"
 description: "介绍 Azure Active Directory 中应用程序对象与服务主体对象之间的关系"
 documentationcenter: dev-center-name
-author: bryanla
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 services: active-directory
 editor: 
 ms.assetid: adfc0569-dc91-48fe-92c3-b5b4833703de
@@ -13,15 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/28/2016
-ms.date: 01/19/2017
+ms.date: 06/26/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: a2962220b813c9b3a855f46b4be06a4b1e046aad
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: 6d8629f03fcfce92628cd57bde4c67cfa9158794
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD) 中的应用程序对象和服务主体对象
 在 Azure AD 的上下文中使用时，术语“应用程序”的含义有时可能会被误解。 本文的目的是更加明确地阐明其含义，澄清 Azure AD 应用程序集成的概念和具体层面，然后演示如何注册和同意[多租户应用程序](active-directory-dev-glossary.md#multi-tenant-application)。
@@ -78,4 +77,3 @@ Azure AD 应用程序由其唯一一个应用程序对象来定义，该对象�
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AZURE-Classic-Portal]: https://manage.windowsazure.cn
-

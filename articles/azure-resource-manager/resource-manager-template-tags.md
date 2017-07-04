@@ -3,7 +3,7 @@ title: "标记模板中的 Azure 资源 | Azure"
 description: "演示如何将标记应用于 Azure Resource Manager 模板中的资源"
 services: azure-resource-manager
 documentationcenter: 
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 04/20/2017
 ms.date: 06/05/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 7910bbfd588c80abd1bfbcd05047ce45d6e52a60
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 3ce8792ae89724840bbd9962128738c0f00556da
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="tag-resources-in-azure-resource-manager-templates"></a>标记 Azure Resource Manager 模板中的资源
 [!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]

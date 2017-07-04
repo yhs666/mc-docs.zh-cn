@@ -16,13 +16,11 @@ ms.topic: article
 origin.date: 03/30/2017
 ms.date: 05/15/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 228e3b142115a72844c163aeb1d1dd22ef8a55e4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 9dd084d453747f82ba73d7d4ca5f33f0cc99e6ef
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>使用 Azure CLI 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型
 以下步骤演示如何使用 Azure 命令行接口 (CLI) 命令将基础结构即服务 (IaaS) 资源从经典部署模型迁移到 Azure Resource Manager 部署模型。 本文中的操作需要 [Azure CLI](../../cli-install-nodejs.md)。
@@ -35,7 +33,7 @@ ms.lasthandoff: 05/05/2017
 <br>
 下面是一个流程图，用于确定在迁移过程中需要执行步骤的顺序
 
-![Screenshot that shows the migration steps](./media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](../windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="step-1-prepare-for-migration"></a>步骤 1：准备迁移
 下面是建议你在将 IaaS 资源从经典部署模型迁移到 Resource Manager 部署模型时遵循的一些最佳实践：
@@ -172,7 +170,7 @@ azure network vnet validate-migration <virtualNetworkName>
 
     azure storage account prepare-migration <storageAccountName>
 
-使用 CLI 或 Azure 门户查看准备好的存储帐户的配置。 如果你尚未做好迁移准备，因此想要回到旧的状态，请使用以下命令。
+使用 CLI 或 Azure 门户查看准备就绪的存储帐户的配置。 如果你尚未做好迁移准备，因此想要回到旧的状态，请使用以下命令。
 
     azure storage account abort-migration <storageAccountName>
 
@@ -189,4 +187,3 @@ azure network vnet validate-migration <virtualNetworkName>
 * [用于帮助将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型的社区工具](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看最常见的迁移错误](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [查看有关将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型的最常见问题](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-

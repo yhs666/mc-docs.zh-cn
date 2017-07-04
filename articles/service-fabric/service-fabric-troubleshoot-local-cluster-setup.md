@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/02/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 2dec670a7114e1dcc53051587e65117205a42f21
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 3b87565c7be4c1b7253364e5f02dcdd2028430b0
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>排除本地开发群集安装的故障
 如果你在与本地 Azure Service Fabric 开发群集交互时遇到问题，请查看以下建议以获得可能的解决方案。
@@ -94,5 +92,4 @@ At line:1 char:1
 ## <a name="next-steps"></a>后续步骤
 * [使用系统运行状况报告了解群集并排除故障](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 * [使用 Service Fabric Explorer 可视化群集](service-fabric-visualizing-your-cluster.md)
-
 

@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: eb937b587cbca86289f82debe8950b59a2e29539
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: abf0a60b8e26a6d60b8bed1ac8c4999928009b05
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="embed-a-report-in-power-bi-embedded"></a>嵌入 Power BI Embedded 中的报表
 
@@ -158,5 +156,4 @@ var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 [PowerBI-CSharp Git 存储库](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git 存储库](https://github.com/Microsoft/PowerBI-Node)  
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
-
 

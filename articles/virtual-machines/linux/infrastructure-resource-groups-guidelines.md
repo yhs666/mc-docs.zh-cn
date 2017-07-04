@@ -17,13 +17,11 @@ origin.date: 03/17/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: ebcaf71ca09aabe96bfc7f6a9072ac24bd363b6f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: 520c7204532503a876b8e9d2312636a5925d2964
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="azure-resource-group-guidelines-for-linux-vms"></a>适用于 Linux VM 的 Azure 资源组准则 
 
@@ -58,4 +56,3 @@ ms.lasthandoff: 06/09/2017
 
 ## <a name="next-steps"></a>后续步骤
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-

@@ -1,5 +1,4 @@
 ---
-
 title: "将 Azure Active Directory 单一登录与 SaaS 应用相集成 | Microsoft Docs"
 description: "为 Azure Active Directory 中的 SaaS 应用启用单一登录身份验证和用户设置集中式访问管理。 有关如何将 Azure Active Directory 集成到 SaaS 应用的概述。"
 services: active-directory
@@ -17,15 +16,12 @@ ms.workload: identity
 origin.date: 05/04/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: e5afc5eeaeda0295569dbf5431cf18ecdef77477
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 6d7a36f613d6c7a58823b870b1d8d868e900f0e1
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>将 Azure Active Directory 单一登录与 SaaS 应用相集成  
 
 [!INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
@@ -72,5 +68,4 @@ Azure AD 提供多种可自定义的方式来向组织中的最终用户部署�
 Azure.com 库中还提供了有关所有这些问题的更多详细信息，请先阅读 [Azure Active Directory 的应用程序访问与单一登录是什么](active-directory-appssoaccess-whatis.md)。
 
 此外，请不要错过[有关 Azure Active Directory 中应用程序管理的文章索引](active-directory-apps-index.md)。
-
 

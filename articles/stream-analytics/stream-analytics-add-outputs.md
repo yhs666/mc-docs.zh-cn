@@ -16,14 +16,12 @@ ms.workload: data-services
 origin.date: 04/26/2017
 ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: d6a335bcb7d900f4c8ea695f450f64a4a7c5b991
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: d7032378caf35832ee7aae03c41cf30fea70f565
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-
 # <a name="how-to-configure-data-outputs-for-stream-analytics-jobs"></a>如何配置流分析作业的数据输出
 
 Azure 流分析作业可以连接到一个或多个数据输出，这些数据输出定义了一个到现有数据接收器的连接。 流分析作业处理并转换传入数据时，数据输出事件流会写入作业输出。

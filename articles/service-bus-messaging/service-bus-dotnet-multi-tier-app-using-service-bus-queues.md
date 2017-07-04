@@ -14,12 +14,11 @@ ms.topic: get-started-article
 origin.date: 04/11/2017
 ms.author: v-yiso
 ms.date: 05/22/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 6a13641a69689b29315cd45eaf322108de189afe
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 81711eba15b24d4060f2110141a3d7b1dd547cdf
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>使用 Azure 服务总线队列创建 .NET 多层应用程序
 ## <a name="introduction"></a>介绍
@@ -35,7 +34,7 @@ ms.lasthandoff: 05/12/2017
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-在本教程中，你将生成多层应用程序并在 Azure 云服务中运行它。 前端是 ASP.NET MVC Web 角色，后端是使用服务总线队列的辅助角色。 可创建与前端相同的多层应用程序，作为将部署到 Azure 网站而不是云服务的 Web 项目。 
+在本教程中，你将生成多层应用程序并在 Azure 云服务中运行它。 前端是 ASP.NET MVC Web 角色，后端是使用服务总线队列的辅助角色。 可创建与前端相同的多层应用程序，作为将部署到 Azure 网站而不是云服务的 Web 项目。 还可以试用 [.NET 本地/云混合应用程序](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md)教程。
 
 以下屏幕截图显示了已完成的应用程序。
 

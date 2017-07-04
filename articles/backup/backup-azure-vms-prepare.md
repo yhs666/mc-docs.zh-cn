@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
 ms.openlocfilehash: 1ae3007158caced48e78bd2d5eecc02b2ff48f7e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="prepare-your-environment-to-back-up-azure-virtual-machines"></a>准备环境以便备份 Azure 虚拟机
 > [!div class="op_single_selector"]
@@ -213,4 +211,3 @@ VM 代理已存在于从 Azure 库创建的 VM 中。 但是，从本地数据�
 - [备份虚拟机](./backup-azure-vms.md)
 - [规划 VM 备份基础结构](./backup-azure-vms-introduction.md)
 - [管理虚拟机备份](./backup-azure-manage-vms-classic.md)
-

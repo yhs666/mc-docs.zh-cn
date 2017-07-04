@@ -3,7 +3,7 @@ title: "Azure 中 Liunx VM 的计划内维护 | Azure"
 description: "了解什么是 Azure 计划内维护以及它如何影响正在 Azure 中运行的 Windows 虚拟机。"
 services: virtual-machines-linux
 documentationcenter: 
-author: 
+author: zivr
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -16,15 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 03/27/2017
 ms.date: 05/15/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 7753e3e88ec09fdc0b83c307db9da85c2e6d7648
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: f698595b07434489d3b8702bfd6c1903c13c32a9
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="planned-maintenance-for-linux-virtual-machines"></a>Linux 虚拟机的计划维护 
 
 Azure 在全球范围内定期执行更新，以提高虚拟机所基于的主机基础结构的可靠性、性能及安全性。 此类更新包括修补主机环境（OS、虚拟机监控程序以及主机上部署的各种代理）中的软件组件、升级网络组件以及硬件解除授权等多项内容。
@@ -37,5 +34,4 @@ Azure 在全球范围内定期执行更新，以提高虚拟机所基于的主�
 
 -   VM 重启维护，维护时需要重启或重新部署到托管虚拟机。
 
-请注意，本页介绍 Azure 如何执行计划内维护。 有关非计划事件（故障）的详细信息，请参阅[管理虚拟机的可用性](../windows/manage-availability.md)。
-
+请注意，本页介绍 Azure 如何执行计划内维护。 有关非计划事件（故障）的详细信息，请参阅[管理虚拟机的可用性](../linux/manage-availability.md)。

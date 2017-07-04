@@ -16,13 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 04/21/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
 ms.openlocfilehash: 1e6d8831c4485f3cd5621ff0abab7f485ea04042
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>使用 Azure SQL 数据库设计高可用性服务
 
@@ -166,4 +164,3 @@ ms.lasthandoff: 06/09/2017
 * 若要了解更快的恢复选项，请参阅[活动异地复制](sql-database-geo-replication-overview.md)  
 * 若要了解如何使用自动备份进行存档，请参阅[数据库复制](sql-database-copy.md)
 * 有关弹性池的活动异地复制的信息，请参阅[弹性池灾难恢复策略](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)。
-

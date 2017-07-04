@@ -16,14 +16,12 @@ ms.workload: tbd
 origin.date: 04/14/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 0ae467a14ccc1586a4116a1915739ddbbb53ede6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: a5d304da5abf8bf181dbba1e37add351bcf3245a
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="get-details-of-an-azure-redis-cache"></a>获取 Azure Redis 缓存的详细信息
 
 在此方案中，你将了解如何检索 Azure Redis 缓存实例的详细信息，包括其预配状态。

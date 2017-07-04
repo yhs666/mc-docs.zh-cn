@@ -12,11 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/31/2017
-ms.date: 06/05/2017
+origin.date: 05/02/2017
 ms.author: v-yiso
+ms.date: 07/10/2017
+ms.openlocfilehash: 8e62ec3c03900fddd1b2febc5305804b54567797
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>使用 Azure 门户创建 IoT 中心
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -69,7 +73,7 @@ ms.author: v-yiso
 Azure IoT 中心自动显示用户帐户所链接的 Azure 订阅列表。 可在此处选择其中一个选项，将 IoT 中心与该 Azure 订阅关联。
 
 ### <a name="choose-the-location"></a>选择位置
-位置选项提供可在其中使用 IoT 中心的区域列表。IoT 中心可以部署在以下位置：中国东部、中国北部。
+位置选项提供可在其中使用 IoT 中心的区域列表。 IoT 中心可以部署在以下位置：澳大利亚东部、澳大利亚东南部、东亚、东南亚、欧洲北部、欧洲西部、日本东部、日本西部、美国东部、美国西部。
 
 ### <a name="create-the-iot-hub"></a>创建 IoT 中心
 完成上述所有步骤后，可以创建 IoT 中心。 单击“创建”启动使用特定选项创建此 IoT 中心的后端进程，并将 IoT 中心部署到指定的位置。
@@ -156,7 +160,7 @@ Azure IoT 中心自动显示用户帐户所链接的 Azure 订阅列表。 可�
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南][lnk-devguide]
-* [使用 IoT Edge 模拟设备][lnk-gateway]
+* [使用 IoT Edge 模拟设备][lnk-iotedge]
 * [从根本上保护 IoT 解决方案][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png
@@ -174,6 +178,6 @@ Azure IoT 中心自动显示用户帐户所链接的 Azure 订阅列表。 可�
 [lnk-monitor]: ./iot-hub-operations-monitoring.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
 [lnk-securing]: ./iot-hub-security-ground-up.md
 [lnk-devguide-endpoints]: ./iot-hub-devguide-endpoints.md

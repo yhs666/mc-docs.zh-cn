@@ -15,14 +15,12 @@ ms.workload: na
 origin.date: 01/04/2017
 ms.author: v-yiso
 ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 20f0ba7b3a2e86fdecf4836dcce2d601d6d7e9e7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: 0433e5efd3a1604c527e0910c364d825acb66d87
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="secure-your-iot-deployment"></a>保护你的 IoT 部署
 本文提供保护基于 Azure IoT 的物联网 (IoT) 基础结构的进一步详细信息。 它链接到配置和部署每个组件的实现级别详细信息。 还提供多种竞争方式间的比较和选择。
 
@@ -107,8 +105,8 @@ Azure IoT 中心和其他可能是解决方案的一部分的服务允许使用 
 
 Azure IoT 中心引入的数据可供多种服务（例如 Azure 流分析和 Azure Blob 存储）使用。 这些服务允许管理访问权限。 了解以下有关这些服务和可用选项的详细信息：
 
-* [Azure DocumentDB][lnk-docdb]：适用于半结构化数据的可缩放且已完全编制索引的数据库服务，可管理预配的设备的元数据，例如，属性、配置和安全属性。 DocumentDB 提供高性能和高吞吐量处理、架构不可知的数据索引，以及丰富的 SQL 查询接口。
-* [Azure 流分析][lnk-asa]：通过云中处理的实时流可以快速开发和部署低成本分析解决方案，以便从设备、传感器、基础结构和应用程序实时获取深入了解。 来自这种完全托管服务的数据可缩放为任何数量，同时保持高吞吐量、低延迟和复原能力。
+* [Azure Cosmos DB][lnk-docdb]：适用于半结构化数据的可缩放且已完全编制索引的数据库服务，可管理预配的设备的元数据，例如，属性、配置和安全属性。 Cosmos DB 提供高性能和高吞吐量处理、架构不可知的数据索引，以及丰富的 SQL 查询接口。
+* []Azure 流分析[lnk-asa]：通过云中处理的实时流可以快速开发和部署低成本分析解决方案，以便从设备、传感器、基础结构和应用程序实时获取深入了解。 来自这种完全托管服务的数据可缩放为任何数量，同时保持高吞吐量、低延迟和复原能力。
 * [Azure 应用服务][lnk-appservices]：一种云平台，用以构建能够连接到任何地方（在云中或本地）的数据的强大 Web 和移动应用。 构建具有吸引力的 iOS、Android 和 Windows 移动应用。 与软件即服务 (SaaS) 和企业应用程序相集成，这些应用程序一经使用便可直接连接到数十种基于云的服务和企业应用程序。 使用偏好的语言（.NET、Node.js、PHP、Python 或 Java）在 IDE 中编写代码，快速构建 Web 应用和 API。
 * [Azure Blob 存储][lnk-blob]：可靠且符合经济效益的云存储，适用于设备要发送到云的数据。
 
@@ -118,7 +116,7 @@ Azure IoT 中心引入的数据可供多种服务（例如 Azure 流分析和 Az
 ## <a name="see-also"></a>另请参阅
 你还可以浏览 IoT 套件预配置的解决方案的一些其他特性和功能：
 
-- [预测性维护预配置解决方案概述][lnk-predictive-overview]
+- [预见性维护预配置解决方案概述][lnk-predictive-overview]
 - [有关 IoT 套件的常见问题][lnk-faq]
 
 可以在 IoT 中心开发人员指南的 [控制 IoT 中心的访问权限][lnk-devguide-security] 中阅读 IoT 中心安全性的相关信息。
@@ -126,7 +124,7 @@ Azure IoT 中心引入的数据可供多种服务（例如 Azure 流分析和 Az
 [img-overview]: ./media/iot-suite-security-deployment/overview.png
 
 [lnk-security-tokens]: ../iot-hub/iot-hub-devguide-security.md#security-token-structure
-[lnk-sas-tokens]: ../iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
+[lnk-sas-tokens]: ../iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-client
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-protocols]: ../iot-hub/iot-hub-devguide-security.md
 [lnk-custom-auth]: ../iot-hub/iot-hub-devguide-security.md#custom-device-authentication

@@ -15,14 +15,12 @@ ms.workload: na
 origin.date: 01/31/2017
 ms.date: 04/24/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: e78b624d76f1d7215c6efb40164cd640f3bdddd0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 5afce24b43bf301e7e6f5d4cb8f247f92392e1a4
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="how-to-use-azure-iot-hub"></a>如何使用 Azure IoT 中心
 
 可以通过多种方式了解如何针对 IoT 中心服务进行开发。 可以阅读各种概念性的文章，详细了解 IoT 中心的功能，或者通过其中一个教程了解 IoT 中心的各种功能。

@@ -13,13 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: de6fa04134ad2d297a223b221ca70b29ddba0677
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 4765a18ce4937a33c2fe8fe3afd3202702f10e85
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>使用 Azure Active Directory 管理应用程序
 除了实际工作流或内容以外，企业对所有应用程序还有另外两个基本要求：
@@ -109,10 +107,8 @@ Azure AD 提供预先集成的报告和监视功能，使你能够知道谁有�
 借助 Azure AD，可以使用精细的访问策略和预先集成的 MFA 来保护应用程序。 若要了解有关 Azure MFA 的详细信息，请参阅 [Azure MFA](https://azure.microsoft.com/services/multi-factor-authentication/)。
 
 ## <a name="getting-started"></a>入门
-若要开始将应用程序与 Azure AD 集成，请参阅[将 Azure Active Directory 与应用程序集成入门指南](active-directory-integrating-applications-getting-started.md)。
+若要开始将应用程序与 Azure AD 集成，请参阅[将 Azure Active Directory 与应用程序集成入门指南](./active-directory-integrating-applications-getting-started.md)。
 
 ## <a name="see-also"></a>另请参阅
 [有关 Azure Active Directory 中应用程序管理的文章索引](active-directory-apps-index.md)
-
-
 

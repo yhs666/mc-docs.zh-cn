@@ -3,8 +3,8 @@ title: "创建面向 Internet 的负载均衡器 - Azure 模板 | Azure"
 description: "了解如何使用模板在 Resource Manager 中创建面向 Internet 的负载均衡器"
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 tags: azure-resource-manager
 ms.assetid: b24f4729-4559-4458-8527-71009d242647
 ms.service: load-balancer
@@ -13,28 +13,27 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 39265ba66a6fb699da54c6afa6a371d1c14c14c5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 6b5867b158b4cf4e172ce79fb5cd42c04d79bc48
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-
 # <a name="creating-an-internet-facing-load-balancer-using-a-template"></a>使用模板创建面向 Internet 的负载均衡器
+
 > [!div class="op_single_selector"]
->- [门户](./load-balancer-get-started-internet-portal.md)
->- [PowerShell](./load-balancer-get-started-internet-arm-ps.md)
->- [Azure CLI](./load-balancer-get-started-internet-arm-cli.md)
->- [模板](./load-balancer-get-started-internet-arm-template.md)
+> * [门户](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [模板](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-本文介绍 Resource Manager 部署模型。 还可以[了解如何使用经典部署模型创建面向 Internet 的负载均衡器](./load-balancer-get-started-internet-classic-portal.md)
+本文介绍 Resource Manager 部署模型。 还可以[了解如何使用经典部署模型创建面向 Internet 的负载均衡器](load-balancer-get-started-internet-classic-portal.md)
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -46,7 +45,7 @@ ms.lasthandoff: 04/07/2017
 
 若要使用 PowerShell 部署下载的模板，请执行以下步骤。
 
-1. 如果你从未使用过 Azure PowerShell，请参阅 [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) （如何安装和配置 Azure PowerShell），并始终按照说明进行操作，以登录到 Azure 并选择你的订阅。
+1. 如果你从未使用过 Azure PowerShell，请参阅 [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) （如何安装和配置 Azure PowerShell），并始终按照说明进行操作，以登录到 Azure 并选择你的订阅。
 2. 运行 **New-AzureRmResourceGroupDeployment** cmdlet 以使用模板创建资源组。
 
     ```powershell
@@ -66,11 +65,9 @@ ms.lasthandoff: 04/07/2017
     azure config mode arm
     ```
 
-下面是上述命令的预期输出：
+    下面是上述命令的预期输出：
 
-```
-    info:    New mode is arm
-```
+        info:    New mode is arm
 
 3. 从浏览器中，导航到[快速入门模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules)，复制 json 文件的内容并粘贴到计算机中的一个新文件。 对于此方案，需要将下面的值复制到名为 **c:\lb\azuredeploy.parameters.json** 的文件。
 4. 运行 **azure group deployment create** cmdlet 以使用在前面下载并修改的模板和参数文件部署新的负载均衡器。 在输出后显示的列表说明了所用的参数。
@@ -81,8 +78,8 @@ ms.lasthandoff: 04/07/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-[开始配置内部负载均衡器](./load-balancer-get-started-ilb-arm-ps.md)
+[开始配置内部负载均衡器](load-balancer-get-started-ilb-arm-ps.md)
 
-[配置负载均衡器分发模式](./load-balancer-distribution-mode.md)
+[配置负载均衡器分发模式](load-balancer-distribution-mode.md)
 
-[配置负载均衡器的空闲 TCP 超时设置](./load-balancer-tcp-idle-timeout.md)
+[配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)

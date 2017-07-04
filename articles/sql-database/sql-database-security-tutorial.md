@@ -3,8 +3,8 @@ title: "保护 Azure SQL 数据库 | Azure"
 description: "介绍保护 Azure SQL 数据库的技术和功能。"
 services: sql-database
 documentationcenter: 
-author: DRediske
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 tags: 
 ms.assetid: 
@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/07/2017
+origin.date: 05/07/2017
+ms.date: 07/03/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: a32c59e71d1714c552a41ac10e822e3db3b8786c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: 6fd71e1ac76a15822b997d9add3c5cccb8faa89a
+ms.sourcegitcommit: bb82041119027be7a62fc96945d92a8a452e7849
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
 # <a name="secure-your-azure-sql-database"></a>保护 Azure SQL 数据库
 
@@ -39,7 +38,6 @@ SQL 数据库通过限制对数据库的访问来保护数据，具体措施包�
 > * 启用 SQL 数据库威胁检测
 
 若要完成本教程，请确保已安装 Excel 和最新版的 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)。
-
 
 ## <a name="set-up-firewall-rules-for-your-database"></a>设置数据库的防火墙规则
 
@@ -92,7 +90,6 @@ SQL 数据库受 Azure 中的防火墙保护。 默认情况下，将拒绝与�
 
     ![ADO.NET 连接字符串](./media/sql-database-security-tutorial/adonet-connection-string.png)
 
-
 ## <a name="user-management"></a>用户管理
 
 创建任何用户前，必须首先从 Azure SQL 数据库支持的两种身份验证类型中选择一种类型： 
@@ -125,7 +122,6 @@ Azure Active Directory 身份验证，使用 Azure Active Directory 管理的标
     ```
 
 最好在数据库级别创建这些非管理员帐户以连接到数据库，除非需要执行创建新用户等管理员任务。 请查看 [Azure Active Directory 教程](./sql-database-aad-authentication-configure.md)，了解如何使用 Azure Active Directory 进行身份验证。
-
 
 ## <a name="protect-your-data-with-encryption"></a>通过加密保护数据
 
@@ -165,10 +161,9 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 
     ![导航窗格](./media/sql-database-security-tutorial/auditing-get-started-storage-details.png)
 
-6. 若要自定义审核的事件，可以使用 PowerShell 或 REST API - 有关更多详细信息，请参阅[自动化 (PowerShell/REST API)](#subheading-7) 部分。
+6. 若要自定义审核的事件，可以使用 PowerShell 或 REST API - 有关更多详细信息，请参阅[自动化 (PowerShell/REST API)](sql-database-auditing.md#a-idsubheading-7aautomation-powershell--rest-api) 部分。
 
 7. 单击“保存” 。
-
 
 ## <a name="enable-sql-database-threat-detection"></a>启用 SQL 数据库威胁检测
 
@@ -217,7 +212,6 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 
 11. 结果将显示在“SQL 审核日志”工作表中，使你能够对检测到的异常活动运行更深入的分析，并缓解应用程序中安全事件造成的影响。
 
-
 ## <a name="next-steps"></a>后续步骤
 只需几个简单的步骤，即可大大提升数据库抵御恶意用户或未经授权的访问的能力。 本教程介绍以下内容： 
 
@@ -231,5 +225,4 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 
 > [!div class="nextstepaction"]
 >[提高 SQL 数据库性能](sql-database-performance-tutorial.md)
-
 

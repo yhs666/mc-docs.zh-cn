@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 03/22/2017
-ms.date: 05/15/2017
+origin.date: 06/06/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 0ad431b27a67272f72ad2f72c5cd224e7b44a01f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 9220e9b95aef3460a385e1335939364b5f574e97
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="memory-optimized-linux-vm-sizes"></a>内存优化 Linux VM 大小
 
 [!INCLUDE [virtual-machines-common-sizes-memory](../../../includes/virtual-machines-common-sizes-memory.md)]

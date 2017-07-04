@@ -7,7 +7,7 @@
 
 若要使用 StackExchange.Redis NuGet 包配置客户端应用程序，请在“解决方案资源管理器”中右键单击项目，然后选择“管理 NuGet 包”。 
 
-![管理 NuGet 包](./media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
+![管理 NuGet 包](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
 
 在“搜索”文本框中键入 **StackExchange.Redis** 或 **StackExchange.Redis.StrongName**，从结果选择所需版本，然后单击“安装”。
 
@@ -16,7 +16,7 @@
 > 
 > 
 
-![StackExchange.Redis NuGet 程序包](./media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
+![StackExchange.Redis NuGet 程序包](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
 
 NuGet 程序包会给客户端应用程序下载并添加所需的程序集引用，以访问带 StackExchange.Redis 缓存客户端的 Azure Redis 缓存。
 

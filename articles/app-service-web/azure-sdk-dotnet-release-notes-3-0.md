@@ -14,13 +14,11 @@ ms.workload: integration
 origin.date: 03/07/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 9cc5f0697d582c303f979d4a4f0ab69a2ce00cff
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 5b1f8d16833e5c8a9ba3e82796dba413793b2fb6
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-sdk-for-net-30-release-notes"></a>Azure SDK for .NET 3.0 发行说明
 

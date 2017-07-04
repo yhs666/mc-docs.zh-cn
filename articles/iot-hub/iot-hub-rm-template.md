@@ -12,16 +12,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+origin.date: 05/04/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 17c62f7383e773a9af1a5ccfb8b51e049673699e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.date: 07/10/2017
+ms.openlocfilehash: b3c285e5bbe9946d455c68b13c9e90d2c2369b5c
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>使用 Azure Resource Manager 模板创建 IoT 中心 (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
@@ -194,7 +193,8 @@ ms.lasthandoff: 06/09/2017
 ## <a name="next-steps"></a>后续步骤
 现在，已使用 Azure Resource Manager 模板和 C# 程序部署了一个 IoT 中心，接下来可以进一步进行探索：
 
-- 有关 Azure Resource Manager 功能的详细信息，请参阅 [Azure Resource Manager 概述][lnk-azure-rm-overview] 。
+* 阅读了解 [IoT 中心资源提供程序 REST API][lnk-rest-api] 的相关功能。
+* 有关 Azure Resource Manager 功能的详细信息，请参阅 [Azure Resource Manager 概述][lnk-azure-rm-overview] 。
 
 若要详细了解如何开发 IoT 中心，请参阅以下文章：
 
@@ -203,16 +203,17 @@ ms.lasthandoff: 06/09/2017
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [使用 Azure IoT Edge 模拟设备][lnk-gateway]
+* [使用 Azure IoT Edge 模拟设备][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azure-portal]: https://portal.azure.cn/
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md

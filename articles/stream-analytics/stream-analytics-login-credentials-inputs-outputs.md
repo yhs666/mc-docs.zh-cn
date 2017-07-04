@@ -16,13 +16,11 @@ ms.workload: data-services
 origin.date: 03/28/2017
 ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 4391445cecaf51185b3486588ac263c4f4780afd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: 6e05a24748115ba1847474118d184458ced0756d
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-in-stream-analytics-jobs"></a>在流分析作业中轮转输入和输出的登录凭据
 ## <a name="abstract"></a>摘要

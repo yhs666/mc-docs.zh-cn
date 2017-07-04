@@ -15,14 +15,12 @@ ms.topic: article
 origin.date: 03/24/2017
 ms.author: v-junlch
 ms.date: 05/15/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3ff18e6f95d8bbc27348658bc5fce50c3320cf0a
-ms.openlocfilehash: f420e9d6cb8322fd5b51b33cc4cfe8a6e6d9d7e6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/15/2017
-
+ms.openlocfilehash: b67e3f5079efdf0c0c0cf7fd48dda81a4efcdb7b
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="troubleshoot-azure-backup-server"></a>对 Azure 备份服务器进行故障排除
 
 可参考下表中所列的信息，排查使用 Azure 备份服务器时遇到的错误。
@@ -52,4 +50,3 @@ ms.lasthandoff: 05/15/2017
 | 备份 | 在线恢复点创建失败 | 如果错误消息指出“未设置此服务器的加密通行短语， 请配置加密通行短语”，则请尝试配置加密通行短语。 如果该操作失败， <br> <ol><li>请检查是否存在暂存位置。 应存在注册表项 HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Backup\Config 中提到的名为“ScratchLocation”的位置。</li><li> 如果暂存位置存在，请尝试使用旧的通行短语重新注册。 **配置加密通行短语时，请将其保存在安全的位置**</li><ol>
 | 备份 | BMR 备份失败 | 如果 BMR 非常大，则可将某些应用程序文件移到 OS 驱动器，然后重试 |
 | 备份 | 访问文件/共享文件夹时出错 | 尝试根据[此处](https://technet.microsoft.com/library/hh757911.aspx)提供的建议修改防病毒设置|
-

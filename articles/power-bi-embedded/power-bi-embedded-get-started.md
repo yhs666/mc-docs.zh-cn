@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 395ad0ef70b954aed4cf8f864952acd2be2290e4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: dcf70b06f5327ca57a65fdb21a2840809278bf33
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="get-started-with-power-bi-embedded"></a>Power BI Embedded 入门
 
@@ -119,6 +118,5 @@ ms.lasthandoff: 04/14/2017
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript 嵌入示例](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
-
 
 

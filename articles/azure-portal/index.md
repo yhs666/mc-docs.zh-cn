@@ -13,16 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/21/2016
-ms.date: ''
+ms.date: 10/21/2016
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 0b5a4c5c0ae4f1b4e0404fb198356fad1273a741
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 4bc16e77cf6f75584f3c6eee759f2d0d0ec89687
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="to-be-submitted"></a>待提交。
-

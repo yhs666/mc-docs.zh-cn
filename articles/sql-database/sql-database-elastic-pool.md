@@ -16,15 +16,12 @@ ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
 ms.openlocfilehash: 34d0e53d667d2e5d87de66158a2ae00b7247d7b4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/14/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-sql-databases"></a>弹性池有助于管理和缩放多个 SQL 数据库
 
 SQL 数据库弹性池是一种简单且经济高效的解决方案，用于管理和缩放具有不断变化且不可预测的使用需求的多个数据库。 同一弹性池中的所有数据库都位于单个 Azure SQL 数据库服务器上，并以固定价格共享固定数量的资源（[弹性数据库事务单位](sql-database-what-is-a-dtu.md) (eDTU)）。 Azure SQL 数据库中的弹性池可使 SaaS 开发人员将一组数据库的价格性能优化在规定的预算内，同时为每个数据库提供性能弹性。   
@@ -164,4 +161,3 @@ SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源
 * 可以使用 [Azure 门户](sql-database-elastic-pool-manage-portal.md)、[PowerShell](sql-database-elastic-pool-manage-powershell.md)、[Transact-SQL](sql-database-elastic-pool-manage-tsql.md)、[C#](sql-database-elastic-pool-manage-csharp.md) 和 REST API 创建和管理弹性池。
 * 有关视频，请参阅[有关 Azure SQL 数据库弹性功能的 Microsoft 虚拟大学视频课程](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * 若要深入了解如何通过弹性池设计 SaaS 应用程序的模式，请参阅 [具有 Azure SQL 数据库的多租户 SaaS 应用程序的设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
-

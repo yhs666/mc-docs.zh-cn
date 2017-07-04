@@ -3,8 +3,8 @@ title: "创建面向 Internet 的负载均衡器 - Azure CLI | Azure"
 description: "了解如何使用 Azure CLI 在 Resource Manager 中创建面向 Internet 的负载均衡器"
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
@@ -16,14 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 01/23/2017
 ms.date: 04/17/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 621a3945421b0123bbcdeaf51bc207e20e0f8344
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 24a9594a86c4434abedca2edbf0126350238bfb7
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-
 # <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>使用 Azure CLI 创建 Internet 负载均衡器
 > [!div class="op_single_selector"]
 >- [门户](./load-balancer-get-started-internet-portal.md)

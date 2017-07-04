@@ -9,16 +9,15 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: reference
 ms.assetid: dfee89e3-510f-41a0-ace7-737527f40d20
-caps.latest.revision: 4
+caps.latest.revision: "4"
 author: tamram
 ms.author: v-junlch
 manager: timlt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: e4e112c2c593e55b504affc8fe4151d623d8f35b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: b9cc7e93022740ee6e820a88ea0816bc82d41d45
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="pool-resize-complete-event"></a>池调整大小完成事件
 池调整大小完成事件日志正文
@@ -55,4 +54,3 @@ ms.lasthandoff: 05/05/2017
 |endTime|DateTime|池调整大小完成的时间。|
 |resultCode|String|调整大小的结果。|
 |resultMessage|String|调整大小错误包括结果的详细信息。<br /><br /> 如果调整大小已成功完成，则表示操作成功。|
-

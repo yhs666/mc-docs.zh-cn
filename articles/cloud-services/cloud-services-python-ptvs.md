@@ -1,5 +1,5 @@
 ---
-title: "Visual Studio 中的 Python Web 角色和辅助角色 | Azure"
+title: "Python 和 Azure 云服务入门 | Azure"
 description: "有关使用 Python Tools for Visual Studio 来创建包括 Web 角色和辅助角色的 Azure 云服务的概述。"
 services: cloud-services
 documentationCenter: python
@@ -14,24 +14,23 @@ ms.topic: hero-article
 origin.date: 11/16/2016
 ms.author: v-yiso
 ms.date: 04/24/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: a13d905a922f09d0bf1e3e8d10001fa4bdb17c67
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/21/2017
-
+ms.openlocfilehash: 7b6fa417042548f373cb7153e0dc4dfd7d93c6e8
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>用于 Visual Studio 的 Python 工具中的 Python Web 角色和辅助角色
 
 本文概述了如何在 [Python Tools for Visual Studio][]中使用 Python Web 角色和辅助角色。 其中介绍了如何使用 Visual Studio 来创建和部署使用 Python 的基本云服务。
 
-## 先决条件
-
- - Visual Studio 2013 或 2015
- - [Python Tools for Visual Studio][]（用于 Visual Studio 的 Python 工具，简称 PTVS）
- - Azure SDK Tools for VS 2013 或 [Azure SDK Tools for VS 2015][]
- - [Python 2.7（32 位）][]或 [Python 3.5（32 位）][]
+## <a name="prerequisites"></a>先决条件
+* [Visual Studio 2013、2015 或 2017](https://www.visualstudio.com/)
+* [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
+* [用于 VS 2013 的 Azure SDK 工具][Azure SDK Tools for VS 2013]或  
+[用于 VS 2015 的 Azure SDK 工具][Azure SDK Tools for VS 2015]或  
+[用于 VS 2017 的 Azure SDK 工具][Azure SDK Tools for VS 2017]
+* [Python 2.7（32 位）][Python 2.7 32-bit]或 [Python 3.5（32 位）][Python 3.5 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -43,15 +42,13 @@ Azure 为运行应用程序提供了三种计算模型：[Azure 应用服务中�
 
 > [!NOTE]
 > *想要构建一个简单的网站？*
-> 如果方案只涉及一个简单的网站前端，请考虑使用 Azure 应用服务中的轻型 Web 应用功能。随着网站的不断扩大和需求的不断变化，用户可将其轻松升级到云服务。请参阅 <a href="/develop/python/">Python 开发人员中心</a>上关于开发 Azure App Service 中的 Web Apps 功能的文章。
+如果你的方案只涉及一个简单的网站前端，请考虑使用 Azure 应用服务中的轻型 Web 应用功能。 随着您网站的不断扩大和需求的变化，您可以轻松升级到云服务。 请参阅 <a href="/develop/python/">Python 开发人员中心</a>关于如何在 Azure 应用服务中开发 Web 应用功能的文章。
 <br />
 
-
 ## <a name="project-creation"></a>创建项目
-
 在 Visual Studio 中，可以选择“新建项目”对话框中“Python”下的“Azure 云服务”。
 
-![新建项目对话框](./media/cloud-services-python-ptvs/new-project-cloud-service.png)
+![“新建项目”对话框](./media/cloud-services-python-ptvs/new-project-cloud-service.png)
 
 在 Azure 云服务向导中，可以创建新的 Web 角色和辅助角色。
 
@@ -65,14 +62,14 @@ Azure 为运行应用程序提供了三种计算模型：[Azure 应用服务中�
 
 ![添加角色命令](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
-云服务可以包含用不同语言实现的角色。例如，可以使用 Django 实现 Python Web 角色；而使用 Python 或 C# 实现辅助角色。可以使用服务总线队列或存储队列，在角色之间轻松通信。
+您的云服务可以包含用不同语言实现的角色。  例如，可以使用 Django 实现 Python Web 角色，而用使用 Python 或 C# 实现辅助角色。  你可以通过使用服务总线队列或存储队列来轻松地在角色之间进行通信。
 
 ## <a name="install-python-on-the-cloud-service"></a>在云服务上安装 Python
 
 >[!WARNING]
 > 在本文上次更新时与 Visual Studio 一起安装的安装脚本无法使用。 本部分将介绍一种解决方法。
 
-安装脚本的主要问题在于无法安装 Python。 首先，请在 [ServiceDefinition.csdef](./cloud-services-model-and-package.md#csdef) 文件中定义两个[启动任务](./cloud-services-startup-tasks.md)。 第一个任务 (**PrepPython.ps1**) 下载并安装 Python 运行时。 第二个任务 (**PipInstaller.ps1**) 运行 pip，安装可能存在的任何依赖项。
+安装脚本的主要问题在于无法安装 Python。 首先，请在 [ServiceDefinition.csdef](./cloud-services-model-and-package.md#servicedefinitioncsdef) 文件中定义两个[启动任务](./cloud-services-startup-tasks.md)。 第一个任务 (**PrepPython.ps1**) 下载并安装 Python 运行时。 第二个任务 (**PipInstaller.ps1**) 运行 pip，安装可能存在的任何依赖项。
 
 以下脚本是针对 Python 3.5 编写的。 若要使用 2.x 版 Python，请针对两个启动任务以及运行时任务将 **PYTHON2** 变量文件设置为 **on**：`<Variable name="PYTHON2" value="<mark>on</mark>" />`。
 
@@ -245,7 +242,7 @@ if (-not $is_emulated){
 #### <a name="modify-launchworkerps1"></a>修改 LaunchWorker.ps1
 
 >[!NOTE]
-> 对于**辅助角色**项目，需要 **LauncherWorker.ps1** 文件才能执行启动文件。 在“Web 角色”  项目中，在项目属性中定义该启动文件。
+> 对于**辅助角色**项目，需要 **LauncherWorker.ps1** 文件才能执行启动文件。 在“Web 角色”  项目中，会在项目属性中定义该启动文件。
 
 **bin\LaunchWorker.ps1** 最初是为了执行多种准备工作而创建的，但实际上并不起作用。 将该文件中的内容替换为以下脚本。
 
@@ -300,9 +297,9 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 ## <a name="run-locally"></a>在本地运行
 
-如果将云服务项目设置为启动项目并按 F5，云服务将在本地 Azure 仿真程序中运行。
+如果您将云服务项目设置为启动项目并按 F5，云服务将在本地 Azure 仿真程序中运行。
 
-虽然 PTVS 支持在仿真程序中启动，但无法进行调试（例如断点）。
+虽然 PTVS 支持在仿真程序中启动，调试（例如断点）将无法工作。
 
 若要调试 Web 角色和辅助角色，可以将角色项目设置为启动项目并对其进行调试。  还可以设置多个启动项目。  右键单击解决方案并选择“设置启动项目”。
 
@@ -334,7 +331,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 - [云服务项目][]
 
-有关作为 Web 角色和辅助角色使用 Azure 服务（例如使用 Azure 存储空间或服务总线）的详细信息，请参阅以下文章。
+有关作为 Web 角色和辅助角色使用 Azure 服务（例如使用 Azure 存储或服务总线）的详细信息，请参阅以下文章。
 
 - [Blob 服务][]
 - [表服务][]
@@ -348,7 +345,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 [execution model-web sites]: ../app-service-web/app-service-web-overview.md
 [execution model-vms]: ../virtual-machines/virtual-machines-windows-about.md
 [execution model-cloud services]: ./cloud-services-choose-me.md
-[Python Developer Center]: /develop/python/
+[Python Developer Center]: https://www.azure.cn/develop/python/
 
 [Blob 服务]: ../storage/storage-python-how-to-use-blob-storage.md
 [队列服务]: ../storage/storage-python-how-to-use-queue-storage.md
@@ -358,13 +355,11 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 <!--External Link references-->
 
-[Python Tools for Visual Studio]: https://www.visualstudio.com/vs/python/
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
 [云服务项目]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Azure SDK Tools for VS 2015]: https://www.visualstudio.com/vs/python/
-[Python 2.7（32 位）]: https://www.python.org/downloads/
-[Python 3.5（32 位）]: https://www.python.org/downloads/
-
-<!---HONumber=Mooncake_0912_2016-->
-
-<!--Update_Description:update wording-->
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=746482
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=746481
+[Azure SDK Tools for VS 2017]: http://go.microsoft.com/fwlink/?LinkId=746483
+[Python 2.7 32-bit]: https://www.python.org/downloads/
+[Python 3.5 32-bit]: https://www.python.org/downloads/

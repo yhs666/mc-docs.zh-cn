@@ -17,12 +17,11 @@ origin.date: 03/13/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.date: 05/22/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cd90c53e4ba6faaae9c8dce1df24a1cf76e3a774
-ms.openlocfilehash: f8ebf1ff64541b90a4415ed7529803069e3dc455
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 8d500f42cc37d9bdae235faa3dadd7d4b467fac7
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 备份功能概述
 Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 Microsoft 云端数据。 Azure 备份取代了现有的本地或异地备份解决方案，并且是可靠、安全、高性价比的基于云的解决方案。 Azure 备份提供多个组件，可将其下载并部署到适当的计算机、服务器或云中。 可根据要保护的内容选择部署的组件或代理。 无论是保护本地数据还是云端数据，所有 Azure 备份组件均可用于将数据备份到 Azure 的备份保管库中。 请参阅本文稍后部分的 [Azure 备份组件表格](./backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)，了解保护特定数据、应用程序或工作负荷所用的组件。
@@ -91,7 +90,7 @@ Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 
 | Azure 备份 (MARS) 代理 |否（仅限基于 Windows 的代理） |
 | System Center DPM |在 Hyper-V 和 VMWare 上对 Linux 来宾 VM 进行文件一致性备份<br/> （不适用于 Azure VM）<br/> 对 Hyper-V 和 VMWare Linux 来宾 VM 进行 VM 还原 |
 | Azure 备份服务器 |在 Hyper-V 和 VMWare 上对 Linux 来宾 VM 进行文件一致性备份<br/> （不适用于 Azure VM）<br/> 对 Hyper-V 和 VMWare Linux 来宾 VM 进行 VM 还原 |
-| Azure IaaS VM 备份 |应用程序一致性备份，使用[前脚本和后脚本框架](backup-azure-linux-app-consistent.md)<br/> [还原所有 VM 磁盘](backup-azure-restore-vms.md#restore-backed-up-disks)<br/> [VM 还原](backup-azure-restore-vms.md#create-a-new-vm-from-restore-point) |
+| Azure IaaS VM 备份 |应用程序一致性备份，使用[前脚本和后脚本框架](backup-azure-linux-app-consistent.md)<br/> [还原所有 VM 磁盘](backup-azure-restore-vms.md)|
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>结合使用高级存储 VM 和 Azure 备份
 Azure 备份可保护高级存储 VM。 Azure 高级存储是基于固态硬盘 (SSD) 的存储，用于支持 I/O 密集型工作负荷。 高级存储很适合虚拟机 (VM) 工作负荷。 有关高级存储的详细信息，请参阅[高级存储：Azure 虚拟机工作负荷的高性能存储](../storage/storage-premium-storage.md)一文。
@@ -252,4 +251,3 @@ Azure 备份保护本地和云端的数据。 Azure Site Recovery 就虚拟机�
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
-

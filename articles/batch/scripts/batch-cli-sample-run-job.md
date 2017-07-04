@@ -14,15 +14,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/20/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 7be8a02df7df7373cf477ea619dc4d1f0c44809a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 2c6800109790a793edf813bb296dc7e34719de59
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# <a name="running-jobs-on-azure-batch-with-azure-cli"></a>使用 Azure CLI 在 Azure 批处理上运行作业
+# <a name="running-jobs-on-azure-batch-with-azure-cli"></a>使用 Azure CLI 在 Azure Batch 上运行作业
 
 此脚本将创建一个批处理作业，并将一系列任务添加到该作业。 它还演示了如何监视作业及其任务。
 运行此脚本时假定已设置批处理帐户，并且已配置池和应用程序。 有关详细信息，请参阅涵盖上述每个主题的[示例脚本](../batch-cli-samples.md)。
@@ -91,6 +89,5 @@ az batch job delete --job-id myjob
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
-可以在 [Azure 批处理 CLI 文档](../batch-cli-samples.md)中找到其他批处理 CLI 脚本示例。
-
+可以在 [Azure Batch CLI 文档](../batch-cli-samples.md)中找到其他批处理 CLI 脚本示例。
 

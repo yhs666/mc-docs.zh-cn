@@ -13,22 +13,19 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/07/2016
-ms.date: 06/05/2017
+origin.date: 6/15/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 9c0da9c406131737d012206c93dcce68e7b61374
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.custom: H1Hack27Feb2017
+ms.date: 07/10/2017
+ms.openlocfilehash: a8cdeefcbfb84d6f9e96247500e0461cd6118356
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
 # <a name="connect-intel-edison-to-azure-iot-hub-nodejs"></a>将 Intel Edison 连接到 Azure IoT 中心 (Node.js)
->[!div class="op_single_selector"]
->- [Node.JS](./iot-hub-intel-edison-kit-node-get-started.md)
->- [C](./iot-hub-intel-edison-kit-c-get-started.md)
+
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 在本教程中，从学习如何使用 Intel Edison 的基础知识开始。 然后将学习如何使用 [Azure IoT 中心](./iot-hub-what-is-iot-hub.md)将设备无缝连接到云。
 
@@ -198,6 +195,7 @@ ms.lasthandoff: 05/26/2017
 3. 然后导航至存储库文件夹，运行下列命令来安装所有程序包，该过程可能需要几分钟时间。
    
    ```bash
+   cd iot-hub-node-intel-edison-client-app
    npm install
    ```
 
@@ -212,9 +210,9 @@ ms.lasthandoff: 05/26/2017
 
    ![配置文件](./media/iot-hub-intel-edison-kit-node-get-started/13_configure_file.png)
 
-   此文件中有两个可配置的宏。 第一个是 `INTERVAL`，它确定发送到云的两条消息之间的时间间隔。 第二个是 `SIMULATED_DATA`，它是一个布尔值，指示是否使用模拟的传感器数据。
+   此文件中有两个可配置的宏。 第一个是 `INTERVAL`，它确定发送到云的两条消息之间的时间间隔。 第二个是 `simulatedData`，它是一个布尔值，指示是否使用模拟的传感器数据。
 
-   如果**没有传感器**，请将 `SIMULATED_DATA` 值设置为 `1`，使示例应用程序创建和使用模拟的传感器数据。
+   如果**没有传感器**，请将 `simulatedData` 值设置为 `true`，使示例应用程序创建和使用模拟的传感器数据。
 
 1. 通过按“Ctrl-O”>“Enter”>“Ctrl-X”保存并退出。
 

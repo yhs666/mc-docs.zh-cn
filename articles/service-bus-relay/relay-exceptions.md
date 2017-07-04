@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
 ms.openlocfilehash: 0d8d0018faaf08b4dd8dc84d06744b0f972d0831
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="relay-exceptions"></a>中继异常
 
@@ -85,5 +83,4 @@ ms.lasthandoff: 06/09/2017
 * [创建中继命名空间](./relay-create-namespace-portal.md)
 * [Azure 中继和 .NET 入门](./relay-hybrid-connections-dotnet-get-started.md)
 * [Azure 中继和 Node 入门](./relay-hybrid-connections-node-get-started.md)
-
 

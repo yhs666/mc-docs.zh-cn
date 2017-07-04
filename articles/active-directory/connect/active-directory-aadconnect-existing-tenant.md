@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 87d3055012244ae5d10cd8d548d6d3c1be661f62
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: ce51a36623fe8880d7f3cd9676bbf014138d15a2
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>存在现有的租户时如何使用 Azure AD Connect
 有关如何使用 Azure AD Connect 的大多数主题假设一开始使用的是新 Azure AD 租户，其中不包含任何用户或其他对象。 但是，如果你一开始使用的 Azure AD 租户中填充了用户和其他对象，现在想要使用 Connect，那么，本主题适合你阅读。
 
@@ -60,5 +58,4 @@ Azure AD 中的对象在云中 (Azure AD) 或本地掌控。 对于单个对象�
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
-
 

@@ -11,16 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/11/2016
-ms.date: 05/22/2017
+ms.date: 10/11/2016
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 6925ccb55fb5fb1595ab232e57de29bc1a9af6d8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 036d5986936bab875379b267e73d2ff888664d97
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>是应选择云服务还是其他服务？
 Azure 云服务是适合你的选择吗？ Azure 提供了用于运行应用程序的不同托管模型。 每种模型提供一组不同服务，用户根据具体目的选择模型。

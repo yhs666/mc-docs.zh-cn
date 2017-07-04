@@ -12,17 +12,15 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/07/2017
-ms.date: 06/05/2017
+origin.date: 05/25/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: fd12c0dd792dbf9e3a4cdd23943a8075341f3bda
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.date: 07/10/2017
+ms.openlocfilehash: 233a41d634d4c275ba7b2c4f0c307abdcfa5f22f
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
 # <a name="process-iot-hub-device-to-cloud-messages-java"></a>处理 IoT 中心设备到云的消息 (Java)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
@@ -128,7 +126,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
     ```
 
 ## <a name="add-a-queue-to-your-iot-hub-and-route-messages-to-it"></a>向 IoT 中心添加一个队列并向其路由消息
-在本部分中，将创建一个门户队列并将其连接到 IoT 中心，还会配置 IoT 中心，根据消息上的现有属性发送消息到队列。 若要深入了解如何处理来自服务总线队列的消息，请参阅 [队列入门][Service Bus queue]教程。
+在本部分中，将创建一个服务总线队列并将其连接到 IoT 中心，还会配置 IoT 中心，根据消息上的现有属性发送消息到队列。 若要深入了解如何处理来自服务总线队列的消息，请参阅 [队列入门][Service Bus queue]教程。
 
 1. 按 [队列入门][Service Bus queue]中所述，创建服务总线队列。 记下命名空间和队列名称。
 
@@ -202,22 +200,22 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 <!-- Links -->
 
 [Azure Blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
-[HDInsight (Hadoop)]: ../hdinsight/index.md
+[HDInsight (Hadoop)]: /hdinsight/
 [Service Bus queue]: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
 [lnk-sb-queues-java]: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
 
-[IoT Hub developer guide - Device to cloud]: ./iot-hub-devguide-messaging.md
+[IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
 
-[Azure 存储]: ../storage/index.md
-[Azure 服务总线]: ../service-bus/index.md
+[Azure 存储]: /storage/
+[Azure 服务总线]: /service-bus/
 
 [IoT 中心开发人员指南]: ./iot-hub-devguide.md
 [lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md
 [IoT 中心入门]: ./iot-hub-java-java-getstarted.md
-[Azure IoT 开发人员中心]: /develop/iot
-[lnk-service-fabric]: ../service-fabric/index.md
-[lnk-stream-analytics]: ../stream-analytics/index.md
-[lnk-event-hubs]: ../event-hubs/index.md
+[Azure IoT 开发人员中心]: https://www.azure.cn/develop/iot
+[lnk-service-fabric]: /service-fabric/
+[lnk-stream-analytics]: /stream-analytics/
+[lnk-event-hubs]: /event-hubs/
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh675232.aspx
 
 <!-- Links -->
@@ -230,7 +228,8 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 
 [lnk-classic-portal]: https://manage.windowsazure.cn
-[lnk-c2d]: ./iot-hub-java-java-process-d2c.md
-[lnk-suite]: ../iot-suite/index.md
+[lnk-c2d]: ./iot-hub-java-java-c2d.md
+[lnk-suite]: /iot-suite/
+
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-create-an-iot-hub]: ./iot-hub-java-java-getstarted.md#create-an-iot-hub

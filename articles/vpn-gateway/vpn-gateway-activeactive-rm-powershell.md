@@ -16,13 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 04/12/2017
 ms.date: 05/22/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 0dbf20a96d4284f6ac202c530b22fdf064b4e114
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 7967dd2c6cedfdf9c9f872406954c434cc34d786
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>配置与 Azure VPN 网关的主动-主动 S2S VPN 连接
 
@@ -56,7 +54,7 @@ ms.lasthandoff: 05/12/2017
 
 ### <a name="before-you-begin"></a>开始之前
 * 确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-* 你需要安装 Azure Resource Manager PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
+* 你需要安装 Azure Resource Manager PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview)。
 
 ### <a name="step-1---create-and-configure-vnet1"></a>步骤 1 - 创建并配置 VNet1
 #### <a name="1-declare-your-variables"></a>1.声明变量

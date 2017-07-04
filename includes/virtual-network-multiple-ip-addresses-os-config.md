@@ -173,7 +173,6 @@ ip rule add from 10.0.0.5 lookup custom
 ip route add default via 10.0.0.1 dev eth2 table custom
 
 ```
-
 - 确保执行以下替换：
     - **10.0.0.5** 替换为有关联的公共 IP 地址的专用 IP 地址
     - **10.0.0.1** 替换为默认网关

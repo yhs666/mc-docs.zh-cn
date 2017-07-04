@@ -13,12 +13,11 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: bd7bb7c639adf0b145ddf8f3a71f813a62d5c049
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: e8cf75fa0b5e80000054618b47f288a32b488074
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="virtual-machines-documentation"></a>虚拟机文档
 

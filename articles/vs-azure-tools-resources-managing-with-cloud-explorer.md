@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/25/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 3a195dbcb4576d2e966e066efee08cfc4b0d549e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 03446b9a391374d6db579ec2a88f4bdc16899850
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>在 Visual Studio Cloud Explorer 中管理与 Azure 帐户关联的资源
 通过 Cloud Explorer，可在 Visual Studio 中查看 Azure 资源和资源组、检查其属性，以及执行重要的开发人员诊断操作。 
@@ -104,5 +102,4 @@ ms.lasthandoff: 05/12/2017
 ![在云资源管理器中查找资源](./media/vs-azure-tools-resources-managing-with-cloud-explorer/search-for-resources.png)
 
 在“搜索”框中输入字符时，只有符合这些字符的资源才会显示在资源树中。
-
 

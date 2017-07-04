@@ -15,13 +15,12 @@ ms.workload: identity
 origin.date: 02/28/2017
 ms.date: 04/17/2017
 ms.author: v-junlch
-translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 6c30a56734de65e2e01f1627c8d120996d9a9f17
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 1d42dd2b11a0187c018955646acebf64d5e25141
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="how-to-get-appsource-certified-for-azure-active-directory-ad"></a>如何使 AppSource 通过 Azure Active Directory (AD) 的认证
 若要使 AppSource 通过 Azure AD 的认证，你的应用程序必须使用 OpenID Connect 或 OAuth 2.0 协议在 Azure AD 中实现多租户登录模式。  
 
@@ -46,6 +45,6 @@ ms.lasthandoff: 04/07/2017
 [AAD-Auth-Scenarios-Browser-To-WebApp]:./active-directory-authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]:./active-directory-developers-guide.md
 [AAD-Howto-Multitenant-Overview]:./active-directory-devhowto-multi-tenant-overview.md
-[AAD-QuickStart-Web-Apps]:./active-directory-developers-guide.md#web-application-quick-start-guides
+[AAD-QuickStart-Web-Apps]:./active-directory-developers-guide.md
 
 <!--Image references-->

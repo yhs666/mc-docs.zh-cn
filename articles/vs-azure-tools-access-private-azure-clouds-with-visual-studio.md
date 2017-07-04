@@ -15,14 +15,12 @@ ms.workload: multiple
 origin.date: 03/19/2017
 ms.date: 04/17/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: f538823053ecbc43f01846bbed5c41bbaf99f148
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: d1e2f130abc96b3560c4c246b55fa865a77749db
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="accessing-private-azure-clouds-with-visual-studio"></a>使用 Visual Studio 访问私有 Azure 云
 默认情况下，Visual Studio 支持公有 Azure 云 REST 终结点。 在本主题中，将介绍如何使用私有云证书访问 Visual Studio 中的私有云并与之交互。
 

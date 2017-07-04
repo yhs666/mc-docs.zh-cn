@@ -15,20 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 0920d4c869f2601c9226294b06f38ec901eb1464
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: eaf0d9142b68c855c9f753e854d753606609f385
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>在 Azure 虚拟网络中安装新的 Active Directory 林
 本主题说明如何在 [Azure 虚拟网络](../virtual-network/virtual-networks-overview.md)上的虚拟机 (VM) 中创建新的 Windows Server Active Directory 环境。 在此情况下，Azure 虚拟网络未连接到本地网络。
 
 你也有可能对下列相关主题感兴趣：
 
-- 可以有选择性地[配置站点到站点 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)，然后安装新林，或者将本地林扩展到 Azure 虚拟网络。 有关这些步骤的说明，请参阅[在 Azure 虚拟网络中安装副本 Active Directory 域控制器](active-directory-install-replica-active-directory-domain-controller.md)。
+- 可以有选择性地[配置站点到站点 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)，然后安装新林，或者将本地林扩展到 Azure 虚拟网络。 有关这些步骤的说明，请参阅[在 Azure 虚拟网络中安装副本 Active Directory 域控制器](./active-directory-install-replica-active-directory-domain-controller.md)。
 - 有关在 Azure 虚拟网络上安装 Active Directory 域服务 (AD DS) 的概念性指南，请参阅[在 Azure 虚拟机上部署 Windows Server Active Directory 的指南](https://msdn.microsoft.com/library/azure/jj156090.aspx)。
 
 ## <a name="scenario-diagram"></a>方案示意图
@@ -70,7 +68,7 @@ ms.lasthandoff: 04/28/2017
    |  **虚拟机配置** |<p>选择“安装 VM 代理”，以及所需的任何其他扩展。<b></b></p> |
 2. 将磁盘附加到要运行 DC 服务器角色的每个 VM。 需要提供额外的磁盘来存储 AD 数据库、日志和 SYSVOL。 指定磁盘的大小（例如 10 GB）并将“主机缓存首选项”设置为“无”。 有关步骤，请参阅[如何将数据磁盘附加到 Windows 虚拟机](../virtual-machines/windows/classic/attach-disk.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 3. 在首次登录 VM 之后，请打开“服务器管理器” > “文件和存储服务”，使用 NTFS 在该磁盘上创建一个卷。
-4. 为要运行 DC 角色的 VM 保留静态 IP 地址。 若要保留静态 IP 地址，请下载 Microsoft Web 平台安装程序， 安装 Azure PowerShell 并运行 Set-AzureStaticVNetIP cmdlet。 例如：
+4. 为要运行 DC 角色的 VM 保留静态 IP 地址。 若要保留静态 IP 地址，请下载 Microsoft Web 平台安装程序， [安装 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) 并运行 Set-AzureStaticVNetIP cmdlet。 例如：
 
     `Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM`
 
@@ -110,7 +108,7 @@ ms.lasthandoff: 04/28/2017
 - [如何在 Azure 虚拟网络中安装新的 Active Directory 林](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 - [在 Azure 虚拟机上部署 Windows Server Active Directory 的指南](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 - [配置站点到站点 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)
-- [在 Azure 虚拟网络中安装副本 Active Directory 域控制器](active-directory-install-replica-active-directory-domain-controller.md)
+- [在 Azure 虚拟网络中安装副本 Active Directory 域控制器](./active-directory-install-replica-active-directory-domain-controller.md)
 - [Azure IT Pro IaaS：(01) 虚拟机基础知识](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 - [Azure IT Pro IaaS：(05) 创建虚拟网络和跨界连接](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 - [虚拟网络概述](../virtual-network/virtual-networks-overview.md)
@@ -123,5 +121,3 @@ ms.lasthandoff: 04/28/2017
 
 <!--Image references-->
 [1]: ./media/active-directory-new-forest-virtual-machine/AD_Forest.png
-
-

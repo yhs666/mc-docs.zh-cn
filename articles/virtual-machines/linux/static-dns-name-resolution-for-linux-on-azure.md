@@ -11,19 +11,17 @@ ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 origin.date: 02/16/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: bc3fba0ca7a6313477f6e465ddcb2dfd2e2f6819
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 1ee11dcd1b03a7bf616be0f8b201c6125dfbcf86
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>创建虚拟网络接口卡，以及在 Azure 上使用内部 DNS 进行 VM 名称解析
 本文介绍了如何通过 Azure CLI 2.0 使用虚拟网络接口卡 (vNic) 和 DNS 标签名称为 Linux VM 设置静态内部 DNS 名称。 也可以使用 [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。 静态 DNS 名称用于永久基础结构服务，如本文档所使用的 Jenkins 生成服务器或 Git 服务器。
 
@@ -52,7 +50,7 @@ az network nic create \
 ```
 
 ### <a name="deploy-a-vm-and-connect-the-vnic"></a>部署 VM 并连接 vNic
-使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create)创建 VM。 在部署到 Azure 期间，`--nics` 标志将 VNic 连接到 VM。 以下示例使用 Azure 非托管磁盘创建名为 `myVM` 的 VM，并附加上一步中名为 `myNic` 的 vNic：
+使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create)创建 VM。 在部署到 Azure 期间，`--nics` 标志将 VNic 连接到 VM。 以下示例使用 Azure 托管磁盘创建名为 `myVM` 的 VM，并附加上一步中名为 `myNic` 的 vNic：
 
 ```azurecli
 az vm create \
@@ -61,8 +59,7 @@ az vm create \
     --nics myNic \
     --image UbuntuLTS \
     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-    --use-unmanaged-disk
+    --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 ## <a name="detailed-walkthrough"></a>详细演练
@@ -152,7 +149,7 @@ az network nic create \
 ## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>将 VM 部署到虚拟网络基础结构
 现在，我们已有一个虚拟网络和子网、一个充当防火墙的网络安全组（可以通过阻止所有入站流量（用于 SSH 的端口 22 除外）来保护子网），以及一个 vNic。 现在，可在此现有网络基础结构中部署 VM。
 
-使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 以下示例使用 Azure 非托管磁盘创建名为 `myVM` 的 VM，并附加上一步中名为 `myNic` 的 vNic：
+使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 以下示例使用 Azure 托管磁盘创建名为 `myVM` 的 VM，并附加上一步中名为 `myNic` 的 vNic：
 
 ```azurecli
 az vm create \
@@ -161,14 +158,13 @@ az vm create \
     --nics myNic \
     --image UbuntuLTS \
     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-    --use-unmanaged-disk
+    --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 使用 CLI 标志调用现有资源是为了指示 Azure 将 VM 部署到现有网络中。 重述一遍，VNet 和子网一经部署，便可在 Azure 区域内保留为静态或永久资源。  
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 Azure Resource Manager 模板创建特定部署](cli-deploy-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [使用 Azure Resource Manager 模板创建特定部署](../windows/cli-deploy-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [直接使用 Azure CLI 命令创建自定义的 Linux VM 环境](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [使用模板在 Azure 上创建 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

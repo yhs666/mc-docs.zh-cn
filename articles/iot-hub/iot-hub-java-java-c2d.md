@@ -12,16 +12,14 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/07/2017
-ms.date: 05/08/2017
+origin.date: 05/25/2017
+ms.date: 07/10/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 94db2ba8bb6997485b07d23a40cfb37a234f0260
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 5d213d65f2a084d5444019ba61ce3e3d8c11ace4
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>使用 IoT 中心发送云到设备的消息 (Java)
 
@@ -54,7 +52,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 
 + Maven 3。  <br/> [准备开发环境][lnk-dev-setup] 介绍了如何在 Windows 或 Linux 上安装本教程所用的 Maven。
 
-+ 有效的 Azure 帐户。（如果没有帐户，只需花费几分钟就能创建一个[试用帐户][lnk-free-trial]。）
++ 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>在模拟设备应用上接收消息
 在本部分中，你将修改在 [Get started with IoT Hub]中创建的模拟设备应用，以接收来自 IoT 中心的“云到设备”消息。
@@ -102,7 +100,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.18</version>
+      <version>1.3.19</version>
     </dependency>
     ```
 
@@ -195,10 +193,10 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 [Get started with IoT Hub]: ./iot-hub-java-java-getstarted.md
 [IoT Hub Developer Guide - C2D]: ./iot-hub-devguide-messaging.md
 [IoT 中心开发人员指南]: ./iot-hub-devguide.md
-[Azure IoT 开发人员中心]: /develop/iot
+[Azure IoT 开发人员中心]: https://www.azure.cn/develop/iot
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [Azure 门户]: https://portal.azure.cn
-[Azure IoT 套件]: ../iot-suite/index.md
+[Azure IoT 套件]: /iot-suite/
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

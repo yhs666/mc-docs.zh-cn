@@ -91,6 +91,6 @@
 ## [存储 REST](https://docs.microsoft.com/rest/api/storageservices)
 
 # 资源
-## [定价](https://www.azure.cn/pricing/details/virtual-machines/#Windows)
+## [价格](https://www.azure.cn/pricing/details/virtual-machines/#Windows)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

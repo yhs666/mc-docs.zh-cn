@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: d588cd858411fa7b09cd334d38196960977a096e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: 4465ddfc00bb975d1bc4e63a03367635051efe4e
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>对未同步到 Azure AD 的对象进行故障排除
 
@@ -111,7 +110,7 @@ Synchronization Service Manager 中的“操作”选项卡是你应当从中开
 “日志”页用来查看密码同步状态和历史记录。 有关详细信息，请参阅[排查密码同步问题](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)。
 
 ## <a name="metaverse-object-properties"></a>Metaverse 对象属性
-通常，最好从源 Active Directory [连接器空间](#connector-space-object-properties)开始搜索。 但是也可以从 metaverse 开始搜索。
+通常，最好从源 Active Directory [连接器空间](#connector-space)开始搜索。 但是也可以从 metaverse 开始搜索。
 
 ### <a name="search-for-an-object-in-the-mv"></a>搜索 MV 中的对象
 在“Synchronization Service Manager”中，单击“Metaverse 搜索”。 创建一个查找用户的查询。 可以搜索公共属性，例如 accountName (sAMAccountName) 和 userPrincipalName。 有关详细信息，请参阅 [Metaverse 搜索](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)。
@@ -137,7 +136,7 @@ Synchronization Service Manager 中的“操作”选项卡是你应当从中开
 - 其中表示了用户的每个 Active Directory 林。 此表示形式可能包括 foreignSecurityPrincipals 和 Contact 对象。
 - Azure AD 中的某个连接器。
 
-如果缺少连接到 Azure AD 的连接器，则阅读 [MV 属性](#mv-attributes)以验证有关预配到 Azure AD 的条件。
+如果缺少连接到 Azure AD 的连接器，则阅读 [MV 属性](#MV-attributes)以验证有关预配到 Azure AD 的条件。
 
 此选项卡也可让你导航到[连接器空间对象](#connector-space-object-properties)。 选择一行，然后单击“属性”。
 
@@ -145,5 +144,4 @@ Synchronization Service Manager 中的“操作”选项卡是你应当从中开
 了解有关 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)配置的详细信息。
 
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
-
 

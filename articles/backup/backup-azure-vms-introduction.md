@@ -16,15 +16,14 @@ ms.topic: article
 origin.date: 04/05/2017
 ms.author: v-junlch
 ms.date: 05/15/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3ff18e6f95d8bbc27348658bc5fce50c3320cf0a
-ms.openlocfilehash: 423ab952e7f2406f0e003517bc3ad87561ea58d3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/15/2017
-
+ms.openlocfilehash: 723729ca83865a12fddba6ceb0d7db4a63fa3a8e
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>在 Azure 中计划 VM 备份基础结构
-本文提供性能和资源建议，帮助规划 VM 备份基础结构。 文中还定义了备份服务的主要方面；这些方面对于决定体系结构、容量规划和计划安排至关重要。 如果已[准备好环境](backup-azure-vms-prepare.md)，请首先进行此规划，然后再开始[备份 VM](backup-azure-vms.md)。 如需有关 Azure 虚拟机的详细信息，请参阅[虚拟机文档](../virtual-machines/index.md)。
+本文提供性能和资源建议，帮助规划 VM 备份基础结构。 文中还定义了备份服务的主要方面；这些方面对于决定体系结构、容量规划和计划安排至关重要。 如果已[准备好环境](./backup-azure-vms-prepare.md)，请首先进行此规划，然后再开始[备份 VM](./backup-azure-vms.md)。 如需有关 Azure 虚拟机的详细信息，请参阅[虚拟机文档](../virtual-machines/index.md)。
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Azure 虚拟机备份原理
 当 Azure 备份服务在计划的时间启动备份作业时，它将触发进行时间点快照拍摄所需的备份扩展。 Azure 备份服务在 Windows 中使用 _VMSnapshot_ 扩展，在 Linux 中使用 _VMSnapshotLinux_ 扩展。 在第一个 VM 备份期间安装扩展。 若要安装扩展，VM 必须处于运行状态。 如果 VM 未运行，备份服务将创建基础存储的快照（因为在 VM 停止时不会发生任何应用程序写入）。
@@ -54,7 +53,7 @@ Azure 备份将在 Windows VM 上创建 VSS 完整备份（深入了解 [VSS 完
 ```
 
 #### <a name="linux-vms"></a>Linux VM
-Azure 备份提供脚本框架。 若要确保备份 Linux VM 时的应用程序一致性，请创建自定义操作前脚本和操作后脚本，用于控制备份工作流和环境。 Azure 备份会在创建 VM 快照前调用操作前脚本，而在 VM 快照创建作业完成后调用操作后脚本。 有关更多详细信息，请参阅[使用操作前脚本和操作后脚本的应用程序一致性 VM 备份](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)。
+Azure 备份提供脚本框架。 若要确保备份 Linux VM 时的应用程序一致性，请创建自定义操作前脚本和操作后脚本，用于控制备份工作流和环境。 Azure 备份会在创建 VM 快照前调用操作前脚本，而在 VM 快照创建作业完成后调用操作后脚本。 有关更多详细信息，请参阅[使用操作前脚本和操作后脚本的应用程序一致性 VM 备份](backup-azure-linux-app-consistent.md)。
 > [!NOTE]
 > Azure 备份只调用客户编写的操作前脚本和操作后脚本。 如果操作前脚本和操作后脚本成功执行，Azure 备份会将恢复点标记为应用程序一致。 但是，客户最终为使用自定义脚本时的应用程序一致性负责。
 >
@@ -64,7 +63,7 @@ Azure 备份提供脚本框架。 若要确保备份 Linux VM 时的应用程序
 
 | 一致性 | 基于 VSS | 解释和详细信息 |
 | --- | --- | --- |
-| 应用程序一致性 |是（对于 Windows）|应用程序一致性非常适合工作负荷，因为它可确保：<ol><li> VM *启动*。 <li>无数据损坏。 <li>无数据丢失。<li> 对于使用数据的应用程序，数据将保持一致，因为备份时会使用 VSS 或前/后脚本将应用程序纳入考虑。</ol> <li>*Windows VM* - 大多数 Microsoft 工作负荷都有 VSS 写入器，负责执行与数据一致性相关的工作负荷特定操作。 例如，Microsoft SQL Server 的 VSS 编写器可确保正确写入事务日志文件和数据库。 对于 Azure Windows VM 备份，若要创建应用程序一致恢复点，备份扩展必须调用 VSS 工作流且需在创建 VM 快照前完成调用。 若要确保 Azure VM 快照准确性，则也必须完成所有 Azure VM 应用程序的 VSS 编写器。 （了解 [VSS 基本信息](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx)，并深入了解其[工作原理](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)详细信息）。 </li> <li> *Linux VM* - 客户可以执行[自定义操作前脚本和操作后脚本，以确保应用程序一致性](backup-azure-linux-app-consistent.md)。 </li> |
+| 应用程序一致性 |是（对于 Windows）|应用程序一致性非常适合工作负荷，因为它可确保：<ol><li> VM *启动*。 <li>无数据损坏。 <li>无数据丢失。<li> 对于使用数据的应用程序，数据将保持一致，因为备份时会使用 VSS 或前/后脚本将应用程序纳入考虑。</ol> <li>*Windows VM* - 大多数 Microsoft 工作负荷都有 VSS 写入器，负责执行与数据一致性相关的工作负荷特定操作。 例如，Microsoft SQL Server 的 VSS 编写器可确保正确写入事务日志文件和数据库。 对于 Azure Windows VM 备份，若要创建应用程序一致恢复点，备份扩展必须调用 VSS 工作流且需在创建 VM 快照前完成调用。 若要确保 Azure VM 快照准确性，则也必须完成所有 Azure VM 应用程序的 VSS 编写器。 （了解 [VSS 基本信息](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx)，并深入了解其[工作原理](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)详细信息）。 </li> <li> *Linux VM* - 客户可以执行[自定义操作前脚本和操作后脚本，以确保应用程序一致性](./backup-azure-linux-app-consistent.md)。 </li> |
 | 文件系统一致性 |是 - 对于基于 Windows 的计算机 |在两种情况下，恢复点可做到文件系统一致：<ul><li>在没有前脚本/后脚本或前脚本/后脚本失败时，Azure 中 Linux VM 的备份。 <li>在 Azure 中备份 Windows VM 时出现 VSS 故障。</li></ul> 在这两种情况下，最佳做法是确保： <ol><li> VM *启动*。 <li>无数据损坏。<li>无数据丢失。</ol> 应用程序需要对还原的数据实施自己的“修复”机制。 |
 | 崩溃一致性 |否 |这种情况相当于虚拟机“崩溃”（通过软重置或硬重置）。 崩溃一致性通常出现在 Azure 虚拟机在备份期间关闭时。 无论是从操作系统还是应用程序角度而言，崩溃一致性恢复点皆无法保证存储媒体上数据的一致性。 仅会捕获和备份备份时磁盘上已存在的数据。 <br/> <br/> 尽管并无保证，但通常情况下，会启动操作系统，并在之后进行 chkdsk 等磁盘检查过程来修复任何损坏错误。 任何未传输到磁盘的内存中数据或写入都将丢失。 如果需要执行数据回滚，应用程序通常会接着执行其自身的验证机制。 <br><br>例如，如果事务日志中的条目不在数据库中，则数据库软件将执行回滚，直到数据一致。 当数据分散在多个虚拟磁盘上时（例如跨区卷），崩溃一致恢复点不保证数据的正确性。 |
 
@@ -99,7 +98,7 @@ Azure 备份提供脚本框架。 若要确保备份 Linux VM 时的应用程序
 ## <a name="total-vm-backup-time"></a>VM 备份总时间
 尽管大部分备份时间花在读取和复制数据上，但其他一些操作也会影响到备份 VM 所需的总时间：
 
-- 花费在[安装或更新备份扩展](backup-azure-vms.md)上的时间。
+- 花费在[安装或更新备份扩展](./backup-azure-vms.md)上的时间。
 - 快照时间，即触发某个快照所花费的时间。 接近计划的备份时间时触发快照。
 - 队列等待时间。 由于备份服务要处理来自多个客户的备份，可能不会立即将备份数据从快照复制到备份或恢复服务保管库。 在负载高峰期，由于要处理的备份数过多，等待时间可能会长达 8 小时。 但是，每日备份策略规定的 VM 备份总时间不会超过 24 小时。
 - 数据传输时间，备份服务计算上一备份中的增量更改并将更改传输到保管库存储所需的时间。
@@ -123,10 +122,10 @@ Azure 备份提供脚本框架。 若要确保备份 Linux VM 时的应用程序
 - 建议将每个高级 VM 运行在不同的高级存储帐户上，确保优化备份性能。
 
 ## <a name="data-encryption"></a>数据加密
-在备份过程中，Azure 备份不会加密数据。 但是，可以在 VM 中加密数据，然后无缝备份保护的数据（阅读有关[加密数据备份](backup-azure-vms-encryption.md)的详细信息）。
+在备份过程中，Azure 备份不会加密数据。 但是，可以在 VM 中加密数据，然后无缝备份保护的数据（阅读有关[加密数据备份](./backup-azure-vms-encryption.md)的详细信息）。
 
 ## <a name="calculating-the-cost-of-protected-instances"></a>计算受保护实例的成本
-通过 Azure 备份进行备份的 Azure 虚拟机的收费依据 [Azure 备份定价](https://www.azure.cn/pricing/details/backup/)。 受保护的实例计算基于虚拟机的实际大小，即虚拟机中除“资源磁盘”外的所有数据之和。
+通过 Azure 备份进行备份的 Azure 虚拟机的收费依据 [Azure 备份定价](http://www.azure.cn/pricing/details/backup/)。 受保护的实例计算基于虚拟机的实际大小，即虚拟机中除“资源磁盘”外的所有数据之和。
 
 VM 备份定价*并非*基于附加到虚拟机的每个数据磁盘的最大支持大小。 定价基于数据磁盘中存储的实际数据。 与此类似，备份存储的收费是基于 Azure 备份中存储的数据量，即每个恢复点中实际数据之和。
 
@@ -149,9 +148,7 @@ VM 备份定价*并非*基于附加到虚拟机的每个数据磁盘的最大支
 如果你有疑问，或者希望包含某种功能，请 [给我们反馈](http://aka.ms/azurebackup_feedback)。
 
 ## <a name="next-steps"></a>后续步骤
-- [备份虚拟机](backup-azure-vms.md)
+- [备份虚拟机](./backup-azure-vms.md)
 - [管理虚拟机备份](./backup-azure-manage-vms-classic.md)
-- [恢复虚拟机](backup-azure-restore-vms.md)
-- [解决 VM 备份问题](backup-azure-vms-troubleshoot.md)
-
-
+- [恢复虚拟机](./backup-azure-restore-vms.md)
+- [解决 VM 备份问题](./backup-azure-vms-troubleshoot.md)

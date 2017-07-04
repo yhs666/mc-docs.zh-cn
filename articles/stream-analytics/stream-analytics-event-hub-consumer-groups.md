@@ -16,15 +16,12 @@ ms.workload: data-services
 origin.date: 04/20/2017
 ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 5c2bb824d4744a21be8c19a9bf9dc09564fe6b66
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: bb855ca390c7507425d5d54ce30d54f8b7e7d5c8
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-
 # <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>使用事件中心接收器调试 Azure 流分析
 
 可以使用 Azure 流分析中的 Azure 事件中心，从作业中引入或输出作业。 使用事件中心的最佳做法是使用多个使用者组来确保作业的伸缩性。 其中一个原因是，对于特定的输入，流分析作业中读取器的数量会影响单个使用者组中的读取器数量。 接收器的精确数量取决于横向扩展的拓扑逻辑的内部实现详细信息。 接收器的数量不向外部公开。 读取器的数量会在作业启动时或作业升级期间发生更改。

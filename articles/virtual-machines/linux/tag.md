@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 02/28/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 7a436bd332accc3d7a594a7a7e24ef6079a92fdc
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 3a82d58b8e0a8a6165a39af427ed358e326a7a1b
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>如何在 Azure 中标记 Linux 虚拟机
 本文介绍在 Azure 中通过 Resource Manager 部署模型标记 Linux 虚拟机的不同方式。 标记是用户定义的键/值对，可直接放置在资源或资源组中。 针对每个资源和资源组，Azure 当前支持最多 15 个标记。 标记可以在创建时放置在资源中或添加到现有资源中。 请注意，只有通过 Resource Manager 部署模型创建的资源支持标记。

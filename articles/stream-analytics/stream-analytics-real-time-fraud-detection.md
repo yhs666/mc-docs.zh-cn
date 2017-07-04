@@ -16,13 +16,11 @@ ms.workload: data-services
 origin.date: 03/28/2017
 ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: a302604418d96c2fcfe72f8b125628f261357495
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: a03f553f936180feb7f7ddcdd1a6aec27d4da675
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure 流分析入门：实时检测欺诈行为
 了解如何创建端到端解决方案，以便通过 Azure 流分析实时检测欺诈行为。 将事件引入 Azure 事件中心、编写用于聚合或提醒的流分析查询，以及将结果发送到输出接收器，以便通过实时处理数据来获得见解。 虽然介绍的是电信方面的实时异常检测，但作为示例的技术同样适用于其他类型的欺诈检测，例如盗窃信用卡或身份的情况。

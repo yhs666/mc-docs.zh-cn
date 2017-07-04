@@ -3,7 +3,7 @@ title: "在 Azure SQL 数据仓库中使用 REST 进行暂停、恢复和缩放 
 description: "用于管理计算能力的 PowerShell 任务。 通过调整 DWU 缩放计算资源。 或者，暂停和恢复计算资源来节省成本。"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: rockboyfor
 manager: barbkess
 editor: 
 ms.assetid: 21de7337-9356-49bb-a6eb-06c1beeba2c4
@@ -16,14 +16,12 @@ ms.custom: manage
 origin.date: 10/31/2016
 ms.date: 05/08/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: f536b20d454fb84ccccaccafebdead90a814cc63
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: ae017d0bf3e174abc44d9f0906c7b52209abd2ac
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-rest"></a>管理 Azure SQL 数据仓库中的计算能力 (REST)
 
 > [!div class="op_single_selector"]

@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 05/04/2017
 ms.author: v-junlch
 ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: c37c95515c3f570d91855854b4ad06cc425be0cd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 0cf54480449ee1b314b31d7bd333494649ce48e5
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>使用 Azure AD 共享帐户
 ## <a name="overview"></a>概述
@@ -71,4 +69,3 @@ Azure AD 支持任何企业移动性套件 (EMS)、高级或基本许可用户�
 ## <a name="related-articles"></a>相关文章
 
 - [有关 Azure Active Directory 中应用程序管理的文章索引](./active-directory-apps-index.md)
-

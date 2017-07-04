@@ -13,16 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/10/2017
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: dd78a2b3184284ae12d04c0d7843dc75f8a7d40c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 22b884f93d5679856af38d5de4fb66985636f347
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
 # <a name="use-direct-methods-netnode"></a>使用直接方法(.NET/Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
@@ -40,7 +38,7 @@ ms.lasthandoff: 04/07/2017
 
 * Visual Studio 2015 或 Visual Studio 2017。
 * Node.js 版本 0.10.x 或更高版本。
-* 有效的 Azure 帐户。（如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）
+* 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[免费帐户][lnk-free-trial]。）
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -82,7 +80,7 @@ ms.lasthandoff: 04/07/2017
 
         response.send(200, 'Input was written to log.', function(err) {
             if(err) {
-                console.error('An error ocurred when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
             }
@@ -166,9 +164,7 @@ ms.lasthandoff: 04/07/2017
     ```
     node SimulatedDevice.js
     ```
-    等待模拟设备打开： 
-   
-    ![][7]
+   等待模拟设备打开： ![][7]
 2. 设备已连接，正在等待方法调用，此时可运行 .NET **CallMethodOnDevice** 应用，调用模拟设备应用中的方法。 此时会看到写入控制台的设备响应。
 
     ![][8]

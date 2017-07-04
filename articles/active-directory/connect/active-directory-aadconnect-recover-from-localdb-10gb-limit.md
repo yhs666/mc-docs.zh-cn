@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 27516be74256b73e61a35f0eb83928d1e57901aa
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: ff017eb0a450d949c135bd66fe214decb16e4905
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect：如何从 LocalDB 10 GB 的限制恢复
 Azure AD Connect 要求使用 SQL Server 数据库来存储标识数据。 可以使用随 Azure AD Connect 一起安装的默认 SQL Server 2012 Express LocalDB，也可以使用你自己的完整 SQL。 SQL Server Express 存在 10 GB 的大小限制。 使用 LocalDB 并达到此限制后，Azure AD Connect Synchronization Service 将无法正常启动或同步。 本文提供了恢复步骤。
@@ -80,13 +78,13 @@ Azure AD Connect 要求使用 SQL Server 数据库来存储标识数据。 可�
 ### <a name="delete-run-history-data"></a>删除运行历史记录数据
 默认情况下，Azure AD Connect 最多保留 7 天的运行历史记录数据。 在此步骤中，我们会通过删除运行历史记录数据来回收 DB 空间，这样 Azure AD Connect Synchronization Service 就可以重新开始同步。
 
-1.    转到“开始”→ Synchronization Service，以便启动 **Synchronization Service Manager**。
+1.  转到“开始”→ Synchronization Service，以便启动 **Synchronization Service Manager**。
 
-2.    转到“操作”选项卡。
+2.  转到“操作”选项卡。
 
-3.    在“操作”下面，选择“清除运行…”
+3.  在“操作”下面，选择“清除运行…”
 
-4.    可以选择“清除所有运行”或“清除 <date>之前的运行…”选项。 建议一开始清除超过两天的运行历史记录数据。 如果仍遇到 DB 大小问题，则选择“清除所有运行”选项。
+4.  可以选择“清除所有运行”或“清除 <date>之前的运行…”选项。 建议一开始清除超过两天的运行历史记录数据。 如果仍遇到 DB 大小问题，则选择“清除所有运行”选项。
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>缩短运行历史记录数据的保留期
 此步骤是为了在多次同步周期后降低遇到 10 GB 限制问题的可能性。
@@ -99,10 +97,9 @@ Azure AD Connect 要求使用 SQL Server 数据库来存储标识数据。 可�
 
 ## <a name="long-term-solution---migrate-to-full-sql"></a>长期解决方案 - 迁移到完整的 SQL
 通常情况下，此问题表示 10 GB 的数据库大小已经无法让 Azure AD Connect 将本地 Active Directory 同步到 Azure AD。 建议改用完整版 SQL Server。 不能直接将现有 Azure AD Connect 部署的 LocalDB 替换为完整版 SQL 的数据库， 而必须使用完整版 SQL 来部署新的 Azure AD Connect 服务器。 建议执行交叉迁移，将新的 Azure AD Connect 服务器（装有 SQL DB）部署为过渡服务器，与现有的 Azure AD Connect 服务器（装有 LocalDB）并存。 
-- 有关如何使用 Azure AD Connect 配置远程 SQL 的说明，请参阅 [Azure AD Connect 的自定义安装](/active-directory/connect/active-directory-aadconnect-get-started-custom)一文。
-- 有关如何通过交叉迁移进行 Azure AD Connect 升级的说明，请参阅 [Azure AD Connect：从旧版升级到最新版本](/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration)一文。
+- 有关如何使用 Azure AD Connect 配置远程 SQL 的说明，请参阅 [Azure AD Connect 的自定义安装](active-directory-aadconnect-get-started-custom.md)一文。
+- 有关如何通过交叉迁移进行 Azure AD Connect 升级的说明，请参阅 [Azure AD Connect：从旧版升级到最新版本](active-directory-aadconnect-upgrade-previous-version.md#swing-migration)一文。
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
-
 

@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 31eda0bed394257b53b357b8653f5e828b2bab55
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 79df52f65ac4d97334fcff7b5160afe8b34a40f8
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="back-up-a-windows-server-or-workstation-to-azure-using-the-classic-management-portal"></a>使用经典管理门户将 Windows 服务器或工作站备份到 Azure
 > [!div class="op_single_selector"]
-> * [经典管理门户](backup-configure-vault-classic.md)
-> * [Azure 门户](backup-configure-vault.md)
+> * [经典管理门户](./backup-configure-vault-classic.md)
+> * [Azure 门户](./backup-configure-vault.md)
 >
 >
 
@@ -39,7 +37,7 @@ ms.lasthandoff: 04/14/2017
 >
 
 ## <a name="before-you-start"></a>开始之前
-若要将服务器或客户端备份到 Azure，你需要一个 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/) 。
+若要将服务器或客户端备份到 Azure，你需要一个 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个 [试用帐户](http://www.azure.cn/pricing/1rmb-trial/) 。
 
 ## <a name="create-a-backup-vault"></a>创建备份保管库
 若要从服务器或客户端备份文件和文件夹，需要在要存储数据的地理区域内创建一个备份保管库。
@@ -51,7 +49,7 @@ ms.lasthandoff: 04/14/2017
 ## <a name="download-the-vault-credential-file"></a>下载保管库凭据文件
 本地计算机需要先在备份保存库中通过身份验证才能将数据备份到 Azure。 身份验证是通过 *保管库凭据*实现的。 从经典管理门户通过安全通道下载保管库凭据文件。 证书私钥不会在门户或服务中持久保存。
 
-详细了解[如何使用保管库凭据向备份服务进行身份验证](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file)。
+详细了解[如何使用保管库凭据向备份服务进行身份验证](./backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file)。
 
 ### <a name="to-download-the-vault-credential-file-to-a-local-machine"></a>将保管库凭据文件下载到本地计算机
 1. 在左侧导航窗格中单击“**恢复服务**”，然后选择你创建的备份保管库。
@@ -72,7 +70,7 @@ ms.lasthandoff: 04/14/2017
 ## 下载、安装和注册备份代理 <a name="download-install-register-backup-agent"></a>
 创建备份保管库并下载保管库凭据文件之后，必须在每台 Windows 计算机上安装一个代理。
 
-### 下载、安装和注册代理
+### <a name="to-download-install-and-register-the-agent"></a>下载、安装和注册代理
 1. 单击“**恢复服务**”，然后选择你要向其注册服务器的备份保管库。
 2. 在“快速启动”页上，单击“**Windows Server、System Center Data Protection Manager 或 Windows 客户端的代理**”。 。
 
@@ -125,7 +123,7 @@ ms.lasthandoff: 04/14/2017
     ![Windows Server 备份项](./media/backup-configure-vault-classic/specify-backup-schedule-close.png)
 
     > [!NOTE]
-    > 有关如何指定备份计划的详细信息，请参阅 [使用 Azure 备份来取代磁带基础结构](backup-azure-backup-cloud-as-tape.md)一文。
+    > 有关如何指定备份计划的详细信息，请参阅 [使用 Azure 备份来取代磁带基础结构](./backup-azure-backup-cloud-as-tape.md)一文。
     >
     >
 
@@ -134,7 +132,7 @@ ms.lasthandoff: 04/14/2017
     保留策略指定备份可以存储的时间长短。 你可以根据备份的创建时间指定不同的保留策略，而不只是为所有备份点指定一个“通用的策略”。 你可以根据需要修改每日、每周、每月和每年保留策略。
 9. 在“选择初始备份类型”页上，选择初始备份类型。 将“**自动通过网络**”选项保持选中状态，然后单击“**下一步**”。
 
-    你可以通过网络自动备份，或者脱机备份。 本文的余下部分将介绍自动备份过程。 如果你想要执行脱机备份，请查看 [Azure 备份中的脱机备份工作流](backup-azure-backup-import-export.md) 以了解更多信息。
+    你可以通过网络自动备份，或者脱机备份。 本文的余下部分将介绍自动备份过程。 如果你想要执行脱机备份，请查看 [Azure 备份中的脱机备份工作流](./backup-azure-backup-import-export.md) 以了解更多信息。
 10. 在“确认”页上复查信息，然后单击“**完成**”。
 11. 在向导完成创建备份计划后，请单击“**关闭**”。
 
@@ -152,7 +150,6 @@ ms.lasthandoff: 04/14/2017
 3. 启用限制后，指定在“**工作时间**”和“**非工作时间**”允许使用多少带宽进行备份数据传输。
 
     带宽值从每秒 512 千字节 (Kbps) 开始，最高可为每秒 1,023 兆字节 (MBps)。 你还可以指定“**工作时间**”的开始和结束时间，以及一周中有哪几天被视为工作日。 指定的工作时间以外的时间视为非工作时间。
-    
 4. 单击 **“确定”**。
 
 ### <a name="to-back-up-now"></a>立即备份
@@ -167,11 +164,9 @@ ms.lasthandoff: 04/14/2017
 ![IR 完成](./media/backup-configure-vault-classic/ircomplete.png)
 
 ## <a name="next-steps"></a>后续步骤
-- 注册 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+- 注册 [Azure 帐户](http://www.azure.cn/pricing/1rmb-trial/)。
 
 有关备份 VM 或其他工作负荷的详细信息，请参阅：
 
-- [备份 IaaS VM](backup-azure-vms-prepare.md)
+- [备份 IaaS VM](./backup-azure-vms-prepare.md)
 - [使用 DPM 将工作负荷备份到 Azure](./backup-azure-dpm-introduction-classic.md)
-
-

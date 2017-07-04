@@ -3,7 +3,7 @@ title: "锁定 Azure 资源以防止更改 | Azure"
 description: "通过对所有用户和角色应用锁，来防止用户更新或删除关键 Azure 资源。"
 services: azure-resource-manager
 documentationcenter: 
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
@@ -15,14 +15,12 @@ ms.topic: article
 origin.date: 05/05/2017
 ms.date: 06/05/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: cd32245f937790ea7f7623a73e131fef1312a5a9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 2c146fb6a7d10d38cdca87f5fb42dd819ed3873d
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改 
 作为管理员，你可能需要锁定订阅、资源组或资源，以防止组织中的其他用户意外删除或修改关键资源。 可以将锁定级别设置为 **CanNotDelete** 或 **ReadOnly**。 
 
@@ -42,12 +40,8 @@ Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到
 ## <a name="who-can-create-or-delete-locks-in-your-organization"></a>谁可以在组织中创建或删除锁
 若要创建或删除管理锁，必须有权执行 `Microsoft.Authorization/*` 或 `Microsoft.Authorization/locks/*` 操作。 在内置角色中，只有“所有者”和“用户访问管理员”有权执行这些操作。
 
-
-<!-- Not Available due to resource-manager-lock-resources.md not be translated -->
-<!-- 
 ## <a name="portal"></a>门户
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
--->
 
 ## <a name="template"></a>模板
 以下示例演示在存储帐户上创建锁的模板。 要对其应用锁的存储帐户将以参数形式提供。 锁名是通过将包含 **/Microsoft.Authorization/** 的资源名称与锁名（本例中为 **myLock**）连接起来创建的。

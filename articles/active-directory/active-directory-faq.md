@@ -15,13 +15,11 @@ ms.topic: get-started-article
 origin.date: 04/24/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 2d5aa4a4a6148a669421fa6f44fa600eeb842798
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 99838417aa56e0d6d768565db4aec787205dc254
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -174,8 +172,13 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 - [Azure Active Directory 中单一登录的工作原理是什么？](./active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 - - -
+
+**问：SaaS 应用程序的自动用户预配是什么？**
+
+**答：** 使用 Azure AD 可在许多流行的云 (SaaS) 应用程序中自动创建、维护和删除用户标识。
+
+- - -
 **问：是否可以通过 Azure AD 设置安全的 LDAP 连接？**
 
 **答：**不可以。  Azure AD 不支持 LDAP 协议。
-
 

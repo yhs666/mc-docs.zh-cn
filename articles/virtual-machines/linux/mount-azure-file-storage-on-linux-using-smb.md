@@ -15,14 +15,12 @@ ms.workload: infrastructure
 origin.date: 02/13/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 89f524ae51fdaaf1226c63129fa200f515ebd735
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 690e5bcf2674996b5d6383a493b18a848871b2fa
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上装载 Azure 文件存储
 
 本文说明如何通过 Azure CLI 2.0 使用 SMB 装载利用 Linux VM 上的 Azure 文件存储服务。 Azure 文件存储使用标准 SMB 协议在云中提供文件共享。 还可以使用 [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。 要求如下：

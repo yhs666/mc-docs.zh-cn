@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 3dc742a89b55435528793df451bbb1ce122c6d5f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: e203caae993fccbf13e53e0a7b85e845f464179d
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="scaling-media-processing-overview"></a>调整媒体处理的规模概述
 此页概述了如何以及为何调整媒体处理的规模。 
@@ -65,4 +63,3 @@ ms.lasthandoff: 04/14/2017
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 > 
-

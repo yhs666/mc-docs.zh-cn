@@ -3,8 +3,8 @@ title: "Azure Active Directory 图形 API | Microsoft Docs"
 description: "有关可通过 REST API 终结点提供对 Azure AD 的编程访问权限的图形 API 的概述和快速入门指南。"
 services: active-directory
 documentationcenter: 
-author: PatAltimore
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: mbaldwin
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
@@ -13,19 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/27/2017
-ms.date: 02/07/2017
+ms.date: 06/26/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 8a6b83790c2524f15ef790acc1a18026cc5d0600
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: 1e35670facf9cd30cbe119af7f61e691e4e7d5eb
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory 图形 API
 > [!IMPORTANT]
-> 强烈建议使用 [Microsoft Graph](https://graph.microsoft.io/)（而非 Azure AD 图形 API）访问 Azure Active Directory 资源。 目前，我们在集中开发 Microsoft Graph，未计划进一步改进 Azure AD 图形 API。 Azure AD 图形 API 仍可能适用的方案非常有限；有关详细信息，请参阅 Office 开发人员中心的 [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph)（Microsoft Graph 或 Azure AD Graph）博客文章。
+> 强烈建议使用 [Microsoft Graph](https://graph.microsoft.io/)（而非 Azure AD 图形 API）访问 Azure Active Directory 资源。 目前，我们在集中开发 Microsoft Graph，未计划进一步改进 Azure AD Graph API。 Azure AD 图形 API 仍可能适用的方案非常有限；有关详细信息，请参阅 Office 开发人员中心的 [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph)（Microsoft Graph 或 Azure AD Graph）博客文章。
 > 
 > 
 
@@ -68,6 +67,5 @@ Azure Active Directory 图形 API 通过 REST API 终结点提供对 Azure AD �
 [AD Graph REST 文档](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
 [Azure Active Directory 开发人员指南](active-directory-developers-guide.md)
-
 
 

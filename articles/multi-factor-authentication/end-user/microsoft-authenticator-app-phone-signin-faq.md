@@ -16,12 +16,11 @@ origin.date: 04/02/2017
 ms.date: 05/15/2017
 ms.author: v-junlch
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3ff18e6f95d8bbc27348658bc5fce50c3320cf0a
-ms.openlocfilehash: 7248c690f466e1c13bd4d60003627c165c92f91e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/15/2017
-
+ms.openlocfilehash: 95aaa909f165aee06a2c549eea8c85ba67aa3150
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>使用手机而不是密码登录
 
@@ -39,7 +38,7 @@ iOS 和 Android 设备提供此功能，此功能适用于 Microsoft 个人帐�
 
 1. 为帐户启用手机登录。 
 
-  - 如果还没有 Microsoft Authenticator 应用，请按照 [Microsoft Authenticator 页](microsoft-authenticator-app-how-to.md)中步骤安装和添加 Microsoft 个人帐户。 新添加的帐户将自动启用，因此请放心执行后续操作。
+  - 如果还没有 Microsoft Authenticator 应用，请按照 [Microsoft Authenticator 页](./microsoft-authenticator-app-how-to.md)中步骤安装和添加 Microsoft 个人帐户。 新添加的帐户将自动启用，因此请放心执行后续操作。
 
   - 如果已将 Microsoft 验证器用于双重验证，请从应用主页选择帐户，并选择“从下拉菜单启用手机登录”。
 
@@ -92,6 +91,4 @@ iOS 和 Android 设备提供此功能，此功能适用于 Microsoft 个人帐�
 ## <a name="next-steps"></a>后续步骤
 如果尚未下载 Microsoft Authenticator 应用，请查看。 此应用适用于 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)，用于 [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073) 的 Microsoft Authenticator 应用提供手机登录功能。
 
-如果你有关于此应用的常见问题，请参阅 [Microsoft Authenticator 常见问题解答](microsoft-authenticator-app-faq.md)
-
-
+如果你有关于此应用的常见问题，请参阅 [Microsoft Authenticator 常见问题解答](./microsoft-authenticator-app-faq.md)

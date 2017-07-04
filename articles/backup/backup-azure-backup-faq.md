@@ -1,4 +1,3 @@
-
 ---
 title: "Azure 备份常见问题解答 | Microsoft Docs"
 description: "以下常见问题的解答：服务工作原理、Azure 备份代理、恢复服务保管库、备份和保留限制。"
@@ -16,13 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/10/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 168593bca2116a78b28e740c756f149f437909db
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 522e7c4153c9e7787d4e0ca01ece62629a437ee4
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>有关 Azure 备份服务的问题
 本文的多个部分包含常见问题（及解答），帮助你快速了解 Azure 备份组件。 某些答案提供内含全面信息的文章的链接。 单击“评论”（右侧）即可提问有关 Azure 备份的问题。 评论显示在本文末尾。 你需要使用 Livefyre 帐户进行评论。 你也可以在 [论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
@@ -62,7 +59,7 @@ ms.lasthandoff: 04/14/2017
 ### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>我已在备份保管库中备份了经典 VM。 是否可以将 VM 从经典模式迁移到 Resource Manager 模式并在恢复服务保管库中保护它们？
 将 VM 从经典模式移到 Resource Manager 模式时，备份保管库中的经典 VM 恢复点不会自动迁移到恢复服务保管库中。 可以按照以下步骤传输 VM 备份：
 
-1. 在备份保管库中，转到“受保护的项”选项卡并选择 VM。 单击[停止保护](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)。 将“ *删除关联的备份数据* ”选项保留为 **取消选中**状态。
+1. 在备份保管库中，转到“受保护的项”选项卡并选择 VM。 单击[停止保护](./backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)。 将“ *删除关联的备份数据* ”选项保留为 **取消选中**状态。
 2. 将虚拟机从经典模式迁移到 Resource Manager 模式。 确保与虚拟机对应的存储和网络信息也已迁移到 Resource Manager 模式。
 3. 创建一个恢复服务保管库，并使用保管库仪表板顶部的“备份”操作在迁移的虚拟机上配置备份。 
 
@@ -78,7 +75,7 @@ ms.lasthandoff: 04/14/2017
 
 ### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>如果重命名了用于将数据备份到 Azure 的 Windows 服务器，会发生什么情况？<br/>
 当你重命名服务器时，所有当前配置的备份都将停止。
-需要向备份保管库注册服务器的新名称。 向保管库注册新名称时，第一个备份操作是*完全*备份。 如果需要恢复备份到采用旧服务器名称的保管库的数据，可以使用“恢复数据”向导中的[**其他服务器**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)选项。
+需要向备份保管库注册服务器的新名称。 向保管库注册新名称时，第一个备份操作是*完全*备份。 如果需要恢复备份到采用旧服务器名称的保管库的数据，可以使用“恢复数据”向导中的[**其他服务器**](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)选项。
 
 ### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>可以从哪些类型的驱动器备份文件和文件夹？ <br/>
 你无法备份以下驱动器/卷：
@@ -188,7 +185,7 @@ Azure 备份代理依赖于 NTFS。 [可以指定的文件路径的长度受限�
  从 Azure 备份代理、SCDPM 或 Azure 备份服务器备份的所有数据都会在传输之前进行压缩和加密。 应用压缩和加密后，备份保管库中的数据将减少 30-40%。
 
  ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>是否有办法调整备份服务所用的带宽？<br/>
-  是的，可以使用备份代理中的“更改属性”  选项来调整带宽。 可以调整带宽以及使用该带宽的时间。 有关分步说明，请参阅**[启用网络限制](backup-configure-vault.md#enable-network-throttling)**。
+  是的，可以使用备份代理中的“更改属性”  选项来调整带宽。 可以调整带宽以及使用该带宽的时间。 有关分步说明，请参阅**[启用网络限制](./backup-configure-vault.md#enable-network-throttling)**。
 
 
 
@@ -274,7 +271,7 @@ Azure 备份支持以下列表中的操作系统使用 Azure 备份服务器和 
 不可以。 恢复是免费的，不收取传出流量费。
 
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>即使配置了备份策略，仍会显示警告“尚未为此服务器配置 Azure 备份” <br/>
-在本地服务器上存储的备份计划设置与备份保管库中存储的设置不同时，可能会出现此警告。 服务器或设置恢复为已知良好状态后，备份计划可能会失去同步。 如果收到此警告，请 [重新配置备份策略](backup-azure-manage-windows-server-classic.md) ，然后 **立即运行备份** ，以便将本地服务器与 Azure 重新同步。
+在本地服务器上存储的备份计划设置与备份保管库中存储的设置不同时，可能会出现此警告。 服务器或设置恢复为已知良好状态后，备份计划可能会失去同步。 如果收到此警告，请 [重新配置备份策略](./backup-azure-manage-windows-server-classic.md) ，然后 **立即运行备份** ，以便将本地服务器与 Azure 重新同步。
 
 
 
@@ -291,5 +288,3 @@ Azure 备份支持以下列表中的操作系统使用 Azure 备份服务器和 
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-or-can-microsoft-recover-the-data-br"></a>如果我丢失了加密密钥，会发生什么情况？ 是否可以恢复数据（或者）Microsoft 是否可以恢复数据？ <br/>
 用于加密备份数据的密钥只能放置在客户场地。 Microsoft 不会在 Azure 中保留副本，并且无权访问密钥。 如果客户丢失了密钥，Microsoft 将无法恢复备份的数据。
-
-

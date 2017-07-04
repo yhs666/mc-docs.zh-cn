@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 018846f965d37f42c9551b0db7e7fe818f2a8180
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 48217d5bf53b76a3cc3136dabedc2d223ea55183
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-embedded"></a>在 Power BI Embedded 中基于数据集创建新报表
 
 现在，可以基于自有应用程序中的数据集创建 Power BI Embedded 报表。 
@@ -208,5 +206,4 @@ var embedCreateConfiguration = {
 [Power BI Core NuGut 包](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
 [Power BI JavaScript 包](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
-
 

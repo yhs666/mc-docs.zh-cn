@@ -3,7 +3,7 @@ title: "Azure 中的 Windows VM 的计划内维护 | Azure"
 description: "了解什么是 Azure 计划内维护以及它如何影响正在 Azure 中运行的 Windows 虚拟机。"
 services: virtual-machines-windows
 documentationcenter: 
-author: 
+author: zivr
 manager: timlt
 editor: 
 tags: azure-service-management,azure-resource-manager
@@ -16,13 +16,11 @@ ms.topic: article
 origin.date: 03/27/2017
 ms.date: 05/15/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: fa3092699a516a5bfdfa050af48d4cd840204b64
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: e0fa55844535ee853d6300ccbb7c73a2286ee86d
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="planned-maintenance-for-windows-virtual-machines"></a>Windows 虚拟机的计划内维护 
 
@@ -37,4 +35,3 @@ Azure 在全球范围内定期执行更新，以提高虚拟机所基于的主�
 -   VM 重启维护，维护时需要重启或重新部署到托管虚拟机。
 
 请注意，本页介绍 Azure 如何执行计划内维护。 有关非计划事件（故障）的详细信息，请参阅[管理虚拟机的可用性](manage-availability.md)。
-

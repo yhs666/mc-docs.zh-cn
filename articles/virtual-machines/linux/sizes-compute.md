@@ -16,15 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 03/22/2017
 ms.date: 05/15/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 11f64bc805fe13e97624ba56bfe271025f713ec0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 39210fb9aaff8c558d8b3f4c705860366b193613
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="compute-optimized-linux-vm-sizes"></a>计算优化 Linux VM 大小
 
 [!INCLUDE [virtual-machines-common-sizes-compute](../../../includes/virtual-machines-common-sizes-compute.md)]

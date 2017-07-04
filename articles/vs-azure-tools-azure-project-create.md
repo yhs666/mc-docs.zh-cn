@@ -15,13 +15,11 @@ ms.workload: na
 origin.date: 03/21/2017
 ms.date: 05/22/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 0e18e212960912b3441d788c2d79f6eb69d35d93
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: e981f857b1a5f6436570c193b4632e62b7c26203
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="creating-an-azure-cloud-service-project-with-visual-studio"></a>使用 Visual Studio 创建 Azure 云服务项目
 Azure Tools for Visual Studio 提供了可用于创建 Azure 云服务的项目模板。 创建项目后，可通过 Visual Studio 调试、配置云服务，并将其部署到 Azure。
@@ -60,5 +58,4 @@ Visual Studio Azure 项目与解决方案中的角色项目具有关联。 该�
 
 ## <a name="next-steps"></a>后续步骤
 - [使用 Visual Studio 管理 Azure 云服务项目中的角色](./vs-azure-tools-cloud-service-project-managing-roles.md)
-
 

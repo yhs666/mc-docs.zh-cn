@@ -17,13 +17,11 @@ ms.workload: big-data
 origin.date: 04/27/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 661ad713c0bef030de5efcd683cf12ca05042b8f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: fd580c7575eb02a2ccfbabdb12238709747a2719
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集
 
@@ -407,4 +405,3 @@ static void Main(string[] args)
 * [使用.NET SDK 在 HDInsight 中运行 Pig 作业](hdinsight-hadoop-use-pig-dotnet-sdk.md)
 * [使用.NET SDK 在 HDInsight 中运行 Sqoop 作业](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 * [在 HDInsight 中运行 Oozie 作业](hdinsight-use-oozie.md)
-

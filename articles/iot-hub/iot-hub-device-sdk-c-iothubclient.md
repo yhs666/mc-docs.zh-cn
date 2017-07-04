@@ -13,10 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/06/2016
-ms.date: 06/05/2017
+ms.date: 07/10/2017
 ms.author: v-yiso
+ms.openlocfilehash: aaadcb4892e109663520529d8d7fba57a9c16817
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>适用于 C 语言的 Azure IoT 设备 SDK - 有关 IoTHubClient 的详细信息
 
 此系列中的[第一篇文章](./iot-hub-device-sdk-c-intro.md)介绍了**适用于 C 语言的 Azure IoT 设备 SDK**。该文章已说明 SDK 中有两个体系结构层。 底层是 **IoTHubClient** 库，用于直接管理与 IoT 中心的通信。 另有一个 **序列化程序** 库，它构建在 SDK 的顶部，可提供序列化服务。 在本文中，我们将提供有关 **IoTHubClient** 库的更多详细信息。
@@ -280,8 +284,8 @@ batching 选项非常重要。 默认情况下，库将逐个引入事件（单�
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [使用 Azure IoT Edge 模拟设备][lnk-gateway]
+* [使用 Azure IoT Edge 模拟设备][lnk-iotedge]
 
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md

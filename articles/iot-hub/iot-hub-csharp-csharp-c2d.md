@@ -15,14 +15,12 @@ ms.workload: na
 origin.date: 03/08/2017
 ms.date: 04/17/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: a8904028d5c4eda12fe6318b1d35db89fc1ea3df
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 366f31ab660a2f34fc5e1e60ca23ab195afe65cc
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="send-messages-from-the-cloud-to-your-simulated-device-with-iot-hub-net"></a>使用 IoT 中心 (.NET) 将消息从云发送到模拟设备
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -105,7 +103,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     此操作将打开“管理 NuGet 包”窗口。
 3. 搜索“Microsoft.Azure.Devices”，然后单击“安装”并接受使用条款。 
 
-    此操作会下载、安装 [Azure IoT 服务 SDK NuGet 包][Azure IoT - Service SDK NuGet package]并添加对它的引用。
+    此操作会下载、安装 [Azure IoT 服务 SDK NuGet 包]并添加对它的引用。
 
 4. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
 

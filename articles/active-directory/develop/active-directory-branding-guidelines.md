@@ -3,8 +3,8 @@ title: "适用于应用程序的品牌准则 | Microsoft Docs"
 description: "介绍面向开发人员的 Azure Active Directory 资源的综合性指南"
 services: active-directory
 documentationcenter: dev-center-name
-author: bryanla
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
@@ -13,15 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/27/2017
-ms.date: 02/07/2017
+ms.date: 06/26/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: fdf2e107263f13c5f0ea61c247df2efc01dae386
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: 19069efedc7ddef0720cbf3dc4a229a96f3556eb
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
 # <a name="branding-guidelines-for-applications"></a>适用于应用程序的品牌准则
 本主题讨论在使用 Azure Active Directory (Azure AD) 开发应用程序时应使用的品牌准则。 在客户需要使用 Azure AD 中托管的工作或学校帐户或个人帐户进行注册和登录到应用程序时，这些准则将帮助指导客户进行相关操作。
@@ -89,7 +88,6 @@ Microsoft 徽标和“通过 Microsoft 登录”词语的关联可唯一地将 A
 **不要** 向最终用户显示 Azure 或 Active Directory 品牌。 但是，可以对开发人员、IT 专业人员和管理员使用这些词语。
 
 ## <a name="navigation-dos-and-donts"></a>导航注意事项
-**要** 提供让用户注销以及切换到其他用户帐户的方法。 虽然大多数人员只有一个由 Microsoft/Facebook/Google/Twitter 提供的个人帐户，但这些人员通常与多个组织相关联。 即将推出支持多个登录用户的功能。
-
+**要** 提供让用户注销以及切换到其他用户帐户的方法。 即将推出支持多个登录用户的功能。
 
 

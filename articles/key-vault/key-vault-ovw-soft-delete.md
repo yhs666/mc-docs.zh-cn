@@ -5,15 +5,14 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: v-junlch
 manager: mbaldwin
+ms.topic: article
 origin.date: 05/10/2017
 ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 278e56ab12f360d4fbc9a8c7deb9b85577eb1d18
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 0e93342962d708eee4b2514340e27e7f972b8f53
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-key-vault-soft-delete-feature-overview"></a>Azure Key Vault 软删除功能概述
 
@@ -76,7 +75,6 @@ Azure Key Vault 是由 Azure Resource Manager 管理的跟踪资源。 Azure Res
 可通过对代理资源执行 POST 操作永久删除、清除 Key Vault，但此操作需要特殊权限。 通常，只有订阅所有者才能清除 Key Vault。 POST 操作将触发对该保管库的立即删除，且此删除不可恢复。 
 
 但是，Azure 订阅已被标记为“不可删除”时例外。 在这种情况下，只有服务可以执行实际删除，并且将作为计划的进程执行此操作。 
-
 
 
 

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 7b47ae124ad7edc62d26b689effcf9a4b2d3ac20
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 9fc4a78924ec4e7ea1f30b846030e1cf1225d39b
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>使用 PowerShell 部署和删除应用程序
 > [!div class="op_single_selector"]
@@ -238,4 +236,3 @@ ImageStoreConnectionString 可在群集清单中找到：
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
-

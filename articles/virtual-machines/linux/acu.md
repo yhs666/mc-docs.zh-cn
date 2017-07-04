@@ -16,21 +16,17 @@ ms.workload: infrastructure-services
 origin.date: 03/23/2017
 ms.date: 05/15/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 92f3633dd4d35a51f190e5ed5366a3e819be9ec1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 90a096f1ae3e703e31f3fef1639d6fe1573b60fc
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="azure-compute-unit-acu"></a>Azure 计算单元 (ACU)
 
 [!INCLUDE [virtual-machines-common-acu](../../../includes/virtual-machines-common-acu.md)]
 
 有关各种大小的详细信息，请访问以下链接：
-
 - [通用](sizes-general.md)
 - [内存优化](sizes-memory.md)
 - [计算优化](sizes-compute.md)

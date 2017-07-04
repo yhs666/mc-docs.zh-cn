@@ -12,13 +12,11 @@ ms.technology:
 ms.assetid: 
 ms.date: 06/20/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 65d9b4a4d6905099dfd134f85f93f6a963114f32
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 7fb216dcafc387e3a7e163cc5474fa71a81c11c8
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Azure 标识管理基础知识
 随着公司的数字资源逐渐转向公司网络外部、云中和设备上，为了对用户访问公司应用程序和数据的方式和时间进行控制和监视，最好的方式是使用卓越的基于云的标识和访问管理解决方案。
@@ -52,5 +50,4 @@ Microsoft 标识和访问管理解决方案可帮助 IT 部门保护对企业数
 -   使用 [self-service password reset](active-directory-passwords.md) 提高用户工作效率。
 
 -   充分利用基于云的世界性企业级标识和访问管理解决方案的[高可用性和可靠性](https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications)。
-
 

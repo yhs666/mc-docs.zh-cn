@@ -17,13 +17,11 @@ ms.topic: article
 origin.date: 04/03/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: fd949fd0a7b9cf792119f5e862cceec485952006
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 5ca2aad2ddea5bbaa1512e3a6062c912eeeb1f84
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="run-the-hadoop-samples-in-hdinsight"></a>在 HDInsight 中运行 Hadoop 示例
 
@@ -108,8 +106,8 @@ ms.lasthandoff: 04/28/2017
 
     将从 `/example/data/gutenberg/davinci.txt` 读取此作业的输入。 此示例的输出存储于 `/example/data/davinciwordcount` 中。 两个路径皆位于群集的默认存储，而不是本地文件系统。
 
-    > [!NOTE]
-    > 如字数统计示例帮助中所述，你还可以指定多个输入文件。 例如， `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` 会计算 davinci.txt 和 ulysses.txt 中单词的数目。
+   > [!NOTE]
+   > 如字数统计示例帮助中所述，你还可以指定多个输入文件。 例如， `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` 会计算 davinci.txt 和 ulysses.txt 中单词的数目。
 
 5. 作业完成后，使用以下命令查看输出：
 
@@ -237,4 +235,3 @@ GraySort 是一个基准排序，其指标为在给巨量数据（通常至少 1
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-

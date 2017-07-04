@@ -21,6 +21,7 @@
 ### [证书](automation-certificates.md)
 ### [连接](automation-connections.md)
 ### [凭据](automation-credentials.md)
+### [集成模块](automation-integration-modules.md)
 ### [计划](automation-schedules.md)
 ### [变量](automation-variables.md)
 ## [Runbook 库](automation-runbook-gallery.md)

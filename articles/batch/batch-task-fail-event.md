@@ -9,16 +9,15 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: reference
 ms.assetid: 8c16a533-1ac7-4b65-a84e-8eafb937b3d7
-caps.latest.revision: 3
+caps.latest.revision: "3"
 author: tamram
 ms.author: v-junlch
 manager: timlt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 64974442ca406525f43401e95c68aedeed3e4879
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: c6ff9f62706d31d2267c20acc8bd15d741375f9e
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="task-fail-event"></a>任务失败事件
 任务失败事件日志正文
@@ -95,4 +94,3 @@ ms.lasthandoff: 05/05/2017
 |exitCode|Int32|任务的退出代码。|
 |retryCount|Int32|批处理服务重试任务的次数。 如果任务使用非零退出代码退出，该任务会重试，直至达到指定的 MaxTaskRetryCount。|
 |requeueCount|Int32|批处理服务因用户请求而对任务进行重新排队的次数。<br /><br /> 当用户从池中删除节点（通过调整池的大小或缩小池）或作业已禁用时，用户可以指定节点上运行的任务重新排队等待执行。 此计数跟踪由于这些原因而重新排队任务的次数。|
-

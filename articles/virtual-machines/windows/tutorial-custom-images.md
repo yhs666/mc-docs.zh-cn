@@ -17,14 +17,12 @@ origin.date: 05/08/2017
 ms.date: 06/21/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 383322b2d497612609b6446126e690de36043a81
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: c181e05ffd09a1e3794ae5f82006b92a4180bc2d
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>使用 PowerShell 创建 Azure VM 的自定义映像
 
 自定义映像类似于应用商店映像，不同的是自定义映像的创建者是你自己。 自定义映像可用于启动配置，例如预加载应用程序、应用程序配置和其他 OS 配置。 在本教程中，你将创建自己的 Azure 虚拟机自定义映像。 你将学习如何执行以下操作：
@@ -36,13 +34,13 @@ ms.lasthandoff: 06/09/2017
 > * 列出订阅中的所有映像
 > * 删除映像
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 ` Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 ## <a name="before-you-begin"></a>开始之前
 
-下列步骤详细说明了如何将现有 VM 转换为可重用自定义映像，以便用于创建新 VM 实例。
+下列步骤详细说明了如何将现有 VM 转换为可重用自定义映像，用于创建新的 VM 实例。
 
-若要完成本教程中的示例，必须具备现有虚拟机。 如果需要，此[脚本示例](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)可替你创建一个虚拟机。 按照教程进行操作时，请根据需要替换资源组和 VM 名称。
+若要完成本教程中的示例，必须现有一个虚拟机。 如果需要，此[脚本示例](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)可为你创建一个虚拟机。 按照教程进行操作时，请根据需要替换资源组和 VM 名称。
 
 ## <a name="prepare-vm"></a>准备 VM
 
@@ -208,4 +206,3 @@ Remove-AzureRmImage `
 
 > [!div class="nextstepaction"]
 > [创建高度可用的 VM](tutorial-availability-sets.md)
-

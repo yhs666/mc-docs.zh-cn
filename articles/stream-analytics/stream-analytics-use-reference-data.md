@@ -16,14 +16,12 @@ ms.workload: data-services
 origin.date: 03/28/2017
 ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: e76fa75f08956ac66fde1bf16314913dafee384a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: b18e36b8bf9a06f6f6d0785452618ea801399f07
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-
 # <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>在流分析的输入流中使用引用数据或查找表
 <!-- Not Available [any number of cloud-based and on-premises data stores](../data-factory/data-factory-data-movement-activities.md) -->
 引用数据（也称为查找表）是一个静态的或本质上缓慢变化的有限数据集，用于执行查找或与你的数据流相关联。 为了在 Azure 流分析作业中利用引用数据，通常会在查询中使用[引用数据联合](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 流分析使用 Azure Blob 存储作为引用数据的存储层。 引用数据建模为 blob 序列（在输入配置中定义），这些 blob 按blob 名称中指定的日期/时间顺序升序排列。 它**仅**支持使用**大于**序列中最后一个 blob 指定的日期/时间的日期/时间添加到序列的末尾。

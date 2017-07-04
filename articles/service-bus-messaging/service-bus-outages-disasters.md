@@ -15,12 +15,11 @@ ms.workload: na
 origin.date: 04/12/2017
 ms.author: v-yiso
 ms.date: 05/22/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: ac80abc477d0a457ca89fc45e519d342bdcbcc15
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: d36c2b3cdeb8e977ce917994802d16d8410c7c4b
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>使应用程序免受服务总线中断和灾难影响的最佳实践
 任务关键型应用程序必须连续运行，即使是在计划外中断或灾难发生时。 本主题介绍可用于保护服务总线应用程序免受潜在的服务中断和灾难影响的技术。
@@ -91,7 +90,7 @@ ms.lasthandoff: 05/12/2017
 若要了解有关灾难恢复的详细信息，请参阅这些文章：
 
 - [Azure SQL 数据库业务连续性][Azure SQL Database Business Continuity]
-
+- [设计适用于 Azure 的弹性应用程序][Azure resiliency technical guidance]
 
   [Service Bus Authentication]: ./service-bus-authentication-and-authorization.md
   [Partitioned messaging entities]: ./service-bus-partitioning.md

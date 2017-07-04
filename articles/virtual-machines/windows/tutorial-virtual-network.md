@@ -17,14 +17,12 @@ origin.date: 05/02/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 5400410c19fa41662fe5c0f1510e137d571e9bca
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: a6ce899958cf6caf4507ed0b32eabcbbed197bb4
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 虚拟网络和 Windows 虚拟机
 
 Azure 虚拟机使用 Azure 网络进行内部和外部网络通信。 本教程介绍了如何在虚拟网络中创建多个虚拟机 (VM)，以及如何在虚拟机之间配置网络连接。 你将学习如何执行以下操作：
@@ -35,7 +33,7 @@ Azure 虚拟机使用 Azure 网络进行内部和外部网络通信。 本教程
 > * 使用网络安全组控制网络流量
 > * 查看流量规则的实际运行情况
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 ` Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 ## <a name="create-vnet"></a>创建 VNet
 

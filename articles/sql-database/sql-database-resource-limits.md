@@ -3,25 +3,24 @@ title: "Azure SQL 数据库资源限制 | Azure"
 description: "本页介绍 Azure SQL 数据库的一些常见资源限制。"
 services: sql-database
 documentationcenter: na
-author: janeng
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
-ms.custom: resources
+ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 05/14/2017
+origin.date: 05/31/2017
+ms.date: 07/03/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: f35c61284598c9544af74b60eab04275afdaff38
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: 642019db85c35cb953aea2c60d9ad5ad340982e9
+ms.sourcegitcommit: bb82041119027be7a62fc96945d92a8a452e7849
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL 数据库资源限制
 ## <a name="overview"></a>概述
@@ -75,4 +74,3 @@ CPU、内存、日志 I/O 和数据 I/O 以外的资源在达到限制时，将�
 [Azure SQL 数据库服务层和性能级别](sql-database-service-tiers.md)
 
 [SQL 数据库客户端程序的错误消息](sql-database-develop-error-messages.md)
-

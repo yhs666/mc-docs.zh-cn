@@ -16,14 +16,12 @@ ms.workload: tbd
 origin.date: 04/14/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: d96c11ada878b23873bb96772b43dfa808d8756d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: 326f8dd9c8ab9c10a9541b811ec54ebff64c5c06
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="delete-an-azure-redis-cache"></a>删除 Azure Redis 缓存
 
 此方案介绍如何删除 Azure Redis 缓存。

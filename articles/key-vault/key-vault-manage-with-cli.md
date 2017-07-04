@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 05/08/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 72ee0de361ee286c6b27c338c3d43be9b22d8316
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 94562e6a233baae62d141fb43b5b5e0d64ad056e
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="manage-key-vault-using-cli"></a>使用 CLI 管理密钥保管库
 
@@ -247,6 +245,5 @@ azure keyvault create --vault-name 'ContosoKeyVault' --resource-group 'ContosoRe
 
 ## <a name="next-steps"></a>后续步骤
 有关编程参考，请参阅 [Azure 密钥保管库开发人员指南](key-vault-developers-guide.md)。
-
 
 

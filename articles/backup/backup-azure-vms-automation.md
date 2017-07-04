@@ -16,13 +16,11 @@ origin.date: 04/05/2017
 ms.date: 05/15/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 62c12056595a79ad3acb68542cbcbf5b2b863ced
-ms.openlocfilehash: 69b12895072ca38be8a73bd64b07a4340c56cc87
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/19/2017
-
-
+ms.openlocfilehash: 431d4478825f0059f3c26acf4ba91230e7aeb9f2
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>使用 AzureRM.RecoveryServices.Backup cmdlet 来备份虚拟机
 > [!div class="op_single_selector"]
@@ -410,4 +408,3 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 
 ## <a name="next-steps"></a>后续步骤
 如果你更愿意使用 PowerShell 来处理 Azure 资源，则请查看有关如何保护 Windows Server 的 PowerShell 文章：[为 Windows Server 部署和管理备份](./backup-client-automation.md)。 此外还有一篇有关如何管理 DPM 备份的 PowerShell 文章：[为 DPM 部署和管理备份](./backup-dpm-automation.md)。 这两篇文章都为 Resource Manager 部署和经典部署提供了一个版本。  
-

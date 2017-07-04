@@ -16,13 +16,11 @@ ms.topic: article
 origin.date: 02/17/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 4b4b5d4e6a4c5dc40d6a9ab14b26ec8faf84f59b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 1a4686fc92716b6b633a5b630d96838f505ddc23
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-linux-based-hdinsight-hadoop"></a>借助 Maven 构建可将 HBase 与基于 Linux 的 HDInsight (Hadoop) 配合使用的 Java 应用程序
 了解如何通过使用 Apache Maven 在 Java 中创建和构建 [Apache HBase](http://hbase.apache.org/) 应用程序。 然后，在基于 Linux 的 HDInsight 群集上使用该应用程序。
@@ -45,12 +43,12 @@ ms.lasthandoff: 04/28/2017
 
 * [装有 HBase 的基于 Linux 的 Azure HDInsight 群集](hdinsight-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
 
-    > [!NOTE]
-    > 本文档中的步骤已在 HDInsight 群集版本 3.2、3.3、3.4 和 3.5 中测试。 示例中提供的默认值适用于 HDInsight 3.5 群集。
+  > [!NOTE]
+  > 本文档中的步骤已在 HDInsight 群集版本 3.2、3.3、3.4 和 3.5 中测试。 示例中提供的默认值适用于 HDInsight 3.5 群集。
 
 * **熟悉 SSH 和 SCP** 或 **Azure PowerShell**。 本文档提供有关运行此示例时使用 SSH/SCP 和 Azure PowerShell 的步骤。
 
-    有关安装 Azure PowerShell 的信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)。
+    有关安装 Azure PowerShell 的信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/overview)。
 
     有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
@@ -64,8 +62,8 @@ ms.lasthandoff: 04/28/2017
 
     此命令使用与 **artifactID** 参数相同的名称（此示例中为 **hbaseapp**）创建目录。此目录包含以下项：
 
-    * **pom.xml**：项目对象模型 ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html))，其中包含用于生成项目的信息和配置详细信息。
-    * **src**：包含 **main/java/com/microsoft/examples** 目录的目录，用户将在其中创作应用程序。
+   * **pom.xml**：项目对象模型 ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html))，其中包含用于生成项目的信息和配置详细信息。
+   * **src**：包含 **main/java/com/microsoft/examples** 目录的目录，用户将在其中创作应用程序。
 
 3. 删除 **src/test/java/com/microsoft/examples/apptest.java** 文件，因为本示例中不使用该文件。
 
@@ -73,41 +71,41 @@ ms.lasthandoff: 04/28/2017
 
 1. 编辑 **pom.xml** 文件，并将以下代码添加到 `<dependencies>` 部分：
 
-    ```xml
+   ```xml
     <dependency>
         <groupId>org.apache.hbase</groupId>
         <artifactId>hbase-client</artifactId>
         <version>1.1.2</version>
     </dependency>
-    ```
+   ```
 
     此部分指示项目需要 **hbase-client** 版本**1.1.2**。 在编译时，将从默认的 Maven 存储库下载该依赖项。 你可以使用 [Maven 中央存储库](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) 搜索来了解有关此依赖性的详细信息。
 
-    > [!IMPORTANT]
-    > 版本号必须与 HDInsight 群集随附的 HBase 版本匹配。 可以使用下表来查找正确的版本号。
+   > [!IMPORTANT]
+   > 版本号必须与 HDInsight 群集随附的 HBase 版本匹配。 可以使用下表来查找正确的版本号。
 
-    | HDInsight 群集版本 | 要使用的 HBase 版本 |
-    | --- | --- |
-    | 3.2 |0.98.4-hadoop2 |
-    | 3.3、3.4 和 3.5 |1.1.2 |
+   | HDInsight 群集版本 | 要使用的 HBase 版本 |
+   | --- | --- |
+   | 3.2 |0.98.4-hadoop2 |
+   | 3.3、3.4 和 3.5 |1.1.2 |
 
     有关 HDInsight 版本和组件的详细信息，请参阅 [HDInsight 提供哪些不同的 Hadoop 组件](hdinsight-component-versioning.md)。
 
 2. 如果要使用 HDInsight 3.3、3.4 或 3.5 群集，还必须将以下代码添加到 `<dependencies>` 节：
 
-    ```xml
+   ```xml
     <dependency>
         <groupId>org.apache.phoenix</groupId>
         <artifactId>phoenix-core</artifactId>
         <version>4.4.0-HBase-1.1</version>
     </dependency>
-    ```
+   ```
 
     此节会加载需要在 Hbase 版本 1.1.x 中使用的 phoenix-core 组件。
 
 3. 将以下代码添加到 **pom.xml** 文件。 此文本必须位于文件中的 `<project>...</project>` 标记内，例如 `</dependencies>` 和 `</project>` 之间。
 
-    ```xml
+   ```xml
     <build>
         <sourceDirectory>src</sourceDirectory>
         <resources>
@@ -150,12 +148,12 @@ ms.lasthandoff: 04/28/2017
         </plugin>
         </plugins>
     </build>
-    ```
+   ```
 
     此部分将配置包含与 HBase 有关的配置信息的资源 (**conf/hbase-site.xml**)。
 
-    > [!NOTE]
-    > 你也可以通过代码设置配置值。 请参阅 **CreateTable** 示例中的注释。
+   > [!NOTE]
+   > 你也可以通过代码设置配置值。 请参阅 **CreateTable** 示例中的注释。
 
     此部分还将配置 [Maven 编译器插件](http://maven.apache.org/plugins/maven-compiler-plugin/)和 [Maven 阴影插件](http://maven.apache.org/plugins/maven-shade-plugin/)。 该编译器插件用于编译拓扑。 该阴影插件用于防止在由 Maven 构建的 JAR 程序包中复制许可证。 此插件用于防止在 HDInsight 群集上运行时出现“重复的许可证文件”错误。 将 maven-shade-plugin 用于 `ApacheLicenseResourceTransformer` 实现可防止发生此错误。
 
@@ -169,10 +167,10 @@ ms.lasthandoff: 04/28/2017
 
         scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
 
-    > [!NOTE]
-    > 如果使用了 SSH 帐户的密码，则系统将提示你输入该密码。 如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。 以下示例从 `~/.ssh/id_rsa`加载私钥：
-    >
-    > `scp -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml`
+   > [!NOTE]
+   > 如果使用了 SSH 帐户的密码，则系统将提示你输入该密码。 如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。 以下示例从 `~/.ssh/id_rsa`加载私钥：
+   >
+   > `scp -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml`
 
 ## <a name="create-the-application"></a>创建应用程序
 
@@ -180,7 +178,7 @@ ms.lasthandoff: 04/28/2017
 
 2. 打开 **CreateTable.java** 文件，并将现有内容替换为以下文本：
 
-    ```java
+   ```java
     package com.microsoft.examples;
     import java.io.IOException;
 
@@ -248,7 +246,7 @@ ms.lasthandoff: 04/28/2017
         table.close();
         }
     }
-    ```
+   ```
 
     此代码是 **CreateTable** 类，该类会创建名为 **people** 的表，并使用一些预定义的用户填充它。
 
@@ -256,7 +254,7 @@ ms.lasthandoff: 04/28/2017
 
 4. 在 **hbaseapp/src/main/java/com/microsoft/examples** 目录中，创建名为 **SearchByEmail.java** 的文件。 将以下文本用作此文件的内容：
 
-    ```java
+   ```java
     package com.microsoft.examples;
     import java.io.IOException;
 
@@ -327,7 +325,7 @@ ms.lasthandoff: 04/28/2017
         table.close();
         }
     }
-    ```
+   ```
 
     **SearchByEmail** 类可用于按电子邮件地址查询行。 由于它使用正则表达式筛选器，因此，你可以在使用类时提供字符串或正则表达式。
 
@@ -335,7 +333,7 @@ ms.lasthandoff: 04/28/2017
 
 6. 在 **hbaseapp/src/main/hava/com/microsoft/examples** 目录中，创建名为 **DeleteTable.java** 的文件。 将以下文本用作此文件的内容：
 
-    ```java
+   ```java
     package com.microsoft.examples;
     import java.io.IOException;
 
@@ -355,7 +353,7 @@ ms.lasthandoff: 04/28/2017
         admin.deleteTable("people");
         }
     }
-    ```
+   ```
 
     此类用于清除本示例中创建的 HBase 表，方法是禁用并删除由 **CreateTable** 类创建的表。
 
@@ -371,8 +369,8 @@ ms.lasthandoff: 04/28/2017
 
 2. 完成该命令后，**hbaseapp/target** 目录将包含名为 **hbaseapp-1.0-SNAPSHOT.jar** 的文件。
 
-    > [!NOTE]
-    > **hbaseapp-1.0-SNAPSHOT.jar** 文件是 uber jar。 它包含运行应用程序所需的所有依赖项。
+   > [!NOTE]
+   > **hbaseapp-1.0-SNAPSHOT.jar** 文件是 uber jar。 它包含运行应用程序所需的所有依赖项。
 
 ## <a name="upload-the-jar-and-run-jobs-ssh"></a>上传 JAR 并运行作业 (SSH)
 
@@ -384,19 +382,19 @@ ms.lasthandoff: 04/28/2017
 
     此命令会将文件上传到 SSH 用户帐户的主目录。
 
-    > [!NOTE]
-    > 如果使用了 SSH 帐户的密码，则系统将提示你输入该密码。 如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。 以下示例从 `~/.ssh/id_rsa`加载私钥：
-    >
-    > `scp -i ~/.ssh/id_rsa ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:hbaseapp-1.0-SNAPSHOT.jar`
+   > [!NOTE]
+   > 如果使用了 SSH 帐户的密码，则系统将提示你输入该密码。 如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。 以下示例从 `~/.ssh/id_rsa`加载私钥：
+   >
+   > `scp -i ~/.ssh/id_rsa ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:hbaseapp-1.0-SNAPSHOT.jar`
 
 2. 使用 SSH 连接到 HDInsight 群集。 将 **USERNAME** 替换为 SSH 登录名。 将 **CLUSTERNAME** 替换为 HDInsight 群集名称：
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 
-    > [!NOTE]
-    > 如果使用了 SSH 帐户的密码，则系统将提示你输入该密码。 如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。 以下示例从 `~/.ssh/id_rsa`加载私钥：
-    >
-    > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`
+   > [!NOTE]
+   > 如果使用了 SSH 帐户的密码，则系统将提示你输入该密码。 如果将 SSH 密钥与帐户配合使用，则可能需要使用 `-i` 参数来指定密钥文件的路径。 以下示例从 `~/.ssh/id_rsa`加载私钥：
+   >
+   > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`
 
 3. 连接后，使用以下命令在 Java 应用程序中创建 HBase 表：
 
@@ -423,7 +421,7 @@ ms.lasthandoff: 04/28/2017
 
 1. 安装并配置 Azure PowerShell 后，请创建名为 **hbase-runner.psm1**的文件。 使用以下文本作为此文件的内容：
 
-    ```powershell
+   ```powershell
     <#
     .SYNOPSIS
     Copies a file to the primary storage of an HDInsight cluster.
@@ -618,12 +616,12 @@ ms.lasthandoff: 04/28/2017
     }
     # Only export the verb-phrase things
     export-modulemember *-*
-    ```
+   ```
 
     此文件包含两个模块：
 
-    * **Add-HDInsightFile** - 用于将文件上传到 HDInsight
-    * **Start-HBaseExample** - 用于运行以前创建的类
+   * **Add-HDInsightFile** - 用于将文件上传到 HDInsight
+   * **Start-HBaseExample** - 用于运行以前创建的类
 
 2. 保存 **hbase-runner.psm1** 文件。
 
@@ -679,4 +677,3 @@ __从 `ssh` 会话__：
 __从 Azure PowerShell__：
 
 `Start-HBaseExample -className com.microsoft.examples.DeleteTable -clusterName hdinsightclustername`
-

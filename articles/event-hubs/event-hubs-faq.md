@@ -3,8 +3,8 @@ title: "Azure 事件中心常见问题解答 | Azure"
 description: "Azure 事件中心常见问题 (FAQ)"
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
@@ -13,16 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/13/2017
-ms.date: 04/17/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 027069e7bee618db5418c1fc4331dc9221a6eb0c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: ff2dd5750c4ae9666d842596927e58a967247afb
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="event-hubs-frequently-asked-questions"></a>事件中心常见问题
 
 ## <a name="general"></a>常规
@@ -32,7 +30,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 * 更长的事件保留期
 * 其他中转连接，对于超出包含的数量的部分收取超额费用
 * 多于单个使用者组
-* [存档](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
+* [存档](/event-hubs/event-hubs-archive-overview)
 
 有关定价层的更多详细信息（包括专用事件中心），请参阅[事件中心定价详细信息](https://www.azure.cn/pricing/details/event-hubs/)。
 
@@ -57,7 +55,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 可以，但前提是所有事件中心都在同一个命名空间中。
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>事件的最长保留期有多久？
-事件中心标准目前支持的最长保留期为 7 天。 请注意，事件中心并不是永久性的数据存储区。 大于 24 小时的保留期适用于将事件流重播到相同系统中的情形；例如，为了基于现有数据来培训或验证新计算机学习模型。 如果需要将消息保留 7 天以上，那么启用事件中心的[存档](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)功能可将数据从事件中心拉取到你选择的存储。 启用存档功能会基于你购买的吞吐量单位进行计价。
+事件中心标准目前支持的最长保留期为 7 天。 请注意，事件中心并不是永久性的数据存储区。 大于 24 小时的保留期适用于将事件流重播到相同系统中的情形；例如，为了基于现有数据来培训或验证新计算机学习模型。 如果需要将消息保留 7 天以上，那么启用事件中心的[存档](event-hubs-archive-overview.md)功能可将数据从事件中心拉取到你选择的存储。 启用存档功能会基于你购买的吞吐量单位进行计价。
 
 ### <a name="where-is-azure-event-hubs-available"></a>Azure 事件中心在哪些区域可用？
 在所有支持的 Azure 区域中都可使用 Azure 事件中心。 有关列表，请访问 [Azure 区域](https://azure.microsoft.com/regions/)页。  
@@ -69,7 +67,8 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 
 事件中心设计用于允许每个用户组使用单个分区读取器。 在大多数用例中，四个分区的默认设置就足够了。 如果你希望扩展事件处理，则可以考虑添加其他分区。 对分区没有特定的吞吐量限制，但是命名空间中的聚合吞吐量受吞吐量单位数限制。 增加命名空间中吞吐量单位的数量时，可能需要添加额外分区来允许并发读取器实现其自身的最大吞吐量。
 
-但是，如果你有一个模型，其中应用程序具有到特定分区的关联性，则增加分区数可能对你没有任何益处。 有关详细信息，请参阅[可用性和一致性](./event-hubs-availability-and-consistency.md)。
+但是，如果你有一个模型，其中应用程序具有到特定分区的关联性，则增加分区数可能对你没有任何益处。 有关详细信息，请参阅[可用性和一致性](event-hubs-availability-and-consistency.md)。
+
 ## <a name="pricing"></a>定价
 
 ### <a name="where-can-i-find-more-pricing-information"></a>我可以在哪里找到更多定价信息？
@@ -99,20 +98,21 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 ## <a name="quotas"></a>配额
 
 ### <a name="are-there-any-quotas-associated-with-event-hubs"></a>是否有与事件中心关联的配额？
-如需所有事件中心配额的列表，请参阅[配额](./event-hubs-quotas.md)。
+如需所有事件中心配额的列表，请参阅[配额](event-hubs-quotas.md)。
 
 ## <a name="troubleshooting"></a>故障排除
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>事件中心生成的异常有哪些，建议采取什么操作？
-有关可能的事件中心异常的列表，请参阅[异常概述](./event-hubs-messaging-exceptions.md)。
+有关可能的事件中心异常的列表，请参阅[异常概述](event-hubs-messaging-exceptions.md)。
 
+<!-- Not Available ### Diagnostic logs -->
 ### <a name="support-and-sla"></a>支持和 SLA
-事件中心的技术支持可通过 [社区论坛](https://social.msdn.microsoft.com/forums/azure/home)获得。 计费和订阅管理支持免费提供。
+事件中心的技术支持可通过 [社区论坛](https://social.msdn.microsoft.com/Forums/azure/home)获得。 计费和订阅管理支持免费提供。
 
 若要详细了解我们的 SLA，请参阅[服务级别协议](https://www.azure.cn/support/legal/sla/)页面。
 
 ## <a name="next-steps"></a>后续步骤
 访问以下链接可以了解有关事件中心的详细信息：
 
-* [事件中心概述](./event-hubs-what-is-event-hubs.md)
-* [创建事件中心](./event-hubs-create.md)
+* [事件中心概述](event-hubs-what-is-event-hubs.md)
+* [创建事件中心](event-hubs-create.md)

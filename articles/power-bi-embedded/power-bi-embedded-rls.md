@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: b435325371e8ae70c2a1528ec7fe0cbce672c153
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 3540730ec4f5d03b3ce46f82b0f2ad54dd98999f
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="row-level-security-with-power-bi-embedded"></a>Power BI Embedded 的行级别安全性
 
@@ -100,13 +98,13 @@ RLS 是在 Power BI Desktop 中编写的。 打开数据集和报表时，可以
 
 使用 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__) 方法创建令牌。 如果提供 username 属性，则也必须在角色中至少传递一个值。
 
-例如，可更改 EmbedSample。 DashboardController 第 55 行无法执行以下更新：把
+例如，可更改 EmbedSample。 DashboardController 第 55 行无法执行以下更新：从
 
 ```
 var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
 ```
 
-改为
+to
 
 ```
 var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id, "Andrew Ma", ["Manager"]);'
@@ -127,6 +125,5 @@ var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, t
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript 嵌入示例](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
-
 
 

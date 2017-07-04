@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 1da2d41701f8cc80ddf95877f2b5691ff15c2d7f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 92b4252dbf3faefc09a896bf713a77c44987e927
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services 入门
 > [!div class="op_single_selector"]
@@ -229,4 +227,3 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 [应用程序升级](service-fabric-application-upgrade.md)
 
 [Reliable Services 的开发人员参考](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-

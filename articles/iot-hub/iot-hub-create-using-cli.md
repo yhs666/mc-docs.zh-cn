@@ -12,15 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/23/2017
-ms.date: 05/08/2017
+ms.date: 03/23/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 5cf453781736a41a4db49d68c21a5da1257d227e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: 5632d6cc1e852c15122d81c249e59329b364e0c6
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建 IoT 中心
 
@@ -37,7 +35,7 @@ ms.lasthandoff: 04/28/2017
 
 若要完成本教程，需要以下各项：
 
-* 有效的 Azure 帐户。如果没有帐户，只需几分钟即可创建一个[试用帐户][lnk-free-trial]。
+* 有效的 Azure 帐户。 如果没有帐户，只需几分钟即可创建一个[免费帐户][lnk-free-trial]。
 * [Azure CLI 2.0][lnk-CLI-install]。
 
 ## <a name="sign-in-and-set-your-azure-account"></a>登录并设置 Azure 帐户
@@ -51,8 +49,6 @@ ms.lasthandoff: 04/28/2017
     ```
 
     按照说明使用代码进行身份验证，并通过 Web 浏览器登录 Azure 帐户。
-    
-    [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 2. 如果有多个 Azure 订阅，登录 Azure 可获得与凭据关联的所有 Azure 帐户的访问权限。 使用以下 [命令，列出可供使用的 Azure 帐户][lnk-az-account-command] ：
     
@@ -77,7 +73,7 @@ ms.lasthandoff: 04/28/2017
     ```
 
     > [!TIP]
-    > 上一示例在中国东部位置创建资源组。可运行 `az account list-locations -o table` 命令，查看可用位置的列表。
+    > 上一示例在美国西部位置创建资源组。 可运行 `az account list-locations -o table`命令，查看可用位置的列表。
     >
     >
 
@@ -126,6 +122,6 @@ az group delete --name {your resource group name}
 [lnk-az-addcomponent-command]: https://docs.microsoft.com/cli/azure/component
 [lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
 [lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
-[lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
+[lnk-iot-pricing]: https://www.azure.cn/pricing/details/iot-hub/
 [lnk-devguide]: ./iot-hub-devguide.md
 [lnk-portal]: ./iot-hub-create-through-portal.md

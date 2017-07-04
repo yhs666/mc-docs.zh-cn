@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: e5b9e37bd3eda4731e0ef432733f3cbec08464b7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: 7f9e86807856c6938871d14a40f1f850bf4f646f
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="storage-documentation"></a>存储文档
 
 了解如何使用 Azure 存储，一种持久、可用且可缩放的云存储服务。 教程、API 参考和其他文档介绍了如何设置及管理 Blob、表、队列、文件和虚拟机磁盘存储。

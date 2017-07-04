@@ -13,17 +13,15 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/28/2017
-ms.date: 05/08/2017
+origin.date: 06/15/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 3219d96140363620eeb6aa60fa2fc8c93b71c793
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.date: 07/10/2017
+ms.openlocfilehash: e37b157432ff8082e3d4146b761e1236c75ed9c1
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>将 Adafruit Feather HUZZAH ESP8266 连接到云中的 Azure IoT 中心
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -73,98 +71,8 @@ ms.lasthandoff: 04/28/2017
 * 试验板
 * M/M 跳线
 
-## <a name="create-an-iot-hub-and-register-a-device-for-feather-huzzah-esp8266"></a>创建 IoT 中心以及注册 Feather HUZZAH ESP8266 的设备
 
-### <a name="to-create-your-iot-hub-in-the-azure-portal-follow-these-steps"></a>若要在 Azure 门户中创建 IoT 中心，请执行下列步骤：
-
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-1. 单击“新建” > “物联网” > “IoT 中心”。
-
-   ![创建 IoT 中心](./media/iot-hub-arduino-huzzah-esp8266-get-started/3_iot-hub-creation.png)
-
-1. 在“IoT 中心”窗格中，输入 IoT 中心的所需信息：
-
-   ![创建 IoT 中心所需的基本信息](./media/iot-hub-arduino-huzzah-esp8266-get-started/4_iot-hub-provide-basic-info.png)
-
-   * **名称**：IoT 中心的名称。 如果输入的名称有效，将显示一个绿色复选标记。
-   * **定价和缩放级别**：为本演示教程选择免费的 F1 级别。 请参阅[定价和缩放级别](https://www.azure.cn/pricing/details/iot-hub/)。
-   * **资源组**：创建用于托管 IoT 中心的资源组，或使用现有的资源组。 请参阅[使用资源组管理 Azure 资源](../azure-resource-manager/resource-group-portal.md)。
-   * **位置**：选择与创建的 IoT 中心最靠近的位置。
-   * **固定仪表板**：选中此选项可以方便地从仪表板访问 IoT 中心。
-
-1. 单击“创建” 。 创建 IoT 中心可能需要几分钟时间。 可在“通知”窗格中查看进度。
-
-   ![在通知窗格中监视 IoT 中心创建进度](./media/iot-hub-arduino-huzzah-esp8266-get-started/5_iot-hub-monitor-creation-progress-notification-pane.png)
-
-1. 创建 IoT 中心后，请在仪表板中单击它。 记下“主机名”值供稍后使用，然后单击“共享访问策略”。
-
-   ![获取 IoT 中心的主机名](./media/iot-hub-arduino-huzzah-esp8266-get-started/6_iot-hub-get-hostname.png)
-
-1. 在“共享访问策略”窗格中单击“iothubowner”策略，然后复制并保存 IoT 中心的“连接字符串”值。 本文稍后会用到此值。 有关详细信息，请参阅[控制对 IoT 中心的访问](./iot-hub-devguide-security.md)。
-
-   ![获取 IoT 中心连接字符串](./media/iot-hub-arduino-huzzah-esp8266-get-started/7_iot-hub-get-connection-string.png)
-
-现已创建 IoT 中心。 确保保存“主机名”和“连接字符串”值。 稍后将在本文中用到这些值。
-
-### <a name="register-a-device-for-feather-huzzah-esp8266-in-your-iot-hub"></a>在 IoT 中心注册 Feather HUZZAH ESP8266 的设备
-
-每个 IoT 中心都有一个标识注册表，存储允许连接到 IoT 中心的设备的相关信息。 在设备可连接到 IoT 中心之前，该 IoT 中心的标识注册表中必须有该设备的条目。
-
-
-本部分使用一个名为 *iothub explorer* 的 CLI 工具。 使用此工具在 IoT 中心的标识注册表中注册 Feather HUZZAH ESP8266 的设备。
-
-
-
-> [!NOTE]
-> iothub explorer 需要 Node.js 4.x 或更高版本才能正常工作。
-
-若要注册 Feather HUZZAH ESP8266 的设备，请执行以下步骤：
-
-1. [下载](https://nodejs.org/en/download/)并安装 Node.js 的最新 LTS 版本，包括 NPM。
-1. 使用 NPM 安装 iothub explorer。
-
-   * Windows 7 或更高版本：
-
-     以管理员身份启动命令提示符。 运行以下命令安装 iothub explorer：
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-
-   * Ubuntu 16.04 或更高版本：
-
-     使用键盘快捷方式 Ctrl+Alt+T 打开终端，然后运行以下命令：
-
-     ```bash
-     sudo npm install -g iothub-explorer
-     ```
-
-   * MacOS 10.1 或更高版本：
-
-     打开终端，然后运行以下命令：
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-
-3. 运行以下命令登录到 IoT 中心：
-
-   ```bash
-   iothub-explorer login [your IoT hub connection string]
-   ```
-
-4. 注册新设备。 在下一示例中，`deviceID` 为 `new-device`。 通过运行以下命令获取其连接字符串。
-
-   ```bash
-   iothub-explorer create new-device --connection-string
-   ```
-
-记下已注册设备的连接字符串。 之后将用到它。
-
-
-> [!NOTE]
-> 若要查看已注册设备的连接字符串，请运行 `iothub-explorer list` 命令。
-
+[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 ## <a name="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer"></a>将 Feather HUZZAH ESP8266 与传感器和计算机相连接
 在此部分中，将传感器连接到开发板。 然后，将设备插入计算机以作后用。
@@ -325,5 +233,4 @@ ms.lasthandoff: 04/28/2017
 现已成功将 Feather HUZZAH ESP8266 连接到 IoT 中心，并将捕获的传感器数据发送到了 IoT 中心。 
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-
 

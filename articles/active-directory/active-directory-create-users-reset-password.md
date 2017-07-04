@@ -16,13 +16,11 @@ origin.date: 05/08/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 56b8d6dcbcced94b30a52cdf48df3e32e9c28baa
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 700224d0f20ab7d24b95c82f87da63a9c6870e84
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="reset-a-password-for-a-user-in-the-azure-classic-management-portal"></a>在 Azure 经典管理门户中重置用户的密码
 

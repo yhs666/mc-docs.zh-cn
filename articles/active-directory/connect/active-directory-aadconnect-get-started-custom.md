@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/30/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: b39ee1fed6168d10ca797e5fadc22d3864dbf482
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: b095ce4119b57eed7348f38040729c4f181c0ee2
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义安装
 如果希望有更多的安装选项，可以使用 Azure AD Connect“自定义设置”。 如果你拥有多个林或希望配置未覆盖在快速安装中的可选功能，可以使用它。 它适用于[**快速安装**](active-directory-aadconnect-get-started-express.md)不能满足部署或拓扑的所有情况。
@@ -84,7 +82,7 @@ ms.lasthandoff: 04/22/2017
 
 **UserPrincipalName** - 属性 userPrincipalName 是用户登录 Azure AD 和 Office 365 时使用的属性。 应在同步处理用户前在 Azure AD 中对使用的域（也称为 UPN 后缀）进行验证。 Microsoft 建议保留默认属性 userPrincipalName。 如果此属性不可路由且无法验证，可以选择另一个属性。 例如，可以选择 email 作为保存登录 ID 的属性。 使用除 userPrincipalName 以外的其他属性被称为“替代 ID” 。 “替代 ID”属性值必须遵循 RFC822 标准。 替代 ID 可以配合密码同步和联合使用。
 
-> [!NOTE]
+>[!NOTE]
 > 启用直通身份验证时必须具有至少一个已验证的域，以便继续完成此向导。
 
 > [!WARNING]
@@ -174,8 +172,8 @@ ms.lasthandoff: 04/22/2017
 ### <a name="enabling-single-sign-on-sso"></a>启用单一登录 (SSO)
 配置单一登录以将其用于密码同步或直通身份验证是一个简单的过程，只需为要同步到 Azure AD 的每个林完成一次即可。 配置过程包括以下两个步骤：
 
-1.    在本地 Active Directory 中创建所需的计算机帐户。
-2.    配置客户端计算机的 Intranet 区域来支持单一登录。
+1.  在本地 Active Directory 中创建所需的计算机帐户。
+2.  配置客户端计算机的 Intranet 区域来支持单一登录。
 
 #### <a name="create-the-computer-account-in-active-directory"></a>在 Active Directory 中创建计算机帐户
 对于在 Azure AD Connect 中添加的每个林，需要提供域管理员凭据，以便在每个林中创建计算机帐户。 凭据仅用于创建帐户，而不会存储，也不会用于其他任何操作。 只需在 Azure AD Connect 向导的“启用单一登录”页上添加凭据，如下所示： 
@@ -189,20 +187,20 @@ ms.lasthandoff: 04/22/2017
 为了确保客户端在 Intranet 区域中自动登录，需确保两个 URL 是 Intranet 区域的一部分。 这样就可以确保已加入域的计算机在连接到企业网络后，向 Azure AD 自动发送 Kerberos 票证。
 在安装了组策略管理工具的计算机上执行以下操作。
 
-1.    打开组策略管理工具
-2.    编辑将应用于所有用户的组策略。 例如默认的域策略。
-3.    导航到“用户配置\管理模板\Windows 组件\Internet Explorer\Internet 控制面板\安全性”页，然后选择“区域分配列表的站点”，如下图所示。
-4.    启用策略，并在对话框中输入以下两项。
+1.  打开组策略管理工具
+2.  编辑将应用于所有用户的组策略。 例如默认的域策略。
+3.  导航到“用户配置\管理模板\Windows 组件\Internet Explorer\Internet 控制面板\安全性”页，然后选择“区域分配列表的站点”，如下图所示。
+4.  启用策略，并在对话框中输入以下两项。
 
-        值：`https://autologon.microsoftazuread-sso.com`  
-        Data 1  
-        值：`https://aadg.chinacloudapi.cn.nsatc.net`  
-        Data 1
+        Value: `https://autologon.microsoftazuread-sso.com`  
+        Data: 1  
+        Value: `https://aadg.chinacloudapi.cn.nsatc.net`  
+        Data: 1
 
-5.    如下图所示：  
+5.  结果如下图所示：  
 ![Intranet 区域](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
 
-6.    单击“确定”两次。
+6.  单击“确定”两次。
 
 ## <a name="configuring-federation-with-ad-fs"></a>配置与 AD FS 的联合
 只需单击几下鼠标，请能使用 Azure AD Connect 配置 AD FS。 配置之前需要做好以下准备。
@@ -239,7 +237,7 @@ ms.lasthandoff: 04/22/2017
 > <li> 如果使用的帐户不是 AD FS 服务器上的本地管理员，系统将提示提供管理员凭据。</li>
 > <li> 在运行此步骤之前，请确保 Azure AD Connect 服务器与 Web 应用程序代理服务器之间已建立 HTTP/HTTPS 连接。</li>
 > <li> 确保 Web 应用程序服务器与 AD FS 服务器之间的 HTTP/HTTPS 连接允许通过身份验证请求。</li>
-> </ul>
+> </ul>>
 
 ![Web 应用](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
 
@@ -300,9 +298,9 @@ AD FS 服务需要域服务帐户来验证用户，以及在 Active Directory �
 
 此外，请执行以下验证步骤：
 
-- 在 Intranet 上，通过已加入域的计算机上的浏览器验证是否能够登录：连接到 https://login.partner.microsoftonline.cn ，然后使用登录帐户验证登录。 内置的 AD DS 管理员帐户未同步，因此无法用于验证。
-- 验证是否能够从 Extranet 中的设备登录。 在家庭计算机或移动设备上连接到 https://login.partner.microsoftonline.cn ，并提供你的凭据。
-- 验证富客户端登录。 连接到 https://testconnectivity.microsoft.com ，选择“Office 365”选项卡，然后选择“Office 365 单一登录测试”。
+- 在 Intranet 上，通过已加入域的计算机上的浏览器验证是否能够登录：连接到 https://login.partner.microsoftonline.cn，然后使用登录帐户验证登录。 内置的 AD DS 管理员帐户未同步，因此无法用于验证。
+- 验证是否能够从 Extranet 中的设备登录。 在家庭计算机或移动设备上连接到 https://login.partner.microsoftonline.cn，并提供你的凭据。
+- 验证富客户端登录。 连接到 https://testconnectivity.microsoft.com，选择“Office 365”选项卡，然后选择“Office 365 单一登录测试”。
 
 ## <a name="next-steps"></a>后续步骤
 安装完成后，请注销并再次登录到 Windows，然后即可使用同步服务管理器或同步规则编辑器。
@@ -314,5 +312,4 @@ AD FS 服务需要域服务帐户来验证用户，以及在 Active Directory �
 若要了解有关这些常见主题的详细信息，请参阅[计划程序以及如何触发同步](active-directory-aadconnectsync-feature-scheduler.md)。
 
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
-
 

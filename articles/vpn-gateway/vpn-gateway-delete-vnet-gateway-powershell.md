@@ -16,13 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 04/12/2017
 ms.date: 05/22/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 2b0a2d03ede4fa85a5394fe39292927906febc95
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 4e21f766d7ced5a31428deafe6a8957ce4b6afbf
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>使用 PowerShell 删除虚拟网络网关
 > [!div class="op_single_selector"]
@@ -41,7 +39,7 @@ ms.lasthandoff: 05/12/2017
 ## <a name="before-beginning"></a>开始之前
 
 ### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1.下载最新的 Azure Resource Manager PowerShell cmdlet。
-下载并安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关下载和安装 PowerShell cmdlet 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
+下载并安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关下载和安装 PowerShell cmdlet 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
 ### <a name="2-connect-to-your-azure-account"></a>2.连接到你的 Azure 帐户。 
 打开 PowerShell 控制台并连接到你的帐户。 使用以下示例帮助建立连接：

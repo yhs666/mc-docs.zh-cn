@@ -14,17 +14,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/20/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 7eabcfa49cb707fb7b0f6da438ef0ef44e1433bb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 79fc99d08e77c9214d8383cfaa294362b2356810
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="managing-azure-batch-pools-with-azure-cli"></a>使用 Azure CLI 管理 Azure Batch 池
 
-# <a name="managing-azure-batch-pools-with-azure-cli"></a>使用 Azure CLI 管理 Azure 批处理池
-
-这些脚本演示了 Azure CLI 中一些可用于在 Azure 批处理服务中创建和管理计算节点池的工具。
+这些脚本演示了 Azure CLI 中一些可用于在 Azure Batch 服务中创建和管理计算节点池的工具。
 
 运行这些脚本的假设条件是，已设置批处理帐户，并且已配置应用程序。 有关详细信息，请参阅涵盖上述每个主题的[示例脚本](../batch-cli-samples.md)。
 
@@ -150,7 +148,6 @@ az batch pool delete --pool-id mypool-linux
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
-可以在 [Azure 批处理 CLI 文档](../batch-cli-samples.md)中找到其他批处理 CLI 脚本示例。
-
+可以在 [Azure Batch CLI 文档](../batch-cli-samples.md)中找到其他批处理 CLI 脚本示例。
 
 

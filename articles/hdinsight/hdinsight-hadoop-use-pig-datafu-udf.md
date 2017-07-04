@@ -16,13 +16,11 @@ ms.workload: big-data
 origin.date: 05/04/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 73b5a9e6b1be4f3e7497af3d5f59277db8450c54
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 2d3a8ccf702b78904ebd7125cefbe40ff4b232ba
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="use-datafu-with-pig-on-hdinsight"></a>在 HDInsight 上将 DataFu 与 pig 配合使用
 
@@ -34,8 +32,8 @@ ms.lasthandoff: 05/26/2017
 
 * Azure HDInsight 群集（基于 Linux 或 Windows）
 
-    > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+  > [!IMPORTANT]
+  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 * 基本熟悉[在 HDInsight 上使用 Pig](hdinsight-use-pig.md)
 
@@ -126,4 +124,3 @@ DUMP mask;
 
 * [Apache DataFu Pig 指南](http://datafu.incubator.apache.org/docs/datafu/guide.html)。
 * [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
-

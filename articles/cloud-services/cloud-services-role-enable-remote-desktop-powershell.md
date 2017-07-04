@@ -12,23 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/22/2016
-ms.date: 05/22/2017
+ms.date: 11/22/2016
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 82f1a02cfba52a5487d8b4950be2f8b9794ed866
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 15abe49afa6cac1546ac176d869b0c3d234d9908
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 为 Azure 云服务中的角色启用远程桌面连接
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](./cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Azure 经典管理门户](./cloud-services-role-enable-remote-desktop.md)
+> * [Azure 经典门户](./cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 >
@@ -114,6 +110,5 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 ## <a name="additional-resources"></a>其他资源
 
- - [如何配置云服务](./cloud-services-how-to-configure.md)
- - [云服务常见问题 - 远程桌面](./cloud-services-faq.md#remote-desktop)
-
+[如何配置云服务](./cloud-services-how-to-configure.md)
+[云服务常见问题 - 远程桌面](./cloud-services-faq.md#remote-desktop)

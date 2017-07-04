@@ -3,7 +3,7 @@ title: "在 Azure SQL 数据仓库中管理数据库 | Azure"
 description: "管理 SQL 数据仓库数据库的概述。 包括管理工具、DWU 和向外扩展性能，对查询性能进行故障排除，建立良好的安全策略，以及从数据损坏或区域中断还原数据库。"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: rockboyfor
 manager: jhubbard
 editor: 
 ms.assetid: 8576fdb3-71fe-4b3b-a4e0-5e8a7f148acf
@@ -16,15 +16,12 @@ ms.custom: manage
 origin.date: 10/31/2016
 ms.date: 05/08/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: b4a9313fffff4c3fcc012dcbb98fefe3529e7820
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 12fb7bab7189484643b51a1d40df48349f4fece2
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>在 Azure SQL 数据仓库中管理数据库
 SQL 数据仓库自动执行管理数据库的许多方面的操作。 例如，若要缩放性能，你只需调整相应级别的计算资源并为这些资源付费，然后即可让 SQL 数据仓库执行向外扩展和缩减的所有工作。
 

@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: d9241aae18ef6cfe7157bdc786ad369aee1271df
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: f797a771dcabb6b6fe48df3dd62d6e70cada4bbd
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>将本地目录与 Azure Active Directory 集成
 Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样便可以为集成到 Azure AD 的 Office 365、Azure 和 SaaS 应用程序的用户提供一个通用标识。 本主题将指导用户完成规划、部署和操作步骤。 其中统合了与这些操作相关的主题的链接。
@@ -65,9 +63,9 @@ Azure Active Directory Connect 由三个主要组件构成：同步服务、可�
 |主题 |链接|  
 | --- | --- |
 |下载 Azure AD Connect | [下载 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
-|使用快速设置安装 | [Azure AD Connect 的快速安装](./active-directory-aadconnect-get-started-express.md)|
-|使用自定义设置安装 | [Azure AD Connect 的自定义安装](./active-directory-aadconnect-get-started-custom.md)|
-|从 DirSync 升级 | [从 Azure AD 同步工具 (DirSync) 升级](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+|使用快速设置安装 | [Azure AD Connect 的快速安装](active-directory-aadconnect-get-started-express.md)|
+|使用自定义设置安装 | [Azure AD Connect 的自定义安装](active-directory-aadconnect-get-started-custom.md)|
+|从 DirSync 升级 | [从 Azure AD 同步工具 (DirSync) 升级](active-directory-aadconnect-dirsync-upgrade-get-started.md)|
 |安装后 | [验证安装并分配许可证 ](active-directory-aadconnect-whats-next.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>了解有关安装 Azure AD Connect 的详细信息
@@ -77,7 +75,7 @@ Azure Active Directory Connect 由三个主要组件构成：同步服务、可�
 | --- | --- |
 |支持的拓扑 | [Azure AD Connect 的拓扑](active-directory-aadconnect-topologies.md)|
 |设计概念 | [Azure AD Connect 设计概念](active-directory-aadconnect-design-concepts.md)|
-|用于安装的帐户 | [有关 Azure AD Connect 凭据和权限的详细信息](./active-directory-aadconnect-accounts-permissions.md)|
+|用于安装的帐户 | [有关 Azure AD Connect 凭据和权限的详细信息](active-directory-aadconnect-accounts-permissions.md)|
 |操作规划 | [Azure AD Connect 同步：操作任务和注意事项](active-directory-aadconnectsync-operations.md)|
 |用户登录选项 | [Azure AD Connect 用户登录选项](active-directory-aadconnect-user-signin.md)|
 
@@ -143,4 +141,3 @@ Azure AD Connect 同步随附一个适用于大部分客户和拓扑的默认配
 **其他资源**
 
 有关将本地目录扩展到云的 Ignite 2015 演示文稿。
-

@@ -15,13 +15,11 @@ ms.workload: identity
 origin.date: 05/08/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 2d23c701144108e77a9b166fe2d564e728168488
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: bf149c0f37ebb087c9c228314ebb3dbe55bfc8ac
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>在 Azure 中管理 Office 365 订阅的目录
 本文介绍如何使用 Azure 经典管理门户管理为 Office 365 订阅创建的目录。 必须是 Azure 订阅的服务管理员或协同管理员才能登录 Azure 经典管理门户。 如果还没有 Azure 订阅，现在可以使用此链接注册 [30 天免费试用版](./index.md)，然后在 5 分钟内部署第一个云解决方案。 请务必使用登录 Office 365 时所用的工作或学校帐户。
@@ -68,5 +66,4 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="next-steps"></a>后续步骤
 有关订阅与目录之间关系的详细信息，请参阅[订阅如何与目录关联](./active-directory-how-subscriptions-associated-directory.md)。
-
 

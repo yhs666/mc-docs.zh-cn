@@ -15,17 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 7e9933106c3f2ccf8af8f3f08f10751e52850f56
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 2b3fbf6caef6b6233705ed8529af78f8bd08d24e
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>创建和修改 ExpressRoute 线路的对等互连（经典）
 > [!div class="op_single_selector"]
-> * [资源管理器 - Azure 门户](./expressroute-howto-routing-portal-resource-manager.md)
+> * [Resource Manager - Azure 门户](./expressroute-howto-routing-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](./expressroute-howto-routing-arm.md)
 > * [经典 - PowerShell](./expressroute-howto-routing-classic.md)
 >
@@ -49,7 +47,7 @@ ms.lasthandoff: 04/22/2017
 > 
 > 
 
-可以为 ExpressRoute 线路配置一或两个对等互连（Azure 专用、Azure 公共）。 可以按照所选的任意顺序配置对等互连。 但是，你必须确保一次只完成一个对等互连的配置。 
+可以为 ExpressRoute 线路配置一到三个对等互连（Azure 专用、Azure 公共）。 可以按照所选的任意顺序配置对等互连。 但是，你必须确保一次只完成一个对等互连的配置。 
 
 
 ### <a name="log-in-to-your-azure-account-and-select-a-subscription"></a>登录到 Azure 帐户并选择订阅
@@ -67,7 +65,7 @@ ms.lasthandoff: 04/22/2017
 
 4. 接下来，使用以下 cmdlet 将 Azure 订阅添加到经典部署模型的 PowerShell。
 
-        Add-AzureAccount -Environment AzureChinaCloud
+    Add-AzureAccount -Environment AzureChinaCloud
 
 
 ## <a name="azure-private-peering"></a>Azure 专用对等互连
@@ -98,9 +96,9 @@ ms.lasthandoff: 04/22/2017
 
     Bandwidth                        : 200
     CircuitName                      : MyTestCircuit
-    Location                         : Beijing
+    Location                         : Silicon Valley
     ServiceKey                       : *********************************
-    ServiceProviderName              : Beijing Telecom Ethernet
+    ServiceProviderName              : equinix
     ServiceProviderProvisioningState : Provisioned
     Sku                              : Standard
     Status                           : Enabled
@@ -208,9 +206,9 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 
     Bandwidth                        : 200
     CircuitName                      : MyTestCircuit
-    Location                         : Beijing
+    Location                         : Silicon Valley
     ServiceKey                       : *********************************
-    ServiceProviderName              : Beijing Telecom Ethernet
+    ServiceProviderName              : equinix
     ServiceProviderProvisioningState : Provisioned
     Sku                              : Standard
     Status                           : Enabled
@@ -281,12 +279,11 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 ### <a name="to-delete-azure-public-peering"></a>删除 Azure 公共对等互连
 可以运行以下 cmdlet 来删除对等互连配置
 
-```
     Remove-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
 ```
-## 后续步骤
 
-接下来，请[将 VNet 链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-classic.md)。
+## Next steps
 
-- 有关工作流的详细信息，请参阅 [ExpressRoute 工作流](./expressroute-workflows.md)。
-- 有关线路对等互连的详细信息，请参阅 [ExpressRoute 线路和路由域](./expressroute-circuit-peerings.md)。
+Next, [Link a VNet to an ExpressRoute circuit](./expressroute-howto-linkvnet-classic.md).
+-  For more information about workflows, see [ExpressRoute workflows](./expressroute-workflows.md).
+-  For more information about circuit peering, see [ExpressRoute circuits and routing domains](./expressroute-circuit-peerings.md).

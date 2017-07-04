@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 49727cff3dbf5fda9ec268fc714573655339bfd9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 2ea0c88fe6ddbf2b81cdd94f7cc7fe18c0bbc15f
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 #<a name="notification-hubs-documentation"></a>通知中心文档
 
 了解如何使用通知中心这种多平台的可缩放推送通知引擎快速发送数百万条消息。 教程、API 参考和其他文档介绍了如何设置推送通知以及将其从任何后端发送到任何移动设备。 

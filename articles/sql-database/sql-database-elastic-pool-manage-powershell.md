@@ -15,14 +15,12 @@ ms.tgt_pltfrm: powershell
 ms.workload: data-management
 wms.date: 05/14/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
 ms.openlocfilehash: 752da06f6a592a3419e8a1943e1947451ba1fb32
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="create-and-manage-an-elastic-pool-with-powershell"></a>使用 PowerShell 创建和管理弹性池
 本主题介绍了如何使用 PowerShell 创建和管理可缩放的[弹性池](sql-database-elastic-pool.md)。  也可以使用 [Azure 门户](https://portal.azure.cn/)、REST API 或 [C#](sql-database-elastic-pool-manage-csharp.md) 创建和管理 Azure 弹性池。 此外还可以使用 [Transact-SQL](sql-database-elastic-pool-manage-tsql.md) 创建弹性池和将数据库移入和移出弹性池。
 
@@ -303,4 +301,3 @@ Invoke-Command -ScriptBlock $command -ArgumentList $dbMetrics,c:\temp\dbmetrics.
 
 ## <a name="next-steps"></a>后续步骤
 * 请参阅[使用 Azure SQL 数据库进行扩展](sql-database-elastic-scale-introduction.md)：使用弹性工具扩展、移动数据、查询或创建事务。
-

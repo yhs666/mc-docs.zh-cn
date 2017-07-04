@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/22/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: d8233d9507689ad3bede8eabe91389fc3f3ef151
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 12236a4262ad19308584f9dc891b45acdc63542c
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 创建 Service Fabric 群集
 > [!div class="op_single_selector"]
@@ -94,7 +92,7 @@ _必须针对部署启用_密钥保管库，使计算资源提供程序能够从
 
 ```powershell
 
-    New-AzureRmKeyVault -VaultName 'mywestusvault' -ResourceGroupName 'westus-mykeyvault' -Location 'West US' -EnabledForDeployment
+    New-AzureRmKeyVault -VaultName 'mychinaeastvault' -ResourceGroupName 'chinaeast-mykeyvault' -Location 'China East' -EnabledForDeployment
 
 ```
 
@@ -212,7 +210,7 @@ Name  : SourceVault
 Value : /subscriptions/<guid>/resourceGroups/chinaeast-mykeyvault/providers/Microsoft.KeyVault/vaults/mychinaeastvault
 
 Name  : CertificateURL
-Value : https://mychinaeastvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
+Value : https://mychinaeastvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
 
 ```
 

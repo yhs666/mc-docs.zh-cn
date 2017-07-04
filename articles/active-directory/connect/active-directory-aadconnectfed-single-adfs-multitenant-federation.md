@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/09/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: d9b613e0bd2af07b0f735e5cb382b763f4856090
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: d883dc258e503c3730ef5141d45de29615dc8aec
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 #<a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>将 Azure AD 的多个实例与 AD FS 的单个实例联合
 
 单个高度可用的 AD FS 场可以联合多个林，前提是这些林之间存在双向信任。 上面提到的多个林可以对应于同一 Azure Active Directory，也可以不进行对应。 本文说明了如何在单个 AD FS 部署和多个同步到不同 Azure AD 的林之间配置联合身份验证。
@@ -45,13 +43,13 @@ ms.lasthandoff: 04/22/2017
  
 ##<a name="step-2-modify-contosocom-federation-settings"></a>步骤 2：修改 contoso.com 联合身份验证设置 
  
-为联合到 AD FS 的单个域设置的默认颁发者为 "http://ADFSServiceFQDN/adfs/services/trust" ，例如 "http://fs.contoso.com/adfs/services/trust" 。 Azure Active Directory 要求每个联合域都有唯一颁发者。 由于同一 AD FS 将联合两个域，因此颁发者值需进行修改，使之对于每个与 Azure Active Directory 联合的域 AD FS 都是唯一的。 
+为联合到 AD FS 的单个域设置的默认颁发者为“http://ADFSServiceFQDN/adfs/services/trust”，例如“http://fs.contoso.com/adfs/services/trust”。 Azure Active Directory 要求每个联合域都有唯一颁发者。 由于同一 AD FS 将联合两个域，因此颁发者值需进行修改，使之对于每个与 Azure Active Directory 联合的域 AD FS 都是唯一的。 
  
 在 AD FS 服务器上，打开 Azure AD PowerShell 并执行以下步骤：
  
 连接到 Azure Active Directory，其中包含域 contoso.com Connect-MsolService 更新 contoso.com 的联合身份验证设置 Update-MsolFederatedDomain -DomainName contoso.com -SupportMultipleDomain
  
-会将域联合身份验证设置中的颁发者更改为 "http://contoso.com/adfs/services/trust" ，并且会为 Azure AD 信赖方信任添加颁发声明规则，以便根据 UPN 后缀颁发正确的 issuerId 值。
+会将域联合身份验证设置中的颁发者更改为“http://contoso.com/adfs/services/trust”，并且会为 Azure AD 信赖方信任添加颁发声明规则，以便根据 UPN 后缀颁发正确的 issuerId 值。
  
 ##<a name="step-3-federate-fabrikamcom-with-ad-fs"></a>步骤 3：通过 AD FS 联合 fabrikam.com
  
@@ -66,5 +64,4 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="next-steps"></a>后续步骤
 [将 Active Directory 连接到 Azure Active Directory](active-directory-aadconnect.md)
-
 

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 99165d26539d6187a1a5c1211668f340226fc55b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 7e32780dc12df417d215eb9118b9f3a9ef2fedf5
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="quotas-and-limitations"></a>配额和限制
 本主题介绍与 Azure 媒体服务关联的配额和限制。

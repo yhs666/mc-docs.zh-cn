@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 4822f8bc83825b30b25fc8320542d3ecfa179aae
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 1864bef5b85cecfc222c69a5ececc8a274042ed6
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>准备使用 Azure 备份服务器来备份工作负荷
 > [!div class="op_single_selector"]
-> * [Azure 备份服务器（经典）](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM（经典）](backup-azure-dpm-introduction-classic.md)
+> * [Azure 备份服务器（经典）](./backup-azure-microsoft-azure-backup-classic.md)
+> * [SCDPM（经典）](./backup-azure-dpm-introduction-classic.md)
 >
 >
 
@@ -188,15 +186,13 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 
 ## <a name="troubleshooting"></a>故障排除
 如果 Azure 备份服务器在安装阶段（或者备份或还原时）失败并出现错误，请参阅此[错误代码文档](https://support.microsoft.com/zh-cn/kb/3041338)以获取详细信息。
-此外，还可以参考 [Azure 备份相关的常见问题](backup-azure-backup-faq.md)
+此外，还可以参考 [Azure 备份相关的常见问题](./backup-azure-backup-faq.md)
 
 ## <a name="next-steps"></a>后续步骤
 可以在 Microsoft TechNet 站点上获取有关[为 DPM 准备环境](https://technet.microsoft.com/library/hh758176.aspx)的详细信息。 其中还包含有关可在其上部署和使用 Azure 备份服务器的受支持配置的信息。
 
 请参阅这些文章，深入了解如何使用 Azure 备份服务器来保护工作负荷。
 
-- [SQL Server 备份](backup-azure-backup-sql.md)
-- [SharePoint Server 备份](backup-azure-backup-sharepoint.md)
-- [备用服务器备份](backup-azure-alternate-dpm-server.md)
-
-
+- [SQL Server 备份](./backup-azure-backup-sql.md)
+- [SharePoint Server 备份](./backup-azure-backup-sharepoint.md)
+- [备用服务器备份](./backup-azure-alternate-dpm-server.md)

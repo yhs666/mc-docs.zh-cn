@@ -16,13 +16,11 @@ ms.workload: big-data
 origin.date: 04/14/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: e33993919eadfbd9fda6725fdc8cc225511ae7bd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 599b4404ab1a7d981763e1252d7c204417ddcaaa
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="ports-and-uris-used-by-hdinsight"></a>HDInsight 使用的端口和 URI
 
@@ -51,7 +49,7 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 | Ambari |443 |HTTPS |Ambari Web UI。 请参阅[使用 Ambari Web UI 管理 HDInsight](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API。 请参阅[使用 Ambari REST API 管理 HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md) |
 | WebHCat |443 |HTTPS |HCatalog REST API。 请参阅[将 Hive 与 Curl 配合使用](hdinsight-hadoop-use-pig-curl.md)、[将 Pig 与 Curl 配合使用](hdinsight-hadoop-use-pig-curl.md)、[将 MapReduce 与 Curl 配合使用](hdinsight-hadoop-use-mapreduce-curl.md) |
-| HiveServer2 |443 |ODBC |使用 ODBC 连接到 Hive。 请参阅[使用 Microsoft ODBC 驱动程序将 Excel 连接到 HDInsight](hdinsight-connect-excel-hive-ODBC-driver.md)。 |
+| HiveServer2 |443 |ODBC |使用 ODBC 连接到 Hive。 请参阅[使用 Microsoft ODBC 驱动程序将 Excel 连接到 HDInsight](hdinsight-connect-excel-hive-odbc-driver.md)。 |
 | HiveServer2 |443 |JDBC |使用 JDBC 连接到 Hive。 请参阅[使用 Hive JDBC 驱动程序连接到 HDInsight 上的 Hive](hdinsight-connect-hive-jdbc-driver.md) |
 
 以下各项适用于特定的群集类型：
@@ -145,4 +143,3 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 | HMaster 信息 Web UI |头节点 |16010 |HTTP |HBase 主控 Web UI 的端口 |
 | 区域服务器 |所有辅助角色节点 |16020 |&nbsp; |&nbsp; |
 | &nbsp; |&nbsp; |2181 |&nbsp; |客户端用来连接 ZooKeeper 的端口 |
-

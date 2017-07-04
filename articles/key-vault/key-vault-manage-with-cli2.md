@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 05/08/2017
 ms.author: v-junlch
 ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: da2b7706a8df28e651a86732ea927741bb127dc4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 01b1a87d4f474460292e7c7e766eafdd6e056de5
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="manage-key-vault-using-cli-20"></a>使用 CLI 2.0 管理 Key Vault
 在大多数区域中提供了 Azure 密钥保管库。 有关详细信息，请参阅 [密钥保管库定价页](https://www.azure.cn/pricing/details/key-vault/)。
@@ -44,7 +42,7 @@ ms.lasthandoff: 05/26/2017
 要完成本教程，必须具备以下先决条件：
 
 - Azure 订阅。 如果你没有订阅，可以注册 [试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-- 命令行接口版本 2.0 或更高版本。 若要安装最新版本并连接到 Azure 订阅，请参阅[安装和配置 Azure 跨平台命令行接口 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli/)。
+- 命令行接口版本 2.0 或更高版本。 若要安装最新版本并连接到 Azure 订阅，请参阅[安装和配置 Azure 跨平台命令行接口 2.0](/cli/azure/install-azure-cli/)。
 - 配置为使用你在本教程中所创建的密钥或密码的应用程序。 可以从 [Microsoft 下载中心](http://www.microsoft.com/download/details.aspx?id=45343)获取示例应用程序。 有关说明，请参阅随附的自述文件。
 
 ## <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>获得 Azure 跨平台命令行接口帮助
@@ -61,8 +59,8 @@ az account set -h
 
 还可阅读以下教程以熟悉如何在 Azure 跨平台命令行接口中使用 Azure Resource Manager：
 
-- [安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli/)
-- [Azure CLI 2.0 入门](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli/)
+- [安装 Azure CLI](/cli/azure/install-azure-cli/)
+- [Azure CLI 2.0 入门](/cli/azure/get-started-with-azure-cli/)
 
 ## <a name="connect-to-your-subscriptions"></a>连接到订阅
 要使用组织帐户登录，请使用以下命令：
@@ -89,7 +87,7 @@ az account list
 az account set --subscription <subscription name or ID>
 ```
 
-有关配置 Azure 跨平台命令行接口的详细信息，请参阅[安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli/)。
+有关配置 Azure 跨平台命令行接口的详细信息，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli/)。
 
 ## <a name="create-a-new-resource-group"></a>创建新的资源组
 使用 Azure Resource Manager 时，会在资源组中创建所有相关资源。 在本教程中，我们将创建新资源组“ContosoResourceGroup”。
@@ -225,8 +223,7 @@ az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
 
 
 ## <a name="next-steps"></a>后续步骤
-有关 Key Vault 命令的完整 Azure CLI 参考，请参阅[Key Vault CLI 参考](https://docs.microsoft.com/cli/azure/keyvault/)
+有关 Key Vault 命令的完整 Azure CLI 参考，请参阅[Key Vault CLI 参考](/cli/azure/keyvault/)
 
 有关编程参考，请参阅 [Azure 密钥保管库开发人员指南](key-vault-developers-guide.md)。
-
 

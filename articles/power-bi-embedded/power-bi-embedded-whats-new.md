@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 1f0f970af6752703b1479d3750386f9fb567e795
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 8da43b75ccf8c59085d969effb70af1b1248f72f
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="whats-new-in-power-bi-embedded"></a>Power BI Embedded 中的新增功能
 
@@ -74,6 +73,5 @@ ms.lasthandoff: 04/14/2017
 - 提供了对 Azure SDK、PowerShell 和 CLI 的 Power BI Embedded 支持。
 - 用户可以将可视化数据导出到 **.csv**文件。
 - 现在，与 Azure 相同的所有语言/区域设置都支持 Power BI Embedded。 若要了解详细信息，请参阅 [Azure - 语言](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx)。
-
 
 

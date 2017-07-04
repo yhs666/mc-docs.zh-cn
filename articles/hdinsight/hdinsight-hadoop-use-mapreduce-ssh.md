@@ -17,13 +17,11 @@ ms.workload: big-data
 origin.date: 05/03/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 40b0865448f3e6b585305bf2f7eb442abd77ffd5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: bac5eaf0b1e5120721b9e7875ced7a83bd639c73
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>通过 SSH 将 MapReduce 与 HDInsight 上的 Hadoop 配合使用
 
@@ -38,8 +36,8 @@ ms.lasthandoff: 05/26/2017
 
 * 基于 Linux 的 HDInsight（HDInsight 上的 Hadoop）群集
 
-    > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+  > [!IMPORTANT]
+  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 * SSH 客户端。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（将 SSH 与 HDInsight 配合使用）
 
@@ -118,4 +116,3 @@ ms.lasthandoff: 05/26/2017
 
 * [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
-

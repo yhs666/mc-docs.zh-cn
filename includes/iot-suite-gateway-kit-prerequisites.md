@@ -21,5 +21,5 @@
 - 具有 4G 内存和蓝牙扩展卡的 Intel® NUC Kit DE3815TYKE
 - 电源适配器
 
-[lnk-starter-kits]: /develop/iot/iot-starter-kits/
-[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial
+[lnk-starter-kits]: https://www.azure.cn/develop/iot/iot-starter-kits/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/

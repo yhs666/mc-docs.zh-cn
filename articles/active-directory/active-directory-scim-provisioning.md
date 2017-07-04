@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 05/04/2017
 ms.author: v-junlch
 ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 98746ff1f8a9f8f02a55ce442bf4233b5d0793c7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: b2f9eb44dbaab9cc1d08f91d7b7cb15bd8970b8b
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="using-scim-to-enable-automatic-provisioning-of-users-from-azure-active-directory-to-applications"></a>使用 SCIM 启用从 Azure Active Directory 到应用程序的用户自动预配
 ## <a name="overview"></a>概述
@@ -683,5 +681,4 @@ Microsoft 提供的、用于实现 SCIM 服务的通用语言基础结构库将�
 [3]: ./media/active-directory-scim-provisioning/scim-figure-3.PNG
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
-
 

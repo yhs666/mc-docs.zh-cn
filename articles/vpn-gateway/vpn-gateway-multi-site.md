@@ -16,13 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 04/20/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 87d6e7e04253f4708a554ff5abc8871d3cb309b9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 081219bf4cf967f14c423692921f7d2a32d83b77
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>将站点到站点连接添加到包含现有 VPN 网关连接的 VNet（经典）
 
@@ -65,7 +63,7 @@ ms.lasthandoff: 05/19/2017
 * 你需要安装 Azure PowerShell cmdlet 的最新版本。 请确保同时安装了 Resource Manager 版本和服务管理 (SM) 版本。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 。
 * 有人能够熟练地配置 VPN 硬件。 必须非常了解如何配置 VPN 设备，或者与具有此能力的人员合作。
 * 要用于虚拟网络（如果尚未创建）的 IP 地址范围。
-* 要连接到的每个本地网络站点的 IP 地址范围。 需确保要连接到的每个本地网络站点的 IP 地址范围不重叠。 否则，门户或 REST API 将拒绝上传配置。<br>例如，如果两个本地网络站点都包含 IP 地址范围 10.2.3.0/24，并且某个包包含目标地址 10.2.3.3，则 Azure 将不知道你要将该包发送到哪个站点，因为地址范围是重叠的。 为了防止路由问题，Azure 不允许你上载具有重叠范围的配置文件。
+* 要连接到的每个本地网络站点的 IP 地址范围。 需确保要连接到的每个本地网络站点的 IP 地址范围不重叠。 否则，门户或 REST API 将拒绝上传配置。<br>例如，如果两个本地网络站点都包含 IP 地址范围 10.2.3.0/24，并且某个包包含目标地址 10.2.3.3，则 Azure 将不知道你要将该包发送到哪个站点，因为地址范围是重叠的。 为了防止路由问题，Azure 不允许你上传具有重叠范围的配置文件。
 
 ## <a name="1-create-a-site-to-site-vpn"></a>1.创建站点到站点 VPN
 如果你已有使用动态路由网关的站点到站点 VPN，那太好了！ 你可以转到 [导出虚拟网络配置设置](#export)。 否则，请执行以下操作：
@@ -210,4 +208,3 @@ Get-AzureVnetConnection -VNetName VNET1
 ## <a name="next-steps"></a>后续步骤
 
 若要了解有关 VPN 网关的详细信息，请参阅[关于 VPN 网关](vpn-gateway-about-vpngateways.md)。
-

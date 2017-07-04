@@ -3,7 +3,7 @@ title: "将数据迁移到 SQL 数据仓库 | Azure"
 description: "有关在开发解决方案时将数据迁移到 Azure SQL 数据仓库的技巧。"
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: rockboyfor
 manager: jhubbard
 editor: 
 ms.assetid: d78f954a-f54c-4aa4-9040-919bc6414887
@@ -16,14 +16,12 @@ ms.custom: migrate
 origin.date: 10/31/2016
 ms.date: 04/24/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: e0c0e7e7994d1fc8b985dc54b7bdcd9fb17a0136
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 3140b6f3136ae6eceae9077b337a8265dbdd15c3
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="migrate-your-data"></a>迁移数据
 数据可以使用各种工具从不同源移动到 SQL 数据仓库中。  ADF 复制、SSIS 和 bcp 都可用来实现此目标。 但是，随着数据量的增加，你应该考虑将数据迁移过程划分成多个步骤。 这样，你便有机会优化每个步骤以提高性能和弹性，确保顺利迁移数据。
 

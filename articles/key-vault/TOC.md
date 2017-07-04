@@ -34,9 +34,9 @@
 
 # 相关内容
 ## [Azure Active Directory](/active-directory/)
-## [Azure Rights Management](https://technet.microsoft.com/zh-cn/dn175750)
-## [Extensible key management using Key Vault](https://msdn.microsoft.com/zh-cn/library/azure/dn198405)（使用 Key Vault 的可扩展密钥管理）
-## [多重身份验证](/multi-factor-authentication)
+## [Azure Rights Management](https://technet.microsoft.com/en-US/dn175750)
+## [Extensible key management using Key Vault](https://msdn.microsoft.com/en-us/library/azure/dn198405)
+## [多重身份验证](/multi-factor-authentication/)
 
 # 资源
 ## [About Keys and Secrets](https://msdn.microsoft.com/en-us/library/azure/dn903623)

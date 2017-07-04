@@ -11,17 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/30/2017
-ms.date: 03/24/2017
+ms.date: 01/30/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
-ms.openlocfilehash: 658cef32efdda79c3d2516751bd7ada4ec6773a5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: 54becd6c8e0633331b995763ca04a88cb1580e37
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>在 Resource Manager 部署模型中获取 ARP 表
 
 > [!div class="op_single_selector"]
@@ -31,7 +28,7 @@ ms.lasthandoff: 04/25/2017
 本文将指导你完成相关步骤，以便了解 ExpressRoute 线路的 ARP 表。 
 
 >[!IMPORTANT]
-> 本文档旨在帮助你诊断和修复简单问题。 它不是为了替代 Azure 支持部门。 如果无法通过下述指南解决问题，则必须通过 [Microsoft 支持](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)开具支持票证。
+> 本文档旨在帮助你诊断和修复简单问题。 它不是为了替代 Microsoft 支持部门。 如果无法通过下述指南解决问题，则必须通过 [Microsoft 支持](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)开具支持票证。
 
 ## <a name="address-resolution-protocol-arp-and-arp-tables"></a>地址解析协议 (ARP) 和 ARP 表
 地址解析协议 (ARP) 是在 [RFC 826](https://tools.ietf.org/html/rfc826) 中定义的第二层协议。 ARP 用于映射以太网地址（MAC 地址）和 IP 地址。
@@ -120,33 +117,44 @@ ARP 表示例：
 
 ### <a name="arp-table-when-a-circuit-is-in-operational-state-expected-state"></a>当线路处于运行状态（预期状态）时的 ARP 表
 
- - ARP 表会有一个针对本地端且带有有效 IP 地址和 MAC 地址的条目，以及一个类似的针对 Azure 端的条目。 
+ - ARP 表会有一个针对本地端且带有有效 IP 地址和 MAC 地址的条目，以及一个类似的针对 Microsoft 端的条目。 
  - 本地 IP 地址的最后一个八位字节将始终是奇数。
  - Microsoft IP 地址的最后一个八位字节将始终是偶数。
- - 所有 3 种对等互连（主/辅助）在 Azure 端都会显示相同的 MAC 地址。 
+ - 所有 3 种对等互连（主/辅助）在 Microsoft 端都会显示相同的 MAC 地址。 
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
          10 On-Prem           65.0.0.1 ffff.eeee.dddd
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
-### 当本地端/连接提供商端出现问题时的 ARP 表
+### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>当本地端/连接提供商端出现问题时的 ARP 表
+如果本地或连接提供商有问题，则可能会看到只有一个条目出现在 ARP 表中，或者本地 MAC 地址将显示不完整。 此时会显示在 Microsoft 端使用的 MAC 地址与 IP 地址之间的映射。 
 
- - 只有一个条目会出现在 ARP 表中。此时会显示在 Azure 端使用的 MAC 地址与 IP 地址之间的映射。 
+```
+   Age InterfaceProperty IpAddress  MacAddress    
+   --- ----------------- ---------  ----------    
+     0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+```
+
+或
 
 ```
    Age InterfaceProperty IpAddress  MacAddress    
    --- ----------------- ---------  ----------   
+     0 On-Prem           65.0.0.1   Incomplete
      0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 ```
 
 > [!NOTE]
-> 通过你的连接提供商提出支持请求，以便进行此类问题的调试。 \
+> 通过你的连接提供商提出支持请求，以便进行此类问题的调试。 如果 ARP 表没有将接口的 IP 地址映射到 MAC 地址，请查询以下信息：
+> 
+> 1. 为 MSEE-PR 和 MSEE 之间的链接分配的 /30 子网的第一个 IP 地址是否用在 MSEE-PR 的接口上。 Azure 始终使用 MSEE 的第二个 IP 地址。
+> 2. 验证客户型 (C-Tag) 和服务型 (S-Tag) VLAN 标记在 MSEE-PR 和 MSEE 对上是否均匹配。
 > 
 
 ### <a name="arp-table-when-microsoft-side-has-problems"></a>当 Microsoft 端出现问题时的 ARP 表
 
- - 如果 Azure 端存在问题，则不会为对等互连显示 ARP 表。 
+ - 如果 Microsoft 端存在问题，则不会为对等互连显示 ARP 表。 
  -  通过 [Microsoft 支持部门](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)开具一个支持票证。 指出你的第 2 层连接有问题。 
 
 ## <a name="next-steps"></a>后续步骤
@@ -156,4 +164,3 @@ ARP 表示例：
      - 获取路由表以确定哪些前缀跨 ExpressRoute 播发
  - 通过查看输入/输出中的字节数来验证数据传输
  - 如果仍然存在问题，请通过 [Microsoft 支持部门](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 开具一个支持票证。
-

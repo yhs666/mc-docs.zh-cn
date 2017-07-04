@@ -15,13 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: d04f5a5b260ee0342e0061f80073de6d484dadda
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: eef49cf02b1a113f47c7e8eb705fe6642d00febe
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>使用 Batch 应用程序包将应用程序部署到计算节点
 
@@ -42,7 +40,7 @@ ms.lasthandoff: 04/14/2017
 [Batch REST API][api_rest] 2015-12-01.2.2 版和对应的 [Batch .NET][api_net] 库 3.1.0 版引入了此功能。 使用 Batch 时，我们建议始终使用最新的 API 版本。
 
 > [!IMPORTANT]
-> 目前，只有 *CloudServiceConfiguration* 池支持应用程序包。 无法在使用 VirtualMachineConfiguration 映像创建的池中使用应用程序包。 有关这两种不同配置的详细信息，请参阅[在 Azure Batch 池中预配 Linux 计算节点](batch-linux-nodes.md)的[虚拟机配置](batch-linux-nodes.md#virtual-machine-configuration)部分。
+> 目前，只有 *CloudServiceConfiguration* 池支持应用程序包。 无法在使用 VirtualMachineConfiguration 映像创建的池中使用应用程序包。 有关这两种不同配置的详细信息，请参阅[在 Azure Batch 池中预配 Linux 计算节点](./batch-linux-nodes.md)的[虚拟机配置](./batch-linux-nodes.md#virtual-machine-configuration)部分。
 > 
 > 
 
@@ -69,7 +67,7 @@ Batch 中的应用程序包含一个或多个应用程序包，指定应用程�
     其他可受益于任务应用程序包的方案为使用特别大型应用程序，但只用于少数任务的作业。 例如，预处理或合并应用程序非常庞大的预处理阶段或合并任务。
 
 > [!IMPORTANT]
-> Batch 帐户中的应用程序和应用程序包数目，以及应用程序包的大小上限有其限制。 有关这些限制的详细信息，请参阅 [Azure Batch 服务的配额和限制](batch-quota-limit.md)。
+> Batch 帐户中的应用程序和应用程序包数目，以及应用程序包的大小上限有其限制。 有关这些限制的详细信息，请参阅 [Azure Batch 服务的配额和限制](./batch-quota-limit.md)。
 > 
 > 
 
@@ -79,7 +77,7 @@ Batch 中的应用程序包含一个或多个应用程序包，指定应用程�
 池的启动工作不需要指定在节点上安装一长串的单个资源文件。 不需要在 Azure 存储中或在节点上手动管理应用程序的多个版本。 而且，也不必费心生成 [SAS URL](../storage/storage-dotnet-shared-access-signature-part-1.md) 来提供这些文件在存储帐户中的访问权限。 Batch 在后台与 Azure 存储协作来存储应用程序包，并将其部署到计算节点。
 
 ## <a name="upload-and-manage-applications"></a>上传和管理应用程序
-可以使用 [Azure 门户][portal]或 [Batch 管理 .NET](batch-management-dotnet.md) 库来管理批处理帐户中的应用程序包。 在后面几个部分中，将先链接存储帐户，然后介绍如何使用门户来添加应用程序和包以及管理它们。
+可以使用 [Azure 门户][portal]或 [Batch 管理 .NET](./batch-management-dotnet.md) 库来管理批处理帐户中的应用程序包。 在后面几个部分中，将先链接存储帐户，然后介绍如何使用门户来添加应用程序和包以及管理它们。
 
 ### <a name="link-a-storage-account"></a>链接存储帐户
 若要使用应用程序包，必须先将 Azure 存储帐户链接到 Batch 帐户。 如果还没有为 Batch 帐户配置存储帐户，第一次单击“Batch 帐户”边栏选项卡中的“应用程序”磁贴时，Azure 门户在会显示警告。
@@ -271,7 +269,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
 > [!TIP]
-> 有关计算节点环境设置的详细信息，请参阅 [Batch 功能概述](batch-api-basics.md)中的[任务的环境设置](batch-api-basics.md#environment-settings-for-tasks)。
+> 有关计算节点环境设置的详细信息，请参阅 [Batch 功能概述](./batch-api-basics.md)中的[任务的环境设置](./batch-api-basics.md#environment-settings-for-tasks)。
 > 
 > 
 
@@ -320,14 +318,14 @@ foreach (ApplicationSummary app in applications)
 
 ## <a name="next-steps"></a>后续步骤
 - [Batch REST API][api_rest] 还提供应用程序包的使用支持。 有关示例，请参阅[将池添加到帐户][rest_add_pool]中的 [applicationPackageReferences][rest_add_pool_with_packages] 元素，了解如何使用 REST API 指定要安装的包。 若要深入了解如何使用 Batch REST API 获取应用程序信息，请参阅[应用程序][rest_applications]。
-- 了解如何以编程方式[使用 Batch Management .NET 管理 Azure Batch 帐户和配额](batch-management-dotnet.md)。 [Batch Management .NET][api_net_mgmt] 库可以启用 Batch 应用程序或服务的帐户创建和删除功能。
+- 了解如何以编程方式[使用 Batch Management .NET 管理 Azure Batch 帐户和配额](./batch-management-dotnet.md)。 [Batch Management .NET][api_net_mgmt] 库可以启用 Batch 应用程序或服务的帐户创建和删除功能。
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples
-[storage_pricing]: https://www.azure.cn/pricing/details/storage/
+[storage_pricing]: /pricing/details/storage/
 [net_appops]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.aspx
 [net_appops_listappsummaries]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.listapplicationsummaries.aspx
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
@@ -352,5 +350,3 @@ foreach (ApplicationSummary app in applications)
 [10]: ./media/batch-application-packages/app_pkg_10.png "在 Azure 门户中选择存储帐户边栏选项卡"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Azure 门户中的更新包边栏选项卡"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Azure 门户中的删除包确认对话框"
-
-

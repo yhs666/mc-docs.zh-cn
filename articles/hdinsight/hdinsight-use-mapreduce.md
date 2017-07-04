@@ -17,13 +17,11 @@ ms.workload: big-data
 origin.date: 04/03/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 58d7a353faaed4ef86304da21933952888154d7c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: d65b2d9ddd742a911fd0e130d5beaee12139bea7
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>在 Hadoop on HDInsight 中使用 MapReduce
 
@@ -201,4 +199,3 @@ HDInsight 可以使用各种方法运行 HiveQL 作业。 使用下表来确定�
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
-

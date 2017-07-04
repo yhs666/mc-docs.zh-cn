@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: b1f01663ab4c29a36b3794e427191469a3763dc0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: d5a9e6d33c100d2727606f0a2dbae004b2eb3a91
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>添加自定义 Service Fabric 运行状况报告
 Azure Service Fabric 引入了[运行状况模型](service-fabric-health-introduction.md)，用于在特定实体上标记不正常的群集和应用程序状态。 运行状况模型使用**运行状况报告器**（系统组件和监视器）。 其目标是实现轻松快捷的诊断和修复。 服务编写人员必须预先考虑运行状况。 应报告任何可能会影响运行状况的条件，尤其是如果它有助于标记出接近根源的问题。 在云（私有云或 Azure）中大规模启动并运行服务后，运行状况信息可以大幅减少调试和调查工作所需的时间和精力。
@@ -308,5 +306,4 @@ HealthEvents          :
 [在本地监视和诊断服务](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Service Fabric 应用程序升级](service-fabric-application-upgrade.md)
-
 

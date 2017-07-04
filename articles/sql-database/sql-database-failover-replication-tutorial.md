@@ -16,15 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 04/18/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
 ms.openlocfilehash: ef922144602790712ece3d1adb5c7b510a423eff
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="replicate-and-failover-an-azure-sql-database-solution"></a>对 Azure SQL 数据库解决方案进行复制和故障转移
 
 在本教程中，将配置 Azure SQL 数据库和应用程序以便故障转移到远程区域中，然后测试故障转移计划。 

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 0be418ee84dbb2d68859b20fcc4193f505fa355c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 9aed48e1877de910026c4c25cc5677f4c91b922d
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="how-to-use-file-storage-from-c"></a>如何通过 C++ 使用文件存储
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
@@ -98,10 +96,10 @@ if (share.create_if_not_exists()) {
 
 此时，**share** 保留对名为 **my-sample-share** 的共享的引用。
 
-## <a name="how-to-upload-a-file"></a>如何：上载文件
-Azure 文件存储共享至少包含文件所在的根目录。 在本部分，你将学习如何将文件从本地存储上载到共享所在的根目录。
+## <a name="how-to-upload-a-file"></a>如何：上传文件
+Azure 文件存储共享至少包含文件所在的根目录。 在本部分，你将学习如何将文件从本地存储上传到共享所在的根目录。
 
-上载文件的第一步是获取对文件所在的目录的引用。 为此，需要调用共享对象的 **get_root_directory_reference** 方法。
+上传文件的第一步是获取对文件所在的目录的引用。 为此，需要调用共享对象的 **get_root_directory_reference** 方法。
 
 ```cpp
 //Get a reference to the root directory for the share.

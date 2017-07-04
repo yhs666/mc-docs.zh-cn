@@ -16,12 +16,11 @@ ms.workload: infrastructure
 origin.date: 08/23/2016
 ms.date: 04/24/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 95f0372f5a9249cc9693ddc0a8fdd5401857fa76
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: dd52913c6ca4ac9b0ecf943c4701e7767cf3efb3
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="navigate-and-select-windows-virtual-machine-images-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中导航和选择 Windows 虚拟机映像
 本主题介绍如何查找每个可能部署到目标位置的 VM 映像发布者、产品、SKU 和版本。 举例来说，某些常用 Windows VM 映像包括：
@@ -39,11 +38,11 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="find-azure-images-with-powershell"></a>使用 PowerShell 查找 Azure 映像
 > [!NOTE]
-> 下载并配置[最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。 如果使用低于 1.0 版本的 Azure PowerShell 模块，则仍使用以下命令，但必须先执行 `Switch-AzureMode AzureResourceManager`。 
+> 下载并配置[最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 如果使用低于 1.0 版本的 Azure PowerShell 模块，则仍使用以下命令，但必须先执行 `Switch-AzureMode AzureResourceManager`。 
 > 
 > 
 
-使用 Azure 资源管理器创建新的虚拟机时，在某些情况下，你需要使用以下映像属性组合来指定映像：
+使用 Azure Resource Manager 创建新的虚拟机时，在某些情况下，你需要使用以下映像属性组合来指定映像：
 
 * 发布者
 * 产品

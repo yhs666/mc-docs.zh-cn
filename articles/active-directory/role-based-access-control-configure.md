@@ -14,17 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/27/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: d8ed9d89e2aaaf6a0c8a40d420391a6f6c27a338
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 74ed2ef30608b14faf02378d1e3c830723ae7614
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>使用基于角色的访问控制管理 Azure 订阅资源的访问权限
 
-Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访问管理。 使用 RBAC，你可以仅授予用户执行其作业所需的访问次数。 本文可帮助你在 Azure 门户中启动并运行 RBAC。 如果想要解有关 RBAC 如何帮助你管理访问权限的详细信息，请参阅 [什么是基于角色的访问控制](role-based-access-control-what-is.md)。
+Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访问管理。 使用 RBAC，你可以仅授予用户执行其作业所需的访问次数。 本文可帮助你在 Azure 门户中启动并运行 RBAC。 如果想要解有关 RBAC 如何帮助你管理访问权限的详细信息，请参阅 [什么是基于角色的访问控制](./role-based-access-control-what-is.md)。
 
 在每个订阅中，你最多可以授予 2000 个角色分配。 
 
@@ -69,14 +67,12 @@ Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访�
 ## <a name="other-tools-to-manage-access"></a>管理访问权限的其他工具
 可以使用 Azure 门户以外的工具中的 Azure RBAC 命令分配角色和管理访问权限。  依照该链接以了解有关先决条件和 Azure RBAC 命令入门的详细信息。
 
-- [Azure PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure 命令行界面](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+- [Azure PowerShell](./role-based-access-control-manage-access-powershell.md)
+- [Azure 命令行界面](./role-based-access-control-manage-access-azure-cli.md)
+- [REST API](./role-based-access-control-manage-access-rest.md)
 
 ## <a name="next-steps"></a>后续步骤
-- [创建访问变更历史记录报表](role-based-access-control-access-change-history-report.md)
-- 请参阅 [RBAC 内置角色](role-based-access-built-in-roles.md)
-- 定义你在 [Azure RBAC 中的自定义角色](role-based-access-control-custom-roles.md)
-
-
+- [创建访问变更历史记录报表](./role-based-access-control-access-change-history-report.md)
+- 请参阅 [RBAC 内置角色](./role-based-access-built-in-roles.md)
+- 定义你在 [Azure RBAC 中的自定义角色](./role-based-access-control-custom-roles.md)
 

@@ -16,13 +16,11 @@ ms.topic: article
 origin.date: 05/02/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 77b8d28e83332709f53e3a5b1813f870c79b8513
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 65fe774316372a0bd3d93d0857893f5c5531b768
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 进行脚本操作开发
 
@@ -378,4 +376,3 @@ Microsoft 提供了在 HDInsight 群集上安装组件的示例脚本。 参阅�
 * 了解如何[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)
 * 通过 [HDInsight.NET SDK 参考](https://msdn.microsoft.com/library/mt271028.aspx)详细了解如何创建用于管理 HDInsight 的 .NET 应用程序
 * 使用 [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) 了解如何通过 REST 在 HDInsight 群集上执行管理操作。
-

@@ -22,9 +22,9 @@
 
 
 # 引用
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
+## [PowerShell](https://doc.microsoft.com/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
-## [REST](https://docs.microsoft.com/rest/api/monitor/)
+## [REST](https://doc.microsoft.com/rest/api/monitor/)
 
 # 资源
 ## [PowerShell 示例](../monitoring-and-diagnostics/insights-powershell-samples.md)

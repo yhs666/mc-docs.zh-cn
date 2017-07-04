@@ -16,15 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 03/17/2017
 ms.date: 05/15/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 715c97a5468fdca9572b31c794793fe68f0f7921
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 15af2ab3e46c5c1e1993b000803f0af098e824f5
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="compute-optimized"></a>计算优化
 
 [!INCLUDE [virtual-machines-common-sizes-compute](../../../includes/virtual-machines-common-sizes-compute.md)]

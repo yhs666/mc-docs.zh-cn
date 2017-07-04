@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: a3f24c90912ce9a06ae7a13a7691d17c6cda193e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 42f48a2bb2b1b3a7ff2c1f298e003d4a94b118fe
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>开始使用 REST 传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -542,7 +540,7 @@ HTTP/1.1 204 No Content
 
 如前所述，使用 Azure 媒体服务最常见的方案之一是将自适应比特率流传送至客户端。 媒体服务可将一组自适应比特率 MP4 文件动态打包为以下格式之一：HTTP Live Streaming (HLS)、平滑流式处理、MPEG DASH。
 
-以下部分说明了如何创建包含一个编码任务的作业。 该任务指定使用 **Media Encoder Standard** 将夹层文件转码成一组自适应比特率 MP4。 该部分还说明了如何监视作业处理进度。 作业完成后，可创建所需的定位符来获取对资产的访问权限。
+以下部分说明了如何创建包含一个编码任务的作业。 该任务指定使用 **Media Encoder Standard**将夹层文件转码成一组自适应比特率 MP4。 该部分还说明了如何监视作业处理进度。 作业完成后，可创建所需的定位符来获取对资产的访问权限。
 
 ### <a name="get-a-media-processor"></a>获取媒体处理器
 在媒体服务中，媒体处理器是完成特定处理任务（例如，对媒体内容进行编码、格式转换、加密或解密）的组件。 对于本教程中所示的编码任务，将使用 Media Encoder Standard。

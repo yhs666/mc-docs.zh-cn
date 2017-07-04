@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 5663987de03ee369f81eaf68b1f838ed8106468f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 7b500e10a448bf6114788f849f00369e7688e1a6
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>在本地群集上部署和升级应用程序入门
 Azure Service Fabric SDK 包含完整的本地开发环境，可让你快速地在本地群集上开始部署和管理应用程序。 本文介绍如何从 Windows PowerShell 创建本地群集、将现有应用程序部署到该群集，然后将该应用程序升级到新版本。

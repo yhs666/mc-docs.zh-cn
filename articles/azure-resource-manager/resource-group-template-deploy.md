@@ -3,7 +3,7 @@ title: "使用 PowerShell 和模板部署资源 | Azure"
 description: "使用 Azure Resource Manager 和 Azure PowerShell 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。"
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 ms.assetid: 55903f35-6c16-4c6d-bf52-dbf365605c3f
@@ -15,13 +15,11 @@ ms.workload: na
 origin.date: 05/15/2017
 ms.date: 06/05/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: cbe4c40035641dde40d499a4d9881b66759c68a7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 89517bbd067709d45cde01da201f341d6a7274a1
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 模板和 Azure PowerShell 部署资源
 

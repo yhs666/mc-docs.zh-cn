@@ -16,13 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 04/04/2017
 ms.date: 05/22/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 7f00a4bb047aaf8388eae49eb25ed40d904358a7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 12d559358e1a2a34ea4f78fb7f12e7423a630e91
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="configure-a-vpn-gateway-in-the-classic-management-portal"></a>在经典管理门户中配置 VPN 网关 
 若要在 Azure 与本地位置之间创建安全的跨界连接，需要创建虚拟网关。 VPN 网关是特定类型的虚拟网关。 在经典部署模型中，VPN 网关可以是以下两种 VPN 路由类型之一：静态或动态。 所选的 VPN 类型取决于网络设计规划和想要使用的本地 VPN 设备。 有关 VPN 设备的详细信息，请参阅[关于 VPN 设备](vpn-gateway-about-vpn-devices.md)。
@@ -32,7 +30,7 @@ ms.lasthandoff: 05/12/2017
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-overview"></a>配置概述
-以下步骤将演示如何在经典管理门户中配置 VPN 网关。 这些步骤适用于使用经典部署模型创建的虚拟网络的网关。 目前，并非所有网关配置设置在 Azure 门户中都可用。 当它们可用时，我们会创建一套适用于 Azure 门户的新说明。
+以下步骤将演示如何在经典管理门户中配置 VPN 网关。 这些步骤适用于使用经典部署模型创建的虚拟网络的网关。 目前，并非所有网关的配置设置在 Azure 门户中都可用。 当它们可用时，我们将创建一套适用于 Azure 门户的新说明。
 
 ### <a name="before-you-begin"></a>开始之前
 在配置网关之前，必须先创建虚拟网络。 有关为跨界连接创建虚拟网络的步骤，请参阅[使用站点到站点 VPN 连接配置虚拟网络](vpn-gateway-site-to-site-create.md)或[使用点到站点 VPN 连接配置虚拟网络](vpn-gateway-point-to-site-create.md)。 然后，按照以下步骤来配置 VPN 网关，并收集配置 VPN 设备所需的信息。 
@@ -134,4 +132,3 @@ ms.lasthandoff: 05/12/2017
 你可以将虚拟机添加到虚拟网络。 请参阅[如何创建自定义虚拟机](../virtual-machines/windows/classic/createportal.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
 如果要配置点到站点 VPN 连接，请参阅[配置点到站点 VPN 连接](vpn-gateway-point-to-site-create.md)。
-

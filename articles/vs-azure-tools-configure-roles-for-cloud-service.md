@@ -15,13 +15,11 @@ ms.workload: multiple
 origin.date: 03/21/2017
 ms.date: 05/22/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 71d2d4c4d38e88c62d93a2dc108e2fae769e648c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: ef69a7060847b53d131554b44eaa27e97f8db830
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="configure-azure-cloud-service-roles-with-visual-studio"></a>使用 Visual Studio 配置 Azure 云服务角色
 一个 Azure 云服务可以有一个辅助角色或 Web 角色。 对于每个角色，需要定义该角色的设置方式，并配置该角色的运行方式。 
@@ -280,6 +278,5 @@ ms.lasthandoff: 05/12/2017
 
 ## <a name="next-steps"></a>后续步骤
 阅读[配置 Azure 项目](vs-azure-tools-configuring-an-azure-project.md)以详细了解 Visual Studio 中的 Azure 项目。 阅读 [架构参考](https://msdn.microsoft.com/library/azure/dd179398)以详细了解云服务架构。
-
 
 

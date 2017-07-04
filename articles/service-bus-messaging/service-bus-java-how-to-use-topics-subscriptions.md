@@ -15,14 +15,12 @@ ms.topic: article
 origin.date: 03/23/2017
 ms.author: v-yiso
 ms.date: 05/22/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 293ad73dd166a0bee1b95ff9f6ada599dcaa71a5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 0c2ae8c5e5702299a7b2df82dc2096e395511715
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>如何使用服务总线主题和订阅
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
@@ -74,7 +72,7 @@ Configuration config =
       "HowToSample",
       "RootManageSharedAccessKey",
       "SAS_key_value",
-       ".servicebus.chinacloudapi.cn"
+      ".servicebus.windows.net"
       );
 
 ServiceBusContract service = ServiceBusService.create(config);
@@ -173,7 +171,7 @@ service.sendTopicMessage("TestTopic", message);
 }
 ```
 
-服务总线主题在标准层中支持的最大消息容量为 256 KB。标头最大为 64 KB，其中包括标准和自定义应用程序属性。一个主题中包含的消息数量不受限制，但消息的总大小受限制。此主题大小是在创建时定义的，上限为 5 GB。
+服务总线主题在标准层中支持的最大消息大小为 256 KB。 标头最大为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小是在创建时定义的，上限为 5 GB。
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>如何从订阅接收消息
 若要从订阅接收消息，请使用 **ServiceBusContract** 对象。 收到的消息可在两种不同模式下工作：**ReceiveAndDelete** 和 **PeekLock**。
@@ -260,7 +258,7 @@ service.deleteTopic("TestTopic");
 ## <a name="next-steps"></a>后续步骤
 现在，已了解服务总线队列的基础知识，请参阅[服务总线队列、主题和订阅][Service Bus queues, topics, and subscriptions]以了解详细信息。
 
-  [Azure SDK for Java]: /develop/java/
+  [Azure SDK for Java]: https://www.azure.cn/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
   [Service Bus queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
 [SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter 

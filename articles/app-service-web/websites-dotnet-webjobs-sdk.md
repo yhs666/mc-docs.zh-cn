@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 06/01/2016
 ms.date: 12/12/2016
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: a54bb0869ab5252647b9fb159d9533b1ad0f126a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 822759702911768f97cb7c5102eaa87a6c1227d0
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="what-is-the-azure-webjobs-sdk"></a>什么是 Azure WebJobs SDK
 
@@ -42,8 +40,8 @@ WebJobs SDK 包括以下组件：
 ## <a id="scenarios"></a>方案
 下面是 Azure WebJobs SDK 帮助轻松处理的部分典型方案：
 
-* 图像处理或其他需要频繁使用 CPU 的工作。 网站的一项常见功能是上载图像或视频。 通常，在上载内容后要进行处理，但又不想在执行此操作时让用户等候。
-* 队列处理。 Web 前端与后端服务进行通信的常见方式是使用队列。 当网站需要完成工作时，它会将消息推送到队列。 后端服务会从队列提取消息，并完成工作。 可以在图像处理中使用队列：例如，在用户上载多个文件后，会将文件名放置在由后端选取队列消息处理的队列消息中。 或者，可以使用队列提高网站响应能力。 例如，无需将目录直接写入 SQL 数据库，而可以写入队列并告知用户已完成，然后由后端服务处理高延迟的关系型数据库工作。 有关使用图像处理队列的示例，请参阅 [WebJobs SDK 入门教程](websites-dotnet-webjobs-sdk-get-started.md)。
+* 图像处理或其他需要频繁使用 CPU 的工作。 网站的一项常见功能是上传图像或视频。 通常，在上传内容后要进行处理，但又不想在执行此操作时让用户等候。
+* 队列处理。 Web 前端与后端服务进行通信的常见方式是使用队列。 当网站需要完成工作时，它会将消息推送到队列。 后端服务会从队列提取消息，并完成工作。 可以在图像处理中使用队列：例如，在用户上传多个文件后，会将文件名放置在由后端选取队列消息处理的队列消息中。 或者，可以使用队列提高网站响应能力。 例如，无需将目录直接写入 SQL 数据库，而可以写入队列并告知用户已完成，然后由后端服务处理高延迟的关系型数据库工作。 有关使用图像处理队列的示例，请参阅 [WebJobs SDK 入门教程](websites-dotnet-webjobs-sdk-get-started.md)。
 * RSS 聚合。 如果有维护 RSS 源列表的网站，可以在后台进程中提取源中的所有文章。
 * 文件维护，例如聚合或清理日志文件。  可能拥有由多个站点在不同时间创建的日志文件，结合这些文件便于执行分析工作。 或者，要计划每周运行的任务，以清理旧的日志文件。
 * 输入 Azure 表。 可能拥有要分析的存储文件和 Blob，并要将数据存储在表中。 入口函数可能会写入许多行（在某些情况下可能有上百万行），而 WebJobs SDK 可以轻松实现此功能。 SDK 还可实时监视进度指示器，例如表中的写入行数。
@@ -174,4 +172,3 @@ public class Functions
 有关 WebJobs SDK 的详细信息，请参阅 [Azure WebJobs 推荐资源](/app-service-web/websites-webjobs-resources)。
 
 有关 WebJobs SDK 的最新增强功能的信息，请参阅 [发行说明](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)。
-

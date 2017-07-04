@@ -15,13 +15,11 @@ ms.workload: infrastructure
 origin.date: 02/14/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: adefa1db3bb445e30d73b12dc112f640fb02abb7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: 645e56336e9844801439b48dc7b9c61b17e81368
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>如何在 Linux VM 上安装和配置 MongoDB
 [MongoDB](http://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。 本文介绍如何使用 Azure CLI 2.0 在 Linux VM 上安装和配置 MongoDB。 还可以使用 [Azure CLI 1.0](install-mongodb-nodejs.md) 执行这些步骤。 文中提供了一些示例，详细说明如何执行以下操作：
@@ -232,4 +230,3 @@ az group deployment show \
 有关使用模板创建这些规则的详细信息，请参阅 [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)。
 
 Azure Resource Manager 模板使用自定义脚本扩展在 VM 上下载并执行脚本。 有关详细信息，请参阅[在 Linux 虚拟机上使用 Azure 自定义脚本扩展](extensions-customscript.md)。
-

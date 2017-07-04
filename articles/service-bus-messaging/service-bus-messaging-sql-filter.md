@@ -12,21 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/23/2017
-ms.date: 05/22/2017
+ms.date: 03/23/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 9805cca82a357990eebbbdd3bbbb8e8e36253bfd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: b8214358130968f9afbbf67b76ee137108baae51
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="sqlfilter-syntax"></a>SQLFilter 语法
 
-*SqlFilter* 是 [SqlFilter 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)的实例，代表基于 SQL 语言的筛选器表达式，该表达式针对 [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 进行计算。 SqlFilter 支持 SQL-92 标准的子集。  
+*SqlFilter* 是 [SqlFilter 类](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)的实例，代表基于 SQL 语言的筛选器表达式，该表达式针对 [BrokeredMessage](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 进行计算。 SqlFilter 支持 SQL-92 标准的子集。  
   
  本主题列出有关 SqlFilter 语法的详细信息。  
   
@@ -63,7 +59,7 @@ ms.lasthandoff: 05/12/2017
   
 ## <a name="arguments"></a>参数  
   
--   `<scope>` 是一个可选字符串，指示 `<property_name>` 的范围。 有效值为 `sys` or `user`进行求值的基于 SQL 语言的筛选器表达式。 `sys` 值指示系统范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)的公共属性名称。 `user` 指示用户范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)字典的项。 `user` 范围是默认范围（如果 `<scope>` 未指定）。  
+-   `<scope>` 是一个可选字符串，指示 `<property_name>` 的范围。 有效值为 `sys` or `user`进行求值的基于 SQL 语言的筛选器表达式。 `sys` 值指示系统范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)的公共属性名称。 `user` 指示用户范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)字典的项。 `user` 范围是默认范围（如果 `<scope>` 未指定）。  
   
 ## <a name="remarks"></a>备注
 
@@ -212,13 +208,13 @@ ms.lasthandoff: 05/12/2017
   
 ## <a name="considerations"></a>注意事项
   
-请注意以下 [SqlFilter](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 语义：  
+请注意以下 [SqlFilter](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 语义：  
   
 -   属性名称区分大小写。  
   
 -   运算符尽可能遵循 C# 隐式转换语义。  
   
--   系统属性是值在 [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 实例中公开的公共属性。  
+-   系统属性是值在 [BrokeredMessage](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 实例中公开的公共属性。  
   
     请注意以下 `IS [NOT] NULL` 语义：  
   
@@ -226,7 +222,7 @@ ms.lasthandoff: 05/12/2017
   
 ### <a name="property-evaluation-semantics"></a>属性求值语义  
   
--   对不存在的系统属性进行求值的尝试会引发 [FilterException](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.filterexception) 异常。  
+-   对不存在的系统属性进行求值的尝试会引发 [FilterException](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.filterexception) 异常。  
   
 -   不存在的属性在内部作为 **未知**进行求值。  
   

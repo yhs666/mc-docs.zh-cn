@@ -15,13 +15,12 @@ ms.topic: article
 origin.date: 03/01/2017
 ms.date: 04/17/2017
 ms.author: v-junlch
-translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 6904e5e8511e4eb6b65d0fb94819cf8ecb17522b
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 9b9bfcce6bfb0b5ec971fe6df91d454c866059aa
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="getting-started-with-azure-active-directory-and-visual-studio-connected-services-mvc-projects"></a>开始使用 Azure Active Directory 和 Visual Studio 连接服务（MVC 项目）
 > [!div class="op_single_selector"]
 >- [入门](./vs-active-directory-dotnet-getting-started.md)

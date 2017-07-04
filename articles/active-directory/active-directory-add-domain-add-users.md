@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/08/2016
+origin.date: 05/16/2016
 ms.author: v-junlch
-ms.date: 06/12/2016
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: d4964f4eb0cd5458468f7dcdc2f7dc2bb785ceb6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.date: 06/21/2016
+ms.openlocfilehash: f9fa6b61d0ad9bfc57efc34ffaecbc458d26b492
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="assign-users-to-a-custom-domain"></a>将用户分配到自定义域
 将自定义域添加到 Azure Active Directory 之后，你必须添加此域的用户帐户，才能开始对其身份验证。
@@ -51,6 +50,5 @@ ms.lasthandoff: 05/26/2017
 - [使用自定义域名来简化用户登录体验](active-directory-add-domain.md)
 - [管理自定义域名](active-directory-add-manage-domain-names.md)
 - [了解 Azure AD 中的域管理概念](active-directory-add-domain-concepts.md)
-
 
 

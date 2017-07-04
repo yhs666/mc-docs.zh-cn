@@ -3,4 +3,7 @@
 > [!NOTE]
 > 如果应用由 [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)负载均衡，请单击本文顶部的选择器获取特定步骤。
 > 
-> **自定义域名不能用于免费层**。 必须[向上缩放到更高定价层](../articles/app-service-web/web-sites-scale.md)，这可能会改变订阅的计费量。 有关详细信息，请参阅[应用服务定价](https://www.azure.cn/pricing/details/app-service/)。
+> **自定义域名不能用于免费层**。 必须[向上缩放到更高定价层](../articles/app-service-web/web-sites-scale.md)，这可能会改变订阅的计费量。 
+> 有关详细信息，请参阅[应用服务定价](https://www.azure.cn/pricing/details/app-service/)。
+> 
+>

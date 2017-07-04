@@ -17,13 +17,11 @@ origin.date: 02/02/2016
 ms.date: 05/02/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 803c7058df2c7e021495d0f124fe9f9db6b87d86
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: b535dcc410567aa9b7d2e5779f61cc84c840b085
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>使用 PowerShell 创建具有多个 NIC 的 VM（经典）
 
@@ -38,7 +36,7 @@ ms.lasthandoff: 04/22/2017
 
 以下步骤使用名为 *IaaSStory* 的资源组用于 WEB 服务器，将名为 *IaaSStory-BackEnd* 的资源组用于 DB 服务器。
 
-## <a name="Prerequisites"></a>先决条件
+## <a name="prerequisites"></a>先决条件
 
 需要先创建具有此方案需要的所有资源的 *IaaSStory* 资源组，然后才能创建数据库服务器。 若要创建这些资源，请完成以下步骤。 若要创建虚拟网络，请完成[创建虚拟网络](virtual-networks-create-vnet-classic-netcfg-ps.md)一文中的步骤。
 
@@ -144,8 +142,8 @@ ms.lasthandoff: 04/22/2017
 4. 设置默认 NIC，并为其分配静态 IP 地址。
 
     ```powershell
-    Set-AzureSubnet            -SubnetNames $backendSubnetName -VM $vmConfig
-    Set-AzureStaticVNetIP     -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
+    Set-AzureSubnet         -SubnetNames $backendSubnetName -VM $vmConfig
+    Set-AzureStaticVNetIP   -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
     ```
 
 5. 为每个 VM 添加第二个 NIC。
@@ -198,4 +196,3 @@ ms.lasthandoff: 04/22/2017
 
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-

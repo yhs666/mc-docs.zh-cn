@@ -16,13 +16,11 @@ ms.workload: iaas-sql-server
 origin.date: 03/17/2017
 ms.date: 05/22/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: a69909ce20801fcb0a42b0e9981367c6c85fb088
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 2d40520ed9b775bc8b0562aa7a03fa04bf6dd076
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>在 Azure 虚拟机中配置 Always On 可用性组（经典）
 > [!div class="op_single_selector"]
@@ -75,22 +73,22 @@ ms.lasthandoff: 05/12/2017
     ![创建虚拟网络](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665512.gif)
 3. 在“创建虚拟网络”对话框中，通过逐页完成下表中的设置来创建新的虚拟网络。 
 
-    | Page | 设置 |
-    | --- | --- |
-    | 虚拟网络详细信息 |**名称 = ContosoNET**<br/>**区域 = 中国北部** |
-    | DNS 服务器和 VPN 连接 |无 |
-    | 虚拟网络地址空间 |设置显示在以下屏幕截图中： ![创建虚拟网络](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png) |
+   | Page | 设置 |
+   | --- | --- |
+   | 虚拟网络详细信息 |**名称 = ContosoNET**<br/>**区域 = 中国北部** |
+   | DNS 服务器和 VPN 连接 |无 |
+   | 虚拟网络地址空间 |设置显示在以下屏幕截图中： ![创建虚拟网络](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png) |
 4. 创建将用作域控制器 (DC) 的虚拟机。 单击“新建” > “计算” > “虚拟机” > “从库中”，如以下屏幕截图所示。
 
     ![创建虚拟机](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784621.png)
 5. 在“创建虚拟机”对话框中，通过逐页完成下表中的设置来配置新的虚拟机。 
 
-    | Page | 设置 |
-    | --- | --- |
-    | 选择虚拟机操作系统 |Windows Server 2012 R2 Datacenter |
-    | 虚拟机配置 |**版本发布日期** = (最新)<br/>**虚拟机名称** = ContosoDC<br/>**层** = 标准<br/>**大小** = A2（双核）<br/>**新用户名** = AzureAdmin<br/>**新密码** = Contoso!000<br/>**确认** = Contoso!000 |
-    | 虚拟机配置 |**云服务** = 创建新的云服务<br/>**云服务 DNS 名称** = 唯一云服务名称<br/>**DNS 名称** = 唯一名称（例如：ContosoDC123）<br/>**区域/地缘组/虚拟网络** = ContosoNET<br/>**虚拟网络子网** = Back(10.10.2.0/24)<br/>**存储帐户** = 使用自动生成的存储帐户<br/>**可用性集** = (无) |
-    | 虚拟机选项 |使用默认值 |
+   | Page | 设置 |
+   | --- | --- |
+   | 选择虚拟机操作系统 |Windows Server 2012 R2 Datacenter |
+   | 虚拟机配置 |**版本发布日期** = (最新)<br/>**虚拟机名称** = ContosoDC<br/>**层** = 标准<br/>**大小** = A2（双核）<br/>**新用户名** = AzureAdmin<br/>**新密码** = Contoso!000<br/>**确认** = Contoso!000 |
+   | 虚拟机配置 |**云服务** = 创建新的云服务<br/>**云服务 DNS 名称** = 唯一云服务名称<br/>**DNS 名称** = 唯一名称（例如：ContosoDC123）<br/>**区域/地缘组/虚拟网络** = ContosoNET<br/>**虚拟网络子网** = Back(10.10.2.0/24)<br/>**存储帐户** = 使用自动生成的存储帐户<br/>**可用性集** = (无) |
+   | 虚拟机选项 |使用默认值 |
 
 配置好新虚拟机后，请等待该虚拟机完成预配。 此过程需要一些时间才能完成。 如果单击 Azure 经典管理门户中的“虚拟机”选项卡，则可看到 ContosoDC 逐一经历的各个状态：从“正在启动(正在预配)”、“已停止”、“正在启动”、“正在运行(正在预配)”到最后的“正在运行”。
 
@@ -110,10 +108,10 @@ ms.lasthandoff: 05/12/2017
 5. 单击“下一步”，直到到达“服务器角色”部分。
 6. 选择“Active Directory 域服务”和“DNS 服务器”角色。 出现提示时，添加这些角色所需的更多功能。
 
-    > [!NOTE]
-    > 你将收到无静态 IP 地址的验证警告。 如果要测试配置，请单击“继续”。 对于生产方案，请[使用 PowerShell 设置域控制器计算机的静态 IP 地址](../../../virtual-network/virtual-networks-reserved-private-ip.md)。
-    > 
-    > 
+   > [!NOTE]
+   > 你将收到无静态 IP 地址的验证警告。 如果要测试配置，请单击“继续”。 对于生产方案，请[使用 PowerShell 设置域控制器计算机的静态 IP 地址](../../../virtual-network/virtual-networks-reserved-private-ip.md)。
+   > 
+   > 
 
     ![添加角色对话框](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784624.png)
 7. 单击“下一步”，直到显示“确认”部分。 选中“必要时自动重启目标服务器”复选框。
@@ -143,14 +141,14 @@ ms.lasthandoff: 05/12/2017
 3. 在“Active Directory 管理中心”的左窗格中，选择“corp (本地)”。
 4. 在右侧的“任务”窗格上，单击“新建” > “用户”。 使用以下设置：
 
-    | 设置 | 值 |
-    | --- | --- |
-    | **名字** |安装 |
-    | **用户 SamAccountName** |安装 |
-    | **密码** |Contoso!000 |
-    | **确认密码** |Contoso!000 |
-    | **其他密码选项** |选定 |
-    | **密码永不过期** |已选中 |
+   | 设置 | 值 |
+   | --- | --- |
+   | **名字** |安装 |
+   | **用户 SamAccountName** |安装 |
+   | **密码** |Contoso!000 |
+   | **确认密码** |Contoso!000 |
+   | **其他密码选项** |选定 |
+   | **密码永不过期** |已选中 |
 5. 单击“确定”创建 **Install** 用户。 此帐户将用于配置故障转移群集和可用性组。
 6. 使用相同的步骤创建另外两个用户：**CORP\SQLSvc1** 和 **CORP\SQLSvc2**。 这些帐户将用于 SQL Server 实例。 接下来，需要为 **CORP\Install** 分配所需权限以配置 Windows 故障转移群集。
 7. 在“Active Directory 管理中心”的左窗格中，单击“corp (本地)”。 在“任务”窗格中，单击“属性”。
@@ -258,18 +256,18 @@ ms.lasthandoff: 05/12/2017
     ![创建群集](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784632.png)
 4. 在“创建群集向导”中，逐页完成下表中的设置来创建一个单节点群集：
 
-    | Page | 设置 |
-    | --- | --- |
-    | 开始之前 |使用默认值 |
-    | 选择服务器 |在“输入服务器名称”中键入 **ContosoSQL1**，然后单击“添加” |
-    | 验证警告 |选择**“否。不需要 Microsoft 对该群集的支持，因此不希望运行验证测试。**单击‘下一步’时，继续创建群集。” |
-    | 用于管理群集的访问点 |在“群集名称”中键入 **Cluster1** |
-    | 确认 |除非你使用的是存储空间，否则请使用默认值。 请参阅此表后面的警告。 |
+   | Page | 设置 |
+   | --- | --- |
+   | 开始之前 |使用默认值 |
+   | 选择服务器 |在“输入服务器名称”中键入 **ContosoSQL1**，然后单击“添加” |
+   | 验证警告 |选择**“否。不需要 Microsoft 对该群集的支持，因此不希望运行验证测试。**单击‘下一步’时，继续创建群集。” |
+   | 用于管理群集的访问点 |在“群集名称”中键入 **Cluster1** |
+   | 确认 |除非你使用的是存储空间，否则请使用默认值。 请参阅此表后面的警告。 |
 
-    > [!WARNING]
-    > 如果使用[存储空间](https://technet.microsoft.com/library/hh831739)来将多个磁盘分组到存储池中，则必须取消选中“确认”页上的“将所有符合条件的存储添加到群集”复选框。 如果不取消选中该选项，则虚拟磁盘会在群集过程中分离。 因此，这些虚拟磁盘也不会出现在磁盘管理器或资源管理器之中，除非从群集中删除存储空间，并使用 PowerShell 将其重新附加。
-    > 
-    > 
+   > [!WARNING]
+   > 如果使用[存储空间](https://technet.microsoft.com/library/hh831739)来将多个磁盘分组到存储池中，则必须取消选中“确认”页上的“将所有符合条件的存储添加到群集”复选框。 如果不取消选中该选项，则虚拟磁盘会在群集过程中分离。 因此，这些虚拟磁盘也不会出现在磁盘管理器或资源管理器之中，除非从群集中删除存储空间，并使用 PowerShell 将其重新附加。
+   > 
+   > 
 5. 在左窗格中，展开“故障转移群集管理器”，然后单击“Cluster1.corp.contoso.com”。
 6. 在中心窗格中，向下滚动到“群集核心资源”部分并展开“名称: Clutser1”详细信息。 应会看到“名称”和“IP 地址”资源都处于“已失败”状态。 不能将 IP 地址资源联机，因为向该群集分配的 IP 地址与计算机本身的地址相同，地址重复。
 7. 右键单击失败的“IP 地址”资源，然后单击“属性”。
@@ -310,9 +308,9 @@ ms.lasthandoff: 05/12/2017
 6. 右键单击“NT AUTHORITY\System”登录名，然后单击“属性”。
 7. 在“安全对象”页上，对于本地服务器，选择“授予”以授予以下权限，然后单击“确定”。
 
-    * 更改任何可用性组
-    * 连接 SQL
-    * 查看服务器状态
+   * 更改任何可用性组
+   * 连接 SQL
+   * 查看服务器状态
 8. 将 **CORP\Install** 作为 **sysadmin** 角色添加到默认 SQL Server 实例。 在“对象资源管理器”中，右键单击“登录名”，然后单击“新建登录名”。
 9. 在“登录名”中，键入 **CORP\Install**。
 10. 在“服务器角色”页上，选择“sysadmin”，然后单击“确定”。 创建登录名后，可通过在“对象资源管理器”中展开“登录名”来查看该登录名。
@@ -417,4 +415,3 @@ ms.lasthandoff: 05/12/2017
 你现已通过在 Azure 中创建可用性组，成功实施了 SQL Server AlwaysOn。 若要为此可用性组配置侦听器，请参阅[在 Azure 中配置 Always On 可用性组的 ILB 侦听器](../classic/ps-sql-int-listener.md)。
 
 有关在 Azure 中使用 SQL Server 的其他信息，请参阅 [SQL Server on Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)（Azure 虚拟机上的 SQL Server）。
-

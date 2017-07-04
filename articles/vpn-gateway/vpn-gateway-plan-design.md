@@ -16,13 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 04/05/2017
 ms.date: 05/22/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: beee655bc636b98b765326b1c4e6885bad09b5a4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: a310ee538960c13cc95425fe522fcd9d29caed53
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>规划和设计 VPN 网关
 规划和设计跨界配置和 VNet 到 VNet 配置可能很简单，也可能很复杂，具体取决于网络需求。 本文详细介绍基本规划和设计注意事项。
@@ -128,4 +126,3 @@ VPN 网关需要一个特定的子网，称为网关子网。 所有网关子网
 请参阅 [VPN 网关常见问题解答](vpn-gateway-vpn-faq.md)和[关于 VPN 网关](vpn-gateway-about-vpngateways.md)文章，获取可帮助进行设计的详细信息。
 
 有关特定网关设置的详细信息，请参阅 [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md)（关于 VPN 网关设置）。
-

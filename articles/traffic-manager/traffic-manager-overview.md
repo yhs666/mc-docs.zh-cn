@@ -15,14 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 03/16/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 820fe65b1f0fe93497bbbdc811d05f9b8550e712
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: 092167ed2b51518ca87eab807e1d95ed99ac2dd0
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="overview-of-traffic-manager"></a>流量管理器概述
 
 使用 Azure 流量管理器可以控制用户流量在不同数据中心内的服务终结点上的分布。 流量管理器支持的服务终结点包括 Azure VM、Web 应用和云服务。 也可将流量管理器用于外部的非 Azure 终结点。
@@ -68,7 +66,7 @@ ms.lasthandoff: 05/19/2017
 
 ### <a name="traffic-manager-example"></a>流量管理器示例
 
-Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 是 https://partners.contoso.com/login.aspx 。 该应用程序托管在三个 Azure 区域中。 为了改善可用性并在全球最大程度地提高性能，他们使用流量管理器将客户端流量分布到最靠近的可用终结点。
+Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 是 https://partners.contoso.com/login.aspx。 该应用程序托管在三个 Azure 区域中。 为了改善可用性并在全球最大程度地提高性能，他们使用流量管理器将客户端流量分布到最靠近的可用终结点。
 
 为了实现该配置：
 
@@ -120,4 +118,3 @@ Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 是 htt
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
-

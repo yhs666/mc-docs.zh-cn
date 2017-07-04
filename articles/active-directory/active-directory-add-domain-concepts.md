@@ -15,12 +15,11 @@ ms.topic: article
 origin.date: 05/04/2017
 ms.author: v-junlch
 ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 755930bcc6cf6c78b7cd0312808a94d81400f0f4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 51f133a53c3b1ecbfb3d200f55c2c0d1a1872067
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Azure Active Directory 中自定义域名的概念性概述
 域名是许多目录资源标识符的重要部分：它可能是用户的用户名或电子邮件地址的一部分、组地址的一部分，也可能是应用程序的应用 ID URI 的一部分。 Azure Active Directory (Azure AD) 中的资源可包含已验证为目录（包含该资源）所拥有的域名。 只有全局管理员才能在 Azure AD 中执行域管理任务。
@@ -63,6 +62,5 @@ Azure Web 应用使用其自身的机制来验证域的所有权。 必须验证
 - [在 Azure 经典管理门户中管理域](active-directory-add-manage-domain-names.md)
 - [使用 PowerShell 管理 Azure AD 中的域名](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 - [使用 Azure AD 图形 API 管理 Azure AD 中的域名](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
-
 
 

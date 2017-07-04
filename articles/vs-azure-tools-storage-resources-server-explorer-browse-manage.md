@@ -15,12 +15,11 @@ ms.workload: na
 origin.date: 11/18/2016
 ms.author: v-junlch
 ms.date: 05/22/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: b7c1a49e41d886a49898e43d11530393f4d1b0e0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 36eb4c312ef3d6fd36fc7bd3e3bb055464464160
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="browsing-and-managing-storage-resources-with-server-explorer"></a>使用服务器资源管理器浏览和管理存储资源
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -69,7 +68,7 @@ Blob 节点显示所选存储帐户的容器列表。 Blob 容器包含 Blob 文
   
   - 输入筛选器值并应用它
   - 刷新容器中的 Blob 列表
-  - 上载文件
+  - 上传文件
   - 删除 Blob
     
     > [!NOTE]
@@ -82,7 +81,7 @@ Blob 节点显示所选存储帐户的容器列表。 Blob 容器包含 Blob 文
 ### <a name="to-create-a-folder-or-subfolder-in-a-blob-container"></a>在 Blob 容器中创建文件夹或子文件夹
 1. 在服务器资源管理器中选择 Blob 容器。 在容器窗口中，选择“上传 Blob”按钮。
    
-    ![将文件上载到 Blob 文件夹](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766037.png)
+    ![将文件上传到 Blob 文件夹](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766037.png)
 2. 在“上传新文件”对话框中，选择“浏览”按钮并指定要上传的文件，然后在“文件夹(可选)”框中输入文件夹名称。
    
     可以遵循相同的过程将子文件夹添加到容器文件夹。 如果未指定文件夹名称，文件将上传到 Blob 容器的顶层。文件将出现在容器中指定的文件夹内。
@@ -119,10 +118,10 @@ Blob 节点显示所选存储帐户的容器列表。 Blob 容器包含 Blob 文
   
     Blob 数据在本地缓存，并且对照 Blob 服务中 Blob 的最后修改时间检查此类数据。 如果 Blob 自上次下载以来已进行了更新，则将再次下载它；否则，将从本地磁盘中加载 Blob。 默认情况下，Blob 下载到临时目录中。 若要将 Blob 下载到一个特定的目录，请打开所选 Blob 名称的快捷菜单，然后选择“另存为”。 当通过这种方式保存 Blob 时，将不会打开 Blob 文件，但会创建具有读写特性的本地文件。
 
-### <a name="to-upload-blobs"></a>上载 Blob
+### <a name="to-upload-blobs"></a>上传 Blob
 - 当容器处于打开状态，可以在 Blob 容器视图中查看时，选择“上传 Blob”按钮。
   
-    可以选择一个或多个文件进行上载，可以上载任何类型的文件。 “Azure 活动日志”会显示上传进度。 有关如何处理 Blob 数据的详细信息，请参阅[如何在 .NET 中使用 Azure Blob 存储服务](http://go.microsoft.com/fwlink/p/?LinkId=267911)。
+    可以选择一个或多个文件进行上传，可以上传任何类型的文件。 “Azure 活动日志”会显示上传进度。 有关如何处理 Blob 数据的详细信息，请参阅[如何在 .NET 中使用 Azure Blob 存储服务](http://go.microsoft.com/fwlink/p/?LinkId=267911)。
 
 ### <a name="to-view-logs-transferred-to-blobs"></a>查看传输到 Blob 的日志
 - 如果你正在使用 Azure 诊断来记录 Azure 应用程序中的数据，并且已将日志传输到存储帐户，则会看到 Azure 为这些日志创建的容器。 在服务器资源管理器中查看这些日志是一种简便的确定应用程序问题的方法，尤其是当应用程序已部署到 Azure 时。 有关 Azure 诊断的详细信息，请参阅 [Collect Logging Data by Using Azure Diagnostics](https://msdn.microsoft.com/library/azure/gg433048.aspx)（使用 Azure 诊断收集日志记录数据）。
@@ -133,7 +132,7 @@ Blob 节点显示所选存储帐户的容器列表。 Blob 容器包含 Blob 文
 ### <a name="to-edit-a-blob"></a>编辑 Blob
 - 选择 Blob，然后选择“打开 Blob”按钮。
   
-    文件将下载到临时位置，在本地计算机上打开。 进行更改之后，必须再次上载 Blob。
+    文件将下载到临时位置，在本地计算机上打开。 进行更改之后，必须再次上传 Blob。
 
 ## <a name="work-with-queue-resources"></a>处理队列资源
 存储服务队列在存储帐户中托管，你可以使用它们允许云服务角色通过消息传递机制互相通信以及与其他服务通信。 可以用编程方式，通过云服务以及面向外部客户端的 Web 服务来访问队列。 还可以使用 Visual Studio 中的服务器资源管理器直接访问队列。
@@ -273,6 +272,5 @@ Azure 表存储服务可存储大量结构化数据。 该服务是一个 NoSQL 
 
 ## <a name="next-steps"></a>后续步骤
 若要详细了解如何使用 Azure 存储服务，请参阅[访问 Azure 存储服务](https://msdn.microsoft.com/library/azure/ee405490.aspx)。
-
 
 

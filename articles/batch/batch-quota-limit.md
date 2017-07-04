@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
 ms.openlocfilehash: 9a39e7ea5995265f7c09e9701ddb878cf2704125
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 
@@ -103,4 +101,3 @@ ms.lasthandoff: 06/09/2017
 [support_sev]: http://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
-

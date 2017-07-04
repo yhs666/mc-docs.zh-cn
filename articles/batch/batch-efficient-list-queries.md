@@ -15,17 +15,15 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 4e5f9e5530811be0e13f11c80c7855681da17e77
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 3fadc6f0eded1a47966ec85caec5b9809024bf76
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>创建可高效列出 Batch 资源的查询
 
-本文介绍如何通过减少使用[批处理 .NET][api_net] 库查询作业、任务和计算节点时该服务返回的数据量，提高 Azure 批处理应用程序的性能。
+本文介绍如何通过减少使用[批处理 .NET][api_net] 库查询作业、任务和计算节点时该服务返回的数据量，提高 Azure Batch 应用程序的性能。
 
 几乎所有批处理应用程序都需执行某类监视操作或其他查询批处理服务的操作（通常按固定的时间间隔）。 例如，若要确定作业中是否还有排队的任务，必须获取作业中每个任务的相关数据。 若要确定池中节点的状态，必须获取池中每个节点的相关数据。 本文介绍如何以最有效的方式执行此类查询。
 
@@ -218,7 +216,7 @@ Sample complete, hit ENTER to continue...
 如所用时间中所示，限制返回的属性和项数可以大大缩短查询响应时间。 你可以在 GitHub 的 [azure-batch-samples][github_samples] 存储库中查找此项目和其他示例项目。
 
 ### <a name="batchmetrics-library-and-code-sample"></a>BatchMetrics 库和代码示例
-除了上述 EfficientListQueries 代码示例，还可在 [azure-batch-samples][github_samples] GitHub 存储库中找到 [BatchMetrics][batch_metrics] 项目。 BatchMetrics 示例项目演示了如何使用批处理 API 有效地监视 Azure 批处理作业进度。
+除了上述 EfficientListQueries 代码示例，还可在 [azure-batch-samples][github_samples] GitHub 存储库中找到 [BatchMetrics][batch_metrics] 项目。 BatchMetrics 示例项目演示了如何使用批处理 API 有效地监视 Azure Batch 作业进度。
 
 [BatchMetrics][batch_metrics] 示例包括一个可以合并到用户自己的项目中去的 .NET 类库项目，以及一个简单的命令行程序，可用于练习和演示库的使用。
 
@@ -241,7 +239,7 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 
 ## <a name="next-steps"></a>后续步骤
 ### <a name="parallel-node-tasks"></a>并行节点任务
-[通过并发节点任务最大限度提高 Azure 批处理计算资源的使用率](batch-parallel-node-tasks.md)是另一篇与批处理应用程序性能相关的文章。 在数量较少但规模更大的计算节点上执行并行任务适合某些类型的工作负荷。 若需详细了解此类方案，请查看文章中的[示例方案](batch-parallel-node-tasks.md#example-scenario)。
+[通过并发节点任务最大限度提高 Azure Batch 计算资源的使用率](./batch-parallel-node-tasks.md)是另一篇与批处理应用程序性能相关的文章。 在数量较少但规模更大的计算节点上执行并行任务适合某些类型的工作负荷。 若需详细了解此类方案，请查看文章中的[示例方案](./batch-parallel-node-tasks.md#example-scenario)。
 
 ### <a name="batch-forum"></a>Batch 论坛
 MSDN 上的 [Azure Batch 论坛][forum] 是探讨 Batch 服务以及咨询其相关问题的不错场所。 欢迎前往浏览这些帮忙解决“棘手问题”的贴子，并发布你在构建 Batch 解决方案时遇到的问题。
@@ -294,5 +292,3 @@ MSDN 上的 [Azure Batch 论坛][forum] 是探讨 Batch 服务以及咨询其相
 [net_pool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
-
-

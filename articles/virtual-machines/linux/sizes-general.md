@@ -16,15 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 03/22/2017
 ms.date: 05/15/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 232e204e8a76e82acdd15fc09d60154c252afa42
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 17ea2d5d7dc48fede097a7f48ffd5493d6d6f0c1
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="general-purpose-linux-vm-sizes"></a>常规用途 Linux VM 的大小
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-general.md)]

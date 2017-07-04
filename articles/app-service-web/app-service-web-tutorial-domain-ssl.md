@@ -13,15 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 03/29/2017
-ms.date: 05/02/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 565367691c28abb53ccac54c9d414e42be866598
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: ee75e9c6e5ddc8bace07f028669caf8644d13b62
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="add-custom-domain-and-ssl-to-an-azure-web-app"></a>将自定义域和 SSL 添加到 Azure Web 应用
 
@@ -60,15 +58,7 @@ az group create --name myResourceGroup --location chinanorth
 
 使用 [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) 命令创建应用服务计划。 
 
-> [!NOTE] 
-> 应用服务计划表示用于托管应用的物理资源集合。 分配到应用服务计划的所有应用程序将共享该计划定义的资源，在托管多个应用时可以节省成本。 
-> 
-> 应用服务计划定义： 
-> * 区域（中国北部、中国东部） 
-> * 实例大小（小、中、大） 
-> * 规模计数（一个、两个、三个实例，等等） 
-> * SKU（免费、共享、基本、标准、高级）
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 以下示例创建一个名为 `myAppServicePlan` 且使用**基本**定价层的应用服务计划。
 
@@ -128,7 +118,7 @@ az appservice web create --name <app_name> --resource-group myResourceGroup --pl
 http://<app_name>.chinacloudsites.cn 
 ``` 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-created.png)  
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-created.png)  
 
 ## <a name="step-2---configure-dns-mapping"></a>步骤 2 - 配置 DNS 映射
 
@@ -164,13 +154,13 @@ az appservice web config hostname add --webapp <app_name> --resource-group myRes
 http://www.contoso.com 
 ``` 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-custom-domain.png)  
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-custom-domain.png)  
 
 ## <a name="step-4---bind-a-custom-ssl-certificate-to-your-web-app"></a>步骤 4 - 将自定义 SSL 证书绑定到 Web 应用
 
 现在你已有了一个 Azure Web 应用，你希望为其提供的域名显示在浏览器的地址栏中。 但是，如果现在导航到 `https://<your_custom_domain>`，将会发生证书错误。 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-cert-error.png)  
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-cert-error.png)  
 
 之所以发生此错误，是因为 Web 应用还没有与自定义域名匹配的 SSL 证书绑定。 但是，如果导航到 `https://<app_name>.chinacloudsites.cn`，则不会发生错误。 这是因为，默认情况下，应用以及所有 Azure 应用服务应用都由 `*.chinacloudsites.cn` 通配符域的 SSL 证书提供保护。 
 
@@ -315,4 +305,4 @@ Web 应用现在具有了所需的自定义域名，并且它还具有一个用�
 https://www.contoso.com 
 ``` 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-ssl-success.png)  
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-ssl-success.png)

@@ -15,16 +15,14 @@ ms.workload: na
 origin.date: 11/16/2016
 ms.author: v-yiso
 ms.date: 05/22/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: e85c415dde18716f6433e505d81028c28e0b2da9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: e395cef68e7b57cee34d8ced3c4eab1faf80556f
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="cloud-services-faq"></a>云服务常见问题
-本文回答了一些关于 Azure 云服务的常见问题。 你还可以访问 [Azure 支持 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) 了解一般的 Azure 定价和支持信息。 还可以参阅[云服务 VM 大小页面](./cloud-services-sizes-specs.md)，了解大小信息。
+本文回答了一些关于 Microsoft Azure 云服务的常见问题。 你还可以访问 [Azure 支持 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) 了解一般的 Azure 定价和支持信息。 还可以参阅[云服务 VM 大小页面](./cloud-services-sizes-specs.md)，了解大小信息。
 
 ## <a name="certificates"></a>证书
 ### <a name="where-should-i-install-my-certificate"></a>应该在何处安装我的证书？
@@ -101,4 +99,3 @@ Azure 订阅对可以使用的内核数存在限制。 如果已使用所有可�
 ## <a name="remote-desktop"></a>远程桌面
 ### <a name="how-do-i-remote-desktop-when-i-have-an-nsg"></a>设置了 NSG 时，如何使用远程桌面？
 将规则添加到 NSG，允许端口 **3389** 和 **20000** 上的流量。  远程桌面使用端口 **3389**。  云服务实例经过负载均衡，因此无法直接控制要连接到哪个实例。  RemoteForwarder 和 RemoteAccess 代理管理 RDP 流量，允许客户端发送 RDP cookie 和指定要连接到的单个实例。  RemoteForwarder 和 RemoteAccess 代理要求打开端口 **20000***（如果你具有 NSG，此端口可能已被阻止）。
-

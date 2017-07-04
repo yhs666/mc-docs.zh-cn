@@ -13,15 +13,13 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/07/2016
-ms.date: 06/05/2017
+ms.date: 04/17/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 82e414b0ee547bc4110bc80b768c077d950e3be4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: a03d31a4b3b130552ca3d503f6123bd5afc7ad64
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>将 Intel Edison 连接到 Azure IoT 中心 (C)
 
@@ -38,7 +36,7 @@ ms.lasthandoff: 05/26/2017
 * 在 IoT 中心内为 Edison 注册设备。
 * 在 Edison 上运行示例应用程序，以将传感器数据发送到 IoT 中心。
 
-将 Intel Edison 连接到创建的 IoT 中心。 然后，在 Edison 上运行示例应用程序，以从 Grove 温度传感器收集温度和湿度数据。 最后，将传感器数据发送到 IoT 中心。
+将 Intel Edison 连接到创建的 IoT 中心。 然后，在 Edison 上运行示例应用程序，从 Grove 温度传感器收集温度和湿度数据。 最后，将传感器数据发送到 IoT 中心。
 
 ## <a name="what-you-learn"></a>学习内容
 
@@ -53,8 +51,8 @@ ms.lasthandoff: 05/26/2017
 
 * Intel Edison 开发板
 * Arduino 扩展板
-* 一个有效的 Azure 订阅。 如果没有 Azure 帐户，只需花费几分钟就能创建一个 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-* 运行 Windows 或 Linux 的 Mac 或 PC。
+* 一个有效的 Azure 订阅。 如果没有 Azure 帐户，只需花费几分钟就能[创建一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 运行 Windows 或 Linux 的 Mac 或电脑。
 * Internet 连接。
 * Micro B - Type A USB 线缆
 * 直流 (DC) 电源。 电源应符合以下条件：
@@ -64,18 +62,13 @@ ms.lasthandoff: 05/26/2017
 
 以下项可选：
 
-### <a name="create-and-deploy-the-blink-application"></a>创建和部署 blink 应用程序
-克隆 GitHub 提供的示例 blink 应用程序，并使用 gulp 将此应用程序部署到 Intel Edison 板。 此示例应用程序每隔两秒让连接到板的 LED 闪烁一次。
-
-以下项可选：
-
 * Grove Base Shield V2
 * Grove - 温度传感器
 * Grove 电缆
 * 垫条或螺钉（随附在工具包内），其中包括两颗螺钉（用于将模块固定到扩展板上）以及四组螺钉和塑料垫片。
 
 > [!NOTE] 
-上述项可选，因为代码示例支持模拟的传感器数据。
+上述项为可选项，因为代码示例支持模拟的传感器数据。
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
@@ -153,20 +146,20 @@ ms.lasthandoff: 05/26/2017
 请从[此链接](https://software.intel.com/en-us/iot/hardware/edison/downloads)（在 `Installers` 标题下列出）获取最新配置工具。 运行该工具，并按照屏幕上的说明进行操作，在需要时单击“下一步”
 
 ### <a name="flash-firmware"></a>刷写固件
-1. 在 `Set up options` 页上，单击 `Flash Firmware`。
+1. 在`Set up options`页面上，单击`Flash Firmware`。
 2. 执行以下操作之一选择要刷写到开发板上的映像：
    - 若要下载 Intel 提供的最新固件映像并使用该映像来刷写开发板，请选择 `Download the latest image version xxxx`。
    - 若要使用计算机上已保存的映像来刷写开发板，请选择 `Select the local image`。 浏览到要刷写到开发板的映像并选择。
 3. 安装工具将尝试刷写开发板。 整个刷写过程最长可能需要 10 分钟。
 
 ### <a name="set-password"></a>设置密码
-1. 在 `Set up options` 页上，单击 `Enable Security`。
+1. 在`Set up options`页面上，单击`Enable Security`。
 2. 可为 Intel® Edison 开发板设置自定义名称。 这是可选的。
 3. 为开发板键入密码，然后单击 `Set password`。
 4. 记下密码，稍后会用到此密码。
 
 ### <a name="connect-wi-fi"></a>连接 Wi-Fi
-1. 在 `Set up options` 页上，单击 `Connect Wi-Fi`。 计算机将扫描可用的 Wi-Fi 网络，此过程最长可能需要 1 分钟。
+1. 在`Set up options`页面上，单击`Connect Wi-Fi`。 计算机将扫描可用的 Wi-Fi 网络，此过程最长可能需要 1 分钟。
 2. 从 `Detected Networks` 下拉列表中，选择网络。
 3. 从 `Security` 下拉列表中，选择网络的安全类型。
 4. 提供登录名和密码信息，然后单击 `Configure Wi-Fi`。
@@ -236,7 +229,7 @@ ms.lasthandoff: 05/26/2017
    > [!NOTE] 
    确保将设备连接字符串复制并粘贴到单引号中。
 
-应看到以下输出，其中显示传感器数据以及发至 IoT 中心的消息。
+应看到以下输出，其中显示传感器数据以及发送至 IoT 中心的消息。
 
 ![输出 - 从 Intel Edison 发送到 IoT 中心的传感器数据](./media/iot-hub-intel-edison-kit-c-get-started/15_message_sent.png)
 

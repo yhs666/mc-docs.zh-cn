@@ -16,13 +16,11 @@ ms.topic: article
 origin.date: 02/25/2016
 ms.date: 12/12/2016
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: f9d1d587df1ee1f0f907850183a374716366589f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: ed64a035b6add5279c960350c75234765893ecc5
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-app-service-web-app-advanced-config-and-extensions"></a>Azure 应用服务 Web 应用高级配置和扩展
 

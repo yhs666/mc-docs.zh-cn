@@ -3,7 +3,7 @@ title: "SQL Server 的备份和还原 | Azure"
 description: "介绍 Azure 虚拟机上运行的 SQL Server 数据库的备份和还原注意事项。"
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MikeRayMSFT
 manager: jhubbard
 editor: 
 tags: azure-resource-management
@@ -16,13 +16,11 @@ ms.workload: iaas-sql-server
 origin.date: 11/15/2016
 ms.date: 05/15/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 83f67d416763179410a386a38fc0301538f6f79e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: e6efdd18dbdc23550effd868d68f3deeebf1c055
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中 SQL Server 的备份和还原
 ## <a name="overview"></a>概述
@@ -64,10 +62,10 @@ SQL Server 2014 包括以下增强功能：
 
 1. **备份和还原到 Azure**：
 
-    * *SQL Server 备份到 URL* 。 当使用“备份”或“还原”任务或在 SQL Server Management Studio 中使用维护计划向导时，现在可以使用备份到 Azure 的选项。 有关详细信息，请参阅 [SQL Server 备份到 URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)。
-    * *SQL Server 托管备份到 Azure* ：允许自动执行备份管理的新功能。 这对于针对在 Azure 计算机上运行的 SQL Server 2014 实例自动执行备份管理特别有用。 有关详细信息，请参阅 [SQL Server 托管备份到 Azure](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx)。
-    * *自动备份*：在 Azure 中 SQL Server VM 的所有现有和新数据库上，提供额外的自动化功能来自动启用 *SQL Server 托管备份到 Azure*。 有关详细信息，请参阅 [针对 Azure 虚拟机中 SQL Server 的自动备份](virtual-machines-windows-sql-automated-backup.md)。
-    * 有关 SQL Server 2014 备份到 Azure 的所有选项的概述，请参阅[使用 Azure Blob 存储服务执行 SQL Server 备份和还原](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)。
+   * *SQL Server 备份到 URL* 。 当使用“备份”或“还原”任务或在 SQL Server Management Studio 中使用维护计划向导时，现在可以使用备份到 Azure 的选项。 有关详细信息，请参阅 [SQL Server 备份到 URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)。
+   * *SQL Server 托管备份到 Azure* ：允许自动执行备份管理的新功能。 这对于针对在 Azure 计算机上运行的 SQL Server 2014 实例自动执行备份管理特别有用。 有关详细信息，请参阅 [SQL Server 托管备份到 Azure](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx)。
+   * *自动备份*：在 Azure 中 SQL Server VM 的所有现有和新数据库上，提供额外的自动化功能来自动启用 *SQL Server 托管备份到 Azure*。 有关详细信息，请参阅 [针对 Azure 虚拟机中 SQL Server 的自动备份](virtual-machines-windows-sql-automated-backup.md)。
+   * 有关 SQL Server 2014 备份到 Azure 的所有选项的概述，请参阅[使用 Azure Blob 存储服务执行 SQL Server 备份和还原](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)。
 2. **加密**：SQL Server 2014 支持在创建备份时加密数据。 它支持几种加密算法和使用证书或非对称密钥。 有关详细信息，请参阅[备份加密](https://msdn.microsoft.com/library/dn449489%28v=sql.120%29.aspx)。
 
 ## <a name="sql-server-2012"></a>SQL Server 2012
@@ -90,4 +88,3 @@ SQL Server 2014 包括以下增强功能：
 尽管备份和还原可用于迁移数据，但是，Azure VM 上的 SQL Server 可能还存在更便捷的数据迁移路径。 有关迁移选项和建议的完整讨论，请参阅[将数据库迁移到 Azure VM 上的 SQL Server](virtual-machines-windows-migrate-sql.md)。
 
 请查看其他[有关在 Azure 虚拟机中运行 SQL Server 的资源](virtual-machines-windows-sql-server-iaas-overview.md)。
-

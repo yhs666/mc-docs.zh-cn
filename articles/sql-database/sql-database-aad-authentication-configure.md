@@ -16,13 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 05/05/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
 ms.openlocfilehash: 1635cf9445bcea3cad8988efb4c1a3e6ddbca998
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>使用 SQL 数据库或 SQL 数据仓库配置和管理 Azure Active Directory 身份验证
 
@@ -338,5 +336,4 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.chinacloudapi.cn -U bob@contoso.com -
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
-
 

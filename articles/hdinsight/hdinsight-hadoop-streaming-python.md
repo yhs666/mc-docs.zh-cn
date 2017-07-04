@@ -17,13 +17,11 @@ ms.workload: big-data
 origin.date: 05/03/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: b646fb33f1e38e8ff9566f67c3622e134eebac84
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: e2dd9af1b962cee6d9c1e48da9040a08bab2ea7f
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="develop-python-streaming-programs-for-hdinsight"></a>开发适用于 HDInsight 的 Python 流式处理程序
 
@@ -33,13 +31,13 @@ ms.lasthandoff: 05/26/2017
 
 * 基于 Linux 的 HDInsight 上的 Hadoop 群集
 
-    > [!IMPORTANT]
-    > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+  > [!IMPORTANT]
+  > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
 * 文本编辑器
 
-    > [!IMPORTANT]
-    > 文本编辑器必须使用 LF 作为行尾。 在基于 Linux 的 HDInsight 群集上运行 MapReduce 作业时，使用 CRLF 的行尾会导致出错。
+  > [!IMPORTANT]
+  > 文本编辑器必须使用 LF 作为行尾。 在基于 Linux 的 HDInsight 群集上运行 MapReduce 作业时，使用 CRLF 的行尾会导致出错。
 
 * `ssh` 和 `scp` 命令，或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)
 
@@ -65,70 +63,70 @@ Python 可以使用 `sys` 模块从 STDIN 读取数据，并使用 `print` 输�
 
 1. 创建名为 `mapper.py` 的文件并使用以下代码作为内容：
 
-    ```python
-    #!/usr/bin/env python
+   ```python
+   #!/usr/bin/env python
 
-    # Use the sys module
-    import sys
+   # Use the sys module
+   import sys
 
-    # 'file' in this case is STDIN
-    def read_input(file):
-        # Split each line into words
-        for line in file:
-            yield line.split()
+   # 'file' in this case is STDIN
+   def read_input(file):
+       # Split each line into words
+       for line in file:
+           yield line.split()
 
-    def main(separator='\t'):
-        # Read the data using read_input
-        data = read_input(sys.stdin)
-        # Process each words returned from read_input
-        for words in data:
-            # Process each word
-            for word in words:
-                # Write to STDOUT
-                print '%s%s%d' % (word, separator, 1)
+   def main(separator='\t'):
+       # Read the data using read_input
+       data = read_input(sys.stdin)
+       # Process each words returned from read_input
+       for words in data:
+           # Process each word
+           for word in words:
+               # Write to STDOUT
+               print '%s%s%d' % (word, separator, 1)
 
-    if __name__ == "__main__":
-        main()
-    ```
+   if __name__ == "__main__":
+       main()
+   ```
 
 2. 创建名为“reducer.py”的文件并使用以下代码作为内容：
 
-    ```python
-    #!/usr/bin/env python
+   ```python
+   #!/usr/bin/env python
 
-    # import modules
-    from itertools import groupby
-    from operator import itemgetter
-    import sys
+   # import modules
+   from itertools import groupby
+   from operator import itemgetter
+   import sys
 
-    # 'file' in this case is STDIN
-    def read_mapper_output(file, separator='\t'):
-        # Go through each line
-        for line in file:
-            # Strip out the separator character
-            yield line.rstrip().split(separator, 1)
+   # 'file' in this case is STDIN
+   def read_mapper_output(file, separator='\t'):
+       # Go through each line
+       for line in file:
+           # Strip out the separator character
+           yield line.rstrip().split(separator, 1)
 
-    def main(separator='\t'):
-        # Read the data using read_mapper_output
-        data = read_mapper_output(sys.stdin, separator=separator)
-        # Group words and counts into 'group'
-        #   Since MapReduce is a distributed process, each word
-        #   may have multiple counts. 'group' will have all counts
-        #   which can be retrieved using the word as the key.
-        for current_word, group in groupby(data, itemgetter(0)):
-            try:
-                # For each word, pull the count(s) for the word
-                #   from 'group' and create a total count
-                total_count = sum(int(count) for current_word, count in group)
-                # Write to stdout
-                print "%s%s%d" % (current_word, separator, total_count)
-            except ValueError:
-                # Count was not a number, so do nothing
-                pass
+   def main(separator='\t'):
+       # Read the data using read_mapper_output
+       data = read_mapper_output(sys.stdin, separator=separator)
+       # Group words and counts into 'group'
+       #   Since MapReduce is a distributed process, each word
+       #   may have multiple counts. 'group' will have all counts
+       #   which can be retrieved using the word as the key.
+       for current_word, group in groupby(data, itemgetter(0)):
+           try:
+               # For each word, pull the count(s) for the word
+               #   from 'group' and create a total count
+               total_count = sum(int(count) for current_word, count in group)
+               # Write to stdout
+               print "%s%s%d" % (current_word, separator, total_count)
+           except ValueError:
+               # Count was not a number, so do nothing
+               pass
 
-    if __name__ == "__main__":
-        main()
-    ```
+   if __name__ == "__main__":
+       main()
+   ```
 
 ## <a name="run-using-powershell"></a>使用 PowerShell 运行
 
@@ -289,17 +287,17 @@ switch ($defaultStoreageType)
 
     此命令包括以下几个部分：
 
-    * **hadoop-streaming.jar**：运行流式处理 MapReduce 操作时使用。 它可以将 Hadoop 和你提供的外部 MapReduce 代码连接起来。
+   * **hadoop-streaming.jar**：运行流式处理 MapReduce 操作时使用。 它可以将 Hadoop 和你提供的外部 MapReduce 代码连接起来。
 
-    * **-files**：将指定的文件添加到 MapReduce 作业。
+   * **-files**：将指定的文件添加到 MapReduce 作业。
 
-    * **-mapper**：告诉 Hadoop 要用作映射器的文件。
+   * **-mapper**：告诉 Hadoop 要用作映射器的文件。
 
-    * **-reducer**：告诉 Hadoop 要用作化简器的文件。
+   * **-reducer**：告诉 Hadoop 要用作化简器的文件。
 
-    * **-input**：要从中统计字数的输入文件。
+   * **-input**：要从中统计字数的输入文件。
 
-    * **-output**：输出将写入到的目录。
+   * **-output**：输出将写入到的目录。
 
     当 MapReduce 作业运行时，将以百分比形式显示进程。
 
@@ -324,4 +322,3 @@ switch ($defaultStoreageType)
 * [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 作业与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
-

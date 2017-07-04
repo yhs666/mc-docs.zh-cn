@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 054281db37a6d958a64c3e19fc3b32a08c7f13eb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: a1de536c4e2a0a1fd8405092cb2bada261ef6e95
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="key-vault-documentation"></a>Key Vault 文档
 
 了解如何使用 Key Vault 保护和管理云应用程序和服务使用的加密密钥和机密。 教程、API 参考和其他文档介绍了如何创建及维护用于访问和加密资源与解决方案的密钥。

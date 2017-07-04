@@ -16,13 +16,11 @@ ms.workload: big-data
 origin.date: 04/12/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
-ms.openlocfilehash: 8f16d685f2ac0f96079e96d2c572e7e480dda92b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/29/2017
-
-
+ms.openlocfilehash: 4205cb057c1f77c23b67702fdec0a912b28c4029
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>从基于 Windows 的 HDInsight 群集迁移到基于 Linux 的群集
 
@@ -151,7 +149,7 @@ ms.lasthandoff: 04/29/2017
 
 ## <a name="management-and-monitoring"></a>监视和管理
 
-与基于 Windows 的 HDInsight 配合使用的许多 Web UI（例如作业历史记录或 Yarn UI）均可通过 Ambari 使用。 此外，Ambari Hive 视图提供使用 Web 浏览器运行 Hive 查询的方法。 基于 Linux 的群集可从以下位置获得 Ambari Web UI：https://CLUSTERNAME.azurehdinsight.cn 。
+与基于 Windows 的 HDInsight 配合使用的许多 Web UI（例如作业历史记录或 Yarn UI）均可通过 Ambari 使用。 此外，Ambari Hive 视图提供使用 Web 浏览器运行 Hive 查询的方法。 基于 Linux 的群集可从以下位置获得 Ambari Web UI：https://CLUSTERNAME.azurehdinsight.cn。
 
 有关使用 Ambari 的详细信息，请参阅以下文档：
 
@@ -285,4 +283,3 @@ Oozie 工作流支持 shell 操作。 shell 操作将默认 shell 用于操作�
 * [了解如何创建基于 Linux 的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)
 * [使用 SSH 连接到 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [使用 Ambari 管理基于 Linux 的群集](hdinsight-hadoop-manage-ambari.md)
-

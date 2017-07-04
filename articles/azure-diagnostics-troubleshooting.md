@@ -15,14 +15,12 @@ ms.topic: article
 origin.date: 02/09/2017
 ms.date: 06/20/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 8796853fe6c46d62b5838f9f14865688891f195d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 1cc34bd5cf98808036c2eb60841c93f4d7d03881
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 诊断故障排除
 有关使用 Azure 诊断的故障排除信息。 有关 Azure 诊断的详细信息，请参阅 [Azure 诊断概述](./azure-diagnostics.md)。
 

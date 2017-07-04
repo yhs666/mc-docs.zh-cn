@@ -1,5 +1,4 @@
 ---
-
 title: "将 Linux 故障排除 VM 与 Azure CLI 2.0 配合使用 | Azure"
 description: "了解如何通过使用 Azure CLI 2.0 将 OS 磁盘连接到恢复 VM 来排查 Linux VM 问题"
 services: virtual-machines-linux
@@ -8,21 +7,19 @@ authors: iainfoulds
 manager: timlt
 editor: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/16/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: efe188bd74471503c8feedb4f633ea4a1e27497e
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: beb70321f204a590190315f6559ced9ec5ceefaa
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>通过使用 Azure CLI 2.0 将 OS 磁盘附加到恢复 VM 来对 Linux VM 进行故障排除
 如果 Linux 虚拟机 (VM) 遇到启动或磁盘错误，则可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是 `/etc/fstab` 中存在无效条目，使 VM 无法成功启动。 本文详细介绍如何使用 Azure CLI 2.0 将虚拟硬盘连接到另一个 Linux VM，以修复任何错误，然后重新创建原始 VM。 还可以使用 [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
 
@@ -62,7 +59,7 @@ az vm show --resource-group myResourceGroup --name myVM \
     --query [storageProfile.osDisk.vhd.uri] --output tsv
 ```
 
-该 URI 类似于 **https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/myVM.vhd** 。
+该 URI 类似于 **https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/myVM.vhd**。
 
 ## <a name="delete-existing-vm"></a>删除现有 VM
 虚拟硬盘和 VM 在 Azure 中是两个不同的资源。 虚拟硬盘是操作系统本身，存储应用程序和配置。 VM 本身只是定义大小或位置的元数据，引用虚拟硬盘或虚拟网络接口卡 (NIC) 等资源。 每个虚拟硬盘在附加到 VM 时分配有一个租约。 尽管 VM 正在运行时也可以附加和分离数据磁盘，但是，若要分离 OS 磁盘，则必须删除 VM 资源。 即使 VM 处于停止和解除分配状态，租约也继续将 OS 磁盘与 VM 相关联。
@@ -183,4 +180,4 @@ az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployed
 ```
 
 ## <a name="next-steps"></a>后续步骤
-如果在连接到 VM 时遇到问题，请参阅[排查 Azure VM 的 SSH 连接问题](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果在访问 VM 上运行的应用时遇到问题，请参阅[排查 Linux VM 上的应用程序连接问题](troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+如果在连接到 VM 时遇到问题，请参阅[排查 Azure VM 的 SSH 连接问题](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果在访问 VM 上运行的应用时遇到问题，请参阅[排查 Linux VM 上的应用程序连接问题](../windows/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。

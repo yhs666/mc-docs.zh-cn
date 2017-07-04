@@ -16,12 +16,11 @@ origin.date: 03/15/2017
 ms.date: 05/15/2017
 ms.author: v-junlch
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 220dc43d8a4a70057ee4839a80c1e51173bcf756
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 45a95051f3d013566490e12255fcd19dd4996558
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Azure 多重身份验证有什么用途？
 假设 IT 部门的某位同事或老板向用户发送了一封电子邮件，指出他们已对用户帐户添加了附加安全验证。  那么，这是什么意思呢？
@@ -37,17 +36,15 @@ ms.lasthandoff: 05/05/2017
 > [!NOTE]
 > 请注意，IT 部门可能会禁用上述一个或多个选项。  如果是这种情况，则在注册过程中无法使用这些选项。  
 
-现在，已经确定验证方法，可以开始注册了。  使用[设置体验](multi-factor-authentication-end-user-first-time.md)链接开始逐步完成注册过程。
+现在，已经确定验证方法，可以开始注册了。  使用[设置体验](./multi-factor-authentication-end-user-first-time.md)链接开始逐步完成注册过程。
 
 ## <a name="how-to-get-going-with-multi-factor-authentication"></a>如何开始使用多重身份验证
 请选择以下主题之一开始使用。
 
 | 主题 | 说明 |
 |:--- |:--- |
-| [设置体验](multi-factor-authentication-end-user-first-time.md) |介绍第一次设置多重身份验证的过程。 |
-| [登录体验](multi-factor-authentication-end-user-signin.md) |说明使用各种方法（例如电话或应用）登录时可以预期的情况。 |
-| [更改设置](multi-factor-authentication-end-user-manage-settings.md) |说明如何更改设置，例如电话号码或首选注册方法。 |
-| [使用移动应用](microsoft-authenticator-app-how-to.md) |Microsoft Authenticator 应用可用于 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073)。 |
-
-
+| [设置体验](./multi-factor-authentication-end-user-first-time.md) |介绍第一次设置多重身份验证的过程。 |
+| [登录体验](./multi-factor-authentication-end-user-signin.md) |说明使用各种方法（例如电话或应用）登录时可以预期的情况。 |
+| [更改设置](./multi-factor-authentication-end-user-manage-settings.md) |说明如何更改设置，例如电话号码或首选注册方法。 |
+| [使用移动应用](./microsoft-authenticator-app-how-to.md) |Microsoft Authenticator 应用可用于 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073)。 |
 

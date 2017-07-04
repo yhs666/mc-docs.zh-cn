@@ -14,13 +14,11 @@ ms.topic: article
 origin.date: 05/08/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 8cee825f6b1e1d55a2648b4e585535e56b2f2b35
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 1fdc764221181f2709656a9f6d0f41ab2e8e08de
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="understanding-resource-access-in-azure"></a>了解 Azure 中的资源访问权限
 > [!NOTE]
@@ -67,5 +65,4 @@ Azure 中的访问控制首先体现在计费方面。 Azure 帐户的所有者�
 [2]: ./media/active-directory-understanding-resource-access/IC707932.png
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
-
 

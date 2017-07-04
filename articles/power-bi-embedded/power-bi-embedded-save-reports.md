@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: f462b6ad638a13c0620351f7584a665d9a476f3b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 5bcd6143ef3e4bd293e2ff7951842af84aa32335
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="save-reports-in-power-bi-embedded"></a>在 Power BI Embedded 中保存报表
 
 了解如何在 Power BI Embedded 中保存报表。 需要有适当的权限才能成功执行此操作。
@@ -138,6 +136,5 @@ var embedConfiguration = {
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript 嵌入示例](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
-
 
 

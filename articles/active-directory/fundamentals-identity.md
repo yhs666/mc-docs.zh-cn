@@ -16,14 +16,12 @@ origin.date: 04/26/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
 ROBOTS: NOINDEX,NOFOLLOW
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 9c5063dcd6fa612850c4ddf5e216919badcc8619
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: bd24b52fd9fd5d7f6c99f80e90fce9555d08fad3
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="the-fundamentals-of-azure-identity-management"></a>Azure 标识管理基础知识
 [!INCLUDE [identity](../../includes/identity.md)]
-
 

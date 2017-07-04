@@ -16,14 +16,12 @@ ms.workload: tbd
 origin.date: 04/14/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: ec0ea9a6a66f72ddef45779178245effeab71945
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: c9b8f3e93a44a0446af6419ecb7c084aece08768
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="create-a-premium-azure-redis-cache-with-clustering"></a>使用群集功能创建高级 Azure Redis 缓存
 
 本方案介绍如何创建大小为 6 GB、启用了群集功能且包含两个分片的高级层 Azure Redis 缓存。

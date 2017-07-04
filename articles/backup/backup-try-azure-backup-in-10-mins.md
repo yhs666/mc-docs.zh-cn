@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/23/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 85b2a2000d3fc9f13d67e00090ad87e148f5b230
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 2da7f33a227e594c2c9749d1af05e55d5807b94f
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>初步了解：在 Resource Manager 部署中备份文件和文件夹
 本文介绍如何通过 Resource Manager 部署将 Windows Server（或 Windows 计算机）文件和文件夹备份到 Azure。 本教程旨在引导你完成基本操作。 如果想要开始使用 Azure 备份，本文的内容非常合适。
 
-如果想要深入了解 Azure 备份，请阅读此 [概述](backup-introduction-to-azure-backup.md)。
+如果想要深入了解 Azure 备份，请阅读此 [概述](./backup-introduction-to-azure-backup.md)。
 
 将文件和文件夹备份到 Azure 需要进行以下活动：
 
@@ -35,8 +33,10 @@ ms.lasthandoff: 04/14/2017
 ![步骤 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) 下载恢复服务代理并进行安装和注册。<br>
 ![步骤 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) 备份文件和文件夹。
 
+![如何使用 Azure 备份来备份 Windows 计算机](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
+
 ## <a name="get-an-azure-subscription"></a>获取 Azure 订阅
-如果没有 Azure 订阅，可以先创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/) ，这样就可以访问任何 Azure 服务。
+如果没有 Azure 订阅，可以先创建一个 [试用帐户](http://www.azure.cn/pricing/1rmb-trial/) ，这样就可以访问任何 Azure 服务。
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 若要备份文件和文件夹，需在要存储数据的区域内创建恢复服务保管库。 还需确定存储复制方式。
@@ -112,7 +112,7 @@ ms.lasthandoff: 04/14/2017
     ![Windows Server 备份项](./media/backup-try-azure-backup-in-10-mins/specify-backup-schedule-close.png)
 
    > [!NOTE]
-   > 有关如何指定备份计划的详细信息，请参阅 [使用 Azure 备份来取代磁带基础结构](backup-azure-backup-cloud-as-tape.md)一文。
+   > 有关如何指定备份计划的详细信息，请参阅 [使用 Azure 备份来取代磁带基础结构](./backup-azure-backup-cloud-as-tape.md)一文。
    >
 
 8. 在“**选择保留策略**”页上，为备份复制选择“**保留策略**”。
@@ -120,7 +120,7 @@ ms.lasthandoff: 04/14/2017
     保留策略指定备份数据的存储时长。 可以根据备份的创建时间指定不同的保留策略，无需为所有备份点指定一个“通用的策略”。 你可以根据需要修改每日、每周、每月和每年保留策略。
 9. 在“选择初始备份类型”页上，选择初始备份类型。 将“**自动通过网络**”选项保持选中状态，然后单击“**下一步**”。
 
-    你可以通过网络自动备份，或者脱机备份。 本文的余下部分将介绍自动备份过程。 如果你想要执行脱机备份，请查看 [Azure 备份中的脱机备份工作流](backup-azure-backup-import-export.md) 以了解更多信息。
+    你可以通过网络自动备份，或者脱机备份。 本文的余下部分将介绍自动备份过程。 如果你想要执行脱机备份，请查看 [Azure 备份中的脱机备份工作流](./backup-azure-backup-import-export.md) 以了解更多信息。
 10. 在“确认”页上复查信息，然后单击“**完成**”。
 11. 在向导完成创建备份计划后，请单击“**关闭**”。
 
@@ -139,8 +139,5 @@ ms.lasthandoff: 04/14/2017
 如果你有疑问，或者希望包含某种功能，请 [给我们反馈](http://aka.ms/azurebackup_feedback)。
 
 ## <a name="next-steps"></a>后续步骤
-- 详细了解如何 [备份 Windows 计算机](backup-configure-vault.md)。
-- 备份文件和文件夹后，可以 [管理保管库和服务器](backup-azure-manage-windows-server-classic.md)。
-- 如果需要还原备份，请参阅 [将文件还原到 Windows 计算机](backup-azure-restore-windows-server.md)一文。
-
-
+- 详细了解如何 [备份 Windows 计算机](./backup-configure-vault.md)。
+- 如果需要还原备份，请参阅 [将文件还原到 Windows 计算机](./backup-azure-restore-windows-server.md)一文。

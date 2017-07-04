@@ -13,12 +13,11 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 81be0d123382068e1cd4155b2e9b09fa5b006e89
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 6edc3592ca3f811bfea99517a28896b3d7aa0a47
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 #<a name="redis-cache-documentation"></a>Redis 缓存文档
 
@@ -42,7 +41,7 @@ ms.lasthandoff: 05/12/2017
             </div>
         </div>
         </a>
-    </li>
+    </li>   
    <li>
         <a href="/redis-cache/cache-dotnet-how-to-use-azure-redis-cache">
         <div class="cardSize">

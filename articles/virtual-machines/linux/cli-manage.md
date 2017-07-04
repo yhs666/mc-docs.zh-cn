@@ -16,14 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 05/12/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 37ed91f573f1cc11b6b3358a7d7388067bc75db6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: 934430919be8c7fc74eeb7b32f1db7890c9347ca
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="common-azure-cli-20-commands-for-managing-azure-resources"></a>用于管理 Azure 资源的常用 Azure CLI 2.0 命令
 [!INCLUDE [virtual-machines-common-cli-manage](../../../includes/virtual-machines-common-cli-manage.md)]
-

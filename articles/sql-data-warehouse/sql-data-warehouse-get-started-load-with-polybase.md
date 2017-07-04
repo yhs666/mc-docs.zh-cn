@@ -3,7 +3,7 @@ title: "SQL 数据仓库中的 PolyBase 教程 | Azure"
 description: "了解什么是 PolyBase，以及如何将其用于数据仓库方案。"
 services: sql-data-warehouse
 documentationcenter: NA
-author: ckarst
+author: rockboyfor
 manager: jhubbard
 editor: 
 ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
@@ -12,26 +12,27 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 origin.date: 03/01/2017
 ms.date: 04/24/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 9c24523ea3fb5ee1de2807fcf6c829fcfd6b4c40
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: c55ba46c8cfa09a6eee064b3005a51b12eb78212
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>在 SQL 数据仓库中使用 PolyBase 加载数据
 
 > [!div class="op_single_selector"]
-> * [Redgate](./sql-data-warehouse-load-with-redgate.md)
-> * [PolyBase](./sql-data-warehouse-get-started-load-with-polybase.md)
-> * [BCP](./sql-data-warehouse-load-with-bcp.md)
-
+> * [Redgate](sql-data-warehouse-load-with-redgate.md)  
+> * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
+> * [BCP](sql-data-warehouse-load-with-bcp.md)
+> 
+> 
 <!-- Data Factory not supported on Azure.cn-->
 <!-- - [Data Factory](/documentation/articles/sql-data-warehouse-get-started-load-with-azure-data-factory/)-->
+
 
 本教程说明如何使用 AzCopy 和 PolyBase 将数据载入 SQL 数据仓库。 完成后，你将了解如何：
 
@@ -39,7 +40,9 @@ ms.lasthandoff: 04/14/2017
 * 创建数据库对象以定义数据
 * 运行 T-SQL 查询以加载数据
 
-[video](https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player)
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
+> 
+> 
 
 ## <a name="prerequisites"></a>先决条件
 若要逐步完成本教程，需要：
@@ -250,22 +253,22 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 [latest version of AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
-[supported source/sink]: https://msdn.microsoft.com/zh-cn/library/dn894007.aspx
-[copy activity]: https://msdn.microsoft.com/zh-cn/library/dn835035.aspx
-[SQL Server destination adapter]: https://msdn.microsoft.com/zh-cn/library/ms141095.aspx
-[SSIS]: https://msdn.microsoft.com/zh-cn/library/ms141026.aspx
+[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
+[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
+[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
+[SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-[CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/dn935026.aspx
-[CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/dn935021.aspx
+[CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026.aspx
+[CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021.aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/mt130698.aspx
 
-[CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/mt204041.aspx
-[INSERT...SELECT (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/ms174335.aspx
-[CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/ms189522.aspx
-[CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/mt270260.aspx
-[DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/ms189450.aspx
+[CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
+[INSERT...SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/ms174335.aspx
+[CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
+[CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
+[DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx

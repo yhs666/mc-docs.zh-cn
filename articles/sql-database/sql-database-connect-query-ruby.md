@@ -15,15 +15,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
 ms.openlocfilehash: 7c7b5c7c2d744b036d9de1354cb6469169a4ae6c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/14/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="azure-sql-database-use-ruby-to-connect-and-query-data"></a>Azure SQL 数据库：使用 Ruby 进行连接和数据查询
 
 本快速入门演示了如何通过 Mac OS 和 Ubuntu Linux 平台使用 [Ruby](https://Ruby.org) 连接到 Azure SQL 数据库，然后使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。
@@ -67,7 +64,7 @@ gem install tiny_tds
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
-3. 在数据库的“概览”页上，查看如下图所示的完全限定的服务器名称。 可以将鼠标悬停在服务器名称上以打开“单击以复制”选项。 
+3. 在数据库的“概览”页上，查看如下图所示的完全限定的服务器名称。 将鼠标悬停在服务器名称上即可打开“通过单击进行复制”选项。 
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
@@ -192,5 +189,4 @@ delete('BrandNewProduct', client)
 - [TinyTDS 的 GitHub 存储库](https://github.com/rails-sqlserver/tiny_tds)
 - [报告问题/提出问题](https://github.com/rails-sqlserver/tiny_tds/issues)
 - [用于 SQL Server 的 Ruby 驱动程序](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
-
 

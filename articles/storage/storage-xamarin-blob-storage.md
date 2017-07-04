@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 0712690e2e96a074cdca5703a4e035a0519871da
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 22977352c4a4c536e4bed3cc299c05e7c626e467
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>如何通过 Xamarin 使用 Blob 存储
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
@@ -251,5 +249,4 @@ namespace XamarinApp.WinPhone
 * [在 Windows 上开始使用 Azure 文件存储](storage-dotnet-how-to-use-files.md)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
-
 

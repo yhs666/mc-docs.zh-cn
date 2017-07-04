@@ -16,13 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 03/24/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: c13ff082785efe483776734174d75148a2cbbe66
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: fa2916f4ef48e09037ff19a61739b69dacc59b41
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>使用 PowerShell 将多个 IP 地址分配到虚拟机
 
@@ -36,7 +34,7 @@ ms.lasthandoff: 04/22/2017
 
 下面的步骤说明如何根据方案中所述，创建具有多个 IP 地址的示例 VM。 根据实现的需要，更改变量值。
 
-1. 打开 PowerShell 命令提示符，在单个 PowerShell 会话中完成本部分余下的步骤。 如果尚未安装并配置 PowerShell，请先完成[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文中所述的步骤。
+1. 打开 PowerShell 命令提示符，在单个 PowerShell 会话中完成本部分余下的步骤。 如果尚未安装并配置 PowerShell，请先完成[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 一文中所述的步骤。
 2. 使用 `login-azurermaccount` 命令登录你的帐户。
 3. 将 myResourceGroup 和 chinanorth 替换为所选名称和位置。 创建资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
@@ -199,7 +197,7 @@ ms.lasthandoff: 04/22/2017
 
 完成以下步骤即可将专用和公共 IP 地址添加到 NIC。 以下部分的示例假定用户的 VM 已完成本文 [方案](#Scenario) 中描述的三项 IP 配置，但这不是必需的。
 
-1. 打开 PowerShell 命令提示符，在单个 PowerShell 会话中完成本部分余下的步骤。 如果尚未安装并配置 PowerShell，请先完成[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文中所述的步骤。
+1. 打开 PowerShell 命令提示符，在单个 PowerShell 会话中完成本部分余下的步骤。 如果尚未安装并配置 PowerShell，请先完成[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 一文中所述的步骤。
 2. 将以下 $Variable 的“值”分别更改为要向其添加 IP 地址的 NIC 名称，以及 NIC 所在的资源组和位置：
 
     ```powershell
@@ -269,7 +267,7 @@ ms.lasthandoff: 04/22/2017
         -AllocationMethod Static
         ```
 
-        若要新建具有静态专用 IP 地址和关联的 myPublicIp3 公共 IP 地址资源的 IP 配置，请输入下面的命令：
+         若要新建具有静态专用 IP 地址和关联的 myPublicIp3 公共 IP 地址资源的 IP 配置，请输入下面的命令：
 
         ```powershell
         Add-AzureRmNetworkInterfaceIpConfig `
@@ -290,7 +288,7 @@ ms.lasthandoff: 04/22/2017
 
         将显示类似于下面的输出：
 
-        ```        
+        ```     
         Name       PrivateIpAddress PublicIpAddress                                           Primary
 
         IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
@@ -331,4 +329,3 @@ ms.lasthandoff: 04/22/2017
 8. 将专用 IP 地址添加到 VM 操作系统，只需完成本文 [将 IP 地址添加到 VM 操作系统](#os-config) 部分针对操作系统的步骤即可。 请勿向操作系统添加公共 IP 地址。
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

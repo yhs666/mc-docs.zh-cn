@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 04/25/2017
 ms.author: v-junlch
 ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 6707ced20cad22488169f93abb77bddeb83e0416
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: ffea71705e22106b04fa0b87f411232b4cff2372
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>混合标识所需的端口和协议
 以下文档是用于实现混合标识解决方案所需的端口和协议的技术参考。 使用下图并参考相应的表格。
@@ -81,7 +79,7 @@ ms.lasthandoff: 05/26/2017
 |协议|端口号|说明
 | --- | --- | ---
 |HTTP|80|启用出站 HTTP 流量以进行安全验证，例如 SSL。 连接器自动更新功能要正常工作也需要完成此操作。
-|HTTPS|443|    为操作（例如启用和禁用功能、注册连接器、下载连接器更新和处理所有用户登录请求）启用出站 HTTPS 流量。
+|HTTPS|443| 为操作（例如启用和禁用功能、注册连接器、下载连接器更新和处理所有用户登录请求）启用出站 HTTPS 流量。
 
 此外，Azure AD Connect 需要能够建立到 [Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/details.aspx?id=42064)的直接 IP 连接。
 
@@ -89,7 +87,7 @@ ms.lasthandoff: 05/26/2017
 
 |协议|端口号|说明
 | --- | --- | ---
-|HTTPS|443|    启用 SSO 注册（只有 SSO 注册过程才需要）。
+|HTTPS|443| 启用 SSO 注册（只有 SSO 注册过程才需要）。
 
 此外，Azure AD Connect 需要能够建立到 [Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/details.aspx?id=42064)的直接 IP 连接。 同样，这只是 SSO 注册过程所需的。
 
@@ -103,4 +101,3 @@ ms.lasthandoff: 05/26/2017
 | --- | --- | --- |
 | HTTPS |443 (TCP/UDP) |出站 |
 | Azure 服务总线 |5671 (TCP/UDP) |出站 |
-

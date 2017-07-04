@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/01/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: adf9d9cb4cd25eb01d9357c0db78e98515725568
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: f9004b331fc205ab359dc3b0de1cd6e1604bb267
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="simulate-failures-during-service-workloads"></a>在服务工作负荷期间模拟故障
 Azure Service Fabric 中的可测试性方案可让开发人员不用再担心如何处理单个故障。 然而也存在一些方案，可能需要客户端工作负荷与故障有明显的交错。 客户端工作负荷与故障的交错确保在发生故障时，服务实际在执行某些操作。 考虑到可测试性功能提供的控制等级，这些交错应该在精确的工作负荷执行点进行。 这种在应用程序的不同状态下引入故障可以找出 bug 并提高质量。

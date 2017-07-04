@@ -16,14 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/20/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: 242a3bac471395ed31bf9bd85d4a2d65d6de4e5f
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: 0f3515a5bab62a7a3ddc7b98adaf37a2a5121345
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>如何使用 FreeBSD 的数据包筛选器在 Azure 中创建安全防火墙
 本文介绍如何通过 Azure Resource Manager 模板使用 FreeBSD 的数据包筛选器为通用 Web 服务器方案部署 NAT 防火墙。
 
@@ -62,6 +60,6 @@ az network public-ip list --resource-group myResourceGroup
 ## <a name="next-steps"></a>后续步骤
 是否要在 Azure 中设置自己的 NAT？ 是否开源、免费，但功能强大？ 那么 PF 是一个不错的选择。 通过使用模板 [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup)，只需要五分钟即可在 Azure 中使用 FreeBSD 的 PF 为通用 Web 服务器方案设置具有轮循机制负载均衡的 NAT 防火墙。 
 
-如果想要了解 Azure 中的 FreeBSD 产品，请参阅 [Azure FreeBSD 简介](../virtual-machines-freebsd-intro-on-azure.md)。
+如果想要了解 Azure 中的 FreeBSD 产品，请参阅 [Azure FreeBSD 简介](./../virtual-machines-freebsd-intro-on-azure.md)。
 
 如果想要了解有关 PF 的详细信息，请参阅 [FreeBSD 手册](https://www.freebsd.org/doc/handbook/firewalls-pf.html)或 [PF - 用户指南](https://www.freebsd.org/doc/handbook/firewalls-pf.html)。

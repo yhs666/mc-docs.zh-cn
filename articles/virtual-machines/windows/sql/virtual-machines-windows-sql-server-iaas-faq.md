@@ -17,12 +17,11 @@ origin.date: 03/17/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
-ms.openlocfilehash: 3c4a99b8b72423d002c4fabb2be455d84e70bc01
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/14/2017
-
+ms.openlocfilehash: 65c2f92491a600d29987be62bf475dd738f258f4
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-virtual-machines"></a>Azure 虚拟机上的 SQL Server 常见问题
 本主题提供有关运行 [Azure 虚拟机中的 SQL Server](https://www.azure.cn/home/features/virtual-machines/#virtual-machine-SQLserver) 时出现的一些最常见问题的解答。
@@ -82,4 +81,3 @@ ms.lasthandoff: 06/14/2017
 * [Azure 虚拟机中 SQL Server 的高可用性和灾难恢复](virtual-machines-windows-sql-high-availability-dr.md)
 * [Azure 虚拟机中 SQL Server 的性能最佳做法](virtual-machines-windows-sql-performance.md)
 * [Azure 虚拟机中 SQL Server 的应用程序模式和开发策略](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
-

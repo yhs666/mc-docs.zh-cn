@@ -16,13 +16,11 @@ origin.date: 03/27/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.date: 05/15/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: db43f05b5def89f3cf304ac5924e9a8dd589c82f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: 166133d9a547d11ed87e0244b4ced67552529fd9
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 开发大规模并行计算解决方案
 
@@ -494,4 +492,3 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
-

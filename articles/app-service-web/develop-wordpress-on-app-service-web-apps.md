@@ -16,13 +16,11 @@ ms.topic: article
 origin.date: 02/26/2016
 ms.date: 09/26/2016
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 1f29062729e67974f6a2a8097d89734905bdd6a1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: ce7b0b4998d4913dfc1f8e88a5181b2274d0234f
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="developing-wordpress-on-azure-app-service"></a>在 Azure 应用服务上开发 WordPress
 [!INCLUDE [app-service-blueprint-guide-for-wordpress](../../includes/app-service-blueprint-guide-for-wordpress.md)]

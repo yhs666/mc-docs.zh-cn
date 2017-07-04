@@ -13,16 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 03/10/2017
+origin.date: 04/28/2017
 ms.date: 05/15/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: b0ea25ec3167dd65a24244ca6fc8a5f484b91027
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: a99fb3137e73e84aec1a127f96a8cb48c141856d
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>为 Azure 准备基于 Red Hat 的虚拟机
 在本文中，你将了解如何准备 Red Hat Enterprise Linux (RHEL) 虚拟机，以供在 Azure 中使用。 本文介绍的 RHEL 版本为 6.7+ 和 7.1+。 本文所述的用于准备工作的虚拟机监控程序为 Hyper-V、基于内核的虚拟机 (KVM) 和 VMware。 有关参与 Red Hat 云访问计划的资格要求的详细信息，请参阅 [Red Hat 的云访问网站](http://www.redhat.com/en/technologies/cloud-computing/cloud-access)和[在 Azure 上运行 RHEL](https://access.redhat.com/articles/1989673)。
@@ -99,7 +97,7 @@ ms.lasthandoff: 05/05/2017
     图形引导和无人参与引导不适用于云环境，在该环境中我们想要将所有日志都发送到串行端口。  如果需要，可以保留配置的 `crashkernel` 选项。 请注意，此参数可以将虚拟机中的可用内存量减少 128 MB 或更多。 在遇到较小的虚拟机大小时，此配置可能会有问题。
 
     >[!Important]
-    > RHEL 6.5 和更早版本还必须设置 `numa=off` 内核参数。 请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
+    RHEL 6.5 和更早版本还必须设置 `numa=off` 内核参数。 请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
 
 11. 请确保安全外壳 (SSH) 服务器已安装且已配置为在引导时启动（默认采用此配置）。 修改 /etc/ssh/sshd_config 以包含以下行：
 
@@ -135,7 +133,7 @@ ms.lasthandoff: 05/05/2017
 
         # logout
 
-16. 在 Hyper-V 管理器中单击“操作” > “关闭”。 Linux VHD 现已准备好上载到 Azure。
+16. 在 Hyper-V 管理器中单击“操作” > “关闭”。 Linux VHD 现已准备好上传到 Azure。
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>从 Hyper-V 管理器准备 RHEL 7 虚拟机
 
@@ -171,7 +169,7 @@ ms.lasthandoff: 05/05/2017
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-    这还将确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此配置还会关闭 NIC 的新 RHEL 7 命名约定。 除此之外，建议删除以下参数：
+   这还将确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此配置还会关闭 NIC 的新 RHEL 7 命名约定。 除此之外，建议删除以下参数：
 
         rhgb quiet crashkernel=auto
 
@@ -217,7 +215,7 @@ ms.lasthandoff: 05/05/2017
 
         # logout
 
-15. 在 Hyper-V 管理器中单击“操作” > “关闭”。 Linux VHD 现已准备好上载到 Azure。
+15. 在 Hyper-V 管理器中单击“操作” > “关闭”。 Linux VHD 现已准备好上传到 Azure。
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>从 KVM 准备基于 Red Hat 的虚拟机
 ### <a name="prepare-a-rhel-6-virtual-machine-from-kvm"></a>从 KVM 准备 RHEL 6 虚拟机
@@ -239,7 +237,7 @@ ms.lasthandoff: 05/05/2017
         > <fs> vi /etc/shadow
         > <fs> exit
 
-    将 root 用户的第二个字段从“!!”更改 为加密密码。
+   将 root 用户的第二个字段从“!!”更改 为加密密码。
 
 3. 在 KVM 中通过 qcow2 映像创建虚拟机。 将磁盘类型设置为 **qcow2**，将虚拟网络接口设备型号设置为 **virtio**。 然后启动虚拟机，并以 root 身份登录。
 
@@ -285,7 +283,7 @@ ms.lasthandoff: 05/05/2017
     图形引导和无人参与引导不适用于云环境，在该环境中我们想要将所有日志都发送到串行端口。 如果需要，可以保留配置的 `crashkernel` 选项。 请注意，此参数可以将虚拟机中的可用内存量减少 128 MB 或更多，遇到较小的虚拟机大小时，此配置可能会有问题。
 
     >[!Important]
-    > RHEL 6.5 和更早版本还必须设置 `numa=off` 内核参数。 请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
+    RHEL 6.5 和更早版本还必须设置 `numa=off` 内核参数。 请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
 
 10. 将 Hyper-V 模块添加到 initramfs 中：  
 
@@ -350,15 +348,12 @@ ms.lasthandoff: 05/05/2017
 
     请确保原始映像大小为 1 MB。 如果不是，请将大小四舍五入，使其等于 1 MB：
 
-                # MB=$((1024*1024))
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
-
-            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-
-                # qemu-img resize rhel-6.8.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
     将原始磁盘转换为固定大小的 VHD：
 
@@ -383,7 +378,7 @@ ms.lasthandoff: 05/05/2017
         > <fs> vi /etc/shadow
         > <fs> exit
 
-    将 root 用户的第二个字段从“!!”更改 为加密密码。
+   将 root 用户的第二个字段从“!!”更改 为加密密码。
 
 3. 在 KVM 中通过 qcow2 映像创建虚拟机。 将磁盘类型设置为 **qcow2**，将虚拟网络接口设备型号设置为 **virtio**。 然后启动虚拟机，并以 root 身份登录。
 
@@ -415,7 +410,7 @@ ms.lasthandoff: 05/05/2017
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-    此命令还将确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此命令还会关闭 NIC 的新 RHEL 7 命名约定。 除此之外，建议删除以下参数：
+   此命令还将确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此命令还会关闭 NIC 的新 RHEL 7 命名约定。 除此之外，建议删除以下参数：
 
         rhgb quiet crashkernel=auto
 
@@ -429,7 +424,7 @@ ms.lasthandoff: 05/05/2017
 
     编辑 `/etc/dracut.conf` 并添加以下内容：
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
     重新生成 initramfs：
 
@@ -492,15 +487,12 @@ ms.lasthandoff: 05/05/2017
 
     请确保原始映像大小为 1 MB。 如果不是，请将大小四舍五入，使其等于 1 MB：
 
-                # MB=$((1024*1024))
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-7.3.raw" | \
-
-            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-
-                # qemu-img resize rhel-7.3.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
     将原始磁盘转换为固定大小的 VHD：
 
@@ -554,9 +546,9 @@ ms.lasthandoff: 05/05/2017
 
 8. 在 grub 配置中修改内核引导行，以使其包含 Azure 的其他内核参数。 为此，请在文本编辑器中打开 `/etc/default/grub` 并编辑 `GRUB_CMDLINE_LINUX` 参数。 例如：
 
-        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
-    这还将确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此配置还会关闭 NIC 的新 RHEL 7 命名约定。 除此之外，建议删除以下参数：
+   这还将确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 除此之外，建议删除以下参数：
 
         rhgb quiet crashkernel=auto
 
@@ -566,7 +558,7 @@ ms.lasthandoff: 05/05/2017
 
     编辑 `/etc/dracut.conf` 并添加以下内容：
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
     重新生成 initramfs：
 
@@ -612,15 +604,12 @@ ms.lasthandoff: 05/05/2017
 
     请确保原始映像大小为 1 MB。 如果不是，请将大小四舍五入，使其等于 1 MB：
 
-                # MB=$((1024*1024))
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
-
-            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-
-                # qemu-img resize rhel-6.8.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
     将原始磁盘转换为固定大小的 VHD：
 
@@ -655,7 +644,7 @@ ms.lasthandoff: 05/05/2017
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-    此配置还将确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此外，还会关闭 NIC 的新 RHEL 7 命名约定。 除此之外，建议删除以下参数：
+   此配置还将确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此外，还会关闭 NIC 的新 RHEL 7 命名约定。 除此之外，建议删除以下参数：
 
         rhgb quiet crashkernel=auto
 
@@ -719,15 +708,12 @@ ms.lasthandoff: 05/05/2017
 
     请确保原始映像大小为 1 MB。 如果不是，请将大小四舍五入，使其等于 1 MB：
 
-                # MB=$((1024*1024))
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-7.3.raw" | \
-
-            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-
-                # qemu-img resize rhel-7.3.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
     将原始磁盘转换为固定大小的 VHD：
 
@@ -873,7 +859,7 @@ ms.lasthandoff: 05/05/2017
 
 6. 在启动选项的末尾输入 `inst.ks=<the location of the kickstart file>` ，然后按 **Enter**键。
 
-7. 等待安装完成。 完成后，虚拟机将自动关闭。 Linux VHD 现已准备好上载到 Azure。
+7. 等待安装完成。 完成后，虚拟机将自动关闭。 Linux VHD 现已准备好上传到 Azure。
 
 ## <a name="known-issues"></a>已知问题
 ### <a name="the-hyper-v-driver-could-not-be-included-in-the-initial-ram-disk-when-using-a-non-hyper-v-hypervisor"></a>使用非 Hyper-V 虚拟机监控程序时，初始 RAM 磁盘未包含 Hyper-V 驱动程序
@@ -898,4 +884,3 @@ ms.lasthandoff: 05/05/2017
 现在，你可以使用 Red Hat Enterprise Linux 虚拟硬盘在 Azure 中创建新的虚拟机。 如果这是第一次将 .vhd 文件上传到 Azure，请参阅[创建和上传包含 Linux 操作系统的虚拟硬盘](classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)中的步骤 2 和步骤 3。
 
 有关已通过认证可运行 Red Hat Enterprise Linux 的虚拟机监控程序的更多详细信息，请参阅 [Red Hat 网站](https://access.redhat.com/certified-hypervisors)。
-

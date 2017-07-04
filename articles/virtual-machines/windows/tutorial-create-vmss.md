@@ -17,14 +17,12 @@ origin.date: 05/02/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 999d1cbfc9ae9efb723f5bd663ba8c7500c381d3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: edf482e1852d86f1082128349a1a49c4f660571e
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>在 Windows 上创建虚拟机规模集和部署高度可用的应用
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则以根据 CPU 使用率、内存需求或网络流量进行自动缩放。 在本教程中，将在 Azure 中部署虚拟机规模集。 你将学习如何执行以下操作：
 
@@ -35,7 +33,7 @@ ms.lasthandoff: 06/09/2017
 > * 增加或减少规模集中的实例数
 > * 创建自动缩放规则
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 ` Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 ## <a name="scale-set-overview"></a>规模集概述
 规模集使用的概念与前一教程中有关[创建高度可用的 VM](tutorial-availability-sets.md) 的概念类似。 规模集中的 VM 分布在容错和更新域之间，就像可用性集中的 VM 那样。
@@ -299,4 +297,3 @@ Add-AzureRmAutoscaleSetting `
 
 > [!div class="nextstepaction"]
 > [对虚拟机进行负载均衡](tutorial-load-balancer.md)
-

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/02/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: d2eedf435c2b7ef75f6bccd8da2a037fb0ea4c59
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 2829eda6c9e1f6c4ce944d3bb4dc583b6b4b6b6f
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="actor-events"></a>执行组件事件
 执行组件事件提供了一种尽最大努力将通知从执行组件发送到客户端的方法。 执行组件事件设计用于从执行组件到客户端的通信，而不应用于从执行组件到执行组件的通信。
@@ -82,4 +80,3 @@ ev.GameScoreUpdated(Id.GetGuidId(), score);
 * [执行组件诊断和性能监视](service-fabric-reliable-actors-diagnostics.md)
 * [执行组件 API 参考文档](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [代码示例](https://github.com/Azure/servicefabric-samples)
-

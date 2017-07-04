@@ -16,15 +16,12 @@ ms.workload: big-data
 origin.date: 03/21/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: c23a62a837b44f4c2073afa47c503760ff73959b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 123aef98f27df40496057d2444b089d847b0f516
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="os-patching-for-hdinsight"></a>针对 HDInsight 的 OS 修补 
 作为托管的 Hadoop 服务，HDInsight 负责修补 HDInsight 群集使用的基础 VM 的 OS。 自 2016 年 8 月 1 日起，我们已经为基于 Linux 的 HDInsight 群集（版本 3.4 或更高版本）更改了来宾 OS 修补策略。 新策略的目标是显著减少由于修补导致的重启次数。 新策略将继续修补 Linux 群集上的虚拟机 (VM)，开始时间为每个星期一或星期四的凌晨 0 点 (UTC)，采用在任何给定群集中跨节点进行交错修补的方式。 但是，任何给定 VM 最多只会因来宾 OS 修补而 30 天重启一次。 此外，自新创建群集的创建日期起 30 天内，该群集不会发生第一次重启。 重启 VM 后，修补程序即可生效。
 
@@ -44,8 +41,8 @@ ms.lasthandoff: 04/28/2017
 ## <a name="how-to-use-the-script"></a>如何使用此脚本 
 
 使用此脚本需要以下信息：
-1. 脚本位置：https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh 。
-     HDInsight 使用此 URI 在群集中的所有虚拟机上查找并运行脚本。
+1. 脚本位置：https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh。
+    HDInsight 使用此 URI 在群集中的所有虚拟机上查找并运行脚本。
 
 2. 脚本所适用的群集节点类型：头节点、辅助角色节点、zookeeper。 此脚本必须适用于群集中的所有节点类型。 如果此脚本不适用于某个节点类型，则该节点类型的虚拟机会继续使用以前的修补计划。
 
@@ -60,7 +57,7 @@ ms.lasthandoff: 04/28/2017
 
 > [!NOTE]
 > 将其应用于现有群集时，必须将此脚本标记为持久化。 否则，通过缩放操作创建的任何新节点都将使用默认修补计划。
-> 如果在群集创建过程中应用该脚本，则其会自动持久化。
+如果在群集创建过程中应用该脚本，则其会自动持久化。
 >
 
 ## <a name="next-steps"></a>后续步骤
@@ -69,4 +66,3 @@ ms.lasthandoff: 04/28/2017
 
 * [在创建群集期间使用脚本操作](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
 * [将脚本操作应用到正在运行的群集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)
-

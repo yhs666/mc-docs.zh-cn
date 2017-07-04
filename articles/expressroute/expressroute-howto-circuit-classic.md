@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/21/2017
-ms.date: 05/02/2017
+ms.date: 03/21/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eece5b23ce0c05c9e6e8a1938c34faf0383fb06a
-ms.openlocfilehash: 58cd1a83f45a2bcaa1988d7adb4e03a0b153843c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: f09a983521db9b33e3605b7eb58dc9889d06542b
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 创建和修改 ExpressRoute 线路（经典）
 > [!div class="op_single_selector"]
@@ -64,7 +62,7 @@ ms.lasthandoff: 04/25/2017
 
 4. 接下来，使用以下 cmdlet 将 Azure 订阅添加到经典部署模型的 PowerShell。
 
-        Add-AzureAccount -Environment AzureChinaCloud
+    Add-AzureAccount -Environment AzureChinaCloud
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>创建和预配 ExpressRoute 线路
 ### <a name="step-1-import-the-powershell-modules-for-expressroute"></a>步骤 1。 为 ExpressRoute 导入 PowerShell 模块
@@ -91,7 +89,7 @@ PowerShell cmdlet `Get-AzureDedicatedCircuitServiceProvider` 将返回此信息�
 现在，已经准备创建 ExpressRoute 线路。         
 
 ### <a name="step-3-create-an-expressroute-circuit"></a>步骤 3。 创建 ExpressRoute 线路
-以下示例演示如何在北京通过 Beijing Telecom Ethernet 创建 200-Mbps 的 ExpressRoute 线路。 如果使用其他提供商和其他设置，请在发出请求时替换该信息。
+以下示例演示如何在硅谷通过 Equinix 创建 200-Mbps 的 ExpressRoute 线路。 如果使用其他提供商和其他设置，请在发出请求时替换该信息。
 
 >[!IMPORTANT]
 > 从发出服务密钥时开始，将对 ExpressRoute 线路进行计费。 确保在连接服务提供商准备预配线路时执行此操作。
@@ -102,8 +100,8 @@ PowerShell cmdlet `Get-AzureDedicatedCircuitServiceProvider` 将返回此信息�
 
     $Bandwidth = 200
     $CircuitName = "MyTestCircuit"
-    $ServiceProvider = "Beijing Telecom Ethernet"
-    $Location = "Beijing"
+    $ServiceProvider = "Equinix"
+    $Location = "Silicon Valley"
 
     New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard -BillingType MeteredData
 
@@ -125,9 +123,9 @@ PowerShell cmdlet `Get-AzureDedicatedCircuitServiceProvider` 将返回此信息�
 
     Bandwidth                        : 200
     CircuitName                      : MyTestCircuit
-    Location                         : Beijing
+    Location                         : Silicon Valley
     ServiceKey                       : *********************************
-    ServiceProviderName              : Beijing Telecom Ethernet
+    ServiceProviderName              : equinix
     ServiceProviderProvisioningState : NotProvisioned
     Sku                              : Standard
     Status                           : Enabled
@@ -138,9 +136,9 @@ PowerShell cmdlet `Get-AzureDedicatedCircuitServiceProvider` 将返回此信息�
 
     Bandwidth                        : 200
     CircuitName                      : MyTestCircuit
-    Location                         : Beijing
+    Location                         : Silicon Valley
     ServiceKey                       : *********************************
-    ServiceProviderName              : Beijing Telecom Ethernet
+    ServiceProviderName              : equinix
     ServiceProviderProvisioningState : NotProvisioned
     Sku                              : Standard
     Status                           : Enabled
@@ -177,9 +175,9 @@ ExpressRoute 线路必须处于以下状态时才能使用：
 
     Bandwidth                        : 200
     CircuitName                      : MyTestCircuit
-    Location                         : Beijing
+    Location                         : Silicon Valley
     ServiceKey                       : *********************************
-    ServiceProviderName              : Beijing Telecom Ethernet
+    ServiceProviderName              : equinix
     ServiceProviderProvisioningState : Provisioned
     Sku                              : Standard
     Status                           : Enabled
@@ -204,18 +202,18 @@ ExpressRoute 线路必须处于以下状态时才能使用：
 
     Bandwidth                        : 200
     CircuitName                      : MyTestCircuit
-    Location                         : Beijing
+    Location                         : Silicon Valley
     ServiceKey                       : *********************************
-    ServiceProviderName              : Beijing Telecom Ethernet
+    ServiceProviderName              : equinix
     ServiceProviderProvisioningState : Provisioned
     Sku                              : Standard
     Status                           : Enabled
 
     Bandwidth                        : 1000
     CircuitName                      : MyAsiaCircuit
-    Location                         : China
+    Location                         : Singapore
     ServiceKey                       : #################################
-    ServiceProviderName              : Beijing Telecom Ethernet
+    ServiceProviderName              : equinix
     ServiceProviderProvisioningState : Provisioned
     Sku                              : Standard
     Status                           : Enabled
@@ -226,9 +224,9 @@ ExpressRoute 线路必须处于以下状态时才能使用：
 
     Bandwidth                        : 200
     CircuitName                      : MyTestCircuit
-    Location                         : Beijing
+    Location                         : Silicon Valley
     ServiceKey                       : *********************************
-    ServiceProviderName              : Beijing Telecom Ethernet
+    ServiceProviderName              : equinix
     ServiceProviderProvisioningState : Provisioned
     Sku                              : Standard
     Status                           : Enabled
@@ -257,9 +255,9 @@ ExpressRoute 线路必须处于以下状态时才能使用：
 
     Bandwidth                        : 1000
     CircuitName                      : TestCircuit
-    Location                         : Beijing
+    Location                         : Silicon Valley
     ServiceKey                       : *********************************
-    ServiceProviderName              : Beijing Telecom Ethernet
+    ServiceProviderName              : equinix
     ServiceProviderProvisioningState : Provisioned
     Sku                              : Premium
     Status                           : Enabled
@@ -288,9 +286,9 @@ ExpressRoute 线路必须处于以下状态时才能使用：
 
     Bandwidth                        : 1000
     CircuitName                      : TestCircuit
-    Location                         : Beijing
+    Location                         : Silicon Valley
     ServiceKey                       : *********************************
-    ServiceProviderName              : Beijing Telecom Ethernet
+    ServiceProviderName              : equinix
     ServiceProviderProvisioningState : Provisioned
     Sku                              : Standard
     Status                           : Enabled
@@ -314,14 +312,14 @@ ExpressRoute 线路必须处于以下状态时才能使用：
 
     Bandwidth                        : 1000
     CircuitName                      : TestCircuit
-    Location                         : Beijing
+    Location                         : Silicon Valley
     ServiceKey                       : *********************************
-    ServiceProviderName              : Beijing Telecom Ethernet
+    ServiceProviderName              : equinix
     ServiceProviderProvisioningState : Provisioned
     Sku                              : Standard
     Status                           : Enabled
 
-已经在 Azure 端估计线路的大小。必须联系连接提供商，以便根据此更改更新其配置。请注意，将从现在开始按照已更新的带宽选项计费。
+已经在 Microsoft 端估计线路的大小。 必须联系连接提供商，以便根据此更改更新其配置。 请注意，将从现在开始按照已更新的带宽选项计费。
 
 如果在增加线路带宽时看到以下错误，这意味着创建现有线路的物理端口上没有足够的带宽可用。 必须删除此线路，然后创建所需大小的新线路。 
 
@@ -356,4 +354,3 @@ ExpressRoute 线路必须处于以下状态时才能使用：
 
 - [创建和修改 ExpressRoute 线路的路由](./expressroute-howto-routing-classic.md)
 - [将虚拟网络链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-classic.md)
-

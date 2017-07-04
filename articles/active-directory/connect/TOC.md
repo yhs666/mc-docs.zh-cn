@@ -75,6 +75,7 @@
 ### [技术概念](active-directory-aadconnectsync-technical-concepts.md)
 ### [服务功能](active-directory-aadconnectsyncservice-features.md)
 
+
 # 资源
 ##[Azure AD Connect 常见问题解答](active-directory-aadconnect-faq.md)
 ##[DirSync 弃用](active-directory-aadconnect-dirsync-deprecated.md)

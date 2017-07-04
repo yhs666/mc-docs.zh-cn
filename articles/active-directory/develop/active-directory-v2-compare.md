@@ -3,8 +3,8 @@ title: "Azure AD v2.0 终结点中有什么不同？ | Microsoft Docs"
 description: "原始 Azure AD 终结点与 v2.0 终结点之间的比较。"
 services: active-directory
 documentationcenter: 
-author: dstrockis
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
@@ -13,15 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/01/2017
-ms.date: 02/13/2017
+ms.date: 06/26/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 05b04288152a5d161f574cb7798cb4cdef143c7e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: 1df05a39d3cd1141cce6ea44e8e440d20bd78c93
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>v2.0 终结点有什么不同？
 如果你熟悉 Azure Active Directory 或过去已将应用与 Azure AD 集成，v2.0 终结点中可能有一些预料不到的差异。  本文档汇总了这些差异来帮助你了解。
@@ -38,7 +37,7 @@ v2.0 终结点允许开发人员在编写应用时，让应用接受这样一种
 将应用与 Microsoft 帐户和 Azure AD 帐户集成现在是一个简单的过程。  你可以使用一组终结点、单个资源库和单个应用注册来进入消费者和企业的世界。  若要深入了解 v2.0 终结点，请查看[概述](active-directory-appmodel-v2-overview.md)。
 
 ## <a name="new-app-registration-portal"></a>新的应用注册门户
-若要注册使用 v2.0 终结点的应用，必须使用新的应用注册门户：[apps.dev.microsoft.com](https://apps.dev.microsoft.com)。  可以在此门户获取应用程序 ID、自定义应用程序登录页面的外观等。  访问门户时唯一需要的是 Microsoft 支持的帐户 — 个人帐户或工作/学校帐户。
+若要注册使用 v2.0 终结点的应用，必须使用新的应用注册门户：[apps.dev.microsoft.com](https://apps.dev.microsoft.com/?deeplink=/appList)。  可以在此门户获取应用程序 ID、自定义应用程序登录页面的外观等。  访问门户时唯一需要的是 Microsoft 支持的帐户 — 个人帐户或工作/学校帐户。
 
 ## <a name="one-app-id-for-all-platforms"></a>所有平台使用同一个应用 ID
 如果使用过 Azure Active Directory，你可能已为一个项目注册多个不同应用。  例如，如果你同时构建了网站和 iOS 应用，就必须使用两个不同的应用程序 ID 分别注册它们。 以前，Azure AD 应用注册门户强制用户在注册过程中作出以下区分：
@@ -127,5 +126,4 @@ v2.0 终结点颁发的令牌中的声明与正式版 Azure AD 终结点颁发�
 
 ## <a name="limitations"></a>限制
 使用 v2.0 终结点时有一些要注意的限制。  请参阅 [v2.0 限制文档](active-directory-v2-limitations.md)，了解特定方案是否存在任何限制。
-
 

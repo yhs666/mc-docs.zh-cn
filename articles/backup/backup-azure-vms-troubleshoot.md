@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 04/05/2017
 ms.date: 05/22/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 62c12056595a79ad3acb68542cbcbf5b2b863ced
-ms.openlocfilehash: 0f4422f0c51440ad808a823e31b550451f261e26
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/19/2017
-
-
+ms.openlocfilehash: f04bce475decbde7264f596126546ae6f03c6c14
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虚拟机备份疑难解答
 > [!div class="op_single_selector"]
@@ -155,4 +153,3 @@ VM 备份依赖于向底层存储发出快照命令。 如果无法访问存储�
 > 查看有关[设置静态内部专用 IP](../virtual-network/virtual-networks-reserved-private-ip.md) 的详细信息。
 >
 >
-

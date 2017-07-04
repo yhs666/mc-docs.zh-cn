@@ -15,13 +15,11 @@ ms.workload: identity
 origin.date: 05/08/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 87a4b48fec4d4240293cdcc67bed485df515348b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 9074d31d70b1e280d8a5c12217de78c8ec0d8a39
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="what-is-self-service-signup-for-azure"></a>什么是 Azure 的自助服务注册？
 本主题介绍自助注册过程以及如何接管 DNS 域名。  
@@ -206,5 +204,4 @@ ms.lasthandoff: 05/26/2017
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
-
 

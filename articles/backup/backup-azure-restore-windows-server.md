@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 18fc02d2f08465b0d004567086676ba20855c8e0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 346f256f0d4274438204f5b75d855d14791b312d
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>使用 Resource Manager 部署模型将文件还原到 Windows Server 或 Windows 客户端计算机
 > [!div class="op_single_selector"]
-> * [Azure 门户](backup-azure-restore-windows-server.md)
-> * [经典管理门户](backup-azure-restore-windows-server-classic.md)
+> * [Azure 门户](./backup-azure-restore-windows-server.md)
+> * [经典管理门户](./backup-azure-restore-windows-server-classic.md)
 >
 >
 
@@ -229,6 +227,4 @@ ms.lasthandoff: 04/14/2017
     >
 
 ## <a name="next-steps"></a>后续步骤
-- 恢复文件和文件夹后，你可以[管理备份](backup-azure-manage-windows-server-classic.md)。
-
-
+- 恢复文件和文件夹后，你可以[管理备份](./backup-azure-manage-windows-server-classic.md)。

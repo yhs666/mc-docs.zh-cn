@@ -17,14 +17,12 @@ origin.date: 05/02/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 937a2f9cf3af99f7fdbe458864d2327217327bec
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 95ea0e69fe1c81e54592fb003384c1422fb92523
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>如何在 Azure 中均衡 Windows 虚拟机负载以创建具有高可用性的应用程序
 负载均衡通过将传入请求分布到多个虚拟机来提供更高级别的可用性。 本教程介绍了 Azure 负载均衡器的不同组件，这些组件用于分发流量和提供高可用性。 你将学习如何执行以下操作：
 
@@ -37,10 +35,10 @@ ms.lasthandoff: 06/09/2017
 > * 查看负载均衡器的实际运行情况
 > * 在负载均衡器中添加和删除 VM
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 ` Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 ## <a name="azure-load-balancer-overview"></a>Azure 负载均衡器概述
-Azure 负载均衡器是位于第 4 层（TCP、UDP）的负载均衡器，通过在正常运行的 VM 之间分发传入流量提供高可用性。 负载均衡器运行状况探测器监视每个 VM 上的给定端口，并仅将流量分发给正常运行的 VM。
+Azure 负载均衡器是位于第 4 层（TCP、UDP）的负载均衡器，通过在正常运行的 VM 之间分发传入流量提供高可用性。 负载均衡器运行状况探测器监视每个 VM 上的给定端口，仅将流量分发给正常运行的 VM。
 
 定义包含一个或多个公共 IP 地址的前端 IP 配置。 利用此前端 IP 配置，可通过 Internet 访问负载均衡器和应用程序。 
 
@@ -276,7 +274,7 @@ for ($i=1; $i -le 3; $i++)
 ```
 
 ## <a name="test-load-balancer"></a>测试负载均衡器
-使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 获取负载均衡器的公共 IP 地址。 以下示例获取前面创建的 myPublicIP 的 IP 地址：
+使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 获取负载均衡器的公共 IP 地址。 以下示例获取前面创建的“myPublicIP”的 IP 地址：
 
 ```powershell
 Get-AzureRmPublicIPAddress `
@@ -284,7 +282,7 @@ Get-AzureRmPublicIPAddress `
   -Name myPublicIP | select IpAddress
 ```
 
-然后，可将公共 IP 地址输入 web 浏览器中。 网站随即显示，其中包括负载均衡器将流量分发到的 VM 的主机名，如下例所示：
+然后，可将公共 IP 地址输入 Web 浏览器中。 网站随即显示，其中包括负载均衡器将流量分发到的 VM 的主机名，如下例所示：
 
 ![运行 IIS 网站](./media/tutorial-load-balancer/running-iis-website.png)
 
@@ -321,7 +319,7 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已创建了一个负载均衡器并已将 VM 附加到它。 你已学习了如何执行以下操作：
+在本教程中，你已创建了一个负载均衡器并已将 VM 附加到它。 你已了解如何：
 
 > [!div class="checklist"]
 > * 创建 Azure 负载均衡器

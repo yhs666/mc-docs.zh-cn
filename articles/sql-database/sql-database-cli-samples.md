@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 03/07/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: b358c7c83898a96f09bda78787868510d1176bcc
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 8d70264d4a26fafcad8620807f1cc2fe733bac29
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="azure-cli-samples-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Azure CLI 示例
 
 下表包括 Azure SQL 数据库的示例 Azure CLI 脚本的链接。
@@ -37,4 +35,3 @@ ms.lasthandoff: 04/07/2017
 | [缩放单一数据库](scripts/sql-database-monitor-and-scale-database-cli.md) | 在查询数据库的大小信息后，将单个 Azure SQL 数据库缩放为不同的性能级别。 |
 | [缩放弹性池](scripts/sql-database-scale-pool-cli.md) | 将弹性池缩放为不同的性能级别。  |
 |||
-

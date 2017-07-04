@@ -17,13 +17,11 @@ ms.workload: big-data
 origin.date: 05/12/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 752bab0a597a5ad14194b560a9a486ec4114fe7f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 5b55becc95ccd7e152801de287698aa31e6b9e40
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>在 HDInsight 上使用 Python 开发 Apache Storm 拓扑
 
@@ -147,6 +145,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 
 > [!NOTE]
 > 启动后，Storm 拓扑会一直运行，直到被停止。 若要停止拓扑，可使用以下方法之一：
+>
 > * 从命令行运行 `storm kill TOPOLOGYNAME` 命令
 > * Storm UI 中的“终止”按钮。
 
@@ -156,4 +155,3 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 
 * [如何使用 Python 流式处理 MapReduce 作业](hdinsight-hadoop-streaming-python.md)
 * [如何在 Pig 和 Hive 中使用 Python 用户定义函数 (UDF) ](hdinsight-python.md)
-

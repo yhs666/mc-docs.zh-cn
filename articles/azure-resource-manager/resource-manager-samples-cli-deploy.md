@@ -3,7 +3,7 @@ title: "Azure CLI 脚本示例 - 部署模板 | Azure"
 description: "用于部署 Azure Resource Manager 模板的示例脚本。"
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -15,13 +15,11 @@ ms.workload: na
 origin.date: 04/19/2017
 ms.date: 06/05/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 9385b7ff9b3e7a82fa5d8f8e54c74fce223dd269
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: bdba915f453adff997a394fd724d6cb77d43bc8f
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="azure-resource-manager-template-deployment---azure-cli-script"></a>Azure Resource Manager 模板部署 - Azure CLI 脚本
 

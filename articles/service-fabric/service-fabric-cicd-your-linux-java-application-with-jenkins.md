@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/27/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 335f41e2e4a40e64e87382ea338673de3ab79c27
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 2d68ed8df2957337696d4086f50e2715b716d892
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="build-and-deploy-your-linux-java-application-using-jenkins"></a>使用 Jenkins 生成和部署 Linux Java 应用程序
 Jenkins 是常用的持续集成和部署工具。 本文档介绍如何使用 Jenkins 生成和部署 Service Fabric 应用程序。
@@ -97,9 +95,9 @@ bash Scripts/install.sh
     * 从门户 ``http://<HOST-IP>:8080`` 登录到 Jenkins 仪表板时，需要此密码
     * 首次登录以后，即可创建自己的用户帐户以备将来之用，也可继续使用管理员帐户。 一旦创建用户，接下来需使用这个用户。
   5. 执行[此链接](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)中提到的步骤，设置适用于 Jenkins 的 GitHub。
-      * 根据 GitHub 中提供的说明生成 SSH 密钥，然后将 SSH 密钥添加到托管存储库的 GitHub 帐户。
-      * 在 Jenkins Docker 外壳程序中（不是在主机上）运行上述链接中提到的命令
-      * 若要从主机登录到 Jenkins 外科程序，请使用以下命令：
+    * 根据 GitHub 中提供的说明生成 SSH 密钥，然后将 SSH 密钥添加到托管存储库的 GitHub 帐户。
+    * 在 Jenkins Docker 外壳程序中（不是在主机上）运行上述链接中提到的命令
+    * 若要从主机登录到 Jenkins 外科程序，请使用以下命令：
 
       ```sh
       docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
@@ -145,4 +143,3 @@ bash Scripts/install.sh
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png
   [post-build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/post-build-step.png
-

@@ -9,7 +9,7 @@ editor:
 tags: azure-resource-manager
 ms.assetid: 7a858e38-4f17-4e8e-a28a-c7f801101721
 ms.service: virtual-machines-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -17,12 +17,11 @@ origin.date: 02/15/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 5921ae7c25bbc90b4d89e2d8f950fc77aa24f91f
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 8fea334489c0a376e7b7e87a17d61ed27deed690
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="how-to-find-linux-vm-images-with-the-azure-cli"></a>如何使用 Azure CLI 查找 Linux VM 映像
 本主题介绍如何查找每个部署目标位置的发布者、产品、SKU 和版本。 
@@ -37,16 +36,15 @@ ms.lasthandoff: 04/14/2017
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
-WindowsServer  MicrosoftWindowsServer  2016-Datacenter     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest     Win2016Datacenter    latest
+WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
 WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
 WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
-WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
-CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
-CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
-openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42.2:latest                                  openSUSE-Leap        latest
-SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
-UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
+UbuntuServer   Canonical               14.04.3-LTS         Canonical:UbuntuServer:14.04.3-LTS:latest                       UbuntuLTS            latest
+CentOS         OpenLogic               7.2                 OpenLogic:CentOS:7.2:latest                                     CentOS               latest
+openSUSE       SUSE                    13.2                SUSE:openSUSE:13.2:latest                                       openSUSE             latest
+SLES           SUSE                    12-SP1              SUSE:SLES:12-SP1:latest                                         SLES                 latest
 Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
 ### <a name="finding-all-current-images"></a>查找所有当前映像
@@ -77,7 +75,7 @@ Debian  credativ    8     credativ:Debian:8:8.0.201701180  8.0.201701180
 
 如果知道部署位置，则可以将常规映像搜索结果与 `az vm image list-skus`、`az vm image list-offers` 和 `az vm image list-publishers` 命令一起使用，以查找所需的精确内容以及可以进行部署的位置。 例如，如果从前面的示例知道 `credativ` 具有 Debian 产品/服务，则可以使用 `--location` 和其他选项查找所需的精确内容。 以下示例在 **chinanorth**中查找一个 Debian 8 映像：
 
-```azurecli
+```azurecli 
 az vm image show -l chinanorth -f debian -p credativ --sku 8 --version 8.0.201701180
 ```
 

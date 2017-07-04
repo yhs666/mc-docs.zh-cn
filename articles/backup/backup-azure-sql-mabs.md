@@ -15,12 +15,11 @@ ms.topic: article
 origin.date: 03/24/2017
 ms.author: v-junlch
 ms.date: 05/15/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3ff18e6f95d8bbc27348658bc5fce50c3320cf0a
-ms.openlocfilehash: bc56e629b0e90d9703168aa05fc040d0b364f927
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/15/2017
-
+ms.openlocfilehash: 02184e06455fe723dafee5eaf9fd0633bb5f9207
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>使用 Azure 备份服务器将 SQL Server 备份到 Azure
 本文将引导你使用 Azure 备份服务器 (MABS) 来完成 SQL Server 数据库的备份配置步骤。
@@ -32,7 +31,7 @@ ms.lasthandoff: 05/15/2017
 3. 从 Azure 恢复数据库。
 
 ## <a name="before-you-start"></a>开始之前
-在开始之前，请确保[已安装并准备好 Azure 备份服务器](backup-azure-microsoft-azure-backup-classic.md)。
+在开始之前，请确保[已安装并准备好 Azure 备份服务器](./backup-azure-microsoft-azure-backup-classic.md)。
 
 ## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>创建备份策略以保护要备份到 Azure 的 SQL Server 数据库
 1. 在 Azure 备份服务器 UI 中，单击“保护”工作区。
@@ -97,7 +96,7 @@ ms.lasthandoff: 05/15/2017
 
     **最佳实践**：确保在使用 DPM 完成本地磁盘备份后安排好 Azure 备份。 这样就可以将最新磁盘备份复制到 Azure。
 
-13. 选择保留策略计划。 有关保留策略工作原理的详细信息，请参阅[使用 Azure 备份来取代磁带基础结构文章](backup-azure-backup-cloud-as-tape.md)。
+13. 选择保留策略计划。 有关保留策略工作原理的详细信息，请参阅[使用 Azure 备份来取代磁带基础结构文章](./backup-azure-backup-cloud-as-tape.md)。
 
     ![保留策略](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
@@ -110,7 +109,7 @@ ms.lasthandoff: 05/15/2017
 14. 单击“**下一步**”，选择相应的选项将初始备份副本传输到 Azure。 你可以选择“**自动通过网络**”或“**脱机备份**”。
 
     - “**自动通过网络**”会根据为备份选择的计划将备份数据传输到 Azure。
-    - “**脱机备份**”的工作原理详见 [Azure 备份中的脱机备份工作流](backup-azure-backup-import-export.md)。
+    - “**脱机备份**”的工作原理详见 [Azure 备份中的脱机备份工作流](./backup-azure-backup-import-export.md)。
 
     选择将初始备份副本发送到 Azure 的相关传输机制，然后单击“**下一步**”。
 15. 在“**摘要**”屏幕中查看策略详细信息以后，单击“**创建组**”按钮即可完成工作流的操作。 你可以单击“**关闭**”按钮，然后即可在“监视”工作区中监视作业进度。
@@ -157,6 +156,4 @@ ms.lasthandoff: 05/15/2017
     完成恢复操作后，还原的数据库在应用程序级别将是一致的。
 
 ### <a name="next-steps"></a>后续步骤：
-•    [Azure 备份常见问题解答](backup-azure-backup-faq.md)
-
-
+•    [Azure 备份常见问题解答](./backup-azure-backup-faq.md)

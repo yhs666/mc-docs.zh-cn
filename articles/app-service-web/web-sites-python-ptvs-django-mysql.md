@@ -15,13 +15,11 @@ ms.topic: get-started-article
 origin.date: 07/07/2016
 ms.date: 03/17/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 7dece0eefad0f9f9825bc0463771aaae0e9574cf
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 603be2f543177a0a0b1c27e1cdc4ef5f77334447
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="django-and-mysql-on-azure-with-python-tools-22-for-visual-studio"></a>Azure 上具有 Python Tools 2.2 for Visual Studio 的 Django 和 MySQL
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
@@ -121,11 +119,11 @@ ms.lasthandoff: 05/19/2017
 3. 单击“新建”  ，新建一个 Web 应用。
 4. 填写以下字段，然后单击“创建” ：
 
-    * **Web 应用名称**
-    * **应用服务计划**
-    * **资源组**
-    * **区域**
-    * 保持“数据库服务器”的“无数据库”设置不变
+   * **Web 应用名称**
+   * **应用服务计划**
+   * **资源组**
+   * **区域**
+   * 保持“数据库服务器”的“无数据库”设置不变
 5. 接受其他所有默认值，然后单击 **发布**。
 6. 此时，你的 Web 浏览器会自动打开已发布的 Web 应用。 Web 应用将使用在 Azure 上托管的 **MySQL** 数据库按预期方式运行。
 
@@ -137,9 +135,9 @@ ms.lasthandoff: 05/19/2017
 请按照下面的链接以了解有关 Python Tools for Visual Studio、Django 和 MySQL 的更多信息。
 
 * [Python Tools for Visual Studio 文档]
-    * [Web 项目]
-    * [云服务项目]
-    * [在 Azure 中进行远程调试]
+  * [Web 项目]
+  * [云服务项目]
+  * [在 Azure 中进行远程调试]
 * [Django 文档]
 * [MySQL]
 

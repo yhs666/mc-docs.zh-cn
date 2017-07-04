@@ -16,13 +16,11 @@ ms.workload: big-data
 origin.date: 04/04/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
-ms.openlocfilehash: 477bce18661f9323baeba7578c0d7ae8fed8d0a1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/29/2017
-
-
+ms.openlocfilehash: c7ef73e10faf0e626e193346d0024803d8227326
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>在 HDInsight 中通过 Hive 使用 Java UDF
 
@@ -56,8 +54,8 @@ ms.lasthandoff: 04/29/2017
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    > [!NOTE]
-    > 如果使用 PowerShell，必须将参数用引号引起来。 例如，`mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`。
+   > [!NOTE]
+   > 如果使用 PowerShell，必须将参数用引号引起来。 例如，`mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`。
 
     此命令创建一个名为 **exampleudf** 的目录，其中包含 Maven 项目。
 
@@ -250,4 +248,3 @@ ms.lasthandoff: 04/29/2017
 有关使用 Hive 的其他方式，请参阅[将 HDInsight 与 Hive 配合使用](hdinsight-use-hive.md)。
 
 有关 Hive 用户定义函数的详细信息，请参阅 apache.org 网站上的 Hive wiki 的 [Hive 运算符和用户定义函数](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) 部分。
-

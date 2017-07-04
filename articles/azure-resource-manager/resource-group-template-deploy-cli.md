@@ -3,7 +3,7 @@ title: "使用 Azure CLI 和模板部署资源 | Azure"
 description: "使用 Azure Resource Manager 和 Azure CLI 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。"
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 ms.assetid: 493b7932-8d1e-4499-912c-26098282ec95
@@ -15,13 +15,11 @@ ms.workload: na
 origin.date: 05/15/2017
 ms.date: 06/05/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 78a07f59f8cb8c719f614d0051d63457c77283d8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 60dbfcbed5ff66cf3bc8acb56a51bc04f39f21ad
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 模板和 Azure CLI 部署资源
 
@@ -62,7 +60,7 @@ az group deployment create \
 
 ## <a name="deploy-a-template-from-an-external-source"></a>从外部源部署模板
 
-你可能更愿意将 Resource Manager 模板存储在外部位置，而不是将它们存储在本地计算机上。 可以将模板存储在源控件存储库（例如 GitHub）中。 另外，还可以将其存储在 Azure 存储帐户中，以便在组织中共享访问。
+你可能更愿意将 Resource Manager 模板存储在外部位置，而不是存储在本地计算机上。 可以将模板存储在源控件存储库（例如 GitHub）中。 另外，还可以将其存储在 Azure 存储帐户中，以便在组织中共享访问。
 
 若要部署外部模板，请使用 **template-uri** 参数。 使用示例中的 URI 从 GitHub 部署示例模板。
 
@@ -74,11 +72,11 @@ az group deployment create \
     --parameters "{\"storageAccountType\":{\"value\":\"Standard_GRS\"}}"
 ```
 
-前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 有关部署需要共享访问签名 (SAS) 令牌的模板的信息，请参阅[部署具有 SAS 令牌的专用模板](resource-manager-cli-sas-token.md)。
+前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 若要了解如何部署需要共享访问签名 (SAS) 令牌的模板，请参阅[部署具有 SAS 令牌的专用模板](resource-manager-cli-sas-token.md)。
 
 ## <a name="parameter-files"></a>参数文件
 
-与在脚本中以内联值的形式传递参数相比，你可能会发现使用包含参数值的 JSON 文件更为容易。 参数文件必须采用以下格式：
+你可能会发现，与在脚本中以内联值的形式传递参数相比，使用包含参数值的 JSON 文件更为容易。 参数文件必须采用以下格式：
 
 ```json
 {

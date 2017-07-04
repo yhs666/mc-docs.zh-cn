@@ -16,14 +16,12 @@ ms.topic: article
 origin.date: 02/14/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 479e96eee43284195d57845813095c63171ae38e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: b794c58b86e83bb5da63e1ce587cda795effdc07
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>了解虚拟机规模集模板
 [Azure Resource Manager 模板](/azure-resource-manager/resource-group-overview#template-deployment)是部署成组的相关资源的好办法。 本系列教程演示如何创建最小的可行规模集模板，以及如何修改此模板以满足各种场景。 所有示例都来自此 [GitHub 存储库](https://github.com/gatneil/mvss)。 
 
@@ -214,4 +212,3 @@ Resource Manager 模板还可用于定义稍后要在模板中使用的变量。
 ## <a name="next-steps"></a>后续步骤
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 05/08/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 34759dab570479cb22651f2d64b72bba61759083
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 97338b1afabafc432e24e429ea95b1fe1e098d85
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="what-is-azure-active-directory"></a>什么是 Azure Active Directory？
 Azure Active Directory (Azure AD) 是 Microsoft 提供的基于多租户云的目录和标识管理服务。
@@ -84,4 +82,3 @@ Azure AD 是多客户公共目录服务，这意味着用户可以在 Azure AD �
 
 - [从任意位置管理密码](./active-directory-passwords.md)
 - [Azure Active Directory 的应用程序访问与单一登录是什么？](./active-directory-appssoaccess-whatis.md)
-

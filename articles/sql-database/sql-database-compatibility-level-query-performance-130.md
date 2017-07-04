@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: d19d6dfb743d1c4a7e38a807446a72d2d1c0418d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
-
+ms.openlocfilehash: 12718ba3e7c69178e841289475b2b26cac454c58
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="improved-query-performance-with-compatibility-level-130-in-azure-sql-database"></a>已改善 Azure SQL 数据库中兼容级别 130 的查询性能
 Azure SQL 数据库在许多不同的兼容级别上以透明方式运行数十万个数据库，对其所有客户保留并保证对应 Microsoft SQL Server 版本的向后兼容性！
@@ -436,5 +434,4 @@ SET STATISTICS XML OFF;
 * [Optimizing Your Query Plans with the SQL Server 2014 Cardinality Estimator](https://msdn.microsoft.com/library/dn673537.aspx)（使用 SQL Server 2014 基数估算器优化查询计划）
 * [列存储索引指南](https://msdn.microsoft.com/library/gg492088.aspx)
 * Alain Lissoir 在 2016 年 5 月 6 日发表的博客文章：[Improved Query Performance with Compatibility Level 130 in Azure SQL Database](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/05/06/improved-query-performance-with-compatibility-level-130-in-azure-sql-database/)（已改善 Azure SQL 数据库中兼容级别 130 的查询性能）
-
 

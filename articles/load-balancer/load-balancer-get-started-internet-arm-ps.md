@@ -3,8 +3,8 @@ title: "创建 Azure 面向 Internet 的负载均衡器 - PowerShell | Azure"
 description: "了解如何使用 PowerShell 在 Resource Manager 中创建面向 Internet 的负载均衡器"
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 tags: azure-resource-manager
 ms.assetid: 8257f548-7019-417f-b15f-d004a1eec826
 ms.service: load-balancer
@@ -15,14 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 01/23/2017
 ms.date: 05/08/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: f7f6041675505ead5fed0eaa320856a8494a0b8e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: f50e7f477ccb4baec3d0177c70ccc08369bf9f31
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-
 # <a name="get-started"></a>使用 PowerShell 在 Resource Manager 中创建面向 Internet 的负载均衡器
 > [!div class="op_single_selector"]
 > * [门户](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -241,7 +239,7 @@ ms.lasthandoff: 04/28/2017
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-有关创建虚拟机和分配 NIC 的指南，请参阅[使用 PowerShell 创建 Azure VM](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fload-balancer%2ftoc.json)。
+有关创建虚拟机和分配 NIC 的指南，请参阅[使用 PowerShell 创建 Azure VM](../virtual-machines/virtual-machines-windows-quick-create-powershell.md?toc=%2fload-balancer%2ftoc.json)。
 
 ## <a name="add-the-network-interface-to-the-load-balancer"></a>向负载均衡器添加网络接口
 

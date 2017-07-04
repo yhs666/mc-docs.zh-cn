@@ -9,16 +9,15 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: reference
 ms.assetid: 95f7762a-a715-4c83-907b-8aed004e69b1
-caps.latest.revision: 3
+caps.latest.revision: "3"
 author: tamram
 ms.author: v-junlch
 manager: timlt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 17dc13ac1552bf26fca353e86603c917113ac14d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 273f4a18032538c2d9e6ca3eb011d46ac70921f1
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="task-start-event"></a>任务开始事件
 任务开始事件日志正文
@@ -86,4 +85,3 @@ ms.lasthandoff: 05/05/2017
 |元素名称|类型|说明|
 |------------------|----------|-----------|
 |retryCount|Int32|批处理服务重试任务的次数。 如果任务使用非零退出代码退出，该任务会重试，直至达到指定的 MaxTaskRetryCount|
-

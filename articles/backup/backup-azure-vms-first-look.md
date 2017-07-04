@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/10/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 6e80c0d475a710a2282ca89f72707c8b2cc463bf
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 2b799ee8de91c64e589b977c552dd4b9fa5e074e
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="first-look-backing-up-azure-virtual-machines"></a>初步了解：备份 Azure 虚拟机
 
@@ -29,7 +27,7 @@ ms.lasthandoff: 04/14/2017
 若要顺利完成本教程，必须满足以下先决条件：
 
 - 你已在 Azure 订阅中创建了一个 VM。
-- VM 已连接到 Azure 公共 IP 地址。 有关更多信息，请参阅[网络连接](backup-azure-vms-prepare.md#network-connectivity)。
+- VM 已连接到 Azure 公共 IP 地址。 有关更多信息，请参阅[网络连接](./backup-azure-vms-prepare.md#network-connectivity)。
 
 
 > [!NOTE]
@@ -93,9 +91,9 @@ ms.lasthandoff: 04/14/2017
     ![注册状态 2](./media/backup-azure-vms/register-status02.png)
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>在虚拟机中安装 VM 代理
-Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 如果 VM 是从 Azure 库创建的，则该 VM 上已包含 VM 代理；你可以跳到[保护 VM](backup-azure-vms-first-look.md#create-the-backup-policy)。
+Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 如果 VM 是从 Azure 库创建的，则该 VM 上已包含 VM 代理；你可以跳到[保护 VM](./backup-azure-vms-first-look.md#create-the-backup-policy)。
 
-如果你的 VM 是从本地数据中心迁移的，则该 VM 上可能尚未安装 VM 代理。 必须先在虚拟机上安装 VM 代理，然后才能继续保护 VM。 有关安装 VM 代理的详细步骤，请参阅 [“备份 VMs”一文中“VM 代理”部分](backup-azure-vms-prepare.md#vm-agent)。
+如果你的 VM 是从本地数据中心迁移的，则该 VM 上可能尚未安装 VM 代理。 必须先在虚拟机上安装 VM 代理，然后才能继续保护 VM。 有关安装 VM 代理的详细步骤，请参阅 [“备份 VMs”一文中“VM 代理”部分](./backup-azure-vms-prepare.md#vm-agent)。
 
 ## 创建备份策略 <a name="create-the-backup-policy"></a>
 在触发初始备份作业之前，请设置计划来规定何时创建备份快照。 规定备份快照创建时间以及快照保留时长的计划就是备份策略。 保留期信息基于祖父-父-子备份轮转方案。
@@ -161,11 +159,9 @@ Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 
 ## <a name="next-steps"></a>后续步骤
 成功备份 VM 后，你可能需要执行几个相关的步骤。 最合理的步骤是熟悉将数据还原到 VM 的操作。 但是，有几个管理任务可帮助了解如何确保数据安全和最大限度地降低成本。
 
-- [管理和监视你的虚拟机](backup-azure-manage-vms-classic.md)
-- [恢复虚拟机](backup-azure-restore-vms.md)
-- [故障排除指南](backup-azure-vms-troubleshoot.md)
+- [管理和监视你的虚拟机](./backup-azure-manage-vms-classic.md)
+- [恢复虚拟机](./backup-azure-restore-vms.md)
+- [故障排除指南](./backup-azure-vms-troubleshoot.md)
 
 ## <a name="questions"></a>有疑问？
 如果你有疑问，或者希望包含某种功能，请 [给我们反馈](http://aka.ms/azurebackup_feedback)。
-
-

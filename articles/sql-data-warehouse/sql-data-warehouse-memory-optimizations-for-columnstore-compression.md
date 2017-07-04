@@ -3,7 +3,7 @@ title: "提高 Azure SQL 中的列存储索引性能 | Azure"
 description: "减少内存需求或增加可用内存，使列存储索引压缩到每个行组中的行数最大化。"
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
+author: rockboyfor
 manager: jhubbard
 editor: 
 ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
@@ -16,14 +16,12 @@ ms.custom: performance
 origin.date: 11/18/2016
 ms.date: 05/08/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: e08c70926c46bb78d92e741d05c7d36506f76aee
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: 5f5f6cb4c0ec27ce42592dbf4fbd547dc122ad41
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="memory-optimizations-for-columnstore-compression"></a>列存储压缩的内存优化
 
 减少内存需求或增加可用内存，使列存储索引压缩到每个行组中的行数最大化。  使用这些方法来提高列存储索引的压缩率和请求性能。

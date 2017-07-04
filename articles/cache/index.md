@@ -16,12 +16,10 @@ ms.workload: na
 origin.date: 10/21/2016
 ms.date: 06/20/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 2664563d6afc3affd9fe8507f6ac7aae11a1e15b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 4fda5531be51084a0da914c4a93dfac24849e16c
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="to-be-submitted"></a>待提交。

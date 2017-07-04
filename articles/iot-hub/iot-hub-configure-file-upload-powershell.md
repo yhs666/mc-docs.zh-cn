@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/23/2017
-ms.date: 06/05/2017
+origin.date: 05/04/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 11ff6991ce38debbedb040258a8eee52465b40b7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.date: 07/10/2017
+ms.openlocfilehash: c585d32a110ba723bbacb541f0e2f62878d28bad
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>使用 PowerShell 配置 IoT 中心文件上传
 
@@ -138,7 +136,7 @@ Set-AzureRmIotHub `
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南][lnk-devguide]
-* [使用 IoT Edge 模拟设备][lnk-gateway]
+* [使用 IoT Edge 模拟设备][lnk-iotedge]
 * [从根本上保护 IoT 解决方案][lnk-securing]
 
 [lnk-upload]: ./iot-hub-devguide-file-upload.md
@@ -148,7 +146,7 @@ Set-AzureRmIotHub `
 [lnk-monitor]: ./iot-hub-operations-monitoring.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
 [lnk-securing]: ./iot-hub-security-ground-up.md
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-powershell-storage]: https://docs.microsoft.com/powershell/module/azurerm.storage/

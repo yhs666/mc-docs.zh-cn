@@ -16,13 +16,11 @@ ms.topic: article
 origin.date: 02/07/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: caec63b8e9a121f973226d92ad0690830887a21d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: 03739d129de7d7e46cd066c7d3cfd2283e85e0d2
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="deploy-an-app-on-virtual-machine-scale-sets"></a>在虚拟机规模集上部署应用
 在 VM 规模集上运行的应用程序通常是以三种方法之一部署的：
@@ -34,7 +32,7 @@ ms.lasthandoff: 04/06/2017
 ## <a name="install-new-software-on-a-platform-image-at-deployment-time"></a>部署时在平台映像中安装新软件
 在本文的语境中，平台映像是指从 Azure 应用商店获取的操作系统映像，例如 Ubuntu 16.04、Windows Server 2012 R2 等。
 
-可以使用 [VM 扩展](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)在平台映像中安装新软件。 VM 扩展是部署 VM 时运行的软件。 可以使用自定义脚本扩展，在部署时运行所需的任何代码。
+可以使用 [VM 扩展](../virtual-machines/windows/extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)在平台映像中安装新软件。 VM 扩展是部署 VM 时运行的软件。 可以使用自定义脚本扩展，在部署时运行所需的任何代码。
 
 此方法的优点是在应用程序代码与 OS 之间提供某种程度的隔离，可以单独维护应用程序。 当然，这也意味着会出现更多的运动组件，如果脚本需要下载和配置的项很多，VM 部署时间也可能更长。
 
@@ -44,8 +42,8 @@ ms.lasthandoff: 04/06/2017
 ## <a name="create-a-custom-vm-image-that-includes-both-the-os-and-the-application-in-a-single-vhd"></a>创建在单个 VHD 中包含 OS 和应用程序的自定义 VM 映像 
 此处的规模集由一组 VM 构成，这些 VM 是从创建的映像复制的，必须对其进行维护。 这种方法不需要在部署 VM 时进行额外的配置。 但是，在 `2016-03-30` 版（和更低版本）的 VM 规模集中，VM 的 OS 磁盘限制为一个存储帐户。 因此，一个规模集中最多能包含 40 个 VM，而不像在平台映像中，每个规模集限制为 100 个 VM。 有关详细信息，请参阅[规模集设计概述](virtual-machine-scale-sets-design-overview.md)。
 
-## <a name="deploy-a-platform-or-a-custom-image-as-a-container-host-and-your-app-as-one-or-more-containers"></a>将平台或自定义映像部署为容器主机，并将应用部署为一个或多个容器
-平台或自定义映像基本上是一个容器主机，因此可以将应用程序安装为一个或多个容器。  可以使用 orchestrator 或配置管理工具来管理应用程序容器。 这种方法的优势是可以从应用程序层抽象化云基础结构，并且可以独立维护应用程序。
+>[!NOTE]
+>VM 规模集 API 版本 `2016-04-30-preview` 支持对操作系统磁盘和任何额外数据磁盘使用 Azure 托管磁盘。 有关详细信息，请参阅[托管磁盘概述](../storage/storage-managed-disks-overview.md)和[使用附加数据磁盘](virtual-machine-scale-sets-attached-disks.md)。 
 
 ## <a name="what-happens-when-a-vm-scale-set-scales-out"></a>扩展 VM 规模集会发生什么情况？
 通过增加容量将一个或多个 VM 添加到规模集时，会自动安装应用程序。 例如，如果规模集包含定义的扩展，则每次创建新 VM 时，这些扩展都会在新 VM 上运行。 如果规模集基于自定义映像，所有新 VM 都是自定义源映像的副本。 如果规模集 VM 是容器主机，则可以使用启动代码加载自定义脚本扩展中的容器，或者，扩展可以安装一个可向群集协调器（例如 Azure 容器服务）注册的代理。

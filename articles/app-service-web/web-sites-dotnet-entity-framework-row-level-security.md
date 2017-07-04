@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 04/25/2016
 ms.date: 02/21/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 0dee4d0ef1a913d5a5823514e193dda68455d13a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: cf7150ac03f06cd2808bbf7bef3dea5bbc89a97c
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="tutorial-web-app-with-a-multi-tenant-database-using-entity-framework-and-row-level-security"></a>教程：使用多租户数据库和 Entity Framework 及行级别安全性的 Web 应用
 
@@ -47,145 +45,145 @@ ms.lasthandoff: 04/28/2017
 3. 将新类命名为“SessionContextInterceptor.cs”，然后单击“添加”。
 4. 将 SessionContextInterceptor.cs 的内容替换为以下代码。
 
-    ```
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Data.Common;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure.Interception;
-    using Microsoft.AspNet.Identity;
+```
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data.Common;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure.Interception;
+using Microsoft.AspNet.Identity;
 
-    namespace ContactManager.Models
+namespace ContactManager.Models
+{
+    public class SessionContextInterceptor : IDbConnectionInterceptor
     {
-        public class SessionContextInterceptor : IDbConnectionInterceptor
+        public void Opened(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
-            public void Opened(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+            // Set SESSION_CONTEXT to current UserId whenever EF opens a connection
+            try
             {
-                // Set SESSION_CONTEXT to current UserId whenever EF opens a connection
-                try
+                var userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
+                if (userId != null)
                 {
-                    var userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
-                    if (userId != null)
-                    {
-                        DbCommand cmd = connection.CreateCommand();
-                        cmd.CommandText = "EXEC sp_set_session_context @key=N'UserId', @value=@UserId";
-                        DbParameter param = cmd.CreateParameter();
-                        param.ParameterName = "@UserId";
-                        param.Value = userId;
-                        cmd.Parameters.Add(param);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-                catch (System.NullReferenceException)
-                {
-                    // If no user is logged in, leave SESSION_CONTEXT null (all rows will be filtered)
+                    DbCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = "EXEC sp_set_session_context @key=N'UserId', @value=@UserId";
+                    DbParameter param = cmd.CreateParameter();
+                    param.ParameterName = "@UserId";
+                    param.Value = userId;
+                    cmd.Parameters.Add(param);
+                    cmd.ExecuteNonQuery();
                 }
             }
-
-            public void Opening(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+            catch (System.NullReferenceException)
             {
-            }
-
-            public void BeganTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void BeginningTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void Closed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void Closing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void ConnectionStringGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void ConnectionStringGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void ConnectionStringSet(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void ConnectionStringSetting(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void ConnectionTimeoutGetting(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
-            {
-            }
-
-            public void ConnectionTimeoutGot(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
-            {
-            }
-
-            public void DataSourceGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void DataSourceGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void DatabaseGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void DatabaseGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void Disposed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void Disposing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void EnlistedTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void EnlistingTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void ServerVersionGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void ServerVersionGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void StateGetting(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
-            {
-            }
-
-            public void StateGot(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
-            {
+                // If no user is logged in, leave SESSION_CONTEXT null (all rows will be filtered)
             }
         }
 
-        public class SessionContextConfiguration : DbConfiguration
+        public void Opening(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
-            public SessionContextConfiguration()
-            {
-                AddInterceptor(new SessionContextInterceptor());
-            }
+        }
+
+        public void BeganTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void BeginningTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void Closed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void Closing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void ConnectionStringGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringSet(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringSetting(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionTimeoutGetting(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
+        {
+        }
+
+        public void ConnectionTimeoutGot(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
+        {
+        }
+
+        public void DataSourceGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DataSourceGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DatabaseGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DatabaseGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void Disposed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void Disposing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void EnlistedTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void EnlistingTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void ServerVersionGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ServerVersionGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void StateGetting(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
+        {
+        }
+
+        public void StateGot(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
+        {
         }
     }
-    ```
+
+    public class SessionContextConfiguration : DbConfiguration
+    {
+        public SessionContextConfiguration()
+        {
+            AddInterceptor(new SessionContextInterceptor());
+        }
+    }
+}
+```
 
 只需对应用程序进行这样的更改。 继续操作，构建并发布应用程序。
 

@@ -17,13 +17,11 @@ origin.date: 04/14/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: b61abbb41de7427e46a6100800210687da60b352
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: d7129bbaf05456930e5bd2a67fa8e5c054316a1f
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>使用 HDInsight 中 Hadoop上的 Hive 查询控制台分析传感器数据
 
@@ -46,8 +44,8 @@ ms.lasthandoff: 05/26/2017
 * HDInsight (Hadoop) 群集：有关创建群集的信息，请参阅[在 HDInsight 中创建 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 * Microsoft Excel 2013
 
-    > [!NOTE]
-    > Microsoft Excel 用于通过 [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US)实现数据可视化。
+  > [!NOTE]
+  > Microsoft Excel 用于通过 [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US)实现数据可视化。
 
 * [Microsoft Hive ODBC 驱动程序](http://www.microsoft.com/download/details.aspx?id=40886)
 
@@ -66,4 +64,3 @@ ms.lasthandoff: 05/26/2017
     ![入门库映像](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png)
 
 3. 按照网页上提供的说明完成该示例。
-

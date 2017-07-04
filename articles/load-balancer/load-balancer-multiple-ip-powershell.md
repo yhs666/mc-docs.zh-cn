@@ -3,8 +3,8 @@ title: "针对 Azure 中的多个 IP 配置进行负载均衡 | Azure"
 description: "在主要和辅助 IP 配置之间进行负载均衡。"
 services: load-balancer
 documentationcenter: na
-author: anavinahar
-manager: narayan
+author: rockboyfor
+manager: digimobile
 editor: na
 ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
 ms.service: load-balancer
@@ -13,17 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/16/2017
-ms.date: 05/08/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 0d4d5f13b014617f6ab58c16064c246c0a78c849
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: c1b39b35b4eee626b5aaa1773ae1d0820a77b9c4
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>使用 PowerShell 在多个 IP 配置上进行负载均衡
+
 > [!div class="op_single_selector"]
 > * [门户](load-balancer-multiple-ip.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
@@ -37,7 +36,7 @@ ms.lasthandoff: 04/28/2017
 
 按照以下步骤来实现本文所概述的场景：
 
-1. 安装 Azure PowerShell 中的说明进行操作。 有关安装最新版本的 Azure PowerShell、选择订阅和登录帐户的信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 。
+1. 安装 Azure PowerShell 中的说明进行操作。 有关安装最新版本的 Azure PowerShell、选择订阅和登录帐户的信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 。
 2. 使用以下设置创建资源组：
 
     ```powershell
@@ -138,7 +137,8 @@ ms.lasthandoff: 04/28/2017
     $nic2 | Set-AzureRmNetworkInterface
     ```
 
-13. 最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。
+13. 最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 
+<!--Not available [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).-->
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。

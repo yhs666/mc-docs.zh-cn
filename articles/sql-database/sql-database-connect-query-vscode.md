@@ -17,13 +17,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
 ms.openlocfilehash: a39bce76c36c7009b8f9e47a61c2de5b6c40bd21
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/14/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL 数据库：使用 Visual Studio Code 进行连接和数据查询
 
@@ -196,4 +194,3 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 - 若要使用 Java 进行连接和查询，请参阅[使用 Java 进行连接和查询](sql-database-connect-query-java.md)。
 - 若要使用 Python 进行连接和查询，请参阅[使用 Python 进行连接和查询](sql-database-connect-query-python.md)。
 - 若要使用 Ruby 进行连接和查询，请参阅[使用 Ruby 进行连接和查询](sql-database-connect-query-ruby.md)。
-

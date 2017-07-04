@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 05/04/2017
 ms.author: v-junlch
 ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 2df4ab0998843a952cd676b29f033d079494edd2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 877ec6735f41b0128a20c1a1a6e1de725a505d9e
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 和 OAuth 2.0 代理流
 OAuth 2.0 代理流适用于这样的用例：其中应用程序调用某个服务/web API，而后者又需要调用另一个服务/web API。 思路是通过请求链传播委托用户标识和权限。 要使中间层服务向下游服务发出身份验证请求，该服务需要代表用户保护 Azure Active Directory (Azure AD) 提供的访问令牌。
@@ -59,7 +57,7 @@ https://login.partner.microsoftonline.cn/<tenant>/oauth2/v2.0/token
 | 参数 |  | 说明 |
 | --- | --- | --- |
 | grant_type |必填 | 令牌请求的类型。 对于使用 JWT 的请求，该值必须是 **urn:ietf:params:oauth:grant-type:jwt-bearer**。 |
-| client_id |必填 | [应用程序注册门户](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList) 为应用分配的应用程序 ID。 |
+| client_id |必填 | [应用程序注册门户](https://apps.dev.microsoft.com) 为应用分配的应用程序 ID。 |
 | client_secret |必填 | 在应用程序注册门户中为应用生成的应用程序机密。 |
 | assertion |必填 | 请求中使用的令牌值。 |
 | scope |必填 | 空格分隔的令牌请求作用域的列表。 有关详细信息，请参阅[作用域](active-directory-v2-scopes.md)。|
@@ -137,5 +135,4 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 详细了解 OAuth 2.0 协议和使用客户端凭据执行服务到服务身份验证的其他方法。
 - [Azure AD v2.0 中的 OAuth 2.0 客户端凭据授予](active-directory-v2-protocols-oauth-client-creds.md)
 - [Azure AD v2.0 中的 OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
-
 

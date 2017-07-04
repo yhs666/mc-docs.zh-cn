@@ -17,13 +17,11 @@ ms.workload: big-data
 origin.date: 02/17/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: ea9d5ee3acfb9f3be1667e279b43479ec702d622
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 0544690d14b0dae4a54bb5c05edadc7ee852e714
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-hdinsight-clusters-using-curl-and-the-azure-rest-api"></a>使用 cURL 和 Azure REST API 创建 HDInsight 群集
 
@@ -48,14 +46,14 @@ ms.lasthandoff: 05/26/2017
 
 * **cURL**。 可通过包管理系统获取此实用工具，也可以从 [http://curl.haxx.se/](http://curl.haxx.se/)下载此实用工具。
 
-    > [!NOTE]
-    > 如果要使用 PowerShell 运行本文档中的命令，必须先删除默认创建的 `curl` 别名。 此别名使用 Invoke-WebRequest，而不是 cURL。 如果不删除此别名，在使用某些本文中所用的命令时可能会收到错误。
-    >
-    > 若要删除此别名，请从 PowerShell 提示符使用以下命令：
-    >
-    > `Remove-item alias:curl`
-    >
-    > 删除别名后，你应该能够使用系统上安装的 cURL 版本。
+  > [!NOTE]
+  > 如果要使用 PowerShell 运行本文档中的命令，必须先删除默认创建的 `curl` 别名。 此别名使用 Invoke-WebRequest，而不是 cURL。 如果不删除此别名，在使用某些本文中所用的命令时可能会收到错误。
+  >
+  > 若要删除此别名，请从 PowerShell 提示符使用以下命令：
+  >
+  > `Remove-item alias:curl`
+  >
+  > 删除别名后，你应该能够使用系统上安装的 cURL 版本。
 
 ## <a name="create-a-template"></a>创建模板
 
@@ -258,8 +256,6 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
 
 请按照 [Azure CLI 2.0 入门](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)中所述的步骤操作，并使用 `az login` 命令连接到订阅。
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 ## <a name="create-a-service-principal"></a>创建服务主体
 
 > [!NOTE]
@@ -267,38 +263,38 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
 
 1. 从命令行使用以下命令列出 Azure 订阅。
 
-    ```bash
-    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
-    ```
+   ```bash
+   az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
+   ```
 
     在列表中，选择要使用的订阅并记下 **Subscription_ID** 和 __Tenant_ID__ 列。 保存这些值。
 
 2. 使用以下命令在 Azure Active Directory 中创建应用程序。
 
-    ```bash
-    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
-    ```
+   ```bash
+   az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
+   ```
 
     将 `--display-name`、`--homepage` 和 `--identifier-uris` 的值替换为自己的值。 为新的 Active Directory 条目提供密码。
 
-    > [!NOTE]
-    > `--home-page` 和 `--identifier-uris` 值无需引用 Internet 上托管的实际网页。 它们必须是唯一 URI。
+   > [!NOTE]
+   > `--home-page` 和 `--identifier-uris` 值无需引用 Internet 上托管的实际网页。 它们必须是唯一 URI。
 
-    此命令返回的值是新应用程序的 __应用 ID__ 。 保存此值。
+   此命令返回的值是新应用程序的 __应用 ID__ 。 保存此值。
 
 3. 通过以下命令使用 **应用 ID**创建服务主体。
 
-    ```bash
-    az ad sp create --id <App ID> --query 'objectId'
-    ```
+   ```bash
+   az ad sp create --id <App ID> --query 'objectId'
+   ```
 
-    此命令返回的值是 __对象 ID__。 保存此值。
+     此命令返回的值是 __对象 ID__。 保存此值。
 
 4. 使用**对象 ID** 值向服务主体分配**所有者**角色。 使用前面获取的 **订阅 ID** 。
 
-    ```bash
-    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
-    ```
+   ```bash
+   az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
+   ```
 
 ## <a name="get-an-authentication-token"></a>获取身份验证令牌
 
@@ -337,14 +333,14 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
 * 将 **DataCenterLocation** 替换为要在其中创建资源组和资源的数据中心。 例如“China East”。
 * 将 **ResourceGroupName** 替换为要用于此组的名称：
 
-    ```bash
-    curl -X "PUT" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName?api-version=2015-01-01" \
-        -H "Authorization: Bearer AccessToken" \
-        -H "Content-Type: application/json" \
-        -d $'{
-    "location": "DataCenterLocation"
-    }'
-    ```
+```bash
+curl -X "PUT" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName?api-version=2015-01-01" \
+    -H "Authorization: Bearer AccessToken" \
+    -H "Content-Type: application/json" \
+    -d $'{
+"location": "DataCenterLocation"
+}'
+```
 
 如果此请求成功，将收到 200 系列响应，且响应正文包含一个 JSON 文档，其中包含有关该组的信息。 `"provisioningState"` 元素包含值 `"Succeeded"`。
 
@@ -356,12 +352,12 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
 * 将 **ResourceGroupName** 替换在上一部分中创建的资源组名称。
 * 将 **DeploymentName** 替换为要用于此部署的名称。
 
-    ```bash
-    curl -X "PUT" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
-    -H "Authorization: Bearer AccessToken" \
-    -H "Content-Type: application/json" \
-    -d "{set your body string to the template and parameters}"
-    ```
+```bash
+curl -X "PUT" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
+-H "Authorization: Bearer AccessToken" \
+-H "Content-Type: application/json" \
+-d "{set your body string to the template and parameters}"
+```
 
 > [!NOTE]
 > 如果将模板保存到了文件中，则可以使用以下命令而不是 `-d "{ template and parameters}"`：
@@ -380,11 +376,11 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
 * 将 **SubscriptionID** 和 **AccessToken** 替换为前面使用的值。
 * 将 **ResourceGroupName** 替换在上一部分中创建的资源组名称。
 
-    ```bash
-    curl -X "GET" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
-    -H "Authorization: Bearer AccessToken" \
-    -H "Content-Type: application/json"
-    ```
+```bash
+curl -X "GET" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
+-H "Authorization: Bearer AccessToken" \
+-H "Content-Type: application/json"
+```
 
 此命令返回包含有关部署操作的信息的 JSON 文档。 `"provisioningState"` 元素包含部署的状态。 如果其中包含值 `"Succeeded"`，则成功完成部署。
 
@@ -412,4 +408,3 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
 * [为 Storm on HDInsight 开发 Java 拓扑](hdinsight-storm-develop-java-topology.md)
 * [在 Storm on HDInsight 中使用 Python 组件](hdinsight-storm-develop-python-topology.md)
 * [使用 Storm on HDInsight 部署和监视拓扑](hdinsight-storm-deploy-monitor-topology-linux.md)
-

@@ -16,13 +16,11 @@ ms.workload: data-services
 origin.date: 03/28/2017
 ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 608ec186f4d8db356e549d98a278c922eef08ec7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: a50af4f6c9c01e61c85157e68f42bb6bc16c2915
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
 # <a name="how-to-run-a-streaming-job-in-azure-stream-analytics"></a>如何在 Azure 流分析中运行流式处理作业
 当作业的输入、查询和输出均已指定时，你可以启动流分析作业。

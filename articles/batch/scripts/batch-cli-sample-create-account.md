@@ -14,17 +14,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/20/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: e6dfccdfd73aaed384463924977e786164f0a6d2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 979d2b860ae742830e7739edcd8f122f85393a93
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="create-a-batch-account-with-the-azure-cli"></a>使用 Azure CLI 创建批处理帐户
 
-此脚本创建 Azure 批处理帐户，并演示如何查询和更新该帐户的各个属性。
+此脚本创建 Azure Batch 帐户，并演示如何查询和更新该帐户的各个属性。
 
 如果需要，请使用 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中的说明安装 Azure CLI，然后运行 `az login` 登录到 Azure。
 
@@ -137,6 +135,5 @@ az group delete --name myResourceGroup
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
-可以在 [Azure 批处理 CLI 文档](../batch-cli-samples.md)中找到其他批处理 CLI 脚本示例。
-
+可以在 [Azure Batch CLI 文档](../batch-cli-samples.md)中找到其他批处理 CLI 脚本示例。
 

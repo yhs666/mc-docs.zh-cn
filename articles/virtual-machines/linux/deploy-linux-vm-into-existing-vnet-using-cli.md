@@ -14,17 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 04/24/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 47da6a06722f443b9b09a65d47d188a26d45e607
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: 2b4bb443ff561615ec71d3c30175b9bac5647ee9
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="how-to-deploy-a-linux-virtual-machine-into-an-existing-azure-virtual-network-with-the-azure-cli"></a>如何使用 Azure CLI 将 Linux 虚拟机部署到现有 Azure 虚拟网络
 
 本文说明如何使用 Azure CLI 2.0 将虚拟机 (VM) 部署到现有虚拟网络。 要求如下：
@@ -54,8 +51,7 @@ az vm create \
     --image Debian \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --nics myNic \
-    --use-unmanaged-disk
+    --nics myNic
 ```
 
 ## <a name="detailed-walkthrough"></a>详细演练
@@ -146,7 +142,7 @@ az network nic create \
 
 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 若要详细了解与 Azure CLI 2.0 结合使用以部署完整的 VM 的标志，请参阅[使用 Azure CLI 创建完整的 Linux 环境](create-cli-complete.md)。
 
-以下示例使用 Azure 非托管磁盘创建 VM。
+以下示例使用 Azure 托管磁盘创建 VM。 这些磁盘由 Azure 平台处理，无需任何准备或位置来存储它们。 有关托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md)。 如果想要使用非托管磁盘，请参阅下面的附加说明。
 
 ```azurecli
 az vm create \
@@ -155,7 +151,12 @@ az vm create \
     --image Debian \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --nics myNic \
+    --nics myNic
+```
+
+如果使用托管磁盘，请跳过此步骤。 如果想要使用非托管磁盘，需将以下附加参数添加到上述命令，在名为 `mystorageaccount`的存储帐户中创建非托管磁盘： 
+
+```azurecli
     --use-unmanaged-disk \
     --storage-account mystorageaccount
 ```
@@ -168,4 +169,3 @@ az vm create \
 * [使用 Azure Resource Manager 模板创建特定部署](../windows/cli-deploy-templates.md)
 * [直接使用 Azure CLI 命令创建自定义的 Linux VM 环境](create-cli-complete.md)
 * [使用模板在 Azure 上创建 Linux VM](create-ssh-secured-vm-from-template.md)
-

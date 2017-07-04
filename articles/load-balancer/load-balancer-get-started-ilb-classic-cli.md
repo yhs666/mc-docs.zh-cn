@@ -3,8 +3,8 @@ title: "创建内部负载均衡器 - Azure CLI 经典 | Azure"
 description: "了解如何在经典部署模型中使用 Azure CLI 创建内部负载均衡器"
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-service-management
 ms.assetid: becbbbde-a118-4269-9444-d3153f00bf34
@@ -16,14 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 01/23/2017
 ms.date: 04/17/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 6519254a2e988af5d20672df2470511a1403cb0d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 70690585778c3cf3845aa93cb790a888a647796f
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>开始使用 Azure CLI 创建内部负载均衡器（经典）
 > [!div class="op_single_selector"]
 >- [PowerShell](./load-balancer-get-started-ilb-classic-ps.md)

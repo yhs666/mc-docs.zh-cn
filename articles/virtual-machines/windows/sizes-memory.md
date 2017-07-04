@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 03/22/2017
-ms.date: 05/15/2017
+origin.date: 06/06/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: dbba0b77976493e3ca1ac7dd085c95cffae7332e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 75d266f237287699da86a3a094026012977eb931
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="memory-optimized"></a>内存优化
 
 [!INCLUDE [virtual-machines-common-sizes-memory](../../../includes/virtual-machines-common-sizes-memory.md)]

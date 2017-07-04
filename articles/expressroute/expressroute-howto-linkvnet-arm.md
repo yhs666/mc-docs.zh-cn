@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/12/2017
-ms.date: 05/02/2017
+ms.date: 04/12/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 1da6647739e22cfe90dbad0e26d3a7870c2fb661
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: 166fc0fa7dbee2150ec4570cdd80028a21ccf27c
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>将虚拟网络连接到 ExpressRoute 线路
 > [!div class="op_single_selector"]
@@ -38,7 +36,7 @@ ms.lasthandoff: 04/22/2017
 * 必须有活动的 ExpressRoute 线路。 
   * 请按说明[创建 ExpressRoute 线路](./expressroute-howto-circuit-arm.md)，并通过连接提供商启用该线路。 
   * 确保为线路配置 Azure 专用对等互连。 有关路由说明，请参阅[配置路由](./expressroute-howto-routing-arm.md)一文。 
-  * 确保配置 Azure 专用对等互连，并运行用户网络和 Azure 之间的 BGP 对等互连，以便启用端到端连接。
+  * 确保配置 Azure 专用对等互连，并运行用户网络和 Microsoft 之间的 BGP 对等互连，以便启用端到端连接。
   * 确保已创建并完全预配一个虚拟网络和一个虚拟网络网关。 按照说明[为 ExpressRoute 创建虚拟网关](./expressroute-howto-add-gateway-resource-manager.md)。 ExpressRoute 的虚拟网关使用 GatewayType“ExpressRoute”，而不是 VPN。
 
 最多可以将 10 个虚拟网络链接到一条标准 ExpressRoute 线路。 使用标准 ExpressRoute 线路时，所有虚拟网络都必须位于同一地缘政治区域。 
@@ -152,7 +150,7 @@ Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```powershell
 $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"    
 $gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
-$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "China North" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 ```
 
 **释放连接授权**

@@ -4,8 +4,8 @@ description: "了解如何使用诊断关系图功能对自助服务的流分析
 keywords: 
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 ms.assetid: d87841cd-c59f-4a46-b46e-8b904fdc12e9
 ms.service: stream-analytics
@@ -16,13 +16,11 @@ ms.workload: data-services
 origin.date: 03/28/2017
 ms.date: 05/15/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: c149722faab8ad645c662737c547f82f7519162e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: f6cd881cce438dd832df704f49b4cdafa56ed2a9
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>流分析作业的可视化和故障排除
 与其他基于云的技术一样，在流分析中，故障排除有时需要深入了解作业没有生成预期的输出（或者是该问题的任何输出）的原因。 考虑到这一点，流分析提供了可视化流作业的功能。 该功能作为建模工具使用起来也很方便，并且对需要其工作文档的人员来说具有附带好处。

@@ -55,10 +55,10 @@
 ### [使用 PowerShell 预配实体](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus/)
 
 # 引用
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
-## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicebus)
-## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.servicebus.amqp)
-## [REST](https://docs.microsoft.com/rest/api/servicebus)
+## [PowerShell](https://doc.microsoft.com/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [.NET](https://doc.microsoft.com/dotnet/api/microsoft.azure.management.servicebus)
+## [Java](https://doc.microsoft.com/java/api/com.microsoft.azure.servicebus.amqp)
+## [REST](https://doc.microsoft.com/rest/api/servicebus)
 
 # 资源
 ## [SQLFilter 语法](service-bus-messaging-sql-filter.md)
@@ -72,7 +72,7 @@
 ## [博客](https://blogs.msdn.microsoft.com/servicebus/)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/servicebus)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [价格](https://azure.microsoft.com/pricing/details/service-bus/)
+## [价格](https://www.azure.cn/pricing/details/messaging/)
 ## [学习路径](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
 ## [服务总线资源管理器](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [服务更新](https://azure.microsoft.com/updates/?product=service-bus)

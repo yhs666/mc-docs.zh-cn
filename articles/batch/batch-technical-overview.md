@@ -15,13 +15,11 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
 ms.openlocfilehash: d3253aa3e4be5ec233178507b7ea1199660fb31d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="run-intrinsically-parallel-workloads-with-batch"></a>使用 Batch 运行固有并行的工作负荷
 
@@ -85,4 +83,3 @@ Batch 很适合处理本质并行（也称为“超简单并行”）的应用�
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
-

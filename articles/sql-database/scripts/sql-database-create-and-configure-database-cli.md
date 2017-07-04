@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/24/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
 ms.openlocfilehash: ba6f05923cbc99ee345e1d9b5bd3d2e156325491
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="create-a-single-sql-database-and-configure-a-firewall-rule-using-the-azure-cli"></a>使用 Azure CLI 创建单个 SQL 数据库并配置防火墙规则
 
 此示例 CLI 脚本创建 Azure SQL 数据库，并配置服务器级防火墙规则。 成功运行该脚本后，可以通过所有 Azure 服务和配置的 IP 地址访问 SQL 数据库。 
@@ -98,5 +96,4 @@ az group delete --name myResourceGroup
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
 其他 SQL 数据库 CLI 脚本示例可以在 [Azure SQL 数据库文档](../sql-database-cli-samples.md)中找到。
-
 

@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 04/25/2017
 ms.date: 03/01/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 9379e2cecb82a18734e582479e20c4797785bcf4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 747d4fa0c49b91af2b8d5c3acd144b253ec1cdf3
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="add-a-java-application-to-azure-app-service-web-apps"></a>将 Java 应用程序添加到 Azure 应用服务 Web 应用
 按照[在 Azure 应用服务中创建 Java Web 应用](web-sites-java-get-started.md)中的说明初始化 [Azure 应用服务][Azure App Service]中的 Java Web 应用后，可通过将 WAR 放置在 **webapps** 文件夹上传应用程序。
@@ -34,7 +32,9 @@ ms.lasthandoff: 05/26/2017
 
 Tomcat Web 应用说明：将 WAR 文件上传到 **webapps** 文件夹后，Tomcat 应用服务器会检测到已添加该文件并自动上传。 请注意，如果将文件（除 WAR 文件以外）复制到 ROOT 目录，在使用这些文件之前，将需要重新启动该应用服务器。 Azure 上运行的 Tomcat Java Web 应用的自动上传功能基于所添加的新 WAR 文件，或添加到 **webapps** 文件夹的新文件或目录。 
 
-## <a name="see-also"></a> 另请参阅
+<a name="see-also"></a>
+
+## <a name="see-also"></a>另请参阅
 有关将 Azure 与 Java 配合使用的详细信息，请参阅 [Azure Java 开发人员中心]。
 
 <!-- URL List -->

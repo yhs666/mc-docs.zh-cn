@@ -17,13 +17,11 @@ ms.topic: article
 origin.date: 04/14/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 3407df096fa6c63c165efb64821a3a73460df68d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 5c8020c3fd424bb6011ca1223702cbbd2e6a46dd
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>将 Apache Mahout 与 HDInsight (PowerShell) 中的 Hadoop 配合使用生成电影推荐
 
@@ -409,4 +407,3 @@ foreach($blob in $blobs)
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
-

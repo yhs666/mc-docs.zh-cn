@@ -16,12 +16,11 @@ origin.date: 04/03/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.date: 05/15/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 3e8636ccb6522471042ba0e3a4f81654b28a11f9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: ea9dde10821cd13c7809c760b98a883d04779a74
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>创建用于缩放 Batch 池中的计算节点的自动缩放公式
 
@@ -659,4 +658,3 @@ string formula = string.Format(@"
 [rest_autoscaleformula]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [rest_autoscaleinterval]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
-

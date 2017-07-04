@@ -17,13 +17,11 @@ ms.topic: article
 origin.date: 04/03/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 1180789ad284d082a6fd8b042fa9838b9c44c967
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 2cfc27146401236f5f00d7eb88dfcd928ca0fecf
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>通过 HDInsight (SSH) 中基于 Linux 的 Hadoop 使用 Apache Mahout 生成电影推荐
 
@@ -117,57 +115,57 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     编辑器打开后，使用以下文本作为该文件的内容：
 
-    ```python
-    #!/usr/bin/env python
+   ```python
+   #!/usr/bin/env python
 
-    import sys
+   import sys
 
-    if len(sys.argv) != 5:
-            print "Arguments: userId userDataFilename movieFilename recommendationFilename"
-            sys.exit(1)
+   if len(sys.argv) != 5:
+        print "Arguments: userId userDataFilename movieFilename recommendationFilename"
+        sys.exit(1)
 
-    userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
+   userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
 
-    print "Reading Movies Descriptions"
-    movieFile = open(movieFilename)
-    movieById = {}
-    for line in movieFile:
-            tokens = line.split("|")
-            movieById[tokens[0]] = tokens[1:]
-    movieFile.close()
+   print "Reading Movies Descriptions"
+   movieFile = open(movieFilename)
+   movieById = {}
+   for line in movieFile:
+       tokens = line.split("|")
+       movieById[tokens[0]] = tokens[1:]
+   movieFile.close()
 
-    print "Reading Rated Movies"
-    userDataFile = open(userDataFilename)
-    ratedMovieIds = []
-    for line in userDataFile:
-            tokens = line.split("\t")
-            if tokens[0] == userId:
-                    ratedMovieIds.append((tokens[1],tokens[2]))
-    userDataFile.close()
+   print "Reading Rated Movies"
+   userDataFile = open(userDataFilename)
+   ratedMovieIds = []
+   for line in userDataFile:
+       tokens = line.split("\t")
+       if tokens[0] == userId:
+           ratedMovieIds.append((tokens[1],tokens[2]))
+   userDataFile.close()
 
-    print "Reading Recommendations"
-    recommendationFile = open(recommendationFilename)
-    recommendations = []
-    for line in recommendationFile:
-            tokens = line.split("\t")
-            if tokens[0] == userId:
-                    movieIdAndScores = tokens[1].strip("[]\n").split(",")
-                    recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
-                    break
-    recommendationFile.close()
+   print "Reading Recommendations"
+   recommendationFile = open(recommendationFilename)
+   recommendations = []
+   for line in recommendationFile:
+       tokens = line.split("\t")
+       if tokens[0] == userId:
+           movieIdAndScores = tokens[1].strip("[]\n").split(",")
+           recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
+           break
+   recommendationFile.close()
 
-    print "Rated Movies"
-    print "------------------------"
-    for movieId, rating in ratedMovieIds:
-            print "%s, rating=%s" % (movieById[movieId][0], rating)
-    print "------------------------"
+   print "Rated Movies"
+   print "------------------------"
+   for movieId, rating in ratedMovieIds:
+       print "%s, rating=%s" % (movieById[movieId][0], rating)
+   print "------------------------"
 
-    print "Recommended Movies"
-    print "------------------------"
-    for movieId, score in recommendations:
-            print "%s, score=%s" % (movieById[movieId][0], score)
-    print "------------------------"
-    ```
+   print "Recommended Movies"
+   print "------------------------"
+   for movieId, score in recommendations:
+       print "%s, score=%s" % (movieById[movieId][0], score)
+   print "------------------------"
+   ```
 
     按 **Ctrl-X**、**Y**，最后按 **Enter** 来保存数据。
 
@@ -191,7 +189,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     * **recommendations.txt** 用于检索此用户的电影建议。
 
-    此命令的输出类似于以下文本：
+     此命令的输出类似于以下文本：
 
     ```
     Seven Years in Tibet (1997), score=5.0
@@ -238,4 +236,3 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
-

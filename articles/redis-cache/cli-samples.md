@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 04/14/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 4ab299350d0f55999a6a77c041d9cebe392dcc6d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 122f292bd6dedd75ecc59df497aed08792a75f34
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-cli-samples-for-azure-redis-cache"></a>适用于 Azure Redis 缓存的 Azure CLI 示例
 

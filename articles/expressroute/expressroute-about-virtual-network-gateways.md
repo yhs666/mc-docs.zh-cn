@@ -15,14 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 03/20/2017
 ms.author: v-yiso
 ms.date: 04/24/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 66ef625947f8cb0aecc75ee5e1609950057e137c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 35109c3876ab5042e4eb4b87d1183db7c5354473
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="about-virtual-network-gateways-for-expressroute"></a>关于 ExpressRoute 的虚拟网络网关
 
 虚拟网络网关用于在 Azure 虚拟网络和本地位置之间发送网络流量。 配置 ExpressRoute 连接时，必须创建并配置虚拟网络网关和虚拟网络网关连接。

@@ -17,13 +17,11 @@ ms.workload: big-data
 origin.date: 04/25/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 1cf4862bb5c418e1ee6fa422cfab7712931effa9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: ad28bb91ff8d3f3bd61d7f7ec7197109887d3faf
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>解决 Azure HDInsight 中的 Hive 内存不足错误
 
@@ -131,4 +129,3 @@ hive-site.xml 文件中的 **hive.auto.convert.join.noconditionaltask** 已设�
 ## <a name="next-steps"></a>后续步骤
 
 - 有关优化 Hive 查询，请参阅[在 HDInsight 中优化 Hadoop 的 Hive 查询](hdinsight-hadoop-optimize-hive-query.md)。
-

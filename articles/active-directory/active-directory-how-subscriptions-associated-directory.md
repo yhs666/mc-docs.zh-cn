@@ -15,13 +15,11 @@ ms.topic: get-started-article
 origin.date: 05/08/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 601f6ac4da7b747a88840e66e7d0739108c7117c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 5fd204a4154ed53ac1dc3d22442d655bfd0fdd71
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Azure 订阅与 Azure Active Directory 的关联方式
 本文介绍有关登录 Azure 及相关问题（例如，Azure 订阅与 Azure Active Directory (Azure AD) 之间的关系）的信息。
@@ -123,5 +121,4 @@ Azure AD 提供一组不同的管理角色，用于管理目录和标识相关�
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
-
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
 ms.openlocfilehash: aa9fd72085a86e3aa847aa9d39810a0445d18776
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>使用 IoT 中心发送云到设备消息 (Node)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -202,4 +200,3 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [Azure 门户]: https://portal.azure.cn
 [Azure IoT 套件]: /iot-suite/
-

@@ -16,13 +16,11 @@ ms.workload: data-services
 origin.date: 03/28/2017
 ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 8608749f9b2e6e64d433fcb6d98c3a5625c3cb46
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: 876c29b53de1abc14c0c00e8198dc026dec0db09
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>数据连接：了解从事件到流分析的数据流输入
 连接到流分析的数据连接是数据源提供的事件所组成的数据流。 这称为“输入”。 流分析与 Azure 数据流源（事件中心、IoT 中心和 Blob 存储）进行第一类集成，这些数据流源可能与你的分析作业来自同一个 Azure 订阅，也可能来自不同的 Azure 订阅。

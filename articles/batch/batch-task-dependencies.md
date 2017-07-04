@@ -15,13 +15,11 @@ ms.workload: big-compute
 ms.date: 03/02/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 573d75feda5e07ce865a4e76ae14054d93a1edc4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/21/2017
-
-
+ms.openlocfilehash: 87477ea3c6a8e404b897626150a7b6f41d59443d
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>创建任务依赖关系，以运行依赖于其他任务的任务
 
@@ -210,10 +208,10 @@ new CloudTask("B", "cmd.exe /c echo B")
 
 ## <a name="next-steps"></a>后续步骤
 ### <a name="application-deployment"></a>应用程序部署
-使用 Batch 的[应用程序包](batch-application-packages.md)功能，可以轻松地部署任务在计算节点上执行的应用程序并对其进行版本控制。
+使用 Batch 的[应用程序包](./batch-application-packages.md)功能，可以轻松地部署任务在计算节点上执行的应用程序并对其进行版本控制。
 
 ### <a name="installing-applications-and-staging-data"></a>安装应用程序和暂存数据
-有关准备节点以运行任务的方法概述，请参阅 Azure 批处理论坛中的 [Installing applications and staging data on Batch compute nodes][forum_post]（在批处理计算节点上安装应用程序和暂存数据）。 此帖子由某个 Azure 批处理团队成员编写，是一篇很好的入门教程，介绍如何使用不同的方法将应用程序、任务输入数据和其他文件复制到计算节点。
+有关准备节点以运行任务的方法概述，请参阅 Azure Batch 论坛中的 [Installing applications and staging data on Batch compute nodes][forum_post]（在批处理计算节点上安装应用程序和暂存数据）。 此帖子由某个 Azure Batch 团队成员编写，是一篇很好的入门教程，介绍如何使用不同的方法将应用程序、任务输入数据和其他文件复制到计算节点。
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
@@ -238,5 +236,3 @@ new CloudTask("B", "cmd.exe /c echo B")
 [1]: ./media/batch-task-dependency/01_one_to_one.png "关系图：一对一依赖关系"
 [2]: ./media/batch-task-dependency/02_one_to_many.png "关系图：一对多依赖关系"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Diagram: task id range dependency"
-
-

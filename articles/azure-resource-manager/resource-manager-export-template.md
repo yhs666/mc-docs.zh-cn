@@ -3,7 +3,7 @@ title: "导出 Azure Resource Manager 模板 | Azure"
 description: "使用 Azure Resource Manager 从现有资源组导出模板。"
 services: azure-resource-manager
 documentationcenter: 
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 ms.assetid: 5f5ca940-eef8-4125-b6a0-f44ba04ab5ab
@@ -15,14 +15,12 @@ ms.topic: get-started-article
 origin.date: 03/30/2017
 ms.date: 05/02/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 1adbd32d0aef08558b7291ef6ab958864eacb077
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: 7600384ccecef816358a70c0ec9c6e902d882f61
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>从现有资源导出 Azure Resource Manager 模板
 使用 Resource Manager 可从订阅中的现有资源导出 Resource Manager 模板。 你可以使用该生成的模板了解模板语法，或根据需要自动重新部署解决方案。
 
@@ -38,23 +36,23 @@ ms.lasthandoff: 04/22/2017
 ## <a name="create-a-storage-account"></a>创建存储帐户
 1. 在 [Azure 门户](https://portal.azure.cn)中，选择“新建”>“数据 + 存储”>“存储帐户”。 >  > 
 
-      ![创建存储](./media/resource-manager-export-template/create-storage.png)
+    ![创建存储](./media/resource-manager-export-template/create-storage.png)
 2. 使用名称 **storage**、你的姓名缩写和日期创建存储帐户。 存储帐户名称在 Azure 中必须是唯一的。 如果名称已使用，则会显示错误消息，指出名称已使用。 请试用其他名称。 对于资源组，请选择“新建”，然后将其命名为 **ExportGroup**。 可以对其他属性使用默认值。 选择“创建” 。
 
-      ![提供存储的值](./media/resource-manager-export-template/provide-storage-values.png)
+    ![提供存储的值](./media/resource-manager-export-template/provide-storage-values.png)
 
 部署可能需要一分钟的时间。 部署完成后，订阅将包含存储帐户。
 
 ## <a name="view-a-template-from-deployment-history"></a>在部署历史记录中查看模板
 1. 转到新资源组的资源组边栏选项卡。 可以看到，该边栏选项卡列出了上次部署的结果。 选择此链接。
 
-      ![资源组边栏选项卡](./media/resource-manager-export-template/resource-group-blade.png)
+    ![资源组边栏选项卡](./media/resource-manager-export-template/resource-group-blade.png)
 2. 可以看到该组的部署历史记录。 在本例中，边栏选项卡可能只列出了一个部署。 选择此部署。
 
-     ![上次部署](./media/resource-manager-export-template/last-deployment.png)
+    ![上次部署](./media/resource-manager-export-template/last-deployment.png)
 3. 边栏选项卡将显示部署摘要。 摘要包括此部署及其操作的状态，以及为参数提供的值。 若要查看用于部署的模板，请选择“查看模板”。
 
-     ![查看部署摘要](./media/resource-manager-export-template/deployment-summary.png)
+    ![查看部署摘要](./media/resource-manager-export-template/deployment-summary.png)
 4. Resource Manager 为你检索以下七个文件：
 
     1. **模板** - 定义解决方案基础结构的模板。 通过门户创建存储帐户时，Resource Manager 使用模板来部署该存储帐户，并保存该模板供将来参考。
@@ -185,7 +183,7 @@ ms.lasthandoff: 04/22/2017
 
     ![添加到库](./media/resource-manager-export-template/add-to-library.png)
 
-    将模板添加到库时，请为模板提供名称和说明，然后选择“保存”。 然后选择“保存”。
+    将模板添加到库时，请为模板提供名称和说明，然后选择“保存”。 Then, select **Save**.
 
     ![设置模板值](./media/resource-manager-export-template/set-template-values.png)
 4. 若要查看库中保存的模板，请选择“更多服务”，并键入“模板”以筛选结果，然后选择“模板”。

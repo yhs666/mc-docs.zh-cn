@@ -17,14 +17,12 @@ origin.date: 05/08/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: e4cabe1532d9dcef9189da673f229e658a3caeeb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: a43e4605ff46bcb600125bdd40866ae3aa1e41d5
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="how-to-use-availability-sets"></a>如何使用可用性集
 
 本教程介绍如何使用称作“可用性集”的功能提高 Azure 上虚拟机解决方案的可用性和可靠性。 可用性集可确保在 Azure 上部署的 VM 能够跨多个隔离的硬件群集分布。 这样，就可以确保当 Azure 中发生硬件或软件故障时，只有一部分 VM 会受到影响，整体解决方案仍可供其客户使用和操作。 
@@ -187,4 +185,3 @@ Get-AzureRmVMSize `
 
 > [!div class="nextstepaction"]
 > [创建 VM 规模集](tutorial-create-vmss.md)
-

@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 03/07/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: e8c26bd7df9703fcc26a90c62c096d39409ed27d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 8ccbbaf66603cbe809358dcf450097eb4b954e7c
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="import-from-a-bacpac-into-a-sql-database-using-powershell"></a>使用 PowerShell 从 bacpac 导入 SQL 数据库
 
 此示例 PowerShell 脚本从 bacpac 导入数据库。  

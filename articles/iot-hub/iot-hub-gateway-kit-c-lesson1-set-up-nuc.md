@@ -13,16 +13,13 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/21/2017
-ms.date: 06/05/2017
+ms.date: 03/21/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: b10cbfd7c8131bdf51758ba1c8bdc637072c5148
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: dcfa170ea5c3adebd7306ff5699f2f8e5889fbbd
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="set-up-intel-nuc-as-an-iot-gateway"></a>将 Intel NUC 设置为 IoT 网关
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -73,11 +70,13 @@ ms.lasthandoff: 05/26/2017
 
    默认用户名和密码都是 `root`。
 
+       > Hit the enter key on your keyboard if you see either of the following errors when you boot: 'A TPM error (7) occurred attempting to read a pcr value.' or 'Timeout, No TPM chip found, activating TPM-bypass!'
+
 2. 在 Intel NUC 设备上运行 `ifconfig` 命令，Intel NUC 的 IP 地址。
 
    以下是命令输出的示例。
 
-   ![显示 Intel NUC IP 的 ifconfig 输出](./media/iot-hub-gateway-kit-lessons/lesson1/ifconfig.png)
+   ![显示 Intel NUC IP 的 ifconfig 输出](media/iot-hub-gateway-kit-lessons/lesson1/ifconfig.png)
 
    在此示例中，`inet addr:` 后面的值是计划从主计算机远程连接到 Intel NUC 时所需的 IP 地址。
 
@@ -168,5 +167,4 @@ vim log.txt
 
 ## <a name="next-steps"></a>后续步骤
 [使用 IoT 网关将设备连接到 Azure IoT 中心](./iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-
 

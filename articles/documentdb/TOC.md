@@ -45,7 +45,6 @@
 #### [添加或删除区域](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [防火墙支持](documentdb-firewall-support.md)
-### [提升帐户](documentdb-performance-levels.md)
 
 ## 开发
 ### [SQL 查询](documentdb-sql-query.md)

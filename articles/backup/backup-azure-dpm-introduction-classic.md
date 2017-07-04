@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 69d39f5c97548d88206f3a22225b87b6313bdbad
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 90e11973cf5c211f8add0a9ee5fcb57f17666b9f
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>使用 DPM 准备将工作负荷备份到 Azure
 > [!div class="op_single_selector"]
-> * [Azure 备份服务器（经典）](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM（经典）](backup-azure-dpm-introduction-classic.md)
+> * [Azure 备份服务器（经典）](./backup-azure-microsoft-azure-backup-classic.md)
+> * [SCDPM（经典）](./backup-azure-dpm-introduction-classic.md)
 
 本文介绍如何使用 Azure 备份来保护 System Center Data Protection Manager (DPM) 服务器和工作负荷。 通过阅读本文，你将会了解：
 
@@ -77,7 +75,7 @@ System Center DPM 备份文件和应用程序数据。 备份到 DPM 的数据�
 - DPM 服务器上应已安装 Windows PowerShell 和 .NET Framework 4.5。
 - DPM 可将大多数工作负载备份到 Azure 备份。 有关所支持内容的完整列表，请参阅下面的 Azure 备份支持项。
 - 使用“复制到磁带”选项无法恢复存储在 Azure 备份中的数据。
-- 你需要一个启用了 Azure 备份功能的 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 阅读 [Azure 备份定价](https://www.azure.cn/pricing/details/backup/)的相关信息。
+- 你需要一个启用了 Azure 备份功能的 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 阅读 [Azure 备份定价](http://www.azure.cn/pricing/details/backup/)的相关信息。
 - 若要使用 Azure 备份，应在要备份的服务器上安装 Azure 备份代理。 每台服务器上的可用本地存储空间必须至少为要备份的数据大小的 10%。 例如，如果要备份 100 GB 的数据，则暂存位置至少需要 10 GB 的可用空间。 尽管最低要求为 10%，但我们建议为缓存位置腾出 15% 的本地可用存储空间。
 - 数据将存储在 Azure 保管库存储中。 可以备份到 Azure 备份保管库的数据量没有限制，但数据源（例如，虚拟机或数据库）的大小不应超过 54,400 GB。
 
@@ -102,5 +100,3 @@ System Center DPM 备份文件和应用程序数据。 备份到 DPM 的数据�
 > 从 System Center 2012 DPM SP1 开始，可以使用 Azure 备份将 DPM 保护的工作负荷备份到 Azure。
 >
 >
-
-

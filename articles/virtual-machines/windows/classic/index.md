@@ -1,5 +1,4 @@
 ---
-
 layout: LandingPage
 description: "了解如何使用经典部署创建 Windows 虚拟机。"
 title: "适用于 Windows 的 Azure 虚拟机文档 | Azure"
@@ -14,10 +13,9 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 7e4a1f90a593f5179cf0eb41239a13c6404eaf85
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: be84ab85d0e8f1161948013a6f21afedce9f5f90
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---

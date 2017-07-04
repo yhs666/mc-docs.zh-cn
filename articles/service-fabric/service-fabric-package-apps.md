@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/24/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 0809150cf26012359ec4d728b7093a8cb46cbc90
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 71a85acbba19603f92296bf8973b47040056581f
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="package-an-application"></a>打包应用程序
 本文介绍如何打包 Service Fabric 应用程序并为部署做好准备。
@@ -190,4 +188,3 @@ PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApp
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
-

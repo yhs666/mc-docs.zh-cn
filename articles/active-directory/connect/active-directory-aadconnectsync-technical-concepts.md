@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 04/24/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: ad433677fd0082ec74f7d7d2e37957112f67695b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 4faef893bd10994a3f67c78ee03fa4236c8108c3
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect 同步：技术概念
 本文是[了解体系结构](active-directory-aadconnectsync-technical-concepts.md)主题的总结。
@@ -93,5 +91,4 @@ metaverse 是相邻连接器空间中的所有已联接标识的合并视图。
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
-
 

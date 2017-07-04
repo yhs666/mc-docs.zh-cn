@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 81afae567a307d5be6c2c45e456681e1dfb1ef87
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: 3556b9208993d5da80e2da622b0e5b0db8278a02
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect：从 DirSync 升级
 Azure AD Connect 是 DirSync 的后继产品。 你将在本主题中了解可从 DirSync 升级的方式。 这些步骤不适用于从另一个版本的 Azure AD Connect 或从 Azure AD Sync 升级。
 
@@ -139,9 +137,9 @@ Azure AD Connect 是 DirSync 的后继产品。 你将在本主题中了解可�
 
 ![分析已完成](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)
 
-成功导出设置后，可以退出 DirSync 服务器上的 Azure AD Connect 向导。 继续执行下一步，[在不同的服务器上安装 Azure AD Connect](#installation-of-azure-ad-connect-on-separate-server)。
+成功导出设置后，可以退出 DirSync 服务器上的 Azure AD Connect 向导。 继续执行下一步，以 [在不同的服务器上安装 Azure AD Connect](#installation-of-azure-ad-connect-on-separate-server)。
 
-### <a name="installation-of-azure-ad-connect-on-separate-server"></a>在不同的服务器上安装 Azure AD Connect
+### 在不同的服务器上安装 Azure AD Connect <a name="installation-of-azure-ad-connect-on-separate-server"></a>
 在新的服务器上安装 Azure AD Connect 时，假设用户想要运行 Azure AD Connect 的全新安装。 由于要使用 DirSync 配置，因此还需要执行一些额外的步骤：
 
 1. 运行 Azure AD Connect 安装程序 (MSI)。
@@ -216,5 +214,4 @@ Azure AD Connect 现在是活动服务器，用户不得切换回去使用现有
 若要了解有关这些常见主题的详细信息，请参阅[计划程序以及如何触发同步](active-directory-aadconnectsync-feature-scheduler.md)。
 
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
-
 

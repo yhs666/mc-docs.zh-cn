@@ -12,17 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/07/2017
-ms.date: 05/02/2017
+ms.date: 03/07/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
-ms.openlocfilehash: 9ee6241c12a603a49b6550b96577b098f975a749
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: 7b154645f9a832dec018b9c83ad827dbf0e7a83b
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="create-and-modify-an-expressroute-circuit"></a>创建和修改 ExpressRoute 线路
 
 > [!div class="op_single_selector"]
@@ -78,8 +75,9 @@ ms.lasthandoff: 04/25/2017
 
 **查看属性**
 
-可选中回路查看其属性。在此边栏选项卡上，记下回路的服务密钥。必须复制回路的密钥并将其传递给服务供应商，才可完成预配流程。回路密钥是特定的。
-
+```
+You can view the properties of the circuit by selecting it. On this blade, note the service key for the circuit. You must copy the circuit key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit key is specific to your circuit.
+```
 
 ![查看属性](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
@@ -172,4 +170,3 @@ ms.lasthandoff: 04/25/2017
 
 - [创建和修改 ExpressRoute 线路的路由](./expressroute-howto-routing-portal-resource-manager.md)
 - [将虚拟网络链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-arm.md)
-

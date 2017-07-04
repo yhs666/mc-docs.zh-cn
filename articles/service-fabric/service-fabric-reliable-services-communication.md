@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/07/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 0954b8fa696777db43008bd15f4312f376bf6e8c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: a1d6423f99c9dabc5c3493dd67a5c4f0a37714f2
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>如何使用 Reliable Services 通信 API
 “Azure Service Fabric 即平台”完全不受服务间通信的影响。 所有协议和堆栈（从 UDP 到 HTTP）都可接受。 至于服务应以哪种方式通信，完全由服务开发人员选择。 Reliable Services 应用程序框架提供了一些内置的通信堆栈和 API，可用于生成自定义通信组件。
@@ -433,4 +431,3 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 * [使用 Reliable Services 远程控制执行远程过程调用](service-fabric-reliable-services-communication-remoting.md)
 * [Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)
 * [使用 Reliable Services 的 WCF 通信](service-fabric-reliable-services-communication-wcf.md)
-

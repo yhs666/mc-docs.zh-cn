@@ -3,7 +3,7 @@ title: "了解 Azure Active Directory 体系结构 | Microsoft Docs"
 description: "介绍什么是 Azure AD 租户，以及如何通过 Azure Active Directory 管理 Azure。"
 services: active-directory
 documentationcenter: 
-author: markvi
+author: MarkusVi
 writer: v-lorisc
 manager: femila
 ms.assetid: 
@@ -12,15 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+origin.date: 05/16/2017
+ms.date: 06/21/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: eac5f2a1374cd98f955d863bd042251cbd66ba0b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 09d02258e792aa57cb8a7e9034e406a3758ca4e6
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>了解 Azure Active Directory 体系结构
 使用 Azure Active Directory (Azure AD) 可以安全地管理用户对 Azure 服务和资源的访问。 Azure AD 随附了整套标识管理功能。 有关 Azure AD 功能的信息，请参阅[什么是 Azure Active Directory？](active-directory-whatis.md)
@@ -31,10 +30,10 @@ ms.lasthandoff: 04/22/2017
 Azure AD 的地理分布式体系结构整合了全面监视、自动重新路由、故障转移和恢复功能，使我们能够为客户提供企业级的可用性与性能。
 
 本文介绍以下体系结构要素：
- *    服务体系结构设计
- *    可伸缩性 
- *    连续可用性
- *    数据中心
+ *  服务体系结构设计
+ *  可伸缩性 
+ *  连续可用性
+ *  数据中心
 
 ### <a name="service-architecture-design"></a>服务体系结构设计
 构建可缩放、高度可用且数据丰富的系统的最常见方法是使用 Azure AD 数据层的独立构建基块或缩放单位。缩放单位称为*分区*。 
@@ -87,7 +86,7 @@ Azure AD 可跨数据中心运行，其特征如下：
 
  - 身份验证、Graph 其他 AD 服务驻留在网关服务的后面。 网关管理这些服务的负载均衡。 如果使用事务运行状况探测检测到任何不正常的服务器，网关将自动故障转移。 网关根据这些运行状况探测，将流量动态路由到正常的数据中心。
  - 对于*读取*操作，目录提供辅助副本以及在多个数据中心运行的、采用主动-主动配置的相应前端服务。 当整个数据中心发生故障时，流量将自动路由到其他数据中心。
- *    对于*写入*操作，目录将通过计划的（将新的主副本同步到旧的主副本）或紧急故障转移过程，跨数据中心故障转移主（主控）副本。 通过将所有提交项复制到至少两个数据中心来实现数据持久性。
+ *  对于*写入*操作，目录将通过计划的（将新的主副本同步到旧的主副本）或紧急故障转移过程，跨数据中心故障转移主（主控）副本。 通过将所有提交项复制到至少两个数据中心来实现数据持久性。
 
 **数据一致性**
 
@@ -119,6 +118,5 @@ Azure AD 实施所有数据的每日备份，因此，在发生任何逻辑删�
 
 ## <a name="next-steps"></a>后续步骤
 [Azure Active Directory 开发人员指南](./develop/active-directory-developers-guide.md)
-
 
 

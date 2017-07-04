@@ -3,8 +3,8 @@ title: "创建面向 Internet 的负载均衡器 - Azure CLI 经典 | Azure"
 description: "了解如何使用 Azure CLI 在经典部署模型中创建面向 Internet 的负载均衡器"
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 tags: azure-service-management
 ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
 ms.service: load-balancer
@@ -15,14 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 01/23/2017
 ms.date: 04/17/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 9ed15784fbc04f9ddd57cebef6def4443a253aae
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 56bb7337b552af9f26ae8ab401b40a33b6036468
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>开始在 Azure CLI 中创建面向 Internet 的负载均衡器（经典）
 > [!div class="op_single_selector"]
 > * [Azure 经典管理门户](./load-balancer-get-started-internet-classic-portal.md)

@@ -17,13 +17,11 @@ ms.workload: big-data
 origin.date: 04/03/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 632c48b3ce48c9df9c2721608d244124cc156d6b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: a1523273208558e5218dc5e5f57a00a329ff6292
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>将 Pig 与 Hadoop on HDInsight 配合使用
 
@@ -155,4 +153,3 @@ HDInsight 可以使用各种方法来运行 Pig Latin 作业。 使用下表来�
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
-

@@ -14,13 +14,11 @@ ms.workload: integration
 origin.date: 02/24/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: c844f50026936ecf7beec863c99be82d1a078e3d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 283af19ecc484698baa224cfe303fb3d57870de6
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>用于 .NET 的 Azure SDK 2.9 发行说明
 
@@ -44,7 +42,7 @@ ms.lasthandoff: 04/14/2017
 
 ### <a name="windows-server-2016-virtual-machines"></a>Windows Server 2016 虚拟机
 
-- Visual Studio 现在支持将云服务部署到 OS 系列 5 (Windows Server 2016) 虚拟机。 对于现有的云服务，可以更改设置以针对新的 OS 系列。 创建新的云服务时，如果选择使用 .net 4.6 或更高版本创建服务，则服务将默认使用 OS 系列 5。  有关详细信息，可查看[来宾 OS 系列支持表](/cloud-services/cloud-services-guestos-update-matrix)。
+- Visual Studio 现在支持将云服务部署到 OS 系列 5 (Windows Server 2016) 虚拟机。 对于现有的云服务，可以更改设置以针对新的 OS 系列。 创建新的云服务时，如果选择使用 .net 4.6 或更高版本创建服务，则服务将默认使用 OS 系列 5。  有关详细信息，可查看[来宾 OS 系列支持表](/cloud-services/cloud-services-guestos-update-matrix/)。
 
 #### <a name="known-issues"></a>已知问题
 

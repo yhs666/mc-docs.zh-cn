@@ -18,13 +18,11 @@ ms.workload: big-data
 origin.date: 05/12/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 88f72151e94d825dd159e1d932eac312df0d1875
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: def593b047c12eb940efab282d8e2523c3d5eae4
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>什么是 Azure HDInsight 中的 Apache Hive 和 HiveQL
 
@@ -145,7 +143,7 @@ Hive on HDInsight 中预先加载了名为 `hivesampletable` 的内部表。 HDI
 
 * `SELECT`：选择 **t4** 列中包含值 **[ERROR]** 的所有行的计数。 此语句返回的值为 **3**，因为有三行包含此值。
 
-* `INPUT__FILE__NAME LIKE '%.log'` - Hive 会尝试向目录中的所有文件应用架构。 在这种情况下，目录包含与架构不匹配的文件。 为防止结果中包含垃圾数据，此语句指示 Hive 应当仅返回以 .log 结尾的文件中的数据。
+* `INPUT__FILE__NAME LIKE '%.log'` - Hive 会尝试向目录中的所有文件应用架构。 在此示例中，目录包含与架构不匹配的文件。 为防止结果中包含垃圾数据，此语句指示 Hive 应当仅返回以 .log 结尾的文件中的数据。
 
 > [!NOTE]
 > 如果希望通过外部源更新基础数据，应使用外部表。 例如，自动化数据上传过程或 MapReduce 操作。
@@ -248,4 +246,3 @@ HDInsight 在交互式 Hive 群集类型中提供 LLAP。 有关详细信息，�
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
-

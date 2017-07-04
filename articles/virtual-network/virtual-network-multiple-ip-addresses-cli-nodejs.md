@@ -16,13 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 11/17/2016
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: cda5161993658aa537382efe4fc26c1308400931
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 4f619a1f42b1f241340c56034c1c55aaaf138530
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-azure-cli-10"></a>使用 Azure CLI 1.0 将多个 IP 地址分配给虚拟机
 
@@ -76,38 +74,38 @@ ms.lasthandoff: 04/22/2017
 
     使用 Azure 位置中唯一的名称替换 mypublicdns。
 
-    ```azurecli
-    azure network public-ip create --resource-group $RgName --location $Location --name myPublicIP1 \
-    --domain-name-label mypublicdns --allocation-method Static
+      ```azurecli
+      azure network public-ip create --resource-group $RgName --location $Location --name myPublicIP1 \
+      --domain-name-label mypublicdns --allocation-method Static
 
-    azure network nic create --resource-group $RgName --location $Location --name myNic1 \
-    --private-ip-address 10.0.0.4 --subnet-name mySubnet --subnet-vnet-name myVNet \
-    --subnet-name mySubnet --public-ip-name myPublicIP1
-    ```
+      azure network nic create --resource-group $RgName --location $Location --name myNic1 \
+      --private-ip-address 10.0.0.4 --subnet-name mySubnet --subnet-vnet-name myVNet \
+      --subnet-name mySubnet --public-ip-name myPublicIP1
+      ```
 
-    > [!NOTE]
-    > 公共 IP 地址会产生少许费用。 有关 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。 可在一个订阅中使用的公共 IP 地址数有限制。 有关限制的详细信息，请阅读 [Azure limits](../azure-subscription-service-limits.md#networking-limits)（Azure 限制）一文。
+      > [!NOTE]
+      > 公共 IP 地址会产生少许费用。 有关 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。 可在一个订阅中使用的公共 IP 地址数有限制。 有关限制的详细信息，请阅读 [Azure limits](../azure-subscription-service-limits.md#networking-limits)（Azure 限制）一文。
 
     **IPConfig-2**
 
-    输入以下命令，创建具有一个静态公共 IP 地址和一个静态专用 IP 地址的新公共 IP 地址资源和新 IP 配置：
+     输入以下命令，创建具有一个静态公共 IP 地址和一个静态专用 IP 地址的新公共 IP 地址资源和新 IP 配置：
 
-    ```azurecli
-    azure network public-ip create --resource-group $RgName --location $Location --name myPublicIP2
-    --domain-name-label mypublicdns2 --allocation-method Static
+      ```azurecli
+      azure network public-ip create --resource-group $RgName --location $Location --name myPublicIP2
+      --domain-name-label mypublicdns2 --allocation-method Static
 
-    azure network nic ip-config create --resource-group $RgName --nic-name myNic1 --name IPConfig-2
-    --private-ip-address 10.0.0.5 --public-ip-name myPublicIP2
-    ```
+      azure network nic ip-config create --resource-group $RgName --nic-name myNic1 --name IPConfig-2
+      --private-ip-address 10.0.0.5 --public-ip-name myPublicIP2
+      ```
 
     **IPConfig-3**
 
     输入以下命令，创建具有静态专用 IP 地址且没有公共 IP 地址的 IP 配置：
 
-    ```azurecli
-    azure network nic ip-config create --resource-group $RgName --nic-name myNic1 --private-ip-address 10.0.0.6 \
-    --name IPConfig-3
-    ```
+      ```azurecli
+      azure network nic ip-config create --resource-group $RgName --nic-name myNic1 --private-ip-address 10.0.0.6 \
+      --name IPConfig-3
+      ```
 
     >[!NOTE] 
     >尽管本文是将所有 IP 配置分配到单个 NIC，但你也可以将多个 IP 配置分配到 VM 中的任意 NIC。 若要了解如何创建具有多个 NIC 的 VM，请阅读“创建具有多个 NIC 的 VM”一文。
@@ -124,7 +122,7 @@ ms.lasthandoff: 04/22/2017
 8. 输入以下命令查看 NIC 和关联的 IP 配置：
 
     ```azurecli
-    azure network nic show --resource-group $RgName    --name myNic1
+    azure network nic show --resource-group $RgName --name myNic1
     ```
 9. 将专用 IP 地址添加到 VM 操作系统，只需完成本文 [将 IP 地址添加到 VM 操作系统](#os-config) 部分针对操作系统的步骤即可。
 
@@ -144,7 +142,6 @@ ms.lasthandoff: 04/22/2017
         azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic1 \
         --private-ip-address 10.0.0.7 --name IPConfig-4
         ```
-
         使用唯一的配置名称和专用 IP 地址创建任意数目的配置（适用于具有静态 IP 地址的配置）。
 
     - **添加公共 IP 地址**
@@ -181,7 +178,7 @@ ms.lasthandoff: 04/22/2017
 
         在返回的输出中查找类似 IPConfig-3 下面的行：
 
-        ```            
+        ```         
         Name               Provisioning state  Primary  Private IP allocation Private IP version  Private IP address  Subnet    Public IP
         default-ip-config  Succeeded           true     Static                IPv4                10.0.0.4            mySubnet  myPublicIP
         IPConfig-2         Succeeded           false    Static                IPv4                10.0.0.5            mySubnet  myPublicIP2
@@ -207,16 +204,14 @@ ms.lasthandoff: 04/22/2017
     azure network nic ip-config list --resource-group myResourceGroup --nic-name myNic1
     ```
 
-    返回的输出与以下内容类似：
+      返回的输出与以下内容类似：
+      ```
+      Name               Provisioning state  Primary  Private IP allocation Private IP version  Private IP address  Subnet    Public IP
 
-    ```
-    Name               Provisioning state  Primary  Private IP allocation Private IP version  Private IP address  Subnet    Public IP
-
-    default-ip-config  Succeeded           true     Static                IPv4                10.0.0.4            mySubnet  myPublicIP
-    IPConfig-2         Succeeded           false    Static                IPv4                10.0.0.5            mySubnet  myPublicIP2
-    IPConfig-3         Succeeded           false    Static                IPv4                10.0.0.6            mySubnet  myPublicIP3
-    ```
+      default-ip-config  Succeeded           true     Static                IPv4                10.0.0.4            mySubnet  myPublicIP
+      IPConfig-2         Succeeded           false    Static                IPv4                10.0.0.5            mySubnet  myPublicIP2
+      IPConfig-3         Succeeded           false    Static                IPv4                10.0.0.6            mySubnet  myPublicIP3
+      ```
 4. 根据本文[将 IP 地址添加到 VM 操作系统](#os-config)部分中的说明，将添加到 NIC 的专用 IP 地址添加到 VM 操作系统。 请勿向操作系统添加公共 IP 地址。
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/14/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
 ms.openlocfilehash: 177f548b788fdff0a677ae866ff29d101b04f029
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-with-transact-sql"></a>使用 Transact-SQL 为 Azure SQL 数据库配置活动异地复制
 
@@ -127,5 +125,4 @@ ms.lasthandoff: 06/09/2017
 ## <a name="next-steps"></a>后续步骤
 * 若要深入了解活动异地复制，请参阅[活动异地复制](sql-database-geo-replication-overview.md)
 * 有关业务连续性概述和应用场景，请参阅[业务连续性概述](sql-database-business-continuity.md)
-
 

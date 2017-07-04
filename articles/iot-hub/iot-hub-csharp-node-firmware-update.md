@@ -12,16 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/17/2017
-ms.date: 05/08/2017
+ms.date: 03/17/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 8d80059a16e5375b9e04de191b138ae28678be33
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 5288b72ccb3803da9405c7f1ca4875b536f2a621
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnode"></a>使用设备管理启动设备固件更新 (.NET/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]

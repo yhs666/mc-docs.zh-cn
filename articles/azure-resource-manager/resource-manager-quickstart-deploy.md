@@ -3,7 +3,7 @@ title: "将资源部署到 Azure | Azure"
 description: "使用 Azure PowerShell 或 Azure CLI 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。"
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -15,13 +15,11 @@ ms.workload: na
 origin.date: 02/16/2017
 ms.date: 06/05/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 3f2165d3bc88deb64de662295530213fa3dd899a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: b2d861d048fa4c3ed3020a36e1fdc81ee26587dd
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="deploy-resources-to-azure"></a>将资源部署到 Azure
 
@@ -95,36 +93,36 @@ ms.lasthandoff: 05/26/2017
 2. 若要快速开始进行部署，请使用以下命令：
 
     ```azurecli
-    az login
-    az account set --subscription {subscription-id}
+      az login
+      az account set --subscription {subscription-id}
 
-    az group create --name ExampleGroup --location "China North"
-    az group deployment create --name ExampleDeployment --resource-group ExampleGroup --template-file c:\MyTemplates\azuredeploy.json
+      az group create --name ExampleGroup --location "China North"
+      az group deployment create --name ExampleDeployment --resource-group ExampleGroup --template-file c:\MyTemplates\azuredeploy.json
     ```
 
     仅当要使用非默认订阅时，才需要 `az account set` 命令。 若要查看所有订阅及其 ID，请使用：
 
     ```azurecli
-    az account list
+      az account list
     ```
 
 3. 部署可能需要几分钟才能完成。 完成之后，将看到如下消息：
 
     ```azurecli
-    "provisioningState": "Succeeded",
+      "provisioningState": "Succeeded",
     ```
 
 4. 若要查看资源组和存储帐户是否已部署到订阅，请使用：
 
     ```azurecli
-    az group show --name ExampleGroup
-    az resource list --resource-group ExampleGroup
+      az group show --name ExampleGroup
+      az resource list --resource-group ExampleGroup
     ```
 
 5. 部署模板时，可以指定模板参数作为 PowerShell 参数。 前面的示例未包括任何模板参数，因此使用了模板中的默认值。 若要部署其他存储帐户，并为存储名称前缀和存储帐户 SKU 提供参数值，请使用：
 
     ```azurecli
-    az group deployment create --name ExampleDeployment2 --resource-group ExampleGroup --template-file c:\MyTemplates\azuredeploy.json --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
+      az group deployment create --name ExampleDeployment2 --resource-group ExampleGroup --template-file c:\MyTemplates\azuredeploy.json --parameters '{"storageNamePrefix":{"value":"contoso"},"storageSKU":{"value":"Standard_GRS"}}'
     ```
 
     现在，资源组中已有两个存储帐户。 
@@ -185,5 +183,5 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-* 有关使用 PowerShell 部署模板的详细信息，请参阅[使用 Resource Manager 模板和 Azure PowerShell 部署资源](/azure-resource-manager/resource-group-template-deploy.md)。
-* 有关使用 Azure CLI 部署模板的详细信息，请参阅[使用 Resource Manager 模板和 Azure CLI 部署资源](/azure-resource-manager/resource-group-template-deploy-cli.md)。
+* 有关使用 PowerShell 部署模板的详细信息，请参阅[使用 Resource Manager 模板和 Azure PowerShell 部署资源](/azure-resource-manager/resource-group-template-deploy)。
+* 有关使用 Azure CLI 部署模板的详细信息，请参阅[使用 Resource Manager 模板和 Azure CLI 部署资源](/azure-resource-manager/resource-group-template-deploy-cli)。

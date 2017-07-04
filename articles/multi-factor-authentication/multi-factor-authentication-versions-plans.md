@@ -16,13 +16,11 @@ ms.topic: article
 origin.date: 04/26/2017
 ms.author: v-junlch
 ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: f1c300be6529468608d4a3f4afe4d04470403884
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: b254dc1a13effd0df6a0d5681e1531191d5baad4
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何获取 Azure 多重身份验证
 
@@ -74,4 +72,3 @@ ms.lasthandoff: 05/26/2017
 - 有关定价详细信息，请参阅 [Azure MFA 定价](https://www.azure.cn/pricing/details/multi-factor-authentication/)。
 
 - 选择是要将 Azure MFA 部署[在云中还是本地](./multi-factor-authentication-get-started-cloud.md)
-

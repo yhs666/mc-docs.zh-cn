@@ -3,8 +3,8 @@ title: "威胁检测 - Azure SQL 数据库 | Azure"
 description: "威胁检测会检测异常的数据库活动，指出数据库有潜在的安全威胁。"
 services: sql-database
 documentationcenter: 
-author: rmatchoro
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: v-romcal
 ms.assetid: b50d232a-4225-46ed-91e7-75288f55ee84
 ms.service: sql-database
@@ -13,15 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 05/01/2017
+origin.date: 06/19/2017
+ms.date: 07/03/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: dd8b803da892c4c99e29d4e40cd4d8b8e83ac1d9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: 21f49e809e3feef8cbec2184ddda7e0be4c30ad7
+ms.sourcegitcommit: 73b1d0f7686dea85647ef194111528c83dbec03b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
 # <a name="sql-database-threat-detection"></a>SQL 数据库威胁检测
 
@@ -39,7 +38,7 @@ SQL 威胁检测提供新的安全层，在发生异常活动时会提供安全�
 2. 导航到要监视的 SQL 数据库的配置边栏选项卡。 在“设置”边栏选项卡中，选择“审核和威胁检测”。 
     ![导航窗格][1]
 3. 在“审核和威胁检测”配置边栏选项卡中，将审核设置为“打开”，随后会显示威胁检测设置。
-  
+
     ![导航窗格][2]
 4. 将威胁检测设置为“打开”。
 5. 配置在检测到异常数据库活动时需要接收安全警报的电子邮件列表。
@@ -65,7 +64,7 @@ SQL 威胁检测提供新的安全层，在发生异常活动时会提供安全�
 
 ## <a name="next-steps"></a>后续步骤
 
-* 有关威胁检测的详细信息，请访问 [Azure 博客](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+* 有关威胁检测的详细信息，请访问 [Azure 博客](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * 了解有关 [Azure SQL 数据库审核](sql-database-auditing.md)的详细信息
 * 有关定价的更多详细信息，请参阅 [SQL 数据库定价页面](https://www.azure.cn/pricing/details/sql-database/)  
 * 有关 PowerShell 脚本示例，请参阅[使用 PowerShell 配置审核和威胁检测](scripts/sql-database-auditing-and-threat-detection-powershell.md)
@@ -81,6 +80,5 @@ SQL 威胁检测提供新的安全层，在发生异常活动时会提供安全�
 [6]: ./media/sql-database-threat-detection/6_td_security_tile_view_alerts.png
 [7]: ./media/sql-database-threat-detection/7_td_SQL_security_alerts_list.png
 [8]: ./media/sql-database-threat-detection/8_td_SQL_security_alert_details.png
-
 
 

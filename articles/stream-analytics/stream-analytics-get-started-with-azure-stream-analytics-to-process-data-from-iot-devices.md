@@ -4,8 +4,8 @@ description: "带流分析和实时数据处理的 IoT 传感器标记和数据�
 keywords: "iot 解决方案, iot 入门"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
 ms.service: stream-analytics
@@ -16,13 +16,11 @@ ms.workload: data-services
 origin.date: 03/28/2017
 ms.date: 05/15/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 9308050193b97f44be859914af908599af067701
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 51345ff3a23b2c174c993b376b78bdfc8786657b
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>开始使用 Azure 流分析处理来自 IoT 设备的数据
 在本教程中，会学习如何创建流处理逻辑，以从物联网 (IoT) 设备收集数据。 我们会使用真实的物联网 (IoT) 用例来演示如何经济实惠地快速生成解决方案。

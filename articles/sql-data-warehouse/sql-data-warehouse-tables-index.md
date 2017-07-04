@@ -3,7 +3,7 @@ title: "为 SQL 数据仓库中的表编制索引 | Azure"
 description: "Azure SQL 数据仓库中的表索引入门。"
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: rockboyfor
 manager: barbkess
 editor: 
 ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
@@ -16,14 +16,12 @@ ms.custom: tables
 origin.date: 07/12/2016
 ms.date: 05/08/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: b8e33e78d55cf4a26c71fbd7009677d5ec5d62fc
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: 53271af8fbe0de69518d9711e1fb6429cd8a7d63
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="indexing-tables-in-sql-data-warehouse"></a>为 SQL 数据仓库中的表编制索引
 
 > [!div class="op_single_selector"]

@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 2440b716a8ed10d3a66b6aa27c88b2cb5847b6ba
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: e4388089e6df1cb4b8c11293bcf2f3366435675e
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>使用资源提供程序 REST API 创建 IoT 中心 (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>介绍
-可以通过编程方式使用 IoT 中心资源提供程序 REST API 创建和管理 Azure IoT 中心。 本教程介绍如何使用 IoT 中心资源提供程序 REST API 通过 C# 程序创建 IoT 中心。
+你可以通过编程方式使用 [IoT 中心资源提供程序 REST API][lnk-rest-api] 创建和管理 Azure IoT 中心。 本教程介绍如何使用 IoT 中心资源提供程序 REST API 通过 C# 程序创建 IoT 中心。
 
 > [!NOTE]
 > Azure 提供了用于创建和使用资源的两个不同部署模型：[Azure Resource Manager 模型和经典模型](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍了如何使用 Azure Resource Manager 部署模型。
@@ -76,7 +74,7 @@ ms.lasthandoff: 06/09/2017
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
 ## <a name="use-the-resource-provider-rest-api-to-create-an-iot-hub"></a>使用资源提供程序 REST API 创建 IoT 中心
-在资源组中使用 IoT 中心资源提供程序 REST API 创建 IoT 中心。 还可使用资源提供程序 REST API 更改现有的 IoT 中心。
+在资源组中使用 [IoT 中心资源提供程序 REST API][lnk-rest-api] 创建 IoT 中心。 还可使用资源提供程序 REST API 更改现有的 IoT 中心。
 
 1. 将以下方法添加到 Program.cs：
 
@@ -165,7 +163,8 @@ ms.lasthandoff: 06/09/2017
 ## <a name="next-steps"></a>后续步骤
 现已使用资源提供程序 REST API 部署了 IoT 中心，接下来可更进一步探索：
 
-- 有关 Azure Resource Manager 功能的详细信息，请参阅 [Azure Resource Manager 概述][lnk-azure-rm-overview] 。
+* 阅读了解 [IoT 中心资源提供程序 REST API][lnk-rest-api] 的相关功能。
+* 有关 Azure Resource Manager 功能的详细信息，请参阅 [Azure Resource Manager 概述][lnk-azure-rm-overview] 。
 
 若要详细了解如何开发 IoT 中心，请参阅以下文章：
 
@@ -174,16 +173,17 @@ ms.lasthandoff: 06/09/2017
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [使用 Azure IoT Edge 模拟设备][lnk-gateway]
+* [使用 Azure IoT Edge 模拟设备][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azure-portal]: https://portal.azure.cn/
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md

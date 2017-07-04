@@ -1,5 +1,5 @@
 ---
-title: "待提交 | Microsoft Azure"
+title: "待提交 | Azure"
 description: "待提交。"
 services: 
 documentationcenter: 
@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: landing-page
 ms.tgt_pltfrm: na
 ms.workload: na
+origin.date: 10/21/2016
 ms.date: 10/21/2016
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 310083543575f01adb960356350db2351fd992d8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: c8bc43ff6b3f54a45dd974689d83441981761609
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="to-be-submitted"></a>待提交。
-

@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/14/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
 ms.openlocfilehash: 8a5a0ebc86ac852598de7d44a2489fd80cedf823
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>还原 Azure SQL 数据库或故障转移到辅助数据库
 Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
@@ -100,5 +98,4 @@ Azure 团队会努力尽快还原服务可用性，但视根本原因而定，�
 * 若要了解 Azure SQL 数据库的自动备份，请参阅 [SQL 数据库自动备份](sql-database-automated-backups.md)
 * 若要了解业务连续性设计和恢复方案，请参阅[连续性方案](sql-database-business-continuity.md)
 * 若要了解如何使用自动备份进行恢复，请参阅[从服务启动的备份中还原数据库](sql-database-recovery-using-backups.md)
-
 

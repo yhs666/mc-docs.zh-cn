@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/02/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 43721fa61f6240578d4d6c6b8f7fb4f01a1ac6bb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: c2ba423c7941b29dad482d690954037bae6e727e
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>执行组件生命周期、自动垃圾回收和手动删除
 首次调用执行组件的任何方法时即可激活该执行组件。 如果在可配置的一段时间内未使用执行组件，则此执行组件将停用（执行组件运行时对其进行垃圾回收）。 还可以在任何时候手动删除执行组件及其状态。

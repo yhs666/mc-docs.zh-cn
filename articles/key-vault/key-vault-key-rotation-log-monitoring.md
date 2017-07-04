@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 5397742e9bfdfafddd63dd9c389e23659cc47d7d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: e23603d8fca60780a992f0fcf4f5259e8de4bb27
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>使用端到端密钥轮替和审核设置 Azure Key Vault
 ## <a name="introduction"></a>介绍
@@ -192,47 +190,46 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <ap
 
 将以下 PowerShell 脚本粘贴在新 Runbook 的编辑器窗格中：
 
-	```powershell
-	$connectionName = "AzureRunAsConnection"
-	try
-	{
-	    # Get the connection "AzureRunAsConnection "
-	    $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
-	
-	    "Logging in to Azure..."
-	    Add-AzureRmAccount -EnvironmentName AzureChinaCloud `
-	        -ServicePrincipal `
-	        -TenantId $servicePrincipalConnection.TenantId `
-	        -ApplicationId $servicePrincipalConnection.ApplicationId `
-	        -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
-	    "Login complete."
-	}
-	catch {
-	    if (!$servicePrincipalConnection)
-	    {
-	        $ErrorMessage = "Connection $connectionName not found."
-	        throw $ErrorMessage
-	    } else{
-	        Write-Error -Message $_.Exception
-	        throw $_.Exception
-	    }
-	}
-	
-	#Optionally you may set the following as parameters
-	$StorageAccountName = <storageAccountName>
-	$RGName = <storageAccountResourceGroupName>
-	$VaultName = <keyVaultName>
-	$SecretName = <keyVaultSecretName>
-	
-	#Key name. For example key1 or key2 for the storage account
-	New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-	$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
-	
-	$secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
-	
-	$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
-	```
+```powershell
+$connectionName = "AzureRunAsConnection"
+try
+{
+    # Get the connection "AzureRunAsConnection "
+    $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+
+    "Logging in to Azure..."
+    Add-AzureRmAccount -EnvironmentName AzureChinaCloud `
+        -ServicePrincipal `
+        -TenantId $servicePrincipalConnection.TenantId `
+        -ApplicationId $servicePrincipalConnection.ApplicationId `
+        -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
+    "Login complete."
+}
+catch {
+    if (!$servicePrincipalConnection)
+    {
+        $ErrorMessage = "Connection $connectionName not found."
+        throw $ErrorMessage
+    } else{
+        Write-Error -Message $_.Exception
+        throw $_.Exception
+    }
+}
+
+#Optionally you may set the following as parameters
+$StorageAccountName = <storageAccountName>
+$RGName = <storageAccountResourceGroupName>
+$VaultName = <keyVaultName>
+$SecretName = <keyVaultSecretName>
+
+#Key name. For example key1 or key2 for the storage account
+New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+
+$secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
+
+$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+```
 
 在编辑器窗格中，选择“测试窗格”测试脚本。 正常运行脚本后，可以选择“发布”，然后返回 Runbook 的配置窗格以应用 Runbook 的计划。
-
 

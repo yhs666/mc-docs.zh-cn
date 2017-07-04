@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: ff78e3573b7c7e942ce14d551277d2bf9cb3a809
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 88164f29f52dfca638ef7c0efa1d6b3299432e84
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>选择用于 Azure AD Connect 的安装类型
 进行全新安装时，AD Connect 有两种安装类型：快速安装和自定义安装。 本主题有助于用户确定安装过程中使用的具体选项。
@@ -75,5 +73,4 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="next-steps"></a>后续步骤
 根据已选定使用的选项，使用左侧的目录查找包含详细步骤的文章。
-
 

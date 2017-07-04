@@ -16,13 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 04/11/2017
 ms.date: 05/22/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 326b050ba94d5c30dfa71b70a045a8f6d533a621
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: b2d5e40f115571210cf2c18f1fdac4fe2355a36e
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>使用 Azure Resource Manager 部署模型配置强制隧道
 
@@ -52,9 +50,9 @@ ms.lasthandoff: 05/12/2017
 
 * 每个虚拟网络子网具有内置的系统路由表。 系统路由表具有以下三组路由：
 
-    * **本地 VNet 路由：** 直接路由到同一个虚拟网络中的目标虚拟机
-    * **本地路由：** 路由到 Azure VPN 网关
-    * **默认路由：** 直接路由到 Internet。 如果要将数据包发送到不包含在前面两个路由中的专用 IP 地址，数据包将被删除。
+  * **本地 VNet 路由：** 直接路由到同一个虚拟网络中的目标虚拟机
+  * **本地路由：** 路由到 Azure VPN 网关
+  * **默认路由：** 直接路由到 Internet。 如果要将数据包发送到不包含在前面两个路由中的专用 IP 地址，数据包将被删除。
 * 此过程使用用户定义路由 (UDR) 创建路由表，添加默认路由，然后将路由表关联到 VNet 子网，在这些子网上启用强制隧道。
 * 强制隧道必须关联到具有基于路由的 VPN 网关的 VNet。 您需要在连接到虚拟网络的跨界本地站点中，设置一个“默认站点”。
 * ExpressRoute 强制隧道不是通过此机制配置的，而是通过 ExpressRoute BGP 对等会话播发默认路由来启用的。 有关详细信息，请参阅 [ExpressRoute 文档](/expressroute/)。
@@ -68,83 +66,83 @@ ms.lasthandoff: 05/12/2017
 在开始配置之前，请确认你具有以下各项。
 
 * Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-* 需要安装最新版本的 Azure Resource Manager PowerShell cmdlet（1.0 或更高版本）。 有关安装 PowerShell cmdlet 的详细信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 。
+* 需要安装最新版本的 Azure Resource Manager PowerShell cmdlet（1.0 或更高版本）。 有关安装 PowerShell cmdlet 的详细信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 。
 
 ## <a name="configure-forced-tunneling"></a>配置强制隧道
 1. 在 PowerShell 控制台中，登录到你的 Azure 帐户。 该 cmdlet 将提示你提供 Azure 帐户的登录凭据。 登录后它会下载你的帐户设置，以便这些信息可供 Azure PowerShell 使用。
 
-    ```powershell
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-    ```
+  ```powershell
+  Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+  ```
 2. 获取 Azure 订阅的列表。
 
-    ```powershell
-    Get-AzureRmSubscription
-    ```
+ ```powershell
+ Get-AzureRmSubscription
+ ```
 3. 指定要使用的订阅。
 
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-    ```
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 4. 创建资源组。
 
-    ```powershell
-    New-AzureRmResourceGroup -Name "ForcedTunneling" -Location "China North"
-    ```
+  ```powershell
+  New-AzureRmResourceGroup -Name "ForcedTunneling" -Location "China North"
+  ```
 5. 创建虚拟网络并指定子网。
 
-    ```powershell 
-    $s1 = New-AzureRmVirtualNetworkSubnetConfig -Name "Frontend" -AddressPrefix "10.1.0.0/24"
-    $s2 = New-AzureRmVirtualNetworkSubnetConfig -Name "Midtier" -AddressPrefix "10.1.1.0/24"
-    $s3 = New-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -AddressPrefix "10.1.2.0/24"
-    $s4 = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix "10.1.200.0/28"
-    $vnet = New-AzureRmVirtualNetwork -Name "MultiTier-VNet" -Location "China North" -ResourceGroupName "ForcedTunneling" -AddressPrefix "10.1.0.0/16" -Subnet $s1,$s2,$s3,$s4
-    ```
+  ```powershell 
+  $s1 = New-AzureRmVirtualNetworkSubnetConfig -Name "Frontend" -AddressPrefix "10.1.0.0/24"
+  $s2 = New-AzureRmVirtualNetworkSubnetConfig -Name "Midtier" -AddressPrefix "10.1.1.0/24"
+  $s3 = New-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -AddressPrefix "10.1.2.0/24"
+  $s4 = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix "10.1.200.0/28"
+  $vnet = New-AzureRmVirtualNetwork -Name "MultiTier-VNet" -Location "China North" -ResourceGroupName "ForcedTunneling" -AddressPrefix "10.1.0.0/16" -Subnet $s1,$s2,$s3,$s4
+  ```
 6. 创建本地网络网关。
 
-    ```powershell
-    $lng1 = New-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling" -Location "China North" -GatewayIpAddress "111.111.111.111" -AddressPrefix "192.168.1.0/24"
-    $lng2 = New-AzureRmLocalNetworkGateway -Name "Branch1" -ResourceGroupName "ForcedTunneling" -Location "China North" -GatewayIpAddress "111.111.111.112" -AddressPrefix "192.168.2.0/24"
-    $lng3 = New-AzureRmLocalNetworkGateway -Name "Branch2" -ResourceGroupName "ForcedTunneling" -Location "China North" -GatewayIpAddress "111.111.111.113" -AddressPrefix "192.168.3.0/24"
-    $lng4 = New-AzureRmLocalNetworkGateway -Name "Branch3" -ResourceGroupName "ForcedTunneling" -Location "China North" -GatewayIpAddress "111.111.111.114" -AddressPrefix "192.168.4.0/24"
-    ```
+  ```powershell
+  $lng1 = New-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling" -Location "China North" -GatewayIpAddress "111.111.111.111" -AddressPrefix "192.168.1.0/24"
+  $lng2 = New-AzureRmLocalNetworkGateway -Name "Branch1" -ResourceGroupName "ForcedTunneling" -Location "China North" -GatewayIpAddress "111.111.111.112" -AddressPrefix "192.168.2.0/24"
+  $lng3 = New-AzureRmLocalNetworkGateway -Name "Branch2" -ResourceGroupName "ForcedTunneling" -Location "China North" -GatewayIpAddress "111.111.111.113" -AddressPrefix "192.168.3.0/24"
+  $lng4 = New-AzureRmLocalNetworkGateway -Name "Branch3" -ResourceGroupName "ForcedTunneling" -Location "China North" -GatewayIpAddress "111.111.111.114" -AddressPrefix "192.168.4.0/24"
+  ```
 7. 创建路由表和路由规则。
 
-    ```powershell
-    New-AzureRmRouteTable -Name "MyRouteTable" -ResourceGroupName "ForcedTunneling" -Location "China North"
-    $rt = Get-AzureRmRouteTable -Name "MyRouteTable" -ResourceGroupName "ForcedTunneling" 
-    Add-AzureRmRouteConfig -Name "DefaultRoute" -AddressPrefix "0.0.0.0/0" -NextHopType VirtualNetworkGateway -RouteTable $rt
-    Set-AzureRmRouteTable -RouteTable $rt
-    ```
+  ```powershell
+  New-AzureRmRouteTable -Name "MyRouteTable" -ResourceGroupName "ForcedTunneling" -Location "China North"
+  $rt = Get-AzureRmRouteTable -Name "MyRouteTable" -ResourceGroupName "ForcedTunneling" 
+  Add-AzureRmRouteConfig -Name "DefaultRoute" -AddressPrefix "0.0.0.0/0" -NextHopType VirtualNetworkGateway -RouteTable $rt
+  Set-AzureRmRouteTable -RouteTable $rt
+  ```
 8. 将路由表与“中间层”子网和“后端”子网关联起来。
 
-    ```powershell
-    $vnet = Get-AzureRmVirtualNetwork -Name "MultiTier-Vnet" -ResourceGroupName "ForcedTunneling"
-    Set-AzureRmVirtualNetworkSubnetConfig -Name "MidTier" -VirtualNetwork $vnet -AddressPrefix "10.1.1.0/24" -RouteTable $rt
-    Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
-    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-    ```
+  ```powershell
+  $vnet = Get-AzureRmVirtualNetwork -Name "MultiTier-Vnet" -ResourceGroupName "ForcedTunneling"
+  Set-AzureRmVirtualNetworkSubnetConfig -Name "MidTier" -VirtualNetwork $vnet -AddressPrefix "10.1.1.0/24" -RouteTable $rt
+  Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
+  Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+  ```
 9. 创建默认站点的网关。 此步骤需要一些时间才能完成，有时需要 45 分钟或更长时间，因为需要创建和配置网关。<br> **-GatewayDefaultSite** 是允许强制路由配置进行工作的 cmdlet 参数，因此请注意正确配置此设置。 此参数仅在 PowerShell 1.0 或更高版本中可用。
 
-    ```powershell
-    $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "China North" -AllocationMethod Dynamic
-    $gwsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
-    $ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "gwIpConfig" -SubnetId $gwsubnet.Id -PublicIpAddressId $pip.Id
-    New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "China North" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewayDefaultSite $lng1 -EnableBgp $false
-    ```
+  ```powershell
+  $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "China North" -AllocationMethod Dynamic
+  $gwsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
+  $ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "gwIpConfig" -SubnetId $gwsubnet.Id -PublicIpAddressId $pip.Id
+  New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "China North" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewayDefaultSite $lng1 -EnableBgp $false
+  ```
 10. 建立站点到站点 VPN 连接。
 
-    ```powershell
-    $gateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"
-    $lng1 = Get-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling" 
-    $lng2 = Get-AzureRmLocalNetworkGateway -Name "Branch1" -ResourceGroupName "ForcedTunneling" 
-    $lng3 = Get-AzureRmLocalNetworkGateway -Name "Branch2" -ResourceGroupName "ForcedTunneling" 
-    $lng4 = Get-AzureRmLocalNetworkGateway -Name "Branch3" -ResourceGroupName "ForcedTunneling" 
+  ```powershell
+  $gateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"
+  $lng1 = Get-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling" 
+  $lng2 = Get-AzureRmLocalNetworkGateway -Name "Branch1" -ResourceGroupName "ForcedTunneling" 
+  $lng3 = Get-AzureRmLocalNetworkGateway -Name "Branch2" -ResourceGroupName "ForcedTunneling" 
+  $lng4 = Get-AzureRmLocalNetworkGateway -Name "Branch3" -ResourceGroupName "ForcedTunneling" 
 
-    New-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling" -Location "China North" -VirtualNetworkGateway1 $gateway -LocalNetworkGateway2 $lng1 -ConnectionType IPsec -SharedKey "preSharedKey"
-    New-AzureRmVirtualNetworkGatewayConnection -Name "Connection2" -ResourceGroupName "ForcedTunneling" -Location "China North" -VirtualNetworkGateway1 $gateway -LocalNetworkGateway2 $lng2 -ConnectionType IPsec -SharedKey "preSharedKey"
-    New-AzureRmVirtualNetworkGatewayConnection -Name "Connection3" -ResourceGroupName "ForcedTunneling" -Location "China North" -VirtualNetworkGateway1 $gateway -LocalNetworkGateway2 $lng3 -ConnectionType IPsec -SharedKey "preSharedKey"
-    New-AzureRmVirtualNetworkGatewayConnection -Name "Connection4" -ResourceGroupName "ForcedTunneling" -Location "China North" -VirtualNetworkGateway1 $gateway -LocalNetworkGateway2 $lng4 -ConnectionType IPsec -SharedKey "preSharedKey"
+  New-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling" -Location "China North" -VirtualNetworkGateway1 $gateway -LocalNetworkGateway2 $lng1 -ConnectionType IPsec -SharedKey "preSharedKey"
+  New-AzureRmVirtualNetworkGatewayConnection -Name "Connection2" -ResourceGroupName "ForcedTunneling" -Location "China North" -VirtualNetworkGateway1 $gateway -LocalNetworkGateway2 $lng2 -ConnectionType IPsec -SharedKey "preSharedKey"
+  New-AzureRmVirtualNetworkGatewayConnection -Name "Connection3" -ResourceGroupName "ForcedTunneling" -Location "China North" -VirtualNetworkGateway1 $gateway -LocalNetworkGateway2 $lng3 -ConnectionType IPsec -SharedKey "preSharedKey"
+  New-AzureRmVirtualNetworkGatewayConnection -Name "Connection4" -ResourceGroupName "ForcedTunneling" -Location "China North" -VirtualNetworkGateway1 $gateway -LocalNetworkGateway2 $lng4 -ConnectionType IPsec -SharedKey "preSharedKey"
 
-    Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
-    ```
+  Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
+  ```

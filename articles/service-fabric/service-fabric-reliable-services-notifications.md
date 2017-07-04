@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: b8292af671d401cfda5f2e722bd2b23a88e4fa40
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: b6a8549a0ced94c6dd643e19bc2ee6633e118a9e
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services 通知
 通知可让客户端跟踪对它们感兴趣的对象所进行的更改。 两种类型的对象支持通知：*可靠状态管理器*和*可靠字典*。
@@ -222,5 +220,4 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 * [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services 备份和还原（灾难恢复）](service-fabric-reliable-services-backup-restore.md)
 * [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
 

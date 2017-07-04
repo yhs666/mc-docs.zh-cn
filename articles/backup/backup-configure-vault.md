@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 31d14c08675a4fcf4bef04d49f4a4f4b4aec5819
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 4f147cd692245f64fb8f5c472b3c569c534f2d07
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>通过 Resource Manager 部署模型将 Windows Server 或客户端备份到 Azure
 > [!div class="op_single_selector"]
-> * [Azure 门户](backup-configure-vault.md)
-> * [经典管理门户](backup-configure-vault-classic.md)
+> * [Azure 门户](./backup-configure-vault.md)
+> * [经典管理门户](./backup-configure-vault-classic.md)
 >
 >
 
@@ -37,7 +35,7 @@ ms.lasthandoff: 04/14/2017
 ![备份过程的步骤](./media/backup-configure-vault/initial-backup-process.png)
 
 ## <a name="before-you-start"></a>开始之前
-若要将服务器或客户端备份到 Azure，你需要一个 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/) 。
+若要将服务器或客户端备份到 Azure，你需要一个 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个 [试用帐户](http://www.azure.cn/pricing/1rmb-trial/) 。
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 恢复服务保管库是存储所有按时间创建的备份和恢复点的实体。 恢复服务保管库还包含应用到受保护文件和文件夹的备份策略。 创建恢复服务保管库时，也应选择适当的存储冗余选项。

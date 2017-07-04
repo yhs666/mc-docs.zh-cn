@@ -15,14 +15,13 @@ ms.topic: article
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 601045f686fc6321e5b14e828ef8cd679c32d640
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.custom: mvc
+ms.openlocfilehash: e8cd47d1e677c5bb66b49df68dbfc1568617c862
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="bind-a-custom-ssl-certificate-to-a-web-app"></a>将自定义 SSL 证书绑定到 Web 应用
 
 此示例脚本在应用服务中创建一个 Web 应用及其相关资源，然后将自定义域名的 SSL 证书绑定到该应用。 
@@ -31,7 +30,7 @@ ms.lasthandoff: 05/19/2017
 
 - 已使用 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 命令创建与 Azure 的连接。
 - 你可以访问域注册机构的 DNS 配置页。
-- 你有要上载和绑定的 SSL 证书的有效 .PFX 文件及其密码。
+- 你有要上传和绑定的 SSL 证书的有效 .PFX 文件及其密码。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -57,7 +56,7 @@ Write-Host "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsi
 Read-Host "Press [Enter] key when ready ..."
 
 # Before continuing, go to your DNS configuration UI for your custom domain and follow the 
-# instructions at https://www.azure.cn/documentation/articles/web-sites-custom-domain-name/#step-2-create-the-dns-records to configure a CNAME record for the 
+# instructions at https://docs.azure.cn/app-service-web/web-sites-custom-domain-name#step-2-create-the-dns-records to configure a CNAME record for the 
 # hostname "www" and point it your web app's default domain name.
 
 # Upgrade App Service plan to Basic tier (minimum required by custom SSL certificates)
@@ -99,4 +98,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure PowerShell 示例](../app-service-powershell-samples.md)中找到 Azure 应用服务 Web 应用的其他 Azure Powershell 示例。
-

@@ -12,18 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/30/2017
-ms.date: 06/05/2017
+ms.date: 03/30/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 5373db8701fdc5178cbb4c47a9c98061663dc6d0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: c93256bbb92bc5f0f7e3b03805f62f54c385f254
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
 # <a name="schedule-and-broadcast-jobs"></a>计划和广播作业
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
@@ -236,11 +232,9 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
 ## <a name="next-steps"></a>后续步骤
 在本教程中，使用了作业来安排用于设备的直接方法以及设备孪生属性的更新。
 
-若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅：
+若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅[教程：如何更新固件][lnk-fwupdate]。
 
-[教程：如何进行固件更新][lnk-fwupdate]
-
-若要继续完成 IoT 中心入门内容，请参阅 [IoT Edge 入门][lnk-gateway-SDK]。
+若要继续完成 IoT 中心入门内容，请参阅 [IoT Edge 入门][lnk-iot-edge]。
 
 <!-- images -->
 [img-servicenuget]: ./media/iot-hub-csharp-node-schedule-jobs/servicesdknuget.png
@@ -252,7 +246,7 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
 [lnk-c2d-methods]: ./iot-hub-node-node-direct-methods.md
 [lnk-dev-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: ./iot-hub-node-node-firmware-update.md
-[lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: ./iot-hub-linux-iot-edge-get-started.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx

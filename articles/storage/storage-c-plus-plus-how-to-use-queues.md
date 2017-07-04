@@ -14,13 +14,11 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 0f549aa999ccfde138ab8b5fed6d7fff5159098f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 2a4b87feb501be7f237b877c01b8c86546d64236
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>如何通过 C++ 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
@@ -30,7 +28,7 @@ ms.lasthandoff: 05/19/2017
 本指南将演示如何使用 Azure 队列存储服务执行常见方案。 示例采用 C++ 编写，并使用了[适用于 C++ 的 Azure 存储客户端库](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 介绍的方案包括**插入**、**扫视**、**获取**和**删除**队列消息以及**创建和删除队列**。
 
 > [!NOTE]
-> 本指南主要面向适用于 C++ 的 Azure 存储空间客户端库 1.0.0 版及更高版本。 推荐版本：存储客户端库 2.2.0（可通过 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](http://github.com/Azure/azure-storage-cpp/) 获得）。
+> 本指南主要面向适用于 C++ 的 Azure 存储客户端库 1.0.0 版及更高版本。 推荐版本：存储客户端库 2.2.0（可通过 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](http://github.com/Azure/azure-storage-cpp/) 获得）。
 > 
 > 
 
@@ -61,7 +59,7 @@ Install-Package wastorage
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>设置 Azure 存储连接字符串
-Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。 在客户端应用程序中运行时，必须提供以下格式的存储连接字符串，并对 *AccountName* 和 *AccountKey* 值使用 [Azure 门户](https://portal.azure.cn)中列出的存储帐户的名称和存储帐户的存储访问密钥。 有关存储帐户和访问密钥的信息，请参阅[关于 Azure 存储帐户](./storage-create-storage-account.md)。 此示例演示如何声明一个静态字段以保存连接字符串：  
+Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。 在客户端应用程序中运行时，必须提供以下格式的存储连接字符串，并对 AccountName 和 AccountKey 值使用 [Azure 门户](https://portal.azure.cn)中列出的存储帐户的名称和存储帐户的存储访问密钥。 有关存储帐户和访问密钥的信息，请参阅[关于 Azure 存储帐户](./storage-create-storage-account.md)。 此示例演示如何声明一个静态字段以保存连接字符串：  
 
 ```cpp
 // Define the connection-string with your values.

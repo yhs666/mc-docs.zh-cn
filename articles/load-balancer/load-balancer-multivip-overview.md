@@ -3,8 +3,8 @@ title: "Azure 负载均衡器的多个 VIP | Azure"
 description: "Azure 负载均衡器上的多个 VIP 概述"
 services: load-balancer
 documentationcenter: na
-author: chkuhtz
-manager: narayan
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
@@ -15,14 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 08/11/2016
 ms.date: 04/17/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 36e77840e52c41f85d6659e5dba0b47a5af3a85e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 814346b1aedff88849251b1d409222cfb29ebd9d
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-
 # <a name="multiple-vips-for-azure-load-balancer"></a>Azure 负载均衡器的多个 VIP
 
 使用 Azure 负载均衡器可对多个端口和/或多个 IP 地址上的服务进行负载均衡。 可以使用公共和内部负载均衡器定义来对一组 VM 之间的流量进行负载均衡。

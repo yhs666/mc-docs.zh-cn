@@ -13,17 +13,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/17/2017
-ms.date: 06/05/2017
+ms.date: 03/21/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 878a053c1a911dad021a57f13fc078af51774a10
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 1f079be5eddcc5d16647e9883949287c449ec411
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="lesson-5-create-your-first-azure-iot-gateway-module"></a>第 5 课：创建你的第一个 Azure IoT 网关模块
 虽然 Azure IoT Edge 可用于生成以 Java、.NET 或 Node.js 编写的模块，但本教程演示使用 C 生成模块的步骤。
 
@@ -282,4 +279,3 @@ ms.lasthandoff: 05/26/2017
 
 [config_ble]: ./iot-hub-gateway-kit-c-lesson3-configure-ble-app.md
 [setup_nuc]: ./iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
-

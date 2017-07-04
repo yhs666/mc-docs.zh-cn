@@ -11,17 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 10/01/2016
-ms.date: 04/24/2017
+ms.date: 10/01/2016
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: cccf8aaaaef7c83ef25667e801ed00037e71093e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 992378deb5e9a75bd8415c5a8a73c828ea268954
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="getting-started"> </a>使用移动服务时，应用服务有何作用？
 
 ##<a name="overview"></a>概述
@@ -31,7 +28,7 @@ ms.lasthandoff: 04/14/2017
 - 新主机功能包括 Web 作业、自定义 CName 和更完善的监视
 - 现成地与流量管理器集成
 - 除了混合连接以外，还可使用 VPN 和 VNet 连接到本地资源
-- 使用 NewRelic 对应用进行监视、发出警报和故障排除
+- 使用 NewRelic 或 AppInsights 对应用进行监视、发出警报和故障排除
 - 更广泛的基础计算资源与定价层
 - 内置自动缩放、负载均衡和性能监视。
 - 内置过渡、备份、回滚和生产测试功能
@@ -57,7 +54,7 @@ ms.lasthandoff: 04/14/2017
 使用移动服务时，后端代码的所有实例都在小型 VM 上运行。 *Azure 应用服务* 允许从更丰富的选项中选择 VM 的大小。 还可以根据各种性能指标快速纵向或横向扩展，处理任何传入的客户负载。
 
 ##<a name="be-in-the-know"></a>知晓一切
-通过监视和警报自动通知用户和用户的团队，实时响应问题。 根据来自 New Relic 的高级应用分析和监视功能，更全面地了解移动应用的执行方式。 使用 *Azure 应用服务* ，可以根据多种性能指标，以编程方式或通过 Azure 门户设置警报。
+通过监视和警报自动通知用户和用户的团队，实时响应问题。 整合来自 New Relic 和 AppInsights 的高级应用分析和监视功能，更全面地了解移动应用的执行方式。 使用 *Azure 应用服务* ，可以根据多种性能指标，以编程方式或通过 Azure 门户设置警报。
 
 ##<a name="keep-your-assets-safe"></a>保护资产安全
 自动备份后端和数据库。 代码和数据受到保护，即使出现灾难也不会破坏并且可以轻松还原，让用户放心开展业务。

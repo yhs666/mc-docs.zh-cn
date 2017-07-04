@@ -15,13 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
 ms.openlocfilehash: 9490d60ab07e93418de4bdb4fc84433c937f8674
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>在 Batch 中使用多实例任务来运行消息传递接口 (MPI) 应用程序
 
@@ -369,4 +367,3 @@ Sample complete, hit ENTER to exit...
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "多实例概述"
-

@@ -15,12 +15,11 @@ ms.topic: article
 origin.date: 03/24/2017
 ms.author: v-junlch
 ms.date: 05/15/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3ff18e6f95d8bbc27348658bc5fce50c3320cf0a
-ms.openlocfilehash: e8ea22c8f9877d02c62fcd38e144a16559ef5c65
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/15/2017
-
+ms.openlocfilehash: 108d26769eec7202c23e0d5895943263efba1ab9
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>将 SharePoint 场备份到 Azure
 使用 Azure 备份服务器 (MABS) 将 SharePoint 场备份到 Azure，其方法与备份其他数据源极为类似。 Azure 备份提供灵活的备份计划来创建每日、每周、每月或每年备份点，并提供适用于各种备份点的保留策略选项。 利用该技术，不仅可以存储本地磁盘副本以实现快速的恢复时间目标 (RTO)，还可以将副本存储到 Azure 以进行经济高效的长期保留。
@@ -36,7 +35,7 @@ DPM 的 Microsoft Azure 备份支持以下方案：
 在将 SharePoint 场备份到 Azure 之前，需要确保满足几个条件。
 
 ### <a name="prerequisites"></a>先决条件
-在继续之前，请确保已[安装并准备好 Azure 备份服务器](backup-azure-microsoft-azure-backup-classic.md)来保护工作负荷。
+在继续之前，请确保已[安装并准备好 Azure 备份服务器](./backup-azure-microsoft-azure-backup-classic.md)来保护工作负荷。
 
 ### <a name="protection-agent"></a>保护代理
 必须在运行 SharePoint Server 或 SQL Server 的服务器以及属于 SharePoint 场的任何其他服务器上安装保护代理。 有关如何设置保护代理的详细信息，请参阅[设置保护代理](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx)。  唯一的例外是，你只能在单个 Web 前端 (WFE) 服务器上安装代理。 DPM 只需将一台 WFE 服务器上的代理作为保护的入口点。
@@ -126,7 +125,7 @@ MABS 以 LocalSystem 帐户的形式运行。 若要备份 SQL Server 数据库�
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > MABS 然后可用的最新磁盘备份点从到 Azure 提供最多两个每日备份。 Azure 备份还可以使用 [Azure 备份网络限制](./backup-configure-vault.md#enable-network-throttling)，来控制高峰期和非高峰期用于备份的 WAN 带宽量。
+    > MABS 然后可用的最新磁盘备份点从到 Azure 提供最多两个每日备份。 Azure 备份还可以使用 [Azure 备份网络限制](backup-configure-vault.md#enable-network-throttling)，来控制高峰期和非高峰期用于备份的 WAN 带宽量。
     >
     >
 11. 根据选择的备份计划，在“**指定联机保留策略**”页上，选择每日、每周、每月和每年备份点的保留策略。
@@ -205,7 +204,7 @@ MABS 以 LocalSystem 帐户的形式运行。 若要备份 SQL Server 数据库�
     >
     >
 
-## <a name="restore-a-sharepoint-item-from-disk-using-dpm"></a>使用 DPM 从 Azure 还原 SharePoint 数据库
+## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>使用 DPM 从 Azure 还原 SharePoint 数据库
 1. 若要恢复 SharePoint 内容数据库，请浏览各个恢复点（如上所示），并选择要还原的恢复点。
 
     ![MABS SharePoint 保护 8](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection9.png)
@@ -237,5 +236,3 @@ MABS 以 LocalSystem 帐户的形式运行。 若要备份 SQL Server 数据库�
 
 问：如果使用 SQL AlwaysOn 配置了 SharePoint，我是否能将 SharePoint 数据库恢复到原始位置？<br>
 答：由于 SharePoint 数据库是在 SQL AlwaysOn 中配置的，因此除非删除可用性组，否则无法修改它们。 因此，MABS 无法将数据库还原到原始位置。 你可以将 SQL Server 数据库恢复到另一个 SQL Server 实例。
-
-

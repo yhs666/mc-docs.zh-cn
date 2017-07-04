@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2016
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 9fa86fb18cf03ef1e71e5d8c245d325887084717
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
----    
-
+ms.openlocfilehash: 90f7d081e14198e9ffdec03c1e374b17e85ceeca
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
+---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>更新 Active Directory 联合身份验证服务 (AD FS) 场的 SSL 证书
 
 ## <a name="overview"></a>概述
@@ -66,10 +63,10 @@ Azure AD Connect 尝试通过以下方式自动获取有关 AD FS 场的信息�
 
 提供证书后，Azure AD Connect 将执行一系列先决条件检查。 验证证书，确保 AD FS 场的证书正确：
 
--    证书的使用者名称/备用使用者名称与联合身份验证服务名称相同，或者证书是通配符证书。
--    证书的有效期超过 30 天。
--    证书信任链有效。
--    证书受密码保护。
+-   证书的使用者名称/备用使用者名称与联合身份验证服务名称相同，或者证书是通配符证书。
+-   证书的有效期超过 30 天。
+-   证书信任链有效。
+-   证书受密码保护。
 
 ## <a name="step-3-select-servers-for-the-update"></a>步骤 3：选择要更新的服务器
 
@@ -107,5 +104,4 @@ Azure AD Connect 尝试通过以下方式自动获取有关 AD FS 场的信息�
 
 - [Azure AD Connect 和联合身份验证](active-directory-aadconnectfed-whatis.md)
 - [使用 Azure AD Connect 进行 Active Directory 联合身份验证服务的管理和自定义](active-directory-aadconnect-federation-management.md)
-
 

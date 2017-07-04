@@ -17,14 +17,12 @@ origin.date: 05/12/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: d9e79a1bb3d9ba0a02d479e67bdbab141951627d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: b77641bc93a9b925e75067e6d65a7950fb865ed2
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>使用 Visual Studio Team Services 和 IIS 创建持续集成管道
 若要将应用程序开发的生成、测试和部署阶段自动化，可以使用持续集成和部署 (CI/CD) 管道。 本教程介绍如何在 Azure 中使用 Visual Studio Team Services 和 Windows 虚拟机 (VM) 创建一个运行 IIS 的 CI/CD 管道。 你将学习如何执行以下操作：
 
@@ -227,4 +225,3 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 
 > [!div class="nextstepaction"]
 > [Windows 虚拟机脚本示例](./powershell-samples.md)
-

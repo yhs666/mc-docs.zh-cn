@@ -15,14 +15,12 @@ ms.topic: get-started-article
 origin.date: 03/09/2017
 ms.author: v-junlch
 ms.date: 05/22/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: fe4ef750a18fc2cfd9946e7ee5e93aaba49040f0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 1d164be4c97b5b9262be0545d8e07587eb4846d8
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="using-storage-explorer-preview-with-azure-file-storage"></a>将存储资源管理器（预览版）与 Azure 文件存储配合使用
 
 Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中提供文件共享的服务。 支持 SMB 2.1 和 SMB 3.0。 通过 Azure 文件存储，你可以将依赖文件共享的旧版应用程序快速迁移到 Azure 且无成本高昂的重写。 可以使用文件存储向外公开数据，或者私下存储应用程序数据。 本文介绍如何使用存储资源管理器（预览版）来处理文件共享和文件。
@@ -179,7 +177,7 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
 ## <a name="managing-files-in-a-file-share"></a>管理文件共享中的文件
 
-创建文件共享以后，即可将文件上载到该文件共享、将文件下载到本地计算机、在本地计算机上打开文件，等等。
+创建文件共享以后，即可将文件上传到该文件共享、将文件下载到本地计算机、在本地计算机上打开文件，等等。
 
 以下步骤演示如何管理文件共享中的文件（和文件夹）。
 
@@ -199,29 +197,29 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
 7.  根据所要执行的任务完成以下步骤：
 
-    - **将文件上载到文件共享**
+    - **将文件上传到文件共享**
 
-        a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。  在主窗格的工具栏上选择“上载”，然后从下拉菜单中选择“上载文件”。
+        a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。  在主窗格的工具栏上选择“上传”，然后从下拉菜单中选择“上传文件”。
 
-        ![上载文件](./media/vs-azure-tools-storage-explorer-files/image18.png)
+        ![上传文件](./media/vs-azure-tools-storage-explorer-files/image18.png)
         
-        b.保留“数据库类型”设置，即设置为“共享”。 在“上载文件”对话框中，选择“文件”文本框右侧的省略号 (**…**) 按钮，以选择要上载的文件。
+        b.保留“数据库类型”设置，即设置为“共享”。 在“上传文件”对话框中，选择“文件”文本框右侧的省略号 (**…**) 按钮，以选择要上传的文件。
 
         ![添加文件](./media/vs-azure-tools-storage-explorer-files/image19.png)
 
-        c. 选择“上载”。
+        c. 选择“上传”。
 
-    - **将文件夹上载到文件共享**
+    - **将文件夹上传到文件共享**
         
-        a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 在主窗格的工具栏上选择“上载”，然后从下拉菜单中选择“上载文件夹”。
+        a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 在主窗格的工具栏上选择“上传”，然后从下拉菜单中选择“上传文件夹”。
 
-        ![“上载文件夹”菜单](./media/vs-azure-tools-storage-explorer-files/image20.png)
+        ![“上传文件夹”菜单](./media/vs-azure-tools-storage-explorer-files/image20.png)
 
-        b.保留“数据库类型”设置，即设置为“共享”。 在“上载文件夹”对话框中，选择“文件夹”文本框右侧的省略号 (**…**) 按钮，以选择要上载其内容的文件夹。
+        b.保留“数据库类型”设置，即设置为“共享”。 在“上传文件夹”对话框中，选择“文件夹”文本框右侧的省略号 (**…**) 按钮，以选择要上传其内容的文件夹。
 
-        c. （可选）指定要将选定文件夹的内容上载到其中的目标文件夹。 如果目标文件夹不存在，系统将会创建一个。
+        c. （可选）指定要将选定文件夹的内容上传到其中的目标文件夹。 如果目标文件夹不存在，系统将会创建一个。
 
-        d.单击“下一步”。 选择“上载”。
+        d.单击“下一步”。 选择“上传”。
 
     - **将文件下载到本地计算机**
         
@@ -263,6 +261,5 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
 - 查看[最新的存储资源管理器（预览版）发行说明和视频](http://www.storageexplorer.com/)。
 
-- 了解如何[使用 Azure Blob、表、队列和文件创建应用程序](./storage/index.md)。
-
+- 了解如何[使用 Azure Blob、表、队列和文件创建应用程序](storage/index.md)。
 

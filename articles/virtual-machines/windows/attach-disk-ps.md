@@ -16,23 +16,18 @@ ms.topic: article
 origin.date: 02/07/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 76e4a6ea03c2ba8a17e1daf00eca56531538cbe8
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 7a2a6d75aeaac05eb41c966a11de3d43a605a79f
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>使用 PowerShell 将数据磁盘附加到 Windows VM
 
-本文介绍如何使用 PowerShell 将新磁盘和现有磁盘附加到 Windows 虚拟机。可以将非托管数据磁盘附加到存储帐户中使用非托管磁盘的 VM。
-
->[!NOTE]
-> Azure 中国区尚无法使用 Azure 托管磁盘。
+本文介绍如何使用 PowerShell 将新磁盘和现有磁盘附加到 Windows 虚拟机。 如果 VM 使用托管磁盘，则可以附加其他托管数据磁盘。 此外还可以将非托管数据磁盘附加到存储帐户中使用非托管磁盘的 VM。
 
 在开始之前，请查看以下提示：
-* 虚拟机的大小决定了可以附加多少个磁盘。 有关详细信息，请参阅[虚拟机大小](../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 虚拟机的大小决定了可以附加多少个磁盘。 有关详细信息，请参阅[虚拟机大小](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 若要使用高级存储，需要支持高级存储的 VM 大小，如 DS 系列或 GS 系列虚拟机。 可以用高级存储帐户和标准存储帐户将磁盘用于这些虚拟机。 高级存储只在某些区域可用。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../storage/storage-premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ## <a name="before-you-begin"></a>开始之前
@@ -41,12 +36,31 @@ ms.lasthandoff: 04/14/2017
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-
-有关详细信息，请参阅 [Azure PowerShell 版本控制](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning)。
+有关详细信息，请参阅 [Azure PowerShell 版本控制](https://docs.microsoft.com/powershell/azure/overview)。
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>将空数据磁盘添加到虚拟机
 
 此示例演示了如何将空数据磁盘添加到现有虚拟机。
+
+### <a name="using-managed-disks"></a>使用托管磁盘
+
+```powershell
+$rgName = 'myResourceGroup'
+$vmName = 'myVM'
+$location = 'China North' 
+$storageType = 'PremiumLRS'
+$dataDiskName = $vmName + '_datadisk1'
+
+$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
+
+$dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
+
+$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
+
+$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+
+Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+```
 
 ### <a name="using-unmanaged-disks-in-a-storage-account"></a>在存储帐户中使用非托管磁盘
 
@@ -88,13 +102,29 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>将现有数据磁盘附加到 VM
 
-还可以将现有 VHD 作为非托管数据磁盘附加到虚拟机。 
+还可以将现有 VHD 作为托管数据磁盘附加到虚拟机。 
 
-### 使用非托管磁盘
+### <a name="using-managed-disks"></a>使用托管磁盘
 
 ```powershell
-    $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-    Add-AzureRmVMDataDisk -VM $vm -Name "disk-name" -VhdUri "https://mystore1.blob.core.chinacloudapi.cn/vhds/datadisk1.vhd" -LUN 0 -Caching ReadWrite -DiskSizeinGB 1 -CreateOption Attach
-    Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
+$rgName = 'myRG'
+$vmName = 'ContosoMdPir3'
+$location = 'China North' 
+$storageType = 'PremiumLRS'
+$dataDiskName = $vmName + '_datadisk2'
+$dataVhdUri = 'https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/managed_data_disk.vhd' 
+
+$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $dataVhdUri -DiskSizeGB 128
+
+$dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
+
+$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
+
+$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk2.Id -Lun 2
+
+Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```
 
+## <a name="next-steps"></a>后续步骤
+
+创建[快照](snapshot-copy-managed-disk.md)。

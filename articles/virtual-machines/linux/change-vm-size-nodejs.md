@@ -17,14 +17,12 @@ origin.date: 05/16/2016
 ms.date: 04/24/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 70dfb9339bc1b4d5657069c1561865d2f515cbed
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 3b9aeacc613aa377551375a4b98a55beaa2fd6c3
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="resize-a-linux-vm-with-azure-cli-10"></a>使用 Azure CLI 1.0 调整 Linux VM 的大小
 
 ## <a name="overview"></a>概述
@@ -41,7 +39,7 @@ ms.lasthandoff: 04/14/2017
 - [Azure CLI 1.0](#resize-a-linux-vm) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
 - [Azure CLI 2.0](change-vm-size.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
-## <a name="resize-a-linux-vm"></a> 调整 Linux VM 的大小
+## <a name="resize-a-linux-vm"></a>调整 Linux VM 的大小
 若要调整 VM 的大小，请执行以下步骤。
 
 1. 运行以下 CLI 命令。 此命令将列出托管 VM 的硬件群集上的可用 VM 大小。
@@ -70,16 +68,16 @@ ms.lasthandoff: 04/14/2017
     azure vm start -g myResourceGroup myVM
     ```
 
-    > [!WARNING]
-    > 解除分配 VM 也会释放分配给该 VM 的所有动态 IP 地址。 OS 和数据磁盘不受影响。
-    > 
-    > 
+   > [!WARNING]
+   > 解除分配 VM 也会释放分配给该 VM 的所有动态 IP 地址。 OS 和数据磁盘不受影响。
+   > 
+   > 
 
 ## <a name="next-steps"></a>后续步骤
-若要提高可伸缩性，请运行多个 VM 实例并进行横向扩展。
+若要提高可伸缩性，请运行多个 VM 实例并进行横向扩展。 
 
 <!-- links -->
 
 [azure-cli]:../../cli-install-nodejs.md
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
-[vm-sizes]: sizes.md
+[vm-sizes]:sizes.md

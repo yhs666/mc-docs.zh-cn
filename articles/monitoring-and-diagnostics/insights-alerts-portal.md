@@ -12,16 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/23/2016
-ms.date: 05/02/2017
+ms.date: 09/23/2016
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: fceb0beb8d35648c8787189c7c321a6cfaa757f3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: b8b8a986965f9cf5a91211578b0dcbc6dc1521dd
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>在 Azure Monitor 中为 Azure 服务创建指标警报 - Azure 门户
 > [!div class="op_single_selector"]
@@ -53,7 +50,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>使用 Azure 门户创建指标的警报规则
 
-1. 在[门户](https://portal.azure.cn/)中，找到想要监视的资源并选中它。
+1. 在此[门户](https://portal.azure.cn/)，查找想要监视的资源并选中它。
 
 2. 在“监视”部分下，选择“警报”或“警报规则”。 对于不同的资源，文本和图标可能会略有不同。  
 
@@ -83,7 +80,7 @@ ms.lasthandoff: 04/22/2017
 在创建警报后，可以选择警报并且：
 
 - 查看其中显示了指标阈值和前一天的实际值的图形。 
-- 编辑或删除警报。
+- 编辑或删除其。 
 - 如果想要暂时停止或恢复接收该警报的通知，可**禁用**或**启用**它。 
 
 ## <a name="next-steps"></a>后续步骤
