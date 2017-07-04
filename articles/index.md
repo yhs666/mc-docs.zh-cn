@@ -158,8 +158,8 @@ ms.lasthandoff: 05/26/2017
                                                 </ul>
                                                 <h4>AI 和认知服务</h4>
                                                 <ul class="noBullet">
-                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236">计算机视觉 API</a></li>
-                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa">人脸 API</a></li>
+                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa">计算机视觉 API</a></li>
+                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236">人脸 API</a></li>
                                                 </ul>
                                             </div>
                                         </div>
