@@ -3,38 +3,40 @@ title: "使用 Java 连接到 Azure SQL 数据库 | Azure"
 description: "演示了一个可以用来连接到 Azure SQL 数据库并进行查询的 Java 代码示例。"
 services: sql-database
 documentationcenter: 
-author: ajlam
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: article
-ms.date: 05/07/2017
+ms.topic: hero-article
+origin.date: 05/23/2017
+ms.date: 07/03/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
-ms.openlocfilehash: 5ce901c6d99c34eb231b3a2b674fb0c692292f3c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/14/2017
-
-
+ms.openlocfilehash: d811ea2b259791f92943646ea0e2c53accdb1de3
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
 # <a name="azure-sql-database-use-java-to-connect-and-query-data"></a>Azure SQL 数据库：使用 Java 进行连接和数据查询
 
 本快速入门演示了如何通过 Mac OS、Ubuntu Linux 和 Windows 平台使用 [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) 连接到 Azure SQL 数据库，然后使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。
 
+## <a name="prerequisites"></a>先决条件
+
 此快速入门使用以下某个快速入门中创建的资源作为其起点：
 
 - [创建 DB - 门户](sql-database-get-started-portal.md)
 - [创建 DB - CLI](sql-database-get-started-cli.md)
+- [创建 DB - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-java-software"></a>安装 Java 软件
 
-本部分中的步骤假定你熟悉使用 Java 开发，但不熟悉如何使用 Azure SQL 数据库。 如果不熟悉如何使用 Java 进行开发，请转到[使用 SQL Server 生成应用](https://www.microsoft.com/en-us/sql-server/developer-get-started/)并选择 **Java**，然后选择操作系统。
+本部分中的步骤假定你熟悉使用 Java 开发，但不熟悉如何使用 Azure SQL 数据库。 如果不熟悉如何使用 Java 进行开发，请转到[使用 SQL Server 生成应用](https://www.microsoft.com/sql-server/developer-get-started/)并选择 **Java**，然后选择操作系统。
 
 ### <a name="mac-os"></a>**Mac OS**
 打开终端并导航到要在其中创建 Java 项目的目录。 输入以下命令安装 **brew** 和 **Maven**： 
@@ -61,7 +63,7 @@ sudo apt-get install maven
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
-3. 在数据库的“概览”页上，查看如下图所示的完全限定的服务器名称。 可以将鼠标悬停在服务器名称上以打开“单击以复制”选项。 
+3. 在数据库的“概览”页上，查看如下图所示的完全限定的服务器名称。 将鼠标悬停在服务器名称上即可打开“通过单击进行复制”选项。 
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
@@ -104,7 +106,7 @@ import java.sql.DriverManager;
 public class App {
 
     public static void main(String[] args) {
-    
+
         // Connect to database
         String hostName = "your_server.database.chinacloudapi.cn";
         String dbName = "your_database";
@@ -125,7 +127,7 @@ public class App {
                 String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
                     + "FROM [SalesLT].[ProductCategory] pc "  
                     + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-                
+
                 try (Statement statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery(selectSql)) {
 
@@ -159,7 +161,7 @@ import java.sql.DriverManager;
 public class App {
 
     public static void main(String[] args) {
-    
+
         // Connect to database
         String hostName = "your_server.database.chinacloudapi.cn";
         String dbName = "your_database";
@@ -215,7 +217,7 @@ import java.sql.DriverManager;
 public class App {
 
     public static void main(String[] args) {
-    
+
         // Connect to database
         String hostName = "your_server.database.chinacloudapi.cn";
         String dbName = "your_database";
@@ -250,8 +252,6 @@ public class App {
 }
 ```
 
-
-
 ## <a name="delete-data"></a>删除数据
 
 通过以下代码将 [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) 与 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL 语句配合使用来删除之前添加的新产品。 将 hostHame、dbName、user 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。 
@@ -266,7 +266,7 @@ import java.sql.DriverManager;
 public class App {
 
     public static void main(String[] args) {
-    
+
         // Connect to database
         String hostName = "your_server.database.chinacloudapi.cn";
         String dbName = "your_database";
@@ -304,5 +304,3 @@ public class App {
 - [设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)
 - [用于 SQL Server 的 Microsoft JDBC 驱动程序](https://github.com/microsoft/mssql-jdbc)
 - [报告问题/提出问题](https://github.com/microsoft/mssql-jdbc/issues)
-
-

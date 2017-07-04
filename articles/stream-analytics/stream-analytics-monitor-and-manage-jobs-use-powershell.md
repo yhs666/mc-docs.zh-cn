@@ -5,7 +5,7 @@ keywords: "azure powershell、azure powershell cmdlet、powershell 命令、powe
 services: stream-analytics
 documentationcenter: 
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: cgronlun
 ms.assetid: 514f454e-d18c-4081-8304-ab48577e15e8
 ms.service: stream-analytics
@@ -14,15 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 05/15/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
-ms.openlocfilehash: 8cd1ec1ccf57e1c51a46e631e37964d5e3e1283e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/14/2017
-
-
+ms.openlocfilehash: ab00806475e783458d63559146b443fe80beea5f
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>使用 Azure PowerShell cmdlet 监视和管理流分析作业
 了解如何使用可执行基本流分析任务的 Azure PowerShell cmdlet 和 PowerShell 脚本来监视和管理流分析资源。
@@ -158,6 +156,7 @@ Azure PowerShell 1.0：
 
     Get-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-East-CN -JobName StreamingJob -Name Output
 
+
 此 PowerShell 命令返回在作业 StreamingJob 中定义的名为 Output 的输出的相关信息。
 
 ### <a name="get-azurestreamanalyticsquota--get-azurermstreamanalyticsquota"></a>Get-AzureStreamAnalyticsQuota | Get-AzureRMStreamAnalyticsQuota
@@ -188,6 +187,7 @@ Azure PowerShell 1.0：
 
     Get-AzureRMStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-East-CN -JobName StreamingJob -Name StreamingJob
 
+
 此 PowerShell 命令返回作业 StreamingJob 中名为 StreamingJob 的转换的相关信息。
 
 ### <a name="new-azurestreamanalyticsinput--new-azurermstreamanalyticsinput"></a>New-AzureStreamAnalyticsInput | New-AzureRMStreamAnalyticsInput
@@ -211,6 +211,7 @@ Azure PowerShell 1.0：
 
     New-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-East-CN -JobName StreamingJob -File "C:\Input.json" 
 
+
 此 PowerShell 命令从文件 Input.json 创建新的输入。 如果已定义了现有的输入，在输入定义文件中指定了名称，则该 cmdlet 会询问是否替换该输入。
 
 **示例 2**
@@ -222,6 +223,7 @@ Azure PowerShell 0.9.8：
 Azure PowerShell 1.0：  
 
     New-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-East-CN -JobName StreamingJob -File "C:\Input.json" -Name EntryStream
+
 
 此 PowerShell 命令在名为 EntryStream 的作业中创建新的输入。 如果已定义了使用此名称的现有输入，则该 cmdlet 会询问是否替换该输入。
 
@@ -258,6 +260,7 @@ Azure PowerShell 1.0：
 
     New-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-East-CN -File "C:\JobDefinition.json" 
 
+
 此 PowerShell 命令在 JobDefinition.json 的定义中创建新的作业。 如果已定义了现有的作业，在作业定义文件中指定了名称，则该 cmdlet 会询问是否替换该作业。
 
 **示例 2**
@@ -293,6 +296,7 @@ Azure PowerShell 1.0：
 
     New-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-East-CN -File "C:\Output.json" -JobName StreamingJob -Name output
 
+
 此 PowerShell 命令在 StreamingJob 作业中创建新的名为“output”的输出。 如果已定义了使用此名称的现有输出，则该 cmdlet 会询问是否替换该输出。
 
 **示例 2**
@@ -304,6 +308,7 @@ Azure PowerShell 0.9.8：
 Azure PowerShell 1.0：  
 
     New-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-East-CN -File "C:\Output.json" -JobName StreamingJob -Name output -Force
+
 
 此 PowerShell 命令替换作业 StreamingJob 中“output”的定义。
 
@@ -360,6 +365,7 @@ Azure PowerShell 1.0：
 
 ### <a name="remove-azurestreamanalyticsjob--remove-azurermstreamanalyticsjob"></a>Remove-AzureStreamAnalyticsJob | Remove-AzureRMStreamAnalyticsJob
 以异步方式删除 Azure 中的特定流分析作业。  
+
 如果指定了 -Force 参数，则会在不确认的情况下删除作业。
 
 **示例 1**
@@ -371,6 +377,7 @@ Azure PowerShell 0.9.8：
 Azure PowerShell 1.0：  
 
     Remove-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-East-CN -Name StreamingJob 
+
 
 此 PowerShell 命令删除作业 StreamingJob。  
 
@@ -387,6 +394,7 @@ Azure PowerShell 0.9.8：
 Azure PowerShell 1.0：  
 
     Remove-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-East-CN -JobName StreamingJob -Name Output
+
 
 此 PowerShell 命令删除作业 StreamingJob 中的输出 Output。  
 

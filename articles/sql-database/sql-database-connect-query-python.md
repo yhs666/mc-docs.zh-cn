@@ -3,8 +3,8 @@ title: "使用 Python 连接到 Azure SQL 数据库 | Azure"
 description: "演示了一个可以用来连接到 Azure SQL 数据库并进行查询的 Python 代码示例。"
 services: sql-database
 documentationcenter: 
-author: meet-bhagdev
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: 452ad236-7a15-4f19-8ea7-df528052a3ad
 ms.service: sql-database
@@ -12,29 +12,31 @@ ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: article
-ms.date: 05/07/2017
+ms.topic: hero-article
+origin.date: 05/24/2017
+ms.date: 07/03/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
-ms.openlocfilehash: fbf19ccb5c792697cbda83ccea14553cc88e23db
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/14/2017
-
-
+ms.openlocfilehash: fa46623c9ccf3e2cad2231adeeb5fb8369fbddbb
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
 # <a name="azure-sql-database-use-python-to-connect-and-query-data"></a>Azure SQL 数据库：使用 Python 进行连接和数据查询
 
  本快速入门演示了如何通过 Mac OS、Ubuntu Linux 和 Windows 平台使用 [Python](https://python.org) 连接到 Azure SQL 数据库，然后使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。
 
+## <a name="prerequisites"></a>先决条件
+
 此快速入门使用以下某个快速入门中创建的资源作为其起点：
 
 - [创建 DB - 门户](sql-database-get-started-portal.md)
 - [创建 DB - CLI](sql-database-get-started-cli.md)
+- [创建 DB - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-the-python-and-database-communication-libraries"></a>安装 Python 和数据库通信库
 
-本部分中的步骤假定你熟悉使用 Python 开发，但不熟悉如何使用 Azure SQL 数据库。 如果不熟悉如何使用 Python 进行开发，请转到[使用 SQL Server 生成应用](https://www.microsoft.com/en-us/sql-server/developer-get-started/)并选择 **Python**，然后选择操作系统。
+本部分中的步骤假定你熟悉使用 Python 开发，但不熟悉如何使用 Azure SQL 数据库。 如果不熟悉如何使用 Python 进行开发，请转到[使用 SQL Server 生成应用](https://www.microsoft.com/sql-server/developer-get-started/)并选择 **Python**，然后选择操作系统。
 
 ### <a name="mac-os"></a>**Mac OS**
 打开终端并导航到你要在其中创建 python 脚本的目录。 输入以下命令，安装 **brew**、**Microsoft ODBC Driver for Mac**和 **pyodbc**。 pyodbc 使用 Linux 上的 Microsoft ODBC 驱动程序连接到 SQL 数据库。
@@ -86,7 +88,7 @@ pip install pyodbc==3.1.1
    
 ## <a name="select-data"></a>选择数据
 
-通过以下代码将 [pyodbc.connect]((https://github.com/mkleehammer/pyodbc/wiki)) 函数与 [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL 语句配合使用，以便按类别查询前 20 个产品。 [Cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 函数可用于针对 SQL 数据库从查询中检索结果集。 此函数可接受任何查询，并返回可使用 [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html) 循环访问的结果集。 将 server、database、username 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。
+通过以下代码将 [pyodbc.connect](https://github.com/mkleehammer/pyodbc/wiki) 函数与 [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL 语句配合使用，以便按类别查询前 20 个产品。 [Cursor.execute](https://github.com/mkleehammer/pyodbc/wiki/Cursor) 函数可用于针对 SQL 数据库从查询中检索结果集。 此函数可接受任何查询，并返回可使用 **cursor.fetchone()** 循环访问的结果集。 将 server、database、username 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。
 
 ```Python
 import pyodbc
@@ -105,7 +107,7 @@ while row:
 ```
 
 ## <a name="insert-data"></a>插入数据
-通过以下代码使用 [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 函数和 [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL 语句，将新产品插入到 SalesLT.Product 表中。 将 server、database、username 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。
+通过以下代码使用 [cursor.execute](https://github.com/mkleehammer/pyodbc/wiki/Cursor) 函数和 [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL 语句，将新产品插入到 SalesLT.Product 表中。 将 server、database、username 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。
 
 ```Python
 import pyodbc
@@ -122,7 +124,7 @@ cnxn.commit()
 ```
 
 ## <a name="update-data"></a>更新数据
-通过以下代码使用 [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 函数和 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL 语句，更新之前添加的新产品。 将 server、database、username 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。
+通过以下代码使用 [cursor.execute](https://github.com/mkleehammer/pyodbc/wiki/Cursor) 函数和 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL 语句，更新之前添加的新产品。 将 server、database、username 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。
 
 ```Python
 import pyodbc
@@ -141,7 +143,7 @@ cnxn.commit()
 ```
 
 ## <a name="delete-data"></a>删除数据
-通过以下代码使用 [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 函数和 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL 语句，删除之前添加的新产品。 将 server、database、username 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。
+通过以下代码使用 [cursor.execute](https://github.com/mkleehammer/pyodbc/wiki/Cursor) 函数和 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL 语句，删除之前添加的新产品。 将 server、database、username 和 password 参数替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。
 
 ```Python
 import pyodbc
@@ -163,5 +165,4 @@ cnxn.commit()
 - [设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)
 - [用于 SQL Server 的 Microsoft Python 驱动程序](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
 - [Python 开发人员中心](/develop/python/)
-
 

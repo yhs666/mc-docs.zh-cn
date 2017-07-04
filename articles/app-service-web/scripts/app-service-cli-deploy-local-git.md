@@ -16,19 +16,20 @@ ms.topic: sample
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: a238cff6bc16cf33080c1bd16233cc909d0b6213
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.custom: mvc
+ms.openlocfilehash: db50672761f0fdb61284b4142cc5c7f5d2521a59
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>从本地 Git 存储库创建 Web 应用并部署代码
 
 此示例脚本使用其相关资源，在应用服务中创建 Web 应用，然后在本地 Git 存储库中部署 Web 应用代码。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -47,13 +48,13 @@ az group create --location chinanorth --name myResourceGroup
 az appservice plan create --name $webappname --resource-group myResourceGroup --sku FREE
 
 # Create a web app.
-az appservice web create --name $webappname --resource-group myResourceGroup --plan $webappname
+az webapp create --name $webappname --resource-group myResourceGroup --plan $webappname
 
 # Set the account-level deployment credentials
-az appservice web deployment user set --user-name $username --password $password
+az webapp deployment user set --user-name $username --password $password
 
 # Configure local Git and get deployment URL
-url=$(az appservice web source-control config-local-git --name $webappname \
+url=$(az webapp deployment source config-local-git --name $webappname \
 --resource-group myResourceGroup --query url --output tsv)
 
 # Add the Azure remote to your local Git respository and push your code
@@ -64,7 +65,7 @@ git push azure master
 # When prompted for password, use the value of $password that you specified
 
 # Browse to the deployed web app.
-az appservice web browse --name $webappname --resource-group myResourceGroup
+az webapp browse --name $webappname --resource-group myResourceGroup
 
 ```
 
@@ -88,4 +89,3 @@ az appservice web browse --name $webappname --resource-group myResourceGroup
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
 可以在 [Azure 应用服务文档](../app-service-cli-samples.md)中找到其他应用服务 CLI 脚本示例。
-

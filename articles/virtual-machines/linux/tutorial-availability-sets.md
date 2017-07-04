@@ -13,18 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 05/08/2017
-ms.date: 06/21/2017
+origin.date: 05/22/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: f757f8b294315c880c8677b35149b0d7508d94d9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.custom: mvc
+ms.openlocfilehash: fa7a1b96abdf688f13685c649a7ab9b182d5bec8
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-
 # <a name="how-to-use-availability-sets"></a>如何使用可用性集
 
 本教程介绍如何使用称作“可用性集”的功能提高 Azure 上虚拟机解决方案的可用性和可靠性。 可用性集可确保在 Azure 上部署的 VM 能够跨多个隔离的硬件群集分布。 这样，就可以确保当 Azure 中发生硬件或软件故障时，只有一部分 VM 会受到影响，整体解决方案仍可供其客户使用和操作。
@@ -38,7 +36,7 @@ ms.lasthandoff: 06/09/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-本教程需要 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行升级，请参阅[安装 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+本教程需要 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 
 
 ## <a name="availability-set-overview"></a>可用性集概述
 
@@ -54,11 +52,11 @@ ms.lasthandoff: 06/09/2017
 
 创建资源组。
 
-```azurecli
+```azurecli 
 az group create --name myResourceGroupAvailability --location chinaeast
 ```
 
-```azurecli
+```azurecli 
 az vm availability-set create \
     --resource-group myResourceGroupAvailability \
     --name myAvailabilitySet \
@@ -74,7 +72,7 @@ az vm availability-set create \
 
 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM 时，利用 `--availability-set` 参数指定可用性集，以指定该可用性集的名称。
 
-```azurecli
+```azurecli 
 for i in `seq 1 2`; do
    az vm create \
      --resource-group myResourceGroupAvailability \
@@ -96,7 +94,7 @@ done
 
 稍后可向可用性集添加更多 VM，但需了解在硬件上可用的 VM 大小。 使用 [az vm availability-set list-sizes](https://docs.microsoft.com/cli/azure/availability-set#list-sizes) 列出可用性集的硬件群集上所有可用的大小。
 
-```azurecli
+```azurecli 
 az vm availability-set list-sizes \
      --resource-group myResourceGroupAvailability \
      --name myAvailabilitySet \

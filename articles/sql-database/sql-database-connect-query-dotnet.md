@@ -3,38 +3,40 @@ title: "使用 .NET (C#) 连接到 Azure SQL 数据库 | Azure"
 description: "演示了一个可以用来连接到 Azure SQL 数据库并进行查询的 .NET 代码示例"
 services: sql-database
 documentationcenter: 
-author: ajlam
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/07/2017
+origin.date: 05/23/2017
+ms.date: 07/03/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
-ms.openlocfilehash: 5b5af2447145c23f22240818b9b5979af2958fce
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/14/2017
-
-
+ms.openlocfilehash: b08172cc4d6bbd601934ffc7cdc8ecdb0658831f
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
 # <a name="azure-sql-database-use-net-c-to-connect-and-query-data"></a>Azure SQL 数据库：使用 .NET (C#) 进行连接和数据查询
 
 本快速入门演示了如何通过 Windows、Mac OS 和 Ubuntu Linux 平台使用 [C# 和 ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) 连接到 Azure SQL 数据库，然后使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。
 
+## <a name="prerequisites"></a>先决条件
+
 此快速入门使用以下某个快速入门中创建的资源作为其起点：
 
 - [创建 DB - 门户](sql-database-get-started-portal.md)
 - [创建 DB - CLI](sql-database-get-started-cli.md)
+- [创建 DB - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-net"></a>安装 .NET
 
-本部分中的步骤假定你熟悉使用 .NET 开发，但不熟悉如何使用 Azure SQL 数据库。 如果不熟悉如何使用 .NET 进行开发，请转到[使用 SQL Server 生成应用](https://www.microsoft.com/en-us/sql-server/developer-get-started/)并选择 **C#**，然后选择操作系统。
+本部分中的步骤假定你熟悉使用 .NET 开发，但不熟悉如何使用 Azure SQL 数据库。 如果不熟悉如何使用 .NET 进行开发，请转到[使用 SQL Server 生成应用](https://www.microsoft.com/sql-server/developer-get-started/)并选择 **C#**，然后选择操作系统。
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework 和 .NET Core**
 
@@ -73,7 +75,7 @@ sudo apt-get install dotnet-dev-1.0.1
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
-3. 在数据库的“概览”页上，查看如下图所示的完全限定的服务器名称。 可以将鼠标悬停在服务器名称上以打开“单击以复制”选项。 
+3. 在数据库的“概览”页上，查看如下图所示的完全限定的服务器名称。 将鼠标悬停在服务器名称上即可打开“通过单击进行复制”选项。 
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
@@ -84,7 +86,7 @@ sudo apt-get install dotnet-dev-1.0.1
 6. 查看完整的 **ADO.NET** 连接字符串。
 
     ![ADO.NET 连接字符串](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
-  
+
 ## <a name="add-systemdatasqlclient"></a>添加 System.Data.SqlClient
 使用 .NET Core 时，请将 System.Data.SqlClient 作为依赖项添加到项目的 ***csproj*** 文件。
 
@@ -124,7 +126,7 @@ namespace ConsoleApplication1
                 {
                     Console.WriteLine("\nQuery data example:");
                     Console.WriteLine("=========================================\n");
-                    
+
                     connection.Open();       
                     StringBuilder sb = new StringBuilder();
                     sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
@@ -313,5 +315,3 @@ namespace ConsoleApplication1
 - [.NET 文档](https://docs.microsoft.com/dotnet/)。
 - [使用 SSMS 进行连接和查询](sql-database-connect-query-ssms.md)
 - [使用 Visual Studio Code 进行连接和查询](sql-database-connect-query-vscode.md)。
-
-

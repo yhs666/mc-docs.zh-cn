@@ -3,8 +3,8 @@ title: "如何与 Azure Active Directory 集成 | Microsoft Docs"
 description: "介绍与 Azure Active Directory 集成的好处与相关资源的指南。"
 services: active-directory
 documentationcenter: dev-center-name
-author: bryanla
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: d13bba54-96bd-4b81-bee9-c8025ffa1648
 ms.service: active-directory
@@ -13,15 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/27/2017
+ms.date: 06/26/2017
 ms.author: v-junlch
-ms.date: 01/07/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cd90c53e4ba6faaae9c8dce1df24a1cf76e3a774
-ms.openlocfilehash: b937d9806ce8c2d469a34d2d485fb8453d6fd40d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: 0c336a7c03285daea1a715110d162527757a59ba
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
 # <a name="integrating-with-azure-active-directory"></a>与 Azure Active Directory 集成
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -65,7 +64,7 @@ Azure Active Directory 为组织的云应用程序提供企业级标识管理。
 **Azure AD 已将 Active Directory 扩展到云中，以便你的应用程序可与 AD 集成。**  世界各地的许多组织都在使用 Active Directory 作为首要登录和标识管理系统，并要求它们的应用程序与 AD 配合使用。  与 Azure AD 集成可将你的应用与 Active Directory 相集成。
 
 ### <a name="advanced-security-features"></a>高级安全功能
-**多重身份验证。**  Azure AD 提供本机多重身份验证。  IT 管理员可以要求访问应用程序之前经过多重身份验证，因此你无需编写此项支持的代码。  了解有关 [多重身份验证](../../multi-factor-authentication/index.md)的详细信息。
+**多重身份验证。**  Azure AD 提供本机多重身份验证。  IT 管理员可以要求访问应用程序之前经过多重身份验证，因此你无需编写此项支持的代码。  了解有关 [多重身份验证](/multi-factor-authentication/)的详细信息。
 
 ### <a name="easy-development"></a>易于开发
 **行业标准协议。**  Microsoft 承诺支持行业标准。  Azure AD 支持 SAML 2.0、OpenID Connect 1.0、OAuth 2.0 和 WS-Federation 1.2 身份验证协议。  图形 API 符合 OData 4.0 规范。  如果你的应用程序已支持使用 SAML 2.0 或 OpenID Connect 1.0 进行联合登录，可以直接添加对 Azure AD 的支持。  深入了解 [Azure AD 支持的身份验证协议](active-directory-authentication-protocols.md)。
@@ -79,6 +78,5 @@ Azure Active Directory 为组织的云应用程序提供企业级标识管理。
 [开始编写代码](active-directory-developers-guide.md#get-started)。
 
 [使用 Azure AD 登录用户](active-directory-authentication-scenarios.md)
-
 
 

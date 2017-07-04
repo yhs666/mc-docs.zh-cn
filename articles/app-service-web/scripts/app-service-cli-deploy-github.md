@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 65340e7b8f1bc1e61055164ef9250b4038d2fad4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 97d08209b1f0dc24a7e89947d56cec4c2b2c02a7
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
 # <a name="create-a-web-app-with-deployment-from-github"></a>从 GitHub 使用部署创建 Web 应用
 
@@ -29,12 +29,15 @@ ms.lasthandoff: 05/19/2017
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## <a name="create-app-sample"></a>创建应用示例
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="sample-script"></a>示例脚本
 
 ```azurecli
 #!/bin/bash
 
-gitrepo=<Replace with a public GitHub repo URL. e.g. https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git>
+# Replace the following URL with a public GitHub repo URL
+gitrepo=https://github.com/Azure-Samples/php-docs-hello-world
 webappname=mywebapp$RANDOM
 
 # Create a resource group.
@@ -44,14 +47,15 @@ az group create --location chinanorth --name myResourceGroup
 az appservice plan create --name $webappname --resource-group myResourceGroup --sku FREE
 
 # Create a web app.
-az appservice web create --name $webappname --resource-group myResourceGroup --plan $webappname
+az webapp create --name $webappname --resource-group myResourceGroup --plan $webappname
 
 # Deploy code from a public GitHub repository. 
-az appservice web source-control config --name $webappname --resource-group myResourceGroup \
+az webapp deployment source config --name $webappname --resource-group myResourceGroup \
 --repo-url $gitrepo --branch master --manual-integration
 
 # Browse to the web app.
-az appservice web browse --name $webappname --resource-group myResourceGroup
+az webapp browse --name $webappname --resource-group myResourceGroup
+
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
@@ -73,4 +77,3 @@ az appservice web browse --name $webappname --resource-group myResourceGroup
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
 可以在 [Azure 应用服务文档](../app-service-cli-samples.md)中找到其他应用服务 CLI 脚本示例。
-

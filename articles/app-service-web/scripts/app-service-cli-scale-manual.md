@@ -16,19 +16,20 @@ ms.workload: web
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: bc633c9a9f00764d3870db787e0565be4952819f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 0c0def72353d6364840bd0551f19d32e0cd7e4e6
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-
 # <a name="scale-a-web-app-manually"></a>手动缩放 Web 应用
 
 在此方案中，你将了解如何创建资源组、应用服务计划和 Web 应用。 然后，将应用服务计划从单个实例扩展到多个实例。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -46,7 +47,7 @@ az group create --name myResourceGroup --location $location
 az appservice plan create --name AppServiceManualScalePlan --resource-group myResourceGroup --location $location --sku B1
 
 # Add a Web App
-az appservice web create --name $appName --plan AppServiceManualScalePlan --resource-group myResourceGroup
+az webapp create --name $appName --plan AppServiceManualScalePlan --resource-group myResourceGroup
 
 # Scale Web App to 2 Workers
 az appservice plan update --number-of-workers 2 --name AppServiceManualScalePlan --resource-group myResourceGroup
@@ -70,4 +71,3 @@ az appservice plan update --number-of-workers 2 --name AppServiceManualScalePlan
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
 可以在 [Azure 应用服务文档](../app-service-cli-samples.md)中找到其他应用服务 CLI 脚本示例。
-

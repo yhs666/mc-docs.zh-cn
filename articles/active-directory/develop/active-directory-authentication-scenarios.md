@@ -3,8 +3,8 @@ title: "Azure AD 的身份验证方案 | Microsoft Docs"
 description: "Azure Active Directory (AAD) 的五个最常见身份验证方案概述"
 services: active-directory
 documentationcenter: dev-center-name
-author: bryanla
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
@@ -13,15 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/27/2017
-ms.date: 02/07/2017
+ms.date: 06/26/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 93ef08db2543aff66e993975a9b9e9554442b1be
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: c9433d3b3bd6a68fe0ac697c93853ee7a76ea4ac
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Azure AD 的身份验证方案
 Azure Active Directory (Azure AD) 通过以下方式简化了对开发人员的身份验证：将标识作为服务提供、支持行业标准协议（例如 OAuth 2.0 和 OpenID Connect），并提供用于不同平台的开源库，帮助你快速开始编码。 本文档将帮助你了解 Azure AD 支持的各种方案并演示如何入门。 具体内容划为以下几部分：
@@ -297,4 +296,3 @@ Web 应用程序使用其授权代码来获取 JWT 访问令牌时，它还会�
 [有关 Azure AD 中签名密钥滚动更新的重要信息](active-directory-signing-key-rollover.md)
 
 [Azure AD 中的 OAuth 2.0](./active-directory-protocols-oauth-code.md)
-

@@ -16,14 +16,13 @@ ms.topic: sample
 origin.date: 04/10/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: f937ebf9cfdb7d73e70ed46718d3dea5ebd8603c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.custom: mvc
+ms.openlocfilehash: a663f82052fade03ec1e600dd0430faa48bb7765
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-
 # <a name="bind-a-custom-ssl-certificate-to-a-web-app"></a>将自定义 SSL 证书绑定到 Web 应用
 
 此示例脚本在应用服务中创建一个 Web 应用及其相关资源，然后将自定义域名的 SSL 证书绑定到该应用。 对于此示例，你将需要：
@@ -33,14 +32,16 @@ ms.lasthandoff: 04/22/2017
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="sample-script"></a>示例脚本
 
 ```azurecli
 #!/bin/bash
 
-fqdn=<Replace with www.{yourdomain}>
-pfxPath=<Replace with path to your .PFX file>
-pfxPassword=<Replace with your .PFX password>
+fqdn=<replace-with-www.{yourdomain}>
+pfxPath=<replace-with-path-to-your-.PFX-file>
+pfxPassword=<replace-with-your=.PFX-password>
 webappname=mywebapp$RANDOM
 
 # Create a resource group.
@@ -50,27 +51,27 @@ az group create --location chinanorth --name myResourceGroup
 az appservice plan create --name $webappname --resource-group myResourceGroup --sku B1
 
 # Create a web app.
-az appservice web create --name $webappname --resource-group myResourceGroup \
+az webapp create --name $webappname --resource-group myResourceGroup \
 --plan $webappname
 
 echo "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsites.cn"
 read -p "Press [Enter] key when ready ..."
 
 # Before continuing, go to your DNS configuration UI for your custom domain and follow the 
-# instructions at https://www.azure.cn/documentation/articles/web-sites-custom-domain-name/#step-2-create-the-dns-records to configure a CNAME record for the 
+# instructions at https://docs.azure.cn/app-service-web/web-sites-custom-domain-name#step-2-create-the-dns-records to configure a CNAME record for the 
 # hostname "www" and point it your web app's default domain name.
 
 # Map your prepared custom domain name to the web app.
-az appservice web config hostname add --webapp $webappname --resource-group myResourceGroup \
---name $fqdn
+az webapp config hostname add --webapp-name $webappname --resource-group myResourceGroup \
+--hostname $fqdn
 
 # Upload the SSL certificate and get the thumbprint.
-thumprint=$(az appservice web config ssl upload --certificate-file $pfxPath \
+thumprint=$(az webapp config ssl upload --certificate-file $pfxPath \
 --certificate-password $pfxPassword --name $webappname --resource-group myResourceGroup \
 --query thumbprint --output tsv)
 
 # Binds the uploaded SSL certificate to the web app.
-az appservice web config ssl bind --certificate-thumbprint $thumbprint --ssl-type SNI \
+az webapp config ssl bind --certificate-thumbprint $thumbprint --ssl-type SNI \
 --name $webappname --resource-group myResourceGroup
 
 echo "You can now browse to https://$fqdn"
@@ -96,4 +97,3 @@ echo "You can now browse to https://$fqdn"
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
 可以在 [Azure 应用服务文档](../app-service-cli-samples.md)中找到其他应用服务 CLI 脚本示例。
-

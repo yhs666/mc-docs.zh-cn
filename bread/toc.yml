@@ -9,9 +9,15 @@
       - name: 连接
         tocHref: /active-directory/connect/
         topicHref: /active-directory/connect/
+      - name: Connect Health
+        tocHref: /active-directory/connect-health/
+        topicHref: /active-directory/connect-health/
       - name: 开发
         tocHref: /active-directory/develop/
         topicHref: /active-directory/develop/
+      - name: Privileged Identity Management
+        tocHref: /active-directory/privileged-identity-management/
+        topicHref: /active-directory/privileged-identity-management/
   - name: 应用服务
     tocHref: /app-service/
     topicHref: /app-service/
@@ -49,12 +55,13 @@
   - name: CDN
     tocHref: /cdn/
     topicHref: /cdn/
-  - name: 认知服务
-    tocHref: /cognitive-services/
-    topicHref: /cognitive-services/
   - name: 云服务
     tocHref: /cloud-services/
     topicHref: /cloud-services/
+  - name: 认知服务
+    tocHref: /cognitive-services/
+    topicHref: /cognitive-services/
+
   - name: DocumentDB
     tocHref: /documentdb/
     topicHref: /documentdb/

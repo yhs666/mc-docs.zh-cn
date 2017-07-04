@@ -14,16 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 04/05/2017
-ms.date: 
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 66b5de20c1a965a5ca3bae7a4b78e43929f886bd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 0dce8b9f13eba50e8d47f5dce1dc50d9a7142555
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>在负载均衡虚拟机规模集中部署 LAMP 堆栈
 
 此示例创建一个虚拟机规模集，并应用运行自定义脚本的扩展在规模集中每个虚拟机上部署 LAMP 堆栈。
@@ -89,7 +88,7 @@ echo "You can now reach the scale set by opening your browser to: 'http://${FQDN
 
 运行如下命令来删除资源组、规模集和 VM 以及所有相关资源。
 
-```azurecli
+```azurecli 
 az group delete -n myResourceGroup
 ```
 
@@ -113,4 +112,3 @@ az group delete -n myResourceGroup
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
-

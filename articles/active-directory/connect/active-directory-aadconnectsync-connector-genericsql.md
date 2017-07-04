@@ -3,8 +3,8 @@ title: "泛型 SQL 连接器 | Microsoft Docs"
 description: "本文介绍如何配置 Microsoft 的泛型 SQL 连接器。"
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -12,23 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2017
-ms.date: 06/12/2017
+origin.date: 06/02/2017
+ms.date: 06/23/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 40b144e06b05745e84347f74aa453d4f7ceaa113
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 896ab3ef7f6cf443d6cd927f63023569bc1d2154
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>泛型 SQL 连接器技术参考
 本指南介绍泛型 SQL 连接器。 本文适用于以下产品：
 
 - Microsoft 标识管理器 2016 (MIM2016)
 - Forefront 标识管理器 2010 R2 (FIM2010R2)
-  - 必须使用修补程序 4.1.3671.0 或更高版本 [KB3092178](https://support.microsoft.com/zh-cn/kb/3092178)。
+  - 必须使用修补程序 4.1.3671.0 或更高版本 [KB3092178](https://support.microsoft.com/kb/3092178)。
 
 对于 MIM2016 和 FIM2010R2，可以从 [Microsoft 下载中心](http://go.microsoft.com/fwlink/?LinkId=717495)下载此连接器。
 
@@ -199,12 +197,9 @@ ms.lasthandoff: 05/26/2017
 连接器提供两种方法来支持密码同步：
 
 - **存储过程**：此方法需要两个存储过程来支持设置和更改密码。 按照以下示例，分别在“设置密码 SP 参数”和“更改密码 SP 参数”中键入添加和更改密码操作的所有参数。
-    
-    ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters3.png)
-
+  ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters3.png)
 - **密码扩展**：此方法需要密码扩展 DLL（必须提供实现 [IMAExtensible2Password](https://msdn.microsoft.com/library/microsoft.metadirectoryservices.imaextensible2password.aspx) 接口的扩展 DLL 名称）。 密码扩展组件必须放在扩展文件夹中，连接器才可以在运行时加载 DLL。
-
-    ![globalparameters4](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters4.png)
+  ![globalparameters4](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters4.png)
 
 还必须在“配置扩展”页面上启用密码管理。
 ![globalparameters5](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters5.png)
@@ -312,5 +307,4 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="troubleshooting"></a>故障排除
 - 有关如何启用记录来排查连接器问题的信息，请参阅 [如何启用连接器的 ETW 跟踪](http://go.microsoft.com/fwlink/?LinkId=335731)。
-
 

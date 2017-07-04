@@ -9,31 +9,25 @@ editor:
 tags: 
 ms.assetid: e163f878-b919-45c5-9f5a-75a64f3b14a0
 ms.service: virtual-machines-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/10/2017
-ms.date: 04/24/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 99351e9e2e4cd692a0becacc61bab22bbdfb92b3
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: ea45c6aead772f07a329021a3d7ddd576a239a75
+ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
 # <a name="resize-a-linux-virtual-machine-using-cli-20"></a>使用 CLI 2.0 调整 Linux 虚拟机的大小
 
 预配虚拟机 (VM) 后，可以通过更改 [VM 大小][vm-sizes]来扩展或缩减 VM。 在某些情况下，必须先解除分配 VM。 如果所需大小在托管 VM 的硬件群集上不可用，则需要解除分配 VM。 本文详细介绍了如何使用 Azure CLI 2.0 来调整 Linux VM 的大小。 还可以使用 [Azure CLI 1.0](change-vm-size-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
 
-## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
-可使用以下 CLI 版本之一完成任务：
-
-- [Azure CLI 1.0](change-vm-size-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于经典部署模型和资源管理部署模型的 CLI
-- Azure CLI 2.0 - 下一代 CLI，适用于资源管理部署模型（详见本文）
-
+## <a name="resize-a-vm"></a>调整 VM 的大小
 若要调整 VM 的大小，需要最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) 并已使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
@@ -60,12 +54,12 @@ ms.lasthandoff: 04/14/2017
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-    > [!WARNING]
-    > 解除分配 VM 也会释放分配给该 VM 的所有动态 IP 地址。 OS 和数据磁盘不受影响。
+   > [!WARNING]
+   > 解除分配 VM 也会释放分配给该 VM 的所有动态 IP 地址。 OS 和数据磁盘不受影响。
 
 ## <a name="next-steps"></a>后续步骤
-若要提高可伸缩性，请运行多个 VM 实例并进行横向扩展。
+若要提高可伸缩性，请运行多个 VM 实例并进行横向扩展。 
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
-[vm-sizes]: sizes.md
+[vm-sizes]:sizes.md

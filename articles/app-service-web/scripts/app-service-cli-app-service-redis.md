@@ -16,19 +16,20 @@ ms.workload: web
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: b517c8b0c221fc66cf3f9b64f2b423b99a8741aa
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 16dad021de8b641666e395f3b3f50b3cbf9b3faa
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-
 # <a name="connect-a-web-app-to-a-redis-cache"></a>将 Web 应用连接到 Redis 缓存
 
 在此方案中，你将了解如何创建 Azure Redis 缓存和 Azure Web 应用。 然后，将使用应用设置将 Redis 缓存链接到 Web 应用。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -48,13 +49,13 @@ az group create --name $resourceGroupName --location $location
 az appservice plan create --name WebAppWithRedisPlan --resource-group $resourceGroupName --location $location
 
 # Create a Web App
-az appservice web create --name $appName --plan WebAppWithRedisPlan --resource-group $resourceGroupName 
+az webapp create --name $appName --plan WebAppWithRedisPlan --resource-group $resourceGroupName 
 
 # Create a Redis Cache
 redis=($(az redis create --name $appName --resource-group $resourceGroupName --location $location --sku-capacity 0 --sku-family C --sku-name Basic --query [hostName,sslPort,accessKeys.primaryKey] --output tsv))
 
 # Assign the connection string to an App Setting in the Web App
-az appservice web config appsettings update --settings "REDIS_URL=${redis[0]}" "REDIS_PORT=${redis[1]}" "REDIS_KEY=${redis[2]}" --name $appName --resource-group $resourceGroupName
+az webapp config appsettings set --settings "REDIS_URL=${redis[0]}" "REDIS_PORT=${redis[1]}" "REDIS_KEY=${redis[2]}" --name $appName --resource-group $resourceGroupName
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
@@ -77,4 +78,3 @@ az appservice web config appsettings update --settings "REDIS_URL=${redis[0]}" "
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
 可以在 [Azure 应用服务文档](../app-service-cli-samples.md)中找到其他应用服务 CLI 脚本示例。
-

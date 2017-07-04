@@ -3,8 +3,8 @@ title: "将 SQL Server DB 迁移到 Azure SQL 数据库 | Azure"
 description: "了解如何将 SQL Server 数据库迁移至 Azure SQL 数据库。"
 services: sql-database
 documentationcenter: 
-author: janeng
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 tags: 
 ms.assetid: 
@@ -14,17 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/07/2017
+origin.date: 05/07/2017
+ms.date: 07/03/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
-ms.openlocfilehash: f15b98c6c0038e9747696a4e47680deb4fb7fb85
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/14/2017
-
-
+ms.openlocfilehash: afb0b6b2640165a22488242c8ca4ae30b4db3776
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
-
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>将 SQL Server 数据库迁移到 Azure SQL 数据库
 
 将 SQL Server 数据库移到 Azure SQL 数据库的过程由三个部分组成 - 准备、导出和导入数据库。 本教程介绍以下内容：
@@ -103,7 +101,7 @@ BACPAC 文件是一个扩展名为 BACPAC 的 ZIP 文件，它包含来自 SQL S
 
 执行完成后，生成的 BCPAC 文件将存储在 sqlpackage 可执行文件所在的目录中。 在此示例中为 C:\Program Files (x86)\Microsoft SQL Server\130\DAC\bin。 
 
-## <a name="step-3-log-in-to-the-azure-portal"></a>步骤 3：登录 Azure 门户
+## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
 
 登录到 [Azure 门户](https://portal.azure.cn/)。 从运行 SQLPackage 命令行实用工具的计算机登录有助于步骤 5 中的防火墙规则创建。
 
@@ -233,6 +231,3 @@ SQLPackage 命令行实用工具的最新版本支持在指定[服务层和性�
 
 > [!div class="nextstepaction"]
 > [保护 Azure SQL 数据库](sql-database-security-tutorial.md)。
-
-
-

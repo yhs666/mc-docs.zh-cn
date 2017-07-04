@@ -3,8 +3,8 @@ title: "Azure Active Directory v2.0 终结点局限和限制 | Microsoft Docs"
 description: "Azure AD v2.0 终结点的限制和局限性列表。"
 services: active-directory
 documentationcenter: 
-author: dstrockis
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
@@ -13,15 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/01/2017
-ms.date: 02/13/2017
+ms.date: 06/26/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 98a18d27d67a83a58119ace922149fa301309f0a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: f98c22ba6d1c2ad06df40642992e09e47a3552cc
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>我是否应使用 v2.0 终结点？
 构建与 Azure Active Directory 集成的应用程序时，需确定 v2.0 终结点和身份验证协议是否满足需求。 Azure Active Directory 的原始终结点仍完全受支持，并且在某些方面比 v2.0 的功能更丰富。 但是，v2.0 终结点为开发人员[带来了极大的好处](active-directory-v2-compare.md)。
@@ -44,9 +43,9 @@ v2.0 终结点目前不支持以下类型的应用。 有关支持的应用类�
 若要了解如何构建从应用程序 ID 相同的客户端接受令牌的 Web API，请参阅[入门](active-directory-appmodel-v2-overview.md#getting-started)部分中的 v2.0 终结点 Web API 示例。
 
 ## <a name="restrictions-on-app-registrations"></a>应用注册限制
-目前，对于每个想要与 v2.0 终结点集成的应用，必须在新的 [Microsoft 应用程序注册门户](https://apps.dev.microsoft.com)中创建应用注册。 现有的 Azure AD 或 Microsoft 帐户应用不兼容 v2.0 终结点。 不是在应用程序注册门户中注册的应用不兼容 v2.0 终结点。 我们已计划在将来提供一种方法，使现有应用程序可用作 v2.0 应用。 不过，现有的应用目前没有迁移路径，无法与 v2.0 终结点配合工作。
+目前，对于每个想要与 v2.0 终结点集成的应用，必须在新的 [Microsoft 应用程序注册门户](https://apps.dev.microsoft.com/?deeplink=/appList)中创建应用注册。 现有的 Azure AD 或 Microsoft 帐户应用不兼容 v2.0 终结点。 不是在应用程序注册门户中注册的应用不兼容 v2.0 终结点。 我们已计划在将来提供一种方法，使现有应用程序可用作 v2.0 应用。 不过，现有的应用目前没有迁移路径，无法与 v2.0 终结点配合工作。
 
-此外，在[应用程序注册门户](https://apps.dev.microsoft.com)中创建的应用注册具有以下注意事项：
+此外，在[应用程序注册门户](https://apps.dev.microsoft.com/?deeplink=/appList)中创建的应用注册具有以下注意事项：
 
 - 每个应用程序 ID 只允许有两个应用密码。
 - 对于用户使用个人 Microsoft 帐户注册的应用注册，只能使用一个开发人员帐户进行查看和管理。 不能在多个开发人员之间共享。  如果希望多名开发人员共享应用注册，可以通过使用 Azure AD 帐户登录注册门户来创建应用程序。
@@ -116,5 +115,4 @@ v2.0 终结点不支持 SAML 或 WS 联合身份验证；它仅支持 Open ID Co
 
 ## <a name="restrictions-for-work-and-school-accounts"></a>工作和学校帐户限制
 如果已在 Windows 应用程序中使用了 Active Directory 身份验证库 (ADAL)，则可能已利用了使用安全断言标记语言 (SAML) 断言授予的 Windows 集成身份验证。 借助这种授权，联合 Azure AD 租户的用户可使用其本地 Active Directory 实例以静默方式进行身份验证，而无需输入凭据。 v2.0 终结点目前不支持 SAML 断言授权。
-
 

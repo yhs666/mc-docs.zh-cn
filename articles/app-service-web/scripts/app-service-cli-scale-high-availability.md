@@ -16,19 +16,20 @@ ms.workload: web
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 6fee56d0f0eeb173a88153bcd507907189e03712
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 0eda4c50f5343174dd4953f1d37d7d8be7849bd3
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-
 # <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture"></a>缩放具有高可用性体系结构的全球 Web 应用
 
 在此方案中，将创建一个资源组、两个应用服务计划、两个 Web 应用、一个流量管理器配置文件和两个流量管理器终结点。 完成本练习后，你将获得一个高可用性体系结构，它基于最低网络延迟提供 Web 应用的全局可用性。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -53,8 +54,8 @@ az appservice plan create --name $app1Name-Plan --resource-group myResourceGroup
 az appservice plan create --name $app2Name-Plan --resource-group myResourceGroup --location $location2 --sku S1
 
 # Add a Web App to each App Service Plan
-site1=$(az appservice web create --name $app1Name --plan $app1Name-Plan --resource-group myResourceGroup --query id --output tsv)
-site2=$(az appservice web create --name $app2Name --plan $app2Name-Plan --resource-group myResourceGroup --query id --output tsv)
+site1=$(az webapp create --name $app1Name --plan $app1Name-Plan --resource-group myResourceGroup --query id --output tsv)
+site2=$(az webapp create --name $app2Name --plan $app2Name-Plan --resource-group myResourceGroup --query id --output tsv)
 
 # Assign each Web App as an Endpoint for high-availabilty
 az network traffic-manager endpoint create -n $app1Name-$location1 --profile-name $trafficManagerDnsName-tmp -g myResourceGroup --type azureEndpoints --target-resource-id $site1
@@ -80,4 +81,3 @@ az network traffic-manager endpoint create -n $app2Name-$location2 --profile-nam
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
 可以在 [Azure 应用服务文档](../app-service-cli-samples.md)中找到其他应用服务 CLI 脚本示例。
-

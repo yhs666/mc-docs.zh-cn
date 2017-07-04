@@ -9,30 +9,27 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/27/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: 4857a35a08efe15c2c29c8578d3707b68a3fc488
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/06/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 66e0249c2f015aaa7cc5154c93a2d73c9ac1fcb6
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-
 # <a name="secure-network-traffic-between-virtual-machines"></a>保护虚拟机之间的网络流量
 
 此脚本创建两个虚拟机，并保护这两个虚拟机的传入流量。 一个虚拟机可在 Internet 上访问，其网络安全组 (NSG) 配置为允许端口 22 和端口 80 上的流量。 第二个虚拟机无法在 Internet 上访问，其 NSG 配置为仅允许来自第一个虚拟机的流量。 
 
-必要时，请使用 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中的说明安装 Azure CLI，然后运行 `az login` 创建与 Azure 的连接。
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
-此示例在 Bash shell 中正常工作。 有关在 Windows 客户端上运行 Azure CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../virtual-machines-windows-cli-options.md)。
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -42,39 +39,49 @@ ms.lasthandoff: 04/06/2017
 # Create a resource group.
 az group create --name myResourceGroup --location chinanorth
 
-# Create a virtual network and subnet (front end).
-az network vnet create --resource-group myResourceGroup --name myVnet --address-prefix 192.168.0.0/16 \
---subnet-name mySubnetFrontEnd --subnet-prefix 192.168.1.0/24
+# Create a virtual network and front-end subnet.
+az network vnet create --resource-group myResourceGroup --name myVnet --address-prefix 10.0.0.0/16 \
+--subnet-name mySubnetFrontEnd --subnet-prefix 10.0.1.0/24
 
-# Create a subnet (back end) and associate with virtual network. 
+# Create a back-end subnet and associate with virtual network. 
 az network vnet subnet create --resource-group myResourceGroup --vnet-name myVnet \
-  --name mySubnetBackEnd --address-prefix 192.168.2.0/24
+  --name mySubnetBackEnd --address-prefix 10.0.2.0/24
 
-# Create a new virtual machine, this creates SSH keys if not present.
+# Create a front-end virtual machine.
 az vm create --resource-group myResourceGroup --name myVMFrontEnd --image UbuntuLTS \
   --vnet-name myVnet --subnet mySubnetFrontEnd --nsg myNetworkSecurityGroupFrontEnd \
   --generate-ssh-keys --no-wait
 
-# Create a virtual machine without a public IP address.
+# Create a back-end virtual machine without a public IP address.
 az vm create --resource-group myResourceGroup --name myVMBackEnd --image UbuntuLTS \
   --vnet-name myVnet --subnet mySubnetBackEnd --nsg myNetworkSecurityGroupBackEnd \
   --public-ip-address "" --generate-ssh-keys
 
-# Get nsg rule name.
+# Create front-end NSG rule to allow traffic on port 80.
+az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroupFrontEnd \
+  --name http --access allow --protocol Tcp --direction Inbound --priority 200 \
+  --source-address-prefix "*" --source-port-range "*" --destination-address-prefix "*" --destination-port-range 80
+
+# Get default back-end SSH rule.
 nsgrule=$(az network nsg rule list --resource-group myResourceGroup --nsg-name myNetworkSecurityGroupBackEnd --query [0].name -o tsv)
 
-# Update backend network security group rule to limit source prefix.
+# Update back-end network security group rule to limit SSH to source prefix (priority 100).
 az network nsg rule update --resource-group myResourceGroup --nsg-name myNetworkSecurityGroupBackEnd \
-  --name $nsgrule --protocol tcp --direction inbound --priority 1000 \
-  --source-address-prefix 192.168.1.0/24 --source-port-range '*' --destination-address-prefix '*' \
+  --name $nsgrule --protocol tcp --direction inbound --priority 100 \
+  --source-address-prefix 10.0.2.0/24 --source-port-range '*' --destination-address-prefix '*' \
   --destination-port-range 22 --access allow
+
+# Create backend NSG rule to block all incoming traffic (priority 200).
+az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroupBackEnd \
+  --name denyAll --access Deny --protocol Tcp --direction Inbound --priority 200 \
+  --source-address-prefix "*" --source-port-range "*" --destination-address-prefix "*" --destination-port-range "*"
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署 
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli
+```azurecli 
 az group delete --name myResourceGroup
 ```
 
@@ -96,4 +103,4 @@ az group delete --name myResourceGroup
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
-可以在 [Azure Linux VM 文档](../virtual-machines-linux-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
+可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。

@@ -17,14 +17,12 @@ origin.date: 05/02/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 2931aa5bd3a4df3dd849ad6a4162313458d3a3d9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: b09fda76f90468a0badc20a517fc98e08fe83d63
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>如何在首次启动 Linux 虚拟机时对其进行自定义
 在前面的教程中，你已学习如何通过 SSH 连接到虚拟机 (VM) 并手动安装 NGINX。 若要以快速一致的方式创建 VM，通常需要某种形式的自动化。 在首次启动 VM 时实现自定义的常见方法是使用 [cloud-init](https://cloudinit.readthedocs.io)。 本教程介绍如何执行下列操作：
 
@@ -103,13 +101,13 @@ runcmd:
 ## <a name="create-virtual-machine"></a>创建虚拟机
 使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建资源组，然后才能创建 VM。 以下示例在“chinaeast”位置创建名为“myResourceGroupAutomate”的资源组：
 
-```azurecli-interactive 
+```azurecli 
 az group create --name myResourceGroupAutomate --location chinaeast
 ```
 
 现在，请使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 使用 `--custom-data` 参数传入 cloud-init 配置文件。 如果未将 cloud-init.txt 配置文件保存在现有工作目录中，请提供该文件的完整路径。 以下示例创建名为“myAutomatedVM”的 VM：
 
-```azurecli-interactive 
+```azurecli 
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myVM \
@@ -123,7 +121,7 @@ az vm create \
 
 若要使 VM 能使用 Web 流量，请通过 [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port) 从 Internet 打开端口 80：
 
-```azurecli-interactive 
+```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
@@ -147,7 +145,7 @@ Azure Key Vault 保护加密密钥和机密，例如证书或密码。 Key Vault
 ### <a name="create-an-azure-key-vault"></a>创建 Azure Key Vault
 首先，使用 [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) 创建 Key Vault，并在部署 VM 时启用该 Key Vault。 每个 Key Vault 均需具备唯一名称且全部小写。 将下例中的 <mykeyvault> 替换为自己唯一的 Key Vault 名称：
 
-```azurecli-interactive 
+```azurecli 
 keyvault_name=<mykeyvault>
 az keyvault create \
     --resource-group myResourceGroupAutomate \
@@ -158,7 +156,7 @@ az keyvault create \
 ### <a name="generate-certificate-and-store-in-key-vault"></a>生成证书并将其存储在 Key Vault 中
 为供生产使用，应通过 [az keyvault certificate import](https://docs.microsoft.com/cli/azure/certificate#import) 导入由受信任的提供程序签名的有效证书。 在本教程中，以下示例显示了如何使用 [az keyvault certificate create](https://docs.microsoft.com/cli/azure/certificate#create) 生成使用默认证书策略的自签名证书：
 
-```azurecli-interactive 
+```azurecli 
 az keyvault certificate create \
     --vault-name $keyvault_name \
     --name mycert \
@@ -168,7 +166,7 @@ az keyvault certificate create \
 ### <a name="prepare-certificate-for-use-with-vm"></a>准备用于 VM 的证书
 若要在 VM 创建过程中使用该证书，请使用 [az keyvault secret list-versions](https://docs.microsoft.com/cli/azure/keyvault/secret#list-versions) 获取证书的 ID。 使用 [az vm format-secret](https://docs.microsoft.com/cli/azure/vm#format-secret) 转换该证书。 以下示例将这些命令的输出分配给变量，以便在后续步骤中使用：
 
-```azurecli-interactive 
+```azurecli 
 secret=$(az keyvault secret list-versions \
           --vault-name $keyvault_name \
           --name mycert \
@@ -233,7 +231,7 @@ runcmd:
 ### <a name="create-secure-vm"></a>创建安全的 VM
 现在，请使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM。 使用 `--secrets` 参数注入 Key Vault 中的证书数据。 与上个示例一样，使用 `--custom-data` 参数传入 cloud-init 配置：
 
-```azurecli-interactive 
+```azurecli 
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myVMSecured \
@@ -248,7 +246,7 @@ az vm create \
 
 若要使 VM 能使用安全的 Web 流量，请通过 [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port) 从 Internet 打开端口 443：
 
-```azurecli-interactive 
+```azurecli 
 az vm open-port \
     --resource-group myResourceGroupAutomate \
     --name myVMSecured \
@@ -278,4 +276,3 @@ az vm open-port \
 
 > [!div class="nextstepaction"]
 > [创建自定义 VM 映像](./tutorial-custom-images.md)
-

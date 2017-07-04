@@ -3,8 +3,8 @@ title: "Azure Active Directory v2.0 终结点 | Microsoft Docs"
 description: "使用 Microsoft 帐户和 Azure Active Directory 登录的构建应用简介。"
 services: active-directory
 documentationcenter: 
-author: dstrockis
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 2dee579f-fdf6-474b-bc2c-016c931eaa27
 ms.service: active-directory
@@ -13,15 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/01/2017
-ms.date: 02/07/2017
+ms.date: 06/26/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 68f3b852b6dda7a856b9921bc7c39a244c7fab37
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: f4f38ba8a4f1638f62af6469ad7e4176131e8e84
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
 # <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>在单个应用中登录 Microsoft 帐户和 Azure AD 用户
 在过去，想要支持个人 Microsoft 帐户和 Azure Active Directory 中的工作帐户的应用开发人员需要集成两个单独的系统。  **Azure AD v2.0 终结点**推出了新的身份验证 API 版本，可让你通过一个简单的集成登录这两种类型的帐户。  使用 v2.0 终结点的应用还可以通过其中一种帐户从 [Microsoft Graph](https://graph.microsoft.io) 使用 REST API。
@@ -38,7 +37,6 @@ ms.lasthandoff: 06/09/2017
 
 - 了解[使用 v2.0 终结点可以构建哪种类型的应用](active-directory-v2-flows.md)。
 - 了解 v2.0 终结点的[限制、局限性和约束](active-directory-v2-limitations.md)。
-- 请观看 v2.0 终结点的此概述视频：
 
 ## <a name="reference"></a>引用
 这些链接有助于深入地利用平台：
@@ -58,6 +56,5 @@ ms.lasthandoff: 06/09/2017
 
 > [!NOTE]
 > 如果只需从 Azure Active Directory 登录工作和学校帐户，则应从我们的 [Azure AD 开发人员指南](active-directory-developers-guide.md)开始。  V2.0 终结点供显式需要登录 Microsoft 个人帐户的开发人员使用。
-
 
 

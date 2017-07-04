@@ -3,26 +3,24 @@ title: "Microsoft Authenticator 应用手机版 | Microsoft 文档"
 description: "了解如何升级到最新版本的 Azure Authenticator。"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
-manager: femila
-editor: curtland
+author: alexchen2016
+manager: digimobile
+editor: librown
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/25/2017
+origin.date: 05/15/2017
+ms.date: 06/27/2017
 ms.author: v-junlch
-ms.date: 06/12/2017
 ms.custom: H1Hack27Feb2017, end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 6f4bef4424b0540925a45bad4a773df040dc0b39
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: bb0ef1afafb2bfce3eb5c317281fb43be4e834f9
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft 验证器应用入门
 Microsoft Authenticator 应用在工作或学校帐户（例如，bsimon@contoso.com）或 Microsoft 帐户（例如，bsimon@outlook.com）中提供了附加安全级别。
@@ -40,7 +38,7 @@ Microsoft Authenticator 应用不能单独发挥作用。 你需要将帐户配�
 
 对于工作或学校帐户，通常不需要自己进行此选择。 相反，安全管理员将代表你选择加入，然后向你发送通知，告诉你需要为你的帐户注册验证方法。 如果是这种情况，请在 [Azure 多重身份验证对我意味着什么](multi-factor-authentication-end-user.md)中了解详细信息。
 
-对于个人帐户，你需要自己设置双重验证。 如果你有 Microsoft 帐户，[关于双重验证](https://support.microsoft.com/zh-cn/help/12408/microsoft-account-about-two-step-verification)中提供了那些步骤。 
+对于个人帐户，你需要自己设置双重验证。 如果你有 Microsoft 帐户，[关于双重验证](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)中提供了那些步骤。 
 
 还可以将 Microsoft Authenticator 与非 Microsoft 帐户一起使用。 它们可能不将此功能称为双重验证，但你应该能在安全性或登录设置下找到此功能。 
 
@@ -110,5 +108,4 @@ iOS 上的 Microsoft Authenticator 应用支持 Touch ID。  Azure 多重身份�
 将你的帐户添加到应用后，可能会提示你执行测试验证来确保所有事项都已正确配置。 之后，大功告成！ 在下次登录之前，不需要执行任何其他操作。
 
 如果你选择在应用中使用验证码，则会在主页上看到它们。 它们每 30 秒更改一次，以便你在需要验证码时始终有新的验证码可用。 但是，在你登录且系统提示你输入验证码之前，不需要对它们执行任何操作。  
-
 

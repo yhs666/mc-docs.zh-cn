@@ -4,7 +4,7 @@ description: "如何使用 ADAL SDK 的功能跨应用程序启用单一登录�
 services: active-directory
 documentationcenter: 
 author: alexchen2016
-manager: mbaldwin
+manager: digimobile
 editor: 
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
@@ -13,15 +13,14 @@ ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
 origin.date: 04/07/2017
-ms.date: 02/07/2017
+ms.date: 06/26/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 40a266ce7af490e1dad0c4bc24ed6c7d3eb8296d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: c163a807202c475858e1d77130fee799af43a65a
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>如何使用 ADAL 在 Android 上启用跨应用 SSO
 客户现在都希望提供单一登录 (SSO)，以便用户只需输入一次凭据，然后这些凭据就会自动在多个应用程序中生效。 要用户在一个小屏幕上输入用户名和密码，这本身就是一项很难的操作，通常还伴有其他身份验证方式 (2FA)，例如电话呼叫或短信代码。如果在使用产品时必须多次执行这些操作，用户很快就会产生不满情绪。
@@ -32,12 +31,6 @@ Microsoft 标识平台以及 Microsoft 标识 SDK 能够为你完成所有这些
 
 本演练将介绍如何在应用程序中配置 SDK，以便向客户提供此项优点。
 
-本演练适用于：
-
-- Azure Active Directory
-- Azure Active Directory B2C
-- Azure Active Directory B2B
-- Azure Active Directory 条件访问
 
 前面的文档假设你已了解如何[在旧版门户中为 Azure Active Directory 预配应用程序](active-directory-how-to-integrate.md)，并且已将应用程序与 [Microsoft Identity Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android) 集成。
 
@@ -251,6 +244,5 @@ MANAGE_ACCOUNTS
 
 ### <a name="youve-configured-sso"></a>你已配置好 SSO！
 现在，Microsoft 标识 SDK 将自动在应用程序之间共享凭据并调用中转站（如果在设备上存在）。
-
 
 

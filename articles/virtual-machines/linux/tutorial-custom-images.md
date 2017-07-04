@@ -17,14 +17,12 @@ origin.date: 05/21/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: b1c7be70c8efb9eec178dbf086bff34710b14960
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 93a34bdcb00b728231b13d77655e2a65ba7d20f4
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>使用 CLI 创建 Azure VM 的自定义映像
 
 自定义映像类似于应用商店映像，不同的是自定义映像的创建者是你自己。 自定义映像可用于启动配置，例如预加载应用程序、应用程序配置和其他 OS 配置。 在本教程中，你将创建自己的 Azure 虚拟机自定义映像。 你将学习如何执行以下操作：
@@ -77,13 +75,13 @@ exit
 
 若要创建映像，需要解除分配 VM。 使用 [az vm deallocate](https://docs.microsoft.com/cli//azure/vm#deallocate) 解除分配 VM。 
 
-```azurecli-interactive 
+```azurecli 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
 最后，使用 [az vm generalize](https://docs.microsoft.com/cli//azure/vm#generalize) 将 VM 的状态设置为“通用化”，以便 Azure 平台知道 VM 已通用化。 只能从通用化 VM 创建映像。
 
-```azurecli-interactive 
+```azurecli 
 az vm generalize --resource-group myResourceGroup --name myVM
 ```
 
@@ -91,7 +89,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 现在，可使用 [az image create](https://docs.microsoft.com/cli//azure/image#create) 创建 VM 的映像。 以下示例从名为 myVM 的 VM 创建名为 myImage 的映像。
 
-```azurecli-interactive 
+```azurecli 
 az image create \
     --resource-group myResourceGroup \
     --name myImage \
@@ -102,7 +100,7 @@ az image create \
 
 现在，你已有了一个映像，可以使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 从该映像创建一个或多个新 VM。 以下示例从名为 myImage 的映像创建名为 myVMfromImage 的 VM。
 
-```azurecli-interactive 
+```azurecli 
 az vm create \
     --resource-group myResourceGroup \
     --name myVMfromImage \
@@ -117,14 +115,14 @@ az vm create \
 
 以表格格式按名称列出所有映像。
 
-```azurecli-interactive 
+```azurecli 
 az image list \
   --resource-group myResourceGroup
 ```
 
 删除映像。 此示例将从 myResourceGroup 中删除名为 myOldImage 的映像。
 
-```azurecli-interactive 
+```azurecli 
 az image delete \
     --name myOldImage \
     --resource-group myResourceGroup
@@ -145,4 +143,3 @@ az image delete \
 
 > [!div class="nextstepaction"]
 > [创建高度可用的 VM](tutorial-availability-sets.md)。
-

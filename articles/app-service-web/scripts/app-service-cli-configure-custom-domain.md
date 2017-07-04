@@ -16,18 +16,20 @@ ms.topic: sample
 origin.date: 04/09/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: f89aa33afee2524077c4cb3c6af1748146dfca82
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.custom: mvc
+ms.openlocfilehash: e640ada8fc1cb3dd6843c32fb88c690a0e44772b
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
 # <a name="map-a-custom-domain-to-a-web-app"></a>将自定义域映射到 Web 应用
 
 此示例脚本使用其相关资源，在应用服务中创建 Web 应用，然后将 `www.<yourdomain>` 映射到它。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -44,19 +46,19 @@ az group create --location chinanorth --name myResourceGroup
 az appservice plan create --name $webappname --resource-group myResourceGroup --sku SHARED
 
 # Create a web app.
-az appservice web create --name $webappname --resource-group myResourceGroup \
+az webapp create --name $webappname --resource-group myResourceGroup \
 --plan $webappname
 
 echo "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsites.cn"
 read -p "Press [Enter] key when ready ..."
 
 # Before continuing, go to your DNS configuration UI for your custom domain and follow the 
-# instructions at https://www.azure.cn/documentation/articles/web-sites-custom-domain-name/#step-2-create-the-dns-records to configure a CNAME record for the 
+# instructions at https://docs.azure.cn/app-service-web/web-sites-custom-domain-name#step-2-create-the-dns-records to configure a CNAME record for the 
 # hostname "www" and point it your web app's default domain name.
 
 # Map your prepared custom domain name to the web app.
-az appservice web config hostname add --webapp $webappname --resource-group myResourceGroup \
---name $fqdn
+az webapp config hostname add --webapp-name $webappname --resource-group myResourceGroup \
+--hostname $fqdn
 
 echo "You can now browse to http://$fqdn"
 
@@ -80,4 +82,3 @@ echo "You can now browse to http://$fqdn"
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
 可以在 [Azure 应用服务文档](../app-service-cli-samples.md)中找到其他应用服务 CLI 脚本示例。
-

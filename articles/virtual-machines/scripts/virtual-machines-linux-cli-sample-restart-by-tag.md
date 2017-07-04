@@ -9,22 +9,25 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/01/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: 4bb2661897541ec0af4b93b5cd5d2d44b2303c19
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/06/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 75779dc08320fd0a3446f73ea8484e6741e4d18f
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-
 # <a name="restart-vms"></a>重新启动 VM
+
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 此示例展示了用来获取一些 VM 并重新启动它们的几种方法。
 
@@ -40,7 +43,7 @@ az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
-此示例在 Bash shell 中正常工作。 有关在 Windows 客户端上运行 Azure CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../virtual-machines-windows-cli-options.md)。
+此示例在 Bash shell 中正常工作。 有关在 Windows 客户端上运行 Azure CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../windows/cli-options.md)。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -84,6 +87,7 @@ while [[ $(az vm list --resource-group myResourceGroup --query "length([?provisi
     fi
 done
 echo "The VMs are provisioned."
+
 ```
 
 ### <a name="restart-the-vms"></a>重新启动 VM
@@ -98,13 +102,14 @@ az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id
 
 # Get the IDs of the tagged VMs and restart those
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署 
 
 运行脚本示例后，可以使用以下命令删除资源组、VM 以及所有相关的资源。
 
-```azurecli
+```azurecli 
 az group delete -n myResourceGroup --no-wait --yes
 ```
 
@@ -125,4 +130,4 @@ az group delete -n myResourceGroup --no-wait --yes
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
-可以在 [Azure Linux VM 文档](../virtual-machines-linux-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
+可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。

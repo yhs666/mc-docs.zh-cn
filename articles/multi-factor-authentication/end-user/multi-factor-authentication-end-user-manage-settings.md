@@ -4,8 +4,8 @@ description: "管理 Azure 多重身份验证的使用方式包括更改联系�
 services: multi-factor-authentication
 keywords: "多重身份验证客户端, 身份验证问题, 相关性 ID"
 documentationcenter: 
-author: kgremban
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: yossib
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
 ms.service: multi-factor-authentication
@@ -13,20 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/23/2017
+origin.date: 05/23/2017
+ms.date: 06/27/2017
 ms.author: v-junlch
 ms.custom: end-user
-ms.date: 05/15/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3ff18e6f95d8bbc27348658bc5fce50c3320cf0a
-ms.openlocfilehash: 7537eeb5b052f6e578615b31734cac40b0333c3d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/15/2017
-
-
+ms.openlocfilehash: 07b661cac8b2f1b1e6171e880dd7a5470def4dfe
+ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>管理双重验证设置
-本文回答有关如何更新双重验证或多重身份验证的设置的问题。 如果在登录帐户时遇到问题，请参阅[使用双重验证时遇到问题](multi-factor-authentication-end-user-troubleshoot.md)获取疑难解答帮助。
+本文回答有关如何更新双重验证或多重身份验证的设置的问题。 如果在登录帐户时遇到问题，请参阅[使用双重验证时遇到问题](./multi-factor-authentication-end-user-troubleshoot.md)获取疑难解答帮助。
 
 ## <a name="where-to-find-the-settings-page"></a>哪里可以找到设置页
 具体取决于公司设置 Azure 多重身份验证的方式，可在其中几个位置更改设置，例如电话号码。
@@ -37,7 +35,7 @@ ms.lasthandoff: 05/15/2017
 
     ![1](./media/multi-factor-authentication-end-user-manage/1.png)  
 
-    输入用户帐户和密码，然后单击“登录”。    
+    输入用户帐户和密码，然后单击“登录”。  
 
 2. 选择所需的验证。
 
@@ -75,9 +73,7 @@ ms.lasthandoff: 05/15/2017
 现在，当你下次登录 [https://login.partner.microsoftonline.cn](https://login.partner.microsoftonline.cn) 时，就可以选择新的验证方法或电话号码。
 
 ## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>如何从旧设备清除 Microsoft Authenticator 并将其迁移到新设备？
-从设备上卸载该应用或重置设备时，不会删除应用在后端的激活。 有关详细信息，请参阅 [Microsoft Authenticator](microsoft-authenticator-app-how-to.md)。
+从设备上卸载该应用或重置设备时，不会删除应用在后端的激活。 有关详细信息，请参阅 [Microsoft Authenticator](./microsoft-authenticator-app-how-to.md)。
 
 ## <a name="next-steps"></a>后续步骤
-- 在[使用双重验证时遇到问题](multi-factor-authentication-end-user-troubleshoot.md)中获得疑难解答提示和帮助
-
-
+- 在[使用双重验证时遇到问题](./multi-factor-authentication-end-user-troubleshoot.md)中获得疑难解答提示和帮助

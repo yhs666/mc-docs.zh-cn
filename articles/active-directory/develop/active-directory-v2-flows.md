@@ -3,8 +3,8 @@ title: "Azure Active Directory v2.0 终结点的应用类型 | Microsoft Docs"
 description: "Azure Active Directory v2.0 终结点支持的应用类型和方案。"
 services: active-directory
 documentationcenter: 
-author: dstrockis
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
@@ -13,15 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/01/2017
-ms.date: 02/13/2017
+ms.date: 06/26/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: d5fda9bdd796bd137fd819f50272f7327904500f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.custom: aaddev
+ms.openlocfilehash: e240c4e9a1977e62547cd733596c35861851d708
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 终结点的应用类型
 Azure Active Directory (Azure AD) v2.0 终结点支持各种现代应用体系结构的身份验证，所有这些体系结构都基于行业标准协议 [OAuth 2.0 或 OpenID Connect](active-directory-v2-protocols.md)。 本文介绍可以使用 Azure AD v2.0 构建的应用类型（不管偏好的语言或平台是什么）。 本文旨在帮助你在[开始处理代码](active-directory-appmodel-v2-overview.md#getting-started)之前了解高级方案。
@@ -123,5 +122,4 @@ Web API 可以从各种应用接收访问令牌，其中包括 Web 服务器应�
 ![守护程序应用身份验证流](./media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
 若要生成守护程序，请参阅[入门](active-directory-appmodel-v2-overview.md#getting-started)部分中的客户端凭据文档，或者尝试 [.NET 示例应用](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)。
-
 
