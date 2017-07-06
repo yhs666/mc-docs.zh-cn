@@ -172,20 +172,7 @@ Blob 存储提供了一种经济高效且可缩放的解决方案，用于在云
 | 编码 |如果是 CSV 或 JSON 格式，则必须指定一种编码格式。 目前只支持 UTF-8 这种编码格式 |
 | 分隔符 |仅适用于 CSV 序列化。 流分析支持大量的常见分隔符以对 CSV 格式的数据进行序列化。 支持的值为逗号、分号、空格、制表符和竖线。 |
 
-## <a name="documentdb"></a>DocumentDB
-[Azure DocumentDB](https://www.azure.cn/home/features/documentdb/) 是完全托管的 NoSQL 文档数据库服务，提供针对无架构数据的查询和事务、可预测且可靠的性能，以及快速开发。
-
-以下列表详细介绍了用于创建 DocumentDB 输出的属性名称及其说明。
-
-* **输出别名** - 用于在 ASA 查询中引用此输出的别名  
-* **帐户名** - DocumentDB 帐户的名称或终结点 URI。  
-* **帐户密钥** - DocumentDB 帐户的共享访问密钥。  
-* **数据库** - DocumentDB 数据库名称。  
-* **集合名称模式** - 要使用的集合的集合名称或其模式。 可以使用可选的 {partition} 令牌（其中分区从 0 开始）构造集合名称格式。 以下是有效输入示例：  
-  1\) MyCollection - 必须存在一个名为“MyCollection”的集合。  
-  2\) MyCollection {partition} - 必须存在“MyCollection0”、“MyCollection1”、“MyCollection2”之类的集合。  
-* **分区键** - 可选。 仅当用户在其集合名称模式中使用 {parition} 令牌时，此项才需要。 输出事件中的字段的名称，用于指定跨集合分区输出的键。 对于单个集合输出，可使用任何任意输出列（例如 PartitionId）。  
-* **文档 ID** - 可选。 输出事件中的字段的名称，该字段用于指定插入或更新操作所基于的主键。  
+<!-- Not Available ## DocumentDB -->
 
 ## <a name="get-help"></a>获取帮助
 如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
