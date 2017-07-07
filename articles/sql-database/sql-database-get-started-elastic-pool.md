@@ -1,9 +1,8 @@
 ---
 redirect_url: /sql-database/sql-database-elastic-pool-manage-portal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: c3f4cd511aee5b3c415542aabceee228dc14e40b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
---- 
+ms.openlocfilehash: 7abebdeca4753046b4eec62652c7a79e6629b310
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
+---
