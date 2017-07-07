@@ -18,7 +18,7 @@
 2. 将常量添加到 `Program` 类，用于保存混合连接的连接详细信息。 将括号中的占位符替换为在创建混合连接时获得的相应值。 请务必使用完全限定的命名空间名称：
    
     ```csharp
-    private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
+    private const string RelayNamespace = "{RelayNamespace}.servicebus.chinacloudapi.cn";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
@@ -138,7 +138,7 @@
    
         public class Program
         {
-            private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
+            private const string RelayNamespace = "{RelayNamespace}.servicebus.chinacloudapi.cn";
             private const string ConnectionName = "{HybridConnectionName}";
             private const string KeyName = "{SASKeyName}";
             private const string Key = "{SASKey}";
