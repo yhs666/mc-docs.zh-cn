@@ -36,13 +36,15 @@ ms.author: v-johch
 
     ![最早还原点](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)  
 
+<!------
 > [!TIP]
 有关教程，请参阅[开始使用备份和还原进行数据保护和恢复](./sql-database-get-started-backup-recovery.md)
 >
+-------->
 
 ## 后续步骤
 
-- 若要了解服务生成的自动备份，请参阅[自动备份](./sql-database-automated-backups.md)
+- 若要了解服务生成的自动备份，请参阅[自动备份](./sql-database-get-started-backup-recovery-portal.md)
 - 若要了解如何从备份还原，请参阅[从备份还原](./sql-database-recovery-using-backups.md)
 
 <!---HONumber=Mooncake_0116_2017-->

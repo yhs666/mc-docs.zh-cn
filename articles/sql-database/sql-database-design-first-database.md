@@ -18,7 +18,7 @@ ms.date: 05/07/2017
 ms.author: v-johch
 ms.openlocfilehash: ad9fabe1252e4874e458c16c6a385457455d66ad
 ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
-ms.translationtype: HT
+ms.translationtype: Human Translation
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
