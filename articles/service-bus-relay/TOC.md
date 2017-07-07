@@ -27,6 +27,5 @@
 
 # 资源
 ## [示例](https://github.com/azure/azure-relay/tree/master/samples)
-## [定价](https://www.azure.cn/pricing/details/service-bus/)
+## [定价](https://www.azure.cn/pricing/details/messaging/)
 ## [博客](https://blogs.msdn.microsoft.com/servicebus/)
-## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)
