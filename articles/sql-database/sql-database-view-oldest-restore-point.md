@@ -44,7 +44,9 @@ ms.author: v-johch
 
 ## 后续步骤
 
+<!-------
 - 若要了解服务生成的自动备份，请参阅[自动备份](./sql-database-get-started-backup-recovery-portal.md)
+--------->
 - 若要了解如何从备份还原，请参阅[从备份还原](./sql-database-recovery-using-backups.md)
 
 <!---HONumber=Mooncake_0116_2017-->
