@@ -12,7 +12,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 05/03/2017
-  ms.date: 06/02/2017
+  ms.date: 06/20/2017
   ms.author: carolz
 abstract:
   description: Azure SQL 数据库是使用 Microsoft SQL Server 引擎的关系数据库即服务。 SQL 数据库是高性能、可靠且安全的数据库，可用于以所选编程语言构建数据驱动的应用程序和网站，而无需管理基础结构。 使用我们的快速入门、教程和示例了解如何使用 SQL 数据库。
@@ -46,6 +46,9 @@ sections:
     items:
     - html: <a href="/sql-database/sql-database-design-first-database">创建和设计新 SQL 数据库的架构</a>
     - html: <a href="/sql-database/sql-database-migrate-your-sql-server-database">迁移现有 SQL Server 数据库以使用 Azure SQL 数据库</a>
+    - html: <a href="/sql-database/sql-database-security-tutorial">保护 SQL 数据库</a>
+    - html: <a href="/sql-database/sql-database-performance-tutorial">提高 SQL 数据库性能</a>
+    - html: <a href="/sql-database/sql-database-multi-tenant-application">使用 SQL DB 实现多租户 SaaS 应用程序</a>
 - title: 示例
   items:
   - type: paragraph

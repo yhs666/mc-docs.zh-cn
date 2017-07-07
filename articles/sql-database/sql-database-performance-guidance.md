@@ -1,5 +1,5 @@
 ---
-title: "单一数据库的 Azure SQL 数据库性能 | Microsoft 文档"
+title: "针对单一数据库的 Azure SQL 数据库性能 | Azure"
 description: "此文可帮助你确定哪个服务层适合你的应用程序。 它还会提供调整建议使的应用程序可以充分利用 Azure SQL 数据库。"
 services: sql-database
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/06/2017
+ms.date: 05/14/2017
 ms.author: v-johch
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: c98870341d2c7f09c3ebbb61122974c46d67f206
+ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
+ms.openlocfilehash: e71141d55ea2d2073f27ab8a2e753a6c431f7824
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -27,9 +27,9 @@ ms.lasthandoff: 04/07/2017
 Azure SQL 数据库提供了四个[服务层](sql-database-service-tiers.md)：基本、标准、高级和高级 RS。 每个服务层可严格隔离你的 SQL 数据库可以使用的资源，并保证相应服务级别的可预测性能。 本文将指导用户为其应用程序选择服务层， 并讨论如何通过多种方式调整应用程序，以便充分利用 Azure SQL 数据库。
 
 > [!NOTE]
-> 本文侧重于 Azure SQL 数据库中单一数据库的性能指南。 有关弹性池的性能指南，请参阅[弹性池的价格和性能注意事项](sql-database-elastic-pool-guidance.md)。 不过，请注意，你也可以将本文中的多项优化建议应用于弹性池中的数据库，获得类似的性能优势。
-> 
-> 
+> 本文侧重于 Azure SQL 数据库中单一数据库的性能指南。 有关弹性池的性能指南，请参阅[弹性池的价格和性能注意事项](sql-database-elastic-pool.md)。 不过，请注意，你也可以将本文中的多项优化建议应用于弹性池中的数据库，获得类似的性能优势。
+>
+>
 
 ## <a name="why-service-tiers"></a>为什么使用服务层？
 每个数据库工作负荷可能各不相同，而服务层的目的就是在不同性能级别提供性能可预测性。 具有大规模数据库资源需求的客户可以在更专用的计算环境下工作。
@@ -62,19 +62,15 @@ SQL 数据库所需的服务级别取决于每个资源维度的峰值负载要�
 ### <a name="maximum-concurrent-requests"></a>最大并发请求数
 若要查看并发请求数，请在 SQL 数据库中运行以下 Transact-SQL 查询：
 
-```
-SELECT COUNT(*) AS [Concurrent_Requests]
-FROM sys.dm_exec_requests R
-```
+    SELECT COUNT(*) AS [Concurrent_Requests]
+    FROM sys.dm_exec_requests R
 
 若要分析本地 SQL Server 数据库的工作负荷，请修改此查询，针对要分析的特定数据库进行筛选。 例如，如果有一个名为 MyDatabase 的本地数据库，则以下 Transact-SQL 查询返回该数据库中并发请求的计数：
 
-```
-SELECT COUNT(*) AS [Concurrent_Requests]
-FROM sys.dm_exec_requests R
-INNER JOIN sys.databases D ON D.database_id = R.database_id
-AND D.name = 'MyDatabase'
-```
+    SELECT COUNT(*) AS [Concurrent_Requests]
+    FROM sys.dm_exec_requests R
+    INNER JOIN sys.databases D ON D.database_id = R.database_id
+    AND D.name = 'MyDatabase'
 
 这只是某一时刻的快照。 若要更好地了解工作负荷和并发请求需求，需在一定时间内收集多个样本。
 
@@ -85,30 +81,26 @@ AND D.name = 'MyDatabase'
 
 > [!NOTE]
 > 此限制目前不适用于弹性池中的数据库。
-> 
-> 
+>
+>
 
 ### <a name="maximum-sessions"></a>最大会话数
 若要查看当前的活动会话数，请在 SQL 数据库中运行以下 Transact-SQL 查询：
 
-```
-SELECT COUNT(*) AS [Sessions]
-FROM sys.dm_exec_connections
-```
+    SELECT COUNT(*) AS [Sessions]
+    FROM sys.dm_exec_connections
 
 若要分析本地 SQL Server 工作负荷，可以对查询进行修改，使之专注于特定的数据库。 此查询有助于确定数据库可能的会话需求（如果考虑将其移至 Azure SQL 数据库）。
 
-```
-SELECT COUNT(*)  AS [Sessions]
-FROM sys.dm_exec_connections C
-INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
-INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-WHERE D.name = 'MyDatabase'
-```
+    SELECT COUNT(*)  AS [Sessions]
+    FROM sys.dm_exec_connections C
+    INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
+    INNER JOIN sys.databases D ON (D.database_id = S.database_id)
+    WHERE D.name = 'MyDatabase'
 
 同样，这些查询返回时间点计数。 如果在一段内收集多个样本，则会对会话的使用情况有最佳了解。
 
-对于 SQL 数据库分析，也可以通过查询 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 视图并查看 **active_session_count** 列获取会话的历史统计信息。 
+对于 SQL 数据库分析，也可以通过查询 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 视图并查看 **active_session_count** 列获取会话的历史统计信息。
 
 ## <a name="monitor-resource-use"></a>监视资源使用情况
 
@@ -124,18 +116,16 @@ WHERE D.name = 'MyDatabase'
 
 由于此视图提供了更精细的资源使用情况，因此首先将 **sys.dm_db_resource_stats** 用于任何当前状态分析或故障排除。 例如，此查询显示过去一小时的当前数据库平均和最大资源使用情况：
 
-```
-SELECT  
-    AVG(avg_cpu_percent) AS 'Average CPU use in percent',
-    MAX(avg_cpu_percent) AS 'Maximum CPU use in percent',
-    AVG(avg_data_io_percent) AS 'Average data I/O in percent',
-    MAX(avg_data_io_percent) AS 'Maximum data I/O in percent',
-    AVG(avg_log_write_percent) AS 'Average log write use in percent',
-    MAX(avg_log_write_percent) AS 'Maximum log write use in percent',
-    AVG(avg_memory_usage_percent) AS 'Average memory use in percent',
-    MAX(avg_memory_usage_percent) AS 'Maximum memory use in percent'
-FROM sys.dm_db_resource_stats;  
-```
+    SELECT  
+        AVG(avg_cpu_percent) AS 'Average CPU use in percent',
+        MAX(avg_cpu_percent) AS 'Maximum CPU use in percent',
+        AVG(avg_data_io_percent) AS 'Average data I/O in percent',
+        MAX(avg_data_io_percent) AS 'Maximum data I/O in percent',
+        AVG(avg_log_write_percent) AS 'Average log write use in percent',
+        MAX(avg_log_write_percent) AS 'Maximum log write use in percent',
+        AVG(avg_memory_usage_percent) AS 'Average memory use in percent',
+        MAX(avg_memory_usage_percent) AS 'Maximum memory use in percent'
+    FROM sys.dm_db_resource_stats;  
 
 有关其他查询，请参阅 [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) 中的示例。
 
@@ -150,21 +140,19 @@ FROM sys.dm_db_resource_stats;
 
 其他应用程序类型对同一图形可能有不同的解释。 例如，如果某个应用程序尝试每天处理工资数据并使用相同的图表，则使用 P1 性能级别也许就能让此类“批处理作业”模型正常工作。 P1 性能级别有 100 个 DTU，而 P2 性能级别有 200 个 DTU。 P1 性能级别提供的性能是 P2 性能级别的一半。 因此，P2 级别 50% 的 CPU 使用率相当于 P1 级别 100% 的 CPU 使用率。 如果应用程序没有设置超时，则即使有作业耗时 2 小时或 2.5 小时才完成也无关紧要，只要今天完成即可。 此类别的应用程序也许只需使用 P1 性能级别。 一个事实是，白天有几个时段的资源使用率较低，因此可充分利用这一点，将“大高峰”作业分配一部分到当天晚些时候的某个资源使用低谷。 只要作业可以每天按时完成，P1 性能级别就适用于该类型的应用程序（且节省费用）。
 
-Azure SQL 数据库在每个服务器的 **master** 数据库的 **sys.resource_stats** 视图中，公开每个活动数据库的资源耗用信息。 表中的数据以 5 分钟为间隔收集而得。 对于基本、标准和高级服务层，数据可能需要再耗费 5 分钟才会出现在表中，以使此数据更有利于历史分析而非接近实时的分析。 查询 **sys.resource_stats** 视图，以查看数据库的最近历史记录和验证你选择的保留是否提供了所需的性能。
+Azure SQL 数据库在每个服务器的 **master** 数据库的 **sys.resource_stats** 视图中，公开每个活动数据库的资源耗用信息。 表中的数据以 5 分钟为间隔收集而得。 使用基本、标准、高级和高级 RS 服务层，可能要在超过 5 分钟后数据才会出现在表中，因此这些数据更适合进行历史分析而非近实时分析。 查询 **sys.resource_stats** 视图，以查看数据库的最近历史记录和验证你选择的保留是否提供了所需的性能。
 
 > [!NOTE]
 > 你必须连接到逻辑 SQL 数据库服务器的 **master** 数据库，才能查询下面示例中的 **sys.resource_stats**。
-> 
-> 
+>
+>
 
 此示例演示如何公开此视图中的数据：
 
-```
-SELECT TOP 10 *
-FROM sys.resource_stats
-WHERE database_name = 'resource1'
-ORDER BY start_time DESC
-```
+    SELECT TOP 10 *
+    FROM sys.resource_stats
+    WHERE database_name = 'resource1'
+    ORDER BY start_time DESC
 
 ![sys.resource_stats 目录视图](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
@@ -172,64 +160,56 @@ ORDER BY start_time DESC
 
 1. 若要查看数据库 userdb1 过去一周的资源使用情况，可以运行此查询：
 
-    ```
-    SELECT *
-    FROM sys.resource_stats
-    WHERE database_name = 'userdb1' AND
-          start_time > DATEADD(day, -7, GETDATE())
-    ORDER BY start_time DESC;
-    ```
-
+        SELECT *
+        FROM sys.resource_stats
+        WHERE database_name = 'userdb1' AND
+              start_time > DATEADD(day, -7, GETDATE())
+        ORDER BY start_time DESC;
 2. 若要评估你的工作负荷与性能级别的适合程度，需要向下钻取资源指标的每个方面：CPU、读取数、写入数、辅助进程数和会话数。 下面是使用 **sys.resource_stats** 的修订查询，用于报告这些资源度量值的平均值和最大值：
 
-    ```
-    SELECT
-        avg(avg_cpu_percent) AS 'Average CPU use in percent',
-        max(avg_cpu_percent) AS 'Maximum CPU use in percent',
-        avg(avg_data_io_percent) AS 'Average physical data I/O use in percent',
-        max(avg_data_io_percent) AS 'Maximum physical data I/O use in percent',
-        avg(avg_log_write_percent) AS 'Average log write use in percent',
-        max(avg_log_write_percent) AS 'Maximum log write use in percent',
-        avg(max_session_percent) AS 'Average % of sessions',
-        max(max_session_percent) AS 'Maximum % of sessions',
-        avg(max_worker_percent) AS 'Average % of workers',
-        max(max_worker_percent) AS 'Maximum % of workers'
-    FROM sys.resource_stats
-    WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-    ```
+        SELECT
+            avg(avg_cpu_percent) AS 'Average CPU use in percent',
+            max(avg_cpu_percent) AS 'Maximum CPU use in percent',
+            avg(avg_data_io_percent) AS 'Average physical data I/O use in percent',
+            max(avg_data_io_percent) AS 'Maximum physical data I/O use in percent',
+            avg(avg_log_write_percent) AS 'Average log write use in percent',
+            max(avg_log_write_percent) AS 'Maximum log write use in percent',
+            avg(max_session_percent) AS 'Average % of sessions',
+            max(max_session_percent) AS 'Maximum % of sessions',
+            avg(max_worker_percent) AS 'Average % of workers',
+            max(max_worker_percent) AS 'Maximum % of workers'
+        FROM sys.resource_stats
+        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+    
 3. 使用每个资源指标的平均值和最大值信息，可以评估你的工作负荷与所选性能级别的适合程度。 通常情况下，**sys.resource_stats** 中的平均值可提供一个用于目标大小的良好基准。 它应该是你的主要测量标杆。 例如，你可能正在使用性能级别为 S2 的标准服务层。 CPU 以及 I/O 读取和写入的平均使用百分比低于 40%，平均辅助进程数低于 50，平均会话数低于 200。 你的工作负荷可能适合 S1 性能级别。 很轻松就能判断数据库是否在辅助进程和会话限制范围内。 若要查看数据库是否适合 CPU 和读写数等更低性能级别，请将更低性能级别的 DTU 数除以当前性能级别的 DTU 数，然后将结果乘以 100：
 
     **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
 
     结果是以百分比表示的两个性能级别之间的相对性能差异。 如果资源使用不超出此量，你的工作负荷可能适合更低的性能级别。 但是，你需要查看资源用量值的所有范围，并确定数据库工作负荷适合更低性能级别的频率（以百分比计）。 以下查询将会根据以上示例计算得出的阈值 40%，输出每个资源维度的适合性百分比：
 
-    ```
-    SELECT
-        (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
-        ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
-        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
-    FROM sys.resource_stats
-    WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-    ```
+        SELECT
+            (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
+            ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
+            ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
+        FROM sys.resource_stats
+        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
     可以根据数据库服务级别目标 (SLO) 确定工作负荷是否适合更低性能级别。 如果数据库工作负荷 SLO 为 99.9%，而上述查询针对所有三个资源维度返回的值大于 99.9%，则工作负荷可能适合更低性能级别。
-   
+
     查看适合性百分比还可以深入分析是否应转到下一个更高的性能级别以满足 SLO。 例如，userdb1 显示过去一周的如下 CPU 使用率：
-   
+
    | 平均 CPU 百分比 | 最大 CPU 百分比 |
    | --- | --- |
    | 24.5 |100.00 |
-   
+
     平均 CPU 大约是性能级别限制的四分之一，这意味着它很适合数据库的性能级别限制。 但是，最大值显示该数据库达到了性能级别的限制。 在这种情况下，是否需要转到下一个更高的性能级别？ 查看工作负荷达到 100% 的次数，然后将这种情况与数据库工作负荷 SLO 进行比较。
 
-    ```
-    SELECT
-    (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
-    ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent'
-    ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data I/O fit percent'
-    FROM sys.resource_stats
-    WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-    ```
+        SELECT
+        (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
+        ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent'
+        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data I/O fit percent'
+        FROM sys.resource_stats
+        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
     如果对于三个资源维度中的任何一个维度，此查询返回的值小于 99.9%，请考虑转到下一个更高的性能级别，或使用应用程序优化技术来减少 SQL 数据库上的负载。
 4. 本练习还应将未来预计的工作负荷增加考虑在内。
@@ -261,23 +241,21 @@ OLTP 数据库性能有一个常见问题与物理数据库设计有关。 设�
 
 在此示例中，所选查询计划在使用搜寻即可满足要求的情况下使用了扫描：
 
-```
-DROP TABLE dbo.missingindex;
-CREATE TABLE dbo.missingindex (col1 INT IDENTITY PRIMARY KEY, col2 INT);
-DECLARE @a int = 0;
-SET NOCOUNT ON;
-BEGIN TRANSACTION
-WHILE @a < 20000
-BEGIN
-    INSERT INTO dbo.missingindex(col2) VALUES (@a);
-    SET @a += 1;
-END
-COMMIT TRANSACTION;
-GO
-SELECT m1.col1
-FROM dbo.missingindex m1 INNER JOIN dbo.missingindex m2 ON(m1.col1=m2.col1)
-WHERE m1.col2 = 4;
-```
+    DROP TABLE dbo.missingindex;
+    CREATE TABLE dbo.missingindex (col1 INT IDENTITY PRIMARY KEY, col2 INT);
+    DECLARE @a int = 0;
+    SET NOCOUNT ON;
+    BEGIN TRANSACTION
+    WHILE @a < 20000
+    BEGIN
+        INSERT INTO dbo.missingindex(col2) VALUES (@a);
+        SET @a += 1;
+    END
+    COMMIT TRANSACTION;
+    GO
+    SELECT m1.col1
+    FROM dbo.missingindex m1 INNER JOIN dbo.missingindex m2 ON(m1.col1=m2.col1)
+    WHERE m1.col2 = 4;
 
 ![缺少索引的查询计划](./media/sql-database-performance-guidance/query_plan_missing_indexes.png)
 
@@ -285,35 +263,31 @@ Azure SQL 数据库可用于查找和修复常见的索引缺失情况。 Azure 
 
 此查询可用于评估可能缺少的索引：
 
-```
-SELECT CONVERT (varchar, getdate(), 126) AS runtime,
-    mig.index_group_handle, mid.index_handle,
-    CONVERT (decimal (28,1), migs.avg_total_user_cost * migs.avg_user_impact *
-            (migs.user_seeks + migs.user_scans)) AS improvement_measure,
-    'CREATE INDEX missing_index_' + CONVERT (varchar, mig.index_group_handle) + '_' +
-              CONVERT (varchar, mid.index_handle) + ' ON ' + mid.statement + '
-              (' + ISNULL (mid.equality_columns,'')
-              + CASE WHEN mid.equality_columns IS NOT NULL
-                          AND mid.inequality_columns IS NOT NULL
-                     THEN ',' ELSE '' END + ISNULL (mid.inequality_columns, '')
-              + ')'
-              + ISNULL (' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement,
-    migs.*,
-    mid.database_id,
-    mid.[object_id]
-FROM sys.dm_db_missing_index_groups AS mig
-INNER JOIN sys.dm_db_missing_index_group_stats AS migs
-    ON migs.group_handle = mig.index_group_handle
-INNER JOIN sys.dm_db_missing_index_details AS mid
-    ON mig.index_handle = mid.index_handle
-ORDER BY migs.avg_total_user_cost * migs.avg_user_impact * (migs.user_seeks + migs.user_scans) DESC
-```
+    SELECT CONVERT (varchar, getdate(), 126) AS runtime,
+        mig.index_group_handle, mid.index_handle,
+        CONVERT (decimal (28,1), migs.avg_total_user_cost * migs.avg_user_impact *
+                (migs.user_seeks + migs.user_scans)) AS improvement_measure,
+        'CREATE INDEX missing_index_' + CONVERT (varchar, mig.index_group_handle) + '_' +
+                  CONVERT (varchar, mid.index_handle) + ' ON ' + mid.statement + '
+                  (' + ISNULL (mid.equality_columns,'')
+                  + CASE WHEN mid.equality_columns IS NOT NULL
+                              AND mid.inequality_columns IS NOT NULL
+                         THEN ',' ELSE '' END + ISNULL (mid.inequality_columns, '')
+                  + ')'
+                  + ISNULL (' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement,
+        migs.*,
+        mid.database_id,
+        mid.[object_id]
+    FROM sys.dm_db_missing_index_groups AS mig
+    INNER JOIN sys.dm_db_missing_index_group_stats AS migs
+        ON migs.group_handle = mig.index_group_handle
+    INNER JOIN sys.dm_db_missing_index_details AS mid
+        ON mig.index_handle = mid.index_handle
+    ORDER BY migs.avg_total_user_cost * migs.avg_user_impact * (migs.user_seeks + migs.user_scans) DESC
 
 在此示例中，查询生成了以下建议：
 
-```
-CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])  
-```
+    CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])  
 
 创建建议以后，同一 SELECT 语句会选取另一计划，使用搜寻而非扫描，从而提高计划执行效率：
 
@@ -328,80 +302,74 @@ Azure SQL 数据库中的查询优化器与传统的 SQL Server 查询优化器�
 
 下一示例演示了查询处理器生成的计划无法完全满足性能和资源要求的情况。 此示例还表明，如果使用查询提示，则可缩短 SQL 数据库的查询运行时间并降低资源要求：
 
-```
-DROP TABLE psptest1;
-CREATE TABLE psptest1(col1 int primary key identity, col2 int, col3 binary(200));
+    DROP TABLE psptest1;
+    CREATE TABLE psptest1(col1 int primary key identity, col2 int, col3 binary(200));
 
-DECLARE @a int = 0;
-SET NOCOUNT ON;
-BEGIN TRANSACTION
-WHILE @a < 20000
-BEGIN
-    INSERT INTO psptest1(col2) values (1);
-    INSERT INTO psptest1(col2) values (@a);
-    SET @a += 1;
-END
-COMMIT TRANSACTION
-CREATE INDEX i1 on psptest1(col2);
-GO
+    DECLARE @a int = 0;
+    SET NOCOUNT ON;
+    BEGIN TRANSACTION
+    WHILE @a < 20000
+    BEGIN
+        INSERT INTO psptest1(col2) values (1);
+        INSERT INTO psptest1(col2) values (@a);
+        SET @a += 1;
+    END
+    COMMIT TRANSACTION
+    CREATE INDEX i1 on psptest1(col2);
+    GO
 
-CREATE PROCEDURE psp1 (@param1 int)
-AS
-BEGIN
-    INSERT INTO t1 SELECT * FROM psptest1
-    WHERE col2 = @param1
-    ORDER BY col2;
-END
-GO
+    CREATE PROCEDURE psp1 (@param1 int)
+    AS
+    BEGIN
+        INSERT INTO t1 SELECT * FROM psptest1
+        WHERE col2 = @param1
+        ORDER BY col2;
+    END
+    GO
 
-CREATE PROCEDURE psp2 (@param2 int)
-AS
-BEGIN
-    INSERT INTO t1 SELECT * FROM psptest1 WHERE col2 = @param2
-    ORDER BY col2
-    OPTION (OPTIMIZE FOR (@param2 UNKNOWN))
-END
-GO
+    CREATE PROCEDURE psp2 (@param2 int)
+    AS
+    BEGIN
+        INSERT INTO t1 SELECT * FROM psptest1 WHERE col2 = @param2
+        ORDER BY col2
+        OPTION (OPTIMIZE FOR (@param2 UNKNOWN))
+    END
+    GO
 
-CREATE TABLE t1 (col1 int primary key, col2 int, col3 binary(200));
-GO
-```
+    CREATE TABLE t1 (col1 int primary key, col2 int, col3 binary(200));
+    GO
 
 该设置代码将创建一个其数据分布处于偏斜状态的表。 最佳查询计划随所选参数的不同而不同。 遗憾的是，计划缓存行为并非始终根据最常用参数值来重新编译查询。 因此，对于许多值来说，即使平均情况下选择其他计划可能效果更佳，也可能会缓存和使用一个非最优的计划。 然后，查询计划会创建两个几乎相同的存储过程，唯一区别是其中一个有特殊的查询提示。
 
 **示例，第 1 部分**
 
-```
--- Prime Procedure Cache with scan plan
-EXEC psp1 @param1=1;
-TRUNCATE TABLE t1;
-
--- Iterate multiple times to show the performance difference
-DECLARE @i int = 0;
-WHILE @i < 1000
-BEGIN
-    EXEC psp1 @param1=2;
+    -- Prime Procedure Cache with scan plan
+    EXEC psp1 @param1=1;
     TRUNCATE TABLE t1;
-    SET @i += 1;
-END
-```
+
+    -- Iterate multiple times to show the performance difference
+    DECLARE @i int = 0;
+    WHILE @i < 1000
+    BEGIN
+        EXEC psp1 @param1=2;
+        TRUNCATE TABLE t1;
+        SET @i += 1;
+    END
 
 **示例（第 2 部分）**
 
 （建议你至少等待 10 分钟，然后再开始示例的第 2 部分，以便在所得的遥测数据中有不同结果。）
 
-```
-EXEC psp2 @param2=1;
-TRUNCATE TABLE t1;
-
-DECLARE @i int = 0;
-WHILE @i < 1000
-BEGIN
-    EXEC psp2 @param2=2;
+    EXEC psp2 @param2=1;
     TRUNCATE TABLE t1;
-    SET @i += 1;
-END
-```
+
+    DECLARE @i int = 0;
+    WHILE @i < 1000
+    BEGIN
+        EXEC psp2 @param2=2;
+        TRUNCATE TABLE t1;
+        SET @i += 1;
+    END
 
 本例的每个部分均尝试将某个参数化插入语句运行 1,000 次（以产生可用作测试数据集的足够的负载）。 当执行存储过程时，查询处理器在其首次编译期间检查传递给过程的参数值（参数“探查”）。 处理器会缓存生成的计划，将其用于以后的调用，即使参数值不同也是如此。 可能无法在所有情况下均使用最佳计划。 有时，用户需要引导优化器选取更适合普通情况而非首次编译查询时的特定情况的计划。 在此示例中，初始计划将生成一个“扫描”计划，后者会读取所有行以查找与参数匹配的每个值：
 
@@ -419,12 +387,10 @@ END
 
 你可以查看 **sys.resource_stats** 表的影响（执行测试的时间与数据填充表的时间之间有延迟）。 对于本例，将在 22:25:00 时间范围内执行第 1 部分，在 22:35:00 执行第 2 部分。 越早时间范围使用的资源比越晚时间范围要多（因计划效率提高）。
 
-```
-SELECT TOP 1000 *
-FROM sys.resource_stats
-WHERE database_name = 'resource1'
-ORDER BY start_time DESC
-```
+    SELECT TOP 1000 *
+    FROM sys.resource_stats
+    WHERE database_name = 'resource1'
+    ORDER BY start_time DESC
 
 ![查询优化示例结果](./media/sql-database-performance-guidance/query_tuning_4.png)
 
@@ -465,6 +431,5 @@ SQL Server 用户经常将许多功能集中在单一数据库中。 例如，�
 ## <a name="next-steps"></a>后续步骤
 * 有关服务层的详细信息，请参阅 [SQL 数据库选项和性能](sql-database-service-tiers.md)
 * 有关弹性池的详细信息，请参阅[什么是 Azure 弹性池？](sql-database-elastic-pool.md)
-* 有关性能和弹性池的信息，请参阅[何时考虑弹性池](sql-database-elastic-pool-guidance.md)
-
+* 有关性能和弹性池的信息，请参阅[何时考虑弹性池](sql-database-elastic-pool.md)
 
