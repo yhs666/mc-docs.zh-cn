@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Azure 中继异常以及解决方法 | Azure"
+title: "Azure 中继异常以及解决方法 | Azure"
 description: "Azure 中继异常和建议的操作列表。"
 services: service-bus-relay
 documentationcenter: na

@@ -83,7 +83,7 @@ Azure 中继是 Azure 服务总线平台最重要的功能支柱之一。 该中
 wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token=...
 ```
 
-`namespace-address` 是托管混合连接的 Azure 中继命名空间的完全限定域名，通常格式为 `{myname}.servicebus.windows.net`。
+`namespace-address` 是托管混合连接的 Azure 中继命名空间的完全限定域名，通常格式为 `{myname}.servicebus.chinacloudapi.cn`。
 
 查询字符串参数选项如下所示。
 
@@ -204,7 +204,7 @@ URL 必须原样使用，用于创建接受套接字，但是要包含以下参�
 ```json
 {                                                                                                                                                                        
     "renewToken" : {                                                                                                                                                      
-        "token" : "SharedAccessSignature sr=http%3a%2f%2fcontoso.servicebus.windows.net%2fhyco%2f&amp;sig=XXXXXXXXXX%3d&amp;se=1471633754&amp;skn=SasKeyName"  
+        "token" : "SharedAccessSignature sr=http%3a%2f%2fcontoso.servicebus.chinacloudapi.cn%2fhyco%2f&amp;sig=XXXXXXXXXX%3d&amp;se=1471633754&amp;skn=SasKeyName"  
     }                                                                                                                                                                     
 }
 ```
@@ -223,7 +223,7 @@ URL 必须原样使用，用于创建接受套接字，但是要包含以下参�
 wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...
 ```
 
-*namespace-address* 是托管混合连接的 Azure 中继命名空间的完全限定域名，通常格式为 `{myname}.servicebus.windows.net`。
+*namespace-address* 是托管混合连接的 Azure 中继命名空间的完全限定域名，通常格式为 `{myname}.servicebus.chinacloudapi.cn`。
 
 请求可以包含任意其他 HTTP 头，包括应用程序定义的头。 所有提供的头将流向侦听器并且可在“接受”控制消息的“connectHeader”对象上找到。
 

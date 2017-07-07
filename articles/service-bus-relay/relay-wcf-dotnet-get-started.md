@@ -117,7 +117,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-在本示例中，你将创建两个位于同一协定实施中的终结点。 一个是本地的，一个通过服务总线进行投影。 两者之间的主要区别是绑定；本地终结点使用 [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx)，而服务总线终结点和地址使用 [NetTcpRelayBinding](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding)。 本地终结点有一个使用不同端口的本地网络地址。 服务总线终结点有一个由字符串 `sb`、你的命名空间名称、路径“solver”组成的终结点地址。 这将生成 URI `sb://[serviceNamespace].servicebus.windows.net/solver`，将服务终结点标识为具有完全限定的外部 DNS 名称的服务总线 TCP 终结点。 如果将替换占位符的代码放入`Main`服务**应用程序的**  函数中，则会获得功能服务。 如果你希望你的服务专门侦听服务总线，请删除本地终结点声明。
+在本示例中，你将创建两个位于同一协定实施中的终结点。 一个是本地的，一个通过服务总线进行投影。 两者之间的主要区别是绑定；本地终结点使用 [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx)，而服务总线终结点和地址使用 [NetTcpRelayBinding](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding)。 本地终结点有一个使用不同端口的本地网络地址。 服务总线终结点有一个由字符串 `sb`、你的命名空间名称、路径“solver”组成的终结点地址。 这将生成 URI `sb://[serviceNamespace].servicebus.chinacloudapi.cn/solver`，将服务终结点标识为具有完全限定的外部 DNS 名称的服务总线 TCP 终结点。 如果将替换占位符的代码放入`Main`服务**应用程序的**  函数中，则会获得功能服务。 如果你希望你的服务专门侦听服务总线，请删除本地终结点声明。
 
 ### <a name="configure-a-service-host-in-the-appconfig-file"></a>在 App.config 文件中配置服务主机
 你还可以使用 App.config 文件配置主机。 在此情况下，服务托管代码如以下示例所示。
@@ -141,7 +141,7 @@ sh.Close();
                   address="net.tcp://localhost:9358/solver"/>
         <endpoint contract="Service.IProblemSolver"
                   binding="netTcpRelayBinding"
-                  address="sb://namespace.servicebus.windows.net/solver"
+                  address="sb://namespace.servicebus.chinacloudapi.cn/solver"
                   behaviorConfiguration="sbTokenProvider"/>
     </service>
 </services>
@@ -201,7 +201,7 @@ using (var ch = cf.CreateChannel())
 <client>
     <endpoint name="solver" contract="Service.IProblemSolver"
               binding="netTcpRelayBinding"
-              address="sb://namespace.servicebus.windows.net/solver"
+              address="sb://namespace.servicebus.chinacloudapi.cn/solver"
               behaviorConfiguration="sbTokenProvider"/>
 </client>
 <behaviors>

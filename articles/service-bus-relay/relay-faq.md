@@ -25,7 +25,7 @@ ms.lasthandoff: 05/05/2017
 ---
 # <a name="relay-faq"></a>中继常见问题解答
 
-本文回答了一些关于 [Microsoft Azure 中继](../service-bus-messaging/index.md)的常见问题。 还可以访问 [Azure 支持常见问题](http://go.microsoft.com/fwlink/?LinkID=185083)了解一般的 Azure 定价和支持信息。
+本文回答了一些关于 [Azure 中继](../service-bus-messaging/index.md)的常见问题。 还可以访问 [Azure 支持常见问题](http://go.microsoft.com/fwlink/?LinkID=185083)了解一般的 Azure 定价和支持信息。
 
 ## <a name="general-questions"></a>一般问题
 ### <a name="what-is-azure-relay"></a>什么是 Azure 中继？
@@ -38,7 +38,7 @@ ms.lasthandoff: 05/05/2017
 以前命名的服务总线**中继**服务现在称为 WCF 中继。 你可以继续照常使用此服务。 混合连接是从 BizTalk 移植的服务的更新版本。 今后将继续支持 WCF 中继和混合连接。
 
 ## <a name="pricing"></a>定价
-本部分回答了一些关于中继定价结构的常见问题。 你还可以访问 [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)（Azure 支持常见问题）了解一般的 Microsoft Azure 定价信息。 有关中继定价的完整信息，请参阅[服务总线定价详细信息](https://www.azure.cn/pricing/details/messaging/)。
+本部分回答了一些关于中继定价结构的常见问题。 你还可以访问 [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)（Azure 支持常见问题）了解一般的 Azure 定价信息。 有关中继定价的完整信息，请参阅[服务总线定价详细信息](https://www.azure.cn/pricing/details/messaging/)。
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>如何对混合连接和 WCF 中继收费？
 有关中继定价的完整信息，请参阅[服务总线定价详细信息][Pricing overview]。 除标示的价格外，你还需为在其中部署应用程序的数据中心之外的相关数据输出支付费用。
@@ -46,9 +46,12 @@ ms.lasthandoff: 05/05/2017
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>使用混合连接时怎样计费？
 以下是三个示例方案：
 
-1. 如果你安装了一个侦听器（如一个混合连接管理器的实例）并连续运行一整月，且这个月内跨连接发送了 3GB 数据，那么总费用将为 5 美元。
-2. 如果你安装了一个侦听器（如一个混合连接管理器的实例）并连续运行一整月，且这个月内跨连接发送了 10GB 数据，那么总费用将为 7.50 美元：5 美元（连接和前 5GB）+ 2.50 美元（额外的 5GB 数据）。
-3. 如果你安装了两个混合连接管理器实例（A 和 B）并连续运行一整月，且这个月内跨连接 A 发送了 3GB 数据，跨连接 B 发送了 6GB 数据，那么总费用将为 10.50 美元：5 美元（连接 A）+ 5 美元（连接 B）+ 0.50 美元（连接 B 上的第六个 GB）。
+1. 如果你安装了一个侦听器（如一个混合连接管理器的实例）并连续运行一整月，且这个月内跨连接发送了 3GB 数据，那么总费用将为 76.09 元。
+2. 如果你安装了一个侦听器（如一个混合连接管理器的实例）并连续运行一整月，且这个月内跨连接发送了 10GB 数据，那么总费用将为 143.08 元：76.09 元（连接和前 5GB）+ 66.99 元（额外的 5GB 数据）。
+3. 如果你安装了两个混合连接管理器实例（A 和 B）并连续运行一整月，且这个月内跨连接 A 发送了 3GB 数据，跨连接 B 发送了 6GB 数据，那么总费用将为 165.58 元：76.09 元（连接 A）+ 76.09 元（连接 B）+ 13.40元（连接 B 上的第六个 GB）。
+
+
+具体计费标准，请参阅[服务总线定价详细信息](https://www.azure.cn/pricing/details/messaging/)。
 
 请注意，示例中使用的价格仅适用于预览版期间，混合连接公开上市时的价格可能会有所变动。
 
@@ -104,7 +107,7 @@ ms.lasthandoff: 05/05/2017
 [Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>是否可以将中继终结点加入白名单？
-是的。 中继客户端使用完全限定的域名连接到中继服务。 这使客户能够在支持 DNS 白名单的防火墙上为 `*.servicebus.windows.net` 添加一个条目。
+是的。 中继客户端使用完全限定的域名连接到中继服务。 这使客户能够在支持 DNS 白名单的防火墙上为 `*.servicebus.chinacloudapi.cn` 添加一个条目。
 
 ## <a name="next-steps"></a>后续步骤
 * [创建命名空间](./relay-create-namespace-portal.md)

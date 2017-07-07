@@ -44,7 +44,7 @@ API [记录于主要的 ‘ws’ 包中](https://github.com/websockets/ws/blob/m
 ``` JavaScript
 const WebSocket = require('hyco-ws');
 
-var listenUri = WebSocket.createRelayListenUri('namespace.servicebus.windows.net', 'path');
+var listenUri = WebSocket.createRelayListenUri('namespace.servicebus.chinacloudapi.cn', 'path');
 listenUri = WebSocket.appendRelayToken(listenUri, 'ruleName', '...key...')
 ...
 
