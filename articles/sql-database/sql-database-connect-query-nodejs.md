@@ -3,36 +3,40 @@ title: "使用 Node.js 连接 Azure SQL 数据库 | Azure"
 description: "演示了一个可以用来连接到 Azure SQL 数据库并进行查询的 Node.js 代码示例。"
 services: sql-database
 documentationcenter: 
-author: LuisBosquez
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: 53f70e37-5eb4-400d-972e-dd7ea0caacd4
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 04/05/2017
+ms.topic: hero-article
+origin.date: 05/24/2017
+ms.date: 07/03/2017
 ms.author: v-johch
+ms.openlocfilehash: 2d9447dc92a9e8333ba53e936e55ba3a73a0c8a5
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: d7b6b1e7640013541dfb1faa11f3edf494f36475
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
 # <a name="azure-sql-database-use-nodejs-to-connect-and-query-data"></a>Azure SQL 数据库：使用 Node.js 进行连接和数据查询
 
 本快速入门演示了如何通过 Windows、Ubuntu Linux 和 Mac 平台使用 [Node.js](https://nodejs.org/en/) 连接到 Azure SQL 数据库，然后使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。
 
-此快速入门使用以下指南中创建的资源作为其起点：
+## <a name="prerequisites"></a>先决条件
+
+此快速入门使用以下某个快速入门中创建的资源作为其起点：
 
 - [创建 DB - 门户](sql-database-get-started-portal.md)
 - [创建 DB - CLI](sql-database-get-started-cli.md)
+- [创建 DB - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-nodejs"></a>安装 Node.js 
+
+本部分中的步骤假定你熟悉使用 Node.js 开发，但不熟悉如何使用 Azure SQL 数据库。 如果不熟悉如何使用 Node.js 进行开发，请转到[使用 SQL Server 生成应用](https://www.microsoft.com/sql-server/developer-get-started/)并选择 **Node.js**，然后选择操作系统。
 
 ### <a name="mac-os"></a>**Mac OS**
 输入以下命令安装 **brew**（适用于 Mac OS X 和 **Node.js** 的易用程序包管理器）。
@@ -52,7 +56,6 @@ sudo apt-get install -y nodejs npm
 ### <a name="windows"></a>**Windows**
 请访问 [Node.js 下载页](https://nodejs.org/en/download/)并选择所需的 Windows 安装程序选项。
 
-
 ## <a name="install-the-tedious-sql-server-driver-for-nodejs"></a>安装适用于 Node.js 的 Tedious SQL Server 驱动程序
 适用于 Node.js 的推荐驱动程序是 **[tedious](https://github.com/tediousjs/tedious)**。 Tedious 是 Microsoft 推出的一个开源协议，适用于任何平台上的 Node.js 应用程序。 在本教程中，需要一个空的目录，以便存放代码和即将安装的 `npm` 依赖项。
 
@@ -64,23 +67,23 @@ npm install tedious
 
 ## <a name="get-connection-information"></a>获取连接信息
 
-在 Azure 门户中获取连接字符串。 请使用连接字符串连接到 Azure SQL 数据库。
+获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称、数据库名称和登录信息。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
-3. 在数据库的“概要”窗格中，查看完全限定的服务器名称。 
+3. 在数据库的“概览”页上，查看如下图所示的完全限定的服务器名称。 将鼠标悬停在服务器名称上即可打开“通过单击进行复制”选项。 
 
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="connection strings" style="width: 780px;" />
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-3. 请确保导入 **AdventureWorksLT** 数据库，因为此示例将使用它。
+4. 如果忘了 Azure SQL 数据库服务器的登录信息，请导航到 SQL 数据库服务器页，查看服务器管理员名称并重置密码（如果需要）。
 
-## <a name="read-from-the-database"></a>从数据库读取
-首先从 tedious 驱动程序库中导入驱动程序连接和请求类。 然后，创建配置对象，并将 **username**、**password**、**server** 和 **database** 变量替换为上面获取的连接参数。 使用指定的 `config` 对象创建 `Connection` 对象。 之后，定义 `connection` 对象的 `connect` 事件的回调，以执行 `queryDatabase()` 函数。
+## <a name="select-data"></a>选择数据
+
+使用以下代码在 Azure SQL 数据库中按类别查询前 20 个产品。 首先从 tedious 驱动程序库中导入驱动程序连接和请求类。 之后，创建配置对象，并将 **username**、**password**、**server** 和 **database** 变量替换为之前使用 AdventureWorksLT 示例数据创建数据库时指定的值。 使用指定的 `config` 对象创建 `Connection` 对象。 之后，定义 `connection` 对象的 `connect` 事件的回调，以执行 `queryDatabase()` 函数。
 
 ```js
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
-
 
 // Create connection to database
 var config = {
@@ -113,7 +116,7 @@ function queryDatabase(){
             console.log(rowCount + ' row(s) returned');
         }
     );
-    
+
     request.on('row', function(columns) {
         columns.forEach(function(column) {
             console.log("%s\t%s", column.metadata.colName, column.value);
@@ -125,12 +128,11 @@ function queryDatabase(){
 ```
 
 ## <a name="insert-data-into-the-database"></a>将数据插入数据库
-与上面的**从数据库读取**示例类似的步骤。 确保将 **username**、**password**、**server** 和 **database** 变量替换为上面获取的连接参数。 这次，在 `insertIntoDatabase()` 函数中使用 **INSERT 语句**。
+通过以下代码使用 `insertIntoDatabase()` 函数和 [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL 语句来将新产品插入到 SalesLT.Product 表中。 将 **username**、**password**、**server** 和 **database** 替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。 
 
 ```js
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
-
 
 // Create connection to database
 var config = {
@@ -167,12 +169,11 @@ function insertIntoDatabase(){
 ```
 
 ## <a name="update-data-in-the-database"></a>更新数据库中的数据
-与上面的**从数据库读取**示例类似的步骤。 确保将 **username**、**password**、**server** 和 **database** 变量替换为上面获取的连接参数。 这次，在 `updateInDatabase()` 函数中使用 **UPDATE 语句**。 此示例中使用了在上一示例中插入的产品名称。
+通过以下代码使用 `updateInDatabase()` 函数和 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL 语句来删除之前添加的新产品。 将 **username**、**password**、**server** 和 **database** 替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。 此示例中使用了在上一示例中插入的产品名称。
 
 ```js
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
-
 
 // Create connection to database
 var config = {
@@ -209,12 +210,11 @@ function updateInDatabase(){
 ```
 
 ## <a name="delete-data-from-the-database"></a>从数据库删除数据
-与上面的**从数据库读取**示例类似的步骤。 确保将 **username**、**password**、**server** 和 **database** 变量替换为上面获取的连接参数。 这次，在 `deleteFromDatabase()` 函数中使用 **INSERT 语句**。 此示例也使用在上一个示例中插入的产品名称。
+使用以下代码从数据库中删除数据。 将 **username**、**password**、**server** 和 **database** 替换为使用 AdventureWorksLT 示例数据创建数据库时指定的值。 此时，在 `deleteFromDatabase()` 函数中使用 **DELETE 语句**。 此示例也使用在上一个示例中插入的产品名称。
 
 ```js
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
-
 
 // Create connection to database
 var config = {
@@ -250,16 +250,8 @@ function deleteFromDatabase(){
 }
 ```
 
-
 ## <a name="next-steps"></a>后续步骤
-
-- 有关 [Microsoft Node.js Driver for SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
-- 若要使用 SQL Server Management Studio 进行连接和查询，请参阅[使用 SSMS 进行连接和查询](sql-database-connect-query-ssms.md)
-- 若要使用 Visual Studio 进行连接和查询，请参阅[使用 Visual Studio Code 进行连接和查询](sql-database-connect-query-vscode.md)。
-- 若要使用 .NET 进行连接和查询，请参阅[使用 .NET 进行连接和查询](sql-database-connect-query-dotnet.md)。
-- 若要使用 PHP 进行连接和查询，请参阅[使用 PHP 进行连接和查询](sql-database-connect-query-php.md)。
-- 若要使用 Java 进行连接和查询，请参阅[使用 Java 进行连接和查询](sql-database-connect-query-java.md)。
-- 若要使用 Python 进行连接和查询，请参阅[使用 Python 进行连接和查询](sql-database-connect-query-python.md)。
-- 若要使用 Ruby 进行连接和查询，请参阅[使用 Ruby 进行连接和查询](sql-database-connect-query-ruby.md)。
-
-
+- [设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)
+- [用于 SQL Server 的 Microsoft Node.js 驱动程序](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
+- [使用 SSMS 进行连接和查询](sql-database-connect-query-ssms.md)
+- [使用 Visual Studio Code 进行连接和查询](sql-database-connect-query-vscode.md)。

@@ -33,13 +33,14 @@ ms.author: v-johch
 | [使用 C# 通过适用于 .NET 的 SQL 数据库库创建 SQL 数据库](./sql-database-get-started-csharp.md)| 在本教程中，将使用 C# 创建 SQL 数据库服务器、防火墙规则和 SQL 数据库。还将创建一个 Active Directory (AD) 应用程序和对 C# 应用进行身份验证所需的服务主体。 |
 | | |
 
-## 备份和数据库恢复
+<!----## 备份和数据库恢复
 以下教程介绍如何使用[数据库备份](./sql-database-automated-backups.md)和[使用备份恢复数据库](./sql-database-recovery-using-backups.md)。
 
 | 教程 | 说明 |
 | --- | --- | 
 | [使用 Azure 门户进行备份和还原](./sql-database-get-started-backup-recovery-portal.md) | 此教程介绍如何使用 Azure 门户查看备份、还原到某个时间点，以及通过 Azure 恢复服务保管库的备份进行还原
 | | |
+----->
 
 ## 分片的数据库
 以下教程介绍如何[使用分片映射管理器扩展数据库](./sql-database-elastic-scale-shard-map-management.md)。

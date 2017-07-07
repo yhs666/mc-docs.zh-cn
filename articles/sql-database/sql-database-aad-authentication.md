@@ -14,15 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/23/2017
+ms.date: 05/10/2017
 ms.author: v-johch
+ms.openlocfilehash: f03e471a3251d1e01b2385fc3ad5899144a1f928
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 36614a71604550cb5d5346d7a645a3276e8ee024
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>通过 SQL 数据库或 SQL 数据仓库使用 Azure Active Directory 身份验证进行身份验证
 Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) 中的标识连接到 Azure SQL 数据库和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的一种机制。 通过 Azure AD 身份验证，可在一个中心位置中集中管理数据库用户和其他 Microsoft 服务的标识。 集中 ID 管理提供一个单一位置来管理数据库用户，并简化权限管理。 包括如下优点：
@@ -35,7 +33,10 @@ Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) �
 * Azure AD 身份验证使用包含的数据库用户以数据库级别对标识进行身份验证。
 * Azure AD 支持对连接到 SQL 数据库的应用程序进行基于令牌的身份验证。
 * Azure AD 身份验证支持对本地 Azure Active Directory 进行 ADFS（域联合）或本机用户/密码身份验证，而无需进行域同步。  
-* Azure AD 支持从 SQL Server Management Studio 进行连接，后者使用 Active Directory 通用身份验证，其中包括多重身份验证 (MFA)。  MFA 包括利用一系列简单的验证选项进行的强身份验证，这些选项包括电话、短信、含有 PIN 码的智能卡或移动应用通知。 有关详细信息，请参阅 [SQL 数据库和 SQL 数据仓库针对 Azure AD MFA 的 SSMS 支持](sql-database-ssms-mfa-authentication.md)。
+* Azure AD 支持从 SQL Server Management Studio 进行连接，后者使用 Active Directory 通用身份验证，其中包括多重身份验证 (MFA)。  MFA 包括利用一系列简单的验证选项进行的强身份验证，这些选项包括电话、短信、含有 PIN 码的智能卡或移动应用通知。 有关详细信息，请参阅 [SQL 数据库和 SQL 数据仓库针对 Azure AD MFA 的 SSMS 支持](sql-database-ssms-mfa-authentication.md)。  
+
+>  [!NOTE]  
+>  不支持使用 Azure Active Directory 帐户连接到 Azure VM 上运行的 SQL Server。 请改用域 Active Directory 帐户。  
 
 配置步骤包括配置和使用 Azure Active Directory 身份验证的以下过程。
 
@@ -79,7 +80,7 @@ Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) �
 
 不支持 Microsoft 帐户（例如 outlook.com、hotmail.com、live.com）或其他来宾帐户（例如 gmail.com、yahoo.com）。 如果可以使用帐户和密码登录到 [https://login.live.com](https://login.live.com) ，则使用的是 Microsoft 帐户，Azure SQL 数据库或 Azure SQL 数据仓库的 Azure AD 身份验证不支持此类帐户。
 
-## <a name="connecting-using-azure-ad-identities"></a><a name="connect-using-active-directory-integrated-authentication"></a><a name="connect-using-active-directory-password-authentication"></a>使用 Azure AD 标识进行连接
+##<a name="connect-using-active-directory-integrated-authentication"></a><a name="connect-using-active-directory-password-authentication"></a> 使用 Azure AD 标识进行连接
 
 Azure Active Directory 身份验证支持使用 Azure AD 标识连接到数据库的以下方法：
 
@@ -126,5 +127,4 @@ Azure Active Directory 身份验证支持使用 Azure AD 标识连接到数据�
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
-
 

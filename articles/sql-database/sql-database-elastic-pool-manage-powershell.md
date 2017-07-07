@@ -44,7 +44,7 @@ ms.author: v-johch
 Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 ```
 
-##<a name="change-performance-settings-of-a-pool"></a> 更改池的性能设置
+##<a name="change-the-storage-limit-for-an-elastic-pool"></a> 更改池的性能设置
 
 当性能受到影响时，可以更改池的设置以适应增长。使用 [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/zh-cn/library/azure/mt603511.aspx) cmdlet。将 -Dtu 参数设置为每个池的 eDTU。有关该参数可能的值，请参阅 [eDTU 和存储限制](./sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases)。
 

@@ -1,5 +1,5 @@
 ---
-title: "SQL 数据库性能：服务层 | Microsoft Docs"
+title: "SQL 数据库性能：服务层 | Azure"
 description: "比较 SQL 数据库服务层。"
 keywords: "数据库选项,数据库性能"
 services: sql-database
@@ -9,18 +9,18 @@ manager: jhubbard
 editor: 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
-ms.custom: overview
+ms.custom: resources
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/06/2017
+ms.date: 05/14/2017
 ms.author: v-johch
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: c23aa7ddec65c64ff8dc8fdf41902e1795327898
+ms.sourcegitcommit: 5e71573b18c45fd3bf6bccdbab8624e5d3900e2b
+ms.openlocfilehash: 753cdd0ad0f3f674125401c3707fdddd601d585e
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 06/12/2017
 
 
 ---
@@ -45,20 +45,23 @@ ms.lasthandoff: 04/07/2017
 | **高级 RS** | 专为不需要最高可用性保证的 IO 密集型工作负荷设计。 示例包括测试高性能工作负荷或数据库不是记录系统的分析工作负荷。 |
 |||
 
-首先请确定是要运行包含定义数量的专用资源的单一数据库，还是要在一组数据库之间共享某个资源池。 查看[弹性池注意事项](sql-database-elastic-pool-guidance.md)。 若要确定服务层，首先确定需要的最少数据库功能：
+首先请确定是要运行包含定义数量的专用资源的单一数据库，还是要在一组数据库之间共享某个资源池。 查看[弹性池注意事项](sql-database-elastic-pool.md)。 若要确定服务层，首先确定需要的最少数据库功能：
 
 | **服务层功能** | **基本** | **标准** | **高级** | **高级 RS**|
 | :-- | --: | --: | --: | --: |
-| 单个数据库的最大大小 | 2 GB | 250 GB | 4 TB*  | 500 GB  |
-| 弹性池中的最大总存储 | 117 GB | 1200 GB | 750 GB | 750 GB |
-| 每个池的数据库数目上限 | 400  | 400 | 50 | 50 |
+| 最大单一数据库大小 | 2 GB | 250 GB | 4 TB*  | 500 GB  |
+| 最大的弹性池大小 | 156 GB | 2.9 TB | 4 TB* | 750 GB |
+| 弹性池中的最大数据库大小 | 2 GB | 250 GB | 500 GB | 500 GB |
+| 每个池的数据库数目上限 | 500  | 500 | 100 | 100 |
+| 最大单一数据库 DTU | 5 | 100 | 4000 | 1000 |
+| 弹性池中的每数据库最大 DTU | 5 | 100 | 4000 | 1000 |
 | 数据库备份保留期 | 7 天 | 35 天 | 35 天 | 35 天 |
 ||||||
 
 确定最低服务层后，就可以确定数据库的性能级别（DTU 数）。 通常情况下，一开始可以使用标准 S2 和 S3 性能级别。 对于具有较高 CPU 或 IO 要求的数据库，高级性能级别是合适的起点。 与最高的标准性能级别相比，高级性能级别提供更多 CPU 和至少高 10 倍的 IO。
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>单一数据库服务层和性能级别
-对于单一数据库，每个服务层内都具有多个性能级别。 可以使用 [Azure 门户](sql-database-manage-single-databases-portal.md)、[PowerShell](sql-database-manage-single-databases-powershell.md)、[Transact-SQL](sql-database-manage-single-databases-tsql.md)、C# 和 REST API 灵活选择最适合工作负荷要求的级别。 
+对于单一数据库，每个服务层内都具有多个性能级别。 可以使用 Azure 门户、[PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database)、C# 和 REST API 灵活选择最适合工作负荷需求的级别。  
 
 尽管有多个托管的数据库，你的数据库仍可确保获得一组资源，并且数据库的预期性能特征不受影响。
 
@@ -70,7 +73,7 @@ ms.lasthandoff: 04/07/2017
 
 ## <a name="scaling-up-or-scaling-down-a-single-database"></a>上下缩放单一数据库
 
-在一开始选取服务层和性能级别以后，即可根据实际经验对单一数据库动态地进行上下缩放。 如果需要向上或向下缩放，可以使用 [Azure 门户](sql-database-manage-single-databases-portal.md)、[PowerShell](sql-database-manage-single-databases-powershell.md)、[Transact-SQL](sql-database-manage-single-databases-tsql.md)、C# 和 REST API 轻松更改数据库层。 
+在一开始选取服务层和性能级别以后，即可根据实际经验对单一数据库动态地进行上下缩放。 如果需要向上或向下缩放，可以使用 Azure 门户、[PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database)、C# 和 REST API 轻松更改数据库层。 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
@@ -85,19 +88,13 @@ ms.lasthandoff: 04/07/2017
 * 各服务层的还原服务不同。 如果降级，可能无法再还原到某个时间点，或者备份保留期变短。 有关详细信息，请参阅 [Azure SQL 数据库备份和还原](sql-database-business-continuity.md)。
 * 更改完成前不会应用数据库的新属性。
 
-> [!IMPORTANT]
-> 如需详细步骤，请参阅[在 Azure 门户中管理单一数据库](sql-database-manage-single-databases-portal.md)、[使用 PowerShell 管理单一数据库](sql-database-manage-single-databases-powershell.md)或[使用 Transact-SQL 管理单一数据库](sql-database-manage-single-databases-tsql.md)。
->
-
 ## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>弹性池服务层和性能 (eDTU)
 
-池允许数据库共享和使用 eDTU 资源，而无需为该池中的每个数据库分配特定性能级别。 例如，标准池中的单一数据库可使用 0 个 eDTU 到最大数据库 eDTU 数（配置池时设置的）运转。 弹性池允许多个具有不同工作负荷的数据库有效地使用在整个池中都可用的 eDTU 资源。 有关详细信息，请参阅 [弹性池的价格和性能注意事项](sql-database-elastic-pool-guidance.md) 。
+池允许数据库共享和使用 eDTU 资源，而无需为该池中的每个数据库分配特定性能级别。 例如，标准池中的单一数据库可使用 0 个 eDTU 到最大数据库 eDTU 数（配置池时设置的）运转。 弹性池允许多个具有不同工作负荷的数据库有效地使用在整个池中都可用的 eDTU 资源。 有关详细信息，请参阅 [弹性池的价格和性能注意事项](sql-database-elastic-pool.md) 。
 
-下表描述了池服务层的特征。
+下表描述了弹性池的资源限制。  请注意，弹性池中单个数据库的资源限制通常与池外部基于 DTU 和服务层的单个数据库相同。  例如，S2 数据库的最大并发辅助进程数为 120 个。  因此，如果池中每个数据库的最大 DTU 是 50 DTU（这等效于 S2），则标准池中数据库的最大并发辅助进程数也是 120 个辅助进程。
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
-
-池中的每个数据库也遵循该层的单一数据库特征。 例如，基本池具有每池最大会话数为 4800 - 28800 的限制，但该基本池中单个数据库具有 300 个会话数的数据库限制。
 
 ## <a name="scaling-up-or-scaling-down-an-elastic-pool"></a>上下缩放弹性池
 
@@ -106,12 +103,12 @@ ms.lasthandoff: 04/07/2017
 * 更改每个数据库的最小 eDTU 数或每个数据库的最大 eDTU 数通常可在五分钟或更少的时间内完成。
 * 更改池大小 (eDTU) 所需的时间取决于池中所有数据库的总大小。 每 100 GB 的更改平均需要 90 分钟或更短的时间。 例如，如果池中所有数据库的总空间为 200 GB，则更改每个池的池 eDTU 时，预计延迟为 3 小时或更短的时间。
 
-如需详细步骤，请参阅[在 Azure 门户中管理弹性池](sql-database-elastic-pool-manage-portal.md)、[使用 Powershell 管理弹性池](sql-database-elastic-pool-manage-powershell.md)、[使用 Transact-SQL 管理弹性池](sql-database-elastic-pool-manage-tsql.md)或[使用 C# 管理弹性池](sql-database-elastic-pool-manage-csharp.md)。
+如需详细步骤，请参阅[在 Azure 门户中管理弹性池](sql-database-elastic-pool-manage-portal.md)、[使用 Powershell 管理弹性池](scripts/sql-database-monitor-and-scale-pool-powershell.md)、[使用 Transact-SQL 管理弹性池](sql-database-elastic-pool-manage-tsql.md)或[使用 C# 管理弹性池](sql-database-elastic-pool-manage-csharp.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
-* 详细了解[弹性池](sql-database-elastic-pool-guidance.md)和[弹性池的价格和性能注意事项](sql-database-elastic-pool-guidance.md)。
+* 详细了解[弹性池](sql-database-elastic-pool.md)和[弹性池的价格和性能注意事项](sql-database-elastic-pool.md)。
 * 了解如何[监视、管理弹性池和调整其大小](sql-database-elastic-pool-manage-portal.md)以及如何[监视单一数据库的性能](sql-database-single-database-monitor.md)。
-* 现在，你已了解有关 SQL 数据库层的信息，可使用 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial/)来试用这些层，并了解[如何创建你的第一个 SQL 数据库](sql-database-get-started.md)。
+* 现在，你已了解有关 SQL 数据库层的信息，可使用 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial/)来试用这些层，并了解[如何创建你的第一个 SQL 数据库](sql-database-get-started-portal.md)。
 * 对于迁移方案，请使用 [DTU 计算器](http://dtucalculator.azurewebsites.net/) 估计所需的 DTU 数。 
 

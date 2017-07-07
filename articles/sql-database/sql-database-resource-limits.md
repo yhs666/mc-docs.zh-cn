@@ -1,34 +1,33 @@
 ---
-title: "Azure SQL 数据库资源限制 | Microsoft 文档"
+title: "Azure SQL 数据库资源限制 | Azure"
 description: "本页介绍 Azure SQL 数据库的一些常见资源限制。"
 services: sql-database
 documentationcenter: na
-author: janeng
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
-ms.custom: overview
+ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/06/2017
+origin.date: 05/31/2017
+ms.date: 07/03/2017
 ms.author: v-johch
+ms.openlocfilehash: 642019db85c35cb953aea2c60d9ad5ad340982e9
+ms.sourcegitcommit: bb82041119027be7a62fc96945d92a8a452e7849
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 68153ff51e8bdac7a3239be95ab9871d08b552ac
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL 数据库资源限制
 ## <a name="overview"></a>概述
 Azure SQL 数据库使用两种不同的机制管理可用于数据库的资源：**资源调控**和**强制限制**。 本主题介绍了资源管理的这两个主要方面。
 
 ## <a name="resource-governance"></a>资源调控
-基本、标准和高级服务层的设计目标之一是为了让 Azure SQL 数据库的行为与数据库运行在其自己的计算机上相同，独立于其他数据库。 资源调控模拟了此行为。 如果聚合资源利用率达到分配给数据库的最大可用 CPU、内存、日志 I/O 和数据 I/O 资源数，资源调控会将执行中的查询排队，并在资源释放时将资源分配给排队的查询。
+基本、标准、高级和高级 RS 服务层的设计目标之一是为了让 Azure SQL 数据库的行为与数据库运行在其自己的计算机上相同，独立于其他数据库。 资源调控模拟了此行为。 如果聚合资源利用率达到分配给数据库的最大可用 CPU、内存、日志 I/O 和数据 I/O 资源数，资源调控会将执行中的查询排队，并在资源释放时将资源分配给排队的查询。
 
 由于在专用计算机上，利用所有可用资源将导致当前执行的查询的执行时间较长，这可能会导致客户端上的命令超时。 达到并发请求数限制后，如果尝试执行新查询，具有积极重试逻辑的应用程序以及对数据库执行查询的应用程序遇到错误消息的频率会很高。
 
@@ -48,12 +47,12 @@ CPU、内存、日志 I/O 和数据 I/O 以外的资源在达到限制时，将�
 单一数据库和弹性池都有服务层和性能级别。
 
 ### <a name="single-databases"></a>单一数据库
-对于单一数据库，数据库服务层和性能级别定义了数据库限制。 下表描述了基本、标准和高级数据库在不同性能级别上的特征。
+对于单一数据库，数据库服务层和性能级别定义了数据库限制。 下表描述了基本、标准、高级和高级 RS 数据库在不同性能级别上的特征。
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 ### <a name="elastic-pools"></a>弹性池
-[弹性池](sql-database-elastic-pool.md)共享池中数据库中的资源。 下表描述了基本、标准和高级弹性池的特征。
+[弹性池](sql-database-elastic-pool.md)共享池中数据库中的资源。 下表描述了“基本”、“标准”、“高级”和“高级 RS”弹性池的特征。
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -75,5 +74,3 @@ CPU、内存、日志 I/O 和数据 I/O 以外的资源在达到限制时，将�
 [Azure SQL 数据库服务层和性能级别](sql-database-service-tiers.md)
 
 [SQL 数据库客户端程序的错误消息](sql-database-develop-error-messages.md)
-
-

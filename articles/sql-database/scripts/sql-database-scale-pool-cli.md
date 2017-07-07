@@ -11,26 +11,22 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: sample
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: samples
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/04/2017
+ms.date: 04/24/2017
 ms.author: v-johch
+ms.openlocfilehash: 6ca85691e9d731f530a71b8bbc7ef74b3d3222b0
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: f6202773a8de4fbddbfa99d806d243d3696ee7e8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="scale-an-elastic-pool-in-azure-sql-database-using-the-azure-cli"></a>使用 Azure CLI 缩放 Azure SQL 数据库中的弹性池
 
 此示例 CLI 脚本创建弹性池，移动入池数据库，并更改性能级别。 
 
-必要时，请使用 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中的说明安装 Azure CLI，然后运行 `az login` 创建与 Azure 的连接。
-
-此示例在 Bash shell 中正常工作。 有关在 Windows 上运行 Azure CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../../virtual-machines/virtual-machines-windows-cli-options.md)。
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -111,4 +107,3 @@ az group delete --name myResourceGroup
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
 其他 SQL 数据库 CLI 脚本示例可以在 [Azure SQL 数据库文档](../sql-database-cli-samples.md)中找到。
-
