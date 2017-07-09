@@ -42,4 +42,3 @@
 ## 定价 
 ### [Linux](https://www.azure.cn/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://www.azure.cn/pricing/details/virtual-machine-scale-sets/windows/)
-## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)

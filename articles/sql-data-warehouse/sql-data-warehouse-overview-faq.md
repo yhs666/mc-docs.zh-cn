@@ -4,7 +4,7 @@ description: "本文列出客户和开发人员提出的 Azure SQL 数据仓库�
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: johnmac
+manager: digimobile
 editor: 
 ms.assetid: 812CA525-3BF3-49DF-8DF3-FB4342464F4F
 ms.service: sql-data-warehouse
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
 origin.date: 03/01/2017
-ms.date: 05/08/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: fd58dfdec1505039db4ece5e1caa6d312c478d03
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: e6e1d2dc3be8b666d201cc66a30ca2868e14a74b
+ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/05/2017
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL 数据仓库常见问题解答
 

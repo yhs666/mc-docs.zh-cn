@@ -17,11 +17,11 @@ origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.openlocfilehash: 97d08209b1f0dc24a7e89947d56cec4c2b2c02a7
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: affe4fdc86b5182a8ba6ccc65f14e150d9504d1d
+ms.sourcegitcommit: 2c397ac599bdb39b257580a1b55a1ce67e19ae56
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/03/2017
 ---
 # <a name="create-a-web-app-with-deployment-from-github"></a>从 GitHub 使用部署创建 Web 应用
 
@@ -69,7 +69,7 @@ az webapp browse --name $webappname --resource-group myResourceGroup
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | 创建应用服务计划。 |
 | [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#delete) | 创建 Azure Web 应用。 |
-| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/webapp/source-control#config) | 将 Azure Web 应用与 Git 或 Mercurial 存储库相关联。 |
+| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config) | 将 Azure Web 应用与 Git 或 Mercurial 存储库相关联。 |
 | [az appservice web browse](https://docs.microsoft.com/cli/azure/webapp#browse) | 在浏览器中打开 Azure Web 应用。 |
 
 ## <a name="next-steps"></a>后续步骤

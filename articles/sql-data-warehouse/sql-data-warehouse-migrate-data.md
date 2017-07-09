@@ -4,7 +4,7 @@ description: "有关在开发解决方案时将数据迁移到 Azure SQL 数据�
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: 
 ms.assetid: d78f954a-f54c-4aa4-9040-919bc6414887
 ms.service: sql-data-warehouse
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
 origin.date: 10/31/2016
-ms.date: 04/24/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3140b6f3136ae6eceae9077b337a8265dbdd15c3
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 0d32e9475c057bc4832baf7b194cf928203cdec6
+ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/05/2017
 ---
 # <a name="migrate-your-data"></a>迁移数据
 数据可以使用各种工具从不同源移动到 SQL 数据仓库中。  ADF 复制、SSIS 和 bcp 都可用来实现此目标。 但是，随着数据量的增加，你应该考虑将数据迁移过程划分成多个步骤。 这样，你便有机会优化每个步骤以提高性能和弹性，确保顺利迁移数据。
@@ -171,9 +171,9 @@ PolyBase 还支持名为“递归文件夹遍历”的功能。 你可以使用�
 <!--Azure Data Factory (ADF) Not supported in ACN-->
 <!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
-<!-- [ADF Copy]: ../data-factory/data-factory-data-movement-activities.md -->
-<!-- [ADF samples]: ../data-factory/data-factory-samples.md-->
-<!-- [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md-->
+<!-- Not Available [ADF Copy]: ../data-factory/data-factory-data-movement-activities.md -->
+<!-- Not Available [ADF samples]: ../data-factory/data-factory-samples.md-->
+<!-- Not Available [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md-->
 [development overview]: sql-data-warehouse-overview-develop.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
@@ -184,11 +184,11 @@ PolyBase 还支持名为“递归文件夹遍历”的功能。 你可以使用�
 
 <!--Other Web references-->
 <!--Azure Data Factory (ADF) Not supported in ACN-->
-<!--[Azure Data Factory]: http://azure.microsoft.com/services/data-factory/-->
+<!-- Not Available [Azure Data Factory]: http://azure.microsoft.com/services/data-factory/-->
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [ExpressRoute documentation]: /expressroute/
 
 [production version]: http://aka.ms/downloadazcopy/
 [preview version]: http://aka.ms/downloadazcopypr/
-[ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
-[SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx
+[ADO.NET destination adapter]: https://msdn.microsoft.com/zh-cn/library/bb934041.aspx
+[SSIS documentation]: https://msdn.microsoft.com/zh-cn/library/ms141026.aspx

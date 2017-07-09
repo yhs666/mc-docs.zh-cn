@@ -17,11 +17,11 @@ origin.date: 02/15/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8fea334489c0a376e7b7e87a17d61ed27deed690
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 42301c38628a195ba17b158107224062a3c97a9d
+ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/06/2017
 ---
 # <a name="how-to-find-linux-vm-images-with-the-azure-cli"></a>如何使用 Azure CLI 查找 Linux VM 映像
 本主题介绍如何查找每个部署目标位置的发布者、产品、SKU 和版本。 
@@ -39,7 +39,7 @@ Offer          Publisher               Sku                 Urn                  
 WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
 WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
 WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
-UbuntuServer   Canonical               14.04.3-LTS         Canonical:UbuntuServer:14.04.3-LTS:latest                       UbuntuLTS            latest
+UbuntuServer   Canonical               14.04.4-LTS         Canonical:UbuntuServer:14.04.4-LTS:latest                       UbuntuLTS            latest
 CentOS         OpenLogic               7.2                 OpenLogic:CentOS:7.2:latest                                     CentOS               latest
 openSUSE       SUSE                    13.2                SUSE:openSUSE:13.2:latest                                       openSUSE             latest
 SLES           SUSE                    12-SP1              SUSE:SLES:12-SP1:latest                                         SLES                 latest
@@ -175,8 +175,8 @@ data:    canonical  ubuntuserver  14.04.0-LTS        chinanorth
 data:    canonical  ubuntuserver  14.04.1-LTS        chinanorth
 data:    canonical  ubuntuserver  14.04.2-LTS        chinanorth
 data:    canonical  ubuntuserver  14.04.3-LTS        chinanorth
-data:    canonical  ubuntuserver  14.04.3-DAILY-LTS  chinanorth
-data:    canonical  ubuntuserver  14.04.3-LTS        chinanorth
+data:    canonical  ubuntuserver  14.04.4-DAILY-LTS  chinanorth
+data:    canonical  ubuntuserver  14.04.4-LTS        chinanorth
 data:    canonical  ubuntuserver  14.04.5-DAILY-LTS  chinanorth
 data:    canonical  ubuntuserver  14.04.5-LTS        chinanorth
 data:    canonical  ubuntuserver  14.10              chinanorth

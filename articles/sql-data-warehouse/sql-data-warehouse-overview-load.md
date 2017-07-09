@@ -4,7 +4,7 @@ description: "了解将数据载入 SQL 数据仓库的常见方案。 这些常
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: 
 ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
 ms.service: sql-data-warehouse
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 origin.date: 10/31/2016
-ms.date: 04/24/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8113bdeb55bfc3af254587ffe4a05489205d5a17
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 75c2e22f05aa5387b96e5a0c7904942c5cb4e4ed
+ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/05/2017
 ---
 # <a name="load-data-into-azure-sql-data-warehouse"></a>将数据载入 Azure SQL 数据仓库
 本文汇总了将数据载入 SQL 数据仓库时的方案选项和建议。
@@ -35,14 +35,14 @@ ms.lasthandoff: 06/23/2017
 ### <a name="1-use-polybase-and-t-sql"></a>1.使用 PolyBase 和 T-SQL
 加载过程摘要：
 
-1. 将数据移到 Azure Blob 存储并存储在文本文件中。    <!--Data Lake Store Not supported in ACN-->
+1. 将数据移到 Azure Blob 存储并存储在文本文件中。    
+<!--Not Available Data Lake Store in ACN-->
 2. 在 SQL 数据仓库中配置外部对象，以便定义数据的位置和格式
 3. 运行 T-SQL 命令，将数据以并行方式加载到新的数据库表。
 
-<!-- 5. Schedule and run a loading job. --> 
-
 有关教程，请参阅[将数据从 Azure Blob 存储加载到 SQL 数据仓库 (PolyBase)][Load data from Azure blob storage to SQL Data Warehouse (PolyBase)]。
-<!-- ADF Not supported in ACN-->
+
+<!-- Not Available ### 2. Use Azure Data Factory -->
 
 ## <a name="load-from-sql-server"></a>从 SQL Server 加载
 若要将数据从 SQL Server 加载到 SQL 数据仓库，可以使用 Integration Services (SSIS)，可以传输平面文件，还可以将磁盘寄送到 Microsoft。 继续阅读下去，你会看到各种不同加载过程的摘要，以及教程链接。
@@ -104,7 +104,7 @@ SQL 数据仓库支持通过 PolyBase 从 HDInsight 加载数据。 该过程和
 有关教程，请参阅[将数据从 Azure Blob 存储加载到 SQL 数据仓库 (PolyBase)][Load data from Azure blob storage to SQL Data Warehouse (PolyBase)]。
 
 ## <a name="recommendations"></a>建议
-<!-- Not supported in Azure.cn Many of our partners have loading solutions. To find out more, see a list of our [solution partners][solution partners]. -->
+<!-- Not Available [solution partners][solution partners]. -->
 如果你的数据来自非关系源，而你想要将其载入 SQL 数据仓库，则需在加载前先将其转换成行和列。 已转换的数据不需存储在数据库中，可以存储在文本文件中。
 
 基于新加载的数据创建统计信息。 Azure SQL 数据仓库尚不支持自动创建或自动更新统计信息。  为了获得查询的最佳性能，在首次加载数据或者在数据发生重大更改之后，创建所有表的所有列统计信息非常重要。  有关详细信息，请参阅 [统计信息][Statistics]。

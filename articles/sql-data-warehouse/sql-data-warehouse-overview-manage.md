@@ -4,7 +4,7 @@ description: "管理 SQL 数据仓库数据库的概述。 包括管理工具、
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: 
 ms.assetid: 8576fdb3-71fe-4b3b-a4e0-5e8a7f148acf
 ms.service: sql-data-warehouse
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 origin.date: 10/31/2016
-ms.date: 05/08/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 12fb7bab7189484643b51a1d40df48349f4fece2
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: cee41a6e534c4e4d36e214d357348b9d9aa8d8f9
+ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/05/2017
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>在 Azure SQL 数据仓库中管理数据库
 SQL 数据仓库自动执行管理数据库的许多方面的操作。 例如，若要缩放性能，你只需调整相应级别的计算资源并为这些资源付费，然后即可让 SQL 数据仓库执行向外扩展和缩减的所有工作。
@@ -110,7 +110,7 @@ DMV 是管理 SQL 数据仓库的必备工具。 在门户中显示的所有信�
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
-[SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
+[SQL Server Data Tools]: https://msdn.microsoft.com/zh-cn/library/mt204009.aspx
 
 <!--Other web references-->
 [Azure portal]: http://portal.azure.cn/

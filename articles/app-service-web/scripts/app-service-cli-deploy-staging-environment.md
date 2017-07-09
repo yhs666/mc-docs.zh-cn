@@ -17,11 +17,11 @@ origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.openlocfilehash: 29de714e84aaab8a84b002ced6e8bfce790a8d83
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: dfa4b52a9267f50169947c3e53ad71bf77c99ea8
+ms.sourcegitcommit: 2c397ac599bdb39b257580a1b55a1ce67e19ae56
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/03/2017
 ---
 # <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>创建 Web 应用并将代码部署到过渡环境
 
@@ -82,7 +82,7 @@ az webapp browse --name $webappname --resource-group myResourceGroup
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | 创建应用服务计划。 |
 | [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#delete) | 创建 Azure Web 应用。 |
 | [az appservice web deployment slot create](https://docs.microsoft.com/cli/azure/webapp/deployment/slot#create) | 创建部署槽。 |
-| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/webapp/source-control#config) | 将 Azure Web 应用与 Git 或 Mercurial 存储库相关联。 |
+| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config) | 将 Azure Web 应用与 Git 或 Mercurial 存储库相关联。 |
 | [az appservice web browse](https://docs.microsoft.com/cli/azure/webapp#browse) | 在浏览器中打开 Azure Web 应用。 |
 | [az appservice web deployment slot swap](https://docs.microsoft.com/cli/azure/webapp/deployment/slot#swap) | 将指定的部署槽交换到生产环境。 |
 

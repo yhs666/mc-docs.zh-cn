@@ -4,7 +4,7 @@ description: "对 Azure SQL 数据仓库进行的 Azure Active Directory (AAD) �
 services: sql-data-warehouse
 documentationcenter: 
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: 
 tags: 
 ms.assetid: fefaaa75-2d0c-4e5d-aadb-410342d1ad73
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.custom: security
 origin.date: 03/21/2017
-ms.date: 05/08/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: f3e076cf91f9a0ad069659f798f5e216108c8dc2
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 24517df87981a6be5d3d1fa3a3eedf9c732e6130
+ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/05/2017
 ---
 # <a name="authentication-to-azure-sql-data-warehouse"></a>对 Azure SQL 数据仓库进行身份验证
 
@@ -89,11 +89,11 @@ Azure Active Directory 的优点包括：
 5. 在映射到 Azure AD 标识的数据库中创建包含的数据库用户
 6. 使用 Azure AD 标识连接到数据仓库
 
-目前，Azure Active Directory 用户不会显示在 SSDT 对象资源管理器中。 解决方法是在 [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx) 中查看这些用户。
+目前，Azure Active Directory 用户不会显示在 SSDT 对象资源管理器中。 解决方法是在 [sys.database_principals](https://msdn.microsoft.com/zh-cn/library/ms187328.aspx) 中查看这些用户。
 
 ### <a name="find-the-details"></a>查看详细信息
 * 完成详细步骤。 配置和使用 Azure Active Directory 身份验证的详细步骤与适用于 Azure SQL 数据库和 Azure SQL 数据仓库的步骤几乎完全相同。 请遵循主题 [使用 Azure Active Directory 身份验证连接到 SQL 数据库或 SQL 数据仓库](../sql-database/sql-database-aad-authentication.md)中的详细步骤。
-* 创建自定义数据库角色，并向角色添加用户。 然后授予角色具体权限。 有关详细信息，请参阅 [数据库引擎权限入门](https://msdn.microsoft.com/library/mt667986.aspx)。
+* 创建自定义数据库角色，并向角色添加用户。 然后授予角色具体权限。 有关详细信息，请参阅 [数据库引擎权限入门](https://msdn.microsoft.com/zh-cn/library/mt667986.aspx)。
 
 ## <a name="next-steps"></a>后续步骤
 

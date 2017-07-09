@@ -4,7 +4,7 @@ description: "在 Azure SQL 数据仓库中监视用户查询时的注意事项�
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: 
 ms.assetid: 1d0960db-5dcf-4a08-b1dc-6c5d3d5a616d
 ms.service: sql-data-warehouse
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 origin.date: 10/31/2016
-ms.date: 12/19/2016
+ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: a46fd917acde8775e91d1122e31338dc6a7ac59e
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: e4fe1255e2ce149be734d43e3021e707622ae992
+ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/05/2017
 ---
 # <a name="monitor-user-queries-in-azure-sql-data-warehouse"></a>在 Azure SQL 数据仓库中监视用户查询
 在 SQL 数据仓库中监视用户查询时的注意事项、最佳实践和任务的概述。

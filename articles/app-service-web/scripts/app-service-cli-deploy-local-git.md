@@ -17,11 +17,11 @@ origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.openlocfilehash: db50672761f0fdb61284b4142cc5c7f5d2521a59
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: be4740378cccfaff6b3a9eb7e76994e9c1a03bd6
+ms.sourcegitcommit: 2c397ac599bdb39b257580a1b55a1ce67e19ae56
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/03/2017
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>从本地 Git 存储库创建 Web 应用并部署代码
 
@@ -81,7 +81,7 @@ az webapp browse --name $webappname --resource-group myResourceGroup
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | 创建应用服务计划。 |
 | [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#delete) | 创建 Azure Web 应用。 |
 | [az appservice web deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user#set) | 为应用服务设置帐户级别部署凭据。 |
-| [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/source-control#config-local-git) | 为本地 Git 存储库创建源控件配置。 |
+| [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) | 为本地 Git 存储库创建源控件配置。 |
 | [az appservice web browse](https://docs.microsoft.com/cli/azure/webapp#browse) | 在浏览器中打开 Azure Web 应用。 |
 
 ## <a name="next-steps"></a>后续步骤

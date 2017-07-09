@@ -63,5 +63,4 @@
 
 # 资源
 ## [价格](https://www.azure.cn/pricing/details/virtual-machines/#Linux)
-## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
-## [视频](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
+## [视频](https://www.azure.cn/video-center/)

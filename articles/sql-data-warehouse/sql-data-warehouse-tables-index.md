@@ -4,7 +4,7 @@ description: "Azure SQL 数据仓库中的表索引入门。"
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: barbkess
+manager: digimobile
 editor: 
 ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
 ms.service: sql-data-warehouse
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 origin.date: 07/12/2016
-ms.date: 05/08/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 53271af8fbe0de69518d9711e1fb6429cd8a7d63
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 2dd35818e8a2805d977b4e891a70a93edc3ec5da
+ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/05/2017
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>为 SQL 数据仓库中的表编制索引
 
@@ -328,11 +328,11 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
-[ALTER INDEX]: https://msdn.microsoft.com/library/ms188388.aspx
-[heap]: https://msdn.microsoft.com/library/hh213609.aspx
-[clustered indexes and nonclustered indexes]: https://msdn.microsoft.com/library/ms190457.aspx
-[create table syntax]: https://msdn.microsoft.com/library/mt203953.aspx
-[Columnstore Indexes Defragmentation]: https://msdn.microsoft.com/library/dn935013.aspx#Anchor_1
-[clustered columnstore indexes]: https://msdn.microsoft.com/library/gg492088.aspx
+[ALTER INDEX]: https://msdn.microsoft.com/zh-cn/library/ms188388.aspx
+[heap]: https://msdn.microsoft.com/zh-cn/library/hh213609.aspx
+[clustered indexes and nonclustered indexes]: https://msdn.microsoft.com/zh-cn/library/ms190457.aspx
+[create table syntax]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
+[Columnstore Indexes Defragmentation]: https://msdn.microsoft.com/zh-cn/library/dn935013.aspx#Anchor_1
+[clustered columnstore indexes]: https://msdn.microsoft.com/zh-cn/library/gg492088.aspx
 
 <!--Other Web references-->
