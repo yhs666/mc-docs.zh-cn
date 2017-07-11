@@ -14,20 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/11/2017
-ms.date: 04/24/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
-ms.openlocfilehash: 8c62ec11d28735730359ab35479c53ba8fa04e03
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/14/2017
-
-
+ms.openlocfilehash: 32173eb5b7cfddf6e7a8d921042255bf089d3584
+ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/06/2017
 ---
-# <a name="different-ways-to-create-a-linux-virtual-machine-in-azure"></a>在 Azure 中创建 Linux 虚拟机的不同方式
+<a id="different-ways-to-create-a-linux-virtual-machine-in-azure" class="xliff"></a>
+
+# 在 Azure 中创建 Linux 虚拟机的不同方式
 在 Azure 中，可以使用习惯的工具和工作流灵活创建 Linux 虚拟机 (VM)。 本文汇总了这些方法的差异，并举例说明如何创建 Linux VM。
 
-## <a name="azure-cli"></a>Azure CLI
+<a id="azure-cli" class="xliff"></a>
+
+## Azure CLI
 可使用以下 CLI 版本之一在 Azure 中创建 VM：
 
 - Azure CLI 1.0 - 用于经典部署模型和资源管理部署模型（本文）的 CLI
@@ -37,43 +39,49 @@ Azure CLI 1.0 可通过 npm 包、发行版提供的程序包或 Docker 容器�
 
 * [Create a Linux VM from the Azure CLI for dev and test（从 Azure CLI 创建用于开发和测试的 Linux VM）](quick-create-cli-nodejs.md)
 
-    * 以下示例使用名为 *azure_id_rsa.pub* 的公钥创建 CoreOS VM：
+  * 以下示例使用名为 *azure_id_rsa.pub* 的公钥创建 CoreOS VM：
 
-        ```azurecli
-        azure vm quick-create -ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
-          --image-urn CoreOS
-        ```
+    ```azurecli
+    azure vm quick-create -ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
+      --image-urn CoreOS
+    ```
 * [使用 Azure 模板创建受保护的 Linux VM](create-ssh-secured-vm-from-template.md)
 
-    * 以下示例使用 GitHub 上存储的模板创建 VM：
+  * 以下示例使用 GitHub 上存储的模板创建 VM：
 
-        ```azurecli
-        azure group create --name myResourceGroup --location chinaeast 
-          --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
-        ```
+    ```azurecli
+    azure group create --name myResourceGroup --location chinaeast 
+      --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+    ```
 * [使用 Azure CLI 创建完整的 Linux 环境](create-cli-complete-nodejs.md)
 
-    * 包括在可用性集中创建负载均衡器和多个 VM。
+  * 包括在可用性集中创建负载均衡器和多个 VM。
 * [将磁盘添加到 Linux VM](add-disk.md)
 
-    * 以下示例将 *5* Gb 磁盘添加到名为 *myVM* 的现有 VM：
+  * 以下示例将 *5* Gb 磁盘添加到名为 *myVM* 的现有 VM：
 
-        ```azurecli
-        azure vm disk attach-new \
-            --resource-group myResourceGroup \
-            --vm-name myVM \
-            --size-in-GB 5
-        ```
+    ```azurecli
+    azure vm disk attach-new \
+        --resource-group myResourceGroup \
+        --vm-name myVM \
+        --size-in-GB 5
+    ```
 
-## <a name="azure-portal"></a>Azure 门户
-[Azure 门户](https://portal.azure.cn)允许用户快速创建 VM，因为不需在系统上安装内容。 使用 Azure 门户创建 VM：
+<a id="azure-portal" class="xliff"></a>
+
+## Azure 门户
+[Azure 门户](https://portal.azure.cn)允许用户快速创建 VM，因为不需在系统上安装任何内容。 使用 Azure 门户创建 VM：
 
 * [使用 Azure 门户创建 Linux VM](quick-create-portal.md) 
 
-## <a name="operating-system-and-image-choices"></a>操作系统和映像选项
+<a id="operating-system-and-image-choices" class="xliff"></a>
+
+## 操作系统和映像选项
 创建 VM 时，可根据要运行的操作系统选择映像。 Azure 及其合作伙伴提供了许多映像，其中一些映像包括预安装的应用程序和工具。 也可上传自己的某个映像（请参阅[以下部分](#use-your-own-image)）。
 
-### <a name="azure-images"></a>Azure 映像
+<a id="azure-images" class="xliff"></a>
+
+### Azure 映像
 使用 `azure vm image` CLI 命令可按发布者、发行版本和内部版本查看可用内容。
 
 列出可用的发布者，如下所示：
@@ -111,9 +119,11 @@ azure vm image list --location chinaeast --publisher Canonical --offer UbuntuSer
 | Debian |credativ |Debian |8 |最新 |
 | openSUSE |SUSE |openSUSE |13.2 |latest |
 | SLES |SLES |SLES |12-SP1 |最新 |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.3-LTS |最新 |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |最新 |
 
-### <a name="use-your-own-image"></a>使用你自己的映像
+<a id="use-your-own-image" class="xliff"></a>
+
+### 使用你自己的映像
 若要进行具体的自定义，可以通过 *捕获* 现有 Azure VM 来使用基于该 VM 的映像。 也可以上传本地创建的映像。 有关受支持的发行版以及如何使用你自己的映像的详细信息，请参阅以下文章：
 
 * [Azure endorsed distributions（Azure 认可的分发版）](endorsed-distros.md)
@@ -121,16 +131,17 @@ azure vm image list --location chinaeast --publisher Canonical --offer UbuntuSer
 * [上传自定义磁盘映像并从其创建 Linux VM](upload-vhd.md)
 * [如何捕获用作 Resource Manager 模板的 Linux 虚拟机](capture-image.md)。
 
-    * 用于捕获现有 VM 的快速入门示例命令：
+  * 用于捕获现有 VM 的快速入门示例命令：
 
-        ```azurecli
-        azure vm deallocate --resource-group myResourceGroup --vm-name myVM
-        azure vm generalize --resource-group myResourceGroup --vm-name myVM
-        azure vm capture --resource-group myResourceGroup --vm-name myVM --vhd-name-prefix myCapturedVM
-        ```
+    ```azurecli
+    azure vm deallocate --resource-group myResourceGroup --vm-name myVM
+    azure vm generalize --resource-group myResourceGroup --vm-name myVM
+    azure vm capture --resource-group myResourceGroup --vm-name myVM --vhd-name-prefix myCapturedVM
+    ```
 
-## <a name="next-steps"></a>后续步骤
+<a id="next-steps" class="xliff"></a>
+
+## 后续步骤
 * 通过[门户](quick-create-portal.md)、[CLI](quick-create-cli.md) 或 [Azure Resource Manager 模板](../windows/cli-deploy-templates.md)创建 Linux VM。
 * 创建 Linux VM 后，可[添加数据磁盘](add-disk.md)。
 * [重置密码或 SSH 密钥和管理用户](using-vmaccess-extension.md)
-

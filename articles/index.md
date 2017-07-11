@@ -1,17 +1,17 @@
 ---
 layout: HubPage
-hide_bc: true
-title: "Microsoft Azure 文档 | Microsoft 文档"
+hide_bc: True
+title: "Azure 文档 | Microsoft Docs"
 description: "了解如何使用 Microsoft Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
-ms.openlocfilehash: f4f228779c10c493cf4c363e95308f7abd9c056c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: cc95b8a2f4ca0d3a385b168ba2dc0f1a320906d5
+ms.sourcegitcommit: 04b365f5adee3a073b90fbf6ae353d16a071c89e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/04/2017
 ---
 <div id="main" class="v2">
     <div class="container">
+        <h1 class="screenReader">Azure 文档</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
                 <a href="/articles/">
@@ -24,7 +24,7 @@ ms.lasthandoff: 06/20/2017
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Azure 操作指南</span>
+                                    <span class="likeAnH3">中国区 Azure 的操作指南</span>
                                 </div>
                             </div>
                         </div>
@@ -137,7 +137,7 @@ ms.lasthandoff: 06/20/2017
                                                 <div>
                                                     <h4>应用模型</h4>
                                                     <ul class="noBullet">
-                                                        <li><a class="barLink" href="/app-service-web/">Web 应用</a></li>
+                                                        <li><a class="barLink" href="/app-service-web/">Web 应用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -158,8 +158,8 @@ ms.lasthandoff: 06/20/2017
                                                 </ul>
                                                 <h4>AI 和认知服务</h4>
                                                 <ul class="noBullet">
-                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236">计算机视觉 API</a></li>
-                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa">人脸 API</a></li>
+                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa">计算机视觉 API</a></li>
+                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236">人脸 API</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -1679,16 +1679,13 @@ ms.lasthandoff: 06/20/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">获取 .NET SDK</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-install">获取用于 .NET 的 Azure 库</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/develop/net/">入门</a>
+                                                    <a target="_blank" href="https://azure.microsoft.com/develop/net/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/api">API 参考</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/develop/net/">了解详细信息</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet">API 参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1760,16 +1757,13 @@ ms.lasthandoff: 06/20/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://github.com/Azure/azure-sdk-for-java#download">获取 Java SDK</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/java/azure/java-sdk-azure-install">获取用于 Java 的 Azure 库</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/develop/java/">入门</a>
+                                                    <a target="_blank" href="https://azure.microsoft.com/develop/java/">入门</a>
                                                 </p>
                                                 <p>
                                                     <a target="_blank" href="https://docs.microsoft.com/java/api/">API 参考</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/develop/java/">了解详细信息</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1910,137 +1904,6 @@ ms.lasthandoff: 06/20/2017
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="container">
-                                    <h2>工具和扩展</h2>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-9.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a target="_blank" href="https://www.visualstudio.com/vs/azure-tools/">Visual Studio Tools for Azure</a>
-                                                </h3>
-                                                <p>
-                                                    <a target="_blank" href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">下载</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-10.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a target="_blank" href="https://github.com/Microsoft/DockerToolsDocs">Docker 工具</a>
-                                                </h3>
-                                                <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker">入门</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=780680">适用于 Visual Studio 的下载项</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=780681">适用于 Visual Studio Code 的下载项</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=780682">适用于 Team Services 的下载项</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-8.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a target="_blank" href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">PowerShell Tools for Visual Studio</a>
-                                                </h3>
-                                                <p>
-                                                    <a target="_blank" href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">下载</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-11.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a target="_blank" href="http://storageexplorer.com/">存储资源管理器</a>
-                                                </h3>
-                                                <p>
-                                                    <a href="/vs-azure-tools-storage-manage-with-storage-explorer">入门</a>
-                                                </p>
-                                                <p>
-                                                     <a  target="_blank" href="http://go.microsoft.com/fwlink/?LinkId=722418">适用于 Linux 的下载项</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="http://go.microsoft.com/fwlink/?LinkId=708342">适用于 Mac 的下载项</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="http://go.microsoft.com/fwlink/?LinkId=708343">适用于 Windows 的下载项</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-2.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a target="_blank" href="https://www.visualstudio.com/vs/python">Python Tools</a>
-                                                </h3>
-                                                <p>
-                                                    <a target="_blank" href="https://github.com/Microsoft/PTVS/wiki/PTVS-Installation">Visual Studio 入门</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python">Visual Studio Code 入门</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -2159,4 +2022,3 @@ ms.lasthandoff: 06/20/2017
         </ul>
     </div>
 </div>
-

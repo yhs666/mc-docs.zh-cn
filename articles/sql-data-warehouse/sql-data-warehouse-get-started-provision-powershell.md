@@ -3,38 +3,44 @@ title: "使用 PowerShell 创建 SQL 数据仓库 | Azure"
 description: "使用 PowerShell 创建 SQL 数据仓库"
 services: sql-data-warehouse
 documentationCenter: NA
-author: barbkess
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: 
+ms.assetid: 97434863-7938-4129-8949-5a119f5949e3
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: create
 origin.date: 10/31/2016
-ms.date: 04/24/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: f54d8f576cd4ca14ab36b274e54fde4bb6c56b80
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: b6377b419de9295e6c33b7e9ad38a69c34c59378
+ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/05/2017
 ---
+<a id="create-sql-data-warehouse-using-powershell" class="xliff"></a>
 
-# <a name="create-sql-data-warehouse-using-powershell"></a>使用 PowerShell 创建 SQL 数据仓库
+# 使用 PowerShell 创建 SQL 数据仓库
 
 > [!div class="op_single_selector"]
-> * [Azure 门户](./sql-data-warehouse-get-started-provision.md)
-> * [TSQL](./sql-data-warehouse-get-started-create-database-tsql.md)
-> * [PowerShell](./sql-data-warehouse-get-started-provision-powershell.md)
+> * [Azure 门户](sql-data-warehouse-get-started-provision.md)
+> * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
+> * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+>
+>
 
 本文说明如何使用 PowerShell 创建 SQL 数据仓库。
 
-## <a name="prerequisites"></a>先决条件
+<a id="prerequisites" class="xliff"></a>
+
+## 先决条件
 若要开始，您需要：
 
-* **Azure 帐户**：访问 [Azure 免费试用版][Azure Free Trial] ，以创建帐户。
+* **Azure 帐户**：访问 [Azure 试用版][Azure Trial]，以创建帐户。
 * **Azure SQL Server**：有关详细信息，请参阅[在 Azure 门户中创建 Azure SQL 数据库][Create an Azure SQL database in the Azure Portal]或[使用 PowerShell 创建 Azure SQL 数据库][Create an Azure SQL database with PowerShell]。
 * **资源组**：可使用同一资源组作为 Azure SQL Server，或参阅[如何创建资源组](../azure-resource-manager/resource-group-portal.md)。
 * **PowerShell 1.0.3 或更高版本**：可以通过运行 **Get-Module -ListAvailable -Name Azure** 来检查版本。  可通过 [Microsoft Web 平台安装程序][Microsoft Web Platform Installer]安装最新版本。  有关安装最新版本的详细信息，请参阅[如何安装和配置 Azure PowerShell][How to install and configure Azure PowerShell]。
@@ -42,26 +48,28 @@ ms.lasthandoff: 04/14/2017
 
 > [!NOTE]
 > 创建 SQL 数据仓库可能会导致新的计费服务。  有关定价的详细信息，请参阅 [SQL 数据仓库定价][SQL Data Warehouse pricing]。
+>
+>
 
-## <a name="create-a-sql-data-warehouse"></a>创建 SQL 数据仓库
+<a id="create-a-sql-data-warehouse" class="xliff"></a>
+
+## 创建 SQL 数据仓库
 1. 打开 Windows PowerShell。
 2. 运行此 cmdlet 以登录到 Azure Resource Manager 中。
 
     ```Powershell
     Login-AzureRmAccount -EnvironmentName AzureChinaCloud
     ```
-
 3. 选择要用于当前会话的订阅。
 
     ```Powershell
     Get-AzureRmSubscription    -SubscriptionName "MySubscription" | Select-AzureRmSubscription
     ```
+4. 创建数据库。 此示例将在名为“mychinanorthresgp1”的资源组中的名为“sqldwserver1”的服务器中创建一个名为“mynewsqldw”且服务目标级别为“DW400”的数据库。
 
-4. 创建数据库。 此示例将在名为“mywesteuroperesgp1”的资源组中的名为“sqldwserver1”的服务器中创建一个名为“mynewsqldw”且服务目标级别为“DW400”的数据库。
-
-    ```Powershell
-    New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
-    ```
+   ```Powershell
+   New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mychinanorthresgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
+   ```
 
 所需的参数有：
 
@@ -78,7 +86,9 @@ ms.lasthandoff: 04/14/2017
 
 有关参数选项的更多详细信息，请参阅 [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase] 和[创建数据库（Azure SQL 数据仓库）][Create Database (Azure SQL Data Warehouse)]。
 
-## <a name="next-steps"></a>后续步骤
+<a id="next-steps" class="xliff"></a>
+
+## 后续步骤
 完成 SQL 数据仓库预配之后，可能需要尝试[加载示例数据][loading sample data]或了解如何[开发][develop]、[加载][load]或[迁移][migrate]数据。
 
 如果有兴趣进一步了解如何以编程方式管理 SQL 数据仓库，请查看我们有关如何使用 [PowerShell cmdlet 和 REST API][PowerShell cmdlets and REST APIs] 的文章。
@@ -92,21 +102,21 @@ ms.lasthandoff: 04/14/2017
 [load]: ./sql-data-warehouse-load-with-bcp.md
 [loading sample data]: ./sql-data-warehouse-load-sample-databases.md
 [PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
-[firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
+[firewall rules]: ../sql-database-configure-firewall-settings.md
 
-[How to install and configure Azure PowerShell]: https://msdn.microsoft.com/powershell/azureps-cmdlets-docs
+[How to install and configure Azure PowerShell]: https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs
 [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
 [Create an Azure SQL database in the Azure Portal]: ../sql-database/sql-database-get-started.md
 [Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-get-started-powershell.md
 [how to create a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group
 
-<!--MSDN references--> 
-[MSDN]:https://msdn.microsoft.com/zh-cn/library/azure/dn546722.aspx
+<!--MSDN references-->
+[MSDN]: https://msdn.microsoft.com/zh-cn/library/azure/dn546722.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt619339.aspx
 [Create Database (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/zh-cn/library/mt204021.aspx
 
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 [SQL Data Warehouse pricing]: https://www.azure.cn/pricing/details/sql-data-warehouse/
-[Azure Free Trial]: https://www.azure.cn/pricing/free-trial/?WT.mc_id=A261C142F
-[MSDN Azure Credits]: https://www.azure.cn/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[Azure Trial]: https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F
+<!-- Not Available [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F-->
