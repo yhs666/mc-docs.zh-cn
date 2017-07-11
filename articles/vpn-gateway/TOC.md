@@ -68,8 +68,8 @@
 ## [ExpressRoute](/expressroute/)
 
 # 资源
-## [博客](https://azure.microsoft.com/blog/topics/networking)
+## [博客](https://www.azure.cn/blog/tags/网络服务)
 ## [论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [定价](https://www.azure.cn/pricing/details/vpn-gateway/)
 ## [SLA](https://www.azure.cn/support/legal/sla)
-## [视频](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)
+## [视频](https://www.azure.cn/video-center/)
