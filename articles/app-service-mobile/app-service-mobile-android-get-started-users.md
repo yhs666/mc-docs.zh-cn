@@ -1,6 +1,6 @@
 ---
 title: "使用移动应用在 Android 中添加身份验证 | Azure"
-description="了解如何使用 Azure 应用服务中的移动应用功能，通过各种标识提供者对 Android 应用的用户进行身份验证。"
+description: "了解如何使用 Azure 应用服务中的移动应用功能，通过各种标识提供者对 Android 应用的用户进行身份验证。"
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
