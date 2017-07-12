@@ -1,6 +1,6 @@
 ---
-title: "Azure Monitor 概述 | Azure"
-description: "Azure Monitor 收集在警报、webhook、自动缩放和自动化中使用的统计信息。 本文还列出了其他 Microsoft 监视选项。"
+title: "Microsoft Azure 中的监视 | Azure"
+description: "用于监视 Azure 中任何组件的选项。 Azure Monitor, Application Insights Log Analytics"
 author: rboucher
 manager: carmonm
 editor: 
@@ -12,128 +12,94 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/31/2017
-ms.date: 05/02/2017
+ms.date: 05/12/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: e72d762ec776b08deb6ca4f9845287192096d62a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 60728d2fe921647bba62eff9a3a8925770230157
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+<a id="overview-of-monitoring-in-microsoft-azure" class="xliff"></a>
 
-# <a name="overview-of-azure-monitor"></a>Azure Monitor 概述
-本文提供有关监视 Azure 资源的概念性概述， 并提供有关特定类型资源的信息的导航。  如需要了解从非 Azure 角度监视应用程序的信息，请参阅[监视和诊断指南](../best-practices-monitoring.md)。
+# Microsoft Azure 中的监视概述
+本文概述可用于监视 Microsoft Azure 的工具。 本文的内容适用于 
+- Microsoft Azure 中运行的监视应用程序 
+- 在 Azure 中外部运行的，可监视 Azure 中的对象的工具/服务。 
 
+本文讨论了各种可用的服务和产品以及它们如何配合工作。 本文可帮助你确定在哪些情况情况最适合使用哪些工具。  
 
-云应用程序很复杂，包含很多移动部件。 监视可以为用户提供数据，确保应用程序始终处于健康运行状态。 监视还有助于避免潜在问题，或者解决过去的问题。 此外，还可以利用监视数据深入了解应用程序的情况。 这些解析可帮助提升应用程序性能或维护性，或者将某些原本需要手动介入的操作自动化。
+<a id="why-use-monitoring-and-diagnostics" class="xliff"></a>
 
-下图从概念方面介绍了 Azure 监视，包括可以收集的日志类型，以及可以对该数据执行的操作。   
+## 为何要使用监视和诊断？
 
-![非计算资源的监视和诊断模型](./media/monitoring-overview/Monitoring_Azure_Resources-compute_v4.png)
+云应用中的性能问题可能会影响业务。 使用多个互连的组件和频繁发布版本时，性能随时可能会下降。 开发一款应用后，你的用户通常会发现其中的问题，而你在测试时却找不到这样的问题。 你应该立即知道这些问题，并使用工具来诊断和解决问题。 Microsoft Azure 提供一系列的工具用于识别这些问题。
 
-<br/>
+<a id="how-do-i-monitor-my-azure-cloud-apps" class="xliff"></a>
 
-![计算资源的监视和诊断模型](./media/monitoring-overview/Monitoring_Azure_Resources-non-compute_v4.png)
+## 如何监视 Azure 云应用？
 
+可以使用一系列工具来监视 Azure 应用程序和服务。 这些工具的某些功能是相互重叠的。 之所以存在这种重叠，一部分原因是历史遗留问题，还有一部分原因是应用程序的开发与操作之间界限不明。 
 
-## <a name="monitoring-sources"></a>监视源
-### <a name="activity-logs"></a>活动日志
-可以搜索活动日志（以前称为操作日志或审核日志）中是否存在通过 Azure 基础结构查看的资源的相关信息。 日志包含多种信息，例如创建或销毁资源的时间。  
+下面是主要工具：
 
-### <a name="host-vm"></a>主 VM
-**仅计算**
+-   **Azure Monitor** 是用于监视 Azure 中运行的服务的基本工具。 它可以提供有关服务吞吐量和周边环境的基础结构级数据。 如果你在 Azure 中管理所有应用，并想要确定是否需要扩展或缩减资源，则 Azure Monitor 可以提供初始信息。
 
-某些计算资源（例如云服务、虚拟机和 Service Fabric）有一个与之交互的专用主 VM。 主 VM 等同于 Hyper-V 虚拟机监控程序模型中的根 VM。 在这种情况下，除了来宾 OS 以外，可以只收集主机 VM 上的指标。  
+-   **Application Insights** 可用于开发，并且可充当生产监视解决方案。 它的工作方式是在应用中安装一个包，提供更内在的动态视图。 其数据包括依赖项的响应时间、异常跟踪、调试快照和执行配置文件。 它提供强大的智能工具用于分析所有这些遥测数据，既能帮助你调试应用，也能帮助你了解用户将它用于哪种目的。 你可以判断响应时间出现尖峰的原因是应用中出现某种问题，还是存在某种外部资源调配问题。 如果你使用 Visual Studio，而应用出现错误，你可以直接找到有问题的代码行，然后修复错误。  
 
-对于其他 Azure 服务，在用户的资源和特定主 VM 之间没有必然的 1:1 映射关系，因此不提供主机 VM 指标。
+-   **Log Analytics** 面向需要优化性能，并针对生产环境中运行的应用程序规划维护的用户。 此服务驻留在 Azure 中。 它可以从许多源收集和聚合数据，不过会出现 10 到 15 分钟的延迟。 它为 Azure、本地基础结构和第三方基于云的基础结构（例如 Amazon Web Services）提供整体 IT 管理解决方案。 它提供更丰富的工具来跨更多的源分析数据，允许针对所有日志运行复杂的查询，并可以根据指定的条件主动发出警报。  甚至可以将自定义数据收集到它的中心存储库，以便查询和可视化这些数据。 
 
-### <a name="resource---metrics-and-diagnostics-logs"></a>资源 - 指标和诊断日志
-可收集的指标取决于资源类型。 例如，虚拟机提供有关磁盘 IO 和 CPU 百分比的统计信息。 但这些统计信息对于服务总线队列来说并不存在，后者提供的是队列大小和消息吞吐量之类的指标。
-
-对于计算资源来说，用户可以获取有关来宾 OS 和诊断模块（例如 Azure 诊断）的指标。 Azure 诊断有助于收集诊断数据，并可将诊断数据路由到其他位置（包括 Azure 存储）。
-
+-   **System Center Operations Manager (SCOM)** 用于管理和监视大型云安装。 作为本地 Windows Sever 和基于云的 Hyper-V 计算机的管理工具，你可能已经对它有所了解，但它还能集成和管理 Azure 应用。 除此之外，它还能在现有的实时应用中安装 Application Insights。  如果某个应用出现故障，它会即时发出通知。 请注意，Log Analytics 不能取代 SCOM， 但两者可以完美配合工作。  
 
 
-### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>应用程序 - 诊断日志、应用程序日志和指标
-**仅计算**
+<a id="accessing-monitoring-in-the-azure-portal" class="xliff"></a>
 
-在计算模型中，应用程序可以基于来宾 OS 运行。 应用程序会发出自己的日志和指标集。
+## 在 Azure 门户中访问监视功能
+所有 Azure 监视服务目前在单个 UI 窗格中提供。 
 
-指标类型包括
+还可以访问特定资源的监视功能，只需突出显示这些资源，然后向下钻取到其监视选项即可。 
 
-* 性能计数器
-* 应用程序日志
-* Windows 事件日志
-* .NET 事件源
-* IIS Logs
-* 基于清单的 ETW
-* 故障转储
-* 客户错误日志
+<a id="examples-of-when-to-use-which-tool" class="xliff"></a>
 
-## <a name="uses-for-monitoring-data"></a>用于监视数据
-### <a name="visualize"></a>可视化
-以图形和表格的形式将监视数据可视化可以更快地找出其中的趋势，其速度远非单纯查看数据可比。  
+## 有关何时使用哪种工具的示例 
 
-可视化方法包括：
+以下部分介绍了一些基本方案，以及应该将哪些工具结合使用。 
 
-* 使用 Azure 门户
-* 将数据路由到 Microsoft PowerBI
-* 将数据路由到第三方可视化工具，可以使用实时传送视频流，也可以让工具从 Azure 存储中的存档读取。
+<a id="scenario-1--fix-errors-in-an-azure-application-under-development" class="xliff"></a>
 
-### <a name="archive"></a>存档
-监视数据通常写入 Azure 存储并保存在那里，直至用户将其删除。
+### 方案 1 – 修复开发中的 Azure 应用程序中的错误   
 
-可以通过多种方式使用该数据：
+**最好是结合使用 Application Insights、Azure Monitor 和 Visual Studio**
 
-* 写入以后，即可让 Azure 内外的其他工具读取和处理该数据。
-* 可以将该数据下载到本地进行本地存档，也可以更改云中的保留策略，让数据保留更长的时间。  
-* <a name="you-leave-the-data-in-azure-storage-indefinitely-though-you-have-to-pay-for-azure-storage-based-on-the-amount-of-data-you-keep"></a>可以无限期地将数据保留在 Azure 存储中，不过，这需要根据保留的数据量支付 Azure 存储费用。
-  -
+Azure 现在可以在云中提供 Visual Studio 调试器的完整功能。 将 Azure Monitor 配置为向 Application Insights 发送遥测数据 让 Visual Studio 在应用程序中包含 Application Insights SDK。 进入 Application Insights 后，可以使用应用程序映射来直观了解正在运行的应用程序的哪些部件是否正常。 对于不正常的部件，将会提供错误和异常用于调查。 可以使用 Application Insights 中的各种分析功能进行更深入的分析。 如果不确定错误的原因所在，可以使用 Visual Studio 调试器来跟踪代码，进一步查明问题。 
 
-### <a name="query"></a>查询
-可以使用 Azure 监视器 REST API、跨平台命令行接口 (CLI) 命令、PowerShell cmdlet 或 .NET SDK 访问系统或 Azure 存储中的数据
 
-示例包括：
+<a id="scenario-2--debug-an-azure-net-web-application-for-errors-that-only-show-in-production" class="xliff"></a>
 
-* 获取所编写的自定义监视应用程序的数据
-* 创建自定义查询，将该数据发送到第三方应用程序。
+### 方案 2 – 调试 Azure.NET Web 应用程序，查明只会出现在生产环境中的错误 
 
-### <a name="route"></a>路由
-可以将监视数据实时流式传输到其他位置。
+> [!NOTE]
+> 这些功能目前以预览版提供。 
 
-示例包括：
+**最好是使用 Application Insights，在可能的情况下，还可以使用 Visual Studio 来获得完整的调试体验。**
 
-* 发送到事件中心，以便将其路由到第三方工具执行实时分析。
+使用 Application Insights 快照调试器调试应用。 如果生产组件出现某个特定的错误阈值，系统将在称为“快照”的时间窗口内自动捕获遥测数据。 捕获的数据量对于生产云而言是安全的，因为这种数量非常小，还不足以影响性能，但却远远超过了跟踪所需的数量。  系统可以捕获多个快照。 可以在 Azure 门户中查看时间点，或使用 Visual Studio 获得完整体验。 使用 Visual Studio 时，开发人员可以从头到尾浏览快照，就像实时调试一样。 本地变量、参数、内存和帧都可使用。 必须通过 RBAC 角色向开发人员授予对这些生产数据的访问权限。  
 
-### <a name="automate"></a>自动化
-可以使用监视数据触发警报或甚至整个过程。
-示例包括：
 
-* 使用数据根据应用程序负载自动缩放计算实例数。
-* 当某个指标超出预定阈值时发送电子邮件。
-* 调用 Web URL (webhook)，在 Azure 外部系统中执行操作。
-* 在 Azure 自动化中启动 Runbook，执行各种任务
+<a id="scenario-3--debug-an-azure-application-that-uses-containers-or-microservices" class="xliff"></a>
 
-## <a name="methods-of-use"></a>使用方法
-一般情况下，可以使用下述方法之一操作数据的跟踪、路由和检索。 并非所有方法都适用于所有操作或数据类型。
+### 方案 3 – 调试使用容器或微服务的 Azure 应用程序 
 
-* [Azure 门户](https://portal.azure.cn)
-* [PowerShell](./insights-powershell-samples.md)  
-* [跨平台的命令行接口 (CLI)](./insights-cli-samples.md)
-* [REST API](https://msdn.microsoft.com/library/dn931943.aspx)
-* [.NET SDK](https://msdn.microsoft.com/library/dn802153.aspx)
+**与方案 1 相同。结合使用 Application Insights、Azure Monitor 和 Visual Studio。**Application Insights 还支持从容器中运行的进程以及从微服务（Kubernetes、Docker、Azure Service Fabric）收集遥测数据。 有关详细信息，[请观看这段有关调试容器和微服务的视频](https://go.microsoft.com/fwlink/?linkid=848184)。 
 
-## <a name="azures-monitoring-offerings"></a>Azure 的监视产品/服务
-Azure 的产品/服务可用于监视从裸机基础结构到应用程序遥测在内的各种服务。 最佳监视策略综合使用了所有这三种方式，可以对服务的运行状况进行全面、细致的了解。
 
-* [Azure Monitor](http://aka.ms/azmondocs) — 对来自 Azure 基础结构（活动日志）和每个单独的 Azure 资源（诊断日志）的数据提供可视化、查询、路由、警报、自动调整规模和自动化功能。 本文是 Azure Monitor 文档的一部分。 “Azure 监视器”名称在 2016 年 9 月 25 日于 Ignite 发布。  以前的名称为“Azure Insights”。  
 
-## <a name="next-steps"></a>后续步骤
+
+
+<a id="next-steps" class="xliff"></a>
+
+## 后续步骤
 详细了解以下内容
 
 * [Ignite 2016 的 Azure Monitor 视频](https://myignite.microsoft.com/videos/4977)
-* [Azure 存储故障诊断](../storage/storage-e2e-troubleshooting.md) 在使用存储 Blob、表或队列的情况下。
-
+* [Azure 诊断](../azure-diagnostics.md)：如果要尝试诊断云服务、虚拟机、虚拟机规模集或 Service Fabric 应用程序中的问题。

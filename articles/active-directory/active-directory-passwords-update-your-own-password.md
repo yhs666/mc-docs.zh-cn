@@ -1,38 +1,40 @@
 ---
 title: "Azure AD：重置密码 | Microsoft Docs"
-description: "使用自助密码重置重新获取工作帐户或学校帐户访问权限"
+description: "使用自助密码重置重新获取工作帐户或学校用户帐户访问权限"
 services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/26/2017
+origin.date: 05/25/2017
 ms.author: v-junlch
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 7e4c83ab3ac375267e8f4a87dab3c4635656cb60
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-ms.date: 06/12/2017
-
+ms.date: 06/21/2017
+ms.openlocfilehash: 0c722857c18175f6a30d3353ecb545feb2ac436b
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="help-i-forgot-my-password"></a>帮助 我忘记了密码
+<a id="help-i-forgot-my-password" class="xliff"></a>
 
-步骤 1... 勿慌
+# 帮帮我，我忘记了密码
 
 如果你是属于以下情形，则我们可以提供帮助
 
 - 你不确定如何访问帐户，也不记得密码
 - 没有指定密码，管理员将你引导到这里
 
-## <a name="unlock-my-account"></a>解锁我的帐户
+<a id="unlock-my-account" class="xliff"></a>
+
+## 解锁我的帐户
 
 如果你在这里是要解锁自己的帐户，请执行下面的步骤。 在下面的步骤 6 看到“选择新密码”时，即可解锁或更改密码，然后你的帐户就解锁了。
 
@@ -78,11 +80,15 @@ ms.date: 06/12/2017
 
 使用此方法解锁或重置密码以后，你会收到一封确认此过程已完成的电子邮件，该邮件来自“Microsoft 在此代表你的组织”之类的帐户。 如果你收到这样的电子邮件，且未使用自助密码重置重新获取帐户访问权限，请与管理员联系。
 
-## <a name="change-my-password"></a>更改我的密码
+<a id="change-my-password" class="xliff"></a>
+
+## 更改我的密码
 
 如果你已经知道自己的密码，需要对其进行更改，则可尝试下述步骤
 
-### <a name="change-your-password-from-the-office-365-portal"></a>从 Office 365 门户更改密码
+<a id="change-your-password-from-the-office-365-portal" class="xliff"></a>
+
+### 从 Office 365 门户更改密码
 
 1. 单击右上角的个人资料，然后单击“查看帐户”
 2. **安全和隐私**
@@ -90,14 +96,31 @@ ms.date: 06/12/2017
 4. 输入旧密码，然后设置并确认新密码
 5. **提交**
 
-### <a name="change-your-password-from-the-azure-access-panel"></a>从 Azure 访问面板更改密码
+<a id="change-your-password-from-the-azure-access-panel" class="xliff"></a>
+
+### 从 Azure 访问面板更改密码
 
 1. 使用现有密码登录到 [Azure 访问门户](https://manage.windowsazure.cn/)
 2. 单击右上角的帐户名，然后单击“更改密码”
 3. 输入旧密码，然后设置并确认新密码
 4. **提交**
 
-## <a name="next-steps"></a>后续步骤
+<a id="common-problems-and-their-solutions" class="xliff"></a>
+
+## 常见问题及其解决方法
+
+ 以下是一些常见的错误案例及其解决方法：
+
+| 错误案例| 看到什么错误？| 解决方案 |
+| --- | --- | --- |
+| 在输入我的用户 ID 后，出现了“请联系管理员”页面 | 请与管理员联系 <br> <br> 我们检测到你的用户帐户密码不受 Microsoft 管理。 因此，我们无法自动重置密码。 <br> <br> 你需要与 IT 人员联系以获得任何进一步帮助。 | 你之所以看到此消息，是因为 IT 人员在本地环境中管理你的密码，而不允许你从“无法访问帐户链接”重置密码。 <br> <br> 若要重置密码，请直接向 IT 人员寻求帮助，使其了解你想要重置密码，从而为你启用此功能。|
+| 在输入我的用户 ID 后，出现“你的帐户未针对密码重置进行启用”错误 | 未针对密码重置启用帐户 <br> <br> 很抱歉， IT 人员尚未将你的帐户设置为可使用此服务。 <br> <br> 如果你愿意，我们可以联系你所在组织的管理员为你重置密码。 | 之所以出现此消息，是因为 IT 人员未为你的组织启用“从无法访问帐户”链接重置密码的功能，或未授权你使用该功能。 <br> <br> 若要重置密码，请单击“联系管理员”链接以向公司 IT 人员发送电子邮件，使其了解你想要重置密码，从而为你启用此功能。 |
+| 在输入我的用户 ID 后，出现了“我们无法验证你的帐户”错误 | 我们无法验证你的帐户 <br> <br> 如果你愿意，我们可以联系你所在组织的管理员为你重置密码。 | 之所以出现此消息，是因为已经为你启用了密码重置，但你并未注册使用此服务。 若要注册密码重置，请在重新获取帐户访问权限后转到 https://login.partner.microsoftonline.cn。 <br> <br> 若要重置密码，请单击“联系管理员”链接以向公司 IT 人员发送电子邮件。 |
+
+
+<a id="next-steps" class="xliff"></a>
+
+## 后续步骤
 
 - [密码重置注册页](https://login.partner.microsoftonline.cn)
 - [密码重置门户](https://passwordreset.microsoftonline.com/)
@@ -109,4 +132,3 @@ ms.date: 06/12/2017
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png
-

@@ -12,21 +12,44 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 04/11/2017
-ms.date: 05/22/2017
+ms.date: 05/01/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: cd71c34ca607b8812252df4c5b49126e6bc879e2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 4b803ad5922ed7b745a549587bf61566beee46de
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="azure-guest-os"></a>Azure 来宾 OS
+<a id="azure-guest-os" class="xliff"></a>
+
+# Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 若要确定特定的更新是否适用于你使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
 
-## <a name="march-guest-os"></a>3 月来宾 OS
+<a id="april-guest-os" class="xliff"></a>
+
+## 4 月来宾 OS
+| 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| --- | --- | --- | --- | --- |
+| Rel 17-04 |  [4015217]  |WS 2016 OS 质量改进 | 5.6 | 2017 年 4 月 11 日 |
+| Rel 17-04 |  [4015546]  |仅 Windows 安全性 |2.61 | 2017 年 4 月 11 日 |
+| Rel 17-04 |  [4015547]  |仅 Windows 安全性 |4.41 | 2017 年 4 月 11 日 |
+| Rel 17-04 |  [4015548]  |仅 Windows 安全性 |3.48 | 2017 年 4 月 11 日 |
+| Rel 17-04 |  [4014661]  |Internet Explorer |2.61, 3.48, 4.41 | 2017 年 4 月 11 日 |
+| Rel 17-04 |  [4014550]; [4014560]; [4014562]; [4014556]; [4014574] |.NET 安全性 |4.41 | 2017 年 4 月 11 日 |
+| Rel 17-04 |  [4014564]; [4014572]; [4014549] |.NET 安全性 |3.48 | 2017 年 4 月 11 日 |
+| Rel 17-04 |  [4014566]; [4014552]; [4014573]; [4014558]  |.NET 安全性 |2.61 | 2017 年 4 月 11 日 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0181 |5.6 | 2017 年 4 月 11 日 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0163; CVE-2017-0183; CVE-2017-0184; CVE-2017-0184; CVE-2017-0185; CVE-2017-0168 |2.61, 3.48, 4.41 | 2017 年 4 月 11 日 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0178; CVE-2017-0179; CVE-2017-0162; CVE-2017-0169 |4.41 | 2017 年 4 月 11 日 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0182; CVE-2017-0186; CVE-2017-0191 |2.61, 3.48, 4.41, 5.6 | 2017 年 4 月 11 日 |
+| Rel 17-04 |  [4015193]  |Windows for Magallanes 中的 DST 更改（智利） |2.61, 3.48, 4.41 | 2017 年 4 月 11 日 |
+| Rel 17-04 |  [4012215]  |2017 年 3 月 Windows 7 SP1 和 Windows Server 2008 R2 SP1 安全质量月度汇总更新 |2.61 | 2017 年 4 月 11 日 |
+| Rel 17-04 |  [4012217]  |2017 年 3 月 Windows Server 2012 安全质量月度汇总更新 |3.48 | 2017 年 4 月 11 日 |
+| Rel 17-04 |  [4012216]  |2017 年 3 月 Windows 8.1 和 Windows Server 2012 R2 安全质量月度汇总更新 |4.41 | 2017 年 4 月 11 日 |
+
+<a id="march-guest-os" class="xliff"></a>
+
+## 3 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |改进和修复 | 5.5 | 2017 年 3 月 14 日 |
@@ -42,38 +65,44 @@ ms.lasthandoff: 05/12/2017
 
 
 
-## <a name="january-guest-os"></a>1 月来宾 OS
+<a id="january-guest-os" class="xliff"></a>
+
+## 1 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS17-004 | [3216771] |本地安全机构子系统服务的安全更新 |2.59 |2017 年 1 月 10 日 |
 
-## <a name="december-guest-os"></a>12 月来宾 OS
+<a id="december-guest-os" class="xliff"></a>
+
+## 12 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS16-144 |[3204059] |Internet Explorer 的累积安全更新 |2.58、3.46、4.39 |2016 年 12 月 13 日 |
 | MS16-145 |[3204062] |Microsoft Edge 的累积安全更新 |5.4 |2016 年 12 月 13 日 |
-| MS16-146 |[3204066]    |Microsoft 图形组件的安全更新|2.58、3.46、4.39、5.4 |2016 年 12 月 13 日 |
-| MS16-147 |[3204063]    |Microsoft Uniscribe 的安全更新|2.58、3.46、4.39、5.4 |2016 年 12 月 13 日 |
-| MS16-149 |[3205655]    |Microsoft Windows 的安全更新|2.58、3.46、4.39、5.4 |2016 年 12 月 13 日 |
-| MS16-150 |[3205642]    |安全内核模式的安全更新 |5.4 |2016 年 12 月 13 日 |
-| MS16-151 |[3205651]    |内核模式驱动程序的安全更新|2.58、3.46、4.39、5.4 |2016 年 12 月 13 日 |
-| MS16-152 |[3199709]    |Windows 内核的安全更新 |5.4 |2016 年 12 月 13 日 |
+| MS16-146 |[3204066]   |Microsoft 图形组件的安全更新|2.58、3.46、4.39、5.4 |2016 年 12 月 13 日 |
+| MS16-147 |[3204063]   |Microsoft Uniscribe 的安全更新|2.58、3.46、4.39、5.4 |2016 年 12 月 13 日 |
+| MS16-149 |[3205655]   |Microsoft Windows 的安全更新|2.58、3.46、4.39、5.4 |2016 年 12 月 13 日 |
+| MS16-150 |[3205642]   |安全内核模式的安全更新 |5.4 |2016 年 12 月 13 日 |
+| MS16-151 |[3205651]   |内核模式驱动程序的安全更新|2.58、3.46、4.39、5.4 |2016 年 12 月 13 日 |
+| MS16-152 |[3199709]   |Windows 内核的安全更新 |5.4 |2016 年 12 月 13 日 |
 | MS16-153 |[3207328] |公用日志文件系统驱动程序的安全更新|2.58、3.46、4.39、5.4 |2016 年 12 月 13 日 |
-| MS16-155 |[3205640]    |.Net Framework 的安全更新 |5.4 |2016 年 12 月 13 日 |
+| MS16-155 |[3205640]   |.Net Framework 的安全更新 |5.4 |2016 年 12 月 13 日 |
 | 不适用 |[3197868] |2016 年 11 月 Windows 7 SP1 和 Windows Server 2008 R2 SP1 安全质量月度汇总更新 |2.58 |2016 年 12 月 13 日 |
 | 不适用 |[3197877] |2016 年 11 月 Windows Server 2012 安全质量月度汇总更新 |3.46 |2016 年 12 月 13 日 |
 | 不适用 |[3197874] |2016 年 11 月 Windows 8.1 和 Windows Server 2012 R2 安全质量月度汇总更新 |4.39 |2016 年 12 月 13 日 |
 
-## <a name="november-guest-os"></a>11 月来宾 OS
+<a id="november-guest-os" class="xliff"></a>
+
+## 11 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS16-129 |[3199057] |Microsoft Edge 的累积安全更新 |5.3 |2016 年 11 月 8 日 |
 | MS16-130 |[3199172] |Microsoft Windows 的安全更新 |5.3、4.38、3.45、2.57 |2016 年 11 月 8 日 |
-| MS16-131 |[3199151]    |Microsoft Video Control 的安全更新 |5.3、4.38、3.45、2.57 |2016 年 11 月 8 日 |
+| MS16-131 |[3199151]   |Microsoft Video Control 的安全更新 |5.3、4.38、3.45、2.57 |2016 年 11 月 8 日 |
 | MS16-132 |[3199120] |Microsoft 组件的安全更新 |5.3、4.38、3.45、2.57 |2016 年 11 月 8 日 |
 | MS16-134 |[3193706] |公用日志文件系统驱动程序的安全更新 |5.3、4.38、3.45、2.57 |2016 年 11 月 8 日 |
 | MS16-135 |[3199135] |内核模式驱动程序的安全更新 |5.3、4.38、3.45、2.57 |2016 年 11 月 8 日 |
-| MS16-137 |[3199173]    |Windows 身份验证方法的安全更新程序 |5.3、4.38、3.45、2.57 |2016 年 11 月 8 日 |
+| MS16-137 |[3199173]   |Windows 身份验证方法的安全更新程序 |5.3、4.38、3.45、2.57 |2016 年 11 月 8 日 |
 | MS16-138 |[3199647] |Microsoft 虚拟硬盘驱动器的安全更新 |5.3、4.38、3.45 |2016 年 11 月 8 日 |
 | MS16-139 |[3199720] |Windows 内核的安全更新 |2.57 |2016 年 11 月 8 日 |
 | MS16-140 |[3193479] |引导管理器的安全更新 |5.3、4.38、3.45 |2016 年 11 月 8 日 |
@@ -89,7 +118,9 @@ ms.lasthandoff: 05/12/2017
 | 不适用 |[3199986] |2016 年 10 月 27 日 Windows 10 版本 1607 的服务堆栈更新 |5.3 |2016 年 11 月 8 日 |
 | 不适用 |[3197954] |2016 年 10 月 27 日 Windows 10 版本 1607 和 Windows Server 2016 的累积更新 |5.3 |2016 年 11 月 8 日 |
 
-## <a name="october-guest-os"></a>10 月来宾 OS
+<a id="october-guest-os" class="xliff"></a>
+
+## 10 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS16-118 |[3192887] |Internet Explorer 的累积安全更新 |4.37、3.44、2.56 |2016 年 10 月 11 日 |
@@ -104,7 +135,9 @@ ms.lasthandoff: 05/12/2017
 | 不适用 |[3185279] |适用于 Windows 8.1 和 Windows Server 2012 R2 的 2016 年 9 月更新汇总 |4.37 |2016 年 10 月 11 日 |
 | 不适用 |[3194798] |适用于 Windows 10 Version 1607 和 Windows Server 2016 的累积更新 |5.2 |2016 年 10 月 11 日 |
 
-## <a name="september-guest-os"></a>9 月来宾 OS
+<a id="september-guest-os" class="xliff"></a>
+
+## 9 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS16-104 |[3183038] |Internet Explorer 的累积安全更新 |4.36、3.43、2.55 |2016 年 9 月 13 日 |
@@ -121,7 +154,9 @@ ms.lasthandoff: 05/12/2017
 | 不适用 |[3179575] |适用于 Windows Server 2012 的 2016 年 8 月更新汇总 |3.43 |2016 年 9 月 13 日 |
 | 不适用 |[3179574] |适用于 Windows RT 8.1、Windows 8.1 和 Windows Server 2012 R2 的 2016 年 8 月更新汇总 |4.36 |2016 年 9 月 13 日 |
 
-## <a name="august-guest-os"></a>8 月来宾 OS
+<a id="august-guest-os" class="xliff"></a>
+
+## 8 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS16-095 |[3177356] |Internet Explorer 的累积安全更新 |4.35、3.42、2.54 |2016 年 8 月 9 日 |
@@ -135,7 +170,9 @@ ms.lasthandoff: 05/12/2017
 | 不适用 |[3172615] |适用于 Windows Server 2012 的 2016 年 7 月更新汇总 |3.42 |2016 年 8 月 9 日 |
 | 不适用 |[3172614] |适用于 Windows RT 8.1、Windows 8.1 和 Windows Server 2012 R2 的 2016 年 7 月更新汇总 |4.35 |2016 年 8 月 9 日 |
 
-## <a name="july-guest-os"></a>7 月来宾 OS
+<a id="july-guest-os" class="xliff"></a>
+
+## 7 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS16-084 |[3169991] |Internet Explorer 的累积安全更新 |4.34、3.41、2.53 |2016 年 7 月 12日 |
@@ -151,7 +188,9 @@ ms.lasthandoff: 05/12/2017
 | 不适用 |[3161606] |适用于 Windows RT 8.1、Windows 8.1 和 Windows Server 2012 R2 的 2016 年 6 月更新汇总 |4.34 |2016 年 7 月 12日 |
 | 不适用 |[3139923] |在 Windows 中的 HTTP 共享上安装 MSI 包时，Windows Installer (MSI) 修复不起作用 |4.34 |2016 年 7 月 12日 |
 
-## <a name="june-guest-os"></a>6 月来宾 OS
+<a id="june-guest-os" class="xliff"></a>
+
+## 6 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS16-035 |[3141780] |.NET Framework 安全更新，解决绕过安全功能问题 |4.33、3.40、2.52 |2016 年 6 月 14 日 |
@@ -173,12 +212,14 @@ ms.lasthandoff: 05/12/2017
 | 不适用 |[3125574] |适用于 Windows 7 SP1 和 Windows Server 2008 R2 SP1 的便利汇总更新 |2.52 |2016 年 6 月 14 日 |
 | 不适用 |[3140245] |此更新可启用 TLS 1.1 和 TLS 1.2 作为 Windows 的 WinHTTP 中的默认安全协议 |3.40、2.52 |2016 年 6 月 14 日 |
 | 不适用 |[3146604] |WMI 服务在 Windows Server 2012 R2 或 Windows Server 2012 中随机崩溃 |4.33、3.40 |2016 年 6 月 14 日 |
-| 不适用 |[3149157] |Windows 8.1 和 Windows Server 2012 R2 的 TCP/IP 中的可靠性和可缩放性改善 |4.33 |2016 年 6 月 14 日 |
+| 不适用 |[3149157] |Windows 8.1 和 Windows Server 2012 R2 的 TCP/IP 在可靠性和伸缩性方面的改进 |4.33 |2016 年 6 月 14 日 |
 | 不适用 |[3156416] |适用于 Windows Server 2012 的 2016 年 5 月更新汇总 |3.40 |2016 年 6 月 14 日 |
 | 不适用 |[3156418] |适用于 Windows RT 8.1、Windows 8.1 和 Windows Server 2012 R2 的 2016 年 5 月更新汇总 |4.33 |2016 年 6 月 14 日 |
 | 不适用 |[3153731] |适用于阿塞拜疆、智利、海地和摩洛哥版 Windows 的 2016 年 5 月 DST 更新 |4.33、3.40、2.52 |2016 年 6 月 14 日 |
 
-## <a name="may-guest-os"></a>5 月来宾 OS
+<a id="may-guest-os" class="xliff"></a>
+
+## 5 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS16-051 |[3155533] |Internet Explorer 的累积安全更新 |4.32、3.39、2.51 |2016 年 5 月 10 日 |
@@ -196,7 +237,9 @@ ms.lasthandoff: 05/12/2017
 | 不适用 |[3123245] |更新改进了 Windows Server 2012 R2 中的端口消耗标识  |4.32 |2016 年 5 月 10 日 |
 | 不适用 |[禁用 RC4] | Microsoft 安全公告：用于禁用 RC4 的更新  |4.32、3.39、2.51 |2016 年 5 月 10 日 |
 
-## <a name="april-guest-os"></a>4 月来宾 OS
+<a id="april-guest-os" class="xliff"></a>
+
+## 4 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS16-037 |[3148531] |Internet Explorer 的累积安全更新 |4.31、3.38、2.50 |2016 年 4 月 12 日 |
@@ -207,7 +250,9 @@ ms.lasthandoff: 05/12/2017
 | MS16-047 |[3148527] |安全帐户管理器远程协议的安全更新 |4.31、3.38、2.50 |2016 年 4 月 12 日 |
 | MS16-048 |[3148528] |CSRSS 的安全更新 |4.31、3.38 |2016 年 4 月 12 日 |
 
-## <a name="march-guest-os"></a>3 月来宾 OS
+<a id="march-guest-os" class="xliff"></a>
+
+## 3 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS16-023 |[3142015] |Internet Explorer 的累积安全更新 |4.30、3.37、2.49 |2016 年 3 月 8 日 |
@@ -220,7 +265,9 @@ ms.lasthandoff: 05/12/2017
 | MS16-033 |[3143142] |对 USB 海量存储类驱动程序安全更新，解决权限提升过程中的问题 |4.30、3.37、2.49 |2016 年 3 月 8 日 |
 | MS16-034 |[3143145] |内核模式驱动程序安全更新，解决权限提升过程中的问题 |4.30、3.37、2.49 |2016 年 3 月 8 日 |
 
-## <a name="february-guest-os"></a>2 月来宾 OS
+<a id="february-guest-os" class="xliff"></a>
+
+## 2 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS16-009 |[3134220] |Internet Explorer 的累积安全更新 |4.29、3.36、2.48 |2016 年 2 月 9 日 |
@@ -235,7 +282,9 @@ ms.lasthandoff: 05/12/2017
 | 再发布版 - MS15-118 |[3104507] |.NET Framework 安全更新，解决权限提升过程中的问题 |4.29、3.36、2.48 |2016 年 2 月 9 日 |
 | 再发布版 - MS15-128 |[3104503] |Microsoft 图形组件的安全更新，解决远程代码执行过程中的问题 |4.29、3.36、2.48 |2016 年 2 月 9 日 |
 
-## <a name="january-guest-os"></a>1 月来宾 OS
+<a id="january-guest-os" class="xliff"></a>
+
+## 1 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS16-001 |[3124903] |Internet Explorer 的累积安全更新 |4.28、3.35、2.47 |2016 年 1 月 12 日 |
@@ -248,7 +297,9 @@ ms.lasthandoff: 05/12/2017
 | Microsoft 安全公告 |[3123479] |弃用 Microsoft 根证书计划的 SHA-1 哈希算法 |4.28、3.35、2.47 |2016 年 1 月 12 日 |
 | Microsoft 安全公告 |[2736233] |ActiveX Kill Bits 更新 |4.28、3.35、2.47 |2016 年 1 月 12 日 |
 
-## <a name="december-guest-os"></a>12 月来宾 OS
+<a id="december-guest-os" class="xliff"></a>
+
+## 12 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS15-124 |[3116180] |Internet Explorer 的累积安全更新 |4.27、3.34、2.46 |2015 年 12 月 8 日 |
@@ -260,7 +311,9 @@ ms.lasthandoff: 05/12/2017
 | MS15-134 |[3108669] |Windows 媒体中心的安全更新，解决远程代码执行过程中的问题 |4.27、3.34、2.46 |2015 年 12 月 8 日 |
 | MS15-135 |[3119075] |Windows 内核模式驱动程序的安全更新，解决权限提升过程中的问题 |4.27、3.34、2.46 |2015 年 12 月 8 日 |
 
-## <a name="november-guest-os"></a>11 月来宾 OS
+<a id="november-guest-os" class="xliff"></a>
+
+## 11 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS15-112 |[3104517] |Internet Explorer 的累积安全更新 |4.26、3.33、2.45 |2015 年 11 月 10 日 |
@@ -274,7 +327,9 @@ ms.lasthandoff: 05/12/2017
 | MS15-122 |[3105256] |Kerberos 安全更新，解决绕过安全功能问题 |4.26、3.33、2.45 |2015 年 11 月 10 日 |
 | Microsoft 安全公告 |[3097966] |无意中泄漏数字证书可能会导致欺骗的发生 |4.26、3.33、2.45 |2015 年 11 月 10 日 |
 
-## <a name="october-guest-os"></a>10 月来宾 OS
+<a id="october-guest-os" class="xliff"></a>
+
+## 10 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS15-106 |[3096441] |Internet Explorer 的累积安全更新 |4.25、3.32、2.44 |2015 年 10 月 13 日 |
@@ -283,7 +338,9 @@ ms.lasthandoff: 05/12/2017
 | MS15-111 |[3096447] |Windows 内核安全更新，解决权限提升过程中的问题 |4.25、3.32、2.44 |2015 年 10 月 13 日 |
 | Microsoft 安全公告 |[3092627] |2015 年 9 月更新，修复安装安全更新 3076895 后 Windows 或应用程序存在的冻结问题 |4.25、3.32、2.44 |2015 年 10 月 13 日 |
 
-## <a name="september-guest-os"></a>9 月来宾 OS
+<a id="september-guest-os" class="xliff"></a>
+
+## 9 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS15-093 |[3088903] |Internet Explorer 的安全更新 |4.24、3.31、2.43 |2015 年 9 月 8日 |
@@ -295,7 +352,9 @@ ms.lasthandoff: 05/12/2017
 | MS15-102 |[3089657] |Windows 任务管理中的漏洞可能导致提升权限 |4.24、3.31、2.43 |2015 年 9 月 8日 |
 | MS15-105 |[3091287] |Windows Hyper-V 中的漏洞可能导致绕过安全功能 |4.24 |2015 年 9 月 8日 |
 
-## <a name="august-guest-os"></a>8 月来宾 OS
+<a id="august-guest-os" class="xliff"></a>
+
+## 8 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS15-079 |[3082442] |Internet Explorer 的累积安全更新 |4.23、3.30、2.42 |2015 年 8 月 11 日 |
@@ -307,7 +366,9 @@ ms.lasthandoff: 05/12/2017
 | MS15-089 |[3060716] |Microsoft Windows 中的漏洞可能导致提升权限 |4.23、3.30、2.42 |2015 年 8 月 11 日 |
 | MS15-090 |[3076949] |WebDAV 中的漏洞可能导致信息泄露 |4.23、3.30、2.42 |2015 年 8 月 11 日 |
 
-## <a name="july-guest-os"></a>7 月来宾 OS
+<a id="july-guest-os" class="xliff"></a>
+
+## 7 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS15-065 |[3076321] |Internet Explorer 的累积安全更新 |4.22、3.29、2.41 |2015 年 7 月 14 日 |
@@ -324,7 +385,9 @@ ms.lasthandoff: 05/12/2017
 | MS15-077 |[3077657] |ATM 字体驱动程序中的漏洞可能导致提升权限 |4.22、3.29、2.41 |2015 年 7 月 14 日 |
 | 不可用 |[3057154] |更新为限制使用 DES 加密 |4.22、3.29、2.41 |2015 年 7 月 14 日 |
 
-## <a name="june-guest-os"></a>6 月来宾 OS
+<a id="june-guest-os" class="xliff"></a>
+
+## 6 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS15-056 |[3058515] |Internet Explorer 的累积安全更新 |4.21、3.28、2.40 |2015 年 6 月 9 日 |
@@ -334,7 +397,9 @@ ms.lasthandoff: 05/12/2017
 | MS15-062 |[3062577] |Active Directory 联合身份验证服务中的漏洞可能导致提升权限 |4.21、3.28、2.40 |2015 年 6 月 9 日 |
 | MS15-063 |[3063858] |Windows 内核中的漏洞可能导致提升权限 |4.21、3.28、2.40 |2015 年 6 月 9 日 |
 
-## <a name="may-guest-os"></a>5 月来宾 OS
+<a id="may-guest-os" class="xliff"></a>
+
+## 5 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS15-043 |[3049563] |Internet Explorer 的累积安全更新 |4.20、3.27、2.39 |2015 年 5 月 12 日 |
@@ -357,12 +422,16 @@ ms.lasthandoff: 05/12/2017
 | MS15-042 |[3047234] |Windows Hyper-V 中的漏洞可能导致拒绝服务 |4.20、3.27、2.39 |2015 年 4 月 17 日 |
 | 不可用 |[3045755] |更新后改进了 PKU2U 身份验证 |4.20、3.27、2.39 |2015 年 4 月 17 日 |
 
-## <a name="april-guest-os"></a>4 月来宾 OS
+<a id="april-guest-os" class="xliff"></a>
+
+## 4 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | [MS15-034] |[3042553] |HTTP.sys 中的漏洞可能导致远程执行代码 |4.19、3.26、2.38 |2015 年 4 月 17 日 |
 
-## <a name="march-guest-os"></a>3 月来宾 OS
+<a id="march-guest-os" class="xliff"></a>
+
+## 3 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS15-018 |[3032359] |Internet Explorer 的累积安全更新 |4.18、3.25、2.37 |不适用 |
@@ -382,7 +451,9 @@ ms.lasthandoff: 05/12/2017
 >
 >
 
-## <a name="february-guest-os"></a>2 月来宾 OS
+<a id="february-guest-os" class="xliff"></a>
+
+## 2 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS15-009 |[3034682] |Internet Explorer 的安全更新 |4.17、3.24、2.36 |不适用 |
@@ -393,7 +464,9 @@ ms.lasthandoff: 05/12/2017
 | MS15-016 |[3029944] |Microsoft 图形组件中的漏洞可能导致信息泄露 |4.17、3.24、2.36 |不适用 |
 | 不适用 |[3004375] |更新后改进了 Windows 命令行审核<p/>**注意**：会安装此更新，但用来启用它的注册表项处于关闭状态 |4.17、3.24、2.36 |不适用 |
 
-## <a name="january-guest-os"></a>1 月来宾 OS
+<a id="january-guest-os" class="xliff"></a>
+
+## 1 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | MS15-001 |[3023266] |Windows AppCompatCache 中的漏洞可能导致提升权限 |4.16、3.23、2.35 |2015 年 1 月 19 日 |
@@ -408,7 +481,9 @@ ms.lasthandoff: 05/12/2017
 | MS15-002 |[3020393] |Windows Telnet 服务中的漏洞可能导致远程执行代码 |4.16、3.23、2.35 |2015 年 1 月 19 日 |
 | MS15-002 |[3020393] |Windows Telnet 服务中的漏洞可能导致远程执行代码 |4.16、3.23、2.35 |2015 年 1 月 19 日 |
 
-## <a name="december-guest-os"></a>12 月来宾 OS
+<a id="december-guest-os" class="xliff"></a>
+
+## 12 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |
 | 不适用 |[3013776] |当你使用域帐户来启动应用程序时，系统将会冻结 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
@@ -423,16 +498,40 @@ ms.lasthandoff: 05/12/2017
 | 不适用 |[2999802] |在 Windows 中打印时，虚线变成实线 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 | 不适用 |[2896881] |在 Windows 中登录期间使用 AddPrinterConnection VBScript 命令映射用户的打印机时，登录时间过长 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 
-[4013429]: http://support.microsoft.com/zh-cn/kb/4013429 
-[4012212]: http://support.microsoft.com/zh-cn/kb/4012212 
-[4012213]: http://support.microsoft.com/zh-cn/kb/4012213 
-[4012214]: http://support.microsoft.com/zh-cn/kb/4012214 
-[4012204]: http://support.microsoft.com/zh-cn/kb/4012204 
-[4012864]: http://support.microsoft.com/zh-cn/kb/4012864 
-[3212646]: http://support.microsoft.com/zh-cn/kb/3212646 
-[3205409]: http://support.microsoft.com/zh-cn/kb/3205409 
-[3205401]: http://support.microsoft.com/zh-cn/kb/3205401
-[3211320]: http://support.microsoft.com/zh-cn/kb/3211320
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015546]: http://support.microsoft.com/kb/4015546
+[4015547]: http://support.microsoft.com/kb/4015547
+[4015548]: http://support.microsoft.com/kb/4015548
+[4014661]: http://support.microsoft.com/kb/4014661
+[4014550]: http://support.microsoft.com/kb/4014550
+[4014560]: http://support.microsoft.com/kb/4014560
+[4014562]: http://support.microsoft.com/kb/4014562
+[4014556]: http://support.microsoft.com/kb/4014556
+[4014574]: http://support.microsoft.com/kb/4014574
+[4014564]: http://support.microsoft.com/kb/4014564
+[4014572]: http://support.microsoft.com/kb/4014572
+[4014549]: http://support.microsoft.com/kb/4014549
+[4014566]: http://support.microsoft.com/kb/4014566
+[4014552]: http://support.microsoft.com/kb/4014552
+[4014573]: http://support.microsoft.com/kb/4014573
+[4014558]: http://support.microsoft.com/kb/4014558
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015193]: http://support.microsoft.com/kb/4015193
+[4012215]: http://support.microsoft.com/kb/4012215
+[4012217]: http://support.microsoft.com/kb/4012217
+[4012216]: http://support.microsoft.com/kb/4012216
+
+
+[4013429]: http://support.microsoft.com/kb/4013429 
+[4012212]: http://support.microsoft.com/kb/4012212 
+[4012213]: http://support.microsoft.com/kb/4012213 
+[4012214]: http://support.microsoft.com/kb/4012214 
+[4012204]: http://support.microsoft.com/kb/4012204 
+[4012864]: http://support.microsoft.com/kb/4012864 
+[3212646]: http://support.microsoft.com/kb/3212646 
+[3205409]: http://support.microsoft.com/kb/3205409 
+[3205401]: http://support.microsoft.com/kb/3205401
+[3211320]: http://support.microsoft.com/kb/3211320
 
 
 [3216771]: https://technet.microsoft.com/library/security/MS17-004

@@ -1,86 +1,228 @@
 ---
-title: "在 Azure 中不到 5 分钟创建你的第一个 Java Web 应用 | Azure"
-description: "了解如何部署示例应用，轻松地在应用服务中运行 Web 应用。"
+title: "在 Azure 中创建第一个 Java Web 应用"
+description: "了解如何通过部署基本的 Java 应用，从而在应用服务中运行 Web 应用。"
 services: app-service\web
 documentationcenter: 
-author: cephalin
-manager: wpickett
+author: rmcmurray
+manager: erikre
 editor: 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: hero-article
-origin.date: 03/17/2017
-ms.date: 04/24/2017
+origin.date: 06/07/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 1fc45645f8cc055482281aab2aef022082d314c0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.custom: mvc
+ms.openlocfilehash: dc278fd95cf20345d27674b80c9f84f1d65ca56a
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="create-your-first-java-web-app-in-azure-in-five-minutes"></a>在 Azure 中不到 5 分钟创建你的第一个 Java Web 应用
-[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
+<a id="create-your-first-java-web-app-in-azure" class="xliff"></a>
 
-本快速入门帮助你在数分钟内将你的第一个 Java Web 应用部署到 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)。
+# 在 Azure 中创建第一个 Java Web 应用
 
-在开始之前，请确保已安装 Azure CLI。 有关详细信息，请参阅 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+[Azure 应用服务](../app-service/app-service-value-prop-what-is.md)的 [Web 应用](/app-service-web/app-service-web-overview)功能提供高度可缩放、自助修补的 Web 托管服务。 本快速入门演示如何使用 [Eclipse IDE for Java EE Developers](http://www.eclipse.org/) 将 Java Web 应用部署到应用服务。
 
-## <a name="log-in-to-azure"></a>登录 Azure
-运行 `az login` 并按屏幕说明进行操作，以便登录到 Azure。
+![“你好，Azure！” 示例 Web 应用](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-```azurecli
-az login
+<a id="prerequisites" class="xliff"></a>
+
+## 先决条件
+
+若要完成本快速入门教程，请安装：
+
+* 免费的 [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/)。 本快速入门教程使用 Eclipse Neon。
+* [用于 Eclipse 的 Azure 工具包](/azure-toolkit-for-eclipse-installation)。
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-eclipse-login-guide](../../includes/azure-eclipse-login-guide.md)]
+
+<a id="create-a-dynamic-web-project-in-eclipse" class="xliff"></a>
+
+## 在 Eclipse 中创建一个动态 Web 项目
+
+在 Eclipse 中，选择“文件” > “新建” > “动态 Web 项目”。
+
+在“新建动态 Web 项目”对话框中，将项目命名为 **MyFirstJavaOnAzureWebApp**，然后选择“完成”。
+
+![“新建动态 Web 项目”对话框](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
+
+<a id="add-a-jsp-page" class="xliff"></a>
+
+### 添加 JSP 页面
+
+如果未显示“项目资源管理器”，请将其还原。
+
+![用于 Eclipse 的 Java EE 工作区](./media/app-service-web-get-started-java/pe.png)
+
+在“项目资源管理器”中，展开“MyFirstJavaOnAzureWebApp”项目。
+右键单击“WebContent”，然后选择“新建” > “JSP 文件”。
+
+![“项目资源管理器”中新 JSP 文件的菜单](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
+
+在“新建 JSP 文件”对话框中：
+
+* 将该文件命名为 **index.jsp**。
+* 选择“完成”。
+
+  ![“新建 JSP 文件”对话框](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
+
+在 index.jsp 文件中，将 `<body></body>` 元素替换为以下标记：
+
+```jsp
+<body>
+<h1><% out.println("Hello Azure!"); %></h1>
+</body>
 ```
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+保存更改。
 
-## <a name="create-a-resource-group"></a>创建资源组   
-创建[资源组](../azure-resource-manager/resource-group-overview.md)。 这是放置所有 Azure 资源（例如 Web 应用及其 SQL 数据库后端）的地方，这些资源需要集中进行管理。
+<a id="publish-the-web-app-to-azure" class="xliff"></a>
 
-```azurecli
-az group create --location "China North" --name myResourceGroup
+## 将 Web 应用发布到 Azure
+
+在“项目资源管理器”中，右键单击该项目，然后选择“Azure” > “发布为 Azure Web 应用”。
+
+![“发布为 Azure Web 应用”上下文菜单](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
+
+在“Azure 登录”对话框中，保留“交互式”选项，然后选择“登录”。
+
+按照登录说明操作。
+
+<a id="deploy-web-app-dialog-box" class="xliff"></a>
+
+### “部署 Web 应用”对话框
+
+登录 Azure 帐户后，随即显示“部署 Web 应用”对话框。
+
+选择“创建” 。
+
+![“部署 Web 应用”对话框](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
+
+<a id="create-app-service-dialog-box" class="xliff"></a>
+
+### “创建应用服务”对话框
+
+随即显示含有默认值的“创建应用服务”对话框。 下图中显示的数字 **170602185241** 与对话框中的不同。
+
+![“创建应用服务”对话框](./media/app-service-web-get-started-java/cas1.png)
+
+在“创建应用服务”对话框中：
+
+* 保留为 Web 应用生成的名称。 该名称在 Azure 中必须唯一。 该名称是 Web 应用的 URL 地址的一部分。 例如：如果 Web 应用名称为 **MyJavaWebApp**，则 URL 为 *myjavawebapp.chinacloudsites.cn*。
+* 保留默认 web 容器。
+* 选择 Azure 订阅。
+* 在“应用服务计划”选项卡中：
+
+  * **新建**：保留默认值，该值是应用服务计划的名称。
+  * **位置**：选择“中国北部”或你附近的位置。
+  * **定价层**：选择免费选项。 有关功能，请参阅[应用服务定价](https://www.azure.cn/pricing/details/app-service/)。
+
+   ![“创建应用服务”对话框](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
+
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
+
+<a id="resource-group-tab" class="xliff"></a>
+
+### “资源组”选项卡
+
+选择“资源组”选项卡。 保留默认的资源组生成值。
+
+![“资源组”选项卡](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
+
+[!INCLUDE [resource-group](../../includes/resource-group.md)]
+
+选择“创建” 。
+
+<!--
+### The JDK tab
+
+Select the **JDK** tab. Keep the default, and then select **Create**.
+
+![Create App Service plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
+-->
+
+Azure 工具包创建 Web 应用，并显示进度对话框。
+
+![“创建应用服务进度”对话框](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
+
+<a id="deploy-web-app-dialog-box" class="xliff"></a>
+
+### “部署 Web 应用”对话框
+
+在“部署 Web 应用”对话框中，选择“部署到根目录”。 如果 *wingtiptoys.chinacloudsites.cn* 中有一个应用服务，而你不部署到根目录，则会将名为 **MyFirstJavaOnAzureWebApp** 的 Web 应用部署到 *wingtiptoys.chinacloudsites.cn/MyFirstJavaOnAzureWebApp*。
+
+![“部署 Web 应用”对话框](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
+
+该对话框显示 Azure、JDK 和 Web 容器选择。
+
+选择“部署”将 Web 应用发布到 Azure。
+
+发布完成后，在“Azure 活动日志”对话框中选择“已发布”链接。
+
+![“Azure 活动日志”对话框](./media/app-service-web-get-started-java/aal.png)
+
+祝贺你！ 现已成功将 Web 应用部署到 Azure。 
+
+![“你好，Azure！” 示例 Web 应用](./media/app-service-web-get-started-java/browse-web-app-1.png)
+
+<a id="update-the-web-app" class="xliff"></a>
+
+## 更新 Web 应用
+
+将示例 JSP 代码更改为其他消息。
+
+```jsp
+<body>
+<h1><% out.println("Hello again Azure!"); %></h1>
+</body>
 ```
 
-若要查看适用于 `--location` 的可能值，请使用 `az appservice list-locations` Azure CLI 命令。
+保存更改。
 
-## <a name="create-an-app-service-plan"></a>创建应用服务计划
-创建“免费”[应用服务计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 
+在“项目资源管理器”中，右键单击该项目，然后选择“Azure” > “发布为 Azure Web 应用”。
 
-```azurecli
-az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
-```
+“部署 Web 应用”对话框随即出现并显示之前创建的应用服务。 
 
-## <a name="create-a-web-app"></a>创建 Web 应用
-使用 `<app_name>` 中的唯一名称创建 Web 应用。
+> [!NOTE]
+> 每次发布时选择“部署到根目录”。
+>
 
-```azurecli
-az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-```
+选择 Web 应用，然后选择“部署”，此操作将发布更改。
 
-## <a name="deploy-sample-application"></a>部署示例应用程序
-从 GitHub 部署示例 Java 应用。
+当“发布”链接显示后，选择它以浏览到 Web 应用，并查看更改。
 
-```azurecli
-az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
---repo-url "https://github.com/azure-appservice-samples/JavaCoffeeShopTemplate.git" --branch master --manual-integration 
-```
+<a id="manage-the-web-app" class="xliff"></a>
 
-## <a name="browse-to-web-app"></a>浏览到 Web 应用
-若要查看应用在 Azure 中的实时运行情况，请运行此命令。
+## 管理 Web 应用
 
-```azurecli
-az appservice web browse --name <app_name> --resource-group myResourceGroup
-```
+转到 [Azure 门户](https://portal.azure.cn)查看已创建的 Web 应用。
 
-恭喜，你的第一个 Java Web 应用已在 Azure 应用服务中实时运行！
+从左侧菜单中，选择“资源组”。
 
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+![在门户中导航到资源组](media/app-service-web-get-started-java/rg.png)
 
-## <a name="next-steps"></a>后续步骤
+选择“资源组”。 该页显示在本快速入门教程中创建的资源。
 
-浏览预先创建的 [Web 应用 CLI 脚本](app-service-cli-samples.md)。
+![资源组 myResourceGroup](media/app-service-web-get-started-java/rg2.png)
+
+选择 Web 应用（上图中的 **webapp-170602193915**）。
+
+“概述”页随即出现。 在此页中可以查看应用的运行状况。 在此处可以执行基本的管理任务，例如浏览、停止、启动、重启和删除。 页面左侧的选项卡显示可以打开的不同配置。 
+
+![Azure 门户中的应用服务页](media/app-service-web-get-started-java/web-app-blade.png)
+
+[!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
+
+<a id="next-steps" class="xliff"></a>
+
+## 后续步骤
+
+> [!div class="nextstepaction"]
+> [映射自定义域](app-service-web-tutorial-custom-domain.md)

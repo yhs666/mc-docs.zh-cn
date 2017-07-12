@@ -1,6 +1,6 @@
 ---
-title: "DocumentDB 中的区域性故障转移 | Microsoft Docs"
-description: "了解如何在 Microsoft Docs 中执行手动和自动故障转移。"
+title: "DocumentDB 中的区域故障转移 | Microsoft 文档"
+description: "了解如何在 DocumentDB 中执行手动和自动故障转移。"
 services: documentdb
 documentationcenter: 
 author: arramac
@@ -16,16 +16,16 @@ origin.date: 05/10/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: e63403cc8892dab76b25996628ba0fee78c89de7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 11b4593a7b6a277eb1fd3725825ad49ab1b4e396
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="automatic-regional-failovers-for-business-continuity-in-azure-documentdb"></a>DocumentDB 中用于保证业务连续性的自动区域性故障转移
-DocumentDB 可通过提供完全托管的[多区域数据库帐户](documentdb-distribute-data-globally.md)来简化全局数据分发。这些帐户在一致性、可用性和性能之间提供明确的折衷，并且全部附带了相应的保证。 DocumentDB 帐户提供以下优势：高可用性，10 毫秒以下的延迟，[妥善定义的一致性级别](documentdb-consistency-levels.md)，使用多宿主 API 实现透明的区域性故障转移，以及在全球范围内弹性缩放吞吐量和存储。 
+<a id="automatic-regional-failovers-for-business-continuity-in-documentdb" class="xliff"></a>
+
+# DocumentDB 中的自动区域故障转移以实现业务连续性
+DocumentDB 可通过提供完全托管的[多区域数据库帐户](documentdb-distribute-data-globally.md)简化全局数据分布。这些帐户在一致性、可用性和性能方面进行了很好的平衡，各方面的效果都有相应的保证。 DocumentDB 帐户具有以下特点：高可用性、10 毫秒以下的延迟、[妥善定义的一致性级别](documentdb-consistency-levels.md)、使用多宿主 API 实现透明的区域性故障转移，以及在全球范围内弹性缩放吞吐量和存储。 
 
 DocumentDB 支持显式和策略驱动型故障转移，方便用户在发生故障时控制端到端系统行为。 本文内容：
 
@@ -84,7 +84,7 @@ DocumentClient usClient = new DocumentClient(
 
 **某个写入区域中断时会发生什么情况？**
 
-对于给定的 DocumentDB 帐户，如果受影响区域是当前的写入区域，则会自动将该区域标记为脱机。 然后会针对每个受影响的 DocumentDB 帐户，将一个备用区域提升为写入区域。 可以通过 Azure 门户或以[编程方式](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange)完全控制 DocumentDB 帐户的区域选择顺序。 
+对于给定的 DocumentDB 帐户，如果受影响区域是当前的写入区域，则会自动将该区域标记为脱机。 然后会针对每个受影响的 DocumentDB 帐户，将一个备用区域提升为写入区域。 可以通过 Azure 门户或以 [编程方式](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange)完全控制 DocumentDB 帐户的区域选择顺序。 
 
 ![DocumentDB 的故障转移优先级](./media/documentdb-regional-failovers/failover-priorities.png)
 
@@ -102,7 +102,7 @@ DocumentClient usClient = new DocumentClient(
 
 除了自动故障转移，还可以通过动态方式将给定 DocumentDB 帐户当前的写入区域手动更改为现有的读取区域之一。 可以通过 Azure 门户或以 [编程方式](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)启动手动故障转移。 
 
-手动故障转移可确保**零数据丢失**和**零可用性丢失**，并可针对指定的 DocumentDB 帐户，将写入状态从旧写入区域恰当地转移到新写入区域。 与自动故障转移一样，在手动故障转移过程中，DocumentDB SDK 可以自动处理写入区域更改，确保将调用自动重定向到新的写入区域。 管理故障转移不需在应用程序中更改代码或配置。 
+手动故障转移可确保**零收据丢失**和**零可用性丢失**，并可针对指定的 DocumentDB 帐户，将写入状态从旧写入区域恰当地转移到新写入区域。 与自动故障转移一样，在手动故障转移过程中，DocumentDB SDK 可以自动处理写入区域更改，确保将调用自动重定向到新的写入区域。 管理故障转移不需在应用程序中更改代码或配置。 
 
 ![DocumentDB 中的手动故障转移](./media/documentdb-regional-failovers/manual-failovers.png)
 
@@ -117,9 +117,8 @@ DocumentClient usClient = new DocumentClient(
 本文探讨了如何在 DocumentDB 中使用手动和自动故障转移，以及如何配置 DocumentDB 帐户和应用程序才能让其全局可用。 可以利用 DocumentDB 的全局复制支持改善端到端延迟情况，确保即使在发生区域故障的情况下，也可以顺利使用这些帐户和应用程序。 
 
 ## <a id="NextSteps"></a>后续步骤
-- 了解 DocumentDB 如何支持[全球分布](documentdb-distribute-data-globally.md)
-- 了解 [DocumentDB 的全局一致性](documentdb-consistency-levels.md)
+- 了解 DocumentDB 如何支持[全局分配](documentdb-distribute-data-globally.md)
+- 了解 [DocumentDB 的全球一致性](documentdb-consistency-levels.md)
 - 了解如何使用 Azure DocumentDB 构建[多区域编写器体系结构](documentdb-multi-region-writers.md)
-
 
 

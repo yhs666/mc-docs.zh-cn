@@ -16,47 +16,52 @@ ms.topic: article
 origin.date: 03/23/2017
 ms.author: v-junlch
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: fd185b7a060a5ea4f07709f2b46a19963a20e009
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: 7ea2aae0e4106365de9d7d02b3aaaafddd002e45
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="working-with-the-change-feed-support-in-azure-documentdb"></a>使用 DocumentDB 中的更改源支持
+<a id="working-with-the-change-feed-support-in-documentdb" class="xliff"></a>
+
+# 使用 DocumentDB 中的更改源支持
 [DocumentDB](./documentdb-resources.md) 是快速灵活的全球复制数据库服务，用于存储大量事务与操作数据，读取和写入时的延迟为个位数的毫秒且可预测。 它非常适合用于 IoT、游戏、零售和操作日志记录应用程序。 这些应用程序中的一种常见设计模式是跟踪对 DocumentDB 数据所做的更改、更新具体化的视图、执行实时分析、将数据存档到冷存储，以及在发生特定事件时根据这些更改触发通知。 使用 DocumentDB 中的**更改源支持**，可以针对其中的每种模式构建高效、可缩放的解决方案。
 
-借助更改源支持，DocumentDB 在 DocumentDB 集合中按文档修改顺序提供有序的文档列表。 此源可用于侦听对集合中数据所做的修改，以及执行如下操作：
+连同更改源一起，DocumentDB 在 DocumentDB 集合中按文档修改顺序提供排序的文档列表。 此源可用于侦听对集合中数据所做的修改，以及执行如下操作：
 
 - 插入或修改文档时触发 API 调用
 - 针对更新执行实时（流）处理
 - 将数据与缓存、搜索引擎或数据仓库同步
 
-DocumentDB 中发生的更改将持久保存，并能够以异步方式进行处理，以及分散到一个或多个使用者供并行处理。 让我们了解更改源的 API，以及如何使用它们来构建可缩放的实时应用程序。 本文介绍了如何通过 DocumentDB 处理空间数据。 
+DocumentDB 中发生的更改可以保存、以异步方式进行处理，以及分散到一个或多个使用者供并行处理。 让我们了解更改源的 API，以及如何使用它们来构建可缩放的实时应用程序。 本文介绍如何通过 DocumentDB 使用空间数据。 
 
 ![使用 DocumentDB 更改源促成实时分析和事件驱动的计算方案](./media/documentdb-change-feed/changefeed.png)
 
-## <a name="use-cases-and-scenarios"></a>用例和方案
+<a id="use-cases-and-scenarios" class="xliff"></a>
+
+## 用例和方案
 使用更改源可对具有大量写入操作的大型数据集进行有效处理，这样就不需要查询整个数据集来识别发生了哪些更改。 例如，可以有效地执行以下任务：
 
 - 使用 DocumentDB 中存储的数据更新缓存、搜索索引或数据仓库。
 - 实现应用程序级别的数据分层和存档，即，将“热数据”存储在 DocumentDB 中，将“冷数据”搁置在 [Azure Blob 存储](../storage/storage-introduction.md)中。
 - 使用 [Apache Hadoop](documentdb-run-hadoop-with-hdinsight.md) 实现数据批量分析。
-- 使用 DocumentDB [在 Azure 上实现 lambda 管道](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/)。 DocumentDB 提供了一种可缩放的数据库解决方案，该解决方案可处理引入和查询，实现 TCO 较低的 lambda 体系结构。 
+- 使用 DocumentDB [在 Azure 上实现 lambda 管道](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) 。 DocumentDB 提供一种可缩放的数据库解决方案，该解决方案可处理引入和查询，实现 TCO 较低的 lambda 体系结构。 
 - 在不造成任何停机的情况下迁移到使用不同分区方案的另一个 DocumentDB 帐户。
 
 **使用 DocumentDB 构建用于引入和查询的 Lambda 管道：**
 
-![用于引入和查询的基于 DocumentDB 的 lambda 管道](./media/documentdb-change-feed/lambda.png)
+![基于 DocumentDB 的 lambda 引入和查询管道](./media/documentdb-change-feed/lambda.png)
 
-可以使用 DocumentDB 接收和存储设备、传感器、基础结构和应用程序发出的事件数据，然后使用 Azure 流分析、[Apache Storm](../hdinsight/hdinsight-storm-overview.md) 或 [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md) 实时处理这些事件。 
+可以使用 DocumentDB 接收和存储设备、传感器、基础结构和应用程序发出的事件数据，然后使用 Azure 流分析、 [Apache Storm](../hdinsight/hdinsight-storm-overview.md)或 [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md) 实时处理这些事件。 
 
 在 Web 应用和移动应用中，可以跟踪各种事件（例如，对客户配置文件、首选项或位置的更改），以触发特定的操作，例如，使用[应用服务](https://www.azure.cn/home/features/app-service/)向客户的设备发送推送通知。 例如，若要使用 DocumentDB 来构建游戏，可以使用更改源，根据已完成的游戏的分数实时更新排行榜。
 
-## <a name="how-change-feed-works-in-azure-documentdb"></a>更改源在 DocumentDB 中的工作原理
+<a id="how-change-feed-works-in-documentdb" class="xliff"></a>
+
+## 更改源在 DocumentDB 中的工作原理
 DocumentDB 能够以增量方式读取对 DocumentDB 集合所做的更新。 此更改源具有以下属性：
 
-- 更改将在 DocumentDB 中持久保存，并能够以异步方式进行处理。
+- 更改将在 DocumentDB 中保存，并可以异步方式进行处理。
 - 对集合中的文档所做的更改将立即在更改源中出现。
 - 每次对文档所做的更改只会在更改源中出现一次。 更改日志中仅包含最近对给定文档所做的更改， 而不包含中途的更改。
 - 更改源按照每个分区键值中的修改顺序排序。 无法保证各分区键值中的顺序一致。
@@ -68,12 +73,14 @@ DocumentDB 的更改源默认已针对所有帐户启用，不会在帐户中产
 
 ![DocumentDB 更改源的分布式处理](./media/documentdb-change-feed/changefeedvisual.png)
 
-以下部分将介绍如何使用 DocumentDB REST API 和 SDK 访问更改源。 对于 .NET 应用程序，建议使用更改源处理器库处理来自更改源的事件。
+以下部分将介绍如何使用 DocumentDB REST API 和 SDK 访问更改源。 对于 .NET 应用程序，建议使用[更改源处理器库]()处理来自更改源的事件。
 
 ## <a id="rest-apis"></a>使用 REST API 和 SDK
-DocumentDB 为存储和吞吐量提供了称为**集合**的弹性容器。 集合中的数据已使用[分区键](documentdb-partition-data.md)进行逻辑分组，以提高可伸缩性与性能。 DocumentDB 提供了各种 API 来访问这些数据，包括按 ID（读取/获取）、查询和读取源（扫描）进行查找。 可以通过在 DocumentDB `ReadDocumentFeed` API 中填充两个新请求标头来获取更改源，然后跨多个分区键范围并行处理更改源。
+DocumentDB 提供名为**集合**的弹性存储和吞吐量容器。 集合中的数据已使用[分区键](documentdb-partition-data.md)进行逻辑分组，以提高可伸缩性与性能。 DocumentDB 提供各种 API 来访问这些数据，包括按 ID（读取/获取）、查询和读取源（扫描）进行查找。 可以通过在 DocumentDB `ReadDocumentFeed` API 中填充两个新请求标头来获取更改源，然后跨多个分区键范围并行处理更改源。
 
-### <a name="readdocumentfeed-api"></a>ReadDocumentFeed API
+<a id="readdocumentfeed-api" class="xliff"></a>
+
+### ReadDocumentFeed API
 让我们简单了解一下 ReadDocumentFeed 的工作原理。 DocumentDB 支持通过 `ReadDocumentFeed` API 读取集合中文档的源。 例如，以下请求返回 `serverlogs` 集合中的文档页面。 
 
     GET https://mydocumentdb.documents.azure.cn/dbs/smalldb/colls/serverlogs HTTP/1.1
@@ -90,7 +97,7 @@ DocumentDB 为存储和吞吐量提供了称为**集合**的弹性容器。 集�
 
 **串行读取文档源**
 
-用户还可以使用某个受支持的 [DocumentDB SDK](documentdb-sdk-dotnet.md) 检索文档源。 例如，下面的代码片段演示如何在 .NET 中执行 ReadDocumentFeed。
+用户还可以使用某个支持的 [DocumentDB SDK](documentdb-sdk-dotnet.md) 检索文档源。 例如，下面的代码片段演示如何在 .NET 中执行 ReadDocumentFeed。
 
     FeedResponse<dynamic> feedResponse = null;
     do
@@ -99,17 +106,21 @@ DocumentDB 为存储和吞吐量提供了称为**集合**的弹性容器。 集�
     }
     while (feedResponse.ResponseContinuation != null);
 
-### <a name="distributed-execution-of-readdocumentfeed"></a>ReadDocumentFeed 的分布式执行
+<a id="distributed-execution-of-readdocumentfeed" class="xliff"></a>
+
+### ReadDocumentFeed 的分布式执行
 对于包含 TB 量级数据的集合，或者在引入大量更新的情况下，从一台客户端计算机以串行方式执行源读取可能不可行。 为了支持这些大数据方案，DocumentDB 提供了相应的 API，以透明方式在多个客户端读取者/使用者之间分布 `ReadDocumentFeed` 调用。 
 
 **分布式读取文档源**
 
-为了针对增量更改提供可缩放的处理，DocumentDB 根据分区键的范围为更改源 API 提供扩展模型支持。
+为了针对增量更改提供可缩放的处理，DocumentDB 根据分区键的范围提供更改源 API 的扩展模型支持。
 
 - 执行 `ReadPartitionKeyRanges` 调用可以获取集合的分区键范围列表。 
 - 对于每个分区键范围，可以执行 `ReadDocumentFeed` 来读取具有该范围内的分区键的文档。
 
-### <a name="retrieving-partition-key-ranges-for-a-collection"></a>检索集合的分区键范围
+<a id="retrieving-partition-key-ranges-for-a-collection" class="xliff"></a>
+
+### 检索集合的分区键范围
 可以通过请求集合中的 `pkranges` 资源来检索分区键范围。 例如，以下请求检索 `serverlogs` 集合的分区键范围列表：
 
     GET https://querydemo.documents.azure.cn/dbs/bigdb/colls/serverlogs/pkranges HTTP/1.1
@@ -167,10 +178,10 @@ DocumentDB 为存储和吞吐量提供了称为**集合**的弹性容器。 集�
     <tr>
         <td>minInclusive</td>
         <td>分区键范围的最小分区键哈希值。 供内部使用。</td>
-    </tr>        
+    </tr>       
 </table>
 
-可以使用某个受支持的 [DocumentDB SDK](documentdb-sdk-dotnet.md) 完成此操作。 例如，以下代码片段演示如何在 .NET 中检索分区键范围。
+可以使用一个支持的 [DocumentDB SDK](documentdb-sdk-dotnet.md) 完成此操作。 例如，以下代码片段演示如何在 .NET 中检索分区键范围。
 
     string pkRangesResponseContinuation = null;
     List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
@@ -188,7 +199,9 @@ DocumentDB 为存储和吞吐量提供了称为**集合**的弹性容器。 集�
 
 DocumentDB 支持通过设置可选的 `x-ms-documentdb-partitionkeyrangeid` 标头按分区键范围检索文档。 
 
-### <a name="performing-an-incremental-readdocumentfeed"></a>执行增量 ReadDocumentFeed
+<a id="performing-an-incremental-readdocumentfeed" class="xliff"></a>
+
+### 执行增量 ReadDocumentFeed
 ReadDocumentFeed 支持使用以下方案/任务对 DocumentDB 集合中的更改进行增量处理：
 
 - 读取自始至终（从创建集合时开始）对文档所做的全部更改。
@@ -341,7 +354,7 @@ ReadDocumentFeed 支持使用以下方案/任务对 DocumentDB 集合中的更�
 - CloseAsync
 - ProcessEventsAsync
 
-若要开始处理事件，请实例化 ChangeFeedProcessorHost，并为 DocumentDB 集合提供适当的参数。 然后，调用 `RegisterObserverAsync` 在运行时注册 `IChangeFeedObserver` 实现。 此时，主机将尝试使用“贪婪”算法获取 DocumentDB 集合内每个分区键范围上的租约。 这些租约将持续指定的时限，然后必须续订。 新节点（本例中的工作线程实例）进入联机状态时，它们将保留租约，以后每次尝试获取更多租约时，负载将在节点之间转移。
+若要开始处理事件，请实例化 ChangeFeedProcessorHost，并为 DocumentDB 集合提供适当的参数。 然后，调用 `RegisterObserverAsync` 在运行时注册 `IChangeFeedObserver` 实现。 此时，主机将尝试使用“贪婪”算法获取 DocumentDB 集合内每个分区键范围上的租约。 这些租约将持续指定的时限，然后你必须续订。 当新节点（本例中的工作线程实例）进入联机状态时，它们将保留租约，以后每次尝试获取更多租约时，负载将在节点之间转移。
 
 ![使用 DocumentDB 更改源处理器主机](./media/documentdb-change-feed/changefeedprocessor.png)
 
@@ -400,9 +413,10 @@ ReadDocumentFeed 支持使用以下方案/任务对 DocumentDB 集合中的更�
 
 本文逐步讲解了 DocumentDB 的更改源支持，以及如何使用 REST API 和/或 SDK 跟踪对 DocumentDB 数据所做的更改。 
 
-## <a name="next-steps"></a>后续步骤
+<a id="next-steps" class="xliff"></a>
+
+## 后续步骤
 - 尝试 [GitHub 上的 DocumentDB 更改源代码示例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
 - 详细了解 [DocumentDB 的资源模型和层次结构](documentdb-resources.md)
 - 使用 [DocumentDB SDK](documentdb-sdk-dotnet.md) 或 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 开始编写代码
-
 
