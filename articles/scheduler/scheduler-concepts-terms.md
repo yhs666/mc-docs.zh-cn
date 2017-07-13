@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 89822ec33bc5af1a841dd22c8c88915d694e5325
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 08db71d79bf454f6a314132eb937e12a55cc8be0
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="scheduler-concepts-terminology--entity-hierarchy"></a>计划程序的概念、术语和实体层次结构
-## <a name="scheduler-entity-hierarchy"></a>计划程序实体层次结构
+# 计划程序的概念、术语和实体层次结构
+<a id="scheduler-concepts-terminology--entity-hierarchy" class="xliff"></a>
+## 计划程序实体层次结构
+<a id="scheduler-entity-hierarchy" class="xliff"></a>
 下表描述了计划程序 API 所公开或使用的主要资源：
 
 | 资源 | 说明 |
@@ -32,7 +32,8 @@ ms.lasthandoff: 04/28/2017
 | **作业** |一个作业通过用于执行的简单或复杂策略定义单个重复发生的操作。 操作可能包括 HTTP、存储队列、服务总线队列或服务总线主题请求。 |
 | **作业历史记录** |作业历史记录表示用于执行作业的详细信息。 它包含成功与失败信息以及任何响应详细信息。 |
 
-## <a name="scheduler-entity-management"></a>计划程序实体管理
+## 计划程序实体管理
+<a id="scheduler-entity-management" class="xliff"></a>
 大体而言，计划程序和服务管理 API 公开资源上的以下操作：
 
 |功能|说明和 URI 地址|
@@ -41,10 +42,12 @@ ms.lasthandoff: 04/28/2017
 |**作业管理**|针对创建和修改作业的 GET、PUT、POST、PATCH 和 DELETE 支持。 所有作业都必须属于某一已存在的作业集合，因此没有显式创建 <p>`https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p>|
 |**作业历史记录管理**|针对用于获取 60 天的作业执行历史记录（例如作业占用时间和作业执行结果）的 GET 支持。 添加基于状态进行筛选的查询字符串参数支持 <P>`https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p>|
 
-## <a name="job-types"></a>作业类型
+## 作业类型
+<a id="job-types" class="xliff"></a>
 存在多种作业类型：HTTP 作业（包括支持 SSL 的 HTTPS 作业）、存储队列作业、服务总线队列作业和服务总线主题作业。 HTTP 作业适用于现有工作负荷或服务具有终结点的情况。 可以使用存储队列作业将消息发布到存储队列，因此这些作业适合使用存储队列的工作负荷。 同样，服务总线作业适用于使用服务总线队列和主题的工作负荷。
 
-## <a name="the-job-entity-in-detail"></a>“作业”实体详述
+## “作业”实体详述
+<a id="the-job-entity-in-detail" class="xliff"></a>
 在基本级别上，一个计划的作业具有若干部分：
 
 * 在作业计时器引发时要执行的操作  
@@ -117,10 +120,12 @@ ms.lasthandoff: 04/28/2017
 
 让我们仔细看看其中每一项：
 
-## <a name="starttime"></a>startTime
+## startTime
+<a id="starttime" class="xliff"></a>
 “startTime”是开始时间，允许调用方以 [ISO-8601 格式](http://en.wikipedia.org/wiki/ISO_8601)在线指定时区偏移量。
 
-## <a name="action-and-erroraction"></a>action 和 errorAction
+## action 和 errorAction
+<a id="action-and-erroraction" class="xliff"></a>
 “action”是每次执行时调用的操作，并且描述服务调用的类型。 操作是将按提供的计划执行的内容。 计划程序支持 HTTP、存储队列、服务总线主题和服务总线队列操作。
 
 上例中的操作是一个 HTTP 操作。 下面是存储队列操作的示例：
@@ -158,6 +163,7 @@ ms.lasthandoff: 04/28/2017
     },
   }
 ```
+
 下面是服务总线队列操作的示例：
 
 ```
@@ -181,7 +187,8 @@ ms.lasthandoff: 04/28/2017
 ```
 “errorAction”是错误处理程序，在主操作失败时调用的操作。 可以使用此变量调用错误处理终结点或发送用户通知。 这可用于在主终结点不可用时（例如，在终结点的站点上出现灾难情形时）访问辅助终结点，或者可用于通知错误处理终结点。 与主操作相似，错误操作可以是基于其他操作的简单或复合逻辑。 若要了解如何创建一个 SAS 令牌，请参阅 [创建和使用共享访问签名](https://msdn.microsoft.com/library/azure/jj721951.aspx)。
 
-## <a name="recurrence"></a>recurrence
+## recurrence
+<a id="recurrence" class="xliff"></a>
 重复周期具有若干部分：
 
 * 频率：分钟、小时、天、周、月、年之一  
@@ -192,7 +199,8 @@ ms.lasthandoff: 04/28/2017
 
 如果某一作业具有在其 JSON 定义中指定的重复执行的对象，将重复执行该作业。 如果计数和结束时间均指定，则遵循首先发生的完成规则。
 
-## <a name="state"></a>state
+## state
+<a id="state" class="xliff"></a>
 作业的状态是以下四个值之一：enabled、disabled、completed 或 faulted。 你可以 PUT 或 PATCH 作业以便将它们更新到已启用或已禁用状况。 如果某一作业已完成或已出错，则这就是无法更新的最终状况（尽管仍可以删除该作业）。 如下所示是 state 属性的示例：
 
 ```
@@ -200,19 +208,22 @@ ms.lasthandoff: 04/28/2017
 ```
 60 天后删除完成的作业和出错的作业。
 
-## <a name="status"></a>status
+## status
+<a id="status" class="xliff"></a>
 一旦启动了某一计划程序作业后，将返回与该作业的当前状态有关的信息。 用户无法设置该对象 – 该对象是由系统设置的。 但是，该对象包含在作业对象中（而不是单独的链接资源中），因此，可以轻松地获取某一作业的状态。
 
 作业状态包含前一次执行的时间（如果有）、下一次计划执行的时间（对于正在进行中的作业）以及作业的执行计数。
 
-## <a name="retrypolicy"></a>retryPolicy
+## retryPolicy
+<a id="retrypolicy" class="xliff"></a>
 如果计划程序作业失败，可以指定重试策略来确定是否以及如何重试该操作。 由 **retryType** 对象确定 - 如果没有重试策略，则将其设为 **none**，如上所示。 如果有重试策略，请将其设为 **fixed** 。
 
 若要设置重试策略，可指定两个附加设置：重试间隔 (**retryInterval**) 和重试次数 (**retryCount**)。
 
-重试间隔使用 **retryInterval** 对象指定，表示两次重试之间的时间间隔。 其默认值为 30 秒，最小可配置值为 15 秒，最大值为 18 个月。 空闲作业集合中的作业的最小可配置值为 1 小时。  它使用 ISO 8601 格式定义。 同样，重试次数的值使用 **retryCount** 对象指定；它是尝试重试的次数。 其默认值为 4，其最大值为 20\.**retryInterval** 和 **retryCount** 都是可选的。 如果 **retryType** 设为 **fixed** 并且未为它们显式指定任何值，则为它们赋予默认值。
+重试间隔使用 **retryInterval** 对象指定，表示两次重试之间的时间间隔。 其默认值为 30 秒，最小可配置值为 15 秒，最大值为 18 个月。 空闲作业集合中的作业的最小可配置值为 1 小时。  它使用 ISO 8601 格式定义。 同样，重试次数的值使用 **retryCount** 对象指定；它是尝试重试的次数。 其默认值为 4，其最大值为 20。 **retryInterval** 和 **retryCount** 都是可选的。 如果 **retryType** 设为 **fixed** 并且未为它们显式指定任何值，则为它们赋予默认值。
 
-## <a name="see-also"></a>另请参阅
+## 另请参阅
+<a id="see-also" class="xliff"></a>
  [计划程序是什么？](scheduler-intro.md)
 
  [开始在 Azure 门户中使用计划程序](scheduler-get-started-portal.md)
@@ -230,5 +241,4 @@ ms.lasthandoff: 04/28/2017
  [Azure 计划程序的限制、默认值和错误代码](scheduler-limits-defaults-errors.md)
 
  [Azure 计划程序出站身份验证](scheduler-outbound-authentication.md)
-
 

@@ -3,8 +3,8 @@ title: "Azure 存储可伸缩性和性能目标 | Microsoft Docs"
 description: "了解有关 Azure 存储帐户的可伸缩性和性能目标的信息，包括标准和高级存储账户的容量、请求速率以及入站和出站带宽。 了解每个 Azure 存储服务中各分区的性能目标。"
 services: storage
 documentationcenter: na
-author: robinsh
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75
 ms.service: storage
@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 03/07/2017
+origin.date: 06/15/2017
+ms.date: 06/26/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: e25a3ad32ba09205fd8321472f4ca43505376b1f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 78e8d6d7ed719760059117d6b95b924c749d941a
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="azure-storage-scalability-and-performance-targets"></a>Azure 存储可伸缩性和性能目标
-## <a name="overview"></a>概述
+# Azure 存储可伸缩性和性能目标
+<a id="azure-storage-scalability-and-performance-targets" class="xliff"></a>
+## 概述
+<a id="overview" class="xliff"></a>
 本主题介绍 Azure 存储的可伸缩性和性能主题。 有关其他 Azure 限制的摘要，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
 
 > [!NOTE]
@@ -38,25 +39,33 @@ ms.lasthandoff: 04/14/2017
 
 如果应用程序的需求超过了单个存储帐户的可伸缩性目标值，可以创建应用程序以使用多个存储帐户，并将数据对象分布到这些存储帐户中。 有关批量定价的信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/) 。
 
-## <a name="scalability-targets-for-blobs-queues-tables-and-files"></a><a name="standard-storage-accounts"></a>Blob、队列、表和文件的可伸缩性目标
+##<a name="scalability-targets-for-premium-storage-accounts"></a><a name="scalability-targets-for-standard-storage-accounts"></a><a name="scalability-targets-for-blobs-queues-tables-and-files"></a><a name="premium-storage-accounts"></a><a name="standard-storage-accounts"></a> Blob、队列、表和文件的可伸缩性目标
 [!INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
-## <a name="scalability-targets-for-virtual-machine-disks"></a>虚拟机磁盘的可伸缩性目标
+## 虚拟机磁盘的可伸缩性目标
+<a id="scalability-targets-for-virtual-machine-disks" class="xliff"></a>
 [!INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-请参阅 [Windows VM 大小](../virtual-machines/virtual-machines-windows-sizes.md)或 [Linux VM 大小](../virtual-machines/virtual-machines-linux-sizes.md)了解其他详细信息。
+请参阅 [Windows VM 大小](../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)或 [Linux VM 大小](../virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)了解其他详细信息。
 
+## 托管虚拟机磁盘
+<a id="managed-virtual-machine-disks" class="xliff"></a>
 
-## <a name="unmanaged-virtual-machine-disks"></a>非托管虚拟机磁盘
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../../includes/azure-storage-limits-vm-disks-managed.md)]
+
+## 非托管虚拟机磁盘
+<a id="unmanaged-virtual-machine-disks" class="xliff"></a>
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## <a name="scalability-targets-for-azure-resource-manager"></a>Azure Resource Manager 的可伸缩性目标
+## Azure Resource Manager 的可伸缩性目标
+<a id="scalability-targets-for-azure-resource-manager" class="xliff"></a>
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../includes/azure-storage-limits-azure-resource-manager.md)]
 
-## <a name="partitions-in-azure-storage"></a>Azure 存储中的分区
+## Azure 存储中的分区
+<a id="partitions-in-azure-storage" class="xliff"></a>
 可容纳存储在 Azure 存储中的数据的每个对象（Blob、消息、实体和文件）都属于某个分区，可用分区键进行标识。 分区决定了 Azure 存储如何在多个服务器之间实现 Blob、消息、实体和文件的负载均衡，以满足这些对象的流量需求。 分区键是唯一的，用于查找 Blob、消息或实体。
 
 上面 [标准存储帐户的可伸缩性目标](#standard-storage-accounts) 中所示的表列出了每项服务在单个分区的性能目标。
@@ -74,11 +83,11 @@ ms.lasthandoff: 04/14/2017
 
 关于表的设计分区策略的详细建议可在[此处](https://msdn.microsoft.com/library/azure/hh508997.aspx)找到。
 
-## <a name="see-also"></a>另请参阅
+## 另请参阅
+<a id="see-also" class="xliff"></a>
 * [存储定价详细信息](https://www.azure.cn/pricing/details/storage/)
 * [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)
 * [高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](storage-premium-storage.md)
 * [Azure 存储复制](storage-redundancy.md)
 * [Azure 存储性能和可伸缩性清单](storage-performance-checklist.md)
 * [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)（Azure 存储：具有高度一致性的高可用云存储服务）
-

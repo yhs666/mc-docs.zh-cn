@@ -13,14 +13,14 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 9cbae39b9a933a7bce4be011994b4649bd8fdbc5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: cfc3e786bc9ddcf9eda249c95db5ad9a8ad18ccc
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="app-service---api-apps-documentation"></a>应用服务 - API 应用文档
+# 应用服务 - API 应用文档
+<a id="app-service---api-apps-documentation" class="xliff"></a>
 
 了解如何使用 Azure 应用服务中的 API 应用在云中和本地开发、托管和使用 API。 教程和其他文档介绍了如何创建和部署 API 应用。
 

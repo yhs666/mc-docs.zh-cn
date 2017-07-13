@@ -13,14 +13,14 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: ca1cb4d4a62668bbbcf5c5f9cc65c9ed08aa5dab
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 39ffd1b9747ef16bbb3242a97e1e50555c8f3e12
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="application-gateway-documentation"></a>应用程序网关文档
+# 应用程序网关文档
+<a id="application-gateway-documentation" class="xliff"></a>
 
 了解如何将应用程序网关（即应用程序传送控制器 (ADC)）部署为服务。 教程、API 参考及其他文档显示如何设置应用程序级路由和负载均衡服务，使你可以构建高度可用的可缩放 Web 前端。
 

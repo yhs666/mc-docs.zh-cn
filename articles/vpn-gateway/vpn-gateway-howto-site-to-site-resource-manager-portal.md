@@ -16,15 +16,14 @@ ms.workload: infrastructure-services
 origin.date: 05/02/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: c40b45a7ef2b418876b6eb9adefd7aed14bc9605
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 4c5810973e700e3e389ebef1954be371c1442bf6
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="create-a-site-to-site-connection-in-the-azure-portal-preview"></a>在 Azure 门户中创建站点到站点连接
+# 在 Azure 门户中创建站点到站点连接
+<a id="create-a-site-to-site-connection-in-the-azure-portal" class="xliff"></a>
 
 本文介绍如何使用 Azure 门户创建站点到站点 VPN 网关连接，以便从本地网络连接到 VNet。 本文中的步骤适用于 Resource Manager 部署模型。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
 
@@ -41,7 +40,8 @@ ms.lasthandoff: 05/19/2017
 
 ![站点到站点 VPN 网关跨界连接示意图](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a>开始之前
+## 开始之前
+<a id="before-you-begin" class="xliff"></a>
 
 在开始配置之前，请验证是否符合以下条件：
 
@@ -58,9 +58,9 @@ ms.lasthandoff: 05/19/2017
     * 10.11.0.0/16
     * 10.12.0.0/16（可选，适用于本练习）
 * **子网：**
-    * FrontEnd：10.11.0.0/24
-    * BackEnd：10.12.0.0/24（可选，适用于本练习）
-    * GatewaySubnet：10.11.255.0/27
+  * FrontEnd：10.11.0.0/24
+  * BackEnd：10.12.0.0/24（可选，适用于本练习）
+  * GatewaySubnet：10.11.255.0/27
 * **资源组：** TestRG1
 * **位置：** 中国东部
 * **DNS 服务器：**DNS 服务器的 IP 地址
@@ -101,7 +101,7 @@ ms.lasthandoff: 05/19/2017
 
 ## <a name="VPNDevice"></a>6.配置 VPN 设备
 
-通过站点到站点连接连接到本地网络需要 VPN 设备。 在此步骤中，将配置 VPN 设备。 配置 VPN 设备时，需要以下项：
+通过站点到站点连接连接到本地网络需要 VPN 设备。 在此步骤中，请配置 VPN 设备。 配置 VPN 设备时，需要以下项：
 
 - 共享密钥。 此共享密钥就是在创建站点到站点 VPN 连接时指定的共享密钥。 在示例中，我们使用基本的共享密钥。 建议生成更复杂的可用密钥。
 - 虚拟网关的“公共 IP 地址”。 可以通过 Azure 门户、PowerShell 或 CLI 查看公共 IP 地址。 若要使用 Azure 门户查找 VPN 网关的公共 IP 地址，请导航到“虚拟网关”，然后单击网关的名称。
@@ -116,11 +116,11 @@ ms.lasthandoff: 05/19/2017
 
 ## <a name="VerifyConnection"></a>8.验证 VPN 连接
 
-[!INCLUDE [Azure portal preview](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
+[!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 *  有关 BGP 的信息，请参阅 [BGP 概述](vpn-gateway-bgp-overview.md)和[如何配置 BGP](vpn-gateway-bgp-resource-manager-ps.md)。
 *  有关强制隧道的信息，请参阅[关于强制隧道](vpn-gateway-forced-tunneling-rm.md)
 *  有关高可用性主动-主动连接的信息，请参阅[高可用性跨界连接与 VNet 到 VNet 连接](vpn-gateway-highlyavailable.md)。
-

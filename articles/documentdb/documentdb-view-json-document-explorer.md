@@ -16,25 +16,24 @@ ms.topic: article
 origin.date: 04/18/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 97a009578cb42db639b9c7c1bb70ef39e9191e9e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 91cd2b88aa751b5c64c2d136c239d84a091907b3
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="view-edit-create-and-upload-json-documents"></a>查看、编辑、创建和上传 JSON 文档 
+# 查看、编辑、创建和上传 JSON 文档
+<a id="view-edit-create-and-upload-json-documents" class="xliff"></a> 
 
-本文概述了在门户中创建、编辑和查询文档的两种方式：[文档资源管理器](#launch-document-explorer)和数据资源管理器（预览版）。
+本文概述了在门户中创建、编辑和查询文档的两种方式：[文档资源管理器](#launch-document-explorer)和[数据资源管理器（预览版）](#data-explorer)。
 
 > [!NOTE]
 > 具有 MongoDB 协议支持的 DocumentDB 帐户未启用文档资源管理器。 启用此功能后，此页将更新。
 
 ## 在 Azure 门户中启动文档资源管理器 <a id="launch-document-explorer"></a>
-1. 在 [Azure 门户](https://portal.azure.cn)的左侧导航栏中，单击![DocumentDB 图标](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **DocumentDB**。 
+1. 在 [Azure 门户](https://portal.azure.cn)的左侧导航窗格中，单击 ![DocumentDB 图标](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png)“DocumentDB”。 
 
-    如果 **DocumentDB** 不可见，请单击底部的“更多服务”，然后单击 ![DocumentDB 图标](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **DocumentDB**。
+    如果“DocumentDB”不可见，请单击底部的“更多服务”，然后单击 ![DocumentDB 图标](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png)“DocumentDB”。
 2. 选择帐户名称。 
 3. 在资源菜单中，单击“文档资源管理器” 。 
    
@@ -42,7 +41,8 @@ ms.lasthandoff: 05/19/2017
    
     在“文档资源管理器”边栏选项卡上，将根据在其中启动文档资源管理器的上下文对“数据库”和“集合”下拉列表进行预填充。 
 
-## <a name="create-a-json-document"></a>创建 JSON 文档
+## 创建 JSON 文档
+<a id="create-a-json-document" class="xliff"></a>
 1. [启动文档资源管理器](#launch-document-explorer)。
 2. 在“文档资源管理器”边栏选项卡上，单击“创建文档”。 
    
@@ -60,7 +60,8 @@ ms.lasthandoff: 05/19/2017
    
     如果已有来自 JSON 文件、MongoDB、SQL Server、CSV 文件、Azure 表存储、Amazon DynamoDB、HBase 或其他 DocumentDB API 集合的数据，可以使用 DocumentDB API 的[数据迁移工具](documentdb-import-data.md)快速导入数据。
 
-## <a name="edit-a-json-document"></a>编辑 JSON 文档
+## 编辑 JSON 文档
+<a id="edit-a-json-document" class="xliff"></a>
 1. [启动文档资源管理器](#launch-document-explorer)。
 2. 若要编辑现有文档，请在“文档资源管理器”边栏选项卡中选中该文档，在“文档”边栏选项卡中编辑该文档，然后单击“保存”。
    
@@ -70,13 +71,15 @@ ms.lasthandoff: 05/19/2017
    
     ![文档资源管理器“放弃”命令的屏幕截图](./media/documentdb-view-JSON-document-explorer/discardedit.png)
 
-## <a name="delete-a-document-from-documentdb"></a>从 DocumentDB 中删除文档
+## 从 DocumentDB 中删除文档
+<a id="delete-a-document-from-documentdb" class="xliff"></a>
 1. [启动文档资源管理器](#launch-document-explorer)。
 2. 在“文档资源管理器”选择文档，单击“删除”，然后确认删除。 确认后，将立即从“文档资源管理器”列表中删除该文档。
    
     ![文档资源管理器“删除”命令的屏幕截图](./media/documentdb-view-JSON-document-explorer/deletedocument.png)
 
-## <a name="work-with-json-documents"></a>使用 JSON 文档
+## 使用 JSON 文档
+<a id="work-with-json-documents" class="xliff"></a>
 文档资源管理器可验证任何新建或编辑的文档是否包含有效的 JSON。  甚至可以查看 JSON 错误，方法是将鼠标悬停在错误部分以获取有关验证错误的详细信息。
 
 ![文档资源管理器的屏幕截图，其中突出显示了无效的 JSON](./media/documentdb-view-JSON-document-explorer/invalidjson1.png)
@@ -94,7 +97,8 @@ ms.lasthandoff: 05/19/2017
 > 
 > 
 
-## <a name="filter-documents"></a>筛选文档
+## 筛选文档
+<a id="filter-documents" class="xliff"></a>
 文档资源管理器还支持多种导航选项和高级设置。
 
 默认情况下，文档资源管理器将加载所选集合中最多前 100 个文档（按文档创建日期从最早到最晚排列）。  可通过选择“文档资源管理器”边栏选项卡底部的“加载更多”选项加载其他文档（每批加载 100 个文档）。 可通过“筛选”命令选择要加载的具体文档。
@@ -127,7 +131,8 @@ ms.lasthandoff: 05/19/2017
    
     ![文档资源管理器“刷新”命令的屏幕截图](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
 
-## <a name="bulk-add-documents"></a>批量添加文档
+## 批量添加文档
+<a id="bulk-add-documents" class="xliff"></a>
 文档资源管理器支持批量引入一个或多个现有 JSON 文档，每个上传操作最多上传 100 个 JSON 文件。  
 
 1. [启动文档资源管理器](#launch-document-explorer)。
@@ -149,20 +154,22 @@ ms.lasthandoff: 05/19/2017
     ![文档资源管理器批量引入结果的屏幕截图](./media/documentdb-view-JSON-document-explorer/uploaddocument3.png)
 5. 操作完成后，可以选择另外最多 100 个文档进行上传。
 
-## <a name="work-with-json-documents-outside-the-portal"></a>在门户外使用 JSON 文档
+## 在门户外使用 JSON 文档
+<a id="work-with-json-documents-outside-the-portal" class="xliff"></a>
 Azure 门户中的文档资源管理器只是在 DocumentDB 中使用文档的一种方法。 也可以通过 [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) 或[客户端 SDK](documentdb-sdk-dotnet.md) 来处理文档。 有关代码示例，请参阅 [.NET SDK 文档示例](documentdb-dotnet-samples.md#document-examples)和 [Node.js SDK 文档示例](documentdb-nodejs-samples.md#document-examples)。
 
 如果需要从其他源（JSON 文件、MongoDB、SQL Server、CSV 文件、Azure 表存储、Amazon DynamoDB 或 HBase）导入或迁移文件，可以使用 DocumentDB 的[数据迁移工具](documentdb-import-data.md)将数据快速导入到 DocumentDB。
 
-## <a name="troubleshoot"></a>故障排除
+## 故障排除
+<a id="troubleshoot" class="xliff"></a>
 **症状**：文档资源管理器返回“未找到文档”。
 
 **解决方案**：确保已选择正确的订阅、已插入文档的数据库和集合。 另外，请检查以确保在吞吐量配额内运行。 如果在最大吞吐量级别运行并受到限制，请减少应用程序使用量，以便在集合的最大吞吐量配额下运行。
 
-说明：门户是一个应用程序，就像任何其他应用程序一样，对 DocumentDB 数据库和集合进行调用。 如果当前由于从单独的应用程序进行调用，请求受到限制，门户可能也同样受到限制，导致资源未显示在门户中。 若要解决此问题，需解决高吞吐量使用率的原因，然后刷新门户边栏选项卡。 有关如何测量和降低吞吐量使用率的信息，请参阅[性能提示](documentdb-performance-tips.md#throughput)一文的[吞吐量](documentdb-performance-tips.md)部分。
+**说明**：门户是一个应用程序，就像任何其他应用程序一样，对 DocumentDB 数据库和集合进行调用。 如果当前由于从单独的应用程序进行调用，请求受到限制，门户可能也同样受到限制，导致资源未显示在门户中。 若要解决此问题，需解决高吞吐量使用率的原因，然后刷新门户边栏选项卡。 有关如何测量和降低吞吐量使用率的信息，请参阅[性能提示](documentdb-performance-tips.md#throughput)一文的[吞吐量](documentdb-performance-tips.md)部分。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 有关文档资源管理器中支持的 DocumentDB API SQL 语法的详细信息，请参阅 [SQL 查询和 SQL 语法](documentdb-sql-query.md)一文或打印 [SQL 查询备忘单](documentdb-sql-query-cheat-sheet.md)。
-
 
 

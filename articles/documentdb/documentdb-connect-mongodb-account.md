@@ -16,16 +16,14 @@ ms.topic: article
 origin.date: 03/06/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 8e23dbacb824e7299ca0228e45ba9de1deeed67b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 13fb420bc9e39f677b9ce02933adb00ecda45408
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# <a name="connect-a-mongodb-application-to-azure-documentdb"></a>将 MongoDB 应用程序连接到 DocumentDB
+# 将 MongoDB 应用程序连接到 DocumentDB
+<a id="connect-a-mongodb-application-to-documentdb" class="xliff"></a>
 了解如何使用 MongoDB 连接字符串将 MongoDB 应用连接到 DocumentDB 帐户。 将 MongoDB 应用连接到 DocumentDB 数据库后，可使用 DocumentDB 数据库作为 MongoDB 应用的数据存储。 
 
 本教程提供两个用于检索连接字符串信息的方法：
@@ -33,7 +31,8 @@ ms.lasthandoff: 05/19/2017
 - [快速启动方法](#QuickstartConnection)，适合搭配 .NET、Node.js、MongoDB Shell、Java 和 Python 驱动程序使用。
 - [自定义连接字符串方法](#GetCustomConnection)：适用于其他驱动程序。
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 
 - 一个 Azure 帐户。 如果没有 Azure 帐户，请立即创建 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 - 一个 DocumentDB 帐户。 有关说明，请参阅[创建与 MongoDB 应用配合使用的 DocumentDB 帐户](documentdb-create-account.md)。
@@ -55,9 +54,10 @@ ms.lasthandoff: 05/19/2017
 
     ![连接字符串边栏选项卡的屏幕截图](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
 
-## <a name="connection-string-requirements"></a>连接字符串要求
+## 连接字符串要求
+<a id="connection-string-requirements" class="xliff"></a>
 > [!Important]
-> DocumentDB 具有严格的安全要求和标准。 DocumentDB 帐户需要通过 **SSL** 进行身份验证和安全通信。
+> DocumentDB 具有严格的安全要求和标准。 DocumentDB 帐户需要通过 **SSL**进行身份验证和安全通信。
 >
 >
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 05/19/2017
 上图显示了“连接字符串”边栏选项卡中提供此字符串值的位置。
 
 - 用户名（必需）
-  - DocumentDB 帐户名称
+  - DocumentDB 帐户名
 - 密码（必需）
   - DocumentDB 帐户密码
 - 主机（必需）
@@ -83,8 +83,8 @@ ms.lasthandoff: 05/19/2017
 
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.cn:10250/mydatabase?ssl=true
 
-## <a name="next-steps"></a>后续步骤
-- 了解如何将 [MongoChef](documentdb-mongodb-mongochef.md) 用于 DocumentDB: API for MongoDB 帐户。
-- 浏览 DocumentDB: API for MongoDB [示例](documentdb-mongodb-samples.md)。
-
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+- 了解如何配合 DocumentDB：MongoDB 帐户的 API [使用 MongoChef](documentdb-mongodb-mongochef.md)。
+- 浏览 MongoDB [示例](documentdb-mongodb-samples.md)的 DocumentDB: API。
 

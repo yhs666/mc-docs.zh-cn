@@ -1,6 +1,6 @@
 ---
 title: "在 Azure 中构建 Node.js 和 MongoDB Web 应用 | Azure"
-description: "了解如何通过使用 MongoDB 连接字符串与 DocumentDB 数据库建立连接，在 Azure 中运行 Node.js 应用。"
+description: "了解如何通过使用 MongoDB 连接字符串与 DocumentDb 数据库建立连接，在 Azure 中运行 Node.js 应用。"
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -12,79 +12,138 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 03/30/2017
-ms.date: 05/02/2017
+origin.date: 05/04/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 379165b13b1fb6c276a10c317e4bf3bfb31aeba3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.custom: mvc
+ms.openlocfilehash: d601399fd1d0368d177ba6100fc58d21ac684e93
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>在 Azure 中构建 Node.js 和 MongoDB Web 应用
-本教程介绍如何在 Azure 中创建 Node.js Web 应用并将其连接到 MongoDB 数据库。 完成本教程后，你将获得一个在 [Azure 应用服务 Web 应用](app-service-web-overview.md)中运行的 MEAN（MongoDB、Express、AngularJS 和 Node.js）应用程序。
+# 在 Azure 中构建 Node.js 和 MongoDB Web 应用
+<a id="build-a-nodejs-and-mongodb-web-app-in-azure" class="xliff"></a>
+
+Azure Web 应用提供高度可缩放、自修补的 Web 托管服务。 本教程介绍如何在 Azure 中创建 Node.js Web 应用并将其连接到 MongoDB 数据库。 完成本教程后，将获得一个在 [Azure App Service](app-service-web-overview.md) 中运行的 MEAN（MongoDB、Express、AngularJS 和 Node.js）应用程序）。 为简单起见，示例应用程序使用了 [MEAN.js web 框架](http://meanjs.org/)。
 
 ![在 Azure 应用服务中运行的 MEAN.js 应用](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-## <a name="before-you-begin"></a>开始之前
+学习内容：
 
-开始学习本教程之前，请确保在计算机上[安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 此外，还需要 [Node.js](https://nodejs.org/) 和 [Git](http://www.git-scm.com/downloads)。 将运行 `az`、`npm` 和 `git` 命令。
+> [!div class="checklist"]
+> * 在 Azure 中创建 MongoDB 数据库
+> * 将 Node.js 应用连接到 MongoDB
+> * 将应用部署到 Azure
+> * 更新数据模型并重新部署应用
+> * 从 Azure 流式传输诊断日志
+> * 在 Azure 门户中管理应用
 
-你应该具备 Node.js 的实践知识。 本教程并未介绍有关开发 Node.js 应用程序的一般信息。
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 
-## <a name="step-1---create-local-nodejs-application"></a>步骤 1 - 创建本地 Node.js 应用程序
-在此步骤中，你将设置本地 Node.js 项目。
+完成本教程：
 
-### <a name="clone-the-sample-application"></a>克隆示例应用程序
+1. [安装 Git](https://git-scm.com/)
+1. [安装 Node.js 和 NPM](https://nodejs.org/)
+1. [安装 Gulp.js](http://gulpjs.com/) [（MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started) 要求的）
+1. [安装并运行 MongoDB 社区版](https://docs.mongodb.com/manual/administration/install-community/) 
+1. [安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
-打开终端窗口，运行 `CD` 切换到工作目录。  
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-运行以下命令克隆示例存储库。 此示例存储库包含默认的 [MEAN.js](http://meanjs.org/) 应用程序。 
+## 测试本地 MongoDB
+<a id="test-local-mongodb" class="xliff"></a>
+
+打开终端窗口并`cd`打开到`bin` MongoDB 安装的目录。 
+
+在终端运行 `mongo` 以连接到本地 MongoDB 服务器。
 
 ```bash
-git clone https://github.com/prashanthmadi/mean
+mongo
 ```
 
-### <a name="run-the-application"></a>运行应用程序
+如果连接成功，那么 MongoDB 数据库已经开始运行。 如果连接不成功，那么请确保本地 MongoDB 数据库按[安装 MongoDB 社区版](https://docs.mongodb.com/manual/administration/install-community/)中的步骤来启动。 通常，MongoDB 已安装，但是仍需要运行 `mongod` 来启动它。 
 
-安装所需的包并启动应用程序。
+完成 MongoDB 数据库测试后，请在终端输入 Ctrl+C。 
+
+## 创建本地 Node.js 应用
+<a id="create-local-nodejs-app" class="xliff"></a>
+
+在此步骤中，你将设置本地 Node.js 项目。
+
+### 克隆示例应用程序
+<a id="clone-the-sample-application" class="xliff"></a>
+
+打开终端窗口，运行 `cd` 切换到工作目录。  
+
+运行下列命令，克隆示例存储库。 
 
 ```bash
-cd mean
+git clone https://github.com/Azure-Samples/meanjs.git
+```
+
+此示例存储库包含 [MEAN.js 存储库](https://github.com/meanjs/mean)的副本。 它修改为在应用服务上运行（有关详细信息，请参阅 MEAN.js 存储库 [README 文件](https://github.com/Azure-Samples/meanjs/blob/master/README.md)）。
+
+### 运行应用程序
+<a id="run-the-application" class="xliff"></a>
+
+运行以下命令以安装所需安装包并启动应用程序。
+
+```bash
+cd meanjs
 npm install
 npm start
 ```
 
-除非你已有一个本地 MongoDB 数据库，否则 `npm start` 应会终止并返回类似于下面的错误消息：
+当应用完全加载后，会看见类似下方所示的消息：
 
-```bash
-{ [MongoError: failed to connect to server [localhost:27017] on first connect]
-  ...
-  name: 'MongoError',
-  message: 'failed to connect to server [localhost:27017] on first connect' }
+```
+--
+MEAN.JS - Development Environment
+
+Environment:     development
+Server:          http://0.0.0.0:3000
+Database:        mongodb://localhost/mean-dev
+App version:     0.5.0
+MEAN.JS version: 0.5.0
+--
 ```
 
-此时请不要设置本地 MongoDB 数据库，因为稍后将在 Azure 中创建。
+在浏览器中导航到 http://localhost:3000。 在顶部菜单点击“注册”并创建一个测试用户。 
 
-## <a name="step-2---create-a-mongodb-database"></a>步骤 2 - 创建 MongoDB 数据库
+MEAN.js 示例应用程序将用户数据存储在数据库中。 如果成功创建用户并登陆，那么应用会将数据写入本地 MongoDB 数据库。
 
-在此步骤中，你要将应用程序连接到 MongoDB 数据库。 对于 MongoDB，本教程使用支持 MongoDB 客户端连接的 [Azure DocumentDB](/documentdb/)。 换而言之，Node.js 应用程序只知道它要连接到 MongoDB 数据库。 连接由 DocumentDB 数据库支持的事实对于应用程序是完全透明的。
+![MEAN.js 成功连接到 MongoDB](./media/app-service-web-tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
 
-### <a name="log-in-to-azure"></a>登录 Azure
+选择“管理员”>“管理文章”以添加一些文章。
 
-现在，你要在终端窗口中使用 Azure CLI 2.0 创建所需的资源用于在 Azure 应用服务中托管 Node.js 应用程序。  使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。 
+任何时候想停止 Node.js，可在终端按 Ctrl+C。 
 
-```azurecli 
-az login 
-``` 
+## 创建生产 MongoDB
+<a id="create-production-mongodb" class="xliff"></a>
+
+此步骤在 Azure 中创建一个 MongoDB 数据库。 将应用部署到 Azure 后，它会使用此云数据库。
+
+对于 MongoDB，本教程使用了 [Azure DocumentDb](/documentdb/)。 DocumentDb 支持 MongoDB 客户端连接。
+
+### 登录 Azure
+<a id="log-in-to-azure" class="xliff"></a>
+
+将使用 Azure CLI 2.0 创建在 Azure 中托管应用所需的资源。 使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
+
+```azurecli
+az login
+```   
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-### <a name="create-a-resource-group"></a>创建资源组
+### 创建资源组
+<a id="create-a-resource-group" class="xliff"></a>
 
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建[资源组](../azure-resource-manager/resource-group-overview.md)。 Azure 资源组是在其中部署和管理 Azure 资源（例如 Web 应用、数据库和存储帐户）的逻辑容器。 
+使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 命令创建资源组。
+
+[!INCLUDE [Resource group intro](../../includes/resource-group.md)]
 
 以下示例在中国北部区域中创建一个资源组。
 
@@ -92,231 +151,246 @@ az login
 az group create --name myResourceGroup --location "China North"
 ```
 
-若要查看适用于 `--location` 的可能值，请使用 `az appservice list-locations` Azure CLI 命令。
+使用 [az appservice list-locations](https://docs.microsoft.com/cli/azure/appservice#list-locations) Azure CLI 命令来列出可用位置。 
 
-### <a name="create-a-documentdb-account"></a>创建 DocumentDB 帐户
+### 创建一个 DocumentDb 帐户
+<a id="create-a-documentdb-account" class="xliff"></a>
 
-使用 [az documentdb create](https://docs.microsoft.com/cli/azure/documentdb#create) 命令创建 DocumentDB 帐户。
+使用 [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) 命令来创建 DocumentDb 帐户。
 
-在以下命令中，请将出现的 `<documentdb_name>` 占位符替换为你自己的唯一 DocumentDB 名称。 此唯一名称将用作 DocumentDB 终结点 (`https://<documentdb_name>.documents.azure.cn/`) 的一部分，因此需要在 Azure 中的所有 DocumentDB 帐户之间保持唯一。 
+在下面命令中，将 *\<cosmosdb_name>* 占位符替换为一个唯一的 Cosmos DB 名称。 此名称将用作 Cosmos DB 终结点 `https://<cosmosdb_name>.documents.azure.cn/` 的一部分，因此这个名称需要在 Azure 中的所有 Cosmos DB 帐户中具有唯一性。 此名称只能包含小写字母、数字以及连字符 (-)，同时长度必须为 3 到 50 个字符。
 
 ```azurecli
-az documentdb create --name <documentdb_name> --resource-group myResourceGroup --kind MongoDB
+az cosmosdb create \
+    --name <cosmosdb_name> \
+    --resource-group myResourceGroup \
+    --kind MongoDB
 ```
 
-`--kind MongoDB` 参数启用 MongoDB 客户端连接。
+--Kind MongoDB 参数启用 MongoDB 客户端连接。
 
-创建 DocumentDB 帐户后，Azure CLI 将显示类似于以下示例的信息。 
+创建 DocumentDb 帐户后，Azure CLI 将显示类似于以下示例的信息：
 
 ```json
 {
+  "consistencyPolicy":
+  {
+    "defaultConsistencyLevel": "Session",
+    "maxIntervalInSeconds": 5,
+    "maxStalenessPrefix": 100
+  },
   "databaseAccountOfferType": "Standard",
-  "documentEndpoint": "https://<documentdb_name>.documents.azure.cn:443/",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Document
-DB/databaseAccounts/<documentdb_name>",
-  "kind": "MongoDB",
-  "location": "China North",
-  "name": "<documentdb_name>",
-  "readLocations": [
-    {
-      "documentEndpoint": "https://<documentdb_name>-chinanorth.documents.azure.cn:443/",
-      "failoverPriority": 0,
-      "id": "<documentdb_name>-chinanorth",
-      "locationName": "China North",
-      "provisioningState": "Succeeded"
-    }
-  ],
-  "resourceGroup": "myResourceGroup",
-  "type": "Microsoft.DocumentDB/databaseAccounts",
-  "writeLocations": [
-    {
-      "documentEndpoint": "https://<documentdb_name>-chinanorth.documents.azure.cn:443/",
-      "failoverPriority": 0,
-      "id": "<documentdb_name>-chinanorth",
-      "locationName": "China North",
-      "provisioningState": "Succeeded"
-    }
-  ]
-} 
-```
-
-## <a name="step-3---connect-your-nodejs-application-to-the-database"></a>步骤 3 - 将 Node.js 应用程序连接到数据库
-
-在此步骤中，你要使用 MongoDB 连接字符串将 MEAN.js 示例应用程序连接到刚刚创建的 DocumentDB 数据库。 
-
-### <a name="retrieve-the-database-key"></a>检索数据库密钥
-
-若要连接到 DocumentDB 数据库，需要数据库密钥。 使用 [az documentdb list-keys](https://docs.microsoft.com/cli/azure/documentdb#list-keys) 命令检索主密钥。
-
-```azurecli
-az documentdb list-keys --name <documentdb_name> --resource-group myResourceGroup
-```
-
-Azure CLI 输出类似于以下示例的信息。 
-
-```json
-{
-  "primaryMasterKey": "RUayjYjixJDWG5xTqIiXjC...",
-  "primaryReadonlyMasterKey": "...",
-  "secondaryMasterKey": "...",
-  "secondaryReadonlyMasterKey": "..."
+  "documentEndpoint": "https://<cosmosdb_name>.documents.azure.cn:443/",
+  "failoverPolicies": 
+  ...
+  < Output truncated for readability >
 }
 ```
 
-将 `primaryMasterKey` 的值复制到文本编辑器。 下一步骤需要用到此信息。
+## 将应用连接到生产 MongoDB
+<a id="connect-app-to-production-mongodb" class="xliff"></a>
 
-### <a name="devconfig"></a> 在 Node.js 应用程序中配置连接字符串
+在此步骤中，使用 MongoDB 连接字符串将 MEAN.js 示例应用程序连接到刚刚创建的 DocumentDb 数据库。 
 
-在 MEAN.js 存储库中打开 `config/env/local-development.js`。
+### 检索数据库密钥
+<a id="retrieve-the-database-key" class="xliff"></a>
 
-将此文件的内容替换为以下代码。 另外，请务必将两个 `<documentdb_name>` 占位符替换为你的 DocumentDB 数据库名称，将 `<primary_maste_key>` 占位符替换为在上一步骤中复制的密钥。
+若要连接至 DocumentDb 数据库，需要数据库关键字。 使用 [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) 命令来检索主键。
 
-```javascript
-'use strict';
-
-module.exports = {
-  db: {
-    uri: 'mongodb://<documentdb_name>:<primary_maste_key>@<documentdb_name>.documents.azure.cn:10250/mean-dev?ssl=true&sslverifycertificate=false'
-  }
-};
+```azurecli
+az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
 ```
 
-> [!NOTE] 
-> `ssl=true` 选项非常重要，因为 [Azure DocumentDB 需要 SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements)。 
->
->
+Azure CLI 显示类似于以下示例的信息：
 
-保存所做更改。
-
-### <a name="run-the-application-again"></a>再次运行应用程序。
-
-再次运行 `npm start`。 
-
-```bash
-npm start
+```json
+{
+  "primaryMasterKey": "RS4CmUwzGRASJPMoc0kiEvdnKmxyRILC9BWisAYh3Hq4zBYKr0XQiSE4pqx3UchBeO4QRCzUt1i7w0rOkitoJw==",
+  "primaryReadonlyMasterKey": "HvitsjIYz8TwRmIuPEUAALRwqgKOzJUjW22wPL2U8zoMVhGvregBkBk9LdMTxqBgDETSq7obbwZtdeFY7hElTg==",
+  "secondaryMasterKey": "Lu9aeZTiXU4PjuuyGBbvS1N9IRG3oegIrIh95U6VOstf9bJiiIpw3IfwSUgQWSEYM3VeEyrhHJ4rn3Ci0vuFqA==",
+  "secondaryReadonlyMasterKey": "LpsCicpVZqHRy7qbMgrzbRKjbYCwCKPQRl0QpgReAOxMcggTvxJFA94fTi0oQ7xtxpftTJcXkjTirQ0pT7QFrQ=="
+}
 ```
 
-此时不会出现前面所示的错误消息，而应会出现一条控制台消息，指出开发环境已启动并正在运行。 
+复制 `primaryMasterKey` 的值。 下一步骤需要用到此信息。
 
-在浏览器中导航到 `http://localhost:3000`。 在顶部菜单中单击“注册”，然后尝试创建一个虚构的用户。 
+<a name="devconfig"></a>
 
-MEAN.js 示例应用程序将用户数据存储在数据库中。 如果上述操作成功并且 MEAN.js 可自动登录到创建的用户，则表示 MongoDB 数据库连接可正常工作。 
+### 在 Node.js 应用程序中配置连接字符串
+<a id="configure-the-connection-string-in-your-nodejs-application" class="xliff"></a>
 
-![MEAN.js 成功连接到 MongoDB](./media/app-service-web-tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
+在 MEAN.js 存储库中，打开 _config/env/production.js_。
 
-## <a name="step-4---deploy-the-nodejs-application-to-azure"></a>步骤 4 - 将 Node.js 应用程序部署到 Azure
-在此步骤中，你要将 MongoDB 连接的 Node.js 应用程序部署到 Azure 应用服务。
+在 `db` 对象中，更新 `uri` 的值：
 
-### <a name="prepare-your-sample-application-for-deployment"></a>准备要部署的示例应用程序
+* 用 Cosmos DB 数据库名替换两个 \<cosmosdb_name> 占位符。
+* 用上一步复制的键替换 \<primary_master_key> 占位符。
 
-你可能已注意到，前面更改的配置文件适用于开发环境 (`/config/env/local-development.js`)。 将应用程序部署到应用服务时，应用程序默认在生产环境中运行。 因此，现在需要对相应的配置文件进行相同的更改。
-
-在 MEAN.js 存储库中打开 `config/env/production.js`。
-
-在 `db` 对象中，如以下示例所示替换 `uri` 的值。 请务必按上文所述替换占位符。
+以下代码展示 `db` 对象：
 
 ```javascript
 db: {
-  uri: 'mongodb://<documentdb_name>:<primary_maste_key>@<documentdb_name>.documents.azure.cn:10250/mean?ssl=true&sslverifycertificate=false',
+  uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.cn:10250/mean?ssl=true&sslverifycertificate=false',
   ...
 },
 ```
 
-在终端中，将所有更改提交到 Git。 可以复制这两个命令，以便同时运行。
+需要 `ssl=true` 选项，因为 [Cosmos DB 需要 SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements)。 
+
+保存所做更改。
+
+### 在生产模式下测试应用程序
+<a id="test-the-application-in-production-mode" class="xliff"></a> 
+
+运行以下命令缩减和捆绑用于生产环境的脚本。 这一进程将生成生产环境所需的文件。
 
 ```bash
-git add .
-git commit -m "configured MongoDB connection string"
+gulp prod
 ```
 
-Node.js 应用程序已准备就绪，可供部署。
+运行以下命令以使用在 _config/env/production.js_ 中配置的连接字符串。
 
-### <a name="create-an-app-service-plan"></a>创建应用服务计划
+```bash
+NODE_ENV=production node server.js
+```
+
+`NODE_ENV=production` 设置环境变量，用于指示 Node.js 在生产环境中运行。  `node server.js` 使用存储库根路径中的 `server.js` 启动 Node.js 服务器。 这就是 Node.js 应用程序在 Azure 中加载的方式。 
+
+在加载应用时请进行检查，确保它在生产环境中运行：
+
+```
+--
+MEAN.JS
+
+Environment:     production
+Server:          http://0.0.0.0:8443
+Database:        mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.cn:10250/mean?ssl=true&sslverifycertificate=false
+App version:     0.5.0
+MEAN.JS version: 0.5.0
+```
+
+在浏览器中导航到 http://localhost:8443。 在顶部菜单点击“注册”并创建一个测试用户。 如果成功创建用户并登陆，那么应用会将数据写入 Azure 中的 Cosmos DB 数据库。 
+
+在终端中，通过键入 Ctrl+C 停止 Node.js。 
+
+## 将应用部署到 Azure
+<a id="deploy-app-to-azure" class="xliff"></a>
+
+在此步骤中，你要将 MongoDB 连接的 Node.js 应用程序部署到 Azure 应用服务。
+
+### 创建应用服务计划
+<a id="create-an-app-service-plan" class="xliff"></a>
 
 使用 [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) 命令创建应用服务计划。 
 
-> [!NOTE] 
-> 应用服务计划表示用于托管应用的物理资源集合。 分配到应用服务计划的所有应用程序将共享该计划定义的资源，在托管多个应用时可以节省成本。 
-> 
-> 应用服务计划定义： 
-> 
-> * 区域（中国北部、中国东部） 
-> * 实例大小（小、中、大） 
-> * 规模计数（一个、两个、三个实例，等等） 
-> * SKU（免费、共享、基本、标准、高级）
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-以下示例使用**免费**定价层创建名为 `myAppServicePlan` 的应用服务计划。
+以下示例使用“免费”定价层创建名为 _myAppServicePlan_ 的应用服务计划：
 
 ```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-创建应用服务计划后，Azure CLI 将显示类似于以下示例的信息。 
+创建应用服务计划后，Azure CLI 将显示类似于以下示例的信息：
 
 ```json 
 { 
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-    "kind": "app", 
-    "location": "China North", 
-    "sku": { 
-    "capacity": 0, 
-    "family": "F", 
-    "name": "F1", 
-    "tier": "Free" 
-    }, 
-    "status": "Ready", 
-    "type": "Microsoft.Web/serverfarms" 
+  "adminSiteName": null,
+  "appServicePlanName": "myAppServicePlan",
+  "geoRegion": "China North",
+  "hostingEnvironmentProfile": null,
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
+  "kind": "app",
+  "location": "China North",
+  "maximumNumberOfWorkers": 1,
+  "name": "myAppServicePlan",
+  ...
+  < Output has been truncated for readability >
 } 
-``` 
-
-### <a name="create-a-web-app"></a>创建 Web 应用
-
-创建应用服务计划后，请在 `myAppServicePlan` 应用服务计划中创建 Web 应用。 该 Web 应用提供托管空间用于部署代码，并提供一个 URL 用于查看已部署的应用程序。 使用 [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) 命令创建该 Web 应用。 
-
-在以下命令中，请将 `<app_name>` 占位符替换为你自己的唯一应用名称。 此唯一名称将用作 Web 应用的默认域名的一部分，因此，该名称需要在 Azure 中的所有应用之间保持唯一。 稍后，可以先将任何自定义 DNS 条目映射到 Web 应用，然后向用户公开该条目。 
-
-```azurecli
-az appservice web create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
-创建 Web 应用后，Azure CLI 将显示类似于以下示例的信息。 
+### 创建 Web 应用
+<a id="create-a-web-app" class="xliff"></a>
+
+使用 [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 Web 应用。 
+
+该 Web 应用提供托管空间用于部署代码，并提供一个 URL 用于查看已部署的应用程序。 用于创建 Web 应用。 
+
+在以下命令中， 将 \<app_name> 占位符替换为唯一的应用名称。 此名称用作 Web 应用默认 URL 的一部分，所以此名称应在 Azure App Service 的所有应用中具有唯一性。 
+
+```azurecli
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+```
+
+创建 Web 应用后，Azure CLI 将显示类似于以下示例的信息： 
 
 ```json 
-{ 
-    "clientAffinityEnabled": true, 
-    "defaultHostName": "<app_name>.chinacloudsites.cn", 
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>", 
-    "isDefaultContainer": null, 
-    "kind": "app", 
-    "location": "China North", 
-    "name": "<app_name>", 
-    "repositorySiteName": "<app_name>", 
-    "reserved": true, 
-    "resourceGroup": "myResourceGroup", 
-    "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-    "state": "Running", 
-    "type": "Microsoft.Web/sites", 
-} 
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.chinacloudsites.cn",
+  "enabled": true,
+  ...
+  < Output has been truncated for readability >
+}
 ```
 
-### <a name="configure-local-git-deployment"></a>配置本地 Git 部署 
+### 配置环境变量
+<a id="configure-an-environment-variable" class="xliff"></a>
 
-可以通过不同的方法将应用程序部署到 Azure 应用服务，包括 FTP、本地 Git，以及 GitHub、Visual Studio Team Services 和 Bitbucket。 对于 FTP 和本地 Git 部署，需在服务器上配置一个部署用户，用于对部署进行身份验证。 
+在本教程的前面部分，已在 _config/env/production.js_ 中硬编码了数据库连接字符串。 为遵循最佳安全实践，建议将这些敏感数据保留在 Git 存储库之外。 对于在 Azure 中运行的应用，需改用环境变量。
 
-使用 [az appservice web deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user#set) 命令创建帐户级别的凭据。 
+在应用服务中，使用 [az webapp config appsettings update](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#update) 命令将环境变量设置为_应用设置_。 
 
-> [!NOTE] 
-> 在应用服务中进行 FTP 和本地 Git 部署时需要一个部署用户。 此部署用户是帐户级用户。 因此，它不同于 Azure 订阅帐户。 只需创建此部署用户一次。
+以下示例在 Azure Web 应用中配置 `MONGODB_URI` 应用设置。 替换 \<app_name>、\<cosmosdb_name> 和 \<primary_master_key> 占位符。
 
 ```azurecli
-az appservice web deployment user set --user-name <specify-a-username> --password <mininum-8-char-captital-lowercase-number>
+az webapp config appsettings update \
+    --name <app_name> \
+    --resource-group myResourceGroup \
+    --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.cn:10250/mean?ssl=true"
 ```
 
-使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) 命令配置对 Azure Web 应用的本地 Git 访问。 
+在 Node.js 代码中，使用 `process.env.MONGODB_URI` 访问此应用设置，如同访问任何环境变量那样。 
+
+现在，使用以下命令撤消对 _config/env/production.js_ 的更改：
+
+```bash
+git checkout -- .
+```
+
+再次打开 _config/env/production.js_。 请注意，默认 MEAN.js 应用已配置为使用所创建的 `MONGODB_URI` 环境变量。
+
+```javascript
+db: {
+  uri: ... || process.env.MONGODB_URI || ...,
+  ...
+},
+```
+
+### 配置本地 Git 部署
+<a id="configure-local-git-deployment" class="xliff"></a> 
+
+使用 [az webapp deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user#set) 命令创建部署凭据。
+
+可以通过不同的方法将应用程序部署到 Azure 应用服务，包括 FTP、本地 Git、GitHub、Visual Studio Team Services 和 BitBucket。 对于 FTP 和本地 Git 部署，需在服务器上配置一个部署用户，用于对部署进行身份验证。 此部署用户是帐户级别并且不同于 Azure 订阅帐户。 只需配置此部署用户一次。
+
+在以下命令中，将 \<user-name> 和 \<password> 替换为新的用户名和密码。 用户名必须唯一。 密码长度必须至少为 8 个字符，其中包含以下 3 种元素中的两种：字母、数字、符号。 如果收到 ` 'Conflict'. Details: 409` 错误，请更改用户名。 如果收到 ` 'Bad Request'. Details: 400` 错误，请使用更强的密码。
 
 ```azurecli
-az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup
+az appservice web deployment user set --user-name <username> --password <password>
+```
+
+记录用户名和密码以便在以后部署应用时使用。
+
+使用 [az webapp deployment source config-local-git](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) 命令以配置对 Azure Web 应用的本地 Git 访问。 
+
+```azurecli
+az webapp deployment source config-local-git --name <app_name> --resource-group myResourceGroup
 ```
 
 配置部署用户后，Azure CLI 将使用以下格式显示 Azure Web 应用的部署 URL：
@@ -327,7 +401,8 @@ https://<username>@<app_name>.scm.chinacloudsites.cn:443/<app_name>.git
 
 复制终端的输出，因为下一步骤将要用到。 
 
-### <a name="push-to-azure-from-git"></a>从 Git 推送到 Azure
+### 从 Git 推送到 Azure
+<a id="push-to-azure-from-git" class="xliff"></a>
 
 将 Azure 远程功能添加到本地 Git 存储库。 
 
@@ -363,61 +438,211 @@ To https://<app_name>.scm.chinacloudsites.cn/<app_name>.git
  * [new branch]      master -> master
 ``` 
 
-> [!NOTE]
-> 你可能已注意到，部署过程先运行 `npm install`，再运行 [Gulp](http://gulpjs.com/)。 与其他某些 Node.js 应用程序一样，MEAN.js 使用 Gulp 来自动执行部署任务。 具体而言，它使用 Gulp 来缩减和捆绑用于生产的脚本。 在部署过程中，应用服务默认不会运行 Gulp 或 Grunt 任务，因此，此示例存储库的根目录中提供了两个附加文件来启用此功能： 
->
-> - `.deployment` - 此文件告知应用服务要以自定义部署脚本的形式运行 `bash deploy.sh`。
-> - `deploy.sh` - 自定义部署脚本。 查看该文件可以发现，它先运行 `npm install` 和 `bower install`，再运行 `gulp prod`。 
->
-> 可以使用此方法将任何步骤添加到基于 Git 的部署。
->
+你可能已注意到，部署过程先运行 `npm install`，再运行 [Gulp](http://gulpjs.com/)。 应用服务在部署期间不会运行 Gulp 或 Grunt 任务，因此该示例存储库的根目录中有两个额外文件用于启用它： 
 
-### <a name="browse-to-the-azure-web-app"></a>浏览到 Azure Web 应用 
+- _.deployment_ - 此文件告知应用服务将 `bash deploy.sh` 作为自定义部署脚本运行。
+- _deploy.sh_ - 自定义部署脚本。 查看该文件可以发现，它先运行 `npm install` 和 `bower install`，再运行 `gulp prod`。 
+
+可以使用此方法将任何步骤添加到基于 Git 的部署。 无论何时重新启动 Azure Web 应用，应用服务都不会重新运行这些自动化任务。
+
+### 浏览到 Azure Web 应用
+<a id="browse-to-the-azure-web-app" class="xliff"></a> 
+
 使用 Web 浏览器浏览到已部署的 Web 应用。 
 
 ```bash 
 http://<app_name>.chinacloudsites.cn 
 ``` 
 
-在顶部菜单中单击“注册”，然后尝试创建一个虚构的用户。 
+在顶部菜单中单击“注册”，然后创建一个虚构的用户。 
 
-如果上述操作成功并且该应用可自动登录到创建的用户，则表示 Azure 中的 MEAN.js 应用已与 MongoDB (DocumentDB) 数据库建立连接。 
+如果上述操作成功并且该应用可自动登录到创建的用户，则表示 Azure 中的 MEAN.js 应用已与 MongoDB (DocumentDb) 数据库建立连接。 
 
 ![在 Azure 应用服务中运行的 MEAN.js 应用](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-## <a name="step-5---store-sensitive-data-as-environment-variables"></a>步骤 5 - 以环境变量的形式存储敏感数据
+选择“管理员”>“管理文章”以添加一些文章。 
 
-在本教程前面的部分，你已将 MEAN.js 配置文件中的连接字符串硬编码。 实际上，这并不是最佳的安全做法。 当你向 Git 提交更改时，数据库密钥会立即透露给对 Git 存储库拥有读取访问权限的任何人。 在此步骤中，你将了解如何改为存储并访问连接字符串。
+**祝贺你！** 现已在 Azure 应用服务中运行数据驱动的 Node.js 应用。
 
-### <a name="configure-an-environment-variable-in-azure"></a>在 Azure 中配置环境变量
+## 更新数据模型和重新部署
+<a id="update-data-model-and-redeploy" class="xliff"></a>
 
-在应用服务中，使用 [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#update) 命令将环境变量设置为_应用设置_。 
+在此步骤中，将更改 `article` 数据模型，并将其发布至 Azure。
 
-使用以下示例可在 Azure Web 应用中配置 `MONGODB_URI` 应用设置。 请务必按上文所述替换占位符。
+### 更新数据模型
+<a id="update-the-data-model" class="xliff"></a>
 
-```azurecli
-az appservice web config appsettings update --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<documentdb_name>:<primary_maste_key>@<documentdb_name>.documents.azure.cn:10250/mean?ssl=true&sslverifycertificate=false"
-```
+打开 _modules/articles/server/models/article.server.model.js_。
 
-### <a name="access-the-environment-variable-in-nodejs-code"></a>访问 Node.js 代码中的环境变量
-
-在 Node.js 代码中，使用 `process.env.MONGODB_URI` 访问此应用设置，就像访问任何环境变量一样。 
-
-打开 `config/env/production.js` 并将 `db.uri` 设置为此应用设置。 例如：
+在 `ArticleSchema` 中，添加名为 `comment` 的 `String` 类型。 完成后，架构代码应该如下所示：
 
 ```javascript
-db: {
-  uri: process.env.MONGODB_URI,
-  ...
-},
+var ArticleSchema = new Schema({
+  ...,
+  user: {
+    type: Schema.ObjectId,
+    ref: 'User'
+  },
+  comment: {
+    type: String,
+    default: '',
+    trim: true
+  }
+});
 ```
 
-### <a name="push-your-changes-to-azure"></a>将更改推送到 Azure
+### 更新文章代码
+<a id="update-the-articles-code" class="xliff"></a>
 
-接下来，使用 `git push` 命令推送更改。
+更新剩余 `articles` 代码以使用 `comment`。
+
+需修改的文件有五个，分别是服务器控制器以及四个客户端视图。 
+
+打开 _modules/articles/server/controllers/articles.server.controller.js_。
+
+在 `update` 函数中，为 `article.comment` 赋值。 下面的代码显示了完整的 `update` 功能：
+
+```javascript
+exports.update = function (req, res) {
+  var article = req.article;
+
+  article.title = req.body.title;
+  article.content = req.body.content;
+  article.comment = req.body.comment;
+
+  ...
+};
+```
+
+打开 _modules/articles/client/views/view-article.client.view.html_。
+
+在 `</section>` 结尾标记正上方，添加下列行以显示 `comment` 和其余文章数据：
+
+```HTML
+<p class="lead" ng-bind="vm.article.comment"></p>
+```
+
+打开 _modules/articles/client/views/list-articles.client.view.html_。
+
+在 `</a>` 结尾标记正上方，添加下列行以显示 `comment` 和其余文章数据：
+
+```HTML
+<p class="list-group-item-text" ng-bind="article.comment"></p>
+```
+
+打开 _modules/articles/client/views/admin/list-articles.client.view.html_。
+
+在 `<div class="list-group">` 元素内，以及 `</a>` 结尾标记正上方，添加下列行以显示 `comment` 和其余文章数据：
+
+```HTML
+<p class="list-group-item-text" data-ng-bind="article.comment"></p>
+```
+
+打开 _modules/articles/client/views/admin/form-article.client.view.html_。
+
+查找包含提交按钮的 `<div class="form-group">` 元素，如下所示：
+
+```HTML
+<div class="form-group">
+  <button type="submit" class="btn btn-default">{{vm.article._id ? 'Update' : 'Create'}}</button>
+</div>
+```
+
+在此标记的正上方，添加另一个 `<div class="form-group">` 元素，它允许人们编辑 `comment` 字段。 新元素应如下所示：
+
+```HTML
+<div class="form-group">
+  <label class="control-label" for="comment">Comment</label>
+  <textarea name="comment" data-ng-model="vm.article.comment" id="comment" class="form-control" cols="30" rows="10" placeholder="Comment"></textarea>
+</div>
+```
+
+### 在本地测试更改
+<a id="test-your-changes-locally" class="xliff"></a>
+
+保存所有更改。
+
+再次在生产模式下测试更改。
 
 ```bash
+gulp prod
+NODE_ENV=production node server.js
+```
+
+> [!NOTE]
+> 请记住 _config/env/production.js_ 已还原，且仅在 Azure Web 应用中设置了 `MONGODB_URI` 环境变量，而未在本地计算机中设置。 看一看配置文件，将发现生产配置默认使用本地 MongoDB 数据库。 这可确保在本地测试代码更改时，不会接触生产数据。
+
+在浏览器中导航至 `http://localhost:8443`，并确保已登录。
+
+选择“管理员”>“管理文章” ，然后选择“+” 按钮以添加文章。
+
+现在可看到新 `Comment` 文本框。
+
+![已向文章添加注释字段](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field.png)
+
+在终端中，通过键入 Ctrl+C 停止 Node.js。 
+
+### 发布对 Azure 所做的更改
+<a id="publish-changes-to-azure" class="xliff"></a>
+
+提交在 Git 中所做的更改，然后将代码更改推送到 Azure。
+
+```bash
+git commit -am "added article comment"
 git push azure master
 ```
 
-现在，你的 Azure Web 应用将会访问此环境变量（代表该应用的 MongoDB 连接字符串）。
+一旦 `git push` 完成，请导航至 Azure Web 应用，然后尝试新功能。
+
+![发布到 Azure 的模型和数据库更改](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
+
+如果先前添加过任何文章，现在仍能看到它们。 Cosmos DB 中的现有数据没有丢失。 同时，对数据架构的更新和现有数据都将保持不变。
+
+## 流式传输诊断日志
+<a id="stream-diagnostic-logs" class="xliff"></a> 
+
+当 Node.js 应用程序在 Azure 应用服务中运行时，可以将控制台日志传输到终端。 这样可以获得相同的诊断消息，以帮助调试应用程序错误。
+
+若要启动日志流式处理，请使用 [az webapp log tail](https://docs.microsoft.com/cli/azure/webapp/log#tail) 命令。
+
+```azurecli
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+``` 
+
+启动日志流式处理后，请立即在浏览器中刷新 Azure Web 应用，以获取一些 Web 通信流。 现在能看到控制台日志传送到终端。
+
+通过键入 Ctrl+C，随时停止日志流式处理。 
+
+## 管理 Azure Web 应用
+<a id="manage-your-azure-web-app" class="xliff"></a>
+
+转到 [Azure 门户](https://portal.azure.cn)查看已创建的 Web 应用。
+
+从左侧菜单中单击“应用服务”，然后单击 Azure Web 应用的名称。
+
+![在门户中导航到 Azure Web 应用](./media/app-service-web-tutorial-nodejs-mongodb-app/access-portal.png)
+
+默认情况下，门户将显示 Web 应用的“概述”页。 在此页中可以查看应用的运行状况。 在此处还可以执行基本的管理任务，例如浏览、停止、启动、重新启动和删除。 页面左侧的选项卡显示可以打开的不同配置页。
+
+![Azure 门户中的应用服务页](./media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
+
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
+<a name="next"></a>
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+
+现已了解：
+
+> [!div class="checklist"]
+> * 在 Azure 中创建 MongoDB 数据库
+> * 将 Node.js 应用连接到 MongoDB
+> * 将应用部署到 Azure
+> * 更新数据模型并重新部署应用
+> * 将日志从 Azure 流式传输到终端
+> * 在 Azure 门户中管理应用
+
+转到下一教程，了解如何向 Web 应用映射自定义 DNS 名称。
+
+> [!div class="nextstepaction"] 
+> [将现有的自定义 DNS 名称映射到 Azure Web 应用](app-service-web-tutorial-custom-domain.md)

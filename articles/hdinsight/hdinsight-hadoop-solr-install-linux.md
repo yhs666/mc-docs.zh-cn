@@ -17,15 +17,14 @@ ms.topic: article
 origin.date: 04/14/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: eb3391c15c12dda10ac53fce01774e6c9580c3c1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: dd7d3dbe443a5ee0b4414a9beffc8eb59572ba78
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Solr
+# 在 HDInsight Hadoop 群集上安装并使用 Solr
+<a id="install-and-use-solr-on-hdinsight-hadoop-clusters" class="xliff"></a>
 
 了解如何使用脚本操作在 Azure HDInsight 上安装 Solr。 Solr 是一种功能强大的搜索平台，提供了企业级搜索功能，用于搜索由 Hadoop 管理的数据。
 
@@ -44,7 +43,8 @@ ms.lasthandoff: 04/28/2017
 >
 > 自定义组件（如 Solr）可获得合理范围的支持，以帮助进一步排查问题。 Azure.cn 支持可能无法解决与自定义组件有关的问题。 用户可能需要寻求开源社区的帮助。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
 
-## <a name="what-the-script-does"></a>脚本功能
+## 脚本功能
+<a id="what-the-script-does" class="xliff"></a>
 
 此脚本对 HDInsight 群集进行以下更改：
 
@@ -63,12 +63,12 @@ ms.lasthandoff: 04/28/2017
 
 1. 在“群集摘要”边栏选项卡中，选择“高级设置”，然后选择“脚本操作”。 使用以下信息填充表格：
 
-    * **名称**：输入脚本操作的友好名称。
-    * **脚本 URI**：https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
-    * **标头**：选中此选项
-    * **辅助角色**：选中此选项
-    * **ZOOKEEPER**：选中此选项以在 Zookeeper 节点上安装
-    * **参数**：将此字段留空
+   * **名称**：输入脚本操作的友好名称。
+   * **脚本 URI**：https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+   * **标头**：选中此选项
+   * **辅助角色**：选中此选项
+   * **ZOOKEEPER**：选中此选项以在 Zookeeper 节点上安装
+   * **参数**：将此字段留空
 
 2. 在“脚本操作”边栏选项卡底部，使用“选择”按钮保存配置。 最后，使用“下一步”按钮返回到“群集摘要”
 
@@ -79,7 +79,8 @@ ms.lasthandoff: 04/28/2017
 > [!IMPORTANT]
 > 本节中的步骤将演示基本 Solr 功能。 有关使用 Solr 的详细信息，请参阅 [Apache Solr 站点](http://lucene.apache.org/solr/)。
 
-### <a name="index-data"></a>索引数据
+### 索引数据
+<a id="index-data" class="xliff"></a>
 
 使用以下步骤将示例数据添加到 Solr，然后查询该数据：
 
@@ -173,7 +174,8 @@ ms.lasthandoff: 04/28/2017
                 ]
               }
 
-### <a name="using-the-solr-dashboard"></a>使用 Solr 仪表板
+### 使用 Solr 仪表板
+<a id="using-the-solr-dashboard" class="xliff"></a>
 
 Solr 仪表板是一个 Web UI，可让你通过 Web 浏览器使用 Solr。 Solr 仪表板不会直接从 HDInsight 群集公开到 Internet。 可以使用 SSH 隧道访问该仪表板。 有关使用 SSH 隧道的详细信息，请参阅[将 SSH 隧道与 HDInsight 配合使用](hdinsight-linux-ambari-ssh-tunnel.md)文档。
 
@@ -181,11 +183,11 @@ Solr 仪表板是一个 Web UI，可让你通过 Web 浏览器使用 Solr。 Sol
 
 1. 确定主头节点的主机名：
 
-    1. 使用 SSH 连接到群集头节点。 例如，`ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`。
+   1. 使用 SSH 连接到群集头节点。 例如，`ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`。
 
-        有关使用 SSH 的详细信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
+       有关使用 SSH 的详细信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-    2. 使用以下命令获取完全限定的主机名：
+   2. 使用以下命令获取完全限定的主机名：
 
         ```bash
         hostname -f
@@ -207,15 +209,16 @@ Solr 仪表板是一个 Web UI，可让你通过 Web 浏览器使用 Solr。 Sol
 
 4. 从 **collection1** 下面的条目中选择“查询”。 使用以下值来填充搜索页：
 
-    * 在 **q** 文本框中，输入 **\*:**\*。 此查询返回所有已在 Solr 中编制索引的文档。 如果要在文档中搜索特定字符串，则可以在此处输入该字符串。
-    * 在 **wt** 文本框中，选择输出格式。 默认值为 **json**。
+   * 在 **q** 文本框中，输入 **\*:**\*。 此查询返回所有已在 Solr 中编制索引的文档。 如果要在文档中搜索特定字符串，则可以在此处输入该字符串。
+   * 在 **wt** 文本框中，选择输出格式。 默认值为 **json**。
 
-    最后，选择搜索页面底部的“执行查询”按钮。
+     最后，选择搜索页面底部的“执行查询”按钮。
 
-    ![使用脚本操作自定义群集](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
+     ![使用脚本操作自定义群集](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
 
-    输出返回之前已添加到索引的两个文档。 输出类似于以下 JSON 文档：
+     输出返回之前已添加到索引的两个文档。 输出类似于以下 JSON 文档：
 
+    ```
            "response": {
                "numFound": 2,
                "start": 0,
@@ -267,8 +270,10 @@ Solr 仪表板是一个 Web UI，可让你通过 Web 浏览器使用 Solr。 Sol
                  }
                ]
              }
+    ```
 
-### <a name="starting-and-stopping-solr"></a>启动和停止 Solr
+### 启动和停止 Solr
+<a id="starting-and-stopping-solr" class="xliff"></a>
 
 使用以下命令手动停止和启动 Solr：
 
@@ -277,7 +282,8 @@ sudo stop solr
 sudo start solr
 ```
 
-## <a name="backup-indexed-data"></a>备份已编制索引的数据
+## 备份已编制索引的数据
+<a id="backup-indexed-data" class="xliff"></a>
 
 使用以下步骤，将 Solr 数据备份到群集的默认存储：
 
@@ -322,11 +328,11 @@ sudo start solr
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 * [在 HDInsight 群集上安装 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 使用群集自定义在 HDInsight Hadoop 群集上安装 Giraph。 Giraph 可让你通过使用 Hadoop 执行图形处理，并可以在 Azure HDInsight 上使用。
 
 * [在 HDInsight 群集上安装 Hue](hdinsight-hadoop-hue-linux.md)。 使用群集自定义在 HDInsight Hadoop 群集上安装 Hue。 Hue 是用来与 Hadoop 群集交互的一系列 Web 应用程序。
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-

@@ -17,23 +17,23 @@ ms.workload: big-data
 origin.date: 04/26/2016
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 0eac1d08102d4c1839849a9a2b090401e0960ba0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 0b4b6fe8f91a54c9add7adfbbf6a45ddfc03abb0
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="optimize-hive-queries-in-azure-hdinsight"></a>优化 Azure HDInsight 中的 Hive 查询
+# 优化 Azure HDInsight 中的 Hive 查询
+<a id="optimize-hive-queries-in-azure-hdinsight" class="xliff"></a>
 
 默认情况下，不会为了性能而优化 Hadoop 群集。 本文介绍可应用于查询的一些最常见 Hive 性能优化方法。
 
-## <a name="scale-out-worker-nodes"></a>向外缩放辅助节点
+## 向外缩放辅助节点
+<a id="scale-out-worker-nodes" class="xliff"></a>
 
 增加群集中的辅助节点数目，即可利用更多并行运行的映射器和化简器。 在 HDInsight 中，可通过两种方式增加扩大的数目：
 
-* 在预配时，可以使用 Azure 门户、Azure PowerShell 或跨平台命令行界面指定辅助节点的数目。  有关详细信息，请参阅[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。 以下屏幕截图显示了 Azure 门户上的辅助节点配置：
+* 在预配时，可以使用 Azure 门户、Azure PowerShell 或跨平台命令行接口指定工作节点的数目。  有关详细信息，请参阅[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。 以下屏幕截图显示了 Azure 门户上的工作节点配置：
 
     ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
 * 在运行时，也可以扩大群集，而无需重新创建群集：
@@ -42,7 +42,8 @@ ms.lasthandoff: 05/26/2017
 
 有关 HDInsight 支持的不同虚拟机的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
-## <a name="enable-tez"></a>启用 Tez
+## 启用 Tez
+<a id="enable-tez" class="xliff"></a>
 
 [Apache Tez](http://hortonworks.com/hadoop/tez/) 是 MapReduce 引擎的替代执行引擎：
 
@@ -64,7 +65,8 @@ Tez 速度更快，因为：
 
 基于 Linux 的 HDInsight 群集在默认情况下会启用 Tez。
 
-## <a name="hive-partitioning"></a>Hive 分区
+## Hive 分区
+<a id="hive-partitioning" class="xliff"></a>
 
 I/O 操作是运行 Hive 查询的主要性能瓶颈。 如果可以减少需要读取的数据量，即可改善性能。 默认情况下，Hive 查询会扫描整个 Hive 表。 这非常适合表扫描之类的查询。 但是，对于只需扫描少量数据的查询（例如，使用筛选进行查询），此行为会产生不必要的开销。 使用 Hive 分区，Hive 查询只需访问 Hive 表中必要的数据量。
 
@@ -114,7 +116,8 @@ Hive 分区的实现方法是将原始数据刷新成新的目录，而每个分
 
 有关更多详细信息，请参阅 [分区表](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables)。
 
-## <a name="use-the-orcfile-format"></a>使用 ORCFile 格式
+## 使用 ORCFile 格式
+<a id="use-the-orcfile-format" class="xliff"></a>
 Hive 支持不同的文件格式。 例如：
 
 * **文本**：这是默认的文件格式，适用于大多数情况
@@ -162,7 +165,8 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其�
 
 可在 [此处](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC)阅读有关 ORC 格式的详细信息。
 
-## <a name="vectorization"></a>向量化
+## 向量化
+<a id="vectorization" class="xliff"></a>
 
 向量化可让 Hive 以批的形式同时处理 1024 行，而不是一次处理一行。 这意味着，简单的操作可以更快地完成，因为需要运行的内部代码更少。
 
@@ -172,14 +176,16 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其�
 
 有关详细信息，请参阅 [向量化查询执行](https://cwiki.apache.org/confluence/display/Hive/Vectorized+Query+Execution)。
 
-## <a name="other-optimization-methods"></a>其他优化方法
+## 其他优化方法
+<a id="other-optimization-methods" class="xliff"></a>
 还可以考虑使用其他一些高级优化方法，例如：
 
 * **Hive 装桶：** 将大型数据集群集化或分段以优化查询性能的技术。
 * **联接优化：** Hive 的查询执行计划优化，可改善联接的效率并减少用户提示的需要。 有关详细信息，请参阅 [联接优化](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization)。
 * **增加化简器**。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 在本文中，你学习了几种常见的 Hive 查询优化方法。 要了解更多信息，请参阅下列文章：
 
 * [使用 HDInsight 中的 Apache Hive](hdinsight-use-hive.md)
@@ -191,4 +197,3 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其�
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
-

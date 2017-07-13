@@ -13,14 +13,14 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 263defff47f49c289f9e4c285110e3ef22e91708
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: cb39ebdbfc132896dd54dac32e39a3efd058ca62
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-#<a name="traffic-manager-documentation"></a>流量管理器文档
+#流量管理器文档
+<a id="traffic-manager-documentation" class="xliff"></a>
 
 了解如何使用流量管理器来路由传入流量，以获得最佳应用程序性能和可靠性。 教程、API 参考以及其他文档说明如何管理 Azure 或外部服务终结点的流量。
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 05/12/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>使用 Azure 门户管理流量管理器终结点入门</h3>
+                        <h3>开始使用 Azure 门户管理流量管理器终结点</h3>
                     </div>
                 </div>
             </div>

@@ -14,45 +14,48 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/01/2017
-ms.date: 04/17/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: 1a5a4a2b0addd26dab5da2ae6892cb0119b02bca
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: 74f317135d6afd097f4afe1e7180b31fbbd6b2bc
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>使用 C# 和 Resource Manager 模板部署 Azure 虚拟机
+# 使用 C# 和 Resource Manager 模板部署 Azure 虚拟机
+<a id="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template" class="xliff"></a>
 本文介绍如何使用 C# 部署 Azure Resource Manager 模板。 此[模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json)在包含单个子网的新虚拟网络中部署运行 Windows Server 的单个虚拟机。
 
-有关虚拟机资源的详细说明，请参阅 [Azure Resource Manager 模板中的虚拟机](template-description.md)。
+有关虚拟机资源的详细说明，请参阅 [Azure Resource Manager 模板中的虚拟机](template-description.md)。 有关模板中所有资源的详细信息，请参阅 [Azure Resource Manager 模板演练](../../azure-resource-manager/resource-manager-template-walkthrough.md)。
 
 完成这些步骤大约需要 10 分钟。
 
-## <a name="step-1-create-a-visual-studio-project"></a>步骤 1：创建 Visual Studio 项目
+## 步骤 1：创建 Visual Studio 项目
+<a id="step-1-create-a-visual-studio-project" class="xliff"></a>
 
 在此步骤中，请确保已安装 Visual Studio 并已创建用于部署模板的控制台应用程序。
 
 1. 如果尚未安装，请安装 [Visual Studio](https://www.visualstudio.com/)。
 2. 在 Visual Studio 中，单击“文件” > “新建” > “项目”。
-3. 在“模板” > “Visual C#”中，选择“控制台应用程序”，输入项目的名称和位置，然后单击“确定”。
+3. 在“模板” > “Visual C#”中，选择“控制台应用(.NET Framework)”，输入项目的名称和位置，然后单击“确定”。
 
-## <a name="step-2-install-libraries"></a>步骤 2：安装库
+## 步骤 2：安装库
+<a id="step-2-install-libraries" class="xliff"></a>
 
 使用 NuGet 包可以最轻松地安装完成这些步骤所需的库。 需要 Azure Resource Manager 库和 Active Directory 身份验证库以创建资源。 若要在 Visual Studio 中获取这些库，请执行以下步骤：
 
-1. 在解决方案资源管理器中右键单击项目名称，然后依次单击“管理 NuGet 包”和“浏览”。
-2. 在搜索框中键入 *Microsoft.IdentityModel.Clients.ActiveDirectory*，单击“安装”，然后按照说明安装该包。
+1. 在解决方案资源管理器中右键单击项目名称，然后依次单击“管理解决方案的 NuGet 包...”和“浏览”。
+2. 在搜索框中键入“Microsoft.IdentityModel.Clients.ActiveDirectory”，再选择项目，单击“安装”，然后按照说明安装该包。
 3. 在页面顶部，选择“包括预发行版”。 在搜索框中键入 *Microsoft.Azure.Management.ResourceManager*，单击“安装”，然后按照说明安装该包。
 
 现在，你可以开始使用这些库来创建应用程序了。
 
-## <a name="step-3-create-credentials-used-to-authenticate-requests"></a>步骤 3：创建用于对请求进行身份验证的凭据
+## 步骤 3：创建用于对请求进行身份验证的凭据
+<a id="step-3-create-credentials-used-to-authenticate-requests" class="xliff"></a>
 
 在开始此步骤之前，请确保能够访问 [Active Directory 服务主体](../../azure-resource-manager/resource-group-authenticate-service-principal.md)。 从服务主体中，将获取对 Azure Resource Manager 请求进行身份验证的令牌。
 
-1. 打开你为项目创建的 Program.cs 文件，然后在该文件的顶部添加以下 using 语句：
+1. 为所创建的项目打开 Program.cs 文件，然后将这些 using 语句添加到文件顶部的现有语句：
 
     ```
     using Microsoft.Azure;
@@ -68,8 +71,8 @@ ms.lasthandoff: 04/06/2017
     ```
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
-      var cc = new ClientCredential("{client-id}", "{client-secret}");
-      var context = new AuthenticationContext("https://login.chinacloudapi.cn/{tenant-id}");
+      var cc = new ClientCredential("client-id", "client-secret");
+      var context = new AuthenticationContext("https://login.chinacloudapi.cn/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.chinacloudapi.cn/", cc);
       if (token == null)
       {
@@ -81,9 +84,9 @@ ms.lasthandoff: 04/06/2017
 
     替换以下值：
 
-    - 将 *{client-id}* 替换为 Azure Active Directory 应用程序的标识符。 在 AD 应用程序的“属性”边栏选项卡上，可找到此标识符。 若要在 Azure 门户中查找 AD 应用程序，请在资源菜单中单击“Azure Active Directory”，然后单击“应用注册”。
-    - 将 *{client-secret}* 替换为 AD 应用程序的访问密钥。 在 AD 应用程序的“属性”边栏选项卡上，可找到此标识符。
-    - 将 *{tenant-id}* 替换为订阅的租户标识符。 在 Azure 门户中 Azure Active Directory 的“属性”边栏选项卡上，可找到租户标识符。 它被标记为目录 ID。
+    - 将 client-id 替换为 Azure Active Directory 应用程序的标识符。 在 AD 应用程序的“属性”边栏选项卡上，可找到此标识符。 若要在 Azure 门户中查找 AD 应用程序，请在“资源”菜单中单击“Azure Active Directory”，然后单击“应用注册”。
+    - 将 client-secret 替换为 AD 应用程序的访问密钥。 在 AD 应用程序的“属性”边栏选项卡上，可找到此标识符。
+    - 将 tenant-id 替换为订阅的租户标识符。 在 Azure 门户中 Azure Active Directory 的“属性”边栏选项卡上，可找到租户标识符。 它被标记为目录 ID。
 
 3. 若要调用刚刚添加的方法，请将以下代码添加到 Main 方法：
 
@@ -94,7 +97,8 @@ ms.lasthandoff: 04/06/2017
 
 4. 保存 Program.cs 文件。
 
-## <a name="step-4-create-a-resource-group"></a>步骤 4：创建资源组
+## 步骤 4：创建资源组
+<a id="step-4-create-a-resource-group" class="xliff"></a>
 
 虽然可以从模板创建资源组，但是未使用库中的模板创建资源组。 在此步骤中，添加代码来创建资源组。
 
@@ -103,7 +107,7 @@ ms.lasthandoff: 04/06/2017
     ```
     var groupName = "myResourceGroup";
     var subscriptionId = "subsciptionId";
-    var deploymentName = "deploymentName;
+    var deploymentName = "deploymentName";
     var location = "location";
     ```
 
@@ -146,7 +150,8 @@ ms.lasthandoff: 04/06/2017
     Console.ReadLine();
     ```
 
-## <a name="step-5-create-a-parameters-file"></a>步骤 5：创建参数文件
+## 步骤 5：创建参数文件
+<a id="step-5-create-a-parameters-file" class="xliff"></a>
 
 若要为模板中定义的资源参数指定值，请创建包含值的参数文件。 部署模板时使用参数文件。 从库中使用的模板需要 adminUserName、adminPassword 和dnsLabelPrefix 参数的值。
 
@@ -172,7 +177,8 @@ ms.lasthandoff: 04/06/2017
 
 4. 保存 Parameters.json 文件。
 
-## <a name="step-6-deploy-a-template"></a>步骤 6：部署模板
+## 步骤 6：部署模板
+<a id="step-6-deploy-a-template" class="xliff"></a>
 
 在本示例中，从 Azure 模板库中部署模板，并使用创建的本地文件向此模板提供参数值。 
 
@@ -220,36 +226,38 @@ ms.lasthandoff: 04/06/2017
     Console.ReadLine();
     ```
 
-## <a name="step-7-delete-the-resources"></a>步骤 7：删除资源
+## 步骤 7：删除资源
+<a id="step-7-delete-the-resources" class="xliff"></a>
 
 由于需要为 Azure 中使用的资源付费，因此，删除不再需要的资源总是一种良好的做法。 你不需要从资源组中分别删除每个资源， 删除资源组就会自动删除其所有资源。
 
 1. 若要删除资源组，请将此方法添加到 Program 类：
 
-    ```
-    public static async void DeleteResourceGroupAsync(
-      TokenCredentials credential,
-      string groupName,
-      string subscriptionId)
-    {
-      Console.WriteLine("Deleting resource group...");
-      var resourceManagementClient = new ResourceManagementClient(new Uri("https://management.chinacloudapi.cn/"), credential)
-        { SubscriptionId = subscriptionId };
-      await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-    }
-    ```
+   ```
+   public static async void DeleteResourceGroupAsync(
+     TokenCredentials credential,
+     string groupName,
+     string subscriptionId)
+   {
+     Console.WriteLine("Deleting resource group...");
+     var resourceManagementClient = new ResourceManagementClient(new Uri("https://management.chinacloudapi.cn/"), credential)
+       { SubscriptionId = subscriptionId };
+     await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
+   }
+   ```
 
 2. 若要调用刚刚添加的方法，请将以下代码添加到 Main 方法：
 
-    ```
-    DeleteResourceGroupAsync(
-      credential,
-      groupName,
-      subscriptionId);
-    Console.ReadLine();
-    ```
+   ```
+   DeleteResourceGroupAsync(
+     credential,
+     groupName,
+     subscriptionId);
+   Console.ReadLine();
+   ```
 
-## <a name="step-8-run-the-console-application"></a>步骤 8：运行控制台应用程序
+## 步骤 8：运行控制台应用程序
+<a id="step-8-run-the-console-application" class="xliff"></a>
 
 控制台应用程序从头到尾完成运行大约需要五分钟时间。 
 
@@ -257,11 +265,12 @@ ms.lasthandoff: 04/06/2017
 
 2. 显示“已成功”状态后按 **Enter**。 
 
-    还可以在 Azure 门户中资源组的“概览”边栏选项卡上的“部署”下面看到“1 个成功”。
+    还可以在 Azure 门户中资源组的“概述”边栏选项卡上的“部署”下面看到“1 个成功”。
 
-3. 在按 **Enter** 开始删除资源之前，可能需要在 Azure 门户中花几分钟时间来验证资源的创建。 单击部署状态以查看有关部署的信息。
+3. 在按 **Enter** 开始删除资源之前，可能需要在 Azure 门户中花几分钟时间来验证这些资源是否已创建。 单击部署状态以查看有关部署的信息。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * 如果部署出现问题，后续措施是参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](../../azure-resource-manager/resource-manager-common-deployment-errors.md)。
 * 若要了解如何部署虚拟机及其支持的资源，请查看[使用 C# 部署 Azure 虚拟机](csharp.md)。
 * 查看[使用 Azure Resource Manager 和 C# 管理 Azure 虚拟机](csharp-manage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，了解如何管理创建的虚拟机。

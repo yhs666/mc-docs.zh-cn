@@ -13,23 +13,22 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 03/01/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: ece1ad3aab56f7f2dcf5876ee031d09452f5732c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: ddc8424d97f401b27377acb1f85504d7df015970
+ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-# <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-ftp"></a>使用 FTP 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用
+# 使用 FTP 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用
+<a id="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-ftp" class="xliff"></a>
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 本教程演示如何创建 PHP-MySQL Web 应用以及如何使用 FTP 部署该应用。 本教程假定你已在计算机上安装 [PHP][install-php]、[MySQL][install-mysql]、Web 服务器和 FTP 客户端。 本教程中的说明适用于任何操作系统，包括 Windows、Mac 和 Linux。 完成本指南之后，将获得一个在 Azure 中运行的 PHP/MySQL Web 应用。
 
-学习内容：
+你将学习以下内容：
 
 * 如何使用 Azure 门户创建 Web 应用和 MySQL 数据库。 由于 Web 应用已默认启用 PHP，因此运行 PHP 代码没有任何特殊要求。
 * 如何使用 FTP 将应用程序发布到 Azure。
@@ -38,22 +37,27 @@ ms.lasthandoff: 05/19/2017
 
 ![Azure PHP 网站][running-app]
 
-## <a name="create-a-web-app-and-set-up-ftp-publishing"></a>创建 Web 应用并设置 FTP 发布
+## 创建 Web 应用并设置 FTP 发布
+<a id="create-a-web-app-and-set-up-ftp-publishing" class="xliff"></a>
 按照以下步骤创建 Web 应用和 MySQL 数据库：
 
 1. 登录到 [Azure 门户][management-portal]。
-2. 单击 Azure 门户左上角的“+ 新建”图标。
+2. 单击 Azure 门户左上角的“+ 新建”  图标。
 
     ![创建新的 Azure 网站][new-website]
 3. 在搜索中键入“Web 应用”，然后单击“Web 应用”。
 4. 单击“创建” 。 为资源组和新的服务计划输入唯一且有效的应用服务名称。
-6. 登录到 [Azure 经典管理门户](https://manage.windowsazure.cn)，创建 MYSQL，然后在 MYSQL 的仪表板中获取 Web 应用的连接字符串。
-1. 在 [Azure 经典管理门户](https://manage.windowsazure.cn/)中找到你的应用，然后单击“速览”下的“仪表板” > “重置部署凭据”，为应用设置部署凭据。
+5. 创建 MYSQL，然后在 MYSQL 的仪表板中获取 Web 应用的连接字符串。
+6. 创建 Web 应用后，用户将看到新的应用服务边栏选项卡。
+7. 单击“设置” > “部署凭据”。 
+
+    ![设置部署凭据][set-deployment-credentials]
 8. 若要启用 FTP 发布，必须提供用户名和密码。 保存凭据并记下创建的用户名和密码。
 
     ![创建发布凭据][portal-ftp-username-password]
 
-## <a name="build-and-test-your-app-locally"></a>在本地生成并测试应用
+## 在本地生成并测试应用
+<a id="build-and-test-your-app-locally" class="xliff"></a>
 注册应用程序是一个简单的 PHP 应用程序，在该应用程序中提供姓名和电子邮件地址即可注册事件。 以前的注册者的信息将显示在表中。 注册信息存储在 MySQL 数据库中。 该应用由两个文件组成：
 
 * **index.php**：显示注册形式及包含注册者信息的表。
@@ -90,10 +94,10 @@ ms.lasthandoff: 05/19/2017
         echo "<h3>Table created.</h3>";
         ?>
 
-    > [!NOTE]
-    > 需要使用本地 MySQL 用户名和密码更新 <code>$user</code> 和 <code>$pwd</code> 的值。
-    > 
-    > 
+   > [!NOTE]
+   > 需要使用本地 MySQL 用户名和密码更新 <code>$user</code> 和 <code>$pwd</code> 的值。
+   > 
+   > 
 4. 打开 Web 浏览器并浏览到 [http://localhost/registration/createtable.php][localhost-createtable]。 这将在数据库中创建 `registration_tbl` 表。
 5. 在文本编辑器或 IDE 中打开 **index.php** 文件，并为页面添加基本 HTML 和 CSS 代码（将在后续步骤中添加 PHP 代码）。
 
@@ -143,10 +147,10 @@ ms.lasthandoff: 05/19/2017
             die(var_dump($e));
         }
 
-    > [!NOTE]
-    > 同样，将需要使用本地 MySQL 用户名和密码更新 <code>$user</code> 和 <code>$pwd</code> 的值。
-    > 
-    > 
+   > [!NOTE]
+   > 同样，需要使用本地 MySQL 用户名和密码更新 <code>$user</code> 和 <code>$pwd</code> 的值。
+   > 
+   > 
 7. 在数据库连接代码后面添加用于将注册信息插入数据库的代码。
 
         if(!empty($_POST)) {
@@ -191,34 +195,18 @@ ms.lasthandoff: 05/19/2017
 
 你现在可以浏览到 [http://localhost/registration/index.php][localhost-index] 来测试应用。
 
-## <a name="get-mysql-and-ftp-connection-information"></a>获取 MySQL 和 FTP 连接信息
+## 获取 MySQL 和 FTP 连接信息
+<a id="get-mysql-and-ftp-connection-information" class="xliff"></a>
 若要连接到正在 Web 应用中运行的 MySQL 数据库，你将需要连接信息。 若要获取 MySQL 连接信息，请按照以下步骤操作：
 
-1. 在应用服务 Web 应用边栏选项卡中，单击资源组链接：
+1. 在 Azure 经典管理门户中，单击“AZURE 上的 MYSQL 数据库” ，并打开 MYSQL 数据库服务器。 在“仪表板”页上的“速览”下，可以获取主机和端口。
+2. 在“帐户”页中，可以获取所有用户 Id，并重置密码。
+3. 在“数据库”  页中，可以获取此 MYSQL 数据库服务器下的所有数据库。
 
-    ![选择资源组][select-resourcegroup]
-2. 在资源组中单击数据库：
+    数据源将为 `<your MYSQL server name>.database.chinacloudapi.cn`
 
-    ![选择数据库][select-database]
-3. 在数据库摘要中，选择“设置” > “属性”。
-
-    ![选择属性][select-properties]
-4. 记下 `Database`、`Host`、`User Id` 和 `Password` 的值。
-
-    ![记下属性][note-properties]
-5. 从 Web 应用的仪表板中，单击页面右下角的“下载发布配置文件”链接： 
-
-    ![下载发布配置文件][download-publish-profile]
-6. 在 XML 编辑器中打开 `.publishsettings` 文件。 
-7. 查找带有 `publishMethod="FTP"` 的 `<publishProfile >` 元素，该元素与以下内容类似：
-
-        <publishProfile publishMethod="FTP" publishUrl="ftp://[mysite].chinacloudsites.cn/site/wwwroot" ftpPassiveMode="True" userName="[username]" userPWD="[password]" destinationAppUrl="http://[name].chinacloudsites.cn" 
-            ...
-        </publishProfile>
-
-记下 `publishUrl`、`userName` 和 `userPWD` 属性。
-
-## <a name="publish-your-app"></a>发布应用
+## 发布应用
+<a id="publish-your-app" class="xliff"></a>
 在本地测试你的应用之后，你可以使用 FTP 将其发布到 Web 应用。 但是，首先需要更新应用程序中的数据库连接信息。 使用之前获取的数据库连接信息（在“获取 MySQL 和 FTP 连接信息”部分中），使用适当的值在 `createdatabase.php` 和 `index.php` 文件中更新以下信息：
 
     // DB connection info
@@ -238,7 +226,8 @@ ms.lasthandoff: 05/19/2017
 
 上传 `index.php` 和 `createtable.php` 之后，浏览到 **http://[site name].chinacloudsites.cn/createtable.php** 以创建用于应用程序的 MySQL 表，然后浏览到 **http://[site name].chinacloudsites.cn/index.php** 以开始使用应用程序。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 有关详细信息，请参阅 [PHP 开发人员中心](/develop/php/)。
 
 [install-php]: http://www.php.net/manual/en/install.php

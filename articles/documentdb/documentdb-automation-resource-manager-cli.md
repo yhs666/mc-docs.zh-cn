@@ -1,6 +1,6 @@
 ---
-title: "DocumentDB 自动化 - Azure CLI 2.0 | Microsoft Docs"
-description: "使用 Azure CLI 2.0 创建和管理 DocumentDB 帐户。 DocumentDB 是高度可用的全局分布式数据库。"
+title: "DocumentDB 自动化 - Azure CLI 2.0 | Microsoft 文档"
+description: "使用 Azure CLI 2.0 创建和管理 DocumentDB 帐户。 DocumentDB 是高度可用的全球分布式数据库。"
 services: documentdb
 author: dmakwana
 manager: jhubbard
@@ -17,19 +17,19 @@ ms.topic: article
 origin.date: 04/20/2017
 ms.author: v-junlch
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 3451ee67056f741c750136402ccbe6e4b95e25cc
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: 01815aabf9b1b1743defdfbfaa3fbb663ecb7f85
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="create-an-azure-documentdb-account-using-the-azure-cli"></a>使用 Azure CLI 创建 DocumentDB 帐户
-
+# 使用 Azure CLI 创建 DocumentDB 帐户
+<a id="create-a-documentdb-account-using-the-azure-cli" class="xliff"></a>
 
 以下指南介绍了使用 Azure CLI 2.0 中提供的预览版命令自动管理 DocumentDB 数据库帐户的命令。 它还包括用于管理 [多区域数据库帐户][scaling-globally]的帐户密钥和故障转移优先级的命令。 更新数据库帐户可以修改一致性策略以及添加/删除区域。 对于 DocumentDB 数据库帐户的跨平台管理，可使用 [Azure Powershell](documentdb-manage-account-with-powershell.md)、[资源提供程序 REST API][rp-rest-api] 或 [Azure 门户](documentdb-create-account.md)。
 
-## <a name="getting-started"></a>入门
+## 入门
+<a id="getting-started" class="xliff"></a>
 
 按照[如何安装和配置 Azure CLI 2.0][install-az-cli2] 中的说明使用 Azure CLI 2.0 设置开发环境。
 
@@ -46,14 +46,16 @@ az group create --name <resourcegroupname> --location <resourcegrouplocation>
 az group list
 ```
 
-`<resourcegrouplocation>` 必须是已正式推出 DocumentDB 的区域之一。 [“Azure 区域”页](https://azure.microsoft.com/regions/#services)提供了当前的区域列表。
+`<resourcegrouplocation>` 必须是已正式推出 DocumentDB 的区域之一。 [Azure 区域页面](https://azure.microsoft.com/regions/#services)提供当前的区域列表。
 
-### <a name="notes"></a>说明
+### 说明
+<a id="notes" class="xliff"></a>
 
 - 执行“az documentdb -h”可获取可用命令的完整列表，或访问[参考页][az-documentdb-ref]。
 - 执行“az documentdb &lt;命令&gt; -h”可获取每个命令的必需和可选参数的详细信息列表。
 
-## <a name="register-your-subscription-to-use-azure-documentdb"></a>注册可使用 DocumentDB 的订阅
+## 注册可使用 DocumentDB 的订阅
+<a id="register-your-subscription-to-use-documentdb" class="xliff"></a>
 
 此命令通过 CLI 注册可使用 DocumentDB 的订阅。
 
@@ -107,8 +109,9 @@ az documentdb create -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.
 az documentdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
 ```
 
-### <a name="notes"></a>说明 
-- 这些位置必须是已正式推出 DocumentDB 的区域。 [“Azure 区域”页](https://azure.microsoft.com/regions/#services)提供了当前的区域列表。
+### 说明
+<a id="notes" class="xliff"></a> 
+- 位置必须是已正式推出 DocumentDB 的区域。 [Azure 区域页面](https://azure.microsoft.com/regions/#services)提供当前的区域列表。
 - 若要启用门户访问，请在 ip-range-filter 中包含你所在区域的 Azure 门户的 IP 地址（按照[配置 IP 访问控制策略](documentdb-firewall-support.md#configure-ip-policy)中的指定）。
 
 ## <a id="update-documentdb-account-cli"></a> 更新 DocumentDB 数据库帐户
@@ -189,7 +192,7 @@ Arguments
 
 ## <a id="list-account-keys-cli"></a> 列出帐户密钥
 
-当创建 DocumentDB 帐户时，服务生成两个主访问密钥，用于访问 DocumentDB 帐户时的身份验证。 DocumentDB 提供两个访问密钥是为了让你在不中断 DocumentDB 帐户连接的情况下重新生成密钥。 还提供用于对只读操作进行身份验证的只读密钥。 有两个读写密钥（主密钥和辅助密钥）和两个只读密钥（主密钥和辅助密钥）。
+当你创建 DocumentDB 帐户时，服务生成两个主访问密钥，用于访问 DocumentDB 帐户时的身份验证。 通过提供两个访问密钥，DocumentDB 允许你在不中断 DocumentDB 帐户连接的情况下重新生成密钥。 还提供用于对只读操作进行身份验证的只读密钥。 有两个读写密钥（主密钥和辅助密钥）和两个只读密钥（主密钥和辅助密钥）。
 
 ```
 Arguments
@@ -217,7 +220,7 @@ Arguments
 
 ## <a id="regenerate-account-key-cli"></a> 重新生成帐户密钥
 
-应定期更改 DocumentDB 帐户的访问密钥，加强连接的安全性。 为你分配两个访问密钥是为了让你使用一个访问密钥保持与 DocumentDB 帐户的连接，同时可以重新生成另一个访问密钥。
+你应定期将访问密钥更改为你的 DocumentDB 帐户，使你的连接更安全。 分配了两个访问密钥，你可以使用一个访问密钥保持与 DocumentDB 帐户的连接，同时，你可以重新生成另一个访问密钥。
 
 ```
 Arguments
@@ -231,9 +234,9 @@ Arguments
 
     az documentdb regenerate-key -g rg-test -n docdb-test --key-kind secondary
 
-## <a id="modify-failover-priority-powershell"></a> 修改 DocumentDB 数据库帐户的故障转移优先级
+## <a id="modify-failover-priority-cli"></a> 修改 DocumentDB 数据库帐户的故障转移优先级
 
-对于多区域数据库帐户，可以更改 DocumentDB 数据库帐户所在的各个区域的故障转移优先级。 有关 DocumentDB 数据库帐户中的故障转移的详细信息，请参阅[使用 DocumentDB 来全局分配数据](documentdb-distribute-data-globally.md)。
+对于多区域数据库帐户，可以更改 DocumentDB 数据库帐户所在的各个区域的故障转移优先级。 若要深入了解 DocumentDB 数据库帐户中的故障转移，请参阅[使用 DocumentDB 全局分配数据](documentdb-distribute-data-globally.md)。
 
 ```
 Arguments
@@ -255,5 +258,4 @@ az documentdb failover-priority-change "East US"=1 "West US"=0 "South Central US
 [az-documentdb-ref]: https://docs.microsoft.com/cli/azure/documentdb
 [az-documentdb-create-ref]: https://docs.microsoft.com/cli/azure/documentdb#create
 [rp-rest-api]: https://docs.microsoft.com/rest/api/documentdbresourceprovider/
-
 

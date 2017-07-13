@@ -16,33 +16,35 @@ origin.date: 05/08/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 9748ac9242ce6e73ef95fc03fa25fe0fccf7f826
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 88c8b63655a3c54913c94d96a6ed4ecd4092b29a
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="working-with-geospatial-and-geojson-location-data-in-azure-documentdb"></a>使用 DocumentDB 中的地理空间和 GeoJSON 位置数据
-本文介绍了 [DocumentDB](https://www.azure.cn/home/features/documentdb/) 中的地理空间功能。 在阅读本文之后，你将能够回答以下问题：
+# 使用 DocumentDB 中的地理空间和 GeoJSON 位置数据
+<a id="working-with-geospatial-and-geojson-location-data-in-documentdb" class="xliff"></a>
+本文将介绍 [DocumentDB](https://www.azure.cn/home/features/documentdb/) 中的地理空间功能。 在阅读本文之后，你将能够回答以下问题：
 
 - 如何在 DocumentDB 中存储空间数据？
 - 如何使用 SQL 和 LINQ 查询 DocumentDB 中的地理空间数据？
-- 如何在DocumentDB 中启用或禁用空间索引？
+- 我如何在 DocumentDB 中启用或禁用空间索引？
 
 本文介绍了如何通过 DocumentDB API 使用空间数据。 请参阅此 [GitHub 项目](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)中的代码示例。
 
-## <a name="introduction-to-spatial-data"></a>空间数据简介
+## 空间数据简介
+<a id="introduction-to-spatial-data" class="xliff"></a>
 空间数据用于描述空间中对象的位置和形状。 在大部分应用程序中，这些会对应于地球上的对象，也就是地理空间数据。 空间数据可以用来表示人、名胜古迹、城市边界或湖泊所处的位置。 常见用例通常涉及邻近查询，例如“寻找我目前位置附近的所有咖啡厅”。 
 
-### <a name="geojson"></a>GeoJSON
+### GeoJSON
+<a id="geojson" class="xliff"></a>
 DocumentDB 支持对使用 [GeoJSON 规范](https://tools.ietf.org/html/rfc7946)表示的地理空间点数据进行索引编制和查询。 GeoJSON 数据结构永远是有效的 JSON 对象，因此可以通过 DocumentDB 来存储和查询，无需任何专用的工具或库。 DocumentDB SDK 提供帮助程序类和方法，让空间数据更易使用。 
 
-### <a name="points-linestrings-and-polygons"></a>点、LineString 和多边形
+### 点、LineString 和多边形
+<a id="points-linestrings-and-polygons" class="xliff"></a>
 **点** 代表空间中的单一位置。 在地理空间数据中，某个点所代表的确切位置可能是杂货店、电话亭、汽车或城市的街道地址。  点使用其坐标对或经纬度，以 GeoJSON 格式（和 DocumentDB）表示。 以下是点的 JSON 示例。
 
-DocumentDB 中的点
+**DocumentDB 中的点**
 
 ```json
 {
@@ -60,7 +62,7 @@ DocumentDB 中的点
 
 如下面包含位置数据的用户配置文件示例所示，此数据可以嵌入 DocumentDB 文档中：
 
-存储在 DocumentDB 中包含位置的用户配置文件
+**存储在 DocumentDB 中包含位置的用户配置文件**
 
 ```json
 {
@@ -101,12 +103,14 @@ GeoJSON 中的多边形
 
 除了点、LineString 和多边形之外，GeoJSON 也会针对如何对多个地理空间位置分组以及如何将任意属性与地理位置关联成为**特征**指定表示形式。 由于这些对象都是有效的 JSON，因此均可在 DocumentDB 中存储及处理。 不过，DocumentDB 仅支持自动编制点的索引。
 
-### <a name="coordinate-reference-systems"></a>坐标参考系统
+### 坐标参考系统
+<a id="coordinate-reference-systems" class="xliff"></a>
 由于地球的形状不规则，地理空间数据的坐标可以用许多坐标参考系统 (CRS) 来表示，而这些系统各有自己的参考框架和测量单位。 例如，“英国国家网格”对英国而言是非常精确的参考系统，但对其他地区则不是。 
 
 现今最常使用的 CRS 是世界测地系统 [WGS-84](http://earth-info.nga.mil/GandG/wgs84/)。 GPS 设备和许多地图服务（包括谷歌地图和必应地图 API）均使用 WGS-84。 DocumentDB 仅支持对使用 WGS-84 CRS 的地理空间数据进行索引编制和查询。 
 
-## <a name="creating-documents-with-spatial-data"></a>创建包含空间数据的文档
+## 创建包含空间数据的文档
+<a id="creating-documents-with-spatial-data" class="xliff"></a>
 创建包含 GeoJSON 值的文档时，值会根据集合的索引策略，自动以空间索引进行索引编制。 如果以动态类型化语言（如 Python 或 Node.js）使用 DocumentDB SDK，则必须创建有效的 GeoJSON。
 
 **在 Node.js 中创建包含地理空间数据的文档**
@@ -154,10 +158,12 @@ await client.CreateDocumentAsync(
 
 如果你没有经纬度信息，但有物理地址或位置名称，如城市或国家/地区，则可以使用必应地图 REST 服务等地理编码服务来查找实际的坐标。 在[此处](https://msdn.microsoft.com/library/ff701713.aspx)详细了解必应地图地理编码。
 
-## <a name="querying-spatial-types"></a>查询空间类型
-探讨过如何插入地理空间数据之后，现在来看看如何通过 SQL 和 LINQ 使用 DocumentDB 查询此数据。
+## 查询空间类型
+<a id="querying-spatial-types" class="xliff"></a>
+我们已经探讨过如何插入地理空间数据，现在就来看看如何通过 SQL 和 LINQ 使用 DocumentDB 查询此数据。
 
-### <a name="spatial-sql-built-in-functions"></a>空间 SQL 内置函数
+### 空间 SQL 内置函数
+<a id="spatial-sql-built-in-functions" class="xliff"></a>
 DocumentDB 支持以下用于查询地理空间的开放地理空间信息联盟 (OGC) 内置函数。 有关 SQL 语言中的整套内置函数的更多详细信息，请参阅[查询 DocumentDB](documentdb-sql-query.md)。
 
 <table>
@@ -275,7 +281,8 @@ ST_ISVALID 和 ST_ISVALIDDETAILED 可用来检查空间对象是否有效。 例
           }
     }]
 
-### <a name="linq-querying-in-the-net-sdk"></a>.NET SDK 中的 LINQ 查询
+### .NET SDK 中的 LINQ 查询
+<a id="linq-querying-in-the-net-sdk" class="xliff"></a>
 DocumentDB .NET SDK 还提供存根方法 `Distance()` 和 `Within()`，供用户在 LINQ 表达式中使用。 DocumentDB LINQ 提供程序会将这些方法调用转换为等效的 SQL 内置函数调用（分别为 ST_DISTANCE 和 ST_WITHIN）。 
 
 以下是 LINQ 查询的示例，该查询使用 LINQ 在 DocumentDB 集合中查找所有文档，这些文档的“位置”值在指定点的 30 公里半径内。
@@ -311,17 +318,18 @@ DocumentDB .NET SDK 还提供存根方法 `Distance()` 和 `Within()`，供用�
     }
 
 
-探讨过如何使用 LINQ 和 SQL 查询文档之后，现在来看看如何针对空间索引配置 DocumentDB。
+我们已经探讨过如何使用 LINQ 和 SQL 查询文档，现在我们来看一下如何针对空间索引配置 DocumentDB。
 
-## <a name="indexing"></a>索引
-如[使用 DocumentDB 进行架构不可知的索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)一文中所述，DocumentDB 数据库引擎具有真正不可知的架构，并提供一流的 JSON 支持。 DocumentDB 的写入优化数据库引擎可以通过本机方式了解用 GeoJSON 标准表示的空间数据（点、多边形和线）。
+## 索引
+<a id="indexing" class="xliff"></a>
+如[使用 DocumentDB 进行架构不可知的索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)一文中所述，我们设计的 DocumentDB 数据库引擎具有真正不可知的架构，并提供一流的 JSON 支持。 DocumentDB 的写入优化数据库引擎可以通过本机方式了解用 GeoJSON 标准表示的空间数据（点、多边形和线）。
 
 简单来说，测地坐标的几何图形会投影在 2D 平面上，然后使用**四叉树**以渐进方式划分成单元格。 这些单元格会根据 **Hilbert 空间填充曲线**内的单元格位置映射到 1D，并保留点的位置。 此外，当位置数据进行索引编制后，会经历称为 **分割**的过程，也就是说，在某个位置上相交的所有单元格都会被识别为键并存储在 DocumentDB 索引中。 在查询时，点和多边形等参数也会经过分割，以提取相关的格子 ID 范围，然后用于从索引检索数据。
 
 如果指定的索引策略包含 /*（所有路径）的空间索引，则表示在集合中找到的所有点均已编制索引，能进行有效的空间查询（ST_WITHIN 和 ST_DISTANCE）。 空间索引没有精度值，并且始终使用默认的精度值。
 
 > [!NOTE]
-> DocumentDB 支持点、多边形和 LineString 的自动索引
+> DocumentDB 支持点、多边形和 LineString 的自动索引。
 > 
 > 
 
@@ -394,13 +402,13 @@ DocumentDB .NET SDK 还提供存根方法 `Distance()` 和 `Within()`，供用�
 > 
 > 
 
-## <a name="next-steps"></a>后续步骤
-学会如何开始使用 DocumentDB 中的地理空间支持之后，现在可以：
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+你已经学会如何开始使用 DocumentDB 中的地理空间支持，现在可以：
 
 - 使用 [GitHub 上的地理空间 .NET 代码示例](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)开始编写代码
 - 在 [DocumentDB 查询板块](http://www.documentdb.com/sql/demo#geospatial)中实际操作地理空间查询
 - 详细了解 [DocumentDB 查询](documentdb-sql-query.md)
 - 详细了解 [DocumentDB 索引策略](documentdb-indexing-policies.md)
-
 
 

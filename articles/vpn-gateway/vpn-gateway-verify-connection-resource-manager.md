@@ -16,52 +16,57 @@ ms.workload: infrastructure-services
 origin.date: 04/24/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: c4ac779687c2aead10db168919d04ab0ec23e61c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: aeff8da39b1ccd075ceb38290d8c001a49fd5578
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="verify-a-vpn-gateway-connection"></a>验证 VPN 网关连接
+# 验证 VPN 网关连接
+<a id="verify-a-vpn-gateway-connection" class="xliff"></a>
 
 本文介绍如何验证 Resource Manager 和经典部署模型的 VPN 网关连接。
 
-## <a name="verify-using-the-azure-portal-preview"></a>使用 Azure 门户进行验证
+## 使用 Azure 门户验证
+<a id="verify-using-the-azure-portal" class="xliff"></a>
 
-[!INCLUDE [Azure portal preview](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
+[!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
-## <a name="verify-using-powershell"></a>使用 PowerShell 验证
+## 使用 PowerShell 验证
+<a id="verify-using-powershell" class="xliff"></a>
 
 若要使用 PowerShell 进行验证，请安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关安装 PowerShell cmdlet 的信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 有关使用 Resource Manager cmdlet 的详细信息，请参阅[将 Windows PowerShell 与 Resource Manager 配合使用](../powershell-azure-resource-manager.md)。
 
-### <a name="log-in-to-your-azure-account"></a>登录到 Azure 帐户
+### 登录到 Azure 帐户
+<a id="log-in-to-your-azure-account" class="xliff"></a>
 1. 使用提升的权限打开 PowerShell 控制台，然后连接到帐户。
 
-    ```powershell
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-    ```
+  ```powershell
+  Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+  ```
 2. 检查该帐户的订阅。
 
-    ```powershell
-    Get-AzureRmSubscription
-    ``` 
+  ```powershell
+  Get-AzureRmSubscription
+  ``` 
 3. 指定要使用的订阅。
 
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-    ```
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 
-### <a name="verify-your-connection"></a>验证连接
+### 验证连接
+<a id="verify-your-connection" class="xliff"></a>
 
 [!INCLUDE [PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="verify-using-the-azure-cli"></a>使用 Azure CLI 进行验证
+## 使用 Azure CLI 进行验证
+<a id="verify-using-the-azure-cli" class="xliff"></a>
 
 若要使用 Azure CLI 进行验证，请安装最新版本的 CLI 命令（2.0 或更高版本）。 有关安装 CLI 命令的信息，请参阅 [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)（安装 Azure CLI 2.0）。
 
-### <a name="log-in-to-your-azure-account"></a>登录到 Azure 帐户
+### 登录到 Azure 帐户
+<a id="log-in-to-your-azure-account" class="xliff"></a>
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -82,41 +87,46 @@ ms.lasthandoff: 05/19/2017
   <replace_with_your_subscription_id>
   ```
 
-### <a name="verify-your-connection"></a>验证连接
+### 验证连接
+<a id="verify-your-connection" class="xliff"></a>
 
 [!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
-## <a name="verify-using-the-azure-portal-preview-classic"></a>使用 Azure 门户进行验证（经典）
-[!INCLUDE [Azure portal preview](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
+## 使用 Azure 门户（经典）验证
+<a id="verify-using-the-azure-portal-classic" class="xliff"></a>
+[!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
-## <a name="verify-using-powershell-classic"></a>使用 PowerShell 验证（经典）
+## 使用 PowerShell 验证（经典）
+<a id="verify-using-powershell-classic" class="xliff"></a>
 若要使用 PowerShell 进行验证，请安装最新版本的 Azure PowerShell cmdlet。 请务必同时下载并安装 Resource Manager 和服务管理 (SM) 版本。 有关安装 PowerShell cmdlet 的信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 
 
-### <a name="log-in-to-your-azure-account"></a>登录到 Azure 帐户
+### 登录到 Azure 帐户
+<a id="log-in-to-your-azure-account" class="xliff"></a>
 1. 使用提升的权限打开 PowerShell 控制台，然后连接到帐户。
 
-    ```powershell
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-    ```
+  ```powershell
+  Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+  ```
 2. 检查该帐户的订阅。
 
-    ```powershell
-    Get-AzureRmSubscription 
-    ```
+  ```powershell
+  Get-AzureRmSubscription 
+  ```
 3. 指定要使用的订阅。
 
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-    ```
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 4. 登录以便使用经典部署模型的 Service Management cmdlet。
 
-    ```powershell
-    Add-AzureAccount -Environment AzureChinaCloud
-    ```
+  ```powershell
+  Add-AzureAccount -Environment AzureChinaCloud
+  ```
 
-### <a name="verify-your-connection"></a>验证连接
+### 验证连接
+<a id="verify-your-connection" class="xliff"></a>
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * 可以将虚拟机添加到虚拟网络。 请参阅[创建虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)以获取相关步骤。
-

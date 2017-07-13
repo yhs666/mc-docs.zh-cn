@@ -17,28 +17,29 @@ ms.topic: article
 origin.date: 05/10/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 5d891471bfe4c181876f03efd55be462b3d517cf
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: f566df833d3a761799795bb4f17cedfa366339ec
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上将 Oozie 与 Hadoop 配合使用以定义和运行工作流
+# 在基于 Linux 的 HDInsight 上将 Oozie 与 Hadoop 配合使用以定义和运行工作流
+<a id="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight" class="xliff"></a>
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
 了解如何将 Apache Oozie 与 Hadoop on HDInsight 配合使用。 Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。 该系统与 Hadoop 堆栈集成，支持 Apache MapReduce、Apache Pig、Apache Hive 和 Apache Sqoop 的 Hadoop 作业。 它也能用于安排特定于某系统的作业，例如 Java 程序或 shell 脚本。
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 
 * **HDInsight 群集**：请参阅[Linux 上的 HDInsight 入门](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-    > [!IMPORTANT]
-    > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+  > [!IMPORTANT]
+  > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
-## <a name="example-workflow"></a>示例工作流
+## 示例工作流
+<a id="example-workflow" class="xliff"></a>
 
 本文档中使用的工作流包含两个操作。 操作是任务的定义，例如运行 Hive、Sqoop、MapReduce 或其他进程：
 
@@ -59,7 +60,8 @@ ms.lasthandoff: 05/26/2017
 > [!NOTE]
 > 有关在 HDInsight 群集上支持的 Oozie 版本，请参阅 [HDInsight 提供的 Hadoop 群集版本有哪些新增功能？][hdinsight-versions]。
 
-## <a name="create-the-working-directory"></a>创建工作目录
+## 创建工作目录
+<a id="create-the-working-directory" class="xliff"></a>
 
 Oozie 希望将作业所需的资源存储在同一个目录中。 此示例使用 **wasbs:///tutorials/useoozie**。 请使用以下命令创建此目录，并创建一个包含此工作流所创建的新 Hive 表的数据目录：
 
@@ -79,7 +81,8 @@ sudo adduser USERNAME users
 > [!NOTE]
 > 可以忽略用户已经是 `users` 的成员这类错误。
 
-## <a name="add-a-database-driver"></a>添加数据库驱动程序
+## 添加数据库驱动程序
+<a id="add-a-database-driver" class="xliff"></a>
 
 由于此工作流使用 Sqoop 将数据导出到 SQL 数据库，因此必须提供用来与 SQL 数据库对话的 JDBC 驱动程序的副本。 使用以下命令将该副本复制到工作目录：
 
@@ -89,7 +92,8 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 
 如果工作流使用了其他资源，例如包含 MapReduce 应用程序的 jar，则还需要添加这些资源。
 
-## <a name="define-the-hive-query"></a>定义 Hive 查询
+## 定义 Hive 查询
+<a id="define-the-hive-query" class="xliff"></a>
 
 使用以下步骤创建 HiveQL 脚本，以定义本文档后面要在 Oozie 工作流中使用的查询。
 
@@ -134,7 +138,8 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 
     这些命令将 **useooziewf.hql** 文件存储在与此群集关联的 Azure 存储帐户上，即使删除群集，此帐户仍会保留该文件。
 
-## <a name="define-the-workflow"></a>定义工作流
+## 定义工作流
+<a id="define-the-workflow" class="xliff"></a>
 
 Oozie 工作流定义以 hPDL（XML 过程定义语言）编写。 使用以下步骤定义工作流：
 
@@ -201,13 +206,13 @@ Oozie 工作流定义以 hPDL（XML 过程定义语言）编写。 使用以下�
 
     该工作流中定义了两个操作：
 
-    * **RunHiveScript**：此操作是启动操作，它运行 useooziewf.hql Hive 脚本
+   * **RunHiveScript**：此操作是启动操作，它运行 useooziewf.hql Hive 脚本
 
-    * **RunSqoopExport**：此操作使用 Sqoop 将创建的数据从 Hive 脚本导出到 SQL 数据库。 仅当 **RunHiveScript** 操作成功时才运行此操作。
+   * **RunSqoopExport**：此操作使用 Sqoop 将创建的数据从 Hive 脚本导出到 SQL 数据库。 仅当 **RunHiveScript** 操作成功时才运行此操作。
 
-        工作流包含多个条目，例如 `${jobTracker}`。 这些条目将替换为在作业定义中使用的值。 稍后会在本文档中创建作业定义。
+     工作流包含多个条目，例如 `${jobTracker}`。 这些条目将替换为在作业定义中使用的值。 稍后会在本文档中创建作业定义。
 
-        另请注意 Sqoop 节中的 `<archive>sqljdbc4.jar</arcive>` 条目。 该条目指示在运行此操作时 Oozie 要将此存档提供给 Sqoop 使用。
+     另请注意 Sqoop 节中的 `<archive>sqljdbc4.jar</arcive>` 条目。 该条目指示在运行此操作时 Oozie 要将此存档提供给 Sqoop 使用。
 
 3. 依次按 Ctrl-X、**Y**和 **Enter** 以保存文件。
 
@@ -217,11 +222,13 @@ Oozie 工作流定义以 hPDL（XML 过程定义语言）编写。 使用以下�
     hdfs dfs -put workflow.xml /tutorials/useoozie/workflow.xml
     ```
 
-## <a name="create-the-database"></a>创建数据库
+## 创建数据库
+<a id="create-the-database" class="xliff"></a>
 
 若要创建 Azure SQL 数据库，请按照[创建 SQL 数据库](../sql-database/sql-database-get-started.md)文档中的步骤进行操作。 创建数据库时，请使用 `oozietest` 作为数据库名称。 此外请记下数据库服务器的名称。
 
-### <a name="create-the-table"></a>创建表
+### 创建表
+<a id="create-the-table" class="xliff"></a>
 
 > [!NOTE]
 > 有多种方法可连接到 SQL 数据库以创建表。 以下步骤从 HDInsight 群集使用 [FreeTDS](http://www.freetds.org/) 。
@@ -275,7 +282,8 @@ Oozie 工作流定义以 hPDL（XML 过程定义语言）编写。 使用以下�
 
 4. 在 `exit` at the `1>` 以退出 tsql 实用工具。
 
-## <a name="create-the-job-definition"></a>创建作业定义
+## 创建作业定义
+<a id="create-the-job-definition" class="xliff"></a>
 
 作业定义说明了可在何处找到 workflow.xml。 它还说明了可在何处找到工作流（如 useooziewf.hql）使用的其他文件。它还定义工作流中使用的属性值以及关联的文件。
 
@@ -378,23 +386,24 @@ Oozie 工作流定义以 hPDL（XML 过程定义语言）编写。 使用以下�
     </configuration>
     ```
 
-    * 将 **wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn** 的所有实例替换为前面收到的默认存储的值。
+   * 将 **wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn** 的所有实例替换为前面收到的默认存储的值。
 
-        > [!WARNING]
-        > 如果该路径是 `wasb` 路径，则必须使用完整路径。 不要将其缩短为 `wasb:///`。
+     > [!WARNING]
+     > 如果该路径是 `wasb` 路径，则必须使用完整路径。 不要将其缩短为 `wasb:///`。
 
-    * 将 **JOBTRACKERADDRESS** 替换为前面收到的 JobTracker/ResourceManager 地址。
-    * 将 **YourName** 替换为 HDInsight 群集的登录名。
-    * 将 **serverName**、**adminLogin**和 **adminPassword** 替换为 Azure SQL 数据库的信息。
+   * 将 **JOBTRACKERADDRESS** 替换为前面收到的 JobTracker/ResourceManager 地址。
+   * 将 **YourName** 替换为 HDInsight 群集的登录名。
+   * 将 **serverName**、**adminLogin**和 **adminPassword** 替换为 Azure SQL 数据库的信息。
 
-        此文件中的大多数信息用于填充 workflow.xml 或 ooziewf.hql 文件中使用的值（例如 ${nameNode}）。
+     此文件中的大多数信息用于填充 workflow.xml 或 ooziewf.hql 文件中使用的值（例如 ${nameNode}）。
 
-        > [!NOTE]
-        > **oozie.wf.application.path** 条目定义要在何处查找 workflow.xml 文件，该文件包含此作业运行的工作流。
+     > [!NOTE]
+     > **oozie.wf.application.path** 条目定义要在何处查找 workflow.xml 文件，该文件包含此作业运行的工作流。
 
 5. 依次按 Ctrl-X、**Y**和 **Enter** 以保存文件。
 
-## <a name="submit-and-manage-the-job"></a>提交和管理作业
+## 提交和管理作业
+<a id="submit-and-manage-the-job" class="xliff"></a>
 
 以下步骤使用 Oozie 命令提交和管理群集上的 Oozie 工作流。 Oozie 命令是基于 [Oozie REST API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html)的友好界面。
 
@@ -500,7 +509,8 @@ Oozie 工作流定义以 hPDL（XML 过程定义语言）编写。 使用以下�
 
 有关 Oozie 命令的详细信息，请参阅 [Oozie Command Line Tool](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html)（Oozie 命令行工具）。
 
-## <a name="oozie-rest-api"></a>Oozie REST API
+## Oozie REST API
+<a id="oozie-rest-api" class="xliff"></a>
 
 Oozie REST API 允许构建自己的工具来使用 Oozie。 下面是有关在 HDInsight 中使用 Oozie REST API 的具体信息：
 
@@ -514,7 +524,8 @@ Oozie REST API 允许构建自己的工具来使用 Oozie。 下面是有关在 
 
 有关使用 Oozie REST API 的详细信息，请参阅 [Oozie Web Services API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html)（Oozie Web 服务 API）。
 
-## <a name="oozie-web-ui"></a>Oozie Web UI
+## Oozie Web UI
+<a id="oozie-web-ui" class="xliff"></a>
 
 Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态。 使用 Web UI 可查看以下内容：
 
@@ -546,13 +557,13 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
 6. 可以在“作业信息”选项卡中查看基本作业信息，以及作业中的各个操作。 使用顶部选项卡可以查看作业定义和作业配置、访问作业日志，或查看作业的有向无环图 (DAG)。
 
-    * **作业日志**：选择“获取日志”按钮获取作业的所有日志，或使用“输入搜索条件”字段来筛选日志
+   * **作业日志**：选择“获取日志”按钮获取作业的所有日志，或使用“输入搜索条件”字段来筛选日志
 
-        ![作业日志](./media/hdinsight-use-oozie-linux-mac/joblog.png)
+       ![作业日志](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
-    * **JobDAG**：DAG 是整个工作流中使用的数据路径的图形概览
+   * **JobDAG**：DAG 是整个工作流中使用的数据路径的图形概览
 
-        ![作业 DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
+       ![作业 DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
 7. 在“作业信息”选项卡中选择一个操作会显示有关该操作的信息。 例如，选择 **RunHiveScript** 操作。
 
@@ -560,7 +571,8 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
 8. 可以看到操作的详细信息，例如**控制台 URL** 的链接。 可使用此链接查看作业的 JobTracker 信息。
 
-## <a name="scheduling-jobs"></a>计划作业
+## 计划作业
+<a id="scheduling-jobs" class="xliff"></a>
 
 使用协调器可以指定作业的开始时间、结束时间和发生频率，这样便可将这些作业安排在特定的时间。
 
@@ -609,9 +621,9 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
     进行以下更改：
 
-    * 将 `<name>oozie.wf.application.path</name>` 更改为 `<name>oozie.coord.application.path</name>`。 此值指示 Oozie 运行协调器文件，而不是工作流文件。
+   * 将 `<name>oozie.wf.application.path</name>` 更改为 `<name>oozie.coord.application.path</name>`。 此值指示 Oozie 运行协调器文件，而不是工作流文件。
 
-    * 添加以下 XML。 这会将 coordinator.xml 中使用的变量设置为指向 workflow.xml 的位置：
+   * 添加以下 XML。 这会将 coordinator.xml 中使用的变量设置为指向 workflow.xml 的位置：
 
         ```xml
         <property>
@@ -646,7 +658,7 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
         </property>
         ```
 
-        这些值将开始时间设置为 2017 年 5 月 10 日中午 12:00，将结束时间设置为 2017 年 5 月 12 日。 每天运行此作业的时间间隔。 频率以分钟为单位，因此 24 小时 x 60 分钟 = 1440 分钟。 最后，将时区设置为 UTC。
+       这些值将开始时间设置为 2017 年 5 月 10 日中午 12:00，将结束时间设置为 2017 年 5 月 12 日。 每天运行此作业的时间间隔。 频率以分钟为单位，因此 24 小时 x 60 分钟 = 1440 分钟。 最后，将时区设置为 UTC。
 
 5. 依次按 Ctrl-X、**Y**和 **Enter** 以保存文件。
 
@@ -673,7 +685,8 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
     ![操作信息](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
-## <a name="troubleshooting"></a>故障排除
+## 故障排除
+<a id="troubleshooting" class="xliff"></a>
 
 使用 Oozie UI 可查看 Oozie 日志。 它还包含一些链接，指向工作流启动的 MapReduce 任务的 JobTracker 日志。 故障排除的模式应为：
 
@@ -685,7 +698,8 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
 下面是你可能遇到的特定错误及其解决方法。
 
-### <a name="ja009-cannot-initialize-cluster"></a>JA009: 无法初始化群集
+### JA009: 无法初始化群集
+<a id="ja009-cannot-initialize-cluster" class="xliff"></a>
 
 **症状**：作业状态变为“SUSPENDED”。 作业详细信息中的 RunHiveScript 状态显示为“START_MANUAL”。 选择该操作会显示以下错误消息：
 
@@ -695,7 +709,8 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
 **解决方法**：更改作业使用的 WASB 地址。
 
-### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: 不允许 Oozie 模拟&lt;用户>
+### JA002: 不允许 Oozie 模拟&lt;用户>
+<a id="ja002-oozie-is-not-allowed-to-impersonate-ltuser" class="xliff"></a>
 
 **症状**：作业状态变为“SUSPENDED”。 作业详细信息中的 RunHiveScript 状态显示为“START_MANUAL”。 选择该操作会显示以下错误消息：
 
@@ -710,7 +725,8 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 > [!NOTE]
 > 可能需要几分钟，HDInsight 才能识别用户已添加到该组。
 
-### <a name="launcher-error-sqoop"></a>启动器错误 (Sqoop)
+### 启动器错误 (Sqoop)
+<a id="launcher-error-sqoop" class="xliff"></a>
 
 **症状**：作业状态变为“KILLED”。 作业详细信息中的 RunSqoopExport 状态显示为“ERROR”。 选择该操作会显示以下错误消息：
 
@@ -734,7 +750,8 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
     <archive>sqljdbc41.jar</archive>
     ```
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 在本教程中，你已经学习了如何定义 Oozie 工作流，以及如何运行 Oozie 作业。 若要了解有关使用 HDInsight 的详细信息，请参阅以下文章：
 
@@ -782,4 +799,3 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
-

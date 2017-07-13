@@ -15,13 +15,11 @@ ms.topic: get-started-article
 origin.date: 05/14/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 80082407786d50d82e78fc9aa43384c042c29299
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 7b4d558c360f7947f043555f7985b07bbb93bfef
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>在 Azure Active Directory 中添加来自其他目录或合作伙伴公司的用户
 
@@ -75,5 +73,4 @@ ms.lasthandoff: 05/26/2017
 - [向 Azure Active Directory 添加新用户](active-directory-create-users.md)
 - [管理 Azure AD](active-directory-administer.md)
 - [在 Azure AD 中管理密码](active-directory-manage-passwords.md)
-
 

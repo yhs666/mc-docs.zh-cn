@@ -1,134 +1,218 @@
 ---
-title: "将 Raspberry Pi (C) 连接到 Azure IoT - 入门 | Azure"
-description: "开始使用 Raspberry Pi 3，创建 Azure IoT 中心，并将 Pi 连接到 IoT 中心。"
+title: "连接到云的 Raspberry Pi (C) - 将 Raspberry Pi 连接到 Azure IoT 中心 | Microsoft Docs"
+description: "将 Raspberry Pi 连接到 Azure IoT 中心，以供 Raspberry Pi 将数据发送到 Azure 云。"
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "azure iot 中心, 物联网入门, iot 工具包"
+keywords: "Azure IoT Raspberry Pi, Raspberry Pi IoT 中心, Raspberry Pi 将数据发送到云, 连接到云的 Raspberry Pi"
 ms.assetid: 68c0e730-1dc8-4e26-ac6b-573b217b302d
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/21/2017
-ms.date: 05/08/2017
+origin.date: 6/15/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 1ee728fe81c35f86e9c652b9defba96dc53d9343
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.custom: H1Hack27Feb2017
+ms.date: 07/10/2017
+ms.openlocfilehash: 51ab915bdb8cb3a67d2917a803637223256c49ea
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
+# 将 Raspberry Pi 连接到 Azure IoT 中心 (C)
+<a id="connect-raspberry-pi-to-azure-iot-hub-c" class="xliff"></a>
 
-# <a name="connect-your-raspberry-pi-3-device-to-your-iot-hub-using-c"></a>使用 C 将 Raspberry Pi 3 设备连接到 IoT 中心
->[!div class="op_single_selector"]
-[Node.JS](./iot-hub-raspberry-pi-kit-node-get-started.md)
-[C](./iot-hub-raspberry-pi-kit-c-get-started.md)
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-在本教程中，用户将开始学习基础知识，了解如何使用运行 Raspbian 的 Raspberry Pi 3， 然后将学习如何使用 [Azure IoT 中心](./iot-hub-what-is-iot-hub.md)将设备无缝连接到云。 有关 Windows 10 IoT Core 的示例，请访问 [Windows 开发人员中心](http://www.windowsondevices.com/)。
+在本教程中，首先学习有关使用运行 Raspbian 的 Raspberry Pi 的基础知识。 然后将学习如何使用 [Azure IoT 中心](./iot-hub-what-is-iot-hub.md)将设备无缝连接到云。 有关 Windows 10 IoT Core 的示例，请访问 [Windows 开发人员中心](http://www.windowsondevices.com/)。
+还没有工具包？ 试用 [Raspberry Pi 联机模拟器](./iot-hub-raspberry-pi-web-simulator-get-started.md)。 或在[此处](https://www.azure.cn/develop/iot/iot-starter-kits)购买新工具包。
 
-> [!NOTE]
-> 希望使用 Docker，还是希望在主机上生成源代码？ 如果希望使用 Docker，请试用 [GitHub](https://github.com/Azure-Samples/iot-hub-c-raspberrypi-docker) 上基于 Docker 的解决方案。
+## 准备工作
+<a id="what-you-do" class="xliff"></a>
 
-## <a name="lesson-1-configure-your-device"></a>第 1 课：配置设备
-![第 1 课端到端关系图](./media/iot-hub-raspberry-pi-lessons/e2e-lesson1.png)
+* 设置 Raspberry Pi。
+* 创建 IoT 中心。
+* 在 IoT 中心内为 Pi 注册设备。
+* 在 Pi 上运行示例应用程序，将传感器数据发送到 IoT 中心。
 
-在本课中，用户需为 Raspberry Pi 3 设备配置操作系统、设置开发环境，以及将应用程序部署到 Pi。
+将 Raspberry Pi 连接到所创建的 IoT 中心。 然后，在 Pi 上运行示例应用程序，从 BME280 传感器收集温度和湿度数据。 最后，将传感器数据发送到 IoT 中心。
 
-### <a name="configure-your-device"></a>配置设备
-对 Raspberry Pi 3 进行首次使用配置并安装 Raspbian。 Raspbian 是一种免费的操作系统，已针对 Raspberry Pi 硬件进行优化。
+## 学习内容
+<a id="what-you-learn" class="xliff"></a>
 
-*完成的估计时间：30 分钟*
+* 如何创建 Azure IoT 中心以及如何获取新的设备连接字符串。
+* 如何通过 BME280 传感器连接 Pi。
+* 如何通过在 Pi 上运行示例应用程序来收集传感器数据。
+* 如何将传感器数据发送到 IoT 中心。
 
-转到[配置设备](./iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)。
+## 需要什么
+<a id="what-you-need" class="xliff"></a>
 
-### <a name="get-the-tools"></a>获取工具
-下载相关工具和软件，以便为 Raspberry Pi 3 生成和部署第一个应用程序。
+![需要什么](media/iot-hub-raspberry-pi-kit-c-get-started/0_starter_kit.jpg)
 
-*估计完成时间：20 分钟*
+* Raspberry Pi 2 或 Raspberry Pi 3 电路板。
+* 一个有效的 Azure 订阅。 如果没有 Azure 帐户，只需几分钟时间就能[创建一个免费的 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 连接到 Pi 的监视器、USB 键盘和鼠标。
+* 运行 Windows 或 Linux 的 Mac 或电脑。
+* Internet 连接。
+* 16 GB 或更大容量的 microSD 卡。
+* USB-SD 适配器或 microSD 卡，用于将操作系统映像刻录到 microSD 卡中。
+* 带有 6 英尺微型 USB 电缆的 5 伏 2 安电源。
 
-转到[获取工具](./iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)。
+以下项可选：
 
-### <a name="create-and-deploy-the-blink-application"></a>创建和部署 blink 应用程序
-克隆 GitHub 提供的示例 C blink 应用程序，并使用 gulp 将此应用程序部署到 Raspberry Pi 3 开发板。 此示例应用程序每隔两秒让连接到板的 LED 闪烁一次。
+* 已装配的 Adafruit BME280 温度、压力和湿度传感器。
+* 试验板。
+* 6 根 F/M 跳线。
+* 散射的 10 毫米 LED 灯。
 
-*估计完成时间：5 分钟*
 
-转到[创建并部署 blink 应用程序](./iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)。
+> [!NOTE] 
+上述项为可选项，因为代码示例支持模拟的传感器数据。
 
-## <a name="lesson-2-create-your-iot-hub"></a>第 2 课：创建 IoT 中心
-![第 2 课端到端关系图](./media/iot-hub-raspberry-pi-lessons/e2e-lesson2.png)
 
-在本课中，用户需创建免费的 Azure 帐户、预配 Azure IoT 中心，以及在 IoT 中心创建第一个设备。
+[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-开始本课之前，请完成第 1 课。
+## 设置 Raspberry Pi
+<a id="setup-raspberry-pi" class="xliff"></a>
 
-### <a name="get-the-azure-tools"></a>获取 Azure 工具
-安装 Azure 命令行界面 (Azure CLI)。
+### 为 Pi 安装 Raspbian 操作系统
+<a id="install-the-raspbian-operating-system-for-pi" class="xliff"></a>
 
-*估计完成时间：10 分钟*
+准备用于安装 Raspbian 映像的 microSD 卡。
 
-转到[获取 Azure 工具](./iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)。
+1. 下载 Raspbian。
+   1. [下载 Raspbian Jessie with Pixel](https://www.raspberrypi.org/downloads/raspbian/)（.zip 文件）。
+   1. 将 Raspbian 映像解压缩到计算机的某个文件夹中。
+1. 将 Raspbian 安装到 microSD 卡。
+   1. [下载并安装 Etcher SD 卡刻录机实用工具](https://etcher.io/)。
+   1. 运行 Etcher 并选择已在步骤 1 中解压缩的 Raspbian 映像。
+   1. 选择 microSD 卡驱动器。 注意，Etcher 可能已选择了正确的驱动器。
+   1. 单击“刷机”，将 Raspbian 安装到 microSD 卡。
+   1. 在安装完成后，从计算机中移除 microSD 卡。 可以安全地直接取出 microSD 卡，因为 Etcher 会在完成后自动弹出或卸载 microSD 卡。
+   1. 将 microSD 卡插入 Pi。
 
-### <a name="create-your-iot-hub-and-register-raspberry-pi-3"></a>创建 IoT 中心并注册 Raspberry Pi 3
-使用 Azure CLI 创建资源组、预配第一个 Azure IoT 中心，并将第一个设备添加到 IoT 中心。
+### 启用 SSH 和 SPI
+<a id="enable-ssh-and-spi" class="xliff"></a>
 
-*估计完成时间：10 分钟*
+1. 将 Pi 连接到监视器、键盘和鼠标，启动 Pi，然后通过将 `pi` 用作用户名并将 `raspberry` 用作密码来登录 Raspbian。
+1. 依次单击 Raspberry 图标 >“首选项” > “Raspberry Pi 配置”。
 
-转到[创建 IoT 中心并注册 Raspberry Pi 3](./iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)。
+   ![Raspbian 首选项菜单](media/iot-hub-raspberry-pi-kit-c-get-started/1_raspbian-preferences-menu.png)
 
-## <a name="lesson-3-send-device-to-cloud-messages"></a>第 3 课：发送从设备到云的消息
-![第 3 课端到端关系图](./media/iot-hub-raspberry-pi-lessons/e2e-lesson3.png)
+1. 在“接口”选项卡上，将“SPI”和“SSH”设置为“启用”，然后单击“确定”。 如果没有物理传感器，但希望使用模拟传感器数据，可选择执行此步骤。
 
-在本课中，用户需将消息从 Pi 发送到 IoT 中心。 此外还需创建一个 Azure 函数应用，以便获取 IoT 中心发出的传入消息并将其写入到 Azure 表存储。
+   ![在 Raspberry Pi 上启用 SPI 和 SSH](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
-开始本课之前，请完成第 1 课和第 2 课。
+> [!NOTE] 
+若要启用 SSH 和 SPI，可在 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 和 [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) 中找到更多参考文档。
 
-### <a name="create-an-azure-function-app-and-azure-storage-account"></a>创建 Azure 函数应用和 Azure 存储帐户
-使用 Azure Resource Manager 模板创建 Azure 函数应用和 Azure 存储帐户。
+### 将传感器连接到 Pi
+<a id="connect-the-sensor-to-pi" class="xliff"></a>
 
-*估计完成时间：10 分钟*
+使用试验板和跳线，将 LED 灯和 BME280 连接到 Pi，如下所示。 如果没有该传感器，请跳过此部分。
 
-转到[创建 Azure Function App 和 Azure 存储帐户](./iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md)。
+![Raspberry Pi 和传感器连接](./media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png) BME280 传感器可以收集温度和湿度数据。 如果设备和云之间存在通信，LED 将闪烁。 
 
-### <a name="run-a-sample-application-to-send-device-to-cloud-messages"></a>运行示例应用程序，以便发送从设备到云的消息
-将示例应用程序部署到 Raspberry Pi 3 设备并运行，以便将消息发送到 IoT 中心。
+对于传感器引脚，请使用以下接线：
 
-*估计完成时间：10 分钟*
+| 始端（传感器和 LED 灯）     | 结束（开发板）            | 线缆颜色   |
+| -----------------------  | ---------------------- | ------------: |
+| LED VDD（引脚 5G）         | GPIO 4（引脚 7）         | 白线   |
+| LED GND（引脚 6G）         | GND（引脚 6）            | 黑线   |
+| VDD（引脚 18F）            | 3.3V 电源（引脚 17）      | 白线   |
+| GND（引脚 20F）            | GND（引脚 20）           | 黑线   |
+| SCK（引脚 21F）            | SPI0 SCLK（引脚 23）     | 橙色电缆  |
+| SDO（引脚 22F）            | SPI0 MISO（引脚 21）     | 黄色电缆  |
+| SDI（引脚 23F）            | SPI0 MOSI（引脚 19）     | 绿色电缆   |
+| CS（引脚 24F）             | SPI0 CS（引脚 24）       | 蓝线    |
 
-转到[运行示例应用程序以发送“设备到云”消息](./iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md)。
+单击查看 [Raspberry Pi 2 和 3 引脚映射](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi)以供参考。
 
-### <a name="read-messages-persisted-in-azure-storage"></a>读取保存在 Azure 存储中的消息
-在将从设备到云的消息写入 Azure 存储时，对其进行监视。
+成功将 BME280 连接到 Raspberry Pi 后，它应如下图所示。
 
-*估计完成时间：5 分钟*
+![连接在一起的 Pi 和 BME280](./media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
 
-转到[读取 Azure 存储中保存的消息](./iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md)。
+使用 USB 微电缆和电源开启 Pi。 使用以太网电缆将 Pi 连接到有线网络，或者按照 [Raspberry Pi Foundation 中的说明](https://www.raspberrypi.org/learning/software-guide/wifi/)将 Pi 连接到无线网络。
 
-## <a name="lesson-4-send-cloud-to-device-messages"></a>第 4 课：发送从云到设备的消息
-![第 4 课端到端关系图](./media/iot-hub-raspberry-pi-lessons/e2e-lesson4.png)
+![已连接到有线网络](./media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
 
-本课介绍如何将消息从 Azure IoT 中心发送到 Raspberry Pi 3。 这些消息控制连接到 Pi 的 LED 的开关行为。 示例应用程序已准备就绪，你可以执行此任务了。
 
-开始本课之前，请完成第 1 课、第 2 课和第 3 课。
+## 在 Pi 上运行示例应用程序
+<a id="run-a-sample-application-on-pi" class="xliff"></a>
 
-### <a name="run-the-sample-application-to-receive-cloud-to-device-messages"></a>运行示例应用程序，接收从云到设备的消息
-第 4 课中的示例应用程序在 Pi 上运行，用于监视来自 IoT 中心的传入消息。 新的 gulp 任务会将消息从 IoT 中心发送到 Pi，使 LED 闪烁。
+### 安装必备组件包
+<a id="install-the-prerequisite-packages" class="xliff"></a>
 
-*估计完成时间：10 分钟*
+1. 使用主计算机的以下任一 SSH 客户端连接到 Raspberry Pi。
+    - [PuTTY](http://www.putty.org/) for Windows。
+    - Ubuntu 或 macOS 上的内置 SSH 客户端。
 
-转到[运行示例应用程序以接收“云到设备”消息](./iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md)。
+1. 通过运行以下命令，为适用于 C 和 Cmake 的 Microsoft Azure IoT 设备 SDK 安装必备组件包：
 
-### <a name="optional-section-change-the-on-and-off-behavior-of-the-led"></a>可选部分：更改 LED 的开关行为
-自定义这些消息，以便更改 LED 的开关行为。
+   ```bash
+   grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
+   grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
+   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
+   sudo apt-get update
+   sudo apt-get install -y azure-iot-sdk-c-dev cmake
+   ```
 
-*估计完成时间：10 分钟*
 
-转到[可选部分：更改 LED 的亮起和熄灭行为](./iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md)。
+### 配置示例应用程序
+<a id="configure-the-sample-application" class="xliff"></a>
 
-## <a name="troubleshooting"></a>故障排除
-如果在课程中遇到任何问题，可在[故障排除](./iot-hub-raspberry-pi-kit-c-troubleshooting.md)一文中查找解决方案。
+1. 通过运行以下命令，克隆示例应用程序：
+
+   ```bash
+   git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app
+   ```
+1. 通过运行以下命令，打开配置文件：
+
+   ```bash
+   cd iot-hub-c-raspberry-pi-client-app
+   nano config.h
+   ```
+
+   ![配置文件](./media/iot-hub-raspberry-pi-kit-c-get-started/6_config-file.png)
+
+   此文件中有两个可配置的宏。 第一个是 `INTERVAL`，它确定发送到云的两条消息之间的时间间隔。 第二个是 `SIMULATED_DATA`，它是一个布尔值，指示是否使用模拟的传感器数据。
+
+   如果**没有传感器**，请将 `SIMULATED_DATA` 值设置为 `1`，使示例应用程序创建和使用模拟的传感器数据。
+
+1. 通过按“Ctrl-O”>“Enter”>“Ctrl-X”保存并退出。
+
+### 生成并运行示例应用程序
+<a id="build-and-run-the-sample-application" class="xliff"></a>
+
+1. 通过运行以下命令，生成示例应用程序：
+
+   ```bash
+   cmake . && make
+   ```
+   ![生成输出](./media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
+
+1. 通过运行以下命令，生成示例应用程序：
+
+   ```bash
+   sudo ./app '<device connection string>'
+   ```
+
+   > [!NOTE] 
+   确保将设备连接字符串复制并粘贴到单引号中。
+
+
+应看到以下输出，其中显示传感器数据以及发送至 IoT 中心的消息。
+
+![输出 - 从 Raspberry Pi 发送到 IoT 中心的传感器数据](./media/iot-hub-raspberry-pi-kit-c-get-started/8_run-output.png)
+
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+
+此时已运行示例应用程序，收集传感器数据并将其发送到 IoT 中心。
+
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

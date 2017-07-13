@@ -18,15 +18,14 @@ origin.date: 12/08/2016
 ms.date: 05/22/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 8f474b207b970f1695da45f4c9dbbcb64882a965
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 578e683ab5f42bb287674cd077dfc43f0edccff7
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="using-sap-on-azure-windows-virtual-machines-vms"></a>使用 Azure Windows 虚拟机 (VM) 上的 SAP
+# 使用 Azure Windows 虚拟机 (VM) 上的 SAP
+<a id="using-sap-on-azure-windows-virtual-machines-vms" class="xliff"></a>
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -311,7 +310,8 @@ ms.lasthandoff: 05/12/2017
 
 借助 Azure 虚拟机服务和 Azure 上的 SAP HANA 大型实例，Microsoft 提供全面的基础结构即服务 (IaaS) 平台。 因为 Azure 支持范围广泛的 SAP 解决方案，此“入门文档”充当当前 SAP 文档集的目录。 随着文档库添加更多标题，可在此处看到添加的标题。 
 
-## <a name="sap-hana-certifications-on-azure"></a>Azure 上的 SAP HANA 认证
+## Azure 上的 SAP HANA 认证
+<a id="sap-hana-certifications-on-azure" class="xliff"></a>
 | SAP 产品 | 支持的操作系统 | Azure 产品/服务 |
 | --- | --- | --- |
 | SAP HANA Developer Edition（包括由 SQLODBC、Windows 专用版 ODBO、ODBC、JDBC 驱动程序、HANA Studio 和 HANA 数据库组成的 HANA 客户端软件） |Red Hat Enterprise Linux、SUSE Linux Enterprise |A7、A8 |
@@ -321,7 +321,8 @@ ms.lasthandoff: 05/12/2017
 | HANA Enterprise for BW (OLAP) |Red Hat Enterprise Linux、SUSE Linux Enterprise |适用于 Azure 上 SAP HANA 单节点部署的 GS5（大型实例） |
 | SAP BW/4HANA |Red Hat Enterprise Linux、SUSE Linux Enterprise |适用于 Azure 上 SAP HANA 单节点部署的 GS5（大型实例） |
 
-## <a name="sap-netweaver-certifications"></a>SAP NetWeaver 认证
+## SAP NetWeaver 认证
+<a id="sap-netweaver-certifications" class="xliff"></a>
 在 Microsoft 和 SAP 的全面支持下，Azure 已针对以下 SAP 产品进行认证。
 
 | SAP 产品 | 来宾 OS | RDBMS | 虚拟机类型 |
@@ -331,21 +332,24 @@ ms.lasthandoff: 05/12/2017
 | SAP BusinessObjects BI |Windows |不适用 |A5 至 A11、D11 至 D14、DS11 至 DS14、GS1 至 GS5 |
 | SAP NetWeaver |Windows、SUSE Linux Enterprise、Red Hat Enterprise Linux |SQL Server、Oracle（仅限 Windows）、DB2、SAP ASE |A5 至 A11、D11 至 D14、DS11 至 DS14、GS1 至 GS5 |
 
-## <a name="getting-started-with-sap-hana-on-azure"></a>在 Azure 上开始使用 SAP HANA
+## 在 Azure 上开始使用 SAP HANA
+<a id="getting-started-with-sap-hana-on-azure" class="xliff"></a>
 标题：在 Azure VM 上手动安装 SAP HANA 的快速入门指南
 
 摘要：本快速入门指南帮助通过手动安装 SAP NetWeaver 7.5 和 SAP HANA SP12，在 Azure VM 上设置单实例 SAP HANA 原型/演示系统。 本指南假设读者熟悉 Azure IaaS 的基本概念，例如如何通过 Azure 门户或 Powershell/CLI 部署虚拟机或虚拟网络，包括使用 json 模板的选项。 此外还预期读者熟悉 SAP HANA、SAP NetWeaver 以及本地安装方式。
 
 更新时间：2016 年 9 月
 
-## <a name="quickstart-guide-for-netweaver-on-suse-linux-on-azure"></a>Azure 上 SUSE Linux 中 NetWeaver 的快速入门指南
+## Azure 上 SUSE Linux 中 NetWeaver 的快速入门指南
+<a id="quickstart-guide-for-netweaver-on-suse-linux-on-azure" class="xliff"></a>
 标题：在 Azure SUSE Linux VM 上测试 SAP NetWeaver 
 
 摘要：本文介绍在 Azure SUSE Linux 虚拟机 (VM) 上运行 SAP NetWeaver 时应注意的各个事项。 自 2016 年 5 月 19 日起，Azure 上的 SUSE Linux VM 已正式支持 SAP NetWeaver。 有关 Linux 版本、SAP 内核版本等等的所有详细信息，请参阅 SAP 说明 1928533“Azure 上的 SAP 应用程序：支持的产品和 Azure VM 类型”。
 
 更新时间：2016 年 9 月
 
-## <a name="deploying-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>在 Azure 上为 SAP ERP 6.0 部署 SAP IDE EHP7 SP3
+## 在 Azure 上为 SAP ERP 6.0 部署 SAP IDE EHP7 SP3
+<a id="deploying-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure" class="xliff"></a>
 标题：在 Azure VM 上手动安装 SAP HANA 的快速入门指南
 
 摘要：本文介绍如何通过 SAP Cloud Appliance Library 3.0，在 Azure 上部署运行 SQL Server 和 Windows OS 的 SAP IDES。 

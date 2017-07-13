@@ -16,15 +16,14 @@ ms.workload: infrastructure-services
 origin.date: 05/10/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: fa17b03412492ffde2c5f9c092619451eca7b291
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 49bdddb50d76e77f1ad179b0ef81aaeee67e39ad
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="create-change-or-delete-virtual-network-subnets"></a>创建、更改或删除虚拟网络子网
+# 创建、更改或删除虚拟网络子网
+<a id="create-change-or-delete-virtual-network-subnets" class="xliff"></a>
 
 了解如何创建、更改或删除虚拟网络 (VNet) 子网。 如果不熟悉 VNet，建议你在创建、更改或删除子网之前，阅读[虚拟网络概述](virtual-networks-overview.md)和[创建、更改或删除虚拟网络](virtual-network-manage-network.md)这两篇文章。 可以连接到 VNet 的 Azure 资源连接到 VNet 中的子网。 在 VNet 中创建多个子网通常是出于以下目的：
 - 筛选子网之间的流量：可以对子网应用网络安全组 (NSG)，为所有连接到 VNet 的资源（例如虚拟机）筛选入站和出站网络流量。 若要详细了解如何创建 NSG，请阅读[创建网络安全组](virtual-networks-create-nsg-arm-pportal.md)一文。
@@ -38,14 +37,16 @@ ms.lasthandoff: 05/26/2017
 
 - 如果不熟悉 Azure 中的 VNet 和子网，建议你在阅读本文之前，先完成[创建你的第一个 Azure 虚拟网络](virtual-network-get-started-vnet-subnet.md)中的练习。 该练习可帮助你熟悉 VNet 和子网。
 - 查看 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文，了解子网和 VNet 的限制。
-- 使用 Azure 帐户登录到 Azure 门户、Azure 命令行界面 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 使用 Azure 帐户登录到 Azure 门户、Azure 命令行接口 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用 Azure PowerShell 命令来完成本文中的任务，首先必须[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure PowerShell cmdlet。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
-- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，首先必须[安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
+- 如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，首先必须[安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="create-subnet"></a>创建子网
 
 1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到[门户](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
-2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“虚拟网络”。 当“虚拟网络”出现在搜索结果中时，请单击它。
+2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“virtual networks”。 当“虚拟网络”出现在搜索结果中时，请单击它。
 3. 在显示的“虚拟网络”边栏选项卡中，单击要向其添加子网的虚拟网络。
 4. 在针对所选虚拟网络显示的窗格中，单击“子网”。
 5. 单击“+ 子网”。
@@ -75,7 +76,7 @@ ms.lasthandoff: 05/26/2017
 5. 在为所选子网显示的边栏选项卡的“地址范围”框中，输入新的地址范围。 此范围在 VNet 的地址空间中必须唯一，不能与 VNet 中的其他子网地址范围重叠。 必须使用 CIDR 表示法指定地址空间。 例如，在地址空间为 10.0.0.0/16 的 VNet 中，可以将子网地址空间定义为 10.0.0.0/24。 可以指定的最小范围为 /29，为子网提供八个 IP 地址。 Azure 保留每个子网中的第一个地址和最后一个地址，以确保协议一致性。 此外还会保留三个地址供 Azure 服务使用。 因此，地址范围为 /29 的子网有三个可用 IP 地址。 如果计划将 VNet 连接到 VPN 网关，则必须创建网关子网。 详细了解[网关子网地址范围具体考虑事项](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fvirtual-network%2ftoc.json#gwsub)。 在特定条件下，可以在子网创建后更改地址范围。 若要了解如何更改子网地址范围，请阅读本文的[更改子网](#change-subnet)部分。
 6. 单击“保存” 。
 
-命令
+**命令**
 
 |工具|命令|
 |---|---|
@@ -87,7 +88,7 @@ ms.lasthandoff: 05/26/2017
 只有在没有资源连接到子网的情况下，才能删除该子网。 如果有资源连接到子网，则必须先删除连接到子网的资源。 资源删除说明因资源而异。 若要了解如何删除连接到子网的资源，请阅读要删除的每个资源类型的文档。
 
 1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到[门户](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
-2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“虚拟网络”。 当“虚拟网络”出现在搜索结果中时，请单击它。
+2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“virtual networks”。 当“虚拟网络”出现在搜索结果中时，请单击它。
 3. 在显示的“虚拟网络”边栏选项卡中，单击要从其删除子网的 VNet。
 4. 在针对所选 VNet 显示的边栏选项卡的“设置”下，单击“子网”。
 5. 在子网边栏选项卡的子网列表中，右键单击要删除的子网，然后依次单击“删除”、“是”删除该子网。

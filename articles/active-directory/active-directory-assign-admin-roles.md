@@ -15,13 +15,11 @@ ms.topic: article
 origin.date: 05/14/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: a64e50d94649d56e8bdd4fb7641e4b8c842c5e12
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 1172205d3be89f9ea1d0d1937bb09b8c1d36f27e
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中分配管理员角色
 使用 Azure Active Directory (Azure AD) 时，可以指定不同的管理员来执行不同的功能。 这些管理员可以按角色访问 Azure 门户或 Azure 经典管理门户中的各种功能：创建或编辑用户、将管理角色分配给他人、重置用户密码、管理用户许可证以及管理域，等等。 不论是通过 Office 365 门户、Azure 经典管理门户还是用于 Windows PowerShell 的 Azure AD 模块分配管理员角色，分配了该角色的用户在组织订阅的所有云服务中都拥有相同的权限。
@@ -59,5 +57,4 @@ ms.lasthandoff: 05/26/2017
 - 有关 Azure Active Directory 如何与 Azure 订阅相关联的详细信息，请参阅 [How Azure subscriptions are associated with Azure Active Directory](./active-directory-how-subscriptions-associated-directory.md)（Azure 订阅与 Azure Active Directory 的关联方式）
 - [管理用户](./active-directory-create-users.md)
 - [管理密码](./active-directory-manage-passwords.md)
-
 

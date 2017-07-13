@@ -16,15 +16,14 @@ origin.date: 05/10/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 23a320108edb21bc0aa8977986d612e700f59c14
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 9cb5679bc797c2360eadf983c67e305b80ee875e
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>停用 S1、S2 和 S3 性能级别
+# 停用 S1、S2 和 S3 性能级别
+<a id="retiring-the-s1-s2-and-s3-performance-levels" class="xliff"></a>
 
 > [!IMPORTANT] 
 > 本文所述的 S1、S2 和 S3 性能级别即将停用，不再适用于新的 DocumentDB API 帐户。
@@ -65,7 +64,7 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 如果你有 S3 集合，该集合将迁移到吞吐量为 2.5 K RU/s 的单区集合。 吞吐量级别没有可见变化。
 
-对于上面的每种情况，在迁移集合后，可自定义吞吐量级别，或将其缩放以向用户提供低延迟的访问。 若要在迁移集合后更改吞吐量级别，只需在 Azure 门户中打开 DocumentDB 帐户，单击“缩放”，选择集合，然后如以下屏幕截图所示调整吞吐量级别：
+对于上面的每种情况，在迁移集合后，可自定义吞吐量级别，或将其缩放以向用户提供低延迟的访问。 若要在迁移集合后更改吞吐量级别，只需在 Azure 门户中打开你的 DocumentDB 帐户，单击“缩放”，选择你的集合，然后如以下屏幕截图中所示调整吞吐量级别：
 
 ![如何在 Azure 门户中缩放吞吐量](./media/documentdb-performance-levels/azure-documentdb-portal-scale-throughput.png)
 
@@ -77,7 +76,7 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 ## 如果需要 10 GB 以上的存储，应该怎么做？  <a name="more-storage-needed"></a>
 
-无论使用 S1、S2 或 S3 性能级别的集合还是单区集合（其可用存储都是 10 GB），都可以使用 DocumentDB 数据迁移工具将数据迁移到分区集合（存储几乎无限）。 有关分区集合优势的信息，请参阅 [DocumentDB 中的分区和缩放](documentdb-partition-data.md)。 有关如何将 S1、S2、S3 或单区集合迁移到分区集合的信息，请参阅[从单区迁移到分区集合](documentdb-partition-data.md#migrating-from-single-partition)。 
+无论使用 S1、S2 或 S3 性能级别的集合还是单区集合（其可用存储空间都是 10 GB），都可以使用 DocumentDB 数据迁移工具将数据迁移到分区集合（存储空间几乎无限）。 有关分区集合优势的信息，请参阅 [DocumentDB 中的分区和缩放](documentdb-partition-data.md)。 有关如何将 S1、S2、S3 或单区集合迁移到分区集合的信息，请参阅[从单区迁移到分区集合](documentdb-partition-data.md#migrating-from-single-partition)。 
 
 ## 在 2017 年 8 月 1 日之前，是否可以在 S1、S2 和 S3 性能级别之间切换？  <a name="change-before"></a>
 
@@ -95,9 +94,9 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 **使用 Azure 门户迁移到单区集合**
 
-1. 在 [**Azure 门户**](https://portal.azure.cn)中单击“DocumentDB”，然后选择要修改的 DocumentDB 帐户。 
+1. 在 [**Azure 门户**](https://portal.azure.cn)中，单击“DocumentDB”，然后选择要修改的 DocumentDB 帐户。 
  
-    如果跳转栏上没有“DocumentDB”，请单击 >，滚动到“数据库”，选择“DocumentDB”，然后选择 DocumentDB 帐户。  
+    如果跳转栏上没有“DocumentDB”，请单击“>”，滚动到“数据库”，选择“DocumentDB”，然后选择 DocumentDB 帐户。  
 
 2. 在资源菜单中的“容器”下面单击“缩放”，从下拉列表中选择要修改的集合，然后单击“定价层”。 使用预定义吞吐量的帐户拥有定价层 S1、S2 或 S3。  在“选择定价层”边栏选项卡中，单击“标准”以更改为用户定义的吞吐量，然后单击“选择”保存更改。
 
@@ -148,11 +147,11 @@ S1、S2 和 S3 性能级别无法提供 DocumentDB API 集合具备的灵活性�
 
 EA 客户在当前合同到期之前，价格将受到保护。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 若要了解更多有关 DocumentDB 的定价和管理数据的信息，请浏览以下资源：
 
 1. [对 DocumentDB 中的数据进行分区](documentdb-partition-data.md)。 了解单区容器与分区容器的差异，以及有关实施分区策略以进行无缝缩放的提示。
 2. [DocumentDB 定价](https://www.azure.cn/pricing/details/documentdb/)。 了解预配吞吐量和使用存储的费用。
 3. [请求单位](documentdb-request-units.md)。 了解不同操作类型（例如读取、写入和查询）的吞吐量消耗。
-
 

@@ -16,22 +16,21 @@ origin.date: 05/01/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
 ms.custom: hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: dc9405b1c193948b72944692c0bd1b25a221513c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 1a3a974760cb48d2ff10d6b99f5775da65b60dc5
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# <a name="install-or-update-mono-on-hdinsight"></a>在 HDInsight 上安装或更新 Mono
+# 在 HDInsight 上安装或更新 Mono
+<a id="install-or-update-mono-on-hdinsight" class="xliff"></a>
 
 了解如何在 HDInsight 3.4 或更高版本上安装特定版本的 [Mono](http://www.mono-project.com)。
 
 Mono 安装在 HDInsight 3.4 及更高版本上，用于运行 .NET 应用程序。 有关每个 HDInsight 版本包含的 Mono 版本的信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md)。 若要在群集上安装不同版本，请使用本文档中的脚本操作。 
 
-## <a name="how-it-works"></a>工作原理
+## 工作原理
+<a id="how-it-works" class="xliff"></a>
 
 此脚本接受以下参数：
 
@@ -43,7 +42,8 @@ Mono 安装在 HDInsight 3.4 及更高版本上，用于运行 .NET 应用程序
 
 * __ca-certificates-mono__
 
-## <a name="the-script"></a>脚本
+## 脚本
+<a id="the-script" class="xliff"></a>
 
 __脚本位置__：[https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash](https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash)
 
@@ -51,7 +51,8 @@ __要求__：
 
 * 该脚本必须应用在__头节点__和__工作节点__上。
 
-## <a name="to-use-the-script"></a>使用脚本
+## 使用脚本
+<a id="to-use-the-script" class="xliff"></a>
 
 有关如何在 HDInsight 中使用此脚本的信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)一文。 可以通过 Azure 门户、Azure PowerShell 或 Azure CLI 使用此脚本。
 
@@ -62,7 +63,8 @@ __要求__：
 > [!NOTE]
 > 使用此脚本配置 HDInsight 时，请将此脚本标记为 __Persisted__。 此设置允许 HDInsight 将脚本应用于通过缩放操作添加的工作节点。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 已学习如何在 HDInsight 上升级或安装 Mono 的特定版本。 有关如何将 .NET 应用程序与 HDInsight 上的 Mono 配合使用的详细信息，请参阅以下文档：
 

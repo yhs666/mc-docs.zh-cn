@@ -14,25 +14,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 8dd98fb80732de61a8eb4757d20593389b8ef474
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 3036b7fd45fc5a3a962853471213000b99753f2e
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="scheduler-outbound-authentication"></a>计划程序出站身份验证
+# 计划程序出站身份验证
+<a id="scheduler-outbound-authentication" class="xliff"></a>
 计划程序作业可能需要调用要求进行身份验证的服务。 这样，被调用的服务可以确定计划程序作业是否可以访问其资源。 其中的某些服务包括其他 Azure 服务、Salesforce.com、Facebook 和安全的自定义网站。
 
-## <a name="adding-and-removing-authentication"></a>添加和删除身份验证
+## 添加和删除身份验证
+<a id="adding-and-removing-authentication" class="xliff"></a>
 将身份验证添加到计划程序作业非常简单 – 只需在创建或更新作业时将一个 JSON 子元素 `authentication` 添加到 `request` 元素。 在 PUT、PATCH 或 POST 请求中（作为 `authentication` 对象的一部分）传递给计划程序服务的机密永远不会在响应中返回。 在响应中，机密信息将设置为 null，或者包含一个表示已经过身份验证的实体的公共令牌。
 
 若要删除身份验证，请对作业显式执行 PUT 或 PATCH，并将 `authentication` 对象设置为 null。 响应中不会传回任何身份验证属性。
 
 目前，支持的身份验证类型仅包括 `ClientCertificate` 模型（表示使用 SSL/TLS 客户端证书）、`Basic` 模型（表示基本身份验证）和 `ActiveDirectoryOAuth` 模型（表示 Active Directory OAuth 身份验证）。
 
-## <a name="request-body-for-clientcertificate-authentication"></a>ClientCertificate 身份验证的请求正文
+## ClientCertificate 身份验证的请求正文
+<a id="request-body-for-clientcertificate-authentication" class="xliff"></a>
 使用 `ClientCertificate` 模型添加身份验证时，请在请求正文中指定以下附加元素。  
 
 | 元素 | 说明 |
@@ -42,7 +43,8 @@ ms.lasthandoff: 04/28/2017
 | *pfx* |必需。 PFX 文件的 Base64 编码内容。 |
 | *password* |必需。 用于访问 PFX 文件的密码。 |
 
-## <a name="response-body-for-clientcertificate-authentication"></a>ClientCertificate 身份验证的响应正文
+## ClientCertificate 身份验证的响应正文
+<a id="response-body-for-clientcertificate-authentication" class="xliff"></a>
 发送包含身份验证信息的请求时，响应将包含以下与身份验证相关的元素。
 
 | 元素 | 说明 |
@@ -53,7 +55,8 @@ ms.lasthandoff: 04/28/2017
 | *certificateSubjectName* |证书的使用者可分辨名称。 |
 | *certificateExpiration* |证书的过期日期。 |
 
-## <a name="sample-rest-request-for-clientcertificate-authentication"></a>ClientCertificate 身份验证的示例 REST 请求
+## ClientCertificate 身份验证的示例 REST 请求
+<a id="sample-rest-request-for-clientcertificate-authentication" class="xliff"></a>
 ```
 PUT https://management.chinacloudapi.cn/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
@@ -89,7 +92,8 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## <a name="sample-rest-response-for-clientcertificate-authentication"></a>ClientCertificate 身份验证的示例 REST 响应
+## ClientCertificate 身份验证的示例 REST 响应
+<a id="sample-rest-response-for-clientcertificate-authentication" class="xliff"></a>
 ```
 HTTP/1.1 200 OK
 Cache-Control: no-cache
@@ -145,7 +149,8 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 }
 ```
 
-## <a name="request-body-for-basic-authentication"></a>基本身份验证的请求正文
+## 基本身份验证的请求正文
+<a id="request-body-for-basic-authentication" class="xliff"></a>
 使用 `Basic` 模型添加身份验证时，请在请求正文中指定以下附加元素。
 
 | 元素 | 说明 |
@@ -155,7 +160,8 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 | *username* |必需。 要进行身份验证的用户名。 |
 | *password* |必需。 要进行身份验证的密码。 |
 
-## <a name="response-body-for-basic-authentication"></a>基本身份验证的响应正文
+## 基本身份验证的响应正文
+<a id="response-body-for-basic-authentication" class="xliff"></a>
 发送包含身份验证信息的请求时，响应将包含以下与身份验证相关的元素。
 
 | 元素 | 说明 |
@@ -164,7 +170,8 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 | *类型* |身份验证的类型。 对于基本身份验证，该值为 `Basic`。 |
 | *username* |经过身份验证的用户名。 |
 
-## <a name="sample-rest-request-for-basic-authentication"></a>基本身份验证的示例 REST 请求
+## 基本身份验证的示例 REST 请求
+<a id="sample-rest-request-for-basic-authentication" class="xliff"></a>
 ```
 PUT https://management.chinacloudapi.cn/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
@@ -201,7 +208,8 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## <a name="sample-rest-response-for-basic-authentication"></a>基本身份验证的示例 REST 响应
+## 基本身份验证的示例 REST 响应
+<a id="sample-rest-response-for-basic-authentication" class="xliff"></a>
 ```
 HTTP/1.1 200 OK
 Cache-Control: no-cache
@@ -255,7 +263,8 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 }
 ```
 
-## <a name="request-body-for-activedirectoryoauth-authentication"></a>ActiveDirectoryOAuth 身份验证的请求正文
+## ActiveDirectoryOAuth 身份验证的请求正文
+<a id="request-body-for-activedirectoryoauth-authentication" class="xliff"></a>
 使用 `ActiveDirectoryOAuth` 模型添加身份验证时，请在请求正文中指定以下附加元素。
 
 | 元素 | 说明 |
@@ -267,10 +276,12 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 | *clientId* |必需。 为 Azure AD 应用程序提供客户端标识符。 |
 | *secret* |必需。 正在请求令牌的客户端的机密。 |
 
-### <a name="determining-your-tenant-identifier"></a>确定你的租户标识符
+### 确定你的租户标识符
+<a id="determining-your-tenant-identifier" class="xliff"></a>
 可以通过在 Azure PowerShell 中运行 `Get-AzureAccount` ，找到 Azure AD 租户的租户标识符。
 
-## <a name="response-body-for-activedirectoryoauth-authentication"></a>ActiveDirectoryOAuth 身份验证的响应正文
+## ActiveDirectoryOAuth 身份验证的响应正文
+<a id="response-body-for-activedirectoryoauth-authentication" class="xliff"></a>
 发送包含身份验证信息的请求时，响应将包含以下与身份验证相关的元素。
 
 | 元素 | 说明 |
@@ -281,7 +292,8 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 |*audience* |设置为 https://management.core.chinacloudapi.cn/。|
 | *clientId* |AD 应用程序的客户端标识符。 |
 
-## <a name="sample-rest-request-for-activedirectoryoauth-authentication"></a>ActiveDirectoryOAuth 身份验证的示例 REST 请求
+## ActiveDirectoryOAuth 身份验证的示例 REST 请求
+<a id="sample-rest-request-for-activedirectoryoauth-authentication" class="xliff"></a>
 ```
 PUT https://management.chinacloudapi.cn/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
@@ -320,7 +332,8 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## <a name="sample-rest-response-for-activedirectoryoauth-authentication"></a>ActiveDirectoryOAuth 身份验证的示例 REST 响应
+## ActiveDirectoryOAuth 身份验证的示例 REST 响应
+<a id="sample-rest-response-for-activedirectoryoauth-authentication" class="xliff"></a>
 ```
 HTTP/1.1 200 OK
 Cache-Control: no-cache
@@ -377,7 +390,8 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## <a name="see-also"></a>另请参阅
+## 另请参阅
+<a id="see-also" class="xliff"></a>
  [计划程序是什么？](scheduler-intro.md)
 
  [Azure 计划程序的概念、术语和实体层次结构](scheduler-concepts-terms.md)
@@ -393,5 +407,4 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
  [Azure 计划程序的高可用性和可靠性](scheduler-high-availability-reliability.md)
 
  [Azure 计划程序的限制、默认值和错误代码](scheduler-limits-defaults-errors.md)
-
 

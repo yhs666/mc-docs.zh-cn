@@ -13,14 +13,14 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: bab8cf785a88b6841de25dfca118c7f15c7eea4b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 77e1e79c4ae0b99fdcd88e43cd995e7017b75897
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="vpn-gateway-documentation"></a>VPN 网关文档
+# VPN 网关文档
+<a id="vpn-gateway-documentation" class="xliff"></a>
 
 了解如何配置 VPN 网关（一种虚拟专用网络网关）。 文档介绍了如何在 Azure 虚拟网络与本地位置或其他 Azure 虚拟网络 (VNet) 之间发送网络流量。
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 05/12/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>使用 Azure 门户创建站点到站点连接入门</h3>
+                        <h3>开始使用 Azure 门户创建站点到站点连接</h3>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@ ms.lasthandoff: 05/12/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>使用 Azure 门户创建点到站点连接入门</h3>
+                        <h3>开始使用 Azure 门户创建点到站点连接</h3>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@ ms.lasthandoff: 05/12/2017
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>使用 Azure 门户创建 VNet 到 VNet 连接入门</h3>
+                        <h3>开始使用 Azure 门户创建 VNet 到 VNet 连接</h3>
                     </div>
                 </div>
             </div>

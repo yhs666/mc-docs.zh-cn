@@ -3,8 +3,8 @@ title: "使用模板创建 Azure 事件中心命名空间和使用者组 | Azure
 description: "使用 Azure Resource Manager 模板创建包含事件中心和使用者组的事件中心命名空间"
 services: event-hubs
 documentationcenter: .net
-author: sethmanheim
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 28bb4591-1fd7-444f-a327-4e67e8878798
 ms.service: event-hubs
@@ -12,47 +12,49 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 03/07/2017
-ms.date: 04/17/2017
+origin.date: 06/12/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: f4d6d3fbe3c6bc36c8f02738694e43edc76d7bad
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: b7a2514d25b909738f291f3f541c24bbad468952
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建包含事件中心和使用者组的事件中心命名空间
+# 使用 Azure Resource Manager 模板创建包含事件中心和使用者组的事件中心命名空间
+<a id="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template" class="xliff"></a>
 
 本文介绍如何使用 Azure Resource Manager 模板创建包含一个事件中心和一个使用者组的事件中心类型的命名空间。 本文介绍如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求
 
 有关创建模板的详细信息，请参阅 [创作 Azure Resource Manager 模板][Authoring Azure Resource Manager templates]。
 
-有关完整的模板，请参阅 GitHub 上的 [事件中心和使用者组模板][Event Hub and consumer group template] 。
+有关完整的模板，请参阅 GitHub 上的[事件中心和使用者组模板][Event Hub and consumer group template]。
 
 > [!NOTE]
 > 若要检查最新模板，请访问 [Azure 快速启动模板][Azure Quickstart Templates] 库并搜索事件中心。
 > 
 > 
 
-## <a name="what-will-you-deploy"></a>你将部署什么内容？
+## 你将部署什么内容？
+<a id="what-will-you-deploy" class="xliff"></a>
 
-使用此模板，你将部署包含事件中心和使用者组的事件中心命名空间。
+使用此模板，将部署包含事件中心和使用者组的事件中心命名空间。
 
-[事件中心](./event-hubs-what-is-event-hubs.md)是一种事件处理服务，用于向 Azure 提供大规模的事件与遥测数据入口，并且具有较低的延迟和较高的可靠性。
+[事件中心](event-hubs-what-is-event-hubs.md)是一种事件处理服务，用于向 Azure 提供大规模的事件与遥测数据入口，并且具有较低的延迟和较高的可靠性。
 
 若要自动运行部署，请单击以下按钮：
 
 [![部署到 Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
-## <a name="parameters"></a>Parameters
+## Parameters
+<a id="parameters" class="xliff"></a>
 
 使用 Azure Resource Manager，可以定义在部署模板时想要指定的值的参数。 该模板具有一个名为 `Parameters` 的部分，其中包含所有参数值。 你应该为随着要部署的项目或要部署到的环境而变化的值定义参数。 不要为永远保持不变的值定义参数。 模板中的每个参数值定义所部署的资源。
 
-模板定义以下参数。
+模板定义以下参数：
 
-### <a name="eventhubnamespacename"></a>eventHubNamespaceName
+### eventHubNamespaceName
+<a id="eventhubnamespacename" class="xliff"></a>
 
 要创建的事件中心命名空间的名称。
 
@@ -62,7 +64,8 @@ ms.lasthandoff: 04/07/2017
 }
 ```
 
-### <a name="eventhubname"></a>eventHubName
+### eventHubName
+<a id="eventhubname" class="xliff"></a>
 
 在事件中心命名空间中创建的事件中心的名称。
 
@@ -72,7 +75,8 @@ ms.lasthandoff: 04/07/2017
 }
 ```
 
-### <a name="eventhubconsumergroupname"></a>eventHubConsumerGroupName
+### eventHubConsumerGroupName
+<a id="eventhubconsumergroupname" class="xliff"></a>
 
 为事件中心创建的使用者组的名称。
 
@@ -82,7 +86,8 @@ ms.lasthandoff: 04/07/2017
 }
 ```
 
-### <a name="apiversion"></a>apiVersion
+### apiVersion
+<a id="apiversion" class="xliff"></a>
 
 模板的 API 版本。
 
@@ -92,9 +97,10 @@ ms.lasthandoff: 04/07/2017
 }
 ```
 
-## <a name="resources-to-deploy"></a>要部署的资源
+## 要部署的资源
+<a id="resources-to-deploy" class="xliff"></a>
 
-创建包含事件中心和使用者组的 **EventHubs**类型的命名空间。
+创建包含一个事件中心和一个使用者组的 **EventHubs** 类型的命名空间。
 
 ```json
 "resources":[  
@@ -128,26 +134,29 @@ ms.lasthandoff: 04/07/2017
                      ],
                      "properties":{  
 
-                 }
-              }
-           ]
-        }
-     ]
-  }
-],
+                     }
+                  }
+               ]
+            }
+         ]
+      }
+   ],
 ```
 
-## <a name="commands-to-run-deployment"></a>运行部署的命令
+## 运行部署的命令
+<a id="commands-to-run-deployment" class="xliff"></a>
 
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-## <a name="powershell"></a>PowerShell
+## PowerShell
+<a id="powershell" class="xliff"></a>
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## Azure CLI
+<a id="azure-cli" class="xliff"></a>
 
 ```cli
 azure config mode arm
@@ -155,15 +164,16 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
 ```
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 访问以下链接可以了解有关事件中心的详细信息：
 
-* [事件中心概述](./event-hubs-what-is-event-hubs.md)
-* [创建事件中心](./event-hubs-create.md)
-* [事件中心常见问题](./event-hubs-faq.md)
+* [事件中心概述](event-hubs-what-is-event-hubs.md)
+* [创建事件中心](event-hubs-create.md)
+* [事件中心常见问题](event-hubs-faq.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://github.com/Azure/azure-quickstart-templates/?term=event+hubs
-[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/

@@ -15,64 +15,71 @@ ms.workload: data-services
 origin.date: 03/07/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 79f5a8bfb8b13d62e93c3d8f033d4c2559162536
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 93f26d2baad547a82e510f005f908695776893a2
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="community-portal"></a>社区门户
-## <a name="community-spotlight"></a>社区聚焦
+# 社区门户
+<a id="community-portal" class="xliff"></a>
+## 社区聚焦
+<a id="community-spotlight" class="xliff"></a>
 让我们推销你的项目！ 向我们展示你使用 DocumentDB（下一代 DocumentDB 堆栈）进行的绝佳项目，我们很乐意与全世界分享你的才华。 若要提交你的项目，请向我们发送电子邮件： [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com)。
 
-### <a name="documentdb-lumenize"></a>documentdb-lumenize
+### documentdb-lumenize
+<a id="documentdb-lumenize" class="xliff"></a>
 作者：Larry Maccherone
 
 DocumentDB 中以存储过程形式提供的聚合（分组依据、数据透视表和 N 维多维数据集）和时序转换功能。
 
 在 [GitHub](https://github.com/lmaccherone/documentdb-lumenize) 和 [npm](https://www.npmjs.com/package/lumenize) 上了解相关信息。
 
-### <a name="documentdb-studio"></a>DocumentDB Studio
+### DocumentDB Studio
+<a id="documentdb-studio" class="xliff"></a>
 *作者：Ming Liu*
 
 DocumentDB 服务的客户端管理查看器/资源管理器。
 
 在 [GitHub](https://github.com/mingaliu/DocumentDBStudio) 上了解相关信息。
 
-### <a name="doqmentdb"></a>DoQmentDB
+### DoQmentDB
+<a id="doqmentdb" class="xliff"></a>
 *作者：Ariel Mashraki*
 
 DoQmentDB 是一个以 Node.js Promise 为基础的客户端，可在 DocumentDB 之上提供类似 MongoDB 的层。
 
 在 [GitHub](https://github.com/a8m/doqmentdb) 和 [npm](https://www.npmjs.com/package/doqmentdb) 上了解相关信息。
 
-### <a name="typescript-api"></a>TypeScript API
+### TypeScript API
+<a id="typescript-api" class="xliff"></a>
 *作者：Jelmer Cormont*
 
 使用 TypeScript 编写（也可使用普通 JavaScript 编写）的围绕 Node.js 客户端的包装器。 支持 `async/await` 和简化的 API。
 
 在 [GitHub](https://github.com/jcormont/documentdb-typescript) 和 [npm](https://www.npmjs.com/package/documentdb-typescript) 上了解相关信息。
 
-### <a name="swagger-rest-api-for-documentdb"></a>DocumentDB 的 Swagger REST API
+### DocumentDB 的 Swagger REST API
+<a id="swagger-rest-api-for-documentdb" class="xliff"></a>
 *作者：Howard Edidin*
 
-可以轻松部署为 API 应用的 DocumentDB DocumentDB REST API Swagger 文件。
+可以轻松部署为 API 应用的 DocumentDB REST API Swagger 文件。
 
 在 [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi) 上了解相关信息。
 
-### <a name="fluent-plugin-documentdb"></a>fluent-plugin-documentdb
+### fluent-plugin-documentdb
+<a id="fluent-plugin-documentdb" class="xliff"></a>
 *作者：Yoichi Kawasaki*
 
 fluent-plugin-documentdb 是用于输出到 DocumentDB 的 Fluentd 插件。
 
 在 [GitHub](https://github.com/yokawasa/fluent-plugin-documentdb) 和 [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb) 上了解相关信息。
 
-*在 [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories) 上查找更多开放源代码 DocumentDB 项目。*
+在 [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories) 上查找更多开放源代码 DocumentDB 项目。
 
-## <a name="news-blogs-and-articles"></a>新闻、博客和文章
-可以关注[我们的博客](https://azure.microsoft.com/blog/tag/documentdb/)，随时了解最新的 DocumentDB 新闻和功能。
+## 新闻、博客和文章
+<a id="news-blogs-and-articles" class="xliff"></a>
+你可以关注 [我们的博客](https://azure.microsoft.com/blog/tag/documentdb/)，随时了解最新的 DocumentDB 新闻和功能。
 
 **社区贴文：**
 
@@ -103,7 +110,8 @@ fluent-plugin-documentdb 是用于输出到 DocumentDB 的 Fluentd 插件。
 
 *要演讲或举办活动吗？[让我们知道](mailto:askdocdb@microsoft.com)我们能为你做些什么！*
 
-### <a name="previous-events-and-recordings"></a>先前的活动和录像
+### 先前的活动和录像
+<a id="previous-events-and-recordings" class="xliff"></a>
 | 事件名称 | 主讲人 | 位置 | 日期 | 记录 |
 | --- | --- | --- | --- | --- |
 | [Connect(); // 2016](https://connectevent.microsoft.com/) |Kirill Gavrylyuk |纽约州纽约市 |2016 年 11 月 16 日至 11 月 18 日 | |
@@ -118,6 +126,7 @@ fluent-plugin-documentdb 是用于输出到 DocumentDB 的 Fluentd 插件。
 | [SQLBits XV](https://sqlbits.com/) |Andrew Liu、Aravind Ramachandran |英国利物浦 |2016 年 5 月 4 日至 5 月 7 日 |不适用 |
 | [Meetup: NYC .NET Developers Group](http://www.meetup.com/NYC-NET-Developers/events/230396260/) |Leonard Lobel |纽约州纽约市 |2016 年 4 月 21 日 |不适用 |
 | [集成用户组](http://www.integrationusergroup.com/#) |Howard Edidin |网络研讨会 |2016 年 4 月 25 日 |不适用 |
+| [Global Azure Bootcamp: SoCal](http://xprs.imcreator.com/free/vishalishere/gab2016) |Leonard Lobel |加州奥兰治县 |2016 年 4 月 16 日 |不适用 |
 | [Global Azure Bootcamp: Redmond](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) |David Makogon |华盛顿州雷德蒙德 |2016 年 4 月 16 日 |不适用 |
 | [SQL Saturday #481 - Israel 2016](http://www.sqlsaturday.com/481/Sessions/Details.aspx?sid=40912) |Leonard Lobel |以色列中央区 |2016 年 4 月 4 日 |不适用 |
 | [Build 2016](https://build.microsoft.com/) |John Macintyre |加州旧金山 |2016 年 3 月 31 日 |[Delivering Applications at Scale with DocumentDB, Azure's NoSQL Document Database](https://channel9.msdn.com/Events/Build/2016/B840)（使用 DocumentDB、Azure 的 NoSQL 文档数据库大规模交付应用程序） |
@@ -157,7 +166,8 @@ fluent-plugin-documentdb 是用于输出到 DocumentDB 的 Fluentd 插件。
 | [Meetup: Great Lakes Area .Net User Group](http://www.meetup.com/Great-Lakes-Area-NET-User-Group-MIGANG/events/220364576/) |Michael Collier |密歇根州绍斯菲尔德 |2015 年 2 月 18 日 |不适用 |
 | [TechX Azure](https://www.youtube.com/channel/UCDRlI2E4z5qmHsBXTrFOE2Q) |Magnus Mårtensson |瑞典斯德哥尔摩 |2015 年 1 月 28 日至 29 日 |[Azure 中的 DocumentDB，云中的新 NoSQL 选择](https://www.youtube.com/watch?v=Hw7hDYoChNI) |
 
-### <a name="videos-and-podcasts"></a>视频和播客
+### 视频和播客
+<a id="videos-and-podcasts" class="xliff"></a>
 | 显示 | 主讲人 | 日期 | 剧集 |
 | --- | --- | --- | --- |
 | Azure Friday |Kirill Gavrylyuk |2016 年 10 月 31 日 | |
@@ -183,41 +193,48 @@ fluent-plugin-documentdb 是用于输出到 DocumentDB 的 Fluentd 插件。
 | #DevHangout |Gustavo Alzate Sandoval |2015 年 3 月 11 日 |[DocumentDB, la base de datos NoSql de Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
 | 数据结构 Virtual Chapter PASS |Ike Ellis |2015 年 2 月 25日 |[DocumentDB 简介](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
 
-### <a name="online-classes"></a>在线课程
+### 在线课程
+<a id="online-classes" class="xliff"></a>
 | 学习合作伙伴 | 说明 |
 | --- | --- |
 | [![Microsoft 虚拟大学](./media/documentdb-community/mva.png)](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) |[**Microsoft 虚拟大学**](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) 向你提供培训，这些培训来自那些帮助构建 Azure DocumentDB 的人士。 |
 | [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) |[**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction) 是提供 Azure 培训的重要 Microsoft 合作伙伴。 如果你是一名 MSDN 订户，请使用你访问 Azure 培训的权益。 |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) |[**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) 提供有关 Azure 的深层次技术培训。 在现场或通过远程教室获得由业内认可的培训师指导的培训。 |
 
-### <a name="online-forums"></a>在线论坛
+### 在线论坛
+<a id="online-forums" class="xliff"></a>
 | 论坛提供者 | 说明 |
 | --- | --- |
 | [![堆栈溢出](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) |面向程序员的共同编辑问题和答案网站（与语言无关）。 请访问我们的标记： [azure-documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
 
-## <a name="contact-the-team"></a>与团队联系
+## 与团队联系
+<a id="contact-the-team" class="xliff"></a>
 ![团队](./media/documentdb-community/documentdb-team.png)
 
 你需要技术协助吗？ 有任何疑问吗？ 想知道 NoSQL 是否适合你？ 可发送 [电子邮件](mailto:askdocdb@microsoft.com) 给我们，直接安排与 DocumentDB 工程团队进行 1 对 1 交谈。
 
-## <a name="open-source-projects"></a>开放源代码项目
+## 开放源代码项目
+<a id="open-source-projects" class="xliff"></a>
 这些项目由 Azure DocumentDB 团队与我们的开放源代码社区共同积极开发。
 
-### <a name="sdks"></a>SDK
+### SDK
+<a id="sdks" class="xliff"></a>
 | 平台 | GitHub | 程序包 |
 | --- | --- | --- |
 | Node.js |[azure-documentdb-node](https://github.com/Azure/azure-documentdb-node) |[npm](https://www.npmjs.com/package/documentdb) |
 | Java |[azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb%22) |
 | Python |[azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) |[PyPI](https://pypi.python.org/pypi/pydocumentdb) |
 
-### <a name="other-projects"></a>其他项目
+### 其他项目
+<a id="other-projects" class="xliff"></a>
 | 名称 | GitHub | 网站 |
 | --- | --- | --- |
 | 文档 |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[文档网站](index.md) |
 | Hadoop 连接器 |[azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | 数据迁移工具 |[azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) |[Microsoft 下载中心](http://www.microsoft.com/download/details.aspx?id=46436) |
 
-## <a name="azure-documentdb-wizards"></a>DocumentDB 向导
+## DocumentDB 奇才
+<a id="documentdb-wizards" class="xliff"></a>
 DocumentDB 向导是社区领导者，他们是帮助其他人充分利用他们在 DocumentDB（下一代 Azure DocumentDB）上的经验的最佳典范。 他们和社区及 DocumentDB 团队分享了他们超乎常人的热情、实用的知识以及专业技术。
 
 想要成为 DocumentDB 奇才？ 由于是否能成为 DocumentDB 奇才并没有任何评判基准，因此我们会针对部分条件来评估，包括被提名人对在线论坛（例如 StackOverflow 和 MSDN；Wiki 和在线内容；会议和用户组；播客；网站；博客和社交媒体；以及文章与书籍）的贡献所产生的影响。 如果想提名自己或其他人， [请向我们发送电子邮件](mailto:askdocdb@microsoft.com)。

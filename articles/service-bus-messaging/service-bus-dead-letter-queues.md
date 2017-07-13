@@ -12,16 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/14/2017
-ms.date: 05/22/2017
+ms.date: 02/14/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: a743de1c35f465fc00902b0cd6363ba0c55ede02
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 7fad7976d4b322ad5f98ed1d08d2ae0192286b16
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>服务总线死信队列概述
 服务总线队列和主题订阅提供一个名为死信队列 (DLQ) 的辅助子队列。 死信队列不需要显式创建，并且不能删除或以其他方式独立于主实体进行管理。

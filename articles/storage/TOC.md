@@ -1,6 +1,7 @@
 # 概述
 
 ## [介绍](storage-introduction.md)
+## [选择 Blob、文件或数据磁盘](storage-decide-blobs-files-disks.md)
 
 # 入门
 
@@ -48,6 +49,10 @@
 ### [使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md)
 ### [使用 PowerShell 将托管磁盘附加到 Windows VM](../virtual-machines/windows/attach-disk-ps.md)
 ### [将托管磁盘添加到 Linux VM](../virtual-machines/linux/add-disk.md)
+### [使用 Windows 中的快照创建作为托管磁盘存储的 VHD 的副本](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+### [使用 Linux 中的快照创建作为托管磁盘存储的 VHD 的副本](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [在 Resource Manager 模板中使用托管磁盘](storage-using-managed-disks-template-deployments.md)
+
 
 # 如何
 ## [创建存储帐户](storage-create-storage-account.md)
@@ -63,10 +68,14 @@
 ### [表设计指南](storage-table-design-guide.md)
 ## 使用文件
 ### [概述](https://docs.microsoft.com/rest/api/storageservices/File-Service-Concepts)
-### [排查 Azure 文件问题](storage-troubleshoot-file-connection-problems.md)
+### [对 Azure 文件进行故障排除 - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+### [对 Azure 文件进行故障排除 - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ## 使用磁盘
 ### [Windows VM 的磁盘和 VHD](storage-about-disks-and-vhds-windows.md)
 ### [Linux VM 的磁盘和 VHD](storage-about-disks-and-vhds-linux.md)
+### [Azure 托管磁盘概述](storage-managed-disks-overview.md)
+### [将 Azure VM 迁移到 Azure 托管磁盘](../virtual-machines/windows/migrate-to-managed-disks.md)
+### [从 AWS 和其他平台迁移到托管磁盘](../virtual-machines/windows/on-prem-to-azure.md)
 ### [有关 Azure IaaS VM 磁盘的常见问题](storage-faq-for-disks.md)
 ### 高级存储
 #### [适用于 VM 磁盘的高性能高级存储](storage-premium-storage.md)
@@ -79,7 +88,7 @@
 ## 规划和设计
 ### [复制](storage-redundancy.md)
 ### [可伸缩性和性能目标](storage-scalability-targets.md)
-### [性能和可缩放性清单](storage-performance-checklist.md)
+### [性能和伸缩性清单](storage-performance-checklist.md)
 ### [并发](storage-concurrency.md)
 ## 开发
 ### 示例
@@ -105,6 +114,7 @@
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## 监视和故障排除
+### [排查存储资源管理器问题](storage-explorer-troubleshooting.md)
 ### 指标和日志记录
 #### [存储分析](storage-analytics.md)
 #### [启用和查看指标](storage-enable-and-view-metrics.md)
@@ -117,7 +127,8 @@
 ### [灾难恢复指南](storage-disaster-recovery-guidance.md)
 ## 传输数据
 ### [向/从存储器移动数据](storage-moving-data.md)
-### [AzCopy 命令行实用工具](storage-use-azcopy.md)
+### [Windows 上的 AzCopy](storage-use-azcopy.md)
+### [Linux 上的 AzCopy](storage-use-azcopy-linux.md)
 ### [使用导入/导出服务](storage-import-export-service.md)
 ### [使用导入/导出工具](storage-import-export-tool-how-to.md)
 #### [设置导入/导出工具](storage-import-export-tool-setup.md)

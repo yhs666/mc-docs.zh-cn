@@ -15,22 +15,23 @@ ms.topic: article
 origin.date: 09/07/2016
 ms.date: 01/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 016d7d8a561c4e2298751dbb23cab54888d6e27c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: f39b65412cd2a8f5cace8afa1872ef0652b8e740
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="how-to-monitor-apps-in-azure-app-service"></a>如何：在 Azure 应用服务中监视 Web 应用
+# 如何：在 Azure 应用服务中监视 Web 应用
+<a id="how-to-monitor-apps-in-azure-app-service" class="xliff"></a>
 [应用服务](/app-service-web/app-service-changes-existing-services)在 [Azure 门户](https://portal.azure.cn)中提供了内置监视功能。
 还能查看应用的**配额**和**度量值**以及应用服务计划、设置**警报**，甚至基于这些度量值自动**缩放**。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="understanding-quotas-and-metrics"></a>了解配额和度量值
-### <a name="quotas"></a>配额
+## 了解配额和度量值
+<a id="understanding-quotas-and-metrics" class="xliff"></a>
+### 配额
+<a id="quotas" class="xliff"></a>
 对于托管在应用服务中的应用程序，其可用资源受到某些 *限制* 。 限制由与应用关联的**应用服务计划**定义。
 
 如果应用程序托管在**免费**或**共享**计划中，则该应用可用资源的限制由**配额**定义。
@@ -40,22 +41,23 @@ ms.lasthandoff: 05/26/2017
 **免费**或**共享**应用的**配额**如下：
 
 * **CPU（短期）**
-    * 3 分钟内允许此应用程序使用的 CPU 量。 此配额每 3 分钟重置。
+  * 3 分钟内允许此应用程序使用的 CPU 量。 此配额每 3 分钟重置。
 * **CPU（天）**
-    * 1 天内允许此应用程序使用的 CPU 总量。 此配额每隔 24 小时在 UTC 午夜时间重置。
+  * 1 天内允许此应用程序使用的 CPU 总量。 此配额每隔 24 小时在 UTC 午夜时间重置。
 * **内存**
-    * 允许此应用程序具有的内存总量。
+  * 允许此应用程序具有的内存总量。
 * **带宽**
-    * 1 天内允许此应用程序传出的带宽总量。
-      此配额每隔 24 小时在 UTC 午夜时间重置。
+  * 1 天内允许此应用程序传出的带宽总量。
+    此配额每隔 24 小时在 UTC 午夜时间重置。
 * **Filesystem**
-    * 允许的存储空间总量。
+  * 允许的存储空间总量。
 
 适用于托管在**基本**、**标准**和**高级**计划中的应用的唯一配额是**文件系统**。
 
 有关各种应用服务 SKU 可用的特定配额、限制和功能的详细信息，请参见：[Azure 订阅服务限制](../azure-subscription-service-limits.md#app-service-limits)
 
-#### <a name="quota-enforcement"></a>配额强制执行
+#### 配额强制执行
+<a id="quota-enforcement" class="xliff"></a>
 如果应用程序的使用量超过 **CPU（短期）**、**CPU（天）**或**带宽**配额，则将终止该应用程序，直到配额重置。 在此期间，所有传入请求都将导致 **HTTP 403**。
 ![][http403]
 
@@ -65,41 +67,42 @@ ms.lasthandoff: 05/26/2017
 
 可通过升级应用服务计划从应用中增加或删除配额。
 
-### <a name="metrics"></a>度量值
+### 度量值
+<a id="metrics" class="xliff"></a>
 **度量值** 提供有关应用或应用服务计划行为的信息。
 
 对于 **应用程序**，可用度量值为：
 
 * **平均响应时间**
-    * 应用处理请求的平均时间（以毫秒为单位）。
+  * 应用处理请求的平均时间（以毫秒为单位）。
 * **平均内存工作集**
-    * 应用使用的平均内存量（以 MiB 为单位）。
+  * 应用使用的平均内存量（以 MiB 为单位）。
 * **CPU 时间**
-    * 应用使用的 CPU 量（以秒为单位）。 有关此度量值的详细信息，请参阅：[CPU 时间与 CPU 百分比](#cpu-time-vs-cpu-percentage)
+  * 应用使用的 CPU 量（以秒为单位）。 有关此度量值的详细信息，请参阅：[CPU 时间与 CPU 百分比](#cpu-time-vs-cpu-percentage)
 * **数据输入**
-    * 应用使用的传入带宽量（以 MiB 为单位）。
+  * 应用使用的传入带宽量（以 MiB 为单位）。
 * **数据输出**
-    * 应用使用的传出带宽量（以 MiB 为单位）。
+  * 应用使用的传出带宽量（以 MiB 为单位）。
 * **Http 2xx**
-    * 导致 http 状态代码的请求计数大于等于 200，但小于 300。
+  * 导致 http 状态代码的请求计数大于等于 200，但小于 300。
 * **Http 3xx**
-    * 导致 http 状态代码的请求计数大于等于 300，但小于 400。
+  * 导致 http 状态代码的请求计数大于等于 300，但小于 400。
 * **Http 401**
-    * 导致 HTTP 401 状态代码的请求计数。
+  * 导致 HTTP 401 状态代码的请求计数。
 * **Http 403**
-    * 导致 HTTP 403 状态代码的请求计数。
+  * 导致 HTTP 403 状态代码的请求计数。
 * **Http 404**
-    * 导致 HTTP 404 状态代码的请求计数。
+  * 导致 HTTP 404 状态代码的请求计数。
 * **Http 406**
-    * 导致 HTTP 406 状态代码的请求计数。
+  * 导致 HTTP 406 状态代码的请求计数。
 * **Http 4xx**
-    * 导致 http 状态代码的请求计数大于等于 400，但小于 500。
+  * 导致 http 状态代码的请求计数大于等于 400，但小于 500。
 * **Http 服务器错误**
-    * 导致 http 状态代码的请求计数大于等于 500，但小于 600。
+  * 导致 http 状态代码的请求计数大于等于 500，但小于 600。
 * **内存工作集**
-    * 应用当前使用的内存量（以 MiB 为单位）。
+  * 应用当前使用的内存量（以 MiB 为单位）。
 * **请求**
-    * 请求总数（不考虑是否导致 HTTP 状态代码）。
+  * 请求总数（不考虑是否导致 HTTP 状态代码）。
 
 对于**应用服务计划**，可用度量值为：
 
@@ -109,19 +112,20 @@ ms.lasthandoff: 05/26/2017
 > 
 
 * **CPU 百分比**
-    * 计划的所有实例使用的平均 CPU 量。
+  * 计划的所有实例使用的平均 CPU 量。
 * **内存百分比**
-    * 计划的所有实例使用的平均内存量。
+  * 计划的所有实例使用的平均内存量。
 * **数据输入**
-    * 计划的所有实例使用的平均输入带宽量。
+  * 计划的所有实例使用的平均输入带宽量。
 * **数据输出**
-    * 计划的所有实例使用的平均输出带宽量。
+  * 计划的所有实例使用的平均输出带宽量。
 * **磁盘队列长度**
-    * 在存储上排队的读取和写入请求的平均数量。 过高的磁盘队列长度表示应用程序可能由于磁盘 I/O 过多而速度变慢。
+  * 在存储上排队的读取和写入请求的平均数量。 过高的磁盘队列长度表示应用程序可能由于磁盘 I/O 过多而速度变慢。
 * **Http 队列长度**
-    * 必须在队列排满之前排入队列中的 HTTP 请求的平均数量。 较高或不断增长的 HTTP 队列长度表示计划处于高负载状态。
+  * 必须在队列排满之前排入队列中的 HTTP 请求的平均数量。 较高或不断增长的 HTTP 队列长度表示计划处于高负载状态。
 
-### <a name="cpu-time-vs-cpu-percentage"></a>CPU 时间和 CPU 百分比
+### CPU 时间和 CPU 百分比
+<a id="cpu-time-vs-cpu-percentage" class="xliff"></a>
 <!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
 
 有 2 个反映 CPU 使用率的度量值。 **CPU 时间**和 **CPU 百分比**
@@ -130,14 +134,16 @@ ms.lasthandoff: 05/26/2017
 
 另一方面，**CPU 百分比**对托管在**基本**、**标准**和**高级**计划中的应用很有用，因为这些应用可以按比例扩大，并且该度量值能很好反映所有实例的总体使用情况。
 
-## <a name="metrics-granularity-and-retention-policy"></a>度量值粒度和保留策略
+## 度量值粒度和保留策略
+<a id="metrics-granularity-and-retention-policy" class="xliff"></a>
 应用程序和应用服务计划的度量值由具有下列粒度和保留策略的服务进行记录和聚合：
 
 * **分钟**粒度级的度量值将保留 **48 小时**
 * **小时**粒度级的度量值将保留 **30 天**
 * **天**粒度级的度量值将保留 **90 天**
 
-## <a name="monitoring-quotas-and-metrics-in-the-azure-portal-preview"></a>在 Azure 门户中监视配额和指标。
+## 在 Azure 门户中监视配额和度量值。
+<a id="monitoring-quotas-and-metrics-in-the-azure-portal" class="xliff"></a>
 可以在 [Azure 门户](https://portal.azure.cn)中查看影响应用程序的各种**配额**和**指标**。
 
 可以在“设置”>“配额”****下找到![][quotas]
@@ -149,12 +155,14 @@ ms.lasthandoff: 05/26/2017
 
 可以在此处了解有关度量值的详细信息：[监视服务度量值](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
 
-## <a name="alerts-and-autoscale"></a>警报和自动缩放
+## 警报和自动缩放
+<a id="alerts-and-autoscale" class="xliff"></a>
 可以将应用或应用服务计划的指标挂接到警报
 
 托管在基本、标准或高级应用服务计划中的应用服务应用支持 **自动缩放**。 这使你可以配置监视应用服务计划度量值的规则，还能增加或减少根据需要提供其他资源或在过度预配时节约资金的实例计数。
 
-## <a name="whats-changed"></a>发生的更改
+## 发生的更改
+<a id="whats-changed" class="xliff"></a>
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914

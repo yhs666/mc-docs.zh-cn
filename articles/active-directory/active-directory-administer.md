@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/06/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 2852eece5f3f8fa4e73b4b9e2cbcb7c142b36a0e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 66b4c5c9a64061b07ecc2f92ce5bca0adb60f4ed
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="administer-your-azure-ad-directory"></a>管理 Azure AD 目录
 ## <a name="what-is-an-azure-ad-tenant"></a>什么是 Azure AD 租户？
@@ -56,7 +54,7 @@ Azure AD 在大多数 Microsoft 云服务的后面提供核心目录和身份管
 有关将本地目录与 Azure AD 集成的详细信息，请参阅 [目录集成](./connect/active-directory-aadconnect.md)。
 
 ### <a name="associate-an-azure-ad-directory-with-a-new-azure-subscription"></a>将 Azure AD 目录与新的 Azure 订阅相关联
-可以将新的 Azure 订阅与对现有 Office 365 或 Microsoft Intune 订阅的登录进行身份验证的相同目录进行关联。 请使用工作或学校帐户登录到 Azure 管理门户。 管理门户将返回一条消息，指出找不到该帐户的任何订阅。 选择“注册 Azure”，你的目录将可用于在门户中进行管理。 有关详细信息，请参阅[在 Azure 中管理 Office 365 订阅的目录](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure)。
+可以将新的 Azure 订阅与对现有 Office 365 或 Microsoft Intune 订阅的登录进行身份验证的相同目录进行关联。 请使用工作或学校帐户登录到 Azure 管理门户。 管理门户将返回一条消息，指出找不到该帐户的任何订阅。 选择“注册 Azure”，你的目录将可用于在门户中进行管理。 有关详细信息，请参阅[在 Azure 中管理 Office 365 订阅的目录](./active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure)。
 
 ### <a name="create-an-azure-ad-directory-by-signing-up-for-a-microsoft-cloud-service-as-an-organization"></a>通过以组织身份注册 Microsoft 云服务来创建 Azure AD 目录
 如果尚未订阅 Microsoft 云服务，请使用下面的链接之一注册。 注册第一个服务后，将自动创建 Azure AD 目录。
@@ -126,7 +124,7 @@ Azure AD 要求删除目录之前必须符合特定的条件。 这可以降低�
 
 - 目录中的唯一用户是将要删除该目录的全局管理员。 只有在删除所有其他用户后，才能删除该目录。 如果用户是从本地同步的，则需要关闭同步，并且必须使用管理门户或用于 Windows PowerShell 的 Azure 模块从云目录中删除这些用户。 不要求删除组或联系人，例如，从 Office 365 管理中心添加的联系人。
 - 目录中不能有任何应用程序。 只有在删除所有应用程序后，才能删除目录。
-- 与目录关联的任何 Microsoft Online Services（例如 Azure、Office 365 或 Azure AD Premium）不能存在任何订阅。 例如，如果在 Azure 中为你创建了一个默认目录，并且你的 Azure 订阅仍然依赖于此目录进行身份验证，则不能删除此目录。 类似地，如果其他用户已将订阅与某个目录相关联，则你无法删除该目录。 若要将你的订阅与其他目录相关联，请登录到 Azure 管理门户，并在左侧导航中单击“设置”  。 然后，在“订阅”页的底部单击“编辑目录”。 有关 Azure 订阅的详细信息，请参阅 [Azure 订阅与 Azure AD 的关联方式](active-directory-how-subscriptions-associated-directory.md)。
+- 与目录关联的任何 Microsoft Online Services（例如 Azure、Office 365 或 Azure AD Premium）不能存在任何订阅。 例如，如果在 Azure 中为你创建了一个默认目录，并且你的 Azure 订阅仍然依赖于此目录进行身份验证，则不能删除此目录。 类似地，如果其他用户已将订阅与某个目录相关联，则你无法删除该目录。 若要将你的订阅与其他目录相关联，请登录到 Azure 管理门户，并在左侧导航中单击“设置”  。 然后，在“订阅”页的底部单击“编辑目录”。 有关 Azure 订阅的详细信息，请参阅 [Azure 订阅与 Azure AD 的关联方式](./active-directory-how-subscriptions-associated-directory.md)。
 
 > [!NOTE]
 > 如果用户使用工作或学校帐户登录，则该用户不得尝试删除其主目录。 例如，如果用户是作为 joe@contoso.partner.onmschina.cn登录的，则该用户不能删除默认域为 contoso.partner.onmschina.cn 的目录。
@@ -139,12 +137,10 @@ Azure AD 要求删除目录之前必须符合特定的条件。 这可以降低�
 - [Azure AD 论坛](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
 - [Azure 多重身份验证论坛](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
 - [堆栈溢出](http://stackoverflow.com/questions/tagged/azure)
-- [以组织身份注册 Azure](sign-up-organization.md)
+- [以组织身份注册 Azure](./sign-up-organization.md)
 - [使用 Windows PowerShell 管理 Azure AD](https://msdn.microsoft.com/library/azure/jj151815.aspx)
-- [在 Azure AD 中分配管理员角色](active-directory-assign-admin-roles.md)
+- [在 Azure AD 中分配管理员角色](./active-directory-assign-admin-roles.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
-
-

@@ -13,19 +13,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 12/22/2016
+origin.date: 04/25/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 93f4389c0ef80c583f95f50551b881f252056d85
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: ace2f26306b09f4fd55fbf694cf03a8b80db4151
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="nodejs-web-app-using-the-azure-table-service"></a>使用 Azure 表服务的 Node.js Web 应用
-## <a name="overview"></a>概述
+# 使用 Azure 表服务的 Node.js Web 应用
+<a id="nodejs-web-app-using-the-azure-table-service" class="xliff"></a>
+## 概述
+<a id="overview" class="xliff"></a>
 本教程说明如何使用 Azure 数据管理提供的表服务在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services) Web 应用托管的 [node] 应用程序中存储和访问数据。 本教程假定你之前使用过 node 和 [Git]。
 
 你将学习以下内容：
@@ -40,7 +40,8 @@ ms.lasthandoff: 04/28/2017
 
 ![显示空白 tasklist 的网页][node-table-finished]
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 在按照本文中的说明操作之前，请确保已安装下列项：
 
 * [node] 0.10.24 版或更高版本
@@ -48,7 +49,8 @@ ms.lasthandoff: 04/28/2017
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## <a name="create-a-storage-account"></a>创建存储帐户
+## 创建存储帐户
+<a id="create-a-storage-account" class="xliff"></a>
 创建 Azure 存储帐户。 应用会使用此帐户存储待办事项。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
@@ -61,10 +63,12 @@ ms.lasthandoff: 04/28/2017
 
     ![访问密钥][portal-storage-access-keys]
 
-## <a name="install-modules-and-generate-scaffolding"></a>安装模块并生成基架
+## 安装模块并生成基架
+<a id="install-modules-and-generate-scaffolding" class="xliff"></a>
 在本节中，你将创建新的 Node 应用程序并使用 npm 添加模块包。 对于此应用程序，将使用 [Express] 和 [Azure] 模块。 Express 模块为 Node 提供模型视图控制器框架，而 Azure 模块提供与表服务的连接。
 
-### <a name="install-express-and-generate-scaffolding"></a>安装 Express 并生成基架
+### 安装 Express 并生成基架
+<a id="install-express-and-generate-scaffolding" class="xliff"></a>
 1. 在命令行中，创建名为 **tasklist** 的新目录并切换到该目录。  
 2. 请输入以下命令来安装 Express 模块。
 
@@ -80,10 +84,10 @@ ms.lasthandoff: 04/28/2017
         ├── mkdirp@0.3.5
         └── commander@1.3.2 (keypress@0.1.0)
 
-    > [!NOTE]
-    > “-g”参数表示全局安装模块。 这样，我们可使用 **express** 生成 Web 应用基架，而无需键入其他路径信息。
-    > 
-    > 
+   > [!NOTE]
+   > “-g”参数表示全局安装模块。 这样，我们可使用 **express** 生成 Web 应用基架，而无需键入其他路径信息。
+   > 
+   > 
 3. 若要创建应用程序的基架，请输入 **express** 命令：
 
         express
@@ -116,7 +120,8 @@ ms.lasthandoff: 04/28/2017
 
     此时， **tasklist** 目录中会有几个新目录和文件。
 
-### <a name="install-additional-modules"></a>安装其他模块
+### 安装其他模块
+<a id="install-additional-modules" class="xliff"></a>
 **express** 创建的其中一个文件是 **package.json**。 此文件包含模块依赖项的列表。 之后，当你将应用程序部署到应用服务 Web 应用时，此文件会确定需要在 Azure 上安装的模块。
 
 在命令行中，输入以下命令，以安装 **package.json** 文件中描述的模块。 可能需要使用“sudo”。
@@ -133,7 +138,7 @@ ms.lasthandoff: 04/28/2017
 
     [...]
 
-接下来，输入以下命令，以安装 [azure]、[node-uuid]、[nconf] 和 [async] 模块：
+接下来，输入以下命令，以安装 [Azure]、[node-uuid]、[nconf] 和 [异步] 模块：
 
     npm install azure-storage node-uuid async nconf --save
 
@@ -152,10 +157,12 @@ ms.lasthandoff: 04/28/2017
 
     [...]
 
-## <a name="create-the-application"></a>创建应用程序
+## 创建应用程序
+<a id="create-the-application" class="xliff"></a>
 现在，我们准备好生成应用程序。
 
-### <a name="create-a-model"></a>创建模型
+### 创建模型
+<a id="create-a-model" class="xliff"></a>
 *模型* 是表示应用程序中的数据的对象。 对于应用程序，唯一的模型是任务对象，表示待办事项列表中的项。 任务将具有以下字段：
 
 * PartitionKey
@@ -239,7 +246,8 @@ ms.lasthandoff: 04/28/2017
         }
 6. 保存并关闭 **task.js** 文件。
 
-### <a name="create-a-controller"></a>添加控制器
+### 添加控制器
+<a id="create-a-controller" class="xliff"></a>
 *控制器*处理 HTTP 请求并渲染 HTML 响应。
 
 1. 在 **tasklist/routes** 目录中，创建名为 **tasklist.js** 的新文件，并在文本编辑器中将其打开。
@@ -298,7 +306,8 @@ ms.lasthandoff: 04/28/2017
           }
         }
 
-### <a name="modify-appjs"></a>修改 app.js
+### 修改 app.js
+<a id="modify-appjs" class="xliff"></a>
 1. 在 **tasklist** 目录中，打开 **app.js** 文件。 此文件是之前通过运行 **express** 命令创建。
 2. 在文件开头，添加以下代码来加载 azure 模块，设置表名称、分区键，并设置此示例使用的存储凭据：
 
@@ -311,10 +320,10 @@ ms.lasthandoff: 04/28/2017
         var accountName = nconf.get("STORAGE_NAME");
         var accountKey = nconf.get("STORAGE_KEY");
 
-    > [!NOTE]
-    > nconf 将从环境变量或我们稍后将创建的 **config.json** 文件中加载配置值。
-    > 
-    > 
+   > [!NOTE]
+   > nconf 将从环境变量或我们稍后将创建的 **config.json** 文件中加载配置值。
+   > 
+   > 
 3. 在 app.js 文件中，向下滚动到以下行：
 
         app.use('/', routes);
@@ -332,7 +341,8 @@ ms.lasthandoff: 04/28/2017
         app.post('/completetask', taskList.completeTask.bind(taskList));
 4. 保存 **app.js** 文件。
 
-### <a name="modify-the-index-view"></a>修改索引视图
+### 修改索引视图
+<a id="modify-the-index-view" class="xliff"></a>
 1. 在文本编辑器中打开 **tasklist/views/index.jade** 文件。
 2. 将文件的全部内容替换为以下代码。 这会定义显示现有任务的视图，并包括用于添加新任务和将现有任务标记为已完成的表单。
 
@@ -374,7 +384,8 @@ ms.lasthandoff: 04/28/2017
             button.btn(type="submit") Add item
 3. 保存并关闭 **index.jade** 文件。
 
-### <a name="modify-the-global-layout"></a>修改全局布局
+### 修改全局布局
+<a id="modify-the-global-layout" class="xliff"></a>
 **views** 目录中的 **Layout.jade** 文件是其他 **.jade** 文件的全局模板。 在此步骤中，你将对其进行修改，以使用 [Twitter Bootstrap](https://github.com/twbs/bootstrap)（一个可以轻松设计美观 Web 应用的工具包）。
 
 下载并提取 [Twitter Bootstrap](http://getbootstrap.com/) 的文件。 将 **bootstrap.min.css** 文件从 Bootstrap **css** 文件夹复制到应用程序的 **public/stylesheets** 目录中。
@@ -393,7 +404,8 @@ ms.lasthandoff: 04/28/2017
           a.navbar-brand(href='/') My Tasks
         block content
 
-### <a name="create-a-config-file"></a>创建 config 文件
+### 创建 config 文件
+<a id="create-a-config-file" class="xliff"></a>
 若要在本地运行应用，我们将 Azure 存储凭据放入 config 文件中。 使用以下 JSON 创建名为 *config.json* 的文件：
 
     {
@@ -420,7 +432,8 @@ ms.lasthandoff: 04/28/2017
 
 这样做的目的是避免将 config 文件签入源代码管理中，其中该文件可能会成为公共文件。 当我们将应用部署到 Azure 时，会使用环境变量而不是 config 文件。
 
-## <a name="run-the-application-locally"></a>在本地运行应用程序
+## 在本地运行应用程序
+<a id="run-the-application-locally" class="xliff"></a>
 若要在你的本地计算机中测试应用程序，请执行以下步骤：
 
 1. 在命令行中，将目录更改为 **tasklist** 目录。
@@ -439,19 +452,23 @@ ms.lasthandoff: 04/28/2017
 
 即使应用程序在本地运行，它也会将数据存储在 Azure 表服务中。
 
-## <a name="deploy-your-application-to-azure"></a>将你的应用程序部署到 Azure
+## 将你的应用程序部署到 Azure
+<a id="deploy-your-application-to-azure" class="xliff"></a>
 本节中的步骤使用 Azure 命令行工具在应用服务中创建新的 Web 应用，然后使用 Git 部署应用程序。 若要执行这些步骤，你必须具有 Azure 订阅。
 
 > [!NOTE]
-> 也可以使用 [Azure 门户](https://portal.azure.cn/)执行这些步骤。 请参阅 [Build and deploy a Node.js web app in Azure App Service]（在 Azure 应用服务中构建和部署 Node.js Web 应用）。
->
-> 如果这是创建的第一个 Web 应用，则必须使用 Azure 门户部署此应用程序。
+> 还可以使用 [Azure 门户](https://portal.azure.cn/)执行这些步骤。 请参阅 [Build and deploy a Node.js web app in Azure 应用服务]（在 Azure 应用服务中构建和部署 Node.js Web 应用）。
+> 
+> 如果这是你创建的第一个 Web 应用，则必须使用 Azure 门户部署此应用程序。
+> 
+> 
 
 若要开始，请在命令行中输入以下命令以安装 [Azure CLI] ：
 
     npm install azure-cli -g
 
-### <a name="import-publishing-settings"></a>导入发布设置
+### 导入发布设置
+<a id="import-publishing-settings" class="xliff"></a>
 此步骤将下载包含订阅相关信息的文件。
 
 1. 输入以下命令：
@@ -470,7 +487,8 @@ ms.lasthandoff: 04/28/2017
     指定你在上一步中下载的发布设置文件的路径和文件名。
 3. 导入设置后，请删除发布设置文件。 该文件包含有关 Azure 订阅的敏感信息，并且以后不再需要使用。
 
-### <a name="create-an-app-service-web-app"></a>创建应用服务 Web 应用
+### 创建应用服务 Web 应用
+<a id="create-an-app-service-web-app" class="xliff"></a>
 1. 在命令行中，将目录更改为 **tasklist** 目录。
 2. 使用以下命令创建新的 Web 应用。
 
@@ -495,12 +513,13 @@ ms.lasthandoff: 04/28/2017
         info:   Executing `git remote add azure https://username@tabletasklist.chinacloudsites.cn/TableTasklist.git`
         info:   site create command OK
 
-    > [!NOTE]
-    > 如果这是订阅的第一个应用服务 Web 应用，系统会指示使用 Azure 门户创建该 Web 应用。 有关详细信息，请参阅 [Build and deploy a Node.js web app in Azure App Service]（在 Azure 应用服务中构建和部署 Node.js Web 应用）。
-    > 
-    > 
+   > [!NOTE]
+   > 如果这是订阅的第一个应用服务 Web 应用，系统会指示使用 Azure 门户创建 Web 应用。 有关详细信息，请参阅 [Build and deploy a Node.js web app in Azure 应用服务]（在 Azure 应用服务中构建和部署 Node.js Web 应用）。
+   > 
+   > 
 
-### <a name="set-environment-variables"></a>设置环境变量。
+### 设置环境变量。
+<a id="set-environment-variables" class="xliff"></a>
 在此步骤中，会将环境变量添加到 Azure 上的 Web 应用配置中。
 在命令行中，输入以下信息：
 
@@ -520,7 +539,8 @@ ms.lasthandoff: 04/28/2017
      ![应用设置](./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png)
 4. 单击“保存” 。
 
-### <a name="publish-the-application"></a>发布应用程序
+### 发布应用程序
+<a id="publish-the-application" class="xliff"></a>
 若要发布应用，将代码文件提交到 Git 中，随后推送到 azure/master。
 
 1. 设置部署凭据。
@@ -540,18 +560,21 @@ ms.lasthandoff: 04/28/2017
           * [new branch]      master -> master
 4. 推送操作完成后，浏览到 `azure create site` 命令之前返回的 Web 应用 URL，以查看你的应用程序。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 虽然本文中的步骤介绍了使用表服务来存储信息，但也可以使用 [MongoDB](https://mlab.com/azure/)。 
 
-## <a name="additional-resources"></a>其他资源
+## 其他资源
+<a id="additional-resources" class="xliff"></a>
 [Azure CLI]
 
-## <a name="whats-changed"></a>更改内容
+## 更改内容
+<a id="whats-changed" class="xliff"></a>
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!-- URLs -->
 
-[Build and deploy a Node.js web app in Azure App Service]: app-service-web-get-started-nodejs.md
+[Build and deploy a Node.js web app in Azure 应用服务]: app-service-web-get-started-nodejs.md
 [Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
@@ -562,12 +585,12 @@ ms.lasthandoff: 04/28/2017
 
 [Azure CLI]:../cli-install-nodejs.md
 
-[azure]: https://github.com/Azure/azure-sdk-for-node
+[Azure]: https://github.com/Azure/azure-sdk-for-node
 [node-uuid]: https://www.npmjs.com/package/node-uuid
 [nconf]: https://www.npmjs.com/package/nconf
-[async]: https://www.npmjs.com/package/async
+[异步]: https://www.npmjs.com/package/async
 
-[Azure Portal Preview]: https://portal.azure.cn
+[Azure Portal]: https://portal.azure.cn
 
 [Create and deploy a Node.js application to an Azure Web Site]: app-service-web-get-started-nodejs.md
 

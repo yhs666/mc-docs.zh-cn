@@ -1,27 +1,28 @@
 ---
-title: "Azure Site Recovery 文档 - 教程、API 参考 | Microsoft Docs"
+title: "Azure Site Recovery 文档 - 教程、API 参考 | Azure"
 description: "了解如何通过部署和管理复制来设置物理服务器和虚拟机的云灾难恢复和业务连续性。"
 services: site-recovery
-author: carolz
-manager: carolz
+author: rockboyfor
+manager: digimobile
 layout: LandingPage
 ms.assetid: 
 ms.service: site-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 2d42b33e1aff3a0e6ca12a6b51500dcede5433d5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+origin.date: 06/05/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
+ms.openlocfilehash: 92fddc6e17fabd29567b317765847b016f42a026
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-# <a name="site-recovery-documentation"></a>Site Recovery 文档
+# Site Recovery 文档
+<a id="site-recovery-documentation" class="xliff"></a>
 
-了解如何使用 Site Recovery 实现业务连续性和私有云的灾难恢复策略。 教程和其他文档介绍了如何规划、部署和管理本地物理服务器与虚拟机到云或到辅助数据中心的协调复制。
+了解如何使用 Site Recovery 提高业务连续性和完善灾难恢复策略，使应用和工作负荷在停机期间仍可运行。 教程和其他文章演示了如何规划、部署和管理本地计算机以及 Azure VM 的复制、故障转移和恢复。
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -36,6 +37,25 @@ ms.lasthandoff: 05/12/2017
                     </div>
                     <div class="cardText">
                         <h3>了解 Azure Site Recovery</h3>
+                        <!--Not Available video content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/site-recovery/site-recovery-vmware-to-azure">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure Site Recovery 入门</h3>
                     </div>
                 </div>
             </div>

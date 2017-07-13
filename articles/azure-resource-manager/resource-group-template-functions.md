@@ -3,8 +3,8 @@ title: "Resource Manager 模板函数 | Azure"
 description: "介绍在 Azure Resource Manager 模板中检索值、处理字符串和数字以及检索部署信息时所用的函数。"
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 0644abe1-abaa-443d-820d-1966d7d26bfd
 ms.service: azure-resource-manager
@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/26/2017
-ms.date: 06/05/2017
+origin.date: 06/13/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: ec60a13abe94fdaa15afc0e53973ac4d632f1f13
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 1a0c87aa7f08b8ac547bd3d10da205badc82b09a
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager 模板函数
+# Azure Resource Manager 模板函数
+<a id="azure-resource-manager-template-functions" class="xliff"></a>
 本主题介绍可以在 Azure Resource Manager 模板中使用的所有函数。
+
+通过将函数分别括在方括号（`[` 和 `]`）内，在模板中添加函数。 在部署过程中计算表达式。 尽管编写为字符串文本，但表达式的计算结果可以是不同的 JSON 类型，例如数组、对象或整数。 如同在 JavaScript 中一样，函数调用的格式为 `functionName(arg1,arg2,arg3)`。 使用点和 [index] 运算符引用属性。
+
+模板表达式不能超过 24,576 个字符。
 
 模板函数及其参数不区分大小写。 例如，Resource Manager 将 **variables('var1')** 和 **VARIABLES('VAR1')** 视为相同。 在求值时，除非函数明确修改大小写（例如，使用 toUpper 或 toLower 进行修改），否则函数将保留大小写。 某些资源类型可能会提出大小写要求，而不考虑函数求值方式。
 
@@ -43,7 +46,10 @@ ms.lasthandoff: 05/26/2017
 <a id="range" />
 <a id="skip" />
 <a id="take" />
-## <a id="union"></a> 数组和对象函数
+<a id="union" />
+
+## 数组和对象函数
+<a id="array-and-object-functions" class="xliff"></a>
 Resource Manager 提供以下用于处理数组和对象的函数。
 
 * [array](resource-group-template-functions-array.md#array)
@@ -67,7 +73,10 @@ Resource Manager 提供以下用于处理数组和对象的函数。
 <a id="less" />
 <a id="lessorequals" />
 <a id="greater" />
-## <a id="greaterorequals"></a> 比较函数
+<a id="greaterorequals" />
+
+## 比较函数
+<a id="comparison-functions" class="xliff"></a>
 Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 * [equals](resource-group-template-functions-comparison.md#equals)
@@ -78,7 +87,10 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 <a id="deployment" />
 <a id="parameters" />
-## <a id="variables"></a> 部署值函数
+<a id="variables" />
+
+## 部署值函数
+<a id="deployment-value-functions" class="xliff"></a>
 Resource Manager 提供以下函数，用于从与部署相关的模板和值部分获取值：
 
 * [部署](resource-group-template-functions-deployment.md#deployment)
@@ -94,7 +106,10 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 <a id="maxint" />
 <a id="mod" />
 <a id="mul" />
-## <a id="sub"></a> 数值函数
+<a id="sub" />
+
+## 数值函数
+<a id="numeric-functions" class="xliff"></a>
 Resource Manager 提供以下用于处理整数的函数：
 
 * [添加](resource-group-template-functions-numeric.md#add)
@@ -114,7 +129,10 @@ Resource Manager 提供以下用于处理整数的函数：
 <a id="reference" />
 <a id="resourcegroup" />
 <a id="resourceid" />
-## <a id="subscription"></a> 资源函数
+<a id="subscription" />
+
+## Resource functions
+<a id="resource-functions" class="xliff"></a>
 Resource Manager 提供以下用于获取资源值的函数：
 
 * [listKeys 和 list{Value}](resource-group-template-functions-resource.md#listkeys)
@@ -153,7 +171,10 @@ Resource Manager 提供以下用于获取资源值的函数：
 <a id="uniquestring" />
 <a id="uri" />
 <a id="uricomponent" />
-## <a id="uricomponenttostring"></a> 字符串函数
+<a id="uricomponenttostring" />
+
+## 字符串函数
+<a id="string-functions" class="xliff"></a>
 Resource Manager 提供以下用于处理字符串的函数：
 
 * [base64](resource-group-template-functions-string.md#base64)
@@ -187,7 +208,8 @@ Resource Manager 提供以下用于处理字符串的函数：
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * 有关 Azure Resource Manager 模板中各部分的说明，请参阅 [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)（创作 Azure Resource Manager 模板）
 * 若要合并多个模板，请参阅 [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)（将链接的模板与 Azure Resource Manager 配合使用）
 * 若要在创建资源类型时迭代指定的次数，请参阅 [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)（在 Azure Resource Manager 中创建多个资源实例）

@@ -1,8 +1,8 @@
 ---
-title: "Azure SQL 数据仓库文档 - 教程、API 参考 | Microsoft 文档"
+title: "Azure SQL 数据仓库文档 - 教程、API 参考 | Azure"
 description: "了解如何使用结合了 SQL Server 与大规模并行处理的 SQL 数据仓库。 文档说明如何加载、分析、管理和导出数据。"
 services: sql-data-warehouse
-author: carolz
+author: rockboyfor
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -10,17 +10,17 @@ ms.service: sql-data-warehouse
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
+origin.date: 01/23/2017
 ms.date: 01/23/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 576e12831945701b880e891394c0cbb8374d333b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 5efcf5df8197cbccc8e7b168b8a6b04ab0acaf23
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# <a name="sql-data-warehouse-documentation"></a>SQL 数据仓库文档
+# SQL 数据仓库文档
+<a id="sql-data-warehouse-documentation" class="xliff"></a>
 
 了解如何使用 SQL 数据仓库，其结合了 SQL Server 关系数据库与大规模并行处理。 教程和其他文档介绍了如何将数据加载到数据仓库，然后分析、管理和导出数据。
 

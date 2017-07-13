@@ -15,15 +15,14 @@ ms.topic: article
 origin.date: 08/10/2016
 ms.date: 12/26/2016
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: a40f80e430eac170058d832225a36c81a736e988
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 2f48cb1bb4e7e1d0d68e5fb240826abf3752402d
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="use-rest-to-back-up-and-restore-app-service-apps"></a>使用 REST 备份和还原应用服务应用
+# 使用 REST 备份和还原应用服务应用
+<a id="use-rest-to-back-up-and-restore-app-service-apps" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [PowerShell](../app-service/app-service-powershell-backup.md)
 > * [REST API](websites-csm-backup.md)
@@ -36,12 +35,18 @@ ms.lasthandoff: 05/19/2017
 
 本文介绍如何使用 RESTful API 请求备份和还原应用。 如果要通过 Azure 门户以图形方式创建和管理应用备份，请参阅[在 Azure 应用服务中备份 Web 应用](web-sites-backup.md)
 
-## <a name="gettingstarted"></a> 入门
+<a name="gettingstarted"></a>
+
+## 入门
+<a id="getting-started" class="xliff"></a>
 若要发送 REST 请求，需要知道应用的“名称”、“资源组”和“订阅 ID”。 可通过在 [Azure 门户](https://portal.azure.cn)的“应用服务”边栏选项卡中单击应用找到此信息。 对于本文中的示例，我们要配置网站 **backuprestoreapiexamples.chinacloudsites.cn**。 它将存储在 Default-Web-ChinaNorth 资源组中，并在 ID 为 00001111-2222-3333-4444-555566667777 的订阅上运行。
 
 ![示例网站信息][SampleWebsiteInformation]
 
-## <a name="backup-restore-rest-api"></a> 备份和还原 REST API
+<a name="backup-restore-rest-api"></a>
+
+## 备份和还原 REST API
+<a id="backup-and-restore-rest-api" class="xliff"></a>
 现在，我们将介绍如何使用 REST API 来备份和还原应用的几个示例。 每个示例均包括 URL 和 HTTP 请求正文。 示例 URL 包含包装在大括号内的占位符，如 {subscription-id}。 应将这些占位符替换为应用的相应信息。 为了参考方便，下面是示例 URL 中显示的每个占位符的说明。
 
 * subscription-id - 包含应用的 Azure 订阅的 ID
@@ -49,7 +54,10 @@ ms.lasthandoff: 05/19/2017
 * name - 应用的名称
 * backup-id - 应用备份的 ID
 
-## <a name="backup-on-demand"></a> 按需备份应用
+<a name="backup-on-demand"></a>
+
+## 按需备份应用
+<a id="backup-an-app-on-demand" class="xliff"></a>
 若要立即备份应用，请向 **https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backup/** 发送一个 **POST** 请求。
 
 使用我们的示例网站时，URL 如下所示。 **https://management.chinacloudapi.cn/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-ChinaNorth/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/**
@@ -107,10 +115,14 @@ ms.lasthandoff: 05/19/2017
 > 
 > 
 
-## <a name="schedule-automatic-backups"></a> 计划自动备份
+<a name="schedule-automatic-backups"></a>
+
+## 计划自动备份
+<a id="schedule-automatic-backups" class="xliff"></a>
 除了按需备份应用外，还可以计划自动进行的备份。
 
-### <a name="set-up-a-new-automatic-backup-schedule"></a>设置新的自动备份计划
+### 设置新的自动备份计划
+<a id="set-up-a-new-automatic-backup-schedule" class="xliff"></a>
 若要设置备份计划，请向 **https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup** 发送一个 **PUT** 请求。
 
 对于我们的示例网站，URL 如下所示。 **https://management.chinacloudapi.cn/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-ChinaNorth/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup**
@@ -139,12 +151,16 @@ ms.lasthandoff: 05/19/2017
 
 旧备份将自动从存储帐户中删除。 可以通过设置 **retentionPeriodInDays** 参数来控制备份的保留期限。 如果始终要至少保存一个备份，且不管它保留多长时间，请将 **keepAtLeastOneBackup** 设为 True。
 
-### <a name="get-the-automatic-backup-schedule"></a>获取自动备份计划
+### 获取自动备份计划
+<a id="get-the-automatic-backup-schedule" class="xliff"></a>
 若要获取应用的备份配置，请向 URL **https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup/list** 发送一个 **POST** 请求。
 
 示例站点的 URL 为 **https://management.chinacloudapi.cn/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-ChinaNorth/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup/list**。
 
-## <a name="get-backup-status"></a> 获取备份的状态
+<a name="get-backup-status"></a>
+
+## 获取备份的状态
+<a id="get-the-status-of-a-backup" class="xliff"></a>
 根据应用的大小，备份可能需要一段时间才能完成。 备份也可能会失败、超时或部分成功。 若要查看某个应用的所有备份的状态，请向 URL **https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups** 发送一个 **GET** 请求。
 
 若要查看特定备份的状态，请向 URL **https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}** 发送一个 GET 请求。
@@ -185,7 +201,10 @@ ms.lasthandoff: 05/19/2017
 * 8 - DeleteFailed：无法删除备份。 之所以会发生这种情况，是因为用于创建备份的 SAS URL 已过期。
 * 9 - Deleted：备份已成功删除。
 
-## <a name="restore-app"></a> 从备份中还原应用
+<a name="restore-app"></a>
+
+## 从备份中还原应用
+<a id="restore-an-app-from-a-backup" class="xliff"></a>
 如果你的应用已删除，或者想要将应用程还原到以前的版本，则可以从备份还原应用。 若要调用还原，请向 URL **https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/restore** 发送一个 **POST** 请求。
 
 对于我们的示例网站，URL 如下所示。 **https://management.chinacloudapi.cn/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-ChinaNorth/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/restore**
@@ -209,15 +228,22 @@ ms.lasthandoff: 05/19/2017
 }
 ```
 
-### <a name="restore-to-a-new-app"></a>还原到新应用
+### 还原到新应用
+<a id="restore-to-a-new-app" class="xliff"></a>
 有时你可能想要在还原备份时创建新应用，而不是覆盖现有的应用。 为此，请更改请求 URL 以指向要创建的新应用，并将 JSON 中的 **overwrite** 属性更改为 **false**。
 
-## <a name="delete-app-backup"></a> 删除应用备份
+<a name="delete-app-backup"></a>
+
+## 删除应用备份
+<a id="delete-an-app-backup" class="xliff"></a>
 若要删除备份，请向 URL **https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}** 发送一个 **DELETE** 请求。
 
 对于我们的示例网站，URL 如下所示。 **https://management.chinacloudapi.cn/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-ChinaNorth/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
 
-## <a name="manage-sas-url"></a> 管理备份的 SAS URL
+<a name="manage-sas-url"></a>
+
+## 管理备份的 SAS URL
+<a id="manage-a-backups-sas-url" class="xliff"></a>
 Azure 应用服务将尝试使用在创建备份时提供的 SAS URL 从 Azure 存储中删除备份。 如果此 SAS URL 不再有效，则无法通过 REST API 删除备份。 不过，可以通过向 URL **https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/list** 发送一个 **POST** 请求来更新与备份关联的 SAS URL。
 
 对于我们的示例网站，URL 如下所示。 **https://management.chinacloudapi.cn/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-ChinaNorth/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/list**

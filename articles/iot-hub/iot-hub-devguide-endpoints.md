@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/22/2017
-ms.date: 06/05/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 7f45c5f5117d5e0b3fad64e756a899a638dc7e61
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.date: 07/10/2017
+ms.openlocfilehash: 393f16efb9b48099c5fd2352fd34f37b5b14ad1d
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
-# <a name="reference---iot-hub-endpoints"></a>参考 - IoT 中心终结点
-## <a name="list-of-built-in-iot-hub-endpoints"></a>内置 IoT 中心终结点列表
+# 参考 - IoT 中心终结点
+<a id="reference---iot-hub-endpoints" class="xliff"></a>
+## 内置 IoT 中心终结点列表
+<a id="list-of-built-in-iot-hub-endpoints" class="xliff"></a>
 Azure IoT 中心属于多租户服务，向各种执行组件公开功能。 下图显示了 IoT 中心公开的各种终结点。
 
 ![IoT 中心终结点][img-endpoints]
@@ -58,7 +58,8 @@ Azure IoT 中心属于多租户服务，向各种执行组件公开功能。 下
 
 最后请务必注意，所有的 IoT 中心终结点都使用 [TLS][lnk-tls] 协议，且绝不会在未加密/不安全的通道上公开任何终结点。
 
-## <a name="custom-endpoints"></a>自定义终结点
+## 自定义终结点
+<a id="custom-endpoints" class="xliff"></a>
 可将订阅中的现有 Azure 服务链接到用作消息路由终结点的 IoT 中心。 这些终结点充当服务终结点，并用作消息路由的接收器。 设备无法直接写入附加终结点。 若要了解有关消息路由的详细信息，请参阅 [通过 IoT 中心发送和接收消息][lnk-devguide-messaging]中的开发人员指南条目。
 
 IoT 中心当前支持将以下 Azure 服务作为附加终结点：
@@ -69,40 +70,45 @@ IoT 中心当前支持将以下 Azure 服务作为附加终结点：
 
 IoT 中心需要这些服务终结点的写入权限，以便使用消息路由。 如果通过 Azure 门户配置终结点，则将为你添加必要权限。 请确保将服务配置为支持预期吞吐量。 可能需要在首次配置 IoT 解决方案时监视附加终结点，然后针对实际负载进行任意的必要调整。
 
-如果消息与多个路由匹配，而这些路由全部指向同一终结点，则 IoT 中心仅向该终结点传递一次消息。 因此不必在服务总线队列或主题中配置重复数据删除。 在分区队列中，分区相关性可保障消息排序。 不支持将已启用会话的队列用作终结点。 也不支持已启用重复数据删除的分区队列和主题。
+如果消息与多个路由匹配，而这些路由全部指向同一终结点，则 IoT 中心仅向该终结点传递一次消息。 因此不必在服务总线队列或主题中配置重复数据删除。 在分区队列中，分区相关性可保障消息排序。
+
+> [!NOTE]
+> 用作 IoT 中心终结点的服务总线队列和主题不能启用“会话”或“重复项检测”。 如果启用了其中任一选项，该终结点将在 Azure 门户中显示为“无法访问”。
 
 有关可添加终结点的数量限制，请参阅 [配额和限制][lnk-devguide-quotas]。
 
-## <a name="field-gateways"></a>现场网关
+## 现场网关
+<a id="field-gateways" class="xliff"></a>
 在 IoT 解决方案中， *现场网关* 位于设备和 IoT 中心终结点之间。 它通常位于靠近设备的位置。 设备使用设备支持的协议，直接与现场网关通信。 现场网关使用 IoT 中心支持的协议连接到 IoT 中心终结点。 现场网关可以是高度专业化的硬件，也可以是运行软件的低功率计算机，只需能够完成网关所适用的端到端方案即可。
 
-可以使用 [Azure IoT 网关 SDK][lnk-gateway-sdk] 实现现场网关。 此 SDK 提供特定功能，例如能够在同一个 IoT 中心连接上多路复用来自多个设备的通信。
+可使用 [Azure IoT Edge][lnk-iot-edge] 实现现场网关。 IoT Edge 提供特定功能，例如能够在同一个 IoT 中心连接上多路复用来自多个设备的通信。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 此 IoT 中心开发人员指南中的其他参考主题包括：
 
-* [设备孪生和作业的 IoT 中心查询语言][lnk-devguide-query]
+* [用于设备孪生、作业和消息路由的 IoT 中心查询语言][lnk-devguide-query]
 * [配额和限制][lnk-devguide-quotas]
 * [IoT 中心 MQTT 支持][lnk-devguide-mqtt]
 
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-iot-edge]: https://github.com/Azure/iot-edge
 
 [img-endpoints]: ./media/iot-hub-devguide-endpoints/endpoints.png
 [lnk-amqp]: https://www.amqp.org/
 [lnk-mqtt]: http://mqtt.org/
 [lnk-websockets]: https://tools.ietf.org/html/rfc6455
 [lnk-arm]: ../azure-resource-manager/resource-group-overview.md
-[lnk-event-hubs]: ../event-hubs/index.md
+[lnk-event-hubs]: /event-hubs/
 
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 [lnk-accesscontrol]: ./iot-hub-devguide-security.md#access-control-and-permissions
 [lnk-importexport]: ./iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-d2c]: ./iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-d2c]: ./iot-hub-devguide-messages-d2c.md
 [lnk-device-identities]: ./iot-hub-devguide-identity-registry.md
 [lnk-upload]: ./iot-hub-devguide-file-upload.md
-[lnk-c2d]: ./iot-hub-devguide-messaging.md#cloud-to-device-messages
+[lnk-c2d]: ./iot-hub-devguide-messages-c2d.md
 [lnk-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-twins]: ./iot-hub-devguide-device-twins.md
 [lnk-query]: ./iot-hub-devguide-query-language.md

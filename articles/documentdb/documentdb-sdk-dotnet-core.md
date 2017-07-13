@@ -16,15 +16,14 @@ origin.date: 05/10/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: f553ebbeef38d16b6d87068602653a7209616b9b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 822732ad6d9aa94bea1d61f2047adec354cb7373
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="documentdb-net-core-sdk-release-notes-and-resources"></a>DocumentDB .NET Core SDK：发行说明和资源
+# DocumentDB .NET Core SDK：发行说明和资源
+<a id="documentdb-net-core-sdk-release-notes-and-resources" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -52,57 +51,67 @@ ms.lasthandoff: 05/19/2017
 <tr><td>**当前受支持的框架**</td><td>[.NET 标准 1.6](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
 </table></br>
 
-## <a name="release-notes"></a>发行说明
+## 发行说明
+<a id="release-notes" class="xliff"></a>
 
 DocumentDB .NET Core SDK 具有与最新版 [DocumentDB.NET SDK](documentdb-sdk-dotnet.md) 相同的功能。
 
 > [!NOTE] 
 > DocumentDB .NET Core SDK 与通用 Windows 平台 (UWP) 应用尚不兼容。 如果不支持 UWP 应用的 .NET Core SDK 感兴趣，请向 [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com) 发送电子邮件。
 
-### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+### <a name="1.3.0"/>1.3.0
+<a id="a-name130130" class="xliff"></a>
 
-*    添加了对每分钟请求单位数 (RU/m) 功能的支持。
-*    添加了对称为“ConsistentPrefix”的新一致性级别的支持。
-*    添加了对查询单个分区的指标的支持。
-*    添加了对限制查询的继续标记大小的支持。
-*    添加了对失败请求的更详细跟踪的支持。
-*    在 SDK 中进行了一些性能改进。
+*   添加了对每分钟请求单位数 (RU/m) 功能的支持。
+*   添加了对称为“ConsistentPrefix”的新一致性级别的支持。
+*   添加了对查询单个分区的指标的支持。
+*   添加了对限制查询的继续标记大小的支持。
+*   添加了对失败请求的更详细跟踪的支持。
+*   在 SDK 中进行了一些性能改进。
 
-### <a name="a-name122122"></a><a name="1.2.2"/>1.2.2
+### <a name="1.2.2"/>1.2.2
+<a id="a-name122122" class="xliff"></a>
 
 - 修复了忽略 FeedOptions 中为聚合查询提供的 PartitionKey 值的问题。
 - 修复了在中途跨分区执行 OrderBy 查询期间透明处理分区管理的问题。
 
-### <a name="a-name121121"></a><a name="1.2.1"/>1.2.1
+### <a name="1.2.1"/>1.2.1
+<a id="a-name121121" class="xliff"></a>
 
 - 修复了在 ASP.NET 上下文内使用时，在某些异步 API 中导致死锁的问题。
 
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+### <a name="1.2.0"/>1.2.0
+<a id="a-name120120" class="xliff"></a>
 
 - 修复程序，用于使 SDK 更具弹性，以便在某些情况下自动故障转移。
 
-### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
+### <a name="1.1.2"/>1.1.2
+<a id="a-name112112" class="xliff"></a>
 
 - 修复偶尔导致 WebException 的问题：无法解析远程名称。
 - 通过向 ReadDocumentAsync API 添加新重载，添加了对直接读取类型化文档的支持。
 
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+### <a name="1.1.1"/>1.1.1
+<a id="a-name111111" class="xliff"></a>
 
 - 添加了对聚合查询（COUNT、MIN、MAX、SUM 和 AVG）的 LINQ 支持。
 - 修复了由于使用了事件处理程序而导致的 ConnectionPolicy 对象的内存泄漏问题。
 - 修复了使用 ETag 时 UpsertAttachmentAsync 不正常工作的问题。
 - 修复了对字符串字段进行排序时跨分区按查询条件排序不正常工作的问题。
 
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+### <a name="1.1.0"/>1.1.0
+<a id="a-name110110" class="xliff"></a>
 
 - 添加了对聚合查询（COUNT、MIN、MAX、SUM、AVG）的支持。 请参阅[聚合支持](documentdb-sql-query.md#Aggregates)。
 - 将分区集合上的最小吞吐量从 10,100 RU/s 降低到 2500 RU/s。
 
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="1.0.0"/>1.0.0
+<a id="a-name100100" class="xliff"></a>
 
 通过 DocumentDB .NET Core SDK，可构建能在 Windows、Mac 和 Linux 上快速运行的跨平台 [ASP.NET Core](https://www.asp.net/core) 和 [.NET Core](https://www.microsoft.com/net/core#windows) 应用。 DocumentDB .NET Core SDK 的最新版本完全兼容 [Xamarin](https://www.xamarin.com)，可用于生成面向 iOS、Android 和 Mono (Linux) 的应用程序。  
 
-### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
+### <a name="0.1.0-preview"/>0.1.0-preview
+<a id="a-name010-preview010-preview" class="xliff"></a>
 
 通过 DocumentDB .NET Core 预览版 SDK，可构建能在 Windows、Mac 和 Linux 上快速运行的跨平台 [ASP.NET Core](https://www.asp.net/core) 和 [.NET Core](https://www.microsoft.com/net/core#windows) 应用。
 
@@ -114,7 +123,8 @@ DocumentDB .NET Core 预览版 SDK 与最新版 [DocumentDB.NET SDK](documentdb-
 
 若有与此 SDK 相关的问题，请发布到 [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb)，或在 [github 存储库](https://github.com/Azure/azure-documentdb-dotnet/issues)中提出问题。 
 
-## <a name="release--retirement-dates"></a>发布和停用日期
+## 发布和停用日期
+<a id="release--retirement-dates" class="xliff"></a>
 
 | 版本 | 发布日期 | 停用日期 |
 | --- | --- | --- |
@@ -128,8 +138,8 @@ DocumentDB .NET Core 预览版 SDK 与最新版 [DocumentDB.NET SDK](documentdb-
 | [1.0.0](#1.0.0) |2016 年 12 月 21 日 |--- |
 | [0.1.0-preview](#0.1.0-preview) |2016 年 11 月 15 日 |2016 年 12 月 31 日 |
 
-## <a name="see-also"></a>另请参阅
+## 另请参阅
+<a id="see-also" class="xliff"></a>
 若要了解有关 DocumentDB 的详细信息，请参阅 [DocumentDB](https://www.azure.cn/home/features/documentdb/) 服务页。 
-
 
 

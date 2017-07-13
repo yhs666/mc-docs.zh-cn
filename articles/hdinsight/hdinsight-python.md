@@ -17,25 +17,26 @@ origin.date: 02/27/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 9b0881301e378c8aafcc443168a39e8a18fe6636
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: 476ca055e87d6487f15f9d029b93c44647190937
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>在 HDInsight 中通过 Hive 和 Pig 使用 Python 用户定义的函数 (UDF)
+# 在 HDInsight 中通过 Hive 和 Pig 使用 Python 用户定义的函数 (UDF)
+<a id="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight" class="xliff"></a>
 
 Hive 和 Pig 非常适用于在 HDInsight 中处理数据，但有时需要使用更通用的语言。 Hive 和 Pig 都允许使用多种编程语言创建用户定义的功能 (UDF)。 本文介绍如何通过 Hive 和 Pig 使用 Python UDF。
 
-## <a name="requirements"></a>要求
+## 要求
+<a id="requirements" class="xliff"></a>
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 * HDInsight 群集
 
-    > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+  > [!IMPORTANT]
+  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
 
 * 文本编辑器
 
@@ -166,11 +167,11 @@ def create_structure(input):
 
 1. **@outputSchema** 语句定义返回到 Pig 的数据的格式。 在本例中，该格式为**数据袋**，这是一种 Pig 数据类型。 该数据袋包含以下字段，所有这些字段都是 chararray（字符串）：
 
-    * date - 创建日志条目的日期
-    * time - 创建日志条目的时间
-    * classname - 为其创建该条目的类名
-    * level - 日志级别
-    * detail - 日志条目的详细信息
+   * date - 创建日志条目的日期
+   * time - 创建日志条目的时间
+   * classname - 为其创建该条目的类名
+   * level - 日志级别
+   * detail - 日志条目的详细信息
 
 2. 接下来，**def create_structure(input)** 将定义一个函数，以便 Pig 将行项传递到其中。
 
@@ -185,7 +186,8 @@ def create_structure(input):
 ## <a name="running"></a>运行示例
 如果使用的是基于 Linux 的 HDInsight 群集，请使用 **SSH** 步骤。 如果使用的是基于 Windows 的 HDInsight 群集和 Windows 客户端，请使用 **PowerShell** 步骤。
 
-### <a name="ssh"></a>SSH
+### SSH
+<a id="ssh" class="xliff"></a>
 
 有关使用 SSH 的详细信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -205,19 +207,20 @@ def create_structure(input):
 
 在上传文件后，使用以下步骤来运行 Hive 和 Pig 作业。
 
-#### <a name="hive"></a>Hive
+#### Hive
+<a id="hive" class="xliff"></a>
 
 1. 使用 `hive` 命令来启动 Hive Shell。 加载 Shell 后，应可看到 `hive>` 提示符。
 2. 在 `hive>` 提示符下输入以下命令。
 
-    ```hive
-    add file wasbs:///streaming.py;
-    SELECT TRANSFORM (clientid, devicemake, devicemodel)
-        USING 'python streaming.py' AS
-        (clientid string, phoneLabel string, phoneHash string)
-    FROM hivesampletable
-    ORDER BY clientid LIMIT 50;
-    ```
+   ```hive
+   add file wasbs:///streaming.py;
+   SELECT TRANSFORM (clientid, devicemake, devicemodel)
+       USING 'python streaming.py' AS
+       (clientid string, phoneLabel string, phoneHash string)
+   FROM hivesampletable
+   ORDER BY clientid LIMIT 50;
+   ```
 3. 输入最后一行后，该作业应该启动。 在作业完成后，会返回类似于以下示例的输出：
 
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
@@ -226,19 +229,20 @@ def create_structure(input):
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-#### <a name="pig"></a>Pig
+#### Pig
+<a id="pig" class="xliff"></a>
 
 1. 使用 `pig` 命令来启动该 shell。 加载 Shell 后，应可看到 `grunt>` 提示符。
 
 2. 在 `grunt>` 提示符下输入以下语句：
 
-    ```pig
-    Register wasbs:///pig_python.py using jython as myfuncs;
-    LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
-    LOG = FILTER LOGS by LINE is not null;
-    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
-    DUMP DETAILS;
-    ```
+   ```pig
+   Register wasbs:///pig_python.py using jython as myfuncs;
+   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+   LOG = FILTER LOGS by LINE is not null;
+   DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
+   DUMP DETAILS;
+   ```
 
 3. 输入以下行后，应会启动作业。 在作业完成后，会返回类似于以下内容的输出。
 
@@ -260,24 +264,25 @@ def create_structure(input):
 
 6. 使用 `pig` 命令再次启动 shell。 在 `grunt>` 提示符下，使用以下命令运行带有 Jython 解释器的 Python 脚本。
 
-    ```pig
-    Register 'pig_python.py' using streaming_python as myfuncs;
-    LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
-    LOG = FILTER LOGS by LINE is not null;
-    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
-    DUMP DETAILS;
-    ```
+   ```pig
+   Register 'pig_python.py' using streaming_python as myfuncs;
+   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+   LOG = FILTER LOGS by LINE is not null;
+   DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
+   DUMP DETAILS;
+   ```
 
     完成此作业后，看到的输出应该与之前使用 Jython 运行脚本后的输出相同。
 
-### <a name="powershell"></a>PowerShell
+### PowerShell
+<a id="powershell" class="xliff"></a>
 
-这些步骤使用 Azure PowerShell。 有关如何使用 Azure PowerShell 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
+这些步骤使用 Azure PowerShell。 有关如何使用 Azure PowerShell 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
 1. 使用 Python 示例 [streaming.py](#streamingpy) 和 [pig_python.py](#jythonpy) 在开发计算机上创建文件的本地副本。
 2. 使用以下 PowerShell 脚本将 **streaming.py** 和 **pig\_python.py**  文件上传到服务器。 在脚本的前三行中，替换 Azure HDInsight 群集的名称，以及 **streaming.py** 和 **pig\_python.py** 文件的路径。
 
-    ```powershell
+   ```powershell
     # Login to your Azure subscription
     # Is there an active Azure subscription?
     $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
@@ -315,16 +320,17 @@ def create_structure(input):
         -Blob "pig_python.py" `
         -Container $container `
         -Context $context
-    ```
+   ```
 
     此脚本将检索 HDInsight 群集的信息，然后提取默认存储帐户的名称和密钥，并将文件上传到容器的根目录。
 
-    > [!NOTE]
-    > [在 HDInsight 中上传 Hadoop 作业的数据](hdinsight-upload-data.md)文档中介绍了上传脚本的其他方法。
+   > [!NOTE]
+   > [在 HDInsight 中上传 Hadoop 作业的数据](hdinsight-upload-data.md)文档中介绍了上传脚本的其他方法。
 
 上传文件后，使用以下 PowerShell 脚本启动作业。 完成作业时，会将输出写入到 PowerShell 控制台。
 
-#### <a name="hive"></a>Hive
+#### Hive
+<a id="hive" class="xliff"></a>
 
 以下脚本运行 **streaming.py** 脚本。 在运行前，它会提示你输入 HDInsight 群集的 HTTPs/Admin 帐户信息。
 
@@ -383,7 +389,8 @@ Get-AzureRmHDInsightJobOutput `
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-#### <a name="jythonpy"></a> Pig (Jython)
+#### Pig (Jython)
+<a id="pig-jython" class="xliff"></a>
 
 以下脚本通过 Jython 解释程序使用 **pig_python.py** 脚本。 在运行前，它会提示用户输入 HDInsight 群集的 HTTPs/Admin 信息。
 
@@ -444,7 +451,8 @@ Get-AzureRmHDInsightJobOutput `
 
 ## <a name="troubleshooting"></a>故障排除
 
-### <a name="errors-when-running-jobs"></a>运行作业时出现错误
+### 运行作业时出现错误
+<a id="errors-when-running-jobs" class="xliff"></a>
 
 运行 hive 作业时，可能遇到如下错误：
 
@@ -460,7 +468,8 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 [IO.File]::WriteAllText($original_file, $text)
 ```
 
-### <a name="powershell-scripts"></a>PowerShell 脚本
+### PowerShell 脚本
+<a id="powershell-scripts" class="xliff"></a>
 
 用于运行示例的两个示例 PowerShell 脚本都包含一个带注释的行，该行显示作业的错误输出。 如果你未看到作业的预期输出，请取消注释以下行，并查看错误信息中是否指明了问题。
 
@@ -488,4 +497,3 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 * [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
-

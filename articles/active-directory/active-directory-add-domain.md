@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/08/2016
+origin.date: 05/16/2016
 ms.author: v-junlch
-ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: a72b3336dbfe54fbafad6b35f027c4791e98a575
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.date: 06/21/2017
+ms.openlocfilehash: 0b077e6a81eb34c331b4628b99aaef1bbbbd690d
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="add-a-custom-domain-name-to-azure-active-directory"></a>将自定义域名添加到 Azure Active Directory
 
@@ -78,8 +77,6 @@ ms.lasthandoff: 05/26/2017
 - [分配包含自定义域名的用户名](active-directory-add-domain-add-users.md)
 - [管理自定义域名](active-directory-add-manage-domain-names.md)
 - [了解 Azure AD 中的域管理概念](active-directory-add-domain-concepts.md)
-- [在用户登录时显示公司的品牌](active-directory-add-company-branding.md)
 - [使用 PowerShell 管理 Azure AD 中的域名](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-
 
 

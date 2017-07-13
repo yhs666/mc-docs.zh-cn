@@ -15,15 +15,14 @@ ms.topic: article
 origin.date: 03/23/2017
 ms.author: v-junlch
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: d87da8d37b4839f22b2bf65444c85b9eb00b6109
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 31d28fe82eee6416a7fca142c976424ebeaa66b6
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="securing-access-to-azure-documentdb-data"></a>保护对 DocumentDB 数据的访问
+# 保护对 DocumentDB 数据的访问
+<a id="securing-access-to-documentdb-data" class="xliff"></a>
 本文概述了如何保护对存储在 [DocumentDB](https://www.azure.cn/home/features/documentdb/) 中的数据的访问。
 
 DocumentDB 使用两种类型的密钥来验证用户身份并提供其数据和资源的访问权限。 
@@ -53,7 +52,8 @@ DocumentDB 帐户除了有两个主密钥以外，还有两个只读密钥。 �
 
 ![Azure 门户中的主密钥轮换 - 演示 NoSQL 数据库安全性](./media/documentdb-secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
 
-### <a name="code-sample-to-use-a-master-key"></a>有关使用主密钥的代码示例
+### 有关使用主密钥的代码示例
+<a id="code-sample-to-use-a-master-key" class="xliff"></a>
 
 以下代码示例演示如何使用 DocumentDB 帐户终结点和主密钥来实例化 DocumentClient 并创建数据库。 
 
@@ -86,7 +86,7 @@ Database database = await client.CreateDatabaseAsync(
 - 可以安全替代主密钥。 
 - 使客户端能够根据它们的权限读取、写入和删除 DocumentDB 帐户中的资源。
 
-如果想要为不能通过主密钥得到信任的客户端提供对 DocumentDB 帐户中资源的访问权限，可以使用资源令牌（通过创建 DocumentDB 用户和权限来使用）。  
+如果想要为不能通过主密钥得到信任的客户端提供对 DocumentDB 帐户中资源的访问权限，你可以使用资源令牌（通过创建 DocumentDB 用户和权限）。  
 
 DocumentDB 资源令牌提供一种安全的替代方案，使客户端能够根据授予的权限读取、写入和删除 DocumentDB 帐户中的资源，而无需主密钥或只读密钥。
 
@@ -137,7 +137,8 @@ DocumentDB 权限资源与 DocumentDB 用户关联。  每个用户可能包含�
 > 
 > 
 
-### <a name="code-sample-to-create-permission"></a>有关创建权限的代码示例
+### 有关创建权限的代码示例
+<a id="code-sample-to-create-permission" class="xliff"></a>
 
 以下代码示例演示如何创建权限资源、读取权限资源的资源令牌以及将权限与上面创建的[用户](#users)关联。
 
@@ -156,7 +157,8 @@ Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
 
 如果为集合指定了分区键，则除 ResourceLink 以外，集合、文档和附件资源的权限，还必须包含 ResourcePartitionKey。
 
-### <a name="code-sample-to-read-permissions-for-user"></a>有关读取用户权限的代码示例
+### 有关读取用户权限的代码示例
+<a id="code-sample-to-read-permissions-for-user" class="xliff"></a>
 
 为了方便地获取与特定用户关联的所有权限资源，DocumentDB 使权限源对每个用户对象均可用。  下面的代码片段演示如何检索与上面创建的用户关联的权限、构造权限列表以及代表用户实例化新 DocumentClient。
 
@@ -174,9 +176,9 @@ foreach (Permission perm in permFeed)
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 - 若要详细了解 DocumentDB 数据库安全性，请参阅 [DocumentDB：数据库安全性](documentdb-nosql-database-security.md)。
 - 若要了解如何管理主密钥和只读密钥，请参阅[如何管理 DocumentDB 帐户](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys)。
 - 若要了解如何构造 DocumentDB 授权令牌，请参阅 [DocumentDB 资源的访问控制](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources)。
-
 

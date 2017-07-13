@@ -1,5 +1,5 @@
 ---
-title: "创建第一个 Azure 微服务应用程序 | Microsoft 文档"
+title: "创建第一个 Azure 微服务应用程序 | Azure"
 description: "使用 Visual Studio 创建、部署和调试 Service Fabric 应用程序"
 services: service-fabric
 documentationcenter: .net
@@ -12,17 +12,16 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/07/2017
+ms.date: 05/05/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: a9a7e1dfc55f5bd92ae95f2a21a30dd1f7201f43
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 4263a10664dae9b4645437370a04998953584a13
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="create-your-first-azure-service-fabric-application"></a>创建第一个 Azure Service Fabric 应用程序
+# 创建第一个 Azure Service Fabric 应用程序
+<a id="create-your-first-azure-service-fabric-application" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java-Linux](service-fabric-create-your-first-linux-application-with-java.md)
@@ -32,17 +31,20 @@ ms.lasthandoff: 04/14/2017
 
 Service Fabric SDK 包含一个用于 Visual Studio 的外接程序，它可提供用于创建、部署和调试 Service Fabric 应用程序的模板和工具。 本主题介绍在 Visual Studio 2017 或 Visual Studio 2015 中创建用户的第一个应用程序的过程。
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 开始之前，请确保已 [设置开发环境](service-fabric-get-started.md)。
 
-## <a name="video-walkthrough"></a>视频演练
+## 视频演练
+<a id="video-walkthrough" class="xliff"></a>
 下面的视频介绍了本教程中的步骤：
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
-## <a name="create-the-application"></a>创建应用程序
+## 创建应用程序
+<a id="create-the-application" class="xliff"></a>
 Service Fabric 应用程序可以包含一个或多个服务，每个服务都在提供应用程序功能时具有特定角色。 使用“新建项目”向导创建应用程序项目以及第一个服务项目。 如果需要，稍后还可添加更多服务。
 
 1. 以管理员身份启动 Visual Studio。
@@ -71,7 +73,8 @@ Service Fabric 应用程序可以包含一个或多个服务，每个服务都�
      
      有关服务项目的内容概述，请参阅 [Reliable Services 入门](service-fabric-reliable-services-quick-start.md)。
 
-## <a name="deploy-and-debug-the-application"></a>部署和调试应用程序
+## 部署和调试应用程序
+<a id="deploy-and-debug-the-application" class="xliff"></a>
 现在已具有应用程序，尝试运行它。
 
 1. 按 F5 以部署应用程序以便进行调试。
@@ -117,7 +120,21 @@ Service Fabric 应用程序可以包含一个或多个服务，每个服务都�
    
     ![故障转移之后的诊断事件查看器][diagnostic-events-viewer-detail-post-failover]
 
-## <a name="switch-cluster-mode"></a>切换群集模式
+## 清理本地群集（可选）
+<a id="cleaning-up-the-local-cluster-optional" class="xliff"></a>
+结束之前，请务必记得本地群集是真实的。 停止调试器会删除您的应用程序实例，并注销应用程序类型。 不过，群集将继续在后台运行。 可通过几个选项对群集进行管理：
+
+1. 若要关闭群集，但保留应用程序数据和跟踪，请在系统托盘应用中单击“停止本地群集”  。
+2. 要完全删除群集，请在系统托盘应用中单击“删除本地群集”  。 此选项会导致下次在 Visual Studio 中按 F5 时部署较慢。 仅当在一段时间内不想使用本地群集时，或者当需要回收资源时，才删除群集。
+
+## 将应用程序部署到 Azure 群集
+<a id="deploy-your-application-to-an-azure-cluster" class="xliff"></a>
+在本地部署应用程序以后，即可将同一应用程序部署到 Azure。 [在 Azure 上创建第一个 Service Fabric 群集](service-fabric-get-started-azure-cluster.md)文档介绍了使用 Azure PowerShell 或门户的步骤。
+
+设置 Azure 群集以后，即可按照[发布到 Azure 群集](service-fabric-publish-app-remote-cluster.md)一文中的说明，将该应用程序从 Visual Studio 发布到 Azure。  
+
+## 切换本地开发群集的群集模式
+<a id="switch-cluster-mode-of-your-local-development-cluster" class="xliff"></a>
 默认情况下，本地开发群集配置为作为五节点群集运行，这对于调试在多个节点中部署的服务很有用。 但是，将应用程序部署到五节点开发群集需要一些时间。 如果想要快速循环访问代码更改，而不需要在 5 个节点上运行应用，可以将开发群集切换到单节点模式。 若要在单节点群集上运行代码，请右键单击系统任务栏中的本地群集管理器，并选择“切换群集模式”->“1 个节点”。  
 
 ![切换群集模式][switch-cluster-mode]
@@ -137,13 +154,10 @@ Service Fabric 应用程序可以包含一个或多个服务，每个服务都�
    
     ![群集设置输出][cluster-setup-success-1-node]
 
-## <a name="cleaning-up"></a>清理
-结束之前，请务必记得本地群集是真实的。 停止调试器会删除您的应用程序实例，并注销应用程序类型。 不过，群集将继续在后台运行。 可通过几个选项对群集进行管理：
 
-1. 若要关闭群集，但保留应用程序数据和跟踪，请在系统托盘应用中单击“停止本地群集”  。
-2. 要完全删除群集，请在系统托盘应用中单击“删除本地群集”  。 此选项会导致下次在 Visual Studio 中按 F5 时部署较慢。 仅当在一段时间内不想使用本地群集时，或者当需要回收资源时，才删除群集。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * 了解如何[在 Azure 中创建群集](service-fabric-cluster-creation-via-portal.md)或[在 Windows 上创建独立群集](service-fabric-cluster-creation-for-windows-server.md)。
 * 尝试使用 [Reliable Services](service-fabric-reliable-services-quick-start.md) 或 [Reliable Actors](service-fabric-reliable-actors-get-started.md) 编程模型创建服务。
 * 尝试将现有应用部署为[来宾可执行文件](service-fabric-deploy-existing-app.md)。
@@ -166,4 +180,3 @@ Service Fabric 应用程序可以包含一个或多个服务，每个服务都�
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
-

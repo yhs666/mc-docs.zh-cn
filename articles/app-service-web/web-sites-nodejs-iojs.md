@@ -15,20 +15,22 @@ ms.topic: article
 origin.date: 04/25/2017
 ms.date: 03/01/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 1aa70d0679bf64e908ac0913753bcbf02d865467
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: d97777e23d95635ef9815a155327cfa35cda74aa
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="how-to-use-iojs-with-azure-app-service-web-apps"></a>如何将 io.js 与 Azure 应用服务 Web 应用配合使用
+# 如何将 io.js 与 Azure 应用服务 Web 应用配合使用
+<a id="how-to-use-iojs-with-azure-app-service-web-apps" class="xliff"></a>
 与 Joyent 的 Node.js 项目相比，流行的 Node 分叉 [io.js] 具有许多不同的特性，包括更加开放的监管模型、更快的发行周期，和更快地采纳新的和试验性的 JavaScript 功能。
 
 虽然 [Azure 应用服务](/app-service-web/app-service-changes-existing-services) Web 应用预装了许多 Node.js 版本，但它还允许使用用户提供的 Node.js 二进制文件。 本文将讨论在应用服务 Web 应用上启用 io.js 的两种方法：使用扩展的部署脚本（自动将 Azure 配置为使用最新的可用 io.js 版本），以及手动上传 io.js 二进制文件。 
 
-## <a id="deploymentscript"></a>使用部署脚本
+<a id="deploymentscript"></a>
+
+## 使用部署脚本
+<a id="using-a-deployment-script" class="xliff"></a>
 在部署 Node.js 应用后，应用服务 Web 应用将运行大量的小命令来确保正确配置环境。 如果使用部署脚本，则可以将此过程自定义为包含 io.js 的下载和配置。
 
 GitHub 上提供了 [io.js 部署脚本](https://github.com/felixrieseberg/iojs-azure)。 若要在 Web 应用上启用 io.js，只需将 **.deployment**、**deploy.cmd** 和 **IISNode.yml** 复制到应用程序文件夹的根目录，并将其部署到 Web 应用。  
@@ -40,14 +42,20 @@ GitHub 上提供了 [io.js 部署脚本](https://github.com/felixrieseberg/iojs-
 > 
 > 
 
-## <a id="manualinstallation"></a>使用手动安装
+<a id="manualinstallation"></a>
+
+## 使用手动安装
+<a id="using-manual-installation" class="xliff"></a>
 手动安装自定义 io.js 版本只包括两个步骤。 首先，直接从 [io.js 分发包]中下载 **win-x64** 二进制文件。 需要两个文件 - **iojs.exe** 和 **iojs.lib**。 将这两个文件保存到 Web 应用上的某个文件夹中，例如，保存在 **bin/iojs** 中。
 
 若要将 Web 应用配置为使用 **iojs.exe** 而不是预装的 Node 版本，请在应用程序的根目录中创建一个 **IISNode.yml** 文件，并添加以下行。
 
     nodeProcessCommandLine: "D:\home\site\wwwroot\bin\iojs\iojs.exe"
 
-## <a id="nextsteps"></a> 后续步骤
+<a id="nextsteps"></a>
+
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 在本文中，你已学习了如何使用提供的部署脚本以及手动安装方法，将 io.js 与应用服务 Web 应用配合使用。 
 
 > [!NOTE]
@@ -55,7 +63,8 @@ GitHub 上提供了 [io.js 部署脚本](https://github.com/felixrieseberg/iojs-
 > 
 > 
 
-## <a name="whats-changed"></a>发生的更改
+## 发生的更改
+<a id="whats-changed" class="xliff"></a>
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [io.js]: https://iojs.org

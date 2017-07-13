@@ -15,15 +15,13 @@ ms.workload: na
 origin.date: 02/29/2016
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 65e504a425060c591206a97859538575e7bd85af
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 6bf220d49332313e8439e9a25e2ad3f28feca6b0
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="connect-a-web-app-in-azure-app-service-to-redis-cache-via-the-memcache-protocol"></a>通过 Memcache 协议将 Azure 应用服务中的 Web 应用连接到 Redis 缓存
+# 通过 Memcache 协议将 Azure 应用服务中的 Web 应用连接到 Redis 缓存
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -33,7 +31,7 @@ ms.lasthandoff: 04/28/2017
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
 Web 应用 Memcache 填充码可以与任何应用程序一起使用，前提是使用 Memcached 协议通信。 就此特定示例来说，引用应用程序是一个可缩放的 WordPress 站点，它可以从 Azure 应用商店设置。
 
 请按照以下文章中所述的步骤操作：
@@ -43,12 +41,12 @@ Web 应用 Memcache 填充码可以与任何应用程序一起使用，前提是
 
 部署可缩放的 WordPress 站点并设置 Redis 缓存实例后，你随时可以启用 Azure 应用服务 Web 应用中的 Memcache 填充码。
 
-## <a name="enable-the-web-apps-memcache-shim"></a>启用 Web 应用 Memcache 填充码
+## 启用 Web 应用 Memcache 填充码
 若要配置 Memcache 填充码，你必须创建三个应用设置。 可使用多种方法来完成，包括 [Azure 门户](/app-service-web/app-service-web-app-azure-portal)、[经典管理门户](https://manage.windowsazure.cn/)、[Azure PowerShell Cmdlet][4] 或 [Azure 命令行接口][5]。 本文将使用 [Azure 门户][3]来设置应用设置。 从 Redis 缓存实例的  “设置”边栏选项卡中，可以检索以下值。
 
 ![Azure Redis 缓存设置边栏选项卡](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
-### <a name="add-redishost-app-setting"></a>添加 REDIS_HOST 应用设置
+### 添加 REDIS_HOST 应用设置
 需要创建的第一个应用设置是 **REDIS\_HOST** 应用设置。 此设置将对该填充码将缓存信息转发到的目的地进行设置。 REDIS_HOST 应用设置所需的值可以从 Redis 缓存实例的“属性”边栏选项卡中检索。
 
 ![Azure Redis 缓存主机名](./media/web-sites-connect-to-redis-using-memcache-protocol/2-azure-redis-cache-hostname.png)
@@ -57,7 +55,7 @@ Web 应用 Memcache 填充码可以与任何应用程序一起使用，前提是
 
 ![Web 应用 AppSetting REDIS_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
 
-### <a name="add-rediskey-app-setting"></a>添加 REDIS_KEY 应用设置
+### 添加 REDIS_KEY 应用设置
 需要创建的第二个应用设置是 **REDIS\_KEY** 应用设置。 此设置提供了安全访问 Redis 缓存实例所需的身份验证令牌。 可从 Redis 缓存实例的“访问密钥”边栏选项卡中检索 REDIS_KEY 应用设置所需的值。
 
 ![Azure Redis 缓存主密钥](./media/web-sites-connect-to-redis-using-memcache-protocol/4-azure-redis-cache-primarykey.png)
@@ -66,17 +64,17 @@ Web 应用 Memcache 填充码可以与任何应用程序一起使用，前提是
 
 ![Azure 网站 AppSetting REDIS_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
 
-### <a name="add-memcacheshimredisenable-app-setting"></a>添加 MEMCACHESHIM_REDIS_ENABLE 应用设置
+### 添加 MEMCACHESHIM_REDIS_ENABLE 应用设置
 最后一个应用设置用于启用 Web 应用中的 Memcache 填充码，以便使用 REDIS_HOST 和 REDIS_KEY 来连接到 Azure Redis 缓存并转发缓存调用。 将应用设置的密钥设置为 **MEMCACHESHIM\_REDIS\_ENABLE**，并将其值设置为 **true**。
 
 ![Web 应用 AppSetting MEMCACHESHIM_REDIS_ENABLE](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
 
 添加完这三 (3) 个应用设置后，单击“保存”。
 
-## <a name="enable-memcache-extension-for-php"></a>启用针对 PHP 的 Memcache 扩展
+## 启用针对 PHP 的 Memcache 扩展
 若要让应用程序使用 Memcache 协议进行沟通，必须将 Memcache 扩展安装到 PHP（用于 WordPress 站点的语言框架）。
 
-### <a name="download-the-phpmemcache-extension"></a>下载 php_memcache 扩展
+### 下载 php_memcache 扩展
 浏览到 [PECL][6]。 在缓存类别下，单击 [memcache][7]。 在下载列中，单击 DLL 链接。
 
 ![PHP PECL 网站](./media/web-sites-connect-to-redis-using-memcache-protocol/7-php-pecl-website.png)
@@ -85,8 +83,8 @@ Web 应用 Memcache 填充码可以与任何应用程序一起使用，前提是
 
 ![PHP PECL 网站 Memcache 包](./media/web-sites-connect-to-redis-using-memcache-protocol/8-php-pecl-memcache-package.png)
 
-### <a name="enable-the-phpmemcache-extension"></a>启用 php_memcache 扩展
-下载文件后，将 **php\_memcache.dll** 解压缩并上传到 **d:\\home\\site\\wwwroot\\bin\\ext\\** 目录。 将 php_memcache.dll 上传到 Web 应用后，你需要启用 PHP 运行时的扩展。 若要在 Azure 门户中启用 Memcache 扩展，请打开 Web 应用的“应用程序设置”边栏选项卡，然后添加密钥为 **PHP\_EXTENSIONS** 和值为 **bin\\ext\\php_memcache.dll** 的新应用设置。
+### 启用 php_memcache 扩展
+下载文件后，将 **php\_memcache.dll** 解压缩并上传到 **d:\\home\\site\\wwwroot\\bin\\ext\\** 目录。 将 php_memcache.dll 上传到 Web 应用后，你需要启用 PHP 运行时的扩展。 若要在 Azure 门户中启用 Memcache 扩展，请打开 Web 应用的“应用程序设置”边栏选项卡，然后添加键为 **PHP\_EXTENSIONS** 和值为 **bin\\ext\\php_memcache.dll** 的新应用设置。
 
 > [!NOTE]
 > 如果 Web 应用需要加载多个 PHP 扩展，则 PHP_EXTENSIONS 的值应为由逗号分隔的 DLL 文件相对路径的列表。
@@ -97,7 +95,7 @@ Web 应用 Memcache 填充码可以与任何应用程序一起使用，前提是
 
 完成后，单击“保存”。
 
-## <a name="install-memcache-wordpress-plugin"></a>安装 Memcache WordPress 插件
+## 安装 Memcache WordPress 插件
 > [!NOTE]
 > 你也可以从 WordPress.org 下载 [Memcached 对象缓存插件](https://wordpress.org/plugins/memcached/) 。
 > 
@@ -115,7 +113,7 @@ Web 应用 Memcache 填充码可以与任何应用程序一起使用，前提是
 
 ![WordPress 安装 Memcache 插件](./media/web-sites-connect-to-redis-using-memcache-protocol/12-wordpress-install-memcache-plugin.png)
 
-### <a name="enable-the-memcache-wordpress-plugin"></a>启用 Memcache WordPress 插件
+### 启用 Memcache WordPress 插件
 > [!NOTE]
 > 按照此博客中关于 [如何启用 Web 应用中的站点扩展][8] 的说明，安装 Visual Studio Team Services。
 > 
@@ -139,10 +137,10 @@ $memcached_servers = array(
 
 ![启用 memcache object-cache.php 插件](./media/web-sites-connect-to-redis-using-memcache-protocol/14-enable-memcache-object-cache-plugin.png)
 
-## <a name="verify-the-memcache-object-cache-plugin-is-functioning"></a>验证 Memcache 对象缓存插件运行是否正常
+## 验证 Memcache 对象缓存插件运行是否正常
 启用 Web 应用 Memcache 填充码的所有步骤现已完成。 剩下的唯一一件事是，验证 Redis 缓存实例是否正在填充数据。
 
-### <a name="enable-the-non-ssl-port-support-in-azure-redis-cache"></a>启用 Azure Redis 缓存中的非 SSL 端口支持
+### 启用 Azure Redis 缓存中的非 SSL 端口支持
 > [!NOTE]
 > 撰写本文时，Redis CLI 尚不支持 SSL 连接，因此以下步骤是必需的。
 > 
@@ -164,7 +162,7 @@ $memcached_servers = array(
 
 ![Azure Redis 缓存 Redis 访问门户非 SSL](./media/web-sites-connect-to-redis-using-memcache-protocol/18-azure-redis-cache-access-port-non-ssl.png)
 
-### <a name="connect-to-azure-redis-cache-from-redis-cli"></a>从 redis-cli 连接到 Azure Redis 缓存
+### 从 redis-cli 连接到 Azure Redis 缓存
 > [!NOTE]
 > 此步骤假定 redis 已通过本地方式安装在你的开发计算机上。 [按以下说明在本地安装 Redis][9]。
 > 
@@ -182,10 +180,10 @@ redis-cli -h <hostname-for-redis-cache> -a <primary-key-for-redis-cache> -p 6379
 
 列出密钥的调用应返回一个值。 如果没有，请尝试导航到 Web 应用，然后再重试。
 
-## <a name="conclusion"></a>结束语
+## 结束语
 祝贺你！ WordPress 应用现在有了集中式的内存中缓存，这将有助于提高吞吐量。 请记住，Web 应用 Memcache 填充码可以与任何 Memcache 客户端结合使用，无需考虑编程语言或应用程序框架。 若要提供反馈或就 Web 应用 Memcache 填充码提问，请在 [MSDN 论坛][10]或 [CSDN][11] 上发布相关文章。
 
-## <a name="whats-changed"></a>发生的更改
+## 发生的更改
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [0]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache

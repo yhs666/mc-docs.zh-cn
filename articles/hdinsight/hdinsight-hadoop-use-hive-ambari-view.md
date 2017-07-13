@@ -17,15 +17,14 @@ ms.workload: big-data
 origin.date: 05/05/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: e62fe37335ca236541143cd6cd3b3031e1db45ed
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 448c98111d8b58a7fa1de40c1890528b25962118
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="use-the-hive-view-with-hadoop-in-hdinsight"></a>将 Hive 视图与 HDInsight 中的 Hadoop 配合使用
+# 将 Hive 视图与 HDInsight 中的 Hadoop 配合使用
+<a id="use-the-hive-view-with-hadoop-in-hdinsight" class="xliff"></a>
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
@@ -34,16 +33,18 @@ ms.lasthandoff: 05/26/2017
 > [!NOTE]
 > Ambari 还有许多本文档中未讨论的功能。 有关详细信息，请参阅[使用 Ambari Web UI 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)。
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 
 * 基于 Linux 的 HDInsight 群集。 有关创建群集的信息，请参阅[开始使用基于 Linux 的 HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)。
 
 > [!IMPORTANT]
 > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
 
-## <a name="open-the-hive-view"></a>打开 Hive 视图
+## 打开 Hive 视图
+<a id="open-the-hive-view" class="xliff"></a>
 
-可从 Azure 门户中获取 Ambari 视图；选择 HDInsight 群集，然后从“快速链接”部分选择“Ambari 视图”。
+可在 Azure 门户中选择 Ambari 视图；选择 HDInsight 群集，然后从“快速链接”部分选择“Ambari 视图”。
 
 ![“快速链接”部分](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
 
@@ -58,7 +59,8 @@ ms.lasthandoff: 05/26/2017
 
 ![Hive 视图页面的图像，其中包含“查询编辑器”部分](./media/hdinsight-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
-## <a name="view-tables"></a>查看表
+## 查看表
+<a id="view-tables" class="xliff"></a>
 
 在页面的“数据库资源管理器”部分的“数据库”选项卡上选择“默认”条目。 这将显示默认数据库中的表的列表。 HDInsight 包括一个名为 **hivesampletable** 的表。
 
@@ -82,24 +84,24 @@ ms.lasthandoff: 05/26/2017
 
     这些语句将执行以下操作：
 
-    * `DROP TABLE` - 删除表和数据文件（如果该表已存在）。
+   * `DROP TABLE` - 删除表和数据文件（如果该表已存在）。
 
-    * `CREATE EXTERNAL TABLE` - 在 Hive 中创建一个新的“外部”表。
-    外部表仅在 Hive 中存储表定义。 数据将保留在原始位置。
+   * `CREATE EXTERNAL TABLE` - 在 Hive 中创建一个新的“外部”表。
+   外部表仅在 Hive 中存储表定义。 数据将保留在原始位置。
 
-    * `ROW FORMAT` - 如何设置数据的格式。 在此情况下，每个日志中的字段以空格分隔。
+   * `ROW FORMAT` - 如何设置数据的格式。 在此情况下，每个日志中的字段以空格分隔。
 
-    * `STORED AS TEXTFILE LOCATION` - 数据的存储位置，并且数据已存储为文本。
+   * `STORED AS TEXTFILE LOCATION` - 数据的存储位置，并且数据已存储为文本。
 
-    * `SELECT` - 选择 t4 列包含值 [ERROR] 的所有行的计数。
+   * `SELECT` - 选择 t4 列包含值 [ERROR] 的所有行的计数。
 
-    > [!NOTE]
-    > 如果希望通过外部源更新基础数据，应使用外部表。 例如，自动执行的数据上传过程，或其他 MapReduce 操作。 删除外部表 *不会* 删除数据，只会删除表定义。
+     > [!NOTE]
+     > 如果希望通过外部源更新基础数据，应使用外部表。 例如，自动执行的数据上传过程，或其他 MapReduce 操作。 删除外部表 *不会* 删除数据，只会删除表定义。
 
 2. 若要启动查询，请单击查询编辑器底部的“执行”  按钮。 该按钮将变为橙色并且文本将更改为“停止执行” 。 “查询进程结果”  部分应出现在“查询编辑器”下方，并显示有关作业的信息。
 
-    > [!IMPORTANT]
-    > 某些浏览器可能无法正确刷新日志或结果信息。 如果运行一个作业，而它看上去似乎会永久运行下去而不更新日志或返回结果，请尝试改为使用 Mozilla FireFox 或 Google Chrome。
+   > [!IMPORTANT]
+   > 某些浏览器可能无法正确刷新日志或结果信息。 如果运行一个作业，而它看上去似乎会永久运行下去而不更新日志或返回结果，请尝试改为使用 Mozilla FireFox 或 Google Chrome。
 
 3. 查询完成后，“查询进程结果”  部分将显示该操作的结果。 当查询完成时，“停止执行”按钮也会变回绿色的“执行”按钮。 “结果”  选项卡应包含以下信息：
 
@@ -108,8 +110,8 @@ ms.lasthandoff: 05/26/2017
 
     “日志”  选项卡可用于查看作业创建的日志记录信息。
 
-    > [!TIP]
-    > 通过位于“查询处理结果”部分左上角的“保存结果”下拉对话框，可下载或保存结果。
+   > [!TIP]
+   > 通过位于“查询处理结果”部分左上角的“保存结果”下拉对话框，可下载或保存结果。
 
 4. 选择此查询的前四行，然后选择“执行” 。 请注意，作业完成时没有结果。 在选择了查询的一部分时使用“执行”  按钮只会运行所选语句。 在这种情况下，所选内容不包括会从表中检索行的最后一条语句。 如果只选择该行并使用“执行” ，应该会看到预期的结果。
 
@@ -120,17 +122,18 @@ ms.lasthandoff: 05/26/2017
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
     ```
 
-    这些语句将执行以下操作：
+  这些语句将执行以下操作：
 
-    * **CREATE TABLE IF NOT EXISTS** - 创建表（如果该表不存在）。 由于未使用 **EXTERNAL** 关键字，因此将创建一个内部表。 内部表存储在 Hive 数据仓库中，并完全由 Hive 管理。 与外部表不同，删除内部表会同时删除基础数据。
+   * **CREATE TABLE IF NOT EXISTS** - 创建表（如果该表不存在）。 由于未使用 **EXTERNAL** 关键字，因此将创建一个内部表。 内部表存储在 Hive 数据仓库中，并完全由 Hive 管理。 与外部表不同，删除内部表会同时删除基础数据。
 
-    * **STORED AS ORC** - 以优化行纵栏表 (ORC) 格式存储数据。 ORC 是高度优化且有效的 Hive 数据存储格式。
+   * **STORED AS ORC** - 以优化行纵栏表 (ORC) 格式存储数据。 ORC 是高度优化且有效的 Hive 数据存储格式。
 
-    * **INSERT OVERWRITE ...SELECT** - 从包含 `[ERROR]` 的 **log4jLogs** 表中选择行，然后将数据插入到 **errorLogs** 表中。
+   * **INSERT OVERWRITE ...SELECT** - 从包含 `[ERROR]` 的 **log4jLogs** 表中选择行，然后将数据插入到 **errorLogs** 表中。
 
-    使用“执行”按钮运行此查询。 如果查询返回零行，则“结果”选项卡不包含任何信息。 一旦查询完成，状态应显示为“成功”。
+     使用“执行”按钮运行此查询。 如果查询返回零行，则“结果”选项卡不包含任何信息。 一旦查询完成，状态应显示为“成功”。
 
-### <a name="hive-settings"></a>Hive 设置
+### Hive 设置
+<a id="hive-settings" class="xliff"></a>
 
 选择编辑器右侧的“设置”  图标。
 
@@ -138,7 +141,8 @@ ms.lasthandoff: 05/26/2017
 
 可以使用“设置”来更改各种 Hive 设置。 例如，将 Hive 的执行引擎从 Tez（默认值）更改为 MapReduce。
 
-### <a name="visualization"></a>可视化
+### 可视化
+<a id="visualization" class="xliff"></a>
 
 选择编辑器右侧的“可视化效果”  图标。
 
@@ -148,7 +152,8 @@ ms.lasthandoff: 05/26/2017
 
 ![示例可视化效果](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-visualization.png)
 
-### <a name="visual-explain"></a>Visual explain
+### Visual explain
+<a id="visual-explain" class="xliff"></a>
 
 选择编辑器右侧的“Visual Explain”  图标。
 
@@ -158,7 +163,8 @@ ms.lasthandoff: 05/26/2017
 
 ![Visual explain 图像](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
 
-### <a name="tez"></a>Tez
+### Tez
+<a id="tez" class="xliff"></a>
 
 选择编辑器右侧的“Tez”  图标。
 
@@ -166,7 +172,8 @@ ms.lasthandoff: 05/26/2017
 
 如果使用 Tez 来解析查询，将显示有向无环图 (DAG)。 若要查看之前运行的查询的 DAG，或调试 Tez 进程，请改用 [Tez 视图](hdinsight-debug-ambari-tez-view.md)。
 
-### <a name="notifications"></a>通知
+### 通知
+<a id="notifications" class="xliff"></a>
 
 选择编辑器右侧的“通知”  图标。
 
@@ -174,7 +181,8 @@ ms.lasthandoff: 05/26/2017
 
 通知是运行查询时生成的消息。 例如，当提交查询或发生错误时，会收到通知。
 
-## <a name="saved-queries"></a>已保存的查询
+## 已保存的查询
+<a id="saved-queries" class="xliff"></a>
 
 1. 在“查询编辑器”中，创建一个工作表，并输入以下查询：
 
@@ -193,11 +201,13 @@ ms.lasthandoff: 05/26/2017
 
 3. 选择 Hive 视图页顶部的“已保存的查询”选项卡。 现在，**Errorlogs** 已列出为已保存的查询。 它会一直保留在此列表中，直至将其删除。 选择该名称将在查询编辑器中打开查询。
 
-## <a name="query-history"></a>查询历史记录
+## 查询历史记录
+<a id="query-history" class="xliff"></a>
 
 使用 Hive 视图顶部的“历史记录”按钮可查看以前运行的查询。 立即使用它并选择之前运行过的一个查询。 选定一个查询后，它会在“查询编辑器”中打开。
 
-## <a name="user-defined-functions-udf"></a>用户定义的函数 (UDF)
+## 用户定义的函数 (UDF)
+<a id="user-defined-functions-udf" class="xliff"></a>
 
 还可以通过**用户定义函数 (UDF)** 扩展 Hive。 UDF 允许你实现 HiveQL 中不容易建模的功能或逻辑。
 
@@ -239,4 +249,3 @@ create temporary function myawesomeudf as 'com.myudfs.Awesome';
 
 * [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
-

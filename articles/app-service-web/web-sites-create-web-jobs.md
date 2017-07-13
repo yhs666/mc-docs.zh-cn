@@ -15,16 +15,16 @@ ms.topic: article
 origin.date: 11/27/2016
 ms.date: 03/17/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 6b9eaf0ea44238f2d6b5731ae1f060a304132f7d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 9cd6125282714ebd866e6471163814d3f535e01f
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="run-background-tasks-with-webjobs"></a>使用 Web 作业运行后台任务
-## <a name="overview"></a>概述
+# 使用 Web 作业运行后台任务
+<a id="run-background-tasks-with-webjobs" class="xliff"></a>
+## 概述
+<a id="overview" class="xliff"></a>
 可使用 3 种方式在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services) Web 应用的 WebJobs 中运行程序或脚本：按需、连续或按计划。 使用 Web 作业无需支付额外的费用。
 
 [!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
@@ -35,7 +35,7 @@ Azure WebJobs SDK 简化了许多 Web 作业编程任务。 有关详细信息�
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 ## <a name="acceptablefiles"></a>可接受的脚本或程序文件类型
 接受以下文件类型：
@@ -49,7 +49,7 @@ Azure WebJobs SDK 简化了许多 Web 作业编程任务。 有关详细信息�
 * .jar（使用 java）
 
 ## <a name="CreateOnDemand"></a>在门户中创建按需 Web 作业
-1. 在 [Azure 门户](https://portal.azure.cn)的“Web 应用”边栏选项卡上，单击“所有设置”>“Web 作业”以显示“Web 作业”边栏选项卡。
+1. 在 [Azure 门户](https://portal.azure.cn)的“Web 应用”边栏选项卡中，依次单击“所有设置”>“WebJobs”以显示“WebJobs”边栏选项卡。
 
     ![Web 作业边栏选项卡](./media/web-sites-create-web-jobs/wjblade.png)
 2. 单击“添加” 。 将显示“添加 WebJob”  对话框。
@@ -71,8 +71,10 @@ Azure WebJobs SDK 简化了许多 Web 作业编程任务。 有关详细信息�
 
 > [!NOTE]
 > 如果 Web 应用在多个实例上运行，则连续运行的 Web 作业会在所有实例上运行。 按需和按计划 Web 作业在 Azure 针对负载均衡所选择的单个实例上运行。
->
+> 
 > 要使连续 Web 作业在所有实例上可靠运行，请启用 Web 应用的 AlwaysOn* 配置设置；否则，Web 作业将在 SCM 主机站点闲置时间太长时停止运行。
+> 
+> 
 
 ## <a name="CreateScheduledCRON"></a>使用 CRON 表达式创建计划的 Web 作业
 此方法可用于在基本、标准或高级模式下运行的 Web 应用，但需要应用上启用 “AlwaysOn”  设置。
@@ -101,7 +103,7 @@ CRON 表达式由 6 个字段组成： `{second} {minute} {hour} {day} {month} {
 ## <a name="CreateScheduled"></a>使用 Azure 计划程序创建计划的 Web 作业
 以下备用技术利用 Azure 计划程序。 在这种情况下，Web 作业没有计划的任何直接知识。 而是将 Azure 计划程序配置为按计划触发 Web 作业。 
 
-Azure 门户尚不能创建计划的 Web 作业，但在增添该功能之前，可使用[经典管理门户](http://manage.windowsazure.cn)执行此类操作。
+Azure 门户尚不能创建计划的 Web 作业，但在增添该功能之前，可使用 [经典管理门户](http://manage.windowsazure.cn)执行此类操作。
 
 1. 在[经典管理门户](http://manage.windowsazure.cn)中，转到 Web 作业页，并单击“添加”。
 2. 在“运行方式”框中，选择“按计划运行”。
@@ -141,7 +143,7 @@ Azure 门户尚不能创建计划的 Web 作业，但在增添该功能之前，
 
 1. 在“WebJobs”页上，单击作业的**计划**链接，以导航到 Azure 计划程序门户页。 
 
-    ![链接到 Azure 计划程序][LinkToScheduler]
+   ![链接到 Azure 计划程序][LinkToScheduler]
 2. 在计划程序页上，单击该作业。
 
     ![计划程序门户页上的作业][SchedulerPortal]
@@ -206,4 +208,3 @@ Azure 门户尚不能创建计划的 Web 作业，但在增添该功能之前，
 [LinkToScheduler]: ./media/web-sites-create-web-jobs/31LinkToScheduler.png
 [SchedulerPortal]: ./media/web-sites-create-web-jobs/32SchedulerPortal.png
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
-

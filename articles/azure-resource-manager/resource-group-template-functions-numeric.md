@@ -3,8 +3,8 @@ title: "Azure Resource Manager 模板函数 - 数值 | Azure"
 description: "介绍可在 Azure Resource Manager 模板中使用的用于处理数值的函数。"
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 
 ms.service: azure-resource-manager
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/08/2017
-ms.date: 06/05/2017
+origin.date: 06/13/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: d70e119169690b52b1ccd2b244f98d234677aa7d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 29b4391ffcd321a277a41975a2f7fc406cbd6405
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="numeric-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的数值函数
+# 用于 Azure Resource Manager 模板的数值函数
+<a id="numeric-functions-for-azure-resource-manager-templates" class="xliff"></a>
 
 Resource Manager 提供以下用于处理整数的函数：
 
@@ -38,19 +37,29 @@ Resource Manager 提供以下用于处理整数的函数：
 * [mul](#mul)
 * [sub](#sub)
 
-## <a id="add"></a> 添加
+<a id="add" />
+
+## 添加
+<a id="add" class="xliff"></a>
 `add(operand1, operand2)`
 
 返回提供的两个整数的总和。
 
-### <a name="parameters"></a>Parameters
+### Parameters
+<a id="parameters" class="xliff"></a>
 
 | 参数 | 必选 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- | 
 |operand1 |是 |int |被加数。 |
 |operand2 |是 |int |加数。 |
 
-### <a name="examples"></a>示例
+### 返回值
+<a id="return-value" class="xliff"></a>
+
+一个整数，包含参数的总和。
+
+### 示例
+<a id="example" class="xliff"></a>
 
 以下示例将添加两个参数。
 
@@ -61,12 +70,14 @@ Resource Manager 提供以下用于处理整数的函数：
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to add"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to add"
             }
@@ -83,23 +94,30 @@ Resource Manager 提供以下用于处理整数的函数：
 }
 ```
 
-### <a name="return-value"></a>返回值
+采用默认值，前面示例的输出为：
 
-一个整数，包含参数的总和。
+| 名称 | 类型 | 值 |
+| ---- | ---- | ----- |
+| addResult | int | 8 |
 
-## <a id="copyindex"></a> copyIndex
+<a id="copyindex" />
+
+## copyIndex
+<a id="copyindex" class="xliff"></a>
 `copyIndex(loopName, offset)`
 
 返回迭代循环的索引。 
 
-### <a name="parameters"></a>Parameters
+### Parameters
+<a id="parameters" class="xliff"></a>
 
 | 参数 | 必选 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | loopName | 否 | 字符串 | 用于获取迭代的循环的名称。 |
 | offset |否 |int |要添加到的从零开始的迭代值的数字。 |
 
-### <a name="remarks"></a>备注
+### 备注
+<a id="remarks" class="xliff"></a>
 
 此函数始终用于 **copy** 对象。 如果没有提供任何值作为 **偏移量**，则返回当前迭代值。 迭代值从零开始。
 
@@ -107,7 +125,8 @@ Resource Manager 提供以下用于处理整数的函数：
 
 有关如何使用 **copyIndex** 的完整说明，请参阅 [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)（在 Azure Resource Manager 中创建多个资源实例）。
 
-### <a name="examples"></a>示例
+### 示例
+<a id="example" class="xliff"></a>
 
 以下示例显示名称中包含 copy 循环和索引值。 
 
@@ -125,23 +144,34 @@ Resource Manager 提供以下用于处理整数的函数：
 ]
 ```
 
-### <a name="return-value"></a>返回值
+### 返回值
+<a id="return-value" class="xliff"></a>
 
 一个表示迭代的当前索引的整数。
 
-## <a id="div"></a> div
+<a id="div" />
+
+## div
+<a id="div" class="xliff"></a>
 `div(operand1, operand2)`
 
 返回提供的两个整数在整除后的商。
 
-### <a name="parameters"></a>Parameters
+### Parameters
+<a id="parameters" class="xliff"></a>
 
 | 参数 | 必选 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | operand1 |是 |int |被除数。 |
 | operand2 |是 |int |除数。 不能为 0。 |
 
-### <a name="examples"></a>示例
+### 返回值
+<a id="return-value" class="xliff"></a>
+
+一个表示商的整数。
+
+### 示例
+<a id="example" class="xliff"></a>
 
 以下示例将一个参数除以另一个参数。
 
@@ -152,12 +182,14 @@ Resource Manager 提供以下用于处理整数的函数：
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 8,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -174,22 +206,33 @@ Resource Manager 提供以下用于处理整数的函数：
 }
 ```
 
-### <a name="return-value"></a>返回值
+采用默认值，前面示例的输出为：
 
-一个表示商的整数。
+| 名称 | 类型 | 值 |
+| ---- | ---- | ----- |
+| divResult | int | 2 |
 
-## <a id="float"></a> float
+<a id="float" />
+
+## float
+<a id="float" class="xliff"></a>
 `float(arg1)`
 
 将值转换为浮点数。 仅当将自定义参数传递给应用程序（例如，逻辑应用）时，才使用此函数。
 
-### <a name="parameters"></a>Parameters
+### Parameters
+<a id="parameters" class="xliff"></a>
 
 | 参数 | 必选 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |字符串或整数 |要转换为浮点数的值。 |
 
-### <a name="examples"></a>示例
+### 返回值
+<a id="return-value" class="xliff"></a>
+一个浮点数。
+
+### 示例
+<a id="example" class="xliff"></a>
 
 以下示例演示如何使用 float 将参数传递给逻辑应用：
 
@@ -207,21 +250,28 @@ Resource Manager 提供以下用于处理整数的函数：
         },
 ```
 
-### <a name="return-value"></a>返回值
-一个浮点数。
+<a id="int" />
 
-## <a id="int"></a> int
+## int
+<a id="int" class="xliff"></a>
 `int(valueToConvert)`
 
 将指定的值转换为整数。
 
-### <a name="parameters"></a>Parameters
+### Parameters
+<a id="parameters" class="xliff"></a>
 
 | 参数 | 必选 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |是 |字符串或整数 |要转换为整数的值。 |
 
-### <a name="examples"></a>示例
+### 返回值
+<a id="return-value" class="xliff"></a>
+
+转换后的值的整数。
+
+### 示例
+<a id="example" class="xliff"></a>
 
 以下示例将用户提供的参数值转换为整数。
 
@@ -230,38 +280,50 @@ Resource Manager 提供以下用于处理整数的函数：
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "appId": { "type": "string" }
-    },
-    "variables": { 
-        "intValue": "[int(parameters('appId'))]"
+        "stringToConvert": { 
+            "type": "string",
+            "defaultValue": "4"
+        }
     },
     "resources": [
     ],
     "outputs": {
-        "divResult": {
+        "intResult": {
             "type": "int",
-            "value": "[variables('intValue')]"
+            "value": "[int(parameters('stringToConvert'))]"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>返回值
+采用默认值，前面示例的输出为：
 
-一个整数。
+| 名称 | 类型 | 值 |
+| ---- | ---- | ----- |
+| intResult | int | 4 |
 
-## <a id="min"></a> min
+<a id="min" />
+
+## min
+<a id="min" class="xliff"></a>
 `min (arg1)`
 
 返回整数数组或逗号分隔的整数列表中的最小值。
 
-### <a name="parameters"></a>Parameters
+### Parameters
+<a id="parameters" class="xliff"></a>
 
 | 参数 | 必选 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |整数数组或逗号分隔的整数列表 |要获取最小值的集合。 |
 
-### <a name="examples"></a>示例
+### 返回值
+<a id="return-value" class="xliff"></a>
+
+一个整数，表示集合中的最小值。
+
+### 示例
+<a id="example" class="xliff"></a>
 
 以下示例演示如何对整数数组和整数列表使用 min：
 
@@ -289,22 +351,35 @@ Resource Manager 提供以下用于处理整数的函数：
 }
 ```
 
-### <a name="return-value"></a>返回值
+采用默认值，前面示例的输出为：
 
-一个整数，表示集合中的最小值。
+| 名称 | 类型 | 值 |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
 
-## <a id="max"></a> max
+<a id="max" />
+
+## max
+<a id="max" class="xliff"></a>
 `max (arg1)`
 
 返回整数数组或逗号分隔的整数列表中的最大值。
 
-### <a name="parameters"></a>Parameters
+### Parameters
+<a id="parameters" class="xliff"></a>
 
 | 参数 | 必选 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |整数数组或逗号分隔的整数列表 |要获取最大值的集合。 |
 
-### <a name="examples"></a>示例
+### 返回值
+<a id="return-value" class="xliff"></a>
+
+一个整数，表示集合中的最大值。
+
+### 示例
+<a id="example" class="xliff"></a>
 
 以下示例演示如何对整数数组和整数列表使用 max：
 
@@ -332,23 +407,35 @@ Resource Manager 提供以下用于处理整数的函数：
 }
 ```
 
-### <a name="return-value"></a>返回值
+采用默认值，前面示例的输出为：
 
-一个整数，表示集合中的最大值。
+| 名称 | 类型 | 值 |
+| ---- | ---- | ----- |
+| arrayOutput | int | 5 |
+| intOutput | int | 5 |
 
-## <a id="mod"></a> mod
+<a id="mod" />
+
+## mod
+<a id="mod" class="xliff"></a>
 `mod(operand1, operand2)`
 
 返回使用提供的两个整数整除后的余数。
 
-### <a name="parameters"></a>Parameters
+### Parameters
+<a id="parameters" class="xliff"></a>
 
 | 参数 | 必选 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | operand1 |是 |int |被除数。 |
 | operand2 |是 |int |除数，不能为 0。 |
 
-### <a name="examples"></a>示例
+### 返回值
+<a id="return-value" class="xliff"></a>
+一个表示余数的整数。
+
+### 示例
+<a id="example" class="xliff"></a>
 
 以下示例将返回一个参数除以另一个参数后所得的余数。
 
@@ -359,12 +446,14 @@ Resource Manager 提供以下用于处理整数的函数：
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -381,22 +470,35 @@ Resource Manager 提供以下用于处理整数的函数：
 }
 ```
 
-### <a name="return-value"></a>返回值
-一个表示余数的整数。
+采用默认值，前面示例的输出为：
 
-## <a id="mul"></a> mul
+| 名称 | 类型 | 值 |
+| ---- | ---- | ----- |
+| modResult | int | 1 |
+
+<a id="mul" />
+
+## mul
+<a id="mul" class="xliff"></a>
 `mul(operand1, operand2)`
 
 返回提供的两个整数的积。
 
-### <a name="parameters"></a>Parameters
+### Parameters
+<a id="parameters" class="xliff"></a>
 
 | 参数 | 必选 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | operand1 |是 |int |被乘数。 |
 | operand2 |是 |int |乘数。 |
 
-### <a name="examples"></a>示例
+### 返回值
+<a id="return-value" class="xliff"></a>
+
+一个表示积的整数。
+
+### 示例
+<a id="example" class="xliff"></a>
 
 以下示例将一个参数乘以另一个参数。
 
@@ -407,12 +509,14 @@ Resource Manager 提供以下用于处理整数的函数：
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to multiply"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to multiply"
             }
@@ -429,23 +533,34 @@ Resource Manager 提供以下用于处理整数的函数：
 }
 ```
 
-### <a name="return-value"></a>返回值
+采用默认值，前面示例的输出为：
 
-一个表示积的整数。
+| 名称 | 类型 | 值 |
+| ---- | ---- | ----- |
+| mulResult | int | 15 |
 
-## <a id="sub"></a> sub
+<a id="sub" />
+
+## sub
+<a id="sub" class="xliff"></a>
 `sub(operand1, operand2)`
 
 返回提供的两个整数在相减后的结果。
 
-### <a name="parameters"></a>Parameters
+### Parameters
+<a id="parameters" class="xliff"></a>
 
 | 参数 | 必选 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | operand1 |是 |int |被减数。 |
 | operand2 |是 |int |减数。 |
 
-### <a name="examples"></a>示例
+### 返回值
+<a id="return-value" class="xliff"></a>
+一个表示减后结果的整数。
+
+### 示例
+<a id="example" class="xliff"></a>
 
 以下示例将一个参数减另一个参数。
 
@@ -456,12 +571,14 @@ Resource Manager 提供以下用于处理整数的函数：
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer subtracted from"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer to subtract"
             }
@@ -478,10 +595,14 @@ Resource Manager 提供以下用于处理整数的函数：
 }
 ```
 
-### <a name="return-value"></a>返回值
-一个表示减后结果的整数。
+采用默认值，前面示例的输出为：
 
-## <a name="next-steps"></a>后续步骤
+| 名称 | 类型 | 值 |
+| ---- | ---- | ----- |
+| subResult | int | 4 |
+
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * 有关 Azure Resource Manager 模板中各部分的说明，请参阅[创作 Azure Resource Manager 模板](resource-group-authoring-templates.md)。
 * 若要合并多个模板，请参阅[将链接的模板与 Azure Resource Manager 配合使用](resource-group-linked-templates.md)。
 * 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。

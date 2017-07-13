@@ -18,15 +18,14 @@ ms.topic: article
 origin.date: 04/14/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: ca18ca55c66794c351bed0e649586a5ed845d7bc
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: b7c18865426495a3e070353e437143c7103d3f08
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-in-hdinsight-and-sql-database"></a>使用 Apache Sqoop 在 Hadoop on HDInsight 与 SQL 数据库之间进行导入和导出
+# 使用 Apache Sqoop 在 Hadoop on HDInsight 与 SQL 数据库之间进行导入和导出
+<a id="use-apache-sqoop-to-import-and-export-data-between-hadoop-in-hdinsight-and-sql-database" class="xliff"></a>
 
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
@@ -35,7 +34,8 @@ ms.lasthandoff: 05/26/2017
 > [!IMPORTANT]
 > 本文档中的步骤仅适用于使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
 
-## <a name="install-freetds"></a>安装 FreeTDS
+## 安装 FreeTDS
+<a id="install-freetds" class="xliff"></a>
 
 1. 使用 SSH 连接到 HDInsight 群集。 例如，以下命令连接到名为 `mycluster` 的群集的主头节点：
 
@@ -53,7 +53,8 @@ ms.lasthandoff: 05/26/2017
 
     在多个步骤中使用 FreeTDS 连接到 SQL 数据库。
 
-## <a name="create-the-table-in-sql-database"></a>在 SQL 数据库中创建表
+## 在 SQL 数据库中创建表
+<a id="create-the-table-in-sql-database" class="xliff"></a>
 
 > [!IMPORTANT]
 > 如果使用的是在[创建群集和 SQL 数据库](hdinsight-use-sqoop.md)中创建的 HDInsight 群集和 SQL 数据库，请跳过本部分中的步骤。 创建数据库和表，作为[创建群集和 SQL 数据库](hdinsight-use-sqoop.md)文档中的一部分步骤。
@@ -73,21 +74,21 @@ ms.lasthandoff: 05/26/2017
 2. 在 `1>` 提示符下，输入以下查询：
 
     ```sql
-        CREATE TABLE [dbo].[mobiledata](
-        [clientid] [nvarchar](50),
-        [querytime] [nvarchar](50),
-        [market] [nvarchar](50),
-        [deviceplatform] [nvarchar](50),
-        [devicemake] [nvarchar](50),
-        [devicemodel] [nvarchar](50),
-        [state] [nvarchar](50),
-        [country] [nvarchar](50),
-        [querydwelltime] [float],
-        [sessionid] [bigint],
-        [sessionpagevieworder] [bigint])
-        GO
-        CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
-        GO
+    CREATE TABLE [dbo].[mobiledata](
+    [clientid] [nvarchar](50),
+    [querytime] [nvarchar](50),
+    [market] [nvarchar](50),
+    [deviceplatform] [nvarchar](50),
+    [devicemake] [nvarchar](50),
+    [devicemodel] [nvarchar](50),
+    [state] [nvarchar](50),
+    [country] [nvarchar](50),
+    [querydwelltime] [float],
+    [sessionid] [bigint],
+    [sessionpagevieworder] [bigint])
+    GO
+    CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
+    GO
     ```
 
     输入 `GO` 语句后，将评估前面的语句。 首先会创建 **mobiledata** 表，然后会向其添加聚集索引（根据 SQL 数据库的要求。）
@@ -95,8 +96,8 @@ ms.lasthandoff: 05/26/2017
     使用以下查询验证是否已创建该表：
 
     ```sql
-        SELECT * FROM information_schema.tables
-        GO
+    SELECT * FROM information_schema.tables
+    GO
     ```
 
     将看到类似于以下文本的输出：
@@ -106,12 +107,13 @@ ms.lasthandoff: 05/26/2017
 
 3. 在 `1>` 提示符下输入 `exit` 以退出 tsql 实用工具。
 
-## <a name="sqoop-export"></a>Sqoop 导出
+## Sqoop 导出
+<a id="sqoop-export" class="xliff"></a>
 
 1. 通过 SSH 连接到群集后，使用以下命令验证 Sqoop 是否可以看到 SQL 数据库：
 
     ```bash
-        sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433 --username <adminLogin> --password <adminPassword>
+    sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433 --username <adminLogin> --password <adminPassword>
     ```
 
     此命令将返回数据库列表，其中包括之前创建的 **sqooptest** 数据库。
@@ -119,7 +121,7 @@ ms.lasthandoff: 05/26/2017
 2. 若要将数据从 **hivesampletable** 导出到 **mobiledata** 表，请使用以下命令：
 
     ```bash
-        sqoop export --connect 'jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasbs:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
+    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasbs:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
     ```
 
     此命令指示 Sqoop 连接到 **sqooptest** 数据库。 然后，Sqoop 将数据从 **wasbs:///hive/warehouse/hivesampletable** 导出到 **mobiledata** 表。
@@ -127,24 +129,25 @@ ms.lasthandoff: 05/26/2017
 3. 该命令完成后，使用以下命令通过 TSQL 连接到数据库：
 
     ```bash
-        TDSVER=8.0 tsql -H <serverName>.database.chinacloudapi.cn -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
+    TDSVER=8.0 tsql -H <serverName>.database.chinacloudapi.cn -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
     ```
 
     连接成功以后，使用以下语句验证数据是否已导出到 **mobiledata** 表：
 
     ```sql
-        SELECT * FROM mobiledata
-        GO
+    SELECT * FROM mobiledata
+    GO
     ```
 
     你会在表中看到一系列数据。 键入 `exit` 退出 tsql 实用程序。
 
-## <a name="sqoop-import"></a>Sqoop 导入
+## Sqoop 导入
+<a id="sqoop-import" class="xliff"></a>
 
 1. 使用以下命令将数据从 SQL 数据库中的 **mobiledata** 表导入 HDInsight 上的 **wasbs:///tutorials/usesqoop/importeddata** 目录：
 
     ```bash
-        sqoop import --connect 'jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
     数据中的字段将通过制表符分隔，并且相关行将由换行符终止。
@@ -155,7 +158,8 @@ ms.lasthandoff: 05/26/2017
     hdfs dfs -text /tutorials/usesqoop/importeddata/part-m-00000
     ```
 
-## <a name="using-sql-server"></a>使用 SQL Server
+## 使用 SQL Server
+<a id="using-sql-server" class="xliff"></a>
 
 你还可以使用 Sqoop 通过 SQL Server 来导入和导出数据，不管是在数据中心进行，还是在托管在 Azure 中的虚拟机上进行。 SQL 数据库和 SQL Server 在使用方面的差异是：
 
@@ -177,33 +181,35 @@ ms.lasthandoff: 05/26/2017
     使用以下 Transact-SQL 语句创建 **mobiledata** 表：
 
     ```sql
-        CREATE TABLE [dbo].[mobiledata](
-        [clientid] [nvarchar](50),
-        [querytime] [nvarchar](50),
-        [market] [nvarchar](50),
-        [deviceplatform] [nvarchar](50),
-        [devicemake] [nvarchar](50),
-        [devicemodel] [nvarchar](50),
-        [state] [nvarchar](50),
-        [country] [nvarchar](50),
-        [querydwelltime] [float],
-        [sessionid] [bigint],
-        [sessionpagevieworder] [bigint])
+    CREATE TABLE [dbo].[mobiledata](
+    [clientid] [nvarchar](50),
+    [querytime] [nvarchar](50),
+    [market] [nvarchar](50),
+    [deviceplatform] [nvarchar](50),
+    [devicemake] [nvarchar](50),
+    [devicemodel] [nvarchar](50),
+    [state] [nvarchar](50),
+    [country] [nvarchar](50),
+    [querydwelltime] [float],
+    [sessionid] [bigint],
+    [sessionpagevieworder] [bigint])
     ```
 
 * 在从 HDInsight 连接到 SQL Server 时，可能需要使用 SQL Server 的 IP 地址。 例如：
 
     ```bash
-        sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
-## <a name="limitations"></a>限制
+## 限制
+<a id="limitations" class="xliff"></a>
 
 * 批量导出 - 在基于 Linux 的 HDInsight 上，用于将数据导出到 Microsoft SQL Server 或 Azure SQL 数据库的 Sqoop 连接器目前不支持批量插入。
 
 * 批处理 - 在基于 Linux 的 HDInsight 上，如果在执行插入时使用 `-batch` 开关，Sqoop 将进行多次插入而不是批处理插入操作。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 现在你已了解如何使用 Sqoop。 若要了解更多信息，请参阅以下文章：
 
@@ -228,4 +234,3 @@ ms.lasthandoff: 05/26/2017
 [powershell-script]: https://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
-

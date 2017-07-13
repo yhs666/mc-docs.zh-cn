@@ -16,18 +16,18 @@ origin.date: 04/21/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 860d41f2bee9f475d811d94c100fdb02e95aef07
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: de4658ead80773b6389ea47db440b64e1d026f39
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 基于角色的访问控制的内置角色
+# Azure 基于角色的访问控制的内置角色
+<a id="built-in-roles-for-azure-role-based-access-control" class="xliff"></a>
 Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和服务的内置角色。 不能修改内置角色的定义。 但是，可以创建 [Azure RBAC 中的自定义角色](role-based-access-control-custom-roles.md)，以满足组织的特定需要。
 
-## <a name="roles-in-azure"></a>Azure 中的角色
+## Azure 中的角色
+<a id="roles-in-azure" class="xliff"></a>
 下表提供内置角色的简短说明。 单击角色名称可查看角色的“操作”和“不操作”的详细列表。 **操作** 属性指定对 Azure 资源允许的操作。 操作字符串可以使用通配符。 **不操作** 属性指定从允许的操作中排除的操作。
 
 操作定义可以对给定资源类型执行哪种类型的操作。 例如：
@@ -81,7 +81,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | [Web 计划参与者](#web-plan-contributor) |可管理 Web 计划 |
 | [网站参与者](#website-contributor) |可管理网站，但不包括与其连接的 Web 计划 |
 
-## <a name="role-permissions"></a>角色权限
+## 角色权限
+<a id="role-permissions" class="xliff"></a>
 下表描述授予每个角色的特定权限。 这可能包括授予权限的 **Action** 和限制权限的 **NotAction**。
 
 ### API 管理服务参与者 <a name="api-management-service-contributor"></a>
@@ -131,7 +132,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Resources/subscriptions/resourceGroups/read |读取角色和角色分配 |
 | Microsoft.Support/* |创建和管理支持票证 |
 
-### <a name="application-insights-component-contributor"></a>Application Insights 组件参与者
+### Application Insights 组件参与者
+<a id="application-insights-component-contributor" class="xliff"></a>
 可管理 Application Insights 组件
 
 | **操作** |  |
@@ -463,7 +465,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | --- | --- |
 | */read |读取除密码外的所有类型的资源。 |
 
-### <a name="redis-cache-contributor"></a>Redis 缓存参与者
+### Redis 缓存参与者
+<a id="redis-cache-contributor" class="xliff"></a>
 可管理 Redis 缓存
 
 | **操作** |  |
@@ -476,7 +479,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Resources/subscriptions/resourceGroups/read |读取资源组 |
 | Microsoft.Support/* |创建和管理支持票证 |
 
-### <a name="scheduler-job-collections-contributor"></a>计划程序作业集合参与者
+### 计划程序作业集合参与者
+<a id="scheduler-job-collections-contributor" class="xliff"></a>
 可管理计划程序作业集合
 
 | **操作** |  |
@@ -489,7 +493,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Scheduler/jobcollections/* |创建和管理作业集合 |
 | Microsoft.Support/* |创建和管理支持票证 |
 
-### <a name="search-service-contributor"></a>搜索服务参与者
+### 搜索服务参与者
+<a id="search-service-contributor" class="xliff"></a>
 可管理搜索服务
 
 | **操作** |  |
@@ -502,7 +507,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Search/searchServices/* |创建和管理搜索服务 |
 | Microsoft.Support/* |创建和管理支持票证 |
 
-### <a name="security-manager"></a>安全管理器
+### 安全管理器
+<a id="security-manager" class="xliff"></a>
 可管理安全组件、安全策略和虚拟机
 
 | **操作** |  |
@@ -518,7 +524,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Security/* |创建和管理安全组件和策略 |
 | Microsoft.Support/* |创建和管理支持票证 |
 
-### <a name="sql-db-contributor"></a>SQL DB 参与者
+### SQL DB 参与者
+<a id="sql-db-contributor" class="xliff"></a>
 可管理 SQL 数据库，但不包括其安全性相关的策略
 
 | **操作** |  |
@@ -542,7 +549,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* |无法编辑安全警报策略 |
 | Microsoft.Sql/servers/databases/securityMetrics/* |无法编辑安全度量值 |
 
-### <a name="sql-security-manager"></a>SQL 安全管理器
+### SQL 安全管理器
+<a id="sql-security-manager" class="xliff"></a>
 可管理 SQL 服务器和数据库与安全性相关的策略
 
 | **操作** |  |
@@ -569,7 +577,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Sql/servers/securityAlertPolicies/* |创建和管理 SQL 服务器安全警报策略 |
 | Microsoft.Support/* |创建和管理支持票证 |
 
-### <a name="sql-server-contributor"></a>SQL Server 参与者
+### SQL Server 参与者
+<a id="sql-server-contributor" class="xliff"></a>
 可管理 SQL 服务器和数据库，但不包括其安全性相关的策略
 
 | **操作** |  |
@@ -595,7 +604,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Sql/servers/databases/securityMetrics/* |无法编辑 SQL 服务器数据库安全度量值 |
 | Microsoft.Sql/servers/securityAlertPolicies/* |无法编辑 SQL 服务器安全警报策略 |
 
-### <a name="classic-storage-account-contributor"></a>经典存储帐户参与者
+### 经典存储帐户参与者
+<a id="classic-storage-account-contributor" class="xliff"></a>
 可管理经典存储帐户
 
 | **操作** |  |
@@ -608,7 +618,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Resources/subscriptions/resourceGroups/read |读取资源组 |
 | Microsoft.Support/* |创建和管理支持票证 |
 
-### <a name="storage-account-contributor"></a>存储帐户参与者
+### 存储帐户参与者
+<a id="storage-account-contributor" class="xliff"></a>
 可管理存储帐户，但不能访问。
 
 | **操作** |  |
@@ -622,7 +633,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Storage/storageAccounts/* |创建和管理存储帐户 |
 | Microsoft.Support/* |创建和管理支持票证 |
 
-### <a name="user-access-administrator"></a>用户访问管理员
+### 用户访问管理员
+<a id="user-access-administrator" class="xliff"></a>
 可管理用户对 Azure 资源的访问权限
 
 | **操作** |  |
@@ -631,7 +643,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Authorization/* |管理授权 |
 | Microsoft.Support/* |创建和管理支持票证 |
 
-### <a name="classic-virtual-machine-contributor"></a>经典虚拟机参与者
+### 经典虚拟机参与者
+<a id="classic-virtual-machine-contributor" class="xliff"></a>
 可管理经典虚拟机，但不包括与其连接的虚拟网络或存储帐户
 
 | **操作** |  |
@@ -654,7 +667,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Resources/subscriptions/resourceGroups/read |读取资源组 |
 | Microsoft.Support/* |创建和管理支持票证 |
 
-### <a name="virtual-machine-contributor"></a>虚拟机参与者
+### 虚拟机参与者
+<a id="virtual-machine-contributor" class="xliff"></a>
 可管理虚拟机，但不包括与其连接的虚拟网络或存储帐户
 
 | **操作** |  |
@@ -685,7 +699,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Storage/storageAccounts/read |读取存储帐户 |
 | Microsoft.Support/* |创建和管理支持票证 |
 
-### <a name="classic-network-contributor"></a>经典网络参与者
+### 经典网络参与者
+<a id="classic-network-contributor" class="xliff"></a>
 可管理经典虚拟网络和保留 IP
 
 | **操作** |  |
@@ -698,7 +713,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Resources/subscriptions/resourceGroups/read |读取资源组 |
 | Microsoft.Support/* |创建和管理支持票证 |
 
-### <a name="web-plan-contributor"></a>Web 计划参与者
+### Web 计划参与者
+<a id="web-plan-contributor" class="xliff"></a>
 可管理 Web 计划
 
 | **操作** |  |
@@ -711,7 +727,8 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Support/* |创建和管理支持票证 |
 | Microsoft.Web/serverFarms/* |创建和管理服务器场 |
 
-### <a name="website-contributor"></a>网站参与者
+### 网站参与者
+<a id="website-contributor" class="xliff"></a>
 可管理网站，但不包括与其连接的 Web 计划
 
 | **操作** |  |
@@ -729,10 +746,10 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Web/serverFarms/read |读取服务器场 |
 | Microsoft.Web/sites/* |创建和管理网站（站点创建还需要对关联的应用服务计划有写入权限） |
 
-## <a name="see-also"></a>另请参阅
+## 另请参阅
+<a id="see-also" class="xliff"></a>
 - [基于角色的访问控制](role-based-access-control-configure.md)：Azure 门户中的 RBAC 入门。
 - [Azure RBAC 中的自定义角色](role-based-access-control-custom-roles.md)：了解如何创建自定义角色，以满足访问需要。
 - [创建访问权限更改历史记录报告](role-based-access-control-access-change-history-report.md)：记录 RBAC 中的角色分配更改。
 - [基于角色的访问控制故障排除](role-based-access-control-troubleshooting.md)：获取解决常见问题的建议。
-
 

@@ -4,10 +4,12 @@
 
 有几个选项用于管理 Azure 上的现有虚拟环境：
 
-### <a name="option-1-use-ftp"></a>选项 1：使用 FTP
+### 选项 1：使用 FTP
+<a id="option-1-use-ftp" class="xliff"></a>
 通过 FTP 客户端，连接到服务器，然后您就可以删除 env 文件夹。  请注意，某些 FTP 客户端（例如 Web 浏览器）可能为只读而不允许您删除文件夹，因此您要确保使用具备此功能的 FTP 客户端。  在 [Azure 门户](https://portal.azure.cn)上，Web 应用的边栏选项卡中显示 FTP 主机名和用户。
 
-### <a name="option-2-toggle-runtime"></a>选项 2：切换运行时
+### 选项 2：切换运行时
+<a id="option-2-toggle-runtime" class="xliff"></a>
 这是利用以下事实的一个替代方法：部署脚本不匹配期望的 Python 版本时，它将删除 env 文件夹。  这将有效地删除现有环境，然后创建新环境。
 
 1. 切换到其他版本的 Python（通过 runtime.txt 或 Azure 门户中的“应用程序设置”边栏选项卡）
@@ -15,5 +17,6 @@
 3. 切换回初始版本的 Python
 4. git 再次推送某些更改
 
-### <a name="option-3-customize-deployment-script"></a>选项 3：自定义部署脚本
+### 选项 3：自定义部署脚本
+<a id="option-3-customize-deployment-script" class="xliff"></a>
 如果您已自定义部署脚本，则可以更改 deploy.cmd 中的代码以强制其删除 env 文件夹。

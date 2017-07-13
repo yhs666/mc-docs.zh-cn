@@ -1,30 +1,36 @@
 ---
-title: 为 Azure AD 开发应用 | Azure
-description: 本文专门为 IT 专业人员编写，提供有关将 Azure 应用程序与 Active Directory 集成的指导。
+title: "为 Azure AD 开发应用 | Microsoft Docs"
+description: "本文专门为 IT 专业人员编写，提供有关将 Azure 应用程序与 Active Directory 集成的指导。"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
 ms.assetid: dd69f2bc-37c5-457c-857d-27acb84267fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/27/2017
-ms.date: 04/05/2017
+origin.date: 05/07/2017
+ms.date: 06/21/2017
 ms.author: v-junlch
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 4f31ea8e493d7e13c967f2f0baa073660daae04f
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # 开发适用于 Azure Active Directory 的业务线应用
-本指南概要介绍如何开发适用于 Azure Active Directory (AD) 的业务线 (LoB) 应用程序，目标受众为 Active Directory/Office 365 全局管理员。
+<a id="develop-line-of-business-apps-for-azure-active-directory" class="xliff"></a>
+本指南提供开发用于 Azure Active Directory (AD) 的业务线 (LoB) 应用程序的概述，目标受众为 Active Directory/Office 365 全局管理员。
 
 ## 概述
-构建集成 Azure AD 的应用程序可让组织的用户使用 Office 365 进行单一登录。将应用程序置于 Azure AD 中即可控制应用程序的身份验证策略。
+<a id="overview" class="xliff"></a>
+构建集成 Azure AD 的应用程序可让组织的用户使用 Office 365 进行单一登录。 将应用程序置于 Azure AD 中即可控制应用程序的身份验证策略。
 
-注册应用程序以使用 Azure Active Directory。注册应用程序意味着开发人员可以使用 Azure AD 对用户进行身份验证并请求访问用户资源（如电子邮件、日历和文档）。
+注册应用程序以使用 Azure Active Directory。 注册应用程序意味着开发人员可以使用 Azure AD 对用户进行身份验证并请求访问用户资源（如电子邮件、日历和文档）。
 
 目录的任何成员（不是来宾）都可以注册应用程序，也称为*创建应用程序对象*。
 
@@ -39,11 +45,11 @@ ms.author: v-junlch
   - 使用 Azure Active Directory 作为 oAuth 授权服务器（保护应用程序公开的 API）
 - 声明让应用程序按预期运行所需的权限，包括：
 
-  - 应用权限（仅限全局管理员）。例如：另一个 Azure AD 应用程序中的角色成员身份，或相对于 Azure 资源、资源组或订阅的角色成员身份
-  - 委派的权限（任何用户）。例如：Azure AD、登录和读取配置文件
+      - 应用权限（仅限全局管理员）。 例如：另一个 Azure AD 应用程序中的角色成员身份，或相对于 Azure 资源、资源组或订阅的角色成员身份
+      - 委派的权限（任何用户）。 例如：Azure AD、登录和读取配置文件
 
 > [!NOTE]
-默认情况下，任何成员都可以注册应用程序。若要了解如何限定只有特定成员拥有注册应用程序的权限，请参阅 [How applications are added to Azure AD](./develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance)（如何将应用程序添加到 Azure AD）。
+> 默认情况下，任何成员都可以注册应用程序。 若要了解如何限定只有特定成员拥有注册应用程序的权限，请参阅 [How applications are added to Azure AD](./develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance)（如何将应用程序添加到 Azure AD）。
 >
 >
 
@@ -54,24 +60,22 @@ ms.author: v-junlch
 - 抑制默认的用户同意体验
 
 ## 将应用配置为要求用户分配，并分配用户
-默认情况下，用户无需分配即可访问应用程序。不过，如果应用程序公开角色或者你希望应用程序显示在用户的访问面板上，则应该要求用户分配。
+<a id="configure-the-app-to-require-user-assignment-and-assign-users" class="xliff"></a>
+默认情况下，用户无需分配即可访问应用程序。 不过，如果应用程序公开角色或者你希望应用程序显示在用户的访问面板上，则应该要求用户分配。
 
-[要求用户分配](./active-directory-applications-guiding-developers-requiring-user-assignment.md)
+[要求进行用户分配](./active-directory-applications-guiding-developers-requiring-user-assignment.md)
 
-如果你是 Azure AD Premium 或 Enterprise Mobility Suite (EMS) 的订阅者，我们强烈建议使用组。将组分配到应用程序可让你将持续进行的访问管理委派给组所有者。你可以创建组，或使用组管理功能请求组织中负责人创建组。
+如果你是 Azure AD Premium 或 Enterprise Mobility Suite (EMS) 的订阅者，我们强烈建议使用组。 将组分配到应用程序可让你将持续进行的访问管理委派给组所有者。 你可以创建组，或使用组管理功能请求组织中负责人创建组。
 
-[将用户分配到应用程序](./active-directory-applications-guiding-developers-assigning-users.md)
+[将用户分配到应用程序](./active-directory-applications-guiding-developers-assigning-users.md)  
 
 ## 抑制用户同意
-默认情况下，每个用户通过同意体验进行登录。对于不太熟悉如何做出此类决定的用户而言，同意体验（要求用户授予对应用程序的权限）可能会令其不安。
+<a id="suppress-user-consent" class="xliff"></a>
+默认情况下，每个用户通过同意体验进行登录。 对于不太熟悉如何做出此类决定的用户而言，同意体验（要求用户授予对应用程序的权限）可能会令其不安。
 
 对于你信任的应用程序，可以代表组织来同意应用程序，以简化用户体验。
 
-有关 Azure 中的用户同意和同意体验的详细信息，请参阅 [Integrating Applications with Azure Active Directory](./develop/active-directory-integrating-applications.md)（将应用程序与 Azure Active Directory 集成）。
-
 ## 相关文章
+<a id="related-articles" class="xliff"></a>
 - [使用 Azure AD 管理对应用的访问](./active-directory-managing-access-to-apps.md)
 - [有关 Azure Active Directory 中应用程序管理的文章索引](./active-directory-apps-index.md)
-
-<!---HONumber=Mooncake_0327_2017-->
-<!---Update_Description: wording update -->

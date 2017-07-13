@@ -14,15 +14,13 @@ ms.topic: article
 origin.date: 02/27/2017
 ms.author: v-yiso
 ms.date: 04/24/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 4ea38fa86e646cc71a006b5fa5f1e7d013ea5f7a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 55b555f529b4b853de37bcae49d87e935907ba0d
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-classic-portal"></a>如何在经典管理门户中为云服务配置自动缩放
+# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-classic-portal"></a>如何在经典门户中为云服务配置自动缩放
 
 > [!div class="op_single_selector"]
 >- [Azure 门户](./cloud-services-how-to-scale-portal.md)
@@ -58,7 +56,7 @@ ms.lasthandoff: 04/14/2017
 - 特定日期
 - 特定日期范围
 
-在 [Azure 经典管理门户](https://manage.windowsazure.cn/) 中以下位置对计划设置进行配置：  
+在 [Azure 经典门户](https://manage.windowsazure.cN/) 中以下位置对计划设置进行配置：  
 “云服务” > “\[你的云服务\]” > “缩放” > “\[生产或过渡\]”页。
 
 单击要更改的每个角色对应的“设置计划时间”按钮。

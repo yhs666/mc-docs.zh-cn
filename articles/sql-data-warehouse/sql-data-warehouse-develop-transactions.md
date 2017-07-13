@@ -3,7 +3,7 @@ title: "SQL 数据仓库中的事务 | Azure"
 description: "有关在开发解决方案时实现 Azure SQL 数据仓库中的事务的技巧。"
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: rockboyfor
 manager: jhubbard
 editor: 
 ms.assetid: ae621788-e575-41f5-8bfe-fa04dc4b0b53
@@ -12,24 +12,26 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 origin.date: 10/31/2016
-ms.author: v-yeche
 ms.date: 04/24/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 53315bc2be93dc3a03f5177c8ce85d4efb519934
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.author: v-yeche
+ms.openlocfilehash: 316154408b023d3d9e4d52b509a6d29b6dbac512
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# <a name="transactions-in-sql-data-warehouse"></a>SQL 数据仓库中的事务
+# SQL 数据仓库中的事务
+<a id="transactions-in-sql-data-warehouse" class="xliff"></a>
 如你所料，SQL 数据仓库支持支持事务作为数据仓库工作负荷的一部分。 但是，为了确保 SQL 数据仓库的性能维持在一定的程度，相比于 SQL Server，其某些功能会受到限制。 本文将突出两者的差异，并列出其他信息。 
 
-## <a name="transaction-isolation-levels"></a>事务隔离级别
+## 事务隔离级别
+<a id="transaction-isolation-levels" class="xliff"></a>
 SQL 数据仓库实现 ACID 事务。 但是，事务支持的隔离仅限于 `READ UNCOMMITTED` ，这无法更改。 你可以实现许多编码方法，以避免脏读数据（如果你对此有所考虑的话）。 大多数流行方法利用 CTAS 和表分区切换（通常称为滑动窗口模式），以防止用户查询仍正准备的数据。 预先筛选数据的视图也是常用的方法。  
 
-## <a name="transaction-size"></a>事务大小
+## 事务大小
+<a id="transaction-size" class="xliff"></a>
 单个数据修改事务有大小限制。 限制目前按“每个分发”进行应用。 因此，通过将限制乘以分发数，可得总分配额。 若要预计事务中的最大行数，请将分发上限除以每一行的总大小。 对于可变长度列，考虑采用平均的列长度而不使用最大大小。
 
 下表中进行了以下假设：
@@ -37,7 +39,7 @@ SQL 数据仓库实现 ACID 事务。 但是，事务支持的隔离仅限于 `R
 * 出现平均数据分布 
 * 平均行长度为 250 个字节
 
-| [DWU][DWU] | 每个分布的上限（GiB） | 分布的数量 | 最大事务大小（GiB） | # 每个分布的行数 | 每个事务的最大行数 |
+| [DWU][DWU] | 每个分布的上限（GiB） | 分布的数量 | 最大事务大小（GiB） | 每个分布的行数 | 每个事务的最大行数 |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -62,7 +64,8 @@ SQL 数据仓库实现 ACID 事务。 但是，事务支持的隔离仅限于 `R
 > 
 > 
 
-## <a name="transaction-state"></a>事务状态
+## 事务状态
+<a id="transaction-state" class="xliff"></a>
 SQL 数据仓库使用 XACT_STATE() 函数（采用值 -2）来报告失败的事务。 这表示事务已失败并标记为仅可回滚
 
 > [!NOTE]
@@ -155,17 +158,20 @@ SELECT @xact_state AS TransactionState;
 
 所做的一切改变是事务的 `ROLLBACK` 必须发生于在 `CATCH` 块中读取错误信息之前。
 
-## <a name="errorline-function"></a>Error_Line() 函数
+## Error_Line() 函数
+<a id="errorline-function" class="xliff"></a>
 另外值得注意的是，SQL 数据仓库不实现或支持 ERROR_LINE() 函数。 如果你的代码中包含此函数，需要将它删除才能符合 SQL 数据仓库的要求。 请在代码中使用查询标签，而不是实现等效的功能。 有关此功能的详细信息，请参阅 [LABEL][LABEL] 一文。
 
-## <a name="using-throw-and-raiserror"></a>使用 THROW 和 RAISERROR
+## 使用 THROW 和 RAISERROR
+<a id="using-throw-and-raiserror" class="xliff"></a>
 THROW 是在 SQL 数据仓库中引发异常的新式做法，但也支持 RAISERROR。 不过，有些值得注意的差异。
 
 * 对于 THROW，用户定义的错误消息数目不能在 100,000 - 150,000 的范围内
 * RAISERROR 错误消息固定为 50,000
 * 不支持 sys.messages
 
-## <a name="limitiations"></a>限制
+## 限制
+<a id="limitiations" class="xliff"></a>
 SQL 数据仓库有一些与事务相关的其他限制。
 
 这些限制如下：
@@ -177,7 +183,8 @@ SQL 数据仓库有一些与事务相关的其他限制。
 * 无已标记事务
 * 不支持 DDL，如用户定义的事务内的 `CREATE TABLE`
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 若要了解有关优化事务的详细信息，请参阅 [事务最佳实践][Transactions best practices]。  若要了解有关其他 SQL 数据仓库最佳实践的详细信息，请参阅 [SQL 数据仓库最佳实践][SQL Data Warehouse best practices]。
 
 <!--Image references-->

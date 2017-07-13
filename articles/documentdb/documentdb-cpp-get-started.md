@@ -1,6 +1,6 @@
 ---
-title: "适用于 DocumentDB 的 C++ 教程 | Microsoft Docs"
-description: "本 C++ 教程使用 DocumentDB 认可的 C++ SDK 创建 C++ 数据库和控制台应用程序。 DocumentDB 是全球规模的数据库服务。"
+title: "DocumentDB 的 C++ 教程 | Microsoft Docs"
+description: "本 C++ 教程使用 DocumentDB 支持的 C++ SDK 创建 C++ 数据库和控制台应用程序。 DocumentDB 是全球规模的数据库服务。"
 services: documentdb
 documentationcenter: cpp
 author: asthana86
@@ -15,15 +15,14 @@ ms.topic: hero-article
 origin.date: 12/25/2016
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 456ea12b06c6ede437dbcc7193103439322f3eac
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 7501e5cccff6df6428a0b46ecd4a7752b439d59e
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="azure-documentdb-c-console-application-tutorial-for-the-documentdb-api"></a>DocumentDB：适用于 DocumentDB API 的 C++ 控制台应用程序教程
+# DocumentDB：适用于 DocumentDB API 的 C++ 控制台应用程序教程
+<a id="documentdb-c-console-application-tutorial-for-the-documentdb-api" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -35,7 +34,7 @@ ms.lasthandoff: 05/19/2017
 > 
  
 
-欢迎使用 DocumentDB 认可的 C++ SDK 的 C++ 教程！ 完成本教程后，你将获得一个可以创建并查询 DocumentDB 资源（包括 C++ 数据库）的控制台应用程序。
+欢迎使用 DocumentDB 支持的 C++ SDK 的 C++ 教程！ 学习本教程后，你将拥有一个创建并查询 DocumentDB 资源（包括 C++ 数据库）的控制台应用程序。
 
 我们将介绍：
 
@@ -57,14 +56,16 @@ ms.lasthandoff: 05/19/2017
 
 现在，让我们开始吧！
 
-## <a name="prerequisites-for-the-c-tutorial"></a>C++ 教程的先决条件
+## C++ 教程的先决条件
+<a id="prerequisites-for-the-c-tutorial" class="xliff"></a>
 请确保你具有以下内容：
 
 - 有效的 Azure 帐户。 如果没有，可以注册 [Azure 免费试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 - [Visual Studio](https://www.visualstudio.com/downloads/)，安装了 C++ 语言组件。
 
-## <a name="step-1-create-an-azure-documentdb-account"></a>步骤 1：创建 DocumentDB 帐户
-创建一个 DocumentDB 帐户。 如果已经有想要使用的帐户，可以跳到 [安装 C++ 应用程序](#SetupC++)。
+## 第 1 步：创建 DocumentDB 帐户
+<a id="step-1-create-a-documentdb-account" class="xliff"></a>
+让我们创建一个 DocumentDB 帐户。 如果已经有想要使用的帐户，可以跳到 [安装 C++ 应用程序](#SetupNode)。
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -83,8 +84,8 @@ ms.lasthandoff: 05/19/2017
    
     将程序包添加到项目后，我们已准备好开始编写一些代码。   
 
-## <a id="Config"></a>步骤 3：从 Azure 门户复制 DocumentDB 数据库的连接详细信息
-打开 [Azure 门户](https://portal.azure.cn)，浏览到已创建的 DocumentDB 数据库帐户。 下一步需要 Azure 门户中的 URI 和主要密钥，以便使用 C++ 代码片段建立连接。 
+## <a id="Config"></a>步骤 3：从 Azure 门户中复制 DocumentDB 数据库的连接详细信息
+打开 [Azure 门户](https://portal.azure.cn)，浏览到所创建的 DocumentDB 数据库帐户。 下一步需要 Azure 门户中的 URI 和主要密钥，以便使用 C++ 代码片段建立连接。 
 
 ![Azure 门户中的 DocumentDB URI 和密钥](./media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 
@@ -99,15 +100,15 @@ ms.lasthandoff: 05/19/2017
         using namespace documentdb;
         using namespace std;
         using namespace web::json;
-2. 接下来，将以下代码添加到 main 函数，并根据步骤 3 中的 DocumentDB 设置替换帐户配置和主密钥。 
+2. 接下来将以下代码添加到主函数，并替换帐户配置和主要密钥以匹配步骤 3 中的 DocumentDB 设置。 
    
         DocumentDBConfiguration conf (L"<account_configuration_uri>", L"<primary_key>");
         DocumentClient client (conf);
    
-    现已获得用于初始化 documentdb 客户端的代码，接下来看看如何使用 DocumentDB 资源。
+    现已获得用于初始化 documentdb 客户端的代码，接下来让我们看看如何使用 DocumentDB 资源。
 
 ## <a id="CreateDBColl"></a>步骤 5：创建 C++ 数据库和集合
-在执行此步骤之前，让我们为 DocumentDB 的新手回顾一下数据库、集合与文档之间的交互方式。 [数据库](documentdb-resources.md#databases)是跨集合分区的文档存储的逻辑容器。 [集合](documentdb-resources.md#collections)是 JSON 文档和相关联的 JavaScript 应用程序逻辑的容器。 可以在 [DocumentDB 分层资源模型和概念](documentdb-resources.md)中详细了解 DocumentDB 分层资源模型和概念。
+执行此步骤之前，针对 DocumentDB 的新用户，让我们回顾一下数据库、集合和文档的交互方式。 [数据库](documentdb-resources.md#databases)是跨集合分区的文档存储的逻辑容器。 [集合](documentdb-resources.md#collections)是 JSON 文档和相关联的 JavaScript 应用程序逻辑的容器。 可以在 [DocumentDB 分层资源模型和概念](documentdb-resources.md)中了解 DocumentDB 分层资源模型和概念。
 
 若要创建数据库和相应的集合，请将下面的代码添加到主函数末尾。 这样可以使用上一步中声明的客户端配置创建名为“FamilyRegistry”的数据库和名为“FamilyCollection”的集合。
 
@@ -120,7 +121,7 @@ ms.lasthandoff: 05/19/2017
 
 
 ## <a id="CreateDoc"></a>步骤 6：创建文档
-[文档](documentdb-resources.md#documents)是用户定义的（任意）JSON 内容。 现在，可以将文档插入 DocumentDB 中。 将下面的代码复制到主函数的末尾可创建一个文档。 
+[文档](documentdb-resources.md#documents)是用户定义的（任意）JSON 内容。 现在，你可以将文档插入 DocumentDB。 将下面的代码复制到主函数的末尾可创建一个文档。 
 
     try {
       value document_family;
@@ -137,7 +138,7 @@ ms.lasthandoff: 05/19/2017
       wcout << ex.message();
     }
 
-总而言之，此代码将创建可在 Azure 门户中使用文档资源管理器查询的 DocumentDB 数据库、集合与文档。 
+总之，此代码创建可在 Azure 门户的文档资源管理器中查询的 DocumentDB 数据库、集合和文档。 
 
 ![C++ 教程 - 说明帐户、数据库、集合和文档间层次关系的关系图](./media/documentdb-cpp-get-started/documentdbdocs.png)
 
@@ -173,7 +174,7 @@ DocumentDB 支持对存储在每个集合中的 JSON 文档进行[各种查询](
     }
 
 ## <a id="Replace"></a>步骤 8：替换文档
-DocumentDB 支持替换 JSON 文档，如以下代码所示。 在 executesimplequery 函数后面添加此代码。
+DocumentDB 支持替换 JSON 文档，如下面的代码所示。 在 executesimplequery 函数后面添加此代码。
 
     void replacedocument(const DocumentClient &client, const wstring dbresourceid,
                          const wstring collresourceid,
@@ -193,7 +194,7 @@ DocumentDB 支持替换 JSON 文档，如以下代码所示。 在 executesimple
     }
 
 ## <a id="Delete"></a>步骤 9：删除文档
-DocumentDB 支持删除 JSON 文档，为此，可以复制以下代码并将其粘贴到 replacedocument 函数的后面。 
+DocumentDB 支持删除 JSON 文档，可以复制下面的代码并将其粘贴到 replacedocument 函数后面来实现此操作。 
 
     void deletedocument(const DocumentClient &client, const wstring dbresourceid,
                         const wstring collresourceid, const wstring docresourceid) {
@@ -221,7 +222,7 @@ DocumentDB 支持删除 JSON 文档，为此，可以复制以下代码并将其
     }
 
 ## <a id="Run"></a>步骤 11：一同运行所有 C++ 应用程序！
-现在已添加了用于创建、查询、修改和删除不同 DocumentDB 资源的代码。  现在通过在 hellodocumentdb.cpp 中的主函数中调用这些不同的函数和添加一些诊断消息，从而将这些代码连接到一起。
+我们已添加代码用于创建、查询、修改和删除不同的 DocumentDB 资源。  现在通过在 hellodocumentdb.cpp 中的主函数中调用这些不同的函数和添加一些诊断消息，从而将这些代码连接到一起。
 
 可以通过将应用程序的主函数替换为以下代码来实现。 这样会覆盖步骤 3 中复制到代码的 account_configuration_uri 和 primary_key，因此请再次在门户中保存此代码行或复制这些值。 
 
@@ -278,7 +279,7 @@ DocumentDB 支持删除 JSON 文档，为此，可以复制以下代码并将其
 
 ![DocumentDB C++ 应用程序输出](./media/documentdb-cpp-get-started/docdbconsole.png)
 
-祝贺你！ 你已完成了 C++ 教程并创建了你的第一个 DocumentDB 控制台应用程序！
+祝贺你！ 你已完成 C++ 教程，并成功创建了第一个 DocumentDB 控制台应用程序！
 
 ## <a id="GetSolution"></a>获取完整的 C++ 教程解决方案
 若要生成包含本文所有示例的 GetStarted 解决方案，需要以下项：
@@ -286,13 +287,13 @@ DocumentDB 支持删除 JSON 文档，为此，可以复制以下代码并将其
 - [DocumentDB 帐户][documentdb-create-account]。
 - GitHub 上提供的 [GetStarted](https://github.com/stalker314314/DocumentDBCpp) 解决方案。
 
-## <a name="next-steps"></a>后续步骤
-- 了解如何[监视 DocumentDB 帐户](documentdb-monitor-accounts.md)。
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+- 了解如何 [监视 DocumentDB 帐户](documentdb-monitor-accounts.md)。
 - 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
-- 在 [DocumentDB 文档页](index.md)的“开发”部分了解有关编程模型的详细信息。
+- 在 [DocumentDB 文档页](index.md)的“Develop”（开发）部分中了解有关编程模型的详细信息。
 
 [documentdb-create-account]: documentdb-create-account.md
-
 
 
 

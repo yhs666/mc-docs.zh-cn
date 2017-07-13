@@ -2,18 +2,19 @@
 documentType: LandingData
 title: Azure SQL 数据库文档
 metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Azure SQL 数据库文档 - 教程和 API 参考
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
-  author: carolz
-  manager: carolz
+  author: Hayley244
+  manager: digimobile
   ms.service: sql-database
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 05/03/2017
-  ms.date: 06/20/2017
-  ms.author: carolz
+  ms.date: ''
+  ms.author: v-johch
 abstract:
   description: Azure SQL 数据库是使用 Microsoft SQL Server 引擎的关系数据库即服务。 SQL 数据库是高性能、可靠且安全的数据库，可用于以所选编程语言构建数据驱动的应用程序和网站，而无需管理基础结构。 使用我们的快速入门、教程和示例了解如何使用 SQL 数据库。
 
@@ -49,6 +50,7 @@ sections:
     - html: <a href="/sql-database/sql-database-security-tutorial">保护 SQL 数据库</a>
     - html: <a href="/sql-database/sql-database-performance-tutorial">提高 SQL 数据库性能</a>
     - html: <a href="/sql-database/sql-database-multi-tenant-application">使用 SQL DB 实现多租户 SaaS 应用程序</a>
+    - html: <a href="/sql-database/sql-database-implement-geo-distributed-database">实现地理分散的数据库</a>
 - title: 示例
   items:
   - type: paragraph

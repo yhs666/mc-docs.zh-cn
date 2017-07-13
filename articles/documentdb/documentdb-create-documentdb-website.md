@@ -15,16 +15,15 @@ ms.topic: article
 origin.date: 12/08/2016
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: dd388d91f272b6d631b026e471946fe62792d259
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 7eb39d0f5d6aaa80245b2ef8fbf56c3cf9ba891f
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="deploy-azure-documentdb-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板部署 DocumentDB 和 Azure 应用服务 Web 应用
-本教程说明如何使用 Azure Resource Manager 模板来部署和集成 [DocumentDB](https://www.azure.cn/home/features/documentdb/)、[Azure 应用服务](../app-service-web/app-service-changes-existing-services.md)、Web 应用以及示例 Web 应用程序。
+# 使用 Azure Resource Manager 模板部署 DocumentDB 和 Azure 应用服务 Web 应用
+<a id="deploy-documentdb-and-azure-app-service-web-apps-using-an-azure-resource-manager-template" class="xliff"></a>
+本教程说明如何使用 Azure Resource Manager 模板来部署和集成 [DocumentDB](https://www.azure.cn/home/features/documentdb/)、[Azure 应用服务](../app-service-web/app-service-changes-existing-services.md) Web 应用以及示例 Web 应用程序。
 
 使用 Azure Resource Manager 模板，你可以轻松自动化 Azure 资源的部署和配置。  本教程演示如何部署 Web 应用程序，以及自动配置 DocumentDB 帐户的连接信息。
 
@@ -35,7 +34,8 @@ ms.lasthandoff: 05/19/2017
 
 <a id="Prerequisites"></a>
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 > [!TIP]
 > 虽然本教程不会假设先前有使用 Azure Resource Manager 模板或 JSON 的经验，但是，如果你想修改引用的模板或部署选项，则需要有其中每个领域的知识。
 > 
@@ -53,11 +53,12 @@ ms.lasthandoff: 05/19/2017
 
 <a id="Build"></a>
 
-## <a name="step-2-deploy-the-azure-documentdb-account-app-service-web-app-and-demo-application-sample"></a>步骤 2：部署 DocumentDB 帐户、应用服务 Web 应用和演示应用程序示例
+## 步骤 2：部署 DocumentDB 帐户、应用服务 Web 应用和演示应用程序示例
+<a id="step-2-deploy-the-documentdb-account-app-service-web-app-and-demo-application-sample" class="xliff"></a>
 现在让我们来部署第一个模板。
 
 > [!TIP]
-> 该模板不会验证下面输入的 Web 应用名称和 DocumentDB 帐户名称是否：a) 有效以及 b) 可用。  强烈建议在提交部署之前，先确认你打算提供的名称的可用性。
+> 该模板不会验证下面输入的 Web 应用名称和 DocumentDB 帐户名称是否 a) 有效以及 b) 可用。  强烈建议在提交部署之前，先确认你打算提供的名称的可用性。
 > 
 > 
 
@@ -94,11 +95,12 @@ ms.lasthandoff: 05/19/2017
 
 <a id="Build"></a> 
 
-## <a name="step-3-deploy-the-document-account-and-web-app-sample"></a>步骤 3：部署 DocumentDB 帐户和 Web 应用示例
+## 步骤 3：部署 DocumentDB 帐户和 Web 应用示例
+<a id="step-3-deploy-the-document-account-and-web-app-sample" class="xliff"></a>
 现在让我们来部署第二个模板。  此模板可用于演示如何将帐户终结点和主密钥等 DocumentDB 连接信息插入 Web 应用，作为应用程序设置或自定义连接字符串。 例如，你或许有想要使用 DocumentDB 帐户部署的 Web 应用程序，以及在部署期间自动填充的连接信息。
 
 > [!TIP]
-> 该模板不会验证下面输入的 Web 应用名称和 DocumentDB 帐户名称是否：a) 有效以及 b) 可用。  强烈建议在提交部署之前，先确认你打算提供的名称的可用性。
+> 该模板不会验证下面输入的 Web 应用名称和 DocumentDB 帐户名称是否 a) 有效以及 b) 可用。  强烈建议在提交部署之前，先确认你打算提供的名称的可用性。
 > 
 > 
 
@@ -132,14 +134,16 @@ ms.lasthandoff: 05/19/2017
 
 <a name="NextSteps"></a>
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 祝贺你！ 你已使用 Azure Resource Manager 模板部署了 DocumentDB、应用服务 Web 应用以及示例 Web 应用程序。
 
 - 若要了解有关 DocumentDB 的详细信息，请单击[此处](./index.md)。
 - 若要了解有关 Azure 应用服务 Web 应用的详细信息，请单击[此处](../app-service-web/index.yml)。
 - 若要了解有关 Azure Resource Manager 模板的详细信息，请单击[此处](https://msdn.microsoft.com/library/azure/dn790549.aspx)。
 
-## <a name="whats-changed"></a>发生的更改
+## 发生的更改
+<a id="whats-changed" class="xliff"></a>
 - 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](../app-service-web/app-service-changes-existing-services.md)
 - 有关从旧门户更改为新门户的指南，请参阅：[有关在 Azure 经典管理门户中导航的参考](../app-service-web/app-service-web-app-azure-portal.md)
 
@@ -147,6 +151,5 @@ ms.lasthandoff: 05/19/2017
 > 如果想要在注册 Azure 帐户之前开始使用 Azure 应用服务，请转到[试用应用服务](../app-service/index.md)，然后在其中立即创建一个生存期较短的入门 Web 应用。 你不需要使用信用卡，也不需要做出承诺。
 > 
 > 
-
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Azure 虚拟机的多个 IP 地址 - 门户 | Azure"
-description: "了解如何使用 Azure 门户将多个 IP 地址分配给虚拟机 | Resource Manager。"
+description: "了解如何使用 Azure 门户 | Resource Manager 将多个 IP 地址分配给虚拟机。"
 services: virtual-network
 documentationcenter: na
 author: anavinahar
@@ -16,19 +16,18 @@ ms.workload: infrastructure-services
 origin.date: 11/30/2016
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: f0a4868683c28acda995419d92797c9c14820d42
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 451e9ffacbe996f3d47490c85401c07dc11a036a
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal-preview"></a>使用 Azure 门户将多个 IP 地址分配给虚拟机
+# 使用 Azure 门户将多个 IP 地址分配给虚拟机
+<a id="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal" class="xliff"></a>
 
 >[!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-本文介绍如何使用 Azure 门户通过 Azure Resource Manager 部署模型创建虚拟机 (VM)。 无法将多个 IP 地址分配给通过经典部署模型创建的资源。 若要详细了解 Azure 部署模型，请阅读 [Understand deployment models](../resource-manager-deployment-model.md)（了解部署模型）一文。
+本文介绍如何使用 Azure 门户通过 Azure Resource Manager 部署模型创建虚拟机 (VM)。 无法将多个 IP 地址分配到通过经典部署模型创建的资源。 若要详细了解 Azure 部署模型，请阅读 [Understand deployment models](../resource-manager-deployment-model.md)（了解部署模型）一文。
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
@@ -52,7 +51,8 @@ ms.lasthandoff: 04/22/2017
 
 根据要添加的 IP 地址的类型完成以下某个部分的步骤。
 
-### <a name="add-a-private-ip-address"></a>**添加专用 IP 地址**
+### **添加专用 IP 地址**
+<a id="add-a-private-ip-address" class="xliff"></a>
 
 完成以下步骤，添加新的专用 IP 地址：
 
@@ -66,7 +66,8 @@ ms.lasthandoff: 04/22/2017
 4. 可以单击“添加”添加其他 IP 配置，也可以关闭所有打开的边栏选项卡，完成添加 IP 地址的操作。
 5. 将专用 IP 地址添加到 VM 操作系统，只需完成本文[将 IP 地址添加到 VM 操作系统](#os-config)部分针对操作系统的步骤即可。
 
-### <a name="add-a-public-ip-address"></a>添加公共 IP 地址
+### 添加公共 IP 地址
+<a id="add-a-public-ip-address" class="xliff"></a>
 
 将公共 IP 地址资源关联到新 IP 配置或现有 IP 配置即可添加公共 IP 地址。
 
@@ -86,7 +87,8 @@ ms.lasthandoff: 04/22/2017
 
 5. 完成下面某个部分的步骤，将公共 IP 地址资源关联到某个 IP 配置。
 
-#### <a name="associate-the-public-ip-address-resource-to-a-new-ip-configuration"></a>将公共 IP 地址资源关联到新 IP 配置
+#### 将公共 IP 地址资源关联到新 IP 配置
+<a id="associate-the-public-ip-address-resource-to-a-new-ip-configuration" class="xliff"></a>
 
 1. 完成本文 [核心步骤](#coreadd) 部分的步骤。
 2. 单击 **“添加”**。 在显示的“添加 IP 配置”边栏选项卡中，创建名为“IPConfig-4”的 IP 配置。 启用“公共 IP 地址”，并从显示的“选择公共 IP 地址”边栏选项卡中选择一个现有的可用公共 IP 地址资源。
@@ -97,7 +99,8 @@ ms.lasthandoff: 04/22/2017
 4. 可以单击“添加”添加其他 IP 配置，也可以关闭所有打开的边栏选项卡，完成添加 IP 地址的操作。
 5. 将专用 IP 地址添加到 VM 操作系统，只需完成本文[将 IP 地址添加到 VM 操作系统](#os-config)部分针对操作系统的步骤即可。 请勿向操作系统添加公共 IP 地址。
 
-#### <a name="associate-the-public-ip-address-resource-to-an-existing-ip-configuration"></a>将公共 IP 地址资源关联到现有 IP 配置
+#### 将公共 IP 地址资源关联到现有 IP 配置
+<a id="associate-the-public-ip-address-resource-to-an-existing-ip-configuration" class="xliff"></a>
 
 1. 完成本文[核心步骤](#coreadd)部分的步骤。
 2. 单击其中要添加公共 IP 地址资源的 IP 配置。
@@ -108,4 +111,3 @@ ms.lasthandoff: 04/22/2017
 4. 可以单击“添加”添加其他 IP 配置，也可以关闭所有打开的边栏选项卡，完成添加 IP 地址的操作。 请勿向操作系统添加公共 IP 地址。
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

@@ -14,15 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: a0c43d26f52ff4d1012f4cebe232de5369918120
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: cefedab490b6c7f1129894cff0dc885d959b7c5d
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上设置开发环境
+# 在 Mac OS X 上设置开发环境
+<a id="set-up-your-development-environment-on-mac-os-x" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md)
 > * [Linux](service-fabric-get-started-linux.md)
@@ -32,7 +31,8 @@ ms.lasthandoff: 05/05/2017
 
 你可以使用 Mac OS X 生成在 Linux 群集上运行的 Service Fabric 应用程序。本文介绍了如何设置 Mac 以用于开发。
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 Service Fabric 不是在 OS X 上以本机方式运行。为了运行本地 Service Fabric 群集，我们提供了使用 Vagrant 和 VirtualBox 的预配置 Ubuntu 虚拟机。 准备事项：
 
 * [Vagrant（v1.8.4 或更高版本）](http://www.vagrantup.com/downloads.html)
@@ -42,7 +42,8 @@ Service Fabric 不是在 OS X 上以本机方式运行。为了运行本地 Serv
 > 需使用 Vagrant 和 VirtualBox 的相互支持的版本。 在不受支持的 VirtualBox 版本上，Vagrant 的行为可能不稳定。
 >
 
-## <a name="create-the-local-vm"></a>创建本地 VM
+## 创建本地 VM
+<a id="create-the-local-vm" class="xliff"></a>
 若要创建包含 5 节点 Service Fabric 群集的本地 VM，请执行以下步骤：
 
 1. 克隆 `Vagrantfile` 存储库
@@ -84,18 +85,21 @@ Service Fabric 不是在 OS X 上以本机方式运行。为了运行本地 Serv
 
     ![从主机 Mac 查看的 Service Fabric Explorer][sfx-mac]
 
-## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>为 Eclipse Neon 安装 Service Fabric 插件
+## 为 Eclipse Neon 安装 Service Fabric 插件
+<a id="install-the-service-fabric-plugin-for-eclipse-neon" class="xliff"></a>
 
 Service Fabric 为**适用于 Java IDE 的 Eclipse Neon** 提供了一个插件，可简化创建、生成和部署 Java 服务的过程。 可以按照通用[文档](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon)中提及的安装步骤，安装或更新 Service Fabric Eclipse 插件。
 
-## <a name="using-service-fabric-eclipse-plugin-on-mac"></a>在 Mac 上使用 Service Fabric Eclipse 插件
+## 在 Mac 上使用 Service Fabric Eclipse 插件
+<a id="using-service-fabric-eclipse-plugin-on-mac" class="xliff"></a>
 
 确保已完成 [Service Fabric Eclipse 插件文档](service-fabric-get-started-eclipse.md)中提及的步骤。 在 Mac 主机上使用 vagrant-guest 容器创建、生成和部署 Service Fabric Java 应用程序的步骤大部分与通用文档所述相同，以下项目除外：
 
 * 由于 Service Fabric Java 应用程序需要 Service Fabric 库，因此需在共享路径中创建 Eclipse 项目。 默认情况下，在 ``Vagrantfile`` 所在主机上的路径中的内容与来宾计算机上的 ``/vagrant`` 路径共享。
 * 如果在路径中有 ``Vagrantfile``（例如 ``~/home/john/allprojects/``），则需在位置 ``~/home/john/allprojects/MyActor`` 中创建 Service Fabric 项目 ``MyActor``，而 Eclipse 工作区的路径将是 ``~/home/john/allprojects``。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 <!-- Links -->
 * [使用 Yeoman 在 Linux 上创建和部署第一个 Service Fabric Java 应用程序](service-fabric-create-your-first-linux-application-with-java.md)
 * [使用适用于 Eclipse 的 Service Fabric 插件在 Linux 上创建和部署第一个 Service Fabric Java 应用程序](service-fabric-get-started-eclipse.md)

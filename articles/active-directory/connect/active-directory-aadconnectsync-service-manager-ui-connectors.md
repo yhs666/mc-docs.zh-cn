@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/03/2017
+ms.date: 04/03/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 554e5d29da38ab8d91fa19458c008da37b7a755e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-ms.date: 05/22/2017
-
+ms.openlocfilehash: 4045e3367b290fa65c06bdde96fc329dbee00e08
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>将连接器与 Azure AD Connect Sync Service Manager 配合使用
+# 将连接器与 Azure AD Connect Sync Service Manager 配合使用
+<a id="using-connectors-with-the-azure-ad-connect-sync-service-manager" class="xliff"></a>
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
 “连接器”选项卡可用于管理同步引擎连接的所有系统。
 
-## <a name="connector-actions"></a>连接器操作
+## 连接器操作
+<a id="connector-actions" class="xliff"></a>
 | 操作 | 注释 |
 | --- | --- |
 | 创建 |请勿使用。 若要连接到其他 AD 林，请使用安装向导。 |
@@ -44,10 +44,9 @@ ms.date: 05/22/2017
 | 刷新架构 |刷新缓存架构。 最好改为在安装向导中使用此选项，因为它也会更新同步规则。 |
 | [搜索连接器空间](#search-connector-space) |用于查找对象，以及在整个系统中跟踪对象及其数据。 |
 
-=======
-### <a name="delete"></a>删除
+### 删除
+<a id="delete" class="xliff"></a>
 删除操作适用于两种不同的用途。  
-
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
 
 “仅删除连接器空间”选项会删除所有数据，但保留所有配置。
@@ -56,12 +55,14 @@ ms.date: 05/22/2017
 
 这两个选项都会同步所有对象，并更新 Metaverse 对象。 这是一个长时间运行的操作。
 
-### <a name="configure-run-profiles"></a>配置运行配置文件
+### 配置运行配置文件
+<a id="configure-run-profiles" class="xliff"></a>
 此选项可让你查看为连接器配置的运行配置文件。
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/configurerunprofiles.png)
 
-### <a name="search-connector-space"></a>搜索连接器空间
+### 搜索连接器空间
+<a id="search-connector-space" class="xliff"></a>
 查找对象和排查数据问题时，搜索连接器空间操作非常有用。
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearch.png)
@@ -72,7 +73,8 @@ ms.date: 05/22/2017
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png)  
 可以从此网格中选择一个对象，选择“属性”，并从源连接器空间到 Metaverse 再到目标连接器空间一直[跟踪对象](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)。
 
-### <a name="changing-the-ad-ds-account-password"></a>更改 AD DS 帐户密码
+### 更改 AD DS 帐户密码
+<a id="changing-the-ad-ds-account-password" class="xliff"></a>
 如果更改帐户密码，Synchronization Service 将不再能将更改导入/导出到本地 AD。   可能会看到如下内容：
 
 - AD 连接器的导入/导出步骤失败，错误为“no-start-credentials”。
@@ -93,10 +95,10 @@ ms.date: 05/22/2017
 9. 单击“确定”以保存新密码，并重启 Synchronization Service 以从内存缓存中删除旧密码。
 
 
-## <a name="next-steps"></a>后续步骤
+
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 了解有关 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)配置的详细信息。
 
-
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
-
 

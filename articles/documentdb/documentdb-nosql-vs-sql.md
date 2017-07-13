@@ -19,14 +19,14 @@ ms.date: 05/31/2017
 ms.author: v-junlch
 redirect_url: https://aka.ms/documentdb
 ROBOTS: NOINDEX, NOFOLLOW
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: fede6af81f7a6f40bfb0d29194da18c9f6de3262
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: c094cba38da04bcb15956ce08b33404276dbcfdd
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="nosql-vs-sql-and-azure-documentdb"></a>NoSQL 与 SQL 和 DocumentDB
+# NoSQL 与 SQL 和 DocumentDB
+<a id="nosql-vs-sql-and-documentdb" class="xliff"></a>
 SQL Server 和关系数据库 (RDBMS) 成为重要专业数据库已经 20 多年了。 但是，不断增长的快速处理更多容量、速度和各种数据的需求改变了应用程序开发人员对数据存储的本质需求。 为了实现这种需求，能够大规模存储非结构化和异类数据的 NoSQL 数据库得到了普及。 对于大多数开发人员而言，关系数据库是默认或常用的选项，因为表结构易于理解且较为熟悉，但仍存在许多需要探索除关系数据库以外的数据库的因素。
 
 NoSQL 是一种与 SQL 数据库截然不同的数据库。 NoSQL 常用来指代“非 SQL”的数据管理系统，或者指代“不仅限于 SQL”的数据管理方法。 NoSQL 类别中有多种技术，包括文档数据库、键值存储、列系列存储和图形数据库，这些技术在游戏、社交和 IoT 应用中非常流行。
@@ -35,7 +35,8 @@ NoSQL 是一种与 SQL 数据库截然不同的数据库。 NoSQL 常用来指�
 
 本文旨在帮助你了解 NoSQL 和 SQL 之间的区别，并为你提供来自 Microsoft 的 NoSQL 和 SQL 产品/服务简介。  
 
-## <a name="when-to-use-nosql"></a>何时使用 NoSQL？
+## 何时使用 NoSQL？
+<a id="when-to-use-nosql" class="xliff"></a>
 假设你正在生成新的社交网站。 用户可以创建帖子，并向其中添加图片、视频和音乐。 其他用户可以对帖子发表评论，并对帖子打分（点赞）进行评级。 登录页将提供一些帖子，用户可以进行共享和互动。 
 
 那么，如何存储此数据？ 如果你熟悉 SQL，你可能会开始绘制类似如下的内容：
@@ -73,14 +74,16 @@ NoSQL 是一种与 SQL 数据库截然不同的数据库。 NoSQL 常用来指�
 
 此社交网站只是 NoSQL 数据库是针对作业的适当数据模型的其中一种方案。 如果对阅读有关此方案以及如何在社交媒体应用程序中对 DocumentDB 的数据建模的详细信息感兴趣，请参阅[使用 DocumentDB 进行社交](documentdb-social-media-apps.md)。 
 
-## <a name="nosql-vs-sql-comparison"></a>NoSQL 与 SQL 比较
+## NoSQL 与 SQL 比较
+<a id="nosql-vs-sql-comparison" class="xliff"></a>
 下表比较了 NoSQL 和 SQL 之间的主要区别。 
 
 ![显示何时使用 NoSQL 以及何时使用 SQL 的 NoSQL 与 SQL 关系图。 SQL 与 NoSQL 比较](./media/documentdb-nosql-vs-sql/nosql-vs-sql-comparison.png)
 
 如果 NoSQL 数据库最适合你的要求，继续进行下一部分，了解有关 Azure 中可用 NoSQL 服务的详细信息。 否则，如果 SQL 数据库最适合你的要求，请跳到 [Microsoft SQL 产品/服务有哪些？](#what-are-the-microsoft-sql-offerings)
 
-## <a name="what-are-the-azure-nosql-offerings"></a>Azure NoSQL 产品/服务有哪些？
+## Azure NoSQL 产品/服务有哪些？
+<a id="what-are-the-azure-nosql-offerings" class="xliff"></a>
 Azure 具有以下四种完全托管的 NoSQL 服务： 
 
 - [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/)
@@ -100,7 +103,8 @@ Azure 具有以下四种完全托管的 NoSQL 服务：
 
 然后转到 [后续步骤](#next-steps) ，获取试用信息。
 
-## <a name="what-are-the-microsoft-sql-offerings"></a>Microsoft SQL 产品/服务有哪些？
+## Microsoft SQL 产品/服务有哪些？
+<a id="what-are-the-microsoft-sql-offerings" class="xliff"></a>
 Microsoft 提供了五种 SQL 产品/服务： 
 
 - [Azure SQL 数据库](https://www.azure.cn/home/features/sql-database/)
@@ -115,7 +119,8 @@ Microsoft 提供了五种 SQL 产品/服务：
 
 然后转到 [后续步骤](#next-steps) ，获取试用信息和评估链接。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 我们邀请你通过免费试用 SQL 和 NoSQL，了解有关二者的详细信息。 
 
 - 对于所有 Azure 服务，可以注册一个[试用版](https://www.azure.cn/pricing/1rmb-trial/)。

@@ -16,15 +16,14 @@ ms.topic: article
 origin.date: 12/02/2016
 ms.date: 05/31/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: af9e05d9e78edc06c423843b7408279c529f4645
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: a992c3a38abd1f99ac100fb536bdf62e589ed92a
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="azure-app-service-plans-in-depth-overview"></a>Azure 应用服务计划深入概述
+# Azure 应用服务计划深入概述
+<a id="azure-app-service-plans-in-depth-overview" class="xliff"></a>
 应用服务计划代表用于托管应用的物理资源的集合。
 
 应用服务计划定义：
@@ -49,7 +48,8 @@ ms.lasthandoff: 05/19/2017
 
 本文介绍应用服务计划的主要特征（例如层和缩放），以及在管理应用时这些特征如何起作用。
 
-## <a name="apps-and-app-service-plans"></a>应用和应用服务计划
+## 应用和应用服务计划
+<a id="apps-and-app-service-plans" class="xliff"></a>
 应用服务中的应用在任何特定的时刻只能与一个应用服务计划相关联。
 
 应用和计划都包含在**资源组**中。 资源组充当该组中每个资源的生命周期界限。 可以使用资源组来同时管理应用程序的所有组件。
@@ -62,7 +62,8 @@ ms.lasthandoff: 05/19/2017
 
 例如，在两个区域中运行的高度可用的应用可以包括至少两个计划，一个区域一个计划，一个计划关联一个应用。 在这种情况下，应用的所有副本都包含在单个资源组中。 一个资源组中有多个计划和多个应用可以轻松管理、控制和查看应用程序的运行状况。
 
-## <a name="create-an-app-service-plan-or-use-existing-one"></a>创建应用服务计划或使用现有应用服务计划
+## 创建应用服务计划或使用现有应用服务计划
+<a id="create-an-app-service-plan-or-use-existing-one" class="xliff"></a>
 创建应用时，应考虑创建资源组。 另一方面，如果该应用是另一个更大型应用程序的组件，则应在后者所属的资源组内创建前者。
 
 无论应用是完整的新应用程序还是更大型应用程序的一部分，均可选择使用现有计划进行托管，或选择创建新计划。 该决定主要取决于容量和预期的负载。
@@ -75,12 +76,13 @@ ms.lasthandoff: 05/19/2017
 
 这样一来，可以为应用分配新的资源集，并更好地控制应用。
 
-## <a name="create-an-app-service-plan"></a>创建应用服务计划
+## 创建应用服务计划
+<a id="create-an-app-service-plan" class="xliff"></a>
 
 可以在浏览应用服务计划或创建应用的过程中创建空的应用服务计划。
 
-在 [Azure 门户](https://portal.azure.cn)中，单击**“新建”** > 
-**“Web + 移动”**，然后选择**“Web 应用”**或其他应用服务应用类型。
+在 [Azure 门户](https://portal.azure.cn)中，单击“新建”**** > 
+“Web + 移动”****，然后选择“Web 应用”****或其他应用服务应用类型。
 ![在 Azure 门户中创建应用。][createWebApp]
 
 然后即可为新应用选择或创建应用服务计划。
@@ -89,8 +91,9 @@ ms.lasthandoff: 05/19/2017
 
 若要创建应用服务计划，可单击“[+] 新建”，键入“应用服务计划”名称，然后选择相应的“位置”。 单击“定价层”，然后为服务选择适当的服务定价层。 选择“全部查看”以查看其他定价选项，例如“免费”和“共享”。 选择定价层后，单击“选择”按钮。
 
-## <a name="move-an-app-to-a-different-app-service-plan"></a>将应用移到其他应用服务计划
-可在 [Azure 门户](https://portal.azure.cn)中将应用移到其他应用服务计划。 只要计划属于同一资源组和同一地理区域，即可在计划之间移动应用。
+## 将应用移到其他应用服务计划
+<a id="move-an-app-to-a-different-app-service-plan" class="xliff"></a>
+可以在 [Azure 门户](https://portal.azure.cn)中将应用移到其他应用服务计划。 只要计划属于同一资源组和同一地理区域，即可在计划之间移动应用。
 
 若要将应用移到另一计划，请执行以下操作：
 
@@ -107,15 +110,17 @@ ms.lasthandoff: 05/19/2017
 
 每个计划都有自己的定价层。 例如，将站点从免费层移到标准层时，分配给站点的所有应用都可使用标准层的功能和资源。
 
-## <a name="clone-an-app-to-a-different-app-service-plan"></a>将应用克隆到其他应用服务计划
+## 将应用克隆到其他应用服务计划
+<a id="clone-an-app-to-a-different-app-service-plan" class="xliff"></a>
 若要将应用移到其他区域，也可以使用应用克隆。 克隆可以复制任何区域的新的或现有的应用服务计划中的应用。
 
 可以在菜单的“开发工具”部分找到“克隆应用”。
 
 > [!IMPORTANT]
-> 有关克隆的某些限制，可阅读[使用 Azure 门户进行 Azure 应用服务应用克隆](../app-service-web/app-service-web-app-cloning-portal.md)。
+> 克隆有一些限制，详见[使用 Azure 门户进行 Azure 应用服务应用克隆](../app-service-web/app-service-web-app-cloning-portal.md)。
 
-## <a name="scale-an-app-service-plan"></a>缩放应用服务计划
+## 缩放应用服务计划
+<a id="scale-an-app-service-plan" class="xliff"></a>
 可通过三种方式缩放一个计划：
 
 * **更改计划的定价层**。 基本层中的计划可转换为标准层中的计划，分配给它的所有应用可转换为使用标准层的功能。
@@ -126,16 +131,19 @@ ms.lasthandoff: 05/19/2017
 
  ![设置向上缩放应用的值。][pricingtier]
 
-## <a name="app-service-plan-cleanup"></a>应用服务计划清理
+## 应用服务计划清理
+<a id="app-service-plan-cleanup" class="xliff"></a>
 > [!IMPORTANT]
 >未与任何应用关联的**应用服务计划**仍会产生费用，因为它们继续保留计算容量。
 
 若要避免意想不到的费用，当应用服务计划中托管的最后一个应用被删除时，也要删除此空的应用服务计划。
 
-## <a name="summary"></a>摘要
+## 摘要
+<a id="summary" class="xliff"></a>
 应用服务计划表示一组可在应用间共享的功能和容量。 可以通过应用服务计划灵活地将特定应用分配给一组资源，并进一步优化 Azure 资源的使用情况。 若要节省测试环境的资金，可通过这种方式跨多个应用共享一个计划。 也可跨多个区域和计划进行伸缩，实现生产环境吞吐量的最大化。
 
-## <a name="whats-changed"></a>发生的更改
+## 发生的更改
+<a id="whats-changed" class="xliff"></a>
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
@@ -143,4 +151,3 @@ ms.lasthandoff: 05/19/2017
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
-

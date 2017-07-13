@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 06/21/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
-ms.openlocfilehash: 52da26c2afd4107347cf21f4560bc6a36c556abf
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/14/2017
-
+ms.custom: mvc
+ms.openlocfilehash: f64e63a86c01aa2e8c163c1e18acf83157e92b31
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>如何在 Azure 中自定义 Windows 虚拟机
+# 如何在 Azure 中自定义 Windows 虚拟机
+<a id="how-to-customize-a-windows-virtual-machine-in-azure" class="xliff"></a>
 若要以快速一致的方式配置虚拟机 (VM)，通常需要某种形式的自动化。 自定义 Windows VM 的一种常用方法是使用[适用于 Windows 的自定义脚本扩展](extensions-customscript.md)。 本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
@@ -34,14 +34,16 @@ ms.lasthandoff: 06/14/2017
 
 本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
 
-## <a name="custom-script-extension-overview"></a>自定义脚本扩展概述
+## 自定义脚本扩展概述
+<a id="custom-script-extension-overview" class="xliff"></a>
 自定义脚本扩展在 Azure VM 上下载和执行脚本。 此扩展适用于部署后配置、软件安装或其他任何配置/管理任务。 可以从 Azure 存储或 GitHub 下载脚本，或者在扩展运行时将脚本提供给 Azure 门户。
 
-自定义脚本扩展与 Azure Resource Manager 模板集成，也可以使用 Azure CLI、PowerShell、Azure 门户或 Azure 虚拟机 REST API 来运行。
+自定义脚本扩展与 Azure Resource Manager 模板集成，也可以使用 Azure CLI、PowerShell、Azure 门户或 Azure 虚拟机 REST API 来运行它。
 
 自定义脚本扩展适用于 Windows 和 Linux VM。
 
-## <a name="create-virtual-machine"></a>创建虚拟机
+## 创建虚拟机
+<a id="create-virtual-machine" class="xliff"></a>
 创建 VM 之前，需使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 创建资源组。 以下示例在“ChinaEast”位置创建名为“myResourceGroupAutomate”的资源组：
 
 ```powershell
@@ -130,7 +132,8 @@ New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location ChinaEast -VM
 
 创建资源和 VM 需要几分钟的时间。
 
-## <a name="automate-iis-install"></a>自动安装 IIS
+## 自动安装 IIS
+<a id="automate-iis-install" class="xliff"></a>
 使用 [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) 安装自定义脚本扩展。 该扩展运行 `powershell Add-WindowsFeature Web-Server` 以安装 IIS Web 服务器，然后更新 Default.htm 页以显示 VM 的主机名：
 
 ```powershell
@@ -144,7 +147,8 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
     -Location ChinaEast
 ```
 
-## <a name="test-web-site"></a>测试网站
+## 测试网站
+<a id="test-web-site" class="xliff"></a>
 使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 获取负载均衡器的公共 IP 地址。 以下示例获取前面创建的“myPublicIP”的 IP 地址：
 
 ```powershell
@@ -157,7 +161,8 @@ Get-AzureRmPublicIPAddress `
 
 ![运行 IIS 网站](./media/tutorial-automate-vm-deployment/running-iis-website.png)
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 在本教程中，你在 VM 上自动执行了 IIS 安装。 你已了解如何：
 

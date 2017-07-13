@@ -13,14 +13,14 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 94d8aa73b2d383b51f9c3e14942d03ed667b17df
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: c919a74be029d3d4a14a2713790e707f831639f8
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-#<a name="app-service-documentation"></a>应用服务文档
+#应用服务文档
+<a id="app-service-documentation" class="xliff"></a>
 
 了解如何借助教程、API 参考和其他文档，使用应用服务为任何平台或设备开发和托管 Web 应用和移动应用。 了解如何将应用与 SaaS 解决方案集成、与本地应用程序进行连接，以及实现业务流程的自动化。
 
@@ -98,4 +98,3 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
 </ul>
-

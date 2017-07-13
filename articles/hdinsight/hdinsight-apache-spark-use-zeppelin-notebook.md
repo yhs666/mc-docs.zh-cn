@@ -13,18 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/03/2017
+origin.date: 05/10/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
-ms.openlocfilehash: e925f69ed16447d813aee518acbf4e171fb11f84
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/29/2017
-
-
+ms.openlocfilehash: b90bacb0a3e2b772d9665cc2851bfcdef979309a
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="install-zeppelin-notebooks-for-apache-spark-cluster-on-hdinsight"></a>为 HDInsight 上的 Apache Spark 群集安装 Zeppelin 笔记本
+# 为 HDInsight 上的 Apache Spark 群集安装 Zeppelin 笔记本
+<a id="install-zeppelin-notebooks-for-apache-spark-cluster-on-hdinsight" class="xliff"></a>
 
 了解如何在 Apache Spark 群集上安装 Zeppelin 笔记本，以及如何使用 Zeppelin 笔记本运行 Spark 作业。
 
@@ -35,35 +34,40 @@ ms.lasthandoff: 04/29/2017
 >
 > 不支持使用本文中的脚本在 Spark 2.0 群集上安装 Zeppelin。
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 
 * 必须拥有 Azure 订阅。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](hdinsight-apache-spark-jupyter-spark-sql.md)。
 
-## <a name="install-zeppelin-on-a-spark-cluster"></a>在 Spark 群集上安装 Zeppelin
+## 在 Spark 群集上安装 Zeppelin
+<a id="install-zeppelin-on-a-spark-cluster" class="xliff"></a>
 可以使用脚本操作在 Spark 群集上安装 Zeppelin。 脚本操作使用自定义脚本在群集上安装默认情况下未提供的组件。 可以使用自定义脚本，通过 Azure 门户、HDInsight .NET SDK 或 Azure PowerShell 安装 Zeppelin。 可以在创建群集过程中或者在群集已启动并运行之后使用脚本安装 Zeppelin。 以下部分中的链接提供了有关如何执行此操作的说明。
 
-### <a name="using-the-azure-portal-preview"></a>使用 Azure 门户
-有关如何使用 Azure 门户运行脚本操作安装 Zeppelin 的说明，请参阅 [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)（使用脚本操作自定义 HDInsight 群集）。 必须对该文章中的说明做出一些更改。
+### 使用 Azure 门户
+<a id="using-the-azure-portal" class="xliff"></a>
+有关如何在 Azure 门户中运行脚本操作安装 Zeppelin 的说明，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)。 必须对该文章中的说明做出一些更改。
 
 * 必须使用脚本来安装 Zeppelin。 用于在 HDInsight 中的 Spark 群集上安装 Zeppelin 的自定义脚本可从以下链接获取：
 
-    * 对于 Spark 1.6.0 群集 - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
-    * 对于 Spark 1.5.2 群集 - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
+  * 对于 Spark 1.6.0 群集 - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
+  * 对于 Spark 1.5.2 群集 - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
 * 只能在头节点上运行脚本操作。
 * 该脚本不需要任何参数。
 
-### <a name="using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK
+### 使用 HDInsight .NET SDK
+<a id="using-hdinsight-net-sdk" class="xliff"></a>
 有关如何使用 HDInsight .NET SDK 运行脚本操作以安装 Zeppelin 的说明，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)。 必须对该文章中的说明做出一些更改。
 
 * 必须使用脚本来安装 Zeppelin。 用于在 HDInsight 中的 Spark 群集上安装 Zeppelin 的自定义脚本可从以下链接获取：
 
-    * 对于 Spark 1.6.0 群集 - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
-    * 对于 Spark 1.5.2 群集 - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
+  * 对于 Spark 1.6.0 群集 - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
+  * 对于 Spark 1.5.2 群集 - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
 * 该脚本不需要任何参数。
 * 将你要创建的群集类型设置为 Spark。
 
-### <a name="using-azure-powershell"></a>使用 Azure PowerShell
+### 使用 Azure PowerShell
+<a id="using-azure-powershell" class="xliff"></a>
 使用以下 PowerShell 代码段在已安装 Zeppelin 的 HDInsight Linux 上创建 Spark 群集。 根据所用的 Spark 群集版本，必须更新以下 PowerShell 代码段，以包含相应自定义脚本的链接。
 
 * 对于 Spark 1.6.0 群集 - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
@@ -101,7 +105,8 @@ ms.lasthandoff: 04/29/2017
 
     New-AzureRMHDInsightCluster -Config $azureHDInsightConfigs -OSType Linux -HeadNodeSize "Standard_D12" -WorkerNodeSize "Standard_D12" -ClusterSizeInNodes 2 -Location $location -ResourceGroupName $resourceGroupName -ClusterName $clusterName -HttpCredential $clusterCredential -DefaultStorageContainer $clusterContainerName -SshCredential $clusterSshCredential -Version "3.5"
 
-## <a name="access-the-zeppelin-notebook"></a>访问 Zeppelin 笔记本
+## 访问 Zeppelin 笔记本
+<a id="access-the-zeppelin-notebook" class="xliff"></a>
 
 使用脚本操作成功安装 Zeppelin 后，可以按照以下步骤，在 Spark 群集上访问 Zeppelin 笔记本。 本部分介绍如何运行 %sql 和 %hive 语句。
 
@@ -118,7 +123,8 @@ ms.lasthandoff: 04/29/2017
 
     ![Zeppelin 笔记本状态](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.newnote.connected.png "Zeppelin 笔记本状态")
 
-### <a name="run-sql-statements"></a>运行 SQL 语句
+### 运行 SQL 语句
+<a id="run-sql-statements" class="xliff"></a>
 1. 将示例数据载入临时表。 在 HDInsight 中创建 Spark 群集时，系统会将示例数据文件 **hvac.csv** 复制到 **\HdiSamples\SensorSampleData\hvac** 下的关联存储帐户。
 
     将以下代码段粘贴到新笔记本中默认创建的空白段落处。
@@ -177,7 +183,8 @@ ms.lasthandoff: 04/29/2017
 
     ![重启 Zeppelin 解释程序](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "重启 Zeppelin 解释程序")
 
-### <a name="run-hive-statements"></a>运行 hive 语句
+### 运行 hive 语句
+<a id="run-hive-statements" class="xliff"></a>
 1. 在 Zeppelin 笔记本中，单击“解释程序”按钮。
 
     ![更新 Hive 解释程序](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-1.png "更新 Hive 解释程序")
@@ -187,9 +194,9 @@ ms.lasthandoff: 04/29/2017
 
     更新以下属性。
 
-    * 将 **default.password** 设置为创建 HDInsight Spark 群集时为管理员用户指定的密码。
-    * 将 **default.url** 设置为 `jdbc:hive2://<spark_cluster_name>.azurehdinsight.cn:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`。 将 **\<spark_cluster_name>** 替换为 Spark 群集的名称。
-    * 将 **default.user** 设置为创建群集时指定的管理员用户名。 例如 *admin*。
+   * 将 **default.password** 设置为创建 HDInsight Spark 群集时为管理员用户指定的密码。
+   * 将 **default.url** 设置为 `jdbc:hive2://<spark_cluster_name>.azurehdinsight.cn:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`。 将 **\<spark_cluster_name>** 替换为 Spark 群集的名称。
+   * 将 **default.user** 设置为创建群集时指定的管理员用户名。 例如 *admin*。
 3. 单击“保存”，当系统提示重新启动 hive 解释程序时，请单击“确定”。
 4. 创建新笔记本并运行以下语句，列出群集上的所有 hive 表。
 
@@ -211,22 +218,26 @@ ms.lasthandoff: 04/29/2017
 ## <a name="seealso"></a>另请参阅
 * [概述：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview.md)
 
-### <a name="scenarios"></a>方案
+### 方案
+<a id="scenarios" class="xliff"></a>
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](hdinsight-apache-spark-eventhub-streaming.md)
 
-### <a name="create-and-run-applications"></a>创建和运行应用程序
+### 创建和运行应用程序
+<a id="create-and-run-applications" class="xliff"></a>
 * [使用 Scala 创建独立的应用程序](hdinsight-apache-spark-create-standalone-application.md)
 * [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
 
-### <a name="tools-and-extensions"></a>工具和扩展
+### 工具和扩展
+<a id="tools-and-extensions" class="xliff"></a>
 * [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-### <a name="manage-resources"></a>管理资源
+### 管理资源
+<a id="manage-resources" class="xliff"></a>
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](hdinsight-apache-spark-job-debugging.md)
 
@@ -239,4 +250,3 @@ ms.lasthandoff: 04/29/2017
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [azure-management-portal]: https://manage.windowsazure.cn/
 [azure-create-storageaccount]: ../storage/storage-create-storage-account.md
-

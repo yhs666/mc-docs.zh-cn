@@ -17,15 +17,14 @@ ms.workload: big-data
 origin.date: 04/11/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 2df405437b574405aade540e159dd9e5565fe13d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: a7b3b2464b7af92b64c4447c453e095738b0153b
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>使用 REST 在 HDInsight 上通过 Hadoop 运行 MapReduce 作业
+# 使用 REST 在 HDInsight 上通过 Hadoop 运行 MapReduce 作业
+<a id="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest" class="xliff"></a>
 
 了解如何使用 WebHCat REST API 在 HDInsight 群集的 Hadoop 上运行 MapReduce 作业。 本文档使用 Curl 演示如何通过使用原始 HTTP 请求来与 HDInsight 交互，以便运行 MapReduce 作业。
 
@@ -59,10 +58,10 @@ ms.lasthandoff: 04/28/2017
 
     此命令中使用的参数如下：
 
-    * **-u**：指示用来对请求进行身份验证的用户名和密码
-    * **-G**：指示此操作是 GET 请求。
+   * **-u**：指示用来对请求进行身份验证的用户名和密码
+   * **-G**：指示此操作是 GET 请求。
 
-        所有请求的 URI 开头都是 **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**。
+     所有请求的 URI 开头都是 **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**。
 
 2. 要提交 MapReduce 作业，请使用以下命令：
 
@@ -72,15 +71,17 @@ ms.lasthandoff: 04/28/2017
 
     URI 的末尾 (/mapreduce/jar) 告知 WebHCat，此请求从 jar 文件中的类启动 MapReduce 作业。 此命令中使用的参数如下：
 
-    * **-d**：由于不使用 `-G`，因此请求默认为使用 POST 方法。 `-d` 指定与请求一起发送的数据值。
+   * **-d**：由于不使用 `-G`，因此请求默认为使用 POST 方法。 `-d` 指定与请求一起发送的数据值。
     * **user.name**：正在运行命令的用户
     * **jar**：包含要运行的类的 jar 文件所在位置
     * **class**：包含 MapReduce 逻辑的类
     * **arg**：要传递到 MapReduce 作业的参数。 在此示例中是用于输出的输入文本文件和目录
 
-    此命令应返回可用来检查作业状态的作业 ID：
+     此命令应返回可用来检查作业状态的作业 ID：
 
-        {"id":"job_1415651640909_0026"}
+    ```
+    {"id":"job_1415651640909_0026"}
+    ```
 
 3. 若要检查作业的状态，请使用以下命令：
 
@@ -92,8 +93,8 @@ ms.lasthandoff: 04/28/2017
 
     如果作业已完成，返回的状态将是 `SUCCEEDED`。
 
-    > [!NOTE]
-    > 此 Curl 请求返回包含作业相关信息的 JSON 文档。 jq 用于仅检索状态值。
+   > [!NOTE]
+   > 此 Curl 请求返回包含作业相关信息的 JSON 文档。 Jq 用于仅检索状态值。
 
 4. 在作业的状态更改为 `SUCCEEDED` 后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置。 在本示例中，位置为 `/example/curl`。 此地址在群集默认存储的 `/example/curl` 中存储作业的输出。
 
@@ -111,4 +112,3 @@ ms.lasthandoff: 04/28/2017
 * [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 
 有关本文中使用的 REST 接口的详细信息，请参阅 [WebHCat Reference](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference)（WebHCat 参考）。
-

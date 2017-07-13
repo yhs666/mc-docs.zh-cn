@@ -15,20 +15,20 @@ ms.topic: article
 origin.date: 12/21/2016
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: bd165ba1984cd4d4ff6cdec4656ecff137abd6f8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 559fff0316ddd1af7a947223eee0906b5b3e65ce
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="working-with-dates-in-azure-documentdb"></a>使用 DocumentDB 中的日期
-DocumentDB 通过本机 [JSON](http://www.json.org) 数据模型提供架构灵活性和丰富的索引。 所有 DocumentDB 资源（包括数据库、集合、文档和存储过程）均作为 JSON 文档进行建模和存储。 JSON（和 DocumentDB）仅支持一小部分基本类型：字符串、数字、布尔值、数组、对象和 Null。这是对可移植性的要求。 但是，JSON 具有相当的灵活性，允许开发人员和框架使用这些基元并将其编写为对象或数组，以便表示更复杂的类型。 
+# 使用 DocumentDB 中的日期
+<a id="working-with-dates-in-documentdb" class="xliff"></a>
+DocumentDB 通过本机 [JSON](http://www.json.org) 数据模型提供架构灵活性和丰富的索引。 所有 DocumentDB 资源（包括数据库、集合、文档和存储过程）均作为 JSON 文档进行建模和存储。 JSON（和 DocumentDB）仅支持一小组基本类型：字符串、数字、布尔值、数组、对象和 Null。这是对可移植性的要求。 但是，JSON 具有相当的灵活性，允许开发人员和框架使用这些基元并将其编写为对象或数组，以便表示更复杂的类型。 
 
 除了基本类型，许多应用程序还需要表示日期和时间戳的 [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) 类型。 本文介绍开发人员如何在 DocumentDB 中使用 .NET SDK 存储、检索和查询日期。
 
-## <a name="storing-datetimes"></a>存储 DateTime
+## 存储 DateTime
+<a id="storing-datetimes" class="xliff"></a>
 默认情况下，[DocumentDB SDK](documentdb-sdk-dotnet.md) 会将 DateTime 值序列化为 [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) 字符串。 由于以下原因，大多数应用程序可以使用 DateTime 的默认字符串表示形式：
 
 - 字符串可以进行比较，而 DateTime 值的相对顺序在这些值转换为字符串时得以保留。 
@@ -68,16 +68,18 @@ DocumentDB 通过本机 [JSON](http://www.json.org) 数据模型提供架构灵�
 
 也可将 DateTime 存储为 Unix 时间戳，即存储为数字，用于表示自 1970 年 1 月 1 日以来已过去的秒数。 DocumentDB 的内部时间戳 (`_ts`) 属性遵循这种方法。 可以使用 [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) 类将 DateTime 序列化为数字。 
 
-## <a name="indexing-datetimes-for-range-queries"></a>编制 DateTime 的索引以执行范围查询
+## 编制 DateTime 的索引以执行范围查询
+<a id="indexing-datetimes-for-range-queries" class="xliff"></a>
 通常可以使用 DateTime 值执行范围查询。 例如，如果需要查找昨天以来创建的所有订单，或者查找过去五分钟内发运的所有订单，则要执行范围查询。 若要有效执行这些查询，必须针对字符串的范围索引配置集合。
 
     DocumentCollection collection = new DocumentCollection { Id = "orders" };
     collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
     await client.CreateDocumentCollectionAsync("/dbs/orderdb", collection);
 
-如需详细了解如何配置索引策略，可参阅 [DocumentDB Indexing Policies](documentdb-indexing-policies.md)（DocumentDB 索引策略）。
+如需详细了解如何配置索引策略，可参阅 [DocumentDB 索引策略](documentdb-indexing-policies.md)。
 
-## <a name="querying-datetimes-in-linq"></a>在 LINQ 中查询 Datetime
+## 在 LINQ 中查询 Datetime
+<a id="querying-datetimes-in-linq" class="xliff"></a>
 DocumentDB .NET SDK 自动支持通过 LINQ 查询存储在 DocumentDB 中的数据。 例如，以下代码片段显示一个 LINQ 查询，该查询筛选在过去三天中发运的订单。
 
     IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
@@ -86,13 +88,13 @@ DocumentDB .NET SDK 自动支持通过 LINQ 查询存储在 DocumentDB 中的数
     // Translated to the following SQL statement and executed on DocumentDB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 
-可以在 [Querying DocumentDB](documentdb-sql-query.md)（查询 DocumentDB）中详细了解 DocumentDB 的 SQL 查询语言和 LINQ 提供程序。
+可以在[查询 DocumentDB](documentdb-sql-query.md) 中详细了解 DocumentDB 的 SQL 查询语言和 LINQ 提供程序。
 
 本文探讨了如何在 DocumentDB 中存储和查询 DateTime 并为其编制索引。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 - 下载并运行 [GitHub 上的代码示例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
 - 详细了解 [DocumentDB API 查询](documentdb-sql-query.md)
 - 详细了解 [DocumentDB 索引策略](documentdb-indexing-policies.md)
-
 

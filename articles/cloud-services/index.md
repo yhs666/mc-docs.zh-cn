@@ -1,5 +1,5 @@
 ---
-title: Azure 云服务文档 - 教程, API 参考 | Azure
+title: "Azure 云服务文档 - 教程、API 参考 | Azure"
 description: "教程、API 参考和其他文档介绍了如何使用云服务托管和运行高度可用且可伸缩的云应用程序和 API。"
 services: cloud-services
 author: carolz
@@ -13,14 +13,14 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 69bcbae09192ecbb6b375bac522b433f8cd5391f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: d7ad07cc3606c4df22a73822be9ed0852b6ae11e
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="cloud-services-documentation"></a>云服务文档
+# 云服务文档
+<a id="cloud-services-documentation" class="xliff"></a>
 
 了解如何使用云服务托管和运行高度可用和可伸缩的云应用程序和 API。  教程、API 参考和其他文档介绍了如何管理虚拟机主机以及配置、修补和安装软件。
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
  </ul>
- 
+
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cloud-services.pdf">
         <div class="img"></div>
@@ -88,4 +88,3 @@ ms.lasthandoff: 05/12/2017
 下载云服务文档 </div>
     </a>
 </div>
-

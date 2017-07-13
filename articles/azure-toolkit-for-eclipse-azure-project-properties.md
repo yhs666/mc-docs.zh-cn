@@ -1,12 +1,11 @@
 ---
-title: Azure 项目属性
-description: 介绍 Azure Toolkit for Eclipse 中的 Azure 项目属性设置。
-services: ''
+title: "Azure 项目属性"
+description: "介绍 Azure Toolkit for Eclipse 中的 Azure 项目属性设置。"
+services: 
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
 ms.assetid: 0fce53ec-0c5e-47b9-a453-59a0d4307556
 ms.service: multiple
 ms.workload: na
@@ -16,26 +15,33 @@ ms.topic: article
 origin.date: 12/22/2016
 ms.date: 02/14/2017
 ms.author: v-junlch
+ms.openlocfilehash: a2e2e02161c5956d5ff96f581eae9f53d7c062ba
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # Azure 项目属性
+<a id="azure-project-properties" class="xliff"></a>
 可以在 Azure Toolkit for Eclipse 中指定 Azure 项目的各种设置。
 
 ## 配置 Azure 项目属性
-配置 Azure 项目属性是通过 Azure 项目的属性对话框完成的。在 Eclipse 的“项目资源管理器”窗格中右键单击该项目，单击“属性”，然后选择“Azure”子菜单。
+<a id="configuring-azure-project-properties" class="xliff"></a>
+配置 Azure 项目属性是通过 Azure 项目的属性对话框完成的。 在 Eclipse 的“项目资源管理器”窗格中右键单击该项目，单击“属性”，然后选择“Azure”子菜单。
 
 ![][ic719480]
 
-在此属性页中，你可以更改以下各项：
+在此属性页中，你可以更改以下各项： 
 
-- **服务名称：**Azure 项目的名称。
-- **生成目标：**设置该项目的目的是要在计算模拟器中生成还是部署到 Azure。
-- **目标操作系统：**将项目部署到 Azure 时要使用的操作系统。
+* **服务名称：** Azure 项目的名称。
+* **生成目标：** 设置该项目的目的是要在计算模拟器中生成还是部署到 Azure。
+* **目标操作系统：** 将项目部署到 Azure 时要使用的操作系统。
 
 ## 另请参阅
+<a id="see-also" class="xliff"></a>
 [适用于 Eclipse 的 Azure 工具包][Azure Toolkit for Eclipse]
 
-[安装 Azure Toolkit for Eclipse][Installing the Azure Toolkit for Eclipse]
+[安装 Azure Toolkit for Eclipse][Installing the Azure Toolkit for Eclipse] 
 
 [在 Eclipse 中为 Azure 创建 Hello World 应用程序][Creating a Hello World Application for Azure in Eclipse]
 
@@ -47,11 +53,11 @@ ms.author: v-junlch
 
 <!-- URL List -->
 
-[Azure Java Developer Center]: /develop/java/
-[Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
+[Azure Java Developer Center]:/develop/java/
+[Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
 [Azure Role Properties]: ./azure-toolkit-for-eclipse-azure-role-properties.md
 [Azure Storage Account List]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md
-[Creating a Hello World Application for Azure in Eclipse]: ./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
+[Creating a Hello World Application for Azure in Eclipse]:./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 
 <!-- IMG List -->
@@ -59,5 +65,3 @@ ms.author: v-junlch
 [ic719480]: ./media/azure-toolkit-for-eclipse-azure-project-properties/ic719480.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/zh-cn/library/azure/jj835232.aspx -->
-
-<!---HONumber=Mooncake_0206_2017-->

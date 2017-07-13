@@ -13,48 +13,52 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/06/2016
-ms.date: 12/16/2016
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 775bfce52a7db4a6247ea9622fb2defd29777a40
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: f1b1424653e82deb53a24ac0173d65ceefb0536f
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="restore-an-app-in-azure"></a>在 Azure 中还原应用
+# 在 Azure 中还原应用
+<a id="restore-an-app-in-azure" class="xliff"></a>
 本文将演示如何在 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)中还原已事先备份的应用（请参阅[在 Azure 中备份应用](web-sites-backup.md)）。 可以根据需要将应用及其链接的数据库还原到以前的状态，或者基于原始应用的备份之一创建新的应用。 Azure 应用服务支持用于备份和还原的以下数据库：
 - [SQL 数据库](https://www.azure.cn/home/features/sql-database/)
-- [用于 MySQL 的 Azure 数据库（预览版）](https://www.azure.cn/home/features/mysql/)
 
 从备份还原适用于在**标准**和**高级**层中运行的应用。 有关向上缩放应用的信息，请参阅[在 Azure 中向上缩放应用](web-sites-scale.md)。 相比于**标准**层，**高级**层允许执行更多的每日备份量。
 
-## <a name="PreviousBackup"></a> 从现有备份还原应用
-1. 在 Azure 门户中应用的“设置”边栏选项卡上，单击“备份”以显示“备份”边栏选项卡。 然后单击命令栏中的“立即还原”  。
+<a name="PreviousBackup"></a>
+
+## 从现有备份还原应用
+<a id="restore-an-app-from-an-existing-backup" class="xliff"></a>
+1. 在 Azure 门户中应用的“设置”边栏选项卡上，单击“备份”以显示“备份”边栏选项卡。 然后，单击“还原”。
 
     ![选择“立即还原”][ChooseRestoreNow]
 2. 在“还原”  边栏选项卡中，首先选择备份源。
 
-    ![](./media/web-sites-restore/021ChooseSource.png)
+    ![](./media/web-sites-restore/021ChooseSource1.png)
 
     “应用备份”  选项显示当前应用的所有现有备份，使你能够轻松地选择一个。
     “存储”  选项使你能够从任何现有 Azure 存储帐户和订阅中的容器中选择任何备份 ZIP 文件。
     如果正在尝试还原其他应用的备份，请使用“存储”  选项。
 3. 然后，在“还原目标”中指定应用还原的目标。
 
-    ![](./media/web-sites-restore/022ChooseDestination.png)
+    ![](./media/web-sites-restore/022ChooseDestination1.png)
 
-    > [!WARNING]
-    > 如果选择“覆盖”，将清除并覆盖当前应用中所有的现有数据。 在单击“确定”之前，请确保该操作正是想要执行的操作。
-    > 
-    > 
+   > [!WARNING]
+   > 如果选择“覆盖”，将清除并覆盖当前应用中所有的现有数据。 在单击“确定”之前，请确保该操作正是想要执行的操作。
+   > 
+   > 
 
-    可选择“现有应用”  将应用备份还原到同一资源组中的其他应用。 使用此选项之前，应已使用应用备份中定义的镜像配置在资源组中创建了其他应用。
+    可选择“现有应用”  将应用备份还原到同一资源组中的其他应用。 使用此选项之前，应已使用应用备份中定义的镜像数据库配置在资源组中创建了其他应用。 还可以创建一个**新**应用，以便将内容还原到其中。
 
 4. 单击 **“确定”**。
 
-## <a name="StorageAccount"></a> 从存储帐户中下载或删除备份
+<a name="StorageAccount"></a>
+
+## 从存储帐户中下载或删除备份
+<a id="download-or-delete-a-backup-from-a-storage-account" class="xliff"></a>
 1. 在 Azure 门户的主“浏览”边栏选项卡中，选择“存储帐户”。 将显示现有存储帐户的列表。
 2. 选择包含要下载或删除的备份的存储帐户。将显示该存储帐户的边栏选项卡。
 3. 在存储帐户边栏选项卡中，选择所需的容器
@@ -65,18 +69,22 @@ ms.lasthandoff: 05/19/2017
     ![ViewContainers](./media/web-sites-restore/03ViewFiles.png)
 5. 单击“下载”或“删除”，具体取决于要执行的操作。  
 
-## <a name="OperationLogs"></a> 监视还原操作
+<a name="OperationLogs"></a>
+
+## 监视还原操作
+<a id="monitor-a-restore-operation" class="xliff"></a>
 若要查看有关应用还原操作成功与否的详细信息，请导航到 Azure 门户中的“活动日志”边栏选项卡。  
 
 向下滚动以查找所需的还原操作，然后单击以选中。
 
 “详细信息”边栏选项卡将显示与还原操作相关的可用信息。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 可使用 REST API 备份和还原应用服务应用（请参阅[使用 REST 备份和还原应用服务应用](websites-csm-backup.md)）。
 
 <!-- IMAGES -->
-[ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow.png
+[ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow1.png
 [ViewContainers]: ./media/web-sites-restore/03ViewContainers.png
 [StorageAccountFile]: ./media/web-sites-restore/02StorageAccountFile.png
 [BrowseCloudStorage]: ./media/web-sites-restore/03BrowseCloudStorage.png
@@ -90,4 +98,3 @@ ms.lasthandoff: 05/19/2017
 [ManagementServicesOperationLogsList]: ./media/web-sites-restore/11ManagementServicesOperationLogsList.png
 [DetailsButton]: ./media/web-sites-restore/12DetailsButton.png
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
-

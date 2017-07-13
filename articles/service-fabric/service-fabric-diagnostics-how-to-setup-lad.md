@@ -14,15 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/02/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 13a8ce118b3487a9d97214619fd7963107307b1f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: ac0f0f8c3b37c0450b37da6403f25731b5fba515
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="collect-logs-by-using-azure-diagnostics"></a>使用 Azure 诊断收集日志
+# 使用 Azure 诊断收集日志
+<a id="collect-logs-by-using-azure-diagnostics" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 > * [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
@@ -31,11 +30,13 @@ ms.lasthandoff: 04/14/2017
 
 当你运行 Azure Service Fabric 群集时，最好是从一个中心位置的所有节点中收集日志。 只要将日志集中在一个位置，无论问题发生在服务、应用程序还是群集本身，都能轻松分析问题并进行故障排除。 上传和收集日志的方式之一是使用可将日志上传到 Azure 存储或 Azure 事件中心的 Azure 诊断扩展。 也可从存储或事件中心读取事件。
 
-## <a name="log-sources-that-you-might-want-to-collect"></a>想要收集的日志源
+## 想要收集的日志源
+<a id="log-sources-that-you-might-want-to-collect" class="xliff"></a>
 * **Service Fabric 日志**：由平台通过 [LTTng](http://lttng.org) 发出，将上传到你的存储帐户。 日志可能是平台发出的操作事件或运行时事件。 这些日志存储在群集清单指定的位置。 （若要获取存储帐户的详细信息，请搜索 **AzureTableWinFabETWQueryable** 标记，然后查找 **StoreConnectionString**。）
 * **应用程序事件**：从服务代码发出。 可以使用任何能够写入基于文本的日志的日志记录解决方案，例如 LTTng。 有关详细信息，请参阅有关跟踪应用程序的 LTTng 文档。  
 
-## <a name="deploy-the-diagnostics-extension"></a>部署诊断扩展
+## 部署诊断扩展
+<a id="deploy-the-diagnostics-extension" class="xliff"></a>
 收集日志的第一个步骤是将诊断扩展部署在 Service Fabric 群集中的每个 VM 上。 诊断扩展将收集每个 VM 上的日志，并将它们上传到指定的存储帐户。 根据使用的是 Azure 门户还是 Azure Resource Manager，步骤将有所不同。
 
 若要在创建群集期间将诊断扩展部署到群集中的 VM，请将“**诊断**”设置为“**打开**”。 创建群集后，无法使用门户更改此设置。
@@ -48,5 +49,6 @@ ms.lasthandoff: 04/14/2017
 
 完成此配置后，LAD 代理将监视指定的日志文件。 每当在文件中追加新行时，该代理将创建一个 syslog 条目并将其发送到指定的存储。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 若要更详细了解在排查问题时应检查哪些事件，请参阅 [LTTng 文档](http://lttng.org/docs)和[使用 LAD](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md)。

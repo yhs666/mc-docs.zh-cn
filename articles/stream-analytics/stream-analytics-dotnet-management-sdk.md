@@ -4,8 +4,8 @@ description: "流分析管理 .NET SDK 入门。 了解如何设置和运行分�
 keywords: ".net SDK, 分析 API"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 ms.assetid: 5e93de87-0c6f-4f4b-be98-08d63f832897
 ms.service: stream-analytics
@@ -14,28 +14,29 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/06/2017
-ms.date: 05/15/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 6d5130c28a9165d4c677c19435ab9cda08457c31
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: e0a9c31bdec21f879bc5dd35f4c189f211d4895b
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>管理 .NET SDK：设置和运行使用 .NET 版 Azure 流分析 API 的分析作业
+# 管理 .NET SDK：设置和运行使用 .NET 版 Azure 流分析 API 的分析作业
+<a id="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net" class="xliff"></a>
 了解如何通过管理 .NET SDK 设置和运行使用 .NET 版流分析 API 的分析作业。 设置项目、创建输入和输出源、转换，以及开始和停止作业。 就你的分析作业来说，你可以从 Blob 存储或事件中心流式传输数据。
 
 请参阅 [.NET 版流分析 API 的管理参考文档](https://msdn.microsoft.com/library/azure/dn889315.aspx)。
 
 Azure 流分析是一种完全托管的服务，可以在云中通过流式数据处理复杂的事件，具有延迟性低、可用性高和大小灵活等特点。 客户可以使用流分析来设置流式处理作业，分析数据流和进行近实时分析。  
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 在开始阅读本文前，你必须具有：
 
 * 安装 Visual Studio 2017 或 2015。
-* 下载并安装 [Azure .NET SDK](https://www.azure.cn/downloads/)。
-* 在订阅中创建 Azure 资源组。 下面是 Azure PowerShell 脚本示例。 有关 Azure PowerShell 的信息，请参阅 [安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)；  
+* 下载并安装 [Azure .NET SDK](/downloads/)。
+* 在订阅中创建 Azure 资源组。 下面是 Azure PowerShell 脚本示例。 有关 Azure PowerShell 的信息，请参阅 [安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)；  
 
         # Log in to your Azure account
         Add-AzureAccount -Environment AzureChinaCloud
@@ -51,14 +52,15 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 
 * 设置要使用的输入源和输出目标。 有关进一步的说明，请参阅[添加输入](stream-analytics-add-inputs.md)以设置示例输入，参阅[添加输出](stream-analytics-add-outputs.md)以设置示例输出。
 
-## <a name="set-up-a-project"></a>设置项目
+## 设置项目
+<a id="set-up-a-project" class="xliff"></a>
 若要使用 .NET 版流分析 API 创建分析作业，请首先设置项目。
 
 1. 创建 Visual Studio C# .NET 控制台应用程序。
 2. 在程序包管理器控制台中运行以下命令来安装 NuGet 包。 第一个是 Azure 流分析管理 .NET SDK。 第二个是用于进行身份验证的 Azure Active Directory 客户端。
 
-        Install-Package Microsoft.Azure.Management.StreamAnalytics
-        Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+        Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 1.8.3
+        Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.4
 3. 将下面的 **appSettings** 部分添加到 App.config 文件：
 
         <appSettings>
@@ -76,7 +78,10 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 
         Get-AzureAccount
 
-4. 将以下 **using** 语句添加到项目中的源文件 (Program.cs)：
+4. 在 .csproj 文件中添加以下引用：
+
+        <Reference Include="System.Configuration" />
+5. 将以下 **using** 语句添加到项目中的源文件 (Program.cs)：
 
         using System;
         using System.Configuration;
@@ -86,7 +91,7 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
         using Microsoft.Azure.Management.StreamAnalytics;
         using Microsoft.Azure.Management.StreamAnalytics.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-5. 添加一个身份验证帮助器方法：
+6. 添加一个身份验证帮助器方法：
 
     ```
     private static async Task<string> GetAuthorizationHeader()
@@ -108,7 +113,8 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
      }
      ```
 
-## <a name="create-a-stream-analytics-management-client"></a>创建流分析管理客户端
+## 创建流分析管理客户端
+<a id="create-a-stream-analytics-management-client" class="xliff"></a>
 一个 **StreamAnalyticsManagementClient** 对象，用于管理作业和作业组件，例如输入、输出和转换。
 
 将以下代码添加到 **Main** 方法的开头：
@@ -129,11 +135,12 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 
 **resourceGroupName** 变量的值应该与你在先决条件步骤中创建或选取的资源组的名称相同。
 
-若要自动执行凭据演示方面的作业创建，请参阅[使用 Azure 资源管理器对服务主体进行身份验证](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
+若要自动执行凭据演示方面的作业创建，请参阅[使用 Azure Resource Manager 对服务主体进行身份验证](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
 
 本文的剩余部分假定此代码位于 **Main** 方法的开头。
 
-## <a name="create-a-stream-analytics-job"></a>创建流分析作业
+## 创建流分析作业
+<a id="create-a-stream-analytics-job" class="xliff"></a>
 以下代码在你所定义的资源组下创建流分析作业。 可以在以后向作业添加输入、输出和转换。
 
     // Create a Stream Analytics job
@@ -156,7 +163,8 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 
     JobCreateOrUpdateResponse jobCreateResponse = client.StreamingJobs.CreateOrUpdate(resourceGroupName, jobCreateParameters);
 
-## <a name="create-a-stream-analytics-input-source"></a>创建流分析输入源
+## 创建流分析输入源
+<a id="create-a-stream-analytics-input-source" class="xliff"></a>
 下面的代码将使用 blob 输入源类型和 CSV 序列化创建流分析输入源。 若要创建事件中心输入源，请使用 **EventHubStreamInputDataSource** 而非 **BlobStreamInputDataSource**。 同样，你可以自定义输入源的序列化类型。
 
     // Create a Stream Analytics input source
@@ -200,14 +208,16 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 
 输入源（不管是来自 Blob 存储还是来自事件中心）将绑定到特定作业。 若要将同一输入源用于不同的作业，必须再次调用该方法并指定不同的作业名称。
 
-## <a name="test-a-stream-analytics-input-source"></a>测试流分析输入源
+## 测试流分析输入源
+<a id="test-a-stream-analytics-input-source" class="xliff"></a>
 **TestConnection** 方法可测试流分析作业是否能够连接到输入源，并测试特定输入源类型的其他方面。 例如，在 blob 输入源（已在此前的步骤中创建过）中，该方法可检查存储帐户名称和密钥对能否用于连接到存储帐户，并检查指定的容器是否存在。
 
     // Test input source connection
     DataSourceTestConnectionResponse inputTestResponse =
         client.Inputs.TestConnection(resourceGroupName, streamAnalyticsJobName, streamAnalyticsInputName);
 
-## <a name="create-a-stream-analytics-output-target"></a>创建流分析输出目标
+## 创建流分析输出目标
+<a id="create-a-stream-analytics-output-target" class="xliff"></a>
 创建输出目标非常类似于创建流分析输入源。 像输入源一样，输出目标将绑定到特定作业。 若要将同一输出目标用于不同的作业，必须再次调用该方法并指定不同的作业名称。
 
 以下代码可创建一个输出目标（Azure SQL 数据库）。 你可以自定义输出目标的数据类型和/或序列化类型。
@@ -238,14 +248,16 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
     OutputCreateOrUpdateResponse outputCreateResponse =
         client.Outputs.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, jobOutputCreateParameters);
 
-## <a name="test-a-stream-analytics-output-target"></a>测试流分析输出目标
+## 测试流分析输出目标
+<a id="test-a-stream-analytics-output-target" class="xliff"></a>
 流分析输出目标还有一个用于测试连接的 **TestConnection** 方法。
 
     // Test output target connection
     DataSourceTestConnectionResponse outputTestResponse =
         client.Outputs.TestConnection(resourceGroupName, streamAnalyticsJobName, streamAnalyticsOutputName);
 
-## <a name="create-a-stream-analytics-transformation"></a>创建流分析转换
+## 创建流分析转换
+<a id="create-a-stream-analytics-transformation" class="xliff"></a>
 下面的代码将使用查询“select * from Input”创建流分析转换，并通过指定的方式为流分析作业分配一个流式处理单位。 有关如何调整流式处理单位的详细信息，请参阅[缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)。
 
     // Create a Stream Analytics transformation
@@ -267,7 +279,8 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 
 与输入和输出一样，转换也会绑定到在创建时所属的特定流分析作业。
 
-## <a name="start-a-stream-analytics-job"></a>启动流分析作业
+## 启动流分析作业
+<a id="start-a-stream-analytics-job" class="xliff"></a>
 创建流分析作业及其输入、输出和转换后，可以通过调用 **Start** 方法来启动该作业。
 
 下面的示例性代码将启动一个流分析作业，其自定义输出开始时间设置为 2012 年 12 月 12 日 12:12:12（UTC 时间）：
@@ -281,22 +294,27 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 
     LongRunningOperationResponse jobStartResponse = client.StreamingJobs.Start(resourceGroupName, streamAnalyticsJobName, jobStartParameters);
 
-## <a name="stop-a-stream-analytics-job"></a>停止流分析作业
+## 停止流分析作业
+<a id="stop-a-stream-analytics-job" class="xliff"></a>
 可以通过调用 **Stop** 方法来停止正在运行的流分析作业。
 
     // Stop a Stream Analytics job
     LongRunningOperationResponse jobStopResponse = client.StreamingJobs.Stop(resourceGroupName, streamAnalyticsJobName);
 
-## <a name="delete-a-stream-analytics-job"></a>删除流分析作业
+## 删除流分析作业
+<a id="delete-a-stream-analytics-job" class="xliff"></a>
 **Delete** 方法将删除作业以及基础性的子资源，包括作业的输入、输出和转换。
 
     // Delete a Stream Analytics job
     LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
-## <a name="get-support"></a>获取支持
-如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+## 获取支持
+<a id="get-support" class="xliff"></a>
+<!-- Update the referenc link with correct URL-->
+如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 你已经学习了使用 .NET SDK 来创建和运行分析作业的基础知识。 若要了解更多信息，请参阅下列文章：
 
 * [Azure 流分析简介](stream-analytics-introduction.md)
@@ -312,8 +330,8 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 [7]: ./media/markdown-template-for-new-articles/channel-9.png
 
 <!--Link references-->
-[azure.blob.storage]: /azure/storage/
-[azure.blob.storage.use]: /azure/storage-dotnet-how-to-use-blobs/
+[azure.blob.storage]: /storage/
+[azure.blob.storage.use]: /storage-dotnet-how-to-use-blobs/
 
 [azure.event.hubs]: http://azure.microsoft.com/services/event-hubs/
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
@@ -327,4 +345,3 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-

@@ -3,8 +3,8 @@ title: "使用 Azure CLI 创建 Azure 应用标识 | Azure"
 description: "介绍如何使用 Azure CLI 创建 Azure Active Directory 应用程序和服务主体，并通过基于角色的访问控制授予其对资源的访问权限。 它演示如何使用密码或证书对应用程序进行身份验证。"
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: c224a189-dd28-4801-b3e3-26991b0eb24d
 ms.service: azure-resource-manager
@@ -12,24 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-origin.date: 03/31/2017
-ms.date: 06/05/2017
+origin.date: 05/15/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 707a6a507aa0f750a71bd99612db01874104dacc
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: e70caa9f802719ecdbb51fc17581b731449c90dd
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="use-azure-cli-to-create-a-service-principal-to-access-resources"></a>使用 Azure CLI 创建服务主体来访问资源
-> [!div class="op_single_selector"]
-> * [PowerShell](resource-group-authenticate-service-principal.md)
-> * [Azure CLI](resource-group-authenticate-service-principal-cli.md)
-> * [门户](resource-group-create-service-principal-portal.md)
-> 
-> 
+# 使用 Azure CLI 创建服务主体来访问资源
+<a id="use-azure-cli-to-create-a-service-principal-to-access-resources" class="xliff"></a>
 
 当某个应用或脚本需要访问资源时，你可以为该应用设置一个标识，然后使用其自身的凭据进行身份验证。 此标识称为服务主体。 使用此方法可实现以下目的：
 
@@ -38,7 +31,8 @@ ms.lasthandoff: 05/26/2017
 
 本文介绍如何通过 [Azure CLI 1.0](../cli-install-nodejs.md) 设置应用程序，使之能够使用自己的凭据和标识运行。 安装最新版的 [Azure CLI 1.0](../cli-install-nodejs.md)，确保你的环境符合本文中示例的要求。
 
-## <a name="required-permissions"></a>所需的权限
+## 所需的权限
+<a id="required-permissions" class="xliff"></a>
 若要完成本主题，必须在 Azure Active Directory 和 Azure 订阅中均具有足够的权限。 具体而言，必须能够在 Azure Active Directory 中创建应用并向角色分配服务主体。 
 
 检查帐户是否有足够权限的最简方法是使用门户。 请参阅[在门户中检查所需的权限](resource-group-create-service-principal-portal.md#required-permissions)。
@@ -200,7 +194,8 @@ ms.lasthandoff: 05/26/2017
     azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
     ```
   
-### <a name="provide-certificate-through-automated-azure-cli-script"></a>通过自动执行的 Azure CLI 脚本提供证书
+### 通过自动执行的 Azure CLI 脚本提供证书
+<a id="provide-certificate-through-automated-azure-cli-script" class="xliff"></a>
 现在，需要以应用程序方式登录以执行相应操作。
 
 1. 以服务主体方式登录时，需提供 AD 应用所在目录的租户 ID。 租户是 Azure Active Directory 的实例。 若要检索当前已经过身份验证的订阅的租户 ID，请使用：
@@ -268,7 +263,8 @@ ms.lasthandoff: 05/26/2017
 
 现在，你已作为所创建 Azure Active Directory 应用程序的服务主体进行身份验证。
 
-## <a name="change-credentials"></a>更改凭据
+## 更改凭据
+<a id="change-credentials" class="xliff"></a>
 
 为了保障安全或由于凭据过期，若要更改 AD 应用的凭据，请使用 `azure ad app set`。
 
@@ -284,7 +280,8 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --password
 azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-value {certificate data}
 ```
 
-## <a name="debug"></a>调试
+## 调试
+<a id="debug" class="xliff"></a>
 
 创建服务主体时，你可能会遇到以下错误：
 
@@ -320,6 +317,8 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-val
 * [在 Ruby 中使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/)
 * [使用 Ruby 管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * 有关将应用程序集成到 Azure 以管理资源的详细步骤，请参阅 [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md)（使用 Azure Resource Manager API 进行授权的开发人员指南）。
 * 若要获取有关使用证书和 Azure CLI 的详细信息，请参阅 [Certificate-based authentication with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)（从 Linux 命令行对 Azure 服务主体进行基于证书的身份验证）。
+* 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure Resource Manager 资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)。

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/12/2016
-ms.date: 05/22/2017
+origin.date: 04/05/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 31c727b28abff0b25d35748b2bf06b3facb0a8fc
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: f9b6b615cba2a700f020942828d601edcc8c751e
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="create-an-application-gateway-by-using-the-portal"></a>使用门户创建应用程序网关
+<a id="create-an-application-gateway-by-using-the-portal" class="xliff"></a>
+
+# 使用门户创建应用程序网关
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](application-gateway-create-gateway-portal.md)
@@ -33,173 +33,125 @@ ms.lasthandoff: 05/12/2017
 > * [Azure Resource Manager 模板](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之间提供故障转移和性能路由 HTTP 请求，而不管它们是在云中还是本地。
-应用程序网关提供许多应用程序传送控制器 (ADC) 功能，包括 HTTP 负载均衡、基于 cookie 的会话相关性、安全套接字层 (SSL) 卸载、自定义运行状况探测、多站点支持，以及许多其他功能。
+了解如何使用 SSL 卸载创建应用程序网关。
 
-若要查找支持功能的完整列表，请参阅[应用程序网关概述](application-gateway-introduction.md)
+![方案示例][scenario]
 
-## <a name="scenario"></a>方案
-
-此方案介绍如何使用 Azure 门户创建应用程序网关。
+应用程序网关是一个专用的虚拟设备，以服务形式提供应用程序传送控制器 (ADC)，为应用程序提供各种第 7 层负载均衡功能。
 
 此方案将：
 
-* 创建包含两个实例的中型应用程序网关。
-* 创建名为 AdatumAppGatewayVNET 且包含 10.0.0.0/16 保留 CIDR 块的虚拟网络。
-* 创建名为 Appgatewaysubnet 且使用 10.0.0.0/28 作为其 CIDR 块的子网。
-* 配置进行 SSL 卸载的证书。
-
-![方案示例][scenario]
+1. 使用 SSL 卸载以及其自己的子网中的两个实例[创建中等应用程序网关](#create-an-application-gateway)。
+1. [在后端池中添加服务器](#add-servers-to-backend-pools)
+1. [删除所有资源](#delete-all-resources)。 对于该练习中创建的某些资源，其预配时会产生费用。 为尽量削减费用，完成练习后，请务必完成本节中的步骤以删除创建的资源。
 
 > [!IMPORTANT]
 > 针对应用程序网关进行的其他配置（包括自定义运行状况探测、后端池地址以及其他规则）是在对应用程序网关配置以后配置的，不是在初始部署期间配置的。
 
-## <a name="before-you-begin"></a>开始之前
+<a id="create-an-application-gateway" class="xliff"></a>
 
-Azure 应用程序网关需要自己的子网。 在创建虚拟网络时，请确保保留足够的地址空间，以便设置多个子网。 将应用程序网关部署到子网后，只能向该子网添加其他应用程序网关。
+## 创建应用程序网关
 
-## <a name="create-the-application-gateway"></a>创建应用程序网关
+若要创建应用程序网关，请完成下面的步骤。 应用程序网关需要自己的子网。 在创建虚拟网络时，请确保保留足够的地址空间，以便设置多个子网。 将应用程序网关部署到子网后，只能向该子网添加其他应用程序网关。
 
-### <a name="step-1"></a>步骤 1
+1. 登录到 [Azure 门户](https://portal.azure.cn)。 如果还没有帐户，可注册 [1 个月期限的试用版](https://www.azure.cn/pricing/1rmb-trial)。
+1. 在门户的“收藏夹”窗格中，单击“新建”
+1. 在“新建”边栏选项卡中，单击“网络”。 在“网络”边栏选项卡中，单击“应用程序网关”，如下图所示：
 
-导航到 Azure 门户，依次单击“新建” > “网络” > “应用程序网关”
+    ![创建应用程序网关][1]
 
-![创建应用程序网关][1]
+1. 在显示的“基本信息”边栏选项卡中输入以下值，然后单击“确定”：
 
-### <a name="step-2"></a>步骤 2
+   | **设置** | **值** | **详细信息**
+   |---|---|---|
+   |**Name**|AdatumAppGateway|应用程序网关的名称|
+   |**层**|标准|可用值为标准和 WAF。 若要了解有关 WAF 的详细信息，请访问 [Web 应用程序防火墙](application-gateway-web-application-firewall-overview.md)。|
+   |**SKU 大小**|中型|选择标准层时，选项为“小型”、“中型”和“大型”。 选择 WAF 层时，选项只有“中型”和“大型”。|
+   |**实例计数**|2|实现高可用性时应用程序网关的实例数。 实例计数 1 仅应用于测试目的。|
+   |**订阅**|[你的订阅]|选择要在其中创建应用程序网关的订阅。|
+   |**资源组**|**新建：**AdatumAppGatewayRG|创建资源组。 资源组名称在所选订阅中必须唯一。 若要详细了解资源组，请阅读 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fapplication-gateway%2ftoc.json#resource-groups) 概述文章。|
+   |**位置**|中国北部||
 
-下一步，填写有关应用程序网关的基本信息。 完成后，单击“确定” 
+1. 在“虚拟网络”下的“设置”边栏选项卡中，单击“选择虚拟网络”。 此时会打开“选择虚拟网络”边栏选项卡。  单击“新建”打开“创建虚拟网络”边栏选项卡。
 
-基本设置需要的信息如下：
+ ![选择虚拟网络][2]
 
-* **Name** - 应用程序网关的名称。
-* **层** - 此设置是应用程序网关的层。 可以使用两个层，即 **WAF** 层和**标准**层。 WAF 启用 Web 应用程序防火墙功能。
-* **SKU 大小** - 此设置是指应用程序网关的大小，可用选项包括“小型”、“中型”和“大型”。 选择 WAF 层时，小型不可用。
-* **实例计数** - 实例的数目，此值应该是 2 到 10 之间的数字。
-* **资源组** - 用于保存应用程序网关的资源组，可以是现有资源组，也可以是新的资源组。
-* **位置** - 应用程序网关所在的区域，与资源组的位置相同。 位置很重要，因为虚拟网络和公共 IP 必须与网关位于同一位置。
+1. 在“创建虚拟网络”边栏选项卡中输入以下值，然后单击“确定”。 这会关闭“创建虚拟网络”和“选择虚拟网络”边栏选项卡。 这也会在“设置”边栏选项卡上的“子网”字段中填充所选的子网。
 
-![显示基本设置的边栏选项卡][2]
+   |**设置** | **值** | **详细信息** |
+   |---|---|---|
+   |**Name**|AdatumAppGatewayVNET|应用程序网关的名称|
+   |**地址空间**|10.0.0.0/16| 这是用于虚拟网络的地址空间|
+   |**子网名称**|AppGatewaySubnet|应用程序网关子网的名称|
+   |**子网地址范围**|10.0.0.0/28| 此子网允许后端池成员的虚拟网络中存在多个附加子网|
 
-> [!NOTE]
-> 进行测试时，可以选择 1 作为实例计数。 必须知道的是，2 以下的实例计数不受 SLA 支持，因此不建议使用。 小型网关用于开发/测试，不用于生产。
-> 
-> 
+1. 在“设置”边栏选项卡的“前端 IP 配置”下选择“公共”作为“IP 地址类型”
 
-### <a name="step-3"></a>步骤 3
+1. 在“设置”边栏选项卡的“公共 IP 地址”下，单击“选择一个公共 IP 地址”打开“选择公共 IP 地址”边栏选项卡，然后单击“新建”。
 
-定义基本设置以后，下一步是定义要使用的虚拟网络。 虚拟网络托管的应用程序也是通过应用程序网关进行负载均衡的应用程序。
+ ![选择公共 IP][3]
 
-单击“选择虚拟网络”对虚拟网络进行配置。
+1. 在“创建公共 IP 地址”边栏选项卡中接受默认值，然后单击“确定”。 这会关闭“选择公共 IP 地址”边栏选项卡和“创建公共 IP 地址”边栏选项卡，并在“公共 IP 地址”中填充所选的公共 IP 地址。
 
-![显示应用程序网关设置的边栏选项卡][3]
+1. 在“设置”边栏选项卡的“侦听器配置”下，在“协议”下方单击“HTTPS”。 执行此操作将添加其他字段。 单击“上传 PFX 证书”字段的文件夹图标，选择适当的 .pfx 证书。 在其他“侦听器配置”字段中输入以下信息：
 
-### <a name="step-4"></a>步骤 4
+   |**设置** | **值** | **详细信息** |
+   |---|---|---|
+   |名称|证书名称|此值是用于引用证书的友好名称|
+   |密码|.pfx 的密码| 这是用于私钥的密码|
 
-在“选择虚拟网络”边栏选项卡中，单击“新建”
+1. 在“设置”边栏选项卡上单击“确定”以继续。
 
-虽然此方案未进行说明，但此时可选择现有的虚拟网络。  如果使用现有的虚拟网络，请务必了解，需要空的子网或只限应用程序网关资源的子网才能使用该虚拟网络。
+1. 查看“摘要”边栏选项卡上的设置，然后单击“确定”开始创建应用程序网关。 创建应用程序网关是一个长时间运行的任务，需要一些时间来完成。
 
-![选择虚拟网络边栏选项卡][4]
+<a id="add-servers-to-backend-pools" class="xliff"></a>
 
-### <a name="step-5"></a>步骤 5
+## 将服务器添加到后端池
 
-在“创建虚拟网络”边栏选项卡中填写网络信息，如前面的[方案](#scenario)说明中所述。
+创建应用程序网关后，仍需将系统（托管着要进行负载均衡的应用程序）添加到应用程序网关。 这些服务器的 IP 地址、FQDN 或 NIC 已添加到后端地址池。
 
-![使用输入的信息创建虚拟网络边栏选项卡][5]
+<a id="ip-address-or-fqdn" class="xliff"></a>
 
-### <a name="step-6"></a>步骤 6
+### IP 地址或 FQDN
 
-创建虚拟网络后，下一步是定义应用程序网关的前端 IP。 此时，可以为前端选择公共 IP 地址或专用 IP 地址。 具体选择取决于应用程序是面向 Internet 的还是仅供内部使用的。 本方案假定使用的是公共 IP 地址。 若要选择专用 IP 地址，可单击“专用”按钮。 此时系统会选择自动分配的 IP 地址，也可以单击“选择特定的专用 IP 地址”复选框手动输入一个。
+1. 创建应用程序网关后，在 Azure 门户的“收藏夹”窗格中单击“所有资源”。 在“所有资源”边栏选项卡中单击“AdatumAppGateway”应用程序网关。 如果所选订阅中已包含多个资源，则可在“按名称筛选…”框中输入“AdatumAppGateway”， 轻松访问应用程序网关。
 
-### <a name="step-7"></a>步骤 7
+1. 将显示已创建的应用程序网关。 单击“后端池”，然后选择当前后端池“appGatewayBackendPool”，这将打开“appGatewayBackendPool”边栏选项卡。
 
-单击“选择公共 IP 地址”。 如果现有的公共 IP 地址可用，则此时可以选择该地址。在本方案中，将创建新的公共 IP 地址。 单击“配置” **Create new**
+   ![应用程序网关后端池][4]
 
-![选择公共 IP 地址边栏选项卡][6]
+1. 单击“添加目标”以添加 FQDN 值的 IP 地址。 选择“IP 地址或 FQDN”作为“类型”，在该字段中输入 IP 地址或 FQDN。 为其他后端池成员重复执行此过程。 完成后单击“保存”。
 
-### <a name="step-8"></a>步骤 8
+<a id="virtual-machine-and-nic" class="xliff"></a>
 
-接下来为公共 IP 地址提供一个友好名称，然后单击“确定” 
-
-![创建公共 IP 地址边栏选项卡][7]
-
-### <a name="step-9"></a>步骤 9
-
-创建应用程序网关时，需要配置的最后一个设置是侦听器配置。  如果使用的是“http”，不需进行任何配置，单击“确定”即可。 若要使用“https”，需要进一步配置。
-
-若要使用 **https**，需要提供证书。 由于需要证书的私钥，请提供证书的 .pfx 导出结果以及密码。
-
-### <a name="step-10"></a>步骤 10
-
-单击“HTTPS”，然后单击“上传 PFX 证书”文本框旁边的“文件夹”图标。
-导航到文件系统中的 .pfx 证书文件。 选中该文件后，为证书提供一个友好名称，然后键入 .pfx 文件的密码。
-
-完成后，单击“确定”查看应用程序网关的设置。
-
-![“设置”边栏选项卡上的“侦听器配置”部分][9]
-
-### <a name="step-11"></a>步骤 11
-
-查看“摘要”页，然后单击“确定”。  现在会让应用程序网关排队，然后创建它。
-
-### <a name="step-12"></a>步骤 12
-
-创建应用程序网关以后，可在门户中导航到该网关，然后继续进行配置。
-
-![应用程序网关资源视图][10]
-
-这些步骤会创建基本的应用程序网关，提供侦听器、后端池、后端 http 设置以及规则的默认设置。 预配成功后，即可根据部署修改这些设置。
-
-## <a name="add-servers-to-backend-pools"></a>将服务器添加到后端池
-
-创建应用程序网关后，仍需将系统（托管着要进行负载均衡的应用程序）添加到应用程序网关。 这些服务器的 IP 地址 或 FQDN 值已添加到后端地址池。
-
-### <a name="ip-address-or-fqdn"></a>IP 地址或 FQDN
-
-#### <a name="step-1"></a>步骤 1
-
-单击创建的应用程序网关，单击“后端池” ，然后选择当前后端池。
-
-![应用程序网关后端池][11]
-
-#### <a name="step-2"></a>步骤 2
-
-单击“添加目标”，添加 FQDN 的 IP 地址值
-
-![应用程序网关后端池][11-1]
-
-#### <a name="step-3"></a>步骤 3
-
-输入所有后端值后，单击“保存”
-
-![向应用程序网关后端池添加值][12]
-
-此操作会将值保存到后端池。 更新应用程序网关后，进入应用程序网关的流量将路由到在此步骤中添加的后端地址。
-
-### <a name="virtual-machine-and-nic"></a>虚拟机和 NIC
+### 虚拟机和 NIC
 
 也可以将虚拟机 NIC 添加为后端池成员。 只有应用程序网关所在的虚拟网络中的虚拟机通过下拉列表提供。
 
-#### <a name="step-1"></a>步骤 1
+1. 创建应用程序网关后，在 Azure 门户的“收藏夹”窗格中单击“所有资源”。 在“所有资源”边栏选项卡中单击“AdatumAppGateway”应用程序网关。 如果所选订阅中已包含多个资源，则可在“按名称筛选…”框中输入“AdatumAppGateway”， 轻松访问应用程序网关。
 
-单击创建的应用程序网关，单击“后端池” ，然后选择当前后端池。
+1. 将显示已创建的应用程序网关。 单击“后端池”，然后选择当前后端池“appGatewayBackendPool”，这将打开“appGatewayBackendPool”边栏选项卡。
 
-![应用程序网关后端池][11]
+   ![应用程序网关后端池][5]
 
-#### <a name="step-2"></a>步骤 2
+1. 单击“添加目标”以添加 FQDN 值的 IP 地址。 选择“虚拟机”作为“类型”，然后选择要使用的虚拟机和 NIC。 完成后单击“保存”
 
-单击“添加目标”，添加新的后端池成员。 从下拉框中选择虚拟机和 NIC。
+   > [!NOTE]
+   > 下拉列表中只提供与应用程序网关位于同一虚拟网络中的虚拟机。
 
-![将 NIC 添加到应用程序网关后端池][13]
+<a id="delete-all-resources" class="xliff"></a>
 
-#### <a name="step-3"></a>步骤 3
+## 删除所有资源
 
-完成后，单击“保存”将 NIC 保存为后端成员。
+若要删除本文中创建的所有资源，请完成以下步骤：
 
-![保存 NIC 应用程序网关后端池][14]
+1. 在 Azure 门户的“收藏夹”窗格中单击“所有资源”。 在“所有资源”边栏选项卡中单击“AdatumAppGatewayRG”资源组。 如果所选订阅中已包含多个资源，则可在“按名称筛选…”框中输入“AdatumAppGatewayRG”， 轻松访问资源组。
+1. 在“AdatumAppGatewayRG”边栏选项卡中，单击“删除”按钮。
+1. 门户将要求你键入资源组的名称以确认要将其删除。 单击“删除”，键入“AdatumAppGateway”作为资源组名称，然后单击“删除”。 资源组将连同其内附的所有资源一并删除，因此在删除前，请始终要确认资源组的内容。 门户将删除资源组中包含的所有资源，然后删除资源组本身。 此过程需耗时几分钟。
 
-## <a name="next-steps"></a>后续步骤
+<a id="next-steps" class="xliff"></a>
+
+## 后续步骤
 
 此方案创建默认应用程序网关。 后续步骤是通过修改设置以及调整网关中的规则，配置应用程序网关。 通过访问以下文章，可找到这些步骤：
 
@@ -215,15 +167,4 @@ Azure 应用程序网关需要自己的子网。 在创建虚拟网络时，请�
 [3]: ./media/application-gateway-create-gateway-portal/figure3.png
 [4]: ./media/application-gateway-create-gateway-portal/figure4.png
 [5]: ./media/application-gateway-create-gateway-portal/figure5.png
-[6]: ./media/application-gateway-create-gateway-portal/figure6.png
-[7]: ./media/application-gateway-create-gateway-portal/figure7.png
-[8]: ./media/application-gateway-create-gateway-portal/figure8.png
-[9]: ./media/application-gateway-create-gateway-portal/figure9.png
-[10]: ./media/application-gateway-create-gateway-portal/figure10.png
-[11]: ./media/application-gateway-create-gateway-portal/figure11.png
-[11-1]: ./media/application-gateway-create-gateway-portal/figure11-1.png
-[12]: ./media/application-gateway-create-gateway-portal/figure12.png
-[13]: ./media/application-gateway-create-gateway-portal/figure13.png
-[14]: ./media/application-gateway-create-gateway-portal/figure14.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
-

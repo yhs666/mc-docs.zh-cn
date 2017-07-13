@@ -4,8 +4,8 @@ description: "比较 SQL 数据库服务层。"
 keywords: "数据库选项,数据库性能"
 services: sql-database
 documentationcenter: 
-author: janeng
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 05/14/2017
+origin.date: 05/31/2017
+ms.date: 07/03/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e71573b18c45fd3bf6bccdbab8624e5d3900e2b
-ms.openlocfilehash: 753cdd0ad0f3f674125401c3707fdddd601d585e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/12/2017
-
-
+ms.openlocfilehash: d0c8c26348ba195ab2e75629ba141d0678609c10
+ms.sourcegitcommit: 73b1d0f7686dea85647ef194111528c83dbec03b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-# <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>SQL 数据库选项和性能：了解每个服务层提供的功能
+# SQL 数据库选项和性能：了解每个服务层提供的功能
+<a id="sql-database-options-and-performance-understand-whats-available-in-each-service-tier" class="xliff"></a>
 
 [Azure SQL 数据库](sql-database-technical-overview.md)提供四个服务层：**基本**、**标准**、**高级**和**高级 RS**。 每个服务层提供多个性能级别来处理不同的工作负荷。 更高的性能级别提供更多的资源，旨在逐级提高吞吐量。 可在不停机的情况下动态更改服务层和性能级别。 基本、标准和高级服务层都提供 99.99% 的运行时间 SLA、灵活的业务连续性选项、安全功能和按小时计费功能。 高级 RS 层提供的性能级别、安全功能和业务连续性功能与高级层相同，但 SLA 更低。
 
@@ -34,7 +34,8 @@ ms.lasthandoff: 06/12/2017
 
 可以使用服务层中具有特定[性能级别](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels)的专用资源创建单一数据库。 还可以在[弹性池](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus)中创建数据库，弹性池中的资源在多个数据库之间共享。 可用于单一数据库的资源以数据库事务单位 (DTU) 表示，可用于弹性池的资源则以弹性数据库事务单位 (eDTU) 表示。 有关 DTU 和 eDTU 的详细信息，请参阅[什么是 DTU？](sql-database-what-is-a-dtu.md) 
 
-## <a name="choosing-a-service-tier"></a>选择服务层
+## 选择服务层
+<a id="choosing-a-service-tier" class="xliff"></a>
 下表提供了最适用于不同应用程序工作负荷的层的示例。
 
 | 服务层 | 目标工作负荷 |
@@ -54,13 +55,14 @@ ms.lasthandoff: 06/12/2017
 | 弹性池中的最大数据库大小 | 2 GB | 250 GB | 500 GB | 500 GB |
 | 每个池的数据库数目上限 | 500  | 500 | 100 | 100 |
 | 最大单一数据库 DTU | 5 | 100 | 4000 | 1000 |
-| 弹性池中的每数据库最大 DTU | 5 | 100 | 4000 | 1000 |
+| 弹性池中的每数据库最大 DTU | 5 | 3000 | 4000 | 1000 |
 | 数据库备份保留期 | 7 天 | 35 天 | 35 天 | 35 天 |
 ||||||
 
 确定最低服务层后，就可以确定数据库的性能级别（DTU 数）。 通常情况下，一开始可以使用标准 S2 和 S3 性能级别。 对于具有较高 CPU 或 IO 要求的数据库，高级性能级别是合适的起点。 与最高的标准性能级别相比，高级性能级别提供更多 CPU 和至少高 10 倍的 IO。
 
-## <a name="single-database-service-tiers-and-performance-levels"></a>单一数据库服务层和性能级别
+## 单一数据库服务层和性能级别
+<a id="single-database-service-tiers-and-performance-levels" class="xliff"></a>
 对于单一数据库，每个服务层内都具有多个性能级别。 可以使用 Azure 门户、[PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database)、C# 和 REST API 灵活选择最适合工作负荷需求的级别。  
 
 尽管有多个托管的数据库，你的数据库仍可确保获得一组资源，并且数据库的预期性能特征不受影响。
@@ -71,7 +73,8 @@ ms.lasthandoff: 06/12/2017
 > 如需本服务层表中所有其他行的详细说明，请参阅 [服务层功能和限制](sql-database-performance-guidance.md#service-tier-capabilities-and-limits)。
 > 
 
-## <a name="scaling-up-or-scaling-down-a-single-database"></a>上下缩放单一数据库
+## 上下缩放单一数据库
+<a id="scaling-up-or-scaling-down-a-single-database" class="xliff"></a>
 
 在一开始选取服务层和性能级别以后，即可根据实际经验对单一数据库动态地进行上下缩放。 若需增加或减少，可以使用 Azure 门户、[PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database)、C# 和 REST API 轻松更改数据库层。 
 
@@ -84,11 +87,12 @@ ms.lasthandoff: 06/12/2017
 
 * 若要对数据库进行降级，数据库应小于目标服务层允许的最大大小。 
 * 在启用了[异地复制](sql-database-geo-replication-portal.md)的情况下升级数据库时，必须先将辅助数据库升级到所需的性能层，然后再升级主数据库。
-* 从高级服务层降级时，必须先终止所有异地复制关系。 可以按照[在中断后恢复](sql-database-disaster-recovery.md)主题中所述的步骤停止主数据库与活动次要数据库之间的复制过程。
+* 从高级服务层降级时，必须先终止所有异地复制关系。 可以按照[在中断后恢复](sql-database-disaster-recovery.md)主题中所述的步骤停止主数据库与活动次要数据库之间的复制过程（常规指南）。
 * 各服务层的还原服务不同。 如果降级，可能无法再还原到某个时间点，或者备份保留期变短。 有关详细信息，请参阅 [Azure SQL 数据库备份和还原](sql-database-business-continuity.md)。
 * 更改完成前不会应用数据库的新属性。
 
-## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>弹性池服务层和性能 (eDTU)
+## 弹性池服务层和性能 (eDTU)
+<a id="elastic-pool-service-tiers-and-performance-in-edtus" class="xliff"></a>
 
 池允许数据库共享和使用 eDTU 资源，而无需为该池中的每个数据库分配特定性能级别。 例如，标准池中的单一数据库可使用 0 个 eDTU 到最大数据库 eDTU 数（配置池时设置的）运转。 弹性池允许多个具有不同工作负荷的数据库有效地使用在整个池中都可用的 eDTU 资源。 有关详细信息，请参阅 [弹性池的价格和性能注意事项](sql-database-elastic-pool.md) 。
 
@@ -96,7 +100,8 @@ ms.lasthandoff: 06/12/2017
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
-## <a name="scaling-up-or-scaling-down-an-elastic-pool"></a>上下缩放弹性池
+## 上下缩放弹性池
+<a id="scaling-up-or-scaling-down-an-elastic-pool" class="xliff"></a>
 
 在一开始选取服务层和性能级别以后，即可根据实际经验对弹性池动态地进行上下缩放。 
 
@@ -105,10 +110,10 @@ ms.lasthandoff: 06/12/2017
 
 如需详细步骤，请参阅[在 Azure 门户中管理弹性池](sql-database-elastic-pool-manage-portal.md)、[使用 Powershell 管理弹性池](scripts/sql-database-monitor-and-scale-pool-powershell.md)、[使用 Transact-SQL 管理弹性池](sql-database-elastic-pool-manage-tsql.md)或[使用 C# 管理弹性池](sql-database-elastic-pool-manage-csharp.md)。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 * 详细了解[弹性池](sql-database-elastic-pool.md)和[弹性池的价格和性能注意事项](sql-database-elastic-pool.md)。
 * 了解如何[监视、管理弹性池和调整其大小](sql-database-elastic-pool-manage-portal.md)以及如何[监视单一数据库的性能](sql-database-single-database-monitor.md)。
 * 现在，你已了解有关 SQL 数据库层的信息，可使用 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial/)来试用这些层，并了解[如何创建你的第一个 SQL 数据库](sql-database-get-started-portal.md)。
 * 对于迁移方案，请使用 [DTU 计算器](http://dtucalculator.azurewebsites.net/) 估计所需的 DTU 数。 
-

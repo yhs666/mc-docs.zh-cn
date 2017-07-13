@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 05d5b482219f2175a7886b3bd2d662c0b4c719dd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
-
+ms.openlocfilehash: 66ae50ef1d4cb4dd29b1fa7e861cc557ec7c95fd
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="get-started-with-sql-database-auditing"></a>SQL 数据库审核入门
+# SQL 数据库审核入门
+<a id="get-started-with-sql-database-auditing" class="xliff"></a>
 Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储帐户中的审核日志。
 
 审核可帮助你一直保持遵从法规、了解数据库活动，以及深入了解可以指明业务考量因素或疑似安全违规的偏差和异常。
@@ -105,7 +104,8 @@ SQL 数据库审核可让你：
 
 ## <a id="subheading-8"></a>Blob/表在服务器审核策略继承中的差异
 
-###<a name="ablob-auditinga"></a><a>Blob 审核</a>
+###<a>Blob 审核</a>
+<a id="ablob-auditinga" class="xliff"></a>
 
 1. 如果**启用了“服务器 Blob 审核”**，它将**始终应用于数据库**（即将对数据库进行审核），而不考虑：
     - 数据库审核设置。
@@ -120,7 +120,8 @@ SQL 数据库审核可让你：
     > <br><br>
     > 否则，**建议仅启用服务器级 Blob 审核**，并将所有数据库的数据库级审核保留为禁用。
 
-###<a name="atable-auditinga-deprecated"></a><a>表审核</a>（已弃用）
+###<a>表审核</a>（已弃用）
+<a id="atable-auditinga-deprecated" class="xliff"></a>
 
 如果**启用了服务器级表审核**，则仅当在数据库边栏选项卡中选中了“从服务器继承设置”复选框（默认情况下，将对所有现有数据库和新创建的数据库进行此检查）时，它才应用于数据库。
 
@@ -142,7 +143,7 @@ Blob 审核日志以 Blob 文件集合的形式保存在名为“**sqldbauditlog
 
 可通过多种方法查看 Blob 审核日志：
 
-1. 通过 [Azure 门户](https://portal.azure.cn) - 打开相关数据库。 在数据库的“审核和威胁检测”边栏选项卡的顶部，单击“查看审核日志”。
+1. 通过 [Azure 门户](https://portal.azure.cn)打开相关数据库。 在数据库的“审核和威胁检测”边栏选项卡的顶部，单击“查看审核日志”。
 
     ![导航窗格][10]
 
@@ -177,7 +178,7 @@ Blob 审核日志以 Blob 文件集合的形式保存在名为“**sqldbauditlog
 
 可通过多种方法查看表审核日志：
 
-1. 通过 [Azure 门户](https://portal.azure.cn) - 打开相关数据库。 在数据库的“审核和威胁检测”边栏选项卡的顶部，单击“查看审核日志”。
+1. 通过 [Azure 门户](https://portal.azure.cn)打开相关数据库。 在数据库的“审核和威胁检测”边栏选项卡的顶部，单击“查看审核日志”。
 
     ![导航窗格][10]
 
@@ -227,7 +228,7 @@ Blob 审核日志以 Blob 文件集合的形式保存在名为“**sqldbauditlog
 3. 返回到审核配置边栏选项卡，将“存储访问密钥”从“辅助”切换为“主要”，然后单击底部的“确定”。 然后，单击审核配置边栏选项卡顶部的“保存”。
 4. 返回到存储配置边栏选项卡并**重新生成***辅助访问密钥*（为下一个密钥刷新周期做好准备）。
 
-## <a id="subheading-7"></a><a name="a-idsubheading-7aautomation-powershell--rest-api"></a>自动化 (PowerShell/REST API)
+## <a id="subheading-7"></a>自动化 (PowerShell/REST API)
 也可以使用以下自动化工具在 Azure SQL 数据库中配置审核：
 
 1. **PowerShell cmdlet**
@@ -284,4 +285,3 @@ Blob 审核日志以 Blob 文件集合的形式保存在名为“**sqldbauditlog
 [105]: https://msdn.microsoft.com/library/azure/mt603531(v=azure.200).aspx
 [106]: https://msdn.microsoft.com/library/azure/mt603794(v=azure.200).aspx
 [107]: https://msdn.microsoft.com/library/azure/mt619353(v=azure.200).aspx
-

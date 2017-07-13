@@ -14,24 +14,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 9b25d92ba95e475ab09a2dfdc274622178b3c7d8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 8c147760dbf10765f88cc72c4289bbf63584ab4e
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="scheduler-limits-and-defaults"></a>计划程序限制和默认值
-## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>计划程序配额、限制、默认值和中止值
+# 计划程序限制和默认值
+<a id="scheduler-limits-and-defaults" class="xliff"></a>
+## 计划程序配额、限制、默认值和中止值
+<a id="scheduler-quotas-limits-defaults-and-throttles" class="xliff"></a>
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## <a name="the-x-ms-request-id-header"></a>x-ms-request-id 标头
+## x-ms-request-id 标头
+<a id="the-x-ms-request-id-header" class="xliff"></a>
 对计划程序服务的每个请求都会返回一个名为**x-ms-request-id**的响应标头。 此响应标头包含一个唯一标识此请求的不透明值。
 
 如果请求总是失败，并且你验证了请求格式正确，可以使用此值向 Microsoft 报告错误。 在报表中包含 x-ms-request-id 值，发出请求的大概时间，订阅、作业集合和/或作业的标识符，以及请求尝试进行的操作类型。
 
-## <a name="see-also"></a>另请参阅
+## 另请参阅
+<a id="see-also" class="xliff"></a>
  [计划程序是什么？](scheduler-intro.md)
 
  [Azure 计划程序的概念、术语和实体层次结构](scheduler-concepts-terms.md)
@@ -47,5 +49,4 @@ ms.lasthandoff: 04/28/2017
  [Azure 计划程序的高可用性和可靠性](scheduler-high-availability-reliability.md)
 
  [Azure 计划程序出站身份验证](scheduler-outbound-authentication.md)
-
 

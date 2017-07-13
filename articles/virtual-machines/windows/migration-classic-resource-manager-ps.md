@@ -14,17 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 05/15/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 3c7158e6328581d8efb6e9cf1ad46c2553332ebb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 6e13999f7d059c7c42d02dc8648d0fa34810bdba
+ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-# <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>使用 Azure PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
+# 使用 Azure PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
+<a id="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell" class="xliff"></a>
 以下步骤演示了如何使用 Azure PowerShell 命令将基础结构即服务 (IaaS) 资源从经典部署模型迁移到 Azure Resource Manager 部署模型。 
 
 也可根据需要通过 [Azure 命令行接口 (Azure CLI)](../linux/migration-classic-resource-manager-cli.md) 迁移资源。
@@ -36,9 +35,10 @@ ms.lasthandoff: 05/05/2017
 <br>
 下面是一个流程图，用于确定在迁移过程中需要执行步骤的顺序
 
-![Screenshot that shows the migration steps](./media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="step-1-plan-for-migration"></a>步骤 1：做好迁移规划
+## 步骤 1：做好迁移规划
+<a id="step-1-plan-for-migration" class="xliff"></a>
 下面是建议你在将 IaaS 资源从经典部署模型迁移到 Resource Manager 部署模型时遵循的一些最佳实践：
 
 * 通读[受支持的和不受支持的功能和配置](migration-classic-resource-manager-overview.md)。 如果虚拟机使用不受支持的配置或功能，建议你等到我们宣布支持该配置/功能时再进行迁移。 也可根据需要删除该功能或移出该配置，以利迁移进行。
@@ -51,17 +51,20 @@ ms.lasthandoff: 05/05/2017
 > 
 > 
 
-## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>步骤2：安装最新版本的 Azure PowerShell
+## 步骤2：安装最新版本的 Azure PowerShell
+<a id="step-2-install-the-latest-version-of-azure-powershell" class="xliff"></a>
 安装 Azure PowerShell 可以通过两个主要的选项：[PowerShell 库](https://www.powershellgallery.com/profiles/azure-sdk/)或 [Web 平台安装程序 (WebPI)](http://aka.ms/webpi-azps)。 WebPI 接收每月的更新。 PowerShell 库会持续接收更新。 本文基于 Azure PowerShell 2.1.0 版。
 
-如需安装说明，请参阅 [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)（如何安装和配置 Azure PowerShell）。
+如需安装说明，请参阅 [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)（如何安装和配置 Azure PowerShell）。
 
 <br>
 
-## <a name="step-3-ensure-that-you-are-co-administrator-for-the-subscription-in-azure-classic-management-portal"></a>步骤 3：确保你是 Azure 经典管理门户中订阅的共同管理员
-若要执行此迁移，必须在 [Azure 经典管理门户](https://manage.windowsazure.cn/)中将你添加为订阅的共同管理员。 即使你已被添加为 [Azure 门户](https://portal.azure.cn)中的所有者，这仍是必需的操作。 尝试在 Azure 经典管理门户中添加订阅的共同管理员，确定你是否是订阅的共同管理员。 如果不能添加协同管理员，请联系订阅的服务管理员或协同管理员，以将自己添加为协同管理员。   
+## 步骤 3：确保你是 Azure 经典管理门户中订阅的共同管理员
+<a id="step-3-ensure-that-you-are-co-administrator-for-the-subscription-in-azure-classic-management-portal" class="xliff"></a>
+若要执行此迁移，必须在 [Azure 经典管理门户](https://manage.windowsazure.cn/)中将你添加为订阅的共同管理员。 即使已添加为 [Azure 门户](https://portal.azure.cn) 中的所有者，这仍是必需的操作。 尝试在 Azure 经典管理门户中添加订阅的共同管理员，确定你是否是订阅的共同管理员。 如果不能添加协同管理员，请联系订阅的服务管理员或协同管理员，以将自己添加为协同管理员。   
 
-## <a name="step-4-set-your-subscription-and-sign-up-for-migration"></a>步骤 4：设置订阅并针对迁移进行注册
+## 步骤 4：设置订阅并针对迁移进行注册
+<a id="step-4-set-your-subscription-and-sign-up-for-migration" class="xliff"></a>
 首先，请启动 PowerShell 提示符。 对于迁移，需要针对经典部署模型和 Resource Manager 部署模型设置环境。
 
 登录到 Resource Manager 模型的帐户。
@@ -123,7 +126,8 @@ ms.lasthandoff: 05/05/2017
 
 <br>
 
-## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>步骤 5：确保在当前部署或 VNET 的 Azure 区域中有足够的 Azure Resource Manager 虚拟机核心
+## 步骤 5：确保在当前部署或 VNET 的 Azure 区域中有足够的 Azure Resource Manager 虚拟机核心
+<a id="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet" class="xliff"></a>
 可以使用以下 PowerShell 命令检查 Azure Resource Manager 中目前的核心数量。 若要了解有关核心配额的详细信息，请参阅[限制和 Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)。 
 
 此示例检查 **中国北部** 区域的可用性。 使用自己的区域名称替换示例名称。 
@@ -132,13 +136,15 @@ ms.lasthandoff: 05/05/2017
 Get-AzureRmVMUsage -Location "China North"
 ```
 
-## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>步骤 6：运行迁移 IaaS 资源的命令
+## 步骤 6：运行迁移 IaaS 资源的命令
+<a id="step-6-run-commands-to-migrate-your-iaas-resources" class="xliff"></a>
 > [!NOTE]
 > 此处描述的所有操作都是幂等的。 如果你遇到功能不受支持或配置错误以外的问题，建议你重试准备、中止或提交操作。 然后，平台会尝试再次操作。
 > 
 > 
 
-## <a name="step-61-migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>步骤 6.1：迁移云服务中的虚拟机（不在虚拟网络中）
+## 步骤 6.1：迁移云服务中的虚拟机（不在虚拟网络中）
+<a id="step-61-migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network" class="xliff"></a>
 使用以下命令获取云服务列表，然后选取要迁移的云服务。 如果云服务中的 VM 在虚拟网络中或者具有 Web 角色或辅助角色，该命令会返回错误消息。
 
 ```powershell
@@ -207,7 +213,7 @@ Get-AzureRmVMUsage -Location "China North"
     $vm.VM.MigrationState
 ```
 
-使用 PowerShell 或 Azure 门户，检查准备就绪的资源的配置。 如果尚未做好迁移准备，因此想要回到旧的状态，请使用以下命令：
+使用 PowerShell 或 Azure 门户查看准备就绪的资源的配置。 如果尚未做好迁移准备，因此想要回到旧的状态，请使用以下命令：
 
 ```powershell
     Move-AzureService -Abort -ServiceName $serviceName -DeploymentName $deploymentName
@@ -219,8 +225,11 @@ Get-AzureRmVMUsage -Location "China North"
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-## <a name="step-62-migrate-virtual-machines-in-a-virtual-network"></a>步骤 6.2：迁移虚拟网络中的虚拟机
+## 步骤 6.2：迁移虚拟网络中的虚拟机
+<a id="step-62-migrate-virtual-machines-in-a-virtual-network" class="xliff"></a>
 若要迁移虚拟网络中的虚拟机，可迁移虚拟网络。 虚拟机随虚拟网络自动迁移。 选取要迁移的虚拟网络。 
+> [!NOTE]
+> 通过使用虚拟机的 VHD（OS 和数据）文件创建新的使用托管磁盘的 Resource Manager 虚拟机来[迁移单个经典虚拟机](migrate-single-classic-to-resource-manager.md)。 
 
 此示例将虚拟网络名称设置为 **myVnet**。 使用自己的虚拟网络名称替换示例名称。 
 
@@ -245,7 +254,7 @@ Get-AzureRmVMUsage -Location "China North"
     Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
 ```
 
-使用 Azure PowerShell 或 Azure 门户，检查准备就绪的虚拟机的配置。 如果尚未做好迁移准备，因此想要回到旧的状态，请使用以下命令：
+使用 Azure PowerShell 或 Azure 门户查看已准备就绪的虚拟机的配置。 如果尚未做好迁移准备，因此想要回到旧的状态，请使用以下命令：
 
 ```powershell
     Move-AzureVirtualNetwork -Abort -VirtualNetworkName $vnetName
@@ -257,7 +266,8 @@ Get-AzureRmVMUsage -Location "China North"
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-## <a name="step-63-migrate-a-storage-account"></a>步骤 6.3：迁移存储帐户
+## 步骤 6.3：迁移存储帐户
+<a id="step-63-migrate-a-storage-account" class="xliff"></a>
 完成虚拟机迁移之后，建议迁移存储帐户。
 
 在迁移存储帐户之前，请执行以下先决条件检查：
@@ -281,7 +291,6 @@ Get-AzureRmVMUsage -Location "China North"
         Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Format-List -Property DiskName  
 
     ```
-
     如果上述命令返回了磁盘，请使用以下命令删除这些磁盘：
 
     ```powershell
@@ -290,35 +299,37 @@ Get-AzureRmVMUsage -Location "China North"
 * **删除存储帐户中存储的 VM 映像**
 
     上述命令返回 OS 磁盘存储在该存储帐户中的所有 VM 映像。
-
-    ```powershell
+     ```powershell
         Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
                                 } | Select-Object -Property ImageName, ImageLabel
-    ```
-
+     ```
      上述命令返回数据磁盘存储在该存储帐户中的所有 VM 映像。
-
      ```powershell
 
         Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
                                          -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
                                         } | Select-Object -Property ImageName, ImageLabel
      ```
-
     使用前面的命令删除上述命令返回的所有 VM 映像：
-
     ```powershell
     Remove-AzureVMImage -ImageName 'yourImageName'
     ```
 
-使用以下命令准备要迁移的每个存储帐户。 在此示例中，存储帐户名称为 **myStorageAccount**。 使用自己的存储帐户名称替换示例名称。 
+使用以下命令验证要迁移的每个存储帐户。 在此示例中，存储帐户名称为 **myStorageAccount**。 使用自己的存储帐户名称替换示例名称。 
+
+```powershell
+    $storageAccountName = "myStorageAccount"
+    Move-AzureStorageAccount -Validate -StorageAccountName $storageAccountName
+```
+
+下一步是准备存储帐户以便进行迁移
 
 ```powershell
     $storageAccountName = "myStorageAccount"
     Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
 ```
 
-使用 Azure PowerShell 或 Azure 门户，检查准备就绪的存储帐户的配置。 如果尚未做好迁移准备，因此想要回到旧的状态，请使用以下命令：
+使用 Azure PowerShell 或 Azure 门户检查准备就绪的存储帐户的配置。 如果尚未做好迁移准备，因此想要回到旧的状态，请使用以下命令：
 
 ```powershell
     Move-AzureStorageAccount -Abort -StorageAccountName $storageAccountName
@@ -330,7 +341,8 @@ Get-AzureRmVMUsage -Location "China North"
     Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
 ```
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * [平台支持的从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移概述](migration-classic-resource-manager-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](migration-classic-resource-manager-deep-dive.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [规划从经典部署模型到 Azure Resource Manager 的 IaaS 资源迁移](migration-classic-resource-manager-plan.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -338,4 +350,3 @@ Get-AzureRmVMUsage -Location "China North"
 * [用于帮助将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型的社区工具](migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看最常见的迁移错误](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看有关将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型的最常见问题](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-

@@ -14,29 +14,30 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-origin.date: 09/15/2016
+origin.date: 05/01/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: 7cc2df26ff33d62b43a1f7eb73bbca93078655f4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: 0d423b70c2a19990a6cc140f9877142864659324
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="how-to-create-a-virtual-machine-scale-set-with-the-azure-portal-preview"></a>如何使用 Azure 门户创建虚拟机规模集
-本教程介绍如何使用 Azure 门户在数分钟内轻松创建虚拟机规模集。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+# 如何使用 Azure 门户创建虚拟机规模集
+<a id="how-to-create-a-virtual-machine-scale-set-with-the-azure-portal" class="xliff"></a>
+本教程介绍如何通过 Azure 门户在数分钟内轻松创建虚拟机规模集。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-## <a name="choose-the-vm-image-from-the-marketplace"></a>从应用商店中选择 VM 映像
+## 从应用商店中选择 VM 映像
+<a id="choose-the-vm-image-from-the-marketplace" class="xliff"></a>
 在门户中，可以使用 CentOS、CoreOS、Debian、Open Suse、Red Hat Enterprise Linux、SUSE Linux Enterprise Server、Ubuntu Server 或 Windows Server 映像轻松部署规模集。
 
-首先，在 Web 浏览器中导航到 [Azure 门户](https://portal.azure.cn) 。 单击 `New`，搜索 `scale set`，然后选择 `Virtual machine scale set` 条目：
+首先，在 Web 浏览器中导航到 [Azure 门户](https://portal.azure.cn)。 单击 `New`，搜索 `scale set`，然后选择 `Virtual machine scale set` 条目：
 
 ![ScaleSetPortalOverview](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalOverview.PNG)
 
-## <a name="create-the-scale-set"></a>创建规模集
+## 创建规模集
+<a id="create-the-scale-set" class="xliff"></a>
 现在可使用默认设置并快速创建规模集。
 
 * 在 `Basics` 边栏选项卡上，输入规模集的名称。 此名称将成为规模集前端负载均衡器的 FQDN 的基础，因此请确保在整个 Azure 中，此名称是唯一的。
@@ -44,22 +45,26 @@ ms.lasthandoff: 04/06/2017
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 
+* 选择是否要将规模集设置为单个组或它是否应跨越多个放置组。 允许规模集跨越放置组可以实现容量上超过 100 个 VM 的规模集（最多 1,000），不过具有某些限制。 有关详细信息，请参阅[此文档](./virtual-machine-scale-sets-placement-groups.md)。
 * 输入所需的资源组名称和位置，然后单击 `OK` 。
 * 在 `Virtual machine scale set service settings` 边栏选项卡上：输入所需的域名标签（规模集前端负载均衡器的 FQDN 的基础）。 在整个 Azure 中，此标签必须是唯一的。
 * 选择所需的操作系统磁盘映像、实例计数和计算机大小。
+* 选择所需磁盘类型：托管或非托管。 有关详细信息，请参阅[此文档](./virtual-machine-scale-sets-managed-disks.md)。 如果选择让规模集跨越多个放置组，则此选项不可用，因为需要托管磁盘才能使规模集跨越放置组。
 
 ![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
 
 * 当验证完成时，在 `Summary` 边栏选项卡上，单击 `OK` 开始规模集部署。
 
-## <a name="connect-to-a-vm-in-the-scale-set"></a>连接到规模集中的 VM
+## 连接到规模集中的 VM
+<a id="connect-to-a-vm-in-the-scale-set" class="xliff"></a>
 如果选择将规模集限制在单个放置组，则使用 NAT 规则部署规模集，这些规则已配置为允许轻松连接到规模集（如果未配置，若要连接到规模集中的虚拟机，则可能需要在与规模集相同的虚拟网络中创建 jumpbox）。 若要查看它们，请导航到规模集的负载均衡器的 `Inbound NAT Rules` 选项卡：
 
 ![ScaleSetPortalNatRules](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalNatRules.PNG)
 
 可以使用这些 NAT 规则连接到规模集中的每个 VM。 例如，对于 Windows 规模集，如果传入端口 50000 使用的是 NAT 规则，则可以通过 `<load-balancer-ip-address>:50000`上的 RDP 连接到该计算机。 对于 Linux 规模集，则使用命令 `ssh -p 50000 <username>@<load-balancer-ip-address>`进行连接。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 有关如何从 CLI 部署规模集的文档，请参阅[本文档](virtual-machine-scale-sets-cli-quick-create.md)。
 
 有关如何从 PowerShell 部署规模集的文档，请参阅[本文档](virtual-machine-scale-sets-windows-create.md)。

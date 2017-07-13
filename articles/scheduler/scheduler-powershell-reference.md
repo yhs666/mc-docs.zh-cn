@@ -14,15 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 3eccefa0751e734d30ec1356f9d5317aa8f92f84
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 50768be9d061807bdae7c79ea2561958a0ce6511
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="scheduler-powershell-cmdlets-reference"></a>计划程序 PowerShell Cmdlet 参考
+# 计划程序 PowerShell Cmdlet 参考
+<a id="scheduler-powershell-cmdlets-reference" class="xliff"></a>
 下表介绍 Azure 计划程序中每个主要 cmdlet 的参考页并链接到该页。
 
 若要安装 Azure PowerShell 并将其与 Azure 订阅相关联，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 
@@ -61,7 +60,8 @@ Get-Help <cmdlet name> -Examples
 Get-Help <cmdlet name> -Full
 ```
 
-## <a name="see-also"></a>另请参阅
+## 另请参阅
+<a id="see-also" class="xliff"></a>
  [计划程序是什么？](scheduler-intro.md)
 
  [Azure 计划程序的概念、术语和实体层次结构](scheduler-concepts-terms.md)
@@ -77,5 +77,4 @@ Get-Help <cmdlet name> -Full
  [Azure 计划程序的限制、默认值和错误代码](scheduler-limits-defaults-errors.md)
 
  [Azure 计划程序出站身份验证](scheduler-outbound-authentication.md)
-
 

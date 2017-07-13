@@ -3,8 +3,8 @@ title: "连接器版本发行历史记录 | Microsoft Docs"
 description: "本主题列出了 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接器的所有版本"
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/11/2017
+origin.date: 06/16/2017
+ms.date: 06/23/2017
 ms.author: v-junlch
-ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: c7d899a1c6ac168782a885ae5ca7317e49153764
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 3842a953ebb5e1a26b677beb42ea17dc487a5a4f
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
-# <a name="connector-version-release-history"></a>连接器版本发行历史记录
+# 连接器版本发行历史记录
+<a id="connector-version-release-history" class="xliff"></a>
 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接器会经常更新。
 
 > [!NOTE]
@@ -40,16 +39,42 @@ Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接�
 - [PowerShell 连接器](active-directory-aadconnectsync-connector-powershell.md)参考文档
 - [Lotus Domino 连接器](active-directory-aadconnectsync-connector-domino.md)参考文档
 
-## <a name="115220"></a>1.1.522.0
+## 1.1.552.0
+<a id="115520" class="xliff"></a>
 
-### <a name="enhancements"></a>增强功能：
+### 已解决的问题：
+<a id="fixed-issues" class="xliff"></a>
+
+- 泛型 Web 服务：
+  - Wsconfig 工具未正确转换 REST 服务方法的“示例请求”中的 Json 数组。 因此，为 REST 请求序列化此 Json 数组时会出现问题。
+  - Web 服务连接器配置工具不支持在 JSON 属性名称中使用空格符号。可手动将替换模式添加到 WSConfigTool.exe.config 文件中，例如 ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+
+- Lotus Notes：
+  - 选项“允许组织/组织单位的自定义认证者”处于禁用状态时，导出（更新）期间连接将失败。导出流后，将所有属性导出到 Domino，但在导出时，KeyNotFoundException 会返回到同步。 这是因为重命名操作试图通过更改下列属性之一来更改 DN（用户名属性）时操作失败：  
+    - LastName
+    - FirstName
+    - MiddleInitial
+    - AltFullName
+    - AltFullNameLanguage
+    - ou
+    - altcommonname
+
+  - “允许组织/组织单位的自定义认证者”选项已启用，但所需认证者仍为空时，会发生 KeyNotFoundException。
+
+
+## 1.1.522.0
+<a id="115220" class="xliff"></a>
+
+### 增强功能：
+<a id="enhancements" class="xliff"></a>
 
 - 泛型 SQL：
   - **方案：已重新实施：**“*”功能
   - **解决方案说明：**已更改[多值引用属性处理](active-directory-aadconnectsync-connector-genericsql.md)的方法。
 
 
-### <a name="fixed-issues"></a>已解决的问题：
+### 已解决的问题：
+<a id="fixed-issues" class="xliff"></a>
 
 - 泛型 Web 服务：
   - 如果存在 WebService 连接器，则无法导入服务器配置
@@ -63,11 +88,13 @@ Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接�
 Lotus：
   - 打开 GlobalParameters 页之前，添加启用\禁用搜索 OU 的选项
 
-## <a name="114430"></a>1.1.443.0
+## 1.1.443.0
+<a id="114430" class="xliff"></a>
 
 发布时间：2017 年 3 月
 
-### <a name="enhancements"></a>增强功能
+### 增强功能
+<a id="enhancements" class="xliff"></a>
 
 - 泛型 SQL：</br>
   **情景症状：**我们仅允许引用一个对象类型，并要求对成员使用交叉引用，这是一个已知的 SQL 连接器限制。 </br>
@@ -89,7 +116,8 @@ Lotus：
   **情景：**导出期间用于删除人员的 Domino 邮件删除支持。 </br>
   **解决方法：**导出期间可配置用于删除人员的 Domino 邮件删除支持。
 
-### <a name="fixed-issues"></a>已解决的问题：
+### 已解决的问题：
+<a id="fixed-issues" class="xliff"></a>
 - 泛型 Web 服务：
  - 通过 WebService 配置工具在默认 SAP wsconfig 项目中更改服务 URL 时，会发生以下错误：找不到部分路径
 
@@ -119,7 +147,8 @@ Lotus：
  - 删除不适用于跨 NAB 成员的成员身份。
  - 应可从多值属性中成功删除值
 
-## <a name="111170"></a>1.1.117.0
+## 1.1.117.0
+<a id="111170" class="xliff"></a>
 发布时间：2016 年 3 月
 
 **新连接器**  
@@ -148,37 +177,38 @@ Lotus：
   - 同时从组中添加和删除成员的导出仅导出了所添加的成员。
   - 如果 Notes Document 无效（isValid 属性设置为 false），则连接器将失败。
 
-## <a name="older-releases"></a>较旧版本
+## 较旧版本
+<a id="older-releases" class="xliff"></a>
 在 2016 年 3 月之前，连接器已发布为支持主题。
 
 **通用 LDAP**
 
-- [KB3078617](https://support.microsoft.com/zh-cn/kb/3078617) - 1.0.0597，2015 年 9 月
-- [KB3044896](https://support.microsoft.com/zh-cn/kb/3044896) - 1.0.0549，2015 年 3 月
-- [KB3031009](https://support.microsoft.com/zh-cn/kb/3031009) - 1.0.0534，2015 年 1 月
-- [KB3008177](https://support.microsoft.com/zh-cn/kb/3008177) - 1.0.0419，2014 年 9 月
-- [KB2936070](https://support.microsoft.com/zh-cn/kb/2936070) - 4.3.1082，2014 年 3 月
+- [KB3078617](https://support.microsoft.com/kb/3078617) - 1.0.0597，2015 年 9 月
+- [KB3044896](https://support.microsoft.com/kb/3044896) - 1.0.0549，2015 年 3 月
+- [KB3031009](https://support.microsoft.com/kb/3031009) - 1.0.0534，2015 年 1 月
+- [KB3008177](https://support.microsoft.com/kb/3008177) - 1.0.0419，2014 年 9 月
+- [KB2936070](https://support.microsoft.com/kb/2936070) - 4.3.1082，2014 年 3 月
 
 **WebServices**
 
-- [KB3008178](https://support.microsoft.com/zh-cn/kb/3008178) - 1.0.0419，2014 年 9 月
+- [KB3008178](https://support.microsoft.com/kb/3008178) - 1.0.0419，2014 年 9 月
 
 **PowerShell**
 
-- [KB3008179](https://support.microsoft.com/zh-cn/kb/3008179) - 1.0.0419，2014 年 9 月
+- [KB3008179](https://support.microsoft.com/kb/3008179) - 1.0.0419，2014 年 9 月
 
 **Lotus Domino**
 
-- [KB3096533](https://support.microsoft.com/zh-cn/kb/3096533) - 1.0.0597，2015 年 9 月
-- [KB3044895](https://support.microsoft.com/zh-cn/kb/3044895) - 1.0.0549，2015 年 3 月
-- [KB2977286](https://support.microsoft.com/zh-cn/kb/2977286) - 5.3.0712，2014 年 8 月
-- [KB2932635](https://support.microsoft.com/zh-cn/kb/2932635) - 5.3.1003，2014 年 2 月  
-- [KB2899874](https://support.microsoft.com/zh-cn/kb/2899874) - 5.3.0721，2013 年 10 月
-- [KB2875551](https://support.microsoft.com/zh-cn/kb/2875551) - 5.3.0534，2013 年 8 月
+- [KB3096533](https://support.microsoft.com/kb/3096533) - 1.0.0597，2015 年 9 月
+- [KB3044895](https://support.microsoft.com/kb/3044895) - 1.0.0549，2015 年 3 月
+- [KB2977286](https://support.microsoft.com/kb/2977286) - 5.3.0712，2014 年 8 月
+- [KB2932635](https://support.microsoft.com/kb/2932635) - 5.3.1003，2014 年 2 月  
+- [KB2899874](https://support.microsoft.com/kb/2899874) - 5.3.0721，2013 年 10 月
+- [KB2875551](https://support.microsoft.com/kb/2875551) - 5.3.0534，2013 年 8 月
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 了解有关 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)配置的详细信息。
 
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
-
 

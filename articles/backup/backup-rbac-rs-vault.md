@@ -14,16 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: c895ca9197f4027ee3a5dc0c114b71579ac4ef41
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: a924fd6950bd21cde57956d69c3d76070bab697c
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>使用基于角色的访问控制管理 Azure 备份恢复点
+# 使用基于角色的访问控制管理 Azure 备份恢复点
+<a id="use-role-based-access-control-to-manage-azure-backup-recovery-points" class="xliff"></a>
 Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访问管理。 使用 RBAC，你可以在团队中对职责进行分配，仅向用户授予执行作业所需的访问权限。
 
 > [!IMPORTANT]
@@ -39,7 +37,8 @@ Azure 备份提供 3 个用于控制备份管理操作的内置角色。 详细�
 
 
 
-## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>将备份内置角色映射到备份管理操作
+## 将备份内置角色映射到备份管理操作
+<a id="mapping-backup-built-in-roles-to-backup-management-actions" class="xliff"></a>
 下表包含备份管理操作和执行这些操作所需的最低 RBAC 角色。
 
 | 管理操作 | 所需的最低 RBAC 角色 |
@@ -56,11 +55,11 @@ Azure 备份提供 3 个用于控制备份管理操作的内置角色。 详细�
 | 注册本地 Windows Server/客户端/SCDPM 或 Azure 备份服务器 | 备份操作员 |
 | 删除已注册的本地 Windows Server/客户端/SCDPM 或 Azure 备份服务器 | 备份参与者 |
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 - [基于角色的访问控制](../active-directory/role-based-access-control-configure.md)：Azure 门户中的 RBAC 入门。
 - 了解如何通过以下方式管理访问权限：
   - [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   - [Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md)
   - [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 - [基于角色的访问控制故障排除](../active-directory/role-based-access-control-troubleshooting.md)：获取解决常见问题的建议。
-

@@ -15,20 +15,20 @@ ms.topic: article
 origin.date: 04/25/2017
 ms.date: 03/01/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 98bb89ac554a4de05bcdfe7985b4463aa95e766a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 0f31be392507f6cedd0210f5a4bc051c5d08ee97
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="upload-a-custom-java-web-app-to-azure"></a>将自定义 Java Web 应用上传到 Azure
+# 将自定义 Java Web 应用上传到 Azure
+<a id="upload-a-custom-java-web-app-to-azure" class="xliff"></a>
 本主题介绍如何将自定义 Java Web 应用上传到 [Azure 应用服务] Web 应用。 包括适用于所有 Java 网站或 Web 应用的信息和一部分特定应用程序示例。
 
 请注意，Azure 提供了一种使用 Azure 门户的配置 UI 创建 Java Web 应用的方法，如[在 Azure 应用服务中创建 Java Web 应用](web-sites-java-get-started.md)中所述。 本教程适用于无需使用 Azure 门户配置 UI 的方案。  
 
-## <a name="configuration-guidelines"></a>配置指南
+## 配置指南
+<a id="configuration-guidelines" class="xliff"></a>
 下面描述了 Azure 上自定义 Java Web 应用的预期设置。
 
 * Java 进程使用动态分配的 HTTP 端口。  该进程必须使用环境变量 `HTTP_PLATFORM_PORT`的端口。
@@ -39,7 +39,8 @@ ms.lasthandoff: 05/26/2017
 
 可根据需要在 web.config 文件中设置环境变量。
 
-## <a name="webconfig-httpplatform-configuration"></a>web.config httpPlatform 配置
+## web.config httpPlatform 配置
+<a id="webconfig-httpplatform-configuration" class="xliff"></a>
 以下信息介绍 web.config 的 **httpPlatform** 格式。
 
 **arguments**（默认值=""）。 **processPath** 设置中指定的可执行文件或脚本的参数。
@@ -79,13 +80,16 @@ ms.lasthandoff: 05/26/2017
 > 
 > 
 
-## <a name="deployment"></a>部署
+## 部署
+<a id="deployment" class="xliff"></a>
 可通过基于 Internet Information Services (IIS) 的 Web 应用程序使用的方法轻松部署基于 Java 的 Web 应用。  FTP、Git 和 Kudu 支持的部署机制与 Web 应用的集成 SCM 功能相同。 可将 WebDeploy 用作协议，但由于 Java 不是在 Visual Studio 中开发，因此 WebDeploy 不适用于 Java Web 应用部署使用案例。
 
-## <a name="application-configuration-examples"></a>应用程序配置示例
+## 应用程序配置示例
+<a id="application-configuration-examples" class="xliff"></a>
 对于以下应用程序，提供了 web.config 文件和应用程序配置作为示例，用以说明如何在应用服务 Web 应用上启用 Java 应用程序。
 
-### <a name="tomcat"></a>Tomcat
+### Tomcat
+<a id="tomcat" class="xliff"></a>
 尽管应用服务 Web 应用提供了两个 Tomcat 变体，但仍可以上传客户特定的实例。 使用不同 Java 虚拟机 (JVM) 安装 Tomcat 的示例如下。
 
     <?xml version="1.0" encoding="UTF-8"?>
@@ -116,7 +120,8 @@ ms.lasthandoff: 05/26/2017
 
 应用服务 Web 应用上不支持 Direct3d 调用。 若要禁用这些调用，添加以下 Java 选项使应用程序进行以下调用：`-Dsun.java2d.d3d=false`
 
-### <a name="jetty"></a>Jetty
+### Jetty
+<a id="jetty" class="xliff"></a>
 和 Tomcat 一样，客户可以上传自己的 Jetty 实例。 对于运行完整安装的 Jetty，配置应如下所示：
 
     <?xml version="1.0" encoding="UTF-8"?>
@@ -136,7 +141,8 @@ ms.lasthandoff: 05/26/2017
 
 应在 start.ini 中更改 Jetty 配置并设置 `java.net.preferIPv4Stack=true`。
 
-### <a name="springboot"></a>Springboot
+### Springboot
+<a id="springboot" class="xliff"></a>
 若要运行 Springboot 应用程序，需要上传你的 JAR 或 WAR 文件，并添加以下 web.config 文件。 该 web.config 文件位于 wwwroot 文件夹中。 在 web.config 中，调整参数以指向你的 JAR 文件，以下示例中的 JAR 文件同样位于 wwwroot 文件夹中。  
 
     <?xml version="1.0" encoding="UTF-8"?>
@@ -151,7 +157,8 @@ ms.lasthandoff: 05/26/2017
       </system.webServer>
     </configuration>
 
-### <a name="hudson"></a>Hudson
+### Hudson
+<a id="hudson" class="xliff"></a>
 我们的测试使用 Hudson 3.1.2 war 和默认 Tomcat 7.0.50 实例，但不使用 UI 进行设置。  由于 Hudson 为软件构建工具，因此建议将其安装在可在 Web 应用上设置 **AlwaysOn** 标志的专用实例上。
 
 1. 在 Web 应用的站点根目录（即 **d:\home\site\wwwroot**）中创建 **webapps** 目录（如果尚不存在），并将 Hudson.war 放在 **d:\home\site\wwwroot\webapps** 中。
@@ -193,7 +200,8 @@ ms.lasthandoff: 05/26/2017
 
 有关 Hudson 的更多信息，请参阅 [http://hudson-ci.org](http://hudson-ci.org)。
 
-### <a name="liferay"></a>Liferay
+### Liferay
+<a id="liferay" class="xliff"></a>
 应用服务 Web 应用上不支持 Liferay。 由于 Liferay 可能需要大量内存，因此该 Web 应用需要在可提供足够内存的中型或大型专用工作机上运行。 Liferay 启动也需要几分钟时间。 鉴于上述原因，建议将 Web 应用设置为“始终打开”。  
 
 使用与 Tomcat 捆绑的 Liferay 6.1.2 Community Edition GA3 时，下载 Liferay 后应编辑以下文件：
@@ -238,7 +246,8 @@ ms.lasthandoff: 05/26/2017
 
 做完上述更改后，重新启动运行 Liferay 的 Web 应用，然后打开 http://yourwebapp。 可从 Web 应用根目录访问 Liferay 门户。 
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 有关 Liferay 的详细信息，请参阅 [http://www.liferay.com](http://www.liferay.com)。
 
 有关 Java 的详细信息，请参阅 [Java 开发人员中心](/develop/java/)。

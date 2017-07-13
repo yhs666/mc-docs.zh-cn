@@ -12,18 +12,17 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/16/2017
-ms.date: 04/24/2017
+origin.date: 05/22/2017
+ms.date: 07/10/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: ab8fc4900ae18aa96ff061b806880b75ead9e27f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: fd4fe79c2fbfcc6009d3bde0b66860896b53ce5f
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
-# <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>使用 Node 将模拟设备连接到 IoT 中心
+# 使用 Node 将模拟设备连接到 IoT 中心
+<a id="connect-your-simulated-device-to-your-iot-hub-using-node" class="xliff"></a>
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 本教程结束时，将会创建三个 Node.js 控制台应用：
@@ -41,13 +40,14 @@ ms.lasthandoff: 04/14/2017
 
 + Node.js 0.10.x 或更高版本。
 
-+ 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）
++ 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 现在已创建 IoT 中心。 你已获得完成本教程的其余部分所需的 IoT 中心主机名和 IoT 中心连接字符串。
 
-## <a name="create-a-device-identity"></a>创建设备标识
+## 创建设备标识
+<a id="create-a-device-identity" class="xliff"></a>
 在本部分中，将创建一个 Node.js 控制台应用程序，用于在 IoT 中心的标识注册表中创建设备标识。 设备无法连接到 IoT 中心，除非它在标识注册表中具有条目。 有关详细信息，请参阅 [IoT 中心开发人员指南][lnk-devguide-identity]中的**标识注册表**部分。 当你运行此控制台应用时，它将生成唯一的设备 ID 和密钥，当设备向 IoT 中心发送设备到云的消息时，可以用于标识设备本身。
 
 1. 新建名为 **createdeviceidentity**的空文件夹。 在 **createdeviceidentity** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。 接受所有默认值：
@@ -109,7 +109,9 @@ ms.lasthandoff: 04/14/2017
 > 
 > 
 
-## <a name="receive-device-to-cloud-messages"></a>接收设备到云的消息
+<a id="D2C_node"></a>
+## 接收设备到云的消息
+<a id="receive-device-to-cloud-messages" class="xliff"></a>
 本部分将创建一个 Node.js 控制台应用，用于读取来自 IoT 中心的设备到云消息。 IoT 中心公开与 [事件中心][lnk-event-hubs-overview]兼容的终结点，以便你可读取设备到云的消息。 为了简单起见，本教程创建的基本读取器不适用于高吞吐量部署。 [Process device-to-cloud messages][lnk-process-d2c-tutorial] （处理设备到云的消息）教程介绍了如何大规模处理设备到云的消息。 [事件中心入门][lnk-eventhubs-tutorial] 教程更详细地介绍了如何处理来自事件中心的消息，此教程也适用于与 IoT 中心事件中心兼容的终结点。
 
 > [!NOTE]
@@ -172,7 +174,8 @@ ms.lasthandoff: 04/14/2017
     ```
 8. 保存并关闭 **ReadDeviceToCloudMessages.js** 文件。
 
-## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
+## 创建模拟设备应用程序
+<a id="create-a-simulated-device-app" class="xliff"></a>
 本部分将创建一个 Node.js 控制台应用，用于模拟向 IoT 中心发送设备到云消息的设备。
 
 1. 创建名为 **simulateddevice**的空文件夹。 在 **simulateddevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。 接受所有默认值：
@@ -222,9 +225,11 @@ ms.lasthandoff: 04/14/2017
 
         // Create a message and send it to the IoT Hub every second
         setInterval(function(){
-            var windSpeed = 10 + (Math.random() * 4);
-            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', windSpeed: windSpeed });
+            var temperature = 20 + (Math.random() * 15);
+            var humidity = 60 + (Math.random() * 20);            
+            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
             var message = new Message(data);
+            message.properties.add('temperatureAlert', (temperature > 30) ? 'true' : 'false');
             console.log("Sending message: " + message.getData());
             client.sendEvent(message, printResultFor('send'));
         }, 1000);
@@ -240,12 +245,15 @@ ms.lasthandoff: 04/14/2017
 
 > [!NOTE]
 > 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按 MSDN 文章 [Transient Fault Handling][lnk-transient-faults]（暂时性故障处理）中所述实施重试策略（例如指数性的回退）。
+> 
+> 
 
-## <a name="run-the-apps"></a>运行应用
+## 运行应用
+<a id="run-the-apps" class="xliff"></a>
 现在，已准备就绪，可以运行应用。
 
-1. 在 **readdevicetocloudmessages** 文件夹的命令提示符处，运行下述命令以开始监视 IoT 中心：
-
+1. 在 **readdevicetocloudmessages** 文件夹的命令提示符下，运行以下命令开始监视 IoT 中心：
+   
     ```
     node ReadDeviceToCloudMessages.js 
     ```
@@ -262,16 +270,18 @@ ms.lasthandoff: 04/14/2017
 
     ![显示发送到 IoT 中心的消息数的 Azure 门户“使用情况”磁贴][43]
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 本教程中，在 Azure 门户中配置了新的 IoT 中心，然后在 IoT 中心的标识注册表中创建了设备标识。 已使用此设备标识，使模拟设备应用可将设备到云的消息发送至 IoT 中心。 还创建了一个应用，用于显示 IoT 中心接收的消息。 
 
 若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
 
-- [连接你的设备][lnk-connect-device]
-- [设备管理入门][lnk-device-management]
-- [IoT 网关 SDK 入门][lnk-gateway-SDK]
+* [连接你的设备][lnk-connect-device]
+* [设备管理入门][lnk-device-management]
+* [Azure IoT Edge 入门][lnk-iot-edge]
 
 若要了解如何扩展 IoT 解决方案和如何大规模处理设备到云的消息，请参阅 [Process device-to-cloud messages][lnk-process-d2c-tutorial] （处理设备到云的消息）教程。
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
 <!-- Images. -->
 [7]: ./media/iot-hub-node-node-getstarted/runapp1.png
@@ -281,11 +291,11 @@ ms.lasthandoff: 04/14/2017
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-dotnet-standard-getstarted-send.md
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: ./iot-hub-devguide-identity-registry.md
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs-what-is-event-hubs.md
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-process-d2c-tutorial]: ./iot-hub-csharp-csharp-process-d2c.md
 
 [lnk-hub-sdks]: ./iot-hub-devguide-sdks.md
@@ -293,5 +303,5 @@ ms.lasthandoff: 04/14/2017
 [lnk-portal]: https://portal.azure.cn/
 
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
-[lnk-connect-device]: /develop/iot/
+[lnk-iot-edge]: ./iot-hub-linux-iot-edge-get-started.md
+[lnk-connect-device]: https://www.azure.cn/develop/iot/

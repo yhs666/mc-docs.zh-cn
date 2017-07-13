@@ -18,15 +18,14 @@ origin.date: 05/12/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 9efda4bb1d39af3c8c66d6f4b69f06020c5ed5da
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 6db352aad1fdac5e0c74620f56a201cfbeab2e1c
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="create-an-apache-storm-topology-in-java"></a>以 Java 语言创建 Apache Storm 拓扑
+# 以 Java 语言创建 Apache Storm 拓扑
+<a id="create-an-apache-storm-topology-in-java" class="xliff"></a>
 
 了解如何为 Apache Storm 创建基于 Java 的拓扑。 将创建一个实现单词计数应用程序的 Storm 拓扑。 将使用 Maven 生成并打包项目。 然后，了解如何使用 Flux 框架定义拓扑。
 
@@ -40,7 +39,8 @@ ms.lasthandoff: 05/26/2017
 > [!NOTE]
 > [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount) 上提供了本文档中创建的 Storm 拓扑示例的完整版本。
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 
 * [Java 开发人员工具包 (JDK) 版本 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
 
@@ -48,7 +48,8 @@ ms.lasthandoff: 05/26/2017
 
 * 文本编辑器或 IDE。
 
-## <a name="configure-environment-variables"></a>配置环境变量
+## 配置环境变量
+<a id="configure-environment-variables" class="xliff"></a>
 
 可以在安装 Java 和 JDK 时设置以下环境变量。 不过，你应该检查它们是否存在并且包含系统的正确值。
 
@@ -56,13 +57,14 @@ ms.lasthandoff: 05/26/2017
 
 * **PATH** - 应该包含以下路径：
 
-    * **JAVA_HOME**（或等效的路径）
+  * **JAVA_HOME**（或等效的路径）
 
-    * **JAVA_HOME\bin**（或等效的路径）
+  * **JAVA_HOME\bin**（或等效的路径）
 
-    * 安装 Maven 的目录
+  * 安装 Maven 的目录
 
-## <a name="create-a-maven-project"></a>创建 Maven 项目
+## 创建 Maven 项目
+<a id="create-a-maven-project" class="xliff"></a>
 
 在命令行中，使用以下命令创建名为 **WordCount** 的 Maven 项目：
 
@@ -81,14 +83,16 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupI
 * `src\main\java\com\microsoft\example`：包含应用程序代码。
 * `src\test\java\com\microsoft\example`：包含应用程序的测试。 
 
-### <a name="remove-the-generated-example-code"></a>删除生成的示例代码
+### 删除生成的示例代码
+<a id="remove-the-generated-example-code" class="xliff"></a>
 
 删除生成的测试和应用程序文件：
 
 * **src\test\java\com\microsoft\example\AppTest.java**
 * **src\main\java\com\microsoft\example\App.java**
 
-## <a name="add-maven-repositories"></a>添加 Maven 存储库
+## 添加 Maven 存储库
+<a id="add-maven-repositories" class="xliff"></a>
 
 由于 HDInsight 基于 Hortonworks Data Platform (HDP)，因此我们建议使用 Hortonworks 存储库来下载 Apache Storm 项目的依赖项。 在 __pom.xml__ 文件中，在 `<url>http://maven.apache.org</url>` 行后添加以下 XML：
 
@@ -129,23 +133,25 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupI
 </repositories>
 ```
 
-## <a name="add-properties"></a>添加属性
+## 添加属性
+<a id="add-properties" class="xliff"></a>
 
 Maven 允许定义项目级的值，称为属性。 在 __pom.xml__ 中，在 `</repositories>` 行后添加以下容：
 
 ```xml
-<Properties>
+<properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!--
     This is a version of Storm from the Hortonworks repository that is compatible with HDInsight.
     -->
     <storm.version>1.0.1.2.5.3.0-37</storm.version>
-</Properties>
+</properties>
 ```
 
 现在，可以在 `pom.xml` 的其他部分中使用此值。 例如，在指定 Storm 组件的版本时，可以使用 `${storm.version}` 而无需将值硬编码。
 
-## <a name="add-dependencies"></a>添加依赖项
+## 添加依赖项
+<a id="add-dependencies" class="xliff"></a>
 
 添加 Storm 组件的依赖项。 打开 `pom.xml` 文件，并在 `<dependencies>` 部分添加以下代码：
 
@@ -164,7 +170,8 @@ Maven 允许定义项目级的值，称为属性。 在 __pom.xml__ 中，在 `<
 > [!NOTE]
 > 请注意该部分中的 `<scope>provided</scope>` 行。 此设置告诉 Maven 从创建的任何 JAR 文件中排除 **storm-core**，因为它将由系统提供。
 
-## <a name="build-configuration"></a>生成配置
+## 生成配置
+<a id="build-configuration" class="xliff"></a>
 
 Maven 插件可用于自定义项目的生成阶段。 例如，如何编译项目或者如何将其打包到 JAR 文件中。 打开 `pom.xml` 文件，并紧靠在 `</project>` 行的上方添加以下代码。
 
@@ -179,7 +186,8 @@ Maven 插件可用于自定义项目的生成阶段。 例如，如何编译项�
 
 此节用于添加插件、资源和其他生成配置选项。 有关 **pom.xml** 文件的完整参考信息，请参阅 [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html)。
 
-### <a name="add-plug-ins"></a>添加插件
+### 添加插件
+<a id="add-plug-ins" class="xliff"></a>
 
 对于以 Java 语言实现的 Apache Storm 拓扑，Exec Maven 插件十分有用，因为它可让你轻松地在开发环境本地运行拓扑。 在 `pom.xml` 文件的 `<plugins>` 部分中添加以下内容，以包括 Exec Maven 插件：
 
@@ -226,7 +234,8 @@ Maven 插件可用于自定义项目的生成阶段。 例如，如何编译项�
 </plugin>
 ```
 
-### <a name="configure-resources"></a>配置资源
+### 配置资源
+<a id="configure-resources" class="xliff"></a>
 
 使用 resources 节可以包含非代码资源，例如拓扑中组件所需的配置文件。 本示例将在 pom.xml 文件的 `<resources>` 节中添加以下文本。
 
@@ -242,7 +251,8 @@ Maven 插件可用于自定义项目的生成阶段。 例如，如何编译项�
 
 本示例会将项目根目录 (`${basedir}`) 中的 resources 目录添加为包含资源的位置，并包含名为 `log4j2.xml` 的文件。 此文件用于配置拓扑所要记录的信息。
 
-## <a name="create-the-topology"></a>创建拓扑
+## 创建拓扑
+<a id="create-the-topology" class="xliff"></a>
 
 基于 Java 的 Apache Storm 拓扑包含必须编写（或引用）为依赖项的三个组件。
 
@@ -252,12 +262,14 @@ Maven 插件可用于自定义项目的生成阶段。 例如，如何编译项�
 
 * **拓扑**：定义如何排列 Spout 和 Bolt，并提供拓扑的入口点。
 
-### <a name="create-the-spout"></a>创建 Spout
+### 创建 Spout
+<a id="create-the-spout" class="xliff"></a>
 
 为了降低设置外部数据源的要求，以下 Spout 只会发出随机句子。 它是 [Storm-Starter 示例](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter)随附的 Spout 的修改版本。
 
 > [!NOTE]
 > 有关从外部数据源读取的 Spout 的示例，请参阅以下示例之一：
+>
 > * [TwitterSampleSpout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java)：从Twitter 读取数据的示例 Spout
 > * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka)：从 Kafka 读取数据的 Spout
 
@@ -328,7 +340,8 @@ public class RandomSentenceSpout extends BaseRichSpout {
 > [!NOTE]
 > 虽然此拓扑只使用一个 Spout，但其他拓扑可能存在将数据从不同源送入拓扑的多个 Spout。
 
-### <a name="create-the-bolts"></a>创建 Bolt
+### 创建 Bolt
+<a id="create-the-bolts" class="xliff"></a>
 
 Bolt 用于处理数据。 此拓扑使用两个 Bolt：
 
@@ -341,7 +354,8 @@ Bolt 用于处理数据。 此拓扑使用两个 Bolt：
 
 在 `src\main\java\com\microsoft\example` 目录中创建两个新文件：`SplitSentence.java` 和 `WordCount.java`。 将以下文本用作这些文件的内容：
 
-#### <a name="splitsentence"></a>SplitSentence
+#### SplitSentence
+<a id="splitsentence" class="xliff"></a>
 
 ```java
 package com.microsoft.example;
@@ -390,7 +404,8 @@ public class SplitSentence extends BaseBasicBolt {
 }
 ```
 
-#### <a name="wordcount"></a>WordCount
+#### WordCount
+<a id="wordcount" class="xliff"></a>
 
 ```java
 package com.microsoft.example;
@@ -473,7 +488,8 @@ public class WordCount extends BaseBasicBolt {
 }
 ```
 
-### <a name="define-the-topology"></a>定义拓扑
+### 定义拓扑
+<a id="define-the-topology" class="xliff"></a>
 
 拓扑将 Spout 和 Bolt 一起绑定到图形，该图形定义了组件之间的数据流动方式。 它还提供 Storm 在群集内创建组件的实例时使用的并行度提示。
 
@@ -545,7 +561,8 @@ public class WordCountTopology {
 }
 ```
 
-### <a name="configure-logging"></a>配置日志记录
+### 配置日志记录
+<a id="configure-logging" class="xliff"></a>
 
 Storm 使用 Apache Log4j 来记录信息。 如果未配置日志记录，拓扑将发出诊断信息。 若要控制所记录的信息，请在 `log4j2.xml` in the `resources` 。 将以下 XML 用作该文件的内容。
 
@@ -577,7 +594,8 @@ Storm 使用 Apache Log4j 来记录信息。 如果未配置日志记录，拓�
 > [!NOTE]
 > Storm 0.10.0 版及更高版本使用 Log4j 2.x。 早期版本的 Storm 使用 Log4j 1.x（为日志配置使用的格式不同）。 有关旧配置的信息，请参阅 [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat)。
 
-## <a name="test-the-topology-locally"></a>在本地测试拓扑
+## 在本地测试拓扑
+<a id="test-the-topology-locally" class="xliff"></a>
 
 保存文件之后，请使用以下命令在本地测试拓扑。
 
@@ -599,7 +617,8 @@ mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 
 每两次发出单词和句子的间隔为 5 秒。 **WordCount** 组件配置为仅当 tick 元组到达时才发出信息。 它要求仅每五秒钟传送一次 tick 元组。
 
-## <a name="convert-the-topology-to-flux"></a>将拓扑转换为 Flux
+## 将拓扑转换为 Flux
+<a id="convert-the-topology-to-flux" class="xliff"></a>
 
 Flux 是 Storm 0.10.0 及更高版本随附的一个新框架，可以将配置和实现分离开来。 组件仍然是以 Java 语言定义的，但拓扑是使用 YAML 文件定义的。 可以随项目一起打包默认的拓扑定义，也可以在提交拓扑时使用独立的文件。 将拓扑提交到 Storm 时，可以使用环境变量或配置文件来填充 YAML 拓扑定义中的值。
 
@@ -651,7 +670,7 @@ YAML 文件定义了要用于拓扑的组件以及它们之间的数据流。 �
 
 3. 对 `pom.xml` 文件进行以下更改。
 
-    * 在 `<dependencies>` 节中添加以下新依赖关系：
+   * 在 `<dependencies>` 节中添加以下新依赖关系：
 
         ```xml
         <!-- Add a dependency on the Flux framework -->
@@ -661,7 +680,7 @@ YAML 文件定义了要用于拓扑的组件以及它们之间的数据流。 �
             <version>${storm.version}</version>
         </dependency>
         ```
-    * 将以下插件添加到 `<plugins>` 节。 此插件处理项目包（jar 文件）的创建，并在创建包时应用一些特定于 Flux 的转换。
+   * 将以下插件添加到 `<plugins>` 节。 此插件处理项目包（jar 文件）的创建，并在创建包时应用一些特定于 Flux 的转换。
 
         ```xml
         <!-- build an uber jar -->
@@ -702,15 +721,16 @@ YAML 文件定义了要用于拓扑的组件以及它们之间的数据流。 �
         </plugin>
         ```
 
-    * 在 **exec-maven-plugin** `<configuration>` 节中，将 `<mainClass>` 的值更改为 `org.apache.storm.flux.Flux`。 在开发环境中本地运行拓扑时，Flux 可以使用此设置处理拓扑运行。
+   * 在 **exec-maven-plugin** `<configuration>` 节中，将 `<mainClass>` 的值更改为 `org.apache.storm.flux.Flux`。 在开发环境中本地运行拓扑时，Flux 可以使用此设置处理拓扑运行。
 
-    * 将以下内容添加到 `<resources>` 节中的 `<includes>`。 此 XML 包括了将拓扑定义为项目一部分的 YAML 文件。
+   * 将以下内容添加到 `<resources>` 节中的 `<includes>`。 此 XML 包括了将拓扑定义为项目一部分的 YAML 文件。
 
         ```xml
         <include>topology.yaml</include>
         ```
 
-## <a name="test-the-flux-topology-locally"></a>在本地测试 Flux 拓扑
+## 在本地测试 Flux 拓扑
+<a id="test-the-flux-topology-locally" class="xliff"></a>
 
 1. 使用以下命令通过 Maven 编译并执行 Flux 拓扑：
 
@@ -775,7 +795,8 @@ YAML 文件定义了要用于拓扑的组件以及它们之间的数据流。 �
 
 有关 Flux 框架的上述功能和其他功能的详细信息，请参阅 [Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html)。
 
-## <a name="trident"></a>Trident
+## Trident
+<a id="trident" class="xliff"></a>
 
 Trident 是 Storm 提供的高级抽象。 它支持有状态处理。 Trident 的主要优点在于，它可以保证进入拓扑的每个消息只会处理一次。 如果不使用 Trident，则拓扑只能保证至少将消息处理一次。 两者还有其他方面的差异，例如，可以使用内置组件，而无需创建 Bolt。 事实上，可以使用低泛型组件（例如筛选、投影和函数）来取代 Bolt。
 
@@ -783,7 +804,8 @@ Trident 是 Storm 提供的高级抽象。 它支持有状态处理。 Trident �
 
 有关 Trident 的详细信息，请参阅 [Trident API 概述](http://storm.apache.org/documentation/Trident-API-Overview.html)。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 你已学习如何使用 Java 创建 Storm 拓扑。 接下来，请学习如何：
 
@@ -792,4 +814,3 @@ Trident 是 Storm 提供的高级抽象。 它支持有状态处理。 Trident �
 * [使用 Visual Studio 开发 Apache Storm on HDInsight 的 C# 拓扑](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 如需更多 Storm 拓扑示例，请访问 [Storm on HDInsight 示例拓扑](hdinsight-storm-example-topology.md)。
-

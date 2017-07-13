@@ -15,15 +15,14 @@ ms.workload: web
 origin.date: 09/01/2016
 ms.date: 03/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: ca2529c32796336e0a37879899ee74075e226d02
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 4c5532e91f9d2f3879e3d8f2d6cf76e4f2a6ed7c
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="create-a-line-of-business-azure-app-with-azure-active-directory-authentication"></a>使用 Azure Active Directory 身份验证创建业务线 Azure 应用
+# 使用 Azure Active Directory 身份验证创建业务线 Azure 应用
+<a id="create-a-line-of-business-azure-app-with-azure-active-directory-authentication" class="xliff"></a>
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -31,7 +30,10 @@ ms.lasthandoff: 05/26/2017
 
 使用的 Azure Active Directory 租户可以是仅限 Azure 的目录。 本文使用 Azure 帐户的默认目录。
 
-## <a name="bkmk_build"></a>要构建的项目
+<a name="bkmk_build"></a>
+
+## 要生成的项目
+<a id="what-you-will-build" class="xliff"></a>
 将在应用服务 Web 应用中构建用于跟踪工作项并具有以下功能的简单的业务线创建-读取-更新-删除 (CRUD) 应用程序：
 
 * 根据 Azure Active Directory 对用户进行身份验证
@@ -40,7 +42,10 @@ ms.lasthandoff: 05/26/2017
 
 如果 Azure 中的业务线应用需要基于角色的访问控制 (RBAC)，请参阅[后续步骤](#next)。
 
-## <a name="bkmk_need"></a> 所需条件
+<a name="bkmk_need"></a>
+
+## 需要什么
+<a id="what-you-need" class="xliff"></a>
 [!INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 若要完成本教程，你需要以下项目：
@@ -52,7 +57,10 @@ ms.lasthandoff: 05/26/2017
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
-## <a name="bkmk_deploy"></a> 创建 Web 应用并将其部署到 Azure
+<a name="bkmk_deploy"></a>
+
+## 创建 Web 应用并将其部署到 Azure
+<a id="create-and-deploy-a-web-app-to-azure" class="xliff"></a>
 1. 在 Visual Studio 中，依次单击“文件” > “新建” > “项目”。
 2. 选择“ASP.NET Web 应用程序”、为项目命名，然后单击“确定”。
 3. 选择“MVC”模板，然后将身份验证更改为“无身份验证”。 确保已选中“在云中托管”，然后单击“确定”。
@@ -73,7 +81,10 @@ ms.lasthandoff: 05/26/2017
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/4-published-shown-in-browser.png)
 
-## <a name="bkmk_auth"></a> 配置身份验证和目录访问
+<a name="bkmk_auth"></a>
+
+## 配置身份验证和目录访问
+<a id="configure-authentication-and-directory-access" class="xliff"></a>
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 从左侧菜单中，依次单击“**应用服务** > **&lt;*应用名称*”** >“**身份验证/授权**”。
 
@@ -167,7 +178,10 @@ ms.lasthandoff: 05/26/2017
 
 接下来，对目录数据执行一些有用的操作。
 
-## <a name="bkmk_crud"></a> 将业务线功能添加到应用
+<a name="bkmk_crud"></a>
+
+## 将业务线功能添加到应用
+<a id="add-line-of-business-functionality-to-your-app" class="xliff"></a>
 现在，可以创建一个简单的 CRUD 工作项跟踪器。  
 
 1. 在 ~\Models 文件夹中，创建名为 WorkItem.cs 的类文件，将 `public class WorkItem {...}` 替换为以下代码：
@@ -198,117 +212,117 @@ ms.lasthandoff: 05/26/2017
 4. 选择“使用实体框架的包含视图的 MVC 5 控制器”并单击“添加”。
 5. 选择创建的模型，依次单击“+”和“添加”来添加数据上下文，然后单击“添加”。
 
-    ![](./media/web-sites-dotnet-lob-application-azure-ad/16-add-scaffolded-controller.png)
+   ![](./media/web-sites-dotnet-lob-application-azure-ad/16-add-scaffolded-controller.png)
 6. 在 ~\Views\WorkItems\Create.cshtml（自动搭建基架的项）中查找 `Html.BeginForm` 帮助器方法，并根据以下突出显示的内容进行更改：  
 
-    <pre class="prettyprint">
-    @model WebApplication1.Models.WorkItem
+   <pre class="prettyprint">
+   @model WebApplication1.Models.WorkItem
 
-    @{
-     ViewBag.Title = &quot;Create&quot;;
-    }
+   @{
+    ViewBag.Title = &quot;Create&quot;;
+   }
 
-    &lt;h2&gt;Create&lt;/h2&gt;
+   &lt;h2&gt;Create&lt;/h2&gt;
 
-    @using (Html.BeginForm(<mark>&quot;Create&quot;, &quot;WorkItems&quot;, FormMethod.Post, new { id = &quot;main-form&quot; }</mark>)) 
-    {
-     @Html.AntiForgeryToken()
+   @using (Html.BeginForm(<mark>&quot;Create&quot;, &quot;WorkItems&quot;, FormMethod.Post, new { id = &quot;main-form&quot; }</mark>)) 
+   {
+    @Html.AntiForgeryToken()
 
-     &lt;div class=&quot;form-horizontal&quot;&gt;
-         &lt;h4&gt;WorkItem&lt;/h4&gt;
-         &lt;hr /&gt;
-         @Html.ValidationSummary(true, &quot;&quot;, new { @class = &quot;text-danger&quot; })
-         &lt;div class=&quot;form-group&quot;&gt;
-             @Html.LabelFor(model =&gt; model.AssignedToID, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
-             &lt;div class=&quot;col-md-10&quot;&gt;
-                 @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = &quot;form-control&quot;<mark>, @type = &quot;hidden&quot;</mark> } })
-                 @Html.ValidationMessageFor(model =&gt; model.AssignedToID, &quot;&quot;, new { @class = &quot;text-danger&quot; })
-             &lt;/div&gt;
-         &lt;/div&gt;
+    &lt;div class=&quot;form-horizontal&quot;&gt;
+        &lt;h4&gt;WorkItem&lt;/h4&gt;
+        &lt;hr /&gt;
+        @Html.ValidationSummary(true, &quot;&quot;, new { @class = &quot;text-danger&quot; })
+        &lt;div class=&quot;form-group&quot;&gt;
+            @Html.LabelFor(model =&gt; model.AssignedToID, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
+            &lt;div class=&quot;col-md-10&quot;&gt;
+                @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = &quot;form-control&quot;<mark>, @type = &quot;hidden&quot;</mark> } })
+                @Html.ValidationMessageFor(model =&gt; model.AssignedToID, &quot;&quot;, new { @class = &quot;text-danger&quot; })
+            &lt;/div&gt;
+        &lt;/div&gt;
 
-         &lt;div class=&quot;form-group&quot;&gt;
-             @Html.LabelFor(model =&gt; model.AssignedToName, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
-             &lt;div class=&quot;col-md-10&quot;&gt;
-                 @Html.EditorFor(model =&gt; model.AssignedToName, new { htmlAttributes = new { @class = &quot;form-control&quot; } })
-                 @Html.ValidationMessageFor(model =&gt; model.AssignedToName, &quot;&quot;, new { @class = &quot;text-danger&quot; })
-             &lt;/div&gt;
-         &lt;/div&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            @Html.LabelFor(model =&gt; model.AssignedToName, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
+            &lt;div class=&quot;col-md-10&quot;&gt;
+                @Html.EditorFor(model =&gt; model.AssignedToName, new { htmlAttributes = new { @class = &quot;form-control&quot; } })
+                @Html.ValidationMessageFor(model =&gt; model.AssignedToName, &quot;&quot;, new { @class = &quot;text-danger&quot; })
+            &lt;/div&gt;
+        &lt;/div&gt;
 
-         &lt;div class=&quot;form-group&quot;&gt;
-             @Html.LabelFor(model =&gt; model.Description, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
-             &lt;div class=&quot;col-md-10&quot;&gt;
-                 @Html.EditorFor(model =&gt; model.Description, new { htmlAttributes = new { @class = &quot;form-control&quot; } })
-                 @Html.ValidationMessageFor(model =&gt; model.Description, &quot;&quot;, new { @class = &quot;text-danger&quot; })
-             &lt;/div&gt;
-         &lt;/div&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            @Html.LabelFor(model =&gt; model.Description, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
+            &lt;div class=&quot;col-md-10&quot;&gt;
+                @Html.EditorFor(model =&gt; model.Description, new { htmlAttributes = new { @class = &quot;form-control&quot; } })
+                @Html.ValidationMessageFor(model =&gt; model.Description, &quot;&quot;, new { @class = &quot;text-danger&quot; })
+            &lt;/div&gt;
+        &lt;/div&gt;
 
-         &lt;div class=&quot;form-group&quot;&gt;
-             @Html.LabelFor(model =&gt; model.Status, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
-             &lt;div class=&quot;col-md-10&quot;&gt;
-                 @Html.EnumDropDownListFor(model =&gt; model.Status, htmlAttributes: new { @class = &quot;form-control&quot; })
-                 @Html.ValidationMessageFor(model =&gt; model.Status, &quot;&quot;, new { @class = &quot;text-danger&quot; })
-             &lt;/div&gt;
-         &lt;/div&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            @Html.LabelFor(model =&gt; model.Status, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
+            &lt;div class=&quot;col-md-10&quot;&gt;
+                @Html.EnumDropDownListFor(model =&gt; model.Status, htmlAttributes: new { @class = &quot;form-control&quot; })
+                @Html.ValidationMessageFor(model =&gt; model.Status, &quot;&quot;, new { @class = &quot;text-danger&quot; })
+            &lt;/div&gt;
+        &lt;/div&gt;
 
-         &lt;div class=&quot;form-group&quot;&gt;
-             &lt;div class=&quot;col-md-offset-2 col-md-10&quot;&gt;
-                 &lt;input type=&quot;submit&quot; value=&quot;Create&quot; class=&quot;btn btn-default&quot;<mark> id=&quot;submit-button&quot;</mark> /&gt;
-             &lt;/div&gt;
-         &lt;/div&gt;
-     &lt;/div&gt;
-    }
-
-    &lt;div&gt;
-     @Html.ActionLink(&quot;Back to List&quot;, &quot;Index&quot;)
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;div class=&quot;col-md-offset-2 col-md-10&quot;&gt;
+                &lt;input type=&quot;submit&quot; value=&quot;Create&quot; class=&quot;btn btn-default&quot;<mark> id=&quot;submit-button&quot;</mark> /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
     &lt;/div&gt;
+   }
 
-    @section Scripts {
-     @Scripts.Render(&quot;~/bundles/jqueryval&quot;)
-     <mark>&lt;script&gt;
-         // People/Group Picker Code
-         var maxResultsPerPage = 14;
-         var input = document.getElementById(&quot;AssignedToName&quot;);
+   &lt;div&gt;
+    @Html.ActionLink(&quot;Back to List&quot;, &quot;Index&quot;)
+   &lt;/div&gt;
 
-         // Access token from request header, and tenantID from claims identity
-         var token = &quot;@Request.Headers[&quot;X-MS-TOKEN-AAD-ACCESS-TOKEN&quot;]&quot;;
-         var tenant =&quot;@(System.Security.Claims.ClaimsPrincipal.Current.Claims
-                         .Where(c => c.Type == &quot;http://schemas.microsoft.com/identity/claims/tenantid&quot;)
-                         .Select(c => c.Value).SingleOrDefault())&quot;;
+   @section Scripts {
+    @Scripts.Render(&quot;~/bundles/jqueryval&quot;)
+    <mark>&lt;script&gt;
+        // People/Group Picker Code
+        var maxResultsPerPage = 14;
+        var input = document.getElementById(&quot;AssignedToName&quot;);
 
-         var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
+        // Access token from request header, and tenantID from claims identity
+        var token = &quot;@Request.Headers[&quot;X-MS-TOKEN-AAD-ACCESS-TOKEN&quot;]&quot;;
+        var tenant =&quot;@(System.Security.Claims.ClaimsPrincipal.Current.Claims
+                        .Where(c => c.Type == &quot;http://schemas.microsoft.com/identity/claims/tenantid&quot;)
+                        .Select(c => c.Value).SingleOrDefault())&quot;;
 
-         // Submit the selected user/group to be asssigned.
-         $(&quot;#submit-button&quot;).click({ picker: picker }, function () {
-             if (!picker.Selected())
-                 return;
-             $(&quot;#main-form&quot;).get()[0].elements[&quot;AssignedToID&quot;].value = picker.Selected().objectId;
-         });
-     &lt;/script&gt;</mark>
-    }
-    </pre>
+        var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
 
-    请注意，`AadPicker` 对象使用 `token` 和 `tenant` 发出 Azure Active Directory 图形 API 调用。 稍后将要添加 `AadPicker`。     
+        // Submit the selected user/group to be asssigned.
+        $(&quot;#submit-button&quot;).click({ picker: picker }, function () {
+            if (!picker.Selected())
+                return;
+            $(&quot;#main-form&quot;).get()[0].elements[&quot;AssignedToID&quot;].value = picker.Selected().objectId;
+        });
+    &lt;/script&gt;</mark>
+   }
+   </pre>
 
-    > [!NOTE]
-    > 也可以使用 `~/.auth/me` 直接从客户端获取 `token` 和 `tenant`，但这是一个额外的服务器调用。 例如：
-    > ``` 
-    > $.ajax({
-    > dataType: "json",
-    > url: "/.auth/me",
-    > success: function (data) {
-    > var token = data[0].access_token;
-    > var tenant = data[0].user_claims
-    > .find(c => c.typ === 'http://schemas.microsoft.com/identity/claims/tenantid')
-    > .val;
-    > }
-    > });
-    > ``` 
-    > 
+   请注意，`AadPicker` 对象使用 `token` 和 `tenant` 发出 Azure Active Directory 图形 API 调用。 稍后将要添加 `AadPicker`。     
+
+   > [!NOTE]
+   > 也可以使用 `~/.auth/me` 直接从客户端获取 `token` 和 `tenant`，但这是一个额外的服务器调用。 例如：
+   > ``` 
+   > $.ajax({
+   > dataType: "json",
+   > url: "/.auth/me",
+   > success: function (data) {
+   > var token = data[0].access_token;
+   > var tenant = data[0].user_claims
+   > .find(c => c.typ === 'http://schemas.microsoft.com/identity/claims/tenantid')
+   > .val;
+   > }
+   > });
+   > ``` 
+   > 
 7. 对 ~\Views\WorkItems\Edit.cshtml 进行相同的更改。
 8. `AadPicker` 对象在需要添加到项目的脚本中定义。 右键单击 ~\Scripts 文件夹、指向“添加”，然后单击“JavaScript 文件”。 键入 `AadPickerLibrary` 作为文件名，然后单击“确定”。
 9. 将[此处](https://raw.githubusercontent.com/cephalin/active-directory-dotnet-webapp-roleclaims/master/WebApp-RoleClaims-DotNet/Scripts/AadPickerLibrary.js)的内容复制到 ~\Scripts\AadPickerLibrary.js。
 
-    在脚本中，`AadPicker` 对象调用  [Azure Active Directory 图形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 来搜索与输入内容匹配的用户和组。  
+   在脚本中，`AadPicker` 对象调用 [Azure Active Directory 图形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 来搜索与输入内容匹配的用户和组。  
 10. ~\Scripts\AadPickerLibrary.js 还使用 [jQuery UI 自动填充小组件](https://jqueryui.com/autocomplete/)。 因此，需要将 jQuery UI 添加到项目。 右键单击项目，然后单击“管理 NuGet 包”。
 11. 在 NuGet 包管理器中单击“浏览”，在搜索栏中键入 **jquery-ui**，然后单击“jQuery.UI.Combined”。
 
@@ -350,10 +364,13 @@ ms.lasthandoff: 05/26/2017
 
     > [!NOTE]
     > 之所以需要这一行代码，是因为默认的 MVC 模板对某些操作使用 <code>[ValidateAntiForgeryToken]</code> 修饰。 由于存在 Brock Allen 在 [MVC 4、AntiForgeryToken 和声明](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/)中所述的行为，HTTP POST 可能无法通过防伪令牌验证，因为：
+    > 
     > * Azure Active Directory 不发送防伪令牌默认所需的 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider。
     > * 如果 Azure Active Directory 是与 AD FS 同步的目录，默认情况下 AD FS 信任不发送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 声明，尽管可以手动配置 AD FS 以发送此声明。
-    >
-    > `ClaimTypes.NameIdentifies` 指定 Azure Active Directory 提供的声明 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`。
+    > 
+    > `ClaimTypes.NameIdentifies` 指定 Azure Active Directory 提供的声明 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`。  
+    > 
+    > 
 15. 现在，请发布更改。 右键单击项目，然后单击“发布”。
 16. 单击“设置”，确保提供 SQL 数据库的连接字符串，选择“更新数据库”更改模型的架构，然后单击“发布”。
 
@@ -366,16 +383,19 @@ ms.lasthandoff: 05/26/2017
 
 恭喜，现已使用目录访问在 Azure 中运行业务线应用！ 图形 API 还有其他一些用途。 请参阅 [Azure AD 图形 API 参考](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog)。
 
-## <a name="next"></a> 后续步骤
+<a name="next"></a>
+
+## 后续步骤
+<a id="next-step" class="xliff"></a>
 如果 Azure 中的业务线应用需要基于角色的访问控制 (RBAC)，请参阅 [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) 获取 Azure Active Directory 团队提供的示例。 该示例演示了如何为 Azure Active Directory 应用程序启用角色，然后使用 `[Authorize]` 装饰为用户授权。
 
-## <a name="bkmk_resources"></a> 其他资源
+<a name="bkmk_resources"></a>
+
+## 其他资源
+<a id="further-resources" class="xliff"></a>
 * [Azure 应用服务中的身份验证和授权](../app-service/app-service-authentication-overview.md)
 * [在 Azure 应用中使用本地 Active Directory 进行身份验证](web-sites-authentication-authorization.md)
 * [在 Azure 中使用 AD FS 身份验证创建业务线应用](web-sites-dotnet-lob-application-adfs.md)
 * [App Service Auth and the Azure AD Graph API（应用服务身份验证和 Azure AD 图形 API）](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Azure Active Directory Samples and Documentation（Azure Active Directory 示例和文档）](https://github.com/AzureADSamples)
 * [Azure Active Directory 支持的令牌和声明类型](/active-directory/develop/active-directory-token-and-claims/)
-
-[Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
-

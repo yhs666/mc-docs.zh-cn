@@ -5,7 +5,7 @@ az login
 ```
 
 > [!NOTE]
-> 在 Azure 中国区使用 Azure CLI 2.0 之前，请先运行 `az cloud set -n AzureChinaCloud` 来改变云环境。如果想切回国际版 Azure，请再次运行 `az cloud set -n AzureCloud`。
+> 请先运行 `az cloud set -n AzureChinaCloud` 更改云环境，然后才能在 Azure 中国中使用 Azure CLI 2.0。 如果要切换回全球 Azure，请再次运行 `az cloud set -n AzureCloud`。
 
 如果有多个 Azure 订阅，请列出该帐户的订阅。
 

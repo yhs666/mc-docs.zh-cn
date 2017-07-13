@@ -14,18 +14,18 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: d1f9bc5a2e30313acb861c58dcd3fe7612e822a2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: a291f5a702a5376ed359ae1597c4f622954429a9
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="get-started-with-azure-scheduler-in-azure-portal-preview"></a>Azure 门户中的 Azure 计划程序入门
+# Azure 门户中的 Azure 计划程序入门
+<a id="get-started-with-azure-scheduler-in-azure-portal" class="xliff"></a>
 在 Azure 计划程序中创建计划的作业很简单。 在本教程中，你将了解如何创建作业。 还将学习计划程序的监视和管理功能。
 
-## <a name="create-a-job"></a>创建作业
+## 创建作业
+<a id="create-a-job" class="xliff"></a>
 1.  登录到 [Azure 门户](https://portal.azure.cn/)。  
 2. 单击“+新建”> 在搜索框中键入“计划程序”> 在结果中选择“计划程序”> 单击“创建”。
    
@@ -52,7 +52,8 @@ ms.lasthandoff: 04/28/2017
       ![][recurrence-schedule]
 6. 单击“创建” 
 
-## <a name="manage-and-monitor-jobs"></a>管理和监视作业
+## 管理和监视作业
+<a id="manage-and-monitor-jobs" class="xliff"></a>
 作业创建完成后，将出现在 Azure 主仪表板中。 单击该作业，将打开具有以下选项卡的新窗口：
 
 1. 属性  
@@ -63,12 +64,14 @@ ms.lasthandoff: 04/28/2017
    
    ![][job-overview]
 
-### <a name="properties"></a>属性
+### 属性
+<a id="properties" class="xliff"></a>
 这些只读属性描述计划程序作业的管理元数据。
 
    ![][job-properties]
 
-### <a name="action-settings"></a>操作设置
+### 操作设置
+<a id="action-settings" class="xliff"></a>
 在“作业”屏幕中单击某个作业可以配置该作业。 如果未在快速创建向导中配置它们，此操作可配置高级设置。
 
 对于所有操作类型，可以更改重试策略和错误操作。
@@ -81,7 +84,8 @@ ms.lasthandoff: 04/28/2017
 
    ![][job-action-settings]
 
-### <a name="schedule"></a>计划
+### 计划
+<a id="schedule" class="xliff"></a>
 如果想要更改快速创建向导中创建的计划，此处能够重新配置该计划。
 
 这是 [作业中生成复杂计划和高级重复执行](scheduler-advanced-complexity.md)
@@ -90,7 +94,8 @@ ms.lasthandoff: 04/28/2017
 
    ![][job-schedule]
 
-### <a name="history"></a>历史记录
+### 历史记录
+<a id="history" class="xliff"></a>
 “历史记录”  选项卡显示在所选作业的系统中每次作业执行的所选度量值。 这些度量值提供有关计划程序的运行状况实时值：
 
 1. 状态  
@@ -106,10 +111,12 @@ ms.lasthandoff: 04/28/2017
 
    ![][job-history-details]
 
-### <a name="users"></a>用户
+### 用户
+<a id="users" class="xliff"></a>
 Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 计划程序进行细致的访问管理。 若要了解如何使用“用户”选项卡，请参阅 [Azure 基于角色的访问控制](../active-directory/role-based-access-control-configure.md)
 
-## <a name="see-also"></a>另请参阅
+## 另请参阅
+<a id="see-also" class="xliff"></a>
  [计划程序是什么？](scheduler-intro.md)
 
  [计划程序概念、术语和实体层次结构](scheduler-concepts-terms.md)

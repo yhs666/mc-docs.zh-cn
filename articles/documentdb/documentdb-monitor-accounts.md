@@ -1,6 +1,6 @@
 ---
 title: "监视 DocumentDB 请求和存储 | Microsoft Docs"
-description: "了解如何监视 DocumentDB 帐户的性能指标（如请求和服务器错误）以及使用情况指标（如存储消耗）。"
+description: "了解如何监视你的 DocumentDB 帐户的性能指标（如请求和服务器错误）以及使用情况指标（如存储消耗）。"
 services: documentdb
 documentationcenter: 
 author: mimig1
@@ -15,26 +15,27 @@ ms.topic: article
 origin.date: 12/15/2016
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 49c40641133bffaeb7bc43ba6aca0fd9d6505bd5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 1b3be10625a59e41ccee6360ba524dae0a3717d4
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="monitor-azure-documentdb-requests-usage-and-storage"></a>监视 DocumentDB 请求、使用情况和存储
+# 监视 DocumentDB 请求、使用情况和存储
+<a id="monitor-documentdb-requests-usage-and-storage" class="xliff"></a>
 可以在 [Azure 门户](https://portal.azure.cn/)中监视 DocumentDB 帐户。 对于每个 DocumentDB 帐户，性能指标（如请求和服务器错误）和使用情况指标（如存储消耗）都可用。
 
 可在“帐户”边栏选项卡、新的“指标”边栏选项卡或 Azure Monitor.查看指标。
 
-## <a name="view-performance-metrics-on-the-metrics-blade"></a>在“指标”边栏选项卡上查看性能指标
+## 在“指标”边栏选项卡上查看性能指标
+<a id="view-performance-metrics-on-the-metrics-blade" class="xliff"></a>
 1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“更多服务”，滚动到“数据库”，单击“DocumentDB”，然后单击要查看其性能指标的 DocumentDB 帐户的名称。
 2. 在资源菜单的“监视”下，单击“指标”。
 
 此时将打开“指标”边栏选项卡，可以选择要查看的集合。 可以查看“可用性”、“请求”、“吞吐量”和“存储”指标，并将其与 DocumentDB SLA 进行比较。
 
-## <a name="view-performance-metrics-by-using-azure-monitoring"></a>使用 Azure Monitor 查看性能指标
+## 使用 Azure Monitor 查看性能指标
+<a id="view-performance-metrics-by-using-azure-monitoring" class="xliff"></a>
 1. 在 [Azure 门户](https://portal.azure.cn/)中，单击跳转栏上的“监视器”。
 2. 在资源菜单中，单击“指标”。
 3. 在“监视器 - 指标”窗口的“资源组”下拉菜单中，选择与想要监视的 DocumentDB 帐户关联的资源组。 
@@ -43,7 +44,8 @@ ms.lasthandoff: 05/19/2017
 
     指标在“绘图”  窗口中显示。 
 
-## <a name="view-performance-metrics-on-the-account-blade"></a>在帐户边栏选项卡上查看性能指标
+## 在帐户边栏选项卡上查看性能指标
+<a id="view-performance-metrics-on-the-account-blade" class="xliff"></a>
 1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“更多服务”，滚动到“数据库”，单击“DocumentDB”，然后单击要查看其性能指标的 DocumentDB 帐户的名称。
 2. 默认情况下，“监视”可重用功能区  显示以下磁贴：
    
@@ -58,7 +60,8 @@ ms.lasthandoff: 05/19/2017
    
    ![包括限制请求数的“指标”边栏选项卡屏幕截图](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
 
-## <a name="customize-performance-metric-views-in-the-portal"></a>在门户中自定义性能指标视图
+## 在门户中自定义性能指标视图
+<a id="customize-performance-metric-views-in-the-portal" class="xliff"></a>
 1. 若要自定义显示在特定图表中的指标，请单击该图表在“指标”边栏选项卡中将它打开，然后单击“编辑图表”。  
    ![“指标”边栏选项卡控件的屏幕截图，其中突出显示了“编辑图表”](./media/documentdb-monitor-accounts/madocdb3.png)
 2. 在“编辑图表”边栏选项卡中，有选项可用于修改显示在该图表中的指标，以及它们的时间范围。  
@@ -68,7 +71,8 @@ ms.lasthandoff: 05/19/2017
    
    ![“编辑图表”边栏选项卡的“时间范围”部件的屏幕截图，显示如何输入自定义时间范围](./media/documentdb-monitor-accounts/madocdb5.png)
 
-## <a name="create-side-by-side-charts-in-the-portal"></a>在门户中创建并排图表
+## 在门户中创建并排图表
+<a id="create-side-by-side-charts-in-the-portal" class="xliff"></a>
 Azure 门户使你能够创建并排的指标图表。  
 
 1. 首先，请右键单击要复制的图表，然后选择“自定义”。
@@ -81,8 +85,9 @@ Azure 门户使你能够创建并排的指标图表。
 你现在可能将此部件视为其他任何指标部件，同时自定义显示在部件中的指标和时间范围。  通过执行此操作，可以同时看到两个并排的不同的指标图表。  
     ![请求总数图表和过去一小时新的请求总数的屏幕截图](./media/documentdb-monitor-accounts/madocdb8.png)  
 
-## <a name="set-up-alerts-in-the-portal"></a>在门户中设置警报
-1. 在 [Azure 门户](https://portal.azure.cn/)中，依次单击“更多服务”、“DocumentDB”、要为其设置性能指标警报的 DocumentDB 帐户的名称。
+## 在门户中设置警报
+<a id="set-up-alerts-in-the-portal" class="xliff"></a>
+1. 在 [Azure 门户](https://portal.azure.cn/)中单击“更多服务”、“DocumentDB”，然后单击要设置性能指标警报的 DocumentDB 帐户的名称。
 2. 在资源菜单中，单击“警报规则”以打开“警报规则”边栏选项卡。  
    ![所选的警报规则部件的屏幕截图](./media/documentdb-monitor-accounts/madocdb10.5.png)
 3. 在“警报规则”边栏选项卡中，单击“添加警报”。  
@@ -97,7 +102,8 @@ Azure 门户使你能够创建并排的指标图表。
    - 警报通知的其他电子邮件地址。  
      ![“添加警报规则”边栏选项卡的屏幕截图](./media/documentdb-monitor-accounts/madocdb12.png)
 
-## <a name="monitor-azure-documentdb-programatically"></a>以编程方式监视 DocumentDB
+## 以编程方式监视 DocumentDB
+<a id="monitor-documentdb-programatically" class="xliff"></a>
 门户中可用的帐户级别指标（如帐户存储使用情况和请求总数）不可通过 DocumentDB API 使用。 但是，你可以使用 DocumentDB API 在集合级别检索使用情况数据。 若要检索集合级别的数据，请执行以下操作：
 
 - 若要使用 REST API，请[对集合执行 GET](https://msdn.microsoft.com/library/mt489073.aspx)。 集合的配额和使用情况信息将返回到响应中的 x-ms-resource-quota 和 x-ms-resource-usage 标头中。
@@ -113,10 +119,12 @@ Azure 门户使你能够创建并排的指标图表。
 
 有关详细信息，请参阅 [通过 Azure Monitor REST API 检索资源指标](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/)。 请注意，“Azure Inights”已重命名为“Azure Monitor”。  本博客条目引用旧名称。
 
-## <a name="troubleshooting"></a>故障排除
+## 故障排除
+<a id="troubleshooting" class="xliff"></a>
 如果监视磁贴显示“无可用数据”  消息，并且你最近向数据库发出过请求或添加过数据，则可以编辑该磁贴以反映最新使用情况。
 
-### <a name="edit-a-tile-to-refresh-current-data"></a>编辑磁贴以刷新当前数据
+### 编辑磁贴以刷新当前数据
+<a id="edit-a-tile-to-refresh-current-data" class="xliff"></a>
 1. 若要自定义显示在特定部件中的指标，请单击该图表打开“指标”边栏选项卡，然后单击“编辑图表”。  
    ![“指标”边栏选项卡控件的屏幕截图，其中突出显示了“编辑图表”](./media/documentdb-monitor-accounts/madocdb3.png)
 2. 在“编辑图表”边栏选项卡上的“时间范围”部分中，单击“过去一小时”，然后单击“确定”。  
@@ -124,8 +132,8 @@ Azure 门户使你能够创建并排的指标图表。
 3. 现在磁贴应该刷新以显示当前数据和使用情况。  
    ![更新后的过去一小时请求总数磁贴的屏幕截图](./media/documentdb-monitor-accounts/documentdb-no-available-data-fixed.png)
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 若要深入了解 DocumentDB 容量规划，请参阅 [DocumentDB Capacity Planner 计算器](https://www.documentdb.com/capacityplanner)。
-
 
 

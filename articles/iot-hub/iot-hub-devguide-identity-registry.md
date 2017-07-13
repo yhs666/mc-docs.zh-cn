@@ -13,25 +13,27 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/04/2017
-ms.date: 06/05/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 21132cc63ebbdf66983e00127fe88fcb946aa656
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.date: 07/10/2017
+ms.openlocfilehash: 1417a1dadc72d82a19c8c11683212884e6bc73fb
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
-# <a name="understand-identity-registry-in-your-iot-hub"></a>了解 IoT 中心的标识注册表
-## <a name="overview"></a>概述
+# 了解 IoT 中心的标识注册表
+<a id="understand-identity-registry-in-your-iot-hub" class="xliff"></a>
+## 概述
+<a id="overview" class="xliff"></a>
 每个 IoT 中心都有一个标识注册表，其存储允许连接到 IoT 中心的设备的相关信息。 IoT 中心的标识注册表中必须先有设备的条目，然后该设备才能连接到 IoT 中心。 设备还必须基于标识注册表中存储的凭据向 IoT 中心进行身份验证。
+
+标识注册表中存储的设备 ID 区分大小写。
 
 概括地说，标识注册表是支持 REST 的设备标识资源集合。 向此标识注册表中添加条目时，IoT 中心将在服务中创建一组每设备资源，如包含未送达云到设备消息的队列。
 
-### <a name="when-to-use"></a>何时使用
+### 何时使用
+<a id="when-to-use" class="xliff"></a>
 当需要预配可连接到 IoT 中心的设备和需要控制每设备对中心内面向设备的终结点的访问权限时，请使用标识注册表。
 
 > [!NOTE]
@@ -39,7 +41,8 @@ ms.lasthandoff: 05/26/2017
 > 
 > 
 
-## <a name="identity-registry-operations"></a>标识注册表操作
+## 标识注册表操作
+<a id="identity-registry-operations" class="xliff"></a>
 IoT 中心标识注册表公开以下操作：
 
 * 创建设备标识
@@ -70,13 +73,15 @@ IoT 解决方案通常具有不同的解决方案特定存储，其中包含应�
 > 
 > 
 
-## <a name="disable-devices"></a>禁用设备
+## 禁用设备
+<a id="disable-devices" class="xliff"></a>
 可以通过更新标识注册表中标识的 **状态** 属性来禁用设备。 通常在两种情况下使用此属性：
 
 * 在预配协调过程中。 有关详细信息，请参阅 [Device Provisioning][lnk-guidance-provisioning]（设备预配）。
 * 你出于任何原因认为设备遭到入侵或未经授权。
 
-## <a name="import-and-export-device-identities"></a>导入和导出设备标识
+## 导入和导出设备标识
+<a id="import-and-export-device-identities" class="xliff"></a>
 可以使用 [IoT 中心资源提供程序终结点][lnk-endpoints]上的异步操作，从 IoT 中心的标识注册表批量导出设备标识。 导出是长时间运行的作业，它使用客户提供的 blob 容器来保存从标识注册表读取的设备标识数据。
 
 可以使用 [IoT 中心资源提供程序终结点][lnk-endpoints]上的异步操作，将设备标识批量导入 IoT 中心的标识注册表。 导入是长时间运行的作业，它使用客户提供的 blob 容器中的数据，将设备标识数据写入标识注册表。
@@ -84,16 +89,19 @@ IoT 解决方案通常具有不同的解决方案特定存储，其中包含应�
 * 有关导入和导出 API 的详细信息，请参阅 [IoT 中心资源提供程序 REST API][lnk-resource-provider-apis]。
 * 若要了解有关如何运行导入和导出作业的详细信息，请参阅 [Bulk management of IoT Hub device identities][lnk-bulk-identity]（批量管理 IoT 中心的设备标识）。
 
-## <a name="device-provisioning"></a> 设备预配
-给定的 IoT 解决方案存储的设备数据取决于该解决方案的特定要求。但是，解决方案必须至少存储设备标识和身份验证密钥。Azure IoT 中心包含标识注册表，可以存储每个设备的值，例如 ID、身份验证密钥和状态代码。解决方案可以使用其他 Azure 服务（例如 Azure 表存储、Azure Blob 存储或 Azure DocumentDB）来存储任何其他设备数据。
+## Device Provisioning
+<a id="device-provisioning" class="xliff"></a>
+
+给定的 IoT 解决方案存储的设备数据取决于该解决方案的特定要求。 但是，解决方案必须至少存储设备标识和身份验证密钥。 Azure IoT 中心包含标识注册表，可以存储每个设备的值，例如 ID、身份验证密钥和状态代码。 解决方案可以使用其他 Azure 服务（例如 Azure 表存储、Azure Blob 存储或 Azure Cosmos DB）来存储任何其他设备数据。
 
 *设备预配* 是将初始设备数据添加到解决方案中存储中的过程。 若要使新设备能够连接到中心，必须将新设备 ID 和密钥添加到 IoT 中心的标识注册表。 在预配过程中，你可能需要初始化其他解决方案存储中的设备特定数据。
 
-## <a name="device-heartbeat"></a>检测信号
+## 检测信号
+<a id="device-heartbeat" class="xliff"></a>
 
 IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和调试期间仅使用 **connectionState** 字段。 IoT 解决方案不应在运行时查询该字段（例如，为了检查设备是否已连接以确定是否要发送从云到设备的消息或短信）。
 
-如果 IoT 解决方案需要知道设备是否已连接（在运行时或在比 **connectionState** 属性提供的值更精确时），解决方案应实施检测信号模式。
+如果 IoT 解决方案需要知道设备是否已连接（在运行时或在具有的值比 **connectionState** 属性提供的值更精确时），解决方案应实施*检测信号模式*。
 
 在检测信号模式下，设备每隔固定时间至少发送一次设备到云的消息（例如，每小时至少一次）。 因此，即使设备没有任何要发送的数据，仍会发送空的设备到云的消息（通常具有可供识别为检测信号的属性）。 在服务端，该解决方案维护着与每个设备收到的最后一个检测信号的映射。 如果设备在预计时间内未收到检测信号消息，则该解决方案认为设备有问题。
 
@@ -102,7 +110,8 @@ IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和�
 > [!NOTE]
 > 如果 IoT 解决方案只根据设备连接状态来决定是否发送云到设备的消息，并且没有把消息广播到大量设备，则可以考虑使用更简单的模式，即使用较短的到期时间。 此模式达到的效果与使用检测信号模式维护设备连接状态注册表达到的效果一样，而且更加有效。 IoT 中心还可以通过请求消息确认来通知哪些设备可以接收消息、哪些设备脱机或不能接收消息。
 
-## <a name="device-lifecycle-notifications"></a>设备生命周期通知
+## 设备生命周期通知
+<a id="device-lifecycle-notifications" class="xliff"></a>
 
 创建或删除设备标识时，IoT 中心可通过发送设备生命周期通知来通知 IoT 解决方案。 为此，IoT 解决方案需要创建一个路由，并将“数据源”设置为等于 *DeviceLifecycleEvents*。 默认情况下，不会发送生命周期通知，即无此类路由预先存在。 通知消息包括属性和正文。
 
@@ -112,15 +121,15 @@ IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和�
 
 | 名称 | 值 |
 | --- | --- |
-|$content-type | application/json |
-|$iothub-enqueuedtime |  发送通知的时间 |
-|$iothub-message-source | deviceLifecycleEvents |
-|$content-encoding | utf-8 |
-|opType | “createDeviceIdentity”或“deleteDeviceIdentity” |
-|hubName | IoT 中心的名称 |
-|deviceId | 设备 ID |
-|operationTimestamp | ISO8601 操作时间戳 |
-|iothub-message-schema | deviceLifecycleNotification |
+$content-type | application/json |
+$iothub-enqueuedtime |  发送通知的时间 |
+$iothub-message-source | deviceLifecycleEvents |
+$content-encoding | utf-8 |
+opType | “createDeviceIdentity”或“deleteDeviceIdentity” |
+hubName | IoT 中心的名称 |
+deviceId | 设备 ID |
+operationTimestamp | ISO8601 操作时间戳 |
+iothub-message-schema | deviceLifecycleNotification |
 
 - 正文
 
@@ -146,10 +155,12 @@ IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和�
 }
 ```
 
-## <a name="reference-topics"></a>参考主题：
+## 参考主题：
+<a id="reference-topics" class="xliff"></a>
 以下参考主题提供有关标识注册表的详细信息。
 
-## <a name="device-identity-properties"></a>设备标识属性
+## 设备标识属性
+<a id="device-identity-properties" class="xliff"></a>
 设备识别表示为包含以下属性的 JSON 文档：
 
 | 属性 | 选项 | 说明 |
@@ -159,8 +170,8 @@ IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和�
 | etag |必需，只读 |一个字符串，根据 [RFC7232][lnk-rfc7232] 表示设备标识的弱 ETag。 |
 | auth |可选 |包含身份验证信息和安全材料的复合对象。 |
 | auth.symkey |可选 |包含主密钥和辅助密钥的复合对象，以 base64 格式存储。 |
-| status |必填 |访问指示器。可以是 **Enabled** 或 **Disabled**。如果是 **Enabled**，则允许设备连接。如果是 **Disabled**，则此设备无法访问任何面向设备的终结点。 |
-| statusReason |可选 |128 个字符的字符串，用于存储设备标识状态的原因。允许所有 UTF-8 字符。 |
+| 状态 |必填 |访问指示器。 可以是 **Enabled** 或 **Disabled**。 如果是 **Enabled**，则允许设备连接。 如果是 **Disabled**，则此设备无法访问任何面向设备的终结点。 |
+| statusReason |可选 |128 个字符的字符串，用于存储设备标识状态的原因。 允许所有 UTF-8 字符。 |
 | statusUpdateTime |只读 |临时指示器，显示上次状态更新的日期和时间。 |
 | connectionState |只读 |指示连接状态的字段：**Connected** 或 **Disconnected**。 此字段表示设备连接状态的 IoT 中心视图。 **重要说明**：此字段只用于开发/调试目的。 仅使用 MQTT 或 AMQP 的设备才更新连接状态。 此外，它基于协议级别的 ping（MQTT ping 或 AMQP ping），并且最多只有 5 分钟的延迟。 出于这些原因，可能会发生误报，例如，将设备报告为已连接，但实际上已断开连接。 |
 | connectionStateUpdatedTime |只读 |临时指示器，显示上次更新连接状态的日期和时间。 |
@@ -171,16 +182,18 @@ IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和�
 > 
 > 
 
-## <a name="additional-reference-material"></a>其他参考资料
+## 其他参考资料
+<a id="additional-reference-material" class="xliff"></a>
 IoT 中心开发人员指南中的其他参考主题包括：
 
 * [IoT 中心终结点][lnk-endpoints] ，介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
 * [限制和配额][lnk-quotas]，说明了适用于 IoT 中心服务的配额，以及使用服务时预期会碰到的限制行为。
 * [Azure IoT 设备和服务 SDK][lnk-sdks]，列出了在开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
-* [设备孪生和作业的 IoT 中心查询语言][lnk-query]，介绍了在 IoT 中心检索设备孪生和作业相关信息时可使用的 IoT 中心查询语言。
+* [用于设备孪生、作业和消息路由的 IoT 中心查询语言][lnk-query]介绍了可用来从 IoT 中心检索设备孪生和作业相关信息的 IoT 中心查询语言。
 * [IoT 中心 MQTT 支持][lnk-devguide-mqtt] 提供有关 IoT 中心对 MQTT 协议的支持的详细信息。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 了解如何使用 IoT 中心标识注册表后，可以根据兴趣参阅以下 IoT 中心开发人员指南主题：
 
 * [控制 IoT 中心的访问权限][lnk-devguide-security]
@@ -199,7 +212,7 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 [lnk-query]: ./iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
-[lnk-resource-provider-apis]: https://msdn.microsoft.com/zh-cn/library/mt548492.aspx
+[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-guidance-provisioning]: ./iot-hub-devguide-identity-registry.md#device-provisioning
 [lnk-guidance-heartbeat]: ./iot-hub-devguide-identity-registry.md#device-heartbeat
 [lnk-rfc7232]: https://tools.ietf.org/html/rfc7232

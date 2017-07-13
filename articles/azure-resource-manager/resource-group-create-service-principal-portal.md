@@ -3,8 +3,8 @@ title: "在门户中创建 Azure 应用标识 | Azure"
 description: "介绍如何创建新的 Azure Active Directory 应用程序和服务主体，在 Azure Resource Manager 中将此服务主体与基于角色的访问控制配合使用可以管理对资源的访问权限。"
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
@@ -12,23 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/17/2017
-ms.date: 06/05/2017
+origin.date: 05/15/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 6638c39f7f807849133267f498fa555ee6d55503
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: b544280924824c76ab5c0ced213b03762472a40d
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体
-> [!div class="op_single_selector"]
-> * [PowerShell](resource-group-authenticate-service-principal.md)
-> * [Azure CLI](resource-group-authenticate-service-principal-cli.md)
-> * [门户](resource-group-create-service-principal-portal.md)
->
->
+# 使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体
+<a id="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources" class="xliff"></a>
 
 当应用程序需要访问或修改资源时，必须设置 Azure Active Directory (AD) 应用程序，并为其分配所需的权限。 与使用用户自己的凭据运行应用相比，此方法更优，原因在于：
 
@@ -41,7 +35,8 @@ ms.lasthandoff: 05/26/2017
 ## <a name="required-permissions"></a>所需的权限
 为完成本主题，必须具有足够的权限向 Azure AD 租户注册应用程序，并将应用程序分配到 Azure 订阅中的角色。 请确保你拥有适当的权限来执行这些步骤。
 
-### <a name="check-azure-active-directory-permissions"></a>检查 Azure Active Directory 权限
+### 检查 Azure Active Directory 权限
+<a id="check-azure-active-directory-permissions" class="xliff"></a>
 1. 通过 [Azure 门户](https://portal.azure.cn)登录 Azure 帐户。
 2. 选择“Azure Active Directory” 。
 
@@ -86,7 +81,8 @@ ms.lasthandoff: 05/26/2017
 
     ![显示权限](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
 
-## <a name="create-an-azure-active-directory-application"></a>创建 Azure Active Directory 应用程序
+## 创建 Azure Active Directory 应用程序
+<a id="create-an-azure-active-directory-application" class="xliff"></a>
 1. 通过 [Azure 门户](https://portal.azure.cn)登录 Azure 帐户。
 2. 选择“Azure Active Directory” 。
 
@@ -105,7 +101,8 @@ ms.lasthandoff: 05/26/2017
 
 你已创建应用程序。
 
-## <a name="get-application-id-and-authentication-key"></a>获取应用程序 ID 和身份验证密钥
+## 获取应用程序 ID 和身份验证密钥
+<a id="get-application-id-and-authentication-key" class="xliff"></a>
 以编程方式登录时，需要使用应用程序的 ID 和身份验证密钥。 若要获取这些值，请使用以下步骤：
 
 1. 从 Azure Active Directory 中的“应用注册”，选择应用程序。
@@ -125,7 +122,8 @@ ms.lasthandoff: 05/26/2017
 
     ![保存的密钥](./media/resource-group-create-service-principal-portal/copy-key.png)
 
-## <a name="get-tenant-id"></a>获取租户 ID
+## 获取租户 ID
+<a id="get-tenant-id" class="xliff"></a>
 以编程方式登录时，需要随身份验证请求传递租户 ID。 
 
 1. 若要获取租户 ID，请选择 Azure AD 租户的“属性”。 
@@ -136,7 +134,8 @@ ms.lasthandoff: 05/26/2017
 
     ![租户 ID](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
 
-## <a name="assign-application-to-role"></a>将应用程序分配到角色
+## 将应用程序分配到角色
+<a id="assign-application-to-role" class="xliff"></a>
 若要访问订阅中的资源，必须将应用程序分配到角色。 决定哪个角色表示应用程序的相应权限。 若要了解有关可用角色的信息，请参阅 [RBAC：内置角色](../active-directory/role-based-access-built-in-roles.md)。
 
 可将作用域设置为订阅、资源组或资源级别。 较低级别的作用域将继承权限。 例如，将某个应用程序添加到资源组的“读取者”角色意味着该应用程序可以读取该资源组及其包含的所有资源。
@@ -165,7 +164,8 @@ ms.lasthandoff: 05/26/2017
     ![搜索应用](./media/resource-group-create-service-principal-portal/search-app.png)
 9. 选择“确定”  完成角色分配。 该应用程序将显示在分配到该范围角色的用户列表中。
 
-## <a name="log-in-as-the-application"></a>作为应用程序登录
+## 作为应用程序登录
+<a id="log-in-as-the-application" class="xliff"></a>
 
 现已在 Azure Active Directory 中设置应用程序。 可使用 ID 和密钥登录为该应用程序。 应用程序分配到角色，可以该角色身份执行特定操作。 
 
@@ -205,6 +205,8 @@ ms.lasthandoff: 05/26/2017
 * [在 Ruby 中使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/)
 * [使用 Ruby 管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * 若要设置多租户应用程序，请参阅 [使用 Azure Resource Manager API 进行授权的开发人员指南](resource-manager-api-authentication.md)。
 * 若要了解如何指定安全策略，请参阅 [Azure 基于角色的访问控制](../active-directory/role-based-access-control-configure.md)。
+* 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure Resource Manager 资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)。

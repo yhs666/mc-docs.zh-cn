@@ -1,5 +1,5 @@
 ---
-title: "用于 DocumentDB 的 DocumentDB API Python 示例 | Microsoft Docs"
+title: "DocumentDB 的 DocumentDB API Python 示例 | Microsoft Docs"
 description: "在 github 上查找有关 DocumentDB 中常见任务的 Python 示例，包括 CRUD 操作。"
 keywords: "python 示例"
 services: documentdb
@@ -16,14 +16,14 @@ ms.topic: article
 origin.date: 04/18/2016
 ms.author: v-junlch
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 3cf0b2a4a665ff90c6431a20af6abefbf81814ca
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: 339bb78b186d30b9e5ba0eb2f2b6c1b252f5f0e2
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="azure-documentdb-python-examples"></a>DocumentDB Python 示例
+# DocumentDB Python 示例
+<a id="documentdb-python-examples" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [.NET 示例](documentdb-dotnet-samples.md)
 > * [Node.js 示例](documentdb-nodejs-samples.md)
@@ -49,7 +49,8 @@ ms.lasthandoff: 05/19/2017
    > 
    > 
 
-## <a name="database-examples"></a>数据库示例
+## 数据库示例
+<a id="database-examples" class="xliff"></a>
 [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement) 项目的 [Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement/Program.py) 文件演示了如何执行以下任务。
 
 | 任务 | API 参考 |
@@ -60,7 +61,8 @@ ms.lasthandoff: 05/19/2017
 | [列出帐户的数据库](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/DatabaseManagement/Program.py#L99-L110) |[document_client.ReadDatabases](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html) |
 | [删除数据库](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/DatabaseManagement/Program.py#L113-L126) |[document_client.DeleteDatabase](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html) |
 
-## <a name="collection-examples"></a>集合示例
+## 集合示例
+<a id="collection-examples" class="xliff"></a>
 [CollectionManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement) 项目的 [Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement/Program.py) 文件演示了如何执行以下任务。
 
 | 任务 | API 参考 |
@@ -71,6 +73,5 @@ ms.lasthandoff: 05/19/2017
 | [获取集合的性能层](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L139-L161) |[DocumentQueryable.QueryOffers](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [更改集合的性能层](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L163-L175) |[document_client.ReplaceOffer](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [删除集合](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L212-L225) |[document_client.DeleteCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
-
 
 

@@ -13,20 +13,19 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/10/2017
-ms.date: 06/05/2017
+origin.date: 06/15/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: b65765fda66304ea49c6c0fcc15a69148e8d6756
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.date: 07/10/2017
+ms.openlocfilehash: 99df3baa01b10d32a5345b3d0e1a1554c12a636c
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-# <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>使用 iothub-explorer 进行 Azure IoT 中心设备管理
+# 使用 iothub-explorer 进行 Azure IoT 中心设备管理
+<a id="use-iothub-explorer-for-azure-iot-hub-device-management" class="xliff"></a>
 
-![端到端关系图](./media/iot-hub-get-started-e2e-diagram/2.png)
+![端到端关系图](media/iot-hub-get-started-e2e-diagram/2.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -46,23 +45,27 @@ ms.lasthandoff: 05/26/2017
 > [!NOTE]
 > 设备孪生是存储设备状态信息（元数据、配置和条件）的 JSON 文档。 IoT 中心为连接到它的每台设备保留一个设备孪生。 有关设备孪生的详细信息，请参阅[设备孪生入门](./iot-hub-node-node-twin-getstarted.md)。
 
-## <a name="what-you-learn"></a>学习内容
+## 学习内容
+<a id="what-you-learn" class="xliff"></a>
 
-将通过结合使用 iothub-explorer 和各种管理选项来进行了解。
+学习在开发计算机上结合使用 iothub-explorer 与各种管理选项。
 
-## <a name="what-you-do"></a>准备工作
+## 准备工作
+<a id="what-you-do" class="xliff"></a>
 
 使用各种管理选项运行 iothub-explorer。
 
-## <a name="what-you-need"></a>需要什么
+## 需要什么
+<a id="what-you-need" class="xliff"></a>
 
 - 已完成教程[设置设备](./iot-hub-raspberry-pi-kit-node-get-started.md)，其中涵盖以下要求：
   - 一个有效的 Azure 订阅。
   - 已在订阅中创建一个 Azure IoT 中心。
   - 一个可向 Azure IoT 中心发送消息的客户端应用程序。
-- iothub-explorer。 （[安装 iothub-explorer](https://github.com/azure/iothub-explorer)）
+- iothub-explorer。 （在开发计算机上[安装 iothub-explorer](https://github.com/azure/iothub-explorer)）
 
-## <a name="connect-to-your-iot-hub"></a>连接到 IoT 中心
+## 连接到 IoT 中心
+<a id="connect-to-your-iot-hub" class="xliff"></a>
 
 通过运行以下命令连接到 IoT 中心：
 
@@ -70,7 +73,8 @@ ms.lasthandoff: 05/26/2017
 iothub-explorer login <your IoT hub connection string>
 ```
 
-## <a name="use-iothub-explorer-with-direct-methods"></a>结合使用 iothub-explorer 和直接方法
+## 结合使用 iothub-explorer 和直接方法
+<a id="use-iothub-explorer-with-direct-methods" class="xliff"></a>
 
 通过运行以下命令在设备应用中调用 `start` 方法以向 IoT 中心发送消息：
 
@@ -84,17 +88,19 @@ iothub-explorer device-method <your device Id> start
 iothub-explorer device-method <your device Id> stop
 ```
 
-## <a name="use-iothub-explorer-with-twins-desired-properties"></a>结合使用 iothub-explorer 和孪生所需的属性
+## 结合使用 iothub-explorer 和孪生所需的属性
+<a id="use-iothub-explorer-with-twins-desired-properties" class="xliff"></a>
 
 通过运行以下命令将所需属性间隔设置为 3000：
 
 ```bash
-iothub-explorer update-twin mydevice {\"properties\":{\"desired\":{\"interval\":3000}}}
+iothub-explorer update-twin <your device id> {\"properties\":{\"desired\":{\"interval\":3000}}}
 ```
 
 可通过设备读取此属性。
 
-## <a name="use-iothub-explorer-with-twins-reported-properties"></a>结合使用 iothub-explorer 和孪生的报告属性
+## 结合使用 iothub-explorer 和孪生的报告属性
+<a id="use-iothub-explorer-with-twins-reported-properties" class="xliff"></a>
 
 通过运行以下命令获取报告的设备属性：
 
@@ -104,7 +110,8 @@ iothub-explorer get-twin <your device id>
 
 其中一个属性是 $metadata.$lastUpdated，它显示该设备上次发送或接收消息的时间。
 
-## <a name="use-iothub-explorer-with-twins-tags"></a>结合使用 iothub-explorer 和孪生的标记
+## 结合使用 iothub-explorer 和孪生的标记
+<a id="use-iothub-explorer-with-twins-tags" class="xliff"></a>
 
 通过运行以下命令显示设备的标记和属性：
 
@@ -118,7 +125,8 @@ iothub-explorer get-twin <your device id>
 iothub-explorer update-twin <your device id> {\"tags\":{\"role\":\"temperature&humidity\"}}
 ```
 
-## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>使用 iothub-explorer 发送云到设备的消息
+## 使用 iothub-explorer 发送云到设备的消息
+<a id="use-iothub-explorer-with-cloud-to-device-messages" class="xliff"></a>
 
 运行以下命令，将“Hello World”消息发送到设备：
 
@@ -128,7 +136,8 @@ iothub-explorer send <device-id> "Hello World"
 
 有关使用此命令的真实应用场景，请参阅[使用 iothub-explorer 在设备与 IoT 中心之间发送和接收消息](./iot-hub-explorer-cloud-device-messaging.md)。
 
-## <a name="use-iothub-explorer-with-device-twins-queries"></a>将 iothub-explorer 用于设备孪生查询
+## 将 iothub-explorer 用于设备孪生查询
+<a id="use-iothub-explorer-with-device-twins-queries" class="xliff"></a>
 
 通过运行以下命令查询角色标记 =“温度和湿度”的设备：
 
@@ -142,7 +151,8 @@ iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role = 'temperature
 iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 现已了解如何结合使用 iothub-explorer 和各种管理选项。
 

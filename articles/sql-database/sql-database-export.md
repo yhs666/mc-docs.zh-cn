@@ -3,38 +3,39 @@ title: "将 Azure SQL 数据库导出到 BACPAC 文件 | Azure"
 description: "使用 Azure 门户将 Azure SQL 数据库导出到 BACPAC 文件"
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: 41d63a97-37db-4e40-b652-77c2fd1c09b7
 ms.service: sql-database
-ms.custom: move data
+ms.custom: load & move data
 ms.devlang: NA
-ms.date: 04/05/2017
+origin.date: 04/05/2017
+ms.date: 07/03/2017
 ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 9a9db93ba77884ad015414839a2a9f74c7f2b9c5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 497ebae1a5ac5c6a82ef844d521f00339876f4c9
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-# <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>将 Azure SQL 数据库导出到 BACPAC 文件
+# 将 Azure SQL 数据库导出到 BACPAC 文件
+<a id="export-an-azure-sql-database-to-a-bacpac-file" class="xliff"></a>
 
-本文讨论如何将 Azure SQL 数据库导出到 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 文件。 本文讨论如何使用以下方法进行导出：
+本文讨论如何将 Azure SQL 数据库导出到 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 文件。 本文讨论如何使用以下方法：
 - [Azure 门户](https://portal.azure.cn)
 - [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) 命令行实用工具
-- [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport) cmdlet
+- [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet
 - [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) 中的[导出数据层应用程序](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)向导。
 
 
 
 
-## <a name="overview"></a>概述
+## 概述
+<a id="overview" class="xliff"></a>
 
 需要导出数据库以便将其存档或移至其他平台时，可以将数据库架构和数据导出到 BACPAC 文件。 BACPAC 文件是一个扩展名为 BACPAC 的 ZIP 文件，它包含来自 SQL Server 数据库的元数据和数据。 可将 BACPAC 文件存储在 Azure blob 存储中或存储在本地位置的本地存储中，之后可以导入回 Azure SQL 数据库或 SQL Server 本地安装。 
 
@@ -42,7 +43,8 @@ ms.lasthandoff: 05/12/2017
 > 如果将从 SQL Server 中导出作为迁移到 Azure SQL 数据库的准备，请参阅[将 SQL Server 数据库迁移到 Azure SQL 数据库](sql-database-cloud-migrate.md)。
 > 
 
-## <a name="considerations"></a>注意事项
+## 注意事项
+<a id="considerations" class="xliff"></a>
 
 * 为保证导出的事务处理方式一致，必须确保导出期间未发生写入活动，或者正在从 Azure SQL 数据库的[事务处理方式一致性副本](sql-database-copy.md)中导出。
 * 如果是导出到 Blob 存储，则 BACPAC 文件的最大大小为 200 GB。 若要存档更大的 BACPAC 文件，请导出到本地存储。
@@ -56,7 +58,8 @@ ms.lasthandoff: 05/12/2017
 > BACPAC 不能用于备份和还原操作。 Azure SQL 数据库会自动为每个用户数据库创建备份。 有关详细信息，请参阅[业务连续性概述](sql-database-business-continuity.md)和 [SQL 数据库备份](sql-database-automated-backups.md)。  
 > 
 
-## <a name="azure-portal-preview"></a>Azure 门户
+## Azure 门户
+<a id="azure-portal" class="xliff"></a>
 
 若要使用 Azure 门户导出数据库，请打开数据库页，并在工具栏上单击“导出”。 指定 *.bacpac 文件名，为导出提供 Azure 存储帐户和容器，并提供用于连接到源数据库的凭据。  
 
@@ -64,19 +67,22 @@ ms.lasthandoff: 05/12/2017
 
 若要监视导出操作的进度，请打开包含所导出数据库的逻辑服务器的相应页面。 向下滚动到“操作”，然后单击“导入/导出”历史记录。
 
-## <a name="sqlpackage-utility"></a>SQLPackage 实用程序
+## SQLPackage 实用程序
+<a id="sqlpackage-utility" class="xliff"></a>
 
 若要使用 [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) 命令行实用工具导出 SQL 数据库，请参阅[导出参数和属性](https://msdn.microsoft.com/library/hh550080.aspx#Export Parameters and Properties)。 SQLPackage 实用工具附带最新版本的 [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 和[用于 Visual Studio 的 SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)，也可以直接从 Microsoft 下载中心下载最新版本的 [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876)。
 
 在大多数生产环境中，建议使用 SQLPackage 实用工具来实现缩放和性能。 如需 SQL Server 客户顾问团队编写的有关使用 BACPAC 文件进行迁移的博客，请参阅 [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)（使用 BACPAC 文件从 SQL Server 迁移到 Azure SQL 数据库）。
 
-## <a name="sql-server-management-studio"></a>SQL Server Management Studio
+## SQL Server Management Studio
+<a id="sql-server-management-studio" class="xliff"></a>
 
 SQL Server Management Studio 的最新版本也提供一个向导，可将 Azure SQL 数据库导出到 bacpac 文件。 请参阅[导出数据层应用程序](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)。
 
-## <a name="powershell"></a>PowerShell
+## PowerShell
+<a id="powershell" class="xliff"></a>
 
-使用 [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport) cmdlet 向 Azure SQL 数据库服务提交导出数据库请求。 根据数据库的大小，导出操作可能需要一些时间才能完成。
+使用 [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet 向 Azure SQL 数据库服务提交导出数据库请求。 根据数据库的大小，导出操作可能需要一些时间才能完成。
 
  ```powershell
  $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
@@ -84,7 +90,7 @@ SQL Server Management Studio 的最新版本也提供一个向导，可将 Azure
    -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
  ```
 
-若要检查导出请求的状态，请使用 [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus) cmdlet。 如果在提交请求后立即运行此命令，通常会返回“状态: 正在进行”。 显示“状态: 成功”  时，表示导出完毕。
+若要检查导出请求的状态，请使用 [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet。 如果在提交请求后立即运行此命令，通常会返回“状态: 正在进行”。 显示“状态: 成功”  时，表示导出完毕。
 
 ```powershell
 $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
@@ -99,7 +105,8 @@ while ($importStatus.Status -eq "InProgress")
 $importStatus
 ```
 
-### <a name="export-sql-database-example"></a>导出 SQL 数据库示例
+### 导出 SQL 数据库示例
+<a id="export-sql-database-example" class="xliff"></a>
 下面的示例将现有 Azure SQL 数据库导出到 BACPAC，然后说明如何查看导出操作的状态。
 
 若要运行示例，需将几个变量替换为数据库和存储帐户中的特定值。 在 [Azure 门户](https://portal.azure.cn)中，浏览存储帐户，以获取存储帐户名称、blob 容器名称和密钥值。 可单击存储帐户边栏选项卡上的“访问密钥”  查找密钥。
@@ -140,9 +147,9 @@ $exportRequest
 Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
 ```
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 * 如需 SQL Server 客户顾问团队编写的有关使用 BACPAC 文件进行迁移的博客，请参阅 [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)（使用 BACPAC 文件从 SQL Server 迁移到 Azure SQL 数据库）。
 * 若要了解如何将 BACPAC 导入到 SQL Server 数据库，请参阅[将 BACPCAC 导入到 SQL Server 数据库](https://msdn.microsoft.com/library/hh710052.aspx)。
 * 若要了解如何从 SQL Server 数据库导出 BACPAC，请参阅[导出数据层应用程序](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)和[迁移第一个数据库](sql-database-migrate-your-sql-server-database.md)。
-

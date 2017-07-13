@@ -1,6 +1,6 @@
 ---
 title: "将 Apache Spark 连接到 DocumentDB | Microsoft Docs"
-description: "使用本教程来了解 DocumentDB Spark 连接器：使用该连接器可将 Apache Spark 连接到 DocumentDB，以便在针对云设计的 Microsoft 多租户全局分布式的数据库系统中执行分布式聚合和数据科学。"
+description: "使用本教程来了解 DocumentDB Spark 连接器：使用该连接器可将 Apache Spark 连接到 DocumentDB，以便在针对云设计的 Microsoft 多租户全局分布式数据库系统中执行分布式聚合和数据科学。"
 keywords: apache spark
 services: documentdb
 documentationcenter: 
@@ -16,24 +16,24 @@ ms.topic: article
 origin.date: 04/03/2017
 ms.author: v-junlch
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 5ce6e35e4de92d72d973c4843021b5b6623594a3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 06121c94ac76ca98e14f18e06c3afe80de27de31
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-documentdb-connector"></a>使用 Spark 到 DocumentDB 的连接器加速实时大数据分析
+# 使用 Spark 到 DocumentDB 的连接器加速实时大数据分析
+<a id="accelerate-real-time-big-data-analytics-with-the-spark-to-documentdb-connector" class="xliff"></a>
 
 Spark 到 DocumentDB 的连接器能使 DocumentDB 充当 Apache Spark 作业的输入源或输出接收器。 将 [Spark](http://spark.apache.org/) 连接到 [DocumentDB](https://azure.microsoft.com/services/documentdb/) 后，可以更快地解决瞬息万变的数据科学问题，使用 DocumentDB 快速保存和查询数据。 Spark 到 DocumentDB 的连接器有效利用本机 DocumentDB 托管的索引，可在针对 IoT、数据科学和分析方案等各种快速变化的全局分布式数据执行分析、下推谓词筛选时启用可更新的列。 
 
-## <a name="download"></a>下载
+## 下载
+<a id="download" class="xliff"></a>
 
 首先，请从 GitHub 上的 [azure-documentdb-spark](https://github.com/Azure/azure-documentdb-spark/) 存储库下载 Spark 到 DocumentDB 的连接器（预览版）。
 
-## <a name="connector-components"></a>连接器组件
+## 连接器组件
+<a id="connector-components" class="xliff"></a>
 
 连接器利用以下组件：
 
@@ -57,13 +57,15 @@ Spark 到 DocumentDB 的连接器能使 DocumentDB 充当 Apache Spark 作业的
 - 通过 [Azure DocumentDB Python SDK](https://github.com/Azure/azure-documentdb-python) 使用 pyDocumentDB。
 - 利用 [Azure DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java) 创建基于 Java 的 Spark 到 DocumentDB 的连接器。
 
-## <a name="pydocumentdb-implementation"></a>pyDocumentDB 实现 
+## pyDocumentDB 实现
+<a id="pydocumentdb-implementation" class="xliff"></a> 
 使用最新的 [pyDocumentDB SDK](https://github.com/Azure/azure-documentdb-python) 可将 Spark 连接到 DocumentDB，如下图所示：
 
-![通过 pyDocumentDB 的 Spark 到 DocumentDB 数据流。](./media/documentdb-spark-connector/azure-documentdb-spark-pydocumentdb.png)
+![通过 pyDocumentDB 运行 Spark 到 DocumentDB 的数据流](./media/documentdb-spark-connector/azure-documentdb-spark-pydocumentdb.png)
 
 
-### <a name="data-flow-of-the-pydocumentdb-implementation"></a>pyDocumentDB 实现的数据流
+### pyDocumentDB 实现的数据流
+<a id="data-flow-of-the-pydocumentdb-implementation" class="xliff"></a>
 
 数据流如下所示：
 
@@ -73,7 +75,8 @@ Spark 到 DocumentDB 的连接器能使 DocumentDB 充当 Apache Spark 作业的
 
 要点在于，Spark 与 DocumentDB 之间的通信仅限于 Spark 主节点和 DocumentDB 网关节点。  查询的速度与这两个节点之间的传输层速度相同。
 
-### <a name="installing-pydocumentdb"></a>安装 pyDocumentDB
+### 安装 pyDocumentDB
+<a id="installing-pydocumentdb" class="xliff"></a>
 可以使用 **pip** 在驱动程序节点上安装 pyDocumentDB，例如：
 
 ```
@@ -81,7 +84,8 @@ pip install pyDocumentDB
 ```
 
 
-### <a name="connecting-spark-to-documentdb-via-pydocumentdb"></a>通过 pyDocumentDB 将 Spark 连接到 DocumentDB 
+### 通过 pyDocumentDB 将 Spark 连接到 DocumentDB
+<a id="connecting-spark-to-documentdb-via-pydocumentdb" class="xliff"></a> 
 由于通信传输的简单性，使用 pyDocumentDB 执行从 Spark 到 DocumentDB 的查询相对简单。
 
 以下代码片段演示如何在 Spark 上下文中使用 pyDocumentDB。
@@ -111,7 +115,8 @@ client = document_client.DocumentClient(host, {'masterKey': masterKey}, connecti
 -  导入所需的库，并配置 **masterKey** 和**主机**来创建 DocumentDB *客户端* (**pydocumentdb.document_client**)。
 
 
-### <a name="executing-spark-queries-via-pydocumentdb"></a>通过 pyDocumentDB 执行 Spark 查询
+### 通过 pyDocumentDB 执行 Spark 查询
+<a id="executing-spark-queries-via-pydocumentdb" class="xliff"></a>
 以下示例使用前面代码片段中通过指定的只读密钥创建的 DocumentDB 实例。  以下代码片段连接到 **airports.codes** 集合（前面指定的 DoctorWho 帐户），并运行一个查询来提取华盛顿州的机场城市信息。 
 
 ```
@@ -143,15 +148,17 @@ elements = list(query)
 df = spark.createDataFrame(elements)
 ```
 
-### <a name="why-use-the-pydocumentdb-to-connect-spark-to-documentdb"></a>为何使用 pyDocumentDB 将 Spark 连接到 DocumentDB？
+### 为何使用 pyDocumentDB 将 Spark 连接到 DocumentDB？
+<a id="why-use-the-pydocumentdb-to-connect-spark-to-documentdb" class="xliff"></a>
 在以下场合下，通常使用 pyDocumentDB 将 Spark 连接到 DocumentDB：
 
 - 要使用 python。
 - 要将 DocumentDB 中相对较小的结果集返回到 Spark。  请注意，DocumentDB 中的基础数据集可能很大。 这比针对 DocumentDB 源应用筛选器（运行谓词筛选器）时要大。  
 
-## <a name="spark-to-documentdb-connector"></a>Spark 到 DocumentDB 的连接器
+## Spark 到 DocumentDB 的连接器
+<a id="spark-to-documentdb-connector" class="xliff"></a>
 
-Spark 到 DocumentDB 的连接器利用 [DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java)，并在 Spark 辅助角色节点与 DocumentDB 之间移动数据，如下图所示：
+Spark 到 DocumentDB 的连接器利用 [DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java)，在 Spark 工作节点与 DocumentDB 之间移动数据，如下图所示：
 
 ![Spark 到 DocumentDB 的连接器中的数据流](./media/documentdb-spark-connector/azure-documentdb-spark-connector.png)
 
@@ -160,18 +167,20 @@ Spark 到 DocumentDB 的连接器利用 [DocumentDB Java SDK](https://github.com
 1. 建立从 Spark 主节点到 DocumentDB 网关节点的连接，以获取分区映射。  请注意，用户只需指定 Spark 和 DocumentDB 连接，连接到相应主节点和网关节点的过程对用户是透明的。
 2. 此信息将返回给 Spark 主节点。  此时，你应该能够分析查询，确定需要访问 DocumentDB 中的哪些分区（及其位置）。
 3. 此信息将传送到 Spark 工作节点 ...
-4. 这将允许 Spark 工作节点直接连接到 DocumentDB 分区以提取所需的数据，并将数据传送回到 Spark 辅助角色节点中的 Spark 分区。
+4. 从而允许 Spark 工作节点直接连接到 DocumentDB 分区以提取所需的数据，并将数据传送回到 Spark 工作节点中的 Spark 分区。
 
-要点在于，Spark 与 DocumentDB 之间的通信速度会大幅提高，因为数据移动在 Spark 辅助角色节点与 DocumentDB 数据节点（分区）之间发生。
+要点在于，Spark 与 DocumentDB 之间的通信速度会大幅提高，因为数据移动在 Spark 工作节点与 DocumentDB 数据节点（分区）之间发生。
 
-### <a name="building-the-spark-to-documentdb-connector"></a>构建 Spark 到 DocumentDB 的连接器
+### 构建 Spark 到 DocumentDB 的连接器
+<a id="building-the-spark-to-documentdb-connector" class="xliff"></a>
 目前，连接器项目使用 maven。 若要构建不带依赖项的连接器，可以运行：
 ```
 mvn clean package
 ```
 也可以在 *releases* 文件夹中下载最新版本的 jar。
 
-### <a name="including-the-azure-documentdb-spark-jar"></a>包含 Azure DocumentDB Spark JAR
+### 包含 Azure DocumentDB Spark JAR
+<a id="including-the-azure-documentdb-spark-jar" class="xliff"></a>
 在执行任何代码之前，首先需要包含 Azure DocumentDB Spark JAR。  如果使用 **spark-shell**，则可以使用 **-jar** 选项包含 JAR。  
 
 ```
@@ -197,7 +206,8 @@ spark-shell --master $master --jars /$location/azure-documentdb-spark-0.0.1.jar,
 
 使用 **jars** 命令可以包含 **azure-documentdb-spark** 所需的两个 jar（该 jar 本身以及 Azure DocumentDB Java SDK）并排除 **scala-reflect**，使其不会干扰所执行的 Livy 调用（Jupyter 笔记本 > Livy > Spark）。
 
-### <a name="connecting-spark-to-documentdb-using-the-connector"></a>使用连接器将 Spark 连接到 DocumentDB
+### 使用连接器将 Spark 连接到 DocumentDB
+<a id="connecting-spark-to-documentdb-using-the-connector" class="xliff"></a>
 尽管通信传输有点复杂，但使用连接器执行从 Spark 到 DocumentDB 的查询要快得多。
 
 以下代码片段演示如何在 Spark 上下文中使用连接器。
@@ -228,7 +238,8 @@ coll.createOrReplaceTempView("c")
 - **azure-documentdb-spark** 包含所有所需的连接参数，包括首选位置（例如，按哪种优先顺序选择哪个读取副本）。
 - 只需导入所需的库，并配置 masterKey 和主机来创建 DocumentDB 客户端。
 
-### <a name="executing-spark-queries-via-the-connector"></a>通过连接器执行 Spark 查询
+### 通过连接器执行 Spark 查询
+<a id="executing-spark-queries-via-the-connector" class="xliff"></a>
 
 以下示例使用前面代码片段中通过指定的只读密钥创建的 DocumentDB 实例。 以下代码片段连接到 DepartureDelays.flights_pcoll 集合（前面指定的 DoctorWho 帐户），并运行一个查询来提取从西雅图出发的航班的航班延迟信息。
 
@@ -244,7 +255,8 @@ df.count()
 df.show()
 ```
 
-### <a name="why-use-the-spark-to-documentdb-connector-implementation"></a>为何使用 Spark 到 DocumentDB 的连接器实现？
+### 为何使用 Spark 到 DocumentDB 的连接器实现？
+<a id="why-use-the-spark-to-documentdb-connector-implementation" class="xliff"></a>
 
 在以下场合下，通常使用连接器将 Spark 连接到 DocumentDB：
 
@@ -253,12 +265,14 @@ df.show()
 
 若要大致了解查询性能的差异，请参阅[查询测试运行 wiki 文章](https://github.com/Azure/azure-documentdb-spark/wiki/Query-Test-Runs)。
 
-## <a name="distributed-aggregation-example"></a>分布式聚合示例
-本部分举例说明如何结合使用 Apache Spark 和 DocumentDB 来执行分布式聚合与分析。  请注意，如 [Planet scale aggregates with DocumentDB blog](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)（使用 DocumentDB 实现全球级聚合）博客文章中所述，DocumentDB 已能支持聚合，下面介绍了如何将它与 Apache Spark 配合使用，以进一步发挥它的优势。
+## 分布式聚合示例
+<a id="distributed-aggregation-example" class="xliff"></a>
+本部分举例说明如何结合使用 Apache Spark 和 DocumentDB 来执行分布式聚合与分析。  请注意，根据 [Planet scale aggregates with DocumentDB blog](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)（使用 DocumentDB 实现全球级聚合博客）中所述，DocumentDB 已能支持聚合，下面介绍了如何将它与 Apache Spark 配合使用，以进一步发挥它的优势。
 
-请注意，这些聚合与 [Spark 到 DocumentDB 的连接器 Notebook](https://github.com/Azure/azure-documentdb-spark/blob/master/samples/notebooks/Spark-to-DocumentDB_Connector.ipynb) 相关。
+请注意，这些聚合与 [Spark 到 DocumentDB 的连接器笔记本](https://github.com/Azure/azure-documentdb-spark/blob/master/samples/notebooks/Spark-to-DocumentDB_Connector.ipynb)相关。
 
-### <a name="connecting-to-flights-sample-data"></a>连接到航班示例数据
+### 连接到航班示例数据
+<a id="connecting-to-flights-sample-data" class="xliff"></a>
 在这些聚合示例中，我们要访问 **DoctorWho** DocumentDB 数据库中存储的一些航班绩效数据。  若要连接到这些数据，需要利用以下代码片段：
 
 ```
@@ -280,7 +294,7 @@ val coll = spark.sqlContext.read.DocumentDB(readConfig2)
 coll.createOrReplaceTempView("c")
 ```
 
-我们还要使用此代码片段运行一个基本查询，以便将 DocumentDB 中我们需要的筛选数据集传输到 Spark（后者可以执行分布式聚合）。  在本例中，我们要查询从西雅图 (SEA) 出发的航班。
+我们还要使用此代码片段运行一个基本查询，以便将 DocumentDB 中所需的筛选数据集传输到 Spark（后者可以执行分布式聚合）。  在本例中，我们要查询从西雅图 (SEA) 出发的航班。
 
 ```
 // Run, get row count, and time query
@@ -290,7 +304,8 @@ originSEA.createOrReplaceTempView("originSEA")
 
 从 Jupyter 笔记本服务运行查询后，生成了以下结果。  请注意，所有代码片段都是泛用性的，并不特定于任一服务。
 
-### <a name="running-limit-and-count-queries"></a>运行 LIMIT 和 COUNT 查询
+### 运行 LIMIT 和 COUNT 查询
+<a id="running-limit-and-count-queries" class="xliff"></a>
 就像我们在 SQL/Spark SQL 中经常所做的那样，让我们从 **LIMIT** 查询开始：
 
 ![Spark LIMIT 查询](./media/documentdb-spark-connector/azure-documentdb-spark-sql-query.png)
@@ -299,7 +314,8 @@ originSEA.createOrReplaceTempView("originSEA")
 
 ![Spark COUNT 查询](./media/documentdb-spark-connector/azure-documentdb-spark-count-query.png)
 
-### <a name="group-by-query"></a>GROUP BY 查询
+### GROUP BY 查询
+<a id="group-by-query" class="xliff"></a>
 接下来，我们可以针对 DocumentDB 数据库轻松运行 **GROUP BY** 查询：
 
 ```
@@ -311,15 +327,18 @@ order by sum(delay) desc limit 10
 
 ![Spark  GROUP BY 查询图表](./media/documentdb-spark-connector/azure-documentdb-group-by-query-graph.png)
 
-### <a name="distinct-order-by-query"></a>DISTINCT, ORDER BY 查询
+### DISTINCT, ORDER BY 查询
+<a id="distinct-order-by-query" class="xliff"></a>
 下面是 **DISTINCT, ORDER BY** 查询：
 
 ![Spark  GROUP BY 查询图表](./media/documentdb-spark-connector/azure-documentdb-order-by-query.png)
 
-### <a name="continue-the-flight-data-analysis"></a>继续分析航班数据
+### 继续分析航班数据
+<a id="continue-the-flight-data-analysis" class="xliff"></a>
 可以使用以下示例查询继续分析航班数据：
 
-#### <a name="top-5-delayed-destinations-cities-departing-from-seattle"></a>从西雅图出发的航班延迟次数最多的 5 个目的地（城市）
+#### 从西雅图出发的航班延迟次数最多的 5 个目的地（城市）
+<a id="top-5-delayed-destinations-cities-departing-from-seattle" class="xliff"></a>
 ```
 select destination, sum(delay) 
 from originSEA
@@ -330,7 +349,8 @@ order by sum(delay) limit 5
 ![Spark 延迟次数最多的目的地图表](./media/documentdb-spark-connector/azure-documentdb-top-delays-graph.png)
 
 
-#### <a name="calculate-median-delays-by-destination-cities-departing-from-seattle"></a>根据从西雅图出发的航班的目的地城市计算平均延迟时间
+#### 根据从西雅图出发的航班的目的地城市计算平均延迟时间
+<a id="calculate-median-delays-by-destination-cities-departing-from-seattle" class="xliff"></a>
 ```
 select destination, percentile_approx(delay, 0.5) as median_delay 
 from originSEA
@@ -341,7 +361,8 @@ order by percentile_approx(delay, 0.5)
 
 ![Spark 平均延迟时间图表](./media/documentdb-spark-connector/azure-documentdb-median-delays-graph.png)
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 从 [azure-documentdb-spark](https://github.com/Azure/azure-documentdb-spark) GitHub 存储库下载 Spark 到 DocumentDB 的连接器（如果尚未下载），并浏览该存储库中的其他资源：
 
@@ -349,7 +370,6 @@ order by percentile_approx(delay, 0.5)
 - [示例脚本和笔记本](https://github.com/Azure/azure-documentdb-spark/tree/master/samples)
 
 此外，还可以查看文章 [Apache Spark SQL、数据框架和数据集指南](http://spark.apache.org/docs/latest/sql-programming-guide.html)以及 [Azure HDInsight 上的 Apache Spark](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md)。
-
 
 
 

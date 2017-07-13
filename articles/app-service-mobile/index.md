@@ -1,26 +1,26 @@
 ---
-title: Azure 移动应用文档 - 教程, API 参考 | Azure
+title: "Azure 移动应用文档 - 教程和 API 参考 | Azure"
 description: "了解如何在 Azure 应用服务中使用移动应用生成和托管本机 iOS、Android 或 Windows 应用，或使用 Xamarin 或 Cordova 的跨平台应用。"
 services: app-service\mobile
 author: carolz
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: app-service-mobile
+ms.service: app-service\mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 59bab7c719a01643dacf5549c0674d149e8b92f4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 3ee7e36f685325f8f03c6b1ff6f93c7a0d349f21
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="mobile-apps-documentation"></a>移动应用文档
+# 移动应用文档
+<a id="mobile-apps-documentation" class="xliff"></a>
 
 了解如何在 Azure 应用服务中使用移动应用生成本机 iOS、Android 或 Windows 应用，或使用 Xamarin 或 Cordova 的跨平台应用。 教程、视频、客户端 SDK 文档和其他资源介绍了如何构建与托管任何移动应用的后端。
 
@@ -37,6 +37,24 @@ ms.lasthandoff: 05/12/2017
                     </div>
                     <div class="cardText">
                         <h3>了解移动应用</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=app-service">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>应用服务视频库</h3>
                     </div>
                 </div>
             </div>

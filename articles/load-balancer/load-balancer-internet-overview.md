@@ -3,8 +3,8 @@ title: "面向 Internet 的负载均衡器概述 | Azure"
 description: "面向 Internet 的负载均衡器及其功能的概述。 使用虚拟机和云服务的 Azure 的负载均衡器的工作原理。"
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 529b37aa-a45c-41d1-8877-fee8cc1fa375
 ms.service: load-balancer
@@ -13,17 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/24/2016
-ms.date: 05/08/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: ee3fc27f9a48c9312c6c3e495d0188da7aafd53f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: 2cbe1215ab6d1ac219afa918dbd581815a4887eb
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-
-# <a name="internet-facing-load-balancer-overview"></a>面向 Internet 的负载均衡器概述
+# 面向 Internet 的负载均衡器概述
+<a id="internet-facing-load-balancer-overview" class="xliff"></a>
 
 Azure 负载均衡器将传入流量的公用 IP 地址和端口号映射到虚拟机的专用 IP 地址和端口号，对于来自虚拟机的响应流量，则进行反向的映射。 借助负载均衡规则，可在多个虚拟机或服务之间分配特定类型的流量。 例如，可将 Web 请求流量负载分配到多个 Web 服务器或 Web 角色。
 
@@ -31,9 +30,9 @@ Azure 负载均衡器将传入流量的公用 IP 地址和端口号映射到虚�
 
 *servicedefinition.csdef* 文件包含终结点配置，当有多个用于 Web 角色或辅助角色部署的角色实例时，将针对该部署设置负载均衡器。 若要将实例添加到云部署，可更改服务配置文件 (.csfg) 中的实例计数。
 
-下图显示了公用和专用 TCP 端口 80 的加密 Web 流量的负载均衡终结点，由三个虚拟机共享。 三台虚拟机位于负载均衡集中。
+下图显示了公用和专用 TCP 端口 80 的 Web 流量的负载均衡终结点，由三个虚拟机共享。 三台虚拟机位于负载均衡集中。
 
-![公共负载均衡器示例](./media/load-balancer-internet-overview/IC727496.png))
+![公共负载均衡器示例](./media/load-balancer-internet-overview/IC727496.png)
 
 图 1 - Web 流量的负载均衡终结点
 
@@ -41,7 +40,8 @@ Azure 负载均衡器将传入流量的公用 IP 地址和端口号映射到虚�
 
 默认情况下，Azure 负载均衡器在多个虚拟机实例之间平均分发网络流量。 还可以配置会话关联，有关详细信息，请参阅[负载均衡器分发模式](load-balancer-distribution-mode.md)。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 了解[内部负载均衡器](load-balancer-internal-overview.md)，以便更好地了解哪个负载均衡器更适合相关云部署。
 

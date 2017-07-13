@@ -1,12 +1,12 @@
 <!-- need to be verified -->
 
 ---
-title: "使用 Azure CLI 在多个 IP 配置上进行负载均衡 | Azure"
-description: "了解如何使用 Azure CLI 将多个 IP 地址分配给虚拟机 | Resource Manager。"
+title: 使用 Azure CLI 在多个 IP 配置上进行负载均衡 | Azure
+description: 了解如何使用 Azure CLI 将多个 IP 地址分配给虚拟机 | Resource Manager。
 services: virtual-network
 documentationcenter: na
-author: anavinahar
-manager: narayan
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -21,7 +21,8 @@ ms.date: 05/08/2017
 ms.author: v-yeche
 ---
 
-# <a name="load-balancing-on-multiple-ip-configurations"></a>在多个 IP 配置上进行负载均衡
+# 在多个 IP 配置上进行负载均衡
+<a id="load-balancing-on-multiple-ip-configurations" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [门户](load-balancer-multiple-ip.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
@@ -31,7 +32,8 @@ ms.author: v-yeche
 
 ![负载均衡应用场景图像](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
-## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>在多个 IP 配置上进行负载均衡的步骤
+## 在多个 IP 配置上进行负载均衡的步骤
+<a id="steps-to-load-balance-on-multiple-ip-configurations" class="xliff"></a>
 
 按照以下步骤来实现本文所概述的场景：
 
@@ -123,8 +125,9 @@ ms.author: v-yeche
     azure vm create --resource-group contosofabrikam --name VM2 --location chinaeast --os-type linux --nic-names VM2Nic1,VM2Nic2 --vnet-name VNet1 --vnet-subnet-name Subnet1 --availset-name myAvailabilitySet --vm-size Standard_DS3_v2 --storage-account-name mystorageaccount2 --image-urn canonical:UbuntuServer:16.04.0-LTS:latest --admin-username <your username>  --admin-password <your password>
     ```
 
-13. 最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。
+13. 最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 可以在 Azure DNS 中托管域。<!--Not available in Azure.cn  For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).-->
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。
 - 若要了解如何在 Azure 中使用不同类型的日志对负载均衡器进行管理和故障排除，请参阅 [Azure 负载均衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md)。

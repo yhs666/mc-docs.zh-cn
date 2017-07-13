@@ -1,27 +1,33 @@
 ---
-title: 工具与 API 参考
-description: 本文主要提供工具与 API 参考链接
-metaCanonical: ''
-services: ''
+title: "工具和 API 参考"
+description: "本文提供了工具和 API 参考的链接"
+metaCanonical: 
+services: 
 documentationCenter: develop
 author: bbetstcw
 layout: LandingPage
-solutions: ''
-manager: ''
-editor: ''
-
+solutions: 
+manager: 
+editor: 
 ms.service: multiple
 ms.topic: landing-page
 ms.author: v-dazen
 origin.date: 06/13/2017
 ms.date: 06/13/2017
+ms.openlocfilehash: b2ececcd3ec5f7ea1ade370e992fc820d0cc2bcb
+ms.sourcegitcommit: 246df5421210c9111c4c0d96df5defb06b139088
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/22/2017
 ---
-
-# 工具与 API 参考
+# 工具和 API 参考
+<a id="tools-and-api-references" class="xliff"></a>
 
 ## 命令行
+<a id="command-line" class="xliff"></a>
 
 ### [PowerShell (ARM)](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+<a id="powershell-armhttpsdocsmicrosoftcompowershellazureps-cmdlets-docs" class="xliff"></a>
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -183,7 +189,7 @@ ms.date: 06/13/2017
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.siterecovery/#site_recovery" data-linktype="relative-path">
                                 <img alt = "" src="media/index/SiteRecovery.svg" data-linktype="relative-path">
-                                <p>Site Recovery</p>
+                                <p>站点恢复</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
@@ -239,7 +245,7 @@ ms.date: 06/13/2017
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://docs.microsoft.com/powershell/module/azurerm.keyvault/#key_vault" data-linktype="relative-path">
                                 <img alt = "" src="media/index/KeyVault.svg" data-linktype="relative-path">
-                                <p>Key Vault</p>
+                                <p>密钥保管库</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
@@ -289,7 +295,8 @@ ms.date: 06/13/2017
     </ul>
 </div>
 
-### [PowerShell (经典)](https://docs.microsoft.com/en-ca/powershell/module/azure/)
+### [PowerShell（经典）](https://docs.microsoft.com/en-ca/powershell/module/azure/)
+<a id="powershell-classichttpsdocsmicrosoftcomen-capowershellmoduleazure" class="xliff"></a>
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -404,7 +411,7 @@ ms.date: 06/13/2017
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://docs.microsoft.com/powershell/module/azure/#key_vault" data-linktype="relative-path">
                                 <img alt = "" src="media/index/KeyVault.svg" data-linktype="relative-path">
-                                <p>Key Vault</p>
+                                <p>密钥保管库</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
@@ -424,6 +431,7 @@ ms.date: 06/13/2017
 </div>
 
 ### [Azure CLI](https://docs.microsoft.com/cli/azure/)
+<a id="azure-clihttpsdocsmicrosoftcomcliazure" class="xliff"></a>
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -627,7 +635,7 @@ ms.date: 06/13/2017
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://docs.microsoft.com/cli/azure/keyvault" data-linktype="relative-path">
                                 <img alt = "" src="media/index/KeyVault.svg" data-linktype="relative-path">
-                                <p>Key Vault</p>
+                                <p>密钥保管库</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
@@ -673,8 +681,10 @@ ms.date: 06/13/2017
 </div>
 
 ## 语言
+<a id="language" class="xliff"></a>
 
 ### [.NET](https://docs.microsoft.com/dotnet/api)
+<a id="nethttpsdocsmicrosoftcomdotnetapi" class="xliff"></a>
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -909,7 +919,7 @@ ms.date: 06/13/2017
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://docs.microsoft.com/dotnet/api/overview/azure/keyvault" data-linktype="relative-path">
                                 <img alt = "" src="media/index/KeyVault.svg" data-linktype="relative-path">
-                                <p>Key Vault</p>
+                                <p>密钥保管库</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
@@ -955,6 +965,7 @@ ms.date: 06/13/2017
 </div>
 
 ### [Java](https://docs.microsoft.com/java/api)
+<a id="javahttpsdocsmicrosoftcomjavaapi" class="xliff"></a>
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1124,7 +1135,7 @@ ms.date: 06/13/2017
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/keyvault" data-linktype="relative-path">
                                 <img alt = "" src="media/index/KeyVault.svg" data-linktype="relative-path">
-                                <p>Key Vault</p>
+                                <p>密钥保管库</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
@@ -1163,12 +1174,16 @@ ms.date: 06/13/2017
 </div>
 
 ### [Node.js](/develop/nodejs/)
+<a id="nodejsdevelopnodejs" class="xliff"></a>
 
 ### [Python](/develop/python/)
+<a id="pythondeveloppython" class="xliff"></a>
 
 ## REST
+<a id="rest" class="xliff"></a>
 
 ### [REST API (ARM)](https://docs.microsoft.com/rest/api/)
+<a id="rest-api-armhttpsdocsmicrosoftcomrestapi" class="xliff"></a>
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1330,7 +1345,7 @@ ms.date: 06/13/2017
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://msdn.microsoft.com/library/mt750497" data-linktype="relative-path">
                                 <img alt = "" src="media/index/SiteRecovery.svg" data-linktype="relative-path">
-                                <p>Site Recovery</p>
+                                <p>站点恢复</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
@@ -1421,7 +1436,7 @@ ms.date: 06/13/2017
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://docs.microsoft.com/rest/api/keyvault" data-linktype="relative-path">
                                 <img alt = "" src="media/index/KeyVault.svg" data-linktype="relative-path">
-                                <p>Key Vault</p>
+                                <p>密钥保管库</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
@@ -1472,7 +1487,8 @@ ms.date: 06/13/2017
     </ul>
 </div>
 
-### REST API (经典)
+### REST API（经典）
+<a id="rest-api-classic" class="xliff"></a>
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1594,6 +1610,7 @@ ms.date: 06/13/2017
 </div>
 
 ## 其他
+<a id="others" class="xliff"></a>
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1629,6 +1646,7 @@ ms.date: 06/13/2017
 
 
 ### SQL 数据库
+<a id="sql-database" class="xliff"></a>
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1642,25 +1660,25 @@ ms.date: 06/13/2017
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server" data-linktype="relative-path">
                                 <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
-                                <p>SQL Server 的 Node.js 驱动</p>
+                                <p>用于 SQL Server 的 Node.js 驱动程序</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server" data-linktype="relative-path">
                                 <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
-                                <p>SQL Server 的 python 驱动</p>
+                                <p>用于 SQL Server 的 Python 驱动程序</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server" data-linktype="relative-path">
                                 <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
-                                <p>SQL Server 的 Ruby 驱动</p>
+                                <p>用于 SQL Server 的 Ruby 驱动程序</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server" data-linktype="relative-path">
                                 <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
-                                <p>SQL Server 的 PHP 驱动</p>
+                                <p>用于 SQL Server 的 PHP 驱动程序</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
@@ -1715,7 +1733,7 @@ ms.date: 06/13/2017
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql" data-linktype="relative-path">
                                 <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
-                                <p>SQL Database Management Library package</p>
+                                <p>SQL 数据库管理库包</p>
                             </a>
                         </li>
                     </ul>
@@ -1761,6 +1779,7 @@ ms.date: 06/13/2017
 
 
 ### Redis 缓存
+<a id="redis-cache" class="xliff"></a>
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1794,6 +1813,7 @@ ms.date: 06/13/2017
 
 
 ### 网络
+<a id="networking" class="xliff"></a>
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1833,6 +1853,7 @@ ms.date: 06/13/2017
 
 
 ### 存储
+<a id="storage" class="xliff"></a>
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1845,7 +1866,7 @@ ms.date: 06/13/2017
                         <li style="list-style-type:none !important">
                             <a class="barLink" href="https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement" data-linktype="relative-path">
                                 <img alt = "" src="media/index/Storage.svg" data-linktype="relative-path">
-                                <p>.NET：数据移动</p>
+                                <p>：数据移动</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
@@ -1877,6 +1898,7 @@ ms.date: 06/13/2017
 </div>
 
 ### 流分析
+<a id="stream-analytics" class="xliff"></a>
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1903,6 +1925,7 @@ ms.date: 06/13/2017
 </div>
 
 ### Power BI Embedded
+<a id="power-bi-embedded" class="xliff"></a>
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -1933,6 +1956,3 @@ ms.date: 06/13/2017
         </li>
     </ul>
 </div>
-
-
-

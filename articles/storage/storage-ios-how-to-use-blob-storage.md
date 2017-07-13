@@ -14,27 +14,28 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 088c917587601413445776255ae1548f6f301ea6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 00954a78d32a687fbdf78cff95690b75ed684723
+ms.sourcegitcommit: 246df5421210c9111c4c0d96df5defb06b139088
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/22/2017
 ---
-# <a name="how-to-use-blob-storage-from-ios"></a>如何通过 iOS 使用 Blob 存储
+# 如何通过 iOS 使用 Blob 存储
+<a id="how-to-use-blob-storage-from-ios" class="xliff"></a>
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="overview"></a>概述
+## 概述
+<a id="overview" class="xliff"></a>
 本文将演示如何使用 Microsoft Azure Blob 存储执行常见任务。 示例是用 Objective-C 编写的，并使用了 [用于 iOS 的 Azure 存储客户端库](https://github.com/Azure/azure-storage-ios)。 涉及的任务包括上传、列出、下载和删除 Blob。 有关 Blob 的详细信息，请参阅[后续步骤](#next-steps)部分。 也可下载 [示例应用](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) ，快速了解如何在 iOS 应用程序中使用 Azure 存储。
 
 [!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## <a name="import-the-azure-storage-ios-library-into-your-application"></a>将 Azure 存储 iOS 库导入到应用程序
+## 将 Azure 存储 iOS 库导入到应用程序
+<a id="import-the-azure-storage-ios-library-into-your-application" class="xliff"></a>
 可使用 [Azure 存储 CocoaPod](https://cocoapods.org/pods/AZSClient) 或导入 **Framework** 文件，将 Azure 存储 iOS 库导入到应用程序。 CocoaPod 是推荐方式，因为它使集成更容易，但是通过框架文件导入对现有项目侵入性更低。
 
 若要使用此库，需要以下各项：
@@ -42,7 +43,8 @@ ms.lasthandoff: 05/19/2017
 - iOS 8+
 - Xcode 7+
 
-## <a name="cocoapod"></a>CocoaPod
+## CocoaPod
+<a id="cocoapod" class="xliff"></a>
 1. 如果尚未在计算机上 [安装 CocoaPods](https://guides.cocoapods.org/using/getting-started.html#toc_3) ，请打开终端窗口并运行以下命令，以实现此操作
     
     ```shell   
@@ -67,7 +69,8 @@ ms.lasthandoff: 05/19/2017
 
 4. 如果已在 Xcode 中打开 .xcodeproj，请将其关闭。 在项目目录中打开新建的项目文件（扩展名为 .xcworkspace）。 从现在开始将使用此文件。
 
-## <a name="framework"></a>Framework
+## Framework
+<a id="framework" class="xliff"></a>
 使用库的另一种方法是手动生成框架：
 
 1. 首先，下载或克隆 [azure-storage-ios repo](https://github.com/azure/azure-storage-ios)。
@@ -84,7 +87,8 @@ ms.lasthandoff: 05/19/2017
 5. 在“链接的框架和库”部分下，单击“添加”按钮 (+)。
 6. 在已提供的库列表中，搜索 `libxml2.2.tbd` 并将其添加到项目中。
 
-## <a name="import-the-library"></a>导入该库 
+## 导入该库
+<a id="import-the-library" class="xliff"></a> 
 ```objc
 // Include the following import statement to use blob APIs.
 #import <AZSClient/AZSClient.h>
@@ -100,13 +104,15 @@ ms.lasthandoff: 05/19/2017
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
-## <a name="asynchronous-operations"></a>异步操作
+## 异步操作
+<a id="asynchronous-operations" class="xliff"></a>
 > [!NOTE]
 > 执行对服务的请求的所有方法都是异步操作。 在代码示例中，你会发现这些方法都具有完成处理程序。 请求完成 **后** ，将运行完成处理程序内的代码。 正在发出请求 **时** ，将运行完成处理程序后的代码。
 > 
 > 
 
-## <a name="create-a-container"></a>创建容器
+## 创建容器
+<a id="create-a-container" class="xliff"></a>
 Azure 存储中的每个 Blob 都必须驻留在一个容器中。 以下示例演示如何在存储帐户中创建一个名为 *newcontainer*的容器（如果它尚不存在）。 在选择容器的名称时，请注意上面提到的命名规则。
 
 ```objc
@@ -137,7 +143,8 @@ Azure 存储中的每个 Blob 都必须驻留在一个容器中。 以下示例�
 
 可通过查看 [Azure 存储资源管理器](http://storageexplorer.com) 并验证 *newcontainer* 存在于存储帐户的容器列表中来确认此操作有效。
 
-## <a name="set-container-permissions"></a>设置容器权限
+## 设置容器权限
+<a id="set-container-permissions" class="xliff"></a>
 默认情况下，容器的权限配置为 **私有** 访问权限。 但是，容器提供了几个不同的容器访问权限选项：
 
 * **私有**：仅帐户所有者可读取容器和 Blob 数据。
@@ -172,7 +179,8 @@ Azure 存储中的每个 Blob 都必须驻留在一个容器中。 以下示例�
 }
 ```
 
-## <a name="upload-a-blob-into-a-container"></a>将 Blob 上载到容器中
+## 将 Blob 上传到容器中
+<a id="upload-a-blob-into-a-container" class="xliff"></a>
 如 [Blob 服务概念](#blob-service-concepts) 部分中所述，Blob 存储提供了三种不同类型的 blob：块 blob、追加 blob 和页 blob。 Azure 存储 iOS 库支持所有三种 blob。 大多数情况下，推荐使用块 Blob 类型。
 
 以下示例演示如何从 NSString 上传块 Blob。 如果此容器中已存在同名的 Blob，则将覆盖该 Blob 的内容。
@@ -220,7 +228,8 @@ Azure 存储中的每个 Blob 都必须驻留在一个容器中。 以下示例�
 
 除从 NSString 上传块 Blob 外，NSData、NSInputStream 或本地文件也存在类似的方法。
 
-## <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
+## 列出容器中的 Blob
+<a id="list-the-blobs-in-a-container" class="xliff"></a>
 以下示例演示如何列出容器中的所有 Blob。 执行此操作时，应注意以下参数：     
 
 * **continuationToken** - 继续标记表示列出操作应开始的位置。 如果未提供标记，它将从开头列出 Blob。 可以列出任意数目的 Blob，从零到最大集。 即使此方法返回零个结果，如果 `results.continuationToken` 不为空，则服务中也可能存在更多 blob 未列出。
@@ -289,7 +298,8 @@ Azure 存储中的每个 Blob 都必须驻留在一个容器中。 以下示例�
 }
 ```
 
-## <a name="download-a-blob"></a>下载 Blob
+## 下载 Blob
+<a id="download-a-blob" class="xliff"></a>
 以下示例演示如何将 Blob 下载到 NSString 对象。
 
 ```objc
@@ -324,7 +334,8 @@ Azure 存储中的每个 Blob 都必须驻留在一个容器中。 以下示例�
 }
 ```
 
-## <a name="delete-a-blob"></a>删除 Blob
+## 删除 Blob
+<a id="delete-a-blob" class="xliff"></a>
 以下示例说明如何删除 Blob。
 
 ```objc
@@ -356,7 +367,8 @@ Azure 存储中的每个 Blob 都必须驻留在一个容器中。 以下示例�
 }
 ```
 
-## <a name="delete-a-blob-container"></a>删除 Blob 容器
+## 删除 Blob 容器
+<a id="delete-a-blob-container" class="xliff"></a>
 以下示例说明如何删除容器。
 
 ```objc
@@ -385,7 +397,8 @@ Azure 存储中的每个 Blob 都必须驻留在一个容器中。 以下示例�
 }
 ```
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 既已了解如何从 iOS 使用 Blob 存储，可单击以下链接详细了解 iOS 库和存储服务。
 
 * [Azure Storage Client Library for iOS（适用于 iOS 的 Azure 存储客户端库）](https://github.com/azure/azure-storage-ios)

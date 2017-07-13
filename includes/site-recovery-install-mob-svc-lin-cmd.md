@@ -10,6 +10,7 @@
   ```
 
 #### 移动服务安装程序命令行参数
+<a id="mobility-service-installer-command-line-arguments" class="xliff"></a>
 
 |参数|类型|说明|可能的值|
 |-|-|-|-|
@@ -21,11 +22,10 @@
 |-p |必需|配置服务器侦听传入连接时所在的端口|443|
 |-s |必需|成功安装后启动服务<br>（将在下一个版本中弃用）|*y*|
 |-c |必需|代理与进程服务器之间的通信模式<br>（将在下一个版本中弃用） |*https*|
-|-P |必需|配置服务器通行短语|任何有效的 UNC 或本地文件路径|
+|-p |必需|配置服务器通行短语|任何有效的 UNC 或本地文件路径|
 
 #### 示例用法
+<a id="sample-usage" class="xliff"></a>
 ```
 sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i 192.168.2.53 -p 443 -s y -c https -P /tmp/MobSvc.passphrase
 ```
-
-<!---HONumber=Mooncake_0327_2017-->

@@ -16,15 +16,14 @@ ms.workload: infrastructure-services
 origin.date: 04/24/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: f36944f9c61612aec5232dd3c8f3f2552d1141da
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 5588347009c0e23ac4e930dedfa3b6560c8d9092
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="create-a-site-to-site-connection-using-the-azure-portal-preview-classic"></a>使用 Azure 门户创建站点到站点连接（经典）
+# 使用 Azure 门户创建站点到站点连接（经典）
+<a id="create-a-site-to-site-connection-using-the-azure-portal-classic" class="xliff"></a>
 
 本文介绍如何使用 Azure 门户创建站点到站点 VPN 网关连接，以便从本地网络连接到 VNet。 本文中的步骤适用于经典部署模型。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
 
@@ -41,7 +40,8 @@ ms.lasthandoff: 05/19/2017
 
 ![站点到站点 VPN 网关跨界连接示意图](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a>开始之前
+## 开始之前
+<a id="before-you-begin" class="xliff"></a>
 
 在开始配置之前，请验证是否符合以下条件：
 
@@ -76,9 +76,10 @@ ms.lasthandoff: 05/19/2017
 
 * 如果还没有虚拟网络，请创建。 这些屏幕截图仅供参考。 请务必替换为你自己的值。
 
-### <a name="to-create-a-virtual-network"></a>创建虚拟网络
+### 创建虚拟网络
+<a id="to-create-a-virtual-network" class="xliff"></a>
 
-1. 从浏览器导航到 [Azure 门户](http://portal.azure.cn)，必要时使用 Azure 帐户登录。
+1. 从浏览器导航到 [Azure 门户](http://portal.azure.cn)，并在必要时使用 Azure 帐户登录。
 2. 单击“新建” 。 在“搜索应用商店”字段中，键入“虚拟网络”。 从返回的列表中找到“虚拟网络”，单击打开“虚拟网络”边栏选项卡。
 
     ![搜索虚拟网络边栏选项卡](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
@@ -163,7 +164,7 @@ ms.lasthandoff: 05/19/2017
 
 ## <a name="vpndevice"></a>7.配置 VPN 设备
 
-通过站点到站点连接连接到本地网络需要 VPN 设备。 在此步骤中，将配置 VPN 设备。 配置 VPN 设备时，需要以下项：
+通过站点到站点连接连接到本地网络需要 VPN 设备。 在此步骤中，请配置 VPN 设备。 配置 VPN 设备时，需要以下项：
 
 - 共享密钥。 此共享密钥就是在创建站点到站点 VPN 连接时指定的共享密钥。 在示例中，我们使用基本的共享密钥。 建议生成更复杂的可用密钥。
 - 虚拟网关的“公共 IP 地址”。 可以通过 Azure 门户、PowerShell 或 CLI 查看公共 IP 地址。
@@ -177,52 +178,54 @@ ms.lasthandoff: 05/19/2017
 > 此步骤目前在 Azure 门户中不可用。 必须使用服务管理 (SM) 版本的 Azure PowerShell cmdlet。
 >
 
-### <a name="step-1-connect-to-your-azure-account"></a>步骤 1。 连接到 Azure 帐户
+### 步骤 1。 连接到 Azure 帐户
+<a id="step-1-connect-to-your-azure-account" class="xliff"></a>
 
 1. 使用提升的权限打开 PowerShell 控制台，然后连接到帐户。 使用下面的示例来帮助连接：
 
-    ```powershell
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-    ```
+  ```powershell
+  Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+  ```
 2. 检查该帐户的订阅。
 
-    ```powershell
-    Get-AzureRmSubscription
-    ```
+  ```powershell
+  Get-AzureRmSubscription
+  ```
 3. 如果有多个订阅，请选择要使用的订阅。
 
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-    ```
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 4. 添加 SM 版本的 PowerShell cmdlet。
 
-    ```powershell
-    Add-AzureAccount -Environment AzureChinaCloud
-    ```
+  ```powershell
+  Add-AzureAccount -Environment AzureChinaCloud
+  ```
 
-### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>步骤 2. 设置共享密钥并创建连接
+### 步骤 2. 设置共享密钥并创建连接
+<a id="step-2-set-the-shared-key-and-create-the-connection" class="xliff"></a>
 
 使用 PowerShell 和经典部署模型时，有时门户中资源的名称不是在使用 PowerShell 时 Azure 中本应显示的名称。 可通过以下步骤导出网络配置文件，获取这些名称的确切值。
 
 1. 在计算机上创建一个目录，然后将网络配置文件导出到该目录。 在此示例中，网络配置文件导出到 C:\AzureNet。
 
-    ```powershell
-    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-    ```
+  ```powershell
+  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+  ```
 2. 使用 XML 编辑器打开网络配置文件，检查值中是否包含“LocalNetworkSite name”和“VirtualNetworkSite name”。 根据值修改此示例。 指定包含空格的名称时，请使用单引号将值引起来。
 
 3. 设置共享密钥并创建连接。 “-SharedKey”是你生成并指定的值。 在示例中，我们使用的是“abc123”，但你可以生成并且应该使用更复杂的。 重要的是，此处指定的值必须与配置 VPN 设备时指定的值相同。
 
-    ```powershell
-    Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
-    -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
-    ```
+  ```powershell
+  Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
+  -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
+  ```
 创建连接后，结果为“状态: 成功”。
 
 ## <a name="verify"></a>9.验证连接
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
-## <a name="next-steps"></a>后续步骤
-连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/virtual-machines/)。
-
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/#pivot=services&panel=Compute)。

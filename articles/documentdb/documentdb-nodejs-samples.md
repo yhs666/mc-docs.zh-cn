@@ -1,5 +1,5 @@
 ---
-title: "用于 DocumentDB 的 Node.js 示例 | Microsoft Docs"
+title: "DocumentDB 的 Node.js 示例 | Microsoft Docs"
 description: "在 github 上查找有关 DocumentDB 中常见任务的 Node.js 示例，包括 CRUD 操作。"
 keywords: "Node.js 示例"
 services: documentdb
@@ -16,15 +16,14 @@ ms.topic: article
 origin.date: 01/13/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 5bc3cff917c80decd1836ef255d6cadd0560e57f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 3c9699bfd7ca37baf893ace8992720c8b95d2f5a
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="azure-documentdb-nodejs-examples"></a>DocumentDB Node.js 示例
+# DocumentDB Node.js 示例
+<a id="documentdb-nodejs-examples" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [.NET 示例](documentdb-dotnet-samples.md)
 > * [Node.js 示例](documentdb-nodejs-samples.md)
@@ -50,7 +49,8 @@ ms.lasthandoff: 05/19/2017
    > 
    > 
 
-## <a name="database-examples"></a>数据库示例
+## 数据库示例
+<a id="database-examples" class="xliff"></a>
 [DatabaseManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/DatabaseManagement) 项目的 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/DatabaseManagement/app.js) 文件演示如何执行以下任务。
 
 | 任务 | API 参考 |
@@ -61,7 +61,8 @@ ms.lasthandoff: 05/19/2017
 | [列出帐户的数据库](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DatabaseManagement/app.js#L111-L119) |[DocumentClient.readDatabases](http://azure.github.io/azure-documentdb-node/DocumentClient.html#readDatabases) |
 | [删除数据库](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DatabaseManagement/app.js#L133-L144) |[DocumentClient.deleteDatabase](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteDatabase) |
 
-## <a name="collection-examples"></a>集合示例
+## 集合示例
+<a id="collection-examples" class="xliff"></a>
 [CollectionManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/CollectionManagement) 项目的 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/CollectionManagement/app.js) 文件演示如何执行以下任务。
 
 | 任务 | API 参考 |
@@ -74,7 +75,8 @@ ms.lasthandoff: 05/19/2017
 | [更改集合的性能层](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L188-L202) |[DocumentClient.replaceOffer](http://azure.github.io/azure-documentdb-node/DocumentClient.html#replaceOffer) |
 | [删除集合](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L204-L215) |[DocumentClient.deleteCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteCollection) |
 
-## <a name="document-examples"></a>文档示例
+## 文档示例
+<a id="document-examples" class="xliff"></a>
 [DocumentManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/DocumentManagement) 项目的 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/DocumentManagement/app.js) 文件演示如何执行以下任务。
 
 | 任务 | API 参考 |
@@ -88,7 +90,8 @@ ms.lasthandoff: 05/19/2017
 | [使用条件 ETag 检查替换文档](https://github.com/Azure/azure-documentdb-node/blob/0778eadea7abb2af41e8c22a239dc872c584f421/samples/DocumentManagement/app.js#L147-L164) |[DocumentClient.replaceDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#replaceDocument)<br/>[RequestOptions.accessCondition](http://azure.github.io/azure-documentdb-node/global.html#RequestOptions) |
 | [删除文档](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DocumentManagement/app.js#L122-L133) |[DocumentClient.deleteDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteDocument) |
 
-## <a name="indexing-examples"></a>索引示例
+## 索引示例
+<a id="indexing-examples" class="xliff"></a>
 [IndexManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/IndexManagement) 项目的 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/IndexManagement/app.js) 文件演示如何执行以下任务。
 
 | 任务 | API 参考 |
@@ -105,7 +108,8 @@ ms.lasthandoff: 05/19/2017
 
 有关索引的详细信息，请参阅 [DocumentDB 索引策略](documentdb-indexing-policies.md)。
 
-## <a name="server-side-programming-examples"></a>服务器端编程示例
+## 服务器端编程示例
+<a id="server-side-programming-examples" class="xliff"></a>
 [ServerSideScripts](https://github.com/Azure/azure-documentdb-node/tree/master/samples/ServerSideScripts) 项目的 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/ServerSideScripts/app.js) 文件演示如何执行以下任务。
 
 | 任务 | API 参考 |
@@ -115,7 +119,8 @@ ms.lasthandoff: 05/19/2017
 
 有关服务器端编程的详细信息，请参阅 [DocumentDB 服务器端编程：存储过程、数据库触发器和 UDF](documentdb-programming.md)。
 
-## <a name="partitioning-examples"></a>分区示例
+## 分区示例
+<a id="partitioning-examples" class="xliff"></a>
 [Partitioning](https://github.com/Azure/azure-documentdb-node/tree/master/samples/Partitioning) 项目的 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/Partitioning/app.js) 文件演示如何执行以下任务。
 
 | 任务 | API 参考 |
@@ -123,6 +128,5 @@ ms.lasthandoff: 05/19/2017
 | [使用 HashPartitionResolver](https://github.com/Azure/azure-documentdb-node/blob/ce0fc3c4e70b0279091a1e03620a668d93a14fc2/samples/Partitioning/app.js#L53-L103) |[HashPartitionResolver](http://azure.github.io/azure-documentdb-node/HashPartitionResolver.html) |
 
 有关在 DocumentDB 中对数据进行分区的详细信息，请参阅[对 DocumentDB 中的数据进行分区和扩展](documentdb-partition-data.md)。
-
 
 

@@ -1,4 +1,4 @@
-下表列出了特定于服务总线消息的配额信息。 有关服务总线的定价及其他配额的信息，请参阅 [服务总线定价](https://azure.microsoft.com/pricing/details/service-bus/) 概述。
+下表列出了特定于服务总线消息的配额信息。 有关服务总线的定价及其他配额的信息，请参阅 [服务总线定价](https://www.azure.cn/pricing/details/messaging/) 概述。
 
 | 配额名称 | 范围 | 类型 | 超出时的行为 | 值 |
 | --- | --- | --- | --- | --- |
@@ -12,7 +12,7 @@
 | 每个服务命名空间的分区主题/队列数 |系统范围 |静态 |将拒绝后续在服务命名空间上创建新的分区主题或队列的请求。 因此，如果是通过 [Azure 门户][Azure portal]配置的，将生成错误消息。 如果从管理 API 调用，调用代码会接收到 **QuotaExceededException** 异常。 |基本和标准层 - 100<br />高级层 - 1,000<br/><br />在每个命名空间中，每个分区队列或主题的实体配额不会超过 10,000 个。 |
 | 任一消息实体路径的最大大小：队列或主题 |实体 |静态 |- |260 个字符 |
 | 任一消息实体名称的最大大小：命名空间、订阅或订阅规则 |实体 |静态 |- |50 个字符 |
-| 队列/主题/订阅实体的消息大小 |系统范围 |静态 |将拒绝超过这些配额的传入消息，且调用代码会收到异常。 |最大消息大小：256KB。 <br /><br />**注意**由于系统开销问题，此限制通常略小一点。<br /><br />最大标头大小：64KB<br /><br />属性包中的最大标头属性数：**byte/int.MaxValue**<br /><br />属性包中属性的最大大小：没有明确的限制。 受最大标头大小限制。 |
+| 队列/主题/订阅实体的消息大小 |系统范围 |静态 |将拒绝超过这些配额的传入消息，且调用代码会收到异常。 |最大消息大小：256KB（标准层）。 <br /><br />**注意**由于系统开销问题，此限制通常略小一点。<br /><br />最大标头大小：64KB<br /><br />属性包中的最大标头属性数：**byte/int.MaxValue**<br /><br />属性包中属性的最大大小：没有明确的限制。 受最大标头大小限制。 |
 | 队列/主题/订阅实体的消息属性大小 |系统范围 |静态 |将生成 **SerializationException** 异常。 |每个属性的最大消息属性大小为 32K。 所有属性的累计大小不得超过 64K。 这一点适用于整个 [BrokeredMessage](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.aspx) 标头，其中既有用户属性，又有系统属性（如 [SequenceNumber](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.sequencenumber.aspx)、[Label](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.label.aspx)、[MessageId](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) 等）。 |
 | 每个主题的订阅数 |系统范围 |静态 |将拒绝后续的为主题创建附加订阅的请求。 因此，如果是通过门户配置的，将显示错误消息。 如果是通过管理 API 调用的，调用代码将收到异常。 |2,000 |
 | 每个主题的 SQL 筛选器数 |系统范围 |静态 |将拒绝任何后续的在主题中创建附加筛选器的请求，且调用代码会收到异常。 |2,000 |

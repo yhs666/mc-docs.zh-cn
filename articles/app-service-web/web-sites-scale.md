@@ -15,15 +15,14 @@ ms.topic: article
 origin.date: 07/05/2016
 ms.date: 12/05/2016
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 0c56d3a06880a09b8a534a4eed38194268e2547f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 654aa5bcf81971250177ca30e36d5c0bdb792152
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="scale-up-an-app-in-azure"></a>增加 Azure 中的应用
+# 增加 Azure 中的应用
+<a id="scale-up-an-app-in-azure" class="xliff"></a>
 本文介绍如何在 Azure 应用服务中缩放应用。 缩放的工作流有两种：向上缩放和向外缩放；本文介绍向上缩放工作流。
 
 * [向上缩放](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)：获取更多 CPU、内存、磁盘空间和额外功能，例如专用虚拟机 (VMs)、自定义域和证书、暂存槽、自动缩放以及更多功能。 可以通过更改应用所属的应用服务计划的定价层来向上缩放。
@@ -41,7 +40,10 @@ ms.lasthandoff: 04/28/2017
 > 
 
 <a name="scalingsharedorbasic"></a>
-## <a name="scalingstandard"></a> 增加定价层
+<a name="scalingstandard"></a>
+
+## 增加定价层
+<a id="scale-up-your-pricing-tier" class="xliff"></a>
 1. 在浏览器中，打开 [Azure 门户][portal]。
 2. 在应用的边栏选项卡中，单击“所有设置”，然后单击“向上缩放”。
 
@@ -50,7 +52,10 @@ ms.lasthandoff: 04/28/2017
 
     在操作完成后，“通知”选项卡上将闪现绿色的**成功**字样。
 
-## <a name="ScalingSQLServer"></a> 缩放相关资源
+<a name="ScalingSQLServer"></a>
+
+## 与缩放相关的资源
+<a id="scale-related-resources" class="xliff"></a>
 如果应用依赖于其他服务，如 Azure SQL 数据库或 Azure 存储，则还可以按需增加这些资源。 不应将这些资源与应用服务计划一起缩放，而必须单独进行缩放。
 
 1. 在“软件包”中，单击“资源组”链接。
@@ -69,21 +74,32 @@ ms.lasthandoff: 04/28/2017
 
     ![增加 Azure 应用使用的 Azure 存储帐户](./media/web-sites-scale/ScaleStorage.png)
 
-## <a name="devfeatures"></a> 了解开发人员功能
+<a name="devfeatures"></a>
+
+## 了解开发人员功能
+<a id="learn-about-developer-features" class="xliff"></a>
 我们根据定价层提供以下面向开发人员的功能：
 
-### <a name="bitness"></a>位数
+### 位数
+<a id="bitness" class="xliff"></a>
 * **基本**、**标准**和**高级**层支持 64 位和 32 位应用程序。
 * **免费**和**共享**计划层仅支持 32 位应用程序。
 
-### <a name="debugger-support"></a>调试器支持
+### 调试器支持
+<a id="debugger-support" class="xliff"></a>
 * 对于**免费**、**共享**和**基本**模式，按每个应用服务计划一个连接的形式提供调试器支持。
 * 对于**标准**和**高级**模式，按每个应用服务计划五个并发连接的形式提供调试器支持。
 
-## <a name="OtherFeatures"></a> 了解其他功能
+<a name="OtherFeatures"></a>
+
+## 了解其他功能
+<a id="learn-about-other-features" class="xliff"></a>
 * 有关应用服务计划中的所有其余功能的详细信息，包括定价和所有用户（包括开发人员）感兴趣的功能，请参阅[应用服务定价详细信息](https://www.azure.cn/pricing/details/app-service/)。
 
-## <a name="Next Steps"></a> 后续步骤
+<a name="Next Steps"></a>
+
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * 若要开始使用 Azure，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * 有关定价、支持和 SLA 的信息，请访问以下链接。
 

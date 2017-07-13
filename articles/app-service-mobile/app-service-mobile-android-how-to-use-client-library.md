@@ -11,17 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-origin.date: 04/25/2017
-ms.date: 05/31/2017
+ms.date: 04/25/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 46f35823e07db31b81401594ca194db058adf615
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: 2606b100dd4e91e74f76cee18d42143f5d33f99a
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用用于 Android 的 Azure 移动应用 SDK
+# 如何使用用于 Android 的 Azure 移动应用 SDK
+<a id="how-to-use-the-azure-mobile-apps-sdk-for-android" class="xliff"></a>
 
 本指南说明如何使用用于移动应用的 Android 客户端 SDK 来实现常见方案，例如：
 
@@ -32,15 +31,18 @@ ms.lasthandoff: 05/19/2017
 
 本指南侧重于客户端 Android SDK。  若要详细了解移动应用的服务器端 SDK，请参阅 [Work with .NET backend SDK][10]（使用 .NET 后端）或 [How to use the Node.js backend SDK][11]（如何使用 Node.js 后端 SDK）。
 
-## <a name="reference-documentation"></a>参考文档
+## 参考文档
+<a id="reference-documentation" class="xliff"></a>
 
 可以在 GitHub 上找到有关 Android 客户端库的 [Javadocs API 参考][12] 。
 
-## <a name="supported-platforms"></a>支持的平台
+## 支持的平台
+<a id="supported-platforms" class="xliff"></a>
 
 用于 Android 的 Azure 移动应用 SDK 支持手机和平板电脑外形规格的 API 级别 19 到 24（KitKat 到 Nougat）。  具体而言，身份验证利用通用 Web 框架方法收集凭据。  服务器流身份验证不适用于手表等小型设备。
 
-## <a name="setup-and-prerequisites"></a>安装与先决条件
+## 安装与先决条件
+<a id="setup-and-prerequisites" class="xliff"></a>
 
 完成[移动应用快速入门](./app-service-mobile-android-get-started.md)教程。  此任务可确保满足开发 Azure 移动应用的所有先决条件。  快速入门还帮助配置帐户及创建第一个移动应用后端。
 
@@ -80,7 +82,8 @@ ms.lasthandoff: 05/19/2017
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-## <a name="create-a-client-connection"></a>创建客户端连接
+## 创建客户端连接
+<a id="create-a-client-connection" class="xliff"></a>
 
 Azure 移动应用为移动应用程序提供四项功能：
 
@@ -145,11 +148,13 @@ public AzureServiceAdapter {
 
 现在，可以调用主活动的 `onCreate()` 方法中的 `AzureServiceAdapter.Initialize(this);`。  需要访问客户端的其他任何方法使用 `AzureServiceAdapter.getInstance();` 获取对服务适配器的引用。
 
-## <a name="data-operations"></a>数据操作
+## 数据操作
+<a id="data-operations" class="xliff"></a>
 
 Azure 移动应用 SDK 的核心作用是让你访问移动应用后端上的 SQL Azure 中存储的数据。  可以使用强类型化类（首选）或非类型化查询（不建议）访问此数据。  本部分重点介绍如何使用强类型化类。
 
-### <a name="define-client-data-classes"></a>定义客户端数据类
+### 定义客户端数据类
+<a id="define-client-data-classes" class="xliff"></a>
 
 若要访问 SQL Azure 表的数据，可定义对应于移动应用后端中的表的客户端数据类。 本主题中的示例采用名为 **MyDataTable** 的表，其中包含以下列：
 
@@ -258,7 +263,8 @@ public class ToDoItem
 }
 ```
 
-### <a name="create-a-table-reference"></a>创建表引用
+### 创建表引用
+<a id="create-a-table-reference" class="xliff"></a>
 
 若要访问表，请先通过对 [MobileServiceClient][9] 调用 **getTable** 方法来创建一个 [MobileServiceTable][8] 对象。  此方法有两个重载：
 
@@ -786,7 +792,8 @@ Azure 移动应用客户端 SDK 还可使用 SQLite 数据库在本地存储服�
 * 冲突解决：SDK 检测服务器上发生的有冲突更改，并提供挂钩来提醒用户。
 * 软删除：将已删除的记录标记为已删除，使其他设备能够更新其脱机缓存。
 
-### <a name="initialize-offline-sync"></a>初始化脱机同步
+### 初始化脱机同步
+<a id="initialize-offline-sync" class="xliff"></a>
 
 在使用每个脱机表之前，必须先在脱机缓存中定义该表。  通常，在创建客户端之后立即执行表定义：
 
@@ -831,7 +838,8 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
 }
 ```
 
-### <a name="obtain-a-reference-to-the-offline-cache-table"></a>获取对脱机缓存表的引用
+### 获取对脱机缓存表的引用
+<a id="obtain-a-reference-to-the-offline-cache-table" class="xliff"></a>
 
 对于联机表，可以使用 `.getTable()`。  对于脱机表，可以使用 `.getSyncTable()`：
 
@@ -841,7 +849,8 @@ MobileServiceTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoI
 
 可用于联机表的所有方法（包括筛选、排序、分页、插入数据、更新数据和删除数据）同样适用于脱机表。
 
-### <a name="synchronize-the-local-offline-cache"></a>同步本地脱机缓存
+### 同步本地脱机缓存
+<a id="synchronize-the-local-offline-cache" class="xliff"></a>
 
 同步在应用的控制范围内。  下面是一个示例同步方法：
 
@@ -866,7 +875,8 @@ private AsyncTask<Void, Void, Void> sync(MobileServiceClient mClient) {
 
 如果为 `.pull(query, queryname)` 方法提供了查询名称，则使用增量同步，以便仅返回自上次成功完成提取以来创建或更改的记录。
 
-### <a name="handle-conflicts-during-offline-synchronization"></a>在脱机同步期间处理冲突
+### 在脱机同步期间处理冲突
+<a id="handle-conflicts-during-offline-synchronization" class="xliff"></a>
 
 如果在执行 `.push()` 操作期间发生冲突，将引发 `MobileServiceConflictException`。   服务器发出的项嵌入在异常中，可以通过针对该异常执行 `.getItem()` 来检索该项。  通过针对 MobileServiceSyncContext 对象调用以下项来调整推送：
 
@@ -1044,7 +1054,8 @@ MobileServiceUser user = mClient
 
 最佳做法是创建一个筛选器用于检测来自服务器的 401 响应，并尝试刷新用户令牌。
 
-## <a name="log-in-with-client-flow-authentication"></a>使用客户端流身份验证登录
+## 使用客户端流身份验证登录
+<a id="log-in-with-client-flow-authentication" class="xliff"></a>
 
 使用客户端流身份验证登录的一般过程如下：
 
@@ -1077,38 +1088,17 @@ MobileServiceUser user = mClient
 1. 根据[如何为 Active Directory 登录配置应用服务][22]教程的说明，为 AAD 登录配置移动应用。 请务必完成注册本机客户端应用程序的可选步骤。
 2. 通过修改 build.gradle 文件并包含以下定义来安装 ADAL：
 
-    ```
-    repositories {
-        mavenCentral()
-        flatDir {
-            dirs 'libs'
-        }
-        maven {
-            url "YourLocalMavenRepoPath\\.m2\\repository"
-        }
-    }
-    packagingOptions {
-        exclude 'META-INF/MSFTSIG.RSA'
-        exclude 'META-INF/MSFTSIG.SF'
-    }
-    dependencies {
-        compile fileTree(dir: 'libs', include: ['*.jar'])
-        compile('com.microsoft.aad:adal:1.1.1') {
-            exclude group: 'com.android.support'
-        } // Recent version is 1.1.1
-        compile 'com.android.support:support-v4:23.0.0'
-    }
-    ```
-    
+    repositories {      mavenCentral()      flatDir {          dirs 'libs'      }      maven {          url "YourLocalMavenRepoPath\\.m2\\repository"      }  }  packagingOptions {      exclude 'META-INF/MSFTSIG.RSA'      exclude 'META-INF/MSFTSIG.SF'  }  dependencies {      compile fileTree(dir: 'libs', include: ['*.jar'])      compile('com.microsoft.aad:adal:1.1.1') {          exclude group: 'com.android.support'      } // Recent version is 1.1.1      compile 'com.android.support:support-v4:23.0.0'  }
+
 3. 将以下代码添加到应用程序并进行以下替换：
 
-* 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。格式应为 https://login.chinacloudapi.cn/contoso.partner.onmschina.cn。
+* 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 
 
 * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取此客户端 ID。
 
 * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
 
-* 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点（使用 HTTPS 方案）。此值应类似于 _https://contoso.chinacloudsites.cn/.auth/login/done_ 。
+* 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点（使用 HTTPS 方案）。 此值应类似于 _https://contoso.azurewebsites.cn/.auth/login/done_。
 
 ```java
 private AuthenticationContext mContext;
@@ -1168,20 +1158,21 @@ private void authenticate() {
         mContext.onActivityResult(requestCode, resultCode, data);
     }
     }
-```
-## <a name="filters"></a> 调整客户端 - 服务器通信
+    ```
 
-客户端连接通常是使用 Android SDK 提供的底层 HTTP 库的基本 HTTP 连接。 有以下几个原因要更改：
+## <a name="filters"></a>Adjust the Client-Server Communication
 
-* 希望使用备用 HTTP 库调整超时。
-* 希望提供一个进度条。
-* 希望添加自定义标头以支持 API 管理功能。
-* 希望拦截失败的响应，以便可以重新认证。
-* 希望将后端请求记录到分析服务。
+The Client connection is normally a basic HTTP connection using the underlying HTTP library supplied with the Android SDK.  There are several reasons why you would want to change that:
 
-### 使用备用 HTTP 库
+* You wish to use an alternate HTTP library to adjust timeouts.
+* You wish to provide a progress bar.
+* You wish to add a custom header to support API management functionality.
+* You wish to intercept a failed response so that you can implement reauthentication.
+* You wish to log backend requests to an analytics service.
 
-在创建客户端引用后立即调用`.setAndroidHttpClientFactory()'方法。 例如，将连接超时设置为60秒（而不是默认的10秒）：
+### Using an alternate HTTP Library
+
+Call the `.setAndroidHttpClientFactory()` method immediately after creating your client reference.  For example, to set the connection timeout to 60 seconds (instead of the default 10 seconds):
 
 ```java
 mClient = new MobileServiceClient("https://myappname.azurewebsites.net");
@@ -1196,7 +1187,8 @@ mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
 });
 ```
 
-### <a name="implement-a-progress-filter"></a>实现进度筛选器
+### 实现进度筛选器
+<a id="implement-a-progress-filter" class="xliff"></a>
 
 可以通过实现 `ServiceFilter` 来截获每个请求。  例如，以下代码将更新预先创建的进度栏：
 
@@ -1241,7 +1233,8 @@ private class ProgressFilter implements ServiceFilter {
 mClient = new MobileServiceClient(applicationUrl).withFilter(new ProgressFilter());
 ```
 
-### <a name="customize-request-headers"></a>自定义请求标头
+### 自定义请求标头
+<a id="customize-request-headers" class="xliff"></a>
 
 使用以下 `ServiceFilter`，并像附加 `ProgressFilter` 一样附加筛选器：
 
@@ -1311,7 +1304,7 @@ client.setGsonBuilder(
 [12]: http://azure.github.io/azure-mobile-apps-android-client/
 [13]: ./app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend
 [14]: http://go.microsoft.com/fwlink/p/?LinkID=717034
-[15]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller
+[15]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller
 [16]: ./app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [17]: https://developer.android.com/reference/java/util/UUID.html
 [18]: https://github.com/google/guava/wiki/ListenableFutureExplained

@@ -16,25 +16,24 @@ origin.date: 09/20/2016
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: ebddfac026b0949c1ee863398fe5b7ee74be209d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: eff04ae0157a9c283c9aab40998b91684537a055
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="DocumentDB-HDInsight"></a>使用 DocumentDB 和 HDInsight 运行 Apache Hive、Pig 或 Hadoop 作业
-本教程介绍了如何在 Azure HDInsight 上使用 DocumentDB 的 Hadoop 连接器运行 [Apache Hive][apache-hive]、[Apache Pig][apache-pig] 和 [Apache Hadoop][apache-hadoop] MapReduce 作业。 DocumentDB 的 Hadoop 连接器使 DocumentDB 可以充当 Hive、Pig 以及 MapReduce 作业的源和接收器。 本教程将使用 DocumentDB 作为 Hadoop 作业的数据源和目的地。
+本教程演示如何在带有 DocumentDB 的 Hadoop 连接器的 Azure HDInsight 上运行 [Apache Hive][apache-hive]、[Apache Pig][apache-pig] 和 [Apache Hadoop][apache-hadoop] MapReduce 作业。 DocumentDB 的 Hadoop 连接器使 DocumentDB 可以充当 Hive、Pig 以及 MapReduce 作业的源和接收器。 本教程将 DocumentDB 用作 Hadoop 作业的数据源和目的地。
 
 完成本教程后，你将能够回答以下问题：
 
 - 如何使用 Hive、Pig 或 MapReduce 作业从 DocumentDB 加载数据？
-- 如何使用 Hive、Pig 或 MapReduce 作业在 DocumentDB 中存储数据？
+- 如何使用 Hive、Pig 或 MapReduce 作业从 DocumentDB 存储数据？
 
 然后，返回到本文，在这里你将获得有关如何对 DocumentDB 数据运行分析作业的完整详细信息。
 
 > [!TIP]
-> 本教程假定你之前有使用 Apache Hadoop、Hive 和/或 Pig的经验。 如果你不熟悉 Apache Hadoop、Hive 和 Pig，请访问 [Apache Hadoop 文档][apache-hadoop-doc]。 本教程还假定你具有使用 DocumentDB 的经验，并且拥有一个 DocumentDB 帐户。 如果你不熟悉 DocumentDB 或没有 DocumentDB 帐户，请查看[入门][getting-started]页。
+> 本教程假定你之前有使用 Apache Hadoop、Hive 和/或 Pig的经验。 如果你不熟悉 Apache Hadoop、Hive 和 Pig，请访问 [Apache Hadoop 文档][apache-hadoop-doc]。 本教程还假定你具有使用 DocumentDB 的经验，并且拥有一个 DocumentDB 帐户。 如果你不熟悉 DocumentDB 或没有 DocumentDB 帐户，请查看 [入门][getting-started] 页。
 >
 >
 
@@ -59,7 +58,7 @@ ms.lasthandoff: 05/19/2017
 ## <a name="Prerequisites"></a>先决条件
 在按照本教程中的说明操作之前，请确保已有下列各项：
 
-- DocumentDB 帐户、数据库以及其中包含文档的集合。 有关详细信息，请参阅 [DocumentDB 入门][getting-started]。 使用 [DocumentDB 导入工具][documentdb-import-data]将示例数据导入到 DocumentDB 帐户。
+- DocumentDB 帐户、数据库，以及内部已有文档的集合。 有关详细信息，请参阅 [DocumentDB 入门][getting-started]。 使用 [DocumentDB 导入工具][documentdb-import-data]将示例数据导入到 DocumentDB 帐户。
 - 吞吐量。 从 HDInsight 进行的读取和写入操作将计入你为集合分配的请求单位。
 - 在每个输出集合中用于其他存储的步骤的容量。 存储过程用于传输生成的文档。
 - 从 Hive、Pig 或 MapReduce 作业生成的文档的容量。
@@ -104,7 +103,7 @@ DNS 名称必须以字母数字字符开头和结尾，并且可以包含短划�
 8. 在同一边栏选项卡上，指定一个**默认容器**和**位置**。 然后单击“选择”。
 
     > [!NOTE]
-    > 选择靠近你的 DocumentDB 帐户区域的位置以提升性能
+    > 选择靠近 DocumentDB 帐户区域的位置以提升性能
     >
     >
 9. 单击“定价”以选择节点的数量和类型。 可保留默认配置，稍后可调整辅助角色节点数。
@@ -378,8 +377,8 @@ DNS 名称必须以字母数字字符开头和结尾，并且可以包含短划�
 
    1. 单击左侧面板上的“浏览”<strong></strong>。
    2. 在浏览面板右上角单击“全部”。<strong></strong>
-   3. 找到并单击“DocumentDB 帐户”。<strong></strong>
-   4. 接下来，找到你的 <strong>DocumentDB 帐户</strong>、<strong>DocumentDB 数据库</strong>和与 MapReduce 作业中指定的输出集合相关联的 <strong>DocumentDB 集合</strong>。
+   3. 找到并单击“DocumentDB 帐户”<strong></strong>。
+   4. 接下来，找到 <strong>DocumentDB 帐户</strong>、<strong>DocumentDB 数据库</strong>和与 MapReduce 作业中指定的输出集合关联的 <strong>DocumentDB 集合</strong>。
    5. 最后，单击“开发人员工具”<strong></strong>下方的“文档资源管理器”<strong></strong>。
 
       你将看到 MapReduce 作业的结果。
@@ -387,7 +386,7 @@ DNS 名称必须以字母数字字符开头和结尾，并且可以包含短划�
       ![MapReduce 查询结果][image-mapreduce-query-results]
 
 ## <a name="NextSteps"></a>后续步骤
-祝贺你！ 你刚才已使用 DocumentDB 和 HDInsight 运行了你的第一个 Hive、Pig 和 MapReduce 作业。
+祝贺你！ 你刚才已使用 DocumentDB 和 HDInsight 运行了第一个 Hive、Pig 和 MapReduce 作业。
 
 我们的 Hadoop Connector 是开源的。 如果你有兴趣，欢迎在 [GitHub][documentdb-github]上供稿。
 

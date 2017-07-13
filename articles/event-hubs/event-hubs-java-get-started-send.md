@@ -1,39 +1,45 @@
 ---
-title: 使用 Java 将事件发送到 Azure 事件中心 | Azure
-description: 使用 Java 向事件中心发送入门
+title: "使用 Java 将事件发送到 Azure 事件中心 | Azure"
+description: "使用 Java 向事件中心发送入门"
 services: event-hubs
-documentationcenter: ''
-author: jtaubensee
-manager: timlt
-editor: ''
-
-ms.assetid: ''
+documentationcenter: 
+author: rockboyfor
+manager: digimobile
+editor: 
+ms.assetid: 
 ms.service: event-hubs
 ms.workload: core
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/30/2017
-ms.date: 03/24/2017
+origin.date: 05/03/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
+ms.openlocfilehash: f13b0711d2a05951574811a572fbee9fdade5abb
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # 使用 Java 将事件发送到 Azure 事件中心
+<a id="send-events-to-azure-event-hubs-using-java" class="xliff"></a>
 
 ## 介绍
-事件中心是一个具备高度可伸缩性的引入系统，每秒可收入大量事件，从而使应用程序能够处理和分析连接的设备和应用程序所产生的海量数据。数据采集到事件中心后，可以使用任何实时分析提供程序或存储群集来转换和存储数据。
+<a id="introduction" class="xliff"></a>
+事件中心是一个具备高度可伸缩性的引入系统，每秒可收入大量事件，从而使应用程序能够处理和分析连接的设备和应用程序所产生的海量数据。 数据采集到事件中心后，可以使用任何实时分析提供程序或存储群集来转换和存储数据。
 
-有关详细信息，请参阅[事件中心概述][Event Hubs overview]。
+有关详细信息，请参阅 [事件中心概述][Event Hubs overview]。
 
-本教程演示如何使用以 Java 编写的控制台应用程序将事件发送到事件中心。若要使用 Java Event Processor Host 库接收事件，请参阅[此文](./event-hubs-java-get-started-receive-eph.md)，或单击左侧目录中的相应接收语言。
+本教程演示如何使用用 Java 编写的控制台应用程序将事件发送到事件中心。 若要使用 Java 事件处理器主机库接收事件，请参阅[此文](event-hubs-java-get-started-receive-eph.md)，或单击左侧目录中的相应接收语言。
 
 若要完成本教程，你需要以下各项：
 
-* Java 开发环境。对于本教程，我们将采用 Eclipse。
-* 有效的 Azure 帐户。<br/>如果你没有帐户，只需花费几分钟就能创建一个免费帐户。有关详细信息，请参阅 <a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank">Azure 试用</a>。
+* Java 开发环境。 对于本教程，我们假定使用 [Eclipse](https://www.eclipse.org/)。
+* 有效的 Azure 帐户。 <br/>如果你没有帐户，只需花费几分钟就能创建一个免费帐户。 有关详细信息，请参阅 <a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank">Azure 试用版</a>。
 
 ## 将消息发送到事件中心
-事件中心的 Java 客户端库可用于 [Maven 中央存储库](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22)中的 Maven 项目，并且可以使用 Maven 项目文件中的以下依赖项声明进行引用：
+<a id="send-messages-to-event-hubs" class="xliff"></a>
+事件中心的 Java 客户端库可用于 [Maven 中央存储库](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22)中的 Maven 项目，并且可以使用 Maven 项目文件中的以下依赖项声明进行引用：    
 
 ```XML
 <dependency>
@@ -43,13 +49,14 @@ ms.author: v-yeche
 </dependency>
 ```
 
-对于不同类型的生成环境，你可以从 [Maven 中央存储库](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22)或 [GitHub 上的版本分发点](https://github.com/Azure/azure-event-hubs/releases)显式获取最新发布的 JAR 文件。
+对于不同类型的生成环境，可以从 [Maven 中央存储库](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22)或 [GitHub 上的版本分发点](https://github.com/Azure/azure-event-hubs/releases)显式获取最新发布的 JAR 文件。  
 
-对于简单的事件发布服务器，请导入事件中心客户端类的 *com.microsoft.azure.eventhubs* 包和实用程序类（如与 Azure 服务总线消息传递客户端共享的常见异常）的 *com.microsoft.azure.servicebus* 包。
+对于简单的事件发布服务器，请导入事件中心客户端类的 *com.microsoft.azure.eventhubs* 包和实用程序类（如与 Azure 服务总线消息传送客户端共享的常见异常）的 *com.microsoft.azure.servicebus* 包。 
 
-对于下面的示例，请首先在你最喜欢的 Java 开发环境中为控制台/shell 应用程序创建一个新的 Maven 项目。该类将称为 ```Send```。
+对于下面的示例，请首先在你最喜欢的 Java 开发环境中为控制台/shell 应用程序创建一个新的 Maven 项目。 该类将称为 `Send`。     
 
 ```Java
+
 import java.io.IOException;
 import java.nio.charset.*;
 import java.util.*;
@@ -75,9 +82,10 @@ public class Send
     ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
 ```
 
-然后，通过将字符串转换为其 UTF-8 字节编码创建单一事件。然后再使用连接字符串创建一个新的事件中心客户端实例并发送该消息。
+然后，通过将字符串转换为其 UTF-8 字节编码创建单一事件。 然后再使用连接字符串创建一个新的事件中心客户端实例并发送该消息。   
 
-```Java
+```Java 
+
     byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
     EventData sendEvent = new EventData(payloadBytes);
 
@@ -85,19 +93,17 @@ public class Send
     ehClient.sendSync(sendEvent);
     }
 }
-```
 
-<!-- Links -->
-
-[Event Hubs overview]: ./event-hubs-what-is-event-hubs.md
+``` 
 
 ## 后续步骤
+<a id="next-steps" class="xliff"></a>
 访问以下链接可以了解有关事件中心的详细信息：
 
-* [使用 EventProcessorHost 接收事件](./event-hubs-java-get-started-receive-eph.md)
-* [事件中心概述](./event-hubs-what-is-event-hubs.md)
-* [创建事件中心](./event-hubs-create.md)
-* [事件中心常见问题](./event-hubs-faq.md)
+* [使用 EventProcessorHost 接收事件](event-hubs-java-get-started-receive-eph.md)
+* [事件中心概述][Event Hubs overview]
+* [创建事件中心](event-hubs-create.md)
+* [事件中心常见问题](event-hubs-faq.md)
 
-<!---HONumber=Mooncake_0320_2017-->
-<!--Update_Description:new article about how to sending event to Azure event hubs with Java-->
+<!-- Links -->
+[Event Hubs overview]: event-hubs-overview.md

@@ -3,8 +3,8 @@ title: "监视负载均衡器的操作、事件和计数器 | Azure"
 description: "了解如何为 Azure 负载均衡器启用警报事件以及探测运行状况日志记录"
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 tags: azure-resource-manager
 ms.assetid: 56656d74-0241-4096-88c8-aa88515d676d
 ms.service: load-balancer
@@ -15,26 +15,26 @@ ms.workload: infrastructure-services
 origin.date: 10/24/2016
 ms.date: 05/08/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 2b55b55dd3cb7ee54566ef151627effd8f0d8bd3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: 119f6d87981775b61fa6f7bbb2620c5da2380d72
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-
-# <a name="log-analytics-for-azure-load-balancer"></a>Azure 负载均衡器的 Log Analytics
+# Azure 负载均衡器的 Log Analytics
+<a id="log-analytics-for-azure-load-balancer" class="xliff"></a>
 
 可以在 Azure 中使用不同类型的日志对负载均衡器进行管理和故障排除。 可通过门户访问其中某些日志。 可从 Azure Blob 存储提取所有日志并在 Excel 和 PowerBI 等各种工具中查看。 可从下表了解有关各种类型日志的详细信息。
 
-* **审核日志：**可以使用 [Azure 审核日志](../monitoring-and-diagnostics/insights-debugging-with-events.md)（旧称为“运行日志”）查看提交到 Azure 订阅的所有操作及其状态。 默认情况下，审核日志已启用，并可在 Azure 门户中查看。
+* **审核日志：**可以使用 [Azure 审核日志](../monitoring-and-diagnostics/insights-debugging-with-events.md)（旧称为“运行日志”）查看提交到 Azure 订阅的所有操作及其状态。 审核日志默认情况下启用，并且可以在 Azure 门户中查看。
 * **警报事件日志：**可以使用此日志查看负载均衡器引发的警报。 每隔五分钟收集一次负载均衡器的状态。 仅在引发了负载均衡器警报事件的情况下，才会向此日志写入相关内容。
 * **运行状况探测日志：**可以使用此日志查看运行状况探测器检测到的问题，例如后端池中由于运行状况探测失败未从负载均衡器接收请求的实例数。 当运行状况探测状态发生更改时，将写入此日志。
 
 > [!IMPORTANT]
 > Log Analytics 当前仅适用于面向 Internet 的负载均衡器。 日志仅适用于 Resource Manager 部署模型中部署的资源。 不能将日志用于经典部署模型中的资源。 有关部署模型的详细信息，请参阅[了解 Resource Manager 部署和经典部署](../azure-resource-manager/resource-manager-deployment-model.md)。
 
-## <a name="enable-logging"></a>启用日志记录
+## 启用日志记录
+<a id="enable-logging" class="xliff"></a>
 
 每个 Resource Manager 资源都会自动启用审核日志记录。 需启用事件和运行状况探测日志记录才能开始收集通过这些日志提供的数据。 使用以下步骤启用日志记录。
 
@@ -60,11 +60,13 @@ ms.lasthandoff: 04/28/2017
 > [!NOTE]
 > 审核日志不需要单独的存储帐户。 使用存储来记录事件和运行状况探测需支付服务费用。
 
-## <a name="audit-log"></a>审核日志
+## 审核日志
+<a id="audit-log" class="xliff"></a>
 
 默认生成审核日志。 日志在 Azure 的事件日志存储区中保留 90 天。 通过阅读[查看事件和审核日志](../monitoring-and-diagnostics/insights-debugging-with-events.md)一文可了解有关这些日志的详细信息。
 
-## <a name="alert-event-log"></a>警报事件日志
+## 警报事件日志
+<a id="alert-event-log" class="xliff"></a>
 
 只有基于每个负载均衡器启用了此日志，才会生成此日志。 事件以 JSON 格式记录，并存储在启用日志记录时指定的存储帐户中。 下面是事件的示例。
 
@@ -87,7 +89,8 @@ ms.lasthandoff: 04/28/2017
 
 JSON 输出中显示的 *eventname* 属性将说明负载均衡器创建警报的原因。 在本示例中，生成警报是因为源 IP NAT 限制 (SNAT) 导致 TCP 端口耗竭。
 
-## <a name="health-probe-log"></a>运行状况探测日志
+## 运行状况探测日志
+<a id="health-probe-log" class="xliff"></a>
 
 只有你按照上述详细步骤基于每个负载均衡器启用了该日志，才会生成该日志。 数据存储在你启用日志记录时指定的存储帐户中。 创建了名为“insights-logs-loadbalancerprobehealthstatus”的容器并记录了以下数据：
 
@@ -127,25 +130,29 @@ JSON 输出中显示的 *eventname* 属性将说明负载均衡器创建警报�
 
 JSON 输出在属性字段显示了探测运行状况的基本信息。 *dipDownCount* 属性显示在后端因探测响应失败而收不到网络流量的实例的总数。
 
-## <a name="view-and-analyze-the-audit-log"></a>查看和分析审核日志
+## 查看和分析审核日志
+<a id="view-and-analyze-the-audit-log" class="xliff"></a>
 
 你可以使用任何以下方法查看和分析审核日志数据：
 
-* **Azure 工具：**通过 Azure PowerShell、Azure 命令行接口 (CLI)、Azure REST API 或 Azure 门户检索审计日志中的信息。 [使用 Resource Manager 审核操作](../azure-resource-manager/resource-group-audit.md)一文中详细介绍了每种方法的分步说明。
+* **Azure 工具：**通过 Azure PowerShell、Azure 命令行接口 (CLI)、Azure REST API 或 Azure 门户检索审核日志中的信息。 [使用 Resource Manager 审核操作](../azure-resource-manager/resource-group-audit.md)一文中详细介绍了每种方法的分步说明。
 * **Power BI：** 如果尚无 [Power BI](https://powerbi.microsoft.com/pricing) 帐户，可免费试用。 使用 [适用于 Power BI 的 Azure 审核日志内容包](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs)，可以借助预配置的仪表板分析数据，也可以自定义视图来满足自己的需求。
 
-## <a name="view-and-analyze-the-health-probe-and-event-log"></a>查看和分析运行状况探测和事件日志
+## 查看和分析运行状况探测和事件日志
+<a id="view-and-analyze-the-health-probe-and-event-log" class="xliff"></a>
 
 你需要连接到你的存储帐户并检索事件和运行状况探测日志的 JSON 日志项。 下载 JSON 文件后，你可以将它们转换为 CSV 并在 Excel、PowerBI 或任何其他数据可视化工具中查看。
 
 > [!TIP]
 > 如果你熟悉 Visual Studio 和更改 C# 中的常量和变量值的基本概念，则可以使用 Github 提供的[日志转换器工具](https://github.com/Azure-Samples/networking-dotnet-log-converter)。
 
-## <a name="additional-resources"></a>其他资源
+## 其他资源
+<a id="additional-resources" class="xliff"></a>
 
 * [使用 Power BI 直观显示你的 Azure 审核日志](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) 博客文章。
 * [查看和分析 Power BI 中的 Azure 审核日志及更多内容](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) 博客文章。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 [了解负载均衡器探测](load-balancer-custom-probe-overview.md)

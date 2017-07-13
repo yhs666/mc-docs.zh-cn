@@ -9,33 +9,36 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/09/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: 6e0cfe019c966c50481c7a832dd656389a7a914f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/06/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 8d0e7946f0a5b57567599afb52d9f8f6b8f4bf1a
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-
-# <a name="create-a-vm-with-a-virtual-hard-disk"></a>使用虚拟硬盘创建 VM
+# 使用虚拟硬盘创建 VM
+<a id="create-a-vm-with-a-virtual-hard-disk" class="xliff"></a>
 
 本示例使用 VHD 创建虚拟机。
 本示例创建资源组、存储帐户、容器，然后通过将 VHD 上传到容器来创建 VM。
 本示例将 ssh 公钥替换为用户的公钥，因此用户可以访问 VM。
 
 用户需要可引导 VHD。
-可以从 https://azclisamples.blob.core.chinacloudapi.cn/vhds/sample.vhd 下载我们所使用的 VHD，也可以使用自己的 VHD。 脚本会查找 `~/sample.vhd`。
+用户可以从 https://azclisamples.blob.core.windows.net/vhds/sample.vhd 下载我们所使用的 VHD，也可以使用自己的 VHD。 脚本会查找 `~/sample.vhd`。
 
-此示例在 Bash shell 中正常工作。 有关在 Windows 客户端上运行 Azure CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../virtual-machines-windows-cli-options.md)。
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## <a name="sample-script"></a>示例脚本
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## 示例脚本
+<a id="sample-script" class="xliff"></a>
 
 ```azurecli
 #!/bin/bash
@@ -69,15 +72,17 @@ IP_ADDRESS=$(az vm list-ip-addresses -g az-cli-vhd -n custom-vm \
 echo "You can now connect using 'ssh deploy@${IP_ADDRESS}'"
 ```
 
-## <a name="clean-up-deployment"></a>清理部署 
+## 清理部署
+<a id="clean-up-deployment" class="xliff"></a> 
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli
+```azurecli 
 az group delete -n az-cli-vhd
 ```
 
-## <a name="script-explanation"></a>脚本说明
+## 脚本说明
+<a id="script-explanation" class="xliff"></a>
 
 此脚本使用以下命令创建资源组、虚拟机、可用性集、负载均衡器和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
 
@@ -95,8 +100,9 @@ az group delete -n az-cli-vhd
 | [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#set-linux-user) | 重置 SSH 密钥，以便当前用户能够访问 VM。 |
 | [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#list-ip-addresses) | 获取已创建虚拟机的 IP 地址。 |
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
-可以在 [Azure Linux VM 文档](../virtual-machines-linux-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
+可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。

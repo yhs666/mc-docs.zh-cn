@@ -1,6 +1,6 @@
 ---
 title: "DocumentDB 中的分区和缩放 | Microsoft Docs"
-description: "了解分区在 DocumentDB 中的工作原理、如何配置分区和分区键，以及如何为应用程序选取适当的分区键。"
+description: "了解分区在 DocumentDB 中的工作原理，如何配置分区和分区键以及如何为应用程序选取适当的分区键。"
 services: documentdb
 author: arramac
 manager: jhubbard
@@ -16,29 +16,28 @@ origin.date: 04/25/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: f743d3a63967adc208e46b8ef718195ac64b32cd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: b5165472527396cb8d6b87a6384741daeb88451d
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="partitioning-in-azure-documentdb-using-the-documentdb-api"></a>使用 DocumentDB API 在 DocumentDB 中分区
+# 使用 DocumentDB API 在 DocumentDB 中分区
+<a id="partitioning-in-documentdb-using-the-documentdb-api" class="xliff"></a>
 
-[DocumentDB](./documentdb-resources.md) 是一个全局分布式多模型数据库服务，旨在帮助实现快速、可预测的性能并且随着应用程序的增长无缝扩展。 
+[DocumentDB](./documentdb-resources.md) 是一个全球分布式多模型数据库服务，旨在帮助实现快速、可预测的性能并且随着应用程序的增长无缝扩展。 
 
-本文概述如何使用 DocumentDB API 处理对 DocumentDB 容器的分区。 请参阅分区和水平缩放，大致了解使用任何 DocumentDB API 进行分区的概念和最佳做法。 
+本文概述如何使用 DocumentDB API 处理对 DocumentDB 容器的分区。 
 
 若要开始使用代码，请从 [Github](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark) 下载项目。 
 
 阅读本文后，你将能够回答以下问题：   
 
-- DocumentDB 中的分区原理是什么？
+- DocumentDB 中的分区工作原理是什么？
 - 如何配置 DocumentDB 中的分区
 - 什么是分区键，以及如何为应用程序选取适当的分区键？
 
-若要开始使用代码，请从 [DocumentDB 性能测试驱动程序示例](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark)下载项目。 
+若要开始处理代码，请从 [DocumentDB 性能测试驱动程序示例](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark)下载项目。 
 
 <!-- placeholder until we have a permanent solution-->
 
@@ -77,10 +76,12 @@ ms.lasthandoff: 05/19/2017
 
 让我们看看所选的分区键如何影响应用程序的性能。
 
-## <a name="working-with-the-documentdb-sdks"></a>使用 DocumentDB SDK
+## 使用 DocumentDB SDK
+<a id="working-with-the-documentdb-sdks" class="xliff"></a>
 DocumentDB 增加了对 [REST API 版本 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx) 的自动分区支持。 为了创建已分区容器，必须在支持的 SDK 平台（.NET、Node.js、Java、Python、MongoDB）之一下载 SDK 1.6.0 或更高版本。 
 
-### <a name="creating-containers"></a>创建容器
+### 创建容器
+<a id="creating-containers" class="xliff"></a>
 下面的示例演示的 .NET 代码片段用于创建容器，以存储吞吐量为 20,000 个请求单位/秒的设备遥测数据。 SDK 将设置 OfferThroughput 值（其反过来将设置 REST API 中的 `x-ms-offer-throughput` 请求标头）。 这里，我们将 `/deviceId` 设为分区键。 所选分区键随容器元数据（如名称和索引策略）的其余部分一起保存。
 
 对于此示例，我们选取了 `deviceId`，因为我们知道：(a) 由于存在大量的设备，写入可以跨分区均匀地分步并且我们可以扩展数据库以引入海量数据，(b) 许多请求（如提取设备最近读取内容）仅限于单个 deviceId，并且可以从单个分区进行检索。
@@ -102,10 +103,11 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
-此方法可对 DocumentDB 进行 REST API 调用，且该服务将基于所请求的吞吐量预配分区数。 随着性能需求的变化，可以更改容器的吞吐量。 
+此方法可对 DocumentDB 调用 REST API，且该服务将基于所请求的吞吐量设置分区数。 随着性能需求的变化，可以更改容器的吞吐量。 
 
-### <a name="reading-and-writing-items"></a>读取和写入项
-现在，请将数据插入 DocumentDB。 以下示例类包含设备读取和对 CreateDocumentAsync 的调用，目的是将新设备读数插入到容器中。 这是一个利用 DocumentDB API 的示例：
+### 读取和写入项
+<a id="reading-and-writing-items" class="xliff"></a>
+现在，我们将数据插入 DocumentDB。 以下示例类包含设备读取和对 CreateDocumentAsync 的调用，目的是将新设备读数插入到容器中。 这是一个利用 DocumentDB API 的示例：
 
 ```csharp
 public class DeviceReading
@@ -168,7 +170,8 @@ await client.DeleteDocumentAsync(
   new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 ```
 
-### <a name="querying-partitioned-containers"></a>查询已分区容器
+### 查询已分区容器
+<a id="querying-partitioned-containers" class="xliff"></a>
 在已分区容器中查询数据时，DocumentDB 会自动将查询路由到筛选器（如果有）中所指定分区键值对应的分区。 例如，此查询将只路由到包含分区键“XMS-0001”的分区。
 
 ```csharp
@@ -190,7 +193,8 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 
 从 SDK 1.12.0 及更高版本开始，DocumentDB 支持使用 SQL 对已分区的容器执行[聚合函数](documentdb-sql-query.md#Aggregates) `COUNT`、`MIN`、`MAX`、`SUM` 和 `AVG`。 查询必须包括单个聚合运算符，并且必须在投影中包括单个值。
 
-### <a name="parallel-query-execution"></a>并行查询执行
+### 并行查询执行
+<a id="parallel-query-execution" class="xliff"></a>
 DocumentDB SDK 1.9.0 及更高版本支持并行查询执行选项，这些选项可用于对已分区集合执行低延迟查询，即使在这些查询需要处理大量分区时，也是如此。 例如，以下查询配置为跨分区并行运行。
 
 ```csharp
@@ -209,7 +213,8 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 
 如果给定相同状态的集合，并行查询将以串行执行相同的顺序返回结果。 执行包含排序（ORDER BY 和/或 TOP）的跨分区查询时，DocumentDB SDK 跨分区发出并行查询，并合并客户端中的部分排序结果，以生成全局范围内有序的结果。
 
-### <a name="executing-stored-procedures"></a>执行存储过程
+### 执行存储过程
+<a id="executing-stored-procedures" class="xliff"></a>
 还可以对具有相同设备 ID 的文档执行原子事务，例如，如果要在单个项中维护聚合或设备的最新状态，则可以执行该操作。 
 
 ```csharp
@@ -221,12 +226,12 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
    
 在下一部分，将介绍如何从单分区容器移动到已分区容器。
 
-## <a name="next-steps"></a>后续步骤
-本文概述了如何使用 DocumentDB API 处理对 DocumentDB 容器的分区。 另请参阅分区和水平缩放，大致了解使用任何 DocumentDB API 进行分区的概念和最佳做法。 
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+本文概述了如何使用 DocumentDB API 处理对 DocumentDB 容器的分区。 另请参阅“分区和水平缩放”，大致了解使用任何 DocumentDB API 进行分区的概念和最佳做法。 
 
-- 使用 DocumentDB 执行缩放和性能测试。 有关示例，请参阅[使用 DocumentDB 执行性能和规模测试](documentdb-performance-testing.md)。
+- 使用 DocumentDB 执行缩放和性能测试。 有关示例，请参阅[使用 DocumentDB 进行性能和规模测试](documentdb-performance-testing.md)。
 - 使用 [SDK](documentdb-sdk-dotnet.md) 或 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 的编码入门
-- 了解 [DocumentDB 中的预配吞吐量](documentdb-request-units.md)
-
+- 了解 [DocumentDB 中预配的吞吐量](documentdb-request-units.md)
 
 

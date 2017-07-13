@@ -13,20 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/28/2017
-ms.date: 
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 75890c3ffb1d1757de64a8b8344e9f2569f26273
-ms.openlocfilehash: 53cfe8ed2aef020aa6b6683b0c7305d2448eb140
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/25/2017
-
-
+ms.openlocfilehash: f58900c0cafaab2cf7869d056e0e3339a6df4eb7
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
+# 应用程序网关常见问题
+<a id="frequently-asked-questions-for-application-gateway" class="xliff"></a>
 
-# <a name="frequently-asked-questions-for-application-gateway"></a>应用程序网关常见问题
-
-## <a name="general"></a>常规
+## 常规
+<a id="general" class="xliff"></a>
 
 **问：什么是应用程序网关？**
 
@@ -34,7 +33,7 @@ Azure 应用程序网关是服务形式的应用程序传送控制器 (ADC)，�
 
 **问：应用程序网关支持哪些功能？**
 
-应用程序网关支持 SSL 卸载和端到端 SSL、Web 应用程序防火墙（预览版）、基于 Cookie 的会话相关性、基于 URL 路径的路由、多站点托管，等等。 有关支持的功能的完整列表，请访问 [Introduction to Application Gateway](application-gateway-introduction.md)（应用程序网关简介）
+应用程序网关支持 SSL 卸载和端到端 SSL、Web 应用程序防火墙、基于 Cookie 的会话相关性、基于 URL 路径的路由、多站点托管，等等。 有关支持的功能的完整列表，请访问 [Introduction to Application Gateway](application-gateway-introduction.md)（应用程序网关简介）
 
 **问：应用程序网关与 Azure 负载均衡器之间有什么区别？**
 
@@ -76,7 +75,8 @@ Azure 应用程序网关是服务形式的应用程序传送控制器 (ADC)，�
 
 支持。应用程序网关会将 x-forwarded-for、x-forwarded-proto 和 x-forwarded-port 标头插入转发到后端的请求中。 x-forwarded-for 标头的格式是逗号分隔的“IP:端口”列表。 x-forwarded-proto 的有效值为 http 或 https。 x-forwarded-port 指定请求抵达应用程序网关时所在的端口。
 
-## <a name="configuration"></a>配置
+## 配置
+<a id="configuration" class="xliff"></a>
 
 **问：是否始终要将应用程序网关部署在虚拟网络中？**
 
@@ -92,7 +92,13 @@ Azure 应用程序网关是服务形式的应用程序传送控制器 (ADC)，�
 
 **问：网关应用程序网关子网是否支持网络安全组？**
 
-应用程序网关子网支持网络安全组，但必须为端口 65503-65534 添加例外，这样才能使后端正常运行。 不应阻止出站 Internet 连接。
+应用程序网关子网支持网络安全组，但具有以下限制：
+
+* 必须针对端口 65503-65534 放入异常，后端运行状况才能正常工作。
+
+* 不应阻止出站 Internet 连接。
+
+* 必须允许来自 AzureLoadBalancer 标记的流量。
 
 **问：应用程序网关有哪些限制？是否可以提高这些限制？**
 
@@ -122,7 +128,8 @@ Azure 应用程序网关是服务形式的应用程序传送控制器 (ADC)，�
 
 Host 字段指定要将探测数据发送到的名称。 仅在应用程序网关上配置了多站点的情况下适用，否则使用“127.0.0.1”。 此值不同于 VM 主机名，它采用 \<协议\>://\<主机\>:\<端口\>\<路径\> 格式。 
 
-## <a name="performance"></a>性能
+## 性能
+<a id="performance" class="xliff"></a>
 
 **问：应用程序网关如何支持高可用性和可伸缩性？**
 
@@ -144,7 +151,8 @@ Host 字段指定要将探测数据发送到的名称。 仅在应用程序网�
 
 可以。Azure 将跨更新域和容错域分配实例，确保所有实例不会同时发生故障。 为了支持可伸缩性，应用程序网关将添加同一网关的多个实例来分担负载。
 
-## <a name="ssl-configuration"></a>SSL 配置
+## SSL 配置
+<a id="ssl-configuration" class="xliff"></a>
 
 **问：应用程序网关支持哪些证书？**
 
@@ -204,7 +212,8 @@ TLS_RSA_WITH_3DES_EDE_CBC_SHA
 
 不是，它没有与 Azure Key Vault 集成。
 
-## <a name="web-application-firewall-waf-configuration"></a>Web 应用程序防火墙 (WAF) 配置
+## Web 应用程序防火墙 (WAF) 配置
+<a id="web-application-firewall-waf-configuration" class="xliff"></a>
 
 **问：WAF SKU 是否提供标准 SKU 所提供的全部功能？**
 
@@ -248,7 +257,8 @@ WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 否，WAF 不提供 DDoS 防护。
 
-## <a name="diagnostics-and-logging"></a>诊断和日志记录
+## 诊断和日志记录
+<a id="diagnostics-and-logging" class="xliff"></a>
 
 **问：应用程序网关可以使用哪些类型的日志？**
 
@@ -278,7 +288,7 @@ WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 最常见的原因是访问的后端被 NSG 或自定义 DNS 阻止。 有关详细信息，请访问 [Backend health, diagnostics logging, and metrics for Application Gateway](application-gateway-diagnostics.md)（应用程序网关的后端运行状况、诊断日志记录和指标）。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 若要了解有关应用程序网关的详细信息，请访问 [Introduction to Application Gateway](application-gateway-introduction.md)（应用程序网关简介）。
-

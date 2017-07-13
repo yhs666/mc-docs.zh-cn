@@ -15,15 +15,14 @@ ms.topic: get-started-article
 origin.date: 06/27/2016
 ms.date: 12/12/2016
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: d47901f6477f5706b6fccc7451288beb6013366d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: afc7a2c3e6ff95758c0348c5804a80758072b2a6
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="session-state-with-azure-redis-cache-in-azure-app-service"></a>将 Azure 应用服务中的 Azure Redis 缓存用于会话状态
+# 将 Azure 应用服务中的 Azure Redis 缓存用于会话状态
+<a id="session-state-with-azure-redis-cache-in-azure-app-service" class="xliff"></a>
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -94,7 +93,8 @@ ms.lasthandoff: 05/26/2017
 还可以使用 Redis 缓存在 Web 应用程序中缓存对象。 有关详细信息，请参阅 [15 分钟学会创建包含 Azure Redis 缓存的 MVC 影片应用](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/)。
 有关如何使用 ASP.NET 会话状态的更多详细信息，请参阅 [ASP.NET 会话状态概述][ASP.NET Session State Overview]。
 
-## <a name="whats-changed"></a>发生的更改
+## 发生的更改
+<a id="whats-changed" class="xliff"></a>
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [installed the latest]: /downloads/?sdk=net  

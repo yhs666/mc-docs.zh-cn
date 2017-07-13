@@ -1,26 +1,26 @@
 ---
-title: "Azure 流分析文档 - 教程和 API 参考 | Microsoft 文档"
+title: "Azure 流分析文档 - 教程和 API 参考 | Azure"
 description: "了解如何通过完全托管的事件处理在云中运行 IoT 分析。 实时分析来自应用程序、传感器和设备等的数据。"
 services: stream-analytics
-author: carolz
-manager: carolz
+author: rockboyfor
+manager: digimobile
 layout: LandingPage
 ms.assetid: 
 ms.service: stream-analytics
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+origin.date: 05/23/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 5810b8f61c16d877400ceb56b9fe2c18752fdfb1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 5e8957ba2bddf1cc39bed8de0a0c000678989d4e
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-
-# <a name="stream-analytics-documentation"></a>流分析文档
+# 流分析文档
+<a id="stream-analytics-documentation" class="xliff"></a>
 
 了解如何使用流分析（完全托管的事件处理引擎）在云中运行物联网 (IoT) 分析。 教程和其他文档介绍了如何实时分析来自应用程序、传感器、设备、社交媒体等的数据。 
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
     <li>
-        <a href="/Stream-Analytics/">
+        <a href="/stream-analytics/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -62,7 +62,7 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
      <li>
-        <a href="/Stream-Analytics/stream-analytics-build-an-iot-solution-using-stream-analytics">
+        <a href="/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,4 +79,6 @@ ms.lasthandoff: 05/12/2017
         </div>
         </a>
     </li>
+    <!-- Not Available /Stream-Analytics/stream-analytics-twitter-sentiment-analysis-trends-->
+    <!-- Not Available /Stream-Analytics/stream-analytics-machine-learning-integration-tutorial-->
 </ul>

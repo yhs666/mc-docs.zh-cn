@@ -16,15 +16,14 @@ ms.workload: infrastructure-services
 origin.date: 05/03/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: b2aca5a9c1182fa384b8a54ad47602962d8a8f0a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 4a7c80c70624b0bc77a2cbbad756253098eb4969
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>使用 makecert 生成和导出点到站点连接证书
+# 使用 makecert 生成和导出点到站点连接证书
+<a id="generate-and-export-certificates-for-point-to-site-connections-using-makecert" class="xliff"></a>
 
 > [!NOTE]
 > 仅当无权访问 Windows 10 计算机时使用这些说明，以生成点到站点连接的自签名证书。 Makecert 将被弃用。 此外，makecert 无法创建 SHA-2 证书，只能创建 SHA-1 证书（这对 P2S 仍然有效）。 出于这些原因，如果可能，建议使用 [PowerShell 步骤](vpn-gateway-certificates-point-to-site.md)。 使用 PowerShell 或 makecert 创建的证书可以安装在任何[受支持的客户端操作系统](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)上，而不仅限于用来创建它们的操作系统。
@@ -66,11 +65,13 @@ ms.lasthandoff: 05/19/2017
 
 exported.cer 文件必须上传到 Azure。 请参阅[配置点到站点连接](vpn-gateway-howto-point-to-site-rm-ps.md#upload)获取相关说明。
 
-### <a name="export-the-self-signed-certificate-and-private-key-to-store-it-optional"></a>导出自签名证书和用于存储它的私钥（可选）
+### 导出自签名证书和用于存储它的私钥（可选）
+<a id="export-the-self-signed-certificate-and-private-key-to-store-it-optional" class="xliff"></a>
 
 你可能想要导出自签名根证书并将它存储在安全位置。 如果需要，可以稍后在另一台计算机上安装此自签名证书，然后生成更多客户端证书，或导出另一个 .cer 文件。 若要将自签名根证书导出为 .pfx，请选择该根证书，然后使用[导出客户端证书](#clientexport)中所述的步骤导出。
 
-## <a name="create-and-install-client-certificates"></a>创建和安装客户端证书
+## 创建和安装客户端证书
+<a id="create-and-install-client-certificates" class="xliff"></a>
 
 不要直接在客户端计算机上安装自签名的证书。 需要从自签名证书生成客户端证书。 然后将客户端证书导出并安装到客户端计算机上。 以下步骤并非特定于部署模型。 它们同样适用于 Resource Manager 和经典部署模型。
 
@@ -99,7 +100,8 @@ exported.cer 文件必须上传到 Azure。 请参阅[配置点到站点连接](
 
 [!INCLUDE [Install client certificate](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 继续使用点到站点配置。 
 

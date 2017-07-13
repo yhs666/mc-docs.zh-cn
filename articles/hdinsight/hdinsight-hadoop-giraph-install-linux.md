@@ -17,15 +17,14 @@ ms.topic: article
 origin.date: 05/04/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 46d75e3e994d47470547140eac2c19b6726a7cf2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: c64ca88798efb29ce15eec58f962ce1ab55621e7
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 群集上安装 Giraph 并使用 Giraph 处理大型图形
+# 在 HDInsight Hadoop 群集上安装 Giraph 并使用 Giraph 处理大型图形
+<a id="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs" class="xliff"></a>
 
 了解如何在 HDInsight 群集上安装 Apache Giraph。 HDInsight 的脚本操作功能允许通过运行 bash 脚本来自定义群集。 可以在创建群集期间或之后使用脚本来自定义群集。
 
@@ -45,9 +44,10 @@ ms.lasthandoff: 05/26/2017
 > [!WARNING]
 > 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门将帮助找出并解决与这些组件相关的问题。
 >
-> 自定义组件（如 Giraph）可获得合理范围的支持，以帮助你进一步排查问题。 Azure.cn 支持部门也许能够解决问题。 如果不能，你必须去开源社区查阅资料，可以在那里找到关于该技术的深层专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自定义组件（如 Giraph）可获得合理范围的支持，以帮助你进一步排查问题。 Azure.cn 支持可能能够解决问题。 如果不能，你必须去开源社区查阅资料，可以在那里找到关于该技术的深层专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
 
-## <a name="what-the-script-does"></a>脚本功能
+## 脚本功能
+<a id="what-the-script-does" class="xliff"></a>
 
 此脚本可执行以下操作：
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 05/26/2017
 
     https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
-本部分说明了在通过 Azure 门户创建群集时如何使用该示例脚本。
+本部分说明了如何在通过 Azure 门户创建群集时使用示例脚本。
 
 > [!NOTE]
 > 可以通过下列任一方法应用脚本操作：
@@ -76,17 +76,17 @@ ms.lasthandoff: 05/26/2017
 
 2. 在“可选配置”边栏选项卡上，选择“脚本操作”，并提供以下信息：
 
-    * **名称**：输入脚本操作的友好名称。
+   * **名称**：输入脚本操作的友好名称。
 
-    * **脚本 URI**：https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+   * **脚本 URI**：https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
-    * **标头**：选中此项
+   * **标头**：选中此项
 
-    * **辅助角色**：将此项保留未选中状态
+   * **辅助角色**：将此项保留未选中状态
 
-    * **ZOOKEEPER**：将此项保留未选中状态
+   * **ZOOKEEPER**：将此项保留未选中状态
 
-    * **参数**：将此字段留空
+   * **参数**：将此字段留空
 
 3. 在“脚本操作”的底部，使用“选择”按钮保存配置。 最后，使用“可选配置”边栏选项卡底部的“选择”按钮保存可选配置信息。
 
@@ -140,17 +140,17 @@ ms.lasthandoff: 05/26/2017
 
     下表介绍了与此命令搭配使用的参数：
 
-    | 参数 | 作用 |
-    | --- | --- |
-    | `jar` |包含示例的 jar 文件。 |
-    | `org.apache.giraph.GiraphRunner` |用于启动示例的类。 |
-    | `org.apache.giraph.examples.SimpleShortestPathsCoputation` |使用的示例。 在此示例中，它将计算图形中 ID 1 和所有其他 ID 之间的最短路径。 |
-    | `-ca mapred.job.tracker` |群集的头节点。 |
-    | `-vif` |用于输入数据的输入格式。 |
-    | `-vip` |输入数据文件。 |
-    | `-vof` |输出格式。 在此示例中，ID 和值是纯文本。 |
-    | `-op` |输出位置。 |
-    | `-w 2` |要使用的辅助角色数目。 在此示例中为 2。 |
+   | 参数 | 作用 |
+   | --- | --- |
+   | `jar` |包含示例的 jar 文件。 |
+   | `org.apache.giraph.GiraphRunner` |用于启动示例的类。 |
+   | `org.apache.giraph.examples.SimpleShortestPathsCoputation` |使用的示例。 在此示例中，它将计算图形中 ID 1 和所有其他 ID 之间的最短路径。 |
+   | `-ca mapred.job.tracker` |群集的头节点。 |
+   | `-vif` |用于输入数据的输入格式。 |
+   | `-vip` |输入数据文件。 |
+   | `-vof` |输出格式。 在此示例中，ID 和值是纯文本。 |
+   | `-op` |输出位置。 |
+   | `-w 2` |要使用的辅助角色数目。 在此示例中为 2。 |
 
     有关这些参数以及与 Giraph 示例搭配使用的其他参数的详细信息，请参阅 [Giraph quickstart](http://giraph.apache.org/quick_start.html)（Giraph 快速入门）。
 
@@ -174,9 +174,9 @@ ms.lasthandoff: 05/26/2017
 
     ![将对象绘制为圆圈，并绘制对象之间的最短路径](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph-out.png)
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 * [在 HDInsight 群集上安装并使用 Hue](hdinsight-hadoop-hue-linux.md)。
 
 * [在 HDInsight 群集上安装 Solr](hdinsight-hadoop-solr-install-linux.md)。
-

@@ -14,13 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/17/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 672c4b6338c8e0cf8ff34716e675f8fd73780e8d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: a5c6f918192a66a6bb0748898c581240b99b0a4a
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-notification-hubs"></a>Azure 通知中心
 ## <a name="overview"></a>概述
@@ -154,5 +152,4 @@ Azure 通知中心提供易用的多平台扩展式推送引擎。 使用单个�
 [templates]:./notification-hubs-templates-cross-platform-push-messages.md
 [Azure 门户]: https://portal.azure.cn
 [tags]: http://msdn.microsoft.com/library/azure/dn530749.aspx
-
 

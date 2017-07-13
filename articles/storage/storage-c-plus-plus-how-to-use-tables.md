@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 64e9f5024c07c82e242a3fd2678cf5dadbd1d3a4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: cb4a306f4c7f323386113db9eb6d29ec83ebb0f4
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="how-to-use-table-storage-from-c"></a>如何通过 C++ 使用表存储
+# 如何通过 C++ 使用表存储
+<a id="how-to-use-table-storage-from-c" class="xliff"></a>
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
 
-## <a name="overview"></a>概述
+## 概述
+<a id="overview" class="xliff"></a>
 本指南将演示如何使用 Azure 表存储服务执行常见方案。 示例采用 C++ 编写，并使用了[适用于 C++ 的 Azure 存储客户端库](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 涉及的方案包括**创建和删除表**以及**使用表实体**。
 
 > [!NOTE]
@@ -38,7 +38,8 @@ ms.lasthandoff: 04/14/2017
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## <a name="create-a-c-application"></a>创建 C++ 应用程序
+## 创建 C++ 应用程序
+<a id="create-a-c-application" class="xliff"></a>
 在本指南中，将使用可在 C++ 应用程序内运行的存储功能。 为此，需要安装适用于 C++ 的 Azure 存储客户端库，并在 Azure 订阅中创建 Azure 存储帐户。  
 
 若要安装适用于 C++ 的 Azure 存储客户端库，可使用以下方法：
@@ -48,7 +49,8 @@ ms.lasthandoff: 04/14/2017
 
      Install-Package wastorage
 
-## <a name="configure-your-application-to-access-table-storage"></a>配置应用程序以访问表存储
+## 配置应用程序以访问表存储
+<a id="configure-your-application-to-access-table-storage" class="xliff"></a>
 将以下 include 语句添加到要在其中使用 Azure 存储 API 访问表的 C++ 文件的顶部：  
 
 ```cpp
@@ -56,7 +58,8 @@ ms.lasthandoff: 04/14/2017
 #include <was/table.h>
 ```
 
-## <a name="set-up-an-azure-storage-connection-string"></a>设置 Azure 存储连接字符串
+## 设置 Azure 存储连接字符串
+<a id="set-up-an-azure-storage-connection-string" class="xliff"></a>
 Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。 运行客户端应用程序时，必须提供以下格式的存储连接字符串。 使用 [Azure 门户](https://portal.azure.cn)中列出的存储帐户的存储帐户名称和存储访问密钥作为 AccountName 和 AccountKey 值。 有关存储帐户和访问密钥的信息，请参阅[关于 Azure 存储帐户](./storage-create-storage-account.md)。 此示例演示如何声明一个静态字段以保存连接字符串：  
 
 ```cpp
@@ -75,7 +78,8 @@ const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;
 
 下面的示例假定使用了这两个方法之一来获取存储连接字符串。  
 
-## <a name="retrieve-your-connection-string"></a>检索你的连接字符串
+## 检索你的连接字符串
+<a id="retrieve-your-connection-string" class="xliff"></a>
 可使用 **cloud_storage_account** 类来表示你的存储帐户信息。 若要从存储连接字符串中检索你的存储帐户信息，你可以使用 parse 方法。
 
 ```cpp
@@ -90,7 +94,8 @@ azure::storage::cloud_storage_account storage_account = azure::storage::cloud_st
 azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 ```
 
-## <a name="create-a-table"></a>创建表
+## 创建表
+<a id="create-a-table" class="xliff"></a>
 使用 **cloud_table_client** 对象可获得表和实体的引用对象。 以下代码将创建 **cloud_table_client** 对象并使用它创建新表。
 
 ```cpp
@@ -107,7 +112,8 @@ azure::storage::cloud_table table = table_client.get_table_reference(U("people")
 table.create_if_not_exists();  
 ```
 
-## <a name="add-an-entity-to-a-table"></a>将实体添加到表
+## 将实体添加到表
+<a id="add-an-entity-to-a-table" class="xliff"></a>
 若要将实体添加到表，请创建一个新的 **table_entity** 对象并将其传递到 **table_operation::insert_entity**。 以下代码使用客户的名字作为行键，并使用姓氏作为分区键。 条目的分区键和行键共同唯一地标识表中的条目。 查询分区键相同的条目的速度快于查询分区键不同的条目的速度，但使用不同的分区键可实现更高的并行操作可伸缩性。 有关详细信息，请参阅 [Azure 存储性能和可伸缩性核对清单](storage-performance-checklist.md)。
 
 下面的代码创建一个 **table_entity** 新实例，其中包含要进行存储的部分客户数据。 接下来，该代码调用 **table_operation::insert_entity** 来创建一个 **table_operation** 对象，以便将实体插入表中，并将新的表实体与之关联。 最后，该代码调用 **cloud_table** 对象的 execute 方法。 并且新的 **table_operation** 向表服务发送请求，以此将新的客户实体插入“people”表中。  
@@ -141,7 +147,8 @@ azure::storage::table_operation insert_operation = azure::storage::table_operati
 azure::storage::table_result insert_result = table.execute(insert_operation);
 ```
 
-## <a name="insert-a-batch-of-entities"></a>插入一批实体
+## 插入一批实体
+<a id="insert-a-batch-of-entities" class="xliff"></a>
 你可以通过一次写入操作将一批实体插入到表服务。 以下代码创建一个 **table_batch_operation** 对象，然后向其中添加三个插入操作。 每个插入操作的添加方法如下：创建一个新的实体对象，对其设置值，然后对 **table_batch_operation** 对象调用 insert 方法来将实体与新的插入操作相关联。 然后调用 **cloud_table.execute** 来执行此操作。  
 
 ```cpp
@@ -197,7 +204,8 @@ std::vector<azure::storage::table_result> results = table.execute_batch(batch_op
 * 单次批处理操作中的所有条目都必须具有相同的分区键。  
 * 批处理操作的数据负载限制为 4MB。  
 
-## <a name="retrieve-all-entities-in-a-partition"></a>检索分区中的所有实体
+## 检索分区中的所有实体
+<a id="retrieve-all-entities-in-a-partition" class="xliff"></a>
 若要查询表以获取分区中的所有实体，请使用 **table_query** 对象。 以下代码示例指定了一个筛选器，以筛选分区键为“Smith”的实体。 此示例会将查询结果中每个条目的字段输出到控制台。  
 
 ```cpp
@@ -232,7 +240,8 @@ for (; it != end_of_results; ++it)
 
 此示例中的查询将检索出与筛选条件匹配的所有条目。 如果有大型表并需要经常下载表条目，建议改为将数据存储在 Azure 存储 Blob 中。
 
-## <a name="retrieve-a-range-of-entities-in-a-partition"></a>检索分区中的一部分条目
+## 检索分区中的一部分条目
+<a id="retrieve-a-range-of-entities-in-a-partition" class="xliff"></a>
 如果不想查询分区中的所有条目，则可以通过结合使用分区键筛选器与行键筛选器来指定一个范围。 以下代码示例使用两个筛选器来获取分区“Smith”中的、行键（名字）以字母“E”前面的字母开头的所有条目，然后输出查询结果。  
 
 ```cpp
@@ -269,7 +278,8 @@ for (; it != end_of_results; ++it)
 }  
 ```
 
-## <a name="retrieve-a-single-entity"></a>检索单个条目
+## 检索单个条目
+<a id="retrieve-a-single-entity" class="xliff"></a>
 你可以编写查询以检索单个特定实体。 以下代码使用 **table_operation::retrieve_entity** 来指定客户“Jeff Smith”。 此方法只返回一个实体，而不是一个集合，并且返回的值在 **table_result** 中。 在查询中指定分区键和行键是从表服务中检索单个实体的最快方法。  
 
 ```cpp
@@ -294,7 +304,8 @@ std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") <
     << U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
 ```
 
-## <a name="replace-an-entity"></a>替换条目
+## 替换条目
+<a id="replace-an-entity" class="xliff"></a>
 若要替换条目，请从表服务中检索它，修改条目对象，然后将更改保存回表服务。 以下代码更改现有客户的电话号码和电子邮件地址。 此代码不是调用 **table_operation::insert_entity**，而是使用 **table_operation::replace_entity**。 这将导致在服务器上完全替换该实体，除非服务器上的该实体自检索到它以后发生更改，在此情况下，该操作将失败。 操作失败将防止你的应用程序无意中覆盖应用程序的其他组件在检索与更新之间所做的更改。 正确处理此失败的方法是再次检索实体，进行更改（如果仍有效），然后执行另一个 **table_operation::replace_entity** 操作。 下一节将为你演示如何重写此行为。  
 
 ```cpp
@@ -325,7 +336,8 @@ azure::storage::table_operation replace_operation = azure::storage::table_operat
 azure::storage::table_result replace_result = table.execute(replace_operation);
 ```
 
-## <a name="insert-or-replace-an-entity"></a>插入或替换实体
+## 插入或替换实体
+<a id="insert-or-replace-an-entity" class="xliff"></a>
 如果该实体自从服务器中检索到它以后发生更改，则 **table_operation::replace_entity** 操作将失败。 此外，必须首先从服务器中检索该实体，**table_operation::replace_entity** 才会成功。 但是，有时你不知道服务器上是否存在该实体以及存储在其中的当前值是否无关 - 更新操作应将其全部覆盖。 为此，应使用 **table_operation::insert_or_replace_entity** 操作。 如果该实体不存在，此操作将插入它，如果存在，则替换它，而不管上次更新是何时进行的。 在以下代码示例中，仍将检索 Jeff Smith 的客户实体，但稍后会通过 **table_operation::insert_or_replace_entity** 将其保存回服务器。 将覆盖在检索与更新操作之间对实体进行的任何更新。  
 
 ```cpp
@@ -357,7 +369,8 @@ azure::storage::table_operation insert_or_replace_operation = azure::storage::ta
 azure::storage::table_result insert_or_replace_result = table.execute(insert_or_replace_operation);
 ```
 
-## <a name="query-a-subset-of-entity-properties"></a>查询条目属性的子集
+## 查询条目属性的子集
+<a id="query-a-subset-of-entity-properties" class="xliff"></a>
 对表的查询可以只检索实体中的少数几个属性。 以下代码中的查询使用 **table_query::set_select_columns** 方法，仅返回表中实体的电子邮件地址。  
 
 ```cpp
@@ -401,7 +414,8 @@ for (; it != end_of_results; ++it)
 > 
 > 
 
-## <a name="delete-an-entity"></a>删除实体
+## 删除实体
+<a id="delete-an-entity" class="xliff"></a>
 可以在检索到实体后轻松将其删除。 检索到实体后，对要删除的实体调用 **table_operation::delete_entity**。 然后调用 **cloud_table.execute** 方法。 以下代码检索并删除分区键为“Smith”、行键为“Jeff”的实体。  
 
 ```cpp
@@ -425,7 +439,8 @@ azure::storage::table_operation delete_operation = azure::storage::table_operati
 azure::storage::table_result delete_result = table.execute(delete_operation);  
 ```
 
-## <a name="delete-a-table"></a>删除表
+## 删除表
+<a id="delete-a-table" class="xliff"></a>
 最后，以下代码示例将从存储帐户中删除表。 在删除表之后的一段时间内无法重新创建它。  
 
 ```cpp
@@ -449,7 +464,8 @@ azure::storage::table_operation delete_operation = azure::storage::table_operati
 azure::storage::table_result delete_result = table.execute(delete_operation);
 ```
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 现在，你已了解表存储的基础知识，请打开以下链接了解有关 Azure 存储的详细信息：  
 
 * [如何通过 C++ 使用 Blob 存储](storage-c-plus-plus-how-to-use-blobs.md)

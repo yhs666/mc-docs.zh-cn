@@ -3,8 +3,8 @@ title: "SQL 数据仓库中的 PolyBase 教程 | Azure"
 description: "了解什么是 PolyBase，以及如何将其用于数据仓库方案。"
 services: sql-data-warehouse
 documentationcenter: NA
-author: ckarst
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
 ms.service: sql-data-warehouse
@@ -12,26 +12,27 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 origin.date: 03/01/2017
-ms.date: 04/24/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 9c24523ea3fb5ee1de2807fcf6c829fcfd6b4c40
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 85c0edcab7e07b64673e60fd854d61599ea6c349
+ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/05/2017
 ---
-
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>在 SQL 数据仓库中使用 PolyBase 加载数据
 
 > [!div class="op_single_selector"]
-> * [Redgate](./sql-data-warehouse-load-with-redgate.md)
-> * [PolyBase](./sql-data-warehouse-get-started-load-with-polybase.md)
-> * [BCP](./sql-data-warehouse-load-with-bcp.md)
-
+> * [Redgate](sql-data-warehouse-load-with-redgate.md)  
+> * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
+> * [BCP](sql-data-warehouse-load-with-bcp.md)
+> 
+> 
 <!-- Data Factory not supported on Azure.cn-->
 <!-- - [Data Factory](/documentation/articles/sql-data-warehouse-get-started-load-with-azure-data-factory/)-->
+
 
 本教程说明如何使用 AzCopy 和 PolyBase 将数据载入 SQL 数据仓库。 完成后，你将了解如何：
 
@@ -39,8 +40,7 @@ ms.lasthandoff: 04/14/2017
 * 创建数据库对象以定义数据
 * 运行 T-SQL 查询以加载数据
 
-[video](https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player)
-
+<!-- Not Available [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player] -->
 ## <a name="prerequisites"></a>先决条件
 若要逐步完成本教程，需要：
 

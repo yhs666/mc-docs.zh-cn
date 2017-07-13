@@ -1,13 +1,12 @@
 ---
-title: 服务管理模式下的 Azure CLI 命令 | Azure
-description: 在服务管理模式下使用 Azure 命令行界面 (CLI) 命令管理经典部署模型中的部署
+title: "服务管理模式下的 Azure CLI 命令 | Azure"
+description: "在服务管理模式下使用 Azure 命令行界面 (CLI) 命令管理经典部署模型中的部署"
 services: virtual-machines-linux,virtual-machines-windows,mobile-services, cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: dlepow
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
 ms.assetid: b9ccdeed-0ab8-4de2-937f-4046c7918bd8
 ms.service: multiple
 ms.workload: multiple
@@ -17,25 +16,31 @@ ms.topic: article
 origin.date: 01/03/2017
 ms.date: 02/14/2017
 ms.author: v-junlch
+ms.openlocfilehash: 53a9f5df2d811c86d4895b4aa8f8b6aec7ea668d
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # Azure 服务管理 (asm) 模式下的 Azure CLI 命令
+<a id="azure-cli-commands-in-azure-service-management-asm-mode" class="xliff"></a>
 
-本文提供经常用于在经典部署模型中创建和管理 Azure 资源的 Azure CLI 命令的语法和选项。通过在 Azure 服务管理 (asm) 模式下运行 CLI 可以访问这些命令。本参考内容并不完整，CLI 版本可能会显示稍微不同的命令或参数。
+本文提供经常用于在经典部署模型中创建和管理 Azure 资源的 Azure CLI 命令的语法和选项。 通过在 Azure 服务管理 (asm) 模式下运行 CLI 可以访问这些命令。 本参考内容并不完整，CLI 版本可能会显示稍微不同的命令或参数。 
 
 > [!IMPORTANT]
-Azure 具有两种不同的部署模型，用于创建和处理资源：[资源管理器模型和经典模型](./azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型的情况。Microsoft 建议大多数新部署使用资源管理器模型。还可以[阅读有关资源管理器模型 CLI 命令的内容](./virtual-machines/azure-cli-arm-commands.md)，使用 CLI 从经典模型将[资源迁移](./virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)到资源管理器模型。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](./azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍使用经典部署模型。 Microsoft 建议大多数新部署使用 Resource Manager 模型。 也可以[了解 Resource Manager 模型 CLI 命令](./virtual-machines/azure-cli-arm-commands.md)，使用 CLI 将资源从经典模型[迁移](./virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)到 Resource Manager 模型。
 >
 
-若要开始，请先[安装 Azure CLI](./xplat-cli-install.md) 并[连接到 Azure 订阅](./xplat-cli-connect.md)。
+若要开始，请先[安装 Azure CLI](xplat-cli-install.md) 并[连接到 Azure 订阅](./xplat-cli-connect.md)。
 
-有关命令行当前的命令语法和选项，请键入 `azure help`；若要显示特定命令的帮助，请键入 `azure help [command]`。还可以在创建和管理特定 Azure 服务的说明文档中找到 CLI 示例。
+若要在命令行中查看当前的命令语法和选项，请键入 `azure help`；若要显示特定命令的帮助，请键入 `azure help [command]`。 还可以在创建和管理特定 Azure 服务的说明文档中找到 CLI 示例。
 
-可选参数显示在方括号中（例如，`[parameter]`）。其他所有参数都是必需的。
+可选参数显示在方括号中（例如，`[parameter]`）。 其他所有参数都是必需的。
 
-除了此处记录的特定于命令的可选参数外，还有三个可用于显示详细输出（例如请求选项和状态代码）的可选参数。`-v` 参数提供详细输出，而 `-vv` 参数提供更详细的输出。`--json` 选项以原始的 json 格式输出结果。
+除了此处记录的特定于命令的可选参数外，还有三个可用于显示详细输出（例如请求选项和状态代码）的可选参数。 `-v` 参数提供详细输出，`-vv` 参数提供更详细的输出。 `--json` 选项以原始的 json 格式输出结果。
 
 ## 设置 asm 模式
+<a id="setting-asm-mode" class="xliff"></a>
 使用以下命令启用 Azure CLI 服务管理模式命令。
 
 ```
@@ -43,19 +48,20 @@ azure config mode asm
 ```
 
 > [!NOTE]
-CLI 的 Azure资源管理器模式与 Azure 服务管理模式互斥。即，在一种模式下创建的资源不能通过另一种模式进行管理。
+> CLI 的 Azure Resource Manager 模式与 Azure 服务管理模式互斥。 即，在一种模式下创建的资源不能通过另一种模式进行管理。
 > 
 > 
 
 ## 管理帐户信息和发布设置
-CLI 可以连接到帐户的一种方式是使用 Azure 订阅信息。（有关其他选项，请参阅 [Connect to an Azure subscription from the Azure CLI](./xplat-cli-connect.md)（从 Azure CLI 连接到 Azure 订阅）。） 可以从 Azure 经典管理门户中的发布设置文件中获取此信息，如下所述。可以导入发布设置文件作为永久性本地配置设置，CLI 会将此设置用于后续操作。只需导入一次发布设置即可。
+<a id="manage-your-account-information-and-publish-settings" class="xliff"></a>
+CLI 可以连接到帐户的一种方式是使用 Azure 订阅信息。 （有关其他选项，请参阅[从 Azure CLI 连接到 Azure 订阅](./xplat-cli-connect.md)。）） 可以从 Azure 经典管理门户中的发布设置文件中获取此信息，如下所述。 可以导入发布设置文件作为永久性本地配置设置，CLI 会将此设置用于后续操作。 只需导入一次发布设置即可。
 
-**account download [options]**
+**account download [选项]**
 
 此命令启动浏览器以从 Azure 经典管理门户下载 .publishsettings 文件。
 
 ```
-~$ azure account download -e AzureChinaCloud
+~$ azure account download
 info:   Executing command account download
 info:   Launching browser to https://windows.azure.com/download/publishprofile.aspx
 help:   Save the downloaded file, then execute the command
@@ -72,13 +78,14 @@ info:   account download command OK
 ```
 
 > [!NOTE]
-publishsettings 文件可以包含有关多个订阅的详细信息（即，订阅名称和 ID）。在导入 publishsettings 文件时，第一个订阅将用作默认订阅。若要使用其他订阅，请运行以下命令：<code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
+> publishsettings 文件可以包含有关多个订阅的详细信息（即，订阅名称和 ID）。 在导入 publishsettings 文件时，第一个订阅将用作默认订阅。 若要使用其他订阅，请运行以下命令：
+> <code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
 > 
 > 
 
-**account clear [options]**
+**account clear [选项]**
 
-此命令删除已导入的存储的发布设置。如果在此计算机上用完工具后，希望确保在未来的会话中不能通过帐户使用该工具，可使用此命令。
+此命令删除已导入的存储的发布设置。 如果在此计算机上用完工具后，希望确保在未来的会话中不能通过帐户使用该工具，可使用此命令。
 
 ```
 ~$ azure account clear
@@ -86,7 +93,7 @@ Clearing account info.
 info:   OK
 ```
 
-**account list [options]**
+**account list [选项]**
 
 列出导入的订阅
 
@@ -107,11 +114,12 @@ data:    MSOpenTech-Prod                         c13e6a92-706e-4cf5-94b6  false
 设置当前订阅
 
 ### 管理地缘组的命令
-**account affinity-group list [options]**
+<a id="commands-to-manage-your-affinity-groups" class="xliff"></a>
+**account affinity-group list [选项]**
 
 此命令列出 Azure 地缘组。
 
-可以在一组虚拟机跨越多台物理计算机时设置地缘组。地缘组指定物理计算机应尽可能彼此接近，从而减少网络延迟。
+可以在一组虚拟机跨越多台物理计算机时设置地缘组。 地缘组指定物理计算机应尽可能彼此接近，从而减少网络延迟。
 
 ```
 ~$ azure account affinity-group list
@@ -127,7 +135,7 @@ info:   account affinity-group list command OK
 此命令创建地缘组
 
 ```
-~$ azure account affinity-group create opentec -l "China North" -e AzureChinaCloud
+~$ azure account affinity-group create opentec -l "China North"
 info:    Executing command account affinity-group create
 + Creating affinity group
 info:    account affinity-group create command OK
@@ -167,7 +175,8 @@ info:    account affinity-group delete command OK
 ```
 
 ### 管理帐户环境的命令
-**account env list [options]**
+<a id="commands-to-manage-your-account-environment" class="xliff"></a>
+**account env list [选项]**
 
 帐户环境列表
 
@@ -207,57 +216,45 @@ info:    account env show command OK
 此命令从帐户中删除指定的环境
 
 ## 用于管理经典虚拟机的命令
+<a id="commands-to-manage-your-classic-virtual-machines" class="xliff"></a>
 下图显示了如何在 Azure 云服务的生产部署环境中托管经典 Azure 虚拟机。
 
-![Azure 技术图表](./media/virtual-machines-command-line-tools/architecturediagram.jpg)  
+![Azure 技术图表](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
 
-**create-new** 在 Blob 存储中创建驱动器（即，图中的 e:\\）；**attach** 会将已创建但未附加的磁盘附加到虚拟机。
+**create-new** 在 Blob 存储中创建驱动器（即，图中的 e:\）；**attach** 将已创建但未附加的磁盘附加到虚拟机。
 
 **vm create [options] &lt;dns-name> &lt;image> &lt;userName> [password]**
 
-此命令创建 Azure 虚拟机。默认情况下，所创建的每台虚拟机位于其自己的云服务中。可以使用此处提及的 -c 选项指定将虚拟机添加到现有云服务。
+此命令创建 Azure 虚拟机。 默认情况下，创建的每个虚拟机 (VM) 位于其自身的云服务中。 可以使用此处提及的 -c 选项指定将虚拟机添加到现有云服务。
 
-vm create 命令与 Azure 经典管理门户一样，只会在生产部署环境中创建虚拟机。目前没有用于在云服务的过渡部署环境中创建虚拟机的选项。如果订阅没有现有的 Azure 存储帐户，此命令将创建一个。
+vm create 命令与 Azure 经典管理门户一样，只会在生产部署环境中创建虚拟机。 目前没有用于在云服务的过渡部署环境中创建虚拟机的选项。 如果订阅没有现有的 Azure 存储帐户，此命令将创建一个。
 
-可以通过 --location 参数指定位置，也可以通过 --affinity-group 参数指定地缘组。如果这两个参数任何一个都没有提供，系统将提示从有效位置列表中提供一个。
+可以通过 --location 参数指定位置，也可以通过 --affinity-group 参数指定地缘组。 如果这两个参数任何一个都没有提供，系统将提示从有效位置列表中提供一个。
 
 所提供密码的长度必须为 8-123 个字符，并且满足要用于此虚拟机的操作系统的密码复杂度要求。
 
-如果计划使用 SSH 管理部署的 Linux 虚拟机（通常都是如此），则必须在创建虚拟机时通过 -e 选项启用 SSH。在创建虚拟机后便无法启用 SSH。
+如果计划使用 SSH 来管理部署的 Linux 虚拟机（通常都是如此），则必须在创建虚拟机时通过 -e 选项启用 SSH。 在创建虚拟机后便无法启用 SSH。
 
 Windows 虚拟机稍后可以通过添加端口 3389 作为终结点来启用 RDP。
 
 此命令支持以下可选参数：
 
-**-c, --connect** 在托管服务中已创建的部署中创建虚拟机。如果 -vmname 未与此选项一起使用，将自动生成新虚拟机的名称。<br /> 
-
-**-n, --vm-name** 指定虚拟机的名称。默认情况下，此参数采用托管服务名称。如果未指定 -vmname，将生成 &lt;service-name>&lt;id> 形式的新虚拟机名称，其中 &lt;id> 是服务中现有虚拟机的数量加上 1。例如，如果使用此命令向拥有一个现有虚拟机的托管服务 MyService 中添加虚拟机，则会将新虚拟机命名为 MyService2。<br /> 
-
-**-u, --blob-url** 指定可从中创建虚拟机系统磁盘的目标 Blob 存储 URL。<br /> 
-
-**-z, --vm-size** 指定虚拟机的大小。有效值为：“ExtraSmall”、“Small”、“Medium”、“Large”、“ExtraLarge”、“A5”、“A6”、“A7”、“A8”、“A9”、“A10”、“A11”、“Basic\_A0”、“Basic\_A1”、“Basic\_A2”、“Basic\_A3”、“Basic\_A4”、“Standard\_D1”、“Standard\_D2”、“Standard\_D3”、“Standard\_D4”、“Standard\_D11”、“Standard\_D12”、“Standard\_D13”、“Standard\_D14”、“Standard\_DS1”、“Standard\_DS2”、“Standard\_DS3”、“Standard\_DS4”、“Standard\_DS11”、“Standard\_DS12”、“Standard\_DS13”、“Standard\_DS14”、“Standard\_G1”、“Standard\_G2”、“Standard\_G3”、“Standard\_G4”、“Standard\_G55”。默认值为“Small”。<br /> 
-
-**-r** 添加到 Windows 虚拟机的 RDP 连接。<br /> 
-
-**-e, --ssh** 添加到 Windows 虚拟机的 SSH 连接。<br /> 
-
-**-t, --ssh-cert** 指定 SSH 证书。<br /> 
-
-**-s** 订阅。<br /> 
-
-**-o, --community** 指定的映像是社区映像。<br /> 
-
-**-w** 虚拟网络名称。<br/> 
-
-**-l, --location** 指定位置（例如，“North Central US”）。<br /> 
-
-**-a, --affinity-group** 指定地缘组。<br /> 
-
-**-w, --virtual-network-name** 指定要在其中添加新虚拟机的虚拟网络。可从 Azure 经典管理门户设置和管理虚拟网络。<br />
-
+**-c, --connect** 在托管服务中已创建的部署中创建虚拟机。 如果未将 -vmname 与此选项一起使用，将自动生成新虚拟机的名称。<br />
+**-n, --vm-name** 指定虚拟机的名称。 默认情况下，此参数采用托管服务名称。 如果未指定 -vmname，将生成 &lt;service-name>&lt;id> 形式的新虚拟机名称，其中 &lt;id> 是服务中现有虚拟机的数量加上 1。 例如，如果使用此命令向拥有一个现有虚拟机的托管服务 MyService 中添加新虚拟机，则会将新虚拟机命名为 MyService2。<br />
+**-u, --blob-url** 指定从中创建虚拟机系统磁盘的目标 Blob 存储 URL。 <br />
+**-z, --vm-size** 指定虚拟机的大小。 有效值为：“ExtraSmall”、“Small”、“Medium”、“Large”、“ExtraLarge”、“A5”、“A6”、“A7”、“A8”、“A9”、“A10”、“A11”、“Basic_A0”、“Basic_A1”、“Basic_A2”、“Basic_A3”、“Basic_A4”、“Standard_D1”、“Standard_D2”、“Standard_D3”、“Standard_D4”、“Standard_D11”、“Standard_D12”、“Standard_D13”、“Standard_D14”、“Standard_DS1”、“Standard_DS2”、“Standard_DS3”、“Standard_DS4”、“Standard_DS11”、“Standard_DS12”、“Standard_DS13”、“Standard_DS14”、“Standard_G1”、“Standard_G2”、“Standard_G3”、“Standard_G4”、“Standard_G55”。 默认值为“Small”。 <br />
+**-r** 添加与 Windows 虚拟机的 RDP 连接。 <br />
+**-e, --ssh** 添加与 Windows 虚拟机的 SSH 连接。 <br />
+**-t, --ssh-cert** 指定 SSH 证书。 <br />
+**-s** 订阅 <br />
+**-o, --community** 指定的映像是一个社区映像 <br />
+**-w** 虚拟网络名称 <br/>
+**-l, --location** 指定位置（例如“中国北部”）。 <br />
+**-a, --affinity-group** 指定地缘组。<br />
+**-w, --virtual-network-name** 指定要在其中添加新虚拟机的虚拟网络。 可从 Azure 经典管理门户设置和管理虚拟网络。<br />
 **-b, --subnet-names** 指定要分配虚拟机的子网名称。
 
-在此示例中，MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-zh-cn-30GB 是该平台提供的映像。有关操作系统映像的详细信息，请参阅 VM 映像列表。
+在此示例中，MSFT__Win2K8R2SP1-120514-1520-141205-01-en-us-30GB 是该平台提供的映像。 有关操作系统映像的详细信息，请参阅 VM 映像列表。
 
 ```
 ~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "China East" -r
@@ -277,14 +274,14 @@ info:   OK
 
 **vm list [options]**
 
-此命令列出 Azure 虚拟机。--json 选项指定以原始 JSON 格式返回结果。
+此命令列出 Azure 虚拟机。 --json 选项指定以原始 JSON 格式返回结果。
 
 ```
 ~$ azure vm list
 info:   Executing command vm list
-data:    Name     	Status              Location  	DNS Name              	IP Address
-data:    -------  	------------------  --------  	--------------------  	----------
-data:    my-vm-name	ReadyRole			China North	my-vm.chinacloudapp.cn
+data:    Name       Status              Location    DNS Name                IP Address
+data:    -------    ------------------  --------    --------------------    ----------
+data:    my-vm-name ReadyRole           China North my-vm.chinacloudapp.cn
 info:    vm list command OK
 info:   vm list command OK
 ```
@@ -304,7 +301,7 @@ info:   account location list command OK
 
 **vm show [options] &lt;name>**
 
-此命令显示有关 Azure 虚拟机的详细信息。--json 选项指定以原始 JSON 格式返回结果。
+此命令显示有关 Azure 虚拟机的详细信息。 --json 选项指定以原始 JSON 格式返回结果。
 
 ```
 ~$ azure vm show my-vm
@@ -336,7 +333,7 @@ info:   vm show command OK
 
 **vm delete [options] &lt;name>**
 
-此命令删除 Azure 虚拟机。默认情况下，此命令不删除从中创建操作系统磁盘和数据磁盘的 Azure Blob。若要删除该 Blob 以及作为其基础的虚拟机，请指定 -b 选项。
+此命令删除 Azure 虚拟机。 默认情况下，此命令不删除从中创建操作系统磁盘和数据磁盘的 Azure Blob。 若要删除该 Blob 以及作为其基础的虚拟机，请指定 -b 选项。
 
 ```
 ~$ azure vm delete my-vm
@@ -366,7 +363,7 @@ info:   vm restart command OK
 
 **vm shutdown [options] &lt;name>**
 
-此命令关闭 Azure 虚拟机。可以使用 -p 选项指定在关闭时不释放计算资源。
+此命令关闭 Azure 虚拟机。 可以使用 -p 选项指定在关闭时不释放计算资源。
 
 ```
 ~$ azure vm shutdown my-vm
@@ -378,7 +375,7 @@ info:   vm shutdown command OK
 
 此命令捕获 Azure 虚拟机映像。
 
-只有当虚拟机状态为**已停止**时，才能捕获虚拟机映像。请关闭虚拟机，然后再继续操作。
+只有当虚拟机状态为 **已停止**时，才能捕获虚拟机映像。 请关闭虚拟机，然后再继续操作。
 
 ```
 ~$ azure.cmd vm capture my-vm mycaptureimagename --delete
@@ -401,15 +398,15 @@ info:   vm export command OK
 ```
 
 ## <a name="Commands_to_manage_your_Azure_virtual_machine_endpoints"></a>用于管理 Azure 虚拟机终结点的命令
-下图显示了多个经典虚拟机实例的典型部署的体系结构。在本示例中，端口 3389 在每台虚拟机上均为打开状态（用于进行 RDP 访问）。负载均衡器用于将流量路由到虚拟机的每台虚拟机上还有一个内部 IP 地址（例如，168.55.11.1）。此内部 IP 地址也可用于虚拟机之间的通信。
+下图显示了多个经典虚拟机实例的典型部署的体系结构。 在本示例中，端口 3389 在每个虚拟机上均为打开状态（用于 RDP 访问）。 另外，在负载均衡器将流量路由到虚拟机时所用的每个虚拟机上还有一个内部 IP 地址（例如，168.55.11.1）。 此内部 IP 地址也可用于虚拟机之间的通信。
 
 ![azurenetworkdiagram](./media/virtual-machines-command-line-tools/networkdiagram.jpg)
 
-虚拟机的外部请求将通过负载均衡器。因此，不能针对包含多台虚拟机的部署中的特定虚拟机指定请求。对于包含多台虚拟机的部署，必须在虚拟机 (vm-port) 与负载均衡器 (lb-port) 之间配置端口映射。
+虚拟机的外部请求将通过负载均衡器。 因此，不能针对包含多台虚拟机的部署中的特定虚拟机指定请求。 对于包含多台虚拟机的部署，必须在虚拟机 (vm-port) 与负载均衡器 (lb-port) 之间配置端口映射。
 
 **vm endpoint create &lt;vm-name> &lt;lb-port> [vm-port]**
 
-此命令创建虚拟机终结点。还可以使用 -u 或 --enable-direct-server-return 来指定是否在此终结点上启用直接服务器返回，默认情况下为禁用。
+此命令创建虚拟机终结点。 还可以使用 -u 或 --enable-direct-server-return 来指定是否在此终结点上启用直接服务器返回，默认情况下为禁用。
 
 ```
 ~$ azure vm endpoint create my-vm 8888 8888
@@ -441,7 +438,7 @@ info:   vm endpoint delete command OK
 
 **vm endpoint list &lt;vm-name>**
 
-此命令列出所有虚拟机终结点。--json 选项指定以原始 JSON 格式返回结果。
+此命令列出所有虚拟机终结点。 --json 选项指定以原始 JSON 格式返回结果。
 
 ```
 ~$ azure vm endpoint list my-linux-vm
@@ -495,21 +492,22 @@ info:    vm endpoint show command OK
 
 **vm image list [options]**
 
-此命令获取虚拟机映像的列表。有三种类型的映像：Microsoft 创建的映像（以“MSFT”作为前缀）、第三方创建的映像（以供应商的名称作为前缀）以及用户创建的映像。若要创建映像，可以捕获现有虚拟机或从上载到 Blob 存储的自定义 .vhd 创建映像。有关使用自定义 .vhd 的更多信息，请参见 VM 映像创建。--json 选项指定以原始 JSON 格式返回结果。
+此命令获取虚拟机映像的列表。 有三种类型的映像：Microsoft 创建的映像（以“MSFT”作为前缀）、第三方创建的映像（以供应商的名称作为前缀）以及用户创建的映像。 若要创建映像，可以捕获现有虚拟机或从上传到 Blob 存储的自定义 .vhd 创建映像。 有关使用自定义 .vhd 的更多信息，请参见 VM 映像创建。
+--json 选项指定以原始 JSON 格式返回结果。
 
 ```
 ~$ azure vm image list
 data:   Name                                                                   Category   OS
 data:   ---------------------------------------------------------------------  ---------  -------
-data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-zh-cn-30GB.vhd   Canonical  Linux
+data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-en-us-30GB.vhd   Canonical  Linux
 data:   MSFT__Windows-Server-2008-R2-SP1.11-29-2011                            Microsoft  Windows
 data:   MSFT__Windows-Server-2008-R2-SP1-with-SQL-Server-2012-Eval.11-29-2011  Microsoft  Windows
-data:   MSFT__Windows-Server-8-Beta.zh-cn.30GB.2012-03-22                      Microsoft  Windows
+data:   MSFT__Windows-Server-8-Beta.en-us.30GB.2012-03-22                      Microsoft  Windows
 data:   MSFT__Windows-Server-8-Beta.2-17-2012                                  Microsoft  Windows
-data:   MSFT__Windows-Server-2008-R2-SP1.zh-cn.30GB.2012-3-22                  Microsoft  Windows
-data:   OpenLogic__OpenLogic-CentOS-62-20120509-zh-cn-30GB.vhd                 OpenLogic  Linux
-data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-zh-cn-30GB.vhd       SUSE       Linux
-data:   SUSE__OpenSUSE64121-03192012-zh-cn-15GB.vhd                            SUSE       Linux
+data:   MSFT__Windows-Server-2008-R2-SP1.en-us.30GB.2012-3-22                  Microsoft  Windows
+data:   OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd                 OpenLogic  Linux
+data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-en-us-30GB.vhd       SUSE       Linux
+data:   SUSE__OpenSUSE64121-03192012-en-us-15GB.vhd                            SUSE       Linux
 data:   WIN2K8-R2-WINRM                                                        User       Windows
 info:   vm image list command OK
 ```
@@ -550,14 +548,14 @@ info:   vm image delete command OK
 
 **vm image create &lt;name> [source-path]**
 
-此命令创建虚拟机映像。自定义 .vhd 文件将上传到 Blob 存储，然后从该位置创建虚拟机映像。然后可使用此虚拟机映像创建虚拟机。Location 和 OS 参数是必需的。
+此命令创建虚拟机映像。 自定义 .vhd 文件将上传到 Blob 存储，然后从该位置创建虚拟机映像。 然后可使用此虚拟机映像创建虚拟机。 Location 和 OS 参数是必需的。
 
 > [!NOTE]
-此命令目前仅支持上载固定的 .vhd 文件。若要上载动态 .vhd 文件，请使用[适用于 Go 的 Azure VHD 实用程序](https://github.com/Microsoft/azure-vhd-utils-for-go)。
+> 此命令目前仅支持上传固定的 .vhd 文件。 若要上传动态 .vhd 文件，请使用 [适用于 Go 的 Azure VHD 实用程序](https://github.com/Microsoft/azure-vhd-utils-for-go)。
 > 
 > 
 
-某些系统会施加每进程文件描述符限制。如果超出此限制，工具将显示文件描述符限制错误。可以使用 -p &lt;number> 参数再次运行此命令，以减小最大并行上传数。默认的最大并行上传数为 96。
+某些系统会施加每进程文件描述符限制。 如果超出此限制，工具将显示文件描述符限制错误。 可以使用 -p &lt;number> 参数再次运行该命令，减少最大并行上传数。 默认的最大并行上传数为 96。
 
 ```
 ~$ azure vm image create mytestimage ./Sample.vhd -o windows -l "China North"
@@ -570,16 +568,16 @@ info:   http://myaccount.blob.core.chinacloudapi.cn/vm-images/Sample.vhd is uplo
 info:   vm image create command OK
 ```
 
-##<a name="Commands_to_manage_your_Azure_virtual_machine_data_disks" id="commands-to-manage-your-azure-virtual-machine-data-disks"></a>用于管理 Azure 虚拟机数据磁盘的命令
+##<a name="Commands_to_manage_your_Azure_virtual_machine_data_disks"></a>用于管理 Azure 虚拟机数据磁盘的命令
 
-数据磁盘是 Blob 存储中可供虚拟机使用的 .vhd 文件。有关如何将数据磁盘部署到 Blob 存储的详细信息，请参阅前面所示的 Azure 技术图表。
+数据磁盘是 Blob 存储中可供虚拟机使用的 .vhd 文件。 有关如何将数据磁盘部署到 Blob 存储的详细信息，请参阅前面所示的 Azure 技术图表。
 
-用于附加数据磁盘的命令（azure vm disk attach 和 azure vm disk attach-new）会根据 SCSI 协议的要求向附加的数据磁盘分配逻辑单元号 (LUN)。将向附加到虚拟机的第一个数据磁盘分配 LUN 0，向下一个分配 LUN 1，依此类推。
+用于附加数据磁盘的命令（azure vm disk attach 和 azure vm disk attach-new）会根据 SCSI 协议的要求向附加的数据磁盘分配逻辑单元号 (LUN)。 将向附加到虚拟机的第一个数据磁盘分配 LUN 0，向下一个分配 LUN 1，依此类推。
 
-当使用 azure vm disk detach 命令分离数据磁盘时，请使用 &lt;lun&gt; 参数指明要分离的磁盘。
+使用 azure vm disk detach 命令分离数据磁盘时，请使用 &lt;lun&gt; 参数指明要分离的磁盘。
 
 > [!NOTE]
-应始终按相反的顺序分离数据磁盘，即从已分配的编号最高的 LUN 开始。Linux SCSI 层不支持在仍附加有编号较高的 LUN 时分离编号较低的 LUN。例如，不应在仍附加有 LUN 1 的情况下分离 LUN 0。
+> 应始终按相反的顺序分离数据磁盘，即，从已分配的编号最高的 LUN 开始。 Linux SCSI 层不支持在仍附加有编号较高的 LUN 时分离编号较低的 LUN。 例如，不应在仍附加有 LUN 1 的情况下分离 LUN 0。
 > 
 > 
 
@@ -598,13 +596,13 @@ data:   Location "China North"
 data:   LogicalDiskSizeInGB "30"
 data:   MediaLink "http://mystorageaccount.blob.core.chinacloudapi.cn/vhd-store/mycentos-cb39b8223b01f95c.vhd"
 data:   Name "mycentos-mycentos-0-20120524070008"
-data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-zh-cn-30GB.vhd"
+data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd"
 info:   vm disk show command OK
 ```
 
 **vm disk list [options] [vm-name]**
 
-此命令列出 Azure 磁盘，或者附加到指定虚拟机的磁盘。如果运行此命令时使用了虚拟机名称参数，将返回附加到该虚拟机的所有磁盘。Lun 1 是随虚拟机创建的，而列出的任何其他磁盘都是单独附加的。
+此命令列出 Azure 磁盘，或者附加到指定虚拟机的磁盘。 如果运行此命令时使用了虚拟机名称参数，将返回附加到该虚拟机的所有磁盘。 Lun 1 是随虚拟机创建的，而列出的任何其他磁盘都是单独附加的。
 
 ```
 ~$ azure vm disk list mycentos
@@ -630,7 +628,7 @@ info:   vm disk list command OK
 
 **vm disk delete [options] &lt;name>**
 
-此命令从个人存储库中删除 Azure 磁盘。在删除磁盘之前必须从虚拟机中分离该磁盘。
+此命令从个人存储库中删除 Azure 磁盘。 在删除磁盘之前必须从虚拟机中分离该磁盘。
 
 ```
 ~$ azure vm disk delete mycentos-mycentos-2-20120525055052
@@ -641,9 +639,9 @@ info:   vm disk delete command OK
 
 **vm disk create &lt;name> [source-path]**
 
-此命令将上传并注册 Azure 磁盘。必须指定 --blob-url、--location 或 --affinity-group。如果将此命令与 [source-path] 结合使用，将上传指定的 .vhd 文件并创建映像。然后可以使用 vm disk attach 将此映像附加到虚拟机。
+此命令将上传并注册 Azure 磁盘。 必须指定 --blob-url、--location 或 --affinity-group。 如果将此命令与 [source-path] 结合使用，将上传指定的 .vhd 文件并创建映像。 然后可以使用 vm disk attach 将此映像附加到虚拟机。
 
-某些系统会施加每进程文件描述符限制。如果超出此限制，工具将显示文件描述符限制错误。可以使用 -p &lt;number> 参数再次运行此命令，以减小最大并行上传数。默认的最大并行上传数为 96。
+某些系统会施加每进程文件描述符限制。 如果超出此限制，工具将显示文件描述符限制错误。 可以使用 -p &lt;number> 参数再次运行该命令，减少最大并行上传数。 默认的最大并行上传数为 96。
 
 ```
 ~$ azure vm disk create my-data-disk ~/test.vhd --location "China North"
@@ -678,7 +676,7 @@ info:   vm disk attach command OK
 
 **vm disk attach-new &lt;vm-name> &lt;size-in-gb> [blob-url]**
 
-此命令将数据磁盘附加到 Azure 虚拟机。在此示例中，20 是要附加的新磁盘的大小（以 GB 为单位）。可以选择使用 Blob URL 作为显式指定要创建的目标 Blob 的最后一个参数。如果不指定 Blob URL，将自动生成一个 Blob 对象。
+此命令将数据磁盘附加到 Azure 虚拟机。 在此示例中，20 是要附加的新磁盘的大小（以 GB 为单位）。 可以选择使用 Blob URL 作为显式指定要创建的目标 Blob 的最后一个参数。 如果不指定 Blob URL，将自动生成一个 Blob 对象。
 
 ```
 ~$ azure vm disk attach-new nick-test36 20 http://nghinazz.blob.core.chinacloudapi.cn/vhds/vmdisk1.vhd
@@ -688,7 +686,7 @@ info:   vm disk attach-new command OK
 
 **vm disk detach &lt;vm-name> &lt;lun>**
 
-此命令将数据磁盘与 Azure 虚拟机分离。&lt;lun> 标识要分离的磁盘。要在分离某个磁盘之前获取与该磁盘关联的磁盘的列表，请使用 vm disk-list &lt;vm-name>。
+此命令将数据磁盘与 Azure 虚拟机分离。 &lt;lun> 用于标识要分离的磁盘。 若要在分离某个磁盘之前获取与该磁盘关联的磁盘的列表，请使用 vm disk-list &lt;vm-name>。
 
 ```
 ~$ azure vm disk detach my-vm 2
@@ -698,7 +696,7 @@ info:   vm disk detach command OK
 
 ##<a name="Commands_to_manage_your_Azure_cloud_services"></a>用于管理 Azure 云服务的命令
 
-Azure 云服务是托管在 Web 角色和辅助角色上的应用程序和服务。以下命令可用于管理 Azure 云服务。
+Azure 云服务是托管在 Web 角色和辅助角色上的应用程序和服务。 以下命令可用于管理 Azure 云服务。
 
 **service create [options] &lt;serviceName>**
 
@@ -763,7 +761,7 @@ info:   cloud-service delete command OK
 
 ##<a name="Commands_to_manage_your_Azure_certificates"></a>用于管理 Azure 证书的命令
 
-Azure 服务证书是连接到 Azure 帐户的 SSL 证书。有关 Azure 证书的详细信息，请参阅[管理证书](http://msdn.microsoft.com/zh-cn/library/azure/gg981929.aspx)。
+Azure 服务证书是连接到 Azure 帐户的 SSL 证书。 有关 Azure 证书的详细信息，请参阅 [管理证书](http://msdn.microsoft.com/zh-cn/library/azure/gg981929.aspx)。
 
 **service cert list [options]**
 
@@ -782,7 +780,7 @@ info:   service cert list command OK
 
 **service cert create &lt;dns-prefix> &lt;file> [password]**
 
-此命令上传证书。将没有密码保护的证书的密码提示保留为空。
+此命令上传证书。 将没有密码保护的证书的密码提示保留为空。
 
 ```
 ~$ azure service cert create nghinazz ~/publishSet.pfx
@@ -806,7 +804,7 @@ info:   service cert delete command OK
 
 ##<a name="Commands_to_manage_your_web_sites"></a>用于管理网站的命令
 
-Azure Web 应用是可通过 URI 访问的 Web 配置。Web 应用在虚拟机中托管，但你无需自己考虑创建和部署虚拟机的详细步骤。这些详细步骤将由 Azure 为你完成。
+Azure Web 应用是可通过 URI 访问的 Web 配置。 Web 应用在虚拟机中托管，但你无需自己考虑创建和部署虚拟机的详细步骤。 这些详细步骤将由 Azure 为你完成。
 
 **site list [options]**
 
@@ -825,7 +823,7 @@ info:   site list command OK
 
 **site set [options] [name]**
 
-此命令设置 Web 应用 [名称] 的配置选项
+此命令设置 Web 应用 [name] 的配置选项
 
 ```
 ~$ azure site set
@@ -864,7 +862,7 @@ info:   site create command OK
 ```
 
 > [!NOTE]
-站点名称必须是唯一的。无法创建与现有站点具有相同 DNS 名称的站点。
+> 站点名称必须是唯一的。 无法创建与现有站点具有相同 DNS 名称的站点。
 > 
 > 
 
@@ -879,7 +877,7 @@ info:   Launching browser to http://mysite.antdf0.antares-test.windows-int.net
 info:   site browse command OK
 ```
 
-**site show [options] [name]**
+**site browse [options] [name]**
 
 此命令显示 Web 应用的详细信息。
 
@@ -929,7 +927,7 @@ info:   site delete command OK
 
 此命令支持以下附加选项：
 
-**-q** 或 **--quiet**：不提示确认。在自动化脚本中使用此选项。
+**-q 或 **--quiet**：不提示确认。 在自动化脚本中使用此选项。
 
 **site start [options] [name]**
 
@@ -961,7 +959,7 @@ info:   site stop command OK
 
 此命令支持以下附加选项：
 
-**--slot** &lt;slot>：要重新启动的插槽的名称。
+**--slot** &lt;slot>：要重新启动的槽的名称。
 
 **site location list [options]**
 
@@ -978,7 +976,8 @@ data:    China East
 info:    site location list command OK
 ```
 
-### 用于管理 Web 应用应用程序设置的命令 <a id="Commands_to_manage_mobile_services"></a>
+### 用于管理 Web 应用应用程序设置的命令
+<a id="commands-to-manage-your-web-app-application-settings" class="xliff"></a>
 **site appsetting list [options] [name]**
 
 此命令列出添加到 Web 应用的应用设置。
@@ -1039,6 +1038,7 @@ info:    site appsetting show command OK
 ```
 
 ### 用于管理 Web 应用证书的命令
+<a id="commands-to-manage-your-web-app-certificates" class="xliff"></a>
 **site cert list [options] [name]**
 
 此命令显示 Web 应用证书的列表。
@@ -1082,6 +1082,7 @@ info:    site cert show command OK
 ```
 
 ### 用于管理 Web 应用连接字符串的命令
+<a id="commands-to-manage-your-web-app-connection-strings" class="xliff"></a>
 **site connectionstring list [options] [name]**
 
 **site connectionstring add [options] &lt;connectionname> &lt;value> &lt;type> [name]**
@@ -1091,6 +1092,7 @@ info:    site cert show command OK
 **site connectionstring show [options] &lt;connectionname> [name]**
 
 ### 用于管理 Web 应用默认文档的命令
+<a id="commands-to-manage-your-web-app-default-documents" class="xliff"></a>
 **site defaultdocument list [options] [name]**
 
 **site defaultdocument add [options] &lt;document> [name]**
@@ -1098,6 +1100,7 @@ info:    site cert show command OK
 **site defaultdocument delete [options] &lt;document> [name]**
 
 ### 用于管理 Web 应用部署的命令
+<a id="commands-to-manage-your-web-app-deployments" class="xliff"></a>
 **site deployment list [options] [name]**
 
 **site deployment show [options] &lt;commitId> [name]**
@@ -1109,6 +1112,7 @@ info:    site cert show command OK
 **site deployment user set [options] [username] [pass]**
 
 ### 用于管理 Web 应用域的命令
+<a id="commands-to-manage-your-web-app-domains" class="xliff"></a>
 **site domain list [options] [name]**
 
 **site domain add [options] &lt;dn> [name]**
@@ -1116,6 +1120,7 @@ info:    site cert show command OK
 **site domain delete [options] &lt;dn> [name]**
 
 ### 用于管理 Web 应用处理程序映射的命令
+<a id="commands-to-manage-your-web-app-handler-mappings" class="xliff"></a>
 **site handler list [options] [name]**
 
 **site handler add [options] &lt;extension> &lt;processor> [name]**
@@ -1123,14 +1128,15 @@ info:    site cert show command OK
 **site handler delete [options] &lt;extension> [name]**
 
 ### 用于管理 Web 作业的命令
+<a id="commands-to-manage-your-web-jobs" class="xliff"></a>
 **site job list [options] [name]**
 
 此命令列出某个Web 应用下的所有 Web 作业。
 
 此命令支持以下附加选项：
 
-- **--job-type** &lt;job-type>：可选。web 作业的类型。有效值为“triggered”或“continuous”。默认情况下返回所有类型的 web 作业。
-- **--slot** &lt;slot>：要重新启动的插槽的名称。
+- **--job-type** &lt;job-type>：可选。 web 作业的类型。 有效值为“triggered”或“continuous”。 默认情况下返回所有类型的 Web 作业。
+- **--slot** &lt;slot>：要重新启动的槽的名称。
 
 **site job show [options] &lt;jobName> &lt;jobType> [name]**
 
@@ -1138,9 +1144,9 @@ info:    site cert show command OK
 
 此命令支持以下附加选项：
 
-- **--job-name** &lt;job-name>：必需。web 作业的名称。
-- **--job-type** &lt;job-type>：必需。web 作业的类型。有效值为“triggered”或“continuous”。
-- **--slot** &lt;slot>：要重新启动的插槽的名称。
+- **--job-name** &lt;job-name>：必需。 web 作业的名称。
+- **--job-type** &lt;job-type>：必需。 web 作业的类型。 有效值为“triggered”或“continuous”。
+- **--slot** &lt;slot>：要重新启动的槽的名称。
 
 **site job delete [options] &lt;jobName> &lt;jobType> [name]**
 
@@ -1148,10 +1154,10 @@ info:    site cert show command OK
 
 此命令支持以下附加选项：
 
-- **--job-name** &lt;job-name> 必需。web 作业的名称。
-- **--job-type** &lt;job-type> 必需。web 作业的类型。有效值为“triggered”或“continuous”。
-- **-q** 或 **--quiet**：不提示确认。在自动化脚本中使用此选项。
-- **--slot** &lt;slot>：要重新启动的插槽的名称。
+- **--job-name** &lt;job-name>：必需。 web 作业的名称。
+- **--job-type** &lt;job-type>：必需。 web 作业的类型。 有效值为“triggered”或“continuous”。
+- **-q** 或 **--quiet**：不提示确认。 在自动化脚本中使用此选项。
+- **--slot** &lt;slot>：要重新启动的槽的名称。
 
 **site job upload [options] &lt;jobName> &lt;jobType> <jobFile> [name]**
 
@@ -1159,10 +1165,10 @@ info:    site cert show command OK
 
 此命令支持以下附加选项：
 
-- **--job-name** &lt;job-name>：必需。web 作业的名称。
-- **--job-type** &lt;job-type>：必需。web 作业的类型。有效值为“triggered”或“continuous”。
-- **--job-file** &lt;job-file>：必需。作业文件。
-- **--slot** &lt;slot>：要重新启动的插槽的名称。
+- **--job-name** &lt;job-name>：必需。 web 作业的名称。
+- **--job-type** &lt;job-type>：必需。 web 作业的类型。 有效值为“triggered”或“continuous”。
+- **--job-file** &lt;job-file>：必需。 作业文件。
+- **--slot** &lt;slot>：要重新启动的槽的名称。
 
 **site job start [options] &lt;jobName> &lt;jobType> [name]**
 
@@ -1170,28 +1176,29 @@ info:    site cert show command OK
 
 此命令支持以下附加选项：
 
-- **--job-name** &lt;job-name>：必需。web 作业的名称。
-- **--job-type** &lt;job-type>：必需。web 作业的类型。有效值为“triggered”或“continuous”。
-- **--slot** &lt;slot>：要重新启动的插槽的名称。
+- **--job-name** &lt;job-name>：必需。 web 作业的名称。
+- **--job-type** &lt;job-type>：必需。 web 作业的类型。 有效值为“triggered”或“continuous”。
+- **--slot** &lt;slot>：要重新启动的槽的名称。
 
 **site job stop [options] &lt;jobName> &lt;jobType> [name]**
 
-此命令停止指定的 web 作业。只有连续作业可以停止。
+此命令停止指定的 web 作业。 只有连续作业可以停止。
 
 此命令支持以下附加选项：
 
-- **--job-name** &lt;job-name>：必需。web 作业的名称。
-- **--slot** &lt;slot>：要重新启动的插槽的名称。
+- **--job-name** &lt;job-name>：必需。 web 作业的名称。
+- **--slot** &lt;slot>：要重新启动的槽的名称。
 
 ### 用于管理 Web 作业历史记录的命令
+<a id="commands-to-manage-your-web-jobs-history" class="xliff"></a>
 **site job history list [options] [jobName] [name]**
 
 此命令显示指定的 web 作业的运行历史记录。
 
 此命令支持以下附加选项：
 
-- **--job-name** &lt;job-name>：必需。web 作业的名称。
-- **--slot** &lt;slot>：要重新启动的插槽的名称。
+- **--job-name** &lt;job-name>：必需。 web 作业的名称。
+- **--slot** &lt;slot>：要重新启动的槽的名称。
 
 **site job history show [options] [jobName] [runId] [name]**
 
@@ -1199,11 +1206,12 @@ info:    site cert show command OK
 
 此命令支持以下附加选项：
 
-- **--job-name** &lt;job-name>：必需。web 作业的名称。
-- **--run-id** &lt;run-id>：可选。运行历史记录的 id。如果未指定，则显示最新运行。
-- **--slot** &lt;slot>：要重新启动的插槽的名称。
+- **--job-name** &lt;job-name>：必需。 web 作业的名称。
+- **--run-id** &lt;run-id>：可选。 运行历史记录的 id。 如果未指定，则显示最新运行。
+- **--slot** &lt;slot>：要重新启动的槽的名称。
 
 ### 用于管理 Web 应用诊断的命令
+<a id="commands-to-manage-your-web-app-diagnostics" class="xliff"></a>
 **site log download [options] [name]**
 
 下载包含你的 Web 应用诊断的 .zip 文件。
@@ -1253,6 +1261,7 @@ info:    site log set command OK
 ```
 
 ### 用于管理 Web 应用存储库的命令
+<a id="commands-to-manage-your-web-app-repositories" class="xliff"></a>
 **site repository branch [options] &lt;branch> [name]**
 
 **site repository delete [options] [name]**
@@ -1260,13 +1269,14 @@ info:    site log set command OK
 **site repository sync [options] [name]**
 
 ### 用于管理 Web 应用缩放的命令
+<a id="commands-to-manage-your-web-app-scaling" class="xliff"></a>
 **site scale mode [options] &lt;mode> [name]**
 
 **site scale instances [options] &lt;instances> [name]**
 
 ##<a name="Commands_to_manage_mobile_services"></a>用于管理 Azure 移动服务的命令
 
-Azure 移动服务汇聚了一系列支持应用程序的后端功能的 Azure 服务。移动服务命令分为以下几类：
+Azure 移动服务汇聚了一系列支持应用程序的后端功能的 Azure 服务。 移动服务命令分为以下几类：
 
 - [用于管理移动服务实例的命令](#Mobile_Services)
 - [用于管理移动服务配置的命令](#Mobile_Configuration)
@@ -1278,7 +1288,7 @@ Azure 移动服务汇聚了一系列支持应用程序的后端功能的 Azure �
 以下选项适用于多数移动服务命令：
 
 - **-h** 或 **--help**：显示输出用法信息。
-- **-s `<id>`** 或 **--subscription`<id>`**：使用指定为 `<id>` 的特定订阅。
+- **-s `<id>`** 或 **--subscription `<id>`**：使用指定为 `<id>` 的特定订阅。
 - **-v** 或 **--verbose**：写入详细输出。
 - **--json**：写入 JSON 输出。
 
@@ -1311,9 +1321,9 @@ info:    mobile create command OK
 
 此命令支持以下附加选项：
 
-- **-r `<sqlServer>`** 或 **--sqlServer`<sqlServer>`**：使用指定为 `<sqlServer>` 的现有 SQL 数据库服务器。
+- **-r `<sqlServer>`** 或 **--sqlServer `<sqlServer>`**：使用指定为 `<sqlServer>` 的现有 SQL 数据库服务器。
 - **-d `<sqlDb>`** 或 **--sqlDb `<sqlDb>`**：使用指定为 `<sqlDb>` 的现有 SQL 数据库。
-- **-l `<location>`** 或 **--location `<location>`**：在指定为 `<location>` 的特定位置创建服务。运行 azure mobile locations 可获取可用位置。
+- **-l `<location>`** 或 **--location `<location>`**：在指定为 `<location>` 的特定位置创建服务。 运行 azure mobile locations 可获取可用位置。
 - **--sqlLocation `<location>`**：在特定的 `<location>` 中创建 SQL 服务器；默认为移动服务的位置。
 
 **mobile delete [options] [servicename]**
@@ -1339,7 +1349,7 @@ info:    mobile delete command OK
 
 - **-d** 或 **--deleteData**：从此移动服务的数据库中删除所有数据。
 - **-a** 或 **--deleteAll**：删除 SQL 数据库和服务器。
-- **-q** 或 **--quiet**：不提示确认。在自动化脚本中使用此选项。
+- **-q** 或 **--quiet**：不提示确认。 在自动化脚本中使用此选项。
 
 **mobile list [options]**
 
@@ -1397,7 +1407,7 @@ info:    mobile restart command OK
 
 **mobile log [options] [servicename]**
 
-此命令返回移动服务日志，筛选掉除`error`之外的所有日志类型。
+此命令返回移动服务日志，筛选掉除 `error`之外的所有日志类型。
 
 ```
 ~$ azure mobile log todolist -t error
@@ -1413,13 +1423,13 @@ info:    mobile log command OK
 
 此命令支持以下附加选项：
 
-- **-r`<query>`** 或 **--query `<query>`**：执行指定的日志查询。
-- **-t`<type>`** 或 **--type`<type>`**：按条目 `<type>`（可能是 `information`、`warning` 或 `error`）筛选返回的日志。
-- **-k`<skip>`** 或 **--skip`<skip>`**：跳过 `<skip>` 指定的行数。
-- **-p`<top>`** 或 **--top `<top>`**：返回由 `<top>` 指定的特定行数。
+- **-r `<query>`** 或 **--query `<query>`**：执行指定的日志查询。
+- **-t `<type>`** 或 **--type `<type>`**：按条目 `<type>`（可能是 `information`、`warning` 或 `error`）筛选返回的日志。
+- **-k `<skip>`** 或 **--skip `<skip>`**：跳过 `<skip>` 指定的行数。
+- **-p `<top>`** 或 **--top `<top>`**：返回由 `<top>` 指定的特定行数。
 
 > [!NOTE]
-**--query** 参数优先于 **--type**、**--skip** 和 **--top**。
+> **--query** 参数优先于 **--type**、**--skip** 和 **--top**。
 > 
 > 
 
@@ -1445,7 +1455,7 @@ info:    mobile key regenerate command OK
 密钥类型为 `master` 和 `application`。
 
 > [!NOTE]
-当重新生成密钥时，使用旧密钥的客户端可能无法访问你的移动服务。当重新生成应用程序密钥时，应使用新密钥值更新应用程序。
+> 当重新生成密钥时，使用旧密钥的客户端可能无法访问你的移动服务。 当重新生成应用程序密钥时，应使用新密钥值更新应用程序。
 > 
 > 
 
@@ -1553,7 +1563,7 @@ info:    mobile table create command OK
 
 此命令支持以下附加选项：
 
-- **-p`&lt;permissions>`** 或 **--permissions`&lt;permissions>`**：以逗号分隔的 `<operation>`=`<permission>` 对列表，其中 `<operation>` 为 `insert`、`read`、`update` 或 `delete`；`&lt;permissions>` 为 `public`、`application`（默认值）、`user` 或 `admin`。
+- **-p `&lt;permissions>`** 或 **--permissions `&lt;permissions>`**：以逗号分隔的 `<operation>`=`<permission>` 对列表，其中 `<operation>` 为 `insert`、`read`、`update` 或 `delete`；`&lt;permissions>` 为 `public`、`application`（默认值）、`user` 或 `admin`。
 
 **mobile data read [options] [servicename] [tablename] [query]**
 
@@ -1573,8 +1583,8 @@ info:    mobile data read command OK
 
 此命令支持以下附加选项：
 
-- **-k`<skip>`** 或 **--skip`<skip>`**：跳过 `<skip>` 指定的行数。
-- **-t`<top>`** 或 **--top `<top>`**：返回由 `<top>` 指定的特定行数。
+- **-k `<skip>`** 或 **--skip `<skip>`**：跳过 `<skip>` 指定的行数。
+- **-t `<top>`** 或 **--top `<top>`**：返回由 `<top>` 指定的特定行数。
 - **-l** 或 **--list**：以列表格式返回数据。
 
 **mobile table update [options] [servicename] [tablename]**
@@ -1591,7 +1601,7 @@ info:    mobile table update command OK
 
 此命令支持以下附加选项：
 
-- **-p`&lt;permissions>`** 或 **--permissions`&lt;permissions>`**：以逗号分隔的 `<operation>`=`<permission>` 对列表，其中 `<operation>` 为 `insert`、`read`、`update` 或 `delete`；`&lt;permissions>` 为 `public`、`application`（默认值）、`user` 或 `admin`。
+- **-p `&lt;permissions>`** 或 **--permissions `&lt;permissions>`**：以逗号分隔的 `<operation>`=`<permission>` 对列表，其中 `<operation>` 为 `insert`、`read`、`update` 或 `delete`；`&lt;permissions>` 为 `public`、`application`（默认值）、`user` 或 `admin`。
 - **--deleteColumn `<columns>`**：要删除的列的逗号分隔列表，如 `<columns>`。
 - **-q** 或 **--quiet**：删除列而不提示确认。
 - **--addIndex`<columns>`**：要包含在索引中的列的逗号分隔列表。
@@ -1609,7 +1619,7 @@ Do you really want to delete the table (yes/no): yes
 info:    mobile table delete command OK
 ```
 
-指定 -q 参数可在不提示确认的情况下删除表。执行此操作可以防止阻止自动化脚本。
+指定 -q 参数可在不提示确认的情况下删除表。 执行此操作可以防止阻止自动化脚本。
 
 **mobile data truncate [options] [servicename] [tablename]**
 
@@ -1625,7 +1635,7 @@ info:    mobile data truncate command OK
 ```
 
 ### <a name="Mobile_Scripts"></a>用于管理脚本的命令
-本部分中的命令用于管理属于移动服务的服务器脚本。
+本部分中的命令用于管理属于移动服务的服务器脚本。 
 
 **mobile script list [options] [servicename]**
 
@@ -1662,14 +1672,14 @@ info:    mobile script download command OK
 
 此命令支持以下附加选项：
 
-- **-p`<path>`** 或 **--path `<path>`**：文件中用于保存脚本的位置，其中当前工作目录是默认值。
-- **-f`<file>`** 或 **--file`<file>`**：要将脚本保存在其中的文件的名称。
+- **-p `<path>`** 或 **--path `<path>`**：文件中用于保存脚本的位置，其中当前工作目录是默认值。
+- **-f `<file>`** 或 **--file `<file>`**：要将脚本保存在其中的文件的名称。
 - **-o** 或 **--override**：覆盖现有文件。
 - **-c** 或 **--console**：将脚本写入到控制台而不是文件。
 
 **mobile script upload [options] [servicename] [scriptname]**
 
-此命令从 `table` 子文件夹上载名为 `todoitem.insert.js` 的脚本。
+此命令从 `table` 子文件夹上传名为 `todoitem.insert.js` 的脚本。
 
 ```
 ~$azure mobile script upload todolist table/todoitem.insert.js
@@ -1677,7 +1687,7 @@ info:    Executing command mobile script upload
 info:    mobile script upload command OK
 ```
 
-文件名必须由表名和操作名组成。文件必须位于表子文件夹中（相对于执行命令的位置）。你还可以使用 **-f `<file>`** 或 **--file `<file>`** 参数指定其他包含要注册的脚本的文件的文件名和路径。
+文件名必须由表名和操作名组成。 文件必须位于表子文件夹中（相对于执行命令的位置）。 也可以使用 **-f `<file>`** 或 **--file `<file>`** 参数指定文件（包含要注册的脚本）的其他文件名和路径。
 
 **mobile script delete [options] [servicename] [scriptname]**
 
@@ -1690,7 +1700,7 @@ info:    mobile script delete command OK
 ```
 
 ### <a name="Mobile_Jobs"></a>用于管理已计划作业的命令
-本部分中的命令用于管理属于移动服务的已计划作业。有关详细信息，请参阅[计划作业](https://msdn.microsoft.com/zh-cn/library/azure/jj860528.aspx)。
+本部分中的命令用于管理属于移动服务的已计划作业。 有关详细信息，请参阅 [计划作业](http://msdn.microsoft.com/zh-cn/library/windowsazure/jj860528.aspx)。
 
 **mobile job list [options] [servicename]**
 
@@ -1721,23 +1731,23 @@ info:    mobile job create command OK
 
 此命令支持以下附加选项：
 
-- **-i`<number>`** 或 **--interval`<number>`**：作业时间间隔，数值类型为整数。默认值为 `15`。
-- **-u`<unit>`** 或 **--intervalUnit `<unit>`**：*时间间隔*的单位，可以是以下值之一：
+- **-i `<number>`** 或 **--interval `<number>`**：作业时间间隔，数值类型为整数。 默认值为 `15`。
+- **-u `<unit>`** 或 **--intervalUnit `<unit>`**：*时间间隔*的单位，可以是以下值之一：
   - **minute**（默认值）
   - **hour**
   - **day**
   - **month**
   - **none**（按需作业）
-- **-t`<time>`** **--startTime `<time>`** 脚本的首次运行开始时间，采用 ISO 格式。默认值为 `now`。
+- **-t `<time>`** **--startTime `<time>`** 脚本的首次运行开始时间，采用 ISO 格式。 默认值为 `now`。
 
 > [!NOTE]
-创建的新作业处于禁用状态，因为还必须上传脚本。请使用 **mobile script upload** 命令上载脚本并使用 **mobile job update** 命令启用作业。
+> 创建的新作业处于禁用状态，因为还必须上传脚本。 使用 mobile script upload 命令上传脚本，使用 mobile job update 命令启用作业。
 > 
 > 
 
 **mobile job update [options] [servicename] [jobname]**
 
-以下命令启用已禁用的`getUpdates`作业。
+以下命令启用已禁用的 `getUpdates` 作业。
 
 ```
 ~$azure mobile job update -a enabled todolist getUpdates
@@ -1747,15 +1757,15 @@ info:    mobile job update command OK
 
 此命令支持以下附加选项：
 
-- **-i`<number>`** 或 **--interval`<number>`**：作业时间间隔，数值类型为整数。默认值为 `15`。
-- **-u`<unit>`** 或 **--intervalUnit `<unit>`**：*时间间隔*的单位，可以是以下值之一：
+- **-i `<number>`** 或 **--interval `<number>`**：作业时间间隔，数值类型为整数。 默认值为 `15`。
+- **-u `<unit>`** 或 **--intervalUnit `<unit>`**：*时间间隔*的单位，可以是以下值之一：
   - **minute**（默认值）
   - **hour**
   - **day**
   - **month**
   - **none**（按需作业）
-- **-t`<time>`** **--startTime `<time>`** 脚本的首次运行开始时间，采用 ISO 格式。默认值为 `now`。
-- **-a`<status>`** 或 **--status `<status>`**：作业状态，可以是 `enabled` 或 `disabled`。
+- **-t `<time>`** **--startTime `<time>`** 脚本的首次运行开始时间，采用 ISO 格式。 默认值为 `now`。
+- **-a `<status>`** 或 **--status `<status>`**：作业状态，可以是 `enabled` 或 `disabled`。
 
 **mobile job delete [options] [servicename] [jobname]**
 
@@ -1768,12 +1778,12 @@ info:    mobile job delete command OK
 ```
 
 > [!NOTE]
-删除作业也将删除已上传的脚本。
+> 删除作业也将删除已上传的脚本。
 > 
 > 
 
 ### <a name="Mobile_Scale"></a>用于缩放移动服务的命令
-本部分中的命令用于缩放移动服务。有关详细信息，请参阅[缩放移动服务](https://msdn.microsoft.com/zh-cn/library/azure/jj193178.aspx)。
+本部分中的命令用于缩放移动服务。 有关详细信息，请参阅 [缩放移动服务](http://msdn.microsoft.com/zh-cn/library/windowsazure/jj193178.aspx)。
 
 **mobile scale show [options] [servicename]**
 
@@ -1801,15 +1811,16 @@ info:    mobile scale change command OK
 
 此命令支持以下附加选项：
 
-- **-c`<mode>`** 或 **--computeMode `<mode>`**：计算模式必须为 `Free` 或 `Reserved`。
-- **-i`<count>`** 或 **--numberOfInstances`<count>`**：在保留模式下运行时使用的实例数。
+- **-c `<mode>`** 或 **--computeMode `<mode>`**：计算模式必须为 `Free` 或 `Reserved`。
+- **-i `<count>`** 或 **--numberOfInstances `<count>`**：在保留模式下运行时使用的实例数。
 
 > [!NOTE]
-将计算模式设置为`Reserved`时，同一区域中的所有移动服务都将在高级模式下运行。
+> 将计算模式设置为 `Reserved` 时，同一区域中的所有移动服务都将在高级模式下运行。
 > 
 > 
 
 ### 用于为移动服务启用预览版功能的命令
+<a id="commands-to-enable-preview-features-for-your-mobile-service" class="xliff"></a>
 **mobile preview list [options] [servicename]**
 
 此命令显示在指定的服务上可用的预览版功能，以及它们是否已启用。
@@ -1828,9 +1839,10 @@ info:    mobile preview list command OK
 
 **mobile preview enable [options] [servicename] [featurename]**
 
-此命令为移动服务启用指定的预览版功能。一旦启用，将无法为移动服务禁用预览版功能。
+此命令为移动服务启用指定的预览版功能。 一旦启用，将无法为移动服务禁用预览版功能。
 
 ### 用于管理移动服务 API 的命令
+<a id="commands-to-manage-your-mobile-service-apis" class="xliff"></a>
 **mobile api list [options] [servicename]**
 
 此命令列出为移动服务创建的移动服务自定义 API。
@@ -1886,6 +1898,7 @@ info:    mobile api delete command OK
 此命令删除指定的移动服务自定义 API。
 
 ### 用于管理移动应用程序的应用程序设置的命令
+<a id="commands-to-manage-your-mobile-application-app-settings" class="xliff"></a>
 **mobile appsetting list [options] [servicename]**
 
 此命令显示指定的服务的移动应用程序的应用程序设置。
@@ -2057,6 +2070,7 @@ info:    sb namespace show command OK
 ##<a name="Commands_to_manage_your_Storage_objects"></a>用于管理存储对象的命令
 
 ###用于管理存储帐户的命令
+<a id="commands-to-manage-your-storage-accounts" class="xliff"></a>
 
 **storage account list [options]**
 
@@ -2092,7 +2106,7 @@ info:    storage account create command OK
 - **-e** 或 **--label** &lt;label>：存储帐户的标签。
 - **-d** 或 **--description** &lt;description>：存储帐户的说明。
 - **-l** 或 **--location** &lt;name>：要在其中创建存储帐户的地理区域。
-- **-a** 或 **--affinity-group** &lt;name>：要与存储帐户关联的地缘组。
+- **-a** 或 **--affinity-group** &lt;name>：要与存储帐户关联的地缘组。 
 - **--type**：指示要创建的帐户的类型：带冗余选项的标准存储 (LRS/ZRS/GRS/RAGRS) 或高级存储 (PLRS)。
 
 **storage account set [options] <name>**
@@ -2119,9 +2133,10 @@ info:    storage account set command OK
 
 此命令支持以下附加选项：
 
-**-q** 或 **--quiet**：不提示确认。在自动化脚本中使用此选项。
+**-q** 或 **--quiet**：不提示确认。 在自动化脚本中使用此选项。
 
 ### 用于管理存储帐户密钥的命令
+<a id="commands-to-manage-your-storage-account-keys" class="xliff"></a>
 **storage account keys list [options] <name>**
 
 此命令列出指定的存储帐户的主要和辅助密钥。
@@ -2129,9 +2144,10 @@ info:    storage account set command OK
 **storage account keys renew [options] <name>**
 
 ### 用于管理存储容器的命令
+<a id="commands-to-manage-your-storage-container" class="xliff"></a>
 **storage container list [options] [prefix]**
 
-此命令显示指定的存储帐户的存储容器列表。存储帐户是通过连接字符串或者存储帐户名称和帐户密钥指定的。
+此命令显示指定的存储帐户的存储容器列表。 存储帐户是通过连接字符串或者存储帐户名称和帐户密钥指定的。
 
 此命令支持以下附加选项：
 
@@ -2144,7 +2160,7 @@ info:    storage account set command OK
 **storage container show [options] [container]**
 **storage container create [options] [container]**
 
-此命令为指定的存储帐户创建存储容器。存储帐户是通过连接字符串或者存储帐户名称和帐户密钥指定的。
+此命令为指定的存储帐户创建存储容器。 存储帐户是通过连接字符串或者存储帐户名称和帐户密钥指定的。
 
 此命令支持以下附加选项：
 
@@ -2157,7 +2173,7 @@ info:    storage account set command OK
 
 **storage container delete [options] [container]**
 
-此命令删除指定的存储容器。存储帐户是通过连接字符串或者存储帐户名称和帐户密钥指定的。
+此命令删除指定的存储容器。 存储帐户是通过连接字符串或者存储帐户名称和帐户密钥指定的。
 
 此命令支持以下附加选项：
 
@@ -2170,7 +2186,7 @@ info:    storage account set command OK
 
 **storage container set [options] [container]**
 
-此命令设置存储容器的访问控制列表。存储帐户是通过连接字符串或者存储帐户名称和帐户密钥指定的。
+此命令设置存储容器的访问控制列表。 存储帐户是通过连接字符串或者存储帐户名称和帐户密钥指定的。
 
 此命令支持以下附加选项：
 
@@ -2182,6 +2198,7 @@ info:    storage account set command OK
 - **--debug**：在调试模式下运行 storage 命令。
 
 ### 用于管理存储 blob 的命令
+<a id="commands-to-manage-your-storage-blob" class="xliff"></a>
 **storage blob list [options] [container] [prefix]**
 
 此命令返回指定的存储容器中的存储 blob 的列表。
@@ -2213,8 +2230,8 @@ info:    storage account set command OK
 此命令支持以下附加选项：
 
 - **--container** &lt;container>：要创建的存储容器的名称。
-- **-b** 或 **--blob** &lt;blobName>：要删除的存储 blob 的名称。
-- **-q** 或 **--quiet**：删除指定的存储 blob 且不确认。
+- **-b** 或 **--blob** &lt;blobName>：要删除的存储 Blob 的名称。
+- **-q** 或 **--quiet**：删除指定的存储 Blob 且不确认。
 - **-a** 或 **--account-name** &lt;accountName>：存储帐户名称。
 - **-k** 或 **--account-key** &lt;accountKey>：存储帐户密钥。
 - **-c** 或 **--connection-string** &lt;connectionString>：存储连接字符串。
@@ -2222,17 +2239,17 @@ info:    storage account set command OK
 
 **storage blob upload [options] [file] [container] [blob]**
 
-此命令将指定的文件上载到指定的存储 blob。
+此命令将指定的文件上传到指定的存储 Blob。
 
 此命令支持以下附加选项：
 
 - **--container** &lt;container>：要创建的存储容器的名称。
-- **-b** 或 **--blob** &lt;blobName>：要上载的存储 blob 的名称。
-- **-t** 或 **--blobtype** &lt;blobtype>：存储 blob 类型：Page 或 Block。
-- **-p** 或 **--properties** &lt;properties>：上载的文件的存储 blob 属性。属性是以分号 (;) 分隔的“键=值”对。可用的属性有 contentType、contentEncoding、contentLanguage 和 cacheControl。
-- **-m** 或 **--metadata** &lt;metadata>：上载的文件的存储 blob 元数据。元数据是以分号 (;) 分隔的“键=值”对。
-- **--concurrenttaskcount** &lt;concurrenttaskcount>：并发上载请求的最大数目。
-- **-q** 或 **--quiet**：覆盖指定的存储 blob 且不确认。
+- **-b** 或 **--blob** &lt;blobName>：要上传的存储 Blob 的名称。
+- **-t** 或 **--blobtype** &lt;blobtype>：存储 Blob 类型：页或块。
+- **-p** 或 **--properties** &lt;properties>：上传的文件的存储 Blob 属性。 属性是以分号 (;) 分隔的“键=值”对。 可用的属性有 contentType、contentEncoding、contentLanguage 和 cacheControl。
+- **-m** 或 **--metadata** &lt;metadata>：上传的文件的存储 Blob 元数据。 元数据是以分号 (;) 分隔的“键=值”对。
+- **--concurrenttaskcount** &lt;concurrenttaskcount>：并发上传请求的最大数目。
+- **-q** 或 **--quiet**：覆盖指定的存储 Blob 且不确认。
 - **-a** 或 **--account-name** &lt;accountName>：存储帐户名称。
 - **-k** 或 **--account-key** &lt;accountKey>：存储帐户密钥。
 - **-c** 或 **--connection-string** &lt;connectionString>：存储连接字符串。
@@ -2245,10 +2262,10 @@ info:    storage account set command OK
 此命令支持以下附加选项：
 
 - **--container** &lt;container>：要创建的存储容器的名称。
-- **-b** 或 **--blob** &lt;blobName>：存储 blob 名称。
+- **-b** 或 **--blob** &lt;blobName>：存储 Blob 名称。
 - **-d** 或 **--destination** [destination]：下载目标文件或目录路径。
 - **-m** 或 **--checkmd5**：下载的文件的校验 md5sum。
-- **--concurrenttaskcount** &lt;concurrenttaskcount> 并发上载请求的最大数目
+- **--concurrenttaskcount** &lt;concurrenttaskcount>：并发上传请求的最大数目。
 - **-q** 或 **--quiet**：覆盖目标文件且不确认。
 - **-a** 或 **--account-name** &lt;accountName>：存储帐户名称。
 - **-k** 或 **--account-key** &lt;accountKey>：存储帐户密钥。
@@ -2260,6 +2277,7 @@ info:    storage account set command OK
 使用这些命令来管理 Azure SQL 数据库
 
 ### 用于管理 SQL Server 的数据库
+<a id="commands-to-manage-sql-servers" class="xliff"></a>
 使用这些命令来管理 SQL Server
 
 **sql server create &lt;administratorLogin> &lt;administratorPassword> &lt;location>**
@@ -2316,6 +2334,7 @@ info:    sql server delete command OK
 ```
 
 ### 用于管理 SQL 数据库的命令
+<a id="commands-to-manage-sql-databases" class="xliff"></a>
 使用这些命令来管理 SQL 数据库。
 
 **sql db create [options] &lt;serverName> &lt;databaseName> &lt;administratorPassword>**
@@ -2415,6 +2434,7 @@ info:    sql db delete command OK
 ```
 
 ### 管理 SQL Server 防火墙规则的命令
+<a id="commands-to-manage-your-sql-server-firewall-rules" class="xliff"></a>
 使用这些命令来管理 SQL Server 防火墙规则
 
 **sql firewallrule create [options] &lt;serverName> &lt;ruleName> &lt;startIPAddress> &lt;endIPAddress>**
@@ -2551,7 +2571,7 @@ info:    network vnet delete command OK
 
 **network export [file-path]**
 
-若要进行高级网络配置，请在本地导出网络配置。导出的网络配置包括 DNS 服务器设置、虚拟网络设置、本地网络站点设置和其他设置。
+若要进行高级网络配置，请在本地导出网络配置。 导出的网络配置包括 DNS 服务器设置、虚拟网络设置、本地网络站点设置和其他设置。
 
 **network import [file-path]**
 
@@ -2596,6 +2616,3 @@ Delete the DNS server entry dns-4 ( 77.88.99.11 ) %s ? (y/n) y
 + Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 info:    network dnsserver unregister command OK
 ```
-
-<!---HONumber=Mooncake_0206_2017-->
-<!--Update_Description: wording update-->

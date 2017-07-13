@@ -1,6 +1,6 @@
 ---
 title: "适用于 DocumentDB 的 Python Flask Web 应用程序教程 | Microsoft Docs"
-description: "查看一个数据库教程，其中介绍了如何使用 DocumentDB 通过 Azure 上托管的 Python Flask Web 应用程序存储和访问数据。 查找应用程序开发解决方案。"
+description: "查看使用 DocumentDB 来存储和访问托管于 Azure 的 Python Flask Web 应用程序的数据的数据库教程。 查找应用程序开发解决方案。"
 keywords: "应用程序开发, Python Flask, Python Web 应用程序, Python Web 开发"
 services: documentdb
 documentationcenter: python
@@ -17,15 +17,14 @@ origin.date: 11/16/2016
 ms.date: 05/31/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 510e5531a0db295e20713742d994ff9bbb52a6af
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 333687ecd2559ebb05436cb1abb671b1091b827e
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="build-a-python-flask-web-application-using-azure-documentdb"></a>构建使用 DocumentDB 的 Python Flask Web 应用程序
+# 构建使用 DocumentDB 的 Python Flask Web 应用程序
+<a id="build-a-python-flask-web-application-using-documentdb" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [适用于 MongoDB 的 .NET](documentdb-mongodb-application.md)
@@ -35,27 +34,28 @@ ms.lasthandoff: 05/19/2017
 > 
 > 
 
-本教程演示了如何使用 DocumentDB 通过 Azure 上托管的 Python Web 应用程序存储和访问数据，并假定你之前有过一些使用 Python 和 Azure 网站的经验。
+本教程演示了如何使用 DocumentDB 来存储和访问托管于 Azure 的 Python Web 应用程序的数据，并假定你之前有过一些使用 Python 和 Azure 网站的经验。
 
 本数据库教程涵盖以下内容：
 
-1. 创建并预配 DocumentDB 帐户。
+1. 创建和预配 DocumentDB 帐户。
 2. 创建 Python MVC 应用程序。
-3. 从 Web 应用程序连接并使用 DocumentDB。
+3. 从 Web 应用程序连接和使用 DocumentDB。
 4. 将 Web 应用程序部署到 Azure 网站。
 
 通过学习本教程，你将可以构建一个可对轮询进行投票的简单投票应用程序。
 
 ![屏幕截图：本数据库教程创建的待办事项列表 Web 应用程序](./media/documentdb-python-application/image1.png)
 
-## <a name="database-tutorial-prerequisites"></a>数据库教程先决条件
+## 数据库教程先决条件
+<a id="database-tutorial-prerequisites" class="xliff"></a>
 在按照本文中的说明操作之前，你应确保已安装下列项：
 
 - 有效的 Azure 帐户。 如果你没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。
  
     或 
 
-    本地安装的 [DocumentDB 模拟器](documentdb-nosql-local-emulator.md)。
+    在本地安装 [DocumentDB 模拟器](documentdb-nosql-local-emulator.md)。
 - [Visual Studio 2013](http://www.visualstudio.com/) 或更高版本，或者免费版 [Visual Studio Express]()。 本教程中的说明专为 Visual Studio 2015 所编写。 
 - 来自 [GitHub](http://microsoft.github.io/PTVS/)的 Python Tools for Visual Studio。 本教程使用的是 Python Tools for VS 2015。 
 - [azure.cn](/downloads/)上提供 Azure Python SDK for Visual Studio 2.4 版本或更高版本。 我们使用的是 Azure SDK for Python 2.7。
@@ -70,15 +70,17 @@ ms.lasthandoff: 05/19/2017
 
 - 来自 [Microsoft 下载中心][3]的Microsoft Visual C++ Compiler for Python 2.7。
 
-## <a name="step-1-create-an-azure-documentdb-database-account"></a>步骤 1：创建 DocumentDB 数据库帐户
-首先创建一个 DocumentDB 帐户。 如果已有一个帐户，或者要在本教程中使用 DocumentDB 模拟器，可以跳到[步骤 2：创建新的 Python Flask 应用程序](#step-2-create-a-new-python-flask-web-application)。
+## 步骤 1：创建一个 DocumentDB 数据库帐户
+<a id="step-1-create-a-documentdb-database-account" class="xliff"></a>
+让我们首先创建一个 DocumentDB 帐户。 如果已有帐户或者在此教程中使用 DocumentDB 模拟器，则可以跳到 [步骤 2：创建 Python Flask web 应用程序](#step-2:-create-a-new-python-flask-web-application)。
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 <br/>
 现在，我们将演练如何从头开始新建 Python Flask Web 应用程序。
 
-## <a name="step-2-create-a-new-python-flask-web-application"></a>步骤 2：创建 Python Flask web 应用程序
+## 步骤 2：创建 Python Flask web 应用程序
+<a id="step-2-create-a-new-python-flask-web-application" class="xliff"></a>
 1. 在 Visual Studio 的“文件”菜单中，指向“新建”，然后单击“项目”。
    
     将显示“新建项目”对话框  。
@@ -97,8 +99,10 @@ ms.lasthandoff: 05/19/2017
    
     成功安装环境后，输出窗口将显示 `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.`
 
-## <a name="step-3-modify-the-python-flask-web-application"></a>步骤 3：修改 Python Flask Web 应用程序
-### <a name="add-the-python-flask-packages-to-your-project"></a>将 Python Flask 包添加到你的项目
+## 步骤 3：修改 Python Flask Web 应用程序
+<a id="step-3-modify-the-python-flask-web-application" class="xliff"></a>
+### 将 Python Flask 包添加到你的项目
+<a id="add-the-python-flask-packages-to-your-project" class="xliff"></a>
 设置项目后，你需要将所需的 Flask 包（包括 pydocumentdb - 用于 DocumentDB 的 Python 软件包）添加到你的项目。
 
 1. 在解决方案资源管理器中，打开名为 **requirements.txt** 的文件并将内容替换为：
@@ -128,7 +132,8 @@ ms.lasthandoff: 05/19/2017
    > 
    > 
 
-### <a name="verify-the-virtual-environment"></a>验证虚拟环境
+### 验证虚拟环境
+<a id="verify-the-virtual-environment" class="xliff"></a>
 我们必须确保正确安装所有内容。
 
 1. 按 **Ctrl**+**Shift**+**B** 生成解决方案。
@@ -137,25 +142,27 @@ ms.lasthandoff: 05/19/2017
     ![在浏览器中显示的空 Python Flask Web 开发项目](./media/documentdb-python-application/image12.png)
 3. 在 Visual Studio 中按 **Shift**+**F5** 停止调试网站。
 
-### <a name="create-database-collection-and-document-definitions"></a>创建数据库、集合和文档定义
+### 创建数据库、集合和文档定义
+<a id="create-database-collection-and-document-definitions" class="xliff"></a>
 现在，通过添加新文件并更新其他文件来创建投票应用程序。
 
 1. 在解决方案资源管理器中，右键单击“教程”项目，单击“添加”，然后单击“新建项”。 选择“空 Python 文件”并将该文件命名为 **forms.py**。  
 2. 将以下代码添加到 forms.py 文件，然后保存该文件。
 
-    ```python
-    from flask.ext.wtf import Form
-    from wtforms import RadioField
+```python
+from flask.ext.wtf import Form
+from wtforms import RadioField
 
-    class VoteForm(Form):
-        deploy_preference  = RadioField('Deployment Preference', choices=[
-            ('Web Site', 'Web Site'),
-            ('Cloud Service', 'Cloud Service'),
-            ('Virtual Machine', 'Virtual Machine')], default='Web Site')
-    ```
+class VoteForm(Form):
+    deploy_preference  = RadioField('Deployment Preference', choices=[
+        ('Web Site', 'Web Site'),
+        ('Cloud Service', 'Cloud Service'),
+        ('Virtual Machine', 'Virtual Machine')], default='Web Site')
+```
 
 
-### <a name="add-the-required-imports-to-viewspy"></a>将所需的导入添加到 views.py 中
+### 将所需的导入添加到 views.py 中
+<a id="add-the-required-imports-to-viewspy" class="xliff"></a>
 1. 在“解决方案资源管理器”中，展开 **tutorial** 文件夹并打开 **views.py** 文件。 
 2. 将以下导入语句添加到 **views.py** 文件的顶部，然后保存该文件。 这些语句将导入 DocumentDB 的 PythonSDK 和 Flask 包。
    
@@ -165,101 +172,104 @@ ms.lasthandoff: 05/19/2017
     import pydocumentdb.document_client as document_client
     ```
 
-### <a name="create-database-collection-and-document"></a>创建数据库、集合和文档
+### 创建数据库、集合和文档
+<a id="create-database-collection-and-document" class="xliff"></a>
 - 还是在 **views.py**中，将以下代码添加到文件末尾。 这将创建窗体使用的数据库。 不要删除 **views.py**中任何现有的代码。 仅将其追加到末尾。
 
-    ```python
-    @app.route('/create')
-    def create():
-        """Renders the contact page."""
-        client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
+```python
+@app.route('/create')
+def create():
+    """Renders the contact page."""
+    client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
 
-        # Attempt to delete the database.  This allows this to be used to recreate as well as create
-        try:
-            db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
-            client.DeleteDatabase(db['_self'])
-        except:
-            pass
+    # Attempt to delete the database.  This allows this to be used to recreate as well as create
+    try:
+        db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
+        client.DeleteDatabase(db['_self'])
+    except:
+        pass
 
-        # Create database
-        db = client.CreateDatabase({ 'id': config.DOCUMENTDB_DATABASE })
+    # Create database
+    db = client.CreateDatabase({ 'id': config.DOCUMENTDB_DATABASE })
 
-        # Create collection
-        collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION })
+    # Create collection
+    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION })
 
-        # Create document
-        document = client.CreateDocument(collection['_self'],
-            { 'id': config.DOCUMENTDB_DOCUMENT,
-            'Web Site': 0,
-            'Cloud Service': 0,
-            'Virtual Machine': 0,
-            'name': config.DOCUMENTDB_DOCUMENT 
-            })
+    # Create document
+    document = client.CreateDocument(collection['_self'],
+        { 'id': config.DOCUMENTDB_DOCUMENT,
+          'Web Site': 0,
+          'Cloud Service': 0,
+          'Virtual Machine': 0,
+          'name': config.DOCUMENTDB_DOCUMENT 
+        })
 
-        return render_template(
-        'create.html',
-            title='Create Page',
-            year=datetime.now().year,
-            message='You just created a new database, collection, and document.  Your old votes have been deleted')
-    ```
+    return render_template(
+       'create.html',
+        title='Create Page',
+        year=datetime.now().year,
+        message='You just created a new database, collection, and document.  Your old votes have been deleted')
+```
 
-    > [!TIP]
-    > **CreateCollection** 方法采用可选的 **RequestOptions** 作为第三个参数。 这可以用于指定集合的产品/服务类型。 如果没有提供任何 offerType 值，则将使用默认的产品/服务类型创建集合。 有关 DocumentDB 产品/服务类型的详细信息，请参阅 [DocumentDB 中的性能级别](documentdb-performance-levels.md)。
-    > 
-    > 
+> [!TIP]
+> **CreateCollection** 方法采用可选的 **RequestOptions** 作为第三个参数。 这可以用于指定集合的产品/服务类型。 如果没有提供任何 offerType 值，则将使用默认的产品/服务类型创建集合。 有关 DocumentDB 产品/服务类型的详细信息，请参阅 [DocumentDB 中的性能级别](documentdb-performance-levels.md)。
+> 
+> 
 
-### <a name="read-database-collection-document-and-submit-form"></a>读取数据库、集合、文档，并提交窗体
+### 读取数据库、集合、文档，并提交窗体
+<a id="read-database-collection-document-and-submit-form" class="xliff"></a>
 - 还是在 **views.py**中，将以下代码添加到文件末尾。 这将设置窗体、读取数据库、集合和文档。 不要删除 **views.py**中任何现有的代码。 仅将其追加到末尾。
 
-    ```python
-    @app.route('/vote', methods=['GET', 'POST'])
-    def vote(): 
-        form = VoteForm()
-        replaced_document ={}
-        if form.validate_on_submit(): # is user submitted vote  
-            client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
+```python
+@app.route('/vote', methods=['GET', 'POST'])
+def vote(): 
+    form = VoteForm()
+    replaced_document ={}
+    if form.validate_on_submit(): # is user submitted vote  
+        client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
 
-            # Read databases and take first since id should not be duplicated.
-            db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
+        # Read databases and take first since id should not be duplicated.
+        db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
 
-            # Read collections and take first since id should not be duplicated.
-            coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.DOCUMENTDB_COLLECTION))
+        # Read collections and take first since id should not be duplicated.
+        coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.DOCUMENTDB_COLLECTION))
 
-            # Read documents and take first since id should not be duplicated.
-            doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.DOCUMENTDB_DOCUMENT))
+        # Read documents and take first since id should not be duplicated.
+        doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.DOCUMENTDB_DOCUMENT))
 
-            # Take the data from the deploy_preference and increment our database
-            doc[form.deploy_preference.data] = doc[form.deploy_preference.data] + 1
-            replaced_document = client.ReplaceDocument(doc['_self'], doc)
+        # Take the data from the deploy_preference and increment our database
+        doc[form.deploy_preference.data] = doc[form.deploy_preference.data] + 1
+        replaced_document = client.ReplaceDocument(doc['_self'], doc)
 
-            # Create a model to pass to results.html
-            class VoteObject:
-                choices = dict()
-                total_votes = 0
+        # Create a model to pass to results.html
+        class VoteObject:
+            choices = dict()
+            total_votes = 0
 
-            vote_object = VoteObject()
-            vote_object.choices = {
-                "Web Site" : doc['Web Site'],
-                "Cloud Service" : doc['Cloud Service'],
-                "Virtual Machine" : doc['Virtual Machine']
-            }
-            vote_object.total_votes = sum(vote_object.choices.values())
+        vote_object = VoteObject()
+        vote_object.choices = {
+            "Web Site" : doc['Web Site'],
+            "Cloud Service" : doc['Cloud Service'],
+            "Virtual Machine" : doc['Virtual Machine']
+        }
+        vote_object.total_votes = sum(vote_object.choices.values())
 
-            return render_template(
-                'results.html', 
-                year=datetime.now().year, 
-                vote_object = vote_object)
+        return render_template(
+            'results.html', 
+            year=datetime.now().year, 
+            vote_object = vote_object)
 
-        else :
-            return render_template(
-                'vote.html', 
-                title = 'Vote',
-                year=datetime.now().year,
-                form = form)
-    ```
+    else :
+        return render_template(
+            'vote.html', 
+            title = 'Vote',
+            year=datetime.now().year,
+            form = form)
+```
 
 
-### <a name="create-the-html-files"></a>创建 HTML 文件
+### 创建 HTML 文件
+<a id="create-the-html-files" class="xliff"></a>
 1. 在解决方案资源管理器中的 tutorial 文件夹中，右键单击 templates 文件夹，单击“添加”，然后单击“新建项”。 
 2. 选择“HTML 页”，然后在名称框中键入 create.html。 
 3. 重复步骤 1 和步骤 2，以创建另外两个 HTML 文件：results.html 和 vote.html。
@@ -323,7 +333,8 @@ ms.lasthandoff: 05/19/2017
     {% endblock %}
     ```
 
-### <a name="add-a-configuration-file-and-change-the-initpy"></a>添加配置文件并更改 \_\_init\_\_.py
+### 添加配置文件并更改 \_\_init\_\_.py
+<a id="add-a-configuration-file-and-change-the-initpy" class="xliff"></a>
 1. 在解决方案资源管理器中，右键单击 tutorial 项目，单击“添加”，再单击“新建项”，选择“空 Python 文件”，然后将该文件命名为 config.py。 Flask 中的窗体需要此配置文件。 也可将其用于提供密钥。 但此教程不需要此密钥。
 2. 将以下代码添加到 config.py，需要在下一步更改 **DOCUMENTDB\_HOST** 和 **DOCUMENTDB\_KEY** 的值。
    
@@ -356,7 +367,8 @@ ms.lasthandoff: 05/19/2017
    
     ![Visual Studio 解决方案资源管理器窗口的屏幕截图](./media/documentdb-python-application/image15.png)
 
-## <a name="step-4-run-your-web-application-locally"></a>步骤 4：本地运行 Web 应用程序
+## 步骤 4：本地运行 Web 应用程序
+<a id="step-4-run-your-web-application-locally" class="xliff"></a>
 1. 按 **Ctrl**+**Shift**+**B** 生成解决方案。
 2. 生成成功后，按 **F5**启动网站。 你应会在屏幕上看到以下内容：
    
@@ -372,8 +384,9 @@ ms.lasthandoff: 05/19/2017
     ![投票页面所示的结果的屏幕截图](./media/documentdb-python-application/image19.png)
 6. 按 Shift+F5 停止调试该项目。
 
-## <a name="step-5-deploy-the-web-application-to-azure-websites"></a>步骤 5：将 Web 应用程序部署到 Azure 网站
-在有了可以正常用于 DocumentDB 的完整应用程序后，即可将其部署到 Azure 网站。
+## 步骤 5：将 Web 应用程序部署到 Azure 网站
+<a id="step-5-deploy-the-web-application-to-azure-websites" class="xliff"></a>
+现在，你拥有了针对 DocumentDB 正常工作的完整应用程序，我们打算将其部署到 Azure 网站。
 
 1. 右键单击解决方案资源管理器中的项目（确保不再在本地运行它），然后选择“发布”。  
    
@@ -392,15 +405,17 @@ ms.lasthandoff: 05/19/2017
     ![“在 Azure 中创建网站”的屏幕截图](./media/documentdb-python-application/publish-web.png)
 6. 在几秒钟内，Visual Studio 将完成 Web 应用程序发布并启动浏览器，你可从中查看在 Azure 中运行的简单作品！
 
-## <a name="troubleshooting"></a>故障排除
+## 故障排除
+<a id="troubleshooting" class="xliff"></a>
 如果这是在计算机上运行的第一个 Python 应用程序，请确保下列文件夹（或等效的安装位置）包括在 PATH 变量中：
 
     C:\Python27\site-packages;C:\Python27\;C:\Python27\Scripts;
 
 如果在投票页上收到了错误，并且已将项目命名为 **tutorial** 以外的名称，请确保 **\_\_init\_\_.py** 引用以下行中正确的项目名称：`import tutorial.view`。
 
-## <a name="next-steps"></a>后续步骤
-祝贺你！ 你刚才完成了你的第一个使用 DocumentDB 的 Python Web 应用程序并将其发布到了 Azure 网站。
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+祝贺你！ 你刚使用 DocumentDB 完成了第一个 Python Web 应用程序并将其发布到了 Azure 网站。
 
 我们将根据反馈经常更新并改进此主题。  完成该教程后，请使用此页面上顶部和底部的投票按钮，并确保包括有关你想要看到的改进的反馈意见。 如果你希望我们直接与你联系，欢迎将你的电子邮件地址附在评论中。
 
@@ -415,5 +430,4 @@ ms.lasthandoff: 05/19/2017
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [Azure portal]: http://portal.azure.cn
-
 

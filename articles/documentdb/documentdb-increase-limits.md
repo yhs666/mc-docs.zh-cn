@@ -15,15 +15,14 @@ ms.topic: article
 origin.date: 12/13/2016
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 44fedab5b2b4d2dee80f9f5daab3f2c2763ebbf2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 604231191dddfb80fd8003365a3b9bf49917d8e8
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="request-increased-azure-documentdb-account-quotas"></a>请求增加 DocumentDB 帐户配额
+# 请求增加 DocumentDB 帐户配额
+<a id="request-increased-documentdb-account-quotas" class="xliff"></a>
 [DocumentDB](https://www.azure.cn/home/features/documentdb/) 是全局缩放数据库，可对吞吐量和存储进行缩放，以满足应用程序的所有需求。 如果对 DocumentDB 提供的规模有任何问题，请发送电子邮件到 askdocdb@microsoft.com。
 
 本文介绍如何通过 Azure 支持请求增加配额。

@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/02/2017
-ms.date: 06/05/2017
+ms.date: 07/10/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 8ccf68a31e5590780c89ae82f1a4e9e7c25d085c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 791104e012d8ff9c2dc9723edf76333c70b9f362
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
-# <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>使用路由处理 IoT 中心设备到云消息 (.NET)
+# 使用路由处理 IoT 中心设备到云消息 (.NET)
+<a id="process-iot-hub-device-to-cloud-messages-using-routes-net" class="xliff"></a>
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-## <a name="introduction"></a>介绍
+## 介绍
+<a id="introduction" class="xliff"></a>
 Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一个解决方案后端之间实现安全可靠的双向通信。 其他教程（[IoT 中心入门]和[使用 IoT 中心发送“云到设备”消息][lnk-c2d]）介绍了如何使用 IoT 中心的“设备到云”和“云到设备”的基本消息传递功能。
 
 本教程以 [IoT 中心入门]教程为基础，说明如何以基于配置的轻松方式，使用路由规则发送设备到云消息。 本教程介绍如何隔离需要解决方案后端立即执行操作以进行进一步处理的消息。 例如，设备可能将发送一条警报消息，触发在 CRM 系统中插入票证。 与此相反，数据点消息仅送入分析引擎。 例如，设备中存储便于日后分析的温度遥测是数据点消息。
@@ -46,11 +46,12 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 若要完成本教程，您需要以下各项：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-* 有效的 Azure 帐户。<br/>如果没有帐户，只需花费几分钟就能创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 有效的 Azure 帐户。 <br/>如果没有帐户，只需花费几分钟就能创建一个[免费帐户](https://azure.microsoft.com/free/)。
 
 应具备 [Azure 存储]和 [Azure 服务总线]的一些基础知识。
 
-## <a name="send-interactive-messages-from-a-simulated-device-app"></a>从模拟设备应用发送交互式消息
+## 从模拟设备应用发送交互式消息
+<a id="send-interactive-messages-from-a-simulated-device-app" class="xliff"></a>
 在本部分中，会修改 [IoT 中心入门]教程中创建的模拟设备应用，不定期发送需要立即处理的消息。
 
 在 Visual Studio 的 **SimulatedDevice** 项目中，将 `SendDeviceToCloudMessagesAsync` 方法替换为以下代码：
@@ -109,7 +110,8 @@ private static async void SendDeviceToCloudMessagesAsync()
    > 
    > 
 
-## <a name="add-a-queue-to-your-iot-hub-and-route-messages-to-it"></a>向 IoT 中心添加一个队列并向其路由消息
+## 向 IoT 中心添加一个队列并向其路由消息
+<a id="add-a-queue-to-your-iot-hub-and-route-messages-to-it" class="xliff"></a>
 本部分的操作：
 
 * 创建服务总线队列。
@@ -119,6 +121,9 @@ private static async void SendDeviceToCloudMessagesAsync()
 若要深入了解如何处理来自服务总线队列的消息，请参阅 [队列入门][Service Bus queue]教程。
 
 1. 按 [队列入门][Service Bus queue]中所述，创建服务总线队列。 队列必须与 IoT 中心位于同一订阅和区域中。 记下命名空间和队列名称。
+
+    > [!NOTE]
+    > 用作 IoT 中心终结点的服务总线队列和主题不能启用“会话”或“重复项检测”。 如果启用了其中任一选项，该终结点将在 Azure 门户中显示为“无法访问”。
 
 2. 在 Azure 门户中，打开 IoT 中心并单击“终结点” 。
 
@@ -136,7 +141,8 @@ private static async void SendDeviceToCloudMessagesAsync()
 
     ![回退路由][33]
 
-## <a name="read-from-the-queue-endpoint"></a>从队列终结点读取
+## 从队列终结点读取
+<a id="read-from-the-queue-endpoint" class="xliff"></a>
 在本部分中，会从队列终结点读取消息。
 
 1. 在 Visual Studio 中，使用“控制台应用(.NET Framework)”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 将项目命名为 **ReadCriticalQueue**。
@@ -172,7 +178,8 @@ private static async void SendDeviceToCloudMessagesAsync()
     Console.ReadLine();
     ```
 
-## <a name="run-the-applications"></a>运行应用程序
+## 运行应用程序
+<a id="run-the-applications" class="xliff"></a>
 现在，你已准备就绪，可以运行应用程序了。
 
 1. 在 Visual Studio 的解决方案资源管理器中，右键单击你的解决方案并选择“**设置启动项目**”。 选择“多个启动项目”，然后为 **ReadDeviceToCloudMessages**、**SimulatedDevice** 和 **ReadCriticalQueue** 项目选择“启动”作为操作。
@@ -180,7 +187,8 @@ private static async void SendDeviceToCloudMessagesAsync()
 
    ![3 个控制台应用][50]
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 在本教程中，介绍了如何使用 IoT 中心的消息路由功能可靠地分派设备到云的消息。
 
 通过 [如何使用 IoT 中心发送云到设备的消息][lnk-c2d] ，了解如何将消息从解决方案后端发送到设备。
@@ -204,21 +212,22 @@ private static async void SendDeviceToCloudMessagesAsync()
 
 [Azure Blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
 
-[HDInsight (Hadoop)]: ../hdinsight/index.md
+[HDInsight (Hadoop)]: /hdinsight/
 [Service Bus Queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
-[Azure IoT Hub developer guide - Device to cloud]: ./iot-hub-devguide-messaging.md
+[IoT Hub developer guide - Device to cloud]: ./iot-hub-devguide-messaging.md
 
-[Azure 存储]: ../storage/index.md
-[Azure 服务总线]: ../service-bus-messaging/index.md
+
+[Azure 存储]: /storage/
+[Azure 服务总线]: /service-bus-messaging/
 
 [IoT 中心开发人员指南]: ./iot-hub-devguide.md
 [IoT 中心入门]: ./iot-hub-csharp-csharp-getstarted.md
 [lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md
-[Azure IoT 开发人员中心]: /develop/iot
-[lnk-service-fabric]: ../service-fabric/index.md
-[lnk-stream-analytics]: ../stream-analytics/index.md
-[lnk-event-hubs]: ../event-hubs/index.md
+[Azure IoT 开发人员中心]: https://www.azure.cn/develop/iot
+[lnk-service-fabric]: /service-fabric/
+[lnk-stream-analytics]: /stream-analytics/
+[lnk-event-hubs]: /event-hubs/
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
 
 <!-- Links -->
@@ -234,4 +243,4 @@ private static async void SendDeviceToCloudMessagesAsync()
 
 [lnk-classic-portal]: https://manage.windowsazure.cn
 [lnk-c2d]: ./iot-hub-csharp-csharp-process-d2c.md
-[lnk-suite]: ../iot-suite/index.md
+[lnk-suite]: /iot-suite/

@@ -1,6 +1,6 @@
 ---
-title: "使用 DocumentDB 的多主数据库结构 | Microsoft Docs"
-description: "了解如何使用 DocumentDB 来设计可实现跨多个地理区域进行本地读取和写入的应用程序结构。"
+title: "使用 DocumentDB 的多主数据库体系结构 | Microsoft Docs"
+description: "了解如何使用 DocumentDB 设计应用程序体系结构，实现跨多个地理区域的本地读取和写入。"
 services: documentdb
 documentationcenter: 
 author: arramac
@@ -16,21 +16,20 @@ origin.date: 01/25/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 52f30748d3aa591f316991a29aa163ec4b6935a3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 5cdd7068acd8954d2cced56a3c3a2501dbd4df3a
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="multi-master-globally-replicated-database-architectures-with-azure-documentdb"></a>使用 DocumentDB 多主机全局复制数据库体系结构
+# 使用 DocumentDB 的多主全局复制数据库体系结构
+<a id="multi-master-globally-replicated-database-architectures-with-documentdb" class="xliff"></a>
 DocumentDB 支持统包的[全局复制](documentdb-distribute-data-globally.md)，允许在工作负荷中的任意位置以低延迟的访问将数据分布到多个区域。 此模型常用于发布者/使用者工作负荷。在这些工作负荷中，单个地理区域包含一个作者，其他（读取）区域包含分布于全球的读者。 
 
-还可以使用 DocumentDB 的全局复制支持来构建作者和读者分布于全球的应用程序。 本文档概述一种使用 DocumentDB 为全球分布的作者实现本地写入和本地读取访问的模式。
+还可以使用 DocumentDB 的全球复制支持来构建作者和读者分布于全球的应用程序。 本文档概述一种使用 DocumentDB 为全球分布的作者实现本地写入和本地读取访问的模式。
 
 ## <a id="ExampleScenario"></a>内容发布 - 示例方案
-让我们借助一个真实的方案，介绍如何在 DocumentDB 中使用全局分布式多区域/多主读写模式。 假设已在 DocumentDB 上构建一个内容发布平台。 为了向发布者和使用者提供良好的用户体验，此平台必须满足一些要求。
+让我们借助一个真实的方案，介绍如何在 DocumentDB 中使用全球分布式多区域/多主读写模式。 假设已在 DocumentDB 上构建一个内容发布平台。 为了向发布者和使用者提供良好的用户体验，此平台必须满足一些要求。
 
 - 作者和订户遍布全球 
 - 作者必须将文章发布（写入）到本地（最近的）区域
@@ -316,10 +315,9 @@ DocumentDB 支持统包的[全局复制](documentdb-distribute-data-globally.md)
 因此，通过选择合适的分区键和静态的基于帐户的分区，可以使用 DocumentDB 实现多区域本地写入和读取。
 
 ## <a id="NextSteps"></a>后续步骤
-本文以内容发布作为示例方案，介绍如何通过 DocumentDB 使用全局分布式多区域读写模式。
+本文以内容发布作为示例方案，介绍如何通过 DocumentDB 使用全球分布式多区域读写模式。
 
-- 了解 DocumentDB 如何支持 [全局分布](documentdb-distribute-data-globally.md)
+- 了解 DocumentDB 如何支持[全球分布](documentdb-distribute-data-globally.md)
 - 了解 [DocumentDB 中的自动和手动故障转移](documentdb-regional-failovers.md)
 - 了解 [DocumentDB 的全局一致性](documentdb-consistency-levels.md)
-
 

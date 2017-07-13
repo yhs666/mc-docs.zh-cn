@@ -132,7 +132,7 @@ SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源
 
 如果使用了弹性池的所有 DTU，那么池中的每个数据库将接收相同数量的资源来处理查询。  SQL 数据库服务通过确保相等的计算时间片段，在数据库之间提供资源共享的公平性。 弹性池资源共享公平性是在将每个数据库的 DTU 最小值设为非零值时，对另外为每个数据库保证的任意资源量的补充。
 
-##<a name="elastic-pool-and-elastic-database-properties"></a><a name="database-properties-for-pooled-databases"><a><a name="elastic-database-pool-properties"></a> 入池数据库的数据库属性
+##<a name="elastic-pool-and-elastic-database-properties"></a><a name="database-properties-for-pooled-databases"><a> 入池数据库的数据库属性
 
 下表介绍了入池数据库的属性。
 

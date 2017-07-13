@@ -13,17 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 12/16/2016
-ms.date: 05/02/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 5f1fd54a67208cceb2bfae1b6a0a5880dd266c9f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 9f163d054617f18afac332b44c133ef315b78a42
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="deploy-a-sailsjs-web-app-to-azure-app-service"></a>将 Sails.js Web 应用部署到 Azure 应用服务
+# 将 Sails.js Web 应用部署到 Azure 应用服务
+<a id="deploy-a-sailsjs-web-app-to-azure-app-service" class="xliff"></a>
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -40,16 +39,18 @@ ms.lasthandoff: 04/22/2017
 
 应具备 Sails.js 的实践知识。 本教程并非旨在帮助你解决运行 Sail.js 相关的一般性问题。
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 * [Node.js](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git](http://www.git-scm.com/downloads)
-* [Azure CLI 2.0 预览版](https://docs.microsoft.com/cli/azure/install-az-cli2)
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)
 * 一个 Azure 帐户。 如果你没有帐户，可以[注册试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-## <a name="step-1-create-and-configure-a-sailsjs-app-locally"></a>步骤 1：在本地创建和配置 Sails.js 应用
+## 步骤 1：在本地创建和配置 Sails.js 应用
+<a id="step-1-create-and-configure-a-sailsjs-app-locally" class="xliff"></a>
 首先，请执行以下步骤，在部署环境中快速创建默认的 Sails.js 应用：
 
 1. 打开所选的命令行终端，并使用 `CD` 切换到工作目录。
@@ -98,7 +99,8 @@ ms.lasthandoff: 04/22/2017
 
 代码已可用于部署。 
 
-## <a name="step-2-create-an-azure-app-and-deploy-sailsjs"></a>步骤 2：创建 Azure 应用并部署 Sails.js
+## 步骤 2：创建 Azure 应用并部署 Sails.js
+<a id="step-2-create-an-azure-app-and-deploy-sailsjs" class="xliff"></a>
 
 接下来，在 Azure 中创建应用服务资源并向其部署 Sails.js 应用。
 
@@ -112,13 +114,13 @@ ms.lasthandoff: 04/22/2017
 
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. 创建具有名称的[资源组](../azure-resource-manager/resource-group-overview.md)。 对于此 PHP 教程，实际上并不需要知道什么是资源组。
+3. 创建具有名称的[资源组](../azure-resource-manager/resource-group-overview.md)。 对于本 Node.js 教程，实际上并不需要知道什么是资源组。
 
         az group create --location "<location>" --name my-sailsjs-app-group
 
     若要查看可为 `<location>` 使用的可能值，请使用 `az appservice list-locations` CLI 命令。
 
-3. 创建具有名称的“免费”[应用服务计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 对于本 PHP 教程，只需知道不用为此计划中的 Web 应用付费即可。
+3. 创建具有名称的“免费”[应用服务计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 对于本 Node.js 教程，只需知道此计划中的 Web 应用不会产生费用。
 
         az appservice plan create --name my-sailsjs-appservice-plan --resource-group my-sailsjs-app-group --sku FREE
 
@@ -126,7 +128,8 @@ ms.lasthandoff: 04/22/2017
 
         az appservice web create --name <app_name> --resource-group my-sailsjs-app-group --plan my-sailsjs-appservice-plan
 
-## <a name="step-3-configure-and-deploy-your-sailsjs-app"></a>步骤 3：设置并部署 Sails.js 应用
+## 步骤 3：设置并部署 Sails.js 应用
+<a id="step-3-configure-and-deploy-your-sailsjs-app" class="xliff"></a>
 
 1. 使用以下命令配置新 Web 应用的本地 Git 部署：
 
@@ -154,7 +157,8 @@ ms.lasthandoff: 04/22/2017
 
     ![](./media/app-service-web-nodejs-sails/sails-in-azure.png)
 
-## <a name="troubleshoot-your-deployment"></a>排查部署问题
+## 排查部署问题
+<a id="troubleshoot-your-deployment" class="xliff"></a>
 如果 Sails.js 应用在应用服务中由于某种原因而失败，请查找 stderr 日志，以帮助进行故障排除。
 有关详细信息，请参阅[如何在 Azure 应用服务中调试 Node.js Web 应用](web-sites-nodejs-debug.md)。
 如果应用成功启动，stdout 日志应显示熟悉的消息：
@@ -177,12 +181,13 @@ ms.lasthandoff: 04/22/2017
 
 可以控制 [config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging) 文件中 stdout 日志的粒度。
 
-## <a name="connect-to-a-database-in-azure"></a>连接到 Azure 中的数据库
-若要连接到 Azure 中的数据库，可以在 Azure 中创建所选的数据库，例如 Azure SQL 数据库、MySQL、MongoDB、Azure (Redis) 缓存等，并使用相应的[数据存储适配器](https://github.com/balderdashy/sails#compatibility)连接到该数据库。 本部分中的步骤说明如何使用 [Azure DocumentDB](../documentdb/documentdb-protocol-mongodb.md) 数据库（支持 MongoDB 客户端连接）连接到 MongoDB。
+## 连接到 Azure 中的数据库
+<a id="connect-to-a-database-in-azure" class="xliff"></a>
+若要连接到 Azure 中的数据库，可以在 Azure 中创建所选的数据库，例如 Azure SQL 数据库、MySQL、MongoDB、Azure (Redis) 缓存等，并使用相应的[数据存储适配器](https://github.com/balderdashy/sails#compatibility)连接到该数据库。 本部分中的步骤说明如何使用 [Azure DocumentDb](../documentdb/documentdb-protocol-mongodb.md) 数据库（支持 MongoDB 客户端连接）连接到 MongoDB。
 
-1. [创建具有 MongoDB 协议支持的 DocumentDB 帐户](../documentdb/documentdb-create-account.md)。
-2. [创建 DocumentDB 集合和数据库](../documentdb/documentdb-create-collection.md)。 集合的名称不重要，但从 Sails.js 连接时需要数据库的名称。
-3. [查找 DocumentDB 数据库的连接信息](../documentdb/documentdb-connect-mongodb-account.md#GetCustomConnection)。
+1. [创建具有 MongoDB 协议支持的 DocumentDb 帐户](../documentdb/documentdb-create-account.md)。
+2. [创建 DocumentDb 集合和数据库](../documentdb/documentdb-create-collection.md)。 集合的名称不重要，但从 Sails.js 连接时需要数据库的名称。
+3. [查找 DocumentDb 数据库的连接信息](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize)。
 2. 从命令行终端安装 MongoDB 适配器：
 
         npm install sails-mongo --save
@@ -200,11 +205,11 @@ ms.lasthandoff: 04/22/2017
         },
 
     > [!NOTE] 
-    > `ssl: true` 选项很重要，因为 [Azure DocumentDB 需要它](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements)。 
+    > `ssl: true` 选项很重要，因为 [DocumentDb 需要它](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements)。 
     >
     >
 
-4. 需要在应用服务中设置每个环境变量 (`process.env.*`)。 为此，请从终端运行以下命令。 使用 DocumentDB 数据库的连接信息。
+4. 需要在应用服务中设置每个环境变量 (`process.env.*`)。 为此，请从终端运行以下命令。 使用 DocumentDb 的连接信息。
 
         az appservice web config appsettings update --settings dbuser="<database user>" --name <app_name> --resource-group my-sailsjs-app-group
         az appservice web config appsettings update --settings dbpassword="<database password>" --name <app_name> --resource-group my-sailsjs-app-group
@@ -225,7 +230,7 @@ ms.lasthandoff: 04/22/2017
             },
         },
 
-    此配置会覆盖 config/connections.js 文件中的本地环境设置。 项目中默认的 .gitignore 排除了此文件，因此该文件不会存储在 Git 中。 现在，可以从 Azure Web 应用和本地开发环境中连接到 DocumentDB (MongoDB) 数据库。
+    此配置会覆盖 config/connections.js 文件中的本地环境设置。 项目中默认的 .gitignore 排除了此文件，因此该文件不会存储在 Git 中。 现在，可以从 Azure Web 应用和本地开发环境中连接到 DocumentDb (MongoDB) 数据库。
 6. 打开 config/env/production.js 来配置生产环境，并添加以下 `models` 对象：
 
         models: {
@@ -265,8 +270,9 @@ ms.lasthandoff: 04/22/2017
 
          http://<appname>.chinacloudsites.cn/mywidget/create
 
-     如果 API 返回另一个新条目，那么 Azure Web 应用正在和 DocumentDB (MongoDB) 数据库通信。
+     如果 API 返回另一个新条目，那么 Azure Web 应用正在和 DocumentDb (MongoDB) 数据库通信。
 
-## <a name="more-resources"></a>更多资源
+## 更多资源
+<a id="more-resources" class="xliff"></a>
 * [Azure 应用服务中的 Node.js Web 应用入门](app-service-web-get-started-nodejs.md)
 * [将 Node.js 模块与 Azure 应用程序一起使用](../nodejs-use-node-modules-azure-apps.md)

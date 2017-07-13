@@ -16,15 +16,15 @@ ms.topic: article
 origin.date: 02/29/2016
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 219479054c45e67df252f94d73c29bfc1c77a68a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 20afe16a18b79d7b16d54a0b8c272639f5e01af8
+ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/06/2017
 ---
-# <a name="create-a-rest-service-using-aspnet-web-api-and-sql-database-in-azure-app-service"></a>在 Azure 应用服务中使用 ASP.NET Web API 和 SQL 数据库创建 REST 服务
+<a id="create-a-rest-service-using-aspnet-web-api-and-sql-database-in-azure-app-service" class="xliff"></a>
+
+# 在 Azure 应用服务中使用 ASP.NET Web API 和 SQL 数据库创建 REST 服务
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -46,10 +46,11 @@ ms.lasthandoff: 05/26/2017
 
 ![网站屏幕截图][intro001]
 
-<a name="bkmk_setupdevenv"></a>
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-### <a name="create-the-project"></a>创建项目
+<a id="create-the-project" class="xliff"></a>
+
+### 创建项目
 1. 启动 Visual Studio 2013。
 2. 从“文件”菜单上，单击“新建项目”。
 3. 在“新建项目”对话框中，展开“Visual C#”并选择“Web”，然后选择“ASP.NET Web 应用”。 将应用程序命名为 **ContactManager** 并单击“确定”。
@@ -74,7 +75,9 @@ ms.lasthandoff: 05/26/2017
 
 ![配置 Azure 网站](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/configWithDB.PNG)
 
-### <a name="set-the-page-header-and-footer"></a>设置页眉和页脚
+<a id="set-the-page-header-and-footer" class="xliff"></a>
+
+### 设置页眉和页脚
 1. 在**解决方案资源管理器**中，展开 *Views\Shared* 文件夹并打开 *_Layout.cshtml* 文件。
 
     ![解决方案资源管理器中的 _Layout.cshtml][newapp004]
@@ -118,14 +121,18 @@ ms.lasthandoff: 05/26/2017
 
 增加的以上内容将应用名称从 "My ASP.NET App" 更改为 "Contact Manager"，并且它将删除指向 **Home**、**About** 和 **Contact** 的链接。
 
-### <a name="run-the-application-locally"></a>在本地运行应用程序
+<a id="run-the-application-locally" class="xliff"></a>
+
+### 在本地运行应用程序
 1. 按 Ctrl+F5 运行应用程序。
    随后在默认浏览器中显示该应用程序主页。
     ![待办事项列表主页](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.png)
 
 这就是创建将要部署到 Azure 的应用程序目前所需的全部操作。 稍后将添加数据库功能。
 
-## <a name="deploy-the-application-to-azure"></a>将应用程序部署到 Azure
+<a id="deploy-the-application-to-azure" class="xliff"></a>
+
+## 将应用程序部署到 Azure
 1. 在 Visual Studio 中，在“解决方案资源管理器”中右键单击项目，并从上下文菜单中选择“发布”。
 
     ![项目上下文菜单中的“发布”][PublishVSSolution]
@@ -139,14 +146,18 @@ ms.lasthandoff: 05/26/2017
 
 1. 默认浏览器会自动打开，并指向所部署站点的 URL。
 
-    你创建的应用程序现在在云中运行。
+   你创建的应用程序现在在云中运行。
 
-    ![在 Azure 中运行的待办事项列表主页][rxz2]
+   ![在 Azure 中运行的待办事项列表主页][rxz2]
 
-## <a name="add-a-database-to-the-application"></a>向应用程序添加数据库
+<a id="add-a-database-to-the-application" class="xliff"></a>
+
+## 向应用程序添加数据库
 接下来，你将更新 MVC 应用程序以添加显示和更新联系人以及在数据库中存储数据的功能。 应用程序将使用 Entity Framework 创建数据库并读取和更新数据库中的数据。
 
-### <a name="add-data-model-classes-for-the-contacts"></a>为联系人添加数据模型类
+<a id="add-data-model-classes-for-the-contacts" class="xliff"></a>
+
+### 为联系人添加数据模型类
 首先，使用代码创建一个简单的数据模型。
 
 1. 在“解决方案资源管理器”中，右键单击“模型”文件夹，单击“添加”，然后单击“类”。
@@ -181,10 +192,14 @@ ms.lasthandoff: 05/26/2017
 
 **Contact** 类定义你将为每个联系人存储的数据以及数据库需要的主键 ContactID。 本教程末尾的 [后续步骤](#next-steps) 部分提供了有关数据模型的详细信息。
 
-### <a name="create-web-pages-that-enable-app-users-to-work-with-the-contacts"></a>创建使应用程序用户可以使用联系人的网页
+<a id="create-web-pages-that-enable-app-users-to-work-with-the-contacts" class="xliff"></a>
+
+### 创建使应用程序用户可以使用联系人的网页
 ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新和删除 (CRUD) 操作的代码。
 
-## <a name="add-a-controller-and-a-view-for-the-data"></a>为数据添加控制器和视图
+<a id="add-a-controller-and-a-view-for-the-data" class="xliff"></a>
+
+## 为数据添加控制器和视图
 1. 在“解决方案资源管理器”中，展开“控制器”文件夹。
 2. 生成项目 **(Ctrl+Shift+B)**。 （在使用基架机制前必须生成项目。） 
 3. 右键单击“控制器”文件夹并单击“添加”，然后单击“控制器”。
@@ -192,15 +207,17 @@ ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新�
     ![“控制器”文件夹上下文菜单中的“添加控制器”][addcode001]
 4. 在“添加基架”对话框中，选择“包含视图的 MVC 控制器(使用 Entity Framework)”并单击“添加”。
 
-    ![添加控制器](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
+   ![添加控制器](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
 5. 将控制器名称设置为 **HomeController**。 选择“联系人”作为模型类。 单击“新建数据上下文”按钮并接受默认的“ContactManager.Models.ContactManagerContext”作为“新的数据上下文类型”。 单击“添加”。
 
     将出现一个提示对话框：“名为 HomeController 的文件已存在。 是否希望将其替换？”。 单击“是”。 我们正在覆盖使用新项目创建的主控制器。 我们将为联系人列表使用新的主控制器。
 
     Visual Studio 将为 **Contact** 对象的 CRUD 数据库操作创建控制器方法和视图。
 
-## <a name="enable-migrations-create-the-database-add-sample-data-and-a-data-initializer"></a>启用迁移、创建数据库、添加示例数据和数据初始值设定项
-接下来的任务是启用 Code First 迁移功能以便基于所创建的数据模型创建数据库。
+<a id="enable-migrations-create-the-database-add-sample-data-and-a-data-initializer" class="xliff"></a>
+
+## 启用迁移、创建数据库、添加示例数据和数据初始值设定项
+接下来的任务是启用“Code First 迁移”功能以便基于所创建的数据模型创建数据库。
 
 1. 在“工具”菜单中，依次选择“库包管理器”和“程序包管理器控制台”。
 
@@ -293,7 +310,9 @@ ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新�
 
 ![数据的 MVC 视图][rxz3]
 
-## <a name="edit-the-view"></a>编辑视图
+<a id="edit-the-view" class="xliff"></a>
+
+## 编辑视图
 1. 打开 *Views\Home\Index.cshtml* 文件。 在下一步中，将生成的标记替换为使用 [jQuery](http://jquery.com/) 和 [Knockout.js](http://knockoutjs.com/) 的代码。 此新代码将使用 Web API 和 JSON 检索联系人列表，然后使用 knockout.js 将联系人数据绑定至 UI。 有关详细信息，请参阅本教程末尾的 [后续步骤](#next-steps) 部分。 
 2. 将文件的内容替换为以下代码。
 
@@ -457,7 +476,7 @@ ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新�
                  bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
                    "~/Content/site.css"));
-    更改为：
+   更改为：
 
         bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
@@ -467,7 +486,9 @@ ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新�
 
         Install-Package knockoutjs
 
-## <a name="add-a-controller-for-the-web-api-restful-interface"></a>为 Web API Restful 接口添加控制器
+<a id="add-a-controller-for-the-web-api-restful-interface" class="xliff"></a>
+
+## 为 Web API Restful 接口添加控制器
 1. 在“解决方案资源管理器”中，右键单击“控制器”，然后依次单击“添加”和“控制器....”。 
 2. 在“添加基架”对话框中，进入“包含操作的 Web API 2 控制器(使用 Entity Framework)”并单击“添加”。
 
@@ -475,7 +496,9 @@ ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新�
 3. 在“添加控制器”对话框中，输入“ContactsController”作为控制器名称。 对于“模型类”，选择“Contact (ContactManager.Models)”。  对于“数据上下文类”，保留默认值。 
 4. 单击“添加”。
 
-### <a name="run-the-application-locally"></a>在本地运行应用程序
+<a id="run-the-application-locally" class="xliff"></a>
+
+### 在本地运行应用程序
 1. 按 Ctrl+F5 运行应用程序。
 
     ![索引页面][intro001]
@@ -499,7 +522,9 @@ ASP.NET MVC 基架功能可以自动生成用于执行创建、读取、更新�
     ![Web API 保存对话框][addwebapi007]
 
     **安全警告**：此时，你的应用程序是不安全的，而且容易受到 CSRF 攻击。 本教程稍后部分将将解决这一漏洞。 有关详细信息，请参阅[防止跨站点请求伪造 (CSRF) 攻击][prevent-csrf-attacks]。
-## <a name="add-xsrf-protection"></a>添加 XSRF 保护
+<a id="add-xsrf-protection" class="xliff"></a>
+
+## 添加 XSRF 保护
 跨站点请求伪造（也称为 XSRF 或 CSRF）是一种针对 Web 托管型应用程序的攻击，恶意网站凭此可以影响客户端浏览器与受该浏览器信任的网站之间的交互。 这些攻击出现的原因可能是 Web 浏览器针对每一个对网站的请求自动发送身份验证令牌。 Canonical 示例是身份验证 Cookie，如 ASP.NET 的表单身份验证票证。 然而，使用任何持久身份验证（如 Windows Authentication、Basic 等）的网站也可能成为受攻击目标。
 
 XSRF 攻击不同于网络钓鱼攻击。 网络钓鱼攻击需要与受害者进行交互。 在网络钓鱼攻击中，恶意网站将仿冒目标网站，受到欺骗的受害者会向攻击者提供敏感信息。 在 XSRF 攻击中，通常不必与受害者进行交互。 相反，浏览器自动向目标网站发送所有相关 Cookie 为攻击者提供了可乘之机。
@@ -639,7 +664,9 @@ XSRF 攻击不同于网络钓鱼攻击。 网络钓鱼攻击需要与受害者�
             </script>
          }
 
-## <a name="publish-the-application-update-to-azure-and-sql-database"></a>将应用程序更新发布到 Azure 和 SQL 数据库
+<a id="publish-the-application-update-to-azure-and-sql-database" class="xliff"></a>
+
+## 将应用程序更新发布到 Azure 和 SQL 数据库
 若要发布应用程序，可重复之前遵循的过程。
 
 1. 在“解决方案资源管理器”中，右键单击项目并选择“发布”。
@@ -667,9 +694,9 @@ XSRF 攻击不同于网络钓鱼攻击。 网络钓鱼攻击需要与受害者�
 
 该应用程序现在是在云中运行，使用 SQL 数据库存储其数据。 在 Azure 中测试应用程序完成后，将其删除。 该应用程序是公开的且没有限制访问的机制。
 
-## <a name="next-steps"></a>后续步骤
-实际的应用程序需要身份验证和授权，你可以使用成员资格数据库实现此目的。 教程[使用 OAuth、成员资格以及 SQL 数据库部署安全的 ASP.NET MVC 应用程序](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)基于本教程，其中介绍了如何部署包含成员资格数据库的 Web 应用程序。
+<a id="next-steps" class="xliff"></a>
 
+## 后续步骤
 另一种在 Azure 应用程序中存储数据的方法是使用 Azure 存储，该方法以 Blob 和表的形式提供非关系数据存储。 以下链接提供了更多有关 Web API、ASP.NET MVC 以及 Window Azure 的信息。
 
 * [使用 MVC 的 Entity Framework 入门][EFCodeFirstMVCTutorial]
@@ -681,7 +708,9 @@ XSRF 攻击不同于网络钓鱼攻击。 网络钓鱼攻击需要与受害者�
 
 请提供有关你喜欢的内容或者你希望看到改善的内容的反馈，不仅关于教程本身，也关于它所演示的产品。 你的反馈将帮助我们确定优先改进哪些方面。 我们特别希望确定大家对于对配置和部署成员资格数据库的流程进行更多自动化的兴趣有多大。 
 
-## <a name="whats-changed"></a>发生的更改
+<a id="whats-changed" class="xliff"></a>
+
+## 发生的更改
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!-- bookmarks -->

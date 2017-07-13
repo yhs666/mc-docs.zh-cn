@@ -16,16 +16,14 @@ ms.workload: infrastructure-services
 origin.date: 05/04/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 6528cbe13acd9f3333c292b62d4cfb509e045dd8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: e006fb35853658dcbc658e1ea5a9e26098d624a6
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# <a name="add-network-interfaces-to-or-remove-from-virtual-machines"></a>添加或删除虚拟机的网络接口
+# 添加或删除虚拟机的网络接口
+<a id="add-network-interfaces-to-or-remove-from-virtual-machines" class="xliff"></a>
 
 了解如何在创建 VM 时添加现有的网络接口 (NIC)，或者添加或删除处于“已停止”（“已解除分配”）状态的现有 VM 的 NIC。 Azure 虚拟机 (VM) 通过 NIC 与 Internet、Azure 及本地资源通信。 一个 VM 可以有一个或多个 NIC。 
 
@@ -36,9 +34,11 @@ ms.lasthandoff: 05/26/2017
 在完成本文任何部分中的任何步骤之前，请完成以下任务：
 
 - 若要了解每种 Linux 和 Windows VM 大小支持的 NIC 数量，请参阅有关 [Linux](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) 或 [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-network%2ftoc.json) VM 大小的文章。
-- 使用 Azure 帐户登录到 Azure 门户、Azure 命令行界面 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 使用 Azure 帐户登录到 Azure 门户、Azure 命令行接口 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用 PowerShell 命令完成本文中的任务，请按[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文中的步骤安装和配置 Azure PowerShell。 确保已安装最新版本的 Azure PowerShell cmdlet。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
 - 如果使用 Azure 命令行界面 (CLI) 命令完成本文中的任务，请按[如何安装和配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) 一文中的步骤安装和配置 Azure CLI。 确保已安装最新版本的 Azure CLI。若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="about"></a>关于 NIC 和 VM
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="vm-add-nic"></a>将现有 NIC 添加到现有 VM
 
-可以向 VM 添加任意数目的 NIC，只要向其添加 NIC 的 VM 大小支持。 若要了解每种 VM 大小支持的 NIC 数量，请阅读有关 [Linux](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) 或 [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-network%2ftoc.json) VM 大小的文章。 要将 NIC 添加到其中的 VM 必须支持多个 NIC 并处于“已停止”（“已解除分配”）状态。 要添加的 NIC 目前不能附加到其他 VM。 无法使用 Azure 门户将 NIC 添加到现有的 VM。 必须使用 CLI 或 PowerShell 才能将 NIC 添加到现有 VM。
+可以向 VM 添加任意数目的 NIC，只要向其添加 NIC 的 VM 大小支持。 若要了解每种 VM 大小支持的 NIC 数量，请阅读有关 [Linux](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) 或 [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-network%2ftoc.json) VM 大小的文章。 要将 NIC 添加到其中的 VM 必须支持多个 NIC 并处于“已停止”（“已解除分配”）状态。 要添加的 NIC 目前不能附加到其他 VM。 无法使用 Azure 门户将 NIC 添加到现有 VM。 必须使用 CLI 或 PowerShell 才能将 NIC 添加到现有 VM。
 
 |工具|命令|
 |---|---|
@@ -83,7 +83,7 @@ ms.lasthandoff: 05/26/2017
 
 可以查看当前附加到 VM 的 NIC，了解每个 NIC 的配置，以及分配到每个 NIC 的 IP 地址。 
 
-1. 通过分配有订阅中所有者、参与者或网络参与者角色的帐户登录到 [Azure 门户](https://portal.azure.cn) 。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色分配给帐户。
+1. 使用分配有订阅“所有者”、“参与者”或“网络参与者”角色的帐户登录到 [Azure 门户](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色分配给帐户。
 2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“虚拟机”。 在搜索结果中出现“虚拟机”  时，单击该虚拟机。
 3. 在出现的“虚拟机”边栏选项卡中，单击要查看其 NIC 的 VM 的名称。
 4. 在针对所选 VM 显示的“虚拟机”边栏选项卡的“设置”部分，单击“网络接口”。 若要了解 NIC 设置以及如何更改该设置，请阅读 [NIC 设置和任务](virtual-network-network-interface.md)一文。 若要了解如何添加、更改或删除分配到 NIC 的 IP 地址，请阅读[添加、更改或删除 IP 地址](virtual-network-network-interface-addresses.md)一文。
@@ -97,9 +97,9 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="vm-remove-nic"></a> 从 VM 中删除 NIC
 
-要从中删除 NIC 的 VM 必须处于“已停止”（“已解除分配”）状态，并且当前必须至少有两个附加到其中的 NIC。 可以删除任何 NIC，但 VM 必须始终至少有一个附加到其中的 NIC。 如果删除主 NIC，Azure 会将主属性分配给附加到 VM 时间最长的 NIC。 可以自行将任何 NIC 指定为主 NIC。 虽然可通过 CLI 或 PowerShell 完成上述两项操作，但无法从 VM 中删除 NIC，也无法使用 Azure 门户为 NIC 设置主属性。 
+要从中删除 NIC 的 VM 必须处于“已停止”（“已解除分配”）状态，并且当前必须至少有两个附加到其中的 NIC。 可以删除任何 NIC，但 VM 必须始终至少有一个附加到其中的 NIC。 如果删除主 NIC，Azure 会将主属性分配给附加到 VM 时间最长的 NIC。 可以自行将任何 NIC 指定为主 NIC。 无法使用 Azure 门户从 VM 中删除 NIC 或者设置 NIC 的主属性，但可以使用 CLI 或 PowerShell 完成这两项操作。 
 
-命令
+**命令**
 
 |工具|命令|
 |---|---|
@@ -107,9 +107,9 @@ ms.lasthandoff: 05/26/2017
 |PowerShell|[Remove-AzureRMVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>后续步骤
-若要创建具有多个 NIC 或 IP 地址的 VM，请阅读以下文章：
+若要创建具有多个 NIC 或 IP 地址的 VM，请参阅以下文章：
 
-命令
+**命令**
 
 |任务|工具|
 |---|---|

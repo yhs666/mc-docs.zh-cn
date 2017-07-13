@@ -1,6 +1,6 @@
 ---
 title: "使用 Node.js 将 Raspberry Pi 连接到 Azure IoT 套件以支持固件更新 | Azure"
-description: "使用适用于 Raspberry Pi 3 的 Azure IoT 初学者工具包和 Azure IoT 套件。 使用 Node.js 将 Raspberry Pi 连接到远程监控解决方案，从传感器将遥测数据发送到云，并执行远程固件更新。"
+description: "使用适用于 Raspberry Pi 3 的 Microsoft Azure IoT 初学者工具包和 Azure IoT 套件。 使用 Node.js 将 Raspberry Pi 连接到远程监视解决方案，从传感器将遥测数据发送到云，并执行远程固件更新。"
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 493e93c4705a8ae210a1151aec399ffffa09d311
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: b71fca7a2974c4dbc0034c69b3d3165f30b3200e
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-nodejs"></a>使用 Node.js 将 Raspberry Pi 3 连接到远程监控解决方案并启用远程固件更新
+# <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-nodejs"></a>使用 Node.js 将 Raspberry Pi 3 连接到远程监视解决方案并启用远程固件更新
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-selector](../../includes/iot-suite-raspberry-pi-kit-selector.md)]
 
-本教程演示如何使用适用于 Raspberry Pi 3 的 Azure IoT 初学者工具包完成以下任务：
+本教程演示如何使用适用于 Raspberry Pi 3 的 Microsoft Azure IoT 初学者工具包完成以下任务：
 
 * 开发可与云通信的温度和湿度读取器。
 * 启用并执行远程固件更新以更新 Raspberry Pi 上的客户端应用程序。
@@ -34,16 +32,16 @@ ms.lasthandoff: 05/19/2017
 本教程使用：
 
 - Raspbian OS、Node.js 编程语言和 Azure IoT SDK for Node.js 实现示例设备。
-- IoT 套件远程监控预配置解决方案作为基于云的后端。
+- IoT 套件远程监视预配置解决方案作为基于云的后端。
 
 
 ## <a name="overview"></a>概述
 
 在本教程中，将完成以下步骤：
 
-- 将远程监控预配置解决方案的实例部署到 Azure 订阅。 此步骤会自动部署并配置多个 Azure 服务。
-- 将设备和传感器设置为与计算机和远程监控解决方案通信。
-- 更新用于连接到远程监控解决方案的示例设备代码，并发送可在解决方案仪表板上查看的遥测数据。
+- 将远程监视预配置解决方案的实例部署到 Azure 订阅。 此步骤会自动部署并配置多个 Azure 服务。
+- 将设备和传感器设置为与计算机和远程监视解决方案通信。
+- 更新用于连接到远程监视解决方案的示例设备代码，并发送可在解决方案仪表板上查看的遥测数据。
 - 使用示例设备代码更新客户端应用程序。
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-prerequisites](../../includes/iot-suite-raspberry-pi-kit-prerequisites.md)]
@@ -51,7 +49,7 @@ ms.lasthandoff: 05/19/2017
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 > [!WARNING]
-> 远程监控解决方案在 Azure 订阅中预配一组 Azure 服务。 部署反映实际企业体系结构。 若要避免产生不必要的 Azure 使用费用，请在使用完预配置解决方案的实例后，在 azureiotsuite.cn 上将其删除。 如果再次需要预配置解决方案，可以轻松地重新创建它。 若要详细了解如何在远程监控解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。
+> 远程监视解决方案在 Azure 订阅中预配一组 Azure 服务。 部署反映实际企业体系结构。 若要避免产生不必要的 Azure 使用费用，请在使用完预配置解决方案的实例后，在 azureiotsuite.cn 上将其删除。 如果再次需要预配置解决方案，可以轻松地重新创建它。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-solution](../../includes/iot-suite-raspberry-pi-kit-view-solution.md)]
 
@@ -59,7 +57,7 @@ ms.lasthandoff: 05/19/2017
 
 ## <a name="download-and-configure-the-sample"></a>下载并配置示例
 
-现在，可以在 Raspberry Pi 上下载并配置远程监控客户端应用程序。
+现在，可以在 Raspberry Pi 上下载并配置远程监视客户端应用程序。
 
 ### <a name="install-nodejs"></a>安装 Node.js
 
@@ -147,7 +145,7 @@ HostName=youriothubname.azure-devices.cn;DeviceId=yourdeviceid;SharedAccessKey=y
     ![显示更新进度][img-update-progress]
 
     > [!NOTE]
-    > 更新完成时，远程监控应用将以无提示方式重新启动。 使用 `ps -ef` 命令验证它是否正在运行。 如果要终止该过程，请使用带过程 ID 的 `kill` 命令。
+    > 更新完成时，远程监视应用将以无提示方式重新启动。 使用 `ps -ef` 命令验证它是否正在运行。 如果要终止该过程，请使用带过程 ID 的 `kill` 命令。
 
 1. 可以在解决方案门户中查看设备报告的固件更新状态。 以下屏幕截图显示更新过程的每个阶段的状态和持续时间，以及新的固件版本：
 
@@ -156,7 +154,7 @@ HostName=youriothubname.azure-devices.cn;DeviceId=yourdeviceid;SharedAccessKey=y
     如果导航回仪表板，则可以验证固件更新后设备是否仍发送遥测数据。
 
 > [!WARNING]
-> 如果让远程监控解决方案在 Azure 帐户中保持运行状态，系统会按其运行时间计费。 若要详细了解如何在远程监控解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。 请在用完预配置的解决方案后将其从 Azure 帐户中删除。
+> 如果让远程监视解决方案在 Azure 帐户中保持运行状态，系统会按其运行时间计费。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。 请在用完预配置的解决方案后将其从 Azure 帐户中删除。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -170,4 +168,3 @@ HostName=youriothubname.azure-devices.cn;DeviceId=yourdeviceid;SharedAccessKey=y
 [img-method-history]: ./media/iot-suite-raspberry-pi-kit-node-get-started-advanced/methodhistory.png
 
 [lnk-demo-config]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/configure-preconfigured-demo.md
-

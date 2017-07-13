@@ -18,16 +18,14 @@ ms.workload: big-data
 origin.date: 05/12/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 7fdf1d5c3f9c3fa8ea82ee9ecbf880c7e389d168
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 9bcf44163b1861606c803004072b170fc360312c
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# <a name="what-is-apache-storm-on-azure-hdinsight"></a>什么是 Azure HDInsight 上的 Apache Storm
+# 什么是 Azure HDInsight 上的 Apache Storm
+<a id="what-is-apache-storm-on-azure-hdinsight" class="xliff"></a>
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
@@ -65,7 +63,8 @@ Storm on HDInsight 具有下述重要优势：
 
 若要开始使用 Storm，请参阅 [Storm on HDInsight 入门][gettingstarted]。
 
-## <a name="how-does-storm-work"></a>Storm 的工作原理
+## Storm 的工作原理
+<a id="how-does-storm-work" class="xliff"></a>
 
 Storm 运行的是拓扑，而不是你可能熟悉的 MapReduce 作业。 Storm 拓扑由多个以有向无环图 (DAG) 形式排列的组件构成。 数据在该图中的组件之间流动。 每个组件使用一个或多个数据流，并可选择性地发出一个或多个流。 下图演示了一个基本单词计数拓扑中组件之间的数据流动方式：
 
@@ -73,29 +72,32 @@ Storm 运行的是拓扑，而不是你可能熟悉的 MapReduce 作业。 Storm
 
 * Spout 组件将数据引入拓扑。 它们将一个或多个流发出到拓扑中。
 
-* Bolt 组件使用 Spout 或其他 Bolt 发出的流。 Bolt 可以选择性地将流发出到拓扑中。 Bolt 还负责将数据写入 HDFS、Kafka 或 HBase 等外部服务或存储。
+* Bolt 组件使用 Spout 或其他 Bolt 发出的流。 Bolt 可以选择性地将流发出到拓扑中。 Bolt 还负责将数据写入 HDFS 或 HBase 等外部服务或存储。
 
-## <a name="ease-of-creation"></a>容易创建
+## 容易创建
+<a id="ease-of-creation" class="xliff"></a>
 
 只需数分钟即可在 HDInsight 上预配好新的 Storm 群集。 有关创建 Storm 群集的信息，请参阅 [Storm on HDInsight 入门](hdinsight-apache-storm-tutorial-get-started-linux.md)。
 
-## <a name="ease-of-use"></a>易于使用
+## 易于使用
+<a id="ease-of-use" class="xliff"></a>
 
 * __安全外壳 (SSH) 连接__：可以使用 SSH 通过 Internet 访问 Storm 群集的头节点。 可以使用 SSH 直接在群集上运行命令。
 
-    有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+  有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 * __Web 连接__：所有 HDInsight 群集都提供 Ambari Web UI。 可以使用 Ambari Web UI 在群集上轻松监视、配置和管理服务。 Storm 群集还提供 Storm UI。 可以使用 Storm UI，通过浏览器监视和管理 Storm 拓扑的运行。
 
-    有关详细信息，请参阅[使用 Ambari Web UI 管理 HDInsight](hdinsight-hadoop-manage-ambari.md) 和[使用 Storm UI 进行监视和管理](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui)这两篇文档。
+  有关详细信息，请参阅[使用 Ambari Web UI 管理 HDInsight](hdinsight-hadoop-manage-ambari.md) 和[使用 Storm UI 进行监视和管理](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui)这两篇文档。
 
 * __Azure PowerShell 和 Azure CLI__：PowerShell 和 CLI 都提供命令行实用工具，可在客户端系统中使用这些工具来操作 HDInsight 和其他 Azure 服务。
 
 * __Visual Studio 集成__：针对 Visual Studio 的 Azure Data Lake 工具包含用于通过 SCP.Net Framework 创建 C# Storm 拓扑的项目模板。 Data Lake 工具还提供用于通过 Storm on HDInsight 部署、监视和管理解决方案的工具。
 
-    有关详细信息，请参阅 [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)（使用用于 Visual Studio 的 HDInsight 工具开发 C# Storm 拓扑）。
+  有关详细信息，请参阅 [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)（使用用于 Visual Studio 的 HDInsight 工具开发 C# Storm 拓扑）。
 
-## <a name="integration-with-other-azure-services"></a>与其他 Azure 服务集成
+## 与其他 Azure 服务集成
+<a id="integration-with-other-azure-services" class="xliff"></a>
 
 * __事件中心__：有关将事件中心与 Storm 群集配合使用的示例，请参阅以下文档：
 
@@ -105,7 +107,8 @@ Storm 运行的是拓扑，而不是你可能熟悉的 MapReduce 作业。 Storm
 
 * __SQL 数据库__、__DocumentDb__、__事件中心__和 __HBase__：针对 Visual Studio 的 Data Lake 工具包含模板示例。 有关详细信息，请参阅[为 Storm on HDInsight 开发 C# 拓扑](hdinsight-storm-develop-csharp-visual-studio-topology.md)。
 
-## <a name="reliability"></a>可靠性
+## 可靠性
+<a id="reliability" class="xliff"></a>
 
 Apache Storm 保证每个传入消息始终受到完全处理，即使数据分析分散在数百个节点。
 
@@ -115,20 +118,23 @@ Apache Storm 群集的默认配置是只能有一个 Nimbus 节点。 HDInsight 
 
 ![nimbus、zookeeper 和 supervisor 示意图](./media/hdinsight-storm-overview/nimbus.png)
 
-## <a name="scale"></a>缩放
+## 缩放
+<a id="scale" class="xliff"></a>
 
 可以通过添加或删除辅助角色节点来动态地缩放 HDInsight 群集。 处理数据时，可以执行此操作。
 
 > [!IMPORTANT]
 > 若要利用通过缩放添加的新节点，需要重新平衡在增加大小之前启动的 Storm 拓扑。
 
-## <a name="support"></a>支持
+## 支持
+<a id="support" class="xliff"></a>
 
 Storm on HDInsight 附带完整的企业级持续支持。 Storm on HDInsight 也提供 99.9% 的 SLA。 这意味着，我们保证至少 99.9% 的时间 Storm 群集都能建立外部连接。
 
 有关详细信息，请参阅 [Azure 支持](https://www.azure.cn/support/contact/)。
 
-## <a name="apache-storm-use-cases"></a>Apache Storm 用例
+## Apache Storm 用例
+<a id="apache-storm-use-cases" class="xliff"></a>
 
 以下是可能使用 HDInsight 上的 Storm 的一些常见方案：
 
@@ -142,7 +148,8 @@ Storm on HDInsight 附带完整的企业级持续支持。 Storm on HDInsight �
 
 有关实际方案的信息，请参阅文档 [How companies are using Storm](https://storm.apache.org/documentation/Powered-By.html)（公司如何使用 Storm）。
 
-## <a name="development"></a>开发
+## 开发
+<a id="development" class="xliff"></a>
 
 .NET 开发人员使用针对 Visual Studio 的 Data Lake 工具即可以 C# 语言设计和实施拓扑。 你也可以创建使用 Java 和 C# 组件的混合拓扑。
 
@@ -152,19 +159,23 @@ Storm on HDInsight 附带完整的企业级持续支持。 Storm on HDInsight �
 
 还可以使用 Python 开发 Storm 组件。 有关详细信息，请参阅[使用 Python on HDInsight 开发 Storm 拓扑](hdinsight-storm-develop-python-topology.md)。
 
-## <a name="common-development-patterns"></a>常见开发模式
+## 常见开发模式
+<a id="common-development-patterns" class="xliff"></a>
 
-### <a name="guaranteed-message-processing"></a>有保证的消息处理
+### 有保证的消息处理
+<a id="guaranteed-message-processing" class="xliff"></a>
 
 Apache Storm 可以提供不同级别的有保证的消息处理。 例如，基本的 Storm 应用程序至少可以保证一次处理，而 Trident 仅可以保证一次处理。
 
 有关详细信息，请参阅 apache.org 上的 [数据处理保证](https://storm.apache.org/about/guarantees-data-processing.html) 。
 
-### <a name="ibasicbolt"></a>IBasicBolt
+### IBasicBolt
+<a id="ibasicbolt" class="xliff"></a>
 
 读取输入元组，发出零个或多个元组，然后在执行方法结束时立即询问输入元组，这种模式非常普通。 Storm 提供 [IBasicBolt](https://storm.apache.org/releases/1.0.3/javadocs/org/apache/storm/topology/IBasicBolt.html) 接口来自动执行这种模式。
 
-### <a name="joins"></a>联接
+### 联接
+<a id="joins" class="xliff"></a>
 
 应用程序之间数据流的联接方式各不相同。 例如，可以从多个流将每个元组联接到一个新流，也可以仅联接特定窗口的批量元组。 不管什么方式，都可以通过 [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) 完成联接。 可以通过字段分组来定义将元组路由到 Bolt 的方式。
 
@@ -172,29 +183,34 @@ Apache Storm 可以提供不同级别的有保证的消息处理。 例如，基
 
     builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
 
-### <a name="batches"></a>批处理
+### 批处理
+<a id="batches" class="xliff"></a>
 
 Apache Storm 提供名为“计时周期元组”的内部计时机制。 可以在拓扑中对计时周期元组的发出频率进行设置。
 
 有关从 C# 组件使用计时周期元组的示例，请参阅 [PartialBoltCount.cs](https://github.com/hdinsight/hdinsight-storm-examples/blob/3b2c960549cac122e8874931df4801f0934fffa7/EventCountExample/EventCountTopology/src/main/java/com/microsoft/hdinsight/storm/examples/PartialCountBolt.java)。
 
-### <a name="caches"></a>缓存
+### 缓存
+<a id="caches" class="xliff"></a>
 
 内存缓存通常用作加速处理的机制，因为它在内存中存储常用资产。 由于拓扑跨多个节点分布，而每个节点中有多个流程，因此应考虑使用 [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-)。 使用 `fieldsGrouping` 确保将元组（其中包含的字段用于缓存查找）始终路由到同一进程。 此分组功能可以避免在进程间重复缓存条目。
 
-### <a name="stream-top-n"></a>流“top N”
+### 流“top N”
+<a id="stream-top-n" class="xliff"></a>
 
 当拓扑依赖于计算 top N 值时，请并行计算 top N 值。 然后将这些计算的输出合并到全局值中。 此操作可以通过 [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) 完成，以便按字段路由来完成并行处理。 然后即可路由到 Bolt，以便通过全局方式确定 top N 值。
 
 有关计算 top N 值的示例，请参阅 [RollingTopWords](https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/org/apache/storm/starter/RollingTopWords.java) 示例。
 
-## <a name="logging"></a>日志记录
+## 日志记录
+<a id="logging" class="xliff"></a>
 
 Storm 使用 Apache Log4j 来记录信息。 默认情况下，将记录大量的数据，因此很难通过信息排序。 可以让日志记录配置文件包括在 Storm 拓扑中，控制日志记录行为。
 
 有关演示如何配置日志记录的示例拓扑，请参阅适用于 HDInsight 上的 Storm 的 [Java-based WordCount](hdinsight-storm-develop-java-topology.md) （基于 Java 的 WordCount）示例。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 了解有关使用 Storm on HDInsight 构建实时分析解决方案的详细信息：
 
@@ -205,4 +221,3 @@ Storm 使用 Apache Log4j 来记录信息。 默认情况下，将记录大量�
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
-

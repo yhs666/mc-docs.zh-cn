@@ -16,15 +16,14 @@ ms.topic: hero-article
 origin.date: 01/05/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 9e3fb533c2165f20337dd6ff7266771cb27883ee
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: ccbc9237b7978cad92efb266c5b8795670965b7d
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="nosql-tutorial-build-a-documentdb-java-console-application"></a>NoSQL 教程：构建 DocumentDB Java 控制台应用程序
+# NoSQL 教程：构建 DocumentDB Java 控制台应用程序
+<a id="nosql-tutorial-build-a-documentdb-java-console-application" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -53,16 +52,18 @@ ms.lasthandoff: 05/19/2017
 
 现在，让我们开始吧！
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 确保具有以下内容：
 
-- 有效的 Azure 帐户。 如果没有，可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。 另外，可以在本教程中使用 [DocumentDB 模拟器](documentdb-nosql-local-emulator.md)。
+- 有效的 Azure 帐户。 如果没有，可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。 或者，也可以在本教程中使用 [DocumentDB 模拟器](documentdb-nosql-local-emulator.md)。
 - [Git](https://git-scm.com/downloads)
 - [Java 开发工具包 (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
 - [Maven](http://maven.apache.org/download.cgi)。
 
-## <a name="step-1-create-an-azure-documentdb-account"></a>步骤 1：创建 DocumentDB 帐户
-创建 DocumentDB 帐户。 如果已有一个可用的帐户，可以直接跳到[克隆 GitHub 项目](#GitClone)。 如果使用 DocumentDB 模拟器，请遵循 [DocumentDB 模拟器](documentdb-nosql-local-emulator.md)中的步骤设置该模拟器，然后直接跳到[克隆 GitHub 项目](#GitClone)。
+## 第 1 步：创建 DocumentDB 帐户
+<a id="step-1-create-a-documentdb-account" class="xliff"></a>
+让我们创建一个 DocumentDB 帐户。 如果已有一个可用的帐户，可以直接跳到[克隆 GitHub 项目](#GitClone)。 如果使用 DocumentDB 模拟器，请遵循 [DocumentDB 模拟器](documentdb-nosql-local-emulator.md)中的步骤设置该模拟器，然后直接跳到[克隆 GitHub 项目](#GitClone)。
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -81,10 +82,10 @@ ms.lasthandoff: 05/19/2017
         <version>LATEST</version>
     </dependency>
 
-## <a id="Connect"></a>步骤 3：连接到 DocumentDB 帐户
-接下来，回到 [Azure 门户](https://portal.azure.cn) ，检索终结点和主要主密钥。 DocumentDB 终结点和主密钥是必需的，可让应用程序知道要连接的对象，使 DocumentDB 信任应用程序的连接。
+## <a id="Connect"></a>第 3 步：连接到 DocumentDB 帐户
+接下来，回到 [Azure 门户](https://portal.azure.cn) ，检索终结点和主要主密钥。 DocumentDB 终结点和主密钥是必需的，可让应用程序知道要连接的对象，让 DocumentDB 信任应用程序的连接。
 
-在 Azure 门户中，导航到 DocumentDB 帐户，然后单击“密钥”。 从门户复制 URI，并将其粘贴到 Program.java 文件的 `<your endpoint URI>` 中。 然后从门户复制主密钥，并将其粘贴到 `<your key>`中。
+在 Azure 门户中，导航到 DocumentDB 帐户，然后单击“密钥” 。 从门户复制 URI，并将其粘贴到 Program.java 文件的 `<your endpoint URI>` 中。 然后从门户复制主密钥，并将其粘贴到 `<your key>`中。
 
     this.client = new DocumentClient(
         "<your endpoint URI>",
@@ -92,9 +93,10 @@ ms.lasthandoff: 05/19/2017
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 
-![NoSQL 教程创建 Java 控制台应用程序时使用的 Azure 门户的屏幕截图。 显示了一个 DocumentDB 帐户，在“DocumentDB 帐户”边栏选项卡上突出显示了“ACTIVE”中心、“密钥”按钮，在“密钥”边栏选项卡上突出显示了 URI、主密钥、辅助密钥的值][keys]
+![NoSQL 教程创建 Java 控制台应用程序时使用的 Azure 门户的屏幕截图。 显示 DocumentDB 帐户，在“DocumentDB 帐户”边栏选项卡上突出显示“ACTIVE”中心、“键”按钮，在“键”边栏选项卡上突出显示 URI、主键、辅键的值][keys]
 
-## <a name="step-4-create-a-database"></a>第 4 步：创建数据库
+## 第 4 步：创建数据库
+<a id="step-4-create-a-database" class="xliff"></a>
 可以使用 **DocumentClient** 类的 [createDatabase](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDatabase-com.microsoft.azure.documentdb.Database-com.microsoft.azure.documentdb.RequestOptions-) 方法创建 DocumentDB [数据库](documentdb-resources.md#databases)。 数据库是跨集合分区的 JSON 文档存储的逻辑容器。
 
     Database database = new Database();
@@ -144,7 +146,7 @@ ms.lasthandoff: 05/19/2017
 ![说明 NoSQL 教程创建 Java 控制台应用程序所用帐户、联机数据库、集合和文档的层次关系的图表](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>步骤 7：查询 DocumentDB 资源
-DocumentDB 支持对存储在每个集合中的 JSON 文档进行[各种查询](documentdb-sql-query.md)。  以下示例代码演示了如何将 SQL 语法与 [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-) 方法一起使用来查询 DocumentDB 中的文档。
+DocumentDB 支持对存储在每个集合中的 JSON 文档进行各种 [查询](documentdb-sql-query.md) 。  以下示例代码演示如何使用 SQL 语法通过 [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-) 方法查询 DocumentDB 中的文档。
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
         "/dbs/familydb/colls/familycoll",
@@ -168,7 +170,7 @@ DocumentDB 支持使用 [replaceDocument](http://azure.github.io/azure-documentd
         null);
 
 ## <a id="DeleteDocument"></a>步骤 9：删除 JSON 文档
-DocumentDB 支持使用 [deleteDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#deleteDocument-java.lang.String-com.microsoft.azure.documentdb.RequestOptions-) 方法更新 JSON 文档。  
+同样，DocumentDB 支持使用 [deleteDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#deleteDocument-java.lang.String-com.microsoft.azure.documentdb.RequestOptions-) 方法删除 JSON 文档。  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
@@ -182,19 +184,19 @@ DocumentDB 支持使用 [deleteDocument](http://azure.github.io/azure-documentdb
     
     mvn package
 
-运行 `mvn package` 将从 Maven 下载最新的 DocumentDB 库，并生成 `GetStarted-0.0.1-SNAPSHOT.jar`。 然后，通过运行以下命令来运行该应用：
+运行 `mvn package` 从 Maven 下载最新的 DocumentDB 库，并生成 `GetStarted-0.0.1-SNAPSHOT.jar`。 然后，通过运行以下命令来运行该应用：
 
     mvn exec:java -D exec.mainClass=GetStarted.Program
 
 祝贺你！ 你已经完成本 NoSQL 教程，并且获得了一个可正常使用的 Java 控制台应用程序！
 
-## <a name="next-steps"></a>后续步骤
-- 需要 Java Web 应用教程？ 请参阅[通过 Java 构建使用 DocumentDB 的 Web 应用程序](documentdb-java-application.md)。
-- 了解如何[监视 DocumentDB 帐户](documentdb-monitor-accounts.md)。
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+- 需要 Java Web 应用教程？ 请参阅 [Build a web application with Java using DocumentDB](documentdb-java-application.md)（通过 Java 构建使用 DocumentDB 的 Web 应用程序）。
+- 了解如何 [监视 DocumentDB 帐户](documentdb-monitor-accounts.md)。
 - 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
 - 在 [DocumentDB 文档页](index.md)的“Develop”（开发）部分中了解有关编程模型的详细信息。
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
-
 

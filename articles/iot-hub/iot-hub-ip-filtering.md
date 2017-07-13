@@ -12,41 +12,44 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/07/2017
-ms.date: 05/08/2017
+origin.date: 05/23/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 6d7983aec3d8ec3150316ecb34992f58acb03c48
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.date: 07/10/2017
+ms.openlocfilehash: 745ef5db0631a065b2bdfa89d39695f565d0e9b8
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
-# <a name="use-ip-filters"></a>使用 IP 筛选器
+# 使用 IP 筛选器
+<a id="use-ip-filters" class="xliff"></a>
 
 安全性对于基于 Azure IoT 中心的任何 IoT 解决方案来说都是一个重要方面。 作为安全配置的一部分，有时需要显式指定设备可从其连接的 IP 地址。 使用 _IP 筛选器_功能，可以配置规则来拒绝或接受来自特定 IPv4 地址的流量。
 
-## <a name="when-to-use"></a>何时使用
+## 何时使用
+<a id="when-to-use" class="xliff"></a>
 
 对于需要阻止特定 IP 地址的 IoT 中心终结点的情况，有两个具体用例：
 
 - IoT 中心应仅从指定范围内的 IP 地址接收流量并拒绝任何其他流量。 例如，将 IoT 中心与 [Azure Express Route] 配合使用，以在 IoT 中心与本地基础结构之间创建专用连接。
 - 需要拒绝来自 IoT 中心管理员已标识为可疑地址的 IP 地址的流量。
 
-## <a name="how-filter-rules-are-applied"></a>筛选器规则的应用方式
+## 筛选器规则的应用方式
+<a id="how-filter-rules-are-applied" class="xliff"></a>
 
 在 IoT 中心服务级别应用 IP 筛选器规则。 因此，IP 筛选器规则适用于使用任意受支持协议和从设备和后端应用发出的所有连接。
 
 与 IoT 中心的拒绝 IP 规则匹配的 IP 地址发出的任何连接尝试都会收到“未授权”401 状态代码和说明。 响应消息不提及 IP 规则。
 
-## <a name="default-setting"></a>默认设置
+## 默认设置
+<a id="default-setting" class="xliff"></a>
 
 默认情况下，门户中针对 IoT 中心的“IP 筛选器”网格为空。 此默认设置意味着你的中心接受来自任何 IP 地址的连接。 此默认设置等效于接受 0.0.0.0/0 IP 地址范围的规则。
 
 ![IoT 中心默认 IP 筛选器设置][img-ip-filter-default]
 
-## <a name="add-or-edit-an-ip-filter-rule"></a>添加或编辑 IP 筛选器规则
+## 添加或编辑 IP 筛选器规则
+<a id="add-or-edit-an-ip-filter-rule" class="xliff"></a>
 
 添加 IP 筛选器规则时，系统会提示用户提供以下值：
 
@@ -67,13 +70,18 @@ ms.lasthandoff: 04/28/2017
 > [!NOTE]
 > 拒绝 IP 地址可以防止其他 Azure 服务（例如门户中的 Azure 流分析、Azure 虚拟机或设备资源管理器）与 IoT 中心交互。
 
-## <a name="delete-an-ip-filter-rule"></a>删除 IP 筛选器规则
+> [!WARNING]
+> 如果使用 Azure 流分析 (ASA) 并启用 IP 筛选从 IoT 中心读取消息，请在 ASA 连接字符串中使用与事件中心兼容的名称和 IoT 中心的终结点。
+
+## 删除 IP 筛选器规则
+<a id="delete-an-ip-filter-rule" class="xliff"></a>
 
 若要删除 IP 筛选器规则，请在网格中选择一个或多个规则，然后单击“删除”。
 
 ![删除 IoT 中心 IP 筛选规则][img-ip-filter-delete-rule]
 
-## <a name="ip-filter-rule-evaluation"></a>IP 筛选器规则评估
+## IP 筛选器规则评估
+<a id="ip-filter-rule-evaluation" class="xliff"></a>
 
 IP 筛选器规则按顺序应用，与 IP 地址匹配的第一条规则决定了是采取接受操作还是拒绝操作。
 
@@ -85,7 +93,8 @@ IP 筛选器规则按顺序应用，与 IP 地址匹配的第一条规则决定�
 
 ![更改 IoT 中心 IP 筛选规则的顺序][img-ip-filter-rule-order]
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 若要进一步探索 IoT 中心的功能，请参阅：
 

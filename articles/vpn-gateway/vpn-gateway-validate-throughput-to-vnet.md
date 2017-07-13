@@ -16,15 +16,14 @@ ms.workload: infrastructure-services
 origin.date: 04/10/2017
 ms.date: 05/22/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 2c5e8cd6eb3f24d018f95c293b5e3bf82c2722f3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 20fb72c6f184b15dbe8e137ea2a662f827520261
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>如何验证到达虚拟网络的 VPN 吞吐量
+# 如何验证到达虚拟网络的 VPN 吞吐量
+<a id="how-to-validate-vpn-throughput-to-a-virtual-network" class="xliff"></a>
 
 通过 VPN 网关连接，可以在 Azure 内的虚拟网络与本地 IT 基础结构之间创建安全的跨界连接。
 
@@ -35,7 +34,8 @@ ms.lasthandoff: 05/12/2017
 >
 >
 
-## <a name="overview"></a>概述
+## 概述
+<a id="overview" class="xliff"></a>
 
 VPN 网关连接涉及以下组件：
 
@@ -48,17 +48,19 @@ VPN 网关连接涉及以下组件：
 
 ![利用 VPN 建立的从客户网络至 MSFT 网络的逻辑连接](./media/vpn-gateway-validate-throughput-to-vnet/VPNPerf.png)
 
-## <a name="calculate-the-maximum-expected-ingressegress"></a>计算最大的预期流入/流出量
+## 计算最大的预期流入/流出量
+<a id="calculate-the-maximum-expected-ingressegress" class="xliff"></a>
 
-1.    确定应用程序的基准吞吐量需求。
-2.    确定 Azure VPN 网关的吞吐量限制。 有关帮助，请参阅[规划和设计 VPN 网关](vpn-gateway-plan-design.md)的“按 SKU 和 VPN 类型列出的聚合吞吐量”部分。
-3.    确定与 VM 大小相应的 [Azure VM 吞吐量指南](../virtual-machines/virtual-machines-windows-sizes.md)。
-4.    确定 Internet 服务提供商 (ISP) 的带宽。
-5.    计算预期吞吐量 -（VM、网关、ISP）的最小带宽 * 0.8。
+1.  确定应用程序的基准吞吐量需求。
+2.  确定 Azure VPN 网关的吞吐量限制。 有关帮助，请参阅[规划和设计 VPN 网关](vpn-gateway-plan-design.md)的“按 SKU 和 VPN 类型列出的聚合吞吐量”部分。
+3.  确定与 VM 大小相应的 [Azure VM 吞吐量指南](../virtual-machines/virtual-machines-windows-sizes.md)。
+4.  确定 Internet 服务提供商 (ISP) 的带宽。
+5.  计算预期吞吐量 -（VM、网关、ISP）的最小带宽 * 0.8。
 
 如果计算得出的吞吐量无法满足应用程序的基准吞吐量需求，则需提高已被确定为瓶颈的资源的带宽。 若要调整 Azure VPN 网关的大小，请参阅[更改网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。 若要调整虚拟机的大小，请参阅[调整 VM 的大小](../virtual-machines/virtual-machines-windows-resize-vm.md)。 如果 Internet 的带宽不及预期，可能还需要联系 ISP。
 
-## <a name="validate-network-throughput-by-using-performance-tools"></a>使用性能工具验证网络吞吐量
+## 使用性能工具验证网络吞吐量
+<a id="validate-network-throughput-by-using-performance-tools" class="xliff"></a>
 
 此验证应在非高峰时段执行，因为测试期间的 VPN 隧道吞吐量饱和度无法给出准确的结果。
 
@@ -66,7 +68,8 @@ VPN 网关连接涉及以下组件：
 
 此工具不会对磁盘执行任何读/写操作。 它只会生成从一端至另一端的自生成 TCP 流量。 它已生成的统计信息基于各种旨在测量客户端和服务器节点间可用带宽的试验。 在两个节点间进行测试时，一个节点充当服务器，另一个则充当客户端。 完成此测试后，建议对调两个节点的角色，以测试它们的上传和下载吞吐量。
 
-### <a name="download-iperf"></a>下载 iPerf
+### 下载 iPerf
+<a id="download-iperf" class="xliff"></a>
 下载 [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip)。 有关详情，请参阅 [iPerf 文档](https://iperf.fr/iperf-doc.php)。
 
  >[!NOTE]
@@ -74,7 +77,8 @@ VPN 网关连接涉及以下组件：
  >
  >
 
-### <a name="run-iperf-iperf3exe"></a>运行 iPerf (iperf3.exe)
+### 运行 iPerf (iperf3.exe)
+<a id="run-iperf-iperf3exe" class="xliff"></a>
 1. 启用允许流量的 NSG/ACL 规则（适用于在 Azure VM 上进行公共 IP 地址测试）。
 
 2. 在两个节点上，为端口 5001 启用防火墙例外。
@@ -121,24 +125,28 @@ VPN 网关连接涉及以下组件：
 
 6. 完成上述步骤后，请调换角色以使服务器节点变为客户端节点（反之亦然），然后执行相同的步骤。
 
-## <a name="address-slow-file-copy-issues"></a>解决文件复制速度缓慢问题
+## 解决文件复制速度缓慢问题
+<a id="address-slow-file-copy-issues" class="xliff"></a>
 在使用 Windows 资源管理器时，或者在通过 RDP 会话进行拖放时，文件的复制速度可能会很缓慢。 此问题通常是由以下的一个或两个因素造成的：
 
 - 文件复制应用程序（如 Windows 资源管理器和 RDP）在复制文件时没有使用多个线程。 为了提高性能，请通过多线程文件复制应用程序（如 [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx)）使用 16 或 32 个线程来复制文件。 若要更改 Richcopy 中的文件复制线程数目，请单击“操作” > “复制选项” > “文件复制”。<br><br>
 ![文件复制速度缓慢问题](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - VM 磁盘读/写速度不够快。 有关详细信息，请参阅 [Azure 存储故障排除](../storage/storage-e2e-troubleshooting.md)。
 
-## <a name="on-premises-device-external-facing-interface"></a>本地设备上的对外接口
+## 本地设备上的对外接口
+<a id="on-premises-device-external-facing-interface" class="xliff"></a>
 如果 Azure 中的[本地网络](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway)定义中包含本地 VPN 设备面向 Internet 的 IP 地址，则可能会出现 VPN 无法显示、偶发性断连或性能问题。
 
-## <a name="checking-latency"></a>检查延迟
+## 检查延迟
+<a id="checking-latency" class="xliff"></a>
 请使用 tracert 跟踪 Azure 边缘设备，以确定跃点间是否存在任何超过 100 毫秒的延迟。
 
 通过本地网络，针对 Azure 网关或 VM 的 VIP 运行 *tracert*。 当看到只返回了 *，则代表已到达 Azure 的边缘。 如果看到返回了包含“MSN”的 DNS 名称，则代表已到达 Microsoft 的主干。<br><br>
 ![检查延迟](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 有关详细信息或帮助，请查看以下链接：
 
 - [优化 Azure 虚拟机网络吞吐量](../virtual-network/virtual-network-optimize-network-bandwidth.md)
-- [Azure.cn 支持部门](https://www.azure.cn/support/contact/)
+- [Azure.cn 支持](https://www.azure.cn/support/contact/)

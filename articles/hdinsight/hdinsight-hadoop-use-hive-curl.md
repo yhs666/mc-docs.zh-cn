@@ -17,15 +17,14 @@ ms.workload: big-data
 origin.date: 04/14/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: ff16f1e2766eaf0d733d5eac15cdacd61d1706b0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 7fcd0dc67759f38862bd0834f7af05865412eea2
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>使用 REST 在 HDInsight 中通过 Hadoop 运行 Hive 查询
+# 使用 REST 在 HDInsight 中通过 Hadoop 运行 Hive 查询
+<a id="run-hive-queries-with-hadoop-in-hdinsight-using-rest" class="xliff"></a>
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
@@ -57,18 +56,20 @@ ms.lasthandoff: 04/28/2017
 
     此命令中使用的参数如下：
 
-    * **-u** - 用来对请求进行身份验证的用户名和密码。
-    * **-G** - 指示此请求是一个 GET 操作。
+   * **-u** - 用来对请求进行身份验证的用户名和密码。
+   * **-G** - 指示此请求是一个 GET 操作。
 
-    所有请求的 URL 开头都是 **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**。 路径 **/status** 指示请求将返回服务器的 WebHCat（也称为 Templeton）状态。 你还可以通过使用以下命令请求 Hive 的版本：
+     所有请求的 URL 开头都是 **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**。 路径 **/status** 指示请求将返回服务器的 WebHCat（也称为 Templeton）状态。 你还可以通过使用以下命令请求 Hive 的版本：
 
     ```bash
     curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/version/hive
     ```
 
-    此请求返回的响应类似于以下文本：
+     此请求返回的响应类似于以下文本：
 
-        {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    ```
+    {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    ```
 
 2. 使用以下命令创建名为 **log4jLogs** 的表：
 
@@ -78,34 +79,34 @@ ms.lasthandoff: 04/28/2017
 
     以下参数与此请求配合使用：
 
-    * **-d** - 由于未使用 `-G`，请求将按默认使用 POST 方法。 `-d` 指定与请求一起发送的数据值。
+   * **-d** - 由于未使用 `-G`，请求将按默认使用 POST 方法。 `-d` 指定与请求一起发送的数据值。
 
-        * **user.name** - 正在运行命令的用户。
-        * **execute** - 要执行的 HiveQL 语句。
-        * **statusdir** - 此作业的状态要写入到的目录。
+     * **user.name** - 正在运行命令的用户。
+     * **execute** - 要执行的 HiveQL 语句。
+     * **statusdir** - 此作业的状态要写入到的目录。
 
-        这些语句将执行以下操作：
-    * **DROP TABLE** - 如果表已存在，则删除该表。
-    * **CREATE EXTERNAL TABLE**：在 Hive 中创建新的“外部”表。 外部表仅在 Hive 中存储表定义。 数据将保留在原始位置。
+     这些语句将执行以下操作：
+   * **DROP TABLE** - 如果表已存在，则删除该表。
+   * **CREATE EXTERNAL TABLE**：在 Hive 中创建新的“外部”表。 外部表仅在 Hive 中存储表定义。 数据将保留在原始位置。
 
-        > [!NOTE]
-        > 如果希望通过外部源更新基础数据，应使用外部表。 例如，使用自动化数据上传过程或其他 MapReduce 操作。
-        >
-        > 删除外部表**不会**删除数据，只会删除表定义。
+     > [!NOTE]
+     > 如果希望通过外部源更新基础数据，应使用外部表。 例如，使用自动化数据上传过程或其他 MapReduce 操作。
+     >
+     > 删除外部表**不会**删除数据，只会删除表定义。
 
-    * **ROW FORMAT** - 如何设置数据的格式。 每个日志中的字段都用空格分隔。
-    * **STORED AS TEXTFILE LOCATION** - 数据的存储位置（example/data 目录），以及数据已存储为文本。
-    * **SELECT** - 选择第 **t4** 列包含值 **[ERROR]** 的所有行的计数。 此语句返回的值为 **3**，因为有三行包含此值。
+   * **ROW FORMAT** - 如何设置数据的格式。 每个日志中的字段都用空格分隔。
+   * **STORED AS TEXTFILE LOCATION** - 数据的存储位置（example/data 目录），以及数据已存储为文本。
+   * **SELECT** - 选择第 **t4** 列包含值 **[ERROR]** 的所有行的计数。 此语句返回的值为 **3**，因为有三行包含此值。
 
-        > [!NOTE]
-        > 请注意，在与 Curl 配合使用时，将用 `+` 字符替换 HiveQL 语句之间的空格。 如果带引号的值包含空格（例如分隔符），则不应替换为 `+`。
+     > [!NOTE]
+     > 请注意，在与 Curl 配合使用时，将用 `+` 字符替换 HiveQL 语句之间的空格。 如果带引号的值包含空格（例如分隔符），则不应替换为 `+`。
 
-    * **INPUT__FILE__NAME LIKE '%25.log'** - 此语句对搜索设置了限制，仅使用以 .log 结尾的文件。
-    
-        > [!NOTE]
-        > `%25` 是 % 的 URL 编码形式，因此实际条件是 `like '%.log'`。 % 必须是 URL 编码的，因为系统将其视为 URL 中的特殊字符。
+   * **INPUT__FILE__NAME LIKE '%25.log'** - 此语句对搜索设置了限制，仅使用以 .log 结尾的文件。
 
-        此命令应会返回可用来检查作业状态的作业 ID。
+     > [!NOTE]
+     > `%25` 是 % 的 URL 编码形式，因此实际条件是 `like '%.log'`。 % 必须是 URL 编码的，因为系统将其视为 URL 中的特殊字符。
+
+     此命令应会返回可用来检查作业状态的作业 ID。
 
             {"id":"job_1415651640909_0026"}
 
@@ -119,8 +120,8 @@ ms.lasthandoff: 04/28/2017
 
     如果作业已完成，状态将是 **SUCCEEDED**。
 
-    > [!NOTE]
-    > 此 Curl 请求返回含有作业相关信息的 JavaScript 对象表示法 (JSON) 文档。 jq 用于仅检索状态值。
+   > [!NOTE]
+   > 此 Curl 请求返回含有作业相关信息的 JavaScript 对象表示法 (JSON) 文档。 Jq 用于仅检索状态值。
 
 4. 在作业的状态更改为“SUCCEEDED”后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置；在本例中，位置为 **/example/curl**。 此地址在群集默认存储的 **example/curl** 目录中存储输出。
 
@@ -134,14 +135,14 @@ ms.lasthandoff: 04/28/2017
 
     这些语句将执行以下操作：
 
-    * **CREATE TABLE IF NOT EXISTS** - 创建表（如果该表不存在）。 此语句创建内部表，该表存储在 Hive 数据仓库中，并完全由 Hive 管理。
+   * **CREATE TABLE IF NOT EXISTS** - 创建表（如果该表不存在）。 此语句创建内部表，该表存储在 Hive 数据仓库中，并完全由 Hive 管理。
 
-        > [!NOTE]
-        > 与外部表不同，删除内部表会同时删除基础数据。
+     > [!NOTE]
+     > 与外部表不同，删除内部表会同时删除基础数据。
 
-    * **STORED AS ORC** - 以优化行纵栏表 (ORC) 格式存储数据。 ORC 是高度优化且有效的 Hive 数据存储格式。
-    * **INSERT OVERWRITE ...SELECT** - 从包含 **[ERROR]** 的 **log4jLogs** 表中选择行，然后将数据插入 **errorLogs** 表中。
-    * **SELECT** - 选择新 **errorLogs** 表中的所有行。
+   * **STORED AS ORC** - 以优化行纵栏表 (ORC) 格式存储数据。 ORC 是高度优化且有效的 Hive 数据存储格式。
+   * **INSERT OVERWRITE ...SELECT** - 从包含 **[ERROR]** 的 **log4jLogs** 表中选择行，然后将数据插入 **errorLogs** 表中。
+   * **SELECT** - 选择新 **errorLogs** 表中的所有行。
 
 6. 使用返回的作业 ID 检查作业的状态。 成功后，如前所述使用 Azure CLI 下载并查看结果。 输出应包含三行，其中所有行都包含 **[ERROR]**。
 
@@ -177,9 +178,8 @@ ms.lasthandoff: 04/28/2017
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-

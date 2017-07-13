@@ -13,14 +13,14 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: f20346574f2f5a516dcdff7ef1e4ec8239dc72de
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 7129604f50ce325fe044fda4cd32556814aa0e0b
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="virtual-network-documentation"></a>虚拟网络文档
+# 虚拟网络文档
+<a id="virtual-network-documentation" class="xliff"></a>
 
 了解如何使用虚拟网络 (VNet)，即网络在云中的逻辑表示形式。 文档演示如何设置和管理 VNet、使用它启动虚拟机或云服务、将 VNet 连接到本地网络以及将网络扩展到云，同时保持对资源进行控制。
 

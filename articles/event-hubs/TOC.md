@@ -1,5 +1,6 @@
 # 概述
 ## [什么是事件中心？](event-hubs-what-is-event-hubs.md)
+## [事件中心功能](event-hubs-features.md)
 ## [常见问题](event-hubs-faq.md)
 
 # 入门
@@ -25,6 +26,7 @@
 ### [可用 API](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET framework](event-hubs-dotnet-framework-api-overview.md)
+<!-- Not Available #### [Diagnostic logs](event-hubs-diagnostic-logs.md) -->
 ### [身份验证和授权](../service-bus-messaging/service-bus-sas.md)
 ### [AMQP 1.0 协议指南](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## 管理

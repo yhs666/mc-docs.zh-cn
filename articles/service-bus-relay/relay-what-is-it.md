@@ -12,16 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-origin.date: 03/09/2017
-ms.date: 07/07/2017
+ms.date: 03/09/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 8cd5cb50acfb0df43d35423ac81e025d45e49849
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: c908c4c9fd11cbee2f8ce4aba24f1176a6441e50
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="what-is-azure-relay"></a>什么是 Azure 中继？
 Azure 中继服务简化了混合应用程序，通过允许安全地向公有云公开位于企业网络内的服务，无需打开防火墙连接，也无需对企业网络基础结构进行彻底更改。 中继支持各种不同的传输协议和 Web 服务标准。
@@ -62,5 +59,4 @@ WCF 中继适用于整个 .NET Framework (NETFX) 和 WCF。 可以使用一套 W
 * [创建命名空间](./relay-create-namespace-portal.md)
 * [.NET 入门](./relay-hybrid-connections-dotnet-get-started.md)
 * [节点入门](./relay-hybrid-connections-node-get-started.md)
-
 

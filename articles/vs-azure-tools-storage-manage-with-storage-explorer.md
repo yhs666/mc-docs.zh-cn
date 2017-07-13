@@ -15,12 +15,11 @@ ms.workload: na
 origin.date: 11/18/2016
 ms.author: v-junlch
 ms.date: 06/16/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 41e64c2d0852e6f6e6685575055f4ed7016935ac
-ms.openlocfilehash: c5dc7915ac47a32c1eb577cd596321fc0b2d17c0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: 020b0d5f042d5f94cc0b5f38c7c86b6b32c51d37
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="getting-started-with-storage-explorer-preview"></a>存储资源管理器（预览版）入门
 ## <a name="overview"></a>概述
@@ -40,10 +39,11 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
 - [使用 SAS 附加存储帐户](#attach-storage-account-using-sas) - 使用 SAS 管理属于另一 Azure 订阅的存储资源。
 - [使用 SAS 附加服务](#attach-service-using-sas) - 使用 SAS 管理属于另一 Azure 订阅的特定存储服务（Blob 容器、队列或表）。
 
-## 连接到 Azure 订阅 <a name="connect-to-an-azure-subscription"></a>
-
+## <a name="connect-to-an-azure-subscription"></a>连接到 Azure 订阅
 > [!NOTE]
-> 如果没有 Azure 帐户，可以[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+> 如果没有 Azure 帐户，可以注册[试用版](http://www.azure.cn/pricing/1rmb-trial)。
+>
+>
 
 1. 在存储资源管理器（预览版）中，选择“Azure 帐户设置”。
 
@@ -217,5 +217,4 @@ Azure 订阅管理员可以临时通过 [SAS（共享访问签名）](storage/st
 [29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
 [30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
 [31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
-
 

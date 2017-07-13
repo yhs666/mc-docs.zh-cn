@@ -1,6 +1,6 @@
 ---
-title: "DocumentDB 索引策略 | Microsoft Docs"
-description: "了解如何在 DocumentDB 中为工作编制索引。 了解如何配置和更改索引策略，实现自动索引并提高性能。"
+title: "DocumentDB 索引策略| Microsoft Docs"
+description: "了解 DocumentDB 中索引的工作原理。 了解如何配置和更改索引策略，实现自动索引并提高性能。"
 keywords: "索引工作原理, 自动索引, 索引数据库"
 services: documentdb
 documentationcenter: 
@@ -16,17 +16,16 @@ ms.workload: data-services
 origin.date: 04/25/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 1219d2a8d74c4bbb1ab854ddba1353ea125b7716
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 8ba05a9ffd09509f8a0586556240c887ec4ae9df
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="how-does-azure-documentdb-index-data"></a>DocumentDB 如何为数据编制索引？
+# DocumentDB 如何为数据编制索引？
+<a id="how-does-documentdb-index-data" class="xliff"></a>
 
-默认情况下为所有 DocumentDB 数据编制索引。 尽管许多客户都愿意让 DocumentDB 自动处理索引的方方面面，但 DocumentDB 还支持在创建过程中为集合指定自定义索引策略。 与其他数据库平台中提供的辅助索引相比，DocumentDB 中的索引策略更加灵活且功能强大，因为它们允许设计和自定义索引形状，无需牺牲架构的灵活性。 若要了解 DocumentDB 中的索引工作原理，必须通过管理索引策略进行了解，可以在索引存储开销、写入和查询吞吐量以及查询一致性之间进行细化权衡。  
+默认情况下为所有 DocumentDB 数据编制索引。 尽管许多客户都愿意让 DocumentDB 自动处理索引的方方面面，但 DocumentDB 还支持在创建过程中为集合指定自定义**索引策略**。 与其他数据库平台中提供的辅助索引相比，DocumentDB 中的索引策略更加灵活且功能强大，因为它们允许你设计和自定义索引形状，无需牺牲架构的灵活性。 若要了解 DocumentDB 中索引的工作原理，必须通过管理索引策略进行了解，你可以在索引存储开销、写入和查询吞吐量以及查询一致性之间进行细化权衡。  
 
 **如何在 DocumentDB 中为每个数据模型编制数据索引？**
 
@@ -35,9 +34,9 @@ ms.lasthandoff: 05/19/2017
 |索引选项|使用默认值，并为所有数据编制索引。 <br><br> 或者[创建自定义索引策略](#CustomizingIndexingPolicy)。|
 |索引模式|[一致、延迟或无](#indexing-modes)。|
 
-本文中将详细介绍 DocumentDB 索引策略、自定义索引策略的方法和相关的权衡方案。 
+在本文中，我们将仔细研究 DocumentDB 索引策略、自定义索引策略的方法和相关的权衡方案。 
 
-阅读本文后，将能够回答以下问题：
+阅读本文之后，你将能够回答以下问题：
 
 - 如何重写属性以包括在索引中或从索引中排除？
 - 如何为最终更新配置索引？
@@ -72,9 +71,9 @@ ms.lasthandoff: 05/19/2017
 ### <a id="indexing-modes"></a>数据库索引模式
 DocumentDB 支持三种索引模式，可通过索引策略对 DocumentDB 集合进行配置：一致、延迟和无。
 
-一致：如果将 DocumentDB 集合的策略指定为“一致”，针对指定 DocumentDB 集合的查询将按照为点读取指定的一致性级别进行（即强、有限过期性、会话或最终）。 索引会在文档更新（即插入、替换、更新和删除 DocumentDB 集合中的文档）过程中进行同步更新。  一致索引支持一致的查询，但代价是可能降低写入吞吐量。 这种减少受需要索引的唯一路径和“一致性级别”的影响。 一致的索引模式适用于“快速写入、立即查询”工作负荷。
+**一致**：如果将 DocumentDB 集合的策略指定为“一致”，针对给定 DocumentDB 集合的查询将按照为点读取指定的一致性级别进行（即强、有限过期性、会话或最终）。 索引会作为文档更新（即插入、替换、更新和删除 DocumentDB 集合中的文档）的一部分进行同步更新。  一致索引支持一致的查询，但代价是可能降低写入吞吐量。 这种减少受需要索引的唯一路径和“一致性级别”的影响。 一致的索引模式适用于“快速写入、立即查询”工作负荷。
 
-延迟：若要实现最大的文档引入吞吐量，可为 DocumentDB 集合配置延迟一致性；也就是说，查询最终是一致的。 DocumentDB 集合处于静止状态时（即为用户请求提供服务时没有完全利用集合的吞吐量），索引将以异步方式更新。 对于需要无阻碍文档引入的“现在引入、稍后查询”工作负荷，可能适合“延迟”索引模式。
+**延迟**︰若要实现最大的文档引入吞吐量，可为 DocumentDB 集合配置延迟一致性；也就是说，查询最终是一致的。 DocumentDB 集合处于静止状态时（即为用户请求提供服务时没有完全利用集合的吞吐量），将以异步方式更新索引。 对于需要无阻碍文档引入的“现在引入、稍后查询”工作负荷，可能适合“延迟”索引模式。
 
 **无**︰索引模式标记为“无”的集合没有与之关联的索引。 如果 DocumentDB 用作键值存储，并且只通过其 ID 属性访问文档，则通常使用该模式。 
 
@@ -83,7 +82,7 @@ DocumentDB 支持三种索引模式，可通过索引策略对 DocumentDB 集合
 > 
 > 
 
-下面的示例演示如何使用 .NET SDK 借助针对所有文档插入的一致自动索引创建 DocumentDB 集合。
+下面的示例演示了如何使用 .NET SDK 借助针对所有文档插入的一致自动索引创建 DocumentDB 集合。
 
 下表显示了基于为集合配置的索引模式（一致和延迟）和为查询请求指定的一致性级别进行的查询的一致性。 这适用于使用任何接口（REST API、SDK 或在存储过程和触发器中）进行的查询。 
 
@@ -117,7 +116,8 @@ DocumentDB 返回在“无”索引模式下对集合进行查询的错误。 �
      collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("mydb"), collection);
 
 
-### <a name="index-paths"></a>索引路径
+### 索引路径
+<a id="index-paths" class="xliff"></a>
 DocumentDB 将 JSON 文档和索引建模为树形，从而可以针对树中的路径调整策略。 在这些文档中，可以选择必须包括在索引中或从索引中排除的路径。 如果事先已知查询模式，这可以提高写入性能并减少方案所需的索引存储。
 
 索引路径以根 (/) 开头，并常以 ?  通配符运算符结尾，表示前缀存在多个可能的值。 例如，对于 SELECT * FROM Families F WHERE F.familyName = "Andersen"，必须在集合的索引策略中包含 /familyName/?  的索引路径。
@@ -164,15 +164,17 @@ DocumentDB 将 JSON 文档和索引建模为树形，从而可以针对树中的
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
 
 
-### <a name="index-data-types-kinds-and-precisions"></a>索引数据类型、种类和精度
+### 索引数据类型、种类和精度
+<a id="index-data-types-kinds-and-precisions" class="xliff"></a>
 现在，我们已经介绍了如何指定路径，让我们来讨论配置路径的索引策略时可以使用的选项。 可以为每个路径指定一个或多个索引定义：
 
 - 数据类型：String、Number、Point、Polygon 或 LineString（每个路径每种数据类型只能包含一个条目）
 - 索引种类：“哈希”（等式查询）、“范围”（等式、范围或 Order By 查询）或“空间”（空间查询） 
 - 精度：对于数字为 1-8 或 -1（最大精度），对于字符串为 1-100（最大精度）
 
-#### <a name="index-kind"></a>索引种类
-DocumentDB 针对每个路径都支持哈希和范围索引种类（即可以配置为字符串、数字或两者）。
+#### 索引种类
+<a id="index-kind" class="xliff"></a>
+DocumentDB 针对每个路径都支持哈希和范围索引类型（即可以配置为字符串、数值或两者）。
 
 - **哈希** 支持高效的等式查询和联接查询。 在大多数用例下，哈希索引需要的精度不会高于 3 个字节的默认值。 DataType 可以是 String 或 Number。
 - “范围”支持高效的等式查询、范围查询（使用 >、<、>=、<=、!=）和 Order By 查询。 默认情况下，Order By 查询还需要最大索引精度 (-1)。 DataType 可以是 String 或 Number。
@@ -182,7 +184,7 @@ DocumentDB 还支持每个路径的空间索引种类，可为 Point、Polygon �
 - “空间”支持高效的空间（在其中和距离）查询。 DataType 可以是 Point、Polygon 或 LineString。
 
 > [!NOTE]
-> DocumentDB 支持 Point、Polygon 和 LineString 的自动索引。
+> DocumentDB 支持 Points、Polygons 和 LineStrings 的自动索引。
 > 
 > 
 
@@ -198,7 +200,8 @@ DocumentDB 还支持每个路径的空间索引种类，可为 Point、Polygon �
 
 空间查询的规则相同。 默认情况下，如果没有空间索引，并且索引中没有其他筛选器可以使用，则空间查询会返回错误。 可以使用 x-ms-documentdb-enable-scan/EnableScanInQuery 以扫描方式执行空间索引。
 
-#### <a name="index-precision"></a>索引精度
+#### 索引精度
+<a id="index-precision" class="xliff"></a>
 索引精度让你可以在索引存储开销和查询性能之间做出权衡。 对于数字，建议使用默认精度配置 -1（“最大”）。 由于数字是 JSON 格式的 8 个字节，这相当于 8 个字节的配置。 选择较低值的精度（如 1-7）意味着在某些范围内的值会映射到相同的索引条目。 因此，你可以降低索引存储空间，但查询执行可能需要处理更多文档，并因此占用更大的吞吐量，即请求单位。
 
 索引精度配置对于字符串范围更加实用。 由于字符串可以是任意长度，索引精度的选择可影响字符串范围查询的性能，并且影响所需的索引存储空间量。 字符串范围索引可以配置为 1-100 或 -1（“最大”）。 如果想要对字符串属性执行 Order By 查询，则必须为相应路径指定精度 -1。
@@ -232,7 +235,8 @@ DocumentDB 还支持每个路径的空间索引种类，可为 Point、Polygon �
 
 
 
-## <a name="opting-in-and-opting-out-of-indexing"></a>选择包括在索引中和从索引中排除
+## 选择包括在索引中和从索引中排除
+<a id="opting-in-and-opting-out-of-indexing" class="xliff"></a>
 可以选择是否让集合自动为所有文档编制索引。 默认情况下，为所有文档自动编制索引，但你可以选择关闭该功能。 关闭索引功能后，只能通过本身的链接或通过使用 ID 进行查询的方法访问文档。
 
 关闭自动索引后，你仍然可以选择性地只将特定的文档添加到索引中。 相反，可以保留自动索引，并选择只排除特定的文档。 当只需要查询一个文档子集时，索引开/关配置非常有用。
@@ -246,24 +250,25 @@ DocumentDB 还支持每个路径的空间索引种类，可为 Point、Polygon �
         new { id = "AndersenFamily", isRegistered = true },
         new RequestOptions { IndexingDirective = IndexingDirective.Include });
 
-## <a name="modifying-the-indexing-policy-of-a-collection"></a>修改集合的索引策略
-使用 DocumentDB 可动态更改集合的索引策略。 更改 DocumentDB 集合的索引策略可能导致索引形状改变，包括可编制索引的路径、其精度以及索引本身的一致性模型。 因此，索引策略的更改实际上要求将旧索引转换为新索引。 
+## 修改集合的索引策略
+<a id="modifying-the-indexing-policy-of-a-collection" class="xliff"></a>
+DocumentDB 允许你动态更改集合的索引策略。 更改 DocumentDB 集合的索引策略可能导致索引形状改变，包括可编制索引的路径、其精度以及索引本身的一致性模型。 因此，索引策略的更改实际上要求将旧索引转换为新索引。 
 
 **联机索引转换**
 
-![索引工作原理 - DocumentDB 联机索引转换](./media/documentdb-indexing-policies/index-transformations.png)
+![索引工作原理 — DocumentDB 联机索引转换](./media/documentdb-indexing-policies/index-transformations.png)
 
 在联机状态下执行索引转换，这意味着按照旧策略索引的文档可以按照新策略有效转换， **而不会影响集合的写入可用性或预配的吞吐量** 。 在索引转换过程中，使用 REST API、SDK 或在存储的过程和触发器中执行读取和写入操作的一致性不会受到影响。 这就意味着，在更改索引策略时，你的应用程序的性能不会下降，也没有停机时间。
 
 但是，无论索引模式配置如何（一致或延迟），在执行索引转换期间查询始终一致。 这同样适用于所有接口（REST API、SDK 或从存储过程和触发器中）发出的查询。 与延迟索引一样，使用特定副本可用的备用资源在后台以异步方式对副本执行索引转换。 
 
-索引转换还会就地进行，即 DocumentDB 不维护索引的两个副本，而是用新索引代替旧索引。 这意味着，执行索引转换时集合中不需要也不占用额外的磁盘空间。
+索引转换还会**就地**进行，即 DocumentDB 不维护索引的两个副本，而是用新索引代替旧索引。 这意味着，执行索引转换时集合中不需要也不占用额外的磁盘空间。
 
 更改索引策略时，与其他值（如包括/排除的路径、索引种类和精度）相比，如何应用更改以将旧索引转换为新索引主要取决于索引模式配置。 如果新旧策略都使用一致的索引，则 DocumentDB 执行联机索引转换。 进行转换时，不能在一致索引模式下应用另一个索引策略更改。
 
 但是在进行转换时，可以切换到延迟或无索引模式。 
 
-- 切换到延迟模式时，索引策略更改立即生效，并且 DocumentDB 开始以异步方式重新创建索引。 
+- 当切换到延迟模式时，索引策略更改立即生效，并且 DocumentDB 开始以异步方式重新创建索引。 
 - 当切换到无模式时，索引会立即删除。 当想要取消正在进行的转换，并开始使用不同的索引策略时，切换到无模式非常有用。 
 
 如果使用 .NET SDK，则可以使用新的 ReplaceDocumentCollectionAsync 方法进行索引策略更改，并利用从 ReadDocumentCollectionAsync 调用中获得的 IndexTransformationProgress 响应属性跟踪索引转换的百分比进度。 其他 SDK 和 REST API 支持使用等效属性和方法进行索引策略更改。
@@ -322,7 +327,8 @@ DocumentDB 还支持每个路径的空间索引种类，可为 Point、Polygon �
 > 
 > 
 
-## <a name="performance-tuning"></a>性能调优
+## 性能调优
+<a id="performance-tuning" class="xliff"></a>
 DocumentDB API 提供有关性能指标的信息，如所用的索引存储以及每次操作的吞吐量成本（请求单位）。 此信息可用于比较各种索引策略和优化性能。
 
 若要检查存储配额和集合用法，请针对集合资源运行 HEAD 或 GET 请求，并检查 x-ms-request-quota 和 x-ms-request-usage 标头。 在 .NET SDK 中，[ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) 中的 [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) 和 [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) 属性包含这些相应的值。
@@ -352,7 +358,8 @@ DocumentDB API 提供有关性能指标的信息，如所用的索引存储以�
 
      Console.WriteLine("Query consumed {0} request units in total", totalRequestCharge);
 
-## <a name="changes-to-the-indexing-policy-specification"></a>对索引策略规范的更改
+## 对索引策略规范的更改
+<a id="changes-to-the-indexing-policy-specification" class="xliff"></a>
 在 REST API 2015-06-03 版本中，于 2015 年 7 月 7 日对索引策略的架构进行了更改。 SDK 版本中的相应类具有与架构匹配的新实现。 
 
 JSON 规范中实现了以下更改：
@@ -414,12 +421,12 @@ JSON 规范中实现了以下更改：
        ]
     }
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 通过下面的链接查看索引策略管理示例，并了解有关 DocumentDB 的查询语言的详细信息。
 
 1. [DocumentDB .NET 索引管理代码示例](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [DocumentDB REST API 集合操作](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [使用 DocumentDB SQL 进行查询](documentdb-sql-query.md)
-
 
 

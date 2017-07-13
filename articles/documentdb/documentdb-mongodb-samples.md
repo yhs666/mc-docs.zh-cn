@@ -1,5 +1,5 @@
 ---
-title: "使用 MongoDB API 生成 DocumentDB 应用 | Microsoft Docs"
+title: "使用 MongoDB API 构建 DocumentDB 应用 | Microsoft Docs"
 description: "使用 MongoDB 的 DocumentDB API 创建联机数据库的 N 教程。"
 keywords: "mongodb 示例"
 services: documentdb
@@ -16,15 +16,14 @@ ms.topic: article
 origin.date: 04/27/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 28fba4297c8342fdfeaf04deeb90d089e8a07125
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: eed5e42ee78ddf4eb05e1d81aa01d293ae2b328a
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="build-an-azure-documentdb-api-for-mongodb-app-using-nodejs"></a>使用 Node.js 生成 DocumentDB: API for MongoDB 应用
+# 使用 Node.js 生成 DocumentDB：MongoDB 应用的 API
+<a id="build-a-documentdb-api-for-mongodb-app-using-nodejs" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -35,14 +34,15 @@ ms.lasthandoff: 05/19/2017
 >  
 >
 
-此示例说明如何使用 Node.js 生成 DocumentDB: API for MongoDB 控制台应用。
+此示例说明如何使用 Node.js 生成 DocumentDB：MongoDB 控制台应用的 API。
 
 若要使用此示例，必须：
 
-- [创建](documentdb-create-account.md) DocumentDB: API for MongoDB 帐户。
+- [创建](documentdb-create-account.md)一个 DocumentDB: API for MongoDB 帐户。
 - 检索 MongoDB [连接字符串](documentdb-connect-mongodb-account.md)信息。
 
-## <a name="create-the-app"></a>创建应用程序
+## 创建应用程序
+<a id="create-the-app" class="xliff"></a>
 
 1. 创建 app.js 文件，并复制粘贴以下代码。
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 05/19/2017
      
 3. 打开偏爱的终端，运行 **npm install mongodb --save**，然后使用 **node app.js** 运行应用程序
 
-## <a name="next-steps"></a>后续步骤
-- 了解如何[将 MongoChef 用于](documentdb-mongodb-mongochef.md) DocumentDB: API for MongoDB 帐户。
-
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+- 了解如何配合 DocumentDB：MongoDB 帐户的 API [使用 MongoChef](documentdb-mongodb-mongochef.md)。
 

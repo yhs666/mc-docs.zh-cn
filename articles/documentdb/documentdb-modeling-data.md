@@ -1,6 +1,6 @@
 ---
 title: "DocumentDB 中的数据建模 | Microsoft Docs"
-description: "了解如何为 DocumentDB 这种全局分布式多模型数据库进行数据建模。"
+description: "了解如何为 DocumentDB 这种全球分布式多模型数据库进行数据建模。"
 keywords: "数据建模"
 services: documentdb
 author: arramac
@@ -16,16 +16,15 @@ ms.topic: article
 origin.date: 01/03/2016
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 7ee042fded4dae771776d3c67a01dd402e84a7e7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: d6e09594d80bbc660df01db707cb0514403b9f53
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="modeling-data-in-azure-documentdb"></a>DocumentDB 中的数据建模
-尽管无架构的数据库（如 DocumentDB）能够非常容易地接受对数据模型的更改，但用户仍需花一些时间来研究数据。 
+# 对 DocumentDB 中的数据进行建模
+<a id="modeling-data-in-documentdb" class="xliff"></a>
+尽管无架构的数据库（如 DocumentDB）能够非常容易地接受对数据模型的更改，但你仍需花一些时间来研究数据。 
 
 将如何存储数据？ 你的应用程序将如何检索和查询数据？ 你的应用程序是读取频繁，还是写入频繁？ 
 
@@ -37,8 +36,9 @@ ms.lasthandoff: 05/19/2017
 - 如何在非关系数据库中表示数据关系？
 - 我应何时嵌入数据和何时链接数据？
 
-## <a name="embedding-data"></a>嵌入数据
-对文档存储（如 DocumentDB）中的数据进行建模时，尝试将实体视为使用 JSON 表示的**自包含文档**。
+## 嵌入数据
+<a id="embedding-data" class="xliff"></a>
+当你对文档存储（如 DocumentDB）中的数据进行建模时，尝试将你的实体视为使用 JSON 表示的 **独立文档** 。
 
 在深入探讨之前，让我们先回顾一下在关系数据库中我们会如何建模，许多人对该主题已很熟悉。 下面的示例演示了如何在关系数据库中存储某个人的信息。 
 
@@ -86,7 +86,8 @@ ms.lasthandoff: 05/19/2017
 
 通过非规范化数据，你的应用程序需要发出的查询更少，并且更新为完成常见的操作。 
 
-### <a name="when-to-embed"></a>何时嵌入
+### 何时嵌入
+<a id="when-to-embed" class="xliff"></a>
 通常，在下列情况下使用嵌入式数据模型：
 
 - 实体之间存在 **包含** 关系。
@@ -100,7 +101,8 @@ ms.lasthandoff: 05/19/2017
 > 
 > 
 
-### <a name="when-not-to-embed"></a>何时不嵌入
+### 何时不嵌入
+<a id="when-not-to-embed" class="xliff"></a>
 虽然文档数据库的经验法则是将所有事物非规范化，并将所有数据嵌入到单个文档中，但是这可能导致一些情况的发生，而这些情况是应该避免的。
 
 以下面的 JSON 代码片段为例。
@@ -232,10 +234,12 @@ ms.lasthandoff: 05/19/2017
 > 
 > 
 
-### <a name="what-about-foreign-keys"></a>外键呢？
-因为当前没有约束、外键或其他类似概念，所以文档中存在的任何文档间关系都是有效的“弱链接”，并且数据库不会验证此关系。 如果想要确保文档要引用的数据实际存在，则需在应用程序中进行此验证，或通过使用 DocumentDB 上的服务器端触发器或存储过程来验证。
+### 外键呢？
+<a id="what-about-foreign-keys" class="xliff"></a>
+因为当前没有约束、外键或其他类似概念，所以文档中存在的任何文档间关系都是有效的“弱链接”，并且数据库不会验证此关系。 如果你想要确保文档要引用的数据实际存在，那么你需要在应用程序中进行此验证，或通过使用 DocumentDB 上的服务器端触发器或存储过程来验证。
 
-### <a name="when-to-reference"></a>何时引用
+### 何时引用
+<a id="when-to-reference" class="xliff"></a>
 通常在下列情况下使用规范化的数据模型：
 
 - 表示 **一对多** 关系。
@@ -248,7 +252,8 @@ ms.lasthandoff: 05/19/2017
 > 
 > 
 
-### <a name="where-do-i-put-the-relationship"></a>将关系数据存储在何处？
+### 将关系数据存储在何处？
+<a id="where-do-i-put-the-relationship" class="xliff"></a>
 关系的增长将有助于确定用于存储引用的文档。
 
 让我们看看下面的对出版商和书籍进行建模的 JSON 代码。
@@ -290,7 +295,8 @@ ms.lasthandoff: 05/19/2017
 
 在上面的示例中，删除了出版商文档中的无限制集合， 只在每个书籍文档中引用出版商。
 
-### <a name="how-do-i-model-manymany-relationships"></a>如何对多对多关系建模？
+### 如何对多对多关系建模？
+<a id="how-do-i-model-manymany-relationships" class="xliff"></a>
 在关系型数据库中， *多对多* 关系通常使用联接表来建模，这种方法只是将其他表中的记录联接在一起。 
 
 ![联接表](./media/documentdb-modeling-data/join-table.png)
@@ -389,20 +395,19 @@ ms.lasthandoff: 05/19/2017
 
 在示例中 **预先计算的汇总** 值可在读取操作上节省高昂的处理成本。 在本例中，作者文档中嵌入的一些数据为在运行时计算的数据。 每当出版了一本新书，就会创建一个书籍文档 **并且** 将 countOfBooks 字段设置为基于特定作者的现有书籍文档数的计算值。 这种优化对于读取频繁的系统来说是有益的，为了优化读取，我们可以对写入操作执行更多计算。
 
-因为 DocumentDB 支持**多文档事务**，所以构建一个具有预先计算字段的模型是可能的。 许多 NoSQL 存储无法跨文档执行事务，正是因为该限制，所以提倡诸如“始终嵌入所有数据”的设计决策。 在 DocumentDB 中，可以使用服务器端触发器或存储过程在一个 ACID 事务中插入书籍和更新作者信息等。 现在你 **无需** 将所有数据嵌入一个文档，只需确保你的数据保持一致性。
+因为 DocumentDB 支持 **多文档事务**，所以构建一个具有预先计算字段的模型是可能的。 许多 NoSQL 存储无法跨文档执行事务，正是因为该限制，所以提倡诸如“始终嵌入所有数据”的设计决策。 在 DocumentDB 中，你可以使用服务器端触发器或存储过程在一个 ACID 事务中插入书籍和更新作者信息等。 现在你 **无需** 将所有数据嵌入一个文档，只需确保你的数据保持一致性。
 
 ## <a name="NextSteps"></a>后续步骤
 本文最大的要点在于了解无架构环境下的数据建模的重要性一如既往。 
 
 就像有多种方法可在屏幕上表示一个数据片段一样，数据的建模方法也不会只有一种。 你需要了解你的应用程序以及它如何生成、使用和处理数据。 然后，通过应用此处提供的一些准则，你可以开始创建可满足你的应用程序当前需求的模型。 当你的应用程序需要进行更改时，你可以利用无架构数据库的灵活性欣然接受更改，并轻松改进你的数据模型。 
 
-若要了解有关 DocumentDB 的详细信息，请参阅服务的[文档](index.md)页。 
+若要了解有关 DocumentDB 的详细信息，请参阅该服务的[文档](index.md)页。 
 
-若要了解如何在 DocumentDB 中优化索引，请参阅有关[索引策略](documentdb-indexing-policies.md)的文章。
+若要了解有关在 DocumentDB 中优化索引的信息，请参阅[索引策略](documentdb-indexing-policies.md)中的文章。
 
 若要了解如何在多个分区之间对数据进行分片，请参阅[在 DocumentDB 中对数据进行分区](documentdb-partition-data.md)。 
 
 最后，有关多租户应用程序的数据建模和分片指导，请查阅[使用 DocumentDB 扩展多租户应用程序](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)。
-
 
 

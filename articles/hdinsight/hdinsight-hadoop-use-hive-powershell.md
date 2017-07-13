@@ -17,15 +17,14 @@ ms.workload: big-data
 origin.date: 03/21/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: d3ea7c7326124efaea63bd745037da185996ad07
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 90971fbd16d8d922f69429fb77c87865e356e998
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="run-hive-queries-using-powershell"></a>使用 PowerShell 运行 Hive 查询
+# 使用 PowerShell 运行 Hive 查询
+<a id="run-hive-queries-using-powershell" class="xliff"></a>
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -41,14 +40,15 @@ ms.lasthandoff: 04/28/2017
 
 * **Azure HDInsight 群集**：无论该群集是基于 Windows 还是基于 Linux 都行。
 
-    > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+  > [!IMPORTANT]
+  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
 
 * **配备 Azure PowerShell 的工作站**。
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-## <a id="powershell"></a> 使用 Azure PowerShell 运行 Hive 查询
+## 使用 Azure PowerShell 运行 Hive 查询
+<a id="run-hive-queries-using-azure-powershell" class="xliff"></a>
 
 Azure PowerShell 提供 *cmdlet* ，可让你在 HDInsight 上远程运行 Hive 查询。 cmdlet 在内部对 HDInsight 群集上的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) 进行 REST 调用。
 
@@ -153,14 +153,15 @@ Azure PowerShell 提供 *cmdlet* ，可让你在 HDInsight 上远程运行 Hive 
         2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
         2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
 
-    > [!NOTE]
-    > 对于较长的 HiveQL 查询，可以使用 Azure PowerShell **Here-Strings** cmdlet 或 HiveQL 脚本文件。 以下代码段显示了如何使用 **Invoke-Hive** cmdlet 来运行 HiveQL 脚本文件。 必须将 HiveQL 脚本文件上传到 wasb://。
-    >
-    > `Invoke-AzureRmHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
-    >
-    > 有关 **Here-Strings** 的详细信息，请参阅<a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">使用 Windows PowerShell Here-Strings</a>。
+   > [!NOTE]
+   > 对于较长的 HiveQL 查询，可以使用 Azure PowerShell **Here-Strings** cmdlet 或 HiveQL 脚本文件。 以下代码段显示了如何使用 **Invoke-Hive** cmdlet 来运行 HiveQL 脚本文件。 必须将 HiveQL 脚本文件上传到 wasb://。
+   >
+   > `Invoke-AzureRmHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
+   >
+   > 有关 **Here-Strings** 的详细信息，请参阅<a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">使用 Windows PowerShell Here-Strings</a>。
 
-## <a name="troubleshooting"></a>故障排除
+## 故障排除
+<a id="troubleshooting" class="xliff"></a>
 
 如果在作业完成时未返回任何信息，则可能表示处理期间发生错误。 若要查看此作业的错误信息，请将以下内容添加到 **hivejob.ps1** 文件的末尾，保存，然后重新运行该文件。
 
@@ -175,11 +176,13 @@ Get-AzureRmHDInsightJobOutput `
 
 运行作业时，此 cmdlet 返回写入到服务器上的 STDERR 中的信息。
 
-## <a name="summary"></a>摘要
+## 摘要
+<a id="summary" class="xliff"></a>
 
 如你所见，Azure PowerShell 提供了简单的方法让你在 HDInsight 群集上运行 Hive 查询，监视作业状态，以及检索输出。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 有关 HDInsight 中的 Hive 的一般信息：
 
@@ -189,4 +192,3 @@ Get-AzureRmHDInsightJobOutput `
 
 * [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
-

@@ -15,16 +15,14 @@ ms.topic: article
 origin.date: 02/15/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 0726e23f9a433ccdbe3ec3cd53346695ecb09c88
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: f9348c52d472d245380e21975bd01476d8cfc06c
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# <a name="set-throughput-for-azure-documentdb-collections"></a>设置 DocumentDB 集合的吞吐量
+# 设置 DocumentDB 集合的吞吐量
+<a id="set-throughput-for-documentdb-collections" class="xliff"></a>
 
 可在 Azure 门户中或通过使用客户端 SDK 设置 DocumentDB 集合的吞吐量。 
 
@@ -53,7 +51,8 @@ ms.lasthandoff: 05/19/2017
 > [!NOTE] 
 > 若要将分区集合的吞吐量值设置为在 2,500 RU/s 和 10,000 RU/s 之间，必须暂时使用 Azure 门户。 SDK 中目前尚不提供此功能。
 
-## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>使用 Azure 门户设置吞吐量
+## 使用 Azure 门户设置吞吐量
+<a id="to-set-the-throughput-by-using-the-azure-portal" class="xliff"></a>
 
 1. 在新窗口中，打开 [Azure 门户](https://portal.azure.cn)。
 2. 在左侧栏中单击“DocumentDB”，或者单击底部的“更多服务”，滚动到“数据库”，然后单击“DocumentDB”。
@@ -81,14 +80,15 @@ offer = new OfferV2(offer, 12000);
 await client.ReplaceOfferAsync(offer);
 ```
 
-## <a name="throughput-faq"></a>吞吐量常见问题
+## 吞吐量常见问题
+<a id="throughput-faq" class="xliff"></a>
 
 **可否将吞吐量设置为 400 RU/s 以下？**
 
-400 RU/秒是 DocumentDB 单区集合提供的最小吞吐量（分区集合的最小值为 2500 RU/秒）。 请求单位按 100 RU/秒间隔进行设置，但吞吐量不能设置为 100 RU/秒或小于 400 RU/秒的任何值。 如果正在寻找一种经济高效的方法来开发和测试 DocumentDB，则可以使用免费的 [DocumentDB 模拟器](documentdb-nosql-local-emulator.md)来免费进行本地部署。 
+400 RU/秒是 DocumentDB 单个分区集合上可用的最小吞吐量（2500 RU/秒是分区集合的最小值）。 请求单位按 100 RU/秒间隔进行设置，但吞吐量不能设置为 100 RU/秒或小于 400 RU/秒的任何值。 如果在寻找一种经济高效的方法来开发和测试 DocumentDB，则可以使用免费的 [DocumentDB 模拟器](documentdb-nosql-local-emulator.md)（可以在本地免费部署）。 
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 若要了解有关使用 DocumentDB 进行预配和全球扩展的详细信息，请参阅[使用 DocumentDB 进行分区和缩放](documentdb-partition-data.md)。
-
 

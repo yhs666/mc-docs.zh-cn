@@ -13,27 +13,27 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/27/2017
-ms.date: 05/08/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: ad1f72de5cd0ffdd9e4b8d593f76a346a8a208ac
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.date: 07/10/2017
+ms.openlocfilehash: 21f31d8028f3f5ae614f1a9eb8619cd393640e6e
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
+# 参考 - IoT 中心配额和限制
+<a id="reference---iot-hub-quotas-and-throttling" class="xliff"></a>
 
-# <a name="reference---iot-hub-quotas-and-throttling"></a>参考 - IoT 中心配额和限制
-
-## <a name="quotas-and-throttling"></a>配额和限制
+## 配额和限制
+<a id="quotas-and-throttling" class="xliff"></a>
 每个 Azure 订阅最多可以拥有 10 个 IoT 中心和 1 个免费中心。
 
 每个 IoT 中心预配了特定 SKU 的特定单位数（有关详细信息，请参阅 [Azure IoT 中心定价][lnk-pricing]）。 SKU 和单位数目确定可以发送的消息的每日配额上限。
 
 SKU 还确定了 IoT 中心对所有操作强制实施的限制。
 
-## <a name="operation-throttles"></a>操作限制
+## 操作限制
+<a id="operation-throttles" class="xliff"></a>
 操作限制是在分钟范围内应用的速率限制，主要是为了避免不当使用。 IoT 中心会尽可能避免返回错误，但如果违反限制太久，就会开始返回异常。
 
 以下是强制实施的限制列表。 值与单个中心相关。
@@ -56,6 +56,7 @@ SKU 还确定了 IoT 中心对所有操作强制实施的限制。
 
 例如，如果你购买的是单一 S1 单位，则限制为每秒 100 个连接。 因此，若要连接 100,000 台设备，至少需要花费 1000 秒（大约 16 分钟）。 但是，同时连接的设备数可与用户在标识注册表中注册的设备数相同。
 
+有关 IoT 中心限制行为的深入讨论，请参阅博客文章 [IoT Hub throttling and you（IoT 中心限制与你息息相关）][lnk-throttle-blog]。
 
 > [!NOTE]
 > 无论何时，都可以通过增加 IoT 中心预配的单位来提高配额或限制。
@@ -66,9 +67,10 @@ SKU 还确定了 IoT 中心对所有操作强制实施的限制。
 > 
 > 
 
-## <a name="other-limits"></a>其他限制
+## 其他限制
+<a id="other-limits" class="xliff"></a>
 
-IoT 中心对其不同的功能实施其他限制。
+IoT 中心强制实施其他操作限制：
 
 | 操作 | 限制 |
 | --------- | ----- |
@@ -76,16 +78,27 @@ IoT 中心对其不同的功能实施其他限制。
 | 作业 | 作业历史记录最多保留 30 天 <br/> 最大并发作业数为 1（适用于免费版和 S1）、5（适用于 S2）、10（适用于 S3）。 |
 | 额外终结点 | 付费 SKU 中心可能有 10 个额外终结点。 免费 SKU 中心可能有 1 个额外终结点。 |
 | 消息路由规则 | 付费 SKU 中心可能有 100 条路由规则。 免费 SKU 中心可包含 5 条路由规则。 |
+| 设备到云的消息传送 | 最大消息大小 256 KB |
+| 云到设备的消息传送 | 最大消息大小 64 KB |
+| 云到设备的消息传送 | 最大传递挂起消息数为 50 |
 
 > [!NOTE]
 > 目前，可以连接到单个 IoT 中心的设备的最大数目是 500,000。 如果想要增加此限制，请联系 [Microsoft 支持](https://azure.microsoft.com/en-us/support/options/)。
 
-## <a name="next-steps"></a>后续步骤
+## 延迟
+<a id="latency" class="xliff"></a>
+IoT 中心致力于降低所有操作的延迟。 但是，由于网络条件和其他不可预知的因素，它无法保证最大延迟，在设计解决方案时，请避免对任何 IoT 中心操作的最大延迟做出任何假设。 请在离设备最近的 Azure 区域中预配 IoT 中心，并考虑在设备上或在离设备近的网关上使用 Azure IoT Edge 执行易受延迟影响的操作。
+
+如上所述，多个 IoT 中心单位影响限制，但未提供任何附加延迟权益或保证。
+如果操作延迟意外增加，请与 [Microsoft 支持部门](https://www.azure.cn/support/contact/)联系。
+
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 此 IoT 中心开发人员指南中的其他参考主题包括：
 
 - [IoT 中心终结点][lnk-devguide-endpoints]
-- [设备孪生和作业的 IoT 中心查询语言][lnk-devguide-query]
+- [用于设备孪生、作业和消息路由的 IoT 中心查询语言][lnk-devguide-query]
 - [IoT 中心 MQTT 支持][lnk-devguide-mqtt]
 
 [lnk-pricing]: https://www.azure.cn/pricing/details/iot-hub

@@ -1,6 +1,6 @@
 ---
 title: "使用 BI 分析工具连接到 DocumentDB | Microsoft Docs"
-description: "了解如何使用 DocumentDB ODBC 驱动程序创建表和视图，以便可以在 BI 和数据分析软件中查看规范化数据。"
+description: "了解如何使用 DocumentDB ODBC 驱动程序创建表和视图，以便能够在 BI 和数据分析软件中查看规范化数据。"
 keywords: "odbc, odbc 驱动程序"
 services: documentdb
 author: mimig1
@@ -16,28 +16,28 @@ ms.topic: article
 origin.date: 03/27/2017
 ms.author: v-junlch
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: fc7a0b0b702d9687541c114df15de56f8079858c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: a766441dd5d31913a22bc3a2cbedaf22f9504660
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# <a name="connect-to-azure-documentdb-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具和 ODBC 驱动程序连接到 DocumentDB
+# 使用 BI 分析工具和 ODBC 驱动程序连接到 DocumentDB
+<a id="connect-to-documentdb-using-bi-analytics-tools-with-the-odbc-driver" class="xliff"></a>
 
 借助 DocumentDB ODBC 驱动程序，可以使用 SQL Server Integration Services、Power BI Desktop 和 Tableau 等 BI 分析工具连接到 DocumentDB，以便能够在这些解决方案中分析和创建 DocumentDB 数据的可视化效果。
 
 DocumentDB ODBC 驱动程序符合 ODBC 3.8 规范，支持 ANSI SQL-92 语法。 该驱动程序提供丰富的功能来帮助用户重新规范化 DocumentDB 中的数据。 使用该驱动程序，能够以表和视图的形式表示 DocumentDB 中的数据。 使用该驱动程序还可以针对表和视图执行 SQL 操作，包括 group by 查询、插入、更新和删除。
 
-## <a name="why-do-i-need-to-normalize-my-data"></a>为何需要将数据规范化？
+## 为何需要将数据规范化？
+<a id="why-do-i-need-to-normalize-my-data" class="xliff"></a>
 DocumentDB 是一种无架构数据库，它允许应用程序即时迭代其数据模型，而不会将它们限定于一个严格定义的架构，因此可以加快应用的开发。 一个 DocumentDB 数据库可以包含各种结构的 JSON 文档。 这非常适合快速应用程序开发，但如果用户想要使用数据分析和 BI 工具来分析和创建数据报表，则数据通常需要平展并遵守特定的架构。
 
 这就是 ODBC 驱动程序的作用所在。 借助 ODBC 驱动程序，现可根据数据分析和报告需求，将 DocumentDB 中的数据重新规范化为表和视图。 重新规范化的架构不会对基础数据造成影响，也不强制要求开发人员遵守，而只是方便用户利用符合 ODBC 规范的工具来访问数据。 因此，DocumentDB 数据库不仅是开发团队的最爱，数据分析师也对它青睐有加。
 
 现在，让我们学习 ODBC 驱动程序的入门知识。
 
-## <a id="install"></a>第 1 步：安装 DocumentDB ODBC 驱动程序
+## <a id="install"></a>步骤 1：安装 DocumentDB ODBC 驱动程序
 
 1. 下载适用于你的环境的驱动程序：
 
@@ -52,29 +52,29 @@ DocumentDB 是一种无架构数据库，它允许应用程序即时迭代其数
 
     ![DocumentDB ODBC 数据源管理器](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver.png)
 
-## <a id="connect"></a>第 2 步：连接到 DocumentDB 数据库
+## <a id="connect"></a>步骤 2：连接到 DocumentDB 数据库
 
-1. [安装 DocumentDB ODBC 驱动程序](#install)后，在“ODBC 数据源管理器”窗口中单击“添加”。 可以创建一个用户 DSN 或系统 DSN。 在本示例中，我们将创建一个用户 DSN。
+1. [安装 DocumentDB ODBC 驱动程序](#install)后，请在“ODBC 数据源管理器”窗口中单击“添加”。 可以创建一个用户 DSN 或系统 DSN。 在本示例中，我们将创建一个用户 DSN。
 2. 在“创建新数据源”窗口中选择“DocumentDB ODBC 驱动程序”，然后单击“完成”。
 3. 在“DocumentDB ODBC 驱动程序 SDN 设置”窗口中填写以下信息： 
 
     ![“DocumentDB ODBC 驱动程序 DSN 设置”窗口](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver-dsn-setup.png)
     - **数据源名称**：ODBC DSN 的友好名称。 此名称对于 DocumentDB 帐户是唯一的，因此，如果有多个帐户，请适当地为数据源命名。
     - **说明**：数据源的简短说明。
-    - **主机**：你的 DocumentDB 帐户的 URI。 可通过 Azure 门户中的“DocumentDB 密钥”边栏选项卡检索此信息，如以下屏幕截图所示。 
+    - **主机**：DocumentDB 帐户的 URI。 可通过 Azure 门户中的“DocumentDB 密钥”边栏选项卡检索此信息，如以下屏幕截图所示。 
     - **访问密钥**：从 Azure 门户中的“DocumentDB 密钥”边栏选项卡获取的主要或辅助读写/只读密钥，如以下屏幕截图所示。 如果 DSN 用于只读数据的处理和报告，我们建议使用只读密钥。
     ![“DocumentDB 密钥”边栏选项卡](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver-keys.png)
     - **加密以下对象的访问密钥**：根据此计算机的用户选择最合适的选项。 
-4. 单击“测试”按钮，确保可以连接到 DocumentDB 帐户。 
+4. 单击“测试”  按钮，确保可以连接到 DocumentDB 帐户。 
 5. 单击“高级选项”  并设置以下值：
     - **查询一致性**：选择操作的[一致性级别](documentdb-consistency-levels.md)。 默认值为“会话”。
     - **重试次数**：输入初始请求因服务限制而未能完成时，重试操作的次数。
     - **架构文件**：此处有多个选项。
         - 默认情况下，可将此项保留原样（空白），驱动程序将在第一页的数据中扫描所有集合，确定每个集合的架构。 这称为“集合映射”。 如果未定义架构文件，驱动程序必须针对每个驱动程序会话执行扫描，这可能会导致使用 DSN 启动应用程序时需要更长的时间。 我们建议始终关联 DSN 的架构文件。
-        - 如果已有一个架构文件（也许是使用架构编辑器创建的文件），则可以单击“浏览”，导航到该文件，单击“保存”，然后单击“确定”。
-        - 如果想要创建新架构，请单击“确定”，然后在主窗口中单击“架构编辑器”。 接下来，继续在架构编辑器中提供信息。 创建新架构文件后，请记得返回“高级选项”  窗口以包含新创建的架构文件。
+        - 如果已有一个架构文件（也许是使用[架构编辑器](#schema-editor)创建的文件），则可以单击“浏览”，导航到该文件，单击“保存”，然后单击“确定”。
+        - 如果想要创建新架构，请单击“确定”，然后在主窗口中单击“架构编辑器”。 接下来，继续在[架构编辑器](#schema-editor)中提供信息。 创建新架构文件后，请记得返回“高级选项”  窗口以包含新创建的架构文件。
 
-6. 完成并关闭“DocumentDB ODBC 驱动程序 DSN 设置”窗口后，新的用户 DSN 会添加到“用户 DSN”选项卡。
+6. 完成并关闭“DocumentDB ODBC 驱动程序 DSN 设置”  窗口后，新的用户 DSN 会添加到“用户 DSN”选项卡。
 
     ![“用户 DSN”选项卡上的新 DocumentDB ODBC DSN](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver-user-dsn.png)
 
@@ -120,16 +120,18 @@ DocumentDB 是一种无架构数据库，它允许应用程序即时迭代其数
 6. 完成定义架构后，请单击“文件” | “保存”，导航到用于保存该架构的目录，然后单击“保存”。
 7. 返回“DocumentDB ODBC 驱动程序 DSN 设置”窗口，单击“高级选项”。 然后，在“架构文件”框中，导航到保存的架构文件并单击“确定”。 再次单击“确定”保存 DSN。 这会将创建的架构保存到 DSN。 
 
-## <a name="optional-creating-views"></a>（可选）创建视图
-可在采样过程中定义和创建视图。 这些视图相当于 SQL 视图。 它们是只读的，并且是所定义的 DocumentDB SQL 的选择和投影范围。 
+## （可选）创建视图
+<a id="optional-creating-views" class="xliff"></a>
+可在采样过程中定义和创建视图。 这些视图相当于 SQL 视图。 它们是只读的，并且是定义的 DocumentDB SQL 的选择和投影范围。 
 
 若要创建数据的视图，请在“架构编辑器”窗口中的“视图定义”列内，单击要采样的集合行中的“添加”。 然后在“视图定义”窗口中执行以下操作：
 1. 单击“新建”，输入视图的名称（例如 EmployeesfromSeattleView），然后单击“确定”。
-2. 在“编辑视图”窗口中，输入一个 DocumentDB 查询。 这必须是 DocumentDB SQL 查询（例如 `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = “Seattle”`），然后单击“确定”。
+2. 在“编辑视图”窗口中，输入一个 DocumentDB 查询。 这必须是 DocumentDB SQL 查询，例如 `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = “Seattle”`。然后单击“确定”。
 
 可以创建任意数量的视图。 定义完视图后，可以采样数据。 
 
-## <a name="step-5-view-your-data-in-bi-tools-such-as-power-bi-desktop"></a>步骤 5：在 Power BI Desktop 等 BI 工具中查看数据
+## 步骤 5：在 Power BI Desktop 等 BI 工具中查看数据
+<a id="step-5-view-your-data-in-bi-tools-such-as-power-bi-desktop" class="xliff"></a>
 
 可以使用新 DSN 将 DocumentADB 连接到任何符合 ODBC 规范的工具。本步骤仅说明如何连接到 Power BI Desktop 并创建 Power BI 可视化效果。
 
@@ -143,14 +145,15 @@ DocumentDB 是一种无架构数据库，它允许应用程序即时迭代其数
 8. 在 Power BI Desktop 的最左侧，选择“数据”选项卡 ![Power BI Desktop 中的“数据”选项卡](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver-data-tab.png) 确认数据是否已导入。
 9. 现在，可以使用 Power BI 创建视觉对象：单击“报表”选项卡![Power BI Desktop 中的“报表”选项卡](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver-report-tab.png)，单击“新建视觉对象”，然后自定义磁贴。 有关在 Power BI Desktop 中创建可视化效果的详细信息，请参阅 [Power BI 中的可视化效果类型](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/)。
 
-## <a name="troubleshooting"></a>故障排除
+## 故障排除
+<a id="troubleshooting" class="xliff"></a>
 
 如果遇到以下错误，请确保执行[步骤 2](#connect) 时在 Azure 门户中复制的“主机”和“访问密钥”值正确，然后重试。 在 Azure 门户中使用“主机”和“访问密钥”值右侧的复制按钮可以正确无误地复制这些值。
 
     [HY000]: [Microsoft][DocumentDB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 若要了解有关 DocumentDB 的详细信息，请参阅[什么是 DocumentDB？](documentdb-introduction.md)。
-
 

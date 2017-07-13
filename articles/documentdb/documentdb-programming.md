@@ -1,6 +1,6 @@
 ---
 title: "DocumentDB 的服务器端 JavaScript 编程 | Microsoft Docs"
-description: "了解如何使用 DocumentDB 以 JavaScript 编写存储过程、数据库触发器和用户定义的函数 (UDF) 了解数据库编程技巧以及更多内容。"
+description: "了解如何使用 DocumentDB 以 JavaScript 编写存储过程、数据库触发器和用户定义的函数 (UDF)。 了解数据库编程技巧以及更多内容。"
 keywords: "数据库触发器, 存储过程, 存储过程, 数据库程序, sproc, documentdb, azure, Azure"
 services: documentdb
 documentationcenter: 
@@ -16,15 +16,15 @@ ms.topic: article
 origin.date: 11/11/2016
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 0823650a231c520cf68494a18d0b2392a5c1e0a7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: e864a29ec1f49da7f50b236b7466d6076e7aacc8
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="azure-documentdb-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>DocumentDB 服务器端编程：存储过程、数据库触发器和 UDF
-了解 DocumentDB 的语言如何集成、JavaScript 的事务执行如何使开发人员以 JavaScript 本机编写**存储过程**、**触发器**和**用户定义的函数 (UDF)**。 这让你能够编写可以在数据库存储分区上直接传送和执行的数据库程序应用程序逻辑。 
+# DocumentDB 服务器端编程：存储过程、数据库触发器和 UDF
+<a id="documentdb-server-side-programming-stored-procedures-database-triggers-and-udfs" class="xliff"></a>
+了解 DocumentDB 的语言集成、JavaScript 的事务执行如何让开发人员以 JavaScript 本机编写**存储过程**、**触发器**和**用户定义的函数 (UDF)**。 这让你能够编写可以在数据库存储分区上直接传送和执行的数据库程序应用程序逻辑。 
 
 然后，返回到本文，你将在其中了解以下问题的答案：  
 
@@ -35,7 +35,8 @@ ms.lasthandoff: 05/19/2017
 - 如何通过使用 HTTP 以 RESTful 方式注册并执行存储过程、触发器或 UDF？
 - 可用什么 DocumentDB SDK 来创建和执行存储过程、触发器和 UDF？
 
-## <a name="introduction-to-stored-procedure-and-udf-programming"></a>存储过程和 UDF 编程简介
+## 存储过程和 UDF 编程简介
+<a id="introduction-to-stored-procedure-and-udf-programming" class="xliff"></a>
 这种 *“将 JavaScript 用作新式 T-SQL”* 的方法让应用程序开发人员摆脱了类型系统不匹配和对象关系映射技术的复杂性。 它还具有许多可利用以构建丰富应用程序的内在优势：  
 
 - **过程逻辑：** JavaScript 作为一种高级别的编程语言，提供了表达业务逻辑的丰富且熟悉的界面。 你可以执行与数据更接近的操作的复杂序列。
@@ -43,7 +44,7 @@ ms.lasthandoff: 05/19/2017
 - **性能：** 本质上将 JSON 映射到 Javascript 语言类型系统且它还是 DocumentDB 中存储的基本单位，这一事实允许大量的优化，如缓冲池中 JSON 文档的延迟具体化和使它们按需对执行代码可用。 还有更多与传送业务逻辑到数据库相关的性能优点：
   
   - 批处理 – 开发人员可以分组操作（如插入）并批量提交它们。 用于创建单独事务的网络流量延迟成本和存储开销显著降低。 
-  - 预编译 – DocumentDB 预编译存储过程、触发器和用户定义的函数 (UDF) 以避免每次调用产生的 JavaScript 编译成本。 对于过程逻辑生成字节代码的开销被摊销为最小值。
+  - 预编译 - DocumentDB 预编译存储过程、触发器和用户定义的函数 (UDF) 以避免每次调用产生的 JavaScript 编译成本。 对于过程逻辑生成字节代码的开销被摊销为最小值。
   - 序列化 – 很多操作需要可能涉及执行一个或多个次要存储操作的副作用（“触发器”）。 除了原子性之外，当移动到服务器时，它的性能也更高。 
 - **封装：** 可以使用存储过程在一个位置对业务逻辑进行分组。 这样做有两个优点：
   - 它会在原始数据之上添加抽象层，这使得数据架构师能够从数据独立发展他们的应用程序。 当数据无架构时，如果他们必须直接处理数据，则由于可能需要兼并到应用程序中的脆性假设，使得这样做尤其有益。  
@@ -53,8 +54,10 @@ ms.lasthandoff: 05/19/2017
 
 本教程使用 [具有 Q Promises 的 Node.js SDK](http://azure.github.io/azure-documentdb-node-q/) 来阐明存储过程、触发器和 UDF 的语法和用法。   
 
-## <a name="stored-procedures"></a>存储过程
-### <a name="example-write-a-simple-stored-procedure"></a>示例：编写简单的存储过程
+## 存储过程
+<a id="stored-procedures" class="xliff"></a>
+### 示例：编写简单的存储过程
+<a id="example-write-a-simple-stored-procedure" class="xliff"></a>
 让我们从一个返回“Hello World”响应的简单存储过程开始。
 
     var helloWorldStoredProc = {
@@ -96,7 +99,8 @@ ms.lasthandoff: 05/19/2017
 
 让我们扩展此示例，并将更多数据库相关的功能添加到存储过程中。 存储过程可以创建、更新、读取、查询和删除集合内部的文档和附件。    
 
-### <a name="example-write-a-stored-procedure-to-create-a-document"></a>示例：编写创建文档的存储过程。
+### 示例：编写创建文档的存储过程。
+<a id="example-write-a-stored-procedure-to-create-a-document" class="xliff"></a>
 下一个代码段将演示如何使用上下文对象与 DocumentDB 资源进行交互。
 
     var createDocumentStoredProc = {
@@ -144,11 +148,12 @@ ms.lasthandoff: 05/19/2017
     });
 
 
-请注意，可以修改该存储过程以将文档主体的数组作为输入并在同一存储过程执行中创建它们全部，而不用执行多个网络请求以单独创建它们中的每一个。 这可用来实现 DocumentDB 的有效批量导入程序（已在本教程的后面部分讨论）。   
+请注意，可以修改该存储过程以将文档主体的数组作为输入并在同一存储过程执行中创建它们全部，而不用执行多个网络请求以单独创建它们中的每一个。 这可以用来执行 DocumentDB 的有效批量导入程序（之后会在本教程中讨论）。   
 
 所述的示例演示了如何使用存储过程。 我们将在教程的后面部分介绍触发器和用户定义的函数 (UDF)。
 
-## <a name="database-program-transactions"></a>数据库程序事务
+## 数据库程序事务
+<a id="database-program-transactions" class="xliff"></a>
 典型数据库中的事务可以定义为一系列作为单个逻辑单元工作执行的操作。 每个事务提供 **ACID 保证**。 ACID 是一个很有名的缩写词，代表四个属性：Atomicity（原子性）、Consistency（一致性）、Isolation（隔离）和 Durability（持续性）。  
 
 简单地说，原子性保证所有在一个事物内部执行的工作被视为单个单元，其中要么全部工作都提交，要么都不提交。 一致性确保数据始终在各个事务间处于良好内部状态。 隔离保证没有两个互相干扰的事务存在 – 一般来说，大多数商业系统都提供多个可以基于应用程序需求而使用的隔离级别。 持续性确保数据库中提交的任何更改将始终存在。   
@@ -220,24 +225,28 @@ ms.lasthandoff: 05/19/2017
 
 此存储过程使用游戏应用内的事务在单个操作中的两个玩家之间交易项。 该存储过程尝试读取两个分别与作为参数传递的玩家 ID 对应的文档。 如果两个玩家文档都被找到，那么存储过程将通过交换它们的项来更新文档。 如果在此过程中遇到了任何错误，它将引发隐式终止事务的 JavaScript 异常。
 
-如果存储过程针对其注册的集合是单区集合，那么该事务的范围为该集合内的所有文档。 如果集合已分区，那么存储过程将在单个分区键的事务范围中执行。 每个存储过程执行必须包含对应于事务在其下运行的范围的分区键值。 有关详细信息，请参阅 [DocumentDB 分区](documentdb-partition-data.md)。
+如果存储过程针对其注册的集合是单区集合，那么该事务的范围为该集合内的所有文档。 如果集合已分区，那么存储过程将在单个分区键的事务范围中执行。 每个存储过程执行必须包含对应于事务在其下运行的范围的分区键值。 有关更多详细信息，请参阅 [DocumentDB 分区](documentdb-partition-data.md)。
 
-### <a name="commit-and-rollback"></a>提交和回滚
-事务原本就深入集成到了 DocumentDB 的 JavaScript 编程模型中。 在 JavaScript 函数内，所有操作都在单个事务下自动包装。 如果 JavaScript 在没有任何异常的情况下完成，将提交针对数据库的操作。 实际上，关系数据库中的“BEGIN TRANSACTION”和“COMMIT TRANSACTION”语句在 DocumentDB 中是隐式的。  
+### 提交和回滚
+<a id="commit-and-rollback" class="xliff"></a>
+事务将在本机深入集成到 DocumentDB 的 JavaScript 编程模型中。 在 JavaScript 函数内，所有操作都在单个事务下自动包装。 如果 JavaScript 在没有任何异常的情况下完成，将提交针对数据库的操作。 实际上，关系数据库中的“BEGIN TRANSACTION”和“COMMIT TRANSACTION”语句在 DocumentDB 中是隐式的。  
 
 如果存在任何传播自脚本的异常，DocumentDB 的 JavaScript 运行时将回滚整个事务。 正如之前的示例中所示，引发异常实际上等同于 DocumentDB 中的“ROLLBACK TRANSACTION”。
 
-### <a name="data-consistency"></a>数据一致性
+### 数据一致性
+<a id="data-consistency" class="xliff"></a>
 存储过程和触发器始终在 DocumentDB 集合的主要副本上执行。 这确保了从存储过程内部的读取提供强一致性。 使用用户定义的函数的查询可以在主要或任何次要副本上执行，但通过选择合适的副本我们可以确保满足所要求的一致性级别。
 
-## <a name="bounded-execution"></a>绑定的执行
+## 绑定的执行
+<a id="bounded-execution" class="xliff"></a>
 所有 DocumentDB 操作必须在服务器指定的请求超时持续时间内完成。 此约束也适用于 JavaScript 函数（存储过程、触发器和用户定义的函数）。 如果某个操作未在时间限制内完成，则将回滚事务。 JavaScript 函数必须在时间限制内完成，或实施一个基于延续的模型以批处理/继续执行过程。  
 
 为了简化存储过程和触发器的开发以处理时间限制，集合对象内的所有函数（文档和附件的创建、读取、替换和删除）返回表示该操作是否完成的布尔值。 如果该值为 false，则表示时间限制将要过期且该过程必须完成执行。  如果存储过程及时完成且没有任何更多请求在排队的话，将保证完成排在第一个拒绝存储操作之前的操作。  
 
 JavaScript 函数也被绑定在资源消耗量上。 DocumentDB 基于预配的数据库帐户大小按集合保留吞吐量。 吞吐量按照规范化单位的 CPU、内存和 IO 消耗量（称为请求单位或 RU）来表示。 JavaScript 函数可能在短时间内耗尽大量的 RU，如果达到了集合的限制，则可能受到速率限制。 资源密集型存储过程还可能被隔离以确保原始数据库操作的可用性。  
 
-### <a name="example-bulk-importing-data-into-a-database-program"></a>示例：将数据批量导入到数据库程序中
+### 示例：将数据批量导入到数据库程序中
+<a id="example-bulk-importing-data-into-a-database-program" class="xliff"></a>
 下面是一个编写以批量导入文档到集合的存储过程的示例。 请注意存储过程通过检查来自 createDocument 的布尔返回值，然后使用插入在每次存储过程调用中的文档的计数以在批处理之间跟踪和恢复进度，从而处理绑定执行的方式。
 
     function bulkImport(docs) {
@@ -290,8 +299,9 @@ JavaScript 函数也被绑定在资源消耗量上。 DocumentDB 基于预配的
     }
 
 ## <a id="trigger"></a> 数据库触发器
-### <a name="database-pre-triggers"></a>数据库预触发器
-DocumentDB 提供由对文档的操作执行或触发的触发器。 例如，创建文档时可以指定预触发器 – 此预触发器将在文档创建之前运行。 下面就是如何使用预触发器来验证正在创建的文档的属性的示例：
+### 数据库预触发器
+<a id="database-pre-triggers" class="xliff"></a>
+DocumentDB 提供通过文档中的操作执行或触发的触发器。 例如，创建文档时可以指定预触发器 – 此预触发器将在文档创建之前运行。 下面就是如何使用预触发器来验证正在创建的文档的属性的示例：
 
     var validateDocumentContentsTrigger = {
         id: "validateDocumentContents",
@@ -359,7 +369,8 @@ DocumentDB 提供由对文档的操作执行或触发的触发器。 例如，�
 
     // Fails, can’t use a create trigger in a replace operation
 
-### <a name="database-post-triggers"></a>数据库后触发器
+### 数据库后触发器
+<a id="database-post-triggers" class="xliff"></a>
 后触发器，跟预触发器一样，与文档上的操作相关联且不接受任何输入参数。 它们在操作完成 **之后** 运行，且具有对发送到客户端的响应消息的访问权限。   
 
 下面的示例显示正在运作的后触发器：
@@ -430,7 +441,7 @@ DocumentDB 提供由对文档的操作执行或触发的触发器。 例如，�
 
 此触发器查询元数据文档并在其中更新新建文档的详细信息。  
 
-务必要注意的一点是 DocumentDB 中的触发器的**事务性**执行。 此后触发器作为与原始文档的创建相同的事务的一部分运行。 因此，如果我们从后触发器引发异常（假设我们无法更新元数据文档），整个事务都将失败并回滚。 不会创建文档，而将返回异常。  
+务必要注意的一点是 DocumentDB 中触发器的 **事务** 执行。 此后触发器作为与原始文档的创建相同的事务的一部分运行。 因此，如果我们从后触发器引发异常（假设我们无法更新元数据文档），整个事务都将失败并回滚。 不会创建文档，而将返回异常。  
 
 ## <a id="udf"></a>用户定义的函数
 将用户定义的函数 (UDF) 用来扩展 DocumentDB API SQL 查询语言语法和实现自定义业务逻辑。 它们只能从查询内部调用。 它们不具有对上下文对象的访问权限且旨在被用作仅计算的 JavaScript。 因此，UDF 可以在 DocumentDB 服务的次要副本上运行。  
@@ -474,7 +485,8 @@ UDF 随后可以用在诸如下面示例的查询中：
         console.log("Error" , error);
     });
 
-## <a name="javascript-language-integrated-query-api"></a>JavaScript 语言集成的查询 API
+## JavaScript 语言集成的查询 API
+<a id="javascript-language-integrated-query-api" class="xliff"></a>
 除了使用 DocumentDB 的 SQL 语法发起查询外，服务器端 SDK 还允许你在没有任何 SQL 知识的情况下使用流畅的 JavaScript 接口来执行优化的查询。 JavaScript 查询 API 允许你使用与 ECMAScript5 的数组内置项类似的语法和如 lodash 等热门的 JavaScript 库，通过将谓词函数传递到可链的函数调用中以编程方式生成查询。 使用 DocumentDB 的索引进行有效执行的 JavaScript 运行时将对查询进行分析。
 
 > [!NOTE]
@@ -559,7 +571,8 @@ UDF 随后可以用在诸如下面示例的查询中：
 
 有关详细信息，请查看 [服务器端 JSDocs](http://azure.github.io/azure-documentdb-js-server/)。
 
-### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>示例：使用 JavaScript 查询 API 编写存储过程
+### 示例：使用 JavaScript 查询 API 编写存储过程
+<a id="example-write-a-stored-procedure-using-the-javascript-query-api" class="xliff"></a>
 下面的代码示例是一个有关可如何在存储过程的上下文中使用 JavaScript 查询 API 的示例。 存储过程使用 `__.filter()` 方法插入一个由输入参数给定的文档并更新元数据文档，其中 minSize、maxSize 和 totalSize 以输入文档的大小属性为基础。
 
     /**
@@ -614,7 +627,8 @@ UDF 随后可以用在诸如下面示例的查询中：
       if (!isAccepted) throw new Error("createDocument(actual doc) returned false.");
     }
 
-## <a name="sql-to-javascript-cheat-sheet"></a>SQL 到 Javascript 备忘单
+## SQL 到 Javascript 备忘单
+<a id="sql-to-javascript-cheat-sheet" class="xliff"></a>
 下表表示各种不同的 SQL 查询和对应的 JavaScript 查询。
 
 对于 SQL 查询，文档属性键（例如 `doc.id`）区分大小写。
@@ -637,16 +651,20 @@ UDF 随后可以用在诸如下面示例的查询中：
 6. 筛选具有数组属性 Tags 的文档，按 _ts 时间戳系统属性对生成的文档进行排序，然后投影并平展 Tags 数组。
 
 
-## <a name="runtime-support"></a>运行时支持
+## 运行时支持
+<a id="runtime-support" class="xliff"></a>
 [DocumentDB JavaScript 服务器端 SDK](http://azure.github.io/azure-documentdb-js-server/) 针对大多数由 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 规范化的主要 JavaScript 语言功能提供了支持。
 
-### <a name="security"></a>安全性
+### 安全性
+<a id="security" class="xliff"></a>
 JavaScript 存储过程和触发器经过沙盒处理，以使一个脚本的效果不会在未经过数据库级别的快照事务隔离的情况下泄漏到其他脚本。 运行时环境是共用的，但是在每次运行后都会清理上下文。 因此可以保证它们安全避免互相之间的任何意外副作用。
 
-### <a name="pre-compilation"></a>预编译
+### 预编译
+<a id="pre-compilation" class="xliff"></a>
 存储过程、触发器和 UDF 是隐式预编译到字节代码格式的，这是为了避免每次脚本调用时产生的编译成本。 这可确保存储过程的调用迅速且痕迹较少。
 
-## <a name="client-sdk-support"></a>客户端 SDK 支持
+## 客户端 SDK 支持
+<a id="client-sdk-support" class="xliff"></a>
 除 [Node.js](documentdb-sdk-node.md) 客户端外，DocumentDB 还支持 [.NET](documentdb-sdk-dotnet.md)、[.NET Core](documentdb-sdk-dotnet-core.md)、[Java](documentdb-sdk-java.md)、[JavaScript](http://azure.github.io/azure-documentdb-js/) 和 [Python SDK](documentdb-sdk-python.md)。 也可以使用这些 SDK 来创建和执行存储过程、触发器和 UDF。 以下示例演示如何使用 .NET 客户端创建和执行存储过程。 请注意 .NET 类型是如何以 JSON 传递到存储过程中并从中读回的。
 
     var markAntiquesSproc = new StoredProcedure
@@ -718,7 +736,8 @@ JavaScript 存储过程和触发器经过沙盒处理，以使一个脚本的效
         Console.WriteLine("Read {0} from query", book);
     }
 
-## <a name="rest-api"></a>REST API
+## REST API
+<a id="rest-api" class="xliff"></a>
 所有 DocumentDB 操作都能够以 RESTful 方式执行。 可以通过在集合下使用 HTTP POST 来注册存储过程、触发器和用户定义的函数。 下面为如何注册存储过程的一个示例：
 
     POST https://<url>/sprocs/ HTTP/1.1
@@ -788,12 +807,14 @@ JavaScript 存储过程和触发器经过沙盒处理，以使一个脚本的效
 
 此处，要通过请求运行的预触发器在 x-ms-documentdb-pre-trigger-include 标头中指定。 相应地，任何后触发器将在 x-ms-documentdb-post-trigger-include 标头中给定。 请注意，可以针对某个给定的请求指定预触发器和后触发器。
 
-## <a name="sample-code"></a>代码示例
+## 代码示例
+<a id="sample-code" class="xliff"></a>
 可在 [GitHub 存储库](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples)上找到更多服务器端代码示例（包括 [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) 和 [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)）。
 
 想要共享你令人惊叹的存储过程吗？ 请向我们发送拉取请求！ 
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 在你创建了一个或多个存储过程、触发器和用户定义的函数之后，可以使用脚本资源管理器在 Azure 门户中加载和查看它们。 有关详细信息，请参阅[使用 DocumentDB 脚本资源管理器查看存储过程、触发器和用户定义的函数](documentdb-view-scripts.md)。
 
 还可以查找以下参考和资源，可帮助你了解更多有关 DocumentDB 服务器端编程的信息：
@@ -805,6 +826,5 @@ JavaScript 存储过程和触发器经过沙盒处理，以使一个脚本的效
 - [安全和可移植的数据库扩展性](http://dl.acm.org/citation.cfm?id=276339) 
 - [面向服务的数据库体系结构](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 - [在 Microsoft SQL 服务器中托管 .NET 运行时](http://dl.acm.org/citation.cfm?id=1007669)
-
 
 

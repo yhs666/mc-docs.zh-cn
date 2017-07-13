@@ -17,29 +17,30 @@ ms.workload: big-data
 origin.date: 05/10/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: f6144a8f5e916b0c2e3866904cc64c5114412331
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: adcc1ac6102c966b9d8435c8dbdc17fb3c06ea5a
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal-preview"></a>使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集
+# 使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集
+<a id="create-linux-based-clusters-in-hdinsight-using-the-azure-portal" class="xliff"></a>
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Azure 门户是一种基于 Web 的管理工具，用于管理 Azure 云中托管的服务和资源。 在本文中，你将了解如何使用门户创建基于 Linux 的 HDInsight 群集。
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * **一个现代 Web 浏览器**。 Azure 门户使用 HTML5 和 Javascript，可能无法在旧版 Web 浏览器中正确运行。
 
-## <a name="create-clusters"></a>创建群集
+## 创建群集
+<a id="create-clusters" class="xliff"></a>
 Azure 门户会公开大部分的群集属性。 使用 Azure Resource Manager 模板可以隐藏许多详细信息。 有关详细信息，请参阅[在 HDInsight 中使用 Azure Resource Manager 模板创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 依次单击“+”、“智能 + 分析”、“HDInsight”。
 
     ![在 Azure 门户中创建新群集](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "在 Azure 门户中创建新群集")
@@ -64,7 +65,6 @@ Azure 门户会公开大部分的群集属性。 使用 Azure Resource Manager �
         * **操作系统**：选择“Linux”。
 
         * **版本**：如果不知道要选择哪个版本，请使用默认版本。 有关详细信息，请参阅 [HDInsight 群集版本](hdinsight-component-versioning.md)。
-
     * 对于“群集登录用户名”和“群集登录密码”，请分别为管理员用户提供用户名和密码。
 
     * 输入“SSH 用户名”，如果要让 SSH 密码与在前面指定的管理员密码相同，则选中“使用与群集登录相同的密码”复选框。 如果不是，则提供“密码”或“公钥”，这会用于对 SSH 用户验证身份。 建议使用公钥。 单击底部的“选择”  ，保存凭据配置。
@@ -77,7 +77,7 @@ Azure 门户会公开大部分的群集属性。 使用 Azure Resource Manager �
 
     * 单击“下一步”。
 
-4. 在“存储”边栏选项卡上，指定是否要将 Azure 存储 (WASB) 作为默认存储。 有关详细信息，请参阅下面的表格。
+4. 在“存储”边栏选项卡上，指定是否要将 Azure 存储 (WASB) 作为默认存储。 有关详细信息，请查看下表。
 
     ![在 Azure 门户中创建新群集](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.storage.png "在 Azure 门户中创建新群集")
 
@@ -97,12 +97,14 @@ Azure 门户会公开大部分的群集属性。 使用 Azure Resource Manager �
 
     ![节点定价层边栏选项卡](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.nodes.png "指定群集节点数")
 
-    > [!IMPORTANT]
-    > 如果你计划使用 32 个以上的工作节点（在创建群集时或是在创建之后通过扩展群集进行），则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
-    >
-    > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
+   > [!IMPORTANT]
+   > 如果你计划使用 32 个以上的工作节点（在创建群集时或是在创建之后通过扩展群集进行），则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
+   > 
+   > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
+   > 
+   > 
 
-    单击“下一步”以保存节点定价配置。
+   单击“下一步”以保存节点定价配置。
 
 7. 单击“高级设置”以配置其他可选设置，如使用“脚本操作”自定义群集以安装自定义组件或加入“虚拟网络”。 有关详细信息，请查看下表。
 
@@ -129,44 +131,51 @@ Azure 门户会公开大部分的群集属性。 使用 Azure Resource Manager �
 
     参考以下内容了解此边栏选项卡顶部的图标。
 
-    * **概览** 边栏选项卡提供有关该群集的基本信息，如名称、所属的资源组、位置、操作系统、群集仪表板 URL 等。
+    *  边栏选项卡提供有关该群集的基本信息，如名称、所属的资源组、位置、操作系统、群集仪表板 URL 等。
     * **仪表板** 可将你定向到与群集关联的 Ambari 门户。
     * **安全外壳**：使用 SSH 访问群集时所需的信息。
     * **缩放群集** 可增加与群集关联的辅助角色节点数。
     * **删除**：删除 HDInsight 群集。
 
-## <a name="customize-clusters"></a>自定义群集
+## 自定义群集
+<a id="customize-clusters" class="xliff"></a>
 * 请参阅[使用 Bootstrap 自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-bootstrap.md)。
 * 请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
-## <a name="delete-the-cluster"></a>删除群集
+## 删除群集
+<a id="delete-the-cluster" class="xliff"></a>
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="troubleshoot"></a>故障排除
+## 故障排除
+<a id="troubleshoot" class="xliff"></a>
 
 如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md#create-clusters)。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 成功创建 HDInsight 群集后，请参考以下主题来了解如何使用群集：
 
-### <a name="hadoop-clusters"></a>Hadoop 群集
+### Hadoop 群集
+<a id="hadoop-clusters" class="xliff"></a>
 * [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a>HBase 群集
+### HBase 群集
+<a id="hbase-clusters" class="xliff"></a>
 * [HBase on HDInsight 入门](hdinsight-hbase-tutorial-get-started-linux.md)
 * [为 HBase on HDInsight 开发 Java 应用程序](hdinsight-hbase-build-java-maven-linux.md)
 
-### <a name="storm-clusters"></a>Storm 群集
+### Storm 群集
+<a id="storm-clusters" class="xliff"></a>
 * [为 Storm on HDInsight 开发 Java 拓扑](hdinsight-storm-develop-java-topology.md)
 * [在 Storm on HDInsight 中使用 Python 组件](hdinsight-storm-develop-python-topology.md)
 * [使用 Storm on HDInsight 部署和监视拓扑](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-### <a name="spark-clusters"></a>Spark 群集
+### Spark 群集
+<a id="spark-clusters" class="xliff"></a>
 * [使用 Scala 创建独立的应用程序](hdinsight-apache-spark-create-standalone-application.md)
 * [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](hdinsight-apache-spark-eventhub-streaming.md)
-

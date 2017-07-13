@@ -1,6 +1,6 @@
 ---
 title: "将 MongoChef 用于 DocumentDB | Microsoft Docs"
-description: "了解如何将 MongoChef 用于 DocumentDB: API for MongoDB 帐户"
+description: "了解如何将 MongoChef 与 DocumentDB: API for MongoDB 帐户配合使用"
 keywords: mongochef
 services: documentdb
 author: AndrewHoh
@@ -16,22 +16,22 @@ ms.topic: article
 origin.date: 04/27/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 7f1d782b376b7904ef7fc773444ff87c5acd8c2d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: ae056b651b8342278524ff43a7531d5277bf6186
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="use-mongochef-with-an-azure-documentdb-api-for-mongodb-account"></a>将 MongoChef 用于 DocumentDB: API for MongoDB 帐户
+# 将 MongoChef 与 DocumentDB: API for MongoDB 帐户配合使用
+<a id="use-mongochef-with-a-documentdb-api-for-mongodb-account" class="xliff"></a>
 
 若要连接到 DocumentDB: API for MongoDB 帐户，必须：
 
 - 下载并安装 [MongoChef](http://3t.io/mongochef)
 - 具有 DocumentDB: API for MongoDB 帐户的[连接字符串](documentdb-connect-mongodb-account.md)信息
 
-## <a name="create-the-connection-in-mongochef"></a>在 MongoChef 中创建连接
+## 在 MongoChef 中创建连接
+<a id="create-the-connection-in-mongochef" class="xliff"></a>
 若要将 DocumentDB: API for MongoDB 帐户添加到 MongoChef 连接管理器，请执行以下步骤。
 
 1. 使用[此处](documentdb-connect-mongodb-account.md)的指令检索 DocumentDB: API for MongoDB 连接信息。
@@ -53,7 +53,8 @@ ms.lasthandoff: 05/19/2017
 
     ![MongoChef 测试连接窗口屏幕截图](./media/documentdb-mongodb-mongochef/TestConnectionResults.png)
 
-## <a name="use-mongochef-to-create-a-database-collection-and-documents"></a>使用 MongoChef 创建数据库、集合与文档
+## 使用 MongoChef 创建数据库、集合与文档
+<a id="use-mongochef-to-create-a-database-collection-and-documents" class="xliff"></a>
 若要使用 MongoChef 创建数据库、集合与文档，请执行以下步骤。
 
 1. 在“连接管理器”中突出显示连接，然后单击“连接”。
@@ -117,7 +118,7 @@ ms.lasthandoff: 05/19/2017
 
     ![Mongo Chef 查询结果的屏幕截图](./media/documentdb-mongodb-mongochef/QueryDocument1.png)
 
-## <a name="next-steps"></a>后续步骤
-- 浏览 DocumentDB: API for MongoDB [示例](documentdb-mongodb-samples.md)。
-
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+- 浏览 MongoDB [示例](documentdb-mongodb-samples.md)的 DocumentDB: API。
 

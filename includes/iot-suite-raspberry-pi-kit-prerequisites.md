@@ -3,7 +3,7 @@
 需要有效的 Azure 订阅才能完成此教程。
 
 > [!NOTE]
-> 如果没有帐户，只需花费几分钟就能创建一个试用帐户。 有关详细信息，请参阅 [Azure 试用][lnk-free-trial]。
+> 如果没有帐户，只需花费几分钟就能创建一个免费试用帐户。 有关详细信息，请参阅 [Azure 免费试用][lnk-free-trial]。
 
 ### <a name="required-software"></a>所需软件
 
@@ -28,5 +28,5 @@
 - 电阻
 - LED
 
-[lnk-starter-kits]: /develop/iot/iot-starter-kits/
+[lnk-starter-kits]: https://www.azure.cn/develop/iot/iot-starter-kits/
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/

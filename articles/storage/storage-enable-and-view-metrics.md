@@ -14,23 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 75c2817998d6c1f1e5fb6b35381dcd5ef688549e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 6994f8b854eab651cf350057ae75ec917aee7abd
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>启用 Azure 存储指标并查看指标数据
+# 启用 Azure 存储指标并查看指标数据
+<a id="enabling-azure-storage-metrics-and-viewing-metrics-data" class="xliff"></a>
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../includes/storage-selector-portal-enable-and-view-metrics.md)]
 
-## <a name="overview"></a>概述
+## 概述
+<a id="overview" class="xliff"></a>
 创建新的存储帐户时默认情况下会启用存储度量。 可通过 [Azure 门户](https://portal.azure.cn)或 Windows PowerShell 配置监视，也可通过一个存储客户端库以编程方式配置监视。
 
-可以为度量数据配置保留期：此期限用于确定存储服务保留度量并针对存储度量所需的空间向你收费的时长。 通常，由于分钟度量值需要大量额外的空间，因此，应对分钟度量值而非小时度量值使用较短的保留期。 你应该选择恰当的保留期，以便有足够的时间分析数据，并下载任何需要保留下来进行脱机分析或报告的度量值。 请记住，从存储帐户下载度量值数据时，你也需要付费。
+可以为度量数据配置保留期：此期限用于确定存储服务保留度量并针对存储度量所需的空间向你收费的时长。 通常，由于分钟度量值需要大量额外的空间，因此，应对分钟度量值而非小时度量值使用较短的保留期。 你应该选择恰当的保留期，以便有足够的时间分析数据，并下载任何需要保留下来进行脱机分析或报告的度量值。 请记住，从存储帐户下载指标数据也将计费。
 
-## <a name="how-to-enable-metrics-using-the-azure-portal-preview"></a>如何通过 Azure 门户启用指标
+## 如何通过 Azure 门户启用指标
+<a id="how-to-enable-metrics-using-the-azure-portal" class="xliff"></a>
 请按照下列步骤在 [Azure 门户](https://portal.azure.cn)中启用指标：
 
 1. 导航到存储帐户。
@@ -38,11 +39,12 @@ ms.lasthandoff: 04/14/2017
 1. 确保“状态”设置为“打开”。
 1. 选择你希望监视的服务的度量值。
 1. 指定用来指示保留度量值和日志数据的时间长度的保留期策略。
-1. 选择“其他安全性验证” 。
+1. 选择“保存”。
 
-请注意，[Azure 门户](https://portal.azure.cn)目前不允许在存储帐户中配置分钟指标；必须通过 PowerShell 或以编程方式启用分钟指标。
+请注意， [Azure 门户](https://portal.azure.cn) 目前不允许在存储帐户中配置分钟指标；必须通过 PowerShell 或以编程方式启用分钟指标。
 
-## <a name="how-to-enable-metrics-using-powershell"></a>如何通过 PowerShell 启用指标
+## 如何通过 PowerShell 启用指标
+<a id="how-to-enable-metrics-using-powershell" class="xliff"></a>
 可以使用本地计算机上的 PowerShell 在存储帐户中配置存储指标，具体方法是：使用 Azure PowerShell cmdlet Get-AzureStorageServiceMetricsProperty 检索当前设置，然后使用 cmdlet Set-AzureStorageServiceMetricsProperty 更改当前设置。
 
 控制存储指标的 cmdlet 使用以下参数：
@@ -65,7 +67,8 @@ Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
 
 若要了解如何配置 Azure PowerShell cmdlet 来使用 Azure 订阅并了解如何选择要使用的默认存储帐户，请参阅：[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 
-## <a name="how-to-enable-storage-metrics-programmatically"></a>如何以编程方式启用存储度量值
+## 如何以编程方式启用存储度量值
+<a id="how-to-enable-storage-metrics-programmatically" class="xliff"></a>
 下面的 C# 代码段演示了如何使用 .NET 的存储客户端库为 Blob 服务启用度量值和日志记录：
 
 ```csharp
@@ -98,7 +101,8 @@ properties.DefaultServiceVersion = "2015-04-05";
 blobClient.SetServiceProperties(properties);
 ```
 
-## <a name="viewing-storage-metrics"></a>查看存储指标
+## 查看存储指标
+<a id="viewing-storage-metrics" class="xliff"></a>
 在将存储分析指标配置为监视存储帐户后，存储分析将使用存储帐户在一组已知表中记录指标。 可以将图表配置为每小时查看 [Azure 门户](https://portal.azure.cn)中的指标：
 
 1. 在 [Azure 门户](https://portal.azure.cn)中导航到存储帐户。
@@ -122,17 +126,20 @@ blobClient.SetServiceProperties(properties);
 
 若要以编程方式访问分析表，请注意如果存储帐户中列出这些表，将不显示它们。 可按名称直接访问它们，也可使用 .NET 客户端库中的 [CloudAnalyticsClient API](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.analytics.cloudanalyticsclient.aspx) 查询表名。
 
-### <a name="hourly-metrics"></a>小时指标
+### 小时指标
+<a id="hourly-metrics" class="xliff"></a>
 * $MetricsHourPrimaryTransactionsBlob
 * $MetricsHourPrimaryTransactionsTable
 * $MetricsHourPrimaryTransactionsQueue
 
-### <a name="minute-metrics"></a>分钟度量值
+### 分钟度量值
+<a id="minute-metrics" class="xliff"></a>
 * $MetricsMinutePrimaryTransactionsBlob
 * $MetricsMinutePrimaryTransactionsTable
 * $MetricsMinutePrimaryTransactionsQueue
 
-### <a name="capacity"></a>容量
+### 容量
+<a id="capacity" class="xliff"></a>
 * $MetricsCapacityBlob
 
 有关这些表的完整架构详细信息，请参阅 [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)（存储分析度量值表架构）。 以下示例行仅显示一部分可用列，但也说明了存储度量值在采用相应方式保存这些度量值时展现的一些重要功能：
@@ -151,14 +158,16 @@ blobClient.SetServiceProperties(properties);
 
 上面的示例数据显示一分钟的所有记录（从上午 11:00 开始），因此 QueryEntities 请求数加 QueryEntity 请求数再加 UpdateEntity 请求数的和为 7，这是显示在 user:All 行上的总数。 同样，通过计算 ((143.8 * 5) + 3 + 9)/7，可以在 user:All 行得到平均端到端延迟为 104.4286。
 
-## <a name="metrics-alerts"></a>度量警报
+## 度量警报
+<a id="metrics-alerts" class="xliff"></a>
 应考虑在 [Azure 门户](https://portal.azure.cn)中设置警报，以便存储指标可以自动向你通知存储服务行为的重要更改。 如果使用存储资源管理器工具下载这种采用分隔格式的指标数据，则可以使用 Microsoft Excel 分析数据。 有关可用存储资资源管理器工具的列表，请参阅 [Azure 存储客户端工具](storage-explorers.md)。 可以在“警报规则”边栏选项卡（可在存储帐户菜单边栏选项卡中的“监视”下进行访问）。
 
 > [!IMPORTANT]
 > 在存储事件与记录对应每小时或分钟度量数据的时间之间可能存在延迟。 对于分钟度量，可能会一次写入几分钟的数据。 这可能会导致将前面几分钟的事务聚合到当前分钟的事务中。 发生此情况时，警报服务可能没有已配置警报间隔内的所有可用度量数据，这可能会导致意外触发警报。
 >
 
-## <a name="accessing-metrics-data-programmatically"></a>以编程方式访问度量值数据
+## 以编程方式访问度量值数据
+<a id="accessing-metrics-data-programmatically" class="xliff"></a>
 以下列表显示示例 C# 代码，该代码用于访问分钟范围的分钟度量值，并在控制台窗口中显示结果。 它使用 Azure 存储库版本 4，其中包括 CloudAnalyticsClient 类，用于简化访问存储中的度量值表的过程。
 
 ```csharp
@@ -203,7 +212,8 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
 }
 ```
 
-## <a name="what-charges-do-you-incur-when-you-enable-storage-metrics"></a>在启用存储度量值时，你需要支付多少费用？
+## 在启用存储度量值时，你需要支付多少费用？
+<a id="what-charges-do-you-incur-when-you-enable-storage-metrics" class="xliff"></a>
 为度量值创建表实体的写入请求，按适用于所有 Azure 存储操作的标准费率收费。
 
 客户端针对度量值数据的读取和删除请求也按标准费率收费。 如果你已配置数据保留策略，则当 Azure 存储删除旧的度量值数据时，你不用付费。 但是，如果你删除分析数据，则会针对删除操作向你的帐户收费。
@@ -214,5 +224,6 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
 * 如果某个服务每小时都会利用每个服务的每个 API，则在仅启用服务级别摘要后，每小时约有 12KB 的数据存储在度量值事务表中。
 * Blob 的容量表每天添加两行（如果用户已为日志选择加入）：这表示，此表的大小每天最多以约 300 字节的幅度增加。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 [启用存储日志记录和访问日志数据](https://docs.microsoft.com/rest/api/storageservices/fileservices/Enabling-Storage-Logging-and-Accessing-Log-Data)

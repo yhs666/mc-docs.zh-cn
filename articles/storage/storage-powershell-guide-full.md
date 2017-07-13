@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 1c6ed0b3e8c6e7da01a65bbf9d93c4b89fc807a0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 761851dc549039bc8c454d25f9fd78cbe7022cdc
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# <a name="using-azure-powershell-with-azure-storage"></a>对 Azure 存储 使用 Azure PowerShell
-## <a name="overview"></a>概述
+# 对 Azure 存储 使用 Azure PowerShell
+<a id="using-azure-powershell-with-azure-storage" class="xliff"></a>
+## 概述
+<a id="overview" class="xliff"></a>
 Azure PowerShell 是一个模块，提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet。 它是一种基于任务的命令行 shell 和脚本语言，专门用于系统管理。 使用 PowerShell，可以轻松控制和自动化 Azure 服务与应用程序的管理。 例如，可以使用这些 cmdlet 执行在 [Azure 门户](https://portal.azure.cn)中可以执行的相同任务。
 
 在本指南中，将探讨如何使用 [Azure 存储 Cmdlet](https://msdn.microsoft.com/library/azure/mt269418.aspx)，以通过 Azure 存储执行各种开发和管理任务。
@@ -31,7 +31,8 @@ Azure PowerShell 是一个模块，提供用于通过 Windows PowerShell 管理 
 
 本指南的第一部分提供 Azure 存储和 PowerShell 的概览。 有关详细信息和说明，请先了解 [对 Azure 存储使用 Azure PowerShell 的先决条件](#prerequisites-for-using-azure-powershell-with-azure-storage)。
 
-## <a name="getting-started-with-azure-storage-and-powershell-in-5-minutes"></a>在 5 分钟内开始使用 Azure 存储和 PowerShell
+## 在 5 分钟内开始使用 Azure 存储和 PowerShell
+<a id="getting-started-with-azure-storage-and-powershell-in-5-minutes" class="xliff"></a>
 本部分说明如何在 5 分钟内通过 PowerShell 访问 Azure 存储。
 
 **Azure 新用户：**获取一个 Azure 订阅以及与该订阅关联的 Azure 帐户。 有关 Azure 购买选项的信息，请参阅 [1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。
@@ -111,9 +112,9 @@ Azure PowerShell 是一个模块，提供用于通过 Windows PowerShell 管理 
            Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
         ```
 
-        b.使用“1521”作为公用端口。 若要在 [Azure 门户](https://portal.azure.cn)中找到并复制订阅名称，请在左侧“中心”菜单中单击“订阅”。 复制在运行本指南中的脚本时要使用的订阅名称。
+        b.保留“数据库类型”设置，即设置为“共享”。 若要在 [Azure 门户](https://portal.azure.cn)中找到并复制订阅名称，请在左侧“中心”菜单中单击“订阅”。 复制在运行本指南中的脚本时要使用的订阅名称。
 
-         ![Azure portal preview](./media/storage-powershell-guide-full/Subscription_Previewportal.png)
+         ![Azure Portal](./media/storage-powershell-guide-full/Subscription_Previewportal.png)
 
     c.单击“选项”选项卡。 若要在 [Azure 经典管理门户](https://manage.windowsazure.cn/)中找到并复制订阅名称，请向下滚动并单击门户左侧的“设置”。 单击“订阅”以查看订阅列表。 复制在运行本指南中指定的脚本时要使用的订阅名称。
 
@@ -134,18 +135,21 @@ Azure PowerShell 是一个模块，提供用于通过 Windows PowerShell 管理 
 > “在 5 分钟内开始使用 Azure 存储和 PowerShell”部分提供了有关如何对 Azure 存储使用 Azure PowerShell 的简介。 有关详细信息和说明，建议阅读以下部分。
 > 
 
-## <a name="prerequisites-for-using-azure-powershell-with-azure-storage"></a>对 Azure 存储使用 Azure PowerShell 的先决条件
+## 对 Azure 存储使用 Azure PowerShell 的先决条件
+<a id="prerequisites-for-using-azure-powershell-with-azure-storage" class="xliff"></a>
 如上所述，需要一个 Azure 订阅和帐户来运行本指南中指定的 PowerShell cmdlet。
 
 Azure PowerShell 是一个模块，提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet。 有关安装和设置 Azure PowerShell 的信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。 建议在使用本指南之前下载并安装或者升级到最新的 Azure PowerShell 模块。
 
 可以在标准的 Windows PowerShell 控制台或 Windows PowerShell 集成脚本环境 (ISE) 中运行 cmdlet。 例如，若要打开 **Windows PowerShell ISE**，请转到“开始”菜单，键入“管理工具”，然后单击以运行它。 在“管理工具”窗口中，右键单击“Windows PowerShell ISE”，然后单击“以管理员身份运行”。
 
-## <a name="how-to-manage-storage-accounts-in-azure"></a>如何管理 Azure 中的存储帐户
+## 如何管理 Azure 中的存储帐户
+<a id="how-to-manage-storage-accounts-in-azure" class="xliff"></a>
 
 让我们看看如何在 Azure 中使用 PowerShell 管理存储帐户
 
-### <a name="how-to-set-a-default-azure-subscription"></a>如何设置默认的 Azure 订阅
+### 如何设置默认的 Azure 订阅
+<a id="how-to-set-a-default-azure-subscription" class="xliff"></a>
 若要使用 Azure PowerShell 管理 Azure 存储，需要通过 Azure Active Directory 身份验证或基于证书的身份验证在 Azure 中对客户端环境进行身份验证。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 教程。 本指南使用 Azure Active Directory 身份验证。
 
 1. 在 Windows PowerShell ISE 中键入以下命令，将 Azure 帐户添加到本地 PowerShell 环境：
@@ -185,7 +189,8 @@ Azure PowerShell 是一个模块，提供用于通过 Windows PowerShell 管理 
     Get-Command -Module Azure -Noun *Storage*
     ```
 
-### <a name="how-to-create-a-new-azure-storage-account"></a>如何创建新的 Azure 存储帐户
+### 如何创建新的 Azure 存储帐户
+<a id="how-to-create-a-new-azure-storage-account" class="xliff"></a>
 若要使用 Azure 存储，则需要一个存储帐户。 可以在将计算机配置为连接到订阅之后，创建新的 Azure 存储帐户。
 
 1. 运行 Get-AzureLocation cmdlet 查找所有可用的数据中心位置：
@@ -207,7 +212,8 @@ Azure PowerShell 是一个模块，提供用于通过 Windows PowerShell 管理 
 > 
 > 
 
-### <a name="how-to-set-a-default-azure-storage-account"></a>如何设置默认的 Azure 存储帐户
+### 如何设置默认的 Azure 存储帐户
+<a id="how-to-set-a-default-azure-storage-account" class="xliff"></a>
 可以在订阅中设置多个存储帐户。 可以选择其中的一个存储帐户，并将其设置为同一个 PowerShell 会话中所有存储命令的默认存储帐户。 这样，便可以在不显式指定存储上下文的情况下运行 Azure PowerShell 存储命令。
 
 1. 若要设置订阅的默认存储帐户，可以运行 Set-AzureSubscription cmdlet。
@@ -224,7 +230,8 @@ Azure PowerShell 是一个模块，提供用于通过 Windows PowerShell 管理 
     Get-AzureSubscription –Current
     ```
 
-### <a name="how-to-list-all-azure-storage-accounts-in-a-subscription"></a>如何列出订阅中所有的 Azure 存储帐户
+### 如何列出订阅中所有的 Azure 存储帐户
+<a id="how-to-list-all-azure-storage-accounts-in-a-subscription" class="xliff"></a>
 每个 Azure 订阅最多可以有 100 个存储帐户。 有关限制的最新信息，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
 
 运行以下 cmdlet 可了解当前订阅中的存储帐户的名称和状态：
@@ -233,7 +240,8 @@ Azure PowerShell 是一个模块，提供用于通过 Windows PowerShell 管理 
 Get-AzureStorageAccount | Format-Table -Property StorageAccountName, Location, AccountType, StorageAccountStatus
 ```
 
-### <a name="how-to-create-an-azure-storage-context"></a>如何创建 Azure 存储上下文
+### 如何创建 Azure 存储上下文
+<a id="how-to-create-an-azure-storage-context" class="xliff"></a>
 Azure 存储上下文是 PowerShell 中用于封装存储凭据的对象。 运行任何后续 cmdlet 时使用存储上下文可以对请求进行身份验证，而无需显式指定存储帐户及其访问密钥。 可以通过多种方式创建存储上下文，例如，使用存储帐户名称和访问密钥、共享访问签名 (SAS) 令牌、连接字符串或匿名。 有关详细信息，请参阅 [New-AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx)。  
 
 使用以下三种方法之一创建存储上下文：
@@ -266,7 +274,8 @@ Azure 存储上下文是 PowerShell 中用于封装存储凭据的对象。 运�
 
 在设置了计算机并已了解如何使用 Azure PowerShell 管理订阅和存储帐户后，可转到下一节，了解如何管理 Azure blob 和 blob 快照。
 
-### <a name="how-to-retrieve-and-regenerate-azure-storage-keys"></a>如何检索和重新生成 Azure 存储密钥
+### 如何检索和重新生成 Azure 存储密钥
+<a id="how-to-retrieve-and-regenerate-azure-storage-keys" class="xliff"></a>
 Azure 存储帐户附带了两个帐户密钥。 可以使用以下 cmdlet 示例来检索密钥。
 
 ```powershell
@@ -289,10 +298,12 @@ New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Primary�
 New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Secondary”
 ```
 
-## <a name="how-to-manage-azure-blobs"></a>如何管理 Azure blob
+## 如何管理 Azure blob
+<a id="how-to-manage-azure-blobs" class="xliff"></a>
 Azure Blob 存储是用于存储大量非结构化数据（例如文本或二进制数据）的服务，这些数据可通过 HTTP 或 HTTPS 从世界各地进行访问。 本部分假设用户已熟悉了 Azure Blob 存储服务的概念。 有关详细信息，请参阅[通过 .NET 开始使用 Blob 存储](storage-dotnet-how-to-use-blobs.md)和 [Blob Service Concepts](http://msdn.microsoft.com/library/azure/dd179376.aspx)（Blob 服务概念）。
 
-### <a name="how-to-create-a-container"></a>如何创建容器
+### 如何创建容器
+<a id="how-to-create-a-container" class="xliff"></a>
 Azure 存储中的每个 Blob 都必须在容器中。 可以使用 New-AzureStorageContainer cmdlet 创建专用容器：
 
 ```powershell
@@ -305,7 +316,8 @@ New-AzureStorageContainer -Name $StorageContainerName -Permission Off
 > 
 > 
 
-### <a name="how-to-upload-a-blob-into-a-container"></a>如何将 Blob 上传到容器
+### 如何将 Blob 上传到容器
+<a id="how-to-upload-a-blob-into-a-container" class="xliff"></a>
 Azure Blob 存储支持块 Blob 和页 Blob。 有关详细信息，请参阅 [Understanding Block Blobs, Append BLobs, and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx)（了解块 Blob、追加 Blob 和页 Blob）。
 
 若要将 Blob 上传到容器，可以使用 [Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx) cmdlet。 默认情况下，此命令会将本地文件上传到块 Blob。 若要指定 Blob 的类型，可以使用 -BlobType 参数。
@@ -316,7 +328,8 @@ Azure Blob 存储支持块 Blob 和页 Blob。 有关详细信息，请参阅 [U
 Get-ChildItem –Path C:\Images\* | Set-AzureStorageBlobContent -Container "yourcontainername"
 ```
 
-### <a name="how-to-download-blobs-from-a-container"></a>如何从容器下载 Blob
+### 如何从容器下载 Blob
+<a id="how-to-download-blobs-from-a-container" class="xliff"></a>
 以下示例演示如何从容器下载 Blob。 该示例首先使用存储帐户上下文（包括存储帐户名称及其主访问密钥）与 Azure 存储建立连接。 然后，该示例将使用 [Get-AzureStorageBlob](http://msdn.microsoft.com/library/azure/dn806392.aspx) cmdlet 检索 Blob 引用。 接下来，该示例使用 [Get-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806418.aspx) cmdlet 将 Blob 下载到本地目标文件夹。
 
 ```powershell
@@ -337,7 +350,8 @@ New-Item -Path $DestinationFolder -ItemType Directory -Force
 $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder -Context $Ctx
 ```
 
-### <a name="how-to-copy-blobs-from-one-storage-container-to-another"></a>如何将 Blob 复制到另一个存储容器
+### 如何将 Blob 复制到另一个存储容器
+<a id="how-to-copy-blobs-from-one-storage-container-to-another" class="xliff"></a>
 可以跨存储帐户和区域异步复制 Blob。 以下示例演示如何在两个不同的存储帐户，将一个存储容器中的 Blob 复制到另一个存储容器。 该示例首先设置源和目标存储帐户的变量，然后创建每个帐户的存储上下文。 接下来，该示例使用 [Start-AzureStorageBlobCopy](http://msdn.microsoft.com/library/azure/dn806394.aspx) cmdlet 将 Blob 从源容器复制到目标容器。 该示例假设源存储帐户、目标存储帐户和容器已存在。
 
 ```powershell
@@ -362,7 +376,8 @@ $blobs| Start-AzureStorageBlobCopy -DestContainer $DestContainerName -DestContex
 
 请注意，此示例将执行异步复制。 可以通过运行 [Get-AzureStorageBlobCopyState](http://msdn.microsoft.com/library/azure/dn806406.aspx) cmdlet 来监视每个副本的状态。
 
-### <a name="how-to-copy-blobs-from-a-secondary-location"></a>如何从辅助位置复制 Blob
+### 如何从辅助位置复制 Blob
+<a id="how-to-copy-blobs-from-a-secondary-location" class="xliff"></a>
 可以从一个已启用 RA-GRS 帐户的辅助位置复制 Blob。
 
 ```powershell
@@ -371,7 +386,8 @@ $SrcContext = New-AzureStorageContext -ConnectionString "DefaultEndpointsProtoco
 Start-AzureStorageBlobCopy –Container *** -Blob *** -Context $SrcContext –DestContainer *** -DestBlob *** -DestContext $DestContext
 ```
 
-### <a name="how-to-delete-a-blob"></a>如何删除 Blob
+### 如何删除 Blob
+<a id="how-to-delete-a-blob" class="xliff"></a>
 若要删除 Blob，首先需要获取 Blob 引用，然后对该引用调用 Remove-AzureStorageBlob cmdlet。 以下示例将删除给定容器中的所有 Blob。 该示例首先设置存储帐户的变量，然后创建存储上下文。 接下来，该示例使用 [Get-AzureStorageBlob](http://msdn.microsoft.com/library/azure/dn806392.aspx) cmdlet 检索 Blob 引用，然后运行 [Remove-AzureStorageBlob](http://msdn.microsoft.com/library/azure/dn806399.aspx) cmdlet 删除 Azure 存储内某个容器中的 Blob。
 
 ```powershell
@@ -388,10 +404,12 @@ $blobs = Get-AzureStorageBlob -Container $ContainerName -Context $Ctx
 $blobs| Remove-AzureStorageBlob
 ```
 
-## <a name="how-to-manage-azure-blob-snapshots"></a>如何管理 Azure Blob 快照
+## 如何管理 Azure Blob 快照
+<a id="how-to-manage-azure-blob-snapshots" class="xliff"></a>
 Azure 允许创建 Blob 的快照。 快照是在某一时间点拍摄的只读版本的 Blob。 在创建快照后，可以读取、复制或删除该快照，但无法对其进行修改。 利用快照，可以在某个时间点备份 Blob。 有关详细信息，请参阅 [Creating a Snapshot of a Blob](http://msdn.microsoft.com/library/azure/hh488361.aspx)（创建 Blob 的快照）。
 
-### <a name="how-to-create-a-blob-snapshot"></a>如何创建 Blob 快照
+### 如何创建 Blob 快照
+<a id="how-to-create-a-blob-snapshot" class="xliff"></a>
 若要创建 Blob 的快照，首先需要获取 Blob 引用，然后对其调用 `ICloudBlob.CreateSnapshot` 方法。 以下示例首先设置存储帐户的变量，然后创建存储上下文。 接下来，该示例使用 [Get-AzureStorageBlob](http://msdn.microsoft.com/library/azure/dn806392.aspx) cmdlet 检索 Blob 引用，然后运行 [ICloudBlob.CreateSnapshot](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.icloudblob.aspx) 方法创建一个快照。
 
 ```powershell
@@ -409,7 +427,8 @@ $blob = Get-AzureStorageBlob -Context $Ctx -Container $ContainerName -Blob $Blob
 $snap = $blob.ICloudBlob.CreateSnapshot()
 ```
 
-### <a name="how-to-list-a-blobs-snapshots"></a>如何列出 Blob 的快照
+### 如何列出 Blob 的快照
+<a id="how-to-list-a-blobs-snapshots" class="xliff"></a>
 可以根据需要为 Blob 创建任意数目的快照。 可以列出与 Blob 关联的快照，以跟踪当前快照。 以下示例使用预定义的 Blob，并调用 [Get-AzureStorageBlob](http://msdn.microsoft.com/library/azure/dn806392.aspx) cmdlet 列出该 Blob 的快照。  
 
 ```powershell
@@ -420,7 +439,8 @@ $BlobName = "yourblobname"
 Get-AzureStorageBlob –Context $Ctx -Prefix $BlobName -Container $ContainerName  | Where-Object  { $_.ICloudBlob.IsSnapshot -and $_.Name -eq $BlobName }
 ```
 
-### <a name="how-to-copy-a-snapshot-of-a-blob"></a>如何复制 Blob 的快照
+### 如何复制 Blob 的快照
+<a id="how-to-copy-a-snapshot-of-a-blob" class="xliff"></a>
 可以复制 Blob 的快照以还原快照。 有关详细信息和限制，请参阅 [Creating a Snapshot of a Blob](http://msdn.microsoft.com/library/azure/hh488361.aspx)（创建 Blob 的快照）。 以下示例首先设置存储帐户的变量，然后创建存储上下文。 接下来，该示例将定义容器和 Blob 的名称变量。 该示例使用 [Get-AzureStorageBlob](http://msdn.microsoft.com/library/azure/dn806392.aspx) cmdlet 检索 Blob 引用，然后运行 [ICloudBlob.CreateSnapshot](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.icloudblob.aspx) 方法创建一个快照。 然后，该示例运行 [Start-AzureStorageBlobCopy](http://msdn.microsoft.com/library/azure/dn806394.aspx) cmdlet，以使用源 Blob 的 ICloudBlob 对象复制 Blob 的快照。 在运行该示例之前，请务必根据配置更新变量。 请注意，以下示例假设源容器、目标容器和源 Blob 已存在。
 
 ```powershell
@@ -447,12 +467,14 @@ Start-AzureStorageBlobCopy –Context $Ctx -ICloudBlob $snap -DestBlob $DestBlob
 
 在已了解了如何使用 Azure PowerShell 管理 Azure blob 和 blob 快照后，可转到下一节，了解如何管理表、队列和文件。
 
-## <a name="how-to-manage-azure-tables-and-table-entities"></a>如何管理 Azure 表和表实体
+## 如何管理 Azure 表和表实体
+<a id="how-to-manage-azure-tables-and-table-entities" class="xliff"></a>
 Azure 表存储服务是一种 NoSQL 数据存储，可用于存储和查询大量的结构化非关系型数据。 该服务的主要组件包括表、实体和属性。 表是实体的集合。 实体是一组属性。 每个实体最多可以有 252 个属性（都是一些名称-值对）。 本部分假设用户已熟悉 Azure 表存储服务的概念。 有关详细信息，请参阅 [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx)（了解表服务数据模型）和[通过 .NET 开始使用 Azure 表存储](storage-dotnet-how-to-use-tables.md)。
 
 以下小节中将介绍如何使用 Azure PowerShell 管理 Azure 表存储服务。 涉及的情景包括**创建**、**删除**和**检索****表**，以及**添加**、**查询**和**删除表实体**。
 
-### <a name="how-to-create-a-table"></a>如何创建表
+### 如何创建表
+<a id="how-to-create-a-table" class="xliff"></a>
 每个表必须驻留在 Azure 存储帐户中。 以下示例演示如何在 Azure 存储中创建一个表。 该示例首先使用存储帐户上下文（包括存储帐户名称及其访问密钥）与 Azure 存储建立连接。 接下来，它将使用 [New-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806417.aspx) cmdlet 在 Azure 存储中创建表。
 
 ```powershell
@@ -466,7 +488,8 @@ $tabName = "yourtablename"
 New-AzureStorageTable –Name $tabName –Context $Ctx
 ```
 
-### <a name="how-to-retrieve-a-table"></a>如何检索表
+### 如何检索表
+<a id="how-to-retrieve-a-table" class="xliff"></a>
 可以查询和检索存储帐户中的一个或所有表。 以下示例演示如何使用 [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) cmdlet 检索给定的表。
 
 ```powershell
@@ -477,7 +500,8 @@ Get-AzureStorageTable –Name $tabName –Context $Ctx
 
 如果调用不带任何参数的 Get-AzureStorageTable cmdlet，则会获取存储帐户的所有存储表。
 
-### <a name="how-to-delete-a-table"></a>如何删除表
+### 如何删除表
+<a id="how-to-delete-a-table" class="xliff"></a>
 可以使用 [Remove-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806393.aspx) cmdlet 从存储帐户中删除表。  
 
 ```powershell
@@ -486,10 +510,12 @@ $tabName = "yourtablename"
 Remove-AzureStorageTable –Name $tabName –Context $Ctx
 ```
 
-### <a name="how-to-manage-table-entities"></a>如何管理表实体
+### 如何管理表实体
+<a id="how-to-manage-table-entities" class="xliff"></a>
 目前，Azure PowerShell 未直接提供用于管理表实体的 cmdlet。 若要对表实体执行操作，可以使用[用于 .NET 的 Azure 存储客户端库](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)中提供的类。
 
-#### <a name="how-to-add-table-entities"></a>如何添加表实体
+#### 如何添加表实体
+<a id="how-to-add-table-entities" class="xliff"></a>
 若要将实体添加到表中，请先创建用于定义实体属性的对象。 一个实体最多可以有 255 个属性，其中包括 3 个系统属性：**PartitionKey**、**RowKey** 和 **Timestamp**。 需要负责插入和更新 **PartitionKey** 与 **RowKey** 的值。 服务器将管理 **Timestamp** 的值，该值不可修改。 **PartitionKey** 和 **RowKey** 共同唯一标识表中的每个实体。
 
 * **PartitionKey**：确定实体存储在其中的分区。
@@ -540,7 +566,8 @@ Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row1 -Name Christine -
 Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row2 -Name Steven -Id 4
 ```
 
-#### <a name="how-to-query-table-entities"></a>如何查询表实体
+#### 如何查询表实体
+<a id="how-to-query-table-entities" class="xliff"></a>
 若要查询表，请使用 [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx) 类。 以下示例假设已运行本指南的“如何添加实体”部分中指定的脚本。 该示例首先使用存储上下文（包括存储帐户名称及其访问密钥）与 Azure 存储建立连接。 接下来，它将尝试使用 [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) cmdlet 检索前面创建的“Employees”表。 对 Microsoft.WindowsAzure.Storage.Table.TableQuery 类调用 [New-Object](http://technet.microsoft.com/library/hh849885.aspx) cmdlet 会创建一个新的查询对象。 该示例将查找字符串筛选器中指定的“ID”列值为 1 的实体。 有关详细信息，请参阅 [Querying Tables and Entities](http://msdn.microsoft.com/library/azure/dd894031.aspx)（查询表和实体）。 当运行此查询时，它将返回与筛选条件匹配的所有实体。
 
 ```powershell
@@ -574,7 +601,8 @@ $entities = $table.CloudTable.ExecuteQuery($query)
 $entities  | Format-Table PartitionKey, RowKey, @{ Label = "Name"; Expression={$_.Properties["Name"].StringValue}}, @{ Label = "ID"; Expression={$_.Properties["ID"].Int32Value}} -AutoSize
 ```
 
-#### <a name="how-to-delete-table-entities"></a>如何删除表实体
+#### 如何删除表实体
+<a id="how-to-delete-table-entities" class="xliff"></a>
 可以使用实体的分区键和行键删除实体。 以下示例假设已运行本指南的“如何添加实体”部分中指定的脚本。 该示例首先使用存储上下文（包括存储帐户名称及其访问密钥）与 Azure 存储建立连接。 接下来，它将尝试使用 [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) cmdlet 检索前面创建的“Employees”表。 如果该表存在，该示例将调用 [Microsoft.WindowsAzure.Storage.Table.TableOperation.Retrieve](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) 方法，以基于实体的分区键和行键值来检索实体。 然后，将该实体传递到 [Microsoft.WindowsAzure.Storage.Table.TableOperation.Delete](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.delete.aspx) 方法以将其删除。
 
 ```powershell
@@ -601,12 +629,14 @@ if ($entity -ne $null)
 }
 ```
 
-## <a name="how-to-manage-azure-queues-and-queue-messages"></a>如何管理 Azure 队列和队列消息
+## 如何管理 Azure 队列和队列消息
+<a id="how-to-manage-azure-queues-and-queue-messages" class="xliff"></a>
 Azure 队列存储是一项可存储大量消息的服务，用户可以通过经验证的呼叫，使用 HTTP 或 HTTPS 从世界任何地方访问这些消息。 本部分假设用户已熟悉 Azure 队列存储服务的概念。 有关详细信息，请参阅[通过 .NET 开始使用 Azure 队列存储](storage-dotnet-how-to-use-queues.md)。
 
 本部分将说明如何使用 Azure PowerShell 管理 Azure 队列存储服务。 涉及的情景包括**插入**和**删除**队列消息，以及**创建**、**删除**和**检索队列**。
 
-### <a name="how-to-create-a-queue"></a>如何创建队列
+### 如何创建队列
+<a id="how-to-create-a-queue" class="xliff"></a>
 以下示例首先使用存储帐户上下文（包括存储帐户名称及其访问密钥）与 Azure 存储建立连接。 接下来，它将调用 [New-AzureStorageQueue](http://msdn.microsoft.com/library/azure/dn806382.aspx) cmdlet 以创建名为“queuename”的队列。
 
 ```powershell
@@ -620,7 +650,8 @@ $Queue = New-AzureStorageQueue –Name $QueueName -Context $Ctx
 
 有关命名 Azure 队列服务命名约定的信息，请参阅 [Naming Queues and Metadata](http://msdn.microsoft.com/library/azure/dd179349.aspx)（命名队列和元数据）。
 
-### <a name="how-to-retrieve-a-queue"></a>如何检索队列
+### 如何检索队列
+<a id="how-to-retrieve-a-queue" class="xliff"></a>
 可以查询和检索存储帐户中的特定队列，或者所有队列的列表。 以下示例演示如何使用 [Get-AzureStorageQueue](http://msdn.microsoft.com/library/azure/dn806377.aspx) cmdlet 检索指定的队列。
 
 ```powershell
@@ -631,7 +662,8 @@ $Queue = Get-AzureStorageQueue –Name $QueueName –Context $Ctx
 
 如果调用不带任何参数的 [Get-AzureStorageQueue](http://msdn.microsoft.com/library/azure/dn806377.aspx) cmdlet，它可获取所有队列的列表。
 
-### <a name="how-to-delete-a-queue"></a>如何删除队列
+### 如何删除队列
+<a id="how-to-delete-a-queue" class="xliff"></a>
 若要删除队列及其中包含的所有消息，请调用 Remove-AzureStorageQueue cmdlet。 以下示例演示如何使用 Remove-AzureStorageQueue cmdlet 删除指定的队列。
 
 ```powershell
@@ -640,7 +672,8 @@ $QueueName = "yourqueuename"
 Remove-AzureStorageQueue –Name $QueueName –Context $Ctx
 ```
 
-#### <a name="how-to-insert-a-message-into-a-queue"></a>如何在队列中插入消息
+#### 如何在队列中插入消息
+<a id="how-to-insert-a-message-into-a-queue" class="xliff"></a>
 若要在现有队列中插入一条消息，请先创建 [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) 类的新实例。 接下来，调用 [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) 方法。 可从字符串（UTF-8 格式）或字节数组创建 CloudQueueMessage。
 
 以下示例演示如何向队列中添加消息。 该示例首先使用存储帐户上下文（包括存储帐户名称及其访问密钥）与 Azure 存储建立连接。 接下来，它将使用 [Get-AzureStorageQueue](https://msdn.microsoft.com/library/azure/dn806377.aspx) cmdlet 检索指定的队列。 如果该队列存在，则使用 [New-Object](http://technet.microsoft.com/library/hh849885.aspx) cmdlet 创建 [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) 类的实例。 随后，该示例对此消息对象调用 [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) 方法，以将它添加到队列中。 以下是检索队列并插入消息“MessageInfo”的代码：
@@ -665,7 +698,8 @@ if ($Queue -ne $null) {
 }
 ```
 
-#### <a name="how-to-de-queue-at-the-next-message"></a>如何取消下一条消息的排队
+#### 如何取消下一条消息的排队
+<a id="how-to-de-queue-at-the-next-message" class="xliff"></a>
 代码通过两个步骤来取消对队列中某条消息的排队。 当调用 [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) 方法时，将获取队列中的下一条消息。 从 **GetMessage** 返回的消息变得对从此队列读取消息的任何其他代码不可见。 若要完成从队列中删除消息，还必须调用 [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) 方法。 此删除消息的两步过程可确保，如果代码因硬件或软件故障而无法处理消息，则代码的其他实例可以获取相同消息并重试。 代码在处理消息后会立即调用 **DeleteMessage** 。
 
 ```powershell
@@ -686,12 +720,14 @@ $QueueMessage = $Queue.CloudQueue.GetMessage($InvisibleTimeout)
 $Queue.CloudQueue.DeleteMessage($QueueMessage)
 ```
 
-## <a name="how-to-manage-azure-file-shares-and-files"></a>如何管理 Azure 文件共享和文件
+## 如何管理 Azure 文件共享和文件
+<a id="how-to-manage-azure-file-shares-and-files" class="xliff"></a>
 Azure 文件存储使用标准 SMB 协议为应用程序提供共享存储。 Azure 虚拟机和云服务可以通过装入的共享在应用程序组件之间共享文件数据，本地应用程序可以通过文件存储 API 或 Azure PowerShell 访问共享中的文件数据。
 
 有关 Azure 文件存储的详细信息，请参阅[在 Windows 上开始使用 Azure 文件存储](storage-dotnet-how-to-use-files.md)和 [File Service REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx)（文件服务 REST API）。
 
-## <a name="how-to-set-and-query-storage-analytics"></a>如何设置和查询存储分析
+## 如何设置和查询存储分析
+<a id="how-to-set-and-query-storage-analytics" class="xliff"></a>
 可使用 [Azure 存储分析](storage-analytics.md)从 Azure 存储帐户收集度量值，并记录与发送到存储帐户的请求有关的数据。 可以使用存储度量值监视存储帐户的运行状况，并使用存储日志记录诊断和解决与存储帐户有关的问题。 可以使用 Azure 门户或 Windows PowerShell 配置监视，也可以使用存储客户端库以编程方式配置监视。 存储日志记录在服务器端执行，可用于在存储帐户中记录成功和失败请求的相关详细信息。 使用这些日志，可以查看针对表、队列和 Blob 的读取、写入和删除操作的详细信息，以及请求失败的原因。
 
 若要了解如何使用 PowerShell 启用和查看存储度量值数据，请参阅[如何使用 PowerShell 启用存储度量值](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell)。
@@ -699,7 +735,8 @@ Azure 文件存储使用标准 SMB 协议为应用程序提供共享存储。 Az
 若要了解如何使用 PowerShell 启用和检索存储日志记录数据，请参阅[如何使用 PowerShell 启用存储日志记录](http://msdn.microsoft.com/library/azure/dn782840.aspx#HowtoenableStorageLoggingusingPowerShell)和[查找存储日志记录的日志数据](http://msdn.microsoft.com/library/azure/dn782840.aspx#FindingyourStorageLogginglogdata)。
 有关使用“存储指标”和“存储日志记录”排查存储问题的详细信息，请参阅[对 Azure 存储进行监视、诊断和故障排除](./storage-monitoring-diagnosing-troubleshooting.md)。
 
-## <a name="how-to-manage-shared-access-signature-sas-and-stored-access-policy"></a>如何管理共享访问签名 (SAS) 和存储访问策略
+## 如何管理共享访问签名 (SAS) 和存储访问策略
+<a id="how-to-manage-shared-access-signature-sas-and-stored-access-policy" class="xliff"></a>
 共享访问签名是对使用 Azure 存储的任何应用程序创建安全模型的重要环节。 它们用于将存储帐户的受限权限提供给不应具有帐户密钥的客户端。 默认情况下，只有存储帐户的所有者可访问该帐户中的 Blob、表和队列。 如果服务或应用程序需要向其他客户端提供这些资源但不共享访问密钥，可以使用三个选项：
 
 * 设置容器的权限以允许匿名读取该容器及其 Blob。 表或队列不允许这样做。
@@ -715,7 +752,8 @@ Azure 文件存储使用标准 SMB 协议为应用程序提供共享存储。 Az
 
 下一部分将介绍如何为 Azure 表创建共享访问签名令牌和存储访问策略。 Azure PowerShell 为容器、Blob 和队列提供了类似的 cmdlet。 若要运行本部分中的脚本，下载 [Azure PowerShell 版本 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) 或更高版本。
 
-### <a name="how-to-create-a-policy-based-shared-access-signature-token"></a>如何创建基于策略的共享访问签名令牌
+### 如何创建基于策略的共享访问签名令牌
+<a id="how-to-create-a-policy-based-shared-access-signature-token" class="xliff"></a>
 使用 New-AzureStorageTableStoredAccessPolicy cmdlet 创建新的存储访问策略。 然后，调用 [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) cmdlet 为 Azure 存储表创建新的基于策略的共享访问签名令牌。
 
 ```powershell
@@ -724,14 +762,16 @@ New-AzureStorageTableStoredAccessPolicy -Name $tableName -Policy $policy -Permis
 New-AzureStorageTableSASToken -Name $tableName -Policy $policy -Context $Ctx
 ```
 
-### <a name="how-to-create-an-ad-hoc-non-revocable-shared-access-signature-token"></a>如何创建临时（不可吊销）共享访问签名令牌
+### 如何创建临时（不可吊销）共享访问签名令牌
+<a id="how-to-create-an-ad-hoc-non-revocable-shared-access-signature-token" class="xliff"></a>
 使用 [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) cmdlet 为 Azure 存储表创建新的临时（不可吊销的）共享访问签名令牌：
 
 ```powershell
 New-AzureStorageTableSASToken -Name $tableName -Permission "rqud" -StartTime "2015-01-01" -ExpiryTime "2015-02-01" -Context $Ctx
 ```
     
-### <a name="how-to-create-a-stored-access-policy"></a>如何创建存储访问策略
+### 如何创建存储访问策略
+<a id="how-to-create-a-stored-access-policy" class="xliff"></a>
 使用 New-AzureStorageTableStoredAccessPolicy cmdlet 为 Azure 存储表创建新的存储访问策略：
 
 ```powershell
@@ -739,21 +779,24 @@ $policy = "policy1"
 New-AzureStorageTableStoredAccessPolicy -Name $tableName -Policy $policy -Permission "rd" -StartTime "2015-01-01" -ExpiryTime "2016-01-01" -Context $Ctx
 ```
     
-### <a name="how-to-update-a-stored-access-policy"></a>如何更新存储访问策略
+### 如何更新存储访问策略
+<a id="how-to-update-a-stored-access-policy" class="xliff"></a>
 使用 Set-AzureStorageTableStoredAccessPolicy cmdlet 更新 Azure 存储表的现有存储访问策略：
 
 ```powershell
 Set-AzureStorageTableStoredAccessPolicy -Policy $policy -Table $tableName -Permission "rd" -NoExpiryTime -NoStartTime -Context $Ctx
 ```
 
-### <a name="how-to-delete-a-stored-access-policy"></a>如何删除存储访问策略
+### 如何删除存储访问策略
+<a id="how-to-delete-a-stored-access-policy" class="xliff"></a>
 使用 Remove-AzureStorageTableStoredAccessPolicy cmdlet 删除 Azure 存储表的存储访问策略：
 
 ```powershell
 Remove-AzureStorageTableStoredAccessPolicy -Policy $policy -Table $tableName -Context $Ctx
 ```
 
-## <a name="how-to-use-azure-storage-for-azure-china"></a>如何在 Azure 中国区使用 Azure 存储
+## 如何在 Azure 中国区使用 Azure 存储
+<a id="how-to-use-azure-storage-for-azure-china" class="xliff"></a>
 Azure 环境的部署独立于 Azure，例如[中国世纪互联运营的 AzureChinaCloud for Azure](https://www.azure.cn/)。 可以为 Azure 中国区部署新的 Azure 环境。
 
 若要将 Azure 存储用于 AzureChinaCloud，需要创建与 AzureChinaCloud 关联的存储上下文。 请按照以下步骤开始：
@@ -776,9 +819,10 @@ Azure 环境的部署独立于 Azure，例如[中国世纪互联运营的 AzureC
     $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
     ```
 
-* [在中国服务中创建应用程序时的差异概述](https://www.azure.cn/documentation/articles/developerdifferences/)
+* [在中国服务中创建应用程序时的差异概述](/articles/developerdifferences/)
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 在本指南中，已了解如何使用 Azure PowerShell 管理 Azure 存储。 下面是一些相关的文章和了解有关这些更多的资源。
 
 * [Azure 存档文档](./index.md)

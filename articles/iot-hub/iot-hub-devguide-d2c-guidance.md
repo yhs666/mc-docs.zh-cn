@@ -12,18 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/09/2017
-ms.date: 04/17/2017
+origin.date: 05/25/2017
+ms.date: 07/10/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 28ff19325fe8fdf2537eed2823ba6acf40d4d8ce
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: f016f0d97692c9ca22816e8a3550bc8f2f8a6d10
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
-# <a name="device-to-cloud-communications-guidance"></a>从设备到云通信指南
+# 从设备到云通信指南
+<a id="device-to-cloud-communications-guidance" class="xliff"></a>
 将信息从设备应用发送到解决方案后端时，IoT 中心会公开三个选项：
 
 * [设备到云消息][lnk-d2c]，用于时序遥测和警报。
@@ -42,8 +41,8 @@ ms.lasthandoff: 04/07/2017
 
 应用程序可能需要将信息作为遥测时序或警报发送，并且使其在设备孪生中可用。 在这种情况下，你可以选择以下选项之一：
 
-* 设备应用发送一条设备到云消息并报告属性更改。 
-* 解决方案后端在收到消息时可以将信息存储在设备孪生的标记中。 
+* 设备应用发送一条设备到云消息并报告属性更改。
+* 解决方案后端在收到消息时可将信息存储在设备孪生的标记中。
 
 由于设备到云消息允许的吞吐量远高于设备孪生更新，因此有时需要避免为每条设备到云消息更新设备孪生。
 
@@ -51,4 +50,4 @@ ms.lasthandoff: 04/07/2017
 [lnk-fileupload]: ./iot-hub-devguide-file-upload.md
 [lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md
 [lnk-query]: ./iot-hub-devguide-query-language.md
-[lnk-d2c]: ./iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-d2c]: ./iot-hub-devguide-messages-d2c.md

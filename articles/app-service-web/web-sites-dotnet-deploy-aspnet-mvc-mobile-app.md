@@ -15,30 +15,30 @@ ms.topic: article
 origin.date: 01/12/2016
 ms.date: 03/17/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 0840fcd13f4cebaee723877f436dc57d8681ed74
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 0d1e8be83af98f69b031f6d97d2898d17ab083e4
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="deploy-an-aspnet-mvc-5-mobile-web-app-in-azure-app-service"></a>在 Azure 应用服务上部署 ASP.NET MVC 5 移动 Web 应用
-
+# 在 Azure 应用服务上部署 ASP.NET MVC 5 移动 Web 应用
+<a id="deploy-an-aspnet-mvc-5-mobile-web-app-in-azure-app-service" class="xliff"></a>
 本教程介绍有关如何生成一个方便移动的 ASP.NET MVC 5 Web 应用并将其部署到 Azure 应用服务的基础知识。 学习本教程需要安装 [Visual Studio Express 2013 for Web][Visual Studio Express 2013] 或者 Visual Studio 专业版（如果已有）。 你可以使用 [Visual Studio 2015] ，但屏幕截图可能有所不同，并且必须使用 ASP.NET 4.x 模板。
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
-## <a name="what-youll-build"></a>所需操作
+## 所需操作
+<a id="what-youll-build" class="xliff"></a>
 在本教程，你将在 [初学者项目][StarterProject]提供的简单会议列表应用程序中添加移动功能。 以下屏幕截图显示了已完成的应用程序中的 ASP.NET 会话，如在 Internet Explorer 11 F12 开发人员工具的浏览器模拟器中所见。
 
 ![][FixedSessionsByTag]
 
 你可以使用 Internet Explorer 11 F12 开发人员工具和 [Fiddler 工具][Fiddler] 来帮助调试应用程序。 
 
-## <a name="skills-youll-learn"></a>将要学到的技能
+## 将要学到的技能
+<a id="skills-youll-learn" class="xliff"></a>
 学习内容：
 
 * 如何使用 Visual Studio 2013 将 Web 应用程序直接发布到 Azure 应用服务中的 Web 应用。
@@ -46,7 +46,8 @@ ms.lasthandoff: 05/26/2017
 * 如何创建面向特定移动浏览器（如 iPhone 和 Android）的特定移动视图
 * 如何创建响应式视图（跨设备响应不同浏览器的视图）
 
-## <a name="set-up-the-development-environment"></a>设置开发环境
+## 设置开发环境
+<a id="set-up-the-development-environment" class="xliff"></a>
 请通过安装 Azure SDK for .NET 2.5.1 或更高版本来设置开发环境。 
 
 1. 要安装 Azure SDK for .NET，请单击以下链接。 如果你尚未安装 Visual Studio 2013，可单击该链接进行安装。 本教程需要安装 Visual Studio 2013。 [Azure SDK for Visual Studio 2013][AzureSDKVs2013]
@@ -71,13 +72,13 @@ ms.lasthandoff: 05/26/2017
 5. 在 Visual Studio 中，打开 *C#\Mvc5Mobile.sln* 文件。
 6. 在“解决方案资源管理器”中，右键单击该项目并单击“发布” 。
 
-    ![][DeployClickPublish]
+   ![][DeployClickPublish]
 7. 在“发布 Web”中单击“Azure 应用服务”。
 
-    ![][DeployClickWebSites]
+   ![][DeployClickWebSites]
 8. 如果尚未登录到 Azure 帐户，请单击“添加帐户”。
 
-    ![][DeploySignIn]
+   ![][DeploySignIn]
 9. 按照提示操作以登录到你的 Azure 帐户。
 10. “应用服务”对话框现在会显示用户已登录。 单击“新建” 。
 
@@ -524,7 +525,8 @@ Bootstrap [链接列表组][linked list group] 样式使每个链接的整个框
 
 ![][SessionByCodeFixed3-644]
 
-## <a name="wrap-up-and-review"></a>总结和回顾
+## 总结和回顾
+<a id="wrap-up-and-review" class="xliff"></a>
 本教程说明如何使用 ASP.NET MVC 5 开发适合移动应用的 Web 应用程序。 其中包括：
 
 * 将 ASP.NET MVC 5 应用程序部署到应用服务 Web 应用
@@ -534,7 +536,8 @@ Bootstrap [链接列表组][linked list group] 样式使每个链接的整个框
 * 创建面向特定浏览器（如 iPhone 浏览器）的视图
 * 在 Razor 代码中应用 Bootstrap 样式
 
-## <a name="see-also"></a>另请参阅
+## 另请参阅
+<a id="see-also" class="xliff"></a>
 * [响应式 Web 设计的 9 项基本原则](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
 * [Bootstrap][BootstrapSite]
 * [Bootstrap 官方博客][Official Bootstrap Blog]
@@ -543,7 +546,8 @@ Bootstrap [链接列表组][linked list group] 样式使每个链接的整个框
 * [W3C 建议移动 Web 应用程序的最佳做法][W3C Recommendation Mobile Web Application Best Practices]
 * [用于媒体查询的 W3C 候选建议方案][W3C Candidate Recommendation for media queries]
 
-## <a name="whats-changed"></a>发生的更改
+## 发生的更改
+<a id="whats-changed" class="xliff"></a>
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!-- Internal Links -->

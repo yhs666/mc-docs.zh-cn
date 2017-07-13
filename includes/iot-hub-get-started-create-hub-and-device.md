@@ -1,4 +1,5 @@
-## <a name="create-an-iot-hub"></a>创建 IoT 中心
+## 创建 IoT 中心
+<a id="create-an-iot-hub" class="xliff"></a>
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，依次单击“新建” > “物联网” > “IoT 中心”。
 
@@ -29,13 +30,14 @@
 
    ![获取 IoT 中心连接字符串](../articles/iot-hub/media/iot-hub-create-hub-and-device/5_get-azure-iot-hub-connection-string-portal.png)
 
-## <a name="register-a-device-in-the-iot-hub-for-the-your-device"></a>在 IoT 中心为设备进行设备注册
+## 在 IoT 中心为设备进行设备注册
+<a id="register-a-device-in-the-iot-hub-for-the-your-device" class="xliff"></a>
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中打开 IoT 中心。
 1. 单击“设备资源管理器”。
 1. 在“设备资源管理器”窗格中，单击“添加”将设备添加到你的 IoT 中心。
 
-   **设备 ID**：新设备的 ID。
+   **设备 ID**：新设备的 ID。 设备 ID 区分大小写。
 
    **身份验证类型**：选择“对称密钥”。
 

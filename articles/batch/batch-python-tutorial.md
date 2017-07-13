@@ -1,5 +1,5 @@
 ---
-title: "教程 - 使用用于 Python 的 Azure 批处理 SDK | Microsoft 文档"
+title: "教程 - 使用用于 Python 的 Azure Batch SDK | Microsoft 文档"
 description: "了解 Azure Batch 的基本概念并使用 Python 构建简单的解决方案。"
 services: batch
 documentationcenter: python
@@ -15,23 +15,21 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 61f82d6cefa62f0bec62fc5362e9338c198de430
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 5b6d21c01f717889d2fe271ad84295979e8dec19
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>适用于 Python 的 Batch SDK 入门
 
 > [!div class="op_single_selector"]
-> * [.NET](batch-dotnet-get-started.md)
-> * [Python](batch-python-tutorial.md)
+> * [.NET](./batch-dotnet-get-started.md)
+> * [Python](./batch-python-tutorial.md)
 >
 >
 
-在介绍以 Python 编写的小型 Batch 应用程序时，我们了解了 [Azure 批处理][azure_batch]和[批处理 Python][py_azure_sdk] 客户端的基础知识。 我们将探讨两个示例脚本如何使用批处理服务来处理云中 Linux 虚拟机上的并行工作负荷，以及这些脚本如何与 [Azure 存储](../storage/storage-introduction.md)交互来暂存和检索文件。 你将了解常见的 Batch 应用程序工作流，并基本了解 Batch 的主要组件，例如作业、任务、池和计算节点。
+在介绍以 Python 编写的小型 Batch 应用程序时，我们了解了 [Azure Batch][azure_batch]和[批处理 Python][py_azure_sdk] 客户端的基础知识。 我们将探讨两个示例脚本如何使用批处理服务来处理云中 Linux 虚拟机上的并行工作负荷，以及这些脚本如何与 [Azure 存储](../storage/storage-introduction.md)交互来暂存和检索文件。 你将了解常见的 Batch 应用程序工作流，并基本了解 Batch 的主要组件，例如作业、任务、池和计算节点。
 
 ![Batch 解决方案工作流（基础）][11]<br/>
 
@@ -40,11 +38,11 @@ ms.lasthandoff: 04/14/2017
 
 ### <a name="accounts"></a>帐户
 - **Azure 帐户**：如果没有 Azure 订阅，可以 [创建一个 Azure 帐户][azure_free_account]。
-- **Batch 帐户**：获取 Azure 订阅后，请 [创建 Azure Batch 帐户](batch-account-create-portal.md)。
+- **Batch 帐户**：获取 Azure 订阅后，请 [创建 Azure Batch 帐户](./batch-account-create-portal.md)。
 - **存储帐户**：请参阅[关于 Azure 存储帐户](../storage/storage-create-storage-account.md)中的[创建存储帐户](../storage/storage-create-storage-account.md#create-a-storage-account)。
 
 ### <a name="code-sample"></a>代码示例
-Python 教程[代码示例][github_article_samples]是 GitHub 上的 [azure-batch-samples][github_samples] 存储库中提供的众多批处理代码示例之一。 单击存储库主页上的“克隆或下载”>“下载 ZIP”，或单击“[azure-batch-samples-master.zip][github_samples_zip]”直接下载链接，即可下载所有示例。解压缩 ZIP 文件的内容后，在 `article_samples` 目录中可找到本教程的两个脚本：
+Python 教程[代码示例][github_article_samples]是 GitHub 上的 [azure-batch-samples][github_samples] 存储库中提供的众多批处理代码示例之一。 单击存储库主页上的“克隆或下载”>“下载 ZIP”，或单击“azure-batch-samples-master.zip[github_samples_zip]”直接下载链接，即可下载所有示例。[] 解压缩 ZIP 文件的内容后，在 `article_samples` 目录中可找到本教程的两个脚本：
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
@@ -74,7 +72,7 @@ Python 教程[代码示例][github_article_samples]是 GitHub 上的 [azure-batc
 >
 
 ### <a name="azure-packages"></a>Azure 包
-接下来，安装 **Azure 批处理**和 **Azure 存储** Python 包。 可以使用以下位置提供的 **pip** 和 *requirements.txt* 安装这两个包：
+接下来，安装 **Azure Batch**和 **Azure 存储** Python 包。 可以使用以下位置提供的 **pip** 和 *requirements.txt* 安装这两个包：
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -260,7 +258,7 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 - [JobPreparationTask][py_jobpreptask]
 - [JobReleaseTask][py_jobreltask]
 
-本示例不使用 JobPreparationTask 或 JobReleaseTask 任务类型，但可以通过 [在 Azure Batch 计算节点上运行作业准备和完成任务](batch-job-prep-release.md)来详细了解这些任务类型。
+本示例不使用 JobPreparationTask 或 JobReleaseTask 任务类型，但可以通过 [在 Azure Batch 计算节点上运行作业准备和完成任务](./batch-job-prep-release.md)来详细了解这些任务类型。
 
 ### <a name="shared-access-signature-sas"></a>共享访问签名 (SAS)
 共享访问签名是一些字符串，可以提供对 Azure 存储中容器和 Blob 的安全访问。 *python_tutorial_client.py* 脚本使用 Blob 和容器共享访问签名，并演示如何从存储服务获取这些共享访问签名字符串。
@@ -313,8 +311,7 @@ def create_pool(batch_service_client, pool_id,
 
     # Create a new pool of Linux compute nodes using an Azure Virtual Machines
     # Marketplace image. For more information about creating pools of Linux
-    # nodes, see:
-    # /batch/batch-linux-nodes/
+    # nodes, see: /batch-linux-nodes/
 
     # Specify the commands for the pool's start task. The start task is run
     # on each node as it joins the pool, and when it's rebooted or re-imaged.
@@ -334,7 +331,7 @@ def create_pool(batch_service_client, pool_id,
     # Get the node agent SKU and image reference for the virtual machine
     # configuration.
     # For more information about the virtual machine configuration, see:
-    # /batch/batch-linux-nodes/
+    #  /batch-linux-nodes/
     sku_to_use, image_ref_to_use = \
         common.helpers.select_latest_verified_vm_image_with_node_agent_sku(
             batch_service_client, publisher, offer, sku)
@@ -364,9 +361,9 @@ def create_pool(batch_service_client, pool_id,
 创建池时，应定义 [PoolAddParameter][py_pooladdparam] 用于指定池的几个属性：
 
 - 池的 **ID**（*id* - 必需）<p/>与 Batch 中的大多数实体一样，新池在 Batch 帐户中必须具有唯一 ID。 代码将使用池 ID 引用此池，这也是在 Azure [门户][azure_portal]中识别池的方式。
-- **计算节点数**（*target_dedicated* - 必需）<p/>此属性指定应在池中部署多少个 VM。 必须注意，所有批处理帐户都有默认**配额**，用于限制批处理帐户中的**核心**（因此也包括计算节点）数目。 可以在 [Quotas and limits for the Azure Batch service](batch-quota-limit.md)（Azure 批处理服务的配额和限制）中找到默认配额以及如何[提高配额](batch-quota-limit.md#increase-a-quota)（例如批处理帐户中的核心数目上限）的说明。 如果你有类似于“为什么我的池不能包含 X 个以上的节点？ ”的疑惑，则原因可能在于此核心配额。
-- 节点的**操作系统**（*virtual_machine_configuration* **或** *cloud_service_configuration* - 必需）<p/>在 *python_tutorial_client.py* 中，使用 [VirtualMachineConfiguration][py_vm_config] 创建 Linux 节点池。 `common.helpers` 中的 `select_latest_verified_vm_image_with_node_agent_sku` 函数简化了 [Azure 虚拟机应用商店][vm_marketplace]映像的用法。 有关使用应用商店映像的详细信息，请参阅[在 Azure 批处理池中预配 Linux 计算节点](batch-linux-nodes.md)。
-- **计算节点的大小**（*vm_size* - 必需）<p/>由于我们要为 [VirtualMachineConfiguration][py_vm_config] 指定 Linux 节点，因此应根据 [Azure 中虚拟机的大小](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/)指定 VM 大小（在本示例中为 `STANDARD_A1`）。 同样，请参阅 [在 Azure Batch 池中预配 Linux 计算节点](batch-linux-nodes.md) 获取详细信息。
+- **计算节点数**（*target_dedicated* - 必需）<p/>此属性指定应在池中部署多少个 VM。 必须注意，所有批处理帐户都有默认**配额**，用于限制批处理帐户中的**核心**（因此也包括计算节点）数目。 可以在 [Quotas and limits for the Azure Batch service](./batch-quota-limit.md)（Azure 批处理服务的配额和限制）中找到默认配额以及如何[提高配额](./batch-quota-limit.md#increase-a-quota)（例如批处理帐户中的核心数目上限）的说明。 如果你有类似于“为什么我的池不能包含 X 个以上的节点？ ”的疑惑，则原因可能在于此核心配额。
+- 节点的**操作系统**（*virtual_machine_configuration* **或** *cloud_service_configuration* - 必需）<p/>在 *python_tutorial_client.py* 中，使用 [VirtualMachineConfiguration][py_vm_config] 创建 Linux 节点池。 `common.helpers` 中的 `select_latest_verified_vm_image_with_node_agent_sku` 函数简化了 [Azure 虚拟机应用商店][vm_marketplace]映像的用法。 有关使用应用商店映像的详细信息，请参阅[在 Azure Batch 池中预配 Linux 计算节点](./batch-linux-nodes.md)。
+- **计算节点的大小**（*vm_size* - 必需）<p/>由于我们要为 [VirtualMachineConfiguration][py_vm_config] 指定 Linux 节点，因此应根据 [Azure 中虚拟机的大小](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)指定 VM 大小（在本示例中为 `STANDARD_A1`）。 同样，请参阅 [在 Azure Batch 池中预配 Linux 计算节点](./batch-linux-nodes.md) 获取详细信息。
 - **启动任务**（*start_task* - 可选）<p/>还可以连同上述物理节点属性一起指定池的 [StartTask][py_starttask]（可选）。 StartTask 在每个节点加入池以及每次重新启动节点时在该节点上运行。 StartTask 特别适合用于准备计算节点，以便执行任务，例如安装任务将要运行的应用程序。<p/>在此示例应用程序中，StartTask 将它从存储下载的文件（使用 StartTask 的 **resource_files** 属性指定），从 StartTask *工作目录*复制到在节点上运行的所有任务可以访问的*共享*目录。 本质上，这会在节点加入池时，将 `python_tutorial_task.py` 复制到每个节点上的共享目录，因此该节点上运行的任何任务都可以访问它。
 
 你可能注意到了对 `wrap_commands_in_shell` helper 函数的调用。 此函数采用不同命令的集合，并针对任务的命令行属性创建适当的单个命令行。
@@ -374,7 +371,7 @@ def create_pool(batch_service_client, pool_id,
 此外，在上述代码片段中，值得注意的问题是，StartTask 的 **command_line** 属性中使用了两个环境变量：`AZ_BATCH_TASK_WORKING_DIR` 和 `AZ_BATCH_NODE_SHARED_DIR`。 将自动为 Batch 池中的每个计算节点配置多个特定于 Batch 的环境变量。 由任务执行的任何进程都可以访问这些环境变量。
 
 > [!TIP]
-> 若要深入了解批处理池中计算节点上可用的环境变量，以及有关任务工作目录的信息，请参阅 [overview of Azure Batch features](batch-api-basics.md)（Azure 批处理功能概述）中的 **Environment settings for tasks**（任务的环境设置）及 **Files and directories**（文件和目录）。
+> 若要深入了解批处理池中计算节点上可用的环境变量，以及有关任务工作目录的信息，请参阅 [overview of Azure Batch features](./batch-api-basics.md)（Azure 批处理功能概述）中的 **Environment settings for tasks**（任务的环境设置）及 **Files and directories**（文件和目录）。
 >
 >
 
@@ -643,11 +640,11 @@ Press ENTER to exit...
 
 熟悉 Batch 解决方案的基本工作流后，接下来可以深入了解 Batch 服务的其他功能。
 
-- 如果对 Batch 服务不熟悉，建议查看 [Azure Batch 功能概述](batch-api-basics.md) 一文。
+- 如果对 Batch 服务不熟悉，建议查看 [Azure Batch 功能概述](./batch-api-basics.md) 一文。
 - 通过 [TopNWords][github_topnwords] 示例了解有关使用 Batch 处理“前 N 个单词”工作负荷的不同实现方式。
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
-[azure_free_account]: https://www.azure.cn/pricing/1rmb-trial/
+[azure_free_account]: /pricing/1rmb-trial/
 [azure_portal]: https://portal.azure.cn
 [blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
 [crypto]: https://cryptography.io/en/latest/
@@ -707,5 +704,3 @@ Press ENTER to exit...
 [9]: ./media/batch-python-tutorial/credentials_batch_sm.png "门户中的 Batch 凭据"
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "门户中的存储空间凭据"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Batch 解决方案工作流（精简流程图）"
-
-

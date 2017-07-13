@@ -3,7 +3,7 @@ title: "为逻辑组织标记 Azure 资源 | Azure"
 description: "演示如何应用标记来组织 Azure 资源进行计费和管理。"
 services: azure-resource-manager
 documentationcenter: 
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 ms.assetid: 003a78e5-2ff8-4685-93b4-e94d6fb8ed5b
@@ -15,15 +15,14 @@ ms.topic: article
 origin.date: 04/20/2017
 ms.date: 06/05/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: f496264e88c3ecba32f9724e9ef9ad77a9e3cdba
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: a2c28bad8061a60ca69ab199e0154049a241a0c2
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="use-tags-to-organize-your-azure-resources"></a>使用标记整理 Azure 资源
+# 使用标记整理 Azure 资源
+<a id="use-tags-to-organize-your-azure-resources" class="xliff"></a>
 [!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
 
 > [!NOTE]
@@ -31,21 +30,26 @@ ms.lasthandoff: 05/26/2017
 > 
 > 
 
-## <a name="ensure-tag-consistency-with-policies"></a>确保标记与策略一致
+## 确保标记与策略一致
+<a id="ensure-tag-consistency-with-policies" class="xliff"></a>
 
 使用资源策略，可以为你的组织创建标准规则。 可以创建策略，以确保使用适当的值标记资源。
 
-## <a name="templates"></a>模板
+## 模板
+<a id="templates" class="xliff"></a>
 
 [!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
 
-## <a name="portal"></a>门户
+## 门户
+<a id="portal" class="xliff"></a>
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
-## <a name="powershell"></a>PowerShell
+## PowerShell
+<a id="powershell" class="xliff"></a>
 [!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
-## <a name="azure-cli-20"></a>Azure CLI 2.0
+## Azure CLI 2.0
+<a id="azure-cli-20" class="xliff"></a>
 
 使用 Azure CLI 2.0，可以向资源和资源组添加标记，以及按标记值查询资源。
 
@@ -94,24 +98,28 @@ az group list --tag Dept=IT
 az resource list --tag Dept=Finance
 ```
 
-## <a name="azure-cli-10"></a>Azure CLI 1.0
+## Azure CLI 1.0
+<a id="azure-cli-10" class="xliff"></a>
 [!INCLUDE [resource-manager-tag-resources-cli](../../includes/resource-manager-tag-resources-cli.md)]
 
-## <a name="rest-api"></a>REST API
+## REST API
+<a id="rest-api" class="xliff"></a>
 门户和 PowerShell 在幕后都使用 [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) 。 如果需要将标记集成到另一个环境中，可以对资源 ID 使用 GET 以获取标记，并使用 PATCH 调用更新标记集。
 
-## <a name="tags-and-billing"></a>标记和计费
+## 标记和计费
+<a id="tags-and-billing" class="xliff"></a>
 使用标记可以对计费数据进行分组。 例如，如果要针对不同组织运行多个 VM，可以使用标记，对使用情况按成本中心进行分组。 您还可以使用标记根据运行时环境对成本进行分类；例如，在生产环境中运行的虚拟机的计费使用情况。
 <!-- Not supported billing-usage-rate-card-overview on Azure.cn -->
 可以下载使用情况逗号分隔值 (CSV) 文件。 可以从 [Azure 帐户门户](https://account.windowsazure.cn/)下载使用情况文件。 有关 REST API 操作，请参阅 [Azure 计费 REST API 参考](https://msdn.microsoft.com/zh-cn/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)。
 
-为支持标记和计费的服务下载使用情况 CSV 时，标记将显示在“标记”列中。 有关详细信息，请参阅[了解 Azure 帐单](/documentation/articles/billing-understand-your-bill/)。
+为支持标记和计费的服务下载使用情况 CSV 时，标记将显示在“标记”列中。 有关详细信息，请参阅[了解 Azure 帐单](../billing-understand-your-bill.md)。
 
 ![在计费中查看标记](./media/resource-group-using-tags/billing_csv.png)
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * 可以使用自定义策略对订阅应用限制和约定。 定义的策略可能要求所有资源都拥有针对特定标记的值。 有关详细信息，请参阅 [使用策略来管理资源和控制访问](resource-manager-policy.md)。
 * 有关部署资源时使用 Azure PowerShell 的说明，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](powershell-azure-resource-manager.md)。
 * 有关部署资源时使用 Azure CLI 的说明，请参阅 [将适用于 Mac、Linux 和 Windows 的 Azure CLI 与 Azure 资源管理配合使用](xplat-cli-azure-resource-manager.md)。
-* 如需门户使用简介，请参阅 [使用 Azure 门户管理 Azure 资源](resource-group-portal.md)  
+* 有关使用门户的简介，请参阅[使用 Azure 门户管理 Azure 资源](resource-group-portal.md)  
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。

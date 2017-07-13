@@ -4,26 +4,26 @@ description: "将性能建议应用到 SQL 数据库，并了解如何获取有�
 metakeywords: azure sql database performance monitoring recommendation
 services: sql-database
 documentationcenter: 
-manager: jhubbard
-author: jan-eng
+manager: digimobile
+author: Hayley244
 ms.assetid: 
 ms.service: sql-database
-ms.custom: performance
+ms.custom: mvc,monitor & tune
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2017
+origin.date: 05/07/2017
+ms.date: 07/03/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: 58880341cdc7a89d381533aa692c18d3be8037fd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.openlocfilehash: ef7c2004a40d5841af846e431117d6c025a2ec8d
+ms.sourcegitcommit: bb82041119027be7a62fc96945d92a8a452e7849
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-# <a name="troubleshoot-performance-issues-and-optimize-your-database"></a>排查性能问题和优化数据库
+# 排查性能问题和优化数据库
+<a id="troubleshoot-performance-issues-and-optimize-your-database" class="xliff"></a>
 
 缺少索引与查询优化不足是数据库性能不佳的常见原因。 本教程介绍以下内容：
 > [!div class="checklist"]
@@ -34,11 +34,13 @@ ms.lasthandoff: 06/09/2017
 > 需要针对存在性能问题（例如，缺少索引）的数据库持续运行一个工作负荷，以接收建议。
 >
 
-## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
+## 登录到 Azure 门户
+<a id="log-in-to-the-azure-portal" class="xliff"></a>
 
 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-## <a name="review-and-apply-a-recommendation"></a>查看并应用建议
+## 查看并应用建议
+<a id="review-and-apply-a-recommendation" class="xliff"></a>
 
 遵循以下步骤，对数据库应用系统提供的建议：
 
@@ -58,7 +60,8 @@ ms.lasthandoff: 06/09/2017
 
     ![自动优化](./media/sql-database-performance-tutorial/auto_tuning.png)
 
-## <a name="revert-a-recommendation"></a>撤销建议
+## 撤销建议
+<a id="revert-a-recommendation" class="xliff"></a>
 
 数据库顾问会监视实施的每条建议。 如果某条建议未改善工作负荷，该建议将自动被撤销。 可以手动撤销建议，但大多数情况下不需要这样做。 撤销建议：
 
@@ -70,7 +73,8 @@ ms.lasthandoff: 06/09/2017
 
     ![撤销建议](./media/sql-database-performance-tutorial/revert.png)
 
-## <a name="find-the-query-that-consumes-the-most-resources"></a>查找资源消耗量最大的查询
+## 查找资源消耗量最大的查询
+<a id="find-the-query-that-consumes-the-most-resources" class="xliff"></a>
 
 遵循以下步骤查找资源消耗量最大的查询：
 
@@ -90,7 +94,8 @@ ms.lasthandoff: 06/09/2017
 
     ![查询见解](./media/sql-database-performance-tutorial/query_details.png)
 
-## <a name="find-the-longest-running-query"></a>查找运行时间最长的查询
+## 查找运行时间最长的查询
+<a id="find-the-longest-running-query" class="xliff"></a>
 
 1. 转到“查询性能见解”，然后选择“长时间运行的查询”选项卡。
 
@@ -106,12 +111,12 @@ ms.lasthandoff: 06/09/2017
 
 
 
-## <a name="next-steps"></a>后续步骤 
-缺少索引与查询优化不足是数据库性能不佳的常见原因。 本教程已介绍如何：
+## 后续步骤
+<a id="next-steps" class="xliff"></a> 
+缺少索引与查询优化不足是数据库性能不佳的常见原因。 本教程介绍了：
 > [!div class="checklist"]
 > * 查看、应用和撤销性能改善建议
 > * 查找资源使用率较高的查询
 > * 查找长时间运行的查询
 
-[SQL 数据库性能优化提示](https://docs.microsoft.com/azure/sql-database/sql-database-troubleshoot-performance)
-
+[SQL 数据库性能优化提示](sql-database-troubleshoot-performance.md)

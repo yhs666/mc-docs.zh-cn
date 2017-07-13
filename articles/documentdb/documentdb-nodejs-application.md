@@ -16,13 +16,11 @@ ms.topic: hero-article
 origin.date: 12/16/2016
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 49004fc2f92190cd14a1d20a8581b29cc257ef6a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: f3e81cae163619b905d970ca46481c9b884ee4dc
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="_Toc395783175"></a>使用 DocumentDB 生成 Node.js Web 应用程序
 > [!div class="op_single_selector"]
@@ -34,7 +32,7 @@ ms.lasthandoff: 05/19/2017
 > 
 > 
 
-本 Node.js 教程展示了如何使用 DocumentDB 通过 Azure 网站上托管的 Node.js Express 应用程序存储和访问数据。 用户会生成一个简单的基于 Web 的任务管理应用程序（ToDo 应用），用于创建、检索和完成任务。 任务存储为 DocumentDB 中的 JSON 文档。 本教程指导完成创建和部署应用的过程，并说明每个片段中发生的情况。
+本 Node.js 教程说明如何使用 DocumentDB 存储和访问托管在 Azure 网站上的 Node.js Express 应用程序中的数据。 用户会生成一个简单的基于 Web 的任务管理应用程序（ToDo 应用），用于创建、检索和完成任务。 任务作为 JSON 文档存储在 DocumentDB 中。 本教程指导完成创建和部署应用的过程，并说明每个片段中发生的情况。
 
 ![在本 Node.js 教程中创建的 My Todo List 应用程序的屏幕截图](./media/documentdb-nodejs-application/image1.png)
 
@@ -52,13 +50,13 @@ ms.lasthandoff: 05/19/2017
 
    或
 
-   本地安装的 [DocumentDB 模拟器](documentdb-nosql-local-emulator.md)。
+   在本地安装 [DocumentDB 模拟器](documentdb-nosql-local-emulator.md)。
 - [Node.js][Node.js] 版本 v0.10.29 或更高版本。
 - [Express 生成器](http://www.expressjs.com/starter/generator.html)（可以通过 `npm install express-generator -g` 安装）
 - [Git][Git]。
 
 ## <a name="_Toc395637761"></a>步骤 1：创建 DocumentDB 数据库帐户
-首先创建一个 DocumentDB 帐户。 如果已有一个帐户，或者要在本教程中使用 DocumentDB 模拟器，可以跳到[步骤 2：创建新的 Node.js 应用程序](#_Toc395783178)。
+让我们首先创建 DocumentDB 帐户。 如果已有帐户或者在此教程中使用 DocumentDB 模拟器，则可以跳到 [步骤 2：创建 Node.js 应用程序](#_Toc395783178)。
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -118,10 +116,11 @@ ms.lasthandoff: 05/19/2017
    
     这将告知 Node（稍后告知 Azure），你的应用程序依赖于这些模块。
 
-## <a name="_Toc395783180"></a>步骤 4：在 Node 应用程序中使用 DocumentDB 服务
-这负责处理所有的初始安装和配置，现在看看为什么要用这步，可以编写一些使用 DocumentDB 的代码。
+## <a name="_Toc395783180"></a>步骤 4：在节点应用程序中使用 DocumentDB 服务
+这负责处理所有的初始安装和配置，现在让我们看看为什么要用这步，可以使用 DocumentDB 编写一些代码。
 
-### <a name="create-the-model"></a>创建模型
+### 创建模型
+<a id="create-the-model" class="xliff"></a>
 1. 在项目目录中，在 package.json 文件所在的同一目录中创建名为 **models** 的新目录。
 2. 在 **models** 目录中，创建一个名为 **taskDao.js** 的新文件。 此文件将包含我们应用程序所创建任务的模型。
 3. 在同一个 **models** 目录中，创建名为 **docdbUtils.js** 的另一个新文件。 此文件将包含一些可重用的有用代码，我们将在整个应用程序期间用到这些代码。 
@@ -193,12 +192,12 @@ ms.lasthandoff: 05/19/2017
    
         module.exports = DocDBUtils;
    
-       > [!TIP]
-       > createCollection takes an optional requestOptions parameter that can be used to specify the Offer Type for the Collection. If no requestOptions.offerType value is supplied then the Collection will be created using the default Offer Type.
-       > 
-       > For more information on DocumentDB Offer Types please refer to [Performance levels in DocumentDB](documentdb-performance-levels.md) 
-       > 
-       > 
+    > [!TIP]
+    > createCollection 采用一个用以指定集合 Offer 类型的可选 requestOptions 参数。 如果没有提供任何 requestOptions.offerType 值，则将使用默认 Offer 类型创建集合。
+    > 
+    > 有关 DocumentDB 产品/服务类型的详细信息，请参阅 [DocumentDB 中的性能级别](documentdb-performance-levels.md) 
+    > 
+    > 
 5. 保存并关闭 **docdbUtils.js** 文件。
 6. 在 **taskDao.js** 文件的开头添加以下代码，引用前面创建的 **DocumentDBClient** 和 **docdbUtils.js**：
    
@@ -313,7 +312,8 @@ ms.lasthandoff: 05/19/2017
         };
 9. 保存并关闭 **taskDao.js** 文件。 
 
-### <a name="create-the-controller"></a>创建控制器
+### 创建控制器
+<a id="create-the-controller" class="xliff"></a>
 1. 在项目的 **routes** 目录中，创建一个名为 **tasklist.js** 的新文件。 
 2. 将以下代码添加到 **tasklist.js**。 这将加载 **tasklist.js**使用的 DocumentDBClient 和 async 模块。 这还定义了 **TaskList** 函数，将向该函数传递我们之前定义的 **Task** 对象的一个实例：
    
@@ -387,7 +387,8 @@ ms.lasthandoff: 05/19/2017
         };
 4. 保存并关闭 **tasklist.js** 文件。
 
-### <a name="add-configjs"></a>添加 config.js
+### 添加 config.js
+<a id="add-configjs" class="xliff"></a>
 1. 在项目目录中创建一个名为 **config.js**的新文件。
 2. 将以下内容添加到 **config.js**。 这将定义我们的应用程序所需的配置设置和值。
    
@@ -402,7 +403,8 @@ ms.lasthandoff: 05/19/2017
 3. 在 **config.js** 文件中，使用 [Azure 门户](https://portal.azure.cn)中 DocumentDB 帐户的“密钥”边栏选项卡中的值更新 HOST 和 AUTH_KEY 的值。
 4. 保存并关闭 **config.js** 文件。
 
-### <a name="modify-appjs"></a>修改 app.js
+### 修改 app.js
+<a id="modify-appjs" class="xliff"></a>
 1. 在项目目录中，打开 **app.js** 文件。 此文件早于 Express Web 应用程序创建。
 2. 将以下代码添加到 **app.js**
    
@@ -531,7 +533,7 @@ ms.lasthandoff: 05/19/2017
     > [!TIP]
     > 如果收到有关 layout.jade 文件或 index.jade 文件的缩进错误，请确保这两个文件的前两行已经左对齐且没有空格。 如果前两行前面有空格，请删除空格并保存这两个文件，然后刷新浏览器窗口。 
 
-2. 使用“项”、“项名称”和“类别”字段输入新任务，然后单击“添加项” 。 这将在 DocumentDB 中创建具有这些属性的文档。 
+2. 使用“项”、“项名称”和“类别”字段输入新任务，然后单击“添加项” 。 此操作会在 DocumentDB 中创建具有这些属性的文档。 
 3. 页面应更新为在 ToDo 列表中显示新建项。
    
     ![ToDo 列表中具有新项的应用程序的屏幕截图](./media/documentdb-nodejs-application/image19.png)
@@ -549,20 +551,19 @@ ms.lasthandoff: 05/19/2017
         git push azure master
 4. 在几秒钟内，git 将完成 Web 应用程序发布并启动浏览器，你可从中查看在 Azure 中运行的简单作品！
 
-    祝贺你！ 你刚才构建了第一个使用 DocumentDB 的 Node.js Express Web 应用程序并将其发布到了 Azure 网站。
+    祝贺你！ 你刚使用 DocumentDB 生成第一个 Node.js Express Web 应用程序并将其发布到了 Azure 网站。
 
     如果想要下载或引用本教程的完整参考应用程序，可从 [GitHub][GitHub]下载。
 
 ## <a name="_Toc395637775"></a>后续步骤
 
-- 希望使用 DocumentDB 执行规模和性能测试？ 请参阅[使用 DocumentDB 执行性能和规模测试](documentdb-performance-testing.md)
-- 了解如何[监视 DocumentDB 帐户](documentdb-monitor-accounts.md)。
+- 想要使用 DocumentDB 执行规模和性能测试？ 请参阅[使用 DocumentDB 进行性能和规模测试](documentdb-performance-testing.md)
+- 了解如何 [监视 DocumentDB 帐户](documentdb-monitor-accounts.md)。
 - 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
 - 浏览 [DocumentDB 文档](index.md)。
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
-
 
 

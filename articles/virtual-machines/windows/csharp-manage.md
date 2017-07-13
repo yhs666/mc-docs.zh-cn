@@ -14,46 +14,50 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/01/2017
-ms.date: 04/17/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: 0c26f333ef36bfc301b779185083283a0fceec4b
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: e18e01f6f81a1ea392def91d2e9e3c5476487297
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="manage-azure-virtual-machines-using-azure-resource-manager-and-c"></a>使用 Azure Resource Manager 与 C 来管理 Azure 虚拟机# #
+# 使用 Azure Resource Manager 与 C# 来管理 Azure 虚拟机
+<a id="manage-azure-virtual-machines-using-azure-resource-manager-and-c" class="xliff"></a> #
 
 本文中的任务显示了如何管理虚拟机，如启动、停止和更新。
 
-## <a name="set-up-visual-studio"></a>设置 Visual Studio
+## 设置 Visual Studio
+<a id="set-up-visual-studio" class="xliff"></a>
 
-### <a name="create-a-project"></a>创建一个项目
+### 创建一个项目
+<a id="create-a-project" class="xliff"></a>
 
 请确保安装了 Visual Studio 并创建用于管理虚拟机的控制台应用。
 
 1. 如果尚未安装，请安装 [Visual Studio](https://www.visualstudio.com/)。
 2. 在 Visual Studio 中，单击“文件” > “新建” > “项目”。
-3. 在“模板” > “Visual C#”中，选择“控制台应用程序”，输入项目的名称和位置，然后单击“确定”。
+3. 在“模板” > “Visual C#”中，选择“控制台应用(.NET Framework)”，输入项目的名称和位置，然后单击“确定”。
 
-### <a name="install-libraries"></a>安装库
+### 安装库
+<a id="install-libraries" class="xliff"></a>
 
 使用 NuGet 包可以最轻松地安装执行本文中的操作所需的库。 若要在 Visual Studio 中获取所需的库，请执行以下步骤：
 
-1. 在解决方案资源管理器中右键单击项目名称，然后依次单击“管理 NuGet 包”和“浏览”。
-2. 在搜索框中键入 *Microsoft.IdentityModel.Clients.ActiveDirectory*，单击“安装”，然后按照说明安装该包。
+1. 在解决方案资源管理器中右键单击项目名称，然后依次单击“管理解决方案的 NuGet 包”和“浏览”。
+2. 在搜索框中键入“Microsoft.IdentityModel.Clients.ActiveDirectory”，再选择项目，单击“安装”，然后按照说明安装该包。
 3. 在页面顶部，选择“包括预发行版”。 在搜索框中键入 *Microsoft.Azure.Management.Compute*，单击“安装”，然后按照说明安装该包。
 
 现在，你已准备好开始使用这些库来管理虚拟机。
 
-### <a name="create-credentials-and-add-variables"></a>创建凭据并添加变量
+### 创建凭据并添加变量
+<a id="create-credentials-and-add-variables" class="xliff"></a>
 
-若要与 Azure Resource Manager 交互，请确保你能够访问 [Active Directory 服务主体](../../azure-resource-manager/resource-group-authenticate-service-principal.md)。 从服务主体中，将获取对 Azure Resource Manager 请求进行身份验证的令牌。
+若要与 Azure Resource Manager 交互，请确保你能够访问 [Active Directory 服务主体](../../resource-group-authenticate-service-principal.md)。 从服务主体中，将获取对 Azure Resource Manager 请求进行身份验证的令牌。
 
-1. 打开你为项目创建的 Program.cs 文件，然后在该文件的顶部添加以下 using 语句：
+1. 为所创建的项目打开 Program.cs 文件，然后将这些 using 语句添加到文件顶部的现有语句：
 
-    ```
+    ```   
     using Microsoft.Azure;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Azure.Management.Compute;
@@ -63,7 +67,7 @@ ms.lasthandoff: 04/06/2017
 
 2. 将变量添加到 Program 类的 Main 方法，以指定资源组的名称、虚拟机的名称以及订阅标识符：
 
-    ```
+    ```   
     var groupName = "myResourceGroup";
     var vmName = "myVM";  
     var subscriptionId = "subsciptionId";
@@ -73,11 +77,11 @@ ms.lasthandoff: 04/06/2017
 
 3. 若要获取创建凭据所需的令牌，请将以下方法添加到 Program 类：
 
-    ```
+    ```    
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
-      var cc = new ClientCredential("{client-id}", "{client-secret}");
-      var context = new AuthenticationContext("https://login.chinacloudapi.cn/{tenant-id}");
+      var cc = new ClientCredential("client-id", "client-secret");
+      var context = new AuthenticationContext("https://login.chinacloudapi.cn/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.chinacloudapi.cn/", cc);
       if (token == null)
       {
@@ -89,9 +93,9 @@ ms.lasthandoff: 04/06/2017
 
     替换以下值：
 
-    - 将 *{client-id}* 替换为 Azure Active Directory 应用程序的标识符。 在 AD 应用程序的“属性”边栏选项卡上，可找到此标识符。 若要在 Azure 门户中查找 AD 应用程序，请在资源菜单中单击“Azure Active Directory”，然后单击“应用注册”。
-    - 将 *{client-secret}* 替换为 AD 应用程序的访问密钥。 在 AD 应用程序的“属性”边栏选项卡上，可找到此标识符。
-    - 将 *{tenant-id}* 替换为订阅的租户标识符。 在 Azure 门户中 Azure Active Directory 的“属性”边栏选项卡上，可找到租户标识符。 它被标记为目录 ID。
+    - 将 client-id 替换为 Azure Active Directory 应用程序的标识符。 在 AD 应用程序的“属性”边栏选项卡上，可找到此标识符。 若要在 Azure 门户中查找 AD 应用程序，请在“资源”菜单中单击“Azure Active Directory”，然后单击“应用注册”。
+    - 将 client-secret 替换为 AD 应用程序的访问密钥。 在 AD 应用程序的“属性”边栏选项卡上，可找到此标识符。
+    - 将 tenant-id 替换为订阅的租户标识符。 在 Azure 门户中 Azure Active Directory 的“属性”边栏选项卡上，可找到租户标识符。 它被标记为目录 ID。
 
 4. 若要调用前面添加的方法，请将以下代码添加到 Program.cs 文件中的 Main 方法：
 
@@ -102,11 +106,12 @@ ms.lasthandoff: 04/06/2017
 
 5. 保存 Program.cs 文件。
 
-## <a name="display-information-about-a-virtual-machine"></a>显示有关虚拟机的信息
+## 显示有关虚拟机的信息
+<a id="display-information-about-a-virtual-machine" class="xliff"></a>
 
 1. 将以下方法添加到前面创建的项目中的 Program 类：
 
-    ```
+    ```   
     public static async void GetVirtualMachineAsync(
       TokenCredentials credential, 
       string groupName, 
@@ -193,7 +198,7 @@ ms.lasthandoff: 04/06/2017
 
 2. 若要调用刚添加的方法，请将以下代码添加到 Main 方法：
 
-    ```
+    ```   
     GetVirtualMachineAsync(
       credential,
       groupName,
@@ -270,7 +275,8 @@ ms.lasthandoff: 04/06/2017
               level: Info
               displayStatus: VM running
 
-## <a name="stop-a-virtual-machine"></a>停止虚拟机
+## 停止虚拟机
+<a id="stop-a-virtual-machine" class="xliff"></a>
 
 可以使用两种方法停止虚拟机。 可停止虚拟机并保留其所有设置，但需继续付费；还可停止虚拟机并解除分配。 解除分配虚拟机时，也会解除分配与其关联的所有资源并将停止计费。
 
@@ -278,7 +284,7 @@ ms.lasthandoff: 04/06/2017
 
 2. 将以下方法添加到 Program 类：
 
-    ```
+    ```   
     public static async void StopVirtualMachineAsync(
       TokenCredentials credential, 
       string groupName, 
@@ -316,13 +322,14 @@ ms.lasthandoff: 04/06/2017
 
     你应会看到虚拟机的状态更改为“已停止”。 如果你运行了调用 Deallocate 的方法，则状态为已停止（已解除分配）。
 
-## <a name="start-a-virtual-machine"></a>启动虚拟机
+## 启动虚拟机
+<a id="start-a-virtual-machine" class="xliff"></a>
 
 1. 注释掉前面已添加到 Main 方法的任何代码（用于获得凭据的代码除外）。
 
 2. 将以下方法添加到 Program 类：
 
-    ```
+    ```   
     public static async void StartVirtualMachineAsync(
       TokenCredentials credential, 
       string groupName, 
@@ -338,7 +345,7 @@ ms.lasthandoff: 04/06/2017
 
 3. 若要调用刚添加的方法，请将以下代码添加到 Main 方法：
 
-    ```
+    ```   
     StartVirtualMachineAsync(
       credential,
       groupName,
@@ -354,13 +361,14 @@ ms.lasthandoff: 04/06/2017
 
     你应会看到虚拟机的状态更改为“正在运行”。
 
-## <a name="restart-a-running-virtual-machine"></a>重新启动正在运行的虚拟机
+## 重新启动正在运行的虚拟机
+<a id="restart-a-running-virtual-machine" class="xliff"></a>
 
 1. 注释掉前面已添加到 Main 方法的任何代码（用于获得凭据的代码除外）。
 
 2. 将以下方法添加到 Program 类：
 
-    ```
+    ```   
     public static async void RestartVirtualMachineAsync(
       TokenCredentials credential,
       string groupName,
@@ -376,7 +384,7 @@ ms.lasthandoff: 04/06/2017
 
 3. 若要调用刚添加的方法，请将以下代码添加到 Main 方法：
 
-    ```
+    ```   
     RestartVirtualMachineAsync(
       credential,
       groupName,
@@ -390,7 +398,8 @@ ms.lasthandoff: 04/06/2017
 
 5. 在 Visual Studio 中单击“启动”，然后使用订阅所用的相同用户名和密码登录到 Azure AD。
 
-## <a name="resize-a-virtual-machine"></a>重设虚拟机的大小
+## 重设虚拟机的大小
+<a id="resize-a-virtual-machine" class="xliff"></a>
 
 本示例演示如何更改运行中虚拟机的大小。
 
@@ -398,7 +407,7 @@ ms.lasthandoff: 04/06/2017
 
 2. 将以下方法添加到 Program 类：
 
-    ```
+    ```   
     public static async void UpdateVirtualMachineAsync(
       TokenCredentials credential, 
       string groupName, 
@@ -416,7 +425,7 @@ ms.lasthandoff: 04/06/2017
 
 3. 若要调用刚添加的方法，请将以下代码添加到 Main 方法：
 
-    ```
+    ```   
     UpdateVirtualMachineAsync(
       credential,
       groupName,
@@ -432,7 +441,8 @@ ms.lasthandoff: 04/06/2017
 
     应会看到虚拟机的大小更改为 Standard_D2_v2。
 
-## <a name="add-a-data-disk-to-a-virtual-machine"></a>将数据磁盘添加到虚拟机
+## 将数据磁盘添加到虚拟机
+<a id="add-a-data-disk-to-a-virtual-machine" class="xliff"></a>
 
 此示例演示了如何向正在运行的虚拟机添加数据磁盘。
 
@@ -440,7 +450,7 @@ ms.lasthandoff: 04/06/2017
 
 2. 将以下方法添加到 Program 类：
 
-    ```
+    ```   
     public static async void AddDataDiskAsync(
       TokenCredentials credential, 
       string groupName, 
@@ -486,7 +496,8 @@ ms.lasthandoff: 04/06/2017
 
 5. 在 Visual Studio 中单击“启动”，然后使用订阅所用的相同用户名和密码登录到 Azure AD。
 
-## <a name="delete-a-virtual-machine"></a>删除虚拟机
+## 删除虚拟机
+<a id="delete-a-virtual-machine" class="xliff"></a>
 
 1. 注释掉前面已添加到 Main 方法的任何代码（用于获得凭据的代码除外）。
 
@@ -522,8 +533,9 @@ ms.lasthandoff: 04/06/2017
 
 5. 在 Visual Studio 中单击“启动”，然后使用订阅所用的相同用户名和密码登录到 Azure AD。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
-- 如果部署出现问题，可以参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](../../azure-resource-manager/resource-manager-common-deployment-errors.md)。
+- 如果部署出现问题，可以参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](../../resource-manager-common-deployment-errors.md)。
 - 若要了解如何部署虚拟机及其支持的资源，请查看[使用 C# 部署 Azure 虚拟机](csharp.md)。
 - 参考[使用 C# 和 Resource Manager 模板部署 Azure 虚拟机](csharp-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中的信息，利用模板创建虚拟机。

@@ -1,6 +1,6 @@
 ---
 title: "将 Robomongo 用于 DocumentDB | Microsoft Docs"
-description: "了解如何将 Robomongo 用于 DocumentDB: API for MongoDB 帐户"
+description: "了解如何将 Robomongo 与 DocumentDB: API for MongoDB 帐户配合使用"
 keywords: robomongo
 services: documentdb
 author: AndrewHoh
@@ -16,21 +16,21 @@ ms.topic: article
 origin.date: 04/28/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: d0ac35826d9d5133e48b7bd9ec5cdf34bf6a1303
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: d028997c60fa032b514c3511c37eacebb625d2a5
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="use-robomongo-with-an-azure-documentdb-api-for-mongodb-account"></a>将 Robomongo 用于 DocumentDB: API for MongoDB 帐户
+# 将 Robomongo 与 DocumentDB: API for MongoDB 帐户配合使用
+<a id="use-robomongo-with-a-documentdb-api-for-mongodb-account" class="xliff"></a>
 若要使用 Robomongo 连接到 DocumentDB: API for MongoDB 帐户，必须：
 
 - 下载并安装 [Robomongo](https://robomongo.org/)
-- 具有 DocumentDB: API for MongoDB 帐户的[连接字符串](documentdb-connect-mongodb-account.md)信息
+- 具有 DocumentDB：MongoDB 帐户的 API [连接字符串](documentdb-connect-mongodb-account.md)信息
 
-## <a name="connect-using-robomongo"></a>使用 Robomongo 进行连接
+## 使用 Robomongo 进行连接
+<a id="connect-using-robomongo" class="xliff"></a>
 若要将 DocumentDB: API for MongoDB 帐户添加到 Robomongo MongoDB 连接，请执行以下步骤。
 
 1. 使用[此处](documentdb-connect-mongodb-account.md)的指令检索 DocumentDB: API for MongoDB 帐户连接信息。
@@ -52,7 +52,7 @@ ms.lasthandoff: 05/19/2017
     ![Robomongo SSL 选项卡的屏幕截图](./media/documentdb-mongodb-robomongo/SSL.png)
 7. 最后，单击“测试”验证是否能够连接，然后单击“保存”。
 
-## <a name="next-steps"></a>后续步骤
-- 浏览 DocumentDB: API for MongoDB [示例](documentdb-mongodb-samples.md)。
-
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+- 浏览 MongoDB [示例](documentdb-mongodb-samples.md)的 DocumentDB: API。
 

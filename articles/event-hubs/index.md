@@ -1,26 +1,26 @@
 ---
-title: "Azure 事件中心文档 - 教程、API 参考 | Microsoft Docs"
+title: "Azure 事件中心文档 - 教程、API 参考 | Azure"
 description: "了解如何使用事件中心从各种平台上的已连接 IoT 设备和应用程序每秒引入数百万事件。"
 services: event-hubs
-author: carolz
-manager: carolz
+author: rockboyfor
+manager: digimobile
 layout: LandingPage
 ms.assetid: 
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+origin.date: 01/23/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: b3bbbefea5b2bffd8cdee1b93d7bd8bcf808bef0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 8bf671d769d2c1322ef8cd8f98a8f91f8f6941f1
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-#<a name="event-hubs-documentation"></a>事件中心文档
+# 事件中心文档
+<a id="event-hubs-documentation" class="xliff"></a>
 
 了解如何使用事件中心从连接的 IoT 设备和应用程序每秒收集和管理数百万事件。 教程、API 参考和其他文档介绍了如何针对各种平台上的事件设置可伸缩性引入。
 
@@ -43,6 +43,7 @@ ms.lasthandoff: 05/12/2017
         </div>
         </a>
     </li>
+    <!-- Notice: We remove the Video list in the html content-->
     <li>
         <a href="/event-hubs/event-hubs-programming-guide">
         <div class="cardSize">
@@ -80,3 +81,4 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
 </ul>
+<!-- We remove the Launage reference block together-->

@@ -13,18 +13,18 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/09/2017
-ms.date: 05/15/2017
+ms.date: 07/10/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 80bba43e186331fb002a9dd499de684c6abf67c7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 052eaa2a9942cdced02f1cf8150fe08b9cb94f47
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
-# <a name="overview-of-device-management-with-iot-hub"></a>使用 IoT 中心进行设备管理的概述
-## <a name="introduction"></a>介绍
+# 使用 IoT 中心进行设备管理的概述
+<a id="overview-of-device-management-with-iot-hub" class="xliff"></a>
+## 介绍
+<a id="introduction" class="xliff"></a>
 Azure IoT 中心提供功能和可扩展性模型，使设备和后端开发人员可以构建功能强大的设备管理解决方案。 设备范围扩大，从受约束的传感器和单一用途微控制器变为功能强大的可路由设备组通信的网关。  此外，在不同行业中，IoT 操作员的用例和要求也显著不同。  尽管有此不同，但使用 IoT 中心进行设备管理提供了功能、模式和代码库，以满足不同设备和最终用户的需要。
 
 创建成功的企业 IoT 解决方案的一个重要部分，是提供操作员如何处理其设备集合的日常管理的策略。 IoT 操作员需要简单且可靠的工具和应用程序，使他们能够重点处理其工作的更具战略意义方面。 本文将提供：
@@ -34,7 +34,8 @@ Azure IoT 中心提供功能和可扩展性模型，使设备和后端开发人�
 - 设备生命周期的说明。
 - 常见设备管理模式的概述。
 
-## <a name="device-management-principles"></a>设备管理原则
+## 设备管理原则
+<a id="device-management-principles" class="xliff"></a>
 IoT 带来了一系列独特的设备管理难题，每个企业级解决方案必须满足以下原则：
 
 ![设备管理原则图形][img-dm_principles]
@@ -49,7 +50,8 @@ IoT 带来了一系列独特的设备管理难题，每个企业级解决方案�
     * 设备地理位置
 * **为许多角色提供服务**：支持 IoT 操作角色的独特工作流和进程至关重要。 操作人员必须与给定约束的内部 IT 部门协调工作。  他们还必须找到可持续方法将实时设备操作信息传递给主管和其他业务管理角色。
 
-## <a name="device-lifecycle"></a>设备生命周期
+## 设备生命周期
+<a id="device-lifecycle" class="xliff"></a>
 有一组所有企业 IoT 项目通用的常规设备管理阶段。 在 Azure IoT 中，设备生命周期有五个阶段：
 
 ![Azure IoT 设备生命周期的五个阶段：计划、预配、配置、监视、停用][img-device_lifecycle]
@@ -66,13 +68,14 @@ IoT 带来了一系列独特的设备管理难题，每个企业级解决方案�
 
     *其他阅读材料*：[使用直接方法][lnk-c2d-methods]、[对设备调用直接方法][lnk-methods-devguide]、[如何使用设备孪生属性][lnk-twin-properties]、[计划和广播作业][lnk-jobs]、[在多台设备上计划作业][lnk-jobs-devguide]。
 * **监视**：监视总体设备集合运行状况、正在进行的操作的状态并针对可能需要操作员注意的问题向操作员发出警报。  应用设备孪生以允许设备报告实时操作情况和更新操作的状态。 使用设备孪生查询生成显示最直接问题的功能强大的仪表板报告。
-
-    *其他阅读材料*：[如何使用设备孪生属性][lnk-twin-properties]、[用于设备孪生和作业的 IoT 中心查询语言][lnk-query-language]。
+  
+    其他阅读材料：[如何使用设备孪生属性][lnk-twin-properties]、[用于设备孪生、作业和消息路由的 IoT 中心查询语言][lnk-query-language]。
 * **停用**：在发生故障、升级周期后，或在服务生存期结束时更换或停用设备。  使用设备孪生来维护设备信息（如果正在更换物理设备），或者将设备信息存档（如果正在停用设备）。 使用 IoT 中心标识注册表来安全地撤销设备标识和凭据。
 
     *其他阅读材料*：[如何使用设备孪生属性][lnk-twin-properties]、[管理设备标识][lnk-identity-registry]
 
-## <a name="device-management-patterns"></a>设备管理模式
+## 设备管理模式
+<a id="device-management-patterns" class="xliff"></a>
 IoT 中心启用以下设备管理模式集。  [设备管理教程][lnk-get-started]更详细地介绍如何扩展这些模式以适合具体方案，以及如何基于这些核心模板设计新模式。
 
 - **重启** - 后端应用通过直接方法通知设备它已启动重启。  设备使用报告属性来更新设备的重新启动状态。
@@ -91,7 +94,8 @@ IoT 中心启用以下设备管理模式集。  [设备管理教程][lnk-get-sta
 
     ![设备管理报告进度和状态模式图形][img-report_progress_pattern]
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 可以使用 IoT 中心设备管理提供的功能、模式和代码库，在每个设备生命周期阶段创建满足企业 IoT 操作员需求的 IoT 应用程序。
 
 若要继续了解 IoT 中心设备管理功能，请参阅[设备管理入门][lnk-get-started]教程。
@@ -117,4 +121,3 @@ IoT 中心启用以下设备管理模式集。  [设备管理教程][lnk-get-sta
 [lnk-methods-devguide]: ./iot-hub-devguide-direct-methods.md
 [lnk-jobs]: ./iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: ./iot-hub-devguide-jobs.md
-

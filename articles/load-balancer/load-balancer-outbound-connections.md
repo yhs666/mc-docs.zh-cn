@@ -3,8 +3,8 @@ title: "了解 Azure 中的出站连接 | Azure"
 description: "本文介绍了 Azure 如何使 VM 与公共 Internet 服务通信。"
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/31/2016
-ms.date: 05/08/2017
+origin.date: 05/31/2017
+ms.date: 07/10/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 6e87350b658750b767403ae0c44fee940a284083
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: f74b60f63ec96fd1406ee5e6db0d8221381bfa14
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
-
-# <a name="understanding-outbound-connections-in-azure"></a>了解 Azure 中的出站连接
+# 了解 Azure 中的出站连接
+<a id="understanding-outbound-connections-in-azure" class="xliff"></a>
 
 Azure 中的虚拟机 (VM) 可以与 Azure 外部的公用 IP 地址空间中的终结点进行通信。 当 VM 启动到公共 IP 地址空间中的目标的出站流时，Azure 将 VM 的专用 IP 地址映射到公共 IP 地址，并允许返回流量来访问 VM。
 
@@ -37,7 +36,8 @@ Azure 提供三种不同的方法来实现出站连接。 每种方法都有自�
 
 如果不希望 VM 与 Azure 外部的公共 IP 地址空间中的终结点通信，则可以使用网络安全组 (NSG) 来阻止访问。 [阻止公共连接](#preventing-public-connectivity)中详细介绍了 NSG 的使用。
 
-## <a name="standalone-vm-with-no-instance-level-public-ip-address"></a>独立 VM（无实例级公共 IP 地址）
+## 独立 VM（无实例级公共 IP 地址）
+<a id="standalone-vm-with-no-instance-level-public-ip-address" class="xliff"></a>
 
 在此场景中，VM 不是 Azure 负载均衡器池的一部分，并且没有分配给它的实例级公共 IP (ILPIP) 地址。 当 VM 创建出站流时，Azure 将此出站流的专用源 IP 地址转换为公共源 IP 地址。 用于此出站流的公共 IP 地址是不可配置的，并且不会影响订阅的公共 IP 资源限制。 Azure 使用源网络地址转换 (SNAT) 来执行此功能。 使用公共 IP 地址的临时端口区分由 VM 产生的各个流。 创建流后 SNAT 动态分配临时端口。 在此情况下，用于 SNAT 的临时端口被称为 SNAT 端口。
 
@@ -45,31 +45,38 @@ SNAT 端口是可能会被耗尽的有限资源。 因此了解它们的使用�
 
 可使用[用于负载均衡器的 Log Analytics](load-balancer-monitor-log.md) 和[针对 SNAT 端口耗尽消息要监视的警报事件日志](load-balancer-monitor-log.md#alert-event-log)。 如果 SNAT 端口资源已经耗尽，那么在现有流释放 SNAT 端口之前出站流将失败。 负载均衡器对于回收 SNAT 端口使用 4 分钟的空闲超时时间。
 
-## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>负载均衡的 VM（无实例级公共 IP 地址）
+## 负载均衡的 VM（无实例级公共 IP 地址）
+<a id="load-balanced-vm-with-no-instance-level-public-ip-address" class="xliff"></a>
 
-在此场景中，VM 是 Azure 负载均衡器池的一部分。 没有分配给 VM 的公共 IP 地址。 当负载均衡的 VM 创建出站流时，Azure 将此出站流的专用源 IP 地址转换为公共负载均衡器前端的公共 IP 地址。 Azure 使用源网络地址转换 (SNAT) 来执行此功能。 使用负载均衡器的公共 IP 地址的临时端口区分由 VM 产生的各个流。 创建出站流后 SNAT 动态分配临时端口。 在此情况下，用于 SNAT 的临时端口被称为 SNAT 端口。
+在此场景中，VM 是 Azure 负载均衡器池的一部分。  没有分配给 VM 的公共 IP 地址。 必须为负载均衡器资源配置一条规则，以将公共 IP 前端与后端池链接。  如果未完成此配置，如上面章节中所述，行为适用于[没有实例级公共 IP 的独立 VM](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address)。
+
+当负载均衡的 VM 创建出站流时，Azure 将此出站流的专用源 IP 地址转换为公共负载均衡器前端的公共 IP 地址。 Azure 使用源网络地址转换 (SNAT) 来执行此功能。 使用负载均衡器的公共 IP 地址的临时端口区分由 VM 产生的各个流。 创建出站流后 SNAT 动态分配临时端口。 在此情况下，用于 SNAT 的临时端口被称为 SNAT 端口。
 
 SNAT 端口是可能会被耗尽的有限资源。 因此了解它们的使用方式很重要。 每个到单个目标 IP 地址的流使用一个 SNAT 端口。 对于到相同的目标 IP 地址的多个流，每个流使用一个 SNAT 端口。 这可以确保源自相同的公共 IP 地址，并到相同的目标 IP 地址的流的唯一性。 每个流到不同的目标 IP 地址的多个流对于每个目标使用一个 SNAT 端口。 目标 IP 地址使流具有唯一性。
 
 可使用[用于负载均衡器的 Log Analytics](load-balancer-monitor-log.md) 和[针对 SNAT 端口耗尽消息要监视的警报事件日志](load-balancer-monitor-log.md#alert-event-log)。 如果 SNAT 端口资源已经耗尽，那么在现有流释放 SNAT 端口之前出站流将失败。 负载均衡器对于回收 SNAT 端口使用 4 分钟的空闲超时时间。
 
-## <a name="vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer"></a>具有实例级公共 IP 地址的 VM（有或没有负载均衡器）
+## 具有实例级公共 IP 地址的 VM（有或没有负载均衡器）
+<a id="vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer" class="xliff"></a>
 
 在此场景中，向 VM 分配了实例级公共 IP (ILPIP)。 VM 是否为负载均衡并不重要。 如果使用 ILPIP，则不使用源网络地址转换 (SNAT)。 VM 将 ILPIP 用于所有出站流。 如果应用程序启动很多出站流，并且遇到 SNAT 耗尽的情况，则应考虑分配 ILPIP 以避免 SNAT 限制。
 
-## <a name="discovering-the-public-ip-used-by-a-given-vm"></a>发现指定 VM 所使用的公共 IP
+## 发现指定 VM 所使用的公共 IP
+<a id="discovering-the-public-ip-used-by-a-given-vm" class="xliff"></a>
 
 有多种方法来确定出站连接的公共源 IP 地址。 OpenDNS 提供了一种服务可以向你显示 VM 的公共 IP 地址。 使用 nslookup 命令，可以将名称 myip.opendns.com 的 DNS 查询发送到 OpenDNS 解析程序。 该服务返回用于发送此查询的源 IP 地址。 在 VM 中执行以下查询时，返回的是用于该 VM 的公共 IP。
 
     nslookup myip.opendns.com resolver1.opendns.com
 
-## <a name="preventing-public-connectivity"></a>阻止公共连接
+## 阻止公共连接
+<a id="preventing-public-connectivity" class="xliff"></a>
 
 有时允许 VM 创建出站流是不可取的，或者可能需要管理哪些目标可以通过出站流进行访问。 在此情况下，使用[网络安全组 (NSG)](../virtual-network/virtual-networks-nsg.md) 管理 VM 可以访问的目标。 将 NSG 应用于负载均衡的 VM 时，需要注意[默认标记](../virtual-network/virtual-networks-nsg.md#default-tags)和[默认规则](../virtual-network/virtual-networks-nsg.md#default-rules)。
 
 必须确保 VM 可以接收来自 Azure 负载均衡器的运行状况探测请求。 如果 NSG 阻止来自 AZURE_LOADBALANCER 默认标记的运行状况探测请求，那么 VM 的运行状况探测程序将失败，并且 VM 被标记为停机。 负载均衡器停止向此 VM 发送新流。
 
-## <a name="limitations"></a>限制
+## 限制
+<a id="limitations" class="xliff"></a>
 
 尽管不保证，但当前可用的最大 SNAT 端口数为 64,511（65,535 - 1024 个特权端口）。  这不会直接转换为连接数，有关何时和如何分配 SNAT 端口以及如何管理此可耗尽资源的详细信息，请参见上文。
 

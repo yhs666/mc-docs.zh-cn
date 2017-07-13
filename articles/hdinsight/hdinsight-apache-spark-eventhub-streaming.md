@@ -18,15 +18,14 @@ ms.topic: article
 origin.date: 05/12/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 2bb34e8cd2746688df6802fe839d326efc7f5eba
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: e8c10603433666a2b33e47fa96f2cca02baff6c0
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Apache Spark 流式处理：在 HDInsight 上使用 Spark 群集处理来自 Azure 事件中心的数据
+# Apache Spark 流式处理：在 HDInsight 上使用 Spark 群集处理来自 Azure 事件中心的数据
+<a id="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight" class="xliff"></a>
 
 本文将创建一个涉及以下步骤的 Apache Spark 流式处理示例：
 
@@ -36,17 +35,20 @@ ms.lasthandoff: 05/26/2017
 
 3. 将数据路由到不同的输出，例如 Azure 存储 Blob、Hive 表和 SQL 表。 
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 
 * Azure 订阅。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](hdinsight-apache-spark-jupyter-spark-sql.md)。
 
-## <a name="what-is-apache-spark-streaming"></a>什么是 Apache Spark 流式处理？
+## 什么是 Apache Spark 流式处理？
+<a id="what-is-apache-spark-streaming" class="xliff"></a>
 
 有关 Spark 流式处理的详细说明，请参阅 [Apache Spark 流式处理概述](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview)。 HDInsight 将相同的流式处理功能引入到 Azure 上的 Spark 群集。  
 
-## <a name="what-does-this-solution-do"></a>此解决方案有哪些功能？
+## 此解决方案有哪些功能？
+<a id="what-does-this-solution-do" class="xliff"></a>
 
 在本文中，若要创建 Spark 流式处理示例，请执行以下步骤：
 
@@ -56,7 +58,8 @@ ms.lasthandoff: 05/26/2017
 
 3. 在 Spark 群集上，运行从 Azure 事件中心读取流事件并将其写入不同位置（例如 Azure Blob、Hive 表和 SQL 数据库表）的事件中心 Azure 示例。
 
-## <a name="create-an-azure-event-hub"></a>创建 Azure 事件中心
+## 创建 Azure 事件中心
+<a id="create-an-azure-event-hub" class="xliff"></a>
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)，然后单击屏幕左上角的“新建”。
 
@@ -95,7 +98,8 @@ ms.lasthandoff: 05/26/2017
 
      ![查看 Spark 流式处理示例的事件中心策略密钥](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "查看 Spark 流式处理示例的事件中心策略密钥")
 
-## <a name="send-messages-to-azure-event-hub-using-a-sample-scala-application"></a>使用 Scala 示例应用程序将消息发送到 Azure 事件中心
+## 使用 Scala 示例应用程序将消息发送到 Azure 事件中心
+<a id="send-messages-to-azure-event-hub-using-a-sample-scala-application" class="xliff"></a>
 
 本部分使用独立的本地 Scala 应用程序生成事件流并将其发送到前面创建的 Azure 事件中心。 可从 GitHub 获取此应用程序，网址为：[https://github.com/hdinsight/eventhubs-sample-event-producer](https://github.com/hdinsight/eventhubs-sample-event-producer)。 以下步骤假设你已复制此 GitHub 存储库。
 
@@ -108,7 +112,8 @@ ms.lasthandoff: 05/26/2017
 
 3. 生成项目。 在“生成”菜单中，单击“创建项目”。 根据 IntelliJ IDEA 配置，将在某个位置创建输出 jar。 该位置通常在 \classes\artifacts 下面。
 
-## <a name="create-application-to-receive-messages-from-event-hub-into-a-spark-cluster"></a>创建用于在 Spark 群集中从事件中心接收消息的应用程序 
+## 创建用于在 Spark 群集中从事件中心接收消息的应用程序
+<a id="create-application-to-receive-messages-from-event-hub-into-a-spark-cluster" class="xliff"></a> 
 
 [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples) 中提供了用于接收事件并将其路由到不同目标的，以 Scala 编写的 Spark 流式处理示例应用程序。 请遵循以下步骤更新应用程序的事件中心配置并创建输出 jar。
 
@@ -134,43 +139,44 @@ ms.lasthandoff: 05/26/2017
 
 6. 应用程序需要调用一个依赖项 jar **JDBC 驱动程序 jar**。 必须有此 jar，才能将事件中心发来的消息写入 Azure SQL 数据库。 可从[此处](https://msdn.microsoft.com/sqlserver/aa937724.aspx)下载此 jar 文件（v4.1 或更高版本）。 在项目库中添加对此 jar 的引用。 执行以下步骤：
 
-    1. 在已打开应用程序的 IntelliJ IDEA 窗口中，依次单击“文件”、“项目结构”和“库”。 
-    2. 单击添加图标（![添加图标](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)），单击“Java”，然后导航到 JDBC 驱动程序 jar 所下载到的位置。 按照提示将 jar 文件添加到项目库。
+     1. 在已打开应用程序的 IntelliJ IDEA 窗口中，依次单击“文件”、“项目结构”和“库”。 
+     2. 单击添加图标（![添加图标](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)），单击“Java”，然后导航到 JDBC 驱动程序 jar 所下载到的位置。 按照提示将 jar 文件添加到项目库。
 
-        ![添加缺少的依赖项](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "添加缺少的依赖项 jar")
-    3. 单击“应用” 。
+         ![添加缺少的依赖项](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "添加缺少的依赖项 jar")
+     3. 单击“应用” 。
 
 7. 创建输出 jar 文件。 执行以下步骤。
 
-    1. 在“项目结构”对话框中，单击“项目”，然后单击加号。 在弹出的对话框中，单击“JAR”，然后单击“从包含依赖项的模块”。
+   1. 在“项目结构”对话框中，单击“项目”，然后单击加号。 在弹出的对话框中，单击“JAR”，然后单击“从包含依赖项的模块”。
 
-        ![Apache Spark 流式处理示例 - 创建 JAR](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-create-jar.png "Apache Spark 流式处理示例 - 创建 JAR")
-    2. 在“从模块创建 JAR”对话框中，单击“主类”旁边的省略号 (![ellipsis](./media/hdinsight-apache-spark-eventhub-streaming/ellipsis.png))。
-    3. 在“选择主类”对话框中，选择任何可用的类，然后单击“确定”。
+       ![Apache Spark 流式处理示例 - 创建 JAR](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-create-jar.png "Apache Spark 流式处理示例 - 创建 JAR")
+   2. 在“从模块创建 JAR”对话框中，单击“主类”旁边的省略号 (![ellipsis](./media/hdinsight-apache-spark-eventhub-streaming/ellipsis.png))。
+   3. 在“选择主类”对话框中，选择任何可用的类，然后单击“确定”。
 
-        ![Apache Spark 流式处理示例 - 选择 jar 的类](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-select-class-for-jar.png "Apache Spark 流式处理示例 - 选择 jar 的类")
-    4. 在“从模块创建 JAR”对话框中，确保已选择“提取到目标 JAR”选项，然后单击“确定”。 这会创建包含所有依赖项的单个 JAR。
+       ![Apache Spark 流式处理示例 - 选择 jar 的类](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-select-class-for-jar.png "Apache Spark 流式处理示例 - 选择 jar 的类")
+   4. 在“从模块创建 JAR”对话框中，确保已选择“提取到目标 JAR”选项，然后单击“确定”。 这会创建包含所有依赖项的单个 JAR。
 
-        ![Apache Spark 流式处理示例 - 从模块创建 jar](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-create-jar-from-modules.png "Apache Spark 流式处理示例 - 从模块创建 jar")
-    5. “输出布局”选项卡列出了所有包含为 Maven 项目一部分的 jar。 你可以选择并删除 Scala 应用程序不直接依赖的 jar。 对于此处创建的应用程序，可以删除最后一个（**microsoft-spark-streaming-examples** 编译输出）以外的所有 jar。 选择要删除的 jar，然后单击“删除”图标 (![delete icon](./media/hdinsight-apache-spark-eventhub-streaming/delete-icon.png))。
+       ![Apache Spark 流式处理示例 - 从模块创建 jar](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-create-jar-from-modules.png "Apache Spark 流式处理示例 - 从模块创建 jar")
+   5. “输出布局”选项卡列出了所有包含为 Maven 项目一部分的 jar。 你可以选择并删除 Scala 应用程序不直接依赖的 jar。 对于此处创建的应用程序，可以删除最后一个（**microsoft-spark-streaming-examples** 编译输出）以外的所有 jar。 选择要删除的 jar，然后单击“删除”图标 (![delete icon](./media/hdinsight-apache-spark-eventhub-streaming/delete-icon.png))。
 
-        ![Apache Spark 流式处理示例 - 删除已提取的 jar](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-delete-output-jars.png "Apache Spark 流式处理示例 - 删除已提取的 jar")
+       ![Apache Spark 流式处理示例 - 删除已提取的 jar](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-delete-output-jars.png "Apache Spark 流式处理示例 - 删除已提取的 jar")
 
-        请务必选中“在创建时生成”框，以确保每次生成或更新项目时都创建 jar。 单击“应用” 。
-    6. 在“输出布局”选项卡中的“可用元素”框右下角，显示了前面添加到项目库中的 SQL JDBC jar。 必须将此 jar 添加到“输出布局”选项卡。 右键单击该 jar 文件，然后单击“提取到输出根目录中”。
+       请务必选中“在创建时生成”框，以确保每次生成或更新项目时都创建 jar。 单击“应用” 。
+   6. 在“输出布局”选项卡中的“可用元素”框右下角，显示了前面添加到项目库中的 SQL JDBC jar。 必须将此 jar 添加到“输出布局”选项卡。 右键单击该 jar 文件，然后单击“提取到输出根目录中”。
 
-        ![Apache Spark 流式处理示例 - 提取依赖性 jar](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-extract-dependency-jar.png "Apache Spark 流式处理示例 - 提取依赖性 jar")  
+       ![Apache Spark 流式处理示例 - 提取依赖性 jar](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-extract-dependency-jar.png "Apache Spark 流式处理示例 - 提取依赖性 jar")  
 
-        “输出布局”选项卡现在应如下所示。
+       “输出布局”选项卡现在应如下所示。
 
-        ![Apache Spark 流式处理示例 - 最终输出选项卡](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-final-output-tab.png "Apache Spark 流式处理示例 - 最终输出选项卡")        
+       ![Apache Spark 流式处理示例 - 最终输出选项卡](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-final-output-tab.png "Apache Spark 流式处理示例 - 最终输出选项卡")        
 
-        在“项目结构”对话框中，单击“应用”，然后单击“确定”。    
-    7. 在菜单栏中单击“生成”，然后单击“创建项目”。 也可以单击“生成项目”以创建 jar。 输出 jar 将在 **\classes\artifacts** 下创建。
+       在“项目结构”对话框中，单击“应用”，然后单击“确定”。    
+   7. 在菜单栏中单击“生成”，然后单击“创建项目”。 也可以单击“生成项目”以创建 jar。 输出 jar 将在 **\classes\artifacts** 下创建。
 
-        ![Apache Spark 流式处理示例 - 输出 JAR](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-output-jar.png "Apache Spark 流式处理示例 - 输出 JAR")
+       ![Apache Spark 流式处理示例 - 输出 JAR](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-output-jar.png "Apache Spark 流式处理示例 - 输出 JAR")
 
-## <a name="run-the-application-remotely-on-a-spark-cluster-using-livy"></a>使用 Livy 在 Spark 群集上远程运行应用程序
+## 使用 Livy 在 Spark 群集上远程运行应用程序
+<a id="run-the-application-remotely-on-a-spark-cluster-using-livy" class="xliff"></a>
 
 本文使用 Livy 在 Spark 群集上远程运行 Apache Spark 流式处理应用程序。 有关如何在 HDInsight Spark 群集上使用 Livy 的详细介绍，请参阅[向 Azure HDInsight 上的 Apache Spark 群集远程提交作业](hdinsight-apache-spark-livy-rest-interface.md)。 在开始运行 Spark 流式处理应用程序之前，必须完成一些准备工作：
 
@@ -181,7 +187,8 @@ ms.lasthandoff: 05/26/2017
 2. 将流式 jar (**spark-streaming-data-persistence-examples.jar**) 复制到与群集关联的 Azure Blob 存储。 这样，jar 便可供 Livy 访问。 可以使用命令行实用工具 [**AzCopy**](../storage/storage-use-azcopy.md) 来执行此操作。 可以使用其他许多客户端来上传数据。 有关详细信息，请参阅[在 HDInsight 中上传 Hadoop 作业的数据](hdinsight-upload-data.md)。
 3. 将 CURL 安装在要运行这些应用程序的计算机上。 我们将使用 CURL 来调用 Livy 终结点，以远程运行作业。
 
-### <a name="run-the-spark-streaming-application-to-receive-the-events-into-an-azure-storage-blob-as-text"></a>运行 Spark 流式处理应用程序，将事件以文本形式接收到 Azure 存储 Blob 中
+### 运行 Spark 流式处理应用程序，将事件以文本形式接收到 Azure 存储 Blob 中
+<a id="run-the-spark-streaming-application-to-receive-the-events-into-an-azure-storage-blob-as-text" class="xliff"></a>
 
 打开命令提示符，导航到安装 CURL 的目录，然后运行以下命令（替换用户名/密码和群集名称）：
 
@@ -223,7 +230,8 @@ Spark 流式处理应用程序将继续运行，直到被终止。 若要终止�
 
     curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.cn/livy/batches/1"
 
-### <a name="run-the-applications-to-receive-the-events-into-an-azure-storage-blob-as-json"></a>运行应用程序以将事件以 JSON 形式接收到 Azure 存储 Blob 中
+### 运行应用程序以将事件以 JSON 形式接收到 Azure 存储 Blob 中
+<a id="run-the-applications-to-receive-the-events-into-an-azure-storage-blob-as-json" class="xliff"></a>
 打开命令提示符，导航到安装 CURL 的目录，然后运行以下命令（替换用户名/密码和群集名称）：
 
     curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\inputJSON.txt "https://mysparkcluster.azurehdinsight.cn/livy/batches"
@@ -236,7 +244,8 @@ Spark 流式处理应用程序将继续运行，直到被终止。 若要终止�
 
  在运行该命令之后，可以查看与群集关联的 Azure 存储帐户，可看到该处已创建 **/EventStore10** 文件夹。 打开前缀为 **part-** 的任一文件，可看到以 JSON 格式处理的事件。
 
-### <a name="run-the-applications-to-receive-the-events-into-a-hive-table"></a>运行应用程序以将事件接收到 Hive 表中
+### 运行应用程序以将事件接收到 Hive 表中
+<a id="run-the-applications-to-receive-the-events-into-a-hive-table" class="xliff"></a>
 若要运行将事件流式传输到 Hive 表中的 Spark 流式处理应用程序，需要其他一些组件。 其中包括：
 
 * datanucleus-api-jdo-3.2.6.jar
@@ -286,7 +295,8 @@ Spark 流式处理应用程序将继续运行，直到被终止。 若要终止�
     vWzM3nvOja8DhYcwn0n5eTfOItZ966pa
     Time taken: 4.434 seconds, Fetched: 10 row(s)
 
-### <a name="run-the-applications-to-receive-the-events-into-an-azure-sql-database-table"></a>运行应用程序以将事件接收到 Azure SQL 数据库表中
+### 运行应用程序以将事件接收到 Azure SQL 数据库表中
+<a id="run-the-applications-to-receive-the-events-into-an-azure-sql-database-table" class="xliff"></a>
 在运行此步骤之前，请确保已创建 Azure SQL 数据库。 有关说明，请参阅[快速创建 SQL 数据库](../sql-database/sql-database-get-started.md)。 若要完成本部分，需要指定数据库名称、数据库服务器名称和数据库管理员凭据的值作为参数。 但是，不需要创建数据库表。 Spark 流式处理应用程序将创建该表。
 
 打开命令提示符，导航到安装 CURL 的目录，然后运行以下命令：
@@ -319,23 +329,26 @@ Spark 流式处理应用程序将继续运行，直到被终止。 若要终止�
 ## <a name="seealso"></a>另请参阅
 * [概述：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview.md)
 
-### <a name="scenarios"></a>方案
+### 方案
+<a id="scenarios" class="xliff"></a>
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [使用 HDInsight 中的 Spark 分析网站日志](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-### <a name="create-and-run-applications"></a>创建和运行应用程序
+### 创建和运行应用程序
+<a id="create-and-run-applications" class="xliff"></a>
 * [使用 Scala 创建独立的应用程序](hdinsight-apache-spark-create-standalone-application.md)
 * [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
 
-### <a name="tools-and-extensions"></a>工具和扩展
+### 工具和扩展
+<a id="tools-and-extensions" class="xliff"></a>
 * [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-use-zeppelin-notebook.md)
 * [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-### <a name="manage-resources"></a>管理资源
+### 管理资源
+<a id="manage-resources" class="xliff"></a>
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](hdinsight-apache-spark-job-debugging.md)
 
@@ -348,4 +361,3 @@ Spark 流式处理应用程序将继续运行，直到被终止。 若要终止�
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [azure-management-portal]: https://manage.windowsazure.cn/
 [azure-create-storageaccount]: ../storage/storage-create-storage-account.md
-

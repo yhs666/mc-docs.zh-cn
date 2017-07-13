@@ -18,15 +18,14 @@ origin.date: 11/08/2016
 ms.date: 05/22/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 6dc4d360222ae92b5a704312a144fcb436c2b174
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 0b8c08d38b8537c0b51058bcf273611b2afbe044
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="deploy-sap-on-windows-vms-in-azure"></a>在 Azure 中的 Windows VM 上部署 SAP
+# 在 Azure 中的 Windows VM 上部署 SAP
+<a id="deploy-sap-on-windows-vms-in-azure" class="xliff"></a>
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -312,19 +311,24 @@ ms.lasthandoff: 05/12/2017
 
 本文将介绍在 Azure 中的 Windows 虚拟机 (VM) 上部署 SAP 应用程序的步骤。 本文基于 [适用于 Windows 上的 SAP 的 Azure 虚拟机规划和实施][planning-guide]中的信息。 它还对 SAP 安装文档和 SAP 说明（指导安装和部署 SAP 软件的主要资源）进行了补充。
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 为 SAP 软件部署设置 Azure 虚拟机涉及多个步骤和资源。 在开始之前，请确保已满足在 Azure 中的 Windows 虚拟机上安装 SAP 软件的先决条件。
 
-### <a name="local-computer"></a>本地计算机
+### 本地计算机
+<a id="local-computer" class="xliff"></a>
 若要管理 Windows VM 或 Linux VM，可以使用 PowerShell 脚本和 Azure 门户。 对于这两种工具，都需要具有运行 Windows 7 或更高 Windows 版本的本地计算机。 如果希望仅管理 Linux VM 并且希望使用 Linux 计算机执行此任务，则可以使用 Azure CLI。
 
-### <a name="internet-connection"></a>Internet 连接
+### Internet 连接
+<a id="internet-connection" class="xliff"></a>
 若要下载并运行 SAP 软件部署所需的工具和脚本，必须连接到 Internet。 运行适用于 SAP 的 Azure 增强型监视扩展的 Azure VM 也需要访问 Internet。 如果 Azure VM 是 Azure 虚拟网络或本地域的一部分，请确保根据 [配置代理][deployment-guide-configure-proxy]中所述完成相关的代理设置。
 
-### <a name="azure-subscription"></a>Azure 订阅
+### Azure 订阅
+<a id="azure-subscription" class="xliff"></a>
 需要一个有效的 Azure 帐户。
 
-### <a name="topology-and-networking"></a>拓扑和网络
+### 拓扑和网络
+<a id="topology-and-networking" class="xliff"></a>
 需要在 Azure 中定义 SAP 部署的拓扑和体系结构：
 
 * 要使用的 Azure 存储帐户
@@ -337,7 +341,8 @@ ms.lasthandoff: 05/12/2017
 
 在开始 SAP 软件部署流程之前，请创建并配置 Azure 存储帐户或 Azure 虚拟网络。 有关如何创建和配置这些资源的信息，请参阅 [适用于 Windows 上的 SAP 的 Azure 虚拟机规划和实施][planning-guide]。
 
-### <a name="sap-sizing"></a>SAP 大小调整
+### SAP 大小调整
+<a id="sap-sizing" class="xliff"></a>
 要进行 SAP 大小调整，需了解以下信息：
 
 * 预计的 SAP 工作负荷（例如，通过使用 SAP Quick Sizer 工具）和 SAP 应用程序性能标准 (SAPS) 数量
@@ -346,10 +351,12 @@ ms.lasthandoff: 05/12/2017
 * Azure 中不同 VM 之间最终通信时所需的网络带宽
 * 本地资产与 Azure 部署的 SAP 系统之间所需的网络带宽
 
-### <a name="resource-groups"></a>资源组
+### 资源组
+<a id="resource-groups" class="xliff"></a>
 在 Azure Resource Manager 中，可以使用资源组来管理 Azure 订阅中的所有应用程序资源。 有关详细信息，请参阅 [Azure Resource Manager overview][resource-group-overview]（Azure Resource Manager 概述）。
 
-## <a name="resources"></a>资源
+## 资源
+<a id="resources" class="xliff"></a>
 
 ### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>SAP 资源
 设置 SAP 软件部署时，需要以下 SAP 资源：
@@ -373,7 +380,8 @@ ms.lasthandoff: 05/12/2017
 * [Azure CLI][azure-cli]中特定于 SAP 的 Azure CLI 命令。
 
 
-### <a name="microsoft-resources"></a>Microsoft 资源
+### Microsoft 资源
+<a id="microsoft-resources" class="xliff"></a>
 以下 Microsoft 文章介绍了 Azure 中的 SAP 部署：
 
 * [适用于 Windows 上的 SAP 的 Azure 虚拟机规划和实施][planning-guide]
@@ -391,7 +399,8 @@ ms.lasthandoff: 05/12/2017
 
 ![使用 Azure 应用商店中的 VM 映像为 SAP 系统部署 VM 的流程图][deployment-guide-figure-100]
 
-#### <a name="create-a-virtual-machine-by-using-the-azure-portal-preview"></a>使用 Azure 门户创建虚拟机
+#### 使用 Azure 门户创建虚拟机
+<a id="create-a-virtual-machine-by-using-the-azure-portal" class="xliff"></a>
 使用 Azure 应用商店中的映像创建新虚拟机的最简单方式是使用 Azure 门户。
 
 1.  转到 <https://portal.azure.cn/#create>。  或者，在 Azure 门户菜单中，选择“+ 新建”。
@@ -426,8 +435,9 @@ ms.lasthandoff: 05/12/2017
 
 虚拟机将部署在选定的资源组中。
 
-#### <a name="create-a-virtual-machine-by-using-a-template"></a>使用模板创建虚拟机
-可以使用 [azure-quickstart-templates GitHub 存储库][azure-quickstart-templates-github]中发布的某个 SAP 模板来创建虚拟机。 也可以使用 [Azure 门户][virtual-machines-windows-tutorial]、[PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] 或 [Azure CLI][virtual-machines-linux-tutorial] 手动创建虚拟机。
+#### 使用模板创建虚拟机
+<a id="create-a-virtual-machine-by-using-a-template" class="xliff"></a>
+可以使用 [azure-quickstart-templates GitHub 存储库][azure-quickstart-templates-github]中发布的某个 SAP 模板来创建虚拟机。 还可以使用 [Azure 门户][virtual-machines-windows-tutorial]、[PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] 或 [Azure CLI][virtual-machines-linux-tutorial] 手动创建虚拟机。
 
 * [**两层配置（只有一台虚拟机）模板** (sap-2-tier-marketplace-image)][sap-templates-2-tier-marketplace-image]
 
@@ -473,22 +483,26 @@ ms.lasthandoff: 05/12/2017
 
 使用 Azure 应用商店中的映像时，默认情况下会部署 Azure VM 代理。
 
-#### <a name="configure-proxy-settings"></a>配置代理设置
+#### 配置代理设置
+<a id="configure-proxy-settings" class="xliff"></a>
 根据本地网络的配置情况，可能需要在 VM 上设置代理。 如果 VM 通过 VPN 或 ExpressRoute 连接到本地网络，则 VM 可能无法访问 Internet，并且无法下载所需的扩展或收集监视数据。 有关详细信息，请参阅 [配置代理][deployment-guide-configure-proxy]。
 
-#### <a name="join-a-domain-windows-only"></a>加入域（仅限 Windows）
+#### 加入域（仅限 Windows）
+<a id="join-a-domain-windows-only" class="xliff"></a>
 如果 Azure 部署通过 Azure 站点到站点 VPN 连接或 ExpressRoute 连接到本地 Active Directory 或 DNS 实例（这在[针对 Linux 上的 SAP 的 Azure 虚拟机规划和实施][planning-guide]中称为*跨界*），则 VM 应当加入本地域。 有关此任务的注意事项的详细信息，请参阅[将 VM 加入本地域（仅限 Windows）][deployment-guide-4.3]。
 
 #### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>配置监视
 为确保环境支持 SAP，请根据 [配置适用于 SAP 的 Azure 增强型监视扩展][deployment-guide-4.5]中所述，设置适用于 SAP 的 Azure 监视扩展。 在 [SAP 资源][deployment-guide-2.2]部分列出的资源中，查看 SAP 监视的先决条件，以及所需的 SAP 内核和 SAP 主机代理的最低版本。
 
-#### <a name="monitoring-check"></a>监视检查
+#### 监视检查
+<a id="monitoring-check" class="xliff"></a>
 根据 [检查端到端监视设置并对其进行故障排除][deployment-guide-troubleshooting-chapter]中所述，检查监视是否正常运行。
 
-#### <a name="post-deployment-steps"></a>部署后步骤
+#### 部署后步骤
+<a id="post-deployment-steps" class="xliff"></a>
 创建并部署 VM 后，需要在 VM 中安装所需的软件组件。 由于此类 VM 部署中的部署/软件安装顺序，要安装的软件必须已经可用（位于 Azure 中、在另一 VM 上或者作为可以附加的磁盘）。 或者，考虑使用跨界方案，在此方案中，将提供到本地资产（安装共享）的连接。
 
-将 VM 部署到 Azure 后，需要像在本地环境中一样，遵照相同的准则并使用相同的工具在 VM 上安装 SAP 软件。 若要在 Azure VM 上安装 SAP 软件，SAP 和 Microsoft 都建议将 SAP 安装媒体上载并存储到 Azure VHD 中，或者创建一个充当文件服务器并包含所有必需 SAP 安装媒体的 Azure VM。
+将 VM 部署到 Azure 后，需要像在本地环境中一样，遵照相同的准则并使用相同的工具在 VM 上安装 SAP 软件。 若要在 Azure VM 上安装 SAP 软件，SAP 和 Microsoft 都建议将 SAP 安装媒体上传并存储到 Azure VHD 中，或者创建一个充当文件服务器并包含所有必需 SAP 安装媒体的 Azure VM。
 
 
 ### <a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>方案 2：使用自定义映像为 SAP 部署 VM
@@ -513,7 +527,8 @@ ms.lasthandoff: 05/12/2017
 
 ![使用专用应用商店中的 VM 映像为 SAP 系统部署 VM 的流程图][deployment-guide-figure-300]
 
-#### <a name="create-the-virtual-machine"></a>创建虚拟机
+#### 创建虚拟机
+<a id="create-the-virtual-machine" class="xliff"></a>
 若要从 Azure 门户使用某个专用 OS 映像来创建部署，请使用下列 SAP 模板之一。 这些模板发布在 [azure-quickstart-templates GitHub 存储库][azure-quickstart-templates-github]中。 还可以使用 [PowerShell][virtual-machines-upload-image-windows-resource-manager]手动创建虚拟机。
 
 * [**两层配置（只有一台虚拟机）模板** (sap-2-tier-user-image)][sap-templates-2-tier-user-image]
@@ -560,23 +575,28 @@ ms.lasthandoff: 05/12/2017
 
 4.  选择“购买”。
 
-#### <a name="install-the-vm-agent-linux-only"></a>安装 VM 代理（仅限 Linux）
+#### 安装 VM 代理（仅限 Linux）
+<a id="install-the-vm-agent-linux-only" class="xliff"></a>
 若要使用前面的部分中描述的模板，必须已经在用户映像中安装了 Linux 代理，否则，部署将失败。 如 [下载、安装并启用 Azure VM 代理][deployment-guide-4.4]中所述，下载 VM 代理并将其安装在用户映像中。 如果不使用模板，也可以在以后安装 VM 代理。
 
-#### <a name="join-a-domain-windows-only"></a>加入域（仅限 Windows）
+#### 加入域（仅限 Windows）
+<a id="join-a-domain-windows-only" class="xliff"></a>
 如果 Azure 部署通过 Azure 站点到站点 VPN 连接或 Azure ExpressRoute 连接到本地 Active Directory 或 DNS 实例（这在[针对 Linux 上的 SAP 的 Azure 虚拟机规划和实施][planning-guide]中称为*跨界*），则 VM 应当加入本地域。 有关此步骤的注意事项的详细信息，请参阅[将 VM 加入本地域（仅限 Windows）][deployment-guide-4.3]。
 
-#### <a name="configure-proxy-settings"></a>配置代理设置
+#### 配置代理设置
+<a id="configure-proxy-settings" class="xliff"></a>
 根据本地网络的配置情况，可能需要在 VM 上设置代理。 如果 VM 通过 VPN 或 ExpressRoute 连接到本地网络，则 VM 可能无法访问 Internet，并且无法下载所需的扩展或收集监视数据。 有关详细信息，请参阅 [配置代理][deployment-guide-configure-proxy]。
 
-#### <a name="configure-monitoring"></a>配置监视
+#### 配置监视
+<a id="configure-monitoring" class="xliff"></a>
 为确保环境支持 SAP，请根据 [配置适用于 SAP 的 Azure 增强型监视扩展][deployment-guide-4.5]中所述，设置适用于 SAP 的 Azure 监视扩展。 在 [SAP 资源][deployment-guide-2.2]部分列出的资源中，查看 SAP 监视的先决条件，以及所需的 SAP 内核和 SAP 主机代理的最低版本。
 
-#### <a name="monitoring-check"></a>监视检查
+#### 监视检查
+<a id="monitoring-check" class="xliff"></a>
 根据 [检查端到端监视设置并对其进行故障排除][deployment-guide-troubleshooting-chapter]中所述，检查监视是否正常运行。
 
 ### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>方案 3：使用包含 SAP 的非通用化 Azure VHD 移动本地 VM
-在此方案中，你打算将特定的 SAP 系统从本地环境移动到 Azure。 可以通过将包含 OS、SAP 二进制文件并最终包含 DBMS 二进制文件的 VHD，以及包含 DBMS 数据和日志文件的 VHD 上载到 Azure 来实现此目的。 与 [方案 2：使用自定义映像为 SAP 部署 VM][deployment-guide-3.3]中所述的方案不同，在本例中，需要在 Azure VM 中保留主机名、SAP SID 和 SAP 用户帐户，因为它们已在本地环境中进行了配置。 不需要对 OS 进行通用化。 此方案通常应用于跨界情况，在这种情况下，SAP 布局有一部分在本地运行，另一部分在 Azure 上运行。
+在此方案中，你打算将特定的 SAP 系统从本地环境移动到 Azure。 可以通过将包含 OS、SAP 二进制文件并最终包含 DBMS 二进制文件的 VHD，以及包含 DBMS 数据和日志文件的 VHD 上传到 Azure 来实现此目的。 与 [方案 2：使用自定义映像为 SAP 部署 VM][deployment-guide-3.3]中所述的方案不同，在本例中，需要在 Azure VM 中保留主机名、SAP SID 和 SAP 用户帐户，因为它们已在本地环境中进行了配置。 不需要对 OS 进行通用化。 此方案通常应用于跨界情况，在这种情况下，SAP 布局有一部分在本地运行，另一部分在 Azure 上运行。
 
 在此方案中，在部署期间不会自动安装 VM 代理。 由于 VM 代理和适用于 SAP 的 Azure 增强型监视扩展是运行 SAP 所必需的，因此，在创建虚拟机后，需要手动下载、安装并启用这两个组件。
 
@@ -600,7 +620,8 @@ ms.lasthandoff: 05/12/2017
 
 假设已在 Azure 中上传并定义了磁盘（请参阅[针对 Linux 上的 SAP 的 Azure 虚拟机规划和实施][planning-guide]），则执行接下来的几部分中描述的任务。
 
-#### <a name="create-a-virtual-machine"></a>创建虚拟机
+#### 创建虚拟机
+<a id="create-a-virtual-machine" class="xliff"></a>
 若要通过 Azure 门户使用专用 OS 磁盘来创建部署，请使用 [azure-quickstart-templates GitHub 存储库][azure-quickstart-templates-github]中发布的 SAP 模板。 还可以使用 PowerShell 手动创建虚拟机。
 
 * [**两层配置（只有一台虚拟机）模板** (sap-2-tier-user-disk)][sap-templates-2-tier-os-disk]
@@ -637,24 +658,30 @@ ms.lasthandoff: 05/12/2017
 
 4.  选择“购买”。
 
-#### <a name="install-the-vm-agent"></a>安装 VM 代理
+#### 安装 VM 代理
+<a id="install-the-vm-agent" class="xliff"></a>
 若要使用前面的部分中描述的模板，必须已经在 OS 磁盘中安装了 VM 代理，否则，部署将失败。 如 [下载、安装并启用 Azure VM 代理][deployment-guide-4.4]中所述，在 VM 中下载并安装 VM 代理。
 
 如果不使用前面部分中描述的模板，也可以在以后安装 VM 代理。
 
-#### <a name="join-a-domain-windows-only"></a>加入域（仅限 Windows）
+#### 加入域（仅限 Windows）
+<a id="join-a-domain-windows-only" class="xliff"></a>
 如果 Azure 部署通过 Azure 站点到站点 VPN 连接或 ExpressRoute 连接到本地 Active Directory 或 DNS 实例（这在[针对 Linux 上的 SAP 的 Azure 虚拟机规划和实施][planning-guide]中称为*跨界*），则 VM 应当加入本地域。 有关此任务的注意事项的详细信息，请参阅[将 VM 加入本地域（仅限 Windows）][deployment-guide-4.3]。
 
-#### <a name="configure-proxy-settings"></a>配置代理设置
+#### 配置代理设置
+<a id="configure-proxy-settings" class="xliff"></a>
 根据本地网络的配置情况，可能需要在 VM 上设置代理。 如果 VM 通过 VPN 或 ExpressRoute 连接到本地网络，则 VM 可能无法访问 Internet，并且无法下载所需的扩展或收集监视数据。 有关详细信息，请参阅 [配置代理][deployment-guide-configure-proxy]。
 
-#### <a name="configure-monitoring"></a>配置监视
+#### 配置监视
+<a id="configure-monitoring" class="xliff"></a>
 为确保环境支持 SAP，请根据 [配置适用于 SAP 的 Azure 增强型监视扩展][deployment-guide-4.5]中所述，设置适用于 SAP 的 Azure 监视扩展。 在 [SAP 资源][deployment-guide-2.2]部分列出的资源中，查看 SAP 监视的先决条件，以及所需的 SAP 内核和 SAP 主机代理的最低版本。
 
-#### <a name="monitoring-check"></a>监视检查
+#### 监视检查
+<a id="monitoring-check" class="xliff"></a>
 根据 [检查端到端监视设置并对其进行故障排除][deployment-guide-troubleshooting-chapter]中所述，检查监视是否正常运行。
 
-## <a name="update-the-monitoring-configuration-for-sap"></a>更新 SAP 的监视配置
+## 更新 SAP 的监视配置
+<a id="update-the-monitoring-configuration-for-sap" class="xliff"></a>
 在下列任一情况下，都需要更新 SAP 监视配置：
 * Microsoft/SAP 联合团队扩展了监视功能，并要求使用更多或更少计数器。
 * Microsoft 引入了可提供监视数据的新版底层 Azure 基础结构，适用于 SAP 的 Azure 增强型监视扩展需要适应这些更改。
@@ -664,7 +691,8 @@ ms.lasthandoff: 05/12/2017
 
 若要更新监视设置，请遵循 [配置适用于 SAP 的 Azure 增强型监视扩展][deployment-guide-4.5]中的步骤来更新监视基础结构。
 
-## <a name="detailed-tasks-for-sap-software-deployment-on-a-windows-vm"></a>Windows VM 上的 SAP 软件部署的详细任务
+## Windows VM 上的 SAP 软件部署的详细任务
+<a id="detailed-tasks-for-sap-software-deployment-on-a-windows-vm" class="xliff"></a>
 本部分介绍了在配置和部署流程中用于执行特定任务的详细步骤。
 
 ### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>部署 Azure PowerShell cmdlet
@@ -693,8 +721,10 @@ Import-Module Azure
 
 如果计算机上安装的 Azure cmdlet 版本是最新版本，安装向导的第一个页面会通过将“(已安装)”添加到产品标题中来指明这一情况（请参阅下面的屏幕截图）。 PowerShell Azure cmdlet 是最新的。 若要关闭安装向导，请选择“退出”。
 
-![表示已安装最新 Azure PowerShell cmdlet 版本的 Azure PowerShell cmdlet 安装页面][deployment-guide-figure-700]
-### <a name="figure-7"></a> <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>部署 Azure CLI
+![Azure PowerShell cmdlet 的安装页面，其中指明已安装了 Azure PowerShell cmdlet 的最新版本][deployment-guide-figure-700]
+<a name="figure-7"></a>
+
+### <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>部署 Azure CLI
 1.  转到 [Azure 下载](/downloads/)。
 2.  在“命令行工具”中的“Azure 命令行接口”下面，选择适用于操作系统的“安装”链接。
 3.  在“Microsoft 下载管理器”对话框中，针对已下载的文件（例如 WindowsAzureXPlatCLI.3f.3f.3fnew.exe）选择“运行”。
@@ -716,7 +746,9 @@ azure --version
 结果如下所示：
 
 ![Azure CLI 版本检查结果][deployment-guide-figure-760]
-### <a name="0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda"></a> <a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>将 VM 加入本地域（仅限 Windows）
+<a name="0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda"></a>
+
+### <a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>将 VM 加入本地域（仅限 Windows）
 如果在跨界方案（在此方案中，本地 Active Directory 和 DNS 已扩展到 Azure）中部署 SAP VM，则这些 VM 应当加入本地域。 将 VM 加入本地域需要执行的详细步骤以及成为本地域成员所需的其他软件因客户而异。 通常，若要将 VM 加入本地域，需要安装其他软件，例如，反恶意软件以及备份和监视软件。
 
 在此方案中，还需要确保当 VM 加入环境中的域时强制实施 Internet 代理设置，来宾 VM 中的 Windows 本地系统帐户 (S-1-5-18) 具有相同的代理设置。 强制实施代理的最简单选项是使用域组策略，该策略将应用于域中的所有系统。
@@ -759,7 +791,8 @@ azure --version
 ### <a name="baccae00-6f79-4307-ade4-40292ce4e02d"></a>配置代理
 在 Windows 中配置代理时采取的步骤不同于在 Linux 中配置代理时采取的步骤。
 
-#### <a name="windows"></a>Windows
+#### Windows
+<a id="windows" class="xliff"></a>
 必须正确设置代理设置，本地系统帐户才能访问 Internet。 如果没有通过组策略设置代理设置，可为本地系统帐户配置这些设置。
 
 1. 转到“开始”，输入 **gpedit.msc**，然后按 **Enter**。
@@ -771,7 +804,8 @@ azure --version
 7. 选择“高级”按钮。
 8. 在“例外”框中，输入 IP 地址 **168.63.129.16**。 选择“确定” 。
 
-#### <a name="linux"></a>Linux
+#### Linux
+<a id="linux" class="xliff"></a>
 在 Azure 来宾代理的配置文件（位于 \\etc\\waagent.conf 中）中配置正确的代理。
 
 设置以下参数：
@@ -886,7 +920,8 @@ cat /var/lib/AzureEnhancedMonitor/PerfCounters
 ### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>适用于 SAP 的 Azure 增强型监视扩展的就绪状态检查
 通过此项检查，可以确认底层 Azure 监视基础结构是否能够提供 SAP 应用程序中显示的所有性能指标。
 
-#### <a name="run-the-readiness-check-on-a-windows-vm"></a>在 Windows VM 上运行就绪状态检查
+#### 在 Windows VM 上运行就绪状态检查
+<a id="run-the-readiness-check-on-a-windows-vm" class="xliff"></a>
 
 1.  登录到 Azure 虚拟机（不需要使用管理员帐户）。
 2.  打开“命令提示”窗口。
@@ -905,7 +940,8 @@ cat /var/lib/AzureEnhancedMonitor/PerfCounters
 
 如果 Azure 增强型监视扩展未安装或者 AzureEnhancedMonitoring 服务未运行，则表明未正确配置该扩展。 有关如何部署该扩展的详细信息，请参阅 [对适用于 SAP 的 Azure 监视基础结构进行故障排除][deployment-guide-5.3]。
 
-##### <a name="check-the-output-of-azperflibexe"></a>检查 azperflib.exe 的输出
+##### 检查 azperflib.exe 的输出
+<a id="check-the-output-of-azperflibexe" class="xliff"></a>
 Azperflib.exe 输出会显示针对 SAP 的所有已填充的 Azure 性能计数器。 在收集的计数器的列表底部，可以看到一份摘要，以及指示 Azure 监视状态的运行状况指示器。
 
 ![通过执行 azperflib.exe 完成的运行状况检查的输出指示不存在问题][deployment-guide-figure-1100]
@@ -924,7 +960,8 @@ Azperflib.exe 输出会显示针对 SAP 的所有已填充的 Azure 性能计数
 
 如果 **Health status** 值不是 **OK**，请根据 [Azure 监视基础结构配置的运行状况检查][deployment-guide-5.2]中的说明进行操作。
 
-#### <a name="run-the-readiness-check-on-a-linux-vm"></a>在 Linux VM 上运行就绪状态检查
+#### 在 Linux VM 上运行就绪状态检查
+<a id="run-the-readiness-check-on-a-linux-vm" class="xliff"></a>
 
 1.  使用 SSH 连接到 Azure 虚拟机。
 
@@ -1010,55 +1047,73 @@ Azperflib.exe 输出会显示针对 SAP 的所有已填充的 Azure 性能计数
 
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>对适用于 SAP 的 Azure 监视基础结构进行故障排除
 
-#### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Azure 性能计数器根本未显示
+#### ![Windows][Logo_Windows] Azure 性能计数器根本未显示
+<a id="windowslogowindows-azure-performance-counters-do-not-show-up-at-all" class="xliff"></a>
 AzureEnhancedMonitoring Windows 服务在 Azure 中收集性能指标。 如果该服务未正确安装或者未在 VM 中运行，则无法收集任何性能指标。
 
-##### <a name="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty"></a>Azure 增强型监视扩展的安装目录为空
+##### Azure 增强型监视扩展的安装目录为空
+<a id="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty" class="xliff"></a>
 
-###### <a name="issue"></a>问题
+###### 问题
+<a id="issue" class="xliff"></a>
 安装目录 C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;版本>\\drop 为空。
 
-###### <a name="solution"></a>解决方案
+###### 解决方案
+<a id="solution" class="xliff"></a>
 未安装该扩展。 确定这是否为代理问题（如前所述）。 可能需要重新启动计算机或重新运行 `Set-AzureRmVMAEMExtension` 配置脚本。
 
-##### <a name="service-for-azure-enhanced-monitoring-does-not-exist"></a>增强型监视的服务不存在
+##### 增强型监视的服务不存在
+<a id="service-for-azure-enhanced-monitoring-does-not-exist" class="xliff"></a>
 
-###### <a name="issue"></a>问题
+###### 问题
+<a id="issue" class="xliff"></a>
 Windows 服务 AzureEnhancedMonitoring 不存在。
 
 Azperflib.exe 输出引发了一个错误：
 
 ![azperflib.exe 的执行结果指出适用于 SAP 的 Azure 增强型监视扩展的服务未运行][deployment-guide-figure-1400]
-###### <a name="figure-14"></a> 解决方案
+<a name="figure-14"></a>
+
+###### 解决方案
+<a id="solution" class="xliff"></a>
 如果该服务不存在，则表明未正确安装适用于 SAP 的 Azure 增强型监视扩展。 请使用 [适用于 Azure 中的 SAP 的 VM 部署方案][deployment-guide-3]中所述的、适用于部署方案的步骤重新部署该扩展。
 
 部署该扩展后，在一小时后重新检查 Azure VM 中是否提供了 Azure 性能计数器。
 
-##### <a name="service-for-azure-enhanced-monitoring-exists-but-fails-to-start"></a>Azure 增强型监视的服务存在，但无法启动
+##### Azure 增强型监视的服务存在，但无法启动
+<a id="service-for-azure-enhanced-monitoring-exists-but-fails-to-start" class="xliff"></a>
 
-###### <a name="issue"></a>问题
+###### 问题
+<a id="issue" class="xliff"></a>
 Windows 服务 AzureEnhancedMonitoring 存在并已启用，但无法启动。 有关详细信息，请查看应用程序事件日志。
 
-###### <a name="solution"></a>解决方案
+###### 解决方案
+<a id="solution" class="xliff"></a>
 配置不正确。 根据 [配置适用于 SAP 的 Azure 增强型监视扩展][deployment-guide-4.5]中所述，为 VM 重新启动监视扩展。
 
-#### <a name="windowslogowindows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] 缺少某些 Azure 性能计数器
+#### ![Windows][Logo_Windows] 缺少某些 Azure 性能计数器
+<a id="windowslogowindows-some-azure-performance-counters-are-missing" class="xliff"></a>
 AzureEnhancedMonitoring Windows 服务在 Azure 中收集性能指标。 该服务从多个来源获取数据。 某些配置数据是从本地收集的，某些性能指标是从 Azure 诊断读取的。 存储计数器通过日志记录在存储订阅级别使用。
 
 如果使用 SAP 说明 [1999351] 进行故障排除没有解决问题，请重新运行 `Set-AzureRmVMAEMExtension` 配置脚本。 可能需要等待一小时，因为在启用存储分析或诊断计数器后可能不会立即创建这些计数器。 如果问题依然存在，请为 Windows 虚拟机组件 BC-OP-NT-AZR 或 Linux 虚拟机组件 BC-OP-LNX-AZR 创建一条 SAP 客户支持消息。
 
-#### <a name="linuxlogolinux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Azure 性能计数器根本未显示
+#### ![Linux][Logo_Linux] Azure 性能计数器根本未显示
+<a id="linuxlogolinux-azure-performance-counters-do-not-show-up-at-all" class="xliff"></a>
 Azure 中的性能指标是由某个守护程序收集的。 如果该守护程序未运行，则无法收集任何性能指标。
 
-##### <a name="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty"></a>Azure 增强型监视扩展的安装目录为空
+##### Azure 增强型监视扩展的安装目录为空
+<a id="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty" class="xliff"></a>
 
-###### <a name="issue"></a>问题
+###### 问题
+<a id="issue" class="xliff"></a>
 \\var\\lib\\waagent\\ 目录未包含 Azure 增强型监视扩展的子目录。
 
-###### <a name="solution"></a>解决方案
+###### 解决方案
+<a id="solution" class="xliff"></a>
 未安装该扩展。 确定这是否为代理问题（如前所述）。 可能需要重新启动计算机和/或重新运行 `Set-AzureRmVMAEMExtension` 配置脚本。
 
-#### <a name="linuxlogolinux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] 缺少某些 Azure 性能计数器
+#### ![Linux][Logo_Linux] 缺少某些 Azure 性能计数器
+<a id="linuxlogolinux-some-azure-performance-counters-are-missing" class="xliff"></a>
 Azure 中的性能指标是由某个守护程序收集的，该守护程序从多个来源获取数据。 某些配置数据是从本地收集的，某些性能指标是从 Azure 诊断读取的。 存储计数器来自存储订阅中的日志。
 
 有关已知问题的完整最新列表，请参阅 SAP 说明 [1999351]，其中包含有关适用于 SAP 的增强型 Azure 监视的其他故障排除信息。

@@ -16,18 +16,19 @@ origin.date: 04/14/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 7ccf2a7e8e44e206ba61e69ae7290130f6910ea8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: bc1c34aac9c4d6e215e867b48cec4427485a49d7
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>创建 HDInsight 群集时添加自定义 Hive 库
+# 创建 HDInsight 群集时添加自定义 Hive 库
+<a id="add-custom-hive-libraries-when-creating-your-hdinsight-cluster" class="xliff"></a>
 
 如果你有经常与 HDInsight 上的 Hive 配合使用的库，本文档包含有关在群集创建期间使用脚本操作预加载库的信息。 使用本文档中的步骤添加的库已在 Hive 中正式发布 - 无需使用 [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) 加载它们。
 
-## <a name="how-it-works"></a>工作原理
+## 工作原理
+<a id="how-it-works" class="xliff"></a>
 
 创建群集时，可以选择指定脚本操作，以便在创建群集节点时在其上运行脚本。 本文档中的脚本接受单个参数，即包含要预加载的库（存储为 jar 文件）的 WASB 位置。
 
@@ -35,10 +36,12 @@ ms.lasthandoff: 04/28/2017
 
 > [!NOTE]
 > 使用本文中的脚本操作使库可用于以下方案：
+>
 > * **基于 Linux 的 HDInsight** - 使用 Hive 客户端、**WebHCat** 和 **HiveServer2** 时。
 > * **基于 Windows 的 HDInsight** - 使用 Hive 客户端和 **WebHCat** 时。
 
-## <a name="the-script"></a>脚本
+## 脚本
+<a id="the-script" class="xliff"></a>
 
 **脚本位置**
 
@@ -61,12 +64,13 @@ ms.lasthandoff: 04/28/2017
 
 * 必须指定容器的 WASB 路径作为脚本操作的参数。 例如，如果 jar 存储在名为 **mystorage** 的存储帐户上名为 **libs** 的容器中，则该参数应为 **wasbs://libs@mystorage.blob.core.chinacloudapi.cn/**。
 
-    > [!NOTE]
-    > 本文档假定你已创建存储帐户、blob 容器，并已将文件上传到该容器。
-    >
-    > 如果尚未创建存储帐户，可以通过 [Azure 门户](https://portal.azure.cn)创建该帐户。 然后可以使用实用工具（如 [Azure 存储资源管理器](http://storageexplorer.com/)）在帐户中创建容器并将文件上传到该容器。
+  > [!NOTE]
+  > 本文档假定你已创建存储帐户、blob 容器，并已将文件上传到该容器。
+  >
+  > 如果尚未创建存储帐户，可以通过 [Azure 门户](https://portal.azure.cn)创建该帐户。 然后可以使用实用工具（如 [Azure 存储资源管理器](http://storageexplorer.com/) ）在帐户中创建容器并将文件上传到该容器。
 
-## <a name="create-a-cluster-using-the-script"></a>使用脚本创建群集。
+## 使用脚本创建群集。
+<a id="create-a-cluster-using-the-script" class="xliff"></a>
 
 > [!NOTE]
 > 以下步骤创建基于 Linux 的 HDInsight 群集。 若要创建基于 Windows 的群集，创建群集时请选择 **Windows** 作为群集 OS，并使用 Windows (PowerShell) 脚本而不是 bash 脚本。
@@ -77,17 +81,17 @@ ms.lasthandoff: 04/28/2017
 
 2. 在“可选配置”边栏选项卡上，选择“脚本操作”，并提供以下信息：
 
-    * **名称**：输入脚本操作的友好名称。
+   * **名称**：输入脚本操作的友好名称。
 
-    * **脚本 URI**：https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+   * **脚本 URI**：https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
 
-    * **标头**：选中此选项。
+   * **标头**：选中此选项。
 
-    * **工作节点**：选中此选项。
+   * **工作节点**：选中此选项。
 
-    * **ZOOKEEPER**：将此项留空。
+   * **ZOOKEEPER**：将此项留空。
 
-    * **参数**：输入包含 jar 的容器和存储帐户的 WASB 地址。 例如，**wasbs://libs@mystorage.blob.core.chinacloudapi.cn/**。
+   * **参数**：输入包含 jar 的容器和存储帐户的 WASB 地址。 例如，**wasbs://libs@mystorage.blob.core.chinacloudapi.cn/**。
 
 3. 在“脚本操作”的底部，使用“选择”按钮保存配置。
 
@@ -99,6 +103,7 @@ ms.lasthandoff: 04/28/2017
 
 群集创建完成后，你将能够使用通过此脚本从 Hive 添加的 jar，而无需使用 `ADD JAR` 语句。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 有关使用 Hive 的详细信息，请参阅[将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)

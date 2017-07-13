@@ -1,6 +1,6 @@
 ---
-title: "使用 DocumentDB 的 MongoDB API 构建 Web 应用 | Microsoft Docs"
-description: "使用 MongoDB 的 API 创建联机数据库 Web 应用的 DocumentDB 教程。"
+title: "使用 DocumentDB 的 API for MongoDB 构建 Web 应用 | Microsoft Docs"
+description: "使用 API for MongoDB 创建联机数据库 Web 应用的 DocumentDB 教程。"
 keywords: "mongodb 示例"
 services: documentdb
 author: AndrewHoh
@@ -16,15 +16,14 @@ ms.topic: article
 origin.date: 04/28/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 00cfb2b197c1e0015f7d164f294e3abc0baf1643
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 96bce9fabebc00d52344c47f9cd20915918a261a
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="azure-documentdb-connect-to-a-mongodb-app-using-net"></a>DocumentDB：使用 .NET 连接到 MongoDB 应用
+# DocumentDB：使用 .NET 连接到 MongoDB 应用
+<a id="documentdb-connect-to-a-mongodb-app-using-net" class="xliff"></a>
 
 此示例说明如何使用 .NET 生成 MongoDB Web 应用的 API。
 
@@ -180,7 +179,7 @@ ms.lasthandoff: 05/19/2017
 
 3. 应用可供使用！
 
-## <a name="next-steps"></a>后续步骤
-- 了解如何配合 DocumentDB 的 API for MongoDB 帐户 [使用 MongoChef](documentdb-mongodb-mongochef.md) 和[使用 RoboMongo](documentdb-mongodb-robomongo.md)。
-
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+- 了解如何配合 DocumentDB 的 API for MongoDB 帐户[使用 MongoChef](documentdb-mongodb-mongochef.md) 和[使用 RoboMongo](documentdb-mongodb-robomongo.md)。
 

@@ -16,16 +16,15 @@ ms.topic: article
 origin.date: 03/16/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 18c30e40efa8a048220da4feba874d240b4ffbeb
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 55efcc86c685e06396a84a91ba198021e2150efd
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>如何在使用经典部署模型创建的虚拟机上运行 Java 应用程序服务器
 > [!IMPORTANT]
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关使用 Java 8 和 Tomcat 部署 webapp 的 Resource Manager 模板，请参阅[此处](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat/)。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关使用 Java 8 和 Tomcat 部署 webapp 的 Resource Manager 模板，请参阅[此处](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat/)。
 
 通过 Azure，可使用虚拟机提供服务器功能。 例如，在 Azure 上运行的虚拟机可配置为托管 Java 应用程序服务器，如 Apache Tomcat。
 
@@ -44,18 +43,18 @@ ms.lasthandoff: 04/14/2017
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>创建虚拟机
-1. 登录 [Azure 门户](https://portal.azure.cn)。  
+1. 登录到 [Azure 门户](https://portal.azure.cn)。  
 2. 依次单击“新建”和“计算”，然后在“特色应用”中单击“全部查看”。
 3. 单击“JDK”，然后在“JDK”窗格中单击“JDK 8”。  
    如果安装的是尚不能在 JDK 8 中运行的旧版应用程序，可选择支持 **JDK 6** 和 **JDK 7** 的虚拟机映像。
 4. 在 JDK 8 窗格中，选择“经典”，然后单击“创建”。
 5. 在“基本信息”边栏选项卡中：
-    1. 指定虚拟机的名称。
-    2. 在“用户名”字段中输入管理员的姓名。 请记住此姓名以及下一字段中的相关密码。 远程登录虚拟机时需使用这些项。
-    3. 在“新密码”字段中输入密码，然后在“确认密码”字段中再次输入密码。 这是管理员帐户的密码。
-    4. 选择适当的**订阅**。
-    5. 对于“资源组”，请单击“新建”并输入的新资源组的名称。 或者单击“使用现有项”并选择某个可用资源组。
-    6. 选择虚拟机所在的位置，例如“中国东部”。
+   1. 指定虚拟机的名称。
+   2. 在“用户名”字段中输入管理员的姓名。 请记住此姓名以及下一字段中的相关密码。 远程登录虚拟机时需使用这些项。
+   3. 在“新密码”字段中输入密码，然后在“确认密码”字段中再次输入密码。 这是管理员帐户的密码。
+   4. 选择适当的**订阅**。
+   5. 对于“资源组”，请单击“新建”并输入的新资源组的名称。 或者单击“使用现有项”并选择某个可用资源组。
+   6. 选择虚拟机所在的位置，例如“中国东部”。
 6. 单击“下一步” 。
 7. 在“虚拟机映像大小”边栏选项卡中，选择“A1 标准”或其他合适映像。
 8. 单击“选择”。
@@ -90,19 +89,19 @@ Tomcat 运行后，可通过在虚拟机浏览器中输入 URL <http://localhost
 若要从外部计算机查看 Tomcat 的运行，则需要创建一个终结点并开放一个端口。
 
 ## <a name="to-create-an-endpoint-for-your-virtual-machine"></a>为虚拟机创建终结点
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 单击“虚拟机(经典)”。
 3. 单击正在运行 Java 应用程序服务器的虚拟机的名称。
 4. 单击“终结点” 。
 5. 单击 **“添加”**。
 6. 在“添加终结点”对话框中：
-    1. 为终结点指定名称；例如，“HttpIn”。
-    2. 为协议选择 **TCP**。
-    3. 指定“80”作为公用端口。
-    4. 指定“8080”作为专用端口。
-    5. 为浮动 IP 地址选择“禁用”。
-    6. 将访问控制列表保持原样。
-    7. 单击“确定”按钮，以关闭对话框并创建终结点。
+   1. 为终结点指定名称；例如，“HttpIn”。
+   2. 为协议选择 **TCP**。
+   3. 指定“80”作为公用端口。
+   4. 指定“8080”作为专用端口。
+   5. 为浮动 IP 地址选择“禁用”。
+   6. 将访问控制列表保持原样。
+   7. 单击“确定”按钮，以关闭对话框并创建终结点。
 
 ## <a name="to-open-a-port-in-the-firewall-for-your-virtual-machine"></a>在防火墙上为虚拟机开放一个端口
 1. 登录到虚拟机。
@@ -114,7 +113,7 @@ Tomcat 运行后，可通过在虚拟机浏览器中输入 URL <http://localhost
 6. 对于“规则类型”，请选择“端口”，然后单击“下一步”。  
    ![新建入站规则端口][NewRulePort]
 7. 在“协议和端口”屏幕上，选择“TCP”，指定“8080”作为“特定本地端口”，然后单击“下一步”。  
-   ![新建入站规则][NewRuleProtocol]
+  ![新建入站规则][NewRuleProtocol]
 8. 在“操作”屏幕上，选择“允许连接”，然后单击“下一步”。
    ![新建入站规则操作][NewRuleAction]
 9. 在“配置文件”屏幕上，确保选中“域”、“专用”和“公共”，然后单击“下一步”。
@@ -135,13 +134,19 @@ Tomcat 运行后，可通过在虚拟机浏览器中输入 URL <http://localhost
 ## <a name="next-steps"></a>后续步骤
 可了解可能要在 Java 应用程序中包含的其他服务（例如 Azure 存储、服务总线和 SQL 数据库）。 查看 [Java 开发人员中心](/develop/java/)上提供的信息。
 
-[virtual_machine_tomcat]: ./media/java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
+[virtual_machine_tomcat]:media/java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
 
-[service_automatic_startup]: ./media/java-run-tomcat-app-server/WA_TomcatServiceAutomaticStart.png
+[service_automatic_startup]:media/java-run-tomcat-app-server/WA_TomcatServiceAutomaticStart.png
 
-[NewIBRule]: ./media/java-run-tomcat-app-server/NewInboundRule.png
-[NewRulePort]: ./media/java-run-tomcat-app-server/NewRulePort.png
-[NewRuleProtocol]: ./media/java-run-tomcat-app-server/NewRuleProtocol.png
-[NewRuleAction]: ./media/java-run-tomcat-app-server/NewRuleAction.png
-[NewRuleName]: ./media/java-run-tomcat-app-server/NewRuleName.png
-[NewRuleProfile]: ./media/java-run-tomcat-app-server/NewRuleProfile.png
+[NewIBRule]:media/java-run-tomcat-app-server/NewInboundRule.png
+[NewRulePort]:media/java-run-tomcat-app-server/NewRulePort.png
+[NewRuleProtocol]:media/java-run-tomcat-app-server/NewRuleProtocol.png
+[NewRuleAction]:media/java-run-tomcat-app-server/NewRuleAction.png
+[NewRuleName]:media/java-run-tomcat-app-server/NewRuleName.png
+[NewRuleProfile]:media/java-run-tomcat-app-server/NewRuleProfile.png
+
+<!-- Deleted from the "To create an ednpoint for your virtual mache" 3/17/2017,
+     to use the new portal.
+6. In the **Add endpoint** dialog box, ensure **Add standalone endpoint** is selected, and then click **Next**.
+7. In the **New endpoint details** dialog box:
+-->

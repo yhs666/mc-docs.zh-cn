@@ -13,19 +13,19 @@ ms.workload: identity
 origin.date: 04/28/2017
 ms.author: v-junlch
 ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: a969653bf368ccd8fd6de57100fbf8eab990c26a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 741926c1f9c0792e42f4b825a05a8d98add39520
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 资源提供程序操作
+# Azure Resource Manager 资源提供程序操作
+<a id="azure-resource-manager-resource-provider-operations" class="xliff"></a>
 
 本文档列出可对每个 Azure Resource Manager 资源提供程序使用的操作。 可在自定义角色中使用这些操作，针对 Azure 中的资源提供基于角色的访问控制 (RBAC) 的精细权限。 请注意，此列表并不详尽，随着每个提供程序的更新，可能会添加或删除操作。 操作字符串遵循格式 `Microsoft.<ProviderName>/<ChildResourceType>/<action>`。 如需最新的详尽列表，请使用 `Get-AzureRmProviderOperation`（在 PowerShell 中）或 `azure provider operations show`（在 Azure CLI 中）列出 Azure 资源提供程序的操作。
 
-## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
+## Microsoft.ADHybridHealthService
+<a id="microsoftadhybridhealthservice" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -43,7 +43,8 @@ ms.lasthandoff: 05/26/2017
 |/services/alerts/read|读取服务的警报。|
 |/services/alerts/read|读取服务的警报。|
 
-## <a name="microsoftadvisor"></a>Microsoft.Advisor
+## Microsoft.Advisor
+<a id="microsoftadvisor" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -55,7 +56,8 @@ ms.lasthandoff: 05/26/2017
 |/suppressions/read|获取禁止显示|
 |/suppressions/delete|删除禁止显示|
 
-## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
+## Microsoft.AnalysisServices
+<a id="microsoftanalysisservices" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -66,7 +68,8 @@ ms.lasthandoff: 05/26/2017
 |/servers/resume/action|恢复 Analysis Server。|
 |/servers/checkNameAvailability<br>/action|检查给定的 Analysis Server 名称是否有效且未被使用。|
 
-## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
+## Microsoft.ApiManagement
+<a id="microsoftapimanagement" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -171,7 +174,8 @@ ms.lasthandoff: 05/26/2017
 |/service/reports/byApi/read|获取按 API 聚合的报告|
 |/service/reports/byProduct/read|获取按产品聚合的报告。|
 
-## <a name="microsoftappservice"></a>Microsoft.AppService
+## Microsoft.AppService
+<a id="microsoftappservice" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -196,7 +200,8 @@ ms.lasthandoff: 05/26/2017
 |/apiapps/listKeys/Action|返回 API 应用机密。|
 |/apiapps/apidefinitions/Read|返回 API 应用的 API 定义。|
 
-## <a name="microsoftauthorization"></a>Microsoft.Authorization
+## Microsoft.Authorization
+<a id="microsoftauthorization" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -222,7 +227,8 @@ ms.lasthandoff: 05/26/2017
 |/roleAssignments/write|创建指定范围的角色分配。|
 |/roleAssignments/delete|删除指定范围的角色分配。|
 
-## <a name="microsoftautomation"></a>Microsoft.Automation
+## Microsoft.Automation
+<a id="microsoftautomation" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -288,11 +294,13 @@ ms.lasthandoff: 05/26/2017
 |/automationAccounts/webhooks/delete|删除 Azure 自动化 Webhook |
 |/automationAccounts/webhooks/generateUri/action|生成 Azure 自动化 Webhook 的 URI|
 
-## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
+## Microsoft.AzureActiveDirectory
+<a id="microsoftazureactivedirectory" class="xliff"></a>
 
 此提供程序不是完整的 ARM 提供程序，不提供任何 ARM 操作。
 
-## <a name="microsoftbatch"></a>Microsoft.Batch
+## Microsoft.Batch
+<a id="microsoftbatch" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -312,13 +320,15 @@ ms.lasthandoff: 05/26/2017
 |/batchAccounts/applications/versions/delete|删除应用程序包|
 |/locations/quotas/read|获取指定 Azure 区域中指定订阅的 Batch 配额|
 
-## <a name="microsoftbilling"></a>Microsoft.Billing
+## Microsoft.Billing
+<a id="microsoftbilling" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
 |/invoices/read|列出提供的发票|
 
-## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
+## Microsoft.BingMaps
+<a id="microsoftbingmaps" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -330,7 +340,8 @@ ms.lasthandoff: 05/26/2017
 |/mapApis/listSingleSignOnToken/action|读取资源的单一登录授权令牌|
 |/Operations/read|操作说明。|
 
-## <a name="microsoftcache"></a>Microsoft.Cache
+## Microsoft.Cache
+<a id="microsoftcache" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -359,7 +370,8 @@ ms.lasthandoff: 05/26/2017
 |/redis/patchSchedules/write|修改 Redis 缓存的修补计划|
 |/redis/patchSchedules/delete|删除 Redis 缓存的修补计划|
 
-## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
+## Microsoft.CertificateRegistration
+<a id="microsoftcertificateregistration" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -381,7 +393,8 @@ ms.lasthandoff: 05/26/2017
 |/certificateOrders/certificates/Delete|删除现有证书|
 |/certificateOrders/certificates/Read|获取证书列表|
 
-## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
+## Microsoft.ClassicCompute
+<a id="microsoftclassiccompute" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -463,7 +476,8 @@ ms.lasthandoff: 05/26/2017
 |/virtualMachines/associatedNetworkSecurityGroups/delete|删除与虚拟机关联的网络安全组。|
 |/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/read|读取与网络安全组关联的虚拟机的操作状态。|
 
-## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
+## Microsoft.ClassicNetwork
+<a id="microsoftclassicnetwork" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -520,7 +534,8 @@ ms.lasthandoff: 05/26/2017
 |/networkSecurityGroups/securityRules/operationStatuses/read|读取网络安全组安全规则的操作状态。|
 |/quotas/read|获取订阅的配额。|
 
-## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
+## Microsoft.ClassicStorage
+<a id="microsoftclassicstorage" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -552,7 +567,8 @@ ms.lasthandoff: 05/26/2017
 |/osImages/read|返回操作系统映像。|
 |/quotas/read|获取订阅的配额。|
 
-## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
+## Microsoft.CognitiveServices
+<a id="microsoftcognitiveservices" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -565,14 +581,16 @@ ms.lasthandoff: 05/26/2017
 |/accounts/usages/read|获取现有资源的配额用量。|
 |/Operations/read|操作说明。|
 
-## <a name="microsoftcommerce"></a>Microsoft.Commerce
+## Microsoft.Commerce
+<a id="microsoftcommerce" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
 |/RateCard/read|返回给定订阅的产品数据、资源/计量元数据和费率。|
 |/UsageAggregates/read|检索订阅的 Azure 消耗量。 结果包含特定时间范围内的聚合用量数据、订阅和资源相关信息。|
 
-## <a name="microsoftcompute"></a>Microsoft.Compute
+## Microsoft.Compute
+<a id="microsoftcompute" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -638,7 +656,8 @@ ms.lasthandoff: 05/26/2017
 |/locations/usages/read|获取某个位置中订阅的计算资源的服务限制和当前用量|
 |/locations/operations/read|获取异步操作的状态|
 
-## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
+## Microsoft.ContainerRegistry
+<a id="microsoftcontainerregistry" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -650,7 +669,8 @@ ms.lasthandoff: 05/26/2017
 |/registries/listCredentials/action|列出指定容器注册表的登录凭据。|
 |/registries/regenerateCredential/action|再生成指定容器注册表的登录凭据。|
 
-## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
+## Microsoft.ContainerService
+<a id="microsoftcontainerservice" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -660,7 +680,8 @@ ms.lasthandoff: 05/26/2017
 |/containerServices/resourceGroups/ContainerServiceName/write|放置或更新指定的容器服务|
 |/containerServices/resourceGroups/ContainerServiceName/delete|删除指定的容器服务|
 
-## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
+## Microsoft.ContentModerator
+<a id="microsoftcontentmoderator" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -674,7 +695,8 @@ ms.lasthandoff: 05/26/2017
 |/applications/listSingleSignOnToken/action|读取单一登录令牌|
 |/operations/read|读取操作|
 
-## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
+## Microsoft.CustomerInsights
+<a id="microsoftcustomerinsights" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -710,7 +732,8 @@ ms.lasthandoff: 05/26/2017
 |/hubs/connectors/mappings/write|创建或更新任何 Azure Customer Insights 连接器映射|
 |/hubs/connectors/mappings/delete|删除任何 Azure Customer Insights 连接器映射|
 
-## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
+## Microsoft.DataCatalog
+<a id="microsoftdatacatalog" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -719,7 +742,8 @@ ms.lasthandoff: 05/26/2017
 |/catalogs/write|创建目录，或更新目录的标记和属性。|
 |/catalogs/delete|删除目录。|
 
-## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
+## Microsoft.DataFactory
+<a id="microsoftdatafactory" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -739,7 +763,8 @@ ms.lasthandoff: 05/26/2017
 |/datafactories/tables/delete|删除表。|
 |/datafactories/tables/write|创建或更新表|
 
-## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
+## Microsoft.DataLakeAnalytics
+<a id="microsoftdatalakeanalytics" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -758,7 +783,8 @@ ms.lasthandoff: 05/26/2017
 |/accounts/dataLakeStoreAccounts/write|将 DataLakeStore 帐户链接到 DataLakeAnalytics 帐户。|
 |/accounts/dataLakeStoreAccounts/delete|从 DataLakeAnalytics 帐户取消链接 DataLakeStore 帐户。|
 
-## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
+## Microsoft.DataLakeStore
+<a id="microsoftdatalakestore" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -772,7 +798,8 @@ ms.lasthandoff: 05/26/2017
 |/accounts/trustedIdProviders/write|创建或更新受信任的标识提供者。|
 |/accounts/trustedIdProviders/delete|删除受信任的标识提供者。|
 
-## <a name="microsoftdevices"></a>Microsoft.Devices
+## Microsoft.Devices
+<a id="microsoftdevices" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -801,7 +828,8 @@ ms.lasthandoff: 05/26/2017
 |/iotHubs/jobs/Read|获取在给定 IotHub 上提交的作业详细信息|
 |/iotHubs/routingEndpointsHealth/Read|获取 IotHub 的所有路由终结点的运行状况|
 
-## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
+## Microsoft.DevTestLab
+<a id="microsoftdevtestlab" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -883,7 +911,8 @@ ms.lasthandoff: 05/26/2017
 |/schedules/Retarget/action|更新计划的目标资源 ID。|
 |/locations/operations/read|读取操作。|
 
-## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
+## Microsoft.DocumentDB
+<a id="microsoftdocumentdb" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -907,7 +936,8 @@ ms.lasthandoff: 05/26/2017
 |/databaseAccounts/databases/usages/read|读取数据库使用情况。|
 |/databaseAccounts/readonlykeys/read|读取数据库帐户只读密钥。|
 
-## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
+## Microsoft.DomainRegistration
+<a id="microsoftdomainregistration" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -921,7 +951,8 @@ ms.lasthandoff: 05/26/2017
 |/domains/Delete|删除现有域。|
 |/domains/operationresults/Read|获取域操作|
 
-## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
+## Microsoft.DynamicsLcs
+<a id="microsoftdynamicslcs" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -933,7 +964,8 @@ ms.lasthandoff: 05/26/2017
 |/lcsprojects/connectors/read|读取属于 Microsoft Dynamics Lifecycle Services 项目的连接器|
 |/lcsprojects/connectors/write|创建和更新属于 Microsoft Dynamics Lifecycle Services 项目的连接器|
 
-## <a name="microsofteventhub"></a>Microsoft.EventHub
+## Microsoft.EventHub
+<a id="microsofteventhub" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -963,7 +995,8 @@ ms.lasthandoff: 05/26/2017
 |/namespaces/diagnosticSettings/write|获取命名空间诊断设置资源说明列表|
 |/namespaces/logDefinitions/read|获取命名空间日志资源说明列表|
 
-## <a name="microsoftfeatures"></a>Microsoft.Features
+## Microsoft.Features
+<a id="microsoftfeatures" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -971,7 +1004,8 @@ ms.lasthandoff: 05/26/2017
 |/providers/features/register/action|在给定的资源提供程序中注册某个订阅的功能。|
 |/features/read|获取订阅的功能。|
 
-## <a name="microsofthdinsight"></a>Microsoft.HDInsight
+## Microsoft.HDInsight
+<a id="microsofthdinsight" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -985,7 +1019,8 @@ ms.lasthandoff: 05/26/2017
 |/locations/capabilities/read|获取订阅功能|
 |/locations/checkNameAvailability/read|检查名称可用性|
 
-## <a name="microsoftimportexport"></a>Microsoft.ImportExport
+## Microsoft.ImportExport
+<a id="microsoftimportexport" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -996,7 +1031,8 @@ ms.lasthandoff: 05/26/2017
 |/jobs/delete|删除现有的作业。|
 |/locations/read|获取指定位置的属性，或返回位置列表。|
 
-## <a name="microsoftinsights"></a>Microsoft.Insights
+## Microsoft.Insights
+<a id="microsoftinsights" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1030,7 +1066,8 @@ ms.lasthandoff: 05/26/2017
 |/ExtendedDiagnosticSettings/Delete|删除扩展的诊断设置配置|
 |/ExtendedDiagnosticSettings/Read|读取扩展的诊断设置配置|
 
-## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
+## Microsoft.KeyVault
+<a id="microsoftkeyvault" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1048,7 +1085,8 @@ ms.lasthandoff: 05/26/2017
 |/locations/deletedVaults/read|查看软删除的密钥保管库的属性|
 |/locations/deletedVaults/purge/action|清除软删除的密钥保管库|
 
-## <a name="microsoftlogic"></a>Microsoft.Logic
+## Microsoft.Logic
+<a id="microsoftlogic" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1081,7 +1119,8 @@ ms.lasthandoff: 05/26/2017
 |/workflows/accessKeys/regenerate/action|再生成访问密钥机密。|
 |/locations/workflows/validate/action|验证工作流。|
 
-## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
+## Microsoft.MachineLearning
+<a id="microsoftmachinelearning" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1102,7 +1141,8 @@ ms.lasthandoff: 05/26/2017
 |/webServices/write|创建或更新任何机器学习 Web 服务|
 |/webServices/delete|删除任何机器学习 Web 服务|
 
-## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
+## Microsoft.MarketplaceOrdering
+<a id="microsoftmarketplaceordering" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1110,7 +1150,8 @@ ms.lasthandoff: 05/26/2017
 |/agreements/offers/plans/sign/action|为给定应用商店项的协议签名|
 |/agreements/offers/plans/cancel/action|取消给定应用商店项的协议|
 
-## <a name="microsoftmedia"></a>Microsoft.Media
+## Microsoft.Media
+<a id="microsoftmedia" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1121,7 +1162,8 @@ ms.lasthandoff: 05/26/2017
 |/mediaservices/listKeys/action||
 |/mediaservices/syncStorageKeys/action||
 
-## <a name="microsoftnetwork"></a>Microsoft.Network
+## Microsoft.Network
+<a id="microsoftnetwork" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1284,7 +1326,8 @@ ms.lasthandoff: 05/26/2017
 |/locations/usages/read|获取资源用量指标|
 |/locations/operations/read|获取表示异步操作状态的操作资源|
 
-## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
+## Microsoft.NotificationHubs
+<a id="microsoftnotificationhubs" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1313,7 +1356,8 @@ ms.lasthandoff: 05/26/2017
 |/Namespaces/NotificationHubs/<br>authorizationRules/listkeys/action|获取通知中心的连接字符串|
 |/Namespaces/NotificationHubs/<br>authorizationRules/regenerateKeys/action|通知中心授权规则再生成主密钥/辅助密钥，指定需要再生成的密钥|
 
-## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
+## Microsoft.OperationalInsights
+<a id="microsoftoperationalinsights" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1345,7 +1389,8 @@ ms.lasthandoff: 05/26/2017
 |/workspaces/configurationScopes/write|设置配置范围|
 |/workspaces/configurationScopes/delete|删除配置范围|
 
-## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
+## Microsoft.OperationsManagement
+<a id="microsoftoperationsmanagement" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1354,7 +1399,8 @@ ms.lasthandoff: 05/26/2017
 |/solutions/read|获取现有的 OMS 解决方案|
 |/solutions/delete|删除现有的 OMS 解决方案|
 
-## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
+## Microsoft.RecoveryServices
+<a id="microsoftrecoveryservices" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1481,7 +1527,8 @@ ms.lasthandoff: 05/26/2017
 |/locations/allocateStamp/action|AllocateStamp 是服务使用的内部操作|
 |/locations/allocatedStamp/read|GetAllocatedStamp 是服务使用的内部操作|
 
-## <a name="microsoftrelay"></a>Microsoft.Relay
+## Microsoft.Relay
+<a id="microsoftrelay" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1506,14 +1553,16 @@ ms.lasthandoff: 05/26/2017
 |/namespaces/WcfRelays/authorizationRules/delete|用于删除 WcfRelay 授权规则的操作|
 |/namespaces/WcfRelays/authorizationRules/listkeys/action|获取 WcfRelay 的连接字符串|
 
-## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
+## Microsoft.ResourceHealth
+<a id="microsoftresourcehealth" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
 |/AvailabilityStatuses/read|获取指定范围内所有资源的可用性状态|
 |/AvailabilityStatuses/current/read|获取指定资源的可用性状态|
 
-## <a name="microsoftresources"></a>Microsoft.Resources
+## Microsoft.Resources
+<a id="microsoftresources" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1552,7 +1601,8 @@ ms.lasthandoff: 05/26/2017
 |/deployments/validate/action|验证部署。|
 |/deployments/operations/read|获取或列出部署操作。|
 
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
+## Microsoft.Scheduler
+<a id="microsoftscheduler" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1568,7 +1618,8 @@ ms.lasthandoff: 05/26/2017
 |/jobcollections/jobs/generateLogicAppDefinition/action|基于计划程序作业生成逻辑应用定义。|
 |/jobcollections/jobs/jobhistories/read|获取作业历史记录。|
 
-## <a name="microsoftsearch"></a>Microsoft.Search
+## Microsoft.Search
+<a id="microsoftsearch" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1585,7 +1636,8 @@ ms.lasthandoff: 05/26/2017
 |/searchServices/queryKey/read|读取查询密钥。|
 |/searchServices/queryKey/delete|删除查询密钥。|
 
-## <a name="microsoftsecurity"></a>Microsoft.Security
+## Microsoft.Security
+<a id="microsoftsecurity" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1608,7 +1660,8 @@ ms.lasthandoff: 05/26/2017
 |/applicationWhitelistings/read|获取应用程序允许列表|
 |/applicationWhitelistings/write|创建新的或更新现有的应用程序允许列表|
 
-## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
+## Microsoft.ServerManagement
+<a id="microsoftservermanagement" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1625,7 +1678,8 @@ ms.lasthandoff: 05/26/2017
 |/sessions/read|获取会话|
 |/sessions/delete|删除会话|
 
-## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
+## Microsoft.ServiceBus
+<a id="microsoftservicebus" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1666,7 +1720,8 @@ ms.lasthandoff: 05/26/2017
 |/namespaces/topics/subscriptions/rules/read|获取规则资源说明列表|
 |/namespaces/topics/subscriptions/rules/Delete|用于删除规则资源的操作|
 
-## <a name="microsoftsql"></a>Microsoft.Sql
+## Microsoft.Sql
+<a id="microsoftsql" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1781,7 +1836,8 @@ ms.lasthandoff: 05/26/2017
 |/servers/databases/importExportOperationResults/read|从存储帐户中的 DacPac 返回有关数据库导入或导出操作的详细信息|
 |/servers/importExportOperationResults/read|从给定服务器上的存储帐户返回数据库导入操作的列表和详细信息|
 
-## <a name="microsoftstorage"></a>Microsoft.Storage
+## Microsoft.Storage
+<a id="microsoftstorage" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1800,7 +1856,8 @@ ms.lasthandoff: 05/26/2017
 |/operations/read|轮询异步操作的状态。|
 |/locations/deleteVirtualNetworkOrSubnets/action|向 Microsoft.Storage 通知正在删除虚拟网络或子网|
 
-## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
+## Microsoft.StorSimple
+<a id="microsoftstorsimple" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1932,7 +1989,8 @@ ms.lasthandoff: 05/26/2017
 |/managers/metricsDefinitions/read|列出或获取指标定义|
 |/managers/encryptionSettings/read|列出或获取加密设置|
 
-## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
+## Microsoft.StreamAnalytics
+<a id="microsoftstreamanalytics" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1955,7 +2013,8 @@ ms.lasthandoff: 05/26/2017
 |/streamingjobs/outputs/Write|写入流分析作业输出|
 |/streamingjobs/outputs/Delete|删除流分析作业输出|
 
-## <a name="microsoftsupport"></a>Microsoft.Support
+## Microsoft.Support
+<a id="microsoftsupport" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -1963,7 +2022,8 @@ ms.lasthandoff: 05/26/2017
 |/supportTickets/read|获取支持票证详细信息（包括状态、严重性、联系详细信息和通信），或获取各个订阅中的支持票证列表。|
 |/supportTickets/write|创建或更新支持票证。 可以针对技术、计费、配额或订阅管理相关问题创建支持票证。 可以更新现有支持票证的严重性、联系详细信息和通信。|
 
-## <a name="microsoftweb"></a>Microsoft.Web
+## Microsoft.Web
+<a id="microsoftweb" class="xliff"></a>
 
 | 操作 | 说明 |
 |---|---|
@@ -2219,12 +2279,12 @@ ms.lasthandoff: 05/26/2017
 |/locations/connectiongatewayinstallations/read|获取位置连接网关安装。|
 |/listSitesAssignedToHostName/Read|获取分配给主机名的站点名称。|
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 - 了解如何[创建自定义角色](role-based-access-control-custom-roles.md)。
 
 - 查看[内置的 RBAC 角色](role-based-access-built-in-roles.md)。
 
 - 了解如何[按资源](role-based-access-control-configure.md)管理访问权限分配 
-
 

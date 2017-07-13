@@ -26,6 +26,9 @@ ms.lasthandoff: 06/28/2017
 
 Azure SQL 数据库可以学习和适应你的应用程序并提供自定义的建议，使你能够将 SQL 数据库的性能最大化。 将通过分析 SQL 数据库使用情况历史记录持续对性能进行评估。 提供的建议基于数据库特有工作负荷模式并改进其性能。
 
+> [!NOTE]
+> 推荐使用建议的方式是在数据库上启用“自动优化”。 有关详细信息，请参阅[自动优化](sql-database-automatic-tuning.md)。
+>
 
 <a id="create-index-recommendations" class="xliff"></a>
 

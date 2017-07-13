@@ -16,15 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: a4f3717c917c2f0037e354c1cc90d59ac2b46250
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
-
+ms.openlocfilehash: f8bc14497011883cff1859964107956874984cc6
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>将 Excel 连接到 Azure SQL 数据库并创建报表
+# 将 Excel 连接到 Azure SQL 数据库并创建报表
+<a id="connect-excel-to-an-azure-sql-database-and-create-a-report" class="xliff"></a>
 
 将 Excel 连接到云中的 SQL 数据库，导入数据并根据数据库中的值来创建表和图表。 在本教程中，你将设置 Excel 与数据库表之间的连接，保存用于存储 Excel 的数据和连接信息的文件，然后根据数据库值创建分析数据透视图。
 
@@ -32,7 +31,8 @@ ms.lasthandoff: 04/07/2017
 
 你还需要 Excel 的副本。 本文使用 [Microsoft Excel 2016](https://products.office.com/en-US/)。
 
-## <a name="connect-excel-to-a-sql-database-and-create-an-odc-file"></a>将 Excel 连接到 SQL 数据库并创建 odc 文件
+## 将 Excel 连接到 SQL 数据库并创建 odc 文件
+<a id="connect-excel-to-a-sql-database-and-create-an-odc-file" class="xliff"></a>
 1. 若要将 Excel 连接到 SQL 数据库，请打开 Excel，然后创建新的工作簿或打开现有的 Excel 工作簿。
 2. 在页面顶部的菜单栏中单击“数据”，单击“从其他源”，然后单击“从 SQL Server”。
    
@@ -45,7 +45,7 @@ ms.lasthandoff: 04/07/2017
    ![键入服务器名称和登录凭据](./media/sql-database-connect-excel/connect-to-server.png)
    
    > [!TIP]
-   > 根据你的网络环境，你可能无法连接；如果 SQL 数据库服务器不允许来自客户端 IP 地址的流量，你可能会断开连接。 转到 [Azure 门户](https://portal.azure.cn/)，依次单击“SQL Server”、你的服务器、“设置”下面的“防火墙”，然后添加客户端 IP 地址。 有关详细信息，请参阅 [如何配置防火墙设置](sql-database-configure-firewall-settings.md) 。
+   > 根据你的网络环境，你可能无法连接；如果 SQL 数据库服务器不允许来自客户端 IP 地址的流量，你可能会断开连接。 转到 [Azure 门户](https://portal.azure.cn/)，依次单击“SQL 服务器”、你的服务器、“设置”下面的“防火墙”，然后添加客户端 IP 地址。 有关详细信息，请参阅 [如何配置防火墙设置](sql-database-configure-firewall-settings.md) 。
    > 
    > 
 5. 在“选择数据库和表”对话框中，从列表中选择要使用的数据库，然后单击要使用的表或视图（我们选择了 **vGetAllCategories**），然后单击“下一步”。
@@ -59,7 +59,8 @@ ms.lasthandoff: 04/07/2017
    
     此时将显示“导入数据”对话框。
 
-## <a name="import-the-data-into-excel-and-create-a-pivot-chart"></a>将数据导入 Excel 并创建数据透视图
+## 将数据导入 Excel 并创建数据透视图
+<a id="import-the-data-into-excel-and-create-a-pivot-chart" class="xliff"></a>
 创建连接并创建包含数据与连接信息的文件后，便可以导入数据。
 
 1. 在“导入数据”对话框中，单击要在工作表中呈现数据的选项，然后单击“确定”。 **将此数据添加到数据模型**。 你也可以选择创建**新工作表**或**将此数据添加到数据模型**。 有关数据模型的详细信息，请参阅[在 Excel 中创建数据模型](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B)。 单击**“属性”**浏览在上一个步骤中创建的 odc 文件的相关信息，并选择用于刷新数据的选项。
@@ -77,9 +78,9 @@ ms.lasthandoff: 04/07/2017
 > 
 > 
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * 了解如何 [使用 SQL Server Management Studio 连接到 SQL 数据库](sql-database-connect-query-ssms.md) ，以便进行高级查询和分析。
 * 了解 [弹性池](sql-database-elastic-pool.md)的优点。
 * 了解如何 [创建与后端 SQL 数据库连接的 Web 应用程序](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)。
-
 

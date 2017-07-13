@@ -3,8 +3,8 @@ title: "使用 .NET Framework 从 Azure 事件中心接收事件 | Azure"
 description: "按照本教程中的步骤使用 .NET Framework 从 Azure 事件中心接收事件。"
 services: event-hubs
 documentationcenter: 
-author: jtaubensee
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
 ms.service: event-hubs
@@ -12,74 +12,73 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 03/08/2017
-ms.date: 04/17/2017
+origin.date: 06/12/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 22be9cf77635657b6f8f412629ef3a3ff9b4035e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: b6170b88bbb7e5f163b5f1fedd027bf164247e36
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
+# 使用 .NET Framework 从 Azure 事件中心接收事件
+<a id="receive-events-from-azure-event-hubs-using-the-net-framework" class="xliff"></a>
 
-# <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>使用 .NET Framework 从 Azure 事件中心接收事件
+## 介绍
+<a id="introduction" class="xliff"></a>
 
-## <a name="introduction"></a>介绍
 事件中心是一个服务，可用于处理来自连接设备和应用程序的大量事件数据（遥测）。 将数据采集到事件中心后，可以使用任何实时分析提供程序或存储群集来转换和存储数据。 这种大规模事件收集和处理功能是现代应用程序体系结构（包括物联网 (IoT)）的重要组件。
 
-本教程显示如何编写 .NET Framework 控制台应用程序，以使用**[事件处理程序主机][EventProcessorHost]**从事件中心接收消息。 若要使用 .NET Framework 发送事件，请参阅[使用 .NET Framework 将事件发送到 Azure 事件中心](./event-hubs-dotnet-framework-getstarted-send.md)一文，或者单击左侧目录中的相应发送语言。
+本教程显示如何编写 .NET Framework 控制台应用程序，以使用**[事件处理程序主机][EventProcessorHost]**从事件中心接收消息。 若要使用 .NET Framework 发送事件，请参阅[使用 .NET Framework 将事件发送到 Azure 事件中心](event-hubs-dotnet-framework-getstarted-send.md)一文，或者单击左侧目录中的相应发送语言。
 
-[事件处理程序主机][EventProcessorHost]是一个 .NET 类，它通过从事件中心管理持久检查点和并行接收来简化从那些事件中心接收事件的过程。 使用 [事件处理程序主机][事件处理程序主机]，可跨多个接收方拆分事件，即使在不同节点中托管也是如此。 此示例演示如何为单一接收方使用[事件处理程序主机][EventProcessorHost]。 [扩大事件处理][Scale out Event Processing with Event Hubs]示例显示如何将[事件处理程序主机][EventProcessorHost]用于多个接收方。
+[事件处理程序主机][EventProcessorHost]是一个 .NET 类，它通过从事件中心管理持久检查点和并行接收来简化从那些事件中心接收事件的过程。 使用[事件处理程序主机][Event Processor Host]，可跨多个接收方拆分事件，即使在不同节点中托管也是如此。 此示例演示如何为单一接收方使用[事件处理程序主机][EventProcessorHost]。 [扩大事件处理][Scale out Event Processing with Event Hubs]示例显示如何将[事件处理程序主机][EventProcessorHost]用于多个接收方。
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 
-若要完成本教程，你需要以下各项：
+若要完成本教程，需要满足以下先决条件：
 
 * [Microsoft Visual Studio 2015 或更高版本](http://visualstudio.com)。 本教程中的屏幕截图使用 Visual Studio 2017。
-* 有效的 Azure 帐户。 如果没有帐户，只需几分钟时间就可以创建一个免费帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
+* 有效的 Azure 帐户。 如果没有帐户，只需几分钟时间就可以创建一个免费帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>创建事件中心命名空间和事件中心
+## 创建事件中心命名空间和事件中心
+<a id="create-an-event-hubs-namespace-and-an-event-hub" class="xliff"></a>
 
-第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 若要创建命名空间和事件中心，请按照[本文](./event-hubs-create.md)中的步骤进行操作，然后继续执行以下步骤。
+第一步是使用 [Azure 门户](https://portal.azure.cn)创建事件中心类型的命名空间，并获取应用程序与事件中心进行通信所需的管理凭据。 若要创建命名空间和事件中心，请按照[本文](event-hubs-create.md)中的步骤进行操作，然后继续执行本教程的以下步骤。
 
-## <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
+## 创建 Azure 存储帐户
+<a id="create-an-azure-storage-account" class="xliff"></a>
 
 若要使用[事件处理程序主机][EventProcessorHost]，必须有一个 [Azure 存储帐户][Azure Storage account]：
 
-1. 登录到 [Azure 门户][Azure 门户]，然后单击屏幕左上角的“新建”。
-
+1. 登录到 [Azure 门户][Azure portal]，然后单击屏幕左上角的“新建”。
 2. 单击“存储”，然后单击“存储帐户”。
 
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
-
 3. 在“创建存储帐户”  边栏选项卡中，键入存储帐户的名称。 选择 Azure 订阅、资源组和要在其中创建该资源的位置。 然后单击“创建” 。
 
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
-
 4. 在存储帐户列表中，单击新建的存储帐户。
-
 5. 在“存储帐户”边栏选项卡中，单击“访问密钥”。 复制 **key1** 的值，在本教程的后面部分使用。
 
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-6. 在 Visual Studio 中，使用 **控制台应用程序** 项目模板创建一个新的 Visual C# 桌面应用项目。 将该项目命名为 **Receiver**。
+## 创建接收方控制台应用程序
+<a id="create-a-receiver-console-application" class="xliff"></a>
+
+1. 在 Visual Studio 中，使用 **控制台应用程序** 项目模板创建一个新的 Visual C# 桌面应用项目。 将该项目命名为 **Receiver**。
 
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp1.png)
-
-7. 在解决方案资源管理器中，右键单击“Receiver”项目，然后单击“为解决方案管理 NuGet 包”。
-
-8. 单击“浏览”选项卡，然后搜索 `Azure Service Bus Event Hub - EventProcessorHost`。 单击“安装” 并接受使用条款。
+2. 在解决方案资源管理器中，右键单击“Receiver”项目，然后单击“为解决方案管理 NuGet 包”。
+3. 单击“浏览”选项卡，然后搜索 `Azure Service Bus Event Hub - EventProcessorHost`。 单击“安装” 并接受使用条款。
 
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
 
     Visual Studio 下载、安装 [Azure 服务总线事件中心 - EventProcessorHost NuGet 包](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)及其所有依赖项并添加对它们的引用。
-
-9. 右键单击 **Receiver** 项目，单击“添加”，然后单击“类”。 将新类命名为 **SimpleEventProcessor**，然后单击“添加”以创建该类。
+4. 右键单击 **Receiver** 项目，单击“添加”，然后单击“类”。 将新类命名为 **SimpleEventProcessor**，然后单击“添加”以创建该类。
 
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
-
-10. 在 SimpleEventProcessor.cs 文件的顶部添加以下语句：
+5. 在 SimpleEventProcessor.cs 文件的顶部添加以下语句：
 
     ```csharp
     using Microsoft.ServiceBus.Messaging;
@@ -130,9 +129,8 @@ ms.lasthandoff: 04/07/2017
     }
     ```
 
-    此类将由 **EventProcessorHost** 调用，以处理从事件中心接收的事件。 请注意， `SimpleEventProcessor` 类使用秒表以定期对 **EventProcessorHost** 上下文调用检查点方法。 这将确保接收方重新启动时将会丢失的处理工作不会超过五分钟。
-
-11. 在 **Program** 类中，在文件顶部添加以下 `using` 语句：
+  此类由 EventProcessorHost 调用，用于处理从事件中心接收的事件。 `SimpleEventProcessor` 类使用秒表定期对 EventProcessorHost 上下文调用检查点方法。 此操作确保接收方重启时，其丢失的处理工作不会超过五分钟。
+6. 在 **Program** 类中，在文件顶部添加以下 `using` 语句：
 
     ```csharp
     using Microsoft.ServiceBus.Messaging;
@@ -162,28 +160,23 @@ ms.lasthandoff: 04/07/2017
     }
     ```
 
-12. 运行程序，并确保没有任何错误。
+7. 运行程序，并确保没有任何错误。
 
 祝贺你！ 现在你已使用事件处理程序主机从事件中心接收消息。
 
 > [!NOTE]
-> 本教程使用单个 [EventProcessorHost][EventProcessorHost] 实例。 若要增加吞吐量，建议运行多个 [EventProcessorHost][EventProcessorHost] 实例，如[扩大事件处理][扩大事件处理]示例中所示。 在这些情况下，为了对接收的事件进行负载均衡，各个实例会自动相互协调。 如果希望多个接收方都各自处理 *全部* 事件，则必须使用 **ConsumerGroup** 概念。 在从不同计算机中接收事件时，根据部署 [EventProcessorHost][EventProcessorHost] 实例的计算机（或角色）来指定该实例的名称可能会很有用。 有关这些主题的详细信息，请参阅[事件中心概述][Event Hubs Overview]和[事件中心编程指南][Event Hubs Programming Guide]主题。
+> 本教程使用单个 [EventProcessorHost][EventProcessorHost] 实例。 若要增加吞吐量，建议运行多个 [EventProcessorHost][EventProcessorHost] 实例，如[扩大事件处理][扩大事件处理]示例中所示。 在这些情况下，为了对接收的事件进行负载均衡，各个实例会自动相互协调。 如果希望多个接收方都各自处理 *全部* 事件，则必须使用 **ConsumerGroup** 概念。 在从不同计算机中接收事件时，根据部署 [EventProcessorHost][EventProcessorHost] 实例的计算机（或角色）来指定该实例的名称可能会很有用。 有关这些主题的详细信息，请参阅[事件中心概述][Event Hubs overview]和[事件中心编程指南][Event Hubs Programming Guide]主题。
 > 
 > 
 
-<!-- Links -->
-[Event Hubs Overview]: event-hubs-overview.md
-[Event Hubs Programming Guide]: ./event-hubs-programming-guide.md
-[Azure Storage account]: ../storage/storage-create-storage-account.md
-[EventProcessorHost]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
-[Azure portal]: https://portal.azure.cn
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
-## <a name="next-steps"></a>后续步骤
-现在已生成了一个可以创建事件中心以及发送和接收数据的有效应用程序，接下来请访问以下链接，继续学习：
+现在已生成了一个可以创建事件中心以及发送和接收数据的有效应用程序，接下来可访问以下链接，继续学习：
 
-* [事件处理程序主机](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+* [事件处理程序主机][Event Processor Host]
 * [事件中心概述][Event Hubs overview]
-* [事件中心常见问题](./event-hubs-faq.md)
+* [事件中心常见问题](event-hubs-faq.md)
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
@@ -193,5 +186,9 @@ ms.lasthandoff: 04/07/2017
 
 <!-- Links -->
 [EventProcessorHost]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: event-hubs-overview.md
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Event Hubs Programming Guide]: event-hubs-programming-guide.md
+[Azure Storage account]: ../storage/storage-create-storage-account.md
+[Event Processor Host]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[Azure portal]: https://portal.azure.cn

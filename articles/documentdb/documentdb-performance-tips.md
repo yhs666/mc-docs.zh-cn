@@ -16,24 +16,24 @@ ms.topic: article
 origin.date: 02/23/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 2c05be9524d94a28cb5a29dc12cee50bdc2fbe04
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 4839ed01ac5dfc32cff385c4441244c2bb2b40a2
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="performance-tips-for-azure-documentdb"></a>DocumentDB 性能提示
-DocumentDB 是一个快速、弹性的分布式数据库，可以在提供延迟与吞吐量保证的情况下无缝缩放。 使用 DocumentDB 时，无需对体系结构进行重大更改或编写复杂的代码就能缩放数据库。 扩展和缩减操作就像执行单个 API 调用或 [SDK 方法调用](documentdb-set-throughput.md#set-throughput-sdk)一样简单。 但是，由于 DocumentDB 是通过网络调用访问的，因此可以通过客户端优化来获得最高性能。
+# DocumentDB 性能提示
+<a id="performance-tips-for-documentdb" class="xliff"></a>
+DocumentDB 是一个快速、弹性的分布式数据库，可以在提供延迟与吞吐量保证的情况下无缝缩放。 使用 DocumentDB 时，无需对体系结构进行重大更改或编写复杂的代码就能缩放数据库。 扩展和缩减操作就像执行单个 API 调用或 [SDK 方法调用](documentdb-set-throughput.md#set-throughput-sdk)一样简单。 但是，由于 DocumentDB 是通过网络调用访问的，因此你可以通过客户端优化来获得最高性能。
 
 如果有“如何改善数据库性能？”的疑问， 请考虑以下选项：
 
-## <a name="networking"></a>网络
+## 网络
+<a id="networking" class="xliff"></a>
 
 1. **连接策略：使用直接连接模式** <a id="direct-connection"></a>
 
-    客户端连接到 DocumentDB 的方式对性能有重大影响（尤其对观察到的客户端延迟而言）。 有两个重要配置设置可用于配置客户端连接策略 - 连接*模式*和连接*协议*。  两种可用模式：
+    客户端连接到 DocumentDB 的方式对性能有重大影响（尤其对观察到的客户端延迟而言）。 有两个重要配置设置可用于配置客户端连接策略 - 连接*模式*和[连接*协议*](#connection-protocol)。  两种可用模式：
 
    1. 网关模式（默认）
    2. 直接模式
@@ -83,13 +83,14 @@ DocumentDB 是一个快速、弹性的分布式数据库，可以在提供延迟
 
 5. **增加线程/任务数目** <a id="increase-threads"></a>
 
-    由于对 DocumentDB 的调用是通过网络执行的，因此可能需要改变请求的并行度，以便最大程度地减少客户端应用程序等待请求的时间。 例如，如果使用 .NET 的[任务并行库](https://msdn.microsoft.com//library/dd460717.aspx)，请创建大约几百个读取或写入 DocumentDB 的任务。
+    由于对 DocumentDB 的调用是通过网络执行的，因此你可能需要改变请求的并行度，以便最大程度地减少客户端应用程序等待请求的时间。 例如，如果使用 .NET 的 [任务并行库](https://msdn.microsoft.com//library/dd460717.aspx)，请创建大约几百个读取或写入 DocumentDB 的任务。
 
-## <a name="sdk-usage"></a>SDK 用法
+## SDK 用法
+<a id="sdk-usage" class="xliff"></a>
 1. **安装最新的 SDK**
 
     DocumentDB SDK 正在不断改进，以求提供最佳性能。 请参阅 [DocumentDB SDK](documentdb-sdk-dotnet.md) 页来了解最新的 SDK 并查看改进项目。
-2. 在应用程序生存期内使用单一实例 DocumentDB 客户端
+2. **在应用程序生存期内使用单一实例 DocumentDB 客户端**
 
     请注意，每个 DocumentClient 实例都是线程安全的，在直接模式下运行时可执行高效的连接管理和地址缓存。 若要通过 DocumentClient 获得高效的连接管理和更好的性能，建议在应用程序生存期内对每个 AppDomain 使用单个 DocumentClient 实例。
 
@@ -147,7 +148,8 @@ DocumentDB 是一个快速、弹性的分布式数据库，可以在提供延迟
 
     - 对于部署在 Azure 上的 ASP.NET Web 应用程序，可以通过在 Azure 门户上的“应用程序设置”中选择“64 位平台”来完成。
 
-## <a name="indexing-policy"></a>索引策略
+## 索引策略
+<a id="indexing-policy" class="xliff"></a>
 1. **使用延迟索引加快高峰时的引入速率**
 
     DocumentDB 允许在集合级别指定索引编制策略，使用该策略可以选择是否要对集合中的文档自动编制索引。  此外，你还可以在同步（一致）和异步（延迟）索引更新之间进行选择。 默认情况下，每次在集合中插入、替换或删除文档时同步更新索引。 同步模式使查询可以与文档读取采用相同的[一致性级别](documentdb-consistency-levels.md)，而不会因同步索引出现任何延迟。
@@ -166,13 +168,14 @@ DocumentDB 是一个快速、弹性的分布式数据库，可以在提供延迟
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
     ```
 
-    有关索引的详细信息，请参阅 [DocumentDB 索引策略](documentdb-indexing-policies.md)。
+    有关详细信息，请参阅 [DocumentDB 索引策略](documentdb-indexing-policies.md)。
 
-## <a name="throughput"></a>吞吐量
+## 吞吐量
+<a id="throughput" class="xliff"></a>
 
 1. **测量和微调较低的每秒请求单位使用量** <a id="measure-rus"></a>
 
-    DocumentDB 提供一组丰富的数据库操作，包括 UDF 的关系和分层查询、存储过程和触发器 - 可对数据库集合中的文档执行所有这些操作。 与这些操作关联的成本取决于完成操作所需的 CPU、IO 和内存。 与考虑和管理硬件资源不同的是，你可以考虑将请求单位 (RU) 作为所需资源的单个措施，以执行各种数据库操作和服务应用程序请求。
+    DocumentDB 提供一组丰富的数据库操作，包括 UDF 的关系和分层查询、存储过程和触发器 – 可对数据库集合中的文档执行所有这些操作。 与这些操作关联的成本取决于完成操作所需的 CPU、IO 和内存。 与考虑和管理硬件资源不同的是，你可以考虑将请求单位 (RU) 作为所需资源的单个措施，以执行各种数据库操作和服务应用程序请求。
 
     系统根据你购买的容量单位数目，为每个数据库帐户预配[请求单位](documentdb-request-units.md)。 请求单位消耗以每秒速率评估。 如果应用程序的速率超过了为其帐户预配的请求单位速率，则会受到限制，直到该速率降到帐户的保留级别以下。 如果应用程序需要更高的吞吐量，你可以购买额外容量单位。
 
@@ -212,9 +215,9 @@ DocumentDB 是一个快速、弹性的分布式数据库，可以在提供延迟
 
     给定操作的请求费用（即请求处理成本）与文档大小直接相关。 大型文档的操作成本高于小型文档的操作成本。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 有关用于评估 DocumentDB 以使用少量客户端计算机实现高性能的示例应用程序，请参阅[使用 DocumentDB 进行性能和规模测试](documentdb-performance-testing.md)。
 
 此外，若要了解如何设计应用程序以实现缩放和高性能的详细信息，请参阅 [DocumentDB 中的分区和缩放](documentdb-partition-data.md)。
-
 

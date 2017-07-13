@@ -1,5 +1,5 @@
 ---
-title: "排查应用程序网关的网关无效 (502) 错误 | Azure"
+title: "排查 Azure 应用程序网关的网关无效 (502) 错误 | Azure"
 description: "了解如何排查应用程序网关的 502 错误"
 services: application-gateway
 documentationcenter: na
@@ -13,37 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/16/2016
-ms.date: 05/22/2017
+origin.date: 05/09/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 33048f140412dc05adb816650a3f96b4949d577f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 4bb1d33771269568ffafd889e1d6da3d234268c3
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
+# 排查应用程序网关中的网关无效错误
+<a id="troubleshooting-bad-gateway-errors-in-application-gateway" class="xliff"></a>
 
-# <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>排查应用程序网关中的网关无效错误
+了解如何排查使用应用程序网关时收到的网关无效 (502) 错误。
 
-## <a name="overview"></a>概述
+## 概述
+<a id="overview" class="xliff"></a>
 
-配置 Azure 应用程序网关之后，用户可能遇到的一个错误是“服务器错误: 502 - Web 服务器在作为网关或代理服务器时收到了无效响应”。 此错误可能是以下主要原因造成的：
+配置应用程序网关之后，用户可能遇到的一个错误是“服务器错误: 502 - Web 服务器在作为网关或代理服务器时收到了无效响应”。 此错误可能是以下主要原因造成的：
 
-* Azure 应用程序网关的后端池未配置或为空。
-* VM 规模集中没有正常运行的 VM 或实例。
-* VM 规模集的后端 VM 或实例未响应默认的运行状况探测。
-* 自定义运行状况探测的配置无效或不正确。
-* 请求超时，或用户请求出现连接问题。
+* Azure 应用程序网关的[后端池未配置或为空](#empty-backendaddresspool)。
+* [VM 规模集中没有正常运行的 VM 和实例](#unhealthy-instances-in-backendaddresspool)。
+* VM 规模集的后端 VM 或实例[未响应默认的运行状况探测](#problems-with-default-health-probe.md)。
+* [自定义运行状况探测的配置](#problems-with-custom-health-probe.md)无效或不正确。
+* [请求超时，或用户请求出现连接问题](#request-time-out)。
 
-## <a name="empty-backendaddresspool"></a>BackendAddressPool 为空
+## BackendAddressPool 为空
+<a id="empty-backendaddresspool" class="xliff"></a>
 
-### <a name="cause"></a>原因
+### 原因
+<a id="cause" class="xliff"></a>
 
 如果应用程序网关的后端地址池中未配置 VM 或 VM 规模集，则无法路由任何客户请求，并引发网关无效错误。
 
-### <a name="solution"></a>解决方案
+### 解决方案
+<a id="solution" class="xliff"></a>
 
 确保后端地址池不为空。 这可以通过 PowerShell、CLI 或门户来实现。
 
@@ -79,19 +83,24 @@ BackendAddressPoolsText：
 }]
 ```
 
-## <a name="unhealthy-instances-in-backendaddresspool"></a>BackendAddressPool 中存在运行不正常的实例
+## BackendAddressPool 中存在运行不正常的实例
+<a id="unhealthy-instances-in-backendaddresspool" class="xliff"></a>
 
-### <a name="cause"></a>原因
+### 原因
+<a id="cause" class="xliff"></a>
 
 如果 BackendAddressPool 的所有实例都运行不正常，则应用程序网关不会包含任何要将用户请求路由到其中的后端。 当后端实例运行正常但尚未部署所需的应用程序时，也可能会发生此情况。
 
-### <a name="solution"></a>解决方案
+### 解决方案
+<a id="solution" class="xliff"></a>
 
 确定实例正常运行且已正确配置了应用程序。 检查后端实例是否能够从同一个 VNet 中的另一个 VM 响应 ping。 如果实例中配置了公共终结点，请确保能够为发送到 Web 应用程序的浏览器请求提供服务。
 
-## <a name="problems-with-default-health-probe"></a>默认运行状况探测出现问题
+## 默认运行状况探测出现问题
+<a id="problems-with-default-health-probe" class="xliff"></a>
 
-### <a name="cause"></a>原因
+### 原因
+<a id="cause" class="xliff"></a>
 
 此外，出现 502 错误经常意味着默认的运行状况探测无法访问后端 VM。 预配某个应用程序网关实例时，该实例会使用 BackendHttpSetting 的属性自动将默认的运行状况探测配置到每个 BackendAddressPool。 无需用户输入即可设置此探测。 具体而言，在配置负载均衡规则时，将在 BackendHttpSetting 与 BackendAddressPool 之间建立关联。 默认探测是针对其中每个关联配置的，而应用程序网关将在 BackendHttpSetting 元素中指定的端口上，与 BackendAddressPool 中每个实例发起周期性运行状况检查连接。 下表列出了与默认运行状况探测关联的值。
 
@@ -102,7 +111,8 @@ BackendAddressPoolsText：
 | 超时 |30 |探测超时（秒） |
 | 不正常阈值 |3 |探测重试计数。 连续探测失败计数达到不正常阈值后，后端服务器将标记为故障。 |
 
-### <a name="solution"></a>解决方案
+### 解决方案
+<a id="solution" class="xliff"></a>
 
 * 确定默认站点已配置且正在侦听 127.0.0.1。
 * 如果 BackendHttpSetting 指定的端口不是 80，则应将默认站点配置为侦听指定的端口。
@@ -111,9 +121,11 @@ BackendAddressPoolsText：
 * 如果对 Azure 经典 VM 或云服务使用 FQDN 或公共 IP，请确保打开相应的[终结点](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fapplication-gateway%2ftoc.json)。
 * 如果 VM 是通过 Azure Resource Manager 配置的并且位于应用程序网关部署所在的 VNet 的外部，则必须将[网络安全组](../virtual-network/virtual-networks-nsg.md)配置为允许在所需端口上进行访问。
 
-## <a name="problems-with-custom-health-probe"></a>自定义运行状况探测出现问题
+## 自定义运行状况探测出现问题
+<a id="problems-with-custom-health-probe" class="xliff"></a>
 
-### <a name="cause"></a>原因
+### 原因
+<a id="cause" class="xliff"></a>
 
 自定义运行状况探测能够对默认探测行为提供更大的弹性。 使用自定义探测时，用户可以配置探测间隔、要测试的 URL 和路径，以及在将后端池实例标记为不正常之前可接受的失败响应次数。 添加了以下附加属性。
 
@@ -127,7 +139,8 @@ BackendAddressPoolsText：
 | 超时 |探测超时（秒）。 如果在此超时期间内未收到有效响应，则将探测标记为失败。 |
 | 不正常阈值 |探测重试计数。 连续探测失败计数达到不正常阈值后，后端服务器将标记为故障。 |
 
-### <a name="solution"></a>解决方案
+### 解决方案
+<a id="solution" class="xliff"></a>
 
 根据上表验证是否已正确配置自定义运行状况探测。 除了上述故障排除步骤以外，另请确保符合以下要求：
 
@@ -138,13 +151,16 @@ BackendAddressPoolsText：
 * 如果使用 HTTPS 探测器，请通过在后端服务器本身上配置回退证书，确保后端服务器不需要 SNI。 
 * 确保 Interval、Time-out 和 UnhealtyThreshold 都在可接受的范围内。
 
-## <a name="request-time-out"></a>请求超时
+## 请求超时
+<a id="request-time-out" class="xliff"></a>
 
-### <a name="cause"></a>原因
+### 原因
+<a id="cause" class="xliff"></a>
 
 收到用户请求后，应用程序网关会将配置的规则应用到该请求，然后将其路由到后端池实例。 应用程序网关将等待一段可配置的时间间隔，以接收后端实例做出的响应。 默认情况下，此间隔为 **30 秒**。 如果应用程序网关在此时间间隔内未收到后端应用程序的响应，则用户请求将出现 502 错误。
 
-### <a name="solution"></a>解决方案
+### 解决方案
+<a id="solution" class="xliff"></a>
 
 应用程序网关允许用户通过 BackendHttpSetting 配置此设置，然后可将此设置应用到不同的池。 不同的后端池可以有不同的 BackendHttpSetting，因此可配置不同的请求超时。
 
@@ -152,7 +168,7 @@ BackendAddressPoolsText：
     New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 如果上述步骤无法解决问题，请开具[支持票证](https://www.azure.cn/support/contact/)。
-

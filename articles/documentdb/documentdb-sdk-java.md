@@ -16,15 +16,14 @@ origin.date: 05/10/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 88844039e47ff24b141c2dd378ac238f9a2167e2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 7bfad75e4950dd4e039d53331d3cdf0e058c8433
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="documentdb-java-sdk-release-notes-and-resources"></a>DocumentDB Java SDK：发行说明和资源
+# DocumentDB Java SDK：发行说明和资源
+<a id="documentdb-java-sdk-release-notes-and-resources" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -52,22 +51,27 @@ ms.lasthandoff: 05/19/2017
 <tr><td>**当前受支持的运行时**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
-## <a name="release-notes"></a>发行说明
+## 发行说明
+<a id="release-notes" class="xliff"></a>
 
-### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
+### <a name="1.11.0"/>1.11.0
+<a id="a-name11101110" class="xliff"></a>
 - 添加了对每分钟请求单位数 (RU/m) 功能的支持。
 - 添加了对称为“ConsistentPrefix”的新一致性级别的支持。
 - 修复了以会话模式读取集合时的 bug。
 
-### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
+### <a name="1.10.0"/>1.10.0
+<a id="a-name11001100" class="xliff"></a>
 - 启用了对吞吐量低至 2,500 RU/秒并且缩放增量为 100 RU/秒的分区集合的支持。
 - 修复了本机程序集中的 bug，该 bug 在某些查询中可能会导致 NullRef 异常。
 
-### <a name="a-name196196"></a><a name="1.9.6"/>1.9.6
+### <a name="1.9.6"/>1.9.6
+<a id="a-name196196" class="xliff"></a>
 - 修复了查询引擎配置中可能会导致网关模式下查询异常的 Bug。
 - 修复了会话容器中的一些 Bug，这些 Bug 可能会在创建集合后立即导致“找不到所有者资源”请求异常。
 
-### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
+### <a name="1.9.5"/>1.9.5
+<a id="a-name195195" class="xliff"></a>
 - 添加了对聚合查询（COUNT、MIN、MAX、SUM、AVG）的支持。 请参阅[聚合支持](documentdb-sql-query.md#Aggregates)。
 - 添加了对更改源的支持。
 - 通过 RequestOptions.setPopulateQuotaInfo 添加了对集合配额信息的支持。
@@ -77,7 +81,8 @@ ms.lasthandoff: 05/19/2017
 - 修复了一个 Bug，该 Bug 可能在请求率很高时导致 HttpContext 中出现 NullReferenceException。
 - 改进了 DirectHttps 模式的性能。
 
-### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
+### <a name="1.9.4"/>1.9.4
+<a id="a-name194194" class="xliff"></a>
 - 使用 ConnectionPolicy.setProxy() API 添加了基于简单客户端实例的代理支持。
 - 添加了 DocumentClient.close() API 以正确关闭 DocumentClient 实例。
 - 通过从本机程序集（而非网关）派生查询计划，提高直接连接模式下的查询性能。
@@ -85,22 +90,26 @@ ms.lasthandoff: 05/19/2017
 - 重构了日志记录以使用 SLF4J。
 - 修复了一致性读取器中的其他几个 Bug。
 
-### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
+### <a name="1.9.3"/>1.9.3
+<a id="a-name193193" class="xliff"></a>
 - 修复了连接管理中的 bug，防止直接连接模式下的连接泄漏。
 - 修复了 TOP 查询中可能会引发 NullReferenece 异常的 Bug。
 - 通过减少调用内部缓存的网络数提高了性能。
 - 在 DocumentClientException 中添加了状态代码、ActivityID 和请求 URI，以更好地进行故障排除。
 
-### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
+### <a name="1.9.2"/>1.9.2
+<a id="a-name192192" class="xliff"></a>
 - 修复了连接管理中的问题，实现了更好的稳定性。
 
-### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
+### <a name="1.9.1"/>1.9.1
+<a id="a-name191191" class="xliff"></a>
 - 添加了对 BoundedStaleness 一致性级别的支持。
 - 添加了对分区集合的 CRUD 操作的直接连接支持。
 - 修复了使用 SQL 查询数据库的一个 bug。
 - 修复了会话缓存中会话令牌设置可能不正确的 bug。
 
-### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
+### <a name="1.9.0"/>1.9.0
+<a id="a-name190190" class="xliff"></a>
 - 添加了对跨分区并行查询的支持。
 - 添加了对分区集合的 TOP/ORDER BY 查询支持。
 - 添加了非常一致性支持。
@@ -110,49 +119,62 @@ ms.lasthandoff: 05/19/2017
 - 为地域隔离的空间查询指定集合索引策略时增加了多边形和 LineString 数据类型。
 - 解决 Java 文档中的 Java 1.8 的问题。
 
-### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
+### <a name="1.8.1"/>1.8.1
+<a id="a-name181181" class="xliff"></a>
 - 修复了 PartitionKeyDefinitionMap 中的一个 bug，以便缓存单个分区集合，而不进行额外的提取分区键的请求。
 - 修复了一个 bug，以便在提供不正确的分区键值时不重试。
 
-### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
+### <a name="1.8.0"/>1.8.0
+<a id="a-name180180" class="xliff"></a>
 - 添加了对多区域数据库帐户的支持。
 - 添加了对自动重试限制请求的支持，并提供了选项用于自定义最大重试次数和最大重试等待时间。  请参阅 RetryOptions 和 ConnectionPolicy.getRetryOptions()。
 - 弃用了基于 IPartitionResolver 的自定义分区代码。 请使用分区集合来提高存储和吞吐量。
 
-### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
+### <a name="1.7.1"/>1.7.1
+<a id="a-name171171" class="xliff"></a>
 - 对限制添加了重试策略支持。  
 
-### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
+### <a name="1.7.0"/>1.7.0
+<a id="a-name170170" class="xliff"></a>
 - 对文档添加了生存时间 (TTL) 支持。
 
-### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+### <a name="1.6.0"/>1.6.0
+<a id="a-name160160" class="xliff"></a>
 - 实现了[分区集合](documentdb-partition-data.md)和[用户定义的性能级别](documentdb-performance-levels.md)。
 
-### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
+### <a name="1.5.1"/>1.5.1
+<a id="a-name151151" class="xliff"></a>
 - 修复了 HashPartitionResolver 中的 Bug 以生成 little-endian 格式的哈希值，以便与其他 SDK 保持一致。
 
-### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
+### <a name="1.5.0"/>1.5.0
+<a id="a-name150150" class="xliff"></a>
 - 添加哈希和范围分区冲突解决程序以协助跨多个分区对应用程序进行分片。
 
-### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
+### <a name="1.4.0"/>1.4.0
+<a id="a-name140140" class="xliff"></a>
 - 实现 Upsert。 添加了新的 upsertXXX 方法以支持 Upsert 功能。
 - 实现基于 ID 的路由。 无公共 API 更改，全部均为内部更改。
 
-### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+### <a name="1.3.0"/>1.3.0
+<a id="a-name130130" class="xliff"></a>
 - 跳过了发布以使版本号与其他 SDK 符合
 
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+### <a name="1.2.0"/>1.2.0
+<a id="a-name120120" class="xliff"></a>
 - 支持地理空间索引
 - 验证所有资源的 ID 属性。 资源的 ID 不能包含 ？、/、#、\, 字符或以空格结尾。
 - 将新标头“索引转换进度”添加到 ResourceResponse。
 
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+### <a name="1.1.0"/>1.1.0
+<a id="a-name110110" class="xliff"></a>
 - 实现 V2 索引策略
 
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="1.0.0"/>1.0.0
+<a id="a-name100100" class="xliff"></a>
 - GA SDK
 
-## <a name="release--retirement-dates"></a>发布和停用日期
+## 发布和停用日期
+<a id="release--retirement-dates" class="xliff"></a>
 Microsoft 至少会在停用 SDK 的 **12 个月**之前发出通知，以便顺利转换到更新的/受支持的版本。
 
 新特性和功能以及优化仅添加到当前 SDK，因此建议你始终尽早升级到最新 SDK 版本。
@@ -188,7 +210,7 @@ Microsoft 至少会在停用 SDK 的 **12 个月**之前发出通知，以便顺
 | [1.3.0](#1.3.0) |2015 年 10 月 5 日 |--- |
 | [1.2.0](#1.2.0) |2015 年 8 月 5 日 |--- |
 | [1.1.0](#1.1.0) |2015 年 7 月 9 日 |--- |
-| 1.0.1 |2015 年 5 月 12 日 |--- |
+| [1.0.1](#1.0.1) |2015 年 5 月 12 日 |--- |
 | [1.0.0](#1.0.0) |2015 年 4 月 7 日 |--- |
 | 0.9.5-prelease |2015 年 3 月 9 日 |2016 年 2 月 29 日 |
 | 0.9.4-prelease |2015 年 2 月 17 日 |2016 年 2 月 29 日 |
@@ -197,11 +219,12 @@ Microsoft 至少会在停用 SDK 的 **12 个月**之前发出通知，以便顺
 | 0.9.1-prelease |2014 年 12 月 19 日 |2016 年 2 月 29 日 |
 | 0.9.0-prelease |2014 年 12 月 10 日 |2016 年 2 月 29 日 |
 
-## <a name="faq"></a>常见问题
+## 常见问题
+<a id="faq" class="xliff"></a>
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
-## <a name="see-also"></a>另请参阅
+## 另请参阅
+<a id="see-also" class="xliff"></a>
 若要了解有关 DocumentDB 的详细信息，请参阅 [DocumentDB](https://www.azure.cn/home/features/documentdb/) 服务页。
-
 
 

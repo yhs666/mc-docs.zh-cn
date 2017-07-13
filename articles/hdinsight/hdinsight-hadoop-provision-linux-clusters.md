@@ -18,22 +18,22 @@ ms.workload: big-data
 origin.date: 05/01/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: c0e4c1bc713a158fb9c89764fac8eaf4cf1099a6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 9a6cf6dbfe82581ceaf6c3c70e8b5481cc2e3a94
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="create-hadoop-clusters-in-hdinsight"></a>在 HDInsight 中创建 Hadoop 群集
+# 在 HDInsight 中创建 Hadoop 群集
+<a id="create-hadoop-clusters-in-hdinsight" class="xliff"></a>
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Hadoop 群集由用于对群集中的任务进行分布式处理的多个虚拟机（节点）组成。 Azure HDInsight 对各个节点的安装和配置的实现细节进行抽象，因此你只需提供常规配置信息。 本文将介绍这些配置设置。
 
-## <a name="basic-configurations"></a>基本配置
+## 基本配置
+<a id="basic-configurations" class="xliff"></a>
 
-通过 [Azure 门户](https://portal.azure.cn)，可以使用“快速创建”或“自定义”来创建 HDInsight 群集。 本部分介绍了在“快速创建”选项中使用的基本配置设置。 自定义选项包括以下额外配置：
+通过 [Azure 门户](https://portal.azure.cn)，可以使用*快速创建*或*自定义*创建 HDInsight 群集。 本部分介绍了在“快速创建”选项中使用的基本配置设置。 自定义选项包括以下额外配置：
 
 - [应用程序](#install-hdinsight-applications)
 - [群集大小](#configure-cluster-size)
@@ -42,13 +42,16 @@ Hadoop 群集由用于对群集中的任务进行分布式处理的多个虚拟�
   - [脚本操作](#customize-clusters-using-script-action)
   - [虚拟网络](#use-virtual-network)
 
-### <a name="subscription"></a>订阅 
+### 订阅
+<a id="subscription" class="xliff"></a> 
 每个 HDInsight 群集与一个 Azure 订阅绑定。
 
-### <a name="resource-group-name"></a>资源组名称
+### 资源组名称
+<a id="resource-group-name" class="xliff"></a>
 可以借助 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 以组（称为 Azure 资源组）的形式处理应用程序中的资源。 可以通过单个协调的操作来部署、更新、监视或删除应用程序的所有资源。
 
-### <a name="cluster-name"></a>群集名称
+### 群集名称
+<a id="cluster-name" class="xliff"></a>
 群集名称用于标识群集。 群集名称必须全局唯一，并且遵守以下命名准则：
 
 * 字段必须是包含 3 到 63 个字符的字符串。
@@ -108,22 +111,27 @@ Azure HDInsight 目前提供了以下几种群集类型，每种类型都具有�
 
 有关在一个 Azure 虚拟网络中使用两种群集类型的示例，请参阅[使用 Storm 和 HBase 分析传感器数据](hdinsight-storm-sensor-data-analysis.md)。
 
-### <a name="operating-system"></a>操作系统
+### 操作系统
+<a id="operating-system" class="xliff"></a>
 可以在 Linux 或 Windows 中创建 HDInsight 群集。  有关 OS 版本的详细信息，请参阅[支持的 HDInsight 版本](hdinsight-component-versioning.md#supported-hdinsight-versions)。 HDInsight 3.4 及更高版本使用 Ubuntu Linux 发行版作为群集的基础 OS。 
 
-### <a name="version"></a>Version
+### Version
+<a id="version" class="xliff"></a>
 此选项用于确定该群集所需的 HDInsight 版本。 有关详细信息，请参阅[支持的 HDInsight 版本](hdinsight-component-versioning.md#supported-hdinsight-versions)。
 
-### <a name="credentials"></a>凭据
+### 凭据
+<a id="credentials" class="xliff"></a>
 使用 HDInsight 群集时，可以在群集创建期间配置两个用户帐户：
 
-* HTTP 用户。 默认的用户名为 *admin*。 它使用 Azure 门户的基本配置。 有时称为“群集用户”。
+* HTTP 用户。 默认的用户名为 *admin*。 它使用 Azure 门户上的基本配置。 有时称为“群集用户”。
 * SSH 用户（Linux 群集）。 通过 SSH 连接到群集时使用此用户。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
-### <a name="location"></a>位置
+### 位置
+<a id="location" class="xliff"></a>
 群集位置不需要显式指定。 群集共享相同的默认存储位置。 有关受支持区域的列表，请单击 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)中的“区域”下拉列表。
 
-### <a name="storage"></a>存储
+### 存储
+<a id="storage" class="xliff"></a>
 
 原始 Hadoop 分布式文件系统 (HDFS) 在群集上使用许多本地磁盘。 HDInsight 使用 [Azure 存储](hdinsight-hadoop-provision-linux-clusters.md#azure-storage)中的 Blob。
 
@@ -165,7 +173,8 @@ Azure 存储是一种稳健、通用的存储解决方案，它与 HDInsight 无
 > [!WARNING]
 > Hive 元存储不支持 Azure SQL 仓库。
 
-#### <a name="oozie-metastore"></a>Oozie 元存储
+#### Oozie 元存储
+<a id="oozie-metastore" class="xliff"></a>
 
 在使用 Oozie 时若要提高性能，请使用自定义元存储。 如果想在删除群集后，访问 Oozie 作业数据，也可使用自定义元存储。 如果不打算使用 Oozie，或仅间歇性使用 Oozie，无需创建自定义元存储。
 
@@ -177,13 +186,15 @@ Azure 存储是一种稳健、通用的存储解决方案，它与 HDInsight 无
 > [!WARNING]
 > Oozie 元存储不支持 Azure SQL 仓库。
 
-## <a name="install-hdinsight-applications"></a>Install HDInsight applications
+## Install HDInsight applications
+<a id="install-hdinsight-applications" class="xliff"></a>
 
 HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安装的应用程序。 这些应用程序可能是 Microsoft、独立软件供应商 (ISV) 或你自己开发的。 有关详细信息，请参阅[在 Azure HDInsight 上安装第三方 Hadoop 应用程序](hdinsight-apps-install-applications.md)。
 
 大多数 HDInsight 应用程序安装在空边缘节点上。  空边缘节点是安装并配置了与头节点中相同的客户端工具的 Linux 虚拟机。 可以使用该边缘节点来访问群集、测试客户端应用程序和托管客户端应用程序。 有关详细信息，请参阅[在 HDInsight 中使用空边缘节点](hdinsight-apps-use-edge-node.md)。
 
-## <a name="configure-cluster-size"></a>配置群集大小
+## 配置群集大小
+<a id="configure-cluster-size" class="xliff"></a>
 
 客户需根据群集的生存期，支付这些节点的使用费。 创建群集后便开始计费，删除群集后停止计费。 无法取消分配群集或将其置于暂停状态。
 
@@ -194,14 +205,16 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 >
 > 群集使用的节点不视为虚拟机，因为用于节点的虚拟机映像是 HDInsight 服务的实现细节。 节点使用的计算核心会计入可供订阅使用的计算核心总数。 创建 HDInsight 群集时，可在“群集大小”边栏选项卡的摘要部分中查看可用核心数以及群集要使用的核心数。
 >
+>
 
-使用 Azure 门户配置群集时，可通过“节点定价层”边栏选项卡查看节点大小  。 还可以查看不同节点大小的相关成本。 以下屏幕截图显示了基于 Linux 的 Hadoop 群集的选项。
+使用 Azure 门户配置群集时，可通过“节点定价层”边栏选项卡查看节点大小。 还可以查看不同节点大小的相关成本。 以下屏幕截图显示了基于 Linux 的 Hadoop 群集的选项。
 
 ![HDInsight VM 节点大小](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-node-sizes.png)
 
 下表显示 HDInsight 群集支持的大小和它们提供的容量。
 
-### <a name="standard-tier-a-series"></a>标准层：A 系列
+### 标准层：A 系列
+<a id="standard-tier-a-series" class="xliff"></a>
 在经典部署模型中，某些 VM 大小在 PowerShell 和命令行接口 (CLI) 中稍有不同。
 
 * Standard_A3 是大型
@@ -214,7 +227,8 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 | Standard_A6 |4 |28 GB |2 |临时磁盘 = 285 GB |8 |8x500 |
 | Standard_A7 |8 |56 GB |4 |临时磁盘 = 605 GB |16 |16x500 |
 
-### <a name="standard-tier-d-series"></a>标准层：D 系列
+### 标准层：D 系列
+<a id="standard-tier-d-series" class="xliff"></a>
 | 大小 | CPU 核心数 | 内存 | NIC 数（最大值） | 最大 磁盘大小 | 最大 数据磁盘（每个 1023 GB） | 最大 IOPS（每个磁盘 500 次） |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D3 |4 |14 GB |4 |临时磁盘 (SSD) = 200 GB |8 |8x500 |
@@ -223,7 +237,8 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 | Standard_D13 |8 |56 GB |8 |临时磁盘 (SSD) = 400 GB |16 |16x500 |
 | Standard_D14 |16 |112 GB |8 |临时磁盘 (SSD) = 800 GB |32 |32x500 |
 
-### <a name="standard-tier-dv2-series"></a>标准层：Dv2 系列
+### 标准层：Dv2 系列
+<a id="standard-tier-dv2-series" class="xliff"></a>
 | 大小 | CPU 核心数 | 内存 | NIC 数（最大值） | 最大 磁盘大小 | 最大 数据磁盘（每个 1023 GB） | 最大 IOPS（每个磁盘 500 次） |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D3_v2 |4 |14 GB |4 |临时磁盘 (SSD) = 200 GB |8 |8x500 |
@@ -244,10 +259,12 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 > [!WARNING]
 > 不支持在 HDInsight 群集之外的其他位置使用别的存储帐户。
 
-## <a name="use-virtual-network"></a>使用虚拟网络
+## 使用虚拟网络
+<a id="use-virtual-network" class="xliff"></a>
 使用 [Azure 虚拟网络](/virtual-network/)可创建包含解决方案所需的资源的安全持久性网络。 有关将 HDInsight 与虚拟网络配合使用的详细信息（包括虚拟网络的特定配置要求），请参阅[使用 Azure 虚拟网络扩展 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
 
-## <a name="customize-clusters-using-script-action"></a>使用脚本操作自定义群集
+## 使用脚本操作自定义群集
+<a id="customize-clusters-using-script-action" class="xliff"></a>
 
 你可以在创建期间通过使用脚本安装其他组件或自定义群集配置。 此类脚本可通过 **脚本操作**调用，脚本操作是一种配置选项，可通过 Azure 门户、HDInsight Windows PowerShell cmdlet 或 HDInsight .NET SDK 使用。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
@@ -280,7 +297,8 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 
 有关详细信息，请参阅[使用 Bootstrap 自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-bootstrap.md)。
 
-## <a name="cluster-creation-methods"></a>群集创建方法
+## 群集创建方法
+<a id="cluster-creation-methods" class="xliff"></a>
 在本文中，你了解了有关创建基于 Linux 的 HDInsight 群集的基本信息。 使用下表查找具体信息，了解如何使用最合适的方法创建群集。
 
 | 群集创建方法 | Web 浏览器 | 命令行 | REST API | SDK | Linux、Mac OS X 或 Unix | Windows |
@@ -292,12 +310,13 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |✔ |✔ |
 | [Azure Resource Manager 模板](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |✔ |✔ |
 
-## <a name="troubleshoot"></a>故障排除
+## 故障排除
+<a id="troubleshoot" class="xliff"></a>
 
 如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md#create-clusters)。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 - [什么是 HDInsight](hdinsight-hadoop-introduction.md)。
 - [Hadoop 教程：开始使用 HDInsight 中的 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)。
-

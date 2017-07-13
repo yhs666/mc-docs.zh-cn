@@ -16,26 +16,26 @@ ms.workload: infrastructure-services
 origin.date: 04/11/2017
 ms.date: 05/22/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 6641972c3f84a1ff49cfd32eae80a104b2909012
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 4cbb59a2640c930ae20ab310bf7009b96acf53fa
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>关于用于站点到站点 VPN 网关连接的 VPN 设备和 IPsec/IKE 参数
+# 关于用于站点到站点 VPN 网关连接的 VPN 设备和 IPsec/IKE 参数
+<a id="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections" class="xliff"></a>
 
 通过 VPN 网关配置站点到站点 (S2S) 跨界 VPN 连接需要用到 VPN 设备。 在创建混合解决方案时，或者每当你想要在本地网络与虚拟网络之间建立安全连接时，可以使用站点到站点连接。 本文提供了适用于 Azure VPN 网关的 IPsec/IKE 参数的列表，以及连接到 Azure VPN 网关的有效 VPN 设备的列表。
 
 > [!IMPORTANT]
 > 如果遇到本地 VPN 设备与 Azure VPN 网关之间的连接问题，请参阅[已知的设备兼容性问题](#known)。 
 
-###<a name="items-to-note-when-viewing-the-tables"></a>查看表时的注意事项：
+###查看表时的注意事项：
+<a id="items-to-note-when-viewing-the-tables" class="xliff"></a>
 
 * Azure VPN 网关的术语已更改。 没有功能更改。 只有名称更改。
-    * 静态路由 = PolicyBased
-    * 动态路由 = RouteBased
+  * 静态路由 = PolicyBased
+  * 动态路由 = RouteBased
 * 除非另有说明，否则高性能 VPN 网关和 RouteBased VPN 网关的规范是相同的。 例如，经验证与 RouteBased VPN 网关兼容的 VPN 设备也与 Azure 高性能 VPN 网关兼容。
 
 > [!NOTE]
@@ -67,7 +67,7 @@ ms.lasthandoff: 05/12/2017
 | Juniper |ISG |ScreenOS 6.3 |[配置示例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[配置示例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
 | Juniper |SSG |ScreenOS 6.2 |[配置示例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[配置示例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft |路由和远程访问服务 |Windows Server 2012 |不兼容 |[配置示例](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
-| 打开系统 AG |任务控制安全网关 |不适用 |[配置指南](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[配置指南](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
+| 打开系统 AG |任务控制安全网关 |不适用 |[配置指南](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |不兼容 |
 | Openswan |Openswan |2.6.32 |（即将支持） |不兼容 |
 | Palo Alto Networks |运行 PAN-OS 的所有设备 |PAN-OS<br>PolicyBased：6.1.5 或更高版本<br>RouteBased：7.1.4 |[配置指南](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[配置指南](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
 | SonicWall |TZ 系列、NSA 系列<br>SuperMassive 系列<br>E 类 NSA 系列 |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[SonicOS 6.2 配置指南](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[SonicOS 5.9 配置指南](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[SonicOS 6.2 配置指南](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[SonicOS 5.9 配置指南](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
@@ -75,13 +75,14 @@ ms.lasthandoff: 05/12/2017
 
 (*) ISR 7200 系列路由器仅支持 PolicyBased VPN。
 
-## <a name="additionaldevices" id="devices-not-on-the-compatible-list"></a> 未验证的 VPN 设备
+## <a name="additionaldevices"></a>未验证的 VPN 设备
 即使没有看到设备在“已验证的 VPN 设备”表列出中，该设备也有可能适用于站点到站点连接。 请联系设备制造商了解更多支持和配置说明。
 
 ## <a name="editing"></a>编辑设备配置示例
 在下载提供的 VPN 设备配置示例后，你需要替换一些值来反映你环境的设置。
 
-### <a name="to-edit-a-sample"></a>编辑示例的步骤：
+### 编辑示例的步骤：
+<a id="to-edit-a-sample" class="xliff"></a>
 
 1. 使用记事本打开示例。
 2. 搜索所有 <*text*> 字符串并将其替换为与你的环境相关的值。 请确保包含 < 和 >。 指定名称时，你选择的名称应是唯一的。 如果命令无效，请查看设备制造商文档。
@@ -112,7 +113,8 @@ ms.lasthandoff: 05/12/2017
 * IKE 阶段 1 也称“主模式”
 * IKE 阶段 2 也称“快速模式”
 
-### <a name="ike-phase-1-main-mode-parameters"></a>IKE 阶段 1（主模式）参数
+### IKE 阶段 1（主模式）参数
+<a id="ike-phase-1-main-mode-parameters" class="xliff"></a>
 | **属性**          |**PolicyBased**    | **RouteBased**    |
 | ---                   | ---               | ---               |
 | SDK 版本           |IKEv1              |IKEv2              |
@@ -121,7 +123,8 @@ ms.lasthandoff: 05/12/2017
 | 加密和哈希算法 |1.AES256、SHA256<br>2.AES256、SHA1<br>3.AES128、SHA1<br>4. 3DES、SHA1 |1.AES256、SHA1<br>2.AES256、SHA256<br>3.AES128、SHA1<br>4.AES128、SHA256<br>5. 3DES、SHA1<br>6. 3DES、SHA256 |
 | SA 生存期           |28,800 秒     |28,800 秒     |
 
-### <a name="ike-phase-2-quick-mode-parameters"></a>IKE 阶段 2（快速模式）参数
+### IKE 阶段 2（快速模式）参数
+<a id="ike-phase-2-quick-mode-parameters" class="xliff"></a>
 | **属性**                  |**PolicyBased**| **RouteBased**                              |
 | ---                           | ---           | ---                                         |
 | SDK 版本                   |IKEv1          |IKEv2                                        |
@@ -134,7 +137,8 @@ ms.lasthandoff: 05/12/2017
 ### <a name ="RouteBasedOffers"></a>RouteBased VPN IPsec 安全关联（IKE 快速模式 SA）产品/服务
 下表列出了 IPsec SA（IKE 快速模式）产品/服务。 这些产品按提供或接受产品的偏好顺序列出。
 
-#### <a name="azure-gateway-as-initiator"></a>Azure 网关作为发起方
+#### Azure 网关作为发起方
+<a id="azure-gateway-as-initiator" class="xliff"></a>
 |-  |**加密**|**身份验证**|**PFS 组**|
 |---| ---          |---               |---          |
 | 1 |GCM AES256    |GCM (AES256)      |无         |
@@ -144,7 +148,8 @@ ms.lasthandoff: 05/12/2017
 | 5 |AES128        |SHA1              |无         |
 | 6 |3DES          |SHA256            |无         |
 
-#### <a name="azure-gateway-as-responder"></a>Azure 网关作为响应方
+#### Azure 网关作为响应方
+<a id="azure-gateway-as-responder" class="xliff"></a>
 |-  |**加密**|**身份验证**|**PFS 组**|
 |---| ---          | ---              |---          |
 | 1 |GCM AES256    |GCM (AES256)      |无         |
@@ -184,10 +189,11 @@ ms.lasthandoff: 05/12/2017
 >
 >
 
-### <a name="feb-16-2017"></a>2017 年 2 月 16 日
+### 2017 年 2 月 16 日
+<a id="feb-16-2017" class="xliff"></a>
 
 **早于 7.1.4 版的 Palo Alto Networks 设备**（针对 Azure 基于路由的 VPN）：如果通过 PAN-OS 版本早于 7.1.4 的 Palo Alto Networks 使用 VPN 设备，并且遇到 Azure 基于路由的 VPN 网关的连接问题，请执行以下步骤：
 
 1. 检查 Palo Alto Networks 设备的固件版本。 如果 PAN-OS 版本低于 7.1.4，请升级到 7.1.4。
 2. 连接到 Azure VPN 网关时，请在 Palo Alto Networks 设备上将阶段 2 SA（或快速模式 SA）生存期更改为 28,800 秒（8 小时）。
-3. 如果仍然遇到连接问题，请从 Azure 门户提出支持请求。
+3. 如果仍然遇到连接问题，请从 Azure 门户开具支持请求票证。

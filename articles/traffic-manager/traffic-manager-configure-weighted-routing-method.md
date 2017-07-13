@@ -15,22 +15,22 @@ ms.workload: infrastructure-services
 origin.date: 03/20/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: f4c31384597d30a7c0e8b1bcd6b9c09280c8d4df
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: a1a568b875ff2bb3b9018797e285c871912d2e3f
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>在流量管理器中配置加权流量路由方法
+# 在流量管理器中配置加权流量路由方法
+<a id="configure-the-weighted-traffic-routing-method-in-traffic-manager" class="xliff"></a>
 
 一种常见的流量路由方法模式是提供一组相同的终结点（包括云服务和网站），并以循环方式向每个终结点发送流量。 以下步骤概述如何配置这种类型的流量路由方法。
 
 > [!NOTE]
 > Azure 网站已针对数据中心（也称为区域）内的网站提供了轮询机制负载均衡功能。 你可以使用流量管理器为不同数据中心内的网站指定轮询机制流量路由方法。
 
-## <a name="to-configure-the-weighted-traffic-routing-method"></a>配置加权流量路由方法
+## 配置加权流量路由方法
+<a id="to-configure-the-weighted-traffic-routing-method" class="xliff"></a>
 
 1. 在浏览器中，登录 [Azure 门户](http://portal.azure.cn)。 如果还没有帐户，可注册 [1 个月期限的试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
 2. 在门户的搜索栏中，搜索“流量管理器配置文件”，然后单击要为其配置路由方法的配置文件名称。
@@ -42,14 +42,15 @@ ms.lasthandoff: 05/19/2017
         2. 对于“路径”，请键入正斜杠 */*。 若要监视终结点，必须指定路径和文件名。 正斜杠“/”是有效的相对路径条目，表示文件位于根目录（默认位置）中。
         3. 在页面顶部，单击“保存”。
 5. 按如下方式测试配置更改：
-    1.    在门户的搜索栏中，搜索流量管理器配置文件名称，然后在显示的结果中单击该流量管理器配置文件。
-    2.    在“流量管理器配置文件”边栏选项卡中，单击“概述”。
-    3.    “流量管理器配置文件”边栏选项卡将显示新建的流量管理器配置文件的 DNS 名称。 任意客户端（例如通过 Web 浏览器导航到此名称）均可使用此名称路由到根据路由类型确定的相应终结点。 在这种情况下，所有请求都以轮循机制的方式路由每个终结点。
+    1.  在门户的搜索栏中，搜索流量管理器配置文件名称，然后在显示的结果中单击该流量管理器配置文件。
+    2.  在“流量管理器配置文件”边栏选项卡中，单击“概述”。
+    3.  “流量管理器配置文件”边栏选项卡将显示新建的流量管理器配置文件的 DNS 名称。 任意客户端（例如通过 Web 浏览器导航到此名称）均可使用此名称路由到根据路由类型确定的相应终结点。 在这种情况下，所有请求都以轮循机制的方式路由每个终结点。
 6. 流量管理器配置文件正常工作后，请在权威 DNS 服务器上编辑 DNS 记录，将公司域名指向流量管理器域名。
 
 ![使用流量管理器配置加权流量路由方法][1]
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 - 了解[优先级流量路由方法](traffic-manager-configure-priority-routing-method.md)。
 - 了解[性能流量路由方法](traffic-manager-configure-performance-routing-method.md)。
@@ -57,4 +58,3 @@ ms.lasthandoff: 05/19/2017
 
 <!--Image references-->
 [1]: ./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-routing-method.png
-

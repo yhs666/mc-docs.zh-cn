@@ -1,204 +1,481 @@
 ---
-title: 使用软件部署工具为 Azure Site Recovery 自动安装移动服务 | Azure.
-description: 本文帮助用户使用 System Center Configuration Manager 等软件部署工具自动安装移动服务
+title: "使用软件部署工具为 Azure Site Recovery 自动安装移动服务 | Azure"
+description: "本文可帮助用户使用软件部署工具（例如 System Center Configuration Manager）自动执行移动服务安装。"
 services: site-recovery
-documentationcenter: ''
-author: AnoopVasudavan
-manager: gauravd
-editor: ''
-
+documentationcenter: 
+author: rockboyfor
+manager: digimobile
+editor: 
+ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/10/2017
-ms.date: 02/10/2017
-ms.author: v-johch
+origin.date: 05/11/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
+ms.openlocfilehash: 822a640234317c70d980183ac620137402740b16
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
+# 使用软件部署工具自动执行移动服务安装
+<a id="automate-mobility-service-installation-by-using-software-deployment-tools" class="xliff"></a>
 
-# 使用软件部署工具自动安装移动服务
+>[!IMPORTANT]
+本文档假定使用的是版本 **9.9.4510.1** 或更高版本。
 
-本文举例说明如何使用 System Center Configuration Manager (SCCM) 在数据中心部署 Azure Site Recovery 移动服务。使用 SCCM 等软件部署工具可带来以下优势
-* 计划在软件更新的计划维护时段内进行部署（全新安装和升级）。
-* 同时大规模部署到数百台服务器
+本文提供如何使用 System Center Configuration Manager 在数据中心内部署 Azure Site Recovery 移动服务的示例。 使用 Configuration Manager 等软件部署工具具有以下优势：
+* 计划全新安装和升级的部署，在计划维护时段内进行软件更新
+* 将部署规模扩大为同时部署数百台服务器
 
 > [!NOTE]
-本文使用 System Center Configuration Manager 2012 R2 来演示部署活动。也可以使用 [Azure 自动化和 Desired State Configuration](./site-recovery-automate-mobility-service-install.md) 自动安装移动服务。
+> 本文使用 System Center Configuration Manager 2012 R2 来演示部署活动。 用户还可以使用 [Azure 自动化和 Desired State Configuration](site-recovery-automate-mobility-service-install.md) 自动安装移动服务。
 
 ## 先决条件
-1. 已在环境中部署 System Center Configuration Manager(SCCM) 等软件部署工具。
-  * 创建两个[设备集合](https://technet.microsoft.com/zh-cn/library/gg682169.aspx)，分别用于想要通过 Azure Site Recovery 保护的所有 **Windows Server** 和所有 **Linux Server**。
-3. 已将一台配置服务器注册到 Azure Site Recovery。
-4. 提供 SCCM 服务器可访问的安全网络文件共享（SMB 共享）。
+<a id="prerequisites" class="xliff"></a>
+1. 已在环境中部署的软件部署工具，例如 Configuration Manager。
+  创建两个[设备集合](https://technet.microsoft.com/zh-cn/library/gg682169.aspx)，一个用于要使用 Site Recovery 保护的所有“Windows 服务器” ，另一个用于要保护的所有“Linux 服务器”。
+3. 已向 Site Recovery 注册的配置服务器。
+4. 可通过 Configuration Manager 服务器访问的安全网络文件共享（服务器消息块共享）。
 
-## 在运行 Microsoft Windows 操作系统的计算机上部署移动服务
+## 在运行 Windows 的计算机上部署移动服务
+<a id="deploy-mobility-service-on-computers-running-windows" class="xliff"></a>
 > [!NOTE]
-本文的假设条件如下
-> 1. 配置服务器的 IP 地址为 192.168.3.121
-> 2. 安全网络文件共享为 \\\ContosoSecureFS\\MobilityServiceInstallers
+> 本文假设配置服务器的 IP 地址为 192.168.3.121，且安全网络文件共享为 \\\ContosoSecureFS\MobilityServiceInstallers。
 
 ### 步骤 1：准备部署
-1. 在网络共享中创建一个文件夹并将其命名为 **MobSvcWindows**
-2. 登录到配置服务器，然后打开管理命令提示符
-3. 运行以下命令生成通行短语文件。
+<a id="step-1-prepare-for-deployment" class="xliff"></a>
+1. 在网络共享上创建一个文件夹，并将其命名为“MobSvcWindows”。
+2. 登录配置服务器，并打开管理命令提示符。
+3. 运行以下命令，生成密码文件：
 
-    `cd %ProgramData%\ASR\home\svsystems\bin`  
+    `cd %ProgramData%\ASR\home\svsystems\bin`
 
-    `genpassphrase.exe -v > MobSvc.passphrase`  
+    `genpassphrase.exe -v > MobSvc.passphrase`
+4. 将“MobSvc.passphrase”文件复制到网络共享上的“MobSvcWindows”文件夹。
+5. 运行以下命令，浏览到配置服务器上的安装程序存储库：
 
-6. 将 MobSvc.passphrase 文件复制到网络共享中的 MobSvcWindows 文件夹。
-5. 接下来，运行以下命令浏览到配置服务器上的安装程序存储库。
+   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
 
-  `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`  
+6. 将 **Microsoft-ASR\_UA\_*version*\_Windows\_GA\_*date*\_Release.exe** 复制到网络共享上的“MobSvcWindows”文件夹。
+7. 复制以下代码，并将它作为“install.bat”保存到“MobSvcWindows”文件夹。
 
-6. 将 **Microsoft ASR\_UA\_*版本*\_Windows\_GA\_*日期*\_Release.exe** 复制到网络共享中的 **MobSvcWindows** 文件夹。
-7. 复制下面列出的代码，将它作为 **install.bat** 文件保存到 **MobSvcWindows** 文件夹
-> [!NOTE]
-请记得将以下脚本中的 [CSIP] 占位符替换为配置服务器 IP 地址的实际值。
+   > [!NOTE]
+   > 将此脚本中的 [CSIP] 占位符替换为配置服务器的实际 IP 地址值。
 
-  [!INCLUDE [site-recovery-sccm-windows-script](../../includes/site-recovery-sccm-windows-script.md)]
+```DOS
+Time /t >> C:\Temp\logfile.log
+REM ==================================================
+REM ==== Clean up the folders ========================
+RMDIR /S /q %temp%\MobSvc
+MKDIR %Temp%\MobSvc
+MKDIR C:\Temp
+REM ==================================================
+
+REM ==== Copy new files ==============================
+COPY M*.* %Temp%\MobSvc
+CD %Temp%\MobSvc
+REN Micro*.exe MobSvcInstaller.exe
+REM ==================================================
+
+REM ==== Extract the installer =======================
+MobSvcInstaller.exe /q /x:%Temp%\MobSvc\Extracted
+REM ==== Wait 10s for extraction to complete =========
+TIMEOUT /t 10
+REM =================================================
+
+REM ==== Perform installation =======================
+REM =================================================
+
+CD %Temp%\MobSvc\Extracted
+whoami >> C:\Temp\logfile.log
+SET PRODKEY=HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+REG QUERY %PRODKEY%\{275197FC-14FD-4560-A5EB-38217F80CBD1}
+IF NOT %ERRORLEVEL% EQU 0 (
+    echo "Product is not installed. Goto INSTALL." >> C:\Temp\logfile.log
+    GOTO :INSTALL
+) ELSE (
+    echo "Product is installed." >> C:\Temp\logfile.log
+
+    echo "Checking for Post-install action status." >> C:\Temp\logfile.log
+    GOTO :POSTINSTALLCHECK
+)
+
+:POSTINSTALLCHECK
+    REG QUERY "HKLM\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5" /v "PostInstallActions" | Find "Succeeded"
+    If %ERRORLEVEL% EQU 0 (
+        echo "Post-install actions succeeded. Checking for Configuration status." >> C:\Temp\logfile.log
+        GOTO :CONFIGURATIONCHECK
+    ) ELSE (
+        echo "Post-install actions didn't succeed. Goto INSTALL." >> C:\Temp\logfile.log
+        GOTO :INSTALL
+    )
+
+:CONFIGURATIONCHECK
+    REG QUERY "HKLM\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5" /v "AgentConfigurationStatus" | Find "Succeeded"
+    If %ERRORLEVEL% EQU 0 (
+        echo "Configuration has succeeded. Goto UPGRADE." >> C:\Temp\logfile.log
+        GOTO :UPGRADE
+    ) ELSE (
+        echo "Configuration didn't succeed. Goto CONFIGURE." >> C:\Temp\logfile.log
+        GOTO :CONFIGURE
+    )
+
+:INSTALL
+    echo "Perform installation." >> C:\Temp\logfile.log
+    UnifiedAgent.exe /Role MS /InstallLocation "C:\Program Files (x86)\Azure Site Recovery" /Platform "VmWare" /Silent
+    IF %ERRORLEVEL% EQU 0 (
+        echo "Installation has succeeded." >> C:\Temp\logfile.log
+        (GOTO :CONFIGURE)
+    ) ELSE (
+        echo "Installation has failed." >> C:\Temp\logfile.log
+        GOTO :ENDSCRIPT
+    )
+
+:CONFIGURE
+    echo "Perform configuration." >> C:\Temp\logfile.log
+    cd "C:\Program Files (x86)\Azure Site Recovery\agent"
+    UnifiedAgentConfigurator.exe  /CSEndPoint "[CSIP]" /PassphraseFilePath %Temp%\MobSvc\MobSvc.passphrase
+    IF %ERRORLEVEL% EQU 0 (
+        echo "Configuration has succeeded." >> C:\Temp\logfile.log
+    ) ELSE (
+        echo "Configuration has failed." >> C:\Temp\logfile.log
+    )
+    GOTO :ENDSCRIPT
+
+:UPGRADE
+    echo "Perform upgrade." >> C:\Temp\logfile.log
+    UnifiedAgent.exe /Platform "VmWare" /Silent
+    IF %ERRORLEVEL% EQU 0 (
+        echo "Upgrade has succeeded." >> C:\Temp\logfile.log
+    ) ELSE (
+        echo "Upgrade has failed." >> C:\Temp\logfile.log
+    )
+    GOTO :ENDSCRIPT
+
+:ENDSCRIPT
+    echo "End of script." >> C:\Temp\logfile.log
+
+```
 
 ### 步骤 2：创建包
+<a id="step-2-create-a-package" class="xliff"></a>
 
-1. 登录到 System Center Configuration Manager 控制台
-2. 浏览到“软件库”>“应用程序管理”>“包”
-3. 右键单击“包”并选择“创建包”
+1. 登录 Configuration Manager 控制台。
+2. 浏览到“软件库” > “应用程序管理” > “包”。
+3. 右键单击“包”，然后选择“创建包”。
 4. 提供“名称”、“说明”、“制造商”、“语言”和“版本”的值。
-5. 勾选“此包包含源文件”复选框。
-6. 单击“浏览”按钮，然后选择安装程序所存储到的网络共享 (\\\ContosoSecureFS\\MobilityServiceInstaller\\MobSvcWindows)
+5. 选中“此包包含源文件”复选框。
+6. 单击“浏览”，然后选择存储安装程序的网络共享 (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows)。
 
-  ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package.png)  
+    ![创建包和程序向导的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package.png)
 
-7. 在“选择要创建的程序的类型”页上，选择“标准程序”，然后单击“下一步”
+7. 在“选择要创建的程序类型”页上，选择“标准程序”，然后单击“下一步”。
 
-  ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)  
+    ![创建包和程序向导的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
 
-8. 在“指定有关此标准程序的信息”页中提供以下输入，然后单击“下一步”。（其他输入可保留默认值）
-
-  ![sccm-package-properties](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)  
+8. 在“指定此标准程序的相关信息”页上，提供以下输入，然后单击“下一步”。 （其他输入可以使用其默认值。）
 
 | **参数名称** | **值** |
 |--|--|
 | 名称 | 安装 Azure 移动服务 (Windows) |
 | 命令行 | install.bat |
 | 程序可运行 | 用户是否已登录 |
-9. 在下一页中，选择目标操作系统。只能在 Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 上安装移动服务。![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)
-10. 单击“下一步”两次完成向导。
+
+    ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)
+
+9. 在下一页中，选择目标操作系统。 移动服务只能安装在 Windows Server 2012 R2、Windows Server 2012 和 Windows Server 2008 R2 上。
+
+    ![创建包和程序向导的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)
+
+10. 要完成向导，请单击“下一步”两次。
+
 > [!NOTE]
-脚本既支持全新安装移动服务代理安装，也支持升级/更新已安装的代理。
+> 脚本支持移动服务代理的全新安装和已安装代理的更新。
 
 ### 步骤 3：部署包
-1. 在 SCCM 控制台中右键单击你的包，然后选择“分发内容”![distribute-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
-2. 选择该包应复制到的**[分发点](https://technet.microsoft.com/zh-cn/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
-3. 完成向导后，该包将开始复制到指定的分发点
-4. 完成包的分发后，请右键单击该包，然后选择“部署”![deploy-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
-5. 选择在先决条件部分中创建的 Widows Server 设备集合作为部署的目标集合。
+<a id="step-3-deploy-the-package" class="xliff"></a>
+1. 在 Configuration Manager 控制台中，右键单击包，然后选择“分发内容”。
+    ![Configuration Manager 控制台的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
+2. 选择包应复制到的“分发点”**[](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
+3. 完成该向导。 包随后开始复制到指定的分发点。
+4. 完成包分发后，右键单击包，然后选择“部署”。
+    ![Configuration Manager 控制台的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
+5. 选择在先决条件部分中创建的 Windows Server 设备集合作为部署的目标集合。
 
-  ![sccm-select-target-collection](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection.png)  
+    ![部署软件向导的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection.png)
 
-6. 在“指定内容目标”页中，选择你的**分发点**
-7. 在“指定用于控制此软件的部署方式的设置”页中，确保已根据需要选择了目的。
+6. 在“指定内容目标”页上，选择“分发点”。
+7. 在“指定设置以控制此软件的部署方式”页上，确保目的为“必需”。
 
-  ![sccm-deploy-select-purpose](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)  
+    ![部署软件向导的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
 
-8. 在“为此部署指定计划”中指定计划。阅读有关[计划包](https://technet.microsoft.com/zh-cn/library/gg682178.aspx)的详细信息
-9. 在“分发点”页中根据数据中心的需要配置属性，然后完成向导。
+8. 在“为此部署指定计划”页中，指定计划。 有关详细信息，请参阅[计划包](https://technet.microsoft.com/library/gg682178.aspx)。
+9. 在“分发点”页上，根据数据中心的需求配置属性。 然后完成向导。
 
 > [!TIP]
-为了避免不必要的重新启动，请计划在每月维护时段或软件更新时段运行包安装。
+> 为了避免不必要的重新启动，请在每月的维护时段或软件更新时段计划包安装。
 
-可以在 SCCM 控制台中转到“监视”>“部署”>“[你的包名称]”，来监视部署进度![monitor-sccm](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
+可以使用 Configuration Manager 控制台监视部署进度。 转到“监视” > “部署” > “[包名称]”。
+
+  ![用于监视部署的 Configuration Manager 选项的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
 
 ## 在运行 Linux 操作系统的计算机上部署移动服务
+<a id="deploy-mobility-service-on-computers-running-linux" class="xliff"></a>
 > [!NOTE]
-本文的假设条件如下
-> 1. 配置服务器的 IP 地址为 192.168.3.121
-> 2. 安全网络文件共享为 \\\ContosoSecureFS\\MobilityServiceInstallers
+> 本文假设配置服务器的 IP 地址为 192.168.3.121，且安全网络文件共享为 \\\ContosoSecureFS\MobilityServiceInstallers。
 
 ### 步骤 1：准备部署
-1. 在网络共享中创建一个文件夹并将其命名为 **MobSvcLinux**
-2. 登录到配置服务器，然后打开管理命令提示符
-3. 运行以下命令生成通行短语文件。
+<a id="step-1-prepare-for-deployment" class="xliff"></a>
+1. 在网络共享上创建一个文件夹，并将其命名为“MobSvcLinux”。
+2. 登录配置服务器，并打开管理命令提示符。
+3. 运行以下命令，生成密码文件：
 
-    `cd %ProgramData%\ASR\home\svsystems\bin`  
+    `cd %ProgramData%\ASR\home\svsystems\bin`
 
-    `genpassphrase.exe -v > MobSvc.passphrase`  
+    `genpassphrase.exe -v > MobSvc.passphrase`
+4. 将“MobSvc.passphrase” 文件复制到网络共享上的“MobSvcLinux”文件夹。
+5. 运行以下命令，浏览到配置服务器上的安装程序存储库：
 
-6. 将 MobSvc.passphrase 文件复制到网络共享中的 MobSvcWindows 文件夹。
-5. 接下来，运行以下命令浏览到配置服务器上的安装程序存储库。
+    `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
 
-  `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`  
+6. 将以下文件复制到网络共享上的“MobSvcLinux”文件夹：
+    * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz
+    * Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz
+    * Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz
+    * Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz
+    * Microsoft-ASR\_UA\*OL6-64\*release.tar.gz
+    * Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz
 
-6. 将以下文件复制到网络共享中的 **MobSvcLinux** 文件夹
-  * Microsoft-ASR\_UA\_*版本*\_OEL-64\_GA\_*日期*\_Release.tar.gz
-  * Microsoft-ASR\_UA\_*版本*\_RHEL6-64\_GA\_*日期*\_Release.tar.gz
-  * Microsoft-ASR\_UA\_*版本*\_RHEL7-64\_GA\_*日期*\_Release.tar.gz
-  * Microsoft-ASR\_UA\_*版本*\_SLES11-SP3-64\_GA\_*日期*\_Release.tar.gz
+7. 复制以下代码，并将它作为“install_linux.sh” 保存到“MobSvcLinux”文件夹。
+   > [!NOTE]
+   > 将此脚本中的 [CSIP] 占位符替换为配置服务器的实际 IP 地址值。
 
-7. 复制下面列出的代码，将它作为 **install\_linux.sh** 文件保存到 **MobSvcLinux** 文件夹
-> [!NOTE]
-请记得将以下脚本中的 [CSIP] 占位符替换为配置服务器 IP 地址的实际值。
+```Bash
+#!/usr/bin/env bash
 
-  [!INCLUDE [site-recovery-sccm-linux-script](../../includes/site-recovery-sccm-linux-script.md)]
+rm -rf /tmp/MobSvc
+mkdir -p /tmp/MobSvc
+INSTALL_DIR='/usr/local/ASR'
+VX_VERSION_FILE='/usr/local/.vx_version'
+
+echo "=============================" >> /tmp/MobSvc/sccm.log
+echo `date` >> /tmp/MobSvc/sccm.log
+echo "=============================" >> /tmp/MobSvc/sccm.log
+
+if [ -f /etc/oracle-release ] && [ -f /etc/redhat-release ]; then
+    if grep -q 'Oracle Linux Server release 6.*' /etc/oracle-release; then
+        if uname -a | grep -q x86_64; then
+            OS="OL6-64"
+            echo $OS >> /tmp/MobSvc/sccm.log
+            cp *OL6*.tar.gz /tmp/MobSvc
+        fi
+    fi
+elif [ -f /etc/redhat-release ]; then
+    if grep -q 'Red Hat Enterprise Linux Server release 6.* (Santiago)' /etc/redhat-release || \
+        grep -q 'CentOS Linux release 6.* (Final)' /etc/redhat-release || \
+        grep -q 'CentOS release 6.* (Final)' /etc/redhat-release; then
+        if uname -a | grep -q x86_64; then
+            OS="RHEL6-64"
+            echo $OS >> /tmp/MobSvc/sccm.log
+            cp *RHEL6*.tar.gz /tmp/MobSvc
+        fi
+    elif grep -q 'Red Hat Enterprise Linux Server release 7.* (Maipo)' /etc/redhat-release || \
+        grep -q 'CentOS Linux release 7.* (Core)' /etc/redhat-release; then
+        if uname -a | grep -q x86_64; then
+            OS="RHEL7-64"
+            echo $OS >> /tmp/MobSvc/sccm.log
+            cp *RHEL7*.tar.gz /tmp/MobSvc
+                fi
+    fi
+elif [ -f /etc/SuSE-release ] && grep -q 'VERSION = 11' /etc/SuSE-release; then
+    if grep -q "SUSE Linux Enterprise Server 11" /etc/SuSE-release && grep -q 'PATCHLEVEL = 3' /etc/SuSE-release; then
+        if uname -a | grep -q x86_64; then
+            OS="SLES11-SP3-64"
+            echo $OS >> /tmp/MobSvc/sccm.log
+            cp *SLES11-SP3*.tar.gz /tmp/MobSvc
+        fi
+    elif grep -q "SUSE Linux Enterprise Server 11" /etc/SuSE-release && grep -q 'PATCHLEVEL = 4' /etc/SuSE-release; then
+        if uname -a | grep -q x86_64; then
+            OS="SLES11-SP4-64"
+            echo $OS >> /tmp/MobSvc/sccm.log
+            cp *SLES11-SP4*.tar.gz /tmp/MobSvc
+        fi
+    fi
+elif [ -f /etc/lsb-release ] ; then
+    if grep -q 'DISTRIB_RELEASE=14.04' /etc/lsb-release ; then
+       if uname -a | grep -q x86_64; then
+           OS="UBUNTU-14.04-64"
+           echo $OS >> /tmp/MobSvc/sccm.log
+           cp *UBUNTU-14*.tar.gz /tmp/MobSvc
+       fi
+    fi
+else
+    exit 1
+fi
+
+if [ -z "$OS" ]; then
+    exit 1
+fi
+
+Install()
+{
+    echo "Perform Installation." >> /tmp/MobSvc/sccm.log
+    ./install -q -d ${INSTALL_DIR} -r MS -v VmWare
+    RET_VAL=$?
+    echo "Installation Returncode: $RET_VAL" >> /tmp/MobSvc/sccm.log
+    if [ $RET_VAL -eq 0 ]; then
+        echo "Installation has succeeded. Proceed to configuration." >> /tmp/MobSvc/sccm.log
+        Configure
+    else
+        echo "Installation has failed." >> /tmp/MobSvc/sccm.log
+        exit $RET_VAL
+    fi
+}
+
+Configure()
+{
+    echo "Perform configuration." >> /tmp/MobSvc/sccm.log
+    ${INSTALL_DIR}/Vx/bin/UnifiedAgentConfigurator.sh -i [CSIP] -P MobSvc.passphrase
+    RET_VAL=$?
+    echo "Configuration Returncode: $RET_VAL" >> /tmp/MobSvc/sccm.log
+    if [ $RET_VAL -eq 0 ]; then
+        echo "Configuration has succeeded." >> /tmp/MobSvc/sccm.log
+    else
+        echo "Configuration has failed." >> /tmp/MobSvc/sccm.log
+        exit $RET_VAL
+    fi
+}
+
+Upgrade()
+{
+    echo "Perform Upgrade." >> /tmp/MobSvc/sccm.log
+    ./install -q -v VmWare
+    RET_VAL=$?
+    echo "Upgrade Returncode: $RET_VAL" >> /tmp/MobSvc/sccm.log
+    if [ $RET_VAL -eq 0 ]; then
+        echo "Upgrade has succeeded." >> /tmp/MobSvc/sccm.log
+    else
+        echo "Upgrade has failed." >> /tmp/MobSvc/sccm.log
+        exit $RET_VAL
+    fi
+}
+
+cp MobSvc.passphrase /tmp/MobSvc
+cd /tmp/MobSvc
+
+tar -zxvf *.tar.gz
+
+if [ -e ${VX_VERSION_FILE} ]; then
+    echo "${VX_VERSION_FILE} exists. Checking for configuration status." >> /tmp/MobSvc/sccm.log
+    agent_configuration=$(grep ^AGENT_CONFIGURATION_STATUS "${VX_VERSION_FILE}" | cut -d"=" -f2 | tr -d " ")
+    echo "agent_configuration=$agent_configuration" >> /tmp/MobSvc/sccm.log
+     if [ "$agent_configuration" == "Succeeded" ]; then
+        echo "Agent is already configured. Proceed to Upgrade." >> /tmp/MobSvc/sccm.log
+        Upgrade
+    else
+        echo "Agent is not configured. Proceed to Configure." >> /tmp/MobSvc/sccm.log
+        Configure
+    fi
+else
+    Install
+fi
+
+cd /tmp
+
+```
 
 ### 步骤 2：创建包
+<a id="step-2-create-a-package" class="xliff"></a>
 
-1. 登录到 System Center Configuration Manager 控制台
-2. 浏览到“软件库”>“应用程序管理”>“包”
-3. 右键单击“包”并选择“创建包”
+1. 登录 Configuration Manager 控制台。
+2. 浏览到“软件库” > “应用程序管理” > “包”。
+3. 右键单击“包”，然后选择“创建包”。
 4. 提供“名称”、“说明”、“制造商”、“语言”和“版本”的值。
-5. 勾选“此包包含源文件”复选框。
-6. 单击“浏览”按钮，然后选择安装程序所存储到的网络共享 (\\\ContosoSecureFS\\MobilityServiceInstaller\\MobSvcLinux)
+5. 选中“此包包含源文件”复选框。
+6. 单击“浏览”，然后选择存储安装程序的网络共享(\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux)。
 
-  ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package-linux.png)  
+    ![创建包和程序向导的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package-linux.png)
 
-7. 在“选择要创建的程序的类型”页上，选择“标准程序”，然后单击“下一步”
+7. 在“选择要创建的程序类型”页上，选择“标准程序”，然后单击“下一步”。
 
-  ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)  
+    ![创建包和程序向导的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
 
-8. 在“指定有关此标准程序的信息”页中提供以下输入，然后单击“下一步”。（其他输入可保留默认值）
-
-  ![sccm-package-properties](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)  
+8. 在“指定此标准程序的相关信息”页上，提供以下输入，然后单击“下一步”。 （其他输入可以使用其默认值。）
 
 | **参数名称** | **值** |
 |--|--|
 | 名称 | 安装 Azure 移动服务 (Linux) |
-| 命令行 | ./install\_linux.sh |
+| 命令行 | ./install_linux.sh |
 | 程序可运行 | 用户是否已登录 |
 
-9. 在下一页中，选择“此程序可在任何平台上运行”
-![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)
+![创建包和程序向导的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)
 
-10. 单击“下一步”两次完成向导。
+9. 在下一页中，选择“此程序可以在任何平台上运行”。
+  ![创建包和程序向导的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)
+
+10. 要完成向导，请单击“下一步”两次。
+
 > [!NOTE]
-脚本既支持全新安装移动服务代理安装，也支持升级/更新已安装的代理。
+> 脚本支持移动服务代理的全新安装和已安装代理的更新。
 
 ### 步骤 3：部署包
-1. 在 SCCM 控制台中右键单击你的包，然后选择“分发内容”
-![distribute-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
-2. 选择该包应复制到的**[分发点](https://technet.microsoft.com/zh-cn/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
-3. 完成向导后，该包将开始复制到指定的分发点。
-4. 完成包的分发后，请右键单击该包，然后选择“部署”
-![deploy-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
+<a id="step-3-deploy-the-package" class="xliff"></a>
+1. 在 Configuration Manager 控制台中，右键单击包，然后选择“分发内容”。
+    ![Configuration Manager 控制台的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
+2. 选择包应复制到的“分发点”**[](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
+3. 完成该向导。 包随后开始复制到指定的分发点。
+4. 完成包分发后，右键单击包，然后选择“部署”。
+    ![Configuration Manager 控制台的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
 5. 选择在先决条件部分中创建的 Linux Server 设备集合作为部署的目标集合。
 
-  ![sccm-select-target-collection](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection-linux.png)  
+    ![部署软件向导的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection-linux.png)
 
-6. 在“指定内容目标”页中，选择你的**分发点**
-7. 在“指定用于控制此软件的部署方式的设置”页中，确保已根据需要选择了目的。
+6. 在“指定内容目标”页上，选择“分发点”。
+7. 在“指定设置以控制此软件的部署方式”页上，确保目的为“必需”。
 
-  ![sccm-deploy-select-purpose](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)  
+    ![部署软件向导的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
+8. 在“为此部署指定计划”页中，指定计划。 有关详细信息，请参阅[计划包](https://technet.microsoft.com/library/gg682178.aspx)。
+9. 在“分发点”页上，根据数据中心的需求配置属性。 然后完成向导。
 
-8. 在“为此部署指定计划”中指定计划。阅读有关[计划包](https://technet.microsoft.com/zh-cn/library/gg682178.aspx)的详细信息
-9. 在“分发点”页中根据数据中心的需要配置属性，然后完成向导。
+移动服务将根据配置的计划安装在 Linux 服务器设备集合上。
 
-移动服务将根据配置的计划安装在 Linux Server 设备集合中。
+## 安装移动服务的其他方法
+<a id="other-methods-to-install-mobility-service" class="xliff"></a>
+以下是用于安装移动服务的一些其他选项：
+* [使用 GUI 手动安装](http://aka.ms/mobsvcmanualinstall)
+* [使用命令行手动安装](http://aka.ms/mobsvcmanualinstallcli)
+* [使用配置服务器推送安装](http://aka.ms/pushinstall)
+* [使用 Azure 自动化和 Desired State Configuration 自动安装](http://aka.ms/mobsvcdscinstall)
 
-## 移动服务的其他安装方法
-请阅读有关移动服务的其他安装方法的详细信息。
+## 卸载移动服务
+<a id="uninstall-mobility-service" class="xliff"></a>
+可以创建用于卸载移动服务的 Configuration Manager 包。 使用以下脚本执行相关操作：
 
-* [使用 Azure 自动化和 Desired State Configuration 自动安装](./site-recovery-automate-mobility-service-install.md)
+```
+Time /t >> C:\logfile.log
+REM ==================================================
+REM ==== Check if Mob Svc is already installed =======
+REM ==== If not installed no operation required ========
+REM ==== Else run uninstall command =====================
+REM ==== {275197FC-14FD-4560-A5EB-38217F80CBD1} is ====
+REM ==== guid for Mob Svc Installer ====================
+whoami >> C:\logfile.log
+NET START | FIND "InMage Scout Application Service"
+IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
+:NOOPERATION
+                echo "No Operation Required." >> c:\logfile.log
+                GOTO :ENDSCRIPT
+:UNINSTALL
+                echo "Uninstall" >> C:\logfile.log
+                MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+:ENDSCRIPT
 
+```
 
-<!---HONumber=Mooncake_0206_2017-->
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+现在，可为虚拟机 [启用保护](/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications)。

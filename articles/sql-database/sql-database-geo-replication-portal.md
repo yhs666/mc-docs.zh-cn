@@ -13,21 +13,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/06/2016
+ms.date: 03/062/2016
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 72fba91abe28d36fb92527e506cb7bdb1d83288f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
-
+ms.openlocfilehash: cbe5de8822b3f1b43f25f6b3b26f5d9ccf0b1179
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-preview-and-initiate-failover"></a>在 Azure 门户中为 Azure SQL 数据库配置活动异地复制，并启动故障转移
+# 在 Azure 门户中为 Azure SQL 数据库配置活动异地复制，并启动故障转移
+<a id="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover" class="xliff"></a>
 
 本文说明如何在 [Azure 门户](http://portal.azure.cn)中为 SQL 数据库配置活动异地复制，以及如何启动故障转移。
 
-若要使用 Azure 门户启动故障转移，请参阅[使用 Azure 门户为 Azure SQL 数据库启动计划内或计划外故障转移](sql-database-geo-replication-failover-portal.md)。
+若要使用 Azure 门户启动故障转移，请参阅 [使用 Azure 门户为 Azure SQL 数据库启动计划内或计划外故障转移](sql-database-geo-replication-failover-portal.md)。
 
 >[!NOTE]
 > 活动异地复制（可读辅助数据库）现在可供所有服务层中的所有数据库使用。 非可读辅助类型将在 2017 年 4 月停用，现有的非可读数据库将自动升级到可读辅助数据库。
@@ -41,7 +40,8 @@ ms.lasthandoff: 04/07/2017
 > [!NOTE]
 活动异地复制必须在同一订阅中的数据库之间进行。
 
-## <a name="add-a-secondary-database"></a>添加辅助数据库
+## 添加辅助数据库
+<a id="add-a-secondary-database" class="xliff"></a>
 以下步骤在异地复制合作关系中创建新的辅助数据库。  
 
 只有订阅所有者或共有者才能添加辅助数据库。
@@ -69,7 +69,8 @@ ms.lasthandoff: 04/07/2017
 
     ![种子设定完成](./media/sql-database-geo-replication-portal/seeding-complete.png)
 
-## <a name="initiate-a-failover"></a>启动故障转移
+## 启动故障转移
+<a id="initiate-a-failover" class="xliff"></a>
 
 辅助数据库可以通过切换变为主数据库。  
 
@@ -89,7 +90,8 @@ ms.lasthandoff: 04/07/2017
 > 
 > 
 
-## <a name="remove-secondary-database"></a>删除辅助数据库
+## 删除辅助数据库
+<a id="remove-secondary-database" class="xliff"></a>
 此操作会永久终止到辅助数据库的复制，并会将辅助数据库的角色更改为常规的读写数据库。 如果与辅助数据库的连接断开，命令会成功，但辅助数据库必须等到连接恢复后才会变为可读写。  
 
 1. 在 [Azure 门户](http://portal.azure.cn)中浏览到异地复制合作关系中的主数据库。
@@ -100,8 +102,8 @@ ms.lasthandoff: 04/07/2017
     ![删除辅助数据库](./media/sql-database-geo-replication-portal/remove-secondary.png)
 5. 确认窗口随即打开。 单击“是”从异地复制合作关系中删除数据库。 （将其设置为不属于任何复制的读写数据库。）
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * 若要深入了解活动异地复制，请参阅[活动异地复制](sql-database-geo-replication-overview.md)。
 * 有关业务连续性概述和应用场景，请参阅[业务连续性概述](sql-database-business-continuity.md)。
-
 

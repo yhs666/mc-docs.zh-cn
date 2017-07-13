@@ -3,7 +3,7 @@ title: "了解 Azure Service Fabric 支持选项 | Microsoft Docs"
 description: "支持的 Azure Service Fabric 群集版本，以及文件支持票证的链接。"
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: pkc
 manager: timlt
 editor: 
 ms.assetid: 
@@ -12,20 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/10/2017
+ms.date: 05/05/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 8bf6f082fec58204c6f136ca2ec3c4b2f7b3d4eb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 34466abba49bd358d74de9a4fb5ffa14e52072a4
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支持选项
+# Azure Service Fabric 支持选项
+<a id="azure-service-fabric-support-options" class="xliff"></a>
 
 <a id="releasesuport"></a>
-## <a name="supported-service-fabric-versions"></a>支持的 Service Fabric 版本。
+## 支持的 Service Fabric 版本。
+<a id="supported-service-fabric-versions" class="xliff"></a>
 
 请确保群集始终运行受支持的 Service Fabric 版本。 当我们宣布发行新版 Service Fabric 时，以前的版本标记为自发布日期起至少 60 天后结束支持。 新版本在 [Service Fabric 团队博客](https://blogs.msdn.microsoft.com/azureservicefabric/)中公布。
 
@@ -41,10 +41,12 @@ ms.lasthandoff: 04/14/2017
 | 5.3.121 之前的所有群集版本 |2017 年 1 月 20 日 |
 | 5.3.* |2017 年 2 月 24 日 |
 | 5.4.* |2017 年 5 月 10 日     |
-| 5.5.* |当前版本，因此无结束日期
+| 5.5.* |2017 年 7 月 10 日    |
+| 5.6.* |当前版本，因此无结束日期
 
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 - [在 Azure 群集上升级 Service Fabric 版本](service-fabric-cluster-upgrade.md)
 - [在单独的 Windows Server 群集上升级 Service Fabric 版本](service-fabric-cluster-upgrade-windows-server.md)

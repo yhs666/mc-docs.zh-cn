@@ -16,23 +16,23 @@ ms.topic: article
 origin.date: 03/20/2017
 ms.date: 05/15/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 15343f21fced95891d692da6bcb7899e31585041
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 64f058cd9805c395d3399a866f56a90614831385
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="about-images-for-windows-virtual-machines"></a>关于 Windows 虚拟机的映像
+# 关于 Windows 虚拟机的映像
+<a id="about-images-for-windows-virtual-machines" class="xliff"></a>
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关在 Resource Manager 模型中查找和使用映像的信息，请参阅[此处](../../virtual-machines-windows-cli-ps-findimage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 [!INCLUDE [virtual-machines-common-classic-about-images](../../../../includes/virtual-machines-common-classic-about-images.md)]
 
-## <a name="working-with-images"></a>使用映像
+## 使用映像
+<a id="working-with-images" class="xliff"></a>
 
-可以通过 Azure PowerShell 模块和 Azure 门户管理可供 Azure 订阅使用的映像。 Azure PowerShell 模块提供更多命令选项，以便可以明确确定要查看或执行的操作。 Azure 门户为许多日常管理任务提供了 GUI。
+可以使用 Azure PowerShell 模块和 Azure 门户管理可供 Azure 订阅使用的映像。 Azure PowerShell 模块提供更多命令选项，以便可以明确确定要查看或执行的操作。 Azure 门户为许多日常管理任务提供了 GUI。
 
 下面是一些使用 Azure PowerShell 模块的示例。
 
@@ -43,11 +43,11 @@ ms.lasthandoff: 05/05/2017
 * **保存通用映像**：`Save-AzureVMImage -ServiceName "myServiceName" -Name "MyVMtoCapture" -OSState "Generalized" -ImageName "MyVmImage" -ImageLabel "This is my generalized image"`
 * **保存专用映像**：`Save-AzureVMImage -ServiceName "mySvc2" -Name "MyVMToCapture2" -ImageName "myFirstVMImageSP" -OSState "Specialized" -Verbose`
 
-    > [!TIP]
-    > 若要创建包含操作系统磁盘和附加数据磁盘的 VM 映像，OSState 参数是必需的。 如果未使用此参数，该 cmdlet 将创建 OS 映像。 该参数的值根据操作系统磁盘是否已准备好重用来指示映像是通用的还是专用的。
+  > [!TIP]
+  > 若要创建包含操作系统磁盘和附加数据磁盘的 VM 映像，OSState 参数是必需的。 如果未使用此参数，该 cmdlet 将创建 OS 映像。 该参数的值根据操作系统磁盘是否已准备好重用来指示映像是通用的还是专用的。
 
 * **删除映像**：`Remove-AzureVMImage -ImageName "MyOldVmImage"`
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 还可以[使用 Azure 门户创建 Windows 计算机](tutorial.md)。
-

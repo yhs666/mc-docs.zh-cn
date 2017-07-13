@@ -16,21 +16,21 @@ ms.topic: article
 origin.date: 02/14/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 201cef3123355f09a379fd1c5903415bc43f64bc
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: bbf92253d13e6c66460ed2880029fed292a8e56d
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="create-and-run-stored-procedures-triggers-and-user-defined-functions-using-the-azure-documentdb-script-explorer"></a>使用 DocumentDB 脚本资源管理器创建并运行存储过程、触发器和用户定义的函数
+# 使用 DocumentDB 脚本资源管理器创建并运行存储过程、触发器和用户定义的函数。
+<a id="create-and-run-stored-procedures-triggers-and-user-defined-functions-using-the-documentdb-script-explorer" class="xliff"></a>
 本文概述了 [DocumentDB](https://www.azure.cn/home/features/documentdb/) 脚本资源管理器，它是 Azure 门户中的 JavaScript 编辑器，用于查看和执行 DocumentDB 服务器端的编程项目，包括存储过程、触发器和用户定义的函数。 阅读[存储过程、数据库触发器和 UDF](documentdb-programming.md) 一文中有关 DocumentDB 服务器端编程的详细信息。
 
-## <a name="launch-script-explorer"></a>启动脚本资源管理器
-1. 在 [Azure 门户](https://portal.azure.cn)的左侧导航栏中，单击![DocumentDB 图标](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **DocumentDB**。 
+## 启动脚本资源管理器
+<a id="launch-script-explorer" class="xliff"></a>
+1. 在 [Azure 门户](https://portal.azure.cn)的左侧导航窗格中，单击 ![DocumentDB 图标](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png)“DocumentDB”。 
 
-    如果 **DocumentDB** 不可见，请单击底部的“更多服务”，然后单击 ![DocumentDB 图标](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **DocumentDB**。
+    如果“DocumentDB”不可见，请单击底部的“更多服务”，然后单击 ![DocumentDB 图标](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png)“DocumentDB”。
 2. 在资源菜单中，单击“脚本资源管理器” 。
    
     ![脚本资源管理器命令的屏幕截图](./media/documentdb-view-scripts/scriptexplorercommand.png)
@@ -48,7 +48,8 @@ ms.lasthandoff: 05/19/2017
    
     ![脚本资源管理器“刷新”命令的屏幕截图](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
-## <a name="create-view-and-edit-stored-procedures-triggers-and-user-defined-functions"></a>创建、查看和编辑存储过程、触发器和用户定义的函数
+## 创建、查看和编辑存储过程、触发器和用户定义的函数
+<a id="create-view-and-edit-stored-procedures-triggers-and-user-defined-functions" class="xliff"></a>
 脚本资源管理器让你可以对 DocumentDB 服务器端的编程项目轻松执行 CRUD 操作。  
 
 - 若要创建脚本，只需单击脚本资源管理器中相应的创建命令，提供一个 id，输入脚本内容，然后单击“保存” 即可。
@@ -81,7 +82,8 @@ ms.lasthandoff: 05/19/2017
   
     ![脚本资源管理器“删除”命令的屏幕截图](./media/documentdb-view-scripts/scriptexplorerdeletescript2.png)
 
-## <a name="execute-a-stored-procedure"></a>执行存储过程
+## 执行存储过程
+<a id="execute-a-stored-procedure" class="xliff"></a>
 > [!WARNING]
 > 对于服务器端分区的集合，尚不支持在脚本资源管理器中执行存储过程。 有关详细信息，请访问 [DocumentDB 中的分区和缩放](documentdb-partition-data.md)。
 > 
@@ -105,12 +107,13 @@ ms.lasthandoff: 05/19/2017
   
     ![脚本资源管理器脚本属性视图的屏幕截图。 执行有错的存储过程](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-error.png)
 
-## <a name="work-with-scripts-outside-the-portal"></a>在门户外使用脚本
+## 在门户外使用脚本
+<a id="work-with-scripts-outside-the-portal" class="xliff"></a>
 Azure 门户中的脚本资源管理器只是在 DocumentDB 中使用存储过程、触发器和用户定义的函数的一种方式。 还可以通过 REST API 和[客户端 SDK](documentdb-sdk-dotnet.md) 使用这些脚本。 REST API 文档包含有关[使用 REST 的存储过程](https://msdn.microsoft.com/library/azure/mt489092.aspx)、[使用 REST 的用户定义的函数](https://msdn.microsoft.com/library/azure/dn781481.aspx)和[使用 REST 的触发器](https://msdn.microsoft.com/library/azure/mt489116.aspx)的使用示例。 还提供了介绍如何[使用 C# 处理脚本](documentdb-dotnet-samples.md#server-side-programming-examples)和[使用 Node.js 处理脚本](documentdb-nodejs-samples.md#server-side-programming-examples)的信息的示例。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 在[存储过程、数据库触发器和 UDF](documentdb-programming.md) 一文中了解有关 DocumentDB 服务器端编程的详细信息。
-
 
 
 

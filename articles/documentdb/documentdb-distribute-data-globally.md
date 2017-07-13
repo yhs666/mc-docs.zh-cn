@@ -15,18 +15,17 @@ ms.workload: na
 origin.date: 03/14/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: ee628332ede0150fc3278426dc7d1e3cf01b6f78
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: f397e21b89c2a2b5cfa4e8bf66b166c9c3f22c41
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="how-to-distribute-data-globally-with-azure-documentdb"></a>如何使用 DocumentDB 全局分配数据？
+# 如何使用 DocumentDB 全局分配数据？
+<a id="how-to-distribute-data-globally-with-documentdb" class="xliff"></a>
 Azure 无所不在 - 跨 30 多个地理区域，遍布全球并且仍在持续扩展中。 遍及全球的 Azure 为开发人员提供一种差异化功能，让他们轻松构建、部署和管理全球分布的应用程序。 
 
-[DocumentDB](./documentdb-resources.md) 是 Microsoft 针对任务关键型应用程序提供的全局分布式多模型数据库服务。 DocumentDB 在全球范围内提供[统包全局分发](documentdb-distribute-data-globally.md)、吞吐量和存储的弹性扩展、99% 的情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](documentdb-consistency-levels.md)以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/legal/sla) 提供支持。 DocumentDB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键-值、图形和列式数据模型。 作为一种基于云的服务，DocumentDB 通过多租户和全局分发获得了全面彻底的精心设计。
+[DocumentDB](./documentdb-resources.md) 是 Microsoft 针对任务关键型应用程序提供的全局分布式多模型数据库服务。 DocumentDB 提供[统包全局分发](documentdb-distribute-data-globally.md)、吞吐量和存储在全球范围内的弹性扩展、99% 的情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](documentdb-consistency-levels.md)以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/legal/sla/) 提供支持。 DocumentDB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键-值、图形和列式数据模型。 作为一种基于云的服务，DocumentDB 通过多租户和全局分发获得了全面彻底的精心设计。
 
 **已分区并分布在三个 Azure 区域的单个 DocumentDB 集合**
 
@@ -34,7 +33,7 @@ Azure 无所不在 - 跨 30 多个地理区域，遍布全球并且仍在持续�
 
 正如我们生成 DocumentDB 时所获知的一样，添加全局分发不能事后才进行 - 不能将其“锁定”到“单一站点”数据库系统之上。 全球分布式数据库提供的功能远远超过“单站点”数据库提供的传统地区性灾难恢复（异地灾难恢复）功能。 提供异地灾难恢复功能的单站点数据库是分布在全球各地的数据库的严格子集。 
 
-使用 DocumentDB 周全的全局分布功能，开发人员可以通过数据库日志采用 Lambda 模式（例如，[AWS DynamoDB 复制](https://github.com/awslabs/dynamodb-cross-region-library/blob/master/README.md)），或跨多个区域执行“重复写入”，而无需构建自己的复制基架。 由于无法确保这些做法的正确性并提供完善的 SLA，因此我们不建议使用此类做法。 
+通过 DocumentDB 的统包全局分发，开发人员无需通过对数据库日志采用 Lambda 模式（例如， [AWS DynamoDB 复制](https://github.com/awslabs/dynamodb-cross-region-library/blob/master/README.md)）或跨多个区域进行“双写入”生成自己的复制基架。 由于无法确保这些做法的正确性并提供完善的 SLA，因此我们不建议使用此类做法。 
 
 本文提供 DocumentDB 全球分布功能的概述。 另外，介绍 DocumentDB 提供全面 SLA 的独特方式。 
 
@@ -46,7 +45,7 @@ Azure 通过将新的地理区域上线，不断扩大其地理覆盖范围。 �
 
 **默认情况下，在所有 Azure 区域中都可使用 DocumentDB**
 
-![在所有 Azure 区域中都可使用 DocumentDB](./media/documentdb-distribute-data-globally/azure-regions.png)
+![所有 Azure 区域都已推出 DocumentDB](./media/documentdb-distribute-data-globally/azure-regions.png)
 
 ### <a id="UnlimitedRegionsPerAccount"></a>将数目不限的区域与 DocumentDB 数据库帐户相关联
 在 DocumentDB 中，可将任意数量的 Azure 区域与 DocumentDB 数据库帐户相关联。 除了地域隔离限制（例如在中国和德国）以外，可与 DocumentDB 数据库帐户关联的区域数目没有限制。 下图显示了一个配置跨越了 25 个 Azure 区域的数据库帐户。  
@@ -75,7 +74,7 @@ DocumentDB 允许让数据库帐户在特定区域离线，之后再让其重新
 DocumentDB 会公开由 SLA 提供支持的[多个定义完善的一致性级别](documentdb-consistency-levels.md)。 可根据工作负荷/方案选择特定的一致性模型（从可用的选项列表选择）。 
 
 ### <a id="TunableConsistency"></a>可优化的全局复制数据库一致性
-DocumentDB 允许基于每个请求在运行时以编程方式替代和放宽默认的一致性选择。 
+DocumentDB 允许基于每个请求在运行时以编程方式重写和放宽默认的一致性选择。 
 
 ### <a id="DynamicallyConfigurableReadWriteRegions"></a>可动态配置的读取和写入区域
 DocumentDB 允许将区域配置为“读取”、“写入”或“读/写”区域（与数据库关联）。 
@@ -98,10 +97,10 @@ DocumentDB 支持在发生一个或多个区域性故障时自动进行故障转
 ### <a id="MultiHomingAPIs"></a>DocumentDB 中的多宿主 API
 DocumentDB 允许使用逻辑（区域不可知）或物理（特定于区域）终结点与数据库交互。 使用逻辑终结点可确保发生故障转移时，应用程序可以透明方式采用多个宿主。 后者（物理终结点）提供对应用程序的细粒度控制，以将读取和写入重定向到特定区域。
 
-可在相应的链接文章中找到有关如何为 DocumentDB、图形、表和 MongoDB API 配置读取首选项的信息。
+可在相应的链接文章中找到有关如何为 DocumentDB、图、表和 MongoDB API 配置读取首选项的信息。
 
 ### <a id="TransparentSchemaMigration"></a>透明且一致的数据库架构和索引迁移 
-DocumentDB 完全与[架构无关](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)。 其数据库引擎的特殊设计允许其自动且同步地索引所有其引入的数据，而无需要求用户提供任何架构或辅助索引。 这使用户能够快速地循环访问全局分布式应用程序，而无需担心数据库架构和索引迁移或者协调多阶段应用程序的架构更改推出。 DocumentDB 保证用户对索引策略进行的任何显式更改不会导致性能或可用性的降低。  
+DocumentDB 完全与 [架构无关](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)。 其数据库引擎的特殊设计允许其自动且同步地索引所有其引入的数据，而无需要求用户提供任何架构或辅助索引。 这使用户能够快速地循环访问全局分布式应用程序，而无需担心数据库架构和索引迁移或者协调多阶段应用程序的架构更改推出。 DocumentDB 保证用户对索引策略进行的任何显式更改不会导致性能或可用性的降低。  
 
 ### <a id="ComprehensiveSLAs"></a>综合 SlA（不只是高可用性）
 作为一种全局分布式数据库服务，无论与数据库关联的区域数量是多少，DocumentDB 都可为整个数据库提供针对**数据丢失**、**可用性**、**P99 的延迟**、**吞吐量**和**一致性**的定义完善的 SLA。  
@@ -117,7 +116,7 @@ DocumentDB 确保无需读取操作便可跨多个区域联系副本，提供特
 ### <a id="LatencyAndAvailability"></a>延迟与可用性的关系 
 延迟与可用性类似于同一硬币的两面。 我们讨论的是出现故障时的操作延迟（稳定状态下）和可用性。 从应用程序角度来看，慢速运行的数据库操作与不可用的数据库没有区别。 
 
-为将高延迟与不可用区分开来，DocumentDB 针对各种数据库操作的延迟提供绝对上限。 如果数据库操作完成所用时间超过上限，DocumentDB将返回超时错误。 DocumentDB 可用性 SLA 确保根据可用性 SLA 计算超时。 
+为将高延迟与不可用区分开来，DocumentDB 针对各种数据库操作的延迟提供绝对上限。 如果数据库操作完成所用时间超过上限，DocumentDB 将返回超时错误。 DocumentDB 可用性 SLA 确保根据可用性 SLA 计算超时。 
 
 ### <a id="LatencyAndThroughput"></a>延迟与吞吐量的关系
 DocumentDB 不会让用户在延迟和吞吐量之间做出选择。 它遵循 SLA，两者延迟均为 P99 并提供预配的吞吐量。 
@@ -202,7 +201,7 @@ DocumentDB 集合使用两个维度进行分布 - 先在某个区域内，然后
  
 **灵活预配吞吐量的客户集合（1M-10M 个请求/秒）**
 
-![DocumentDB 灵活预配的吞吐量](./media/documentdb-distribute-data-globally/documentdb-elastic-throughput.png)
+![DocumentDB 弹性预配的吞吐量](./media/documentdb-distribute-data-globally/documentdb-elastic-throughput.png)
 
 ### <a id="ThroughputAndConsistency"></a>吞吐量与一致性的关系 
 与 [一致性与吞吐量的关系](#ConsistencyAndThroughput)相同。
@@ -217,7 +216,7 @@ DocumentDB 为每一个数据和控制平面操作提供 99.99% 的运行时间�
 [一致性与可用性的关系](#ConsistencyAndAvailability)、[延迟与可用性的关系](#LatencyAndAvailability)和[吞吐量与可用性的关系](#ThroughputAndAvailability)中介绍了可用性与一致性、延迟和吞吐量的关系。 
 
 ## <a id="GuaranteesAgainstDataLoss"></a>针对“数据丢失”的保证和系统行为
-在 DocumentDB 中，集合的每个分区通过至少跨 10-20 个容错域分布的大量副本实现高度可用。 所有写入先由副本的多数仲裁进行同步和持久地提交，然后才会确认到客户端。 通过协调，在跨多个区域分布的分区中应用异步复制。 DocumentDB 保证租户启动的手动故障转移不会发生数据丢失。 在自动故障转移期间，作为其 SLA 的一部分，DocumentDB 会保证所配置的关于数据丢失窗口的有限过期间隔的上限。
+在 DocumentDB 中，集合的每个分区通过至少跨 10-20 个容错域分布的大量副本实现高度可用。 所有写入先由副本的多数仲裁进行同步和持久地提交，然后才会确认到客户端。 通过协调，在跨多个区域分布的分区中应用异步复制。 DocumentDB 保证租户启动的手动故障转移不会发生数据丢失。 在自动故障转移期间，作为其 SLA 的一部分，DocumentDB 会保证所配置的关于数据丢失窗口的受限停滞间隔的上限。
 
 ## <a id="CustomerFacingSLAMetrics"></a>面向 SLA 指标的客户
 DocumentDB 以透明方式公开吞吐量、延迟、一致性和可用性指标。 这些指标可通过 Azure 门户以编程方式进行访问（参阅下图）。 还可以使用 Azure Application Insights 对各种阈值设置警报。
@@ -227,7 +226,7 @@ DocumentDB 以透明方式公开吞吐量、延迟、一致性和可用性指标
 ![DocumentDB 中客户可见的 SLA 指标](./media/documentdb-distribute-data-globally/documentdb-customer-slas.png)
 
 ## <a id="Next Steps"></a>后续步骤
-- 若要了解如何通过 DocumentDB 实现多主体系结构，请参阅[使用 DocumentDB 实现的多主数据库体系结构 ](documentdb-multi-region-writers.md)。
+- 若要了解如何通过 DocumentDB 实现多主体系结构，请参阅[使用 DocumentDB 实现的多主数据库体系结构](documentdb-multi-region-writers.md)。
 - 若要深入了解 DocumentDB 中自动和手动故障转移如何工作，请参阅 [DocumentDB 中的区域故障转移](documentdb-regional-failovers.md)。
 
 ## <a id="References"></a>参考

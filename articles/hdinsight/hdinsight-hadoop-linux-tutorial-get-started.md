@@ -18,26 +18,27 @@ ms.workload: big-data
 origin.date: 05/12/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 006ec584e2ddb31f81cda874dbf1ae2a2a9a60f4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 7cae83ce228286081519a4d81faf44a7d0baf612
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop 教程：开始使用 HDInsight 中的 Hadoop
+# Hadoop 教程：开始使用 HDInsight 中的 Hadoop
+<a id="hadoop-tutorial-get-started-using-hadoop-in-hdinsight" class="xliff"></a>
 
 了解如何在 HDInsight 中创建 [Hadoop](http://hadoop.apache.org/) 群集，以及如何在 HDInsight 中运行 Hive 作业。 [Apache Hive](https://hive.apache.org/) 是 Hadoop 生态系统中最热门的组件。 目前，HDInsight 随附六种不同类型的群集：[Hadoop](hdinsight-hadoop-introduction.md)、[Spark](hdinsight-apache-spark-overview.md)、[HBase](hdinsight-hbase-overview.md)、[Storm](hdinsight-storm-overview.md) 和[交互式 Hive（预览版）](hdinsight-hadoop-use-interactive-hive.md)。  每个群集类型都支持一组不同的组件。 所有六种群集类型都支持 Hive。 有关 HDInsight 中受支持组件的列表，请参阅 [HDInsight 提供的 Hadoop 群集版本中有哪些新功能？](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 在开始阅读本教程前，必须具备以下条件：
 
-* **Azure 订阅**：若要创建试用一个月的帐户，请浏览到 [https://www.azure.cn/pricing/1rmb-trial/](https://www.azure.cn/pricing/1rmb-trial/)。
+* **Azure 订阅**：若要创建免费试用一个月的帐户，请浏览到 [https://www.azure.cn/pricing/1rmb-trial/](https://www.azure.cn/pricing/1rmb-trial/)。
 
-## <a name="create-cluster"></a>创建群集
+## 创建群集
+<a id="create-cluster" class="xliff"></a>
 
 大部分 Hadoop 作业都是批处理作业。 你可以创建群集、运行某些作业，然后删除该群集。 本部分介绍如何使用 [Azure Resource Manager 模板](../azure-resource-manager/resource-group-template-deploy.md)在 HDInsight 中创建 Hadoop 群集。 对于遵循本教程，Resource Manager 模板体验不是必需的。 如需其他群集创建方法或需了解本教程中使用的属性，请参阅[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。 使用页面顶部的选择器来选择群集创建选项。
 
@@ -75,7 +76,8 @@ ms.lasthandoff: 05/26/2017
 
    ![HDInsight Linux 入门群集设置](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "HDInsight 群集属性")
 
-## <a name="run-hive-queries"></a>运行 Hive 查询
+## 运行 Hive 查询
+<a id="run-hive-queries" class="xliff"></a>
 [Apache Hive](hdinsight-use-hive.md) 是 HDInsight 中最流行的组件。 有多种方法可以在 HDInsight 中运行 Hive 作业。 本教程中将从门户中使用 Ambari Hive 视图运行某些 Hive 作业。 有关提交 Hive 作业的其他方法，请参阅[在 HDInsight 中使用 Hive](hdinsight-use-hive.md)。
 
 1. 根据上面的屏幕截图所示单击“群集仪表板”，然后单击“HDInsight 群集仪表板”。  也可以在浏览到 **https://&lt;ClusterName>.azurehdinsight.cn** 后打开 Ambari，其中 &lt;ClusterName> 是在上一部分创建的群集。
@@ -87,10 +89,10 @@ ms.lasthandoff: 05/26/2017
 
         SHOW TABLES;
 
-    > [!NOTE]
-    > 对于 Hive，需使用分号。       
-    > 
-    > 
+   > [!NOTE]
+   > 对于 Hive，需使用分号。       
+   > 
+   > 
 5. 单击“执行” 。 “查询进程结果”  部分应出现在“查询编辑器”下方，并显示有关作业的信息。 
 
     查询完成后，“查询进程结果”  部分将显示该操作的结果。 此时会看到一个名为 **hivesampletable** 的表。 所有 HDInsight 群集都随附了此示例 Hive 表。
@@ -100,28 +102,31 @@ ms.lasthandoff: 05/26/2017
 
         SELECT * FROM hivesampletable;
 
-    > [!TIP]
-    > 请注意“查询过程结果”部分右上角的“保存结果”下拉列表；可以使用此下拉列表下载结果，或者将结果以 CSV 文件形式保存到 HDInsight 存储。
-    > 
-    > 
+   > [!TIP]
+   > 请注意“查询过程结果”部分右上角的“保存结果”下拉列表；可以使用此下拉列表下载结果，或者将结果以 CSV 文件形式保存到 HDInsight 存储。
+   > 
+   > 
 7. 单击“历史记录”  来获取作业列表。
 
 完成 Hive 作业后，可以[将结果导出到 Azure SQL 数据库或 SQL Server 数据库](hdinsight-use-sqoop-mac-linux.md)，还可以[使用 Excel 将结果可视化](hdinsight-connect-excel-power-query.md)。 有关在 HDInsight 中使用 Hive 的详细信息，请参阅[将 Hive 和 HiveQL 与 HDInsight 中的 Hadoop 配合使用以分析示例 Apache log4j 文件](hdinsight-use-hive.md)。
 
-## <a name="clean-up-the-tutorial"></a>结束本教程
+## 结束本教程
+<a id="clean-up-the-tutorial" class="xliff"></a>
 完成教程之后，可能想要删除该群集。 有了 HDInsight，你就可以将数据存储在 Azure 存储中，因此可以在群集不用时安全地删除群集。 此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用高于存储空间费用数倍，因此在不使用群集时将其删除可以节省费用。 
 
 **删除群集和/或默认存储帐户**
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 从门户仪表板中，单击创建群集时使用的资源组名称的磁贴。
 3. 在资源边栏选项卡中单击“删除”，删除包含群集和默认存储帐户的资源组；或者，在“资源”磁贴中单击群集名称，然后在群集边栏选项卡中单击“删除”。 注意，删除资源组会删除存储帐户。 如果想要保留存储帐户，请选择仅删除群集。
 
-## <a name="troubleshoot"></a>故障排除
+## 故障排除
+<a id="troubleshoot" class="xliff"></a>
 
 如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md#create-clusters)。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 在本教程中，你已学习如何使用 Resource Manager 模板创建基于 Linux 的 HDInsight 群集，以及如何执行基本 Hive 查询。
 
 有关如何使用 HDInsight 分析数据的详细信息，请参阅以下文章：
@@ -142,9 +147,9 @@ ms.lasthandoff: 05/26/2017
 * 若要详细了解在创建 HDInsight 群集时可以选择哪些选项，请参阅[使用自定义选项在 Linux 上创建 HDInsight](hdinsight-hadoop-provision-linux-clusters.md)。
 * 如果熟悉 Linux 和 Hadoop，但想要了解有关 HDInsight 上 Hadoop 的具体信息，请参阅[使用 Linux 上的 HDInsight](hdinsight-hadoop-linux-information.md)。 此文提供了如下所述信息：
 
-    * 群集上托管的服务（例如 Ambari 和 WebHCat）的 URL
-    * Hadoop 文件和示例在本地文件系统上的位置
-    * 使用 Azure 存储 (WASB) 而不是 HDFS 作为默认数据存储
+  * 群集上托管的服务（例如 Ambari 和 WebHCat）的 URL
+  * Hadoop 文件和示例在本地文件系统上的位置
+  * 使用 Azure 存储 (WASB) 而不是 HDFS 作为默认数据存储
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
@@ -153,4 +158,3 @@ ms.lasthandoff: 05/26/2017
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-

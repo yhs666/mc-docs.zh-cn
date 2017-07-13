@@ -1,12 +1,11 @@
 ---
-title: 托管多个站点的现有应用程序网关 | Azure
-description: 此页说明了如何通过 Azure 门户配置现有的 Azure 应用程序网关，以便在同一网关托管多个 Web 应用程序。
+title: "使用 Azure 应用程序网关托管多个站点 | Azure"
+description: "此页说明了如何通过 Azure 门户配置现有的 Azure 应用程序网关，以便在同一网关上托管多个 Web 应用程序。"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
 manager: timlt
 editor: tysonn
-
 ms.assetid: 95f892f6-fa27-47ee-b980-7abf4f2c66a9
 ms.service: application-gateway
 ms.devlang: na
@@ -14,26 +13,36 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 03/28/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
+ms.openlocfilehash: 94c1a9e65da951d9fe57aff2d41cc03ca965aafb
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # 配置托管多个 Web 应用程序的现有应用程序网关
-> [!div class="op_single_selector"]
->- [Azure 门户](./application-gateway-create-multisite-portal.md)
->- [Azure Resource Manager PowerShell](./application-gateway-create-multisite-azureresourcemanager-powershell.md)
+<a id="configure-an-existing-application-gateway-for-hosting-multiple-web-applications" class="xliff"></a>
 
-托管多个站点可以让你在同一应用程序网关上部署多个 Web 应用程序。系统会通过传入 HTTP 请求中存在的主机标头来确定接收流量的侦听器。然后，侦听器会根据网关规则定义中的配置将流量定向到适当的后端池。在启用了 SSL 的 Web 应用程序中，应用程序网关将根据服务器名称指示 (SNI) 扩展来选择 Web 流量的适当侦听器。通常会通过托管多个站点将不同 Web 域的请求负载均衡到不同的后端服务器池。同样还可以将同一根域的多个子域托管到同一应用程序网关。
+> [!div class="op_single_selector"]
+> * [Azure 门户](application-gateway-create-multisite-portal.md)
+> * [Azure Resource Manager PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+> 
+> 
+
+托管多个站点可以让你在同一应用程序网关上部署多个 Web 应用程序。 系统会通过传入 HTTP 请求中存在的主机标头来确定接收流量的侦听器。 然后，侦听器会根据网关规则定义中的配置将流量定向到适当的后端池。 在启用了 SSL 的 Web 应用程序中，应用程序网关将根据服务器名称指示 (SNI) 扩展来选择 Web 流量的适当侦听器。 通常会通过托管多个站点将不同 Web 域的请求负载均衡到不同的后端服务器池。 同样还可以将同一根域的多个子域托管到同一应用程序网关。
 
 ## 方案
+<a id="scenario" class="xliff"></a>
 
-在以下示例中，应用程序网关使用两个后端服务器池来为 contoso.com 和 fabrikam.com 提供流量：contoso 服务器池和 fabrikam 服务器池。可以使用类似的设置来托管 app.contoso.com 和 blog.contoso.com 这样的子域。
+在以下示例中，应用程序网关使用两个后端服务器池来为 contoso.com 和 fabrikam.com 提供流量：contoso 服务器池和 fabrikam 服务器池。 可以使用类似的设置来托管 app.contoso.com 和 blog.contoso.com 这样的子域。
 
-![多站点方案][multisite]  
+![多站点方案][multisite]
 
 ## 开始之前
+<a id="before-you-begin" class="xliff"></a>
 
-此方案将多站点支持添加到现有应用程序网关。若要完成此方案，需要使用现有应用程序网关进行配置。请访问[使用门户创建应用程序网关](./application-gateway-create-gateway-portal.md)，了解如何在门户中创建基本的应用程序网关。
+此方案将多站点支持添加到现有应用程序网关。 若要完成此方案，需要使用现有应用程序网关进行配置。 请访问[使用门户创建应用程序网关](application-gateway-create-gateway-portal.md)，了解如何在门户中创建基本的应用程序网关。
 
 以下是更新应用程序网关所需执行的步骤：
 
@@ -42,89 +51,102 @@ ms.author: v-dazen
 3. 创建规则，为每个侦听器映射相应的后端。
 
 ## 要求
+<a id="requirements" class="xliff"></a>
 
-* **后端服务器池：**后端服务器的 IP 地址列表。列出的 IP 地址应属于虚拟网络子网，或者是公共 IP/VIP。也可使用 FQDN。
-* **后端服务器池设置：**每个池都有一些设置，例如端口、协议和基于 Cookie 的关联性。这些设置绑定到池，并会应用到池中的所有服务器。
-* **前端端口：**此端口是应用程序网关上打开的公共端口。流量将抵达此端口，然后重定向到其中一个后端服务器。
-* **侦听器：**侦听器具有前端端口、协议（Http 或 Https，这些值区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。对于启用了多个站点的应用程序网关，还会添加主机名和 SNI 指示器。
-* **规则：**规则将会绑定侦听器和后端服务器池，并定义流量抵达特定侦听器时应定向到的后端服务器池。
-* **证书：**每个侦听器都需要唯一的证书。在此示例中，为多站点创建了 2 个侦听器。需要为侦听器创建两个 .pfx 证书和密码。
+* **后端服务器池：** 后端服务器的 IP 地址列表。 列出的 IP 地址应属于虚拟网络子网，或者是公共 IP/VIP。 也可使用 FQDN。
+* **后端服务器池设置：** 每个池都有一些设置，例如端口、协议和基于 Cookie 的关联性。 这些设置绑定到池，并会应用到池中的所有服务器。
+* **前端端口：** 此端口是应用程序网关上打开的公共端口。 流量将抵达此端口，然后重定向到后端服务器之一。
+* **侦听器：**侦听器具有前端端口、协议（Http 或 Https，这些值区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。 对于启用了多个站点的应用程序网关，还会添加主机名和 SNI 指示器。
+* **规则：** 规则将会绑定侦听器和后端服务器池，并定义流量抵达特定侦听器时应定向到的后端服务器池。 规则按其列出的顺序进行处理，并且流量通过匹配的第一个规则进行定向，而无论特殊性如何。 例如，如果在同一端口上同时有使用基本侦听器的规则和使用多站点侦听器的规则，则使用多站点侦听器的规则必须在使用基本侦听器的规则之前列出，多站点规则才能正常运行。 
+* **证书：**每个侦听器都需要唯一的证书。在此示例中，为多站点创建了 2 个侦听器。 需要为侦听器创建两个 .pfx 证书和密码。
 
 ## 为每个站点创建后端池
+<a id="create-back-end-pools-for-each-site" class="xliff"></a>
 
 应用程序网关支持的每个站点都需要一个后端池。在此示例中，将创建 2 个后端池，一个用于 contoso11.com，另一个用于 fabrikam11.com。
 
 ### 步骤 1
+<a id="step-1" class="xliff"></a>
 
-在 Azure 门户 (https://portal.azure.cn) 中，导航到现有应用程序网关。选择“后端池”，单击“添加”
+在 Azure 门户 (https://portal.azure.cn) 中导航到现有的应用程序网关。 选择“后端池”，单击“添加”
 
-![添加后端池][7]  
+![添加后端池][7]
 
 ### 步骤 2
+<a id="step-2" class="xliff"></a>
 
 填写后端池“pool1”的信息，为后端服务器添加 IP 地址或 FQDN，然后单击“确定”
 
-![后端池 pool1 设置][8]  
+![后端池 pool1 设置][8]
 
 ### 步骤 3
+<a id="step-3" class="xliff"></a>
 
 在后端池边栏选项卡上单击“添加”以添加另一后端池“pool2”，为后端服务器添加 IP 地址或 FQDN，然后单击“确定”
 
-![后端池 pool2 设置][9]  
+![后端池 pool2 设置][9]
 
 ## 为每个后端创建侦听器
+<a id="create-listeners-for-each-back-end" class="xliff"></a>
 
-应用程序网关需要使用 HTTP 1.1 主机标头才能在相同的公共 IP 地址和端口上托管多个网站。在门户中创建的基本侦听器不包含此属性。
+应用程序网关需要使用 HTTP 1.1 主机标头才能在相同的公共 IP 地址和端口上托管多个网站。 在门户中创建的基本侦听器不包含此属性。
 
 ### 步骤 1
+<a id="step-1" class="xliff"></a>
 
 单击现有应用程序网关上的“侦听器”，然后单击“多站点”添加第一个侦听器。
 
-![侦听器概述边栏选项卡][1]  
+![侦听器概述边栏选项卡][1]
 
 ### 步骤 2
+<a id="step-2" class="xliff"></a>
 
-填写侦听器的信息。此示例将配置 SSL 终止，创建新的前端端口。上载用于 SSL 终止的 .pfx 证书。此边栏选项卡与标准的基本侦听器边栏选项卡的唯一区别是主机名。
+填写侦听器的信息。 此示例将配置 SSL 终止，创建新的前端端口。 上传用于 SSL 终止的 .pfx 证书。 此边栏选项卡与标准的基本侦听器边栏选项卡的唯一区别是主机名。
 
-![侦听器属性边栏选项卡][2]  
+![侦听器属性边栏选项卡][2]
 
 ### 步骤 3
+<a id="step-3" class="xliff"></a>
 
-根据上一步中针对第二个站点的说明，单击“多站点”并创建另一个侦听器。请确保对第二个侦听器使用不同的证书。此边栏选项卡与标准的基本侦听器边栏选项卡的唯一区别是主机名。填写侦听器的信息，然后单击“确定”。
+根据上一步中针对第二个站点的说明，单击“多站点”  并创建另一个侦听器。 请确保对第二个侦听器使用不同的证书。 此边栏选项卡与标准的基本侦听器边栏选项卡的唯一区别是主机名。 填写侦听器的信息，然后单击“确定” 。
 
-![侦听器属性边栏选项卡][3]  
+![侦听器属性边栏选项卡][3]
 
 > [!NOTE]
-> 在 Azure 门户中创建应用程序网关的侦听器是一项长时间运行的任务，可能需要一些时间才能在此方案中创建两个侦听器。完成时，侦听器会显示在门户中，如下图所示：
+> 在 Azure 门户中创建应用程序网关的侦听器是一项运行时间长的任务，可能需要一些时间才能在此方案中创建两个侦听器。 完成时，侦听器会显示在门户中，如下图所示：
 
-![侦听器概述][4]  
+![侦听器概述][4]
 
 ## 创建规则，将侦听器映射到后端池
+<a id="create-rules-to-map-listeners-to-backend-pools" class="xliff"></a>
 
 ### 步骤 1
+<a id="step-1" class="xliff"></a>
 
-在 Azure 门户 (https://portal.azure.cn) 中，导航到现有应用程序网关。选择“规则”，再选择现有的默认规则“rule1”，然后单击“编辑”。
+在 Azure 门户 (https://portal.azure.cn) 中导航到现有的应用程序网关。 选择“规则”，再选择现有的默认规则“rule1”，然后单击“编辑”。
 
 ### 步骤 2
+<a id="step-2" class="xliff"></a>
 
-填写规则边栏选项卡，如下图所示。选择第一个侦听器和第一个池，完成时单击“保存”。
+填写规则边栏选项卡，如下图所示。 选择第一个侦听器和第一个池，完成时单击“保存”  。
 
-![编辑现有规则][6]  
+![编辑现有规则][6]
 
 ### 步骤 3
+<a id="step-3" class="xliff"></a>
 
-单击“基本规则”创建第二个规则。在窗体中填写第二个侦听器和第二个后端池，单击“确定”保存。
+单击“基本规则”  创建第二个规则。 在窗体中填写第二个侦听器和第二个后端池，单击“确定”  保存。
 
-![添加基本规则边栏选项卡][10]  
+![添加基本规则边栏选项卡][10]
 
-通过 Azure 门户，此方案为现有应用程序网关配置多站点支持至此操作完毕。
+此方案通过 Azure 门户完成对一个支持多站点的现有应用程序网关的配置。
 
 ## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
-通过[应用程序网关 - Web 应用程序防火墙](./application-gateway-web-application-firewall-overview.md)了解如何保护网站
+通过[应用程序网关 - Web 应用程序防火墙](application-gateway-webapplicationfirewall-overview.md)了解如何保护网站
 
 <!--Image references-->
-
 [1]: ./media/application-gateway-create-multisite-portal/figure1.png
 [2]: ./media/application-gateway-create-multisite-portal/figure2.png
 [3]: ./media/application-gateway-create-multisite-portal/figure3.png
@@ -136,5 +158,3 @@ ms.author: v-dazen
 [9]: ./media/application-gateway-create-multisite-portal/figure9.png
 [10]: ./media/application-gateway-create-multisite-portal/figure10.png
 [multisite]: ./media/application-gateway-create-multisite-portal/multisite.png
-
-<!---HONumber=Mooncake_1226_2016-->

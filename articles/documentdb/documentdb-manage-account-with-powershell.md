@@ -16,29 +16,31 @@ ms.topic: article
 origin.date: 04/21/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: c9636ccc003d2ab64b6af1071b4ecdbee70aaf94
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: f13b9dfab371c28e8804324910f7579d93fc150a
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="create-an-azure-documentdb-account-using-powershell"></a>使用 PowerShell 创建 DocumentDB 帐户
+# 使用 PowerShell 创建 DocumentDB 帐户
+<a id="create-a-documentdb-account-using-powershell" class="xliff"></a>
 
 以下指南介绍了使用 Azure Powershell 自动管理 DocumentDB 数据库帐户的命令。 它还包括用于管理 [多区域数据库帐户][scaling-globally]的帐户密钥和故障转移优先级的命令。 更新数据库帐户可以修改一致性策略以及添加/删除区域。 对于 DocumentDB 帐户的跨平台管理，可使用 [Azure CLI](documentdb-automation-resource-manager-cli.md)、[资源提供程序 REST API][rp-rest-api] 或 [Azure 门户](documentdb-create-account.md)。
 
-## <a name="getting-started"></a>入门
+## 入门
+<a id="getting-started" class="xliff"></a>
 
 请按照 [如何安装和配置 Azure PowerShell][powershell-install-configure] 中的说明在 PowerShell 中安装 Azure Resource Manager 帐户并登录到该帐户。
 
-### <a name="notes"></a>说明
+### 说明
+<a id="notes" class="xliff"></a>
 
 - 如果想要执行以下命令而无需用户确认，请向命令追加 `-Force` 标志。
 - 以下所有命令都是同步执行的。
 
-## <a id="create-documentdb-account-powershell"></a> 创建 DocumentDB 帐户
+## <a id="create-documentdb-account-powershell"></a> 创建一个 DocumentDB 帐户
 
-使用此命令可创建 DocumentDB 数据库帐户。 可以将新数据库帐户配置为具有特定[一致性策略](documentdb-consistency-levels.md)的单区域或[多区域][scaling-globally]。
+此命令可创建 DocumentDB 数据库帐户。 可以将新数据库帐户配置为具有特定[一致性策略](documentdb-consistency-levels.md)的单区域或[多区域][scaling-globally]。
 
     $locations = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0}, @{"locationName"="<read-region-location>"; "failoverPriority"=1})
     $iprangefilter = "<ip-range-filter>"
@@ -64,9 +66,10 @@ ms.lasthandoff: 05/19/2017
     $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "China North" -Name "docdb-test" -PropertyObject $DocumentDBProperties
 
-### <a name="notes"></a>说明
+### 说明
+<a id="notes" class="xliff"></a>
 - 前面的示例使用两个区域创建数据库帐户。 还可能创建单区域（指定为写入区域并且故障转移优先级值为 0）或多区域数据库帐户。 有关详细信息，请参阅[多区域数据库帐户][scaling-globally]。
-- 这些位置必须是已正式推出 DocumentDB 的区域。 [“Azure 区域”页](https://azure.microsoft.com/regions/#services)提供了当前的区域列表。
+- 这些位置必须是已正式推出 DocumentDB 的区域。 [Azure 区域页面](https://azure.microsoft.com/regions/#services)提供当前的区域列表。
 
 ## <a id="update-documentdb-account-powershell"></a> 更新 DocumentDB 数据库帐户
 
@@ -127,7 +130,7 @@ ms.lasthandoff: 05/19/2017
 
 ## <a id="update-tags-powershell"></a> 更新 DocumentDB 数据库帐户的标记
 
-下面的示例介绍了如何设置 DocumentDB 数据库帐户的 [Azure 资源标记][azure-resource-tags]。
+下例介绍如何设置 DocumentDB 数据库帐户的 [Azure 资源标记][azure-resource-tags]。
 
 > [!NOTE]
 > 通过此将 `-Tags` 标志追加到相应的参数，可将此命令与创建或更新命令组合。
@@ -139,11 +142,11 @@ ms.lasthandoff: 05/19/2017
 
 ## <a id="list-account-keys-powershell"></a> 列出帐户密钥
 
-创建 DocumentDB 帐户时，该服务会生成两个主访问密钥，用于访问 DocumentDB 帐户时的身份验证。 DocumentDB 提供有两个访问密钥，因此可在不中断 DocumentDB 帐户连接的情况下重新生成密钥。 还提供用于对只读操作进行身份验证的只读密钥。 有两个读写密钥（主密钥和辅助密钥）和两个只读密钥（主密钥和辅助密钥）。
+当创建 DocumentDB 帐户时，服务生成两个主访问密钥，用于访问 DocumentDB 帐户时的身份验证。 通过提供两个访问密钥，DocumentDB 允许你在不中断 DocumentDB 帐户连接的情况下重新生成密钥。 还提供用于对只读操作进行身份验证的只读密钥。 有两个读写密钥（主密钥和辅助密钥）和两个只读密钥（主密钥和辅助密钥）。
 
     $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-- `<resource-group-name>` 新的 DocumentDB 数据库帐户所属的 [Azure 资源组][azure-resource-groups] 的名称。
+- `<resource-group-name>` 新 DocumentDB 数据库帐户所属的 [Azure 资源组][azure-resource-groups]名称。
 - `<database-account-name>` DocumentDB 数据库帐户的名称。
 
 示例：
@@ -165,7 +168,7 @@ ms.lasthandoff: 05/19/2017
 
 ## <a id="regenerate-account-key-powershell"></a> 重新生成帐户密钥
 
-应定期更改 DocumentDB 帐户的访问密钥，加强连接的安全性。 为你分配两个访问密钥是为了让你使用一个访问密钥保持与 DocumentDB 帐户的连接，同时可以重新生成另一个访问密钥。
+你应定期将访问密钥更改为你的 DocumentDB 帐户，使你的连接更安全。 分配了两个访问密钥，你可以使用一个访问密钥保持与 DocumentDB 帐户的连接，同时，你可以重新生成另一个访问密钥。
 
     Invoke-AzureRmResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>" -Parameters @{"keyKind"="<key-kind>"}
 
@@ -193,12 +196,6 @@ ms.lasthandoff: 05/19/2017
 
     $failoverPolicies = @(@{"locationName"="China East"; "failoverPriority"=0},@{"locationName"="China North"; "failoverPriority"=1})
     Invoke-AzureRmResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"failoverPolicies"=$failoverPolicies}
-
-## <a name="next-steps"></a>后续步骤
-
-- 若要使用 .NET 进行连接，请参阅使用 .NET 进行连接和查询。
-- 若要使用 .NET Core 进行连接，请参阅使用 .NET Core 进行连接和查询。
-- 若要使用 Node.js 进行连接，请参阅使用 Node.js 和 MongoDB 应用进行连接和查询。
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [powershell-install-configure]:../powershell-install-configure.md

@@ -17,22 +17,22 @@ ms.workload: big-data
 origin.date: 04/21/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 8ebca1d93e9d8eac1d62cbfc6fda904abdc1b87d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 6fbbbe087433e58dc44c68301dca4f3cdbfdbd7a
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="information-about-using-hdinsight-on-linux"></a>有关在 Linux 上使用 HDInsight 的信息
+# 有关在 Linux 上使用 HDInsight 的信息
+<a id="information-about-using-hdinsight-on-linux" class="xliff"></a>
 
 Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运行的 Hadoop。 在大多数情况下，它的工作方式应该与其他任何 Hadoop-on-Linux 安装完全相同。 本文档指出了你应该注意的具体差异。
 
 > [!IMPORTANT]
 > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 
 本文档中的许多步骤使用以下实用程序，这些程序可能需要在系统上安装。
 
@@ -42,11 +42,13 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-## <a name="users"></a>用户
+## 用户
+<a id="users" class="xliff"></a>
 
 应将 HDInsight 视为**单用户**系统。 使用群集时，将创建单个具有管理员级别权限的 SSH 用户帐户。 可以创建其他 SSH 帐户，但这些帐户也具有对群集的管理员访问权限。
 
-## <a name="domain-names"></a>域名
+## 域名
+<a id="domain-names" class="xliff"></a>
 
 从 Internet 连接到群集时要使用的完全限定域名 (FQDN) 是**&lt;clustername>.azurehdinsight.cn** 或（仅限 SSH）**&lt;clustername-ssh>.azurehdinsight.cn**。
 
@@ -62,7 +64,8 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
 
 此命令会返回一个描述该服务的 JSON 文档，然后 jq 就会只拉取主机的 `host_name` 值。
 
-## <a name="remote-access-to-services"></a>对服务的远程访问
+## 对服务的远程访问
+<a id="remote-access-to-services" class="xliff"></a>
 
 * **Ambari (web)** - https://&lt;群集名称>.azurehdinsight.cn
 
@@ -94,7 +97,8 @@ Azure HDInsight 群集在熟悉的 Linux 环境中提供可在 Azure 云中运�
     > [!NOTE]
     > 只能通过 SSH 从客户端计算机访问群集头节点。 在连接后，可以通过使用 SSH 从头节点访问从节点。
 
-## <a name="file-locations"></a>文件位置
+## 文件位置
+<a id="file-locations" class="xliff"></a>
 
 Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包含以下子目录：
 
@@ -103,7 +107,8 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包�
 
 示例数据和 JAR 文件可以在 Hadoop 分布式文件系统上的 `/example` 和 `/HdiSamples` 处找到。
 
-## <a name="hdfs-and-azure-storage"></a>HDFS 和 Azure 存储
+## HDFS 和 Azure 存储
+<a id="hdfs-and-azure-storage" class="xliff"></a>
 
 在大部分的 Hadoop 分发中，HDFS 受群集中计算机上的本地存储的支持。 对基于云的解决方案使用本地存储可能费用高昂，因为计算资源以小时或分钟为单位来计费。
 
@@ -121,7 +126,8 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
 
     hdfs dfs -ls /example/data
 
-### <a name="uri-and-scheme"></a>URI 和方案
+### URI 和方案
+<a id="uri-and-scheme" class="xliff"></a>
 
 在访问文件时，一些命令可能需要用户将方案指定为 URI 的一部分。 例如，Storm-HDFS 组件需要用户指定方案。 使用非默认存储（作为“附加”存储添加到群集的存储）时，必须始终将方案作为 URI 的一部分来使用。
 
@@ -133,7 +139,8 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
 
 * `wasbs://<container-name>@<account-name>.blob.core.chinacloudapi.cn/`：与非默认存储帐户通信时使用。 例如，具有其他存储帐户或访问可公开访问的存储帐户中存储的数据时。
 
-### <a name="what-storage-is-the-cluster-using"></a>群集使用的是哪种存储
+### 群集使用的是哪种存储
+<a id="what-storage-is-the-cluster-using" class="xliff"></a>
 
 可以使用 Ambari 来检索群集的默认存储配置。 使用以下命令可使用 curl 检索 HDFS 配置信息，然后使用 [jq](https://stedolan.github.io/jq/) 进行筛选：
 
@@ -148,13 +155,14 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
 
     帐户名称是 Azure 存储帐户的名称，容器名称是作为群集存储的根的 Blob 容器。
 
-也可使用 Azure 门户按照以下步骤查找存储信息：
+也可以在 Azure 门户中使用以下步骤查找存储信息：
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择 HDInsight 群集。
 
 2. 在“属性”部分中，选择“存储帐户”。 将显示群集的存储信息。
 
-### <a name="how-do-i-access-files-from-outside-hdinsight"></a>如何从 HDInsight 外部访问文件
+### 如何从 HDInsight 外部访问文件
+<a id="how-do-i-access-files-from-outside-hdinsight" class="xliff"></a>
 
 从 HDInsight 群集外部访问数据的方法有多种。 以下是一些可用于处理数据的实用工具和 SDK 的链接：
 
@@ -209,7 +217,8 @@ Azure 存储帐户容量最多为 4.75 TB，而单个 Blob（从 HDInsight 角�
 * [使用 Azure 门户管理 HDInsight 中的 Hadoop 群集](hdinsight-administer-use-portal-linux.md#scale-clusters)
 * [使用 Azure PowerShell 管理 HDInsight 中的 Hadoop 群集](hdinsight-administer-use-command-line.md#scale-clusters)
 
-## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>如何安装 Hue（或其他 Hadoop 组件）？
+## 如何安装 Hue（或其他 Hadoop 组件）？
+<a id="how-do-i-install-hue-or-other-hadoop-component" class="xliff"></a>
 
 HDInsight 是托管服务。 如果 Azure 检测到群集存在问题，则可能会删除故障节点，再创建一个节点来代替。 如果在群集节点上手动安装组件，则发生此操作时，这些组件不会保留。 应该改用 [HDInsight 脚本操作](hdinsight-hadoop-customize-cluster.md)。 脚本操作可用于进行以下更改：
 
@@ -224,7 +233,8 @@ HDInsight 是托管服务。 如果 Azure 检测到群集存在问题，则可�
 
 有关开发你自己的脚本操作的信息，请参阅 [使用 HDInsight 进行脚本操作开发](hdinsight-hadoop-script-actions-linux.md)。
 
-### <a name="jar-files"></a>Jar 文件
+### Jar 文件
+<a id="jar-files" class="xliff"></a>
 
 某些 Hadoop 技术以自包含 jar 文件形式提供，这些文件包含某些函数，这些函数用作 MapReduce 作业的一部分，或来自 Pig 或 Hive 内部。 这些技术可以使用脚本操作安装，但通常不需任何设置，在预配后上传到群集即可直接使用。 如需确保组件在群集重置映像后仍存在，可将 jar 文件存储在群集的默认存储（WASB 或 ADL）中。
 
@@ -244,10 +254,10 @@ HDInsight 是托管服务。 如果 Azure 检测到群集存在问题，则可�
 >
 > 自定义组件可获得合理范围的支持，有助于进一步解决问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 * [从基于 Windows 的 HDInsight 迁移到基于 Linux 的 HDInsight](hdinsight-migrate-from-windows-to-linux.md)
 * [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 作业与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
-

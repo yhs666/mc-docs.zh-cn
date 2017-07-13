@@ -16,13 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 04/04/2017
 ms.date: 05/22/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: ae5b4f05b42a25482bc5d464a9ac77b9ebe97b4e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 0a9baf7b7aeb3b07ed432e780e1b5f2edd579b33
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>应用程序网关的端到端 SSL 和 SSL 策略概述
 
@@ -57,4 +55,3 @@ ms.lasthandoff: 05/12/2017
 <!--Image references-->
 
 [1]: ./media/application-gateway-backend-ssl/scenario.png
-

@@ -13,14 +13,14 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 3dbd51331ce0fe71aae2e6696ddd863c3edc3c7c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: b69ca4ef491a74d022959092bdebb0c3834bb2eb
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-#<a name="virtual-machine-scale-sets-documentation"></a>虚拟机规模集文档
+#虚拟机规模集文档
+<a id="virtual-machine-scale-sets-documentation" class="xliff"></a>
 
 了解如何使用虚拟机规模集来部署和管理一组完全相同、可调整规模的 Windows 或 Linux VM。 文档介绍了如何使用规模集来支持面向大型计算、大数据和容器化解决方案的服务。
 

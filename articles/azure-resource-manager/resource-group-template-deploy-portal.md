@@ -3,7 +3,7 @@ title: "使用 Azure 门户部署 Azure 资源 | Azure"
 description: "使用 Azure 门户和 Azure Resource Manager 来部署资源。"
 services: azure-resource-manager,azure-portal
 documentationcenter: 
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 ms.assetid: 2c98a4aa-8d9f-4a0a-b764-214dbe8ed009
@@ -15,15 +15,14 @@ ms.topic: article
 origin.date: 12/19/2016
 ms.date: 05/02/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 450b3b80389760f957ec4c85b76bbd1e8f7daf68
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: c399bbc216b526cfb10b3b1a84cbc69ead5ed234
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 模板和 Azure 门户部署资源
+# 使用 Resource Manager 模板和 Azure 门户部署资源
+<a id="deploy-resources-with-resource-manager-templates-and-azure-portal" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [PowerShell](resource-group-template-deploy.md)
 > * [Azure CLI](resource-group-template-deploy-cli.md)
@@ -34,7 +33,7 @@ ms.lasthandoff: 04/22/2017
 
 本主题演示了如何将 [Azure 门户](https://portal.azure.cn)与 [Azure Resource Manager](./resource-group-overview.md) 配合使用，以部署 Azure 资源。 若要了解有关管理资源的信息，请参阅[通过门户管理 Azure 资源](./resource-group-portal.md)。
 
-目前，并非每种服务都支持门户或 Resource Manager。 对于这些服务，需要使用[经典门户](https://manage.windowsazure.cn)。  若要了解每种服务的状态，请参阅 [Azure 门户可用性图表](https://azure.microsoft.com/features/azure-portal/availability/)。
+目前，并非每种服务都支持门户或 Resource Manager。 对于这些服务，需要使用[经典门户](https://manage.windowsazure.cn)。  若要了解每种服务的状态，请参阅 [Azure 门户可用性图表](/support/service-dashboard/)。
 
 ## <a name="create-resource-group"></a>创建资源组
 1. 若要创建空资源组，请依次选择“新建” > “管理” > “资源组”。
@@ -44,7 +43,8 @@ ms.lasthandoff: 04/22/2017
 
     ![设置组的值](./media/resource-group-template-deploy-portal/set-group-properties.png)
 
-## <a name="deploy-resources-from-marketplace"></a>从应用商店部署资源
+## 从应用商店部署资源
+<a id="deploy-resources-from-marketplace" class="xliff"></a>
 创建资源组后，可以从应用商店将资源部署到资源组。 应用商店为常见方案提供预定义的解决方案。
 
 1. 若要开始部署，请选择“新建”  和要部署的资源的类型。 然后，查找要部署的资源的特定版本。
@@ -80,10 +80,10 @@ ms.lasthandoff: 04/22/2017
 
     ![创建模板](./media/resource-group-template-deploy-portal/show-custom-template.png)
 
-    在编辑器中，添加用于定义要部署的资源的 JSON 语法。 完成后，选择“保存”  。 有关编写 JSON 语法的指导，请参阅 [Resource Manager 模板演练](./resource-manager-template-walkthrough.md)。
+    在编辑器中，添加用于定义要部署的资源的 JSON 语法。 完成后，选择“保存”  。 有关编写 JSON 语法的指导，请参阅 [Resource Manager 模板演练](./resource-manager-create-first-template.md)。
 
     ![编辑模板](./media/resource-group-template-deploy-portal/edit-template.png)
-4. 或者，也可以从 [Azure 快速启动模板](https://azure.microsoft.com/zh-cn/documentation/templates/)中选择预先存在的模板。 这些模板是由社区提供的。 它们涵盖了许多常见的方案，有人可能已添加了一个与你想要部署的模板类似的模板。 可以搜索模板以查找与你的方案相匹配的模板。
+4. 或者，也可以从 [Azure 快速启动模板](https://github.com/Azure/azure-quickstart-templates/)中选择预先存在的模板。 这些模板是由社区提供的。 它们涵盖了许多常见的方案，有人可能已添加了一个与你想要部署的模板类似的模板。 可以搜索模板以查找与你的方案相匹配的模板。
 
     ![选择快速入门模板](./media/resource-group-template-deploy-portal/select-quickstart-template.png)
 
@@ -92,7 +92,8 @@ ms.lasthandoff: 04/22/2017
 
     ![部署模板](./media/resource-group-template-deploy-portal/create-custom-deploy.png)
 
-## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>从保存到帐户中的模板部署资源
+## 从保存到帐户中的模板部署资源
+<a id="deploy-resources-from-a-template-saved-to-your-account" class="xliff"></a>
 该门户允许用户将模板保存到 Azure 帐户，以便以后重新部署它。
 
 1. 若要查找已保存模板，请选择“浏览” > “模板”。
@@ -105,10 +106,10 @@ ms.lasthandoff: 04/22/2017
 
     ![部署已保存模板](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * 若要查看审核日志，请参阅[使用 Resource Manager 进行审核操作](./resource-group-audit.md)。
 * 若要排查部署错误，请参阅[查看部署操作](./resource-manager-deployment-operations.md)。
 * 若要从部署或资源组中检索模板，请参阅[从现有资源导出 Azure Resource Manager 模板](./resource-manager-export-template.md)。
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](./resource-manager-subscription-governance.md)。
 * 有关自动部署的四部分系列，请参阅[将应用程序自动部署到 Azure 虚拟机](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 此系列教程介绍了应用程序体系结构、访问与安全性、可用性与缩放性，以及应用程序部署。
-

@@ -13,16 +13,16 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: e5e2271e1b027f7f6a3950f174922a301ae3c8a8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: f285cfcaaa77d9968ea5e322eb241e790c218d10
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="automation-documentation"></a>自动化文档
+# 自动化文档
+<a id="automation-documentation" class="xliff"></a>
 
-了解如何使用自动化节省时间并提高在云环境中执行的常规管理任务的可靠性。 教程、API 参考和其他文档演示如何使用 Runbook 实现过程的自动化。
+了解如何使用自动化节省时间并提高在云环境中执行的常规管理任务的可靠性。 教程、API 参考和其他文档介绍了如何使用 runbook 自动执行过程。
 
 <ul class="panelContent cardsFTitle">
     <li>

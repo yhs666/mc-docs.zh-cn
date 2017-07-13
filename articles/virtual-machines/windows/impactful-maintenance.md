@@ -3,7 +3,7 @@ title: "Azure 中的 Windows VM 的有影响维护 | Azure"
 description: "Windows 虚拟机的有影响维护。"
 services: virtual-machines-windows
 documentationcenter: 
-author: 
+author: zivr
 manager: timlt
 editor: 
 tags: azure-service-management,azure-resource-manager
@@ -16,16 +16,14 @@ ms.topic: article
 origin.date: 03/27/2017
 ms.date: 05/15/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 4029874bf46e84dce9a8584ad72f57b8cedcfee7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: ea840fe0b648ffcdc6162a1300475574af129741
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# <a name="impactful-maintenance-for-virtual-machines"></a>虚拟机的有影响维护
+# 虚拟机的有影响维护
+<a id="impactful-maintenance-for-virtual-machines" class="xliff"></a>
 
 少数情况下，VM 会由于对底层基础结构的计划内维护而重新启动。 由于这些计划内维护会影响 Azure 中托管的 VM 的可用性，现在会提供以下各项供你使用：
 
@@ -43,13 +41,16 @@ Azure 中的维护以迭代方式进行计划。 初始迭代范围较小，目�
 
 **计划的维护时段**是 Azure 为 VM 计划的维护时间。 在这段时间内（紧随强占式维护时段之后），仍可以查询维护时段，但不能安排维护。
 
-## <a name="availability-considerations-during-planned-maintenance"></a>计划内维护期间的可用性注意事项 
+## 计划内维护期间的可用性注意事项
+<a id="availability-considerations-during-planned-maintenance" class="xliff"></a> 
 
-### <a name="paired-regions"></a>配对区域
+### 配对区域
+<a id="paired-regions" class="xliff"></a>
 
 每个 Azure 区域与同一地理位置中另一个区域配对。 执行维护时，Azure 将只更新区域对中单个区域的虚拟机实例。 例如，更新中国北部的虚拟机时，Azure 不会同时更新中国东部的任何虚拟机。 后者会安排在其他时间进行，以便在区域之间进行故障转移或负载均衡。
 
-### <a name="single-instance-vms-vs-availability-set-or-vm-scale-set"></a>单实例 VM 与可用性集或 VM 规模集之对比
+### 单实例 VM 与可用性集或 VM 规模集之对比
+<a id="single-instance-vms-vs-availability-set-or-vm-scale-set" class="xliff"></a>
 
 部署使用 Azure 中的虚拟机的工作负荷时，可以在可用性集中创建 VM，以向应用程序提供高可用性。 这种配置可确保在发生故障或维护事件期间，至少有一个虚拟机可用。
 
@@ -60,23 +61,26 @@ Azure 中的维护以迭代方式进行计划。 初始迭代范围较小，目�
 
 有关配置虚拟机以实现高可用性的详细信息，请参阅[*管理 Windows 虚拟机的可用性*](../linux/manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-### <a name="scheduled-events"></a>计划事件
+### 计划事件
+<a id="scheduled-events" class="xliff"></a>
 
 使用 Azure 元数据服务可以发现有关 Azure 中托管的虚拟机的信息。 计划事件（已公开的类别之一）显示有关即将发生的事件（例如，重新启动）的信息，使应用程序可以为其做准备并限制中断。
 
 有关计划事件的详细信息，请参阅 [Azure 元数据服务 - 计划事件](../virtual-machines-scheduled-events.md)。
 
-## <a name="maintenance-discovery-and-notifications"></a>维护发现和通知
+## 维护发现和通知
+<a id="maintenance-discovery-and-notifications" class="xliff"></a>
 
-客户可以在个体 VM 级别看到维护计划。 可以使用 Azure 门户、API、PowerShell 或 CLI 查询强占式维护时段和计划内维护时段。 此外，在此过程中，预计将在一个（或多个）VM 受影响时收到通知（电子邮件）。
+客户可以在个体 VM 级别看到维护计划。 可以使用 Azure 门户、API、PowerShell 或 CLI 查询强占式维护时段和计划性维护时段。 此外，在此过程中，预计将在一个（或多个）VM 受影响时收到通知（电子邮件）。
 
 强占式维护和计划的维护阶段均以某个通知开始。 每个 Azure 订阅预计将收到一条通知。 默认情况下，通知将发送给订阅的管理员和共同管理员。 你还可以为维护通知配置受众。
 
-### <a name="view-the-maintenance-window-in-the-portal"></a>在门户中查看维护时段 
+### 在门户中查看维护时段
+<a id="view-the-maintenance-window-in-the-portal" class="xliff"></a> 
 
-可以使用 Azure 门户来查找计划进行维护的 VM。
+可以使用 Azure 门户，并查找计划进行维护的 VM。
 
-1.  登录 Azure 门户。
+1.  登录到 Azure 门户。
 
 2.  单击并打开“虚拟机”边栏选项卡。
 
@@ -84,7 +88,8 @@ Azure 中的维护以迭代方式进行计划。 初始迭代范围较小，目�
 
 4.  选择并添加“维护时段”列。 计划进行维护的 VM 将显示维护时段。 维护完成或中止后，将不再显示维护时段。
 
-### <a name="query-maintenance-details-using-the-azure-api"></a>使用 Azure API 查询维护详细信息
+### 使用 Azure API 查询维护详细信息
+<a id="query-maintenance-details-using-the-azure-api" class="xliff"></a>
 
 使用[获取 VM 信息 API](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) 并查找实例视图，以发现单个 VM 的维护详细信息。 响应包括以下元素：
 
@@ -102,7 +107,8 @@ Azure 中的维护以迭代方式进行计划。 初始迭代范围较小，目�
 
   - lastOperationMessage：描述最后一次维护-重新部署操作结果的消息。
 
-## <a name="pre-emptive-redeploy"></a>强占式重新部署
+## 强占式重新部署
+<a id="pre-emptive-redeploy" class="xliff"></a>
 
 使用强占式重新部署操作可灵活控制何时向 Azure 中的 VM 应用维护。 计划内维护从强占式维护时段开始，在此时段内可以确定每个 VM 重启的确切时间。 以下是这样的功能发挥效用的用例：
 

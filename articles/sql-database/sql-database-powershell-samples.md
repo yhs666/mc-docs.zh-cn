@@ -1,10 +1,10 @@
 ---
-title: "适用于 SQL 数据库的 Azure PowerShell 示例 | Microsoft 文档"
-description: "Azure CLI 示例 - 创建和管理 Azure SQL 数据库服务器、弹性池、数据库和防火墙。"
+title: "适用于 SQL 数据库的 Azure PowerShell 示例 | Azure"
+description: "Azure PowerShell 示例 - 有助于创建和管理 Azure SQL 数据库服务器、弹性池、数据库和防火墙的脚本。"
 services: sql-database
 documentationcenter: sql-database
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+origin.date: 05/19/2017
+ms.date: 07/03/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: f8e11c348da1d783b691a60c68055f2d394e6a94
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 86d0db79d131e18d31c6dc9bf353b2bf791c9fdb
+ms.sourcegitcommit: bb82041119027be7a62fc96945d92a8a452e7849
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
-# <a name="azure-powershell-samples-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Azure PowerShell 示例
+# 适用于 Azure SQL 数据库的 Azure PowerShell 示例
+<a id="azure-powershell-samples-for-azure-sql-database" class="xliff"></a>
 
 下表包括了适用于 Azure SQL 数据库的示例 Azure PowerShell 脚本的链接。
 
@@ -36,6 +36,7 @@ ms.lasthandoff: 04/07/2017
 |**配置异地复制和故障转移**||
 | [配置单一数据库并使用活动异地复制对其进行故障转移](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)| 为单个 Azure SQL 数据库配置活动异地复制，并将其故障转移到辅助副本。 |
 | [配置入池数据库并使用活动异地复制对其进行故障转移](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)| 为弹性池中的 Azure SQL 数据库配置活动异地复制，并将其故障转移到辅助副本。 |
+| [为单一数据库配置和故障转移故障转移组（预览版）](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md | 为 Azure SQL Server 实例配置故障转移组，将数据库添加到故障转移组，然后将其故障转移到辅助服务器 |
 |**缩放单一数据库和弹性池**||
 | [缩放单一数据库](scripts/sql-database-monitor-and-scale-database-powershell.md) | 监视一个 Azure SQL 数据库的性能指标，将其缩放为更高的性能级别，并基于性能指标之一创建警报规则。 |
 | [缩放弹性池](scripts/sql-database-monitor-and-scale-pool-powershell.md) | 监视一个弹性池的性能指标，将其缩放为更高的性能级别，并基于性能指标之一创建警报规则。  |
@@ -46,4 +47,3 @@ ms.lasthandoff: 04/07/2017
 | [将数据库复制到新服务器](scripts/sql-database-copy-database-to-new-server-powershell.md)| 在新的 Azure SQL 服务器中创建现有 Azure SQL 数据库的副本。 |
 | [从 bacpac 文件导入数据库](scripts/sql-database-import-from-bacpac-powershell.md)| 从 bacpac 文件将数据库导入到 Azure SQL 服务器。 |
 |||
-

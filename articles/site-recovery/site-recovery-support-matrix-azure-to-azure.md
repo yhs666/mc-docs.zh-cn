@@ -1,0 +1,162 @@
+---
+title: "从 Azure 复制到 Azure 的 Azure Site Recovery 支持矩阵 | Azure"
+description: "总结出于灾难恢复 (DR) 需求将 Azure 虚拟机 (VM) 从一个区域复制到另一个区域时 Azure Site Recovery 支持的操作系统和配置。"
+services: site-recovery
+documentationcenter: 
+author: rockboyfor
+manager: digimobile
+editor: 
+ms.assetid: 
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+origin.date: 06/10/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
+ms.openlocfilehash: ec5c45016c049deb0ba4100597a2f365b317aeea
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
+---
+# 从 Azure 复制到 Azure 的 Azure Site Recovery 支持矩阵
+<a id="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure" class="xliff"></a>
+
+>[!NOTE]
+>
+> Azure 虚拟机的 Site Recovery 复制当前处于预览阶段。
+
+本文总结了将 Azure 虚拟机从一个区域复制和恢复到另一个时 Azure Site Recovery 支持的配置和组件。
+
+## 用户界面选项
+<a id="user-interface-options" class="xliff"></a>
+
+用户界面 |  支持/不支持
+--- | ---
+**Azure 门户** | 支持
+**经典管理门户** | 不支持
+**PowerShell** | 目前不支持
+**REST API** | 目前不支持
+**CLI** | 目前不支持
+
+## 资源移动支持
+<a id="resource-move-support" class="xliff"></a>
+
+资源移动类型 | 支持/不支持 | **备注**  
+--- | --- | ---
+跨资源组移动保管库 | 不支持 |无法跨资源组移动恢复服务保管库。
+跨资源组移动计算、存储和网络 | 不支持 |如果在启用复制后移动虚拟机（或其关联的组件，如存储和网络），需要禁用复制，然后重新启用虚拟机的复制。
+
+## 部署模型支持
+<a id="support-for-deployment-models" class="xliff"></a>
+
+部署模型 | 支持/不支持 | **备注**  
+--- | --- | ---
+**经典** | 支持 | 只可复制经典虚拟机并将其恢复为经典虚拟机。 无法将其恢复为 Resource Manager 虚拟机。 如果直接向 Azure 区域中部署一个没有虚拟网络的经典 VM，该 VM 不受支持。
+**Resource Manager** | 支持 |
+
+## 复制计算机 OS 版本支持
+<a id="support-for-replicated-machine-os-versions" class="xliff"></a>
+
+以下支持适用于在相应 OS 上运行的任何工作负荷。
+
+#### Windows
+<a id="windows" class="xliff"></a>
+
+- 64 位 Windows Server 2012 R2
+- Windows Server 2012
+- Windows Server 2008 R2（至少具有 SP1）
+
+#### Linux
+<a id="linux" class="xliff"></a>
+
+- Red Hat Enterprise Linux 6.7、6.8、7.1、7.2、7.3
+- CentOS 6.5、6.6、6.7、6.8、7.0、7.1、7.2、7.3
+- Oracle Enterprise Linux 6.4、6.5（运行 Red Hat 兼容内核或 Unbreakable Enterprise Kernel Release 3 (UEK3)）
+- SUSE Linux Enterprise Server 11 SP3
+
+## 运行 Linux OS 的 Azure 虚拟机上支持的文件系统和来宾存储配置
+<a id="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os" class="xliff"></a>
+
+* 文件系统：ext3、ext4、ReiserFS（仅限 Suse Linux Enterprise Server）和 XFS
+* 卷管理器：LVM2
+* 多路径软件：设备映射程序
+
+## 区域支持
+<a id="region-support" class="xliff"></a>
+
+可在同一地理群集中的任意两个区域之间复制和恢复 VM。
+
+地理群集 | **Azure 区域**
+-- | --
+中国 | 中国东部、中国北部
+
+## 计算配置支持
+<a id="support-for-compute-configuration" class="xliff"></a>
+
+**配置** | 支持/不支持 | **备注**
+--- | --- | ---
+大小 | 任意 Azure VM 大小（包含至少 2 个 CPU 内核和 1 GB RAM） | 请参阅 [Azure 虚拟机大小](../virtual-machines/windows/sizes.md)
+可用性集 | 支持 | 在门户中执行“启用复制”步骤时，如果使用默认选项，则会基于源区域配置自动创建可用性集。 随时都可在“复制项”>“设置”>“计算和网络”>“可用性集”中更改目标可用性集。
+混合使用权益（HUB）VM | 支持 | 如果源 VM 启用了 HUB 许可证，则测试故障转移或故障转移 VM 也可使用 HUB 许可证。
+虚拟机规模集 | 不支持 |
+Azure 库映像 - Microsoft 发布 | 支持 | 只要 VM 在 Site Recovery 支持的操作系统上运行就可受到支持
+Azure 库映像 - 第三方发布 | 支持 | 只要 VM 在 Site Recovery 支持的操作系统上运行就可受到支持。
+自定义映像 - 第三方发布 | 支持 | 只要 VM 在 Site Recovery 支持的操作系统上运行就可受到支持。
+使用 Site Recovery 迁移 VM | 支持 | 如果使用 Site Recovery 将 VMware/物理计算机迁移到 Azure，需要先卸载较旧版本的移动服务并重启计算机，然后才可将其复制到另一个 Azure 区域。
+
+## 存储配置支持
+<a id="support-for-storage-configuration" class="xliff"></a>
+
+**配置** | 支持/不支持 | **备注**
+--- | --- | ---
+最大 OS 磁盘大小 | Azure 支持的最大 OS 磁盘大小| 请参阅 [VM 使用的磁盘。](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
+最大数据磁盘大小 | Azure 支持的最大数据磁盘大小| 请参阅 [VM 使用的磁盘。](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
+数据磁盘数 | 特定 Azure VM 大小支持最多 64 个 | 请参阅 [Azure 虚拟机大小](../virtual-machines/windows/sizes.md)
+临时磁盘 | 始终从复制中排除 | 复制时始终排除临时磁盘。 根据 Azure 指南，不应将任何永久性数据存储在临时磁盘中。 有关详细信息，请参阅 [Azure VM 上的临时磁盘](../storage/storage-about-disks-and-vhds-windows.md#temporary-disk)。
+磁盘上的数据更改速率 | 每个磁盘最大 6 Mbps | 如果磁盘上的平均数据更改速率连续超出 6 Mbps，复制将无法同步。 但是，如果只是偶尔数据突增，并且一段时间内数据更改速率高于 6 Mbps 然后下降，复制将会同步。 在这种情况下，恢复点可能会稍有延迟。
+标准存储帐户中的磁盘 | 支持 |
+高级存储帐户中的磁盘 | 支持 | 如果 VM 的磁盘分散在高级和标准存储帐户中，可以为每个磁盘选择不同的目标存储帐户，确保在目标区域中具有相同的存储配置
+标准托管磁盘 | 不支持 |  
+高级托管磁盘 | 不支持 |
+存储空间 | 不支持 |         
+静态加密 (SSE) | 支持 | 对于缓存和目标存储帐户，可以选择启用了 SSE 的存储帐户。     
+Azure 磁盘加密 (ADE) | 不支持 |
+热添加/移除磁盘 | 不支持 | 如果在 VM 上添加或删除数据磁盘，需要先禁用复制然后重新为 VM 启用复制。
+排除磁盘 | 不支持|   默认情况下，排除临时磁盘。
+LRS | 支持 |
+GRS | 支持 |
+RA-GRS | 支持 |
+ZRS | 支持 |  
+冷存储和热存储 | 不支持 | 冷存储和热存储不支持虚拟机磁盘
+
+>[!IMPORTANT]
+> 请确保按照源 Azure 虚拟机的[存储指南](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)进行操作，避免出现任何性能问题。 如果使用默认设置，Site Recovery 将基于源配置创建所需的存储帐户。 如果自定义并选择自己的设置，请确保使用 (.../ storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) 作为源 VM。
+
+## 网络配置支持
+<a id="support-for-network-configuration" class="xliff"></a>
+**配置** | 支持/不支持 | **备注**
+--- | --- | ---
+网络接口 (NIC) | 特定 Azure VM 大小可支持最大数目的 NIC | 在测试故障转移或故障转移操作过程中创建 VM 时，会创建 NIC。 故障转移 VM 上的 NIC 数取决于启用复制时源 VM 拥有的 NIC 数。 如果在启用复制后添加/删除 NIC，不会影响故障转移 VM 上的 NIC 数。
+Internet 负载均衡器 | 支持 | 需要使用恢复计划中的 Azure 自动化脚本关联预配置的负载均衡器。
+内部负载均衡器 | 支持 | 需要使用恢复计划中的 Azure 自动化脚本关联预配置的负载均衡器。
+公共 IP| 支持 | 需要使用恢复计划中的 Azure 自动化脚本，将现有公共 IP 关联到 NIC，或创建一个公共 IP，并将其关联到 NIC。
+NIC 上的 NSG（资源管理器）| 支持 | 需要使用恢复计划中的 Azure 自动化脚本将 NSG 关联到 NIC。  
+子网上的 NSG（资源管理器和经典）| 支持 | 需要使用恢复计划中的 Azure 自动化脚本将 NSG 关联到 NIC。
+VM 上的 NSG（经典）| 支持 | 需要使用恢复计划中的 Azure 自动化脚本将 NSG 关联到 NIC。
+保留 IP（静态 IP）/保留源 IP | 支持 | 如果源 VM 上的 NIC 具有静态 IP 配置并且目标子网中包含同一 IP，则会将该 IP 分配给故障转移 VM。 如果目标子网中没有相同的 IP，则会为此 VM 保留子网中的一个 IP。 可在“复制项”>“设置”>“计算和网络”>“网络接口”中指定所选的固定 IP 。 可以选择 NIC，并指定所选的子网和 IP。
+动态 IP| 支持 | 如果源 VM 上的 NIC 具有动态 IP 配置，则在默认情况下，故障转移 VM 上的 NIC 也是动态的。 可在“复制项”>“设置”>“计算和网络”>“网络接口”中指定所选的固定 IP 。 可以选择 NIC，并指定所选的子网和 IP。
+流量管理器集成 | 支持 | 可以对流量管理器进行预配置，使流量定期路由到源区域中的终结点，并在故障转移时路由到目标区域中的终结点。
+Azure 托管 DNS | 支持 |
+自定义 DNS  | 支持 |    
+未经身份验证的代理 | 支持 | 请参阅[网络指南文档。](site-recovery-azure-to-azure-networking-guidance.md)    
+经过身份验证的代理 | 不支持 | 如果 VM 正在使用经过身份验证的代理进行出站连接，则不可使用 Azure Site Recovery 进行复制。    
+本地站点到站点 VPN（使用或不使用 ExpressRoute）| 支持 | 确保将 UDR 和 NSG 配置为站点恢复流量不会路由到本地。 请参阅[网络指南文档。](site-recovery-azure-to-azure-networking-guidance.md)  
+VNET 到 VNET 连接 | 支持 | 请参阅[网络指南文档。](site-recovery-azure-to-azure-networking-guidance.md)  
+
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+- 详细了解 [networking guidance for replicating Azure VMs](site-recovery-azure-to-azure-networking-guidance.md)（有关复制 Azure VM 的网络指南）
+<!-- Not Available [replicating Azure VMs](site-recovery-azure-to-azure.md) -->

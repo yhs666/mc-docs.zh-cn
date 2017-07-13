@@ -1,11 +1,11 @@
 ---
-title: Azure Power BI Embedded 文档 - 教程, API 参考 | Azure
+title: "Azure Power BI Embedded 文档 - 教程和 API 参考 | Azure"
 description: "了解如何将 Power BI 数据可视化效果和交互式报表嵌入应用。 教程、API 参考和其他文档。"
 services: power-bi-embedded
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid:	
+ms.assetid: 
 ms.service: power-bi-embedded
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,14 +13,14 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 08270fca90bb74f166c94e0f4acc406bca936eb8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: e4f10b2e5891826e35b3e40dde35bc53c4104bbd
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="power-bi-embedded-documentation"></a>Power BI Embedded 文档
+# Power BI Embedded 文档
+<a id="power-bi-embedded-documentation" class="xliff"></a>
 
 了解如何借助 Power BI Embedded 在应用程序中添加数据可视化效果和交互式报表。 教程、API 参考和其他文档介绍了如何在应用中无缝嵌入 Power BI 报表和仪表板。
 
@@ -88,4 +88,3 @@ ms.lasthandoff: 05/12/2017
 下载 Power BI Embedded 文档 </div>
     </a>
 </div>
-

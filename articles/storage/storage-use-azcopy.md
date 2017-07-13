@@ -26,7 +26,7 @@ ms.lasthandoff: 06/23/2017
 # 使用 Windows 上的 AzCopy 传输数据
 AzCopy 是一个命令行实用工具，专用于将数据复制到 Azure Blob、文件和表存储以及从这些位置复制数据。 可在存储帐户中将数据从一个对象复制到另一个对象，或者在存储帐户之间复制。
 
-有两个版本的 AzCopy 可下载。 Windows 上的 AzCopy 使用 .NET Framework 构建而成，提供 Windows 样式的命令行选项。 本文介绍 Windows 上的 AzCopy。
+有两个版本的 AzCopy 可下载。 Windows 上的 AzCopy 使用 .NET Framework 构建而成，提供 Windows 样式的命令行选项。 [Linux 上的 AzCopy](storage-use-azcopy-linux.md) 使用 .NET Core Framework 构建而成，以提供 POSIX 样式的命令行选项的 Linux 平台为目标。 本文介绍 Windows 上的 AzCopy。
 
 <a id="download-and-install-azcopy" class="xliff"></a>
 
@@ -1092,6 +1092,7 @@ AzCopy 旨在最大程度上利用计算机资源来加快数据传输，如果�
 * [如何通过 .NET 使用文件存储](storage-dotnet-how-to-use-files.md)
 * [如何通过 .NET 使用表存储](storage-dotnet-how-to-use-tables.md)
 * [如何创建、管理或删除存储帐户](storage-create-storage-account.md)
+* [使用 Linux 上的 AzCopy 传输数据](storage-use-azcopy-linux.md)
 
 <a id="azure-storage-blog-posts" class="xliff"></a>
 

@@ -13,18 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/13/2017
+origin.date: 04/20/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: e44e29b0eda81d5bac1c7a9c3d8ae70f0dd934c0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: f0a29a74aac30c9f1ad0b46c20e6bf894195d1e5
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="extend-hdinsight-capabilities-by-using-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 HDInsight 功能
+# 使用 Azure 虚拟网络扩展 HDInsight 功能
+<a id="extend-hdinsight-capabilities-by-using-azure-virtual-network" class="xliff"></a>
 
 了解如何使用具有 HDInsight 的 Azure 虚拟网络来启用以下方案：
 
@@ -36,13 +35,14 @@ ms.lasthandoff: 04/28/2017
 
 * 创建涉及多个 HDInsight 群集的解决方案。 例如，使用 Spark 或 Storm 分析存储在 Kafka 中的数据。
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 * Azure CLI 2.0：有关详细信息，请参阅 [安装和配置 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)。
 
 * Azure PowerShell：有关详细信息，请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 > [!NOTE]
 > 本文档中的步骤需要最新版本的 Azure CLI 和 Azure PowerShell。 如果你使用的是较旧版本，则命令可能会有所不同。 为获得最佳结果，请使用以上链接来安装最新版本。
@@ -68,9 +68,10 @@ ms.lasthandoff: 04/28/2017
 
 * __限制网络流量__：虽然 HDInsight 的确支持使用网络安全组来限制网络流量，但需要对多个 Azure Ip 不受限制访问。 有关详细信息，请参阅[安全虚拟网络](#secured-virtual-networks)部分。
 
-### <a name="connect-cloud-resources-together-in-a-private-network-cloud-only"></a>在专用网络（仅限云）中将云资源连接到一起
+### 在专用网络（仅限云）中将云资源连接到一起
+<a id="connect-cloud-resources-together-in-a-private-network-cloud-only" class="xliff"></a>
 
-![仅限云配置示意图](./media/hdinsight-extend-hadoop-virtual-network/cloud-only.png)
+![仅限云配置示意图](media/hdinsight-extend-hadoop-virtual-network/cloud-only.png)
 
 使用虚拟网络链接 Azure 服务与 HDInsight 可实现以下方案：
 
@@ -80,15 +81,16 @@ ms.lasthandoff: 04/28/2017
 
 * **组合多个 HDInsight 服务器** 以构成单个解决方案。 有多种类型的 HDInsight 群集，分别对应于群集针对其进行了优化的工作负荷或技术。 没有任何方法支持创建组合多种类型的群集，如一个群集同时具有 Storm 和 HBase 类型。 使用虚拟网络能够使多个群集在彼此之间直接进行通信。
 
-### <a name="connect-cloud-resources-to-a-local-datacenter-network"></a>将云资源连接到本地数据中心网络
+### 将云资源连接到本地数据中心网络
+<a id="connect-cloud-resources-to-a-local-datacenter-network" class="xliff"></a>
 
 通过站点到站点配置，可将数据中心中的多个资源连接到 Azure 虚拟网络。 可以使用硬件 VPN 设备或路由与远程访问服务进行连接。
 
-![站点到站点配置示意图](./media/hdinsight-extend-hadoop-virtual-network/site-to-site.png)
+![站点到站点配置示意图](media/hdinsight-extend-hadoop-virtual-network/site-to-site.png)
 
 利用点到站点配置，可使用软件 VPN 将特定资源连接到 Azure 虚拟网络。
 
-![点到站点配置示意图](./media/hdinsight-extend-hadoop-virtual-network/point-to-site.png)
+![点到站点配置示意图](media/hdinsight-extend-hadoop-virtual-network/point-to-site.png)
 
 使用虚拟网络链接云和数据中心，可使类似方案实现仅限云的配置。 但是，如果不希望仅限于使用云中的资源，还可以使用数据中心内的资源。
 
@@ -101,7 +103,8 @@ ms.lasthandoff: 04/28/2017
 > [!NOTE]
 > 在预配 HDInsight 群集前，创建 Azure 虚拟网络，然后在创建群集时指定该网络。 有关详细信息，请参阅[虚拟网络配置任务](/virtual-network/)。
 
-## <a name="secured-virtual-networks"></a>受保护的虚拟网络
+## 受保护的虚拟网络
+<a id="secured-virtual-networks" class="xliff"></a>
 
 HDInsight 服务是一种托管服务，并需要在预配期间和运行时访问 Azure 管理服务。 Azure 管理执行以下服务：
 
@@ -113,30 +116,30 @@ HDInsight 服务是一种托管服务，并需要在预配期间和运行时访�
 > [!NOTE]
 > 这些操作不需要完全访问 Internet。 限制 Internet 访问时，允许在端口 443 上进行以下 IP 地址的入站访问。 这将使 Azure 能够管理 HDInsight：
 
-应允许的 IP 地址专门用于 HDInsight 群集和虚拟网络所在的区域。 使用下表查找正在使用的区域的 IP 地址。
-
-| 区域 | 允许的 IP 地址 | 允许的端口 |
-| ---- | ---- | ---- |
-| 中国北部 | 42.159.96.170 <br/> 139.217.2.219 | 443 |
-| 中国东部 | 42.159.198.178 <br/> 42.159.234.157 | 443 |
+* 168.61.49.99
+* 23.99.5.239
+* 168.61.48.131
+* 138.91.141.162
 
 > [!IMPORTANT]
 > HDInsight 不支持限制出站流量，仅可限制入站流量。 当为包含 HDInsight 的子网定义网络安全组规则时，__只能使用入站规则__。
 
-### <a name="working-with-hdinsight-in-secured-virtual-networks"></a>在受保护的虚拟网络中使用 HDInsight
+### 在受保护的虚拟网络中使用 HDInsight
+<a id="working-with-hdinsight-in-secured-virtual-networks" class="xliff"></a>
 
 如果阻止 Internet 访问，将无法使用通常通过群集的公共网关公开的 HDInsight 服务。 这些服务包括 Ambari 和 SSH。 相反，必须使用群集头节点的内部 IP 地址来访问服务。
 
 若要查找头节点的内部 IP 地址，请使用[内部 IP 和 FQDN](#retrieve-internal-ips-and-fqdns) 部分中的脚本。
 
-### <a name="example-secured-virtual-network"></a>示例：受保护的虚拟网络
+### 示例：受保护的虚拟网络
+<a id="example-secured-virtual-network" class="xliff"></a>
 
 以下示例演示如何一个创建网络安全组，该组允许以下 IP 地址的端口 443 上的入站流量：
 
-* 42.159.96.170
-* 139.217.2.219
-* 42.159.198.178
-* 42.159.234.157
+* 168.61.49.99
+* 23.99.5.239
+* 168.61.48.131
+* 138.91.141.162
 
 > [!IMPORTANT]
 > 这些地址用于没有列出特定 IP 地址的区域。 若要查找你所在区域的 IP 地址，请使用[受保护的虚拟网络](#secured-virtual-networks)部分中的信息。
@@ -150,7 +153,7 @@ HDInsight 服务是一种托管服务，并需要在预配期间和运行时访�
 
 **示例：Azure 资源管理模板**
 
-使用 [Azure 快速启动模板](https://github.com/azure/azure-quickstart-templates)中的以下资源管理模板在 VNet 中创建具备安全网络配置的 HDInsight 群集：
+使用 [Azure 快速启动模板](https://github.com/azure/azure-quickstart-templates/)中的以下资源管理模板在 VNet 中创建具备安全网络配置的 HDInsight 群集：
 
 [在 VNet 中部署安全的 Azure VNet 和 HDInsight Hadoop 群集](https://github.com/azure/azure-quickstart-templates/tree/master/101-hdinsight-secure-vnet/)
 
@@ -176,44 +179,44 @@ $nsg = New-AzureRmNetworkSecurityGroup `
     -Location $location `
     | Add-AzureRmNetworkSecurityRuleConfig `
         -name "hdirule1" `
-        -Description "HDI health and management address 42.159.96.170" `
+        -Description "HDI health and management address 168.61.49.99" `
         -Protocol "*" `
         -SourcePortRange "*" `
         -DestinationPortRange "443" `
-        -SourceAddressPrefix "42.159.96.170" `
+        -SourceAddressPrefix "168.61.49.99" `
         -DestinationAddressPrefix "VirtualNetwork" `
         -Access Allow `
         -Priority 300 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
         -Name "hdirule2" `
-        -Description "HDI health and management 139.217.2.219" `
+        -Description "HDI health and management 23.99.5.239" `
         -Protocol "*" `
         -SourcePortRange "*" `
         -DestinationPortRange "443" `
-        -SourceAddressPrefix "139.217.2.219" `
+        -SourceAddressPrefix "23.99.5.239" `
         -DestinationAddressPrefix "VirtualNetwork" `
         -Access Allow `
         -Priority 301 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
         -Name "hdirule3" `
-        -Description "HDI health and management 42.159.198.178" `
+        -Description "HDI health and management 168.61.48.131" `
         -Protocol "*" `
         -SourcePortRange "*" `
         -DestinationPortRange "443" `
-        -SourceAddressPrefix "42.159.198.178" `
+        -SourceAddressPrefix "168.61.48.131" `
         -DestinationAddressPrefix "VirtualNetwork" `
         -Access Allow `
         -Priority 302 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
         -Name "hdirule4" `
-        -Description "HDI health and management 42.159.234.157" `
+        -Description "HDI health and management 138.91.141.162" `
         -Protocol "*" `
         -SourcePortRange "*" `
         -DestinationPortRange "443" `
-        -SourceAddressPrefix "42.159.234.157" `
+        -SourceAddressPrefix "138.91.141.162" `
         -DestinationAddressPrefix "VirtualNetwork" `
         -Access Allow `
         -Priority 303 `
@@ -241,10 +244,10 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 2. 使用以下命令将规则添加新网络安全组，以允许从 Azure HDInsight 运行状况和管理服务通过端口 443 发起的入站通信。 将 **RESOURCEGROUPNAME** 替换为包含 Azure 虚拟网络的资源组的名称。
 
     ```azurecli
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "42.159.96.170/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "139.217.2.219/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule3 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "42.159.198.178/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule4 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "42.159.234.157/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.49.99/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule3 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule4 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
     ```
 
 3. 创建规则后，使用以下命令检索此网络安全组的唯一标识符：
@@ -282,7 +285,8 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 
 有关网络安全组的详细信息，请参阅[网络安全组概述](../virtual-network/virtual-networks-nsg.md)。 有关在 Azure 虚拟网络中控制路由的详细信息，请参阅[用户定义的路由和 IP 转发](../virtual-network/virtual-networks-udr-overview.md)。
 
-## <a name="retrieve-internal-ips-and-fqdns"></a>检索内部 IP 和 FQDN
+## 检索内部 IP 和 FQDN
+<a id="retrieve-internal-ips-and-fqdns" class="xliff"></a>
 
 使用虚拟网络连接到 HDInsight 后，将可以直接连接到群集中的节点。 使用下面的脚本来确定群集中节点的内部 IP 地址和完全限定域名 (FQDN)：
 
@@ -328,4 +332,3 @@ az network nic list --resource-group <resourcegroupname> --output table --query 
 * [将 Sqoop 与 HDInsight 中的 Hadoop 配合使用](hdinsight-use-sqoop-mac-linux.md)
 
 若要了解有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
-

@@ -11,17 +11,15 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 03/23/2017
+origin.date: 11/30/2016
 ms.author: v-yiso
 ms.date: 05/22/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 34911e5ffcf8392691c0a895c24138c4587e683a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 02c9b18069daa2cfb245641351b2573668560e5e
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="get-started-with-service-bus-queues"></a>服务总线队列入门
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

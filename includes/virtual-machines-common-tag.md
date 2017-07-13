@@ -1,7 +1,8 @@
-## <a name="tagging-a-virtual-machine-through-templates"></a>通过模板标记虚拟机
+## 通过模板标记虚拟机
+<a id="tagging-a-virtual-machine-through-templates" class="xliff"></a>
 首先，让我们看一下如何通过模板进行标记。 [此模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags)将标记放置在以下资源中：计算（虚拟机）、存储（存储帐户）和网络（公共 IP 地址、虚拟网络和网络接口）。 此模板适用于 Windows VM，但经过改造后也可用于 Linux VM。
 
-单击下面的 **部署至 Azure** 按钮。 这将导航到 [Azure 门户](https://portal.azure.cn/)，可在其中部署此模板。
+单击下面的“部署到 Azure”按钮。 此操作将导航到 [Azure 门户](https://portal.azure.cn/)，可在其中部署此模板。
 
 [![使用标记进行简单部署](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-tags%2Fazuredeploy.json)
 
@@ -24,7 +25,8 @@
 
 单击  “创建”，使用标记值部署此模板。
 
-## <a name="tagging-through-the-portal"></a>通过门户进行标记
+## 通过门户进行标记
+<a id="tagging-through-the-portal" class="xliff"></a>
 使用标记创建资源后，可以在门户中查看、添加和删除该标记。
 
 选择标记图标，以查看标记：

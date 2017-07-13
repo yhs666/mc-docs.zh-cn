@@ -1,30 +1,32 @@
 ---
-title: 创建自定义 Linux 虚拟机 | Azure
-description: 了解如何从 Azure 经典管理门户使用经典部署模型创建自定义 Linux 虚拟机。
+title: "创建自定义 Linux 虚拟机 | Azure"
+description: "了解如何从 Azure 门户使用经典部署模型创建自定义 Linux 虚拟机。"
 services: virtual-machines-linux
-documentationCenter: ''
-authors: cynthn
+documentationcenter: 
+author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 260c610a-f0a0-4da0-a7a6-8cf4e35b7253
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 09/27/2016
-ms.date: 01/05/2017
+origin.date: 05/31/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
+ms.openlocfilehash: c44ffa8fdd8a12564a2eb0a0a7b2ae68432deb6f
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # 创建运行 Linux 的自定义虚拟机
-
-> [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器和经典](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍使用经典部署模型。Azure 建议大多数新部署使用资源管理器模型。有关使用资源管理器模型创建 Linux VM 的信息，请参阅[使用门户在 Azure 上创建 Linux VM](../quick-create-portal.md)。
+<a id="create-a-custom-virtual-machine-running-linux" class="xliff"></a>
+> [!IMPORTANT] 
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关使用 Resource Manager 模型创建 Linux VM 的信息，请参阅[使用门户在 Azure 上创建 Linux VM](../quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-common-classic-createportal.md)]
 
 [!INCLUDE [virtual-machines-create-linuxvm](../../../../includes/virtual-machines-create-linuxvm.md)]
-
-<!---HONumber=Mooncake_1114_2016-->

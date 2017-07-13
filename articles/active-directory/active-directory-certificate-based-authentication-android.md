@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2017
+origin.date: 06/07/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 02780665aa3741cf53b3dcf6ddd100f44687c007
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.date: 06/21/2017
+ms.openlocfilehash: 553e5fd82fa2fcdafc99d01d0dea3fa9f7eee583
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Android 上 Azure Active Directory 基于证书的身份验证
+# Android 上 Azure Active Directory 基于证书的身份验证
+<a id="azure-active-directory-certificate-based-authentication-on-android" class="xliff"></a>
 
 
 如果使用基于证书的身份验证 (CBA)，则在 Windows、Android 或 iOS 设备上将 Exchange Online 帐户连接到以下对象时，可通过 Azure Active Directory 使用客户端证书进行身份验证： 
@@ -31,12 +31,15 @@ ms.lasthandoff: 04/28/2017
 
 如果配置了此功能，就无需在移动设备上的某些邮件和 Microsoft Office 应用程序中输入用户名和密码组合。 
 
-本主题提供给用户的要求和支持方案适用于在 Android 设备上配置 CBA，该设备适用于 Office 365 企业版、业务版、教育版和美国政府版计划中租户的用户。 
-
-此功能在 Office 365 美国国防部版和美国联邦政府版计划中以预览版形式提供。
+本主题面向 Office 365 企业版、商业版、教育版、美国政府版和中国计划中的租户用户，提供在 Android 设备上配置 CBA 时的要求和受支持方案。
 
 
-## <a name="office-mobile-applications-support"></a>Office 移动应用程序支持
+
+此功能在 Office 365 US Government Defense 和 Federal 计划中以预览形式提供。
+
+
+## Office 移动应用程序支持
+<a id="office-mobile-applications-support" class="xliff"></a>
 | 应用 | 支持 |
 | --- | --- |
 | Word/Excel/PowerPoint |![勾选标记][1] |
@@ -46,9 +49,12 @@ ms.lasthandoff: 04/28/2017
 | Yammer |![勾选标记][1] |
 | Skype for Business |![勾选标记][1] |
 | Azure 信息保护应用 |![勾选标记][1] |
+| Microsoft Teams |![勾选标记][1] |
 
 
-### <a name="implementation-requirements"></a>实现要求
+
+### 实现要求
+<a id="implementation-requirements" class="xliff"></a>
 
 设备 OS 版本必须为 Android 5.0 (Lollipop) 及更高版本。 
 
@@ -66,21 +72,22 @@ ms.lasthandoff: 04/28/2017
 作为最佳做法，你应该使用有关如何获取用户证书的说明来更新 ADFS 错误页。  
 有关更多详细信息，请参阅[自定义 AD FS 登录页面](https://technet.microsoft.com/library/dn280950.aspx)。  
 
-某些 Office 应用（启用了新式身份验证）在请求中向 Azure AD 发送“*prompt=login*”。 默认情况下，Azure AD 会在请求中为 ADFS 将其转换为“*wauth=usernamepassworduri*”（要求 ADFS 执行 U/P 身份验证）和“*wfresh=0*”（要求 ADFS 忽略 SSO 状态并执行全新的身份验证）。 如果想要为这些应用启用基于证书的身份验证，需要修改默认 Azure AD 行为。 只需将联盟域设置中的“PromptLoginBehavior”设置为“已禁用”即可。 可使用 [MSOLDomainFederationSettings](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msoldomainfederationsettings) cmdlet 执行此任务：
+某些 Office 应用（启用了新式身份验证）在请求中向 Azure AD 发送“*prompt=login*”。 默认情况下，Azure AD 会在请求中为 ADFS 将其转换为“*wauth=usernamepassworduri*”（要求 ADFS 执行 U/P 身份验证）和“*wfresh=0*”（要求 ADFS 忽略 SSO 状态并执行全新的身份验证）。 如果想要为这些应用启用基于证书的身份验证，需要修改默认 Azure AD 行为。 只需将联盟域设置中的“PromptLoginBehavior”设置为“已禁用”即可。 可使用 [MSOLDomainFederationSettings](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0/) cmdlet 执行此任务：
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 
 
 
-## <a name="exchange-activesync-clients-support"></a>Exchange ActiveSync 客户端支持
+## Exchange ActiveSync 客户端支持
+<a id="exchange-activesync-clients-support" class="xliff"></a>
 支持 Android 5.0 (Lollipop) 或更高版本上的某些 Exchange ActiveSync 应用程序。 若要确定你的电子邮件应用程序是否支持此功能，请联系应用程序开发人员。 
 
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 如果想要在环境中配置基于证书的身份验证，请参阅 [Android 上基于证书的身份验证入门](active-directory-certificate-based-authentication-get-started.md)了解相关说明。
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
-
 

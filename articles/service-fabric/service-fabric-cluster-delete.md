@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: cfd14b3dbcabdcd4ebd43a8b0860f308872e62d2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 6e932e7d16958f6afedd8ae1635c773bd1649b2f
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>在 Azure 上删除 Service Fabric 群集及其所用资源
+# 在 Azure 上删除 Service Fabric 群集及其所用资源
+<a id="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses" class="xliff"></a>
 Service Fabric 群集由群集资源本身及众多其他 Azure 资源组成。 因此，若要彻底删除 Service Fabric 群集，还需删除组成该群集的所有资源。
 可使用两种方法：删除该群集所在的资源组（此操作将删除该资源组中的群集资源及其他任何资源），或特定删除群集资源及其关联资源（而不删除资源组中的其他资源）。
 
@@ -31,10 +30,12 @@ Service Fabric 群集由群集资源本身及众多其他 Azure 资源组成。 
 > 
 > 
 
-## <a name="delete-the-entire-resource-group-rg-that-the-service-fabric-cluster-is-in"></a>删除 Service Fabric 群集所在的整个资源组 (RG)
-这是确保删除与群集相关联的所有资源（包括资源组）的最简单方法。 可以通过 PowerShell 或 Azure 门户删除资源组。 如果资源组中具有与 Service Fabric 群集不相关的资源，则可以删除特定资源。
+## 删除 Service Fabric 群集所在的整个资源组 (RG)
+<a id="delete-the-entire-resource-group-rg-that-the-service-fabric-cluster-is-in" class="xliff"></a>
+这是确保删除与群集相关联的所有资源（包括资源组）的最简单方法。 可使用 PowerShell 或通过 Azure 门户删除资源组。 如果资源组中具有与 Service Fabric 群集不相关的资源，则可以删除特定资源。
 
-### <a name="delete-the-resource-group-using-azure-powershell"></a>使用 Azure PowerShell 删除资源组
+### 使用 Azure PowerShell 删除资源组
+<a id="delete-the-resource-group-using-azure-powershell" class="xliff"></a>
 也可通过运行以下 Azure PowerShell cmdlet 删除资源组。 请确保计算机上已安装 Azure PowerShell 1.0 或更高版本。 如果尚未安装，请按照[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 中所述的步骤进行安装
 
 打开 PowerShell 窗口并运行以下 PS cmdlet：
@@ -47,7 +48,8 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 
 如果未使用 *-Force* 选项，则将提示确认删除。 确认后，即会删除 RG 及其包含的所有资源。
 
-### <a name="delete-a-resource-group-in-the-azure-portal-preview"></a>在 Azure 门户中删除资源组
+### 在 Azure 门户中删除资源组
+<a id="delete-a-resource-group-in-the-azure-portal" class="xliff"></a>
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 导航到要删除的 Service Fabric 群集。
 3. 在群集概要页上单击资源组名称。
@@ -57,7 +59,8 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 
 ![资源组删除][ResourceGroupDelete]
 
-## <a name="delete-the-cluster-resource-and-the-resources-it-uses-but-not-other-resources-in-the-resource-group"></a>删除群集资源及其所用资源，但不删除资源组中的其他资源
+## 删除群集资源及其所用资源，但不删除资源组中的其他资源
+<a id="delete-the-cluster-resource-and-the-resources-it-uses-but-not-other-resources-in-the-resource-group" class="xliff"></a>
 如果资源组仅包含与要删除的 Service Fabric 群集相关的资源，那么删除整个资源组更方便。 如果想有选择地逐个删除资源组中的资源，请按照下以步骤进行操作。
 
 如果使用门户或通过模板库中的 Service Fabric Resource Manager 模板部署群集，该群集使用的所有资源都带有以下两个标记。 可以使用它们来确定要删除的资源。
@@ -66,7 +69,8 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 
 ***标记 2：***键 = resourceName，值 = ServiceFabric
 
-### <a name="delete-specific-resources-in-the-azure-portal-preview"></a>在 Azure 门户中删除特定资源
+### 在 Azure 门户中删除特定资源
+<a id="delete-specific-resources-in-the-azure-portal" class="xliff"></a>
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 导航到要删除的 Service Fabric 群集。
@@ -79,7 +83,8 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
    
     ![带标记的资源][TaggedResources]
 
-### <a name="delete-the-resources-using-azure-powershell"></a>使用 Azure PowerShell 删除资源
+### 使用 Azure PowerShell 删除资源
+<a id="delete-the-resources-using-azure-powershell" class="xliff"></a>
 
 可通过运行以下 Azure PowerShell cmdlet 逐个删除资源。 请确保计算机上已安装 Azure PowerShell 1.0 或更高版本。 如果尚未安装，请按照[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 中所述的步骤进行安装
 
@@ -100,7 +105,8 @@ Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "<Re
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName "<name of the resource group>" -Force
 ```
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 参阅以下文章以了解如何升级群集以及对服务进行分区：
 
 * [了解群集升级](service-fabric-cluster-upgrade.md)

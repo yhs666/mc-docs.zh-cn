@@ -16,20 +16,22 @@ ms.topic: article
 origin.date: 04/25/2017
 ms.date: 03/01/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 1e91eecec3dae78e653fc90597bb347e9ffcdc35
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 529140d56f5484e90c6540f3b5063438e1b2fe8d
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-# <a name="how-to-debug-a-nodejs-web-app-in-azure-app-service"></a>如何在 Azure 应用服务中调试 Node.js Web 应用
+# 如何在 Azure 应用服务中调试 Node.js Web 应用
+<a id="how-to-debug-a-nodejs-web-app-in-azure-app-service" class="xliff"></a>
 Azure 提供了内置诊断来协助调试托管在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services) Web 应用中的 Node.js 应用程序。 在本文中，你将学习如何启用 stdout 和 stderr 的日志记录，如何在浏览器中显示错误信息以及下载和查看日志文件。
 
 [IISNode]提供对在 Azure 上托管的 Node.js 应用程序的诊断。 本文只讨论了有关收集诊断信息的常见设置，并未提供使用 IISNode 的完整参考。 有关使用 IISNode 的详细信息，请参阅 GitHub 上的 [IISNode 自述文件] 。
 
-## <a id="enablelogging"></a>启用日志记录
+<a id="enablelogging"></a>
+
+## 启用日志记录
+<a id="enable-logging" class="xliff"></a>
 默认情况下，应用服务 Web 应用只捕获与部署有关的诊断信息，例如当使用 Git 部署 Web 应用时。 如果在部署期间遇到问题（例如安装 **package.json** 中所引用的模块时失败），或者如果使用自定义的部署脚本，此信息会很有用。
 
 要启用 stdout 和 stderr 流的日志记录，必须在 Node.js 应用程序的根创建一个 **IISNode.yml** 文件，并添加以下内容：
@@ -69,15 +71,19 @@ Azure 提供了内置诊断来协助调试托管在 [Azure 应用服务](/app-se
 > 
 > 
 
-## <a id="viewlogs"></a>访问日志
+<a id="viewlogs"></a>
+
+## 访问日志
+<a id="accessing-logs" class="xliff"></a>
 可通过三种方法访问诊断日志：使用文件传输协议 (FTP)、下载 ZIP 存档或作为日志的实时更新流（也称作尾标）。 下载日志文件的 Zip 存档或者查看实时流需要使用 Azure 命令行工具。 可使用以下命令安装它们：
 
     npm install azure-cli -g
 
 安装后，可以使用“azure”命令访问这些工具。 首先，必须配置这些命令行工具使用你的 Azure 订阅。 有关如何实现此任务的信息，请参阅[如何使用 Azure 命令行工具](../xplat-cli-connect.md)一文的“如何下载和导入发布设置”部分。
 
-### <a name="ftp"></a>FTP
-若要通过 FTP 访问诊断信息，请访问 [Azure 门户](https://portal.azure.cn)，选择你的 Web 应用，然后选择“仪表板”。 在“快速链接”部分中，“FTP 诊断日志”和“FTPS 诊断日志”链接提供了使用 FTP 协议访问日志的权限。
+### FTP
+<a id="ftp" class="xliff"></a>
+若要通过 FTP 访问诊断信息，请访问 [Azure 门户](https://portal.azure.cn)，选择 Web 应用，然后选择“仪表板”。 在“快速链接”部分中，“FTP 诊断日志”和“FTPS 诊断日志”链接提供了使用 FTP 协议访问日志的权限。
 
 > [!NOTE]
 > 如果你以前没有为 FTP 或部署配置过用户名和密码，可以通过选择“设置部署凭据”从“快速启动”管理页来执行此配置。
@@ -89,7 +95,8 @@ Azure 提供了内置诊断来协助调试托管在 [Azure 应用服务](/app-se
 * [部署方法](web-sites-deploy.md) - 如果使用 Git 之类的部署方法，将创建同名的目录，并将包含与部署相关的信息。
 * nodejs - 从你的所有应用程序实例捕获的 Stdout 和 stderr 信息（在 loggingEnabled 为 true 时）。
 
-### <a name="zip-archive"></a>Zip 存档
+### Zip 存档
+<a id="zip-archive" class="xliff"></a>
 要下载诊断日志的 zip 存档，请使用 Azure 命令行工具中的以下命令：
 
     azure site log download [sitename]
@@ -99,17 +106,21 @@ Azure 提供了内置诊断来协助调试托管在 [Azure 应用服务](/app-se
 * 部署 - 与你的应用程序部署有关的信息日志
 * LogFiles
 
-    * [部署方法](web-sites-deploy.md) - 如果使用 Git 之类的部署方法，将创建同名的目录，并将包含与部署相关的信息。
-    * nodejs - 从你的所有应用程序实例捕获的 Stdout 和 stderr 信息（在 loggingEnabled 为 true 时）。
+  * [部署方法](web-sites-deploy.md) - 如果使用 Git 之类的部署方法，将创建同名的目录，并将包含与部署相关的信息。
+  * nodejs - 从你的所有应用程序实例捕获的 Stdout 和 stderr 信息（在 loggingEnabled 为 true 时）。
 
-### <a name="live-stream-tail"></a>实时流（尾标）
+### 实时流（尾标）
+<a id="live-stream-tail" class="xliff"></a>
 要查看诊断日志信息的实时流，请使用 Azure 命令行工具中的以下命令：
 
     azure site log tail [sitename]
 
 这将随着日志事件在服务器上发生返回更新的日志事件流。 该流将返回部署信息以及 stdout 和 stderr 信息（在 loggingEnabled 为 true 时）。
 
-## <a id="nextsteps"></a> 后续步骤
+<a id="nextsteps"></a>
+
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 在本文中，你学习了如何启用和访问 Azure 的诊断信息。 尽管此信息对于了解你的应用程序发生的问题很有用，但它可能会指出与你正使用的模块有关的问题，或应用服务 Web 应用所用的 Node.js 版本与在你的部署环境中使用的版本不同。
 
 有关使用 Azure 上的模块的信息，请参阅[将 Node.js 模块与 Azure 应用程序一起使用](../nodejs-use-node-modules-azure-apps.md)。
@@ -118,7 +129,8 @@ Azure 提供了内置诊断来协助调试托管在 [Azure 应用服务](/app-se
 
 有关详细信息，另请参阅 [Node.js 开发人员中心](/develop/nodejs/)。
 
-## <a name="whats-changed"></a>发生的更改
+## 发生的更改
+<a id="whats-changed" class="xliff"></a>
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 [IISNode]: https://github.com/tjanczuk/iisnode

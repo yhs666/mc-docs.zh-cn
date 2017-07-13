@@ -1,12 +1,11 @@
 ---
-title: Azure IoT 中心设备孪生入门 (Node) | Azure
-description: 如何使用 Azure IoT 中心设备孪生添加标记，然后使用 IoT 中心查询。使用 Azure IoT SDK for Node.js 实现模拟设备应用，并实现可添加标记和运行 IoT 中心查询的服务应用。
+title: "Azure IoT 中心设备孪生入门 (Node) | Azure"
+description: "如何使用 Azure IoT 中心设备孪生添加标记，然后使用 IoT 中心查询。 使用 Azure IoT SDK for Node.js 实现模拟设备应用，并实现可添加标记和运行 IoT 中心查询的服务应用。"
 services: iot-hub
 documentationcenter: node
 author: fsautomata
 manager: timlt
-editor: ''
-
+editor: 
 ms.assetid: 314c88e4-cce1-441c-b75a-d2e08e39ae7d
 ms.service: iot-hub
 ms.devlang: node
@@ -14,11 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/13/2016
-ms.date: 01/13/2017
+ms.date: 07/10/2017
 ms.author: v-yiso
+ms.openlocfilehash: 8ff8bdc9cc574337e82d3903609b84215f2b97ee
+ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
-
-# 设备孪生入门 \(Node\)
+# 设备孪生入门 (Node)
+<a id="get-started-with-device-twins-node" class="xliff"></a>
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
@@ -28,7 +32,7 @@ ms.author: v-yiso
 * **TwinSimulatedDevice.js**，一个 Node.js 应用，它模拟使用早前创建的设备标识连接到 IoT 中心的设备，并报告其连接条件。
 
 > [!NOTE]
-[Azure IoT SDK][lnk-hub-sdks] 文章介绍了可用于构建设备和后端应用的 Azure IoT SDK。
+> [Azure IoT SDK][lnk-hub-sdks] 文章介绍了可用于构建设备和后端应用的 Azure IoT SDK。
 > 
 > 
 
@@ -36,190 +40,185 @@ ms.author: v-yiso
 
 + Node.js 版本 0.10.x 或更高版本。
 
-+ 有效的 Azure 帐户。（如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）
++ 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## 创建服务应用
-在此部分，会创建一个 Node.js 控制台应用，将位置元数据添加到与 **myDeviceId** 关联的设备孪生。该应用随后会选择位于中国的设备来查询存储在 IoT 中心的设备孪生，然后查询报告手机网络连接的设备孪生。
+<a id="create-the-service-app" class="xliff"></a>
+在此部分，会创建一个 Node.js 控制台应用，将位置元数据添加到与 **myDeviceId**关联的设备孪生。 该应用随后会选择位于美国的设备来查询存储在 IoT 中心的设备孪生，然后查询报告手机网络连接的设备孪生。
 
-1. 新建名为 **addtagsandqueryapp** 的空文件夹。在命令提示符下的 **addtagsandqueryapp** 文件夹中，使用以下命令创建新的 package.json 文件。接受所有默认值：
+1. 新建名为 **addtagsandqueryapp**的空文件夹。 在命令提示符下的 **addtagsandqueryapp** 文件夹中，使用以下命令创建新的 package.json 文件。 接受所有默认值：
 
+    ```
     npm init
-
-2. 在命令提示符下的 **addtagsandqueryapp** 文件夹中，运行以下命令以安装 **azure-iothub** 包：
-
+    ```
+2. 在 **addtagsandqueryapp** 文件夹的命令提示符下，运行以下命令以安装 **azure-iothub** 包：
+   
+    ```
     npm install azure-iothub --save
-
-3. 在 **addtagsandqueryapp** 文件夹中使用文本编辑器新建 **AddTagsAndQuery.js** 文件。
+    ```
+3. 使用文本编辑器，在 **addtagsandqueryapp** 文件夹中创建一个新的 **AddTagsAndQuery.js** 文件。
 4. 将以下代码添加到 **AddTagsAndQuery.js** 文件，并将 **{iot hub connection string}** 占位符替换为创建中心时复制的 IoT 中心连接字符串：
-
-    ```
-    'use strict';
-    var iothub = require('azure-iothub');
-    var connectionString = '{iot hub connection string}';
-    var registry = iothub.Registry.fromConnectionString(connectionString);
-
-    registry.getTwin('myDeviceId', function(err, twin){
-        if (err) {
-            console.error(err.constructor.name + ': ' + err.message);
-        } else {
-            var patch = {
-                tags: {
-                    location: {
-                        region: 'CN',
-                        plant: 'Redmond43'
+   
+        'use strict';
+        var iothub = require('azure-iothub');
+        var connectionString = '{iot hub connection string}';
+        var registry = iothub.Registry.fromConnectionString(connectionString);
+   
+        registry.getTwin('myDeviceId', function(err, twin){
+            if (err) {
+                console.error(err.constructor.name + ': ' + err.message);
+            } else {
+                var patch = {
+                    tags: {
+                        location: {
+                            region: 'CN',
+                            plant: 'Redmond43'
+                      }
+                    }
+                };
+   
+                twin.update(patch, function(err) {
+                  if (err) {
+                    console.error('Could not update twin: ' + err.constructor.name + ': ' + err.message);
+                  } else {
+                    console.log(twin.deviceId + ' twin updated successfully');
+                    queryTwins();
                   }
-                }
-            };
-
-            twin.update(patch, function(err) {
-              if (err) {
-                console.error('Could not update twin: ' + err.constructor.name + ': ' + err.message);
-              } else {
-                console.log(twin.deviceId + ' twin updated successfully');
-                queryTwins();
-              }
-            });
-        }
-    });
-    ```
-
-    **Registry** 对象会公开从服务与设备孪生进行交互所需的所有方法。前面的代码首先初始化 **Registry** 对象，然后检索 **myDeviceId** 的设备孪生，最后使用所需位置信息更新其标记。
+                });
+            }
+        });
+   
+    **Registry** 对象公开从服务与设备孪生进行交互所需的所有方法。 前面的代码首先初始化 **Registry** 对象，然后检索 **myDeviceId** 的设备孪生，最后使用所需位置信息更新其标记。
 
     更新标记之后，它会调用 **queryTwins** 函数。
-5. 在 **AddTagsAndQuery.js** 末尾添加以下代码即可实现 **queryTwins** 函数：
-
-    ```
-    var queryTwins = function() {
-        var query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'", 100);
-        query.nextAsTwin(function(err, results) {
-            if (err) {
-                console.error('Failed to fetch the results: ' + err.message);
-            } else {
-                console.log("Devices in Redmond43: " + results.map(function(twin) {return twin.deviceId}).join(','));
-            }
-        });
-
-        query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
-        query.nextAsTwin(function(err, results) {
-            if (err) {
-                console.error('Failed to fetch the results: ' + err.message);
-            } else {
-                console.log("Devices in Redmond43 using cellular network: " + results.map(function(twin) {return twin.deviceId}).join(','));
-            }
-        });
-    };
-    ```
-
+5. 在 **AddTagsAndQuery.js** 末尾添加以下代码以实现 **queryTwins** 函数：
+   
+        var queryTwins = function() {
+            var query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'", 100);
+            query.nextAsTwin(function(err, results) {
+                if (err) {
+                    console.error('Failed to fetch the results: ' + err.message);
+                } else {
+                    console.log("Devices in Redmond43: " + results.map(function(twin) {return twin.deviceId}).join(','));
+                }
+            });
+   
+            query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
+            query.nextAsTwin(function(err, results) {
+                if (err) {
+                    console.error('Failed to fetch the results: ' + err.message);
+                } else {
+                    console.log("Devices in Redmond43 using cellular network: " + results.map(function(twin) {return twin.deviceId}).join(','));
+                }
+            });
+        };
+   
     前面的代码执行两个查询：第一个只选择位于 **Redmond43** 工厂中的设备的设备孪生，第二个会优化查询以只选择还通过手机网络连接的设备。
 
-    请注意，前面的代码在创建 **query** 对象时会指定最大返回文档数。**query** 对象包含 **hasMoreResults** 布尔属性，可以用于多次调用 **nextAsTwin** 方法以检索所有结果。名为 **next** 的方法可用于不是设备孪生的结果（例如聚合查询的结果）。
+    请注意上面的代码，当它创建 **query** 对象时，会指定返回的最大文档数。 **query** 对象包含 **hasMoreResults** 布尔值属性，可以使用它多次调用 **nextAsTwin** 方法来检索所有结果。 名为 **next** 的方法可用于不是设备孪生的结果（例如聚合查询的结果）。
 6. 使用以下内容运行应用程序：
-
-    ```
-    node AddTagsAndQuery.js
-    ```
-
+   
+        node AddTagsAndQuery.js
+   
     对于寻找位于 **Redmond43** 的所有设备的查询，应在结果中看到一个设备，而对于将结果限制为使用手机网络连接的设备的查询，不会看到任何设备。
 
-    ![][1]  
+    ![][1]
 
 在下一部分，用户创建的设备应用会报告连接信息并更改上一部分中查询的结果。
 
 ## 创建设备应用
-在此部分，会创建一个 Node.js 控制台应用作为 **myDeviceId** 连接到中心，然后更新其设备孪生的报告属性，说明它是使用手机网络进行连接的。
+<a id="create-the-device-app" class="xliff"></a>
+在此部分，会创建一个 Node.js 控制台应用作为 **myDeviceId**连接到中心，然后更新其设备孪生的报告属性，说明它是使用手机网络进行连接的。
 
 > [!NOTE]
-> 目前，只能从使用 MQTT 协议连接到 IoT 中心的设备访问设备孪生。有关如何转换现有设备应用以使用 MQTT 的说明，请参阅 [MQTT 支持][lnk-devguide-mqtt]一文。
+> 目前，只能从使用 MQTT 协议连接到 IoT 中心的设备访问设备孪生。 有关如何转换现有设备应用以使用 MQTT 的说明，请参阅 [MQTT 支持][lnk-devguide-mqtt] 一文。
+> 
+> 
 
-1. 新建名为 **reportconnectivity** 的空文件夹。在 **reportconnectivity** 文件夹的命令提示符处，使用以下命令创建新的 package.json 文件。接受所有默认值：
-
-    npm init
-
-2. 在 **reportconnectivity** 文件夹的命令提示符处，运行以下命令来安装 **azure-iot-device** 和 **azure-iot-device-mqtt** 包：
-
-    npm install azure-iot-device azure-iot-device-mqtt --save
-
-3. 在 **reportconnectivity** 文件夹中使用文本编辑器新建 **ReportConnectivity.js** 文件。
-4. 将以下代码添加到 **ReportConnectivity.js** 文件，并将 **{device connection string}** 占位符替换为创建 **myDeviceId** 设备标识时复制的设备连接字符串：
+1. 新建名为 **reportconnectivity**的空文件夹。 在 **reportconnectivity** 文件夹的命令提示符处，使用以下命令创建新的 package.json 文件。 接受所有默认值：
 
     ```
-    'use strict';
-    var Client = require('azure-iot-device').Client;
-    var Protocol = require('azure-iot-device-mqtt').Mqtt;
+    npm init
+    ```
+2. 在 **reportconnectivity** 文件夹中，在命令提示符下运行以下命令以安装 **azure-iot-device** 包和 **azure-iot-device-mqtt** 包：
 
-    var connectionString = '{device connection string}';
-    var client = Client.fromConnectionString(connectionString, Protocol);
-
-    client.open(function(err) {
-    if (err) {
-        console.error('could not open IotHub client');
-    }  else {
-        console.log('client opened');
-
-        client.getTwin(function(err, twin) {
+    ```
+    npm install azure-iot-device azure-iot-device-mqtt --save
+    ```
+3. 使用文本编辑器，在 **reportconnectivity** 文件夹中创建一个新的 **ReportConnectivity.js** 文件。
+4. 将以下代码添加到 **ReportConnectivity.js** 文件，并将 **{device connection string}** 占位符替换为创建 **myDeviceId** 设备标识时复制的设备连接字符串：
+   
+        'use strict';
+        var Client = require('azure-iot-device').Client;
+        var Protocol = require('azure-iot-device-mqtt').Mqtt;
+   
+        var connectionString = '{device connection string}';
+        var client = Client.fromConnectionString(connectionString, Protocol);
+   
+        client.open(function(err) {
         if (err) {
-            console.error('could not get twin');
-        } else {
-            var patch = {
-                connectivity: {
-                    type: 'cellular'
-                }
-            };
-
-            twin.properties.reported.update(patch, function(err) {
-                if (err) {
-                    console.error('could not update twin');
-                } else {
-                    console.log('twin state reported');
-                    process.exit();
-                }
+            console.error('could not open IotHub client');
+        }  else {
+            console.log('client opened');
+   
+            client.getTwin(function(err, twin) {
+            if (err) {
+                console.error('could not get twin');
+            } else {
+                var patch = {
+                    connectivity: {
+                        type: 'cellular'
+                    }
+                };
+   
+                twin.properties.reported.update(patch, function(err) {
+                    if (err) {
+                        console.error('could not update twin');
+                    } else {
+                        console.log('twin state reported');
+                        process.exit();
+                    }
+                });
+            }
             });
         }
         });
-    }
-    });
-    ```
-
-    **Client** 对象会公开从设备与设备孪生进行交互所需的所有方法。前面的代码在初始化 **Client** 对象后会检索 **myDeviceId** 的设备孪生，并使用连接信息更新其报告属性。
+   
+    **Client** 对象公开从该设备与设备孪生交互所需的所有方法。 上面的代码在初始化 **Client** 对象后会检索 **myDeviceId** 的设备孪生，并使用连接信息更新其报告属性。
 5. 运行设备应用
-
-    ```
-    node ReportConnectivity.js
-    ```
-
-    此时会显示消息`twin state reported`。
-6. 现在设备报告了其连接信息，应出现在两个查询中。返回到 **addtagsandqueryapp** 文件夹，然后再次运行查询：
-
-    ```
-    node AddTagsAndQuery.js
-    ```
-
+   
+        node ReportConnectivity.js
+   
+    此时会显示消息 `twin state reported`。
+6. 现在设备报告了其连接信息，应出现在两个查询中。 返回到 **addtagsandqueryapp** 文件夹，然后再次运行查询：
+   
+        node AddTagsAndQuery.js
+   
     这次 **myDeviceId** 应出现在两个查询结果中。
 
-    ![][3]  
+    ![][3]
 
 ## 后续步骤
-本教程中，在 Azure 门户中配置了新的 IoT 中心，然后在 IoT 中心的标识注册表中创建了设备标识。已从后端应用以标记形式添加了设备元数据，并编写了模拟的设备应用，用于报告设备孪生中的设备连接信息。还学习了如何使用类似 SQL 的 IoT 中心查询语言来查询此信息。
+<a id="next-steps" class="xliff"></a>
+本教程中，在 Azure 门户中配置了新的 IoT 中心，然后在 IoT 中心的标识注册表中创建了设备标识。 已从后端应用以标记形式添加了设备元数据，并编写了模拟的设备应用，用于报告设备孪生中的设备连接信息。 还学习了如何使用类似 SQL 的 IoT 中心查询语言来查询此信息。
 
 充分利用以下资源：
 
-- 通过 [Get started with IoT Hub][lnk-iothub-getstarted]（IoT 中心入门）教程学习如何从设备发送遥测；
-- 通过[使用所需属性配置设备][lnk-twin-how-to-configure]教程学习如何使用设备孪生的所需属性配置设备，
-- 通过 [Use direct methods][lnk-methods-tutorial]（使用直接方法）教程学习如何以交互方式控制设备（例如如何从用户控制的应用打开风扇）。
+- 通过 [Get started with IoT Hub][lnk-iothub-getstarted] （IoT 中心入门）教程学习如何从设备发送遥测；
+- 通过[使用所需属性配置设备][lnk-twin-how-to-configure]教程学习如何使用设备孪生的所需属性配置设备；
+- 通过[使用直接方法][lnk-methods-tutorial]教程学习如何以交互方式控制设备（例如从用户控制的应用打开风扇）。
 
 <!-- images -->
-
 [1]: ./media/iot-hub-node-node-twin-getstarted/service1.png
 [3]: ./media/iot-hub-node-node-twin-getstarted/service2.png
 
 <!-- links -->
-
 [lnk-hub-sdks]: ./iot-hub-devguide-sdks.md
-[lnk-free-trial]: https://www.azure.cn/pricing/free-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
 [lnk-d2c]: ./iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-methods]: ./iot-hub-devguide-direct-methods.md
@@ -229,14 +228,11 @@ ms.author: v-yiso
 
 [lnk-iothub-getstarted]: ./iot-hub-node-node-getstarted.md
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
-[lnk-connect-device]: /develop/iot/
+[lnk-iot-edge]: ./iot-hub-linux-iot-edge-get-started.md
+[lnk-connect-device]: https://www.azure.cn/develop/iot/
 
 [lnk-twin-how-to-configure]: ./iot-hub-node-node-twin-how-to-configure.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup/
 
 [lnk-methods-tutorial]: ./iot-hub-node-node-direct-methods.md
 [lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
-
-<!---HONumber=Mooncake_0109_2017-->
-<!--Update_Description:update wording-->
