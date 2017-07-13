@@ -100,6 +100,46 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版�
 ##<a name="hdi-version-33-nearing-deprecation-date"></a>HDI 版本 3.3 接近弃用日期
 如果有 HDI 3.3 群集，请尽快将群集升级到 HDI 3.5 或 HDI 3.6。 HDI 3.3 Windows 的弃用时间表可能因区域而异。 如果所在区域的计划弃用日期与本通信中确定的日期不同，客户将会收到单独的通信。
 
+### 常见问题解答：
+
+#### 基于 Windows 的 HDInsight 的停用时间表是怎样的？
+基于 Windows 的 HDInsight 将于 2018 年 7 月 31 日停用
+
+#### 停用基于 Windows 的 HDInsight 将对现有客户有何影响？
+* 停用日之后，将无法在 Windows 群集上创建新的 HDI。
+* 停用日之后，将无法在 Windows 群集上调整现有的 HDInsight的大小。
+  * 之后HDInsight 的发布将仅可在 Linux 操作系统上使用。Windows 操作系统上将不会做HDI 的发布。
+* 请注意，对 HDInsight 3.3 的支持已于 2016 年 6 月 27 到期。因此，HDInsight 3.3 或更低版本已不受支持，也无相关修复。
+
+#### 哪些基于 Windows 的 HDInsight 版本将受到影响？
+Azure HDInsight 3.3 版是适用于 Windows 的最新 HDInsight 版本。在停用日之前，必须将任何运行 Windows（3.3 或更低版本）的 HDInsight 群集迁移至运行 Linux（3.5 或更高版本）的 HDInsight，才能继续创建新的 HDI 群集，或调整现有 HDI 群集的大小。 
+
+#### 我需要做些什么？
+请于 2018 年 7 月 31 日之前参考[本文档](hdinsight-migrate-from-windows-to-linux.md)将基于 Windows 的 HDInsight 群集迁移到基于 Linux 的受支持的 HDInsight 群集。有关受支持的 HDI 版本的信息，请访问[此处](#supported-hdinsight-versions)
+
+#### 在何处可以找到群集操作系统类型？
+在 Azure 门户中，转至 HDInsight 群集概述页面。在该页面的 Essentials 下面，您可以找到群集类型。此内容将指明群集的操作系统类型。
+
+#### 如果我在 2018 年 7 月 31 日之前无法迁移至基于 Linux 的群集，我的 HDInsight Windows 群集将面临何种影响？
+HDInsight Windows 群集将照样样运行，但是您将无法在 Windows 群集上创建新的 HDInsight，或者调整 Windows 群集上的现有 HDInsight 大小。
+
+#### 我的群集拥有 .NET 依赖项。如何在 Linux 上解决该依赖项？
+在 HDInsight Linux 群集上，部署有 .NET 开源实施的软件平台 [Mono](http://www.mono-project.com/)。有关详细信息，请参见[本文档](hdinsight-migrate-from-windows-to-linux.md)。
+ 
+#### 我是一位尝试创建基于 Windows 的 HDInsight 群集的新客户，但未在 Azure 门户中找到相关选项，或者无法通过 PowerShell 或 SDK 创建。我如何才能创建一个基于 Windows 的 HDI 群集？
+自 2017 年 7 月 3 日起，只有基于 Windows 的现有 HDInsight 客户才能创建基于 Windows 的新 HDI 群集（直到停用日期为止）。我们建议您创建基于 Linux 的 HDI 群集。
+ 
+#### 从基于 Windows 的 HDInsight 迁移至基于 Linux 的 HDInsight 会对价格产生影响吗？
+没有影响，基于两种操作系统的 HDInsight 价格相同。
+
+#### 迁移至仅运行 Linux 操作系统的 HDInsight，将为客户带来哪些优势？
+* 通过 HDInsight 服务，加快开源大数据技术的上市速度
+* 享有一个大型的支持社区和生态系统
+* 通过 Hadoop 开源社区和更新的大数据技术更好地利用正在进行的开发活动
+
+#### 与基于 Windows 的 HDInsight 相比，基于 Linux 的 HDInsight 还能提供哪些其他功能？
+从 HDInsight 3.4 版开始，我们发布了仅基于 Linux 操作系统的 HDInsight。因此，HDInsight 中的一些组件将仅可用于 Linux — Apache Ranger、Kafka、Interactive Hive、Spark、HDInsight 应用程序。
+
 ### <a name="the-service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 群集版本的服务级别协议
 SLA 用“支持窗口”来定义。 “支持窗口”是指 HDInsight 群集版本受 Microsoft 客户服务和支持部门支持的时间段。 如果 HDInsight 群集版本具有早于当前日期的 **支持过期日期** ，则表示它处于支持窗口外。 有关支持的 HDInsight 群集版本的列表，请参见上表。 给定 HDInsight 版本 X（一旦提供更新的 X+1 版本）的支持到期日期为按以下公式计算所得时间的较晚者：  
 
