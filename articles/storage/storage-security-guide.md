@@ -123,7 +123,7 @@ Azure 存储提供一套完善的安全功能，这些功能相辅相成，让�
 ### 管理存储帐户密钥
 存储帐户密钥是由 Azure 创建的 512 位字符串，配合存储帐户名称用于访问存储于存储帐户中的数据对象，例如 Blob、表中条目、队列消息，以及 Azure 文件共享中的文件。 控制对存储帐户密钥的访问，将控制对该存储帐户的数据平面的访问。
 
-每个存储帐户在 [Azure 门户](http://portal.azure.cn/)和 PowerShell cmdlet 中有两个密钥，分别称为“密钥 1”和“密钥 2”。 可采用多种多种方式手动重新生成这些密钥，包括（但不限于）使用 [Azure 门户](https://portal.azure.com/)、PowerShell、Azure CLI，或以编程方式使用 .NET 存储客户端库或 Azure 存储服务 REST API。
+每个存储帐户在 [Azure 门户](http://portal.azure.cn/)和 PowerShell cmdlet 中有两个密钥，分别称为“密钥 1”和“密钥 2”。 可采用多种多种方式手动重新生成这些密钥，包括（但不限于）使用 [Azure 门户](https://portal.azure.cn/)、PowerShell、Azure CLI，或以编程方式使用 .NET 存储客户端库或 Azure 存储服务 REST API。
 
 有许多原因会导致重新生成存储帐户密钥。
 

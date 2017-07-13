@@ -1,5 +1,5 @@
 ---
-redirect_url: /azure/sql-database/sql-database-conect-query-php
+redirect_url: /sql-database/sql-database-conect-query-php
 ms.openlocfilehash: d413fe988856342d31fee5c36e3404dbc887429a
 ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT

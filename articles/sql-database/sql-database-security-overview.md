@@ -103,7 +103,7 @@ SQL 数据库动态数据屏蔽通过向无特权用户掩码敏感数据来控�
 <a id="compliance" class="xliff"></a>
 
 ## 合规性
-除了上述可帮助应用程序符合各项安全法规要求的特性和功能以外，Azure SQL 数据库还定期参与审核，并已通过许多法规标准的认证。 有关详细信息，请参阅 [Microsoft Azure 信任中心](https://www.trustcenter.cn/)，可以从中找到 [SQL 数据库法规认证](https://www.trustcenter.cn/zh-cn/compliance/default.html)的最新列表。
+除了上述可帮助应用程序符合各项安全法规要求的特性和功能以外，Azure SQL 数据库还定期参与审核，并已通过许多法规标准的认证。 有关详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/)，可以从中找到 [SQL 数据库法规认证](https://www.trustcenter.cn/zh-cn/compliance/default.html)的最新列表。
 
 <a id="next-steps" class="xliff"></a>
 

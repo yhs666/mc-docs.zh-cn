@@ -57,6 +57,5 @@ Azure SQL 数据库是一种自动托管的数据服务，它会不断监视查�
 <a id="next-steps" class="xliff"></a>
 
 ## 后续步骤
-* 请参阅[自动优化文章](sql-database-automatic-tuning.md)，详细了解自动优化以及如何借助它来提高性能。
 * 请参阅[性能建议](sql-database-advisor.md)，获取 Azure SQL 数据库性能建议的概述。
 * 请参阅[查询性能见解](sql-database-query-performance.md)，了解排名靠前的查询的性能影响。

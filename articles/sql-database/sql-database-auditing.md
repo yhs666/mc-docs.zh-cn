@@ -227,7 +227,7 @@ Blob 审核日志以 Blob 文件集合的形式保存在名为“**sqldbauditlog
 3. 返回到审核配置边栏选项卡，将“存储访问密钥”从“辅助”切换为“主要”，然后单击底部的“确定”。 然后，单击审核配置边栏选项卡顶部的“保存”。
 4. 返回到存储配置边栏选项卡并**重新生成***辅助访问密钥*（为下一个密钥刷新周期做好准备）。
 
-## <a id="subheading-7"></a>自动化 (PowerShell/REST API)
+## <a id="subheading-7"></a><a name="a-idsubheading-7aautomation-powershell--rest-api"></a>自动化 (PowerShell/REST API)
 也可以使用以下自动化工具在 Azure SQL 数据库中配置审核：
 
 1. **PowerShell cmdlet**

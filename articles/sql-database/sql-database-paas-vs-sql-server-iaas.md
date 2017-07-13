@@ -29,7 +29,7 @@ ms.lasthandoff: 06/28/2017
 Azure 有两个选项可用于在 Azure 中托管 SQL Server 工作负荷：
 
 * [Azure SQL 数据库](https://www.azure.cn/home/features/sql-database/)：云的本机 SQL 数据库，也称为平台即服务 (PaaS) 数据库或数据库即服务 (DBaaS)，它已针对软件即服务 (SaaS) 应用开发进行优化。 Azure SQL 数据库与大多数 SQL Server 功能兼容。
-* [Azure 虚拟机上的 SQL Server](https://www.azure.cn/home/features/virtual-machines/#virtual-machine-SQLserver)：在 Azure 上运行的云中 Microsoft Azure 虚拟机 (VM) 上安装并托管的 SQL Server，也称为基础结构即服务 (IaaS)。
+* [Azure 虚拟机上的 SQL Server](https://www.azure.cn/home/features/virtual-machines/#virtual-machine-SQLserver)：在 Azure 上运行的云中 Azure 虚拟机 (VM) 上安装并托管的 SQL Server，也称为基础结构即服务 (IaaS)。
   Azure 虚拟机上的 SQL Server 经过优化，适合用于迁移现有的 SQL Server 应用程序。 可以使用 SQL Server 的所有版本。 它完全与 SQL Server 兼容，可用于托管任意数量的数据库，以及执行跨数据库事务。 它提供对 SQL Server 和 Winodws 的完全控制权。
 
 了解每个选项如何配合 Microsoft 数据平台一起运行，并在匹配适合业务要求的选项时获得帮助。 无论以节省成本为优先考虑，还是将精简管理视为第一要素，本文都会帮助你确定哪种方法能够满足你最重视的业务要求。

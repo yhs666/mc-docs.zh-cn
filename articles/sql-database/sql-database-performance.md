@@ -63,7 +63,7 @@ Azure SQL 数据库可识别数据库中的潜在问题，并通过提供智能�
 <a id="automatic-tuning" class="xliff"></a>
 
 ## 自动优化
-Azure SQL 数据库可以通过应用[性能建议](sql-database-advisor.md)来自动优化数据库性能。 若要了解详细信息，请阅读[自动优化文章](sql-database-automatic-tuning.md)。 若要启用此功能，请阅读[如何启用自动优化](sql-database-automatic-tuning-enable.md)。
+Azure SQL 数据库可以通过应用[性能建议](sql-database-advisor.md)来自动优化数据库性能。
 
 <a id="query-performance-insight" class="xliff"></a>
 

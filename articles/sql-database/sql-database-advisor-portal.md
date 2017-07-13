@@ -172,7 +172,6 @@ Azure SQL 数据库提供可提高 SQL 数据库性能的建议。 提供 T-SQL 
 ## 后续步骤
 监视建议并继续应用它们以优化性能。 数据库工作负荷是动态的，并且不断地更改。 Azure SQL 数据库将继续监视和提供可能提高数据库性能的建议。 
 
-* 请参阅[自动优化](sql-database-automatic-tuning.md)详细了解 Azure SQL 数据库中的自动优化。
 * 请参阅[性能建议](sql-database-advisor.md)，获取 Azure SQL 数据库性能建议的概述。
 * 请参阅[查询性能见解](sql-database-query-performance.md)，了解排名靠前的查询的性能影响。
 

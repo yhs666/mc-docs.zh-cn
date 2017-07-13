@@ -26,7 +26,7 @@ ms.lasthandoff: 06/28/2017
 
 # 在 Azure SQL 数据库中优化性能
 
-Azure SQL 数据库提供[建议](sql-database-advisor.md)，可用于提高数据库的性能，或者让 Azure SQL 数据库[自动适应你的应用程序](sql-database-automatic-tuning.md)，并应用可改善工作负荷性能的变更。
+Azure SQL 数据库提供[建议](sql-database-advisor.md)，可用于提高数据库的性能，并应用可改善工作负荷性能的变更。
 
 如果你未收到任何适用的建议，但仍然遇到性能问题，可以使用以下方法来提高性能：
 1. 提高[服务层](sql-database-service-tiers.md)并为数据库提供更多的资源。
@@ -99,7 +99,7 @@ Azure 门户中的以下工具用于分析和修复 SQL 数据库性能问题：
 * [SQL 数据库顾问](sql-database-advisor.md)
 
 Azure 门户有这两种工具及其使用方法的详细说明。 若要有效地诊断和纠正问题，建议首先在 Azure 门户中尝试这些工具。 建议使用手动优化方法来解决索引缺失和查询优化问题，这一点我们随后会用特例进行介绍。
-
+<a name="monitor-resource-use"></a>
 有关识别 Azure SQL 数据库中问题的详细信息，请参阅[性能监视](sql-database-single-database-monitor.md)一文。
 
 <a id="identifying-and-adding-missing-indexes" class="xliff"></a>

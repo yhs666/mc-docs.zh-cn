@@ -80,7 +80,7 @@ Azure 使用存储帐户作为未托管磁盘的容器。如果使用未托管�
 
 若要了解高级存储磁盘及其 IOPs 和吞吐量限制，请参阅本文的[高级存储的可伸缩性和性能目标](#premium-storage-scalability-and-performance-targets)部分中的表格。
 
-##<a id="premium-storage-scalability-and-performance-targets" name="scalability-and-performance-targets-when-using-premium-storage"></a> 高级存储的可伸缩性和性能目标
+##<a id="premium-storage-scalability-and-performance-targets" name="scalability-and-performance-targets-when-using-premium-storage"></a><a name="scalability-and-performance-targets"></a> 高级存储的可伸缩性和性能目标
 
 在本部分，我们将说明在使用高级存储时必须考虑的可缩放性和性能目标。
 

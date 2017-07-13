@@ -42,14 +42,8 @@ ms.lasthandoff: 06/30/2017
 
 <a id="backups-long-term-retention-and-database-recovery" class="xliff"></a>
 
-## 备份、长期保留和数据库恢复
+## 备份和数据库恢复
 在以下教程中，将了解如何使用[数据库备份](./sql-database-automated-backups.md)和[使用备份恢复数据库](./sql-database-recovery-using-backups.md)。
-
-| 教程 | 说明 |
-| --- | --- | 
-| [使用 Azure 门户备份和还原](./sql-database-get-started-backup-recovery-portal.md) | 此教程介绍如何使用 Azure 门户查看备份、还原到某个时间点、配置长期备份保留，以及通过 Azure 恢复服务保管库的备份进行还原
-| [使用 PowerShell 备份和还原](./sql-database-get-started-backup-recovery-powershell.md) | 此教程介绍如何使用 PowerShell 查看备份、还原到某个时间点、配置长期备份保留，以及通过 Azure 恢复服务保管库的备份进行还原
-|  | |
 
 <a id="sharded-databases" class="xliff"></a>
 

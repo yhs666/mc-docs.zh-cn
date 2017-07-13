@@ -139,7 +139,7 @@ Blob“BlobName.vhd”已用作虚拟机磁盘“VirtualMachineDiskName”，因
 <a id="about-the-stopped-deallocated-status" class="xliff"></a>
 
 ## 有关已停止（已解除分配）的状态
-在经典部署模型中创建且已保留的虚拟机将在 [Azure 门户](https://portal.azure.com/)或 [Azure 经典门户](https://manage.windowsazure.com/)中具有“已停止(已解除分配)”的状态。
+在经典部署模型中创建且已保留的虚拟机将在 [Azure 门户](https://portal.azure.cn/)或 [Azure 经典门户](https://manage.windowsazure.cn/)中具有“已停止(已解除分配)”的状态。
 
 **Azure 经典门户**：
 
