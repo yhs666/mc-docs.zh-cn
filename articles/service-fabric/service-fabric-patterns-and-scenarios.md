@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/08/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 5fcf2545f846948afa1e7b6919e9030f0a321975
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: eff0e7a2065d628e683e9998b004c59fd9d8f1e2
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Service Fabric 模式和方案
 如果你正在寻求如何使用 Azure Service Fabric 构建大规模的微服务，那么可以向设计和构建平台即服务 (PaaS) 的专家咨询。 从正确的体系结构开始，然后了解如何针对应用程序优化资源。 [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) （Service Fabric 模式和实践）课程回答了实际客户最常询问的有关 Service Fabric 应用场景和应用领域的问题。
@@ -92,4 +90,3 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="next-steps"></a>后续步骤
 现在，你已了解 Service Fabric 模式和方案，并且详细了解了如何[创建和管理群集](service-fabric-deploy-anywhere.md)、如何[将云服务应用迁移到 Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)、如何[设置持续交付](service-fabric-set-up-continuous-integration.md)。
-

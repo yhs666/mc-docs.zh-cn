@@ -2,6 +2,7 @@
 ## [概念 ](media-services-concepts.md)
 
 # 入门
+## [创建和管理帐户](media-services-create-account.md)
 ## [设置开发环境](media-services-set-up-computer.md)
 ###[.NET](media-services-dotnet-how-to-use.md)
 ###[REST](media-services-rest-how-to-use.md)  
@@ -77,6 +78,7 @@
 ##### [适用于 Android 的 H264 单比特率 720p](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
 ##### [适用于 Android 的 H264 单比特率高品质 SD](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
 ##### [适用于 Android 的 H264 单比特率低品质 SD](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
+#### 使用媒体编码器高级工作流进行编码
 ### [创建生成 fMP4 区块的任务](media-services-generate-fmp4-chunks.md)
 ### 媒体处理器
 #### [.NET](media-services-get-media-processor.md)
@@ -139,6 +141,7 @@
 #### [.NET](media-services-dotnet-encoding-units.md)
 #### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 
+
 ## [传送内容](media-services-deliver-content-overview.md)
 ### [动态打包](media-services-dynamic-packaging-overview.md)
 ### [筛选器和动态清单概述](media-services-dynamic-manifest-overview.md)
@@ -183,4 +186,3 @@
 # 资源
 ## [发行说明](media-services-release-notes.md)
 ## [价格](https://www.azure.cn/pricing/details/media-services/)
-

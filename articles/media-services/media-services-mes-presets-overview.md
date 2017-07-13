@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 94cc33cdcc0ef10b4a4b5eaf58e75667f9f79c14
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 7b832eb0b43badf8a095de5372677a197dad5220
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="task-presets-for-mes-media-encoder-standard"></a>MES (Media Encoder Standard) 的任务预设
 
 **Media Encoder Standard** 定义了一组可以在创建编码作业时使用的编码预设。 如果想要使用媒体服务对视频进行编码以实现流式处理，建议使用“自适应流式处理”预设。 指定此预设时，Media Encoder Standard 将[自动生成比特率阶梯](media-services-autogen-bitrate-ladder-with-mes.md)。 

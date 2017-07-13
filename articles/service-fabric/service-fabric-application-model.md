@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/02/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: b7da09492ea8cad762ce2fb613b63ccfd9d72e6b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 701f3d60d139e4071a4274b55babebca022821ad
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="model-an-application-in-service-fabric"></a>在 Service Fabric 中对应用程序建模
 本文提供 Azure Service Fabric 应用程序模型的概述。 同时介绍如何通过清单文件定义应用程序和服务，以及如何打包应用程序并准备好进行部署。
@@ -273,4 +271,3 @@ PS D:\temp>
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
-

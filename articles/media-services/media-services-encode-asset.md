@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 9d5d9607ea4256162b55d7f913e960126e5cf0c1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 899e6977fda2e67b56615c6ec8688928746cde54
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Azure 点播媒体编码器概述和比较
 ## <a name="encoding-overview"></a>编码概述

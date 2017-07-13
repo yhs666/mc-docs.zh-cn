@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 5fc5c2ac955ab3a6b780ce13df618700c04d9837
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 67347612d02c010d57439463b1790846208a92cf
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器的示例工作流
 
 本文讲解如何完成为导入作业准备驱动器的整个过程。
@@ -134,4 +131,3 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 * [为导入作业准备硬盘驱动器](storage-import-export-tool-preparing-hard-drives-import.md)
 * [常用命令快速参考](storage-import-export-tool-quick-reference.md)
-

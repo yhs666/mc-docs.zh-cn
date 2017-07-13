@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 976fedb389f9457a52350481185cbb3818c2800f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
-
+ms.openlocfilehash: 5e3f3a963f4d56c50b084b538ddd15e6a475cf3f
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>弹性数据库客户端库与实体框架
 此文档介绍与[弹性数据库工具](sql-database-elastic-scale-introduction.md)集成所需的实体框架应用程序中的更改。 重点是使用 Entity Framework **Code First** 方法撰写[分片映射管理](sql-database-elastic-scale-shard-map-management.md)和[数据相关路由](sql-database-elastic-scale-data-dependent-routing.md)。 EF 的[代码优先 – 新数据库](http://msdn.microsoft.com/data/jj193542.aspx)教程在本文档中充当运行示例。 本文档附带的示例代码是 Visual Studio 代码示例中弹性数据库工具示例的一部分。

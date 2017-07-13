@@ -1,13 +1,12 @@
 ---
-title: SQL 数据库性能优化提示 | Azure
-description: 有关通过评估和改进来调整 Azure SQL 数据库性能的提示。
+title: "监视和性能优化 - Azure SQL 数据库 | Azure"
+description: "有关通过评估和改进来调整 Azure SQL 数据库性能的提示。"
 services: sql-database
-documentationcenter: ''
-author: v-shysun
-manager: felixwu
-editor: ''
-keywords: sql 性能优化, 数据库性能优化, sql 性能优化提示, sql 数据库性能优化
-
+documentationcenter: 
+author: hayley244
+manager: digimobile
+editor: 
+keywords: "sql 性能优化, 数据库性能优化, sql 性能优化提示, sql 数据库性能优化"
 ms.assetid: eb7b3f66-3b33-4e1b-84fb-424a928a6672
 ms.service: sql-database
 ms.custom: monitor and tune
@@ -15,24 +14,67 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/07/2017
-ms.date: 03/24/2017
+origin.date: 06/13/2017
+ms.date: 07/03/2017
 ms.author: v-johch
+ms.openlocfilehash: 60ef18dd1d9a1fa090bf8504e84b5464038e6a6d
+ms.sourcegitcommit: 73b1d0f7686dea85647ef194111528c83dbec03b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/28/2017
 ---
+<a id="monitoring-and-performance-tuning" class="xliff"></a>
 
-# SQL 数据库性能调整提示
-可随时更改独立数据库的[服务层](./sql-database-service-tiers.md)或增加弹性池的 eDTU 以提高性能，但可能需要首先确定提升和优化查询性能的机会。缺少索引与查询优化不足是数据库性能不佳的常见原因。本文提供在 SQL 数据库中执行性能优化的指南。
+# 监视和性能优化
 
-## 评估和优化数据库性能的步骤
-1. 在 [Azure 门户](https://portal.azure.cn)中，单击“SQL 数据库”，选择该数据库，然后使用“监视”图表查找接近其上限的资源。默认将显示 DTU 消耗量。单击“编辑”更改显示的时间范围和值。
-2. 使用 [Query Performance Insight](./sql-database-query-performance.md) 评估使用 DTU 的查询，然后使用 [SQL 数据库顾问](./sql-database-advisor.md)查看针对创建和删除索引、参数化查询以及解决架构问题的建议。
-3. 可以使用动态管理视图 (DMV)、扩展事件 (Xevent) 和 SSMS 中的查询存储实时获取性能参数。有关详细的监视和优化提示，请参阅[性能指南主题](./sql-database-performance-guidance.md)。
+Azure SQL 数据库是自动托管且灵活的数据服务，你可以在其中轻松监视使用情况，添加或删除资源（CPU、内存、IO），查找可以改进你的数据库性能的建议，或者让数据库适应你的工作负荷并自动优化性能。
 
-    > [!IMPORTANT]
-    > 建议始终使用最新版本的 Management Studio 以保持与 Azure 和 SQL 数据库的更新同步。[更新 SQL Server Management Studio](https://msdn.microsoft.com/zh-cn/library/mt238290.aspx)。
+本文概述了 Azure SQL 数据库中提供的监视和性能优化选项。
 
-## 使用更多资源提高数据库性能的步骤
-1. 对于独立数据库，可根据需要[更改服务层](./sql-database-service-tiers.md)以提高数据库性能。
-2. 对于多个数据库，请考虑使用[弹性池](./sql-database-elastic-pool-guidance.md)自动调整资源规模。
+<a id="monitoring-and-troubleshooting-database-performance" class="xliff"></a>
 
-<!---HONumber=Mooncake_0320_2017-->
+## 监视数据库性能并对其进行故障排除
+
+Azure SQL 数据库使得你可以轻松监视数据库使用情况并找出可能导致性能问题的查询。 可以使用 Azure 门户或系统视图监视数据库性能。 在监视数据库性能并对其进行故障排除方面，有以下选项可供选择：
+
+1. 在 [Azure 门户](https://portal.azure.cn)中，单击 **SQL 数据库**，选择该数据库，然后使用“监视”图表查找接近其上限的资源。 默认情况下将显示 DTU 消耗量。 单击“编辑”可更改所显示的时间范围和值。
+2. 使用 [Query Performance Insight](sql-database-query-performance.md) 可找出占用资源最多的查询。
+3. 可以使用动态管理视图 (DMV)、扩展事件 (`XEvents`) 和 SSMS 中的查询存储实时获取性能参数。
+
+如果使用这些报表或视图找出了一些问题，请参阅[性能指南主题](sql-database-performance-guidance.md)来查找可以用来改进 Azure SQL 数据库性能的技术。
+
+> [!IMPORTANT] 
+> 建议始终使用最新版本的 Management Studio 以保持与 Azure 和 SQL 数据库的更新同步。 [更新 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)。
+>
+
+<a id="optimize-database-to-improve-performance" class="xliff"></a>
+
+## 优化数据库以改进性能
+
+Azure SQL 数据库使得你可以通过查看[性能优化建议](sql-database-advisor.md)找到机会来改进和优化查询性能，无需更改资源。 缺少索引与查询优化不足是数据库性能不佳的常见原因。 可以应用这些优化建议来改进你的工作负荷的性能。
+还可以通过应用所有已确定的建议并确认它们改进了数据库性能来让 Azure SQL 数据库[自动优化查询性能](sql-database-automatic-tuning.md)。 可以使用以下选项来改进数据库的性能：
+
+1. 使用 [SQL 数据库顾问](sql-database-advisor-portal.md)查看有关创建和删除索引、参数化查询，以及解决架构问题的建议。
+2. [启用自动优化](sql-database-automatic-tuning-enable.md)并让 Azure SQL 数据库自动修复查明的性能问题。
+
+<a id="improving-database-performance-with-more-resources" class="xliff"></a>
+
+## 使用更多资源改进数据库性能
+
+最后，如果没有可操作项可以改进数据库性能，你可以更改 Azure SQL 数据库中提供的资源数量。 你随时可以通过更改独立数据库的[服务层](sql-database-service-tiers.md)或增大弹性池的 eDTU 来分配更多资源。
+1. 对于独立数据库，可以根据需要[更改服务层](sql-database-service-tiers.md)来改进数据库性能。
+2. 对于多个数据库，请考虑使用[弹性池](sql-database-elastic-pool-guidance.md)自动调整资源规模。
+
+<a id="tune-and-refactor-application-or-database-code" class="xliff"></a>
+
+## 优化和重构应用程序或数据库代码
+
+你可以更改应用程序代码来以更佳方式使用数据库，更改索引，强制实施计划或使用提示来手动使数据库适合你的工作负荷。 可以在[性能指南主题](sql-database-performance-guidance.md)一文中找到有关手动优化和重新编写代码的一些指南和提示。
+
+<a id="next-steps" class="xliff"></a>
+
+## 后续步骤
+
+- 若要在 Azure SQL 数据库中启用自动优化并让自动优化功能完全管理你的工作负荷，请参阅[启用自动优化](sql-database-automatic-tuning-enable.md)。
+- 若要使用手动优化，可以查看 [Azure 门户中的优化建议](sql-database-advisor-portal.md)并手动应用可以改进查询性能的建议。
+- 通过更改 [Azure SQL 数据库服务层](sql-database-performance-guidance.md)更改数据库中可用的资源

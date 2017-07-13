@@ -17,13 +17,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: dfeb0b7ec05d9b81dd866155517ec9034277cef2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
-
+ms.openlocfilehash: 0e7a5a58fadf3e1618ba05eb1b2fb50d9fc75951
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL 数据库：使用 SQL Server Management Studio 进行连接和数据查询
 
@@ -39,7 +37,7 @@ ms.lasthandoff: 04/07/2017
 
 ## <a name="get-connection-information"></a>获取连接信息
 
-请在 Azure 门户中获取 Azure SQL 数据库服务器的完全限定服务器名称。 请使用 SQL Server Management Studio 通过完全限定的服务器名称连接到服务器。
+在 Azure 门户中获取 Azure SQL 数据库服务器的完全限定服务器名称。 请使用 SQL Server Management Studio 通过完全限定的服务器名称连接到服务器。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
@@ -154,4 +152,3 @@ ms.lasthandoff: 04/07/2017
 
 - 有关 SSMS 的信息，请参阅[使用 SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)。
 - 有关使用 Visual Studio Code 查询和编辑数据的信息，请参阅 [Visual Studio Code](https://code.visualstudio.com/docs)
-

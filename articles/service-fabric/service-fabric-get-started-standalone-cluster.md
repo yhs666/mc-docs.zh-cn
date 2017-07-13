@@ -14,15 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: a3176fd762dc96b5c43c0f80474995ffd279f4f1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 7102f890878066dd6ce3d74ead717d44f421e12a
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>创建第一个独立的 Service Fabric 群集
 可以在任何运行 Windows Server 2012 R2 或 Windows Server 2016（不管是在本地还是在云中）的虚拟机或计算机上创建独立的 Service Fabric 群集。 本快速入门介绍如何在数分钟内创建独立的开发群集。  完成后，你将有一个三节点群集运行在单台可以向其部署应用的计算机上。
 

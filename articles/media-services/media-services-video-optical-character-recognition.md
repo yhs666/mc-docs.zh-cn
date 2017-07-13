@@ -14,15 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 7cf58d5fcd3d5f42509dfcc5697d378b1c98c3e4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 97d7701c1043f3151f07e15475a74bf4da605979
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>使用 Azure 媒体分析将视频文件中的文本内容转换为数字文本
 ## <a name="overview"></a>概述
 如果你需要提取视频文件的文本内容，并生成可编辑、可搜索的数字文本，则应该使用 Azure 媒体分析 OCR（光学字符识别）。 此 Azure 媒体处理器可检测视频文件的文本内容并生成文本文件供你使用。 OCR 可让你从媒体的视频信号中自动提取有意义的元数据。
@@ -202,7 +199,7 @@ OCR 媒体处理器的输出是一个 JSON 文件。
         private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
         private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
    
-           private static Uri _apiServer = null;
+        private static Uri _apiServer = null;
         
                 // Field for service context.
                 private static CloudMediaContext _context = null;
@@ -357,5 +354,4 @@ OCR 媒体处理器的输出是一个 JSON 文件。
 
 ## <a name="related-links"></a>相关链接
 [Azure 媒体服务分析概述](media-services-analytics-overview.md)
-
 

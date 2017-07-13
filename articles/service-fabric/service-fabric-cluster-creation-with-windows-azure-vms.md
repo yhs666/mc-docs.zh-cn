@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/24/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 0b59fc74b8ea29f7b6d9d487e541a11f4c08fbce
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: c0e273da3bb2afc4d6d44976b99e33b518823aad
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-a-three-node-standalone-service-fabric-cluster-with-azure-virtual-machines-running-windows-server"></a>使用运行 Windows Server 的 Azure 虚拟机创建三节点独立 Service Fabric 群集
 本文介绍如何使用用于 Windows Server 的独立 Service Fabric 安装程序在基于 Windows 的 Azure 虚拟机 (VM) 上创建群集。 此方案是一种[创建和管理在 Windows Server 上运行的群集](service-fabric-cluster-creation-for-windows-server.md)的特殊情况，其中 VM 是[运行 Windows Server 的 Azure VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，但不会创建[基于云的 Azure Service Fabric 群集](service-fabric-cluster-creation-via-portal.md)。 此模式的区别在于根据以下步骤创建的独立 Service Fabric 群集由你完全管理，而基于云的 Azure Service Fabric 群集则由 Service Fabric 资源提供程序管理和升级。
@@ -79,5 +77,4 @@ ms.lasthandoff: 05/05/2017
 * [独立 Windows 群集的配置设置](service-fabric-cluster-manifest.md)
 * [使用 Windows 安全性保护 Windows 上的独立群集](service-fabric-windows-cluster-windows-security.md)
 * [使用 X509 证书保护 Windows 上的独立群集](service-fabric-windows-cluster-x509-security.md)
-
 

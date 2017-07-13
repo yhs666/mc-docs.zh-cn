@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: eee3696e8a586206ecbd9b4088cff3ea2eea235d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: ece1300ec0718d99c2fef1c987b1cd8afe4520dc
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="media-services-development-with-net"></a>使用 .NET 进行媒体服务开发
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -87,5 +85,4 @@ ms.lasthandoff: 04/14/2017
         using Microsoft.WindowsAzure.MediaServices.Client;
 
 现在，你可以开始开发媒体服务应用程序了。    
-
 

@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 990378f47398b8840171075bcd3164701a3ad5d7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
-
+ms.openlocfilehash: 1d9efe7c5e7179c0f4e8af9d1001560117ee0e39
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL 数据库功能
 本主题概述 Azure SQL 数据库逻辑服务器和数据库，并提供带有每个列出功能的链接的功能支持矩阵。 
@@ -87,7 +85,7 @@ Azure SQL 数据库中的每个数据库都与逻辑服务器相关联。 数据
 | DML 触发器 | [支持](https://msdn.microsoft.com/library/ms178110.aspx) | [支持](https://msdn.microsoft.com/library/ms178110.aspx) |
 | DMV | [全部](https://msdn.microsoft.com/library/ms188754.aspx) | [部分](https://msdn.microsoft.com/library/ms188754.aspx) |
 | 弹性池 | 不支持 | [支持](sql-database-elastic-pool.md) |
-| 弹性作业 | 不支持 - 请参阅 [SQL Server 代理](https://msdn.microsoft.com/library/ms189237.aspx) | 不支持 | 
+| 弹性作业 | 不支持 - 请参阅 [SQL Server 代理](https://msdn.microsoft.com/library/ms189237.aspx) | 不支持| 
 | 弹性查询 | 不支持 - 请参阅[跨数据库查询](https://msdn.microsoft.com/library/dn584627.aspx) | [支持](sql-database-elastic-query-overview.md) |
 | 事件通知 | [支持](https://msdn.microsoft.com/library/ms186376.aspx) | [支持](sql-database-insights-alerts-portal.md) |
 | 表达式 | [支持](https://msdn.microsoft.com/library/ms190286.aspx) | [支持](https://msdn.microsoft.com/library/ms190286.aspx) |
@@ -155,4 +153,3 @@ Azure SQL 数据库中的每个数据库都与逻辑服务器相关联。 数据
 - 按 **服务层**了解具体的资源配额和限制。 有关服务层的概述，请参阅 [SQL 数据库服务层](sql-database-service-tiers.md)。
 - 有关安全概述，请参阅 [Azure SQL 数据库安全概述](sql-database-security-overview.md)。
 - 有关驱动程序可用性和 SQL 数据库支持的信息，请参阅[用于 SQL 数据库和 SQL Server 的连接库](sql-database-libraries.md)。
-

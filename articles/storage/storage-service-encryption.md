@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 9c762fdd6080b2bf8abc08a7d52ec0b230274c98
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 3e8533cfdc969e33b7422ad1292f9c4f6537bc90
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>静态数据的 Azure 存储服务加密
 静态数据的 Azure 存储服务加密 (SSE) 可用于保护数据，使组织能够信守在安全性与合规性方面所做的承诺。 使用此功能，Azure 存储可以先自动加密数据，再将数据保存到存储空间，并在检索之前解密数据。 加密、解密和密钥管理对于用户而言是完全透明的。
@@ -94,7 +92,7 @@ Azure 文件存储使用标准 SMB 协议在云中提供文件共享。 可以�
 有关详细信息，请访问[使用 .NET 的 Azure Blob 存储入门](storage-dotnet-how-to-use-blobs.md)。
 
 #### <a name="using-a-storage-explorer"></a>使用存储空间资源管理器
-可以使用存储资源管理器创建存储帐户、上传和下载数据、查看 Blob 内容，以及浏览目录。 可以使用其中一个存储空间资源管理器将 Blob 上载到已启用加密的存储帐户。 使用某些存储资源管理器，还可以将现有 Blob 存储中的数据复制到存储账户中的不同容器或已启用 SSE 的新存储帐户。
+可以使用存储资源管理器创建存储帐户、上传和下载数据、查看 Blob 内容，以及浏览目录。 可以使用其中一个存储空间资源管理器将 Blob 上传到已启用加密的存储帐户。 使用某些存储资源管理器，还可以将现有 Blob 存储中的数据复制到存储账户中的不同容器或已启用 SSE 的新存储帐户。
 
 有关详细信息，请访问 [Azure 存储资源管理器](storage-explorers.md)。
 
@@ -187,5 +185,4 @@ Azure 文件存储使用标准 SMB 协议在云中提供文件共享。 可以�
 
 ## <a name="next-steps"></a>后续步骤
 Azure 存储提供配套的安全性功能，这些功能相辅相成，可让开发人员共同构建安全的应用程序。 有关详细信息，请访问[存储安全指南](storage-security-guide.md)。
-
 

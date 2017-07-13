@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 021bfd45ab2becf32b2881028df965c62113d20d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: b341d8931905e09873aeddca5a74d452eba7b21c
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure 媒体服务概念
 本部分概述最重要的媒体服务概念。
@@ -221,7 +219,6 @@ http://amstest1.streaming.mediaservices.chinacloudapi.cn/3c5fe676-199c-4620-9b03
     {流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest(format=m3u8-aapl-v3)
 
     http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
-
 
 
 

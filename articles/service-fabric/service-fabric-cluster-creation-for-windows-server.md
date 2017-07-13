@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/24/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: ebd485ec970ea11cca7d08e8da478ac0d36f9ab0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 024a2b11a037c2eab137c059a747fa6efd0e202d
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>创建在 Windows Server 上运行的独立群集
 可以使用 Azure Service Fabric 在运行 Windows Server 的任何虚拟机或计算机上创建 Service Fabric 群集。 这意味着，可以在包含一组相互连接的 Windows Server 计算机的任何环境（无论是本地环境还是任何云提供商所提供的环境）中部署和运行 Service Fabric 应用程序。 Service Fabric 提供了一个安装程序包，用于创建名为“Windows Server 独立包”的 Service Fabric 群集。
@@ -138,7 +136,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ## <a name="telemetry-data-collected-and-how-to-opt-out-of-it"></a>收集的遥测数据以及如何选择禁用遥测
 默认情况下，本产品会收集有关 Service Fabric 使用情况的遥测数据来改善自身。 在安装过程运行的最佳实践分析器将检查能否连接到 [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1)。 如果无法连接，安装将会失败，除非选择禁用遥测。
 
-1. 遥测管道每天都会尝试一次将以下数据上载到 [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) 。 这是一种尽力而为的上传操作，不会影响群集功能。 遥测数据只会从运行主要故障转移管理器的节点发送。 其他节点都不会发送遥测数据。
+1. 遥测管道每天都会尝试一次将以下数据上传到 [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) 。 这是一种尽力而为的上传操作，不会影响群集功能。 遥测数据只会从运行主要故障转移管理器的节点发送。 其他节点都不会发送遥测数据。
 2. 遥测数据由以下内容组成：
 
 * 服务数目
@@ -160,7 +158,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 * IsContextComplete: True/False
 * ClusterId：为每个群集随机生成的 GUID。
 * ServiceFabricVersion
-* 从其上载遥测数据的虚拟机或计算机的 IP 地址
+* 从其上传遥测数据的虚拟机或计算机的 IP 地址
 
 若要禁用遥测数据，请将以下内容添加到群集配置中的*属性*：*enableTelemetry: false*。
 

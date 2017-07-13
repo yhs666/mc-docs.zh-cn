@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/02/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 2cab73a861604346910f95249ba1d6023dff6904
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: cdcee1e11224ebade40e4e5226aac501b0ab9296
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="using-the-azure-cli-to-interact-with-a-service-fabric-cluster"></a>使用 Azure CLI 来与 Service Fabric 群集交互
 可以在 Linux 计算机上使用“Linux 上的 Azure CLI”来与 Service Fabric 群集交互。
@@ -201,5 +199,4 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 ## <a name="next-steps"></a>后续步骤
 设置开发环境，并将 Service Fabric 应用程序部署到 Linux 群集。
-
 

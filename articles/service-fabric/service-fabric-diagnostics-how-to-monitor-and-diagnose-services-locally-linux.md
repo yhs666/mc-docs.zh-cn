@@ -14,15 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/02/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: d096e6a157229f73effb1a374cc17dc9816d3465
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 6d8839d19ef692a0dc10aa7c4e3f7d7948e5e471
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>在本地计算机开发安装过程中监视和诊断服务
 
 
@@ -119,7 +116,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
             using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
         { 
                  // report all event information               
-          Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
+         Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
                 if (eventData.Message != null)              
             Out.WriteLine(eventData.Message, eventData.Payload.ToArray());              
             else             
@@ -146,4 +143,3 @@ public static TextWriter Out = Console.Out;
 ## <a name="next-steps"></a>后续步骤
 添加到应用程序中的跟踪代码也可用于诊断 Azure 群集中的应用程序。 请查看以下文章，其中介绍了不同的工具选项，以及如何设置这些选项。
 * [如何使用 Azure 诊断收集日志](service-fabric-diagnostics-how-to-setup-lad.md)
-

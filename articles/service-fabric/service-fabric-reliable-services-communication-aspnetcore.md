@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 03/22/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: d259a0a42948c9a9b3caaf88dc66fa1e9cb581a8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: c00f8ca3bf5805fa9a335e2754e8ce334c8ae3a4
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services 中的 ASP.NET Core
 
 ASP.NET Core 是新的开源跨平台框架，用于构建现代基于云的连接 Internet 的应用程序，如 Web 应用、IoT 应用和移动后端。 虽然 ASP.NET Core 应用可在 .NET Core 或完整的 .NET Framework 上运行，但 Service Fabric 服务当前只能在完整的 .NET Framework 上运行。 这意味着在构建 ASP.NET Core Service Fabric 服务时，仍必须以完整的 .NET Framework 为目标。

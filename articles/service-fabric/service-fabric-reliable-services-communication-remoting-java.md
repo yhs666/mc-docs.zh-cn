@@ -13,13 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 03/09/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 3b881acb1d2d2698a68ad37b6ee7eea6160819e8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: c3e2c78a1edfd1af25463e7d465a4867c32a322f
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>通过 Reliable Services 进行服务远程处理
 > [!div class="op_single_selector"]
@@ -90,4 +88,3 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 
 ## <a name="next-steps"></a>后续步骤
 * [确保 Reliable Services 的通信安全](service-fabric-reliable-services-secure-communication.md)
-

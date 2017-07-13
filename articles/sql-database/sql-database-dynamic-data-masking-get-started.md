@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 03/09/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: cf13c0290cc0356db0885d6762a4ebebac304431
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
-
+ms.openlocfilehash: ae2b6d7f585b3948d46af4a91ad95c319c36feeb
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL 数据库动态数据掩码
 
@@ -60,5 +58,4 @@ DDM 建议引擎会将数据库中的某些字段标记为可能的敏感字段�
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>使用 REST API 为数据库设置动态数据掩码
 请参阅对 [Azure SQL 数据库](https://msdn.microsoft.com/library/dn505719.aspx)的操作。
-
 

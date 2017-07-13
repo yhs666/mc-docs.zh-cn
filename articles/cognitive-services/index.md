@@ -12,16 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/10/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 0443e9c51f4949629292611913154381692bec5b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: ad714ba3a1a08ab2bc44e81076ee47b721f8c821
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-
-
 # <a name=""></a>认知服务
 
 学习如何通过简单的几行代码将微软的强大算法接入到你自己的应用中。
@@ -74,6 +70,5 @@ ms.lasthandoff: 05/26/2017
         </div>
     </li>
 </ul>
-
 
 

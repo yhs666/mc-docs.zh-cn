@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: dd9b63dd0d8da9884525046758674ec1b50e1846
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: aa10b46bc907f7d1df0027ed6bc01b41f1bc8f0e
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>通过 .NET 开始使用 Azure Blob 存储
 
@@ -396,4 +395,3 @@ Azure 存储支持在客户端和服务器上加密 Blob 数据：
 * [使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)
 * [开始使用适用于 .NET 的文件存储](storage-dotnet-how-to-use-files.md)
 * [如何通过 WebJobs SDK 使用 Azure Blob 存储](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-

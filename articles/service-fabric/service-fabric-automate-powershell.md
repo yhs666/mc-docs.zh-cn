@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 34ac213fc0823c493cf96a7af361f74dd78c845f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: bf0957eab93dbeb2b00ea260c3398abe76456ab1
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="automate-the-application-lifecycle-using-powershell"></a>使用 PowerShell 自动化应用程序生命周期
 可以对 [Service Fabric 应用程序生命周期](service-fabric-application-lifecycle.md)的许多层面进行自动化。  本文说明如何使用 PowerShell 来自动完成部署、升级、删除和测试 Azure Service Fabric 应用程序的常见任务。  还提供了用于应用管理的托管和 HTTP API。 有关详细信息，请参阅[应用生命周期](service-fabric-application-lifecycle.md)。  
@@ -172,5 +170,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 [应用程序升级](service-fabric-application-upgrade.md)
 
 [Azure Service Fabric cmdlet](https://docs.microsoft.com/powershell/servicefabric/vlatest/servicefabric)
-
 

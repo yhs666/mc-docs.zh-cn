@@ -18,7 +18,7 @@ ms.date: 07/03/2017
 ms.author: v-johch
 ms.openlocfilehash: d811ea2b259791f92943646ea0e2c53accdb1de3
 ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
-ms.translationtype: Human Translation
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/29/2017
 ---
@@ -179,7 +179,7 @@ public class App {
                 System.out.println("=========================================");
 
                 // Prepared statement to insert data
-                String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, )" 
+                String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, " 
                     + " StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
                 java.util.Date date = new java.util.Date();

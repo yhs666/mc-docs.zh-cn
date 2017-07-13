@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 3bdbd54d78e33b63266ae728c4569f3dfb3ab79e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 5b6df1212a09d318d1dd345f96dd1468229deee7
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>使用 .NET 将文件上传到媒体服务帐户
 > [!div class="op_single_selector"]
@@ -289,5 +287,4 @@ ms.lasthandoff: 04/14/2017
 将资产上传到媒体服务后，请转到 [如何获取媒体处理器][How to Get a Media Processor] 主题。
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
-
 

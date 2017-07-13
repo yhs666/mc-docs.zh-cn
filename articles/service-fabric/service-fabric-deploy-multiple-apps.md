@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 51ed70036723e996aa6a132149c3fb891c918d93
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 865aaa991684ea8ec9424c45c516bcccf0d95b2e
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="deploy-multiple-guest-executables"></a>部署多个来宾可执行文件
 本文介绍如何打包多个来宾可执行文件并部署到 Azure Service Fabric。 若要生成并部署单个 Service Fabric 包，请参阅如何[将来宾可执行文件部署到 Service Fabric](service-fabric-deploy-existing-app.md)。

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: a18d54702a31172473f3c29486cb4d34c0f24e5e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 3f15798cc9c1f41a4b66aa3a3d844ddc9dde342d
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何生成平滑流式处理 Windows 应用商店应用程序
 
@@ -312,8 +310,8 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
 1. 在解决方案资源管理器中，右键单击“MainPage.xaml”，然后单击“查看代码”。
 2. 在 **MainPage** 类中，添加以下数据成员：
 
-         private AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate; 
-         private Manifest manifestObject;
+        private AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate; 
+        private Manifest manifestObject;
 
 3. 在 **MainPage** 类的末尾，添加以下事件处理程序：
 
