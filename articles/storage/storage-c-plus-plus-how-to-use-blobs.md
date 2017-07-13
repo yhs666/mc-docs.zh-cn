@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: bf6e5733df4ba8062ec21dd9778be838abfe7adb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: c5006a9fe76ab87ae72d5ec2954553f3d3b2fe42
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>如何通过 C++ 使用 Blob 存储
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
@@ -62,7 +60,7 @@ include <was/blob.h>
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>设置 Azure 存储连接字符串
-Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。 在客户端应用程序中运行时，必须提供以下格式的存储连接字符串，并对 AccountName 和 AccountKey 值使用 [Azure 门户](https://portal.azure.com)中列出的存储帐户的名称和存储帐户的存储访问密钥。 有关存储帐户和访问密钥的信息，请参阅[关于 Azure 存储帐户](storage-create-storage-account.md)。 此示例演示如何声明一个静态字段以保存连接字符串：  
+Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。 在客户端应用程序中运行时，必须提供以下格式的存储连接字符串，并对 AccountName 和 AccountKey 值使用 [Azure 门户](https://portal.azure.cn)中列出的存储帐户的名称和存储帐户的存储访问密钥。 有关存储帐户和访问密钥的信息，请参阅[关于 Azure 存储帐户](storage-create-storage-account.md)。 此示例演示如何声明一个静态字段以保存连接字符串：  
 
 ```cpp
 // Define the connection-string with your values.
@@ -132,7 +130,7 @@ container.upload_permissions(permissions);
 
 Internet 中的所有人都可以查看公共容器中的 Blob，但是，仅在你具有相应的访问密钥时，才能修改或删除它们。  
 
-## <a name="how-to-upload-a-blob-into-a-container"></a>如何：将 Blob 上载到容器
+## <a name="how-to-upload-a-blob-into-a-container"></a>如何：将 Blob 上传到容器
 Azure Blob 存储支持块 Blob 和页 Blob。 大多数情况下，推荐使用块 Blob。  
 
 若要将文件上传到块 Blob，请获取容器引用，并使用它获取块 Blob 引用。 获取 Blob 引用后，可以通过调用 upload_from_stream 方法将任何数据流上传到其中。 如果之前不存在 Blob，此操作将创建一个；如果存在 Blob，此操作将覆盖它。 下面的示例演示了如何将 Blob 上传到容器中，并假定已创建容器。  
@@ -274,4 +272,3 @@ blockBlob.delete_blob();
 * [适用于 C++ 的存储空间客户端库参考](http://azure.github.io/azure-storage-cpp)
 * [Azure 存档文档](./index.md)
 * [使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)
-

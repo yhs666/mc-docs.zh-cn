@@ -59,7 +59,7 @@ ms.author: v-johch
 
 在面向企业和组织的 SaaS 多租户应用程序中，租户隔离通常是基本要求。开发人员可能在简单性和成本考虑方面短视近利，而不重视隔离和可伸缩性。随着服务不断发展，以及租户隔离要求变得更加重要且需要在应用程序层进行管理时，此取舍使情况更趋于复杂且代价昂贵。但是，在向客户提供直接面向消费者的服务的多租户应用程序中，很可能为了让云资源成本发挥最高效益，而不那么重视租户隔离。
 
-## 多租户数据模型
+##<a name="multitenant-data-models"></a> 多租户数据模型
 放置租户数据的常见设计实践都遵循图 1 中所示的三种不同模型。
 
   ![多租户应用程序数据模型](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)

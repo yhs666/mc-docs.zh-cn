@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: f2ab27d22811136ec5647072a4c846a694ea9646
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 4ed735052e080e4ce11bb709908aac3f37241436
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>授权 Microsoft® 平滑流式处理客户端移植工具包
 ## <a name="overview"></a>概述
@@ -154,4 +152,3 @@ Microsoft 根据此许可证提供全部所需的知识产权，以便从其他�
 * VIZIO, Inc.
 * Wistron Corporation
 * ZTE Corporation
-

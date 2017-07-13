@@ -30,7 +30,7 @@ PowerShell 用于从命令行或脚本创建和管理 Azure 资源。 本指南�
 
 若要完成本教程，请确保已安装最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 
 
-如果没有 Azure 订阅，可在开始前创建一个[试用](https://www.azure.cn/pricing/1rmb-trial-full/)帐户。
+如果没有 Azure 订阅，可在开始前创建一个[试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 

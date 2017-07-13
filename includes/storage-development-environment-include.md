@@ -29,7 +29,7 @@
 3. 在线搜索“WindowsAzure.ConfigurationManager”，然后单击“安装”以安装 Azure Configuration Manager。
 
 >[!NOTE]
-> [用于 .NET 的 Azure SDK](https://www.azure.cn/downloads/)中也包含存储客户端库包。 但是我们建议同时从 NuGet 安装存储客户端库，以确保始终使用客户端库的最新版本。
+> [用于 .NET 的 Azure SDK](/downloads/)中也包含存储客户端库包。 但是我们建议同时从 NuGet 安装存储客户端库，以确保始终使用客户端库的最新版本。
 >
 > 适用于 .NET 的存储客户端库中的 ODataLib 依赖项通过 NuGet（而非 WCF 数据服务）上提供的 ODataLib 包来解析。 ODataLib 库可直接下载或者通过 NuGet 由代码项目引用。 存储空间客户端库使用的具体 ODataLib 包是 [OData](http://nuget.org/packages/Microsoft.Data.OData/)、[Edm](http://nuget.org/packages/Microsoft.Data.Edm/) 和 [Spatial](http://nuget.org/packages/System.Spatial/)。 尽管这些库由 Azure 表存储类使用，但是用存储空间客户端库进行编程时，它们是必需的依赖项。
 > 
@@ -42,7 +42,7 @@
 * 可针对云中的 Azure 存储帐户运行代码。 
 * 可针对 Azure 存储模拟器运行代码。 存储模拟器是模拟云中 Azure 存储帐户的本地环境。 应用程序处于开发阶段时，可以选择使用模拟器免费测试和调试代码。 模拟器使用已知帐户和密钥。 有关详细信息，请参阅[使用 Azure 存储模拟器进行开发和测试](../articles/storage/storage-use-emulator.md)
 
-如果以云中的存储帐户为目标，请从 Azure 门户复制存储帐户的主访问密钥。 有关详细信息，请参阅 [查看和复制存储访问密钥](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys)。
+如果你以云中的存储帐户为目标，请从 Azure 门户复制存储帐户的主访问密钥。 有关详细信息，请参阅 [查看和复制存储访问密钥](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys)。
 
 > [!NOTE]
 > 您可以指向存储模拟器以避免引发与 Azure 存储有关的任何费用。 但是，如果您确实选择指向云中的 Azure 存储帐户，则执行此教程的费用将会忽略不计。
@@ -75,7 +75,7 @@
 例如，配置设置看起来类似于：
 
 ```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln6fT7mvY+rxu2iWAEyzPKITGkhM88J8HUoyofvK7C6fHcZc2kRZp6cKgYRUM74lHI84L50Iau1+9hPjB==;EndpointSuffix=core.chinacloudapi.cn" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
 ```
 
 若要以存储模拟器为目标，可使用映射到已知帐户名称和密钥的快捷方式。 在这种情况下，连接字符串设置如下所示：

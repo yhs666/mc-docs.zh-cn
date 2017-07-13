@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 88a4872537b394850d1cfe492dc1285909be3997
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 259646bb4f19c17b4537961c8785af61c968b2e6
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>如何：获取媒体处理器实例
 > [!div class="op_single_selector"]
@@ -92,5 +90,4 @@ Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 ## <a name="next-steps"></a>后续步骤
 了解如何获取媒体处理器实例后，请转到[如何对资产进行编码](media-services-rest-get-started.md)主题，其中说明了如何使用 Media Encoder Standard 对资产进行编码。
-
 

@@ -3,8 +3,8 @@ title: "在 Azure Site Recovery 中进行针对 Hyper-v 虚拟机的故障回复
 description: "Azure Site Recovery 可以协调虚拟机和物理服务器的复制、故障转移与恢复。 了解如何从 Azure 故障回复到本地数据中心。"
 services: site-recovery
 documentationcenter: 
-author: ruturaj
-manager: gauravd
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
@@ -12,22 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/31/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 7ffd51760b550adae5ed8ece42075834ad2d5acc
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+origin.date: 03/31/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
+ms.openlocfilehash: bf476eedc9d32273e3f5de8fc5ef006659a638a9
+ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>在 Site Recovery 中进行针对 Hyper-v 虚拟机的故障回复
 
-
-
-本文介绍如何故障回复受 Site Recovery 保护的虚拟机。 
+本文介绍如何故障回复受 Site Recovery 保护的虚拟机。
 
 ## <a name="prerequisites"></a>先决条件
 1. 确保主站点 VMM 服务器/Hyper-V 服务器已连接。
@@ -54,13 +50,10 @@ Azure 是高度可用的环境，虚拟机将始终可用。 故障回复是一�
 
     - **仅在故障转移期间同步数据（完整下载）** - 如果已在 Azure 上长时间运行，则使用此选项。 此选项速度更快，因为我们预计磁盘的大部分已经更改，而且不想花时间进行校验和计算。 此选项会执行磁盘的下载。 如果已删除本地虚拟机，此选项也很有帮助。
 
-    >[!NOTE] 
-    >如果已在 Azure 上运行了一段时间（一个月或以上）或已删除本地虚拟机，我们建议你使用此选项。此选项不会执行任何校验和计算。
+    > [!NOTE]
+    > 如果已在 Azure 上运行了一段时间（一个月或以上）或已删除本地虚拟机，我们建议你使用此选项。此选项不会执行任何校验和计算。
     >
     >
-
-
-
 
 4. 如果为云启用了数据加密，请在“加密密钥”中选择你在 VMM 服务器上安装提供者期间启用数据加密时颁发的证书。
 5. 启动故障转移。 你可以在“**作业**”选项卡上跟踪故障转移进度。

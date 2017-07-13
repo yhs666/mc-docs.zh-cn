@@ -25,7 +25,7 @@ Service Fabric 群集资源管理器允许精细地控制用于管控每个独�
 2. 配置指标
 3. 配置高级放置策略和其他规则（不太常见）
 
-## 放置约束
+##<a name="placement-constraints"></a> 放置约束
 放置约束可用来控制服务实际可在群集中的哪些节点上运行。通常为特定的命名服务实例或受限于在特定类型节点上运行的类型的所有服务。也就是说，放置约束是可扩展的 - 可以根据节点类型定义任意的属性集，然后在创建服务时，利用约束选择它们。放置约束还会在服务生存期内动态更新，让你响应群集中的更改。还可以在群集中动态更新给定节点的属性。有关放置约束以及如何对其进行配置的详细信息，请参阅[此文](./service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-properties)
 
 ## 度量值

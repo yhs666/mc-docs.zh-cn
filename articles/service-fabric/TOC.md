@@ -17,6 +17,7 @@
 ### [Linux 上的 Java](service-fabric-create-your-first-linux-application-with-java.md)
 ### [Linux 上的 C#](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [在本地群集上部署应用](service-fabric-get-started-with-a-local-cluster.md)
+## [在 Azure 上创建第一个群集](service-fabric-get-started-azure-cluster.md)
 ## [创建第一个独立群集](service-fabric-get-started-standalone-cluster.md)
 
 # 如何
@@ -41,6 +42,7 @@
 ### 生成容器服务
 #### [概述](service-fabric-containers-overview.md)
 #### [部署 Linux 容器](service-fabric-deploy-container-linux.md)
+#### [容器和服务的资源管理](service-fabric-resource-governance.md)
 
 ### 生成 Reliable Service 服务
 #### [概述](service-fabric-reliable-services-introduction.md)
@@ -51,6 +53,7 @@
 #### Reliable Collections
 ##### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 ##### [使用可靠集合](service-fabric-work-with-reliable-collections.md)
+##### [Reliable Collection 序列化](service-fabric-reliable-services-reliable-collections-serialization.md)
 
 #### 入门
 ##### [Windows 上的 C#](service-fabric-reliable-services-quick-start.md)
@@ -93,6 +96,7 @@
 
 ### 与服务进行通信
 #### [服务通信](service-fabric-connect-and-communicate-with-services.md)
+#### [DNS 服务](service-fabric-dnsservice.md)
 #### [反向代理](service-fabric-reverseproxy.md)
 
 ### [添加 Web 前端](service-fabric-add-a-web-frontend.md)
@@ -244,6 +248,5 @@
 # 资源
 ## [有关 Service Fabric 的常见问题](service-fabric-common-questions.md)
 ## [Service Fabric 支持选项](service-fabric-support.md)
-
 ## [定价](https://www.azure.cn/pricing/details/service-fabric/)
 

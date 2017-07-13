@@ -73,7 +73,7 @@ ms.lasthandoff: 06/12/2017
 
 ## <a name="scaling-up-or-scaling-down-a-single-database"></a>上下缩放单一数据库
 
-在一开始选取服务层和性能级别以后，即可根据实际经验对单一数据库动态地进行上下缩放。 如果需要向上或向下缩放，可以使用 Azure 门户、[PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database)、C# 和 REST API 轻松更改数据库层。 
+在一开始选取服务层和性能级别以后，即可根据实际经验对单一数据库动态地进行上下缩放。 若需增加或减少，可以使用 Azure 门户、[PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database)、C# 和 REST API 轻松更改数据库层。 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >

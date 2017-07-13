@@ -14,15 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: b9544c644de8d845cd34e0a6b92d3b79db33e002
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: b5dfd92463e1ccb78cd3ea70a967f6b02cebccd0
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="managing-concurrency-in-azure-storage"></a>在 Azure 存储中管理并发
 ## <a name="overview"></a>概述
 通常情况下，基于 Internet 的新型应用程序允许多名用户同时查看和更新数据。 这就要求应用程序开发人员仔细考虑如何为他们的最终用户提供可预测的体验，尤其是在多名用户可以更新相同数据的情况下。 开发人员通常将考虑下面三个主要数据并发策略：  

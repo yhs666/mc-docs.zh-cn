@@ -142,7 +142,7 @@ Connect-ServiceFabricCluster $connection
 Invoke-ServiceFabricChaosTestScenario -TimeToRunMinute $timeToRun -MaxClusterStabilizationTimeoutSec $maxStabilizationTimeSecs -MaxConcurrentFaults $concurrentFaults -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec
 ```
 
-## 故障转移测试
+##<a name="failover-test"></a> 故障转移测试
 
 故障转移测试方案是混沌测试方案针对特定服务分区的一个版本。它在特定服务分区上测试故障转移的效果，同时不影响其他服务。配置好目标分区信息和其他参数后，它就可以作为一个客户端工具运行，使用 C# API 或 PowerShell 生成针对一个服务分区的故障。该方案重复一系列的模块故障和服务验证，同时业务逻辑在一边继续运行以提供工作负荷。服务验证失败指出存在需要进一步调查的问题。
 

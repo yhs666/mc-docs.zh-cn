@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/01/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: fd268bd183ce8b0e124b230b1476c57e9442d92b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: abf070a1e0edc2b62f7b53e545cb2eb049d85409
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure Service Fabric 中的灾难恢复
 提供高可用性云应用程序的关键是确保它可以从各种故障中生存下来，包括那些不受控制的故障。 本文说明在潜在灾难环境中 Azure Service Fabric 群集的物理布局，并提供有关如何应对此类灾难以便限制或消除停机时间或数据丢失风险的指导。

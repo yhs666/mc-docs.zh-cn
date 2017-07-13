@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 0205ac42106c80c44f77d54ec980ac6fcc806d9c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: a9d3ce1152b30344f2862f02ac3c2dfde4356d96
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>使用 Visual Studio 进行 Service Fabric 应用程序升级的教程
 > [!div class="op_single_selector"]
@@ -87,4 +85,3 @@ Azure Service Fabric 确保只升级已更改的服务，并在整个升级过�
 [image2]: media/service-fabric-application-upgrade-tutorial/upgrade1.png
 [image3]: media/service-fabric-application-upgrade-tutorial/upgrade5.png
 [image4]: media/service-fabric-application-upgrade-tutorial/upgrade6.png
-

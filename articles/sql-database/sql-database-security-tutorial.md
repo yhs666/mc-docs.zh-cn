@@ -19,7 +19,7 @@ ms.date: 07/03/2017
 ms.author: v-johch
 ms.openlocfilehash: 6fd71e1ac76a15822b997d9add3c5cccb8faa89a
 ms.sourcegitcommit: bb82041119027be7a62fc96945d92a8a452e7849
-ms.translationtype: Human Translation
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/28/2017
 ---
@@ -161,7 +161,7 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 
     ![导航窗格](./media/sql-database-security-tutorial/auditing-get-started-storage-details.png)
 
-6. 若要自定义审核的事件，可以使用 PowerShell 或 REST API - 有关更多详细信息，请参阅[自动化 (PowerShell/REST API)](sql-database-auditing.md#subheading-7) 部分。
+6. 若要自定义审核的事件，可以使用 PowerShell 或 REST API - 有关更多详细信息，请参阅[自动化 (PowerShell/REST API)](sql-database-auditing.md#a-idsubheading-7aautomation-powershell--rest-api) 部分。
 
 7. 单击“保存” 。
 

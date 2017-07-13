@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: a8802e4e8192022137960754a13ce5896fe95c72
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: be7b975f476b5c5d7c903692ebbfbef96eda8d4f
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Hyperlapse 媒体文件与 Azure Media Hyperlapse
 Azure Media Hyperlapse 是可以使用第一人称视角或运动相机内容创建流畅缩时视频的媒体处理器 (MP)。  Azure 媒体服务的基于云的 Microsoft Hyperlapse 与 [Microsoft Research 的桌面 Hyperlapse Pro 和手机版 Hyperlapse Mobile](http://aka.ms/hyperlapse) 相似，它运用大规模的 Azure 媒体服务媒体处理平台来实现水平缩放，以及并行化批量 Hyperlapse 处理。

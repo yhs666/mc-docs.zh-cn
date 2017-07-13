@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: e77fc917f2c0f9af97021dc85a77d854eebab92a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 8c5622d76fc3aee336d43f683d4b492310fbddbd
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Linux 上的 Service Fabric（预览版）与 Windows 上的 Service Fabric（正式版）之间的差异
 
@@ -106,4 +104,3 @@ ms.lasthandoff: 05/05/2017
 * [使用适用于 Eclipse 的 Service Fabric 插件在 Linux 上创建和部署第一个 Service Fabric Java 应用程序](service-fabric-get-started-eclipse.md)
 * [在 Linux 上创建第一个 CSharp 应用程序](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [使用 Azure CLI 管理 Service Fabric 应用程序](service-fabric-azure-cli.md)
-

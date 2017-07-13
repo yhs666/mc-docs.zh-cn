@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/02/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: aa26d72524f035cca92cd39062873ceb15bffac1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: c4816951c8fbbe322344c2ea95eff2727cbbd84a
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="application-upgrade-parameters"></a>应用程序升级参数
 本文介绍 Azure Service Fabric 应用程序升级期间应用的各种参数。 参数包括应用程序的名称和版本。 它们可用于控制升级期间应用的超时和运行状况检查，还可指定在升级失败时必须应用的策略。
@@ -75,4 +73,3 @@ MaxPercentUnhealthyServices、MaxPercentUnhealthyPartitionsPerService 和 MaxPer
 参考[高级主题](service-fabric-application-upgrade-advanced.md)，了解如何在升级应用程序时使用高级功能。
 
 参考[对应用程序升级进行故障排除](service-fabric-application-upgrade-troubleshooting.md)中的步骤来解决应用程序升级时的常见问题。
-

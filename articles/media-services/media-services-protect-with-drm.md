@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/16/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 0ed5680a59ac884c112a9dfbce5ca561b7967deb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 39555994070024200a86b82139925ad73349ac7e
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="using-playready-dynamic-common-encryption"></a>使用 PlayReady 动态通用加密
 
@@ -323,7 +321,7 @@ Azure 媒体服务允许你传送受 [Microsoft PlayReady DRM](https://www.micro
 
                 ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
                 encodeTask.InputAssets.Add(inputAsset);
-                encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset),     AssetCreationOptions.StorageEncrypted);
+                encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset),    AssetCreationOptions.StorageEncrypted);
 
                 job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
                 job.Submit();
@@ -558,6 +556,3 @@ Azure 媒体服务允许你传送受 [Microsoft PlayReady DRM](https://www.micro
         }
     }
     ```
-
-
-

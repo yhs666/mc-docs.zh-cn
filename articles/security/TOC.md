@@ -3,10 +3,10 @@
 ## [安全服务与技术](azure-security-services-technologies.md)
 ## [Azure 安全入门](azure-security-getting-started.md)
 
-## 资源
-### [信任中心](security-microsoft-trust-center.md)
-### [渗透测试](azure-security-pen-testing.md)
-### [安全与合规性博客](http://blogs.msdn.com/b/azuresecurity/)
+# 资源
+## [信任中心](security-microsoft-trust-center.md)
+## [渗透测试](azure-security-pen-testing.md)
+## [安全与合规性博客](http://blogs.msdn.com/b/azuresecurity/)
 
 ## 网络安全性
 ### [概述](security-network-overview.md)

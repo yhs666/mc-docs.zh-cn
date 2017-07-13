@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 9e1f2c7f7227cfc76e249e294e0a526ef33871d2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 22306fd05ffc3f5f65caabee826719c063791a14
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 存储模拟器进行开发和测试
 
@@ -268,4 +266,3 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 
 * [使用 .NET 的 Azure 存储示例](storage-samples-dotnet.md)包含开发应用程序时可使用的多个代码示例的链接。
 * 可使用 [Azure 存储资源管理器](http://storageexplorer.com)处理云存储帐户和存储模拟器中的资源。
-

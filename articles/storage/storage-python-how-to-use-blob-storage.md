@@ -14,13 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 1f4255117ae4cbbf51f332e1b7a915cc8e1de7a1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: e9d16b6997abdda3124c1fa30514826a91ed9ff1
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="how-to-use-azure-blob-storage-from-python"></a>如何通过 Python 使用 Azure Blob 存储
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]

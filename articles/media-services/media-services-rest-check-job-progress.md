@@ -1,30 +1,32 @@
 ---
-title: 如何使用 REST API 检查作业进度 | Azure
-description: 了解如何跟踪作业进度。
+title: "如何使用 REST API 检查作业进度 | Azure"
+description: "了解如何跟踪作业进度。"
 services: media-services
-documentationCenter: ''
+documentationCenter: 
 authors: Juliako
 manager: erikre
-editor: ''
-
+editor: 
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/26/2016
-ms.date: 12/27/2016
+ms.date: 09/26/2016
 ms.author: v-johch
+ms.openlocfilehash: e238ccd0bca430b8fd03f99198ac0dcf888b36ef
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-#如何：检查作业进度
+#<a name="how-to-check-job-progress"></a>如何：检查作业进度
 
 > [!div class="op_single_selector"]
 >- [门户](./media-services-portal-check-job-progress.md)
 >- [.NET](./media-services-check-job-progress.md)
 >- [REST](./media-services-rest-check-job-progress.md)
 
-当你运行作业时，通常需要采用某种方式跟踪作业进度。你可以使用作业的 State 属性查看该作业的状态。有关 State 属性的详细信息，请参阅[作业实体属性](https://docs.microsoft.com/zh-cn/rest/api/media/operations/job#a-namejobentitypropertiesa-job-entity-properties)。
+当你运行作业时，通常需要采用某种方式来跟踪作业进度。 你可以使用作业的 State 属性来查看该作业的状态。 有关 State 属性的详细信息，请参阅 [作业实体属性](https://docs.microsoft.com/zh-cn/rest/api/media/operations/job#a-namejobentitypropertiesa-job-entity-properties)。
 
 请求：
 
@@ -54,7 +56,5 @@ X-Content-Type-Options: nosniff
 DataServiceVersion: 3.0;
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 
-{"odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#Jobs","value":[{"Id":"nb:jid:UUID:f3c43f94-327f-2347-90bb-3bf79f8559f1","Name":"Encoding BigBuckBunny into to H264 Adaptive Bitrate MP4 Set 720p","Created":"2015-02-11T01:46:08.897","LastModified":"2015-02-11T01:46:08.897","EndTime":null,"Priority":0,"RunningDuration":0.0,"StartTime":"2015-02-11T01:46:16.58","State":2,"TemplateId":null,"JobNotificationSubscriptions":[]}]} 
+{"odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#Jobs","value":[{"Id":"nb:jid:UUID:f3c43f94-327f-2347-90bb-3bf79f8559f1","Name":"Encoding BigBuckBunny into to H264 Adaptive Bitrate MP4 Set 720p","Created":"2015-02-11T01:46:08.897","LastModified":"2015-02-11T01:46:08.897","EndTime":null,"Priority":0,"RunningDuration":0.0,"StartTime":"2015-02-11T01:46:16.58","State":2,"TemplateId":null,"JobNotificationSubscriptions":[]}]}
 ```
-
-<!---HONumber=Mooncake_Quality_Review_1215_2016-->

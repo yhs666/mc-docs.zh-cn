@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/10/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: a7d8f1dce4a10ac3e66d48d6dd33a1cb32775715
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 42386f208a555facbb2870e678c3c15c162fbb51
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>使用 FabricClient 部署和删除应用程序
 > [!div class="op_single_selector"]
@@ -54,10 +52,10 @@ ms.lasthandoff: 05/05/2017
 FabricClient fabricClient = new FabricClient();
 ```
 
-## <a name="upload-the-application-package"></a>上载应用程序包
+## <a name="upload-the-application-package"></a>上传应用程序包
 假设你在 Visual Studio 中生成并打包名为 *MyApplication* 的应用。 默认情况下，ApplicationManifest.xml 中列出的应用程序类型名称为“MyApplicationType”。  应用程序包（其中包含必需的应用程序清单、服务清单以及代码/配置/数据包）位于 *C:\Users\username\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug* 中。
 
-上载应用程序包会将其放在一个可由内部 Service Fabric 组件访问的位置。
+上传应用程序包会将其放在一个可由内部 Service Fabric 组件访问的位置。
 如果要在本地验证应用程序包，请使用 [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet。
 
 [CopyApplicationPackage](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) 方法可将应用程序包上传到群集映像存储。 
@@ -67,7 +65,7 @@ FabricClient fabricClient = new FabricClient();
 有关映像存储和映像存储连接字符串的补充信息，请参阅[了解映像存储连接字符串](service-fabric-image-store-connection-string.md)。
 
 ## <a name="register-the-application-package"></a>注册应用程序包
-应用程序清单中声明的应用程序类型和版本会在注册应用包时可供使用。 系统将读取上一步中上载的程序包，验证此包，处理包的内容，并将已处理的包复制到内部系统位置。  
+应用程序清单中声明的应用程序类型和版本会在注册应用包时可供使用。 系统将读取上一步中上传的程序包，验证此包，处理包的内容，并将已处理的包复制到内部系统位置。  
 
 [ProvisionApplicationAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) 方法可在群集中注册应用程序并使其可供部署。
 
@@ -328,4 +326,3 @@ static void Main(string[] args)
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
-

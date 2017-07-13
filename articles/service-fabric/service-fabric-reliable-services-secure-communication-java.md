@@ -13,13 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 03/09/2017
 ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: e33d62ec8570780dac5e5e3831c78f27e94bb3cb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 968d65216d175a7337dca38ce20db6c89e2c0123
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>在 Azure Service Fabric 中帮助保护服务的通信
 > [!div class="op_single_selector"]
@@ -121,4 +119,3 @@ ms.lasthandoff: 05/05/2017
     CompletableFuture<String> message = client.getHelloWorld();
 
     ```
-
