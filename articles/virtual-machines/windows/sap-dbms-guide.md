@@ -551,7 +551,7 @@ Azure 可用性集是 VM 或服务的逻辑分组，可确保 VM 和其他服务
 
 如果想要创建 DBMS 部署的高可用配置（不依赖于所使用的单项 DBMS HA 功能），DBMS VM 需要：
 
-* 将 VM 添加到相同的 Azure 虚拟网络 (<https://review.docs.azure.cn/virtual-network/>)
+* 将 VM 添加到相同的 Azure 虚拟网络 (<https://docs.azure.cn/virtual-network/>)
 * HA 配置的 VM 也应该位于相同的子网中。 在仅限云的部署中，无法在不同子网之间进行名称解析，只能进行 IP 解析。 在跨界部署中使用站点到站点或 ExpressRoute 连接，就已经建立了包含至少一个子网的网络。 名称解析将根据本地 AD 策略和网络基础结构来完成。
 
 
@@ -717,8 +717,8 @@ SQL Server 2014 引入了一项称为缓冲池扩展的新功能。 此功能使
 #### <a name="managing-backup-blobs"></a>管理备份 BLOB
 你需要自行管理备份。 经常执行事务日志备份预期会创建多个 Blob，因此，管理这些 Blob 很容易使 Azure 门户过载。 因此，建议使用 Azure 存储资源管理器。 有几个不错的工具可帮助管理 Azure 存储帐户
 
-* 安装了 Azure SDK 的 Microsoft Visual Studio (<https://review.docs.azure.cn/downloads/>)
-* Azure 存储资源管理器 (<https://review.docs.azure.cn/downloads/>)
+* 安装了 Azure SDK 的 Microsoft Visual Studio (<https://docs.azure.cn/downloads/>)
+* Azure 存储资源管理器 (<https://docs.azure.cn/downloads/>)
 * 第三方工具
 
 
