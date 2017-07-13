@@ -13,17 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/05/2017
-ms.date: 03/17/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 7497647d68cd022df9ba10d949bdbeecf7f12900
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 23dded5b83fcf1fd2dd6a50bf25c9a62fbc13c43
+ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/30/2017
 ---
-# <a name="deploy-your-app-to-azure-app-service"></a>将应用部署到 Azure 应用服务
+# 将应用部署到 Azure 应用服务
+<a id="deploy-your-app-to-azure-app-service" class="xliff"></a>
 本文可帮助你确定将 Web 应用、移动应用后端或 API 应用的文件部署到 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)的最佳选项，然后将你引导到相应的资源，其中包含特定于你的首选选项的操作说明。
 
 ## <a name="overview"></a>Azure 应用服务部署概述
@@ -34,8 +33,8 @@ Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等�
 * [FTP 或 FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol)：使用你常用的支持 FTP 或 FTPS 的工具（从 [FileZilla](https://filezilla-project.org) 到功能齐全的 IDE，如 [NetBeans](https://netbeans.org)）将文件移至 Azure。 这完全是文件上传进程。 应用服务不提供任何附加服务，例如版本控制、文件结构管理等。 
 * [Kudu (Git/Mercurial)](https://github.com/projectkudu/kudu/wiki/Deployment)：Kudu 是应用服务中的[部署引擎](https://github.com/projectkudu/kudu/wiki)。 从任何存储库将你的代码直接推送到 Kudu。 只要代码推送到 Kudu，Kudu 还提供附加服务，包括版本控制、程序包还原、MSBuild 和 [Web 挂钩](https://github.com/projectkudu/kudu/wiki/Web-hooks) 以用于连续部署和其他自动化任务。 Kudu 部署引擎支持 2 种不同类型的部署源：   
 
-    * 从 GitHub 使用自动同步进行基于存储库的连续部署  
-    * 从本地 Git 使用手动同步进行基于存储库的部署  
+  * 从 GitHub 使用自动同步进行基于存储库的连续部署 
+  * 从本地 Git 使用手动同步进行基于存储库的部署  
 * [Web 部署](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy)：使用自动部署到 IIS 服务器的相同工具，直接从偏好的 Microsoft 工具（例如 Visual Studio）将代码部署到应用服务。 此工具支持仅差异部署、创建数据库、连接字符串转换等操作。Web 部署与 Kudu 的不同之处在于，应用程序二进制文件在部署到 Azure 之前生成。 与 FTP 类似，应用服务不提供任何附加服务。
 
 常用的 Web 开发工具支持其中的一个或多个部署进程。 虽然你选择的工具确定了你可以利用的部署进程，但是由你支配的实际 DevOps 功能取决于部署进程和你选择的特定工具的组合。 例如，如果你从 [包含 Azure SDK 的 Visual Studio](#vspros)执行 Web 部署，即使你未从 Kudu 自动执行，你也会在 Visual Studio 中自动执行程序包还原和 MSBuild。 
@@ -62,7 +61,7 @@ Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等�
 * 部署时间可能很长，因为许多 FTP 工具不提供仅差异复制，而只是复制所有文件。  
 
 ### <a name="howtoftp"></a>如何使用 FTP 上传文件
-[Azure 门户](https://portal.azure.cn)为用户提供所有需要的信息，以便使用 FTP 或 FTPS 连接到应用的目录。
+[Azure 门户](https://portal.azure.cn)中提供了使用 FTP 或 FTPS 连接到应用目录所需的全部信息。
 
 * [使用 FTP 将应用部署到 Azure 应用服务](app-service-deploy-ftp.md)
 
@@ -85,7 +84,7 @@ Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等�
 
 * [连续部署到 Azure 应用服务](app-service-continuous-deployment.md)。 
 
-若要了解如何通过 Azure 门户中未列出的云存储库（如 [GitLab](https://gitlab.com/)）手动配置连续部署，请参阅 [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)（使用手动步骤设置连续部署）。
+若要了解如何通过 Azure 门户中未列出的云存储库（如 [GitLab](https://gitlab.com/)）手动配置连续部署，请参阅[使用手动步骤设置连续部署](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)。
 
 ## <a name="localgitdeployment"></a>从本地 Git 部署
 如果你的开发团队使用基于 Git 的本地源代码管理 (SCM) 服务，可将它配置为应用服务的部署源。 
@@ -107,7 +106,8 @@ Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等�
 * [从本地 Git 部署到 Azure 应用服务](app-service-deploy-local-git.md)。 
 * [从任何 git/hg 存储库发布到 Web 应用](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html)。  
 
-## <a name="deploy-using-an-ide"></a>使用 IDE 进行部署
+## 使用 IDE 进行部署
+<a id="deploy-using-an-ide" class="xliff"></a>
 如果你已在使用包含 [Azure SDK](/downloads/) 的 [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) 或其他 IDE 套件（如 [Xcode](https://developer.apple.com/xcode/)、[Eclipse](https://www.eclipse.org) 和 [IntelliJ IDEA](https://www.jetbrains.com/idea/)），可以直接从 IDE 内部署到 Azure。 此选项非常适合于单个开发人员。
 
 Visual Studio 支持所有这三种部署过程（FTP、Git 和 Web 部署），具体取决于你的首选项，而其他 IDE 在已集成 FTP 或 Git 时可部署到应用服务（请参阅[部署过程概述](#overview)）。
@@ -132,11 +132,16 @@ Visual Studio 支持所有这三种部署过程（FTP、Git 和 Web 部署），
 ### <a name="vs"></a>如何直接从 Visual Studio 部署
 * [Azure 和 ASP.NET 入门](app-service-web-get-started-dotnet.md)。 如何使用 Visual Studio 和 Web 部署来创建和部署一个简单的 ASP.NET MVC Web 项目。
 * [如何使用 Visual Studio 部署 Azure Web 作业](websites-dotnet-deploy-webjobs.md)。 如何配置控制台应用程序项目，以便将它们部署为 Web 作业。  
-* [将包含成员资格、OAuth 和 SQL 数据库的安全 ASP.NET MVC 5 应用部署到 Web 应用](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)。 如何使用 Visual Studio、Web 部署和 Entity Framework Code First 迁移通过 SQL 数据库来创建和部署 ASP.NET MVC Web 项目。
 * [使用 Visual Studio 的 ASP.NET Web 部署](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction)。 共 12 篇的系列教程涵盖了比此列表中其他部署任务更完整的部署任务。 自编写本教程以来添加了一些 Azure 部署功能，但注释是后来添加的，说明缺少哪些内容。
 * [在 Visual Studio 2012 中直接从 Git 存储库将 ASP.NET 网站部署到 Azure](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881)。 说明如何在 Visual Studio 中部署 ASP.NET Web 项目（使用 Git 插件将代码提交到 Git 并将 Azure 连接到 Git 存储库）。 从 Visual Studio 2013 开始，Git 支持是内置的，不需要安装插件。
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+
+### <a name="aztk"></a>如何使用 Azure Toolkit for Eclipse 和 Azure Toolkit for IntelliJ IDEA 进行部署
+Microsoft 提供 [Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse.md) 和 [Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij.md)，可用于将 Web 应用直接从 Eclipse 和 IntelliJ 部署到 Azure。 下面的教程演示如何使用任一 IDE 将简单的“Hello”world Web 应用部署到 Azure：
+
+* [在 Eclipse 中创建 Azure 的 Hello World Web 应用](app-service-web-eclipse-create-hello-world-web-app.md)。 本教程说明如何使用 Azure Toolkit for Eclipse 创建和部署 Azure 的 Hello World Web 应用。
+* [在 IntelliJ 中创建 Azure 的 Hello World Web 应用](app-service-web-intellij-create-hello-world-web-app.md)。 本教程说明如何使用 Azure Toolkit for Eclipse 创建和部署 Azure 的 Hello World Web 应用。
 
 ## <a name="automate"></a>使用命令行工具自动部署
 如果你偏好命令行终端作为所选开发环境，则可使用命令行工具针对应用服务应用编写部署任务的脚本。 

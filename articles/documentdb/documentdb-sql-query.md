@@ -16,20 +16,19 @@ ms.topic: article
 origin.date: 04/08/2017
 ms.author: v-junlch
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 9e9933622dccb697fb6d5b27430305aa3c5c39c5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: b723148dddf192cd946e420fc9dd3c136e6f6fc7
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="sql-query-and-sql-syntax-in-azure-documentdb"></a>DocumentDB 中的 SQL 查询和 SQL 语法
+# DocumentDB 中的 SQL 查询和 SQL 语法
+<a id="sql-query-and-sql-syntax-in-documentdb" class="xliff"></a>
 DocumentDB 通过将 SQL（结构化查询语言）用作 JSON 查询语言来支持查询文档。 DocumentDB 是真正无架构的。 凭借其对数据库引擎内 JSON 数据模型的直接承诺，它可以提供 JSON 文档的自动索引，而无需显式架构或创建辅助索引。 
 
 设计 DocumentDB 的查询语言时，我们有两个目标：
 
-- 我们希望支持 SQL，而不是发明一种新的 JSON 查询语言。 SQL 是最常见和最常用的查询语言之一。 DocumentDB SQL 提供一种正式的编程模型，用于对 JSON 文档进行丰富的查询。
+- 我们希望支持 SQL，而不是发明一种新的 JSON 查询语言。 SQL 是最常见和最常用的查询语言之一。 DocumentDB SQL 提供了一种正式的编程模型，用于对 JSON 文档进行丰富的查询。
 - 由于 JSON 文档数据库能够在数据库引擎中直接执行 JavaScript，我们希望将 JavaScript 的编程模型用作查询语言的基础。 DocumentDB API SQL 植根于 JavaScript 的类型系统、表达式计算和函数调用中。 而这反过来为关系投影、跨 JSON 文档的分层导航、自联接、空间查询以及调用完全采用 JavaScript 编写的用户定义的函数 (UDF) 和其他功能提供了自然编程模型。 
 
 我们相信这些功能是减少应用程序和数据库之间冲突的关键，并且对于开发人员的工作效率来说是至关重要的。
@@ -168,10 +167,10 @@ DocumentDB 通过将 SQL（结构化查询语言）用作 JSON 查询语言来�
 - 由于 DocumentDB API SQL 适用于 JSON 值，因此它可以处理三种形式的实体，而不是行和列。 因此，该语言可让你在任意深度引用树的节点，如 `Node1.Node2.Node3…..Nodem`，这类似于引用 `<table>.<column>` 的两个部分引用的关系 SQL。   
 - 结构化查询语言适用于无架构的数据。 因此，需要动态绑定类型系统。 相同的表达式在不同文档上可能会产生不同的类型。 查询的结果是一个有效的 JSON 值，但不保证它为固定的架构。  
 - DocumentDB 仅支持严格的 JSON 文档。 这意味着类型系统和表达式仅限于处理 JSON 类型。 有关更多详细信息，请参阅 [JSON specification](http://www.json.org/) （JSON 规范）。  
-- DocumentDB 集合是 JSON 文档的一个无架构容器。 集合中，文档内和跨文档的数据实体的关系是按包含关系隐式捕获的，而不是按主键和外键关系。 考虑到稍后将在本文中讨论文档内联接，因此这是一个值得注意的重要方面。
+- DocumentDB 集合是 JSON 文档的一个无构架容器。 集合中，文档内和跨文档的数据实体的关系是按包含关系隐式捕获的，而不是按主键和外键关系。 考虑到稍后将在本文中讨论文档内联接，因此这是一个值得注意的重要方面。
 
 ## <a id="Indexing"></a> DocumentDB 索引
-在我们开始了解 DocumentDB API SQL 语法前，值得先探索一下 DocumentDB API API 中的索引设计。 
+在我们开始了解 DocumentDB API SQL 语法前，有必要先探索一下 DocumentDB API 中的索引设计。 
 
 数据库索引的目的是在提供良好的吞吐量和低延迟的同时，以最小的资源消耗（如 CPU 和输入/输出）提供各种形式的查询。 通常，为查询数据库选择正确的索引需要大量的计划和试验。 此方法对数据不符合严格的架构并且快速发展的无架构数据库来说是一个挑战。 
 
@@ -183,9 +182,9 @@ DocumentDB 通过将 SQL（结构化查询语言）用作 JSON 查询语言来�
 - 支持多租户：在为跨租户的资源调控给定基于保留的模型的情况下，可以在为每个副本分配的系统资源（CPU、内存和每秒的输入/输出操作）的预算内执行索引更新。 
 - 存储效率：就成本效益而言，在磁盘上存储索引的开销是有限的，并且是可预测的。 这一点非常重要，因为 DocumentDB 允许开发人员在索引开销与查询性能之间做出基于成本的权衡。  
 
-有关演示如何为集合配置索引策略的示例，请参阅 MSDN 上的 [DocumentDB 示例](https://github.com/Azure/azure-documentdb-net)。 现在，让我们开始详细了解 DocumentDB SQL 语法。
+有关演示如何为集合配置索引策略的示例，请参阅 MSDN 上的 [DocumentDB samples](https://github.com/Azure/azure-documentdb-net) （DocumentDB 示例）。 现在，让我们开始详细了解 DocumentDB SQL 语法。
 
-## <a id="Basics"></a>DocumentDB SQL 查询基础知识
+## <a id="Basics"></a>DocumentDB SQL 查询的基础知识
 每个查询按 ANSI-SQL 标准由 SELECT 子句和可选的 FROM 和 WHERE 子句组成。 通常，对于每个查询，已枚举 FROM 子句中的源。 然后将 WHERE 子句中的筛选器应用到源以检索 JSON 文档的子集。 最后，使用 SELECT 子句以投影选择列表中请求的 JSON 值。
 
     SELECT <select_list> 
@@ -203,7 +202,8 @@ DocumentDB 通过将 SQL（结构化查询语言）用作 JSON 查询语言来�
 - 请注意，一旦有了别名，则无法绑定原始的源。 例如，由于再也无法解析标识符“Families”，因此 `SELECT Families.id FROM Families f` 在语法上无效。
 - 所有需要引用的属性都必须是完全限定的。 在没有遵循严格架构的情况下，会强制性地执行这一点以避免任何不确定的绑定。 因此，由于未绑定 `id` 属性，因此 `SELECT id FROM Families f` 在语法上无效。
 
-### <a name="sub-documents"></a>子文档
+### 子文档
+<a id="sub-documents" class="xliff"></a>
 也可以将源缩小为更小的子集。 例如，要在每个文档中仅枚举子树，则子根可能变成源，如下例所示。
 
 **查询**
@@ -336,7 +336,8 @@ WHERE 子句（**`WHERE <filter_condition>`**）可选。 它指定由源提供�
 
 除了二进制和一元运算符以外，还允许使用属性引用。 例如，`SELECT * FROM Families f WHERE f.isRegistered` 返回包含 `isRegistered` 属性的文档，其中的属性值等于 JSON `true` 值。 任何其他值（false、null、Undefined、`<number>`、`<string>`、`<object>`、`<array>` 等等）都会导致源文档被排除在结果之外。 
 
-### <a name="equality-and-comparison-operators"></a>等式和比较运算符
+### 等式和比较运算符
+<a id="equality-and-comparison-operators" class="xliff"></a>
 下表显示了 DocumentDB API SQL 中任意两个 JSON 类型之间等式比较的结果。
 
 <table style = "width:300px">
@@ -516,7 +517,8 @@ Undefined </td>
 
 如果筛选器中标量表达式的结果为 Undefined，则相应的文档不会包含在结果中，因为 Undefined 在逻辑上不等于“True”。
 
-### <a name="between-keyword"></a>BETWEEN 关键字
+### BETWEEN 关键字
+<a id="between-keyword" class="xliff"></a>
 还可以使用 BETWEEN 关键字来对一定范围内的值（如在 ANSI SQL 中）进行快速查询。 可对字符串或数字使用 BETWEEN。
 
 例如，此查询返回在其中第一个子女的年级为 1-5 之间（包括 1 和 5）的所有家庭文档。 
@@ -534,7 +536,8 @@ Undefined </td>
 
 在 DocumentDB API 与 ANSI SQL 中使用 BETWEEN 的主要不同之处在于是否可以对混合类型的属性执行快速的范围查询 — 例如，在某些文档中将“grade”设置为数字 (5)，而在其他文档中将其设置为字符串（“grade4”）。 在这些情况下（如在 JavaScript 中），在两种不同类型之间进行比较的结果为“undefined”，将会跳过文档。
 
-### <a name="logical-and-or-and-not-operators"></a>逻辑（AND、OR 和 NOT）运算符
+### 逻辑（AND、OR 和 NOT）运算符
+<a id="logical-and-or-and-not-operators" class="xliff"></a>
 逻辑运算符对布尔值进行运算。 下表显示了这些运算符的逻辑真值表。
 
 | OR | True | False | Undefined |
@@ -555,7 +558,8 @@ Undefined </td>
 | False |True |
 | Undefined |Undefined |
 
-### <a name="in-keyword"></a>IN 关键字
+### IN 关键字
+<a id="in-keyword" class="xliff"></a>
 IN 关键字可用于检查指定的值是否与列表中的任意值匹配。 例如，此查询返回 ID 为“WakefieldFamily”或“AndersenFamily”的所有家庭文档。 
 
     SELECT *
@@ -568,7 +572,8 @@ IN 关键字可用于检查指定的值是否与列表中的任意值匹配。 �
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### <a name="ternary--and-coalesce--operators"></a>三元 (?) 和联合 (??) 运算符
+### 三元 (?) 和联合 (??) 运算符
+<a id="ternary--and-coalesce--operators" class="xliff"></a>
 三元和联合运算符可以用于生成条件表达式，类似于常用的编程语言（如 C# 和 JavaScript）。 
 
 当动态构建新的 JSON 属性时，使用三元 (?) 运算符会非常方便。 例如，现在你可以写入查询以将类级别（初学者/中级/高级）分类到用户可读的表单中，如下面所示。
@@ -618,7 +623,8 @@ SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从�
     }]
 
 
-### <a name="nested-properties"></a>嵌套属性
+### 嵌套属性
+<a id="nested-properties" class="xliff"></a>
 在下面的示例中，我们将投影两个嵌套的属性 `f.address.state` and `f.address.city`。
 
 **查询**
@@ -676,7 +682,8 @@ SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从�
     }]
 
 
-### <a name="aliasing"></a>别名
+### 别名
+<a id="aliasing" class="xliff"></a>
 现在让我们使用值的显示别名对上面的示例进行扩展。 AS 是用于别名的关键字。 请注意，将第二个值投影为 `NameInfo`时，它如显示的那样是可选的。 
 
 如果查询包含两个具有相同名称的属性，则必须使用别名以重命名其中一个属性或两个属性，以便可以在投影的结果中消除它们的歧义。
@@ -702,7 +709,8 @@ SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从�
     }]
 
 
-### <a name="scalar-expressions"></a>标量表达式
+### 标量表达式
+<a id="scalar-expressions" class="xliff"></a>
 除了属性引用之外，SELECT 子句还支持标量表达式，如常量、算术表达式和逻辑表达式等。例如，下面是一个简单的“Hello World”查询。
 
 **查询**
@@ -748,7 +756,8 @@ SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从�
     ]
 
 
-### <a name="object-and-array-creation"></a>对象和数组创建
+### 对象和数组创建
+<a id="object-and-array-creation" class="xliff"></a>
 DocumentDB API SQL 的另一个重要功能是数组/对象创建。 请注意，在上一个示例中，我们已创建了一个新的 JSON 对象。 同样，也可以构造数组，如下例所示。
 
 **查询**
@@ -824,7 +833,8 @@ DocumentDB API SQL 的另一个重要功能是数组/对象创建。 请注意�
     ]
 
 
-### <a name="-operator"></a>* 运算符
+### * 运算符
+<a id="-operator" class="xliff"></a>
 支持使用特殊运算符 (*) 按原样投影文档。 在使用时，它必须仅为投影的字段。 当类似 `SELECT * FROM Families f` 的查询有效时，`SELECT VALUE * FROM Families f ` 和 `SELECT *, f.id FROM Families f ` 无效。
 
 **查询**
@@ -1348,14 +1358,16 @@ DocumentDB API SQL 在处理 UDF 当前阶段（WHERE 子句或 SELECT 子句）
 
 总而言之，UDF 是作为查询的一部分处理复杂业务逻辑重要的工具。
 
-### <a name="operator-evaluation"></a>运算符评估
+### 运算符评估
+<a id="operator-evaluation" class="xliff"></a>
 DocumentDB 是一个 JSON 数据库，与 JavaScript 运算符以及其评估语义具有许多相似之处。 就 JSON 支持而言，DocumentDB 尝试保留 JavaScript 语义时，操作评估在某些实例中有所偏移。
 
 在 DocumentDB API SQL 中，与在传统 SQL 中不同，实际从数据库中检索出值之前，值类型经常是未知的。 为了高效执行查询，大多数运算符具有严格的类型要求。 
 
 不同于 JavaScript，DocumentDB API SQL 不会执行隐式转换。 例如，类似 `SELECT * FROM Person p WHERE p.Age = 21` 的查询与包含值为 21 的 Age 属性的文档相匹配。 任何其他 Age 属性与字符串“21”匹配或包含其他无数可能的变量（“021”、“21.0”、“0021”和“00021”等等）的文档则不匹配。 这与 JavaScript 相反，在 JavaScript 中，字符串会隐式转换为数字（基于运算符 ex: ==）。 此选择对于 DocumentDB API SQL 中的高效索引匹配至关重要。 
 
-## <a name="parameterized-sql-queries"></a>参数化 SQL 查询
+## 参数化 SQL 查询
+<a id="parameterized-sql-queries" class="xliff"></a>
 DocumentDB 支持使用带有常用的 @ 表示法的参数进行查询。 参数化 SQL 为用户输入提供可靠的处理和转义，可防止通过 SQL 注入发生意外的数据泄露。 
 
 例如，你可以编写一个将姓氏和省/自治区/直辖市地址作为参数的查询，然后基于用户输入针对姓氏和省/自治区/直辖市地址执行此查询。
@@ -1398,35 +1410,36 @@ DocumentDB 还支持使用许多内置函数进行常见操作，这些函数可
 
 如果你当前正使用内置函数适用的用户定义的函数 (UDF)，那么应使用相应的内置函数，因为它会更快更有效地运行。 
 
-### <a name="mathematical-functions"></a>数学函数
+### 数学函数
+<a id="mathematical-functions" class="xliff"></a>
 每个数学函数均执行一个计算，通常基于作为参数提供的输出值，并返回数值。 以下是受支持的内置数学函数表。
 
 
 | 使用情况 | 说明 |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [ABS (num_expr) | 返回指定数值表达式的绝对（正）值。 |
-| CEILING (num_expr) | 返回大于或等于指定数值表达式的最小整数值。 |
-| FLOOR (num_expr) | 返回小于或等于指定数值表达式的最大整数。 |
-| EXP (num_expr) | 返回指定数值表达式的指数。 |
-| [LOG (num_expr [,base]) | 返回指定数值表达式的自然对数，或使用指定底数的对数 |
-| LOG10 (num_expr) | 返回指定数值表达式以 10 为底的对数值。 |
-| ROUND (num_expr) | 返回一个数值，四舍五入到最接近的整数值。 |
-| TRUNC (num_expr) | 返回一个数值，截断到最接近的整数值。 |
-| SQRT (num_expr)  | 返回指定数值表达式的平方根。 |
-| SQUARE (num_expr) | 返回指定数值表达式的平方。 |
-| POWER (num_expr, num_expr) | 返回指定数值表达式相对指定值的幂。 |
-| SIGN (num_expr) | 返回指定数值表达式的符号值 (-1, 0, 1)。 |
-| ACOS (num_expr) | 返回角度（弧度），其余弦是指定的数值表达式；也被称为反余弦。 |
-| ASIN (num_expr) | 返回角度（弧度），其正弦是指定的数值表达式。 也被称为反正弦。 |
-| ATAN (num_expr) | 返回角度（弧度），其正切是指定的数值表达式。 这也被称为反正切。 |
-| ATN2 (num_expr) | 返回正 x 轴与射线（原点到点 (y, x)）之间的角度（弧度），其中 x 和 y 是两个指定的浮点表达式的值。 |
-| COS (num_expr) | 返回指定表达式中指定角度的三角余弦（弧度）。 |
-| COT (num_expr) | 返回指定数值表达式中指定角度的三角余切。 |
-| DEGREES (num_expr) | 返回指定角度（弧度）的相应角度（度）。 |
-| PI ()          | 返回 PI 的常数值。 |
-| RADIANS (num_expr) | 返回输入的数值表达式（度）的弧度。 |
-| SIN (num_expr) | 返回指定表达式中指定角度的三角正弦（弧度）。 |
-| TAN (num_expr) | 返回指定表达式中输入表达式的正切。 |
+| [[ABS (num_expr)](#bk_abs) | 返回指定数值表达式的绝对（正）值。 |
+| [CEILING (num_expr)](#bk_ceiling) | 返回大于或等于指定数值表达式的最小整数值。 |
+| [FLOOR (num_expr)](#bk_floor) | 返回小于或等于指定数值表达式的最大整数。 |
+| [EXP (num_expr)](#bk_exp) | 返回指定数值表达式的指数。 |
+| [LOG (num_expr [,base])](#bk_log) | 返回指定数值表达式的自然对数，或使用指定底数的对数 |
+| [LOG10 (num_expr)](#bk_log10) | 返回指定数值表达式以 10 为底的对数值。 |
+| [ROUND (num_expr)](#bk_round) | 返回一个数值，四舍五入到最接近的整数值。 |
+| [TRUNC (num_expr)](#bk_trunc) | 返回一个数值，截断到最接近的整数值。 |
+| [SQRT (num_expr)](#bk_sqrt) | 返回指定数值表达式的平方根。 |
+| [SQUARE (num_expr)](#bk_square) | 返回指定数值表达式的平方。 |
+| [POWER (num_expr, num_expr)](#bk_power) | 返回指定数值表达式相对指定值的幂。 |
+| [SIGN (num_expr)](#bk_sign) | 返回指定数值表达式的符号值 (-1, 0, 1)。 |
+| [ACOS (num_expr)](#bk_acos) | 返回角度（弧度），其余弦是指定的数值表达式；也被称为反余弦。 |
+| [ASIN (num_expr)](#bk_asin) | 返回角度（弧度），其正弦是指定的数值表达式。 也被称为反正弦。 |
+| [ATAN (num_expr)](#bk_atan) | 返回角度（弧度），其正切是指定的数值表达式。 这也被称为反正切。 |
+| [ATN2 (num_expr)](#bk_atn2) | 返回正 x 轴与射线（原点到点 (y, x)）之间的角度（弧度），其中 x 和 y 是两个指定的浮点表达式的值。 |
+| [COS (num_expr)](#bk_cos) | 返回指定表达式中指定角度的三角余弦（弧度）。 |
+| [COT (num_expr)](#bk_cot) | 返回指定数值表达式中指定角度的三角余切。 |
+| [DEGREES (num_expr)](#bk_degrees) | 返回指定角度（弧度）的相应角度（度）。 |
+| [PI ()](#bk_pi) | 返回 PI 的常数值。 |
+| [RADIANS (num_expr)](#bk_radians) | 返回输入的数值表达式（度）的弧度。 |
+| [SIN (num_expr)](#bk_sin) | 返回指定表达式中指定角度的三角正弦（弧度）。 |
+| [TAN (num_expr)](#bk_tan) | 返回指定表达式中输入表达式的正切。 |
 
 例如，你现在可以运行以下查询：
 
@@ -1440,7 +1453,8 @@ DocumentDB 还支持使用许多内置函数进行常见操作，这些函数可
 
 与 ANSI SQL 相比，DocumentDB 的函数主要的差异在于它们被设计为可良好地适用于无架构和混合架构数据。 例如，如果拥有一个缺少 Size 属性或有一个非数值的值（如“unknown”）的文档，那么会跳过该文档，而不是返回错误。
 
-### <a name="type-checking-functions"></a>类型检查函数
+### 类型检查函数
+<a id="type-checking-functions" class="xliff"></a>
 类型检查函数允许检查 SQL 查询内表达式的类型。 类型是变量或未知时，可使用类型检查函数动态确定文档内属性的类型。 以下是支持的内置类型检查函数表。
 
 <table>
@@ -1493,7 +1507,8 @@ DocumentDB 还支持使用许多内置函数进行常见操作，这些函数可
 
     [true]
 
-### <a name="string-functions"></a>字符串函数
+### 字符串函数
+<a id="string-functions" class="xliff"></a>
 下面的标量函数对字符串输入值执行操作，并返回字符串、数值或布尔值。 以下是内置字符串函数表：
 
 | 使用情况 | 说明 |
@@ -1563,7 +1578,8 @@ DocumentDB 还支持使用许多内置函数进行常见操作，这些函数可
       "city": "NY"
     }]
 
-### <a name="array-functions"></a>数组函数
+### 数组函数
+<a id="array-functions" class="xliff"></a>
 下面的标量函数对数组输入值执行操作，并返回数值、布尔值或数组值。 以下是内置数组函数表：
 
 | 使用情况 | 说明 |
@@ -1605,7 +1621,8 @@ DocumentDB 还支持使用许多内置函数进行常见操作，这些函数可
       "numberOfChildren": 1
     }]
 
-### <a name="spatial-functions"></a>空间函数
+### 空间函数
+<a id="spatial-functions" class="xliff"></a>
 DocumentDB 支持以下用于查询地理空间的开放地理空间信息联盟 (OGC) 内置函数。 
 
 <table>
@@ -1649,7 +1666,7 @@ DocumentDB 支持以下用于查询地理空间的开放地理空间信息联盟
       "id": "WakefieldFamily"
     }]
 
-有关 DocumentDB 中地理支持的更多详细信息，请参阅[在 DocumentDB 中使用地理数据](documentdb-geospatial.md)。 这会完成空间函数和 DocumentDB 的 SQL 语法。 现在，让我们来看看 LINQ 查询的工作方式，以及它如何与我们目前为止所看到的语法进行交互。
+有关 DocumentDB 中地理空间支持的更多详细信息，请参阅[在 DocumentDB 中使用地理空间数据](documentdb-geospatial.md)。 这会完成空间函数和 DocumentDB 的 SQL 语法。 现在，让我们来看看 LINQ 查询的工作方式，以及它如何与我们目前为止所看到的语法进行交互。
 
 ## <a id="Linq"></a>LINQ 到 DocumentDB API SQL
 LINQ 是一个 .NET 编程模型，它将计算表示为对对象流的查询。 DocumentDB 提供一个客户端库，通过促进 JSON 与 .NET 对象之间的转换，以及从 LINQ 查询的子集到 DocumentDB 查询的映射，来与 LINQ 进行交互。 
@@ -1658,7 +1675,8 @@ LINQ 是一个 .NET 编程模型，它将计算表示为对对象流的查询。
 
 ![支持使用 DocumentDB API 的 LINQ 查询的体系结构 - SQL语法、JSON 查询语言、数据库概念和 SQL 查询][1]
 
-### <a name="net-and-json-mapping"></a>.NET 和 JSON 映射
+### .NET 和 JSON 映射
+<a id="net-and-json-mapping" class="xliff"></a>
 .NET 对象与 JSON 文档之间的映射是自然的 - 每个数据成员字段映射到 JSON 对象，其中字段名称映射到对象的“key”部分，并且"value"部分以递归方式映射到该对象的值部分。 请考虑以下示例。 创建的 Family 对象会映射到 JSON 文档，如下所示。 反之亦然，JSON 文档会映射回 .NET 对象。
 
 **C# 类**
@@ -1740,7 +1758,8 @@ LINQ 是一个 .NET 编程模型，它将计算表示为对对象流的查询。
 
 
 
-### <a name="linq-to-sql-translation"></a>LINQ 到 SQL 转换
+### LINQ 到 SQL 转换
+<a id="linq-to-sql-translation" class="xliff"></a>
 DocumentDB 查询提供程序执行从 LINQ 查询到 DocumentDB SQL 查询的最有效映射。 在以下描述中，我们假设读者对 LINQ 已经有了一个基本的了解。
 
 首先，对于类型系统，我们支持所有 JSON 基元类型 — 数值类型、布尔、字符串和 null。 仅支持这些 JSON 类型。 支持以下的标量表达式。
@@ -1777,10 +1796,12 @@ DocumentDB 查询提供程序执行从 LINQ 查询到 DocumentDB SQL 查询的�
 - **用户定义的函数扩展函数**：支持从 stub 方法 UserDefinedFunctionProvider.Invoke 转换为相应的用户的定义函数。
 - **其他**：支持联合与条件运算符的转换。 可以根据上下文将 Contains 转换为字符串 CONTAINS、ARRAY_CONTAINS 或 SQL IN。
 
-### <a name="sql-query-operators"></a>SQL 查询运算符
+### SQL 查询运算符
+<a id="sql-query-operators" class="xliff"></a>
 以下示例演示了一些标准 LINQ 查询运算符是如何转换为 DocumentDB 查询的。
 
-#### <a name="select-operator"></a>Select 运算符
+#### Select 运算符
+<a id="select-operator" class="xliff"></a>
 语法为 `input.Select(x => f(x))`，其中 `f` 是一个标量表达式。
 
 **LINQ Lambda 表达式**
@@ -1823,7 +1844,8 @@ DocumentDB 查询提供程序执行从 LINQ 查询到 DocumentDB SQL 查询的�
 
 
 
-#### <a name="selectmany-operator"></a>SelectMany 运算符
+#### SelectMany 运算符
+<a id="selectmany-operator" class="xliff"></a>
 语法为 `input.SelectMany(x => f(x))`，其中 `f` 是返回集合类型的标量表达式。
 
 **LINQ Lambda 表达式**
@@ -1837,7 +1859,8 @@ DocumentDB 查询提供程序执行从 LINQ 查询到 DocumentDB SQL 查询的�
 
 
 
-#### <a name="where-operator"></a>Where 运算符
+#### Where 运算符
+<a id="where-operator" class="xliff"></a>
 语法为 `input.Where(x => f(x))`，其中 `f` 是返回布尔值的标量表达式。
 
 **LINQ Lambda 表达式**
@@ -1866,10 +1889,12 @@ DocumentDB 查询提供程序执行从 LINQ 查询到 DocumentDB SQL 查询的�
     AND f.children[0].grade < 3
 
 
-### <a name="composite-sql-queries"></a>复合 SQL 查询
+### 复合 SQL 查询
+<a id="composite-sql-queries" class="xliff"></a>
 可以将以上运算符组合在一起，形成功能更强大的查询。 由于 DocumentDB 支持嵌套的集合，因此可以连接或嵌套运算符组合。
 
-#### <a name="concatenation"></a>串联
+#### 串联
+<a id="concatenation" class="xliff"></a>
 语法为 `input(.|.SelectMany())(.Select()|.Where())*`。 串联的查询可以可选的 `SelectMany` 查询开始，后接多个 `Select` 或 `Where` 运算符。
 
 **LINQ Lambda 表达式**
@@ -1924,7 +1949,8 @@ DocumentDB 查询提供程序执行从 LINQ 查询到 DocumentDB SQL 查询的�
 
 
 
-#### <a name="nesting"></a>嵌套
+#### 嵌套
+<a id="nesting" class="xliff"></a>
 语法为 `input.SelectMany(x=>x.Q())`，其中 Q 是 `Select`、`SelectMany` 或 `Where` 运算符。
 
 在嵌套查询中，内部查询应用到外部集合的每个元素。 一项重要的功能是内部查询可以引用外部集合（如自联接）中元素的字段。
@@ -2239,7 +2265,7 @@ DocumentDB 使用存储过程和触发器，为对集合直接执行基于 JavaS
 ## <a id="References"></a>参考
 1. [DocumentDB 简介][introduction]
 2. [DocumentDB SQL 规范](http://go.microsoft.com/fwlink/p/?LinkID=510612)
-3. [DocumentDB .NET 示例](https://github.com/Azure/azure-documentdb-net)
+3. [DocumentDB .NET samples](https://github.com/Azure/azure-documentdb-net)
 4. [DocumentDB 一致性级别][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [http://json.org/](http://json.org/)
@@ -2254,5 +2280,4 @@ DocumentDB 使用存储过程和触发器，为对集合直接执行基于 JavaS
 [1]: ./media/documentdb-sql-query/sql-query1.png
 [introduction]: documentdb-introduction.md
 [consistency-levels]: documentdb-consistency-levels.md
-
 
