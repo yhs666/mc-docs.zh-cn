@@ -940,7 +940,7 @@ private async void InitNotificationsAsync()
 }
 ```
 
-如果要推送到 WNS，必须[获取 Windows 应用商店包 SID](#package-sid)。有关 Windows 应用的详细信息，包括如何注册模板，请参阅 [Add push notifications to your app]（将推送通知添加到应用）。
+如果要推送到 WNS，必须[获取 Windows 应用商店包 SID](#package-sid)。
 
 不支持从客户端请求标记。注册时将静默删除标记请求。如果想要使用标记注册设备，请创建自定义 API，使用通知中心 API 自动执行注册。调用[自定义 API](#customapi) 而不是 `RegisterNativeAsync()` 方法。
 
@@ -1082,7 +1082,7 @@ public async Task CallClientWithHandler()
 [Add authentication to your app]: ./app-service-mobile-windows-store-dotnet-get-started-users.md
 [向应用程序添加身份验证]: ./app-service-mobile-windows-store-dotnet-get-started-users.md
 [Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
-[Add push notifications to your app]: ./app-service-mobile-windows-store-dotnet-get-started-push.md
+
 [注册应用以使用 Microsoft 帐户登录]: ./app-service-mobile-how-to-configure-microsoft-authentication.md
 [How to configure App Service for Active Directory login]: ./app-service-mobile-how-to-configure-active-directory-authentication.md
 

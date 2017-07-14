@@ -57,13 +57,11 @@
 ### iOS
 #### [启用脱机同步](app-service-mobile-ios-get-started-offline-data.md)
 #### [添加身份验证](app-service-mobile-ios-get-started-users.md)
-#### [添加推送通知](app-service-mobile-ios-get-started-push.md)
 #### [使用客户端 SDK](app-service-mobile-ios-how-to-use-client-library.md)
 
 ### Windows
 #### [启用脱机同步](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)
 #### [添加身份验证](app-service-mobile-windows-store-dotnet-get-started-users.md)
-#### [添加推送通知](app-service-mobile-windows-store-dotnet-get-started-push.md)
 #### [使用客户端 SDK](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.Android 

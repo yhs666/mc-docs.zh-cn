@@ -27,7 +27,7 @@ ms.date: 01/19/2017
 
 > [!NOTE]
 > 本教程假设您已根据[通知中心入门 (iOS)](./notification-hubs-ios-apple-push-notification-apns-get-started.md) 中所述创建并配置了通知中心。此外，只有在学习本教程后，才可以学习[安全推送 (iOS)](./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) 教程。
-> 如果你要使用 Mobile Apps 作为后端服务，请参阅 [Mobile Apps Get Started with Push](../app-service-mobile/app-service-mobile-ios-get-started-push.md)（Mobile Apps 中的推送通知入门）。
+
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
