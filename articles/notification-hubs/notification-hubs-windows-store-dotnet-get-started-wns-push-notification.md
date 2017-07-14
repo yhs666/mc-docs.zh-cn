@@ -179,7 +179,6 @@ ms.date: 11/22/2016
 
 * **Node.js**：[如何通过 Node.js 使用通知中心](./notification-hubs-nodejs-push-notification-tutorial.md)。
 
-* **Azure Mobile Apps**：有关如何从通知中心集成的 Azure 移动服务发送通知的示例，请参阅[为 Mobile Apps 添加推送通知](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md)。
 
 * **Java/PHP**：有关如何使用 REST API 发送通知的示例，请参阅“如何通过 Java/PHP 使用通知中心”([Java](./notification-hubs-java-push-notification-tutorial.md) | [PHP](./notification-hubs-php-push-notification-tutorial.md))。
 
