@@ -16,7 +16,7 @@
 ### [将远程桌面与 Linux VM 一起使用](remote-desktop.md)
 ### [管理 VM 扩展](manage-extensions.md)
 ### [使用 Visual Studio 管理 VM](manage-visual-studio.md)
-### [使用诊断 VM 扩展监视 VM](diagnostic-extension.md)
+### [使用诊断 VM 扩展监视 VM](../diagnostic-extension.md)
 ### [注入自定义数据](inject-custom-data.md)
 ### [重置 Linux 密码或密钥、修复 SSH 并检查磁盘](reset-access.md)
 
@@ -62,5 +62,5 @@
 ## [存储 REST](https://docs.microsoft.com/rest/api/storageservices)
 
 # 资源
-## [定价](https://www.azure.cn/pricing/details/virtual-machines/#Linux)
+## [价格](https://www.azure.cn/pricing/details/virtual-machines/#Linux)
 ## [视频](https://www.azure.cn/video-center/)

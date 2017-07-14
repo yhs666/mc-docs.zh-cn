@@ -13,19 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 05/08/2017
-ms.date: 06/21/2017
+origin.date: 05/22/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2394d17cd2eba82e06decda4509f8da2ee65f265
-ms.openlocfilehash: f757f8b294315c880c8677b35149b0d7508d94d9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/09/2017
-
-
+ms.custom: mvc
+ms.openlocfilehash: 5037009207673e4d008508a40f29f5729f5973c0
+ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/06/2017
 ---
-
-# <a name="how-to-use-availability-sets"></a>如何使用可用性集
+# 如何使用可用性集
+<a id="how-to-use-availability-sets" class="xliff"></a>
 
 本教程介绍如何使用称作“可用性集”的功能提高 Azure 上虚拟机解决方案的可用性和可靠性。 可用性集可确保在 Azure 上部署的 VM 能够跨多个隔离的硬件群集分布。 这样，就可以确保当 Azure 中发生硬件或软件故障时，只有一部分 VM 会受到影响，整体解决方案仍可供其客户使用和操作。
 
@@ -38,9 +37,10 @@ ms.lasthandoff: 06/09/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-本教程需要 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+本教程需要 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 
 
-## <a name="availability-set-overview"></a>可用性集概述
+## 可用性集概述
+<a id="availability-set-overview" class="xliff"></a>
 
 可用性集是一种逻辑分组功能，在 Azure 中使用它可以确保将 VM 资源部署在 Azure 数据中心后，这些资源相互隔离。 Azure 确保可用性集中部署的 VM 能够跨多个物理服务器、计算机架、存储单元和网络交换机运行。 这样就可以确保当出现硬件或 Azure 软件故障时，只有一部分 VM 会受到影响，整体应用程序仍会保持运行，供客户使用。 如果想要构建可靠的云解决方案，可用性集是要利用的一项关键功能。
 
@@ -48,17 +48,18 @@ ms.lasthandoff: 06/09/2017
 
 需要在 Azure 中部署可靠的基于 VM 的解决方案时，始终应该使用可用性集。
 
-## <a name="create-an-availability-set"></a>创建可用性集
+## 创建可用性集
+<a id="create-an-availability-set" class="xliff"></a>
 
 可使用 [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set#create) 创建可用性集。 在本示例中，将 myResourceGroupAvailability 资源组中名为 myAvailabilitySet 的可用性集的更新域数和容错域数均设置为 2。
 
 创建资源组。
 
-```azurecli
+```azurecli 
 az group create --name myResourceGroupAvailability --location chinaeast
 ```
 
-```azurecli
+```azurecli 
 az vm availability-set create \
     --resource-group myResourceGroupAvailability \
     --name myAvailabilitySet \
@@ -68,20 +69,21 @@ az vm availability-set create \
 
 使用可用性集可跨“容错域”和“更新域”隔离资源。 **容错域**代表服务器、网络和存储资源的隔离集合。 前面的示例指出我们想要在部署 VM 时，将可用性集至少分布在两个容错域之间。 此外，还指出要将可用性集分布在两个**更新域**之间。  两个更新域确保当 Azure 执行软件更新时，VM 资源可以隔离，防止 VM 下面运行的所有软件同时更新。
 
-## <a name="create-vms-inside-an-availability-set"></a>在可用性集内创建 VM
+## 在可用性集内创建 VM
+<a id="create-vms-inside-an-availability-set" class="xliff"></a>
 
 必须在可用性集中创建 VM，确保它们正确地分布在硬件中。 创建后，无法将现有 VM 添加到可用性集中。 
 
 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 创建 VM 时，利用 `--availability-set` 参数指定可用性集，以指定该可用性集的名称。
 
-```azurecli
+```azurecli 
 for i in `seq 1 2`; do
    az vm create \
      --resource-group myResourceGroupAvailability \
      --name myVM$i \
      --availability-set myAvailabilitySet \
      --size Standard_DS1_v2  \
-     --image Canonical:UbuntuServer:14.04.3-LTS:latest \
+     --image Canonical:UbuntuServer:14.04.4-LTS:latest \
      --admin-username azureuser \
      --generate-ssh-keys \
      --no-wait
@@ -92,18 +94,20 @@ done
 
 添加 VM 时可能会遇到的一个问题是特定 VM 的大小不再适用于可用性集。 如果添加 VM 时容量不足，同时又要遵守可用性集强制实施的隔离规则，则可能会发生此问题。 可以使用 `--availability-set list-sizes` 参数来确定哪些 VM 大小适用于现有的可用性集。
 
-## <a name="check-for-available-vm-sizes"></a>检查可用的 VM 大小 
+## 检查可用的 VM 大小
+<a id="check-for-available-vm-sizes" class="xliff"></a> 
 
 稍后可向可用性集添加更多 VM，但需了解在硬件上可用的 VM 大小。 使用 [az vm availability-set list-sizes](https://docs.microsoft.com/cli/azure/vm/availability-set#list-sizes) 列出可用性集的硬件群集上所有可用的大小。
 
-```azurecli
+```azurecli 
 az vm availability-set list-sizes \
      --resource-group myResourceGroupAvailability \
      --name myAvailabilitySet \
      --output table  
 ```
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 在本教程中，你已学习了如何执行以下操作：
 

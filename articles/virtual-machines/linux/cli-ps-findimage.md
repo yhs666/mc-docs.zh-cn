@@ -9,7 +9,7 @@ editor:
 tags: azure-resource-manager
 ms.assetid: 7a858e38-4f17-4e8e-a28a-c7f801101721
 ms.service: virtual-machines-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -17,19 +17,20 @@ origin.date: 02/15/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 5921ae7c25bbc90b4d89e2d8f950fc77aa24f91f
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 42301c38628a195ba17b158107224062a3c97a9d
+ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/06/2017
 ---
-# <a name="how-to-find-linux-vm-images-with-the-azure-cli"></a>如何使用 Azure CLI 查找 Linux VM 映像
+# 如何使用 Azure CLI 查找 Linux VM 映像
+<a id="how-to-find-linux-vm-images-with-the-azure-cli" class="xliff"></a>
 本主题介绍如何查找每个部署目标位置的发布者、产品、SKU 和版本。 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-## <a name="use-azure-cli-20"></a>使用 Azure CLI 2.0
+## 使用 Azure CLI 2.0
+<a id="use-azure-cli-20" class="xliff"></a>
 
 [安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) 后，可使用 `az vm image list` 命令查看常用 VM 映像的缓存列表。 例如，下面的命令`az vm image list -o table` 示例显示：
 
@@ -37,25 +38,26 @@ ms.lasthandoff: 04/14/2017
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
-WindowsServer  MicrosoftWindowsServer  2016-Datacenter     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest     Win2016Datacenter    latest
+WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
 WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
 WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
-WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
-CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
-CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
-openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42.2:latest                                  openSUSE-Leap        latest
-SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
-UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
+UbuntuServer   Canonical               14.04.4-LTS         Canonical:UbuntuServer:14.04.4-LTS:latest                       UbuntuLTS            latest
+CentOS         OpenLogic               7.2                 OpenLogic:CentOS:7.2:latest                                     CentOS               latest
+openSUSE       SUSE                    13.2                SUSE:openSUSE:13.2:latest                                       openSUSE             latest
+SLES           SUSE                    12-SP1              SUSE:SLES:12-SP1:latest                                         SLES                 latest
 Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-### <a name="finding-all-current-images"></a>查找所有当前映像
+### 查找所有当前映像
+<a id="finding-all-current-images" class="xliff"></a>
 
 若要获取包含所有映像的最新列表，请使用 `az vm image list` 命令和 `--all` 选项。 与 Azure CLI 1.0 命令不同，`az vm image list --all` 命令在默认情况下返回 **chinanorth** 中的所有映像（除非指定特定 `--location` 参数），因此 `--all` 命令需要一些时间才能完成。 若要以交互方式进行调查，请使用 `az vm image list --all > allImages.json`，这样会返回当前在 Azure 上可用的所有映像的列表，并将其存储为一个文件，供本地使用。 
 
 可以在多个选项中指定一个，将搜索限制于特定的位置、产品/服务、发布者或 SKU，前提是你在心目中已经有一个或多个此类范围。 如果未指定位置，则会返回 **chinanorth** 的值。
 
-### <a name="find-specific-images"></a>查找特定映像
+### 查找特定映像
+<a id="find-specific-images" class="xliff"></a>
 
 将 `az vm image list` 与筛选器一起使用可查找特定信息。 例如，下面显示可用于 **Debian** 的**产品/服务**（请记住，不使用 `--all` 开关时，只搜索公共映像的本地缓存）：
 
@@ -77,7 +79,7 @@ Debian  credativ    8     credativ:Debian:8:8.0.201701180  8.0.201701180
 
 如果知道部署位置，则可以将常规映像搜索结果与 `az vm image list-skus`、`az vm image list-offers` 和 `az vm image list-publishers` 命令一起使用，以查找所需的精确内容以及可以进行部署的位置。 例如，如果从前面的示例知道 `credativ` 具有 Debian 产品/服务，则可以使用 `--location` 和其他选项查找所需的精确内容。 以下示例在 **chinanorth**中查找一个 Debian 8 映像：
 
-```azurecli
+```azurecli 
 az vm image show -l chinanorth -f debian -p credativ --sku 8 --version 8.0.201701180
 ```
 
@@ -97,7 +99,8 @@ az vm image show -l chinanorth -f debian -p credativ --sku 8 --version 8.0.20170
 }
 ```
 
-## <a name="use-azure-cli-10"></a>使用 Azure CLI 1.0 
+## 使用 Azure CLI 1.0
+<a id="use-azure-cli-10" class="xliff"></a> 
 
 > [!NOTE]
 > 本文介绍如何使用支持 Azure Resource Manager 部署模型的 Azure CLI 1.0 或 Azure PowerShell 安装来导航和选择虚拟机映像。 作为先决条件，更改为 Resource Manager 模式。 使用 Azure CLI 时，键入 `azure config mode arm` 即可进入该模式。 
@@ -177,8 +180,8 @@ data:    canonical  ubuntuserver  14.04.0-LTS        chinanorth
 data:    canonical  ubuntuserver  14.04.1-LTS        chinanorth
 data:    canonical  ubuntuserver  14.04.2-LTS        chinanorth
 data:    canonical  ubuntuserver  14.04.3-LTS        chinanorth
-data:    canonical  ubuntuserver  14.04.3-DAILY-LTS  chinanorth
-data:    canonical  ubuntuserver  14.04.3-LTS        chinanorth
+data:    canonical  ubuntuserver  14.04.4-DAILY-LTS  chinanorth
+data:    canonical  ubuntuserver  14.04.4-LTS        chinanorth
 data:    canonical  ubuntuserver  14.04.5-DAILY-LTS  chinanorth
 data:    canonical  ubuntuserver  14.04.5-LTS        chinanorth
 data:    canonical  ubuntuserver  14.10              chinanorth
@@ -216,5 +219,6 @@ data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201608150  chinanort
 info:    vm image list command OK
 ```
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 现在，你可以确切地选择想要使用的映像。 若要使用刚刚找到的 URN 信息快速创建虚拟机，或要使用包含该 URN 信息的模板，请参阅[使用 Azure CLI 创建 Linux VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。

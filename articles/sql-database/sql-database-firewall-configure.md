@@ -26,7 +26,7 @@ ms.lasthandoff: 06/21/2017
 # Azure SQL 数据库服务器级和数据库级防火墙规则
 <a id="azure-sql-database-server-level-and-database-level-firewall-rules" class="xliff"></a> 
 
-Azure SQL 数据库为 Azure 和其他基于 Internet 的应用程序提供关系数据库服务。 为了保护你的数据，在你指定哪些计算机具有访问权限之前，防火墙将禁止所有对数据库服务器的访问。 防火墙基于每个请求的起始 IP 地址授予数据库访问权限。
+Azure SQL 数据库为 Azure 和其他基于 Internet 的应用程序提供关系型数据库服务。 为了保护你的数据，在你指定哪些计算机具有访问权限之前，防火墙将禁止所有对数据库服务器的访问。 防火墙基于每个请求的起始 IP 地址授予数据库访问权限。
 
 ## 概述
 <a id="overview" class="xliff"></a>

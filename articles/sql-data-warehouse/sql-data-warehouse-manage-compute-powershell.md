@@ -3,8 +3,8 @@ title: "管理 Azure SQL 数据仓库中的计算能力 (PowerShell) | Azure"
 description: "用于管理计算能力的 PowerShell 任务。 通过调整 DWU 缩放计算资源。 或者，暂停和恢复计算资源来节省成本。"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 8354a3c1-4e04-4809-933f-db414a8c74dc
 ms.service: sql-data-warehouse
@@ -14,17 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 origin.date: 10/31/2016
-ms.date: 05/08/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 87e4ef5db85511ff550ff4082b0e33c436626ed1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: 80d57e741846e02fd0981da12b80a271934cf947
+ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/05/2017
 ---
-
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-powershell"></a>管理 Azure SQL 数据仓库中的计算能力 (PowerShell)
+# 管理 Azure SQL 数据仓库中的计算能力 (PowerShell)
+<a id="manage-compute-power-in-azure-sql-data-warehouse-powershell" class="xliff"></a>
 
 > [!div class="op_single_selector"]
 > * [概述](sql-data-warehouse-manage-compute-overview.md)
@@ -35,15 +34,18 @@ ms.lasthandoff: 04/28/2017
 >
 >
 
-## <a name="before-you-begin"></a>开始之前
+## 开始之前
+<a id="before-you-begin" class="xliff"></a>
 
-### <a name="install-the-latest-version-of-azure-powershell"></a>安装最新版本的 Azure PowerShell
+### 安装最新版本的 Azure PowerShell
+<a id="install-the-latest-version-of-azure-powershell" class="xliff"></a>
 > [!NOTE]
 > 若要对 SQL 数据仓库使用 Azure PowerShell，需要安装 Azure PowerShell 1.0.3 或更高版本。  若要验证当前版本，请运行命令 **Get-Module -ListAvailable -Name Azure**。 可以从 [Microsoft Web 平台安装程序][Microsoft Web Platform Installer]安装最新的版本。  有关详细信息，请参阅 [如何安装和配置 Azure PowerShell][How to install and configure Azure PowerShell]。
 >
 > 
 
-### <a name="get-started-with-azure-powershell-cmdlets"></a>Azure PowerShell cmdlet 入门
+### Azure PowerShell cmdlet 入门
+<a id="get-started-with-azure-powershell-cmdlets" class="xliff"></a>
 
 开始操作：
 
@@ -79,14 +81,14 @@ Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -Requested
 > 
 
 ```Powershell
-Suspend-AzureRmSqlDatabase -ResourceGroupName "ResourceGroup1" `
--ServerName "Server01" -DatabaseName "Database02"
+Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+–ServerName "Server01" –DatabaseName "Database02"
 ```
 一种变异，下一个示例将数据库检索到 $database 对象中。 然后，它通过管道将该对象传递给 [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]。 结果存储在对象 resultDatabase 中。 最后一个命令显示结果。
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase -ResourceGroupName "ResourceGroup1" `
--ServerName "Server01" -DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+–ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
@@ -98,20 +100,20 @@ $resultDatabase
 若要启动数据库，请使用 [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase] cmdlet。 以下示例将启动 Server01 服务器上托管的 Database02 数据库。 该服务器位于名为 ResourceGroup1 的 Azure 资源组中。
 
 ```Powershell
-Resume-AzureRmSqlDatabase -ResourceGroupName "ResourceGroup1" `
--ServerName "Server01" -DatabaseName "Database02"
+Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+–ServerName "Server01" -DatabaseName "Database02"
 ```
 
 一种变异，下一个示例将数据库检索到 $database 对象中。 然后，它通过管道将对象传递给 [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase] ，并将结果存储在 $resultDatabase 中。 最后一个命令显示结果。
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase -ResourceGroupName "ResourceGroup1" `
--ServerName "Server01" -DatabaseName "Database02"
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+–ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzureRmSqlDatabase
 $resultDatabase
 ```
 
-## <a name="check-database-state-bk"></a><a name="check-database-state"></a>检查数据库状态
+## <a name="check-database-state-bk"></a><a name="check-database-state"></a>查看数据库状态
 
 如以上示例所示，用户可以使用 [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase] cmdlet 获取数据库的信息，从而不仅可以用来检查状态，而且还可以用作参数。 
 
@@ -123,7 +125,7 @@ Get-AzureRmSqlDatabase [-ResourceGroupName] <String> [-ServerName] <String> [[-D
 
 这将导致以下类似的结果 
 
-```powershell    
+```powershell   
 ResourceGroupName             : nytrg
 ServerName                    : nytsvr
 DatabaseName                  : nytdb
@@ -159,9 +161,9 @@ EarliestRestoreDate           : 1/1/0001 12:00:00 AM
 [Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
-[Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
-[Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
-[Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
+[Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt619347.aspx
+[Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt619337.aspx
+[Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt619433.aspx
 [Get-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/servicemanagement/azure.sqldatabase/v1.6.1/get-azuresqldatabase
 
 <!--Other Web references-->

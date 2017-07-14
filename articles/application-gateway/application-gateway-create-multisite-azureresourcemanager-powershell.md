@@ -151,7 +151,7 @@ $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-RG -L
 ### 步骤 4
 <a id="step-4" class="xliff"></a>
 
-分配子网变量，以完成后面的创建应用程序网关的步骤。
+分配子网变量，以完成后面的创建应用程序网关的后续步骤。
 
 ```powershell
 $appgatewaysubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name appgatewaysubnet -VirtualNetwork $vnet

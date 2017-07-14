@@ -20,9 +20,8 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-<a id="migrating-to-premium-storage-using-azure-site-recovery" class="xliff"></a>
-
 # 使用 Azure Site Recovery 迁移到高级存储
+<a id="migrating-to-premium-storage-using-azure-site-recovery" class="xliff"></a>
 
 [Azure 高级存储](storage-premium-storage.md)为运行 I/O 密集型工作负荷的虚拟机 (VM) 提供高性能、低延迟的磁盘支持。 本指南的目的是帮助用户使用 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) 将其 VM 磁盘从标准存储帐户迁移到高级存储帐户。
 
@@ -32,9 +31,8 @@ Site Recovery 是一个 Azure 服务，可通过协调从本地物理服务器�
 
 ![][1]
 
-<a id="azure-site-recovery-components" class="xliff"></a>
-
 ## Azure Site Recovery 组件
+<a id="azure-site-recovery-components" class="xliff"></a>
 
 这些是与此迁移方案相关的 Site Recovery 组件。
 
@@ -53,9 +51,8 @@ Site Recovery 是一个 Azure 服务，可通过协调从本地物理服务器�
 
 有关其他方案的其他组件，请参阅[方案体系结构](../site-recovery/site-recovery-vmware-to-azure.md)。
 
-<a id="azure-essentials" class="xliff"></a>
-
 ## Azure 概要
+<a id="azure-essentials" class="xliff"></a>
 
 这些是此迁移方案的 Azure 要求。
 
@@ -64,16 +61,14 @@ Site Recovery 是一个 Azure 服务，可通过协调从本地物理服务器�
 * 故障转移时创建的 VM 要连接到的 Azure 虚拟网络 (VNet)。 该 Azure VNet 必须位于 Site Recovery 运行所在的同一区域
 * 要在其中存储复制日志的 Azure 标准存储帐户。 可以是要迁移的 VM 磁盘所在的同一存储帐户
 
-<a id="prerequisites" class="xliff"></a>
-
 ## 先决条件
+<a id="prerequisites" class="xliff"></a>
 
 * 在上一部分中了解相关的迁移方案组件
 * 了解 [Site Recovery 中的故障转移](../site-recovery/site-recovery-failover.md)，规划停机时间
 
-<a id="setup-and-migration-steps" class="xliff"></a>
-
 ## 设置和迁移步骤
+<a id="setup-and-migration-steps" class="xliff"></a>
 
 可以使用 Site Recovery 在区域之间或者在同一区域内部迁移 Azure IaaS VM。 以下说明是在[将 VMware VM 或物理服务器复制到 Azure](../site-recovery/site-recovery-vmware-to-azure.md) 一文的基础上，专门针对此迁移方案编写的。 除了本文中所述的说明以外，请单击相关的链接了解详细步骤。
 
@@ -157,9 +152,8 @@ Site Recovery 是一个 Azure 服务，可通过协调从本地物理服务器�
 
 9. **运行故障转移**。 完成测试故障转移后，请运行故障转移，将磁盘迁移到高级存储并复制 VM 实例。 请遵循[运行故障转移](../site-recovery/site-recovery-failover.md#run-a-failover)中的详细步骤。 请务必选择“关闭 VM 并同步最新数据”，指定 Azure Site Recovery 应尝试关闭受保护的 VM 并同步数据，以便对最新版的数据进行故障转移。 如果不选择此选项或尝试不成功，系统将从 VM 的最近恢复点开始故障转移。 Site Recovery 将创建类型与支持高级存储的 VM 相同或类似的 VM 实例。 可以参阅 [Windows 虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)或 [Linux 虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)了解各种 VM 实例的性能和价格。
 
-<a id="post-migration-steps" class="xliff"></a>
-
 ## 迁移后的步骤
+<a id="post-migration-steps" class="xliff"></a>
 
 1. **将复制的 VM 配置到可用性集（如果适用）**。 Site Recovery 不支持连同可用性集一起迁移 VM。 根据复制的 VM 的部署，执行以下操作之一：
   * 对于使用经典部署模型创建的 VM：在 Azure 门户中将 VM 添加到可用性集。 有关详细步骤，请参阅[将现有虚拟机添加到可用性集](../virtual-machines/windows/classic/configure-availability.md)。
@@ -169,16 +163,14 @@ Site Recovery 是一个 Azure 服务，可通过协调从本地物理服务器�
 
 3. **清理 Azure Site Recovery 基础结构**。 如果不再需要 Site Recovery，可以通过删除已复制的项、配置服务器和恢复策略，然后删除 Azure Site Recovery 保管库，来清理其基础结构。
 
-<a id="troubleshooting" class="xliff"></a>
-
 ## 故障排除
+<a id="troubleshooting" class="xliff"></a>
 
 * [监视虚拟机和物理服务器的保护及其故障排除](../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Azure Site Recovery 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
 
-<a id="next-steps" class="xliff"></a>
-
 ## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 有关虚拟机迁移的特定方案，请参阅以下资源：
 

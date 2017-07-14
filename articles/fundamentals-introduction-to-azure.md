@@ -131,7 +131,7 @@ Azure Web 应用允许创建这种 Web 应用程序，但有一些约束。 例�
 <a id="azure-sql-database" class="xliff"></a>
 ![Azure 存储 SQL 数据库](./media/fundamentals-introduction-to-azure/StorageAzureSQLDatabaseIntroNew.png)   
 
-*图：Azure SQL 数据库提供在云中托管的关系数据库服务。*
+*图：Azure SQL 数据库提供在云中托管的关系型数据库服务。*
 
 Azure 提供 SQL 数据库功能进行关系存储。 不要被名称所欺骗。 这不同于在 Windows Server 上运行的 SQL Server 提供的典型的 SQL 数据库。  
 

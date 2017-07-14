@@ -56,7 +56,7 @@ Azure Site Recovery Capacity Planner 工具可帮助用户确定通过 Azure Sit
     * 在“平均每日数据更改率(%)”中输入使用[Hyper-V 容量计划工具](site-recovery-capacity-planning-for-hyper-v-replication.md)搜集的信息。 
     *  仅适用于将 VMware VM 或物理服务器复制到 Azure 时提供的压缩。 我们的估计值是 30% 或以上，不过用户可以根据需要修改此设置。 将 Hyper-V VM 复制到 Azure 时，如果需要进行压缩，可以使用第三方工具，例如 Riverbed。
     * 在“保留输入”中，指定副本应保留的时间。 如果复制的是 VMware 或物理服务器，则请输入天数值。 如果复制的是 Hyper-V，则请以小时为单位指定时间。
-    * 在“完成成批虚拟机的初始复制所需的小时数”和“初始复制批处理的虚拟机数”中，可以输入用于计算初始复制要求的设置。  部署 Site Recovery 时，应上载整个初始数据集。
+    * 在“完成成批虚拟机的初始复制所需的小时数”和“初始复制批处理的虚拟机数”中，可以输入用于计算初始复制要求的设置。  部署 Site Recovery 时，应上传整个初始数据集。
 
     ![输入](./media/site-recovery-capacity-planner/inputs.png)
 
@@ -64,7 +64,7 @@ Azure Site Recovery Capacity Planner 工具可帮助用户确定通过 Azure Sit
 
    * **增量复制所需的带宽** (MB/sec)。 根据每日数据更改率的平均值计算增量复制的网络带宽。
    * **初始复制所需的带宽** (MB/sec)。 根据输入的初始复制值计算初始复制的网络带宽。
-   * **所需存储空间(GB)** 即所需的总 Azure 存储空间。
+   * **所需存储空间(GB)** 即所需的总 Azure 存储。
    * **标准存储帐户的总 IOPS** 是根据所有标准存储帐户的 8K IOPS 单元大小计算的。  对于快速规划器，该数字根据所有源 VM 磁盘数以及每日数据更改率来计算。 对于详细规划器，该数字根据映射到标准 Azure VM 的 VM 总数以及这些 VM 的数据更改率来计算。
    * **标准存储帐户数** 提供对 VM 进行保护所需的标准存储帐户的总数。 标准存储帐户最高可以在标准存储的所有 VM 中保持 20000 IOPS，每个磁盘支持的最大 IOPS 为 500。
    * **所需 blob 磁盘数** 给出了将要在 Azure 存储中创建的磁盘数。

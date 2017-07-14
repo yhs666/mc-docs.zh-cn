@@ -22,31 +22,27 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-<a id="about-azure-storage-accounts" class="xliff"></a>
-
 # 关于 Azure 存储帐户
+<a id="about-azure-storage-accounts" class="xliff"></a>
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 <br/>
 [!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
-<a id="overview" class="xliff"></a>
-
 ## 概述
+<a id="overview" class="xliff"></a>
 Azure 存储帐户提供唯一的命名空间来存储和访问你的 Azure 存储数据对象。 存储帐户中的所有对象会作为组共同计费。 默认情况下，只有你，即帐户所有者，才能使用你的帐户中的数据。
 
 [!INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
 
-<a id="storage-account-billing" class="xliff"></a>
-
 ## 存储帐户计费
+<a id="storage-account-billing" class="xliff"></a>
 [!INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
 > 当你创建 Azure 虚拟机时，如果在部署位置中还没有存储帐户，则会在该位置自动创建一个存储帐户。 因此，没有必要按照下面的步骤来创建虚拟机磁盘的存储帐户。 存储帐户名称将基于虚拟机名称。 请参阅 [Azure 虚拟机文档](../virtual-machines/index.md)了解更多详细信息。
 
-<a id="storage-account-endpoints" class="xliff"></a>
-
 ## 存储帐户终结点
+<a id="storage-account-endpoints" class="xliff"></a>
 存储在 Azure 存储中的每个对象都有唯一的 URL 地址。 存储帐户名称构成该地址的子域。 特定于每个服务的子域和域名的组合构成你的存储帐户的 *终结点* 。
 
 例如，如果你的存储帐户名为 *mystorageaccount*，则你的存储帐户的默认终结点为：
@@ -65,9 +61,8 @@ Azure 存储帐户提供唯一的命名空间来存储和访问你的 Azure 存�
 
 此外还可以配置用于存储帐户的自定义域名称。 有关经典存储帐户的详细信息，请参阅[为 Blob 存储终结点配置自定义域名](./storage-custom-domain-name.md)。 对于 Resource Manager 存储帐户，此功能尚未添加到 [Azure 门户](https://portal.azure.cn) ，但你可使用 PowerShell 配置它。 有关详细信息，请参阅 [Set-AzureRmStorageAccount](https://msdn.microsoft.com/zh-cn/library/mt607146.aspx) cmdlet。  
 
-<a id="create-a-storage-account" class="xliff"></a>
-
 ## 创建存储帐户
+<a id="create-a-storage-account" class="xliff"></a>
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
@@ -101,13 +96,11 @@ Azure 存储帐户提供唯一的命名空间来存储和访问你的 Azure 存�
 
 10. 单击“创建”以创建存储帐户。
 
+## 管理存储帐户
 <a id="manage-your-storage-account" class="xliff"></a>
 
-## 管理存储帐户
-
-<a id="change-your-account-configuration" class="xliff"></a>
-
 ### 更改帐户配置
+<a id="change-your-account-configuration" class="xliff"></a>
 
 创建存储帐户之后，可以修改其配置，例如更改帐户所用的复制选项，或更改 Blob 存储帐户的访问层。 在 [Azure 门户](https://portal.azure.cn)中，导航到存储帐户，查找并单击“设置”下的“配置”以查看和/或更改帐户配置。
 
@@ -120,9 +113,8 @@ Azure 存储帐户提供唯一的命名空间来存储和访问你的 Azure 存�
 
 对于 Blob 存储帐户，更改访问层除了会更改你的定价之外，可能还会产生更改费用。 有关更多详细信息，请参阅 [Blob 存储帐户 — 定价和计费](storage-blob-storage-tiers.md#pricing-and-billing)。
 
-<a id="manage-your-storage-access-keys" class="xliff"></a>
-
 ### 管理存储访问密钥
+<a id="manage-your-storage-access-keys" class="xliff"></a>
 当你创建存储帐户时，Azure 将生成两个 512 位存储访问密钥，用于在用户访问该存储帐户时对其进行身份验证。 Azure 提供两个存储访问密钥，因此可在不中断存储服务的情况下重新生成用于访问该服务的密钥。
 
 > [!NOTE]
@@ -130,15 +122,13 @@ Azure 存储帐户提供唯一的命名空间来存储和访问你的 Azure 存�
 > 
 > 
 
-<a id="view-and-copy-storage-access-keys" class="xliff"></a>
-
 #### 查看和复制存储访问密钥
+<a id="view-and-copy-storage-access-keys" class="xliff"></a>
 
 在 [Azure 门户](https://portal.azure.cn)中，导航到你的存储帐户，单击“所有设置”，然后单击“配置”以查看和/或更改帐户配置。 “访问密钥”边栏选项卡还包含使用主密钥和辅助密钥预配置的连接字符串，可复制到应用程序中使用。
 
-<a id="regenerate-storage-access-keys" class="xliff"></a>
-
 #### 重新生成存储访问密钥
+<a id="regenerate-storage-access-keys" class="xliff"></a>
 建议定期更改存储帐户的访问密钥，以确保存储连接安全。 分配了两个访问密钥，因此重新生成其中一个访问密钥时，始终能够使用另一个访问密钥连接到存储帐户。
 
 > [!WARNING]
@@ -162,9 +152,8 @@ Azure 存储帐户提供唯一的命名空间来存储和访问你的 Azure 存�
 
 4. 以相同方式重新生成辅助访问密钥。
 
-<a id="delete-a-storage-account" class="xliff"></a>
-
 ## 删除存储帐户
+<a id="delete-a-storage-account" class="xliff"></a>
 
 若要删除不再使用的存储帐户，请在 [Azure 门户](https://portal.azure.cn)中导航到该存储帐户，然后单击“删除”。 删除存储帐户将删除整个帐户，包括该帐户中的所有数据。
 
@@ -187,9 +176,8 @@ Failed to delete storage account <vm-storage-account-name>. Unable to delete sto
 
 有关详细信息，请参阅 [Azure 虚拟机文档](../virtual-machines/index.md)。
 
-<a id="next-steps" class="xliff"></a>
-
 ## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
 * [Azure Blob 存储：不常访问和经常访问的层](storage-blob-storage-tiers.md)
 * [Azure 存储复制](storage-redundancy.md)

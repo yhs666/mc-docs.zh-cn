@@ -21,9 +21,8 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-<a id="web-application-firewall-waf" class="xliff"></a>
-
 # Web 应用程序防火墙 (WAF)
+<a id="web-application-firewall-waf" class="xliff"></a>
 
 Web 应用程序防火墙 (WAF) 是应用程序网关的功能，可以对 Web 应用程序进行集中保护，避免其受到常见的攻击和漏洞伤害。 
 
@@ -33,37 +32,32 @@ Web 应用程序防火墙基于 [OWASP 核心规则集](https://www.owasp.org/in
 
 应用程序网关可作为应用程序传送控制器运行，并提供 SSL 终止、基于 Cookie 的会话相关性、轮循负载分发、基于内容的路由，以及托管多个网站和安全增强功能的能力。 应用程序网关提供的安全增强功能包括 SSL 策略管理、端到端 SSL 支持。 通过直接集成到 ADC 产品的 WAF（Web 应用程序防火墙），应用程序的安全性现已得到增强。 这提供了易于配置的中央位置，可用于管理和保护 Web 应用程序，使其免受常见 Web 漏洞的威胁。
 
-<a id="benefits" class="xliff"></a>
-
 ## 优点
+<a id="benefits" class="xliff"></a>
 
 下面是应用程序网关和 Web 应用程序防火墙提供的核心优势：
 
-<a id="protection" class="xliff"></a>
-
 ### 保护
+<a id="protection" class="xliff"></a>
 
 * 无需修改后端代码即可保护 Web 应用程序免受 Web 漏洞和攻击的威胁。
 
 * 在应用程序网关背后同时保护多个 Web 应用程序。 应用程序网关支持在单个网关背后托管最多 20 个网站，并使用 WAF 防止所有这些网站受到 Web 攻击的威胁。
 
-<a id="monitoring" class="xliff"></a>
-
 ### 监视
+<a id="monitoring" class="xliff"></a>
 
 * 使用实时 WAF 日志监视 Web 应用程序受到的攻击。 此日志与 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) 集成，让你跟踪 WAF 警报和日志并轻松监视趋势。
 
 * WAF 即将与 Azure 安全中心集成。 使用 Azure 安全中心可在一个中心位置查看所有 Azure 资源的安全状态。
 
-<a id="customization" class="xliff"></a>
-
 ### 自定义
+<a id="customization" class="xliff"></a>
 
 * 可根据应用程序的要求自定义 WAF 规则和规则组，并消除误报。
 
-<a id="features" class="xliff"></a>
-
 ## 功能
+<a id="features" class="xliff"></a>
 
 Web 应用程序防火墙中默认已预先配置 CRS 3.0，你也可以选择使用版本 2.2.9。 与版本 2.2.9 相比，CRS 3.0 的误报数更少。 提供[根据需求自定义规则](application-gateway-customize-waf-rules-portal.md)的功能。 Web 应用程序防火墙防范的某些常见 Web 安全漏洞包括：
 
@@ -77,15 +71,13 @@ Web 应用程序防火墙中默认已预先配置 CRS 3.0，你也可以选择�
 
 有关规则及其保护措施的更详细列表，请参阅下面的[核心规则集](#core-rule-sets)。
 
-<a id="core-rule-sets" class="xliff"></a>
-
 ### 核心规则集
+<a id="core-rule-sets" class="xliff"></a>
 
 应用程序网关支持两个规则集：CRS 3.0 和 CRS 2.2.9。 这些核心规则集是防范 Web 应用程序中的恶意活动的规则集合。
 
-<a id="owasp30" class="xliff"></a>
-
 #### OWASP_3.0
+<a id="owasp30" class="xliff"></a>
 
 如下表中所示，提供的 3.0 核心规则集包含 13 个规则组。 每个规则组包含多个可以禁用的规则。
 
@@ -105,9 +97,8 @@ Web 应用程序防火墙中默认已预先配置 CRS 3.0，你也可以选择�
 |**[REQUEST-942-APPLICATION-ATTACK-SQLI](application-gateway-crs-rulegroups-rules.md#crs942)**|包含用于防范 SQL 注入攻击的规则。|
 |**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](application-gateway-crs-rulegroups-rules.md#crs943)**|包含用于防范会话固定攻击的规则。|
 
-<a id="owasp229" class="xliff"></a>
-
 #### OWASP_2.2.9
+<a id="owasp229" class="xliff"></a>
 
 如下表中所示，提供的 2.2.9 核心规则集包含 10 个规则组。 每个规则组包含多个可以禁用的规则。
 
@@ -124,9 +115,8 @@ Web 应用程序防火墙中默认已预先配置 CRS 3.0，你也可以选择�
 |**[crs_42_tight_security](application-gateway-crs-rulegroups-rules.md#crs42)**|包含用于防范路径遍历攻击的规则|
 |**[crs_45_trojans](application-gateway-crs-rulegroups-rules.md#crs45)**|包含用于防范后门特洛伊木马的规则。|
 
-<a id="waf-modes" class="xliff"></a>
-
 ### WAF 模式
+<a id="waf-modes" class="xliff"></a>
 
 应用程序网关 WAF 可配置为在以下两种模式中运行：
 
@@ -139,15 +129,13 @@ Web 应用程序防火墙中默认已预先配置 CRS 3.0，你也可以选择�
 
 ![诊断](./media/application-gateway-web-application-firewall-overview/diagnostics.png)
 
-<a id="azure-monitor" class="xliff"></a>
-
 #### Azure Monitor
+<a id="azure-monitor" class="xliff"></a>
 
 每个应用程序网关日志与 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) 集成。  这样，你便可以跟踪包括 WAF 警报和日志在内的诊断信息。  门户中“诊断”选项卡上的“应用程序网关”资源中提供了此功能，也可以通过 Azure Monitor 服务直接访问此功能。 若要详细了解如何为应用程序网关启用诊断日志，请访问[应用程序网关诊断](application-gateway-diagnostics.md)
 
-<a id="logging" class="xliff"></a>
-
 #### 日志记录
+<a id="logging" class="xliff"></a>
 
 应用程序网关 WAF 提供有关检测到的每个威胁的详细报告。 日志记录与 Azure 诊断日志集成，警报以 JSON 格式记录。
 
@@ -181,16 +169,14 @@ Web 应用程序防火墙中默认已预先配置 CRS 3.0，你也可以选择�
 
 ```
 
-<a id="application-gateway-waf-sku-pricing" class="xliff"></a>
-
 ## 应用程序网关 WAF SKU 定价
+<a id="application-gateway-waf-sku-pricing" class="xliff"></a>
 
 Web 应用程序防火墙在新的 WAF SKU 中提供。 此 SKU 仅在 Azure Resource Manager 预配模型中可用，在经典部署模型中不可用。 此外，WAF SKU 仅提供中型和大型应用程序网关实例大小。 应用程序网关的所有限制同样适用于 WAF SKU。 定价基于每小时网关实例费和数据处理费。 WAF SKU 的每小时网关定价不同于标准 SKU 费用，具体请参阅[应用程序网关定价详细信息](https://www.azure.cn/pricing/details/application-gateway/)。 数据处理费保持不变。 不会按规则或规则组收费。 可以使用同一个 Web 应用程序防火墙保护多个 Web 应用程序，支持多个应用程序不会产生额外的费用。 
 
 WAF 的计费方式从 2017 年 5 月 5 日开始生效，在此之前，WAF SKU 网关继续按标准费率计费。
 
-<a id="next-steps" class="xliff"></a>
-
 ## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 深入了解 WAF 的功能后，请参阅[如何在应用程序网关上配置 Web 应用程序防火墙](application-gateway-web-application-firewall-portal.md)。

@@ -368,7 +368,7 @@ ms.lasthandoff: 06/23/2017
   * Microsoft Azure 上 Windows 和 Linux 所需的 SAP 内核版本
 
 * SAP 说明 [2015553] 列出了在 Azure 中 SAP 支持的 SAP 软件部署的先决条件。
-* SAP 说明 [2178632] 包含为 Azure 中的 SAP 报告的所有监视指标的详细信息。
+* SAP 说明 [2178632] 包含为 Azure 中的 SAP 报告的所有监控指标的详细信息。
 * SAP 说明 [1409604] 包含 Azure 中的 Windows 所需的 SAP 主机代理版本。
 * SAP 说明 [2191498] 包含 Azure 中的 Linux 所需的 SAP 主机代理版本。
 * SAP 说明 [2243692] 包含 Azure 中的 Linux 上的 SAP 许可的相关信息。

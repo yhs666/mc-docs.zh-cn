@@ -23,9 +23,8 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
 ---
-<a id="create-an-azure-sql-data-warehouse" class="xliff"></a>
-
 # 创建 Azure SQL 数据仓库
+<a id="create-an-azure-sql-data-warehouse" class="xliff"></a>
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](sql-data-warehouse-get-started-provision.md)
@@ -36,9 +35,8 @@ ms.lasthandoff: 07/05/2017
 
 本教程使用 Azure 门户来创建包含 AdventureWorksDW 示例数据库的 SQL 数据仓库。
 
-<a id="prerequisites" class="xliff"></a>
-
 ## 先决条件
+<a id="prerequisites" class="xliff"></a>
 若要开始，您需要：
 
 * **Azure 帐户**：访问 [Azure 试用版][Azure Trial]，以创建帐户。
@@ -50,9 +48,8 @@ ms.lasthandoff: 07/05/2017
 >
 >
 
-<a id="create-a-sql-data-warehouse" class="xliff"></a>
-
 ## 创建 SQL 数据仓库
+<a id="create-a-sql-data-warehouse" class="xliff"></a>
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
@@ -88,9 +85,8 @@ ms.lasthandoff: 07/05/2017
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-<a id="next-steps" class="xliff"></a>
-
 ## 后续步骤
+<a id="next-steps" class="xliff"></a>
 创建 SQL 数据仓库后，便可以[连接](sql-data-warehouse-connect-overview.md)并开始查询。
 
 若要将数据加载到 SQL 数据仓库中，请参阅[加载概述](sql-data-warehouse-overview-load.md)。

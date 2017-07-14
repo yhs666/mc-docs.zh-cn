@@ -14,15 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2016
 ms.author: v-johch
-ms.openlocfilehash: efa0b410d9e53495e996bb4adfff7cbd1335e439
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 99cb0f20cb591a9f06667c61ffea57aa5bc9eaed
+ms.sourcegitcommit: b9eccd13f7aaab4e2f67b3a12d5ebb501750287d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/07/2017
 ---
-<a id="learn-about-sql-database-backups" class="xliff"></a>
-
 # 了解 SQL 数据库备份
+<a id="learn-about-sql-database-backups" class="xliff"></a>
 <!------------------
 This topic is annotated with TEMPLATE guidelines for FEATURE TOPICS.
 
@@ -83,7 +82,7 @@ Sentence #2 Explains why I should care about this.
 
 -------------------->
 
-SQL 数据库会自动创建数据库备份，并使用 Azure 读取访问异地冗余存储 (RA-GRS) 来提供异地冗余。 这些备份是自动创建的，不收取额外的费用。 不需要执行任何操作就能进行这样的备份。 数据库备份是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库备份可以保护数据免遭意外损坏或删除。 如果想要在自己的存储容器中保存备份，可以配置长期备份保留策略。
+SQL 数据库会自动创建数据库备份，并使用 Azure 读取访问异地冗余存储 (RA-GRS) 来提供异地冗余。 这些备份是自动创建的，不收取额外的费用。 不需要执行任何操作就能进行这样的备份。 数据库备份是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库备份可以保护数据免遭意外损坏或删除。 
 
 <!-- This image needs work, so not putting it in right now.
 
@@ -103,9 +102,8 @@ For consistency, being the heading with "What is ... "
 ```
 ----------------->
 
-<a id="what-is-a-sql-database-backup" class="xliff"></a>
-
 ## 什么是 SQL 数据库备份？
+<a id="what-is-a-sql-database-backup" class="xliff"></a>
 <!-- 
     Explains what a SQL Database backup is and answers an important question that people want to know.
 -->
@@ -142,21 +140,18 @@ SQL 数据库使用 SQL Server 技术创建[完整](https://msdn.microsoft.com/z
 <!----------------
     The next ## H2's discuss key characteristics of how the feature works. The title is in conversational language and asks the question that will be answered.
 ------------------->
-<a id="how-much-backup-storage-is-included-at-no-cost" class="xliff"></a>
-
 ## 免费附送的备份存储空间有多少？
+<a id="how-much-backup-storage-is-included-at-no-cost" class="xliff"></a>
 SQL 数据库提供的备份存储容量高达最大预配数据库存储空间的两倍，不收取任何额外费用。 例如，如果有一个标准数据库实例并且预配的数据库大小为 250 GB，则可以免费获得 500 GB 的备份存储空间。 如果数据库超过提供的备份存储空间，则可以选择与 Azure 支持联系来缩短保留期。 另一种做法是按照标准读取访问异地冗余存储 (RA-GRS) 费率付费购买额外的备份存储空间。 
 
-<a id="how-often-do-backups-happen" class="xliff"></a>
-
 ## 多久备份一次？
+<a id="how-often-do-backups-happen" class="xliff"></a>
 每周执行一次完整数据库备份，通常每隔数小时执行一次差异数据库备份，通常每隔 5-10 分钟执行一次事务日志备份。 会在数据库创建后立即计划第一次完整备份。 完整备份通常可在 30 分钟内完成，但如果数据库很大，花费的时间可能更长。 例如，对已还原的数据库或数据库副本执行初始备份可能需要更长时间。 在完成首次完整备份后，将在后台以静默方式自动计划和管理所有后续备份。 在平衡整体系统工作负荷时，SQL 数据库服务会确定所有数据库备份的确切时间。 
 
 备份存储异地复制根据 Azure 存储复制计划执行。
 
-<a id="how-long-do-you-keep-my-backups" class="xliff"></a>
-
 ## 备份的保留时间有多长？
+<a id="how-long-do-you-keep-my-backups" class="xliff"></a>
 
 每个 SQL 数据库备份都有一个保留期，该期限基于数据库的[服务层](./sql-database-service-tiers.md)。 各服务层中数据库的保留期如下：
 
@@ -180,12 +175,13 @@ Using a list so the information is easy to find when scanning.
 > [!IMPORTANT]
 > 如果删除了托管 SQL 数据库的 Azure SQL 服务器，则属于该服务器的所有数据库也将被删除且不可恢复。 无法还原已删除的服务器。
 
-<a id="how-to-extend-the-backup-retention-period" class="xliff"></a>
+<!------------------
+## How to extend the backup retention period?
+If your application requires that the backups are available for longer period of time you can extend the built-in retention period by configuring the Long-term backup retention policy for individual databases (LTR policy). This allows you to extend the built-it retention period from 35 days to up to 10 years.
 
-## 如何延长备份保留期？
-如果应用程序要求备份保留更长时间，可通过为每个数据库配置长期备份保留策略（LTR 策略）来延长内置保留期。 允许将内置保持期从 35 天延长为最多 10 年。
-
-将 LTR 策略添加到使用 Azure 门户或 API 的数据库后，每周的完整数据库备份会自动复制到自己的 Azure 备份服务保管库。 如果使用 TDE 加密数据库，备份会在静止时自动加密。  服务保管库会根据时间戳和 LTR 策略自动删除过期的备份。  因此，无需管理备份计划，也不用担心旧文件的清除工作。 只要保管库与 SQL 数据库位于同一订阅中，还原 API 就支持存储在保管库中的备份。 可以使用门户或 PowerShell 访问这些备份。
+Once you add the LTR policy to a database using Azure Portal or API, the weekly full database backups will be automatically copied to your own Azure Backup Service Vault. If your database is encrypted with TDE the backups are automatically encrypted at rest.  The Services Vault will automatically delete your expired backups based on their timestamp and the LTR policy.  So you don’t need to manage the backup schedule or worry about the cleanup of the old files. 
+The restore API supports backups stored in the vault as long as the vault is in the same subscription as your SQL database. You can use Portal or PowerShell to access these backups.
+----------------------->
 
 <!-------------------
 OPTIONAL section
@@ -232,8 +228,7 @@ You don't need to repeat links you have already given them.
 ```
 --------------------->
 
-<a id="next-steps" class="xliff"></a>
-
 ## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 数据库备份是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库备份可以保护数据免遭意外损坏或删除。 若要了解其他 Azure SQL 数据库业务连续性解决方案，请参阅[业务连续性概述](./sql-database-business-continuity.md)。

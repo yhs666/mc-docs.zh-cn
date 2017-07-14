@@ -3,8 +3,8 @@ title: "在 Azure SQL 数据仓库中使用 T-SQL 进行暂停、恢复和缩放
 description: "可通过调整 DWU 来提高性能的 Transact-SQL (T-SQL) 任务。 通过在非高峰期缩减性能来节省成本。"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: a970d939-2adf-4856-8a78-d4fe8ab2cceb
 ms.service: sql-data-warehouse
@@ -13,17 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 origin.date: 03/30/2017
-ms.date: 05/08/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: d005755a0c4834ffd1986a212be4c46029cfb857
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: db7d5e8465868092079a1202c18f0bd0c2145a66
+ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/05/2017
 ---
-
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-t-sql"></a>管理 Azure SQL 数据仓库中的计算能力 (T-SQL)
+# 管理 Azure SQL 数据仓库中的计算能力 (T-SQL)
+<a id="manage-compute-power-in-azure-sql-data-warehouse-t-sql" class="xliff"></a>
 
 > [!div class="op_single_selector"]
 > * [概述](sql-data-warehouse-manage-compute-overview.md)
@@ -44,10 +43,10 @@ ms.lasthandoff: 04/28/2017
 ```sql
 SELECT
     db.name [Database]
-,    ds.edition [Edition]
-,    ds.service_objective [Service Objective]
+,   ds.edition [Edition]
+,   ds.service_objective [Service Objective]
 FROM
-     sys.database_service_objectives ds
+    sys.database_service_objectives ds
 JOIN
     sys.databases db ON ds.database_id = db.database_id
 ```
@@ -103,7 +102,7 @@ AND
 
 <!--MSDN references-->
 
-[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
+[ALTER DATABASE]: https://msdn.microsoft.com/zh-cn/library/mt204042.aspx
 
 <!--Other Web references-->
 

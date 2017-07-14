@@ -17,20 +17,18 @@ ms.workload: data-management
 origin.date: 02/08/2017
 ms.date: 04/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 972693ed14c9c8e9419201a4c603a79bb360d096
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: be72ba9bca68b54668e1b896f0c933e61acbdb51
+ms.sourcegitcommit: b9eccd13f7aaab4e2f67b3a12d5ebb501750287d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/07/2017
 ---
-<a id="explore-azure-sql-database-tutorials" class="xliff"></a>
-
 # 浏览 Azure SQL 数据库教程
+<a id="explore-azure-sql-database-tutorials" class="xliff"></a>
 单击下表中的链接可以转到所列的每个功能区域的概述，以及每个区域的简单分步入门教程。 
 
-<a id="create-servers-databases-and-server-level-firewall-rules" class="xliff"></a>
-
 ## 创建服务器、数据库和服务器级防火墙规则
+<a id="create-servers-databases-and-server-level-firewall-rules" class="xliff"></a>
 以下教程介绍如何创建服务器、数据库和服务器级防火墙规则，以及如何连接和查询服务器和数据库。
 
 | 教程 | 说明 |
@@ -40,14 +38,19 @@ ms.lasthandoff: 06/30/2017
 | [使用 C# 和面向 .NET 的 SQL 数据库库创建 SQL 数据库](./sql-database-get-started-csharp.md)| 在本教程中，将使用 C# 创建 SQL 数据库服务器、防火墙规则和 SQL 数据库。 还会创建一个 Active Directory (AD) 应用程序和对 C# 应用进行身份验证时所需的服务主体。 |
 |  | |
 
-<a id="backups-long-term-retention-and-database-recovery" class="xliff"></a>
+<!-----
+## Backups and database recovery
+In the following tutorials, you learn about using [database backups](./sql-database-automated-backups.md), and [database recovery using backups](./sql-database-recovery-using-backups.md).
 
-## 备份和数据库恢复
-在以下教程中，将了解如何使用[数据库备份](./sql-database-automated-backups.md)和[使用备份恢复数据库](./sql-database-recovery-using-backups.md)。
-
-<a id="sharded-databases" class="xliff"></a>
+| Tutorial | Description |
+| --- | --- | 
+| [Back up and restore using the Azure portal](./sql-database-get-started-backup-recovery-portal.md) | In this tutorial, you learn how to use the Azure portal to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
+| [Back up and restore using PowerShell](./sql-database-get-started-backup-recovery-powershell.md) | In this tutorial, you learn how to use PowerShell to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
+|  | |
+----->
 
 ## 分片的数据库
+<a id="sharded-databases" class="xliff"></a>
 在以下教程中，将了解如何[使用分片映射管理器扩大数据库](./sql-database-elastic-scale-shard-map-management.md)。
 
 | 教程 | 说明 |
@@ -57,9 +60,8 @@ ms.lasthandoff: 06/30/2017
 |  | |
 
 
-<a id="elastic-queries" class="xliff"></a>
-
 ## 弹性查询
+<a id="elastic-queries" class="xliff"></a>
 
 以下教程介绍如何运行[弹性查询](./sql-database-elastic-query-overview.md)。 
 
@@ -71,9 +73,8 @@ ms.lasthandoff: 06/30/2017
 | [跨扩展云数据库进行报告](./sql-database-elastic-query-horizontal-partitioning.md) |此教程介绍如何在分片数据库中创建跨所有数据库的报表。 |
 |  | |
 
-<a id="database-authentication-and-authorization" class="xliff"></a>
-
 ## 数据库身份验证和授权
+<a id="database-authentication-and-authorization" class="xliff"></a>
 以下教程介绍如何[创建和管理登录名和用户](./sql-database-manage-logins.md)。
 
 | 教程 | 说明 |
@@ -82,9 +83,8 @@ ms.lasthandoff: 06/30/2017
 | [Azure AD 身份验证和授权](./sql-database-control-access-aad-authentication-get-started.md) | 此教程介绍如何使用 Azure Active Directory 身份验证创建登录名和用户 |
 |  | |
 
-<a id="secure-and-protect-data" class="xliff"></a>
-
 ## 保护数据
+<a id="secure-and-protect-data" class="xliff"></a>
 以下教程介绍如何[保护 Azure SQL 数据库数据](./sql-database-security-overview.md)。
 
 | 教程 | 说明 |
@@ -92,9 +92,8 @@ ms.lasthandoff: 06/30/2017
 | [使用 Always Encrypted 保护敏感数据](./sql-database-always-encrypted-azure-key-vault.md) |此教程介绍如何使用 Always Encrypted 向导保护 Azure SQL 数据库中的敏感数据。 |
 |  | |
 
-<a id="develop" class="xliff"></a>
-
 ## 开发
+<a id="develop" class="xliff"></a>
 以下教程介绍应用程序和数据库开发。
 
 | 教程 | 说明 |
@@ -109,9 +108,8 @@ ms.lasthandoff: 06/30/2017
 |  | |
 
 
-<a id="monitor-and-tune" class="xliff"></a>
-
 ## 监视和优化
+<a id="monitor-and-tune" class="xliff"></a>
 以下教程介绍如何进行监视和优化。
 | 教程 | 说明 |
 | --- | --- | 

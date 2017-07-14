@@ -20,9 +20,8 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/28/2017
 ---
-<a id="performance-recommendations" class="xliff"></a>
-
 # 性能建议
+<a id="performance-recommendations" class="xliff"></a>
 
 Azure SQL 数据库可以学习和适应你的应用程序并提供自定义的建议，使你能够将 SQL 数据库的性能最大化。 将通过分析 SQL 数据库使用情况历史记录持续对性能进行评估。 提供的建议基于数据库特有工作负荷模式并改进其性能。
 
@@ -30,9 +29,8 @@ Azure SQL 数据库可以学习和适应你的应用程序并提供自定义的�
 > 推荐使用建议的方式是在数据库上启用“自动优化”。 有关详细信息，请参阅[自动优化](sql-database-automatic-tuning.md)。
 >
 
-<a id="create-index-recommendations" class="xliff"></a>
-
 ## 创建索引建议
+<a id="create-index-recommendations" class="xliff"></a>
 Azure SQL 数据库持续监视执行的查询并找出可以改进性能的索引。 一旦对于缺少特定的索引建立了足够的置信度，便会创建一个新的**创建索引**建议。 Azure SQL 数据库通过评估索引随时间流逝会带来的性能提升来构建置信度。 根据评估得到的性能提升，可以将建议归类为“高”、“中”或“低”。 
 
 使用建议创建的索引始终标记为 auto_created 索引。 可以通过查看 sys.indexes 视图来查看哪些索引是 auto_created 的。 自动创建的索引不会阻止 ALTER/RENAME 命令。 如果尝试删除自动创建某个索引时所基于的列，则命令会通过，并且还会通过该命令删除自动创建的索引。 常规索引会阻止对具有索引的列执行的 ALTER/RENAME 命令。
@@ -41,18 +39,16 @@ Azure SQL 数据库持续监视执行的查询并找出可以改进性能的索�
 
 任何**创建索引**建议都有一个放弃策略，如果数据库或池 DTU 使用率在过去 20 分钟内高于 80% 或者存储使用率高于 90%，则该策略不允许应用建议。 在这种情况下，建议将被推迟。
 
-<a id="drop-index-recommendations" class="xliff"></a>
-
 ## 删除索引建议
+<a id="drop-index-recommendations" class="xliff"></a>
 除了检测缺少的索引外，Azure SQL 数据库还会持续分析现有索引的性能。 如果某个索引未使用，Azure SQL 数据库会建议删除该索引。 在两种情况下会建议删除索引：
 * 索引是另一个索引的副本（索引列以及包含的列、分区架构和筛选器相同）
 * 索引在很长一段时间内未使用（93 天）
 
 删除索引建议在实现后也要进行验证。 如果性能得以改进，则会提供影响报告。 如果检测到性能降级，则会恢复建议。
 
-<a id="parameterize-queries-recommendations" class="xliff"></a>
-
 ## 参数化查询建议
+<a id="parameterize-queries-recommendations" class="xliff"></a>
 
 **参数化查询** 建议。 这种状态提供了一个应用强制参数化的机会，其允许查询计划进行缓存并在将来可以被重复使用，从而改善性能和减少资源使用。 
 
@@ -64,9 +60,8 @@ Azure SQL 数据库持续监视执行的查询并找出可以改进性能的索�
 
 应用此建议后，它将在几分钟之内对数据库启用强制参数化，并将启动监视进程（大约持续 24 小时）。 经过这段时间后，即可看到验证报告，该报表显示应用此建议之前和之后的 24 小时内数据库的 CPU 使用率。 SQL 数据库顾问具有安全机制，在检测到性能衰退的情况下，可以自动还原已应用的建议。
 
-<a id="fix-schema-issues-recommendations" class="xliff"></a>
-
 ## 修复架构问题建议
+<a id="fix-schema-issues-recommendations" class="xliff"></a>
 
 当 SQL 数据库服务发现 Azure SQL 数据库上架构相关 SQL 错误的数量发生异常时，就会出现**修复架构问题**建议。 此建议通常在数据库在一个小时内遭遇到多个架构相关的错误（无效的列名称、无效的对象名称等）时出现。
 
@@ -83,17 +78,15 @@ Azure SQL 数据库持续监视执行的查询并找出可以改进性能的索�
 | 2812 |找不到存储过程“*”。 |
 | 8144 |为过程或函数 * 指定了过多的参数。 |
 
-<a id="next-steps" class="xliff"></a>
-
 ## 后续步骤
+<a id="next-steps" class="xliff"></a>
 监视建议并继续应用它们以优化性能。 数据库工作负荷是动态的，并且不断地更改。 SQL 数据库顾问将继续监视和提供可能提高数据库性能的建议。 
 
 * 有关如何使用 Azure 门户中的性能建议的步骤，请参阅 [Azure 门户中的性能建议](sql-database-advisor-portal.md)。
 * 若要了解和查看排名靠前的查询的性能影响，请参阅[查询性能见解](sql-database-query-performance.md)。
 
-<a id="additional-resources" class="xliff"></a>
-
 ## 其他资源
+<a id="additional-resources" class="xliff"></a>
 * [查询存储](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [基于角色的访问控制](../active-directory/role-based-access-control-configure.md)

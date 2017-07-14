@@ -22,9 +22,8 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/06/2017
 ---
-<a id="back-end-health-diagnostic-logs-and-metrics-for-application-gateway" class="xliff"></a>
-
 # 应用程序网关的后端运行状况、诊断日志和指标
+<a id="back-end-health-diagnostic-logs-and-metrics-for-application-gateway" class="xliff"></a>
 
 可以使用 Azure 应用程序网关通过以下方式监视资源：
 
@@ -32,9 +31,8 @@ ms.lasthandoff: 07/06/2017
 
 * [日志](#diagnostic-logs)：可以从某个资源通过日志来保存或使用访问情况等数据，以便进行监视。
 
-<a id="back-end-health" class="xliff"></a>
-
 ## 后端运行状况
+<a id="back-end-health" class="xliff"></a>
 
 应用程序网关提供通过门户、PowerShell 和命令行界面 (CLI) 监视后端池各成员运行状况的功能。
 
@@ -43,9 +41,8 @@ ms.lasthandoff: 07/06/2017
 > [!IMPORTANT]
 > 如果应用程序网关子网上存在网络安全组 (NSG)，则请在应用程序网关子网上打开端口范围 65503-65534，以便接收入站流量。 这些端口是后端运行状况 API 正常工作所必需的。
 
-<a id="view-back-end-health-through-the-portal" class="xliff"></a>
-
 ### 通过门户查看后端运行状况
+<a id="view-back-end-health-through-the-portal" class="xliff"></a>
 
 在门户中，后端运行状况是自动提供的。 在现有的应用程序网关中，选择“监视” > “后端运行状况”。 
 
@@ -56,9 +53,8 @@ ms.lasthandoff: 07/06/2017
 
 ![后端运行状况][10]
 
-<a id="view-back-end-health-through-powershell" class="xliff"></a>
-
 ### 通过 PowerShell 查看后端运行状况
+<a id="view-back-end-health-through-powershell" class="xliff"></a>
 
 以下 PowerShell 代码显示了如何通过 `Get-AzureRmApplicationGatewayBackendHealth` cmdlet 查看后端运行状况：
 
@@ -66,9 +62,8 @@ ms.lasthandoff: 07/06/2017
 Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
-<a id="view-back-end-health-through-azure-cli-20" class="xliff"></a>
-
 ### 通过 Azure CLI 2.0 查看后端运行状况
+<a id="view-back-end-health-through-azure-cli-20" class="xliff"></a>
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -76,9 +71,8 @@ Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGr
 az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
 ```
 
-<a id="results" class="xliff"></a>
-
 ### 结果
+<a id="results" class="xliff"></a>
 
 以下代码片段演示了一个响应示例：
 
@@ -107,9 +101,8 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 }
 ```
 
-<a id="diagnostic-logs" class="xliff"></a>
-
 ## 诊断日志
+<a id="diagnostic-logs" class="xliff"></a>
 
 可在 Azure 中使用不同类型的日志来对应用程序网关进行管理和故障排除。 可通过门户访问其中某些日志。 可从 Azure Blob 存储提取所有日志并在 Excel 和 Power BI 等各种工具中查看。 可从以下列表了解有关不同类型日志的详细信息：
 
@@ -125,9 +118,8 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 * 存储帐户：如果日志存储时间较长并且需要根据情况进行查看，最好使用存储帐户。
 * 事件中心：若要集成其他安全信息和事件管理 (SEIM) 工具以获取资源警报，最好使用事件中心。
 
-<a id="enable-logging-through-powershell" class="xliff"></a>
-
 ### 通过 PowerShell 启用日志记录
+<a id="enable-logging-through-powershell" class="xliff"></a>
 
 每个 Resource Manager 资源都会自动启用活动日志记录。 必须启用访问日志记录才能开始收集通过这些日志提供的数据。 若要启用日志记录，请执行以下步骤：
 
@@ -148,9 +140,8 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 > [!TIP] 
 >活动日志不需要单独的存储帐户。 使用存储来记录访问情况需支付服务费用。
 
-<a id="enable-logging-through-the-azure-portal" class="xliff"></a>
-
 ### 通过 Azure 门户启用日志记录
+<a id="enable-logging-through-the-azure-portal" class="xliff"></a>
 
 1. 在 Azure 门户中找到资源，然后单击“诊断日志”。
 
@@ -173,15 +164,13 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
    ![包含选择的“诊断设置”边栏选项卡][4]
 
-<a id="activity-log" class="xliff"></a>
-
 ### 活动日志
+<a id="activity-log" class="xliff"></a>
 
 默认情况下，Azure 生成活动日志。 日志在 Azure 事件日志存储中保留 90 天。 若要详细了解这些日志，请阅读[查看事件和活动日志](../monitoring-and-diagnostics/insights-debugging-with-events.md)一文。
 
-<a id="access-log" class="xliff"></a>
-
 ### 访问日志
+<a id="access-log" class="xliff"></a>
 
 只有按照上述步骤在每个应用程序网关实例上启用了访问日志，才会生成该日志。 数据存储在启用日志记录时指定的存储帐户中。 应用程序网关的每次访问均以 JSON 格式记录下来，如以下示例所示：
 
@@ -224,9 +213,8 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 }
 ```
 
-<a id="firewall-log" class="xliff"></a>
-
 ### 防火墙日志
+<a id="firewall-log" class="xliff"></a>
 
 只有按照上述步骤为每个应用程序网关启用了防火墙日志，才会生成该日志。 此日志还需要在应用程序网关上配置 Web 应用程序防火墙。 数据存储在启用日志记录时指定的存储帐户中。 将记录以下数据：
 
@@ -276,18 +264,16 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ```
 
-<a id="view-and-analyze-the-activity-log" class="xliff"></a>
-
 ### 查看和分析活动日志
+<a id="view-and-analyze-the-activity-log" class="xliff"></a>
 
 可使用以下任意方法查看和分析活动日志数据：
 
 * Azure 工具：通过 Azure PowerShell、Azure CLI、Azure REST API 或 Azure 门户检索活动日志中的信息。 [使用 Resource Manager 的活动操作](../azure-resource-manager/resource-group-audit.md)一文中详细介绍了每种方法的分步说明。
 * Power BI：如果尚无 [Power BI](https://powerbi.microsoft.com/pricing) 帐户，可免费试用。 使用[适用于 Power BI 的 Azure 活动日志内容包](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)，可借助预配置的仪表板（直接使用或进行自定义）分析数据。
 
-<a id="view-and-analyze-the-access-and-firewall-logs" class="xliff"></a>
-
 ### 查看并分析访问日志和防火墙日志
+<a id="view-and-analyze-the-access-and-firewall-logs" class="xliff"></a>
 
 可以连接到存储帐户并检索访问日志的 JSON 日志条目。 下载 JSON 文件后，可以将其转换为 CSV 并在 Excel、Power BI 或任何其他数据可视化工具中查看。
 
@@ -296,9 +282,8 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 > 
 > 
 
-<a id="next-steps" class="xliff"></a>
-
 ## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 * [Visualize your Azure Activity Log with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx)（使用 Power BI 直观显示 Azure 活动日志）博客文章。
 * [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)（在 Power BI 和其他组件中查看和分析 Azure 活动日志）博客文章。

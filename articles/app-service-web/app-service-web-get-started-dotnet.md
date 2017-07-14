@@ -22,17 +22,15 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-<a id="create-an-aspnet-web-app-in-azure" class="xliff"></a>
-
 # 在 Azure 中创建 ASP.NET Web 应用
+<a id="create-an-aspnet-web-app-in-azure" class="xliff"></a>
 
 [Azure Web 应用](/app-service-web/app-service-web-overview)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将第一个 ASP.NET Web 应用部署到 Azure 中。 完成后，便拥有了一个资源组，该资源组包含一个应用服务计划和一个具有已部署的 Web 应用程序的 Azure Web 应用。
 
 ![Azure 应用服务中的 ASP.NET Web 应用](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-<a id="prerequisites" class="xliff"></a>
-
 ## 先决条件
+<a id="prerequisites" class="xliff"></a>
 
 若要完成本教程，需执行以下操作：
 
@@ -46,9 +44,8 @@ ms.lasthandoff: 06/23/2017
 
 [!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
-<a id="create-an-aspnet-web-app" class="xliff"></a>
-
 ## 创建 ASP.NET Web 应用
+<a id="create-an-aspnet-web-app" class="xliff"></a>
 
 在 Visual Studio 中，通过依次选择“文件”>“新建”>“项目”创建项目。 
 
@@ -68,9 +65,8 @@ ms.lasthandoff: 06/23/2017
 
 ![在本地运行应用](./media/app-service-web-get-started-dotnet/local-web-app.png)
 
-<a id="publish-to-azure" class="xliff"></a>
-
 ## 发布到 Azure
+<a id="publish-to-azure" class="xliff"></a>
 
 在“解决方案资源管理器”中右键单击“myFirstAzureWebApp”项目，然后选择“发布”。
 
@@ -82,9 +78,8 @@ ms.lasthandoff: 06/23/2017
 
 此时将打开“创建应用服务”对话框，它可帮助你创建在 Azure 中运行 ASP.NET Web 应用所需的所有 Azure 资源。
 
-<a id="sign-in-to-azure" class="xliff"></a>
-
 ## 登录 Azure
+<a id="sign-in-to-azure" class="xliff"></a>
 
 在“创建应用服务”对话框中，选择“添加帐户”，然后登录到你的 Azure 订阅。 如果已经登录，请确保该帐户包含你的 Azure 订阅。 可以选择登录帐户来添加正确的帐户。
 
@@ -92,9 +87,8 @@ ms.lasthandoff: 06/23/2017
 
 登录后，可在此对话框中创建 Azure Web 应用所需的所有资源。
 
-<a id="create-a-resource-group" class="xliff"></a>
-
 ## 创建资源组
+<a id="create-a-resource-group" class="xliff"></a>
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
@@ -102,9 +96,8 @@ ms.lasthandoff: 06/23/2017
 
 将资源组命名为 **myResourceGroup**，然后选择“确定”。
 
-<a id="create-an-app-service-plan" class="xliff"></a>
-
 ## 创建应用服务计划
+<a id="create-an-app-service-plan" class="xliff"></a>
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
@@ -122,9 +115,8 @@ ms.lasthandoff: 06/23/2017
 
 选择“确定” 。
 
-<a id="create-and-publish-the-web-app" class="xliff"></a>
-
 ## 创建并发布 Web 应用
+<a id="create-and-publish-the-web-app" class="xliff"></a>
 
 在“Web 应用名称”中键入唯一的应用名称。 Web 应用的 URL 为 `http://<app_name>.chinacloudsites.cn`。 
 
@@ -142,9 +134,8 @@ URL 使用前面指定的 Web 应用名称，其格式为 `http://<app_name>.chi
 
 恭喜，你的 ASP.NET Web 应用已在 Azure 应用服务中实时运行！
 
-<a id="update-the-app-and-redeploy" class="xliff"></a>
-
 ## 更新应用并重新部署
+<a id="update-the-app-and-redeploy" class="xliff"></a>
 
 在“解决方案资源管理器”中打开“Views\Home\Index.cshtml”。
 
@@ -165,9 +156,8 @@ URL 使用前面指定的 Web 应用名称，其格式为 `http://<app_name>.chi
 
 ![已在 Azure 中更新的 ASP.NET Web 应用](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-<a id="manage-the-azure-web-app" class="xliff"></a>
-
 ## 管理 Azure Web 应用
+<a id="manage-the-azure-web-app" class="xliff"></a>
 
 转到 [Azure 门户](https://portal.azure.cn)管理 Web 应用。
 
@@ -183,9 +173,8 @@ URL 使用前面指定的 Web 应用名称，其格式为 `http://<app_name>.chi
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-<a id="next-steps" class="xliff"></a>
-
 ## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 > [!div class="nextstepaction"]
 > [将 ASP.NET 与 SQL 数据库配合使用](app-service-web-tutorial-dotnet-sqldatabase.md)

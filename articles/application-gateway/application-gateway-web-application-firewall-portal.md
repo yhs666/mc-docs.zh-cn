@@ -22,9 +22,8 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/06/2017
 ---
-<a id="create-an-application-gateway-with-web-application-firewall-by-using-the-portal" class="xliff"></a>
-
 # 使用门户创建具有 Web 应用程序防火墙的应用程序网关
+<a id="create-an-application-gateway-with-web-application-firewall-by-using-the-portal" class="xliff"></a>
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](application-gateway-web-application-firewall-portal.md)
@@ -34,9 +33,8 @@ ms.lasthandoff: 07/06/2017
 
 Azure 应用程序网关中的 Web 应用程序防火墙 (WAF) 可保护 Web 应用程序，使其免受常见 Web 攻击的威胁，例如 SQL 注入、跨站点脚本攻击和会话劫持。 Web 应用程序可以防止 OWASP 十大常见 Web 漏洞中的大部分漏洞。
 
-<a id="scenarios" class="xliff"></a>
-
 ## 方案
+<a id="scenarios" class="xliff"></a>
 
 本文介绍两个方案：
 
@@ -49,9 +47,8 @@ Azure 应用程序网关中的 Web 应用程序防火墙 (WAF) 可保护 Web 应
 > [!NOTE]
 > 针对应用程序网关进行的其他配置（包括自定义运行状况探测、后端池地址以及其他规则）是在对应用程序网关配置以后配置的，不是在初始部署期间配置的。
 
-<a id="before-you-begin" class="xliff"></a>
-
 ## 开始之前
+<a id="before-you-begin" class="xliff"></a>
 
 Azure 应用程序网关需要自己的子网。 在创建虚拟网络时，请确保保留足够的地址空间，以便设置多个子网。 将应用程序网关部署到子网后，只能向该子网添加其他应用程序网关。
 
@@ -83,9 +80,8 @@ Azure 应用程序网关需要自己的子网。 在创建虚拟网络时，请�
     > [!NOTE]
     > 若要查看 Web 应用程序防火墙日志，必须启用诊断功能并选择 ApplicationGatewayFirewallLog。 进行测试时，可以选择 1 作为实例计数。 必须知道的是，2 以下的实例计数不受 SLA 支持，因此不建议使用。 使用 Web 应用程序防火墙时，无法使用小型网关。
 
-<a id="create-an-application-gateway-with-web-application-firewall" class="xliff"></a>
-
 ## 创建具有 Web 应用程序防火墙的应用程序网关
+<a id="create-an-application-gateway-with-web-application-firewall" class="xliff"></a>
 
 此方案将：
 
@@ -156,9 +152,8 @@ Azure 应用程序网关需要自己的子网。 在创建虚拟网络时，请�
 > [!NOTE]
 > 为使用基本 Web 应用程序防火墙配置创建的应用程序网关配置 CRS 3.0 以进行保护。
 
-<a id="next-steps" class="xliff"></a>
-
 ## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 若要了解如何配置诊断日志记录，以及如何记录通过 Web 应用程序防火墙检测到或阻止的事件，请参阅[应用程序网关诊断](application-gateway-diagnostics.md)
 

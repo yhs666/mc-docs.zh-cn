@@ -1,0 +1,162 @@
+---
+title: "将通用化 VHD 上传到 Azure PowerShell 示例脚本 |Azure"
+description: "PowerShell 示例脚本，用于将通用化 VHD 上传到 Azure 并使用 Resource Manager 部署模型和托管磁盘创建新的 VM。"
+services: virtual-machines-windows
+documentationcenter: virtual-machines
+author: cynthn
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
+ms.assetid: 
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: sample
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+origin.date: 05/18/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
+ms.custom: mvc
+ms.openlocfilehash: 7852090d16df301be2b1f69b67d5e40b5e51e9c9
+ms.sourcegitcommit: 51a25dbbf5f32fe524860b1bb107108122b47bf0
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/03/2017
+---
+# 将 VHD 上传到 Azure 并创建新的 VM 的示例脚本
+<a id="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm" class="xliff"></a>
+
+此脚本从通用化 VM 获取本地 .vhd 文件，将其上传到 Azure，创建托管磁盘映像并用以创建新的 VM。
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## 示例脚本
+<a id="sample-script" class="xliff"></a>
+
+```powershell
+# Provide values for the variables
+$resourceGroup = 'myResourceGroup'
+$location = 'ChinaEast'
+$storageaccount = 'mystorageaccount'
+$storageType = 'Standard_LRS'
+$containername = 'mycontainer'
+$localPath = 'C:\Users\Public\Documents\Hyper-V\VHDs\generalized.vhd'
+$vmName = 'myVM'
+$imageName = 'myImage'
+$vhdName = 'myUploadedVhd.vhd'
+$diskSizeGB = '128'
+$subnetName = 'mySubnet'
+$vnetName = 'myVnet'
+$ipName = 'myPip'
+$nicName = 'myNic'
+$nsgName = 'myNsg'
+$ruleName = 'myRdpRule'
+$vmName = 'myVM'
+$computerName = 'myComputerName'
+$vmSize = 'Standard_DS1_v2'
+
+# Get the username and password to be used for the administrators account on the VM. 
+# This is used when connecting to the VM using RDP.
+
+$cred = Get-Credential
+
+# Upload the VHD
+New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzureRmStorageAccount -ResourceGroupName $resourceGroup -Name $storageAccount -Location $location `
+    -SkuName $storageType -Kind "Storage"
+$urlOfUploadedImageVhd = ('https://' + $storageaccount + '.blob.core.chinacloudapi.cn/' + $containername + '/' + $vhdName)
+Add-AzureRmVhd -ResourceGroupName $resourceGroup -Destination $urlOfUploadedImageVhd `
+    -LocalFilePath $localPath
+
+# Note: Uploading the VHD may take awhile!
+
+# Create a managed image from the uploaded VHD 
+$imageConfig = New-AzureRmImageConfig -Location $location
+$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized `
+    -BlobUri $urlOfUploadedImageVhd
+$image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $resourceGroup -Image $imageConfig
+
+# Create the networking resources
+$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup -Location $location `
+    -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $resourceGroup -Location $location `
+    -AllocationMethod Dynamic
+$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $resourceGroup -Location $location `
+    -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name $ruleName -Description 'Allow RDP' -Access Allow `
+    -Protocol Tcp -Direction Inbound -Priority 110 -SourceAddressPrefix Internet -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange 3389
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+    -Name $nsgName -SecurityRules $rdpRule
+$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Name $vnetName
+
+# Start building the VM configuration
+$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
+
+# Set the VM image as source image for the new VM
+$vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
+
+# Finish the VM configuration and add the NIC.
+$vm = Set-AzureRmVMOSDisk -VM $vm  -DiskSizeInGB $diskSizeGB -CreateOption FromImage -Caching ReadWrite
+$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName -Credential $cred `
+    -ProvisionVMAgent -EnableAutoUpdate
+$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
+
+# Create the VM
+New-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup -Location $location
+
+# Verify that the VM was created
+$vmList = Get-AzureRmVM -ResourceGroupName $resourceGroup
+$vmList.Name
+
+```
+
+<!-- 
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-iis/create-windows-vm-iis.ps1 "Create VM IIS")] -->
+
+## 清理部署
+<a id="clean-up-deployment" class="xliff"></a> 
+
+运行以下命令来删除资源组、VM 和所有相关资源。
+
+```powershell
+Remove-AzureRmResourceGroup -Name $resourceGroup
+```
+
+## 脚本说明
+<a id="script-explanation" class="xliff"></a>
+
+此脚本使用以下命令创建部署。 表中的每一项均链接到特定于命令的文档。
+
+| 命令                                                                                                             | 说明                                                                                                                                                                                |
+|---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)                           | 创建用于存储所有资源的资源组。                                                                                                                          |
+| [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount)                         | 创建存储帐户。                                                                                                                                                           |
+| [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd)                                               | 将虚拟硬盘从本地虚拟机上传到 Azure 云存储帐户中的 blob。                                                                       |
+| [New-AzureRmImageConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimageconfig)                               | 创建一个可配置的映像对象。                                                                                                                                                 |
+| [Set-AzureRmImageOsDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermimageosdisk)                               | 设置映像对象的操作系统磁盘属性。                                                                                                                        |
+| [New-AzureRmImage](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage)                                           | 创建新映像。                                                                                                                                                                 |
+| [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | 创建子网配置。 在虚拟网络创建过程中将使用此配置。                                                                                |
+| [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork)                         | 创建虚拟网络。                                                                                                                                                           |
+| [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress)                       | 创建公共 IP 地址。                                                                                                                                                         |
+| [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface)                     | 创建网络接口。                                                                                                                                                         |
+| [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)   | 创建网络安全组规则配置。 创建 NSG 时将使用此配置创建 NSG 规则。                                                       |
+| [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)             | 创建网络安全组。                                                                                                                                                    |
+| [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork)                         | 获取资源组中的虚拟网络。                                                                                                                                          |
+| [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig)                                     | 创建 VM 配置。 此配置包括 VM 名称、操作系统和管理凭据等信息。 在创建 VM 期间将使用此配置。 |
+| [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage)                           | 指定虚拟机的映像。                                                                                                                                            |
+| [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk)                                     | 设置虚拟机的操作系统磁盘属性。                                                                                                                      |
+| [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem)                   | 设置虚拟机的操作系统磁盘属性。                                                                                                                      |
+| [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface)                 | 将网络接口添加到虚拟机。                                                                                                                                       |
+| [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm)                                                 | 创建虚拟机。                                                                                                                                                            |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | 删除资源组及其中包含的所有资源。                                                                                                                         |
+
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+
+有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
+
+可以在 [Azure Windows VM 文档](../windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。

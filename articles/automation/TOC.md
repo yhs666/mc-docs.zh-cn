@@ -21,6 +21,7 @@
 ### [证书](automation-certificates.md)
 ### [连接](automation-connections.md)
 ### [凭据](automation-credentials.md)
+### [集成模块](automation-integration-modules.md)
 ### [计划](automation-schedules.md)
 ### [变量](automation-variables.md)
 ## [Runbook 库](automation-runbook-gallery.md)
@@ -32,7 +33,7 @@
 ## [REST](https://docs.microsoft.com/rest/api/automation)
 ## [REST（经典）](https://msdn.microsoft.com/library/azure/mt163781)
 # 资源
-## [定价](https://www.azure.cn/pricing/details/automation/)  
+## [价格](https://www.azure.cn/pricing/details/automation/)  
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureautomation)  
 ## [视频](https://www.azure.cn/video-center/)
 ## [服务更新](https://www.azure.cn/what-is-new/)

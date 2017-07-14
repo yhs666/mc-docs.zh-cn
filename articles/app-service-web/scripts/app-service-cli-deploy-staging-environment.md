@@ -16,26 +16,30 @@ ms.topic: sample
 origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 87ce182270d938de66c957a8617f891d506cc71b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.custom: mvc
+ms.openlocfilehash: dfa4b52a9267f50169947c3e53ad71bf77c99ea8
+ms.sourcegitcommit: 2c397ac599bdb39b257580a1b55a1ce67e19ae56
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/03/2017
 ---
-
-# <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>创建 Web 应用并将代码部署到过渡环境
+# 创建 Web 应用并将代码部署到过渡环境
+<a id="create-a-web-app-and-deploy-code-to-a-staging-environment" class="xliff"></a>
 
 此示例脚本使用名为“过渡”的附加部署槽在应用服务中创建 Web 应用，然后将示例应用部署到“过渡”槽。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## <a name="sample-script"></a>示例脚本
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## 示例脚本
+<a id="sample-script" class="xliff"></a>
 
 ```azurecli
 #!/bin/bash
 
-gitrepo=<Replace with a public GitHub repo URL. e.g. https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git>
+# Replace the following URL with a public GitHub repo URL
+gitrepo=https://github.com/Azure-Samples/php-docs-hello-world
 webappname=mywebapp$RANDOM
 
 # Create a resource group.
@@ -45,32 +49,33 @@ az group create --location chinanorth --name myResourceGroup
 az appservice plan create --name $webappname --resource-group myResourceGroup --sku S1
 
 # Create a web app.
-az appservice web create --name $webappname --resource-group myResourceGroup \
+az webapp create --name $webappname --resource-group myResourceGroup \
 --plan $webappname
 
 #Create a deployment slot with the name "staging".
-az appservice web deployment slot create --name $webappname --resource-group myResourceGroup \
+az webapp deployment slot create --name $webappname --resource-group myResourceGroup \
 --slot staging
 
 # Deploy sample code to "staging" slot from GitHub.
-az appservice web source-control config --name $webappname --resource-group myResourceGroup \
+az webapp deployment source config --name $webappname --resource-group myResourceGroup \
 --slot staging --repo-url $gitrepo --branch master --manual-integration
 
 # Browse to the deployed web app on staging. Deployment may be in progress, so rerun this if necessary.
-az appservice web browse --name $webappname --resource-group myResourceGroup --slot staging
+az webapp browse --name $webappname --resource-group myResourceGroup --slot staging
 
 # Swap the verified/warmed up staging slot into production.
-az appservice web deployment slot swap --name $webappname --resource-group myResourceGroup \
+az webapp deployment slot swap --name $webappname --resource-group myResourceGroup \
 --slot staging
 
 # Browse to the production slot. 
-az appservice web browse --name $webappname --resource-group myResourceGroup
+az webapp browse --name $webappname --resource-group myResourceGroup
 
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>脚本说明
+## 脚本说明
+<a id="script-explanation" class="xliff"></a>
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
@@ -84,9 +89,9 @@ az appservice web browse --name $webappname --resource-group myResourceGroup
 | [az appservice web browse](https://docs.microsoft.com/cli/azure/webapp#browse) | 在浏览器中打开 Azure Web 应用。 |
 | [az appservice web deployment slot swap](https://docs.microsoft.com/cli/azure/webapp/deployment/slot#swap) | 将指定的部署槽交换到生产环境。 |
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
 可以在 [Azure 应用服务文档](../app-service-cli-samples.md)中找到其他应用服务 CLI 脚本示例。
-

@@ -41,7 +41,7 @@ Site Recovery 可通过协调和自动运行区域之间的 Azure VM 复制、�
 
 ### Site Recovery 是否支持 Azure Resource Manager 模型？
 <a id="does-site-recovery-support-the-azure-resource-manager-model" class="xliff"></a>
-Site Recovery 在 Azure 门户中可用，并支持资源管理器。 Site Recovery 支持 Azure 经典管理门户中的旧部署。 不能在经典管理门户中创建新保管库，且不支持新功能。
+Site Recovery 在 Azure 门户中可用，并支持 Resource Manager。 Site Recovery 支持 Azure 经典管理门户中的旧部署。 不能在经典管理门户中创建新保管库，且不支持新功能。
 
 ### 我能否复制 Azure VM？
 <a id="can-i-replicate-azure-vms" class="xliff"></a>

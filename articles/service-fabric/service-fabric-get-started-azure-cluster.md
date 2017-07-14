@@ -20,23 +20,20 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-<a id="create-your-first-service-fabric-cluster-on-azure" class="xliff"></a>
-
 # 在 Azure 上创建第一个 Service Fabric 群集
+<a id="create-your-first-service-fabric-cluster-on-azure" class="xliff"></a>
 [Service Fabric 群集](service-fabric-deploy-anywhere.md)是一组通过网络连接在一起的虚拟机或物理计算机，你的微服务将在其中部署和管理。 本快速入门可帮助你在数分钟内通过 [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) 或 [Azure 门户](http://portal.azure.cn)创建一个运行在 Windows 或 Linux 上的五节点型群集。  
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/1rmb-trial/)。
 
 
-<a id="use-the-azure-portal" class="xliff"></a>
-
 ## 使用 Azure 门户
+<a id="use-the-azure-portal" class="xliff"></a>
 
 通过 [http://portal.azure.cn](http://portal.azure.cn) 登录到 Azure 门户。
 
-<a id="create-the-cluster" class="xliff"></a>
-
 ### 创建群集
+<a id="create-the-cluster" class="xliff"></a>
 
 1. 单击 Azure 门户左上角的“新建”按钮。
 2. 从“新建”边栏选项卡选择“计算”，然后从“计算”边栏选项卡选择“Service Fabric 群集”。
@@ -72,25 +69,22 @@ ms.lasthandoff: 06/21/2017
 
     可以在通知栏中查看群集创建进度。 （单击屏幕右上角状态栏附近的铃铛图标）。如果在创建群集时曾经单击“固定到启动板”，则会看到“部署 Service Fabric 群集”已固定到“启动”板。
 
-<a id="view-cluster-status" class="xliff"></a>
-
 ### 查看群集状态
+<a id="view-cluster-status" class="xliff"></a>
 创建群集后，即可在门户的“概览”边栏选项卡中检查群集。 现在，仪表板会显示群集的详细信息，包括群集的公共终结点和 Service Fabric Explorer 的链接。
 
 ![群集状态][cluster-status]
 
-<a id="visualize-the-cluster-using-service-fabric-explorer" class="xliff"></a>
-
 ### 使用 Service Fabric Explorer 可视化群集
+<a id="visualize-the-cluster-using-service-fabric-explorer" class="xliff"></a>
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 是一项很好的工具，适用于可视化群集和管理应用程序。  Service Fabric Explorer 是在群集中运行的一项服务。  可以使用 Web 浏览器对其进行访问，方法是在门户中单击群集“概览”页的“Service Fabric Explorer”链接。  
 
 群集仪表板提供了群集的概览，包括应用程序和节点运行状况的摘要。 节点视图显示群集的物理布局。 对于给定的节点，你可以检查已在该节点上部署代码的应用程序。
 
 ![Service Fabric Explorer][service-fabric-explorer]
 
-<a id="connect-to-the-cluster-using-powershell" class="xliff"></a>
-
 ### 使用 PowerShell 连接到群集
+<a id="connect-to-the-cluster-using-powershell" class="xliff"></a>
 使用 PowerShell 进行连接，验证群集是否正在运行。  ServiceFabric PowerShell 模块与 [Service Fabric SDK](service-fabric-get-started.md) 一起安装。  [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet 可建立到群集的连接。   
 
 ```powershell
@@ -110,9 +104,8 @@ NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion ConfigVe
                      _nodetype1_3 10.0.0.7        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
 ```
 
-<a id="remove-the-cluster" class="xliff"></a>
-
 ### 删除群集
+<a id="remove-the-cluster" class="xliff"></a>
 Service Fabric 群集由群集资源本身以及其他 Azure 资源组成。 因此，若要彻底删除 Service Fabric 群集，还需删除组成该群集的所有资源。 若要删除群集及其占用的所有资源，最简单的方式是删除资源组。 若要了解如何通过其他方式删除群集，或者删除资源组中的部分（而非全部）资源，请参阅[删除群集](service-fabric-cluster-delete.md)
 
 在 Azure 门户中删除资源组：
@@ -122,9 +115,8 @@ Service Fabric 群集由群集资源本身以及其他 Azure 资源组成。 因
     ![删除资源组][cluster-delete]
 
 
-<a id="use-azure-powershell-to-deploy-a-secure-cluster" class="xliff"></a>
-
 ## 使用 Azure Powershell 部署安全群集
+<a id="use-azure-powershell-to-deploy-a-secure-cluster" class="xliff"></a>
 
 
 1) 将 [Azure Powershell 模块 4.0 或更高版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)下载到计算机上。
@@ -180,9 +172,8 @@ New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc
 - **ManagementEndpoint** : https://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19080
 - **ClientConnectionEndpointPort** : 19000
 
-<a id="install-the-certificate-on-your-local-machine" class="xliff"></a>
-
 ### 在本地计算机上安装证书
+<a id="install-the-certificate-on-your-local-machine" class="xliff"></a>
   
 若要连接到群集，需将证书安装到当前用户的“个人(我的)”存储。 
 
@@ -196,9 +187,8 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
 
 现在可以连接到安全群集了。
 
-<a id="connect-to-a-secure-cluster" class="xliff"></a>
-
-### 连接到安全群集 
+### 连接到安全群集
+<a id="connect-to-a-secure-cluster" class="xliff"></a> 
 
 运行以下 PowerShell 命令，以便连接到安全群集。 证书详细信息必须与设置群集时使用过的证书匹配。 
 
@@ -228,15 +218,13 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.chinaeast.cloudapp.ch
 Get-ServiceFabricClusterHealth
 
 ```
-<a id="publish-your-apps-to-your-cluster-from-visual-studio" class="xliff"></a>
-
 ### 将应用从 Visual Studio 发布到群集
+<a id="publish-your-apps-to-your-cluster-from-visual-studio" class="xliff"></a>
 
 设置 Azure 群集以后，即可按照[发布到群集](service-fabric-publish-app-remote-cluster.md)文档中的说明，将应用程序从 Visual Studio 发布到该群集。 
 
-<a id="remove-the-cluster" class="xliff"></a>
-
 ### 删除群集
+<a id="remove-the-cluster" class="xliff"></a>
 群集由群集资源本身以及其他 Azure 资源组成。 若要删除群集及其占用的所有资源，最简单的方式是删除资源组。 
 
 ```powershell
@@ -245,9 +233,8 @@ Remove-AzureRmResourceGroup -Name $RGname -Force
 
 ```
 
-<a id="next-steps" class="xliff"></a>
-
 ## 后续步骤
+<a id="next-steps" class="xliff"></a>
 设置开发群集以后，可尝试以下操作：
 * [在门户中创建安全群集](service-fabric-cluster-creation-via-portal.md)
 * [从模板创建群集](service-fabric-cluster-creation-via-arm.md) 

@@ -64,4 +64,6 @@
 # 资源
 ## [价格](https://www.azure.cn/pricing/details/application-gateway/)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-application-gateway)
+## [服务更新](https://www.azure.cn/what-is-new/)
 ## [SLA](https://www.azure.cn/support/legal/sla/)

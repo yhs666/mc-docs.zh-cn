@@ -41,7 +41,7 @@ Service Fabric 应用程序可以包含一个或多个服务，每个服务都�
 
 1. 在终端中，键入以下命令开始构建基架： `yo azuresfcsharp`
 2. 为应用程序命名。
-3. 选择第一个服务的类型并为其命名。 对于本教程，我们会选择“可靠角色服务”。
+3. 选择第一个服务的类型并为其命名。 对于本教程，我们会选择“Reliable Actor 服务”。
    
    ![适用于 C# 的 Service Fabric Yeoman 生成器][sf-yeoman]
 

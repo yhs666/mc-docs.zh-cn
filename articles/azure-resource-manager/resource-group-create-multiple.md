@@ -3,8 +3,8 @@ title: "部署多个 Azure 资源实例 | Azure"
 description: "在部署资源时使用 Azure Resource Manager 模板中的复制操作和数组执行多次迭代。"
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 94d95810-a87b-460f-8e82-c69d462ac3ca
 ms.service: azure-resource-manager
@@ -12,20 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/12/2017
-ms.date: 06/05/2017
+origin.date: 05/24/2017
+ms.date: 07/03/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 1d3e15aec90696698d71054c8e0805282c1c0504
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: f8667b924b66cca2fb5adc712d1e860d9f302d4b
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 模板中部署资源或属性的多个实例
-本主题演示如何在您的 Azure Resource Manager 模板中进行迭代操作，以创建多个资源实例。
+# 在 Azure Resource Manager 模板中部署资源或属性的多个实例
+<a id="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates" class="xliff"></a>
+本主题介绍如何在 Azure Resource Manager 模板中进行迭代操作，以创建多个资源实例，或者在资源中创建多个属性实例。
 
-## <a name="resource-iteration"></a>资源迭代
+如果需要在模板中添加逻辑来指定是否部署资源，请参阅[有条件地部署资源](#conditionally-deploy-resource)。
+
+## 资源迭代
+<a id="resource-iteration" class="xliff"></a>
 若要创建某个资源类型的多个实例，请向该资源类型添加 `copy` 元素。 在 copy 元素中，为此循环指定迭代次数和名称。 计数值必须是不超过 800 的正整数。 Resource Manager 将并行创建资源。 因此，创建顺序是不确定的。 若要在序列中创建迭代的资源，请参阅[串行复制](#serial-copy)。 
 
 要多次创建的资源将采用以下格式：
@@ -110,7 +113,8 @@ ms.lasthandoff: 05/26/2017
 * storagefabrikam
 * storagecoho
 
-## <a name="serial-copy"></a>串行复制
+## 串行复制
+<a id="serial-copy" class="xliff"></a>
 
 使用 copy 元素创建某种资源类型的多个实例时，默认情况下，Resource Manager 并行部署这些实例。 但是，你可能希望将资源指定为按顺序部署。 例如，在更新生产环境时，可能需要错开更新，使任何一次仅更新一定数量。
 
@@ -256,7 +260,103 @@ mode 属性也接受 **parallel**（它是默认值）。
 }
 ```
 
-## <a name="depend-on-resources-in-a-loop"></a>依赖于循环中的资源
+## 属性迭代
+<a id="property-iteration" class="xliff"></a>
+
+若要为资源中的某个属性创建多个值，请在 properties 元素中添加 `copy` 数组。 此数组包含对象，每个对象具有以下属性：
+
+* name - 要为其创建多个值的属性的名称
+* count - 要创建的值数
+* input - 一个对象，其中包含要赋给该属性的值  
+
+以下示例演示如何将 `copy` 应用到虚拟机上的 dataDisks 属性：
+
+```json
+{
+  "name": "examplevm",
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2017-03-30",
+  "properties": {
+    "storageProfile": {
+      "copy": [{
+          "name": "dataDisks",
+          "count": 3,
+          "input": {
+              "lun": "[copyIndex('dataDisks')]",
+              "createOption": "Empty",
+              "diskSizeGB": "1023"
+          }
+      }],
+      ...
+```
+
+请注意，在属性迭代中使用 `copyIndex` 时，必须提供迭代的名称。 在资源迭代中使用该元素时，不需要提供迭代名称。
+
+Resource Manager 在部署期间会扩展 `copy` 数组。 该数组的名称将成为属性的名称。 输入值将成为对象属性。 已部署的模板将成为：
+
+```json
+{
+  "name": "examplevm",
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2017-03-30",
+  "properties": {
+    "storageProfile": {
+      "dataDisks": [
+          {
+              "lun": 0,
+              "createOption": "Empty",
+              "diskSizeGB": "1023"
+          },
+          {
+              "lun": 1,
+              "createOption": "Empty",
+              "diskSizeGB": "1023"
+          },
+          {
+              "lun": 2,
+              "createOption": "Empty",
+              "diskSizeGB": "1023"
+          }
+      }],
+      ...
+```
+
+可将资源迭代和属性迭代结合使用。 按名称引用属性迭代。
+
+```json
+{
+    "type": "Microsoft.Network/virtualNetworks",
+    "name": "[concat(parameters('vnetname'), copyIndex())]",
+    "apiVersion": "2016-06-01",
+    "copy":{
+        "count": 2,
+        "name": "vnetloop"
+    },
+    "location": "[resourceGroup().location]",
+    "properties": {
+        "addressSpace": {
+            "addressPrefixes": [
+                "[parameters('addressPrefix')]"
+            ]
+        },
+        "copy": [
+            {
+                "name": "subnets",
+                "count": 2,
+                "input": {
+                    "name": "[concat('subnet-', copyIndex('subnets'))]",
+                    "properties": {
+                        "addressPrefix": "[variables('subnetAddressPrefix')[copyIndex('subnets')]]"
+                    }
+                }
+            }
+        ]
+    }
+}
+```
+
+## 依赖于循环中的资源
+<a id="depend-on-resources-in-a-loop" class="xliff"></a>
 可以使用 `dependsOn` 元素指定一个资源在另一个资源之后部署。 若要部署的资源依赖于循环中的资源集合，请在 dependsOn 元素中提供 copy 循环的名称。 以下示例演示了如何在部署虚拟机之前部署三个存储帐户。 此处并未显示完整的虚拟机定义。 请注意，copy 元素的名称设置为 `storagecopy`，而虚拟机的 dependsOn 元素也设置为 `storagecopy`。
 
 ```json
@@ -292,7 +392,8 @@ mode 属性也接受 **parallel**（它是默认值）。
 }
 ```
 
-## <a name="create-multiple-instances-of-a-child-resource"></a>创建子资源的多个实例
+## 创建子资源的多个实例
+<a id="create-multiple-instances-of-a-child-resource" class="xliff"></a>
 不能对子资源使用 copy 循环。 若要创建子资源的多个实例，而该子资源通常在其他资源中定义为嵌套资源，则必须将该资源创建为顶级资源。 可以通过 type 和 name 属性定义与父资源的关系。
 
 例如，假设用户通常会将某个数据集定义为数据工厂中的子资源。
@@ -342,6 +443,31 @@ mode 属性也接受 **parallel**（它是默认值）。
 }]
 ```
 
-## <a name="next-steps"></a>后续步骤
+## 有条件地部署资源
+<a id="conditionally-deploy-resource" class="xliff"></a>
+
+若要指定是否部署资源，请使用 `condition` 元素。 此元素的值将解析为 true 或 false。 如果值为 true，则部署资源。 如果值为 false，则不部署资源。 例如，若要指定是要部署新的存储帐户还是使用现有存储帐户，请使用：
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+有关使用新资源或现有资源的示例，请参阅[新的或现有的条件模板](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json)。
+
+有关使用密码或 SSH 密钥部署虚拟机的示例，请参阅[用户名或 SSH 条件模板](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json)。
+
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * 若要了解有关模板区段的信息，请参阅[创作 Azure Resource Manager 模板](resource-group-authoring-templates.md)。
 * 若要了解如何部署模板，请参阅 [使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。

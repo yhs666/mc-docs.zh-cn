@@ -60,7 +60,7 @@ SQL 数据库提供四个服务层，支持轻型到重型数据库工作负荷�
 ### 集中监视和警报功能
 <a id="extensive-monitoring-and-alerting-capabilities" class="xliff"></a>
 
-但是，要如何比较单一数据库和数据库池的相对性能呢？ 当调高和调低性能时，如何知道该在何处停止？ 根据[单一数据库的数据库事务单位 (DTU) 和弹性池的弹性 DTU (eDTU)](sql-database-what-is-a-dtu.md)，结合性能评级使用[内置性能监视](sql-database-performance.md)和[警报](sql-database-insights-alerts-portal.md)工具。 使用这些工具，可以根据当前需求或项目性能的需求，快速评估调高或调低性能产生的影响。 有关详细信息，请参阅 [SQL 数据库选项和性能：了解每个服务层提供的功能](sql-database-service-tiers.md) 。
+但是，要如何比较单一数据库和弹性池的相对性能呢？ 当调高和调低性能时，如何知道该在何处停止？ 根据[单一数据库的数据库事务单位 (DTU) 和弹性池的弹性 DTU (eDTU)](sql-database-what-is-a-dtu.md)，结合性能评级使用[内置性能监视](sql-database-performance.md)和[警报](sql-database-insights-alerts-portal.md)工具。 使用这些工具，可以根据当前需求或项目性能的需求，快速评估调高或调低性能产生的影响。 有关详细信息，请参阅 [SQL 数据库选项和性能：了解每个服务层提供的功能](sql-database-service-tiers.md) 。
 
 可配置 SQL 数据库，将资源使用情况、辅助角色和会话以及连接性存储到以下 Azure 资源之一：
 

@@ -1,6 +1,6 @@
 ---
-title: "适用于 DocumentDB 的 ASP.NET MVC 教程：Web 应用程序开发 | Microsoft Docs"
-description: "介绍如何创建使用 DocumentDB 的 MVC Web 应用程序的 ASP.NET MVC 教程。 你将存储 JSON 并从 Azure 网站上托管的待办事项应用程序中访问数据 — ASP NET MVC 教程分步说明。"
+title: "面向 DocumentDB 的 ASP.NET MVC 教程：Web 应用程序开发 | Microsoft 文档"
+description: "说明如何使用 DocumentDB 创建 MVC Web 应用程序的 ASP.NET MVC 教程。 你将存储 JSON 并从 Azure 网站上托管的待办事项应用程序中访问数据 — ASP NET MVC 教程分步说明。"
 keywords: "asp.net mvc 教程, web 应用程序开发, mvc web 应用程序, asp net mvc 教程分步说明"
 services: documentdb
 documentationcenter: .net
@@ -16,15 +16,13 @@ ms.topic: hero-article
 origin.date: 12/25/2016
 ms.date: 05/31/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: f7f1383d091f5b88e7e1a35d939e85b5d2557d3b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 8826068a4418b7e17c5e73af2c8518b7d2be2dd8
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-# <a name="_Toc395809351"></a>ASP.NET MVC 教程：开发采用 DocumentDB 的 Web 应用程序
+# <a name="_Toc395809351"></a>ASP.NET MVC 教程：使用 DocumentDB 开发 Web 应用程序
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [适用于 MongoDB 的 .NET](documentdb-mongodb-application.md)
@@ -38,7 +36,7 @@ ms.lasthandoff: 05/19/2017
 
 ![屏幕截图：“ASP NET MVC 教程分步说明”教程创建的待办事项列表 MVC Web 应用程序](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image1.png)
 
-本演练演示如何使用 Azure 提供的 DocumentDB 服务从 Azure 上托管的 ASP.NET MVC Web 应用程序来存储和访问数据。 如果你正在寻找只侧重于 DocumentDB 而不是 ASP.NET MVC 组件的教程，请参阅 [构建 DocumentDB C# 控制台应用程序](documentdb-get-started.md)。
+本演练演示如何使用 Azure 提供的 DocumentDB 服务来存储和访问 Azure 上托管的 ASP.NET MVC Web 应用程序的数据。 如果你正在寻找只侧重于 DocumentDB 而不是 ASP.NET MVC 组件的教程，请参阅[构建 DocumentDB C# 控制台应用程序](documentdb-get-started.md)。
 
 > [!TIP]
 > 本教程假定你先前有使用 ASP.NET MVC 和 Azure 网站的经验。 如果你不熟悉 ASP.NET 或[必备工具](#_Toc395637760)，我们建议从 [GitHub][GitHub] 下载完整的示例项目，并按照此示例中的说明操作。 构建之后，你可以回顾本文以深入了解项目上下文中的代码。
@@ -52,14 +50,14 @@ ms.lasthandoff: 05/19/2017
 
     或
 
-    本地安装的 [DocumentDB 模拟器](documentdb-nosql-local-emulator.md)。
+    在本地安装 [DocumentDB 模拟器](documentdb-nosql-local-emulator.md)。
 - [Visual Studio 2015](http://www.visualstudio.com/) 、Visual Studio 2013 Update 4 或更高版本。 如果使用的是 Visual Studio 2013，则需安装 [Microsoft.Net.Compilers Nuget 包](https://www.nuget.org/packages/Microsoft.Net.Compilers/)以添加对 C# 6.0 的支持。 
 - 用于 .NET 2.5.1 或更高版的 Azure SDK，可通过 [Microsoft Web 平台安装程序][Microsoft Web Platform Installer]获取。
 
 本文中的所有屏幕截图都是使用已应用 Update 4 的 Visual Studio 2013 以及 Azure SDK for .NET 2.5.1 版获取的。 如果你的系统配备了不同的版本，那么，你的屏幕和选项可能不会完全相符，但只要你符合上述先决条件，本解决方案应该还是有效。
 
 ## <a name="_Toc395637761"></a>步骤 1：创建 DocumentDB 数据库帐户
-首先创建一个 DocumentDB 帐户。 如果已有一个帐户，或者要在本教程中使用 DocumentDB 模拟器，可以跳到[创建新的 ASP.NET MVC 应用程序](#_Toc395637762)。
+让我们首先创建 DocumentDB 帐户。 如果已有帐户或者在此教程中使用 DocumentDB 模拟器，则可以跳到 [创建新的 ASP.NET MVC 应用程序](#_Toc395637762)。
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -110,7 +108,7 @@ ms.lasthandoff: 05/19/2017
     此时将显示“管理 NuGet 包”对话框  。
 2. 在 NuGet“浏览”框中，键入 ***DocumentDB***。
    
-    从结果中安装“DocumentDB 客户端库”程序包。 这将下载并安装 DocumentDB 程序包，以及所有依赖项（例如 Newtonsoft.Json）。 在“预览”窗口中单击“确定”，然后在“许可证接受”窗口中单击“我接受”，以完成安装。
+    从结果中安装“DocumentDB 客户端库”包。 这将下载并安装 DocumentDB 程序包，以及所有依赖项（例如 Newtonsoft.Json）。 在“预览”窗口中单击“确定”，然后在“许可证接受”窗口中单击“我接受”，以完成安装。
    
       ![屏幕截图：突出显示 Azure DocumentDB 客户端库的“管理 NuGet 程序包”窗口](./media/documentdb-dotnet-application/nuget.png)
    
@@ -320,7 +318,7 @@ ms.lasthandoff: 05/19/2017
         }
    
     > [!TIP]
-    > 创建新的 DocumentCollection 时，你可以提供 OfferType 的可选 RequestOptions 参数，此参数可让你指定新集合的性能级别。 如果未传递此参数，系统将使用默认的产品/服务类型。 有关 DocumentDB 产品/服务类型的详细信息，请参阅 [DocumentDB 性能级别](documentdb-performance-levels.md)。
+    > 创建新的 DocumentCollection 时，你可以提供 OfferType 的可选 RequestOptions 参数，此参数可让你指定新集合的性能级别。 如果未传递此参数，系统将使用默认的产品/服务类型。 有关 DocumentDB 产品/服务类型的详细信息，请参阅 [DocumentDB 性能级别](documentdb-performance-levels.md)
     > 
     > 
 3. 我们打算从配置中读取部分值，因此请打开应用程序的 **Web.config** 文件，并在 `<AppSettings>` 节下面添加下列几行。
@@ -397,7 +395,7 @@ ms.lasthandoff: 05/19/2017
 ### <a name="_Toc395637771"></a>添加项
 我们可以开始将一些项放入数据库中，所以除了空白网格以外，我们还可以看到其他内容。
 
-让我们将一些代码添加到 DocumentDBRepository 和 ItemController，以在 DocumentDB 中持久保存记录。
+让我们将一些代码添加到 DocumentDBRepository 和 ItemController，以在 DocumentDB 中保留记录。
 
 1. 将下列方法添加到 **DocumentDBRepository** 类。
    
@@ -510,7 +508,7 @@ ms.lasthandoff: 05/19/2017
    
     “编辑”视图会接着对 **IndexController** 执行 Http POST 操作。 
    
-    添加的第二个方法会处理此操作：将更新对象传递到 DocumentDB 以便持久保存在数据库中。
+    添加的第二个方法会处理此操作：将更新对象传递到 DocumentDB 以便保留在数据库中。
 
 这样便大功告成了，这些就是我们必须运行应用程序的所有操作：列出未完成的**项**，添加新**项**，最后是编辑**项**。
 
@@ -536,7 +534,7 @@ ms.lasthandoff: 05/19/2017
 5. 完成应用测试后，按 Ctrl+F5 停止调试应用。 你可以开始部署了！
 
 ## <a name="_Toc395637774"></a>步骤 7：将应用程序部署到 Azure 网站
-现已创建可以使用 DocumentDB 正常工作的完整应用程序，接下来请将此 Web 应用部署到 Azure 网站。 如果在创建空白 ASP.NET MVC 项目时选择了“在云中托管”，则 Visual Studio 可让这项操作变得十分简单，大部分任务会自动完成。 
+你已经拥有可在 DocumentDB 正常工作的完整应用程序，我们现在要将此 Web 应用部署到 Azure 网站。 如果在创建空白 ASP.NET MVC 项目时选择了“在云中托管”，则 Visual Studio 可让这项操作变得十分简单，大部分任务会自动完成。 
 
 1. 若要发布此应用程序，只需要右键单击“解决方案资源管理器”中的项目，然后单击“发布”即可。
    
@@ -547,7 +545,7 @@ ms.lasthandoff: 05/19/2017
 
 在几秒钟内，Visual Studio 将完成 Web 应用程序发布并启动浏览器，你可从中查看在 Azure 中运行的简单作品！
 
-## <a name="troubleshooting"></a>故障排除
+## <a name="Troubleshooting"></a>故障排除
 
 如果尝试部署 Web 应用时收到“处理请求时发生错误”消息，请执行以下操作： 
 
@@ -567,7 +565,7 @@ ms.lasthandoff: 05/19/2017
 
 
 ## <a name="_Toc395637775"></a>后续步骤
-祝贺你！ 现已构建第一个使用 DocumentDB 的 ASP.NET MVC Web 应用程序并将其发布到了 Azure 网站。 可以从 [GitHub][GitHub]下载或克隆完整应用程序（包括本教程未涵盖的详细信息和删除功能）的源代码。 因此，如果你想将代码添加到应用中，请捕捉代码，再将它添加到此应用中。
+祝贺你！ 你刚使用 DocumentDB 构建了第一个 ASP.NET MVC 应用程序并将其发布到了 Azure 网站。 可以从 [GitHub][GitHub]下载或克隆完整应用程序（包括本教程未涵盖的详细信息和删除功能）的源代码。 因此，如果你想将代码添加到应用中，请捕捉代码，再将它添加到此应用中。
 
 若要向应用程序添加其他功能，请查看 [DocumentDB .NET 库](https://msdn.microsoft.com/library/azure/dn948556.aspx)中提供的 API，并欢迎在 [GitHub][GitHub] 上的 DocumentDB .NET 库中补充内容。 
 
@@ -576,5 +574,4 @@ ms.lasthandoff: 05/19/2017
 [Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
-
 

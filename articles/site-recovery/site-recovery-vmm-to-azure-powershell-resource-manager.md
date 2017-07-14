@@ -65,7 +65,7 @@ Azure Site Recovery 可在许多部署方案中安排虚拟机的复制、故障
 <a id="azure-prerequisites" class="xliff"></a>
 * 需要一个 [Azure](https://www.azure.cn/) 帐户。 如果没有帐户，可先创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial)。 此外，可以阅读 [Azure Site Recovery Manager 定价](https://www.azure.cn/pricing/details/site-recovery/)。
 * 若要复制到 CSP 订阅方案，需要一个 CSP 订阅。 若要详细了解 CSP 计划，请参阅 [如何注册 CSP 计划](https://msdn.microsoft.com/zh-cn/library/partnercenter/mt156995.aspx)。
-* 需要使用一个 Azure v2 存储（资源管理器）帐户来存储复制到 Azure 的数据。 需要为帐户启用地域复制。 该帐户应位于 Azure Site Recovery 服务所在的同一区域，并与同一订阅或 CSP 订阅相关联。 若要详细了解如何设置 Azure 存储，请参阅 [Azure 存储简介](../storage/storage-introduction.md) 。
+* 需要使用一个 Azure v2 存储（Resource Manager）帐户来存储复制到 Azure 的数据。 需要为帐户启用异地复制。 该帐户应位于 Azure Site Recovery 服务所在的同一区域，并与同一订阅或 CSP 订阅相关联。 若要详细了解如何设置 Azure 存储，请参阅 [Azure 存储简介](../storage/storage-introduction.md) 。
 * 需确保要保护的虚拟机符合 [Azure 虚拟机先决条件](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
 
 > [!NOTE]

@@ -14,19 +14,17 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 04/03/2017
-ms.date: 06/21/2017
+ms.date: 07/03/2017
 ms.author: v-dazen
-experimental: true
 experimental_id: a641df96-f27d-40
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aff25223e33986f566768ee747a1edb4978acfcf
-ms.openlocfilehash: 8f3ffc6b7bfba2997226f67261f957beba046834
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/14/2017
-
-
+ms.openlocfilehash: 6efca8170482a237acfa9cf0a4e667abca7375b1
+ms.sourcegitcommit: 2c397ac599bdb39b257580a1b55a1ce67e19ae56
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/03/2017
 ---
-# <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>在 Azure 门户中预配 SQL Server 虚拟机
+# 在 Azure 门户中预配 SQL Server 虚拟机
+<a id="provision-a-sql-server-virtual-machine-in-the-azure-portal" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [门户](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
@@ -44,7 +42,8 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 * [使用远程桌面打开 VM](#open-the-vm-with-remote-desktop)
 * [远程连接到 SQL Server](#connect-to-sql-server-remotely)
 
-## <a name="select-a-sql-vm-image-from-the-gallery"></a>从库中选择 SQL VM 映像
+## 从库中选择 SQL VM 映像
+<a id="select-a-sql-vm-image-from-the-gallery" class="xliff"></a>
 1. 使用帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
    > [!NOTE]
@@ -70,7 +69,8 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 
     ![使用 Resource Manager 创建 SQL VM](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## <a name="configure-the-vm"></a>配置 VM
+## 配置 VM
+<a id="configure-the-vm" class="xliff"></a>
 有五个用于配置 SQL Server 虚拟机的边栏选项卡。
 
 | 步骤 | 说明 |
@@ -81,7 +81,8 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 | **SQL Server 设置** |[配置 SQL Server 设置](#4-configure-sql-server-settings) |
 | **摘要** |[查看摘要](#5-review-the-summary) |
 
-## <a name="1-configure-basic-settings"></a>1.配置基本设置
+## 1.配置基本设置
+<a id="1-configure-basic-settings" class="xliff"></a>
 在“基本信息”边栏选项卡中提供以下信息： 
 
 * 输入唯一的虚拟机 **名称**。
@@ -99,7 +100,8 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 
     ![SQL 基本信息边栏选项卡](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
-## <a name="2-choose-virtual-machine-size"></a>2.选择虚拟机大小
+## 2.选择虚拟机大小
+<a id="2-choose-virtual-machine-size" class="xliff"></a>
 执行“大小”设置步骤时，请在“选择大小”边栏选项卡中选择虚拟机大小。 边栏选项卡最初将根据你选择的映像显示建议的计算机大小。
 
 > [!IMPORTANT]
@@ -114,7 +116,8 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 
 选择计算机大小，然后单击“选择” 。
 
-## <a name="3-configure-optional-features"></a>3.配置可选功能
+## 3.配置可选功能
+<a id="3-configure-optional-features" class="xliff"></a>
 在“设置”边栏选项卡中，为虚拟机配置 Azure 存储、网络和监视。
 
 * 在“存储”下面，为“磁盘类型”指定“标准”或“高级(SSD)”。 对于生产型工作负荷，建议使用高级存储。
@@ -131,7 +134,8 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 
 配置完这些设置后，请单击“确定”。
 
-## <a name="4-configure-sql-server-settings"></a>4.配置 SQL Server 设置
+## 4.配置 SQL Server 设置
+<a id="4-configure-sql-server-settings" class="xliff"></a>
 在“SQL Server 设置”边栏选项卡上，配置 SQL Server 的特定设置和优化。 可以为 SQL Server 配置的设置包括以下设置。
 
 | 设置 |
@@ -144,7 +148,8 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 | [Azure 密钥保管库集成](#azure-key-vault-integration) |
 | [R Services](#r-services) |
 
-### <a name="connectivity"></a>连接
+### 连接
+<a id="connectivity" class="xliff"></a>
 在“SQL 连接” 下，指定要对此 VM 上的 SQL Server 实例进行的访问类型。 对于本教程，请选择“ **公共 (Internet)** ”以允许从 Internet 上的计算机或服务连接到 SQL Server。 选择此选项以后，Azure 会自动将防火墙和网络安全组配置为允许在端口 1433 上通信。  
 
 ![SQL 连接选项](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
@@ -171,7 +176,8 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 **端口** ：默认为 1433。 你可以指定其他端口号。
 有关详细信息，请参阅[连接到 SQL Server 虚拟机 (Resource Manager) | Azure](virtual-machines-windows-sql-connect.md)。
 
-### <a name="authentication"></a>身份验证
+### 身份验证
+<a id="authentication" class="xliff"></a>
 如果需要 SQL Server 身份验证，请在“SQL 身份验证”  under 。
 
 ![SQL Server 身份验证](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png)
@@ -185,7 +191,8 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 
 如果未启用 SQL Server 身份验证，可以在 VM 上使用本地管理员帐户连接到 SQL Server 实例。
 
-### <a name="storage-configuration"></a>存储配置
+### 存储配置
+<a id="storage-configuration" class="xliff"></a>
 单击“存储配置”  以便指定存储要求。
 
 ![SQL 存储配置](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png)
@@ -208,14 +215,16 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 > 
 > 
 
-### <a name="automated-patching"></a>自动修补
+### 自动修补
+<a id="automated-patching" class="xliff"></a>
 **自动修补** ：默认处于启用状态。 Azure 可以通过自动修补来自动修补 SQL Server 和操作系统。 指定进行维护的具体日期（星期几）、时间和时长。 Azure 会在维护时段进行修补。 维护时段计划使用 VM 的时间区域设置。 如果不希望 Azure 自动修补 SQL Server 和操作系统，请单击“禁用” 。  
 
 ![SQL 自动修补](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 
 有关详细信息，请参阅 [Azure 虚拟机中 SQL Server 的自动修补](virtual-machines-windows-sql-automated-patching.md)。
 
-### <a name="automated-backup"></a>自动备份
+### 自动备份
+<a id="automated-backup" class="xliff"></a>
 在“自动备份” 下启用针对所有数据库的自动数据库备份。 默认情况下，自动备份处于禁用状态。
 
 启用 SQL 自动备份以后，即可进行以下设置的配置：
@@ -232,7 +241,8 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 
  有关详细信息，请参阅 [针对 Azure 虚拟机中 SQL Server 的自动备份](virtual-machines-windows-sql-automated-backup.md)。
 
-### <a name="azure-key-vault-integration"></a>Azure Key Vault 集成
+### Azure Key Vault 集成
+<a id="azure-key-vault-integration" class="xliff"></a>
 若要将安全密码存储在 Azure 中进行加密，请先单击“Azure 密钥保管库集成”，然后单击“启用”。
 
 ![SQL Azure 密钥保管库集成](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png)
@@ -250,12 +260,14 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 
 配置完 SQL Server 设置后，单击“确定” 。
 
-### <a name="r-services"></a>R Services
+### R Services
+<a id="r-services" class="xliff"></a>
 可以启用 [SQL Server R 服务](https://msdn.microsoft.com/library/mt604845.aspx)。 通过 SQL Server R 服务可以使用 SQL Server 2016 的高级分析功能。 单击“创建”  on the **SQL Server Settings** 边栏选项卡。
 
 ![启用 SQL Server R Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
-## <a name="5-review-the-summary"></a>5.查看摘要
+## 5.查看摘要
+<a id="5-review-the-summary" class="xliff"></a>
 在“摘要”边栏选项卡上查看摘要，然后单击“确定”以创建为此 VM 指定的 SQL Server、资源组和资源。
 
 可以从 Azure 门户监视部署情况。 屏幕顶部的“通知”  按钮显示部署的基本状态。
@@ -265,7 +277,8 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 > 
 > 
 
-## <a name="open-the-vm-with-remote-desktop"></a>使用远程桌面打开 VM
+## 使用远程桌面打开 VM
+<a id="open-the-vm-with-remote-desktop" class="xliff"></a>
 使用以下步骤通过远程桌面连接到虚拟机：
 
 1. 构建 Azure VM 后，该 VM 的图标将显示在 Azure 仪表板上。 也可以通过浏览现有虚拟机找到该 VM。 单击新的 SQL 虚拟机。 一个“ **虚拟机** ”边栏选项卡将显示你的虚拟机详细信息。
@@ -282,7 +295,8 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 
 通过访问计算机，可以根据要求直接更改计算机和 SQL Server 设置。 例如，可以配置防火墙设置或更改 SQL Server 配置设置。
 
-## <a name="connect-to-sql-server-remotely"></a>远程连接到 SQL Server
+## 远程连接到 SQL Server
+<a id="connect-to-sql-server-remotely" class="xliff"></a>
 在本教程中，我们选择了虚拟机的“公共”访问权限和“SQL Server 身份验证”。 这些设置将虚拟机自动配置为允许任何客户端通过 Internet 来与 SQL Server 建立连接（假设这些客户端可提供正确的 SQL 登录名）。
 
 > [!NOTE]
@@ -296,7 +310,8 @@ Azure 虚拟机 (VM) 库包括几种内含 Microsoft SQL Server 的映像。 只
 > 
 > 
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 有关在 Azure 中使用 SQL Server 的其他信息，请参阅 [Azure 虚拟机上的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) 和[常见问题](virtual-machines-windows-sql-server-iaas-faq.md)。
 
 有关 Azure 虚拟机上的 SQL Server 视频概述，请观看 [Azure VM 是 SQL Server 2016 的最佳平台](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016)。

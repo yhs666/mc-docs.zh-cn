@@ -20,15 +20,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/28/2017
 ---
-<a id="sql-database-advisor-using-the-azure-portal" class="xliff"></a>
-
 # 在 Azure 门户中使用 SQL 数据库顾问
+<a id="sql-database-advisor-using-the-azure-portal" class="xliff"></a>
 
 可以使用 Azure 门户查找可优化 Azure SQL 数据库性能或纠正在工作负荷中识别的某种问题的性能建议。 使用 Azure 门户中的“性能建议”页可以根据建议的潜在影响查找最重要的建议。 
 
-<a id="viewing-recommendations" class="xliff"></a>
-
 ## 查看建议
+<a id="viewing-recommendations" class="xliff"></a>
 
 若要查看和应用性能建议，需要 Azure 中相应的[基于角色的访问控制](../active-directory/role-based-access-control-configure.md)权限。 查看建议需要“读取者”、“SQL DB 参与者”权限，执行任何操作（如创建或删除索引、取消创建索引）需要“所有者”、“SQL DB 参与者”权限。
 
@@ -60,9 +58,8 @@ ms.lasthandoff: 06/28/2017
 
 ![创建索引](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
-<a id="applying-recommendations" class="xliff"></a>
-
 ## 应用建议
+<a id="applying-recommendations" class="xliff"></a>
 SQL 数据库顾问允许通过以下三个选项之一全权控制建议的启用方式。 
 
 * 一次应用一个建议。
@@ -73,9 +70,8 @@ SQL 数据库顾问允许通过以下三个选项之一全权控制建议的启�
 
 应用建议时，数据库将保持联机状态 -- 使用性能建议或自动优化不会使数据库脱机。
 
-<a id="apply-an-individual-recommendation" class="xliff"></a>
-
 ### 应用单个建议
+<a id="apply-an-individual-recommendation" class="xliff"></a>
 你可以逐个查看和接受建议。
 
 1. 在“建议”边栏选项卡上选择某个建议。
@@ -85,9 +81,8 @@ SQL 数据库顾问允许通过以下三个选项之一全权控制建议的启�
 
 将对数据库应用所选的建议。
 
-<a id="removing-recommendations-from-the-list" class="xliff"></a>
-
 ### 从列表中删除建议
+<a id="removing-recommendations-from-the-list" class="xliff"></a>
 如果建议的列表中包含你想要删除的项则可放弃建议：
 
 1. 选择“建议”列表中的建议打开详细信息。
@@ -99,9 +94,8 @@ SQL 数据库顾问允许通过以下三个选项之一全权控制建议的启�
 2. 从列表中选择一个放弃的项，查看其详细信息。
 3. （可选）单击“撤消放弃”，将索引重新添加到“建议”的主列表。
 
-<a id="enable-automatic-index-management" class="xliff"></a>
-
 ### 启用自动索引管理
+<a id="enable-automatic-index-management" class="xliff"></a>
 可以将 SQL 数据库顾问设置为自动实施建议。 建议一出现就会自动应用。 对于该服务所管理的所有索引操作，如果存在负面的性能影响，则会还原所受到的影响。
 
 1. 在“建议”边栏选项卡上单击“自动化”：
@@ -111,24 +105,21 @@ SQL 数据库顾问允许通过以下三个选项之一全权控制建议的启�
 
     ![建议的索引](./media/sql-database-advisor-portal/automation.png)
 
-<a id="manually-run-the-recommended-t-sql-script" class="xliff"></a>
-
 ### 手动运行建议的 T-SQL 脚本
+<a id="manually-run-the-recommended-t-sql-script" class="xliff"></a>
 选择任意建议，然后单击“查看脚本”。 针对数据库运行此脚本以手动应用建议。
 
 不通过该服务监视和验证手动执行的索引的性能影响，因此建议在创建后监视这些索引以验证它们是否提供性能提升，并在必要时调整或删除它们。 有关创建索引的详细信息，请参阅 [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)。
 
-<a id="canceling-recommendations" class="xliff"></a>
-
 ### 取消建议
+<a id="canceling-recommendations" class="xliff"></a>
 可以取消处于“待定”、“正在验证”或“成功”状态的建议。 不能取消状态为“正在执行”的建议。
 
 1. 在“优化历史记录”区域中选择建议，打开“建议详细信息”边栏选项卡。
 2. 单击“取消”可中止应用建议的过程。
 
-<a id="monitoring-operations" class="xliff"></a>
-
 ## 监视操作
+<a id="monitoring-operations" class="xliff"></a>
 可能不会立刻应用建议。 该门户提供了有关建议操作状态的详细信息。 以下是索引可能处于的状态：
 
 | 状态 | 说明 |
@@ -145,9 +136,8 @@ SQL 数据库顾问允许通过以下三个选项之一全权控制建议的启�
 
 ![建议的索引](./media/sql-database-advisor-portal/operations.png)
 
-<a id="reverting-a-recommendation" class="xliff"></a>
-
 ### 正在还原建议
+<a id="reverting-a-recommendation" class="xliff"></a>
 如果你使用了性能建议来应用建议（即并没有手动运行 T-SQL 脚本），那么顾问会在发现性能影响为负面时自动还原该建议。 如果你因故需要还原建议，可执行以下操作：
 
 1. 在“优化历史记录”区域中选择已成功应用的建议。
@@ -155,29 +145,26 @@ SQL 数据库顾问允许通过以下三个选项之一全权控制建议的启�
 
 ![建议的索引](./media/sql-database-advisor-portal/details.png)
 
-<a id="monitoring-performance-impact-of-index-recommendations" class="xliff"></a>
-
 ## 监视索引建议的性能影响
+<a id="monitoring-performance-impact-of-index-recommendations" class="xliff"></a>
 成功实施建议后（当前仅限索引操作和参数化查询建议），可单击建议详细信息边栏选项卡上的“查询见解”打开 [Query Performance Insights](sql-database-query-performance.md)，然后查看排位靠前的查询的性能影响。
 
 ![监视性能影响](./media/sql-database-advisor-portal/query-insights.png)
 
-<a id="summary" class="xliff"></a>
-
 ## 摘要
+<a id="summary" class="xliff"></a>
 Azure SQL 数据库提供可提高 SQL 数据库性能的建议。 提供 T-SQL 脚本以及单个的和全自动化的索引有助于优化数据库并最终提高查询性能。
 
-<a id="next-steps" class="xliff"></a>
-
 ## 后续步骤
+<a id="next-steps" class="xliff"></a>
 监视建议并继续应用它们以优化性能。 数据库工作负荷是动态的，并且不断地更改。 Azure SQL 数据库将继续监视和提供可能提高数据库性能的建议。 
 
+* 请参阅[自动优化](sql-database-automatic-tuning.md)详细了解 Azure SQL 数据库中的自动优化。
 * 请参阅[性能建议](sql-database-advisor.md)，获取 Azure SQL 数据库性能建议的概述。
 * 请参阅[查询性能见解](sql-database-query-performance.md)，了解排名靠前的查询的性能影响。
 
-<a id="additional-resources" class="xliff"></a>
-
 ## 其他资源
+<a id="additional-resources" class="xliff"></a>
 * [查询存储](https://msdn.microsoft.com/library/dn817826.aspx)
 * [创建索引](https://msdn.microsoft.com/library/ms188783.aspx)
 * [基于角色的访问控制](../active-directory/role-based-access-control-configure.md)

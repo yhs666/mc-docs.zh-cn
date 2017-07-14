@@ -105,7 +105,7 @@ Reliable Collections 通常已[分区](service-fabric-concepts-partitioning.md)�
 ### 可以在可靠集合中存储多少数据？
 <a id="how-much-data-can-i-store-in-a-reliable-collection" class="xliff"></a>
 
-可靠服务通常已分区，因此，存储量仅受限于群集中的计算机数量以及这些计算机的可用内存量。
+Reliable Services 通常已分区，因此，存储量仅受限于群集中的计算机数量以及这些计算机的可用内存量。
 
 例如，假设某个服务中的可靠集合拥有 100 个分区和 3 个副本，存储对象的平均大小为 1 KB。 现在假设群集中有 10 台计算机，每台计算机的内存为 16 GB。 为简单和保守起见，假设操作系统和系统服务、Service Fabric 运行时和服务消耗其中 6 GB 的空间，因此，每台计算机的可用空间为 10 GB，群集的可用空间为 100 GB。
 
@@ -122,7 +122,7 @@ Reliable Collections 通常已[分区](service-fabric-concepts-partitioning.md)�
 ### 可以在执行组件中存储多少数据？
 <a id="how-much-data-can-i-store-in-an-actor" class="xliff"></a>
 
-和可靠服务一样，可以在执行组件服务中存储的数据量仅受限于群集中各个节点的总磁盘空间和可用内存。 但是，单独的执行组件在用于封装少量状态和关联的业务逻辑时效率最高。 一般而言，单独的执行组件应具有以千字节为单位的状态。
+和 Reliable Services 一样，可以在执行组件服务中存储的数据量仅受限于群集中各个节点的总磁盘空间和可用内存。 但是，单独的执行组件在用于封装少量状态和关联的业务逻辑时效率最高。 一般而言，单独的执行组件应具有以千字节为单位的状态。
 
 ## 其他问题
 <a id="other-questions" class="xliff"></a>

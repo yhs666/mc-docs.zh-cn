@@ -30,7 +30,7 @@ ms.lasthandoff: 06/21/2017
 
 有关通过 Linux 使用文件存储的信息，请参阅 [如何通过 Linux 使用 Azure 文件存储](storage-how-to-use-files-linux.md)。
 
-有关文件存储的可伸缩性和性能目标的信息，请参阅 [Azure Storage Scalability and Performance Targets（Azure 存储空间伸缩性和性能目标）](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files)。
+有关文件存储的可伸缩性和性能目标的信息，请参阅 [Azure Storage Scalability and Performance Targets（Azure 存储伸缩性和性能目标）](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files)。
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 

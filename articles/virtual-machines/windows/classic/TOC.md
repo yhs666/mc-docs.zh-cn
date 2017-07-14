@@ -91,5 +91,5 @@
 ## [存储 REST](https://docs.microsoft.com/rest/api/storageservices)
 
 # 资源
-## [定价](https://www.azure.cn/pricing/details/virtual-machines/#Windows)
+## [价格](https://www.azure.cn/pricing/details/virtual-machines/#Windows)
 ## [视频](https://www.azure.cn/video-center/)

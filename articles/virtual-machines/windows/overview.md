@@ -142,7 +142,7 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 
 | 方法 | 说明 |
 | --- | --- |
-| Azure 门户 |在中心菜单中，单击“虚拟机”，然后从列表中选择 VM。 在 VM 的边栏选项卡中，可以访问概述信息、设置值以及监视指标。 |
+| Azure 门户 |在中心菜单中，单击“虚拟机”，然后从列表中选择 VM。 在 VM 的边栏选项卡中，可以访问概述信息、设置值以及监控指标。 |
 | Azure PowerShell |若要了解如何使用 PowerShell 管理 VM，请参阅[使用 Azure PowerShell 模块创建和管理 Windows VM](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 |
 | REST API |使用[获取 VM 信息](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get)操作获取有关 VM 的信息。 |
 | 客户端 SDK |有关使用 C# 管理 VM 的信息，请参阅[使用 Azure Resource Manager 与 C# 来管理 Azure 虚拟机](csharp-manage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 |

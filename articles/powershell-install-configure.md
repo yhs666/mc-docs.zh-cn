@@ -19,20 +19,17 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-<a id="how-to-install-and-configure-azure-powershell" class="xliff"></a>
-
 # 如何安装和配置 Azure PowerShell
+<a id="how-to-install-and-configure-azure-powershell" class="xliff"></a>
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Azure CLI">Azure CLI</a></div>
 
-<a id="what-is-azure-powershell" class="xliff"></a>
-
 ##什么是 Azure PowerShell？
+<a id="what-is-azure-powershell" class="xliff"></a>
 Azure PowerShell 是一组模块，提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet。 你可以使用 cmdlet 来创建、测试、部署和管理通过 Azure 平台传送的解决方案和服务。 在大多数情况下，这些 cmdlet 可用于执行在 Azure 门户中可以执行的任务，例如创建和配置云服务、虚拟机、虚拟网络和 Web 应用。
 
-<a id="how-versioning-works" class="xliff"></a>
-
 ## 版本控制的工作原理
+<a id="how-versioning-works" class="xliff"></a>
 
 Azure PowerShell 使用语义版本控制，也就是说，如果版本 A 更新为版本 B，则版本 A 包含最新的 API。 这还意味着主要版本的更改表示一个或多个 cmdlet 中有重大更改。  例如，版本 1.7.0 是用于解决 Azure PowerShell 1.x 版本中重大更改问题的修补程序。
 
@@ -42,9 +39,8 @@ Azure PowerShell 使用语义版本控制，也就是说，如果版本 A 更新
 
 如果已安装配置文件模块的最新版本，并随后加载依赖于它的某个模块的早期版本，则会导致版本不匹配。 解决此问题的最简单方法是从最新的 .msi 安装。 .msi 会自动清理模块的较旧版本。
 
-<a id="installing-module-versions-side-by-side" class="xliff"></a>
-
 ###并行安装模块版本
+<a id="installing-module-versions-side-by-side" class="xliff"></a>
 
 版本 2.1.0（以及 AzureStack 版本 1.2.6）是可以同时安装和使用的第一个模块版本。 Azure PowerShell 使用二进制模块，因此，必须打开新的 PowerShell 窗口并使用 **Import-Module** 来导入 AzureRM cmdlet 的特定版本：
 
@@ -57,15 +53,13 @@ Azure PowerShell 使用语义版本控制，也就是说，如果版本 A 更新
 请注意，Azure 和 AzureRM 模块拥有共同的依赖项，因此，使用这两个模块时，如果要更新其中的一个模块，则应同时更新两个模块。 Azure 模块的早期版本加载并行模块时与 AzureRM 模块的早期版本加载并行模块时遇到的问题一样。
 
 <a id="Install"></a>
-<a id="step-1-install" class="xliff"></a>
-
 ## 步骤 1：安装
+<a id="step-1-install" class="xliff"></a>
 
 以下是安装 Azure PowerShell 的两种方法。 你可以通过 WebPI 或 PowerShell 库进行安装：
 
-<a id="installing-azure-powershell-from-webpi" class="xliff"></a>
-
 ###从 WebPI 安装 Azure PowerShell
+<a id="installing-azure-powershell-from-webpi" class="xliff"></a>
 
 从 WebPI 安装 Azure PowerShell 1.0 和更高版本的方法与安装 0.9.x 版本是一样的。 下载 [Azure PowerShell](http://aka.ms/webpi-azps) 并开始安装。 如果安装了 Azure PowerShell 0.9.x，将在升级期间卸载版本 0.9.x。 如果从 PowerShell 库安装了 Azure PowerShell 模块，安装程序将在安装之前自动删除这些模块，以确保 Azure PowerShell 环境一致。
 
@@ -97,9 +91,8 @@ import-module "C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\azure.psd1"
 import-module "C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\expressroute\expressroute.psd1"
 ```
 
-<a id="installing-azure-powershell-from-the-powershell-gallery" class="xliff"></a>
-
 ###从 PowerShell 库安装 Azure PowerShell
+<a id="installing-azure-powershell-from-the-powershell-gallery" class="xliff"></a>
 
 在提升的 Windows PowerShell 或 PowerShell 集成脚本环境 (ISE) 提示符下，使用以下命令从 PowerShell 库安装 Azure PowerShell 1.3.0 或更高版本：
 
@@ -111,17 +104,15 @@ Install-Module AzureRM
 Install-Module Azure
 ```
 
-<a id="more-about-these-commands" class="xliff"></a>
-
 ####有关这些命令的详细信息
+<a id="more-about-these-commands" class="xliff"></a>
 
 - **Install-Module AzureRM** 为 Azure Resource Manager cmdlet 安装汇总模块。 AzureRM 模块依赖于 
 - 每个 Azure Resource Manager 模块的特定版本范围。 包含的版本范围可以确保在安装同一主要版本的 AzureRM 模块时，不包含重大的模块更改。 安装 AzureRM 模块时，会从 PowerShell 库下载并安装先前未安装的所有 Azure Resource Manager 模块。 有关 Azure PowerShell 模块所用的语义版本控制的详细信息，请参阅 [semver.org](http://semver.org)。 
 - **Install-Module Azure** 安装 Azure 模块。 此模块是 Azure PowerShell 0.9.x 中的服务管理模块。 这应该没有任何重要更改，而且可与前一版本的 Azure 模块互换。
 
-<a id="step-2-start" class="xliff"></a>
-
 ## 步骤 2：启动
+<a id="step-2-start" class="xliff"></a>
 可以通过标准的 Windows PowerShell 控制台或 PowerShell 集成脚本环境 (ISE) 运行 cmdlet。
 用于打开控制台的方法取决于正在运行的 Windows 的版本：
 
@@ -131,9 +122,8 @@ Install-Module Azure
 
 也可以运行 **Windows PowerShell ISE**，使用菜单项和键盘快捷方式来执行可在 Windows PowerShell 控制台中执行的许多相同任务。 若要使用 ISE，请在 Windows PowerShell 控制台、Cmd.exe 或“运行”框中，键入 **powershell_ise.exe**。
 
-<a id="commands-to-help-you-get-started" class="xliff"></a>
-
 ###帮助入门的命令
+<a id="commands-to-help-you-get-started" class="xliff"></a>
 
 ```
 # To make sure the Azure PowerShell module is available after you install
@@ -203,9 +193,8 @@ Login-AzureRmAccount -Credential $cred
 
 > 有关 Azure 中的身份验证和订阅管理的详细信息，请参阅[管理帐户、订阅和管理角色](http://go.microsoft.com/fwlink/?LinkId=324796)。
 
-<a id="view-account-and-subscription-details" class="xliff"></a>
-
 ### 查看帐户和订阅详细信息
+<a id="view-account-and-subscription-details" class="xliff"></a>
 
 可以设置多个帐户和订阅供 Azure PowerShell 使用。 可以通过多次运行 **Add-AzureRmAccount** 来添加多个帐户。
 
@@ -224,9 +213,8 @@ Login-AzureRmAccount -Credential $cred
  - [MSDN 上的 Azure 论坛]( http://go.microsoft.com/fwlink/p/?LinkId=320212)
  - [堆栈溢出](http://go.microsoft.com/fwlink/?LinkId=320213)
 
-<a id="learn-more" class="xliff"></a>
-
 ##了解详细信息
+<a id="learn-more" class="xliff"></a>
 
 若要详细了解如何使用 cmdlet，请参阅以下资源：
 

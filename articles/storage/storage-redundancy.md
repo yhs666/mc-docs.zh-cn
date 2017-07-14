@@ -21,9 +21,8 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-<a id="azure-storage-replication" class="xliff"></a>
-
 # Azure 存储复制
+<a id="azure-storage-replication" class="xliff"></a>
 
 始终复制 Azure 存储帐户中的数据，确保持久性和高可用性。 根据所选的复制选项，复制操作将在同一数据中心内复制数据或将其复制到辅助数据中心。 发生临时硬件故障时，复制会保护数据，并保证应用程序继续正常运行。 如果数据复制到第二个数据中心，还可以保护数据，以免主要位置发生灾难性故障。
 
@@ -52,9 +51,8 @@ ms.lasthandoff: 06/23/2017
 > 高级存储仅支持本地冗余存储 (LRS)。 有关高级存储的信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](storage-premium-storage.md)。
 >
 
-<a id="locally-redundant-storage" class="xliff"></a>
-
 ## 本地冗余存储
+<a id="locally-redundant-storage" class="xliff"></a>
 本地冗余存储 (LRS) 在存储缩放单位中复制数据三次，该缩放单位托管在创建存储帐户的区域中的数据中心内。 写入请求仅在写入到全部 3 个副本中后才会成功返回。 这三个副本各驻留在一个存储扩展单元的单独容错域和升级域中。
 
 存储扩展单元是指存储节点的机架的集合。 容错域 (FD) 是一组表示出错的物理单元的节点，可将其视为属于同一物理机架的节点。 升级域 (UD) 是一组在服务升级（推出）过程中一起升级的节点。 3 个副本将分布在一个存储扩展单元的 UD 和 FD 上，确保即使硬件故障影响单个机架或在推出期间升级节点时，仍可使用数据。
@@ -66,9 +64,8 @@ LRS 的成本最低，与其他选项相比，存储的持久性最低。 如果
 * 在 Azure 存储复制选项中，提供最高带宽上限。
 * 如果应用程序存储可轻松重构的数据，则可以选择 LRS。
 
-<a id="zone-redundant-storage" class="xliff"></a>
-
 ## 区域冗余存储
+<a id="zone-redundant-storage" class="xliff"></a>
 除了像 LRS 一样存储三个副本，区域冗余存储空间 (ZRS) 还会在一两个区域的数据中心之间异步复制数据，提供高于 LRS 的持久性。 即使主数据中心不可用或不可恢复，ZRS 中存储的数据仍持久存在。
 计划使用 ZRS 的客户需注意：
 
@@ -78,9 +75,8 @@ LRS 的成本最低，与其他选项相比，存储的持久性最低。 如果
 * 随后，ZRS 帐户无法转换为 LRS 或 GRS。 同样，现有 LRS 或 GRS 帐户无法转换为 ZRS 帐户。
 * ZRS 帐户不具有度量值或日志记录功能。
 
-<a id="geo-redundant-storage" class="xliff"></a>
-
 ## 异地冗余存储
+<a id="geo-redundant-storage" class="xliff"></a>
 异地冗余存储 (GRS) 将数据复制到距主要区域数百英里以外的次要区域。 如果存储帐户启用了 GRS，即使在遇到区域完全停电或导致主要区域不可恢复的灾难时，数据也能持久保存。
 
 对于启用了 GRS 的存储帐户，更新将首先提交到主要区域，并在其中复制三次。 然后，更新将异步复制到次要区域（该操作同样复制 3 次）。
@@ -100,9 +96,8 @@ LRS 的成本最低，与其他选项相比，存储的持久性最低。 如果
 |中国北部   |中国东部
 |中国东部   |中国北部 
 
-<a id="read-access-geo-redundant-storage" class="xliff"></a>
-
 ## 读取访问异地冗余存储
+<a id="read-access-geo-redundant-storage" class="xliff"></a>
 除了在 GRS 所提供的两个区域之间进行复制外，读取访问异地冗余存储 (RA-GRS) 还提供对次要位置中的数据的只读访问权限，从而在最大程度上提高存储帐户的可用性。
 
 当启用对次要区域中的数据的只读访问权限时，除了存储帐户的主终结点外，还可以在辅助终结点上获取数据。 辅助终结点与主终结点类似，但会在帐户名称后面追加后缀 `–secondary` 。 例如，如果 Blob 服务的主终结点是 `myaccount.blob.core.windows.net`，则辅助终结点是 `myaccount-secondary.blob.core.windows.net`。 存储帐户的访问密钥对于主终结点和辅助终结点是相同的。
@@ -114,48 +109,40 @@ LRS 的成本最低，与其他选项相比，存储的持久性最低。 如果
 * 如果 Azure 启动了到次要区域的故障转移，则在故障转移完成以后，用户将具有该数据的读取和写入访问权限。 有关详细信息，请参阅[灾难恢复指南](./storage-disaster-recovery-guidance.md)。 
 * 要实现高可用性时使用 RA-GRS。 有关可伸缩性的指南，请查看[性能清单](./storage-performance-checklist.md)。
 
-<a id="frequently-asked-questions" class="xliff"></a>
-
 ## 常见问题
-<a id="1-how-can-i-change-the-geo-replication-type-of-my-storage-account" class="xliff"></a>
-
+<a id="frequently-asked-questions" class="xliff"></a>
 #### 1.如何更改我的存储帐户的异地复制类型？
+<a id="1-how-can-i-change-the-geo-replication-type-of-my-storage-account" class="xliff"></a>
 
    可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure Powershell](storage-powershell-guide-full.md) 或以编程方式使用众多存储客户端库之一将存储帐户的异地复制类型在 LRS、GRS 和 RA-GRS 之间进行更改。 请注意，ZRS 帐户无法转换为 LRS 或 GRS。 同样，现有 LRS 或 GRS 帐户无法转换为 ZRS 帐户。
 
-<a id="2-will-there-be-any-down-time-if-i-change-the-replication-type-of-my-storage-account" class="xliff"></a>
-
 #### 2.更改我的存储帐户的复制类型时是否会有任何停机时间？
+<a id="2-will-there-be-any-down-time-if-i-change-the-replication-type-of-my-storage-account" class="xliff"></a>
 
    不会，不会有任何停机时间。
 
-<a id="3-will-there-be-any-additional-cost-if-i-change-the-replication-type-of-my-storage-account" class="xliff"></a>
-
 #### 3.更改我的存储帐户的复制类型是否会有任何额外成本？
+<a id="3-will-there-be-any-additional-cost-if-i-change-the-replication-type-of-my-storage-account" class="xliff"></a>
 
    是的。 如果将你的存储帐户从 LRS 更改为 GRS（或 RA-GRS），对于将现有数据从主位置复制到辅助位置时涉及的出口，将产生额外的费用。 在复制初始数据后，对于从主位置到辅助位置的数据异地复制，不再产生额外的出口费用。 有关带宽费用的详细信息，请参阅 [Azure 存储定价页](https://www.azure.cn/pricing/details/storage/)。 如果从 GRS 更改到 LRS，不会有额外的成本，但会将你的数据从辅助位置中删除。
 
-<a id="4-how-can-ra-grs-help-me" class="xliff"></a>
-
 #### 4.RA-GRS 对我有何帮助？
+<a id="4-how-can-ra-grs-help-me" class="xliff"></a>
    
    GRS 存储将数据从主要区域复制到距主要区域数百英里的次要区域。 在这种情况下，即使在遇到区域完全停电或导致主要区域不可恢复的灾难时，数据也能持久保存。 RA-GRS 存储包括此附加功能，它增加了从辅助位置读取数据的能力。 有关如何利用此能力的一些观点，请参阅[设计使用 RA-GRS 存储的具有高可用性的应用程序](storage-designing-ha-apps-with-ragrs.md)。 
 
-<a id="5-is-there-a-way-for-me-to-figure-out-how-long-it-takes-to-replicate-my-data-from-the-primary-to-the-secondary-region" class="xliff"></a>
-
 #### 5.是否可以计算将我的数据从主要区域复制到次要区域需要花费多长时间？
+<a id="5-is-there-a-way-for-me-to-figure-out-how-long-it-takes-to-replicate-my-data-from-the-primary-to-the-secondary-region" class="xliff"></a>
    
    如果使用的是 RA-GRS 存储，可以查看你的存储帐户的上次同步时间。 上次同步时间是一个 GMT 日期/时间值；在上次同步时间之前发生的所有主位置写入都已成功写入到辅助位置，这意味着可以从辅助位置读取它们。 在上次同步时间之后发生的主位置写入可能可供读取，也可能尚不可供读取。 可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure PowerShell](storage-powershell-guide-full.md) 或以编程方式使用 REST API 或存储客户端库之一查询此值。 
 
-<a id="6-how-can-i-switch-to-the-secondary-region-if-there-is-an-outage-in-the-primary-region" class="xliff"></a>
-
 #### 6.如果主要区域中发生中断，如何切换到次要区域？
+<a id="6-how-can-i-switch-to-the-secondary-region-if-there-is-an-outage-in-the-primary-region" class="xliff"></a>
    
    有关更多详细信息，请参阅[发生 Azure 存储中断时该怎么办](storage-disaster-recovery-guidance.md)。
 
-<a id="7-what-is-the-rpo-and-rto-with-grs" class="xliff"></a>
-
 #### 7.什么是采用 GRS 的 RPO 和 RTO？
+<a id="7-what-is-the-rpo-and-rto-with-grs" class="xliff"></a>
    
    恢复点目标 (RPO)：在 GRS 和 RA-GRS 中，存储服务以异步方式将数据从主位置异地复制到辅助位置。 如果发生严重的区域性灾难并且必须执行故障转移，则尚未进行异地复制的最新增量更改可能会丢失。 潜在的数据丢失分钟数称为 RPO（这表示可以将数据恢复到的时间点）。 对于异地复制花费多长时间，尽管当前没有 SLA，但我们的 RPO 通常小于 15 分钟。
 
@@ -165,9 +152,8 @@ LRS 的成本最低，与其他选项相比，存储的持久性最低。 如果
 
    我们负责非常认真地保留你的数据，因此，如果有任何机会来恢复数据，我们将延迟执行故障转移并集中精力在主位置恢复数据。 将来，我们计划提供一个 API 来允许你在帐户级别触发故障转移，这将允许你自己控制 RTO，但此功能尚不可用。
    
-<a id="next-steps" class="xliff"></a>
-
 ## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * [使用 RA-GRS 存储设计高度可用的应用程序](storage-designing-ha-apps-with-ragrs.md)
 * [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)
 * [关于 Azure 存储帐户](storage-create-storage-account.md)

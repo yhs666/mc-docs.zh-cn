@@ -22,9 +22,8 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-<a id="troubleshoot-deleting-azure-storage-accounts-containers-or-vhds-in-a-classic-deployment" class="xliff"></a>
-
 # 对在经典部署中删除 Azure 存储帐户、容器或 VHD 进行故障排除
+<a id="troubleshoot-deleting-azure-storage-accounts-containers-or-vhds-in-a-classic-deployment" class="xliff"></a>
 [!INCLUDE [storage-selector-cannot-delete-storage-account-container-vhd](../../includes/storage-selector-cannot-delete-storage-account-container-vhd.md)]
 
 尝试在 [Azure 门户](https://portal.azure.cn/)或 [Azure 经典门户](https://manage.windowsazure.cn/)中删除 Azure 存储帐户、容器或 VHD 时，可能会收到错误。 这些问题可能由以下情况造成：
@@ -33,14 +32,12 @@ ms.lasthandoff: 06/23/2017
 * 磁盘或者与磁盘关联的 Blob 上仍有租约。
 * 仍有一个 VM 映像使用 Blob、容器或存储帐户。
 
-<a id="symptoms" class="xliff"></a>
-
 ## 症状
+<a id="symptoms" class="xliff"></a>
 以下部分列出了试图删除 Azure 存储帐户、容器或 VHD 时可能收到的常见错误。
 
-<a id="scenario-1-unable-to-delete-a-storage-account" class="xliff"></a>
-
 ### 应用场景 1：无法删除存储帐户
+<a id="scenario-1-unable-to-delete-a-storage-account" class="xliff"></a>
 导航到 [Azure 门户](https://portal.azure.cn/)中的经典存储帐户并选择“删除”时，可能会出现不允许删除存储帐户的对象列表：
 
   ![图像：删除存储帐户时出错](./media/storage-cannot-delete-storage-account-container-vhd/newerror.png)
@@ -57,9 +54,8 @@ ms.lasthandoff: 06/23/2017
 
 - *提交失败的存储帐户 <vm-storage-account-name> 拥有 1 个具有活动的映像和/或磁盘项目的容器。删除此存储帐户之前，请确保从映像存储库中删除这些项目。当你试图删除某个存储帐户，但仍存在与之关联的活动磁盘时，将看到一条告诉你有活动磁盘需要进行删除的消息*。
 
-<a id="scenario-2-unable-to-delete-a-container" class="xliff"></a>
-
 ### 应用场景 2：无法删除容器
+<a id="scenario-2-unable-to-delete-a-container" class="xliff"></a>
 尝试删除存储容器时，可能会看到以下错误：
 
 *未能删除存储容器 <container name>。错误：目前容器上有租约，但请求中未指定任何租约 ID*。
@@ -68,9 +64,8 @@ ms.lasthandoff: 06/23/2017
 
 *“以下虚拟机磁盘使用了此容器中的 Blob，因此无法删除该容器: VirtualMachineDiskName1、VirtualMachineDiskName2...”*
 
-<a id="scenario-3-unable-to-delete-a-vhd" class="xliff"></a>
-
 ### 应用场景 3：无法删除 VHD
+<a id="scenario-3-unable-to-delete-a-vhd" class="xliff"></a>
 删除 VM 并随后尝试删除与 VHD 关联的 blob 后，可能会收到以下消息：
 
 *未能删除 blob“path/XXXXXX-XXXXXX-os-1447379084699.vhd”。错误：目前 Blob 上有租约，但请求中未指定任何租约 ID*。
@@ -79,14 +74,12 @@ ms.lasthandoff: 06/23/2017
 
 Blob“BlobName.vhd”已用作虚拟机磁盘“VirtualMachineDiskName”，因此无法删除该 Blob。
 
-<a id="solution" class="xliff"></a>
-
 ## 解决方案
+<a id="solution" class="xliff"></a>
 若要解决最常见的问题，请尝试以下方法：
 
-<a id="step-1-delete-any-disks-that-are-preventing-deletion-of-the-storage-account-container-or-vhd" class="xliff"></a>
-
 ### 步骤 1：删除所有阻止删除存储帐户、容器或 VHD 的磁盘
+<a id="step-1-delete-any-disks-that-are-preventing-deletion-of-the-storage-account-container-or-vhd" class="xliff"></a>
 1. 切换到 [Azure 经典门户](https://manage.windowsazure.cn/)。
 2. 选择“虚拟机” > “磁盘”。
 
@@ -123,9 +116,8 @@ Blob“BlobName.vhd”已用作虚拟机磁盘“VirtualMachineDiskName”，因
    >
 
 
-<a id="step-2-delete-any-vm-images-that-are-preventing-deletion-of-the-storage-account-or-container" class="xliff"></a>
-
 ### 步骤 2：删除任何阻止删除存储帐户或容器的 VM 映像
+<a id="step-2-delete-any-vm-images-that-are-preventing-deletion-of-the-storage-account-or-container" class="xliff"></a>
 1. 切换到 [Azure 经典门户](https://manage.windowsazure.cn/)。
 2. 选择“虚拟机” > “映像”，然后删除与存储帐户、容器或 VHD 关联的映像。
 
@@ -136,10 +128,9 @@ Blob“BlobName.vhd”已用作虚拟机磁盘“VirtualMachineDiskName”，因
 >
 >
 
-<a id="about-the-stopped-deallocated-status" class="xliff"></a>
-
 ## 有关已停止（已解除分配）的状态
-在经典部署模型中创建且已保留的虚拟机将在 [Azure 门户](https://portal.azure.cn/)或 [Azure 经典门户](https://manage.windowsazure.cn/)中具有“已停止(已解除分配)”的状态。
+<a id="about-the-stopped-deallocated-status" class="xliff"></a>
+在经典部署模型中创建且已保留的虚拟机将在 [Azure 门户](https://portal.azure.com/)或 [Azure 经典门户](https://manage.windowsazure.com/)中具有“已停止(已解除分配)”的状态。
 
 **Azure 经典门户**：
 
@@ -151,8 +142,7 @@ Blob“BlobName.vhd”已用作虚拟机磁盘“VirtualMachineDiskName”，因
 
 “已停止（已解除分配）”的状态将释放计算机资源，如 CPU、内存和网络。 但是，磁盘将仍然保留，以便在需要时用户可以快速重新创建 VM。 这些磁盘都创建在基于 Azure 存储支持的 VHD 之上。 存储帐户具有这些 VHD，并且磁盘在这些 VHD 上有租约。
 
-<a id="next-steps" class="xliff"></a>
-
 ## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * [删除存储帐户](storage-create-storage-account.md#delete-a-storage-account)
 * [如何在 Azure 中解除 blob 存储的锁定租约 (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)

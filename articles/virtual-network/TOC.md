@@ -142,4 +142,4 @@
 # 资源
 ## [网络博客](https://www.azure.cn/blog/tags/虚拟网络)
 ## [网络论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [定价](https://www.azure.cn/pricing/details/networking/)
+## [价格](https://www.azure.cn/pricing/details/networking/)

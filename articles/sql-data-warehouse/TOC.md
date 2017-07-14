@@ -7,11 +7,10 @@
 
 # 入门
 
-<!-- ## [Beginner tutorial](sql-data-warehouse-get-started-tutorial.md) -->
+## [初级教程](sql-data-warehouse-get-started-tutorial.md)
 ## [最佳实践](sql-data-warehouse-best-practices.md)
 ## [管理](sql-data-warehouse-overview-manage.md)
-<!-- ## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)-->
-## [故障排除](sql-data-warehouse-troubleshoot.md)
+<!-- Not Available ## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)-->
 
 # 如何
 
@@ -26,11 +25,11 @@
 ## 连接
 
 ### [概述](sql-data-warehouse-connect-overview.md)
-### [连接字符串](sql-data-warehouse-connection-strings.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [安装 Visual Studio](sql-data-warehouse-install-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [连接字符串](sql-data-warehouse-connection-strings.md)
 
 ## 创建
 ### [Azure 门户](sql-data-warehouse-get-started-provision.md)
@@ -48,6 +47,7 @@
 #### [数据类型](sql-data-warehouse-tables-data-types.md)
 #### [分布式表](sql-data-warehouse-tables-distribute.md)
 #### [索引](sql-data-warehouse-tables-index.md)
+#### [标识](sql-data-warehouse-tables-identity.md)
 #### [分区](sql-data-warehouse-tables-partition.md)
 #### [统计信息](sql-data-warehouse-tables-statistics.md)
 #### [临时](sql-data-warehouse-tables-temporary.md)
@@ -102,7 +102,7 @@
 ### [迁移数据](sql-data-warehouse-migrate-data.md)
 ### [迁移到高级存储](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## 暂停和缩放
+## 管理计算
 
 ### [概述](sql-data-warehouse-manage-compute-overview.md)
 ### [Azure 门户](sql-data-warehouse-manage-compute-portal.md)
@@ -114,7 +114,7 @@
 
 ### [概述](sql-data-warehouse-overview-manage-user-queries.md)
 ### [列存储压缩](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [查询](sql-data-warehouse-manage-monitor.md)
+### [监视](sql-data-warehouse-manage-monitor.md)
 ### [工作负载](sql-data-warehouse-develop-concurrency.md)
 
 ## “安全”
@@ -126,6 +126,8 @@
 ### [加密](sql-data-warehouse-encryption-tde.md)
 ### [使用 T-SQL 加密](sql-data-warehouse-encryption-tde-tsql.md)
 <!-- Not Available ### [Threat detection](sql-data-warehouse-security-threat-detection.md)-->
+## 故障排除
+### [故障排除](sql-data-warehouse-troubleshoot.md)
 
 # 引用
 
@@ -140,7 +142,7 @@
 ## [堆栈溢出](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [服务更新](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
-## [视频](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
+<!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse) -->
 
 <!-- Not Available ## Partners -->
 <!-- Not Available ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)-->

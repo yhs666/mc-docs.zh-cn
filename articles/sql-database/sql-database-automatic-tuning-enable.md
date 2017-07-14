@@ -22,15 +22,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/28/2017
 ---
-<a id="enable-automatic-tuning" class="xliff"></a>
-
 # 启用自动优化
+<a id="enable-automatic-tuning" class="xliff"></a>
 
 Azure SQL 数据库是一种自动托管的数据服务，它会不断监视查询并识别你可以执行的操作，以提高工作负荷的性能。 可以查看建议并手动应用这些建议，或者让 Azure SQL 数据库自动应用纠正措施 - 这称为**自动优化模式**。 可以在服务器或数据库级别启用自动优化。
 
-<a id="enable-automatic-tuning-on-server" class="xliff"></a>
-
 ## 在服务器上启用自动优化
+<a id="enable-automatic-tuning-on-server" class="xliff"></a>
 
 若要在 Azure SQL 数据库服务器上启用自动优化，请在 Azure 门户中导航到该服务器，然后在菜单中选择“自动优化”。 选择要启用的自动优化选项，然后选择“应用”：
 
@@ -38,9 +36,8 @@ Azure SQL 数据库是一种自动托管的数据服务，它会不断监视查�
 
 服务器上的自动优化选项将应用到服务器上的所有数据库。 默认情况下，所有数据库将从其父服务器继承配置，但可以针对每个数据库单独覆盖或指定此行为。
 
-<a id="configure-automatic-tuning-on-database" class="xliff"></a>
-
 ## 在数据库上配置自动调优
+<a id="configure-automatic-tuning-on-database" class="xliff"></a>
 
 使用 Azure 门户可以单独在每个数据库中指定自动优化配置。
 
@@ -54,8 +51,8 @@ Azure SQL 数据库是一种自动托管的数据服务，它会不断监视查�
 
 选择相应的配置后，请单击“应用”。
 
-<a id="next-steps" class="xliff"></a>
-
 ## 后续步骤
+<a id="next-steps" class="xliff"></a>
+* 请参阅[自动优化文章](sql-database-automatic-tuning.md)，详细了解自动优化以及如何借助它来提高性能。
 * 请参阅[性能建议](sql-database-advisor.md)，获取 Azure SQL 数据库性能建议的概述。
 * 请参阅[查询性能见解](sql-database-query-performance.md)，了解排名靠前的查询的性能影响。

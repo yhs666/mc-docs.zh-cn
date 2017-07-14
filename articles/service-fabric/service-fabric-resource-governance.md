@@ -20,15 +20,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
-<a id="resource-governance" class="xliff"></a>
-
-# 资源调控 
+# 资源调控
+<a id="resource-governance" class="xliff"></a> 
 
 在同一节点或群集上运行多项服务时，其中一项服务可能会消耗更多的资源，从而使其他服务得不到足够的资源。 此问题被称为邻近干扰问题。 Service Fabric 允许开发人员指定每个服务的保留和限制，在保证资源的同时限制其资源使用情况。 
 
-<a id="resource-governance-metrics" class="xliff"></a>
-
-## 资源调控指标 
+## 资源调控指标
+<a id="resource-governance-metrics" class="xliff"></a> 
 
 每个[服务包](service-fabric-application-model.md)的 Service Fabric 中支持资源调控。 可在代码包之间进一步划分分配到服务包的资源。 指定的资源限制也意味着资源的保留。 Service Fabric 支持使用两个内置[指标](service-fabric-cluster-resource-manager-metrics.md)指定每个服务包的 CPU 和内存：
 
@@ -37,16 +35,15 @@ ms.lasthandoff: 06/21/2017
 
 只提供软保留保证 - 运行时拒绝打开可用资源超出的新服务包。 但是，如果节点上放置了另一个可执行文件或容器，则可能会违反原始保留保证。
 
-为了获得这两个指标，[群集资源管理器](service-fabric-cluster-resource-manager-cluster-description.md)跟踪总群集容量、群集中每个节点上的负载以及群集中剩余的资源。 这两个指标等效于任何其他用户或自定义指标，并且可通过它们使用所有现有功能：
+为了获得这两个指标，[群集 Resource Manager](service-fabric-cluster-resource-manager-cluster-description.md) 跟踪总群集容量、群集中每个节点上的负载以及群集中剩余的资源。 这两个指标等效于任何其他用户或自定义指标，并且可通过它们使用所有现有功能：
 * 群集可根据这两个指标进行[均衡](service-fabric-cluster-resource-manager-balancing.md)（默认行为）。
 * 群集可根据这两个指标进行[碎片整理](service-fabric-cluster-resource-manager-defragmentation-metrics.md)。
 * [描述群集](service-fabric-cluster-resource-manager-cluster-description.md)时，可为这两个指标设置缓冲容量。
 
 这些指标不支持[动态负载报告](service-fabric-cluster-resource-manager-metrics.md)，在创建时即定义了这些指标的负载。
 
-<a id="cluster-set-up-for-enabling-resource-governance" class="xliff"></a>
-
 ## 设置群集以启用资源调控
+<a id="cluster-set-up-for-enabling-resource-governance" class="xliff"></a>
 
 应在群集的每个节点类型中手动定义容量，如下所示：
 
@@ -69,9 +66,8 @@ ms.lasthandoff: 06/21/2017
 ```
 
 
-<a id="specifying-resource-governance" class="xliff"></a>
-
-## 指定资源调控 
+## 指定资源调控
+<a id="specifying-resource-governance" class="xliff"></a> 
 
 应用程序清单（ServiceManifestImport 部分）中指定了资源调控限制，如以下示例所示：
 
@@ -100,8 +96,7 @@ ms.lasthandoff: 06/21/2017
 内存限制是绝对的，所以这两个代码包都限制为 1024 MB 内存（和相同的软保证保留）。 代码包（容器或进程）无法分配超出此限制的内存，尝试执行此操作会引发内存不足异常。 若要强制执行资源限制，服务包中的所有代码包均应指定内存限制。
 
 
-<a id="next-steps" class="xliff"></a>
-
 ## 后续步骤
-* 若要了解有关群集资源管理器的详细信息，请参阅[此文](service-fabric-cluster-resource-manager-introduction.md)。
+<a id="next-steps" class="xliff"></a>
+* 若要了解有关群集 Resource Manager 的详细信息，请参阅[此文](service-fabric-cluster-resource-manager-introduction.md)。
 * 若要了解有关应用程序模型、服务包、代码包以及如何将副本映射到它们的详细信息，请阅读[此文](service-fabric-application-model.md)。

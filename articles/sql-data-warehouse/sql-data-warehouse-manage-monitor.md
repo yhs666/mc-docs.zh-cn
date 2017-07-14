@@ -1,35 +1,42 @@
 ---
-title: 使用 DMV 监视工作负荷 | Azure
-description: 了解如何使用 DMV 监视工作负荷。
+title: "使用 DMV 监视工作负荷 | Azure"
+description: "了解如何使用 DMV 监视工作负荷。"
 services: sql-data-warehouse
-documentationCenter: NA
-authors: sonyam
-manager: barbkess
-editor: ''
-
+documentationcenter: NA
+author: rockboyfor
+manager: digimobile
+editor: 
+ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: performance
 origin.date: 10/31/2016
-ms.date: 01/04/2017
+ms.date: 07/17/2017
 ms.author: v-yeche
+ms.openlocfilehash: a406d364fbf7ea719babff80358f9f1b756162da
+ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/05/2017
 ---
-
 # 使用 DMV 监视工作负荷
+<a id="monitor-your-workload-using-dmvs" class="xliff"></a>
 本文介绍如何使用动态管理视图 (DMV) 在 Azure SQL 数据仓库中监视工作负荷及调查查询执行情况。
 
 ## 权限
-若要查询本文中的 DMV，需具有 VIEW DATABASE STATE 或 CONTROL 权限。通常情况下，首选授予 VIEW DATABASE STATE 权限，因为该权限的限制要大得多。
+<a id="permissions" class="xliff"></a>
+若要查询本文中的 DMV，需具有 VIEW DATABASE STATE 或 CONTROL 权限。 通常情况下，首选授予 VIEW DATABASE STATE 权限，因为该权限的限制要大得多。
 
 ```sql
 GRANT VIEW DATABASE STATE TO myuser;
 ```
 
 ## 监视连接
-
-所有登录到 SQL 数据仓库的操作都记录到 [sys.dm\_pdw\_exec\_sessions][sys.dm_pdw_exec_sessions]。此 DMV 包含最后 10,000 个登录。session\_id 是主键，每次进行新的登录时按顺序分配。
+<a id="monitor-connections" class="xliff"></a>
+所有登录到 SQL 数据仓库的操作都记录到 [sys.dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions]。  此 DMV 包含最后 10,000 个登录。  session_id 是主键，每次进行新的登录时按顺序分配。
 
 ```sql
 -- Other Active Connections
@@ -37,16 +44,18 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 ```
 
 ## 监视查询执行
+<a id="monitor-query-execution" class="xliff"></a>
+在 SQL 数据仓库上执行的所有查询都记录到 [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests]。  此 DMV 包含最后 10,000 个执行的查询。  request_id 对每个查询进行唯一标识，并且为此 DMV 的主键。  request_id 在每次进行新的查询时按顺序分配，并会加上前缀 QID，代表查询 ID。  针对给定 session_id 查询此 DMV 将显示给定登录的所有查询。
 
-在 SQL 数据仓库上执行的所有查询都记录到 [sys.dm\_pdw\_exec\_requests][sys.dm_pdw_exec_requests]。此 DMV 包含最后 10,000 个执行的查询。request\_id 对每个查询进行唯一标识，并且为此 DMV 的主键。request\_id 在每次进行新的查询时按顺序分配，并会加上前缀 QID，代表查询 ID。针对给定 session\_id 查询此 DMV 将显示给定登录的所有查询。
-
->[!NOTE]
-> 存储过程使用多个请求 ID。按先后顺序分配请求 ID。
+> [!NOTE]
+> 存储过程使用多个请求 ID。  按先后顺序分配请求 ID。 
+> 
+> 
 
 以下是调查特定查询的查询执行计划和时间所要遵循的步骤。
 
 ### 步骤 1：确定想要调查的查询
-
+<a id="step-1-identify-the-query-you-wish-to-investigate" class="xliff"></a>
 ```sql
 -- Monitor active queries
 SELECT * 
@@ -67,11 +76,11 @@ FROM    sys.dm_pdw_exec_requests
 WHERE   [label] = 'My Query';
 ```
 
-从前面的查询结果中，记下想要调查的查询的**请求 ID**。
+从前面的查询结果中，记下想要调查的查询的 **请求 ID** 。
 
-处于“已暂停”状态的查询是指因并发限制而排队的查询。这些查询也出现在类型为 UserConcurrencyResourceType 的 sys.dm\_pdw\_waits 等待查询中。请参阅 [Concurrency and workload management][Concurrency and workload management]（并发和工作负荷管理），了解并发限制的更多详细信息。查询也可能因其他原因（如对象锁定）处于等待状态。如果查询正在等待资源，请参阅本文后面的[调查等待资源的查询][Investigating queries waiting for resources]。
+处于**已暂停**状态的查询是指因并发限制而排队的查询。 这些查询也出现在类型为 UserConcurrencyResourceType 的 sys.dm_pdw_waits 等待查询中。 请参阅 [Concurrency and workload management][Concurrency and workload management] （并发和工作负荷管理），了解并发限制的更多详细信息。 查询也可能因其他原因（如对象锁定）处于等待状态。  如果查询正在等待资源，请参阅本文后面的 [调查等待资源的查询][Investigating queries waiting for resources] 。
 
-为了简化在 sys.dm\_pdw\_exec\_requests 表中查找查询的过程，请使用 [LABEL][LABEL] 将注释指定给可在 sys.dm\_pdw\_exec\_requests 视图中查找的查询。
+为了简化在 sys.dm_pdw_exec_requests 表中查找查询的过程，请使用 [LABEL][LABEL] 将注释分配给可在 sys.dm_pdw_exec_requests 视图中查找的查询。
 
 ```sql
 -- Query with Label
@@ -82,7 +91,8 @@ OPTION (LABEL = 'My Query')
 ```
 
 ### 步骤 2：调查查询计划
-使用请求 ID 从 [sys.dm\_pdw\_request\_steps][sys.dm_pdw_request_steps] 检索查询的分布式 SQL (DSQL) 计划。
+<a id="step-2-investigate-the-query-plan" class="xliff"></a>
+使用请求 ID 从 [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps] 检索查询的分布式 SQL (DSQL) 计划。
 
 ```sql
 -- Find the distributed query plan steps for a specific query.
@@ -93,15 +103,16 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-当 DSQL 计划的执行时间超出预期时，原因可能是计划很复杂，包含许多 DSQL 步骤，也可能是一个步骤占用很长的时间。如果计划有很多步骤，包含多个移动操作，可考虑优化表分布，减少数据移动。[表分布][Table distribution]一文说明了为何必须移动数据才能解决查询问题，并说明了如何使用某些分布策略，尽量减少数据移动。
+当 DSQL 计划的执行时间超出预期时，原因可能是计划很复杂，包含许多 DSQL 步骤，也可能是一个步骤占用很长的时间。  如果计划有很多步骤，包含多个移动操作，可考虑优化表分布，减少数据移动。 [表分布][Table distribution] 一文说明了为何必须移动数据才能解决查询问题，并说明了如何使用某些分布策略，尽量减少数据移动。
 
-若要查看单个步骤的更多详细信息，可检查长时间运行的查询步骤的 *operation\_type* 列并记下**步骤索引**：
+若要进一步调查单个步骤的详细信息，可检查长时间运行的查询步骤的 *operation_type* 列并记下**步骤索引**：
 
-- 针对以下 **SQL 操作**继续执行步骤 3a：OnOperation、RemoteOperation、ReturnOperation。
-- 针对以下**数据移动操作**继续执行步骤 3b：ShuffleMoveOperation、BroadcastMoveOperation、TrimMoveOperation、PartitionMoveOperation、MoveOperation、CopyOperation。
+* 针对以下 **SQL 操作**继续执行步骤 3a：OnOperation、RemoteOperation、ReturnOperation。
+* 针对以下 **数据移动操作**继续执行步骤 3b：ShuffleMoveOperation、BroadcastMoveOperation、TrimMoveOperation、PartitionMoveOperation、MoveOperation、CopyOperation。
 
 ### 步骤 3a：查看分布式数据库上的 SQL
-使用请求 ID 和步骤索引从 [sys.dm\_pdw\_sql\_requests][sys.dm_pdw_sql_requests] 中检索详细信息，其中包含所有分布式数据库上的查询步骤的执行信息。
+<a id="step-3a-investigate-sql-on-the-distributed-databases" class="xliff"></a>
+使用请求 ID 和步骤索引从 [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests] 中检索详细信息，其中包含所有分布式数据库上的查询步骤的执行信息。
 
 ```sql
 -- Find the distribution run times for a SQL step.
@@ -111,7 +122,7 @@ SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-当查询步骤正在运行时，可以使用 [DBCC PDW\_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] 从 SQL Server 计划缓存中检索 SQL Server 估计计划，了解在特定分布基础上运行的步骤。
+当查询步骤正在运行时，可以使用 [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] 从 SQL Server 计划缓存中检索 SQL Server 估计计划，了解在特定分布基础上运行的步骤。
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -121,7 +132,8 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
 ### 步骤 3b：查看在分布式数据库上进行的数据移动
-使用请求 ID 和步骤索引检索在 [sys.dm\_pdw\_dms\_workers][sys.dm_pdw_dms_workers] 中的每个分布上运行的数据移动步骤的相关信息。
+<a id="step-3b-investigate-data-movement-on-the-distributed-databases" class="xliff"></a>
+使用请求 ID 和步骤索引检索在 [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers] 中的每个分布上运行的数据移动步骤的相关信息。
 
 ```sql
 -- Find the information about all the workers completing a Data Movement Step.
@@ -131,10 +143,10 @@ SELECT * FROM sys.dm_pdw_dms_workers
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-- 检查 *total\_elapsed\_time* 列，以查看是否有特定分布在数据移动上比其他分布花费了更多时间。
-- 对于长时间运行的分布，请检查 *rows\_processed* 列，以查看从该分布移动的行数是否远远多于其他分布。如果是这样，这可能表示底层数据的偏斜。
+* 检查 *total_elapsed_time* 列，以查看是否有特定分布在数据移动上比其他分布花费了更多时间。
+* 对于长时间运行的分布，请检查 *rows_processed* 列，以查看从该分布移动的行数是否远远多于其他分布。 如果是这样，这可能表示底层数据的偏斜。
 
-如果查询正在运行，则可以使用 [DBCC PDW\_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] 检索特定分发中当前正在运行的 SQL 步骤的 SQL Server 计划高速缓存中的 SQL Server 估计计划。
+如果查询正在运行，则可以使用 [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] 检索特定分发中当前正在运行的 SQL 步骤的 SQL Server 计划高速缓存中的 SQL Server 估计计划。
 
 ```sql
 -- Find the SQL Server estimated plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -143,9 +155,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 ```
 
-<a name="waiting"></a>
-
-## 监视正在等待的查询
+## <a name="waiting"></a>监视正在等待的查询
 如果查询未取得进展（因其正在等待资源），下面是显示查询正在等待的所有资源的查询。
 
 ```sql
@@ -168,10 +178,127 @@ WHERE waits.request_id = 'QID####'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 ```
 
-如果查询正在主动等待另一个查询中的资源，则状态将为 **AcquireResources**。如果查询具有全部所需资源，则状态将为 **Granted**。
+如果查询正在主动等待另一个查询中的资源，则状态将为 **AcquireResources**。  如果查询具有全部所需资源，则状态将为 **Granted**。
+
+## 监视 tempdb
+<a id="monitor-tempdb" class="xliff"></a>
+较高的 tempdb 利用率可能是性能缓慢和内存不足问题的根本原因。 请先检查是否存在数据倾斜或质量不佳的行组，并采取相应的措施。 如果发现 tempdb 在执行查询的过程中达到其限制，请考虑扩展数据仓库。 下面介绍如何确定每个节点上的每个查询的 tempdb 用量。 
+
+创建以下视图，以关联 sys.dm_pdw_sql_requests 的相应节点 ID。 这样，便可以利用其他直通 DMV，并将这些表与 sys.dm_pdw_sql_requests 相联接。
+
+```sql
+-- sys.dm_pdw_sql_requests with the correct node id
+CREATE VIEW sql_requests AS
+(SELECT
+       sr.request_id,
+       sr.step_index,
+       (CASE 
+              WHEN (sr.distribution_id = -1 ) THEN 
+              (SELECT pdw_node_id FROM sys.dm_pdw_nodes WHERE type = 'CONTROL') 
+              ELSE d.pdw_node_id END) AS pdw_node_id,
+       sr.distribution_id,
+       sr.status,
+       sr.error_id,
+       sr.start_time,
+       sr.end_time,
+       sr.total_elapsed_time,
+       sr.row_count,
+       sr.spid,
+       sr.command
+FROM sys.pdw_distributions AS d
+RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
+```
+运行以下查询来监视 tempdb：
+
+```sql
+-- Monitor tempdb
+SELECT
+    sr.request_id,
+    ssu.session_id,
+    ssu.pdw_node_id,
+    sr.command,
+    sr.total_elapsed_time,
+    es.login_name AS 'LoginName',
+    DB_NAME(ssu.database_id) AS 'DatabaseName',
+    (es.memory_usage * 8) AS 'MemoryUsage (in KB)',
+    (ssu.user_objects_alloc_page_count * 8) AS 'Space Allocated For User Objects (in KB)',
+    (ssu.user_objects_dealloc_page_count * 8) AS 'Space Deallocated For User Objects (in KB)',
+    (ssu.internal_objects_alloc_page_count * 8) AS 'Space Allocated For Internal Objects (in KB)',
+    (ssu.internal_objects_dealloc_page_count * 8) AS 'Space Deallocated For Internal Objects (in KB)',
+    CASE es.is_user_process
+    WHEN 1 THEN 'User Session'
+    WHEN 0 THEN 'System Session'
+    END AS 'SessionType',
+    es.row_count AS 'RowCount'
+FROM sys.dm_pdw_nodes_db_session_space_usage AS ssu
+    INNER JOIN sys.dm_pdw_nodes_exec_sessions AS es ON ssu.session_id = es.session_id AND ssu.pdw_node_id = es.pdw_node_id
+    INNER JOIN sys.dm_pdw_nodes_exec_connections AS er ON ssu.session_id = er.session_id AND ssu.pdw_node_id = er.pdw_node_id
+    INNER JOIN sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
+WHERE DB_NAME(ssu.database_id) = 'tempdb'
+    AND es.session_id <> @@SPID
+    AND es.login_name <> 'sa' 
+ORDER BY sr.request_id;
+```
+## 监视内存
+<a id="monitor-memory" class="xliff"></a>
+
+内存可能是性能缓慢和内存不足问题的根本原因。 请先检查是否存在数据倾斜或质量不佳的行组，并采取相应的措施。 如果发现 SQL Server 内存用量在执行查询的过程中达到其限制，请考虑扩展数据仓库。
+
+以下查询返回每个节点的 SQL Server 内存用量和内存压力：   
+```sql
+-- Memory consumption
+SELECT
+  pc1.cntr_value as Curr_Mem_KB, 
+  pc1.cntr_value/1024.0 as Curr_Mem_MB,
+  (pc1.cntr_value/1048576.0) as Curr_Mem_GB,
+  pc2.cntr_value as Max_Mem_KB,
+  pc2.cntr_value/1024.0 as Max_Mem_MB,
+  (pc2.cntr_value/1048576.0) as Max_Mem_GB,
+  pc1.cntr_value * 100.0/pc2.cntr_value AS Memory_Utilization_Percentage,
+  pc1.pdw_node_id
+FROM
+-- pc1: current memory
+sys.dm_pdw_nodes_os_performance_counters AS pc1
+-- pc2: total memory allowed for this SQL instance
+JOIN sys.dm_pdw_nodes_os_performance_counters AS pc2 
+ON pc1.object_name = pc2.object_name AND pc1.pdw_node_id = pc2.pdw_node_id
+WHERE
+pc1.counter_name = 'Total Server Memory (KB)'
+AND pc2.counter_name = 'Target Server Memory (KB)'
+```
+## 监视事务日志大小
+<a id="monitor-transaction-log-size" class="xliff"></a>
+以下查询返回每个分布区的事务日志大小。 请检查是否存在数据倾斜或质量不佳的行组，并采取相应的措施。 如果某个日志文件即将达到 160GB，你应考虑扩展实例或限制事务大小。 
+```sql
+-- Transaction log size
+SELECT
+  instance_name as distribution_db,
+  cntr_value*1.0/1048576 as log_file_size_used_GB,
+  pdw_node_id 
+FROM sys.dm_pdw_nodes_os_performance_counters 
+WHERE 
+instance_name like 'Distribution_%' 
+AND counter_name = 'Log File(s) Used Size (KB)'
+AND counter_name = 'Target Server Memory (KB)'
+```
+## 监视事务日志回滚
+<a id="monitor-transaction-log-rollback" class="xliff"></a>
+如果查询失败或需要花费很长时间才能继续，则你可以检查并监视是否发生了任何事务回滚。
+```sql
+-- Monitor rollback
+SELECT 
+    SUM(CASE WHEN t.database_transaction_next_undo_lsn IS NOT NULL THEN 1 ELSE 0 END),
+    t.pdw_node_id,
+    nod.[type]
+FROM sys.dm_pdw_nodes_tran_database_transactions t
+JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id
+GROUP BY t.pdw_node_id, nod.[type]
+```
 
 ## 后续步骤
-请参阅[系统视图][System views]，了解 DMV 的详细信息。有关最佳实践的详细信息，请参阅 [SQL 数据仓库最佳实践][SQL Data Warehouse best practices]
+<a id="next-steps" class="xliff"></a>
+请参阅 [系统视图][System views] ，了解 DMV 的详细信息。
+有关最佳实践的详细信息，请参阅 [SQL 数据仓库最佳实践][SQL Data Warehouse best practices]
 
 <!--Image references-->
 
@@ -184,13 +311,11 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->
-[sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/zh-cn/library/mt203878.aspx
-[sys.dm\_pdw\_exec\_requests]: http://msdn.microsoft.com/zh-cn/library/mt203887.aspx
-[sys.dm\_pdw\_exec\_sessions]: http://msdn.microsoft.com/zh-cn/library/mt203883.aspx
-[sys.dm\_pdw\_request\_steps]: http://msdn.microsoft.com/zh-cn/library/mt203913.aspx
-[sys.dm\_pdw\_sql\_requests]: http://msdn.microsoft.com/zh-cn/library/mt203889.aspx
-[DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/zh-cn/library/mt204017.aspx
-[DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/zh-cn/library/mt204028.aspx
+[sys.dm_pdw_dms_workers]: http://msdn.microsoft.com/library/mt203878.aspx
+[sys.dm_pdw_exec_requests]: http://msdn.microsoft.com/library/mt203887.aspx
+[sys.dm_pdw_exec_sessions]: http://msdn.microsoft.com/library/mt203883.aspx
+[sys.dm_pdw_request_steps]: http://msdn.microsoft.com/library/mt203913.aspx
+[sys.dm_pdw_sql_requests]: http://msdn.microsoft.com/library/mt203889.aspx
+[DBCC PDW_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
+[DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 [LABEL]: https://msdn.microsoft.com/zh-cn/library/ms190322.aspx
-
-<!---HONumber=Mooncake_Quality_Review_0104_2017-->
