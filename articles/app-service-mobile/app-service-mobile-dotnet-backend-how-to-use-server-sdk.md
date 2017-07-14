@@ -425,7 +425,7 @@ return Query().Where(t => t.UserId == sid);
     .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
     ```
 
-现在可以使用通知中心客户端将推送通知发送到已注册的设备。有关详细信息，请参阅 [Add push notifications to your app](./app-service-mobile-ios-get-started-push.md)（将推送通知添加到应用）。若要了解有关通知中心的详细信息，请参阅[通知中心概述](../notification-hubs/notification-hubs-push-notification-overview.md)。
+现在可以使用通知中心客户端将推送通知发送到已注册的设备。若要了解有关通知中心的详细信息，请参阅[通知中心概述](../notification-hubs/notification-hubs-push-notification-overview.md)。
 #<a name="how-to-add-tags-to-a-device-installation-to-enable-push-to-tags"></a> 如何：使用标记启用目标推送
 
 通知中心允许使用标记将目标通知发送到特定的注册。多个标记会自动创建：

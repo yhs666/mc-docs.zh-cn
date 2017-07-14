@@ -1,6 +1,5 @@
 本部分说明如何从 .NET 控制台应用以标记模板通知的形式发送突发新闻。
 
-如果你使用的是 Mobile Apps，请参阅 [Add push notifications for Mobile Apps]（为 Mobile Apps 添加推送通知）教程，然后选择顶层的平台。
 
 如果你使用的是 Java 或 PHP，请参阅[如何从 Java/PHP 使用通知中心]。你可使用[通知中心 REST 接口]通过任何后端发送通知。
 
@@ -66,7 +65,6 @@
 
 [通知中心入门]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [通知中心 REST 接口]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
-[Add push notifications for Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
 [如何从 Java/PHP 使用通知中心]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
 [Microsoft.Azure.Notification Hubs NuGet 包]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
 
