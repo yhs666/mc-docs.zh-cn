@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 03/10/2017
-ms.date: 05/02/2017
+origin.date: 05/30/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad87d3d01a992d258e5f97a49535f436b62dc438
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 7cb18d7c839917356f974e190b5e820997a524d8
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 什么是 Azure 中的虚拟机规模集？
 <a id="what-are-virtual-machine-scale-sets-in-azure" class="xliff"></a>

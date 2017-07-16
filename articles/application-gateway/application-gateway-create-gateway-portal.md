@@ -17,10 +17,10 @@ origin.date: 04/05/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.openlocfilehash: f9b6b615cba2a700f020942828d601edcc8c751e
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 使用门户创建应用程序网关
 <a id="create-an-application-gateway-by-using-the-portal" class="xliff"></a>

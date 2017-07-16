@@ -17,10 +17,10 @@ origin.date: 01/17/2017
 ms.date: 07/17/2017
 ms.author: v-dazen
 ms.openlocfilehash: 9c8fe16af8f58f2a403994f6f9c6dad69eb7a815
-ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 应用程序网关的后端运行状况、诊断日志和指标
 <a id="back-end-health-diagnostic-logs-and-metrics-for-application-gateway" class="xliff"></a>

@@ -16,10 +16,10 @@ origin.date: 05/03/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.openlocfilehash: f97a11a3b3b3c9e2d70e54660f33cd4ad24280c3
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 在新的或现有的应用程序网关上配置 Web 应用程序防火墙
 <a id="configure-web-application-firewall-on-a-new-or-existing-application-gateway" class="xliff"></a>

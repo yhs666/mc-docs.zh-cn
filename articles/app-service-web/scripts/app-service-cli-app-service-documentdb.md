@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 脚本示例 - 将 Web 应用连接到 documentdb | Azure"
-description: "Azure CLI 脚本示例 - 将 Web 应用连接到 documentdb"
+title: "Azure CLI 脚本示例 - 将 Web 应用连接到 Cosmos DB | Azure"
+description: "Azure CLI 脚本示例 - 将 Web 应用连接到 Cosmos DB"
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -17,16 +17,16 @@ origin.date: 03/20/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.openlocfilehash: 9f321835504c10917fd6b4bc6443f4fcb788ae1f
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: 1633e0051a914e374e082c66a446969d4e068203
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 将 Web 应用连接到 documentdb
-<a id="connect-a-web-app-to-documentdb" class="xliff"></a>
+# 将 Web 应用连接到 Cosmos DB
+<a id="connect-a-web-app-to-cosmos-db" class="xliff"></a>
 
-此方案介绍如何创建 Azure documentdb 帐户和 Azure Web 应用。 然后，将使用应用设置将 documentdb 链接到 Web 应用。
+在此方案中，将了解如何创建 Azure Cosmos DB 帐户和 Azure Web 应用。 然后，使用应用设置将 Cosmos DB 链接到 Web 应用。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -52,7 +52,7 @@ az appservice plan create --name WebAppWithCosmosDBPlan --resource-group myResou
 # Create a Web App
 az webapp create --name $appName --plan WebAppWithCosmosDBPlan --resource-group myResourceGroup 
 
-# Create a documentdb
+# Create a Cosmos DB
 cosmosdb=$(az cosmosdb create --name $appName --resource-group myResourceGroup --query documentEndpoint --output tsv)
 cosmosCreds=$(az cosmosdb list-keys --name $appName --resource-group myResourceGroup --query primaryMasterKey --output tsv)
 
@@ -65,15 +65,15 @@ az webapp config appsettings set --settings "COSMOSDB_URL=$cosmosdb" "COSMOSDB_K
 ## 脚本说明
 <a id="script-explanation" class="xliff"></a>
 
-此脚本使用以下命令创建资源组、Web 应用、documentdb 和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
+此脚本使用以下命令创建资源组、Web 应用、Cosmos DB 和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
 
 | 命令 | 说明 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | 创建应用服务计划。 这与 Azure Web 应用的服务器场类似。 |
 | [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) | 创建应用服务计划中的 Azure Web 应用。 |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | 创建一个 documentdb 帐户。 这将是数据存储位置。 |
-| [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) | 列出指定 documentdb 帐户的访问密钥。 |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | 创建 Cosmos DB 帐户。 这将是数据存储位置。 |
+| [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) | 列出指定 Cosmos DB 帐户的访问密钥。 |
 | [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#update) | 创建或更新 Azure Web 应用的应用设置。 应用设置将作为应用的环境变量公开。 |
 
 ## 后续步骤

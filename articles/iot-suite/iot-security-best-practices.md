@@ -16,15 +16,17 @@ origin.date: 01/04/2017
 ms.author: v-yiso
 ms.date: 03/31/2017
 ms.openlocfilehash: 90d325d84789517d7049f66123140e8b99ef9c51
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
-# <a name="internet-of-things-security-best-practices"></a>物联网安全最佳实践
+# 物联网安全最佳实践
+<a id="internet-of-things-security-best-practices" class="xliff"></a>
 保护物联网 (IoT) 基础结构需要严格的深度安全防御策略。 该策略要求保护云中的数据，在公共 Internet 中传输数据时保护数据的完整性以及安全预配设备。 在总体基础结构中的每一层构建更强的安全性保证。
 
-## <a name="secure-an-iot-infrastructure"></a>保护 IoT 基础结构
+## 保护 IoT 基础结构
+<a id="secure-an-iot-infrastructure" class="xliff"></a>
 此深度安全保护可由制造、开发和部署 IoT 设备与基础结构所涉及的各个积极参与者来开发及执行。 下面是这些参与者的高级描述。  
 
 * **IoT 硬件制造商/集成商**：通常这是要部署的 IoT 硬件的制造商、组装来自各个制造商的硬件的集成商，或针对其他供应商制造或集成的 IoT 部署提供硬件的供货商。
@@ -34,7 +36,8 @@ ms.lasthandoff: 06/21/2017
 
 后续部分将提供每个参与者可遵循的最佳实践，以帮助开发、部署和操作安全的 IoT 基础结构。
 
-## <a name="iot-hardware-manufacturerintegrator"></a>IoT 硬件制造商/集成商
+## IoT 硬件制造商/集成商
+<a id="iot-hardware-manufacturerintegrator" class="xliff"></a>
 以下是 IoT 硬件制造商和硬件集成商的最佳做法。
 
 * **设置符合最低要求的硬件范围**：硬件设计应包括硬件工作时所需的最少功能，仅此而已。 其中一个例子就是仅在必需运行设备时，才包括 USB 端口。 这些附加功能会使硬件容易出现有害的攻击载体，因此应予以避免。
@@ -42,20 +45,23 @@ ms.lasthandoff: 06/21/2017
 * **围绕安全硬件构建功能**：如果 COGS 允许，请构建安全功能，例如，安全与加密存储或基于受信任的平台模块 (TPM) 的引导功能。 这些功能将使设备更安全，有助于保护 IoT 总体基础结构。
 * **安全升级**：设备生存期内，固件升级无可避免。 构建安全的设备升级路径和固件版本加密保证，可保护设备在升级期间和升级之后的安全性。
 
-## <a name="iot-solution-developer"></a>IoT 解决方案开发人员
+## IoT 解决方案开发人员
+<a id="iot-solution-developer" class="xliff"></a>
 以下是 IoT 解决方案开发人员的最佳做法：
 
 * **遵循安全软件开发方法**：开发安全软件需要在项目开端到项目实施、测试和部署过程中，随时考量安全相关事项。 平台、语言和工具的选择也都受此方法的影响。 Microsoft 安全开发周期提供构建安全软件的循序渐进方法。
 * **谨慎选择开源软件**：开源软件有时可以加速解决方案的开发。 选择开源软件时，请考虑每个开源组件的社区活跃程度。 活跃的社区可确保软件受支持，问题得以发现和解决。 相反，不知名或不活跃的开源软件可能不会受到支持，且问题也可能不会得以发现。
 * **谨慎集成**：库和 API 的边界上存在许多软件安全漏洞。 当前部署中不需要的功能仍然可能会通过 API 层得到使用。 若要确保总体安全性，请务必检查正针对安全缺陷进行集成的组件的所有接口。      
 
-## <a name="iot-solution-deployer"></a>IoT 解决方案部署人员
+## IoT 解决方案部署人员
+<a id="iot-solution-deployer" class="xliff"></a>
 以下是 IoT 解决方案部署人员的最佳做法：
 
 * **安全部署硬件**：IoT 部署可能需要将硬件部署在不安全的位置，例如公共场所或不受监督的区域。 在这种情况下，请确保硬件部署能够在最大程度上防篡改。 如果硬件上有 USB 或其他端口，请确保这些端口盖有安全保护盖。 许多攻击载体可能使用这些端口作为入口点。
 * **保持身份验证密钥处于安全状态**：在部署期间，每个设备需要使用云服务生成的设备 ID 和关联的身份验证密钥。 即使是在部署之后，也必须以物理方式保护这些密钥的安全。 恶意设备可能会使用任何透漏的密钥伪装成现有设备。
 
-## <a name="iot-solution-operator"></a>IoT 解决方案操作员
+## IoT 解决方案操作员
+<a id="iot-solution-operator" class="xliff"></a>
 以下是 IoT 解决方案操作员的最佳做法：
 
 * **使系统保持最新状态**：确保设备的操作系统和所有设备驱动程序都已升级到最新版本。 如果在 Windows 10（IoT 或 其他 SKU）中启用自动更新，则 Microsoft 将使其保持最新状态，为 IoT 设备提供安全的操作系统。 使其他操作系统（例如 Linux）保持最新有助于确保它们也能免于恶意攻击。
@@ -68,7 +74,8 @@ ms.lasthandoff: 06/21/2017
 
 某些旧式设备和功能受限的设备可能不是专门为 IoT 部署而设计的。 这些设备可能缺少加密数据、连接 Internet 或提供高级审核功能。 在这种情况下，安全的新式现场网关可聚合旧式设备中的数据，并提供通过 Internet 连接这些设备所必需的安全性。 现场网关可提供安全身份验证、加密会话协商、云命令接收，以及其他许多安全功能。
 
-## <a name="see-also"></a>另请参阅
+## 另请参阅
+<a id="see-also" class="xliff"></a>
 若要详细了解如何保护 IoT 解决方案，请参阅：
 
 - [IoT 安全体系结构][lnk-security-architecture]

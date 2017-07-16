@@ -3,8 +3,8 @@ title: "为 Batch 事件启用诊断日志记录 - Azure | Microsoft Docs"
 description: "记录并分析 Azure Batch 帐户资源（诸如池和任务）的诊断日志事件。"
 services: batch
 documentationcenter: 
-author: tamram
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: e14e611d-12cd-4671-91dc-bc506dc853e5
 ms.service: batch
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 02/27/2017
+origin.date: 05/22/2017
+ms.date: 07/03/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 0baa15165e4019ef1e09d6d73d61d1647d8f2d99
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 4802d007bb099d86ad03f5a129192fb5626cbb54
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>记录事件以用来对 Batch 解决方案进行诊断评估和监视
+# 记录事件以用来对 Batch 解决方案进行诊断评估和监视
+<a id="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions" class="xliff"></a>
 
 与许多 Azure 服务一样，Batch 服务也会在某些资源的生命周期内针对这些资源生成日志事件。 可以启用 Azure Batch 诊断日志来记录资源（诸如池和任务）的事件，然后使用日志进行进行诊断评估和监视。 Batch 诊断日志中包括诸如池创建、池删除、任务启动、任务完成之类的事件和其他事件。
 
@@ -32,13 +32,15 @@ ms.lasthandoff: 04/14/2017
 > 
 > 
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 - [Azure Batch 帐户](batch-account-create-portal.md)
 - [Azure 存储帐户](../storage/storage-create-storage-account.md#create-a-storage-account)
   
-  若要暂留 Batch 诊断日志，必须创建一个将用来存储日志的 Azure 存储帐户。 启用日志收集时指定的存储帐户与[应用程序包](batch-application-packages.md)和[任务输出暂留](batch-task-output.md)文章中所提到的链接存储帐户不是同一个。
+  若要暂留 Batch 诊断日志，必须创建一个将用来存储日志的 Azure 存储帐户。 可以在为 Batch 帐户[启用诊断日志记录](#enable-diagnostic-logging)时指定此存储帐户。 启用日志收集时指定的存储帐户与[应用程序包](batch-application-packages.md)和[任务输出暂留](batch-task-output.md)文章中所提到的链接存储帐户不是同一个。
 
-## <a name="service-logs"></a>服务日志
+## 服务日志
+<a id="service-logs" class="xliff"></a>
 Azure Batch 服务日志包含 Azure Batch 服务在 Batch 资源（诸如池或任务）的生命周期内生成的事件。 Batch 生成的每个事件都采用 JSON 格式存储在指定的存储帐户中。 例如，下面是一个**池创建事件**样本的正文：
 
 ```json
@@ -54,7 +56,7 @@ Azure Batch 服务日志包含 Azure Batch 服务在 Batch 资源（诸如池或
         "subnetId": " "
     },
     "resizeTimeout": "300000",
-    "targetDedicated": 2,
+    "targetDedicatedComputeNodes": 2,
     "maxTasksPerNode": 1,
     "vmFillType": "Spread",
     "enableAutoscale": false,
@@ -65,7 +67,8 @@ Azure Batch 服务日志包含 Azure Batch 服务在 Batch 资源（诸如池或
 
 每个事件正文都位于指定 Azure 存储帐户中的一个 .json 文件中。
 
-## <a name="service-log-events"></a>服务日志事件
+## 服务日志事件
+<a id="service-log-events" class="xliff"></a>
 Batch 服务当前会生成以下服务日志事件。 此列表可能不完整，因为自本文最后更新以来可能又添加了其他事件。
 
 | **服务日志事件** |
@@ -79,7 +82,8 @@ Batch 服务当前会生成以下服务日志事件。 此列表可能不完整�
 | [任务完成][task_complete] |
 | [任务失败][task_fail] |
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 除了将诊断日志事件存储在 Azure 存储帐户中之外，还可以将批处理服务日志事件流式传输到 [Azure 事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)。
 
   将 Batch 诊断事件流式传输到“事件中心”，这是一项可高度缩放的数据入口服务。 数据中心每秒可以接受数百万事件，然后你可以使用任何实时分析提供程序转换并存储这些事件。
@@ -94,5 +98,4 @@ Batch 服务当前会生成以下服务日志事件。 此列表可能不完整�
 [task_start]: https://msdn.microsoft.com/library/azure/mt743616.aspx
 [task_complete]: https://msdn.microsoft.com/library/azure/mt743612.aspx
 [task_fail]: https://msdn.microsoft.com/library/azure/mt743607.aspx
-
 

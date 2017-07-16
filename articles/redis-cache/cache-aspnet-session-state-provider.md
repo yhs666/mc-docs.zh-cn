@@ -15,11 +15,11 @@ ms.workload: tbd
 origin.date: 05/01/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.openlocfilehash: 15354ec5ed1f67edcaa7dc5482bf7f004ea637b7
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: e8394c1191939c912ff5f3e2d4e347fa6a6cdde4
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # Azure Redis 缓存的 ASP.NET 会话状态提供程序
 <a id="aspnet-session-state-provider-for-azure-redis-cache" class="xliff"></a>
@@ -89,8 +89,8 @@ NuGet 包会下载并添加所需的程序集引用，并将以下节添加到 w
 * **retryTimeoutInMilliseconds** - 将在此时间间隔内重试失败的操作，以毫秒为单位指定。 首次重试在 20 毫秒后进行，然后重试每隔一秒进行，直到 retryTimeoutInMilliseconds 间隔到期。 在此时间间隔过后，将立即重试操作最后一次。 如果操作仍失败，则会将异常返回给调用方，具体取决于 throwOnError 设置。 默认值为 0，这意味着不重试。
 * **databaseId** - 指定要用于缓存输出数据的数据库。 如果未指定，则使用默认值 0。
 * **applicationName** - 密钥存储在 Redis 中作为 `{<Application Name>_<Session ID>}_Data`。 此命名方案使多个应用程序可以共享同一 Redis 实例。 此参数是可选的，如果未提供它，则使用默认值。
-* **connectionTimeoutInMilliseconds** - 此设置允许你覆盖 StackExchange.Redis 客户端中的 connectTimeout 设置。 如果未指定，则使用默认 connectTimeout 设置 5000。
-* **operationTimeoutInMilliseconds** - 此设置允许你覆盖 StackExchange.Redis 客户端中的 syncTimeout 设置。 如果未指定，则使用默认 syncTimeout 设置 1000。
+* **connectionTimeoutInMilliseconds** - 此设置允许你覆盖 StackExchange.Redis 客户端中的 connectTimeout 设置。 如果未指定，则使用默认 connectTimeout 设置 5000。 有关详细信息，请参阅 [StackExchange.Redis 配置模型](http://go.microsoft.com/fwlink/?LinkId=398705)。
+* **operationTimeoutInMilliseconds** - 此设置允许你覆盖 StackExchange.Redis 客户端中的 syncTimeout 设置。 如果未指定，则使用默认 syncTimeout 设置 1000。 有关详细信息，请参阅 [StackExchange.Redis 配置模型](http://go.microsoft.com/fwlink/?LinkId=398705)。
 
 有关这些属性的详细信息，请参阅 [宣布推出适用于 Redis 的 ASP.NET 会话状态提供程序](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)中的原始博客文章公告。
 

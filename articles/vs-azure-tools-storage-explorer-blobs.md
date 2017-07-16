@@ -16,10 +16,10 @@ origin.date: 11/18/2016
 ms.date: 03/30/2017
 ms.author: v-junlch
 ms.openlocfilehash: 3fe4e985d8e0981a2864b5b36a71521fc0875538
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 使用存储资源管理器（预览版）管理 Azure Blob 存储资源
 <a id="manage-azure-blob-storage-resources-with-storage-explorer-preview" class="xliff"></a>

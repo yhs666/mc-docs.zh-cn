@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/10/2017
+origin.date: 05/10/2017
 ms.author: v-yiso
-ms.openlocfilehash: ee8db63cb0d65cb73cfdc30b763987f9e5859339
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/17/2017
+ms.openlocfilehash: 99a0a3e67a48983f39c0f5c2b2c33ec9513b9f25
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 使用服务总线消息传递改进性能的最佳实践
 <a id="best-practices-for-performance-improvements-using-service-bus-messaging" class="xliff"></a>

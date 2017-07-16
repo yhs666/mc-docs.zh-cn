@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/26/2017
+origin.date: 04/26/2017
 ms.author: v-yiso
-ms.openlocfilehash: c7c71c7c44b5b4a1d3ee75180fe50ab724583913
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/17/2017
+ms.openlocfilehash: e81126a3e23300cdd3fece3f8e23cd96707d59f6
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 存储队列和服务总线队列 - 比较与对照
 <a id="storage-queues-and-service-bus-queues---compared-and-contrasted" class="xliff"></a>

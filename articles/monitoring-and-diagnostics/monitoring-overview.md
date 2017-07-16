@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+origin.date: 05/12/2017
 ms.author: v-yiso
-ms.openlocfilehash: 60728d2fe921647bba62eff9a3a8925770230157
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 
+ms.openlocfilehash: 12f32038273bb1f83b3a029a974e20fbe767e286
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # Microsoft Azure 中的监视概述
 <a id="overview-of-monitoring-in-microsoft-azure" class="xliff"></a>

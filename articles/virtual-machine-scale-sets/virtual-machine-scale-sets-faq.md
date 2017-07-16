@@ -17,11 +17,11 @@ origin.date: 05/09/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
 ms.custom: na
-ms.openlocfilehash: cdcff0797874860cd114f919972af348abd89e9a
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 3810f5e7ccdf76e885f57757a31d9253952a0e83
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # Azure 虚拟机规模集常见问题解答
 <a id="azure-virtual-machine-scale-sets-faqs" class="xliff"></a>
@@ -39,15 +39,19 @@ ms.lasthandoff: 06/23/2017
 使用以下值 JSON：
 
 ```json
-        "secrets": [ {
-              "sourceVault": {
-                      "id": "/subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1"
-          },
-          "vaultCertificates": [ {
-                      "certificateUrl": "https://mykeyvault1.vault.azure.cn/secrets/{secretname}/{secret-version}",
-                  "certificateStore": "certificateStoreName"
-          } ]
-        } ]
+"secrets": [
+    {
+        "sourceVault": {
+            "id": "/subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1"
+        },
+        "vaultCertificates": [
+            {
+                "certificateUrl": "https://mykeyvault1.vault.azure.cn/secrets/{secretname}/{secret-version}",
+                "certificateStore": "certificateStoreName"
+            }
+        ]
+    }
+]
 ```
 
 该代码支持 Windows 和 Linux。
@@ -61,42 +65,42 @@ ms.lasthandoff: 06/23/2017
 
     使用以下 PowerShell 命令：
 
-  ```powershell
-  Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
+    ```powershell
+    Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-  Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 
-  Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location chinanorth -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
-  ```
+    Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location chinanorth -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
+    ```
 
-  此命令将提供 Azure Resource Manager 模板的输入。
+    此命令将提供 Azure Resource Manager 模板的输入。
 
-  有关如何在密钥保管库中创建自签名证书的示例，请参阅[Service Fabric 群集安全方案](/service-fabric-cluster-security/)。
+    有关如何在密钥保管库中创建自签名证书的示例，请参阅[Service Fabric 群集安全方案](/service-fabric/service-fabric-cluster-security/)。
 
 2.  更改 Resource Manager 模板。
 
-  将此属性作为虚拟机规模集资源的一部分添加到 **virtualMachineProfile**：
+    将此属性作为虚拟机规模集资源的一部分添加到 **virtualMachineProfile**：
 
-  ```json 
-  "osProfile": {
-              "computerNamePrefix": "[variables('namingInfix')]",
-              "adminUsername": "[parameters('adminUsername')]",
-              "adminPassword": "[parameters('adminPassword')]",
-              "secrets": [
-                {
-                  "sourceVault": {
+    ```json 
+    "osProfile": {
+        "computerNamePrefix": "[variables('namingInfix')]",
+        "adminUsername": "[parameters('adminUsername')]",
+        "adminPassword": "[parameters('adminPassword')]",
+        "secrets": [
+            {
+                "sourceVault": {
                     "id": "[resourceId('KeyVault', 'Microsoft.KeyVault/vaults', 'MikhegnVault')]"
-                  },
-                  "vaultCertificates": [
+                },
+                "vaultCertificates": [
                     {
-                      "certificateUrl": "https://mikhegnvault.vault.azure.cn:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
-                      "certificateStore": "My"
+                        "certificateUrl": "https://mikhegnvault.vault.azure.cn:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
+                        "certificateStore": "My"
                     }
-                  ]
-                }
-              ]
+                ]
             }
-  ```
+        ]
+    }
+    ```
 
 ### 是否可以通过 Resource Manager 模板指定一个 SSH 密钥对，用于对 Linux 虚拟机规模集进行 SSH 身份验证？
 <a id="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template" class="xliff"></a>  
@@ -107,23 +111,23 @@ ms.lasthandoff: 06/23/2017
 
 ```json 
 "osProfile": {
-          "computerName": "[variables('vmName')]",
-          "adminUsername": "[parameters('adminUserName')]",
-          "linuxConfiguration": {
-            "disablePasswordAuthentication": "true",
-            "ssh": {
-              "publicKeys": [
+    "computerName": "[variables('vmName')]",
+    "adminUsername": "[parameters('adminUserName')]",
+    "linuxConfiguration": {
+        "disablePasswordAuthentication": "true",
+        "ssh": {
+            "publicKeys": [
                 {
-                  "path": "[variables('sshKeyPath')]",
-                  "keyData": "[parameters('sshKeyData')]"
+                    "path": "[variables('sshKeyPath')]",
+                    "keyData": "[parameters('sshKeyData')]"
                 }
-              ]
-            }
-          }
+            ]
         }
+    }
+}
 ```
 
-bpt id="p1" xmlns="urn:oasis:names:tc:xliff:document:1.2"> [</bpt>101-vm-sshkey GitHub 快速入门模板](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json) 中使用了此 JSON 块。
+[101-vm-sshkey GitHub 快速入门模板](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json) 中使用了此 JSON 块。
 
 [grelayhost.json GitHub 快速启动模板](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json)中也使用了此 OS 配置文件。
 
@@ -144,13 +148,15 @@ bpt id="p1" xmlns="urn:oasis:names:tc:xliff:document:1.2"> [</bpt>101-vm-sshkey 
 可以在创建 Linux VM 时以明文形式提供 SSH 公钥：
 
 ```json
-"linuxConfiguration": {  
-          "ssh": {  
-            "publicKeys": [ {  
-              "path": "path",
-              "keyData": "publickey"
-            } ]
-          }
+"linuxConfiguration": {
+    "ssh": {
+        "publicKeys": [
+            {
+                "path": "path",
+                "keyData": "publickey"
+            }
+        ]
+    }
 ```
 
 linuxConfiguration 元素名称 | 必选 | 类型 | 说明
@@ -164,7 +170,7 @@ keyData | 是 | String | 指定 base64 编码的 SSH 公钥
 ### 添加同一个密钥保管库中的多个证书后，运行 `Update-AzureRmVmss` 时看到以下消息：
 <a id="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message" class="xliff"></a>
 
-    Update-AzureRmVmss: List secret contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
+    >Update-AzureRmVmss: List secret contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
 
 如果尝试重新添加同一保管库，而不是使用现有源保管库的新保管库证书，可能会看到此消息。 如果要添加其他机密，`Add-AzureRmVmssSecret` 命令将无法正常运行。
 
@@ -231,7 +237,7 @@ CRP 组件不会持久保留客户机密。 如果对虚拟机规模集中的所
 
 扩大时不会遇到此问题，因为（单 Fabric 租户模型中的）Azure Service Fabric 中存在机密的缓存副本。
 
-### 如 [Service Fabric 群集安全方案](/service-fabric/service-fabric-cluster-security)中所述，为什么必须指定证书 URL (https://\<name of the vault\>.vault.azure.cn:443/secrets/\<exact location\>) 的确切位置？
+### 如 [Service Fabric 群集安全方案](/service-fabric/service-fabric-cluster-security/)中所述，为什么必须指定证书 URL (https://\<name of the vault\>.vault.azure.cn:443/secrets/\<exact location\>) 的确切位置？
 <a id="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurecn443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenariosservice-fabricservice-fabric-cluster-security" class="xliff"></a>
 
 根据 Azure Key Vault 文档，在未指定版本的情况下，Get Secret REST API 应返回最新版本的机密。
@@ -284,7 +290,7 @@ Key Vault 要求指定证书版本的目的是为了使用户清楚地了解哪�
 
 从合规性角度看，虚拟机规模集是 Azure 计算平台的基础部分。 它们与 CRP 共享团队、工具、进程、部署方法、安全控制、实时 (JIT) 编译、监视、警报等。 虚拟机规模集符合支付卡行业 (PCI) 规范，因为 CRP 属于当前 PCI 数据安全标准 (DSS) 证明的一部分。
 
-有关详细信息，请参阅 [Microsoft 信任中心](https://www.trustcenter.cn/)。
+有关详细信息，请参阅 [Microsoft 信任中心](https://www.trustcenter.cn)。
 
 ## 扩展
 <a id="extensions" class="xliff"></a>
@@ -351,28 +357,28 @@ Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -Virtua
 若要定义扩展，请使用 JsonADDomainExtension 属性：
 
 ```json
-                    "extensionProfile": {
-                        "extensions": [
-                            {
-                                "name": "joindomain",
-                                "properties": {
-                                    "publisher": "Microsoft.Compute",
-                                    "type": "JsonADDomainExtension",
-                                    "typeHandlerVersion": "1.3",
-                                    "settings": {
-                                        "Name": "[parameters('domainName')]",
-                                        "OUPath": "[variables('ouPath')]",
-                                        "User": "[variables('domainAndUsername')]",
-                                        "Restart": "true",
-                                        "Options": "[variables('domainJoinOptions')]"
-                                    },
-                                    "protectedsettings": {
-                                        "Password": "[parameters('domainJoinPassword')]"
-                                    }
-                                }
-                            }
-                        ]
-                    }
+"extensionProfile": {
+    "extensions": [
+        {
+            "name": "joindomain",
+            "properties": {
+                "publisher": "Microsoft.Compute",
+                "type": "JsonADDomainExtension",
+                "typeHandlerVersion": "1.3",
+                "settings": {
+                    "Name": "[parameters('domainName')]",
+                    "OUPath": "[variables('ouPath')]",
+                    "User": "[variables('domainAndUsername')]",
+                    "Restart": "true",
+                    "Options": "[variables('domainJoinOptions')]"
+                },
+                "protectedsettings": {
+                    "Password": "[parameters('domainJoinPassword')]"
+                }
+            }
+        }
+    ]
+}
 ```
 
 ### 虚拟机规模集扩展尝试安装需要重新启动的内容。 例如，"commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted Install-WindowsFeature -Name FS-Resource-Manager -IncludeManagementTools"
@@ -413,7 +419,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 是的。 网络安全组可以直接应用于规模集，方法是在网络配置文件的 networkInterfaceConfigurations 部分引用该组。 示例：
 
-```
+```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
         {
@@ -520,12 +526,12 @@ IP 地址是从指定的子网中选择的。
 若要启用启动诊断，首先，创建存储帐户。 然后，将此 JSON 块放在虚拟机规模集  **virtualMachineProfile** 中，并更新虚拟机规模集：
 
 ```json
-      "diagnosticsProfile": {
-        "bootDiagnostics": {
-          "enabled": true,
-          "storageUri": "http://yourstorageaccount.blob.core.chinacloudapi.cn"
-        }
-      }
+"diagnosticsProfile": {
+    "bootDiagnostics": {
+        "enabled": true,
+        "storageUri": "http://yourstorageaccount.blob.core.chinacloudapi.cn"
+    }
+}
 ```
 
 创建新 VM 时，VM 的 InstanceView 属性将显示屏幕截图的详细信息等等。 下面是一个示例：

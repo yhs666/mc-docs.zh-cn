@@ -14,23 +14,26 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/21/2017
-ms.date: 05/31/2017
+ms.date: 07/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: 7c3e3cf54fba0a313d2fc1a132f736187241d33e
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 92f6589d261c7dca1ac4fa0ce3c72357e0e7dc67
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 配置 VNet 到 VNet 连接（经典）
 <a id="configure-a-vnet-to-vnet-connection-classic" class="xliff"></a>
 
+[!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
+
 本文介绍如何在虚拟网络之间创建 VPN 网关连接。 虚拟网络可位于相同或不同的区域，来自相同或不同的订阅。 本文中的步骤适用于经典部署模型和 Azure 门户。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure 门户](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [经典 - Azure 门户](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Azure 门户](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Azure 门户（经典）](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [连接不同的部署模型 - Azure 门户](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [连接不同的部署模型 - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
@@ -41,7 +44,7 @@ ms.lasthandoff: 06/23/2017
 ## 关于 VNet 到 VNet 的连接
 <a id="about-vnet-to-vnet-connections" class="xliff"></a>
 
-在经典部署模型中使用 VPN 网关将一个虚拟网络连接到另一个虚拟网络（VNet 到 VNet）类似于将虚拟网络连接到本地站点位置。 这两种连接类型都使用 VPN 网关来提供使用 IPsec/IKE 的安全隧道。 
+在经典部署模型中使用 VPN 网关将一个虚拟网络连接到另一个虚拟网络（VNet 到 VNet）类似于将虚拟网络连接到本地站点位置。 这两种连接类型都使用 VPN 网关来提供使用 IPsec/IKE 的安全隧道。
 
 你连接的 VNet 可位于不同的订阅和不同的区域中。 你可以将 VNet 到 VNet 通信与多站点配置组合使用。 这样，便可以建立将跨界连接与虚拟网络间连接相结合的网络拓扑。
 
@@ -122,13 +125,13 @@ GatewaySubnet：10.41.1.0/27
 
 * **DNS 服务器** - 输入 DNS 服务器名称和 IP 地址。 此设置不创建 DNS 服务器。 此设置允许指定要用于对此虚拟网络进行名称解析的 DNS 服务器。
 
-在本部分，你将配置连接类型、本地站点并创建网关。 
+在本部分，你将配置连接类型、本地站点并创建网关。
 
 ## <a name="localsite"></a>步骤 3 - 配置本地站点
 
 Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet 之间路由流量。 每个 VNet 都必须指向你要将流量路由到的相应本地网络。 如果需要使用名称来引用每个本地网络站点，将由你来决定该名称。 最好使用描述性文本。
 
-例如，TestVNet1 连接到所创建的名为“VNet4Local”的本地网络站点。 VNet4Local 的设置包含 TestVNet4 的地址前缀。 
+例如，TestVNet1 连接到所创建的名为“VNet4Local”的本地网络站点。 VNet4Local 的设置包含 TestVNet4 的地址前缀。
 
 每个 VNet 的本地站点是另一个 VNet。 配置使用以下示例值：
 
@@ -142,8 +145,8 @@ Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet
     ![无网关](./media/vpn-gateway-howto-vnet-vnet-portal-classic/nogateway.png)
 2. 在“新建 VPN 连接”页上，选择“站点到站点”。
 3. 单击“本地站点”，打开“本地站点”页并配置设置。
-4. 在“本地站点”页上，为本地站点命名。 在示例中，请将本地站点命名为“VNet4Local”。 
-5. 对于“VPN 网关 IP 地址”，可以使用所需的任何 IP 地址，只要它采用有效格式即可。 通常，应该使用 VPN 设备的实际外部 IP 地址。 但是，对于经典 VNet 到 VNet 配置，请使用分配给 VNet 的网关的公共 IP 地址。 考虑到尚未创建该虚拟网关，因此，可以指定任何有效的公共 IP 地址作为占位符。<br>请勿将此留空 - 就此配置来说，此项不是可选项。 稍后将返回到这些设置，使用 Azure 生成的相应虚拟网关 IP 地址对其进行配置。 
+4. 在“本地站点”页上，为本地站点命名。 在示例中，请将本地站点命名为“VNet4Local”。
+5. 对于“VPN 网关 IP 地址”，可以使用所需的任何 IP 地址，只要它采用有效格式即可。 通常，应该使用 VPN 设备的实际外部 IP 地址。 但是，对于经典 VNet 到 VNet 配置，请使用分配给 VNet 的网关的公共 IP 地址。 考虑到尚未创建该虚拟网关，因此，可以指定任何有效的公共 IP 地址作为占位符。<br>请勿将此留空 - 就此配置来说，此项不是可选项。 稍后将返回到这些设置，使用 Azure 生成的相应虚拟网关 IP 地址对其进行配置。
 6. 对于“客户端地址空间”，使用另一 VNet 的地址空间。 请参考规划示例。 单击“确定”以保存设置并返回到“新建 VPN 连接”边栏选项卡。
 
     ![本地站点](./media/vpn-gateway-howto-vnet-vnet-portal-classic/localsite.png)
@@ -155,9 +158,9 @@ Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet
 1. 在“新建 VPN 连接”边栏选项卡上，选中“立即创建网关”复选框。
 2. 单击“子网、大小和路由类型”。 在“网关配置”边栏选项卡上，单击“子网”。
 3. 网关子网名称自动以所需的名称“GatewaySubnet”进行填充。 “地址范围”包含分配给 VPN 网关服务的 IP 地址。 某些配置允许使用网关子网 /29，但最好使用 /28 或 /27 以适应将来可能需要为网关服务使用更多 IP 地址的配置。 在示例设置中，我们使用了 10.11.1.0/27。 调整地址空间，然后单击“确定”。
-4. 配置“网关大小”。 此设置指的是[网关 SKU](vpn-gateway-about-vpngateways.md#gateway-skus)。
+4. 配置“网关大小”。 此设置指的是[网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 5. 配置“路由类型”。 此配置的路由类型必须为“动态”。 无法在以后更改路由类型，除非删除网关并创建一个新网关。
-6. 单击 **“确定”**。 
+6. 单击 **“确定”**。
 7. 在“新建 VPN 连接”边栏选项卡上，单击“确定”开始创建虚拟网关。 创建网关通常需要 45 分钟或更长的时间，具体取决于所选网关 SKU。
 
 ## 步骤 5 - 配置 TestVNet4 设置
@@ -168,7 +171,7 @@ Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet
 ## 步骤 6 - 更新本地站点
 <a id="step-6---update-the-local-sites" class="xliff"></a>
 
-在为两个 VNet 创建虚拟网关后，必须调整本地站点的 **VPN 网关 IP 地址**值。 
+在为两个 VNet 创建虚拟网关后，必须调整本地站点的 **VPN 网关 IP 地址**值。
 
 |VNet 名称|连接的站点|网关 IP 地址|
 |:--- |:--- |:--- |
@@ -207,7 +210,7 @@ Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet
 ## 步骤 7 - 从网络配置文件中检索值
 <a id="step-7---retrieve-values-from-the-network-configuration-file" class="xliff"></a>
 
-在 Azure 门户中创建经典 VNet 时，你看到的名称不是用于 PowerShell 的完整名称。 例如，在门户中命名为 **TestVNet1** 的 VNet 在网络配置文件中可能具有更长的名称。 该名称可能如下所示：**Group ClassicRG TestVNet1**。 在创建连接时，请务必使用在网络配置文件中看到的值。 
+在 Azure 门户中创建经典 VNet 时，你看到的名称不是用于 PowerShell 的完整名称。 例如，在门户中命名为 **TestVNet1** 的 VNet 在网络配置文件中可能具有更长的名称。 该名称可能如下所示：**Group ClassicRG TestVNet1**。 在创建连接时，请务必使用在网络配置文件中看到的值。
 
 在下面的步骤中，需连接到 Azure 帐户并下载和查看网络配置文件，以便获取连接所需的值。
 
@@ -267,9 +270,9 @@ Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet
   ```
   Error          :
   HttpStatusCode : OK
-  Id             : 
+  Id             :
   Status         : Successful
-  RequestId      : 
+  RequestId      :
   StatusCode     : OK
   ```
 

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+origin.date: 04/06/2017
 ms.author: v-yiso
-ms.openlocfilehash: e4729363cab1e3a265267720fbf91dedec8ca1cf
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/17/2017
+ms.openlocfilehash: efbed52dcb6ac2d1688ff38665eca0b48970b79d
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 使用 PowerShell 管理服务总线资源
 <a id="use-powershell-to-manage-service-bus-resources" class="xliff"></a>

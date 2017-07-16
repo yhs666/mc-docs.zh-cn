@@ -13,11 +13,11 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-yiso
-ms.openlocfilehash: 4232c5e841bf3f7f32e4569fe94b01b57a29ba55
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: dd7d4ffafcf00e7107f07edda394da884ec1339b
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 #ExpressRoute 文档
 <a id="expressroute-documentation" class="xliff"></a>
@@ -81,10 +81,3 @@ ms.lasthandoff: 06/21/2017
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
-        <div class="img"></div>
-        <div class="text">
-下载 ExpressRoute 文档 </div>
-    </a>
-</div>

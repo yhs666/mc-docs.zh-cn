@@ -18,11 +18,11 @@ origin.date: 11/08/2016
 ms.date: 05/22/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b8c08d38b8537c0b51058bcf273611b2afbe044
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 5ae2c18af021e4f54ba9008c5bc319f7d6e4fe99
+ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/10/2017
 ---
 # 在 Azure 中的 Windows VM 上部署 SAP
 <a id="deploy-sap-on-windows-vms-in-azure" class="xliff"></a>
@@ -251,7 +251,7 @@ ms.lasthandoff: 06/23/2017
 [storage-redundancy]:../../storage/storage-redundancy.md
 [storage-scalability-targets]:../../storage/storage-scalability-targets.md
 [storage-use-azcopy]:../../storage/storage-use-azcopy.md
-[template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
+[template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../linux/attach-disk-portal.md
@@ -305,7 +305,7 @@ ms.lasthandoff: 06/23/2017
 [vpn-gateway-site-to-site-create]:../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]:../../cli-install-nodejs.md
-[xplat-cli-azure-resource-manager]:.././azure/xplat-cli-azure-resource-manager
+[xplat-cli-azure-resource-manager]:../../xplat-cli-azure-resource-manager.md
 
 对于需要在最短时间内获得计算和存储资源的组织，Azure 虚拟机是合适的解决方案，它没有冗长的采购周期。 可以使用 Azure 虚拟机在 Azure 中部署经典应用程序，例如基于 SAP NetWeaver 的应用程序。 无需额外的本地资源即可扩展应用程序的可靠性和可用性。 Azure 虚拟机支持跨界连接，因此可将 Azure 虚拟机集成到组织的本地域、私有云和 SAP 系统布局中。
 

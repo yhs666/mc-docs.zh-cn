@@ -14,18 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/12/2017
-ms.date: 05/02/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 396c798631b5561df7004b3e2ffc8c8c59e3ae03
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.date: 
+ms.openlocfilehash: 3831c061ec02f9c7933097fa62a623f182bde346
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
-
-# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>将虚拟网络连接到 ExpressRoute 线路
+# 将虚拟网络连接到 ExpressRoute 线路
+<a id="connect-a-virtual-network-to-an-expressroute-circuit" class="xliff"></a>
 
 > [!div class="op_single_selector"]
 >- [Resource Manager - Azure 门户](./expressroute-howto-linkvnet-portal-resource-manager.md)
@@ -34,7 +32,8 @@ ms.lasthandoff: 04/22/2017
 
 本文通过使用 Resource Manager 部署模型和 Azure 门户，帮助将虚拟网络 (VNets) 链接到 Azure ExpressRoute 线路。 虚拟网络可以在同一个订阅中，也可以属于另一个订阅。
 
-## <a name="before-you-begin"></a>开始之前
+## 开始之前
+<a id="before-you-begin" class="xliff"></a>
 
 - 在开始配置之前，请查看[先决条件](./expressroute-prerequisites.md)、[路由要求](./expressroute-routing.md)和[工作流](./expressroute-workflows.md)。
 - 必须有活动的 ExpressRoute 线路。 
@@ -42,16 +41,17 @@ ms.lasthandoff: 04/22/2017
 
     - 确保为线路配置 Azure 专用对等互连。 有关路由说明，请参阅[配置路由](./expressroute-howto-routing-portal-resource-manager.md)一文。 
 
-    - 确保配置 Azure 专用对等互连，并运行用户网络和 Azure 之间的 BGP 对等互连，以便启用端到端连接。
+    - 确保配置 Azure 专用对等互连，并运行用户网络和 Microsoft 之间的 BGP 对等互连，以便启用端到端连接。
     - 确保已创建并完全预配一个虚拟网络和一个虚拟网络网关。 按照说明[为 ExpressRoute 创建虚拟网关](./expressroute-howto-add-gateway-resource-manager.md)。 ExpressRoute 的虚拟网关使用 GatewayType“ExpressRoute”，而不是 VPN。
 
 - 最多可以将 10 个虚拟网络链接到一条标准 ExpressRoute 线路。 使用标准 ExpressRoute 线路时，所有虚拟网络都必须位于同一地缘政治区域。 
 - 如果已启用 ExpressRoute 高级外接程序，则可以链接 ExpressRoute 线路的地缘政治区域外部的虚拟网络，或者将大量虚拟网络连接到 ExpressRoute 线路。 有关高级外接程序的更多详细信息，请参阅[常见问题](./expressroute-faqs.md)。
 
+## 将同一订阅中的虚拟网络连接到线路
+<a id="connect-a-virtual-network-in-the-same-subscription-to-a-circuit" class="xliff"></a>
 
-## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>将同一订阅中的虚拟网络连接到线路
-
-### <a name="to-create-a-connection"></a>创建连接
+### 创建连接
+<a id="to-create-a-connection" class="xliff"></a>
 
 > [!NOTE]
 > 如果第 3 层提供商配置了你的对等互连，则 BGP 配置信息将不会显示。 如果你的线路处于已预配状态，你应该能够创建连接。
@@ -69,10 +69,12 @@ ms.lasthandoff: 04/22/2017
 
      ![连接对象屏幕截图](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
 
-### <a name="to-delete-a-connection"></a>删除连接
+### 删除连接
+<a id="to-delete-a-connection" class="xliff"></a>
 可以通过选择连接的边栏选项卡上的“删除”图标来删除连接。
 
-## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>将不同订阅中的虚拟网络连接到线路
+## 将不同订阅中的虚拟网络连接到线路
+<a id="connect-a-virtual-network-in-a-different-subscription-to-a-circuit" class="xliff"></a>
 用户可以在多个订阅之间共享 ExpressRoute 线路。 下图显示了如何在多个订阅之间实现 ExpressRoute 线路共享的简单示意图。
 
 ![跨订阅连接](./media/expressroute-howto-linkvnet-portal-resource-manager/cross-subscription.png)
@@ -86,13 +88,15 @@ ms.lasthandoff: 04/22/2017
     > 
     >
 
-### <a name="administration---circuit-owners-and-circuit-users"></a>管理 - 线路所有者和线路用户
+### 管理 - 线路所有者和线路用户
+<a id="administration---circuit-owners-and-circuit-users" class="xliff"></a>
 
 “线路所有者”是 ExpressRoute 线路资源的已授权高级用户。 线路所有者可以创建可供“线路用户”兑换的授权。 线路用户是虚拟网关的所有者，这些网关与 ExpressRoute 线路位于不同的订阅中。 线路用户可以兑换授权（每个虚拟网络需要一个授权）。
 
 线路所有者有权随时修改和撤消授权。 撤消授权会导致从已撤消访问权限的订阅中删除所有链路连接。
 
-### <a name="circuit-owner-operations"></a>线路所有者操作
+### 线路所有者操作
+<a id="circuit-owner-operations" class="xliff"></a>
 
 **创建连接授权**
 
@@ -110,7 +114,8 @@ ms.lasthandoff: 04/22/2017
 
 可以通过选择连接的边栏选项卡上的“删除”图标来删除连接。
 
-### <a name="circuit-user-operations"></a>线路用户操作
+### 线路用户操作
+<a id="circuit-user-operations" class="xliff"></a>
 
 线路用户需要线路所有者提供的资源 ID 和授权密钥。 
 
@@ -144,6 +149,7 @@ ms.lasthandoff: 04/22/2017
 
 可以通过删除 ExpressRoute 线路与虚拟网络之间的连接释放授权。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 有关 ExpressRoute 的详细信息，请参阅 [ExpressRoute 常见问题](./expressroute-faqs.md)。

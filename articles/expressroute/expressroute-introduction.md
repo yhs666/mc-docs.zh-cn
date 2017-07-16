@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+origin.date: 05/12/2017
 ms.author: v-yiso
-ms.openlocfilehash: d3691ca1e5a34d27110434e93afd779a25a65fe5
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 
+ms.openlocfilehash: f07c455569251f08bb9ebc4dfd5931d3f066a93a
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # ExpressRoute 概述
 <a id="expressroute-overview" class="xliff"></a>

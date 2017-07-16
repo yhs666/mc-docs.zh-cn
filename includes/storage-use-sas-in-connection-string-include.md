@@ -19,7 +19,8 @@ SharedAccessSignature=sasToken
 >
 >
 
-### <a name="service-sas-example"></a>服务 SAS 示例
+### 服务 SAS 示例
+<a id="service-sas-example" class="xliff"></a>
 下面是包含 Blob 存储服务 SAS 的连接字符串示例：
 
 ```
@@ -32,7 +33,8 @@ BlobEndpoint=https://storagesample.blob.core.chinacloudapi.cn;SharedAccessSignat
 BlobEndpoint=https://storagesample.blob.core.chinacloudapi.cn;SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 ```
 
-### <a name="account-sas-example"></a>帐户 SAS 示例
+### 帐户 SAS 示例
+<a id="account-sas-example" class="xliff"></a>
 下面是包含 Blob 和文件存储帐户 SAS 的连接字符串示例。 请注意，其中指定了两个服务的终结点：
 
 ```

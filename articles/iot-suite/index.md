@@ -13,11 +13,11 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-yiso
-ms.openlocfilehash: 19e85324d50b8d3a7a4e9ed5cc112af15fc799a7
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 6f3ea80f491ce1b145055a0edcd5b515018bc6ad
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # IoT 套件文档
 <a id="iot-suite-documentation" class="xliff"></a>
@@ -61,15 +61,25 @@ Microsoft Azure IoT 套件快速入门。 使用预配置解决方案，并加�
         </div>
         </a>
     </li>
- 
+    <li>
+        <a href="/iot-suite/iot-suite-getstarted-preconfigured-solutions">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>IoT 预配置解决方案入门</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>    
 </ul>
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-suite.pdf">
-        <div class="img"></div>
-        <div class="text">
-下载 IoT 套件文档 </div>
-    </a>
-</div>

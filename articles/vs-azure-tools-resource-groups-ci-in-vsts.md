@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: v-junlch
 ms.openlocfilehash: a278b30e00ed61097e4dc09e79ad3cdc7c8f0e98
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 使用 Azure 资源组部署项目在 Visual Studio Team Services 中连续集成
 <a id="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects" class="xliff"></a>

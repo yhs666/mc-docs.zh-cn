@@ -18,11 +18,11 @@ origin.date: 12/08/2016
 ms.date: 05/22/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 578e683ab5f42bb287674cd077dfc43f0edccff7
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 0bc493f22edbf188138d6f7a936964c1f3b81639
+ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/10/2017
 ---
 # 使用 Azure Windows 虚拟机 (VM) 上的 SAP
 <a id="using-sap-on-azure-windows-virtual-machines-vms" class="xliff"></a>
@@ -251,7 +251,7 @@ ms.lasthandoff: 06/23/2017
 [storage-redundancy]:../../storage/storage-redundancy.md
 [storage-scalability-targets]:../../storage/storage-scalability-targets.md
 [storage-use-azcopy]:../../storage/storage-use-azcopy.md
-[template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
+[template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../linux/attach-disk-portal.md
@@ -304,7 +304,7 @@ ms.lasthandoff: 06/23/2017
 [vpn-gateway-site-to-site-create]:../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]:../../cli-install-nodejs.md
-[xplat-cli-azure-resource-manager]:.././azure/xplat-cli-azure-resource-manager
+[xplat-cli-azure-resource-manager]:../../xplat-cli-azure-resource-manager.md
 
 通过选择 Azure 作为符合 SAP 需求的云合作伙伴，可以在可缩放、兼容且经企业证明的平台上可靠地运行任务关键 SAP 工作负荷。  可利用 Azure 的可伸缩性、灵活性和低成本特性。 随着 Microsoft 和 SAP 扩大合作伙伴关系，可以在 Azure 的各个开发/测试和生产方案中运行 SAP 应用程序，并能获得完全支持。 从 SAP NetWeaver 到 SAP S4/HANA，Linux 到 Windows，SAP HANA 到 SQL，我们都能满足你的需求。 
 

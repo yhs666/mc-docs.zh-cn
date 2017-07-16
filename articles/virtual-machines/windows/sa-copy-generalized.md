@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 05/23/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
-ms.openlocfilehash: 201ef7d6ddddb744fba542bf2553f5a3755a9626
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 77d9291000d790e14eae8e4667cf06a59eb80668
+ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/10/2017
 ---
 # 如何从 Azure VM 创建非托管 VM 映像
 <a id="how-to-create-an-unmanaged-vm-image-from-an-azure-vm" class="xliff"></a>
@@ -215,7 +215,7 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 
     # Size of the virtual machine. This example creates "Standard_D2_v2" sized VM. 
     # See the VM sizes documentation for more information: 
-    # /virtual-machines-windows-sizes/
+    # https://docs.azure.cn/virtual-machines/windows/sizes/
     $vmSize = "Standard_D2_v2"
 
     # Computer name for the VM. This examples sets the computer name as "myComputer".

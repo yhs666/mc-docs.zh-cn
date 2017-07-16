@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 03/20/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.openlocfilehash: aa757d1a2da2b7a2f84bd61a78d4c84259c4efc5
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: ad8c13f8c53e4e4575260bd115758e48d761aa90
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 配置性能流量路由方法
 <a id="configure-the-performance-traffic-routing-method" class="xliff"></a>
@@ -51,6 +51,7 @@ ms.lasthandoff: 06/23/2017
 
 - 了解[加权流量路由方法](traffic-manager-configure-weighted-routing-method.md)。
 - 了解[优先级路由方法](traffic-manager-configure-priority-routing-method.md)。
+- 了解[地理路由方法](traffic-manager-configure-geographic-routing-method.md)。
 - 了解如何[测试流量管理器设置](traffic-manager-testing-settings.md)。
 
 <!--Image references-->

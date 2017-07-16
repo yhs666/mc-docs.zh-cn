@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/14/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
-ms.openlocfilehash: 33df9e3ce12af0a001184a29041d299aa3780a01
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: 3acbea84b58a586fd007d7bf3bb0408e7aa1d7b7
+ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/10/2017
 ---
 # 在 Azure 应用服务中创建 .NET Web 作业
 <a id="create-a-net-webjob-in-azure-app-service" class="xliff"></a>
@@ -47,9 +47,6 @@ ms.lasthandoff: 06/30/2017
 > <a name="note"></a>完成本教程必须具备 Azure 帐户：
 >
 > * 可以[注册 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)：获取可用来试用付费版 Azure 服务的信用额度，即便在信用额度用完后，仍可以保留帐户并使用免费的 Azure 服务（如网站）。 不会对信用卡收取任何费用，除非明确更改设置并要求收费。
-> * 可以[激活 Visual Studio 订户的每月 Azure 信用额度](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)：订阅每月为用户提供可用来试用付费版 Azure 服务的信用额度。
->
-> 如果想要在注册 Azure 帐户之前开始使用 Azure 应用服务，请转到[试用应用服务](https://azure.microsoft.com/try/app-service/)，然后在其中立即创建一个生存期较短的入门 Web 应用。 你不需要使用信用卡，也不需要做出承诺。
 >
 >
 

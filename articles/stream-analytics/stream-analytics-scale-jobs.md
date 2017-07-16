@@ -17,10 +17,10 @@ origin.date: 03/28/2017
 ms.date: 07/10/2017
 ms.author: v-yeche
 ms.openlocfilehash: 6298c61d2e85616c2b01301fedf15379e1e172dd
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 扩展 Azure 流分析作业，增加流数据处理吞吐量
 <a id="scale-azure-stream-analytics-jobs-to-increase-stream-data-processing-throughput" class="xliff"></a>

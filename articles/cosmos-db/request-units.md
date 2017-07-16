@@ -16,10 +16,10 @@ origin.date: 05/10/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
 ms.openlocfilehash: b6c7567f052449bc1bc180dfbc3087b4781f8f68
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/13/2017
 ---
 # Azure Cosmos DB 中的请求单位
 <a id="request-units-in-azure-cosmos-db" class="xliff"></a>

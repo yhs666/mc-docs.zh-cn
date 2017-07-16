@@ -16,11 +16,11 @@ ms.workload: infrastructure
 origin.date: 03/23/2017
 ms.date: 05/15/2017
 ms.author: v-dazen
-ms.openlocfilehash: 68b66143d4c4e2fec9a1b064491499dde5e35143
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: a1f1d3bd4d95afc19496ec8936111766e42e6af5
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 如何加密 Linux VM 上的虚拟磁盘
 <a id="how-to-encrypt-virtual-disks-on-a-linux-vm" class="xliff"></a>
@@ -287,3 +287,4 @@ az vm encryption enable --resource-group myResourceGroup --name myVM \
 ## 后续步骤
 <a id="next-steps" class="xliff"></a>
 * 有关管理 Azure 密钥保管库的详细信息，包括删除加密密钥和保管库，请参阅 [Manage Key Vault using CLI](../../key-vault/key-vault-manage-with-cli2.md)（使用 CLI 管理密钥保管库）。
+* 有关磁盘加密的详细信息，例如准备要上传到 Azure 的已加密自定义 VM，请参阅 [Azure Disk Encryption](../../security/azure-security-disk-encryption.md)（Azure 磁盘加密）。

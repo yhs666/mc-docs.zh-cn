@@ -3,8 +3,8 @@ title: "使用 Node.js 模块"
 description: "了解如何在使用 Azure 应用服务或云服务的同时使用 Node.js 模块。"
 services: 
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: c0e6cd3d-932d-433e-b72d-e513e23b4eb6
 ms.service: multiple
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 12/22/2016
-ms.date: 02/14/2017
+origin.date: 04/25/2017
+ms.date: 07/13/2017
 ms.author: v-junlch
-ms.openlocfilehash: 3d56f7890182571cd1ad88e2f2193e280d83556a
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 2b9be8285de04a01bfb9061d142a36707023c43a
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 将 Node.js 模块与 Azure 应用程序一起使用
 <a id="using-nodejs-modules-with-azure-applications" class="xliff"></a>
@@ -27,11 +27,13 @@ ms.lasthandoff: 06/21/2017
 
 如果已了解如何使用 Node.js 模块、**package.json** 和 **npm-shrinkwrap.json** 文件，可参考本文中所讨论内容的以下快速摘要：
 
-* Azure 应用服务了解 **package.json** 和 **npm-shrinkwrap.json** 文件，可基于这些文件中的条目安装模块。
-* Azure 云服务希望所有模块都安装在开发环境中，并将 **node\_modules** 目录包含为部署包的一部分。 可以为使用 **package.json** 或 **npm-shrinkwrap.json** 文件在云服务上安装模块提供相应支持，但这需要自定义云服务项目使用的默认脚本。 有关如何实现此目的的示例，请参阅 [运行 npm 安装以避免部署 Node 模块的 Azure 启动任务](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
+- Azure 应用服务了解 **package.json** 和 **npm-shrinkwrap.json** 文件，可基于这些文件中的条目安装模块。
+- Azure 云服务希望所有模块都安装在开发环境中，并将 **node\_modules** 目录包含为部署包的一部分。 可以为使用 **package.json** 或 **npm-shrinkwrap.json** 文件在云服务上安装模块提供相应支持，但这需要自定义云服务项目使用的默认脚本。 有关如何实现此目的的示例，请参阅 [运行 npm 安装以避免部署 Node 模块的 Azure 启动任务](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
 
 > [!NOTE]
 > 本文不讨论 Azure 虚拟机，因为 VM 中的开发体验将取决于由虚拟机托管的操作系统。
+> 
+> 
 
 ## Node.js 模块
 <a id="nodejs-modules" class="xliff"></a>
@@ -47,9 +49,9 @@ ms.lasthandoff: 06/21/2017
 
 Azure 应用服务不支持部分本机模块，并且在编译具有高度专用先决条件的本机模块时可能失败。 一些常用模块（如 MongoDB）需要的本机依赖项是可选的，如果没有这些依赖项可勉强正常工作。对于当今几乎所有的可用本机模块而言，有两种成功的解决方法：
 
-* 在安装了所有系统必备组件的 Windows 计算机运行 **npm install** 。 然后，将创建的 **node\_modules** 文件夹作为应用程序的一部分部署到 Azure 应用服务。
+- 在安装了所有系统必备组件的 Windows 计算机运行 **npm install** 。 然后，将创建的 **node\_modules** 文件夹作为应用程序的一部分部署到 Azure 应用服务。
   - 在编译之前, 检查本地 Node.js 安装是否具有匹配的体系结构以及版本是否尽可能接近在 Azure 中使用的版本（可以在运行时从属性 **process.arch** 和 **process.version** 中检查当前值）。
-* 可以将 Azure 应用服务配置为在部署期间执行自定义 bash 或 shell 脚本，使你能够执行自定义命令并精确配置 **npm install** 的运行方式。 
+- 可以将 Azure 应用服务配置为在部署期间执行自定义 bash 或 shell 脚本，使你能够执行自定义命令并精确配置 **npm install** 的运行方式。 
 
 ### 使用 package.json 文件
 <a id="using-a-packagejson-file" class="xliff"></a>
@@ -85,11 +87,9 @@ Azure 应用服务不支持部分本机模块，并且在编译具有高度专�
 
 ## 后续步骤
 <a id="next-steps" class="xliff"></a>
-了解如何将 Node.js 模块与 Azure 一起使用后，请学习如何[指定 Node.js 版本]、[生成和部署 Node.js Web 应用](./app-service-web/web-sites-nodejs-develop-deploy-mac.md)，以及[如何使用适用于 Mac 和 Linux 的 Azure 命令行接口]。
+了解如何将 Node.js 模块与 Azure 一起使用后，请学习如何[指定 Node.js 版本]、[生成和部署 Node.js Web 应用](app-service-web/app-service-web-get-started-nodejs.md)，以及[如何使用适用于 Mac 和 Linux 的 Azure 命令行接口]。
 
 有关详细信息，请参阅 [Node.js 开发人员中心](/develop/nodejs/)。
 
-[指定 Node.js 版本]:./nodejs-specify-node-version-azure-apps.md
-[如何使用适用于 Mac 和 Linux 的 Azure 命令行接口]:./xplat-cli-install.md
-[build and deploy a Node.js web app]:./app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Build and deploy a Node.js application to an Azure Cloud Service]:./cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[指定 Node.js 版本]: nodejs-specify-node-version-azure-apps.md
+[如何使用适用于 Mac 和 Linux 的 Azure 命令行接口]:cli-install-nodejs.md

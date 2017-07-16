@@ -17,10 +17,10 @@ origin.date: 04/25/2017
 ms.date: 03/01/2017
 ms.author: v-dazen
 ms.openlocfilehash: df1761009fbb448ac8bf35ae7057f41e38d20d45
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 使用 Git 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用
 <a id="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-git" class="xliff"></a>

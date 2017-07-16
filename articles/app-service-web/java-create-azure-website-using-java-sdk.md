@@ -17,10 +17,10 @@ origin.date: 02/25/2016
 ms.date: 09/26/2016
 ms.author: v-dazen
 ms.openlocfilehash: d62ea15a6c727e67d07c723ddc360d9785d28fe2
-ms.sourcegitcommit: 2c397ac599bdb39b257580a1b55a1ce67e19ae56
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 使用 Azure SDK for Java 在 Azure 应用服务中创建 Web 应用
 <a id="create-a-web-app-in-azure-app-service-using-the-azure-sdk-for-java" class="xliff"></a>

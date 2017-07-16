@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2017
+origin.date: 04/28/2017
 ms.author: v-yiso
-ms.openlocfilehash: 5381e1df3c1af1265412dff7e37757279d4691e2
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/17/2017
+ms.openlocfilehash: 23fc548df9e0dec0bb10e3fe739f7d932486cae1
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 分区队列和主题
 <a id="partitioned-queues-and-topics" class="xliff"></a>

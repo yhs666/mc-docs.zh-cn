@@ -17,10 +17,10 @@ origin.date: 06/01/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.openlocfilehash: f401694db1c724392e6ac0de6d297bf7c52d8512
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 将 Azure 高级存储用于虚拟机上的 SQL Server
 <a id="use-azure-premium-storage-with-sql-server-on-virtual-machines" class="xliff"></a>

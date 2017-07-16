@@ -16,10 +16,10 @@ origin.date: 06/12/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
 ms.openlocfilehash: 92ae3f7cde8de6c9960bf326447957c51c6f4af1
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 设置 Azure Cosmos DB 容器的吞吐量
 <a id="set-throughput-for-azure-cosmos-db-containers" class="xliff"></a>

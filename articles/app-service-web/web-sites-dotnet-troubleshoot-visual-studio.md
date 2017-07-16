@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 08/29/2016
 ms.date: 07/10/2017
 ms.author: v-dazen
-ms.openlocfilehash: 2a65c3f76fb9df9a5087de49240aebbab949e96b
-ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
+ms.openlocfilehash: cd4108fdf08c39d27676445035084815d8fc92cd
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 使用 Visual Studio 对 Azure 应用服务中的 Web 应用进行故障排除
 <a id="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio" class="xliff"></a>
@@ -50,7 +50,7 @@ ms.lasthandoff: 07/06/2017
 
 在本教程中所示的代码示例适用于 C# MVC Web 应用程序，但对于 Visual Basic 和 Web 窗体应用程序，故障排除过程是一样的。
 
-本教程假设使用 Visual Studio 2015 或 2013。 如果使用 Visual Studio 2013，Web 作业功能需要 [Update 4](https://www.microsoft.com/download/details.aspx?id=45326) 或更高版本。
+本教程假设使用 Visual Studio 2015 或 2013。 如果使用 Visual Studio 2013，Web 作业功能需要 [Update 4](http://www.microsoft.com/download/details.aspx?id=45326) 或更高版本。
 
 流式日志功能仅适用于面向 .NET Framework 4 或更高版本的应用程序。
 

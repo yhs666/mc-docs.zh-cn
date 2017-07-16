@@ -9,7 +9,8 @@ articles/sql-database/sql-database-configure-firewall-settings
 articles/sql-data-warehouse-get-started-provision.md
 
 -->
-### <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>在 Azure 门户中创建服务器级别的防火墙规则
+### 在 Azure 门户中创建服务器级别的防火墙规则
+<a id="create-a-server-level-firewall-rule-in-the-azure-portal" class="xliff"></a>
 
 1. 在“SQL Server”边栏选项卡中，单击“设置”下面的“防火墙”  以打开 SQL Server 的“防火墙”边栏选项卡。
 

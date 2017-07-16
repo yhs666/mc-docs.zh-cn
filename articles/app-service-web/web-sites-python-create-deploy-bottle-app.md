@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 02/19/2016
 ms.date: 03/29/2017
 ms.author: v-dazen
-ms.openlocfilehash: 4d3552e4e7db67036754ecf78181242b3d70b70e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 280e5bd4d6fce4e8de3137397f16ee7d67da2e6a
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 在 Azure 中使用 Bottle 创建 Web 应用
 <a id="creating-web-apps-with-bottle-in-azure" class="xliff"></a>
@@ -41,7 +41,7 @@ ms.lasthandoff: 06/21/2017
 * Git
 * [Python Tools 2.2 for Visual Studio][Python Tools 2.2 for Visual Studio] (PTVS) - 注意：这是可选的
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 **注意**：Python 项目目前不支持 TFS 发布。
 
@@ -62,8 +62,8 @@ ms.lasthandoff: 06/21/2017
 创建应用的第一步是通过 [Azure 门户](https://portal.azure.cn)创建 Web 应用。  
 
 1. 登录到 Azure 门户，然后单击左下角的“新建”  按钮。 
-2. 在搜索框中，键入“python”。
-3. 在搜索结果中，选择“Bottle”，然后单击“创建”。
+2. 单击“Web + 移动”。
+3. 单击“Web 应用”
 4. 配置新的 Bottle 应用，如为其创建新的应用服务计划和新的资源组。 然后单击“创建” 。
 5. 按照 [从本地 Git 部署到 Azure 应用服务](app-service-deploy-local-git.md)的说明为新创建的 Web 应用配置 Git 发布。
 

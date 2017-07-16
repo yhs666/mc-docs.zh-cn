@@ -19,6 +19,7 @@
 ### [使用诊断 VM 扩展监视 VM](../diagnostic-extension.md)
 ### [注入自定义数据](inject-custom-data.md)
 ### [重置 Linux 密码或密钥、修复 SSH 并检查磁盘](reset-access.md)
+### [使用 CLI 创建 Docker 主机](cli-use-docker.md)
 
 ## 使用存储
 ### [附加数据磁盘](attach-disk.md)

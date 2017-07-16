@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 02/28/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 86379580a6296c95a3be4e874eb7802f532fbe4a
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: cf72f03be6cd324cdd270a3d6b1a397d0b4e0bfa
+ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/10/2017
 ---
 # Azure FreeBSD 简介
 <a id="introduction-to-freebsd-on-azure" class="xliff"></a>
@@ -43,8 +43,8 @@ Microsoft Corporation 在 Azure 上提供预先配置了 [Azure VM 来宾代理]
 <a id="deploying-a-freebsd-virtual-machine" class="xliff"></a>
 在 Azure 门户中使用来自 Azure 应用商店的映像部署 FreeBSD 虚拟机是一个非常简单的过程：
 
-- [Azure 应用商店中的 FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
-- [Azure 应用商店中的 FreeBSD 11.0](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
+- [Azure 应用商店中的 FreeBSD 10.3](https://portal.azure.cn/#create/Microsoft.FreeBSD103-ARM)
+- [Azure 应用商店中的 FreeBSD 11.0](https://portal.azure.cn/#create/Microsoft.FreeBSD110-ARM)
 
 ### 通过 FreeBSD 上的 Azure CLI 2.0 创建 FreeBSD VM
 <a id="create-a-freebsd-vm-through-azure-cli-20-on-freebsd" class="xliff"></a>

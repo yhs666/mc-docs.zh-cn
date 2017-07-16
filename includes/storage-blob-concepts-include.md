@@ -1,4 +1,5 @@
-## <a name="what-is-blob-storage"></a>什么是 Blob 存储
+## 什么是 Blob 存储
+<a id="what-is-blob-storage" class="xliff"></a>
 
 Azure Blob 存储是用于存储大量非结构化对象数据（例如文本或二进制数据）的服务，这些数据可通过 HTTP 或 HTTPS 从世界各地进行访问。 你可以使用 Blob 存储向外公开数据，或者私下存储应用程序数据。
 
@@ -10,7 +11,8 @@ Blob 存储的常见用途包括：
 * 存储数据以用于备份和还原、灾难恢复及存档
 * 存储数据以供本地或 Azure 托管服务执行分析
 
-## <a name="blob-service-concepts"></a>Blob 服务概念
+## Blob 服务概念
+<a id="blob-service-concepts" class="xliff"></a>
 Blob 服务包含以下组件：
 
 ![Blob 体系结构](./media/storage-blob-concepts-include/blob1.png)

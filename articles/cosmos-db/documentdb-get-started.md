@@ -17,10 +17,10 @@ origin.date: 05/22/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
 ms.openlocfilehash: 93e9431a1b18683c112e9f1ddd74238f502ac9a5
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/13/2017
 ---
 # Azure Cosmos DB：DocumentDB API 入门教程
 <a id="azure-cosmos-db-documentdb-api-getting-started-tutorial" class="xliff"></a>

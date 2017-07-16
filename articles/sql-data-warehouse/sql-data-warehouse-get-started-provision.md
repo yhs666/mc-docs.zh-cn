@@ -18,10 +18,10 @@ origin.date: 10/31/2016
 ms.date: 07/17/2017
 ms.author: v-yeche
 ms.openlocfilehash: 3ed82cc84f3b41e3438d7adcd4b45ed3b1262421
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 创建 Azure SQL 数据仓库
 <a id="create-an-azure-sql-data-warehouse" class="xliff"></a>

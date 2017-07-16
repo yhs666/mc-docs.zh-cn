@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 04/03/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.openlocfilehash: cdb7d52787c1fdd35f40a04a685a341b969b37b8
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: fd552bba2c6801f9e7510af9ff0ffc25acc6dd21
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 使用 Azure PowerShell 管理 Azure Redis 缓存
 <a id="manage-azure-redis-cache-with-azure-powershell" class="xliff"></a>
@@ -724,8 +724,8 @@ ms.lasthandoff: 06/23/2017
 若要了解有关将 Windows PowerShell 与 Azure 配合使用的详细信息，请参阅以下资源：
 
 * [MSDN 上的 Azure Redis 缓存 cmdlet 文档](https://msdn.microsoft.com/library/azure/mt634513.aspx)
-* [Azure Resource Manager Cmdlet](https://msdn.microsoft.com/library/azure/mt125356.aspx)：了解如何在 Azure Resource Manager 模块中使用这些 cmdlet。
+* [Azure Resource Manager Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765)：了解如何在 Azure Resource Manager 模块中使用这些 cmdlet。
 * [使用资源组管理 Azure 资源](../azure-resource-manager/resource-group-template-deploy-portal.md)：了解如何在 Azure 门户中创建和管理资源组。
-* [Azure 博客](https://www.azure.cn/blog/)：了解 Azure 中的新功能。
+* [Azure 博客](https://www.azure.cn/blog)：了解 Azure 中的新功能。
 * [Windows PowerShell 博客](http://blogs.msdn.com/powershell)：了解 Windows PowerShell 中的新功能。
 * [“你好，脚本编写专家！”博客](http://blogs.technet.com/b/heyscriptingguy/)：从 Windows PowerShell 社区获取实用提示和技巧。

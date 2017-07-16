@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+origin.date: 03/31/2017
 ms.author: v-yiso
-ms.openlocfilehash: e5c60b50c44a08a72d136da11576340afc9d06bc
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 
+ms.openlocfilehash: b09cff9c31f6aa32b9b50b975dffdaba70c4d930
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 创建有关服务通知的活动日志警报
 <a id="create-activity-log-alerts-on-service-notifications" class="xliff"></a>
@@ -117,9 +118,9 @@ ms.lasthandoff: 06/21/2017
 <a id="managing-your-alerts" class="xliff"></a>
 
 创建了警报之后，它会在“监视器”服务的“警报”部分中可见。 选择要管理的警报，将能够：
-* “编辑”它。
-* “删除”它。
-* 如果要暂时停止或恢复接收警报的通知，可“禁用”或“启用”它。
+* **编辑**它。
+* **删除**它。
+* 如果要暂时停止或恢复接收警报的通知，可**禁用**或**启用**它。
 
 ## 后续步骤：
 <a id="next-steps" class="xliff"></a>

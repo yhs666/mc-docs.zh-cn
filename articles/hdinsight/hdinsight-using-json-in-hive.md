@@ -16,11 +16,11 @@ ms.workload: big-data
 origin.date: 04/26/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: 66abef6d4a4dfe25aea2158e572f47669683e86e
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: cefe6919843c4d060ea7433b3c549ca5b17c30bf
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 使用 HDInsight 中的 Hive 处理和分析 JSON 文档
 <a id="process-and-analyze-json-documents-using-hive-in-hdinsight" class="xliff"></a>
@@ -165,7 +165,7 @@ SerDe 是用于分析嵌套 JSON 文档的最佳选择，不但可定义 JSON �
    3. 添加指向 **C:\Program Files\Java\jdk1.7.0_55** 或任何 JDK 安装位置的新 **JAVA_HOME** 环境变量。
 
       ![设置 JDK 的正确配置值][image-hdi-hivejson-jdk]
-2. 安装 [Maven 3.3.1](https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.3.1/apache-maven-3.3.1-bin.zip)
+2. 安装 [Maven 3.3.1](http://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.3.1/apache-maven-3.3.1-bin.zip)
 
     转到“控件面板”->“编辑系统变量”（对应于帐户的 Environment 变量），将 bin 文件夹添加到路径。 以下屏幕截图显示了如何执行此操作。
 
@@ -255,7 +255,7 @@ SerDe 是用于分析嵌套 JSON 文档的最佳选择，不但可定义 JSON �
 
 * [将 Hive 和 HiveQL 与 HDInsight 中的 Hadoop 配合使用以分析示例 Apache log4j 文件](hdinsight-use-hive.md)
 * [使用 HDInsight 中的 Hive 分析航班延误数据](hdinsight-analyze-flight-delay-data.md)
-* [使用 Azure DocumentDb 和 HDInsight 运行 Hadoop 作业](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
+* [使用 Azure Cosmos DB 和 HDInsight 运行 Hadoop 作业](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]: hdinsight-python.md
 

@@ -16,10 +16,10 @@ origin.date: 04/25/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
 ms.openlocfilehash: 2f273f9c829277a938124a22478be8b017de37bf
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 在 Azure 应用服务中配置 Web 应用
 <a id="configure-web-apps-in-azure-app-service" class="xliff"></a>

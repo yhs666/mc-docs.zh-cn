@@ -17,11 +17,11 @@ ms.topic: article
 origin.date: 04/12/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: 28c80f0af8c84cd34b9ab2aabfd47b00d2adc37c
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 38b239c8d100625a37b7c28088a8a09e13e92eb7
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 在 HDInsight 中的 Hadoop 上将 C# 与 MapReduce 流式处理配合使用
 <a id="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight" class="xliff"></a>
@@ -161,7 +161,7 @@ namespace reducer
 ## 上传到存储
 <a id="upload-to-storage" class="xliff"></a>
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 1. 在 Visual Studio 中，打开“服务器资源管理器”。
 

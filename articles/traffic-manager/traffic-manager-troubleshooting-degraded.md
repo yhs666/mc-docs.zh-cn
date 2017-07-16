@@ -14,15 +14,14 @@ ms.workload: infrastructure-services
 origin.date: 05/03/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 0da9143dcdf5b998b7c06425a8db43f97ceec9f1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: 2dbac70f02bd71d89d705baa221796f7823cc713
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
-
-# <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Azure 流量管理器上的降级状态故障排除
+# Azure 流量管理器上的降级状态故障排除
+<a id="troubleshooting-degraded-state-on-azure-traffic-manager" class="xliff"></a>
 
 本文介绍如何对显示降级状态的 Azure 流量管理器配置文件进行故障排除。 在此方案中，假设已配置了一个指向某些 chinacloudapp.cn 托管服务的流量管理器配置文件。 如果流量管理器的运行状况显示“已降级”的状态，则一个或多个终结点的状态可能为“已降级”：
 
@@ -32,7 +31,8 @@ ms.lasthandoff: 05/19/2017
 
 ![非活动流量管理器状态](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 
-## <a name="understanding-traffic-manager-probes"></a>了解流量管理器探测
+## 了解流量管理器探测
+<a id="understanding-traffic-manager-probes" class="xliff"></a>
 
 * 仅当探测从探测路径收到 HTTP 200 响应时，流量管理器才将终结点视为“联机”。 其他任何非 200 响应都被视为失败。
 * 即使重定向 URL 返回 200，30x 重定向也会失败。
@@ -41,7 +41,8 @@ ms.lasthandoff: 05/19/2017
 * 最佳实践是将探测路径设置为提供足够逻辑来确定站点是启动还是关闭的值。 在上述示例中，如果将路径设置为“/favicon.ico”，则只会测试 w3wp.exe 是否有响应。 这种探测可能不会指示 Web 应用程序是否正常。 更好的做法是将路径设置为类似于“/Probe.aspx”的值，通过某个逻辑来确定站点的运行状况。 例如，可以使用性能计数器来查看 CPU 利用率，或者测量失败请求的数目。 或者，可以尝试访问数据库资源或会话状态，确保 Web 应用程序正常工作。
 * 如果配置文件中的所有终结点都已降级，流量管理器会将所有终结点视为处于正常状态，并将流量路由到所有终结点。 此行为可确保探测机制中的问题不会导致服务完全中断。
 
-## <a name="troubleshooting"></a>故障排除
+## 故障排除
+<a id="troubleshooting" class="xliff"></a>
 
 若要排查探测失败，需要使用一个工具显示探测 URL 中返回的 HTTP 状态代码。 有许多工具可以显示原始 HTTP 响应。
 
@@ -51,7 +52,7 @@ ms.lasthandoff: 05/19/2017
 
 也可以在 Internet Explorer 中使用“F12 调试工具”的“网络”标签页查看 HTTP 响应。
 
-在本示例中，我们想要查看探测 URL 返回的响应：http://watestsdp2008r2.chinacloudapp.cn:80/Probe 。 以下 PowerShell 示例演示了该问题。
+在本示例中，我们想要查看探测 URL 返回的响应：http://watestsdp2008r2.chinacloudapp.cn:80/Probe。 以下 PowerShell 示例演示了该问题。
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.chinacloudapp.cn/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
@@ -82,7 +83,8 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
 ```
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 [关于流量管理器流量路由方法](traffic-manager-routing-methods.md)
 
@@ -90,11 +92,10 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [云服务](/cloud-services/)
 
-[Azure Web 应用](/app-service-web/)
+[Azure Web 应用](/app-service/web/)
 
-[流量管理器上的操作（REST API 参考）](https://msdn.microsoft.com/library/hh758255.aspx)
+[流量管理器上的操作（REST API 参考）](http://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Azure 流量管理器 Cmdlet][1]
 
 [1]: https://msdn.microsoft.com/library/mt125941(v=azure.200).aspx
-

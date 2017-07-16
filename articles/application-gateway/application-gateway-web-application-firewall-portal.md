@@ -17,10 +17,10 @@ origin.date: 05/03/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.openlocfilehash: 9a79ef4d1526265bc15a79eac74c7cc79db2d178
-ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 使用门户创建具有 Web 应用程序防火墙的应用程序网关
 <a id="create-an-application-gateway-with-web-application-firewall-by-using-the-portal" class="xliff"></a>

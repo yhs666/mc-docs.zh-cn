@@ -18,10 +18,10 @@ ms.author: v-junlch
 ms.custom: end-user
 ms.date: 06/21/2017
 ms.openlocfilehash: 0c722857c18175f6a30d3353ecb545feb2ac436b
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 帮帮我，我忘记了密码
 <a id="help-i-forgot-my-password" class="xliff"></a>

@@ -1,4 +1,5 @@
-## <a name="view-the-telemetry"></a>查看遥测数据
+## 查看遥测数据
+<a id="view-the-telemetry" class="xliff"></a>
 
 Raspberry Pi 现在正将遥测数据发送到远程监视解决方案。 可以在解决方案仪表板上查看遥测数据。 也可以从解决方案仪表板向 Raspberry Pi 发送消息。
 
@@ -8,7 +9,8 @@ Raspberry Pi 现在正将遥测数据发送到远程监视解决方案。 可以
 
 ![显示来自 Raspberry Pi 的遥测数据][img-telemetry-display]
 
-## <a name="act-on-the-device"></a>在设备上操作
+## 在设备上操作
+<a id="act-on-the-device" class="xliff"></a>
 
 可以通过解决方案仪表板调用 Raspberry Pi 上的方法。 Raspberry Pi 在连接到远程监视解决方案时，会发送所支持的方法的相关信息。
 

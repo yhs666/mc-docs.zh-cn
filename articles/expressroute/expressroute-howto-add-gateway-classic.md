@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/21/2017
-ms.date: 05/02/2017
+ms.date: 
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: becb0ba865157970cc0c19c757d8e2f9d6a34794
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: 06ddd7a28a7463f963eb1fb4dfdd311960ea8ac0
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>使用 PowerShell 配置 ExpressRoute 的虚拟网络网关（经典）
+# 使用 PowerShell 配置 ExpressRoute 的虚拟网络网关（经典）
+<a id="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [Resource Manager - PowerShell](./expressroute-howto-add-gateway-resource-manager.md)
 > * [经典 - PowerShell](./expressroute-howto-add-gateway-classic.md)
@@ -38,12 +38,14 @@ ms.lasthandoff: 04/22/2017
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-## <a name="before-beginning"></a>开始之前
+## 开始之前
+<a id="before-beginning" class="xliff"></a>
 
 确认已安装此配置所需的 Azure PowerShell cmdlet（1.0.2 或更高版本）。 如果尚未安装 cmdlet，必须先安装，然后才能开始执行配置步骤。 有关安装 Azure PowerShell 的详细信息，请参阅 [如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。
 
 [!INCLUDE [expressroute-gateway-classic-ps](../../includes/expressroute-gateway-classic-ps-include.md)]
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 创建 VNet 网关之后，可以将 VNet 链接到 ExpressRoute 线路。 请参阅[将虚拟网络链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-classic.md)。

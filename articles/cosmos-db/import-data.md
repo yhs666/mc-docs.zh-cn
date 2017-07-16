@@ -18,10 +18,10 @@ ms.date: 07/17/2017
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 9202ea4edc2ab7da92291646399fbe52ff6304b9
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 如何将 DocumentDB API 的数据导入 Azure Cosmos DB？
 <a id="how-to-import-data-into-azure-cosmos-db-for-the-documentdb-api" class="xliff"></a>

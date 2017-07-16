@@ -1,7 +1,6 @@
 > [!div class="op_multi_selector" title1="OS" title2="Creation method"]
 > * [（Linux | 概述）](../articles/hdinsight/hdinsight-hadoop-provision-linux-clusters.md)
 > * [（Linux | Azure 门户）](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md)
-> * [（Linux | Azure 数据工厂）](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-adf.md)
 > * [（Linux | Azure CLI）](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-cli.md)
 > * [（Linux | Azure PowerShell）](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 > * [（Linux | REST API）](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-curl-rest.md)

@@ -11,16 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/27/2017
+origin.date: 05/18/2017
 ms.author: v-yiso
-ms.date: 04/24/2017
-ms.openlocfilehash: 55b555f529b4b853de37bcae49d87e935907ba0d
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 07/17/2017
+ms.openlocfilehash: 2c3c5a5069b49ddff78ea8de6a975046cd55a123
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-classic-portal"></a>如何在经典门户中为云服务配置自动缩放
+# 如何在经典门户中为云服务配置自动缩放
+<a id="how-to-configure-auto-scaling-for-a-cloud-service-in-the-classic-portal" class="xliff"></a>
 
 > [!div class="op_single_selector"]
 >- [Azure 门户](./cloud-services-how-to-scale-portal.md)
@@ -43,10 +44,8 @@ ms.lasthandoff: 06/21/2017
 
 - 若要使应用程序具有高可用性，应确保为其部署两个或更多角色实例。 有关详细信息，请参阅[服务级别协议](https://www.azure.cn/support/legal/sla)。
 
-> [!WARNING]
-> 自动缩放仅适用于经典 Azure 存储帐户， 而不适用于 Azure Resource Manager 存储帐户。
-
-## <a name="schedule-scaling"></a>计划缩放
+## 计划缩放
+<a id="schedule-scaling" class="xliff"></a>
 默认情况下，并非所有角色都遵循某一特定计划。 因此，所更改的任意设置都将应用到全年中的所有时间和日期。 如果需要，可针对以下模式之一设置手动或自动缩放：
 
 - 工作日
@@ -63,7 +62,8 @@ ms.lasthandoff: 06/21/2017
 
 ![基于计划的云服务自动缩放][scale_schedules]
 
-## <a name="manual-scale"></a>手动缩放
+## 手动缩放
+<a id="manual-scale" class="xliff"></a>
 在“缩放”页上，可手动增加或减少云服务中正在运行的实例数。 此设置针对已创建的每个计划进行配置，或者在尚未创建计划时随时进行。
 
 1. 在 [Azure 经典管理门户](https://manage.windowsazure.cn)中单击“云服务”，然后单击云服务名称以打开仪表板。
@@ -86,7 +86,8 @@ ms.lasthandoff: 06/21/2017
 >[!TIP]
 > 看到 ![][tip_icon] 时，将鼠标移到其上可获取特定设置功能的相关帮助。
 
-## <a name="automatic-scale---cpu"></a>自动缩放 - CPU
+## 自动缩放 - CPU
+<a id="automatic-scale---cpu" class="xliff"></a>
 如果平均 CPU 使用量百分比高于或低于指定的阈值，此模式会进行缩放。 发生这种情况时，会创建或删除角色实例。
 
 1. 在 [Azure 经典管理门户](https://manage.windowsazure.cn)中单击“云服务”，然后单击云服务名称以打开仪表板。
@@ -105,7 +106,8 @@ ms.lasthandoff: 06/21/2017
 >[!TIP]
 > 看到 ![][tip_icon] 时，将鼠标移到其上可获取特定设置功能的相关帮助。
 
-## <a name="automatic-scale---queue"></a>自动缩放 - 队列
+## 自动缩放 - 队列
+<a id="automatic-scale---queue" class="xliff"></a>
 如果队列中的消息数目高于或低于指定的阈值，此模式会自动缩放。 发生这种情况时，会创建或删除角色实例。
 
 1. 在 [Azure 经典管理门户](https://manage.windowsazure.cn)中单击“云服务”，然后单击云服务名称以打开仪表板。
@@ -122,7 +124,8 @@ ms.lasthandoff: 06/21/2017
 >[!TIP]
 > 看到 ![][tip_icon] 时，将鼠标移到其上可获取特定设置功能的相关帮助。
 
-## <a name="scale-linked-resources"></a>缩放链接的资源
+## 缩放链接的资源
+<a id="scale-linked-resources" class="xliff"></a>
 缩放角色时，通常最好同时缩放应用程序正在使用的数据库。 如果将数据库链接到云服务，可以单击相应的链接来访问该资源的缩放设置。
 
 1. 在 [Azure 经典管理门户](https://manage.windowsazure.cn)中单击“云服务”，然后单击云服务名称以打开仪表板。

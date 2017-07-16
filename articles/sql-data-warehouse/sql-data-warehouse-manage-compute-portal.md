@@ -17,10 +17,10 @@ origin.date: 10/31/2016
 ms.date: 07/17/2017
 ms.author: v-yeche
 ms.openlocfilehash: b9a9e282adce8c2da15b4bafe0fd75d04c903e20
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 管理 Azure SQL 数据仓库中的计算能力（Azure 门户）
 <a id="manage-compute-power-in-azure-sql-data-warehouse-azure-portal" class="xliff"></a>

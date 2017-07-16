@@ -16,13 +16,15 @@ origin.date: 05/04/2017
 ms.author: v-junlch
 ms.date: 06/12/2017
 ms.openlocfilehash: b2f9eb44dbaab9cc1d08f91d7b7cb15bd8970b8b
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
-# <a name="using-scim-to-enable-automatic-provisioning-of-users-from-azure-active-directory-to-applications"></a>使用 SCIM 启用从 Azure Active Directory 到应用程序的用户自动预配
-## <a name="overview"></a>概述
+# 使用 SCIM 启用从 Azure Active Directory 到应用程序的用户自动预配
+<a id="using-scim-to-enable-automatic-provisioning-of-users-from-azure-active-directory-to-applications" class="xliff"></a>
+## 概述
+<a id="overview" class="xliff"></a>
 Azure Active Directory 可以使用 [SCIM 2.0](https://tools.ietf.org/html/draft-ietf-scim-api-19) 协议规范中定义的接口，将用户和组自动预配到以 Web 服务为前端的任何应用程序或标识存储。 Azure Active Directory 可将请求发送到此 Web 服务以创建、修改和删除分配的用户与组，然后，Web 服务可将这些请求转换为针对目标标识存储的操作。 
 
 ![][1]
@@ -36,7 +38,8 @@ Azure Active Directory 中的 SCIM 有两种使用方案：
 
 * 为支持其他基于 API 的预配的应用程序构建自己的预配解决方案 - 对于非 SCIM 应用程序，可以创建一个 SCIM 终结点，用于在 Azure AD 的 SCIM 终结点与应用程序为用户预配支持的任何 API 之间进行转换。  为了帮助开发 SCIM 终结点，我们连同代码示例提供了 CLI 库，说明如何提供 SCIM 终结点和转换 SCIM 消息。  
 
-## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>将用户和组预配到支持 SCIM 的应用程序
+## 将用户和组预配到支持 SCIM 的应用程序
+<a id="provisioning-users-and-groups-to-applications-that-support-scim" class="xliff"></a>
 Azure Active Directory 可配置为自动将已分配的用户和组预配到实现[跨域标识管理系统 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) Web 服务、并接受使用 OAuth 持有者令牌进行身份验证的应用程序。 在 SCIM 2.0 规范中，应用程序必须符合以下要求：
 
 * 支持根据 SCIM 协议第 3.3 部分创建用户和/或组。  
@@ -55,7 +58,8 @@ Azure Active Directory 可配置为自动将已分配的用户和组预配到实
 
 你应该咨询应用程序提供者，或参阅应用程序提供者文档中的说明，了解是否符合这些要求。
 
-### <a name="getting-started"></a>入门
+### 入门
+<a id="getting-started" class="xliff"></a>
 支持上述 SCIM 配置文件的应用程序可以使用 Azure AD 应用程序库中的“自定义”应用功能连接到 Azure Active Directory。 连接后，Azure AD 将每隔 5 分钟运行一次同步过程，此过程将为分配的用户和组查询应用程序的 SCIM 终结点，并根据分配详细信息创建或修改这些用户和组。
 
 **连接到支持 SCIM 的应用程序：**
@@ -78,7 +82,8 @@ Azure Active Directory 可配置为自动将已分配的用户和组预配到实
 
 请注意，预配过程可能需要 5-10 分钟才会开始将请求发送到 SCIM 终结点。  应用程序的“仪表板”选项卡上提供了连接尝试的摘要，可以从目录的“报告”选项卡下载预配活动报告和任何预配错误。
 
-## <a name="building-your-own-provisioning-solution-for-any-application"></a>为任何应用程序构建你自己的预配解决方案
+## 为任何应用程序构建你自己的预配解决方案
+<a id="building-your-own-provisioning-solution-for-any-application" class="xliff"></a>
 创建可与 Azure Active Directory 交互的 SCIM Web 服务后，可为提供 REST 或 SOAP 用户预配 API 的几乎所有应用程序启用单一登录和自动用户预配。
 
 工作方式如下：
@@ -88,7 +93,8 @@ Azure Active Directory 可配置为自动将已分配的用户和组预配到实
 3. 终结点 URL 在 Azure AD 中注册为应用程序库中自定义应用程序的一部分。
 4. 用户和组在 Azure AD 中分配到此应用程序。 分配后，它们将被放入队列，以同步到目标应用程序。 处理队列的同步过程每隔 5 分钟运行一次。
 
-### <a name="code-samples"></a>代码示例
+### 代码示例
+<a id="code-samples" class="xliff"></a>
 为简化此过程，我们提供了一组[代码示例](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)，用于创建 SCIM Web 服务终结点并演示自动预配。 其中一个示例是维护包含逗号分隔值行（代表用户和组）的文件的提供程序。  另一个是在 Amazon Web 服务标识与访问管理服务上运行的提供程序。  
 
 **先决条件**
@@ -99,7 +105,8 @@ Azure Active Directory 可配置为自动将已分配的用户和组预配到实
 * [具有 Azure AD Premium 试用版或许可版的 Azure 订阅](./index.md)
 - Amazon AWS 示例需要[适用于 Visual Studio 的 AWS 工具包](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html)中的库。 请参阅示例随附的自述文件以获取其他详细信息
 
-### <a name="getting-started"></a>入门
+### 入门
+<a id="getting-started" class="xliff"></a>
 若要实现一个 SCIM 终结点，以便接受来自 Azure AD 的预配请求，最简单的方法是构建和部署一个示例代码，将预配的用户输出到逗号分隔值 (CSV) 文件。
 
 若要创建示例 SCIM 终结点，请执行以下操作：
@@ -139,7 +146,8 @@ Azure Active Directory 可配置为自动将已分配的用户和组预配到实
 
 验证此示例的最后一步是打开 Windows 计算机上 \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug 文件夹中的 TargetFile.csv 文件。 运行预配过程后，此文件将显示所有已分配和预配的用户与组的详细信息。
 
-### <a name="development-libraries"></a>开发库
+### 开发库
+<a id="development-libraries" class="xliff"></a>
 若要开发自己的符合 SCIM 规范的 Web 服务，请先熟悉 Microsoft 提供的、有助于加速开发过程的以下库： 
 
 **1：**提供公共语言基础结构库以配合基于该基础结构的语言，例如 C#。  其中一个库 [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/) 声明接口 Microsoft.SystemForCrossDomainIdentityManagement.IProvider，如下图所示。  使用这些库的开发人员将对某个类（一般称为提供程序）实现该接口。  库可让开发人员轻松部署符合 SCIM 规范的 Web 服务，无论该服务是托管在 Internet Information Services 还是任何可执行的通用语言基础结构程序集中。  对该 Web 服务的请求将转换为对提供程序方法的调用，这些方法由开发人员编程，以便对某些标识存储执行操作。    
@@ -148,7 +156,8 @@ Azure Active Directory 可配置为自动将已分配的用户和组预配到实
 
 **2：**[ExpressRoute 处理程序](http://expressjs.com/guide/routing.html)用于分析代表对 node.js Web 服务的调用（由 SCIM 规范定义）的 node.js 请求对象。   
 
-### <a name="building-a-custom-scim-endpoint"></a>构建自定义 SCIM 终结点
+### 构建自定义 SCIM 终结点
+<a id="building-a-custom-scim-endpoint" class="xliff"></a>
 开发人员可以使用上述库将其服务托管在任何可执行的通用语言基础结构程序集或 Internet Information Services 中。  以下代码示例用于将服务托管在地址为 http://localhost:9000 的可执行程序集中： 
 
     private static void Main(string[] arguments)
@@ -268,7 +277,8 @@ Azure Active Directory 可配置为自动将已分配的用户和组预配到实
     }
     }
 
-### <a name="handling-endpoint-authentication"></a>处理终结点身份验证
+### 处理终结点身份验证
+<a id="handling-endpoint-authentication" class="xliff"></a>
 来自 Azure Active Directory 的请求包括 OAuth 2.0 持有者令牌。   接收请求的任何服务应该代表所需的 Azure Active Directory 租户将颁发者作为 Azure Active Directory 进行身份验证，以访问 Azure Active Directory 的 Graph Web 服务。  在令牌中，颁发者由 iss 声明，例如："iss":"https://sts.chinacloudapi.cn/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"。  在此示例中，声明值的基址 https://sts.chinacloudapi.cn 将 Azure Active Directory 标识为颁发者，而相对地址段 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 代表颁发令牌时 Azure Active Directory 租户的唯一标识符。  如果颁发的令牌用于访问 Azure Active Directory 的 Graph Web 服务，该服务的标识符 00000002-0000-0000-c000-000000000000 应在令牌的 aud 声明值中。  
 
 使用 Microsoft 提供的通用语言基础结构库构建 SCIM 服务的开发人员可以按照以下步骤使用 Microsoft.Owin.Security.ActiveDirectory 包对 Azure Active Directory 的请求进行身份验证： 
@@ -320,14 +330,16 @@ Azure Active Directory 可配置为自动将已分配的用户和组预配到实
       applicationBuilder.UseWindowsAzureActiveDirectoryBearerAuthentication(authenticationOptions);
     }
 
-## <a name="user-and-group-schema"></a>用户和组架构
+## 用户和组架构
+<a id="user-and-group-schema" class="xliff"></a>
 Azure Active Directory 可将两种类型的资源预配到 SCIM Web 服务。  这些类型的资源是用户和组。  
 
 用户资源由协议规范 http://tools.ietf.org/html/draft-ietf-scim-core-schema 中包含的架构标识符 urn:ietf:params:scim:schemas:extension:enterprise:2.0:User 标识。  下面的表 1 提供了 Azure Active Directory 中用户属性与 urn:ietf:params:scim:schemas:extension:enterprise:2.0:User 资源属性之间的默认映射。  
 
 组资源由架构标识符 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group 标识。  下面的表 2 显示了 Azure Active Directory 中组属性与 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group 资源属性之间的默认映射。  
 
-### <a name="table-1-default-user-attribute-mapping"></a>表 1：默认用户属性映射
+### 表 1：默认用户属性映射
+<a id="table-1-default-user-attribute-mapping" class="xliff"></a>
 | Azure Active Directory 用户 | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
 | --- | --- |
 | IsSoftDeleted |active |
@@ -348,7 +360,8 @@ Azure Active Directory 可将两种类型的资源预配到 SCIM Web 服务。  
 | telephone-Number |phoneNumbers[type eq "work"].value |
 | user-PrincipalName |userName |
 
-### <a name="table-2-default-group-attribute-mapping"></a>表 2：默认组属性映射
+### 表 2：默认组属性映射
+<a id="table-2-default-group-attribute-mapping" class="xliff"></a>
 | Azure Active Directory 组 | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
 | --- | --- |
 | displayName |externalId |
@@ -358,7 +371,8 @@ Azure Active Directory 可将两种类型的资源预配到 SCIM Web 服务。  
 | objectId |id |
 | proxyAddresses |emails[type eq "other"].Value |
 
-## <a name="user-provisioning-and-de-provisioning"></a>用户预配和取消预配
+## 用户预配和取消预配
+<a id="user-provisioning-and-de-provisioning" class="xliff"></a>
 下图显示了 Azure Active Directory 将发送到 SCIM 服务以管理用户在其他标识存储中的生命周期的消息。  该图还显示了使用 Microsoft 提供的、用于构建此类服务的通用语言基础结构库所实现的 SCIM 服务如何将这些请求转换为对提供程序的方法调用。  
 
 ![][4]
@@ -661,7 +675,8 @@ Microsoft 提供的、用于实现 SCIM 服务的通用语言基础结构库将�
 * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-## <a name="group-provisioning-and-de-provisioning"></a>组预配和取消预配
+## 组预配和取消预配
+<a id="group-provisioning-and-de-provisioning" class="xliff"></a>
 下图显示了 Azure Active Directory 将发送到 SCIM 服务以管理组在其他标识存储中的生命周期的消息。  这些消息在以下三个方面与用户相关的消息不同： 
 
 * 组资源架构将被标识为 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group。  
@@ -671,7 +686,8 @@ Microsoft 提供的、用于实现 SCIM 服务的通用语言基础结构库将�
 ![][5]
 **图：组预配和取消预配顺序
 
-## <a name="related-articles"></a>相关文章
+## 相关文章
+<a id="related-articles" class="xliff"></a>
 - [有关 Azure Active Directory 中应用程序管理的文章索引](active-directory-apps-index.md)
 
 

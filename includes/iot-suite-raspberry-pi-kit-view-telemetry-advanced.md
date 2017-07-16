@@ -1,4 +1,5 @@
-## <a name="view-the-telemetry"></a>查看遥测数据
+## 查看遥测数据
+<a id="view-the-telemetry" class="xliff"></a>
 
 Raspberry Pi 现在正将遥测数据发送到远程监视解决方案。 可以在解决方案仪表板上查看遥测数据。 也可以从解决方案仪表板向 Raspberry Pi 发送消息。
 
@@ -8,7 +9,8 @@ Raspberry Pi 现在正将遥测数据发送到远程监视解决方案。 可以
 
 ![显示来自 Raspberry Pi 的遥测数据][img-telemetry-display]
 
-## <a name="initiate-the-firmware-update"></a>启动固件更新
+## 启动固件更新
+<a id="initiate-the-firmware-update" class="xliff"></a>
 
 固件更新过程会下载更新版的设备客户端应用程序并将其安装在 Raspberry Pi 上。 若要详细了解固件更新过程，请参阅[使用 IoT 中心进行设备管理的概述][lnk-update-pattern]一文中对固件更新模式的说明。
 

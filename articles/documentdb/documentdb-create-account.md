@@ -16,13 +16,12 @@ ms.topic: get-started-article
 origin.date: 02/17/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-redirect_url: https://aka.ms/acdbnetqa
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: e4e61a80e3c9713c4e2379227ca95367b827effa
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 1e6e1da37382c26cce101c5dc82c9a096bd977bf
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 如何使用 Azure 门户创建 DocumentDB NoSQL 帐户
 <a id="how-to-create-a-documentdb-nosql-account-using-the-azure-portal" class="xliff"></a>

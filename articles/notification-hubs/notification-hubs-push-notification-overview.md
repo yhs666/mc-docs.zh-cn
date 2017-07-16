@@ -15,13 +15,15 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: v-junlch
 ms.openlocfilehash: a5c6f918192a66a6bb0748898c581240b99b0a4a
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
-# <a name="azure-notification-hubs"></a>Azure 通知中心
-## <a name="overview"></a>概述
+# Azure 通知中心
+<a id="azure-notification-hubs" class="xliff"></a>
+## 概述
+<a id="overview" class="xliff"></a>
 Azure 通知中心提供易用的多平台扩展式推送引擎。 使用单个跨平台 API 调用，即可轻松地从任意云或本地后端向任意移动平台发送有针对性的个性化推送通知。
 
 通知中心非常适合用于企业和消费者方案。 下面是通知中心的几个客户用例：
@@ -33,7 +35,8 @@ Azure 通知中心提供易用的多平台扩展式推送引擎。 使用单个�
 - 向用户通知企业事件，例如，有新消息和新的工作项。
 - 发送多重身份验证的代码。
 
-## <a name="what-are-push-notifications"></a>什么是推送通知？
+## 什么是推送通知？
+<a id="what-are-push-notifications" class="xliff"></a>
 推送通知是一种应用到用户的通信形式，它通常以弹窗或对话框的方式将特定的所需信息通知给移动应用的用户。 用户通常可以选择是要查看还是忽略该消息，如果选择前者，将打开传达了该通知的移动应用。
 
 推送通知对于提高消费型应用的应用参与度与使用量以及在企业应用中传达最新业务信息至关重要。 它是最佳的应用到用户通信形式，因为它对于移动设备而言能效较高，对于发送方而言具有弹性，即使相应的应用处于非活动状态，也能使用推送通知。
@@ -43,7 +46,8 @@ Azure 通知中心提供易用的多平台扩展式推送引擎。 使用单个�
 - [Android](https://developer.android.com/guide/topics/ui/notifiers/notifications.html)
 - [Windows](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
 
-## <a name="how-push-notifications-work"></a>推送通知的工作原理
+## 推送通知的工作原理
+<a id="how-push-notifications-work" class="xliff"></a>
 推送通知通过称为*平台通知系统* (PNS) 的特定于平台的基础结构进行传送。 它们只是单纯的推送功能，使用提供的句柄向设备传送消息，而没有通用接口。 若要跨应用的 iOS、Android 和 Windows 版本将通知发送给所有客户，开发人员必须使用 APNS（Apple Push Notification 服务）、FCM (Firebase Cloud Messaging) 和 WNS（Windows 通知服务），同时将发送操作批量化。
 
 从较高层面讲，推送的工作原理如下：
@@ -55,7 +59,8 @@ Azure 通知中心提供易用的多平台扩展式推送引擎。 使用单个�
 
 ![][0]
 
-## <a name="the-challenges-of-push-notifications"></a>推送通知的难点
+## 推送通知的难点
+<a id="the-challenges-of-push-notifications" class="xliff"></a>
 尽管 PNS 非常强大，但应用开发人员仍然需要完成大量的工作才能实现常见的推送通知方案，例如，将推送通知广播或发送给细分用户。
 
 在移动云服务中，推送是要求最高的功能之一，因为它的工作依赖于与应用的主要业务逻辑无关的复杂基础结构。 下面是基础结构方面的一些难题：
@@ -71,7 +76,8 @@ Azure 通知中心提供易用的多平台扩展式推送引擎。 使用单个�
   
   - 尽管 PNS 提供了向设备发送消息的方式，但大多数应用通知面向用户或兴趣组。 这意味着，后端必须维护一个注册表，用于将设备与兴趣组、用户、属性等相关联。此项开销增大了应用的面市时间和维护成本。
 
-## <a name="why-use-notification-hubs"></a>为何使用通知中心？
+## 为何使用通知中心？
+<a id="why-use-notification-hubs" class="xliff"></a>
 通知中心消除了自我实现通知推送相关的各种复杂性。 它的多平台扩展式推送通知基础结构减少了推送相关的代码并简化了后端。 使用通知中心时，设备只负责将其 PNS 句柄注册到中心，而后端负责向用户或兴趣组发送消息，如下图中所示：
 
 ![][1]
@@ -110,7 +116,8 @@ Azure 通知中心提供易用的多平台扩展式推送引擎。 使用单个�
 
   - 共享访问机密 (SAS) 或联合身份验证。
 
-## <a name="integration-with-app-service-mobile-apps"></a>与应用服务 Mobile Apps 集成
+## 与应用服务 Mobile Apps 集成
+<a id="integration-with-app-service-mobile-apps" class="xliff"></a>
 为了帮助在 Azure 服务之间提供无缝且统一的体验， [应用服务移动应用] 原生支持使用通知中心来推送通知。 [应用服务移动应用] 提供面向企业开发人员和系统集成商的高度可缩放、全局可用的移动应用程序开发平台，该平台向移动开发人员提供一组丰富的功能。
 
 移动应用开发人员可以借助以下工作流来利用通知中心：
@@ -130,7 +137,8 @@ Azure 通知中心提供易用的多平台扩展式推送引擎。 使用单个�
 - **灵活性**：即使在集成环境中，开发人员也始终可以选择直接使用通知中心。
 - **[Azure 门户]中的集成体验**：移动应用以可视化方式呈现推送功能，开发人员可以通过移动应用轻松使用关联的通知中心。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 可以通过以下主题了解有关通知中心的更多信息：
 
 - **[客户如何使用通知中心]**

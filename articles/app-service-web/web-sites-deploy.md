@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 01/05/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
-ms.openlocfilehash: 23dded5b83fcf1fd2dd6a50bf25c9a62fbc13c43
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: 1c11f4b910ca2f7bf20249c2b79ee5d59fd357d0
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 将应用部署到 Azure 应用服务
 <a id="deploy-your-app-to-azure-app-service" class="xliff"></a>
@@ -135,7 +135,7 @@ Visual Studio 支持所有这三种部署过程（FTP、Git 和 Web 部署），
 * [使用 Visual Studio 的 ASP.NET Web 部署](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction)。 共 12 篇的系列教程涵盖了比此列表中其他部署任务更完整的部署任务。 自编写本教程以来添加了一些 Azure 部署功能，但注释是后来添加的，说明缺少哪些内容。
 * [在 Visual Studio 2012 中直接从 Git 存储库将 ASP.NET 网站部署到 Azure](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881)。 说明如何在 Visual Studio 中部署 ASP.NET Web 项目（使用 Git 插件将代码提交到 Git 并将 Azure 连接到 Git 存储库）。 从 Visual Studio 2013 开始，Git 支持是内置的，不需要安装插件。
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 ### <a name="aztk"></a>如何使用 Azure Toolkit for Eclipse 和 Azure Toolkit for IntelliJ IDEA 进行部署
 Microsoft 提供 [Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse.md) 和 [Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij.md)，可用于将 Web 应用直接从 Eclipse 和 IntelliJ 部署到 Azure。 下面的教程演示如何使用任一 IDE 将简单的“Hello”world Web 应用部署到 Azure：

@@ -16,12 +16,13 @@ origin.date: 11/17/2016
 ms.date: 07/10/2017
 ms.author: v-yiso
 ms.openlocfilehash: 17bc03f3f6fffec33470f419873c3bf3bfbb6338
-ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/13/2017
 ---
-# <a name="get-started-with-device-management-netnode"></a>设备管理入门 (.NET/Node)
+# 设备管理入门 (.NET/Node)
+<a id="get-started-with-device-management-netnode" class="xliff"></a>
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
@@ -47,7 +48,8 @@ ms.lasthandoff: 06/28/2017
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>使用直接方法在设备上触发远程重新启动
+## 使用直接方法在设备上触发远程重新启动
+<a id="trigger-a-remote-reboot-on-the-device-using-a-direct-method" class="xliff"></a>
 在本部分中，你将创建一个 .NET 控制台应用（使用 C#）以使用直接方法在设备上启动远程重新启动。 该应用使用设备孪生查询来搜索该设备的上次重新启动时间。
 
 1. 在 Visual Studio 中，使用“控制台应用(.NET Framework)”项目模板将 Visual C# Windows 经典桌面项目添加到新解决方案。 确保 .NET Framework 版本为 4.5.1 或更高。 将项目命名为 **TriggerReboot**。
@@ -111,7 +113,8 @@ ms.lasthandoff: 06/28/2017
 
 8. 生成解决方案。
 
-## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
+## 创建模拟设备应用程序
+<a id="create-a-simulated-device-app" class="xliff"></a>
 在本部分，用户需
 
 * 创建一个 Node.js 控制台应用，用于响应通过云调用的直接方法
@@ -201,7 +204,8 @@ ms.lasthandoff: 06/28/2017
    >[!NOTE]
    > 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按 MSDN 文章 [Transient Fault Handling][lnk-transient-faults]（暂时性故障处理）中所述实施重试策略（例如指数性的回退）。
 
-## <a name="run-the-apps"></a>运行应用
+## 运行应用
+<a id="run-the-apps" class="xliff"></a>
 现在，已准备就绪，可以运行应用。
 
 1. 在 **manageddevice** 文件夹的命令提示符处，运行以下命令以开始侦听重新启动直接方法。

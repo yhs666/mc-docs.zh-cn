@@ -16,12 +16,13 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: v-junlch
 ms.openlocfilehash: f797a771dcabb6b6fe48df3dd62d6e70cada4bbd
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
-# <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>将本地目录与 Azure Active Directory 集成
+# 将本地目录与 Azure Active Directory 集成
+<a id="integrate-your-on-premises-directories-with-azure-active-directory" class="xliff"></a>
 Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样便可以为集成到 Azure AD 的 Office 365、Azure 和 SaaS 应用程序的用户提供一个通用标识。 本主题将指导用户完成规划、部署和操作步骤。 其中统合了与这些操作相关的主题的链接。
 
 > [!IMPORTANT]
@@ -31,13 +32,15 @@ Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样�
 
 ![什么是 Azure AD Connect](./media/active-directory-aadconnect/arch.png)
 
-## <a name="why-use-azure-ad-connect"></a>为何使用 Azure AD Connect
+## 为何使用 Azure AD Connect
+<a id="why-use-azure-ad-connect" class="xliff"></a>
 将本地目录与 Azure AD 集成可提供通用标识用于访问云和本地资源，从而提高用户的生产率。 用户和组织可以享受到以下好处：
 
 - 用户可以使用单个标识来访问本地应用程序和云服务，例如 Office 365。
 - 单个工具即可提供轻松同步和登录的部署体验。
 
-### <a name="how-azure-ad-connect-works"></a>Azure AD Connect 工作原理
+### Azure AD Connect 工作原理
+<a id="how-azure-ad-connect-works" class="xliff"></a>
 Azure Active Directory Connect 由三个主要组件构成：同步服务、可选的 Active Directory 联合身份验证服务组件。
 
 <center>![Azure AD Connect 堆栈](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png)
@@ -46,7 +49,8 @@ Azure Active Directory Connect 由三个主要组件构成：同步服务、可�
 - 同步 - 此组件负责创建用户、组和其他对象。 它还负责确保本地用户和组的标识信息与云匹配。
 - AD FS - 联合身份验证是 Azure AD Connect 的可选部件，可用于使用本地 AD FS 基础结构配置混合环境。 组织可以使用此部件来解决复杂的部署，例如域加入 SSO、实施 AD 登录策略以及智能卡或第三方 MFA。
 
-## <a name="install-azure-ad-connect"></a>安装 Azure AD Connect
+## 安装 Azure AD Connect
+<a id="install-azure-ad-connect" class="xliff"></a>
 可以在 [Microsoft 下载中心](http://go.microsoft.com/fwlink/?LinkId=615771)找到 Azure AD Connect 的下载文件。
 
 | 解决方案 | 方案 |
@@ -59,7 +63,8 @@ Azure Active Directory Connect 由三个主要组件构成：同步服务、可�
 
 [安装后](active-directory-aadconnect-whats-next.md)，应该验证程序是否按预期工作，并将许可证分配给用户。
 
-### <a name="next-steps-to-install-azure-ad-connect"></a>Azure AD Connect 安装后续步骤
+### Azure AD Connect 安装后续步骤
+<a id="next-steps-to-install-azure-ad-connect" class="xliff"></a>
 |主题 |链接|  
 | --- | --- |
 |下载 Azure AD Connect | [下载 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
@@ -68,7 +73,8 @@ Azure Active Directory Connect 由三个主要组件构成：同步服务、可�
 |从 DirSync 升级 | [从 Azure AD 同步工具 (DirSync) 升级](active-directory-aadconnect-dirsync-upgrade-get-started.md)|
 |安装后 | [验证安装并分配许可证 ](active-directory-aadconnect-whats-next.md)|
 
-### <a name="learn-more-about-install-azure-ad-connect"></a>了解有关安装 Azure AD Connect 的详细信息
+### 了解有关安装 Azure AD Connect 的详细信息
+<a id="learn-more-about-install-azure-ad-connect" class="xliff"></a>
 还要预先了解 [操作](active-directory-aadconnectsync-operations.md) 注意事项。 可能要部署一台待机服务器，以便在发生[灾难](active-directory-aadconnectsync-operations.md#disaster-recovery)时轻松故障转移。 如果要频繁进行配置更改，应该计划部署一台[暂存模式](active-directory-aadconnectsync-operations.md#staging-mode)服务器。
 
 |主题 |链接|  
@@ -79,7 +85,8 @@ Azure Active Directory Connect 由三个主要组件构成：同步服务、可�
 |操作规划 | [Azure AD Connect 同步：操作任务和注意事项](active-directory-aadconnectsync-operations.md)|
 |用户登录选项 | [Azure AD Connect 用户登录选项](active-directory-aadconnect-user-signin.md)|
 
-## <a name="configure-sync-features"></a>配置同步功能
+## 配置同步功能
+<a id="configure-sync-features" class="xliff"></a>
 Azure AD Connect 随附了多个可以选择启用或已按默认启用的功能。 在某些方案和拓扑中，有些功能可能需要进行其他配置。
 
 如果要限制同步到 Azure AD 的对象，可以使用[筛选](active-directory-aadconnectsync-configure-filtering.md)。 默认同步所有用户、联系人、组和 Windows 10 计算机。 可以根据域、OU 或属性更改筛选设置。
@@ -90,7 +97,8 @@ Azure AD Connect 随附了多个可以选择启用或已按默认启用的功能
 
 使用快速设置安装时，将默认启用[自动升级](active-directory-aadconnect-feature-automatic-upgrade.md)，确保 Azure AD Connect 始终保持最新版本。
 
-### <a name="next-steps-to-configure-sync-features"></a>同步功能配置后续步骤
+### 同步功能配置后续步骤
+<a id="next-steps-to-configure-sync-features" class="xliff"></a>
 |主题 |链接|  
 | --- | --- |
 |配置筛选 | [Azure AD Connect 同步：配置筛选](active-directory-aadconnectsync-configure-filtering.md)|
@@ -98,7 +106,8 @@ Azure AD Connect 随附了多个可以选择启用或已按默认启用的功能
 |防止意外删除 | [Azure AD Connect 同步：防止意外删除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |自动升级 | [Azure AD Connect：自动升级](active-directory-aadconnect-feature-automatic-upgrade.md)|
 
-## <a name="customize-azure-ad-connect-sync"></a>自定义 Azure AD Connect 同步
+## 自定义 Azure AD Connect 同步
+<a id="customize-azure-ad-connect-sync" class="xliff"></a>
 Azure AD Connect 同步随附一个适用于大部分客户和拓扑的默认配置。 但总存在默认配置不适用的情况，因此必须进行调整。 可以根据本部分和链接主题中所述进行更改。
 
 如果以前没有用过同步拓扑，请先了解[技术概念](active-directory-aadconnectsync-technical-concepts.md)中所述的基本概念和术语。 Azure AD Connect 是在 MIIS2003、ILM2007 和 FIM2010 基础上演进而来的。 即使有些功能相同，但改变的部分也有很多。
@@ -107,7 +116,8 @@ Azure AD Connect 同步随附一个适用于大部分客户和拓扑的默认配
 
 同步的配置模型称为[声明性预配](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)。 高级属性流程使用[函数](active-directory-aadconnectsync-functions-reference.md)来表示属性转换。 可以使用 Azure AD Connect 随附的工具来检查整个配置。 如果需要进行配置更改，请确保遵循[最佳做法](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)，以便可以更轻松地采用新版本。
 
-### <a name="next-steps-to-customize-azure-ad-connect-sync"></a>自定义 Azure AD Connect 同步的后续步骤
+### 自定义 Azure AD Connect 同步的后续步骤
+<a id="next-steps-to-customize-azure-ad-connect-sync" class="xliff"></a>
 |主题 |链接|  
 | --- | --- |
 |所有 Azure AD Connect 同步文章 | [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)|
@@ -117,12 +127,14 @@ Azure AD Connect 同步随附一个适用于大部分客户和拓扑的默认配
 |声明性预配 | [Azure AD Connect 同步：了解声明性预配表达式](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)|
 |更改默认配置 | [更改默认配置的最佳做法](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)|
 
-## <a name="configure-federation-features"></a>配置联合身份验证功能
+## 配置联合身份验证功能
+<a id="configure-federation-features" class="xliff"></a>
 可将 ADFS 配置为支持[多个域](active-directory-aadconnect-multiple-domains.md)。 例如，在联合身份验证功能中可能需要使用多个顶级域。
 
 如果 ADFS 服务器未配置为自动更新 Azure AD 中的证书，或者如果使用非 ADFS 解决方案，则在需要[更新证书](active-directory-aadconnect-o365-certs.md)时会收到通知。
 
-### <a name="next-steps-to-configure-federation-features"></a>配置联合身份验证功能的后续步骤
+### 配置联合身份验证功能的后续步骤
+<a id="next-steps-to-configure-federation-features" class="xliff"></a>
 |主题 |链接|  
 | --- | --- |
 |所有 AD FS 文章 | [Azure AD Connect 和联合身份验证](active-directory-aadconnectfed-whatis.md)|
@@ -130,7 +142,8 @@ Azure AD Connect 同步随附一个适用于大部分客户和拓扑的默认配
 |管理 AD FS 场 | [使用 Azure AD Connect 管理和自定义 AD FS](active-directory-aadconnect-federation-management.md)|
 |手动更新联合身份验证证书 | [续订 Office 365 和 Azure AD 的联合身份验证证书](active-directory-aadconnect-o365-certs.md)|
 
-## <a name="more-information-and-references"></a>详细信息和参考
+## 详细信息和参考
+<a id="more-information-and-references" class="xliff"></a>
 |主题 |链接|  
 | --- | --- |
 |版本历史记录 | [版本历史记录](active-directory-aadconnect-version-history.md)|

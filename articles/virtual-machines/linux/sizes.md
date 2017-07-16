@@ -17,10 +17,10 @@ origin.date: 06/07/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
 ms.openlocfilehash: af1cd90cc82c8c30b15c3c87cfaa0346082ff804
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/13/2017
 ---
 # Azure 中 Linux 虚拟机的大小
 <a id="sizes-for-linux-virtual-machines-in-azure" class="xliff"></a>

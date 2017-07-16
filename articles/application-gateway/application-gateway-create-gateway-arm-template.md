@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 01/23/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
-ms.openlocfilehash: f7db91cc4923662feba7597ba107c0fd5fed05dd
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 57710eae044cc2165d4c9de60d0f1f33f4a3de71
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 使用 Azure Resource Manager 模板创建应用程序网关
 <a id="create-an-application-gateway-by-using-the-azure-resource-manager-template" class="xliff"></a>
@@ -211,7 +211,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
     ![Parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
 
-1. 单击“法律条款”，然后单击“创建”。
+1. 单击“法律条款”，然后单击“购买”。
 
 1. 在“自定义部署”边栏选项卡上，单击“创建” 。
 

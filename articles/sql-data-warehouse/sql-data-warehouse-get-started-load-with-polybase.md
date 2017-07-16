@@ -17,10 +17,10 @@ origin.date: 03/01/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
 ms.openlocfilehash: 85c0edcab7e07b64673e60fd854d61599ea6c349
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 在 SQL 数据仓库中使用 PolyBase 加载数据
 <a id="load-data-with-polybase-in-sql-data-warehouse" class="xliff"></a>

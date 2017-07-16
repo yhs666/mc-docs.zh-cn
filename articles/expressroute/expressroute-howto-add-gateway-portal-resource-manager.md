@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2017
+origin.date: 04/17/2017
 ms.author: v-yiso
-ms.openlocfilehash: 96cf4531d374056d7be9ad8a82d1508bacc2ad98
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 
+ms.openlocfilehash: 22df64611db5760667f0d16b73be024d03db084f
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 使用 Azure 门户配置 ExpressRoute 的虚拟网络网关
 <a id="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal" class="xliff"></a>

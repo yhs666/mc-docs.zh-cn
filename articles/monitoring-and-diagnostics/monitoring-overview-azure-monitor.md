@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+origin.date: 05/12/2017
 ms.author: v-yiso
-ms.openlocfilehash: bde9a8900375e97dc77e7f2c08ca28c15047fed3
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 
+ms.openlocfilehash: 238b0a28416490f7982cd1cfc4ee30b2f467ef7e
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # Azure Monitor 概述
 <a id="overview-of-azure-monitor" class="xliff"></a>
@@ -153,7 +154,7 @@ Microsoft 还提供了其他产品和服务，用以为还具有本地安装的�
 * [PowerShell](./insights-powershell-samples.md)  
 * [跨平台的命令行接口 (CLI)](./insights-cli-samples.md)
 * [REST API](https://docs.microsoft.com/rest/api/monitor/)
-* [.NET SDK](https://msdn.microsoft.com/library/dn802153.aspx)
+* [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 ## 后续步骤
 <a id="next-steps" class="xliff"></a>

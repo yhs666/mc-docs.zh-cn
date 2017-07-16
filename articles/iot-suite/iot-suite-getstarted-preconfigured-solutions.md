@@ -3,10 +3,11 @@ title: "预配置解决方案入门 | Azure"
 description: "遵循本教程，了解如何部署 Azure IoT 套件预配置解决方案。"
 services: 
 suite: iot-suite
-documentationCenter: 
-authors: dominicbetts
+documentationcenter: 
+author: dominicbetts
 manager: timlt
 editor: 
+ms.assetid: 6ab38d1a-b564-469e-8a87-e597aa51d0f7
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -15,13 +16,14 @@ ms.workload: na
 origin.date: 05/15/2017
 ms.author: v-yiso
 ms.date: 06/13/2017
-ms.openlocfilehash: 71cd10b69fd7f760c286a602a4e8a4ab5ce7b946
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: bc954faff0d9df253180ff16b258c45ba7754416
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="get-started-with-the-preconfigured-solutions"></a>预配置的解决方案入门
+# 预配置的解决方案入门
+<a id="get-started-with-the-preconfigured-solutions" class="xliff"></a>
 
 Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了多项 Azure IoT 服务，以提供可实现常见 IoT 商业应用场景的端到端解决方案。 *远程监视* 预配置解决方案将连接并监视设备。 可使用解决方案分析设备发出的数据流，并让进程自动响应该数据流来提升业务绩效。
 
@@ -36,7 +38,8 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-## <a name="scenario-overview"></a>方案概述
+## 方案概述
+<a id="scenario-overview" class="xliff"></a>
 
 部署远程监视预配置解决方案时，可以通过预先填充在其中的资源来逐步执行常见的远程监视方案。 在本方案中，与解决方案连接的多个设备将报告意外的温度值。 以下部分介绍如何：
 
@@ -47,7 +50,8 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
 此方案的关键特点是可以从解决方案仪表板远程执行所有这些操作。 不需对设备进行物理访问。
 
-## <a name="view-the-solution-dashboard"></a>查看解决方案仪表板
+## 查看解决方案仪表板
+<a id="view-the-solution-dashboard" class="xliff"></a>
 
 该解决方案仪表板可让你管理部署的解决方案。 例如，你可以查看遥测数据、添加设备以及配置规则。
 
@@ -66,7 +70,8 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 * 一个“警报历史记录”面板，用于在遥测值超过阈值时显示最近的警报事件。 除了预配置解决方案所创建的示例之外，还可以定义自己的警报。
 * 一个“作业”面板，用于显示有关计划作业的信息。 可在“管理作业”页上计划自己的作业。
 
-## <a name="view-alarms"></a>查看警报
+## 查看警报
+<a id="view-alarms" class="xliff"></a>
 
 警报历史记录面板显示，五个设备报告的遥测值高于预期。
 
@@ -75,7 +80,8 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 > [!NOTE]
 > 这些警报是通过预配置解决方案中包含的规则生成的。 当设备发送的温度值超过 60 时，该规则会生成警报。 用户可以通过在左侧菜单中选择[规则](#add-a-rule)和[操作](#add-an-action)，定义自己的规则和操作。
 
-## <a name="view-devices"></a>查看设备
+## 查看设备
+<a id="view-devices" class="xliff"></a>
 
 “设备”列表显示解决方案中所有已注册的设备。 在设备列表中，可以查看和编辑设备元数据、添加或删除设备，以及在设备上调用方法。 可对设备列表中的一系列设备进行筛选和排序。 还可以自定义设备列表中显示的列。
 
@@ -98,7 +104,8 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 * “设备属性”部分显示标识注册表中的信息，例如设备 ID 和身份验证密钥。
 * “最近的作业”部分显示有关最近针对此设备执行的任何作业的信息。
 
-## <a name="filter-the-device-list"></a>筛选设备列表
+## 筛选设备列表
+<a id="filter-the-device-list" class="xliff"></a>
 
 若只需显示那些发送意外温度值的设备，可以使用筛选器。 远程监视预配置解决方案包含一个“不正常设备”筛选器，用于显示平均温度值超过 60 的设备。 用户还可以[创建自己的筛选器](#add-a-filter)。
 
@@ -110,7 +117,8 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
     ![查看显示不正常设备的已筛选设备列表][img-filtered-unhealthy-list]
 
-## <a name="update-desired-properties"></a>更新所需属性
+## 更新所需属性
+<a id="update-desired-properties" class="xliff"></a>
 
 现已确定一组可能需要修复的设备。 不过，你觉得 15 秒的数据频率不足以对问题进行明确诊断。 将遥测频率更改为 5 秒可以提供更多的数据点，从而对问题进行更好的诊断。 可将此项配置更改从解决方案门户推送到远程设备。 进行更改后，即可评估影响，然后处理结果。
 
@@ -133,7 +141,8 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
 此作业在设备孪生中针对筛选器选择的所有设备设置 **TelemetryInterval** 所需属性值。 这些设备从设备孪生中检索此值，并更新自身的行为。 从设备孪生检索并处理所需的属性后，设备将会设置相应的报告值属性。
 
-## <a name="invoke-methods"></a>调用方法
+## 调用方法
+<a id="invoke-methods" class="xliff"></a>
 
 当作业运行时，用户在不正常设备的列表中注意到，所有这些设备的固件版本都是旧的（低于 1.6 版）。
 
@@ -173,7 +182,8 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 > [!NOTE]
 > 在生产环境中，可将作业计划为在指定的维护时段运行。
 
-## <a name="scenario-review"></a>方案评审
+## 方案评审
+<a id="scenario-review" class="xliff"></a>
 
 在此方案中，你已使用仪表板上的警报历史记录和筛选器识别了某些远程设备的一个潜在问题。 然后使用筛选器和作业对设备进行了远程配置，使其能够提供有助于诊断问题的详细信息。 最后，你使用筛选器和作业在受影响的设备上对维护工作做了计划。 返回到仪表板后，可以检查解决方案中的设备是否不再发出任何警报。 可以使用筛选器来验证解决方案中的所有设备上的固件是否为最新，以及是否没有其他不正常的设备：
 
@@ -181,17 +191,20 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
 ![显示所有设备均正常的筛选器][img-healthy]
 
-## <a name="other-features"></a>其他功能
+## 其他功能
+<a id="other-features" class="xliff"></a>
 
 以下部分介绍了远程监视预配置解决方案的其他一些功能，这些功能未在前面的方案中介绍。
 
-### <a name="customize-columns"></a>自定义列
+### 自定义列
+<a id="customize-columns" class="xliff"></a>
 
 选择“列编辑器”可自定义设备列表中显示的信息。 可以添加和删除用于显示报告的属性和标记值的列。 此外，可将列重新排序和重命名：
 
    ![设备列表中的列编辑器图标][img-columneditor]
 
-### <a name="customize-the-device-icon"></a>自定义设备图标
+### 自定义设备图标
+<a id="customize-the-device-icon" class="xliff"></a>
 
 可按如下所述，通过“设备详细信息”面板自定义设备列表中显示的设备图标： 
 
@@ -208,7 +221,8 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 > [!NOTE]
 > 该图像将存储在 Blob 存储中。 设备孪生中的标记包含 Blob 存储中的图像的链接。
 
-### <a name="add-a-device"></a>添加设备
+### 添加设备
+<a id="add-a-device" class="xliff"></a>
 
 部署预配置解决方案时，会自动预配在设备列表中可见的 25 个示例设备。 这些设备是在 Azure Web 作业中运行的 *模拟设备* 。 模拟设备可让你试验预配置解决方案，而不需要部署实际的物理设备。 若要将实际设备连接到解决方案，请参阅 [将设备连接到远程监视预配置解决方案][lnk-connect-rm] 教程。
 
@@ -242,7 +256,8 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
     ![查看新设备发出的遥测数据][img-runningnew-2]
 
-### <a name="disable-and-delete-a-device"></a>禁用和删除设备
+### 禁用和删除设备
+<a id="disable-and-delete-a-device" class="xliff"></a>
 
 可以禁用设备，并且在已禁用之后删除：
 
@@ -283,7 +298,8 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
     ![列出设备操作][img-actions]
 
 
-### <a name="manage-filters"></a>管理筛选器
+### 管理筛选器
+<a id="manage-filters" class="xliff"></a>
 
 在设备列表中，可以创建、保存和重新加载筛选器，以显示与中心连接的设备的自定义列表。 若要创建筛选器，请执行以下操作：
 
@@ -312,7 +328,8 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 > [!NOTE]
 > 在“筛选器编辑器”中，可以使用“高级视图”直接编辑查询文本。
 
-### <a name="commands"></a>命令
+### 命令
+<a id="commands" class="xliff"></a>
 
 可以通过“设备详细信息”面板向设备发送命令。 设备在第一次启动时，会向解决方案发送其支持的命令的相关信息。 有关命令和方法之间的差异介绍，请参阅 [Azure IoT Hub cloud-to-device options][lnk-c2d-guidance]（Azure IoT 中心云到设备的通信选项）。
 
@@ -330,7 +347,8 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 
 解决方案会跟踪其发送的每个命令的状态。 结果最初为“挂起”。 当设备报告它已执行命令时，结果会设置为“成功”。
 
-## <a name="behind-the-scenes"></a>幕后
+## 幕后
+<a id="behind-the-scenes" class="xliff"></a>
 
 当你部署预配置解决方案时，部署过程会在你选择的 Azure 订阅中创建多个资源。 你可以在 Azure [门户][lnk-portal]中查看这些资源。 部署过程会创建一个 **资源组** ，其名称基于你为预配置解决方案选择的名称：
 
@@ -349,7 +367,8 @@ Azure IoT 套件 [预配置解决方案][lnk-preconfigured-solutions] 结合了�
 > [!NOTE]
 > 若要确保删除与预配置解决方案相关的所有内容，请在 [azureiotsuite.com][lnk-azureiotsuite] 站点中删除这些内容，而不是删除门户中的资源组。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 部署正常工作的预配置解决方案后，可以继续通过阅读以下文章开始使用 IoT 套件：
 

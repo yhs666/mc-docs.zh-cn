@@ -16,10 +16,10 @@ origin.date: 12/25/2016
 ms.date: 07/17/2017
 ms.author: v-yeche
 ms.openlocfilehash: 64286ec9ffbdcbfbede849501bb32f1507ca99a0
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/13/2017
 ---
 # Azure Cosmos DB：适用于 DocumentDB API 的 C++ 控制台应用程序教程
 <a id="azure-cosmos-db-c-console-application-tutorial-for-the-documentdb-api" class="xliff"></a>

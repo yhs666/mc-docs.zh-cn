@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+origin.date: 05/02/2017
 ms.author: v-yiso
-ms.openlocfilehash: 568d5b07ec9ea64916c5f133f33637f5b648c1ac
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/17/2017
+ms.openlocfilehash: 4880331ae859061a030e43423569b4a953c051fd
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 服务总线常见问题解答
 <a id="service-bus-faq" class="xliff"></a>

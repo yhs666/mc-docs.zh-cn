@@ -1,4 +1,5 @@
-## <a name="view-the-solution-dashboard"></a>查看解决方案仪表板
+## 查看解决方案仪表板
+<a id="view-the-solution-dashboard" class="xliff"></a>
 
 该解决方案仪表板可让你管理部署的解决方案。 例如，可以查看遥测数据、添加设备以及调用方法。
 
@@ -10,7 +11,8 @@
 
     ![远程监控预配置解决方案仪表板][img-menu]
 
-## <a name="add-a-device"></a>添加设备
+## 添加设备
+<a id="add-a-device" class="xliff"></a>
 
 连接到预配置解决方案的设备必须能够使用有效凭据对 IoT 中心识别自身。 用户可从解决方案仪表板中检索设备凭据。 本教程后文中的客户端应用程序要采用该设备凭据。
 

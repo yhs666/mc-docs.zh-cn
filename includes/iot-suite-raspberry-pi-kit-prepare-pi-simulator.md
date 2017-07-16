@@ -1,6 +1,8 @@
-## <a name="prepare-your-raspberry-pi"></a>准备 Raspberry Pi
+## 准备 Raspberry Pi
+<a id="prepare-your-raspberry-pi" class="xliff"></a>
 
-### <a name="install-raspbian"></a>安装 Raspbian
+### 安装 Raspbian
+<a id="install-raspbian" class="xliff"></a>
 
 如果这是首次使用 Raspberry Pi，需使用工具包中随附的 SD 卡上的 NOOBS 来安装 Raspbian 操作系统。 [Raspberry Pi 软件指南][lnk-install-raspbian]介绍了如何在 Raspberry Pi 上安装操作系统。 本教程假定已在 Raspberry Pi 上安装 Raspbian 操作系统。
 
@@ -14,7 +16,8 @@
 
 现在已经完成 Raspberry Pi 的硬件设置。
 
-### <a name="sign-in-and-access-the-terminal"></a>登录并访问终端
+### 登录并访问终端
+<a id="sign-in-and-access-the-terminal" class="xliff"></a>
 
 可以通过两个选项来访问 Raspberry Pi 上的终端环境：
 
@@ -22,17 +25,20 @@
 
 - 使用台式机中的 SSH 访问 Raspberry Pi 上的命令行。
 
-#### <a name="use-a-terminal-window-in-the-gui"></a>使用 GUI 中的终端窗口
+#### 使用 GUI 中的终端窗口
+<a id="use-a-terminal-window-in-the-gui" class="xliff"></a>
 
 Raspbian 的默认凭据为用户名 **pi** 和密码 **raspberry**。 在 GUI 的任务栏中，可以使用外观像显示器的图标启动 **Terminal** 实用工具。
 
-#### <a name="sign-in-with-ssh"></a>使用 SSH 登录
+#### 使用 SSH 登录
+<a id="sign-in-with-ssh" class="xliff"></a>
 
 可以使用 SSH 对 Raspberry Pi 进行命令行访问。 [SSH（安全外壳）][lnk-pi-ssh]一文介绍了如何在 Raspberry Pi 上配置 SSH，以及如何从 [Windows][lnk-ssh-windows] 或 [Linux 和 Mac OS][lnk-ssh-linux] 进行连接。
 
 使用用户名 **pi** 和密码 **raspberry** 登录。
 
-#### <a name="optional-share-a-folder-on-your-raspberry-pi"></a>可选：共享 Raspberry Pi 上的文件夹
+#### 可选：共享 Raspberry Pi 上的文件夹
+<a id="optional-share-a-folder-on-your-raspberry-pi" class="xliff"></a>
 
 （可选）可以将 Raspberry Pi 上的文件夹与桌面环境共享。 共享文件夹之后，即可使用偏好的桌面文本编辑器（例如 [Visual Studio Code](https://code.visualstudio.com/) 或 [Sublime Text](http://www.sublimetext.com/)）在 Raspberry Pi 上编辑文件，而不必使用 `nano` 或 `vi`。
 

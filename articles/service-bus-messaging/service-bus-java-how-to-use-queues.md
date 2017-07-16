@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/27/2017
+origin.date: 04/27/2017
 ms.author: v-yiso
-ms.openlocfilehash: 58d6b60c9e82ddb13d0b384646dc3543f941f3c8
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/17/2017
+ms.openlocfilehash: 1318fa2031104390c645b2db9df43d96788479be
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 如何使用服务总线队列
 <a id="how-to-use-service-bus-queues" class="xliff"></a>

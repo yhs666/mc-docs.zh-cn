@@ -17,13 +17,12 @@ ms.topic: article
 origin.date: 03/14/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-redirect_url: https://aka.ms/documentdb
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: c094cba38da04bcb15956ce08b33404276dbcfdd
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 3093ddc6ca14f556005f77c7ac7b39a000ce54e3
+ms.sourcegitcommit: 781b4b2006e5b9a51c7009642470f066e8f2ecb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/12/2017
 ---
 # NoSQL 与 SQL 和 DocumentDB
 <a id="nosql-vs-sql-and-documentdb" class="xliff"></a>

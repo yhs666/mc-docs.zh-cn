@@ -17,10 +17,10 @@ ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 07/10/2017
 ms.openlocfilehash: 033c164f77d2dbe0f3599810b9a396b4d426e2f1
-ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 了解和使用 Azure IoT SDK
 <a id="understand-and-use-azure-iot-sdks" class="xliff"></a>

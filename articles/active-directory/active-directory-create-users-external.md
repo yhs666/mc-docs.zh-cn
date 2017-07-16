@@ -16,16 +16,18 @@ origin.date: 05/14/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
 ms.openlocfilehash: 7b4d558c360f7947f043555f7985b07bbb93bfef
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
-# <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>在 Azure Active Directory 中添加来自其他目录或合作伙伴公司的用户
+# 在 Azure Active Directory 中添加来自其他目录或合作伙伴公司的用户
+<a id="add-users-from-other-directories-or-partner-companies-in-azure-active-directory" class="xliff"></a>
 
 本文介绍了如何从 Azure Active Directory 中的其他目录添加用户或添加合作伙伴公司中的用户。 有关添加组织中的新用户和添加具有 Microsoft 帐户的用户的信息，请参阅[将新用户添加到 Azure Active Directory](active-directory-create-users.md)。 默认情况下，添加的用户没有管理员权限，但你随时可以向他们分配角色。
 
-## <a name="add-a-user"></a>添加用户
+## 添加用户
+<a id="add-a-user" class="xliff"></a>
 1. 使用充当目录全局管理员的帐户登录到 [Azure 经典管理门户](https://manage.windowsazure.cn) 。
 2. 选择“Active Directory” ，然后打开你的目录。
 3. 选择“用户”选项卡，然后在命令栏中选择“添加用户”。
@@ -46,12 +48,14 @@ ms.lasthandoff: 06/21/2017
 
 如果更改身份与本地 Active Directory 服务同步的用户的信息，则无法更改 Azure 经典管理门户中的用户信息。 若要更改该用户信息，请使用本地 Active Directory 管理工具。
 
-## <a name="add-external-users"></a>添加外部用户
+## 添加外部用户
+<a id="add-external-users" class="xliff"></a>
 还可以从所属的另一个 Azure AD 目录添加用户，或者通过上传 CSV 文件来添加合作伙伴公司的用户。 若要添加外部用户，请针对“用户类型”指定“另一个 Azure AD 目录中的用户”或“合作伙伴公司的用户”。
 
 两种类型的用户均源自另一个目录，并且添加为 **外部用户**。 外部用户可与目录中的其他用户协作，而无需添加新帐户和凭据。 当外部用户登录时，系统会使用这些用户的主目录对其进行身份验证，这种身份验证适用于这些用户添加到的其他所有目录。
 
-## <a name="external-user-management-and-limitations"></a>外部用户管理和限制
+## 外部用户管理和限制
+<a id="external-user-management-and-limitations" class="xliff"></a>
 将另一个目录中的用户添加到你的目录时，该用户是你目录中的外部用户。 显示名称和用户名是从用户的主目录复制的，将用于目录中的外部用户。 此后，外部用户帐户的属性是完全独立的。 如果你对主目录中的用户进行属性更改，这些更改不会传播到你目录中的外部用户帐户。
 
 这两个帐户之间的唯一联系是用户始终针对主目录或使用他们的 Microsoft 帐户进行身份验证。 这就是你看不到重置密码或为外部用户启用多重身份验证的选项的原因。 目前，主目录或 Microsoft 帐户的身份验证策略是用户登录时唯一进行评估的策略。
@@ -63,13 +67,15 @@ ms.lasthandoff: 06/21/2017
 
 如果在用户的主目录中将其删除或取消其 Microsoft 帐户，外部用户仍然存在于你的目录中。 但是，目录中的用户无法访问资源，因为他们无法使用主目录或 Microsoft 帐户进行身份验证。
 
-### <a name="services-that-currently-support-access-by-azure-ad-external-users"></a>目前支持 Azure AD 外部用户访问的服务
+### 目前支持 Azure AD 外部用户访问的服务
+<a id="services-that-currently-support-access-by-azure-ad-external-users" class="xliff"></a>
 - **Azure 经典管理门户**：允许身为多个目录的管理员的外部用户管理这些目录。
 - **SharePoint Online**：如果启用外部共享，则允许外部用户访问 SharePoint Online 的已授权资源。
 - **Dynamics CRM**：如果用户通过 PowerShell 获得许可，则允许外部用户访问 Dynamics CRM 中的已授权资源。
 - **Dynamics AX**：如果用户通过 PowerShell 获得许可，则允许外部用户访问 Dynamics AX 中的已授权资源。 适用于 [Azure AD 外部用户](#known-limitations-of-azure-ad-external-users) 的限制同样适用于 Dynamics AX 中的外部用户。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 - [向 Azure Active Directory 添加新用户](active-directory-create-users.md)
 - [管理 Azure AD](active-directory-administer.md)
 - [在 Azure AD 中管理密码](active-directory-manage-passwords.md)

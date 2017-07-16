@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+origin.date: 04/12/2017
 ms.author: v-yiso
-ms.openlocfilehash: 690b6d1e0573071b6e80894d2ca12e933475e5fb
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/17/2017
+ms.openlocfilehash: 0f80d9bb647a1ced34648d4dea6ea109d0ba1aab
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="chaining-service-bus-entities-with-auto-forwarding"></a>使用自动转发链接服务总线实体
+# 使用自动转发链接服务总线实体
+<a id="chaining-service-bus-entities-with-auto-forwarding" class="xliff"></a>
 
 通过服务总线*自动转发*功能可将队列或订阅链接到作为相同命名空间组成部分的另一个队列或主题。 启用自动转发时，服务总线会自动删除放置在第一个队列或订阅（源）中的消息，并将其放入第二个队列或主题（目标）中。 请注意，仍可将消息直接发送到目标实体。 另外，不能将子队列（如死信队列）链接到其他队列或主题。
 
-## <a name="using-auto-forwarding"></a>使用自动转发
+## 使用自动转发
+<a id="using-auto-forwarding" class="xliff"></a>
 可通过在源的 [QueueDescription][QueueDescription] 或 [SubscriptionDescription][SubscriptionDescription] 对象上设置 [QueueDescription.ForwardTo][QueueDescription.ForwardTo] 或 [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] 属性来启用自动转发，如以下示例所示。
 
 ```csharp
@@ -45,7 +48,8 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 如果 Alice 去度假，则将填充她的个人队列，而不是 ERP 主题。 在此方案中，由于销售代表没有接收到任何消息，所以所有 ERP 主题都没有达到配额。
 
-## <a name="auto-forwarding-considerations"></a>自动转发注意事项
+## 自动转发注意事项
+<a id="auto-forwarding-considerations" class="xliff"></a>
 
 如果目标实体累积了过多消息并超出配额，或禁用了目标实体，则源实体会将消息添加到其[死信队列](./service-bus-dead-letter-queues.md)，直到目标中存在可用空间（或重新启用了该实体）。 这些消息将继续位于死信队列中，因此你必须从死信队列显式接收和处理它们。
 
@@ -55,7 +59,8 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 若要创建链接到另一个队列或主题的订阅，则订阅创建者必须具有源和目标实体的**管理**权限。 将消息发送到源主题仅需要源主题的**发送**权限。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 有关自动转发的详细信息，请参阅以下参考主题：
 

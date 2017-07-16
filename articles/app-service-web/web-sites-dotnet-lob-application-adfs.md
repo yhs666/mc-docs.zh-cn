@@ -15,11 +15,11 @@ ms.workload: web
 origin.date: 08/31/2016
 ms.date: 03/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: fd8ead72bc0b177dfea8a2f31c389394b13e15d4
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: 054d4cc20334110e7650e991ab5ffff4e5bea35e
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 使用 AD FS 身份验证创建业务线 Azure 应用
 <a id="create-a-line-of-business-azure-app-with-ad-fs-authentication" class="xliff"></a>
@@ -206,7 +206,7 @@ ms.lasthandoff: 06/30/2017
     * 名称 ID (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - 可用于防伪验证。 若要详细了解如何使其适用于防伪验证，请参阅[使用 Azure Active Directory 身份验证创建业务线 Azure 应用](web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud)中的**添加业务线功能**部分。
 
     > [!NOTE]
-    > 需要为应用程序配置的声明类型取决于应用程序的需求。 有关 Azure Active Directory 应用程序支持的声明列表（即 RP 信任），请参阅[支持的令牌和声明类型](/active-directory/develop/active-directory-token-and-claims/)。
+    > 需要为应用程序配置的声明类型取决于应用程序的需求。 有关 Azure Active Directory 应用程序支持的声明列表（即 RP 信任），请参阅[支持的令牌和声明类型](/active-directory/develop/active-directory-token-and-claims)。
     > 
     > 
 11. 在“编辑声明规则”对话框中，单击“添加规则”。
@@ -361,7 +361,7 @@ ms.lasthandoff: 06/30/2017
 <a id="connect-to-on-premises-data" class="xliff"></a>
 使用 AD FS 而不是 Azure Active Directory 实施业务线应用程序的一个原因是，既能符合法规要求，同时可将组织数据保留在外部。 这可能还意味着，您在 Azure 中的 Web 应用必须访问本地数据库，因为您不得使用 [SQL 数据库](https://www.azure.cn/home/features/sql-database/)作为 Web 应用的数据层。
 
-在 Azure 中国区，Azure 应用服务 Web 应用仅支持通过[虚拟网络](app-service-vnet-integration-powershell.md)访问本地数据库。
+在 Azure 中国区，Azure 应用服务 Web 应用仅支持通过[虚拟网络](web-sites-integrate-with-vnet.md)访问本地数据库。
 
 <a name="bkmk_resources"></a>
 

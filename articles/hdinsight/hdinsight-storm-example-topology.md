@@ -17,16 +17,16 @@ ms.workload: big-data
 origin.date: 05/03/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: 975a0e504ccbc863737b68d37378c41ea1746a15
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 8e1e0f4ce086fcaa05d220c8d884a0dc4f4e9d51
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # Apache Storm on HDInsight 的示例 Storm 拓扑和组件
 <a id="example-storm-toplogies-and-components-for-apache-storm-on-hdinsight" class="xliff"></a>
 
-以下是 Microsoft 创建和维护的、可配合 Apache Storm on HDInsight 使用的示例列表。 这些示例涵盖各种主题，从创建基本 C# 和 Java 拓扑，到使用 Azure 服务（例如事件中心、DocumentDb、Power BI、SQL 数据库、HBase on HDInsight 和 Azure 存储）。 一些示例还演示了如何使用非 Azure 或甚至非 Microsoft 的技术，例如 SignalR 和 Socket.IO
+以下是 Microsoft 创建和维护的、可配合 Apache Storm on HDInsight 使用的示例列表。 这些示例涵盖各种主题，从创建基本 C# 和 Java 拓扑，到使用 Azure 服务（例如事件中心、Cosmos DB、Power BI、SQL 数据库、HBase on HDInsight 和 Azure 存储）。 一些示例还演示了如何使用非 Azure 或甚至非 Microsoft 的技术，例如 SignalR 和 Socket.IO
 
 | 说明 | 演示 | 语言/框架 |
 |:--- |:--- |:--- |
@@ -38,9 +38,9 @@ ms.lasthandoff: 06/21/2017
 | [使用 Storm on HDInsight 从 Azure 事件中心处理事件 (Java)](hdinsight-storm-develop-java-event-hub-topology.md) |事件中心 |Java |
 | [使用 Power Bi 直观显示 Storm 拓扑中的数据][94d15238] |Power BI |C# |
 | [使用 HDInsight 中的 Storm 和 HBase 分析传感器数据][ab894747] |事件中心、HBase、Socket.IO、Web 仪表板 |C#、Java、JavaScript、HTML |
-| [使用 Storm on HDInsight 处理事件中心的汽车传感器数据][246ee964] |事件中心、DocumentDb、Azure 存储 Blob (WASB) |C#、Java |
+| [使用 Storm on HDInsight 处理事件中心的汽车传感器数据][246ee964] |事件中心、Cosmos DB、Azure 存储 Blob (WASB) |C#、Java |
 | [使用 Storm on HDInsight 从 Azure 事件中心提取、转换及加载 (ETL) 到 HBase][b4b68194] |事件中心、HBase |C# |
-| [通过 Storm on HDInsight 使用模板 C# Storm 拓扑项目来处理 Azure 服务][ce0c02a2] |事件中心、DocumentDb、SQL 数据库、HBase、SignalR |C#、Java |
+| [通过 Storm on HDInsight 使用模板 C# Storm 拓扑项目来处理 Azure 服务][ce0c02a2] |事件中心、Cosmos DB、SQL 数据库、HBase、SignalR |C#、Java |
 | [使用 Storm on HDInsight 建立从 Azure 事件中心读取数据的伸缩性基准][d6c540e3] |消息吞吐量、事件中心、SQL 数据库 |C#、Java |
 | [使用 HDInsight 上的 Storm 和 HBase 对事件进行关联](hdinsight-storm-correlation-topology.md) |HBase |C# |
 | [将 HDInsight 上的 Python 与 Storm 配合使用](hdinsight-storm-develop-python-topology.md) |具有 Flux 拓扑的 Python 组件 |Python |
@@ -59,7 +59,7 @@ ms.lasthandoff: 06/21/2017
 [ec5a4064]: https://github.com/Blackmist/csharp-storm-example "演示一个执行单词计数的基本 Storm 拓扑（以 C# 实现）。此外，还演示如何在一个 C# 拓扑中创建多个数据流。"
 [844d1d81]: hdinsight-storm-develop-csharp-event-hub-topology.md "了解如何使用 Storm on HDInsight 从 Azure 事件中心读取和写入数据。"
 [ab894747]: hdinsight-storm-sensor-data-analysis.md "了解如何使用 Apache Storm on HDInsight 处理来自 Azure 事件中心的传感器数据，使用 D3.js 可视化这些数据，然后（可选）将数据存储到 HBase。"
-[246ee964]: hdinsight-storm-iot-eventhub-documentdb.md "了解如何使用 Storm 拓扑从 Azure 事件中心读取消息，从 Azure DocumentDb 读取数据参考文档，并将数据保存到 Azure 存储。"
+[246ee964]: hdinsight-storm-iot-eventhub-documentdb.md "了解如何使用 Storm 拓扑从 Azure 事件中心读取消息，从 Azure Cosmos DB 读取数据参考文档，并将数据保存到 Azure 存储。"
 [d6c540e3]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/EventCountExample "用于演示使用 Apache Storm on HDInsight 从 Azure 事件中心读取数据以及将数据存储到 SQL 数据库时的吞吐量的多个拓扑。"
 [b4b68194]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample "了解如何从 Azure 事件中心读取数据，聚合并转换数据，然后将数据存储到 HBase on HDInsight。"
-[ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "此项目包含用来与各种 Azure 服务（例如事件中心、DocumentDb 和 SQL 数据库）进行交互的 spout、bolt 和拓扑的模板。"
+[ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "此项目包含用来与各种 Azure 服务（例如事件中心、Cosmos DB 和 SQL 数据库）进行交互的 Spout、Bolt 和拓扑的模板。"

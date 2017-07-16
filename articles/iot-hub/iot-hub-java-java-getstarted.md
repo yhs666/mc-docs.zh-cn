@@ -17,12 +17,13 @@ ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 07/10/2017
 ms.openlocfilehash: 00bdeee4f1adc12bab89b78614eba0e715d44da7
-ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/13/2017
 ---
-# <a name="connect-your-simulated-device-to-your-iot-hub-using-java"></a>使用 Java 将模拟设备连接到 IoT 中心
+# 使用 Java 将模拟设备连接到 IoT 中心
+<a id="connect-your-simulated-device-to-your-iot-hub-using-java" class="xliff"></a>
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 在本教程结束时，将获得三个 Java 控制台应用：
@@ -50,7 +51,8 @@ ms.lasthandoff: 06/28/2017
 
 现在已创建 IoT 中心。 已获取 IoT 中心主机名、IoT 中心连接字符串、IoT 中心主密钥、与事件中心兼容的名称以及与事件中心兼容的终结点，接下来需要完成本教程。
 
-## <a name="create-a-device-identity"></a>创建设备标识
+## 创建设备标识
+<a id="create-a-device-identity" class="xliff"></a>
 在本部分中，会创建一个 Java 控制台应用，用于在 IoT 中心的标识注册表中创建设备标识。 设备无法连接到 IoT 中心，除非它在标识注册表中具有条目。 有关详细信息，请参阅 **IoT 中心开发人员指南** 的 [标识注册表][lnk-devguide-identity]部分。 当你运行此控制台应用时，它将生成唯一的设备 ID 和密钥，当设备向 IoT 中心发送设备到云的消息时，可以用于标识设备本身。
 
 1. 创建名为 iot-java-get-started 的空文件夹。 在 iot-java-get-started 文件夹的命令提示符处，使用以下命令创建名为 **create-device-identity** 的 Maven 项目。 请注意，这是一条很长的命令：
@@ -132,7 +134,8 @@ ms.lasthandoff: 06/28/2017
 > 
 > 
 
-## <a name="receive-device-to-cloud-messages"></a>接收设备到云的消息
+## 接收设备到云的消息
+<a id="receive-device-to-cloud-messages" class="xliff"></a>
 在本部分中，你将创建一个 Java 控制台应用程序，用于读取来自 IoT 中心的设备到云消息。 IoT 中心公开与 [事件中心][lnk-event-hubs-overview]兼容的终结点，以便你可读取设备到云的消息。 为了简单起见，本教程创建的基本读取器不适用于高吞吐量部署。 [Process device-to-cloud messages][lnk-process-d2c-tutorial] （处理设备到云的消息）教程介绍了如何大规模处理设备到云的消息。 [事件中心入门][lnk-eventhubs-tutorial] 教程更详细地介绍了如何处理来自事件中心的消息，此教程也适用于与 IoT 中心事件中心兼容的终结点。
 
 > [!NOTE]
@@ -274,7 +277,8 @@ ms.lasthandoff: 06/28/2017
     mvn clean package -DskipTests
     ```
 
-## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
+## 创建模拟设备应用程序
+<a id="create-a-simulated-device-app" class="xliff"></a>
 在本部分中，你将创建一个 Java 控制台应用程序，用于模拟向 IoT 中心发送设备到云消息的设备。
 
 1. 在 *创建设备标识* 部分创建的 iot-java-get-started 文件夹中，在命令提示符处创建名为 **simulated-device** 的 Maven 项目。 请注意，这是一条很长的命令：
@@ -433,7 +437,8 @@ ms.lasthandoff: 06/28/2017
 > 
 > 
 
-## <a name="run-the-apps"></a>运行应用
+## 运行应用
+<a id="run-the-apps" class="xliff"></a>
 现在，已准备就绪，可以运行应用。
 
 1. 在 read-d2c 文件夹的命令提示符处，运行以下命令监视 IoT 中心的第一个分区：
@@ -454,7 +459,8 @@ ms.lasthandoff: 06/28/2017
    
     ![显示发送到 IoT 中心的消息数的 Azure 门户“使用情况”磁贴][43]
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 本教程中，在 Azure 门户中配置了新的 IoT 中心，然后在 IoT 中心的标识注册表中创建了设备标识。 已使用此设备标识，使模拟设备应用可将设备到云的消息发送至 IoT 中心。 还创建了一个应用，用于显示 IoT 中心接收的消息。 
 
 若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：

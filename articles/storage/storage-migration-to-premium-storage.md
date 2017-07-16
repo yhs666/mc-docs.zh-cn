@@ -16,10 +16,10 @@ origin.date: 02/06/2017
 ms.date: 06/26/2017
 ms.author: v-johch
 ms.openlocfilehash: 4a411f2485fd0f9c5087acbd34c6bc8090f30c53
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 迁移到 Azure 高级存储（非托管磁盘）
 <a id="migrating-to-azure-premium-storage-unmanaged-disks" class="xliff"></a>

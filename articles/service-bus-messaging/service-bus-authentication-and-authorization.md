@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+origin.date: 03/21/2017
 ms.author: v-yiso
-ms.openlocfilehash: 3863fadb02bc75085f36d8adfea29899cdc88cfc
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/17/2017
+ms.openlocfilehash: d44fc4eda64bf36d0245c1f2dcc7ed5b7cd1fb7c
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 服务总线身份验证和授权
 <a id="service-bus-authentication-and-authorization" class="xliff"></a>

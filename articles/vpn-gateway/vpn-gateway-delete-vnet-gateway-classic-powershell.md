@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 05/11/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 7f4a401bf56e6d0b12b6449a55cc74108eb8b3f9
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 4f6172ce6fc1e2e7cce46eb5fc52b41ced0c11a5
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 使用 PowerShell 删除虚拟网络网关（经典）
 <a id="delete-a-virtual-network-gateway-using-powershell-classic" class="xliff"></a>

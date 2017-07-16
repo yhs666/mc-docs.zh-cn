@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 origin.date: 05/30/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
-ms.openlocfilehash: 81fd001945ec30ab58edb6a614b81e4cbb482c3d
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: a253c12eb238bcd11a4da00527bf96c87c68ad28
+ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/10/2017
 ---
 # Azure 虚拟机中的 SQL Server Business Intelligence
 <a id="sql-server-business-intelligence-in-azure-virtual-machines" class="xliff"></a>
@@ -363,7 +363,7 @@ Analysis Services 的默认实例侦听 TCP 端口 2383。 在虚拟机防火墙
 * [将数据库迁移到 Azure VM 上的 SQL Server](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Determine the Server Mode of an Analysis Services Instance](https://msdn.microsoft.com/library/gg471594.aspx)（确定 Analysis Services 实例的服务器模式）
 * [Multidimensional Modeling (Adventure Works Tutorial)](https://technet.microsoft.com/library/ms170208.aspx)（多维建模（Adventure Works 教程））
-* [Azure 文档中心](/)
+* [Azure 文档中心](https://www.azure.cn/documentation/)
 * [Using Power BI in a Hybrid Environment](https://msdn.microsoft.com/library/dn798994.aspx)（在混合环境中使用 Power BI）
 
 > [!NOTE]

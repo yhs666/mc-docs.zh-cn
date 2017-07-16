@@ -12,10 +12,10 @@ origin.date: 12/16/2015
 ms.date: 05/13/2016
 ms.author: v-junlch
 ms.openlocfilehash: cb57d1bea565ee4cdea2ddfe27b40b042f782517
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # Microsoft Azure 门户概述
 <a id="microsoft-azure-portal-overview" class="xliff"></a>

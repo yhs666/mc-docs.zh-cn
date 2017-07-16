@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 05/08/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: bd736a185180c418b823f2143ed6530d6d73e25f
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 4d81f8566dc240ac23d0897997c1fa2f1f6e1a61
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 添加、禁用、启用或删除终结点
 <a id="add-disable-enable-or-delete-endpoints" class="xliff"></a>
@@ -88,4 +88,4 @@ ms.lasthandoff: 06/23/2017
 * [配置路由方法](traffic-manager-configure-routing-method.md)
 * [流量管理器降级状态疑难解答](traffic-manager-troubleshooting-degraded.md)
 * [流量管理器性能注意事项](traffic-manager-performance-considerations.md)
-* [流量管理器上的操作（REST API 参考）](https://msdn.microsoft.com/library/hh758255.aspx)
+* [流量管理器上的操作（REST API 参考）](http://go.microsoft.com/fwlink/p/?LinkID=313584)

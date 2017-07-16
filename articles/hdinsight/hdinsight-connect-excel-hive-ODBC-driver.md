@@ -19,10 +19,10 @@ origin.date: 05/12/2017
 ms.date: 03/31/2017
 ms.author: v-dazen
 ms.openlocfilehash: 7283c84495d3371f08e8dec95adc3558d8c9a9f2
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 Azure HDInsight 中的 Hadoop
 <a id="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver" class="xliff"></a>

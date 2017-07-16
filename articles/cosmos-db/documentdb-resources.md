@@ -18,10 +18,10 @@ ms.date: 07/17/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e33dcc14359ce1e192611969f9a540e40faac752
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/13/2017
 ---
 # Azure Cosmos DB 分层资源模型和核心概念
 <a id="azure-cosmos-db-hierarchical-resource-model-and-core-concepts" class="xliff"></a>

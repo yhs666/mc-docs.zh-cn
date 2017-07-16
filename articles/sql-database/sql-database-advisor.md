@@ -15,10 +15,10 @@ origin.date: 09/30/2016
 ms.date: 07/03/2017
 ms.author: v-johch
 ms.openlocfilehash: 11bf28abff738bc622aa980d3e63a353fc35f48f
-ms.sourcegitcommit: bb82041119027be7a62fc96945d92a8a452e7849
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 性能建议
 <a id="performance-recommendations" class="xliff"></a>

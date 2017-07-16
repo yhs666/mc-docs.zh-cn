@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 05/22/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
-ms.openlocfilehash: 1c7706d3a7f39fecfdc7593288e85c938795d85c
-ms.sourcegitcommit: 51a25dbbf5f32fe524860b1bb107108122b47bf0
+ms.openlocfilehash: b3f8367b3d243ad7a4237bc0bf194747c4223d2a
+ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 07/10/2017
 ---
 # 从托管映像创建 VM
 <a id="create-a-vm-from-a-managed-image" class="xliff"></a>
@@ -136,7 +136,7 @@ $cred = Get-Credential
     $vmName = "myVM"
     $computerName = "myComputer"
     ```
-2. 设置虚拟机的大小。 此示例创建 **Standard_DS1_v2** 大小的 VM。 有关详细信息，请参阅 [VM 大小](/virtual-machines/virtual-machines-windows-sizes/)文档。
+2. 设置虚拟机的大小。 此示例创建 **Standard_DS1_v2** 大小的 VM。 有关详细信息，请参阅 [VM 大小](/virtual-machines/windows/sizes/)文档。
 
     ```powershell
     $vmSize = "Standard_DS1_v2"

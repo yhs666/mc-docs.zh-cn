@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 origin.date: 01/09/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
-ms.openlocfilehash: 5095b706a8c89d581926a7f74760ab0cd9cf6514
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: cb2dda90eddb782c7da0d2edf108a28b7884ee0a
+ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/10/2017
 ---
 # Azure 虚拟机中的 SQL Server 概述
 <a id="overview-of-sql-server-on-azure-virtual-machines" class="xliff"></a>
@@ -120,7 +120,6 @@ Azure VM 可以使用[自动修补](virtual-machines-windows-sql-automated-patch
 
 ## 后续步骤
 <a id="next-steps" class="xliff"></a>
-有关定价问题，请参阅[定价](https://www.azure.cn/pricing/details/virtual-machines/)。 在 **VM 类型** 列表中选择 SQL Server 的目标版本。 然后查看不同大小的虚拟机的价格。 
 
 有关定价的问题，请参阅 [SQL Server Azure VM 的定价指南](virtual-machines-windows-sql-server-pricing-guidance.md)和 [Azure 定价页](https://www.azure.cn/pricing/details/virtual-machines/windows/)。 在“OS/软件”列表中选择 SQL Server 的目标版本。 然后查看不同大小的虚拟机的价格。
 

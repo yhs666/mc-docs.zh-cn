@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/06/2017
 ms.author: v-johch
 ms.openlocfilehash: 97c4941c34b3c31b61da241430004c7d067206b2
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 使用 Azure Site Recovery 迁移到高级存储
 <a id="migrating-to-premium-storage-using-azure-site-recovery" class="xliff"></a>

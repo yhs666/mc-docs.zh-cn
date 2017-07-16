@@ -12,15 +12,17 @@ ms.devlang: node.js
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+origin.date: 04/26/2017
 ms.author: v-yiso
-ms.openlocfilehash: 15d3a5f3d4ff649584e4d92ab7393d358fb55045
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 
+ms.openlocfilehash: 722fcec03b3b04a7fa8f3977d252e6e792966682
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-simulated-telemetry-using-nodejs"></a>使用 Node.js 将 Raspberry Pi 3 连接到远程监视解决方案，并发送模拟遥测数据
+# 使用 Node.js 将 Raspberry Pi 3 连接到远程监视解决方案，并发送模拟遥测数据
+<a id="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-simulated-telemetry-using-nodejs" class="xliff"></a>
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-selector](../../includes/iot-suite-raspberry-pi-kit-selector.md)]
 
@@ -40,11 +42,13 @@ ms.lasthandoff: 06/21/2017
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-prepare-pi-simulator](../../includes/iot-suite-raspberry-pi-kit-prepare-pi-simulator.md)]
 
-## <a name="download-and-configure-the-sample"></a>下载并配置示例
+## 下载并配置示例
+<a id="download-and-configure-the-sample" class="xliff"></a>
 
 现在，可以在 Raspberry Pi 上下载并配置远程监视客户端应用程序。
 
-### <a name="install-nodejs"></a>安装 Node.js
+### 安装 Node.js
+<a id="install-nodejs" class="xliff"></a>
 
 如果尚未这样做，请在 Raspberry Pi 上安装 Node.js。 IoT SDK for Node.js 需要版本 0.11.5 或更高版本的 Node.js。 以下步骤演示如何在 Raspberry Pi 上安装 Node.js v6.10.2：
 
@@ -64,7 +68,8 @@ ms.lasthandoff: 06/21/2017
 
     `node --version`
 
-### <a name="clone-the-repositories"></a>克隆存储库
+### 克隆存储库
+<a id="clone-the-repositories" class="xliff"></a>
 
 如果尚未这样做，请通过在 Pi 上的终端中运行以下命令，克隆所需的存储库：
 
@@ -72,7 +77,8 @@ ms.lasthandoff: 06/21/2017
 
 `git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
 
-### <a name="update-the-device-connection-string"></a>更新设备连接字符串
+### 更新设备连接字符串
+<a id="update-the-device-connection-string" class="xliff"></a>
 
 使用以下命令在 **nano** 编辑器中打开示例源文件：
 
@@ -86,7 +92,8 @@ var connectionString = 'HostName=[Your IoT hub name].azure-devices.cn;DeviceId=[
 
 将占位符值替换为在本教程开始时创建并保存的设备和 IoT 中心信息。 保存所做的更改（按 **Ctrl-O**，然后按 **Enter**），然后退出编辑器（按 **Ctrl-X**）。
 
-## <a name="run-the-sample"></a>运行示例
+## 运行示例
+<a id="run-the-sample" class="xliff"></a>
 
 运行以下命令以安装示例的必备组件包：
 
@@ -106,7 +113,8 @@ var connectionString = 'HostName=[Your IoT hub name].azure-devices.cn;DeviceId=[
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-telemetry-simulator](../../includes/iot-suite-raspberry-pi-kit-view-telemetry-simulator.md)]
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 有关 Azure IoT 的更多示例和文档，请访问 [Azure IoT 开发人员中心](https://www.azure.cn/develop/iot/)。
 

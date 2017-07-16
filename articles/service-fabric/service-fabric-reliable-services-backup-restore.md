@@ -15,12 +15,13 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: v-johch
 ms.openlocfilehash: 4238ea3387ed1fc6cfe23a7c30344f8ff2e23882
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
-# <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>备份和还原 Reliable Services 及 Reliable Actors
+# 备份和还原 Reliable Services 及 Reliable Actors
+<a id="back-up-and-restore-reliable-services-and-reliable-actors" class="xliff"></a>
 Azure Service Fabric 是一个高可用性平台，用于复制多个节点中的状态以维护此高可用性。  因此，即使群集中的一个节点出现故障，服务也将继续可用。 尽管此平台提供的内置冗余对某些情况来说可能已经足够使用，但在特定情况下，仍需要服务备份数据（到外部存储）。
 
 > [!NOTE]
@@ -37,7 +38,8 @@ Azure Service Fabric 是一个高可用性平台，用于复制多个节点中�
 
 备份/还原功能允许在 Reliable Services API 上构建的服务创建和还原备份。 由平台提供的备份 API 允许在不阻止读取或写入操作的情况下备份服务分区的状态。 还原 API 允许从选定的备份还原服务分区的状态。
 
-## <a name="types-of-backup"></a>备份的类型
+## 备份的类型
+<a id="types-of-backup" class="xliff"></a>
 有两个备份选项：完整和增量。
 完整备份是包含重新创建副本状态所需的所有数据的备份：检查点和所有日志记录。
 因为它具有检查点和日志，所以完整备份可以自行还原。
@@ -57,7 +59,8 @@ Azure Service Fabric 是一个高可用性平台，用于复制多个节点中�
 若要还原增量备份，需要整个备份链。
 备份链是从完整备份开始，随后是一些连续增量备份的链。
 
-## <a name="backup-reliable-services"></a>备份 Reliable Services
+## 备份 Reliable Services
+<a id="backup-reliable-services" class="xliff"></a>
 服务创建者可完全控制何时进行备份，以及将备份存储在何处。
 
 若要开始备份，服务需要调用继承的成员函数 **BackupAsync**。  
@@ -105,7 +108,8 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, Cancellation
 * 在任何给定时间，每个副本只能有一项正在进行的备份操作。 一次调用多个 **BackupAsync** 将引发 **FabricBackupInProgressException**，用以将正在进行的备份限制为一个。
 * 如果备份正在进行时副本发生故障转移，那么备份可能没有完成。 因此，故障转移完成后，服务应负责根据需要调用 **BackupAsync** 来重启备份。
 
-## <a name="restore-reliable-services"></a>还原 Reliable Services
+## 还原 Reliable Services
+<a id="restore-reliable-services" class="xliff"></a>
 一般而言，你可能需要执行还原操作的情况可以为以下类型之一：
 
 * 服务分区丢失数据。 例如，分区的三个副本中两个副本（包括主副本）的磁盘数据已损坏或被擦除。 新的主副本可能需要从备份中还原数据。
@@ -114,7 +118,8 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, Cancellation
 
 虽然有许多恢复方法，但我们仅针对上述情形提供一些使用 **RestoreAsync** 进行恢复的示例。
 
-## <a name="partition-data-loss-in-reliable-services"></a>Reliable Services 中的分区数据丢失
+## Reliable Services 中的分区数据丢失
+<a id="partition-data-loss-in-reliable-services" class="xliff"></a>
 在此情况下，运行时会自动检测数据丢失并调用 **OnDataLossAsync** API。
 
 服务创建者需要执行下列操作来恢复：
@@ -153,7 +158,8 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 > 
 > 
 
-## <a name="deleted-or-lost-service"></a>删除或丢失服务
+## 删除或丢失服务
+<a id="deleted-or-lost-service" class="xliff"></a>
 如果删除了一个服务，则在还原数据之前必须首先重新创建此服务。  请务必创建具有相同配置的服务，例如，相同的分区方案，以便可以无缝地还原数据。  一旦启动服务，就必须在此服务的每个分区上调用用于还原数据的 API（上面的 **OnDataLossAsync**）。 实现此操作的一种方法是在每个分区上使用 **[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)**。  
 
 从这个角度来看，实现操作与上述情况相同。 每个分区需要从外部存储中还原最新的相关备份。 值得注意的一点是，分区 ID 现在可能已更改，因为运行时是动态创建分区 ID。 因此，此服务需要还原相应的分区信息和服务名称来标识每个分区要还原的正确的最新备份。
@@ -163,7 +169,8 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 > 
 > 
 
-## <a name="replication-of-corrupt-application-data"></a>复制损坏的应用程序数据
+## 复制损坏的应用程序数据
+<a id="replication-of-corrupt-application-data" class="xliff"></a>
 如果新部署的应用程序升级有一个 bug，则可能会导致数据损坏。 例如，应用程序升级可能使用无效的区号更新可靠字典中的每个电话号码记录。  在此情况下，将复制无效的电话号码，因为 Service Fabric 并不知道要存储的数据的性质。
 
 在检测到这样一个导致数据损坏的严重 bug 之后首先要做的是在应用程序级别冻结服务，并且如果可以，请升级到没有此 bug 的应用程序代码版本。  但是，即使修复了服务代码，数据仍可能是损坏的，因此可能需要还原数据。  在此情况下，还原最新备份可能不足以解决问题，因为此最新备份可能已损坏。  因此，你需要查找在数据被损坏之前创建的最新备份。
@@ -180,7 +187,8 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 
 
 
-## <a name="backup-and-restore-reliable-actors"></a>备份和还原 Reliable Actors
+## 备份和还原 Reliable Actors
+<a id="backup-and-restore-reliable-actors" class="xliff"></a>
 
 
 Reliable Actors 框架在 Reliable Services 的基础之上构建。 托管执行组件的 ActorService 是有状态的 reliable service。 因此，Reliable Services 中提供的所有备份和还原功能也可用于 Reliable Actors（状态提供程序特定的行为除外）。 由于会基于每个分区执行备份，因此该分区中所有执行组件的状态都会进行备份（还原也类似，会基于每个分区进行）。 若要执行备份/还原，服务所有者应创建一个派生自 ActorService 类的自定义执行组件服务类，然后像之前部分所述的 Reliable Services 一样进行备份/还原。
@@ -235,7 +243,8 @@ class MyCustomActorService : ActorService
 > **KvsActorStateProvider** 目前会忽略 RestorePolicy.Safe 选项。 计划在将来的版本中支持此功能。
 > 
 
-## <a name="testing-backup-and-restore"></a>测试备份和还原
+## 测试备份和还原
+<a id="testing-backup-and-restore" class="xliff"></a>
 请务必确保关键数据正在进行备份，并可进行还原。 为此，可在 PowerShell 中调用会导致特定分区丢失数据的 **Invoke-ServiceFabricPartitionDataLoss** cmdlet，以测试服务的数据备份和还原功能是否按预期运行。  此外，也可以通过编程方式调用数据丢失，并从该事件中还原。
 
 > [!NOTE]
@@ -243,15 +252,18 @@ class MyCustomActorService : ActorService
 > 
 > 
 
-## <a name="under-the-hood-more-details-on-backup-and-restore"></a>表象之下：有关备份和还原的更多详细信息
+## 表象之下：有关备份和还原的更多详细信息
+<a id="under-the-hood-more-details-on-backup-and-restore" class="xliff"></a>
 下面提供了有关备份和还原的更多详细信息。
 
-### <a name="backup"></a>备份
+### 备份
+<a id="backup" class="xliff"></a>
 可靠性状态管理器具有在不阻止任何读取或写入操作的情况下创建一致的备份的功能。 为了实现此功能，它利用了检查点和日志持久性机制。  可靠性状态管理器在特定时间点采用模糊（轻型）检查点来缓解来自事务日志的压力，并缩短恢复时间。  调用 **BackupAsync** 时，可靠状态管理器指示所有可靠对象将其最新的检查点文件复制到本地备份文件夹。  然后，可靠性状态管理器将复制所有日志记录（从“开始指针”开始到最新的日志记录）到备份文件夹中。  由于所有日志记录直至最新日志记录都包含在备份中，并且可靠状态管理器保留了预写日志记录，因此，可靠状态管理器保证所有提交的事务（**CommitAsync** 已成功返回）都包含在备份中。
 
 在调用 **BackupAsync** 之后提交的任何事务可能在备份中，也可能不在备份中。  一旦平台填充此本地备份文件夹（即由运行时完成本地备份），就将调用此服务的备份回调。  此回调负责将备份文件夹移至 Azure 存储等外部位置。
 
-### <a name="restore"></a>还原
+### 还原
+<a id="restore" class="xliff"></a>
 可靠状态管理器具有使用 **RestoreAsync** API 从备份还原的功能。  
 只能在 **OnDataLossAsync** 方法内部调用 **RestoreContext** 上的 **RestoreAsync** 方法。
 由 **OnDataLossAsync** 返回的布尔值表示服务是否从外部源还原其状态。
@@ -267,7 +279,8 @@ class MyCustomActorService : ActorService
 作为恢复过程的一部分，将对可靠对象重播从“起始点”开始的操作，该起始点已提交备份文件夹中的日志记录。  
 此步骤可以确保恢复的状态是一致的。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services 通知](service-fabric-reliable-services-notifications.md)

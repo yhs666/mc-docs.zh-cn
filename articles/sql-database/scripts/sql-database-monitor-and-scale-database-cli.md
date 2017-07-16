@@ -3,33 +3,36 @@ title: "Azure CLI 脚本 - 监视和缩放单个 SQL 数据库 | Azure"
 description: "Azure CLI 脚本示例 - 使用 Azure CLI 监视和缩放单个 SQL 数据库"
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: Hayley244
+manager: digimobile
 editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: monitor & tune
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/24/2017
+origin.date: 04/24/2017
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 0d5a0a8b9fad8132dbe206e59184f25b32ad6ee0
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 52116cfcfdcaa54e952956b76206c87fcd84173b
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="monitor-and-scale-a-single-sql-database-using-the-azure-cli"></a>使用 Azure CLI 监视和缩放单个 SQL 数据库
+# 使用 Azure CLI 监视和缩放单个 SQL 数据库
+<a id="monitor-and-scale-a-single-sql-database-using-the-azure-cli" class="xliff"></a>
 
 此示例 CLI 脚本在查询数据库的大小信息后，将单个 Azure SQL 数据库缩放为不同的性能级别。 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 
-## <a name="sample-script"></a>示例脚本
+## 示例脚本
+<a id="sample-script" class="xliff"></a>
 
 ```azurecli
 #!/bin/bash
@@ -61,7 +64,7 @@ az sql db create \
     --service-objective S0
 
 # Monitor database size
-az sql db show-usage \
+az sql db list-usages \
     --name mySampleDatabase \
     --resource-group myResourceGroup \
     --name $servername
@@ -73,7 +76,9 @@ az sql db create \
     --name mySampleDatabase \
     --service-objective S1
 ```
-## <a name="clean-up-deployment"></a>清理部署
+
+## 清理部署
+<a id="clean-up-deployment" class="xliff"></a>
 
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
@@ -81,7 +86,8 @@ az sql db create \
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>脚本说明
+## 脚本说明
+<a id="script-explanation" class="xliff"></a>
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
@@ -94,7 +100,8 @@ az group delete --name myResourceGroup
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | 删除资源组，包括所有嵌套的资源。 |
 |||
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 

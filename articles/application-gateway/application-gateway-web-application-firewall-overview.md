@@ -16,10 +16,10 @@ origin.date: 05/03/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.openlocfilehash: 53080a772ebb811cacda7841632297076f71bade
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # Web 应用程序防火墙 (WAF)
 <a id="web-application-firewall-waf" class="xliff"></a>

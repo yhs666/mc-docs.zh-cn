@@ -16,12 +16,13 @@ ms.date: 02/27/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 826f19810ccc0362914be52ab3db041f0d368f31
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
-# <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>使用 Visual Studio 项目模板快速启动 Batch 解决方案
+# 使用 Visual Studio 项目模板快速启动 Batch 解决方案
+<a id="use-visual-studio-project-templates-to-jump-start-batch-solutions" class="xliff"></a>
 
 Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代码，从而帮助以最少的精力在 Batch 上实现并运行计算密集型工作负荷。 本文档介绍这些模板，并提供其用法指导。
 
@@ -30,7 +31,8 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
 > 
 > 
 
-## <a name="high-level-overview"></a>综合概述
+## 综合概述
+<a id="high-level-overview" class="xliff"></a>
 作业管理器和任务处理器模板可用于创建两个有用的组件：
 
 - 作业管理器任务实现作业拆分器，后者可将作业细分为多个可以并行独立运行的任务。
@@ -51,7 +53,8 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
 
 ![显示客户端代码与 Batch 服务交互的示意图][diagram01]
 
-## <a name="prerequisites"></a>先决条件
+## 先决条件
+<a id="prerequisites" class="xliff"></a>
 若要使用 Batch 模板，需要满足以下条件：
 
 - 已安装 Visual Studio 2015 或更高版本的计算机。
@@ -64,7 +67,8 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
   - 从 Visual Studio 的联机库下载模板： [Azure Batch 项目模板][vs_gallery_templates]
 - 如果打算使用[应用程序包](./batch-application-packages.md)功能将作业管理器和任务处理器部署到 Batch 计算节点，需要将存储帐户链接到 Batch 帐户。
 
-## <a name="preparation"></a>准备工作
+## 准备工作
+<a id="preparation" class="xliff"></a>
 建议创建可在其中包含作业管理器和任务处理器的解决方案，因为这样可以更轻松地在作业管理器和任务处理器程序之间共享代码。 若要创建此解决方案，请遵循以下步骤：
 
 1. 打开 Visual Studio，然后选择“文件” > “新建” > “项目”。
@@ -72,7 +76,8 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
 3. 键入用于描述应用程序和此解决方案用途的名称（例如，“LitwareBatchTaskPrograms”）。
 4. 若要创建新解决方案，请单击“确定”。
 
-## <a name="job-manager-template"></a>作业管理器模板
+## 作业管理器模板
+<a id="job-manager-template" class="xliff"></a>
 作业管理器模板可帮助实现作业管理器任务以执行以下操作：
 
 - 将一个作业拆分为多个任务。
@@ -83,7 +88,8 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
 > 
 > 
 
-### <a name="create-a-job-manager-using-the-template"></a>使用模板创建作业管理器
+### 使用模板创建作业管理器
+<a id="create-a-job-manager-using-the-template" class="xliff"></a>
 若要在前面创建的解决方案中添加作业管理器，请遵循以下步骤：
 
 1. 在 Visual Studio 中打开现有解决方案。
@@ -93,7 +99,8 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
 5. 若要创建项目，请单击“确定”。
 6. 最后，生成项目来强制 Visual Studio 加载所有引用的 NuGet 包，并验证项目是否有效以便能开始对其进行修改。
 
-### <a name="job-manager-template-files-and-their-purpose"></a>作业管理器模板文件及其用途
+### 作业管理器模板文件及其用途
+<a id="job-manager-template-files-and-their-purpose" class="xliff"></a>
 使用作业管理器模板创建项目时，它生成三组代码文件：
 
 - 主程序文件 (Program.cs)。 此文件包含程序入口点和顶层异常处理。 一般情况下，不需要修改此文件。
@@ -126,7 +133,8 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
 - `Packages.config`：标准的 NuGet 包依赖项文件。
 - `Program.cs`：包含程序入口点和顶层异常处理。
 
-### <a name="implementing-the-job-splitter"></a>实现作业拆分器
+### 实现作业拆分器
+<a id="implementing-the-job-splitter" class="xliff"></a>
 当打开作业管理器模板项目时，项目默认情况下打开 JobSplitter.cs 文件。 可按如下所示使用 Split() 方法为工作负荷中的任务实现拆分逻辑：
 
 ```csharp
@@ -185,7 +193,8 @@ Split() 实现具有以下项的访问权限：
 
 根据客户端重试设置，如果作业管理器失败，Batch 服务可能会重试。 通常这很安全，因为当框架将任务添加到作业时，会忽略任何已存在的任务。 但是，如果计算任务需要很高的成本，可能不希望由于重新计算已添加到作业的任务而生成成本，相反地，如果重新运行不保证生成相同的任务 ID，则“忽略重复项”的行为不会开始运行。 在这些情况下，应该将作业拆分器设计为检测已完成的任务而不进行重复，例如，通过在开始生成任务之前先运行 CloudJob.ListTasks。
 
-### <a name="exit-codes-and-exceptions-in-the-job-manager-template"></a>作业管理器模板中的退出代码和异常
+### 作业管理器模板中的退出代码和异常
+<a id="exit-codes-and-exceptions-in-the-job-manager-template" class="xliff"></a>
 退出代码和异常提供了机制来确定程序的运行结果，并可帮助找到任何程序执行问题。 作业管理器模板实现本部分所述的退出代码和异常。
 
 使用作业管理器模板实现的作业管理器任务返回三个可能的退出代码：
@@ -200,7 +209,8 @@ Split() 实现具有以下项的访问权限：
 
 异常返回的所有信息已写入 stdout.txt 和 stderr.txt 文件。 有关详细信息，请参阅[错误处理](./batch-api-basics.md#error-handling)。
 
-### <a name="client-considerations"></a>客户端注意事项
+### 客户端注意事项
+<a id="client-considerations" class="xliff"></a>
 本部分说明在根据此模板调用作业管理器时的一些客户端实现要求。 请参阅 [How to pass parameters and environment variables from the client code](#pass-environment-settings) （如何从客户端代码传递参数和环境变量），获取有关传递参数和环境设置的详细信息。
 
 **必需的凭据**
@@ -241,7 +251,8 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 在作业拆分器模型中，除了作业拆分器所创建的任务外，客户端通常不需要将任务添加到作业中。 因此一般而言，客户端应该将作业的 *onAllTasksComplete* 设置为 **terminatejob**。
 
-## <a name="task-processor-template"></a>任务处理器模板
+## 任务处理器模板
+<a id="task-processor-template" class="xliff"></a>
 任务处理器模板可帮助实现任务处理器来执行以下操作：
 
 - 设置要让每个 Batch 任务运行所需的信息。
@@ -252,7 +263,8 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 任务处理器执行的操作可根据工作负荷所需调整为任意复杂性和数量。 此外，通过将所有任务操作实现到一个任务处理器中，可以根据应用程序或工作负荷要求的更改，轻松地更新或添加操作。 但是，在某些情况下，任务处理器可能不是最适合实现的解决方案，因为它增加不必要的复杂性，例如，在运行可以从简单命令行快速启动的作业时。
 
-### <a name="create-a-task-processor-using-the-template"></a>使用模板创建任务处理器
+### 使用模板创建任务处理器
+<a id="create-a-task-processor-using-the-template" class="xliff"></a>
 若要在前面创建的解决方案中添加任务处理器，请遵循以下步骤：
 
 1. 在 Visual Studio 中打开现有解决方案。
@@ -262,7 +274,8 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 5. 若要创建项目，请单击“确定”。
 6. 最后，生成项目来强制 Visual Studio 加载所有引用的 NuGet 包，并验证项目是否有效以便能开始对其进行修改。
 
-### <a name="task-processor-template-files-and-their-purpose"></a>任务处理器模板文件及其用途
+### 任务处理器模板文件及其用途
+<a id="task-processor-template-files-and-their-purpose" class="xliff"></a>
 使用任务处理器模板创建项目时，它生成三组代码文件：
 
 - 主程序文件 (Program.cs)。 此文件包含程序入口点和顶层异常处理。 一般情况下，不需要修改此文件。
@@ -300,7 +313,8 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 - `Packages.config`：标准的 NuGet 包依赖项文件。
 - `Program.cs`：包含程序入口点和顶层异常处理。
 
-## <a name="implementing-the-task-processor"></a>实现任务处理器
+## 实现任务处理器
+<a id="implementing-the-task-processor" class="xliff"></a>
 当打开任务处理器模板项目时，项目默认情况下打开 TaskProcessor.cs 文件。 可按如下所示使用 Run() 方法为工作负荷中的任务实现运行逻辑：
 
 ```csharp
@@ -363,7 +377,8 @@ Run() 实现具有以下项的访问权限：
 
 如果发生失败，可以引发异常以退出 Run() 方法，但这会导致顶层异常处理程序继续控制任务退出代码。 如果需要控制退出代码以便分辨不同类型的失败，例如为了进行诊断或由于某些失败模式应终止作业，某些则不应该，则应该通过返回非零退出代码来退出 Run() 方法。 这会成为任务退出代码。
 
-### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>任务处理器模板中的退出代码和异常
+### 任务处理器模板中的退出代码和异常
+<a id="exit-codes-and-exceptions-in-the-task-processor-template" class="xliff"></a>
 退出代码和异常提供了机制来确定程序的运行结果，可帮助找到任何程序执行问题。 任务处理器模板实现本部分所述的退出代码和异常。
 
 使用任务处理器模板实现的任务处理器任务返回三个可能的退出代码：
@@ -381,7 +396,8 @@ Run() 实现具有以下项的访问权限：
 
 异常返回的所有信息已写入 stdout.txt 和 stderr.txt 文件。 有关详细信息，请参阅 Batch 文档中的“Error Handling”（错误处理）。
 
-### <a name="client-considerations"></a>客户端注意事项
+### 客户端注意事项
+<a id="client-considerations" class="xliff"></a>
 **存储凭据**
 
 如果任务处理器使用 Azure Blob 存储来保存输出，例如使用文件约定帮助器库，则它需要访问云存储帐户凭据或包含共享访问签名 (SAS) 的 Blob 容器 URL。 模板支持通过通用环境变量来提供凭据。 客户端可按如下所示传递存储凭据：
@@ -401,8 +417,10 @@ job.CommonEnvironmentSettings = new [] {
 
 建议客户端或作业管理器任务先创建任务所需的任何容器，再将任务添加到作业。 如果使用具有 SAS 的容器 URL 就必须这样做，因为这样的 URL 并未包含创建容器的权限。 即使传递的是存储帐户凭据仍建议这样做，因为它存储每一项必须在容器上调用 CloudBlobContainer.CreateIfNotExistsAsync 的任务。
 
-## <a name="pass-parameters-and-environment-variables"></a>传递参数和环境变量
-### <a name="pass-environment-settings"></a>传递环境设置
+## 传递参数和环境变量
+<a id="pass-parameters-and-environment-variables" class="xliff"></a>
+### 传递环境设置
+<a id="pass-environment-settings" class="xliff"></a>
 客户端可以环境设置的形式将信息传递给作业管理器任务。 然后，作业管理器任务可在生成作为计算作业一部分来运行的任务处理器任务时使用此信息。 可以环境设置形式传递的信息示例如下：
 
 - 存储帐户名称和帐户密钥
@@ -413,7 +431,8 @@ Batch 服务提供一个简单的机制，用于在 [Microsoft.Azure.Batch.JobMa
 
 例如，若要获取 Batch 帐户的 `BatchClient` 实例，可以环境变量的形式从客户端代码传递 Batch 帐户的 URL 和共享密钥凭据。 同样，若要访问链接到 Batch 帐户的存储帐户，可使用环境变量的形式传递存储帐户名和存储帐户密钥。
 
-### <a name="pass-parameters-to-the-job-manager-template"></a>将参数传递到作业管理器模板
+### 将参数传递到作业管理器模板
+<a id="pass-parameters-to-the-job-manager-template" class="xliff"></a>
 在许多情况下，最好将每个操作的参数传递到作业管理器任务，以便控制作业拆分进程或配置作业的任务。 为此，可将名为 parameters.json 的 JSON 文件上传为作业管理器任务的资源文件。 然后，参数就可以在作业管理器模板的 `JobSplitter._parameters` 字段中可用。
 
 > [!NOTE]
@@ -421,7 +440,8 @@ Batch 服务提供一个简单的机制，用于在 [Microsoft.Azure.Batch.JobMa
 > 
 > 
 
-### <a name="pass-parameters-to-the-task-processor-template"></a>将参数传递给任务处理器模板
+### 将参数传递给任务处理器模板
+<a id="pass-parameters-to-the-task-processor-template" class="xliff"></a>
 也可以使用任务处理器模板将参数传递到所实现的各个任务。 就像使用作业管理器模板一样，任务处理器模板查找名为
 
 parameters.json 的资源文件，如果找到，则将它加载为参数字典。 有几个选项可用于将参数传递给任务处理器任务：
@@ -434,11 +454,14 @@ parameters.json 的资源文件，如果找到，则将它加载为参数字典�
 > 
 > 
 
-## <a name="next-steps"></a>后续步骤
-### <a name="persist-job-and-task-output-to-azure-storage"></a>将作业和任务输出保存到 Azure 存储
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
+### 将作业和任务输出保存到 Azure 存储
+<a id="persist-job-and-task-output-to-azure-storage" class="xliff"></a>
 在开发 Batch 解决方案时的另一个有用工具是 [Azure Batch 文件约定][nuget_package]。 在 Batch .NET 应用程序中使用此 .NET 类库（目前以预览版提供）可在 Azure 存储中轻松存储和检索任务输出。 [保存 Azure Batch 作业和任务输出](./batch-task-output.md)包含该库及其用法的完整介绍。
 
-### <a name="batch-forum"></a>Batch 论坛
+### Batch 论坛
+<a id="batch-forum" class="xliff"></a>
 MSDN 上的 [Azure Batch 论坛][forum] 是探讨 Batch 服务以及咨询其相关问题的不错场所。 欢迎前往浏览这些帮忙解决“棘手问题”的贴子，并发布你在构建 Batch 解决方案时遇到的问题。
 
 [forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch

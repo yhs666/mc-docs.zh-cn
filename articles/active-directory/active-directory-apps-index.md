@@ -15,17 +15,19 @@ origin.date: 05/04/2017
 ms.date: 06/12/2017
 ms.author: v-junlch
 ms.openlocfilehash: 50c3f998441c7bd533df500618cc760e64e9d92e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
-# <a name="article-index-for-application-management-in-azure-active-directory"></a>有关 Azure Active Directory 中应用程序管理的文章索引
+# 有关 Azure Active Directory 中应用程序管理的文章索引
+<a id="article-index-for-application-management-in-azure-active-directory" class="xliff"></a>
 本页提供了一份完整列表，列出编写的 Azure Active Directory (Azure AD) 中各种应用程序相关功能的所有文章。
 
 每个主要功能区都有简介，同时也根据你要查找的信息指导需要阅读的文章。
 
-## <a name="overview-articles"></a>概述文章
+## 概述文章
+<a id="overview-articles" class="xliff"></a>
 对于只需要 Azure AD 应用程序管理功能的简要说明的用户，以下文章是很好的起点。
 
 | 文章指南 |  |
@@ -35,7 +37,8 @@ ms.lasthandoff: 06/21/2017
 | 探讨将应用集成到 Azure AD 时所涉及的不同步骤 |[将 Azure Active Directory 与应用程序集成](./active-directory-integrating-applications-getting-started.md)<br /><br />[启用对 SaaS 应用的单一登录](./active-directory-sso-integrate-saas-apps.md)<br /><br />[管理对应用的访问](./active-directory-managing-access-to-apps.md) |
 | 如何在 Azure AD 中表示应用的技术说明 |[如何以及为何将应用程序添加到 Azure AD](./develop/active-directory-how-applications-are-added.md) |
 
-## <a name="troubleshooting-articles"></a>疑难解答文章
+## 疑难解答文章
+<a id="troubleshooting-articles" class="xliff"></a>
 本部分提供相关故障排除指南的快速访问链接。 可以在本页的余下部分找到有关每个功能区的详细信息。
 
 | 功能区 |  |
@@ -44,8 +47,10 @@ ms.lasthandoff: 06/21/2017
 | 基于密码的单一登录 | Internet Explorer 访问面板扩展疑难解答 |
 | 本地 AD 与 Azure AD 之间的单一登录 |[排查密码同步问题](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)|
 
-## <a name="single-sign-on-sso"></a>单一登录 (SSO)
-### <a name="federated-single-sign-on-sign-into-many-apps-using-one-identity"></a>联合单一登录：使用一个标识登录多个应用程序
+## 单一登录 (SSO)
+<a id="single-sign-on-sso" class="xliff"></a>
+### 联合单一登录：使用一个标识登录多个应用程序
+<a id="federated-single-sign-on-sign-into-many-apps-using-one-identity" class="xliff"></a>
 单一登录可让用户只使用一组凭据，访问各种不同的应用程序和服务。 可以通过联合方法启用单一登录。 当用户尝试登录联合应用时，将被重定向到其组织的官方登录页面（由 Azure Active Directory 呈现），一旦身份验证成功，即重定向回到应用。
 
 | 文章指南 |  |
@@ -59,7 +64,8 @@ ms.lasthandoff: 06/21/2017
 
 联合单一登录适用于所有版本的 Azure AD，每个用户最多十个应用。 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) 支持无限数目的应用程序。 如果组织拥有 [Azure AD 基本版](https://www.azure.cn/pricing/details/identity/)或 [Azure AD 高级版](https://www.azure.cn/pricing/details/identity/)，则可以[使用组来分配对联合应用程序的访问权限](#managing-access-to-applications)。
 
-### <a name="password-based-single-sign-on-account-sharing-and-sso-for-non-federated-apps"></a>基于密码的单一登录：非联合应用的帐户共享和 SSO
+### 基于密码的单一登录：非联合应用的帐户共享和 SSO
+<a id="password-based-single-sign-on-account-sharing-and-sso-for-non-federated-apps" class="xliff"></a>
 为了实现单一登录到不支持联合身份验证的应用程序，Azure AD 提供了密码管理功能，可安全地将密码存储到 SaaS 应用并自动将用户登录到这些应用。 你可以轻松分发新建帐户的凭据，并与多人共享团队帐户。 用户无需知道他们有权访问的帐户凭据。
 
 | 文章指南 |  |
@@ -71,7 +77,8 @@ ms.lasthandoff: 06/21/2017
 
 基于密码的单一登录适用于所有版本的 Azure AD，每个用户最多十个应用。 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) 支持无限数目的应用程序。 如果组织拥有 [Azure AD Basic](https://www.azure.cn/pricing/details/identity/) 或 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/)，则可以[使用组来分配对应用程序的访问权限](#managing-access-to-applications)。 自动密码滚动更新是一项 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) 功能。
 
-### <a name="enabling-single-sign-on-between-azure-ad-and-on-premises-ad"></a>在 Azure AD 与本地 AD 之间启用单一登录
+### 在 Azure AD 与本地 AD 之间启用单一登录
+<a id="enabling-single-sign-on-between-azure-ad-and-on-premises-ad" class="xliff"></a>
 如果你的组织在本地维护 Windows Server Active Directory，并在云中维护 Azure Active Directory，则你可能想在这两个系统之间启用单一登录。 Azure AD Connect（将这两个系统集成在一起的工具）提供多个设置单一登录的选项：建立与 ADFS 的联合或其他联合提供程序，或启用密码同步。
 
 | 文章指南 |  |
@@ -83,9 +90,11 @@ ms.lasthandoff: 06/21/2017
 
 Azure AD Connect 适用于[所有版本的 Azure Active Directory](https://www.azure.cn/pricing/details/identity/)。 Azure AD 自助密码重置适用于 [Azure AD Basic](https://www.azure.cn/pricing/details/identity/) 和 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/)。 对本地 AD 进行密码写回是一项 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) 功能。
 
-## <a name="apps--azure-ad"></a>应用和 Azure AD
+## 应用和 Azure AD
+<a id="apps--azure-ad" class="xliff"></a>
 
-### <a name="automatically-provision-and-deprovision-user-accounts-in-saas-apps"></a>自动设置和取消设置 SaaS 应用中的用户帐户
+### 自动设置和取消设置 SaaS 应用中的用户帐户
+<a id="automatically-provision-and-deprovision-user-accounts-in-saas-apps" class="xliff"></a>
 自动执行创建、维护和删除 SaaS 应用程序，如 Dropbox、Salesforce、ServiceNow 等中的用户标识。 在 Azure AD 与 SaaS 应用之间匹配和同步现有标识，并在用户离开组织时自动禁用帐户以控制访问。
 
 | 文章指南 |  |
@@ -96,7 +105,8 @@ Azure AD Connect 适用于[所有版本的 Azure Active Directory](https://www.a
 
 自动用户设置适用于所有版本的 Azure AD，每个用户最多十个应用。 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) 支持无限数目的应用程序。 如果组织拥有 [Azure AD Basic](https://www.azure.cn/pricing/details/identity/) 或 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/)，则可以[使用组来管理要预配哪些用户](#managing-access-to-applications)。
 
-### <a name="building-applications-that-integrate-with-azure-ad"></a>构建与 Azure AD 集成的应用程序
+### 构建与 Azure AD 集成的应用程序
+<a id="building-applications-that-integrate-with-azure-ad" class="xliff"></a>
 如果你的组织正在开发或维护业务线 (LoB) 应用程序，或者如果你是 Azure Active Directory 客户的应用开发人员，以下教程可帮助你将应用程序与 Azure AD 集成。
 
 | 文章指南 |  |
@@ -104,9 +114,11 @@ Azure AD Connect 适用于[所有版本的 Azure Active Directory](https://www.a
 | 有关 IT 专业人员和应用程序开发人员集成应用程序与 Azure AD 的指南 |[针对 Azure AD 开发应用程序的 IT 专业人员指南](./active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Azure Active Directory 的开发人员指南](./develop/active-directory-developers-guide.md) |
 | 如何使用 Azure Active Directory 管理对开发的应用程序的访问 |[如何为已开发的应用程序启用用户分配](./active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[将用户分配到应用](./active-directory-applications-guiding-developers-assigning-users.md)<br /> |
 
-## <a name="managing-access-to-applications"></a>管理对应用程序的访问
+## 管理对应用程序的访问
+<a id="managing-access-to-applications" class="xliff"></a>
 
-### <a name="access-panel-a-portal-for-accessing-apps-and-self-service-features"></a>访问面板：用于访问应用和自助功能的门户
+### 访问面板：用于访问应用和自助功能的门户
+<a id="access-panel-a-portal-for-accessing-apps-and-self-service-features" class="xliff"></a>
 用户可以在 Azure AD 访问面板上启动应用程序和访问自助功能，而自助功能可让用户管理自己的应用程序和组成员资格。 除了访问面板外，以下列表还包括其他用于访问启用 SSO 的应用的选项。
 
 | 文章指南 |  |
@@ -119,7 +131,8 @@ Azure AD Connect 适用于[所有版本的 Azure Active Directory](https://www.a
 
 访问面板适用于[所有版本的 Azure Active Directory](https://www.azure.cn/pricing/details/identity/)。
 
-##<a name="see-also"></a>另请参阅
+##另请参阅
+<a id="see-also" class="xliff"></a>
 
 [Azure 多重身份验证](https://www.azure.cn/home/features/multi-factor-authentication/)
 

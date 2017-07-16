@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+origin.date: 04/12/2017
+ms.date: 
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eece5b23ce0c05c9e6e8a1938c34faf0383fb06a
-ms.openlocfilehash: d8d07051bd1e0ffa98061af59b1520e8d17bdea1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: 7a71618ea61262a2392d73cea29955c9ce9599a8
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 创建和修改 ExpressRoute 线路
+# 使用 PowerShell 创建和修改 ExpressRoute 线路
+<a id="create-and-modify-an-expressroute-circuit-using-powershell" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure 门户](./expressroute-howto-circuit-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](./expressroute-howto-circuit-arm.md)
@@ -31,14 +32,17 @@ ms.lasthandoff: 04/25/2017
 本文介绍如何使用 PowerShell cmdlet 和 Azure Resource Manager 部署模型创建 Azure ExpressRoute 线路。 本文还介绍如何查看线路状态，以及如何更新、删除和取消预配线路。
 
 
-## <a name="before-you-begin"></a>开始之前
+## 开始之前
+<a id="before-you-begin" class="xliff"></a>
 * 安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关详细信息，请参阅 [Azure PowerShell 概述](../powershell-install-configure.md)。
 * 在开始配置之前，请查看[先决条件](./expressroute-prerequisites.md)和[工作流](./expressroute-workflows.md)。
 
 
-## <a name="create-and-provision-an-expressroute-circuit"></a>创建和预配 ExpressRoute 线路
+## 创建和预配 ExpressRoute 线路
+<a id="create-and-provision-an-expressroute-circuit" class="xliff"></a>
 
-### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1.登录到 Azure 帐户，然后选择订阅
+### 1.登录到 Azure 帐户，然后选择订阅
+<a id="1-sign-in-to-your-azure-account-and-select-your-subscription" class="xliff"></a>
 若要开始你的配置，请登录到你的 Azure 帐户。 使用下面的示例来帮助你连接：
 
 ```powershell
@@ -57,7 +61,8 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 ```
 
-### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2.获取支持的提供商、位置和带宽的列表
+### 2.获取支持的提供商、位置和带宽的列表
+<a id="2-get-the-list-of-supported-providers-locations-and-bandwidths" class="xliff"></a>
 在创建 ExpressRoute 线路之前，需要支持的连接服务提供商、位置和带宽选项的列表。
 
 PowerShell cmdlet **Get-AzureRmExpressRouteServiceProvider** 会返回此信息，你将在后续步骤中使用此信息：
@@ -74,18 +79,19 @@ Get-AzureRmExpressRouteServiceProvider
 
 现在，已经准备创建 ExpressRoute 线路。   
 
-### <a name="3-create-an-expressroute-circuit"></a>3.创建 ExpressRoute 线路
+### 3.创建 ExpressRoute 线路
+<a id="3-create-an-expressroute-circuit" class="xliff"></a>
 如果还没有资源组，则在创建 ExpressRoute 线路前必须创建一个资源组。 为此，可以运行以下命令：
 
 ```powershell
-New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "China North"
+New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
 ```
 
 
-以下示例演示如何通过北京的 Beijing Telecom Ethernet 创建 200-Mbps 的 ExpressRoute 线路。 如果你使用的是其他提供商和其他设置，请在发出请求时替换该信息。 下面是请求新的服务密钥的示例：
+以下示例演示如何通过硅谷中的 Equinix 创建 200-Mbps 的 ExpressRoute 线路。 如果你使用的是其他提供商和其他设置，请在发出请求时替换该信息。 下面是请求新的服务密钥的示例：
 
 ```powershell
-New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "China North" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Beijing Telecom Ethernet" -PeeringLocation "Beijing" -BandwidthInMbps 200
+New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
 ```
 
 请确保指定合适的 SKU 层和 SKU 系列：
@@ -106,7 +112,8 @@ get-help New-AzureRmExpressRouteCircuit -detailed
 ```
 
 
-### <a name="4-list-all-expressroute-circuits"></a>4.列出所有 ExpressRoute 线路
+### 4.列出所有 ExpressRoute 线路
+<a id="4-list-all-expressroute-circuits" class="xliff"></a>
 若要获取已创建的所有 ExpressRoute 线路的列表，请运行 **Get-AzureRmExpressRouteCircuit** 命令：
 
 ```powershell
@@ -117,7 +124,7 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : China North
+    Location                         : westus
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -130,8 +137,8 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
     ServiceProviderProvisioningState  : NotProvisioned
     ServiceProviderNotes              :
     ServiceProviderProperties         : {
-                                          "ServiceProviderName": "Beijing Telecom Ethernet",
-                                          "PeeringLocation": "Beijing",
+                                          "ServiceProviderName": "Equinix",
+                                          "PeeringLocation": "Silicon Valley",
                                           "BandwidthInMbps": 200
                                         }
     ServiceKey                        : **************************************
@@ -148,7 +155,7 @@ Get-AzureRmExpressRouteCircuit
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : China North
+    Location                         : westus
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -161,8 +168,8 @@ Get-AzureRmExpressRouteCircuit
     ServiceProviderProvisioningState : NotProvisioned
     ServiceProviderNotes             :
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Beijing Telecom Ethernet",
-                                         "PeeringLocation": "Beijing",
+                                         "ServiceProviderName": "Equinix",
+                                         "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
                                           }
     ServiceKey                       : **************************************
@@ -175,7 +182,8 @@ Get-AzureRmExpressRouteCircuit
 get-help Get-AzureRmExpressRouteCircuit -detailed
 ```
 
-### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5.将服务密钥发送给连接服务提供商进行预配
+### 5.将服务密钥发送给连接服务提供商进行预配
+<a id="5-send-the-service-key-to-your-connectivity-provider-for-provisioning" class="xliff"></a>
 
 *ServiceProviderProvisioningState* 提供有关服务提供商端当前预配状态的信息。 “状态”提供 Microsoft 端的状态。 有关线路预配状态的详细信息，请参阅[工作流](./expressroute-workflows.md#expressroute-circuit-provisioning-states)一文。
 
@@ -196,7 +204,8 @@ ExpressRoute 线路必须处于以下状态时才能使用：
     ServiceProviderProvisioningState : Provisioned
     CircuitProvisioningState         : Enabled
 
-### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6.定期检查线路密钥的状态
+### 6.定期检查线路密钥的状态
+<a id="6-periodically-check-the-status-and-the-state-of-the-circuit-key" class="xliff"></a>
 检查线路密钥的状态，你可以通过此状态了解提供商何时启用了你的线路。 配置线路后，*ServiceProviderProvisioningState* 将显示为“已预配”，如以下例所示：
 
 ```powershell
@@ -208,7 +217,7 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : China North
+    Location                         : westus
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -221,14 +230,15 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Beijing Telecom Ethernet",
-                                         "PeeringLocation": "Beijing",
+                                         "ServiceProviderName": "Equinix",
+                                         "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
                                        }
     ServiceKey                       : **************************************
     Peerings                         : []
 
-### <a name="7-create-your-routing-configuration"></a>7.创建路由配置
+### 7.创建路由配置
+<a id="7-create-your-routing-configuration" class="xliff"></a>
 
 有关分步说明，请参阅 [ExpressRoute 线路路由配置](./expressroute-howto-routing-arm.md)一文，了解如何创建和修改线路对等互连。
 
@@ -237,11 +247,13 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 > 
 > 
 
-### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8.将虚拟网络链接到 ExpressRoute 线路
+### 8.将虚拟网络链接到 ExpressRoute 线路
+<a id="8-link-a-virtual-network-to-an-expressroute-circuit" class="xliff"></a>
 
 接下来，将虚拟网络链接到 ExpressRoute 线路。 使用 Resource Manager 部署模型时，请参阅[将虚拟网络链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-arm.md)一文。
 
-## <a name="getting-the-status-of-an-expressroute-circuit"></a>获取 ExpressRoute 线路的状态
+## 获取 ExpressRoute 线路的状态
+<a id="getting-the-status-of-an-expressroute-circuit" class="xliff"></a>
 可以随时使用 **Get-AzureRmExpressRouteCircuit** cmdlet 检索此信息。 进行不带任何参数的调用将列出所有线路。
 
 ```powershell
@@ -253,7 +265,7 @@ Get-AzureRmExpressRouteCircuit
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : China North
+    Location                         : westus
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -266,8 +278,8 @@ Get-AzureRmExpressRouteCircuit
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
     ServiceProviderProperties        : {
-                                            "ServiceProviderName": "Beijing Telecom Ethernet",
-                                            "PeeringLocation": "Beijing",
+                                            "ServiceProviderName": "Equinix",
+                                            "PeeringLocation": "Silicon Valley",
                                             "BandwidthInMbps": 200
                                           }
     ServiceKey                       : **************************************
@@ -285,7 +297,7 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : China North
+    Location                         : westus
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -298,8 +310,8 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Beijing Telecom Ethernet",
-                                         "PeeringLocation": "Beijing",
+                                         "ServiceProviderName": "Equinix",
+                                         "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
                                           }
     ServiceKey                       : **************************************
@@ -325,7 +337,8 @@ get-help get-azurededicatedcircuit -detailed
 
 有关限制和局限性的详细信息，请参阅 [ExpressRoute 常见问题解答](./expressroute-faqs.md)。
 
-### <a name="to-enable-the-expressroute-premium-add-on"></a>启用 ExpressRoute 高级版外接程序
+### 启用 ExpressRoute 高级版外接程序
+<a id="to-enable-the-expressroute-premium-add-on" class="xliff"></a>
 可以使用以下 PowerShell 代码段为现有线路启用 ExpressRoute 高级版外接程序：
 
 ```powershell
@@ -339,7 +352,8 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 你的线路现已启用 ExpressRoute 高级版外接程序功能。 该命令成功运行后，我们就会立即对高级版外接程序功能收费。
 
-### <a name="to-disable-the-expressroute-premium-add-on"></a>禁用 ExpressRoute 高级版外接程序
+### 禁用 ExpressRoute 高级版外接程序
+<a id="to-disable-the-expressroute-premium-add-on" class="xliff"></a>
 > [!IMPORTANT]
 > 如果你使用的资源超出了标准线路允许的范围，此操作可能会失败。
 > 
@@ -364,7 +378,8 @@ $ckt.sku.Name = "Standard_MeteredData"
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="to-update-the-expressroute-circuit-bandwidth"></a>更新 ExpressRoute 线路带宽
+### 更新 ExpressRoute 线路带宽
+<a id="to-update-the-expressroute-circuit-bandwidth" class="xliff"></a>
 有关提供商支持的带宽选项，请查看 [ExpressRoute 常见问题解答](./expressroute-faqs.md)。 你可以选取大于现有线路大小的任何大小。
 
 > [!IMPORTANT]
@@ -384,9 +399,10 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 
-将在 Azure 端调整线路的大小。然后，你必须联系连接提供商，让他们在那一边根据此更改更新配置。在你发出此通知后，Azure 将开始向你计收更新后的带宽选项费用。
+将在 Microsoft 端调整线路的大小。 然后，你必须联系连接提供商，让他们在那一边根据此更改更新配置。 在你发出此通知后，我们将开始向你计收更新后的带宽选项费用。
 
-### <a name="to-move-the-sku-from-metered-to-unlimited"></a>将 SKU 从按流量计费转为不受限制
+### 将 SKU 从按流量计费转为不受限制
+<a id="to-move-the-sku-from-metered-to-unlimited" class="xliff"></a>
 通过使用下面的 PowerShell 代码片段，你可以更改 ExpressRoute 线路的 SKU：
 
 ```powershell
@@ -398,10 +414,12 @@ $ckt.sku.Name = "Premium_UnlimitedData"
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>控制对经典环境和 Resource Manager 环境的访问
+### 控制对经典环境和 Resource Manager 环境的访问
+<a id="to-control-access-to-the-classic-and-resource-manager-environments" class="xliff"></a>
 查看[将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型](expressroute-howto-move-arm.md)中的说明。  
 
-## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>取消预配和删除 ExpressRoute 线路
+## 取消预配和删除 ExpressRoute 线路
+<a id="deprovisioning-and-deleting-an-expressroute-circuit" class="xliff"></a>
 注意以下事项：
 
 - 必须取消所有虚拟网络与 ExpressRoute 线路的链接。 如果此操作失败，请查看是否有虚拟网络链接到了该线路。
@@ -416,10 +434,10 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
 ```
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 创建你的线路后，请确保执行以下操作：
 
 - [创建和修改 ExpressRoute 线路的路由](./expressroute-howto-routing-arm.md)
 - [将虚拟网络链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-arm.md)
-

@@ -17,10 +17,10 @@ origin.date: 06/05/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
 ms.openlocfilehash: 6240809372fdc8c7046052e44cd870d14d3f7533
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/13/2017
 ---
 # Azure Cosmos DB：DocumentDB API SQL 查询速查表 PDF
 <a id="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf" class="xliff"></a>

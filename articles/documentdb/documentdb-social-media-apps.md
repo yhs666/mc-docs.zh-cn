@@ -16,13 +16,12 @@ ms.topic: article
 origin.date: 05/10/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-redirect_url: /documentdb/documentdb-use-cases
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: acea6737f53248764af44f9144641118cb853d73
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 64ff00236a96270103b284385e7eef1edad21891
+ms.sourcegitcommit: 781b4b2006e5b9a51c7009642470f066e8f2ecb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/12/2017
 ---
 # 使用 DocumentDB 进行社交
 <a id="going-social-with-documentdb" class="xliff"></a>

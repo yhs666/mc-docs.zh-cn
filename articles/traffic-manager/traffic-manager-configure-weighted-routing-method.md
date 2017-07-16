@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 03/20/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: a1a568b875ff2bb3b9018797e285c871912d2e3f
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: a9691fecdbe6947fb974749a5ddeed4b73ae4fcf
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 在流量管理器中配置加权流量路由方法
 <a id="configure-the-weighted-traffic-routing-method-in-traffic-manager" class="xliff"></a>
@@ -54,6 +54,7 @@ ms.lasthandoff: 06/23/2017
 
 - 了解[优先级流量路由方法](traffic-manager-configure-priority-routing-method.md)。
 - 了解[性能流量路由方法](traffic-manager-configure-performance-routing-method.md)。
+- 了解[地理路由方法](traffic-manager-configure-geographic-routing-method.md)。
 - 了解如何[测试流量管理器设置](traffic-manager-testing-settings.md)。
 
 <!--Image references-->

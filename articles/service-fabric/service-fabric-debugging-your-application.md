@@ -15,19 +15,21 @@ ms.workload: na
 ms.date: 03/07/2017
 ms.author: v-johch
 ms.openlocfilehash: 9323a7ae9ebc5e96cb518c4c87edfa39c692f161
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
-# <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>使用 Visual Studio 调试 Service Fabric 应用程序
+# 使用 Visual Studio 调试 Service Fabric 应用程序
+<a id="debug-your-service-fabric-application-by-using-visual-studio" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [Visual Studio/CSharp](service-fabric-debugging-your-application.md) 
 > * [Eclipse/Java](service-fabric-debugging-your-application-java.md)
 >
 
 
-## <a name="debug-a-local-service-fabric-application"></a>调试本地 Service Fabric 应用程序
+## 调试本地 Service Fabric 应用程序
+<a id="debug-a-local-service-fabric-application" class="xliff"></a>
 可以通过在本地计算机开发群集中部署和调试 Azure Service Fabric 应用程序来节省时间和资金。 Visual Studio 2017 或 Visual Studio 2015 可以将应用程序部署到本地群集并自动将调试器连接到应用程序的所有实例。
 
 1. 按照[设置 Service Fabric 开发环境](service-fabric-get-started.md)中的步骤启动本地开发群集。
@@ -62,7 +64,8 @@ ms.lasthandoff: 06/21/2017
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## <a name="debug-a-remote-service-fabric-application"></a>调试远程 Service Fabric 应用程序
+## 调试远程 Service Fabric 应用程序
+<a id="debug-a-remote-service-fabric-application" class="xliff"></a>
 如果 Service Fabric 应用程序是在 Azure 中的 Service Fabric 群集上运行，则可直接从 Visual Studio 进行其远程调试。
 
 > [!NOTE]
@@ -106,7 +109,8 @@ ms.lasthandoff: 06/21/2017
    
     ![禁用远程调试][disableremotedebugging]
 
-## <a name="streaming-traces-from-a-remote-cluster-node"></a>从远程群集节点流式传输跟踪
+## 从远程群集节点流式传输跟踪
+<a id="streaming-traces-from-a-remote-cluster-node" class="xliff"></a>
 也可直接从远程群集节点将跟踪流式传输到 Visual studio。 借助此功能，可以流式传输在 Service Fabric 群集节点上生成的 ETW 跟踪事件。
 
 > [!NOTE]
@@ -140,7 +144,8 @@ ms.lasthandoff: 06/21/2017
    
     ![禁用远程流跟踪][disablestreamingtraces]
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 * [测试 Service Fabric 服务](service-fabric-testability-overview.md)。
 * [在 Visual Studio 中管理 Service Fabric 应用程序](service-fabric-manage-application-in-visual-studio.md)
 

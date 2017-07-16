@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 02/16/2016
 ms.date: 05/15/2017
 ms.author: v-dazen
-ms.openlocfilehash: ee160285034b6aa18a269ccc5ae5665d3b8949e7
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 353f87dc65927ebfc1eafe6d23b33d5a85dfacfb
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 在 Azure 虚拟机中启用诊断
 <a id="enabling-diagnostics-in-azure-virtual-machines" class="xliff"></a>
@@ -180,7 +180,7 @@ ms.lasthandoff: 06/23/2017
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 
-[Debugging an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
-[Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
+[Debugging an Azure Application]: http://msdn.microsoft.com/library/azure/ee405479.aspx   
+[Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/azure/gg433048.aspx
 [Trial]: https://www.azure.cn/pricing/1rmb-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: /powershell-install-configure/

@@ -4,8 +4,8 @@ description: "Azure 多重身份验证概念、使用 MFA 的原因、有关多�
 keywords: "MFA 简介, mfa 概述, 什么是 mfa"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: yossib
 ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
 ms.service: multi-factor-authentication
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+origin.date: 06/03/2017
+ms.date: 06/27/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 87f86bdf928aa40f37d22a2718c939d6c4d0a06a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: bbbb16eec1d462ea81e4350e82bbd20407b4cfe3
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/13/2017
 ---
-# <a name="what-is-azure-multi-factor-authentication"></a>什么是多重身份验证？
+# 什么是多重身份验证？
+<a id="what-is-azure-multi-factor-authentication" class="xliff"></a>
 双重验证是需要多种验证方法的身份验证方法，可为用户登录和事务额外提供一层重要的安全保障。 它的工作原理是需要以下两种或多种验证方法：
 
 - 用户知道的某样东西（通常为密码）
@@ -34,7 +34,8 @@ ms.lasthandoff: 04/14/2017
 
 Azure 多重身份验证 (MFA) 是 Microsoft 的双重验证解决方案。 Azure MFA 可帮助保护对数据和应用程序的访问，同时满足用户对简单登录的需求。 它通过一系列的验证方法（包括电话呼叫、 短信或移动应用验证）提供强身份验证。
 
-## <a name="why-use-azure-multi-factor-authentication"></a>为何使用 Azure 多重身份验证？
+## 为何使用 Azure 多重身份验证？
+<a id="why-use-azure-multi-factor-authentication" class="xliff"></a>
 与以往相比，联网的用户越来越多。 通过智能手机、平板电脑、笔记本电脑和台式个人电脑，人们可以使用各种不同的选项随时连接网络和保持联系。 人们可以从任何位置访问他们的帐户和应用程序，这意味着他们可以提高工作效率并为客户提供更好的服务。
 
 Azure 多重身份验证是一个易于使用、可扩展且可靠的解决方案，可提供另一种身份验证方法，使用户永远受到保护。
@@ -50,10 +51,10 @@ Azure 多重身份验证是一个易于使用、可扩展且可靠的解决方�
 
 
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 - 了解 [Azure 多重身份验证的工作原理](multi-factor-authentication-how-it-works.md)
 
 - 阅读有关 [Azure 多重身份验证的不同版本和使用方法](multi-factor-authentication-versions-plans.md)的信息
-
 

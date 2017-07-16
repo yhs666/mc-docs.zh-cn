@@ -3,8 +3,8 @@ title: "指定 Node.js 版本"
 description: "了解如何指定 Azure 网站和云服务使用的 Node.js 版本"
 services: 
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: d0e15278-2ab4-4ec8-8256-913839c6d5ef
 ms.service: multiple
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 12/22/2016
-ms.date: 02/14/2017
+origin.date: 04/25/2017
+ms.date: 07/13/2017
 ms.author: v-junlch
-ms.openlocfilehash: 83515bb01717c2f2a5846e57ea69367d7c39f1f5
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 33c57697d90cce34cdfe913d75dae0ae22a9ffd3
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 在 Azure 应用程序中指定 Node.js 版本
 <a id="specifying-a-nodejs-version-in-an-azure-application" class="xliff"></a>
@@ -38,15 +38,11 @@ ms.lasthandoff: 06/21/2017
 <a id="versioning-with-packagejson" class="xliff"></a>
 可通过将以下内容添加到你的 **package.json** 文件中来指定要使用的 Node.js 的版本：
 
-```
-"engines":{"node":version}
-```
+    "engines":{"node":version}
 
 其中， *version* 是要使用的特定版本号。 可为版本指定更复杂的条件，例如：
 
-```
-"engines":{"node": "0.6.22 || 0.8.x"}
-```
+    "engines":{"node": "0.6.22 || 0.8.x"}
 
 由于 0.6.22 不是托管环境中提供的版本之一，将改为使用 0.8 系列中的最高版本 - 0.8.4。
 
@@ -58,9 +54,7 @@ ms.lasthandoff: 06/21/2017
 <a id="versioning-cloud-services-with-powershell" class="xliff"></a>
 如果你在云服务中托管应用程序，并且使用 Microsoft Azure PowerShell 部署该应用程序，则可使用 **Set-AzureServiceProjectRole** PowerShell cmdlet 替代默认的 Node.js 版本。 例如：
 
-```
-Set-AzureServiceProjectRole WebRole1 Node 0.8.4
-```
+    Set-AzureServiceProjectRole WebRole1 Node 0.8.4
 
 请注意，上述语句中的参数区分大小写。  通过检查角色的 **package.json** 中的 **engines** 属性，可验证是否已选择正确的 Node.js 版本。
 
@@ -72,52 +66,43 @@ Set-AzureServiceProjectRole WebRole1 Node 0.8.4
 
 1. 创建一个新目录，然后在该目录中创建 **server.js** 文件。 **server.js** 文件应包含以下内容：
 
-    ```
-    var http = require('http');
-    http.createServer(function(req,res) {
-      res.writeHead(200, {'Content-Type': 'text/html'});
-      res.end('Hello from Azure running node version: ' + process.version + '</br>');
-    }).listen(process.env.PORT || 3000);
-    ```
+        var http = require('http');
+        http.createServer(function(req,res) {
+          res.writeHead(200, {'Content-Type': 'text/html'});
+          res.end('Hello from Azure running node version: ' + process.version + '</br>');
+        }).listen(process.env.PORT || 3000);
 
     这将显示在您浏览网站时使用的 Node.js 版本。
 2. 创建一个新网站并记录该网站的名称。 例如，以下命令使用 [Azure 命令行工具] 创建一个名为 **mywebsite**的新 Azure 网站，然后为该网站启用 Git 存储库。
 
-    ```
-    azure site create mywebsite --git
-    ```
+        azure site create mywebsite --git
 3. 创建一个名为 **bin** 的新目录，将其作为包含 **server.js** 文件的目录的子目录。
 4. 下载要用于应用程序的特定版本 **node.exe**（Windows 版本）。 例如，以下命令使用 **curl** 下载版本 0.8.1：
 
-    ```
-    curl -O http://nodejs.org/dist/v0.8.1/node.exe
-    ```
+        curl -O http://nodejs.org/dist/v0.8.1/node.exe
 
     将 **node.exe** 文件保存到先前创建的 **bin** 文件夹中。
 5. 在 **server.js** 文件所在的同一目录中创建 **iisnode.yml** 文件，然后将以下内容添加到 **iisnode.yml** 文件中：
 
-    ```
-    nodeProcessCommandLine: "D:\home\site\wwwroot\bin\node.exe"
-    ```
+        nodeProcessCommandLine: "D:\home\site\wwwroot\bin\node.exe"
 
     将你的应用程序发布到 Azure 网站后，你的项目中的 **node.exe** 文件将位于此路径。
 6. 发布应用程序。 例如，由于我在前面创建了一个带 --git 参数的新网站，因此以下命令会将应用程序文件添加到我的本地 Git 存储库，然后将它们推送到网站存储库：
 
-    ```
-    git add .
-    git commit -m "testing node v0.8.1"
-    git push azure master
-    ```
+        git add .
+        git commit -m "testing node v0.8.1"
+        git push azure master
 
     发布应用程序后，在浏览器中打开该网站。 您应看到一则指示“Hello from Azure running node version: v0.8.1”的消息。
 
 ## 后续步骤
 <a id="next-steps" class="xliff"></a>
-了解如何指定应用程序使用的 Node.js 版本后，请了解如何[使用模块]、[构建并部署 Node.js 网站](./app-service-web/web-sites-nodejs-develop-deploy-mac.md)以及[如何使用针对 Mac 和 Linux 的 Azure 命令行工具]。
+了解如何指定应用程序使用的 Node.js 版本后，请了解如何[使用模块]、[构建并部署 Node.js 网站](app-service-web/app-service-web-get-started-nodejs.md)以及[如何使用针对 Mac 和 Linux 的 Azure 命令行工具]。
 
 有关详细信息，请参阅 [Node.js 开发人员中心](/develop/nodejs/)。
 
-[如何使用针对 Mac 和 Linux 的 Azure 命令行工具]:./xplat-cli-install.md
-[Azure 命令行工具]:./xplat-cli-install.md
-[使用模块]:./nodejs-use-node-modules-azure-apps.md
-[build and deploy a Node.js Web Site]:./app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[如何使用针对 Mac 和 Linux 的 Azure 命令行工具]:cli-install-nodejs.md
+[Azure 命令行工具]:cli-install-nodejs.md
+[使用模块]: nodejs-use-node-modules-azure-apps.md
+[build and deploy a Node.js Web Site]: app-service-web/app-service-web-get-started-nodejs.md
+

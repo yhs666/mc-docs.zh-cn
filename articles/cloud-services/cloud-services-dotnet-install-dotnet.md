@@ -15,12 +15,13 @@ origin.date: 02/24/2016
 ms.author: v-yiso
 ms.date: 04/24/2017
 ms.openlocfilehash: 938ee91cfddcf885083c78697eb16564ef80549c
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
-# <a name="install-net-on-a-cloud-service-role"></a>在云服务角色上安装 .NET 
+# 在云服务角色上安装 .NET
+<a id="install-net-on-a-cloud-service-role" class="xliff"></a> 
 本文介绍如何在云服务 Web 角色和辅助角色上安装来宾 OS 随附版本以外的 .NET Framework 版本。 例如，可以使用这些步骤在 Azure 来宾 OS 系列 4 上安装不随任何版本的 .NET 4.6 提供的 .NET 4.6.1。 有关最新的来宾 OS 版本信息，请参阅 [Azure 来宾 OS 版本发行动态](cloud-services-guestos-update-matrix.md)。
 
 >[!NOTE]
@@ -31,7 +32,8 @@ ms.lasthandoff: 06/21/2017
 
 在 Web 角色和辅助角色上安装 .NET 的过程涉及到在云项目中添加 .NET 安装包，并在执行角色的启动任务过程中启动安装程序。  
 
-## <a name="add-the-net-installer-to-your-project"></a>将 .NET 安装程序添加到项目
+## 将 .NET 安装程序添加到项目
+<a id="add-the-net-installer-to-your-project" class="xliff"></a>
 - 下载你要安装的.NET Framework 的 Web 安装程序
     - [.NET 4.6.1 Web 安装程序](http://go.microsoft.com/fwlink/?LinkId=671729)
 - 对于 Web 角色
@@ -47,7 +49,8 @@ ms.lasthandoff: 06/21/2017
 
 ![包含安装程序文件的角色内容][1]
 
-## <a name="define-startup-tasks-for-your-roles"></a>为角色定义启动任务
+## 为角色定义启动任务
+<a id="define-startup-tasks-for-your-roles" class="xliff"></a>
 启动任务可让你在启动角色之前执行操作。 将 .NET Framework 作为启动任务的一部分安装，可确保在运行任何应用程序代码之前已安装好 Framework。 有关启动任务的详细信息，请参阅[在 Azure 中运行启动任务](./cloud-services-startup-tasks.md)。 
 
 1. 将以下内容添加到所有角色的 **WebRole** 或 **WorkerRole** 节点下的 *ServiceDefinition.csdef* 文件中：
@@ -169,7 +172,8 @@ ms.lasthandoff: 06/21/2017
     > [!NOTE]
     > 为了保持内容连贯，该脚本仍会演示如何安装 .NET 4.5.2 或 .NET 4.6。 你不需要手动安装 .NET 4.5.2，因为 Azure 来宾 OS 上已提供该组件。 由于 [KB 3118750](https://support.microsoft.com/zh-cn/kb/3118750)中所述的原因，应该直接安装 .NET 4.6.1，而不要安装 .NET 4.6。
 
-## <a name="configure-diagnostics-to-transfer-the-startup-task-logs-to-blob-storage"></a>配置诊断以将启动任务日志传输到 Blob 存储 
+## 配置诊断以将启动任务日志传输到 Blob 存储
+<a id="configure-diagnostics-to-transfer-the-startup-task-logs-to-blob-storage" class="xliff"></a> 
 为了方便排查任何安装问题，你可以配置 Azure 诊断，将启动脚本或 .NET 安装程序生成的任何日志文件传输到 Blob 存储。 使用这种方法可以从 Blob 存储直接下载日志文件，而无需通过远程桌面访问角色，即可查看日志。
 
 若要配置诊断，请打开 *diagnostics.wadcfgx*，并在 **Directories** 节点下添加以下内容： 
@@ -184,10 +188,12 @@ ms.lasthandoff: 06/21/2017
 
 这会将 Azure 诊断配置为将 *NETFXInstall* 资源下的 *log* 目录中的所有文件传输到 *netfx-install* Blob 容器中的诊断存储帐户。
 
-## <a name="deploying-your-service"></a>部署服务 
+## 部署服务
+<a id="deploying-your-service" class="xliff"></a> 
 部署服务时，启动任务将会运行并安装 .NET Framework（如果尚未安装）。 安装 Framework 时，角色将处于忙碌状态，而且甚到可能会重新启动（如果 Framework 安装有此要求）。 
 
-## <a name="additional-resources"></a>其他资源
+## 其他资源
+<a id="additional-resources" class="xliff"></a>
 
 - [安装 .NET Framework][]
 - [如何：确定安装的 .NET Framework 版本][]

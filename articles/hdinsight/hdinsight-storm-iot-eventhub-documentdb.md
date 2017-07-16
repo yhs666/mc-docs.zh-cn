@@ -1,6 +1,6 @@
 ---
 title: "使用 Apache Storm on HDInsight 处理车辆传感器数据 | Azure"
-description: "了解如何使用 Apache Storm on HDInsight 处理事件中心的车辆传感器数据。 从 Azure DocumentDb 添加模型数据，并将输出存储到存储中。"
+description: "了解如何使用 Apache Storm on HDInsight 处理事件中心的车辆传感器数据。 从 Azure Cosmos DB 添加模型数据，并将输出存储到存储中。"
 services: hdinsight,documentdb,notification-hubs
 documentationcenter: 
 author: Blackmist
@@ -16,16 +16,16 @@ ms.workload: big-data
 origin.date: 05/03/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: c4a6aa7609b1bdac18bd4a181ddc9aec5fc73f3b
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 8aa6996c5b0982d633b733ac6e97b2246e106db1
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 使用 Apache Storm on HDInsight 处理 Azure 事件中心的车辆传感器数据
 <a id="process-vehicle-sensor-data-from-azure-event-hubs-using-apache-storm-on-hdinsight" class="xliff"></a>
 
-了解如何使用 Apache Storm on HDInsight 处理 Azure 事件中心的车辆传感器数据。 此示例从 Azure 事件中心读取传感器数据，通过引用 Azure DocumentDb 中存储的数据来丰富数据。 使用 Hadoop 文件系统 (HDFS) 将数据存储到 Azure 存储。
+了解如何使用 Apache Storm on HDInsight 处理 Azure 事件中心的车辆传感器数据。 此示例从 Azure 事件中心读取传感器数据，通过引用 Azure Cosmos DB 中存储的数据来丰富数据。 使用 Hadoop 文件系统 (HDFS) 将数据存储到 Azure 存储。
 
 ![HDInsight 和物联网 (IoT) 体系结构关系图](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
 
@@ -41,7 +41,7 @@ Azure 事件中心用于处理传感器生成的大量数据。 将数据存储�
 
 由传感器记录引擎温度、环境温度和车速的遥测数据。 然后，将数据以及汽车的车辆标识号 (VIN) 和时间戳一起发送到事件中心。 在事件中心，运行在 Apache Storm on HDInsight 群集上的 Storm 拓扑将读取并处理数据，然后将其存储到 HDFS 中。
 
-处理过程中，VIN 用于从 DocumentDb 检索模型信息。 该数据在存储之前会添加到数据流中。
+处理过程中，VIN 用于从 Cosmos DB 检索车型信息。 该数据在存储之前会添加到数据流中。
 
 在 Storm 拓扑中使用的组件包括：
 
@@ -52,7 +52,7 @@ Azure 事件中心用于处理传感器生成的大量数据。 将数据存储�
     * Speed
     * VIN
     * Timestamp
-* **DataReferencBolt** - 使用 VIN 从 DocumentDb 中查找车型
+* DataReferencBolt - 使用 VIN 从 Cosmos DB 中查找车型
 * WasbStoreBolt - 将数据存储到 HDFS（Azure 存储）
 
 下面是此解决方案的图示：

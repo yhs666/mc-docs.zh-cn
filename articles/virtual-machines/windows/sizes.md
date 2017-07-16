@@ -13,39 +13,49 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 03/22/2017
-ms.date: 05/15/2017
+origin.date: 06/07/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: e1cde06ebf28d97945cf665f1a96027ec4764596
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 2b8f70b25fa67363858d092d53e56c12d75ae81d
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/13/2017
 ---
-
-# <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
+# Azure 中 Windows 虚拟机的大小
+<a id="sizes-for-windows-virtual-machines-in-azure" class="xliff"></a>
 
 本文介绍可用于运行 Windows 应用和工作负荷的 Azure 虚拟机的可用大小和选项。 此外，还提供在计划使用这些资源时要考虑的部署注意事项。  本文也适用于 [Linux 虚拟机](../linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-
-> [!IMPORTANT]
->* 有关不同大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/#Windows)。 
->* 若要查看 Azure VM 的一般限制，请参阅 [Azure 订阅和服务限制、配额与约束](../../azure-subscription-service-limits.md)。
->* 存储成本根据存储帐户中的已使用页数进行单独计算。 有关详细信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)。
-> * 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。
->
->
-<br>    
 
 | 类型                     | 大小           |    说明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [常规用途](sizes-general.md)          | DSv2、Dv2、DS、D、Av2、A0-7 | CPU 与内存之比平衡。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 |
 | [计算优化](sizes-compute.md)        | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        |
-| [内存优化](../virtual-machines-windows-sizes-memory.md)         | GS, G, DSv2, DS, Dv2, D   | 高内存与内核之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
+| [内存优化](../virtual-machines-windows-sizes-memory.md)         | DSv2, DS, Dv2, D   | 高内存与内核之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
 
-<br>
+<br> 
+
+- 有关不同大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/#Windows)。 
+- 若要查看 Azure VM 的一般限制，请参阅 [Azure 订阅和服务限制、配额与约束](../../azure-subscription-service-limits.md)。
+- 存储成本根据存储帐户中的已使用页数进行单独计算。 有关详细信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)。
+- 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。
+
+## REST API
+<a id="rest-api" class="xliff"></a>
+
+有关使用 REST API 来查询 VM 大小的信息，请参阅以下文章：
+
+- [List available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-for-resizing)（列出可用的虚拟机大小以便调整大小）
+- [List available virtual machine sizes for a subscription](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region)（列出订阅的可用虚拟机大小）
+- [List available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-availability-set)（列出可用性集中的可用虚拟机大小）
+
+## ACU
+<a id="acu" class="xliff"></a>
 
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。
+
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 了解关于可用的各种 VM 大小的详细信息：
 - [常规用途](sizes-general.md)

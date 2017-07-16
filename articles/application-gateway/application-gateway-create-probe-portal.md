@@ -17,10 +17,10 @@ origin.date: 04/26/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.openlocfilehash: 8febd93c673ec357df2e1a843c68736ae56f28d1
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 使用门户创建应用程序网关的自定义探测
 <a id="create-a-custom-probe-for-application-gateway-by-using-the-portal" class="xliff"></a>

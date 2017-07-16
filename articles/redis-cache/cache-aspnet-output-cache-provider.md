@@ -15,11 +15,11 @@ ms.workload: tbd
 origin.date: 02/14/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.openlocfilehash: 61f4935ec3fc523e7510d36fb65e14f90e790338
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 997860d3f4c31320c5d9a09008afa35574a94276
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # Azure Redis 缓存的 ASP.NET 输出缓存提供程序
 <a id="aspnet-output-cache-provider-for-azure-redis-cache" class="xliff"></a>
@@ -81,8 +81,8 @@ NuGet 包会下载并添加所需的程序集引用，并将以下节添加到 w
   * 默认情况下，将为新缓存禁用非 SSL 端口。 为此设置指定 true 可使用 SSL 端口。 有关启用非 SSL 端口的详细信息，请参阅[配置缓存](cache-configure.md)主题中的[访问端口](cache-configure.md#access-ports)部分。
 * **databaseId** - 指定要用于缓存输出数据的数据库。 如果未指定，则使用默认值 0。
 * **applicationName** - 密钥存储在 Redis 中作为 `<AppName>_<SessionId>_Data`。 此命名方案使多个应用程序可以共享同一密钥。 此参数是可选的，如果未提供它，则使用默认值。
-* **connectionTimeoutInMilliseconds** - 此设置允许你覆盖 StackExchange.Redis 客户端中的 connectTimeout 设置。 如果未指定，则使用默认 connectTimeout 设置 5000。
-* **operationTimeoutInMilliseconds** - 此设置允许你覆盖 StackExchange.Redis 客户端中的 syncTimeout 设置。 如果未指定，则使用默认 syncTimeout 设置 1000。
+* **connectionTimeoutInMilliseconds** - 此设置允许你覆盖 StackExchange.Redis 客户端中的 connectTimeout 设置。 如果未指定，则使用默认 connectTimeout 设置 5000。 有关详细信息，请参阅 [StackExchange.Redis 配置模型](http://go.microsoft.com/fwlink/?LinkId=398705)。
+* **operationTimeoutInMilliseconds** - 此设置允许你覆盖 StackExchange.Redis 客户端中的 syncTimeout 设置。 如果未指定，则使用默认 syncTimeout 设置 1000。 有关详细信息，请参阅 [StackExchange.Redis 配置模型](http://go.microsoft.com/fwlink/?LinkId=398705)。
 
 将 OutputCache 指令添加到希望为其缓存输出的每个页面中。
 
@@ -90,7 +90,7 @@ NuGet 包会下载并添加所需的程序集引用，并将以下节添加到 w
 <%@ OutputCache Duration="60" VaryByParam="*" %>
 ```
 
-在上例中，缓存的页面数据可在缓存中保留 60 秒，并且将为每个参数组合缓存不同版本的页面。 有关 OutputCache 指令的详细信息，请参阅 [@OutputCache](https://msdn.microsoft.com/library/hdxfb6cy(v=vs.100).aspx)。
+在上例中，缓存的页面数据可在缓存中保留 60 秒，并且将为每个参数组合缓存不同版本的页面。 有关 OutputCache 指令的详细信息，请参阅 [@OutputCache](http://msdn.microsoft.com/library/hdxfb6cy(v=vs.100).aspx)。
 
 执行这些步骤后，你的应用程序已配置为使用 Redis 输出缓存提供程序。
 

@@ -13,23 +13,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/24/2016
-ms.date: 05/02/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 94754c6f0b12312734e8f150fbecb05aec8cce87
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.date: 
+ms.openlocfilehash: 42e15540af0cab28e1296d6ce2b53733df2a203a
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>在 Azure Monitor 中为 Azure 服务创建指标警报 - 跨平台 CLI
+# 在 Azure Monitor 中为 Azure 服务创建指标警报 - 跨平台 CLI
+<a id="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli" class="xliff"></a>
 > [!div class="op_single_selector"]
->- [门户](./insights-alerts-portal.md)
->- [PowerShell](./insights-alerts-powershell.md)
->- [CLI](./insights-alerts-command-line-interface.md) 
+> * [门户](./insights-alerts-portal.md)
+> * [PowerShell](./insights-alerts-powershell.md)
+> * [CLI](./insights-alerts-command-line-interface.md)
+>
+>
 
-## <a name="overview"></a>概述
+## 概述
+<a id="overview" class="xliff"></a>
 本文说明如何使用跨平台命令行界面 (CLI) 设置 Azure 指标警报。
 
 > [!NOTE]
@@ -37,17 +39,17 @@ ms.lasthandoff: 04/22/2017
 > 
 > 
 
-可以根据监视指标或事件接收 Azure 服务的警报。
+可以根据监控指标或事件接收 Azure 服务的警报。
 
 - **指标值** - 当指定指标的值在任一方向越过了指定的阈值时警报将触发。 也就是说，当条件先是满足以及之后不再满足该条件时，警报都会触发。    
-- **活动日志事件** - 警报可以在发生每个事件时都触发，也可以仅在发生特定数量的事件时触发。 
+* **活动日志事件** - 警报可以在发生每个事件时都触发，也可以仅在发生特定数量的事件时触发。 若要详细了解活动日志警报，请[单击此处](./monitoring-activity-log-alerts.md)
 
 可以配置指标警报，在其触发时执行以下操作：
 
-- 向服务管理员和共同管理员发送电子邮件通知
-- 向指定的其他电子邮件地址发送电子邮件。
-- 调用 Webhook
-- 开始执行 Azure Runbook（目前仅在 Azure 门户中可行） 
+* 向服务管理员和共同管理员发送电子邮件通知
+* 向指定的其他电子邮件地址发送电子邮件。
+* 调用 Webhook
+* 开始执行 Azure Runbook（目前仅在 Azure 门户中可行）
 
 可以使用以下工具配置和获取关于指标警报的信息：
 
@@ -56,14 +58,15 @@ ms.lasthandoff: 04/22/2017
 - [命令行接口 (CLI)](./insights-alerts-command-line-interface.md) 
 - [Azure 监视器 REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-可以随时通过键入命令并在结尾处放置 -help 来获取命令的帮助。 例如：
+可以随时通过键入命令并在结尾处放置 -help 来接收命令的帮助。 例如：
 
 ```console
 azure insights alerts -help
 azure insights alerts actions email create -help
 ```
 
-## <a name="create-alert-rules-using-the-cli"></a>使用 CLI 创建警报规则
+## 使用 CLI 创建警报规则
+<a id="create-alert-rules-using-the-cli" class="xliff"></a>
 1. 执行先决条件并登录到 Azure。 请参阅 [Azure 监视器 CLI 示例](./insights-cli-samples.md)。 简而言之，就是安装 CLI 并运行以下命令。 通过它们可进行登录，查看正在使用的订阅，并为运行 Azure 监视器命令做好准备。
 
     ```console
@@ -84,7 +87,7 @@ azure insights alerts actions email create -help
     - 可用于该资源的 **指标定义**
 
     获取资源 ID 的一种方法是使用 Azure 门户。 假设已创建该资源，在门户中选中它。 然后在下一个边栏选项卡中，选择“设置”分区下的“属性”。 *资源 ID* 是下一个边栏选项卡中的字段。 
-    下面是 Web 应用的一个示例资源 ID：
+    下面是 Web 应用的一个示例资源 ID： 
 
      ```console
      /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
@@ -114,7 +117,7 @@ azure insights alerts actions email create -help
 
     azure insights alerts actions webhook create https://www.contoso.com
 
-    azure insights alerts rule metric set myrulewithwebhookandemail chinaeast myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
+    azure insights alerts rule metric set myrulewithwebhookandemail eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
     ```
 
 6. 可以通过查看各个规则来验证是否已正确创建了警报。
@@ -122,8 +125,7 @@ azure insights alerts actions email create -help
     ```console
     azure insights alerts rule list myresourcegroup --ruleName myrule
     ```
-
-8. 若要删除规则，请使用以下格式的命令： 
+7. 若要删除规则，请使用以下格式的命令：
 
     **insights alerts rule delete** [options] &lt;resourceGroup&gt; &lt;ruleName&gt;
 
@@ -135,10 +137,12 @@ azure insights alerts actions email create -help
     azure insights alerts rule delete myresourcegroup myActivityLogRule
     ```
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 * [获取 Azure 监视概述](./monitoring-overview.md)，包括可收集和监视的信息的类型。
 * 了解[在警报中配置 Webhook](./insights-webhooks-alerts.md)的详细信息。
+* 详细了解[针对活动日志事件配置警报](./monitoring-activity-log-alerts.md)。
 * 了解关于 [Azure 自动化 Runbook](../automation/automation-starting-a-runbook.md) 的详细信息。
 
 * 获取[指标集合概述](./insights-how-to-customize-monitoring.md)以确保你的服务可用且响应迅速。

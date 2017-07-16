@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 05/26/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
-ms.openlocfilehash: 76a8bfe3afe15ca6d3385ea1b3e1fc308d63db59
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: 2be4b26f26d7b07a94150bfc9c5e673c4adeb143
+ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/10/2017
 ---
 # 如何在 Windows VM 中重置远程桌面服务或其登录密码
 <a id="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm" class="xliff"></a>
@@ -100,6 +100,6 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" 
 
 [Azure VM 扩展和功能](extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[使用 RDP 或 SSH 连接到 Azure 虚拟机](/virtual-machines/virtual-machines-linux-azure-overview)
+[使用 RDP 或 SSH 连接到 Azure 虚拟机](/virtual-machines/linux/overview)
 
 [对与基于 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)

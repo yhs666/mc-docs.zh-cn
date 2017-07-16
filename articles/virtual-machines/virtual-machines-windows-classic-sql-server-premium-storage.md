@@ -2,8 +2,8 @@
 redirect_url: /virtual-machines/windows/classic/sql-server-premium-storage
 redirect_document_id: True
 ms.openlocfilehash: c5df5c94ff06e41881b1671363e50f09ffc402f7
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---

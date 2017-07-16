@@ -16,13 +16,12 @@ ms.topic: article
 origin.date: 02/27/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
-redirect_url: https://aka.ms/acdbclisamples
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 90647b90d4055609019d89e03c3787b83f9c7754
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 06f3684caeeaeb550313e3af6e085a6d0e2d4760
+ms.sourcegitcommit: 781b4b2006e5b9a51c7009642470f066e8f2ecb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/12/2017
 ---
 # 使用 Azure CLI 1.0 和 Azure Resource Manager 模板自动创建 DocumentDB 帐户
 <a id="automate-documentdb-account-creation-using-azure-cli-10-and-azure-resource-manager-templates" class="xliff"></a>

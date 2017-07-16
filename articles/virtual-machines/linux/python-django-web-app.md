@@ -17,10 +17,10 @@ origin.date: 05/31/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
 ms.openlocfilehash: b202ccad64f8b877977dabfc7e22e3458d70eaf8
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/13/2017
 ---
 # Linux VM 上的 Django Hello World Web 应用程序
 <a id="django-hello-world-web-application-on-a-linux-vm" class="xliff"></a>

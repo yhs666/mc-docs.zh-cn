@@ -1,12 +1,13 @@
 ---
 title: "使用 Node.js 连接设备 | Azure"
-description: "介绍如何使用以 Node.js 编写的应用程序将设备连接到 Azure IoT 套件预配置远程监控解决方案。"
+description: "介绍如何使用以 Node.js 编写的应用程序将设备连接到 Azure IoT 套件预配置远程监视解决方案。"
 services: 
 suite: iot-suite
-documentationCenter: na
-authors: dominicbetts
+documentationcenter: na
+author: dominicbetts
 manager: timlt
 editor: 
+ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -15,19 +16,19 @@ ms.workload: na
 origin.date: 05/15/2017
 ms.author: v-yiso
 ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 4f26b0364d47be807978e1622a6ce073872c2f23
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: a940fad15578b5758d9f1ebb97005b7aa4138a34
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
-
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>将设备连接到远程监控预配置解决方案 (Node.js)
+# 将设备连接到远程监视预配置解决方案 (Node.js)
+<a id="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs" class="xliff"></a>
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## <a name="create-a-nodejs-sample-solution"></a>创建 node.js 示例解决方案
+## 创建 node.js 示例解决方案
+<a id="create-a-nodejs-sample-solution" class="xliff"></a>
 
 请确保已在开发计算机上安装 Node.js 版本 0.11.5 或更高版本。 若要检查版本，可在命令行中运行 `node --version` 。
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 05/19/2017
     var Message = require('azure-iot-device').Message;
     ```
 
-1. 在 `require` 语句之后添加以下变量声明。 将占位符值 [Device Id] 和 [Device Key] 替换为在远程监控解决方案仪表板中记下的设备值。 使用解决方案仪表板中的 IoT 中心主机名替换 [IoTHub Name]。 例如，如果 IoT 中心主机名是 **contoso.azure-devices.net**，则将 [IoTHub Name] 替换为 **contoso**：
+1. 在 `require` 语句之后添加以下变量声明。 将占位符值 [Device Id] 和 [Device Key] 替换为在远程监视解决方案仪表板中记下的设备值。 使用解决方案仪表板中的 IoT 中心主机名替换 [IoTHub Name]。 例如，如果 IoT 中心主机名是 **contoso.azure-devices.net**，则将 [IoTHub Name] 替换为 **contoso**：
 
     ```nodejs
     var connectionString = 'HostName=[IoTHub Name].azure-devices.cn;DeviceId=[Device Id];SharedAccessKey=[Device Key]';

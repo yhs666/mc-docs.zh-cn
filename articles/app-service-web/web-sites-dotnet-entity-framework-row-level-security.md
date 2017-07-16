@@ -15,15 +15,14 @@ ms.topic: article
 origin.date: 04/25/2016
 ms.date: 02/21/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 0dee4d0ef1a913d5a5823514e193dda68455d13a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 25050ece1cceaa3656743daf00871b7a5fba3101
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="tutorial-web-app-with-a-multi-tenant-database-using-entity-framework-and-row-level-security"></a>教程：使用多租户数据库和 Entity Framework 及行级别安全性的 Web 应用
+# 教程：使用多租户数据库和 Entity Framework 及行级别安全性的 Web 应用
+<a id="tutorial-web-app-with-a-multi-tenant-database-using-entity-framework-and-row-level-security" class="xliff"></a>
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -35,161 +34,163 @@ ms.lasthandoff: 04/28/2017
 
 只需进行一些很小的改动，就可以增加对多租户的支持，让用户只能查看属于自己的联系人。
 
-## <a name="step-1-add-an-interceptor-class-in-the-application-to-set-the-sessioncontext"></a>步骤 1：在应用程序中添加一个侦听器类，以便设置 SESSION_CONTEXT
+## 步骤 1：在应用程序中添加一个侦听器类，以便设置 SESSION_CONTEXT
+<a id="step-1-add-an-interceptor-class-in-the-application-to-set-the-sessioncontext" class="xliff"></a>
 需要进行一项应用程序更改。 由于所有应用程序用户都使用相同的连接字符串（即相同的 SQL 登录名）来连接到数据库，因此目前的 RLS 策略并不知道应该针对哪个用户进行筛选。 这种方法在 Web 应用程序中很常见，因为它可以确保连接池的高效率，但也意味着我们需要使用其他方法来标识当前正在数据库中的应用程序用户。 解决方法是让应用程序在打开连接之后、执行任何查询之前，先在 [SESSION_CONTEXT](https://msdn.microsoft.com/library/mt590806) 中针对当前的 UserId 设置一个键-值对。 SESSION_CONTEXT 是一个会话范围的键/值存储空间，RLS 策略将使用存储在该空间的 UserId 来标识当前用户。
 
 我们将添加一个[拦截器](https://msdn.microsoft.com/data/dn469464.aspx)（具体而言，为 [DbConnectionInterceptor](https://msdn.microsoft.com/library/system.data.entity.infrastructure.interception.idbconnectioninterceptor)，这是 Entity Framework (EF) 6 中的新功能），以便每当 EF 打开连接时，通过执行一个 T-SQL 语句在 SESSION_CONTEXT 中自动设置当前 UserId。
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 1. 在 Visual Studio 中打开 ContactManager 项目。
 2. 右键单击解决方案资源管理器中的 Models 文件夹，然后选择“添加”>“类”。
 3. 将新类命名为“SessionContextInterceptor.cs”，然后单击“添加”。
 4. 将 SessionContextInterceptor.cs 的内容替换为以下代码。
 
-    ```
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Data.Common;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure.Interception;
-    using Microsoft.AspNet.Identity;
+```
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data.Common;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure.Interception;
+using Microsoft.AspNet.Identity;
 
-    namespace ContactManager.Models
+namespace ContactManager.Models
+{
+    public class SessionContextInterceptor : IDbConnectionInterceptor
     {
-        public class SessionContextInterceptor : IDbConnectionInterceptor
+        public void Opened(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
-            public void Opened(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+            // Set SESSION_CONTEXT to current UserId whenever EF opens a connection
+            try
             {
-                // Set SESSION_CONTEXT to current UserId whenever EF opens a connection
-                try
+                var userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
+                if (userId != null)
                 {
-                    var userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
-                    if (userId != null)
-                    {
-                        DbCommand cmd = connection.CreateCommand();
-                        cmd.CommandText = "EXEC sp_set_session_context @key=N'UserId', @value=@UserId";
-                        DbParameter param = cmd.CreateParameter();
-                        param.ParameterName = "@UserId";
-                        param.Value = userId;
-                        cmd.Parameters.Add(param);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-                catch (System.NullReferenceException)
-                {
-                    // If no user is logged in, leave SESSION_CONTEXT null (all rows will be filtered)
+                    DbCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = "EXEC sp_set_session_context @key=N'UserId', @value=@UserId";
+                    DbParameter param = cmd.CreateParameter();
+                    param.ParameterName = "@UserId";
+                    param.Value = userId;
+                    cmd.Parameters.Add(param);
+                    cmd.ExecuteNonQuery();
                 }
             }
-
-            public void Opening(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+            catch (System.NullReferenceException)
             {
-            }
-
-            public void BeganTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void BeginningTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void Closed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void Closing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void ConnectionStringGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void ConnectionStringGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void ConnectionStringSet(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void ConnectionStringSetting(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void ConnectionTimeoutGetting(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
-            {
-            }
-
-            public void ConnectionTimeoutGot(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
-            {
-            }
-
-            public void DataSourceGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void DataSourceGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void DatabaseGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void DatabaseGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void Disposed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void Disposing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void EnlistedTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void EnlistingTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void ServerVersionGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void ServerVersionGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void StateGetting(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
-            {
-            }
-
-            public void StateGot(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
-            {
+                // If no user is logged in, leave SESSION_CONTEXT null (all rows will be filtered)
             }
         }
 
-        public class SessionContextConfiguration : DbConfiguration
+        public void Opening(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
-            public SessionContextConfiguration()
-            {
-                AddInterceptor(new SessionContextInterceptor());
-            }
+        }
+
+        public void BeganTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void BeginningTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void Closed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void Closing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void ConnectionStringGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringSet(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringSetting(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionTimeoutGetting(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
+        {
+        }
+
+        public void ConnectionTimeoutGot(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
+        {
+        }
+
+        public void DataSourceGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DataSourceGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DatabaseGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DatabaseGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void Disposed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void Disposing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void EnlistedTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void EnlistingTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void ServerVersionGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ServerVersionGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void StateGetting(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
+        {
+        }
+
+        public void StateGot(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
+        {
         }
     }
-    ```
+
+    public class SessionContextConfiguration : DbConfiguration
+    {
+        public SessionContextConfiguration()
+        {
+            AddInterceptor(new SessionContextInterceptor());
+        }
+    }
+}
+```
 
 只需对应用程序进行这样的更改。 继续操作，构建并发布应用程序。
 
-## <a name="step-2-add-a-userid-column-to-the-database-schema"></a>步骤 2：将 UserId 列添加到数据库架构
+## 步骤 2：将 UserId 列添加到数据库架构
+<a id="step-2-add-a-userid-column-to-the-database-schema" class="xliff"></a>
 接下来，我们需要将 UserId 列添加到 Contacts 表，以便将每一行与用户（租户）相关联。 我们会直接在数据库中更改架构，这样就不需要在 EF 数据模型中包括该字段。
 
 使用 SQL Server Management Studio 或 Visual Studio 直接连接到数据库，然后执行以下 T-SQL：
@@ -218,7 +219,8 @@ UPDATE Contacts SET UserId = '19bc9b0d-28dd-4510-bd5e-d6b6d445f511'
 WHERE ContactId IN (1, 2, 5)
 ```
 
-## <a name="step-3-create-a-row-level-security-policy-in-the-database"></a>步骤 3：在数据库中创建行级安全性策略
+## 步骤 3：在数据库中创建行级安全性策略
+<a id="step-3-create-a-row-level-security-policy-in-the-database" class="xliff"></a>
 最后一步是创建一个安全策略，以便使用 SESSION_CONTEXT 中的 UserId 自动筛选查询返回的结果。
 
 在仍然连接到数据库的情况下，执行以下 T-SQL：
@@ -250,7 +252,8 @@ go
 
 若要进一步验证这一点，请尝试注册一个新用户。 新用户将看不到任何联系人，因为尚未向新用户分配任何联系人。 如果新用户创建了一个新的联系人，系统会将该联系人分配给新用户，并且只有此新用户才能看到该联系人。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 就这么简单！ 简单的联系人管理器 Web 应用已变成一个多租户应用，其中的每个用户都有自己的联系人列表。 使用行级安全性以后，就不必在应用程序代码中强制实施租户访问逻辑，从而避免了各种复杂操作。 这种透明性使得应用程序可以专注于处理现实中存在的业务问题，还可以降低随着应用程序的代码库增长而发生数据意外泄漏的风险。
 
 本教程仅概要介绍了可以通过 RLS 执行的各种操作。 例如，可以创建更完善或更细致的访问逻辑，还可以在 SESSION_CONTEXT 中存储除当前 UserId 之外的其他内容。 还可以[将 RLS 与弹性数据库工具客户端库相集成](../sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md)，以便在扩展型数据层中启用多租户分片。

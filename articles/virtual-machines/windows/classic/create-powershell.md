@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 05/30/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
-ms.openlocfilehash: 3190f6130209ebbc5ddbee306384eb7bc0653180
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: 4e8ba2554708350b93927c0b4d45689590856b32
+ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/10/2017
 ---
 # 使用 Powershell 和经典部署模型创建 Windows 虚拟机
 <a id="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model" class="xliff"></a>
@@ -105,7 +105,7 @@ ms.lasthandoff: 06/30/2017
     $availset="<set name>"
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image -AvailabilitySetName $availset
 
-有关 D、DS 或 G 系列虚拟机的 InstanceSize 值，请参阅 [Azure 的虚拟机和云服务大小](https://msdn.microsoft.com/library/azure/dn197896.aspx)。
+有关 D、DS 或 G 系列虚拟机的 InstanceSize 值，请参阅 [Azure 的虚拟机和云服务大小](/cloud-services/cloud-services-sizes-specs)。
 
 （可选）为独立 Windows 计算机指定本地管理员帐户和密码。
 

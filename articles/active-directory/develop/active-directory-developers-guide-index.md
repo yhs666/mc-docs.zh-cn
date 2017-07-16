@@ -16,19 +16,18 @@ origin.date: 04/07/2017
 ms.author: v-junlch
 ms.custom: aaddev
 ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: f41fc14cb87cf6c1828987421133a5cca09da4e1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 4e49655c0c0e29c56e87658a63f2dcd244babecc
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
-
-# <a name="articles-in-the-azure-ad-developer-guide"></a>Azure AD 开发人员指南中的文章
+# Azure AD 开发人员指南中的文章
+<a id="articles-in-the-azure-ad-developer-guide" class="xliff"></a>
 下面是 Azure Active Directory 开发人员指南中涉及的所有主题的列表。
 
-## <a name="guides"></a>指南
+## 指南
+<a id="guides" class="xliff"></a>
 这些文章介绍 Azure Active Directory 的特定概念和功能。
 
 |                                                                                                                                 |  |
@@ -36,7 +35,6 @@ ms.lasthandoff: 05/26/2017
 | [多租户应用](active-directory-devhowto-multi-tenant-overview.md)                                                         | 如何登录任何 Microsoft 工作帐户 |
 | [OAuth 与 OpenID Connect](active-directory-protocols-openid-connect-code.md)                                                     | 如何使用我们的新式身份验证协议使用户登录并调用 Web API |
 | [SAML 2.0](active-directory-saml-protocol-reference.md)                                                                         | 如何使用 SAML 身份验证协议使用户登录 |
-| [应用注册](active-directory-integrating-applications.md)                                                                | 如何在 Azure AD 中注册应用 |
 | [品牌准则](active-directory-branding-guidelines.md)                                                                  | 集成 Microsoft 登录时要使用的文本、样式和术语 |
 | [移动 SSO 和桌面 SSO](active-directory-sso-android.md)                                                                         | 如何让单一登录在本机应用程序中正常工作 |
 | [使用 SCIM 2.0 进行用户预配](../active-directory-scim-provisioning.md)                                                     | 如何使用 SCIM 协议从 Azure AD 租户同步用户 |
@@ -46,7 +44,8 @@ ms.lasthandoff: 05/26/2017
 | [Visual Studio 连接服务](vs-active-directory-dotnet-getting-started.md)                                               | 如何在 Visual Studio 中使用 Azure AD 与 MVC 项目的集成 |
 | [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | 如何使用 ADFS 与本地 Active Directory 集成 |
 
-## <a name="reference"></a>引用
+## 引用
+<a id="reference" class="xliff"></a>
 以下文章提供了有关 REST 和身份验证库 API、协议、错误、代码示例和终结点的基础信息。
 
 |                                                                                     | |
@@ -59,5 +58,4 @@ ms.lasthandoff: 05/26/2017
 | [令牌生存期](../active-directory-configurable-token-lifetimes.md)              | Azure AD 令牌和自定义指令的默认生存期 |
 | [服务限制和局限性](../active-directory-service-limits-restrictions.md) | Azure AD 实体和对象的限制 |
 | [代码示例](active-directory-code-samples.md)                                    | 所有 Azure AD 代码示例的列表 |
-
 

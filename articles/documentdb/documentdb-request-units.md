@@ -16,10 +16,10 @@ origin.date: 05/10/2017
 ms.date: 05/31/2017
 ms.author: v-junlch
 ms.openlocfilehash: 6e413a1d15dcb3cf84e6667d5d7134c8f37290d8
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # DocumentDB 中的请求单位
 <a id="request-units-in-documentdb" class="xliff"></a>

@@ -17,16 +17,18 @@ origin.date: 04/04/2017
 ms.date: 05/22/2017
 ms.author: v-dazen
 ms.openlocfilehash: 0a9baf7b7aeb3b07ed432e780e1b5f2edd579b33
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
-# <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>应用程序网关的端到端 SSL 和 SSL 策略概述
+# 应用程序网关的端到端 SSL 和 SSL 策略概述
+<a id="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway" class="xliff"></a>
 
 应用程序网关支持在网关上终止 SSL，之后，流量通常会以未加密状态流到后端服务器。 此功能让 Web 服务器不用再负担昂贵的加密和解密开销。 但对于某些客户而言，与后端服务器的未加密通信不是可以接受的选项。 此通信未加密，可能是由于有安全要求、符合性要求，或应用程序可能仅接受安全连接。 对于此类应用程序，应用程序网关支持端到端 SSL 加密。
 
-## <a name="overview"></a>概述
+## 概述
+<a id="overview" class="xliff"></a>
 
 端到端 SSL 允许安全地将敏感数据以加密方式传输到后端，同时仍可利用应用程序网关提供的第 7 层负载均衡功能的好处。 部分功能包括：基于 Cookie 的会话相关性、基于 URL 的路由、基于站点的路由支持，或注入 X-Forwarded-* 标头。
 
@@ -36,11 +38,13 @@ ms.lasthandoff: 06/21/2017
 
 此示例通过端到端 SSL 将使用 TLS1.2 的请求路由到 Pool1 中的后端服务器。
 
-## <a name="end-to-end-ssl-and-whitelisting-of-certificates"></a>端到端 SSL 和证书允许列表
+## 端到端 SSL 和证书允许列表
+<a id="end-to-end-ssl-and-whitelisting-of-certificates" class="xliff"></a>
 
 应用程序网关只会与已知的后端实例通信，这些实例已将其证书加入应用程序网关的允许列表。 若要启用证书允许列表，必须将后端服务器证书（不是根证书）的公钥上传到应用程序网关。 只允许连接到已知的和列入允许列表的后端。 其余后端会导致网关错误。 自签名证书仅用于测试目的，不建议用于生产工作负荷。 此类证书也必须按照上述步骤中的说明加入应用程序网关的允许列表，然后才能使用。
 
-## <a name="application-gateway-ssl-policy"></a>应用程序网关 SSL 策略
+## 应用程序网关 SSL 策略
+<a id="application-gateway-ssl-policy" class="xliff"></a>
 
 应用程序网关支持用户可配置的 SSL 协商策略，这些策略允许客户更精细地控制应用程序网关上的 SSL 连接。
 
@@ -48,7 +52,8 @@ ms.lasthandoff: 06/21/2017
 2. SSL 策略定义允许用户禁用以下 3 个协议中的任意协议：**TLSv1\_0**、**TLSv1\_1**、**TLSv1\_2**。
 3. 如果没有定义任何 SSL 策略，这 3 个策略（TLSv1\_0、TLSv1\_1、TLSv1_2）会全部启用。
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 了解端到端 SSL 及 SSL 策略后，可转到[在应用程序网关上启用端到端 SSL](application-gateway-end-to-end-ssl-powershell.md)，使用端到端 SSL 创建应用程序网关。
 

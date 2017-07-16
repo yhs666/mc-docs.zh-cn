@@ -4,7 +4,7 @@ description: "将多站点 S2S 连接添加到包含现有连接的 VPN 网关"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
@@ -14,20 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/20/2017
-ms.date: 05/31/2017
+ms.date: 07/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: 32b685d2d17f7afe546d3cf95e55f4b35f3039db
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 9c80e46b6ea98dc02a6109848911949d920d69f5
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 将站点到站点连接添加到包含现有 VPN 网关连接的 VNet
 <a id="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection" class="xliff"></a>
+
 > [!div class="op_single_selector"]
-> * [Resource Manager - 门户](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-> * [经典 - PowerShell](vpn-gateway-multi-site.md)
-> 
+> * [Azure 门户](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [PowerShell（经典）](vpn-gateway-multi-site.md)
+>
 > 
 
 本文逐步讲解如何使用 Azure 门户，将站点到站点 (S2S) 连接添加到已有连接的 VPN 网关。 这种类型的连接通常称为“多站点”配置。 可将 S2S 连接添加到已有 S2S 连接、点到站点连接或 VNet 到 VNet 连接的 VNet。 添加连接时，请注意一些限制。 在开始之前，请查看本文的 [开始之前](#before) 部分检查配置。 

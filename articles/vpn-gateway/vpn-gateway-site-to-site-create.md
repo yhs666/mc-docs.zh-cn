@@ -14,25 +14,27 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/24/2017
-ms.date: 05/31/2017
+ms.date: 07/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: ecddd8fdc7028cc79569dd477c1ec99d8b9d3874
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 081cee10f7b99abed43558485a64b74cef109598
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 使用经典管理门户创建具有站点到站点连接的 VNet（经典）
 <a id="create-a-vnet-with-a-site-to-site-connection-using-the-classic-management-portal-classic" class="xliff"></a>
 
+[!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
+
 本文介绍如何使用经典管理门户创建站点到站点 VPN 网关连接，以便从本地网络连接到 VNet。 本文中的步骤适用于经典部署模型。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure 门户](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [经典 - Azure 门户](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [经典 - 经典管理门户](vpn-gateway-site-to-site-create.md)
+> * [Azure 门户](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+> * [Azure 门户（经典）](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [经典管理门户（经典）](vpn-gateway-site-to-site-create.md)
 > 
 >
 

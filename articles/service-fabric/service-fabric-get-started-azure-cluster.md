@@ -3,8 +3,8 @@ title: "设置 Azure Service Fabric 群集 | Azure"
 description: "快速入门 - 在 Azure 上创建 Windows 或 Linux Service Fabric 群集。"
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 
 ms.service: service-fabric
@@ -12,20 +12,20 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/05/2017
-ms.author: v-johch
-ms.openlocfilehash: aea13e23ba5cceb0d0f18c731680bd961aee8c3b
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 05/05/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
+ms.openlocfilehash: 9ca636af5815ab7526f71a1fe69ac441e2e0872b
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 在 Azure 上创建第一个 Service Fabric 群集
 <a id="create-your-first-service-fabric-cluster-on-azure" class="xliff"></a>
 [Service Fabric 群集](service-fabric-deploy-anywhere.md)是一组通过网络连接在一起的虚拟机或物理计算机，你的微服务将在其中部署和管理。 本快速入门可帮助你在数分钟内通过 [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) 或 [Azure 门户](http://portal.azure.cn)创建一个运行在 Windows 或 Linux 上的五节点型群集。  
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/1rmb-trial/)。
-
+如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## 使用 Azure 门户
 <a id="use-the-azure-portal" class="xliff"></a>
@@ -114,15 +114,13 @@ Service Fabric 群集由群集资源本身以及其他 Azure 资源组成。 因
 3. 在“资源组基本信息”页中单击“删除”，然后按照该页上的说明进行操作，以完成资源组的删除。
     ![删除资源组][cluster-delete]
 
-
 ## 使用 Azure Powershell 部署安全群集
 <a id="use-azure-powershell-to-deploy-a-secure-cluster" class="xliff"></a>
-
 
 1) 将 [Azure Powershell 模块 4.0 或更高版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)下载到计算机上。
 
 2) 打开 Windows PowerShell 窗口，运行以下命令。 
-    
+
 ```powershell
 
 Get-Command -Module AzureRM.ServiceFabric 
@@ -165,7 +163,6 @@ New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc
 ![ps-out][ps-out]
 
 5) 复制整个输出，将其保存到一个文本文件，因为需要参阅该文件。 从输出中记下以下信息。
- 
 
 - **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
 - **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
@@ -174,7 +171,7 @@ New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc
 
 ### 在本地计算机上安装证书
 <a id="install-the-certificate-on-your-local-machine" class="xliff"></a>
-  
+
 若要连接到群集，需将证书安装到当前用户的“个人(我的)”存储。 
 
 运行以下 PowerShell
@@ -239,7 +236,6 @@ Remove-AzureRmResourceGroup -Name $RGname -Force
 * [在门户中创建安全群集](service-fabric-cluster-creation-via-portal.md)
 * [从模板创建群集](service-fabric-cluster-creation-via-arm.md) 
 * [使用 PowerShell 部署应用](service-fabric-deploy-remove-applications.md)
-
 
 [cluster-setup-basics]: ./media/service-fabric-get-started-azure-cluster/basics.png
 [node-type-config]: ./media/service-fabric-get-started-azure-cluster/nodetypeconfig.png

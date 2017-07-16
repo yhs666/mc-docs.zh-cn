@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/15/2017
 ms.date: 06/26/2017
 ms.author: v-johch
-ms.openlocfilehash: 08bf4bb5bfea986063304714a990441e66eb93bf
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 3c38d13d8ee26f32639ca155a46a9f721eb3366b
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # Azure 高级存储：高性能设计
 <a id="azure-premium-storage-design-for-high-performance" class="xliff"></a>
@@ -51,7 +51,7 @@ ms.lasthandoff: 06/23/2017
 <a id="iops" class="xliff"></a>
 IOPS 是指应用程序在一秒内发送到存储磁盘的请求数。 可以按顺序或随机读取或写入输入/输出操作。 OLTP 应用程序（例如在线零售网站）需要即时处理多个并发用户请求。 用户请求是插入和更新操作密集型数据库事务，必须通过应用程序进行快速处理。 因此，OLTP 应用程序需要很高的 IOPS。 此类应用程序处理数百万个小型和随机的 IO 请求。 如果应用程序是这样的，则必须在设计应用程序基础结构时针对 IOPS 进行优化。 在后面的“优化应用程序性能”部分，我们会详细讨论获取高 IOPS 必须考虑的所有因素。
 
-将高级存储磁盘连接到大型 VM 时，Azure 会根据磁盘规格预配保障数目的 IOPS。 例如，P50 磁盘预配 7500 IOPS。 每个大型 VM 还存在一个其所能承受的特定 IOPS 限制。 例如，标准 GS5 VM 的限制为 80,000 IOPS。
+将高级存储磁盘连接到大型 VM 时，Azure 会根据磁盘规格预配保障数目的 IOPS。 例如，P50 磁盘预配 7500 IOPS。 每个大型 VM 还存在一个其所能承受的特定 IOPS 限制。
 
 ## 吞吐量
 <a id="throughput" class="xliff"></a>
@@ -197,7 +197,6 @@ IO 大小是较为重要的因素之一。 IO 大小是由应用程序生成的�
 | VM 大小 | CPU 核心数 | 内存 | VM 磁盘大小 | 最大 数据磁盘 | 缓存大小 | IOPS | 带宽缓存 IO 限制 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS14 |16 |112 GB |OS = 1023 GB <br> 本地 SSD = 224 GB |32 |576 GB |50,000 IOPS <br> 512 MB/秒 |4,000 IOPS，33 MB/秒 |
-| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> 本地 SSD = 896 GB |64 |4224 GB |80,000 IOPS <br> 2,000 MB/秒 |5,000 IOPS，50 MB/秒 |
 
 若要查看所有可用 Azure VM 大小的完整列表，请参阅 [Windows VM 大小](../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)或 [Linux VM 大小](../virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 选择能够满足或者在扩展后能够满足所需应用程序性能要求的 VM 大小。 除此之外，在选择 VM 大小时，还需考虑以下重要事项。
 

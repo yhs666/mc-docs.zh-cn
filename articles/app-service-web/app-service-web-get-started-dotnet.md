@@ -17,10 +17,10 @@ ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
 ms.openlocfilehash: eb317d22fadc9d8934e68b55f4a7072af5b2551f
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 在 Azure 中创建 ASP.NET Web 应用
 <a id="create-an-aspnet-web-app-in-azure" class="xliff"></a>

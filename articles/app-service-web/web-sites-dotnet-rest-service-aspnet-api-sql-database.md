@@ -17,10 +17,10 @@ origin.date: 02/29/2016
 ms.date: 03/28/2017
 ms.author: v-dazen
 ms.openlocfilehash: 20afe16a18b79d7b16d54a0b8c272639f5e01af8
-ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 在 Azure 应用服务中使用 ASP.NET Web API 和 SQL 数据库创建 REST 服务
 <a id="create-a-rest-service-using-aspnet-web-api-and-sql-database-in-azure-app-service" class="xliff"></a>

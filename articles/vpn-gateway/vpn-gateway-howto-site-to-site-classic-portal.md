@@ -14,25 +14,27 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/24/2017
-ms.date: 05/31/2017
+ms.date: 07/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: 5588347009c0e23ac4e930dedfa3b6560c8d9092
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 8f843249f64f91b3014d69faaf8e399ce7b0560f
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 使用 Azure 门户创建站点到站点连接（经典）
 <a id="create-a-site-to-site-connection-using-the-azure-portal-classic" class="xliff"></a>
 
+[!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
+
 本文介绍如何使用 Azure 门户创建站点到站点 VPN 网关连接，以便从本地网络连接到 VNet。 本文中的步骤适用于经典部署模型。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure 门户](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [经典 - Azure 门户](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [经典 - 经典管理门户](vpn-gateway-site-to-site-create.md)
+> * [Azure 门户](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+> * [Azure 门户（经典）](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [经典管理门户（经典）](vpn-gateway-site-to-site-create.md)
 > 
 >
 
@@ -184,22 +186,17 @@ ms.lasthandoff: 06/23/2017
 1. 使用提升的权限打开 PowerShell 控制台，然后连接到帐户。 使用下面的示例来帮助连接：
 
   ```powershell
-  Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+  Add-AzureAccount -Environment AzureChinaCloud
   ```
 2. 检查该帐户的订阅。
 
   ```powershell
-  Get-AzureRmSubscription
+  Get-AzureSubscription
   ```
 3. 如果有多个订阅，请选择要使用的订阅。
 
   ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
-4. 添加 SM 版本的 PowerShell cmdlet。
-
-  ```powershell
-  Add-AzureAccount -Environment AzureChinaCloud
+  Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
   ```
 
 ### 步骤 2. 设置共享密钥并创建连接

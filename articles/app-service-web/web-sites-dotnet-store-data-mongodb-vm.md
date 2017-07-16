@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 02/29/2016
 ms.date: 03/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: 0df1a0ea99f78c8e834d5d101388244b967feaa0
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 57c2bc38f3cdd8e938fb7e3f74d7be9c911498e1
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 在 Azure 中创建连接到虚拟机上运行的 MongoDB 的 Web 应用
 <a id="create-a-web-app-in-azure-that-connects-to-mongodb-running-on-a-virtual-machine" class="xliff"></a>
@@ -470,8 +470,8 @@ MongoDB C# 驱动程序现已安装。  对 **MongoDB.Bson**、**MongoDB.Driver*
 [MongoConnectionStrings]: http://www.mongodb.org/display/DOCS/Connections
 [MongoDB]: http://www.mongodb.org
 [InstallMongoOnWindowsVM]:../virtual-machines/windows/classic/install-mongodb.md
-[VSEWeb]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-2013-express
-[VSUlt]: http://www.visualstudio.com/downloads/download-visual-studio-vs
+[VSEWeb]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
+[VSUlt]: http://www.microsoft.com/visualstudio/eng/2013-downloads
 
 <!-- IMAGES -->
 

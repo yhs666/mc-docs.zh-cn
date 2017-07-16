@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 03/30/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.openlocfilehash: 9e44e7e1c22581779adc4f14f2c2d6c3915fa4b7
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 01b62d710f1cf2e6b73efc91e4a28906ac0efc8e
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 创建和部署虚拟机规模集
 <a id="create-and-deploy-a-virtual-machine-scale-set" class="xliff"></a>
@@ -172,7 +172,7 @@ New-AzureRmVmss -ResourceGroupName vmss-test-1 -Name my-scale-set -VirtualMachin
 ## 从模板创建
 <a id="create-from-a-template" class="xliff"></a>
 
-可以使用 Azure Resource Manager 模板部署虚拟机规模集。 可以创建你自己的模板，也可以使用[模板存储库](https://www.github.com/Azure/azure-quickstart-templates/)中的模板。 可直接将这些模板部署到 Azure 订阅。
+可以使用 Azure Resource Manager 模板部署虚拟机规模集。 可以创建你自己的模板，也可以使用[模板存储库](https://github.com/Azure/azure-quickstart-templates/?term=vmss)中的模板。 可直接将这些模板部署到 Azure 订阅。
 
 >[!NOTE]
 >若要创建自己的模板，请创建一个 JSON 文本文件。 有关如何创建和自定义模板的常规信息，请参阅 [Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)。

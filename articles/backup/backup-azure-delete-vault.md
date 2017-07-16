@@ -3,8 +3,8 @@ title: " 删除 Azure 中的备份保管库 | Microsoft Docs "
 description: "如何删除 Azure 备份和恢复服务保管库。 备份保管库可以称为 Azure 云保管库或 Azure 恢复保管库。 在经典管理门户或 Azure 门户中无法删除备份保管库时对问题进行故障排除。"
 services: service-name
 documentationcenter: dev-center-name
-author: markgalioto
-manager: carmonm
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 5fa08157-2612-4020-bd90-f9e3c3bc1806
 ms.service: backup
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/14/2017
+origin.date: 06/14/2017
+ms.date: 06/29/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 89a728b2ede78b04ef58beca7b2545bf505a965d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 6df3988705a67508459682cd1e8dbde51f955f60
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="delete-an-azure-backup-vault"></a>删除 Azure 备份保管库
+# 删除 Azure 备份保管库
+<a id="delete-an-azure-backup-vault" class="xliff"></a>
 Azure 备份服务具有两种类型的保管库：备份保管库和恢复服务保管库。 首先使用备份保管库。 随后是恢复服务保管库，用于支持扩展的 Resource Manager 部署。 由于扩展的功能和信息依赖项必须存储在保管库中，删除备份或恢复服务保管库可能会令人感到困惑。 本文介绍如何在经典管理门户中删除保管库。  
 
 | **部署类型** | **门户** | **保管库名称** |
@@ -37,7 +37,8 @@ Azure 备份服务具有两种类型的保管库：备份保管库和恢复服�
 
 本文中使用“保管库”一词来泛指备份保管库或恢复服务保管库。 需要区分保管库时，则使用正式名称“备份保管库”或“恢复服务保管库”。
 
-## <a name="delete-a-backup-vault-in-classic-management-portal"></a>在经典管理门户中删除备份保管库
+## 在经典管理门户中删除备份保管库
+<a id="delete-a-backup-vault-in-classic-management-portal" class="xliff"></a>
 以下说明适用于在经典管理门户中删除备份保管库。 在删除备份保管库之前，必须删除恢复点或备份项，并删除已注册的服务器。 已注册的服务器为注册到保管库的 Windows Server、工作站或虚拟机。
 
 1. 打开[经典管理门户](https://manage.windowsazure.cn)。
@@ -54,7 +55,7 @@ Azure 备份服务具有两种类型的保管库：备份保管库和恢复服�
 
     此时将显示“**停止保护 ‘保管库’**”对话框。
 4. 在“**停止保护‘保管库’**”对话框中，选中“**删除关联的备份数据**”，然后单击![选中标记](./media/backup-azure-delete-vault/checkmark.png)。 <br/>
-   （可选）可以选择停止保护的原因并提供备注。
+    （可选）可以选择停止保护的原因并提供备注。
 
     ![删除备份数据](./media/backup-azure-delete-vault/classic-portal-delete-vault-verify-stop-protect.png)
 
@@ -78,5 +79,4 @@ Azure 备份服务具有两种类型的保管库：备份保管库和恢复服�
     ![删除备份数据](./media/backup-azure-delete-vault/classic-portal-delete-vault-confirmation-1.png)
 
     该保管库随即已删除，界面返回到经典管理门户仪表板。
-
 

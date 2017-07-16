@@ -34,7 +34,6 @@
 # 如何
 ## [获取租户](./active-directory-howto-tenant.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
 ## [让任何 Azure AD 用户登录](./active-directory-devhowto-multi-tenant-overview.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
-## [集成应用](./active-directory-integrating-applications.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
 ## 启用 SSO
 ### [Android](./active-directory-sso-android.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
 ### [iOS](./active-directory-sso-ios.md?toc=%2factive-directory%2fdevelop%2ftoc.json)

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 03/20/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.openlocfilehash: 81d065792eed39bbf0f53af77ef98fd83b8efb16
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 81c52a8888d30f011bd989bffa5f36a568f826ad
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 在流量管理器中配置优先级流量路由方法
 <a id="configure-priority-traffic-routing-method-in-traffic-manager" class="xliff"></a>
@@ -58,6 +58,7 @@ ms.lasthandoff: 06/23/2017
 
 - 了解[加权流量路由方法](traffic-manager-configure-weighted-routing-method.md)。
 - 了解[性能路由方法](traffic-manager-configure-performance-routing-method.md)。
+- 了解[地理路由方法](traffic-manager-configure-geographic-routing-method.md)。
 - 了解如何[测试流量管理器设置](traffic-manager-testing-settings.md)。
 
 <!--Image references-->

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/09/2017
 ms.author: v-johch
 ms.openlocfilehash: d31b6557d823d984c6ac545af9612948bac2617e
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # Azure Service Fabric 中的 DNS 服务
 <a id="dns-service-in-azure-service-fabric" class="xliff"></a>

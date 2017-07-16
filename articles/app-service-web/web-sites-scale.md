@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 07/05/2016
 ms.date: 12/05/2016
 ms.author: v-dazen
-ms.openlocfilehash: 654aa5bcf81971250177ca30e36d5c0bdb792152
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 1f47976858f5b2ce4fc4c120acaa931304f65829
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # 增加 Azure 中的应用
 <a id="scale-up-an-app-in-azure" class="xliff"></a>
@@ -120,7 +120,7 @@ ms.lasthandoff: 06/21/2017
 <!-- LINKS -->
 [vmsizes]:https://www.azure.cn/pricing/details/app-service/
 [SQLaccountsbilling]:https://www.azure.cn/pricing/details/sql-database/
-[azuresubscriptions]:https://account.windowsazure.cn/subscriptions
+[azuresubscriptions]:http://account.windowsazure.cn/subscriptions
 [portal]: https://portal.azure.cn/
 
 <!-- IMAGES -->

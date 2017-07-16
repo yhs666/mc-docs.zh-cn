@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+origin.date: 03/31/2017
 ms.author: v-yiso
-ms.openlocfilehash: 0f79a8de1d971b7e547eb8a49a2b9d856ae070e3
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 
+ms.openlocfilehash: e808aa20872503d102978b63982fafdfd11f6419
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 服务运行状况通知
 <a id="service-health-notifications" class="xliff"></a>

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 03/29/2017
 ms.date: 05/22/2017
 ms.author: v-dazen
-ms.openlocfilehash: ebcdbe7b8bd25f6ff7f9bd844136be11fbac3217
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 248473b8ce0d5eb0b705636559966714f9680ebc
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 使用门户删除虚拟网络网关
 <a id="delete-a-virtual-network-gateway-using-the-portal" class="xliff"></a>

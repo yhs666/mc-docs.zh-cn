@@ -16,12 +16,13 @@ origin.date: 06/01/2016
 ms.date: 12/12/2016
 ms.author: v-dazen
 ms.openlocfilehash: 822759702911768f97cb7c5102eaa87a6c1227d0
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
-# <a name="what-is-the-azure-webjobs-sdk"></a>什么是 Azure WebJobs SDK
+# 什么是 Azure WebJobs SDK
+<a id="what-is-the-azure-webjobs-sdk" class="xliff"></a>
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -151,7 +152,8 @@ public class Functions
 
 有关更多示例代码，请参阅 GitHub.com 上 azure-webjobs-sdk-extensions 存储库中的 [TimerSamples.cs](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/ExtensionsSample/Samples/TimerSamples.cs) 。
 
-## <a name="extensibility"></a>可扩展性
+## 可扩展性
+<a id="extensibility" class="xliff"></a>
 不限于内置功能 - WebJobs SDK 允许编写自定义触发器和绑定器。  例如，可以为缓存事件和定期计划编写触发器。 [开源存储库](https://github.com/Azure/azure-webjobs-sdk-extensions)包含[有关 WebJobs SDK 可扩展性的详细指南](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)和示例代码，可帮助用户开始编写自己的触发器和绑定器。
 
 ## <a id="workerrole"></a>在 WebJobs 外部使用 WebJobs SDK

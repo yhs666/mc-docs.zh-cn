@@ -3,32 +3,35 @@ title: "Azure CLI 脚本 - 缩放弹性池 | Azure"
 description: "Azure CLI 脚本示例 - 缩放弹性数据库池"
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: Hayley244
+manager: digimobile
 editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: monitor & tune
 ms.devlang: azurecli
-ms.topic: samples
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/24/2017
+origin.date: 04/24/2017
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 6ca85691e9d731f530a71b8bbc7ef74b3d3222b0
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 6ecd7424465f4f32285a258eb5dd17d5efdb9c93
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="scale-an-elastic-pool-in-azure-sql-database-using-the-azure-cli"></a>使用 Azure CLI 缩放 Azure SQL 数据库中的弹性池
+# 使用 Azure CLI 缩放 Azure SQL 数据库中的弹性池
+<a id="scale-an-elastic-pool-in-azure-sql-database-using-the-azure-cli" class="xliff"></a>
 
 此示例 CLI 脚本创建弹性池，移动入池数据库，并更改性能级别。 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## <a name="sample-script"></a>示例脚本
+## 示例脚本
+<a id="sample-script" class="xliff"></a>
 
 ```azurecli
 #!/bin/bash
@@ -81,7 +84,8 @@ az sql elastic-pools update \
     --set dtu=100
 ```
 
-## <a name="clean-up-deployment"></a>清理部署
+## 清理部署
+<a id="clean-up-deployment" class="xliff"></a>
 
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
@@ -89,7 +93,8 @@ az sql elastic-pools update \
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>脚本说明
+## 脚本说明
+<a id="script-explanation" class="xliff"></a>
 
 此脚本使用以下命令创建资源组、逻辑服务器、SQL 数据库和防火墙规则。 表中的每条命令均链接到特定于命令的文档。
 
@@ -102,7 +107,8 @@ az group delete --name myResourceGroup
 | [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pools#update) | 更新弹性数据库池，在此示例中更改分配的 eDTU。 |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | 删除资源组，包括所有嵌套的资源。 |
 
-## <a name="next-steps"></a>后续步骤
+## 后续步骤
+<a id="next-steps" class="xliff"></a>
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 

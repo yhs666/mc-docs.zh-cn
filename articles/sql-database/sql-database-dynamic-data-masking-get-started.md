@@ -3,25 +3,27 @@ title: "Azure SQL 数据库动态数据掩码 | Microsoft docs"
 description: "SQL 数据库动态数据掩码通过对非特权用户模糊化敏感数据来控制此类数据的泄露"
 services: sql-database
 documentationcenter: 
-author: ronitr
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: 4b36d78e-7749-4f26-9774-eed1120a9182
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 03/09/2017
+origin.date: 03/09/2017
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: ae2b6d7f585b3948d46af4a91ad95c319c36feeb
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: f4a352f2068188a00bea3ddbe252a2800afb4abd
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="sql-database-dynamic-data-masking"></a>SQL 数据库动态数据掩码
+# SQL 数据库动态数据掩码
+<a id="sql-database-dynamic-data-masking" class="xliff"></a>
 
 SQL 数据库动态数据掩码通过对非特权用户模糊化敏感数据来限制此类数据的泄露。 
 
@@ -29,13 +31,16 @@ SQL 数据库动态数据掩码通过对非特权用户模糊化敏感数据来�
 
 例如，呼叫中心服务代表可以根据呼叫者的信用卡号的多个数字来识别其身份，但这些数据项不应完全透露给服务代表。 可以定义掩码规则，对任意查询的结果集中任何信用卡号除最后四位数以外的其他所有数字进行掩码。 另举一例，通过定义适当的数据掩码来保护个人身份信息 (PII) 数据，开发人员一方面可以查询生产环境以进行故障排除，同时又不违反法规遵从性要求。
 
-## <a name="sql-database-dynamic-data-masking-basics"></a>SQL 数据库动态数据掩码基础知识
+## SQL 数据库动态数据掩码基础知识
+<a id="sql-database-dynamic-data-masking-basics" class="xliff"></a>
 通过在 SQL 数据库配置边栏选项卡或设置边栏选项卡中选择“动态数据掩码”操作，在 Azure 门户中设置动态数据掩码策略。
 
-### <a name="dynamic-data-masking-permissions"></a>动态数据掩码权限
+### 动态数据掩码权限
+<a id="dynamic-data-masking-permissions" class="xliff"></a>
 Azure 数据库管理员、服务器管理员或安全主管角色可以配置动态数据掩码。
 
-### <a name="dynamic-data-masking-policy"></a>动态数据掩码策略
+### 动态数据掩码策略
+<a id="dynamic-data-masking-policy" class="xliff"></a>
 * **不对其进行掩码的 SQL 用户** - 一组可以在 SQL 查询结果中获取非掩码数据的 SQL 用户或 AAD 标识。 始终不会对拥有管理员权限的用户进行掩码，这些用户可以看到没有任何掩码的原始数据。
 * **掩码规则** - 一组规则，定义将要掩码的指定字段，以及使用的掩码函数。 可以使用数据库架构名称、表名称和列名称定义指定的字段。
 * **掩码函数** - 一组方法，用于控制不同情况下的数据透露。
@@ -50,12 +55,14 @@ Azure 数据库管理员、服务器管理员或安全主管角色可以配置�
 
 <a name="Anchor1"></a>
 
-### <a name="recommended-fields-to-mask"></a>建议进行掩码的字段
+### 建议进行掩码的字段
+<a id="recommended-fields-to-mask" class="xliff"></a>
 DDM 建议引擎会将数据库中的某些字段标记为可能的敏感字段，可以考虑对这些字段进行掩码。 在门户的“动态数据掩码”边栏选项卡中，你会看到针对你的数据库建议的列。 你只需针对一个或多个列单击“添加掩码”，然后单击“保存”，即可对这些字段应用掩码。
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>使用 Powershell cmdlet 为数据库设置动态数据掩码
+## 使用 Powershell cmdlet 为数据库设置动态数据掩码
+<a id="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets" class="xliff"></a>
 请参阅 [Azure SQL 数据库 Cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)。
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>使用 REST API 为数据库设置动态数据掩码
+## 使用 REST API 为数据库设置动态数据掩码
+<a id="set-up-dynamic-data-masking-for-your-database-using-rest-api" class="xliff"></a>
 请参阅对 [Azure SQL 数据库](https://msdn.microsoft.com/library/dn505719.aspx)的操作。
-
