@@ -17,10 +17,10 @@ origin.date: 04/08/2017
 ms.author: v-junlch
 ms.date: 05/31/2017
 ms.openlocfilehash: b723148dddf192cd946e420fc9dd3c136e6f6fc7
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # DocumentDB 中的 SQL 查询和 SQL 语法
 <a id="sql-query-and-sql-syntax-in-documentdb" class="xliff"></a>

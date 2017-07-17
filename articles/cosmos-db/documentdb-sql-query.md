@@ -17,10 +17,10 @@ origin.date: 04/08/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
 ms.openlocfilehash: 69ac956ee90f8eecbefb170b495cee33c97482a4
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/13/2017
 ---
 # Azure Cosmos DB DocumentDB API 的 SQL 查询
 <a id="sql-queries-for-azure-cosmos-db-documentdb-api" class="xliff"></a>

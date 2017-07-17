@@ -16,10 +16,10 @@ origin.date: 06/09/2017
 ms.date: 07/03/2017
 ms.author: v-yeche
 ms.openlocfilehash: e5e6894411c9e67f47ac0f9ad3a403881224a5d4
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # Azure Resource Manager 概述
 <a id="azure-resource-manager-overview" class="xliff"></a>
