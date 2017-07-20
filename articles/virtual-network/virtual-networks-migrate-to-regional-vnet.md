@@ -1,12 +1,12 @@
 ---
-title: 如何从地缘组迁移到区域虚拟网络 (VNet)
-description: 了解如何从地缘组迁移到区域 VNet
+title: "将 Azure 虚拟网络从地缘组迁移到某个区域 | 经典 | Azure"
+description: "了解如何将虚拟网络从地缘组迁移到某个区域。"
 services: virtual-network
-documentationCenter: na
-authors: telmosampaio
+documentationcenter: na
+author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 84febcb9-bb8b-4e79-ab91-865ad9de41cb
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,79 +15,59 @@ ms.workload: infrastructure-services
 origin.date: 03/15/2016
 ms.date: 12/12/2016
 ms.author: v-dazen
+ms.openlocfilehash: 01bf26b15565817633954e608119fa92a69acec0
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
+# <a name="how-to-migrate-a-virtual-network-from-an-affinity-group-to-a-region"></a>如何将虚拟网络从地缘组迁移到某个区域
+可以使用地缘组来确保在相同地缘组中创建的资源由彼此靠近的服务器实际托管，从而加快这些资源的通信速度。 过去，地缘组是创建虚拟网络 (VNet) 的必要条件。 当时，托管 VNet 的网络管理器服务只能在一组物理服务器或缩放单位内工作。 体系结构改进已将网络管理的范畴扩大到了区域。
 
-# 如何从地缘组迁移到区域虚拟网络 (VNet)
+由于这些体系结构的改进，不再建议或需要对虚拟网络使用地缘组。 对 VNet 使用地缘组将被区域取代。 与区域关联的虚拟网络称为区域 VNet。
 
-可以使用地缘组来确保在相同地缘组中创建的资源由彼此靠近的服务器实际托管，从而加快这些资源的通信速度。过去，地缘组是创建虚拟网络 (VNet) 的必要条件。当时，托管 VNet 的网络管理器服务只能在一组物理服务器或缩放单位内工作。体系结构改进已将网络管理的范畴扩大到了区域。
+此外，我们建议在一般情况下不要使用地缘组。 除了 VNet 要求外，使用地缘组来确保计算和存储等资源的位置相互靠近同样重要。 但是，对于当前的 Azure 网络体系结构，不再需要满足这些位置要求。 有关可能需要使用地缘组的其余少数特定情况，请参阅 [地缘组和 VM](#Affinity-groups-and-VMs) 。
 
-由于这些体系结构的改进，不再建议或需要对虚拟网络使用地缘组。对 VNet 使用地缘组将被区域取代。与区域关联的虚拟网络称为区域 VNet。
+## <a name="creating-and-migrating-to-regional-vnets"></a>创建和迁移到区域 VNet
+今后，在创建新的 VNet 时，可以使用 *区域*。 你可以将此视为经典管理门户中的一个选项。 请注意，在网络配置文件中，这显示为 *位置*。
 
-此外，我们建议在一般情况下不要使用地缘组。除了 VNet 要求外，使用地缘组来确保计算和存储等资源的位置相互靠近同样重要。但是，对于当前的 Azure 网络体系结构，不再需要满足这些位置要求。有关可能需要使用地缘组的其余少数特定情况，请参阅[地缘组和 VM](#Affinity-groups-and-VMs)。
+> [!IMPORTANT]
+> 尽管从技术上讲仍可以创建与地缘组关联的虚拟网络，但是，没有令人信服的理由让人这么做。 许多新功能，例如网络安全组，仅当使用区域 VNet 时才可用，而不能用于与地缘组关联的虚拟网络。
+> 
+> 
 
-## 创建和迁移到区域 VNet
+### <a name="about-vnets-currently-associated-with-affinity-groups"></a>关于与地缘组关联的 VNet
+已启用当前与地缘组关联的虚拟网络以迁移到区域 VNet。 若要迁移到区域 VNet，请执行以下步骤：
 
-今后，在创建新的 VNet 时，可以使用*区域*。你可以将此视为经典管理门户中的一个选项。请注意，在网络配置文件中，这显示为*位置*。
+1. 导出网络配置文件。 可以使用 PowerShell 或经典管理门户。 有关使用经典管理门户的说明，请参阅[使用网络配置文件配置 VNet](virtual-networks-using-network-configuration-file.md)。
+2. 编辑网络配置文件，将旧值替换为新值。 
 
->[!IMPORTANT]
-> 尽管从技术上讲仍可以创建与地缘组关联的虚拟网络，但是，没有令人信服的理由让人这么做。许多新功能，例如网络安全组，仅当使用区域 VNet 时才可用，而不能用于与地缘组关联的虚拟网络。
+   > [!NOTE]
+   > **位置** 是已为与 VNet 关联的地缘组指定的区域。 例如，如果你的 VNet 与位于华北的地缘组关联，则在迁移时，你的“位置”必须指向华北。 
+   > 
+   > 
 
-### 关于与地缘组关联的 VNet
+    编辑网络配置文件中的以下行，将相应值替换为你自己的值： 
 
-在不久的将来，将启用当前与地缘组关联的虚拟网络以迁移到区域 VNet。我们将更新此页，以让你了解该过程的进展情况以及何时执行后续步骤来完成迁移。
+    **旧值：**\<VirtualNetworkSitename="VNetChinsNorth" AffinityGroup="VNetDemoAG"\> 
 
-请注意，尽管我们不再建议对 VNet 使用地缘组，但它们将仍然存在。因此，你可以选择不迁移 VNet，也可以选择延迟迁移。你的 VNet 仍将正常工作。但是，你可能会遇到限制问题，而且将无法充分利用任何需要区域 VNet 的许多新功能。我们强烈建议你在启用 VNet 时，将地缘组 VNet 迁移到区域 VNet。
+    **新值：**\<VirtualNetworkSitename="VNetChinsNorth" Location="China North"\>
+3. 保存所做的更改，并将网络配置[导入](virtual-networks-using-network-configuration-file.md)到 Azure。
 
-### 提前迁移
+> [!NOTE]
+> 此迁移不会导致你的服务出现任何停机情况。
+> 
+> 
 
-提前迁移适用于拥有支持合同的客户。若要选择提前迁移，请执行以下步骤：
-
-1. 在[在线提交工单](https://www.azure.cn/support/support-ticket-form/?l=zh-cn)页面提交工单。
-
-2. 选择以下项︰订阅︰如果你有多个订阅，请选择与你要迁移的 VNet 对应的订阅。支持类型︰技术 产品类型︰虚拟网络 (VNet) 问题类型︰将虚拟网络迁移到区域虚拟网络
-
-    - **订阅︰** 如果你有多个订阅，请选择与你要迁移的 VNet 对应的订阅。
-
-    - **支持类型：***技术*
-
-    - **产品类型：***虚拟网络 (VNet)*
-
-    - **问题类型：***将虚拟网络迁移到区域虚拟网络*
-
-3. 先决条件：必须已为你的 VNet 启用迁移，才能执行以下步骤。如果你收到确认（如果是提前迁移请求），或此页已更新可反映启用了所有 VNet 以进行迁移，则会知道 VNet 已启用。
-
-4. 导出网络配置文件。可以使用 PowerShell 或经典管理门户。有关使用经典管理门户的说明，请参阅[使用网络配置文件配置 VNet](./virtual-networks-using-network-configuration-file.md)。
-
-5. 编辑网络配置文件，将旧值替换为新值。
-
-    > [!NOTE]
-    > **位置**是已为与 VNet 关联的地缘组指定的区域。例如，如果你的 VNet 与位于中国北部的地缘组关联，则在迁移时，你的“位置”必须指向中国北部。
-
-    编辑网络配置文件中的以下行，将相应值替换为你自己的值：
-
-    **旧值：** \<VirtualNetworkSitename="VNetChinsNorth" AffinityGroup="VNetDemoAG"\> 
-
-    **新值：** \<VirtualNetworkSitename="VNetChinsNorth" Location="China North"\>
-
-6. 保存所做的更改，并将网络配置[导入](./virtual-networks-using-network-configuration-file.md)到 Azure。
-
->[!NOTE]
->此迁移不会导致你的服务出现任何停机情况。
-
-## <a name="Affinity-groups-and-VMs"></a> 地缘组和 VM
-
-如前所述，一般不再建议对 VM 使用地缘组。仅当一组 VM 必须在 VM 之间拥有绝对最低网络延迟时，才应该使用地缘组。将 VM 置于地缘组中后，VM 将全部置于相同计算群集或缩放单位中。
+## <a name="affinity-groups-and-vms"></a>地缘组和 VM
+如前所述，一般不再建议对 VM 使用地缘组。 仅当一组 VM 必须在 VM 之间拥有绝对最低网络延迟时，才应该使用地缘组。 将 VM 置于地缘组中后，VM 将全部置于相同计算群集或缩放单位中。
 
 必须注意，使用地缘组可能会造成两个负面后果：
 
-- VM 大小集将限制为计算缩放单位所提供的 VM 大小集。
+* VM 大小集将限制为计算缩放单位所提供的 VM 大小集。
+* 无法分配新 VM 的概率较高。 如果地缘组的特定缩放单位超出能力范畴，则会发生这种情况。
 
-- 无法分配新 VM 的概率较高。如果地缘组的特定缩放单位超出能力范畴，则会发生这种情况。
-
-### 如果你在地缘组中有一个 VM 该怎么办
-
+### <a name="what-to-do-if-you-have-a-vm-in-an-affinity-group"></a>如果你在地缘组中有一个 VM 该怎么办
 当前位于地缘组中的 VM 不需要从地缘组中删除。
 
-在 VM 部署后，系统会将其部署到单个缩放单位。地缘组可以限制可用于新 VM 部署的 VM 大小集，但是部署的任何现有 VM 已限制为在其中部署该 VM 的缩放单位中可用的 VM 大小集。因此，从地缘组中删除 VM 将不产生任何影响。
-
-<!---HONumber=Mooncake_Quality_Review_1118_2016-->
+在 VM 部署后，系统会将其部署到单个缩放单位。 地缘组可以限制可用于新 VM 部署的 VM 大小集，但是部署的任何现有 VM 已限制为在其中部署该 VM 的缩放单位中可用的 VM 大小集。 因此，从地缘组中删除 VM 将不产生任何影响。

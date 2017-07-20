@@ -1,12 +1,11 @@
 ---
-title: Azure AD Java Web 应用入门 | Azure
-description: 生成可让用户使用工作或学校帐户登录的 Java Web 应用。
+title: "Azure AD Java Web 应用入门 | Azure"
+description: "生成可让用户使用工作或学校帐户登录的 Java Web 应用。"
 services: active-directory
 documentationcenter: java
-author: xerners
+author: alexchen2016
 manager: mbaldwin
-editor: ''
-
+editor: 
 ms.assetid: 2b92b605-9cd5-4b99-bcbb-66c026558119
 ms.service: active-directory
 ms.workload: identity
@@ -16,12 +15,16 @@ ms.topic: article
 origin.date: 02/01/2017
 ms.date: 03/13/2017
 ms.author: v-junlch
+ms.openlocfilehash: 08627edbbc64beb449b039d15f51aec4424f78f5
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# 通过 Azure AD 实现 Java Web 应用登录和注销
+# <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>通过 Azure AD 实现 Java Web 应用登录和注销
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-使用 Azure Active Directory (Azure AD)，只需通过编写几行代码来提供单一登录和注销，就能简单外包 Web 应用的标识管理。可通过使用社区驱动的、用于 Java 的 Azure Active Directory 身份验证库 (ADAL4J) 的 Microsoft 实现，将用户登入和登出 Java Web 应用。
+使用 Azure Active Directory (Azure AD)，只需编写几行代码、提供单一登录和注销，就能轻松外包 Web 应用的标识管理。 可以使用社区驱动的用于 Java 的 Azure Active Directory 身份验证库 (ADAL4J) 将用户登录到 Java Web 应用或者从中注销。
 
 本文演示如何使用 ADAL4J 执行以下操作：
 
@@ -29,32 +32,32 @@ ms.author: v-junlch
 - 显示某些用户信息。
 - 将用户从应用中注销。
 
-## 准备工作
+## <a name="before-you-get-started"></a>准备工作
 
 - 下载[应用框架](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip)或下载[已完成的示例](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip)。
-- 还需要一个用于注册应用的 Azure AD 租户。如果还没有 Azure AD 租户，请[了解如何获取租户](./active-directory-howto-tenant.md)。
+- 还需要一个用于注册应用的 Azure AD 租户。 如果没有 Azure AD 租户，请[了解如何获取租户](./active-directory-howto-tenant.md)。
 
 准备好后，请按照以下 9 个部分中的步骤操作。
 
-## 步骤 1：向 Azure AD 注册新应用
+## <a name="step-1-register-the-new-app-with-azure-ad"></a>步骤 1：向 Azure AD 注册新应用
 若要设置应用以便对用户进行身份验证，请先通过执行以下操作在租户中对其进行注册：
 
 - 登录到 Azure 管理门户。
-- 在左侧的导航栏中单击“Active Directory”。
+- 在左侧的导航栏中单击“Active Directory” 。
 - 选择你要在其中注册应用程序的租户。
-- 单击“应用程序”选项卡，然后在底部抽屉中单击“添加”。
+- 单击“应用程序”选项卡，然后在底部抽屉中单击“添加”  。
 - 根据提示创建一个新的 **Web 应用程序和/或 WebAPI**。
-    - 应用程序的**名称**向最终用户描述你的应用程序
-    - “登录 URL”是应用的基本 URL。框架的默认值为 `http://localhost:8080/adal4jsample/`。
-    - “应用 ID URI”是应用程序的唯一标识符。约定是使用 `https://<tenant-domain>/<app-name>`，例如 `http://localhost:8080/adal4jsample/`
-- 完成注册后，AAD 将为应用分配唯一的客户端标识符。在后面的部分中将会用到此值，因此，请从“配置”选项卡复制此值。
+    - 应用程序的 **名称** 向最终用户描述你的应用程序
+    - “登录 URL”  是应用的基本 URL。  框架的默认值为 `http://localhost:8080/adal4jsample/`。
+    - “应用程序 ID URI”是应用程序的唯一标识符  。  约定是使用 `https://<tenant-domain>/<app-name>`，例如 `http://localhost:8080/adal4jsample/`
+- 完成注册后，AAD 将为应用分配唯一的客户端标识符。  在后面的部分中将会用到此值，因此，请从“配置”选项卡复制此值。
 
-进入应用门户后，为应用程序创建一个**密钥**并复制该密钥。稍后将需要它。
+进入应用门户后，为应用程序创建一个 **密钥** 并复制该密钥。  稍后将需要它。
 
-## 步骤2：使用 Maven 将应用设置为使用 ADAL4J 和先决条件
-在此步骤中，将 ADAL4J 配置为使用 OpenID Connect 身份验证协议。使用 ADAL4J 发出登录和注销请求、管理用户会话以及获取用户信息等。
+## <a name="step-2-set-up-the-app-to-use-the-adal4j-and-prerequisites-by-using-maven"></a>步骤2：使用 Maven 将应用设置为使用 ADAL4J 和先决条件
+在此步骤中，将 ADAL4J 配置为使用 OpenID Connect 身份验证协议。 使用 ADAL4J 发出登录和注销请求、管理用户会话以及获取用户信息等。
 
-在项目的根目录中，打开/创建 `pom.xml`，找到 `// TODO: provide dependencies for Maven` 并替换为以下代码：
+在项目的根目录中，打开/创建 `pom.xml`，找到 `// TODO: provide dependencies for Maven` 并将其替换为以下代码：
 
 ```Java
     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -165,10 +168,10 @@ ms.author: v-junlch
     </project>
 ```
 
-## 步骤 3：创建 Java Web 应用文件 (WEB-INF)
-在此步骤中，将 Java Web 应用配置为使用 OpenID Connect 身份验证协议。使用 ADAL4J 发出登录和注销请求、管理用户会话以及获取用户信息等。
+## <a name="step-3-create-the-java-web-app-files-web-inf"></a>步骤 3：创建 Java Web 应用文件 (WEB-INF)
+在此步骤中，将 Java Web 应用配置为使用 OpenID Connect 身份验证协议。 使用 ADAL4J 发出登录和注销请求、管理用户会话以及获取用户信息等。
 
-1. 打开位于 \\webapp\\WEB-INF\\ 下的 web.xml 文件，然后在 XML 中输入应用配置值。XML 文件应包含以下代码：
+1. 打开位于 \webapp\WEB-INF\, 中的 web.xml 文件，然后在 XML 中输入应用配置值。 XML 文件应包含以下代码：
 
     ```xml
     <?xml version="1.0"?>
@@ -225,13 +228,13 @@ ms.author: v-junlch
     </web-app>
     ```
 
-    -    YOUR\_CLIENT\_ID 是在注册门户中为应用分配的**应用程序 ID**。
-    -    YOUR\_CLIENT\_SECRET 是在门户中创建的**密钥**。
-    -    YOUR\_TENANT\_NAME 是应用的**租户名称**，例如“contoso.partner.onmschina.cn”
+    -    YOUR_CLIENT_ID 是在注册门户中为应用分配的**应用程序 ID**。
+    -    YOUR_CLIENT_SECRET 是在门户中创建的**密钥**。
+    -    YOUR_TENANT_NAME 是应用的**租户名称**，例如 contoso.partner.onmschina.cn
 
- 正如在 XML 文件中所见，其中正在编写名为 mvc-dispatcher 的 JavaServer Pages (JSP) 或 Java Servlet Web 应用，它会在用户每次访问 /secure URL 时使用 BasicFilter。在相同的代码中，使用 /secure 作为受保护内容的位置，并强制向 Azure AD 进行身份验证。
+ 从 XML 文件中可以看到，我们要编写一个名为 mvc-dispatcher 的 JavaServer 页 (JSP) 或 Java Servlet Web 应用，每当我们访问 /secure URL 时，该应用就会使用 BasicFilter。 在相同的代码中，使用 /secure 作为受保护内容的位置，并强制向 Azure AD 进行身份验证。
 
-2. 在 \\webapp\\WEB-INF\\ 下创建 mvc-dispatcher-servlet.xml 文件，然后输入以下代码：
+2. 在 \webapp\WEB-INF\, 中创建 mvc-dispatcher-servlet.xml 文件并输入以下代码：
 
     ```xml
     <beans xmlns="http://www.springframework.org/schema/beans"
@@ -260,14 +263,14 @@ ms.author: v-junlch
 
  此代码让 Web 应用使用 Spring，并指示用于查找 JSP 文件（在下一部分中编写）的位置。
 
-## 步骤 4：创建 JSP 视图文件（适用于 BasicFilter MVC）
-在 WEB-INF 中设置 Web 应用这一操作已完成一半。接下来，创建用于 BasicFilter 模型视图控制器 (MVC) 的 JSP 文件，Web 应用会执行该文件。之前曾提示过在配置期间创建文件。
+## <a name="step-4-create-the-jsp-view-files-for-basicfilter-mvc"></a>步骤 4：创建 JSP 视图文件（适用于 BasicFilter MVC）
+在 WEB-INF 中设置 Web 应用这一操作已完成一半。 接下来，需要为 Web 应用将要执行的 BasicFilter 模型视图控制器 (MVC) 创建 JSP 文件。 之前曾提示过在配置期间创建文件。
 
-之前，在 XML 配置文件中，曾告知 Java 有一个用于加载 JSP 文件的 `/` 资源，还有一个会通过筛选器的名为 BasicFilter 的 `/secure` 资源。
+前面我们已在 XML 配置文件中告知 Java，有某个 `/` 资源将要加载 JSP 文件，并且某个 `/secure` 资源会通过名为 BasicFilter 的筛选器。
 
 若要创建 JSP 文件，请执行以下操作：
 
-1. 创建 index.jsp 文件（位于 \\webapp 下），然后粘贴以下代码：
+1. 创建 index.jsp 文件（在 \webapp\) 下面），然后粘贴以下代码：
 
     ```jsp
     <html>
@@ -280,7 +283,7 @@ ms.author: v-junlch
     </html>
     ```
 
-    此代码仅重定向到筛选器保护的安全页。
+ 此代码仅重定向到筛选器保护的安全页。
 
 2. 在同一个目录中创建 error.jsp 文件，用于捕获可能发生的任何错误：
 
@@ -298,8 +301,8 @@ ms.author: v-junlch
     </html>
     ```
 
-3. 若要让其成为安全网页，请在 \\webapp 下创建名为 \\secure 的文件夹，以使目录变为 \\webapp\\secure。
-4. 在 \\webapp\\secure 目录中，创建 aad.jsp 文件，然后粘贴以下代码：
+3. 若要生成该安全网页，请在 \webapp 中创建名为 \secure 的文件夹，因此，目录现在为 \webapp\secure。
+4. 在 \webapp\secure 目录中创建 aad.jsp 文件，然后粘贴以下代码：
 
     ```jsp
     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -332,24 +335,24 @@ ms.author: v-junlch
 
 现在需要设置 Java 文件，以便 servlet 可以执行其工作。
 
-## 步骤 5：创建一些 Java 帮助程序文件（适用于 BasicFilter MVC）
+## <a name="step-5-create-some-java-helper-files-for-basicfilter-mvc"></a>步骤 5：创建一些 Java 帮助器文件（适用于 BasicFilter MVC）
 在此步骤中，我们的目标是创建 Java 文件，用于：
 
 - 允许用户登录和注销。
 - 获取有关用户的一些数据。
 
     > [!NOTE]
-    > 若要获取用户数据，请使用 Azure AD 的图形 API。图形 API 是安全的 Web 服务，可用于检索有关组织（包括个人用户）的数据。这种方法相较在令牌中预填充敏感数据更好，因为它可确保：
+    > 若要获取用户数据，请使用 Azure AD 的图形 API。 图形 API 是安全的 Web 服务，可用于检索有关组织（包括个人用户）的数据。 这种方法相较在令牌中预填充敏感数据更好，因为它可确保：
     > * 授权给请求数据的用户。
-    > * 任何碰巧（例如，从越狱手机或桌面上的 Web 浏览器缓存中）持有令牌的用户都无法获取有关用户或组织的重要详细信息。
+    > * 意外获得令牌（例如，通过越狱的手机或台式机上的 Web 浏览器缓存）的任何用户无法获取有关用户或组织的重要详细信息
 
 编写一些用于此工作的 Java 文件：
 
 1. 在名为“adal4jsample”的根目录中创建一个文件夹用于存储所有 Java 文件。
 
-    本示例中，将在 Java 文件中使用命名空间 com.microsoft.aad.adal4jsample。为此，大多数 IDE 会创建嵌套文件夹结构（例如 /com/microsoft/aad/adal4jsample）。可执行此操作（但并非必要）。
+    本示例中，将在 Java 文件中使用命名空间 com.microsoft.aad.adal4jsample。 大多数 IDE 为此创建嵌套的文件夹结构（例如 /com/microsoft/aad/adal4jsample）。 可执行此操作（但并非必要）。
 
-2. 在此文件夹中，创建名为 JSONHelper.java 的文件，该文件将用于帮助分析来自令牌的 JSON 数据。若要创建该文件，请粘贴以下代码：
+2. 在此文件夹中，创建名为 JSONHelper.java 的文件，该文件将用于帮助分析来自令牌的 JSON 数据。 若要创建该文件，请粘贴以下代码：
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -487,7 +490,7 @@ ms.author: v-junlch
                             }
                         } else {
                             if (fieldName.equalsIgnoreCase("password")) {
-                                obj.put("passwordProfile", new JSONObject("{"password": "" + param + ""}"));
+                                obj.put("passwordProfile", new JSONObject("{\"password\": \"" + param + "\"}"));
                             } else {
                                 obj.put(fieldName, param);
 
@@ -570,7 +573,7 @@ ms.author: v-junlch
     }
     ```
 
-3. 创建名为 HttpClientHelper.java 的文件，该文件将用于帮助分析来自 Azure AD 终结点的 HTTP 数据。若要创建该文件，请粘贴以下代码：
+3. 创建名为 HttpClientHelper.java 的文件，该文件将用于帮助分析来自 Azure AD 终结点的 HTTP 数据。 若要创建该文件，请粘贴以下代码：
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -724,10 +727,10 @@ ms.author: v-junlch
     }
     ```
 
-## 步骤 6：创建 Java 图形 API 模型文件（适用于 BasicFilter MVC）
-如前所述，使用图形 API 获取有关登录用户的数据。为了让此过程用于执行，请同时创建一个表示目录对象的文件以及一个表示用户的文件，如此便可以使用 Java 的 OO 模式。
+## <a name="step-6-create-the-java-graph-api-model-files-for-basicfilter-mvc"></a>步骤 6：创建 Java 图形 API 模型文件（适用于 BasicFilter MVC）
+如前所述，使用图形 API 获取有关登录用户的数据。 为了让此过程用于执行，请同时创建一个表示目录对象的文件以及一个表示用户的文件，如此便可以使用 Java 的 OO 模式。
 
-1. 创建名为 DirectoryObject.java 的文件，该文件将用于存储有关任何目录对象的基本数据。可在以后将此文件用于可能执行的任何其他图形查询。若要创建该文件，请粘贴以下代码：
+1. 创建名为 DirectoryObject.java 的文件，该文件将用于存储有关任何目录对象的基本数据。 可在以后将此文件用于可能执行的任何其他图形查询。 若要创建该文件，请粘贴以下代码：
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -780,7 +783,7 @@ ms.author: v-junlch
     }
     ```
 
-2. 创建名为 User.java 的文件，该文件将用于存储有关目录中任何用户的基本数据。这些是用于目录数据的基本 getter 和 setter 方法，可粘贴以下代码：
+2. 创建名为 User.java 的文件，该文件将用于存储有关目录中任何用户的基本数据。 这些是用于目录数据的基本 getter 和 setter 方法，可粘贴以下代码：
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -853,19 +856,19 @@ ms.author: v-junlch
             roles = new ArrayList<Group>();
             managerDisplayname = null;
         }
-    //	
-    //	public User(String displayName, String objectId){
-    //		setDisplayName(displayName);
-    //		setObjectId(objectId);
-    //	}
-    //	
-    //	public User(String displayName, String objectId, String userPrincipalName, String accountEnabled){
-    //		setDisplayName(displayName);
-    //		setObjectId(objectId);
-    //		setUserPrincipalName(userPrincipalName);
-    //		setAccountEnabled(accountEnabled);
-    //	}
-    //	
+    //  
+    //  public User(String displayName, String objectId){
+    //      setDisplayName(displayName);
+    //      setObjectId(objectId);
+    //  }
+    //  
+    //  public User(String displayName, String objectId, String userPrincipalName, String accountEnabled){
+    //      setDisplayName(displayName);
+    //      setObjectId(objectId);
+    //      setUserPrincipalName(userPrincipalName);
+    //      setAccountEnabled(accountEnabled);
+    //  }
+    //  
 
         /**
          * @return The objectId of this user.
@@ -1260,47 +1263,47 @@ ms.author: v-junlch
      */
     //class DirectReport extends User{
     //
-    //	private String displayName;
-    //	private String objectId;
-    //	 
-    //	/**
-    //	 * Two arguments Constructor for the DirectReport Class.
-    //	 * @param displayName
-    //	 * @param objectId
-    //	 */
-    //	public DirectReport(String displayName, String objectId){
-    //		this.displayName = displayName;
-    //		this.objectId = objectId;
-    //	}
+    //  private String displayName;
+    //  private String objectId;
+    //   
+    //  /**
+    //   * Two arguments Constructor for the DirectReport Class.
+    //   * @param displayName
+    //   * @param objectId
+    //   */
+    //  public DirectReport(String displayName, String objectId){
+    //      this.displayName = displayName;
+    //      this.objectId = objectId;
+    //  }
     //
-    //	/**
-    //	 * @return The diaplayName of this direct report entry.
-    //	 */
-    //	public String getDisplayName() {
-    //		return displayName;
-    //	}
+    //  /**
+    //   * @return The diaplayName of this direct report entry.
+    //   */
+    //  public String getDisplayName() {
+    //      return displayName;
+    //  }
     //
-    //	
-    //	/**
-    //	 *  @return The objectId of this direct report entry. 
-    //	 */
-    //	public String getObjectId() {
-    //		return objectId;
-    //	}
+    //  
+    //  /**
+    //   *  @return The objectId of this direct report entry. 
+    //   */
+    //  public String getObjectId() {
+    //      return objectId;
+    //  }
     //
     //}
     ```
 
-## 步骤 7：创建身份验证模型和控制器文件（适用于 BasicFilter）
-Java 确实可能比较冗长，但就快完成了。在编写用于处理请求的 BasicFilter servlet 之前，需要再编写一些 ADAL4J 所需的帮助器文件。
+## <a name="step-7-create-the-authentication-model-and-controller-files-for-basicfilter"></a>步骤 7：创建身份验证模型和控制器文件（适用于 BasicFilter）
+Java 确实可能比较冗长，但就快完成了。 在编写用于处理请求的 BasicFilter servlet 之前，需要再编写一些 ADAL4J 所需的帮助器文件。
 
-1. 创建名为 AuthHelper.java 的文件，该文件提供用于确定已登录用户状态的方法。方法包括：
+1. 创建名为 AuthHelper.java 的文件，该文件提供用于确定已登录用户状态的方法。 方法包括：
 
- - **isAuthenticated()**：返回用户是否登录。
- - **containsAuthenticationData()**：返回令牌是否具有数据。
- - **isAuthenticationSuccessful()**：返回用户身份验证是否成功。
+ - **isAuthenticated()**：返回有关用户是否已登录的信息。
+ - **containsAuthenticationData()**：返回有关令牌是否包含数据的信息。
+ - **isAuthenticationSuccessful()**：返回有关用户身份验证是否成功的信息。
 
-     若要创建 AuthHelper.java 文件，请粘贴以下代码：
+ 若要创建 AuthHelper.java 文件，请粘贴以下代码：
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -1348,7 +1351,7 @@ Java 确实可能比较冗长，但就快完成了。在编写用于处理请求
     }
     ```
 
-2. 创建名为 AuthParameterNames.java 的文件，该文件提供 ADAL4J 所需的某些不可变变量。若要创建该文件，请粘贴以下代码：
+2. 创建名为 AuthParameterNames.java 的文件，该文件提供 ADAL4J 所需的某些不可变变量。 若要创建该文件，请粘贴以下代码：
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -1366,7 +1369,7 @@ Java 确实可能比较冗长，但就快完成了。在编写用于处理请求
     }
     ```
 
-3. 创建名为 AadController.java 的文件，该文件是 MVC 模式的控制器。该文件提供 JSP 控制器，并公开应用的 secure/aad URL 终结点。该文件还包括图形查询。若要创建该文件，请粘贴以下代码：
+3. 创建名为 AadController.java 的文件，该文件是 MVC 模式的控制器。 该文件提供 JSP 控制器，并公开应用的 secure/aad URL 终结点。 该文件还包括图形查询。 若要创建该文件，请粘贴以下代码：
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -1442,8 +1445,8 @@ Java 确实可能比较冗长，但就快完成了。在编写用于处理请求
     }
     ```
 
-## 步骤 8：创建 BasicFilter 文件（适用于 BasicFilter MVC）
-现在可以创建 BasicFilter.java 文件，它处理来自 JSP 视图文件的请求。若要创建该文件，请粘贴以下代码：
+## <a name="step-8-create-the-basicfilter-file-for-basicfilter-mvc"></a>步骤 8：创建 BasicFilter 文件（适用于 BasicFilter MVC）
+现在可以创建 BasicFilter.java 文件，它处理来自 JSP 视图文件的请求。 若要创建该文件，请粘贴以下代码：
 
 ```Java
 package com.microsoft.aad.adal4jsample;
@@ -1684,37 +1687,34 @@ public class BasicFilter implements Filter {
 }
 ```
 
-此 servlet 公开 ADAL4J 预期应用会运行的所有方法。方法包括：
+此 servlet 公开 ADAL4J 预期应用会运行的所有方法。 方法包括：
 
-- **getAccessTokenFromClientCredentials()**：从密钥中获取访问令牌。
+- **getAccessTokenFromClientCredentials()**：从机密中获取访问令牌。
 - **getAccessTokenFromRefreshToken()**：从刷新令牌中获取访问令牌。
-- **getAccessToken()**：从所使用的 OpenID Connect 流中获取访问令牌。
-- **createSessionPrincipal()**：创建用于图形 API 访问的会话主体。
-- **getRedirectUrl()**：获取 redirectURL，以将它与在门户中输入的值进行比较。
+- **getAccessToken()**：从我们使用的 OpenID Connect 流中获取访问令牌。
+- **createSessionPrincipal()**：创建用于访问图形 API 的会话主体。
+- **getRedirectUrl()**：获取 redirectURL，以便将它与门户中输入的值进行比较。
 
-## 步骤 9：在 Tomcat 中编译并运行示例
+## <a name="step-9-compile-and-run-the-sample-in-tomcat"></a>步骤 9：在 Tomcat 中编译并运行示例
 
 1. 更改为根目录。
-2. 若要生成刚才通过使用 `maven` 组合成的示例，请运行以下命令：
+2. 若要生成刚才通过使用 `maven`组合成的示例，请运行以下命令：
 
-    `$ mvn package`  
+    `$ mvn package`
 
  此命令使用为依赖项编写的 pom.xml 文件。
 
-现在，/targets 目录中应具有 adal4jsample.war 文件。可以在 Tomcat 容器中部署该文件并访问 http://localhost:8080/adal4jsample/ URL。
+现在，/targets 目录中应具有 adal4jsample.war 文件。 可在 Tomcat 容器中部署该文件并访问 URL http://localhost:8080/adal4jsample/。
 
 > [!NOTE]
-可使用最新的 Tomcat 服务器轻松部署 .war 文件。转到 http://localhost:8080/manager/ ，并按照相关说明上传 adal4jsample.war 文件。它会为你自动部署正确的终结点。
+> 可使用最新的 Tomcat 服务器轻松部署 .war 文件。 转到 http://localhost:8080/manager/ 并遵循有关上传 adal4jsample.war 文件的说明即可。 它会为你自动部署正确的终结点。
 
-## 后续步骤
-现在，已创建一个有效的 Java 应用，它可以对用户进行身份验证，使用 OAuth 2.0 安全调用 Web API，并获取有关用户的基本信息。如果尚未将用户填充到租户，现在正是执行此操作的最佳时机。
+## <a name="next-steps"></a>后续步骤
+现在，已创建一个有效的 Java 应用，它可以对用户进行身份验证，使用 OAuth 2.0 安全调用 Web API，并获取有关用户的基本信息。 如果尚未将用户填充到租户，现在正是执行此操作的最佳时机。
 
-如需更多参考信息，可以使用以下两种方法之一获取已完成的示例（无需配置值）：
+如需其他参考，可通过以下两种方法之一获取已完成的示例（不包括你的配置值）：
 
 - 将其下载为 [.zip 文件](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip)。
 - 通过输入以下命令，从 GitHub 克隆文件：
 
     git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git
-
-<!---HONumber=Mooncake_0306_2017-->
-<!---Update_Description: wording update -->

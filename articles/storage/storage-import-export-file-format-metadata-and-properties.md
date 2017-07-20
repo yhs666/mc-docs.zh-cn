@@ -1,12 +1,11 @@
 ---
-title: Azure 导入/导出元数据和属性文件格式 | Azure
-description: 了解如何为导入或导出作业包含的一个或多个 Blob 指定元数据和属性。
+title: "Azure 导入/导出元数据和属性文件格式 | Azure"
+description: "了解如何为导入或导出作业包含的一个或多个 Blob 指定元数据和属性。"
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: ''
-
+documentationcenter: 
 ms.assetid: 840364c6-d9a8-4b43-a9f3-f7441c625069
 ms.service: storage
 ms.workload: storage
@@ -16,13 +15,17 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 03/20/2017
 ms.author: v-johch
+ms.openlocfilehash: 615dda3056c499fd9f5be806dcb2f074925f30a6
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure 导入/导出服务元数据和属性文件格式
+可将一个或多个 Blob 的元数据和属性指定为导入作业或导出作业的一部分。 若要设置将创建为导入作业一部分的 Blob 的元数据或属性，应在包含所要导入数据的硬盘驱动器上提供一个元数据或属性文件。 对于导出作业，元数据和属性将写入到在返回的硬盘驱动器上包含的元数据或属性文件。  
 
-# Azure 导入/导出服务元数据和属性文件格式
-可将一个或多个 Blob 的元数据和属性指定为导入作业或导出作业的一部分。若要设置将创建为导入作业一部分的 Blob 的元数据或属性，应在包含所要导入数据的硬盘驱动器上提供一个元数据或属性文件。对于导出作业，元数据和属性将写入到在返回的硬盘驱动器上包含的元数据或属性文件。
-
-## 元数据文件格式  
-元数据文件的格式如下所示：
+## <a name="metadata-file-format"></a>元数据文件格式  
+元数据文件的格式如下所示：  
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -36,10 +39,10 @@ ms.author: v-johch
 |XML 元素|类型|说明|  
 |-----------------|----------|-----------------|  
 |`Metadata`|Root 元素|元数据文件的根元素。|  
-|`metadata-name`|String|可选。XML 元素指定 Blob 的元数据名称，其值指定元数据设置值。|  
+|`metadata-name`|String|可选。 XML 元素指定 Blob 的元数据名称，其值指定元数据设置值。|  
 
-## 属性文件格式  
-属性文件的格式如下：
+## <a name="properties-file-format"></a>属性文件格式  
+属性文件的格式如下：  
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -58,15 +61,13 @@ ms.author: v-johch
 |XML 元素|类型|说明|  
 |-----------------|----------|-----------------|  
 |`Properties`|Root 元素|属性文件的根元素。|  
-|`Last-Modified`|String|可选。Blob 的上次修改时间。仅适用于导出作业。|  
-|`Etag`|String|可选。Blob 的 ETag 值。仅适用于导出作业。|  
-|`Content-Length`|String|可选。Blob 大小，以字节为单位。仅适用于导出作业。|  
-|`Content-Type`|String|可选。Blob 的内容类型。|  
-|`Content-MD5`|String|可选。Blob 的 MD5 哈希。|  
-|`Content-Encoding`|String|可选。Blob 的内容编码。|  
-|`Content-Language`|String|可选。Blob 的内容语言。|  
-|`Cache-Control`|String|可选。Blob 的缓存控制字符串。|  
+|`Last-Modified`|String|可选。 Blob 的上次修改时间。 仅适用于导出作业。|  
+|`Etag`|String|可选。 Blob 的 ETag 值。 仅适用于导出作业。|  
+|`Content-Length`|String|可选。 Blob 大小，以字节为单位。 仅适用于导出作业。|  
+|`Content-Type`|String|可选。 Blob 的内容类型。|  
+|`Content-MD5`|String|可选。 Blob 的 MD5 哈希。|  
+|`Content-Encoding`|String|可选。 Blob 的内容编码。|  
+|`Content-Language`|String|可选。 Blob 的内容语言。|  
+|`Cache-Control`|String|可选。 Blob 的缓存控制字符串。|  
 
- 有关设置 Blob 元数据和属性的详细规则，请参阅，请参阅[设置 Blob 属性](https://docs.microsoft.com/zh-cn/rest/api/storageservices/fileservices/set-blob-properties)、[设置 Blob 元数据](https://docs.microsoft.com/zh-cn/rest/api/storageservices/fileservices/set-blob-metadata)以及[设置和检索 Blob 资源的属性与元数据](https://docs.microsoft.com/zh-cn/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources)。
-
-<!---HONumber=Mooncake_0313_2017-->
+ 有关设置 Blob 元数据和属性的详细规则，请参阅[设置 Blob 属性](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/set-blob-properties)、[设置 Blob 元数据](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/set-blob-metadata)以及[设置和检索 Blob 资源的属性与元数据](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources)。

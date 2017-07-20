@@ -1,34 +1,34 @@
 ---
-title: 跨数据库查询（垂直分区）入门 | Azure
-description: 如何在垂直分区数据库中使用弹性数据库查询
+title: "跨数据库查询（纵向分区）入门 | Azure"
+description: "如何在垂直分区数据库中使用弹性数据库查询"
 services: sql-database
-documentationCenter: ''
+documentationCenter: 
 manager: jhubbard
 authors: sidneyh
-
 ms.service: sql-database
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2016
 ms.date: 12/26/2016
 ms.author: v-johch
+ms.openlocfilehash: 1fda3a86d12a23085c207d37c251e311d882bef8
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>跨数据库查询（纵向分区）入门（预览）
 
-# 跨数据库查询（垂直分区）入门（预览）
+Azure SQL 数据库弹性数据库查询（预览版）可让你使用单一连接点运行跨多个数据库的 T-SQL 查询。 本主题适用于[垂直分区数据库](./sql-database-elastic-query-vertical-partitioning.md)。  
 
-Azure SQL 数据库的弹性数据库查询（预览版）使用户能够使用单一连接点运行跨多个数据库的 T-SQL 查询。本主题适用于[垂直分区数据库](./sql-database-elastic-query-vertical-partitioning.md)。
+完成时，你将会：了解如何配置和使用 Azure SQL 数据库执行跨多个相关数据库的查询。 
 
-在学习完本主题后，用户将：了解如何配置和使用 Azure SQL 数据库以执行跨多个相关数据库的查询。
+有关弹性数据库查询功能的详细信息，请参阅 [Azure SQL 数据库弹性数据库查询概述](./sql-database-elastic-query-overview.md)。 
 
-有关弹性数据库查询功能的详细信息，请参阅 [Azure SQL 数据库弹性数据库查询概述](./sql-database-elastic-query-overview.md)。
+## <a name="create-the-sample-databases"></a>创建示例数据库
 
-## 创建示例数据库
+首先，我们需要在相同或不同逻辑服务器中创建两个数据库 **Customers** 和 **Orders**。   
 
-首先，我们需要在相同或不同的逻辑服务器中创建两个数据库：**Customers** 和 **Orders**。
-
-在 **Orders** 数据库中执行以下查询以创建 **OrderInformation** 表并输入示例数据。
+在 **Orders** 数据库中执行以下查询以创建 **OrderInformation** 表并输入示例数据。 
 
 ```
 CREATE TABLE [dbo].[OrderInformation]( 
@@ -42,7 +42,7 @@ INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1)
 INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
 ```
 
-现在，在 **Customers** 数据库中执行以下查询以创建 **CustomerInformation** 表并输入示例数据。
+现在，在 **Customers** 数据库中执行以下查询以创建 **CustomerInformation** 表并输入示例数据。 
 
 ```
 CREATE TABLE [dbo].[CustomerInformation]( 
@@ -56,8 +56,8 @@ INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]
 INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (3, 'Lylla', 'MNO') 
 ```
 
-##<a name="create-database-objects"></a> 创建数据库对象
-### 数据库范围的主密钥和凭据
+## <a name="create-database-objects"></a>创建数据库对象
+### <a name="database-scoped-master-key-and-credentials"></a>数据库范围的主密钥和凭据
 
 1. 在 Visual Studio 中打开 SQL Server Management Studio 或 SQL Server Data Tools。
 2. 连接到 Orders 数据库，并执行以下 T-SQL 命令：
@@ -71,8 +71,8 @@ INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]
 
     “username”和“password”应是用于登录到 Customers 数据库的用户名和密码。
 
-### 外部数据源
-若要创建外部数据源，请对 Orders 数据库执行以下命令：
+### <a name="external-data-sources"></a>外部数据源
+若要创建外部数据源，请对 Orders 数据库执行以下命令： 
 
 ```
 CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH 
@@ -83,7 +83,7 @@ CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
 ) ;
 ```
 
-### 外部表
+### <a name="external-tables"></a>外部表
 在 Orders 数据库中创建外部表，该表应与 CustomerInformation 表的定义相匹配：
 
 ```
@@ -95,9 +95,9 @@ WITH
 ( DATA_SOURCE = MyElasticDBQueryDataSrc) 
 ```
 
-## 执行示例弹性数据库 T-SQL 查询
+## <a name="execute-a-sample-elastic-database-t-sql-query"></a>执行示例弹性数据库 T-SQL 查询
 
-在定义了外部数据源和外部表后，便可以使用 T-SQL 查询外部表。对 Orders 数据库执行以下查询：
+定义外部数据源和外部表后，现在可以使用 T-SQL 查询外部表。 对 Orders 数据库执行以下查询： 
 
 ```
 SELECT OrderInformation.CustomerID, OrderInformation.OrderId, CustomerInformation.CustomerName, CustomerInformation.Company 
@@ -106,16 +106,14 @@ INNER JOIN CustomerInformation
 ON CustomerInformation.CustomerID = OrderInformation.CustomerID 
 ```
 
-## 成本
+## <a name="cost"></a>成本
 
-目前，弹性数据库查询功能包含在 Azure SQL 数据库的成本中。
+目前，弹性数据库查询功能包含在 Azure SQL 数据库的成本中。  
 
-有关定价信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。
+有关定价信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database)。 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 
 <!--anchors-->
-
-<!---HONumber=Mooncake_Quality_Review_1215_2016-->

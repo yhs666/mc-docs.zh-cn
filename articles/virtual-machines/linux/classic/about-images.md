@@ -1,13 +1,13 @@
 ---
-title: 关于 VM 的 Linux 映像 | Azure
-description: 了解如何对 Azure 中的虚拟机使用 Linux 映像。
+title: "关于 Azure 中的 Linux VM 映像 | Azure"
+description: "了解如何对 Azure 中的虚拟机使用 Linux 映像。"
 services: virtual-machines-linux
-documentationCenter: ''
-authors: cynthn
+documentationcenter: 
+author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: e6ea8adc-4e7a-467a-9394-cd05e67898b7
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -16,24 +16,22 @@ ms.topic: article
 origin.date: 07/21/2016
 ms.date: 01/05/2017
 ms.author: v-dazen
+ms.openlocfilehash: d0366f53c85c2844caa8b6ccb692874ce98eec3e
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# 关于 Linux 虚拟机的映像
-
-[!INCLUDE [了解部署模型](../../../../includes/learn-about-deployment-models-classic-include.md)]
+# <a name="about-images-for-linux-virtual-machines"></a>关于 Linux 虚拟机的映像
+> [!IMPORTANT]
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关使用 Resource Manager 模型的映像的信息，请参阅[此处](../cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 [!INCLUDE [virtual-machines-common-classic-about-images](../../../../includes/virtual-machines-common-classic-about-images.md)]
 
-想查看更多关于资源管理器模型的信息，请点击[这里](../cli-ps-findimage.md)。
+## <a name="working-with-images"></a>使用映像
+可以使用适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (CLI) 管理可供 Azure 订阅使用的映像。 也可以使用 Azure 门户完成某些映像任务，但命令行可提供更多选项。
 
-## 使用映像
+有关使用这些工具的示例，请参阅 [Common Azure CLI commands on Linux and Mac](../cli-manage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（Linux 和 Mac 上的常用 Azure CLI 命令）。
 
-可以使用适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (CLI) 模块管理可供 Azure 订阅使用的映像。也可以使用 Azure 经典管理门户完成某些映像任务，但命令行提供更多选项。
-
-有关这些工具的用例，请参阅[Linux 和 Mac 上的常用 Azure CLI 命令](../cli-manage.md)。
-
-## 后续步骤
-
-还可以[上载自己的映像](create-upload-vhd.md)。
-
-<!---HONumber=Mooncake_0905_2016-->
+## <a name="next-steps"></a>后续步骤
+还可以[上传自己的映像](create-upload-vhd.md)。

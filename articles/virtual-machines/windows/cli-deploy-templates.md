@@ -1,13 +1,13 @@
 ---
-title: 使用模板部署和管理 VM | Azure
-description: 使用资源管理器模板和 Azure CLI，为 Azure 虚拟机部署和管理最常用的配置。
+title: "使用 Azure 模板部署 Windows VM | Azure"
+description: "使用 Resource Manager 模板和 Azure CLI，为 Azure 虚拟机部署和管理最常用的配置。"
 services: virtual-machines-windows
-documentationCenter: ''
-authors: squillace
+documentationcenter: 
+author: squillace
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 3b6dec06-5dfb-4f60-b6ea-63c28765de95
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,18 +16,19 @@ ms.topic: article
 origin.date: 08/23/2016
 ms.date: 10/25/2016
 ms.author: v-dazen
+ms.openlocfilehash: d38ff5a0b8dd18d3f3dad8b0dafe9fdead4b1343
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# 使用 Azure 资源管理器模板和 Azure CLI 部署和管理虚拟机
-
+# <a name="deploy-and-manage-virtual-machines-by-using-azure-resource-manager-templates-and-the-azure-cli"></a>使用 Azure Resource Manager 模板和 Azure CLI 部署和管理虚拟机
 > [!div class="op_single_selector"]
- >- [PowerShell](ps-manage.md)		
- >- [CLI](cli-deploy-templates.md)		
+> * [PowerShell](ps-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)        
+> * [CLI](cli-deploy-templates.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)        
+> 
+> 
 
-<br/> 
-
-本文说明如何使用 Azure 资源管理器模板和 Azure CLI 来执行以下常见任务，以便可以部署和管理 Azure 虚拟机。有关可用的其他模板，请参阅 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)和[使用模板的应用程序框架](app-frameworks.md)。
+</br> 
 
 [!INCLUDE [virtual-machines-common-cli-deploy-templates](../../../includes/virtual-machines-common-cli-deploy-templates.md)]
-
-<!---HONumber=Mooncake_0411_2016-->

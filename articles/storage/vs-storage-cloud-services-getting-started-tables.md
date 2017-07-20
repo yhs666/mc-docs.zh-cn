@@ -1,12 +1,11 @@
 ---
-title: 表存储和 Visual Studio 连接服务（云服务）入门 | Azure
-description: 在使用 Visual Studio 连接服务连接到存储帐户后，如何开始在 Visual Studio 的云服务项目中使用 Azure 表存储
+title: "表存储和 Visual Studio 连接服务（云服务）入门 | Azure"
+description: "在使用 Visual Studio 连接服务连接到存储帐户后，如何开始在 Visual Studio 的云服务项目中使用 Azure 表存储"
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
 ms.assetid: a3a11ed8-ba7f-4193-912b-e555f5b72184
 ms.service: storage
 ms.workload: web
@@ -16,26 +15,31 @@ ms.topic: article
 origin.date: 12/02/2016
 ms.date: 01/06/2017
 ms.author: v-johch
+ms.openlocfilehash: c0389698c316c798a23f9c83daa595172de78157
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>开始使用 Azure 表存储和 Visual Studio 连接服务（云服务项目）
 
-# 开始使用 Azure 表存储和 Visual Studio 连接服务（云服务项目）
+[!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-##概述
+## <a name="overview"></a>概述
+本文介绍通过使用 Visual Studio 中的  “添加连接服务”对话框在云服务项目中创建或引用 Azure 存储帐户之后，如何开始在 Visual Studio 中使用 Azure 表存储。 执行  “添加连接服务”操作会安装相应的 NuGet 程序包，以访问项目中的 Azure 存储，并将存储帐户的连接字符串添加到项目配置文件中。
 
-本文介绍通过使用 Visual Studio 中的“添加连接服务”对话框在云服务项目中创建或引用 Azure 存储帐户之后，如何开始在 Visual Studio 中使用 Azure 表存储。执行“添加连接服务”操作会安装相应的 NuGet 程序包，以访问项目中的 Azure 存储，并将存储帐户的连接字符串添加到项目配置文件中。
+Azure 表存储服务使用户可以存储大量结构化数据。 该服务是一个 NoSQL 数据存储，接受来自 Azure 云内部和外部的通过验证的呼叫。 Azure 表最适合存储结构化非关系型数据。
 
-Azure 表存储服务使用户可以存储大量结构化数据。该服务是一个 NoSQL 数据存储，接受来自 Azure 云内部和外部的通过验证的呼叫。Azure 表最适合存储结构化非关系型数据。
+若要开始，首先需要在存储帐户中创建表。 我们将展示如何使用代码创建 Azure 表，以及如何执行基本的表和实体操作，例如添加、修改、读取和删除表实体。 示例采用 C\# 代码编写，并使用了[适用于 .NET 的 Azure 存储客户端库](https://msdn.microsoft.com/zh-cn/library/azure/dn261237.aspx)。 
 
-若要开始，首先需要在存储帐户中创建表。我们将展示如何使用代码创建 Azure 表，以及如何执行基本的表和实体操作，例如添加、修改、读取和删除表实体。示例是用 C# 代码编写的，并使用了 [Azure .NET 存储客户端库](https://msdn.microsoft.com/zh-cn/library/azure/dn261237.aspx)。
+**注意：** 执行 Azure 存储调用的一些 API 是异步的。 有关详细信息，请参阅 [使用 Async 和 Await 进行异步编程](http://msdn.microsoft.com/zh-cn/library/hh191443.aspx) 。 下面的代码假定正在使用异步编程方法。 
 
-**注意：**执行 Azure 存储调用的一些 API 是异步的。有关详细信息，请参阅[使用 Async 和 Await 进行异步编程](http://msdn.microsoft.com/zh-cn/library/hh191443.aspx)。下面的代码假定正在使用异步编程方法。
-
-- 有关以编程方式操作表的详细信息，请参阅[通过 .NET 开始使用 Azure 表存储](./storage-dotnet-how-to-use-tables.md)。
-- 有关 Azure 存储空间的常规信息，请参阅[存储空间文档](./index.md)。
+- 有关以编程方式操作表的详细信息，请参阅 [Get started with Azure Table storage using .NET](./storage-dotnet-how-to-use-tables.md)（通过 .NET 开始使用 Azure 表存储）。
+- 有关 Azure 存储的常规信息，请参阅[存储文档](./index.md)。
 - 有关 Azure 云服务的常规信息，请参阅[云服务文档](../cloud-services/index.md)。
-- 有关对 ASP.NET 应用程序进行编程的详细信息，请参阅 [ASP.NET](http://www.asp.net)。
+- 有关对 ASP.NET 应用程序进行编程的详细信息，请参阅 [ASP.NET](http://www.asp.net) 。
 
-## 使用代码访问表
+## <a name="access-tables-in-code"></a>使用代码访问表
 
 若要在云服务项目中访问表，需要在访问 Azure 表存储的任何 C# 源文件中包含以下项。
 
@@ -49,7 +53,7 @@ Azure 表存储服务使用户可以存储大量结构化数据。该服务是�
     using LogLevel = Microsoft.Framework.Logging.LogLevel;
     ```
 
-2. 获取表示存储帐户信息的 **CloudStorageAccount** 对象。使用下面的代码获取存储连接字符串和 Azure 服务配置中的存储帐户信息。
+2. 获取表示存储帐户信息的 **CloudStorageAccount** 对象。 使用下面的代码获取存储连接字符串和 Azure 服务配置中的存储帐户信息。
 
     ```
      CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -73,18 +77,18 @@ Azure 表存储服务使用户可以存储大量结构化数据。该服务是�
     CloudTable peopleTable = tableClient.GetTableReference("peopleTable");
     ```
 
-## 使用代码创建表
+## <a name="create-a-table-in-code"></a>使用代码创建表
 
-若要创建 Azure 表，只需在获取 **CloudTable** 对象后添加对 **CreateIfNotExistsAsync** 的调用，如“使用代码访问表”一节中所述。
+若要创建 Azure 表，只需在获取 **CloudTable** 对象后添加对 **CreateIfNotExistsAsync** 的调用，如“使用代码访问表”部分中所述。
 
 ```
 // Create the CloudTable if it does not exist.
 await peopleTable.CreateIfNotExistsAsync();
 ```
 
-## 将实体添加到表
+## <a name="add-an-entity-to-a-table"></a>将实体添加到表
 
-若要将实体添加到表，请创建用于定义实体的属性的类。以下代码定义了将客户的名字和姓氏分别用作行键和分区键的 **CustomerEntity** 实体类。
+若要将实体添加到表，请创建用于定义实体的属性的类。 以下代码定义了将客户的名字和姓氏分别用作行键和分区键的 **CustomerEntity** 实体类。
 
 ```
 public class CustomerEntity : TableEntity
@@ -103,7 +107,7 @@ public class CustomerEntity : TableEntity
 }
 ```
 
-将使用之前在“使用代码访问表”中创建的 **CloudTable** 对象完成涉及实体的表操作。 **TableOperation** 对象表示将完成的操作。以下代码示例演示如何创建 **CloudTable** 对象以及 **CustomerEntity** 对象。为准备此操作，会创建一个 **TableOperation** 以将客户实体插入该表中。最后，将通过调用 **CloudTable.ExecuteAsync** 执行此操作。
+将使用之前在“使用代码访问表”中创建的 **CloudTable** 对象完成涉及实体的表操作。 **TableOperation** 对象表示将完成的操作。 以下代码示例演示如何创建 **CloudTable** 对象和 **CustomerEntity** 对象。 为准备此操作，会创建一个 **TableOperation** 以将客户实体插入该表中。 最后，将通过调用 **CloudTable.ExecuteAsync**执行此操作。
 
 ```
 // Create a new customer entity.
@@ -118,9 +122,9 @@ TableOperation insertOperation = TableOperation.Insert(customer1);
 await peopleTable.ExecuteAsync(insertOperation);
 ```
 
-## 插入一批实体
+## <a name="insert-a-batch-of-entities"></a>插入一批实体
 
-您可以通过单个写入操作将多个实体插入表中。以下代码示例将创建两个实体对象（“Jeff Smith”和“Ben Smith”），使用 Insert 方法将它们添加到 **TableBatchOperation** 对象，然后通过调用 **CloudTable.ExecuteBatchAsync** 启动操作。
+您可以通过单个写入操作将多个实体插入表中。 以下代码示例将创建两个实体对象（“Jeff Smith”和“Ben Smith”），使用 Insert 方法将它们添加到 **TableBatchOperation** 对象，然后通过调用 **CloudTable.ExecuteBatchAsync** 启动操作。
 
 ```
 // Create the batch operation.
@@ -144,9 +148,9 @@ batchOperation.Insert(customer2);
 await peopleTable.ExecuteBatchAsync(batchOperation);
 ```
 
-## 获取分区中的所有实体
+## <a name="get-all-of-the-entities-in-a-partition"></a>获取分区中的所有实体
 
-若要查询表以获取分区中的所有实体，请使用 **TableQuery** 对象。以下代码示例指定了一个筛选器，以筛选分区键为“Smith”的实体。此示例会将查询结果中每个实体的字段输出到控制台。
+若要查询表以获取分区中的所有实体，请使用 **TableQuery** 对象。 以下代码示例指定了一个筛选器，以筛选分区键为“Smith”的实体。 此示例会将查询结果中每个实体的字段输出到控制台。
 
 ```
 // Construct the query operation for all customer entities where PartitionKey="Smith".
@@ -170,9 +174,9 @@ do
 return View();
 ```
 
-## 获取单个实体
+## <a name="get-a-single-entity"></a>获取单个实体
 
-您可以编写查询以获取单个特定实体。以下代码使用 **TableOperation** 对象来指定名为“Ben Smith”的客户。此方法仅返回一个实体，而不是一个集合，并且 **TableResult.Result** 中的返回值是一个 **CustomerEntity** 对象。在查询中同时指定分区键和行键是从**表**服务中检索单个实体的最快方法。
+您可以编写查询以获取单个特定实体。 以下代码使用 **TableOperation** 对象来指定名为“Ben Smith”的客户。 此方法仅返回一个实体，而不是一个集合，并且 **TableResult.Result** 中的返回值是一个 **CustomerEntity** 对象。 在查询中同时指定分区键和行键是从 **表** 服务中检索单个实体的最快方法。
 
 ```
 // Create a retrieve operation that takes a customer entity.
@@ -188,8 +192,8 @@ else
    Console.WriteLine("The phone number could not be retrieved.");
 ```
 
-## 删除实体
-您可以在找到实体后将其删除。以下代码将查找名为“Ben Smith”的客户实体，如果找到，会将其删除。
+## <a name="delete-an-entity"></a>删除实体
+您可以在找到实体后将其删除。 以下代码将查找名为“Ben Smith”的客户实体，如果找到，会将其删除。
 
 ```
 // Create a retrieve operation that expects a customer entity.
@@ -216,8 +220,6 @@ else
    Console.WriteLine("Couldn't delete the entity.");
 ```
 
-## 后续步骤
+## <a name="next-steps"></a>后续步骤
 
 [!INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
-
-<!---HONumber=Mooncake_0103_2017-->

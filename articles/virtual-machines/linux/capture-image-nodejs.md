@@ -16,29 +16,28 @@ ms.topic: article
 origin.date: 02/09/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: b008f9a3da67ddad3ce287dd031794c14da47ab0
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: c3ca7a30420f4d73a6d6bcabf1d7d3ff4285ea33
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>捕获在 Azure 上运行的 Linux 虚拟机
-遵循本文中的步骤可在 Resource Manager 部署模型中通用化和捕获 Azure Linux 虚拟机 (VM)。 通用化 VM 时，将删除个人帐户信息，并准备要用作映像的 VM。 然后捕获 OS 的通用化虚拟硬盘 (VHD) 映像、附加的数据磁盘的 VHD，以及新 VM 部署的 [Resource Manager 模板](../../azure-resource-manager/resource-group-overview.md)。 本文详细介绍了如何使用 Azure CLI 1.0 为使用非托管磁盘的 VM 捕获 VM 映像。
+遵循本文中的步骤可在 Resource Manager 部署模型中通用化和捕获 Azure Linux 虚拟机 (VM)。 通用化 VM 时，将删除个人帐户信息，并准备要用作映像的 VM。 然后捕获 OS 的通用化虚拟硬盘 (VHD) 映像、附加的数据磁盘的 VHD，以及新 VM 部署的 [Resource Manager 模板](../../azure-resource-manager/resource-group-overview.md)。 本文详细介绍了如何使用 Azure CLI 1.0 为使用非托管磁盘的 VM 捕获 VM 映像。 也可以[使用 Azure CLI 2.0 捕获使用 Azure 托管磁盘的 VM](capture-image.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 托管磁盘由 Azure 平台处理，无需任何准备或位置来存储它们。 有关详细信息，请参阅 [Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 
 
 若要使用映像创建 VM，请为每个新 VM 设置网络资源，并使用模板（JavaScript 对象表示法或 JSON 文件）从捕获的 VHD 映像部署它。 这样，可以复制具有其当前软件配置的 VM，与在 Azure 应用商店中使用映像的方式类似。
 
 > [!TIP]
-> 如果要创建具有其专用备份或调试状态的现有 Linux VM 的副本，请参阅[创建在 Azure 上运行的 Linux 虚拟机的副本](copy-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果要从本地 VM 上载 Linux VHD，请参阅[上载自定义磁盘映像并从其创建 Linux VM](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。  
+> 如果要创建具有其专用备份或调试状态的现有 Linux VM 的副本，请参阅[创建在 Azure 上运行的 Linux 虚拟机的副本](copy-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果要从本地 VM 上传 Linux VHD，请参阅[上传自定义磁盘映像并从其创建 Linux VM](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。  
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可使用以下 CLI 版本之一完成任务：
 
 - [Azure CLI 1.0](#before-you-begin) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
-- Azure CLI 2.0 - 目前，在 Azure 中国区不支持捕获虚拟机。
+- [Azure CLI 2.0](capture-image.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
-## <a name="before-you-begin"></a> 准备工作
-请确保符合以下先决条件：
+## <a name="before-you-begin"></a>开始之前
+确保符合以下先决条件：
 
 * **在 Resource Manager 部署模型中创建的 Azure VM** - 如果尚未创建 Linux VM，则可以使用[门户](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)、[Azure CLI](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [Resource Manager 模板](cli-deploy-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 
 
@@ -46,7 +45,7 @@ ms.lasthandoff: 04/14/2017
 * **Azure CLI** - 在本地计算机上安装 [Azure CLI](../../cli-install-nodejs.md)。
 
 ## <a name="step-1-remove-the-azure-linux-agent"></a>步骤 1：删除 Azure Linux 代理
-首先，在 Linux VM 上使用 **deprovision** 参数运行 **waagent** 命令。 此命令将删除文件和数据，使 VM 准备好进行通用化。 有关详细信息，请参阅 [Azure Linux 代理用户指南](agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+首先，在 Linux VM 上使用 **deprovision** 参数运行 **waagent** 命令。 此命令将删除文件和数据，使 VM 准备好进行通用化。 有关详细信息，请参阅 [Azure Linux 代理用户指南](../windows/agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 1. 使用 SSH 客户端连接到 Linux VM。
 2. 在 SSH 窗口中，键入以下命令：
@@ -54,14 +53,13 @@ ms.lasthandoff: 04/14/2017
     ```bash
     sudo waagent -deprovision+user
     ```
-
-    > [!NOTE]
-    > 仅在要捕获为映像的 VM 上运行此命令。 不保证映像中的所有敏感信息被清除，或者映像适合用于分发。
+   > [!NOTE]
+   > 仅在要捕获为映像的 VM 上运行此命令。 不保证映像中的所有敏感信息被清除，或者映像适合用于分发。
 
 3. 键入 **y** 继续。 添加 **-force** 参数即可免除此确认步骤。
 4. 完成该命令后，键入 **exit**。 此步骤将关闭 SSH 客户端。
 
-## <a name="capture-the-vm" id="step-2-capture-the-vm"></a> 步骤 2：捕获 VM
+## <a name="step-2-capture-the-vm"></a>步骤 2：捕获 VM
 使用 Azure CLI 来通用化和捕获 VM。 在以下示例中，请将示例参数名称替换为自己的值。 示例参数名称包括 **myResourceGroup**、**myVnet** 和 **myVM**。
 
 1. 从本地计算机中打开 Azure CLI 并[登录到 Azure 订阅](../../xplat-cli-connect.md)。 
@@ -86,8 +84,8 @@ ms.lasthandoff: 04/14/2017
     azure vm capture -g myResourceGroup -n myVM -p myVHDNamePrefix -t myTemplate.json
     ```
 
-    > [!IMPORTANT]
-    > 默认情况下，映像 VHD 文件在原始 VM 所用的相同存储帐户中创建。 使用 *同一个存储帐户* 来存储从映像创建的所有新 VM 的 VHD。 
+   > [!IMPORTANT]
+   > 默认情况下，映像 VHD 文件在原始 VM 所用的相同存储帐户中创建。 使用 *同一个存储帐户* 来存储从映像创建的所有新 VM 的 VHD。 
 
 6. 若要查找已捕获映像的位置，请在文本编辑器中打开 JSON 模板。 在 **storageProfile** 中，查找**系统**容器中的**映像**的 **uri**。 例如，OS 磁盘映像的 URI 类似于 `https://xxxxxxxxxxxxxx.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
 
@@ -185,7 +183,7 @@ azure network public-ip show myResourceGroup1 myPublicIP
 * 使用修改后的模板 JSON 文件，在设置虚拟网络的资源组中创建部署。
 
 ### <a name="use-a-quickstart-template"></a>使用快速入门模板
-如果要在从映像创建 VM 时自动设置网络，可在模板中指定这些资源。 有关示例，请参阅 GitHub 中的 [101-vm-from-user-image 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) 。 此模板会从你的自定义映像创建 VM 以及必要的虚拟网络、公共 IP 地址和 NIC 资源。 若要在 Azure 门户中演练如何使用该模板，请参阅 [How to create a virtual machine from a custom image using a Resource Manager template](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/)（如何使用 Resource Manager 模板从自定义映像创建虚拟机）。
+如果要在从映像创建 VM 时自动设置网络，可在模板中指定这些资源。 有关示例，请参阅 GitHub 中的 [101-vm-from-user-image 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) 。 此模板会从你的自定义映像创建 VM 以及必要的虚拟网络、公共 IP 地址和 NIC 资源。 若要在 Azure 门户中演练使用此模板，请参阅 [How to create a virtual machine from a custom image using a Resource Manager template](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/)（如何使用 Resource Manager 模板从自定义映像创建虚拟机）。
 
 ### <a name="use-the-azure-vm-create-command"></a>使用 azure vm create 命令
 通常使用 Resource Manager 模板从映像创建 VM 是最简单的方法。 但是，可以使用带 **-Q** (**--image-urn**) 参数的 **azure vm create** 命令*强制*创建 VM。 如果使用此方法，还可以传递 **-d** (**--os-disk-vhd**) 参数来指定新 VM 的 OS .vhd 文件的位置。 此文件必须位于存储映像 VHD 文件的存储帐户的 vhd 容器中。 该命令自动将新 VM 的 VHD 复制到 **vhds** 容器。

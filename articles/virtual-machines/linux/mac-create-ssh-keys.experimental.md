@@ -17,14 +17,12 @@ origin.date: 03/08/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
 experiment_id: rasquill-ssh-20170308
-translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: 79e7dbb2506b68f79fe7cb4b099205f85acf6fdc
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: 34f3bfc0bdfa2d09708178a16f9378ea8eb59ba0
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
 # <a name="create-an-ssh-public-and-private-key-pair-for-linux-vms"></a>创建适用于 Linux VM 的 SSH 公钥和私钥对
 
 本文介绍如何生成适用于 Linux VM 的 SSH 协议版本 2 RSA 公钥和私钥文件对。  使用 SSH 密钥对，可以在 Azure 上创建默认为使用 SSH 密钥进行身份验证的虚拟机，从而无需密码即可登录。  密码可能被猜到，将 VM 向不间断的强力尝试开放，用于猜测密码。 使用 Azure 模板或 `azure-cli` 创建的 VM 可以在部署过程中提供 SSH 公钥，并删除部署后配置步骤（即禁用 SSH 的密码登录）。
@@ -77,7 +75,7 @@ ssh-keygen \
 
 `ssh-keygen` = 用于创建密钥的程序
 
-`-t rsa` = 要创建的密钥的类型，采用 RSA 格式 [wikipedia](https://en.wikipedia.org/wiki/RSA_(cryptosystem)
+`-t rsa` = 要创建的 RSA 格式 ([wikipedia](https://en.wikipedia.org/wiki/RSA_(cryptosystem))) 的密钥类型
 
 `-b 2048` = 密钥的位数
 

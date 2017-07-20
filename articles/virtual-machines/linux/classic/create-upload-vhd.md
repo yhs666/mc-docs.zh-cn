@@ -1,13 +1,12 @@
 ---
-title: 在 Azure 中创建和上载 Linux VHD | Azure
-description: 使用经典部署模型创建和上载包含 Linux 操作系统的 Azure 虚拟硬盘 (VHD)
+title: "在 Azure 中创建和上传 Linux VHD | Azure"
+description: "使用经典部署模型创建和上传包含 Linux 操作系统的 Azure 虚拟硬盘 (VHD)"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
 ms.assetid: 8058ff98-db03-4309-9bf4-69842bd64dd4
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -17,55 +16,65 @@ ms.topic: article
 origin.date: 11/28/2016
 ms.date: 01/20/2017
 ms.author: v-dazen
+ms.openlocfilehash: f0a710cf5bf7e05b06e32a8661ede8d9dbb265c3
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# 创建并上载包含 Linux 操作系统的虚拟硬盘
+# <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>创建并上传包含 Linux 操作系统的虚拟硬盘
 > [!IMPORTANT] 
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。本文介绍如何使用经典部署模型。Azure 建议大多数新部署使用 Resource Manager 模型。还可以[使用 Azure Resource Manager 上载自定义磁盘映像](../upload-vhd.md)。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 还可以[使用 Azure Resource Manager 上传自定义磁盘映像](../upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-本文介绍如何创建和上载虚拟硬盘 (VHD)，以便可以使用它作为自己的映像在 Azure 中创建虚拟机。学习如何准备操作系统，以便使用它来基于该映像创建多个虚拟机。
+本文介绍如何创建和上传虚拟硬盘 (VHD)，以便可以使用它作为自己的映像在 Azure 中创建虚拟机。 学习如何准备操作系统，以便使用它来基于该映像创建多个虚拟机。 
 
-## 先决条件
-本文假设拥有以下项目：
+## <a name="prerequisites"></a>先决条件
+本文假定你拥有以下项目：
 
-* **安装在 .vhd 文件中的 Linux 操作系统** - 已将 [Azure 认可的 Linux 分发](../endorsed-distros.md)（或参阅[关于未认可分发的信息](../create-upload-generic.md)）安装在 VHD 格式的虚拟磁盘中。可使用多种工具创建 VM 和 VHD：
-    * 安装并配置 [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) 或 [KVM](http://www.linux-kvm.org/page/RunningKVM)，并小心使用 VHD 作为映像格式。如有需要，可以使用 `qemu-img convert` [转换映像](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats)。
-    * 也可以在 [Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) 或 [Windows Server 2012/2012 R2](https://technet.microsoft.com/zh-cn/library/hh846766.aspx) 上使用 Hyper-V。
-
-> [!NOTE]
-> Azure 不支持更新的 VHDX 格式。创建 VM 时，请将 VHD 指定为映像格式。如有需要，可以使用 [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) 或 [`Convert-VHD`](https://technet.microsoft.com/zh-cn/library/hh848454.aspx) PowerShell cmdlet 将 VHDX 磁盘转换为 VHD。此外，Azure 不支持上载动态 VHD，因此，上载之前，需要将此类磁盘转换为静态 VHD。可以使用 [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) 等工具在上载到 Azure 的过程中转换动态磁盘。
-
-* **Azure 命令行接口** - 安装最新的 [Azure 命令行接口](../../../virtual-machines-command-line-tools.md)以上载 VHD。
-
-## <a id="prepimage"></a> 步骤 1：准备要上载的映像
-Azure 支持各种 Linux 分发版（请参阅 [认可的分发版](../endorsed-distros.md)）。以下文章将指导用户如何准备 Azure 上支持的各种 Linux 分发。完成以下指南中的步骤后，返回到此处，你应该有了一个可以上载到 Azure 的 VHD 文件：
-
-* **[基于 CentOS 的分发](../create-upload-centos.md)**
-* **[Debian Linux](../debian-create-upload-vhd.md)**
-* **[Oracle Linux](../oracle-create-upload-vhd.md)**
-* **[Red Hat Enterprise Linux](../redhat-create-upload-vhd.md)**
-* **[SLES 和 openSUSE](../suse-create-upload-vhd.md)**
-* **[Ubuntu](../create-upload-ubuntu.md)**
-* **[其他 - 非认可分发](../create-upload-generic.md)**
+* **安装在 .vhd 文件中的 Linux 操作系统** - 已将 [Azure 认可的 Linux 发行版](../endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（或参阅[有关未认可发行版的信息](../create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)）安装在 VHD 格式的虚拟磁盘中。 可使用多种工具创建 VM 和 VHD：
+  * 安装并配置 [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) 或 [KVM](http://www.linux-kvm.org/page/RunningKVM)，并注意使用 VHD 作为映像格式。 如果需要，可以使用 `qemu-img convert` [转换映像](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats)。
+  * 也可以在 [Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) 或 [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx) 上使用 Hyper-V。
 
 > [!NOTE]
-> 只有在使用某个认可的分发的时候也使用 [Azure 认可的分发中的 Linux](../endorsed-distros.md) 中“支持的版本”下指定的配置详细信息时，Azure 平台 SLA 才适用于运行 Linux 操作系统的虚拟机。Azure 映像库中的所有 Linux 分发都是具有所需配置的认可的分发。
+> Azure 不支持更新的 VHDX 格式。 创建 VM 时，请将 VHD 指定为映像格式。 如果需要，可以使用 [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) 或 [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet 将 VHDX 磁盘转换为 VHD。 此外，Azure 不支持上传动态 VHD，因此，上传之前，你需要将此类磁盘转换为静态 VHD。 可以使用 [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) 等工具在上传到 Azure 的过程中转换动态磁盘。
+
+* **Azure 命令行接口** - 安装最新的 [Azure 命令行接口](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)以上传 VHD。
+
+<a id="prepimage"> </a>
+
+## <a name="step-1-prepare-the-image-to-be-uploaded"></a>步骤 1：准备要上传的映像
+Azure 支持各种 Linux 分发（请参阅[认可的分发](../endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)）。 以下文章将指导用户如何准备 Azure 上支持的各种 Linux 分发。 完成以下指南中的步骤后，返回到此处，你应该有了一个可以上传到 Azure 的 VHD 文件：
+
+* **[基于 CentOS 的分发版](../create-upload-centos.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Debian Linux](../debian-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Oracle Linux](../oracle-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Red Hat Enterprise Linux](../redhat-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[SLES 和 openSUSE](../suse-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Ubuntu](../create-upload-ubuntu.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[其他 - 非认可分发](../create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
+
+> [!NOTE]
+> 只有在使用某个认可的发行版的时候也使用 [Azure 认可的发行版中的 Linux](../endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 中“支持的版本”下指定的配置详细信息时，Azure 平台 SLA 才适用于运行 Linux OS 的虚拟机。 Azure 映像库中的所有 Linux 分发都是具有所需配置的认可的分发。
 > 
 > 
 
-另请参阅 **[Linux 安装说明](../create-upload-generic.md#general-linux-installation-notes)**，获取更多有关为 Azure 准备 Linux 映像的一般提示。
+另请参阅 **[Linux 安装说明](../create-upload-generic.md#general-linux-installation-notes)**，以获取更多有关如何为 Azure 准备 Linux 映像的一般提示。
 
-## <a id="connect"></a> 步骤 2：准备连接到 Azure
+<a id="connect"> </a>
+
+## <a name="step-2-prepare-the-connection-to-azure"></a>步骤 2：准备连接到 Azure
 请确保在经典部署模型中使用 Azure CLI (`azure config mode asm`)，然后登录帐户：
 
 ```azurecli
 azure login -e AzureChinaCloud
 ```
 
-## <a id="upload"></a> 步骤 3：向 Azure 上载映像
-需要一个存储帐户，以便向其上载 VHD 文件。可以选取现有存储帐户，也可以[创建新的存储帐户](../../../storage/storage-create-storage-account.md)。
+<a id="upload"> </a>
 
-在 Azure CLI 中使用以下命令来上载映像：
+## <a name="step-3-upload-the-image-to-azure"></a>步骤 3：向 Azure 上传映像
+需要一个存储帐户，以便向其上传 VHD 文件。 可以选取现有存储帐户，也可以[创建新的存储帐户](../../../storage/storage-create-storage-account.md)。
+
+在 Azure CLI 中使用以下命令来上传映像：
 
 ```azurecli
 azure vm image create <ImageName> `
@@ -88,8 +97,8 @@ azure vm image create myImage `
     --os Linux /home/ahmet/myimage.vhd
 ```
 
-## 步骤 4：从映像创建 VM
-使用 `azure vm create` 以与创建常规 VM 相同的方式创建 VM。指定在上一步中为映像提供的名称。在以下示例中，使用上一步中指定的映像名称 **myImage**：
+## <a name="step-4-create-a-vm-from-the-image"></a>步骤 4：从映像创建 VM
+使用 `azure vm create` 以与创建常规 VM 相同的方式创建 VM。 指定在上一步中为映像提供的名称。 在以下示例中，使用上一步中指定的映像名称 **myImage** ：
 
 ```azurecli
 azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
@@ -98,12 +107,9 @@ azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
 
 若要创建自己的 VM，请提供自己的用户名 + 密码、位置、DNS 名称和映像名称。
 
-## 后续步骤
-有关详细信息，请参阅[用于 Azure 经典部署模型的 Azure CLI 参考](../../../virtual-machines-command-line-tools.md)。
+## <a name="next-steps"></a>后续步骤
+有关详细信息，请参阅[用于 Azure 经典部署模型的 Azure CLI 参考](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)。
 
-[Step 1: Prepare the image to be uploaded]: #prepimage
-[Step 2: Prepare the connection to Azure]: #connect
-[Step 3: Upload the image to Azure]: #upload
-
-<!---HONumber=Mooncake_0116_2017-->
-<!--Update_Description: update meta properties & wording update & update code-->
+[Step 1: Prepare the image to be uploaded]:#prepimage
+[Step 2: Prepare the connection to Azure]:#connect
+[Step 3: Upload the image to Azure]:#upload

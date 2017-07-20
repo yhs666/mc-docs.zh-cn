@@ -1,12 +1,12 @@
-1. 在“解决方案”视图（或 Visual Studio 的“解决方案资源管理器”）中，右键单击“组件”文件夹，单击“获取更多组件...”，搜索 **Google Cloud Messaging** 客户端组件，并将其添加到项目中。
+1. 在“解决方案”视图（或 Visual Studio 的“解决方案资源管理器”）中，右键单击“组件”文件夹，单击“获取更多组件...”，搜索“Google Cloud Messaging 客户端”组件，并将其添加到项目中。
 
-1. 打开 ToDoActivity.cs 项目文件，将以下 using 语句添加到类：
+3. 打开 ToDoActivity.cs 项目文件，将以下 using 语句添加到类：
 
     ```
     using Gcm.Client;
     ```
 
-2. 在 **ToDoActivity** 类中，添加以下新代码： 
+4. 在 **ToDoActivity** 类中，添加以下新代码： 
 
     ```
     // Create a new instance field for this activity.
@@ -46,6 +46,4 @@
     GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
     ```
 
-你的 **ToDoActivity** 现已准备就绪，可以添加推送通知了。
-
-<!---HONumber=Mooncake_0118_2016-->
+**ToDoActivity** 现已准备就绪，可以添加推送通知了。

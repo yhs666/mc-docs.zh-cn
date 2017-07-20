@@ -1,13 +1,13 @@
 ---
-title: 使用 Linux VM 扩展创作模板 | Azure
-description: 详细了解如何为 Linux VM 使用扩展创建 Azure 资源管理器模板
+title: "使用 Linux VM 扩展创作模板 | Azure"
+description: "了解如何使用 Linux VM 扩展创作 Azure Resource Manager 模板"
 services: virtual-machines-linux
-documentationCenter: ''
-authors: kundanap
+documentationcenter: 
+author: kundanap
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 322f8f0b-6697-4acb-b5f3-b3f58d28358b
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -16,41 +16,39 @@ ms.workload: infrastructure-services
 origin.date: 03/29/2016
 ms.date: 06/29/2016
 ms.author: v-dazen
+ms.openlocfilehash: bff561fb4bf98d951bc55f454e508cedc18d9c9f
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# 使用 VM 扩展创作 Linux 资源管理器模板。
-
+# <a name="authoring-azure-resource-manager-templates-with-linux-vm-extensions"></a>使用 Linux VM 扩展创作 Azure Resource Manager 模板
 [!INCLUDE [virtual-machines-common-extensions-authoring-templates](../../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
-从 Azure CLI，运行以下命令：
+在 Azure CLI 中运行以下命令：
 
-```
-  Azure VM Extension list
-```
+      Azure VM extension list
 
-此命令会返回发布者名称、扩展名称和版本，如下所示：
+此命令返回发布者名称、扩展名称和版本，如下所示：
 
-```
-   Publisher                   : Microsoft.Azure.Extensions  
-  ExtensionName               : DockerExtension
-  Version                     : 1.0
-```
+      Publisher                   : Microsoft.Azure.Extensions  
+      ExtensionName               : DockerExtension
+      Version                     : 1.0
 
-这三个属性分别映射到上述模板代码段中的“发布者”、“类型”和“typeHandlerVersion”。
+这三个属性分别映射到上述模板代码片段中的“publisher”、“type”和“typeHandlerVersion”。
 
->[!NOTE]
+> [!NOTE]
 > 始终建议使用最新的扩展版本以获取最新功能。
+> 
+> 
 
-## 确定扩展配置参数的架构
+## <a name="identifying-the-schema-for-the-extension-configuration-parameters"></a>确定扩展配置参数的架构
+创作扩展模板的下一个步骤是确定提供配置参数的格式。 每个扩展均支持其自己的参数集。
 
-创作扩展模板的下一个步骤是确定提供配置参数的格式。每个扩展均支持其自己的参数集。
+若要查看 Linux 扩展的示例配置，请单击文档 [Linux 扩展示例](extensions-configuration-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-若要查看 Linux 扩展的示例配置，请单击文档 [Linux 扩展示例](extensions-configuration-samples.md)。
-
-请参阅以下 VM 模板链接，以获取完整的 VM 扩展模板。
+请参阅以下内容，获取完整的 VM 扩展模板。
 
 [Linux VM 上的自定义脚本扩展](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
 创作模板之后，可以使用 Azure CLI 部署模板。
-
-<!---HONumber=79-->
