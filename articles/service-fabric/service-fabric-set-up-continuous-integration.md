@@ -16,10 +16,10 @@ origin.date: 12/06/2016
 ms.date: 01/20/2017
 ms.author: v-johch
 ms.openlocfilehash: e5b30a13e1b177e785d37b898ee96dd57ed7e3fc
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="set-up-service-fabric-continuous-integration-and-deployment-with-visual-studio-team-services"></a>使用 Visual Studio Team Services 设置 Service Fabric 持续集成和部署
 本文介绍使用 Visual Studio Team Services (VSTS) 为 Azure Service Fabric 应用程序设置持续集成和部署的步骤。

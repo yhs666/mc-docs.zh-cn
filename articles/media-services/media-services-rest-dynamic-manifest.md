@@ -16,10 +16,10 @@ origin.date: 01/10/2017
 ms.date: 02/24/2017
 ms.author: v-johch
 ms.openlocfilehash: 2a28f912ee0ab8a8da84bc865c67da3c855521f6
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 #<a name="creating-filters-with-azure-media-services-rest-api"></a>使用 Azure 媒体服务 REST API 创建筛选器
 

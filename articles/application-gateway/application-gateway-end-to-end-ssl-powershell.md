@@ -16,10 +16,10 @@ origin.date: 12/14/2016
 ms.date: 02/21/2017
 ms.author: v-dazen
 ms.openlocfilehash: ec7c4536b3221ad019b22ff1fc3949c51f7b9012
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="configure-ssl-policy-and-end-to-end-ssl-with-application-gateway-using-powershell"></a>使用 PowerShell 通过应用程序网关配置 SSL 策略和端到端 SSL
 

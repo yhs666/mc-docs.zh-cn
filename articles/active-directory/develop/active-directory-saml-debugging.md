@@ -11,10 +11,10 @@ origin.date: 02/09/2016
 ms.date: 02/06/2017
 ms.author: v-junlch
 ms.openlocfilehash: eff79ebd72b91e249a44b3e686422ae21ea88de7
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 #<a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>如何在 Azure Active Directory 中调试对应用程序进行基于 SAML 的单一登录
 

@@ -12,10 +12,10 @@ origin.date: 04/28/2015
 ms.date: 12/05/2016
 ms.author: v-yiso
 ms.openlocfilehash: b1b12f9ccb5de491a8f843bc9365b6f22dd32d26
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="view-events-and-activity-logs"></a>查看事件和活动日志
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 06/21/2017
 1. 登录到 [Azure 门户](https://manage.windowsazure.cn/)。
 2. 单击“浏览”，然后选择“审核日志”。  
     ![浏览中心](./media/insights-debugging-with-events/Insights_Browse.png)
-3. 此时会打开一个边栏选项卡，其中显示过去 7 天影响任何订阅的所有事件。 顶部是一个按级别显示数据的图表，下部是日志的完整列表： ![所有事件](./media/insights-debugging-with-events/Insights_AllEvents.png)
+3. 此时会打开一个边栏选项卡，其中显示过去 7 天影响任何订阅的所有事件。 顶部是一个按级别显示数据的图表，下部是日志的完整列表：![所有事件](./media/insights-debugging-with-events/Insights_AllEvents.png)
 
 >[!NOTE]
 > 在 Azure 门户中只能查看给定订阅的 500 个最新事件。 

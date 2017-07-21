@@ -16,10 +16,10 @@ origin.date: 02/10/2017
 ms.date: 03/03/2017
 ms.author: v-johch
 ms.openlocfilehash: 48323cff444266d3bac70437c31f0e6f2c093773
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors 简介
 Reliable Actors 是基于 [虚拟执行组件](http://research.microsoft.com/en-us/projects/orleans/) 模式的 Service Fabric 应用程序框架。 Reliable Actors API 提供单一线程编程模型，该模型是基于 Service Fabric 所提供的可扩展性和可靠性保证构建的。

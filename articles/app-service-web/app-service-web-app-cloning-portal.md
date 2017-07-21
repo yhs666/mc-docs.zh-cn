@@ -16,10 +16,10 @@ origin.date: 03/08/2016
 ms.date: 09/26/2016
 ms.author: v-dazen
 ms.openlocfilehash: a43698375c1f11d1b24b56f42bb2701d4b86afeb
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="azure-app-service-app-cloning-using-azure-portal"></a>使用 Azure 门户克隆 Azure App Service 应用
 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中的克隆功能可以轻松将现有 Web 应用克隆到位于不同或相同区域中的新建应用。 这样，客户就可以快速轻松地跨不同区域部署许多应用。

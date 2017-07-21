@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: v-yiso
 ms.openlocfilehash: 330f18d92a559e411ec0c014f304f534fbb9d562
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>如何配置和运行云服务的启动任务
 

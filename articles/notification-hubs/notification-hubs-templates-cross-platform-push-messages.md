@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: v-junlch
 ms.openlocfilehash: c529c5d3349eec750e35b201099928fe68edb811
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="templates"></a>模板
 

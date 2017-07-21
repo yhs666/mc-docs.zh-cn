@@ -16,10 +16,10 @@ origin.date: 12/08/2016
 ms.date: 01/06/2017
 ms.author: v-johch
 ms.openlocfilehash: dc2b21e4c7d61c82ebfcc37ed68e07474d638e93
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure 存储性能和可伸缩性清单
 ## <a name="overview"></a>概述

@@ -18,10 +18,10 @@ ms.date: 05/31/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 502915df294ff02df9ac13dbe53adf5d0e35be94
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>在 Azure 中管理 Windows 虚拟机的可用性 
 

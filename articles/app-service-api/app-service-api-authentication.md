@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 05/23/2016
 ms.date: 09/26/2016
 ms.author: v-dazen
-ms.openlocfilehash: 7fd8488c2bb21c8a4bdf8ecf195e0df32631bf7f
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: ef6d113c398d6fa051fa00172d894b1702a3ed4c
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="authentication-and-authorization-for-api-apps-in-azure-app-service"></a>Azure 应用服务中 API 应用的身份验证和授权
 ## <a name="overview"></a>概述
@@ -101,7 +101,7 @@ Azure App Service 提供内置的身份验证与授权服务，可实现 [OAuth 
 
 * [Azure AD 方案](/active-directory/develop/active-directory-authentication-scenarios)
 * [Azure AD 开发人员指南](/active-directory/develop/active-directory-developers-guide)
-* [Azure AD 示例](https://github.com/azure-samples?query=active-directory)
+* [Azure AD 示例](/active-directory/develop/active-directory-code-samples)
 
 ## <a name="next-steps"></a>后续步骤
 本文说明了可用于 API 应用的应用服务身份验证和授权功能。 入门系列教程的下一篇文章将介绍如何[在应用服务 API 应用中实现用户身份验证](app-service-api-dotnet-user-principal-auth.md)。

@@ -16,10 +16,10 @@ origin.date: 01/05/2017
 ms.date: 02/20/2017
 ms.author: v-johch
 ms.openlocfilehash: 52d412497a3159e1fc41abba554fee22e8a3ae90
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>配置 Service Fabric 服务的群集 Resource Manager 设置
 Service Fabric 群集 Resource Manager 允许精细地控制用于管控每个独立命名服务的规则。 每个命名的服务实例都可以针对其在群集中的分配方式指定规则。 每个命名的服务还可以定义需要报告的一组指标，包括其对该服务的重要性。 配置服务的过程划分为三个不同的任务：

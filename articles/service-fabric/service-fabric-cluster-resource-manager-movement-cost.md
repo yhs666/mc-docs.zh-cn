@@ -16,10 +16,10 @@ origin.date: 01/05/2017
 ms.date: 02/20/2017
 ms.author: v-johch
 ms.openlocfilehash: 9524f596edd6561bd90850d3f912830e6fd88f3e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="service-movement-cost-for-influencing-cluster-resource-manager-choices"></a>影响群集 Resource Manager 选项的服务移动成本
 在尝试确定要对群集进行哪些更改时，Service Fabric Cluster Resource Manager 会考虑的一个重要因素是实现该解决方案所需的总体成本。 “成本”这一概念是针对能够实现的余额而言。

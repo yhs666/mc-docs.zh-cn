@@ -12,10 +12,10 @@ origin.date: 07/29/2016
 ms.date: 02/21/2017
 ms.author: v-johch
 ms.openlocfilehash: e975e871c47d770012f60eeaffbba0892bc2c118
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="publish-an-application-to-a-remote-cluster-by-using-visual-studio"></a>使用 Visual Studio 将应用程序发布到远程群集
 

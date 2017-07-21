@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 02/08/2017
 ms.date: 03/13/2017
 ms.author: v-junlch
-ms.openlocfilehash: cdb01df16e3ae52beb3dbdb86f0bb0662bb1b647
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 6788d903fa8ba9d26d64dc934fa1f96939ea37fa
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 使用客户端凭据进行服务到服务调用
 OAuth 2.0 客户端凭据授权流允许 Web 服务（机密客户端）在调用其他 Web 服务时使用它自己的凭据（而不是模拟用户）进行身份验证。 在这种情况下，客户端通常是中间层 Web 服务、后台程序服务或网站。
@@ -35,7 +35,7 @@ OAuth 2.0 客户端凭据授权流允许 Web 服务（机密客户端）在调�
 4. 受保护资源中的数据返回到 Web 应用程序。
 
 ## 在 Azure AD 中注册服务
-在 Azure Active Directory (Azure AD) 中注册调用服务和接收服务。 有关详细说明，请参阅 [将应用程序与 Azure Active Directory 集成](./active-directory-integrating-applications.md)。
+在 Azure Active Directory (Azure AD) 中注册调用服务和接收服务。 
 
 ## 请求访问令牌
 若要请求访问令牌，对特定于租户的 Azure AD 终结点使用 HTTP POST。

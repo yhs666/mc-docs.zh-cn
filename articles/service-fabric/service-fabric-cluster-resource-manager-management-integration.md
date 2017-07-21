@@ -16,10 +16,10 @@ origin.date: 01/05/2017
 ms.date: 02/20/2017
 ms.author: v-johch
 ms.openlocfilehash: acaafa1ca3329199494f95324cda7593dec0182d
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>群集 Resource Manager 与 Service Fabric 群集管理的集成
 Service Fabric 群集 Resource Manager 不是负责处理管理操作（如应用程序升级）的主要 Service Fabric 组件，但会参与此类操作。 群集 Resource Manager 帮助进行管理的第一种方式是跟踪群集及其中服务的所需状态。 无法将群集放入所需配置时，群集 Resource Manager 会发出运行状况报告。 例如，当容量不足，或者有关服务放置位置的规则发生冲突时，它会发出此类报告。 集成的另一个部分与升级的工作方式有关。 在升级期间，群集 Resource Manager 会稍微改变其行为。 下面将讨论这两个集成要点。

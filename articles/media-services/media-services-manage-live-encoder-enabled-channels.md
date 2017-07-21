@@ -16,10 +16,10 @@ origin.date: 01/05/2017
 ms.date: 02/24/2017
 ms.author: v-johch
 ms.openlocfilehash: 17a652997455bac3bd832995c695393f219e53c2
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒体服务执行实时流式处理以创建多比特率流
 ## <a name="overview"></a>概述

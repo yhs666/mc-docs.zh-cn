@@ -15,10 +15,10 @@ origin.date: 10/03/2016
 ms.author: v-junlch
 ms.date: 11/22/2016
 ms.openlocfilehash: 4cc9f49248f49f054f8b4cedd93c5ba036ca68c4
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 #<a name="azure-notification-hubs-notify-users-with-net-backend"></a>Azure 通知中心 - 使用 .NET 后端通知用户
 

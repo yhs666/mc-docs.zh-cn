@@ -1,12 +1,11 @@
 ---
-title: 使用 .NET 的 Azure 存储示例 | Azure
-description: 查看、下载和运行 Azure 存储空间的示例代码和应用程序使用 .NET 存储客户端库发现 Blob、队列、表和文件的入门示例。
+title: "使用 .NET 的 Azure 存储示例 | Azure"
+description: "查看、下载和运行 Azure 存储的示例代码和应用程序。 使用 .NET 存储客户端库发现 blob、队列、表和文件的入门示例。"
 services: storage
 documentationcenter: na
 author: seguler
 manager: jahogg
 editor: tysonn
-
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
@@ -15,16 +14,20 @@ ms.workload: storage
 origin.date: 01/12/2017
 ms.date: 02/24/2017
 ms.author: v-johch
+ms.openlocfilehash: da86af5f8b58de7e25ad72e2e90d1b505de28a8f
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="azure-storage-samples-using-net"></a>使用 .NET 的 Azure 存储示例
 
-# 使用 .NET 的 Azure 存储示例
-
-## .NET 示例索引
+## <a name="net-sample-index"></a>.NET 示例索引
 
 >[!IMPORTANT]
 > 若要使用本文中提供的示例，请将终结点 `windows.net` 替换为 `chinacloudapi.cn`（如果存在）。
 
-下表概述了我们的示例存储库以及每个示例中介绍的方案。单击链接查看 Github 中的相应示例代码。
+下表概述了我们的示例存储库以及每个示例中介绍的方案。 单击链接查看 Github 中的相应示例代码。
 
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">终结点</th><th style="font-size:110%">方案</th><th style="font-size:110%">代码示例</th></tr></thead><tbody> 
 <tr> 
@@ -69,7 +72,7 @@ ms.author: v-johch
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Blob 入门</a></td>
 </tr> 
 <tr> 
-<td>租赁 Blob/容器</td>
+<td>租用 Blob/容器</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Blob 入门</a></td>
 </tr> 
 <tr> 
@@ -83,23 +86,23 @@ ms.author: v-johch
 <tr> 
 <td>SAS</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Blob 入门</a></td>
-</tr> 	
+</tr>   
 <tr> 
 <td>服务属性</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Blob 入门</a></td>
-</tr> 			
+</tr>           
 <tr> 
 <td>快照 Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">使用增量快照备份 Azure 虚拟机磁盘</a></td>
 </tr> 
 <tr> 
-<td rowspan="9"><b>文件</b></td>
+<td rowspan="9">文件<b></b></td>
 <td>创建共享/目录/文件</td> 
 <td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs">Azure 存储 .NET 文件存储示例</a></td> 
 </tr>
 <tr> 
 <td>删除共享/目录/文件</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/master/FileStorage/GettingStarted.cs">.NET 中 Azure 文件服务入门</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/master/FileStorage/GettingStarted.cs">Getting Started with Azure File Service in .NET（.NET 中 Azure 文件服务入门）</a></td> 
 </tr> 
 <tr> 
 <td>目录属性/元数据</td> 
@@ -130,9 +133,9 @@ ms.author: v-johch
 <td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Azure 存储 .NET 文件存储示例</a></td> 
 </tr>
 <tr> 
-<td rowspan="8"><b>队列</b></td>
+<td rowspan="8">队列</b><b></td>
 <td>添加消息</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">.NET 中 Azure 队列服务入门</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Getting Started with Azure Queue Service in .NET（.NET 中 Azure 队列服务入门）</a></td> 
 </tr> 
 <tr> 
 <td>客户端加密</td> 
@@ -140,30 +143,30 @@ ms.author: v-johch
 </tr> 
 <tr> 
 <td>创建队列</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">.NET 中 Azure 队列服务入门</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Getting Started with Azure Queue Service in .NET（.NET 中 Azure 队列服务入门）</a></td> 
 </tr> 
 <tr> 
 <td>删除消息/队列</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">.NET 中 Azure 队列服务入门</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Getting Started with Azure Queue Service in .NET（.NET 中 Azure 队列服务入门）</a></td> 
 </tr> 
 <tr> 
 <td>速览消息</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">.NET 中 Azure 队列服务入门</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Getting Started with Azure Queue Service in .NET（.NET 中 Azure 队列服务入门）</a></td> 
 </tr> 
 <tr> 
 <td>队列 ACL/元数据/统计信息</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs">.NET 中 Azure 队列服务入门</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs">Getting Started with Azure Queue Service in .NET（.NET 中 Azure 队列服务入门）</a></td> 
 </tr> 
 <tr> 
 <td>队列服务属性</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs">.NET 中 Azure 队列服务入门</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs">Getting Started with Azure Queue Service in .NET（.NET 中 Azure 队列服务入门）</a></td> 
 </tr> 
 <tr> 
 <td>更新消息</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">.NET 中 Azure 队列服务入门</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Getting Started with Azure Queue Service in .NET（.NET 中 Azure 队列服务入门）</a></td> 
 </tr> 
 <tr> 
-<td rowspan="7"><b>表</b></td>
+<td rowspan="7">表<b></b></td>
 <td>创建表</td> 
 <td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">使用 Azure 存储管理并发 - 示例应用程序</a></td> 
 </tr> 
@@ -193,26 +196,24 @@ ms.author: v-johch
 </tr> 
 </tbody> 
 </table>
-<br/>  
+<br/>
 
-## Azure 代码示例库
+## <a name="azure-code-samples-library"></a>Azure 代码示例库
 
 [!INCLUDE [storage-dotnet-samples-include](../../includes/storage-dotnet-samples-include.md)]
 
-## 入门指南
+## <a name="getting-started-guides"></a>入门指南
 
 有关 Azure 存储客户端库的安装和入门说明，请查看以下指南。
 
-* [.NET 中 Azure Blob 服务入门](./storage-dotnet-how-to-use-blobs.md)
-* [.NET 中 Azure 队列服务入门](./storage-dotnet-how-to-use-queues.md)
-* [.NET 中 Azure 表服务入门](./storage-dotnet-how-to-use-tables.md)
-* [.NET 中 Azure 文件服务入门](./storage-dotnet-how-to-use-files.md)
+* [.NET 中的 Azure Blob 服务入门](./storage-dotnet-how-to-use-blobs.md)
+* [.NET 中的 Azure 队列服务入门](./storage-dotnet-how-to-use-queues.md)
+* [.NET 中的 Azure 表服务入门](./storage-dotnet-how-to-use-tables.md)
+* [.NET 中的 Azure 文件服务入门](./storage-dotnet-how-to-use-files.md)
 
-## 后续步骤
+## <a name="next-steps"></a>后续步骤
 
 了解其他语言的示例：
 
 * Java：[使用 Java 的 Azure 存储示例](./storage-samples-java.md)
-* 所有其他语言：[Azure 存储示例](./storage-samples.md)
-
-<!---HONumber=Mooncake_0220_2017-->
+* 所有其他语言： [Azure 存储示例](./storage-samples.md)

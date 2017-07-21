@@ -16,10 +16,10 @@ origin.date: 02/10/2017
 ms.date: 06/15/2017
 ms.author: v-johch
 ms.openlocfilehash: 2d4f5a935cadbe6038f91ed3979d310caf8c922e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="reliable-actors-reentrancy"></a>Reliable Actors 可重入性
 默认情况下，Reliable Actors 运行时允许基于逻辑调用上下文的可重入性。 这使执行组件在处于相同调用上下文链中时可重入。 例如，如果执行组件 A 将消息发送给执行组件 B，而后者将消息发送给执行组件 C。在处理消息的过程中，如果执行组件 C 调用执行组件 A，则允许消息可重入。 属于不同调用上下文的任何其他消息会在执行组件 A 上受阻，直到它完成处理。

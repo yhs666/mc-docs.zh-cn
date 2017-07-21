@@ -14,10 +14,10 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: v-yiso
 ms.openlocfilehash: 4655892e1b8fe1c6977f67b43ae3cb740b538767
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 #<a name="create-an-ios-app"></a>创建 iOS 应用
 

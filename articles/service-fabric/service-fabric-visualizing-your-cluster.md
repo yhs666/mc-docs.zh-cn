@@ -16,10 +16,10 @@ origin.date: 01/05/2017
 ms.date: 02/20/2017
 ms.author: v-johch
 ms.openlocfilehash: 1df21b64ab0f065d06477813c069c810ead2b59f
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>使用 Service Fabric Explorer 可视化群集
 Service Fabric Explorer 是一个用于检验和管理 Azure Service Fabric 群集中应用程序和节点的基于 Web 的工具。 Service Fabric Explorer 直接托管在群集内，因此，无论群集在何处运行，它都始终可供使用。
