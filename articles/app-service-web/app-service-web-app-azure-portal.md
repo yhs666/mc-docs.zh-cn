@@ -1,12 +1,12 @@
 ---
-title: 有关在 Azure 门户中导航的参考
-description: 了解在管理门户与 Azure 门户中使用 App Service Web 的不同用户体验
+title: "在 Azure 门户中进行导航的参考"
+description: "了解用户在管理门户和 Azure 门户之间对应用服务 Web 的不同体验"
 services: app-service
-documentationCenter: ''
-authors: jaime-espinosa
-manager: wpickett
+documentationcenter: 
+author: jaime-espinosa
+manager: erikre
 editor: jimbe
-
+ms.assetid: 0cc6a3cc-bd89-4a96-9177-d25f6fb737bb
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,47 +15,46 @@ ms.topic: article
 origin.date: 02/26/2016
 ms.date: 09/26/2016
 ms.author: v-dazen
+ms.openlocfilehash: ba5e2345e4d29ddaeff9d837b22ae9a77b4b02d3
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# 有关在 Azure 门户中导航的参考
-
-Azure 网站现在称为 [App Service Web Apps](./app-service-changes-existing-services.md)。我们正在更新所有文档以反应此名称更改，并为 Azure 门户提供说明。完成该过程之前，你可以使用此文档作为在新 Azure 门户中使用 Web Apps 的指南。
+# <a name="reference-for-navigating-the-azure-portal"></a>在 Azure 门户中进行导航的参考
+现在，Azure 网站称为[应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)。 我们正在更新所有文档以反映此名称更改，并为 Azure 门户提供说明。 完成该过程之前，可以使用此文档作为在 Azure 门户中使用 Web 应用的指南。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Azure 经典门户的未来趋势
+## <a name="the-future-of-the-azure-classic-management-portal"></a>将来的 Azure 经典管理门户
+如果发现 Azure 经典管理门户中品牌打造改变，表示该门户正在替换为 Azure 门户。 由于正在逐步淘汰经典管理门户，因此新的开发工作重点将转移到 Azure 门户。 所有即将发布的 Web 应用新功能将出现在 Azure 门户中。 开始使用 Azure 门户，以使用 Web 应用提供的最新最好的功能。
 
-当你发现 Azure 经典门户中品牌改变时，该门户正处于被 Azure 门户替代的过程中。由于正在淘汰经典门户，因此新的开发工作重点将转移到 Azure 门户。所有即将发布的 Web Apps 新功能将出现在 Azure 门户中。开始使用 Azure 门户以利用 Web Apps 提供最新最全的功能。
+## <a name="layout-differences-between-the-azure-classic-management-portal-and-azure-portal"></a>Azure 经典管理门户和 Azure 门户之间的布局差异
+在经典管理门户中，所有 Azure 服务都列在左侧。 经典管理门户中的导航遵循树状结构，即从服务开始导航，然后再导航到各个元素。 此结构适用于管理独立组件。 但是，在 Azure 上构建的应用程序是互联服务的集合，而此树状结构并不适用于服务集合。 
 
-## Azure 经典门户与 Azure 门户之间的布局差异
-
-在经典门户中，所有 Azure 服务都列在左侧。经典门户中的导航遵循树状结构，即从服务开始导航，然后再导航到各个元素。此结构适用于管理独立组件。但是，在 Azure 上构建的应用程序是互联服务的集合，而此树状结构并不适用于服务集合。
-
-Azure 门户则可以利用多个服务中的组件端对端地轻松构建应用程序。该门户被组织为旅程。一段旅程由一系列边栏选项卡组成，即为不同组件的容器。例如，设置 Web 应用的自动缩放即为一段旅程，该旅程包含好几个边栏选项卡，如下例所示：“网站”边栏选项卡（该边栏选项卡名尚未更新至使用新术语）、“设置”边栏选项卡和“缩放”边栏选项卡。在此示例中，自动缩放被设置为依据 CPU 使用情况而定，因此还具有一个“CPU 百分比”边栏选项卡。边栏选项卡中的组件被称为部件，形状像磁贴。
+Azure 门户则可以利用多个服务中的组件端对端地轻松构建应用程序。 门户以“旅程”的形式进行组织。 “旅程”是一系列“边栏选项卡”，而边栏选项卡是不同组件的容器。 例如，设置 Web 应用的自动缩放就是一段“旅程”，该“旅程”包含若干边栏选项卡，如下例所示：“网站”边栏选项卡（该边栏选项卡标题尚未更新至新术语）、“设置”边栏选项卡和“扩大”边栏选项卡。 在此示例中，自动缩放被设置为根据 CPU 使用情况而定，因此还具有一个“CPU 百分比”边栏选项卡。 边栏选项卡中的组件被称为“部件”，其外形像磁贴。 
 
 ![](./media/app-service-web-app-azure-portal/AutoScaling.png)
 
-## 浏览示例：创建 Web 应用
-
-创建新 Web 应用的步骤如 1-2-3 一样简单。下图并排显示了经典门户和新门户，以便说明创建和运行 Web 应用所需的步骤数并未发生太大变化。
+## <a name="navigation-example-create-a-web-app"></a>导航示例：创建 Web 应用
+新建 Web 应用仍然像 1-2-3 一样简单。 下图并排显示了经典管理门户和新门户，以便说明创建和运行 Web 应用所需的步骤数并未发生太大变化。 
 
 ![](./media/app-service-web-app-azure-portal/CreateWebApp.png)
 
-在新门户中，你可以从最常用的 Web 应用类型中选择，包括 WordPress 等受欢迎的库应用程序。
+在新门户中，可以从最常用的 Web 应用类型（WordPress 等受欢迎的库应用程序等）中进行选择。
 
-当创建 Web 应用时，你可以如在经典门户中所执行的操作一样在新门户中指定 URL、App Service 计划和位置。
+创建 Web 应用时，可以在新门户中指定 URL、应用服务计划和位置，其操作与经典管理门户中的操作一样。 
 
 ![](./media/app-service-web-app-azure-portal/CreateWebAppSettings.png)
 
-此外，你可以在新门户中定义其他通用设置。例如，通过[资源组](../azure-resource-manager/resource-group-overview.md)可以轻松查看和管理相关 Azure 资源。
+此外，还可以在新门户中定义其他通用设置。 例如，通过[资源组](../azure-resource-manager/resource-group-overview.md)可以轻松查看和管理相关 Azure 资源。 
 
-## 浏览示例：设置和功能
-
-现在所有设置和功能都逻辑分组在单个边栏选项卡中，进而方便从中进行导航。
+## <a name="navigation-example-settings-and-features"></a>导航示例：设置和功能
+现在所有设置和功能都有序地分组在单个边栏选项卡中，方便从中进行导航。
 
 ![](./media/app-service-web-app-azure-portal/WebAppSettings.png)
 
-例如，你可以通过单击“设置”边栏选项卡中的“自定义域和 SSL”来创建自定义域。
+例如，可以通过单击“设置”边栏选项卡中的“自定义域和 SSL”来创建自定义域。
 
 ![](./media/app-service-web-app-azure-portal/ConfigureWebApp.png)
 
@@ -67,20 +66,15 @@ Azure 门户则可以利用多个服务中的组件端对端地轻松构建应�
 
 ![](./media/app-service-web-app-azure-portal/Diagnostics.png)
 
-若要配置应用程序设置，请单击“设置”边栏选项卡中的“应用程序设置”。
+若要配置应用程序设置，请单击“设置”边栏选项卡中的“应用程序设置”。 
 
 ![](./media/app-service-web-app-azure-portal/AppSettingsPreview.png)
 
-除品牌名称之外，已对门户中的一些事物进行了重命名或进行了不同的分组，以便更容易查找。例如，下面是经典门户中应用设置（“配置”）相应页的屏幕截图。
+除品牌名称之外，已对门户中的一些内容进行了重命名或进行了不同的分组，以便更轻松地查找。 例如，下面是经典管理门户中应用设置（“配置”）相应页的屏幕截图。
 
 ![](./media/app-service-web-app-azure-portal/AppSettings.png)
 
-## 更多资源
+[Azure Portal]: https://portal.azure.cn
 
-[Azure Management Portal]: https://portal.azure.cn
-[Azure 库]: /marketplace/
-
-## 发生的更改
-* 有关从网站更改为 App Service 的指南，请参阅：[Azure App Service 及其对现有 Azure 服务的影响](./app-service-changes-existing-services.md)
-
-<!---HONumber=Mooncake_0328_2016-->
+## <a name="whats-changed"></a>发生的更改
+* 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)

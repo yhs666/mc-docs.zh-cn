@@ -1,12 +1,11 @@
 ---
-title: 如何使用 .NET 通过本地编码器执行实时传送视频流 | Azure
-description: 本主题演示如何使用 .NET 通过本地编码器执行实时编码。
+title: "如何使用 .NET 通过本地编码器执行实时传送视频流 | Azure"
+description: "本主题演示如何使用 .NET 通过本地编码器执行实时编码。"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
 ms.assetid: 15908152-d23c-4d55-906a-3bfd74927db5
 ms.service: media-services
 ms.workload: media
@@ -16,37 +15,41 @@ ms.topic: article
 origin.date: 01/05/2017
 ms.date: 02/24/2017
 ms.author: v-johch
+ms.openlocfilehash: ac5c7a3fcc6a67779103a5759b103794689ecc4f
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-#如何使用 .NET 通过本地编码器执行实时传送视频流
+#<a name="how-to-perform-live-streaming-with-on-premise-encoders-using-net"></a>如何使用 .NET 通过本地编码器执行实时传送视频流
 
 > [!div class="op_single_selector"]
 >- [.NET](./media-services-dotnet-live-encode-with-onpremises-encoders.md)
->- [REST](https://docs.microsoft.com/zh-cn/rest/api/media/operations/channel)
+>- [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 
-本教程将逐步演示如何使用 Azure 媒体服务 .NET SDK 创建为实现直通传送而配置的**频道**。
+本教程将逐步演示如何使用 Azure 媒体服务 .NET SDK 创建为实现直通传送而配置的 **频道** 。 
 
-## 先决条件
+## <a name="prerequisites"></a>先决条件
 以下是完成本教程所需具备的条件：
 
 - 一个 Azure 帐户。
-- 一个媒体服务帐户。若要创建媒体服务帐户，请参阅[如何创建媒体服务帐户](./media-services-create-account.md)。
-- 设置开发环境。有关详细信息，请参阅[设置环境](./media-services-set-up-computer.md)。
-- 网络摄像机。例如，[Telestream Wirecast 编码器](http://www.telestream.net/wirecast/overview.htm)。
+- 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅 [如何创建媒体服务帐户](/documentation/articles/media-services-create-account/)。
+- 设置开发环境。 有关详细信息，请参阅[设置环境](./media-services-set-up-computer.md)。
+- 网络摄像机。 例如， [Telestream Wirecast 编码器](http://www.telestream.net/wirecast/overview.htm)。
 
 建议阅读以下文章：
 
 - [Azure 媒体服务 RTMP 支持和实时编码器](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
-- [使用本地编码器执行实时流式处理以创建多比特率流](./media-services-live-streaming-with-onprem-encoders.md)
+- [使用本地编码器实时传送视频流以创建多比特率流](./media-services-live-streaming-with-onprem-encoders.md)
 
-##示例
+##<a name="example"></a>示例
 
 下面的代码示例演示如何完成以下任务：
 
 - 连接到媒体服务
 - 创建频道
 - 更新频道
-- 检索频道的输入终结点。应向本地实时编码器提供输入终结点。实时编码器将相机的信号转换为流，以便发送到频道的输入（插入）终结点。
+- 检索频道的输入终结点。 应向本地实时编码器提供输入终结点。 实时编码器将相机的信号转换为流，以便发送到通道的输入（插入）终结点。
 - 检索频道的预览终结点
 - 创建并启动节目
 - 创建访问该节目所需的定位符
@@ -56,7 +59,11 @@ ms.author: v-johch
 - 关闭资源
 
 >[!NOTE]
-请确保流式处理终结点（用于内容流式处理）处于“正在运行”状态。
+>确保要从中流式传输内容的流式处理终结点处于“正在运行”状态。 
+    
+    
+>[!NOTE]
+>不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[此](media-services-dotnet-manage-entities.md#limit-access-policies)主题。
 
 有关如何配置实时编码器的信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)。
 
@@ -97,7 +104,6 @@ ms.author: v-johch
             // Field for service context.
             private static CloudMediaContext _context = null;
             private static MediaServicesCredentials _cachedCredentials = null;
-            private static Uri _apiServer = null;
 
             static void Main(string[] args)
             {
@@ -400,6 +406,3 @@ ms.author: v-johch
         }
     }
 ```
-
-<!---HONumber=Mooncake_0220_2017-->
-<!--Update_Description: add one note for streaming endpoint-->

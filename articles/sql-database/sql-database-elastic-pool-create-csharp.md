@@ -1,62 +1,64 @@
 ---
-title: 使用 C# 创建弹性数据库池 | Azure
-description: 使用 C# 数据库开发技术在 Azure SQL 数据库中创建可缩放的弹性数据库池，以便可以在多个数据库之间共享资源。
+title: "使用 C# 创建弹性数据库池 | Azure"
+description: "使用 C# 数据库开发技术在 Azure SQL 数据库中创建可缩放的弹性数据库池，以便可以在多个数据库之间共享资源。"
 services: sql-database
-documentationCenter: ''
+documentationCenter: 
 authors: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
-origin.date: 10/04/2016
-ms.date: 01/06/2017
+ms.date: 10/04/2016
 ms.author: v-johch
+ms.openlocfilehash: ef0c64d434d2a432a2dda2724b3bfde3650fbca0
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# 使用 C# 创建弹性数据库池
+# <a name="create-an-elastic-database-pool-with-cx23"></a>使用 C&#x23; 创建弹性数据库池
 
 > [!div class="op_single_selector"]
->- [Azure 门户](./sql-database-elastic-pool-create-portal.md)
+>- [Azure 门户](/documentation/sql-database-elastic-pool-create-portal)
 >- [PowerShell](./sql-database-elastic-pool-create-powershell.md)
 >- [C#](./sql-database-elastic-pool-create-csharp.md)
 
-本文说明如何使用 C# 通过[用于 .NET 的 Azure SQL 数据库库](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)创建 Azure SQL 弹性数据库池。若要创建独立 SQL 数据库，请参阅[使用 C# 通过用于.NET 的 SQL 数据库库创建 SQL 数据库](./sql-database-get-started-csharp.md)。
+本文说明了如何使用 C# 通过[适用于 .NET 的 Azure SQL 数据库的库文件](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)创建 Azure SQL 弹性数据库池。 若要创建独立的 SQL 数据库，请参阅[使用 C# 通过适用于 .NET 的 SQL 数据库的库文件创建 SQL 数据库](./sql-database-get-started-csharp.md)。
 
-用于 .NET 的 Azure SQL 数据库库提供了基于 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 的 API，用于包装[基于 Resource Manager 的 SQL 数据库 REST API](https://msdn.microsoft.com/zh-cn/library/azure/mt163571.aspx)。
+适用于 .NET 的 Azure SQL 数据库提供了基于 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 的 API，用于包装[基于 Resource Manager 的 SQL 数据库 REST API](https://msdn.microsoft.com/zh-cn/library/azure/mt163571.aspx)。
 
 >[!NOTE]
-> SQL 数据库的许多新功能仅在使用 [Azure Resource Manager 部署模型](../azure-resource-manager/resource-group-overview.md)时才可用，因此，应始终使用最新版本的**用于 .NET 的 Azure SQL 数据库管理库（[Docs](https://msdn.microsoft.com/zh-cn/library/azure/mt349017.aspx) | [NuGet 包](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)）**。以前的[基于经典部署模型的库](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql)只是为了向后兼容而受到支持，因此，建议使用较新的基于 Resource Manager 的库。
+> SQL 数据库的许多新功能仅在使用 [Azure Resource Manager 部署模型](../azure-resource-manager/resource-group-overview.md)时才可用，因此，始终应该使用最新版本的用于 .NET 的 Azure SQL 数据库管理库（[文档](https://msdn.microsoft.com/zh-cn/library/azure/mt349017.aspx) | [NuGet 包](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)）。 以前的 [基于经典部署模型的库](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) 只是为了向后兼容而受到支持，因此，建议使用较新的基于 Resource Manager 的库。
 
 若要完成本文中的步骤，需要做好以下准备：
 
-- Azure 订阅。如果需要 Azure 订阅，只需单击本页顶部的“试用”，然后再回来完成本文的相关操作即可。
-- Visual Studio。如需 Visual Studio 的免费副本，请参阅 [Visual Studio 下载](https://www.visualstudio.com/downloads/download-visual-studio-vs)页。
+- Azure 订阅。 如果需要 Azure 订阅，只需单击本页顶部的“试用”  ，然后再回来完成本文的相关操作即可。
+- Visual Studio。 如需 Visual Studio 的免费副本，请参阅 [Visual Studio 下载](https://www.visualstudio.com/downloads/download-visual-studio-vs) 页。
 
-## 创建控制台应用并安装所需的库
+## <a name="create-a-console-app-and-install-the-required-libraries"></a>创建控制台应用并安装所需的库
 
 1. 启动 Visual Studio。
-2. 单击“文件”>“新建”>“项目”。
-3. 创建 C# **控制台应用程序**并将其命名为 *SqlElasticPoolConsoleApp*
+2. 单击“文件” > “新建” > “项目”。
+3. 创建一个 C# 控制台应用程序 ，并将其命名为： SqlElasticPoolConsoleApp
 
-若要使用 C# 创建 SQL 数据库，请加载所需的管理库（使用[包管理器控制台](http://docs.nuget.org/Consume/Package-Manager-Console)）：
+若要使用 C# 创建 SQL 数据库，请加载所需的管理库（使用[程序包管理器控制台](http://docs.nuget.org/Consume/Package-Manager-Console)）：
 
-1. 单击“工具”>“NuGet 包管理器”>“包管理器控制台”。
-2. 键入 `Install-Package Microsoft.Azure.Management.Sql –Pre` 安装 [Azure SQL 管理库](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)。
-3. 键入 `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` 安装 [Azure Resource Manager 库](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)。
-4. 键入 `Install-Package Microsoft.Azure.Common.Authentication –Pre` 安装 [Azure 常用身份验证库](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication)。
+1. 单击“工具” > “NuGet 包管理器” > “包管理器控制台”。
+2. 键入 `Install-Package Microsoft.Azure.Management.Sql –Pre` 安装 [Microsoft Azure SQL 管理库](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)。
+3. 键入 `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` 安装 [Microsoft Azure Resource Manager 库](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)。
+4. 键入 `Install-Package Microsoft.Azure.Common.Authentication –Pre` 安装 [Microsoft Azure 通用身份验证库](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication)。 
 
 > [!NOTE]
-> 本文中的示例使用每个 API 请求的同步形式，并会一直阻塞，直到对基础服务的 REST 调用完成为止。有可用的异步方法。
+> 本文中的示例使用每个 API 请求的同步形式，并会一直阻塞，直到对基础服务的 REST 调用完成。 有可用的异步方法。
 
-## 创建 SQL 弹性数据库池 - C# 示例
+## <a name="create-a-sql-elastic-database-pool---c-example"></a>创建 SQL 弹性数据库池 - C# 示例
 
-以下示例创建资源组、服务器、防火墙规则、弹性池，然后在池中创建 SQL 数据库。请参阅[创建用于访问资源的服务主体](#create-a-service-principal-to-access-resources)获取 `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` 变量。
+以下示例创建资源组、服务器、防火墙规则、弹性池，然后在池中创建 SQL 数据库。 请参阅[创建用于访问资源的服务主体](#create-a-service-principal-to-access-resources)获取 `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` 变量。
 
-将 **Program.cs** 的内容替换为以下内容，使用应用值更新 `{variables}`（请不要包含 `{}`）。
+将 Program.cs 的内容替换为以下内容，使用应用值更新 `{variables}`（不包括 `{}`）。
 
 ```
 using Microsoft.Azure;
@@ -115,7 +117,7 @@ namespace SqlElasticPoolConsoleApp
             Console.WriteLine("Token acquired. Expires on:" + _token.ExpiresOn);
 
             // Instantiate management clients:
-            _resourceMgmtClient = new ResourceManagementClient(new Uri("https://management.chinacloudapi.cn/"), new Microsoft.Rest.TokenCredentials(_token.AccessToken));
+            _resourceMgmtClient = new ResourceManagementClient(new Microsoft.Rest.TokenCredentials(_token.AccessToken));
             _sqlMgmtClient = new SqlManagementClient(new TokenCloudCredentials(_subscriptionId, _token.AccessToken));
 
             Console.WriteLine("Resource group...");
@@ -235,9 +237,9 @@ namespace SqlElasticPoolConsoleApp
 }
 ```
 
-##<a id="create-a-service-principal-to-access-resources"></a>创建用于访问资源的服务主体
+## <a name="create-a-service-principal-to-access-resources"></a>创建用于访问资源的服务主体
 
-以下 PowerShell 脚本创建 Active Directory (AD) 应用程序，以及对 C# 应用进行身份验证时所需的服务主体。该脚本将输出前面 C# 示例所需的值。有关详细信息，请参阅[使用 Azure PowerShell 创建用于访问资源的服务主体](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
+以下 PowerShell 脚本将创建对 C# 应用进行身份验证所需的 Active Directory (AD) 应用程序和服务主体。 用于前面 C# 示例所需的脚本输出值。 有关详细信息，请参阅[使用 Azure PowerShell 创建服务主体以访问资源](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
 
 ```
 # Sign in to Azure.
@@ -278,14 +280,12 @@ Write-Output "_applicationId:" $azureAdApplication.ApplicationId.Guid
 Write-Output "_applicationSecret:" $secret
 ```
 
-## 后续步骤
+## <a name="next-steps"></a>后续步骤
 
-- [管理你的池](./sql-database-elastic-pool-manage-csharp.md)
+- [管理池](./sql-database-elastic-pool-manage-csharp.md)
 - [使用 Azure SQL 数据库进行扩展](./sql-database-elastic-scale-introduction.md)：使用弹性数据库工具进行扩展。
 
-## 其他资源
+## <a name="additional-resources"></a>其他资源
 
-- [SQL 数据库](/sql-database/)
+- [SQL 数据库](./index.yml)
 - [Azure 资源管理 API](https://msdn.microsoft.com/zh-cn/library/azure/dn948464.aspx)
-
-<!---HONumber=Mooncake_Quality_Review_1215_2016-->

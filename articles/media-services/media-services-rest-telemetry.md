@@ -1,12 +1,11 @@
 ---
-title: 使用 REST 配置 Azure 媒体服务遥测 |Azure
-description: 本文介绍如何通过 REST API 使用 Azure 媒体服务遥测...
+title: "使用 REST 配置 Azure 媒体服务遥测 |Azure"
+description: "本文介绍如何通过 REST API 使用 Azure 媒体服务遥测..."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services
 ms.workload: media
@@ -16,11 +15,15 @@ ms.topic: article
 origin.date: 01/12/2017
 ms.date: 02/24/2017
 ms.author: v-johch
+ms.openlocfilehash: 1d1dbd3315b035eead1b3308b8d28e49a1eb0065
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="configuring-azure-media-services-telemetry-with-rest"></a>使用 REST 配置 Azure 媒体服务遥测
 
-# 使用 REST 配置 Azure 媒体服务遥测
-
-本主题介绍使用 REST API 配置 Azure 媒体服务 (AMS) 遥测可采取的常规步骤。
+本主题介绍使用 REST API 配置 Azure 媒体服务 (AMS) 遥测可采取的常规步骤。 
 
 >[!NOTE]
 >有关 AMS 遥测定义和使用方法的详细介绍，请参阅[概述](./media-services-telemetry-overview.md)主题。
@@ -29,19 +32,19 @@ ms.author: v-johch
 
 - 获取与媒体服务帐户关联的存储帐户
 - 获取通知终结点
-- 创建用于监视的通知终结点。
+- 创建用于监视的通知终结点。 
 
-    若要创建通知终结点，将 EndPointType 设置为 AzureTable (2) 并将 endPontAddress 设置为存储表（例如 https://telemetryvalidationstore.table.core.chinacloudapi.cn/ ）。
+    若要创建通知终结点，将 EndPointType 设置为 AzureTable (2) 并将 endPontAddress 设置为存储表（例如 https://telemetryvalidationstore.table.core.chinacloudapi.cn/）。
 
 - 获取监视配置
 
-    为要监视的服务创建监视配置设置。最多允许一个监视配置设置。
+    为要监视的服务创建监视配置设置。 最多允许一个监视配置设置。 
 
 - 添加监视配置
 
-## 获取与媒体服务帐户关联的存储帐户
+## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>获取与媒体服务帐户关联的存储帐户
 
-###请求
+###<a name="request"></a>请求
 
 ```
 GET https://wamsbjbclus001rest-hs.chinacloudapp.cn/API/StorageAccounts HTTP/1.1
@@ -69,9 +72,9 @@ Date: Wed, 02 Dec 2015 05:10:40 GMT
 {"d":{"results":[{"__metadata":{"id":"https://wamsbjbclus001rest-hs.chinacloudapp.cn/api/StorageAccounts('telemetryvalidationstore')","uri":"https://wamsbjbclus001rest-hs.chinacloudapp.cn/api/StorageAccounts('telemetryvalidationstore')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.StorageAccount"},"Name":"telemetryvalidationstore","IsDefault":true,"BytesUsed":null}]}}
 ```
 
-## 获取通知终结点
+## <a name="get-the-notification-endpoints"></a>获取通知终结点
 
-###请求
+###<a name="request"></a>请求
 
 ```
 GET https://wamsbjbclus001rest-hs.chinacloudapp.cn/api/NotificationEndPoints HTTP/1.1
@@ -83,7 +86,7 @@ Authorization: (redacted)
 Host: wamsbjbclus001rest-hs.chinacloudapp.cn
 ```
 
-###响应
+###<a name="response"></a>响应
 ```
 HTTP/1.1 200 OK
 Cache-Control: no-cache
@@ -106,9 +109,9 @@ Date: Wed, 02 Dec 2015 05:10:40 GMT
 }
 ```
 
-## 创建用于监视的通知终结点
+## <a name="create-a-notification-endpoint-for-monitoring"></a>创建用于监视的通知终结点
 
-###请求
+###<a name="request"></a>请求
 
 ```
 POST https://wamsbjbclus001rest-hs.chinacloudapp.cn/api/NotificationEndPoints HTTP/1.1
@@ -129,9 +132,9 @@ Content-Length: 115
 ```
 
 >[!NOTE]
->请务必将 "https://telemetryvalidationstore.table.core.chinacloudapi.cn" 值更改为存储帐户。
+>请务必将“https://telemetryvalidationstore.table.core.chinacloudapi.cn”值更改为存储帐户。
 
-###响应
+###<a name="response"></a>响应
 
 ```
 HTTP/1.1 201 Created
@@ -152,9 +155,9 @@ Date: Wed, 02 Dec 2015 05:10:42 GMT
 {"d":{"__metadata":{"id":"https://wamsbjbclus001rest-hs.chinacloudapp.cn/api/NotificationEndPoints('nb%3Anepid%3AUUID%3A76bb4faf-ea29-4815-840a-9a8e20102fc4')","uri":"https://wamsbjbclus001rest-hs.chinacloudapp.cn/api/NotificationEndPoints('nb%3Anepid%3AUUID%3A76bb4faf-ea29-4815-840a-9a8e20102fc4')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.NotificationEndPoint"},"Id":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4","Name":"monitoring","Created":"\/Date(1449033042667)\/","EndPointAddress":"https://telemetryvalidationstore.table.core.chinacloudapi.cn/","EndPointType":2}}
 ```
 
-## 获取监视配置
+## <a name="get-the-monitoring-configurations"></a>获取监视配置
 
-### 请求
+### <a name="request"></a>请求
 
 ```
 GET https://wamsbjbclus001rest-hs.chinacloudapp.cn/api/MonitoringConfigurations HTTP/1.1
@@ -166,7 +169,7 @@ Authorization: (redacted)
 Host: wamsbjbclus001rest-hs.chinacloudapp.cn
 ```
 
-###响应
+###<a name="response"></a>响应
 
 ```
 HTTP/1.1 200 OK
@@ -186,9 +189,9 @@ Date: Wed, 02 Dec 2015 05:10:42 GMT
 {"d":{"results":[]}}
 ```
 
-## 添加监视配置
+## <a name="add-a-monitoring-configuration"></a>添加监视配置
 
-### 请求
+### <a name="request"></a>请求
 
 ```
 POST https://wamsbjbclus001rest-hs.chinacloudapp.cn/api/MonitoringConfigurations HTTP/1.1
@@ -212,7 +215,7 @@ Content-Length: 133
 }
 ```
 
-### 响应
+### <a name="response"></a>响应
 
 ```
 HTTP/1.1 201 Created
@@ -233,13 +236,13 @@ Date: Wed, 02 Dec 2015 05:10:43 GMT
 {"d":{"__metadata":{"id":"https://wamsbjbclus001rest-hs.chinacloudapp.cn/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')","uri":"https://wamsbjbclus001rest-hs.chinacloudapp.cn/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.MonitoringConfiguration"},"Id":"nb:mcid:UUID:1a8931ae-799f-45fd-8aeb-9641740295c2","NotificationEndPointId":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4","Created":"2015-12-02T05:10:43.7680396Z","LastModified":"2015-12-02T05:10:43.7680396Z","Settings":{"__metadata":{"type":"Collection(Microsoft.Cloud.Media.Vod.Rest.Data.Models.ComponentMonitoringSettings)"},"results":[{"Component":"Channel","Level":"Normal"},{"Component":"StreamingEndpoint","Level":"Disabled"}]}}}
 ```
 
-## 使用遥测信息
+## <a name="consuming-telemetry-information"></a>使用遥测信息
 
-有关使用遥测信息的信息，请参阅[此主题](./media-services-telemetry-overview.md)。
+有关使用遥测信息的信息，请参阅 [此主题](./media-services-telemetry-overview.md)。
 
-## 停止遥测
+## <a name="stop-telemetry"></a>停止遥测
 
-###请求
+###<a name="request"></a>请求
 
 ```
 DELETE https://wamsbjbclus001rest-hs.chinacloudapp.cn/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
@@ -251,6 +254,3 @@ Authorization: (redacted)
 Content-Type: application/json; charset=utf-8
 Host: wamsbjbclus001rest-hs.chinacloudapp.cn
 ```
-
-<!---HONumber=Mooncake_0220_2017-->
-<!--Update_Description: add request sample for "停止遥测"-->

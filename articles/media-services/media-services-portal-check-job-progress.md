@@ -1,12 +1,11 @@
 ---
-title: 如何使用 Azure 经典管理门户检查作业进度
-description: 了解如何使用 Azure 经典管理门户跟踪作业进度。
+title: "使用 Azure 门户监视编码作业进度"
+description: "本教程逐步演示如何使用 Azure 门户监视作业进度。"
 services: media-services
-documentationCenter: ''
+documentationCenter: 
 authors: juliako
 manager: erikre
-editor: ''
-
+editor: 
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -15,25 +14,36 @@ ms.topic: article
 origin.date: 08/29/2016
 ms.date: 10/10/2016
 ms.author: v-johch
+ms.openlocfilehash: 362bb7dee6bc4977beef9d4b18d9eb882f8dd229
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-#如何：检查作业进度
+#<a name="monitor-encoding-job-progress-with-the-azure-portal"></a>使用 Azure 门户监视编码作业进度
 
 > [!div class="op_single_selector"]
 >- [门户](./media-services-portal-check-job-progress.md)
 >- [.NET](./media-services-check-job-progress.md)
 >- [REST](./media-services-rest-check-job-progress.md)
 
-##使用门户检查作业状态
+## <a name="overview"></a>概述
 
-1. 在 [Azure 经典管理门户](http://manage.windowsazure.cn)中，单击“媒体服务”，然后单击媒体服务帐户名。
-2. 选择“作业”页。 
+> [!NOTE]
+> 若要完成本教程，你需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
 
-    在该页上，你可以看到所有作业的状态。你还可以按状态、时间或作业 ID 进行筛选。
+当你运行作业时，通常需要采用某种方式来跟踪作业进度。 
 
-    ![CheckStatus][checkstatus]
+若要监视编码作业的进度，请单击“设置”（位于页面顶部），然后选择“作业”。
 
+![作业](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+
+可通过单击作业查看更多详细信息。
+
+![作业](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
+
+##<a name="next-steps"></a>后续步骤
+
+完成编码作业后，可发布和播放资产，如 [此处](/documentation/artmedia-services-portal-publish.md)所述。
 
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
-
-<!---HONumber=Mooncake_0926_2016-->

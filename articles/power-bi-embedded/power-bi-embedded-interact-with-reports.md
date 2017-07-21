@@ -1,13 +1,12 @@
 ---
-title: 使用 JavaScript API 与报表进行交互 | Azure
-description: Power BI Embedded, 使用 JavaScript API 与报表进行交互
+title: "使用 JavaScript API 与报表进行交互 | Azure"
+description: "Power BI Embedded, 使用 JavaScript API 与报表进行交互"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
 ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
 ms.service: power-bi-embedded
 ms.devlang: NA
@@ -17,47 +16,51 @@ ms.workload: powerbi
 origin.date: 01/06/2017
 ms.date: 02/22/2017
 ms.author: v-junlch
+ms.openlocfilehash: a1a3f527ef2b490e259cad9e23ddc4ac3339a9e6
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>使用 JavaScript API 与 Power BI 报表进行交互
+Power BI JavaScript API 可以轻松将 Power BI 报表嵌入到应用程序中。 使用此 API，应用程序能够以编程方式与各种报表元素（例如页面和筛选器）进行交互。 这种交互这种交互性使 Power BI 报表与应用程序的集成更紧密。
 
-# 使用 JavaScript API 与 Power BI 报表进行交互
-Power BI JavaScript API 可以轻松将 Power BI 报表嵌入到应用程序中。使用此 API，应用程序能够以编程方式与各种报表元素（例如页面和筛选器）进行交互。这种交互这种交互性使 Power BI 报表与应用程序的集成更紧密。
+通过使用作为应用程序一部分托管的 IFrame，可将 Power BI 报表嵌入到应用程序中。 Iframe 充当应用程序与报表之间的边界，如下图中所示。 
 
-通过使用作为应用程序一部分托管的 IFrame，可将 Power BI 报表嵌入到应用程序中。Iframe 充当应用程序与报表之间的边界，如下图中所示。
+![不带 Javascript API 的 Power BI embedded iframe](./media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-1.png)
 
-![不带 Javascript API 的 Power BI embedded iframe](./media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-1.png)  
+iframe 使嵌入过程变得更容易，但是如果没有 JavaScript API，报表和应用程序相互之间将无法进行交互。 较少交互可能会让人感觉报表没有真正成为应用程序的一部分。 报表和应用程序之间实际上需要相互通信，如下图中所示。
 
-iframe 使嵌入过程变得更容易，但是如果没有 JavaScript API，报表和应用程序相互之间将无法进行交互。较少交互可能会让人感觉报表没有真正成为应用程序的一部分。报表和应用程序之间实际上需要相互通信，如下图中所示。
+![带 Javascript API 的 Power BI embedded iframe](./media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-2.png)
 
-![带 Javascript API 的 Power BI embedded iframe](./media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-2.png)  
+使用 Power BI JavaScript API，可以编写能够安全地通过 iframe 边界的代码。 这使得应用程序能够以编程方式在报表中执行操作，侦听由于用户在报表中执行操作而发生的事件。
 
-使用 Power BI JavaScript API，可以编写能够安全地通过 iframe 边界的代码。这使得应用程序能够以编程方式在报表中执行操作，侦听由于用户在报表中执行操作而发生的事件。
+## <a name="what-can-you-do-with-the-power-bi-javascript-api"></a>使用 Power BI JavaScript API 可以做什么？
+使用此 JavaScript API 可以管理报表、导航到报表中的页面、筛选报表以及处理嵌入的事件。 下图显示了此 API 的结构。
 
-## 使用 Power BI JavaScript API 可以做什么？
-使用此 JavaScript API 可以管理报表、导航到报表中的页面、筛选报表以及处理嵌入的事件。下图显示了此 API 的结构。
+![Power BI JavaScript API 图示](./media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-3.png)
 
-![Power BI JavaScript API 图示](./media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-3.png)  
-
-### 管理报表
+### <a name="manage-reports"></a>管理报表
 使用此 Javascript API 可以管理在报表和页面级别发生的行为：
 
-- 在应用程序中安全地嵌入特定的 Power BI 报表 - 请尝试[嵌入的演示应用程序](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
+- 在应用程序中安全地嵌入特定的 Power BI 报表 - 请尝试 [嵌入的演示应用程序](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
   - 设置访问令牌
 - 配置报表
-  - 启用和禁用筛选器窗格及页面导航窗格 - 请尝试[更新设置演示应用程序](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
-  - 为页面和筛选器设置默认值 - 请尝试[设置默认值演示](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
+  - 启用和禁用筛选器窗格及页面导航窗格 - 请尝试 [更新设置演示应用程序](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
+  - 为页面和筛选器设置默认值 - 请尝试 [设置默认值演示](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
 - 进入和退出全屏模式
 
 [了解有关嵌入报表的详细信息](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
-### 导航到报表中的页面
-可以使用此 JavaScript API 发现报表中的所有页面以及设置当前页面。请尝试[导航演示应用程序](http://azure-samples.github.io/powerbi-angular-client/#/scenario3)。
+### <a name="navigate-to-pages-in-a-report"></a>导航到报表中的页面
+可以使用此 JavaScript API 发现报表中的所有页面以及设置当前页面。 请尝试 [导航演示应用程序](http://azure-samples.github.io/powerbi-angular-client/#/scenario3)。
 
 [了解有关页面导航的详细信息](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation)
 
-### 筛选报表
-此 JavaScript API 针对嵌入的报表和报表页面提供了基本和高级筛选功能。请尝试[筛选演示应用程序](http://azure-samples.github.io/powerbi-angular-client/#/scenario4)，并查看此处的一些入门代码。
+### <a name="filter-a-report"></a>筛选报表
+此 JavaScript API 针对嵌入的报表和报表页面提供了基本和高级筛选功能。 请尝试 [筛选演示应用程序](http://azure-samples.github.io/powerbi-angular-client/#/scenario4)，并查看此处的一些入门代码。  
 
-#### 基本筛选器
+#### <a name="basic-filters"></a>基本筛选器
 基本筛选器置于列或层次结构级别，包含要包括或排除的值的列表。
 
 ```
@@ -72,10 +75,10 @@ const basicFilter: pbi.models.IBasicFilter = {
 }
 ```
 
-#### 高级筛选器
-高级筛选器使用逻辑运算符 AND 或 OR，接受一个或两个条件，每个条件都有其自己的运算符和值。支持的条件有：
+#### <a name="advanced-filters"></a>高级筛选器
+高级筛选器使用逻辑运算符 AND 或 OR，接受一个或两个条件，每个条件都有其自己的运算符和值。 支持的条件有：
 
-- None
+- 无
 - LessThan
 - LessThanOrEqual
 - GreaterThan
@@ -112,19 +115,19 @@ const basicFilter: pbi.models.IBasicFilter = {
 
 [了解有关筛选的详细信息](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Filters)
 
-### 处理事件
+### <a name="handling-events"></a>处理事件
 除了向 iframe 发送信息之外，应用程序还可以接收来自 iframe 的有关下列事件的信息：
 
 - 嵌入的元素
   - loaded
   - error
-- 报表
+- 报告
   - pageChanged
   - dataSelected（即将推出）
 
 [了解有关处理事件的详细信息](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Handling-Events)
 
-## 后续步骤
+## <a name="next-steps"></a>后续步骤
 有关 Power BI JavaScript API 的详细信息，请查看以下链接：
 
 - [JavaScript API Wiki](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
@@ -133,6 +136,3 @@ const basicFilter: pbi.models.IBasicFilter = {
   - [Angular](http://azure-samples.github.io/powerbi-angular-client)
   - [Ember](https://github.com/Microsoft/powerbi-ember)
 - [直播演示](https://microsoft.github.io/PowerBI-JavaScript/demo/)
-
-<!---HONumber=Mooncake_0213_2017-->
-<!---Update_Description: wording update -->

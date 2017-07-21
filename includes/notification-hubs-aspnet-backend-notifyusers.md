@@ -1,23 +1,23 @@
-## 创建 WebAPI 项目
+## <a name="create-the-webapi-project"></a>创建 WebAPI 项目
 
 新的 ASP.NET WebAPI 后端将会在后续部分中创建，该后端有三个主要用途：
 
 1. **对客户端进行身份验证**：稍后将会添加消息处理程序，以便对客户端请求进行身份验证，并将用户与请求相关联。
-2. **客户端通知注册**：稍后，你将要添加一个控制器来处理新的注册，使客户端设备能够接收通知。经过身份验证的用户名将作为[标记](https://msdn.microsoft.com/library/azure/dn530749.aspx)自动添加到注册。
-3. **将通知发送到客户端**：稍后，你还要添加一个控制器，以便用户对与标记关联的设备和客户端触发安全推送。 
+2. **客户端通知注册**：稍后将添加一个控制器来处理新的注册，使客户端设备能够接收通知。 经过身份验证的用户名将作为[标记](https://msdn.microsoft.com/library/azure/dn530749.aspx)自动添加到注册。
+3. **将通知发送到客户端**：稍后还要添加一个控制器，以便用户触发会发送到与标记关联的设备和客户端的安全推送。 
 
-以下步骤说明了如何创建新的 ASP.NET WebAPI 后端：
+以下步骤说明了如何创建新的 ASP.NET WebAPI 后端： 
 
 > [!NOTE]
->**重要提示**：在开始本教程之前，请确保已安装最新版本的 NuGet 程序包管理器。若要进行检查，请启动 Visual Studio。从“工具”菜单，单击“扩展和更新”。搜索“适用于 Visual Studio 2013 的 NuGet 程序包管理器”，并且确保具有版本 2.8.50313.46 或更高版本。否则，请卸载并重新安装 NuGet 程序包管理器。
+> **重要提示**：在开始学习本教程之前，请确保已安装最新版本的 NuGet 程序包管理器。 若要进行检查，请启动 Visual Studio。 从“工具”菜单中，单击“扩展和更新”。 搜索“适用于 Visual Studio 2013 的 NuGet 程序包管理器”，并且确保具有版本 2.8.50313.46 或更高版本。 否则，请卸载并重新安装 NuGet 程序包管理器。
 > 
 > ![][B4]
 
 > [!NOTE]
->请确保已安装 Visual Studio [Azure SDK](https://www.azure.cn/downloads/) 以便进行 Web 应用部署。
+> 请确保已安装 Visual Studio [Azure SDK](/downloads/) 以便进行网站部署。
 
-1. 启动 Visual Studio 或 Visual Studio Express。单击“服务器资源管理器”并登录到你的 Azure 帐户。Visual Studio 需要你登录才能在你的帐户中创建 Web 应用资源。
-2. 在 Visual Studio 中，依次单击“文件”、“新建”和“项目”，依次展开“模板”和“Visual C#”，然后依次单击“Web”和“ASP.NET Web 应用程序”，键入名称 **AppBackend**，然后单击“确定”。 
+1. 启动 Visual Studio 或 Visual Studio Express。 单击“服务器资源管理器”并登录到 Azure 帐户。 Visual Studio 需要用户登录才能在其帐户中创建网站资源。
+2. 在 Visual Studio 中，依次单击“文件”、“新建”和“项目”，依次展开“模板”和“Visual C#”，然后依次单击“Web”和“ASP.NET Web 应用程序”，键入名称“AppBackend”，然后单击“确定”。 
 
     ![][B1]
 
@@ -25,15 +25,15 @@
 
     ![][B2]
 
-4. 在“配置 Azure Web 应用”对话框中，选择订阅和你已创建的 **App Service 计划**。你也可以选择“创建新的 App Service 计划”，并通过对话框创建一个计划。在本教程中，你不需要使用数据库。选择 App Service 计划后，单击“确定”以创建项目。
+4. 在“配置 Microsoft Azure Web 应用”对话框中，选择已创建的订阅和应用服务计划。 也可以选择“创建新的应用服务计划”，并通过对话框创建一个计划。 在本教程中，不需要使用数据库。 选择应用服务计划后，单击“确定”创建项目。
 
     ![][B5]
 
-## 在 WebAPI 后端上对客户端进行身份验证
+## <a name="authenticating-clients-to-the-webapi-backend"></a>在 WebAPI 后端上对客户端进行身份验证
 
-在本部分，你将为新的后端创建名为 **AuthenticationTestHandler** 的新消息处理程序类。此类衍生自 [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) 并已添加为消息处理程序，以便处理传入后端的所有请求。
+在本部分中，将为新的后端创建名为 AuthenticationTestHandler 的新消息处理程序类。 此类派生自 [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) 并已添加为消息处理程序，以便处理传入后端的所有请求。 
 
-1. 在“解决方案资源管理器”中，右键单击“AppBackend”项目，单击“添加”，然后单击“类”。将新类命名为 **AuthenticationTestHandler.cs**，然后单击“添加”以生成该类。通过此类可简单地使用*基本身份验证* 对用户进行身份验证。请注意，您的应用可以使用所有身份验证方案。
+1. 在“解决方案资源管理器”中，右键单击“AppBackend”项目，单击“添加”，然后单击“类”。 将新类命名为 AuthenticationTestHandler.cs，然后单击“添加”生成该类。 为简单起见，将通过此类使用基本身份验证对用户进行身份验证。 请注意，应用可以使用所有身份验证方案。
 
 2. 在 AuthenticationTestHandler.cs 中，添加以下 `using` 语句：
 
@@ -45,16 +45,16 @@
     using System.Web;
     ```
 
-3. 在 AuthenticationTestHandler.cs 中，将 `AuthenticationTestHandler` 类定义替换为以下代码。
+3. 在 AuthenticationTestHandler.cs 中，将 `AuthenticationTestHandler` 类定义替换为以下代码。 
 
-    当以下三个条件都成立时，此处理程序将授权给请求：
-    * 请求包含 *Authorization* 标头。
-    * 请求使用*基本* 身份验证。
+    当以下三个条件都成立时，此处理程序将授权请求：
+    * 请求包含 Authorization 标头。 
+    * 请求使用基本身份验证。 
     * 用户名字符串和密码字符串是相同的字符串。
 
-    否则，将会拒绝该请求。这不是真正的身份验证和授权方法。它只是本教程中一个非常简单的示例。
+    否则，将会拒绝该请求。 这不是真正的身份验证和授权方法。 它只是本教程中一个非常简单的示例。
 
-    如果请求消息已经过 `AuthenticationTestHandler` 的身份验证和授权，则基本身份验证用户将附加到 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx) 上的当前请求。然后，另一个控制器 (RegisterController) 会使用 HttpContext 中的用户信息，将[标记](https://msdn.microsoft.com/library/azure/dn530749.aspx)添加到通知注册请求。
+    如果请求消息已经过 `AuthenticationTestHandler` 的身份验证和授权，则基本身份验证用户将附加到 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx) 上的当前请求。 稍后，另一个控制器 (RegisterController) 会使用 HttpContext 中的用户信息，将[标记](https://msdn.microsoft.com/library/azure/dn530749.aspx)添加到通知注册请求。
 
     ```
     public class AuthenticationTestHandler : DelegatingHandler
@@ -106,9 +106,9 @@
     ```
 
     > [!NOTE]
-    >**安全说明**：`AuthenticationTestHandler` 类不提供真正的身份验证。它仅用于模拟基本身份验证并且是不安全的。您必须在生产应用程序和服务中实现安全的身份验证机制。
+    > 安全说明：`AuthenticationTestHandler` 类不提供真正的身份验证。 它仅用于模拟基本身份验证并且是不安全的。 必须在生产应用程序和服务中实现安全的身份验证机制。                
 
-4. 在 **App\_Start/WebApiConfig.cs** 类中 `Register` 方法的末尾添加以下代码，以注册消息处理程序：
+4. 在 App_Start/WebApiConfig.cs 类中 `Register` 方法的末尾添加以下代码，注册消息处理程序：
 
     ```
     config.MessageHandlers.Add(new AuthenticationTestHandler());
@@ -116,19 +116,19 @@
 
 5. 保存所做更改。
 
-## 使用 WebAPI 后端注册通知
+## <a name="registering-for-notifications-using-the-webapi-backend"></a>使用 WebAPI 后端注册通知
 
-在本部分，我们要将新的控制器添加到 WebAPI 后端来处理请求，以使用通知中心的客户端库为用户和设备注册通知。控制器将为已由 `AuthenticationTestHandler` 验证并已附加到 HttpContext 的用户添加用户标记。该标记采用以下字符串格式：`"username:<actual username>"`。
+在本部分，我们要将新的控制器添加到 WebAPI 后端来处理请求，以便使用通知中心的客户端库为用户和设备注册通知。 控制器将为已由 `AuthenticationTestHandler` 验证并已附加到 HttpContext 的用户添加用户标记。 该标记采用以下字符串格式：`"username:<actual username>"`。
 
-1. 在“解决方案资源管理器”中，右键单击“AppBackend”项目，然后单击“管理 NuGet 程序包”。
+1. 在“解决方案资源管理器”中，右键单击“AppBackend”项目，然后单击“管理 NuGet 包”。
 
-2. 在左侧，单击“联机”，然后在“搜索”框中搜索 **Microsoft.Azure.NotificationHubs**。
+2. 在左侧，单击“联机”，然后在“搜索”框中搜索 Microsoft.Azure.NotificationHubs。
 
-3. 在结果列表中，单击“Azure 通知中心”，然后单击“安装”。完成安装后，关闭“NuGet 程序包管理器”窗口。
+3. 在结果列表中，单击“Microsoft Azure 通知中心”，然后单击“安装”。 完成安装后，关闭“NuGet 程序包管理器”窗口。
 
     这将使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 程序包</a>添加对 Azure 通知中心 SDK 的引用。
 
-4. 现在，我们要创建新的类文件，用于表示所要发送的不同安全通知。在完整的实现中，这些通知存储在某个数据库中。为简单起见，本教程将这些通知存储在内存中。在“解决方案资源管理器”中，右键单击“Models”文件夹，单击“添加”，然后单击“类”。将新类命名为 **Notifications.cs**，然后单击“添加”以生成该类。
+4. 现在将创建一个新的类文件，该文件表示要发送的其他安全通知。 在完整的实现中，通知存储在数据库中。 为简单起见，本教程将其存储在内存中。 在“解决方案资源管理器”中，右键单击“模型”文件夹，单击“添加”，然后单击“类”。 将新类命名为 Notifications.cs，然后单击“添加”生成该类。 
 
     ![][B6]
 
@@ -138,7 +138,7 @@
     using Microsoft.Azure.NotificationHubs;
     ```
 
-6. 将 `Notifications` 类定义替换为以下内容并确保将两个占位符替换为通知中心的连接字符串（具有完全访问权限）和中心名称（可在 [Azure 经典管理门户](http://manage.windowsazure.cn)中找到）：
+6. 将 `Notifications` 类定义替换为以下内容并确保将两个占位符替换为通知中心的连接字符串（具有完全访问权限）和中心名称（可在 [Azure 管理门户](http://manage.windowsazure.com)中找到）：
 
     ```
     public class Notifications
@@ -154,7 +154,7 @@
     }
     ```
 
-7. 接下来，我们将创建一个名为 **RegisterController** 的新控制器。在“解决方案资源管理器”中，右键单击“Controllers”文件夹，然后依次单击“添加”和“控制器”。单击“Web API 2 Controller -- Empty”项目，然后单击“添加”。将新类命名为 **RegisterController**，然后再次单击“添加”以生成该控制器。
+7. 接下来，创建一个名为 RegisterController 的新控制器。 在“解决方案资源管理器”中，右键单击“控制器”文件夹，然后依次单击“添加”和“控制器”。 单击“Web API 2 Controller -- Empty”项目，然后单击“添加”。 将新类命名为 RegisterController，然后再次单击“添加”生成该控制器。
 
     ![][B7]
 
@@ -170,7 +170,7 @@
     using System.Web;
     ```
 
-9. 在 `RegisterController` 类定义中添加以下代码：请注意，在此代码中，我们将为已附加到 HttpContext 的用户添加用户标记。添加的消息筛选器 `AuthenticationTestHandler` 将对该用户进行身份验证并将其附加到 HttpContext。还可以通过添加可选复选框来验证用户是否有权注册以获取请求标记。
+9. 在 `RegisterController` 类定义中添加以下代码。 请注意，在此代码中，我们将为已附加到 HttpContext 的用户添加用户标记。 添加的消息筛选器 `AuthenticationTestHandler` 将对该用户进行身份验证并将其附加到 HttpContext。 还可以通过添加可选复选框来验证用户是否有权注册以获取请求标记。
 
     ```
     private NotificationHubClient hub;
@@ -280,11 +280,11 @@
 
 10. 保存所做更改。
 
-## 从 WebAPI 后端发送通知
+## <a name="sending-notifications-from-the-webapi-backend"></a>从 WebAPI 后端发送通知
 
-在本部分，你将添加新的控制器，以便客户端设备使用 ASP.NET WebAPI 后端中的 Azure 通知中心服务管理库根据用户名标记发送通知。
+在本部分，将添加新的控制器，以便客户端设备使用 ASP.NET WebAPI 后端中的 Azure 通知中心服务管理库根据用户名标记发送通知。
 
-1. 创建另一个名为 **NotificationsController** 的新控制器。以你在上一节中创建 **RegisterController** 的相同方式来创建新控制器。
+1. 创建另一个名为 NotificationsController 的新控制器。 以在上一节中创建 RegisterController 的相同方式来创建它。
 
 2. 在 NotificationsController.cs 中，添加以下 `using` 语句：
 
@@ -294,11 +294,11 @@
     using System.Web;
     ```
 
-3. 在 **NotificationsController** 类中添加以下方法。
+3. 在 NotificationsController 类中添加以下方法。
 
-    此代码将会根据平台通知服务 (PNS) `pns` 参数发送相应类型的通知。`to_tag` 的值用于设置消息中的 *username* 标记。此标记必须与活动的通知中心注册的用户名标记相匹配。将从 POST 请求正文提取通知消息，并根据目标 PNS 将其格式化。
+    此代码将会根据平台通知服务 (PNS) `pns` 参数发送相应类型的通知。 `to_tag` 的值用于设置消息中的 username 标记。 此标记必须与活动的通知中心注册的用户名标记相匹配。 将从 POST 请求正文提取通知消息，并根据目标 PNS 将其格式化。 
 
-    根据受支持设备用来接收通知的平台通知服务 (PNS)，支持使用不同的格式接收不同的通知。例如，在 Windows 设备上，可以使用其他 PNS 不能直接支持的 [toast 通知和 WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx)。因此，后端需要将通知格式化为你打算使用的设备 PNS 所支持的通知。然后，对 [NotificationHubClient 类](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)使用相应的 send API
+    根据受支持设备用来接收通知的平台通知服务 (PNS)，支持使用不同的格式接收不同的通知。 例如，在 Windows 设备上，可以使用其他 PNS 不直接支持的 [toast 通知和 WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx)。 因此，后端需要将通知格式化为用户打算使用的设备 PNS 所支持的通知。 然后，对 [NotificationHubClient 类](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)使用相应的发送 API
 
     ```
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
@@ -321,12 +321,12 @@
                 break;
             case "apns":
                 // iOS
-                var alert = "{"aps":{"alert":"" + "From " + user + ": " + message + ""}}";
+                var alert = "{\"aps\":{\"alert\":\"" + "From " + user + ": " + message + "\"}}";
                 outcome = await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
                 break;
             case "gcm":
                 // Android
-                var notif = "{ "data" : {"message":"" + "From " + user + ": " + message + ""}}";
+                var notif = "{ \"data\" : {\"message\":\"" + "From " + user + ": " + message + "\"}}";
                 outcome = await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
                 break;
         }
@@ -344,13 +344,13 @@
     }
     ```
 
-4. 按 **F5** 运行应用程序并确保到目前为止操作的准确性。该应用应启动 Web 浏览器，然后显示 ASP.NET 主页。
+4. 按 F5 运行应用程序并确保到目前为止操作的准确性。 该应用应启动 Web 浏览器，然后显示 ASP.NET 主页。 
 
-##发布新的 WebAPI 后端
+##<a name="publish-the-new-webapi-backend"></a>发布新的 WebAPI 后端
 
-1. 现在，我们将此应用部署到 Azure Web 应用，以便可以从任意设备访问它。右键单击 **AppBackend** 项目，然后选择“发布”。
+1. 现在，将此应用部署到 Azure 网站，以便可以从任意设备访问它。 右键单击 AppBackend 项目，然后选择“发布”。
 
-2. 选择“Azure Web Apps”作为发布目标。
+2. 选择“Microsoft Azure Web 应用”作为发布目标。
 
     ![][B15]
 
@@ -358,7 +358,7 @@
 
     ![][B16]
 
-4. 记下“连接”选项卡中的“目标 URL”属性。在本教程后面的部分中，我们将此 URL 称为*后端终结点*。单击“发布”。
+4. 记下“连接”选项卡中的“目标 URL”属性。 在本教程后面的部分中，我们将此 URL 称为 *后端终结点* 。 单击“发布”。
 
     ![][B18]
 
@@ -374,5 +374,3 @@
 [B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
-
-<!---HONumber=Mooncake_0104_2016-->

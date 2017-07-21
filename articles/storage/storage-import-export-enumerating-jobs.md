@@ -1,12 +1,11 @@
 ---
-title: 列出所有 Azure 导入/导出作业 | Microsoft 文档
-description: 了解如何列出订阅中的所有 Azure 导入/导出服务作业。
+title: "列出所有 Azure 导入/导出作业 | Microsoft 文档"
+description: "了解如何列出订阅中的所有 Azure 导入/导出服务作业。"
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: ''
-
+documentationcenter: 
 ms.assetid: f2e619be-1bbd-4a54-9472-9e2f70a83b64
 ms.service: storage
 ms.workload: storage
@@ -16,10 +15,14 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 03/20/2017
 ms.author: v-johch
+ms.openlocfilehash: 28ee925f5da9543de299fdd8e55f85da574a1ca3
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# 枚举 Azure 导入/导出服务中的作业
-若要枚举某个订阅中的所有作业，请调用[列出作业](https://docs.microsoft.com/zh-cn/rest/api/storageimportexport/jobs#Jobs_List)操作。“`List Jobs`”将返回作业列表及以下属性：
+# <a name="enumerating-jobs-in-the-azure-importexport-service"></a>枚举 Azure 导入/导出服务中的作业
+若要枚举某个订阅中的所有作业，请调用 [列出作业](https://docs.microsoft.com/en-us/rest/api/storageimportexport/jobs#Jobs_List) 操作。 `List Jobs` ”将返回作业列表及以下属性：
 
 -   作业的类型（导入或导出）
 
@@ -27,8 +30,5 @@ ms.author: v-johch
 
 -   作业的关联存储帐户
 
-## 另请参阅
+## <a name="see-also"></a>另请参阅
  [使用导入/导出服务 REST API](./storage-import-export-using-the-rest-api.md)
-
-<!---HONumber=Mooncake_0313_2017-->
-<!--Update_Description: update page title-->

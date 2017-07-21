@@ -1,108 +1,75 @@
 ---
-title: Azure Active Directory 开发人员指南 | Azure
-description: 本文提供面向开发人员的 Azure Active Directory 资源的综合性指南。
+title: "针对开发人员的 Azure Active Directory | Microsoft Docs"
+description: "本文概述了如何使用 Azure Active Directory 登录 Microsoft 工作和学校帐户。"
 services: active-directory
-documentationcenter: dev-center-name
-author: bryanla
-manager: mbaldwin
-editor: ''
-
+author: alexchen2016
+manager: digimobile
+editor: 
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 12/09/2016
-ms.date: 01/05/2017
+origin.date: 04/07/2017
+ms.date: 06/26/2017
 ms.author: v-junlch
+ms.custom: aaddev
+ms.openlocfilehash: 27bd0bd39822273159e3a807986638d3d846e06a
+ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/29/2017
 ---
+# <a name="azure-active-directory-for-developers"></a>针对开发人员的 Azure Active Directory
+Azure Active Directory 是一项云标识服务，开发人员可以使用它将任何用户登录到 Microsoft 支持的工作或学校帐户。  本文档介绍了如何使用行业的标准身份验证协议、OAuth 与 OpenID Connect 向应用程序添加 Azure AD 支持。
 
-# Azure Active Directory 开发人员指南
-## 概述
-作为标识管理即服务 (IDMaaS) 平台，Azure Active Directory (AD) 为开发人员提供了有效的方法，将标识管理功能集成到其应用程序中。以下文章概述了 Azure AD 的实现和主要功能。我们建议按顺序阅读这些文章。如果要深入了解，请转到[入门](#getting-started)。
+| | |
+| --- | --- |
+|[身份验证基础知识](active-directory-authentication-scenarios.md) | 使用 Azure AD 进行身份验证简介 |
+|[应用程序的类型](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Azure AD 支持的身份验证方案概述 |                                
+                                                                              
+## <a name="get-started"></a>入门
+这些指导性的设置演示了如何使用身份验证库让 Azure Active Directory 用户登录。
 
-1. [Azure AD 集成的好处](./active-directory-how-to-integrate.md)：了解与 Azure AD 集成为何能够提供最佳的安全登录和授权解决方案。
-2. [Azure AD 身份验证方案](./active-directory-authentication-scenarios.md)：利用 Azure AD 中的简化身份验证来登录应用程序。
-3. [将应用程序与 Azure AD 集成](./active-directory-integrating-applications.md)：了解如何从 Azure AD 添加、更新和删除应用程序，以及集成应用的品牌准则。
-4. [Azure AD 图形 API](./active-directory-graph-api.md)：使用 Azure AD 图形 API 通过 REST API 终结点以编程方式访问 Azure AD。也可以通过 [Microsoft Graph](https://graph.microsoft.io/) 访问 Azure AD 图形 API。Microsoft Graph 提供统一的 API，可以通过单个 REST API 终结点和单个访问令牌访问多个 Microsoft 云服务 API。
-5. [Azure AD 身份验证库](./active-directory-authentication-libraries.md)：使用适用于 .NET、JavaScript、Objective-C、Android 及其他语言的 Azure AD 身份验证库，轻松对用户进行身份验证，获取访问令牌。
+|  |  |  |  |
+| --- | --- | --- | --- |
+| <center>![移动应用和桌面应用](./media/active-directory-developers-guide/NativeApp_Icon.png)<br />移动应用和桌面应用</center> | [概述](active-directory-authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](active-directory-devquickstarts-ios.md)<br /><br />[Android](active-directory-devquickstarts-android.md) | [.NET](active-directory-devquickstarts-dotnet.md)<br /><br />[Windows](active-directory-devquickstarts-windowsstore.md)<br /><br />[Xamarin](active-directory-devquickstarts-xamarin.md) | [Cordova](active-directory-devquickstarts-cordova.md)<br /><br />[OAuth 2.0](active-directory-protocols-oauth-code.md) |
+| <center>![Web 应用](./media/active-directory-developers-guide/Web_app.png)<br />Web 应用</center> | [概述](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)<br /><br />[OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) |  |
+| <center>![单页应用](./media/active-directory-developers-guide/SPA.png)<br />单页应用</center> | [概述](active-directory-authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |  |
+| <center>![Web API](./media/active-directory-developers-guide/Web_API.png)<br />Web API</center> | [概述](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[NodeJS](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
+| <center>![服务到服务](./media/active-directory-developers-guide/Service_App.png)<br />服务到服务</center> | [概述](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)<br /><br />[OAuth 2.0 客户端凭据](active-directory-protocols-oauth-service-to-service.md) |  |
 
-## 入门 <a name="getting-started"></a>
-以下教程是专门针对多种平台编写的，可帮助快速开始使用 Azure Active Directory 进行开发。先决条件是必须[获取一个 Azure Active Directory 租户](./active-directory-howto-tenant.md)。
+## <a name="guides"></a>指南
+这些文章介绍如何使用 Azure Active Directory 执行常见任务。
 
-### 移动和电脑应用程序快速入门指南
-| [![iOS](./media/active-directory-developers-guide/ios.png)](./active-directory-devquickstarts-ios.md) | [![Android](./media/active-directory-developers-guide/android.png)](./active-directory-devquickstarts-android.md) | [![.NET](./media/active-directory-developers-guide/net.png)](./active-directory-devquickstarts-dotnet.md) | [![Windows Universal](./media/active-directory-developers-guide/windows.png)](./active-directory-devquickstarts-windowsstore.md) | [![Xamarin](./media/active-directory-developers-guide/xamarin.png)](./active-directory-devquickstarts-xamarin.md) | [![Cordova](./media/active-directory-developers-guide/cordova.png)](./active-directory-devquickstarts-cordova.md) | [![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](./active-directory-protocols-oauth-code.md) |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| [iOS](./active-directory-devquickstarts-ios.md) |[Android](./active-directory-devquickstarts-android.md) |[.NET](./active-directory-devquickstarts-dotnet.md) |[Windows Universal](./active-directory-devquickstarts-windowsstore.md) |[Xamarin](./active-directory-devquickstarts-xamarin.md) |[Cordova](./active-directory-devquickstarts-cordova.md) |[直接与 OAuth 2.0 集成](./active-directory-protocols-oauth-code.md) |
+|                                                                           |  |
+|---------------------------------------------------------------------------| --- |
+|[多租户应用](active-directory-devhowto-multi-tenant-overview.md)    | 如何登录任何 Microsoft 工作帐户 |
+|[OAuth 与 OpenID Connect](active-directory-protocols-openid-connect-code.md)| 如何使用我们的新式身份验证协议使用户登录并调用 Web API |
+|[更多指南...](active-directory-developers-guide-index.md#guides)        |     |
 
-### Web 应用程序快速入门指南  <a name="web-application-quick-start-guides"></a>
-| [![.NET](./media/active-directory-developers-guide/net.png)](./active-directory-devquickstarts-webapp-dotnet.md) | [![Java](./media/active-directory-developers-guide/java.png)](./active-directory-devquickstarts-webapp-java.md) | [![AngularJS](./media/active-directory-developers-guide/angularjs.png)](./active-directory-devquickstarts-angular.md) | [![Javascript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](./active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](./active-directory-protocols-openid-connect-code.md) |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| [.NET](./active-directory-devquickstarts-webapp-dotnet.md) |[Java](./active-directory-devquickstarts-webapp-java.md) |[AngularJS](./active-directory-devquickstarts-angular.md) |[Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.js](./active-directory-devquickstarts-openidconnect-nodejs.md) |[直接与 OpenID Connect 集成](./active-directory-protocols-openid-connect-code.md) |
+## <a name="reference"></a>引用
+这些文章详细介绍了在 Azure Active Directory 中使用的 API、协议消息和术语。
 
-### Web API 快速入门指南
-| [![.NET](./media/active-directory-developers-guide/net.png)](./active-directory-devquickstarts-webapi-dotnet.md) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](./active-directory-devquickstarts-webapi-nodejs.md) |
-|:---:|:---:|
-| [.NET](./active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](./active-directory-devquickstarts-webapi-nodejs.md) |
+|                                                                                   | |
+| ----------------------------------------------------------------------------------| --- |
+| [身份验证库 (ADAL)](active-directory-authentication-libraries.md)   | Azure AD 提供的库和 SDK 的概述 |
+| [代码示例](active-directory-code-samples.md)                                  | 所有 Azure AD 代码示例的列表 |
+| [术语表](active-directory-dev-glossary.md)                                      | 本文档通篇使用的术语和单词的定义 |
+| [更多参考资料...](active-directory-developers-guide-index.md#reference)|     |
 
-### 查询目录快速入门指南
-| [![.NET](./media/active-directory-developers-guide/graph.png)](./active-directory-graph-api-quickstart.md) |
-|:---:|
-| [图形 API](./active-directory-graph-api-quickstart.md) |
+## <a name="help--support"></a>帮助和支持
+可以通过这些地方获取在 Azure Active Directory 上进行开发的帮助。
 
-## 操作方法
-以下文章介绍如何使用 Azure Active Directory 执行特定任务：
+|  |  
+|---|
+|[Stack Overflow 的 `azure-active-directory` 和 `adal` 标记](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
+|[有关 Azure Active Directory 的反馈](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
+| [试用 Microsoft 开发人员聊天（限时免费）](http://aka.ms/devchat) |
 
-- [获取 Azure AD 租户](./active-directory-howto-tenant.md)
-- [通过多租户应用程序模式使 Azure AD 用户登录](./active-directory-devhowto-multi-tenant-overview.md)
-- [对使用证书的服务/后台应用程序进行身份验证](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/)
-- 使用 ADAL 在 [Android](./active-directory-sso-android.md) 和 [iOS](./active-directory-sso-ios.md) 设备上实现跨应用 SSO
-- [针对 Azure AD 认证 AppSource 应用程序](./active-directory-devhowto-appsource-certified.md)
-- [将适用于 Office 365 的 Web 应用提交到卖家仪表板](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
-- [了解 Azure Active Directory 应用程序清单](./active-directory-application-manifest.md)
-- [了解客户端应用程序中登录按钮和应用获取按钮的品牌准则](./active-directory-branding-guidelines.md)
-- [预览：如何构建可以使用个人帐户和工作或学校帐户来登录用户的应用](./active-directory-appmodel-v2-overview.md)
-- [预览：使用 PowerShell 在 Azure AD 中配置令牌生存期](../active-directory-configurable-token-lifetimes.md)。请参阅[策略操作](https://msdn.microsoft.com/zh-cn/library/azure/ad/graph/api/policy-operations)和[策略实体](https://msdn.microsoft.com/zh-cn/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity)，了解有关通过 Azure AD 图形 API 进行配置的详细信息。
+<br />
 
-## 引用
-以下文章提供了有关 REST 和身份验证库 API、协议、错误、代码示例和终结点的基础参考信息。
+> [!NOTE]
+> 若需登录 Microsoft 个人帐户，可以考虑使用 [Azure AD v2.0 终结点](active-directory-appmodel-v2-overview.md)。  Azure AD v2.0 终结点将 Microsoft 个人帐户和 Microsoft 工作帐户（由 Azure AD 提供）统一成单个身份验证系统。
 
-### 支持
-- [已标记问题](http://stackoverflow.com/questions/tagged/azure-active-directory)：通过搜索标记 [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 和 [adal](http://stackoverflow.com/questions/tagged/adal) 查找有关堆栈溢出的 Azure Active Directory 解决方案。
-- 请参阅 [Azure AD 开发人员术语表](./active-directory-dev-glossary.md)，了解应用程序开发和集成的一些相关常用术语。
-
-### 代码
-- [Azure Active Directory 开放源代码库](http://github.com/AzureAD)：查找库源代码的最简单方法是使用我们的[库列表](./active-directory-authentication-libraries.md)。
-- [Azure Active Directory 示例](https://github.com/azure-samples?query=active-directory)：浏览示例列表的最简单办法是使用[代码示例的索引](./active-directory-code-samples.md)。
-- [用于 .NET 的 Active Directory 身份验证库 (ADAL)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) - 适用于[最新主要版本](https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)和[以前主要版本](https://docs.microsoft.com/active-directory/adal/v2/microsoft.identitymodel.clients.activedirectory)的参考文档。
-
-### 图形 API
-- [Graph API 参考](https://msdn.microsoft.com/zh-cn/library/azure/hh974476.aspx)：Azure Active Directory Graph API 的 REST 参考。[查看交互式 Graph API 参考体验](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
-- [Graph API 权限范围](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)：OAuth 2.0 权限范围，该权限范围用于控制应用对租户中目录数据的访问权限。
-
-### 身份验证和授权协议
-- [Azure AD 中的签名密钥滚动更新](./active-directory-signing-key-rollover.md)：了解 Azure AD 的签名密钥滚动更新频率，以及如何更新最常见应用程序方案的密钥。
-- [OAuth 2.0 协议：使用授权代码授权](./active-directory-protocols-oauth-code.md)：可以使用 OAuth 2.0 协议的授权代码授权，授予对 Azure Active Directory 租户中 Web 应用程序和 Web API 的访问权限。
-- [OAuth 2.0 协议：了解隐式授权](./active-directory-dev-understanding-oauth2-implicit-grant.md)：了解隐式授权，以及它是否适合自己的应用程序。
-- [OAuth 2.0 协议：使用客户端凭据进行服务到服务的调用](./active-directory-protocols-oauth-service-to-service.md)：OAuth 2.0 客户端凭据授权允许 Web 服务（机密客户端）在调用其他 Web 服务时使用自己的凭据进行身份验证，而不是模拟用户。在这种情况下，客户端通常是中间层 Web 服务、后台程序服务或网站。
-- [OpenID Connect 1.0 协议：登录和身份验证](./active-directory-protocols-openid-connect-code.md)：OpenID Connect 1.0 协议扩展了 OAuth 2.0，使其能够用作身份验证协议。客户端应用程序可以接收 id\_token 来管理登录过程，或增加授权代码流，同时接收 id\_token 和授权代码。
-- [SAML 2.0 协议参考](./active-directory-saml-protocol-reference.md)：SAML 2.0 协议使应用程序能够为其用户提供单一登录体验。
-- [WS 联合身份验证 1.2 协议](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html)：Azure Active Directory 根据 Web Services 联合身份验证版本 1.2 规范支持 WS 联合身份验证 1.2。若要了解联合元数据文档，请参阅[联合元数据](./active-directory-federation-metadata.md)。
-- [支持的令牌和声明类型](./active-directory-token-and-claims.md)：可以通过本指南来了解和评估 SAML 2.0 令牌与 JSON Web 令牌 (JWT) 中的声明。
-
-### 构建
-这些概述演示文稿关于使用本身就在工程团队中工作的 Azure Active Directory 功能发言人来开发应用。演示文稿涵盖了各重要主题，包括 IDMaaS、身份验证、联合身份验证以及单一登录。
-
-## 社交
-- [Active Directory 团队博客](http://blogs.technet.com/b/ad/)：Azure Active Directory 领域的最新开发情况。
-- [Azure Active Directory Graph 团队博客](http://blogs.msdn.com/b/aadgraphteam)：特定于图形 API 的 Azure Active Directory 信息。
-- [云标识](http://www.cloudidentity.com/blog/)：从 Azure Active Directory PM 原理的角度讲解标识管理即服务的设计理念。
-
-## Windows Server 本地开发
-有关使用 Windows Server 和 Active Directory 联合身份验证服务 (ADFS) 进行开发的指南，请参阅：
-
-- [面向开发人员的 AD FS 方案](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)：概述 AD FS 的组件及其工作原理，提供有关支持的身份验证/授权方案的详细信息。
-- [AD FS 演练](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development)：逐步说明如何实施相关身份验证/授权流程的演练文章的列表。
-
-<!---HONumber=Mooncake_1226_2016-->

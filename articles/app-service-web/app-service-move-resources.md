@@ -1,12 +1,12 @@
 ---
-title: 将 Web 应用资源移到另一个资源组
-description: 介绍将 Web 应用和 App Service 从一个资源组移到另一个资源组的方案。
+title: "将 Web 应用资源迁移到另一个资源组"
+description: "介绍了可以将 Web 应用和应用服务从一个资源组迁移到另一个资源组的方案。"
 services: app-service
-documentationCenter: ''
-authors: ZainRizvi
-manager: wpickett
-editor: ''
-
+documentationcenter: 
+author: ZainRizvi
+manager: erikre
+editor: 
+ms.assetid: 22f97607-072e-4d1f-a46f-8d500420c33c
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -15,16 +15,20 @@ ms.topic: article
 origin.date: 12/21/2016
 ms.date: 03/01/2017
 ms.author: v-dazen
+ms.openlocfilehash: 384461aadf19f353dbdcd92f3ed585beba1ebe3c
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="supported-move-configurations"></a>受支持的迁移配置
+可以使用 [Resource Manager 迁移资源 API](../azure-resource-manager/resource-group-move-resources.md) 迁移 Azure Web 应用资源。
 
-# 受支持的迁移配置
+Azure Web 应用目前支持以下迁移方案：
 
-你可以使用 [ARM 迁移资源 API](../azure-resource-manager/resource-group-move-resources.md) 迁移 Azure Web 应用资源。
+* 将资源组（Web 应用、应用服务计划和证书）的所有内容迁移到另一个资源组。 
 
-Azure Web 应用当前支持以下迁移方案：
+   > [!Note]
+   > 此方案中，目标资源组不能包含任何 Microsoft.Web 资源。
 
-* 将一个资源组的整个内容（ Web 应用、App Service 计划和证书）移到另一个资源组 
-    * 请注意：在此方案中，目标资源组不能包含任何 Microsoft.Web 资源
-* 将单独 Web 应用移到不同的资源组，同时仍然在其当前 App Service 计划中托管这些 Web 应用（该 App Service 计划保留在旧资源组中）
-
-<!---HONumber=Mooncake_0118_2016-->
+* 将一个 Web 应用迁移到其他资源组，同时仍然在其当前应用服务计划中托管该 Web 应用（旧资源组中仍然保留该应用服务计划）。

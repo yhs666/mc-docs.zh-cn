@@ -1,13 +1,12 @@
 ---
-title: 使用 PowerShell 创建 NSG | Azure
-description: 了解如何使用 PowerShell 创建 NSG | Resource Manager。
+title: "创建网络安全组 — Azure PowerShell | Azure"
+description: "了解如何使用 PowerShell 创建和部署网络安全组。"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-
 ms.assetid: 9cef62b8-d889-4d16-b4d0-58639539a418
 ms.service: virtual-network
 ms.devlang: na
@@ -17,23 +16,29 @@ ms.workload: infrastructure-services
 origin.date: 02/23/2016
 ms.date: 01/13/2017
 ms.author: v-dazen
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 42431bc6b55caa731c24312ccc03ae85e2b445ba
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
+# <a name="create-network-security-groups-using-powershell"></a>使用 PowerShell 创建网络安全组
 
-# 使用 PowerShell 创建 NSG
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-Azure 有两个部署模型：Azure Resource Manager 和经典模型。Azure 建议通过 Resource Manager 部署模型创建资源。若要深入了解这两个模型之间的差异，请阅读[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)一文。本文介绍 Resource Manager 部署模型。你还可以[在经典部署模型中创建 NSG](./virtual-networks-create-nsg-classic-ps.md)。
+Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure 建议通过 Resource Manager 部署模型创建资源。 若要详细了解这两个模型之间的差异，请阅读[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)一文。 本文介绍 Resource Manager 部署模型。 还可[在经典部署模型中创建 NSG](virtual-networks-create-nsg-classic-ps.md)。
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-下面的示例 PowerShell 命令需要一个已经基于上述方案创建的简单环境。如果你想要运行本文档中所显示的命令，首先通过部署[此模板](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd)构建测试环境，单击“部署至 Azure”，如有必要替换默认参数值，然后按照门户中的说明进行操作。
+以下示例 PowerShell 命令需要基于以上方案创建的简单环境。 若要运行本文档中所显示的命令，请首先通过部署[此模板](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd)构建测试环境，单击“**部署至 Azure**”，根据需要替换默认参数值，然后按照门户中的说明进行操作。
 
-## 如何为前端子网创建 NSG
+## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>如何为前端子网创建 NSG
 若要根据方案创建名为 *NSG-FrontEnd* 的 NSG，请完成以下步骤：
 
-1. 如果从未使用过 Azure PowerShell，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)，按照说明逐步完成操作，登录到 Azure 并选择订阅。
+1. 如果你从未使用过 Azure PowerShell，请参阅 [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) （如何安装和配置 Azure PowerShell），并始终按照说明进行操作，以登录到 Azure 并选择你的订阅。
 2. 创建允许从 Internet 访问端口 3389 的安全规则。
 
     ```powershell
@@ -52,7 +57,7 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。Azure 建
     -DestinationPortRange 80
     ```
 
-4. 将上面创建的规则添加到名为 **NSG-FrontEnd** 的新 NSG。
+4. 将上面创建的规则添加到名为 **NSG-FrontEnd**的新 NSG。
 
     ```powershell
     $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location chinanorth `
@@ -67,40 +72,38 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。Azure 建
 
     输出仅显示安全规则：
 
-    ```
-    SecurityRules        : [
-                             {
-                               "Name": "rdp-rule",
-                               "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-                               "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/rdp-rule",
-                               "Description": "Allow RDP",
-                               "Protocol": "Tcp",
-                               "SourcePortRange": "*",
-                               "DestinationPortRange": "3389",
-                               "SourceAddressPrefix": "Internet",
-                               "DestinationAddressPrefix": "*",
-                               "Access": "Allow",
-                               "Priority": 100,
-                               "Direction": "Inbound",
-                               "ProvisioningState": "Succeeded"
-                             },
-                             {
-                               "Name": "web-rule",
-                               "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-                               "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/web-rule",
-                               "Description": "Allow HTTP",
-                               "Protocol": "Tcp",
-                               "SourcePortRange": "*",
-                               "DestinationPortRange": "80",
-                               "SourceAddressPrefix": "Internet",
-                               "DestinationAddressPrefix": "*",
-                               "Access": "Allow",
-                               "Priority": 101,
-                               "Direction": "Inbound",
-                               "ProvisioningState": "Succeeded"
-                             }
-                           ]
-    ```
+        SecurityRules        : [
+                                 {
+                                   "Name": "rdp-rule",
+                                   "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                                   "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/rdp-rule",
+                                   "Description": "Allow RDP",
+                                   "Protocol": "Tcp",
+                                   "SourcePortRange": "*",
+                                   "DestinationPortRange": "3389",
+                                   "SourceAddressPrefix": "Internet",
+                                   "DestinationAddressPrefix": "*",
+                                   "Access": "Allow",
+                                   "Priority": 100,
+                                   "Direction": "Inbound",
+                                   "ProvisioningState": "Succeeded"
+                                 },
+                                 {
+                                   "Name": "web-rule",
+                                   "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                                   "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/web-rule",
+                                   "Description": "Allow HTTP",
+                                   "Protocol": "Tcp",
+                                   "SourcePortRange": "*",
+                                   "DestinationPortRange": "80",
+                                   "SourceAddressPrefix": "Internet",
+                                   "DestinationAddressPrefix": "*",
+                                   "Access": "Allow",
+                                   "Priority": 101,
+                                   "Direction": "Inbound",
+                                   "ProvisioningState": "Succeeded"
+                                 }
+                               ]
 6. 将上面创建的 NSG 与 *FrontEnd* 子网关联起来。
 
     ```powershell
@@ -111,33 +114,31 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。Azure 建
 
     输出只显示 *FrontEnd* 子网设置，注意 **NetworkSecurityGroup** 属性值：
 
-    ```
-                Subnets           : [
-                                      {
-                                        "Name": "FrontEnd",
-                                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-                                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-                                        "AddressPrefix": "192.168.1.0/24",
-                                        "IpConfigurations": [
+                    Subnets           : [
                                           {
-                                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1"
-                                          },
-                                          {
-                                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1"
+                                            "Name": "FrontEnd",
+                                            "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                                            "AddressPrefix": "192.168.1.0/24",
+                                            "IpConfigurations": [
+                                              {
+                                                "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1"
+                                              },
+                                              {
+                                                "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1"
+                                              }
+                                            ],
+                                            "NetworkSecurityGroup": {
+                                              "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+                                            },
+                                            "RouteTable": null,
+                                            "ProvisioningState": "Succeeded"
                                           }
-                                        ],
-                                        "NetworkSecurityGroup": {
-                                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
-                                        },
-                                        "RouteTable": null,
-                                        "ProvisioningState": "Succeeded"
-                                      }
-    ```
 
-    > [!WARNING]
-    > 上述命令的输出显示虚拟网络配置对象的内容，该对象仅存在于运行 PowerShell 的计算机上。若要将这些设置保存到 Azure，需要运行 `Set-AzureRmVirtualNetwork` cmdlet。
-    > 
-    > 
+   > [!WARNING]
+   > 上述命令的输出显示虚拟网络配置对象的内容，该对象仅存在于运行 PowerShell 的计算机上。 若要将这些设置保存到 Azure，需要运行 `Set-AzureRmVirtualNetwork` cmdlet。
+   > 
+   > 
 7. 将新的 VNet 设置保存到 Azure。
 
     ```powershell
@@ -146,13 +147,11 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。Azure 建
 
     输出仅显示 NSG 部分：
 
-    ```
-    "NetworkSecurityGroup": {
-      "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
-    }
-    ```
+        "NetworkSecurityGroup": {
+          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+        }
 
-## 如何为后端子网创建 NSG
+## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>如何为后端子网创建 NSG
 若要根据以上方案创建名为 *NSG-BackEnd* 的 NSG，请完成以下步骤：
 
 1. 创建允许从前端子网访问端口 1433（SQL Server 使用的默认端口）的安全规则。
@@ -175,7 +174,7 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。Azure 建
     -DestinationAddressPrefix Internet -DestinationPortRange *
     ```
 
-3. 将上面创建的规则添加到名为 **NSG-BackEnd** 的新 NSG。
+3. 将上面创建的规则添加到名为 **NSG-BackEnd**的新 NSG。
 
     ```powershell
     $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG `
@@ -192,35 +191,30 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。Azure 建
 
     输出只显示 *BackEnd* 子网设置，注意 **NetworkSecurityGroup** 属性值：
 
-    ```
-    Subnets           : [
-                  {
-                    "Name": "BackEnd",
-                    "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
-                    "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
-                    "AddressPrefix": "192.168.2.0/24",
-                    "IpConfigurations": [...],
-                    "NetworkSecurityGroup": {
-                      "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd"
-                    },
-                    "RouteTable": null,
-                    "ProvisioningState": "Succeeded"
-                  }
-    ```
+        Subnets           : [
+                      {
+                        "Name": "BackEnd",
+                        "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+                        "AddressPrefix": "192.168.2.0/24",
+                        "IpConfigurations": [...],
+                        "NetworkSecurityGroup": {
+                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd"
+                        },
+                        "RouteTable": null,
+                        "ProvisioningState": "Succeeded"
+                      }
 5. 将新的 VNet 设置保存到 Azure。
 
     ```powershell
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
     ```
 
-## 如何删除 NSG
+## <a name="how-to-remove-an-nsg"></a>如何删除 NSG
 若要删除现有的 NSG（在本例中名为 *NSG-Frontend* ），请执行以下步骤：
 
-如下所示运行 **Remove-AzureRmNetworkSecurityGroup**，请务必包含 NSG 所在的资源组。
+如下所示运行 **Remove-AzureRmNetworkSecurityGroup** ，请务必包含 NSG 所在的资源组。
 
 ```powershell
 Remove-AzureRmNetworkSecurityGroup -Name "NSG-FrontEnd" -ResourceGroupName "TestRG"
 ```
-
-<!---HONumber=Mooncake_0109_2017-->
-<!--Update_Description: update meta properties & wording update & update link references & update code-->

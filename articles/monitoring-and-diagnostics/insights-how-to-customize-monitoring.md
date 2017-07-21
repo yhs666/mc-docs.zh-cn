@@ -1,87 +1,76 @@
 ---
-title: 监视服务指标
-description: 了解如何在 Azure 中自定义监视图表。
-authors: stepsic-microsoft-com
-manager: ronmart
-editor: ''
-services: azure-portal
-documentationCenter: ''
-
+title: "Microsoft Azure 中的指标概述 | Azure"
+description: "了解如何在 Azure 中自定义监视图表。"
+authors: rboucher
+manager: 
+editor: 
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/08/2015
-ms.date: 10/17/2016
 ms.author: v-yiso
+ms.date: 10/17/2016
+ms.openlocfilehash: 0c824dbd2507c08a3b2b3d0887cdda53f245a907
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="overview-of-metrics-in-azure"></a>Azure 中的指标概述
 
-# 监视服务指标
+所有 Azure 服务都会跟踪使用户可以监视其服务的运行状况、性能、可用性和使用情况的关键指标。 可以在 Azure 门户中查看这些指标，也可以使用 [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931930.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) 以编程方式访问完整的指标集。
 
-所有 Azure 服务都会跟踪使你可以监视你服务的运行状况、性能、可用性和使用情况的关键指标。可以在 Azure 门户中查看这些指标，也可以使用 [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931930.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) 以编程方式访问完整的指标集。
+对于某些服务，可能需要打开诊断以便查看任何指标。 对于其他服务（如虚拟机），用户会获得基本指标集，但需要启用完整高频率指标集。 有关详细信息，请参阅[启用监视和诊断](./insights-how-to-use-diagnostics.md)。
 
-对于某些服务，可能需要打开诊断以便查看任何指标。对于其他服务（如虚拟机），你会获得基本指标集，但需要启用完整高频率指标集。请参阅[启用监视和诊断](./insights-how-to-use-diagnostics.md)以了解详细信息。
-
-## 使用监视图表 
+## <a name="using-monitoring-charts"></a>使用监视图表 
 
 可以在所选的任何时间段内绘制任何指标的图表。
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“浏览”，然后单击要监视的资源。
 
-2. “监视”部分包含每个 Azure 资源的最重要指标。例如，Web 应用具有“请求和错误”，而虚拟机具有“CPU 百分比”和“磁盘读写”：
+2. “监视”部分包含每个 Azure 资源的最重要指标。 例如，Web 应用具有“请求和错误”，而虚拟机具有“CPU 百分比”和“磁盘读写”： ![监视可重用功能区](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
 
-    ![“监视”小视窗](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
+3. 单击任何图表都会显示“指标”边栏选项卡。 在该边栏选项卡中，除了该图之外还有一个表，其中显示指标（例如在所选时间范围内的平均值、最小值和最大值）的聚合。 下面是资源的警报规则。
+    ![“指标”边栏选项卡](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
 
-3. 单击任何图表都会显示“指标”边栏选项卡。在该边栏选项卡中，除了该图之外还有一个表，其中显示指标（例如在所选时间范围内的平均值、最小值和最大值）的聚合。下面是资源的警报规则。
+4. 若要自定义显示的折线图，请单击图表上的“编辑”按钮，或单击“指标”边栏选项卡上的“编辑图表”命令。
 
-    ![“度量值”分页](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
-
-4. 若要自定义显示的折线图，请单击图表上的“编辑”按钮，或指标边栏选项卡上的“编辑图表”命令。
-
-5. 在“编辑查询”边栏选项卡上，你可以执行三个操作：
+5. 在“编辑查询”边栏选项卡上，可执行三个操作：
     - 更改时间范围
     - 在条形图与折线图之间切换外观
-    - 选择不同指标
+    - 选择不同的指标![编辑查询](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
 
-        ![编辑查询](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
-
-6. 更改时间范围十分轻松，只需选择不同的范围（例如“前一个小时”），然后单击边栏选项卡底部的“保存”即可。还可以选择“自定义”，这使你可以选择过去 2 周内的任何时间段。例如，你可以查看整个两周，或仅仅是昨天的 1 小时。在文本框中输入一个不同的小时即可。
-
+6. 更改时间范围十分轻松，只需选择不同的范围（例如“前一个小时”），然后单击边栏选项卡底部的“保存”即可。 还可选择“自定义”，由此选择过去两周内的任何时间段。 例如，可查看整个两周，或仅查看昨天的 1 小时。 在文本框中键入一个不同的小时即可。
     ![自定义时间范围](./media/insights-how-to-customize-monitoring/Insights_CustomTime.png)
 
-7. 在时间范围的下面，可以选择要在图表上显示的任意数目的度量值。
+7. 在时间范围下面，可选择要在图表上显示的任意数目的指标。
 
-8. 单击“保存”时，会针对该特定资源保存更改。例如，如果你有两个虚拟机，并且对其中一个更改了图表，则不会影响另一个。
+8. 单击“保存”时，会为这一特定资源保存更改。 例如，如果有两个虚拟机，并且对其中一个更改了图表，则不会影响另一个。
 
-## 创建并排图表
+## <a name="creating-side-by-side-charts"></a>创建并排图表
 
-借助门户中功能强大的自定义，可以添加所需任何数量的图表。
+借助门户中功能强大的自定义，可随意添加所需数量的图表。
 
-1. 在边栏选项卡顶部的“...”菜单中，单击“添加磁贴”：
-
+1. 在边栏选项卡顶部的“...”菜单中，单击“添加磁贴”：  
     ![添加菜单](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
-
-2. 然后可以从屏幕右侧的“库”中选择图表：
-
-    ![库](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
-
+2. 然后可从屏幕右侧的“库”中选择图表： ![库](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
 3. 如果看不到所需指标，则始终可以添加一个预设指标，然后“编辑”图表以显示所需指标。 
 
-## 监视使用配额
+## <a name="monitoring-usage-quotas"></a>监视使用配额
 
 大多数指标都会显示随时间推移的趋势，但某些数据（如使用配额）是具有阈值的时间点信息。
 
-还可以在具有配额的资源的边栏选项卡上查看使用配额：
+还可以在具有配额的资源的边栏选项卡上查看使用情况配额： 
 
-   ![使用情况](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
+![使用情况](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
-与指标一样，可以使用 [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931963.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) 以编程方式访问完整使用配额集。
+与指标一样，可使用 [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931963.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) 按编程方式访问完整使用配额集。
 
-## 后续步骤
+## <a name="next-steps"></a>后续步骤
 
-* [启用监视和诊断](./insights-how-to-use-diagnostics.md)以收集有关服务的详细高频率指标。
-* [自动缩放实例计数](./insights-how-to-scale.md)以确保服务可用且响应迅速。
-
-
-<!---HONumber=Mooncake_0503_2016-->
+* [启用监视和诊断](./insights-how-to-use-diagnostics.md)收集服务的详细高频指标。
+* [自动缩放实例计数](./insights-how-to-scale.md)确保服务可用且响应迅速。

@@ -1,12 +1,11 @@
 ---
-title: 开始使用 Java 传送点播内容 | Azure
-description: 本教程将引导用户完成相关步骤，利用 Java 和 Azure 媒体服务 (AMS) 应用程序实现基本的点播视频 (VoD) 内容传送服务。
+title: "开始使用 Java 传送点播内容 | Azure"
+description: "本教程将引导用户完成相关步骤，利用 Java 和 Azure 媒体服务 (AMS) 应用程序实现基本的点播视频 (VoD) 内容传送服务。"
 services: media-services
 documentationcenter: java
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
 ms.service: media-services
 ms.workload: media
@@ -16,32 +15,36 @@ ms.topic: get-started-article
 origin.date: 01/10/2017
 ms.date: 02/24/2017
 ms.author: v-johch
+ms.openlocfilehash: 31e26cad6e056dfa3e9e8a0c23c77e9e0e525fee
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# 开始使用 Java 传送点播内容
+# <a name="get-started-with-delivering-content-on-demand-using-java"></a>开始使用 Java 传送点播内容
 
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-本教程将引导用户完成相关步骤，利用 Java 和 Azure 媒体服务 \(AMS\) 应用程序实现基本的点播视频 \(VoD\) 内容传送服务。
+本教程将引导用户完成相关步骤，利用 Java 和 Azure 媒体服务 (AMS) 应用程序实现基本的点播视频 (VoD) 内容传送服务。
 
-## 先决条件
+## <a name="prerequisites"></a>先决条件
 
 以下是完成本教程所需具备的条件：
 
-* 一个 Azure 帐户。有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
-* 一个媒体服务帐户。若要创建媒体服务帐户，请参阅[如何创建媒体服务帐户](./media-services-create-account.md)。
+* 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。 
+* 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[如何创建媒体服务帐户](./media-services-create-account.md)。
 * 适用于 Java 的 Azure 库，可以从 [Azure Java 开发人员中心][Azure Java Developer Center]安装。
 
 ##<a if="connect"></a>如何将媒体服务与 Java 结合使用
 
 >[!NOTE]
-创建 AMS 帐户时，系统会将**默认**流式处理终结点以“已停止”状态添加到用户的帐户。若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。
+>创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 
 
 以下代码演示了如何创建资产、如何将媒体文件上传到该资产、如何使用任务运行作业以转换资产，以及如何创建定位符来流式传输视频。
 
-使用此代码前，需设置一个媒体服务帐户。有关设置帐户的信息，请参阅[如何创建媒体服务帐户](./media-services-create-account.md)。
+使用此代码前，需设置一个媒体服务帐户。 有关设置帐户的信息，请参阅[如何创建媒体服务帐户](./media-services-create-account.md)。
 
-将“clientId”和“clientSecret”变量替换为你自己的值。该代码还依赖于本地存储的文件。需要提供自己的文件以供使用。
+将“clientId”和“clientSecret”变量替换为你自己的值。 该代码还依赖于本地存储的文件。 需要提供自己的文件以供使用。
 
 ```
 import java.io.*;
@@ -75,7 +78,7 @@ import com.microsoft.windowsazure.services.media.models.Task;
 public class HelloMediaServices
 {
     // Media Services account credentials configuration
-    private static String mediaServiceUri = "https://wamsshaclus001rest-hs.chinacloudapp.cn /API/";
+    private static String mediaServiceUri = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
     private static String oAuthUri = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn/v2/OAuth2-13";
     private static String clientId = "account name";
     private static String clientSecret = "account key";
@@ -254,14 +257,11 @@ public class HelloMediaServices
 }
 ```
 
-## 其他资源
-有关媒体服务 Javadoc 文档，请参阅[适用于 Java 的 Azure 库文档][Azure Libraries for Java documentation]。
+## <a name="additional-resources"></a>其他资源
+有关媒体服务 Javadoc 文档，请参阅 [适用于 Java 的 Azure 库文档][Azure Libraries for Java documentation]。
 
 <!-- URLs. -->
 
   [Azure Java Developer Center]: /develop/java/
   [Azure Libraries for Java documentation]: http://azure.github.io/azure-sdk-for-java/
   [Media Services Client Development]: ./media-services-develop-video-players.md
-
-<!---HONumber=Mooncake_0220_2017-->
-<!--Update_Description: update "先决条件" section; add note for creating AMS account-->

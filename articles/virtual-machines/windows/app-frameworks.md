@@ -1,30 +1,30 @@
 ---
-title: 使用模板部署常用应用程序框架 | Azure
-description: 使用 Azure Resource Manager 模板在 Windows 虚拟机创建常用应用程序框架，以便安装 Active Directory、Docker，等等。
+title: "在 Azure 的 Windows VM 上部署应用程序框架 | Azure"
+description: "使用 Azure Resource Manager 模板在 Windows VM 上创建常用应用程序框架，以便安装 Active Directory、Docker，等等。"
 services: virtual-machines-windows
-documentationCenter: virtual-machines
-authors: squillace
+documentationcenter: virtual-machines
+author: squillace
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 67a67141-b095-44ff-bfdf-7311d1c28b89
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 08/29/2016
+origin.date: 05/19/2017
 ms.date: 10/25/2016
 ms.author: v-dazen
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 1fed24fdb7898b804c657ef5c939121dd3df54eb
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
+# <a name="deploy-popular-application-frameworks-on-windows-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 模板在 Windows 上部署常用的应用程序框架 
 
-# 使用 Azure Resource Manager 模板部署常用应用程序框架
-
-工作负荷通常要求多项资源按设计运行。利用 Azure Resource Manager 模板，你不仅可以定义应用程序的配置方式，而且可以定义资源的部署方式，以便为配置的应用程序提供支持。本文介绍库中最常用的模板以及如何使用 Azure PowerShell 或 Azure CLI 来部署它们。你也可以[这个主题的 Linux 版本](../linux/app-frameworks.md)。
-
-> [!NOTE]
->Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器和经典](../../azure-resource-manager/resource-manager-deployment-model.md)。这篇文章介绍如何使用资源管理器部署模型，Azure 建议大多数新部署使用管理器部署模型代替经典部署模型。
+工作负荷通常要求多项资源按设计运行。 利用 Azure Resource Manager 模板，不仅可以定义应用程序的配置方式，而且可以定义资源的部署方式，以便为配置的应用程序提供支持。 本文介绍库中最常用的模板以及如何使用 Azure 门户、Azure CLI 或 PowerShell 部署它们。
 
 [!INCLUDE [virtual-machines-common-app-frameworks](../../../includes/virtual-machines-common-app-frameworks.md)]
-
-<!---HONumber=Mooncake_0411_2016-->

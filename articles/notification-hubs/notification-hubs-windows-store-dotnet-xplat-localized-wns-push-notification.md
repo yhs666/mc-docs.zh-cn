@@ -1,53 +1,53 @@
 ---
-title: 通知中心本地化的突发新闻教程
-description: 了解如何使用 Azure 通知中心发送本地化的突发新闻通知。
+title: "通知中心本地化的突发新闻教程"
+description: "了解如何使用 Azure 通知中心发送本地化的突发新闻通知。"
 services: notification-hubs
 documentationCenter: windows
 authors: wesmc7777
 manager: erikre
-editor: ''
-
+editor: 
 ms.service: notification-hubs
-ms.workload: mobile
-ms.tgt_pltfrm: mobile-windows
-ms.devlang: dotnet
 ms.topic: article
 origin.date: 06/29/2016
 ms.date: 11/11/2016
 ms.author: v-junlch
+ms.openlocfilehash: 66341bb9140f96b2f06ff309bfe319d9fbc270f1
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# 使用通知中心发送本地化的突发新闻
+# <a name="use-notification-hubs-to-send-localized-breaking-news"></a>使用通知中心发送本地化的突发新闻
 
 > [!div class="op_single_selector"]
 >- [Windows 应用商店 C#](./notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 >- [iOS](./notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
-##概述
+##<a name="overview"></a>概述
 
-本主题演示如何使用 Azure 通知中心的**模板**功能广播已按语言和设备本地化的突发新闻通知。在本教程中，你从在[使用通知中心发送突发新闻]中创建的 Windows 应用商店应用程序开始操作。完成时，你将可以注册感兴趣的突发新闻类别，指定要接收通知的语言并仅接收采用该语言的这些类别的推送通知。
+本主题演示如何使用 Azure 通知中心的 **模板** 功能广播已按语言和设备本地化的突发新闻通知。 在本教程中，你从在 [使用通知中心发送突发新闻]中创建的 Windows 应用商店应用程序开始操作。 完成时，你将可以注册感兴趣的突发新闻类别，指定要接收通知的语言并仅接收采用该语言的这些类别的推送通知。
 
 此方案包含两个部分：
 
 - Windows 应用商店应用程序允许客户端设备指定一种语言并订阅不同的突发新闻类别；
 
-- 后端使用 Azure 通知中心的**标记**和**模板**功能广播通知。
+- 后端使用 Azure 通知中心的标记和模板功能广播通知。
 
-##先决条件
+##<a name="prerequisites"></a>先决条件
 
-你必须已完成学习[使用通知中心发送突发新闻]教程并具有可用的代码，因为本教程直接围绕该代码展开论述。
+你必须已完成学习 [使用通知中心发送突发新闻] 教程并具有可用的代码，因为本教程直接围绕该代码展开论述。
 
 你还需要 Visual Studio 2012 或更高版本。
 
-##模板概念
+##<a name="template-concepts"></a>模板概念
 
-在[使用通知中心发送突发新闻]中，你构建了一个使用**标记**订阅不同新闻类别通知的应用程序。
-但是，很多应用程序针对多个市场，需要本地化。这意味着通知内容本身必须本地化且传递到正确的设备组。
-在本主题中，我们将演示如何使用通知中心的**模板**功能轻松传递本地化的突发新闻通知。
+在 [使用通知中心发送突发新闻] 中，你构建了一个使用 **标记** 订阅不同新闻类别通知的应用程序。
+但是，很多应用程序针对多个市场，需要本地化。 这意味着通知内容本身必须本地化且传递到正确的设备组。
+在本主题中，我们将演示如何使用通知中心的 **模板** 功能轻松传递本地化的突发新闻通知。
 
-注意：发送本地化的通知的一种方式是创建每个标签的多个版本。例如，要支持英语、法语和汉语，我们需要三种不同的标签用于世界新闻：“world\_en”、“world\_fr”和“world\_ch”。我们然后必须将世界新闻的本地化版本分别发送到这些标签。在本主题中，我们使用模板来避免增生标签和发送多个消息的要求。
+注意：发送本地化的通知的一种方式是创建每个标签的多个版本。 例如，若要支持英语、法语和汉语，需要为全球新闻使用三种不同的标记：“world_en”、“world_fr”和“world_ch”。 我们然后必须将世界新闻的本地化版本分别发送到这些标签。 在本主题中，我们使用模板来避免增生标签和发送多个消息的要求。
 
-在较高级别上，模板是指定特定设备应如何接收通知的一种方法。模板通过引用作为你应用程序后端所发消息的一部分的属性，指定确切的负载格式。在我们的示例中，我们将发送包含所有支持的语言的区域设置未知的消息：
+在较高级别上，模板是指定特定设备应如何接收通知的一种方法。 模板通过引用作为你应用程序后端所发消息的一部分的属性，指定确切的负载格式。 在我们的示例中，我们将发送包含所有支持的语言的区域设置未知的消息：
 
 ```
 {
@@ -57,7 +57,7 @@ ms.author: v-junlch
 }
 ```
 
-然后我们将确保设备注册到引用正确属性的模板。例如，要接收简单的 toast 消息的 Windows 应用商店应用将注册以下包含任何相应标记的模板：
+然后我们将确保设备注册到引用正确属性的模板。 例如，要接收简单的 toast 消息的 Windows 应用商店应用将注册以下包含任何相应标记的模板：
 
 ```
 <toast>
@@ -69,11 +69,11 @@ ms.author: v-junlch
 </toast>
 ```
 
-模板是很强大的功能，你可以在[模板](./notification-hubs-templates-cross-platform-push-messages.md)一文中了解其更多信息。
+模板是很强大的功能，可以在[模板](notification-hubs-templates-cross-platform-push-messages.md)一文中了解其更多信息。 
 
-##应用程序用户界面
+##<a name="the-app-user-interface"></a>应用程序用户界面
 
-我们现在将修改你在[使用通知中心发送突发新闻]主题中创建的“突发新闻”应用，以使用模板发送本地化的突发新闻。
+我们现在将修改你在 [使用通知中心发送突发新闻] 主题中创建的“突发新闻”应用，以使用模板发送本地化的突发新闻。
 
 在 Windows 应用商店应用程序中：
 
@@ -110,7 +110,7 @@ ms.author: v-junlch
 </Grid>
 ```
 
-##构建 Windows 应用商店客户端应用程序
+##<a name="building-the-windows-store-client-app"></a>构建 Windows 应用商店客户端应用程序
 
 1. 在 Notifications 类中，将一个区域设置参数添加到 *StoreCategoriesAndSubscribe* 和 *SubscribeToCateories* 方法。
 
@@ -133,15 +133,15 @@ ms.author: v-junlch
 
         // Using a template registration. This makes supporting notifications across other platforms much easier.
         // Using the localized tags based on locale selected.
-        string templateBodyWNS = String.Format("<toast><visual><binding template="ToastText01"><text id="1">$(News_{0})</text></binding></visual></toast>", locale);
+        string templateBodyWNS = String.Format("<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(News_{0})</text></binding></visual></toast>", locale);
 
         return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "localizedWNSTemplateExample", categories);
     }
     ```
 
-    请注意，不是调用 *RegisterNativeAsync* 方法，我们调用的是 *RegisterTemplateAsync*：我们将注册特定的通知格式，在其中模板依赖于区域设置。我们还提供模板的名称（“localizedWNSTemplateExample”），因为我们可能要注册多个模板（例如一个用于 toast 通知，一个用于磁贴），需要命名它们以便可以更新或删除它们。
+    请注意，不是调用 *RegisterNativeAsync* 方法，而是调用 *RegisterTemplateAsync*：我们将注册特定的通知格式，在其中模板依赖于区域设置。 我们还为模板提供名称（“localizedWNSTemplateExample”），因为我们可能要注册多个模板（例如，一个用于 toast 通知，一个用于磁贴），需要为其命名以便更新或删除。
 
-    请注意，如果一个设备使用同一标签注册多个模板，针对该标签的传入消息将导致多个通知发送到设备（每个通知对应一个模板）。当同一逻辑消息必须导致多个可视通知时，此行为很有用，例如在 Windows 应用商店应用程序显示徽章和 toast。
+    请注意，如果一个设备使用同一标签注册多个模板，针对该标签的传入消息将导致多个通知发送到设备（每个通知对应一个模板）。 当同一逻辑消息必须导致多个可视通知时，此行为很有用，例如在 Windows 应用商店应用程序显示徽章和 toast。
 
 2. 添加以下方法来检索存储的区域设置：
 
@@ -195,7 +195,7 @@ ms.author: v-junlch
     }
     ```
 
-##从后端发送本地化的通知
+##<a name="send-localized-notifications-from-your-back-end"></a>从后端发送本地化的通知
 
 [!INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
@@ -204,20 +204,21 @@ ms.author: v-junlch
 [The app user interface]: #ui
 [Building the Windows Store client app]: #building-client
 [Send notifications from your back-end]: #send
-[Next Steps]: #next-steps
+[Next Steps]:#next-steps
 
 <!-- Images. -->
 
 <!-- URLs. -->
-
-[使用通知中心发送突发新闻]: ./notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Mobile Service]: /develop/mobile/tutorials/get-started
+[Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
+[使用通知中心发送突发新闻]: /manage/services/notification-hubs/breaking-news-dotnet
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
-
-<!---HONumber=Mooncake_0815_2016-->

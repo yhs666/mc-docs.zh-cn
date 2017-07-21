@@ -1,24 +1,29 @@
 ---
-title: SQL 数据仓库中的 Group By 选项 | Azure
-description: 有关在开发解决方案时实现 Azure SQL 数据仓库中的 Group By 选项的技巧。
+title: "SQL 数据仓库中的 Group By 选项 | Azure"
+description: "有关在开发解决方案时实现 Azure SQL 数据仓库中的 Group By 选项的技巧。"
 services: sql-data-warehouse
-documentationCenter: NA
-authors: jrowlandjones
-manager: barbkess
-editor: ''
-
+documentationcenter: NA
+author: rockboyfor
+manager: jhubbard
+editor: 
+ms.assetid: f95a1e43-768f-4b7b-8a10-8a0509d0c871
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: queries
 origin.date: 10/31/2016
 ms.date: 01/04/2017
 ms.author: v-yeche
+ms.openlocfilehash: d02f71348b27d731a020fa04a91051dbf7074e97
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# SQL 数据仓库中的 Group By 选项
-[GROUP BY][GROUP BY] 子句可用于将数据聚合成摘要行集。它还具有一些扩展其功能的选项，但这些选项需要经过处理，因为 Azure SQL 数据仓库不直接支持这些选项。
+# <a name="group-by-options-in-sql-data-warehouse"></a>SQL 数据仓库中的 Group By 选项
+[GROUP BY][GROUP BY] 子句可用于将数据聚合成摘要行集。 它还具有一些扩展其功能的选项，但这些选项需要经过处理，因为 Azure SQL 数据仓库不直接支持这些选项。
 
 这些选项包括：
 
@@ -26,8 +31,8 @@ ms.author: v-yeche
 * GROUPING SETS
 * 带 CUBE 的 GROUP BY
 
-## Rollup 和 grouping sets 选项
-此处最简单的选项是改为使用 `UNION ALL` 来执行汇总，而不是依赖显式语法。结果应完全相同
+## <a name="rollup-and-grouping-sets-options"></a>Rollup 和 grouping sets 选项
+此处最简单的选项是改为使用 `UNION ALL` 来执行汇总，而不是依赖显式语法。 结果应完全相同
 
 以下是使用 `ROLLUP` 选项的 Group By 语句示例：
 
@@ -58,7 +63,7 @@ SELECT [SalesTerritoryCountry]
 ,      SUM(SalesAmount) AS TotalSalesAmount
 FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey
-GROUP BY 
+GROUP BY
        [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 UNION ALL
@@ -67,7 +72,7 @@ SELECT [SalesTerritoryCountry]
 ,      SUM(SalesAmount) AS TotalSalesAmount
 FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey
-GROUP BY 
+GROUP BY
        [SalesTerritoryCountry]
 UNION ALL
 SELECT NULL
@@ -79,16 +84,16 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 
 对于 GROUPING SETS，我们需要采用相同的主体，但只创建想要查看的聚合级别的 UNION ALL 部分
 
-## Cube 选项
-可以使用 UNION ALL 方法创建 GROUP BY WITH CUBE。问题在于，代码可能很快就会变得庞大且失控。若要避免此情况，可以使用这种更高级的方法。
+## <a name="cube-options"></a>Cube 选项
+可以使用 UNION ALL 方法创建 GROUP BY WITH CUBE。 问题在于，代码可能很快就会变得庞大且失控。 若要避免此情况，可以使用这种更高级的方法。
 
 使用上述示例。
 
-第一步是定义“cube”，它定义我们想要创建的所有聚合级别。请务必记下两个派生表的 CROSS JOIN。这样就会生成所有级别。剩余代码确实可以设置格式。
+第一步是定义“cube”，它定义我们想要创建的所有聚合级别。 请务必记下两个派生表的 CROSS JOIN。 这样就会生成所有级别。 剩余代码确实可以设置格式。
 
 ```sql
 CREATE TABLE #Cube
-WITH 
+WITH
 (   DISTRIBUTION = ROUND_ROBIN
 ,   LOCATION = USER_DB
 )
@@ -107,9 +112,9 @@ CROSS JOIN ( SELECT 'SalesTerritoryRegion' as Region
            ) r
 )
 SELECT Cols
-,      CASE WHEN SUBSTRING(GroupBy,LEN(GroupBy),1) = ',' 
-            THEN SUBSTRING(GroupBy,1,LEN(GroupBy)-1) 
-            ELSE GroupBy 
+,      CASE WHEN SUBSTRING(GroupBy,LEN(GroupBy),1) = ','
+            THEN SUBSTRING(GroupBy,1,LEN(GroupBy)-1)
+            ELSE GroupBy
        END AS GroupBy  --Remove Trailing Comma
 ,Seq
 FROM GrpCube;
@@ -142,7 +147,7 @@ WITH
 ;
 ```
 
-第三步是是循环访问执行聚合的列 cube。查询将为 #Cube 临时表中的每个行运行一次，并将结果存储在 #Results 临时表中
+第三步是是循环访问执行聚合的列 cube。 查询为 #Cube 临时表中的每个行运行一次，并将结果存储在 #Results 临时表中
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -177,18 +182,16 @@ ORDER BY 1,2,3
 
 通过将代码拆分成不同的部分并生成循环构造，代码将更好管理和维护。
 
-## 后续步骤
-有关更多开发技巧，请参阅[开发概述][development overview]。
+## <a name="next-steps"></a>后续步骤
+有关更多开发技巧，请参阅 [开发概述][development overview]。
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
 
 <!--Article references-->
-[development overview]: ./sql-data-warehouse-overview-develop.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[GROUP BY]: https://msdn.microsoft.com/zh-cn/library/ms177673.aspx
+[GROUP BY]: https://msdn.microsoft.com/library/ms177673.aspx
 
 <!--Other Web references-->
-
-<!---HONumber=Mooncake_Quality_Review_0104_2017-->

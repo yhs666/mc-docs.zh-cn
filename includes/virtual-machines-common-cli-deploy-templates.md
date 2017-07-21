@@ -1,21 +1,19 @@
-- [在 Azure 中快速创建虚拟机](#quick-create-a-vm-in-azure)
-- [在 Azure 中从模板部署虚拟机](#deploy-a-vm-in-azure-from-a-template)
-- [从自定义映像创建虚拟机](#create-a-custom-vm-image)
-- [部署使用虚拟网络和负载均衡器的虚拟机](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
-- [删除资源组](#remove-a-resource-group)
-- [显示资源组部署日志](#show-the-log-for-a-resource-group-deployment)
-- [显示有关虚拟机的信息](#display-information-about-a-virtual-machine)
-- [连接到基于 Linux 的虚拟机](#log-on-to-a-linux-based-virtual-machine)
-- [停止虚拟机](#stop-a-virtual-machine)
-- [启动虚拟机](#start-a-virtual-machine)
-- [附加数据磁盘](#attach-a-data-disk)
+* [在 Azure 中快速创建虚拟机](#quick-create-a-vm-in-azure)
+* [在 Azure 中从模板部署虚拟机](#deploy-a-vm-in-azure-from-a-template)
+* [从自定义映像创建虚拟机](#create-a-custom-vm-image)
+* [部署使用虚拟网络和负载均衡器的虚拟机](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
+* [删除资源组](#remove-a-resource-group)
+* [显示资源组部署日志](#show-the-log-for-a-resource-group-deployment)
+* [显示有关虚拟机的信息](#display-information-about-a-virtual-machine)
+* [连接到基于 Linux 的虚拟机](#log-on-to-a-linux-based-virtual-machine)
+* [停止虚拟机](#stop-a-virtual-machine)
+* [启动虚拟机](#start-a-virtual-machine)
+* [附加数据磁盘](#attach-a-data-disk)
 
-## 做好准备
+## <a name="getting-ready"></a>做好准备
+必须拥有正确的 Azure CLI 版本和 Azure 帐户，才能将 Azure CLI 与 Azure 资源组配合使用。 如果没有 Azure CLI，[请安装](../articles/cli-install-nodejs.md)。
 
-必须拥有正确的 Azure CLI 版本和 Azure 帐户，才能将 Azure CLI 与 Azure 资源组配合使用。如果没有 Azure CLI，[请安装](../articles/xplat-cli-install.md)。
-
-### 将 Azure CLI 版本更新到 0.9.0 或更高
-
+### <a name="update-your-azure-cli-version-to-090-or-later"></a>将 Azure CLI 版本更新到 0.9.0 或更高
 键入 `azure --version` 即可查看安装的是否为版本 0.9.0 或更高版本。
 
 ```azurecli
@@ -23,24 +21,25 @@ azure --version
 0.9.0 (node: 0.10.25)
 ```
 
-如果你的版本不是 0.9.0 或更高版本，则需要使用某个本机安装程序或者通过在 **npm** 中键入 `npm update -g azure-cli` 进行更新。
+如果版本不是 0.9.0 或更高版本，则需要使用某个本机安装程序或者通过在 **npm** 中键入 `npm update -g azure-cli` 进行更新。
 
-你也可以使用以下 [Docker 映像](https://registry.hub.docker.com/u/microsoft/azure-cli/)运行 Docker 容器形式的 Azure CLI。在 Docker 主机上运行以下命令：
+你也可以使用以下 [Docker 映像](https://registry.hub.docker.com/u/microsoft/azure-cli/)运行 Docker 容器形式的 Azure CLI。 在 Docker 主机上运行以下命令：
 
 ```bash
 docker run -it microsoft/azure-cli
 ```
 
-### 设置 Azure 帐户和订阅
+### <a name="set-your-azure-account-and-subscription"></a>设置 Azure 帐户和订阅
+如果还没有 Azure 订阅，可以注册一个[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 
-如果你还没有 Azure 订阅，你可以注册一个[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-
-现在，键入 `azure login -e AzureChinaCloud` 并遵循提示来进行 Azure 帐户的交互式登录体验，[以交互方式登录你的 Azure 帐户](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login)。
+现在，请键入 `azure login -e AzureChinaCloud` 并按提示进行 Azure 帐户的交互式登录体验，[以交互方式登录 Azure 帐户](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login)。 
 
 > [!NOTE]
-> 如果有工作或学校 ID，而且知道尚未启用双因素身份验证，那么，**也**可以使用 `azure login -e AzureChinaCloud -u` 以及工作或学校 ID，在*没有* 交互式会话的情况下进行登录。如果没有工作或学校 ID，则可以[从 Microsoft 个人帐户创建工作或学校 ID](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md)，以相同方式进行登录。
+> 如果有工作或学校 ID，而且知道尚未启用双因素身份验证，则**也**可以使用 `azure login -e AzureChinaCloud -u` 以及工作或学校 ID，在*没有*交互式会话的情况下进行登录。 如果没有工作或学校 ID，则可以[从 Microsoft 个人帐户创建工作或学校 ID](../articles/virtual-machines/windows/create-aad-work-id.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，以相同方式进行登录。
+>
+>
 
-你的帐户可能有多个订阅。可以通过键入 `azure account list` 列出订阅，如下所示：
+你的帐户可能有多个订阅。 可以通过键入 `azure account list`列出订阅，如下所示：
 
 ```azurecli
 azure account list
@@ -53,38 +52,35 @@ data:    Fabrikam test                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
 data:    Contoso production                xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 ```
 
-若要设置当前 Azure 订阅，请键入以下内容。使用具有你要管理的资源的订阅名称或 ID。
+若要设置当前 Azure 订阅，请键入以下内容。 使用具有你要管理的资源的订阅名称或 ID。
 
 ```azurecli
 azure account set <subscription name or ID> true
 ```
 
-### 切换到 Azure CLI 资源组模式
-
-默认情况下，Azure CLI 在服务管理模式下启动（**asm** 模式）。键入以下内容，切换到资源组模式。
+### <a name="switch-to-the-azure-cli-resource-group-mode"></a>切换到 Azure CLI 资源组模式
+默认情况下，Azure CLI 在服务管理模式（**asm** 模式）下启动。 键入以下内容，切换到资源组模式。
 
 ```azurecli
 azure config mode arm
 ```
 
-## 了解 Azure 资源模板和资源组
+## <a name="understanding-azure-resource-templates-and-resource-groups"></a>了解 Azure 资源模板和资源组
+大多数应用程序是通过不同资源类型的组合（例如，一个或多个 VM 和存储帐户、一个 SQL 数据库、一个虚拟网络或内容交付网络）构建的。 默认 Azure 服务管理 API 和 Azure 经典管理门户使用基于服务的方法来表示这些资源。 这种方法需要你单独部署和管理各个服务（或查找其他具备相同功能的工具），而不是当作单个逻辑部署单元。
 
-大多数应用程序是通过不同资源类型的组合（例如，一个或多个 VM 和存储帐户、一个 SQL 数据库、一个虚拟网络或内容交付网络）构建的。默认 Azure 服务管理 API 和 Azure 经典管理门户使用基于服务的方法来表示这些资源。这种方法需要你单独部署和管理各个服务（或查找其他具备相同功能的工具），而不是当作单个逻辑部署单元。
-
-不过，你可以利用 *Azure 资源管理器模板* 将这些不同的资源声明为一个逻辑部署单元，然后进行部署和管理。请不要以命令方式告知 Azure 逐一部署命令，而应该在 JSON 文件中描述整个部署 - 所有资源及关联的设置以及部署参数 - 然后告诉 Azure 将这些资源视为一个组进行部署。
+不过，你可以利用*Azure Resource Manager 模板*将这些不同的资源声明为一个逻辑部署单元，然后进行部署和管理。 请不要以命令方式告知 Azure 逐一部署命令，而应该在 JSON 文件中描述整个部署 - 所有资源及关联的设置以及部署参数 - 然后告诉 Azure 将这些资源视为一个组进行部署。
 
 然后，使用 Azure CLI 然后，使用 Azure CLI 资源管理命令执行以下操作，即可管理组的资源整体生命周期：
 
-- 一次性停止、启动或删除组内的所有资源。
-- 应用基于角色的访问控制 (RBAC) 规则，以锁定对这些资源的安全权限。
-- 审核操作。
-- 使用其他元数据标记资源以方便跟踪。
+* 一次性停止、启动或删除组内的所有资源。
+* 应用基于角色的访问控制 (RBAC) 规则，以锁定对这些资源的安全权限。
+* 审核操作。
+* 使用其他元数据标记资源以方便跟踪。
 
-可在 [Azure 资源管理器概述](../articles/azure-resource-manager/resource-group-overview.md)中了解有关 Azure 资源组及其功能的详细信息。如果你想要了解如何创作模板，请参阅[创作 Azure 资源管理器模板](../articles/azure-resource-manager/resource-group-authoring-templates.md)。
+可在 [Azure Resource Manager 概述](../articles/azure-resource-manager/resource-group-overview.md)中了解有关 Azure 资源组及其功能的详细信息。 若要了解如何创作模板，请参阅[创作 Azure Resource Manager 模板](../articles/resource-group-authoring-templates.md)。
 
 ## <a id="quick-create-a-vm-in-azure"></a>任务：在 Azure 中快速创建 VM
-
-有时候你知道需要何种映像，而且你现在需要该映像的 VM，并且不太在意基础结构 - 也许你必须在全新的 VM 上进行某些测试。此时，你可以使用 `azure vm quick-create` 命令并传递必要的参数来创建 VM 及其基础结构。
+有时候你知道需要何种映像，而且你现在需要该映像的 VM，并且不太在意基础结构 - 也许你必须在全新的 VM 上进行某些测试。 此时，你可以使用 `azure vm quick-create` 命令并传递必要的参数来创建 VM 及其基础结构。
 
 首先，创建资源组。
 
@@ -103,27 +99,29 @@ data:
 info:    group create command OK
 ```
 
-其次，你需要一个映像。若要使用 Azure CLI 查找映像，请参阅[使用 PowerShell 和 Azure CLI 来浏览和选择 Azure 虚拟机映像](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md)。不过，本文只列出了以下常用映像的简短列表。我们在此快速创建中使用 CoreOS 稳定映像。
+其次，你需要一个映像。 若要使用 Azure CLI 查找映像，请参阅[使用 PowerShell 和 Azure CLI 浏览和选择 Azure 虚拟机映像](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 不过，本文只列出了以下常用映像的简短列表。 我们将使用 CoreOS 的 Stable 映像完成此快速创建过程。
 
 > [!NOTE]
-> 对于 ComputeImageVersion，你也可以简单地在模板语言和 Azure CLI 中提供“latest”作为参数。这样，你无需修改脚本或模板，就始终都能使用映像的最新修补版本。如下所示。
+> 对于 ComputeImageVersion，你也可以简单地在模板语言和 Azure CLI 中提供“latest”作为参数。 这样，你无需修改脚本或模板，就始终都能使用映像的最新修补版本。 如下所示。
+>
+>
 
 | PublisherName | 产品 | SKU | 版本 |
-|:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic | CentOS | 7 | 7\.0.201503 |
-| OpenLogic | CentOS | 7\.1 | 7\.1.201504 |
-| CoreOS                           | CoreOS                                     | Beta                             | 647.0.0             |
-| CoreOS                           | CoreOS                                     | Stable                           | 633.1.0             |
-| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-DW      | 12.0.2430           |
-| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-OLTP    | 12.0.2430           |
-| Canonical | UbuntuServer | 12\.04.5-LTS | 12\.04.201504230 |
-| Canonical | UbuntuServer | 14\.04.2-LTS | 14\.04.201503090 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 3\.0.201503 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 4\.0.201503 |
-| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | 5\.0.201504 |
-| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4\.3.4665 |
+|:--- |:--- |:--- |:--- |
+| OpenLogic |CentOS |7 |7.0.201503 |
+| OpenLogic |CentOS |7.1 |7.1.201504 |
+| CoreOS |CoreOS |Beta |647.0.0 |
+| CoreOS |CoreOS |Stable |633.1.0 |
+| MicrosoftSQLServer |SQL2014-WS2012R2 |Enterprise-Optimized-for-DW |12.0.2430 |
+| MicrosoftSQLServer |SQL2014-WS2012R2 |Enterprise-Optimized-for-OLTP |12.0.2430 |
+| Canonical |UbuntuServer |12.04.5-LTS |12.04.201504230 |
+| Canonical |UbuntuServer |14.04.2-LTS |14.04.201503090 |
+| MicrosoftWindowsServer |WindowsServer |2012-Datacenter |3.0.201503 |
+| MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |4.0.201503 |
+| MicrosoftWindowsServer |WindowsServer |Windows-Server-Technical-Preview |5.0.201504 |
+| MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |4.3.4665 |
 
-只要输入 `azure vm quick-create` 命令，然后根据系统提示操作，就可以创建 VM。你应该会看到类似下面的屏幕：
+只要输入 `azure vm quick-create` 命令，然后根据系统提示操作，就可以创建 VM。 你应该会看到类似下面的屏幕：
 
 ```azurecli
 azure vm quick-create
@@ -195,7 +193,7 @@ data:
 data:    Network Profile:
 data:      Network Interfaces:
 data:        Network Interface #1:
-data:          Id                        :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/centos-quick/providers/Microsoft.Network/networkInterfaces/coreo-china-1430261891570-nic
+data:          Id                        :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/coreos-quick/providers/Microsoft.Network/networkInterfaces/coreo-china-1430261891570-nic
 data:          Primary                   :true
 data:          MAC Address               :00-0D-3A-30-72-E3
 data:          Provisioning State        :Succeeded
@@ -211,27 +209,27 @@ info:    vm quick-create command OK
 无论身在何处，新的 VM 就在你的身边。
 
 ## <a id="deploy-a-vm-in-azure-from-a-template"></a>任务：在 Azure 中从模板部署 VM
+请参考以下各部分中所述的说明，使用 Azure CLI 从模板部署新的 Azure VM。 此模板会在只有单个子网的新虚拟网络中创建单个虚拟机，而不同于 `azure vm quick-create`，它可以让你确切描述想要的内容，而且重复使用时也不会发生任何错误。 以下是此模板创建的内容：
 
-请参考以下各部分中所述的说明，使用 Azure CLI 从模板部署新的 Azure VM。此模板会在只有单个子网的新虚拟网络中创建单个虚拟机，而不同于 `azure vm quick-create`，它可以让你确切描述想要的内容，而且重复使用时也不会发生任何错误。以下是此模板创建的内容：
+![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)
 
-![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)  
-
-### 步骤 1：检查 JSON 文件中的模板参数
-
-以下是模板的 JSON 文件内容。（[GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json) 中也提供了该模板。）
+### <a name="step-1-examine-the-json-file-for-the-template-parameters"></a>步骤 1：检查 JSON 文件中的模板参数
+以下是模板的 JSON 文件内容。 （[GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json) 中也提供了该模板。）
 
 >[!NOTE]
-> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
+> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
 
-模板是弹性的，因此，设计人员可能已经选择提供很多的参数给你，或者选择创建一个更固定的模板，而只提供几个参数给你。为了收集信息，请将模板以参数的形式传递，打开模板文件（本主题包含一个模板，见下文），然后检查 **parameters** 的值。
+模板是弹性的，因此，设计人员可能已经选择提供很多的参数给你，或者选择创建一个更固定的模板，而只提供几个参数给你。 为了收集信息，需要以参数的形式传递模板，打开模板文件（本主题包含一个模板，见下文），然后检查 **parameters** 的值。
 
 在此情况下，以下模板将要求提供：
 
-- 唯一的存储帐户名称。
-- 一个 VM 管理员用户名。
-- 一个密码。
-- 让外界使用的域名。
-- Ubuntu Server 版本号 - 但将只接受一个列表。
+* 唯一的存储帐户名称。
+* 一个 VM 管理员用户名。
+* 一个密码。
+* 让外界使用的域名。
+* Ubuntu Server 版本号 - 但将只接受一个列表。
+
+了解有关[用户名和密码要求](../articles/virtual-machines/linux/faq.md#what-are-the-username-requirements-when-creating-a-vm)的详细信息。
 
 确定这些值之后，就可以为模板创建组，并将此模板部署到 Azure 订阅。
 
@@ -412,11 +410,10 @@ info:    vm quick-create command OK
 }
 ```
 
-### 步骤 2：使用模板创建虚拟机
-
+### <a name="step-2-create-the-virtual-machine-by-using-the-template"></a>步骤 2：使用模板创建虚拟机
 准备好参数值之后，你必须创建一个部署模板时用到的资源组，然后部署模板。
 
-若要创建资源组，请键入 `azure group create <group name> <location>` 和要使用的组的名称，以及要部署到的数据中心位置。此过程很快就能完成：
+若要创建资源组，请键入 `azure group create <group name> <location>` 和要使用的组的名称，以及要部署到的数据中心位置。 此过程很快就能完成：
 
 ```azurecli
 azure group create myResourceGroup chinanorth
@@ -435,12 +432,12 @@ info:    group create command OK
 
 现在要创建部署，请调用 `azure group deployment create` 并传递：
 
-- 模板文件（如果要将上述 JSON 模板存储到本地文件）。
-- 模板 URI（如果要指向 Github 中的文件或其他网址）。
-- 要部署到的资源组。
-- 可选的部署名称。
+* 模板文件（如果已将上述 JSON 模板保存到本地文件）。
+* 模板 URI（如果要指向 GitHub 中的文件或其他网址）。
+* 要部署到的资源组。
+* 可选的部署名称。
 
-系统会提示你提供 JSON 文件的 "parameters" 节中的参数值。指定所有参数值后，即会开始部署。
+系统会提示你提供 JSON 文件的 "parameters" 节中的参数值。 指定所有参数值后，即会开始部署。
 
 下面是一个示例：
 
@@ -457,7 +454,7 @@ dnsLabelPrefix: newdomainname
 
 你将收到以下类型的信息：
 
-```
+```azurecli
 + Initializing template configurations and parameters
 + Creating a deployment
 info:    Created template deployment "firstDeployment"
@@ -470,10 +467,10 @@ data:    Mode               : Incremental
 data:    CorrelationId      : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 data:    DeploymentParameters :
 data:    Name                   Type          Value
-data:    ---------------  ------------  -----------
+data:    ---------------------  ------------  -------------
 data:    adminUsername          String        ops
 data:    adminPassword          SecureString  undefined
-data:    dnsLabelPrefix String        newdomainname
+data:    dnsLabelPrefix    String        newdomainname
 data:    ubuntuOSVersion        String        14.04.2-LTS 
 data:    Outputs            :
 data:    Name        Type    Value
@@ -484,17 +481,15 @@ info:    group deployment create command OK
 ```
 
 ## <a id="create-a-custom-vm-image"></a>任务：创建自定义 VM 映像
+你已基本了解上述模板的用法，那么现在我们可以使用类似的说明，通过 Azure CLI 使用模板从 Azure 的特定 .vhd 文件创建自定义 VM 映像。 其中的差别就是此模板会从指定的虚拟硬盘 (VHD) 创建单个虚拟机。
 
-你已基本了解上述模板的用法，那么现在我们可以使用类似的说明，通过 Azure CLI 使用模板从 Azure 的特定 .vhd 文件创建自定义 VM 映像。其中的差别就是此模板会从指定的虚拟硬盘 (VHD) 创建单个虚拟机。
-
-### 步骤 1：检查 JSON 文件中的模板
-
-以下是本部分举例说明时，模板的 JSON 文件内容。（[GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json) 中也提供了该模板。）
+### <a name="step-1-examine-the-json-file-for-the-template"></a>步骤 1：检查 JSON 文件中的模板
+以下是本部分用作示例的模板的 JSON 文件内容。 （[GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json) 中也提供了该模板。）
 
 >[!NOTE]
-> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
+> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
 
-同样，参数如果没有默认值，就必须找出你想输入的值。当你运行 `azure group deployment create` 命令时，Azure CLI 会提示你输入这些值。
+同样，参数如果没有默认值，就必须找出你想输入的值。 当你运行 `azure group deployment create` 命令时，Azure CLI 会提示你输入这些值。
 
 ```json
 {
@@ -584,31 +579,31 @@ info:    group deployment create command OK
         }
     },
     {
-      "apiVersion": "2014-12-01-preview",
-      "type": "Microsoft.Network/virtualNetworks",
-      "name": "[parameters('virtualNetworkName')]",
-      "location": "[parameters('location')]",
-      "properties": {
+        "apiVersion": "2014-12-01-preview",
+        "type": "Microsoft.Network/virtualNetworks",
+        "name": "[parameters('virtualNetworkName')]",
+        "location": "[parameters('location')]",
+        "properties": {
         "addressSpace": {
-          "addressPrefixes": [
+            "addressPrefixes": [
             "[variables('addressPrefix')]"
-          ]
+            ]
         },
         "subnets": [
-          {
+            {
             "name": "[variables('subnet1Name')]",
             "properties" : {
                 "addressPrefix": "[variables('subnet1Prefix')]"
             }
-          },
-          {
+            },
+            {
             "name": "[variables('subnet2Name')]",
             "properties" : {
                 "addressPrefix": "[variables('subnet2Prefix')]"
             }
-          }
+            }
         ]
-      }
+        }
     },
     {
         "apiVersion": "2014-12-01-preview",
@@ -679,17 +674,15 @@ info:    group deployment create command OK
 }
 ```
 
-### 步骤 2：获取 VHD
+### <a name="step-2-obtain-the-vhd"></a>步骤 2：获取 VHD
+显然，为此你需要一个 .vhd。 你可以使用 Azure 中现有的 .vhd，或者上传一个 .vhd。
 
-显然，为此你需要一个 .vhd。你可以使用 Azure 中现有的 .vhd，或者上载一个 .vhd。
+对于基于 Windows 的虚拟机，请参阅[创建 Windows Server VHD 并将其上传到 Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
-对于基于 Windows 的虚拟机，请参阅[创建 Windows Server VHD 并将其上载到 Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)。
+对于基于 Linux 的虚拟机，请参阅[创建并上传包含 Linux 操作系统的虚拟硬盘](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)。
 
-有关基于 Linux 的虚拟机，请参阅[创建和上载包含 Linux 操作系统的虚拟硬盘](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)。
-
-### 步骤 3：使用模板创建虚拟机
-
-现在你已准备好使用 .vhd 创建新的虚拟机。使用 `azure group create <location>` 创建一个要部署到的组：
+### <a name="step-3-create-the-virtual-machine-by-using-the-template"></a>步骤 3：使用模板创建虚拟机
+现在你已准备好使用 .vhd 创建新的虚拟机。 使用 `azure group create <location>`创建一个要部署到的组：
 
 ```azurecli
 azure group create myResourceGroupUser chinaeast
@@ -706,10 +699,10 @@ data:
 info:    group create command OK
 ```
 
-然后使用 `--template-file` 选项，使用自己保存在本地的文件，开始创建部署。请注意，因为模板已指定默认值，所以系统会提示你只输入几项数据。如果将模板部署到几个不同的地方，可能会发现某些名称与默认值冲突（特别是你创建的 DNS 名称）。
+然后使用 `--template-file` 选项，使用保存在本地的文件创建部署。 请注意，因为模板已指定默认值，所以系统会提示你只输入几项数据。 如果将模板部署到几个不同的地方，可能会发现某些名称与默认值冲突（特别是你创建的 DNS 名称）。
 
 >[!NOTE]
-> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
+> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
 
 ```azurecli
 azure group deployment create \
@@ -759,19 +752,17 @@ info:    group deployment create command OK
 ```
 
 ## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>任务：部署使用虚拟网络和外部负载均衡器的多 VM 应用程序
+你可以使用此模板在一个负载均衡器上创建两个虚拟机，然后在端口 80 上配置负载均衡规则。 此模板还会部署存储帐户、虚拟网络、公共 IP 地址、可用性集和网络接口。
 
-你可以使用此模板在一个负载均衡器上创建两个虚拟机，然后在端口 80 上配置负载均衡规则。此模板还会部署存储帐户、虚拟网络、公共 IP 地址、可用性集和网络接口。
+![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
 
-![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)  
+按照以下步骤部署一个多 VM 应用程序，它会通过 Azure PowerShell 命令使用 Github 模板存储库中的 Resource Manager 模板，然后就可以使用虚拟网络和负载均衡器。
 
-按照以下步骤部署一个多 VM 应用程序，它会通过 Azure PowerShell 命令使用 Github 模板存储库中的资源管理器模板，然后就可以使用虚拟网络和负载均衡器。
-
-### 步骤 1：检查 JSON 文件中的模板
-
-以下是模板的 JSON 文件内容。如果需要最新版本，可查阅 [Github repository for templates](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json)（Github 模板存储库）。此主题使用 `--template-file` 开关来传递本地版本。
+### <a name="step-1-examine-the-json-file-for-the-template"></a>步骤 1：检查 JSON 文件中的模板
+以下是模板的 JSON 文件内容。 如果需要最新版本，可查阅 [GitHub 模板存储库](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json)。 本主题使用 `--template-file` 开关传递本地版本。
 
 >[!NOTE]
-> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
+> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
 
 ```json
 {
@@ -781,45 +772,45 @@ info:    group deployment create command OK
         "location": {
             "type": "string",
             "metadata": {
-              "description": "Location of resources"
+                "description": "Location of resources"
             }
         },
         "storageAccountName": {
             "type": "string",
             "metadata": {
-              "description": "Name of storage account"
+                "description": "Name of storage account"
             }
         },
         "adminUsername": {
             "type": "string",
             "metadata": {
-              "description": "Admin user name"
+                "description": "Admin user name"
             }
         },
         "adminPassword": {
             "type": "securestring",
             "metadata": {
-              "description": "Admin password"
+                "description": "Admin password"
             }
         },
         "dnsNameforLBIP": {
             "type": "string",
             "metadata": {
-              "description": "DNS for load balancer IP"
+                "description": "DNS for load balancer IP"
             }
         },
         "backendPort": {
             "type": "int",
             "defaultValue": 3389,
             "metadata": {
-              "description": "Back-end port"
+                "description": "Back-end port"
             }
         },
         "vmNamePrefix": {
             "type": "string",
             "defaultValue": "myVM",
             "metadata": {
-              "description": "Prefix to use for VM names"
+                "description": "Prefix to use for VM names"
             }
         },
         "vmSourceImageName": {
@@ -830,35 +821,35 @@ info:    group deployment create command OK
             "type": "string",
             "defaultValue": "myLB",
             "metadata": {
-              "description": "Load balancer name"
+                "description": "Load balancer name"
             }
         },
         "nicNamePrefix": {
             "type": "string",
             "defaultValue": "nic",
             "metadata": {
-              "description": "Network interface name prefix"
+                "description": "Network interface name prefix"
             }
         },
         "publicIPAddressName": {
             "type": "string",
             "defaultValue": "myPublicIP",
             "metadata": {
-              "description": "Public IP name"
+                "description": "Public IP name"
             }
         },
         "vnetName": {
             "type": "string",
             "defaultValue": "myVNET",
             "metadata": {
-              "description": "Virtual network name"
+                "description": "Virtual network name"
             }
         },
         "vmSize": {
             "type": "string",
             "defaultValue": "Standard_A1",
             "metadata": {
-              "description": "Size of the VM"
+                "description": "Size of the VM"
             }
         }
     },
@@ -1105,9 +1096,8 @@ info:    group deployment create command OK
 }
 ```
 
-### 步骤 2：使用模板创建部署
-
-使用 `azure group create <location>` 为模板创建资源组。然后在该资源组中创建部署，方式是使用 `azure group deployment create` 并传递资源组、部署名称，然后根据提示为模板中没有默认值的参数输入相关的值。
+### <a name="step-2-create-the-deployment-by-using-the-template"></a>步骤 2：使用模板创建部署
+使用 `azure group create <location>`为模板创建资源组。 然后在该资源组中创建部署，方式是使用 `azure group deployment create` 并传递资源组、部署名称，然后根据提示为模板中没有默认值的参数输入相关的值。
 
 ```azurecli
 azure group create lbgroup chinanorth
@@ -1124,7 +1114,7 @@ data:
 info:    group create command OK
 ```
 
-现在使用 `azure group deployment create` 命令和 `--template-file` 选项来部署模板。根据提示输入参数值，如下所示。
+现在使用 `azure group deployment create` 命令和 `--template-file` 选项部署模板。 根据提示输入参数值，如下所示。
 
 ```azurecli
 azure group deployment create \
@@ -1169,11 +1159,10 @@ data:    vmSize                 String        Standard_A1
 info:    group deployment create command OK
 ```
 
-请注意，此模板部署的是 Windows Server 映像；但是，它可以轻松地替换为任何 Linux 映像。
+请注意，此模板部署的是 Windows Server 映像；但是，它可以轻松地替换为任何 Linux 映像。 想要使用多个 Swarm 管理器创建一个 Docker 群集吗？ [你可以做到](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-swarm-cluster/)。
 
 ## <a id="remove-a-resource-group"></a>任务：删除资源组
-
-请记住，你可以重新部署到资源组，但是如果其中一个不想使用了，可以使用 `azure group delete <group name>` 删除它。
+请记住，你可以重新部署到资源组，但是如果其中一个不想使用了，可以使用 `azure group delete <group name>`删除它。
 
 ```azurecli
 azure group delete myResourceGroup
@@ -1184,27 +1173,24 @@ info:    group delete command OK
 ```
 
 ## <a id="show-the-log-for-a-resource-group-deployment"></a>任务：显示资源组部署日志
+创建或使用模板时，此操作很常见。 可以使用 `azure group log show <groupname>` 调用来显示组的部署日志，它会显示相当多的有用信息，帮助你了解为何发生某些状况，或者为何未发生某些状况。 （有关排查部署问题的详细信息以及有关问题的其他信息，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md)。）
 
-创建或使用模板时，这种情况很常见。可以使用 `azure group log show <groupname>` 调用来显示组的部署日志，它会显示相当多的有用信息，帮助你了解为何发生某些状况，或者为何未发生某些状况。（有关部署故障排除的详细信息以及有关问题的其他信息，请参阅[在 Azure 中排查资源组部署问题](../articles/azure-resource-manager/resource-manager-deployment-operations.md)。）
-
-为了查明特定的失败，你可以使用 **jq** 等工具来更清楚地查明前因后果，例如，你需要更正的单个失败。以下示例使用 **jq** 分析 **lbgroup** 的部署日志，以找出失败的原因。
+为了查明特定的失败，你可以使用 **jq** 等工具来更清楚地查明前因后果，例如，你需要更正的单个失败。 以下示例使用 **jq** 分析 **lbgroup** 的部署日志，以找出失败的原因。
 
 ```azurecli
 azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties'
 ```
-
-你可以快速发现问题所在，予以纠正，然后再试一次。在以下情况下，模板同时创建了两个 VM，导致在 .vhd 中创建了锁。（修改模板后，很快就部署成功。）
+可以快速发现问题所在，予以纠正，然后再试一次。 在以下情况下，模板同时创建了两个 VM，导致在 .vhd 中创建了锁。 （修改模板后，很快就部署成功。）
 
 ```json
 {
-  "statusCode": "Conflict",
-  "statusMessage": "{"status":"Failed","error":{"code":"ResourceDeploymentFailure","message":"The resource operation completed with terminal provisioning state 'Failed'.","details":[{"code":"AcquireDiskLeaseFailed","message":"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.chinacloudapi.cn/vhds/osdisk.vhd."}]}}"
+    "statusCode": "Conflict",
+    "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"AcquireDiskLeaseFailed\",\"message\":\"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.chinacloudapi.cn/vhds/osdisk.vhd.\"}]}}"
 }
 ```
 
 ## <a id="display-information-about-a-virtual-machine"></a>任务：显示有关虚拟机的信息
-
-可以使用 `azure vm show <groupname> <vmname>` 命令查看资源组中特定 VM 的相关信息。如果你组中的 VM 超过一个，可能首先需要使用 `azure vm list <groupname>` 列出组中的 VM。
+可以使用 `azure vm show <groupname> <vmname>` 命令查看资源组中特定 VM 的相关信息。 如果你组中的 VM 超过一个，可能首先需要使用 `azure vm list <groupname>`列出组中的 VM。
 
 ```azurecli
 azure vm list zoo
@@ -1271,25 +1257,26 @@ info:    vm show command OK
 ```
 
 > [!NOTE]
-> 如果你想要以编程方式存储和操作控制台命令的输出，可以使用 JSON 分析工具（例如 **[jq](https://github.com/stedolan/jq)** 或 **[jsawk](https://github.com/micha/jsawk)**）或适合任务的语言库。
+> 若要以编程方式存储和操作控制台命令的输出，可能需要使用 JSON 分析工具（例如 **[jq](https://github.com/stedolan/jq)** 或 **[jsawk](https://github.com/micha/jsawk)**）或适合该任务的语言库。
+>
+>
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>任务：登录到基于 Linux 的虚拟机
-
-通常，Linux 计算机是通过 SSH 连接的。有关详细信息，请参阅[如何在 Azure 中将 SSH 用于 Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)。
+通常，Linux 计算机是通过 SSH 连接的。 有关详细信息，请参阅[如何在 Azure 中将 SSH 用于 Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a id="stop-a-virtual-machine"></a>任务：停止 VM
-
 运行以下命令：
 
 ```azurecli
 azure vm stop <group name> <virtual machine name>
 ```
 
->[!IMPORTANT]
-> 如果该 VM 是虚拟网络中的最后一个 VM，则使用此参数可以保留该虚拟网络的虚拟 IP (VIP)。<br><br> 如果使用 `StayProvisioned` 参数，则仍要支付 VM 的费用。
+> [!IMPORTANT]
+> 如果该 VM 是 VNet 中的最后一个 VM，则使用此参数可以保留该 VNet 的虚拟 IP (VIP)。 <br><br> 如果使用 `StayProvisioned` 参数，则仍要支付 VM 的费用。
+>
+>
 
 ## <a id="start-a-virtual-machine"></a>任务：启动 VM
-
 运行以下命令：
 
 ```azurecli
@@ -1297,13 +1284,12 @@ azure vm start <group name> <virtual machine name>
 ```
 
 ## <a id="attach-a-data-disk"></a>任务：附加数据磁盘
-
-你还需要确定是要附加新的磁盘还是附加包含数据的磁盘。对于新磁盘，此命令将创建 .vhd 文件，然后将它附加在同一个命令中。
+你还需要确定是要附加新的磁盘还是附加包含数据的磁盘。 对于新磁盘，此命令将创建 .vhd 文件，然后将它附加在同一个命令中。
 
 若要附加新磁盘，请运行以下命令：
 
 ```azurecli
- azure vm disk attach-new <resource-group> <vm-name> <size-in-gb>
+    azure vm disk attach-new <resource-group> <vm-name> <size-in-gb>
 ```
 
 若要附加现有数据磁盘，请运行以下命令：
@@ -1314,10 +1300,7 @@ azure vm disk attach <resource-group> <vm-name> [vhd-url]
 
 然后需要装载该磁盘，就像通常在 Linux 中的操作一样。
 
-## 后续步骤
+## <a name="next-steps"></a>后续步骤
+有关在 **arm** 模式下使用 Azure CLI 的更多示例，请参阅[将适用于 Mac、Linux 和 Windows 的 Azure CLI 用于 Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md)。 若要了解有关 Azure 资源及其概念的详细信息，请参阅 [Azure Resource Manager 概述](../articles/azure-resource-manager/resource-group-overview.md)。
 
-有关 Azure CLI 用法和 **arm** 模式的更多示例，请参阅[将适用于 Mac、Linux 和 Windows 的 Azure CLI 用于 Azure 资源管理器](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md)。若要了解有关 Azure 资源及其概念的详细信息，请参阅 [Azure 资源管理器概述](../articles/azure-resource-manager/resource-group-overview.md)。
-
-有关可用的其他模板，请参阅 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)和[使用模板的应用程序框架](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md)。
-
-<!---HONumber=Mooncake_1010_2016-->
+有关可用的其他模板，请参阅 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)和[使用模板的应用程序框架](../articles/virtual-machines/linux/app-frameworks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。

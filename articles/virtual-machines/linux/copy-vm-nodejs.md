@@ -12,20 +12,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 07/28/2016
+origin.date: 03/22/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: a627f7ae37d747aa30656a854da3e7a47a625f8a
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 13e02cecbda56e9c54c70533852219a69e516e52
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建在 Azure 上运行的 Linux 虚拟机副本
 本文说明如何使用 Resource Manager 部署模型创建运行 Linux 的 Azure 虚拟机 (VM) 副本。 首先，通过操作系统和数据磁盘复制到新容器，然后设置网络资源并创建新虚拟机。
 
-还可以[上载自定义磁盘映像并从中创建 VM](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+还可以[上传自定义磁盘映像并从中创建 VM](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可使用以下 CLI 版本之一完成任务：
@@ -48,13 +47,14 @@ ms.lasthandoff: 04/14/2017
 | 容器名称 |`azure storage container list -a <sourcestorageaccountname>` |
 | 源 VM VHD 文件名 |`azure storage blob list --container <containerName>` |
 
-* 需要对新 VM 做出一些选择：
+* 需要就新的 VM 做出一些选择： 
+
     - 容器名称
-    - VM 名称
-    - VM 大小
-    - vNet 名称
-    - 子网名称
-    - IP 名称
+    - VM 名称 
+    - VM 大小 
+    - vNet 名称 
+    - 子网名称 
+    - IP 名称 
     - NIC 名称
 
 ## <a name="login-and-set-your-subscription"></a>登录并设置订阅
@@ -107,7 +107,7 @@ azure network nic create myResourceGroup myNic -k mySubnet -m myVnet -p myPublic
 ```
 
 ## <a name="create-the-new-vm"></a>创建新 VM
-现在可以 [使用 Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) 从已上载的虚拟磁盘创建 VM，或者通过在 CLI 中输入以下命令指定所复制磁盘的 URI 来创建 VM：
+现在可以 [使用 Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) 从已上传的虚拟磁盘创建 VM，或者通过在 CLI 中输入以下命令指定所复制磁盘的 URI 来创建 VM：
 
 ```azurecli
 azure vm create -n myVM -l myLocation -g myResourceGroup -f myNic \

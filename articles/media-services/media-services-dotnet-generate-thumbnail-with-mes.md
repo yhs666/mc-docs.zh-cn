@@ -1,41 +1,43 @@
 ---
-title: 如何使用 Media Encoder Standard 通过 .NET 生成缩略图
-description: 本主题介绍如何使用 .NET 通过 Media Encoder Standard 对资产进行编码和生成缩略图。
+title: "如何使用 Media Encoder Standard 通过 .NET 来生成缩略图"
+description: "本主题介绍如何使用 .NET 通过 Media Encoder Standard 同时对资产进行编码和生成缩略图。"
 services: media-services
-documentationCenter: ''
-authors: juliako
+documentationcenter: 
+author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/10/2016
-ms.date: 12/26/2016
+ms.date: 10/10/2016
 ms.author: v-johch
+ms.openlocfilehash: 9c7c4b54e225b9bcff43b16c06d6b51a7191ce58
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+#<a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>如何使用 Media Encoder Standard 通过 .NET 来生成缩略图
 
-#如何使用 Media Encoder Standard 通过 .NET 生成缩略图
-
-本主题介绍如何使用媒体服务 .NET SDK 通过 Media Encoder Standard 对资产进行编码和生成缩略图。本主题定义了 XML 和 JSON 缩略图预设，可用于创建同时执行编码和生成缩略图的任务。[本](https://msdn.microsoft.com/zh-cn/library/mt269962.aspx)文档包含这些预设所用的元素的说明。
+本主题介绍如何使用媒体服务 .NET SDK 通过 Media Encoder Standard 来对资产进行编码和生成缩略图。 本主题定义了 XML 和 JSON 缩略图预设，可用于创建同时执行编码和生成缩略图的任务。 [此文档](https://msdn.microsoft.com/zh-cn/library/mt269962.aspx) 包含这些预设所用的元素的说明。
 
 请务必仔细阅读[注意事项](./media-services-dotnet-generate-thumbnail-with-mes.md#considerations)部分。
 
-##示例
-
+## <a name="example"></a>示例
 以下代码示例使用媒体服务 .NET SDK 执行下列任务：
 
 - 创建编码作业。
 - 获取对 Media Encoder Standard 编码器的引用。
-- 加载预设 [XML](./media-services-dotnet-generate-thumbnail-with-mes.md#xml) 或 [JSON](./media-services-dotnet-generate-thumbnail-with-mes.md#json)，其中包含生成缩略图所需的编码预设和信息。可以在一个文件中保存此 [XML](./media-services-dotnet-generate-thumbnail-with-mes.md#xml) 或 [JSON](./media-services-dotnet-generate-thumbnail-with-mes.md#json)，并使用以下代码加载该文件。
+- 加载预设 [XML](./media-services-dotnet-generate-thumbnail-with-mes.md#xml) 或 [JSON](./media-services-dotnet-generate-thumbnail-with-mes.md#json)，包含有编码预设以及生成缩略图所需的信息。 可以在某一文件中保存此 [XML](./media-services-dotnet-generate-thumbnail-with-mes.md#xml) 或 [JSON](./media-services-dotnet-generate-thumbnail-with-mes.md#json)，并使用以下代码来加载该文件。
 
     ```
         // Load the XML (or JSON) from the local file.
         string configuration = File.ReadAllText(fileName);  
     ```
-- 将一个编码任务添加到该作业。
+- 将一个编码任务添加到该作业。 
 - 指定要编码的输入资产。
 - 创建将包含所编码资产的输出资产。
 - 添加事件处理程序以检查作业进度。
@@ -69,16 +71,9 @@ ms.author: v-johch
             private static readonly string _mediaServicesAccountKey =
                 ConfigurationManager.AppSettings["MediaServicesAccountKey"];
 
-                    private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
-
-                    // Azure China uses a different API server and a different ACS Base Address from the Global.
-                    private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
-                    private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
-
             // Field for service context.
             private static CloudMediaContext _context = null;
             private static MediaServicesCredentials _cachedCredentials = null;
-                    private static Uri _apiServer = null;
 
             private static readonly string _mediaFiles =
                 Path.GetFullPath(@"../..\Media");
@@ -89,17 +84,11 @@ ms.author: v-johch
             static void Main(string[] args)
             {
                 // Create and cache the Media Services credentials in a static class variable.
-            _cachedCredentials = new MediaServicesCredentials(
-                            _mediaServicesAccountName,
-                            _mediaServicesAccountKey,
-                            _defaultScope,
-                            _chinaAcsBaseAddressUrl);
-
-                            // Create the API server Uri
-                            _apiServer = new Uri(_chinaApiServerUrl);
-
-            // Used the chached credentials to create CloudMediaContext.
-            _context = new CloudMediaContext(_apiServer, _cachedCredentials);
+                _cachedCredentials = new MediaServicesCredentials(
+                                _mediaServicesAccountName,
+                                _mediaServicesAccountKey);
+                // Used the chached credentials to create CloudMediaContext.
+                _context = new CloudMediaContext(_cachedCredentials);
 
                 // Get an uploaded asset.
                 var asset = _context.Assets.FirstOrDefault();
@@ -189,7 +178,7 @@ ms.author: v-johch
 
 ##<a id="json"></a>缩略图 JSON 预设
 
-有关架构的信息，请参阅[此](https://msdn.microsoft.com/zh-cn/library/mt269962.aspx)主题。
+有关架构的信息，请参阅 [此主题](https://msdn.microsoft.com/zh-cn/library/mt269962.aspx) 。
 
 ```
 {
@@ -293,7 +282,7 @@ ms.author: v-johch
 
 ##<a id="xml"></a>缩略图 XML 预设
 
-有关架构的信息，请参阅[此](https://msdn.microsoft.com/zh-cn/library/mt269962.aspx)主题。
+有关架构的信息，请参阅 [此主题](https://msdn.microsoft.com/zh-cn/library/mt269962.aspx) 。
 
 ```
 <?xml version="1.0" encoding="utf-16"?>
@@ -376,19 +365,17 @@ ms.author: v-johch
 - 为 Start/Step/Range 使用的显式时间戳假设输入源的长度至少为 1 分钟。
 - Jpg/Png/BmpImage 元素包含 Start、Step 和 Range 字符串属性 – 这些属性解释如下：
 
-    - 帧数（如果为非负整数），例如："Start": "120"；
-    - 相对于源持续时间（如果以 % 后缀表示），例如："Start": "15%"，或者
-    - 时间戳（如果以 HH:MM:SS... 格式表示）。例如"Start" : "00:01:00"
+    - 帧数（如果为非负整数），例如： "Start": "120"，
+    - 相对于源持续时间（如果以 % 后缀表示），例如： "Start": "15%"，或者
+    - 时间戳（如果以 HH:MM:SS... 格式表示）。 例如 "Start" : "00:01:00"
 
     你可以随意混搭使用表示法。
 
     此外，Start 还支持特殊的宏 {Best}，它会尝试判断第一个“有意义”的内容帧。注意：（Start 设置为 {Best} 时，将忽略 Step 与 Range）
 
     - 默认值：Start:{Best}
-- 需要显式提供每个图像格式的输出格式：Jpg/Png/BmpFormat。MES 会将 JpgVideo（如果已提供）与 JpgFormat 进行匹配，依此类推。OutputFormat 引入了新的图像编解码器特定 Macro: {Index}，需要为图像输出格式提供该宏一次（且只需一次）。
+- 需要显式提供每个图像格式的输出格式：Jpg/Png/BmpFormat。 MES 会将 JpgVideo（如果已指定）与 JpgFormat 进行匹配，依此类推。 OutputFormat 引入了新的图像编解码器特定宏 {Index}，需要为图像输出格式提供该宏一次（且只需一次）。
 
-##另请参阅 
+##<a name="see-also"></a>另请参阅 
 
 [媒体服务编码概述](./media-services-encode-asset.md)
-
-<!---HONumber=Mooncake_Quality_Review_1215_2016-->

@@ -1,12 +1,11 @@
 ---
-title: 使用 .NET 配置 Azure 媒体服务遥测 | Azure
-description: 本文说明如何通过 .NET SDK 使用 Azure 媒体服务遥测。
+title: "使用 .NET 配置 Azure 媒体服务遥测 | Azure"
+description: "本文说明如何通过 .NET SDK 使用 Azure 媒体服务遥测。"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
 ms.assetid: 4e4a9ec3-8ddb-4938-aec1-d7172d3db858
 ms.service: media-services
 ms.workload: media
@@ -16,29 +15,33 @@ ms.topic: article
 origin.date: 11/17/2016
 ms.date: 12/12/2016
 ms.author: v-johch
+ms.openlocfilehash: dfdcfeffbc1927b95209e729cf9b16720f743f27
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="configuring-azure-media-services-telemetry-with-net"></a>使用 .NET 配置 Azure 媒体服务遥测
 
-# 使用 .NET 配置 Azure 媒体服务遥测
-
-本主题介绍使用 .NET SDK 配置 Azure 媒体服务 (AMS) 遥测可采取的常规步骤。
+本主题介绍了使用 .NET SDK 配置 Azure 媒体服务 (AMS) 遥测时可采取的常规步骤。 
 
 >[!NOTE]
 >有关 AMS 遥测定义和使用方法的详细介绍，请参阅[概述](./media-services-telemetry-overview.md)主题。
 
 可通过以下方式之一使用遥测数据：
 
-- 直接从 Azure 表存储中读取数据，例如使用存储 SDK。有关遥测存储表的说明，请参阅[此主题](https://msdn.microsoft.com/zh-cn/library/mt742089.aspx)中的**使用遥测信息**。
+- 直接从 Azure 表存储中读取数据（例如使用存储 SDK）。 有关遥测存储表的说明，请参阅 **此主题** 中的 [使用遥测信息](https://msdn.microsoft.com/zh-cn/library/mt742089.aspx) 。
 
 或
 
-- 使用媒体服务 .NET SDK 中支持的内容来读取存储数据。本主题说明如何为指定的 AMS 帐户启用遥测，以及如何使用 Azure 媒体服务 .NET SDK 查询度量值。
+- 使用媒体服务 .NET SDK 中支持的内容来读取存储数据。 本主题说明如何为指定的 AMS 帐户启用遥测，以及如何使用 Azure 媒体服务 .NET SDK 查询度量值。  
 
-## 为媒体服务帐户配置遥测
+## <a name="configuring-telemetry-for-a-media-services-account"></a>为媒体服务帐户配置遥测
 
 启用遥测需要执行以下步骤：
 
-- 获取已附加到媒体服务帐户的存储帐户的凭据。
-- 创建一个通知终结点，其 **EndPointType** 设置为 **AzureTable**，endPontAddress 指向存储表。
+- 获取已附加到媒体服务帐户的存储帐户的凭据。 
+- 创建一个通知终结点，将其 EndPointType 设置为 AzureTable，并使 endPontAddress 指向存储表。
 
     ```
     INotificationEndPoint notificationEndPoint = 
@@ -47,7 +50,7 @@ ms.author: v-johch
                   "https://" + _mediaServicesStorageAccountName + ".table.core.chinacloudapi.cn/");
     ```
 
-- 为要监视的服务创建监视配置设置。最多允许一个监视配置设置。
+- 为要监视的服务创建监视配置设置。 最多允许一个监视配置设置。 
 
     ```
     IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
@@ -58,11 +61,11 @@ ms.author: v-johch
         });
     ```
 
-## 使用遥测信息
+## <a name="consuming-telemetry-information"></a>此主题
 
-有关使用遥测信息的信息，请参阅[此主题](./media-services-telemetry-overview.md)。
+有关使用遥测信息的信息，请参阅 [此主题](./media-services-telemetry-overview.md)。
 
-## 示例  
+## <a name="example"></a>示例  
 
 本部分所示的示例假设 App.config 文件中包含以下部分。
 
@@ -76,7 +79,7 @@ ms.author: v-johch
 </appSettings>
 ```
 
-以下示例说明如何为指定的 AMS 帐户启用遥测，以及如何使用 Azure 媒体服务 .NET SDK 查询度量值。
+以下示例说明如何为指定的 AMS 帐户启用遥测，以及如何使用 Azure 媒体服务 .NET SDK 查询度量值。  
 
 ```
 using System;
@@ -100,16 +103,9 @@ namespace AMSMetrics
         private static readonly string _mediaServicesStorageAccountKey =
             ConfigurationManager.AppSettings["StorageAccountKey"];
 
-    private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
-
-    // Azure China uses a different API server and a different ACS Base Address from the Global.
-    private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
-    private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
-
         // Field for service context.
         private static CloudMediaContext _context = null;
         private static MediaServicesCredentials _cachedCredentials = null;
-    private static Uri _apiServer = null;
 
         private static IStreamingEndpoint _streamingEndpoint = null;
         private static IChannel _channel = null;
@@ -117,17 +113,11 @@ namespace AMSMetrics
         static void Main(string[] args)
         {
             // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
+            _cachedCredentials = new MediaServicesCredentials(
                             _mediaServicesAccountName,
-                            _mediaServicesAccountKey,
-                            _defaultScope,
-                            _chinaAcsBaseAddressUrl);
-
-        // Create the API server Uri
-        _apiServer = new Uri(_chinaApiServerUrl);
-
-                // Used the chached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_apiServer, _cachedCredentials);
+                            _mediaServicesAccountKey);
+            // Used the cached credentials to create CloudMediaContext.
+            _context = new CloudMediaContext(_cachedCredentials);
 
             _streamingEndpoint = _context.StreamingEndpoints.FirstOrDefault();
             _channel = _context.Channels.FirstOrDefault();
@@ -243,5 +233,3 @@ namespace AMSMetrics
     }
 }
 ```
-
-<!---HONumber=Mooncake_1205_2016-->

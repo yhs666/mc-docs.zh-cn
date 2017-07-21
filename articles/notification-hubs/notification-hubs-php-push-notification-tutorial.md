@@ -1,41 +1,41 @@
 ---
-title: 如何结合使用通知中心与 PHP
-description: 了解如何从 PHP 后端使用 Azure 通知中心。
+title: "如何结合使用通知中心与 PHP"
+description: "了解如何从 PHP 后端使用 Azure 通知中心。"
 services: notification-hubs
-documentationCenter: ''
+documentationCenter: 
 authors: wesmc7777
 manager: dwrede
-editor: ''
-
+editor: 
 ms.service: notification-hubs
-ms.workload: mobile
-ms.tgt_pltfrm: php
-ms.devlang: php
 ms.topic: article
 origin.date: 06/07/2016
 ms.date: 01/09/2017
 ms.author: v-junlch
+ms.openlocfilehash: 18eb519830b084809f4924659b3de1048c6d5498
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# 如何通过 PHP 使用通知中心
+# <a name="how-to-use-notification-hubs-from-php"></a>如何通过 PHP 使用通知中心
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-如 MSDN 主题[通知中心 REST API](http://msdn.microsoft.com/zh-cn/library/dn223264.aspx) 中所述，你可以使用通知中心 REST 接口从 Java/PHP/Ruby 后端访问所有通知中心功能。
+如 MSDN 主题 [通知中心 REST API](http://msdn.microsoft.com/library/dn223264.aspx)中所述，你可以使用通知中心 REST 接口从 Java/PHP/Ruby 后端访问所有通知中心功能。
 
 本主题中，我们将向你介绍如何：
 
 * 以 PHP 构建 REST 客户端以获取通知中心功能；
-* 请按照你选定的移动平台的[入门教程](./notification-hubs-ios-apple-push-notification-apns-get-started.md)以 PHP 实现后端部分。
+* 请按照你选定的移动平台的[入门教程](./notification-hubs-ios-apple-push-notification-apns-get-started.md)，以 PHP 实现后端部分。
 
-## 客户端接口
-主要的客户端接口可提供 [.NET 通知中心 SDK](http://msdn.microsoft.com/zh-cn/library/jj933431.aspx) 中提供的相同方法，这将允许你直接翻译当前此站点上提供的所有教程和示例，这些内容均来自 Internet 上的社区。
+## <a name="client-interface"></a>客户端接口
+主要的客户端接口可提供 [.NET 通知中心 SDK](http://msdn.microsoft.com/library/jj933431.aspx)中提供的相同方法，这将允许你直接翻译当前此站点上提供的所有教程和示例，这些内容均来自 Internet 上的社区。
 
 你可以在 [PHP REST 包装器示例]中找到提供的所有代码。
 
 例如，创建客户端：
 
 ```
-$hub = new NotificationHub("connection string", "hubname");	
+$hub = new NotificationHub("connection string", "hubname"); 
 ```
 
 发送 iOS 本机通知：
@@ -45,16 +45,17 @@ $notification = new Notification("apple", '{"aps":{"alert": "Hello!"}}');
 $hub->sendNotification($notification, null);
 ```
 
-## 实现
-如果你尚未实现，请按照我们的[入门教程]学至最后一节，其中你必须实现后端。此外，如果你希望可以使用 [PHP REST 包装器示例]中的代码并直接转到[完成本教程](#complete-tutorial)部分。
+## <a name="implementation"></a>实现
+如果你尚未实现，请按照我们的 [入门教程] 学至最后一节，其中你必须实现后端。
+此外，如果你希望可以使用 [PHP REST 包装器示例]中的代码，可直接转到[完成本教程](#complete-tutorial)部分。
 
-有关实现完整 REST 包装器的所有详细信息，请访问 [MSDN](http://msdn.microsoft.com/zh-cn/library/dn530746.aspx)。在本部分中，我们将向你介绍访问通知中心 REST 终结点所需的主要步骤的 PHP 实现：
+有关实现完整 REST 包装器的所有详细信息，请访问 [MSDN](http://msdn.microsoft.com/library/dn530746.aspx)。 在本部分中，我们将向你介绍访问通知中心 REST 终结点所需的主要步骤的 PHP 实现：
 
 1. 解析连接字符串
 2. 生成授权令牌
 3. 执行 HTTP 调用
 
-### 解析连接字符串
+### <a name="parse-the-connection-string"></a>解析连接字符串
 
 下面是实现客户端的主类，其构造函数将解析连接字符串：
 
@@ -92,8 +93,8 @@ class NotificationHub {
 }
 ```
 
-### 创建安全令牌
-有关安全令牌创建的详细信息，请访问[此处](http://msdn.microsoft.com/library/dn495627.aspx)。
+### <a name="create-security-token"></a>创建安全令牌
+有关安全令牌创建的详细信息，请访问 [此处](http://msdn.microsoft.com/library/dn495627.aspx)。
 以下方法必须添加到 **NotificationHub** 类，以便根据当前请求的 URI 和提取自连接字符串的凭据创建令牌。
 
 ```
@@ -114,7 +115,7 @@ private function generateSasToken($uri) {
 }
 ```
 
-### 发送通知
+### <a name="send-a-notification"></a>发送通知
 首先，让我们定义表示通知的类。
 
 ```
@@ -140,7 +141,7 @@ class Notification {
 
 此类是一个容器，其中包含本机通知正文或一组模板通知上的属性，以及一组包含格式（本机平台或模板）和平台特定属性（如 Apple 过期属性和 WNS 标头）的标头。
 
-请参阅[通知中心 REST API 文档](http://msdn.microsoft.com/zh-cn/library/dn495827.aspx)和具体的通知平台格式以了解所有可用选项。
+请参阅 [通知中心 REST API 文档](http://msdn.microsoft.com/library/dn495827.aspx) 和具体的通知平台格式以了解所有可用选项。
 
 具备了此类后，我们现在可以在 **NotificationHub** 类中编写发送通知方法了。
 
@@ -208,15 +209,15 @@ public function sendNotification($notification, $tagsOrTagExpression="") {
 ##<a name="complete-tutorial"></a>完成教程
 现在，你可以通过从 PHP 后端发送通知来完成该入门教程。
 
-初始化你的通知中心客户端（按[入门教程]中所述替换连接字符串和中心名称）：
+初始化通知中心客户端（按[入门教程]中所述替换连接字符串和中心名称）：
 
 ```
-$hub = new NotificationHub("connection string", "hubname");	
+$hub = new NotificationHub("connection string", "hubname"); 
 ```
 
 然后，根据你的目标移动平台添加发送代码。
 
-### Windows 应用商店和 Windows Phone 8.1（非 Silverlight）
+### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Windows 应用商店和 Windows Phone 8.1（非 Silverlight）
 
 ```
 $toast = '<toast><visual><binding template="ToastText01"><text id="1">Hello from PHP!</text></binding></visual></toast>';
@@ -225,7 +226,7 @@ $notification->headers[] = 'X-WNS-Type: wns/toast';
 $hub->sendNotification($notification, null);
 ```
 
-### iOS
+### <a name="ios"></a>iOS
 
 ```
 $alert = '{"aps":{"alert":"Hello from PHP!"}}';
@@ -233,14 +234,14 @@ $notification = new Notification("apple", $alert);
 $hub->sendNotification($notification, null);
 ```
 
-### Android
+### <a name="android"></a>Android
 ```
 $message = '{"data":{"msg":"Hello from PHP!"}}';
 $notification = new Notification("gcm", $message);
 $hub->sendNotification($notification, null);
 ```
 
-### Windows Phone 8.0 和 8.1 Silverlight
+### <a name="windows-phone-80-and-81-silverlight"></a>Windows Phone 8.0 和 8.1 Silverlight
 
 ```
 $toast = '<?xml version="1.0" encoding="utf-8"?>' .
@@ -255,7 +256,7 @@ $notification->headers[] = 'X-NotificationClass : 2';
 $hub->sendNotification($notification, null);
 ```
 
-### Kindle Fire
+### <a name="kindle-fire"></a>Kindle Fire
 ```
 $message = '{"data":{"msg":"Hello from PHP!"}}';
 $notification = new Notification("adm", $message);
@@ -264,16 +265,14 @@ $hub->sendNotification($notification, null);
 
 运行 PHP 代码，现在应该生成显示在目标设备上的通知。
 
-## 后续步骤
-在本主题中，我们介绍了如何为通知中心创建简单的 Java REST 客户端。从这里你可以：
+## <a name="next-steps"></a>后续步骤
+在本主题中，我们介绍了如何为通知中心创建简单的 Java REST 客户端。 从这里你可以：
 
 * 下载完整的 [PHP REST 包装器示例]，其中包含上述所有代码。
 * 在 [突发新闻教程] 中继续学习通知中心标记功能
 * 在 [通知用户教程] 中了解如何将通知推送到单个用户
 
-有关详细信息，另请参阅 [PHP 开发人员中心](https://www.azure.cn/develop/php/)。
+有关详细信息，另请参阅 [PHP 开发人员中心](/develop/php/)。
 
 [PHP REST 包装器示例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [入门教程]: ./notification-hubs-ios-apple-push-notification-apns-get-started.md
-
-<!---HONumber=Mooncake_Quality_Review_0104_2017-->

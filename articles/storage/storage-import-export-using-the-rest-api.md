@@ -1,12 +1,11 @@
 ---
-title: 使用 Azure 导入/导出服务 REST API | Azure
-description: 了解如何使用 Azure 导入/导出服务 REST API
+title: "使用 Azure 导入/导出服务 REST API | Azure"
+description: "了解如何使用 Azure 导入/导出服务 REST API"
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: ''
-
+documentationcenter: 
 ms.assetid: 233f80e9-2e7f-48e0-9639-5c7785e7d743
 ms.service: storage
 ms.workload: storage
@@ -16,15 +15,19 @@ ms.topic: article
 origin.date: 01/15/2017
 ms.date: 02/24/2017
 ms.author: v-johch
+ms.openlocfilehash: 9c8c11473c7d7c80c2fa4da1d353e5cb64fe2b21
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="using-the-azure-importexport-service-rest-api"></a>使用 Azure 导入/导出服务 REST API
 
-# 使用 Azure 导入/导出服务 REST API
+Azure 导入/导出服务公开一个 REST API 来实现对导入/导出作业的编程控制。 可通过 [Azure 门户](https://portal.azure.cn/)执行的所有导入/导出操作也都可以使用 REST API 来完成。 此外，可以使用 REST API 来执行某些精确的操作，例如查询作业完成百分比，而这些操作目前在经典门户中是无法完成的。
 
-Azure 导入/导出服务公开一个 REST API 来实现对导入/导出作业的编程控制。可通过 [Azure 门户](https://portal.azure.cn/)执行的所有导入/导出操作也都可以使用 REST API 来完成。此外，可以使用 REST API 来执行某些精确的操作，例如查询作业完成百分比，而这些操作目前在经典门户中是无法完成的。
+有关导入/导出服务的概述以及演示如何使用经典门户创建和管理导入和导出作业的教程，请参阅[使用 Azure 导入/导出服务将数据传输到 Blob 存储](./storage-import-export-service.md)。
 
-有关导入/导出服务的概述以及演示如何使用经典门户创建和管理导入和导出作业的教程，请参阅 [使用 Azure 导入/导出服务将数据传输到 Blob 存储](./storage-import-export-service.md)。
-
-## 服务终结点
+## <a name="service-endpoints"></a>服务终结点
 
 Azure 导入/导出服务是 Azure Resource Manager 的资源提供程序，它在以下 HTTPS 终结点上提供一组 REST API 用于管理导入/导出作业：
 
@@ -32,11 +35,11 @@ Azure 导入/导出服务是 Azure Resource Manager 的资源提供程序，它�
 https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ImportExport/jobs/<job-name>
 ```
 
-## 版本控制
+## <a name="versioning"></a>版本控制
 
 对导入/导出服务发出的请求必须指定 `api-version` 参数并将其值设置为 `2016-11-01`。
 
-## 本节内容
+## <a name="in-this-section"></a>本节内容
 
 [创建导入作业](./storage-import-export-creating-an-import-job.md)
 
@@ -52,7 +55,5 @@ https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resourceGrou
 
 [导入/导出作业的诊断和错误恢复](./storage-import-export-diagnostics-and-error-recovery.md)
 
-## 另请参阅
+## <a name="see-also"></a>另请参阅
  [存储导入/导出 REST](https://docs.microsoft.com/rest/api/storageimportexport)
-
-<!---HONumber=Mooncake_0220_2017-->

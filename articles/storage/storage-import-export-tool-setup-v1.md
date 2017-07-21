@@ -1,12 +1,11 @@
 ---
-title: 设置 Azure 导入/导出工具 | Azure
-description: 了解如何设置 Azure 导入导出工具的驱动器准备和修复工具
+title: "设置 Azure 导入/导出工具 | Azure"
+description: "了解如何设置 Azure 导入导出工具的驱动器准备和修复工具"
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: ''
-
+documentationcenter: 
 ms.assetid: c312b1ab-5b9e-4d24-becd-790a88b3ba8d
 ms.service: storage
 ms.workload: storage
@@ -16,72 +15,76 @@ ms.topic: article
 origin.date: 01/15/2017
 ms.date: 02/24/2017
 ms.author: v-johch
+ms.openlocfilehash: c63310660b34b1572519e921d20766568f8b7817
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="setting-up-the-azure-import-export-tool"></a>设置 Azure 导入/导出工具
+Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱动器准备和修复工具。 可以使用该工具实现以下功能：  
 
-# 设置 Azure 导入/导出工具
-Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱动器准备和修复工具。可以使用该工具实现以下功能：
+-   在创建导入作业之前，可以使用此工具将数据复制到要寄送给 Azure 数据中心的硬盘驱动器。  
 
--   在创建导入作业之前，可以使用此工具将数据复制到要寄送给 Azure 数据中心的硬盘驱动器。
+-   完成某个导入作业后，可以使用此工具修复已损坏、丢失或与其他 Blob 冲突的任何 Blob。  
 
--   完成某个导入作业后，可以使用此工具修复已损坏、丢失或与其他 Blob 冲突的任何 Blob。
+-   通过某个已完成的导出作业收到驱动器后，可以使用此工具修复这些驱动器上已损坏或丢失的任何文件。  
 
--   通过某个已完成的导出作业收到驱动器后，可以使用此工具修复这些驱动器上已损坏或丢失的任何文件。
+## <a name="prerequisites"></a>先决条件  
+若要为导出作业准备驱动器，需要满足以下先决条件：  
 
-## 先决条件  
-若要为导出作业准备驱动器，需要满足以下先决条件：
+-   必须拥有一个有效的 Azure 订阅。  
 
--   必须拥有一个有效的 Azure 订阅。
+-   该订阅必须包含一个存储帐户，其中有足够的可用空间可存储所要导入的文件。  
 
--   该订阅必须包含一个存储帐户，其中有足够的可用空间可存储所要导入的文件。
+-   需要存储帐户的至少一个帐户密钥。  
 
--   需要存储帐户的至少一个帐户密钥。
+-   需要准备一台装有 Windows 7、Windows Server 2008 R2 或更高版本的 Windows 操作系统的计算机（“复制计算机”）。  
 
--   需要准备一台装有 Windows 7、Windows Server 2008 R2 或更高版本的 Windows 操作系统的计算机（“复制计算机”）。
+-   必须在复制计算机上安装 .NET Framework 4。  
 
--   必须在复制计算机上安装 .NET Framework 4。
+-   必须在复制计算机上启用 BitLocker。  
 
--   必须在复制计算机上启用 BitLocker。
+-   需要一个或多个包含所要导入数据的驱动器，或者与复制计算机连接的空 3.5 英寸 SATA 硬盘驱动器。  
 
--   需要一个或多个包含所要导入数据的驱动器，或者与复制计算机连接的空 3.5 英寸 SATA 硬盘驱动器。
+-   打算导入的文件必须可从复制计算机访问，无论这些文件是位于网络共享还是本地硬盘驱动器上。 
 
--   打算导入的文件必须可从复制计算机访问，无论这些文件是位于网络共享还是本地硬盘驱动器上。
+若要尝试修复某个已部分失败的导入，需要：  
 
-若要尝试修复某个已部分失败的导入，需要：
+-   复制日志文件  
 
--   复制日志文件
+-   存储帐户密钥  
 
--   存储帐户密钥
+  若要尝试修复某个已部分失败的导出，需要：  
 
-  若要尝试修复某个已部分失败的导出，需要：
+-   复制日志文件  
 
--   复制日志文件
+-   清单文件（可选）  
 
--   清单文件（可选）
+-   存储帐户密钥  
 
--   存储帐户密钥
+## <a name="installing-the-azure-importexport-tool"></a>安装 Azure 导入/导出工具  
+ Azure 导入/导出工具由以下文件组成：  
 
-## 安装 Azure 导入/导出工具  
- Azure 导入/导出工具由以下文件组成：
+-   WAImportExport.exe  
 
--   WAImportExport.exe
+-   WAImportExport.exe.config  
 
--   WAImportExport.exe.config
+-   WAImportExportCore.dll  
 
--   WAImportExportCore.dll
+-   WAImportExportRepair.dll  
 
--   WAImportExportRepair.dll
+-   Microsoft.WindowsAzure.Storage.dll  
 
--   Microsoft.WindowsAzure.Storage.dll
+-   Hddid.dll  
 
--   Hddid.dll
+ 请将这些文件复制到某个工作目录，如 `c:\WAImportExport`。 接下来，在管理员模式下打开命令行窗口，将上述目录设为当前目录。  
 
- 请将这些文件复制到某个工作目录，如 `c:\WAImportExport`。接下来，在管理员模式下打开命令行窗口，将上述目录设为当前目录。
+ 若要输出命令帮助，请不带参数运行该工具：  
 
- 若要输出命令帮助，请不带参数运行该工具：
+    WAImportExport，一个用于 Azure 导入/导出服务的客户端工具。 Microsoft (c) 2013、2014  
 
-    WAImportExport, a client tool for Azure Import/Export Service. Microsoft (c) 2013, 2014  
-
-    Copy a Directory:  
+    复制目录：  
         WAImportExport.exe PrepImport  
             /j:<JournalFile> [/logdir:<LogDirectory>] [/id:<SessionId>] [/resumesession]  
             [/abortsession] [/sk:<StorageAccountKey>] [/csas:<ContainerSas>]  
@@ -90,7 +93,7 @@ Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱�
             [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]  
             /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory>  
 
-    Copy a File:  
+    复制文件：  
         WAImportExport.exe PrepImport  
             /j:<JournalFile> [/logdir:<LogDirectory>] [/id:<SessionId>] [/resumesession]  
             [/abortsession] [/sk:<StorageAccountKey>] [/csas:<ContainerSas>]  
@@ -99,7 +102,7 @@ Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱�
             [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]  
             /srcfile:<SourceFilePath> /dstblob:<DestinationBlobPath>  
 
-    Repair a Drive:  
+    修复驱动器：  
         WAImportExport.exe RepairImport | RepairExport  
             /r:<RepairFile> [/logdir:<LogDirectory>]  
             [/d:<TargetDirectories>] [/bk:<BitLockerKey>]  
@@ -107,13 +110,13 @@ Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱�
             [/CopyLogFile:<DriveCopyLogFile>] [/ManifestFile:<DriveManifestFile>]  
             [/PathMapFile:<DrivePathMapFile>]  
 
-    Preview an Export Job:  
+    预览导出作业：  
         WAImportExport.exe PreviewExport  
             [/logdir:<LogDirectory>]  
             /sn:<StorageAccountName> [/sk:<StorageAccountKey> | /csas:<ContainerSas>]  
             /ExportBlobListFile:<ExportBlobListFile> /DriveSize:<DriveSize>  
 
-    Parameters:  
+    参数：  
 
     ```
     /j:<JournalFile>  
@@ -216,7 +219,7 @@ Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱�
         - Optional. To skip write process. Used for inplace data drive preparation.
           Be sure to reserve enough space (3 GB per 7TB) for drive manifest file!
     ```
-    Examples:  
+    示例:  
 
         Copy a source directory to a drive:  
         WAImportExport.exe PrepImport  
@@ -250,12 +253,10 @@ Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱�
             xmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /t:d /encrypt /srcdir:d:\movi
             es\drama /dstdir:movies/drama/ /skipwrite
 
-## 另请参阅  
- [为导入作业准备硬盘驱动器](./storage-import-export-tool-preparing-hard-drives-import-v1.md)
- [预览导出作业的驱动器使用情况](./storage-import-export-tool-previewing-drive-usage-export-v1.md)
- [使用复制日志文件查看作业状态](./storage-import-export-tool-reviewing-job-status-v1.md)
- [修复导入作业](./storage-import-export-tool-repairing-an-import-job-v1.md)
- [修复导出作业](./storage-import-export-tool-repairing-an-export-job-v1.md)
+## <a name="see-also"></a>另请参阅  
+ [为导入作业准备硬盘驱动器](./storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+ [预览导出作业的驱动器使用情况](./storage-import-export-tool-previewing-drive-usage-export-v1.md)   
+ [使用复制日志文件查看作业状态](./storage-import-export-tool-reviewing-job-status-v1.md)   
+ [修复导入作业](./storage-import-export-tool-repairing-an-import-job-v1.md)   
+ [修复导出作业](./storage-import-export-tool-repairing-an-export-job-v1.md)   
  [排查 Azure 导入/导出工具问题](./storage-import-export-tool-troubleshooting-v1.md)
-
-<!---HONumber=Mooncake_0220_2017-->

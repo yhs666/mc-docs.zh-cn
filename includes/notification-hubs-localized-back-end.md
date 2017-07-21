@@ -1,6 +1,4 @@
-﻿
-
-当您发送模板通知时，您只需提供一组属性，在本例中，我们将发送一组包含当前新闻的本地化版本的属性，例如：
+发送模板通知时，只需提供一组属性，在本例中，我们将发送一组包含当前新闻的本地化版本的属性，例如：
 
 ```
 {
@@ -14,9 +12,9 @@
 
 包括的代码将广播到 Windows 应用商店和 iOS 设备，因为该后端可广播到支持的任何设备。
 
-### 使用 C# 控制台应用程序发送通知 
+### <a name="to-send-notifications-using-a-c-console-app"></a>使用 C# 控制台应用程序发送通知 
 
-使用以下代码修改前面创建的控制台应用中的 `SendTemplateNotificationAsync` 方法。请注意为何在本例中无需为不同的区域设置和平台发送多条通知。
+使用以下代码修改先前创建的控制台应用中的 `SendTemplateNotificationAsync` 方法。 请注意为何在本例中无需为不同的区域设置和平台发送多条通知。
 
 ```
     private static async void SendTemplateNotificationAsync()
@@ -53,9 +51,9 @@
     }
 ```
 
-请注意，此简单调用不管平台如何都会将本地化的新闻片段传递到**所有**设备，因为你的通知中心将生成正确的本机负载并将其传送到已订阅特定标记的所有设备。
+请注意，此简单调用不管平台如何都会将本地化的新闻片段传送到所有设备，因为通知中心将生成正确的本机有效负载并将其传送到已订阅特定标记的所有设备。
 
-### 使用移动服务发送通知
+### <a name="sending-the-notification-with-mobile-services"></a>使用移动服务发送通知
 
 在移动服务计划程序中，可以使用以下脚本：
 
@@ -73,5 +71,3 @@ notificationHubService.send('World', notification, function(error) {
     }
 });
 ```
-
-<!---HONumber=Mooncake_0104_2016-->

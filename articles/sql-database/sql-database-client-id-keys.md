@@ -1,32 +1,34 @@
 ---
-title: 获取对应用程序进行身份验证所需的值以便通过代码访问 SQL 数据库 | Azure
-description: 创建服务主体以便通过代码访问 SQL 数据库。
+title: "获取对应用程序进行身份验证所需的值以便从代码访问 SQL 数据库 | Azure"
+description: "创建服务主体以便从代码访问 SQL 数据库。"
 services: sql-database
-documentationCenter: ''
+documentationCenter: 
 authors: stevestein
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
 ms.service: sql-database
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 09/30/2016
-ms.date: 12/26/2016
+ms.date: 09/30/2016
 ms.author: v-johch
+ms.openlocfilehash: 0d8b9b1fa4f0b4092a0b6b4bfa1f088228c4af25
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>获取对应用程序进行身份验证所需的值以便从代码访问 SQL 数据库
 
-# 获取对应用程序进行身份验证所需的值以便通过代码访问 SQL 数据库
+若要在代码中创建并管理 SQL 数据库，必须在创建 Azure 资源的订阅中的 Azure Active Directory (AAD) 域内注册你的应用。
 
-若要通过代码创建并管理 SQL 数据库，必须在创建 Azure 资源的订阅中的 Azure Active Directory (AAD) 域内注册应用。
+## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>创建服务主体以便从应用程序访问资源
 
-## 创建服务主体以便从应用程序访问资源
+需要安装并运行最新的 [Azure PowerShell](https://msdn.microsoft.com/zh-cn/library/mt619274.aspx) 。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。
 
-需要安装并运行最新的 [Azure PowerShell](https://msdn.microsoft.com/zh-cn/library/mt619274.aspx)。有关详细信息，请参阅[如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。
-
-以下 PowerShell 脚本创建 Active Directory (AD) 应用程序，以及对 C# 应用进行身份验证时所需的服务主体。该脚本将输出前面 C# 示例所需的值。有关详细信息，请参阅[使用 Azure PowerShell 创建用于访问资源的服务主体](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
+以下 PowerShell 脚本将创建对 C# 应用进行身份验证所需的 Active Directory (AD) 应用程序和服务主体。 用于前面 C# 示例所需的脚本输出值。 有关详细信息，请参阅[使用 Azure PowerShell 创建服务主体以访问资源](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
 
 ```
 # Sign in to Azure.
@@ -67,9 +69,7 @@ Write-Output "_applicationId:" $azureAdApplication.ApplicationId.Guid
 Write-Output "_applicationSecret:" $secret
 ```
 
-## 另请参阅
+## <a name="see-also"></a>另请参阅
 
 - [使用 C# 创建 SQL 数据库](./sql-database-get-started-csharp.md)
-- [通过使用 Azure Active Directory 身份验证连接到 SQL 数据库](./sql-database-aad-authentication.md)
-
-<!---HONumber=Mooncake_Quality_Review_1215_2016-->
+- [使用 Azure Active Directory 身份验证连接到 SQL 数据库](./sql-database-aad-authentication.md)

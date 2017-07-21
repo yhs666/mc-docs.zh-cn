@@ -1,12 +1,11 @@
 ---
-title: 查看服务生成的 Azure SQL 数据库备份的最早还原点 | Azure
-description: 有关如何查看服务生成的数据库备份的最早还原点的快速参考
+title: "查看服务生成的 Azure SQL 数据库备份的最早还原点 | Azure"
+description: "有关如何查看服务生成的数据库备份的最早还原点的快速参考"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
 ms.service: sql-database
 ms.custom: business continuity
 ms.devlang: NA
@@ -16,37 +15,35 @@ ms.tgt_pltfrm: NA
 origin.date: 12/07/2016
 ms.date: 01/20/2017
 ms.author: v-johch
+ms.openlocfilehash: e57369daea879a9abdf9bfff27b7f3d41c26ca03
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# 查看服务生成的 Azure SQL 数据库备份的最早还原点
+# <a name="view-the-oldest-restore-point-from-the-service-generated-backups-of-an-azure-sql-database"></a>查看服务生成的 Azure SQL 数据库备份的最早还原点
 
 本操作方法主题介绍如何查看服务生成的 Azure SQL 数据库备份的最早还原点。
 
-## 使用 Azure 门户查看最早还原点
+## <a name="view-the-oldest-restore-point-using-the-azure-portal"></a>使用 Azure 门户查看最早还原点
 
-1. 打开数据库的“SQL 数据库”边栏选项卡。
+1. 打开数据库的  “SQL 数据库”边栏选项卡。
 
-    ![“新建示例数据库”边栏选项卡](./media/sql-database-get-started/new-sample-db-blade.png)  
+    ![新建示例 db 边栏选项卡](./media/sql-database-get-started/new-sample-db-blade.png)
 
-2. 在工具栏上，单击“还原”。
+2. 在工具栏上，单击“还原” 。
 
-    ![还原工具栏](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)  
+    ![还原工具栏](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 3. 在“还原”边栏选项卡上，查看最早还原点。
 
-    ![最早还原点](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)  
+    ![最早还原点](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
 
-<!------
 > [!TIP]
-有关教程，请参阅[开始使用备份和还原进行数据保护和恢复](./sql-database-get-started-backup-recovery.md)
+> 有关教程，请参阅[数据保护和恢复的备份和还原入门](./sql-database-get-started-backup-recovery.md)
 >
--------->
 
-## 后续步骤
+## <a name="next-steps"></a>后续步骤
 
-<!-------
-- 若要了解服务生成的自动备份，请参阅[自动备份](./sql-database-get-started-backup-recovery-portal.md)
---------->
-- 若要了解如何从备份还原，请参阅[从备份还原](./sql-database-recovery-using-backups.md)
-
-<!---HONumber=Mooncake_0116_2017-->
+- 若要了解服务生成的自动备份，请参阅[自动备份](./sql-database-automated-backups.md)
+- 若要了解如何从备份中还原，请参阅[从备份中还原](./sql-database-recovery-using-backups.md)

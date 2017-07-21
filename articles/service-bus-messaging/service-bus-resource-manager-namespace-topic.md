@@ -1,29 +1,32 @@
 ---
-title: 使用 Azure Resource Manager 模板创建包含主题和订阅的服务总线命名空间 | Azure
-description: 使用 Azure Resource Manager 模板创建包含主题和订阅的服务总线命名空间
+title: "使用 Azure Resource Manager 模板创建 Azure 服务总线命名空间主题订阅 | Azure"
+description: "使用 Azure Resource Manager 模板创建包含主题和订阅的服务总线命名空间"
 services: service-bus
-documentationCenter: .net
-authors: sethmanheim
+documentationcenter: .net
+author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: d3d55200-5c60-4b5f-822d-59974cafff0e
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 01/18/2017
+ms.date: 04/18/2017
 ms.author: v-yiso
-ms.date: 03/20/2017
+ms.openlocfilehash: 4277bc3ca1618d177bcf2736e07a350fa1fef280
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建包含主题和订阅的服务总线命名空间
 
-# 使用 Azure Resource Manager 模板创建包含主题和订阅的服务总线命名空间
+本文介绍如何使用 Azure Resource Manager 模板创建服务总线命名空间，并且该命名空间内包含主题和订阅。 你将了解如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求
 
-本文介绍如何使用创建包含主题和订阅的服务总线命名空间的 Azure Resource Manager 模板。你将了解如何定义要部署的资源以及如何定义执行部署时指定的参数。可将此模板用于自己的部署，或自定义此模板以满足要求
+有关创建模板的详细信息，请参阅 [创作 Azure Resource Manager 模板][]。
 
-有关创建模板的详细信息，请参阅[创作 Azure Resource Manager 模板][]。
-
-有关完整的模板，请参阅[包含主题和订阅的服务总线命名空间][]模板。
+有关完整的模板，请参阅 [包含主题和订阅的服务总线命名空间][] 模板。
 
 >[!NOTE]
 > 以下 Azure Resource Manager 模板可供下载和部署。
@@ -32,8 +35,12 @@ ms.date: 03/20/2017
 > -  [创建包含队列的服务总线命名空间](./service-bus-resource-manager-namespace-queue.md)
 > -  [创建包含队列和授权规则的服务总线命名空间](./service-bus-resource-manager-namespace-auth-rule.md)
 > -  [创建包含主题、订阅和规则的服务总线命名空间](./service-bus-resource-manager-namespace-topic-with-rule.md)
+> 
+> 若要检查最新模板，请访问 [Azure 快速启动模板][Azure Quickstart Templates]库并搜索“服务总线”。
+> 
+> 
 
-## 你将部署什么内容？
+## <a name="what-will-you-deploy"></a>你将部署什么内容？
 
 使用此模板，你将部署包含主题和订阅的服务总线命名空间。
 
@@ -43,119 +50,115 @@ ms.date: 03/20/2017
 
 [![部署到 Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-and-subscription%2Fazuredeploy.json)
 
-## 参数
+## <a name="parameters"></a>Parameters
 
-使用 Azure 资源管理器，可以定义在部署模板时想要指定的值的参数。该模板具有一个名为 `Parameters` 的部分，其中包含所有参数值。你应该为随着要部署的项目或要部署到的环境而变化的值定义参数。不要为永远保持不变的值定义参数。每个参数值可在模板中用来定义所部署的资源。
+使用 Azure Resource Manager，可以定义在部署模板时想要指定的值的参数。 该模板具有一个名为 `Parameters` 的部分，其中包含所有参数值。 你应该为随着要部署的项目或要部署到的环境而变化的值定义参数。 不要为永远保持不变的值定义参数。 每个参数值可在模板中用来定义所部署的资源。
 
 模板定义以下参数。
 
-### serviceBusNamespaceName
+### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 
 要创建的服务总线命名空间的名称。
 
 ```json
-    "serviceBusNamespaceName": {
-    "type": "string"
-    }
+"serviceBusNamespaceName": {
+"type": "string"
+}
 ```
 
-### serviceBusTopicName
+### <a name="servicebustopicname"></a>serviceBusTopicName
 
 在服务总线命名空间中创建的主题的名称。
 
 ```json
-    "serviceBusTopicName": {
-    "type": "string"
-    }
+"serviceBusTopicName": {
+"type": "string"
+}
 ```
 
-### serviceBusSubscriptionName
+### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
 
 在服务总线命名空间中创建的订阅的名称。
 
 ```json
-    "serviceBusSubscriptionName": {
-    "type": "string"
-    }
+"serviceBusSubscriptionName": {
+"type": "string"
+}
 ```
 
-### serviceBusApiVersion
+### <a name="servicebusapiversion"></a>serviceBusApiVersion
 
 模板的服务总线 API 版本。
 
 ```json
-    "serviceBusApiVersion": {
-    "type": "string"
-    }
+"serviceBusApiVersion": {
+"type": "string"
+}
 ```
-## 要部署的资源
+## <a name="resources-to-deploy"></a>要部署的资源
 
-创建类型为 **Messaging** 的包含主题和订阅的标准服务总线命名空间。
+创建类型为 **Messaging**的包含主题和订阅的标准服务总线命名空间。
 
 ```json
-    "resources ": [{
+"resources ": [{
+        "apiVersion": "[variables('sbVersion')]",
+        "name": "[parameters('serviceBusNamespaceName')]",
+        "type": "Microsoft.ServiceBus/Namespaces",
+        "location": "[variables('location')]",
+        "kind": "Messaging",
+        "sku": {
+            "name": "StandardSku",
+            "tier": "Standard"
+        },
+        "resources": [{
             "apiVersion": "[variables('sbVersion')]",
-            "name": "[parameters('serviceBusNamespaceName')]",
-            "type": "Microsoft.ServiceBus/Namespaces",
-            "location": "[variables('location')]",
-            "kind": "Messaging",
-            "sku": {
-                "name": "StandardSku",
-                "tier": "Standard"
+            "name": "[parameters('serviceBusTopicName')]",
+            "type": "Topics",
+            "dependsOn": [
+                "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+            ],
+            "properties": {
+                "path": "[parameters('serviceBusTopicName')]",
             },
             "resources": [{
                 "apiVersion": "[variables('sbVersion')]",
-                "name": "[parameters('serviceBusTopicName')]",
-                "type": "Topics",
+                "name": "[parameters('serviceBusSubscriptionName')]",
+                "type": "Subscriptions",
                 "dependsOn": [
-                    "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+                    "[parameters('serviceBusTopicName')]"
                 ],
-                "properties": {
-                    "path": "[parameters('serviceBusTopicName')]",
-                },
-                "resources": [{
-                    "apiVersion": "[variables('sbVersion')]",
-                    "name": "[parameters('serviceBusSubscriptionName')]",
-                    "type": "Subscriptions",
-                    "dependsOn": [
-                        "[parameters('serviceBusTopicName')]"
-                    ],
-                    "properties": {}
-                }]
+                "properties": {}
             }]
         }]
+    }]
 ```
 
-## 运行部署的命令
+## <a name="commands-to-run-deployment"></a>运行部署的命令
 
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-## PowerShell
-
+## <a name="powershell"></a>PowerShell
 ```powershell
-    New-AzureResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
+New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
-## Azure CLI
-
+## <a name="azure-cli"></a>Azure CLI
 ```cli
-    azure config mode arm
+azure config mode arm
 
-    azure group deployment create <my-resource-group> <my-deployment-name> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
+azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
-## 后续步骤
+## <a name="next-steps"></a>后续步骤
 
 现在，你已使用 Azure Resource Manager 创建并部署了资源，请通过查看以下文章了解如何管理这些资源：
 
-- [使用 PowerShell 管理服务总线](https://docs.microsoft.com/en-us/powershell/module/azurerm.servicebus/?view=azurermps-3.8.0)
-- [使用服务总线资源管理器管理服务总线资源](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [使用 PowerShell 管理服务总线](./service-bus-manage-with-ps.md)
+* [使用服务总线资源管理器管理服务总线资源](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
   [创作 Azure Resource Manager 模板]: ../azure-resource-manager/resource-group-authoring-templates.md
-  [Azure 快速启动模板]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+  [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Learn more about Service Bus topics and subscriptions]: ./service-bus-queues-topics-subscriptions.md
   [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
   [包含主题和订阅的服务总线命名空间]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/
-
-<!---HONumber=Mooncake_1219_2016-->

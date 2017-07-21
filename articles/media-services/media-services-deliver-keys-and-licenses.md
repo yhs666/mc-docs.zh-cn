@@ -1,43 +1,43 @@
 ---
-title: 使用 Azure 媒体服务传送 DRM 许可证或 AES 密钥
-description: 本文介绍如何使用 Azure 媒体服务 (AMS) 传送 PlayReady 许可证与 AES 密钥，但余下的操作（编码、加密、流式传输）使用你的本地服务器完成。
+title: "使用 Azure 媒体服务传送 DRM 许可证或 AES 密钥"
+description: "本文介绍如何使用 Azure 媒体服务 (AMS) 来传送 PlayReady 许可证和 AES 密钥，但使用本地服务器完成余下的操作（编码、加密、流式传输）。"
 services: media-services
-documentationCenter: ''
-authors: Juliako
+documentationcenter: 
+author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/26/2016
-ms.date: 04/10/2017
+ms.date: 09/26/2016
 ms.author: v-johch
+ms.openlocfilehash: 71ceed18e541e4ce70015b5e5f337e33d691608f
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+#<a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>使用 Azure 媒体服务传送 DRM 许可证或 AES 密钥
 
-#使用 Azure 媒体服务传送 DRM 许可证或 AES 密钥
+Azure 媒体服务 (AMS) 可让你引入、编码、添加内容保护，以及流式传输内容（有关详细信息，请参阅[此文章](./media-services-protect-with-drm.md)）。 但是，有些客户只想使用 AMS 来传送许可证和/或密钥，并使用他们的本地服务器来进行编码、加密和流式传输。 本文说明如何使用 AMS 来传送 PlayReady 许可证，但使用本地服务器完成余下的操作。 
 
-Azure 媒体服务 (AMS) 可让你引入、编码、添加内容保护，以及流式传输内容（有关详细信息，请参阅[此文章](./media-services-protect-with-drm.md)）。但是，有些客户只想使用 AMS 传送许可证和/或密钥，并使用他们的本地服务器进行编码、加密和流式传输。本文说明如何使用 AMS 传送 PlayReady 许可证，但使用本地服务器完成其余部分。
+## <a name="overview"></a>概述
+媒体服务提供传送 PlayReady DRM 许可证及 AES-128 密钥的服务。 媒体服务还提供用于配置所需权限和限制的 API，这样当用户播放 DRM 保护的内容时，DRM 运行时便会强制实施这些权限和限制。 当用户请求受保护的内容时，播放器应用程序将从 AMS 许可证服务请求许可证。 AMS 许可证服务将向播放器颁发许可证（如果播放器已获授权）。 PlayReady 许可证包含客户端播放器用来对内容进行解密和流式传输的解密密钥。
 
-## 概述
-
-媒体服务提供传送 PlayReady DRM 许可证及 AES-128 密钥的服务。媒体服务还提供用于配置所需权限和限制的 API，这样当用户重新播放 DRM 保护的内容时，DRM 运行时便会强制实施这些权限和限制。当用户请求受保护的内容时，播放器应用程序将从 AMS 许可证服务请求许可证。AMS 许可证服务将向播放器颁发许可证（如果播放器已获授权）。PlayReady 许可证包含客户端播放器用来对内容进行解密和流式传输的解密密钥。
-
-媒体服务支持通过多种方式对发出许可证或密钥请求的用户进行授权。你可以配置内容密钥的授权策略，该策略可以包含一种或多种限制：开放或令牌限制。令牌限制策略必须附带由安全令牌服务 (STS) 颁发的令牌。媒体服务支持采用简单 Web 令牌 (SWT) 格式和 JSON Web 令牌 (JWT) 格式的令牌。
+媒体服务支持通过多种方式对发出许可证或密钥请求的用户进行授权。 你可以配置内容密钥的授权策略，该策略可以包含一种或多种限制：开放或令牌限制。 令牌限制策略必须附带由安全令牌服务 (STS) 颁发的令牌。 媒体服务支持采用简单 Web 令牌 (SWT) 格式和 JSON Web 令牌 (JWT) 格式的令牌。
 
 下图显示了使用 AMS 传送 PlayReady 许可证，但使用本地服务器完成其余部分所要执行的主要步骤。
 
 ![使用 PlayReady 进行保护](./media/media-services-deliver-keys-and-licenses/media-services-diagram1.png)
 
-##下载示例
+## <a name="download-sample"></a>下载示例
+可以从 [此处](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses)下载本文所述的示例。
 
-可以从[此处](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses)下载本文所述的示例。
-
-##.NET 代码示例
-
-本主题中的代码示例演示如何创建通用内容密钥，并获取 PlayReady 许可证获取 URL。你需要从 AMS 获取以下信息片段并配置本地服务器：“内容密钥”、“密钥 ID”、“许可证获取 URL”。配置本地服务器后，你可以从自己的流服务器进行流式传输。由于加密的流指向 AMS 许可证服务器，播放器将从 AMS 请求许可证。如果你选择令牌身份验证，AMS 许可证服务器将验证通过 HTTPS 发送的令牌，然后（如果有效）将许可证传回给播放器。（代码示例仅演示了如何创建通用内容密钥，并获取 PlayReady 许可证获取 URL。如果你想要传送 AES-128 密钥，则需要创建信封内容密钥，并获取密钥获取 URL，[此文章](./media-services-protect-with-aes128.md)介绍了具体的操作方法）。
+## <a name="net-code-example"></a>.NET 代码示例
+本主题中的代码示例演示如何创建通用内容密钥，并获取 PlayReady 许可证获取 URL。 需要从 AMS 获取一下信息片段并配置本地服务器：内容密钥、 密钥 ID、 许可证获取 URL。 配置本地服务器后，你可以从自己的流服务器进行流式传输。 由于加密的流指向 AMS 许可证服务器，播放器将从 AMS 请求许可证。 如果选择令牌身份验证，AMS 许可证服务器将验证通过 HTTPS 发送的令牌，然后（如果有效）将许可证传回给播放器。 （代码示例仅演示了如何创建通用内容密钥，并获取 PlayReady 许可证获取 URL。 如果想要传送 AES-128 密钥，则需要创建信封内容密钥，并获取密钥获取 URL，[此文章](media-services-protect-with-aes128.md)介绍了具体的操作）。
 
 ```
 using System;
@@ -61,12 +61,6 @@ namespace DeliverDRMLicenses
         private static readonly string _mediaServicesAccountKey =
             ConfigurationManager.AppSettings["MediaServicesAccountKey"];
 
-        private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
-
-        // Azure China uses a different API server and a different ACS Base Address from the Global.
-        private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
-        private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
-
         private static readonly Uri _sampleIssuer =
             new Uri(ConfigurationManager.AppSettings["Issuer"]);
         private static readonly Uri _sampleAudience =
@@ -75,22 +69,15 @@ namespace DeliverDRMLicenses
         // Field for service context.
         private static CloudMediaContext _context = null;
         private static MediaServicesCredentials _cachedCredentials = null;
-        private static Uri _apiServer = null;
 
         static void Main(string[] args)
         {
             // Create and cache the Media Services credentials in a static class variable.
             _cachedCredentials = new MediaServicesCredentials(
                             _mediaServicesAccountName,
-                            _mediaServicesAccountKey,
-                            _defaultScope,
-                            _chinaAcsBaseAddressUrl);
-
-            // Create the API server Uri
-            _apiServer = new Uri(_chinaApiServerUrl);
-
-            // Used the chached credentials to create CloudMediaContext.
-            _context = new CloudMediaContext(_apiServer, _cachedCredentials);
+                            _mediaServicesAccountKey);
+            // Used the cached credentials to create CloudMediaContext.
+            _context = new CloudMediaContext(_cachedCredentials);
 
             bool tokenRestriction = true;
             string tokenTemplateString = null;
@@ -290,10 +277,8 @@ namespace DeliverDRMLicenses
 }
 ```
 
-##另请参阅
+##<a name="see-also"></a>另请参阅
 
-[使用 PlayReady DRM 动态通用加密](./media-services-protect-with-drm.md)
+[使用 PlayReady 动态通用加密](./media-services-protect-with-drm.md)
 
 [使用 AES-128 动态加密和密钥传送服务](./media-services-protect-with-aes128.md)
-
-<!---HONumber=Mooncake_Quality_Review_1215_2016-->

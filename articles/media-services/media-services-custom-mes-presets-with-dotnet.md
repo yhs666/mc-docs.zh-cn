@@ -1,40 +1,42 @@
 ---
-title: 自定义 Media Encoder Standard 预设 | Azure
-description: 本主题说明如何通过自定义 Media Encoder Standard 任务预设执行高级编码。本主题说明如何使用媒体服务 .NET SDK 创建编码任务和作业。此外，还说明如何向编码作业提供自定义预设。
+title: "自定义 Media Encoder Standard 预设 | Microsoft Docs"
+description: "本主题说明如何通过自定义 Media Encoder Standard 任务预设执行高级编码。 本主题说明如何使用媒体服务 .NET SDK 创建编码任务和作业。 此外，还说明如何向编码作业提供自定义预设。"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
 ms.assetid: ec95392f-d34a-4c22-a6df-5274eaac445b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/29/2016
-ms.date: 01/13/2017
+ms.date: 11/29/2016
 ms.author: v-johch
+ms.openlocfilehash: 3089bfd142c214559eed042378cdd768e61f0924
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="customizing-media-encoder-standard-presets"></a>自定义 Media Encoder Standard 预设
 
-# 自定义 Media Encoder Standard 预设
+## <a name="overview"></a>概述
 
-##概述
+本主题演示如何通过使用自定义预设的 Media Encoder Standard (MES) 执行高级编码。 本主题使用 .NET 创建编码任务和执行此任务的作业。  
 
-本主题演示如何通过使用自定义预设的 Media Encoder Standard \(MES\) 执行高级编码。本主题使用 .NET 创建编码任务和执行此任务的作业。
-
-本主题介绍如何使用 [H264 多比特率 720p](./media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 预设并减少层数，从而自定义预设。[自定义 Media Encoder Standard 预设](./media-services-advanced-encoding-with-mes.md)主题演示了可用于执行高级编码任务的自定义预设。
+本主题介绍如何使用 [H264 多比特率 720p](./media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 预设和减少层数来进行自定义预设。 [自定义 Media Encoder Standard 预设](./media-services-advanced-encoding-with-mes.md)主题演示了可用于执行高级编码任务的自定义预设。
 
 ## <a id="customizing_presets"></a> 自定义 MES 预设
 
-### 原始预设
+### <a name="original-preset"></a>原始预设
 
-将在 [H264 多比特率 720p](./media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 主题中定义的 JSON 保存到具有 .json 扩展名的文件。例如，**CustomPreset\_JSON.json**。
+将在 [H264 多比特率 720p](./media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 主题中定义的 JSON 保存到具有 .json 扩展名的文件。 例如，CustomPreset_JSON.json。
 
-### 自定义的预设
+### <a name="customized-preset"></a>自定义的预设
 
-打开 **CustomPreset\_JSON.json** 文件，删除 **H264Layers** 中的前三层，使文件如下所示。
+打开“CustomPreset_JSON.json”文件，删除“H264Layers” 中的前三层，使文件如下所示。
 
 ```
 {  
@@ -113,14 +115,14 @@ ms.author: v-johch
 
 - 创建编码作业。
 - 获取对 Media Encoder Standard 编码器的引用。
-- 加载前面部分中创建的自定义 JSON 预设。
+- 加载前面部分中创建的自定义 JSON 预设。 
 
     ```
     // Load the JSON from the local file.
     string configuration = File.ReadAllText(fileName);  
     ```
 
-- 将编码任务添加到作业。
+- 将编码任务添加到作业。 
 - 指定要编码的输入资产。
 - 创建将包含所编码资产的输出资产。
 - 添加事件处理程序以检查作业进度。
@@ -271,8 +273,5 @@ ms.author: v-johch
     }
     ```
 
-## 另请参阅
+## <a name="see-also"></a>另请参阅
 [媒体服务编码概述](./media-services-encode-asset.md)
-
-<!---HONumber=Mooncake_0109_2017-->
-<!--Update_Description: main content update, the subject is updated from "advanced encoding" to "custom preset"-->

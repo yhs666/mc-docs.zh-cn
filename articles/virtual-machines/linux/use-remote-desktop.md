@@ -15,12 +15,11 @@ ms.topic: article
 origin.date: 03/07/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: c4f98ba3d13e0fdb8367b9f56e38c20e222c15ce
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 952c23ffcc98dde91609bb9e7faae564be6ed39f
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>安装和配置远程桌面以连接到 Azure 中的 Linux VM
 通常使用安全外壳 (SSH) 连接从命令行管理 Azure 中的 Linux 虚拟机 (VM)。 如果不熟悉 Linux，或者要快速进行故障排除，使用远程桌面可能会更方便。 本文详细介绍如何使用 Resource Manager 部署模型为 Linux VM 安装和配置桌面环境 ([xfce](https://www.xfce.org)) 和远程桌面 ([xrdp](http://www.xrdp.org))。 还可以[使用经典部署模型对 VM 执行这些步骤](classic/remote-desktop.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)。
@@ -28,8 +27,8 @@ ms.lasthandoff: 04/14/2017
 ## <a name="prerequisites"></a>先决条件
 本文需要 Azure 中的现有 Linux VM。 如果需要创建 VM，请使用以下方法之一：
 
-- [Azure CLI 2.0](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [Azure CLI 1.0](quick-create-cli-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-- [Azure 门户](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure CLI 2.0](../linux/quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [Azure CLI 1.0](quick-create-cli-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure 门户](../linux/quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 用户还需登录到[活动 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -77,8 +76,8 @@ sudo passwd ops
 az network nsg rule create --resource-group myResourceGroup \
     --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
     --protocol tcp --direction inbound --priority 1010 \
-    --source-address-prefix '*' --source-port-range '*' \
-    --destination-address-prefix '*' --destination-port-range 3389 \
+    --source-address-prefix * --source-port-range * \
+    --destination-address-prefix * --destination-port-range 3389 \
     --access allow
 ```
 
@@ -95,7 +94,7 @@ azure network nsg rule create --resource-group myResourceGroup \
 
 ![使用远程桌面客户端连接到 xrdp](./media/use-remote-desktop/remote-desktop-client.png)
 
-## <a name="install-graphical-environment-on-linux-vm"></a> 在 Linux VM 上安装桌面环境
+## <a name="install-a-desktop-environment-on-your-linux-vm"></a>在 Linux VM 上安装桌面环境
 Azure 中的大多数 Linux VM 默认情况下未安装桌面环境。 通常使用 SSH 连接（而不是桌面环境）来管理 Linux VM。 Linux 中有各种可以选择的桌面环境。 根据所选的桌面环境，可能会占用 1 到 2 GB 的磁盘空间，并需要 5 到 10 分钟来安装和配置所有所需的包。
 
 以下示例在 Ubuntu VM 上安装轻型 [xfce4](https://www.xfce.org/) 桌面环境。 其他分发的命令略有不同（例如，使用 **yum** 在 Red Hat Enterprise Linux 上安装并配置适当的 **selinux** 规则，或者使用 **zypper** 在 SUSE 上安装）。
@@ -116,7 +115,7 @@ sudo apt-get install xfce4
 ```
 
 ## <a name="install-and-configure-a-remote-desktop-server"></a>安装和配置远程桌面服务器
-安装桌面环境后，请配置远程桌面服务来侦听传入连接。 [xrdp](http://www.xrdp.org) 是大多数 Linux 分发版中提供的开源远程桌面协议 (RDP) 服务器，可与 xfce 完美配合。 在 Ubuntu VM 上安装 xrdp，如下所示：
+安装桌面环境后，请配置远程桌面服务来侦听传入连接。 [xrdp](http://xrdp.org) 是大多数 Linux 分发版中提供的开源远程桌面协议 (RDP) 服务器，可与 xfce 完美配合。 在 Ubuntu VM 上安装 xrdp，如下所示：
 
 ```bash
 sudo apt-get install xrdp
@@ -206,7 +205,7 @@ tail -f /var/log/syslog
 
 其他 Linux 分发（例如，Red Hat Enterprise Linux 和 SUSE）重新启动服务的方式可能有所不同，并且可能需要更换要查看的日志文件位置。
 
-如果用户在远程桌面客户端中未收到任何响应，并且在系统日志中看不到任何事件，则此行为指示远程桌面流量无法到达 VM。 查看网络安全组规则，以确保有规则允许端口 3389 上的 TCP。 有关详细信息，请参阅[排查应用程序连接问题](troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+如果用户在远程桌面客户端中未收到任何响应，并且在系统日志中看不到任何事件，则此行为指示远程桌面流量无法到达 VM。 查看网络安全组规则，以确保有规则允许端口 3389 上的 TCP。 有关详细信息，请参阅[排查应用程序连接问题](../windows/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="next-steps"></a>后续步骤
 有关为 Linux VM 创建 SSH 密钥和在 Linux VM 上使用 SSH 密钥的详细信息，请参阅[在 Azure 中为 Linux VM 创建 SSH 密钥](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。

@@ -1,13 +1,13 @@
 ---
-title: 将自定义数据注入到虚拟机中 | Azure
-description: 本主题介绍如何在创建实例时将自定义数据注入到 Azure 虚拟机中，以及如何在 Windows 或 Linux 上找到自定义数据。
+title: "将数据注入 Azure 上的 Windows VM | Azure"
+description: "本主题介绍如何在创建实例时将自定义数据注入到 Azure 虚拟机中，以及如何在 Windows 或 Linux 上找到自定义数据。"
 services: virtual-machines-windows
-documentationCenter: ''
-authors: squillace
+documentationcenter: 
+author: squillace
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 48759f76-eaa0-4202-ada0-706d3f9a9467
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,14 +16,14 @@ ms.topic: article
 origin.date: 08/23/2016
 ms.date: 01/05/2017
 ms.author: v-dazen
+ms.openlocfilehash: dc8ec14dcbcfdcb0ac86a0181924e0389e3f1df0
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-#将自定义数据注入到 Azure 虚拟机中
-
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-classic-include.md)]
-
-关于在资源管理器模型使用自定义脚本扩展，请点击[这里](../extensions-customscript.md)。
+# <a name="injecting-custom-data-into-an-azure-virtual-machine"></a>将自定义数据注入到 Azure 虚拟机中
+> [!IMPORTANT] 
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关将自定义脚本扩展与 Resource Manager 模型配合使用的信息，请参阅[此处](../extensions-customscript.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 [!INCLUDE [virtual-machines-common-classic-inject-custom-data](../../../../includes/virtual-machines-common-classic-inject-custom-data.md)]
-
-<!---HONumber=Mooncake_0118_2016-->

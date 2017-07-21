@@ -1,12 +1,11 @@
 ---
-title: 设置 Azure 导入/导出工具 | Azure
-description: 了解如何设置 Azure 导入/导出服务的驱动器准备和修复工具
+title: "设置 Azure 导入/导出工具 | Azure"
+description: "了解如何设置 Azure 导入/导出服务的驱动器准备和修复工具"
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: ''
-
+documentationcenter: 
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -15,19 +14,23 @@ ms.topic: article
 origin.date: 01/15/2017
 ms.date: 02/24/2017
 ms.author: v-johch
+ms.openlocfilehash: d6c178e092c757645d79402f686e71bdd14d107d
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="setting-up-the-azure-importexport-tool"></a>设置 Azure 导入/导出工具
 
-# 设置 Azure 导入/导出工具
-
-Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱动器准备和修复工具。可以使用该工具实现以下功能：
+Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱动器准备和修复工具。 可以使用该工具实现以下功能：
 
 * 在创建导入作业之前，可以使用此工具将数据复制到要寄送给 Azure 数据中心的硬盘驱动器。
 * 完成某个导入作业后，可以使用此工具修复已损坏、丢失或与其他 Blob 冲突的任何 Blob。
 * 通过某个已完成的导出作业收到驱动器后，可以使用此工具修复这些驱动器上已损坏或丢失的任何文件。
 
-## 先决条件
+## <a name="prerequisites"></a>先决条件
 
-若要为导出作业**准备驱动器**，需要满足以下先决条件：
+若要为导出作业 **准备驱动器** ，需要满足以下先决条件：
 
 * 必须拥有一个有效的 Azure 订阅。
 * 该订阅必须包含一个存储帐户，其中有足够的可用空间可存储所要导入的文件。
@@ -38,20 +41,20 @@ Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱�
 * 需要一个或多个已连接到复制计算机的空 3.5 英寸 SATA 硬盘驱动器。
 * 打算导入的文件必须可从复制计算机访问，无论这些文件是位于网络共享还是本地硬盘驱动器上。
 
-若要尝试**修复**某个已部分失败的导入，需要：
+若要尝试 **修复** 某个已部分失败的导入，需要：
 
 * 复制日志文件
 * 存储帐户密钥
 
-若要尝试**修复**某个已部分失败的导出，需要：
+若要尝试修复某个已部分失败的导出，需要：
 
 * 复制日志文件
 * 清单文件（可选）
 * 存储帐户密钥
 
-## 安装 Azure 导入/导出工具
+## <a name="installing-the-azure-importexport-tool"></a>安装 Azure 导入/导出工具
 
-首先，请[下载 Azure 导入/导出工具](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)，并将其解压缩到计算机上的某个目录，如 `c:\WAImportExport`。
+首先，[下载 Azure 导入/导出工具](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)，并将其提取到计算机上的某个目录，如 `c:\WAImportExport`。
 
 Azure 导入/导出工具由以下文件组成：
 
@@ -65,12 +68,12 @@ Azure 导入/导出工具由以下文件组成：
 * WAImportExportCore.dll
 * WAImportExportRepair.dll
 
-接下来，以**管理员模式**打开命令提示窗口，并将目录切换到包含解压缩文件的目录。
+接下来，以 **管理员模式**打开命令提示窗口，并将目录切换到包含解压缩文件的目录。
 
 若要输出命令帮助，请不带参数运行该工具：
 
 ```
-WAImportExport, a client tool for Azure Import/Export Service. Microsoft (c) 2013
+WAImportExport, a client tool for Windows Azure Import/Export Service. Microsoft (c) 2013
 
 Copy directories and/or files with a new copy session:
     WAImportExport.exe PrepImport
@@ -210,7 +213,7 @@ Examples:
         f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\temp\9WM35C2V_error.log
 ```
 
-## 后续步骤
+## <a name="next-steps"></a>后续步骤
 
 * [为导入作业准备硬盘驱动器](./storage-import-export-tool-preparing-hard-drives-import.md)
 * [预览导出作业的驱动器使用情况](./storage-import-export-tool-previewing-drive-usage-export-v1.md)
@@ -218,5 +221,3 @@ Examples:
 * [修复导入作业](./storage-import-export-tool-repairing-an-import-job-v1.md)
 * [修复导出作业](./storage-import-export-tool-repairing-an-export-job-v1.md)
 * [排查 Azure 导入/导出工具问题](./storage-import-export-tool-troubleshooting-v1.md)
-
-<!---HONumber=Mooncake_0220_2017-->

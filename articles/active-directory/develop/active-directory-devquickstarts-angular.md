@@ -1,12 +1,11 @@
 ---
-title: Azure AD AngularJS 入门 | Azure
-description: 如何生成一个与 Azure AD 集成以方便登录，并使用 OAuth 调用 Azure AD 保护 API 的 AngularJS 单页面应用程序。
+title: "Azure AD AngularJS 入门 | Azure"
+description: "如何生成一个与 Azure AD 集成以方便登录，并使用 OAuth 调用 Azure AD 保护 API 的 AngularJS 单页面应用程序。"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
 ms.workload: identity
@@ -16,16 +15,20 @@ ms.topic: article
 origin.date: 01/07/2017
 ms.date: 02/07/2017
 ms.author: v-junlch
+ms.openlocfilehash: b0112b4d732eb5d86520d39b163aba85597a443f
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# 如何使用 Azure AD 保护 AngularJS 单页面应用
+# <a name="securing-angularjs-single-page-apps-with-azure-ad"></a>如何使用 Azure AD 保护 AngularJS 单页面应用
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-使用 Azure AD 可以简单直接地在单页面应用中添加登录、注销和安全 OAuth API 调用。它允许应用使用用户的 Active Directory 帐户对用户进行身份验证，并使用 Azure AD 保护的任何 Web API（例如 Office 365 API 或 Azure API）。
+使用 Azure AD 可以简单直接地在单页面应用中添加登录、注销和安全 OAuth API 调用。  它允许应用使用用户的 Active Directory 帐户对用户进行身份验证，并使用 Azure AD 保护的任何 Web API（例如 Office 365 API 或 Azure API）。
 
-对于浏览器中运行的 javascript 应用程序，Azure AD 提供 Active Directory 身份验证库，即 adal.js。在本质上，Adal.js 的唯一用途就是方便应用获取访问令牌。为了演示操作的简单性，下面我们要生成一个 AngularJS 待办事项列表应用程序，该应用程序可以：
+对于浏览器中运行的 javascript 应用程序，Azure AD 提供 Active Directory 身份验证库，即 adal.js。  在本质上，Adal.js 的唯一用途就是方便应用获取访问令牌。  为了演示操作的简单性，下面我们要生成一个 AngularJS 待办事项列表应用程序，该应用程序可以：
 
 - 使用 Azure AD 作为标识提供者将用户登录到应用。
 - 显示有关用户的一些信息。
@@ -38,31 +41,31 @@ ms.author: v-junlch
 2. 安装 ADAL 并配置 SPA。
 3. 使用 ADAL 来保护 SPA 中的页面。
 
-若要开始，请[下载应用框架](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip)或[下载已完成的示例](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip)。你还需要一个可在其中创建用户和注册应用程序的 Azure AD 租户。如果你还没有租户，请[了解如何获取租户](./active-directory-howto-tenant.md)。
+若要开始，请[下载应用框架](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip)或[下载已完成的示例](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip)。  你还需要一个可在其中创建用户和注册应用程序的 Azure AD 租户。  如果没有租户，请[了解如何获取租户](./active-directory-howto-tenant.md)。
 
-## 1.注册 DirectorySearcher 应用程序
+## <a name="1-register-the-directorysearcher-application"></a>1.注册 DirectorySearcher 应用程序
 若要使应用对用户进行身份验证并获取令牌，首先需要在 Azure AD 租户中注册该应用程序：
 
 - 登录到 [Azure 管理门户](https://manage.windowsazure.cn)
-- 在左侧的导航栏中单击“Active Directory”
+- 在左侧的导航栏中单击“Active Directory” 
 - 选择要在其中注册应用程序的租户。
 - 单击“应用程序”选项卡，然后在底部抽屉中单击“添加”。
 - 根据提示创建一个新的 **Web 应用程序和/或 WebAPI**。
-    - 应用程序的“名称”向最终用户描述你的应用程序。
-    - “重定向 URI”是 AAD 要将令牌返回到的位置。本示例的默认位置是 `https://localhost:44326/`
-- 完成注册后，AAD 将为应用程序分配唯一的**客户端 ID**。在后面的部分中将会用到此值，因此，请从“配置”选项卡复制此值。
-- Adal.js 使用 OAuth 隐式流来与 Azure AD 通信。你必须通过执行以下操作，为应用程序启用隐式流：
-    - 单击“管理清单”下载应用程序清单。
-    - 打开清单，然后找到 `oauth2AllowImplicitFlow` 属性。将其值设置为 `true`。
-    - 再次单击“管理清单”，以保存并上载应用程序清单。
+    - 应用程序的“名称”向最终用户描述你的应用程序  。
+    - “重定向 URI”  是 AAD 要将令牌返回到的位置。  本示例的默认位置是 `https://localhost:44326/`
+- 完成注册后，AAD 将为应用程序分配唯一的 **客户端 ID**。  在后面的部分中将会用到此值，因此，请从“配置”选项卡复制此值  。
+- Adal.js 使用 OAuth 隐式流来与 Azure AD 通信。  你必须通过执行以下操作，为应用程序启用隐式流：
+    - 单击“管理清单” 下载应用程序清单。
+    - 打开清单，然后找到 `oauth2AllowImplicitFlow` 属性。 将其值设置为 `true`。
+    - 再次单击“管理清单”保存并上传应用程序清单。
 
-## 2.安装 ADAL 并配置 SPA
+## <a name="2-install-adal--configure-the-spa"></a>2.安装 ADAL 并配置 SPA
 将应用程序注册到 Azure AD 后，可以安装 adal.js 并编写标识相关的代码。
 
 - 首先，使用 Package Manager Console 将 adal.js 添加到 TodoSPA 项目：
   - 下载 [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal.js) 并将其添加到 `App/Scripts/` 项目目录。
   - 下载 [adal-angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal-angular.js) 并将其添加到 `App/Scripts/` 项目目录。
-  - 在 `index.html` 将每个脚本加载到 `</body>` 的末尾之前：
+  - 在 `</body>` in `index.html`的末尾之前：
 
     ```js
     ...
@@ -71,14 +74,14 @@ ms.author: v-junlch
     ...
     ```
 
-- 要使 SPA 后端待办事项列表 API 接受来自浏览器的令牌，后端需要有关应用注册的配置信息。在 TodoSPA 项目中，打开 `web.config`。替换 `<appSettings>` 中的元素值，以反映你在 Azure 门户中输入的值。只要使用 ADAL，你的代码就会引用这些值。
+- 要使 SPA 后端待办事项列表 API 接受来自浏览器的令牌，后端需要有关应用注册的配置信息。 在 TodoSPA 项目中，打开 `web.config`。  替换 `<appSettings>` 中的元素值，以反映你在 Azure 门户中输入的值。  只要使用 ADAL，你的代码就会引用这些值。
   - `ida:Tenant` 是 Azure AD 租户的域，例如 contoso.partner.onmschina.cn
-  - `ida:Audience` 必须是从门户复制的应用程序的**客户端 ID**。
+  - `ida:Audience` 必须是从门户复制的应用程序的 **客户端 ID** 。
 
-## 3.使用 ADAL 来保护 SPA 中的页面
+## <a name="3----use-adal-to-secure-pages-in-the-spa"></a>3.  使用 ADAL 来保护 SPA 中的页面
 Adal.js 能够与 AngularJS 路由和 http 提供程序集成，使你可以在 SPA 中保护单个视图。
 
-- 在 `App/Scripts/app.js` 中引入 adal.js 模块：
+- 在 `App/Scripts/app.js`中引入 adal.js 模块：
 
     ```js
     angular.module('todoApp', ['ngRoute','AdalAngular'])
@@ -87,7 +90,7 @@ Adal.js 能够与 AngularJS 路由和 http 提供程序集成，使你可以在 
     ...
     ```
 
-- 现在，你可以使用应用程序注册的配置值初始化 `adalProvider`（同样在 `App/Scripts/app.js` 中）：
+- 现在可以使用应用程序注册的配置值初始化 `adalProvider`（同样在 `App/Scripts/app.js` 中）：
 
     ```js
     adalProvider.init(
@@ -113,9 +116,9 @@ Adal.js 能够与 AngularJS 路由和 http 提供程序集成，使你可以在 
     ...
     ```
 
-现在，你已获得一个安全的单页面应用程序，它可以让用户登录，并可向其后端 API 发出受持有者令牌保护的请求。当用户单击 `TodoList` 链接时，adal.js 会根据需要自动重定向到 Azure AD 以进行登录。此外，adal.js 会自动将 access\_token 附加到已发送至应用程序后端的任何 ajax 请求。以上是使用 adal.js 生成 SPA 的最低要求 - SPA 中还提供了其他许多有用的功能：
+现在，你已获得一个安全的单页面应用程序，它可以让用户登录，并可向其后端 API 发出受持有者令牌保护的请求。  当用户单击 `TodoList` 链接时，adal.js 会根据需要自动重定向到 Azure AD 以进行登录。  此外，adal.js 会自动将 access_token 附加到将发送给应用程序后端的所有 ajax 请求。  以上是使用 adal.js 生成 SPA 的最低要求 - SPA 中还提供了其他许多有用的功能：
 
-- 若要显式发出登录和注销请求，你可以在调用 adal.js 的控制器中定义函数。在 `App/Scripts/homeCtrl.js` 中：
+- 若要显式发出登录和注销请求，你可以在调用 adal.js 的控制器中定义函数。  在 `App/Scripts/homeCtrl.js`中：
 
     ```js
     ...
@@ -128,7 +131,7 @@ Adal.js 能够与 AngularJS 路由和 http 提供程序集成，使你可以在 
     ...
     ```
 
-- 你可能还想要在应用的 UI 中显示用户信息。adal 服务已添加到 `userDataCtrl` 控制器，因此你可以在关联的视图 `App/Views/UserData.html` 中访问 `userInfo` 对象：
+- 你可能还想要在应用的 UI 中显示用户信息。  adal 服务已添加到 `userDataCtrl` 控制器，因此可以在关联的视图 `App/Views/UserData.html` 中访问 `userInfo` 对象：
 
     ```js
     <p>{{userInfo.userName}}</p>
@@ -137,22 +140,19 @@ Adal.js 能够与 AngularJS 路由和 http 提供程序集成，使你可以在 
     ...
     ```
 
-- 另外，在许多情况下，你想要知道用户是否已登录。你也可以使用 `userInfo` 对象来收集此信息。例如，在 `index.html` 中，可以根据身份验证状态显示“登录”或“注销”按钮：
+- 另外，在许多情况下，你想要知道用户是否已登录。  你也可以使用 `userInfo` 对象来收集此信息。  例如，在 `index.html` 中，可以根据身份验证状态显示“登录”或“注销”按钮：
 
     ```js
     <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>
     <li><a class="btn btn-link" ng-hide=" userInfo.isAuthenticated" ng-click="login()">Login</a></li>
     ```
 
-祝贺你！ 你现已完成与 Azure AD 集成的单页面应用。该应用可对用户进行身份验证，使用 OAuth 2.0 安全调用其后端，并获取有关用户的基本信息。如果你尚未这样做，可以在租户中填充一些用户。运行待办事项列表 SPA，然后使用这些用户之一进行登录。将任务添加到用户待办事项列表、注销和重新登录。
+祝贺你！ 你现已完成与 Azure AD 集成的单页面应用。  该应用可对用户进行身份验证，使用 OAuth 2.0 安全调用其后端，并获取有关用户的基本信息。  如果你尚未这样做，可以在租户中填充一些用户。  运行待办事项列表 SPA，然后使用这些用户之一进行登录。  将任务添加到用户待办事项列表、注销和重新登录。
 
-使用 Adal.js 可以方便地将所有这些常见标识功能合并到应用程序中。它会负责所有的繁琐工作 - 缓存管理、OAuth 协议支持、向用户显示登录名 UI、刷新已过期的令牌，等等。
+使用 Adal.js 可以方便地将所有这些常见标识功能合并到应用程序中。  它会负责所有的繁琐工作 - 缓存管理、OAuth 协议支持、向用户显示登录名 UI、刷新已过期的令牌，等等。
 
-[此处](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip)提供了已完成示例（无需配置值）供你参考。现在，你可以转到其他方案。你可能想要尝试：
+[此处](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip)提供了已完成示例（无配置值）以供参考。  现在，你可以转到其他方案。  你可能想要尝试：
 
 [从 SPA 调用 CORS Web API >>](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-<!---HONumber=Mooncake_0120_2017-->
-<!---Update_Description: wording update -->

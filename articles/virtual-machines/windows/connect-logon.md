@@ -16,12 +16,11 @@ ms.topic: get-started-article
 origin.date: 03/01/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: f0d3082e68b6da6daa1a8a214f4f6742213779f1
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: c1be84dfbc3475746c3f273e471ca7931020e911
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>如何连接并登录到运行 Windows 的 Azure 虚拟机
 可以从 Windows 桌面使用 Azure 门户中的“连接”按钮来启动远程桌面 (RDP) 会话。 首先连接到虚拟机，然后登录。
@@ -36,10 +35,10 @@ ms.lasthandoff: 04/14/2017
 
     ![显示如何连接到 VM 的 Azure 门户屏幕截图。](./media/connect-logon/connect.png)
 
-    > [!TIP]
-    > 如果门户中的“连接”按钮灰显，并且你未通过 [Express Route](../../expressroute/expressroute-introduction.md) 或[站点到站点 VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 连接连接到 Azure，则必须先为 VM 创建并分配一个公共 IP 地址才能使用 RDP。 详细了解 [Azure 中的公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)。
-    > 
-    > 
+   > [!TIP]
+   > 如果门户中的“连接”按钮灰显，并且你未通过 [Express Route](../../expressroute/expressroute-introduction.md) 或[站点到站点 VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 连接连接到 Azure，则必须先为 VM 创建并分配一个公共 IP 地址才能使用 RDP。 详细了解 [Azure 中的公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)。
+   > 
+   > 
 
 ## <a name="log-on-to-the-virtual-machine"></a>登录到虚拟机
 [!INCLUDE [virtual-machines-log-on-win-server](../../../includes/virtual-machines-log-on-win-server.md)]

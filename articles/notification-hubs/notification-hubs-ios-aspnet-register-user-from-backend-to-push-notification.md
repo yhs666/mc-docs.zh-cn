@@ -1,34 +1,34 @@
 ---
-title: 通过使用 Web API 注册推送通知的当前用户 | Azure
-description: 了解在 ASP.NET Web API 执行注册时如何在 iOS 应用程序中请求向 Azure 通知中心注册推送通知。
+title: "通过使用 Web API 注册推送通知的当前用户 | Azure"
+description: "了解在 ASP.NET Web API 执行注册时如何在 iOS 应用程序中请求向 Azure 通知中心注册推送通知。"
 services: notification-hubs
 documentationCenter: ios
 authors: wesmc7777
 manager: erikre
-editor: ''
-
+editor: 
 ms.service: notification-hubs
-ms.workload: mobile
-ms.tgt_pltfrm: ios
-ms.devlang: objective-c
 ms.topic: article
 origin.date: 06/29/2016
 ms.date: 02/06/2017
 ms.author: v-junlch
+ms.openlocfilehash: d36c67b8ddd84aa4befe6753da41a897b8fcc506
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# 通过使用 ASP.NET 注册推送通知的当前用户
+# <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>通过使用 ASP.NET 注册推送通知的当前用户
 
 > [!div class="op_single_selector"]
 >- [iOS](./notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 
-## 概述
+## <a name="overview"></a>概述
 
-本主题演示在 ASP.NET Web API 执行注册时如何请求向 Azure 通知中心注册推送通知。本主题是对教程[使用通知中心通知用户]的扩展。你必须在该教程中已完成创建经过身份验证的移动服务所需的步骤。有关通知用户方案的详细信息，请参阅[使用通知中心通知用户]。
+本主题演示在 ASP.NET Web API 执行注册时如何请求向 Azure 通知中心注册推送通知。 本主题是对教程 [使用通知中心通知用户]的扩展。 你必须在该教程中已完成创建经过身份验证的移动服务所需的步骤。 有关通知用户方案的详细信息，请参阅 [使用通知中心通知用户]。
 
-## 更新应用程序  
+## <a name="update-your-app"></a>更新应用程序  
 
-1. 在 MainStoryboard\_iPhone.storyboard 中，从对象库添加以下组件：
+1. 在 MainStoryboard_iPhone.storyboard 中，从对象库添加以下组件：
 
     + **标签**：“使用通知中心推送到用户”
     + **标签**："InstallationId"
@@ -42,20 +42,19 @@ ms.author: v-junlch
 
     ![][0]
 
-2. 在助手编辑器中，创建所有带开关的控件的容器并调用它们，连接文本字段与视图控制器（委派），并创建“登录”按钮的“操作”。
+2. 在助手编辑器中，创建所有带开关控件的容器并调用它们，连接文本字段与视图控制器（委派），并创建“登录”按钮的“操作”。
 
     ![][1]
 
-    BreakingNewsViewController.h 文件现在应包含以下代码：
+    BreakingNewsViewController.h 文件现应包含以下代码：
 
-    ```
-    @property (weak, nonatomic) IBOutlet UILabel *installationId;
-    @property (weak, nonatomic) IBOutlet UITextField *User;
-    @property (weak, nonatomic) IBOutlet UITextField *Password;
+        @property (weak, nonatomic) IBOutlet UILabel *installationId;
+        @property (weak, nonatomic) IBOutlet UITextField *User;
+        @property (weak, nonatomic) IBOutlet UITextField *Password;
 
-    - (IBAction)login:(id)sender;
-    ```
-5. 创建名为 **DeviceInfo** 的类，将以下代码复制到 DeviceInfo.h 文件的接口部分：
+        - (IBAction)login:(id)sender;
+
+5. 创建名为 **DeviceInfo**的类，将以下代码复制到 DeviceInfo.h 文件的接口部分：
 
     ```
     @property (readonly, nonatomic) NSString* installationId;
@@ -110,7 +109,7 @@ ms.author: v-junlch
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     ```
 
-    第一行初始化 **DeviceInfo** 单一实例。第二行启动推送通知的注册，前提是你已完成[通知中心入门]教程的学习。
+    第一行初始化 **DeviceInfo** 单一实例。 第二行启动推送通知的注册，前提是你已完成 [通知中心入门] 教程的学习。
 
 9. 在 PushToUserAppDelegate.m 的 AppDelegate 中实现 **didRegisterForRemoteNotificationsWithDeviceToken** 方法并添加以下代码：
 
@@ -121,7 +120,7 @@ ms.author: v-junlch
     这为请求设置设备标记。
 
     > [!NOTE]
-    > 此时，此方法中不应有任何其他代码。如果你已调用在完成[通知中心入门](./notification-hubs-ios-apple-push-notification-apns-get-started.md)教程的学习时添加的 **registerNativeWithDeviceToken** 方法，必须注释掉或删除该调用。
+    > 此时，此方法中不应有任何其他代码。 如果你已调用在完成 **通知中心入门** 教程的学习时添加的 [registerNativeWithDeviceToken](/manage/services/notification-hubs/get-started-notification-hubs-ios/) 方法，必须注释掉或删除该调用。
 
 10. 在 PushToUserAppDelegate.m 文件中，添加以下处理程序方法：
 
@@ -214,7 +213,7 @@ ms.author: v-junlch
         DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
 
         // build JSON
-        NSString* json = [NSString stringWithFormat:@"{"platform":"ios", "instId":"%@", "deviceToken":"%@"}", deviceInfo.installationId, [deviceInfo getDeviceTokenInHex]];
+        NSString* json = [NSString stringWithFormat:@"{\"platform\":\"ios\", \"instId\":\"%@\", \"deviceToken\":\"%@\"}", deviceInfo.installationId, [deviceInfo getDeviceTokenInHex]];
 
         // build auth string
         NSString* authString = [NSString stringWithFormat:@"%@:%@", self.User.text, self.Password.text];
@@ -243,9 +242,9 @@ ms.author: v-junlch
         }];
     ```
 
-    此方法获取一个安装 ID 和用于推送通知的通道并将它与设备类型一起发送到在通知中心创建注册的已经身份验证的 Web API 方法。此 Web API 已在[使用通知中心通知用户]中定义。
+    此方法获取一个安装 ID 和用于推送通知的通道并将它与设备类型一起发送到在通知中心创建注册的已经身份验证的 Web API 方法。 此 Web API 已在 [使用通知中心通知用户]中定义。
 
-现在客户端应用程序已更新，请返回到[使用通知中心通知用户]并更新移动服务以使用通知中心发送通知。
+现在客户端应用程序已更新，请返回到 [使用通知中心通知用户] 并更新移动服务以使用通知中心发送通知。
 
 <!-- Anchors. -->
 
@@ -257,5 +256,3 @@ ms.author: v-junlch
 [使用通知中心通知用户]: ./notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 
 [通知中心入门]: ./notification-hubs-ios-apple-push-notification-apns-get-started.md
-
-<!---HONumber=Mooncake_Quality_Review_0125_2017-->

@@ -1,12 +1,11 @@
 ---
-title: 使用 OAuth2.0 进行 Azure AD 服务到服务身份验证 | Azure
-description: 本文介绍如何使用 OAuth2.0 客户端凭据授权流通过 HTTP 消息实现服务到服务身份验证。
+title: "使用 OAuth2.0 进行 Azure AD 服务到服务身份验证 | Azure"
+description: "本文介绍如何使用 OAuth2.0 客户端凭据授权流通过 HTTP 消息实现服务到服务身份验证。"
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: ''
-
+editor: 
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +15,14 @@ ms.topic: article
 origin.date: 02/08/2017
 ms.date: 03/13/2017
 ms.author: v-junlch
+ms.openlocfilehash: cdb01df16e3ae52beb3dbdb86f0bb0662bb1b647
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # 使用客户端凭据进行服务到服务调用
-OAuth 2.0 客户端凭据授权流允许 Web 服务（**机密客户端**）在调用其他 Web 服务时使用它自己的凭据进行身份验证，而不是模拟用户。在这种情况下，客户端通常是中间层 Web 服务、后台程序服务或网站。
+OAuth 2.0 客户端凭据授权流允许 Web 服务（机密客户端）在调用其他 Web 服务时使用它自己的凭据（而不是模拟用户）进行身份验证。 在这种情况下，客户端通常是中间层 Web 服务、后台程序服务或网站。
 
 ## 客户端凭据授权流关系图
 下图说明了客户端凭据授权流在 Azure Active Directory (Azure AD) 中的工作原理。
@@ -32,32 +35,31 @@ OAuth 2.0 客户端凭据授权流允许 Web 服务（**机密客户端**）在�
 4. 受保护资源中的数据返回到 Web 应用程序。
 
 ## 在 Azure AD 中注册服务
-在 Azure Active Directory (Azure AD) 中注册调用服务和接收服务。有关详细说明，请参阅 [将应用程序与 Azure Active Directory 集成](./active-directory-integrating-applications.md)。
+在 Azure Active Directory (Azure AD) 中注册调用服务和接收服务。 有关详细说明，请参阅 [将应用程序与 Azure Active Directory 集成](./active-directory-integrating-applications.md)。
 
-## <a name="request-an-access-token"></a> 请求访问令牌
-
+## 请求访问令牌
 若要请求访问令牌，对特定于租户的 Azure AD 终结点使用 HTTP POST。
 
 ```
-https://login.partner.microsoftonline.cn/<tenant id>/oauth2/token
+https://login.microsoftonline.com/<tenant id>/oauth2/token
 ```
 
 ## 服务到服务访问令牌请求
 服务到服务访问令牌请求包含以下参数。
 
-| 参数 | | 说明 |
+| 参数 |  | 说明 |
 | --- | --- | --- |
-| response\_type |必填 |指定请求的响应类型。客户端凭据授权流中的值必须是 **client\_credentials**。 |
-| client\_id |必填 |指定调用 Web 服务的 Azure AD 客户端 ID。若要查找调用应用程序的客户端 ID，请在 Azure 管理门户中依次单击“Active Directory”、该目录、该应用程序、“配置”。 |
-| client\_secret |必填 |在 Azure AD 中输入为调用 Web 服务注册的密钥。若要创建密钥，请在 Azure 管理门户中依次单击“Active Directory”、该目录、该应用程序、“配置”。 |
-| resource |必填 |输入接收 Web 服务的应用 ID URI。若要查找应用 ID URI，请在 Azure 管理门户中依次单击“Active Directory”、该目录、该应用程序、“配置”。 |
+| response_type |必填 |指定请求的响应类型。 在客户端凭据授权流中，该值必须是 client_credentials。 |
+| client_id |必填 |指定调用 Web 服务的 Azure AD 客户端 ID。 若要查找调用应用程序的客户端 ID，请在 Azure 管理门户中，依次单击“Active Directory”、目录、应用程序和“配置”。 |
+| client_secret |必填 |在 Azure AD 中输入为调用 Web 服务注册的密钥。 若要创建密钥，请在 Azure 管理门户中，依次单击“Active Directory”、目录、应用程序和“配置”。 |
+| resource |必填 |输入接收 Web 服务的应用 ID URI。 若要查找应用 ID URI，请在 Azure 管理门户中，依次单击“Active Directory”、目录、应用程序和“配置”。 |
 
 ## 示例
-以下 HTTP POST 请求 https://service.contoso.com/ Web 服务的访问令牌。`client_id` 标识请求访问令牌的 Web 服务。
+以下 HTTP POST 请求 https://service.contoso.com/ Web 服务的访问令牌。 `client_id` 标识请求访问令牌的 Web 服务。
 
 ```
 POST contoso.com/oauth2/token HTTP/1.1
-Host: login.partner.microsoftonline.cn
+Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&client_secret=qkDwDJlDfig2IpeuUZYKH1Wb8q1V0ju6sILxQQqhJ+s=&resource=https%3A%2F%2Fservice.contoso.com%2F
@@ -68,10 +70,10 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 
 | 参数 | 说明 |
 | --- | --- |
-| access\_token |请求的访问令牌。调用 Web 服务可以使用此令牌向接收 Web 服务进行身份验证。 |
-| access\_type |指示令牌类型值。Azure AD 唯一支持的类型是 Bearer。有关持有者令牌的详细信息，请参阅 [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)（OAuth2.0 授权框架：持有者令牌用法 (RFC 6750)）。 |
-| expires\_in |访问令牌的有效期（以秒为单位）。 |
-| expires\_on |访问令牌的过期时间。该日期表示为自 1970-01-01T0:0:0Z UTC 至过期时间的秒数。此值用于确定缓存令牌的生存期。 |
+| access_token |请求的访问令牌。 调用 Web 服务可以使用此令牌向接收 Web 服务进行身份验证。 |
+| access_type |指示令牌类型值。 Azure AD 唯一支持的类型是 Bearer 。 有关持有者令牌的详细信息，请参阅 [OAuth2.0 授权框架：持有者令牌用法 (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)。 |
+| expires_in |访问令牌的有效期（以秒为单位）。 |
+| expires_on |访问令牌的过期时间。 该日期表示为自 1970-01-01T0:0:0Z UTC 至过期时间的秒数。 此值用于确定缓存令牌的生存期。 |
 | resource |接收 Web 服务的应用 ID URI。 |
 
 ## 示例
@@ -89,6 +91,3 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 
 ## 另请参阅
 - [Azure AD 中的 OAuth 2.0](./active-directory-protocols-oauth-code.md)
-
-<!---HONumber=Mooncake_0306_2017-->
-<!---Update_Description: wording update -->

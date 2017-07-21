@@ -1,12 +1,11 @@
 ---
-title: 我的云服务项目发生了什么情况？| Azure
-description: 介绍使用 Visual Studio 连接服务连接到 Azure 存储帐户后云服务项目中会发生什么情况
+title: "我的云服务项目发生了什么情况？ | Azure"
+description: "介绍使用 Visual Studio 连接服务连接到 Azure 存储帐户后云服务项目中会发生什么情况"
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
 ms.assetid: ca0ea68d-f417-4ce8-9413-40d76f69cdea
 ms.service: storage
 ms.workload: web
@@ -16,11 +15,16 @@ ms.topic: article
 origin.date: 12/02/2016
 ms.date: 01/06/2017
 ms.author: v-johch
+ms.openlocfilehash: aee2836fdfb57eb6e77848fee776b3dbe40ce1e6
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# 我的云服务项目（Visual Studio Azure 存储连接服务）发生了什么情况？
-## 已添加引用
-Azure 存储 NuGet 包已添加到你的 Visual Studio 项目。此包添加了以下 .NET 引用：
+# <a name="what-happened-to-my-cloud-services-project-visual-studio-azure-storage-connected-service"></a>我的云服务项目（Visual Studio Azure 存储连接服务）发生了什么情况？
+## <a name="references-added"></a>已添加引用
+Azure 存储 NuGet 包已添加到你的 Visual Studio 项目。  
+此包添加了以下 .NET 引用：
 
 - **Microsoft.Data.Edm**
 - **Microsoft.Data.OData**
@@ -31,11 +35,9 @@ Azure 存储 NuGet 包已添加到你的 Visual Studio 项目。此包添加了�
 - **System.Data**
 - **System.Spatial**
 
-## 已添加 Azure 存储的连接字符串
-已使用选定存储帐户的连接字符串和密钥创建了元素。已对以下文件进行了修改：
+## <a name="connection-string-for-azure-storage-added"></a>已添加 Azure 存储的连接字符串
+已使用选定存储帐户的连接字符串和密钥创建了元素。 已对以下文件进行了修改：
 
 - **ServiceDefinition.csdef**
 - **ServiceConfiguration.Cloud.cscfg**
 - **ServiceConfiguration.Local.cscfg**
-
-<!---HONumber=Mooncake_0103_2017-->

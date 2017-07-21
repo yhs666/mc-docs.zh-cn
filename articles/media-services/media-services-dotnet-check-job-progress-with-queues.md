@@ -1,12 +1,11 @@
 ---
-title: 使用 Azure 队列存储通过 .NET 监视媒体服务作业通知 | Azure
-description: 了解如何使用 Azure 队列存储监视媒体服务作业通知。代码示例用 C# 编写，并使用用于 .NET 的媒体服务 SDK。
+title: "使用 Azure 队列存储通过 .NET 监视媒体服务作业通知 | Azure"
+description: "了解如何使用 Azure 队列存储监视媒体服务作业通知。 代码示例用 C# 编写，并使用用于 .NET 的媒体服务 SDK。"
 services: media-services
-documentationCenter: ''
+documentationCenter: 
 authors: juliako
 manager: erikre
-editor: ''
-
+editor: 
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -15,51 +14,55 @@ ms.topic: article
 origin.date: 08/19/2016
 ms.date: 10/10/2016
 ms.author: v-johch
+ms.openlocfilehash: 2a2f55f2b5b97c5b103d82c658f73f16b24663bd
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure 队列存储通过 .NET 监视媒体服务作业通知
 
-# 使用 Azure 队列存储通过 .NET 监视媒体服务作业通知
+当你运行作业时，通常需要采用某种方式来跟踪作业进度。 可以通过使用 Azure 队列存储监视媒体服务作业通知（如本主题中所述）或定义 StateChanged 事件处理程序（如[此](./media-services-check-job-progress.md)主题中所述）来检查进度。  
 
-当你运行作业时，通常需要采用某种方式来跟踪作业进度。可以通过使用 Azure 队列存储监视媒体服务作业通知（如本主题中所述）或定义 StateChanged 事件处理程序（如[此](./media-services-check-job-progress.md)主题中所述）来检查进度。
+## <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications"></a>使用 Azure 队列存储监视媒体服务作业通知
 
-## 使用 Azure 队列存储监视媒体服务作业通知
+Azure 媒体服务可以在处理媒体作业时向 [Azure 队列存储](../storage/storage-dotnet-how-to-use-queues.md#what-is)传送通知消息。 本主题说明如何从队列存储获取这些通知消息。
 
-Azure 媒体服务可以在处理媒体作业时向 [Azure 队列存储](../storage/storage-dotnet-how-to-use-queues.md#what-is)传送通知消息。本主题说明如何从队列存储获取这些通知消息。
+用户可以从任何位置访问已传给到队列存储中的消息。 Azure 队列消息体系结构十分可靠，而且具有高度伸缩性。 建议使用其他方法轮询队列存储。 
 
-用户可以从任何位置访问已传给到队列存储中的消息。Azure 队列消息体系结构十分可靠，而且具有高度可缩放性。建议使用其他方法轮询队列存储。
+一个常见的侦听媒体服务通知方案：你正在开发一个内容管理系统，在完成编码作业后，该系统需要执行其他一些任务（例如，触发工作流的下一个步骤或者发布内容）。 
 
-一个常见的侦听媒体服务通知方案：你正在开发一个内容管理系统，在完成编码作业后，该系统需要执行其他一些任务（例如，触发工作流的下一个步骤或者发布内容）。
-
-###注意事项
+###<a name="considerations"></a>注意事项
 
 在开发使用 Azure 存储队列的媒体服务应用程序时，请注意以下几点。
 
-- 队列服务不保证按照先进先出 (FIFO) 的顺序传递消息。有关详细信息，请参阅 [Azure 队列和 Azure 服务总线队列比较与对照](https://msdn.microsoft.com/zh-cn/library/azure/hh767287.aspx)。
-- Azure 存储队列不是推送服务；你必须轮询队列。
-- 可以有任意数目的队列。有关详细信息，请参阅[队列服务 REST API](https://msdn.microsoft.com/zh-cn/library/azure/dd179363.aspx)。
-- Azure 存储队列存在一些限制，有关具体的说明，请参阅以下文章：[Azure 队列和 Azure 服务总线队列比较与对照](https://msdn.microsoft.com/zh-cn/library/azure/hh767287.aspx)。
+- 队列服务不保证按照先进先出 (FIFO) 的顺序传递消息。 有关详细信息，请参阅 [Azure 队列和 Azure 服务总线队列比较与对照](https://msdn.microsoft.com/zh-cn/library/azure/hh767287.aspx)。
+- Azure 存储队列不是推送服务；你必须轮询队列。 
+- 可以有任意数目的队列。 有关详细信息，请参阅 [队列服务 REST API](https://msdn.microsoft.com/zh-cn/library/azure/dd179363.aspx)。
+- Azure 存储队列存在一些限制，有关具体的说明，请参阅以下文章： [Azure 队列和 Azure 服务总线队列比较与对照](https://msdn.microsoft.com/zh-cn/library/azure/hh767287.aspx)。
 
-###代码示例
+###<a name="code-example"></a>代码示例
 
 本部分中的代码示例将执行以下操作：
 
-1. 定义一个映射为通知消息格式的 **EncodingJobMessage** 类。代码将那些从队列接收到的消息反序列化为 **EncodingJobMessage** 类型的对象。
-1. 从 app.config 文件中加载媒体服务和存储帐户信息。使用此信息创建 **CloudMediaContext** 和 **CloudQueue** 对象。
+1. 定义一个映射为通知消息格式的 **EncodingJobMessage** 类。 代码将那些从队列接收到的消息反序列化为 **EncodingJobMessage** 类型的对象。
+1. 从 app.config 文件中加载媒体服务和存储帐户信息。 使用此信息创建 CloudMediaContext 和 CloudQueue 对象。
 1. 创建接收编码作业相关通知消息的队列。
 1. 创建一个映射到队列的通知终结点。
-1. 将通知终结点附加到作业，然后提交编码作业。可以将多个通知终结点附加到一个作业。
-1. 在本示例中，我们只想知道作业处理的最终状态，因此我们将 **NotificationJobState.FinalStatesOnly** 传递给 **AddNew** 方法。
+1. 将通知终结点附加到作业，然后提交编码作业。 可以将多个通知终结点附加到一个作业。
+1. 在本示例中，我们只想知道作业处理的最终状态，因此需将 NotificationJobState.FinalStatesOnly 传递给 AddNew 方法。 
 
     ```
     job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
     ```
-1. 如果传递 NotificationJobState.All，则会获得所有状态更改通知：“已排队”->“已计划”->“处理中”->“已完成”。不过，如前所述，Azure 存储队列服务不保证按顺序传递。可以使用 Timestamp 属性（在以下示例的 EncodingJobMessage 类型中定义）来为消息排序。可能会收到重复的通知消息。使用 ETag 属性（在 EncodingJobMessage 类型中定义）可以检查重复项。请注意，可能会跳过某些状态更改通知。
-1. 每隔 10 秒检查队列一次，等待作业进入“已完成”状态。处理消息后删除消息。
+1. 如果传递 NotificationJobState.All，则会获得所有状态更改通知：“已排队”->“已计划”->“处理中”->“已完成”。 不过，如前所述，Azure 存储队列服务不保证按顺序传递。 可以使用 Timestamp 属性（在以下示例的 EncodingJobMessage 类型中定义）来为消息排序。 可能会收到重复的通知消息。 使用 ETag 属性（在 EncodingJobMessage 类型中定义）可以检查重复项。 请注意，可能会跳过某些状态更改通知。 
+1. 每隔 10 秒检查队列一次，等待作业进入“已完成”状态。 处理消息后删除消息。
 1. 删除队列和通知终结点。
 
 >[!NOTE]
 >监视作业状态的建议方法是侦听通知消息，如以下示例所示。
 >
->或者，你可以使用 **IJob.State** 属性检查作业状态。在 **IJob** 的状态设置为“已完成”之前，可能会先收到一条指示作业已完成的通知消息。**IJob.State** 属性在延迟片刻之后反映正确的状态。
+>或者，可以使用 IJob.State 属性检查作业状态。  在 IJob 的状态设置为“已完成”之前，可能会先收到一条指示作业已完成的通知消息。 IJob.State 属性在延迟片刻之后反映正确的状态。
 
 ```
 using System;
@@ -119,14 +122,6 @@ namespace JobNotification
         private static CloudQueue _queue = null;
         private static INotificationEndPoint _notificationEndPoint = null;
 
-        private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
-
-        // Azure China uses a different API server and a different ACS Base Address from the Global.
-        private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
-        private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
-
-        private static Uri _apiServer = null;
-
         private static readonly string _singleInputMp4Path =
             Path.GetFullPath(@"C:\supportFiles\multifile\BigBuckBunny.mp4");
 
@@ -139,18 +134,8 @@ namespace JobNotification
 
             string endPointAddress = Guid.NewGuid().ToString();
 
-            // Create and cache the Media Services credentials in a static class variable.
-            _cachedCredentials = new MediaServicesCredentials(
-                            mediaServicesAccountName,
-                            mediaServicesAccountKey,
-                            _defaultScope,
-                            _chinaAcsBaseAddressUrl);
-
-            // Create the API server Uri
-            _apiServer = new Uri(_chinaApiServerUrl);
-
-            // Used the chached credentials to create CloudMediaContext.
-            _context = new CloudMediaContext(_apiServer, _cachedCredentials);
+            // Create the context. 
+            _context = new CloudMediaContext(mediaServicesAccountName, mediaServicesAccountKey);
 
             // Create the queue that will be receiving the notification messages.
             _queue = CreateQueue(storageConnectionString, endPointAddress);
@@ -333,7 +318,7 @@ namespace JobNotification
 }
 ```
 
-以上示例将生成以下输出。值会有所变化。
+以上示例将生成以下输出。 值会有所变化。
 
 ```
 Created assetFile BigBuckBunny.mp4
@@ -361,5 +346,3 @@ TimeStamp: 2013-05-14T20:24:40
 job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected 
 State: Finished
 ```
-
-<!---HONumber=Mooncake_0926_2016-->

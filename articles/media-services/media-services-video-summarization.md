@@ -1,12 +1,11 @@
 ---
-title: 使用 Azure 媒体视频缩略图创建视频摘要 | Azure
-description: 视频摘要可通过自动选择来自源视频的有趣片段帮助你创建长视频的摘要。当你要提供有关长视频内容的快速概述时，这很有用。
+title: "使用 Azure 媒体视频缩略图创建视频摘要 | Azure"
+description: "视频摘要可通过自动选择来自源视频的有趣片段帮助你创建长视频的摘要。 当你要提供有关长视频内容的快速概述时，这很有用。"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
 ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
 ms.service: media-services
 ms.workload: media
@@ -16,35 +15,39 @@ ms.topic: article
 origin.date: 02/16/2017
 ms.date: 03/10/2017
 ms.author: v-johch
+ms.openlocfilehash: a896245c3922acfab3e8c3effe4aeefd74fb49bb
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+#<a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>使用 Azure 媒体视频缩略图创建视频摘要
+##<a name="overview"></a>概述
 
-#使用 Azure 媒体视频缩略图创建视频摘要
-##概述
-
-**Azure 媒体视频缩略图**媒体处理器 (MP) 使你能够创建视频摘要，这对于要预览长视频摘要的客户来说很有用。例如，当客户将鼠标悬停在缩略图上时，他们可能希望看到一小段“摘要视频”。使用配置预设值稍稍调整 **Azure 媒体视频缩略图**的参数，就可使用 MP 的强大镜头检测和串联技术，以算法形式生成描述性子剪辑。
+通过 Azure Media Video Thumbnails 媒体处理器 (MP)，可创建视频摘要，这对于要预览长视频摘要的客户来说很有用。 例如，当客户将鼠标悬停在缩略图上时，他们可能希望看到一小段“摘要视频”。 使用配置预设值稍稍调整 **Azure 媒体视频缩略图** 的参数，就可使用 MP 的强大镜头检测和串联技术，以算法形式生成描述性子剪辑。  
 
 **Azure 媒体视频缩略图** MP 目前处于预览状态。
 
-此主题提供有关 **Azure 媒体视频缩略图**的详细信息，介绍如何将它与适用于 .NET 的媒体服务 SDK 配合使用。
+此主题提供有关 Azure Media Video Thumbnail 的详细信息，并演示如何将它与用于 .NET 的媒体服务 SDK 配合使用。
 
-## 限制
+## <a name="limitations"></a>限制
 
 在某些情况下，如果视频不是由不同的场景构成，则输出仅为单张快照。
 
-## 视频摘要示例
+## <a name="video-summary-example"></a>视频摘要示例
 下面是 Azure 媒体视频缩略图媒体处理器可以执行的操作的一些示例：
 
-###原始视频
+###<a name="original-video"></a>原始视频
 
-[原始视频](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
+[原始视频](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.chinacloudapi.cn%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
 
-###视频缩略图结果
+###<a name="video-thumbnail-result"></a>视频缩略图结果
 
-[视频缩略图结果](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[视频缩略图结果](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.chinacloudapi.cn%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-##任务配置（预设）
+##<a name="task-configuration-preset"></a>任务配置（预设）
 
-使用 **Azure 媒体视频缩略图**创建视频缩略图时，必须指定配置预设值。以上缩略图示例使用以下 JSON 基本配置创建：
+使用 **Azure 媒体视频缩略图**创建视频缩略图时，必须指定配置预设值。 以上缩略图示例使用以下 JSON 基本配置创建：
 
 ```
 {"version":"1.0"}
@@ -54,13 +57,13 @@ ms.author: v-johch
 
 Param|说明
 ---|---
-outputAudio|指定生成的视频是否包含音频。<br/>允许的值为：True 或 False。默认值为 True。
-fadeInFadeOut|指定单独动态缩略图之间是否使用淡入淡出转换。<br/>允许的值为：True 或 False。默认值为 True。
-maxMotionThumbnailDurationInSecs|指定生成的整个视频的时长的整数。默认值取决于原始视频的持续时间。
+outputAudio|指定生成的视频是否包含音频。 <br/>允许的值为：True 或 False。 默认值为 True。
+fadeInFadeOut|指定单独动态缩略图之间是否使用淡入淡出转换。  <br/>允许的值为：True 或 False。  默认值为 True。
+maxMotionThumbnailDurationInSecs|指定生成的整个视频的时长的整数。  默认值取决于原始视频的持续时间。
 
 下表描述了当 **maxMotionThumbnailInSecs** 未使用时的默认持续时间。
 
-| | | |
+|  |  |  |
 | --- | --- | --- | --- | --- |
 | 视频持续时间 |d < 3 分钟 |3 分钟 < d < 15 分钟 |
 | 缩略图持续时间 |15 秒（2-3 个场景） |30 秒（3-5 个场景） |
@@ -78,15 +81,15 @@ maxMotionThumbnailDurationInSecs|指定生成的整个视频的时长的整数�
 }
 ```
 
-## 代码示例
+## <a name="sample-code"></a>代码示例
 
 以下程序演示如何：
 
 1. 创建资产并将媒体文件上传到资产。
-1. 使用基于包含以下 json 预设值的配置文件的视频缩略图任务，创建一个作业。
+1. 使用基于包含以下 json 预设值的配置文件的视频缩略图任务，创建一个作业。 
 
     ```
-    {				
+    {               
         "version": "1.0",
         "options": {
             "outputAudio": "true",
@@ -96,9 +99,9 @@ maxMotionThumbnailDurationInSecs|指定生成的整个视频的时长的整数�
     }
     ```
 
-1. 下载输出文件。
+1. 下载输出文件。 
 
-###.NET 代码
+###<a name="net-code"></a>.NET 代码
 
 ```
 using System;
@@ -119,16 +122,9 @@ namespace VideoSummarization
         private static readonly string _mediaServicesAccountKey =
             ConfigurationManager.AppSettings["MediaServicesAccountKey"];
 
-    private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
-
-    // Azure China uses a different API server and a different ACS Base Address from the Global.
-    private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
-    private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
-
         // Field for service context.
         private static CloudMediaContext _context = null;
         private static MediaServicesCredentials _cachedCredentials = null;
-    private static Uri _apiServer = null;
 
         static void Main(string[] args)
         {
@@ -136,15 +132,9 @@ namespace VideoSummarization
             // Create and cache the Media Services credentials in a static class variable.
             _cachedCredentials = new MediaServicesCredentials(
                             _mediaServicesAccountName,
-                            _mediaServicesAccountKey,
-                            _defaultScope,
-                            _chinaAcsBaseAddressUrl);
-
-            // Create the API server Uri
-            _apiServer = new Uri(_chinaApiServerUrl);
-
-                // Used the chached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_apiServer, _cachedCredentials);
+                            _mediaServicesAccountKey);
+            // Used the cached credentials to create CloudMediaContext.
+            _context = new CloudMediaContext(_cachedCredentials);
 
             // Run the thumbnail job.
             var asset = RunVideoThumbnailJob(@"C:\supportFiles\VideoThumbnail\BigBuckBunny.mp4",
@@ -278,15 +268,12 @@ namespace VideoSummarization
 }
 ```
 
-###视频缩略图输出
+###<a name="video-thumbnail-output"></a>视频缩略图输出
 
-[视频缩略图输出](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[视频缩略图输出](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.chinacloudapi.cn%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-##相关链接
+##<a name="related-links"></a>相关链接
 
-[Azure Media Services Analytics Overview（Azure 媒体服务分析概述）](./media-services-analytics-overview.md)
+[Azure 媒体服务分析概述](./media-services-analytics-overview.md)
 
 [Azure Media Analytics demos（Azure 媒体分析演示）](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-<!---HONumber=Mooncake_0306_2017-->
-<!--Update_Description: add one azure.note-->

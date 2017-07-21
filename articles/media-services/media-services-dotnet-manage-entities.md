@@ -1,12 +1,11 @@
 ---
-title: 使用媒体服务 .NET SDK 管理资产和相关的实体
-description: 了解如何使用适用于 .NET 的媒体服务 SDK 管理资产和相关的实体。
+title: "使用媒体服务 .NET SDK 管理资产和相关的实体"
+description: "了解如何使用适用于 .NET 的媒体服务 SDK 管理资产和相关的实体。"
 author: juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
 ms.assetid: 1bd8fd42-7306-463d-bfe5-f642802f1906
 ms.service: media-services
 ms.workload: media
@@ -16,26 +15,28 @@ ms.topic: article
 origin.date: 02/12/2017
 ms.date: 03/10/2017
 ms.author: v-johch
+ms.openlocfilehash: 94490cfdc5b2004fcdaa77d03aefd6a61c4d7cc6
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-#使用媒体服务 .NET SDK 管理资产和相关的实体
+#<a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>使用媒体服务 .NET SDK 管理资产和相关的实体
 
 > [!div class="op_single_selector"]
 >- [.NET](./media-services-dotnet-manage-entities.md)
 >- [REST](./media-services-rest-manage-entities.md)
 
-本主题介绍如何使用 .NET 管理 Azure 媒体服务实体。
+本主题介绍如何使用 .NET 管理 Azure 媒体服务实体。 
 
 >[!NOTE]
-从 2017 年 4 月 1 日开始，用户帐户中任何超过 90 天的作业记录及其关联的任务记录都会被系统自动删除，即使记录总数低于最大配额。例如，在 2017 年 4 月 1 日，用户帐户中 2016 年 12 月 31 日以前的任何作业记录都会被系统自动删除。若需存档作业/任务信息，可使用本主题所述代码。
+> 从 2017 年 4 月 1 日开始，用户帐户中任何超过 90 天的作业记录及其关联的任务记录都会被系统自动删除，即使记录总数低于最大配额。 例如，在 2017 年 4 月 1 日，用户帐户中 2016 年 12 月 31 日以前的任何作业记录都会被系统自动删除。 若需存档作业/任务信息，可使用本主题所述代码。
 
-##先决条件 
+## <a name="prerequisites"></a>先决条件
+请参阅[设置环境](./media-services-set-up-computer.md)
 
-请参阅[设置你的环境](./media-services-set-up-computer.md)
-
-##<a id="Get-an-asset-reference"></a>获取资产引用
-
-一个常见的任务是获取对媒体服务中某个现有资产的引用。以下代码示例演示了如何根据资产 ID，从服务器上下文对象上的资产集合中获取资产引用。
+## <a name="get-an-asset-reference"></a>获取资产引用
+一个常见的任务是获取对媒体服务中某个现有资产的引用。 以下代码示例演示了如何根据资产 ID，从服务器上下文对象上的资产集合中获取资产引用。
 以下代码示例使用 Linq 查询来获取对现有 IAsset 对象的引用。
 
 ```
@@ -53,8 +54,8 @@ static IAsset GetAsset(string assetId)
 }
 ```
 
-##<a id="List-all-assets"></a>列出所有资产
-随着存储空间中的资产数量的增长，这对列出你的资产很有用。以下代码示例演示了如何循环访问服务器上下文对象上的资产集合。对于每个资产，该代码示例还会将其一些属性值写入控制台。例如，每个资产可以包含多个媒体文件。代码示例会写出与每个资产关联的所有文件。
+## <a name="list-all-assets"></a>列出所有资产
+随着存储空间中的资产数量的增长，这对列出你的资产很有用。 以下代码示例演示了如何循环访问服务器上下文对象上的资产集合。 对于每个资产，该代码示例还会将其一些属性值写入控制台。 例如，每个资产可以包含多个媒体文件。 代码示例会写出与每个资产关联的所有文件。
 
 ```
 static void ListAssets()
@@ -94,11 +95,11 @@ static void ListAssets()
 }
 ```
 
-##<a id="Get-a-job-reference"></a>获取作业引用
+## <a name="get-a-job-reference"></a>获取作业引用
 
-处理媒体服务代码中的任务时，通常需要根据 ID 获取对现有作业的引用。以下代码示例演示了如何获取对作业集合中某个 IJob 对象的引用。
+处理媒体服务代码中的任务时，通常需要根据 ID 获取对现有作业的引用。 以下代码示例演示了如何获取对作业集合中某个 IJob 对象的引用。
 
-开始长时运行的编码作业时，可能需要获取作业引用，并且需要检查线程上的作业状态。在这种情况下，当方法从某个线程返回时，你需要检索对作业的刷新引用。
+开始长时运行的编码作业时，可能需要获取作业引用，并且需要检查线程上的作业状态。 在这种情况下，当方法从某个线程返回时，你需要检索对作业的刷新引用。
 
 ```
 static IJob GetJob(string jobId)
@@ -116,8 +117,8 @@ static IJob GetJob(string jobId)
 }
 ```
 
-## 列出作业和资产
-在媒体服务中列出资产及其关联作业是一项重要的相关任务。以下代码示例演示了如何列出每个 IJob 对象，然后，针对每个作业，它会显示作业的相关属性、所有相关的任务、所有输入资产和所有输出资产。本示例中的代码对各种其他任务也有所帮助。例如，如果想要列出你先前运行的一个或多个编码作业的输出资产，本代码将演示如何访问输出资产。如果拥有对某个输出资产的引用，你可以通过下载或提供 URL 的方式，将内容传递给其他用户或应用程序。
+## <a name="list-jobs-and-assets"></a>列出作业和资产
+在媒体服务中列出资产及其关联作业是一项重要的相关任务。 以下代码示例演示了如何列出每个 IJob 对象，然后，针对每个作业，它会显示作业的相关属性、所有相关的任务、所有输入资产和所有输出资产。 本示例中的代码对各种其他任务也有所帮助。 例如，如果想要列出你先前运行的一个或多个编码作业的输出资产，本代码将演示如何访问输出资产。 如果拥有对某个输出资产的引用，你可以通过下载或提供 URL 的方式，将内容传递给其他用户或应用程序。 
 
 有关传递资产选项的详细信息，请参阅[使用适用于 .NET 的媒体服务 SDK 传递资产](./media-services-deliver-streaming-content.md)。
 
@@ -197,11 +198,11 @@ static void ListJobsAndAssets()
 }
 ```
 
-##<a id="List-all-access-policies"></a>列出所有访问策略
+##<a name="list-all-access-policies"></a>列出所有访问策略
 
-在媒体服务中，可以对资产或其文件定义访问策略。访问策略定义文件或资产的权限（访问类型以及持续时间）。在媒体服务代码中，通常通过创建 IAccessPolicy 对象来定义访问策略对象，然后将其与现有资产相关联。然后创建一个 ILocator 对象，它允许你提供对媒体服务中的资产的直接访问。本文档系列随附的 Visual Studio 项目包含几个代码示例，这些代码示例演示如何创建和分配访问策略和定位符到资产。
+在媒体服务中，可以对资产或其文件定义访问策略。 访问策略定义文件或资产的权限（访问类型以及持续时间）。 在媒体服务代码中，通常通过创建 IAccessPolicy 对象来定义访问策略对象，然后将其与现有资产相关联。 然后创建一个 ILocator 对象，它允许你提供对媒体服务中的资产的直接访问。 本文档系列随附的 Visual Studio 项目包含几个代码示例，这些代码示例演示如何创建和分配访问策略和定位符到资产。
 
-以下代码示例演示如何列出服务器上所有的访问策略，并显示与每个策略关联的权限类型。查看访问策略的另一个有用方法是列出服务器上的所有 ILocator 对象，然后针对每个定位符，可以使用其 AccessPolicy 属性列出其关联的访问策略。
+以下代码示例演示如何列出服务器上所有的访问策略，并显示与每个策略关联的权限类型。 查看访问策略的另一个有用方法是列出服务器上的所有 ILocator 对象，然后针对每个定位符，可以使用其 AccessPolicy 属性列出其关联的访问策略。
 
 ```
 static void ListAllPolicies()
@@ -217,12 +218,12 @@ static void ListAllPolicies()
     }
 }
 ```
-##<a name="limit-access-policies"></a> 限制访问策略数 
+## <a name="limit-access-policies"></a>限制访问策略数 
 
 >[!NOTE]
-各种不同的 AMS 策略（例如定位器策略或 ContentKeyAuthorizationPolicy）的数目限制为 1,000,000 个。如果用户始终使用相同的日期/访问权限，则应使用同一策略 ID。定位器策略就是这样的例子，这些策略（非上载策略）可长时间置于一个位置。
+> 不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 
 
-例如，可以使用以下代码创建通用的策略组，该代码在应用程序中只运行一次。可以将 ID 记录到日志文件中供以后使用：
+例如，可以使用以下代码创建通用的策略组，该代码在应用程序中只运行一次。 可以将 ID 记录到日志文件中供以后使用：
 
 ```
     double year = 365.25;
@@ -259,12 +260,12 @@ static void ListAllPolicies()
     Console.WriteLine("The locator base path is " + originLocator.BaseUri.ToString());
 ```
 
-##<a id="List-All-Locators"></a>列出所有定位符
-定位符是一个 URL，提供访问资产的直接路径，以及定位符的关联访问策略所定义的对该资产的权限。每个资产都有一个在其定位符属性上与其关联的 ILocator 对象集合。服务器上下文还具有一个包含所有定位符的定位符集合。
+## <a name="list-all-locators"></a>列出所有定位符
+定位符是一个 URL，提供访问资产的直接路径，以及定位符的关联访问策略所定义的对该资产的权限。 每个资产都有一个在其定位符属性上与其关联的 ILocator 对象集合。 服务器上下文还具有一个包含所有定位符的定位符集合。
 
-以下代码示例列出了服务器上的所有定位符。对于每个定位符，它将显示相关资产和访问策略的 ID。它也显示权限的类型、到期日期和访问资产的完整路径。
+以下代码示例列出了服务器上的所有定位符。 对于每个定位符，它将显示相关资产和访问策略的 ID。 它也显示权限的类型、到期日期和访问资产的完整路径。
 
-请注意，访问资产的定位符路径仅仅是访问资产的基本 URL。若要创建用户或应用程序可以浏览到的单个文件的直接路径，你的代码必须将特定文件路径添加到定位符路径。有关如何进行操作的详细信息，请参阅主题[使用适用于 .NET 的媒体服务 SDK 传递资产](./media-services-deliver-streaming-content.md)。
+请注意，访问资产的定位符路径仅仅是访问资产的基本 URL。 若要创建用户或应用程序可以浏览到的单个文件的直接路径，你的代码必须将特定文件路径添加到定位符路径。 有关如何进行操作的详细信息，请参阅主题[使用适用于 .NET 的媒体服务 SDK 传递资产](./media-services-deliver-streaming-content.md)。
 
 ```
 static void ListAllLocators()
@@ -286,11 +287,11 @@ static void ListAllLocators()
 }
 ```
 
-##<a name="enumerating-through-large-collections-of-entities"></a> 枚举大型实体集合
+## <a name="enumerating-through-large-collections-of-entities"></a>枚举大型实体集合
 
-查询实体时，一次返回的实体数限制为 1000 个，因为公共 REST v2 将查询结果数限制为 1000 个。枚举大型实体集合时，需要使用 Skip 和 Take。
+查询实体时，一次返回的实体数限制为 1000 个，因为公共 REST v2 将查询结果数限制为 1000 个。 枚举大型实体集合时，需要使用 Skip 和 Take。 
 
-以下函数将循环访问所提供的媒体服务帐户中的所有作业。媒体服务将在作业集合中返回 1000 个作业。该函数使用 Skip 和 Take 来确保枚举所有作业（如果你帐户中的作业超过 1000 个）。
+以下函数将循环访问所提供的媒体服务帐户中的所有作业。 媒体服务将在作业集合中返回 1000 个作业。 该函数使用 Skip 和 Take 来确保枚举所有作业（如果你帐户中的作业超过 1000 个）。
 
 ```
 static void ProcessJobs()
@@ -329,7 +330,8 @@ static void ProcessJobs()
     }
 }
 ```
-##<a id="Delete-an-asset"></a>删除资产
+
+##<a name="delete-an-asset"></a>删除资产
 
 以下示例删除了一个资产。
 
@@ -346,9 +348,10 @@ static void DeleteAsset( IAsset asset)
 }
 ```
 
-##<a id="Delete-a-job"></a>删除作业
+##<a name="delete-a-job"></a>删除作业
 
-若要删除某一作业，必须检查该作业的状态是否如“状态”属性中所示。可以删除已完成或已取消的作业，但是必须先取消处于其他状态（如已排队、已计划、或处理中）的作业，然后才可以删除这些作业。以下代码示例演示了一种删除作业的方法，通过检查作业状态，然后当作业状态为已完成或取消时，删除作业。此代码取决于本主题的上一节，用于获取对作业的引用：获取作业引用。
+若要删除某一作业，必须检查该作业的状态是否如“状态”属性中所示。 可以删除已完成或已取消的作业，但是必须先取消处于其他状态（如已排队、已计划、或处理中）的作业，然后才可以删除这些作业。
+以下代码示例演示了一种删除作业的方法，通过检查作业状态，然后当作业状态为已完成或取消时，删除作业。 此代码取决于本主题的上一节，用于获取对作业的引用：获取作业引用。
 
 ```
 static void DeleteJob(string jobId)
@@ -397,7 +400,7 @@ static void DeleteJob(string jobId)
 }
 ```
 
-##<a id="Delete-an-access-policy"></a>删除访问策略
+##<a name="delete-an-access-policy"></a>删除访问策略
 
 以下代码示例演示如何基于策略 ID，获取对访问策略的引用，然后删除该策略。
 
@@ -416,6 +419,3 @@ static void DeleteAccessPolicy(string existingPolicyId)
 
 }
 ```
-
-<!---HONumber=Mooncake_0306_2017-->
-<!--Update_Description: add "限制访问策略数" section-->

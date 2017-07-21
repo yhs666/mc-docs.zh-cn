@@ -1,12 +1,11 @@
 ---
-title: 有关执行组件类型序列化的 Reliable Actors 说明 | Azure
-description: 讨论了定义可序列化类的基本要求，这些类可用于定义 Service Fabric Reliable Actors 的状态和接口
+title: "有关执行组件类型序列化的 Reliable Actors 说明 | Azure"
+description: "讨论了定义可序列化类的基本要求，这些类可用于定义 Service Fabric Reliable Actors 的状态和接口"
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: ''
-
+editor: 
 ms.assetid: 6e50e4dc-969a-4a1c-b36c-b292d964c7e3
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -16,16 +15,20 @@ ms.workload: NA
 origin.date: 02/10/2017
 ms.date: 03/03/2017
 ms.author: v-johch
+ms.openlocfilehash: 245d47ccaabb3893320d70dc9f5e6cb64127fcc2
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>有关 Service Fabric Reliable Actors 类型序列化的说明
 
-# 有关 Service Fabric Reliable Actors 类型序列化的说明
+所有方法的参数、执行组件接口中每个方法返回的任务的结果类型和执行组件的状态管理器中存储的对象都必须是[数据协定可序列化](https://msdn.microsoft.com/zh-cn/library/ms731923.aspx)。 这同样适用于[执行组件事件接口](./service-fabric-reliable-actors-events.md)中定义的方法的参数。 （执行组件事件接口方法始终返回 void。）
 
-所有方法的参数、执行组件接口中每个方法返回的任务的结果类型，以及执行组件的状态管理器中存储的对象都必须是[数据协定可序列化对象](https://msdn.microsoft.com/zh-cn/library/ms731923.aspx)。这同样适用于[执行组件事件接口](./service-fabric-reliable-actors-events.md)中定义的方法的参数。（执行组件事件接口方法始终返回 void。）
-
-## 自定义数据类型
+## <a name="custom-data-types"></a>自定义数据类型
 在此示例中，以下执行组件接口定义了一个返回自定义数据类型（名为 `VoicemailBox`）的方法。
 
-```Java
+```csharp
 public interface IVoiceMailBoxActor : IActor
 {
     Task<VoicemailBox> GetMailBoxAsync();
@@ -34,7 +37,7 @@ public interface IVoiceMailBoxActor : IActor
 
 此接口由使用状态管理器来存储 `VoicemailBox` 对象的执行组件实现：
 
-```Java
+```csharp
 [StatePersistence(StatePersistence.Persisted)]
 public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
 {
@@ -53,9 +56,9 @@ public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
  - 在执行组件实例和调用方之间传输该对象。
  - 该对象保存在状态管理器中，即持久保存在磁盘中，并且已复制到其他节点。
 
-Reliable Actor 框架使用 DataContract 序列化。因此，自定义数据对象及其成员必须分别使用 **DataContract** 和 **DataMember** 属性进行批注
+Reliable Actor 框架使用 DataContract 序列化。 因此，自定义数据对象及其成员必须分别使用 DataContract 和 DataMember 属性进行批注
 
-```
+```csharp
 [DataContract]
 public class Voicemail
 {
@@ -68,7 +71,9 @@ public class Voicemail
     [DataMember]
     public DateTime ReceivedAt { get; set; }
 }
+```
 
+```csharp
 [DataContract]
 public class VoicemailBox
 {
@@ -85,12 +90,10 @@ public class VoicemailBox
 }
 ```
 
-## 后续步骤
+## <a name="next-steps"></a>后续步骤
  - [执行组件生命周期和垃圾回收](./service-fabric-reliable-actors-lifecycle.md)
  - [执行组件计时器和提醒](./service-fabric-reliable-actors-timers-reminders.md)
  - [执行组件事件](./service-fabric-reliable-actors-events.md)
  - [执行组件可重入性](./service-fabric-reliable-actors-reentrancy.md)
  - [执行组件多态性和面向对象的设计模式](./service-fabric-reliable-actors-polymorphism.md)
  - [执行组件诊断和性能监视](./service-fabric-reliable-actors-diagnostics.md)
-
-<!---HONumber=Mooncake_0227_2017-->

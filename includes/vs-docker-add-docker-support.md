@@ -8,5 +8,3 @@
 
 [0]: ./media/vs-docker-add-docker-support/add-docker-support.png
 [1]: ./media/vs-docker-add-docker-support/docker-files-added.png
-
-<!---HONumber=Mooncake_0711_2016-->

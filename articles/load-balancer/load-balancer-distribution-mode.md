@@ -1,12 +1,11 @@
 ---
-title: 配置负载均衡器分发模式 | Azure
-description: 如何配置 Azure 负载均衡器分发模式以支持源 IP 关联
+title: "配置负载均衡器分发模式 | Azure"
+description: "如何配置 Azure 负载均衡器分发模式以支持源 IP 关联"
 services: load-balancer
-documentationCenter: na
-authors: joaoma
-manager: carmonm
-editor: tysonn
-
+documentationcenter: na
+author: rockboyfor
+manager: digimobile
+ms.assetid: 7df27a4d-67a8-47d6-b73e-32c0c6206e6e
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,54 +14,58 @@ ms.workload: infrastructure-services
 origin.date: 10/24/2016
 ms.date: 12/05/2016
 ms.author: v-yeche
+ms.openlocfilehash: 115a7cba3cd8933db84bd61e5c0ce5cb69af09c0
+ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/26/2017
 ---
+# <a name="configure-the-distribution-mode-for-load-balancer"></a>配置负载均衡器的分发模式
 
-# 配置负载均衡器的分发模式
+## <a name="hash-based-distribution-mode"></a>基于哈希的分发模式
 
-## 基于哈希的分发模式
+默认分发算法是将流量映射到可用服务器的 5 元组（源 IP、源端口、目标 IP、目标端口和协议类型）哈希。 它仅在传输会话内部提供粘性。 同一会话中的数据包会定向到负载均衡终结点后面的同一数据中心 IP (DIP) 实例。 客户端从同一源 IP 发起新会话时，源端口会更改，并导致流量定向到其他 DIP 终结点。
 
-默认分发算法是将流量映射到可用服务器的 5 元组（源 IP、源端口、目标 IP、目标端口和协议类型）哈希。它仅在传输会话内部提供粘性。同一会话中的数据包会定向到经过负载均衡的终结点后面的同一数据中心 IP (DIP) 实例。客户端从同一源 IP 发起新会话时，源端口会更改，并导致流量定向到其他 DIP 终结点。
-
-![基于哈希的负载均衡器](./media/load-balancer-distribution-mode/load-balancer-distribution.png)  
+![基于哈希的负载均衡器](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
 
 图 1 - 5 元组分发
 
-## 源 IP 关联模式
+## <a name="source-ip-affinity-mode"></a>源 IP 关联模式
 
-我们拥有名为“源 IP 关联”（也称为会话关联或客户端 IP 关联）的另一种分发模式。可将 Azure Load Balancer 配置为使用 2 个元组（源 IP、目标 IP）或 3 个元组（源 IP、目标 IP、协议）来将流量映射到可用的服务器。通过使用源 IP 关联，从同一客户端计算机发起的连接将进入同一个 DIP 终结点。
+我们拥有名为“源 IP 关联”（也称为会话关联或客户端 IP 关联）的另一种分发模式。 可将 Azure 负载均衡器配置为使用 2 元组（源 IP、目标 IP）或 3 元组（源 IP、目标 IP、协议）将流量映射到可用的服务器。 通过使用源 IP 关联，从同一客户端计算机发起的连接将进入同一个 DIP 终结点。
 
-下图演示 2 元组配置。请注意 2 元组如何从负载均衡器运行到虚拟机 1 (VM1)，VM1 随后由 VM2 和 VM3 备份。
+下图演示 2 元组配置。 请注意 2 元组如何从负载均衡器运行到虚拟机 1 (VM1)，VM1 随后由 VM2 和 VM3 备份。
 
-![会话关联](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)  
+![会话关联](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
 
 图 2 - 2 元组分发
 
-源 IP 关联解决 Azure Load Balancer 与远程桌面 (RD) 网关之间的不兼容问题。现在，可以在单个云服务中生成 RD 网关场。
+源 IP 关联解决了 Azure 负载均衡器与远程桌面 (RD) 网关之间的不兼容问题。 现在，可以在单个云服务中生成 RD 网关场。
 
 另一种使用方案是媒体上传，此时通过 UDP 上传数据，但通过 TCP 实现控制平面：
 
 * 客户端首先与负载均衡的公共地址发起 TCP 会话，然后定向到特定 DIP，此通道将保持活动状态以监视连接运行状况
-* 来自同一客户端计算机的新 UDP 会话在同一个负载均衡公共终结点中发起，我们希望此连接像以前的 TCP 连接一样被定向到同一个 DIP 终结点，以便能够以高吞吐量执行媒体上载，同时通过 TCP 维护控制通道。
+* 来自同一客户端计算机的新 UDP 会话在同一个负载均衡公共终结点中发起，我们希望此连接像以前的 TCP 连接一样被定向到同一个 DIP 终结点，以便能够以高吞吐量执行媒体上传，同时通过 TCP 维护控制通道。
 
-> 如果负载均衡集发生更改（删除或添加虚拟机），则会重新计算客户端请求的分发。无法确保现有客户端的新连接最终都会抵达同一台服务器。此外，使用源 IP 关联分发模式可能导致流量的不均衡分发。在代理后面运行的客户端可被视为唯一的客户端应用程序。
+> [!NOTE]
+> 如果负载均衡集发生更改（删除或添加虚拟机），则会重新计算客户端请求的分发。 无法确保现有客户端的新连接最终都会抵达同一台服务器。 此外，使用源 IP 关联分发模式可能导致流量的不均衡分发。 在代理后面运行的客户端可被视为唯一的客户端应用程序。
 
-## 配置负载均衡器的源 IP 关联设置
+## <a name="configuring-source-ip-affinity-settings-for-load-balancer"></a>配置负载均衡器的源 IP 关联设置
 
 对于虚拟机，可以使用 PowerShell 来更改超时设置：
 
 将 Azure 终结点添加到虚拟机并设置负载均衡器分发模式
 
 ```powershell
-Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
+Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 -LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
->[!NOTE]
-> LoadBalancerDistribution 可以设置为 sourceIP（用于 2 元组（源 IP、目标 IP）负载均衡）、sourceIPProtocol（用于 3 元组（源 IP、目标 IP、协议）负载均衡）或 none（如果想要使用 5 元组负载均衡的默认行为）。
+LoadBalancerDistribution 可以设置为 sourceIP（用于 2 元组（源 IP、目标 IP）负载均衡）、sourceIPProtocol（用于 3 元组（源 IP、目标 IP、协议）负载均衡）或 none（如果想要使用 5 元组负载均衡的默认行为）。
 
 使用以下命令检索终结点负载均衡器分发模式配置：
 
 ```
-PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
+PS C:\> Get-AzureVM -ServiceName MyService -Name MyVM | Get-AzureEndpoint
 
 VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 LBSetName : MyLoadBalancedSet
@@ -83,48 +86,49 @@ IdleTimeoutInMinutes : 15
 LoadBalancerDistribution : sourceIP
 ```
 
-如果 LoadBalancerDistribution 元素不存在，则 Azure Load balancer 使用默认的 5 元组算法。
+如果 LoadBalancerDistribution 元素不存在，则 Azure 负载均衡器使用默认的 5 元组算法。
 
-### 在负载均衡终结点集上设置分发模式
+### <a name="set-the-distribution-mode-on-a-load-balanced-endpoint-set"></a>在负载均衡终结点集上设置分发模式
 
 如果终结点是负载均衡终结点集的一部分，则必须在负载均衡终结点集上设置分发模式：
 
 ```powershell
-Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocol TCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
+Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -LoadBalancerDistribution sourceIP
 ```
 
-### 用于更改分发模式的云服务配置
+### <a name="cloud-service-configuration-to-change-distribution-mode"></a>用于更改分发模式的云服务配置
 
-可利用用于 .NET 2.5 的 Azure SDK（于 11 月发布）来更新云服务。云服务的终结点设置在 .csdef 中进行。若要更新云服务部署的负载均衡器分发模式，需要进行部署升级。下面是终结点设置的 .csdef 更改的示例：
+可利用用于 .NET 2.5 的 Azure SDK（于 11 月发布）来更新云服务。 云服务的终结点设置在 .csdef 中进行。 若要更新云服务部署的负载均衡器分发模式，需要进行部署升级。
+下面是终结点设置的 .csdef 更改的示例：
 
 ```xml
 <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
-  <Endpoints>
-<InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancerDistribution="sourceIP" />
-  </Endpoints>
+    <Endpoints>
+    <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancerDistribution="sourceIP" />
+    </Endpoints>
 </WorkerRole>
 <NetworkConfiguration>
-  <VirtualNetworkSite name="VNet"/>
-  <AddressAssignments>
+    <VirtualNetworkSite name="VNet"/>
+    <AddressAssignments>
 <InstanceAddress roleName="VMRolePersisted">
-  <PublicIPs>
+    <PublicIPs>
     <PublicIP name="public-ip-name" idleTimeoutInMinutes="timeout-in-minutes"/>
-  </PublicIPs>
+    </PublicIPs>
 </InstanceAddress>
-  </AddressAssignments>
+    </AddressAssignments>
 </NetworkConfiguration>
 ```
 
-## API 示例
+## <a name="api-example"></a>API 示例
 
-可使用服务管理 API 配置负载均衡器分发。确保添加设置为版本 `2014-09-01` 或更高版本的 `x-ms-version` 标头。
+可使用服务管理 API 配置负载均衡器分发。 确保添加设置为版本 `2014-09-01` 或更高版本的 `x-ms-version` 标头。
 
-### 更新部署中指定的负载均衡集配置
+### <a name="update-the-configuration-of-the-specified-load-balanced-set-in-a-deployment"></a>更新部署中指定的负载均衡集配置
 
-#### 请求示例
+#### <a name="request-example"></a>请求示例
 
 ```
-POST https://management.core.chinacloudapi.cn/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet 
+POST https://management.core.chinacloudapi.cn/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
 Content-Type: application/xml
 
 <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -146,9 +150,9 @@ Content-Type: application/xml
 </LoadBalancedEndpointList>
 ```
 
-LoadBalancerDistribution 的值可以是 sourceIP（用于 2 元组关联）、sourceIPProtocol（用于 3 元组关联）或 none（用于无关联，即 5 元组）
+LoadBalancerDistribution 的值可以是 sourceIP（用于 2 元组关联）、sourceIPProtocol（用于 3 元组关联）或 none（用于无关联， 即 5 元组）
 
-#### 响应
+#### <a name="response"></a>响应
 
 ```
 HTTP/1.1 202 Accepted
@@ -160,12 +164,10 @@ x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
 Date: Thu, 16 Oct 2014 22:49:21 GMT
 ```
 
-## 后续步骤
+## <a name="next-steps"></a>后续步骤
 
-[Internal load balancer overview（内部负载均衡器概述）](./load-balancer-internal-overview.md)
+[内部负载均衡器概述](./load-balancer-internal-overview.md)
 
-[Get started Configuring an Internet facing load balancer（开始配置面向 Internet 的负载均衡器）](./load-balancer-get-started-internet-arm-ps.md)
+[开始配置面向 Internet 的负载均衡器](./load-balancer-get-started-internet-arm-ps.md)
 
-[为负载均衡器配置空闲 TCP 超时设置](./load-balancer-tcp-idle-timeout.md)
-
-<!---HONumber=Mooncake_1128_2016-->
+[配置负载均衡器的空闲 TCP 超时设置](./load-balancer-tcp-idle-timeout.md)

@@ -1,12 +1,11 @@
 ---
-title: 将媒体服务资产下载到计算机 - Azure | Azure
-description: 了解如何将资产下载到计算机。代码示例用 C# 编写且使用适用于 .NET 的媒体服务 SDK。
+title: "将媒体服务资产下载到计算机 - Azure | Azure"
+description: "了解如何将资产下载到计算机。 代码示例用 C# 编写且使用适用于 .NET 的媒体服务 SDK。"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
 ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
 ms.service: media-services
 ms.workload: media
@@ -16,13 +15,17 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 03/10/2017
 ms.author: v-johch
+ms.openlocfilehash: 6ae08cb2369e8752da36f42fec703dfd5317cabe
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+#<a name="how-to-deliver-an-asset-by-download"></a>如何：通过下载交付资产
 
-#如何：通过下载交付资产
+本主题介绍已上传到媒体服务的媒体资产交付选项。 你可以采用众多的应用程序方案来交付媒体服务内容。 可以下载媒体资产，或使用定位符访问媒体资产。 还可以将媒体内容发送到其他应用程序或其他内容提供商。 为了提高性能和伸缩性，用户还可以使用内容传送网络 (CDN) 来传送内容。
 
-本主题介绍已上传到媒体服务的媒体资产交付选项。你可以采用众多的应用程序方案来交付媒体服务内容。可以下载媒体资产，或使用定位符访问媒体资产。还可以将媒体内容发送到其他应用程序或其他内容提供商。为了提高性能和可缩放性，还可以使用内容传送网络 (CDN) 来传送内容。
-
-此示例演示如何将媒体资产从媒体服务下载到本地计算机。该代码将按作业 ID 查询与媒体服务帐户关联的作业，并访问其 **OutputMediaAssets** 集合（运行作业后生成的、包含一个或多个输出媒体资产的集）。此示例演示如何通过作业下载输出媒体资产，但你可以运用相同的方法来下载其他资产。
+此示例演示如何将媒体资产从媒体服务下载到本地计算机。 该代码将按作业 ID 查询与媒体服务帐户关联的作业，并访问其 OutputMediaAssets 集合（即运行作业后生成的、包含一个或多个输出媒体资产的集）。 此示例演示如何通过作业下载输出媒体资产，但你可以运用相同的方法来下载其他资产。
 
 ```
 // Download the output asset of the specified job to a local folder.
@@ -75,8 +78,6 @@ static void DownloadProgress(object sender, DownloadProgressChangedEventArgs e)
 }
 ```
 
-##另请参阅 
+##<a name="see-also"></a>另请参阅 
 
 [交付流内容](./media-services-deliver-streaming-content.md)
-
-<!---HONumber=Mooncake_0306_2017-->

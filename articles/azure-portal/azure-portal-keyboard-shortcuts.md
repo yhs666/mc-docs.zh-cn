@@ -1,25 +1,25 @@
 ---
-title: Azure 门户快捷键 | Azure
-description: 本文始终列出可在整个 Azure 门户中使用的最新快捷键。单个服务可能有其自身的专用快捷键。
+title: "Azure 门户键盘快捷方式 | Azure"
+description: "本文始终列出可在整个 Azure 门户中使用的最新键盘快捷方式。 单个服务可能有其自身的专用键盘快捷方式。"
 services: azure-portal
-documentationCenter: ''
+documentationCenter: 
 authors: flanakin
 manager: lwelicki
-editor: ''
-
+editor: 
 ms.service: multiple
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
 origin.date: 02/07/2016
 ms.date: 06/21/2016
 ms.author: v-yiso
+ms.openlocfilehash: a47b26def27dc8cfb6178e0e7e1f2918bea72ce6
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="azure-portal-keyboard-shortcuts"></a>Azure 门户键盘快捷方式
 
-# Azure 门户快捷键
-
-## 打开中心
+## <a name="open-hubs"></a>打开中心
 
 | 快捷方式 | 操作 |
 |--------|----------|
@@ -29,7 +29,7 @@ ms.author: v-yiso
 | B | 计费 |
 | C | 创建 |
 
-## 导航
+## <a name="navigation"></a>导航
 
 | 快捷方式 | 操作 |
 |--------|----------|
@@ -38,12 +38,10 @@ ms.author: v-yiso
 | J | 前面打开的边栏选项卡 |
 | K | 下一个打开的边栏选项卡 |
 | L | 最后一个打开的边栏选项卡 |
-| - | 最小化边栏选项卡或者从最大化状态恢复 |
-| + | 最大化边栏选项卡或者从最小化状态恢复 |
-| # | 关闭当前的边栏选项卡 |
+| - | 最小化边栏选项卡或从最大化还原 |
+| + | 最大化边栏选项卡或从最小化还原 |
+| # | 关闭当前边栏选项卡 |
 | ¦ | 关闭所有边栏选项卡 |
 | , | 将焦点移到命令栏 |
-| . | 将焦点移到导航栏 |
-| ? | 查看快捷键 |
-
-<!---HONumber=Mooncake_0613_2016-->
+| 。 | 将焦点移到导航栏 |
+| ? | 查看键盘快捷方式 |

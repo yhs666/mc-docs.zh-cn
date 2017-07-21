@@ -1,12 +1,12 @@
 ---
-title: 使用具有内部负载均衡器的 Azure 应用程序网关 | Azure
-description: 本页说明如何配置具有内部负载均衡终结点的 Azure 应用程序网关
-documentationCenter: na
+title: "搭配使用 Azure 应用程序网关和内部负载均衡器 | Azure"
+description: "本页说明如何配置具有内部负载均衡终结点的 Azure 应用程序网关"
+documentationcenter: na
 services: application-gateway
-authors: joaoma
-manager: jdial
+author: georgewallace
+manager: timlt
 editor: tysonn
-
+ms.assetid: 7403d28e-909f-46a2-b282-43a8e942f53c
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,36 +15,40 @@ ms.workload: infrastructure-services
 origin.date: 01/23/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
+ms.openlocfilehash: 0a77ac4e5ce01a0e6b0d989994f0020a97a64b00
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-# 创建具有内部负载均衡器 (ILB) 的应用程序网关
+# <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>创建具有内部负载均衡器 (ILB) 的应用程序网关
 
 > [!div class="op_single_selector"]
->- [Azure 经典步骤](./application-gateway-ilb.md)
->- [资源管理器 Powershell 步骤](./application-gateway-ilb-arm.md)
+> * [Azure 经典 PowerShell](application-gateway-ilb.md)
+> * [Azure Resource Manager PowerShell](application-gateway-ilb-arm.md)
 
-可以配置使用面向 Internet 的虚拟 IP 或不向 Internet 公开的内部终结点（也称为内部负载均衡器 (ILB) 终结点）的应用程序网关。配置使用 ILB 的网关适用于不向 Internet 公开的内部业务线应用程序。对于位于不向 Internet 公开的安全边界内的多层应用程序中的服务/层也很有用，但仍需要执行循环负载分散、会话粘性或 SSL 终止。本文将引导你配置具有 ILB 的应用程序网关。
+可以配置使用面向虚拟 IP 或不向 Internet 公开的内部终结点（也称为内部负载均衡器 (ILB) 终结点）的应用程序网关。 配置使用 ILB 的网关适用于不向 Internet 公开的内部业务线应用程序。 对于位于不向 Internet 公开的安全边界内的多层应用程序中的服务/层也很有用，但仍需要执行轮循机制负载分散、会话粘性或 SSL 终止。 本文介绍如何配置具有 ILB 的应用程序网关。
 
-## 开始之前
+## <a name="before-you-begin"></a>开始之前
 
-1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。可以从[下载页面](/downloads)的“Windows PowerShell”部分下载并安装最新版本。
-2. 请确认你已创建包含有效子网、可正常运行的虚拟网络。
+1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。 可以从[下载页面](/downloads/)的“Windows PowerShell”部分下载并安装最新版本。
+2. 请确认已创建包含有效子网、可正常运行的虚拟网络。
 3. 请确认后端服务器位于虚拟网络中，或者为后端服务器分配了公共 IP/VIP。
 
-若要创建新的应用程序网关，请按所列顺序执行以下步骤。
+若要创建应用程序网关，请按所列顺序执行以下步骤。 
 
-1. [创建新的应用程序网关](#create-a-new-application-gateway)
+1. [创建应用程序网关](#create-a-new-application-gateway)
 2. [配置网关](#configure-the-gateway)
 3. [设置网关配置](#set-the-gateway-configuration)
 4. [启动网关](#start-the-gateway)
-4. [验证网关](#verify-the-gateway-status)
+5. [验证网关](#verify-the-gateway-status)
 
-## <a name="create-a-new-application-gateway"></a> 创建新的应用程序网关：
+## <a name="create-an-application-gateway"></a>创建应用程序网关：
 
-**若要创建网关**，请使用 `New-AzureApplicationGateway` cmdlet，并将值替换为你自己的值。请注意，此时不会开始计收网关的费用。计费将在后面已成功启动网关时开始。
+若要创建网关，请使用 `New-AzureApplicationGateway` cmdlet，并将值替换为自己的值。 请注意并未从此时开始对网关计费。 计费将在后面已成功启动网关时开始。
 
 ```powershell
-PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 ```
 
 ```
@@ -55,17 +59,19 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 ```
 
-**若要验证**是否已创建网关，可以使用 `Get-AzureApplicationGateway` cmdlet。
+若要验证是否已创建网关，可以使用 `Get-AzureApplicationGateway` cmdlet。 
 
-在此示例中，*Description*、*InstanceCount* 和 *GatewaySize* 是可选参数。*InstanceCount* 的默认值为 2，最大值为 10。*GatewaySize* 的默认值为 Medium。其他可用值为 Small 和 Large。*Vip* 和 *DnsName* 显示为空白，因为网关尚未启动。这些值将在网关进入运行状态后立即创建。
+在此示例中，Description、InstanceCount 和 GatewaySize 是可选参数。 *InstanceCount* 的默认值为 2，最大值为 10。 *GatewaySize* 的默认值为 Medium。 其他可用值为 Small 和 Large。 Vip 和 DnsName 显示为空白，因为尚未启动网关。 这些值在网关进入运行状态后立即创建。 
 
 ```powershell
-PS C:\> Get-AzureApplicationGateway AppGwTest
+Get-AzureApplicationGateway AppGwTest
+```
 
+```
 VERBOSE: 4:39:39 PM - Begin Operation:
 Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed 
 Operation: Get-AzureApplicationGateway
-Name: AppGwTest	
+Name: AppGwTest    
 Description: 
 VnetName: testvnet1 
 Subnets: {Subnet-1} 
@@ -76,32 +82,27 @@ VirtualIPs:
 DnsName:
 ```
 
-## <a name="configure-the-gateway"></a> 配置网关
-
-应用程序网关配置由多个值组成。这些值可将绑定在一起以构造配置。
+## <a name="configure-the-gateway"></a>配置网关
+应用程序网关配置由多个值组成。 这些值可将绑定在一起以构造配置。
 
 有效值为：
 
-- **后端服务器池：**后端服务器的 IP 地址列表。列出的 IP 地址应属于 VNet 子网，或者是公共 IP/VIP。 
-- **后端服务器池设置：**每个池具有端口、协议和基于 Cookie 的相关性等设置。这些设置绑定到池，并会应用到池中的所有服务器。
-- **前端端口：**此端口是应用程序网关上打开的公共端口。流量将抵达此端口，然后重定向到后端服务器之一。
-- **侦听器：**侦听器具有前端端口、协议（Http 或 Https，区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。 
-- **规则：**规则将会绑定侦听器和后端服务器池，并定义当流量抵达特定侦听器时应定向到的后端服务器池。目前仅支持*基本*规则。*基本*规则是一种轮循负载分发模式。
+* 后端服务器池：后端服务器的 IP 地址列表。 列出的 IP 地址应属于 VNet 子网，或者是公共 IP/VIP。 
+* 后端服务器池设置：每个池具有端口、协议和基于 Cookie 的相关性等设置。 这些设置绑定到池，并会应用到池中的所有服务器。
+* 前端端口：此端口是应用程序网关上打开的公共端口。 流量将抵达此端口，然后重定向到后端服务器之一。
+* 侦听器：侦听器具有前端端口、协议（Http 或 Https，区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。 
+* 规则：规则将会绑定侦听器和后端服务器池，并定义当流量抵达特定侦听器时应定向到的后端服务器池。 目前仅支持 *基本* 规则。 *基本* 规则是一种轮循负载分发模式。
 
-可以通过创建配置对象或使用配置 XML 文件来构造配置。若要使用配置 XML 文件构造配置，请使用以下示例。
+可以通过创建配置对象或使用配置 XML 文件来构造配置。 若要使用配置 XML 文件构造配置，请使用以下示例。
 
 注意以下事项：
 
-- *FrontendIPConfigurations* 元素描述有关配置具有 ILB 的应用程序网关的 ILB 详细信息。 
+* FrontendIPConfigurations 元素描述有关配置具有 ILB 的应用程序网关的 ILB 详细信息。 
+* 前端 IP 类型应设置为“专用”
+* StaticIPAddress 应设置为所需的内部 IP，网关在该处接收流量。 请注意，StaticIPAddress 元素是可选的。 如果未设置，则选择来自已部署子网的可用内部 IP。 
+* 在 FrontendIPConfiguration 中指定的 Name 元素的值应该在 HTTPListener 的 FrontendIP 元素中使用，从而引用 FrontendIPConfiguration。
 
-- 前端 IP *类型* 应设置为“专用”
-
-- *StaticIPAddress* 应设置为所需的内部 IP，网关在该处接收流量。请注意，*StaticIPAddress* 元素是可选的。如果未设置，将选择来自已部署子网的可用内部 IP。
-
-- 在 *FrontendIPConfiguration* 中指定的 *Name* 元素的值应该在 HTTPListener 的 *FrontendIP* 元素中使用，以引用 FrontendIPConfiguration。
-
-**配置 XML 示例**
-
+  **配置 XML 示例**
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -155,12 +156,11 @@ DnsName:
 </ApplicationGatewayConfiguration>
 ```
 
-## <a name="set-the-gateway-configuration"></a> 设置网关配置
-
-接下来，你将设置应用程序网关。可以对配置对象或配置 XML 文件使用 `Set-AzureApplicationGatewayConfig` cmdlet。
+## <a name="set-the-gateway-configuration"></a>设置网关配置
+接下来，你将设置应用程序网关。 可以对配置对象或配置 XML 文件使用 `Set-AzureApplicationGatewayConfig` cmdlet。 
 
 ```powershell
-PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 ```
 
 ```
@@ -171,15 +171,17 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
 ```
 
-## <a name="start-the-gateway"></a> 启动网关
+## <a name="start-the-gateway"></a>启动网关
 
-配置网关后，使用 `Start-AzureApplicationGateway` cmdlet 来启动网关。成功启动网关后，将开始计收应用程序网关的费用。
+配置网关后，使用 `Start-AzureApplicationGateway` cmdlet 来启动网关。 成功启动网关后，将开始计收应用程序网关的费用。 
 
 > [!NOTE]
-> `Start-AzureApplicationGateway` cmdlet 最多可能需要 15 到 20 分钟才能完成。
+> `Start-AzureApplicationGateway` cmdlet 最多可能需要 15 到 20 分钟才能完成。 
+> 
+> 
 
-```
-PS C:\> Start-AzureApplicationGateway AppGwTest 
+```powershell
+Start-AzureApplicationGateway AppGwTest 
 ```
 
 ```
@@ -190,15 +192,15 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 ```
 
-## <a name="verify-the-gateway-status"></a> 验证网关状态
+## <a name="verify-the-gateway-status"></a>验证网关状态
 
-使用 `Get-AzureApplicationGateway` cmdlet 检查网关的状态。如果前一步骤中的 *Start-AzureApplicationGateway* 成功，则 State 应为 *Running*，Vip 和 DnsName 应包含有效的条目。此示例在第一行显示 cmdlet，接着显示输出。在此示例中，网关正在运行并准备好接收流量。
+使用 `Get-AzureApplicationGateway` cmdlet 检查网关的状态。 如果前一步骤中的 `Start-AzureApplicationGateway` 成功，则状态应为“正在运行”，Vip 和 DnsName 应包含有效的条目。 此示例在第一行显示 cmdlet，接着显示输出。 在此示例中，网关正在运行并准备好接收流量。 
 
 > [!NOTE]
 > 在此示例中，应用程序网关配置为在配置的 ILB 终结点 10.0.0.10 上接受流量。
 
 ```powershell
-PS C:\> Get-AzureApplicationGateway AppGwTest 
+Get-AzureApplicationGateway AppGwTest 
 ```
 
 ```
@@ -215,11 +217,8 @@ VirtualIPs    : {10.0.0.10}
 DnsName       : appgw-b2a11563-2b3a-4172-a4aa-226ee4c23eed.chinacloudapp.cn
 ```
 
-## 后续步骤
-
+## <a name="next-steps"></a>后续步骤
 如需负载均衡选项的其他常规信息，请参阅：
 
-- [Azure 负载均衡器](../load-balancer/index.md)
-- [Azure 流量管理器](../traffic-manager/index.md)
-
-<!---HONumber=Mooncake_Quality_Review_1230_2016-->
+* [Azure 负载均衡器](/load-balancer/)
+* [Azure 流量管理器](/traffic-manager/)

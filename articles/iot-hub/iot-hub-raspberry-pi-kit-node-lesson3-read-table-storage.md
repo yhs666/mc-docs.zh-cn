@@ -1,36 +1,39 @@
 ---
-title: 读取保存在 Azure 存储中的消息 | Azure
-description: 在将从设备到云的消息写入 Azure 表存储时，对其进行监视。
+title: "读取保存在 Azure 存储中的消息 | Azure"
+description: "在将从设备到云的消息写入 Azure 表存储时，对其进行监视。"
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: shizn
 manager: timlt
-tags: ''
-keywords: 从云中检索数据, iot 云服务
-
+tags: 
+keywords: "从云中检索数据, iot 云服务"
 ms.assetid: 9965bd54-61da-479b-aaad-5604850a2be5
 ms.service: iot-hub
 ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/21/2017
+origin.date: 11/28/2016
 ms.date: 05/08/2017
 ms.author: v-yiso
+ms.openlocfilehash: f3b22780a9d5a10bb0855a00eabcd9a533cee1c1
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="read-messages-persisted-in-azure-storage"></a>读取保存在 Azure 存储中的消息
+## <a name="what-you-will-do"></a>执行的操作
+在将从 Raspberry Pi 3 发送到 IoT 中心的从设备到云的消息写入到 Azure 表存储时，对其进行监视。 如果有任何问题，请在[故障排除页面](./iot-hub-raspberry-pi-kit-node-troubleshooting.md)上查找解决方案。
 
-# 读取保存在 Azure 存储中的消息
-## 执行的操作
-在将从 Raspberry Pi 3 发送到 IoT 中心的从设备到云的消息写入到 Azure 表存储时，对其进行监视。如果有问题，可在[故障排除页](./iot-hub-raspberry-pi-kit-node-troubleshooting.md)上查找解决方案。
-
-## 你要学习的知识
+## <a name="what-you-will-learn"></a>你要学习的知识
 在本文中，用户将学习如何通过 gulp 的 read-message 任务读取保存在 Azure 表存储中的消息。
 
-## 需要什么
-在开始此过程之前，用户必须已成功完成[在 Raspberry Pi 3 上运行 Azure blink 示例应用程序](./iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)。
+## <a name="what-you-need"></a>需要什么
+在开始此过程之前，必须已成功完成了[在 Raspberry Pi 3 上运行 Azure blink 示例应用程序](./iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)。
 
-## 从存储帐户中读取新消息
-在以前的文章中，用户已在 Pi 上运行示例应用程序。示例应用程序发送消息到 Azure IoT 中心。发送到 IoT 中心的消息通过 Azure 函数应用存储在 Azure 表存储中。需要使用 Azure 存储连接字符串读取 Azure 表存储中的消息。
+## <a name="read-new-messages-from-your-storage-account"></a>从存储帐户中读取新消息
+在以前的文章中，用户已在 Pi 上运行示例应用程序。 示例应用程序发送消息到 Azure IoT 中心。 发送到 IoT 中心的消息通过 Azure 函数应用存储在 Azure 表存储中。 需要使用 Azure 存储连接字符串读取 Azure 表存储中的消息。
 
 若要读取存储在 Azure 表存储中的消息，请执行以下步骤：
 
@@ -41,8 +44,8 @@ ms.author: v-yiso
     az storage account show-connection-string -g iot-sample -n {storage name}
     ```
 
-   第一个命令检索 `storage name`，后者在第二个命令中用于获取连接字符串。使用 `iot-sample` 作为 `{resource group name}` 的值（如果尚未更改此值）。
-2. 运行以下命令，在 Visual Studio Code 中打开配置文件 `config-raspberrypi.json`：
+   第一个命令检索第二个命令中使用的 `storage name` 来获取连接字符串。 使用 `iot-sample` 作为 `{resource group name}` 的值（如果未更改该值）。
+2. 通过运行以下命令在 Visual Studio Code 中打开配置文件 `config-raspberrypi.json`：
 
     ```bash
     # For Windows command prompt
@@ -51,7 +54,6 @@ ms.author: v-yiso
     # For macOS or Ubuntu
     code ~/.iot-hub-getting-started/config-raspberrypi.json
     ```
-
 3. 将 `[Azure storage connection string]` 替换为在步骤 1 中获取的连接字符串。
 4. 保存 `config-raspberrypi.json` 文件。
 5. 运行以下命令，再次发送消息并从 Azure 表存储中读取这些消息：
@@ -62,13 +64,10 @@ ms.author: v-yiso
 
     从 Azure 表存储进行读取的逻辑位于 `azure-table.js` 文件中。
 
-    ![gulp run --read-storage](./media/iot-hub-raspberry-pi-lessons/lesson3/gulp_read_message.png)  
+    ![gulp run --read-storage](./media/iot-hub-raspberry-pi-lessons/lesson3/gulp_read_message.png)
 
-## 摘要
-用户已成功地将 Pi 连接到云中的 IoT 中心，并已使用 blink 示例应用程序发送从设备到云的消息。用户还使用 Azure 函数应用将传入的 IoT 中心消息存储到 Azure 表存储中。用户现在可以将从云到设备的消息从 IoT 中心发送到 Pi。
+## <a name="summary"></a>摘要
+用户已成功地将 Pi 连接到云中的 IoT 中心，并已使用 blink 示例应用程序发送从设备到云的消息。 用户还使用 Azure 函数应用将传入的 IoT 中心消息存储到 Azure 表存储中。 用户现在可以将从云到设备的消息从 IoT 中心发送到 Pi。
 
-## 后续步骤
+## <a name="next-steps"></a>后续步骤
 [运行示例应用程序，接收从云到设备的消息](./iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
-
-<!---HONumber=Mooncake_0109_2017-->
-<!--Update_Description:update wording and code-->

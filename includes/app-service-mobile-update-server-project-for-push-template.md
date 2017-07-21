@@ -1,10 +1,10 @@
-在本部分中，更新现有移动应用后端项目中的代码，以便在每次添加新项目时推送通知。此功能由 Azure 通知中心的[模板](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)功能提供支持，并且启用了跨平台推送。使用模板为推送通知注册了各种客户端，单个通用推送可到达所有客户端平台。
+在本部分中，更新现有移动应用后端项目中的代码，以便在每次添加新项目时推送通知。 此功能由 Azure 通知中心的 [模板](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) 功能提供支持，并且启用了跨平台推送。 使用模板为推送通知注册了各种客户端，单个通用推送可到达所有客户端平台。
 
-选择以下与你的后端项目类型（[.NET 后端](#dotnet)或 [Node.js 后端](#nodejs)）匹配的一个过程。
+选择其中一个与后端项目类型 &mdash; [.NET 后端](#dotnet)或 [Node.js 后端](#nodejs)匹配的过程。
 
 ### <a name="dotnet"></a>.NET 后端项目
-1. 在 Visual Studio 中，右键单击服务器项目并单击“管理 NuGet 包”。搜索 `Microsoft.Azure.NotificationHubs`，然后单击“安装”。这将安装通知中心库，以便从后端发送通知。
-2. 在服务器项目中，打开“控制器”>“TodoItemController.cs”，使用以下语句进行添加：
+1. 在 Visual Studio 中，右键单击服务器项目并单击“管理 NuGet 包” 。 搜索 `Microsoft.Azure.NotificationHubs`，然后单击“安装”。 这将安装通知中心库，以便从后端发送通知。
+2. 在服务器项目中，打开“控制器” > “TodoItemController.cs”，使用以下语句进行添加：
 
     ```
     using System.Collections.Generic;
@@ -12,7 +12,7 @@
     using Microsoft.Azure.Mobile.Server.Config;
     ```
 
-2. 在 **PostTodoItem** 方法中，在调用 **InsertAsync** 后添加如下代码：
+2. 在 PostTodoItem 方法中，在调用 InsertAsync 后添加如下代码：  
 
     ```
     // Get the settings for the server project.
@@ -52,7 +52,7 @@
 
     插入新项时，会发送包含 item.text 的模板通知。
 
-4. 重新发布服务器项目。
+4. 重新发布服务器项目。 
 
 ### <a name="nodejs"></a>Node.js 后端项目
 
@@ -104,5 +104,3 @@
     插入新项时，会发送包含 item.text 的模板通知。
 
 2. 编辑本地计算机上的文件时，请重新发布服务器项目。
-
-<!---HONumber=Mooncake_0116_2017-->

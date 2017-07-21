@@ -1,279 +1,140 @@
-# Compute
+# <a name="compute"></a>计算
 
-Azure enables you to deploy and monitor your application code
-running inside a Microsoft data center. When you create an application
-and run it on Azure, the code and configuration together is
-called an Azure hosted service. Hosted services are easy to
-manage, scale up and down, reconfigure, and update with new versions of
-your application's code. This article focuses on the Azure
-hosted service application model.<a id="compare" name="compare"></a>
+利用 Azure，可以部署和监视在 Microsoft 数据中心内运行的应用程序代码。 在 Azure 上创建应用程序并运行它时，相关代码和配置统称为 Azure 托管服务。 使用新版应用程序代码，可以轻松管理、缩放、重新配置以及更新托管服务。 本文重点介绍 Azure 托管服务应用程序模型。<a id="compare" name="compare"></a>
 
-## Table of Contents<a id="_GoBack" name="_GoBack"></a>
+## 目录<a id="_GoBack" name="_GoBack"></a>
 
--   [Azure Application Model Benefits][Azure Application Model Benefits]
--   [Hosted Service Core Concepts][Hosted Service Core Concepts]
--   [Hosted Service Design Considerations][Hosted Service Design Considerations]
--   [Designing your Application for Scale][Designing your Application for Scale]
--   [Hosted Service Definition and Configuration][Hosted Service Definition and Configuration]
--   [The Service Definition File][The Service Definition File]
--   [The Service Configuration File][The Service Configuration File]
--   [Creating and Deploying a Hosted Service][Creating and Deploying a Hosted Service]
--   [References][References]
+-   [Azure 应用程序模型的优势][]
+-   [托管服务的核心概念][]
+-   [托管服务设计注意事项][]
+-   [设计应用程序以进行缩放][]
+-   [托管服务的定义和配置][]
+-   [服务定义文件][]
+-   [服务配置文件][]
+-   [创建和部署托管服务][]
+-   [参考][]
 
-## <a id="benefits"> </a>Azure Application Model Benefits
+## <a id="benefits"> </a>Azure 应用程序模型的优势
 
-When you deploy your application as a hosted service, Azure
-creates one or more virtual machines (VMs) that contain your
-application's code, and boots the VMs on physical machines residing in
-one of the Azure data centers. As client requests to your hosted
-application enter the data center, a load balancer distributes these
-requests equally to the VMs. While your application is hosted in 
-Azure, it gets three key benefits:
+将应用程序作为托管服务部署时，Azure 会创建一个或多个包含应用程序代码的虚拟机 (VM)，并在驻留于某个 Azure 数据中心的物理计算机上启动 VM。 在客户端对托管应用程序的请求进入数据中心时，负载均衡器会将这些请求平均分发给 VM。 当应用程序在 Azure 中托管时，它会获得三个关键优势：
 
--   **High availability.** High availability means Azure ensures
-    that your application is running as much as possible and is able to
-    respond to client requests. If your application terminates (due to
-    an unhandled exception, for example), then Azure will detect
-    this, and it will automatically re-start your application. If the
-    machine your application is running on experiences some kind of
-    hardware failure, then Azure will also detect this and
-    automatically create a new VM on another working physical machine
-    and run your code from there. NOTE: In order for your application to
-    get Microsoft's Service Level Agreement of 99.95% available, you
-    must have at least two VMs running your application code. This
-    allows one VM to process client requests while Azure moves
-    your code from a failed VM to a new, good VM.
+-   **高可用性。** 高可用性意味着 Azure 确保应用程序尽可能地长时间运行并能够响应客户端请求。 如果应用程序终止（例如由于未经处理的异常），Azure 会检测到这种情况，并自动重新启动应用程序。 如果运行应用程序的计算机遇到某种硬件故障，Azure 也会检测到这种情况，并自动在另一台正常工作的物理计算机上创建新 VM 并从该位置运行用户的代码。 注意：为使应用程序获得 Microsoft 99.95% 可用的服务级别协议，必须至少使用两个 VM 来运行应用程序代码。 这样，在 Azure 将代码从发生故障的 VM 移到新的可用 VM 后，该 VM 就可以处理客户端请求。
 
--   **Scalability.** Azure lets you easily and dynamically
-    change the number of VMs running your application code to handle the
-    actual load being placed on your application. This allows you to
-    adjust your application to the workload that your customers are
-    placing on it while paying only for the VMs you need when you need
-    them. When you want to change the number of VMs, Azure
-    responds within minutes making it possible to dynamically change the
-    number of VMs running as often as desired.
+-   **可伸缩性。** 在 Azure 中，可以轻松动态更改运行应用程序代码的 VM 数量来处理放在应用程序上的实际负载。 这允许你根据客户置于你的应用程序上的工作负荷来调整应用程序，同时仅在需要时为所需的 VM 付费。 需要更改 VM 数量时，Azure 可在几分钟内做出响应，根据需要随时动态更改运行中的 VM 数量。
 
--   **Manageability.** Because Azure is a Platform as a Service
-    (PaaS) offering, it manages the infrastructure (the hardware itself,
-    electricity, and networking) required to keep these machines
-    running. Azure also manages the platform, ensuring an
-    up-to-date operating system with all the correct patches and
-    security updates, as well as component updates such as the .NET
-    Framework and Internet Information Server. Because all the VMs are
-    running Windows Server 2008, Azure provides additional
-    features such as diagnostic monitoring, remote desktop support,
-    firewalls, and certificate store configuration. All these features
-    are provided at no extra cost. In fact, when you run your
-    application in Azure, the Windows Server 2008 operating
-    system (OS) license is included. Since all of the VMs are running
-    Windows Server 2008, any code that runs on Windows Server 2008 works
-    just fine when running in Azure.
+-   **可管理性。** 由于 Azure 是平台即服务 (PaaS) 产品，因此它管理使这些计算机能够持续运行所需的基础结构（硬件本身、电力和网络）。 Azure 还管理平台，确保最新操作系统具有所有正确的修补程序和安全更新以及组件更新，例如 .NET Framework 和 Internet Information Server。 由于所有 VM 都运行 Windows Server 2008，因此 Azure 提供诸如诊断监视、远程桌面支持、防火墙和证书存储配置之类的附加功能。 提供的所有这些功能都无需支付额外费用。 事实上，在 Azure 中运行应用程序时，Windows Server 2008 操作系统 (OS) 许可证已包括在内。 由于所有 VM 都运行 Windows Server 2008，因此 Windows Server 2008 上运行的任何代码在 Azure 中都能正常运行。
 
-## <a id="concepts"> </a>Hosted Service Core Concepts
+## <a id="concepts"> </a>托管服务的核心概念
 
-When your application is deployed as a hosted service in Azure,
-it runs as one or more *roles.* A *role* simply refers to application
-files and configuration. You can define one or more roles for your
-application, each with its own set of application files and
-configuration. For each role in your application, you can specify the
-number of VMs, or *role instances*, to run. The figure below show two
-simple examples of an application modeled as a hosted service using
-roles and role instances.
+将应用程序作为托管服务部署到 Azure 时，它作为一个或多个*角色*运行。 简单来说，*角色*是指应用程序文件和配置。 可以为应用程序定义一个或多个角色，其中每个角色都具有自己的一组应用程序文件和配置。 对于应用程序中的每个角色，可以指定要运行的 VM（即*角色实例*）数量。 下图显示使用角色和角色实例建模为托管服务的应用程序的两个简单示例。
 
-##### Figure 1: A single role with three instances (VMs) running in an Azure data center
+##### <a name="figure-1-a-single-role-with-three-instances-vms-running-in-an-azure-data-center"></a>图 1：单个角色，包含 Azure 数据中心内运行的三个实例 (VM)
 
-![image][0]
+![图像][0]
 
-##### Figure 2: Two roles, each with two instances (VMs), running in an Azure data center
+##### <a name="figure-2-two-roles-each-with-two-instances-vms-running-in-an-azure-data-center"></a>图 2：两个角色，每个角色包含 Azure 数据中心内运行的两个实例 (VM)
 
-![image][1]
+![图像][1]
 
-Role instances typically process Internet client requests entering the
-data center through what is called an *input endpoint*. A single role
-can have 0 or more input endpoints. Each endpoint indicates a protocol
-(HTTP, HTTPS, or TCP) and a port. It is common to configure a role to
-have two input endpoints: HTTP listening on port 80 and HTTPS listening
-on port 443. The figure below shows an example of two different roles
-with different input endpoints directing client requests to them.
+角色实例通常处理通过*输入终结点*进入数据中心的 Internet 客户端请求。 一个角色可以拥有 0 个或多个输入终结点。 每个终结点指示一种协议（HTTP、HTTPS 或 TCP）和一个端口。 通常将角色配置为拥有两个输入终结点：在端口 80 上侦听的 HTTP 和在端口 443 上侦听的 HTTPS。 下图显示使用不同的输入终结点将客户端请求定向到自己的两个不同角色的示例。
 
-![image][2]
+![图像][2]
 
-When you create a hosted service in Azure, it is assigned a
-publicly addressable IP address that clients can use to access it. Upon
-creating the hosted service you must also select a URL prefix that is
-mapped to that IP address. This prefix must be unique as you are
-essentially reserving the *prefix*.chinacloudapp.cn URL so that no one else
-can have it. Clients communicate with your role instances by using the
-URL. Usually, you will not distribute or publish the Azure
-*prefix*.chinacloudapp.cn URL. Instead, you will purchase a DNS name from
-your DNS registrar of choice and configure your DNS name to redirect
-client requests to the Azure URL. For more details, see
-[Configuring a Custom Domain Name in Azure][Configuring a Custom Domain Name in Azure].
+在 Azure 中创建托管服务时，会为它分配可公开寻址的 IP 地址，客户端可通过该 IP 地址访问托管服务。 创建托管服务时，还必须选择映射到该 IP 地址的 URL 前缀。 此前缀必须是唯一的，因为实际上会保留 *前缀*.cloudapp.net URL，以便其他任何人都无法拥有它。 客户端使用该 URL 与角色实例通信。 通常，用户不会分发或发布 Azure *前缀*.cloudapp.net URL， 而是从所选的 DNS 注册机构购买 DNS 名称，将 DNS 名称配置为将客户端请求重定向到 Azure URL。 有关更多详细信息，请参阅[在 Azure 中配置自定义域名][]。
 
-## <a id="considerations"> </a>Hosted Service Design Considerations
+## <a id="considerations"> </a>托管服务设计注意事项
 
-When designing an application to run in a cloud environment, there are
-several considerations to think about such as latency,
-high-availability, and scalability.
+将应用程序设计为在云环境中运行时，应考虑几个注意事项，例如延迟、高可用性和可伸缩性。
 
-Deciding where to locate your application code is an important
-consideration when running a hosted service in Azure. It is
-common to deploy your application to data centers that are closest to
-your clients to reduce latency and get the best performance possible.
-However, you might choose a data center closer to your company or closer
-to your data if you have some jurisdictional or legal concerns about
-your data and where it resides. There are six data centers around the
-globe capable of hosting your application code. The table below shows
-the available locations:
+在 Azure 中运行托管服务时，决定应用程序代码的位置是一个重要考虑事项。 通常将应用程序部署到距离客户端最近的数据中心，以减少延迟并获得尽可能最佳的性能。
+不过，如果对数据及其驻留位置存在一些司法或法律方面的顾虑，则可以选择距离公司或数据较近的数据中心。 全球有六个数据中心能够托管应用程序代码。 下表显示了可用位置：
 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
 <tbody>
 <tr>
 <td style="width: 100px;">
-**Country/Region**
+**国家/地区**
 
 </td>
 <td style="width: 200px;">
-**Sub-regions**
+**子区域**
 
 </td>
 </tr>
 <tr>
 <td>
-China
+美国
 
 </td>
 <td>
-East & North
+中南部和中北部
+
+</td>
+</tr>
+<tr>
+<td>
+欧洲
+
+</td>
+<td>
+北部和西部
+
+</td>
+</tr>
+<tr>
+<td>
+亚洲
+
+</td>
+<td>
+东南部和东部
 
 </td>
 </tr>
 </tbody>
 </table>
-When creating a hosted service, you select a sub-region indicating the
-location in which you want your code to execute.
+创建托管服务时，需要选择一个子区域，以指示希望在其中执行代码的位置。
 
-To achieve high availability and scalability, it is critically important
-that your application's data be kept in a central repository accessible
-to multiple role instances. To help with this, Azure offers
-several storage options such as blobs, tables, and SQL 数据库. Please see
-the [Data Storage Offerings in Azure][Data Storage Offerings in Azure] article for more
-information about these storage technologies. The figure below shows how
-the load balancer inside the Azure data center distributes
-client requests to different role instances all of which have access to
-the same data storage.
+若要实现高可用性和可伸缩性，应用程序数据应保存在可供多个角色实例访问的中央存储库中，这一点至关重要。 为帮助实现此目的，Azure 提供了多个存储选项，例如 blob、表和 SQL 数据库。 有关这些存储技术的详细信息，请参阅 [Azure 中的数据存储产品/服务][]一文。 下图显示 Azure 数据中心内的负载均衡器如何将客户端请求分发给不同的角色实例，所有这些角色实例都可以访问同一数据存储。
 
-![image][3]
+![图像][3]
 
-Usually, you want to locate your application code and your data in the
-same data center as this allows for low latency (better performance)
-when your application code accesses the data. In addition, you are not
-charged for bandwidth when data is moved around within the same data
-center.
+通常，用户希望让应用程序代码和数据置于同一数据中心，因为这样可以在应用程序代码访问数据时实现低延迟（更高的性能）。 另外，在同一数据中心内移动数据时，无需为带宽付费。
 
-## <a id="scale"> </a>Designing your Application for Scale
+## <a id="scale"> </a>设计应用程序以进行缩放
 
-Sometimes, you may want to take a single application (like a simple web
-site) and have it hosted in Azure. But frequently, your
-application may consist of several roles that all work together. For
-example, in the figure below, there are two instances of the Web Site
-role, three instances of the Order Processing role, and one instance of
-the Report Generator role. These roles are all working together and the
-code for all of them can be packaged together and deployed as a single
-unit up to Azure.
+有时，用户可能希望采用单个应用程序（例如简单的网站）并将它托管在 Azure 中。 但应用程序可能经常包括多个全都协同工作的角色。 例如，在下图中，“网站”角色有两个实例，“订单处理”角色有三个实例，“报告生成器”角色有一个实例。 这些角色全都协同工作，并且所有这些角色的代码可以打包在一起，作为单个单元部署到 Azure 中。
 
-![image][4]
+![图像][4]
 
-The main reason to split an application into different roles each
-running on its own set of role instances (that is, VMs) is to scale the
-roles independently. For example, during the holiday season, many
-customers may be purchasing products from your company, so you might
-want to increase the number of role instances running your Web Site role
-as well as the number of role instances running your Order Processing
-role. After the holiday season, you may get a lot of products returned,
-so you may still need a lot of Web Site instances but fewer Order
-Processing instances. During the rest of the year, you may only need a
-few Web Site and Order Processing instances. Throughout all of this, you
-may need only one Report Generator instance. The flexibility of
-role-based deployments in Azure enables you to easily adapt your
-application to your business needs.
+之所以将应用程序拆分为各自在自己的一组角色实例（即 VM）上运行的不同角色，主要是为了独立缩放角色。 例如，在节假日期间，可能有许多客户从公司购买产品，因此可能需要增加运行“网站”角色的角色实例的数量以及运行“订单处理”角色的角色实例的数量。 在节假日之后，可能会收到大量退回的产品，因此可能仍需要大量“网站”实例，但需要的“订单处理”实例数减少。 在一年的其余时间，可能只需要少数几个“网站”和“订单处理”实例。 在所有这些时段中，可能只需要一个“报告生成器”实例。 Azure 中基于角色的部署非常灵活，让用户能够根据业务需要轻松调整应用程序。
 
-It's common to have the role instances within your hosted service
-communicate with each other. For example, the web site role accepts a
-customer's order but then it offloads the order processing to the Order
-Processing role instances. The best way to pass work form one set of
-role instances to another set of instances is using the queuing
-technology provided by Azure, either the Queue Service or
-Service Bus Queues. The use of a queue is a critical part of the story
-here. The queue allows the hosted service to scale its roles
-independently allowing you to balance the workload against cost. If the
-number of messages in the queue increases over time, then you can scale
-up the number of Order Processing role instances. If the number of
-messages in the queue decreases over time, then you can scale down the
-number of Order Processing role instances. This way, you are only paying
-for the instances required to handle the actual workload.
+让托管服务中的角色实例相互通信是一种很常见的做法。 例如，“网站”角色接受客户的订单，但随后它将订单处理的负载分流给“订单处理”角色实例。 将工作从一组角色实例传递给另一组实例的最佳方法是使用 Azure 提供的队列技术：队列服务或服务总线队列。 队列的使用是此处所述情形的关键部分。 队列使托管服务能够独立缩放其角色，从而允许用户根据成本均衡工作负荷。 如果队列中的消息数随时间增加，则可以增加“订单处理”角色实例的数量。 如果队列中的消息数随时间减少，则可以减少“订单处理”角色实例的数量。 这样一来，就只用为处理实际工作负荷所需的实例付费。
 
-The queue also provides reliability. When scaling down the number of
-Order Processing role instances, Azure decides which instances
-to terminate. It may decide to terminate an instance that is in the
-middle of processing a queue message. However, because the message
-processing does not complete successfully, the message becomes visible
-again to another Order Processing role instance that picks it up and
-processes it. Because of queue message visibility, messages are
-guaranteed to eventually get processed. The queue also acts as a load
-balancer by effectively distributing its messages to any and all role
-instances that request messages from it.
+队列还提供可靠性。 在减少“订单处理”角色实例的数量时，Azure 会决定终止哪些实例。 它可能决定终止正在处理队列消息的实例。 不过，因为消息处理未成功完成，消息再次变得对获取并处理它的另一个“订单处理”角色实例可见。 由于队列消息的可见性，可以保证消息最终会得到处理。 队列还有效地将消息分发给从队列请求消息的所有角色实例，充当负载均衡器。
 
-For the Web Site role instances, you can monitor the traffic coming into
-them and decide to scale the number of them up or down as well. The
-queue allows you to scale the number of Web Site role instances
-independently of the Order Processing role instances. This is very
-powerful and gives you a lot of flexibility. Of course, if your
-application consists of additional roles, you could add additional
-queues as the conduit to communicate between them in order to leverage
-the same scaling and cost benefits.
+对于“网站”角色实例，还可以监视进入它们的流量，并决定是增加还是减少它们的数量。 队列允许独立于“订单处理”角色实例来缩放“网站”角色实例的数量。 此功能非常强大，为用户提供了极大的灵活性。 当然，如果应用程序包括其他角色，可以添加其他队列作为它们之间通信的管道，以利用相同的缩放和成本优势。
 
-## <a id="defandcfg"> </a>Hosted Service Definition and Configuration
+## <a id="defandcfg"> </a>托管服务的定义和配置
 
-Deploying a hosted service to Azure requires you to also have a
-service definition file and a service configuration file. Both of these
-files are XML files, and they allow you to declaratively specify
-deployment options for your hosted service. The service definition file
-describes all of the roles that make up your hosted service and how they
-communicate. The service configuration file describes the number of
-instances for each role and settings used to configure each role
-instance.
+若要将托管服务部署到 Azure，还需要提供服务定义文件和服务配置文件。 这两个文件都是 XML 文件，用于以声明方式为托管服务指定部署选项。 服务定义文件描述构成托管服务的所有角色以及它们如何通信。 服务配置文件描述每个角色的实例数以及用于配置每个角色实例的设置。
 
-## <a id="def"> </a>The Service Definition File
+## <a id="def"> </a>服务定义文件
 
-As I mentioned earlier, the service definition (CSDEF) file is an XML
-file that describes the various roles that make up your complete
-application. The complete schema for the XML file can be found here:
-[http://msdn.microsoft.com/zh-cn/library/azure/ee758711.aspx][http://msdn.microsoft.com/zh-cn/library/azure/ee758711.aspx].
-The CSDEF file contains a WebRole or WorkerRole element for each role
-that you want in your application. Deploying a role as a web role (using
-the WebRole element) means that the code will run on a role instance
-containing Windows Server 2008 and Internet Information Server (IIS).
-Deploying a role as a worker role (using the WorkerRole element) means
-that the role instance will have Windows Server 2008 on it (IIS will not
-be installed).
+正如我在前面提到的，服务定义 (CSDEF) 文件是一个 XML 文件，描述构成完整应用程序的各种角色。 可以从以下位置找到该 XML 文件的完整架构：[http://msdn.microsoft.com/zh-cn/library/windowsazure/ee758711.aspx][]。
+CSDEF 文件包含应用程序中所需的每个角色的 WebRole 或 WorkerRole 元素。 将角色作为 Web 角色部署（使用 WebRole 元素）意味着代码将在包含 Windows Server 2008 和 Internet Information Server (IIS) 的角色实例上运行。
+将角色作为辅助角色部署（使用 WorkerRole 元素）意味着角色实例上将具有 Windows Server 2008（不会安装 IIS）。
 
-You can certainly create and deploy a worker role that uses some other
-mechanism to listen for incoming web requests (for example, your code
-could create and use a .NET HttpListener). Since the role instances are
-all running Windows Server 2008, your code can perform any operations
-that are normally available to an application running on Windows Server
+当然，也可以创建并部署使用其他某种机制侦听传入 Web 请求的辅助角色（例如，代码可以创建并使用 .NET HttpListener）。 由于角色实例全都运行 Windows Server 2008，因此代码可以执行 Windows Server 上运行的应用程序通常可以执行的任何操作。
 2008.
 
-For each role, you indicate the desired VM size that instances of that
-role should use. The table below shows the various VM sizes available
-today and the attributes of each:
+对于每个角色，需要指示该角色的实例应使用的适当 VM 大小。 下表显示如今可用的各种 VM 大小以及每种大小的属性：
 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
 <tbody>
 <tr align="left" valign="top">
 <td>
-**VM Size**
+**VM 大小**
 
 </td>
 <td>
@@ -285,18 +146,17 @@ today and the attributes of each:
 
 </td>
 <td>
-**Disk**
+**磁盘**
 
 </td>
 <td>
-**Peak  
-Network I/O**
+**网络 I/O 峰值**
 
 </td>
 </tr>
 <tr align="left" valign="top">
 <td>
-**Extra Small**
+**特小型**
 
 </td>
 <td>
@@ -318,7 +178,7 @@ Network I/O**
 </tr>
 <tr align="left" valign="top">
 <td>
-**Small**
+**小型**
 
 </td>
 <td>
@@ -340,7 +200,7 @@ Network I/O**
 </tr>
 <tr align="left" valign="top">
 <td>
-**Medium**
+**中型**
 
 </td>
 <td>
@@ -362,7 +222,7 @@ Network I/O**
 </tr>
 <tr align="left" valign="top">
 <td>
-**Large**
+**大型**
 
 </td>
 <td>
@@ -384,7 +244,7 @@ Network I/O**
 </tr>
 <tr align="left" valign="top">
 <td>
-**Extra Large**
+**特大型**
 
 </td>
 <td>
@@ -406,172 +266,87 @@ Network I/O**
 </tr>
 </tbody>
 </table>
-You are charged hourly for each VM you use as a role instance and you
-are also charged for any data that your role instances send outside the
-data center. You are not charged for data entering the data center. For
-more information, see [Azure Pricing][Azure Pricing]. In general, it is
-advisable to use many small role instances as opposed to a few large
-instances so that your application is more resilient to failure. After
-all, the fewer role instances you have, the more disastrous a failure in
-one of them is to your overall application. Also, as mentioned before,
-you must deploy at least two instances for each role in order to get the
-99.95% service level agreement Microsoft provides.
+按小时对用作角色实例的每个 VM 收费，并且还对角色实例向数据中心以外发送的任何数据收费。 不会对进入数据中心的数据收费。 有关详细信息，请参阅 [Azure 定价][]。 一般来说，建议使用许多小角色实例而非少数大实例，以便应用程序具有更强的故障恢复能力。 毕竟，拥有的角色实例越少，其中某个实例中的故障对整个应用程序造成的灾难就越大。 另外，正如前面提到的，必须为每个角色至少部署两个实例，才能获得 Microsoft 提供的 99.95% 的服务级别协议。
 
-The service definition (CSDEF) file is also where you would specify many
-attributes about each role in your application. Here are some of the
-more useful items available to you:
+还应该在服务定义 (CSDEF) 文件中指定有关应用程序中每个角色的许多属性。 下面是可供使用的一些较有用的项：
 
--   **Certificates**. You use certificates for encrypting data or if
-    your web service supports SSL. Any certificates need to be uploaded
-    to Azure. For more information, see [Managing Certificates
-    in Azure][Managing Certificates
-    in Azure]. This XML setting installs previously-uploaded
-    certificates into the role instance's certificate store so that they
-    are usable by your application code.
+-   **证书**。 如果要加密数据或者希望 Web 服务支持 SSL，则需要使用证书。 所有证书均需上传到 Azure。 有关详细信息，请参阅[在 Azure 中管理证书][]。 此 XML 设置将以前上传的证书安装到角色实例的证书存储中，以便它们可供应用程序代码使用。
 
--   **Configuration Setting Names**. For values that you want your
-    application(s) to read while running on a role instance. The actual
-    value of the configuration settings is set in the service
-    configuration (CSCFG) file which can be updated at any time without
-    requiring you to redeploy your code. In fact, you can code your
-    applications in such a way to detect the changed configuration
-    values without incurring any downtime.
+-   **配置设置名称**。 针对希望应用程序在角色实例上运行时读取的值。 配置设置的实际值在服务配置 (CSCFG) 文件中设置，该文件可随时更新，而无需重新部署代码。 事实上，可以通过这种方式对应用程序进行编码，以检测更改的配置值而不会引发任何停机。
 
--   **Input Endpoints**. Here you specify any HTTP, HTTPS, or TCP
-    endpoints (with ports) that you want to expose to the outside world
-    via your *prefix*.chinacloadapp.cn URL. When Azure deploys your
-    role, it will configure the firewall on the role instance
-    automatically.
+-   **输入终结点**。 在此处指定要通过 *前缀*.cloadapp.net URL 向外界公开的任何 HTTP、HTTPS 或 TCP 终结点（包括端口）。 当 Azure 部署角色时，会自动在该角色实例上配置防火墙。
 
--   **Internal Endpoints**. Here you specify any HTTP or TCP endpoints
-    that you want exposed to other role instances that are deployed as
-    part of your application. Internal endpoints allow all the role
-    instances within your application to talk to each other but are not
-    accessible to any role instances that are outside your application.
+-   **内部终结点**。 在此处指定要向作为应用程序的一部分部署的其他角色实例公开的任何 HTTP 或 TCP 终结点。 内部终结点允许应用程序中的所有角色实例相互通信，但应用程序外部的任何角色实例均无法访问它们。
 
--   **Import Modules**. These optionally install useful components on
-    your role instances. Components exist for diagnostic monitoring,
-    remote desktop, and Azure Connect (which allows your role
-    instance to access on-premises resources through a secure channel).
+-   **导入模块**。 这些模块在角色实例上有选择地安装有用组件。 存在用于诊断监视、远程桌面和 Azure Connect（允许角色实例通过安全通道访问本地资源）的组件。
 
--   **Local Storage**. This allocates a subdirectory on the role
-    instance for your application to use. It is described in more detail
-    in the [Data Storage Offerings in Azure][Data Storage Offerings in Azure] article.
+-   **本地存储**。 该项在角色实例上分配一个子目录供应用程序使用。 [Azure 中的数据存储产品/服务][]一文中对此进行了更详细的介绍。
 
--   **Startup Tasks**. Startup tasks give you a way to install
-    prerequisite components on a role instance as it boots up. The tasks
-    can run elevated as an administrator if required.
+-   **启动任务**。 利用启动任务，可以在角色实例启动时在它上面安装必备组件。 如果需要，可以将用户权限提升为管理员来运行任务。
 
-## <a id="cfg"> </a>The Service Configuration File
+## <a id="cfg"> </a>服务配置文件
 
-The service configuration (CSCFG) file is an XML file that describes
-settings that can be changed without redeploying your application. The
-complete schema for the XML file can be found here:
-[http://msdn.microsoft.com/zh-cn/library/azure/ee758710.aspx][http://msdn.microsoft.com/zh-cn/library/azure/ee758710.aspx].
-The CSCFG file contains a Role element for each role in your
-application. Here are some of the items you can specify in the CSCFG
-file:
+服务配置 (CSCFG) 文件是一个 XML 文件，描述无需重新部署应用程序即可更改的设置。 可以从以下位置找到该 XML 文件的完整架构：[http://msdn.microsoft.com/zh-cn/library/windowsazure/ee758710.aspx][]。
+CSCFG 文件包含应用程序中每个角色的 Role 元素。 下面是可以在 CSCFG 文件中指定的一些项：
 
--   **OS Version**. This attribute allows you to select the operating
-    system (OS) version you want used for all the role instances running
-    your application code. This OS is known as the *guest OS*, and each
-    new version includes the latest security patches and updates
-    available at the time the guest OS is released. If you set the
-    osVersion attribute value to "\*", then Azure automatically
-    updates the guest OS on each of your role instances as new guest OS
-    versions become available. However, you can opt out of automatic
-    updates by selecting a specific guest OS version. For example,
-    setting the osVersion attribute to a value of
-    "WA-GUEST-OS-2.8\_201109-01" causes all your role instances to get
-    what is described on this web page:
-    [http://msdn.microsoft.com/zh-cn/library/hh560567.aspx][http://msdn.microsoft.com/zh-cn/library/hh560567.aspx]. For more
-    information about guest OS versions, see [Managing Upgrades to the
-    Azure Guests OS].
+-   **OS 版本**。 此属性允许选择要用于运行应用程序代码的所有角色实例的操作系统 (OS) 版本。 此 OS 称为*来宾 OS*，并且每个新版本都包括来宾 OS 发布时可用的最新安全修补程序和更新。 如果将 osVersion 属性值设置为“\*”，Azure 会在新来宾 OS 版本可用时自动更新每个角色实例上的来宾 OS。 不过，可以通过选择特定来宾 OS 版本来取消自动更新。 例如，将 osVersion 属性设置为值“WA-GUEST-OS-2.8\_201109-01”会使所有角色实例获取以下网页上说明的内容：[http://msdn.microsoft.com/zh-cn/library/hh560567.aspx][]。 有关来宾 OS 版本的详细信息，请参阅[管理 Azure 来宾 OS 的升级]。
 
--   **Instances**. This element's value indicates the number of role
-    instances you want provisioned running the code for a particular
-    role. Since you can upload a new CSCFG file to Azure
-    (without redeploying your application), it is trivially simple to
-    change the value for this element and upload a new CSCFG file to
-    dynamically increase or decrease the number of role instances
-    running your application code. This allows you to easily scale your
-    application up or down to meet actual workload demands while also
-    controlling how much you are charged for running the role instances.
+-   **实例**。 此元素的值指示要预配的角色实例数量，这些实例将运行特定角色的代码。 由于可以将新的 CSCFG 文件上传到 Azure（无需重新部署应用程序），因此更改此元素的值并上传新的 CSCFG 文件来动态增加或减少运行应用程序代码的角色实例数非常简单。 这允许轻松地缩放应用程序来满足实际工作负荷需求，同时还能控制因为运行角色实例而支付的费用数额。
 
--   **Configuration Setting Values**. This element indicates values for
-    settings (as defined in the CSDEF file). Your role can read these
-    values while it is running. These configuration settings values are
-    typically used for connection strings to SQL 数据库 or to 
-    Azure Storage, but they can be used for any purpose you desire.
+-   **配置设置值**。 此元素指示 CSDEF 文件中定义的设置的值。 角色可以在运行时读取这些值。 这些配置设置值通常用于 SQL 数据库或 Azure 存储的连接字符串，但它们可用于所需的任何目的。
 
-## <a id="hostedservices"> </a>Creating and Deploying a Hosted Service
+## <a id="hostedservices"> </a>创建和部署托管服务
 
-Creating a hosted service requires that you first go to the [Azure Management Portal] and provision a hosted service by specifying
-a DNS prefix and the data center you ultimately want your code running
-in. Then in your development environment, you create your service
-definition (CSDEF) file, build your application code and package (zip)
-all these files into a service package (CSPKG) file. You must also
-prepare your service configuration (CSCFG) file. To deploy your role,
-you upload the CSPKG and CSCFG files with the Azure Service
-Management API. Once deployed, Azure, will provision role
-instances in the data center (based upon the configuration data),
-extract your application code from the package, copy it to the role
-instances, and boot the instances. Now, your code is up and running.
+创建托管服务需要首先转到 [Azure 管理门户]，并通过指定 DNS 前缀和最终希望代码在其中运行的数据中心来预配托管服务。 然后在开发环境中，创建服务定义 (CSDEF) 文件，构建应用程序代码并将所有这些文件打包（压缩）到服务包 (CSPKG) 文件中。 还必须准备服务配置 (CSCFG) 文件。 为了部署角色，需要使用 Azure 服务管理 API 上传 CSPKG 和 CSCFG 文件。 部署后，Azure 将在数据中心预配角色实例（基于配置数据），从包中提取应用程序代码，将它复制到角色实例，然后启动实例。 现在，代码已经可以正常运行。
 
-The figure below shows the CSPKG and CSCFG files you create on your
-development computer. The CSPKG file contains the CSDEF file and the
-code for two roles. After uploading the CSPKG and CSCFG files with the
-Azure Service Management API, Azure creates the role
-instances in the data center. In this example, the CSCFG file indicated
-that Azure should create three instances of role \#1 and two
-instances of Role \#2.
+下图显示在开发计算机上创建的 CSPKG 和 CSCFG 文件。 CSPKG 文件包含 CSDEF 文件和两个角色的代码。 使用 Azure 服务管理 API 上传 CSPKG 和 CSCFG 文件后，Azure 会在数据中心创建角色实例。 在此示例中，CSCFG 文件指示 Azure 应创建角色 \#1 的三个实例和角色 \#2 的两个实例。
 
-![image][5]
+![图像][5]
 
-For more information about deploying, upgrading, and reconfiguring your
-roles, see the [Deploying and Updating Azure Applications][Deploying and Updating Azure Applications]
-article.<a id="Ref" name="Ref"></a>
+有关部署、升级和重新配置角色的详细信息，请参阅[部署和更新 Azure 应用程序][]一文。<a id="Ref" name="Ref"></a>
 
-## <a id="references"> </a>References
+## <a id="references"> </a>参考
 
--   [Creating a Hosted Service for Azure][Creating a Hosted Service for Azure]
+-   [为 Azure 创建托管服务][]
 
--   [Managing Hosted Services in Azure][Managing Hosted Services in Azure]
+-   [在 Azure 中管理托管服务][]
 
--   [Migrating Applications to Azure][Migrating Applications to Azure]
+-   [将应用程序迁移到 Azure][]
 
--   [Configuring an Azure Application][Configuring an Azure Application]
+-   [配置 Azure 应用程序][]
 
 <div style="width: 700px; border-top: solid; margin-top: 5px; padding-top: 5px; border-top-width: 1px;">
 
-<p>Written by Jeffrey Richter (Wintellect)</p>
+<p>作者：Jeffrey Richter (Wintellect)</p>
 
 </div>
 
-  [Azure Application Model Benefits]: #benefits
-  [Hosted Service Core Concepts]: #concepts
-  [Hosted Service Design Considerations]: #considerations
-  [Designing your Application for Scale]: #scale
-  [Hosted Service Definition and Configuration]: #defandcfg
-  [The Service Definition File]: #def
-  [The Service Configuration File]: #cfg
-  [Creating and Deploying a Hosted Service]: #hostedservices
-  [References]: #references
+  [Azure 应用程序模型的优势]: #benefits
+  [托管服务的核心概念]: #concepts
+  [托管服务设计注意事项]: #considerations
+  [设计应用程序以进行缩放]: #scale
+  [托管服务的定义和配置]: #defandcfg
+  [服务定义文件]: #def
+  [服务配置文件]: #cfg
+  [创建和部署托管服务]: #hostedservices
+  [参考]: #references
   [0]: ./media/application-model/application-model-3.jpg
   [1]: ./media/application-model/application-model-4.jpg
   [2]: ./media/application-model/application-model-5.jpg
-  [Configuring a Custom Domain Name in Azure]: ../articles/cloud-services/cloud-services-custom-domain-name.md
-  [Data Storage Offerings in Azure]: /develop/net/how-to-guides/blob-storage-v17/
+  [在 Azure 中配置自定义域名]: /develop/net/common-tasks/custom-dns/
+  [Azure 中的数据存储产品/服务]: /develop/net/fundamentals/cloud-storage/
   [3]: ./media/application-model/application-model-6.jpg
   [4]: ./media/application-model/application-model-7.jpg
 
-  [Azure Pricing]: https://www.azure.cn/pricing/overview/
-  [http://msdn.microsoft.com/zh-cn/library/azure/ee758710.aspx]: http://msdn.microsoft.com/zh-cn/library/azure/ee758710.aspx
-  [http://msdn.microsoft.com/zh-cn/library/hh560567.aspx]: http://msdn.microsoft.com/zh-cn/library/hh560567.aspx
-  [Azure Management Portal]: http://manage.windowsazure.cn/
+  [Azure Pricing]: http://www.windowsazure.com/en-us/pricing/calculator/
+  [在 Azure 中管理证书]: http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx
+  [http://msdn.microsoft.com/zh-cn/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/zh-cn/library/hh560567.aspx]: http://msdn.microsoft.com/en-us/library/hh560567.aspx
+  [管理 Azure 来宾 OS 的升级]: http://msdn.microsoft.com/en-us/library/ee924680.aspx
+  [Azure 管理门户]: http://manage.windowsazure.com/
   [5]: ./media/application-model/application-model-8.jpg
-  [Deploying and Updating Azure Applications]: /develop/net/fundamentals/deploying-applications/
-  [Creating a Hosted Service for Azure]: http://msdn.microsoft.com/zh-cn/library/gg432967.aspx
-  [Managing Hosted Services in Azure]: http://msdn.microsoft.com/zh-cn/library/gg433038.aspx
-  [Migrating Applications to Azure]: http://msdn.microsoft.com/zh-cn/library/gg186051.aspx
-  [Configuring an Azure Application]: http://msdn.microsoft.com/zh-cn/library/azure/ee405486.aspx
+  [部署和更新 Azure 应用程序]: /develop/net/fundamentals/deploying-applications/
+  [为 Azure 创建托管服务]: http://msdn.microsoft.com/en-us/library/gg432967.aspx
+  [在 Azure 中管理托管服务]: http://msdn.microsoft.com/en-us/library/gg433038.aspx
+  [将应用程序迁移到 Azure]: http://msdn.microsoft.com/en-us/library/gg186051.aspx
+  [配置 Azure 应用程序]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx

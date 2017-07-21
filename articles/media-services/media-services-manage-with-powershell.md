@@ -1,12 +1,11 @@
 ---
-title: 使用 PowerShell 管理 Azure 媒体服务帐户
-description: 了解如何使用 PowerShell cmdlet 管理 Azure 媒体服务帐户。
+title: "使用 PowerShell 管理 Azure 媒体服务帐户"
+description: "了解如何使用 PowerShell cmdlet 管理 Azure 媒体服务帐户。"
 authors: Juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationCenter: ''
-
+documentationCenter: 
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -15,31 +14,35 @@ ms.topic: article
 origin.date: 10/03/2016
 ms.date: 12/27/2016
 ms.author: v-johch
+ms.openlocfilehash: ce08bc2873dc5d56aab84caaa82a5ed7f025f2b6
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
-#使用 PowerShell 管理 Azure 媒体服务帐户
+#<a name="manage-azure-media-services-accounts-with-powershell"></a>使用 PowerShell 管理 Azure 媒体服务帐户
 
 > [!div class="op_single_selector"]
 >- [门户](./media-services-create-account.md)
 >- [PowerShell](./media-services-manage-with-powershell.md)
->- [REST](https://docs.microsoft.com/zh-cn/rest/api/media/management/create-media-services-account)
+>- [REST](http://msdn.microsoft.com/zh-cn/library/azure/dn194267.aspx)
 
 > [!NOTE]
-> 若要创建 Azure 媒体服务帐户，你必须有一个 Azure 帐户。如果你没有帐户，可以创建一个试用帐户，只需几分钟即可完成。有关详细信息，请参阅 <a href="https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 试用</a>。
+> 若要创建 Azure 媒体服务帐户，你必须有一个 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 <a href="https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 试用版</a>。
 
-##概述 
+##<a name="overview"></a>概述 
 
-本文列出了 Azure Resource Manager 框架中适用于 Azure 媒体服务 (AMS) 的 Azure PowerShell cmdlet。这些 cmdlet 存在于 **Microsoft.Azure.Commands.Media** 命名空间。
+本文列出了 Azure Resource Manager 框架中适用于 Azure 媒体服务 (AMS) 的 Azure PowerShell cmdlet。 这些 cmdlet 存在于 **Microsoft.Azure.Commands.Media** 命名空间。
 
-## 版本
+## <a name="versions"></a>版本
 
-**ApiVersion**：“2015-10-01”
+ApiVersion："2015-10-01"
 
-## New-AzureRmMediaService
+## <a name="new-azurermmediaservice"></a>New-AzureRmMediaService
 
 创建媒体服务。
 
-### 语法
+### <a name="syntax"></a>语法
 
 参数集：StorageAccountIdParamSet
 
@@ -53,21 +56,21 @@ New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-
 New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccounts] <PSStorageAccount[]> [-Tags <hashtable>]  [<CommonParameters>]
 ```
 
-### 参数
+### <a name="parameters"></a>Parameters
 
-**-ResourceGroupName &lt;字符串&gt;**
+**-ResourceGroupName &lt;String&gt;**
 
 指定此媒体服务所属资源组的名称。
 
 别名 | 无
 ---|---
-必需？ | 是
-位置？ | 0
+必需？   |  是
+位置？   |  0
 默认值 |无
 接受管道输入？ |true(ByPropertyName)
-接受通配符？ |false
+接受通配符？  |false
 
-**-AccountName &lt;字符串&gt;**
+**-AccountName &lt;String&gt;**
 
 指定媒体服务的名称。
 
@@ -79,7 +82,7 @@ New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-
 接受管道输入？ |false
 接受通配符？ |false
 
-**-Location &lt;字符串&gt;**
+-Location &lt;String&gt;
 
 指定媒体服务的资源位置。
 
@@ -87,15 +90,15 @@ New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-
 ---|---
 必需？ |是
 位置？ |2
-默认值 |无
+默认值  |无
 接受管道输入？ |true(ByPropertyName)
 接受通配符？ |false
 
-**-StorageAccountId &lt;字符串&gt;**
+**-StorageAccountId &lt;String&gt;**
 
 指定与媒体服务关联的主存储帐户。
 
-- 仅限受支持的新存储帐户（使用资源管理器 API 创建）。
+- 仅支持（使用 Resource Manager API 创建的）新存储帐户。
 
 - 存储帐户必须存在，并具有与媒体服务相同的位置。
 
@@ -103,16 +106,16 @@ New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-
 ---|---
 必需？ |是
 位置？ |3
-默认值 |无
+默认值  |无
 接受管道输入？ |true(ByPropertyName)
 参数集名称 |StorageAccountIdParamSet
 接受通配符？|false
 
-**-StorageAccounts &lt;PSStorageAccount[]&gt;**
+-StorageAccounts &lt;PSStorageAccount\[\]&gt;
 
 指定与媒体服务关联的存储帐户。
 
-- 仅限受支持的新存储帐户（使用资源管理器 API 创建）。
+- 仅支持（使用 Resource Manager API 创建的）新存储帐户。
 
 - 存储帐户必须存在，并具有与媒体服务相同的位置。
 
@@ -120,14 +123,14 @@ New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-
 
 别名 |无
 ---|---
-必需？ |是
-位置？ |3
+必需？  |是
+位置？  |3
 默认值 |无
 接受管道输入？ |true(ByPropertyName)
 参数集名称 |StorageAccountsParamSet
 接受通配符？ |false
 
-**-Tags &lt;Hashtable&gt;**
+-Tags &lt;Hashtable&gt;
 
 指定与媒体服务关联的标记的哈希表。
 
@@ -135,65 +138,65 @@ New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-
 
 别名 |无
 ---|---
-必需？ |false
-位置？ |名为
+必需？  |false
+位置？  |名为
 默认值 |无
 接受管道输入？ |false
 接受通配符？ |false
 
-**&lt;CommandParameters&gt;**
+&lt;CommandParameters&gt;
 
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
 
-### 输入
+### <a name="inputs"></a>输入
 
 输入类型是可以发送到 cmdlet 的对象类型。
 
-### 输出
+### <a name="outputs"></a>Outputs
 
 输出类型是 cmdlet 发出的对象类型。
 
-## Set-AzureRmMediaService
+## <a name="set-azurermmediaservice"></a>Set-AzureRmMediaService
 
 更新媒体服务。
 
-### 语法
+### <a name="syntax"></a>语法
 
 ```
 Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Tags <hashtable>] [-StorageAccounts <PSStorageAccount[]>]  [<CommonParameters>]
 ```
 
-### 参数
+### <a name="parameters"></a>Parameters
 
-**-ResourceGroupName &lt;字符串&gt;**
+**-ResourceGroupName &lt;String&gt;**
 
 指定此媒体服务所属资源组的名称。
 
 别名 |无
 ---|---
-必需？ |是
-位置？ |0
+必需？  |是
+位置？  |0
 默认值 |无
 接受管道输入？ |true(ByPropertyName)
 接受通配符？ |false
 
-**-AccountName &lt;字符串&gt;**
+**-AccountName &lt;String&gt;**
 
 指定媒体服务的名称。
 
 别名 |名称
 ---|---
-必需？ |True
+必需？ |是
 位置？ |1
 默认值 |无
 接受管道输入？ |true(ByPropertyName)
 接受通配符？ |False
 
-**-StorageAccounts &lt;PSStorageAccount[]&gt;**
+-StorageAccounts &lt;PSStorageAccount\[\]&gt;
 
 指定与媒体服务关联的存储帐户。
 
-- 仅限受支持的新存储帐户（使用资源管理器 API 创建）。
+- 仅支持（使用 Resource Manager API 创建的）新存储帐户。
 
 - 存储帐户必须存在，并具有与媒体服务相同的位置。
 
@@ -208,7 +211,7 @@ Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-
 参数集名称 |StorageAccountsParamSet
 接受通配符？ |false
 
-**-Tags &lt;Hashtable&gt;**
+-Tags &lt;Hashtable&gt;
 
 指定与此媒体服务关联的标记的哈希表。
 
@@ -216,37 +219,37 @@ Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-
 
 别名 |无
 ---|---
-必需？ |False
-位置？ |名为
+必需？ |false
+位置？  |名为
 默认值 |无
 接受管道输入？ |true(ByPropertyName)
 接受通配符？ |false
 
-**&lt;CommandParameters&gt;**
+&lt;CommandParameters&gt;
 
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
 
-### 输入
+### <a name="inputs"></a>输入
 
 输入类型是可以发送到 cmdlet 的对象类型。
 
-### 输出
+### <a name="outputs"></a>Outputs
 
 输出类型是 cmdlet 发出的对象类型。
 
-## Remove-AzureRmMediaService
+## <a name="remove-azurermmediaservice"></a>Remove-AzureRmMediaService
 
 删除媒体服务。
 
-### 语法
+### <a name="syntax"></a>语法
 
 ```
 Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 ```
 
-### 参数
+### <a name="parameters"></a>Parameters
 
-**-ResourceGroupName &lt;字符串&gt;**
+**-ResourceGroupName &lt;String&gt;**
 
 指定此媒体服务所属资源组的名称。
 
@@ -258,7 +261,7 @@ Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>
 接受管道输入？ |true(ByPropertyName)
 接受通配符？ |false
 
-**-AccountName &lt;字符串&gt;**
+**-AccountName &lt;String&gt;**
 
 指定媒体服务的名称。
 
@@ -267,31 +270,31 @@ Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>
 必需？ |是
 位置？ |2
 默认值 |无
-接受管道输入？ |true(ByPropertyName)
+接受管道输入？  |true(ByPropertyName)
 接受通配符？ |False
 
-**&lt;CommandParameters&gt;**
+&lt;CommandParameters&gt;
 
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
 
-### 输入
+### <a name="inputs"></a>输入
 
 输入类型是可以发送到 cmdlet 的对象类型。
 
-### 输出
+### <a name="outputs"></a>Outputs
 
 输出类型是 cmdlet 发出的对象类型。
 
-## Get-AzureRmMediaService
+## <a name="get-azurermmediaservice"></a>Get-AzureRmMediaService
 
 获取资源组中所有的媒体服务或具有给定名称的媒体服务。
 
-### 语法
+### <a name="syntax"></a>语法
 
 ParameterSet: ResourceGroupParameterSet
 
 ```
-Get-AzureRmMediaService [-ResourceGroupName] <string>  [<CommonParameters>]	
+Get-AzureRmMediaService [-ResourceGroupName] <string>  [<CommonParameters>] 
 ```
 
 ParameterSet: AccountNameParameterSet
@@ -300,71 +303,71 @@ ParameterSet: AccountNameParameterSet
 Get-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 ```
 
-### 参数
+### <a name="parameters"></a>Parameters
 
-**-ResourceGroupName &lt;字符串&gt;**
+**-ResourceGroupName &lt;String&gt;**
 
 指定此媒体服务所属资源组的名称。
 
 别名 |无
 ---|---
 必需？ |是
-位置？ |0
+位置？  |0
 默认值 |无
 接受管道输入？ |true(ByPropertyName)
 参数集名称 |ResourceGroupParameterSet、AccountNameParameterSet
-接受通配符？false
+接受通配符？   false
 
-**-AccountName &lt;字符串&gt;**
+**-AccountName &lt;String&gt;**
 
 指定媒体服务的名称。
 
 别名 |无
 ---|---
 必需？ |是
-位置？ |1
+位置？  |1
 默认值 |无
 接受管道输入？ |true(ByPropertyName)
-参数集名称 |AccountNameParameterSet
+参数集名称  |AccountNameParameterSet
 接受通配符？ |false
 
-**&lt;CommandParameters&gt;**
+&lt;CommandParameters&gt;
 
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
 
-### 输入
+### <a name="inputs"></a>输入
 
 输入类型是可以发送到 cmdlet 的对象类型。
 
-### 输出
+### <a name="outputs"></a>Outputs
 
 输出类型是 cmdlet 发出的对象类型。
 
-## Get-AzureRmMediaServiceKeys
+## <a name="get-azurermmediaservicekeys"></a>Get-AzureRmMediaServiceKeys
 
 获取媒体服务的密钥。
 
-### 语法
+### <a name="syntax"></a>语法
 
 ```
 Get-AzureRmMediaServiceKeys [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 ```
 
-### 参数
+### <a name="parameters"></a>Parameters
 
-**-ResourceGroupName &lt;字符串&gt;**
+**-ResourceGroupName &lt;String&gt;**
 
 指定此媒体服务所属资源组的名称。
 
 别名 |无
 ---|---
 必需？ |是
-位置？ |0
+位置？  |0
 默认值 |无
 接受管道输入？ |true(ByPropertyName)
 接受通配符？ |false
 
-**-AccountName &lt;字符串&gt;**
+**-AccountName &lt;String&gt;**
 
 指定媒体服务的名称。
 
@@ -376,55 +379,55 @@ Get-AzureRmMediaServiceKeys [-ResourceGroupName] <string> [-AccountName] <string
 接受管道输入？ |true(ByPropertyName)
 接受通配符？ |false
 
-**&lt;CommandParameters&gt;**
+&lt;CommandParameters&gt;
 
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
 
-### 输入
+### <a name="inputs"></a>输入
 
 输入类型是可以发送到 cmdlet 的对象类型。
 
-### 输出
+### <a name="outputs"></a>Outputs
 
 输出类型是 cmdlet 发出的对象类型。
 
-## Set-AzureRmMediaServiceKey
+## <a name="set-azurermmediaservicekey"></a>Set-AzureRmMediaServiceKey
 
 重新生成媒体服务的主密钥或辅助密钥。
 
-### 语法
+### <a name="syntax"></a>语法
 
 ```
 Set-AzureRmMediaServiceKey [-ResourceGroupName] <string> [-AccountName] <string> [-KeyType] <KeyType> {Primary | Secondary}  [<CommonParameters>]
 ```
 
-### 参数
+### <a name="parameters"></a>Parameters
 
-**-ResourceGroupName &lt;字符串&gt;**
+**-ResourceGroupName &lt;String&gt;**
 
 指定此媒体服务所属资源组的名称。
 
 别名 |无
 ---|---
-必需？ |是
-位置？ |0
+必需？  |是
+位置？  |0
 默认值 |无
-接受管道输入？ |true(ByPropertyName)
+接受管道输入？  |true(ByPropertyName)
 接受通配符？ |false
 
-**-AccountName &lt;字符串&gt;**
+**-AccountName &lt;String&gt;**
 
 指定媒体服务的名称。
 
 别名 |无
 ---|---
 必需？ |是
-位置？ |1
+位置？  |1
 默认值 |无
-接受管道输入？ |true(ByPropertyName)
+接受管道输入？   |true(ByPropertyName)
 接受通配符？ |false
 
-**-KeyType &lt;密钥类型&gt;**
+-KeyType &lt;KeyType&gt;
 
 指定媒体服务的密钥类型。
 
@@ -432,37 +435,37 @@ Set-AzureRmMediaServiceKey [-ResourceGroupName] <string> [-AccountName] <string>
 
 别名 |无
 ---|---
-必需？ |是
-位置？ |2
+必需？  |是
+位置？  |2
 默认值 |无
 接受管道输入？ |false
 接受通配符？ |false
 
-**&lt;CommandParameters&gt;**
+&lt;CommandParameters&gt;
 
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
 
-### 输入
+### <a name="inputs"></a>输入
 
 输入类型是可以发送到 cmdlet 的对象类型。
 
-### 输出
+### <a name="outputs"></a>Outputs
 
 输出类型是 cmdlet 发出的对象类型。
 
-## Sync-AzureRmMediaServiceStorageKeys
+## <a name="sync-azurermmediaservicestoragekeys"></a>Sync-AzureRmMediaServiceStorageKeys
 
 同步与媒体服务关联的存储帐户的存储帐户密钥。
 
-### 语法
+### <a name="syntax"></a>语法
 
 ```
 Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountId] <string>  [<CommonParameters>]
 ```
 
-### 参数
+### <a name="parameters"></a>Parameters
 
-**-ResourceGroupName &lt;字符串&gt;**
+**-ResourceGroupName &lt;String&gt;**
 
 指定此媒体服务所属资源组的名称。
 
@@ -474,7 +477,7 @@ Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaService
 接受管道输入？ |true(ByPropertyName)
 接受通配符？ |false
 
-**-AccountName &lt;字符串&gt;**
+**-AccountName &lt;String&gt;**
 
 指定媒体服务的名称。
 
@@ -486,28 +489,26 @@ Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaService
 接受管道输入？ |true(ByPropertyName)
 接受通配符？ |false
 
-**-StorageAccountId &lt;字符串&gt;**
+**-StorageAccountId &lt;String&gt;**
 
 指定与媒体服务关联的存储帐户。
 
 别名 |ID
 ---|---
 必需？ |是
-位置？ |2
+位置？  |2
 默认值 |无
-接受管道输入？ | true(ByPropertyName)
+接受管道输入？ |      true(ByPropertyName)
 接受通配符？ |false
 
-**&lt;CommandParameters&gt;**
+&lt;CommandParameters&gt;
 
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
 
-### 输入
+### <a name="inputs"></a>输入
 
 输入类型是可以发送到 cmdlet 的对象类型。
 
-### 输出
+### <a name="outputs"></a>Outputs
 
 输出类型是 cmdlet 发出的对象类型。
-
-<!---HONumber=Mooncake_1114_2016-->

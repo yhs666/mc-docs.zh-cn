@@ -1,12 +1,11 @@
 ---
-title: H264 单比特率 16x9 SD Media Encoder Standard 预设 - Azure | Azure
-description: 本主题概述了 **H264 单比特率 16x9 SD** 任务预设。
+title: "H264 单比特率 16x9 SD Media Encoder Standard 预设 - Azure | Azure"
+description: "本主题概述了“H264 单比特率 16x9 SD”任务预设。"
 author: Juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
 ms.assetid: ce0efc07-3461-44f6-a7bc-c4877bc09529
 ms.service: media-services
 ms.workload: media
@@ -16,14 +15,18 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 03/10/2017
 ms.author: v-johch
+ms.openlocfilehash: 10efcc87f114b224212a7954ecc9bf285ed5a6e1
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
+# <a name="h264-single-bitrate-16x9-sd"></a>H264 单比特率 16x9 SD
+`Media Encoder Standard` 定义一组可在创建编码作业时使用的编码预设。 可使用 `preset name` 指定要将媒体文件编码为哪种格式。 也可以创建自己的 JSON 或基于 XML 的预设（使用 UTF-8 或 UTF-16 编码）。 然后，将自定义预设传递到编码器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](./media-services-mes-presets-overview.md)。  
 
-# H264 单比特率 16x9 SD
-`Media Encoder Standard` 定义一组可在创建编码作业时使用的编码预设。可使用 `preset name` 指定要将媒体文件编码为哪种格式。或者，可创建自己的基于 JSON 或 XML 的预设（使用 UTF-8 或 UTF-16 编码）。然后，将自定义预设传递到编码器。有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](./media-services-mes-presets-overview.md)。
+ 本主题演示 XML 和 JSON 格式的 `H264 Single Bitrate 16x9 SD` 预设。  
 
- 本主题演示 XML 和 JSON 格式的 `H264 Single Bitrate 16x9 SD` 预设。
-
- 此预设将生成单个 MP4 文件，其比特率为 2200 kbps，并且带有立体声 AAC 音频。若要深入了解此预设的配置文件、比特率、采样率等，请检查下面定义的 XML 或 JSON。有关这些预设中每个元素含义的说明以及每个元素的有效值，请参阅 [Media Encoder Standard 架构](./media-services-mes-schema.md)主题。
+ 此预设将生成单个 MP4 文件，其比特率为 2200 kbps，并且带有立体声 AAC 音频。 若要深入了解此预设的配置文件、比特率、采样率等，请检查下面定义的 XML 或 JSON。 有关这些预设中的每个元素的含义及其有效值的说明，请参阅 [Media Encoder Standard 架构](./media-services-mes-schema.md)主题。  
 
  XML
 
@@ -66,7 +69,7 @@ ms.author: v-johch
       </Outputs>  
     </Preset>  
 
- JSON
+ JSON  
 
     {  
       "Version": 1.0,  
@@ -108,6 +111,4 @@ ms.author: v-johch
           }  
         }  
       ]  
-    }  
-
-<!---HONumber=Mooncake_0306_2017-->
+    }
