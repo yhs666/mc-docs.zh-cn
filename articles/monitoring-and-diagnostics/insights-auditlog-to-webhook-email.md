@@ -1,7 +1,7 @@
 ---
 title: "对 Azure 活动日志警报调用 webhook | Azure"
 description: "将活动日志事件路由到其他服务以执行自定义操作。 例如，发送短信、记录 bug，或者通过聊天/消息服务通知团队。"
-authors: kamathashwin
+author: kamathashwin
 manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
@@ -14,17 +14,19 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.author: v-yiso
 ms.date: 03/03/2017
-ms.openlocfilehash: f68ce5182957cf62835fa94a2ce3e9784933604d
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 9f036874497eec7ab3cc1d54b607f5155026a1f9
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="call-a-webhook-on-azure-activity-log-alerts"></a>对 Azure 活动日志警报调用 webhook
 通过 webhook 可以将 Azure 警报通知路由到其他系统，以便进行后续处理或自定义操作。 可以针对警报使用 webhook，以将警报路由到可以发送短信、记录 Bug、通过聊天/消息通知团队，或执行任意数量的其他操作的服务。 本文介绍如何设置要在触发 Azure 活动日志警报时调用的 webhook。 它还显示了发送到 webhook 的 HTTP POST 的有效负载是怎样的。 有关 Azure 度量值警报的设置和架构的信息， [请参阅本页](insights-webhooks-alerts.md)。 还可以将活动日志警报设置为激活时发送电子邮件。
 
 >[!NOTE]
 > 此功能目前处于预览状态，将在以后删除。
+>
+>
 
 可使用 [Azure PowerShell Cmdlets](./insights-powershell-samples.md#create-alert-rules)、[跨平台 CLI](./insights-cli-samples.md#work-with-alerts) 或 [Azure Monitor REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn933805.aspx) 设置活动日志警报。 目前，不能使用 Azure 门户设置活动日志警报。
 

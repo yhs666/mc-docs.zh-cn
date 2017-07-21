@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/04/2016
+origin.date: 04/27/2017
 ms.author: v-yiso
-ms.openlocfilehash: 77dd0d3e3b00713d6d1d8fbab0b1484262e2e37f
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/17/2017
+ms.openlocfilehash: d7038ef11d1ab6a299315c0007d7e9f176544f5c
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>如何使用服务总线主题和订阅
 

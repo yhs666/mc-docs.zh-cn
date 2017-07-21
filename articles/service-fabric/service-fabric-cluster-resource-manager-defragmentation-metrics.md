@@ -16,10 +16,10 @@ origin.date: 01/05/2017
 ms.date: 02/20/2017
 ms.author: v-johch
 ms.openlocfilehash: 2dd0247f8cdc6296ba331cf688c9b1a255fdd347
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Service Fabric 中指标和负载的碎片整理
 Service Fabric 群集 Resource Manager 主要与负载分配方面的均衡有关 - 确保均衡使用群集中的节点。 若要幸免于故障，让工作负荷分散通常是最安全的布局，因为这可以确保故障不会导致给定的工作负荷大部分失效。 Service Fabric 群集 Resource Manager 还支持另一种策略 - 碎片整理。 碎片整理通常意味着我们应实际尝试合并指标，而不是尝试将指标的使用分布到群集中。 合并是我们一般策略的逆向运用 – 群集 Resource Manager 的目的是增加偏差，而不是将指标负载的平均标准偏差最小化。 但为什么要使用此策略？

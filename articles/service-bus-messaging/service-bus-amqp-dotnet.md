@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+origin.date: 04/19/2017
 ms.author: v-yiso
-ms.openlocfilehash: 71b79d3fedc52d58af48fd110a5b8b0c3352c742
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/17/2017
+ms.openlocfilehash: 424a16a29f96882660ff8ca03d19ca447f3ff6f8
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="using-service-bus-from-net-with-amqp-10"></a>使用 AMQP 1.0 通过 .NET 使用服务总线
 

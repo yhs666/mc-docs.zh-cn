@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 04/30/2017
+origin.date: 04/30/2017
 ms.author: v-yiso
-ms.openlocfilehash: 2cdbd16e12164ef5bc1e15371280061a149bbd87
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/17/2017
+ms.openlocfilehash: 8a9cba357cc25d8d5e63d615f8de46381a57be87
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="how-to-use-service-bus-queues"></a>如何使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

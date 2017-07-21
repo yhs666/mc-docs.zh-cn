@@ -17,10 +17,10 @@ origin.date: 11/08/2016
 ms.date: 05/08/2017
 ms.author: v-yiso
 ms.openlocfilehash: 46669ad4b90a834b2f4e0be5343cf77e32b51ccc
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="get-azure-tools-macos-1010"></a>获取 Azure 工具 (macOS 10.10)
 > [!div class="op_single_selector"]

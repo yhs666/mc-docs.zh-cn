@@ -17,10 +17,10 @@ origin.date: 11/08/2016
 ms.date: 05/08/2017
 ms.author: v-yiso
 ms.openlocfilehash: c1aa6b40cf9054052a022e7f19df6cc6c5b8bbf8
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="troubleshooting"></a>故障排除
 ## <a name="hardware-issues"></a>硬件问题
@@ -69,7 +69,7 @@ python -m pip install --upgrade pip
 如果已通过 `azure-cli`成功预配 Azure IoT 中心，且需使用工具管理连接到 IoT 中心的设备，可尝试以下工具：
 
 ### <a name="device-explorer"></a>设备资源管理器
-[设备资源管理器](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 在 Windows 本地计算机上运行，并连接到 Azure 中的 IoT 中心。 它与以下 [IoT 中心终结点](./iot-hub-devguide.md)进行通信：
+[设备资源管理器](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 在 Windows 本地计算机上运行，并连接到 Azure 中的 IoT 中心。 它与以下 [IoT 中心终结点](./iot-hub-devguide.md)通信：
 
 - _设备标识管理_ ：用于预配和管理注册到 IoT 中心的设备。
 - _接收从设备到云的消息_ ：用于监视从设备发送到 IoT 中心的消息。

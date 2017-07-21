@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/23/2016
-ms.date: 05/22/2017
+origin.date: 03/22/2017
 ms.author: v-yiso
-ms.openlocfilehash: 0f6069d7efd9e9eb633af01f83f77adf1066c25a
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 05/22/2017
+ms.openlocfilehash: 61bb170511060823ed86d0ecdb743c5bc0ad2357
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure 服务总线中的 AMQP 1.0：基于请求/响应的操作
 

@@ -18,11 +18,11 @@ ms.topic: article
 origin.date: 05/12/2017
 ms.date: 04/27/2017
 ms.author: v-dazen
-ms.openlocfilehash: 15445feceb3bfca2f8afc5303452a4fd18f38730
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 16ba0df2b147356d2cefa93d5e783eae3041cb95
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上传 Hadoop 作业的数据
 Azure HDInsight 在 Azure Blob 存储之上提供了一个功能完备的 Hadoop 分布式文件系统 (HDFS)。 该系统为一个 HDFS 扩展，可为客户提供无缝体验。 在该系统的帮助下，Hadoop 生态系统中的整套组件能够直接操作其管理的数据。 Azure Blob 存储和 HDFS 是独立的文件系统，并且已针对数据的存储和计算进行了优化。 有关使用 Azure Blob 存储的益处，请参阅 [将 Azure Blob 存储与 HDInsight 配合使用][hdinsight-storage]。
@@ -87,10 +87,10 @@ Azure CLI 是一个跨平台工具，可用于管理 Azure 服务。 使用以�
 
    * 上传文件：
 
-            azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
+           azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
    * 下载文件：
 
-            azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
+           azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
 
 > [!NOTE]
 > 如果始终使用同一个存储帐户，可以不用为每条命令指定帐户和密钥，而是设置以下环境变量：

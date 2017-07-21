@@ -15,11 +15,11 @@ ms.workload: web
 origin.date: 10/24/2016
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: 887e3994aedc4a1a626990637c6d046023520051
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: dfc2d754aa173db67f26a10b97cf56ef7d304908
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="use-devops-environments-effectively-for-your-web-apps"></a>对 Web 应用有效使用 DevOps 环境
 本文说明如何针对应用程序的多个版本处于不同环境（例如开发、过渡、质量保证 (QA) 和生产）的情况，设置和管理 Web 应用程序部署。 应用程序的每个版本均可视为满足部署过程中特定目的的开发环境。 例如，在将更改推送到生产前，开发人员可使用 QA 环境测试应用程序的质量。
@@ -430,7 +430,6 @@ Courier 不会帮助用户从 Umbraco CMS 的一个版本升级到另一个版�
 
 * 如果应用程序存在任何问题，可使用另一个 **交换** 操作回滚到 Web 应用的前一个版本。
 * 若要升级，需要将文件和数据库从过渡 Web 应用部署到生产 Web 应用和数据库。 部署文件和数据库时，可能会出现很多错误。 通过使用槽的 **交换** 功能，可减少升级过程中的停机时间，并降低部署更改时发生错误的风险。
-* 可通过以下方式执行 A/B 测试。
 
 本示例向你展示了平台的灵活性，你可以生成类似于 Umbraco Courier 模块的自定义模块，来跨环境管理部署。
 

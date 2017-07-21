@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/29/2016
 ms.date: 02/21/2017
 ms.author: v-dazen
-ms.openlocfilehash: bd22c908a912774fa5a83daf1810aff156a3f5db
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 1f2cf3ba5b7af6c5403208297c3445efeb96e3a8
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="app-service-api-apps---whats-changed"></a>应用服务 API 应用 - 功能更改
 在 2015 年 11 月召开的 Connect() 活动中，Azure App Service [宣告](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/)了许多改进之处。 这些改进包括 API 应用的基础更改，进一步配合移动和 Web 应用、减少概念计数以及改善部署和运行时性能。 从 2015 年 11 月 30 日起，使用 Azure 管理门户或最新工具创建的新 API 应用将反映这些更改。 本文描述这些更改，以及如何重新部署现有应用以充分利用这些功能。
@@ -115,7 +115,6 @@ Web 应用、移动应用和 API 应用中各自提供了 API 定义边栏选项
 4. 部署时，使用其他 API 应用的终结点填充所有 API 应用（和客户端）的应用设置。 这在模板部署中是可行的，因为 API 应用现在允许控制 URL。
 
 ## <a name="next-steps"></a>后续步骤
-有关详细信息，请参阅 [API 应用文档部分](/app-service-api/)中的文章。 这些文章已经过更新，反映 API 应用的新模型。 此外，请务必访问论坛，获取其他详细信息或迁移指导：
+有关详细信息，请参阅 [API 应用文档部分](/app-service/api/)中的文章。 这些文章已经过更新，反映 API 应用的新模型。 此外，请务必访问论坛，获取其他详细信息或迁移指导：
 
 * [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps)
-* [CSDN 论坛](http://azure.csdn.net/)

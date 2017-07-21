@@ -15,11 +15,11 @@ ms.workload: tbd
 origin.date: 04/13/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 87c173baa83bd868562d0a20f9b514f6ddb1860d
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 818ab2f86a93d147910f55457a118002d94bc261
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="how-to-use-azure-redis-cache-with-java"></a>如何将 Azure Redis 缓存与 Java 配合使用
 > [!div class="op_single_selector"]
@@ -81,5 +81,5 @@ Azure Redis 缓存可让你访问 Azure.cn 管理的专用 Redis 缓存。 可�
     }
 
 ## <a name="next-steps"></a>后续步骤
-* [启用缓存诊断](cache-how-to-monitor.md#enable-cache-diagnostics)，以便可以[监视](cache-how-to-monitor.md)缓存的运行状况。
+* [启用缓存诊断](/redis-cache/cache-how-to-monitor#enable-cache-diagnostics)，以便可以[监视](/redis-cache/cache-how-to-monitor)缓存的运行状况。
 * 阅读官方 [Redis 文档](http://redis.io/documentation)。

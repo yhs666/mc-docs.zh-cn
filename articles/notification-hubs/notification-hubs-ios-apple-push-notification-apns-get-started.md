@@ -16,10 +16,10 @@ origin.date: 10/03/2016
 ms.author: v-junlch
 ms.date: 11/22/2016
 ms.openlocfilehash: e6cd27ecbe3023d953658c997e64822b90721719
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="sending-push-notifications-to-ios-with-azure-notification-hubs"></a>通过 Azure 通知中心向 iOS 发送推送通知
 

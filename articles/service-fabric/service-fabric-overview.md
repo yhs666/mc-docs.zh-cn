@@ -16,10 +16,10 @@ origin.date: 01/05/2017
 ms.date: 02/20/2017
 ms.author: v-johch
 ms.openlocfilehash: e1d843782748de60fb43642e6a2c7a3bcd7066ac
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric 概述
 Service Fabric 是分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务。 Service Fabric 还解决了开发和管理云应用程序中的重大难题。 开发人员和管理员不仅可以避免复杂的基础结构问题，而且可以专注于实现可缩放、可靠且可管理的要求苛刻的任务关键型工作负荷。 Service Fabric 代表用于生成和管理这些企业级第 1 层云规模应用程序的下一代中间件平台。

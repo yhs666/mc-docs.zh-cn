@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/14/2017
-ms.date: 03/10/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: fc11854a7c33cdb9c1f36041c64e936d9918792a
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: df4792e7562a008506eb385d38de031193ae5f00
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中提交 Hadoop 作业
 

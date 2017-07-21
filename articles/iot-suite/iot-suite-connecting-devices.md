@@ -3,23 +3,24 @@ title: "在 Windows 上使用 C 连接设备 | Azure"
 description: "介绍如何使用在 Windows 上运行的以 C 编写的应用程序将设备连接到 Azure IoT 套件预配置远程监视解决方案。"
 services: 
 suite: iot-suite
-documentationCenter: na
-authors: dominicbetts
+documentationcenter: na
+author: dominicbetts
 manager: timlt
 editor: 
+ms.assetid: 34e39a58-2434-482c-b3fa-29438a0c05e8
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/08/2017
+origin.date: 05/25/2017
 ms.author: v-yiso
 ms.date: 03/28/2017
-ms.openlocfilehash: d60d4d9c0de5354275fcc9680a8ffef6cd6df724
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 9ec45a0d5ae33be16f1ac7870c474388906ba023
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>将设备连接到远程监视预配置解决方案 (Windows)
 
@@ -58,8 +59,8 @@ ms.lasthandoff: 06/21/2017
 1. 在“添加现有项”对话框中，选择 RMDevice 项目文件夹中的 parson.h 和 parson.c 文件。 然后，单击“添加”将这两个文件添加到项目。
 
 1. 在 Visual Studio 中，打开 RMDevice.c 文件。 将现有 `#include` 语句替换为以下代码：
-
-    ```
+   
+    ```c
     #include "iothubtransportmqtt.h"
     #include "schemalib.h"
     #include "iothub_client.h"
@@ -80,8 +81,8 @@ ms.lasthandoff: 06/21/2017
 添加调用 remote\_monitoring\_run 函数的代码，然后生成并运行设备应用程序。
 
 1. 将 main 函数替换为以下代码以调用 remote\_monitoring\_run 函数：
-
-    ```
+   
+    ```c
     int main()
     {
       remote_monitoring_run();
@@ -89,7 +90,7 @@ ms.lasthandoff: 06/21/2017
     }
     ```
 
-6. 单击“生成”，然后单击“生成解决方案”以生成设备应用程序。
+1. 单击“生成”，然后单击“生成解决方案”以生成设备应用程序。
 
 1. 在“解决方案资源管理器”中，右键单击 RMDevice 项目，单击“调试”，然后单击“启动新实例”以运行示例。 控制台会在应用程序向预配置解决方案发送示例遥测时显示消息，会接收在解决方案仪表板中设置的所需属性值，并且会响应从解决方案仪表板调用的方法。
 

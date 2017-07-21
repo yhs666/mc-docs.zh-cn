@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+origin.date: 04/12/2017
 ms.author: v-yiso
-ms.openlocfilehash: 2c56e9920e1a322c22fd9fd68d588e4a5b02366e
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/17/2017
+ms.openlocfilehash: 7c5bc4e92513734f93456581de875c60eef812de
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="create-applications-that-use-service-bus-topics-and-subscriptions"></a>创建使用服务总线主题和订阅的应用程序
 

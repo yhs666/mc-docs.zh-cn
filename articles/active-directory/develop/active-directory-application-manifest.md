@@ -15,14 +15,14 @@ ms.workload: identity
 origin.date: 02/08/2017
 ms.date: 03/13/2017
 ms.author: v-junlch
-ms.openlocfilehash: a5282d67d63a832929fba74ab83150196f4119c9
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 8d81978e1ed48f8d8c35435a2ea615e0146316d2
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="understanding-the-azure-active-directory-application-manifest"></a>了解 Azure Active Directory 应用程序清单
-与 Azure Active Directory (AD) 集成的应用程序必须向 Azure AD 租户注册，提供应用程序的持久性标识配置。 在运行时查阅此配置，启用允许应用程序通过 Azure AD 外包和中转身份验证/授权的方案。 有关 Azure AD 应用程序模型的详细信息，请参阅 [添加、更新和删除应用程序][ADD-UPD-RMV-APP] 一文。
+与 Azure Active Directory (AD) 集成的应用程序必须向 Azure AD 租户注册，提供应用程序的持久性标识配置。 在运行时查阅此配置，启用允许应用程序通过 Azure AD 外包和中转身份验证/授权的方案。 
 
 ## <a name="updating-an-applications-identity-configuration"></a>更新应用程序的标识配置
 实际上有多个可用的选项可以更新应用程序的标识配置属性，这些选项因功能与难度而有所不同，包括：
@@ -36,7 +36,7 @@ ms.lasthandoff: 06/21/2017
 
 因此，若要了解应用程序清单的格式和属性，你需要参考图形 API [应用程序实体][APPLICATION-ENTITY] 文档。 可通过应用程序清单上传执行的更新示例包括：
 
-- 声明 Web API 公开的权限范围 (oauth2Permissions)。 有关使用 oauth2Permissions 委派权限范围实现用户模拟的信息，请参阅 [将应用程序与 Azure Active Directory 集成][INTEGRATING-APPLICATIONS-AAD] 中的“向其他应用程序公开 Web API”。 如前所述，图形 API [实体和复杂类型][APPLICATION-ENTITY]参考文章中介绍了应用程序实体属性，包括属于 [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION] 类型集合的 oauth2Permissions 属性。
+- 声明 Web API 公开的权限范围 (oauth2Permissions)。 如前所述，图形 API [实体和复杂类型][APPLICATION-ENTITY]参考文章中介绍了应用程序实体属性，包括属于 [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION] 类型集合的 oauth2Permissions 属性。
 - 声明应用公开的应用程序角色 (appRoles)。 应用程序实体的 appRoles 属性是 [AppRole][APPLICATION-ENTITY-APP-ROLE]类型的集合。 请参阅 [使用 Azure AD 在云应用程序中执行基于角色的访问控制][RBAC-CLOUD-APPS-AZUREAD] 一文，以获取实现示例。
 - 声明已知的客户端应用程序 (knownClientApplications)，可让你以逻辑方式将指定客户端应用程序的许可绑定到资源/Web API。
 - 请求 Azure AD 对登录用户发出组成员资格声明 (groupMembershipClaims)。  也可将此配置为发出有关用户目录角色成员资格的声明。 请参阅 [使用 AD 组在云应用程序中执行授权][AAD-GROUPS-FOR-AUTHORIZATION] 一文，以获取实现示例。
@@ -139,7 +139,6 @@ ms.lasthandoff: 06/21/2017
 [AAD-APP-OBJECTS]:./active-directory-application-objects.md
 [AAD-DEVELOPER-GLOSSARY]:./active-directory-dev-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
-[ADD-UPD-RMV-APP]:./active-directory-integrating-applications.md
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type
 [APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type
@@ -147,7 +146,6 @@ ms.lasthandoff: 06/21/2017
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]:./active-directory-graph-api.md
 [IMPLICIT-GRANT]:./active-directory-dev-understanding-oauth2-implicit-grant.md
-[INTEGRATING-APPLICATIONS-AAD]:./active-directory-integrating-applications.md
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/

@@ -3,22 +3,24 @@ title: "在 Linux 上使用 C 连接设备 | Azure"
 description: "介绍如何使用在 Linux 上运行的以 C 编写的应用程序将设备连接到 Azure IoT 套件预配置远程监视解决方案。"
 services: 
 suite: iot-suite
-documentationCenter: na
-authors: dominicbetts
+documentationcenter: na
+author: dominicbetts
 manager: timlt
 editor: 
+ms.assetid: 0c7c8039-0bbf-4bb5-9e79-ed8cff433629
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+origin.date: 06/05/2017
 ms.author: v-yiso
-ms.openlocfilehash: 23c4952a5266b6660133ecc2f12070354934c75e
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 
+ms.openlocfilehash: d73ea741b5a2205258abd8e6cbd08f3a393152de
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>将设备连接到远程监视预配置解决方案 (Linux)
 
@@ -102,8 +104,9 @@ int main(void)
 以下步骤描述如何使用 *CMake* 生成客户端应用程序。
 
 1. 在文本编辑器中，打开“remote_monitoring”文件夹中的“CMakeLists.txt”文件。
-2. 添加以下指令，以定义如何生成客户端应用程序：
 
+1. 添加以下指令，以定义如何生成客户端应用程序：
+   
     ```
     macro(compileAsC99)
       if (CMAKE_VERSION VERSION_LESS "3.1")
@@ -120,7 +123,7 @@ int main(void)
     cmake_minimum_required(VERSION 2.8.11)
     compileAsC99()
 
-    set(AZUREIOT_INC_FOLDER ".." "../parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
+    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
 
     include_directories(${AZUREIOT_INC_FOLDER})
 
@@ -135,8 +138,7 @@ int main(void)
         ./remote_monitoring.h
     )
 
-    add_executable(sample_app ${sample_application_c_files} ${sample_application_h
-    _files})
+    add_executable(sample_app ${sample_application_c_files} ${sample_application_h_files})
 
     target_link_libraries(sample_app
         serializer

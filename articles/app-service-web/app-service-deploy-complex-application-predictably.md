@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 01/06/2016
 ms.date: 02/21/2017
 ms.author: v-dazen
-ms.openlocfilehash: 49d5c1c7c7574ee4e749b4b531b5a333f12b1f29
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 2bd80b539f71659abc7ddcf7d2ffc30cd5e451b7
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>按可预见的方式在 Azure 中设置和部署微服务
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 06/21/2017
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Azure SDK 2.6 for Visual Studio
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 最新的 SDK 包含对 JSON 编辑器中 Resource Manager 模板支持的改进。 可以使用它快速从头开始创建资源组模板，或打开现有 JSON 模板（例如下载的库模板）以进行修改、填充参数文件，甚至直接从 Azure 资源组解决方案部署资源组。
 

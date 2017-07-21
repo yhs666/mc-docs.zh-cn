@@ -17,10 +17,10 @@ origin.date: 10/28/2016
 ms.date: 05/08/2017
 ms.author: v-yiso
 ms.openlocfilehash: d3199e2e9de1464c403f48d2d4a2a56dacb502d9
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="configure-and-run-a-ble-sample-application"></a>配置和运行 BLE 示例应用程序
 

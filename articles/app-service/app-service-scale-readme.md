@@ -16,14 +16,14 @@ ms.topic: article
 origin.date: 10/07/2016
 ms.date: 11/21/2016
 ms.author: v-dazen
-ms.openlocfilehash: ca661ef70c1e7f4e449f9a35b97669e80dc70b08
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 92b418eec351e8862a1e21325914fac84505d390
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="azure-app-service-scaling-app-service-applications"></a>Azure 应用服务：缩放应用服务应用程序
-在 Azure App Service 中托管的应用程序可以达到很大的规模。
+在 Azure 应用服务中托管的应用程序可以 [达到很大的规模](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage/)。
 但是，缩放应用程序是一个很复杂的问题，没有“一刀切”解决方案。 若要正确地缩放应用程序，需注意 3 大领域的问题，这对于应用程序的成功缩放至关重要：
 
 1. 了解应用程序体系结构及其弱点。

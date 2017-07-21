@@ -16,10 +16,10 @@ origin.date: 01/05/2017
 ms.date: 02/20/2017
 ms.author: v-johch
 ms.openlocfilehash: c362e085d3c0336c134e7049e77ff3b45b496465
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>群集 Resource Manager 体系结构概述
 若要管理群集中的资源，Service Fabric 群集 Resource Manager 必须拥有一些相关的信息。 它必须了解目前存在哪些服务，以及这些服务正在使用的资源的当前（默认）数量。 若要跟踪群集中的可用资源，它必须了解群集中的节点容量和每个节点使用的资源量。 给定服务的资源消耗量会随时间变化，服务通常会关注多种类型的资源。 在不同的服务之间，可能会同时测量实际物理资源和物理资源。 服务可能会跟踪内存和磁盘使用情况等物理指标。 更常见的是，服务可能会关注逻辑指标，例如“WorkQueueDepth”或“TotalRequests”。 逻辑和实际指标可能跨许多不同类型的服务使用，或可能仅特定对几项服务使用。

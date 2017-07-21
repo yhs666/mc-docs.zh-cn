@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 05/10/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: aa627184c0649b34c82e66351c97eddf4cfd02a2
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 517d12cd83294c50ae3752b7d8873776bc794ce9
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>迁移到适用于 HDInsight 群集的基于 Azure Resource Manager 的开发工具
 
@@ -261,7 +261,7 @@ Azure PowerShell ARM cmdlet 可与 ASM cmdlet 一同安装。 两种模式下的
         //Service principal auth
         //This will log the application in as itself, rather than on behalf of a specific user.
         //For details, including how to set up the application, see:
-        // https://www.azure.cn/documentation/articles/hdinsight-create-non-interactive-authentication-dotnet-applications/
+        //   https://docs.azure.cn/hdinsight/hdinsight-create-non-interactive-authentication-dotnet-applications/
 
         var authFactory = new AuthenticationFactory();
 

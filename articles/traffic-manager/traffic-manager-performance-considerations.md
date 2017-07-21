@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 03/16/2017
 ms.date: 04/27/2017
 ms.author: v-dazen
-ms.openlocfilehash: 0011b57d72c9637e546e2297940f7e5aa6216255
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 806565eb1e1cc19806643ab5bdda6606622bf981
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>流量管理器的性能注意事项
 
@@ -83,6 +83,6 @@ DNS 名称解析速度将会加快，结果将被缓存。 初始 DNS 查找速�
 
 [测试流量管理器设置](traffic-manager-testing-settings.md)
 
-[流量管理器上的操作（REST API 参考）](https://msdn.microsoft.com/library/hh758255.aspx)
+[流量管理器上的操作（REST API 参考）](http://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Azure 流量管理器 Cmdlet](https://docs.microsoft.com/powershell/servicemanagement/azure.trafficmanager/v1.6.1/azure.trafficmanager)
+[Azure 流量管理器 Cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)

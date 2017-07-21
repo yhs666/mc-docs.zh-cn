@@ -16,10 +16,10 @@ origin.date: 01/05/2017
 ms.date: 02/20/2017
 ms.author: v-johch
 ms.openlocfilehash: 471db75c75309151be11b6b90607b47b347050b8
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>均衡 Service Fabric 群集
 Service Fabric 群集 Resource Manager 支持动态负载更改，对节点或服务的添加或删除作出反应，纠正约束冲突，以及重新均衡群集。 但是，执行这些操作的频率是什么，以及如何触发这些操作呢？

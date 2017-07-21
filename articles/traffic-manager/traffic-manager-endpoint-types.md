@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 03/29/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: e1101d8ce30c55a09d99f1b9cf4aae75700e827e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 280fac23b822a794aba2ff155ac4e488c9f39e06
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="traffic-manager-endpoints"></a>流量管理器终结点
 使用 Azure 流量管理器可以控制如何将网络流量分布到在不同数据中心运行的应用程序部署。 需要在流量管理器中将每个应用程序部署配置为一个“终结点”。 当流量管理器收到 DNS 请求时，将选择要在在 DNS 响应中返回的可用终结点。 流量管理器根据当前终结点状态和流量路由方法做出这种选择。 有关详细信息，请参阅[流量管理器工作原理](traffic-manager-how-traffic-manager-works.md)。
@@ -50,7 +50,7 @@ PublicIPAddress 资源属于 Azure Resource Manager 资源。 经典部署模型
 外部终结点用于 Azure 外部的服务。 例如，本地托管的服务或者具不同提供程序的服务。 外部终结点可以单独使用，也可以在同一流量管理器配置文件中与 Azure 终结点结合使用。 可以将 Azure 终结点与外部终结点结合用于多种方案：
 
 * 在主动-主动或主动-被动故障转移模型中，可以使用 Azure 为现有的本地应用程序提供增强的冗余。
-* 若要为全球各地的用户降低应用程序延迟，可以将现有的本地应用程序扩展到 Azure 中的其他地理位置。 有关详细信息，请参阅[流量管理器“性能”流量路由](traffic-manager-routing-methods.md#performance-traffic-routing-method)。
+* 若要为全球各地的用户降低应用程序延迟，可以将现有的本地应用程序扩展到 Azure 中的其他地理位置。 有关详细信息，请参阅[流量管理器“性能”流量路由](traffic-manager-routing-methods.md#performance)。
 * 使用 Azure 为现有的本地应用程序提供额外容量既可以持续满足高峰需求，也可以通过“云爆发”解决方案满足此类需求。
 
 某些情况下，使用外部终结点来引用 Azure 服务会有所帮助（有关示例，请参阅[常见问题解答](traffic-manager-faqs.md#traffic-manager-endpoints)）。 在本示例中，针对运行状况检查的计费是按照 Azure 终结点费率而非外部终结点费率进行的。 但与 Azure 终结点不同，如果停止或删除基础服务，运行状况检查将持续计费，直到在流量管理器中禁用或删除该终结点为止。

@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/30/2016
 ms.date: 02/21/2017
 ms.author: v-dazen
-ms.openlocfilehash: 8fdae2d46e3dc1fe065cbdc1c09f7bbff6a6b955
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 0c9cae13800bf6b28fa94770d49287e334549d45
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="service-principal-authentication-for-api-apps-in-azure-app-service"></a>Azure 应用服务中 API 应用的服务主体身份验证
 
@@ -349,7 +349,7 @@ ms.lasthandoff: 06/21/2017
 
 * [Azure AD 开发人员指南](/active-directory/develop/active-directory-developers-guide)
 * [Azure AD 方案](/active-directory/develop/active-directory-authentication-scenarios)
-* [Azure AD 示例](https://github.com/azure-samples?query=active-directory)
+* [Azure AD 示例](/active-directory/develop/active-directory-code-samples)
 
     [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) 示例类似于本教程中所示的示例，但未使用应用服务身份验证。
 

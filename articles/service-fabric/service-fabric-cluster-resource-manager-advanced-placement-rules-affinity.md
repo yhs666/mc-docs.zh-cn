@@ -16,10 +16,10 @@ origin.date: 01/05/2017
 ms.date: 02/20/2017
 ms.author: v-johch
 ms.openlocfilehash: 6c9db8b39ab798d1e104418f3dd212340ea264df
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>在 Service Fabric 中配置和使用服务相关性
 相关性是一个控件，主要用于帮助简化将较大型的单体式应用程序转换到云和微服务领域。 也就是说，在某些情况下，它也可以用作提升服务性能的合法优化，尽管这样做可能产生副作用。

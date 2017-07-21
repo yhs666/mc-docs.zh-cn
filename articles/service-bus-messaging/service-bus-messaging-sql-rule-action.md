@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/22/2016
+origin.date: 03/23/2017
 ms.date: 05/22/2017
 ms.author: v-yiso
-ms.openlocfilehash: 1c9e338b70c7a01ea69bdfff1e3cc7c917aa2083
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 640dcb8521e633ef8db1af9d65ab0c4020ee05b8
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction 语法
 

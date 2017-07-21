@@ -17,10 +17,10 @@ origin.date: 11/22/2016
 ms.date: 01/20/2017
 ms.author: v-johch
 ms.openlocfilehash: 67851070e74095f189168c2d5c07913f535c7d44
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-the-azure-portal"></a>使用 Azure 门户为 Azure SQL 数据库启动计划内或计划外故障转移
 

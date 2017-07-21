@@ -17,10 +17,10 @@ origin.date: 12/12/2016
 ms.date: 01/25/2017
 ms.author: v-dazen
 ms.openlocfilehash: 5bfbcaab22097fde41c5aeaf617af7f0db395ba3
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>使用 PowerShell 创建、启动或删除应用程序网关 
 

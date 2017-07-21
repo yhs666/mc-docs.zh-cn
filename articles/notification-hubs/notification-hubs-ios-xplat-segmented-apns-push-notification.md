@@ -12,10 +12,10 @@ origin.date: 06/29/2016
 ms.date: 01/19/2017
 ms.author: v-junlch
 ms.openlocfilehash: a24a6ee8b55f705bb36e0976d26b2fd604deb46c
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>使用通知中心发送突发新闻
 

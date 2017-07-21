@@ -17,10 +17,10 @@ origin.date: 11/08/2016
 ms.date: 05/08/2017
 ms.author: v-yiso
 ms.openlocfilehash: 7eaaf8f5fe78979970bd6a122b1df83b58499c50
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="get-azure-tools-windows-7-and-later"></a>获取 Azure 工具（Windows 7 及更高版本）
 > [!div class="op_single_selector"]

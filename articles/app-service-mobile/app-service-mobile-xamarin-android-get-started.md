@@ -14,10 +14,10 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: v-yiso
 ms.openlocfilehash: 9847e5dbabfd0d09d0df55f9c0c033076693853b
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 #<a name="create-a-xamarinandroid-app"></a>创建 Xamarin.Android 应用
 

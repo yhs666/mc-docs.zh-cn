@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 origin.date: 01/11/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: 264355282ecf024453d4fe04a733b768974d0eb7
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 4d0576b9f5aecdac35eef82e0ee9ae16ca795bde
+ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/10/2017
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>在 Azure 中托管的网站中使用 ReportViewer
 > [!IMPORTANT] 
@@ -72,7 +72,7 @@ ms.lasthandoff: 06/23/2017
 ### <a name="to-configure-for-localized-reportviewer-control"></a>为本地化 ReportViewer 控件进行配置
 1. 按照上面的指定说明下载并安装 Microsoft Report Viewer 2012 Runtime 可再发行组件包。
 2. 在项目中创建 <language> 文件夹并将关联的资源程序集文件复制到该位置。 要复制的资源程序集文件为：**Microsoft.ReportViewer.Webforms.Resources.dll** 和 **Microsoft.ReportViewer.Common.Resources.dll**。选择资源程序集文件，并在“属性”窗格中将“复制到输出目录”设置为“始终复制”。
-3. 为 Web 项目设置区域性和 UI 区域性。 有关如何为 ASP.NET 网页设置区域性和 UI 区域性的详细信息，请参阅[如何：为 ASP.NET 网页全球化设置区域性和 UI 区域性](https://msdn.microsoft.com/library/bz9tc508.aspx)。
+3. 为 Web 项目设置区域性和 UI 区域性。 有关如何为 ASP.NET 网页设置区域性和 UI 区域性的详细信息，请参阅[如何：为 ASP.NET 网页全球化设置区域性和 UI 区域性](http://go.microsoft.com/fwlink/?LinkId=237461)。
 
 ## <a name="configuring-authentication-and-authorization"></a>配置身份验证和授权
 ReportViewer 需要使用正确的凭据向报表服务器进行身份验证，并且凭据必须经报表服务器授权才能访问所需的报表。 有关身份验证的信息，请参阅白皮书 [Reporting Services 报表查看器控件和基于 Azure 虚拟机的报表服务器](https://msdn.microsoft.com/library/azure/dn753698.aspx)。
@@ -88,7 +88,7 @@ ReportViewer 需要使用正确的凭据向报表服务器进行身份验证，�
 > 
 
 ## <a name="resources"></a>资源
-[Microsoft 报表](https://msdn.microsoft.com/library/bb885185.aspx)
+[Microsoft 报表](http://go.microsoft.com/fwlink/?LinkId=205399)
 
 [Azure 虚拟机中的 SQL Server Business Intelligence](../classic/ps-sql-bi.md)
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/09/2017
+origin.date: 05/25/2017
 ms.date: 03/31/2017
 ms.author: v-yiso
-ms.openlocfilehash: 01f6595d3d3fd4997278e3191a682d2e8404ab61
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 8dce741555ec373fbf384d939a283961a315d4e4
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="create-a-custom-rule-in-the-remote-monitoring-preconfigured-solution"></a>在远程监视预配置解决方案中创建自定义规则
 

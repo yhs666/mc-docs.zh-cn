@@ -16,10 +16,10 @@ origin.date: 01/30/2017
 ms.date: 03/20/2017
 ms.author: v-johch
 ms.openlocfilehash: 215c706468625af535f9ccde1b21539674b7f6a7
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>将 Azure CLI 1.0 用于 Azure 存储
 

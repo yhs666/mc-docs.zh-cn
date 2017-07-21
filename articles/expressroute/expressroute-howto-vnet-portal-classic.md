@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2016
+origin.date: 09/20/2016
 ms.author: v-yiso
-ms.openlocfilehash: de3f8255cab5b5465d564e9843556e7923050b88
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 
+ms.openlocfilehash: 73ce7cb8eeb45052c7e8115f12bfa51ef3e9fc43
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="create-a-virtual-network-for-expressroute-in-the-classic-portal"></a>在经典门户中为 ExpressRoute 创建虚拟网络
 本文中的步骤指导通过经典部署模型和经典门户配置用于 ExpressRoute 的虚拟网络和虚拟网络网关。

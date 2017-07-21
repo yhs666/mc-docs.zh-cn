@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+origin.date: 05/02/2017
 ms.author: v-yiso
-ms.openlocfilehash: 83a6145c4ec31f9555f68b8a517f65650d2c89eb
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/17/2017
+ms.openlocfilehash: e052b321c0bb21e897048177e9e6ae1d53ad652d
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="service-bus-pricing-and-billing"></a>服务总线定价和计费
 

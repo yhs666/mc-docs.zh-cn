@@ -3,30 +3,32 @@ title: "获取对应用程序进行身份验证所需的值以便从代码访问
 description: "创建服务主体以便从代码访问 SQL 数据库。"
 services: sql-database
 documentationCenter: 
-authors: stevestein
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 tags: 
+ms.assetid: b43e43bb-6660-49e6-b069-abde97eb5770
 ms.service: sql-database
+ms.custom: develop apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/30/2016
+origin.date: 09/30/2016
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 0d8b9b1fa4f0b4092a0b6b4bfa1f088228c4af25
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 99fdd7973d83d8dcaeac6742293e39c7abebfa1f
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>获取对应用程序进行身份验证所需的值以便从代码访问 SQL 数据库
-
 若要在代码中创建并管理 SQL 数据库，必须在创建 Azure 资源的订阅中的 Azure Active Directory (AAD) 域内注册你的应用。
 
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>创建服务主体以便从应用程序访问资源
 
-需要安装并运行最新的 [Azure PowerShell](https://msdn.microsoft.com/zh-cn/library/mt619274.aspx) 。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。
+需要安装并运行最新的 [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) 。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。
 
 以下 PowerShell 脚本将创建对 C# 应用进行身份验证所需的 Active Directory (AD) 应用程序和服务主体。 用于前面 C# 示例所需的脚本输出值。 有关详细信息，请参阅[使用 Azure PowerShell 创建服务主体以访问资源](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
 
@@ -71,5 +73,5 @@ Write-Output "_applicationSecret:" $secret
 
 ## <a name="see-also"></a>另请参阅
 
-- [使用 C# 创建 SQL 数据库](./sql-database-get-started-csharp.md)
-- [使用 Azure Active Directory 身份验证连接到 SQL 数据库](./sql-database-aad-authentication.md)
+- [使用 C# 创建 SQL 数据库](sql-database-get-started-csharp.md)
+- [使用 Azure Active Directory 身份验证连接到 SQL 数据库](sql-database-aad-authentication.md)

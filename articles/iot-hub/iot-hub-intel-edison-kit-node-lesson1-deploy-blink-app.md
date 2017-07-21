@@ -17,10 +17,10 @@ origin.date: 11/08/2016
 ms.date: 05/08/2017
 ms.author: v-yiso
 ms.openlocfilehash: d57c70f8e3f9a39d2a72a317989684c45db7d58d
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="create-and-deploy-the-blink-application"></a>创建和部署 blink 应用程序
 ## <a name="what-you-will-do"></a>执行的操作

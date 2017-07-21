@@ -14,10 +14,10 @@ ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: v-yiso
 ms.openlocfilehash: 419a59156efc6e1914e0839422c21994099cd523
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>教程：Azure 门户中的 DevOps
 

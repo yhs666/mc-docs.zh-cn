@@ -16,10 +16,10 @@ origin.date: 01/07/2017
 ms.date: 02/27/2017
 ms.author: v-junlch
 ms.openlocfilehash: 164ae3855f0161ee8ab504b3480c5bd8bb91e969
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="what-is-azure-key-vault"></a>什么是 Azure 密钥保管库？
 大多数区域都提供了 Azure 密钥保管库。 有关详细信息，请参阅 [密钥保管库定价页](https://www.azure.cn/pricing/details/key-vault/)。

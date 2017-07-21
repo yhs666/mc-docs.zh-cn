@@ -3,28 +3,28 @@ title: "Azure 门户：SQL 数据库动态数据屏蔽 | Azure"
 description: "如何开始在 Azure 门户中使用 SQL 数据库动态数据屏蔽"
 services: sql-database
 documentationcenter: 
-author: ronitr
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: "2"
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 origin.date: 11/22/2016
-ms.date: 03/24/2017
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 50fcd0df084464654f3d1d2f1df58d69c403b73f
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 2b22ed33b667fd0146189e245efeb5c08936c606
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>使用 Azure 门户进行 SQL 数据库动态数据屏蔽入门
 
-本主题介绍如何使用 Azure 门户实现[动态数据掩码](./sql-database-dynamic-data-masking-get-started.md)。 还可以使用 [Azure SQL 数据库 cmdlet](https://msdn.microsoft.com/zh-cn/library/azure/mt574084.aspx) 或 [REST API](https://msdn.microsoft.com/zh-cn/library/dn505719.aspx) 实现动态数据掩码。
+本主题介绍如何使用 Azure 门户实现[动态数据掩码](sql-database-dynamic-data-masking-get-started.md)。 还可以使用 [Azure SQL 数据库 cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx) 或 [REST API](https://msdn.microsoft.com/library/dn505719.aspx) 实现动态数据掩码。
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>使用 Azure 门户为数据库设置动态数据掩码
 1. 启动 Azure 门户 ( [https://portal.azure.cn](https://portal.azure.cn))。
@@ -57,5 +57,5 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-* 有关动态数据掩码的概述，请参阅[动态数据掩码](./sql-database-dynamic-data-masking-get-started.md)。
-* 还可以使用 [Azure SQL 数据库 cmdlet](https://msdn.microsoft.com/zh-cn/library/azure/mt574084.aspx) 或 [REST API](https://msdn.microsoft.com/zh-cn/library/dn505719.aspx) 实现动态数据掩码。
+* 有关动态数据掩码的概述，请参阅[动态数据掩码](sql-database-dynamic-data-masking-get-started.md)。
+* 还可以使用 [Azure SQL 数据库 cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx) 或 [REST API](https://msdn.microsoft.com/library/dn505719.aspx) 实现动态数据掩码。

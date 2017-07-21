@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/06/2017
-ms.date: 03/28/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 279b83b1c93571a3fce0df4adc1e195779444034
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 3ebc75d615b3141c00cba21525b645b877a2fa3e
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="run-sqoop-jobs-using-azure-powershell-for-hadoop-in-hdinsight"></a>使用 HDInsight 中的 Azure PowerShell for Hadoop 运行 Sqoop 作业
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]

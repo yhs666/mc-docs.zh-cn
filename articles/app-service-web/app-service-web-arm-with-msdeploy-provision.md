@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 05/31/2016
 ms.date: 02/21/2017
 ms.author: v-dazen
-ms.openlocfilehash: 51346d3a627429b887adeb07f68568f55dfc7799
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 5a6331a8202698933a5a3e7753341785639286cd
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="deploy-a-web-app-with-msdeploy-custom-hostname-and-ssl-certificate"></a>使用 MSDeploy、自定义主机名和 SSL 证书部署 Web 应用
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 06/23/2017
 ### <a name="create-sample-application"></a>创建示例应用程序
 将部署一个 ASP.NET Web 应用程序。 第一步是创建简单的 Web 应用程序（或者，可以选择使用现有的应用程序 - 在这种情况下，可以跳过此步骤）。
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 打开 Visual Studio 2015，然后选择“文件”>“新建项目”。 在出现的对话框中，选择“Web”>“ASP.NET Web 应用程序”。 在“模板”下选择“Web”，然后选择 MVC 模板。 在“更改身份验证类型”中，选择“无身份验证”。 这是为了尽量简化示例应用程序。
 

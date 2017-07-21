@@ -16,10 +16,10 @@ origin.date: 02/06/2017
 ms.date: 03/03/2017
 ms.author: v-johch
 ms.openlocfilehash: 1d377e42d9895e611ce72dda3b4f265c044b8750
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>为什么通过微服务的方法生成应用程序？
 作为软件开发人员，我们已知道思考如何将应用程序因数分解成组件部分。 这是对象导向、软件抽象和组件化的中心模式。 现在，这种因数分解往往以共享库和技术层之间的类与接口呈现。 后端存储、中间层业务逻辑和前端用户界面 (UI) 通常采用一种分层方法。 过去几年来 *的* 变化是身为开发人员的我们开始为业务驱动的云生成分布式应用程序。

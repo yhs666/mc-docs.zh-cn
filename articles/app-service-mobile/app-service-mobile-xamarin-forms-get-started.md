@@ -14,10 +14,10 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: v-yiso
 ms.openlocfilehash: f077e15ba18067c09498b713766c14bf51a32d28
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 #<a name="create-a-xamarinforms-app"></a>创建 Xamarin.Forms 应用
 

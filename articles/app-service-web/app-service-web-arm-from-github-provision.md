@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 04/27/2016
 ms.date: 01/03/2017
 ms.author: v-dazen
-ms.openlocfilehash: 31d55171b99991e197f96be4a3b8b885b90971c1
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: b2343ebf3f77533d8af250c37c392a7b9a3d539e
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="deploy-a-web-app-linked-to-a-github-repository"></a>部署链接到 GitHub 存储库的 Web 应用
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 06/21/2017
 
 若要自动运行部署，请单击以下按钮：
 
-[![部署到 Azure](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
+[![“部署到 Azure”](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
 
 >[!NOTE]
 > 必须修改从 GitHub 存储库“azure-quickstart-templates”部署的模板，以适应 Azure 中国云环境。 例如，替换某些终结点 -- 将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”。
@@ -53,9 +53,6 @@ ms.lasthandoff: 06/21/2017
         "type": "string",
         "defaultValue": "https://github.com/davidebbo-test/Mvc52Application.git"
     }
-
-> [!NOTE]
-> 无法在 Azure 中国中正确部署此示例 GitHub 存储库，因为无法正确下载 Nuget 的 Jquery 包。 可以创建一个可用的项目，并将其推送到 GitHub。
 
 ### <a name="branch"></a>branch
 部署应用程序时要使用的存储库的分支。 默认值为 master，但也可输入你想要部署的存储库中任何分支的名称。
@@ -111,17 +108,17 @@ Web 应用还具有一个子资源，在以下资源部分中对其进行定义�
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-    New-AzureRmResourceGroupDeployment -TemplateFile path/to/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -ResourceGroupName ExampleDeployGroup
+    New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -ResourceGroupName ExampleDeployGroup
 
 ### <a name="azure-cli"></a>Azure CLI
 
-    azure group deployment create -g {resource-group-name} --template-file path/to/azuredeploy.json
+    azure group deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-    az group deployment create -g {resource-group-name} --template-file path/to/azuredeploy.json --parameters '@azuredeploy.parameters.json'
+    az group deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json --parameters '@azuredeploy.parameters.json'
 
 > [!NOTE] 
 > 有关参数 JSON 文件的内容，请参阅 [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.parameters.json)。

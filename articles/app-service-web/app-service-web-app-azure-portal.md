@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 02/26/2016
 ms.date: 09/26/2016
 ms.author: v-dazen
-ms.openlocfilehash: ba5e2345e4d29ddaeff9d837b22ae9a77b4b02d3
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 115b352ddffa1717b336b1ef2dccb52d020c6191
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="reference-for-navigating-the-azure-portal"></a>在 Azure 门户中进行导航的参考
 现在，Azure 网站称为[应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)。 我们正在更新所有文档以反映此名称更改，并为 Azure 门户提供说明。 完成该过程之前，可以使用此文档作为在 Azure 门户中使用 Web 应用的指南。
@@ -40,8 +40,6 @@ Azure 门户则可以利用多个服务中的组件端对端地轻松构建应�
 新建 Web 应用仍然像 1-2-3 一样简单。 下图并排显示了经典管理门户和新门户，以便说明创建和运行 Web 应用所需的步骤数并未发生太大变化。 
 
 ![](./media/app-service-web-app-azure-portal/CreateWebApp.png)
-
-在新门户中，可以从最常用的 Web 应用类型（WordPress 等受欢迎的库应用程序等）中进行选择。
 
 创建 Web 应用时，可以在新门户中指定 URL、应用服务计划和位置，其操作与经典管理门户中的操作一样。 
 

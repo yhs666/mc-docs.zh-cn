@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: v-yiso
 ms.openlocfilehash: e649b1fe2d759c291e99695f519c1c8ce3abccfb
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>在 Azure 中为应用程序配置 SSL
 
