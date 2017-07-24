@@ -3,8 +3,8 @@ title: "面向开发人员的 Azure Batch 概述 | Microsoft 文档"
 description: "从开发的角度了解 Batch 服务的功能及其 API。"
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
@@ -12,24 +12,24 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-origin.date: 03/27/2017
+origin.date: 05/22/2017
+ms.date: 07/03/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.date: 05/15/2017
-ms.openlocfilehash: 166133d9a547d11ed87e0244b4ced67552529fd9
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 7830fd472d2f63cc8bd19c8980b50a335d224761
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 开发大规模并行计算解决方案
 
 这篇 Azure Batch 服务核心组件的概述将介绍 Batch 开发人员可用来构建大规模并发计算解决方案的主要服务功能和资源。
 
-不管是在开发可发出直接 [REST API][batch_rest_api] 调用的分布式计算应用程序或服务，还是使用某个 [Batch SDK](./batch-apis-tools.md#batch-development-apis)，都可以使用本文中介绍的多种资源和功能。
+不管是在开发可发出直接 [REST API][batch_rest_api] 调用的分布式计算应用程序或服务，还是使用某个 [Batch SDK](batch-apis-tools.md#azure-accounts-for-batch-development)，都可以使用本文中介绍的多种资源和功能。
 
 > [!TIP]
-> 有关 Batch 服务的更全面介绍，请参阅 [Basics of Azure Batch](./batch-technical-overview.md)（Azure Batch 基础知识）。
+> 有关 Batch 服务的更全面介绍，请参阅 [Basics of Azure Batch](batch-technical-overview.md)（Azure Batch 基础知识）。
 >
 >
 
@@ -69,10 +69,10 @@ ms.lasthandoff: 06/21/2017
 - [应用程序包](#application-packages)
 
 ## <a name="account"></a>帐户
-批处理帐户是批处理服务中唯一标识的实体。 所有处理都与一个 Batch 帐户相关联。 使用 Batch 服务执行操作时，需要同时用到帐户名及其帐户密钥之一。 可以 [使用 Azure 门户创建 Azure Batch 帐户](./batch-account-create-portal.md)。
+批处理帐户是批处理服务中唯一标识的实体。 所有处理都与 Batch 帐户相关联。可以通过 [Azure 门户](batch-account-create-portal.md)或编程方式（例如使用[批处理管理 .NET 库](batch-management-dotnet.md)）创建 Azure Batch 帐户。 创建帐户时，可以关联 Azure 存储帐户。
 
 ## <a name="compute-node"></a>计算节点
-计算节点是专门用于处理一部分应用程序工作负荷的 Azure 虚拟机 (VM)。 节点大小确定了 CPU 核心数目、内存容量，以及分配给节点的本地文件系统大小。 可以使用 Azure 云服务或虚拟机应用商店映像创建的 Windows 或 Linux 节点池。 有关这些选项的详细信息，请参阅下面的 [池](#pool) 部分。
+计算节点是专门用于处理一部分应用程序工作负荷的 Azure 虚拟机 (VM) 或云服务 VM。 节点大小确定了 CPU 核心数目、内存容量，以及分配给节点的本地文件系统大小。 可以使用 Azure 云服务或虚拟机应用商店映像创建的 Windows 或 Linux 节点池。 有关这些选项的详细信息，请参阅下面的 [池](#pool) 部分。
 
 节点可以运行节点操作系统环境支持的任何可执行文件或脚本。 这包括适用于 Windows 的 \*.exe、\*.cmd、\*.bat 和 PowerShell 脚本，以及适用于 Linux 的二进制文件、shell 和 Python 脚本。
 
@@ -108,27 +108,26 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 
     **Sizes for Cloud Services** （云服务的大小）中列出了 [云服务配置](../cloud-services/cloud-services-sizes-specs.md)计算节点大小。 批处理支持 `ExtraSmall`、`STANDARD_A1_V2`、`STANDARD_A2_V2` 以外的所有云服务大小。
 
-    [Sizes for virtual machines in Azure](../virtual-machines/linux/sizes.md)（Azure 中虚拟机的大小）(Linux) 和 [Sizes for virtual machines in Azure](../virtual-machines/linux/sizes.md)（Azure 中虚拟机的大小）(Windows) 中列出了“虚拟机配置”计算节点大小。 Batch 支持除 `STANDARD_A0` 和高级存储大小（`STANDARD_GS`、`STANDARD_DS` 和 `STANDARD_DSV2` 系列）以外所有的 Azure VM 大小。
+    [Sizes for virtual machines in Azure](../virtual-machines/linux/sizes.md)（Azure 中虚拟机的大小）(Linux) 和 [Sizes for virtual machines in Azure](../virtual-machines/windows/sizes.md)（Azure 中虚拟机的大小）(Windows) 中列出了“虚拟机配置”计算节点大小。 Batch 支持除 `STANDARD_A0` 和高级存储大小（`STANDARD_GS`、`STANDARD_DS` 和 `STANDARD_DSV2` 系列）以外所有的 Azure VM 大小。
 
-    选择计算节点大小时，请考虑要在节点上运行的应用程序的特征和要求。 考虑应用程序是否是多线程的以及其消耗的内存量等因素有助于确定最合适且经济高效的节点大小。 通常，选择节点大小时会假设某个任务要在节点上运行一次。 但是，在作业执行期间，可能有多个任务（因而有多个应用程序实例）在计算节点上[并行运行](./batch-parallel-node-tasks.md)。 在此情况下，往往会选择较大的节点大小，以满足更高的并行任务执行需求。 有关详细信息，请参阅 [任务计划策略](#task-scheduling-policy) 。
+    选择计算节点大小时，请考虑要在节点上运行的应用程序的特征和要求。 考虑应用程序是否是多线程的以及其消耗的内存量等因素有助于确定最合适且经济高效的节点大小。 通常，选择节点大小时会假设某个任务要在节点上运行一次。 但是，在作业执行期间，可能有多个任务（因而有多个应用程序实例）在计算节点上[并行运行](batch-parallel-node-tasks.md)。 在此情况下，往往会选择较大的节点大小，以满足更高的并行任务执行需求。 有关详细信息，请参阅 [任务计划策略](#task-scheduling-policy) 。
 
     池中所有节点的大小相同。 如果打算运行具有不同系统要求和/或负载级别的应用程序，建议使用不同的池。
-- **节点目标数目**
 
-    这是要在池中部署的计算节点数目。 之所以称为 *目标* ，是因为在某些情况下，池可能无法达到所需的节点数目。 如果池已达到 Batch 帐户的 [核心配额](./batch-quota-limit.md) ，或应用到池的自动缩放公式限制了最大节点数（请参阅下面的“缩放策略”部分），则池无法达到所需节点数目。
 - **缩放策略**
 
     对于动态工作负荷，可以编写 [自动缩放公式](#scaling-compute-resources) 并将其应用到池中。 Batch 服务将定期计算该公式，并根据可以指定的各个池、作业、和任务参数，调整池中的节点数目。
+
 - **任务计划策略**
 
-    [每个节点的最大任务数](./batch-parallel-node-tasks.md) 配置选项确定了可以在池中每个计算节点上并行运行的最大任务数。
+    [每个节点的最大任务数](batch-parallel-node-tasks.md) 配置选项确定了可以在池中每个计算节点上并行运行的最大任务数。
 
-    默认配置指定每次在节点上运行一个任务，但在某些情况下，在一个节点上同时执行两个或多个任务可能更有利。 请参阅 [concurrent node tasks](./batch-parallel-node-tasks.md)（并发节点任务）一文中的[示例方案](./batch-parallel-node-tasks.md#example-scenario)，了解如何通过在每个节点上运行多个任务来受益。
+    默认配置指定每次在节点上运行一个任务，但在某些情况下，在一个节点上同时执行两个或多个任务可能更有利。 请参阅 [concurrent node tasks](batch-parallel-node-tasks.md)（并发节点任务）一文中的[示例方案](batch-parallel-node-tasks.md#example-scenario)，了解如何通过在每个节点上运行多个任务来受益。
 
     还可以指定一个 *填充类型* ，用于确定 Batch 是要将任务平均分散到池中的所有节点，还是在将最大数目的任务分配给一个节点后，再将任务分配给另一个节点。
 - **通信状态** 
 
-    在大多数情况下，任务将独立运行，并不需要彼此通信。 但是，某些应用程序中的任务必须能够通信，例如 [MPI 方案](./batch-mpi.md)。
+    在大多数情况下，任务将独立运行，并不需要彼此通信。 但是，某些应用程序中的任务必须能够通信，例如 [MPI 方案](batch-mpi.md)。
 
     用户可以配置一个池用于 **节点间通信**，以便池中的节点可在运行时进行通信。 启用节点间通信时，云服务配置池中的节点可以在超过 1100 个端口上彼此通信，并且虚拟机配置池不会限制任何端口的流量。
 
@@ -144,7 +143,7 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
     可以指定应在其中创建池计算节点的 Azure [虚拟网络 (VNet)](../virtual-network/virtual-networks-overview.md) 的 ID。 有关详细信息，请参阅[池网络配置](#pool-network-configuration)部分。
 
 > [!IMPORTANT]
-> 所有批处理帐户都有默认**配额**，用于限制批处理帐户中的**核心**（因此也包括计算节点）数目。 可以在 [Quotas and limits for the Azure Batch service](./batch-quota-limit.md)（Azure 批处理服务的配额和限制）中找到默认配额以及如何[提高配额](./batch-quota-limit.md#increase-a-quota)（例如批处理帐户中的核心数目上限）的说明。 如果你有类似于“为什么我的池不能包含 X 个以上的节点？ ”的疑惑，则原因可能在于此核心配额。
+> 所有批处理帐户都有默认**配额**，用于限制批处理帐户中的**核心**（因此也包括计算节点）数目。 可以在 [Quotas and limits for the Azure Batch service](batch-quota-limit.md)（Azure 批处理服务的配额和限制）中找到默认配额以及如何[提高配额](batch-quota-limit.md#increase-a-quota)（例如批处理帐户中的核心数目上限）的说明。 如果你有类似于“为什么我的池不能包含 X 个以上的节点？ ”的疑惑，则原因可能在于此核心配额。
 >
 >
 
@@ -240,15 +239,15 @@ Batch 提供作业准备任务来设置作业前的执行。 作业释放任务�
 
 作业准备和释放任务允许指定调用任务时要运行的命令行。 这些任务提供许多功能，例如文件下载、以提升权限方式执行、自定义环境变量、最大执行持续时间、重试计数和文件保留时间。
 
-有关作业准备和释放任务的详细信息，请参阅 [在 Azure Batch 计算节点上运行作业准备和完成任务](./batch-job-prep-release.md)。
+有关作业准备和释放任务的详细信息，请参阅 [在 Azure Batch 计算节点上运行作业准备和完成任务](batch-job-prep-release.md)。
 
 ### <a name="multi-instance-task"></a>多实例任务
-[多实例任务](./batch-mpi.md) 是经过配置后可以在多个计算节点上同时运行的任务。 通过多实例任务，可以启用等高性能计算方案（例如消息传递接口 (MPI)），此类方案需要将一组计算节点分配到一起来处理单个工作负荷。
+[多实例任务](batch-mpi.md) 是经过配置后可以在多个计算节点上同时运行的任务。 通过多实例任务，可以启用等高性能计算方案（例如消息传递接口 (MPI)），此类方案需要将一组计算节点分配到一起来处理单个工作负荷。
 
-有关在 Batch 中使用 Batch .NET 库运行 MPI 作业的详细介绍，请参阅 [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](./batch-mpi.md)（在 Azure Batch 中使用多实例任务来执行消息传递接口 (MPI) 应用程序）。
+有关在 Batch 中使用 Batch .NET 库运行 MPI 作业的详细介绍，请参阅 [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](batch-mpi.md)（在 Azure Batch 中使用多实例任务来执行消息传递接口 (MPI) 应用程序）。
 
 ### <a name="task-dependencies"></a>任务依赖项
-顾名思义，使用[任务依赖项](./batch-task-dependencies.md)可以在执行某个任务之前，指定该任务与其他任务的依赖性。 此功能提供以下情况的支持：“下游”任务取用“上游”任务的输出，或当上游任务执行下游任务所需的某种初始化时。 若要使用此功能，必须先在 Batch 作业中启用任务依赖性。 然后，针对每个依赖于另一个任务（或其他许多任务）的任务，指定该任务依赖的任务。
+顾名思义，使用[任务依赖项](batch-task-dependencies.md)可以在执行某个任务之前，指定该任务与其他任务的依赖性。 此功能提供以下情况的支持：“下游”任务取用“上游”任务的输出，或当上游任务执行下游任务所需的某种初始化时。 若要使用此功能，必须先在 Batch 作业中启用任务依赖性。 然后，针对每个依赖于另一个任务（或其他许多任务）的任务，指定该任务依赖的任务。
 
 使用任务依赖性，可以配置如下所述的方案：
 
@@ -256,7 +255,7 @@ Batch 提供作业准备任务来设置作业前的执行。 作业释放任务�
 - *taskC* 同时依赖于 *taskA* 和 *taskB*。
 - *taskD* 在执行前依赖于某个范围的任务，例如任务 *1* 到 *10*。
 
-有关此功能的更深入信息，请查看 [Azure Batch 中的任务依赖关系](./batch-task-dependencies.md)和 [azure-batch-samples][github_samples] GitHub 存储库中的 [TaskDependencies][github_sample_taskdeps] 代码示例。
+有关此功能的更深入信息，请查看 [Azure Batch 中的任务依赖关系](batch-task-dependencies.md)和 [azure-batch-samples][github_samples] GitHub 存储库中的 [TaskDependencies][github_sample_taskdeps] 代码示例。
 
 ## <a name="environment-settings-for-tasks"></a>任务的环境设置
 批处理服务执行的每个任务都可以访问在计算节点上设置的环境变量。 这包括 Batch 服务定义的（[服务定义型][msdn_env_vars]）环境变量以及用户可以针对其任务定义的自定义环境变量。 任务执行的应用程序和脚本可以在执行期间访问这些环境变量。
@@ -290,13 +289,13 @@ Batch 服务在节点上公开文件系统的一部分作为 *根目录*。 任�
 >
 
 ## <a name="application-packages"></a>应用程序包
-[应用程序包](./batch-application-packages.md) 功能可为池中的计算节点提供简单的应用程序管理和部署能力。 可上传和管理任务所运行应用程序的多个版本，包括二进制文件和支持文件。 然后可以将一个或多个这样的应用程序自动部署到池中的计算节点。
+[应用程序包](batch-application-packages.md) 功能可为池中的计算节点提供简单的应用程序管理和部署能力。 可上传和管理任务所运行应用程序的多个版本，包括二进制文件和支持文件。 然后可以将一个或多个这样的应用程序自动部署到池中的计算节点。
 
 可以在池和任务级别指定应用程序包。 指定池应用程序包时，应用程序将部署到池中的每个节点。 指定任务应用程序包时，应用程序只在运行任务的命令行之前，部署到计划要运行作业的至少一个任务的节点。
 
 Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算节点的详细信息，因此可以简化代码和管理开销。
 
-若要了解应用程序包功能的详细信息，请参阅 [Application deployment with Azure Batch application packages](./batch-application-packages.md)（使用 Azure Batch 应用程序包部署应用程序）。
+若要了解应用程序包功能的详细信息，请参阅 [Application deployment with Azure Batch application packages](batch-application-packages.md)（使用 Azure Batch 应用程序包部署应用程序）。
 
 > [!NOTE]
 > 如果将池应用程序包添加到 *现有* 池，则必须重新启动其计算节点，应用程序包才会应用到节点。
@@ -314,18 +313,20 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 
 ## <a name="pool-network-configuration"></a>池网络配置
 
-在 Azure Batch 中创建计算节点池时，可以使用 API 指定应在其中创建池计算节点的 Azure [虚拟网络 (VNet)](../virtual-network/virtual-networks-overview.md) 的 ID。
+在 Azure Batch 中创建计算节点池时，可以指定应在其中创建池计算节点的 Azure [虚拟网络 (VNet)](../virtual-network/virtual-networks-overview.md) 的子网 ID。
 
 - VNet 必须满足以下条件：
 
    - 与 Azure Batch 帐户位于同一 Azure **区域** 。
    - 与 Azure Batch 帐户在同一**订阅**中。
 
-- VNet 应该具有足够的可用 **IP 地址**以适应池的 `targetDedicated` 属性。 如果子网没有足够的可用 IP 地址，批处理服务将分配池中的部分计算节点，并返回调整大小错误。
+- 指定的子网应有足够的可用 IP 地址来提供给所有目标节点，即池的 `targetDedicatedNodes` 和 `targetLowPriorityNodes` 属性的总计。 如果子网没有足够的可用 IP 地址，批处理服务将分配池中的部分计算节点，并返回调整大小错误。
 
-- 指定的子网必须允许来自批处理服务的通信，才能在计算节点上计划任务。 如果与 VNet 关联的**网络安全组 (NSG)** 拒绝与计算节点通信，则批处理服务会将计算节点的状态设置为“不可用”。 
+- 指定的子网必须允许来自批处理服务的通信，才能在计算节点上计划任务。 如果与 VNet 关联的**网络安全组 (NSG)** 拒绝与计算节点通信，则批处理服务会将计算节点的状态设置为“不可用”。
 
-- 如果指定的 VNet 具有关联的 NSG，则必须启用入站通信。 就 Linux 池来说，端口 29876、29877 和 22 必须启用。 就 Windows 池来说，端口 3389 必须启用。
+- 如果指定的 VNet 具有关联的 NSG，则必须 启用入站通信。 就 Linux 池来说， 端口 29876、29877 和 22 必须启用。 就 Windows 池来说，端口 3389 必须启用。
+
+
 
 - *MicrosoftAzureBatch* 服务主体必须为指定的 VNet 提供[经典虚拟机参与者](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor)基于角色的访问控制 (RBAC) 角色。 在 Azure 门户中：
 
@@ -336,11 +337,11 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 
 
 ## <a name="scaling-compute-resources"></a>缩放计算资源
-通过 [自动缩放](./batch-automatic-scaling.md)功能，可以让 Batch 服务根据计算方案的当前工作负荷和资源使用状况动态缩放池中的计算节点数目。 这样，便可做到只使用所需资源并可释放不需要的资源，因而能够降低运行应用程序的整体成本。
+通过 [自动缩放](batch-automatic-scaling.md)功能，可以让 Batch 服务根据计算方案的当前工作负荷和资源使用状况动态缩放池中的计算节点数目。 这样，便可做到只使用所需资源并可释放不需要的资源，因而能够降低运行应用程序的整体成本。
 
-可通过编写 [自动缩放公式](./batch-automatic-scaling.md#automatic-scaling-formulas) 并将该公式与池相关联，来启用自动缩放。 Batch 服务使用该公式来确定池中下一个缩放间隔（可配置的间隔）的目标节点数目。 可以在创建池时指定池的自动缩放设置，或稍后在池上启用缩放。 还可以更新已启用缩放的池上的缩放设置。
+可通过编写 [自动缩放公式](batch-automatic-scaling.md#automatic-scaling-formulas) 并将该公式与池相关联，来启用自动缩放。 Batch 服务使用该公式来确定池中下一个缩放间隔（可配置的间隔）的目标节点数目。 可以在创建池时指定池的自动缩放设置，或稍后在池上启用缩放。 还可以更新已启用缩放的池上的缩放设置。
 
-例如，也许某个作业需要提交大量任务以执行。 你可以将缩放公式分配到池，以根据当前的排队任务数和作业中任务的完成率来调整池中的节点数目。 Batch 服务定期评估公式，并根据工作负荷和其他公式设置来调整池的大小。 当有大量的排队任务时该服务会根据需要添加节点，当没有正在排队或运行的任务时则会删除节点。 
+例如，也许某个作业需要提交大量任务以执行。 你可以将缩放公式分配到池，以根据当前的排队任务数和作业中任务的完成率来调整池中的节点数目。 Batch 服务定期评估公式，并根据工作负荷和其他公式设置来调整池的大小。 当有大量的排队任务时该服务会根据需要添加节点，当没有正在排队或运行的任务时则会删除节点。
 
 缩放公式可以基于以下度量值：
 
@@ -350,7 +351,7 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 
 如果自动缩放会减少池中的计算节点数，则必须考虑如何处理在执行减少操作时运行的任务。 为了满足这一点，Batch 提供可包含在公式中的 *节点解除分配选项* 。 例如，可以指定运行中的任务立即停止，立即停止然后重新排入队列以便在另一个节点上运行，或允许先完成再从池中删除节点。
 
-有关自动缩放应用程序的详细信息，请参阅 [自动缩放 Azure Batch 池中的计算节点](./batch-automatic-scaling.md)。
+有关自动缩放应用程序的详细信息，请参阅 [自动缩放 Azure Batch 池中的计算节点](batch-automatic-scaling.md)。
 
 > [!TIP]
 > 若要获得最大的计算资源使用率，请将节点的目标数目设置成在作业结束时降为零，但允许正在运行的任务完成。
@@ -370,16 +371,24 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 ### <a name="task-failure-handling"></a>任务失败处理
 任务失败划分为以下类别：
 
-- **计划失败**
+- **预处理失败**
 
-    如果为任务指定的文件的传输因任何原因而失败，将为该任务设置 *计划错误* 。
+    如果任务无法启动，则会为任务设置预处理错误。  
 
-    如果任务的资源文件已移动、存储帐户不再可用，或者发生其他使文件无法成功复制到节点的问题，则可能会出现计划错误。
+    如果任务的资源文件已移动、存储帐户不再可用，或者遇到其他使文件无法成功复制到节点的问题，则可能会出现预处理错误。
+
+- **文件上传失败**
+
+    如果上传为任务指定的文件因任何原因而失败，则会为该任务设置文件上传错误。
+
+    如果提供的用于访问 Azure 存储的 SAS 无效或未提供写权限，如果存储帐户不再可用，或者如果遇到其他使文件无法成功复制到节点的问题，则可能会发生文件上传错误。    
+
 - **应用程序失败**
 
     任务命令行指定的进程也可能会失败。 如果任务执行的进程返回非零退出代码，则将该进程视为失败（请参阅下一部分中的 *任务退出代码* ）。
 
     对于应用程序失败，可以将 Batch 配置为自动重试任务，并最多重试指定的次数。
+
 - **约束失败**
 
     可以设置一个约束来指定作业或任务的最大执行持续期间，即 *maxWallClockTime*。 此约束可用于终止未能继续进行的任务。
@@ -390,6 +399,7 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 - `stderr` 和 `stdout`
 
     在执行过程中，应用程序可以生成诊断输出，这些信息可用于排查问题。 如前一部分[文件和目录](#files-and-directories)中所述，批处理服务会将标准输出和标准错误输出发送到计算节点上的任务目录中的 `stdout.txt` 和 `stderr.txt` 文件。 可以使用 Azure 门户或 Batch SDK 之一下载这些文件。 例如，可以使用 Batch .NET 库中的 [ComputeNode.GetNodeFile][net_getfile_node] 和 [CloudTask.GetNodeFile][net_getfile_task] 检索这些文件和其他文件来进行故障排除。
+
 - **任务退出代码**
 
     如前所述，如果任务执行的程序返回非零退出代码，则 Batch 服务会将此任务标记为失败。 当任务执行某个进程时，Batch 将使用 *进程的返回代码*填充任务的退出代码属性。 请务必注意，任务的退出代码**不是**由 Batch 服务确定， 而是由进程本身或此进程在其上运行的操作系统确定。
@@ -400,7 +410,7 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 间歇性的问题也有可能会导致任务挂起，或者花费很长时间才能完成执行。 可为任务设置最长执行间隔时间。 如果超出最长执行间隔时间，Batch 服务会中断任务应用程序。
 
 ### <a name="connecting-to-compute-nodes"></a>连接到计算节点
-可通过远程登录到计算节点来进一步执行调试和故障排除。 可以使用 Azure 门户下载 Windows 节点的远程桌面协议 (RDP) 文件，并获取 Linux 节点的安全外壳 (SSH) 连接信息。 也可以使用 Batch API（例如，使用 [Batch .NET][net_rdpfile] 或 [Batch Python](./batch-linux-nodes.md#connect-to-linux-nodes)）执行此操作。
+可通过远程登录到计算节点来进一步执行调试和故障排除。 可以使用 Azure 门户下载 Windows 节点的远程桌面协议 (RDP) 文件，并获取 Linux 节点的安全外壳 (SSH) 连接信息。 也可以使用 Batch API（例如，使用 [Batch .NET][net_rdpfile] 或 [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh)）执行此操作。
 
 > [!IMPORTANT]
 > 若要通过 RDP 或 SSH 连接到某个节点，必须先在该节点上创建一个用户。 为此，可以使用 Azure 门户通过 Batch REST API [将用户帐户添加到节点][rest_create_user]、在 Batch .NET 中调用 [ComputeNode.CreateComputeNodeUser][net_create_user] 方法，或在 Batch Python 模块中调用 [add_user][py_add_user] 方法。
@@ -429,21 +439,21 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 >
 
 ## <a name="next-steps"></a>后续步骤
-- 了解适用于生成批处理解决方案的[批处理 API 和工具](./batch-apis-tools.md)。
-- 在 [Get started with the Azure Batch Library for .NET](./batch-dotnet-get-started.md)（适用于 .NET 的 Azure Batch 库入门）中逐步演练一个示例 Batch 应用程序。 另请参阅该教程的 [Python 版本](./batch-python-tutorial.md) ，其中介绍了如何在 Linux 计算节点上运行工作负荷。
+- 了解适用于生成批处理解决方案的[批处理 API 和工具](batch-apis-tools.md)。
+- 在 [Get started with the Azure Batch Library for .NET](batch-dotnet-get-started.md)（适用于 .NET 的 Azure Batch 库入门）中逐步演练一个示例 Batch 应用程序。 另请参阅该教程的 [Python 版本](batch-python-tutorial.md) ，其中介绍了如何在 Linux 计算节点上运行工作负荷。
 - 下载并构建 [Batch 资源管理器][github_batchexplorer] 示例项目，以便在开发 Batch 解决方案时使用。 使用 Batch 资源管理器可以执行以下和其他操作：
 
   - 监视和管理 Batch 帐户中的池、作业与任务
   - 从节点下载 `stdout.txt`、`stderr.txt` 和其他文件
   - 在节点上创建用户，并下载用于远程登录的 RDP 文件
-- 了解如何 [创建 Linux 计算节点池](./batch-linux-nodes.md)。
+- 了解如何 [创建 Linux 计算节点池](batch-linux-nodes.md)。
 - 访问 MSDN 上的 [Azure Batch 论坛][batch_forum] 。 无论你是新手还是 Batch 专家，该论坛都是一个提问的好去处。
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[batch_forum]: https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=azurebatch
-[cloud_service_sizes]:../cloud-services/cloud-services-sizes-specs.md
+[batch_forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch
+[cloud_service_sizes]: ../cloud-services/cloud-services-sizes-specs.md
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
@@ -492,3 +502,4 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
+
