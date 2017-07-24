@@ -96,7 +96,7 @@ ms.lasthandoff: 06/21/2017
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a></td>
 </tr> 
 <tr> 
-<td rowspan="9">文件<b></b></td>
+<td rowspan="9"><b>文件</b></td>
 <td>创建共享/目录/文件</td> 
 <td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java</a></td> 
 </tr>
@@ -133,7 +133,7 @@ ms.lasthandoff: 06/21/2017
 <td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Getting Started with Azure File Service in Java</a></td> 
 </tr>
 <tr> 
-<td rowspan="8">队列</b><b></td>
+<td rowspan="8"><b>队列</b></td>
 <td>添加消息</td> 
 <td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/queue/gettingstarted/QueueBasics.java">存储 Java 客户端库示例</a></td> 
 </tr> 
@@ -166,7 +166,7 @@ ms.lasthandoff: 06/21/2017
 <td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java</a></td> 
 </tr> 
 <tr> 
-<td rowspan="7">表<b></b></td>
+<td rowspan="7"><b>表</b></td>
 <td>创建表</td> 
 <td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
 </tr> 

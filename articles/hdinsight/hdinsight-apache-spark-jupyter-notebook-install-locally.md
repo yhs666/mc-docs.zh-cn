@@ -118,11 +118,11 @@ ms.lasthandoff: 07/14/2017
 
 7. 验证是否可以使用 Jupyter 笔记本连接到群集，以及是否可以使用内核随附的 Spark magic。 执行以下步骤。
 
-    a.将新的虚拟硬盘附加到 VM。 创建新的笔记本。 在右下角单击“新建”。 用户应该会看到默认内核 **Python2** 和安装的两个新内核：**PySpark** 和 **Spark**。 单击“PySpark”。
+    a. 创建新的笔记本。 在右下角单击“新建”。 用户应该会看到默认内核 **Python2** 和安装的两个新内核：**PySpark** 和 **Spark**。 单击“PySpark”。
 
     ![Jupyter notebook 中的内核](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Jupyter notebook 中的内核")
 
-    b.保留“数据库类型”设置，即设置为“共享”。 运行以下代码片段。
+    b. 运行以下代码片段。
 
         %%sql
         SELECT * FROM hivesampletable LIMIT 5

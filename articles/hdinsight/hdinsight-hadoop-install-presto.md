@@ -44,9 +44,9 @@ ms.lasthandoff: 07/14/2017
 
 1. 使用[预配基于 Linux 的 HDInsight 群集](hdinsight-hadoop-create-linux-clusters-portal.md)中的步骤开始预配群集。 请确保使用**自定义**群集创建流创建群集。 必须确保创建的群集满足以下要求。
 
-    a.将新的虚拟硬盘附加到 VM。 它必须是装有 HDInsight 3.5 的 Hadoop 群集。
+    a. 它必须是装有 HDInsight 3.5 的 Hadoop 群集。
 
-    b.保留“数据库类型”设置，即设置为“共享”。 它必须使用 Azure 存储作为数据存储。
+    b. 它必须使用 Azure 存储作为数据存储。
 
     ![使用自定义选项创建 HDInsight 群集](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
@@ -123,11 +123,11 @@ ms.lasthandoff: 07/14/2017
 
 6. 将更改应用到群集配置后，可以使用以下步骤访问 Airpal Web 接口。
 
-    a.将新的虚拟硬盘附加到 VM。 在群集边栏选项卡中单击“应用程序”。
+    a. 在群集边栏选项卡中单击“应用程序”。
 
     ![HDInsight 在 Presto 群集上启动 Airpal](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
 
-    b.保留“数据库类型”设置，即设置为“共享”。 在“已安装的应用”边栏选项卡中，单击 Airpal 对应的“门户”。
+    b. 在“已安装的应用”边栏选项卡中，单击 Airpal 对应的“门户”。
 
     ![HDInsight 在 Presto 群集上启动 Airpal](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
 

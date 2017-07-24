@@ -60,7 +60,7 @@ ms.lasthandoff: 06/21/2017
 3. 确保“连接器”选项卡仍处于选中状态。 针对每个 Active Directory 域服务类型的连接器，单击“运行”，然后依次选择“增量同步”和“确定”。
 4. 选择 Azure Active Directory (Microsoft) 类型的连接器。 单击“运行”，然后依次选择“增量同步”和“确定”。
 
-现在，已将导出更改暂存到 Azure AD 和本地 AD（如果你正在使用 Exchange 混合部署）。 接下来的步骤可让你在实际开始导出到目录之前，检查将要更改的内容。
+现在，已将导出更改暂存到 Azure AD 和本地 AD（如果你正在使用 Exchange 混合部署）。 后续步骤可让你在实际开始导出到目录之前，检查将要更改的内容。
 
 #### <a name="verify"></a>验证
 1. 启动 cmd 提示符并转到 `%ProgramFiles%\Azure AD Sync\bin`

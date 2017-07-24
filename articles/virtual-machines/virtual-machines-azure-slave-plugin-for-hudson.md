@@ -35,7 +35,7 @@ ms.lasthandoff: 06/21/2017
 6. 单击“安装” 。
 7. 重新启动 Hudson。
 
-现在插件安装完毕，接下来的步骤会是用你的 Azure 订阅配置文件配置插件并创建一个在为从属节点创建 VM 时要使用的模板。
+现在插件安装完毕，后续步骤会是用你的 Azure 订阅配置文件配置插件并创建一个在为从属节点创建 VM 时要使用的模板。
 
 ## <a name="configure-the-azure-slave-plug-in-with-your-subscription-profile"></a>使用订阅配置文件配置 Azure Slave 插件
 订阅配置文件也称为发布设置，是一个 XML 文件，包含在你的开发环境中使用 Azure 时需要的安全凭据以及一些附加信息。 若要配置 Azure Slave 插件，你需要：

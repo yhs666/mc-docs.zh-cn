@@ -11,17 +11,16 @@ ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 origin.date: 02/16/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: fd9f74c9312517f63af44ab87d4abb3b0295a023
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 4487c6b40b40895be748e78d2e07c796324fc836
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>配合使用 VMAccess 扩展和 Azure CLI 2.0 管理用户、SSH，并检查或修复 Linux VM 上的磁盘
 Linux VM 上的磁盘显示错误。 不知道怎样重置 Linux VM 的根密码，或者不小心删除了 SSH 私钥。 如果在数据中心时代发生这种情况，则需要开车到那里，然后打开 KVM 访问服务器控制台。 请将 Azure VMAccess 扩展想像成该 KVM 交换机，它允许你访问控制台以重置 Linux 访问或执行磁盘级维护。
@@ -233,8 +232,8 @@ az vm extension set \
 ## <a name="next-steps"></a>后续步骤
 使用 Azure VMAccess 扩展更新 Linux 是对运行中 Linux VM 进行更改的一种方法。 也可以使用 cloud-init 等工具和 Azure Resource Manager 在 Linux VM 启动时对其进行修改。
 
-[关于虚拟机扩展和功能](extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+[关于虚拟机扩展和功能](../windows/extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[使用 Linux VM 扩展创作 Azure Resource Manager 模板](extensions-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+[使用 Linux VM 扩展创作 Azure Resource Manager 模板](../windows/extensions-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

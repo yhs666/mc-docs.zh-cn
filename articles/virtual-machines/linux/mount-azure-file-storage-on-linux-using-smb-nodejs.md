@@ -15,14 +15,12 @@ ms.workload: infrastructure
 origin.date: 12/07/2016
 ms.date: 04/24/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 8e109c4175f556f1ba1ac59786baa3ec03e747e9
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 40489ddcbae3900286c7be0720007408f92c8b58
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="mount-azure-file-storage-on-linux-vms-by-using-smb-with-azure-cli-10"></a>通过 Azure CLI 1.0 使用 SMB 在 Linux VM 上装载 Azure 文件存储
 
 本文介绍如何使用服务器消息块 (SMB) 协议将 Azure 文件存储装载在 Linux VM 上。 文件存储通过标准 SMB 协议在云中提供文件共享。 要求如下：
@@ -36,8 +34,8 @@ ms.lasthandoff: 04/14/2017
 - [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
 - [Azure CLI 2.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
-## <a name="quick-commands"></a> 快速命令
-若要快速完成任务，请按照本部分的步骤执行操作。 如下更多详细信息和上下文，请从[“详细演练”](mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough)部分开始。
+## <a name="quick-commands"></a>快速命令
+若要快速完成任务，请按照本部分的步骤执行操作。 如下更多详细信息和上下文，请从[“详细演练”](#detailed-walkthrough)部分开始。
 
 ### <a name="prerequisites"></a>先决条件
 * 资源组
@@ -70,7 +68,7 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 //myaccountname.file.core.chinacloudapi.cn/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
-## <a name="detailed-walkthrough"></a> 详细演练
+## <a name="detailed-walkthrough"></a>详细演练
 
 文件存储使用标准 SMB 协议在云中提供文件共享。 使用最新版本的文件存储，还可以从支持 SMB 3.0 的任何 OS 装载文件共享。 在 Linux 上使用 SMB 装载时，可轻松备份到 SLA 支持的可靠、永久的存档存储位置。
 

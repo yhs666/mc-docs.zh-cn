@@ -1,6 +1,6 @@
 ## <a name="setting-up-powershell-for-resource-manager-templates"></a>为 Resource Manager 模板设置 PowerShell
 
-必须拥有正确的 Windows PowerShell 和 Azure PowerShell 版本，才能将 Azure PowerShell 与资源管理器配合使用。
+必须拥有正确的 Windows PowerShell 和 Azure PowerShell 版本，才能将 Azure PowerShell 与 Resource Manager 配合使用。
 
 ### <a name="verify-powershell-versions"></a>验证 PowerShell 版本
 

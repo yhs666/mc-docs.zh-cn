@@ -15,13 +15,12 @@ ms.topic: article
 origin.date: 03/01/2017
 ms.date: 04/17/2017
 ms.author: v-junlch
-translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 5b406cb4f0e135d769828e932ad9fc9332e1e8c5
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 6750dbce0aa6925259c9ac7f3ca8e980dc1898a1
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>我的 MVC 项目（Visual Studio Azure Active Directory 连接服务）发生了什么情况？
 > [!div class="op_single_selector"]
 >- [入门](./vs-active-directory-dotnet-getting-started.md)

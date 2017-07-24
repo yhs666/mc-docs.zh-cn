@@ -16,12 +16,11 @@ ms.topic: article
 origin.date: 02/21/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: 442b5e509200e191d4defe2ab4743d99f308d4b0
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: 44f291f09e1fa61d5893e2f0e8c82c222c85fb89
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="deploy-lamp-stack-with-the-azure-cli-10"></a>使用 Azure CLI 1.0 部署 LAMP 堆栈
 本文介绍如何在 Azure 上部署 Apache web 服务器、MySQL 和 PHP（LAMP 堆栈）。 需要一个 Azure 帐户（[获取试用版](https://www.azure.cn/pricing/1rmb-trial/)）和[连接到 Azure 帐户](../../xplat-cli-connect.md)的 [Azure CLI](../../cli-install-nodejs.md)。
@@ -29,10 +28,8 @@ ms.lasthandoff: 04/06/2017
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可使用以下 CLI 版本之一完成任务：
 
-- [Azure CLI 1.0] - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
+- Azure CLI 1.0 - 用于经典部署模型和资源管理部署模型（本文）的 CLI
 - [Azure CLI 2.0](create-lamp-stack.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
-
-<br/>
 
 ```
 # One command to create a resource group holding a VM with LAMP already on it
@@ -41,11 +38,11 @@ $ azure group create -n uniqueResourceGroup -l chinanorth --template-uri https:/
 
 * 在现有 VM 上部署 LAMP
 
-    ```
-    # Two commands: one updates packages, the other installs Apache, MySQL, and PHP
-    user@ubuntu$ sudo apt-get update
-    user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
-    ```
+```
+# Two commands: one updates packages, the other installs Apache, MySQL, and PHP
+user@ubuntu$ sudo apt-get update
+user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
+```
 
 ## <a name="deploy-lamp-on-new-vm-walkthrough"></a>在新的 VM 上部署 LAMP 的演练
 可以首先创建一个包含新 VM 的[资源组](../../azure-resource-manager/resource-group-overview.md)：
@@ -169,6 +166,6 @@ $ azure group create -n uniqueResourceGroup -l chinanorth --template-uri https:/
 
 * [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 
-[1]: ../media/virtual-machines-linux-deploy-lamp-stack/configmysqlpassword-small.png
-[2]: ../media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png
-[3]: ../media/virtual-machines-linux-deploy-lamp-stack/apachesuccesspage.png
+[1]: ./media/deploy-lamp-stack/configmysqlpassword-small.png
+[2]: ./media/deploy-lamp-stack/phpsuccesspage.png
+[3]: ./media/deploy-lamp-stack/apachesuccesspage.png

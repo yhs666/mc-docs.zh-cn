@@ -130,9 +130,9 @@ HDInsight Spark 群集包括可用于运行 Spark 作业 Zeppelin 笔记本。 �
     单击“保存”  ，然后重启 Livy 解释器。
 4. **提示**：如果想要了解如何获得上面输入的键值，以下为相应步骤。
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 在 Maven 存储库中找出该包。 在本教程中，使用了 [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar)。
+    a. 在 Maven 存储库中找出该包。 在本教程中，使用了 [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar)。
 
-    b.保留“数据库类型”设置，即设置为“共享”。 从存储库中收集 **GroupId**、**ArtifactId** 和 **Version** 的值。
+    b. 从存储库中收集 **GroupId**、**ArtifactId** 和 **Version** 的值。
 
     ![将外部包与 Jupyter 笔记本配合使用](./media/hdinsight-apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "将外部包与 Jupyter 笔记本配合使用")
 

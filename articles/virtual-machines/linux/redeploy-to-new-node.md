@@ -8,19 +8,18 @@ manager: timlt
 tags: azure-resource-manager,top-support-issue
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
 ms.service: virtual-machines-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: support-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/16/2016
 ms.date: 04/24/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 1c31334a36c1c69e7f9c0fd5d6c872c39487dc79
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: a36be448cea3d7f63e732ef28569d1a3df0cf4a9
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>将 Linux 虚拟机重新部署到新的 Azure 节点
 如果在排查 SSH 或应用程序对 Azure 中的 Linux 虚拟机 (VM) 的访问问题时遇到困难，重新部署 VM 可能会有帮助。 重新部署 VM 时，将 VM 移到 Azure 基础结构中的新节点，然后重新打开它，同时保留所有配置选项和关联的资源。 本文介绍如何使用 Azure CLI 或 Azure 门户重新部署 VM。
@@ -34,18 +33,18 @@ ms.lasthandoff: 04/14/2017
 - [Azure CLI 1.0](#azure-cli-10)
 - [Azure 门户](#using-azure-portal)
 
-## <a name="azure-cli-20"></a> Azure CLI 2.0
+## <a name="azure-cli-20"></a>Azure CLI 2.0
 安装最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) 并使用 [az login](https://docs.microsoft.com/cli/azure/#login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-使用 [az vm redeploy](https://docs.microsoft.com/cli/azure/vm#redeploy) 重新部署 VM。 以下示例重新部署名为 `myResourceGroup` 的资源组中名为 `myVM` 的 VM：
+使用 [az vm redeploy](https://docs.microsoft.com/cli/azure/vm#redeploy) 重新部署 VM。 以下示例重新部署 `myResourceGroup` 资源组中名为 `myVM` 的 VM：
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM 
 ```
 
-## <a name="azure-cli-10"></a> Azure CLI 1.0
+## <a name="azure-cli-10"></a>Azure CLI 1.0
 安装[最新的 Azure CLI 1.0](../../cli-install-nodejs.md)，登录到 Azure 帐户，并确保处于 Resource Manager 模式 (`azure config mode arm`)。
 
 以下示例重新部署 `myResourceGroup` 资源组中名为 `myVM` 的 VM：

@@ -22,7 +22,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT 中心高可用性和灾难恢复
-作为一项 Azure 服务，IoT 中心在 Azure 区域级别使用冗余来提供高可用性 (HA)，而解决方案不需要执行任何额外的工作。 Microsoft Azure 平台还包含了相关功能来帮助你构建提供灾难恢复 (DR) 功能或跨区域可用性的解决方案。 若要向设备或用户提供全局跨区域的高可用性，必须妥善设计并准备好解决方案，以便利用这些 Azure DR 功能。 [Azure 业务持续性技术指南](../resiliency/resiliency-technical-guidance.md) 一文描述了针对业务连续性和 DR 的 Azure 内置功能。 [Azure 应用程序的灾难恢复和高可用性][Disaster recovery and high availability for Azure applications] 一文针对 Azure 应用程序的 HA 和 DR 实现策略提供了体系结构指导。
+作为一项 Azure 服务，IoT 中心在 Azure 区域级别使用冗余来提供高可用性 (HA)，而解决方案不需要执行任何额外的工作。 Microsoft Azure 平台还包含了相关功能来帮助你构建提供灾难恢复 (DR) 功能或跨区域可用性的解决方案。 若要向设备或用户提供全局跨区域的高可用性，必须妥善设计并准备好解决方案，以便利用这些 Azure DR 功能。 [Azure 业务连续性技术指南](../resiliency/resiliency-technical-guidance.md) 一文描述了针对业务连续性和 DR 的 Azure 内置功能。 [Azure 应用程序的灾难恢复和高可用性][Disaster recovery and high availability for Azure applications] 一文针对 Azure 应用程序的 HA 和 DR 实现策略提供了体系结构指导。
 
 ## <a name="azure-iot-hub-dr"></a>Azure IoT 中心 DR
 除了区域内部的 HA，IoT 中心还实施了无需用户干预的灾难恢复故障转移机制。 IoT 中心 DR 自行启动，其恢复时间目标 (RTO) 为 2 到 26 小时，恢复点目标 (RPO) 如下所示。

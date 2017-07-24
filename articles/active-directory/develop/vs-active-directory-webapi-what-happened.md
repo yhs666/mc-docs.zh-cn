@@ -15,13 +15,12 @@ ms.topic: article
 origin.date: 03/01/2017
 ms.date: 04/17/2017
 ms.author: v-junlch
-translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: fcdfda9645eaef85f364d0315e0cb7ad977cd44d
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 3ac9583d56514615abc3231241557ef297f92c61
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>我的 WebApi 项目（Visual Studio Azure Active Directory 连接服务）发生了什么情况
 > [!div class="op_single_selector"]
 >- [入门](./vs-active-directory-webapi-getting-started.md)

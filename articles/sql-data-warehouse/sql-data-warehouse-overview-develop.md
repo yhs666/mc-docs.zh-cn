@@ -1,27 +1,31 @@
 ---
-title: 用于在 Azure 中开发数据仓库的资源 | Azure
-description: SQL 数据仓库的开发概念、设计决策、建议和编程技术。
+title: "用于在 Azure 中开发数据仓库的资源 | Azure"
+description: "SQL 数据仓库的开发概念、设计决策、建议和编程技术。"
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: rockboyfor
 manager: barbkess
-editor: ''
-
+editor: 
 ms.assetid: 996e3afc-c21c-4e21-b9df-997f953f6dfd
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: develop
 origin.date: 10/31/2016
 ms.date: 03/20/2017
 ms.author: v-yeche
+ms.openlocfilehash: 8fe55cfdd9e336584b2c749651060b5fc830a4bb
+ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
-
-# SQL 数据仓库的设计决策和编程技术
+# <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>SQL 数据仓库的设计决策和编程技术
 请阅读以下开发文章，以更好地了解 SQL 数据仓库的关键设计决策、建议和编程技术。
 
-## 关键设计决策
+## <a name="key-design-decisions"></a>关键设计决策
 以下文章重点介绍了在使用 SQL 数据仓库开发分布式数据仓库时，需要了解的一些关键概念和设计决策：
 
 * [连接][connections]
@@ -34,7 +38,7 @@ ms.author: v-yeche
 * [CTAS][CTAS]
 * [统计信息][statistics]
 
-## 开发建议和编程技术
+## <a name="development-recommendations-and-coding-techniques"></a>开发建议和编程技术
 以下文章重点介绍了用于开发 SQL 数据仓库的具体编程技术、技巧和建议：
 
 * [存储过程][stored procedures]
@@ -46,8 +50,8 @@ ms.author: v-yeche
 * [Group By 选项][group by options]
 * [变量赋值][variable assignment]
 
-## 后续步骤
-阅读开发文章后，请浏览 [Transact-SQL 参考][Transact-SQL reference]页，以了解有关 SQL 数据仓库支持的语法的更多详细信息。
+## <a name="next-steps"></a>后续步骤
+阅读开发文章后，请浏览 [Transact-SQL 参考][Transact-SQL reference] 页，以了解有关 SQL 数据仓库支持的语法的更多详细信息。
 
 <!--Image references-->
 
@@ -72,9 +76,6 @@ ms.author: v-yeche
 [Transact-SQL reference]: ./sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-[renaming objects]: https://msdn.microsoft.com/zh-cn/library/mt631611.aspx
+[renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->
-
-<!---HONumber=Mooncake_0313_2017-->
-<!--Update_Description:update meta properties;wording update-->

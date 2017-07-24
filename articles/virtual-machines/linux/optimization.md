@@ -17,12 +17,11 @@ ms.topic: article
 origin.date: 09/06/2016
 ms.date: 04/24/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 02d4d82b35ad891a2cc981a2af1369f8403311d9
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 30c5837d4cc806e89753a689e0cd6cd3315b46de
+ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/23/2017
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>在 Azure 上优化 Linux VM
 通过命令行或门户创建运行 Linux 虚拟机 (VM) 是一项很简单的操作。 本教程说明如何在 Azure 平台上设置 VM 以确保优化其性能。 本主题使用 Ubuntu Server VM，不过你也可以[将自己的映像作为模板](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)来创建 Linux 虚拟机。  
@@ -45,6 +44,7 @@ ms.lasthandoff: 04/14/2017
 * 如果使用的是 **XFS**，请使用装入选项 `nobarrier` 禁用屏障（若要启用屏障，请使用 `barrier`）
 
 ## <a name="unmanaged-storage-account-considerations"></a>非托管存储帐户注意事项
+使用 Azure CLI 2.0 创建 VM 时的默认操作是使用 Azure 托管磁盘。  这些磁盘由 Azure 平台处理，无需任何准备或位置来存储它们。  非托管磁盘需要存储帐户，且需要进行更多的性能考虑。  有关托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../../storage/storage-managed-disks-overview.md)。  以下部分概述的性能注意事项仅适用于用户使用非托管磁盘的情况。  同样，默认的和建议的存储解决方案是使用托管磁盘。
 
 如果使用非托管磁盘创建 VM，请务必从区域与 VM 相同的存储帐户附加磁盘，以确保高度邻近性并降低网络延迟。  每个标准存储帐户最多有 20k IOps 和 500 TB 大小的容量。  此限制大约相当于 40 个重度使用的磁盘，包括 OS 磁盘和用户创建的任何数据磁盘。 高级存储帐户没有 IOps 上限，但有 32 TB 的大小限制。 
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 04/14/2017
 默认情况下，创建 VM 时，Azure 将提供 OS 磁盘 (**/dev/sda**) 和临时磁盘 (**/dev/sdb**)。  额外添加的所有磁盘显示为 **/dev/sdc**、**/dev/sdd**、**/dev/sde**，依此类推。 临时磁盘 (**/dev/sdb**) 上的所有数据均不具有持久性，因此当发生 VM 调整大小、重新部署或维护等特定事件，从而迫使 VM 重新启动时，数据可能会丢失。  临时磁盘的类型和大小与在部署时选择的 VM 大小相关。 所有高级大小的 VM（DS、G 和 DS_V2 系列），临时驱动器均由本地 SSD 提供支持，因此可以实现最高 48k IOps 的附加性能。 
 
 ## <a name="linux-swap-file"></a>Linux 交换文件
-如果你的 Azure VM 来自 Ubuntu 或 CoreOS 映像，则可以使用 CustomData 将 cloud-config 发送到 cloud-init。 如果已[上载使用 cloud-init 的自定义 Linux 映像](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，则还可以使用 cloud-init 配置交换分区。
+如果你的 Azure VM 来自 Ubuntu 或 CoreOS 映像，则可以使用 CustomData 将 cloud-config 发送到 cloud-init。 如果已[上传使用 cloud-init 的自定义 Linux 映像](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，则还可以使用 cloud-init 配置交换分区。
 
 在 Ubuntu 云映像上，必须使用 cloud-init 配置交换分区。 有关详细信息，请参阅 [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions)。
 
@@ -134,6 +134,6 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 其他有用资源的链接： 
 
 * [高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../storage/storage-premium-storage.md)
-* [Azure Linux 代理用户指南](agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure Linux 代理用户指南](../windows/agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [优化 Azure Linux VM 上的 MySQL 性能](classic/optimize-mysql.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [在 Linux 上配置软件 RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

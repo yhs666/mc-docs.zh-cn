@@ -53,9 +53,9 @@ ms.lasthandoff: 06/23/2017
 * 过渡和生产环境实现为相同应用服务应用的两个槽。 主分支是设置进行具有过渡槽的连续集成。
 * 在过渡槽（包含生产数据）上验证主分支的提交时，已验证的过渡应用将交换到生产槽，[且不会造成停机](web-sites-staged-publishing.md)。
 
-生产和过渡环境由 [&lt;repository_root>/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json) 处的模板定义。
+生产和过渡环境由 [*&lt;repository_root>*/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json) 处的模板定义。
 
-开发和测试环境由 [&lt;repository_root>/ARMTemplates/Dev.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/Dev.json) 处的模板定义。
+开发和测试环境由 [*&lt;repository_root>*/ARMTemplates/Dev.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/Dev.json) 处的模板定义。
 
 还可以使用典型分支策略，其中代码从开发分支移到测试分支，然后移到主分支（所谓的质量提升）。
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 06/23/2017
 3. 通过执行以下命令创建分叉的本地复本：
 
         git clone https://github.com/<your_fork>/ToDoApp.git 
-4. 创建本地克隆后，请导航到 &lt;repository_root>\ARMTemplates 并运行 deploy.ps1 脚本，如下所示：
+4. 创建本地克隆后，请导航到 *&lt;repository_root>*\ARMTemplates 并运行 deploy.ps1 脚本，如下所示：
 
         .\deploy.ps1 -RepoUrl https://github.com/<your_fork>/todoapp.git
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 06/23/2017
    ![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
 
    > [!TIP]
-   > 查看 &lt;repository_root>\ARMTemplates\Deploy.ps1，了解其如何生成具有唯一 ID 的资源。 可以使用相同的方法来创建相同部署的复本，而不必担心资源名称冲突。
+   > 查看 *&lt;repository_root>*\ARMTemplates\Deploy.ps1，了解其如何生成具有唯一 ID 的资源。 可以使用相同的方法来创建相同部署的复本，而不必担心资源名称冲突。
    > 
    > 
 6. 返回 Git Shell 会话，运行：
@@ -122,7 +122,7 @@ ms.lasthandoff: 06/23/2017
 7. 脚本完成后，请返回浏览到前端的地址 (http://ToDoApp*&lt;unique_string>*master.chinacloudsites.cn/)，查看在生产环境中运行的应用程序。
 8. 登录到 [Azure 门户](https://portal.azure.cn/) 并查看创建的内容。
 
-   应该可以在相同的资源组中看到两个 Web 应用，其中一个的名称具有 `Api` 后缀。 当你查看资源组视图时，还会看到 SQL 数据库和服务器、应用服务计划以及 Web 应用的过渡槽。 浏览不同的资源，并将其与 &lt;repository_root>\ARMTemplates\ProdAndStage.json 进行比较，查看其在模板中的配置方式。
+   应该可以在相同的资源组中看到两个 Web 应用，其中一个的名称具有 `Api` 后缀。 当你查看资源组视图时，还会看到 SQL 数据库和服务器、应用服务计划以及 Web 应用的过渡槽。 浏览不同的资源，并将其与 *&lt;repository_root>*\ARMTemplates\ProdAndStage.json 进行比较，查看其在模板中的配置方式。
 
    ![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 
@@ -149,7 +149,7 @@ ms.lasthandoff: 06/23/2017
    * 可以在任何 Azure 订阅中创建测试环境。 这意味着，你可以分开管理生产环境和测试环境。
    * 测试环境在 Azure 中实时运行。
    * 测试环境类似于生产环境，差别在于过渡槽和缩放设置。 因为这是 ProdandStage.json 与 Dev.json 之间的唯一差别，所以你可以得知这项信息。
-   * 可以在测试环境自身具有不同定价层（例如免费定价层****）的应用服务计划中对其进行管理。
+   * 可以在测试环境自身具有不同定价层（例如免费定价层）的应用服务计划中对其进行管理。
    * 删除这个测试环境就像删除资源组一样简单。 [稍后](#delete)你将学习如何执行这项操作。
 3. 运行以下命令，以继续创建开发分支：
 
@@ -193,7 +193,7 @@ ms.lasthandoff: 06/23/2017
 1. 确保处于本地存储库的 Dev 分支中。 为此，请在 Git Shell 中运行以下命令：
 
         git checkout Dev
-2. 通过将代码更改为使用 [Bootstrap](http://getbootstrap.com/components/) 列表，对应用的 UI 层进行简单更改。 打开 &lt;repository_root>\src\MultiChannelToDo.Web\index.cshtml，进行下面突出显示的更改：
+2. 通过将代码更改为使用 [Bootstrap](http://getbootstrap.com/components/) 列表，对应用的 UI 层进行简单更改。 打开 *&lt;repository_root>*\src\MultiChannelToDo.Web\index.cshtml，进行下面突出显示的更改：
 
    ![](./media/app-service-agile-software-development/commit-1-changes.png)
 

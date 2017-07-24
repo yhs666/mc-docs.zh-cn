@@ -16,12 +16,11 @@ ms.topic: article
 origin.date: 02/21/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: 70f3e0a9e54d46691a986773be4e7f9a23d23e6d
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: 6528fb08944f4bbbc2048bce124b72717a4f48f6
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="creating-virtual-machine-scale-sets-using-powershell-cmdlets"></a>使用 PowerShell cmdlet 创建虚拟机规模集
 本文演示如何创建虚拟机规模集 (VMSS) 的示例。 该示例创建三个节点的规模集，包括相关联的网络和存储。

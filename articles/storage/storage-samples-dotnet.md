@@ -96,7 +96,7 @@ ms.lasthandoff: 06/21/2017
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">使用增量快照备份 Azure 虚拟机磁盘</a></td>
 </tr> 
 <tr> 
-<td rowspan="9">文件<b></b></td>
+<td rowspan="9"><b>文件</b></td>
 <td>创建共享/目录/文件</td> 
 <td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage/Program.cs">Azure 存储 .NET 文件存储示例</a></td> 
 </tr>
@@ -133,7 +133,7 @@ ms.lasthandoff: 06/21/2017
 <td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Azure 存储 .NET 文件存储示例</a></td> 
 </tr>
 <tr> 
-<td rowspan="8">队列</b><b></td>
+<td rowspan="8"><b>队列</b></td>
 <td>添加消息</td> 
 <td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Getting Started with Azure Queue Service in .NET（.NET 中 Azure 队列服务入门）</a></td> 
 </tr> 
@@ -166,7 +166,7 @@ ms.lasthandoff: 06/21/2017
 <td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Getting Started with Azure Queue Service in .NET（.NET 中 Azure 队列服务入门）</a></td> 
 </tr> 
 <tr> 
-<td rowspan="7">表<b></b></td>
+<td rowspan="7"><b>表</b></td>
 <td>创建表</td> 
 <td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">使用 Azure 存储管理并发 - 示例应用程序</a></td> 
 </tr> 

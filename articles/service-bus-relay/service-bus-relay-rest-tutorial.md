@@ -42,9 +42,9 @@ WCF 协定和 REST 样式的协定的主要区别在于是否向 [OperationContr
 4. 通过安装服务总线 NuGet 包，向项目添加对服务总线和 **System.ServiceModel.dll** 的引用。 该包自动添加对服务总线库和 WCF **System.ServiceModel**的引用。 在“解决方案资源管理器”中，右键单击“ImageListener”项目，然后单击“管理 NuGet 包”。 单击“浏览”选项卡，然后搜索 `Microsoft Azure Service Bus`。 单击“安装” 并接受使用条款。
 5. 必须在项目中显式添加对 **System.ServiceModel.dll** 的引用：
    
-    a.将新的虚拟硬盘附加到 VM。 在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。
+    a. 在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。
    
-    b.保留“数据库类型”设置，即设置为“共享”。 在“添加引用”对话框中，单击左侧的“框架”选项卡，并在“搜索”框中键入“System.ServiceModel.Web”。 选择“System.ServiceModel.Web”复选框，然后单击“确定”。
+    b. 在“添加引用”对话框中，单击左侧的“框架”选项卡，并在“搜索”框中键入“System.ServiceModel.Web”。 选择“System.ServiceModel.Web”复选框，然后单击“确定”。
 6. 在 Program.cs 文件顶部添加以下 `using` 语句。
    
     ```csharp

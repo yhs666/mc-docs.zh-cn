@@ -15,13 +15,12 @@ ms.topic: article
 origin.date: 03/19/2017
 ms.date: 04/17/2017
 ms.author: v-junlch
-translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: cd76e62940f8ab6aeaa55164b3edddf3facf662a
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 41d31dcf04c26da84a616a4ef0cf09baf81ee8e6
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
-
 # <a name="get-started-with-azure-active-directory-and-visual-studio-connected-services-webapi-projects"></a>开始使用 Azure Active Directory 和 Visual Studio 连接服务（WebApi 项目）
 > [!div class="op_single_selector"]
 >- [入门](./vs-active-directory-webapi-getting-started.md)

@@ -16,27 +16,26 @@ ms.topic: article
 origin.date: 10/25/2016
 ms.date: 04/24/2017
 ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: e67b33adffd7ec2b010efaf08524034b5bdde4d1
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 1efd299d33ac8f57d4c2baa0235c291058fef24b
+ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2017
 ---
 # <a name="manage-users-ssh-and-check-or-repair-disks-on-azure-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-10"></a>配合使用 VMAccess 扩展和 Azure CLI 1.0，管理用户、SSH 以及检查或修复 Azure Linux VM 上的磁盘
 本文说明如何使用 Azure VMAcesss 扩展检查或修复磁盘、重置用户访问权限、管理用户帐户，或重置 Linux 上的 SSHD 配置。 本文需要以下条件：
 
 * 一个 Azure 帐户（[获取试用版](https://www.azure.cn/pricing/1rmb-trial/)）。
 * 已使用 `azure login -e AzureChinaCloud` 登录 [Azure CLI](../../cli-install-nodejs.md)。
-* Azure CLI *必须处于*Azure Resource Manager 模式`azure config mode arm`。
+* Azure CLI *必须处于* Azure Resource Manager 模式`azure config mode arm`。
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可使用以下 CLI 版本之一完成任务：
 
-- [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
+- [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型的 CLI（本文）
 - [Azure CLI 2.0](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
-## <a name="quick-commands"></a> 快速命令
+## <a name="quick-commands"></a>快速命令
 有两种方法可在 Linux VM 上使用 VMAccess：
 
 * 使用 Azure CLI 1.0 以及所需的参数。
@@ -264,8 +263,8 @@ azure vm extension set \
 ## <a name="next-steps"></a>后续步骤
 使用 Azure VMAccess 扩展更新 Linux 是一种对正在运行的 Linux VM 进行更改的方法。  还可以使用 cloud-init 和 Azure 模板之类的工具在 Linux VM 启动时对其进行修改。
 
-[关于虚拟机扩展和功能](extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+[关于虚拟机扩展和功能](../windows/extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[使用 Linux VM 扩展创作 Azure Resource Manager 模板](extensions-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+[使用 Linux VM 扩展创作 Azure Resource Manager 模板](../windows/extensions-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

@@ -5,5 +5,3 @@
 >- [Windows Universal](../articles/active-directory/develop/active-directory-devquickstarts-windowsstore.md)
 >- [Xamarin](../articles/active-directory/develop/active-directory-devquickstarts-xamarin.md)
 >- [Cordova](../articles/active-directory/develop/active-directory-devquickstarts-cordova.md)
-
-<!---HONumber=Mooncake_0926_2016-->
