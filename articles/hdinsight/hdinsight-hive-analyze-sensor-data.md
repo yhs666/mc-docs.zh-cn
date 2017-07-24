@@ -1,5 +1,5 @@
 ---
-title: "使用 Hive 和 Hadoop 分析传感器数据 | Azure"
+title: "使用 Hive 和 Hadoop 分析传感器数据 - Azure HDInsight | Azure"
 description: "了解如何通过将 Hive 查询控制台与 HDInsight (Hadoop) 配合使用来分析传感器数据，然后通过 PowerView 在 Microsoft Excel 中可视化数据。"
 services: hdinsight
 documentationcenter: 
@@ -17,20 +17,18 @@ origin.date: 04/14/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: b61abbb41de7427e46a6100800210687da60b352
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 10db5f692e9a55ff05c71ee8b88b5127d73af8e6
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>使用 HDInsight 中 Hadoop上的 Hive 查询控制台分析传感器数据
 
 了解如何通过将 Hive 查询控制台与 HDInsight (Hadoop) 配合使用来分析传感器数据，然后通过使用 Power View 在 Microsoft Excel 中可视化数据。
 
 > [!IMPORTANT]
-> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。 低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。 低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 在本示例中，使用 Hive 处理历史数据，并确定与加热和空调系统有关的问题。 具体而言，通过执行以下任务，确定系统无法可靠地维持固定温度：
 
@@ -46,8 +44,8 @@ ms.lasthandoff: 05/26/2017
 * HDInsight (Hadoop) 群集：有关创建群集的信息，请参阅[在 HDInsight 中创建 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 * Microsoft Excel 2013
 
-    > [!NOTE]
-    > Microsoft Excel 用于通过 [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US)实现数据可视化。
+  > [!NOTE]
+  > Microsoft Excel 用于通过 [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US)实现数据可视化。
 
 * [Microsoft Hive ODBC 驱动程序](http://www.microsoft.com/download/details.aspx?id=40886)
 
@@ -66,4 +64,3 @@ ms.lasthandoff: 05/26/2017
     ![入门库映像](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png)
 
 3. 按照网页上提供的说明完成该示例。
-

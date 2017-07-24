@@ -17,14 +17,13 @@ origin.date: 03/08/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.openlocfilehash: 3be88936a6c211c61d310ce267e49a91a17460c0
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 57573eca975ba88f5dd7dddc7d1f531d6983411a
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
-# Azure CLI 示例
-<a id="azure-cli-samples" class="xliff"></a>
+# <a name="azure-cli-samples"></a>Azure CLI 示例
 
 下表包含指向使用 Azure CLI 生成的 bash 脚本的链接。
 
@@ -44,7 +43,7 @@ ms.lasthandoff: 06/23/2017
 | [将 Web 应用连接到 SQL 数据库](./scripts/app-service-cli-app-service-sql.md?toc=%2fcli%2fazure%2ftoc.json)| 创建 Azure Web 应用和 SQL 数据库，然后将数据库连接字符串添加到应用设置。 |
 | [将 Web 应用连接到存储帐户](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| 创建 Azure Web 应用和存储帐户，然后将存储连接字符串添加到应用设置。 |
 | [将 Web 应用连接到 Redis 缓存](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | 创建 Azure Web 应用和 Redis 缓存，然后将 Redis 连接详细信息添加到应用设置。 |
-| [将 Web 应用连接到 DocumentDb](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | 创建 Azure Web 应用和 DocumentDb，然后将 DocumentDb 连接详细信息添加到应用设置。 |
+| [将 Web 应用连接到 Cosmos DB](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | 创建 Azure Web 应用和 Cosmos DB，然后将 Cosmos DB 连接详细信息添加到应用设置。 |
 |**监视应用**||
 | [使用 Web 服务器日志监视 Web 应用](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | 创建 Azure Web 应用，为其启用日志记录，并将日志下载到本地计算机。 |
 | | |

@@ -3,8 +3,8 @@ title: "Azure Batch 服务配额和限制 | Microsoft Docs"
 description: "了解默认的 Azure Batch 配额、限制和约束，以及如何请求提高配额"
 services: batch
 documentationcenter: 
-author: tamram
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
@@ -12,20 +12,21 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+origin.date: 05/05/2017
+ms.date: 07/03/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a39e7ea5995265f7c09e9701ddb878cf2704125
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: a0665ac6003971680aee598e0b806d2ce2929b88
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 
 与其他 Azure 服务一样，与 Batch 服务关联的某些资源存在限制。 其中的许多限制是 Azure 在订阅或帐户级别应用的默认配额。 本文将描述这些默认值，以及如何请求提高配额。
 
-设计和增加 Batch 工作负荷时，请记住这些配额。 例如，如果池没有达到指定的计算节点目标数量，那么可能是已达到 Batch 帐户的核心配额限制。
+设计和增加 Batch 工作负荷时，请记住这些配额。 例如，如果池没有达到指定的计算节点目标数量，那么可能是已达到批处理帐户的核心配额限制，或者已达到订阅的区域 VM 核心配额。
 
 可以在单个批处理帐户中运行多个批处理工作负荷，或者在相同订阅的不同 Azure 区域的批处理帐户之间分散工作负荷。
 
@@ -42,8 +43,8 @@ ms.lasthandoff: 06/21/2017
 ## <a name="other-limits"></a>其他限制
 | **资源** | **最大限制** |
 | --- | --- |
-| 每个计算节点的[并发任务](./batch-parallel-node-tasks.md)数 |4 x 节点核心数 |
-| 每个 Batch 帐户的[应用程序](./batch-application-packages.md)数 |20 |
+| 每个计算节点的[并发任务](batch-parallel-node-tasks.md)数 |4 x 节点核心数 |
+| 每个 Batch 帐户的[应用程序](batch-application-packages.md)数 |20 |
 | 每个应用程序的应用程序包数 |40 |
 | 应用程序包大小（每个） |约 195GB<sup>1</sup> |
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 06/21/2017
 可在 [Azure 门户][portal]中查看批处理帐户配额。
 
 1. 在门户中选择“Batch 帐户”，然后选择所需的 Batch 帐户。
-2. 在 Batch 帐户的菜单边栏选项卡中选择“属性”
+2. 在批处理帐户的菜单边栏选项卡中选择“属性”。
 3. “属性”边栏选项卡显示了当前应用于 Batch 帐户的 **配额**
    
     ![Batch 帐户配额][account_quotas]
@@ -92,8 +93,8 @@ ms.lasthandoff: 06/21/2017
 提交支持请求后，Azure 支持人员将与你取得联系。 请注意，完成该请求最多需要 2 个工作日。
 
 ## <a name="related-topics"></a>相关主题
-- [使用 Azure 门户创建 Azure Batch 帐户](./batch-account-create-portal.md)
-- [Azure Batch 功能概述](./batch-api-basics.md)
+- [使用 Azure 门户创建 Azure Batch 帐户](batch-account-create-portal.md)
+- [Azure Batch 功能概述](batch-api-basics.md)
 - [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.cn
@@ -101,3 +102,4 @@ ms.lasthandoff: 06/21/2017
 [support_sev]: http://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
+

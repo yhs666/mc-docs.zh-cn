@@ -1,25 +1,26 @@
 ---
-title: "数据库兼容级别 130 - Azure SQL 数据库 | Microsoft 文档"
-description: "在本文中，我们将探讨在兼容级别 130 运行 Azure SQL 数据库的优势，以及使用新查询优化器和查询处理器功能的优势。 另外，我们将解决对现有 SQL 应用程序的查询性能可能造成的负面影响。"
+title: "数据库兼容级别 130 - Azure SQL 数据库 | Azure"
+description: "本文探讨在兼容级别 130 运行 Azure SQL 数据库的优势，以及如何利用新查询优化器和查询处理器功能的优势。 另外，我们将解决对现有 SQL 应用程序的查询性能可能造成的负面影响。"
 services: sql-database
 documentationcenter: 
-author: alainlissoir
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: 8619f90b-7516-46dc-9885-98429add0053
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.workload: data-management
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.topic: article
-ms.date: 03/03/2017
+origin.date: 08/08/2016
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 12718ba3e7c69178e841289475b2b26cac454c58
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: e3758813593b038d63265e24b327f409f814caaf
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="improved-query-performance-with-compatibility-level-130-in-azure-sql-database"></a>已改善 Azure SQL 数据库中兼容级别 130 的查询性能
 Azure SQL 数据库在许多不同的兼容级别上以透明方式运行数十万个数据库，对其所有客户保留并保证对应 Microsoft SQL Server 版本的向后兼容性！
@@ -34,9 +35,10 @@ Azure SQL 数据库在许多不同的兼容级别上以透明方式运行数十�
 * 130：在 SQL Server 2016 和 Azure SQL 数据库 V12 中。
 
 > [!IMPORTANT]
-> **新创建的**数据库的默认兼容级别为 130。
+> 从 **2016 年 6 月中旬**开始，在 Azure SQL 数据库中，**新建**数据库的默认兼容级别为 130（而不是 120）。
 > 
-
+> 在 2016 年 6 月中旬前创建的数据库将*不*受影响，并且维持其目前的兼容级别（100、110 或 120）。 从 Azure SQL 数据库版本 V11 迁移到 V12 的数据库具有兼容级别 100 或 110。 
+> 
 
 ## <a name="about-compatibility-level-130"></a>关于兼容级别 130
 首先，如果你想要知道数据库当前的兼容级别，请执行以下 Transact-SQL 语句。
@@ -44,15 +46,14 @@ Azure SQL 数据库在许多不同的兼容级别上以透明方式运行数十�
 ```
 SELECT compatibility_level
     FROM sys.databases
-    WHERE name = '<YOUR DATABASE_NAME>’;
+    WHERE name = '<YOUR DATABASE_NAME>';
 ```
 
+在**新建**数据库更改为级别 130 之前，让我们通过一些非常基本的查询示例来查看此更改的相关信息，并了解相关人员如何从中受益。
 
-在**新**创建的数据库更改为级别 130 之前，让我们通过一些基本的查询示例来查看此更改的相关信息，并了解相关人员如何从中受益。
+关系数据库中的查询处理可能非常复杂，大量的计算机科研和数学人员必须了解固有的设计选项和行为。 本文档的内容已刻意简化，以确保具有一些最基本技术背景的人员可以了解兼容级别更改的影响，并确定其对于应用程序有何好处。
 
-关系数据库中的查询处理可能非常复杂，并且需要对计算机科学和数学有着深厚的了解才能理解固有的设计选项和行为。 本文档的内容已刻意简化，以确保具有一些最基本技术背景的人员可以了解兼容级别更改的影响，并确定其对于应用程序有何好处。
-
-我们快速看一下兼容级别 130 对表带来的好处。  可以在 [ALTER DATABASE 兼容级别 (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx) 中找到更多详细信息，简短摘要如下：
+让我们快速看一下兼容级别 130 对表带来的好处。  可以在 [ALTER DATABASE 兼容级别 (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx) 中找到更多详细信息，简短摘要如下：
 
 * Insert-select 语句的 Insert 操作可以是多线程操作或包含并行计划，而此操作之前是单线程操作。
 * 内存优化表和表变量查询现在可以包含并行计划，而此操作之前也是单线程操作。
@@ -62,16 +63,16 @@ SELECT compatibility_level
   * 开窗聚合现在以批处理模式运行，例如 T-SQL LAG/LEAD 语句。
   * 以批处理模式查询包含多个不同子句的列存储表。
   * 在 DOP = 1 下面运行的或具有串行计划的查询也以批处理模式运行。
-* 最后，基数估算随着兼容级别 120 的出现得到了改进，但对于在较低的兼容级别（也就是 100 或 110）运行的基数估算，移动到兼容级别 130 也会带来这些改进，且这些改进也有益于应用程序的查询性能。
+* 最后，基数估算改进实际上随着兼容级别 120 出现，但对于在较低的兼容级别（也就是 100 或 110）运行的基数估算，移动到兼容级别 130 也会带来这些改进，且这些改进也有益于应用程序的查询性能。
 
 ## <a name="practicing-compatibility-level-130"></a>演练兼容级别 130
-首先，我们要创建一些表、索引和随机数据，以演练某些新功能。 可以在 SQL Server 2016 下或在 Azure SQL 数据库下执行 T-SQL 脚本示例。 但是，在创建 Azure SQL 数据库时，请确保至少选择一个 P2 数据库，因为至少需要几个核心才能允许多线程，并因而受益于这些功能。
+首先，我们要创建一些表、索引和随机数据，以演练某些新功能。 TSQL 脚本示例可以在 SQL Server 2016 下面或在 Azure SQL 数据库下面执行。 但是，在创建 Azure SQL 数据库时，请确保至少选择一个 P2 数据库，因为至少需要几个核心才能允许多线程，并因而受益于这些功能。
 
 ```
 -- Create a Premium P2 Database in Azure SQL Database
 
 CREATE DATABASE MyTestDB
-    (EDITION=’Premium’, SERVICE_OBJECTIVE=’P2′);
+    (EDITION='Premium', SERVICE_OBJECTIVE='P2');
 GO
 
 -- Create 2 tables with a column store index on
@@ -89,11 +90,11 @@ GO
 -- Insert few rows.
 
 INSERT T_source VALUES
-    (‘Blue’, RAND() * 100000, RAND() * 100000),
-    (‘Yellow’, RAND() * 100000, RAND() * 100000),
-    (‘Red’, RAND() * 100000, RAND() * 100000),
-    (‘Green’, RAND() * 100000, RAND() * 100000),
-    (‘Black’, RAND() * 100000, RAND() * 100000);
+    ('Blue', RAND() * 100000, RAND() * 100000),
+    ('Yellow', RAND() * 100000, RAND() * 100000),
+    ('Red', RAND() * 100000, RAND() * 100000),
+    ('Green', RAND() * 100000, RAND() * 100000),
+    ('Black', RAND() * 100000, RAND() * 100000);
 
 GO 200
 
@@ -102,8 +103,7 @@ INSERT T_source SELECT * FROM T_source;
 GO 10
 ```
 
-
-我们现在来看一下兼容级别 130 附带的一些查询处理功能。
+现在，让我们来看一下兼容级别 130 附带的一些查询处理功能。
 
 ## <a name="parallel-insert"></a>并行 INSERT
 执行下面的 T-SQL 语句时将在兼容级别 120 和 130 下执行 INSERT 操作，即分别在单线程模型 (120) 和多线程模型 (130) 中执行 INSERT 操作。
@@ -231,7 +231,6 @@ GO
 SET STATISTICS XML OFF;
 ```
 
-
 如图 3 中的并排查询所示，我们可以看到行模式中的排序操作代表 81% 的开销，而批处理模式只代表 19% 的开销（排序本身分别占 81% 和 56%）。
 
 *图 3：SORT 操作从行模式更改为兼容级别 130 中的批处理模式。*
@@ -296,8 +295,7 @@ GO
 SET STATISTICS XML OFF;
 ```
 
-
-更改兼容级别 120 或 130 可启用新的基数估算功能。 在这种情况下，默认的 CardinalityEstimationModelVersion 设置为 120 或 130。
+只需迁移到兼容级别 120 或 130，即可启用新的基数估算功能。 在这种情况下，默认 CardinalityEstimationModelVersion 便跟着设置为 120 或 130，如下所示。
 
 ```
 -- New CE
@@ -320,7 +318,6 @@ GO
 
 SET STATISTICS XML OFF;
 ```
-
 
 *图 5：使用兼容级别 130 时，CardinalityEstimationModelVersion 设置为 130。*
 
@@ -348,7 +345,7 @@ SELECT T.[c2]
                    [dbo].[T_source] S
         INNER JOIN [dbo].[T_target] T  ON T.c1=S.c1
     WHERE
-        S.[Color] = ‘Red’  AND
+        S.[Color] = 'Red'  AND
         S.[c2] > 2000  AND
         T.[c2] > 2000
     OPTION (RECOMPILE);
@@ -364,7 +361,7 @@ SET STATISTICS XML OFF;
 
 ![图 6](./media/sql-database-compatibility-level-query-performance-130/figure-6.jpg)
 
-同样地，我们现在使用新的基数估算功能执行相同的查询。
+同样地，让我们现在使用新的基数估算功能执行相同的查询。
 
 ```
 -- New CE row estimate with INNER JOIN and WHERE clause
@@ -385,7 +382,7 @@ SELECT T.[c2]
                    [dbo].[T_source] S
         INNER JOIN [dbo].[T_target] T  ON T.c1=S.c1
     WHERE
-        S.[Color] = ‘Red’  AND
+        S.[Color] = 'Red'  AND
         S.[c2] > 2000  AND
         T.[c2] > 2000
     OPTION (RECOMPILE);
@@ -401,7 +398,7 @@ SET STATISTICS XML OFF;
 
 ![图 7](./media/sql-database-compatibility-level-query-performance-130/figure-7.jpg)
 
-事实上，结果集为 200,704 行（但全都取决于运行以前示例查询的频率，但更重要的是，因为 T-SQL 使用 RAND() 语句，所以每次运行返回的实际值都有所不同）。 因此，在此特定示例中，新的基数估算在估算行数时效果更好，因为 202,877 比 194,284 更接近 200,704！ 最后，如果将 WHERE 子句更改为等号（举例而言，而非“>”），这可能使新旧基数函数之间的估算值更加不同（视可以获取多少匹配项目而定）。
+事实上，结果集为 200,704 行（但全都取决于运行以前示例查询的频率，但更重要的是，因为 T-SQL 使用 RAND() 语句，所以每次运行返回的实际值都有所不同）。 因此，在此特定示例中，新的基数估算在估算行数时效果更好，因为 202,877 比 194,284 更接近 200,704！ 最后，如果将 WHERE 子句谓词更改为等号（举例而言，而非“>”），这可能使新旧基数函数之间的估算值更加不同（视可以获取多少匹配项目而定）。
 
 显然，在此情况下，与实际计数相差大约 6000 行，在某些情况下并不代表大量数据。 现在，将此转置成跨数个表的数百万行和更复杂的查询，而有时候估算值可能相差数百万行，因此，挑选错误的执行计划，或请求授予的内存不足（导致 TempDB 溢出并造成更多的 I/O）的风险高出许多。
 
@@ -420,13 +417,13 @@ SET STATISTICS XML OFF;
 * 接下来，使用具代表性的数据和类似生产环境的查询来测试所有重要工作负荷，并比较所经历的性能与存储所报告的性能。 如果遇到一些性能衰退，可以找出衰退的查询存储查询，并使用查询存储提供的计划强制选项（也称为计划关联）。 在这种情况下，绝对可以保持兼容级别 130，并使用查询存储的建议的以前查询计划。
 * 如果想要使用 Azure SQL 数据库（即 运行 SQL Server 2016）的新特性与功能，但很容易受到兼容级别 130 带来的更改的影响，则最终手段是考虑使用 ALTER DATABASE 语句，让兼容级别强制恢复到符合工作负荷的级别。 但首先请注意查询存储计划关联选项是最佳的选择，因为不使用 130 基本上保持在旧版 SQL Server 的功能级别。
 * 如果你有跨多个数据库的多租户应用程序，则可能必须更新数据库的预配逻辑，以确保所有数据库（旧的和新预配的）的兼容级别都一致。 应用程序工作负荷性能可能很容易受某些数据库在不同兼容级别执行的此事实所影响，因此，所有数据库的兼容级别都必须一致，以便为所有的客户提供相同的体验。 并非一定要这样做；实际上这取决于应用程序受兼容级别影响的程度。
-* 最后，在基数估算方面，建议在新的条件之下测试生产工作负荷，以确定应用程序是否受益于基数估算的改进。
+* 最后，在基数估算方面，就像更改兼容级别一样，在投入生产之前，建议在新的条件之下测试生产工作负荷，以确定应用程序是否受益于基数估算的改进。
 
 ## <a name="conclusion"></a>结束语
 使用 Azure SQL 数据库以受益于所有的 SQL Server 2016 增强功能，可以明显改善查询执行。 当然，如同任何新功能，必须执行适当的评估，才能确定数据库工作负荷执行最佳的确切条件。 经验表明，大多数工作负荷至少应该在兼容级别 130 下以透明方式运行，同时使用新的查询处理函数和新的基数估算。 但实际上总有一些例外情况，进行适当的审慎调查是很重要的评估措施，这可以确定能够从这些增强功能中获得多少好处。 同样地，查询存储对于执行此工作很有帮助！
 
 ## <a name="references"></a>参考
-* [数据库引擎中的新增功](https://msdn.microsoft.com/library/bb510411.aspx#InMemory)
+* [数据库引擎的新增功能](https://msdn.microsoft.com/library/bb510411.aspx#InMemory)
 * [Borko Novakovic 在 2016 年 6 月 8 日发表的博客文章：Query Store: A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/)（查询存储：数据库的航班数据记录器）
 * [ALTER DATABASE 兼容性级别 (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx)
 * [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx)（更改数据库范围的配置）

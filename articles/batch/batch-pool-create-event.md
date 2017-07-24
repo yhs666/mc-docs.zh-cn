@@ -1,29 +1,26 @@
 ---
-title: "池创建事件 - Azure | Microsoft Docs"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
+title: "Azure Batch 池创建事件 | Microsoft Docs"
+description: "Batch 池创建事件参考。"
+services: batch
+author: alexchen2016
+manager: digimobile
+ms.assetid: 
 ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 8473bab4-6c16-4ee2-8d78-22fa3ca87487
-caps.latest.revision: 4
-author: tamram
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+origin.date: 04/20/2017
+ms.date: 07/03/2017
 ms.author: v-junlch
-manager: timlt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: fa47cd86758122a0f63b27268f6a582da0fe0689
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 22b113b1c784380be2339a166d3c29801112bb12
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="pool-create-event"></a>池创建事件
-池创建事件日志正文
 
-## <a name="remarks"></a>备注
  池创建后，会发出此事件。 日志内容将公开有关池的常规信息。 请注意，如果池的目标大小大于 0 个计算节点，则池调整大小启动事件将在此事件之后立即发生。
 
  以下示例显示了使用 CloudServiceConfiguration 属性所创建池的池创建事件的正文。

@@ -16,14 +16,13 @@ ms.workload: big-data
 origin.date: 03/21/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.openlocfilehash: 140ae759f81a603e0f10197ab1bb2d6bc1a31870
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: fb729591ac0039c512b898478093e178d7f33d7d
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 使用 Apache Storm、事件中心和 HDInsight 中的 HBase (Hadoop) 分析传感器数据
-<a id="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop" class="xliff"></a>
+# <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>使用 Apache Storm、事件中心和 HDInsight 中的 HBase (Hadoop) 分析传感器数据
 
 了解如何在 HDInsight 上使用 Apache Storm 处理来自 Azure 事件中心的传感器数据。 然后，数据将存储到 HDInsight 上的 Apache HBase 中并使用 D3.js 进行可视化。
 
@@ -34,10 +33,9 @@ ms.lasthandoff: 06/21/2017
 > [!NOTE]
 > 此文档中的信息和此文档中的示例需要 HDInsight 3.5 版。
 >
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -58,8 +56,7 @@ ms.lasthandoff: 06/21/2017
     > [!NOTE]
     > 另外，用户还必须有权限访问 `scp` 命令，该命令用于在本地开发环境与使用 SSH 的 HDInsight 群集之间复制文件。
 
-## 体系结构
-<a id="architecture" class="xliff"></a>
+## <a name="architecture"></a>体系结构
 
 ![体系结构示意图](./media/hdinsight-storm-sensor-data-analysis/devicesarchitecture.png)
 
@@ -86,7 +83,7 @@ ms.lasthandoff: 06/21/2017
 > [!IMPORTANT]
 > 需要两个群集，因为没有方法支持为 Storm 和 HBase 创建同一个 HDInsight 群集。
 
-拓扑使用 [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) 类从事件中心读取数据，并使用 [org.apache.storm.hbase.bolt.HBaseBolt](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html) 类将数据写入到 HBase。 与网站的通信可通过使用 [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java) 来实现。
+拓扑使用 [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) 类从事件中心读取数据，并使用 [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html) 类将数据写入到 HBase。 与网站的通信可通过使用 [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java) 来实现。
 
 下图说明拓扑的布局：
 
@@ -98,8 +95,7 @@ ms.lasthandoff: 06/21/2017
 > * 从 spout 到分析器的数据已经过负载均衡。
 > * 从分析器到仪表板和 HBase 的数据按设备 ID 进行分组，因此，来自同一设备的消息始终流向同一组件。
 
-### 拓扑组件
-<a id="topology-components" class="xliff"></a>
+### <a name="topology-components"></a>拓扑组件
 
 * **EventHub Spout**：此 Spout 作为 Apache Storm 0.10.0 及更高版本的一部分提供。
 
@@ -110,13 +106,11 @@ ms.lasthandoff: 06/21/2017
 * **DashboardBolt.java**：此组件演示如何使用 Java 的 Socket.io 客户端库将数据实时发送到 Web 仪表板。
 * **Temperature.java**：此组件定义拓扑，并从 **Config.properties** 文件加载配置数据。
 
-## 准备环境
-<a id="prepare-your-environment" class="xliff"></a>
+## <a name="prepare-your-environment"></a>准备环境
 
 在使用本示例之前，必须创建由 Storm 拓扑读取的 Azure 事件中心。
 
-### 配置事件中心
-<a id="configure-event-hub" class="xliff"></a>
+### <a name="configure-event-hub"></a>配置事件中心
 
 事件中心是此示例的数据源。 按照下列步骤创建一个事件中心。
 
@@ -141,8 +135,7 @@ ms.lasthandoff: 06/21/2017
 
 1. 选择这两种策略，然后记下“主密钥”值。 在以后的步骤中需要用到这两种策略的值。
 
-## 下载并配置项目
-<a id="download-and-configure-the-project" class="xliff"></a>
+## <a name="download-and-configure-the-project"></a>下载并配置项目
 
 使用以下命令从 GitHub 中下载项目。
 
@@ -173,16 +166,14 @@ ms.lasthandoff: 06/21/2017
 
 在添加此信息后，请保存该文件。
 
-## 编译并在本地测试
-<a id="compile-and-test-locally" class="xliff"></a>
+## <a name="compile-and-test-locally"></a>编译并在本地测试
 
 测试之前，必须启动仪表板以查看拓扑的输出，并生成要在事件中心中存储的数据。
 
 > [!IMPORTANT]
 > 执行本地测试时，此拓扑的 HBase 组件未处于活动状态。 这是因为从 Azure 虚拟网络（包含群集）外部无法访问 HBase 群集的 Java API。
 
-### 启动 Web 应用程序
-<a id="start-the-web-application" class="xliff"></a>
+### <a name="start-the-web-application"></a>启动 Web 应用程序
 
 1. 打开一个新的命令提示符或终端，并将目录更改到 **hdinsight-eventhub-example/dashboard**。 使用以下命令安装 Web 应用程序所需的依赖项：
 
@@ -202,8 +193,7 @@ ms.lasthandoff: 06/21/2017
 
     将此命令提示符或终端保持打开状态。 测试完成后，使用 Ctrl-C 停止 Web 服务器。
 
-### 开始生成数据
-<a id="start-generating-data" class="xliff"></a>
+### <a name="start-generating-data"></a>开始生成数据
 
 > [!NOTE]
 > 此部分中的步骤使用 Node.js，以便它们可以在任何平台上使用。 对于其他语言示例，请参阅 **SendEvents** 目录。
@@ -242,8 +232,7 @@ ms.lasthandoff: 06/21/2017
         {"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"8","Temperature":43}
         {"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"9","Temperature":84}
 
-### 启动拓扑
-<a id="start-the-topology" class="xliff"></a>
+### <a name="start-the-topology"></a>启动拓扑
 
 1. 打开新的命令提示符、外壳程序或终端，将目录切换为 **hdinsight-eventhub-example/TemperatureMonitor**，然后使用以下命令启动拓扑：
 
@@ -260,8 +249,7 @@ ms.lasthandoff: 06/21/2017
 
 3. 验证仪表板是否更新后，使用 Ctrl+C 停止拓扑。 也可以使用 Ctrl+C 停止本地 Web 服务器。
 
-## 创建 Storm 和 HBase 群集
-<a id="create-a-storm-and-hbase-cluster" class="xliff"></a>
+## <a name="create-a-storm-and-hbase-cluster"></a>创建 Storm 和 HBase 群集
 
 本节中的步骤使用 [Azure Resource Manager 模板](../azure-resource-manager/resource-group-template-deploy.md)创建 Azure 虚拟网络以及虚拟网络上的 Storm 和 HBase 群集。 该模板还创建 Azure Web 应用并将仪表板的副本部署到其中。
 
@@ -302,8 +290,7 @@ ms.lasthandoff: 06/21/2017
 > [!IMPORTANT]
 > 请注意，HDInsight 群集的名称为 **storm BASENAME** 和 **hbase BASENAME**，其中 BASENAME 是为模板提供的名称。 在连接到群集的后续步骤中，会用到这些名称。 此外请注意，仪表板站点的名称是 **basename-dashboard**。 稍后会在本文档中使用此值。
 
-## 配置仪表板 bolt
-<a id="configure-the-dashboard-bolt" class="xliff"></a>
+## <a name="configure-the-dashboard-bolt"></a>配置仪表板 bolt
 
 若要将数据发送到部署为 Web 应用的仪表板，必须在 **Config.properties** 文件中修改以下行：
 
@@ -311,8 +298,7 @@ ms.lasthandoff: 06/21/2017
 
 将 `http://localhost:3000` 更改为 `http://BASENAME-dashboard.chinacloudsites.cn` 并保存该文件。 用上一步中提供的基名称替换 **BASENAME**。 还可以通过以前创建的资源组选择仪表板并查看 URL。
 
-## 创建 HBase 表
-<a id="create-the-hbase-table" class="xliff"></a>
+## <a name="create-the-hbase-table"></a>创建 HBase 表
 
 若要将数据存储在 HBase 中，必须先创建一个表。 请预先创建供 Storm 将内容写入到其中的资源，因为如果尝试从 Storm 拓扑内部创建资源，可能会导致多个实例尝试创建同一资源。 请在拓扑外部创建资源，并使用 Storm 进行读取/写入和分析。
 
@@ -342,13 +328,11 @@ ms.lasthandoff: 06/21/2017
 
 5. 输入 `exit` 以退出 HBase Shel：
 
-## 配置 HBase Bolt
-<a id="configure-the-hbase-bolt" class="xliff"></a>
+## <a name="configure-the-hbase-bolt"></a>配置 HBase Bolt
 
 若要将内容从 Storm 群集写入 HBase，必须为 HBase Bolt 提供 HBase 群集的配置详细信息。 此示例使用来自 HBase 群集的 **hbase-site.xml** 文件。
 
-### 下载 hbase-site.xml
-<a id="download-the-hbase-sitexml" class="xliff"></a>
+### <a name="download-the-hbase-sitexml"></a>下载 hbase-site.xml
 
 从命令提示符处，使用 SCP 从群集下载 **hbase-site.xml** 文件。 在下面的示例中，用创建群集时提供的 SSH 用户替换 **USERNAME**，用之前提供的基名称替换 **BASENAME**。 出现提示时，请输入 SSH 用户名密码。 将 `/path/to/TemperatureMonitor/resources/hbase-site.xml` 替换为此文件在 TemperatureMonitor 项目中的路径。
 
@@ -356,8 +340,7 @@ ms.lasthandoff: 06/21/2017
 
 此命令下载 **hbase-site.xml** 到指定的路径。
 
-### 启用 HBase bolt
-<a id="enable-the-hbase-bolt" class="xliff"></a>
+### <a name="enable-the-hbase-bolt"></a>启用 HBase bolt
 
 若要启用 HBase Bolt 组件，请打开 **TemperatureMonitor/src/main/java/com/microsoft/examples/Temperature.java** 文件，并取消评论以下行：
 
@@ -366,8 +349,7 @@ ms.lasthandoff: 06/21/2017
 
 取消评论这些行后，保存该文件。
 
-## 生成解决方案，并将其打包和部署到 HDInsight
-<a id="build-package-and-deploy-the-solution-to-hdinsight" class="xliff"></a>
+## <a name="build-package-and-deploy-the-solution-to-hdinsight"></a>生成解决方案，并将其打包和部署到 HDInsight
 
 在开发环境中，按以下步骤将 Storm 拓扑部署到 Storm 群集。
 
@@ -396,8 +378,7 @@ ms.lasthandoff: 06/21/2017
 
     ![仪表板](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
 
-## 查看 HBase 数据
-<a id="view-hbase-data" class="xliff"></a>
+## <a name="view-hbase-data"></a>查看 HBase 数据
 
 使用以下步骤连接到 HBase 并验证该数据是否已写入到表中：
 
@@ -444,14 +425,12 @@ ms.lasthandoff: 06/21/2017
    > [!NOTE]
    > 此扫描操作最多返回表中的 10 行。
 
-## 删除群集
-<a id="delete-your-clusters" class="xliff"></a>
+## <a name="delete-your-clusters"></a>删除群集
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 若要同时删除群集、存储和 Web 应用，请删除包含它们的资源组。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 如需更多 HDInsight 的 Storm 拓扑示例，请参阅 [Storm on HDInsight 的示例拓扑](hdinsight-storm-example-topology.md)。
 

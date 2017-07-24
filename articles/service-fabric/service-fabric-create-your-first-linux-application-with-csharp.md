@@ -1,10 +1,10 @@
 ---
-title: "在 Linux 上使用 C# 创建第一个 Azure 微服务应用 | Microsoft 文档"
+title: "在 Linux 上使用 C# 创建第一个 Azure 微服务应用 | Azure"
 description: "使用 C# 创建和部署 Service Fabric 应用程序"
 services: service-fabric
 documentationcenter: csharp
-author: mani-ramaswamy
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
 ms.service: service-fabric
@@ -12,94 +12,92 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: v-johch
-ms.openlocfilehash: 829b98b616e969c7756c074b568693d051465dca
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 03/02/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
+ms.openlocfilehash: b173dcfa691d93349074cbbf405b2d3c0b7d2248
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 创建第一个 Azure Service Fabric 应用程序
-<a id="create-your-first-azure-service-fabric-application" class="xliff"></a>
+# <a name="create-your-first-azure-service-fabric-application"></a>创建第一个 Azure Service Fabric 应用程序
 > [!div class="op_single_selector"]
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java-Linux](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
-> 
-> 
+>
+>
 
 Service Fabric 提供用于在 Linux 上使用 .NET Core 和 Java 构建服务的 SDK。 本教程探讨如何创建适用于 Linux 的应用程序以及使用 C# (.NET Core) 构建服务。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 开始之前，请确保已[设置 Linux 开发环境](service-fabric-get-started-linux.md)。 如果使用的是 Mac OS X，则可以[使用 Vagrant 在虚拟机中设置 Linux 单机环境](service-fabric-get-started-mac.md)。
 
-## 创建应用程序
-<a id="create-the-application" class="xliff"></a>
+## <a name="create-the-application"></a>创建应用程序
 Service Fabric 应用程序可以包含一个或多个服务，每个服务都在提供应用程序功能时具有特定角色。 适用于 Linux 的 Service Fabric SDK 包含 [Yeoman](http://yeoman.io/) 生成器，使用它可以轻松创建第一个服务并在以后添加更多服务。 让我们使用 Yeoman 创建包含单个服务的应用程序。
 
 1. 在终端中，键入以下命令开始构建基架： `yo azuresfcsharp`
 2. 为应用程序命名。
 3. 选择第一个服务的类型并为其命名。 对于本教程，我们会选择“Reliable Actor 服务”。
-   
+
    ![适用于 C# 的 Service Fabric Yeoman 生成器][sf-yeoman]
 
 > [!NOTE]
 > 有关选项的详细信息，请参阅 [Service Fabric 编程模型概述](service-fabric-choose-framework.md)。
-> 
-> 
+>
+>
 
-## 构建应用程序
-<a id="build-the-application" class="xliff"></a>
+## <a name="build-the-application"></a>构建应用程序
 Service Fabric Yeoman 模板包含构建脚本，可用于从终端构建应用程序（在导航到应用程序文件夹后）。
 
   ```sh
- cd myapp 
- ./build.sh 
+ cd myapp
+ ./build.sh
   ```
 
-## 部署应用程序
-<a id="deploy-the-application" class="xliff"></a>
+## <a name="deploy-the-application"></a>部署应用程序
 构建应用程序后，可以使用 Azure CLI 将它部署到本地群集。
 
 1. 连接到本地 Service Fabric 群集。
-   
+
     ```sh
     azure servicefabric cluster connect
     ```
 2. 使用模板中提供的安装脚本可将应用程序包复制到群集的映像存储、注册应用程序类型和创建应用程序的实例。
-   
+
     ```bash
     ./install.sh
     ```
 3. 打开浏览器并导航到 http://localhost:19080/Explorer 的 Service Fabric Explorer（如果在 Mac OS X 上使用 Vagrant，则使用 VM 的专用 IP 替换 localhost）。
 4. 展开应用程序节点，注意现在有一个条目是用于你的应用程序类型，另一个条目用于该类型的第一个实例。
 
-## 启动测试客户端并执行故障转移
-<a id="start-the-test-client-and-perform-a-failover" class="xliff"></a>
+## <a name="start-the-test-client-and-perform-a-failover"></a>启动测试客户端并执行故障转移
 执行组件项目没有任何属于自己的项。 它们需要其他服务或客户端发送消息给它们。 执行组件模板包含简单的测试脚本，可用于与执行组件服务交互。
 
 1. 使用监视实用工具运行脚本，查看执行组件服务的输出。
-   
+
     ```bash
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh
     ```
 2. 在 Service Fabric Explorer 中，找到托管执行组件服务主副本的节点。 在以下屏幕截图中，该节点是节点 3。
-   
+
     ![在 Service Fabric Explorer 中查找主副本][sfx-primary]
 3. 单击上一步找到的节点，然后在“操作”菜单中选择“停用(重启)”。 此操作在本地群集中重新启动一个节点，从而强制故障转移到在另一个节点上运行的一个辅助副本。 在执行此操作时，请注意来自测试客户端的输出，并注意虽然发生故障转移，但是计数器仍将继续递增。
 
-## 将更多服务添加到现有应用程序
-<a id="adding-more-services-to-an-existing-application" class="xliff"></a>
+## <a name="adding-more-services-to-an-existing-application"></a>将更多服务添加到现有应用程序
 
 若要将另一个服务添加到使用 `yo`创建的应用程序，请执行以下步骤： 
 1. 将目录更改为现有应用程序的根目录。  例如 `cd ~/YeomanSamples/MyApplication`（如果 `MyApplication` 是 Yeoman 创建的应用程序）。
 2. 运行 `yo azuresfcsharp:AddService`
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="migrating-from-projectjson-to-csproj"></a>从 project.json 迁移到 .csproj
+1. 在项目根目录中运行“dotnet migrate”可将所有 project.json 迁移到 csproj 格式。
+2. 将项目引用相应地更新到项目文件的 csproj 文件中。
+3. 将项目文件名更新到 build.sh 格式的 csproj 文件。
+
+## <a name="next-steps"></a>后续步骤
 * [了解有关 Reliable Actors 的详细信息](service-fabric-reliable-actors-introduction.md)
 * [使用 Azure CLI 与 Service Fabric 群集交互](service-fabric-azure-cli.md)
 * 了解 [Service Fabric 支持选项](service-fabric-support.md)

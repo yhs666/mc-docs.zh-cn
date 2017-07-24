@@ -3,8 +3,8 @@ title: "使用适用于 .NET 的客户端库管理 Batch 帐户资源 - Azure | 
 description: "使用 Batch Management .NET 库创建、删除和修改 Azure Batch 帐户资源。"
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 16279b23-60ff-4b16-b308-5de000e4c028
@@ -13,16 +13,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 03/15/2017
+origin.date: 04/24/2017
+ms.date: 07/03/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: e7be25b2dd6fecfd88a6f8deb6b1ef333f6bdf87
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: e18ca71a495706d46dc3d985138be3b8a77b6b0b
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>通过用于 .NET 的 Batch Management 客户端库管理 Batch 帐户和配额
 
@@ -40,7 +39,7 @@ ms.lasthandoff: 04/14/2017
 - 通过在同一应用程序中使用 Batch Management .NET、[Azure Active Directory][aad_about] 和 [Azure Resource Manager][resman_overview]，用户可以**结合其他 Azure 服务的功能**获得全功能管理体验。 使用这些功能及其 API 可以提供顺畅的身份验证体验、创建和删除资源组以及上述功能，以获取端到端管理解决方案。
 
 > [!NOTE]
-> 尽管本文着重介绍以编程方式管理 Batch 帐户、密钥和配额，但你也可以使用 [Azure 门户][azure_portal]执行其中的许多活动。 有关详细信息，请参阅[使用 Azure 门户创建 Azure 批处理帐户](batch-account-create-portal.md)以及 [Azure 批处理服务的配额和限制](batch-quota-limit.md)。
+> 尽管本文着重介绍以编程方式管理 Batch 帐户、密钥和配额，但你也可以使用 [Azure 门户][azure_portal]执行其中的许多活动。 有关详细信息，请参阅[使用 Azure 门户创建 Azure Batch 帐户](batch-account-create-portal.md)以及 [Azure Batch 服务的配额和限制](batch-quota-limit.md)。
 > 
 > 
 
@@ -65,7 +64,7 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> 使用 Batch Management .NET 库及其 BatchManagementClient 类的应用程序需有**服务管理员**或**共同管理员**访问权限才能使用拥有要管理的 Batch 帐户的订阅。 有关详细信息，请参阅 Azure Active Directory 部分和 [AccountManagement][acct_mgmt_sample] 代码示例。
+> 使用 Batch Management .NET 库及其 BatchManagementClient 类的应用程序需有**服务管理员**或**共同管理员**访问权限才能使用拥有要管理的 Batch 帐户的订阅。 有关详细信息，请参阅 [Azure Active Directory](#azure-active-directory) 部分和 [AccountManagement][acct_mgmt_sample] 代码示例。
 > 
 > 
 
@@ -172,17 +171,16 @@ Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource
    - 删除新建的帐户。
 7. 删除该资源组。
 
-删除新建的批处理帐户和资源组之前，可以在 [Azure 门户][azure_portal]中查看它们：
+删除新建的 Batch 帐户和资源组之前，可以在 [Azure 门户][azure_portal]中查看它们：
 
-[aad_about]: ../active-directory/active-directory-whatis.md
-[aad_adal]: ../active-directory/develop/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/develop/active-directory-authentication-scenarios.md
-[aad_integrate]: ../active-directory/active-directory-integrating-applications.md
+[aad_about]:../active-directory/active-directory-whatis.md
+[aad_adal]:../active-directory/develop/active-directory-authentication-libraries.md
+[aad_auth_scenarios]:../active-directory/develop/active-directory-authentication-scenarios.md
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_mgmt_net]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [azure_portal]: http://portal.azure.cn
-[azure_storage]: https://azure.microsoft.com/services/storage/
+[azure_storage]: /storage/
 [azure_tokencreds]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.tokencloudcredentials.aspx
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
@@ -202,5 +200,4 @@ Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource
 [1]: ./media/batch-management-dotnet/portal-01.png
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
-
 

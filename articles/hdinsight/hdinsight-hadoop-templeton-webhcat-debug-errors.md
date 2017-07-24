@@ -1,5 +1,5 @@
 ---
-title: "了解和解决 HDInsight 上的 WebHCat 错误"
+title: "了解和解决 HDInsight 上的 WebHCat 错误 - Azure | Azure"
 description: "了解 HDInsight 上的 WebHCat 返回的常见错误以及如何解决它们。"
 services: hdinsight
 documentationcenter: 
@@ -17,13 +17,11 @@ ms.workload: big-data
 origin.date: 04/04/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 3ec907c37bcc7f209fed4a175d3ef9073407ad0b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: b1b128d067e7bdbe354ca3b37eec87b2379ab75a
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>了解和解决从 HDInsight 上的 WebHCat 收到的错误
 
@@ -45,7 +43,7 @@ ms.lasthandoff: 04/28/2017
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅[弃用 HDInsight 版本 3.2 和 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 ### <a name="default-configuration"></a>默认配置
 
@@ -98,4 +96,3 @@ ms.lasthandoff: 04/28/2017
 [maximum-applications]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://hive.apache.org/javadocs/hcat-r0.5.0/configuration.html
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
-

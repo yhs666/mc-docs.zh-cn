@@ -13,30 +13,28 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/21/2017
-ms.date: 05/31/2017
+origin.date: 05/22/2017
+ms.date: 07/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: 43a9bb61c6d09c8afe69e247a90f17da2da546d0
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 29347ac635a7afaf27bc967dc65f5613a1e7382e
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 使用 PowerShell 配置 VNet 到 VNet VPN 网关连接
-<a id="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell" class="xliff"></a>
+# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>使用 PowerShell 配置 VNet 到 VNet VPN 网关连接
 
 本文介绍如何在虚拟网络之间创建 VPN 网关连接。 虚拟网络可位于相同或不同的区域，来自相同或不同的订阅。 本文中的步骤适用于 Resource Manager 部署模型并使用 PowerShell。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure 门户](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Resource Manager - Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [经典 - Azure 门户](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [连接不同的部署模型 - Azure 门户](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [连接不同的部署模型 - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
-
-![v2v 示意图](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 将一个虚拟网络连接到另一个虚拟网络（VNet 到 VNet）类似于将 VNet 连接到本地站点位置。 这两种连接类型都使用 VPN 网关来提供使用 IPsec/IKE 的安全隧道。 如果 VNet 位于同一区域，可能会考虑使用 VNet 对等互连进行连接。 VNet 对等互连不使用 VPN 网关。 有关详细信息，请参阅 [VNet 对等互连](../virtual-network/virtual-network-peering-overview.md)。
 
@@ -44,8 +42,7 @@ ms.lasthandoff: 06/23/2017
 
 ![关于连接](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
 
-### 为什么要连接虚拟网络？
-<a id="why-connect-virtual-networks" class="xliff"></a>
+### <a name="why-connect-virtual-networks"></a>为什么要连接虚拟网络？
 
 你可能会出于以下原因而连接虚拟网络：
 
@@ -59,21 +56,23 @@ ms.lasthandoff: 06/23/2017
 
 有关 VNet 到 VNet 连接的详细信息，请参阅本文末尾的 [VNet 到 VNet 常见问题解答](#faq) 。
 
-## 我应使用哪个步骤集？
-<a id="which-set-of-steps-should-i-use" class="xliff"></a>
+## <a name="which-set-of-steps-should-i-use"></a>我应使用哪个步骤集？
+
 在本文中，可以看到两组不同的步骤。 一组步骤适用于[驻留在同一订阅中的 VNet](#samesub)，另一组适用于[驻留在不同订阅中的 VNet](#difsub)。 两组步骤之间的主要差别在于是否可以在相同的 PowerShell 会话中创建和配置所有虚拟网络和网关资源。
 
-本文中的步骤使用在每个部分开头声明的变量。 如果使用现有 VNet，请修改这些变量，反映自身环境中的设置。 
+本文中的步骤使用在每个部分开头声明的变量。 如果使用现有 VNet，请修改这些变量，反映自身环境中的设置。 如果需要虚拟网络的名称解析，请参阅[名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
 ## <a name="samesub"></a>如何连接相同订阅中的 VNet
+
 ![v2v 示意图](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-### 开始之前
-<a id="before-you-begin" class="xliff"></a>
+### <a name="before-you-begin"></a>开始之前
+
 在开始之前，需要安装 Azure Resource Manager PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 
 
 ### <a name="Step1"></a>步骤 1 - 规划 IP 地址范围
-以下步骤将创建两个虚拟网络，以及它们各自的网关子网和配置。 然后，在两个 VNet 之间配置 VPN 连接。 必须规划好网络配置的 IP 地址范围。 请记住，必须确保没有任何 VNet 范围或本地网络范围存在任何形式的重叠。
+
+以下步骤将创建两个虚拟网络，以及它们各自的网关子网和配置。 然后，在两个 VNet 之间配置 VPN 连接。 必须规划好网络配置的 IP 地址范围。 请记住，必须确保没有任何 VNet 范围或本地网络范围存在任何形式的重叠。 在这些示例中，我们没有包括 DNS 服务器。 如果需要虚拟网络的名称解析，请参阅[名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
 示例中使用了以下值：
 
@@ -86,7 +85,6 @@ ms.lasthandoff: 06/23/2017
 * FrontEnd：10.11.0.0/24
 * BackEnd：10.12.0.0/24
 * GatewaySubnet：10.12.255.0/27
-* DNS 服务器：8.8.8.8
 * GatewayName：VNet1GW
 * 公共 IP：VNet1GWIP
 * VPNType：RouteBased
@@ -103,7 +101,6 @@ ms.lasthandoff: 06/23/2017
 * GatewaySubnet：10.42.255.0/27
 * 资源组：TestRG4
 * 位置：中国北部
-* DNS 服务器：8.8.8.8
 * GatewayName：VNet4GW
 * 公共 IP：VNet4GWIP
 * VPNType：RouteBased
@@ -111,9 +108,8 @@ ms.lasthandoff: 06/23/2017
 * ConnectionType：VNet2VNet
 
 ### <a name="Step2"></a>步骤 2 - 创建并配置 TestVNet1
-1. 声明变量。
 
-    首先声明变量。 此示例使用本练习中的值来声明变量。 在大多数情况下，应该将这些值替换为自己的值。 但是，如果执行这些步骤是为了熟悉此类型的配置，则可以使用这些变量。 根据需要修改变量，然后将其复制并粘贴到 PowerShell 控制台中。
+1. 声明变量。 此示例使用本练习中的值来声明变量。 在大多数情况下，应该将这些值替换为自己的值。 但是，如果执行这些步骤是为了熟悉此类型的配置，则可以使用这些变量。 根据需要修改变量，然后将其复制并粘贴到 PowerShell 控制台中。
 
   ```powershell
   $Sub1 = "Replace_With_Your_Subcription_Name"
@@ -128,43 +124,38 @@ ms.lasthandoff: 06/23/2017
   $FESubPrefix1 = "10.11.0.0/24"
   $BESubPrefix1 = "10.12.0.0/24"
   $GWSubPrefix1 = "10.12.255.0/27"
-  $DNS1 = "8.8.8.8"
   $GWName1 = "VNet1GW"
   $GWIPName1 = "VNet1GWIP"
   $GWIPconfName1 = "gwipconf1"
   $Connection14 = "VNet1toVNet4"
   $Connection15 = "VNet1toVNet5"
   ```
-2. 连接到订阅
 
-    切换到 PowerShell 模式，使用 Resource Manager cmdlet。 打开 PowerShell 控制台并连接到你的帐户。 使用以下示例帮助建立连接：
+2. 连接到帐户。 使用下面的示例来帮助连接：
 
   ```powershell
   Login-AzureRmAccount -EnvironmentName AzureChinaCloud
   ```
 
-    检查该帐户的订阅。
+  检查该帐户的订阅。
 
   ```powershell
   Get-AzureRmSubscription
-  ``` 
+  ```
 
-    指定要使用的订阅。
+  指定要使用的订阅。
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName $Sub1
   ```
-
 3. 创建新的资源组。
 
   ```powershell
   New-AzureRmResourceGroup -Name $RG1 -Location $Location1
   ```
-4. 创建 TestVNet1 的子网配置。
+4. 创建 TestVNet1 的子网配置。 本示例创建一个名为 TestVNet1 的虚拟网络和三个子网：一个名为 GatewaySubnet、一个名为 FrontEnd，还有一个名为 Backend。 替换值时，请务必始终将网关子网特意命名为 GatewaySubnet。 如果命名为其他名称，网关创建会失败。
 
-    本示例创建一个名为 TestVNet1 的虚拟网络和三个子网：一个名为 GatewaySubnet、一个名为 FrontEnd，还有一个名为 Backend。 替换值时，请务必始终将网关子网特意命名为 GatewaySubnet。 如果命名为其他名称，网关创建将会失败。 
-
-    以下示例使用前面设置的变量。 在本示例中，网关子网使用 /27。 尽管创建的网关子网最小可为 /29，但建议至少选择 /28 或 /27，创建包含更多地址的更大子网。 这样便可以留出足够多的地址，满足将来可能需要使用的其他配置。
+  以下示例使用前面设置的变量。 在本示例中，网关子网使用 /27。 尽管创建的网关子网最小可为 /29，但建议至少选择 /28 或 /27，创建包含更多地址的更大子网。 这样便可以留出足够多的地址，满足将来可能需要使用的其他配置。
 
   ```powershell
   $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -177,17 +168,13 @@ ms.lasthandoff: 06/23/2017
   New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
   ```
-6. 请求公共 IP 地址。
-
-  请求一个公共 IP 地址，以分配给要为 VNet 创建的网关。 请注意，AllocationMethod 为 Dynamic。 您无法指定要使用的 IP 地址。 它会动态分配到网关。 
+6. 请求一个公共 IP 地址，以分配给要为 VNet 创建的网关。 请注意，AllocationMethod 为 Dynamic。 您无法指定要使用的 IP 地址。 它会动态分配到网关。 
 
   ```powershell
   $gwpip1 = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
   ```
-7. 创建网关配置。
-
-    网关配置定义要使用的子网和公共 IP 地址。 使用该示例创建网关配置。
+7. 创建网关配置。 网关配置定义要使用的子网和公共 IP 地址。 使用该示例创建网关配置。
 
   ```powershell
   $vnet1 = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
@@ -195,9 +182,7 @@ ms.lasthandoff: 06/23/2017
   $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 `
   -Subnet $subnet1 -PublicIpAddress $gwpip1
   ```
-8. 为 TestVNet1 创建网关。
-
-    本步骤为 TestVNet1 创建虚拟网络网关。 VNet 到 VNet 配置需要基于路由的 VPN 类型。 创建网关通常需要 45 分钟或更长的时间，具体取决于所选网关 SKU。
+8. 为 TestVNet1 创建网关。 本步骤为 TestVNet1 创建虚拟网络网关。 VNet 到 VNet 配置需要基于路由的 VPN 类型。 创建网关通常需要 45 分钟或更长的时间，具体取决于所选网关 SKU。
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
@@ -205,13 +190,11 @@ ms.lasthandoff: 06/23/2017
   -VpnType RouteBased -GatewaySku Standard
   ```
 
-### 步骤 3 - 创建并配置 TestVNet4
-<a id="step-3---create-and-configure-testvnet4" class="xliff"></a>
+### <a name="step-3---create-and-configure-testvnet4"></a>步骤 3 - 创建并配置 TestVNet4
+
 配置 TestVNet1 后，请创建 TestVNet4。 遵循以下步骤，并根据需要替换为自己的值。 此步骤可在相同的 PowerShell 会话中完成，因为其位于相同的订阅中。
 
-1. 声明变量。
-
-    请务必将值替换为要用于配置的值。
+1. 声明变量。 请务必将值替换为要用于配置的值。
 
   ```powershell
   $RG4 = "TestRG4"
@@ -225,14 +208,11 @@ ms.lasthandoff: 06/23/2017
   $FESubPrefix4 = "10.41.0.0/24"
   $BESubPrefix4 = "10.42.0.0/24"
   $GWSubPrefix4 = "10.42.255.0/27"
-  $DNS4 = "8.8.8.8"
   $GWName4 = "VNet4GW"
   $GWIPName4 = "VNet4GWIP"
   $GWIPconfName4 = "gwipconf4"
   $Connection41 = "VNet4toVNet1"
   ```
-
-    继续操作之前，请确保仍与订阅 1 保持连接。
 2. 创建新的资源组。
 
   ```powershell
@@ -253,7 +233,7 @@ ms.lasthandoff: 06/23/2017
   ```
 5. 请求公共 IP 地址。
 
-  ```powershell  
+  ```powershell
   $gwpip4 = New-AzureRmPublicIpAddress -Name $GWIPName4 -ResourceGroupName $RG4 `
   -Location $Location4 -AllocationMethod Dynamic
   ```
@@ -272,52 +252,43 @@ ms.lasthandoff: 06/23/2017
   -VpnType RouteBased -GatewaySku Standard
   ```
 
-### 步骤 4 - 连接网关
-<a id="step-4---connect-the-gateways" class="xliff"></a>
-1. 获取两个虚拟网关。
+### <a name="step-4---create-the-connections"></a>步骤 4 - 创建连接
 
-    在本示例中，由于这两个网关位于相同的订阅中，此步骤可在相同的 PowerShell 会话中完成。
+1. 获取两个虚拟网关。 如果两个网关都属于同一订阅（如示例所示），则可以在同一 PowerShell 会话中完成此步骤。
 
   ```powershell
   $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
   $vnet4gw = Get-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4
   ```
-2. 创建 TestVNet1 到 TestVNet4 的连接。
-
-    本步骤创建从 TestVNet1 到 TestVNet4 的连接。 示例中引用了共享密钥。 你可以对共享密钥使用自己的值。 共享密钥必须与两个连接匹配，这一点非常重要。 创建连接可能需要简短的一段时间才能完成。
+2. 创建 TestVNet1 到 TestVNet4 的连接。 本步骤创建从 TestVNet1 到 TestVNet4 的连接。 示例中引用了共享密钥。 你可以对共享密钥使用自己的值。 共享密钥必须与两个连接匹配，这一点非常重要。 创建连接可能需要简短的一段时间才能完成。
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection14 -ResourceGroupName $RG1 `
   -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet4gw -Location $Location1 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-3. 创建 TestVNet4 到 TestVNet1 的连接。
-
-    此步骤类似上面的步骤，只不过是创建 TestVNet4 到 TestVNet1 的连接。 确保共享密钥匹配。
+3. 创建 TestVNet4 到 TestVNet1 的连接。 此步骤类似上面的步骤，只不过是创建 TestVNet4 到 TestVNet1 的连接。 确保共享密钥匹配。 几分钟后会建立连接。
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection41 -ResourceGroupName $RG4 `
   -VirtualNetworkGateway1 $vnet4gw -VirtualNetworkGateway2 $vnet1gw -Location $Location4 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-
-    几分钟后，应会建立连接。
 4. 验证连接。 请参阅 [如何验证连接](#verify)部分。
 
 ## <a name="difsub"></a>如何连接不同订阅中的 VNet
+
 ![v2v 示意图](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
-在此方案中，我们将连接 TestVNet1 和 TestVNet5。 TestVNet1 和 TestVNet5 位于不同的订阅中。 此配置的步骤将添加一个额外的 VNet 到 VNet 连接，以便将 TestVNet1 连接到 TestVNet5。 
+在此方案中，我们将连接 TestVNet1 和 TestVNet5。 TestVNet1 和 TestVNet5 位于不同的订阅中。 这些步骤与上一组的差别在于，一些配置步骤需要在第二个订阅的上下文中单独的 PowerShell 会话中执行。 尤其是当两个订阅属于不同的组织时。
 
-此处的差别是，在第二个订阅的上下文中，某些配置步骤需要在不同的 PowerShell 会话中执行， 尤其是当两个订阅属于不同的组织时。 
+### <a name="step-5---create-and-configure-testvnet1"></a>步骤 5 - 创建并配置 TestVNet1
 
-以下说明延续上面所列的前述步骤。 必须完成[步骤 1](#Step1) 和[步骤 2](#Step2)，才能创建并配置 TestVNet1 和 TestVNet1 的 VPN 网关。 完成步骤 1 和步骤 2 之后，继续执行步骤 5 创建 TestVNet5。
+必须完成前面部分的[步骤 1](#Step1) 和[步骤 2](#Step2)，才能创建并配置 TestVNet1 及其 VPN 网关。 就此配置来说，不需创建前一部分中的 TestVNet4，虽然创建后不会与这些步骤冲突。 完成步骤 1 和步骤 2 后，请继续执行步骤 6，以创建 TestVNet5。 
 
-### 步骤 5 - 验证其他 IP 地址范围
-<a id="step-5---verify-the-additional-ip-address-ranges" class="xliff"></a>
-必须确保新虚拟网络的 IP 地址空间 TestVNet5 不与任何 VNet 范围或局域网网关范围重叠。 
+### <a name="step-6---verify-the-ip-address-ranges"></a>步骤 6 - 验证 IP 地址范围
 
-在本示例中，虚拟网络可能属于不同的组织。 对于本练习，你可以对 TestVNet5 使用以下值：
+必须确保新虚拟网络的 IP 地址空间 TestVNet5 不与任何 VNet 范围或局域网网关范围重叠。 在本示例中，虚拟网络可能属于不同的组织。 对于本练习，你可以对 TestVNet5 使用以下值：
 
 **TestVNet5 的值：**
 
@@ -328,24 +299,17 @@ ms.lasthandoff: 06/23/2017
 * FrontEnd：10.51.0.0/24
 * BackEnd：10.52.0.0/24
 * GatewaySubnet：10.52.255.0.0/27
-* DNS 服务器：8.8.8.8
 * GatewayName：VNet5GW
 * 公共 IP：VNet5GWIP
 * VPNType：RouteBased
 * 连接：VNet5toVNet1
 * ConnectionType：VNet2VNet
 
-**TestVNet1 的其他值：**
+### <a name="step-7---create-and-configure-testvnet5"></a>步骤 7 - 创建并配置 TestVNet5
 
-* 连接：VNet1toVNet5
-
-### 步骤 6 - 创建并配置 TestVNet5
-<a id="step-6---create-and-configure-testvnet5" class="xliff"></a>
 必须在新订阅的上下文中完成此步骤。 此部分可由不同的组织中拥有订阅的管理员执行。
 
-1. 声明变量。
-
-    请务必将值替换为要用于配置的值。
+1. 声明变量。 请务必将值替换为要用于配置的值。
 
   ```powershell
   $Sub5 = "Replace_With_the_New_Subcription_Name"
@@ -360,27 +324,24 @@ ms.lasthandoff: 06/23/2017
   $FESubPrefix5 = "10.51.0.0/24"
   $BESubPrefix5 = "10.52.0.0/24"
   $GWSubPrefix5 = "10.52.255.0/27"
-  $DNS5 = "8.8.8.8"
   $GWName5 = "VNet5GW"
   $GWIPName5 = "VNet5GWIP"
   $GWIPconfName5 = "gwipconf5"
   $Connection51 = "VNet5toVNet1"
   ```
-2. 连接到订阅 5。
-
-    打开 PowerShell 控制台并连接到你的帐户。 使用下面的示例来帮助你连接：
+2. 连接到订阅 5。 打开 PowerShell 控制台并连接到你的帐户。 使用下面的示例来帮助你连接：
 
   ```powershell
   Login-AzureRmAccount -EnvironmentName AzureChinaCloud
   ```
 
-    检查该帐户的订阅。
+  检查该帐户的订阅。
 
   ```powershell
   Get-AzureRmSubscription
   ```
 
-    指定要使用的订阅。
+  指定要使用的订阅。
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName $Sub5
@@ -423,26 +384,24 @@ ms.lasthandoff: 06/23/2017
   -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
   ```
 
-### 步骤 7 - 连接网关
-<a id="step-7---connecting-the-gateways" class="xliff"></a>
+### <a name="step-8---create-the-connections"></a>步骤 8 - 创建连接
+
 在本示例中，由于网关位于不同订阅中，因此将此步骤拆分为了两个 PowerShell 会话，分别标记为 [订阅 1] 和 [订阅 5]。
 
-1. **[订阅 1]** 获取订阅 1 的虚拟网关。
-
-    请确保登录并连接到订阅 1。
+1. **[订阅 1]** 获取订阅 1 的虚拟网关。 登录并连接到订阅 1，然后运行以下示例：
 
   ```powershell
   $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
   ```
 
-    复制以下元素的输出，然后通过电子邮件或其他方法将其发送到订阅 5 的管理员。
+  复制以下元素的输出，然后通过电子邮件或其他方法将其发送到订阅 5 的管理员。
 
   ```powershell
   $vnet1gw.Name
   $vnet1gw.Id
   ```
 
-    这两个元素的值类似于以下示例输出：
+  这两个元素的值类似于以下示例输出：
 
   ```
   PS D:\> $vnet1gw.Name
@@ -450,22 +409,20 @@ ms.lasthandoff: 06/23/2017
   PS D:\> $vnet1gw.Id
   /subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
   ```
-2. **[订阅 5]** 获取订阅 5 的虚拟网关。
-
-    请确保登录并连接到订阅 5。
+2. **[订阅 5]** 获取订阅 5 的虚拟网关。 登录并连接到订阅 5，然后运行以下示例：
 
   ```powershell
   $vnet5gw = Get-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
   ```
 
-    复制以下元素的输出，然后通过电子邮件或其他方法将其发送到订阅 1 的管理员。
+  复制以下元素的输出，然后通过电子邮件或其他方法将其发送到订阅 1 的管理员。
 
   ```powershell
   $vnet5gw.Name
   $vnet5gw.Id
   ```
 
-    这两个元素的值类似于以下示例输出：
+  这两个元素的值类似于以下示例输出：
 
   ```
   PS C:\> $vnet5gw.Name
@@ -473,11 +430,9 @@ ms.lasthandoff: 06/23/2017
   PS C:\> $vnet5gw.Id
   /subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
   ```
-3. **[订阅 1]** 创建 TestVNet1 到 TestVNet5 连接。
+3. **[订阅 1]** 创建 TestVNet1 到 TestVNet5 连接。 本步骤创建从 TestVNet1 到 TestVNet5 的连接。 此处的差别在于无法直接获取 $vnet5gw，因为它位于不同的订阅中。 需要使用上述步骤中从订阅 1 传递的值来创建新的 PowerShell 对象。 使用下面的示例。 将名称、ID 和共享密钥替换为自己的值。 共享密钥必须与两个连接匹配，这一点非常重要。 创建连接可能需要简短的一段时间才能完成。
 
-    本步骤创建从 TestVNet1 到 TestVNet5 的连接。 此处的差别在于无法直接获取 $vnet5gw，因为它位于不同的订阅中。 需要使用上述步骤中从订阅 1 传递的值来创建新的 PowerShell 对象。 使用下面的示例。 将名称、ID 和共享密钥替换为自己的值。 共享密钥必须与两个连接匹配，这一点非常重要。 创建连接可能需要简短的一段时间才能完成。
-
-    请确保连接到订阅 1。
+  连接到订阅 1，然后运行以下示例：
 
   ```powershell
   $vnet5gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -486,11 +441,9 @@ ms.lasthandoff: 06/23/2017
   $Connection15 = "VNet1toVNet5"
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-4. **[订阅 5]** 创建 TestVNet5 到 TestVNet1 连接。
+4. **[订阅 5]** 创建 TestVNet5 到 TestVNet1 连接。 此步骤类似上面的步骤，只不过是创建 TestVNet5 到 TestVNet1 的连接。 针对基于从订阅 1 获取的值来创建 PowerShell 对象，该过程也适用于此处。 在此步骤中，请确保共享密钥匹配。
 
-    此步骤类似上面的步骤，只不过是创建 TestVNet5 到 TestVNet1 的连接。 针对基于从订阅 1 获取的值来创建 PowerShell 对象，该过程也适用于此处。 在此步骤中，请确保共享密钥匹配。
-
-    请确保连接到订阅 5。
+  连接到订阅 5，然后运行以下示例：
 
   ```powershell
   $vnet1gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -500,15 +453,16 @@ ms.lasthandoff: 06/23/2017
   ```
 
 ## <a name="verify"></a>如何验证连接
+
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## <a name="faq"></a>VNet 到 VNet 常见问题解答
+
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 * 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机文档](/#pivot=services&panel=Compute)。
 * 有关 BGP 的信息，请参阅 [BGP 概述](vpn-gateway-bgp-overview.md)和[如何配置 BGP](vpn-gateway-bgp-resource-manager-ps.md)。

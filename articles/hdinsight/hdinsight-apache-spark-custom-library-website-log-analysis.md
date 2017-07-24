@@ -1,6 +1,6 @@
 ---
-title: "使用 Python 库分析 Azure Spark 群集中的网站日志 | Azure"
-description: "结合使用自定义库和 HDInsight Spark 群集分析网站日志"
+title: "使用 Spark 中的 Python 库分析网站日志 - Azure | Azure"
+description: "此笔记本演示如何结合使用自定义库和 Azure HDInsight 上的 Spark 来分析日志数据。"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -15,16 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/10/2017
-ms.date: 03/28/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 2e9764835b06dfa7562ec57b13635d9ac848ba2d
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: c1eee60698fae71faf313d13245f2f3bde6aee1a
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 结合使用自定义库和 HDInsight 上的 Apache Spark 群集来分析网站日志
-<a id="analyze-website-logs-using-a-custom-library-with-apache-spark-cluster-on-hdinsight" class="xliff"></a>
+# <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>将自定义 Python 库与 HDInsight 上的 Spark 群集配合使用来分析网站日志
 
 此笔记本演示如何结合使用自定义库和 HDInsight 上的 Spark 来分析日志数据。 我们使用的自定义库是一个名为 **iislogparser.py**的 Python 库。
 
@@ -41,8 +40,7 @@ ms.lasthandoff: 06/21/2017
 
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](hdinsight-apache-spark-jupyter-spark-sql.md)。
 
-## 将原始数据另存为 RDD
-<a id="save-raw-data-as-an-rdd" class="xliff"></a>
+## <a name="save-raw-data-as-an-rdd"></a>将原始数据另存为 RDD
 在本节中，使用与 HDInsight 中的 Apache Spark 群集关联的 [Jupyter](https://jupyter.org) 笔记本，运行处理原始数据示例并将其保存为 Hive 表的作业。 示例数据是所有群集在默认情况下均会提供的 .csv 文件 (hvac.csv)。
 
 将数据保存为 Hive 表后，下一节将使用 Power BI 和 Tableau 等 BI 工具连接 Hive 表。
@@ -58,10 +56,10 @@ ms.lasthandoff: 06/21/2017
    >
 3. 创建新的笔记本。 单击“新建”，然后单击“PySpark”。
 
-    ![创建新的 Jupyter 笔记本](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.createnotebook.png "创建新的 Jupyter 笔记本")
+    ![创建新的 Jupyter 笔记本](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "创建新的 Jupyter 笔记本")
 4. 随即创建新笔记本，并以 Untitled.pynb 名称打开。 单击顶部的笔记本名称，然后输入一个友好名称。
 
-    ![提供笔记本的名称](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.notebook.name.png "提供笔记本的名称")
+    ![提供笔记本的名称](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "提供笔记本的名称")
 5. 使用笔记本是使用 PySpark 内核创建的，因此不需要显式创建任何上下文。 运行第一个代码单元格时，系统将自动创建 Spark 和 Hive 上下文。 首先，可以导入此方案所需的类型。 将以下代码段粘贴到空白单元格中，然后按 **SHIFT + ENTER**。
 
         from pyspark.sql import Row
@@ -87,8 +85,7 @@ ms.lasthandoff: 06/21/2017
          u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32',
          u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step4.png X-ARR-LOG-ID=4bea5b3d-8ac9-46c9-9b8c-ec3e9500cbea 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 72177 871 47']
 
-## 使用自定义 Python 库分析日志数据
-<a id="analyze-log-data-using-a-custom-python-library" class="xliff"></a>
+## <a name="analyze-log-data-using-a-custom-python-library"></a>使用自定义 Python 库分析日志数据
 1. 在上面的输出中，前几行包括标头信息，其余的每一行均与此标头中描述的架构相匹配。 分析此类日志可能很复杂。 因此，可使用自定义 Python 库 (**iislogparser.py**)，它能使分析这类日志变得容易得多。 默认情况下，此库包含在 **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**处 HDInsight 上的 Spark 群集中。
 
     但是，此库不在 `PYTHONPATH` 中，因此不能通过 `import iislogparser` 等导入语句来使用它。 若要使用此库，必须将其分发给所有辅助角色节点。 运行以下代码片段。
@@ -187,7 +184,7 @@ ms.lasthandoff: 06/21/2017
 
    你应该看到如下输出：
 
-   ![SQL 查询输出](./media/hdinsight-apache-spark-custom-library-website-log-analysis/sql.output.png "SQL 查询输出")
+   ![SQL 查询输出](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "SQL 查询输出")
 
    有关 `%%sql` magic 的详细信息，请参阅 [%%sql magic 支持的参数](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)。
 7. 现可使用 Matplotlib（用于构造数据效果可视化的库）创建绘图。 因为必须从本地保存的 **averagetime** 数据帧中创建绘图，所以代码片段必须以 `%%local` magic 开头。 这可确保代码在 Jupyter 服务器上本地运行。
@@ -202,32 +199,30 @@ ms.lasthandoff: 06/21/2017
 
    你应该看到如下输出：
 
-   ![Matplotlib 输出](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdi-apache-spark-web-log-analysis-plot.png "Matplotlib 输出")
+   ![Matplotlib 输出](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Matplotlib 输出")
 8. 完成运行应用程序之后，应该要关闭笔记本以释放资源。 为此，请在 Notebook 的“文件”菜单中，单击“关闭并停止”。 这将会关闭 notebook。
 
 ## <a name="seealso"></a>另请参阅
 * [概述：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview.md)
 
-### 方案
-<a id="scenarios" class="xliff"></a>
+### <a name="scenarios"></a>方案
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](hdinsight-apache-spark-eventhub-streaming.md)
 
-### 创建和运行应用程序
-<a id="create-and-run-applications" class="xliff"></a>
+### <a name="create-and-run-applications"></a>创建和运行应用程序
 * [使用 Scala 创建独立的应用程序](hdinsight-apache-spark-create-standalone-application.md)
 * [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
 
-### 工具和扩展
-<a id="tools-and-extensions" class="xliff"></a>
-* [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-use-zeppelin-notebook.md)
+### <a name="tools-and-extensions"></a>工具和扩展
+* [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-zeppelin-notebook.md)
 * [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-### 管理资源
-<a id="manage-resources" class="xliff"></a>
+### <a name="manage-resources"></a>管理资源
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](hdinsight-apache-spark-job-debugging.md)

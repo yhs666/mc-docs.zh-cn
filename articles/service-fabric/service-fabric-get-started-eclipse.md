@@ -3,8 +3,8 @@ title: "适用于 Eclipse 的 Azure Service Fabric 插件 | Azure"
 description: "适用于 Eclipse 的 Service Fabric 插件入门。"
 services: service-fabric
 documentationcenter: java
-author: sayantancs
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
@@ -12,13 +12,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
-ms.author: v-johch
-ms.openlocfilehash: a119d9d7eb763790099a2db05baa2c8fb6a1c9e2
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 05/03/2016
+ms.date: 07/17/2017
+ms.author: v-yeche
+ms.openlocfilehash: efaebfa4c1a1be859fa484a954a9c31d8001621e
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>使用适用于 Eclipse 的 Service Fabric 插件开发 Java 应用程序
 Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一。 本文介绍如何设置适用于 Azure Service Fabric 的 Eclipse 开发环境。 了解如何安装 Service Fabric 插件、创建 Service Fabric 应用程序，以及将 Service Fabric 应用程序部署到 Eclipse Neon 中的本地或远程 Service Fabric 群集。
@@ -33,8 +34,9 @@ Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一�
 
 2.  若要安装 Service Fabric 插件，请在 Eclipse Neon 中转到“帮助” > “安装新软件”。
   1.    在“使用”框中，输入 **http://dl.windowsazure.com/eclipse/servicefabric**。
-  2.    单击 **“添加”**。
-      ![适用于 Eclipse Neon 的 Service Fabric 插件][sf-eclipse-plugin-install]
+  2.    单击“添加”。
+
+         ![适用于 Eclipse Neon 的 Service Fabric 插件][sf-eclipse-plugin-install] 
   3.    选择 Service Fabric 插件，然后单击“下一步”。
   4.    完成安装步骤，然后接受 Microsoft 软件许可条款。
 
@@ -122,11 +124,17 @@ Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一�
 
     ![Service Fabric 添加服务第 4 页][add-service/p4]
 
+## <a name="edit-manifest-versions-of-your-service-fabric-java-application"></a>编辑 Service Fabric Java 应用程序的清单版本
+
+若要编辑清单版本，请右键单击项目，转到“Service Fabric”，然后从下拉菜单中选择“编辑清单版本...”。 在向导中，可以更新应用程序清单和服务清单的清单版本，以及“代码”、“配置”和“数据”包的版本。
+
+如果选中“自动更新应用程序和服务的版本”选项，然后更新了一个版本，则会自动更新清单版本。 举例来说，首先选中该复选框，然后将“代码”版本从 0.0.0 更新为 0.0.1，最后再单击“完成”，则服务清单版本和应用程序清单版本就会自动更新为 0.0.1。
+
 ## <a name="upgrade-your-service-fabric-java-application"></a>升级 Service Fabric Java 应用程序
 
 假设你在升级方案中使用 Service Fabric 插件在 Eclipse 中创建了 **App1** 项目。 你已使用该插件部署了该项目，以创建名为 **fabric:/App1Application** 的应用程序。 该应用程序的类型为 **App1AppicationType**，应用程序版本为 1.0。 现在，你想要在不影响可用性的情况下升级该应用程序。
 
-首先，请对应用程序进行任何更改，然后重新生成已修改的服务。 使用服务的更新版本（以及相关的代码、配置或数据）更新已修改服务的清单文件 (ServiceManifest.xml)。 此外，使用应用程序和已修改服务的更新版本号修改应用程序的清单 (ApplicationManifest.xml)。  
+首先，请对应用程序进行任何更改，然后重新生成已修改的服务。 使用服务的更新版本（以及相关的代码、配置或数据）更新已修改服务的清单文件 (ServiceManifest.xml)。 同时，请使用更新的应用程序版本号和已修改的服务修改应用程序的清单 (ApplicationManifest.xml)。  
 
 若要使用 Eclipse Neon 升级应用程序，可以创建重复的运行配置文件。 然后，根据需要使用该文件升级应用程序。
 
@@ -140,7 +148,7 @@ Eclipse 是面向 Java 开发人员的最常用集成开发环境 (IDE) 之一�
 
 <!-- Images -->
 
-[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
+[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-eclipse/service-fabric-eclipse-plugin.png
 
 [create-application/p1]:./media/service-fabric-get-started-eclipse/create-application/p1.png
 [create-application/p2]:./media/service-fabric-get-started-eclipse/create-application/p2.png

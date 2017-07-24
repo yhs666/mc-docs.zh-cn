@@ -3,8 +3,8 @@ title: "在虚拟机计算节点上运行 Linux - Azure Batch | Microsoft 文档
 description: "了解如何处理 Azure Batch 中 Linux 虚拟机池上的并行计算工作负荷。"
 services: batch
 documentationcenter: python
-author: tamram
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
@@ -12,16 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
-ms.date: 02/27/2017
+origin.date: 05/22/2017
+ms.date: 07/03/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 3ecf15252f3735e9b7f9f1f8f1849f366dab69af
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 7432c3f0d9bc96c05495e5da1b4f6accad11fca4
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>在 Batch 池中预配 Linux 计算节点
 
@@ -37,7 +36,7 @@ ms.lasthandoff: 04/14/2017
 
 “云服务配置”*只*提供 Windows 计算节点。 [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md)（云服务的大小）中列出了可用的计算节点大小，[Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md)（Azure 来宾 OS 版本和 SDK 兼容性对照表）中列出了可用的操作系统。 创建包含 Azure 云服务节点的池时，只需指定可在上述文章中所述的节点大小及其“OS 系列”。 对于 Windows 计算节点池，最常使用的是云服务。
 
-“虚拟机配置”为计算节点提供 Linux 和 Windows 映像。 [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/)（Azure 中虚拟机的大小）(Linux) 和  [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json/)（Azure 中虚拟机的大小）(Windows) 中列出了可用的计算节点大小。 创建包含虚拟机配置节点的池时，必须指定节点的大小、虚拟机映像引用，以及要在节点上安装的 Batch 节点代理 SKU。
+“虚拟机配置”为计算节点提供 Linux 和 Windows 映像。 [Sizes for virtual machines in Azure](../virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（Azure 中虚拟机的大小）(Linux) 和  [Sizes for virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（Azure 中虚拟机的大小）(Windows) 中列出了可用的计算节点大小。 创建包含虚拟机配置节点的池时，必须指定节点的大小、虚拟机映像引用，以及要在节点上安装的 Batch 节点代理 SKU。
 
 ### <a name="virtual-machine-image-reference"></a>虚拟机映像引用
 Batch 服务使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)提供 Linux 计算节点。 这些虚拟机的操作系统映像由 [Azure 应用商店][vm_marketplace]提供。 配置虚拟机映像引用时，需指定应用商店虚拟机映像的属性。 创建虚拟机映像引用时，需提供以下属性：
@@ -50,7 +49,7 @@ Batch 服务使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-mac
 | Version |latest |
 
 > [!TIP]
-> 可以在 [Navigate and select Linux virtual machine images in Azure with CLI or PowerShell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/)（使用 CLI 或 PowerShell 在 Azure 中导航和选择 Linux 虚拟机映像）中详细了解这些属性，以及如何列出应用商店映像。 请注意，目前并非所有应用商店映像都与 Batch 兼容。 有关详细信息，请参阅 [节点代理 SKU](#node-agent-sku)。
+> 可以在 [Navigate and select Linux virtual machine images in Azure with CLI or PowerShell](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（使用 CLI 或 PowerShell 在 Azure 中导航和选择 Linux 虚拟机映像）中详细了解这些属性，以及如何列出应用商店映像。 请注意，目前并非所有应用商店映像都与 Batch 兼容。 有关详细信息，请参阅 [节点代理 SKU](#node-agent-sku)。
 >
 >
 
@@ -67,7 +66,7 @@ Batch 节点代理是一个程序，它在池中的每个节点上运行，并�
 >
 
 ## <a name="create-a-linux-pool-batch-python"></a>创建 Linux 池：Batch Python
-以下代码片段示范如何使用 [用于 Python 的 Azure Batch 客户端库][py_batch_package] 创建 Ubuntu Server 计算节点池。 有关 Batch Python 模块的参考文档可在“阅读文档”上的 azure.batch package 处找到。
+以下代码片段示范如何使用 [用于 Python 的 Azure Batch 客户端库][py_batch_package] 创建 Ubuntu Server 计算节点池。 有关 Batch Python 模块的参考文档可在“阅读文档”上的 azure.batch 包处找到。
 
 此代码片段显式创建 ImageReference，并指定它的每个属性（publisher、offer、SKU、version）。 但是，我们建议在生产代码中使用 list_node_agent_skus 方法在运行时从可用映像和节点代理 SKU 组合中做出决定和选择。
 
@@ -166,7 +165,7 @@ List<NodeAgentSku> nodeAgentSkus =
 Func<ImageReference, bool> isUbuntu1404 = imageRef =>
     imageRef.Publisher == "Canonical" &&
     imageRef.Offer == "UbuntuServer" &&
-    imageRef.SkuId.Contains("14.04");
+    imageRef.Sku.Contains("14.04");
 
 // Obtain the first node agent SKU in the collection that matches
 // Ubuntu Server 14.04. Note that there are one or more image
@@ -181,9 +180,7 @@ ImageReference imageReference =
 // Create the VirtualMachineConfiguration for use when actually
 // creating the pool
 VirtualMachineConfiguration virtualMachineConfiguration =
-    new VirtualMachineConfiguration(
-        imageReference: imageReference,
-        nodeAgentSkuId: ubuntuAgentSku.Id);
+    new VirtualMachineConfiguration(imageReference, ubuntuAgentSku.Id);
 
 // Create the unbound pool object using the VirtualMachineConfiguration
 // created above
@@ -191,10 +188,10 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     virtualMachineSize: vmSize,
     virtualMachineConfiguration: virtualMachineConfiguration,
-    targetDedicated: nodeCount);
+    targetDedicatedComputeNodes: nodeCount);
 
 // Commit the pool to the Batch service
-pool.Commit();
+await pool.CommitAsync();
 ```
 
 尽管上述代码片段使用了 [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] 方法动态列出并从支持的映像和节点代理 SKU 组合中做出选择（建议的做法），但也可以显式配置 [ImageReference][net_imagereference]：
@@ -203,7 +200,7 @@ pool.Commit();
 ImageReference imageReference = new ImageReference(
     publisher: "Canonical",
     offer: "UbuntuServer",
-    skuId: "14.04.2-LTS",
+    sku: "14.04.2-LTS",
     version: "latest");
 ```
 
@@ -238,7 +235,7 @@ ImageReference imageReference = new ImageReference(
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | latest | batch.node.windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | latest | batch.node.windows amd64 |
 
-## <a name="connect-to-linux-nodes"></a>连接到 Linux 节点
+## <a name="connect-to-linux-nodes-using-ssh"></a>使用 SSH 连接到 Linux 节点
 在开发期间或进行故障排除时，可能会发现需要登录到池中的节点。 与 Windows 计算节点不同，你无法使用远程桌面协议 (RDP) 连接到 Linux 节点。 相反，Batch 服务在每个节点上启用 SSH 访问以建立远程连接。
 
 以下 Python 代码片段将在池中的每个节点上创建一个用户（远程连接时需要）。 然后列显每个节点的安全外壳 (SSH) 连接信息。
@@ -320,7 +317,7 @@ Azure Batch 构建在 Azure 云服务和 Azure 虚拟机技术基础之上。 Ba
 有关如何配合 Python 使用 Batch 的更深入教程，请参阅 [Get started with the Azure Batch Python client](batch-python-tutorial.md)（Azure Batch Python 客户端入门）。 该教程随附的[代码示例][github_samples_pyclient]包含一个帮助器函数 `get_vm_config_for_distro`，用于演示获取虚拟机配置的另一种方法。
 
 ### <a name="batch-python-code-samples"></a>Batch Python 代码示例
-查看 GitHub 上 [azure-batch-samples][github_samples] 存储库中的其他 [Python 代码示例][github_samples_py]获取演示如何执行常见 Batch 操作（例如创建池、作业和任务）的多个脚本。 Python 示例随附的 README 文件包含有关如何安装所需包的详细信息。
+查看 GitHub 上 [azure-batch-samples][github_samples] 存储库中的其他 [Python 代码示例][github_samples_py]获取演示如何执行常见 Batch 操作（例如创建池、作业和任务）的多个脚本。 Python 示例随附的 [README][github_py_readme] 文件包含有关如何安装所需包的详细信息。
 
 ### <a name="batch-forum"></a>Batch 论坛
 MSDN 上的 [Azure Batch 论坛][forum] 是探讨 Batch 服务以及咨询其相关问题的不错场所。 欢迎前往阅读这些帮忙解决“棘手问题”的帖子，并发布构建 Batch 解决方案时遇到的问题。
@@ -330,6 +327,7 @@ MSDN 上的 [Azure Batch 论坛][forum] 是探讨 Batch 服务以及咨询其相
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [cloud_services_pricing]: https://www.azure.cn/pricing/details/cloud-services/
 [forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
+[github_py_readme]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_py]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
 [github_samples_pyclient]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/python_tutorial_client.py
@@ -342,10 +340,7 @@ MSDN 上的 [Azure Batch 论坛][forum] 是探讨 Batch 服务以及咨询其相
 [net_ssh_key]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenodeuser.sshpublickey.aspx
 [nuget_batch_net]: https://www.nuget.org/packages/Azure.Batch/
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
-[py_account_ops]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations
-[py_azure_sdk]: https://pypi.python.org/pypi/azure
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://www.azure.cn/pricing/details/virtual-machines/
-
 

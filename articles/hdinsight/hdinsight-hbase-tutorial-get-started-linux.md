@@ -1,7 +1,7 @@
 ---
-title: "HBase on Azure HDInsight 入门 | Azure"
-description: "遵循本 HBase 教程开始在 HDInsight 中将 Apache HBase 与 Hadoop 配合使用。 从 HBase shell 创建表，然后使用 Hive 查询这些表。"
-keywords: "apache hbase,hbase,hbase shell,hbase 教程,beeline"
+title: "HDInsight 上的 HBase 入门示例 - Azure | Azure"
+description: "按照此 Apache HBase 示例，开始在 HDInsight 上使用 HBase。 从 HBase shell 创建表，然后使用 Hive 查询这些表。"
+keywords: "hbasecommand,hbase 示例"
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -9,37 +9,34 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 05/09/2017
-ms.date: 06/05/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: c6edabee51d80c5675b1eb3b01fd0fc1ac83339e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: c4d35cd5d509633db79f78d8f0fe5e10065b6743
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# HBase 教程：开始使用 HDInsight 中的 Apache HBase
-<a id="hbase-tutorial-get-started-using-apache-hbase-in-hdinsight" class="xliff"></a>
+# <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight 中的 Apache HBase 入门示例
 
 了解如何使用 Hive 在 HDInsight 中创建 HBase 群集、创建 HBase 表和查询表。 有关 HBase 的一般信息，请参阅 [HDInsight HBase 概述][hdinsight-hbase-overview]。
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
-在开始本 HBase 教程前，必须具备以下项：
+## <a name="prerequisites"></a>先决条件
+开始使用本 HBase 示例前，必须具有以下项目：
 
 * **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * [安全外壳 (SSH)](hdinsight-hadoop-linux-use-ssh-unix.md)。 
 * [curl](http://curl.haxx.se/download.html)。
 
-## 创建 HBase 群集
-<a id="create-hbase-cluster" class="xliff"></a>
+## <a name="create-hbase-cluster"></a>创建 HBase 群集
 以下过程使用 Azure Resource Manager 模板创建 3.5 版基于 Linux 的 HBase 群集和从属默认 Azure 存储帐户。 若要了解该过程与其他群集创建方法中使用的参数，请参阅 [在 HDInsight 中创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 1. 单击下面的图像可在 Azure 门户中打开模板。 模板位于公共 blob 容器中。 
@@ -68,8 +65,7 @@ ms.lasthandoff: 06/21/2017
 > 
 > 
 
-## 创建表和插入数据
-<a id="create-tables-and-insert-data" class="xliff"></a>
+## <a name="create-tables-and-insert-data"></a>创建表和插入数据
 可以使用 SSH 连接到 HBase 群集，然后使用 HBase Shell 来创建 HBase 表以及插入和查询数据。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 对于大多数人而言，数据以表格形式显示：
@@ -82,7 +78,7 @@ ms.lasthandoff: 06/21/2017
 
 **使用 HBase shell**
 
-1. 从 SSH 运行以下命令：
+1. 从 SSH 运行以下 HBase 命令：
 
         hbase shell
 2. 创建包含两个列系列的 HBase：
@@ -141,8 +137,7 @@ HBase 提供了多种方法用于将数据载入表中。  有关详细信息，
         hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
 3. 你可以打开 HBase Shell，并使用扫描命令来列出表内容。
 
-## 使用 Hive 查询 HBase
-<a id="use-hive-to-query-hbase" class="xliff"></a>
+## <a name="use-hive-to-query-hbase"></a>使用 Hive 查询 HBase
 
 你可以使用 Hive 查询 HBase 表中的数据。 本部分将创建要映射到 HBase 表的 Hive 表，并使用该表来查询 HBase 表中的数据。
 
@@ -162,8 +157,7 @@ HBase 提供了多种方法用于将数据载入表中。  有关详细信息，
 
          SELECT count(rowkey) FROM hbasecontacts;
 
-## 通过 Curl 使用 HBase REST API
-<a id="use-hbase-rest-apis-using-curl" class="xliff"></a>
+## <a name="use-hbase-rest-apis-using-curl"></a>通过 Curl 使用 HBase REST API
 
 REST API 通过 [基本身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 你始终应该使用安全 HTTP (HTTPS) 来发出请求，以确保安全地将凭据发送到服务器。
 
@@ -210,17 +204,16 @@ REST API 通过 [基本身份验证](http://en.wikipedia.org/wiki/Basic_access_a
 > Thrift 不受 HDInsight 中的 HBase 支持。
 >
 > 使用 Curl 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须提供 HDInsight 群集管理员用户名和密码对请求进行身份验证。 此外，还必须使用群集名称作为用来向服务器发送请求的统一资源标识符 (URI) 的一部分：
->
->```
->curl -u <UserName>:<Password> \
->-G https://<ClusterName>.azurehdinsight.cn/templeton/v1/status
->```
+> 
+>   
+>        curl -u <UserName>:<Password> \
+>        -G https://<ClusterName>.azurehdinsight.cn/templeton/v1/status
+>   
 > 应会收到类似于以下响应的响应：
->
-> `{"status":"ok","version":"v1"}`
+>   
+>        {"status":"ok","version":"v1"}
 
-## 检查群集状态
-<a id="check-cluster-status" class="xliff"></a>
+## <a name="check-cluster-status"></a>检查群集状态
 HDInsight 中的 HBase 随附了一个 Web UI 用于监视群集。 使用该 Web UI 可以请求有关区域的统计或信息。
 
 **访问 HBase Master UI**
@@ -239,19 +232,16 @@ HDInsight 中的 HBase 随附了一个 Web UI 用于监视群集。 使用该 We
   - 任务
   - 软件属性
 
-## 删除群集
-<a id="delete-the-cluster" class="xliff"></a>
+## <a name="delete-the-cluster"></a>删除群集
 为了避免不一致，建议你在删除群集之前先禁用 HBase 表。
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## 故障排除
-<a id="troubleshoot" class="xliff"></a>
+## <a name="troubleshoot"></a>故障排除
 
 如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md#create-clusters)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 在针对 HDInsight 的本 HBase 教程中，你已学习如何创建 HBase 群集、如何创建表以及如何从 HBase shell 查看这些表中的数据。 此外，学习了如何对 HBase 表中的数据使用 Hive 查询，以及如何使用 HBase C# REST API 创建 HBase 表并从该表中检索数据。
 
 若要了解更多信息，请参阅以下文章：

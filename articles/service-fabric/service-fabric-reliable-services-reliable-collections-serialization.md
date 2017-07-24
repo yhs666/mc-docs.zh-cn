@@ -3,8 +3,8 @@ title: "Azure Service Fabric 中的 Reliable Collection 对象序列化 | Azure"
 description: "Azure Service Fabric Reliable Collections 对象序列化"
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: masnider,rajak
 ms.assetid: 9d35374c-2d75-4856-b776-e59284641956
 ms.service: service-fabric
@@ -12,24 +12,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 05/08/2017
-ms.author: v-johch
-ms.openlocfilehash: 0702e8fcb7ce73866d2db2d3022168469142bf5b
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 05/08/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
+ms.openlocfilehash: 30b31e8a766f62a365a440f5abb4636b31b3d425
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# Azure Service Fabric 中的 Reliable Collection 对象序列化
-<a id="reliable-collection-object-serialization-in-azure-service-fabric" class="xliff"></a>
+# <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric 中的 Reliable Collection 对象序列化
 Reliable Collections 通过复制和保留项目，确保这些项目在机器故障和电力中断时能够持久。
 若要复制和保留项目，Reliable Collections 需要对其进行串行化。
 
 Reliable Collections 从 Reliable State Manager 获取与给定类型对应的串行化程序。
 Reliable State Manager 包含内置序列化程序，允许针对给定类型注册自定义串行化程序。
 
-## 内置串行化程序
-<a id="built-in-serializers" class="xliff"></a>
+## <a name="built-in-serializers"></a>内置串行化程序
 
 Reliable State Manager 包含针对一些常见类型的内置串行化程序，以便在默认情况下对其进行高效串行化。 对于其他类型，Reliable State Manager 回退为使用 [DataContractSerializer](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer(v=vs.110).aspx)。
 内置串行化程序更高效，因为它们知道其类型无法更改，且它们无需包含类型名称等有关类型的信息。
@@ -52,10 +51,9 @@ Reliable State Manager 拥有针对以下类型的内置串行化程序：
 - short
 - ushort
 
-## 自定义序列化
-<a id="custom-serialization" class="xliff"></a>
+## <a name="custom-serialization"></a>自定义序列化
 
-自定义串行化程序通常用于提高性能，或用于在网络传输时以及在磁盘上加密数据。 自定义串行化程序通常比通用序列化程序更高效，因为它们需要串行化有关类型的信息。 
+自定义串行化程序通常用于提高性能，或用于在网络传输时以及在磁盘上加密数据。 除了其他原因外，自定义序列化程序还通常比通用序列化程序更高效，因为它们不需要串行化有关类型的信息。 
 
 [IReliableStateManager.TryAddStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) 用于为给定类型 T 注册自定义串行化程序。此注册应在 StatefulServiceBase 构造内发生，以确保在开始恢复前，所有 Reliable Collections 都有权访问相关串行化程序来读取其保留的数据。
 
@@ -73,8 +71,7 @@ public StatefulBackendService(StatefulServiceContext context)
 > [!NOTE]
 > 自定义串行化程序优先于内置串行化程序。 例如，如果为 int 注册了自定义串行化程序，则会使用它来串行化整数，而不使用 int 的内置串行化程序。
 
-### 如何实现自定义串行化程序
-<a id="how-to-implement-a-custom-serializer" class="xliff"></a>
+### <a name="how-to-implement-a-custom-serializer"></a>如何实现自定义串行化程序
 
 自定义串行化程序需要实现 [IStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) 接口。
 
@@ -138,8 +135,7 @@ public class OrderKeySerializer : IStateSerializer<OrderKey>
 }
 ```
 
-## 可升级性
-<a id="upgradability" class="xliff"></a>
+## <a name="upgradability"></a>可升级性
 在[应用程序滚动升级](service-fabric-application-upgrade.md)过程中，升级应用于部分节点，一次一个升级域。 在此过程中，一些升级域将位于较新版本的应用程序上，而一些升级域将位于较旧版本的应用程序上。 在滚动更新期间，新版本的应用程序必须能够读取旧版本的数据，并且旧版本的应用程序必须能够读取新版本的数据。 如果数据格式不向前和向后兼容，则升级可能会失败（或更糟），甚至可能丢失数据。
 
 如果使用内置串行化程序，无需担心兼容性问题。
@@ -152,8 +148,7 @@ public class OrderKeySerializer : IStateSerializer<OrderKey>
 支持所有版本的常用方法是在开头添加大小信息，并且仅添加可选属性。
 这样一来，每个版本都可以读取尽可能多的数据并跳过数据流的其余部分。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
   * [序列化和升级](service-fabric-application-upgrade-data-serialization.md)
   * [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
   * [使用 Visual Studio 升级应用程序](service-fabric-application-upgrade-tutorial.md)逐步讲解了如何使用 Visual Studio 进行应用程序升级。

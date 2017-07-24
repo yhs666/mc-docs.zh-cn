@@ -5,32 +5,36 @@ metacanonical:
 keywords: "连接到 sql 数据库"
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
-ms.custom: quick start manage
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+origin.date: 05/24/2017
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: a39bce76c36c7009b8f9e47a61c2de5b6c40bd21
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 10c11b5684a3421bc4abfd4638fdc05890742f76
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL 数据库：使用 Visual Studio Code 进行连接和数据查询
 
 [Visual Studio Code](https://code.visualstudio.com/docs) 是一种图形代码编辑器，适用于 Linux、macOS 和 Windows，并且支持各种扩展，其中包括 [mssql 扩展](https://aka.ms/mssql-marketplace)（用于查询 Microsoft SQL Server、Azure SQL 数据库和 SQL 数据仓库）。 本快速入门演示了如何使用 Visual Studio Code 连接到 Azure SQL 数据库，然后使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。
 
+## <a name="prerequisites"></a>先决条件
+
 此快速入门使用以下某个快速入门中创建的资源作为其起点：
 
 - [创建 DB - 门户](sql-database-get-started-portal.md)
 - [创建 DB - CLI](sql-database-get-started-cli.md)
+- [创建 DB - PowerShell](sql-database-get-started-powershell.md)
 
 在开始之前，请确保已安装最新版 [Visual Studio Code](https://code.visualstudio.com/Download) 并加载 [mssql 扩展](https://aka.ms/mssql-marketplace)。 有关 mssql 扩展的安装指南，请参阅 [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code)（安装 VS Code）和 [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)（适用于 Visual Studio Code 的 mssql）。 
 
@@ -79,7 +83,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
    ![SQL 语言模式](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>连接到 SQL 数据库逻辑服务器中的数据库
+## <a name="connect-to-your-database"></a>连接到数据库
 
 使用 Visual Studio Code 建立到 Azure SQL 数据库服务器的连接。
 
@@ -95,17 +99,15 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 4. 按照提示为新的连接配置文件指定连接属性。 指定每个值后，按 **ENTER** 继续。 
 
-   下表介绍了连接配置文件的属性。
-
-   | 设置 | 说明 |
-   |-----|-----|
-   | **服务器名称** | 输入完全限定的服务器名称，例如 **mynewserver20170313.database.chinacloudapi.cn** |
-   | **数据库名称** | 输入数据库名称，例如 **mySampleDatabase** |
-   | **身份验证** | 选择 SQL 登录名 |
-   | **用户名** | 输入服务器管理员帐户 |
-   | **密码(SQL 登录名)** | 输入服务器管理员帐户的密码 | 
-   | **保存密码?** | 选择“是”或“否” |
-   | **[可选] 输入此配置文件的名称** | 输入连接配置文件名称，例如 **mySampleDatabase**。 
+   | 设置       | 建议的值 | 说明 |
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **服务器名称 | 完全限定的服务器名称 | 该名称应类似于：**mynewserver20170313.database.chinacloudapi.cn**。 |
+   | **数据库名称** | mySampleDatabase | 要连接到的数据库的名称。 |
+   | **身份验证** | SQL 登录名| SQL 身份验证是本教程中配置的唯一身份验证类型。 |
+   | **用户名** | 服务器管理员帐户 | 这是在创建服务器时指定的帐户。 |
+   | **密码(SQL 登录名)** | 服务器管理员帐户的密码 | 这是在创建服务器时指定的密码。 |
+   | **保存密码?** | 是或否 | 如果不希望每次都输入密码，请选择“是”。 |
+   | **输入此配置文件的名称** | 配置文件名称，例如 **mySampleDatabase** | 保存配置文件名称可以在后续登录时加快连接速度。 | 
 
 5. 按 **ESC** 键关闭信息消息，该消息通知你，配置文件已创建并连接。
 

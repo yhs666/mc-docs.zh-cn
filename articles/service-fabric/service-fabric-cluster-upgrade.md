@@ -1,10 +1,10 @@
 ---
-title: "升级 Azure Service Fabric 群集 | Microsoft 文档"
+title: "升级 Azure Service Fabric 群集 | Azure"
 description: "升级运行 Service Fabric 群集的 Service Fabric 代码和/或配置，包括设置群集更新模式、升级证书、添加应用程序端口、执行操作系统修补，等等。 执行升级时你会预料到哪种结果？"
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
 ms.service: service-fabric
@@ -12,15 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 277a8a4d3472b3feff909886a513fe134e71feb6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+origin.date: 02/22/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
+ms.openlocfilehash: e08422c50ff74fb31b4d03cdd289ac17ea5c4d3c
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>升级 Azure Service Fabric 群集
 > [!div class="op_single_selector"]
@@ -29,10 +28,10 @@ ms.lasthandoff: 04/14/2017
 > 
 > 
 
-对于任何新式系统而言，为可升级性做好规划是实现产品长期成功的关键所在。 Azure Service Fabric 群集是你拥有的，但部分由 Microsoft 管理的资源。 本文说明自动管理的项目以及你可以自行配置的项目。
+对于任何新式系统而言，为可升级性做好规划是实现产品长期成功的关键所在。 Azure Service Fabric 群集是你拥有的，但部分由 Azure 管理的资源。 本文说明自动管理的项目以及你可以自行配置的项目。
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>控制群集中运行的结构版本
-可以将群集设置为在 Microsoft 发布新版本时接收自动结构升级，或者选择要运行的受支持结构版本。
+可以将群集设置为在 Azure 发布新版本时接收自动结构升级，或选择想要群集运行的受支持结构版本。
 
 为此，请门户上设置“upgradeMode”群集配置，或者在创建时或稍后在实时群集上使用 Resource Manager 进行设置。 
 
@@ -79,7 +78,7 @@ ms.lasthandoff: 04/14/2017
 ```REST
 GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
 
-Example: https://management.chinacloudapi.cn/subscriptions/1857f442-3bce-4b96-ad95-627f76437a67/providers/Microsoft.ServiceFabric/locations/eastus/clusterVersions?api-version=2016-09-01
+Example: https://management.chinacloudapi.cn/subscriptions/1857f442-3bce-4b96-ad95-627f76437a67/providers/Microsoft.ServiceFabric/locations/chinaeast/clusterVersions?api-version=2016-09-01
 
 Output:
 {
@@ -117,11 +116,10 @@ Output:
                   ]
                 }
 
-
 ```
 
 ## <a name="fabric-upgrade-behavior-when-the-cluster-upgrade-mode-is-automatic"></a>群集升级模式为“自动”时的结构升级行为
-Microsoft 将维护 Azure 群集中运行的结构代码和配置。 我们将根据需要，对软件执行受监视的自动升级。 升级的部分可能是代码和/或配置。 为了确保应用程序不受这些升级的影响或者将影响降到最低，我们将分以下阶段执行升级：
+Azure 将维护 Azure 群集中运行的结构代码和配置。 我们将根据需要，对软件执行受监视的自动升级。 升级的部分可能是代码和/或配置。 为了确保应用程序不受这些升级的影响或者将影响降到最低，我们将分以下阶段执行升级：
 
 ### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>阶段 1：使用所有群集运行状况策略执行升级
 在此阶段，升级过程将每次升级一个升级域，已在群集中运行的应用程序继续运行，而不会造成任何停机时间。 在升级过程中，将遵守群集运行状况策略（节点运行状况和所有在群集中运行的应用程序的运行状况的组合）。
@@ -174,14 +172,14 @@ Microsoft 将维护 Azure 群集中运行的结构代码和配置。 我们将�
 若要在某个节点类型中的所有 VM 上打开新端口，请执行以下操作：
 
 1. 将新探测添加到相应的负载均衡器。
-   
+
     如果群集是使用门户部署的，则负载均衡器将命名为“资源组 NodeTypename 的 LB 名称”，每个节点类型各有一个负载均衡器。 由于负载均衡器名称只是在资源组中唯一，因此最好在特定资源组下搜索名称。
-   
+
     ![显示如何在门户中向负载均衡器添加探测的屏幕截图。][AddingProbes]
 2. 将新规则添加到负载均衡器。
-   
+
     使用在上一个步骤中创建的探测，向同一负载均衡器添加新规则。
-   
+
     ![在门户中向负载均衡器添加新规则。][AddingLBRules]
 
 ### <a name="placement-properties"></a>放置属性
@@ -207,13 +205,14 @@ Microsoft 将维护 Azure 群集中运行的结构代码和配置。 我们将�
 请参阅 [Service Fabric 群集结构设置](service-fabric-cluster-fabric-settings.md)了解可以如何自定义这些设置。
 
 ### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>构成群集的 VM 上的操作系统修补
-此功能即将作为自动化功能推出。 但目前你需要负责修补 VM。 必须每次修补一个 VM，以便不会同时关闭多个 VM。
+请参考可部署在群集上的[修补业务流程应用程序](service-fabric-patch-orchestration-application.md)，以便以协调一致的方式从 Windows 更新安装修补程序，从而使服务始终可用。 
 
 ### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>构成群集的 VM 上的操作系统升级
 如果你必须升级群集虚拟机上的操作系统映像，必须一次升级一个 VM。 你需要自行负责这种升级 - 目前没有自动化的功能用于实现此目的。
 
 ## <a name="next-steps"></a>后续步骤
 * 了解如何自定义 [Service Fabric 群集结构设置](service-fabric-cluster-fabric-settings.md)的部分内容
+<!-- Not Available * Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md) -->
 * 了解[应用程序升级](service-fabric-application-upgrade.md)
 
 <!--Image references-->

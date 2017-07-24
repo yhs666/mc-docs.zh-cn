@@ -3,8 +3,8 @@ title: "自动缩放 Azure Batch 池中的计算节点 | Microsoft Docs"
 description: "对云池启用自动缩放功能可以动态调整池中计算节点的数目。"
 services: batch
 documentationcenter: 
-author: tamram
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: tysonn
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
 ms.service: batch
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-origin.date: 04/03/2017
+origin.date: 05/25/2017
+ms.date: 07/03/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.date: 05/15/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3ff18e6f95d8bbc27348658bc5fce50c3320cf0a
-ms.openlocfilehash: 511bddb240f030897db00964b70fcec1f80b8435
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/15/2017
-
+ms.openlocfilehash: 2d586952d5a3e6fa549cb83127fc665938d328c2
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>创建用于缩放 Batch 池中的计算节点的自动缩放公式
 
@@ -35,8 +34,8 @@ ms.lasthandoff: 05/15/2017
 
 > [!IMPORTANT]
 > 每个 Azure Batch 帐户都受限于可以用于处理的最大核心数（以及由此确定的计算节点数）。 Batch 服务只创建最多达到该核心数限制的新节点。 Batch 服务可能达不到自动缩放公式所指定的目标计算节点数。 请参阅 [Azure Batch 服务的配额和限制](batch-quota-limit.md)了解有关查看和提高帐户配额的信息。
-> 
-> 
+>
+>
 
 ## <a name="automatic-scaling-formulas"></a>自动缩放公式
 自动缩放公式是一个你定义的包含一个或多个语句的字符串值。 自动缩放公式会分配给池的 [autoScaleFormula][rest_autoscaleformula] 元素 (Batch REST) 或 [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] 属性 (Batch .NET)。 Batch 服务使用你的公式来确定池中可供下一个处理间隔使用的目标计算节点数。 公式是一个字符串，其大小不能超过 8 KB，最多可以包含 100 个以分号分隔的语句，可以包括换行符和注释。
@@ -65,13 +64,13 @@ startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
 pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
 pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
-$TargetDedicated=min(maxNumberofVMs, pendingTaskSamples);
+$TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 ```
 
 对于此自动缩放公式，最初使用单个 VM 创建池。 $PendingTasks 指标定义正在运行或已排队的任务数。 该公式查找过去 180 秒内的平均挂起任务数，并相应地设置 TargetDedicated。 该公式确保 TargetDedicated 从不超过 25 个 VM。 提交新任务时，池会自动增大。 任务完成时，VM 会逐个变为可用状态，自动缩放公式会收缩池。
 
 ## <a name="variables"></a>变量
-可在自动缩放公式中同时使用“服务定义”和“用户定义”的变量。 服务定义的变量内置在 Batch 服务中，有些是可读写的，有些是只读的。 用户定义变量是用户定义的变量。 在上一节中所示的示例公式中，`$TargetDedicated` 和 `$PendingTasks` 是服务定义的变量。 变量 `startingNumberOfVMs` 和 `maxNumberofVMs` 是用户定义的变量。
+可在自动缩放公式中同时使用“服务定义”和“用户定义”的变量。 服务定义的变量内置在 Batch 服务中，有些是可读写的，有些是只读的。 用户定义变量是用户定义的变量。 在上一节中所示的示例公式中，`$TargetDedicatedNodes` 和 `$PendingTasks` 是服务定义的变量。 变量 `startingNumberOfVMs` 和 `maxNumberofVMs` 是用户定义的变量。
 
 > [!NOTE]
 > 服务定义的变量始终前面带有美元符号 ($)。 对于用户定义的变量，美元符号是可选的。
@@ -84,7 +83,8 @@ $TargetDedicated=min(maxNumberofVMs, pendingTaskSamples);
 
 | 可读写的服务定义变量 | 说明 |
 | --- | --- |
-| $TargetDedicated |池的**专用计算节点****目标**数是池应扩展到的计算节点数。 它是一个“目标”数目，因为池可能达不到此目标节点数目。 例如，如果在池达到初始目标之前节点的目标数被后续自动缩放评估再次修改，则池可能不会达到目标节点数。 如果在达到节点的目标数目之前达到了 Batch 帐户的节点或核心配额，则也可能会发生这种情况。 |
+| $TargetDedicatedNodes |池的**专用计算节点**的**目标**数。 节点数被指定为目标，因为池可能不会始终获得所需节点数。 例如，如果在池达到初始目标之前节点的目标数被后续自动缩放评估再次修改，则池可能不会达到所需节点数。 如果目标超过 Batch 帐户节点或核心配额，则池也可能不会实现其目标。 |
+| $TargetLowPriorityNodes |池的**低优先级计算节点**的**目标**数。 有关低优先级计算节点的详细信息，请参阅[在 Batch（预览）中使用低优先级 VM](batch-low-pri-vms.md)。 |
 | $NodeDeallocationOption |从池中删除计算节点时发生的操作。 可能的值包括：<ul><li>**requeue**--立即终止任务并将其放回作业队列，以便重新计划这些任务。<li>**terminate**--立即终止任务并将其从作业队列中删除。<li>**taskcompletion**--等待当前运行的任务完成，然后从池中删除节点。<li>**retaineddata**--等待清理节点上的本地任务保留的所有数据，然后从池中删除节点。</ul> |
 
 可以**获取**这些服务定义的变量的值，以根据 Batch 服务中的指标进行调整：
@@ -102,17 +102,19 @@ $TargetDedicated=min(maxNumberofVMs, pendingTaskSamples);
 | $NetworkInBytes |入站字节数。 |
 | $NetworkOutBytes |出站字节数。 |
 | $SampleNodeCount |计算节点数。 |
-| $ActiveTasks |处于活动状态的任务数。 |
+| $ActiveTasks |已准备好执行但尚未执行的任务数。 $ActiveTasks 计数包括处于活动状态且满足其依赖关系的所有任务。 $ActiveTasks 计数不包括处于活动状态但不满足其依赖关系的任务。|
 | $RunningTasks |处于运行状态的任务数。 |
 | $PendingTasks |$ActiveTasks 和 $RunningTasks 的总和。 |
 | $SucceededTasks |成功完成的任务数。 |
 | $FailedTasks |失败的任务数。 |
-| $CurrentDedicated |当前的专用计算节点数。 |
+| $CurrentDedicatedNodes |当前的专用计算节点数。 |
+| $CurrentLowPriorityNodes |当前低优先级计算节点数，包括任何已占用的节点。 |
+| $PreemptedNodeCount | 池中处于预占状态的节点数。 |
 
 > [!TIP]
 > 上面所示的服务定义的只读变量是一些*对象*，它们提供了各种方法来访问与其相关的数据。 有关详细信息，请参阅下面的[获取样本数据](#getsampledata)。
-> 
-> 
+>
+>
 
 ## <a name="types"></a>类型
 公式支持以下 **类型** ：
@@ -122,7 +124,7 @@ $TargetDedicated=min(maxNumberofVMs, pendingTaskSamples);
 - doubleVecList
 - 字符串
 - timestamp--timestamp 是包含以下成员的复合结构：
-  
+
   - year
   - month (1-12)
   - day (1-31)
@@ -131,7 +133,7 @@ $TargetDedicated=min(maxNumberofVMs, pendingTaskSamples);
   - minute (00-59)
   - second (00-59)
 - timeinterval
-  
+
   - TimeInterval_Zero
   - TimeInterval_100ns
   - TimeInterval_Microsecond
@@ -254,8 +256,8 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 
 > [!IMPORTANT]
 > **强烈建议****不要仅依赖自动缩放公式中的 `GetSample(1)`**。 这是因为，`GetSample(1)` 基本上只是向 Batch 服务表明：“不论多久以前检索最后一个样本，请将它提供给我。” 由于它只是单个样本，而且可能是较旧的样本，因此可能无法代表最近任务或资源状态的全貌。 如果使用 `GetSample(1)`，请确保它是更大语句的一部分，而不是公式所依赖的唯一数据点。
-> 
-> 
+>
+>
 
 ## <a name="metrics"></a>度量值
 在定义公式时，可以同时使用**资源**和**任务**度量值。 可根据获取和求值的度量值数据对池中专用节点的目标数目进行调整。 有关每个指标的详细信息，请参见上面的[变量](#variables)部分。
@@ -270,8 +272,11 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
     <td><p><b>资源度量值</b>基于计算节点的 CPU、带宽和内存使用量以及节点数。</p>
         <p> 这些服务定义的变量可用于根据节点计数进行调整：</p>
     <p><ul>
-      <li>$TargetDedicated</li>
-            <li>$CurrentDedicated</li>
+            <li>$TargetDedicatedNodes</li>
+            <li>$TargetLowPriorityNodes</li>
+            <li>$CurrentDedicatedNodes</li>
+            <li>$CurrentLowPriorityNodes</li>
+            <li>$PreemptedNodeCount</li>
             <li>$SampleNodeCount</li>
     </ul></p>
     <p>这些服务定义的变量可用于根据节点资源使用量进行调整：</p>
@@ -314,7 +319,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 ```
 $totalNodes =
     (min($CPUPercent.GetSample(TimeInterval_Minute * 10)) > 0.7) ?
-    ($CurrentDedicated * 1.1) : $CurrentDedicated;
+    ($CurrentDedicatedNodes * 1.1) : $CurrentDedicatedNodes;
 ```
 
 为了在 CPU 使用率低时减少节点数，如果过去 60 分钟的平均 CPU 使用率低于 20%，则公式中的下一个语句会将同一 `$totalNodes` 变量设置为节点当前目标数的 90%。 否则，使用在以上语句中填充的 `$totalNodes` 的当前值。
@@ -322,13 +327,13 @@ $totalNodes =
 ```
 $totalNodes =
     (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ?
-    ($CurrentDedicated * 0.9) : $totalNodes;
+    ($CurrentDedicatedNodes * 0.9) : $totalNodes;
 ```
 
 现在，将专用计算节点的目标数限制为 **最大值** 400：
 
 ```
-$TargetDedicated = min(400, $totalNodes)
+$TargetDedicatedNodes = min(400, $totalNodes)
 ```
 
 下面是完整公式：
@@ -336,11 +341,11 @@ $TargetDedicated = min(400, $totalNodes)
 ```
 $totalNodes =
     (min($CPUPercent.GetSample(TimeInterval_Minute * 10)) > 0.7) ?
-    ($CurrentDedicated * 1.1) : $CurrentDedicated;
+    ($CurrentDedicatedNodes * 1.1) : $CurrentDedicatedNodes;
 $totalNodes =
     (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ?
-    ($CurrentDedicated * 0.9) : $totalNodes;
-$TargetDedicated = min(400, $totalNodes)
+    ($CurrentDedicatedNodes * 0.9) : $totalNodes;
+$TargetDedicatedNodes = min(400, $totalNodes)
 ```
 
 ## <a name="create-an-autoscale-enabled-pool"></a>创建已启用自动缩放功能的池
@@ -363,17 +368,17 @@ $TargetDedicated = min(400, $totalNodes)
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
 pool.AutoScaleEnabled = true;
-pool.AutoScaleFormula = "$TargetDedicated = (time().weekday == 1 ? 5:1);";
+pool.AutoScaleFormula = "$TargetDedicatedNodes = (time().weekday == 1 ? 5:1);";
 pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
 
-除了 Batch REST API 和 .NET SDK 之外，还可通过任何其他 [Batch SDK](batch-apis-tools.md#batch-development-apis)、[Batch PowerShell cmdlet](batch-powershell-cmdlets-get-started.md) 和 [ Batch CLI ](batch-cli-get-started.md) 使用自动缩放。
+除了 Batch REST API 和 .NET SDK 之外，还可通过任何其他 [Batch SDK](batch-apis-tools.md#azure-accounts-for-batch-development)、[Batch PowerShell cmdlet](batch-powershell-cmdlets-get-started.md) 和 [ Batch CLI ](batch-cli-get-started.md) 使用自动缩放。
 
 > [!IMPORTANT]
 > 创建启用了自动缩放的池时，**请勿**指定 `targetDedicated` 参数。 另请注意，如果要手动调整启用自动缩放功能的池的大小（例如，使用 [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool] 来调整），则必须先**禁用**该池的自动缩放功能，然后再调整池的大小。
-> 
-> 
+>
+>
 
 ### <a name="automatic-scaling-interval"></a>自动缩放间隔
 默认情况下，Batch 服务根据其自动缩放公式每隔 **15 分钟**调整池大小。 但是，可使用以下池属性配置此间隔：
@@ -385,8 +390,8 @@ pool.Commit();
 
 > [!NOTE]
 > 自动缩放目前不能以低于一分钟的时间响应更改，而只能在你运行工作负荷时逐步调整池大小。
-> 
-> 
+>
+>
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>启用现有池的自动缩放功能
 如果已使用 *targetDedicated* 参数创建具有一定数量的计算节点的池，仍可以启用池的自动缩放功能。 每个 Batch SDK 都提供了“启用自动缩放”操作，例如：
@@ -398,21 +403,21 @@ pool.Commit();
 
 - 如果在发出“启用自动缩放”请求时已 **禁用** 池的自动缩放功能，那么在发出该请求时 *必须* 指定有效的自动缩放公式。 你可以 *选择性* 地指定自动缩放评估时间间隔。 如果未指定时间间隔，则使用默认值 15 分钟。
 - 如果当前已 **启用** 池的自动缩放功能，则可以指定自动缩放公式和/或评估时间间隔。 不能同时省略这两个属性。
-  
+
   - 如果指定新的自动缩放评估时间间隔，那么将停止现有的评估计划，并启动新的计划。 新计划的开始时间是发出“启用自动缩放”请求的时间。
   - 如果忽略自动缩放公式或评估时间间隔，那么 Batch 服务将继续使用该设置的当前值。
 
 > [!NOTE]
 > 如果某个值是在创建池时为 targetDedicated 参数指定的，则会在评估自动缩放公式时忽略该值。
-> 
-> 
+>
+>
 
 此 C# 代码片段使用 [Batch.NET][net_api] 库启用现有池的自动缩放：
 
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
 // to 5 on Mondays, and 1 on every other day of the week
-string myAutoScaleFormula = "$TargetDedicated = (time().weekday == 1 ? 5:1);";
+string myAutoScaleFormula = "$TargetDedicatedNodes = (time().weekday == 1 ? 5:1);";
 
 // Set the autoscale formula on the existing pool
 myBatchClient.PoolOperations.EnableAutoScale(
@@ -441,13 +446,13 @@ myBatchClient.PoolOperations.EnableAutoScale(
 ## <a name="evaluate-an-autoscale-formula"></a>评估自动缩放公式
 在将公式应用于池之前可以对公式进行计算。 通过此方式，可以执行公式的“测试运行”，以便在将公式放入生产之前查看其语句的评估方式。
 
-若要评估自动缩放公式，必须先通过**有效的公式**对池**启用自动缩放**。 如果要在尚未启用自动缩放的池上测试公式，可以在首次启用自动缩放时使用单行公式 `$TargetDedicated = 0`。 然后使用以下方法之一来评估要测试的公式：
+若要评估自动缩放公式，必须先通过**有效的公式**对池**启用自动缩放**。 如果要在尚未启用自动缩放的池上测试公式，可以在首次启用自动缩放时使用单行公式 `$TargetDedicatedNodes = 0`。 然后使用以下方法之一来评估要测试的公式：
 
 - [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) 或 [EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx)
-  
+
     这些 Batch.NET 方法需要现有池的 ID 和包含要评估的自动缩放公式的字符串。 评估结果包含在返回的 [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx) 实例中。
 - [评估自动缩放公式](https://msdn.microsoft.com/library/azure/dn820183.aspx)
-  
+
     在此 REST API 请求中，指定 URI 中的池 ID，以及请求正文的 *autoScaleFormula* 元素中的自动缩放公式。 操作的响应包含任何可能与该公式相关的错误信息。
 
 在此 [Batch .NET][net_api] 代码片段中，先对公式进行评估，然后将其应用到 [CloudPool][net_cloudpool]。 如果池未启用自动缩放，先启用自动缩放。
@@ -463,7 +468,7 @@ if (pool.AutoScaleEnabled == false)
     // We need a valid autoscale formula to enable autoscaling on the
     // pool. This formula is valid, but won't resize the pool:
     pool.EnableAutoScale(
-        autoscaleFormula: $"$TargetDedicated = {pool.CurrentDedicated};",
+        autoscaleFormula: $"$TargetDedicatedNodes = {pool.CurrentDedicated};",
         autoscaleEvaluationInterval: TimeSpan.FromMinutes(5));
 
     // Batch limits EnableAutoScale calls to once every 30 seconds.
@@ -488,7 +493,7 @@ if (pool.AutoScaleEnabled == true)
         $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
         $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
         $isWorkingWeekdayHour = $workHours && $isWeekday;
-        $TargetDedicated = $isWorkingWeekdayHour ? 20:10;
+        $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
     ";
 
     // Perform the autoscale formula evaluation. Note that this does not
@@ -520,7 +525,7 @@ if (pool.AutoScaleEnabled == true)
 
 ```
 AutoScaleRun.Results:
-    $TargetDedicated=10;
+    $TargetDedicatedNodes=10;
     $NodeDeallocationOption=requeue;
     $curTime=2016-10-13T19:18:47.805Z;
     $isWeekday=1;
@@ -553,7 +558,7 @@ Console.WriteLine("Error: " + pool.AutoScaleRun.Error);
 ```
 Last execution: 10/14/2016 18:36:43
 Result:
-  $TargetDedicated=10;
+  $TargetDedicatedNodes=10;
   $NodeDeallocationOption=requeue;
   $curTime=2016-10-14T18:36:43.282Z;
   $isWeekday=1;
@@ -575,7 +580,7 @@ $curTime = time();
 $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
 $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
 $isWorkingWeekdayHour = $workHours && $isWeekday;
-$TargetDedicated = $isWorkingWeekdayHour ? 20:10;
+$TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 ```
 
 ### <a name="example-2-task-based-adjustment"></a>示例 2：基于任务的调整
@@ -589,10 +594,10 @@ $samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
 $tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
 // If number of pending tasks is not 0, set targetVM to pending tasks, otherwise
 // half of current dedicated.
-$targetVMs = $tasks > 0? $tasks:max(0, $TargetDedicated/2);
+$targetVMs = $tasks > 0? $tasks:max(0, $TargetDedicatedNodes/2);
 // The pool size is capped at 20, if target VM value is more than that, set it
 // to 20. This value should be adjusted according to your use case.
-$TargetDedicated = max(0, min($targetVMs, 20));
+$TargetDedicatedNodes = max(0, min($targetVMs, 20));
 // Set node deallocation mode - keep nodes active only until tasks finish
 $NodeDeallocationOption = taskcompletion;
 ```
@@ -608,12 +613,12 @@ $tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.Ge
 // Set the number of nodes to add to one-fourth the number of active tasks (the
 // MaxTasksPerComputeNode property on this pool is set to 4, adjust this number
 // for your use case)
-$cores = $TargetDedicated * 4;
+$cores = $TargetDedicatedNodes * 4;
 $extraVMs = (($tasks - $cores) + 3) / 4;
-$targetVMs = ($TargetDedicated + $extraVMs);
+$targetVMs = ($TargetDedicatedNodes + $extraVMs);
 // Attempt to grow the number of compute nodes to match the number of active
 // tasks, with a maximum of 3
-$TargetDedicated = max(0,min($targetVMs,3));
+$TargetDedicatedNodes = max(0,min($targetVMs,3));
 // Keep the nodes active until the tasks finish
 $NodeDeallocationOption = taskcompletion;
 ```
@@ -632,13 +637,13 @@ $NodeDeallocationOption = taskcompletion;
 ```csharp
 string now = DateTime.UtcNow.ToString("r");
 string formula = string.Format(@"
-    $TargetDedicated = {1};
+    $TargetDedicatedNodes = {1};
     lifespan         = time() - time(""{0}"");
     span             = TimeInterval_Minute * 60;
     startup          = TimeInterval_Minute * 10;
     ratio            = 50;
 
-    $TargetDedicated = (lifespan > startup ? (max($RunningTasks.GetSample(span, ratio), $ActiveTasks.GetSample(span, ratio)) == 0 ? 0 : $TargetDedicated) : {1});
+    $TargetDedicatedNodes = (lifespan > startup ? (max($RunningTasks.GetSample(span, ratio), $ActiveTasks.GetSample(span, ratio)) == 0 ? 0 : $TargetDedicatedNodes) : {1});
     ", now, 4);
 ```
 
@@ -659,5 +664,4 @@ string formula = string.Format(@"
 [rest_autoscaleformula]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [rest_autoscaleinterval]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
-
 

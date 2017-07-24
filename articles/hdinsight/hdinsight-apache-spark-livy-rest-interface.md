@@ -1,6 +1,7 @@
 ---
-title: "使用 Livy 向 Azure HDInsight 上的 Spark 远程提交作业 | Azure"
-description: "了解如何在 HDInsight 中使用 Livy 来远程提交 Spark 作业。"
+title: "使用 Livy Spark 向 Azure HDInsight 上的 Spark 群集提交作业 | Azure"
+description: "了解如何使用 Apache Spark REST API 将 Spark 作业远程提交到 Azure HDInsight 群集。"
+keywords: apache spark rest api,livy spark
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -9,36 +10,33 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/24/2017
-ms.date: 05/08/2017
+origin.date: 05/15/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 6745db40413cf9d9db9d3dd7ec4aa234d8789da8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 0ebe8799cb8e58063cfd4a5d38aab5eff07b57a7
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="submit-spark-jobs-remotely-to-an-apache-spark-cluster-on-hdinsight-using-livy"></a>使用 Livy 向 HDInsight 上的 Apache Spark 群集远程提交作业
+# <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>使用 Apache Spark REST API 将远程作业提交到 HDInsight Spark 群集
 
-Azure HDInsight 上的 Apache Spark 群集包含 Livy，这是一个 REST 接口，用于向 Spark 群集远程提交作业。 有关详细文档，请参阅 [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)。
+了解如何使用 Livy，这是 Apache Spark REST API，用来将远程作业提交到 Azure HDInsight Spark 群集。 有关详细文档，请参阅 [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)。
 
-你可以使用 Livy 运行交互式 Spark shell，或提交要在 Spark 上运行的批处理作业。 本文介绍如何使用 Livy 提交批处理作业。 以下语法使用 Curl 向 Livy 终结点发出 REST 调用。
+你可以使用 Livy 运行交互式 Spark shell，或提交要在 Spark 上运行的批处理作业。 本文介绍如何使用 Livy 提交批处理作业。 以下语法使用 Curl 向 Livy Spark 终结点发出 REST API 调用。
 
 **先决条件：**
 
 你必须具有以下各项：
 
-* Azure 订阅。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](hdinsight-apache-spark-jupyter-spark-sql.md)。
 
-## <a name="submit-a-batch-job"></a>提交批处理作业
+## <a name="submit-a-livy-spark-batch-job"></a>提交 Livy Spark 批处理作业
 在提交批处理作业之前，必须将应用程序 jar 上传到与群集关联的群集存储。 可以使用命令行实用工具 [**AzCopy**](../storage/storage-use-azcopy.md) 来执行此操作。 可以使用其他许多客户端来上传数据。 有关详细信息，请参阅[在 HDInsight 中上传 Hadoop 作业的数据](hdinsight-upload-data.md)。
 
     curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.cn/livy/batches'
@@ -52,40 +50,40 @@ Azure HDInsight 上的 Apache Spark 群集包含 Livy，这是一个 REST 接口
 
         curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.cn/livy/batches"
 
-## <a name="get-information-on-batches-running-on-the-cluster"></a>获取在群集上运行的批的相关信息
+## <a name="get-information-on-livy-spark-batches-running-on-the-cluster"></a>获取在群集上运行的 Livy Spark 批处理的相关信息
     curl -k --user "<hdinsight user>:<user password>" -v -X GET "https://<spark_cluster_name>.azurehdinsight.cn/livy/batches"
 
 **示例**：
 
-* 如果想要检索群集上运行的所有批：
+* 如果想要检索在群集上运行的所有Livy Spark 批处理：
 
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.cn/livy/batches"
 * 如果想要检索具有给定 batchId 的特定批
 
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.cn/livy/batches/{batchId}"
 
-## <a name="delete-a-batch-job"></a>删除批处理作业
+## <a name="delete-a-livy-spark-batch-job"></a>删除 Livy Spark 批处理作业
     curl -k --user "<hdinsight user>:<user password>" -v -X DELETE "https://<spark_cluster_name>.azurehdinsight.cn/livy/batches/{batchId}"
 
 **示例**：
 
     curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.cn/livy/batches/{batchId}"
 
-## <a name="livy-and-high-availability"></a>Livy 和高可用性
+## <a name="livy-spark-and-high-availability"></a>Livy Spark 和高可用性
 Livy 可为群集上运行的 Spark 作业提供高可用性。 下面是一些示例。
 
 * 将作业远程提交到 Spark 群集之后，如果 Livy 服务关闭，作业将继续在后台运行。 当 Livy 恢复运行时，将还原并报告作业的状态。
 * 适用于 HDInsight 的 Jupyter 笔记本由后端中的 Livy 提供支持。 如果在笔记本运行 Spark 作业时重新启动 Livy 服务，笔记本将继续运行代码单元。 
 
 ## <a name="show-me-an-example"></a>举个例子
-在本部分中，我们将通过示例了解如何使用 Livy 提交 Spark 应用程序、监视应用程序的进度，然后删除作业。 本示例中使用的应用程序是[创建独立的 Scala 应用程序并在 HDInsight Spark 群集上运行](hdinsight-apache-spark-create-standalone-application.md)一文中开发的应用程序。 以下步骤假设：
+在本部分中，我们通过示例了解了如何使用 Livy Spark 提交批处理作业、监视作业进度，然后删除作业。 本示例中使用的应用程序是[创建独立的 Scala 应用程序并在 HDInsight Spark 群集上运行](hdinsight-apache-spark-create-standalone-application.md)一文中开发的应用程序。 以下步骤假设：
 
 * 已将应用程序 jar 复制到与群集关联的存储帐户。
 * 已将 CuRL 安装在用于执行这些步骤的计算机上。
 
 执行以下步骤。
 
-1. 我们先确认 Livy 是否正在群集上运行。 为此，我们可以获取正在运行的批的列表。 如果这是你第一次使用 Livy 运行作业，则应会返回零。
+1. 让我们首先验证 Livy Spark 是否正在群集上运行。 为此，我们可以获取正在运行的批的列表。 如果这是你第一次使用 Livy 运行作业，则应会返回零。
 
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.cn/livy/batches"
 
@@ -102,6 +100,7 @@ Livy 可为群集上运行的 Spark 作业提供高可用性。 下面是一些�
         {"from":0,"total":0,"sessions":[]}* Connection #0 to host mysparkcluster.azurehdinsight.cn left intact
 
     请注意输出中的最后一行显示为 **total:0**，这意味着未运行任何批处理。
+
 2. 现在，让我们提交批处理作业。 以下代码片段使用输入文件 (input.txt) 传递 jar 名称和类名称作为参数。 如果要从 Windows 计算机执行这些步骤，则建议采用此方法。
 
         curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.cn/livy/batches"
@@ -124,6 +123,7 @@ Livy 可为群集上运行的 Spark 作业提供高可用性。 下面是一些�
         {"id":0,"state":"starting","log":[]}* Connection #0 to host mysparkcluster.azurehdinsight.cn left intact
 
     请注意输出的最后一行显示为 **state:starting**。 此外还显示了 **id:0**。 这是批 ID。
+
 3. 现在，可以使用批 ID 来检索此特定批的状态。
 
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.cn/livy/batches/0"
@@ -141,6 +141,7 @@ Livy 可为群集上运行的 Spark 作业提供高可用性。 下面是一些�
         {"id":0,"state":"success","log":["\t diagnostics: N/A","\t ApplicationMaster host: 10.0.0.4","\t ApplicationMaster RPC port: 0","\t queue: default","\t start time: 1448063505350","\t final status: SUCCEEDED","\t tracking URL: http://hn0-myspar.lpel1gnnvxne3gwzqkfq5u5uzh.jx.internal.chinacloudapp.cn:8088/proxy/application_1447984474852_0002/","\t user: root","15/11/20 23:52:47 INFO Utils: Shutdown hook called","15/11/20 23:52:47 INFO Utils: Deleting directory /tmp/spark-b72cd2bf-280b-4c57-8ceb-9e3e69ac7d0c"]}* Connection #0 to host mysparkcluster.azurehdinsight.cn left intact
 
     现在，输出显示 **state:success**，这意味着作业已成功完成。
+
 4. 现在，可以根据需要删除该批。
 
         curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.cn/livy/batches/0"
@@ -159,7 +160,7 @@ Livy 可为群集上运行的 Spark 作业提供高可用性。 下面是一些�
 
     输出的最后一行显示批已成功删除。 如果删除正在运行的作业，实际上是终止该作业。 如果删除已完成的作业，则不管该作业是否已成功完成，都将完全删除该作业的信息。
 
-## <a name="using-livy-on-hdinsight-35-spark-clusters"></a>在 HDInsight 3.5 Spark 群集上使用 Livy
+## <a name="using-livy-spark-on-hdinsight-35-clusters"></a>在 HDInsight 3.5 群集上使用 Livy Spark
 
 HDInsight 3.5 群集默认情况下禁止使用本地文件路径访问示例数据文件或 jar。 建议改用 `wasb://` 路径访问群集中的 jar 或示例数据文件。 如果要使用本地路径，则必须相应地更新 Ambari 配置。 为此，请执行以下操作：
 
@@ -175,7 +176,7 @@ HDInsight 3.5 群集默认情况下禁止使用本地文件路径访问示例数
 
 ### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>不支持从附加存储使用外部 jar
 
-**问题：**如果正在使用 Livy 运行 Spark 作业并从与群集关联的附加存储引用外部 jar，则作业将失败。
+**问题：**如果正在运行 Livy Spark 作业并引用了与群集关联的附加存储中的外部 jar，则作业将失败。
 
 **解决方法：**请确保要使用的 jar 在与 HDInsight 群集关联的默认存储中可用。
 
@@ -193,7 +194,9 @@ HDInsight 3.5 群集默认情况下禁止使用本地文件路径访问示例数
 * [使用 Scala 创建独立的应用程序](hdinsight-apache-spark-create-standalone-application.md)
 
 ### <a name="tools-and-extensions"></a>工具和扩展
-* [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-zeppelin-notebook.md)
 * [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
@@ -201,4 +204,3 @@ HDInsight 3.5 群集默认情况下禁止使用本地文件路径访问示例数
 ### <a name="manage-resources"></a>管理资源
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](hdinsight-apache-spark-job-debugging.md)
-

@@ -12,26 +12,24 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/03/2017
-ms.date: 06/05/2017
+origin.date: 05/15/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: aaae790c9c7785f39193926ab9e847bf2eb78db2
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 1ce8258ef284c33489e1f041f4c40179ea0ea242
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 将其他存储帐户添加到 HDInsight
-<a id="add-additional-storage-accounts-to-hdinsight" class="xliff"></a>
+# <a name="add-additional-storage-accounts-to-hdinsight"></a>将其他存储帐户添加到 HDInsight
 
 了解如何使用脚本操作将其他 Azure 存储帐户添加到使用 Linux 作为操作系统的现有 HDInsight 群集。
 
 > [!IMPORTANT]
-> 本文档中的信息是关于在创建群集后将其他存储添加到群集。 若要深入了解如何在群集创建期间添加其他存储帐户，请参阅[创建基于 Linux 的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md#use-additional-storage)文档中的__使用其他存储__部分。
+> 本文档中的信息是关于在创建群集后将其他存储添加到群集。 有关在群集创建过程中添加存储帐户的信息，请参阅[在 HDInsight 中设置包含 Hadoop、Spark 和其他组件的群集](hdinsight-hadoop-provision-linux-clusters.md)。
 
-## 工作原理
-<a id="how-it-works" class="xliff"></a>
+## <a name="how-it-works"></a>工作原理
 
 此脚本采用以下参数：
 
@@ -56,8 +54,7 @@ ms.lasthandoff: 06/21/2017
 > [!WARNING]
 > 不支持在 HDInsight 群集之外的其他位置使用存储帐户。
 
-## 脚本
-<a id="the-script" class="xliff"></a>
+## <a name="the-script"></a>脚本
 
 __脚本位置__： [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
 
@@ -65,8 +62,7 @@ __要求__：
 
 * 必须将该脚本应用于 __头节点__。
 
-## 使用脚本
-<a id="to-use-the-script" class="xliff"></a>
+## <a name="to-use-the-script"></a>使用脚本
 
 若要了解如何通过 Azure 门户、Azure PowerShell 和 Azure CLI 使用脚本操作，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)文档中的“将脚本操作应用于正在运行的群集”部分。
 
@@ -75,25 +71,35 @@ __要求__：
 > [!NOTE]
 > 无需将此脚本标记为 __持久化__，因为它直接更新群集的 Ambari 配置。
 
-## 已知问题
-<a id="known-issues" class="xliff"></a>
+## <a name="known-issues"></a>已知问题
 
-### 存储帐户未显示在 Azure 门户或工具中
-<a id="storage-accounts-not-displayed-in-azure-portal-or-tools" class="xliff"></a>
+### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>存储帐户未显示在 Azure 门户或工具中
 
 在 Azure 门户中查看 HDInsight 群集时，选择“属性”下的“存储帐户”项，则不会显示通过此脚本操作添加的存储帐户。 Azure PowerShell 和 Azure CLI 也不显示其他存储帐户。
 
 之所以未显示存储信息是因为该脚本只修改群集的 core-site.xml 配置。 使用 Azure 管理 API 检索群集信息时，未使用此信息。
 
-若要查看使用此脚本添加到群集的存储帐户信息，请使用 Ambari REST API。 以下命令演示如何使用 [cURL (http://curl.haxx.se/)](http://curl.haxx.se/) 和 [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) 从 Ambari 检索和分析 JSON 数据：
+若要查看使用此脚本添加到群集的存储帐户信息，请使用 Ambari REST API。 使用以下命令检索此群集信息：
 
-> [!div class="tabbedCodeSnippets" data-resources="OutlookServices.Calendar"]
-> ```PowerShell
-> curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["""fs.azure.account.key.STORAGEACCOUNT.blob.core.chinacloudapi.cn"""] | select(. != null)'
-> ```
-> ```Bash
-> curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.STORAGEACCOUNT.blob.core.chinacloudapi.cn"] | select(. != null)'
-> ```
+```PowerShell
+$creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" `
+    -Credential $creds
+$respObj = ConvertFrom-Json $resp.Content
+$respObj.items.configurations.properties."fs.azure.account.key.$storageAccountName.blob.core.chinacloudapi.cn"
+```
+
+> [!NOTE]
+> 将 `$clusterName` 设置为 HDInsight 群集的名称。 将 `$storageAccountName` 设置为存储帐户的名称。 出现提示时，输入群集登录名 (admin) 和密码。
+
+```Bash
+curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.$STORAGEACCOUNTNAME.blob.core.chinacloudapi.cn"] | select(. != null)'
+```
+
+> [!NOTE]
+> 将 `$PASSWORD` 设置为群集登录名 (admin) 的帐户密码。 将 `$CLUSTERNAME` 设置为 HDInsight 群集的名称。 将 `$STORAGEACCOUNTNAME` 设置为存储帐户的名称。
+>
+> 此示例使用 [curl (http://curl.haxx.se/)](http://curl.haxx.se/) 和 [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) 来检索和分析 JSON 数据。
 
 使用此命令时，将 __CLUSTERNAME__ 替换为 HDInsight 群集的名称。 将 __PASSWORD__ 替换为群集的 HTTP 登录密码。 将 __STORAGEACCOUNT__ 替换为使用脚本操作添加的存储帐户的名称。 此命令返回的信息类似于以下文本：
 
@@ -101,8 +107,7 @@ __要求__：
 
 此文本是用于访问存储帐户的加密密钥的示例。
 
-### 更改密钥后，无法访问存储
-<a id="unable-to-access-storage-after-changing-key" class="xliff"></a>
+### <a name="unable-to-access-storage-after-changing-key"></a>更改密钥后，无法访问存储
 
 如果更改了存储帐户的密钥，HDInsight 将不再能够访问存储帐户。 HDInsight 使用群集的 core-site.xml 中缓存的密钥副本。 必须更新此缓存的副本，使其匹配新密钥。
 
@@ -116,7 +121,7 @@ __要求__：
 
 2. 从页面左侧的服务列表中选择“HDFS” 。 然后，在页面中心选择“配置”选项卡。
 
-3. 在“筛选...”字段中，输入值 __fs.azure.account__。 这将返回已添加到群集的任何其他存储帐户的条目。 条目的类型为两种：__keyprovider__ 和 __key__。 这两种类型都包含存储帐户名称，作为密钥名称的一部分。 
+3. 在“筛选...”字段中，输入值 __fs.azure.account__。 这将返回已添加到群集的任何其他存储帐户的条目。 条目的类型为两种：__keyprovider__ 和 __key__。 这两种类型都包含存储帐户名称，作为密钥名称的一部分。
 
     以下是名为 __mystorage__ 的存储帐户的示例条目：
 
@@ -127,23 +132,20 @@ __要求__：
 
 5. 保存更改后，使用脚本操作将该存储帐户和新的密钥值添加到群集。
 
-### 性能不佳
-<a id="poor-performance" class="xliff"></a>
+### <a name="poor-performance"></a>性能不佳
 
 如果存储帐户与 HDInsight 群集不在同一个区域中，你可能会遇到性能不佳的情况。 访问不同区域中的数据会在区域 Azure 数据中心外部跨公共 Internet 发送网络流量，从而会导致延迟。
 
 > [!WARNING]
 > 不支持在 HDInsight 群集之外的其他区域中使用存储帐户。
 
-### 额外费用
-<a id="additional-charges" class="xliff"></a>
+### <a name="additional-charges"></a>额外费用
 
 如果存储帐户与 HDInsight 群集不在同一个区域中，你可能会在 Azure 帐单上发现额外出口费用。 当数据离开区域数据中心时，会产生出口费用，即使流量的目标为不同区域中的另一个 Azure 数据中心，也是如此。
 
 > [!WARNING]
 > 不支持在 HDInsight 群集之外的其他区域中使用存储帐户。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 你已学习如何将其他存储帐户添加到现有 HDInsight 群集。 有关脚本操作的详细信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)

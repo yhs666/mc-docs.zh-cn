@@ -1,6 +1,6 @@
 ---
-title: "将 Java 用户定义函数 (UDF) 与 HDInsight 中的 Hive 配合使用 |Azure"
-description: "了解如何在 HDInsight 的 Hive 中创建并使用 Java 用户定义函数 (UDF)。"
+title: "将 Java 用户定义函数 (UDF) 与 HDInsight 中的 Hive 配合使用 - Azure | Azure"
+description: "了解如何创建可用于 Hive 的基于 Java 的用户定义的函数 (UDF)。 此示例 UDF 将文本字符串表转换为小写。"
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -8,36 +8,34 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/04/2017
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9b66f16218093b3750001d881c49cd8ebd506b22
-ms.openlocfilehash: 477bce18661f9323baeba7578c0d7ae8fed8d0a1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/29/2017
-
-
+ms.openlocfilehash: 7be58c22f0bc9aebd40faf65127bf215f80f4c8f
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>在 HDInsight 中通过 Hive 使用 Java UDF
 
-了解如何创建可用于 Hive 的基于 Java 的用户定义的函数 (UDF)。
+了解如何创建可用于 Hive 的基于 Java 的用户定义的函数 (UDF)。 此示例中的 Java UDF 将文本字符串表转换为全小写字符。
 
 ## <a name="requirements"></a>要求
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-* HDInsight 群集（基于 Windows 或 Linux）
+* HDInsight 群集 
 
     > [!IMPORTANT]
-    > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅[弃用 HDInsight 3.2 和 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
-    本文档中的大多数步骤同时适用于这两种群集类型。 但是，用于将已编译的 UDF 上传到群集并运行的步骤特定于基于 Linux 的群集。 提供可用于基于 Windows 的群集的信息的链接。
+    本文档中的大多数步骤同时适用于基于 Windows 和基于 Linux 的群集。 但是，用于将已编译的 UDF 上传到群集并运行的步骤特定于基于 Linux 的群集。 提供可用于基于 Windows 的群集的信息的链接。
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 或更高版本（或类似程序，如 OpenJDK）
 
@@ -48,7 +46,7 @@ ms.lasthandoff: 04/29/2017
     > [!IMPORTANT]
     > 如果使用的是基于 Linux 的 HDInsight 服务器，但创建 Windows 客户端上的 Python 文件，则必须采用使用 LF 作为行结束的编辑器。
 
-## <a name="create-an-example-udf"></a>创建示例 UDF
+## <a name="create-an-example-java-udf"></a>创建示例 Java UDF 
 
 1. 从命令行中，使用以下命令新建 Maven 项目：
 
@@ -56,8 +54,8 @@ ms.lasthandoff: 04/29/2017
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    > [!NOTE]
-    > 如果使用 PowerShell，必须将参数用引号引起来。 例如，`mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`。
+   > [!NOTE]
+   > 如果使用 PowerShell，必须将参数用引号引起来。 例如，`mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`。
 
     此命令创建一个名为 **exampleudf** 的目录，其中包含 Maven 项目。
 
@@ -250,4 +248,3 @@ ms.lasthandoff: 04/29/2017
 有关使用 Hive 的其他方式，请参阅[将 HDInsight 与 Hive 配合使用](hdinsight-use-hive.md)。
 
 有关 Hive 用户定义函数的详细信息，请参阅 apache.org 网站上的 Hive wiki 的 [Hive 运算符和用户定义函数](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) 部分。
-

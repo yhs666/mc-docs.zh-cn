@@ -1,101 +1,131 @@
 ---
-title: "Azure PowerShell 脚本 - 设置异地复制 - 入池 SQL 数据库 | Microsoft 文档"
+title: "Azure PowerShell 脚本 - 设置异地复制 - 入池 SQL 数据库 | Azure"
 description: "Azure PowerShell 脚本示例 - 使用 PowerShell 为入池 Azure SQL 数据库设置活动异地复制"
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: Hayley244
+manager: digimobile
 editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: business continuity
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+origin.date: 05/23/2017
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 81c8f4766b092dea6bf7fa5874c3a87b457f6355
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: c2a173818b3b442b60bb4921c61f49a5806290de
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="configure-active-geo-replication-for-a-pooled-azure-sql-database-using-powershell"></a>使用 PowerShell 为入池 Azure SQL 数据库配置活动异地复制
 
 此示例 PowerShell 脚本为弹性池中的数据库配置活动异地复制，并将其故障转移到辅助副本。
 
-在运行此脚本前，请确保已使用 `Add-AzureRmAccount` cmdlet 创建与 Azure 的连接。
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-scripts"></a>示例脚本
 
 ```powershell
-# Set an admin login and password for your database
+# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+# Set the resource group name and location for your serverw
+$primaryresourcegroupname = "myPrimaryResourceGroup-$(Get-Random)"
+$secondaryresourcegroupname = "mySecondaryResourceGroup-$(Get-Random)"
+$primarylocation = "China East"
+$secondarylocation = "China North"
+# The logical server names have to be unique in the system
+$primaryservername = "primary-server-$(Get-Random)"
+$secondaryservername = "secondary-server-$(Get-Random)"
+# Set an admin login and password for your servers
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
-# The logical server names have to be unique in the system
-$primaryservername = "primary-server-$($(Get-AzureRMContext).Subscription.SubscriptionId)"
-$sercondaryservername = "secondary-server-$($(Get-AzureRMContext).Subscription.SubscriptionId)"
+# The sample database name
+$databasename = "mySampleDatabase"
+# The ip address ranges that you want to allow to access your servers
+$primarystartip = "0.0.0.0"
+$primaryendip = "0.0.0.0"
+$secondarystartip = "0.0.0.0"
+$secondaryendip = "0.0.0.0"
+# The elastic pool names
+$primarypoolname = "PrimaryPool"
+$secondarypoolname = "SecondaryPool"
 
 # Create two new resource groups
-New-AzureRmResourceGroup -Name "myPrimaryResourceGroup" -Location "China East"
-New-AzureRmResourceGroup -Name "mySecondaryResourceGroup" -Location "China North"
+$primaryresourcegroupname = New-AzureRmResourceGroup -Name $primaryresourcegroupname -Location $primarylocation
+$secondaryresourcegroupname = New-AzureRmResourceGroup -Name $secondaryresourcegroupname -Location $secondarylocation
 
 # Create two new logical servers with a system wide unique server name
-New-AzureRmSqlServer -ResourceGroupName "myPrimaryResourceGroup" `
+
+$primaryserver = New-AzureRmSqlServer -ResourceGroupName $primaryresourcegroupname `
     -ServerName $primaryservername `
-    -Location "China East" `
+    -Location $primarylocation `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
-New-AzureRmSqlServer -ResourceGroupName "mySecondaryResourceGroup" `
-    -ServerName $sercondaryservername `
-    -Location "China North" `
+$secondaryserver = New-AzureRmSqlServer -ResourceGroupName $secondaryresourcegroupname `
+    -ServerName $secondaryservername `
+    -Location $secondarylocation `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
-# Create a pool in each of the servers
-New-AzureRmSqlElasticPool -ResourceGroupName "myPrimaryResourceGroup" `
+# Create a server firewall rule for each server that allows access from the specified IP range
+$primaryserverfirewallrule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $primaryresourcegroupname `
     -ServerName $primaryservername `
-    -ElasticPoolName "PrimaryPool" `
+    -FirewallRuleName "AllowedIPs" -StartIpAddress $primarystartip -EndIpAddress $primaryendip
+$secondaryserverfirewallrule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $secondaryresourcegroupname `
+    -ServerName $secondaryservername `
+    -FirewallRuleName "AllowedIPs" -StartIpAddress $secondarystartip -EndIpAddress $secondaryendip
+
+# Create a pool in each of the servers
+$primarypool = New-AzureRmSqlElasticPool -ResourceGroupName $primaryresourcegroupname `
+    -ServerName $primaryservername `
+    -ElasticPoolName $primarypoolname `
     -Edition "Standard" `
     -Dtu 50 `
     -DatabaseDtuMin 10 `
     -DatabaseDtuMax 50
-New-AzureRmSqlElasticPool -ResourceGroupName "mySecondaryResourceGroup" `
-    -ServerName $sercondaryservername `
-    -ElasticPoolName "SecondaryPool" `
+$secondarypool = New-AzureRmSqlElasticPool -ResourceGroupName $secondaryresourcegroupname `
+    -ServerName $secondaryservername `
+    -ElasticPoolName $secondarypoolname `
     -Edition "Standard" `
     -Dtu 50 `
     -DatabaseDtuMin 10 `
     -DatabaseDtuMax 50
 
 # Create a blank database in the pool on the primary server
-New-AzureRmSqlDatabase  -ResourceGroupName "myPrimaryResourceGroup" `
+$database = New-AzureRmSqlDatabase  -ResourceGroupName $primaryresourcegroupname `
     -ServerName $primaryservername `
-    -DatabaseName "MySampleDatabase" `
-    -ElasticPoolName "PrimaryPool"
+    -DatabaseName $databasename `
+    -ElasticPoolName $primarypoolname
 
 # Establish Active Geo-Replication
-$myDatabase = Get-AzureRmSqlDatabase -ResourceGroupName "myPrimaryResourceGroup" `
+$database = Get-AzureRmSqlDatabase -ResourceGroupName $primaryresourcegroupname `
     -ServerName $primaryservername `
-    -DatabaseName "MySampleDatabase"
-$myDatabase | New-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName "mySecondaryResourceGroup" `
-    -PartnerServerName $sercondaryservername `
-    -SecondaryElasticPoolName "SecondaryPool" `
+    -DatabaseName $databasename
+$database | New-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName $secondaryresourcegroupname `
+    -PartnerServerName $secondaryservername `
+    -SecondaryElasticPoolName $primarypoolname `
     -AllowConnections "All"
 
 # Initiate a planned failover
-$myDatabase = Get-AzureRmSqlDatabase -ResourceGroupName "mySecondaryResourceGroup" `
-    -ServerName $sercondaryservername `
-    -DatabaseName "MySampleDatabase" 
-$myDatabase | Set-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName "myPrimaryResourceGroup" -Failover
+$database = Get-AzureRmSqlDatabase -ResourceGroupName $secondaryresourcegroupname `
+    -ServerName $secondaryservername `
+    -DatabaseName $databasename 
+$database | Set-AzureRmSqlDatabaseSecondary -PartnerResourceGroupName $primaryresourcegroupname -Failover
 
     
 # Monitor Geo-Replication config and health after failover
-$myDatabase = Get-AzureRmSqlDatabase -ResourceGroupName "mySecondaryResourceGroup" `
-    -ServerName $sercondaryservername `
-    -DatabaseName "MySampleDatabase"
-$myDatabase | Get-AzureRmSqlDatabaseReplicationLink -PartnerResourceGroupName "myPrimaryResourceGroup" `
+$database = Get-AzureRmSqlDatabase -ResourceGroupName $secondaryresourcegroupname `
+    -ServerName $secondaryservername `
+    -DatabaseName $databasename
+$database | Get-AzureRmSqlDatabaseReplicationLink -PartnerResourceGroupName $primaryresourcegroupname `
     -PartnerServerName $primaryservername
+
+# Clean up deployment 
+# Remove-AzureRmResourceGroup -ResourceGroupName $primaryresourcegroupname
+# Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
@@ -103,7 +133,8 @@ $myDatabase | Get-AzureRmSqlDatabaseReplicationLink -PartnerResourceGroupName "m
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -112,20 +143,20 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 | 命令 | 说明 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) | 创建用于托管数据库或弹性池的逻辑服务器。 |
-| [New-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlelasticpool) | 在逻辑服务器中创建弹性池。 |
-| [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabase) | 在逻辑服务器中创建数据库作为单一数据库或入池数据库。 |
-| [Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/set-azurermsqldatabase) | 更新数据库属性，或者将数据库移入、移出弹性池或在弹性池之间移动。 |
-| [New-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabasesecondary)| 为现有数据库创建辅助数据库，并开始数据复制。 |
-| [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/get-azurermsqldatabase)| 获取一个或多个数据库。 |
-| [Set-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/set-azurermsqldatabasesecondary)| 将辅助数据库切换为主数据库，以便启动故障转移。|
-| [Get-AzureRmSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/get-azurermsqldatabasereplicationlink) | 获取 Azure SQL 数据库和资源组或 SQL Server 之间的异地复制链路。 |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) | 创建用于托管数据库或弹性池的逻辑服务器。 |
+| [New-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | 在逻辑服务器中创建弹性池。 |
+| [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) | 在逻辑服务器中创建数据库作为单一数据库或入池数据库。 |
+| [Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) | 更新数据库属性，或者将数据库移入、移出弹性池或在弹性池之间移动。 |
+| [New-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary)| 为现有数据库创建辅助数据库，并开始数据复制。 |
+| [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase)| 获取一个或多个数据库。 |
+| [Set-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary)| 将辅助数据库切换为主数据库，以便启动故障转移。|
+| [Get-AzureRmSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) | 获取 Azure SQL 数据库和资源组或 SQL Server 之间的异地复制链路。 |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 |||
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
+有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。

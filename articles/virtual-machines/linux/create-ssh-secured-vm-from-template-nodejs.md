@@ -17,14 +17,13 @@ origin.date: 05/12/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8912d4fbb84dbc4db5d4c5b530d80804efd7bf74
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 69fc839e1a2fc84e9086b8190f0f1412c36cadf6
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 如何使用 Azure CLI 1.0 和 Azure Resource Manager 模板创建 Linux VM
-<a id="how-to-create-a-linux-vm-using-the-azure-cli-10-an-azure-resource-manager-template" class="xliff"></a>
+# <a name="how-to-create-a-linux-vm-using-the-azure-cli-10-an-azure-resource-manager-template"></a>如何使用 Azure CLI 1.0 和 Azure Resource Manager 模板创建 Linux VM
 本文说明如何使用 Azure CLI 1.0 和 Azure Resource Manager 模板快速部署 Linux 虚拟机。 本文需要以下条件：
 
 * 一个 Azure 帐户（[获取试用版](https://www.azure.cn/pricing/1rmb-trial/)）。
@@ -33,30 +32,26 @@ ms.lasthandoff: 06/23/2017
 
 也可以使用 [Azure 门户](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)快速部署 Linux VM 模板。
 
-## 用于完成任务的 CLI 版本
-<a id="cli-versions-to-complete-the-task" class="xliff"></a>
+## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可使用以下 CLI 版本之一完成任务：
 
 - [Azure CLI 1.0](#quick-command-summary) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
 - [Azure CLI 2.0](create-ssh-secured-vm-from-template.md) - 适用于资源管理部署模型的下一代 CLI
 
-## 快速命令摘要
-<a id="quick-command-summary" class="xliff"></a>
+## <a name="quick-command-summary"></a>快速命令摘要
 ```azurecli
 azure group create \
     -n myResourceGroup \
     -l chinanorth \
-    --template-file /path/to/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
-## 详细演练
-<a id="detailed-walkthrough" class="xliff"></a>
+## <a name="detailed-walkthrough"></a>详细演练
 使用模板可以在 Azure 上创建具有所需设置的 VM，这些设置可在启动过程中自定义，例如用户名和主机名。 对于本文，我们将推出一个利用 Ubuntu VM 和网络安全组 (NSG) 并打开端口 22 用于 SSH 的 Azure 模板。
 
 Azure Resource Manager 模板是可用于一次性简易任务（如启动 Ubuntu VM）的 JSON 文件，如本文所述。  Azure 模板还可用于构造整个环境的复杂 Azure 配置，如测试、开发或生产部署堆栈。
 
-## 创建 Linux VM
-<a id="create-the-linux-vm" class="xliff"></a>
+## <a name="create-the-linux-vm"></a>创建 Linux VM
 下面的代码示例演示如何调用 `azure group create` 创建资源组，并同时使用 [此 Azure Resource Manager 模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json)部署受 SSH 保护的 Linux VM。 请记住，在示例中必须使用环境中唯一的名称。 此示例使用 *myResourceGroup* 作为资源组名称，使用 *myVM* 作为 VM 名称。
 
 >[!NOTE]
@@ -66,7 +61,7 @@ Azure Resource Manager 模板是可用于一次性简易任务（如启动 Ubunt
 azure group create \
     --name myResourceGroup \
     --location chinanorth \
-    --template-file /path/to/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
 输出应类似于以下输出块：
@@ -90,8 +85,7 @@ data:
 info:    group create command OK
 ```
 
-该示例使用 `--template-file` 参数（模板文件的路径为自变量）部署了一个 VM。 如果你确信该模板适用于 Azure 中国区，也可以使用 `--template-uri` 直接从 github 原始文件部署该模板。 Azure CLI 将提示你输入模板所需的参数。
+该示例使用 `--template-uri` 参数部署了一个 VM。 如果确信模板适用于 Azure 中国区，始终可以使用 `--template-uri` 参数。  还可以使用以模板文件路径作为实际参数的 `--template-file` 形式参数在本地下载或创建模板并传递模板。 Azure CLI 将提示你输入模板所需的参数。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 搜索 [模板库](https://github.com/Azure/azure-quickstart-templates/) 以发现下一步要部署哪些应用框架。

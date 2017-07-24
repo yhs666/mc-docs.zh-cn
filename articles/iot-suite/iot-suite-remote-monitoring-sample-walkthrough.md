@@ -16,11 +16,11 @@ ms.workload: na
 origin.date: 05/15/2017
 ms.author: v-yiso
 ms.date: 06/13/2017
-ms.openlocfilehash: 3bc4fd1eaeb22cd6f657b61001b11d03a2deeb44
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 4742c770fec55a77ace8309cfceca8c76637cdcc
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>远程监视预配置解决方案演练
 
@@ -51,8 +51,6 @@ IoT 套件远程监视[预配置解决方案][lnk-preconfigured-solutions]是适
 
 > [!NOTE]
 > 解决方案将设备支持的命令列表存储在 Cosmos DB 数据库中，而不是存储在设备孪生中。
-> 
-> 
 
 ### <a name="properties-and-device-twins"></a>属性和设备孪生
 模拟设备将以下设备属性以“报告的属性”形式发送到 IoT 中心的[孪生][lnk-device-twins]中。 设备在启动时以及在响应“更改设备状态”命令或方法时发送报告的属性。
@@ -111,8 +109,6 @@ IoT 套件远程监视[预配置解决方案][lnk-preconfigured-solutions]是适
 
 > [!NOTE]
 > 有关这些命令（设备到云的消息）和方法（直接方法）的比较，请参阅[云到设备的通信指南][lnk-c2d-guidance]。
-> 
-> 
 
 ## <a name="iot-hub"></a>IoT 中心
 [IoT 中心][lnk-iothub]将引入从设备发送到云的数据，并将其提供给 Azure 流分析 (ASA) 作业。 每个流 ASA 作业使用不同的 IoT 中心使用者组从设备读取消息流。
@@ -241,9 +237,11 @@ GROUP BY
 解决方案门户是部署为预配置解决方案一部分的 Web 应用。 解决方案门户中的关键页面包括仪表板和设备列表。
 
 ### <a name="dashboard"></a>仪表板
+
 Web 应用中的此页面使用 PowerBI javascript 控件（请参阅 [PowerBI-visuals repo](https://www.github.com/Microsoft/PowerBI-visuals)（PowerBI 可视化效果存储库））来可视化设备发送的遥测数据。 解决方案使用 ASA 遥测作业将遥测数据写入 Blob 存储。
 
 ### <a name="device-list"></a>列出设备
+
 在解决方案门户的此页面中，可以：
 
 * 预配新设备。 此操作会设置唯一设备 ID 并生成身份验证密钥。 将有关设备的信息同时写入 IoT 中心标识注册表以及特定于解决方案的 Cosmos DB 数据库。
@@ -261,4 +259,4 @@ Web 应用中的此页面使用 PowerBI javascript 控件（请参阅 [PowerBI-v
 你可以通过阅读以下文章继续开始使用 IoT 套件：
 
 - [将设备连接到远程监视预配置解决方案][lnk-connect-rm]
-- [azureiotsuite.com 网站上的权限][lnk-permissions] [lnk-preconfigured-solutions]: ./iot-suite-what-are-preconfigured-solutions.md [lnk-customize]: ./iot-suite-guidance-on-customizing-preconfigured-solutions.md [lnk-iothub]: ../iot-hub/index.md [lnk-asa]: ../stream-analytics/index.md [lnk-webjobs]: ../app-service-web/websites-webjobs-resources.md [lnk-connect-rm]: ./iot-suite-connecting-devices.md [lnk-permissions]: ./iot-suite-permissions.md [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md [lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+- [azureiotsuite.com 站点上的权限][lnk-permissions] [lnk-preconfigured-solutions]: ./iot-suite-what-are-preconfigured-solutions.md [lnk-customize]: ./iot-suite-guidance-on-customizing-preconfigured-solutions.md [lnk-iothub]: /iot-hub/ [lnk-asa]: /stream-analytics/ [lnk-webjobs]: ../app-service-web/websites-webjobs-resources.md [lnk-connect-rm]: ./iot-suite-connecting-devices.md [lnk-permissions]: ./iot-suite-permissions.md [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md [lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

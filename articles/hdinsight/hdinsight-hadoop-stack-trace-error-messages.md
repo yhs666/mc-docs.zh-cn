@@ -1,5 +1,5 @@
 ---
-title: "Hadoop 堆栈跟踪错误消息 | Azure"
+title: "Hadoop 堆栈跟踪错误消息 - Azure HDInsight | Azure"
 description: "Azure HDInsight 中的 Hadoop 堆栈跟踪错误消息的索引。 在列表中查找错误以查看故障排除信息。"
 keywords: "堆栈跟踪, 错误消息"
 services: hdinsight
@@ -17,13 +17,11 @@ ms.workload: big-data
 origin.date: 04/26/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 00d061c326f87de0124776a425a8867b7aee0a7c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: 327bcbd42b1a2345831a06dfb65baae1d5eaa0cf
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>HDInsight 中的 Hadoop 索引疑难解答文章
 这些文章已按错误类型进行组织。
@@ -41,4 +39,3 @@ ms.lasthandoff: 05/26/2017
 * [在 HDInsight 上基于 Linux 的 Hadoop 中访问 YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [在基于 Linux 的 HDInsight 上为 Hadoop 服务启用堆转储](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Azure HDInsight 上的 Hadoop 组件发行说明](hdinsight-release-notes.md)
-

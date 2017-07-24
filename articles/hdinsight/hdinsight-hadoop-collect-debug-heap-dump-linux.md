@@ -1,5 +1,5 @@
 ---
-title: "在 HDInsight 上为 Hadoop 服务启用堆转储 | Azure"
+title: "在 HDInsight 上为 Hadoop 服务启用堆转储 - Azure | Azure"
 description: "为基于 Linux 的 HDInsight 群集中的 Hadoop 服务启用堆转储，以便进行调试和分析。"
 services: hdinsight
 documentationcenter: 
@@ -15,15 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/14/2017
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: af765c4e2546422dcb96b81f84d7380e38fe2356
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: a407651dc09b6e32508c31c0265ab6b649b6ae61
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上为 Hadoop 服务启用堆转储
 
@@ -32,7 +30,7 @@ ms.lasthandoff: 04/28/2017
 堆转储包含应用程序的内存快照，其中包括创建转储时各变量的值。 因此，它们在诊断发生在运行时的问题时很有用。
 
 > [!IMPORTANT]
-> 本文档中的步骤仅适用于使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上即将弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> 本文档中的步骤仅适用于使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 ## <a name="whichServices"></a>服务
 
@@ -87,6 +85,7 @@ ms.lasthandoff: 04/28/2017
 
 > [!NOTE]
 > 由于 Hadoop 是分布式系统，任何使用的脚本都必须放置在服务运行时所在的群集的所有节点上。
+> 
 > 该脚本还必须位于可供帐户（服务以该帐户的身份运行）访问的位置，并且必须提供执行权限。 例如，你可能希望将脚本存储在 `/usr/local/bin` 中，并通过 `chmod go+rx /usr/local/bin/filename.sh` 来授予读取和执行权限。
 
 ## <a name="using-ambari"></a>使用 Ambari
@@ -97,8 +96,8 @@ ms.lasthandoff: 04/28/2017
 
     出现提示时，在该站点中使用群集的 HTTP 帐户名（默认为 admin）和密码进行身份验证。
 
-    > [!NOTE]
-    > Ambari 可能会再次提示你输入用户名和密码。 如果是这样，请重新输入相同的帐户名和密码
+   > [!NOTE]
+   > Ambari 可能会再次提示你输入用户名和密码。 如果是这样，请重新输入相同的帐户名和密码
 
 2. 使用左侧的列表，选择你想要修改的服务区。 例如， **HDFS**。 在中心区域，选择 **“配置”** 选项卡。
 
@@ -112,8 +111,8 @@ ms.lasthandoff: 04/28/2017
 
     ![HADOOP_NAMENODE_OPTS with -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
-    > [!NOTE]
-    > 为映射或化简子进程启用堆转储时，需查找名为 **mapreduce.admin.map.child.java.opts** 和 **mapreduce.admin.reduce.child.java.opts** 的字段。
+   > [!NOTE]
+   > 为映射或化简子进程启用堆转储时，需查找名为 **mapreduce.admin.map.child.java.opts** 和 **mapreduce.admin.reduce.child.java.opts** 的字段。
 
     使用“保存”按钮保存所做的更改。 可以输入简短的说明，描述所做的更改。
 
@@ -129,7 +128,7 @@ ms.lasthandoff: 04/28/2017
 
     ![重新启动受影响的所有条目](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
 
-    > [!NOTE]
-    > 其他服务的“重启”按钮条目可能会有所不同。
+   > [!NOTE]
+   > 其他服务的“重启”按钮条目可能会有所不同。
 
 8. 一旦重启服务，可使用“服务操作”按钮“关闭维护模式”。 这样一来，Ambari 就可以继续监视服务的警报。

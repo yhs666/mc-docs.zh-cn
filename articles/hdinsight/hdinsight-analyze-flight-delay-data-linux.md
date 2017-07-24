@@ -1,5 +1,5 @@
 ---
-title: "在基于 Linux 的 HDInsight 上使用 Hive 分析航班延误数据 | Azure"
+title: "在 HDInsight 上使用 Hive 分析航班延误数据 - Azure | Azure"
 description: "了解如何在基于 Linux 的 HDInsight 上使用 Hive 分析航班数据，然后使用 Sqoop 将数据导出到 SQL 数据库中。"
 services: hdinsight
 documentationcenter: 
@@ -14,25 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/04/2017
-ms.date: 06/05/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: d3e12fffad5d9df40c408e7182eac0868318aa6f
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 9cfd6752e2bbc1be391441e5565ea2ecbde217e8
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 在基于 Linux 的 HDInsight 上使用 Hive 分析航班延误数据
-<a id="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight" class="xliff"></a>
+# <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上使用 Hive 分析航班延误数据
 
 了解如何在基于 Linux 的 HDInsight 上使用 Hive 分析航班延误数据，然后使用 Sqoop 将数据导出到 Azure SQL 数据库中。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
-### 先决条件
-<a id="prerequisites" class="xliff"></a>
+### <a name="prerequisites"></a>先决条件
 
 * **HDInsight 群集**。 有关创建新的基于 Linux 的 HDInsight 群集的步骤，请参阅[在 Linux 上的 HDInsight 中开始将 Hadoop 与 Hive 配合使用](hdinsight-hadoop-linux-tutorial-get-started.md)。
 
@@ -40,8 +38,7 @@ ms.lasthandoff: 06/21/2017
 
 * **Azure CLI**。 如果尚未安装 Azure CLI，请参阅[安装和配置 Azure CLI](../cli-install-nodejs.md) 可了解详细步骤。
 
-## 下载航班数据
-<a id="download-the-flight-data" class="xliff"></a>
+## <a name="download-the-flight-data"></a>下载航班数据
 
 1. 浏览到 [美国研究与技术创新管理部门 - 运输统计局][rita-website]。
 
@@ -55,8 +52,7 @@ ms.lasthandoff: 06/21/2017
 
 3. 单击“下载”。
 
-## 上传数据
-<a id="upload-the-data" class="xliff"></a>
+## <a name="upload-the-data"></a>上传数据
 
 1. 使用以下命令将该 zip 文件上传到 HDInsight 群集头节点：
 
@@ -90,8 +86,7 @@ ms.lasthandoff: 06/21/2017
     hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
     ```
 
-## 创建并运行 HiveQL
-<a id="create-and-run-the-hiveql" class="xliff"></a>
+## <a name="create-and-run-the-hiveql"></a>创建并运行 HiveQL
 
 使用以下步骤将 CSV 文件中的数据导入到名为 **Delays**的 Hive 表中。
 
@@ -196,15 +191,13 @@ ms.lasthandoff: 06/21/2017
 
 6. 若要退出 Beeline，请在提示符处输入 `!quit` 。
 
-## 创建 SQL 数据库
-<a id="create-a-sql-database" class="xliff"></a>
+## <a name="create-a-sql-database"></a>创建 SQL 数据库
 
 如果已具备 SQL 数据库，则必须获取服务器名称。 可通过选择“SQL 数据库”在 [Azure 门户](https://portal.azure.cn)中找到服务器名称，然后筛选要使用的数据库的名称。 服务器名称在“SERVER”  列中列出。
 
 如果还没有 SQL 数据库，请使用 [SQL 数据库教程：几分钟内即可创建 SQL 数据库](../sql-database/sql-database-get-started.md)中的信息创建一个。 保存数据库所使用的服务器名称。
 
-## 创建 SQL 数据库表
-<a id="create-a-sql-database-table" class="xliff"></a>
+## <a name="create-a-sql-database-table"></a>创建 SQL 数据库表
 
 > [!NOTE]
 > 可通过多种方式连接到 SQL 数据库并创建表。 以下步骤从 HDInsight 群集使用 [FreeTDS](http://www.freetds.org/) 。
@@ -262,8 +255,7 @@ ms.lasthandoff: 06/21/2017
 
 5. 在 `exit` at the `1>` 以退出 tsql 实用工具。
 
-## 使用 Sqoop 导出数据
-<a id="export-data-with-sqoop" class="xliff"></a>
+## <a name="export-data-with-sqoop"></a>使用 Sqoop 导出数据
 
 1. 使用以下命令验证 Sqoop 是否可以看到你的 SQL 数据库：
 

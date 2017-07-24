@@ -1,5 +1,5 @@
 ---
-title: "使用脚本操作在基于 Linux 的 HDInsight 上安装 Solr | Azure"
+title: "使用脚本操作在基于 Linux 的 HDInsight 上安装 Solr - Azure | Azure"
 description: "了解如何使用脚本操作在基于 Linux 的 HDInsight Hadoop 群集上安装 Solr。"
 services: hdinsight
 documentationcenter: 
@@ -17,19 +17,18 @@ ms.topic: article
 origin.date: 04/14/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.openlocfilehash: dd7d3dbe443a5ee0b4414a9beffc8eb59572ba78
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 4904001cc14b0b85394c699e94e4701a78dedd81
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 在 HDInsight Hadoop 群集上安装并使用 Solr
-<a id="install-and-use-solr-on-hdinsight-hadoop-clusters" class="xliff"></a>
+# <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Solr
 
 了解如何使用脚本操作在 Azure HDInsight 上安装 Solr。 Solr 是一种功能强大的搜索平台，提供了企业级搜索功能，用于搜索由 Hadoop 管理的数据。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 > [!IMPORTANT]
 > 此文档中使用的示例脚本通过特定配置创建 Solr 群集。 如果要使用不同集合、分片、架构、副本等配置 Solr 群集，必须修改脚本和 Solr 二进制文件。
@@ -43,8 +42,7 @@ ms.lasthandoff: 06/21/2017
 >
 > 自定义组件（如 Solr）可获得合理范围的支持，以帮助进一步排查问题。 Azure.cn 支持可能无法解决与自定义组件有关的问题。 用户可能需要寻求开源社区的帮助。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
 
-## 脚本功能
-<a id="what-the-script-does" class="xliff"></a>
+## <a name="what-the-script-does"></a>脚本功能
 
 此脚本对 HDInsight 群集进行以下更改：
 
@@ -79,8 +77,7 @@ ms.lasthandoff: 06/21/2017
 > [!IMPORTANT]
 > 本节中的步骤将演示基本 Solr 功能。 有关使用 Solr 的详细信息，请参阅 [Apache Solr 站点](http://lucene.apache.org/solr/)。
 
-### 索引数据
-<a id="index-data" class="xliff"></a>
+### <a name="index-data"></a>索引数据
 
 使用以下步骤将示例数据添加到 Solr，然后查询该数据：
 
@@ -174,8 +171,7 @@ ms.lasthandoff: 06/21/2017
                 ]
               }
 
-### 使用 Solr 仪表板
-<a id="using-the-solr-dashboard" class="xliff"></a>
+### <a name="using-the-solr-dashboard"></a>使用 Solr 仪表板
 
 Solr 仪表板是一个 Web UI，可让你通过 Web 浏览器使用 Solr。 Solr 仪表板不会直接从 HDInsight 群集公开到 Internet。 可以使用 SSH 隧道访问该仪表板。 有关使用 SSH 隧道的详细信息，请参阅[将 SSH 隧道与 HDInsight 配合使用](hdinsight-linux-ambari-ssh-tunnel.md)文档。
 
@@ -218,7 +214,6 @@ Solr 仪表板是一个 Web UI，可让你通过 Web 浏览器使用 Solr。 Sol
 
      输出返回之前已添加到索引的两个文档。 输出类似于以下 JSON 文档：
 
-    ```
            "response": {
                "numFound": 2,
                "start": 0,
@@ -270,10 +265,8 @@ Solr 仪表板是一个 Web UI，可让你通过 Web 浏览器使用 Solr。 Sol
                  }
                ]
              }
-    ```
 
-### 启动和停止 Solr
-<a id="starting-and-stopping-solr" class="xliff"></a>
+### <a name="starting-and-stopping-solr"></a>启动和停止 Solr
 
 使用以下命令手动停止和启动 Solr：
 
@@ -282,8 +275,7 @@ sudo stop solr
 sudo start solr
 ```
 
-## 备份已编制索引的数据
-<a id="backup-indexed-data" class="xliff"></a>
+## <a name="backup-indexed-data"></a>备份已编制索引的数据
 
 使用以下步骤，将 Solr 数据备份到群集的默认存储：
 
@@ -328,8 +320,7 @@ sudo start solr
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 * [在 HDInsight 群集上安装 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 使用群集自定义在 HDInsight Hadoop 群集上安装 Giraph。 Giraph 可让你通过使用 Hadoop 执行图形处理，并可以在 Azure HDInsight 上使用。
 

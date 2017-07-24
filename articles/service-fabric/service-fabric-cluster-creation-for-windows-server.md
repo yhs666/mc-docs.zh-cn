@@ -3,8 +3,8 @@ title: "创建独立 Azure Service Fabric 群集 | Azure"
 description: "在运行 Windows Server 的任何本地或任意云计算机（物理或虚拟）上创建 Azure Service Fabric 群集。"
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
 ms.service: service-fabric
@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/24/2017
-ms.author: v-johch
-ms.openlocfilehash: 024a2b11a037c2eab137c059a747fa6efd0e202d
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 03/24/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
+ms.openlocfilehash: e3818e3e93a70db4355d3b6d14abe31d164a5fba
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>创建在 Windows Server 上运行的独立群集
 可以使用 Azure Service Fabric 在运行 Windows Server 的任何虚拟机或计算机上创建 Service Fabric 群集。 这意味着，可以在包含一组相互连接的 Windows Server 计算机的任何环境（无论是本地环境还是任何云提供商所提供的环境）中部署和运行 Service Fabric 应用程序。 Service Fabric 提供了一个安装程序包，用于创建名为“Windows Server 独立包”的 Service Fabric 群集。
@@ -30,10 +31,19 @@ ms.lasthandoff: 06/21/2017
 > 
 > 
 
+<a id="getsupport"></a>
+
+## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>获取用于 Windows Server 的 Service Fabric 包的支持
+* 在 [Azure Service Fabric 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric?)中询问社区关于 Windows Server 的 Service Fabric 独立包的信息。
+* 开具 [Service Fabric 专业支持](http://support.microsoft.com/oas/default.aspx?prid=16146)票证。  在[此处](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0)了解有关 Microsoft 专业支持的详细信息。
+* 还可以获取作为 [Microsoft 顶级支持](https://support.microsoft.com/premier)的一部分的对此包的支持。
+* 有关详细信息，请参阅 [Azure Service Fabric 支持选项](/service-fabric/service-fabric-support)。
+* 若要出于支持目的收集日志，请运行 [Service Fabric 独立日志收集器](service-fabric-cluster-standalone-package-contents.md)。
+
 <a id="downloadpackage"></a>
 
-## <a name="download-the-service-fabric-standalone-package"></a>下载 Service Fabric 独立包
-若要创建群集，请使用可在此处找到的适用于 Windows Server（2012 R2 和更高版本）的 Service Fabric 独立包： <br>
+## <a name="download-the-service-fabric-for-windows-server-package"></a>下载用于 Windows Server 的 Service Fabric 包
+若要创建群集，请使用可在此处找到的用于 Windows Server 的 Service Fabric 包（Windows Server 2012 R2 和更高版本）： <br>
 [下载链接 - Service Fabric 独立包 - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
 
 在[此处](service-fabric-cluster-standalone-package-contents.md)查找有关包内容的详细信息。
@@ -57,7 +67,7 @@ ms.lasthandoff: 06/21/2017
 
 有关故障排除的详细信息，请参阅[计划和准备群集部署](service-fabric-cluster-standalone-deployment-preparation.md)中的环境设置部分。
 
-如果已完成运行开发方案，可以参考下面的“[删除群集](#removecluster_anchor)”部分的步骤，从计算机中删除 Service Fabric 群集。 
+如果已完成运行开发方案，则可以引用“[删除群集](#removecluster_anchor)”部分的步骤，从计算机中删除 Service Fabric 群集。 
 
 ### <a name="step-1b-create-a-multi-machine-cluster"></a>步骤 1B：创建多机群集
 在完成下面链接中详述的计划和准备步骤后，就可以使用群集配置文件创建生产群集。 <br>
@@ -75,8 +85,7 @@ ms.lasthandoff: 06/21/2017
     Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
     Running Best Practices Analyzer...
     Best Practices Analyzer completed successfully.
-    
-    
+
     LocalAdminPrivilege        : True
     IsJsonValid                : True
     IsCabValid                 : True
@@ -90,14 +99,23 @@ ms.lasthandoff: 06/21/2017
     ```
 
 2. 创建群集：运行 *CreateServiceFabricCluster.ps1* 脚本，以便在配置中的每台计算机上部署 Service Fabric 群集。 
-```powershell
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
-```
+    ```powershell
+    .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
+    ```
 
 > [!NOTE]
 > 部署跟踪已写入运行 CreateServiceFabricCluster.ps1 PowerShell 脚本的 VM/计算机。 可在运行脚本的目录中的子文件夹 DeploymentTraces 中找到这些信息。 若要确定是否已将 Service Fabric 正确部署到计算机，请根据群集配置文件 FabricSettings 部分中的详述找到 FabricDataRoot 目录（默认为 c:\ProgramData\SF）中安装的文件。 在任务管理器中也可以看到 FabricHost.exe 和 Fabric.exe 进程正在运行。
 > 
 > 
+
+### <a name="step-1c-create-an-offline-internet-disconnected-cluster"></a>步骤 1C：创建脱机（Internet 断开）群集
+创建群集时自动下载 Service Fabric 运行时包。 将群集部署到未连接 Internet 的计算机时，需要单独下载 Service Fabric 运行时包，并在创建群集时提供指向它的路径。
+运行时包可从另一台连接到 Internet 的计算机单独下载：[下载链接 - Service Fabric 运行时 - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)。 将运行时包复制到部署脱机群集的位置，并通过运行 `CreateServiceFabricCluster.ps1` 与 `-FabricRuntimePackagePath` 参数创建群集，如下所示： 
+
+```powershell
+CreateServiceFabricCluster.ps1 -ClusterConfigurationFilePath <path to ClusterConfig.json> -FabricRuntimePackagePath <path to MicrosoftAzureServiceFabric.cab>
+```
+其中 `<path to ClusterConfig.json>` 和 `<path to MicrosoftAzureServiceFabric.cab>` 分别是群集配置和运行时 .cab 文件的路径。
 
 ### <a name="step-2-connect-to-the-cluster"></a>步骤 2：连接到群集
 若要连接到安全群集，请参阅 [Service Fabric 连接到安全群集](service-fabric-connect-to-secure-cluster.md)。
@@ -166,7 +184,6 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 
 ## <a name="preview-features-included-in-this-package"></a>此包中包括的预览功能
 无。
-
 
 > [!NOTE]
 > 从[适用于 Windows Server 的独立群集的新 GA 版本（版本 5.3.204.x）](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/)开始，可以将群集手动或自动升级到未来版本。 请参阅[升级独立 Service Fabric 群集版本](service-fabric-cluster-upgrade-windows-server.md)文档以获取详细信息。

@@ -1,5 +1,5 @@
 ---
-title: "在 HDInsight 群集上配合使用 Hadoop Pig 和 SSH | Azure"
+title: "在 HDInsight 群集上将 Hadoop Pig 与 SSH 配合使用 - Azure | Azure"
 description: "了解如何使用 SSH 连接到基于 Linux 的 Hadoop 群集，然后使用 Pig 命令以交互方式或以批处理作业形式运行 Pig Latin 语句。"
 services: hdinsight
 documentationcenter: 
@@ -17,11 +17,11 @@ ms.workload: big-data
 origin.date: 04/14/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.openlocfilehash: bfbf40661582d8a25f4ff42c8c5a226fd5f1fb50
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: df164bef3081db5937bc8e36cfd2acf465bc1370
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>使用 Pig 命令 (SSH) 在基于 Linux 的群集上运行 Pig 作业
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 06/21/2017
 了解如何以交互方式从 HDInsight 群集的 SSH 连接中运行 Pig 作业。 可以使用 Pig Latin 编程语言来描述应用到输入数据以生成所需输出的转换。
 
 > [!IMPORTANT]
-> 本文档中的步骤要求使用基于 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> 本文档中的步骤要求使用基于 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 ## <a id="ssh"></a>使用 SSH 进行连接
 

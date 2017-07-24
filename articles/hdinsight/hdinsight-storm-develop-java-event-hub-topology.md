@@ -16,13 +16,11 @@ ms.workload: big-data
 origin.date: 04/03/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 2f18d8279fe0425e4f662e8133d7ab4fce3e2b81
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 154a1b0aaa47f2c4cc4bb3a1c33f0de735f6a20f
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-java"></a>使用 Storm on HDInsight 从 Azure 事件中心处理事件 (Java)
 
@@ -37,7 +35,7 @@ Azure 事件中心可用于处理网站、应用程序和设备中的大量数�
 * 一个 3.5 版 Apache Storm on HDInsight 群集。 有关详细信息，请参阅 [Storm on HDInsight 群集入门](hdinsight-apache-storm-tutorial-get-started-linux.md)。
 
     > [!IMPORTANT]
-    > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅[弃用 HDInsight 3.3 和 3.4](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 * [Azure 事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)。
 
@@ -246,6 +244,7 @@ HdfsBolt 一般用于将数据存储到 Hadoop 分布式文件系统 (HDFS)。 �
     <includePluginDependencies>false</includePluginDependencies>
     <classpathScope>compile</classpathScope>
     <mainClass>${storm.topology}</mainClass>
+    <cleanupDaemonThreads>false</cleanupDaemonThreads>
     </configuration>
 </plugin>
 ```
@@ -279,9 +278,9 @@ HdfsBolt 一般用于将数据存储到 Hadoop 分布式文件系统 (HDFS)。 �
 * **JAVA_HOME** - 应该指向已安装 Java 运行时环境 (JRE) 的目录。 例如，在 Unix 或 Linux 分发版中，它的值应该类似于 `/usr/lib/jvm/java-7-oracle`。 在 Windows 中，它的值类似于 `c:\Program Files (x86)\Java\jre1.7`
 * **PATH** - 应该包含以下路径：
 
-    * **JAVA_HOME**（或等效的路径）
-    * **JAVA_HOME\bin**（或等效的路径）
-    * 安装 Maven 的目录
+  * **JAVA_HOME**（或等效的路径）
+  * **JAVA_HOME\bin**（或等效的路径）
+  * 安装 Maven 的目录
 
 ## <a name="download-and-register-the-eventhub-components"></a>下载并注册 EventHub 组件
 
@@ -305,8 +304,8 @@ HdfsBolt 一般用于将数据存储到 Hadoop 分布式文件系统 (HDFS)。 �
 
     ![向导页 1](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
 
-    > [!NOTE]
-    > 选择与 Storm on HDInsight 服务器相同的**位置**，以降低延迟和成本。
+   > [!NOTE]
+   > 选择与 Storm on HDInsight 服务器相同的**位置**，以降低延迟和成本。
 
 3. 在“配置事件中心”屏幕中，输入“分区计数”和“消息保留期”值。 对于本示例，请使用分区计数 10，消息保留期 1。 记下分区计数，因为稍后需要用到此值。
 
@@ -377,8 +376,8 @@ HdfsBolt 一般用于将数据存储到 Hadoop 分布式文件系统 (HDFS)。 �
         -rw-r--r--   1 storm supergroup      10267 2015-08-11 19:36 /devicedata/wasbbolt-14-11-1439321761090.txt
         -rw-r--r--   1 storm supergroup      10259 2015-08-11 19:36 /devicedata/wasbbolt-14-12-1439321762679.txt
 
-    > [!NOTE]
-    > 某些文件可能显示大小为 0，因为虽然已由 EventHubReader 创建这些文件，但尚未将数据存储到其中。
+   > [!NOTE]
+   > 某些文件可能显示大小为 0，因为虽然已由 EventHubReader 创建这些文件，但尚未将数据存储到其中。
 
     可以通过以下命令查看这些文件的内容：
 
@@ -413,9 +412,8 @@ HdfsBolt 一般用于将数据存储到 Hadoop 分布式文件系统 (HDFS)。 �
 
 * 如果使用**基于 Linux** 的 Storm on HDInsight 群集，请参阅[在基于 Linux 的 HDInsight 上部署和管理 Apache Storm 拓扑](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-* 如果使用**基于 Windows** 的 Storm on HDInsight 群集，请参阅[在基于 Windows 的 HDInsight 上部署和管理 Apache Storm 拓扑](hdinsight-storm-deploy-monitor-topology.md)
+* 如果使用**基于 Windows** 的 Storm on HDInsight 群集，请参阅[在基于 Windows 的 HDInsight 上部署和管理 Apache Storm 拓扑](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ## <a name="next-steps"></a>后续步骤
 
 * [Storm on HDInsight 的示例拓扑](hdinsight-storm-example-topology.md)
-

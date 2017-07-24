@@ -13,15 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2016
-ms.date: 05/02/2017
+ms.date: 07/10/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 57d74d7680f5426fa3f6318b93c878f051aa74db
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: d65496e4b143b4fb03b199d4f089e31ae66a5760
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
 本教程说明如何将应用从本地计算机上的 Git 存储库部署到 [Azure 应用服务] 。 应用服务支持结合 [Azure 门户]中的“本地 Git”部署选项使用此方法。  
@@ -32,7 +30,7 @@ ms.lasthandoff: 04/22/2017
 
 * Git。 可在 [此处](http://www.git-scm.com/downloads)下载二进制安装文件。  
 * 对 Git 有一个基本的了解。
-* 一个 Azure 帐户。 如果你没有帐户，可以[注册试用版](https://www.azure.cn/pricing/1rmb-trial)。 
+* 一个 Azure 帐户。 如果你没有帐户，可以[注册试用版](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="Step1"></a>步骤 1：创建本地存储库
 执行下列任务可创建新的 Git 存储库。
@@ -48,8 +46,8 @@ ms.lasthandoff: 04/22/2017
 
 1. 如果存储库已包含内容，请跳过这一项，并转到下面的第 2 项。 如果存储库尚不包含内容，请只填充静态 .html 文件，如下所示： 
 
-    * 使用文本编辑器，在 Git 存储库的根中创建一个名为 **index.html** 的新文件。
-    * 添加以下文本作为 index.html 文件的内容并保存该文件： *Hello Git!*
+   * 使用文本编辑器，在 Git 存储库的根中创建一个名为 **index.html** 的新文件。
+   * 添加以下文本作为 index.html 文件的内容并保存该文件： *Hello Git!*
 2. 在命令行中，验证当前位置是否在 Git 存储库的根目录下。 然后使用以下命令将文件添加到存储库中：
 
         git add -A 
@@ -64,7 +62,9 @@ ms.lasthandoff: 04/22/2017
 2. 在应用服务应用的边栏选项卡中，单击“设置”>“部署源”。 依次单击“选择源”、“本地 Git 存储库”、“确定”。  
 
     ![本地 Git 存储库](./media/app-service-deploy-local-git/local_git_selection.png)
-3. 如果这是你第一次在 Azure 中设置存储库，则需要为其创建登录凭据。 可以登录到[经典管理门户](https://manage.windowsazure.cn/)，找到应用，然后在“仪表板”页中单击“重置部署凭据”，对 git 凭据进行设置。
+3. 如果这是你第一次在 Azure 中设置存储库，则需要为其创建登录凭据。 你将使用它们从本地 Git 存储库登录到 Azure 存储库并推送更改。 在应用的边栏选项卡中，单击“部署”>“部署凭据”，然后配置部署用户名和密码。 完成后，单击“保存”。
+
+    ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
 ## <a name="Step4"></a>步骤 4：部署项目
 使用以下步骤通过本地 Git 将应用发布到应用服务。
@@ -78,15 +78,15 @@ ms.lasthandoff: 04/22/2017
 3. 使用 `git remote` 添加步骤 1 的 **Git URL** 中所列的远程引用。 使用的命令应类似于：
 
         git remote add azure https://<username>@localgitdeployment.scm.chinacloudsites.cn:443/localgitdeployment.git         
-    > [!NOTE]
-    > **remote** 命令可将命名引用添加到远程存储库。 在本示例中，它为 Web 应用的存储库创建名为“azure”的引用。
-    > 
-    > 
+   > [!NOTE]
+   > **remote** 命令可将命名引用添加到远程存储库。 在本示例中，它为 Web 应用的存储库创建名为“azure”的引用。
+   > 
+   > 
 4. 使用刚刚创建的新 **azure** 远程命令将内容推送到应用服务。
 
         git push azure master
 
-    在 Azure 经典管理门户中重置部署凭据时，系统会提示你输入以前创建的密码。 输入该密码（请注意，在键入密码时，Gitbash 不会将星号回显到控制台）。 
+    当你在 Azure 门户中重置部署凭据时，系统将提示你输入以前创建的密码。 输入该密码（请注意，在键入密码时，Gitbash 不会将星号回显到控制台）。 
 5. 返回到 Azure 门户中的应用。 最近推送的日志条目应显示在“部署”边栏选项卡中。 
 
     ![](./media/app-service-deploy-local-git/deployment_history.png)
@@ -146,24 +146,24 @@ ms.lasthandoff: 04/22/2017
 * **package.json 文件格式不正确**：npm ERR! 无法读取依赖项。
 * **不具有 Windows 的二进制分发的本机模块**：
 
-    * npm ERR! \`cmd "/c" "node-gyp rebuild"\` 失败，1
+  * npm ERR! \`cmd "/c" "node-gyp rebuild"\` 失败，1
 
-        或
-    * npm ERR! [modulename@version] 预安装：\`make || gmake\`
+      或
+  * npm ERR! [modulename@version] 预安装：\`make || gmake\`
 
 ## <a name="additional-resources"></a>其他资源
 * [Git 文档](http://git-scm.com/documentation)
 * [项目 Kudu 文档](https://github.com/projectkudu/kudu/wiki)
 * [Continous Deployment to Azure App Service](app-service-continuous-deployment.md)（连续部署到 Azure 应用服务）
-* [如何使用适用于 Azure 的 PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+* [如何使用适用于 Azure 的 PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * [如何使用 Azure 命令行接口](../cli-install-nodejs.md)
 
-[Azure 应用服务]: /app-service-web/app-service-changes-existing-services
+[Azure 应用服务]: /app-service-web/app-service-changes-existing-services/
 [Azure Developer Center]: /develop/overview/
 [Azure 门户]: https://portal.azure.cn
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
-[Azure 命令行接口]: /xplat-cli-azure-resource-manager
+[Azure 命令行接口]: /azure-resource-manager/xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart

@@ -3,8 +3,8 @@ title: "初步了解：使用备份保管库备份 Azure VM | Microsoft 文档"
 description: "使用经典管理门户将 Azure VM 备份到备份保管库。 本教程介绍了所有阶段，包括：创建备份保管库、注册 VM、创建备份策略，以及运行初始备份作业。"
 services: backup
 documentationcenter: 
-author: markgalioto
-manager: carmonm
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 722820dc-b65f-425c-a9e5-c1946e896a87
 ms.service: backup
@@ -12,15 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/10/2017
+origin.date: 6/14/2017
+ms.date: 06/30/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 6e80c0d475a710a2282ca89f72707c8b2cc463bf
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 4e6a5726ce06385fc4d3b12250dc3e7090138eb6
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="first-look-backing-up-azure-virtual-machines"></a>初步了解：备份 Azure 虚拟机
 
@@ -39,10 +38,6 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="create-a-backup-vault"></a>创建备份保管库
 备份保管库是存储所有按时间创建的备份和恢复点的实体。 备份保管库还包含将应用到要备份的虚拟机的备份策略。
-
-> [!IMPORTANT]
-> 从 2017 年 3 月开始，无法再使用经典管理门户来创建备份保管库。 仍支持现有备份保管库，并且可以[使用 Azure PowerShell 创建备份保管库](./backup-client-automation-classic.md#create-a-backup-vault)。 不过，Microsoft 建议你为所有部署创建恢复服务保管库，因为将来只会对恢复服务保管库进行增强。
-
 
 
 ## <a name="discover-and-register-azure-virtual-machines"></a>发现并注册 Azure 虚拟机
@@ -74,10 +69,10 @@ ms.lasthandoff: 04/14/2017
     ![注册按钮](./media/backup-azure-vms-first-look/register-icon.png)
 8. 在“**注册项**”快捷菜单中，选择你要注册的虚拟机。
 
-    > [!TIP]
-    > 可以一次注册多个虚拟机。
-    >
-    >
+   > [!TIP]
+   > 可以一次注册多个虚拟机。
+   >
+   >
 
     为每一个选定的虚拟机创建一个作业。
 9. 单击通知中的“**查看作业**”，转到“**作业**”页。
@@ -142,6 +137,7 @@ Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 
 若要立即开始初始备份，请执行以下操作：
 
 1. 在“受保护的项”页底部，单击“立即备份”。
+
     ![“立即备份”图标](./media/backup-azure-vms-first-look/backup-now-icon.png)
 
     Azure 备份服务将为初始备份操作创建备份作业。
@@ -159,13 +155,12 @@ Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 
     >
 
 ## <a name="next-steps"></a>后续步骤
-成功备份 VM 后，你可能需要执行几个相关的步骤。 最合理的步骤是熟悉将数据还原到 VM 的操作。 但是，有几个管理任务可帮助了解如何确保数据安全和最大限度地降低成本。
+成功备份 VM 后，你可能需要执行几个后续步骤。 最合理的步骤是熟悉将数据还原到 VM 的操作。 但是，有几个管理任务可帮助了解如何确保数据安全和最大限度地降低成本。
 
-- [管理和监视你的虚拟机](backup-azure-manage-vms-classic.md)
+- [管理和监视你的虚拟机](./backup-azure-manage-vms-classic.md)
 - [恢复虚拟机](backup-azure-restore-vms.md)
 - [故障排除指南](backup-azure-vms-troubleshoot.md)
 
 ## <a name="questions"></a>有疑问？
 如果你有疑问，或者希望包含某种功能，请 [给我们反馈](http://aka.ms/azurebackup_feedback)。
-
 

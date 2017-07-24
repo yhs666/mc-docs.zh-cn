@@ -1,6 +1,6 @@
 ---
-title: "Azure HDInsight 中的 Apache Spark 群集的已知问题 | Azure"
-description: "Azure HDInsight 中的 Apache Spark 群集的已知问题。"
+title: "排查 Azure HDInsight 中的 Apache Spark 群集问题 | Azure"
+description: "了解与 Azure HDInsight 中的 Apache Spark 群集相关的问题以及如何解决这些问题。"
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -14,16 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/24/2017
-ms.date: 05/08/2017
+origin.date: 05/10/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: e4e83522c055ff07aed34f001e45e3416689f482
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 7b166e2075e53248833d0d4a290dc01190a74370
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight 上的 Apache Spark 群集的已知问题
 
@@ -108,8 +106,8 @@ ms.lasthandoff: 04/28/2017
 
 1. 通过以下方式释放 Spark 群集中的一些资源：
 
-    * 转到“关闭并停止”菜单或单击笔记本资源管理器中的“关闭”，以停止其他 Spark 笔记本。
-    * 通过 YARN 停止其他 Spark 应用程序。
+   * 转到“关闭并停止”菜单或单击笔记本资源管理器中的“关闭”，以停止其他 Spark 笔记本。
+   * 通过 YARN 停止其他 Spark 应用程序。
 2. 重新启动先前尝试启动的笔记本。 现在应有足够的资源用于创建会话。
 
 ## <a name="see-also"></a>另请参阅
@@ -127,7 +125,9 @@ ms.lasthandoff: 04/28/2017
 * [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和扩展
-* [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-zeppelin-notebook.md)
 * [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

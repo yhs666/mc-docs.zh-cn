@@ -13,14 +13,13 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-yiso
-ms.openlocfilehash: 3d33ae322769d8ba15deba314d4e3baa41fd26ac
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 744481c4ff93addb135a86931b79a7dd8530312f
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 监视和诊断文档
-<a id="monitoring-and-diagnostics-documentation" class="xliff"></a>
+# <a name="azure-monitor-documentation"></a>Azure Monitor 文档
 
 了解如何使用 Azure 监视和诊断服务跟踪性能、维护安全和确定趋势。 教程、API 参考、最佳实践和其他文档可帮助你了解如何使用监视和诊断，以及如何规划和部署可缩放的可靠解决方案。
 
@@ -99,10 +98,3 @@ ms.lasthandoff: 06/21/2017
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
-        <div class="img"></div>
-        <div class="text">
-下载监视和诊断文档 </div>
-    </a>
-</div>

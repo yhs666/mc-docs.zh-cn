@@ -1,5 +1,5 @@
 ---
-title: "HDInsight 使用的端口 | Azure"
+title: "由 HDInsight 上的 Hadoop 服务使用的端口 - Azure | Azure"
 description: "HDInsight 上运行的 Hadoop 服务使用的端口列表。"
 services: hdinsight
 documentationcenter: 
@@ -13,18 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/14/2017
-ms.date: 05/08/2017
+origin.date: 06/02/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: e33993919eadfbd9fda6725fdc8cc225511ae7bd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: fb51159e08f5fbe640f59b402a0d756e26ab1f0e
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="ports-and-uris-used-by-hdinsight"></a>HDInsight 使用的端口和 URI
+# <a name="ports-used-by-hadoop-services-on-hdinsight"></a>由 HDInsight 上的 Hadoop 服务使用的端口
 
 本文档提供在基于 Linux 的 HDInsight 群集上运行的 Hadoop 服务使用的端口列表。 此外，还提供了用于通过 SSH 连接到群集的端口的信息。
 
@@ -51,7 +49,7 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 | Ambari |443 |HTTPS |Ambari Web UI。 请参阅[使用 Ambari Web UI 管理 HDInsight](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API。 请参阅[使用 Ambari REST API 管理 HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md) |
 | WebHCat |443 |HTTPS |HCatalog REST API。 请参阅[将 Hive 与 Curl 配合使用](hdinsight-hadoop-use-pig-curl.md)、[将 Pig 与 Curl 配合使用](hdinsight-hadoop-use-pig-curl.md)、[将 MapReduce 与 Curl 配合使用](hdinsight-hadoop-use-mapreduce-curl.md) |
-| HiveServer2 |443 |ODBC |使用 ODBC 连接到 Hive。 请参阅[使用 Microsoft ODBC 驱动程序将 Excel 连接到 HDInsight](hdinsight-connect-excel-hive-ODBC-driver.md)。 |
+| HiveServer2 |443 |ODBC |使用 ODBC 连接到 Hive。 请参阅[使用 Microsoft ODBC 驱动程序将 Excel 连接到 HDInsight](hdinsight-connect-excel-hive-odbc-driver.md)。 |
 | HiveServer2 |443 |JDBC |使用 JDBC 连接到 Hive。 请参阅[使用 Hive JDBC 驱动程序连接到 HDInsight 上的 Hive](hdinsight-connect-hive-jdbc-driver.md) |
 
 以下各项适用于特定的群集类型：
@@ -105,9 +103,8 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 
 | 服务 | Nodes | 端口 | 协议 | 说明 |
 | --- | --- | --- | --- | --- |
-| HiveServer2 |头节点 |10001 |Thrift |用于以编程方式连接到 Hive 的服务 (Thrift/JDBC) |
-| HiveServer |头节点 |10000 |Thrift |用于以编程方式连接到 Hive 的服务 (Thrift/JDBC) |
-| Hive 元存储 |头节点 |9083 |Thrift |用于以编程方式连接到 Hive 元数据的服务 (Thrift/JDBC) |
+| HiveServer2 |头节点 |10001 |Thrift |用于连接到 Hive 的服务 (Thrift/JDBC) |
+| Hive 元存储 |头节点 |9083 |Thrift |用于连接到 Hive 元数据的服务 (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>WebHCat 端口
 
@@ -146,3 +143,8 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 | 区域服务器 |所有辅助角色节点 |16020 |&nbsp; |&nbsp; |
 | &nbsp; |&nbsp; |2181 |&nbsp; |客户端用来连接 ZooKeeper 的端口 |
 
+### <a name="spark-ports"></a>Spark 端口
+
+| 服务 | Nodes | 端口 | 协议 | 说明 |
+| --- | --- | --- | --- | --- |
+| Spark Thrift 服务器 |头节点 |10002 |Thrift |用于连接到 Spark SQL 的服务 (Thrift/JDBC) |

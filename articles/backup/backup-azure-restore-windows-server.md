@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 18fc02d2f08465b0d004567086676ba20855c8e0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: c1dad225fc8636e22ad7ebefbf87c0286116aa93
+ms.sourcegitcommit: 5b71b9eb8ec8b91daff6134ee9970db66c160f2a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>使用 Resource Manager 部署模型将文件还原到 Windows Server 或 Windows 客户端计算机
 > [!div class="op_single_selector"]
-> * [Azure 门户](backup-azure-restore-windows-server.md)
-> * [经典管理门户](backup-azure-restore-windows-server-classic.md)
+> * [Azure 门户](./backup-azure-restore-windows-server.md)
+> * [经典管理门户](./backup-azure-restore-windows-server-classic.md)
 >
 >
 
@@ -54,9 +52,7 @@ ms.lasthandoff: 04/14/2017
 3. 选择“**此服务器(*yourmachinename*)”** 选项，以便在同一台计算机上还原已备份的文件。
 
     ![同一台计算机](./media/backup-azure-restore-windows-server/samemachine.png)
-4. 选择“**浏览文件**”或“**搜索文件**”。
-
-    如果你想要还原路径已知的一个或多个文件，请保留默认选项。 如果你不确定文件夹的结构，但想要搜索文件，请选择“**搜索文件**”选项。 对于本部分，我们将使用默认选项继续操作。
+4. 在“选择恢复模式”页中选择“卷”。 然后单击“下一步”。
 
     ![浏览文件](./media/backup-azure-restore-windows-server/browseandsearch.png)
 5. 选择你要从中还原文件的卷。
@@ -64,17 +60,15 @@ ms.lasthandoff: 04/14/2017
     可以从任意时间点还原。 日历控件中以**粗体**显示的日期指明了还原点的可用性。 选择日期后，根据你的备份计划（和备份操作的成功与否），可以从“**时间**”下拉列表中选择一个时间点。
 
     ![卷和日期](./media/backup-azure-restore-windows-server/volanddate.png)
-6. 选择要恢复的项。 可以选择多个要还原的文件夹/文件。
 
-    ![选择文件](./media/backup-azure-restore-windows-server/selectfiles.png)
-7. 指定恢复参数。
+6. 指定恢复参数。
 
     ![恢复选项](./media/backup-azure-restore-windows-server/recoveroptions.png)
 
    - 你可以选择还原到原始位置（将覆盖其中的文件/文件夹），或者同一台计算机中的另一个位置。
    - 如果要还原的文件/文件夹在目标位置存在，可创建副本（同一文件的两个版本）、覆盖目标位置的文件，或者跳过目标中存在文件的恢复。
    - 强烈建议你保留所要恢复的文件中的 ACL 还原默认选项。
-8. 提供这些输入后，单击“下一步” 。 将文件还原到此计算机的恢复工作流将会开始。
+7. 提供这些输入后，单击“下一步” 。 将文件还原到此计算机的恢复工作流将会开始。
 
 ## <a name="use-instant-restore-to-recover-data-to-the-same-machine"></a>使用“即时还原”将数据恢复到同一台计算机
 
@@ -229,6 +223,4 @@ ms.lasthandoff: 04/14/2017
     >
 
 ## <a name="next-steps"></a>后续步骤
-- 恢复文件和文件夹后，你可以[管理备份](backup-azure-manage-windows-server-classic.md)。
-
-
+- 恢复文件和文件夹后，你可以[管理备份](./backup-azure-manage-windows-server-classic.md)。

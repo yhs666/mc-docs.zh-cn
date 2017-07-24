@@ -1,29 +1,26 @@
 ---
-title: "任务开始事件 - Azure | Microsoft Docs"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
+title: "Azure Batch 任务开始事件 | Microsoft Docs"
+description: "Batch 任务开始事件参考。"
+services: batch
+author: alexchen2016
+manager: digimobile
+ms.assetid: 
 ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 95f7762a-a715-4c83-907b-8aed004e69b1
-caps.latest.revision: 3
-author: tamram
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+origin.date: 04/20/2017
+ms.date: 07/03/2017
 ms.author: v-junlch
-manager: timlt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 17dc13ac1552bf26fca353e86603c917113ac14d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 566ec026eecd60d73252a8269f370339cf69e880
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="task-start-event"></a>任务开始事件
-任务开始事件日志正文
 
-## <a name="remarks"></a>备注
  当任务已计划由计划程序在计算节点上启动时，会发出此事件。 请注意，如果重试任务或对其进行重新排队，此事件将再次发出，但重试计数和系统任务版本将相应更新。
 
 

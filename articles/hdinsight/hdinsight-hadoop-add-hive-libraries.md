@@ -1,5 +1,5 @@
 ---
-title: "在 HDInsight 群集创建过程中添加 Hive 库 | Azure"
+title: "在 HDInsight 群集创建过程中添加 Hive 库 - Azure | Azure"
 description: "了解如何在群集创建过程中将 Hive 库（jar 文件）添加到 HDInsight 群集。"
 services: hdinsight
 documentationcenter: 
@@ -16,19 +16,17 @@ origin.date: 04/14/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: bc1c34aac9c4d6e215e867b48cec4427485a49d7
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 97db72ccdff644830a0eb5989ba19b86a5f13d57
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 创建 HDInsight 群集时添加自定义 Hive 库
-<a id="add-custom-hive-libraries-when-creating-your-hdinsight-cluster" class="xliff"></a>
+# <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>创建 HDInsight 群集时添加自定义 Hive 库
 
 如果你有经常与 HDInsight 上的 Hive 配合使用的库，本文档包含有关在群集创建期间使用脚本操作预加载库的信息。 使用本文档中的步骤添加的库已在 Hive 中正式发布 - 无需使用 [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) 加载它们。
 
-## 工作原理
-<a id="how-it-works" class="xliff"></a>
+## <a name="how-it-works"></a>工作原理
 
 创建群集时，可以选择指定脚本操作，以便在创建群集节点时在其上运行脚本。 本文档中的脚本接受单个参数，即包含要预加载的库（存储为 jar 文件）的 WASB 位置。
 
@@ -40,8 +38,7 @@ ms.lasthandoff: 06/21/2017
 > * **基于 Linux 的 HDInsight** - 使用 Hive 客户端、**WebHCat** 和 **HiveServer2** 时。
 > * **基于 Windows 的 HDInsight** - 使用 Hive 客户端和 **WebHCat** 时。
 
-## 脚本
-<a id="the-script" class="xliff"></a>
+## <a name="the-script"></a>脚本
 
 **脚本位置**
 
@@ -52,7 +49,7 @@ ms.lasthandoff: 06/21/2017
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 **要求**
 
@@ -69,8 +66,7 @@ ms.lasthandoff: 06/21/2017
   >
   > 如果尚未创建存储帐户，可以通过 [Azure 门户](https://portal.azure.cn)创建该帐户。 然后可以使用实用工具（如 [Azure 存储资源管理器](http://storageexplorer.com/) ）在帐户中创建容器并将文件上传到该容器。
 
-## 使用脚本创建群集。
-<a id="create-a-cluster-using-the-script" class="xliff"></a>
+## <a name="create-a-cluster-using-the-script"></a>使用脚本创建群集。
 
 > [!NOTE]
 > 以下步骤创建基于 Linux 的 HDInsight 群集。 若要创建基于 Windows 的群集，创建群集时请选择 **Windows** 作为群集 OS，并使用 Windows (PowerShell) 脚本而不是 bash 脚本。
@@ -103,7 +99,6 @@ ms.lasthandoff: 06/21/2017
 
 群集创建完成后，你将能够使用通过此脚本从 Hive 添加的 jar，而无需使用 `ADD JAR` 语句。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关使用 Hive 的详细信息，请参阅[将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)

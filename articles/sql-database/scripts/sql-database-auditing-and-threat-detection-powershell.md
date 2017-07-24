@@ -1,80 +1,97 @@
 ---
-title: "Azure PowerShell 脚本 - 配置数据库审核和威胁检测 | Microsoft 文档"
+title: "Azure PowerShell 脚本 - 配置数据库审核和威胁检测 | Azure"
 description: "Azure PowerShell 脚本示例 - 使用 PowerShell 配置 SQL 数据库审核和威胁检测"
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: Hayley244
+manager: digimobile
 editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: mvc,security
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+origin.date: 05/23/2017
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 77cf342d8aa0bce4066f30881238a966651db29f
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 0cb6ecc735817db3e153453d8ab641555a75d69a
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="configure-sql-database-auditing-and-threat-detection-using-powershell"></a>使用 PowerShell 配置 SQL 数据库审核和威胁检测
 
 此示例 PowerShell 脚本配置 SQL 数据库审核和威胁检测。 
 
-在运行此脚本前，请确保已使用 `Add-AzureRmAccount` cmdlet 创建与 Azure 的连接。  
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
-# Set an admin login and password for your database
+# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+# Set the resource group name and location for your server
+$resourcegroupname = "myResourceGroup-$(Get-Random)"
+$location = "China East"
+# Set an admin login and password for your server
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
 # The logical server name has to be unique in the system
-$servername = "server-$($(Get-AzureRMContext).Subscription.SubscriptionId)"
+$servername = "server-$(Get-Random)"
+# The sample database name
+$databasename = "mySampleDatabase"
+# The ip address range that you want to allow to access your server
+$startip = "0.0.0.0"
+$endip = "0.0.0.0"
 # The storage account name has to be unique in the system
-$storageaccountname = $("sql$($(Get-AzureRMContext).Subscription.SubscriptionId)").substring(0,23).replace("-", "")
+$storageaccountname = $("sql$($(Get-AzureRMContext).Subscription.Id)").substring(0,23).replace("-", "")
 # Specify the email recipients for the threat detection alerts
 $notificationemailreceipient = "changeto@your.email;changeto@your.email"
 
 # Create a new resource group
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "China East"
+$resourcegroup = New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 
 # Create a new server with a system wide unique server name
-New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
+$server = New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -Location "China East" `
+    -Location $location `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
-# Create a blank database with S0 performance level
-New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
+# Create a server firewall rule that allows access from the specified IP range
+$serverfirewallrule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -DatabaseName "MySampleDatabase" `
-    -RequestedServiceObjectiveName "S0"
+    -FirewallRuleName "AllowedIPs" -StartIpAddress $startip -EndIpAddress $endip
 
-# Create a new Storage Account 
-New-AzureRmStorageAccount -ResourceGroupName "myResourceGroup" `
+# Create a blank database with S0 performance level
+$database = New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
+    -ServerName $servername `
+    -DatabaseName $databasename -RequestedServiceObjectiveName "S0"
+
+# Create a Storage Account 
+$storageaccount = New-AzureRmStorageAccount -ResourceGroupName $resourcegroupname `
     -AccountName $storageaccountname `
-    -Location "China East" `
+    -Location $location `
     -Type "Standard_LRS"
 
 # Set an auditing policy
-Set-AzureRmSqlDatabaseAuditingPolicy -ResourceGroupName "myResourceGroup" `
+$auditpolicy = Set-AzureRmSqlDatabaseAuditingPolicy -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -DatabaseName "MySampleDatabase" `
+    -DatabaseName $databasename `
     -StorageAccountName $storageaccountname `
 
 # Set a threat detection policy
-Set-AzureRmSqlDatabaseThreatDetectionPolicy -ResourceGroupName "myResourceGroup" `
+#threatdetectionpolicy = Set-AzureRmSqlDatabaseThreatDetectionPolicy -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -DatabaseName "MySampleDatabase" `
+    -DatabaseName $databasename`
     -StorageAccountName $storageaccountname `
     -NotificationRecipientsEmails $notificationemailreceipient `
     -EmailAdmins $False
+
+# Clean up deployment 
+# Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
@@ -91,17 +108,17 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 | 命令 | 说明 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) | 创建用于托管数据库或弹性池的逻辑服务器。 |
-| [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabase) | 在逻辑服务器中创建数据库作为单一数据库或入池数据库。 |
-| [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/resourcemanager/azurerm.storage/v2.4.0/new-azurermstorageaccount) | 创建存储帐户。 |
-| [Set-AzureRmSqlDatabaseAuditingPolicy](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/set-azurermsqldatabaseauditingpolicy) | 设置数据库的审核策略。 |
-| [Set-AzureRmSqlDatabaseThreatDetectionPolicy](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/set-azurermsqldatabasethreatdetectionpolicy) | 在数据库上设置威胁检测策略。 |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) | 创建用于托管数据库或弹性池的逻辑服务器。 |
+| [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) | 在逻辑服务器中创建数据库作为单一数据库或入池数据库。 |
+| [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount) | 创建存储帐户。 |
+| [Set-AzureRmSqlDatabaseAuditingPolicy](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabaseauditingpolicy) | 设置数据库的审核策略。 |
+| [Set-AzureRmSqlDatabaseThreatDetectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasethreatdetectionpolicy) | 在数据库上设置威胁检测策略。 |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 |||
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
+有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。

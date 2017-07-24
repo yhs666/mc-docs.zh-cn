@@ -16,15 +16,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/05/2017
-ms.date: 06/05/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: ad1aacee73edca9a8067817974d0919ed14edc27
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: e031a3878c5809c1bb4c08ffaf079bd05ffbc930
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>将 Beeline 客户端与 Apache Hive 配合使用
 
@@ -34,7 +32,7 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
 | 运行 Beeline 的位置 | Parameters |
 | --- | --- |
-| 与头节点或边缘节点的 SSH 连接 | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin` |
+| 与头节点或边缘节点的 SSH 连接 | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'` |
 | 群集外部 | `-u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password` |
 
 > [!NOTE]
@@ -48,8 +46,8 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
 * 基于 Linux 的 HDInsight 上的 Hadoop 群集。
 
-    > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 版本弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+  > [!IMPORTANT]
+  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 * SSH 客户端或本地 Beeline 客户端。 本文档中的大多数步骤都假定从与群集的 SSH 会话使用 Beeline。 有关从群集外部运行 Beeline 的信息，请参阅[远程使用 Beeline](#remote) 部分。
 
@@ -57,22 +55,20 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
 ## <a id="beeline"></a>使用 Beeline
 
-1. 启动 Beeline 时，必须提供用于 HDInsight 群集上 HiveServer2 的连接字符串。 还必须提供用于群集登录的帐户名（通常为 `admin`）。 如果从群集外部运行命令，则还必须提供群集登录密码。 可使用下表查找要使用的连接字符串格式和参数：
+1. 启动 Beeline 时，必须提供用于 HDInsight 群集上 HiveServer2 的连接字符串。 若要从群集外部运行命令，还必须提供群集登录帐户名（默认的 `admin`）和密码。 可使用下表查找要使用的连接字符串格式和参数：
 
     | 运行 Beeline 的位置 | Parameters |
-    | --- | --- | --- |
-    | 与头节点或边缘节点的 SSH 连接 | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin` |
+    | --- | --- |
+    | 与头节点或边缘节点的 SSH 连接 | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'` |
     | 群集外部 | `-u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password` |
 
     例如，可以使用以下命令从与群集的 SSH 会话启动 Beeline：
 
     ```bash
-    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
     ```
 
-    此命令启动 Beeline 客户端，并连接到群集头节点上的 HiveServer2。 `-n` 参数用于提供群集登录帐户。 默认登录名是 `admin`。 如果在群集创建过程中使用了其他名称，则使用该名称而不是 `admin`。
-
-    命令完成后，将出现 `jdbc:hive2://headnodehost:10001/>` 提示符。
+    此命令启动 Beeline 客户端，并连接到群集头节点上的 HiveServer2。 命令完成后，将出现 `jdbc:hive2://headnodehost:10001/>` 提示符。
 
 2. Beeline 命令以 `!` 字符开头，例如，`!help` 将显示帮助。 但是，`!` 对于某些命令可以省略。 例如，`help` 也是有效的。
 
@@ -135,10 +131,10 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
     * `INPUT__FILE__NAME LIKE '%.log'` - Hive 会尝试向目录中的所有文件应用架构。 在此示例中，目录包含与架构不匹配的文件。 为防止结果中包含垃圾数据，此语句指示 Hive 应当仅返回以 .log 结尾的文件中的数据。
 
-    > [!NOTE]
-    > 如果希望通过外部源更新基础数据，应使用外部表。 例如，自动化数据上传进程或 MapReduce 操作。
-    >
-    > 删除外部表**不会**删除数据，只会删除表定义。
+  > [!NOTE]
+  > 如果希望通过外部源更新基础数据，应使用外部表。 例如，自动化数据上传进程或 MapReduce 操作。
+  >
+  > 删除外部表**不会**删除数据，只会删除表定义。
 
     此命令的输出类似于以下文本：
 
@@ -196,10 +192,10 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
 3. 若要保存文件，请使用 **Ctrl**+**_X**，然后输入 **Y**，最后按 **Enter**。
 
-4. 使用以下命令以通过 Beeline 运行该文件。 将 **HOSTNAME** 替换为前面获取的头节点名称，将 **PASSWORD** 替换为 admin 帐户的密码：
+4. 使用以下命令通过 Beeline 运行该文件：
 
     ```bash
-    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin -i query.hql
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i query.hql
     ```
 
     > [!NOTE]
@@ -235,6 +231,15 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 将连接字符串中的 `clustername` 替换为 HDInsight 群集名称。
 
 将 `admin` 替换为群集登录名称，并将 `password` 替换为群集登录密码。
+
+## <a id="sparksql"></a>将 Beeline 与 Spark 配合使用
+
+Spark 提供自己的 HiveServer2 实现（通常称为 Spark Thrift 服务器）。 此服务使用 Spark SQL 而不是 Hive 来解析查询，并且可以根据查询改善性能。
+
+若要连接到 HDInsight 群集上 Spark 的 Spark Thrift 服务器，请使用端口 `10002` 而不是 `10001`。 例如， `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`。
+
+> [!IMPORTANT]
+> Spark Thrift 服务器不能通过 Internet 直接访问。 只能从 SSH 会话或 HDInsight 群集所在的同一 Azure 虚拟网络内连接到它。
 
 ## <a id="summary"></a><a id="nextsteps"></a>后续步骤
 
@@ -274,4 +279,3 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-

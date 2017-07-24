@@ -15,18 +15,17 @@ ms.topic: article
 origin.date: 10/28/2016
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 13818ed145364b5a7d58c4428b3d8278278c7792
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 72786c300831b3204f2494a6f3a36000186f8f06
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 连续部署到 Azure 应用服务
-<a id="continuous-deployment-to-azure-app-service" class="xliff"></a>
+# <a name="continuous-deployment-to-azure-app-service"></a>连续部署到 Azure 应用服务
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-本教程说明如何为 [Azure 应用服务]应用配置连续部署工作流。 将应用服务与 BitBucket 和 GitHub 集成可以实现一种连续部署工作流，在其中，Azure 可以从发布到其中一种服务的项目中拉取最近的更新。 连续部署选项非常适合用于频繁集成多个分发内容的项目。
+本教程说明如何为 [Azure 应用服务]应用配置连续部署工作流。 将应用服务与 GitHub 集成可以实现一种连续部署工作流，在其中，Azure 可以从发布到其中一种服务的项目中拉取最近的更新。 连续部署选项非常适合用于频繁集成多个分发内容的项目。
 
 若要了解如何通过 Azure 门户中未列出的云存储库（如 [GitLab](https://gitlab.com/)）手动配置连续部署，请参阅[使用手动步骤设置连续部署](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)。
 
@@ -79,8 +78,7 @@ ms.lasthandoff: 06/21/2017
     ![](./media/app-service-continuous-deployment/cd_disconnect.png)
 2. 在显示确认消息时点击“是”后，若要从其他源设置发布，可返回到应用边栏选项卡，再单击“应用部署”>“部署选项”。
 
-## 其他资源
-<a id="additional-resources" class="xliff"></a>
+## <a name="additional-resources"></a>其他资源
 * [How to investigate common issues with continuous deployment（如何调查连续部署的常见问题）](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [如何使用适用于 Azure 的 PowerShell]
 * [如何使用针对 Mac 和 Linux 的 Azure 命令行工具]

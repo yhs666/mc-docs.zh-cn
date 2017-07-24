@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 02/29/2016
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: 6bf220d49332313e8439e9a25e2ad3f28feca6b0
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 12b0670de15696faef8930ba0b4034a6b30728bd
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # 通过 Memcache 协议将 Azure 应用服务中的 Web 应用连接到 Redis 缓存
 
@@ -42,7 +42,7 @@ Web 应用 Memcache 填充码可以与任何应用程序一起使用，前提是
 部署可缩放的 WordPress 站点并设置 Redis 缓存实例后，你随时可以启用 Azure 应用服务 Web 应用中的 Memcache 填充码。
 
 ## 启用 Web 应用 Memcache 填充码
-若要配置 Memcache 填充码，你必须创建三个应用设置。 可使用多种方法来完成，包括 [Azure 门户](/app-service-web/app-service-web-app-azure-portal)、[经典管理门户](https://manage.windowsazure.cn/)、[Azure PowerShell Cmdlet][4] 或 [Azure 命令行接口][5]。 本文将使用 [Azure 门户][3]来设置应用设置。 从 Redis 缓存实例的  “设置”边栏选项卡中，可以检索以下值。
+若要配置 Memcache 填充码，你必须创建三个应用设置。 可使用多种方法来完成，包括 [Azure 门户](/app-service-web/app-service-web-app-azure-portal)、[经典管理门户][2]、[Azure PowerShell Cmdlet][5] 或 [Azure 命令行接口][5]。 本文将使用 [Azure 门户][3]来设置应用设置。 从 Redis 缓存实例的  “设置”边栏选项卡中，可以检索以下值。
 
 ![Azure Redis 缓存设置边栏选项卡](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 

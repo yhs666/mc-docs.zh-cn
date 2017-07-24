@@ -1,5 +1,5 @@
 ---
-title: "使用模板创建 HDInsight (Hadoop) 群集 | Azure"
+title: "使用模板创建 Hadoop 群集 - Azure HDInsight | Azure"
 description: "了解如何使用 Resource Manager 模板创建 HDInsight 的群集"
 services: hdinsight
 documentationcenter: 
@@ -15,22 +15,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 03/14/2017
-ms.date: 06/05/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: de1c4c102d76eccb7a4a266b4c169962ba7adb35
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 09322d4c4ce877fabead96d1cc747566f6a6309c
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 使用 Resource Manager 模板在 HDInsight 中创建 Hadoop 群集
-<a id="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates" class="xliff"></a>
+# <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用 Resource Manager 模板在 HDInsight 中创建 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-本文介绍几种使用 Azure Resource Manager 模板创建 Azure HDInsight 群集的方式。 有关详细信息，请参阅[使用 Azure Resource Manager 模板部署应用程序](../azure-resource-manager/resource-group-template-deploy.md)。 若要了解其他群集创建工具和功能，请在本页顶部单击选项卡选择器，或参阅[群集创建方法](hdinsight-hadoop-provision-linux-clusters.md#cluster-creation-methods)。
+本文介绍几种使用 Azure Resource Manager 模板创建 Azure HDInsight 群集的方式。 有关详细信息，请参阅[使用 Azure Resource Manager 模板部署应用程序](../azure-resource-manager/resource-group-template-deploy.md)。 若要了解其他群集创建工具和功能，请在本页顶部单击选项卡选择器，或参阅[群集创建方法](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods)。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 若要按照本文的说明操作，需要：
@@ -40,23 +38,21 @@ ms.lasthandoff: 06/21/2017
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
-### Resource Manager 模板
-<a id="resource-manager-templates" class="xliff"></a>
+### <a name="resource-manager-templates"></a>Resource Manager 模板
 通过 Resource Manager 模板，可轻松地通过单个协调操作为应用程序创建以下内容：
 * HDInsight 群集及其依赖资源（例如默认存储帐户）
 * 其他资源（例如要使用 Apache Sqoop 的 Azure SQL 数据库）
 
 在此模板中，定义应用程序所需的资源。 还可指定部署参数以输入不同环境的值。 模板中包含用于为部署构造值的 JSON 和表达式。
 
-可在 [Azure 快速启动模板](https://github.com/azure/azure-quickstart-templates/)中找到 HDInsight 模板示例。 将跨平台 [Visual Studio 代码](https://code.visualstudio.com/#alt-downloads)与 [Resource Manager 扩展](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)或文本编辑器配合使用，将模板保存到工作站上的文件中。 了解如何使用不同方法调用模板。
+可在 [Azure 快速启动模板](https://github.com/Azure/azure-quickstart-templates/?term=hdinsight)中找到 HDInsight 模板示例。 将跨平台 [Visual Studio 代码](https://code.visualstudio.com/#alt-downloads)与 [Resource Manager 扩展](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)或文本编辑器配合使用，将模板保存到工作站上的文件中。 了解如何使用不同方法调用模板。
 
 有关 Resource Manager 模板的详细信息，请参阅以下文章：
 
 * [创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)
 * [使用 Azure Resource Manager 模板部署应用程序](../azure-resource-manager/resource-group-template-deploy.md)
 
-## 生成模板
-<a id="generate-templates" class="xliff"></a>
+## <a name="generate-templates"></a>生成模板
 
 通过使用 Azure 门户，可配置群集的所有属性，然后保存模板再进行部署。 可重复使用模板。
 
@@ -80,8 +76,7 @@ ms.lasthandoff: 06/21/2017
     > [!Note]
     > 模板和参数文件必须一起使用。 否则，可能收到意外结果。 例如，无论在下载模板前指定了何值，默认 **clusterKind** 属性值始终为 **hadoop**。
 
-## 使用 PowerShell 进行部署
-<a id="deploy-with-powershell" class="xliff"></a>
+## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
 此过程在 HDInsight 中创建一个 Hadoop 群集。
 
@@ -141,8 +136,7 @@ ms.lasthandoff: 06/21/2017
 
 有关详细信息，请参阅[使用 PowerShell 进行部署](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template)。
 
-## 使用 CLI 进行部署
-<a id="deploy-with-cli" class="xliff"></a>
+## <a name="deploy-with-cli"></a>使用 CLI 进行部署
 如下示例使用 Azure 命令行接口 (CLI)。 它通过调用 Resource Manager 模板创建一个群集及其依赖的存储帐户和容器：
 
     azure login -e AzureChinaCloud
@@ -159,23 +153,19 @@ ms.lasthandoff: 06/21/2017
 
     azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "c:\Tutorials\HDInsightARM\create-linux-based-hadoop-cluster-in-hdinsight.json" --parameters '{\"clusterName\":{\"value\":\"hdi1229\"},\"clusterLoginPassword\":{\"value\":\"Pass@word1\"},\"sshPassword\":{\"value\":\"Pass@word1\"}}'
 
-## 使用 REST API 进行部署
-<a id="deploy-with-the-rest-api" class="xliff"></a>
+## <a name="deploy-with-the-rest-api"></a>使用 REST API 进行部署
 请参阅[使用 REST API 进行部署](../azure-resource-manager/resource-group-template-deploy-rest.md)。
 
-## 使用 Visual Studio 进行部署
-<a id="deploy-with-visual-studio" class="xliff"></a>
+## <a name="deploy-with-visual-studio"></a>使用 Visual Studio 进行部署
  使用 Visual Studio 创建一个资源组项目，并通过用户界面将其部署到 Azure。 选择要包含在项目中的资源类型。 这些资源会自动添加到 Resource Manager 模板。 该项目还提供了用于部署模板的 PowerShell 脚本。
 
 有关将 Visual Studio 用于资源组的简介，请参阅[通过 Visual Studio 创建和部署 Azure 资源组](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)。
 
-## 故障排除
-<a id="troubleshoot" class="xliff"></a>
+## <a name="troubleshoot"></a>故障排除
 
 如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md#create-clusters)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 在本文中，你已经学习了几种创建 HDInsight 群集的方法。 若要了解更多信息，请参阅下列文章：
 
 * 有关通过 .NET 客户端库部署资源的示例，请参阅[使用 .NET 库和模板部署资源](../virtual-machines/windows/csharp-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -184,8 +174,7 @@ ms.lasthandoff: 06/21/2017
 * 若要了解 Azure Resource Manager 模板的节，请参阅[创作模板](../azure-resource-manager/resource-group-authoring-templates.md)。
 * 有关可在 Azure Resource Manager 模板中使用的函数列表，请参阅[模板函数](../azure-resource-manager/resource-group-template-functions.md)。
 
-## 附录：Resource Manager 模板
-<a id="appendix-resource-manager-template" class="xliff"></a>
+## <a name="appendix-resource-manager-template"></a>附录：Resource Manager 模板
 以下 Azure Resource Manager 模板使用依赖的 Azure 存储帐户创建基于 Linux 的 Hadoop 群集。
 
 > [!NOTE]

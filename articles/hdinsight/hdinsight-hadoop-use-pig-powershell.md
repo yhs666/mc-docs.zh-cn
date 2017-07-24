@@ -1,5 +1,5 @@
 ---
-title: "在 HDInsight 中将 Hadoop Pig 与 PowerShell 配合使用 | Azure"
+title: "在 HDInsight 中将 Hadoop Pig 与 PowerShell 配合使用 - Azure | Azure"
 description: "了解如何使用 Azure PowerShell 将 Pig 作业提交到 HDInsight 上的 Hadoop 群集。"
 services: hdinsight
 documentationcenter: 
@@ -13,16 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 03/21/2017
-ms.date: 05/08/2017
+origin.date: 06/16/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 581b643e094bb5766e9f5123cc86f82a93172cce
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+ms.openlocfilehash: 18635293857d4472cda0a6c5cbc288790e0ab38b
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>使用 Azure PowerShell 通过 HDInsight 运行 Pig 作业
 
@@ -39,8 +38,8 @@ ms.lasthandoff: 04/28/2017
 
 * **一个 Azure HDInsight 群集**
 
-    > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+  > [!IMPORTANT]
+  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 * **配备 Azure PowerShell 的工作站**。
 
@@ -155,4 +154,3 @@ Azure PowerShell 提供了一种简单方法，可在 HDInsight 群集上运行 
 
 * [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
-

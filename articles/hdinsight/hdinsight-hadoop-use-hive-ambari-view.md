@@ -1,5 +1,5 @@
 ---
-title: "使用 Ambari 视图来操作 HDInsight (Hadoop) 上的 Hive | Azure"
+title: "使用 Ambari 视图来操作 HDInsight (Hadoop) 上的 Hive - Azure | Azure"
 description: "了解如何从 Web 浏览器中使用 Hive 视图来提交 Hive 查询。 Hive 视图是随基于 Linux 的 HDInsight 群集提供的 Ambari Web UI 的一部分。"
 services: hdinsight
 documentationcenter: 
@@ -17,14 +17,13 @@ ms.workload: big-data
 origin.date: 05/05/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: 448c98111d8b58a7fa1de40c1890528b25962118
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 4d69d6c8810a0763b93c3914ffef08585101e2b6
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 将 Hive 视图与 HDInsight 中的 Hadoop 配合使用
-<a id="use-the-hive-view-with-hadoop-in-hdinsight" class="xliff"></a>
+# <a name="use-the-hive-view-with-hadoop-in-hdinsight"></a>将 Hive 视图与 HDInsight 中的 Hadoop 配合使用
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
@@ -33,16 +32,14 @@ ms.lasthandoff: 06/21/2017
 > [!NOTE]
 > Ambari 还有许多本文档中未讨论的功能。 有关详细信息，请参阅[使用 Ambari Web UI 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 
 * 基于 Linux 的 HDInsight 群集。 有关创建群集的信息，请参阅[开始使用基于 Linux 的 HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
-## 打开 Hive 视图
-<a id="open-the-hive-view" class="xliff"></a>
+## <a name="open-the-hive-view"></a>打开 Hive 视图
 
 可在 Azure 门户中选择 Ambari 视图；选择 HDInsight 群集，然后从“快速链接”部分选择“Ambari 视图”。
 
@@ -59,8 +56,7 @@ ms.lasthandoff: 06/21/2017
 
 ![Hive 视图页面的图像，其中包含“查询编辑器”部分](./media/hdinsight-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
-## 查看表
-<a id="view-tables" class="xliff"></a>
+## <a name="view-tables"></a>查看表
 
 在页面的“数据库资源管理器”部分的“数据库”选项卡上选择“默认”条目。 这将显示默认数据库中的表的列表。 HDInsight 包括一个名为 **hivesampletable** 的表。
 
@@ -132,8 +128,7 @@ ms.lasthandoff: 06/21/2017
 
      使用“执行”按钮运行此查询。 如果查询返回零行，则“结果”选项卡不包含任何信息。 一旦查询完成，状态应显示为“成功”。
 
-### Hive 设置
-<a id="hive-settings" class="xliff"></a>
+### <a name="hive-settings"></a>Hive 设置
 
 选择编辑器右侧的“设置”  图标。
 
@@ -141,8 +136,7 @@ ms.lasthandoff: 06/21/2017
 
 可以使用“设置”来更改各种 Hive 设置。 例如，将 Hive 的执行引擎从 Tez（默认值）更改为 MapReduce。
 
-### 可视化
-<a id="visualization" class="xliff"></a>
+### <a name="visualization"></a>可视化
 
 选择编辑器右侧的“可视化效果”  图标。
 
@@ -152,8 +146,7 @@ ms.lasthandoff: 06/21/2017
 
 ![示例可视化效果](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-visualization.png)
 
-### Visual explain
-<a id="visual-explain" class="xliff"></a>
+### <a name="visual-explain"></a>Visual explain
 
 选择编辑器右侧的“Visual Explain”  图标。
 
@@ -163,8 +156,7 @@ ms.lasthandoff: 06/21/2017
 
 ![Visual explain 图像](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
 
-### Tez
-<a id="tez" class="xliff"></a>
+### <a name="tez"></a>Tez
 
 选择编辑器右侧的“Tez”  图标。
 
@@ -172,8 +164,7 @@ ms.lasthandoff: 06/21/2017
 
 如果使用 Tez 来解析查询，将显示有向无环图 (DAG)。 若要查看之前运行的查询的 DAG，或调试 Tez 进程，请改用 [Tez 视图](hdinsight-debug-ambari-tez-view.md)。
 
-### 通知
-<a id="notifications" class="xliff"></a>
+### <a name="notifications"></a>通知
 
 选择编辑器右侧的“通知”  图标。
 
@@ -181,8 +172,7 @@ ms.lasthandoff: 06/21/2017
 
 通知是运行查询时生成的消息。 例如，当提交查询或发生错误时，会收到通知。
 
-## 已保存的查询
-<a id="saved-queries" class="xliff"></a>
+## <a name="saved-queries"></a>已保存的查询
 
 1. 在“查询编辑器”中，创建一个工作表，并输入以下查询：
 
@@ -201,13 +191,11 @@ ms.lasthandoff: 06/21/2017
 
 3. 选择 Hive 视图页顶部的“已保存的查询”选项卡。 现在，**Errorlogs** 已列出为已保存的查询。 它会一直保留在此列表中，直至将其删除。 选择该名称将在查询编辑器中打开查询。
 
-## 查询历史记录
-<a id="query-history" class="xliff"></a>
+## <a name="query-history"></a>查询历史记录
 
 使用 Hive 视图顶部的“历史记录”按钮可查看以前运行的查询。 立即使用它并选择之前运行过的一个查询。 选定一个查询后，它会在“查询编辑器”中打开。
 
-## 用户定义的函数 (UDF)
-<a id="user-defined-functions-udf" class="xliff"></a>
+## <a name="user-defined-functions-udf"></a>用户定义的函数 (UDF)
 
 还可以通过**用户定义函数 (UDF)** 扩展 Hive。 UDF 允许你实现 HiveQL 中不容易建模的功能或逻辑。
 

@@ -16,14 +16,13 @@ ms.topic: article
 origin.date: 04/01/2017
 ms.date: 05/15/2017
 ms.author: v-dazen
-ms.openlocfilehash: ca270342ed1c7df9b2c37f1399885b722638a47b
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 2569650fcb1b4892ed389a58a6ce6aff46b7913c
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 规划将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
-<a id="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager" class="xliff"></a>
+# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>规划将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
 尽管 Azure Resource Manager 提供了大量令人惊叹的功能，但规划好迁移过程以确保一切顺利仍至关重要。 花时间进行规划可确保执行迁移活动时不会遇到问题。 
 
 > [!NOTE] 
@@ -33,11 +32,9 @@ ms.lasthandoff: 06/23/2017
 
 ![迁移阶段](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## 计划
-<a id="plan" class="xliff"></a>
+## <a name="plan"></a>计划
 
-### 技术注意事项和权衡
-<a id="technical-considerations-and-tradeoffs" class="xliff"></a>
+### <a name="technical-considerations-and-tradeoffs"></a>技术注意事项和权衡
 
 根据技术要求大小、地理区域和操作方案，可能需要考虑：
 
@@ -53,8 +50,7 @@ ms.lasthandoff: 06/23/2017
 10. 用于迁移的项目管理计划是什么？
 11. Azure Resource Manager 迁移时间线和其他相关技术路线图有哪些？  它们是否保持最佳的协调？
 
-### 成功模式
-<a id="patterns-of-success" class="xliff"></a>
+### <a name="patterns-of-success"></a>成功模式
 
 成功的客户采用详尽的计划，其中会讨论、记录并控制上述问题。  确保与发起人和利益干系人就迁移计划进行广泛交流。  使用迁移选项的知识武装自身，强烈建议浏览下面的迁移文档集。
 
@@ -67,19 +63,17 @@ ms.lasthandoff: 06/23/2017
 * [查看最常见的迁移错误](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [查看有关将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型的最常见问题](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-### 需避免的错误
-<a id="pitfalls-to-avoid" class="xliff"></a>
+### <a name="pitfalls-to-avoid"></a>需避免的错误
 
 - 未能规划。  该迁移的技术步骤证实是非常有效的，且结果是可预测的。
 - 平台支持的迁移 API 将适用于所有方案的假设。 请参阅[不受支持的功能和配置](migration-classic-resource-manager-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations)，了解支持的方案有哪些。
 - 未针对最终用户规划可能的应用程序故障。  计划足够的缓冲区来充分警告最终用户可能不可用的应用程序时间。
 
-## 实验室测试
-<a id="lab-test" class="xliff"></a> 
+## <a name="lab-test"></a>实验室测试 
 
 **复制环境并执行测试迁移**
   > [!NOTE]
-  > 使用社区贡献的、Azure.cn 支持部门尚不正式支持的工具按原样复制现有环境。 因此，它是**可选**步骤，但它是无需接触生产环境即可找到问题的最佳办法。 如果不能使用社区提供的工具，请阅读下面的验证/准备/中止试运行建议。
+  > 使用社区贡献的、Azure 支持部门尚未正式支持的工具按原样复制现有环境。 因此，它是**可选**步骤，但它是无需接触生产环境即可找到问题的最佳办法。 如果不能使用社区提供的工具，请阅读下面的验证/准备/中止试运行建议。
   >
 
   针对确切方案（计算、网络和存储）执行实验室测试是确保顺利迁移的最佳办法。 这有助于确保：
@@ -89,8 +83,7 @@ ms.lasthandoff: 06/23/2017
 
   可以使用 AsmMetadataParser 工具实现此操作。 [在此处了解有关该工具的详细信息](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
-### 成功模式
-<a id="patterns-of-success" class="xliff"></a>
+### <a name="patterns-of-success"></a>成功模式
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -158,17 +151,14 @@ ms.lasthandoff: 06/23/2017
 
 - **Fabric 群集不存在** - 在某些情况下，由于各种原因，某些 VM 无法迁移。 已知情况之一是当 VM 创建于最近（过去一周左右），且碰巧获得尚未为 Azure Resource Manager 工作负荷配备的 Azure 群集。  将收到一条错误消息，指出“Fabric 群集不存在”并且无法迁移 VM。 等待数天通常可解决此特殊问题，因为群集会很快启用 Azure Resource Manager。 但是，一个直接的解决方法是对 VM 执行 `stop-deallocate`，然后继续迁移，并在迁移后在 Azure Resource Manager 中开始 VM 备份。
 
-### 需避免的错误
-<a id="pitfalls-to-avoid" class="xliff"></a>
+### <a name="pitfalls-to-avoid"></a>需避免的错误
 
 - 不要走捷径和省略验证/准备/中止试运行迁移。
 - 即使不是全部，至少大多数潜在问题都将在验证/准备/中止期间浮现。
 
-## 迁移
-<a id="migration" class="xliff"></a>
+## <a name="migration"></a>迁移
 
-### 技术注意事项和权衡
-<a id="technical-considerations-and-tradeoffs" class="xliff"></a>
+### <a name="technical-considerations-and-tradeoffs"></a>技术注意事项和权衡
 
 现已准备就绪，因为环境的已知问题已得到解决。
 
@@ -179,21 +169,17 @@ ms.lasthandoff: 06/23/2017
 3. **（可选）**安排具有足够缓冲区的维护停机时间，以防出现意外。
 4. 出现问题时，与支持团队沟通并保持一致。
 
-### 成功模式
-<a id="patterns-of-success" class="xliff"></a>
+### <a name="patterns-of-success"></a>成功模式
 
 实际迁移前，应考虑和缓解上面的“实验室测试”部分中的技术指南。  通过充分测试，实际上迁移不属于事件。  对于生产环境，具有其他支持（如受信任的 Azure.cn 合作伙伴或 Azure.cn 高级服务等）会很有帮助。
 
-### 需避免的错误
-<a id="pitfalls-to-avoid" class="xliff"></a>
+### <a name="pitfalls-to-avoid"></a>需避免的错误
 
 未完全测试可能导致迁移出现问题和延迟。  
 
-## 迁移之外
-<a id="beyond-migration" class="xliff"></a>
+## <a name="beyond-migration"></a>迁移之外
 
-### 技术注意事项和权衡
-<a id="technical-considerations-and-tradeoffs" class="xliff"></a>
+### <a name="technical-considerations-and-tradeoffs"></a>技术注意事项和权衡
 
 既然采用了 Azure Resource Manager，便可以最大程度地发挥平台优势。  请参阅 [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)，了解其他好处。
 
@@ -203,8 +189,7 @@ ms.lasthandoff: 06/23/2017
 - 再次浏览 Azure Resource Manager 的技术和业务原因；启用仅在应用于环境的 Azure Resource Manager 上适用的其他服务。
 - 使用 PaaS 服务实现环境现代化。
 
-### 成功模式
-<a id="patterns-of-success" class="xliff"></a>
+### <a name="patterns-of-success"></a>成功模式
 
 对现在想要在 Azure Resource Manager 中启用哪些服务具有目的性。  许多客户找到以下关于其 Azure 环境令人关注的事实：
 
@@ -214,13 +199,11 @@ ms.lasthandoff: 06/23/2017
 - [活动控制](../../azure-resource-manager/resource-group-audit.md)
 - [资源策略](../../azure-resource-manager/resource-manager-policy.md)
 
-### 需避免的错误
-<a id="pitfalls-to-avoid" class="xliff"></a>
+### <a name="pitfalls-to-avoid"></a>需避免的错误
 
 请记住为何要开始这次从经典部署模型到 Azure Resource Manager 部署模型的迁移之旅。  最初的业务原因有哪些？ 是否实现了这些业务原因？
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 * [平台支持的从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移概述](migration-classic-resource-manager-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](migration-classic-resource-manager-deep-dive.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

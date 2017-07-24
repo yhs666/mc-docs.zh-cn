@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/05/2017
-ms.date: 05/22/2017
+origin.date: 06/06/2017
+ms.date: 07/17/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: beee655bc636b98b765326b1c4e6885bad09b5a4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: faf2a96cf59d0401c0bbdf7cda9855dd5f12eaa8
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>规划和设计 VPN 网关
 规划和设计跨界配置和 VNet 到 VNet 配置可能很简单，也可能很复杂，具体取决于网络需求。 本文详细介绍基本规划和设计注意事项。
@@ -39,20 +37,13 @@ ms.lasthandoff: 05/12/2017
 * 想要创建的解决方案需要哪种类型的 VPN 网关？
 * 你应该使用哪个网关 SKU？
 
+### <a name="planning-table"></a>规划表
 下表可帮助选择最适合解决方案的连接选项。
 
 [!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-### <a name="gwrequire"></a>根据 VPN 类型和 SKU 考虑网关要求
-[!INCLUDE [vpn-gateway-gwsku](../../includes/vpn-gateway-gwsku-include.md)]
-
-有关网关 SKU 的详细信息，请参阅 [VPN 网关设置](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
-
-#### <a name="aggregate-throughput-by-sku-and-vpn-type"></a>按 SKU 和 VPN 类型列出的聚合吞吐量
+### <a name="gateway-skus"></a>网关 SKU
 [!INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
-
-#### <a name="supported-configurations-by-sku-and-vpn-type"></a>SKU 和 VPN 类型支持的配置
-[!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
 ### <a name="wf"></a>工作流
 以下列表概述了云连接的常用工作流：
@@ -128,4 +119,3 @@ VPN 网关需要一个特定的子网，称为网关子网。 所有网关子网
 请参阅 [VPN 网关常见问题解答](vpn-gateway-vpn-faq.md)和[关于 VPN 网关](vpn-gateway-about-vpngateways.md)文章，获取可帮助进行设计的详细信息。
 
 有关特定网关设置的详细信息，请参阅 [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md)（关于 VPN 网关设置）。
-

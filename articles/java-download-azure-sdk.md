@@ -1,10 +1,10 @@
 ---
-title: "下载适用于 Java 的 Azure SDK | Azure"
+title: "下载 Azure SDK for Java | Microsoft Docs"
 description: "了解如何使用针对 Maven 项目提供的示例代码下载适用于 Java 的 Azure SDK。"
 services: 
 documentationcenter: java
-author: rmcmurray
-manager: erikre
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 4b8f8fe6-1b26-4bb4-9be9-6ae757a59e66
 ms.service: multiple
@@ -12,25 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-origin.date: 12/22/2016
-ms.date: 02/14/2017
+origin.date: 04/25/2017
+ms.date: 07/13/2017
 ms.author: v-junlch
-ms.openlocfilehash: f6bc860c67a77ceb94f8b6b8bd0daba2d986615e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 99a03bdfcded6fa7b76e3217ad53f5617a53010d
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 下载 Azure SDK for Java
-<a id="download-the-azure-sdk-for-java" class="xliff"></a>
+# <a name="download-the-azure-sdk-for-java"></a>下载 Azure SDK for Java
 本文包含有关下载和安装适用于 Java 的 Azure 管理库的说明。
 
 > [!NOTE]
 > 将根据 [Apache 许可证 2.0 版][license]分发适用于 Java 的 Azure 管理库。
 >
 
-## 适用于 Java 的 Azure 库 – 手动下载
-<a id="azure-libraries-for-java---manual-download" class="xliff"></a>
+## <a name="azure-libraries-for-java---manual-download"></a>适用于 Java 的 Azure 库 – 手动下载
 若要手动安装适用于 Java 的 Azure 管理库，请单击 <http://go.microsoft.com/fwlink/?LinkId=690320> 下载包含所有库及所有依赖项的 ZIP 文件。
 
 将 zip 文件下载到计算机之后，请提取其内容，然后使用以下选项之一将 JAR 文件添加你的项目中：
@@ -42,14 +40,11 @@ ms.lasthandoff: 06/21/2017
 > 有关许可证和其他信息，请参阅 ZIP 文件中的 license.txt 和 ThirdPartyNotices.txt 文件。
 >
 
-## 适用于 Java 的 Azure 管理库 - 使用 Maven 生成
-<a id="azure-management-libraries-for-java---building-with-maven" class="xliff"></a>
-### 步骤 1 - 将项目设置为使用 Maven 来生成
-<a id="step-1---set-up-your-project-to-use-maven-for-build" class="xliff"></a>
+## <a name="azure-management-libraries-for-java---building-with-maven"></a>适用于 Java 的 Azure 管理库 - 使用 Maven 生成
+### <a name="step-1---set-up-your-project-to-use-maven-for-build"></a>步骤 1 - 将项目设置为使用 Maven 来生成
 若要在 Eclipse 中创建使用适用于 Java 的 Azure 管理库的 Maven 项目，请遵循 [适用于 Java 的 Azure 管理库入门][maven-getting-started] 一文。
 
-### 步骤 2 - 使用必要的依赖项配置 Maven 设置
-<a id="step-2---configure-your-maven-settings-with-the-requisite-dependencies" class="xliff"></a>
+### <a name="step-2---configure-your-maven-settings-with-the-requisite-dependencies"></a>步骤 2 - 使用必要的依赖项配置 Maven 设置
 将项目配置为使用 Maven 生成之后，可以使用类似于以下示例的语法，将必要的依赖项添加到 pom.xml 文件中。 请注意，你无需添加以下示例中所列的每个依赖项，而只需添加项目所需的特定依赖项。
 
 > [!NOTE]
@@ -57,63 +52,62 @@ ms.lasthandoff: 06/21/2017
 >
 >
 
-```
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-svc-mgmt</artifactId>
-    <version>n.n.n</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-svc-mgmt-compute</artifactId>
-    <version>n.n.n</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-svc-mgmt-network</artifactId>
-    <version>n.n.n</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-svc-mgmt-sql</artifactId>
-    <version>n.n.n</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-svc-mgmt-storage</artifactId>
-    <version>n.n.n</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-svc-mgmt-websites</artifactId>
-    <version>n.n.n</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-svc-mgmt-media</artifactId>
-    <version>n.n.n</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-servicebus</artifactId>
-    <version>n.n.n</version>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-serviceruntime</artifactId>
-    <version>n.n.n</version>
-</dependency>
-```
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-svc-mgmt</artifactId>
+        <version>n.n.n</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-svc-mgmt-compute</artifactId>
+        <version>n.n.n</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-svc-mgmt-network</artifactId>
+        <version>n.n.n</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-svc-mgmt-sql</artifactId>
+        <version>n.n.n</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-svc-mgmt-storage</artifactId>
+        <version>n.n.n</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-svc-mgmt-websites</artifactId>
+        <version>n.n.n</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-svc-mgmt-media</artifactId>
+        <version>n.n.n</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-servicebus</artifactId>
+        <version>n.n.n</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-serviceruntime</artifactId>
+        <version>n.n.n</version>
+    </dependency>
 
-## 另请参阅
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>另请参阅
 有关 Azure Toolkits for Java IDE 的详细信息，请参阅以下链接：
 
 - [适用于 Eclipse 的 Azure 工具包]
   - [安装 Azure Toolkit for Eclipse]
+  - [在 Eclipse 中创建 Azure 的 Hello World Web 应用]
   - [Azure Toolkit for Eclipse 的新增功能]
 - [Azure Toolkit for IntelliJ]
   - [安装 Azure Toolkit for IntelliJ]
+  - [在 IntelliJ 中创建 Azure 的 Hello World Web 应用]
   - [Azure Toolkit for IntelliJ 中的新增功能]
 
 有关将 Azure 与 Java 配合使用的详细信息，请参阅 [Azure Java 开发人员中心]。
@@ -124,15 +118,18 @@ ms.lasthandoff: 06/21/2017
 
 <!-- URL List -->
 
-[适用于 Eclipse 的 Azure 工具包]:./azure-toolkit-for-eclipse.md
-[Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij.md
-[安装 Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse-installation.md
-[安装 Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij-installation.md
-[Azure Toolkit for Eclipse 的新增功能]:./azure-toolkit-for-eclipse-whats-new.md
-[Azure Toolkit for IntelliJ 中的新增功能]:./azure-toolkit-for-intellij-whats-new.md
+[适用于 Eclipse 的 Azure 工具包]: ./azure-toolkit-for-eclipse.md
+[Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
+[在 Eclipse 中创建 Azure 的 Hello World Web 应用]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[在 IntelliJ 中创建 Azure 的 Hello World Web 应用]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[安装 Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[安装 Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Azure Toolkit for Eclipse 的新增功能]: ./azure-toolkit-for-eclipse-whats-new.md
+[Azure Toolkit for IntelliJ 中的新增功能]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java 开发人员中心]:/develop/java/
 [Maven 上的 Azure 库存储库]: http://go.microsoft.com/fwlink/?LinkID=286274
 [Java 生成路径]: http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fref-properties-build-path.htm
 [license]: http://www.apache.org/licenses/LICENSE-2.0.html
 [maven-getting-started]: http://go.microsoft.com/fwlink/?LinkID=622998
+

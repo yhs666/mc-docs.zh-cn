@@ -26,14 +26,14 @@
 ### [处理云服务生命周期事件](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
 
-
 ### 配置启动任务
 #### [创建启动任务](cloud-services-startup-tasks.md)
 #### [常见启动任务](cloud-services-startup-tasks-common.md)
 #### [使用任务在云服务角色上安装 .NET](cloud-services-dotnet-install-dotnet.md)
 
 ### 配置远程桌面
-#### [Visual Studio](cloud-services-role-enable-remote-desktop.md)
+#### [门户](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [经典门户](cloud-services-role-enable-remote-desktop.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## 部署
@@ -96,7 +96,11 @@
 ### [常见部署问题](cloud-services-troubleshoot-deployment-problems.md)
 ### [角色未能启动](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [恢复指南](cloud-services-disaster-recovery-guidance.md)
-### [云服务常见问题](cloud-services-faq.md)
+### 云服务常见问题
+#### [应用程序和服务可用性常见问题解答](cloud-services-application-and-service-availability-faq.md)
+#### [配置和管理常见问题解答](cloud-services-configuration-and-management-faq.md)
+#### [连接和网络常见问题解答](cloud-services-connectivity-and-networking-faq.md)
+#### [部署常见问题解答](cloud-services-deployment-faq.md)
 
 # 引用
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)

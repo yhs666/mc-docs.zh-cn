@@ -15,14 +15,13 @@ ms.workload: infrastructure
 origin.date: 12/15/2016
 ms.date: 05/15/2017
 ms.author: v-dazen
-ms.openlocfilehash: 9a6a04da898cf079cb2753409f8a77691925a0c2
-ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
+ms.openlocfilehash: e5f66b0f8945c8d3cd11b29a77e87faaf8ce94e7
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 使用 Azure CLI 1.0 创建 Linux VM
-<a id="create-a-linux-vm-using-the-azure-cli-10" class="xliff"></a>
+# <a name="create-a-linux-vm-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建 Linux VM
 
 本文说明如何使用 Azure 命令行接口 (LI ) 中的 `azure vm quick-create` 命令在 Azure 上快速部署 Linux 虚拟机 (VM)。 `quick-create` 命令可将 VM 部署在基本且安全的基础结构内，可让你快速构建原型或测试概念。
 
@@ -35,8 +34,7 @@ ms.lasthandoff: 07/06/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## 快速命令
-<a id="quick-commands" class="xliff"></a>
+## <a name="quick-commands"></a>快速命令
 
 以下示例演示如何部署 CoreOS VM 并附加安全外壳 (SSH) 密钥（你的参数可能与此不同）：
 
@@ -44,15 +42,13 @@ ms.lasthandoff: 07/06/2017
 azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 ```
 
-## 详细演练
-<a id="detailed-walkthrough" class="xliff"></a>
+## <a name="detailed-walkthrough"></a>详细演练
 
 下面逐步讲解如何部署 UbuntuLTS VM，并解释每个步骤的具体操作。
 
-## VM quick-create 别名
-<a id="vm-quick-create-aliases" class="xliff"></a>
+## <a name="vm-quick-create-aliases"></a>VM quick-create 别名
 
-选择分发的便捷方法是使用映射到最常见 OS 分发的 Azure CLI 别名。 下表列出了别名（截止到 Azure 0.10 版）。 使用 `quick-create` 的所有部署默认为部署到由固态硬盘 (SSD) 存储提供支持的 VM，这些 VM 提供更快的预配性能和高性能磁盘访问。 （这些别名表示 Azure 上的一小部分可用分发。 在 Azure 应用商店中查找更多映像（可以[在 PowerShell 中搜索映像](../windows/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)），或者[上传自己的自定义映像](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。）
+选择分发的便捷方法是使用映射到最常见 OS 分发的 Azure CLI 别名。 下表列出了别名（截止到 Azure 0.10 版）。 使用 `quick-create` 的所有部署默认为部署到由固态硬盘 (SSD) 存储提供支持的 VM，这些 VM 提供更快的预配性能和高性能磁盘访问。 （这些别名表示 Azure 上的一小部分可用分发。 在 Azure 应用商店中查找更多映像（可以[在 PowerShell 中搜索映像](../windows/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，或者[在 Web 上](https://portal.azure.cn/#blade/Microsoft_Azure_Marketplace/GalleryFeaturedMenuItemBlade/selectedMenuItemId/Compute_MP/resetMenuId/)搜索），或者[上传自己的自定义映像](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。）
 
 | 别名 | 发布者 | 产品 | SKU | 版本 |
 |:--- |:--- |:--- |:--- |:--- |
@@ -163,8 +159,7 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-## 登录到新 VM
-<a id="log-in-to-the-new-vm" class="xliff"></a>
+## <a name="log-in-to-the-new-vm"></a>登录到新 VM
 使用输出中列出的公共 IP 地址登录到 VM。 可以使用列出的完全限定域名 (FQDN)：
 
 ```bash
@@ -203,10 +198,11 @@ applicable law.
 myAdminUser@myVM:~$
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 使用 `azure vm quick-create` 命令可以快速部署 VM，以便可以登录到 bash shell 开始工作。 但是，使用 `vm quick-create` 不会为用户提供广泛的控制，也不会让用户创建更复杂的环境。  若要部署针对基础结构自定义的 Linux VM，可以遵循下列任一文章操作：
 
 * [使用 Azure Resource Manager 模板创建特定部署](cli-deploy-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [直接使用 Azure CLI 命令创建自定义的 Linux VM 环境](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [使用模板在 Azure 上创建受 SSH 保护的 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+
+还可以[将 `docker-machine` Azure 驱动程序与各种命令配合使用，快速创建 Linux VM 作为 docker 主机](docker-machine.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。

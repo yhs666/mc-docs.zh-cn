@@ -1,6 +1,6 @@
 ---
-title: "创建要在 Azure Spark 群集上运行的 Scala Maven 应用程序 | Azure"
-description: "了解如何使用 Maven 创建要在 HDInsight Spark 群集中运行的独立 Spark 应用程序。"
+title: "创建要在 Spark 群集上运行的 Scala 应用 - Azure HDInsight | Azure"
+description: "将 Apache Maven 作为生成系统和 IntelliJ IDEA 提供的 Scala 的现有 Maven 原型，创建用 Scala 编写的 Spark 应用程序。"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -14,16 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/06/2017
-ms.date: 05/08/2017
+origin.date: 05/10/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 8a9e40ed601d8daa68f597e96b9cd529093fccb7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: e7de6e19fbbd1ce69916c02407dc63f0552a8901
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>创建要在 HDInsight 上的 Apache Spark 群集中运行的 Scala Maven 应用程序
 
@@ -34,6 +32,11 @@ ms.lasthandoff: 04/28/2017
 * 在 Scala 中编写应用程序。
 * 生成可提交到 HDInsight Spark 群集的 jar 文件。
 * 使用 Livy 在 Spark 群集上运行应用程序。
+
+> [!NOTE]
+> HDInsight 还提供一个 IntelliJ IDEA 插件工具，用于简化创建应用程序并将其提交到 Linux 上一个 HDInsight Spark 群集的过程。 有关详细信息，请参阅[使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark 应用程序](hdinsight-apache-spark-intellij-tool-plugin.md)。
+> 
+> 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -58,10 +61,10 @@ ms.lasthandoff: 04/28/2017
 
     ![创建 Maven 项目](./media/hdinsight-apache-spark-create-standalone-application/create-maven-project.png)
 
-    * 选择“Maven”  作为项目类型。
-    * 指定“项目 SDK” 。 单击“新建”并导航到 Java 安装目录，通常是 `C:\Program Files\Java\jdk1.8.0_66`。
-    * 选择“从原型创建”  选项。
-    * 从原型列表中，选择“org.scala-tools.archetypes:scala-archetype-simple” 。 这将创建适当的目录结构，并下载所需的默认依赖项来编写 Scala 程序。
+   * 选择“Maven”  作为项目类型。
+   * 指定“项目 SDK” 。 单击“新建”并导航到 Java 安装目录，通常是 `C:\Program Files\Java\jdk1.8.0_66`。
+   * 选择“从原型创建”  选项。
+   * 从原型列表中，选择“org.scala-tools.archetypes:scala-archetype-simple” 。 这将创建适当的目录结构，并下载所需的默认依赖项来编写 Scala 程序。
 2. 提供 **GroupId**、**ArtifactId** 和 **Version** 的相关值。 单机“下一步”
 3. 在下一个对话框中（在其中指定 Maven 主目录和其他用户设置的位置），接受默认值，然后单击“下一步” 。
 4. 在最后一个对话框中，指定项目名称和位置，然后单击“完成”。
@@ -73,10 +76,10 @@ ms.lasthandoff: 04/28/2017
 
     ![配置 Maven 以进行自动下载](./media/hdinsight-apache-spark-create-standalone-application/configure-maven.png)
 
-    1. 在“文件”菜单中，单击“设置”。
-    2. 在“设置”对话框中，导航到“生成、执行、部署” > “生成工具” > “Maven” > “导入”。
-    3. 选择“自动导入 Maven 项目”选项。
-    4. 单击“应用”，然后单击“确定”。
+   1. 在“文件”菜单中，单击“设置”。
+   2. 在“设置”对话框中，导航到“生成、执行、部署” > “生成工具” > “Maven” > “导入”。
+   3. 选择“自动导入 Maven 项目”选项。
+   4. 单击“应用”，然后单击“确定”。
 8. 更新 Scala 源文件以包含应用程序代码。 打开并将当前示例代码替换为以下代码，然后保存所做的更改。 此代码从 HVAC.csv（所有 HDInsight Spark 群集均有该文件）中读取数据，检索第六列中只有一个数字的行，并将输出写入群集的默认存储容器下的 **/HVACOut**。
 
         package com.microsoft.spark.example
@@ -102,20 +105,20 @@ ms.lasthandoff: 04/28/2017
         }
 9. 更新 pom.xml。
 
-    1. 在 `<project>\<properties>` 中添加以下内容：
+   1. 在 `<project>\<properties>` 中添加以下内容：
 
-            <scala.version>2.10.4</scala.version>
-            <scala.compat.version>2.10.4</scala.compat.version>
-            <scala.binary.version>2.10</scala.binary.version>
-    2. 在 `<project>\<dependencies>` 中添加以下内容：
+          <scala.version>2.10.4</scala.version>
+          <scala.compat.version>2.10.4</scala.compat.version>
+          <scala.binary.version>2.10</scala.binary.version>
+   2. 在 `<project>\<dependencies>` 中添加以下内容：
 
-            <dependency>
-              <groupId>org.apache.spark</groupId>
-              <artifactId>spark-core_${scala.binary.version}</artifactId>
-              <version>1.4.1</version>
-            </dependency>
+           <dependency>
+             <groupId>org.apache.spark</groupId>
+             <artifactId>spark-core_${scala.binary.version}</artifactId>
+             <version>1.4.1</version>
+           </dependency>
 
-        将更改保存到 pom.xml。
+      将更改保存到 pom.xml。
 10. 创建 .jar 文件。 IntelliJ IDEA 允许创建 JAR，作为项目的一个项目 (artifact)。 执行以下步骤。
 
     1. 在“文件”菜单中，单击“项目结构”。
@@ -158,7 +161,9 @@ ms.lasthandoff: 04/28/2017
 * [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和扩展
-* [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](hdinsight-apache-spark-zeppelin-notebook.md)
 * [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
@@ -166,4 +171,3 @@ ms.lasthandoff: 04/28/2017
 ### <a name="manage-resources"></a>管理资源
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](hdinsight-apache-spark-job-debugging.md)
-

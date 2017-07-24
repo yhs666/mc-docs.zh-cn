@@ -12,28 +12,25 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-origin.date: 04/27/2017
-ms.date: 05/31/2017
+origin.date: 06/12/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 64ca2ba81808c7ebafc0ffc7f566d35cabbcf09a
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 356b190dbfa3f6e8e6a287f07f4a4f5e0fce9d7c
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
-# Azure Redis 缓存常见问题
-<a id="azure-redis-cache-faq" class="xliff"></a>
+# <a name="azure-redis-cache-faq"></a>Azure Redis 缓存常见问题
 了解有关 Azure Redis 缓存的常见问题解答、模式和最佳实践。
 
-## 如果未在此处找到相关问题怎么办？
-<a id="what-if-my-question-isnt-answered-here" class="xliff"></a>
+## <a name="what-if-my-question-isnt-answered-here"></a>如果未在此处找到相关问题怎么办？
 如果未在此处找到相关问题，请联系我们，我们会帮助你找到答案。
 
 * 你可以在此常见问题末尾的评论处发布问题，并与 Azure 内容团队和其他社区成员就本文进行讨论。
 * 若希望更多的人看到问题，可以将问题发布在 [Azure Cache MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecache)（Azure 缓存 MSDN 论坛）并与 Azure 缓存团队和社区的其他成员讨论。
 
-## Azure Redis 缓存基础知识
-<a id="azure-redis-cache-basics" class="xliff"></a>
+## <a name="azure-redis-cache-basics"></a>Azure Redis 缓存基础知识
 本部分中的常见问题介绍了 Azure Redis 缓存的一些基础知识。
 
 * [什么是 Azure Redis 缓存？](#what-is-azure-redis-cache)
@@ -46,15 +43,13 @@ ms.lasthandoff: 06/23/2017
 * [Azure Redis 缓存是否有本地模拟器？](#is-there-a-local-emulator-for-azure-redis-cache)
 * [如何监视缓存的运行状况和性能？](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 
-## 有关规划的常见问题
-<a id="planning-faqs" class="xliff"></a>
+## <a name="planning-faqs"></a>有关规划的常见问题
 * [我应使用哪种 Redis 缓存产品和大小？](#what-redis-cache-offering-and-size-should-i-use)
 * [Azure Redis 缓存性能](#azure-redis-cache-performance)
 * [我应该将缓存放在哪个区域？](#in-what-region-should-i-locate-my-cache)
 * [Azure Redis 缓存如何计费？](#how-am-i-billed-for-azure-redis-cache)
 
-## 有关开发的常见问题
-<a id="development-faqs" class="xliff"></a>
+## <a name="development-faqs"></a>有关开发的常见问题
 * [StackExchange.Redis 配置选项有什么作用？](#what-do-the-stackexchangeredis-configuration-options-do)
 * [可以使用哪些 Redis 缓存客户端？](#what-redis-cache-clients-can-i-use)
 * [Azure Redis 缓存是否有本地模拟器？](#is-there-a-local-emulator-for-azure-redis-cache)
@@ -63,12 +58,10 @@ ms.lasthandoff: 06/23/2017
 * [是否可将 Azure Redis 缓存用作 PHP 会话缓存？](#can-i-use-azure-redis-cache-as-a-php-session-cache)
 * [什么是 Redis 数据库？](#what-are-redis-databases)
 
-## 安全常见问题
-<a id="security-faqs" class="xliff"></a>
+## <a name="security-faqs"></a>安全常见问题
 * [何时应启用非 SSL 端口来连接 Redis？](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
 
-## 有关生产的常见问题
-<a id="production-faqs" class="xliff"></a>
+## <a name="production-faqs"></a>有关生产的常见问题
 * [生产的一些最佳做法是什么？](#what-are-some-production-best-practices)
 * [使用常见 Redis 命令时要注意哪些问题？](#what-are-some-of-the-considerations-when-using-common-redis-commands)
 * [如何制定基准和测试缓存的性能？](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
@@ -76,26 +69,20 @@ ms.lasthandoff: 06/23/2017
 * [启用服务器 GC，以便在使用 StackExchange.Redis 时在客户端上获取更多吞吐量](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
 * [围绕连接的性能注意事项](#performance-considerations-around-connections)
 
-## 有关监视和故障排除的常见问题
-<a id="monitoring-and-troubleshooting-faqs" class="xliff"></a>
+## <a name="monitoring-and-troubleshooting-faqs"></a>有关监视和故障排除的常见问题
 本部分中的常见问题包括常见的监视和故障排除问题。 有关 Azure Redis 缓存实例监视和故障排除的详细信息，请参阅 [How to monitor Azure Redis Cache](cache-how-to-monitor.md)（如何监视 Azure Redis 缓存）以及 [How to troubleshoot Azure Redis Cache](cache-how-to-troubleshoot.md)（如何排查 Azure Redis 缓存问题）。
 
 * [如何监视缓存的运行状况和性能？](#how-do-i-monitor-the-health-and-performance-of-my-cache)
-* [缓存诊断存储帐户的设置为何会更改？](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
-* [为何有些新缓存启用了诊断，但其他一些缓存却未启用诊断？](#why-are-diagnostics-enabled-for-some-new-caches-but-not-others)
 * [为何会出现超时？](#why-am-i-seeing-timeouts)
 * [客户端为何与缓存断开连接？](#why-was-my-client-disconnected-from-the-cache)
 
-## 有关之前缓存产品的常见问题
-<a id="prior-cache-offering-faqs" class="xliff"></a>
+## <a name="prior-cache-offering-faqs"></a>有关之前缓存产品的常见问题
 * [哪种 Azure 缓存产品适合我？](#which-azure-cache-offering-is-right-for-me)
 
-### 什么是 Azure Redis 缓存？
-<a id="what-is-azure-redis-cache" class="xliff"></a>
+### <a name="what-is-azure-redis-cache"></a>什么是 Azure Redis 缓存？
 Azure Redis 缓存以常用的开放源 [Redis 缓存](http://redis.io)为基础。 这使你可以访问安全、专用的 Redis 缓存，该缓存由 Azure.cn 管理并可从 Azure 内的任何应用程序进行访问。 有关更详细的概述，请参阅 Azure.cn 上的 [Azure Redis 缓存](https://www.azure.cn/home/features/redis-cache/)产品页。
 
-### 如何开始使用 Azure Redis 缓存？
-<a id="how-can-i-get-started-with-azure-redis-cache" class="xliff"></a>
+### <a name="how-can-i-get-started-with-azure-redis-cache"></a>如何开始使用 Azure Redis 缓存？
 可通过多种方法来开始使用 Azure Redis 缓存。
 
 * 用户可以查看适用于 [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)、[ASP.NET](cache-web-app-howto.md)、[Java](cache-java-get-started.md)、[Node.js](cache-nodejs-get-started.md) 和 [Python](cache-python-get-started.md) 的教程之一。
@@ -107,8 +94,7 @@ Azure Redis 缓存以常用的开放源 [Redis 缓存](http://redis.io)为基础
 
 <a name="cache-size"></a>
 
-### 应使用哪种 Redis 缓存产品和大小？
-<a id="what-redis-cache-offering-and-size-should-i-use" class="xliff"></a>
+### <a name="what-redis-cache-offering-and-size-should-i-use"></a>应使用哪种 Redis 缓存产品和大小？
 每个 Azure Redis 缓存产品/服务提供不同级别的**大小**、**带宽**、**高可用性**和 **SLA** 选项。
 
 以下是有关选择缓存产品的注意事项。
@@ -128,8 +114,7 @@ Azure Redis 缓存以常用的开放源 [Redis 缓存](http://redis.io)为基础
 
 <a name="cache-performance"></a>
 
-### Azure Redis 缓存性能
-<a id="azure-redis-cache-performance" class="xliff"></a>
+### <a name="azure-redis-cache-performance"></a>Azure Redis 缓存性能
 下表显示了在 Iaas VM 中使用 `redis-benchmark.exe` 针对 Azure Redis 缓存终结点测试各种大小的标准缓存和高级缓存时，所观测到的最大带宽值。 
 
 >[!NOTE] 
@@ -163,20 +148,17 @@ Azure Redis 缓存以常用的开放源 [Redis 缓存](http://redis.io)为基础
 
 <a name="cache-region"></a>
 
-### 应该将缓存放在哪个区域？
-<a id="in-what-region-should-i-locate-my-cache" class="xliff"></a>
+### <a name="in-what-region-should-i-locate-my-cache"></a>应该将缓存放在哪个区域？
 为了获得最佳性能并最大程度地降低延迟，请在缓存客户端应用程序所在的区域放置 Azure Redis 缓存。
 
 <a name="cache-billing"></a>
 
-### Azure Redis 缓存如何计费？
-<a id="how-am-i-billed-for-azure-redis-cache" class="xliff"></a>
+### <a name="how-am-i-billed-for-azure-redis-cache"></a>Azure Redis 缓存如何计费？
 [此处](https://www.azure.cn/pricing/details/redis-cache/)提供了 Azure Redis 缓存定价。 定价页列出了每小时费率。 缓存按分钟计费，从创建缓存时开始，到删除缓存时为止。 没有提供用于停止或暂停缓存的计费选项。
 
 <a name="cache-configuration"></a>
 
-### StackExchange.Redis 配置选项有什么作用？
-<a id="what-do-the-stackexchangeredis-configuration-options-do" class="xliff"></a>
+### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>StackExchange.Redis 配置选项有什么作用？
 StackExchange.Redis 有很多选项。 本部分将介绍一些常用设置。 有关 StackExchange.Redis 选项的详细详细，请参阅 [StackExchange.Redis 配置](https://stackexchange.github.io/StackExchange.Redis/Configuration)。
 
 | 配置选项 | 说明 | 建议 |
@@ -204,16 +186,14 @@ StackExchange.Redis 有很多选项。 本部分将介绍一些常用设置。 �
       * 在每个多路复用器上设置 `ClientName` 属性以帮助进行诊断。
       * 该指导原则可以更好地改进每个 `ConnectionMultiplexer`的延迟。
 
-### 可以使用哪些 Redis 缓存客户端？
-<a id="what-redis-cache-clients-can-i-use" class="xliff"></a>
+### <a name="what-redis-cache-clients-can-i-use"></a>可以使用哪些 Redis 缓存客户端？
 Redis 的一大优势是有许多客户端，支持许多不同的开发语言。 如需最新的客户端列表，请参阅 [Redis 客户端](http://redis.io/clients)。 若需涵盖多种不同语言和客户端的教程，请参阅[如何使用 Azure Redis 缓存](cache-dotnet-how-to-use-azure-redis-cache.md)，然后单击文章顶部语言切换器中的所需语言。
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 <a name="cache-emulator"></a>
 
-### Azure Redis 缓存是否有本地模拟器？
-<a id="is-there-a-local-emulator-for-azure-redis-cache" class="xliff"></a>
+### <a name="is-there-a-local-emulator-for-azure-redis-cache"></a>Azure Redis 缓存是否有本地模拟器？
 Azure Redis 缓存没有本地模拟器，但可以在本地计算机上从 [Redis 命令行工具](https://github.com/MSOpenTech/redis/releases/) 运行 MSOpenTech 版本的 redis-server.exe 并连接到它，以获得与本地缓存模拟器相似的体验，如以下示例所示：
 
     private static Lazy<ConnectionMultiplexer>
@@ -236,12 +216,10 @@ Azure Redis 缓存没有本地模拟器，但可以在本地计算机上从 [Red
 
 <a name="cache-commands"></a>
 
-### 如何运行 Redis 命令？
-<a id="how-can-i-run-redis-commands" class="xliff"></a>
+### <a name="how-can-i-run-redis-commands"></a>如何运行 Redis 命令？
 可以使用 [Redis 命令](http://redis.io/commands#)中列出的任何命令，但 [Azure Redis 缓存中不支持的 Redis 命令](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache)所列的命令除外。 可以使用多个选项来运行 Redis 命令。
 
-* 如果采用标准或高级缓存，可以使用 [Redis 控制台](cache-configure.md#redis-console)运行 Redis 命令。 Redis 控制台提供了一种在 Azure 门户中安全地运行 Redis 命令的方式。
-* 还可以使用 Redis 命令行工具。 若要使用这些工具，请执行以下步骤：
+* 可以使用 Redis 命令行工具。 若要使用这些工具，请执行以下步骤：
 * 下载 [Redis 命令行工具](https://github.com/MSOpenTech/redis/releases/)。
 * 使用 `redis-cli.exe`连接到缓存。 使用 -h 开关传入缓存终结点，使用 -a 传入密钥，如以下示例中所示：
 * `redis-cli -h <your cache="" name="">
@@ -255,14 +233,12 @@ Azure Redis 缓存没有本地模拟器，但可以在本地计算机上从 [Red
 
 <a name="cache-reference"></a>
 
-### Azure Redis 缓存为何不像某些其他 Azure 服务一样提供 MSDN 类库参考？
-<a id="why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services" class="xliff"></a>
+### <a name="why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Azure Redis 缓存为何不像某些其他 Azure 服务一样提供 MSDN 类库参考？
 Azure Redis 缓存基于流行的开源 Redis 缓存，可以通过各种 [Redis 客户端](http://redis.io/clients) 进行访问，这些客户端适用于许多编程语言。 每个客户端有自身的 API，用于通过 [Redis 命令](http://redis.io/commands)调用 Redis 缓存实例。
 
 由于客户端各不相同，因此 MSDN 上未提供统一的类引用，每个客户端都有自己的参考文档。 除了参考文档以外，还可以参阅多个教程，这些教程介绍了如何通过不同的语言和缓存客户端来开始使用 Azure Redis 缓存。 若要访问这些教程，请参阅[如何使用 Azure Redis 缓存](cache-dotnet-how-to-use-azure-redis-cache.md)，然后单击文章顶部语言切换器中的所需语言。
 
-### 是否可将 Azure Redis 缓存用作 PHP 会话缓存？
-<a id="can-i-use-azure-redis-cache-as-a-php-session-cache" class="xliff"></a>
+### <a name="can-i-use-azure-redis-cache-as-a-php-session-cache"></a>是否可将 Azure Redis 缓存用作 PHP 会话缓存？
 可以。若要使用 Azure Redis 缓存作为 PHP 会话缓存，请在 `session.save_path` 中指定 Azure Redis 缓存实例的连接字符串。
 
 > [!IMPORTANT]
@@ -276,8 +252,7 @@ Azure Redis 缓存基于流行的开源 Redis 缓存，可以通过各种 [Redis
 
 有关在 PhpRedis 客户端中使用 Redis 缓存作为 PHP 会话缓存的详细信息，请参阅 [PHP Session handler](https://github.com/phpredis/phpredis#php-session-handler)（PHP 会话处理程序）。
 
-### 什么是 Redis 数据库？
-<a id="what-are-redis-databases" class="xliff"></a>
+### <a name="what-are-redis-databases"></a>什么是 Redis 数据库？
 
 Redis 数据库就是同一 Redis 实例中的数据的逻辑隔离。 缓存内存在所有数据库之间共享，给定数据库的实际内存消耗取决于该数据库中存储的键/值。 例如，C6 缓存具有 53 GB 的内存。 可以选择将全部 53 GB 放置在一个数据库中，也可以将其分配到多个数据库中。 
 
@@ -288,8 +263,7 @@ Redis 数据库就是同一 Redis 实例中的数据的逻辑隔离。 缓存内
 
 <a name="cache-ssl"></a>
 
-### 何时应启用非 SSL 端口来连接 Redis？
-<a id="when-should-i-enable-the-non-ssl-port-for-connecting-to-redis" class="xliff"></a>
+### <a name="when-should-i-enable-the-non-ssl-port-for-connecting-to-redis"></a>何时应启用非 SSL 端口来连接 Redis？
 Redis 服务器本身不支持 SSL，但 Azure Redis 缓存可以。 如果你要连接到 Azure Redis 缓存并且客户端支持 SSL（如 StackExchange.Redis），则你应使用 SSL。
 
 >[!NOTE]
@@ -301,14 +275,12 @@ Redis 服务器本身不支持 SSL，但 Azure Redis 缓存可以。 如果你�
 
 有关下载 Redis 工具的说明，请参阅[如何运行 Redis 命令？](#cache-commands)部分。
 
-### 生产的一些最佳做法是什么？
-<a id="what-are-some-production-best-practices" class="xliff"></a>
+### <a name="what-are-some-production-best-practices"></a>生产的一些最佳做法是什么？
 * [StackExchange.Redis 最佳做法](#stackexchangeredis-best-practices)
 * [配置和概念](#configuration-and-concepts)
 * [性能测试](#performance-testing)
 
-#### StackExchange.Redis 最佳做法
-<a id="stackexchangeredis-best-practices" class="xliff"></a>
+#### <a name="stackexchangeredis-best-practices"></a>StackExchange.Redis 最佳做法
 * 将 `AbortConnect` 设置为 false，然后使 ConnectionMultiplexer 自动重新连接。 [请参阅此处了解详细信息](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md)。
 * 重复使用 ConnectionMultiplexer - 不要为每个请求创建一个新的 ConnectionMultiplexe。 建议使用[此处所示](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)的 `Lazy<ConnectionMultiplexer>` 模式。
 * 具有较小值的 Redis 工作性能最佳，因此请考虑将较大数据分成多个密钥。 阅读[本文](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size)了解较大值可能引起的问题示例。
@@ -316,14 +288,12 @@ Redis 服务器本身不支持 SSL，但 Azure Redis 缓存可以。 如果你�
 * 将默认 connectTimeout 至少设置为 5 秒。 出现网络故障时，此时间间隔会给 StackExchange.Redis 足够的时间来重新建立连接。
 * 注意与正在运行的不同操作相关的性能成本。 例如，`KEYS` 命令是 O(n) 操作，应当避免。 [redis.io](http://redis.io/commands/) 站点具有关于其支持的每个操作的时间复杂性的详细信息。 单击每个命令以查看每个操作的复杂程度。
 
-#### 配置和概念
-<a id="configuration-and-concepts" class="xliff"></a>
+#### <a name="configuration-and-concepts"></a>配置和概念
 * 针对生产系统使用标准层或高级层。 基本层是没有数据复制和 SLA 的单节点系统。 此外，使用至少一个 C1 缓存。 C0 缓存通常用于简单的开发/测试方案。
 * 请记住，Redis 是 **内存中** 数据存储区。 阅读[本文](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)，了解可能出现数据丢失的情况。
 * 开发您的系统，以便它可以处理 [由于修补和故障转移](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md)出现的连接故障。
 
-#### 性能测试
-<a id="performance-testing" class="xliff"></a>
+#### <a name="performance-testing"></a>性能测试
 * 使用 `redis-benchmark.exe` 启动以在编写您自己的性能测试前感受可能的吞吐量。 因为 `redis-benchmark` 不支持 SSL，因此，在运行测试之前必须[通过 Azure 门户启用非 SSL 端口](cache-configure.md#access-ports)。 例如，请参阅 [如何制定基准和测试缓存的性能？](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * 用于测试的客户端 VM 应与 Redis 缓存实例位于同一区域。
 * 建议为客户端使用 Dv2 VM 系列，因为该系列具有更好的硬件，会提供最佳的结果。
@@ -333,8 +303,7 @@ Redis 服务器本身不支持 SSL，但 Azure Redis 缓存可以。 如果你�
 
 <a name="cache-redis-commands"></a>
 
-### 使用常见 Redis 命令时要注意哪些问题？
-<a id="what-are-some-of-the-considerations-when-using-common-redis-commands" class="xliff"></a>
+### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>使用常见 Redis 命令时要注意哪些问题？
 * 对于某些需要较长时间才能完成的 Redis 命令，在未了解这些命令造成的影响的情况下，不应运行这些命令。
   * 例如，不要在生产环境中运行 [KEYS](http://redis.io/commands/keys) 命令，因为它可能需要很长时间才能返回，具体时间取决于键数。 Redis 是单线程服务器，每次只能处理一个命令。 如果在 KEYS 后面发出了其他命令，则这些命令只会在处理完 KEYS 命令后才会得到处理。 [redis.io 站点](http://redis.io/commands/) 具有关于其支持的每个操作的时间复杂性的详细信息。 单击每个命令以查看每个操作的复杂程度。
 * 键大小 - 应使用小键/值还是大键/值？ 通常这取决于方案。 如果方案需要较大的键，则可调整 ConnectionTimeout 和重试值，并调整重试逻辑。 从 Redis 服务器的角度来看，值越小，性能就越好。
@@ -342,8 +311,7 @@ Redis 服务器本身不支持 SSL，但 Azure Redis 缓存可以。 如果你�
 
 <a name="cache-benchmarking"></a>
 
-### 如何进行基准检验和测试缓存的性能？
-<a id="how-can-i-benchmark-and-test-the-performance-of-my-cache" class="xliff"></a>
+### <a name="how-can-i-benchmark-and-test-the-performance-of-my-cache"></a>如何进行基准检验和测试缓存的性能？
 * [启用缓存诊断](cache-how-to-monitor.md#enable-cache-diagnostics)，以便可以[监视](cache-how-to-monitor.md)缓存的运行状况。 可以在 Azure 门户中查看指标，也可以使用所选的工具[下载和查看](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)这些指标。
 * 可以使用 redis-benchmark.exe 对 Redis 服务器进行负载测试。
 * 确保负载测试客户端和 Redis 缓存位于同一区域。
@@ -363,8 +331,7 @@ Redis 服务器本身不支持 SSL，但 Azure Redis 缓存可以。 如果你�
 
 <a name="threadpool"></a>
 
-### 有关线程池增长的重要详细信息
-<a id="important-details-about-threadpool-growth" class="xliff"></a>
+### <a name="important-details-about-threadpool-growth"></a>有关线程池增长的重要详细信息
 CLR 线程池具有两种类型的线程 —“辅助角色”和“I/O 完成端口”（又称为 IOCP）线程。
 
 * 对于诸如处理 `Task.Run(…)` 或 `ThreadPool.QueueUserWorkItem(…)` 方法这类事务，使用辅助角色线程。 需要在后台线程上进行工作时，CLR 中的各种组件也会使用这些线程。
@@ -390,8 +357,7 @@ CLR 线程池具有两种类型的线程 —“辅助角色”和“I/O 完成�
 
 请注意，如果 IOCP 或辅助角色线程受到限制，则 StackExchange.Redis 可以会超时。
 
-### 建议
-<a id="recommendation" class="xliff"></a>
+### <a name="recommendation"></a>建议
 考虑到此信息，我们强烈建议客户将 IOCP 和辅助角色线程的最小配置值设置为大于默认值。 我们无法提供有关此值应是多少的通用指导，因为一个应用程序的合适值对于另一个应用程序会太高/低。 此设置还可能会影响复杂应用程序其他部分的性能，因此每个客户需要按照其特定需求来微调此设置。 开始时设置为 200 或 300 会比较好，随后可进行测试并根据需要进行调整。
 
 如何配置此设置：
@@ -406,16 +372,14 @@ CLR 线程池具有两种类型的线程 —“辅助角色”和“I/O 完成�
 
 <a name="server-gc"></a>
 
-### 启用服务器 GC，以便在使用 StackExchange.Redis 时在客户端上获取更多吞吐量
-<a id="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis" class="xliff"></a>
+### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>启用服务器 GC，以便在使用 StackExchange.Redis 时在客户端上获取更多吞吐量
 启用服务器 GC 可以在使用 StackExchange.Redis 时优化客户端并提供更好的性能和吞吐量。 有关服务器 GC 以及如何启用它的详细信息，请参阅以下文章：
 
 * [若要启用服务器 GC](https://msdn.microsoft.com/library/ms229357.aspx)
 * [垃圾回收基础](https://msdn.microsoft.com/library/ee787088.aspx)
 * [垃圾回收和性能](https://msdn.microsoft.com/library/ee851764.aspx)
 
-### 围绕连接的性能注意事项
-<a id="performance-considerations-around-connections" class="xliff"></a>
+### <a name="performance-considerations-around-connections"></a>围绕连接的性能注意事项
 
 每个定价层都有不同的客户端连接、内存和带宽的限制。 虽然每个缓存大小*最多*允许一定数量的连接，但与 Redis 的每个连接都具有其关联的开销。 此类开销的一个示例是，由于 TLS/SSL 加密而导致的 CPU 和内存使用。 给定缓存大小的最大连接限制假定轻负载缓存。 如果连接开销的负载*和*客户端操作的负载超出了系统容量，那么即使未超出当前缓存大小的连接限制，缓存也可能会遇到容量问题。
 
@@ -423,36 +387,24 @@ CLR 线程池具有两种类型的线程 —“辅助角色”和“I/O 完成�
 
 <a name="cache-monitor"></a>
 
-### 如何监视缓存的运行状况和性能？
-<a id="how-do-i-monitor-the-health-and-performance-of-my-cache" class="xliff"></a>
+### <a name="how-do-i-monitor-the-health-and-performance-of-my-cache"></a>如何监视缓存的运行状况和性能？
 可以在 [Azure 门户](https://portal.azure.cn)中监视 Azure Redis 缓存实例。 可以查看度量值、将度量值图表固定到启动板、自定义监视图表的日期和时间范围、在图表中添加和删除度量值，以及设置符合特定条件时发出的警报。 有关详细信息，请参阅 [Monitor Azure Redis Cache](cache-how-to-monitor.md)（监视 Azure Redis 缓存）。
 
-Redis 缓存**资源菜单**中还包含了用于对缓存进行监视和故障排除的几个工具。
+Redis 缓存“设置”中还包含了用于对缓存进行监视和故障排除的几个工具。
 
 * “诊断并解决问题”提供常见问题的相关信息，以及解决问题的策略。
 * “资源运行状况”会监视你的资源，并告知资源是否按预期运行。
-* “新建支持请求”提供用于建立缓存支持请求的选项。
 
 借助这些工具，可以监视 Azure Redis 缓存实例的运行状况，以及管理缓存应用程序。 有关详细信息，请参阅[如何配置 Azure Redis 缓存](cache-configure.md)的“支持和故障排除设置”部分。
 
-### 缓存诊断存储帐户的设置为何会更改？
-<a id="my-cache-diagnostics-storage-account-settings-changed-what-happened" class="xliff"></a>
-同一区域和订阅中的缓存共享诊断存储设置，当配置更改（启用/禁用诊断或更改存储帐户）时，所做的更改将应用于订阅中位于该区域的所有缓存。 如果缓存的诊断设置已更改，请检查同一订阅和区域中其他缓存的诊断设置是否也已更改。 检查方法之一是查看 `Write DiagnosticSettings` 事件的缓存审核日志。 有关使用审核日志的详细信息，请参阅[查看事件和审核日志](../monitoring-and-diagnostics/insights-debugging-with-events.md)以及[使用 Resource Manager 执行审核操作](../azure-resource-manager/resource-group-audit.md)。 有关监视 Azure Redis 缓存事件的详细信息，请参阅[操作和警报](cache-how-to-monitor.md#operations-and-alerts)。
-
-### 为何有些新缓存启用了诊断，但其他一些缓存却未启用诊断？
-<a id="why-are-diagnostics-enabled-for-some-new-caches-but-not-others" class="xliff"></a>
-在同一区域和订阅中，缓存共享相同的诊断存储设置。 如果有其他缓存已启用诊断，并在与该缓存相同的区域和订阅中创建新缓存，将在新缓存中使用相同的设置来启用诊断。
-
 <a name="cache-timeouts"></a>
 
-### 为何会出现超时？
-<a id="why-am-i-seeing-timeouts" class="xliff"></a>
+### <a name="why-am-i-seeing-timeouts"></a>为何会出现超时？
 超时发生在用来与 Redis 通信的客户端中。 将某个命令发送到 Redis 服务器后，该命令将会排队，Redis 服务器最终会提取该命令并执行它。 但是，客户端在此过程中可能会超时，在这种情况下，会在调用端引发异常。 有关排查超时问题的详细信息，请参阅[客户端故障排除](cache-how-to-troubleshoot.md#client-side-troubleshooting)和 [StackExchange.Redis 超时异常](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions)。
 
 <a name="cache-disconnect"></a>
 
-### 客户端为何与缓存断开连接？
-<a id="why-was-my-client-disconnected-from-the-cache" class="xliff"></a>
+### <a name="why-was-my-client-disconnected-from-the-cache"></a>客户端为何与缓存断开连接？
 下面是缓存断开连接的一些常见原因。
 
 * 客户端的原因
@@ -468,15 +420,13 @@ Redis 缓存**资源菜单**中还包含了用于对缓存进行监视和故障�
   * Azure 正在修补已部署缓存的实例
     * 原因可能是 Redis 服务器更新或常规 VM 维护。
 
-### 哪种 Azure 缓存产品适合我？
-<a id="which-azure-cache-offering-is-right-for-me" class="xliff"></a>
+### <a name="which-azure-cache-offering-is-right-for-me"></a>哪种 Azure 缓存产品适合我？
 > [!IMPORTANT]
 > 按照去年的 [公告](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)，已于 2016 年 11 月 30 日 **停用** Azure 托管缓存服务和 Azure 角色中缓存服务。 我们建议使用 [Azure Redis 缓存](https://www.azure.cn/home/features/redis-cache/)。
 >
 >
 
-### Azure Redis 缓存
-<a id="azure-redis-cache" class="xliff"></a>
+### <a name="azure-redis-cache"></a>Azure Redis 缓存
 Azure Redis 缓存已正式发布，最大大小为 53 GB，且其可用性 SLA 为 99.9%。 全新[高级级别](cache-premium-tier-intro.md)提供的最大大小为 530 GB，且支持群集、VNET 和持久性，并附带 99.9% SLA。
 
 Azure Redis 缓存使客户能够使用 Azure.cn 管理的安全专用 Redis 缓存。 有了此产品，用户就可以利用 Redis 提供的丰富功能集和生态系统，并可以从 Azure.cn 获得可靠的托管和监控。
@@ -487,10 +437,12 @@ Redis 取得成功的另一个重要方面是围绕它构建了健康而充满�
 
 有关如何开始使用 Azure Redis 缓存的详细信息，请参阅[如何使用 Azure Redis 缓存](cache-dotnet-how-to-use-azure-redis-cache.md)和 [Azure Redis 缓存文档](index.md)。
 
-### 托管缓存服务
-<a id="managed-cache-service" class="xliff"></a>
+### <a name="managed-cache-service"></a>托管缓存服务
 [托管缓存服务已于 2016 年 11 月 30 日停用。](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-### 角色中缓存
-<a id="in-role-cache" class="xliff"></a>
+若要查看已存档的文档，请参阅[已存档的托管缓存服务文档](https://msdn.microsoft.com/library/azure/dn386094.aspx)。
+
+### <a name="in-role-cache"></a>角色中缓存
 [角色中缓存已于 2016 年 11 月 30 日停用。](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+
+若要查看已存档的文档，请参阅[已存档的角色中缓存文档](https://msdn.microsoft.com/library/azure/dn386103.aspx)。

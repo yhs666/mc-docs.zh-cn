@@ -3,8 +3,8 @@ title: "Azure CLI 脚本示例 - 使用批处理运行作业 | Microsoft Docs"
 description: "Azure CLI 脚本示例 - 使用批处理运行作业"
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
+author: alexchen2016
+manager: digimobile
 editor: tysonn
 ms.assetid: 
 ms.service: batch
@@ -12,22 +12,25 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+origin.date: 05/02/2017
+ms.date: 07/04/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 7be8a02df7df7373cf477ea619dc4d1f0c44809a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: a98b6e5c25732f7c0e26863b5b9b0c9ff7820c21
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
+# <a name="running-jobs-on-azure-batch-with-azure-cli"></a>使用 Azure CLI 在 Azure Batch 上运行作业
 
-# <a name="running-jobs-on-azure-batch-with-azure-cli"></a>使用 Azure CLI 在 Azure 批处理上运行作业
+此脚本将创建一个批处理作业，并将一系列任务添加到该作业。 它还演示了如何监视作业及其任务。 最后，它演示如何有效地查询 Batch 服务，以获取有关作业任务的信息。
 
-此脚本将创建一个批处理作业，并将一系列任务添加到该作业。 它还演示了如何监视作业及其任务。
-运行此脚本时假定已设置批处理帐户，并且已配置池和应用程序。 有关详细信息，请参阅涵盖上述每个主题的[示例脚本](../batch-cli-samples.md)。
+## <a name="prerequisites"></a>先决条件
 
-如果需要，请使用 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中的说明安装 Azure CLI，然后运行 `az login` 登录到 Azure。
+- 按照 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中提供的说明安装 Azure CLI（如果尚未这样做）。
+- 创建 Batch 帐户（如果还没有帐户）。 有关创建帐户的示例脚本，请参阅[使用 Azure CLI 创建 Batch 帐户](/batch/scripts/batch-cli-sample-create-account/)。
+- 将应用程序配置为从启动任务运行（如果尚未这样做）。 有关用于创建应用程序并将应用程序包上传到 Azure 的示例脚本，请参阅[使用 Azure CLI 将应用程序添加到 Azure Batch](/batch/scripts/batch-cli-sample-add-application/)。
+- 配置将在其中运行作业的池。 有关使用云服务配置或虚拟机配置创建池的示例脚本，请参阅[使用 Azure CLI 管理 Azure Batch 池](/batch/batch-cli-sample-manage-pool/)。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -47,7 +50,7 @@ az batch job create --id myjob --pool-id mypool
 # more information see the sample script for adding applications.
 az batch task create \
     --job-id myjob \
-    --id task1 \
+    --task-id task1 \
     --application-package-references myapp#1.0
     --command-line "cmd /c %AZ_BATCH_APP_PACKAGE_MYAPP#1.0%\\myapp.exe"
 
@@ -57,18 +60,18 @@ az batch task create --job-id myjob --json-file tasks.json
 
 # Now that all the tasks are added - we can update the job so that it will automatically
 # be marked as completed once all the tasks are finished.
-az batch job set --on-all-tasks-complete terminateJob
+az batch job set --job-id myjob --on-all-tasks-complete terminateJob
 
 # Monitor the status of the job.
 az batch job show --job-id myjob
 
 # Monitor the status of a task.
-az batch task show --task-id task1
+az batch task show --job-id myjob --task-id task1
 ```
 
 ## <a name="clean-up-job"></a>清除作业
 
-运行上述示例脚本后，可运行以下命令以删除作业及其所有任务。 请注意，将需要单独删除池；请参阅[有关管理池的教程](./batch-cli-sample-manage-pool.md)。
+运行上述示例脚本后，可运行以下命令以删除作业及其所有任务。 请注意，池将需要单独删除。 有关创建和删除池的详细信息，请参阅[使用 Azure CLI 管理 Azure Batch 池](./batch-cli-sample-manage-pool.md)。
 
 ```azurecli
 az batch job delete --job-id myjob
@@ -86,11 +89,11 @@ az batch job delete --job-id myjob
 | [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#show) | 检索指定批处理作业的详细信息。  |
 | [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#create) | 将任务添加到指定的批处理作业。  |
 | [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#show) | 从指定的批处理作业中检索任务的详细信息。  |
+| [az batch task list](https://docs.microsoft.com/cli/azure/batch/task#list) | 列出与指定的作业关联的任务。  |
 
 ## <a name="next-steps"></a>后续步骤
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
-可以在 [Azure 批处理 CLI 文档](../batch-cli-samples.md)中找到其他批处理 CLI 脚本示例。
-
+可以在 [Azure Batch CLI 文档](../batch-cli-samples.md)中找到其他批处理 CLI 脚本示例。
 

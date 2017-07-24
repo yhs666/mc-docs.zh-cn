@@ -3,8 +3,8 @@ title: "将 DPM 工作负荷备份到 Azure 经典管理门户 | Microsoft Docs"
 description: "使用 Azure 备份服务备份 DPM 服务器的简介"
 services: backup
 documentationcenter: 
-author: Nkolli1
-manager: shreeshd
+author: alexchen2016
+manager: digimobile
 editor: 
 keywords: "System Center Data Protection Manager, Data Protection Manager, dpm 备份"
 ms.assetid: 8f23972b-d167-4231-b331-e198db3b18b4
@@ -13,20 +13,22 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+origin.date: 06/14/2017
+ms.date: 06/29/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 69d39f5c97548d88206f3a22225b87b6313bdbad
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 757b8c2f4f0408940db1ebff2c015e4660d707e8
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>使用 DPM 准备将工作负荷备份到 Azure
 > [!div class="op_single_selector"]
+> * [Azure 备份服务器](backup-azure-microsoft-azure-backup-classic.md)
 > * [Azure 备份服务器（经典）](backup-azure-microsoft-azure-backup-classic.md)
 > * [SCDPM（经典）](backup-azure-dpm-introduction-classic.md)
+>
+>
 
 本文介绍如何使用 Azure 备份来保护 System Center Data Protection Manager (DPM) 服务器和工作负荷。 通过阅读本文，你将会了解：
 
@@ -61,8 +63,6 @@ System Center DPM 备份文件和应用程序数据。 备份到 DPM 的数据�
 
 1. **创建备份保管库**
 
-  > [!IMPORTANT]
-  > 从 2017 年 3 月开始，无法再使用经典管理门户来创建备份保管库。 仍支持现有备份保管库，并且可以[使用 Azure PowerShell 创建备份保管库](./backup-client-automation-classic.md#create-a-backup-vault)。 不过，Microsoft 建议你为所有部署创建恢复服务保管库，因为将来只会对恢复服务保管库进行增强。
 
 2. **下载保管库凭据** — 在 Azure 备份中，将你创建的管理证书上传到保管库。
 3. **安装 Azure 备份代理并注册服务器** — 通过 Azure 备份，在每个 DPM 服务器上安装代理，并在备份保管库中注册 DPM 服务器。
@@ -102,5 +102,4 @@ System Center DPM 备份文件和应用程序数据。 备份到 DPM 的数据�
 > 从 System Center 2012 DPM SP1 开始，可以使用 Azure 备份将 DPM 保护的工作负荷备份到 Azure。
 >
 >
-
 

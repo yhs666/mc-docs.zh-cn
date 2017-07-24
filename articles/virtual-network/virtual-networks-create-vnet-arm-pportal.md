@@ -1,6 +1,6 @@
 ---
-title: "创建 Azure 虚拟网络 | Azure"
-description: "了解如何创建包含多个子网的虚拟网络。"
+title: "创建包含子网的 Azure 虚拟网络 | Azure"
+description: "了解如何在 Azure 中创建包含多个子网的虚拟网络。"
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -14,87 +14,98 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/12/2017
-ms.date: 06/05/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 ms.custom: 
-ms.openlocfilehash: 23c68b6df5143d3171254e9c1da9d8f03ffce901
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 7033294cd50271c06df845913b216aca03841b16
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 创建包含多个子网的虚拟网络
-<a id="create-a-virtual-network-with-multiple-subnets" class="xliff"></a>
+# <a name="create-a-virtual-network-with-multiple-subnets"></a>创建包含多个子网的虚拟网络
 
-本教程介绍如何创建包含独立公共和专用子网的基本 Azure 虚拟网络 (VNet)。 可将虚拟机 (VM)、应用服务环境、虚拟机规模集、HDInsight 和云服务等 Azure 资源连接到子网。 连接到 Vnet 的资源可通过专用 Azure 网络相互通信。
+本教程介绍如何创建包含独立公共子网和专用子网的基本 Azure 虚拟网络。 可将虚拟机、Azure 应用服务环境、虚拟机规模集、Azure HDInsight 等 Azure 资源和其他云服务连接到子网。 连接到虚拟网络的资源可通过专用 Azure 网络相互通信。
 
-以下部分包含使用 Azure [门户](#portal)、Azure [命令行界面](#cli) (CLI)、Azure [PowerShell](#powershell) 和 Azure Resource Manager [模板](#template)部署 VNet 的步骤。 不管选择使用哪种工具来部署 VNet，结果都是一样的。 单击任一工具的链接会直接转到本文的相关部分。 若要详细了解所有的 VNet 和子网设置，请阅读[管理 VNet](virtual-network-manage-network.md) 和[管理子网](virtual-network-manage-subnet.md)这两篇文章。
+以下部分包含使用 [Azure 门户](#portal)、Azure 命令行接口 ([Azure CLI](#azure-cli))、[Azure PowerShell](#powershell) 和 [Azure Resource Manager 模板](#resource-manager-template)部署虚拟网络时可以执行的步骤。 不管选择使用哪种工具来部署虚拟网络，结果都是一样的。 单击工具链接会直接转到本教程的相关部分。 若要详细了解所有的虚拟网络和子网设置，请参阅[管理虚拟网络](virtual-network-manage-network.md)和[管理虚拟子网](virtual-network-manage-subnet.md)。
 
 ## <a name="portal"></a>Azure 门户
 
-1. 在 Internet 浏览器中打开 Azure [门户](https://portal.azure.cn)并使用 Azure [帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录。 如果还没有帐户，可以注册[试用版](https://azure.microsoft.com/offers/ms-azr-0044p)。
-2. 在门户中，单击“+ 新建” > “网络” > “虚拟网络”。
-3. 在显示的“虚拟网络”边栏选项卡中，让“选择部署模型”下的“Resource Manager”保持选中状态，然后单击“创建”。
-4. 在显示的“创建虚拟网络”边栏选项卡中输入以下值，然后单击“创建”按钮：
+1. 在 Internet 浏览器中，转到 [Azure 门户](https://portal.azure.cn)。 使用 [Azure 帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录。 如果你没有 Azure 帐户，可以注册 [试用版](https://azure.microsoft.com/offers/ms-azr-0044p)。
+2. 在门户中，单击“+新建” > “网络” > “虚拟网络”。
+3. 在“虚拟网络”边栏选项卡上的“选择部署模型”下面，保留选择“Resource Manager”，然后单击“创建”。
+4. 在“创建虚拟网络”边栏选项卡中输入以下值，然后单击“创建”：
 
     |设置|值|
     |---|---|
     |名称|MyVnet|
-    |地址空间|*10.0.0.0/16*|
+    |地址空间|10.0.0.0/16|
     |子网名称|公共|
-    |子网地址范围|*10.0.0.0/24*|
-    |资源组|让“新建”保持选中状态，并输入 MyResourceGroup|
+    |子网地址范围|10.0.0.0/24|
+    |资源组|让“新建”保持选中状态，然后输入 **MyResourceGroup**。|
     |订阅和位置|选择订阅和位置。
 
-    如果不熟悉 Azure，请详细了解[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)、[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和[位置](https://azure.microsoft.com/regions)（也称为区域）。
-6. 该门户仅允许用户在创建 VNet 时创建一个子网。 对于本教程，将在创建 VNet 后创建第二个子网。 以后，可以将能够通过 Internet 访问的资源连接到公共子网，将无法通过 Internet 访问的资源连接到专用子网。 若要创建第二个子网，请在门户顶部的“搜索资源”框中输入 MyVnet。 当“MyVnet”出现在搜索结果中时，请单击它。 注意：如果订阅中有多个同名的 VNet，则会看到每个同名的 VNet 下面列出资源组名称。 请确保单击其下面包含 MyResourceGroup 的 MyVnet 结果。
-7. 在显示的“MyVnet”边栏选项卡中，单击“设置”下面的“子网”。
+    如果你不熟悉 Azure，请详细了解[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)、[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和[位置](https://azure.microsoft.com/regions)（也称为“区域”）。
+6. 在门户中创建虚拟网络时，只能创建一个子网。 本教程将在创建虚拟网络后创建第二个子网。 以后，可以将可通过 Internet 访问的资源连接到**公共**子网。 还可以将无法通过 Internet 访问的资源连接到**专用**子网。 若要创建第二个子网，请在页面顶部的“搜索资源”框中输入 **MyVnet**。 在搜索结果中，单击“MyVnet”。 如果订阅中有多个同名的虚拟网络，请检查每个虚拟网络下面列出的资源组。 请务必单击包含资源组 **MyResourceGroup** 的 **MyVnet** 搜索结果。
+7. 在“MyVnet”边栏选项卡中的“设置”下面，单击“子网”。
 8. 在“MyVnet - 子网”边栏选项卡中，单击“+子网”。
-9. 在“添加子网”边栏选项卡中，输入“专用”作为“名称”，输入“10.0.1.0/24”作为“地址范围”，然后单击“确定”。
-10. 在“MyVnet - 子网”边栏选项卡中查看子网。 将会看到所创建的“公共”和“专用”子网。
-11. 可选：若要删除在本教程中创建的资源，请完成本文[删除资源](#delete-portal)部分中的步骤。
+9. 在“添加子网”边栏选项卡中为“名称”输入“专用”。 为“地址范围”输入 **10.0.1.0/24**。  单击 **“确定”**。
+10. 在“MyVnet - 子网”边栏选项卡中检查子网。 可以看到所创建的“公共”和“专用”子网。
+11. **可选**：若要删除在本教程中创建的资源，请完成本文的[删除资源](#delete-portal)中所述的步骤。
 
-## CLI
-<a id="cli" class="xliff"></a>
-无论是在 Windows、Linux 还是 macOS 上，执行的 CLI 命令都是相同的，但不同操作系统 shell 中的脚本会有差异。 以下说明适用于执行包含 CLI 命令的 Bash 脚本：
+## <a name="azure-cli"></a>Azure CLI
+
+无论是在 Windows、Linux 还是 macOS 上，执行 Azure CLI 命令的结果都是相同的。 但是，脚本在不同操作系统 shell 中的结果会有差异。 以下说明适用于执行包含 Azure CLI 命令的 Bash 脚本：
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-```azurecli
-#!/bin/bash
+1. 在 Internet 浏览器中，打开 [Azure 门户](https://portal.azure.cn)。 使用 [Azure 帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录。 如果你没有 Azure 帐户，可以注册 [试用版](https://azure.microsoft.com/offers/ms-azr-0044p)。
+2. 在门户页面顶部“搜索资源”框的右侧，单击“>_”图标启动 Bash Azure Cloud Shell（预览版）。 Cloud Shell 窗格显示在门户底部。 几秒钟后将显示 **username@Azure:~$** 提示符。 Cloud Shell 使用在门户中登录时所用的凭据自动将你登录到门户。
+3. 在浏览器中复制以下脚本：
+    ```azurecli
+    #!/bin/bash
 
-# Create a resource group.
-az group create \
-  --name MyResourceGroup \
-  --location chinaeast
+    # Create a resource group.
+    az group create \
+      --name MyResourceGroup \
+      --location chinaeast
 
-# Create a virtual network with one subnet.
-az network vnet create \
-  --name MyVnet \
-  --resource-group MyResourceGroup \
-  --subnet-name Public
+    # Create a virtual network with one subnet.
+    az network vnet create \
+      --name MyVnet \
+      --resource-group MyResourceGroup \
+      --subnet-name Public
 
-# Create an additional subnet within the VNet.
-az network vnet subnet create \
-  --name Private \
-  --address-prefix 10.0.1.0/24 \
-  --vnet-name MyVnet \
-  --resource-group MyResourceGroup
-```
+    # Create an additional subnet within the virtual network.
+    az network vnet subnet create \
+      --name Private \
+      --address-prefix 10.0.1.0/24 \
+      --vnet-name MyVnet \
+      --resource-group MyResourceGroup
+    ```
+4. 创建脚本文件并保存。 在 Cloud Shell 命令提示符下，键入 `nano myscript.sh --nonewlines`。 该命令使用空的 myscript.sh 文件启动 GNU nano 编辑器。 将光标放在编辑器窗口中并单击右键，然后单击“粘贴”。  
+5. 若要将该文件保存为 myscript.sh，请按住 Ctrl+X 键的同时键入 **Y**，然后按 Enter 键。 切换不同的会话后，Cloud Shell 存储不会持久保留已保存的文件。
+6. 在 Cloud Shell 命令提示符下，若要将文件标记为可执行文件，请运行 `chmod +x myscript.sh` 命令。
+7. 若要执行脚本，请输入 `./myscript.sh`。
+8. 运行完脚本后，若要查看虚拟网络的子网，请复制以下命令并将其粘贴到 Bash Cloud Shell 窗格中：
+    ```azurecli
+    az network vnet subnet list --resource-group MyResourceGroup --vnet-name MyVnet --output table
+    ```
+9. **可选**：若要删除在本教程中创建的资源，请完成本文的[删除资源](#delete-cli)中所述的步骤。
 
-## PowerShell
-<a id="powershell" class="xliff"></a>
-1. 安装最新版本的 Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请阅读 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)一文。
-2. 单击 Windows“开始”按钮，键入 PowerShell，然后在搜索结果中单击“PowerShell”，启动 PowerShell 会话。
-3. 在 PowerShell 窗口中输入 `login-azurermaccount` 命令，使用 Azure [帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录。 如果还没有帐户，可以注册[试用版](https://azure.microsoft.com/offers/ms-azr-0044p)。
+## <a name="powershell"></a>PowerShell
+
+1. 安装最新版本的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果你不太熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+2. 若要启动 PowerShell 会话，请转到“开始”，输入 **powershell**，然后单击“PowerShell”。
+3. 在 PowerShell 窗口中，若要使用 [Azure 帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录，请输入 `login-azurermaccount`。
 4. 在浏览器中复制以下脚本：
     ```powershell
-    # Create a resource group
+    # Create a resource group.
     New-AzureRmResourceGroup `
       -Name MyResourceGroup `
       -Location chinaeast
 
-    # Create two subnets
+    # Create two subnets.
     $Subnet1 = New-AzureRmVirtualNetworkSubnetConfig `
       -Name Public `
       -AddressPrefix 10.0.0.0/24
@@ -102,7 +113,7 @@ az network vnet subnet create \
       -Name Private `
       -AddressPrefix 10.0.1.0/24
 
-    # Create a virtual network
+    # Create a virtual network.
     $Vnet=New-AzureRmVirtualNetwork `
       -ResourceGroupName MyResourceGroup `
       -Location chinaeast `
@@ -111,32 +122,31 @@ az network vnet subnet create \
       -Subnet $Subnet1,$Subnet2
     #
     ```
-5. 若要执行该脚本，请在 PowerShell 窗口中单击右键。
-6. 在 PowerShell 窗口中复制并粘贴以下命令，查看 VNet 的子网：
+5. 若要执行脚本，请在 PowerShell 窗口中单击右键。
+6. 若要查看虚拟网络的子网，请复制以下命令，并将其粘贴到 PowerShell 窗口中：
     ```powershell
     $Vnet = $Vnet.subnets | Format-Table Name, AddressPrefix
     ```
-7. 可选：若要删除在本教程中创建的资源，请完成本文[删除资源](#delete-powershell)部分中的步骤。
+7. **可选**：若要删除在本教程中创建的资源，请完成本文的[删除资源](#delete-powershell)中所述的步骤。
 
-## 模板
-<a id="template" class="xliff"></a>
+## <a name="resource-manager-template"></a>Resource Manager 模板
 
-可以使用 Azure Resource Manager 模板部署 VNet。 若要详细了解模板，请阅读[什么是 Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#template-deployment) 一文。 若要访问模板并了解其参数，请查看 [Create a VNet with two subnets template](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/)（使用两个子网模板创建 VNet）网页。 可以使用[门户](#template-portal)、[CLI](#template-cli) 或 [PowerShell](#template-powershell) 部署模板。
+可以使用 Azure Resource Manager 模板部署虚拟网络。 若要详细了解模板，请参阅[什么是 Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#template-deployment)。 若要访问模板并了解其参数，请参阅[创建包含两个子网的虚拟网络](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets/)模板。 可以使用[门户](#template-portal)、[Azure CLI](#template-cli) 或 [PowerShell](#template-powershell) 部署模板。
 
-可选：若要删除在本教程中创建的资源，请完成本文[删除资源](#delete)部分所有小节中的步骤。
+**可选**：若要删除在本教程中创建的资源，请完成本文的所有[删除资源](#delete)小节中所述的步骤。
 
-### <a name="template-portal"></a>门户
+### <a name="template-portal"></a>Azure 门户
 
-1. 在浏览器中打开模板[网页](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets)。
-2. 单击“部署到 Azure”按钮，此时会打开 Azure 门户登录页。
-3. 使用 Azure [帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录到门户。 如果还没有帐户，可以注册[试用版](https://azure.microsoft.com/offers/ms-azr-0044p)。
+1. 在浏览器中打开[模板页](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)。
+2. 单击“部署到 Azure”按钮。 此时会打开 Azure 门户登录页。
+3. 使用 [Azure 帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录到门户。 如果你没有 Azure 帐户，可以注册 [试用版](https://azure.microsoft.com/offers/ms-azr-0044p)。
 4. 输入以下参数值：
 
     |参数|值|
     |---|---|
-    |订阅|选择你的订阅。|
+    |订阅|选择订阅|
     |资源组|MyResourceGroup|
-    |位置|选择一个位置。|
+    |位置|选择位置|
     |VNet 名称|MyVnet|
     |VNet 地址前缀|10.0.0.0/16|
     |Subnet1Prefix|10.0.0.0/24|
@@ -144,53 +154,52 @@ az network vnet subnet create \
     |Subnet2Prefix|10.0.1.0/24|
     |Subnet2Name|专用|
 
-5. 同意条款和条件，然后单击“购买”部署 VNet。
+5. 同意条款和条件，然后单击“购买”部署虚拟网络。
 
-### <a name="template-cli"></a>CLI
+### <a name="template-cli"></a>Azure CLI
 
-1. 在 Internet 浏览器中打开 Azure [门户](https://portal.azure.cn)并使用 Azure [帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录。 如果还没有帐户，可以注册[试用版](https://azure.microsoft.com/offers/ms-azr-0044p)。
-2. 在门户顶部“搜索资源”栏的右侧，单击“>_”图标启动 Bash Azure Cloud Shell（预览版）。 Cloud Shell 窗格显示在门户底部，几秒钟后将显示 **username@Azure:~$** 提示符。 Cloud Shell 使用在门户中进行身份验证时所用的凭据将你自动登录到 Azure。
-3. 输入以下命令，为 VNet 创建资源组： `az group create --name MyResourceGroup --location chinaeast`
-4. 可以使用以下值部署模板：
-    - 默认参数值：输入以下命令：  `az group deployment create --resource-group MyResourceGroup --name VnetTutorial --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`
-    - 自定义参数值：部署模板之前下载并修改模板、使用命令行中的参数部署模板，或使用单独的参数文件部署模板。 可以在 [Create a VNet with two subnets template](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/)（使用两个子网模板创建 VNet）网页上单击“在 GitHub 上浏览”按钮，下载模板和参数文件。 在 GitHub 中单击 azuredeploy.parameters.json 或 azuredeploy.json 文件，然后单击该文件对应的“Raw”（原始文件）按钮。 在浏览器中，复制内容并将其保存到计算机上的某个文件。 修改模板中的参数值，或使用单独的参数文件部署模板。  
+1. 在[门户](https://portal.azure.cn)中，使用 [Azure 帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录。 如果你没有 Azure 帐户，可以注册 [试用版](https://azure.microsoft.com/offers/ms-azr-0044p)。
+2. 在“搜索资源”框的右侧，单击“>_”图标启动 Bash Azure Cloud Shell（预览版）。 Cloud Shell 窗格显示在门户底部。 几秒钟后将显示 **username@Azure:~$** 提示符。 Cloud Shell 使用在门户中登录时所用的凭据自动将你登录到 Azure 门户。
+3. 若要为虚拟网络创建资源组，请输入以下命令：`az group create --name MyResourceGroup --location chinaeast`
+4. 可以使用以下参数选项之一来部署模板：
+    - **默认的参数值**。 输入以下命令：`az group deployment create --resource-group MyResourceGroup --name VnetTutorial --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`
+    - **自定义参数值**。 部署模板之前下载并修改模板。 还可以在命令行中使用参数来部署模板，或使用单独的参数文件来部署模板。 若要下载模板和参数文件，请在[创建包含两个子网的虚拟网络](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets/)模板页上单击“在 GitHub 上浏览”按钮。 在 GitHub 中单击 **azuredeploy.parameters.json** 或 **azuredeploy.json** 文件。 然后单击该文件对应的“Raw”按钮。 在浏览器中，复制该文件的内容。 将内容保存到计算机上的某个文件中。 可以修改模板中的参数值，或使用单独的参数文件部署模板。  
 
     若要详细了解如何使用这些方法部署模板，请键入 `az group deployment create --help`。
 
 ### <a name="template-powershell"></a>PowerShell
 
-1. 安装最新版本的 Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请阅读 [Azure PowerShell 概述](/overview.md?toc=%2fvirtual-network%2ftoc.json)一文。
-2. 单击 Windows“开始”按钮，键入 PowerShell，然后在搜索结果中单击“PowerShell”，启动 PowerShell 会话。
-3. 在 PowerShell 窗口中输入 `login-azurermaccount` 命令，使用 Azure [帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录。 如果还没有帐户，可以注册[试用版](https://azure.microsoft.com/offers/ms-azr-0044p)。
-4. 输入以下命令，为 VNet 创建资源组： `New-AzureRmResourceGroup -Name MyResourceGroup -Location chinaeast`
-5. 可以使用以下值部署模板：
-    - 默认参数值：为此，请输入以下命令：  `New-AzureRmResourceGroupDeployment -Name VnetTutorial -ResourceGroupName MyResourceGroup -TemplateUri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`        
-    - 自定义参数值：为此，可以在部署模板之前下载并修改模板、使用命令行中的参数部署模板，或使用单独的参数文件部署模板。 可以在 [Create a VNet with two subnets template](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/)（使用两个子网模板创建 VNet）网页上单击“在 GitHub 上浏览”按钮，下载模板和参数文件。 在 GitHub 中单击 azuredeploy.parameters.json 或 azuredeploy.json 文件，然后单击该文件对应的“Raw”（原始文件）按钮。 在浏览器中，复制内容并将其保存到计算机上的某个文件。 修改模板中的参数值，或使用单独的参数文件部署模板。  
+1. 安装最新版本的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果你不太熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+2. 若要启动 PowerShell 会话，请转到“开始”，输入 **powershell**，然后单击“PowerShell”。
+3. 在 PowerShell 窗口中，若要使用 [Azure 帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录，请输入 `login-azurermaccount`。
+4. 若要为虚拟网络创建资源组，请输入以下命令：`New-AzureRmResourceGroup -Name MyResourceGroup -Location chinaeast`
+5. 可以使用以下参数选项之一来部署模板：
+    - **默认的参数值**。 输入以下命令：`New-AzureRmResourceGroupDeployment -Name VnetTutorial -ResourceGroupName MyResourceGroup -TemplateUri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`        
+    - **自定义参数值**。 部署模板之前下载并修改模板。 还可以在命令行中使用参数来部署模板，或使用单独的参数文件来部署模板。 若要下载模板和参数文件，请在[创建包含两个子网的虚拟网络](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets/)模板页上单击“在 GitHub 上浏览”按钮。 在 GitHub 中单击 **azuredeploy.parameters.json** 或 **azuredeploy.json** 文件。 然后单击该文件对应的“Raw”按钮。 在浏览器中，复制该文件的内容。 将内容保存到计算机上的某个文件中。 可以修改模板中的参数值，或使用单独的参数文件部署模板。  
 
     若要详细了解如何使用这些方法部署模板，请键入 `Get-Help New-AzureRmResourceGroupDeployment`。 
 
 ## <a name="delete"></a>删除资源
-完成本教程后，可以删除资源，以免产生使用费。 删除资源组也会删除其中的所有资源。
+完成本教程后，可以删除本教程中使用的资源，以免产生使用费。 删除资源组会删除其中包含的所有资源。
 
-### <a name="delete-portal"></a>门户
+### <a name="delete-portal"></a>Azure 门户
 
-1. 在门户顶部的“搜索资源”框中开始键入 MyResourceGroup。 当“MyResourceGroup”出现在搜索结果中时，请单击它。
-2. 在显示的“MyResourceGroup”边栏选项卡中，单击顶部附近的“删除”图标。
-3. 若要确认删除，请在“键入资源组名称:”框中输入 MyResourceGroup，然后单击“删除”。
+1. 在门户的搜索框中，输入 **MyResourceGroup**。 在搜索结果中，单击“MyResourceGroup”。
+2. 在“MyResourceGroup”边栏选项卡中，单击“删除”图标。
+3. 若要确认删除，请在“键入资源组名称”框中输入 **MyResourceGroup**，然后单击“删除”。
 
-### <a name="delete-cli"></a>CLI
+### <a name="delete-cli"></a>Azure CLI
 
-在 Cloud Shell 提示符处输入以下命令：`az group delete --name MyResourceGroup --yes`
+在 Cloud Shell 命令提示符下输入以下命令：`az group delete --name MyResourceGroup --yes`
 
 ### <a name="delete-powershell"></a>PowerShell
 
-在 PowerShell 提示符处输入以下命令：`Remove-AzureRmResourceGroup -Name MyResourceGroup`
+在 PowerShell 命令提示符下输入以下命令：`Remove-AzureRmResourceGroup -Name MyResourceGroup`
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
-- 若要了解所有的 VNet 和子网设置，请阅读[管理 VNet](virtual-network-manage-network.md#view-vnet) 和[管理子网](virtual-network-manage-subnet.md#create-subnet)这两篇文章。 可以根据不同的要求，使用多种选项创建生产 VNet 和子网。
-- 通过创建[网络安全组](virtual-networks-nsg.md) (NSG) 并将其应用到子网来筛选入站和出站子网流量。
-- 创建 [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fvirtual-network%2ftoc.json) VM 并将其连接到 VNet。
-- 使用 [VNet 对等互连](virtual-network-peering-overview.md)将 VNet 连接到同一位置中的其他 VNet。
-- 使用[站点到站点虚拟专用网络](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json) (VPN) 或 [ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fvirtual-network%2ftoc.json) 线路将 VNet 连接到本地网络。
+- 若要了解所有的虚拟网络和子网设置，请参阅[管理虚拟网络](virtual-network-manage-network.md#view-vnet)和[管理虚拟子网](virtual-network-manage-subnet.md#create-subnet)。 可以根据不同的要求，通过多种选项在生产环境中使用虚拟网络和子网。
+- 针对子网创建并应用[网络安全组](virtual-networks-nsg.md) (NSG)，以筛选入站和出站子网流量。
+- 创建 [Windows 虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-network%2ftoc.json)或 [Linux 虚拟机](../virtual-machines/linux/quick-create-portal.md?toc=%2fvirtual-network%2ftoc.json)，然后将其连接到虚拟网络。
+- 使用[虚拟网络对等互连](virtual-network-peering-overview.md)将虚拟网络连接到同一位置中的其他虚拟网络。
+- 使用[站点到站点虚拟专用网络](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)或 [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fvirtual-network%2ftoc.json) 线路，将虚拟网络连接到本地网络。

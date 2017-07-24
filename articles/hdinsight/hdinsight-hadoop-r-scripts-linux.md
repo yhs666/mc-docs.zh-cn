@@ -1,12 +1,11 @@
 ---
-title: 在基于 Linux 的 HDInsight 上安装 R | Azure
-description: 了解如何安装并使用 R 来自定义基于 Linux 的 Hadoop 群集。
+title: "在基于 Linux 的 HDInsight 上安装 R | Azure"
+description: "了解如何安装并使用 R 来自定义基于 Linux 的 Hadoop 群集。"
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
 ms.assetid: 7b758492-87bf-4d82-8b8c-1664e7d177bd
 ms.service: hdinsight
 ms.workload: big-data
@@ -15,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
 ms.date: 02/20/2017
-ms.author: v-dazen
+ms.author: larryfr
+ms.openlocfilehash: 2f0d12c678436322658f752e8e841e26e576d80f
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
+# <a name="install-and-use-r-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 R
+你可以使用 **脚本操作** 群集自定义在 HDInsight 上 Hadoop 中的任何类型的群集上安装 R。 这样，数据科学家和分析人员便可使用 R 部署功能强大的 MapReduce/YARN 编程框架，以便在 HDInsight 中部署的 Hadoop 群集上处理大量数据。
 
-# 在 HDInsight Hadoop 群集上安装并使用 R
-你可以使用**脚本操作**群集自定义在 HDInsight 上 Hadoop 中的任何类型的群集上安装 R。这样，数据科学家和分析人员便可使用 R 部署功能强大的 MapReduce/YARN 编程框架，以便在 HDInsight 中部署的 Hadoop 群集上处理大量数据。
+## <a name="what-is-r"></a>什么是 R？
+<a href="http://www.r-project.org/" target="_blank">统计计算的 R 项目</a>是一种用于统计计算的开放源代码语言和环境。 R 提供了数百个内置统计函数及其自己的编程语言，该语言结合了各方面的函数编程和面向对象的编程。 它还提供了各种图形功能。 R 是面向各个领域最专业的统计学家和科学家的首选编程环境。
 
-## 什么是 R？
-<a href="http://www.r-project.org/" target="_blank">统计计算的 R 项目</a>是一种用于统计计算的开放源代码语言和环境。R 提供了数百个内置统计函数及其自己的编程语言，该语言结合了各方面的函数编程和面向对象的编程。它还提供了各种图形功能。R 是面向各个领域最专业的统计学家和科学家的首选编程环境。
+R 脚本可以在 HDInsight 中使用创建用于安装 R 环境的脚本操作自定义的 Hadoop 群集上运行。 R 与 Azure Blob 存储 (WASB) 兼容，因此存储在该处的数据可以在 HDInsight 上使用 R 进行处理。
 
-R 脚本可以在 HDInsight 中使用创建用于安装 R 环境的脚本操作自定义的 Hadoop 群集上运行。R 与 Azure Blob 存储 (WASB) 兼容，这样，存储在此的数据可以在 HDInsight 上使用 R 进行处理。
-
-## 此脚本的用途
+## <a name="what-the-script-does"></a>脚本功能
 用于在 HDInsight 群集上安装 R 的脚本操作会安装以下提供基本 R 安装的 Ubuntu 包：
 
 * [r-base](http://packages.ubuntu.com/precise/r-base)：基本 GNU R 包
@@ -53,13 +56,13 @@ R 脚本可以在 HDInsight 中使用创建用于安装 R 环境的脚本操作�
 | [caTools](https://cran.r-project.org/web/packages/caTools/index.html) |用于移动窗口统计信息、GIF、Base64、ROC AUC 等的工具。 |
 | [stringdist](https://cran.r-project.org/web/packages/stringdist/index.html) |近似字符串匹配和字符串距离函数。 |
 
-## 使用脚本操作安装 R
-以下脚本操作用于在 HDInsight 群集上安装 R。https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+## <a name="install-r-using-script-actions"></a>使用脚本操作安装 R
+以下脚本操作用于在 HDInsight 群集上安装 R。 https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
 
-本部分提供有关如何在使用 Azure 门户创建新群集时使用脚本的说明。
+本部分提供有关如何在使用 Azure 门户预览创建新群集时使用脚本的说明。 
 
 > [!NOTE]
-> Azure PowerShell、Azure CLI、HDInsight .NET SDK 或 Azure Resource Manager 模板也可用于应用脚本操作。你也可以将脚本操作应用于已在运行的群集。有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](./hdinsight-hadoop-customize-cluster-linux.md)。
+> Azure PowerShell、Azure CLI、HDInsight .NET SDK 或 Azure Resource Manager 模板也可用于应用脚本操作。 你也可以将脚本操作应用于已在运行的群集。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](./hdinsight-hadoop-customize-cluster-linux.md)。
 > 
 > 
 
@@ -72,10 +75,10 @@ R 脚本可以在 HDInsight 中使用创建用于安装 R 环境的脚本操作�
     * **辅助角色**：选中此选项
     * **ZOOKEEPER**：选中此选项以在 Zookeeper 节点上安装。
     * **参数**：将此字段留空
-3. 在“脚本操作”的底部，使用“选择”按钮保存配置。最后，使用“可选配置”边栏选项卡底部的“选择”按钮保存可选配置信息。
+3. 在“脚本操作”的底部，使用“选择”按钮保存配置。 最后，使用“可选配置”边栏选项卡底部的“选择”按钮保存可选配置信息。
 4. 根据[预配基于 Linux 的 HDInsight 群集](./hdinsight-hadoop-provision-linux-clusters.md)中所述继续预配群集。
 
-## 运行 R 脚本
+## <a name="run-r-scripts"></a>运行 R 脚本
 在群集完成预配后，执行以下步骤，使用 R 在 群集上执行 MapReduce 操作。
 
 1. 使用 SSH 连接到 HDInsight 群集：
@@ -93,7 +96,7 @@ R 脚本可以在 HDInsight 中使用创建用于安装 R 环境的脚本操作�
     ```
     R
     ```
-3. 输入以下 R 程序。这会生成数字 1 到 100 ，然后将它们乘以 2。
+3. 输入以下 R 程序。 这会生成数字 1 到 100 ，然后将它们乘以 2。
 
     ```
     library(rmr2)
@@ -103,16 +106,16 @@ R 脚本可以在 HDInsight 中使用创建用于安装 R 环境的脚本操作�
 
     第一行会调用 RHadoop 库 rmr2，该库用于 MapReduce 操作。
 
-    第二行会生成值 1 到 100，然后使用 `to.dfs` 将它们存储到 Hadoop 文件系统。
+    第二行会生成值 1 到 100，然后使用 `to.dfs`将它们存储到 Hadoop 文件系统。
 
-    第三行会使用 rmr2 提供的功能创建 MapReduce 进程并开始处理。随着处理操作开始，应看到多个行滚动过去。
+    第三行会使用 rmr2 提供的功能创建 MapReduce 进程并开始处理。 随着处理操作开始，应看到多个行滚动过去。
 4. 接下来，请使用以下命令查看存储 MapReduce 输出的临时路径：
 
     ```
     print(calc())
     ```
 
-    路径应该类似 `/tmp/file5f615d870ad2`。若要查看实际输出，请使用以下命令：
+    路径应该类似 `/tmp/file5f615d870ad2`。 若要查看实际输出，请使用以下命令：
 
     ```
     print(from.dfs(calc))
@@ -136,12 +139,10 @@ R 脚本可以在 HDInsight 中使用创建用于安装 R 环境的脚本操作�
     q()
     ```
 
-## 后续步骤
-* [在 HDInsight 群集上安装并使用 Hue](./hdinsight-hadoop-hue-linux.md)。Hue 是一种 Web UI，可让你轻松创建、运行及保存 Pig 和 Hive 作业，以及浏览 HDInsight 群集的默认存储。
-* [在 HDInsight 群集上安装 Giraph](./hdinsight-hadoop-giraph-install.md)。使用群集自定义在 HDInsight Hadoop 群集上安装 Giraph。Giraph 可让你使用 Hadoop 执行图形处理，并可以在 Azure HDInsight 上使用。
-* [在 HDInsight 群集上安装 Solr](./hdinsight-hadoop-solr-install.md)。使用群集自定义在 HDInsight Hadoop 群集上安装 Solr。Solr 允许你对存储的数据执行功能强大的搜索操作。
-* [在 HDInsight 群集上安装 Hue](./hdinsight-hadoop-hue-linux.md)。使用群集自定义在 HDInsight Hadoop 群集上安装 Hue。Hue 是用来与 Hadoop 群集交互的一系列 Web 应用程序。
+## <a name="next-steps"></a>后续步骤
+* [在 HDInsight 群集上安装并使用 Hue](./hdinsight-hadoop-hue-linux.md)。 Hue 是一种 Web UI，可让你轻松创建、运行及保存 Pig 和 Hive 作业，以及浏览 HDInsight 群集的默认存储。
+* [在 HDInsight 群集上安装 Giraph](./hdinsight-hadoop-giraph-install.md)。 使用群集自定义在 HDInsight Hadoop 群集上安装 Giraph。 Giraph 可让你使用 Hadoop 执行图形处理，并可以在 Azure HDInsight 上使用。
+* [在 HDInsight 群集上安装 Solr](./hdinsight-hadoop-solr-install.md)。 使用群集自定义在 HDInsight Hadoop 群集上安装 Solr。 Solr 允许你对存储的数据执行功能强大的搜索操作。
+* [在 HDInsight 群集上安装 Hue](./hdinsight-hadoop-hue-linux.md)。 使用群集自定义在 HDInsight Hadoop 群集上安装 Hue。 Hue 是用来与 Hadoop 群集交互的一系列 Web 应用程序。
 
 [hdinsight-cluster-customize]: ./hdinsight-hadoop-customize-cluster-linux.md
-
-<!---HONumber=Mooncake_0213_2017-->

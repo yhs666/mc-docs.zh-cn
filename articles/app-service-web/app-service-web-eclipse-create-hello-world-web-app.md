@@ -15,32 +15,29 @@ ms.topic: article
 origin.date: 04/25/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
-ms.openlocfilehash: c45babbe70483fe0748cd4d45557541375cdd484
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: 984c9f1c82c6ab3d8339ff2b5c019087e1d27a90
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/13/2017
 ---
-# 使用 Eclipse 创建基本的 Azure Web 应用
-<a id="create-a-basic-azure-web-app-using-eclipse" class="xliff"></a>
+# <a name="create-a-basic-azure-web-app-using-eclipse"></a>使用 Eclipse 创建基本的 Azure Web 应用
 本教程说明如何使用 [Azure Toolkit for Eclipse]创建一个基本的 Hello World 应用程序，并将其部署到 Azure 作为 Web 应用。 为简单起见显示了一个基本 JSP 示例，但就 Azure 部署而言，相似的步骤也适用于 Java servlet。
 
 完成本教程后，你的应用程序将在 Web 浏览器中如下图所示：
 
 ![Hello World 应用预览][01]
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 * Java 开发人员工具包 (JDK) 1.8 或更高版本。
 * Eclipse IDE for Java EE Developers，Luna 或更高版本。 可从 <http://www.eclipse.org/downloads/> 下载。
 * 一个基于 Java 的 Web 服务器或应用程序服务器（例如 [Apache Tomcat] 或 [Jetty]）的分发。
-* 一个 Azure 订阅，可从 <https://www.azure.cn/pricing/1rmb-trial/> 或 <https://www.azure.cn/pricing/overview/> 获取。
+* 一个 Azure 订阅，可从 <https://www.azure.cn/pricing/1rmb-trial/> 或 <http://www.azure.cn/pricing/overview/> 获取。
 * [Azure Toolkit for Eclipse]。 有关安装 Azure 工具包的信息，请参阅 [安装适用于 Eclipse 的 Azure 工具包]。
 
 [!INCLUDE [azure-eclipse-login-guide](../../includes/azure-eclipse-login-guide.md)]
 
-## 创建 Hello World 应用程序
-<a id="to-create-a-hello-world-application" class="xliff"></a>
+## <a name="to-create-a-hello-world-application"></a>创建 Hello World 应用程序
 首先，我们将从创建 Java 项目开始。
 
 1. 启动 Eclipse。在 Eclipse 中的菜单上，依次单击“文件”、新建和“动态 Web 项目”。 （如果在单击“文件”、“新建”后未看到“动态 Web 项目”作为可用项目列出，则执行以下操作：依次单击“文件”、“新建”、“项目...”，展开“Web”，单击“动态 Web 项目”，然后单击“下一步”。） 
@@ -56,8 +53,7 @@ ms.lasthandoff: 06/30/2017
     `<body><b><% out.println("Hello World!"); %></b></body>` 
 8. 保存 index.jsp。
 
-## 将应用程序部署到 Azure Web 应用容器
-<a id="to-deploy-your-application-to-an-azure-web-app-container" class="xliff"></a>
+## <a name="to-deploy-your-application-to-an-azure-web-app-container"></a>将应用程序部署到 Azure Web 应用容器
 有多种方式可以将 Java Web 应用程序部署到 Azure。 本教程说明其中一个最简单的方式：将应用程序部署到 Azure Web 应用容器，无需特殊的项目类型或额外的工具。 Azure 为提供 JDK 及 Web 容器软件，因此不需要自己上传；只需要 Java Web 应用。 这样，应用程序的发布过程只需数秒，连一分钟都不用。
 
 1. 在 Eclipse 的项目资源管理器中，右键单击“MyWebApp”。
@@ -133,8 +129,7 @@ ms.lasthandoff: 06/30/2017
 
     将 Web 应用部署到 Azure 的过程只需几秒钟即可完成。 当应用程序准备就绪时，可在“状态”列中看到名为“已发布”的链接。 单击该链接时，将转到已部署的 Web 应用的主页。
 
-## 更新 Web 应用
-<a id="updating-your-web-app" class="xliff"></a>
+## <a name="updating-your-web-app"></a>更新 Web 应用
 更新现有运行中的 Azure Web 应用是一个快速而简单的过程，你可以使用两个更新选项：
 
 * 可以更新现有 Java Web 应用的部署。
@@ -148,8 +143,7 @@ ms.lasthandoff: 06/30/2017
 
 几秒钟后，“Azure 活动日志”视图会将已更新的部署显示为“已发布”，可以在 Web 浏览器中验证已更新的应用程序。
 
-## 启动、停止或重启现有 Web 应用
-<a id="starting-stopping-or-restarting-an-existing-web-app" class="xliff"></a>
+## <a name="starting-stopping-or-restarting-an-existing-web-app"></a>启动、停止或重启现有 Web 应用
 若要启动或停止现有的 Azure Web 应用容器（包括其中所有已部署的 Java 应用程序），可以使用“Azure 资源管理器”视图。
 
 如果“Azure 资源管理器”视图尚未打开，可以依次单击 Eclipse 中的“窗口”菜单、“显示视图”、“其他...”、“Azure”和“Azure 资源管理器”将它打开。 如果事先未尚未登录，系统将提示登录。
@@ -163,8 +157,7 @@ ms.lasthandoff: 06/30/2017
 
     ![停止现有的 Web 应用][13]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关 Azure Toolkits for Java IDE 的详细信息，请参阅以下链接：
 
 * [Azure Toolkit for Eclipse]

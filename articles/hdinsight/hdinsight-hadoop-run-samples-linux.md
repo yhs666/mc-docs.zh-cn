@@ -1,6 +1,7 @@
 ---
-title: "在 HDInsight 上运行 Hadoop MapReduce 示例 | Azure"
-description: "开始将 MapReduce 示例与 HDInsight 配合使用。 使用 SSH 连接到群集，然后使用 Hadoop 命令来运行示例作业。"
+title: "运行 HDInsight 上的 jar 文件中的 Hadoop MapReduce 示例 - Azure | Azure"
+description: "开始使用 HDInsight 包含的 jar 文件中的 MapReduce 示例。 使用 SSH 连接到群集，然后使用 Hadoop 命令来运行示例作业。"
+keywords: "hadoop 示例 jar,hadoop 示例 jar,hadoop mapreduce 示例,mapreduce 示例"
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -9,40 +10,38 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: e1d2a0b9-1659-4fab-921e-4a8990cbb30a
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/03/2017
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: fd949fd0a7b9cf792119f5e862cceec485952006
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: cbe1a0725df443e01f04de11b7ea76fa98ba7303
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="run-the-hadoop-samples-in-hdinsight"></a>在 HDInsight 中运行 Hadoop 示例
+# <a name="run-the-mapreduce-examples-in-jar-files-included-in-hdinsight"></a>运行 HDInsight 包含的 jar 文件中的 Mapreduce 示例
 
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-了解 HDInsight 所含的 MapReduce 示例。
+了解 HDInsight 上的 jar 文件中包含的 MapReduce 示例，以及如何在 Hadoop 群集上运行这些示例。
 
 ## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-* **基于 Linux 的 HDInsight 群集**：请参阅[在 Linux 上的 HDInsight 中开始将 Hadoop 与 Hive 配合使用](hdinsight-hadoop-linux-tutorial-get-started.md)
+* **HDInsight 群集**：请参阅[在 Linux 上的 HDInsight 中开始将 Hadoop 与 Hive 配合使用](hdinsight-hadoop-linux-tutorial-get-started.md)
 
     > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 * **SSH 客户端**：有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-## <a name="the-samples"></a>示例
+## <a name="the-mapreduce-examples"></a>MapReduce 示例
 
 **位置**：示例位于 `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar` 处的 HDInsight 群集上。
 
@@ -58,8 +57,8 @@ ms.lasthandoff: 04/28/2017
 * **multifilewc**：一种作业，可计算多个文件中的单词数。
 * **pentomino**：一种映射/化简平铺排列程序，用于查找五格拼板问题的解决方案。
 * **pi**：一种映射/化简程序，可使用拟蒙特卡罗法估算 Pi 值。
-* **randomtextwriter**：一种映射/化简程序，可以为每个节点写入 10GB 的随机文本数据。
-* **randomwriter**：一种映射/化简程序，可以为每个节点写入 10GB 的随机数据。
+* **randomtextwriter**：一种映射/化简程序，可以为每个节点写入 10 GB 的随机文本数据。
+* **randomwriter**：一种映射/化简程序，可为每个节点写入 10 GB 的随机数据。
 * **secondarysort**：一个示例，用于定义化简阶段的次级排序。
 * **sort**：一种映射/化简程序，用于对随机写入器所写入的数据进行排序。
 * **sudoku**：数独解算器。
@@ -76,7 +75,7 @@ ms.lasthandoff: 04/28/2017
 > [!NOTE]
 > 路径中的 `2.2.4.9-1` 是 HDInsight 群集的 Hortonworks 数据平台的版本，对于你的群集，该版本可能会不同。
 
-## <a name="how-to-run-the-samples"></a>如何运行示例
+## <a name="run-the-wordcount-example"></a>运行 wordcount 示例
 
 1. 使用 SSH 连接到 HDInsight。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
@@ -108,8 +107,8 @@ ms.lasthandoff: 04/28/2017
 
     将从 `/example/data/gutenberg/davinci.txt` 读取此作业的输入。 此示例的输出存储于 `/example/data/davinciwordcount` 中。 两个路径皆位于群集的默认存储，而不是本地文件系统。
 
-    > [!NOTE]
-    > 如字数统计示例帮助中所述，你还可以指定多个输入文件。 例如， `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` 会计算 davinci.txt 和 ulysses.txt 中单词的数目。
+   > [!NOTE]
+   > 如字数统计示例帮助中所述，你还可以指定多个输入文件。 例如， `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` 会计算 davinci.txt 和 ulysses.txt 中单词的数目。
 
 5. 作业完成后，使用以下命令查看输出：
 
@@ -126,7 +125,7 @@ ms.lasthandoff: 04/28/2017
 
     每一行表示一个单词，并显示它在输入数据中的出现次数。
 
-## <a name="sudoku"></a>数独
+## <a name="the-sudoku-example"></a>数独示例
 
 [数独](https://en.wikipedia.org/wiki/Sudoku)是由九个 3x3 网格组成的逻辑拼图。 网格中的某些单元格包含数字，其他单元格为空白，游戏目的是找出空白单元格。 上一链接包含更多有关此拼图的信息，不过此示例的目的是找出空白单元格。 因此，我们的输入应该是采用以下格式的文件：
 
@@ -164,7 +163,7 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
     1 8 5 7 3 9 2 6 4
     2 6 3 1 4 5 9 7 8
 
-## <a name="pi-"></a>Pi (π)
+## <a name="pi--example"></a>Pi (π) 示例
 
 该示例使用统计学方法（拟蒙特卡罗法）来估算 pi 值。 点随机置于单位正方形中。 正方形还包含一个圆圈。 点位于圆圈中的概率等于圆圈面积 pi/4。 可以从 4R 的值来估算 pi 的值，其中 R 是落入圆圈内的点数与平方形内总点数的比率。 所使用的取样点越多，估算值越准确。
 
@@ -176,7 +175,7 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 此命令返回的值应类似于 **3.14159155000000000000**。 例如，pi 采用前 10 位小数时为 3.1415926535。
 
-## <a name="10gb-greysort"></a>10GB Greysort
+## <a name="10-gb-greysort-example"></a>10 GB Greysort 示例
 
 GraySort 是一个基准排序，其指标为在给巨量数据（通常至少 100 TB）排序时达到的排序速率（TB/分钟）。
 
@@ -237,4 +236,3 @@ GraySort 是一个基准排序，其指标为在给巨量数据（通常至少 1
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-

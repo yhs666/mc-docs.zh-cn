@@ -1,5 +1,5 @@
 ---
-title: "在 HDInsight 中的 Hadoop 上将 C# 与 Hive 和 Pig 配合使用 | Azure"
+title: "在 HDInsight 中的 Hadoop 上将 C# 与 Hive 和 Pig 配合使用 - Azure | Azure"
 description: "了解在 Azure HDInsight 中如何将 C# 用户定义的函数 (UDF) 与 Hive 和 Pig 流式处理配合使用。"
 services: hdinsight
 documentationcenter: 
@@ -17,14 +17,13 @@ ms.topic: article
 origin.date: 04/12/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: cad9ad2c0d6bab6ec2dda2453545d402691a7dbb
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 2593ab297069b184913c6b012fa4e31f0bc1c848
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 在 HDInsight 中的 Hadoop 上将 C# 用户定义函数与 Hive 和 Pig 流式处理配合使用
-<a id="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight" class="xliff"></a>
+# <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>在 HDInsight 中的 Hadoop 上将 C# 用户定义函数与 Hive 和 Pig 流式处理配合使用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -35,8 +34,7 @@ ms.lasthandoff: 06/21/2017
 
 Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此过程称为_流式处理_。 使用 .NET 应用程序时，数据将传递到 STDIN 上的应用程序，该应用程序也将在 STDOUT 上返回结果。 若要从 STDIN 和 STDOUT 读取和写入数据，可以使用控制台应用程序中的 `Console.ReadLine()` 和 `Console.WriteLine()`。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 
 * 熟悉编写和生成面向 .NET Framework 4.5 的 C# 代码。
 
@@ -50,12 +48,11 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
     * [将 Apache Pig 和 HDInsight 配合使用](hdinsight-use-pig.md)
 
-* HDInsight 群集上的 Hadoop。 有关创建群集的详细信息，请参阅[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。
+* HDInsight 群集上的 Hadoop。 有关创建群集的详细信息，请参阅[创建 HDInsight 群集](hdinsight-provision-clusters.md)。
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
-## HDInsight 上的 .NET
-<a id="net-on-hdinsight" class="xliff"></a>
+## <a name="net-on-hdinsight"></a>HDInsight 上的 .NET
 
 * __基于 Linux 的 HDInsight__ 群集使用 [Mono (http://mono-project.com)](http://mono-project.com) 运行 .NET 应用程序。 Mono 版本 4.2.1 包含在 HDInsight 版本 3.5 中。
 
@@ -67,11 +64,9 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
 有关包含在 HDInsight 版本中的 .NET framework 和 Mono 版本的详细信息，请参阅 [HDInsight 组件版本](hdinsight-component-versioning.md)。
 
-## 创建 C\# 项目
-<a id="create-the-c-projects" class="xliff"></a>
+## <a name="create-the-c-projects"></a>创建 C\# 项目
 
-### Hive UDF
-<a id="hive-udf" class="xliff"></a>
+### <a name="hive-udf"></a>Hive UDF
 
 1. 打开 Visual Studio 并创建一个解决方案。 对于项目类型，选择“控制台应用(.NET Framework)”，并将新项目命名为“HiveCSharp”。
 
@@ -131,8 +126,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
 3. 生成项目。
 
-### Pig UDF
-<a id="pig-udf" class="xliff"></a>
+### <a name="pig-udf"></a>Pig UDF
 
 1. 打开 Visual Studio 并创建一个解决方案。 对于项目类型，选择“控制台应用程序”，并将新项目命名为“PigUDF”。
 
@@ -171,8 +165,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
 3. 保存 **Program.cs**，然后生成项目。
 
-## 上传到存储
-<a id="upload-to-storage" class="xliff"></a>
+## <a name="upload-to-storage"></a>上传到存储
 
 1. 在 Visual Studio 中，打开“服务器资源管理器”。
 
@@ -194,8 +187,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
     上传“HiveCSharp.exe”完成后，请为“PigUDF.exe”文件重复该上传过程。
 
-## 运行 Hive 查询
-<a id="run-a-hive-query" class="xliff"></a>
+## <a name="run-a-hive-query"></a>运行 Hive 查询
 
 1. 在 Visual Studio 中，打开“服务器资源管理器”。
 
@@ -225,8 +217,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
 6. 单击“刷新”以刷新摘要，直到“作业状态”更改为“已完成”。 若要查看作业输出，请单击“作业输出”。
 
-## 运行 Pig 作业
-<a id="run-a-pig-job" class="xliff"></a>
+## <a name="run-a-pig-job"></a>运行 Pig 作业
 
 1. 使用以下方法之一连接到 HDInsight 群集：
 
@@ -268,8 +259,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
         (2012-02-03 20:11:56 SampleClass5 [TRACE] verbose detail for id 1737534798)
         (2012-02-03 20:11:56 SampleClass7 [DEBUG] detail for id 1475865947)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 在本文档中，你已了解了如何在 HDInsight 上通过 Hive 和 Pig 使用 .NET Framework 应用程序。 如果希望了解如何将 Python 与 Hive 和 Pig 配合使用，请参阅[在 HDInsight 中将 Python 与 Hive 和 Pig 配合使用](hdinsight-python.md)。
 

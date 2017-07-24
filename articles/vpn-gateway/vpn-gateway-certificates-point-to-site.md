@@ -1,5 +1,5 @@
 ---
-title: "创建和导出点到站点证书：PowerShell : Azure | Azure"
+title: "生成和导出点到站点证书：PowerShell：Azure | Azure"
 description: "本文包含使用 PowerShell 在 Windows 10 上创建自签名根证书、导出公钥和生成客户端证书的步骤。"
 services: vpn-gateway
 documentationcenter: na
@@ -13,39 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/04/2017
-ms.date: 05/31/2017
+origin.date: 05/23/2017
+ms.date: 07/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: 35be101eb6b73845d7327a349102f290d70a0a35
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: e94965d161e13634a8ecafb0731ef71258761fba
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 使用 PowerShell 为点到站点连接创建证书并导出
-<a id="generate-and-export-certificates-for-point-to-site-connections-using-powershell" class="xliff"></a>
+# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>在 Windows 10 上使用 PowerShell 为点到站点连接生成并导出证书
 
-本文演示如何创建自签名根证书和生成客户端证书。 本文不包含点到站点配置说明或点到站点常见问题解答。 可通过从以下列表中选择一篇“配置点到站点”文章来查找该信息：
+点到站点连接使用证书进行身份验证。 本文介绍了如何在 Windows 10 上使用 PowerShell 创建自签名根证书并生成客户端证书。 如果正在寻找点到站点配置步骤（例如，如何上传根证书），请从下面的列表选择一篇关于“配置点到站点”的文章：
 
 > [!div class="op_single_selector"]
 > * [创建自签名证书 - PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [创建自签名证书 - Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
+> * [创建自签名证书 - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
 > * [配置点到站点 - Resource Manager - Azure 门户](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [配置点到站点 - Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [配置点到站点 - 经典 - Azure 门户](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 > 
 > 
 
-点到站点连接使用证书进行身份验证。 配置点到站点连接时，需要将根证书的公钥（.cer 文件）上传到 Azure。 此外，必须从根证书生成客户端证书，并将其安装在连接到 VNet 的每台客户端计算机上。 客户端证书允许客户端进行身份验证。
+必须在运行 Windows 10 的计算机上执行本文中的步骤。 用于生成证书的 PowerShell cmdlet 是 Windows 10 操作系统的一部分，并且在其他版本的 Windows 上不起作用。 只需 Windows 10 计算机即可生成证书。 生成证书后，可上传证书，或在任何支持的客户端操作系统上安装该证书。 
 
-> [!NOTE]
-> 必须在运行 Windows 10 的计算机上执行本文中的步骤。 生成证书时所需的 PowerShell cmdlet 属于 Windows 10 操作系统，在其他版本的 Windows 上不可用。 只需要这些 cmdlet 即可生成证书。 证书生成后，即可在任何支持的客户端操作系统上安装证书。 如果不具有 Windows 10 计算机的访问权限，可以使用 makecert 生成证书。 但是，使用 makecert 生成且与点到站点兼容的证书不是 SHA-2。 有关 makecert 的说明，请参阅[使用 makecert创建证书](vpn-gateway-certificates-point-to-site-makecert.md)。 使用 PowerShell 或 makecert 创建的证书可以安装在任何[受支持的客户端操作系统](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)上，而不仅限于用来创建它们的操作系统。
-> 
->
+如果无权访问 Windows 10 计算机，则可使用 [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) 生成证书。 但是 MakeCert 无法生成 SHA-2 证书，只能生成 SHA-1 证书。 SHA-1 证书对于点到站点连接仍然有效，但 SHA-1 使用的加密哈希不及 SHA-2 使用的强。 因此在可能的情况下，建议使用 PowerShell 步骤。 使用任一方法生成的证书均可安装在[支持的](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)所有客户端操作系统上。
 
 ## <a name="rootcert"></a>创建自签名根证书
 
-以下步骤演示如何在 Windows 10 上使用 PowerShell 创建自签名根证书。 这些步骤中使用的 cmdlet 和参数是 Windows 10 操作系统的一部分，而不是 PowerShell 版本的一部分。 这并不意味着，所创建的证书只能在 Windows 10 上安装。 可以在任何支持的客户端上安装它们。 有关支持的客户端的信息，请参阅[点到站点常见问题解答](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)。
+使用 New-SelfSignedCertificate cmdlet 创建自签名根证书。 有关参数的其他信息，请参阅 [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate)。
 
 1. 在运行 Windows 10 的计算机上，使用提升的特权打开 Windows PowerShell 控制台。
 2. 使用以下示例创建自签名根证书。 以下示例创建名为“P2SRootCert”、将自动安装在“Certificates-Current User\Personal\Certificates”中的自签名根证书。 打开 certmgr.msc 或“管理用户证书”即可查看该证书。
@@ -61,10 +57,9 @@ ms.lasthandoff: 06/23/2017
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
-exported.cer 文件必须上传到 Azure。 请参阅[配置点到站点连接](vpn-gateway-howto-point-to-site-rm-ps.md#upload)获取相关说明。
+exported.cer 文件必须上传到 Azure。 请参阅[配置点到站点连接](vpn-gateway-howto-point-to-site-rm-ps.md#upload)获取相关说明。 若要添加其他受信任的根证书，请参阅文章的[此部分](vpn-gateway-howto-point-to-site-rm-ps.md#addremovecert)。
 
-### 导出自签名根证书和用于存储它的公钥（可选）
-<a id="export-the-self-signed-root-certificate-and-public-key-to-store-it-optional" class="xliff"></a>
+### <a name="export-the-self-signed-root-certificate-and-public-key-to-store-it-optional"></a>导出自签名根证书和用于存储它的公钥（可选）
 
 你可能想要导出自签名根证书并将它存储在安全位置。 如果需要，可以稍后在另一台计算机上安装此自签名证书，然后生成更多客户端证书，或导出另一个 .cer 文件。 若要将自签名根证书导出为 .pfx，请选择该根证书，然后使用[导出客户端证书](#clientexport)中所述的步骤导出。
 
@@ -74,10 +69,9 @@ exported.cer 文件必须上传到 Azure。 请参阅[配置点到站点连接](
 
 以下步骤引导你完成从自签名根证书生成客户端证书的过程。 可以从相同根证书生成多个客户端证书。 使用以下步骤生成客户端证书时，客户端证书将自动安装在用于生成该证书的计算机上。 如果想要在另一台客户端计算机上安装客户端证书，可以导出该证书。
 
-使用以下 PowerShell 步骤生成客户端证书时，需要 Windows 10。 这些步骤中使用的 cmdlet 和参数是 Windows 10 操作系统的一部分，而不是 PowerShell 版本的一部分。 这并不意味着，所创建的证书只能在 Windows 10 上安装。 有关支持的客户端的信息，请参阅[点到站点常见问题解答](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)。
+这些示例使用 New-SelfSignedCertificate cmdlet 生成有效期为一年的客户端证书。 有关参数的其他信息（例如为客户端证书设置其他有效期），请参阅 [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate)。
 
-### 示例 1
-<a id="example-1" class="xliff"></a>
+### <a name="example-1"></a>示例 1
 
 此示例使用上一部分中声明的“$cert”变量。 如果创建自签名根证书后关闭了 PowerShell 控制台，或者要在新的 PowerShell 控制台会话中创建其他客户端证书，请使用[示例 2](#ex2) 中的步骤。
 
@@ -102,11 +96,12 @@ New-SelfSignedCertificate -Type Custom -KeySpec Signature `
   ```
 2. 从返回的列表中找到使用者名称，然后将该名称旁边的指纹复制到文本文件中。 以下示例显示了两个证书。 CN 名称是要从中生成子证书的自签名根证书的名称。 在本例中，该根证书为“P2SRootCert”。
 
-        Thumbprint                                Subject
+  ```
+  Thumbprint                                Subject
 
-        AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
-        7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
-
+  AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
+  7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
+  ```
 3. 使用上一步骤中获取的指纹为根证书声明变量。 将 THUMBPRINT 替换为要从中生成子证书的根证书的指纹。
 
   ```powershell
@@ -117,8 +112,7 @@ New-SelfSignedCertificate -Type Custom -KeySpec Signature `
 
   ```powershell
   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
-  ```   
-
+  ```
 4.  修改并运行示例以生成客户端证书。 如果在未经修改的情况下直接运行以下示例，将会生成名为“P2SChildCert”的客户端证书。 如果想要为子证书指定其他名称，请修改 CN 值。 运行此示例时，请不要更改 TextExtension。 生成的客户端证书将自动安装在计算机上的“Certificates - Current User\Personal\Certificates”中。
 
   ```powershell
@@ -137,8 +131,7 @@ New-SelfSignedCertificate -Type Custom -KeySpec Signature `
 
 [!INCLUDE [Install client certificate](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 继续使用点到站点配置。 
 

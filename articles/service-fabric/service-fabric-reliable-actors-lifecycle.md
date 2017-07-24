@@ -1,10 +1,10 @@
 ---
-title: "基于角色的 Azure 微服务生命周期概述 | Microsoft Docs"
+title: "基于执行组件的 Azure 微服务生命周期概述 | Azure"
 description: "介绍 Service Fabric Reliable Actor 生命周期、垃圾回收和如何手动删除执行组件及其状态"
 services: service-fabric
 documentationcenter: .net
-author: amanbha
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: vturecek
 ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
 ms.service: service-fabric
@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: v-johch
-ms.openlocfilehash: c2ba423c7941b29dad482d690954037bae6e727e
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 06/13/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
+ms.openlocfilehash: 9fad49abfd432098e8fa14d456c75f9c6e73d847
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>执行组件生命周期、自动垃圾回收和手动删除
 首次调用执行组件的任何方法时即可激活该执行组件。 如果在可配置的一段时间内未使用执行组件，则此执行组件将停用（执行组件运行时对其进行垃圾回收）。 还可以在任何时候手动删除执行组件及其状态。
@@ -28,14 +29,14 @@ ms.lasthandoff: 06/21/2017
 
 * 当调用执行组件时，如果执行组件尚未处于活动状态，则将创建新的执行组件。
 * 如果执行组件为维护状态，则加载此执行组件的状态。
-* 将调用 `OnActivateAsync` 方法（该方法可以在执行组件实现中被覆盖）。
+* 将调用 `OnActivateAsync` (C#) 或 `onActivateAsync` (Java) 方法（这些方法可以在执行组件实现中被重写）。
 * 现在该执行组件被视为处于活动状态。
 
 ## <a name="actor-deactivation"></a>执行组件停用
 当停用了某个执行组件，将出现以下情况：
 
 * 如果在一段时间内未使用执行组件，则会从“活动执行组件”表中将其删除。
-* 将调用 `OnDeactivateAsync` 方法（该方法可以在执行组件实现中被覆盖）。 这将清除此执行组件的所有计时器。 不可从该方法中调用诸如状态更改的执行组件操作。
+* 将调用 `OnDeactivateAsync` (C#) 或 `onDeactivateAsync` (Java) 方法（这些方法可以在执行组件实现中被重写）。 这将清除此执行组件的所有计时器。 不可从该方法中调用诸如状态更改的执行组件操作。
 
 > [!TIP]
 > Fabric 执行组件运行时发出一些[与执行组件激活和停用相关的事件](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters)。 它们可用于进行诊断和性能监视。
@@ -43,7 +44,7 @@ ms.lasthandoff: 06/21/2017
 >
 
 ### <a name="actor-garbage-collection"></a>执行组件垃圾回收
-停用某个执行组件后，将释放对此执行组件对象的引用，并且通常使用公共语言运行时 (CLR) 垃圾回收器对其进行回收。 垃圾回收只清除执行组件对象；它**不会**删除存储在执行组件的状态管理器中的状态。 当下次激活此执行组件时，将创建一个新的执行组件对象，并还原其状态。
+停用某个执行组件后，将释放对此执行组件对象的引用，并且通常使用公共语言运行时 (CLR) 或 Java 虚拟机 (JVM) 垃圾回收器对其进行回收。 垃圾回收只清除执行组件对象；它**不会**删除存储在执行组件的状态管理器中的状态。 当下次激活此执行组件时，将创建一个新的执行组件对象，并还原其状态。
 
 就停用和垃圾回收而言，什么样的执行组件可视为“正在使用”？
 
@@ -81,6 +82,18 @@ public class Program
 }
 ```
 
+```Java
+public class Program
+{
+    public static void main(String[] args)
+    {
+        ActorRuntime.registerActorAsync(
+                MyActor.class,
+                (context, actorTypeInfo) -> new FabricActorService(context, actorTypeInfo),
+                timeout);
+    }
+}
+```
 对于每个活动的执行组件，执行组件运行时将持续跟踪其处于空闲状态（即未使用）的时间。 执行组件运行时每 `ScanIntervalInSeconds` 检查每个执行组件，以查看是否可以对它执行垃圾回收，并且如果它已空闲 `IdleTimeoutInSeconds`，则对其予以回收。
 
 任何时候只要使用了执行组件，其空闲时间都会重置为 0。 此后，仅在此执行组件再次空闲 `IdleTimeoutInSeconds`，才会对其执行垃圾回收。 如果执行执行组件接口方法或执行组件提醒回调，则想到执行组件被视为已使用。 如果执行其计时器回调，则执行组件**不**被视为已使用。
@@ -114,6 +127,15 @@ IActorService myActorServiceProxy = ActorServiceProxy.Create(
 await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 ```
 
+```Java
+ActorId actorToDelete = new ActorId(id);
+
+ActorService myActorServiceProxy = ActorServiceProxy.create(
+    new Uri("fabric:/MyApp/MyService"), actorToDelete);
+
+myActorServiceProxy.deleteActorAsync(actorToDelete);
+```
+
 删除一个执行组件将出现以下结果，具体取决于当前执行组件是否处于活动状态：
 
 * **活动执行组件**
@@ -130,7 +152,8 @@ await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 * [执行组件可重入性](service-fabric-reliable-actors-reentrancy.md)
 * [执行组件诊断和性能监视](service-fabric-reliable-actors-diagnostics.md)
 * [执行组件 API 参考文档](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [代码示例](https://github.com/Azure/servicefabric-samples)
+* [C# 示例代码](https://github.com/Azure/servicefabric-samples)
+* [Java 代码示例](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

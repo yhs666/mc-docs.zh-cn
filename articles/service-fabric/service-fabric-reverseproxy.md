@@ -3,8 +3,8 @@ title: "Azure Service Fabric 反向代理 | Azure"
 description: "使用 Service Fabric 的反向代理从群集内部和外部与微服务通信"
 services: service-fabric
 documentationcenter: .net
-author: BharatNarasimman
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: vturecek
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
 ms.service: service-fabric
@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 04/07/2017
-ms.author: v-johch
-ms.openlocfilehash: f8adfbefce2bd1a9a2399fe54954caf053a0f075
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 04/07/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
+ms.openlocfilehash: 06115a3cf9fb8be4ba1d81492fdd114e7ed057e1
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric 中的反向代理
 Azure Service Fabric 中内置的反向代理可以访问 Service Fabric 群集中用于公开 HTTP 终结点的微服务。
@@ -51,7 +52,6 @@ Service Fabric 中的反向代理在群集的所有节点上运行。 它会代�
 >
 >
 
-
 ## <a name="uri-format-for-addressing-services-by-using-the-reverse-proxy"></a>使用反向代理访问服务时所用的 URI 格式
 反向代理使用特定的统一资源标识符 (URI) 格式来识别传入请求应该转发到的服务分区：
 
@@ -59,12 +59,12 @@ Service Fabric 中的反向代理在群集的所有节点上运行。 它会代�
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
-* **http(s)：**可以将反向代理配置为接受 HTTP 或 HTTPS 流量。 对于 HTTPS 流量，反向代理中会发生安全套接字层 (SSL) 终止。 反向代理使用 HTTP 将请求转发到群集中服务。
-
-    请注意，目前不支持 HTTPS 服务。
-* **群集的完全限定域名 (FQDN) | 内部 IP：**对于外部客户端，可以配置反向代理，以便可以通过群集域（例如 mycluster.chinaeast.cloudapp.chinacloudapi.cn）访问反向代理。 默认情况下，反向代理在每个节点上运行。 对于内部流量，可在本地主机或任意内部节点 IP（例如 10.0.0.1）上访问反向代理。
-* **Port：**为反向代理指定的端口，例如 19008。
+* **http(s)：**可以将反向代理配置为接受 HTTP 或 HTTPS 流量。 对于 HTTPS 转发，在设置反向代理侦听 HTTPS 后，请参阅[使用反向代理连接到安全服务](service-fabric-reverseproxy-configure-secure-communication.md)。
+* **群集的完全限定域名 (FQDN) | 内部 IP：**对于外部客户端，可以配置反向代理，以便可以通过群集域（例如 mycluster.chinaeast.chinacloudapp.cn）访问反向代理。 默认情况下，反向代理在每个节点上运行。 对于内部流量，可在本地主机或任意内部节点 IP（例如 10.0.0.1）上访问反向代理。
+* **端口：**这是已为反向代理指定的端口，例如 19081。
 * **ServiceInstanceName：**在不使用“fabric:/”方案的情况下尝试访问的已部署服务实例的完全限定名称。 例如，若要访问 *fabric:/myapp/myservice/* 服务，可以使用 *myapp/myservice*。
+
+    服务实例名称要区分大小写。 若 URL 中的服务实例名称大小写不同，则会导致请求失败，并显示 404（未找到）。
 * **Suffix path：**要连接到的服务的实际 URL 路径，例如 *myapi/values/add/3*。
 * **PartitionKey：**对于分区服务，这是针对要访问的分区计算出的分区键。 请注意，这*不*是分区 ID GUID。 对于使用单独分区方案的服务，此参数不是必需的。
 * **PartitionKind：**服务分区方案。 该方案可以是“Int64Range”或“Named”。 对于使用单独分区方案的服务，此参数不是必需的。
@@ -88,18 +88,18 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 
 如果服务使用单独分区方案，则 *PartitionKey* 和 *PartitionKind* 查询字符串参数不是必需的，可以使用网关访问服务，如下所示：
 
-* 外部访问方式：`http://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19008/MyApp/MyService`
-* 内部访问方式：`http://localhost:19008/MyApp/MyService`
+* 外部访问方式：`http://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19081/MyApp/MyService`
+* 内部访问方式：`http://localhost:19081/MyApp/MyService`
 
 如果服务使用“统一 Int64”分区方案，则必须使用 *PartitionKey* 和 *PartitionKind* 查询字符串来访问服务的分区：
 
-* 外部访问方式：`http://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
-* 内部访问方式：`http://localhost:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* 外部访问方式：`http://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* 内部访问方式：`http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 
 若要访问服务公开的资源，可直接在 URL 中将资源路径置于服务名称之后：
 
-* 外部访问方式：`http://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19008/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
-* 内部访问方式： `http://localhost:19008/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
+* 外部访问方式：`http://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
+* 内部访问方式： `http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
 
 然后，网关会将这些请求转发到服务的 URL：
 
@@ -145,7 +145,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
     ```json
     "SFReverseProxyPort": {
         "type": "int",
-        "defaultValue": 19008,
+        "defaultValue": 19081,
         "metadata": {
             "description": "Endpoint for Service Fabric Reverse proxy"
         }
@@ -297,6 +297,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 
 ## <a name="next-steps"></a>后续步骤
 * 参阅 [GitHub 上的示例项目](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)中服务之间的 HTTP 通信示例。
+* [使用反向代理转发到安全的 HTTP 服务](service-fabric-reverseproxy-configure-secure-communication.md)
 * [使用 Reliable Services 远程控制执行远程过程调用](service-fabric-reliable-services-communication-remoting.md)
 * [Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)
 * [使用 Reliable Services 的 WCF 通信](service-fabric-reliable-services-communication-wcf.md)

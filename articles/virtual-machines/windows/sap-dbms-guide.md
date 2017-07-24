@@ -18,14 +18,13 @@ origin.date: 11/08/2016
 ms.date: 05/22/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2ecde324914d8b2fea2e75b812fe05636fe927e
-ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
+ms.openlocfilehash: d51341f50710625ffc706783d7378a39434937bf
+ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/10/2017
 ---
-# Azure Windows 虚拟机 (VM) 上的 SAP NetWeaver - DBMS 部署指南
-<a id="sap-netweaver-on-azure-windows-virtual-machines-vms---dbms-deployment-guide" class="xliff"></a>
+# <a name="sap-netweaver-on-azure-windows-virtual-machines-vms---dbms-deployment-guide"></a>Azure Windows 虚拟机 (VM) 上的 SAP NetWeaver - DBMS 部署指南
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -252,7 +251,7 @@ ms.lasthandoff: 07/06/2017
 [storage-redundancy]:../../storage/storage-redundancy.md
 [storage-scalability-targets]:../../storage/storage-scalability-targets.md
 [storage-use-azcopy]:../../storage/storage-use-azcopy.md
-[template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
+[template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../linux/attach-disk-portal.md
@@ -303,18 +302,16 @@ ms.lasthandoff: 07/06/2017
 [vpn-gateway-site-to-site-create]:../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]:../../cli-install-nodejs.md
-[xplat-cli-azure-resource-manager]:.././azure/xplat-cli-azure-resource-manager
+[xplat-cli-azure-resource-manager]:../../xplat-cli-azure-resource-manager.md
 
 本指南是介绍如何在 Azure 上实施和部署 SAP 软件的文档的一部分。 阅读本指南之前，请先阅读 [Planning and Implementation Guide][planning-guide]（规划和实施指南）。 本文档介绍如何在 Azure 虚拟机 (VM) 上使用 Azure 服务架构 (IaaS) 功能，将各种关系数据库管理系统 (RDBMS) 及相关产品与 SAP 组合进行部署。
 
 本文是对 SAP 安装文档和 SAP 说明的补充，这些文档代表在给定平台上安装和部署 SAP 软件的主要资源。
 
-## 一般注意事项
-<a id="general-considerations" class="xliff"></a>
+## <a name="general-considerations"></a>一般注意事项
 本章介绍在 Azure VM 中运行 SAP 相关 DBMS 系统的注意事项。 其中很少涉及有关特定 DBMS 系统的参考信息。 在本白皮书内，改在本章之后讨论特定的 DBMS 系统。
 
-### 定义预释
-<a id="definitions-upfront" class="xliff"></a>
+### <a name="definitions-upfront"></a>定义预释
 整个文档将使用以下术语：
 
 * IaaS：服务架构。
@@ -334,8 +331,7 @@ ms.lasthandoff: 07/06/2017
 
 有些 Microsoft 文档在描述跨界方案时稍有不同，特别是针对 DBMS HA 配置。 在 SAP 相关的文档中，跨界方案单纯是指具有站点到站点或专用 (ExpressRoute) 连接，以及将 SAP 布局分布到本地与 Azure 的情况。
 
-### 资源
-<a id="resources" class="xliff"></a>
+### <a name="resources"></a>资源
 我们针对有关 Azure 上的 SAP 部署的主题提供以下指南：
 
 * [Azure 虚拟机 (VM) 上的 SAP NetWeaver - 规划和实施指南][planning-guide]
@@ -360,7 +356,7 @@ ms.lasthandoff: 07/06/2017
 
 另请阅读 [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) ，其中包含适用于 Linux 的所有 SAP 说明。
 
-你应当使用过 Azure 体系结构，并知道如何部署和操作 Azure 虚拟机。 可以在 <https://docs.azure.cn/> 上查看详细信息。
+你应当使用过 Azure 体系结构，并知道如何部署和操作 Azure 虚拟机。 有关详细信息，请参阅 <https://www.azure.cn/documentation/>
 
 > [!NOTE]
 > 我们**不**讨论 Azure 平台的 Azure 平台即服务 (PaaS) 产品。 本文讨论如何在 Azure 虚拟机 (IaaS) 中运行数据库管理系统 (DBMS)，就像在本地环境中运行 DBMS 一样。 这两种产品的数据库性能与功能差异极大，不应混用。 另请参阅：<https://www.azure.cn/home/features/sql-database/>
@@ -500,8 +496,7 @@ Azure 存储本地复制（本地冗余）可提供多层保护，避免在部�
 >
 >
 
-#### 将 VHD 映射到 Azure 虚拟机服务存储帐户
-<a id="mapping-vhds-into-azure-virtual-machine-service-storage-accounts" class="xliff"></a>
+#### <a name="mapping-vhds-into-azure-virtual-machine-service-storage-accounts"></a>将 VHD 映射到 Azure 虚拟机服务存储帐户
 Azure 存储帐户不只是一种管理构造，还是一个具有各种限制的主体。 然而，根据我们讨论的是 Azure 标准存储帐户还是 Azure 高级存储帐户，限制会有所不同。 确切的功能和限制列于 [此处][storage-scalability-targets]
 
 因此，对于 Azure 标准存储，要特别注意每个存储帐户都有 IOPS 限制（[这篇文章][storage-scalability-targets]中包含“总请求速率”的行）。 此外，每个 Azure 订阅有 100 个存储帐户的初始限制（截至 2015 年 7 月）。 因此，建议在使用 Azure 标准存储时，平衡多个存储帐户之间 VM 的 IOPS。 不过，单个 VM 最好尽可能使用一个存储帐户。 因此，在托管于 Azure 标准存储的每个 VHD 都会达到其配额限制的 DBMS 部署中，每个使用 Azure 标准存储的 Azure 存储帐户只能部署 30-40 个 VHD。 相反，如果使用 Azure 高级存储，并且想要存储大型数据库卷，在 IOPS 方面可能不会遇到问题。 但是，Azure 高级存储帐户在数据卷方面比 Azure 标准存储帐户更严格。 因此，在达到数据卷限制之前，你只能在 Azure 高级存储帐户内部署数目有限的 VHD。 最后，将 Azure 存储帐户想象成在 IOPS 和/或容量方面能力有限的“虚拟 SAN”。 因此，还需执行一项任务（如同在本地部署中一样），即，在不同的“虚构 SAN 设备”或 Azure 存储帐户上定义不同 SAP 系统的 VHD 布局。
@@ -516,8 +511,7 @@ Azure 存储帐户不只是一种管理构造，还是一个具有各种限制�
 
 可以在此处找到另一篇概述 Azure 标准存储和 Azure 标准存储帐户最佳做法的文章：<https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx>
 
-#### 将部署的 DBMS VM 从 Azure 标准存储移到 Azure 高级存储
-<a id="moving-deployed-dbms-vms-from-azure-standard-storage-to-azure-premium-storage" class="xliff"></a>
+#### <a name="moving-deployed-dbms-vms-from-azure-standard-storage-to-azure-premium-storage"></a>将部署的 DBMS VM 从 Azure 标准存储移到 Azure 高级存储
 我们遇到过很多这样的案例：客户想要将部署的 VM 从 Azure 标准存储移到 Azure 高级存储。 在不实际移动数据的情况下，根本无法完成此操作。 但可以使用多种方法实现此目的：
 
 * 只需将所有 VHD、基础 VHD 以及数据 VHD 复制到新的 Azure 高级存储帐户中。 很多时候，在 Azure 标准存储中选择大量 VHD 不是因为需要数据卷， 而是因为 IOPS。 迁移到 Azure 高级存储后，可以使用较少的 VHD 来实现一定的 IOPS 吞吐量。 事实上，在 Azure 标准存储中，是为已用数据而不是名义上的磁盘大小付费，因此，VHD 的数目实际上与成本无关。 然而，在 Azure 高级存储中，需要为名义上的磁盘大小付费。 因此，大多数客户会尝试将高级存储中 Azure VHD 的数目控制在达到必要 IOPS 吞吐量所需的数目内。 所以，大多数客户不会选择简单的 1:1 复制方式。
@@ -525,31 +519,26 @@ Azure 存储帐户不只是一种管理构造，还是一个具有各种限制�
 * 另一种可行方法是先前过程的变体，即，只将备份 VHD 复制到 Azure 高级存储，然后将其附加到新部署和安装的 VM。
 * 当你需要更改数据库的数据文件数目时，会选择第四种可行方法。 在这种情况下，你会使用导出/导入来执行 SAP 同源系统复制。 将这些导出文件放入 VHD（已复制到 Azure 高级存储帐户），然后将它附加到用于运行导入过程的 VM。 客户通常在想要减少数据文件数目时，才会使用这种可行方法。
 
-### 在 Azure 中为 SAP 部署 VM
-<a id="deployment-of-vms-for-sap-in-azure" class="xliff"></a>
+### <a name="deployment-of-vms-for-sap-in-azure"></a>在 Azure 中为 SAP 部署 VM
 Azure 提供多种用于部署 VM 和相关磁盘的方法。 因此，请务必了解这些方法之间的差异，因为 VM 的准备工作可能会因部署方法的不同而异。 一般情况下，我们会考虑以下章节中所述的方案。
 
-#### 从 Azure 应用商店部署 VM
-<a id="deploying-a-vm-from-the-azure-marketplace" class="xliff"></a>
+#### <a name="deploying-a-vm-from-the-azure-marketplace"></a>从 Azure 应用商店部署 VM
 想要从 Azure 应用商店中获取某个 Microsoft 或第三方映像来部署 VM。 将 VM 部署到 Azure 之后，你需要像在本地环境中一样，遵照相同的准则并使用相同的工具在 VM 内部安装 SAP 软件。 若要在 Azure VM 内部安装 SAP 软件，SAP 和 Azure 建议将 SAP 安装媒体上传并存储到 Azure VHD 中，或创建一个充当“文件服务器”并包含所有必要 SAP 安装媒体的 Azure VM。
 
-#### 使用特定于客户的通用化映像部署 VM
-<a id="deploying-a-vm-with-a-customer-specific-generalized-image" class="xliff"></a>
+#### <a name="deploying-a-vm-with-a-customer-specific-generalized-image"></a>使用特定于客户的通用化映像部署 VM
 由于 OS 或 DBMS 版本具有特定的补丁要求，Azure 应用商店中提供的映像可能并不符合需要。 因此，你可能需要使用自己的、以后可以多次部署的“专用”OS/DBMS VM 映像创建一个 VM。 若要准备这样一个可供复制的“专用”映像，必须在本地 VM 上将 OS 通用化。 有关如何将 VM 通用化的详细信息，请参阅 [部署指南][deployment-guide] 。
 
 如果已将 SAP 内容安装在本地 VM 中（尤其是对于双层系统），则可以在部署 Azure VM 之后，通过 SAP Software Provisioning Manager 支持的实例重命名过程来修改 SAP 系统设置（SAP 说明 [1619720]）。 否则，可以稍后在部署 Azure VM 之后安装 SAP 软件。
 
 对于 SAP 应用程序所使用的数据库内容，你可以通过 SAP 安装生成全新的内容，也可以通过将 VHD 与 DBMS 数据库备份搭配使用，或利用 DBMS 的功能直接备份到 Azure 存储，来将内容导入 Azure。 在此情况下，你也可以在本地准备好包含 DBMS 数据和日志文件的 VHD，然后将它们作为磁盘导入 Azure。 但是，将从本地加载的 DBMS 数据传输到 Azure 的操作会在需要在本地准备的 VHD 磁盘上执行。
 
-#### 使用非通用化磁盘将 VM 从本地移至 Azure
-<a id="moving-a-vm-from-on-premises-to-azure-with-a-non-generalized-disk" class="xliff"></a>
+#### <a name="moving-a-vm-from-on-premises-to-azure-with-a-non-generalized-disk"></a>使用非通用化磁盘将 VM 从本地移至 Azure
 你打算将某个特定 SAP 系统从本地移至 Azure（即时转移）。 通过将包含 OS、SAP 二进制文件和最终 DBMS 二进制文件的 VHD，以及包含 DBMS 数据和日志文件的 VHD 上传到 Azure，可以实现此目的。 与上面的方案 2 相反，需要将 Azure VM 中的主机名、SAP SID 和 SAP 用户帐户保留为与本地环境中的配置相同。 因此，不需要通用化映像。 此情况主要适用于跨界方案，在这类方案中，SAP 布局的一部分在本地运行，其余部分则在 Azure 上运行。
 
 ## <a name="871dfc27-e509-4222-9370-ab1de77021c3"></a>Azure VM 的高可用性和灾难恢复
 Azure 提供以下高可用性 (HA) 和灾难恢复 (DR) 功能，这些功能适用于进行 SAP 和 DBMS 部署时所用的各种组件
 
-### 部署于 Azure 节点上的 VM
-<a id="vms-deployed-on-azure-nodes" class="xliff"></a>
+### <a name="vms-deployed-on-azure-nodes"></a>部署于 Azure 节点上的 VM
 Azure 平台不会为部署的 VM 提供实时迁移等功能。 这意味着，如果部署 VM 的服务器群集需要进行维护，该 VM 就必须停止并重新启动。 Azure 中的维护操作通过使用服务器群集内所谓的升级域来执行。 一次只维护一个升级域。 在这类重启操作期间，当 VM 关闭、执行维护以及 VM 重启时，服务将中断。 不过，大部分 DBMS 供应商都提供高可用性和灾难恢复功能，此功能将在主节点不可用时，在另一个节点上快速重启 DBMS 服务。 Azure 平台提供跨升级域分布 VM、存储及其他 Azure 服务的功能，以确保计划的维护或基础结构故障只影响一小部分的 VM 或服务。  通过仔细规划，可以达到相当于本地基础结构的可用性级别。
 
 Azure 可用性集是 VM 或服务的逻辑分组，可确保 VM 和其他服务分布到群集内不同的容错域和升级域，这样一来，在任何时间点都只会有一个节点关闭（有关更多详细信息，请阅读[此文][virtual-machines-manage-availability]）。
@@ -564,8 +553,7 @@ Azure 可用性集是 VM 或服务的逻辑分组，可确保 VM 和其他服务
 * HA 配置的 VM 也应该位于相同的子网中。 在仅限云的部署中，无法在不同子网之间进行名称解析，只能进行 IP 解析。 在跨界部署中使用站点到站点或 ExpressRoute 连接，就已经建立了包含至少一个子网的网络。 名称解析将根据本地 AD 策略和网络基础结构来完成。
 
 
-#### IP 地址
-<a id="ip-addresses" class="xliff"></a>
+#### <a name="ip-addresses"></a>IP 地址
 强烈建议以弹性方式来设置 HA 配置的 VM。 除非使用静态 IP 地址，否则，在 Azure 中依赖 IP 地址来处理 HA 配置内的 HA 伙伴并不可靠。 Azure 中有两种“关闭”概念：
 
 * 通过 Azure 门户或 Azure PowerShell cmdlet Stop-AzureRmVM 来关闭：在这种情况下，会关闭虚拟机并解除分配。 将不再针对此 VM 向你的 Azure 帐户收费，因此，只有在使用存储时才会向你收费。 不过，如果网络接口的专用 IP 地址不是静态的，则会释放该 IP 地址，并且不保证在重新启动 VM 之后，会将旧的 IP 地址重新分配给网络接口。 如果通过 Azure 门户或通过调用 Stop-AzureRmVM 来执行关闭，将自动解除分配。 如果不希望解除计算机分配，请使用 Stop-AzureRmVM -StayProvisioned
@@ -581,15 +569,13 @@ Azure 可用性集是 VM 或服务的逻辑分组，可确保 VM 和其他服务
 >
 >
 
-## 部署主机监视
-<a id="deployment-of-host-monitoring" class="xliff"></a>
+## <a name="deployment-of-host-monitoring"></a>部署主机监视
 若要有效使用 Azure 虚拟机中的 SAP 应用程序，SAP 需要能够从运行 Azure 虚拟机的物理主机获取主机监视数据。 需要有特定的 SAP HostAgent 补丁级别，才能在 SAPOSCOL 和 SAP HostAgent 中启用此功能。 SAP 说明 [1409604]中介绍了确切的补丁级别。
 
 有关向 SAPOSCOL 和 SAPHostAgent 提供主机数据的组件部署以及这些组件的生命周期管理的详细信息，请参阅 [部署指南][deployment-guide]
 
 ## <a name="3264829e-075e-4d25-966e-a49dad878737"></a>有关 Microsoft SQL Server 的具体信息
-### SQL Server IaaS
-<a id="sql-server-iaas" class="xliff"></a>
+### <a name="sql-server-iaas"></a>SQL Server IaaS
 自从有了 Azure，你就可以轻松地将构建于 Windows Server 平台的现有 SQL Server 应用程序迁移到 Azure 虚拟机。 借助虚拟机中的 SQL Server，你可以轻松地将这些应用程序迁移到 Azure，从而减少部署、管理和维护企业级应用程序的总拥有成本。 借助 Azure 虚拟机中的 SQL Server，管理员和开发人员仍然可以使用在本地可用的相同开发和管理工具。
 
 > [!IMPORTANT]
@@ -610,10 +596,8 @@ Azure 可用性集是 VM 或服务的逻辑分组，可确保 VM 和其他服务
 * **使用来自 Azure 应用商店的映像**：部署新 Azure VM 的最快方式是使用来自 Azure 应用商店的映像。 Azure 应用商店提供包含 SQL Server 的映像。 已经安装 SQL Server 的映像不能立即用于 SAP NetWeaver 应用程序。 原因是这些映像安装了默认的 SQL Server 排序规则，而不是 SAP NetWeaver 系统所需的排序规则。 若要使用此类映像，请查看 [使用来自 Azure 应用商店的 SQL Server 映像][dbms-guide-5.6]一章中所述的步骤。
 * 有关详细信息，请查看 [定价详细信息](https://www.azure.cn/pricing/) 。 [SQL Server 2012 Licensing Guide](https://download.microsoft.com/download/7/3/C/73CAD4E0-D0B5-4BE5-AB49-D5B886A5AE00/SQL_Server_2012_Licensing_Reference_Guide.pdf)（SQL Server 2012 许可指南）和 [SQL Server 2014 Licensing Guide](https://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf)（SQL Server 2014 许可指南）也是相当重要的资源。
 
-### 在 Azure VM 中安装 SAP 相关 SQL Server 的 SQL Server 配置准则
-<a id="sql-server-configuration-guidelines-for-sap-related-sql-server-installations-in-azure-vms" class="xliff"></a>
-#### 适用于 SAP 相关 SQL Server 部署的 VM/VHD 结构建议
-<a id="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments" class="xliff"></a>
+### <a name="sql-server-configuration-guidelines-for-sap-related-sql-server-installations-in-azure-vms"></a>在 Azure VM 中安装 SAP 相关 SQL Server 的 SQL Server 配置准则
+#### <a name="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments"></a>适用于 SAP 相关 SQL Server 部署的 VM/VHD 结构建议
 按照一般的说明，SQL Server 可执行文件应该位于或安装在 VM 的基础 VHD 的系统驱动器（驱动器 C:\)中。  通常情况下，SAP NetWeaver 工作负荷对大部分 SQL Server 系统数据库的使用率都不会很高。 因此，SQL Server 的系统数据库（master、msdb 和 model）也可以保留在驱动器 C:\ 上。 唯一的例外就是 tempdb，在某些 SAP ERP 和所有 BW 工作负荷中，它可能需要较高的数据量或 I/O 操作量，以至于不适合放在原始 VM 中。 对于这类系统，应执行以下步骤：
 
 * 将主要 tempdb 数据文件移到与 SAP 数据库的主要数据文件相同的逻辑驱动器中。
@@ -629,14 +613,12 @@ Azure 可用性集是 VM 或服务的逻辑分组，可确保 VM 和其他服务
 
 请注意，D:\ 驱动器的大小因 VM 类型而异。 视 tempdb 的大小需求而定，一旦 D:\ 驱动器太小，你可能就不得不将 tempdb 数据和日志文件与 SAP 数据库数据和日志文件进行配对。
 
-#### 格式化 VHD
-<a id="formatting-the-vhds" class="xliff"></a>
+#### <a name="formatting-the-vhds"></a>格式化 VHD
 对于 SQL Server，包含 SQL Server 数据和日志文件的 VHD 的 NTFS 块大小应该为 64K。 不需要将 D:\ 驱动器格式化。 此驱动器已预先格式化。
 
 若要确保还原或创建数据库时不会通过清空文件内容来初始化数据文件，你应该确保 SQL Server 服务运行所在的用户上下文具有特定的权限。 通常，Windows 管理员组中的用户拥有这些权限。 如果 SQL Server 服务在非 Windows 管理员用户的用户上下文中运行，你需要为该用户分配“执行卷维护任务”用户权限。  请参阅这篇 Microsoft 知识库文章中的详细信息：<https://support.microsoft.com/kb/2574695>
 
-#### 数据库压缩的影响
-<a id="impact-of-database-compression" class="xliff"></a>
+#### <a name="impact-of-database-compression"></a>数据库压缩的影响
 在 I/O 带宽可能变成限制因素的配置中，每个减少 IOPS 的度量值都可能有助于分散你可以在 Azure 等 IaaS 方案中运行的工作负荷。 因此，SAP 和 Microsoft 强烈建议你先应用 SQL Server 页面压缩，然后再将现有 SAP 数据库上传到 Azure（如果尚未这么做）。
 
 之所以建议先执行数据库压缩，然后再上传到 Azure，原因有两点：
@@ -647,8 +629,7 @@ Azure 可用性集是 VM 或服务的逻辑分组，可确保 VM 和其他服务
 
 数据库压缩也可以在 Azure 虚拟机中运行，如同在本地运行一样。 有关如何压缩现有 SAP SQL Server 数据库的更多详细信息，请查看以下网页：<https://blogs.msdn.com/b/saponsqlserver/archive/2010/10/08/compressing-an-sap-database-using-report-msscompress.aspx>
 
-### SQL Server 2014 — 将数据库文件直接存储在 Azure Blog 存储上
-<a id="sql-server-2014---storing-database-files-directly-on-azure-blog-storage" class="xliff"></a>
+### <a name="sql-server-2014---storing-database-files-directly-on-azure-blog-storage"></a>SQL Server 2014 — 将数据库文件直接存储在 Azure Blog 存储上
 SQL Server 2014 开启了一种可能性：将数据库文件直接存储在 Azure Blob 存储上，而不需要用 VHD 来“包装”。 特别是在使用标准 Azure 存储或较小的 VM 类型时，这让你可以克服 IOPS 的限制，这些限制是通过可以装载到某些较小 VM 类型的有限 VHD 数目来强制实施的。 这适用于 SQL Server 的用户数据库，但不适用于系统数据库。 这也适用于 SQL Server 的数据和日志文件。 如果你想使用此方式部署 SAP SQL Server 数据库，而不是将它“包装”到 VHD，请记住以下几点：
 
 * 所用存储帐户所在的 Azure 区域必须与部署运行 SQL Server 的 VM 时所用的存储帐户相同。
@@ -659,13 +640,11 @@ SQL Server 2014 开启了一种可能性：将数据库文件直接存储在 Azu
 
 若要将 SQL Server 数据文件直接存储在 Azure 高级存储上，必须拥有 SQL Server 2014 补丁版本（最低要求），此处进行了说明：<https://support.microsoft.com/kb/3063054>。 若要将 SQL Server 数据文件存储在 Azure 标准存储上，需使用 SQL Server 2014 的发行版本。 不过，相同的补丁包含另一个系列的修补程序，利用这些修补程序，可以更加可靠地直接使用 Azure Blob 存储来存储 SQL Server 数据文件和备份。 因此，我们通常建议使用这些补丁。
 
-### SQL Server 2014 缓冲池扩展
-<a id="sql-server-2014-buffer-pool-extension" class="xliff"></a>
+### <a name="sql-server-2014-buffer-pool-extension"></a>SQL Server 2014 缓冲池扩展
 SQL Server 2014 引入了一项称为缓冲池扩展的新功能。 此功能使用由服务器或 VM 的本地 SSD 支持的第二层缓存，来扩展保留于内存中的 SQL Server 缓冲池。 扩展后，可在“内存中”保留更大型的数据工作集。 相较于访问 Azure 标准存储，访问存储在 Azure VM 的本地 SSD 上的缓冲池扩展的速度要快得多。  因此，使用具有出色 IOPS 和吞吐量的 VM 类型的本地 D:\ 驱动器可能是一个非常合理的方法，它可以减少 Azure 存储的 IOPS 负载，并大幅提升查询的响应时间。 这特别适用于未使用高级存储的场合。 使用高级存储时，如果按推荐的那样使用计算节点上的高级 Azure 读取缓存来存储数据文件，则没有太大差别。 原因在于这两个缓存（SQL Server 缓冲池扩展和高级存储读取缓存）都使用计算节点的本地磁盘。
 有关此功能的更多详细信息，请查看此文档：<https://msdn.microsoft.com/library/dn133176.aspx>
 
-### SQL Server 的备份/恢复注意事项
-<a id="backuprecovery-considerations-for-sql-server" class="xliff"></a>
+### <a name="backuprecovery-considerations-for-sql-server"></a>SQL Server 的备份/恢复注意事项
 将 SQL Server 部署到 Azure 时，必须检查你的备份方法。 即使系统不是生产系统，也必须定期备份 SQL Server 托管的 SAP 数据库。 由于 Azure 存储会保留三个映像，因此，在补救存储崩溃方面，备份现在已变得不太重要。 维护适当备份和恢复计划的首要原因是，你可以通过提供时间点恢复功能来补救逻辑/人为错误。 因此，其目标是使用备份将数据库还原回到某个时间点，或者通过复制现有数据库，在 Azure 中使用备份来植入另一个系统。 例如，你可以通过还原备份，从 2 层 SAP 配置转移到同一个系统的 3 层系统设置。
 
 可通过三种不同的方式将 SQL Server 备份到 Azure 存储：
@@ -712,16 +691,14 @@ SQL Server 2014 引入了一项称为缓冲池扩展的新功能。 此功能使
 
 不应将此方法用于支持以本机方式备份 Azure 存储的较新版 SQL Server。 Azure 本机备份限制阻止对 Azure 执行本机备份的情况例外。
 
-#### 其他 SQL Server 数据库备份可行方法
-<a id="other-possibilities-to-backup-sql-server-databases" class="xliff"></a>
+#### <a name="other-possibilities-to-backup-sql-server-databases"></a>其他 SQL Server 数据库备份可行方法
 其他数据库备份可行方法之一是将额外的 VHD 附加到用于存储备份的 VM。 在这种情况下，必须确保 VHD 未完全运行。 如果是这样，则必须卸载 VHD，也就是所谓的将其“存档”，然后用新的空 VHD 替代。 如果执行此操作，就需要将这些 VHD 保存在独立的 Azure 存储帐户中（不同于包含数据库文件的 VHD 所在的帐户）。
 
 第二种可行方法是使用可以附加许多 VHD 的大型 VM。 例如 有 32 个 VHD 的 D14。 使用存储空间来构建灵活的环境，你可以在其中构建共享，之后将共享作为不同 DBMS 服务器的备份目标。
 
 [此处](https://blogs.msdn.com/b/sqlcat/archive/2015/02/26/large-sql-server-database-backup-on-an-azure-vm-and-archiving.aspx) 也提供了一些最佳做法。
 
-#### 备份/还原的性能注意事项
-<a id="performance-considerations-for-backupsrestores" class="xliff"></a>
+#### <a name="performance-considerations-for-backupsrestores"></a>备份/还原的性能注意事项
 与裸机部署一样，备份/还原的性能取决于可以并行读取的卷数目，以及这些卷可能的吞吐量。 此外，备份压缩所使用的 CPU 使用率可能会在最多只有 8 个 CPU 线程的 VM 上扮演重要角色。 因此，你可以假设：
 
 * 存储数据文件所用的 VHD 数目越少，读取的总体吞吐量就越小。
@@ -735,8 +712,7 @@ SQL Server 2014 引入了一项称为缓冲池扩展的新功能。 此功能使
 
 不过，请记住，吞吐量还取决于用于备份的 Azure 存储帐户位置。 最好是将存储帐户放置在 VM 运行区域以外的区域。 例如 在中国北部运行 VM 配置，但将用于备份的存储帐户放在中国北部。 当然，这会对备份吞吐量产生影响，而且不大可能生成每秒 150MB 的吞吐量，因为似乎只有在目标存储和 VM 运行于同一个区域数据中心时才会生成这么高的吞吐量。
 
-#### 管理备份 BLOB
-<a id="managing-backup-blobs" class="xliff"></a>
+#### <a name="managing-backup-blobs"></a>管理备份 BLOB
 你需要自行管理备份。 经常执行事务日志备份预期会创建多个 Blob，因此，管理这些 Blob 很容易使 Azure 门户过载。 因此，建议使用 Azure 存储资源管理器。 有几个不错的工具可帮助管理 Azure 存储帐户
 
 * 安装了 Azure SDK 的 Microsoft Visual Studio (<https://docs.azure.cn/downloads/>)
@@ -751,8 +727,7 @@ Microsoft 在 Azure 应用商店中提供已经包含 SQL Server 版本的 VM。
 * 你只能使用 SAP 支持的 SQL Server 版本，例如 SQL Server 2012。
 * 安装于 VM（来自 Azure 应用商店）中的 SQL Server 实例的排序规则并不是 SAP NetWeaver 要求 SQL Server 实例运行的排序规则。 不过，你可以遵循下一节的指示来更改排序规则。
 
-#### 更改 Microsoft Windows/SQL Server VM 的 SQL Server 排序规则
-<a id="changing-the-sql-server-collation-of-a-microsoft-windowssql-server-vm" class="xliff"></a>
+#### <a name="changing-the-sql-server-collation-of-a-microsoft-windowssql-server-vm"></a>更改 Microsoft Windows/SQL Server VM 的 SQL Server 排序规则
 因为 Azure 应用商店中的 SQL Server 映像未设置为使用 SAP NetWeaver 应用程序所需的排序规则，所以需要在部署之后立即更改。 对于 SQL Server 2012，一旦部署了 VM 且管理员能够登录已部署的 VM，就可以使用下列步骤来完成此操作：
 
 * 以“管理员身份”打开 Windows 命令窗口。
@@ -772,21 +747,18 @@ Microsoft 在 Azure 应用商店中提供已经包含 SQL Server 版本的 VM。
 
 如果不是这个结果，请停止部署 SAP，并调查为什么安装命令未按预期运行。 **不** 支持将 SAP NetWeaver 应用程序部署到 SQL Server 代码页与上述代码页不同的 SQL Server 实例。
 
-### Azure 中适用于 SAP 的 SQL Server 高可用性
-<a id="sql-server-high-availability-for-sap-in-azure" class="xliff"></a>
+### <a name="sql-server-high-availability-for-sap-in-azure"></a>Azure 中适用于 SAP 的 SQL Server 高可用性
 如本文前面所述，你无法创建使用最早 SQL Server 高可用性功能时所需的共享存储。 此功能会在 Windows Server 故障转移群集 (WSFC) 中使用共享磁盘，为用户数据库（以及最终的 tempdb）安装两个或更多个 SQL Server 实例。 这是 SAP 也支持的长期标准高可用性方法。 由于 Azure 不支持共享存储，因此，无法实现具有共享磁盘群集配置的 SQL Server 高可用性配置。 不过，仍有许多其他高可用性方法，如下列各节所述。
 
 
-#### SQL Server 日志传送
-<a id="sql-server-log-shipping" class="xliff"></a>
+#### <a name="sql-server-log-shipping"></a>SQL Server 日志传送
 高可用性 (HA) 的方法之一是 SQL Server 日志传送。 如果参与 HA 配置的 VM 具有有效的名称解析，就不会出现问题，而且 Azure 中的设置与任何本地设置无任何差别。 建议不要完全依赖于 IP 解析。 有关设置日志传送的信息和日志传送的原理，请查看此文档：
 
 <https://technet.microsoft.com/library/ms187103.aspx>
 
 若要真正实现任何高可用性，你需要将此类日志传送配置内的 VM 部署到同一个 Azure 可用性集内。
 
-#### 数据库镜像
-<a id="database-mirroring" class="xliff"></a>
+#### <a name="database-mirroring"></a>数据库镜像
 SAP 支持的数据库镜像（请参阅 SAP 说明 [965908]）依赖于在 SAP 连接字符串中定义故障转移伙伴。 在跨界方案中，我们假设这两个 VM 位于相同的域中，而且这两个 SQL Server 实例运行所在的用户上下文也是域用户，并在所涉及的这两个 SQL Server 实例中具备足够的特权。 因此，Azure 中的数据库镜像设置与典型的本地设置/配置并无差别。
 
 至于仅限云的部署，最简单的方法是在 Azure 中设置另一个域，以便让这些 DBMS VM（最好是专用的 SAP VM）位于一个域中。
@@ -795,8 +767,7 @@ SAP 支持的数据库镜像（请参阅 SAP 说明 [965908]）依赖于在 SAP 
 
 在 Azure 中设置数据库镜像的教程可在此处找到：<https://technet.microsoft.com/library/ms189852.aspx>
 
-#### AlwaysOn
-<a id="alwayson" class="xliff"></a>
+#### <a name="alwayson"></a>AlwaysOn
 由于 AlwaysOn 受本地 SAP 支持（请参阅 SAP 说明 [1772688]），因此，支持在 Azure 中将其与 SAP 搭配使用。 事实上，无法在 Azure 中创建共享磁盘并不表示无法在不同 VM 之间创建 AlwaysOn Windows Server 故障转移群集 (WSFC) 配置。 这只表示你不能在群集配置中使用共享磁盘作为仲裁。 因此，你可以在 Azure 中构建 AlwaysOn WSFC 配置，而且无需选择使用共享磁盘的仲裁类型。 部署这些 VM 的 Azure 环境应该按名称解析 VM，而 VM 应该位于同一个域中。 这适用于仅限 Azure 的部署和跨界部署。 部署 SQL Server 可用性组侦听器（请勿与 Azure 可用性集混淆）时有一些特殊注意事项，因为 Azure 目前不允许只创建 AD/DNS 对象，而在本地是允许的。 因此，需要执行一些不同的安装步骤来克服 Azure 的特定行为。
 
 以下是使用可用性组侦听器的一些注意事项：
@@ -813,8 +784,7 @@ SAP 支持的数据库镜像（请参阅 SAP 说明 [965908]）依赖于在 SAP 
 也可以在不同的 Azure 区域部署 SQL Server AlwaysOn 可用性组。 此功能将使用 Azure VNet 到 Vnet 连接（[更多详细信息][virtual-networks-configure-vnet-to-vnet-connection]）。
 
 
-#### Azure 中的 SQL Server 高可用性汇总
-<a id="summary-on-sql-server-high-availability-in-azure" class="xliff"></a>
+#### <a name="summary-on-sql-server-high-availability-in-azure"></a>Azure 中的 SQL Server 高可用性汇总
 Azure 存储会保护内容，因此，更加没有理由坚持使用热备用映像。 这意味着，你的高可用性方案只需针对下列情况提供保护：
 
 * 由于在 Azure 的服务器群集上进行维护或其他原因而导致 VM 完全不可用
@@ -847,8 +817,7 @@ Azure 存储会保护内容，因此，更加没有理由坚持使用热备用�
 9. 谨慎使用来自 Azure 应用商店的 SQL Server 映像。 如果使用 SQL Server 映像，就必须更改实例排序规则，才能在其上安装任何 SAP NetWeaver 系统。
 10. 按照 [部署指南][deployment-guide]中的说明，安装和配置适用于 Azure 的 SAP 主机监视。
 
-## 有关 Windows 上的 SAP ASE 的具体信息
-<a id="specifics-to-sap-ase-on-windows" class="xliff"></a>
+## <a name="specifics-to-sap-ase-on-windows"></a>有关 Windows 上的 SAP ASE 的具体信息
 自从有了 Azure，你就可以轻松地将现有 SAP ASE 应用程序迁移到 Azure 虚拟机。 借助虚拟机中的 SAP ASE，你可以轻松地将这些应用程序迁移到 Azure，从而减少部署、管理和维护企业级应用程序的总拥有成本。 借助 Azure 虚拟机中的 SAP ASE，管理员和开发人员仍然可以使用在本地可用的相同开发和管理工具。
 
 可以在此处找到适用于 Azure 虚拟机的 SLA：<https://www.azure.cn/support/legal/sla>
@@ -857,8 +826,7 @@ Azure 存储会保护内容，因此，更加没有理由坚持使用热备用�
 
 有关 Azure 存储使用情况、SAP VM 部署或 SAP 监视的表述与建议适用于 SAP ASE 与 SAP 应用程序的联合部署，如本文档前四章所述。
 
-### SAP ASE 版本支持
-<a id="sap-ase-version-support" class="xliff"></a>
+### <a name="sap-ase-version-support"></a>SAP ASE 版本支持
 SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使用。 适用于 SAP ASE 服务器的所有更新或者适用于可与 SAP Business Suite 产品搭配使用的 JDBC 和 ODBC 驱动程序的所有更新，仅通过 SAP Service Marketplace (<https://support.sap.com/swdc>) 提供。
 
 与本地安装一样，不要直接从 Sybase 网站下载适用于 SAP ASE 服务器或适用于 JDBC 和 ODBC 驱动程序的更新。 有关支持在本地和 Azure 虚拟机中与 SAP Business Suite 产品搭配使用的补丁的详细信息，请参阅下列 SAP 说明：
@@ -866,10 +834,8 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 * [1590719]
 * [1973241]
 
-### 在 Azure VM 中安装 SAP 相关 SAP ASE 的 SAP ASE 配置准则
-<a id="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms" class="xliff"></a>
-#### SAP ASE 部署的结构
-<a id="structure-of-the-sap-ase-deployment" class="xliff"></a>
+### <a name="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms"></a>在 Azure VM 中安装 SAP 相关 SAP ASE 的 SAP ASE 配置准则
+#### <a name="structure-of-the-sap-ase-deployment"></a>SAP ASE 部署的结构
 按照一般的说明，SAP ASE 可执行文件应该位于或安装在 VM 的基础 VHD 的系统驱动器（驱动器 c:\) 中。 通常情况下，SAP NetWeaver 工作负荷对大部分 SAP ASE 系统和工具数据库的使用率并不很高。 因此，系统和工具数据库（master、model、saptools、sybmgmtdb、sybsystemdb）也可以保留在驱动器 C:\ 上。
 
 唯一的例外就是包含 SAP ASE 创建的所有工作表和临时表的临时数据库，在某些 SAP ERP 和所有 BW 工作负荷中，它可能需要较高的数据量或 I/O 操作量，以至于不适合放在原始 VM 的基础 VHD（驱动器 c:\)中。
@@ -891,8 +857,7 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 
 永远不要将任何 SAP ASE 设备放入 VM 的 D:\ 驱动器。 这也适用于 tempdb，即使 tempdb 中保留的对象只是暂时性的。
 
-#### 数据库压缩的影响
-<a id="impact-of-database-compression" class="xliff"></a>
+#### <a name="impact-of-database-compression"></a>数据库压缩的影响
 在 I/O 带宽可能变成限制因素的配置中，每个减少 IOPS 的度量值都可能有助于分散你可以在 Azure 等 IaaS 方案中运行的工作负荷。 因此，强烈建议确保先使用 SAP ASE 压缩，然后再将现有 SAP 数据库上传到 Azure。
 
 之所以建议先执行压缩，然后再上传到 Azure（如果尚未这样做），原因有以下几点：
@@ -903,8 +868,7 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 
 数据和 LOB 压缩可以在 Azure 虚拟机托管的 VM 中运行，如同在本地运行一样。 有关如何检查是否已在现有 SAP ASE 数据库中使用压缩的更多详细信息，请查看 SAP 说明 [1750510]。
 
-#### 使用 DBACockpit 来监视数据库实例
-<a id="using-dbacockpit-to-monitor-database-instances" class="xliff"></a>
+#### <a name="using-dbacockpit-to-monitor-database-instances"></a>使用 DBACockpit 来监视数据库实例
 对于使用 SAP ASE 作为数据库平台的 SAP 系统，可以将 DBACockpit 作为事务 DBACockpit 中的嵌入式浏览器窗口或作为 Webdynpro 来访问。 但是，完整的数据库监视和管理功能仅在 DBACockpit 的 Webdynpro 实现中提供。
 
 与本地系统一样，需执行数个步骤，才能启用 DBACockpit 的 Webdynpro 实现所使用的所有 SAP NetWeaver 功能。 请遵循 SAP 说明 [1245200] ，以启用 Webdynpro 并生成必要的功能。 遵循上述说明中的指示操作时，还将配置 Internet Communication Manager (icm) 以及要用于 http 和 https 连接的端口。 http 的默认设置如下所示：
@@ -963,8 +927,7 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 * [1922555]
 * [1956005]
 
-#### SAP ASE 的备份/恢复注意事项
-<a id="backuprecovery-considerations-for-sap-ase" class="xliff"></a>
+#### <a name="backuprecovery-considerations-for-sap-ase"></a>SAP ASE 的备份/恢复注意事项
 将 SAP ASE 部署到 Azure 时，必须检查你的备份方法。 即使系统不是生产系统，也必须定期备份 SAP ASE 托管的 SAP 数据库。 由于 Azure 存储会保留三个映像，因此，在补救存储崩溃方面，备份现在已变得不太重要。 维护适当备份和还原计划的主要原因是，你可以通过提供时间点恢复功能来补救逻辑/人为错误。 因此，其目标是使用备份将数据库还原回到某个时间点，或者通过复制现有数据库，在 Azure 中使用备份来植入另一个系统。 例如，你可以通过还原备份，从 2 层 SAP 配置转移到同一个系统的 3 层系统设置。
 
 在 Azure 中备份和还原数据库的方式与在本地一样。 请参阅 SAP 说明：
@@ -978,8 +941,7 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 
 请勿使用驱动器 D:\ 作为数据库或日志转储目标。
 
-#### 备份/还原的性能注意事项
-<a id="performance-considerations-for-backupsrestores" class="xliff"></a>
+#### <a name="performance-considerations-for-backupsrestores"></a>备份/还原的性能注意事项
 与裸机部署一样，备份/还原的性能取决于可以并行读取的卷数目，以及这些卷可能的吞吐量。 此外，备份压缩所使用的 CPU 使用率可能会在最多只有 8 个 CPU 线程的 VM 上扮演重要角色。 因此，你可以假设：
 
 * 存储数据库设备所用的 VHD 数目越少，读取的总体吞吐量就越小
@@ -993,18 +955,15 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 
 本指南的前面部分已讨论过如何基于已装载的多个 VHD 对卷划分带区。 有关在 SAP ASE 转储配置中使用多个目录的详细信息，请参阅存储过程 sp_config_dump 的相关文档，此存储过程用于在 [Sybase 信息中心](http://infocenter.sybase.com/help/index.jsp)创建转储配置。
 
-### Azure VM 的灾难恢复
-<a id="disaster-recovery-with-azure-vms" class="xliff"></a>
-#### 使用 SAP Sybase 复制服务器复制数据
-<a id="data-replication-with-sap-sybase-replication-server" class="xliff"></a>
+### <a name="disaster-recovery-with-azure-vms"></a>Azure VM 的灾难恢复
+#### <a name="data-replication-with-sap-sybase-replication-server"></a>使用 SAP Sybase 复制服务器复制数据
 利用 SAP Sybase 复制服务器 (SRS)，SAP ASE 可提供热备用解决方案，以异步方式将数据库事务传输到远程位置。
 
 与在本地一样，也可以在 Azure 虚拟机托管的 VM 中正常安装和运行 SRS。
 
 预计将在未来的版本中通过 SAP 复制服务器实现 ASE HADR。 一旦开发了该功能，将立即针对 Azure 平台进行测试和发行。
 
-## 有关 Linux 上的 SAP ASE 的具体信息
-<a id="specifics-to-sap-ase-on-linux" class="xliff"></a>
+## <a name="specifics-to-sap-ase-on-linux"></a>有关 Linux 上的 SAP ASE 的具体信息
 自从有了 Azure，你就可以轻松地将现有 SAP ASE 应用程序迁移到 Azure 虚拟机。 借助虚拟机中的 SAP ASE，你可以轻松地将这些应用程序迁移到 Azure，从而减少部署、管理和维护企业级应用程序的总拥有成本。 借助 Azure 虚拟机中的 SAP ASE，管理员和开发人员仍然可以使用在本地可用的相同开发和管理工具。
 
 若要部署 Azure VM，请务必熟悉可在此处找到的官方 SLA：<https://www.azure.cn/support/legal/sla>
@@ -1018,8 +977,7 @@ SAP 说明 [1928533]将提供 SAP 大小调整信息以及经过 SAP 认证的 V
 * [2134316]
 * [1941500]
 
-### SAP ASE 版本支持
-<a id="sap-ase-version-support" class="xliff"></a>
+### <a name="sap-ase-version-support"></a>SAP ASE 版本支持
 SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使用。 适用于 SAP ASE 服务器的所有更新或者适用于可与 SAP Business Suite 产品搭配使用的 JDBC 和 ODBC 驱动程序的所有更新，仅通过 SAP Service Marketplace (<https://support.sap.com/swdc>) 提供。
 
 与本地安装一样，不要直接从 Sybase 网站下载适用于 SAP ASE 服务器或适用于 JDBC 和 ODBC 驱动程序的更新。 有关支持在本地和 Azure 虚拟机中与 SAP Business Suite 产品搭配使用的补丁的详细信息，请参阅下列 SAP 说明：
@@ -1027,10 +985,8 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 * [1590719]
 * [1973241]
 
-### 在 Azure VM 中安装 SAP 相关 SAP ASE 的 SAP ASE 配置准则
-<a id="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms" class="xliff"></a>
-#### SAP ASE 部署的结构
-<a id="structure-of-the-sap-ase-deployment" class="xliff"></a>
+### <a name="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms"></a>在 Azure VM 中安装 SAP 相关 SAP ASE 的 SAP ASE 配置准则
+#### <a name="structure-of-the-sap-ase-deployment"></a>SAP ASE 部署的结构
 按照一般的说明，SAP ASE 可执行文件应该位于或安装在 VM 的根文件系统 (/sybase ) 中。 通常情况下，SAP NetWeaver 工作负荷对大部分 SAP ASE 系统和工具数据库的使用率并不很高。 因此，系统和工具数据库（master、model、saptools、sybmgmtdb、sybsystemdb）也可以保留在根文件系统上。
 
 唯一的例外就是包含 SAP ASE 创建的所有工作表和临时表的临时数据库，在某些 SAP ERP 和所有 BW 工作负荷中，它可能需要较高的数据量或 I/O 操作量，以至于不适合放在原始 VM 的 OS 磁盘中。
@@ -1052,8 +1008,7 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 
 永远不要将任何 SAP ASE 目录放入 VM 的 /mnt 或 /mnt/resource。 这也适用于 tempdb（即使 tempdb 中保留的对象只是暂时性的），因为 /mnt 或 /mnt/resource 是默认的非永久性 Azure VM 临时空间。 可以在 [此文][virtual-machines-linux-how-to-attach-disk]
 
-#### 数据库压缩的影响
-<a id="impact-of-database-compression" class="xliff"></a>
+#### <a name="impact-of-database-compression"></a>数据库压缩的影响
 在 I/O 带宽可能变成限制因素的配置中，每个减少 IOPS 的度量值都可能有助于分散你可以在 Azure 等 IaaS 方案中运行的工作负荷。 因此，强烈建议确保先使用 SAP ASE 压缩，然后再将现有 SAP 数据库上传到 Azure。
 
 之所以建议先执行压缩，然后再上传到 Azure（如果尚未这样做），原因有以下几点：
@@ -1064,8 +1019,7 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 
 数据和 LOB 压缩可以在 Azure 虚拟机托管的 VM 中运行，如同在本地运行一样。 有关如何检查是否已在现有 SAP ASE 数据库中使用压缩的更多详细信息，请查看 SAP 说明 [1750510]。 有关数据库压缩的其他信息，另请参阅 SAP 说明 [2121797] 。
 
-#### 使用 DBACockpit 来监视数据库实例
-<a id="using-dbacockpit-to-monitor-database-instances" class="xliff"></a>
+#### <a name="using-dbacockpit-to-monitor-database-instances"></a>使用 DBACockpit 来监视数据库实例
 对于使用 SAP ASE 作为数据库平台的 SAP 系统，可以将 DBACockpit 作为事务 DBACockpit 中的嵌入式浏览器窗口或作为 Webdynpro 来访问。 但是，完整的数据库监视和管理功能仅在 DBACockpit 的 Webdynpro 实现中提供。
 
 与本地系统一样，需执行数个步骤，才能启用 DBACockpit 的 Webdynpro 实现所使用的所有 SAP NetWeaver 功能。 请遵循 SAP 说明 [1245200] ，以启用 Webdynpro 并生成必要的功能。 遵循上述说明中的指示操作时，还将配置 Internet Communication Manager (icm) 以及要用于 http 和 https 连接的端口。 http 的默认设置如下所示：
@@ -1124,8 +1078,7 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 * [1922555]
 * [1956005]
 
-#### SAP ASE 的备份/恢复注意事项
-<a id="backuprecovery-considerations-for-sap-ase" class="xliff"></a>
+#### <a name="backuprecovery-considerations-for-sap-ase"></a>SAP ASE 的备份/恢复注意事项
 将 SAP ASE 部署到 Azure 时，必须检查你的备份方法。 即使系统不是生产系统，也必须定期备份 SAP ASE 托管的 SAP 数据库。 由于 Azure 存储会保留三个映像，因此，在补救存储崩溃方面，备份现在已变得不太重要。 维护适当备份和还原计划的主要原因是，你可以通过提供时间点恢复功能来补救逻辑/人为错误。 因此，其目标是使用备份将数据库还原回到某个时间点，或者通过复制现有数据库，在 Azure 中使用备份来植入另一个系统。 例如，你可以通过还原备份，从 2 层 SAP 配置转移到同一个系统的 3 层系统设置。
 
 在 Azure 中备份和还原数据库的方式与在本地一样。 请参阅 SAP 说明：
@@ -1139,8 +1092,7 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 
 请勿将 Azure VM 临时空间 /mnt 或 /mnt/resource 用作数据库或日志转储目标。
 
-#### 备份/还原的性能注意事项
-<a id="performance-considerations-for-backupsrestores" class="xliff"></a>
+#### <a name="performance-considerations-for-backupsrestores"></a>备份/还原的性能注意事项
 与裸机部署一样，备份/还原的性能取决于可以并行读取的卷数目，以及这些卷可能的吞吐量。 此外，备份压缩所使用的 CPU 使用率可能会在最多只有 8 个 CPU 线程的 VM 上扮演重要角色。 因此，你可以假设：
 
 * 存储数据库设备所用的 VHD 数目越少，读取的总体吞吐量就越小
@@ -1154,32 +1106,26 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 
 本指南的前面部分已讨论过如何基于已装载的多个 VHD 对卷划分带区。 有关在 SAP ASE 转储配置中使用多个目录的详细信息，请参阅存储过程 sp_config_dump 的相关文档，此存储过程用于在 [Sybase 信息中心](http://infocenter.sybase.com/help/index.jsp)创建转储配置。
 
-### Azure VM 的灾难恢复
-<a id="disaster-recovery-with-azure-vms" class="xliff"></a>
-#### 使用 SAP Sybase 复制服务器复制数据
-<a id="data-replication-with-sap-sybase-replication-server" class="xliff"></a>
+### <a name="disaster-recovery-with-azure-vms"></a>Azure VM 的灾难恢复
+#### <a name="data-replication-with-sap-sybase-replication-server"></a>使用 SAP Sybase 复制服务器复制数据
 利用 SAP Sybase 复制服务器 (SRS)，SAP ASE 可提供热备用解决方案，以异步方式将数据库事务传输到远程位置。
 
 与在本地一样，也可以在 Azure 虚拟机托管的 VM 中正常安装和运行 SRS。
 
 目前不支持通过 SAP 复制服务器实现 ASE HADR。 未来可能会针对 Azure 平台进行测试和发行。
 
-## 有关 Windows 上的 Oracle 数据库的具体信息
-<a id="specifics-to-oracle-database-on-windows" class="xliff"></a>
+## <a name="specifics-to-oracle-database-on-windows"></a>有关 Windows 上的 Oracle 数据库的具体信息
 自 2013 年年中起，Oracle 支持在 Microsoft Windows Hyper-V 和 Azure 上运行 Oracle 软件。 请阅读此文，获取有关 Oracle 提供的 Windows Hyper-V 和 Azure 常规支持的更多详细信息：<https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces>
 
 根据常规支持，SAP 应用程序使用 Oracle 数据库的特定方案也受到支持。 文档的这一部分对此进行了详细介绍。
 
-### Oracle 版本支持
-<a id="oracle-version-support" class="xliff"></a>
+### <a name="oracle-version-support"></a>Oracle 版本支持
 有关支持在 Azure 虚拟机上的 Oracle 中运行 SAP 的 Oracle 版本及相应 OS 版本的所有详细信息，请参阅 SAP 说明 [2039619]
 
 有关在 Oracle 上运行 SAP Business Suite 的常规信息可在 SCN 中找到：<https://scn.sap.com/community/oracle>
 
-### 在 Azure VM 中安装 SAP 的 Oracle 配置准则
-<a id="oracle-configuration-guidelines-for-sap-installations-in-azure-vms" class="xliff"></a>
-#### 存储配置
-<a id="storage-configuration" class="xliff"></a>
+### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms"></a>在 Azure VM 中安装 SAP 的 Oracle 配置准则
+#### <a name="storage-configuration"></a>存储配置
 仅支持一个使用 NTFS 格式化磁盘的 Oracle 实例。 所有数据库文件都必须存储在基于 VHD 磁盘的 NTFS 文件系统上。 这些 VHD 会装载到 Azure VM，并以 Azure 页 BLOB 存储 (<https://msdn.microsoft.com/library/azure/ee691964.aspx>) 为基础。
 任何类型的网络驱动器或远程共享（例如 Azure 文件服务：
 
@@ -1198,27 +1144,21 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 
 如果需要更多 IOPS，我们强烈建议使用 Windows 存储池（仅适用于 Windows Server 2012 和更高版本）或适用于 Windows 2008 R2 的 Windows 带区，基于已装载的多个 VHD 磁盘来创建一个大型逻辑设备。 另请参阅本文档的 [软件 RAID][dbms-guide-2.2] 一章。 这种方法可以简化磁盘空间的管理开销，避免跨已装载的多个 VHD 手动分布文件。
 
-#### 备份/还原
-<a id="backup--restore" class="xliff"></a>
+#### <a name="backup--restore"></a>备份/还原
 支持通过适用于 Oracle 的 SAP BR* 工具提供备份/还原功能，其方式与在标准 Windows Server 操作系统和 Hyper-V 上一样。 Oracle 恢复管理器 (RMAN) 也支持备份到磁盘以及从磁盘还原。
 
-#### 高可用性
-<a id="high-availability" class="xliff"></a>
+#### <a name="high-availability"></a>高可用性
 支持通过 Oracle Data Guard 实现高可用性和灾难恢复。 可以在 [此文档][virtual-machines-windows-classic-configure-oracle-data-guard] 中找到详细信息。
 
-#### 其他
-<a id="other" class="xliff"></a>
+#### <a name="other"></a>其他
 Azure 可用性集或 SAP 监视等所有其他常规主题也适用于使用 Oracle 数据库进行的 VM 部署，如本文档的前三章所述。
 
-## 有关 Windows 上的 SAP MaxDB 数据库的具体信息
-<a id="specifics-for-the-sap-maxdb-database-on-windows" class="xliff"></a>
-### SAP MaxDB 版本支持
-<a id="sap-maxdb-version-support" class="xliff"></a>
+## <a name="specifics-for-the-sap-maxdb-database-on-windows"></a>有关 Windows 上的 SAP MaxDB 数据库的具体信息
+### <a name="sap-maxdb-version-support"></a>SAP MaxDB 版本支持
 SAP 目前支持 SAP MaxDB 版本 7.9，该版本可以与 Azure 中基于 SAP NetWeaver 的产品搭配使用。 适用于 SAP MaxDB 服务器的所有更新或者适用于可与基于 SAP NetWeaver 的产品搭配使用的 JDBC 和 ODBC 驱动程序的所有更新，仅通过 SAP Service Marketplace (<https://support.sap.com/swdc>) 提供。
 有关在 SAP MaxDB 上运行 SAP NetWeaver 的常规信息可在 <https://scn.sap.com/community/maxdb> 中找到。
 
-### SAP MaxDB DBMS 支持的 Microsoft Windows 版本和 Azure VM 类型
-<a id="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-maxdb-dbms" class="xliff"></a>
+### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-maxdb-dbms"></a>SAP MaxDB DBMS 支持的 Microsoft Windows 版本和 Azure VM 类型
 若要为 Azure 上的 SAP MaxDB DBMS 查找受支持的 Microsoft Windows 版本，请参阅：
 
 * [SAP 产品可用性对照表 (PAM)][sap-pam]
@@ -1226,12 +1166,10 @@ SAP 目前支持 SAP MaxDB 版本 7.9，该版本可以与 Azure 中基于 SAP N
 
 强烈建议使用最新版本的操作系统 Microsoft Windows，也就是 Microsoft Windows 2012 R2。
 
-### 可用的 SAP MaxDB 文档
-<a id="available-sap-maxdb-documentation" class="xliff"></a>
+### <a name="available-sap-maxdb-documentation"></a>可用的 SAP MaxDB 文档
 可以在 SAP 说明 [767598]
 
-### 在 Azure VM 中安装 SAP 的 SAP MaxDB 配置准则
-<a id="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms" class="xliff"></a>
+### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>在 Azure VM 中安装 SAP 的 SAP MaxDB 配置准则
 #### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>存储配置
 适用于 SAP MaxDB 的 Azure 存储最佳做法遵循 [RDBMS 部署的结构][dbms-guide-2]一章中所述的常规建议。
 
@@ -1282,14 +1220,11 @@ Azure 可用性集或 SAP 监视等所有其他常规主题也适用于使用 SA
 * [1139904]
 * [1173395]
 
-## 有关 Windows 上的 SAP liveCache 的具体信息
-<a id="specifics-for-sap-livecache-on-windows" class="xliff"></a>
-### SAP liveCache 版本支持
-<a id="sap-livecache-version-support" class="xliff"></a>
+## <a name="specifics-for-sap-livecache-on-windows"></a>有关 Windows 上的 SAP liveCache 的具体信息
+### <a name="sap-livecache-version-support"></a>SAP liveCache 版本支持
 Azure 虚拟机支持的 SAP liveCache 最低版本是针对 **EhP 2 for SAP SCM 7.0** 和更高版本发行的 **SAP LC/LCAPPS 10.0 SP 25**，其中包括 **liveCache 7.9.08.31** 和 **LCA-Build 25**。
 
-### SAP liveCache DBMS 支持的 Microsoft Windows 版本和 Azure VM 类型
-<a id="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-livecache-dbms" class="xliff"></a>
+### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-livecache-dbms"></a>SAP liveCache DBMS 支持的 Microsoft Windows 版本和 Azure VM 类型
 若要为 Azure 上的 SAP liveCache DBMS 查找受支持的 Microsoft Windows 版本，请参阅：
 
 * [SAP 产品可用性对照表 (PAM)][sap-pam]
@@ -1297,10 +1232,8 @@ Azure 虚拟机支持的 SAP liveCache 最低版本是针对 **EhP 2 for SAP SCM
 
 强烈建议使用最新版本的操作系统 Microsoft Windows，也就是 Microsoft Windows 2012 R2。
 
-### 在 Azure VM 中安装 SAP 的 SAP liveCache 配置准则
-<a id="sap-livecache-configuration-guidelines-for-sap-installations-in-azure-vms" class="xliff"></a>
-#### 建议的 Azure VM 类型
-<a id="recommended-azure-vm-types" class="xliff"></a>
+### <a name="sap-livecache-configuration-guidelines-for-sap-installations-in-azure-vms"></a>在 Azure VM 中安装 SAP 的 SAP liveCache 配置准则
+#### <a name="recommended-azure-vm-types"></a>建议的 Azure VM 类型
 SAP liveCache 是一种执行大量计算的应用程序，因此，RAM 与 CPU 的数量和速度会对 SAP liveCache 性能产生重大影响。
 
 对于 SAP 支持的 Azure VM 类型（SAP 说明 [1928533]），分配给 VM 的所有虚拟 CPU 资源均由虚拟机监控程序的专用物理 CPU 资源提供支持。 不会发生过度预配（因此也不会发生 CPU 资源竞争）。
@@ -1309,30 +1242,24 @@ SAP liveCache 是一种执行大量计算的应用程序，因此，RAM 与 CPU 
 
 从这个角度看，我们强烈建议使用新的 D 系列或 DS 系列（搭配 Azure 高级存储）Azure VM 类型，因为它们的处理器速度比 A 系列快 60%。 若要获得最高的 RAM 和 CPU 负载，可以使用 G 系列和 GS 系列（搭配 Azure 高级存储）VM，这两个系列配备最新的 Intel® Xeon® 处理器 E5 v3 系列，其内存是 D/DS 系列的两倍，固态硬盘存储 (SSD) 是 D/DS 系列的四倍。
 
-#### 存储配置
-<a id="storage-configuration" class="xliff"></a>
+#### <a name="storage-configuration"></a>存储配置
 SAP liveCache 以 SAP MaxDB 技术为基础，因此， [存储配置][dbms-guide-8.4.1] 一章中针对 SAP MaxDB 提出的所有 Azure 存储最佳做法建议也适用于 SAP liveCache。
 
-#### liveCache 专用的 Azure VM
-<a id="dedicated-azure-vm-for-livecache" class="xliff"></a>
+#### <a name="dedicated-azure-vm-for-livecache"></a>liveCache 专用的 Azure VM
 SAP liveCache 会密集使用计算能力，因此，为了有效使用该技术，强烈建议将其部署在专用的 Azure 虚拟机上。
 
 ![为有效使用 liveCache 而专用的 Azure VM][dbms-guide-figure-700]
 
-#### 备份和还原
-<a id="backup-and-restore" class="xliff"></a>
+#### <a name="backup-and-restore"></a>备份和还原
 备份和还原（包括性能注意事项）已在相关的 SAP MaxDB 章节[备份和还原][dbms-guide-8.4.2]以及[备份和还原的性能注意事项][dbms-guide-8.4.3]中加以说明。
 
-#### 其他
-<a id="other" class="xliff"></a>
+#### <a name="other"></a>其他
 所有其他常规主题已在与 SAP MaxDB 相关的 [此章][dbms-guide-8.4.4] 中加以说明。
 
-## 有关 Windows 上的 SAP 内容服务器的具体信息
-<a id="specifics-for-the-sap-content-server-on-windows" class="xliff"></a>
+## <a name="specifics-for-the-sap-content-server-on-windows"></a>有关 Windows 上的 SAP 内容服务器的具体信息
 SAP 内容服务器是基于服务器的独立组件，可以存储电子文档等不同格式的内容。 SAP 内容服务器通过技术开发提供，旨在以跨应用程序的方式用于任何 SAP 应用程序。 它安装于一个独立的系统上。 其存储的典型内容包括来自 Knowledge Warehouse 的培训材料和文档，或者源自 mySAP PLM 文档管理系统的技术绘图。
 
-### SAP 内容服务器版本支持
-<a id="sap-content-server-version-support" class="xliff"></a>
+### <a name="sap-content-server-version-support"></a>SAP 内容服务器版本支持
 SAP 目前支持：
 
 * **SAP 内容服务器**版本 **6.50（和更高版本）**
@@ -1343,8 +1270,7 @@ SAP 目前支持：
 
 在 [SAP 产品可用性对照表 (PAM)][sap-pam] 中查看支持的最新 SAP 内容服务器和 Microsoft IIS 版本。
 
-### SAP 内容服务器支持的 Microsoft Windows 和 Azure VM 类型
-<a id="supported-microsoft-windows-and-azure-vm-types-for-sap-content-server" class="xliff"></a>
+### <a name="supported-microsoft-windows-and-azure-vm-types-for-sap-content-server"></a>SAP 内容服务器支持的 Microsoft Windows 和 Azure VM 类型
 若要为 Azure 上的 SAP 内容服务器查找受支持的 Windows 版本，请参阅：
 
 * [SAP 产品可用性对照表 (PAM)][sap-pam]
@@ -1352,22 +1278,18 @@ SAP 目前支持：
 
 强烈建议使用最新版的 Microsoft Windows（在撰写本文档时为 **Windows Server 2012 R2**）。
 
-### 在 Azure VM 中安装 SAP 的 SAP 内容服务器配置准则
-<a id="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms" class="xliff"></a>
-#### 存储配置
-<a id="storage-configuration" class="xliff"></a>
+### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>在 Azure VM 中安装 SAP 的 SAP 内容服务器配置准则
+#### <a name="storage-configuration"></a>存储配置
 如果将 SAP 内容服务器配置为将文件存储在 SAP MaxDB 数据库中，那么， [存储配置][dbms-guide-8.4.1] 一章中针对 SAP MaxDB 提出的所有 Azure 存储最佳做法建议也适用于 SAP 内容服务器方案。
 
 如果将 SAP 内容服务器配置为将文件存储在文件系统中，则建议使用专用的逻辑驱动器。 通过使用存储空间，还可以增加逻辑磁盘的大小和 IOPS 吞吐量，如 [软件 RAID][dbms-guide-2.2]一章中所述。
 
-#### SAP 内容服务器位置
-<a id="sap-content-server-location" class="xliff"></a>
+#### <a name="sap-content-server-location"></a>SAP 内容服务器位置
 SAP 内容服务器必须部署在部署了 SAP 系统的 Azure 区域和 Azure VNET 中。 你可以自行决定要将 SAP 内容服务器组件部署在专用的 Azure VM 上还是运行 SAP 系统的 VM 上。
 
 ![SAP 内容服务器专用的 Azure VM][dbms-guide-figure-800]
 
-#### SAP 缓存服务器位置
-<a id="sap-cache-server-location" class="xliff"></a>
+#### <a name="sap-cache-server-location"></a>SAP 缓存服务器位置
 SAP 缓存服务器是一个基于服务器的附加组件，可在本地提供对（缓存）文档的访问权限。 SAP 缓存服务器会缓存 SAP 内容服务器的文档。 如果必须从不同的位置多次检索文档，这样做可以优化网络流量。 一般规则是，SAP 缓存服务器在物理上必须靠近访问 SAP 缓存服务器的客户端。
 
 可以使用以下两个选项：
@@ -1380,36 +1302,30 @@ SAP 缓存服务器是一个基于服务器的附加组件，可在本地提供�
 ![用于安装本地 SAP 缓存服务器的选项][dbms-guide-figure-900]
 <a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a>
 
-#### 备份/还原
-<a id="backup--restore" class="xliff"></a>
+#### <a name="backup--restore"></a>备份/还原
 如果将 SAP 内容服务器配置为将文件存储在 SAP MaxDB 数据库中，其备份/还原过程和性能注意事项已在 SAP MaxDB 章节[备份和还原][dbms-guide-8.4.2]以及[备份和还原的性能注意事项][dbms-guide-8.4.3]中加以说明。
 
 如果将 SAP 内容服务器配置为将文件存储在文件系统中，有一个选项是针对文档所在的整个文件结构执行手动备份/还原。 与 SAP MaxDB 备份/还原类似，建议为备份使用专用的磁盘卷。
 
-#### 其他
-<a id="other" class="xliff"></a>
+#### <a name="other"></a>其他
 其他特定于 SAP 内容服务器的设置对 Azure VM 是透明的，相关介绍请参阅各种文档和 SAP 说明：
 
 * <https://service.sap.com/contentserver>
 * SAP 说明 [1619726]  
 
-## 有关 Windows 上的 IBM DB2 for LUW 的具体信息
-<a id="specifics-to-ibm-db2-for-luw-on-windows" class="xliff"></a>
+## <a name="specifics-to-ibm-db2-for-luw-on-windows"></a>有关 Windows 上的 IBM DB2 for LUW 的具体信息
 使用 Azure，可以轻松地将运行于 IBM DB2 for Linux、UNIX 和 Windows (LUW) 的现有 SAP 应用程序迁移到 Azure 虚拟机。 借助 IBM DB2 for LUW 上的 SAP，管理员和开发人员仍然可以使用在本地可用的相同开发和管理工具。
 有关在 IBM DB2 for LUW 上运行 SAP Business Suite 的常规信息可在 SAP 社区网络 (SCN) 中找到，网址为 <https://scn.sap.com/community/db2-for-linux-unix-windows>。
 
 有关 Azure 中 DB2 for LUW 上的 SAP 的其他信息和更新，请参阅 SAP 说明 [2233094]。
 
-### IBM DB2 for Linux、UNIX 和 Windows 版本支持
-<a id="ibm-db2-for-linux-unix-and-windows-version-support" class="xliff"></a>
+### <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>IBM DB2 for Linux、UNIX 和 Windows 版本支持
 自 DB2 版本 10.5 起，支持 Azure 虚拟机服务中 IBM DB2 for LUW 上的 SAP。
 
 有关支持的 SAP 产品和 Azure VM 类型的信息，请参阅 SAP 说明 [1928533]。
 
-### 在 Azure VM 中安装 SAP 的 IBM DB2 for Linux、UNIX 和 Windows 配置准则
-<a id="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms" class="xliff"></a>
-#### 存储配置
-<a id="storage-configuration" class="xliff"></a>
+### <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>在 Azure VM 中安装 SAP 的 IBM DB2 for Linux、UNIX 和 Windows 配置准则
+#### <a name="storage-configuration"></a>存储配置
 所有数据库文件都必须存储在基于 VHD 磁盘的 NTFS 文件系统上。 这些 VHD 将装载到 Azure VM，并以 Azure 页 BLOB 存储 (<https://msdn.microsoft.com/library/azure/ee691964.aspx>) 为基础。
 任何类型的网络驱动器或远程共享（例如以下 Azure 文件服务）都 **不** 支持数据库文件：
 
@@ -1427,8 +1343,7 @@ SAP 缓存服务器是一个基于服务器的附加组件，可在本地提供�
 此外，也可以按本文档的[软件 RAID][dbms-guide-2.2] 一章中所述，使用 Windows 存储池（仅适用于 Windows Server 2012 和更高版本）或适用于 Windows 2008 R2 的 Windows 带区，基于已装载的多个 VHD 磁盘来创建一个大型逻辑设备。
 如果磁盘包含 sapdata 和 saptmp 目录的 DB2 存储路径，则必须将物理磁盘扇区的大小指定为 512 KB。 使用 Windows 存储池时，必须通过命令行接口使用参数“-LogicalSectorSizeDefault”，手动创建存储池。 有关详细信息，请参阅 <https://technet.microsoft.com/library/hh848689.aspx>。
 
-#### 备份/还原
-<a id="backuprestore" class="xliff"></a>
+#### <a name="backuprestore"></a>备份/还原
 支持通过 IBM DB2 for LUW 提供备份/还原功能，其方式与在标准 Windows Server 操作系统和 Hyper-V 上一样。
 
 必须确保制定了有效的数据库备份策略。
@@ -1444,16 +1359,14 @@ SAP 缓存服务器是一个基于服务器的附加组件，可在本地提供�
 * 基于已装载的多个 VHD 对备份目标卷划分带区，以改善该带区卷上的 IOPS 吞吐量
 * 使用多个目标目录来写入备份
 
-#### 高可用性和灾难恢复
-<a id="high-availability-and-disaster-recovery" class="xliff"></a>
+#### <a name="high-availability-and-disaster-recovery"></a>高可用性和灾难恢复
 不支持 Microsoft 群集服务器 (MSCS)。
 
 支持 DB2 高可用性灾难恢复 (HADR)。 如果 HA 配置的虚拟机具有有效的名称解析，Azure 中的设置将与任何本地设置无任何差别。 建议不要完全依赖于 IP 解析。
 
 请勿使用 Azure 应用商店异地复制。 有关更多信息，请参阅 [Azure 存储][dbms-guide-2.3]和 [Azure VM 的高可用性和灾难恢复][dbms-guide-3]这两章。
 
-#### 其他
-<a id="other" class="xliff"></a>
+#### <a name="other"></a>其他
 Azure 可用性集或 SAP 监视等所有其他常规主题也适用于使用 IBM DB2 for LUW 进行的 VM 部署，如本文档的前三章所述。
 
 另请参阅 [适用于 Azure 上的 SAP 的 SQL Server 总体摘要][dbms-guide-5.8]一章。

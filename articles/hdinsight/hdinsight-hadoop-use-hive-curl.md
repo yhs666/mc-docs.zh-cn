@@ -1,5 +1,5 @@
 ---
-title: "在 HDInsight 中将 Hadoop Hive 与 Curl 配合使用 | Azure"
+title: "在 HDInsight 中将 Hadoop Hive 与 Curl 配合使用 - Azure | Azure"
 description: "了解如何使用 Curl 向 HDInsight 远程提交 Pig 作业。"
 services: hdinsight
 documentationcenter: 
@@ -15,16 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/14/2017
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 7fcd0dc67759f38862bd0834f7af05865412eea2
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: ab82dbc40c0980672c2412efcca49e9a683b8100
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 使用 REST 在 HDInsight 中通过 Hadoop 运行 Hive 查询
-<a id="run-hive-queries-with-hadoop-in-hdinsight-using-rest" class="xliff"></a>
+# <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>使用 REST 在 HDInsight 中通过 Hadoop 运行 Hive 查询
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
@@ -163,7 +162,7 @@ ms.lasthandoff: 06/21/2017
 
 有关在本文档中使用的 REST API 的详细信息，请参阅 [WebHCat 参考](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference)文档。
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/

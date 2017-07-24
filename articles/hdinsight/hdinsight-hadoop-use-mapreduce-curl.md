@@ -1,5 +1,5 @@
 ---
-title: "将 MapReduce 和 Curl 与 HDInsight 中的 Hadoop 配合使用 | Azure"
+title: "将 MapReduce 和 Curl 与 HDInsight 中的 Hadoop 配合使用 - Azure | Azure"
 description: "了解如何使用 Curl 在 HDInsight 的 Hadoop 上远程运行 MapReduce 作业。"
 services: hdinsight
 documentationcenter: 
@@ -17,14 +17,13 @@ ms.workload: big-data
 origin.date: 04/11/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.openlocfilehash: a7b3b2464b7af92b64c4447c453e095738b0153b
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 08e48cc6db15d4f36319f592ab45c4370cca06d2
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 使用 REST 在 HDInsight 上通过 Hadoop 运行 MapReduce 作业
-<a id="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest" class="xliff"></a>
+# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>使用 REST 在 HDInsight 上通过 Hadoop 运行 MapReduce 作业
 
 了解如何使用 WebHCat REST API 在 HDInsight 群集的 Hadoop 上运行 MapReduce 作业。 本文档使用 Curl 演示如何通过使用原始 HTTP 请求来与 HDInsight 交互，以便运行 MapReduce 作业。
 
@@ -71,7 +70,7 @@ ms.lasthandoff: 06/21/2017
 
     URI 的末尾 (/mapreduce/jar) 告知 WebHCat，此请求从 jar 文件中的类启动 MapReduce 作业。 此命令中使用的参数如下：
 
-   * **-d**：由于不使用 `-G`，因此请求默认为使用 POST 方法。 `-d` 指定与请求一起发送的数据值。
+    * **-d**：由于不使用 `-G`，因此请求默认为使用 POST 方法。 `-d` 指定与请求一起发送的数据值。
     * **user.name**：正在运行命令的用户
     * **jar**：包含要运行的类的 jar 文件所在位置
     * **class**：包含 MapReduce 逻辑的类

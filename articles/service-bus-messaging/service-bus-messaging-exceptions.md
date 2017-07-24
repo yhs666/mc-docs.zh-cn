@@ -6,32 +6,31 @@ documentationCenter: na
 authors: sethmanheim
 manager: timlt
 editor: 
+ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/03/2017
+ms.date: 06/06/2017
 ms.author: v-yiso
-ms.date: 04/17/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 726ccac9f4fb7e541a1db4479540a3b96750f24f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+origin.date: 07/17/2017
+ms.openlocfilehash: e34f227c7f11f785bd21e0172547f7ff919bca26
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
-
 # <a name="service-bus-messaging-exceptions"></a>服务总线消息传送异常
 
-本文列出了 Azure 服务总线消息传送 API 生成的一些异常。这些参考信息可随时更改，请不时返回查看更新内容。
+本文列出了 Microsoft Azure 服务总线消息传送 API 生成的一些异常。 这些参考信息可随时更改，请不时返回查看更新内容。
 
 ## <a name="exception-categories"></a>异常类别
 消息传送 API 会生成以下类别的异常，以及你在尝试修复这些异常时可以采取的相关操作。 请注意，异常的含义和原因会因消息传送实体的类型（队列/主题或事件中心）而异：
 
 1. 用户代码错误（[System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)、[System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx)、[System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx)、[System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)）。 常规操作：继续之前尝试修复代码。
 2. 设置/配置错误（[Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception)、[System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx)）。 常规操作：检查你的配置，必要时进行更改。
-3. 暂时性异常（[Microsoft.ServiceBus.Messaging.MessagingException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingexception)、[Microsoft.ServiceBus.Messaging.ServerBusyException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)、[Microsoft.ServiceBus.Messaging.MessagingCommunicationException](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)）。 常规操作：重试操作或通知用户。
+3. 暂时性异常（[Microsoft.ServiceBus.Messaging.MessagingException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingexception)、[Microsoft.ServiceBus.Messaging.ServerBusyException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)、[Microsoft.ServiceBus.Messaging.MessagingCommunicationException](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)）。 常规操作：重试操作或通知用户。
 4. 其他异常（[System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx)、[System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)、[Microsoft.ServiceBus.Messaging.MessageLockLostException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagelocklostexception)、[Microsoft.ServiceBus.Messaging.SessionLockLostException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception)）。 常规操作：特定于异常类型；请参考以下部分中的表。 
 
 ## <a name="exception-types"></a>异常类型
@@ -41,7 +40,7 @@ ms.lasthandoff: 04/07/2017
 | **异常类型** | **说明/原因/示例** | **建议的操作** | **自动/立即重试注意事项** |
 | --- | --- | --- | --- |
 | [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |服务器在 [OperationTimeout](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout) 控制的指定时间内未响应请求的操作。 服务器可能已完成请求的操作。 这可能是由于网络或其他基础结构延迟造成的。 |检查系统状态的一致性，并根据需要重试。 请参阅[超时异常](#timeoutexception)。 |在某些情况下，重试可能会有帮助；在代码中添加重试逻辑。 |
-| [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |不允许在服务器或服务中执行请求的用户操作。 有关详细信息，请查看异常消息。 例如，如果消息是在 [ReceiveAndDelete](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.receivemode) 模式下收到的，则 [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) 将生成此异常。 |检查代码和文档。 确保请求的操作有效。 |重试不会解决问题。 |
+| [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |不允许在服务器或服务中执行请求的用户操作。 有关详细信息，请查看异常消息。 例如，如果消息是在 [ReceiveAndDelete](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.receivemode) 模式下收到的，则 [Complete](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) 将生成此异常。 |检查代码和文档。 确保请求的操作有效。 |重试不会解决问题。 |
 | [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) |尝试对已关闭、中止或释放的对象调用某个操作。 在极少数情况下，环境事务已释放。 |检查代码并确保代码不会对已释放的对象调用操作。 |重试不会解决问题。 |
 | [UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |[TokenProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.tokenprovider) 对象无法获取令牌，该令牌无效，或者令牌不包含执行操作所需的声明。 |确保使用正确的值创建令牌提供程序。 检查访问控制服务的配置。 |在某些情况下，重试可能会有帮助；在代码中添加重试逻辑。 |
 | [ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [ArgumentNullException](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[ArgumentOutOfRangeException](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) |提供给该方法的一个或多个参数均无效。<br /> 提供给 [NamespaceManager](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.namespacemanager) 或 [Create](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_Create_System_Collections_Generic_IEnumerable_System_Uri__) 的 URI 包含路径段。<br /> 提供给 [NamespaceManager](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.namespacemanager) 或 [Create](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_Create_System_Collections_Generic_IEnumerable_System_Uri__) 的 URI 方案无效。 <br />属性值大于 32KB。 |检查调用代码并确保参数正确。 |重试不会解决问题。 |
@@ -93,13 +92,11 @@ ConnectionsQuotaExceeded for namespace xxx.
 #### <a name="common-causes"></a>常见原因
 此错误有两个常见的原因：死信队列和无法正常运行的消息接收器。
 
-1. **死信队列**
-   读取器无法完成消息，当锁定过期后，将消息返回至队列/主题。 如果读取器发生异常，以致无法调用 [BrokeredMessage.Complete](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)，就会出现这种情况。 消息读取 10 次后，将默认移至死信队列。 此行为由 [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) 属性控制，默认值为 10。 消息堆积在死信队列中会占用空间。
+1. **死信队列** ：读取器无法完成消息，当锁定过期后，将消息返回至队列/主题。 如果读取器发生异常，以致无法调用 [BrokeredMessage.Complete](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)，就会出现这种情况。 消息读取 10 次后，将默认移至死信队列。 此行为由 [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) 属性控制，默认值为 10。 消息堆积在死信队列中会占用空间。
 
     若要解决此问题，请读取并完成死信队列中的消息，就像处理任何其他队列一样。 [QueueClient](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.aspx) 类甚至包含 [FormatDeadLetterPath](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.formatdeadletterpath.aspx) 方法，可帮助格式化死信队列路径。
 
-2. **接收方已停止运行**
-   接收方已停止接收队列或订阅中的消息。 识别这种情况的方法是查看 [QueueDescription.MessageCountDetails](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queuedescription.messagecountdetails.aspx) 属性，它会显示消息的完整细目。 如果 [ActiveMessageCount](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagecountdetails.activemessagecount.aspx) 属性很高或不断增加，则表示消息写入的速度超过读取的速度。
+2. **接收方已停止运行** ：接收方已停止接收队列或订阅中的消息。 识别这种情况的方法是查看 [QueueDescription.MessageCountDetails](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queuedescription.messagecountdetails.aspx) 属性，它会显示消息的完整细目。 如果 [ActiveMessageCount](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagecountdetails.activemessagecount.aspx) 属性很高或不断增加，则表示消息写入的速度超过读取的速度。
 
 ### <a name="event-hubs"></a>事件中心
 
@@ -111,7 +108,7 @@ ConnectionsQuotaExceeded for namespace xxx.
 应检查 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/zh-cn/library/system.net.servicepointmanager.defaultconnectionlimit) 属性的值，因为达到此限制也会导致 [TimeoutException](https://msdn.microsoft.com/zh-cn/library/system.timeoutexception.aspx) 异常。
 
 ### <a name="queues-and-topics"></a>队列和主题
-对于队列和主题，超时在 [MessagingFactorySettings.OperationTimeout](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout) 属性中作为连接字符串的一部分指定，或通过 [ServiceBusConnectionStringBuilder](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.servicebusconnectionstringbuilder) 指定。 错误消息本身可能会有所不同，但它始终包含当前操作的指定超时值。 
+对于队列和主题，超时在 [MessagingFactorySettings.OperationTimeout](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout) 属性中作为连接字符串的一部分指定，或通过 [ServiceBusConnectionStringBuilder](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.servicebusconnectionstringbuilder) 指定。 错误消息本身可能会有所不同，但它始终包含当前操作的指定超时值。 
 
 ### <a name="event-hubs"></a>事件中心
 对于事件中心，超时作为连接字符串的一部分指定，或通过 [ServiceBusConnectionStringBuilder](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.servicebusconnectionstringbuilder) 指定。 错误消息本身可能会有所不同，但它始终包含当前操作的指定超时值。 
@@ -120,16 +117,15 @@ ConnectionsQuotaExceeded for namespace xxx.
 
 此错误有两个常见的原因：配置不正确或暂时性服务错误。
 
-1. **配置不正确**
-   运行条件下的操作超时值可能太小。 客户端 SDK 的操作超时默认值为 60 秒。 请查看代码是否将该值设置得过小。 请注意，网络和 CPU 使用率的状况会影响完成特定操作所用的时间，因此，操作超时不应设置为非常小的值。
+1. **配置不正确** ：运行条件下的操作超时值可能太小。 客户端 SDK 的操作超时默认值为 60 秒。 请查看代码是否将该值设置得过小。 请注意，网络和 CPU 使用率的状况会影响完成特定操作所用的时间，因此，操作超时不应设置为非常小的值。
 
-2. **暂时性服务错误**
-   有时，服务总线服务在处理请求时会遇到延迟，例如，高流量时段。 在这种情况下，你可以在延迟后重试操作，直到操作成功为止。 如果多次尝试同一操作后仍然失败，请访问 [Azure 服务状态站点](https://azure.microsoft.com/status/) ，看是否有任何已知的服务中断。
+2. **暂时性服务错误** ：有时，服务总线服务在处理请求时会遇到延迟，例如，高流量时段。 在这种情况下，你可以在延迟后重试操作，直到操作成功为止。 如果多次尝试同一操作后仍然失败，请访问 [Azure 服务状态站点](https://azure.microsoft.com/status/) ，看是否有任何已知的服务中断。
 
 ## <a name="next-steps"></a>后续步骤
-有关服务总线和事件中心 .NET API 的完整参考，请参阅 [Azure .NET API 参考](https://docs.microsoft.com/en-us/dotnet/api/)。
 
-若要了解有关 [服务总线](./index.md)的详细信息，请参阅以下主题。
+有关服务总线 .NET API 的完整参考，请参阅 [Azure .NET API 参考](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/servicebus)。
+
+若要了解有关 [服务总线](/service-bus-messaging/)的详细信息，请参阅以下主题。
 
 - [服务总线消息传送概述](./service-bus-messaging-overview.md)
 - [服务总线基础知识](./service-bus-fundamentals-hybrid-solutions.md)

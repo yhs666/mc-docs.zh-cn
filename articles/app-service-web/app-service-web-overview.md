@@ -15,13 +15,12 @@ ms.topic: get-started-article
 origin.date: 01/04/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 2fd5d0cefb8b93cf81862ffe546352631793af61
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.custom: mvc
+ms.openlocfilehash: 8fd20ae763431e0d9b5b204860ad4d3622d0672d
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="web-apps-overview"></a>Web 应用概述
 *应用服务 Web 应用* 是一个完全托管的计算平台，非常适合用来托管网站和 Web 应用程序。 Azure 提供的这个 [平台即服务](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) 产品，使你可以在 Azure 维护用于运行和扩展应用的基础结构时，重点关注业务逻辑。
@@ -41,7 +40,7 @@ ms.lasthandoff: 04/22/2017
 * **多种语言和框架** — 应用服务为 ASP.NET、Node.js、Java、PHP 和 Python 提供一流支持。 也可以在应用服务 VM 上运行 [PowerShell 和其他脚本或可执行文件](web-sites-create-web-jobs.md) 。
 * **DevOps 优化** - 使用 GitHub 设置[持续集成和部署](app-service-continuous-deployment.md)。 通过 [测试和过渡环境](web-sites-staged-publishing.md)提升更新。 执行 [A/B 测试](app-service-web-test-in-production-get-start.md)。 在应用服务中，利用 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 或[跨平台命令行接口 (CLI)](../cli-install-nodejs.md) 来管理应用。
 * **具有高可用性的全局缩放** - 以手动或自动方式进行[增大](web-sites-scale.md)或[扩大](../monitoring-and-diagnostics/insights-how-to-scale.md)。 在 Azure.cn 的全国数据中心基础结构中的任意位置托管应用，并且应用服务 [SLA](https://www.azure.cn/support/sla/app-service/) 承诺高可用性。
-* **连接到 SaaS 平台和本地数据** - 从适用于企业系统（例如 SAP、Siebel 和 Oracle）的 50 多个连接器、SaaS 服务（例如 Salesforce 和 Office 365）以及 Internet 服务中进行选择。 使用 [Azure 虚拟网络](app-service-vnet-integration-powershell.md)访问本地数据。
+* **连接到本地数据** - 使用 [Azure 虚拟网络](web-sites-integrate-with-vnet.md)访问本地数据。
 * **安全性和合规性** - 应用服务符合 [ISO、SOC 和 PCI](https://www.trustcenter.cn/)的要求。
 * **Visual Studio 集成** — Visual Studio 中的专用工具可简化创建、部署和调试工作。
 
@@ -61,4 +60,3 @@ ms.lasthandoff: 04/22/2017
 > * [在 5 分钟内将第一个 HTML 站点部署到 Azure](app-service-web-get-started-html.md)
 > 
 >
-

@@ -3,8 +3,8 @@ title: "Azure 订阅限制和配额 | Microsoft Docs"
 description: "提供常见的 Azure 订阅和服务限制、配额和约束的列表。 这包括有关如何增加限制以及最大值的信息。"
 services: 
 documentationcenter: 
-author: rothja
-manager: jeffreyg
+author: alexchen2016
+manager: digimobile
 editor: 
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
@@ -13,24 +13,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/20/2017
-ms.date: 05/22/2017
+origin.date: 06/14/2017
+ms.date: 07/13/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 4acfed2b89dba7563b72f72515f2a21b67ce5f4c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 05b196bdf752266911469973654f21206af7ebb9
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将得以展开并更新，以便涵盖更多平台。
 
-若要了解有关 Azure 定价的详细信息，请访问 [Azure 定价概述](https://www.azure.cn/pricing/)。 在那里，你可以使用[定价计算器](https://www.azure.cn/pricing/calculator/)或访问某服务（例如，[Windows VM](https://www.azure.cn/pricing/details/virtual-machines/#Windows/)）的详情页面预估所需的成本。
+若要了解有关 Azure 定价的详细信息，请访问 [Azure 定价概述](https://www.azure.cn/pricing/)。 在那里，你可以使用[定价计算器](https://www.azure.cn/pricing/calculator/)或访问某服务（例如，[Windows VM](https://www.azure.cn/pricing/details/virtual-machines#Windows)）的详情页面预估所需的成本。
 
 > [!NOTE]
-> 如果想要提高限制或配额，使其超出**默认限制**，可以[打开免费的联机客户支持请求](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。 无法将限制提高到超过下表中显示的 **最大限制** 值。 如果没有 **最大限制** 列，则资源没有可调整的限制。 
+> 如果想要提高限制或配额，使其超出**默认限制**，可以免费建立联机客户支持请求。 无法将限制提高到超过下表中显示的 **最大限制** 值。 如果没有 **最大限制** 列，则资源没有可调整的限制。 
 > 
 > 1 元试用订阅不符合增加限制或配额的条件。 如果有 1 元试用订阅，可将其升级到 [即用即付](https://azure.microsoft.com/offers/ms-azr-0003p/) 订阅。 
 > 
@@ -49,12 +47,10 @@ ms.lasthandoff: 05/12/2017
 
 ## <a name="service-specific-limits"></a>服务特定的限制
 - [Active Directory](#active-directory-limits)
-- [API 管理](#api-management-limits)
 - [应用服务](#app-service-limits)
 - [应用程序网关](#application-gateway-limits)
 - [自动化](#automation-limits)
 - [Azure Redis 缓存](#azure-redis-cache-limits)
-- [Azure RemoteApp](#azure-remoteapp-limits)
 - [备份](#backup-limits)
 - [批处理](#batch-limits)
 - [CDN](#cdn-limits)
@@ -65,7 +61,6 @@ ms.lasthandoff: 05/12/2017
 - [IoT 中心](#iot-hub-limits)
 - [密钥保管库](#key-vault-limits)
 - [媒体服务](#media-services-limits)
-- [Mobile Engagement](#mobile-engagement-limits)
 - [移动服务](#mobile-services-limits)
 - [监视](#monitoring-limits)
 - [多重身份验证](#multi-factor-authentication)
@@ -166,9 +161,6 @@ ms.lasthandoff: 05/12/2017
 ### <a name="documentdb-limits"></a>DocumentDB 限制
 DocumentDB 是一个全规模数据库，该数据库对吞吐量和存储进行规模调整以满足应用程序的任何需求。 如果你有任何关于 DocumentDB 提供的规模的问题，请发送电子邮件到 askdocdb@microsoft.com。
 
-### <a name="mobile-engagement-limits"></a>Mobile Engagement 限制
-[!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
-
 ### <a name="media-services-limits"></a>媒体服务限制
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
@@ -199,17 +191,11 @@ DocumentDB 是一个全规模数据库，该数据库对吞吐量和存储进行
 ### <a name="active-directory-limits"></a>Active Directory 限制
 [!INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
-### <a name="azure-remoteapp-limits"></a>Azure RemoteApp 限制
-[!INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
-
 ### <a name="backup-limits"></a>备份限制
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
 ### <a name="site-recovery-limits"></a>站点恢复限制
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
-
-### <a name="api-management-limits"></a>API 管理限制
-[!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
 ### <a name="azure-redis-cache-limits"></a>Azure Redis 缓存限制
 [!INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
@@ -232,6 +218,5 @@ DocumentDB 是一个全规模数据库，该数据库对吞吐量和存储进行
 [Azure 的虚拟机和云服务大小](virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [云服务的大小](cloud-services/cloud-services-sizes-specs.md)
-
 
 

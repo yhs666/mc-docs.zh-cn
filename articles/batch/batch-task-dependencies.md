@@ -3,8 +3,8 @@ title: "使用任务依赖关系来基于其他任务的完成情况运行任务
 description: "在 Azure Batch 中创建依赖于其他任务的完成的任务，以处理 MapReduce 样式和类似的大数据工作负荷。"
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
@@ -12,16 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 03/02/2017
+origin.date: 05/22/2017
+ms.date: 07/03/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 573d75feda5e07ce865a4e76ae14054d93a1edc4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/21/2017
-
-
+ms.openlocfilehash: ce980676838138a6d8f54923b006289c004cb5ff
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>创建任务依赖关系，以运行依赖于其他任务的任务
 
@@ -154,10 +153,11 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 依赖关系操作基于父任务的退出条件。 可为以下任一退出条件指定依赖关系操作；对于 .NET，请参阅 [ExitConditions][net_exitconditions] 类了解详细信息：
 
-- 发生计划错误时
-- 任务退出并返回 **ExitCodes** 属性定义的退出代码时
-- 任务退出并返回处于 **ExitCodeRanges** 属性指定的范围内的退出代码时
-- 任务退出并返回 **ExitCodes** 或 **ExitCodeRanges** 未定义的退出代码（默认设置），或者任务退出并返回计划错误，并且未设置 **SchedulingError** 属性时 
+- 预处理错误发生时。
+- 文件上传错误发生时。 如果任务退出并返回通过 **exitCodes** 或 **exitCodeRanges** 指定的退出代码，然后遇到文件上传错误，则优先执行退出代码指定的操作。
+- 任务退出并返回 **ExitCodes** 属性定义的退出代码时。
+- 任务退出并返回处于 **ExitCodeRanges** 属性指定的范围内的退出代码时。
+- 默认情况下，如果任务退出时返回 **ExitCodes** 或 **ExitCodeRanges** 未定义的退出代码，或者如果任务退出时返回预处理错误并且 **PreProcessingError** 属性未设置，或者如果任务失败时返回文件上传错误并且 **FileUploadError** 属性未设置。 
 
 若要在 .NET 中指定依赖关系操作，请为退出条件设置 [ExitOptions][net_exitoptions].[DependencyAction][net_dependencyaction] 属性。 **DependencyAction** 属性采用以下两个值之一：
 
@@ -166,7 +166,7 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 对于退出代码 0，**DependencyAction** 属性的默认设置为 **Satisfy**；对于其他退出条件，其默认设置为 **Block**。
 
-以下代码片段设置父任务的 **DependencyAction** 属性。 如果父任务退出并返回计划错误或指定的错误代码，依赖任务将被阻止。 如果父任务退出并返回其他任何非零错误，依赖任务将符合运行的条件。
+以下代码片段设置父任务的 **DependencyAction** 属性。 如果父任务退出并返回预处理错误或指定的错误代码，则依赖任务将被阻止。 如果父任务退出并返回其他任何非零错误，依赖任务将符合运行的条件。
 
 ```csharp
 // Task A is the parent task.
@@ -175,8 +175,8 @@ new CloudTask("A", "cmd.exe /c echo A")
     // Specify exit conditions for task A and their dependency actions.
     ExitConditions = new ExitConditions()
     {
-        // If task A exits with a scheduling error, block any downstream tasks (in this example, task B).
-        SchedulingError = new ExitOptions()
+        // If task A exits with a pre-processing error, block any downstream tasks (in this example, task B).
+        PreProcessingError = new ExitOptions()
         {
             DependencyAction = DependencyAction.Block
         },
@@ -213,7 +213,7 @@ new CloudTask("B", "cmd.exe /c echo B")
 使用 Batch 的[应用程序包](batch-application-packages.md)功能，可以轻松地部署任务在计算节点上执行的应用程序并对其进行版本控制。
 
 ### <a name="installing-applications-and-staging-data"></a>安装应用程序和暂存数据
-有关准备节点以运行任务的方法概述，请参阅 Azure 批处理论坛中的 [Installing applications and staging data on Batch compute nodes][forum_post]（在批处理计算节点上安装应用程序和暂存数据）。 此帖子由某个 Azure 批处理团队成员编写，是一篇很好的入门教程，介绍如何使用不同的方法将应用程序、任务输入数据和其他文件复制到计算节点。
+有关准备节点以运行任务的方法概述，请参阅 Azure Batch 论坛中的 [Installing applications and staging data on Batch compute nodes][forum_post]（在批处理计算节点上安装应用程序和暂存数据）。 此帖子由某个 Azure Batch 团队成员编写，是一篇很好的入门教程，介绍如何使用不同的方法将应用程序、任务输入数据和其他文件复制到计算节点。
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
@@ -238,5 +238,4 @@ new CloudTask("B", "cmd.exe /c echo B")
 [1]: ./media/batch-task-dependency/01_one_to_one.png "关系图：一对一依赖关系"
 [2]: ./media/batch-task-dependency/02_one_to_many.png "关系图：一对多依赖关系"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Diagram: task id range dependency"
-
 

@@ -1,82 +1,53 @@
 ---
-title: Azure 备份 - 备份包含加密磁盘的 Azure IaaS VM | Azure
-description: 了解 Azure 备份在备份 IaaS VM 期间如何处理使用 BitLocker 或 dmcrypt 加密的数据。本文帮助你预先了解在处理加密的磁盘时，备份和还原体验的差异。
+title: "使用 Azure 备份来备份和还原加密型 VM"
+description: "本文介绍如何备份和还原使用 Azure 磁盘加密进行加密的 VM。"
 services: backup
-documentationCenter: ''
-authors: pallavijoshi
-manager: vijayts
-editor: ''
-
+documentationcenter: 
+author: alexchen2016
+manager: digimobile
+editor: 
+ms.assetid: 8387f186-7d7b-400a-8fc3-88a85403ea63
 ms.service: backup
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 01/18/2017
-ms.date: 03/31/2017
+origin.date: 04/24/2017
+ms.date: 06/29/2017
 ms.author: v-junlch
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: b520a061c5a5aa699a74052909a9e223596193a1
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
+# <a name="how-to-back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>如何通过 Azure 备份来备份和还原加密的虚拟机
+本文介绍使用 Azure 备份来备份和还原虚拟机的步骤， 同时提供有关支持的方案、先决条件和错误案例故障排除步骤的详细信息。
 
-# VM 备份期间处理加密的磁盘
-
-如果企业想要在 Azure 中加密其 VM 数据，解决方案是在 Windows 计算机上使用 Bitlocker，在 Linux 计算机上使用 dmcrypt。
-
+## <a name="supported-scenarios"></a>支持的方案
 > [!NOTE]
->  Azure 备份支持对使用 Azure 磁盘加密 (ADE) 加密的 VM 进行备份和还原。<br>
-1. 如果 VM 是使用 BEK 和 KEK 加密的，则可使用 PowerShell 来进行此操作。<br>
-2. 如果 VM 只使用 BEK 加密，则不支持备份和还原。<br> 
-请参阅 Azure 备份 [PowerShell 文档](./backup-azure-vms-automation.md)，了解如何备份和还原使用 ADE 加密的 VM。
+> 1. 仅 Resource Manager 部署型虚拟机支持备份和还原加密型 VM。 经典部署型虚拟机不支持此功能。 <br>
+> 2. 使用 Azure 磁盘加密的 Windows 和 Linux 虚拟机支持此功能，Azure 磁盘加密利用 Windows 的行业标准 BitLocker 功能和 Linux 的 DM-Crypt 功能加密磁盘。 <br>
+> 3. 仅同时使用 BitLocker 加密密钥和密钥加密密钥进行加密的虚拟机支持此功能。 仅使用 BitLocker 加密密钥进行加密的虚拟机不支持此功能。 <br>
+>
+>
 
-本文讨论使用 CloudLink 加密的 Azure VM。
+## <a name="pre-requisites"></a>先决条件
+1. 虚拟机已使用 Azure 磁盘加密进行加密。 虚拟机应同时使用 BitLocker 加密密钥和密钥加密密钥进行加密。
+2. 已创建恢复服务保管库并已按照[为备份做环境准备](backup-azure-arm-vms-prepare.md)一文中所提到的步骤设置存储复制。
 
-## 备份工作原理
+## <a name="restore-encrypted-vm"></a>还原加密型 VM
+若要还原已加密的 VM，请先使用“选择 VM 还原配置”的 **还原已备份磁盘** 部分中提到的步骤还原磁盘。 之后，可以使用以下选项之一：
+- 使用[从还原的磁盘创建 VM](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 中提到的 PowerShell 步骤从还原的磁盘创建完整的 VM。
+- 或者，使用在还原磁盘过程中生成的模板从还原的磁盘创建 VM。 仅对于 2017 年 4 月 26 日以后创建的恢复点，可以使用模板。
 
-整体解决方案包括两个层：VM 层和存储层。
+## <a name="troubleshooting-errors"></a>排查错误
+| 操作 | 错误详细信息 | 解决方法 |
+| --- | --- | --- |
+| 备份 |验证失败，因为虚拟机仅使用 BEK 进行加密。 仅可为同时使用 BEK 和 KEK 进行加密的虚拟机启用备份。 |虚拟机应使用 BEK 和 KEK 进行加密。 首先解密 VM，然后使用 BEK 和 KEK 对其进行加密。 使用 BEK 和 KEK 对 VM 进行加密后，即可启用备份。  |
+| 还原 |无法还原此加密型 VM，因为与此 VM 关联的密钥保管库不存在。 |按照 [Azure Key Vault 入门](../key-vault/key-vault-get-started.md)中的步骤创建 Key Vault。 请参阅[使用 Azure 备份还原 Key Vault 密钥和机密](backup-azure-restore-key-secret.md)一文，还原密钥和机密（如果它们不存在）。 |
+| 还原 |无法还原此加密型 VM，因为与此 VM 关联的密钥和机密不存在。 |请参阅[使用 Azure 备份还原 Key Vault 密钥和机密](backup-azure-restore-key-secret.md)一文，还原密钥和机密（如果它们不存在）。 |
+| 还原 |备份服务无权访问用户订阅中的资源。 |如上所述，先使用“选择 VM 还原配置”的 **还原已备份磁盘** 部分中提到的步骤还原磁盘。 之后，使用 PowerShell [从还原的磁盘创建 VM](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)。 |
+|备份 | Azure 备份服务对 Key Vault 没有足够的权限，无法备份加密的虚拟机 | 虚拟机应同时使用 BitLocker 加密密钥和密钥加密密钥进行加密。 之后，应启用备份。  使用[使用 AzureRM.RecoveryServices.Backup cmdlet 来备份虚拟机](backup-azure-vms-automation.md)中的 PowerShell 文档的“启用保护”部分提到的步骤，可在 PowerShell 中为备份服务提供这些权限。 |  
 
-1. VM 层处理来宾操作系统和虚拟机中运行的应用程序所看到的数据。它也是运行加密软件（Bitlocker 或 dmcrypt），以透明方式加密卷上的数据，然后将数据写入磁盘的层。
-2. 存储层处理附加到 VM 的页 Blob 和磁盘。它不知道正在将哪些数据写入磁盘，也不知道数据是否已加密。这是运行 VM 备份功能所在的层。
-
-![Bitlocker 加密和 Azure VM 备份如何共存](./media/backup-azure-vms-encryption/how-it-works.png)
-
-整个数据加密以透明方式在 VM 层中无缝进行。因此，写入附加到 VM 的页 Blob 的数据是加密的数据。当 [Azure 备份创建 VM 的磁盘快照和传输数据](./backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)时，将复制页 Blob 上的加密数据。
-
-## 解决方案组件
-
-若要使此解决方案正常运行，需要正确配置和管理它包含的许多组件：
-
-| 函数 | 使用的软件 | 附加说明 |
-| -------- | ------------- | ------- |
-| 加密 | Bitlocker 或 dmcrypt | 由于相比于 Azure 备份，这种加密在*不同的*层中进行，因此可以使用任何加密软件。尽管如此，我们只使用 Bitlocker 和 dmcrypt 通过 CloudLink 验证了这种体验。<br><br> 加密数据需要使用密钥。必须将密钥存放在安全的位置，以确保对数据的访问经过授权。 |
-| 密钥管理 | CloudLink SecureVM | 密钥是加密或解密数据的关键所在。如果没有正确的密钥，就无法检索数据。这对以下操作*极其*重要：<br><li>密钥滚动更新<li>长期保留<br><br>例如，用于备份 7 年前数据的密钥可能与当天使用的密钥不同。如果没有 7 年前的密钥，就无法使用从该时间还原的数据。|
-| 数据备份 | Azure 备份 | 使用 Azure 备份并配合 [Azure 经典管理门户](http://manage.windowsazure.cn)或 PowerShell 来备份 Azure IaaS VM |
-| 数据还原 | Azure 备份 | 使用 Azure 备份从恢复点还原磁盘或整个 VM。在执行还原操作过程中，Azure 备份不会解密数据。|
-| 解密 | Bitlocker 或 dmcrypt | 为了从还原的数据磁盘或还原的 VM 读取数据，软件需有密钥管理软件提供的密钥。如果没有正确的密钥，就无法解密数据。 |
-
-> [!IMPORTANT]
->  密钥管理（包括密钥滚动更新）不是 Azure 备份的一部分。这一方面需要分开管理，但对整体备份/还原操作很重要。
-
-### 支持的方案
-
-| &nbsp; | 备份保管库 | 恢复服务保管库 |
-| :-- | :-- | :-- |
-| Azure IaaS V1 VM | 是 | 否 |
-| Azure IaaS V2 VM | 不适用 | 否 |
-
-## CloudLink SecureVM
-
-[CloudLink SecureVM](http://www.cloudlinktech.com/choose-your-cloud/microsoft-azure/) 是 VM 加密解决方案，可用于保护 Azure IaaS VM 数据。CloudLink SecureVM 可以配合 Azure 备份使用。
-
-### 支持信息
-
-- CloudLink SecureVM 版本 4.0（内部版本 21536.121 或更高）
-- Azure PowerShell 0.9.8 或更高版本
-
-### 密钥管理
-
-当你需要滚动更新或更改已有备份的 VM 的密钥时，需要确保备份时所用的密钥可用。建议的方法之一是创建密钥存储区或整个 SecureVM 系统的备份。
-
-### 文档和资源
-
-- [部署指南 - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
-
-<!---HONumber=Mooncake_1017_2016-->

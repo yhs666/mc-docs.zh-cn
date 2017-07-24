@@ -6,7 +6,7 @@
 > 
 > 
 
-运行 [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/azure/mt619267\(v=azure.300\).aspx) cmdlet，然后就会出现一个要求输入凭据的登录屏幕。 使用与登录 Azure 门户相同的凭据。
+运行 [**Add-AzureRmAccount -EnvironmentName AzureChinaCloud**](https://msdn.microsoft.com/library/azure/mt619267\(v=azure.300\).aspx) cmdlet，然后就会出现一个要求输入凭据的登录屏幕。 使用与登录 Azure 门户相同的凭据。
 
 ```PowerShell
 Add-AzureRmAccount -EnvironmentName AzureChinaCloud

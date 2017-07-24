@@ -13,22 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+origin.date: 05/02/2017
 ms.author: v-yiso
-ms.openlocfilehash: 9d36fdb97e5bf8e37469b619fff25892ff347f38
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 
+ms.openlocfilehash: ad5e03dc5dc060b6c0fcbbae5c0da79ece785a4e
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 将 ExpressRoute 关联的虚拟网络从经典部署模型迁移到 Resource Manager 部署模型
-<a id="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager" class="xliff"></a>
+# <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>将 ExpressRoute 关联的虚拟网络从经典部署模型迁移到 Resource Manager 部署模型
 
 本文介绍如何在移动 ExpressRoute 线路后，将 Azure ExpressRoute 关联的虚拟网络从经典部署模型迁移到 Azure Resource Manager 部署模型。 
 
 
-## 开始之前
-<a id="before-you-begin" class="xliff"></a>
+## <a name="before-you-begin"></a>开始之前
 * 验证你是否有最新版本的 Azure PowerShell 模块。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。
 * 在开始配置之前，请务必查看[先决条件](expressroute-prerequisites.md)、[路由要求](./expressroute-routing.md)和[工作流](./expressroute-workflows.md)。
 * 查看[将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型](./expressroute-move.md)中提供的信息。 请确保对限制和局限性有全面的了解。
@@ -41,16 +40,14 @@ ms.lasthandoff: 06/21/2017
     * [常见问题解答：平台支持的从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
     * [查看最常见的迁移错误和缓解措施](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## 支持的和不支持的方案
-<a id="supported-and-unsupported-scenarios" class="xliff"></a>
+## <a name="supported-and-unsupported-scenarios"></a>支持的和不支持的方案
 
 * 可以在不停机的情况下，将 ExpressRoute 线路从经典环境移到 Resource Manager 环境。 可以在不停机的情况下，将 ExpressRoute 线路从经典环境转移到 Resource Manager 环境。 按照相关说明，[使用 PowerShell 将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型](./expressroute-howto-move-arm.md)。 这是将连接的资源转移到虚拟网络的先决条件。
 * 可以在不停机的情况下，将同一订阅中的虚拟网络、网关，以及附加到 ExpressRoute 线路的虚拟网络中的关联部署迁移到 Resource Manager 环境。 可以按照后面描述的步骤来迁移各种资源，例如虚拟网络、网关以及部署在虚拟网络中的虚拟机。 必须确保虚拟网络配置正确，然后才能进行迁移。 
 * 若要完成虚拟网络、网关以及处于虚拟网络中但与 ExpressRoute 线路不属同一订阅的关联部署的迁移，则需停机一段时间。 文档最后一部分介绍了在迁移资源时必须执行的步骤。
 * 无法迁移使用 ExpressRoute 网关和 VPN 网关的虚拟网络。
 
-## 将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型
-<a id="move-an-expressroute-circuit-from-classic-to-resource-manager" class="xliff"></a>
+## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型
 必须先将 ExpressRoute 线路从经典环境转移到 Resource Manager 环境，然后才能尝试迁移附加到 ExpressRoute 线路的资源。 若要完成此任务，请参阅以下文章：
 
 * 查看[将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型](./expressroute-move.md)中提供的信息。
@@ -59,8 +56,7 @@ ms.lasthandoff: 06/21/2017
 
 此操作不涉及停机。 只要迁移正在进行，就可以继续在本地和 Microsoft 之间传输数据。
 
-## 针对迁移准备虚拟网络
-<a id="prepare-your-virtual-network-for-migration" class="xliff"></a>
+## <a name="prepare-your-virtual-network-for-migration"></a>针对迁移准备虚拟网络
 必须确保要迁移的虚拟网络的网络没有不必要的项目。 若要下载虚拟网络配置并根据需要对其进行更新，请运行以下 PowerShell cmdlet：
 
 ```powershell
@@ -69,7 +65,7 @@ Select-AzureSubscription -SubscriptionName <VNET Subscription>
 Get-AzureVNetConfig -ExportToFile C:\virtualnetworkconfig.xml
 ```
       
-必须确保从要迁移的虚拟网络中删除对 &lt;ConnectionsToLocalNetwork&gt; 的所有引用。 以下代码片段演示了示例网络配置：
+必须确保从要迁移的虚拟网络中删除对 &lt;ConnectionsToLocalNetwork&gt; 的所有引用。 以下代码片段演示了示例网络配置。 请注意，在 &lt;ConnectionsToLocalNetwork&gt; 行之间没有引用：
 
 ```
     <VirtualNetworkSite name="MyVNet" Location="East US">
@@ -97,13 +93,11 @@ Get-AzureVNetConfig -ExportToFile C:\virtualnetworkconfig.xml
 Set-AzureVNetConfig -ConfigurationPath c:\virtualnetworkconfig.xml
 ```
 
-## 迁移虚拟网络、网关和关联的部署
-<a id="migrate-virtual-networks-gateways-and-associated-deployments" class="xliff"></a>
+## <a name="migrate-virtual-networks-gateways-and-associated-deployments"></a>迁移虚拟网络、网关和关联的部署
 
 进行迁移时，需要执行哪些步骤取决于资源是在同一订阅中，还是在不同的订阅中，或者二者都有。
 
-### 迁移与 ExpressRoute 线路属于同一订阅的虚拟网络、网关和关联的部署
-<a id="migrate-virtual-networks-gateways-and-associated-deployments-in-the-same-subscription-as-the-expressroute-circuit" class="xliff"></a>
+### <a name="migrate-virtual-networks-gateways-and-associated-deployments-in-the-same-subscription-as-the-expressroute-circuit"></a>迁移与 ExpressRoute 线路属于同一订阅的虚拟网络、网关和关联的部署
 此部分介绍了如何执行相关步骤，以便迁移与 ExpressRoute 线路属于同一订阅的虚拟网络、网关和关联的部署。 无需停机即可进行此迁移。 在整个迁移过程中，仍然可以使用所有资源。 正在进行迁移时，管理平面是锁定的。 
 
 1. 确保已将 ExpressRoute 线路从经典环境转移到 Resource Manager 环境。
@@ -128,8 +122,7 @@ Set-AzureVNetConfig -ConfigurationPath c:\virtualnetworkconfig.xml
   Move-AzureVirtualNetwork -Abort $vnetName
   ```
 
-### 迁移与 ExpressRoute 线路不属同一订阅的虚拟网络、网关和关联的部署
-<a id="migrate-virtual-networks-gateways-and-associated-deployments-in-a-different-subscription-from-that-of-the-expressroute-circuit" class="xliff"></a>
+### <a name="migrate-virtual-networks-gateways-and-associated-deployments-in-a-different-subscription-from-that-of-the-expressroute-circuit"></a>迁移与 ExpressRoute 线路不属同一订阅的虚拟网络、网关和关联的部署
 
 1. 确保已将 ExpressRoute 线路从经典环境转移到 Resource Manager 环境。
 2. 确保已针对迁移进行了相应的虚拟网络准备。
@@ -194,8 +187,7 @@ Set-AzureVNetConfig -ConfigurationPath c:\virtualnetworkconfig.xml
   New-AzureRmVirtualNetworkGatewayConnection -Name  ($vnetName + "-GwConn") -ResourceGroupName ($vnetName + "-Migrated")  -Location $vnet.Location -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey $key
   ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * [平台支持的从经典部署模型到 Azure Resource Manager 的 IaaS 资源迁移](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
 * [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 * [常见问题解答：平台支持的从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)

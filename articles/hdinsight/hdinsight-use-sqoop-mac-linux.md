@@ -18,24 +18,22 @@ ms.topic: article
 origin.date: 04/14/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: b7c18865426495a3e070353e437143c7103d3f08
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: d9747be10300bbe0169cd7630cca45b9f530a653
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 使用 Apache Sqoop 在 Hadoop on HDInsight 与 SQL 数据库之间进行导入和导出
-<a id="use-apache-sqoop-to-import-and-export-data-between-hadoop-in-hdinsight-and-sql-database" class="xliff"></a>
+# <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>使用 Apache Sqoop 在 Hadoop on HDInsight 与 SQL 数据库之间进行导入和导出
 
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
 了解如何使用 Apache Sqoop 在 Azure HDInsight 中的 Hadoop 群集与 Azure SQL 数据库或 Microsoft SQL Server 数据库之间进行导入和导出。 本文档中的步骤直接从 Hadoop 群集的头节点使用 `sqoop` 命令。 可以使用 SSH 连接到头节点并运行本文档中的命令。
 
 > [!IMPORTANT]
-> 本文档中的步骤仅适用于使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> 本文档中的步骤仅适用于使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
-## 安装 FreeTDS
-<a id="install-freetds" class="xliff"></a>
+## <a name="install-freetds"></a>安装 FreeTDS
 
 1. 使用 SSH 连接到 HDInsight 群集。 例如，以下命令连接到名为 `mycluster` 的群集的主头节点：
 
@@ -53,8 +51,7 @@ ms.lasthandoff: 06/21/2017
 
     在多个步骤中使用 FreeTDS 连接到 SQL 数据库。
 
-## 在 SQL 数据库中创建表
-<a id="create-the-table-in-sql-database" class="xliff"></a>
+## <a name="create-the-table-in-sql-database"></a>在 SQL 数据库中创建表
 
 > [!IMPORTANT]
 > 如果使用的是在[创建群集和 SQL 数据库](hdinsight-use-sqoop.md)中创建的 HDInsight 群集和 SQL 数据库，请跳过本部分中的步骤。 创建数据库和表，作为[创建群集和 SQL 数据库](hdinsight-use-sqoop.md)文档中的一部分步骤。
@@ -107,8 +104,7 @@ ms.lasthandoff: 06/21/2017
 
 3. 在 `1>` 提示符下输入 `exit` 以退出 tsql 实用工具。
 
-## Sqoop 导出
-<a id="sqoop-export" class="xliff"></a>
+## <a name="sqoop-export"></a>Sqoop 导出
 
 1. 通过 SSH 连接到群集后，使用以下命令验证 Sqoop 是否可以看到 SQL 数据库：
 
@@ -141,8 +137,7 @@ ms.lasthandoff: 06/21/2017
 
     你会在表中看到一系列数据。 键入 `exit` 退出 tsql 实用程序。
 
-## Sqoop 导入
-<a id="sqoop-import" class="xliff"></a>
+## <a name="sqoop-import"></a>Sqoop 导入
 
 1. 使用以下命令将数据从 SQL 数据库中的 **mobiledata** 表导入 HDInsight 上的 **wasbs:///tutorials/usesqoop/importeddata** 目录：
 
@@ -158,8 +153,7 @@ ms.lasthandoff: 06/21/2017
     hdfs dfs -text /tutorials/usesqoop/importeddata/part-m-00000
     ```
 
-## 使用 SQL Server
-<a id="using-sql-server" class="xliff"></a>
+## <a name="using-sql-server"></a>使用 SQL Server
 
 你还可以使用 Sqoop 通过 SQL Server 来导入和导出数据，不管是在数据中心进行，还是在托管在 Azure 中的虚拟机上进行。 SQL 数据库和 SQL Server 在使用方面的差异是：
 
@@ -167,8 +161,8 @@ ms.lasthandoff: 06/21/2017
 
     在数据中心使用 SQL Server 时，必须将虚拟网络配置为“站点到站点”或“点到站点”。
 
-    > [!NOTE]
-    > 使用**点到站点**虚拟网络时，SQL Server 必须运行 VPN 客户端配置应用程序。 VPN 客户端可在 Azure 虚拟网络配置的**仪表板**中使用。
+  > [!NOTE]
+  > 使用**点到站点**虚拟网络时，SQL Server 必须运行 VPN 客户端配置应用程序。 VPN 客户端可在 Azure 虚拟网络配置的**仪表板**中使用。
 
     有关通过 Azure 虚拟网络使用 HDInsight 的详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight](hdinsight-extend-hadoop-virtual-network.md) 文档。 有关 Azure 虚拟网络的详细信息，请参阅[虚拟网络概述](../virtual-network/virtual-networks-overview.md)文档。
 
@@ -201,15 +195,13 @@ ms.lasthandoff: 06/21/2017
     sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
-## 限制
-<a id="limitations" class="xliff"></a>
+## <a name="limitations"></a>限制
 
 * 批量导出 - 在基于 Linux 的 HDInsight 上，用于将数据导出到 Microsoft SQL Server 或 Azure SQL 数据库的 Sqoop 连接器目前不支持批量插入。
 
 * 批处理 - 在基于 Linux 的 HDInsight 上，如果在执行插入时使用 `-batch` 开关，Sqoop 将进行多次插入而不是批处理插入操作。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 现在你已了解如何使用 Sqoop。 若要了解更多信息，请参阅以下文章：
 
@@ -231,6 +223,6 @@ ms.lasthandoff: 06/21/2017
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[powershell-script]: https://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
+[powershell-script]: http://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

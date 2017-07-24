@@ -3,8 +3,8 @@ title: "Azure 备份：使用 PowerShell 备份 DPM 工作负荷 | Microsoft 文
 description: "了解如何使用 PowerShell 部署和管理 Data Protection Manager (DPM) 的 Azure 备份"
 services: backup
 documentationcenter: 
-author: Nkolli1
-manager: shreeshd
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: bcbcef79-9d33-4e84-a558-9866614f2cae
 ms.service: backup
@@ -12,15 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+origin.date: 06/14/2017
+ms.date: 06/30/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 0efb062da6700b5b35ce03d049c27030d51f7879
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 034165619f1bf5f11814a204e899983bacc8dbd4
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>使用 PowerShell 部署和管理 Data Protection Manager (DPM) 服务器的 Azure 备份
 > [!div class="op_single_selector"]
@@ -29,7 +28,8 @@ ms.lasthandoff: 04/14/2017
 >
 >
 
-本文说明如何使用 PowerShell 在 DPM 服务器上设置 Azure 备份，以及管理备份和恢复。
+本文介绍如何使用 PowerShell 从备份保管库备份和恢复 DPM 数据。 Microsoft 建议对所有新部署使用恢复服务保管库。 如果是新的 Azure 备份用户，请参阅文章[使用 PowerShell 将 Data Protection Manager 数据部署到 Azure 并管理这些数据](backup-dpm-automation.md)，以便将数据存储在恢复服务保管库中。
+
 
 ## <a name="setting-up-the-powershell-environment"></a>设置 PowerShell 环境
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
@@ -120,7 +120,7 @@ PS C:\> MARSAgentInstaller.exe /?
 | /pw | 代理密码 | - |
 
 ### <a name="registering-with-the-azure-backup-service"></a>注册到 Azure 备份服务
-在可注册 Azure 备份服务之前，需要确保符合[先决条件](backup-azure-dpm-introduction-classic.md)。 必须具备以下条件：
+在可注册 Azure 备份服务之前，需要确保符合[先决条件](./backup-azure-dpm-introduction-classic.md)。 必须具备以下条件：
 
 - 具备有效的 Azure 订阅
 - 有一个备份保管库
@@ -349,6 +349,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 可针对任何数据源类型轻松扩展这些命令。
 
 ## <a name="next-steps"></a>后续步骤
-- 有关适用于 DPM 的 Azure 备份的详细信息，请参阅[DPM 备份简介](backup-azure-dpm-introduction-classic.md)
-
-
+- 有关适用于 DPM 的 Azure 备份的详细信息，请参阅[DPM 备份简介](./backup-azure-dpm-introduction-classic.md)

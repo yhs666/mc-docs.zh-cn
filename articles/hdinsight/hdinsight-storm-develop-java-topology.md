@@ -18,14 +18,13 @@ origin.date: 05/12/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 6db352aad1fdac5e0c74620f56a201cfbeab2e1c
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: b7a19c3c09e919b88bef51596b1c05168f46973e
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 以 Java 语言创建 Apache Storm 拓扑
-<a id="create-an-apache-storm-topology-in-java" class="xliff"></a>
+# <a name="create-an-apache-storm-topology-in-java"></a>以 Java 语言创建 Apache Storm 拓扑
 
 了解如何为 Apache Storm 创建基于 Java 的拓扑。 将创建一个实现单词计数应用程序的 Storm 拓扑。 将使用 Maven 生成并打包项目。 然后，了解如何使用 Flux 框架定义拓扑。
 
@@ -39,8 +38,7 @@ ms.lasthandoff: 06/21/2017
 > [!NOTE]
 > [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount) 上提供了本文档中创建的 Storm 拓扑示例的完整版本。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 
 * [Java 开发人员工具包 (JDK) 版本 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
 
@@ -48,8 +46,7 @@ ms.lasthandoff: 06/21/2017
 
 * 文本编辑器或 IDE。
 
-## 配置环境变量
-<a id="configure-environment-variables" class="xliff"></a>
+## <a name="configure-environment-variables"></a>配置环境变量
 
 可以在安装 Java 和 JDK 时设置以下环境变量。 不过，你应该检查它们是否存在并且包含系统的正确值。
 
@@ -63,8 +60,7 @@ ms.lasthandoff: 06/21/2017
 
   * 安装 Maven 的目录
 
-## 创建 Maven 项目
-<a id="create-a-maven-project" class="xliff"></a>
+## <a name="create-a-maven-project"></a>创建 Maven 项目
 
 在命令行中，使用以下命令创建名为 **WordCount** 的 Maven 项目：
 
@@ -83,16 +79,14 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupI
 * `src\main\java\com\microsoft\example`：包含应用程序代码。
 * `src\test\java\com\microsoft\example`：包含应用程序的测试。 
 
-### 删除生成的示例代码
-<a id="remove-the-generated-example-code" class="xliff"></a>
+### <a name="remove-the-generated-example-code"></a>删除生成的示例代码
 
 删除生成的测试和应用程序文件：
 
 * **src\test\java\com\microsoft\example\AppTest.java**
 * **src\main\java\com\microsoft\example\App.java**
 
-## 添加 Maven 存储库
-<a id="add-maven-repositories" class="xliff"></a>
+## <a name="add-maven-repositories"></a>添加 Maven 存储库
 
 由于 HDInsight 基于 Hortonworks Data Platform (HDP)，因此我们建议使用 Hortonworks 存储库来下载 Apache Storm 项目的依赖项。 在 __pom.xml__ 文件中，在 `<url>http://maven.apache.org</url>` 行后添加以下 XML：
 
@@ -133,8 +127,7 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupI
 </repositories>
 ```
 
-## 添加属性
-<a id="add-properties" class="xliff"></a>
+## <a name="add-properties"></a>添加属性
 
 Maven 允许定义项目级的值，称为属性。 在 __pom.xml__ 中，在 `</repositories>` 行后添加以下容：
 
@@ -150,8 +143,7 @@ Maven 允许定义项目级的值，称为属性。 在 __pom.xml__ 中，在 `<
 
 现在，可以在 `pom.xml` 的其他部分中使用此值。 例如，在指定 Storm 组件的版本时，可以使用 `${storm.version}` 而无需将值硬编码。
 
-## 添加依赖项
-<a id="add-dependencies" class="xliff"></a>
+## <a name="add-dependencies"></a>添加依赖项
 
 添加 Storm 组件的依赖项。 打开 `pom.xml` 文件，并在 `<dependencies>` 部分添加以下代码：
 
@@ -170,8 +162,7 @@ Maven 允许定义项目级的值，称为属性。 在 __pom.xml__ 中，在 `<
 > [!NOTE]
 > 请注意该部分中的 `<scope>provided</scope>` 行。 此设置告诉 Maven 从创建的任何 JAR 文件中排除 **storm-core**，因为它将由系统提供。
 
-## 生成配置
-<a id="build-configuration" class="xliff"></a>
+## <a name="build-configuration"></a>生成配置
 
 Maven 插件可用于自定义项目的生成阶段。 例如，如何编译项目或者如何将其打包到 JAR 文件中。 打开 `pom.xml` 文件，并紧靠在 `</project>` 行的上方添加以下代码。
 
@@ -186,8 +177,7 @@ Maven 插件可用于自定义项目的生成阶段。 例如，如何编译项�
 
 此节用于添加插件、资源和其他生成配置选项。 有关 **pom.xml** 文件的完整参考信息，请参阅 [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html)。
 
-### 添加插件
-<a id="add-plug-ins" class="xliff"></a>
+### <a name="add-plug-ins"></a>添加插件
 
 对于以 Java 语言实现的 Apache Storm 拓扑，Exec Maven 插件十分有用，因为它可让你轻松地在开发环境本地运行拓扑。 在 `pom.xml` 文件的 `<plugins>` 部分中添加以下内容，以包括 Exec Maven 插件：
 
@@ -234,8 +224,7 @@ Maven 插件可用于自定义项目的生成阶段。 例如，如何编译项�
 </plugin>
 ```
 
-### 配置资源
-<a id="configure-resources" class="xliff"></a>
+### <a name="configure-resources"></a>配置资源
 
 使用 resources 节可以包含非代码资源，例如拓扑中组件所需的配置文件。 本示例将在 pom.xml 文件的 `<resources>` 节中添加以下文本。
 
@@ -251,8 +240,7 @@ Maven 插件可用于自定义项目的生成阶段。 例如，如何编译项�
 
 本示例会将项目根目录 (`${basedir}`) 中的 resources 目录添加为包含资源的位置，并包含名为 `log4j2.xml` 的文件。 此文件用于配置拓扑所要记录的信息。
 
-## 创建拓扑
-<a id="create-the-topology" class="xliff"></a>
+## <a name="create-the-topology"></a>创建拓扑
 
 基于 Java 的 Apache Storm 拓扑包含必须编写（或引用）为依赖项的三个组件。
 
@@ -262,8 +250,7 @@ Maven 插件可用于自定义项目的生成阶段。 例如，如何编译项�
 
 * **拓扑**：定义如何排列 Spout 和 Bolt，并提供拓扑的入口点。
 
-### 创建 Spout
-<a id="create-the-spout" class="xliff"></a>
+### <a name="create-the-spout"></a>创建 Spout
 
 为了降低设置外部数据源的要求，以下 Spout 只会发出随机句子。 它是 [Storm-Starter 示例](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter)随附的 Spout 的修改版本。
 
@@ -340,8 +327,7 @@ public class RandomSentenceSpout extends BaseRichSpout {
 > [!NOTE]
 > 虽然此拓扑只使用一个 Spout，但其他拓扑可能存在将数据从不同源送入拓扑的多个 Spout。
 
-### 创建 Bolt
-<a id="create-the-bolts" class="xliff"></a>
+### <a name="create-the-bolts"></a>创建 Bolt
 
 Bolt 用于处理数据。 此拓扑使用两个 Bolt：
 
@@ -354,8 +340,7 @@ Bolt 用于处理数据。 此拓扑使用两个 Bolt：
 
 在 `src\main\java\com\microsoft\example` 目录中创建两个新文件：`SplitSentence.java` 和 `WordCount.java`。 将以下文本用作这些文件的内容：
 
-#### SplitSentence
-<a id="splitsentence" class="xliff"></a>
+#### <a name="splitsentence"></a>SplitSentence
 
 ```java
 package com.microsoft.example;
@@ -404,8 +389,7 @@ public class SplitSentence extends BaseBasicBolt {
 }
 ```
 
-#### WordCount
-<a id="wordcount" class="xliff"></a>
+#### <a name="wordcount"></a>WordCount
 
 ```java
 package com.microsoft.example;
@@ -488,8 +472,7 @@ public class WordCount extends BaseBasicBolt {
 }
 ```
 
-### 定义拓扑
-<a id="define-the-topology" class="xliff"></a>
+### <a name="define-the-topology"></a>定义拓扑
 
 拓扑将 Spout 和 Bolt 一起绑定到图形，该图形定义了组件之间的数据流动方式。 它还提供 Storm 在群集内创建组件的实例时使用的并行度提示。
 
@@ -561,8 +544,7 @@ public class WordCountTopology {
 }
 ```
 
-### 配置日志记录
-<a id="configure-logging" class="xliff"></a>
+### <a name="configure-logging"></a>配置日志记录
 
 Storm 使用 Apache Log4j 来记录信息。 如果未配置日志记录，拓扑将发出诊断信息。 若要控制所记录的信息，请在 `log4j2.xml` in the `resources` 。 将以下 XML 用作该文件的内容。
 
@@ -594,8 +576,7 @@ Storm 使用 Apache Log4j 来记录信息。 如果未配置日志记录，拓�
 > [!NOTE]
 > Storm 0.10.0 版及更高版本使用 Log4j 2.x。 早期版本的 Storm 使用 Log4j 1.x（为日志配置使用的格式不同）。 有关旧配置的信息，请参阅 [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat)。
 
-## 在本地测试拓扑
-<a id="test-the-topology-locally" class="xliff"></a>
+## <a name="test-the-topology-locally"></a>在本地测试拓扑
 
 保存文件之后，请使用以下命令在本地测试拓扑。
 
@@ -617,8 +598,7 @@ mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 
 每两次发出单词和句子的间隔为 5 秒。 **WordCount** 组件配置为仅当 tick 元组到达时才发出信息。 它要求仅每五秒钟传送一次 tick 元组。
 
-## 将拓扑转换为 Flux
-<a id="convert-the-topology-to-flux" class="xliff"></a>
+## <a name="convert-the-topology-to-flux"></a>将拓扑转换为 Flux
 
 Flux 是 Storm 0.10.0 及更高版本随附的一个新框架，可以将配置和实现分离开来。 组件仍然是以 Java 语言定义的，但拓扑是使用 YAML 文件定义的。 可以随项目一起打包默认的拓扑定义，也可以在提交拓扑时使用独立的文件。 将拓扑提交到 Storm 时，可以使用环境变量或配置文件来填充 YAML 拓扑定义中的值。
 
@@ -729,8 +709,7 @@ YAML 文件定义了要用于拓扑的组件以及它们之间的数据流。 �
         <include>topology.yaml</include>
         ```
 
-## 在本地测试 Flux 拓扑
-<a id="test-the-flux-topology-locally" class="xliff"></a>
+## <a name="test-the-flux-topology-locally"></a>在本地测试 Flux 拓扑
 
 1. 使用以下命令通过 Maven 编译并执行 Flux 拓扑：
 
@@ -795,8 +774,7 @@ YAML 文件定义了要用于拓扑的组件以及它们之间的数据流。 �
 
 有关 Flux 框架的上述功能和其他功能的详细信息，请参阅 [Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html)。
 
-## Trident
-<a id="trident" class="xliff"></a>
+## <a name="trident"></a>Trident
 
 Trident 是 Storm 提供的高级抽象。 它支持有状态处理。 Trident 的主要优点在于，它可以保证进入拓扑的每个消息只会处理一次。 如果不使用 Trident，则拓扑只能保证至少将消息处理一次。 两者还有其他方面的差异，例如，可以使用内置组件，而无需创建 Bolt。 事实上，可以使用低泛型组件（例如筛选、投影和函数）来取代 Bolt。
 
@@ -804,8 +782,7 @@ Trident 是 Storm 提供的高级抽象。 它支持有状态处理。 Trident �
 
 有关 Trident 的详细信息，请参阅 [Trident API 概述](http://storm.apache.org/documentation/Trident-API-Overview.html)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 你已学习如何使用 Java 创建 Storm 拓扑。 接下来，请学习如何：
 

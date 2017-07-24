@@ -1,26 +1,27 @@
 ---
-title: "适用于 SQL 数据库的 Azure CLI 示例 | Microsoft 文档"
+title: "适用于 SQL 数据库的 Azure CLI 示例 | Azure"
 description: "Azure CLI 示例 - 创建和管理 Azure SQL 数据库服务器、弹性池、数据库和防火墙。"
 services: sql-database
 documentationcenter: sql-database
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
-ms.devlang: na
+ms.custom: overview-samples
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+origin.date: 03/07/2017
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 8d70264d4a26fafcad8620807f1cc2fe733bac29
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 799e507e47d0e9d1e2dba1347a323364c59b6657
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Azure CLI 示例
 

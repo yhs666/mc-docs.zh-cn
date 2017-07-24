@@ -1,29 +1,26 @@
 ---
-title: "任务完成事件 - Azure | Microsoft Docs"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
+title: "Azure Batch 任务完成事件 | Microsoft Docs"
+description: "Batch 任务完成事件参考。"
+services: batch
+author: alexchen2016
+manager: digimobile
+ms.assetid: 
 ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 9dcc468b-e0a7-4b80-bec8-ffd466afdc8a
-caps.latest.revision: 4
-author: tamram
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+origin.date: 04/20/2017
+ms.date: 07/03/2017
 ms.author: v-junlch
-manager: timlt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: bded25681d42bf79850eb0831f8a889f38f98dbf
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 77f93803a3c04956c13cc80906f9a01aa7766642
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="task-complete-event"></a>任务完成事件
-任务完成事件日志正文
 
-## <a name="remarks"></a>备注
  无论退出代码如何，任务完成后都会发出此事件。 此事件可用于确定任务的持续时间、运行位置以及是否重试过。
 
 

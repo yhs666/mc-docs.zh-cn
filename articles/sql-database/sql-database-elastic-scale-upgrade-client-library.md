@@ -1,24 +1,25 @@
 ---
-title: "升级到最新的弹性数据库客户端库 | Microsoft 文档"
+title: "升级到最新的弹性数据库客户端库 | Azure"
 description: "使用 Nuget 升级应用程序和库"
 services: sql-database
 documentationcenter: 
-manager: jhubbard
-author: ddove
+manager: digimobile
+author: Hayley244
 ms.assetid: 0a546510-76e7-465e-9271-f15ff0cfa959
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+origin.date: 03/06/2017
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 889db6cf734605e72739340e4c8fdd324dae973a
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 5a5df32ffc1874bd453b16c336ca756b284e40b2
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>升级应用以使用最新的弹性数据库客户端库
 可通过 Visual Studio 中 NuGetand 和 NuGetPackage 管理器界面获取[弹性数据库客户端库](sql-database-elastic-database-client-library.md)的新版本。 升级包含客户端库的 bug 修复和新功能支持。
@@ -80,4 +81,3 @@ foreach (ShardLocation loc in
 
 <!--Image references-->
 [1]:./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
-

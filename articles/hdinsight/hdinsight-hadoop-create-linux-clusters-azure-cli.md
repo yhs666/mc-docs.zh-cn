@@ -1,5 +1,5 @@
 ---
-title: "使用命令行创建 Azure HDInsight (Hadoop) | Azure"
+title: "使用命令行创建 Hadoop 群集 - Azure HDInsight | Azure"
 description: "了解如何使用跨平台 Azure CLI 1.0 创建 HDInsight 群集。"
 services: hdinsight
 documentationcenter: 
@@ -17,13 +17,11 @@ ms.workload: big-data
 origin.date: 04/04/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 5eef846d55eda3a80ea2ea020e5ffed995c3ec89
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.openlocfilehash: a4f7b74877126787b3d24e0def3c6ad5a13f516c
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>使用 Azure CLI 创建 HDInsight 群集
 
@@ -34,7 +32,7 @@ ms.lasthandoff: 05/26/2017
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅[弃用 HDInsight 3.2 和 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -49,7 +47,7 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="log-in-to-your-azure-subscription"></a>登录到 Azure 订阅
 
-按照 [从 Azure 命令行接口 (Azure CLI) 连接到 Azure 订阅](../xplat-cli-connect.md) 中所述的步骤，使用 **login** 方法连接到订阅。
+按照 [从 Azure 命令行接口 (Azure CLI) 连接到 Azure 订阅](../xplat-cli-connect.md) 中所述的步骤，使用 **登录** 方法连接到订阅。
 
 ## <a name="create-a-cluster"></a>创建群集
 
@@ -73,7 +71,7 @@ ms.lasthandoff: 05/26/2017
 
     * 将 **location** 替换为要在其中创建该组的地理区域。
 
-        有关有效位置的列表，请使用 `azure location list` 命令，然后使用 **Name** 列中的位置之一。
+       有关有效位置的列表，请使用 `azure location list` 命令，然后使用 **Name** 列中的位置之一。
 
 4. 创建存储帐户。 此存储帐户将用作 HDInsight 群集的默认存储。
 
@@ -95,7 +93,7 @@ ms.lasthandoff: 05/26/2017
     * 将 **groupname** 替换为资源组名称。
     * 将“storagename”替换为存储帐户的名称。
 
-    在返回的数据中，保存 **key1** 的 **key** 值。
+     在返回的数据中，保存 **key1** 的 **key** 值。
 
 6. 创建 HDInsight 群集。
 
@@ -105,8 +103,8 @@ ms.lasthandoff: 05/26/2017
 
     * 用希望创建的群集类型替换 **Hadoop**。 例如，Hadoop、HBase、Storm 或 Spark。
 
-    > [!IMPORTANT]
-    > HDInsight 群集具有各种不同的类型，与该群集进行优化的工作负荷或技术相对应。 不支持在一个群集上创建合并了多个类型（如 Storm 和 HBase）的群集。
+     > [!IMPORTANT]
+     > HDInsight 群集具有各种不同的类型，与该群集进行优化的工作负荷或技术相对应。 不支持在一个群集上创建合并了多个类型（如 Storm 和 HBase）的群集。
 
     * 将 **location** 替换为上一步骤中使用的同一位置。
 
@@ -151,4 +149,3 @@ ms.lasthandoff: 05/26/2017
 * [为 Storm on HDInsight 开发 Java 拓扑](hdinsight-storm-develop-java-topology.md)
 * [在 Storm on HDInsight 中使用 Python 组件](hdinsight-storm-develop-python-topology.md)
 * [使用 Storm on HDInsight 部署和监视拓扑](hdinsight-storm-deploy-monitor-topology-linux.md)
-

@@ -15,25 +15,22 @@ ms.topic: article
 origin.date: 03/23/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.openlocfilehash: a23d373f2132cac9ab89867b1030912e7eb9da10
-ms.sourcegitcommit: 2c397ac599bdb39b257580a1b55a1ce67e19ae56
+ms.openlocfilehash: e931059656602c77286f557d42019e9dd1ed1678
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 在 Azure 中构建超大规模 Web 应用
-<a id="build-a-hyper-scale-web-app-in-azure" class="xliff"></a>
+# <a name="build-a-hyper-scale-web-app-in-azure"></a>在 Azure 中构建超大规模 Web 应用
 
 本教程介绍如何扩展 Azure 中的 ASP.NET Web 应用，以最大化用户请求数。
 
 开始学习本教程之前，请确保在计算机上[安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 此外，需要在本地计算机安装 [Visual Studio](https://www.visualstudio.com/vs/) 来运行示例应用程序。
 
-## 步骤 1 - 获取示例应用程序
-<a id="step-1---get-sample-application" class="xliff"></a>
+## <a name="step-1---get-sample-application"></a>步骤 1 - 获取示例应用程序
 在此步骤中，你将设置本地 ASP.NET 项目。
 
-### 克隆应用程序存储库
-<a id="clone-the-application-repository" class="xliff"></a>
+### <a name="clone-the-application-repository"></a>克隆应用程序存储库
 
 打开所选的命令行终端，并使用 `CD` 切换到工作目录。 然后，运行以下命令克隆示例应用程序。 
 
@@ -41,8 +38,7 @@ ms.lasthandoff: 07/03/2017
 git clone https://github.com/cephalin/HighScaleApp.git
 ```
 
-### 在 Visual Studio 中运行示例应用程序
-<a id="run-the-sample-application-in-visual-studio" class="xliff"></a>
+### <a name="run-the-sample-application-in-visual-studio"></a>在 Visual Studio 中运行示例应用程序
 
 在 Visual Studio 中打开解决方案。
 
@@ -65,12 +61,10 @@ Session.Add("visited", "true");
 [OutputCache(Duration = 60)]
 ```
 
-## 步骤 2 - 部署到 Azure
-<a id="step-2---deploy-to-azure" class="xliff"></a>
+## <a name="step-2---deploy-to-azure"></a>步骤 2 - 部署到 Azure
 在此步骤中，你将创建一个 Azure Web 应用并在其中部署示例 ASP.NET 应用程序。
 
-### 创建资源组
-<a id="create-a-resource-group" class="xliff"></a>   
+### <a name="create-a-resource-group"></a>创建资源组   
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -82,8 +76,7 @@ az group create --location "China North" --name myResourceGroup
 
 若要查看可对 `--location` 使用的可能值，请使用 [az appservice list-locations](https://docs.microsoft.com/cli/azure/appservice#list-locations) 命令。
 
-### 创建应用服务计划
-<a id="create-an-app-service-plan" class="xliff"></a>
+### <a name="create-an-app-service-plan"></a>创建应用服务计划
 使用 [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) 创建“B1”[应用服务计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 
 
 ```azurecli
@@ -94,8 +87,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 在本教程中，B1 是允许横向扩展到三个实例的最小层。 以后，随时可以运行 [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#update) 来上下调整应用的定价层。 
 
-### 创建 Web 应用
-<a id="create-a-web-app" class="xliff"></a>
+### <a name="create-a-web-app"></a>创建 Web 应用
 使用 [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) 创建在 `$appName` 中具有唯一名称的 Web 应用。
 
 ```azurecli
@@ -103,16 +95,14 @@ $appName = "<replace-with-a-unique-name>"
 az appservice web create --name $appName --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
-### 设置部署凭据
-<a id="set-deployment-credentials" class="xliff"></a>
+### <a name="set-deployment-credentials"></a>设置部署凭据
 使用 [az appservice web deployment user set](https://docs.microsoft.com/cli/azure/webapp/deployment/user#set) 设置应用服务的帐户级部署凭据。
 
 ```azurecli
 az appservice web deployment user set --user-name <letters-numbers> --password <mininum-8-char-captital-lowercase-letters-numbers>
 ```
 
-### 配置 Git 部署
-<a id="configure-git-deployment" class="xliff"></a>
+### <a name="configure-git-deployment"></a>配置 Git 部署
 使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) 配置本地 Git 部署。
 
 ```azurecli
@@ -133,8 +123,7 @@ az appservice web source-control config-local-git --name $appName --resource-gro
 git remote add azure https://user123@myuniqueappname.scm.chinacloudsites.cn/myuniqueappname.git
 ```
 
-### 部署示例应用程序
-<a id="deploy-the-sample-application" class="xliff"></a>
+### <a name="deploy-the-sample-application"></a>部署示例应用程序
 现已准备好部署示例应用程序。 运行 `git push`。
 
 ```powershell
@@ -143,20 +132,17 @@ git push azure master
 
 当系统提示输入密码时，请使用运行 `az appservice web deployment user set` 时指定的密码。
 
-### 浏览到 Azure Web 应用
-<a id="browse-to-azure-web-app" class="xliff"></a>
+### <a name="browse-to-azure-web-app"></a>浏览到 Azure Web 应用
 使用 [az appservice web browse](https://docs.microsoft.com/cli/azure/webapp#browse) 命令查看 Azure 中实时运行的应用。
 
 ```azurecli
 az appservice web browse --name $appName --resource-group myResourceGroup
 ```
 
-## 步骤 3 - 连接到 Redis
-<a id="step-3---connect-to-redis" class="xliff"></a>
+## <a name="step-3---connect-to-redis"></a>步骤 3 - 连接到 Redis
 在此步骤中，你要将 Azure Redis 缓存设置为 Azure Web 应用的外部归置缓存。 可以快速利用 Redis 来缓存页面输出。 此外，以后当你横向扩展 Web 应用时，Redis 可帮助你在多个实例之间可靠保存用户会话。
 
-### 创建 Azure Redis 缓存
-<a id="create-an-azure-redis-cache" class="xliff"></a>
+### <a name="create-an-azure-redis-cache"></a>创建 Azure Redis 缓存
 使用 [az redis create](https://docs.microsoft.com/cli/azure/redis#create) 创建 Azure Redis 缓存并保存 JSON 输出。 请在 `$cacheName` 中使用唯一的名称。
 
 ```powershell
@@ -164,8 +150,7 @@ $cacheName = "<replace-with-a-unique-cache-name>"
 $redis = (az redis create --name $cacheName --resource-group myResourceGroup --location "China North" --sku-capacity 0 --sku-family C --sku-name Basic | ConvertFrom-Json)
 ```
 
-### 将应用程序配置为使用 Redis
-<a id="configure-the-application-to-use-redis" class="xliff"></a>
+### <a name="configure-the-application-to-use-redis"></a>将应用程序配置为使用 Redis
 设置缓存连接字符串的格式。
 
 ```powershell
@@ -199,8 +184,7 @@ mycachename.redis.cache.chinacloudapi.cn:6380,password=/rQP/TLz1mrEPpmh9b/gnfns/
 
 现在，你的应用程序将使用 Redis 来管理会话和缓存。 键入 `F5` 运行应用程序。 如果需要，可以下载 Redis 管理客户端来可视化现已保存到缓存中的数据。
 
-### 在 Azure 中配置连接字符串
-<a id="configure-the-connection-string-in-azure" class="xliff"></a>
+### <a name="configure-the-connection-string-in-azure"></a>在 Azure 中配置连接字符串
 
 要使应用程序在 Azure 中正常工作，需要在 Azure Web 应用中配置相同的 Redis 连接字符串。 由于 `redis.config` 未保留在源代码管理中，因此，运行 Git 部署时，它不会部署到 Azure。
 
@@ -210,8 +194,7 @@ mycachename.redis.cache.chinacloudapi.cn:6380,password=/rQP/TLz1mrEPpmh9b/gnfns/
 
 请记住，`$connstring` 包含带格式的连接字符串。
 
-### 将应用程序重新部署到 Azure
-<a id="redeploy-the-application-to-azure" class="xliff"></a>
+### <a name="redeploy-the-application-to-azure"></a>将应用程序重新部署到 Azure
 使用 Git 命令将更改推送到 Azure
 
 ```bash
@@ -222,16 +205,14 @@ git push azure master
 
 当系统提示输入密码时，请使用运行 `az appservice web deployment user set` 时指定的密码。
 
-### 浏览到 Azure Web 应用
-<a id="browse-to-the-azure-web-app" class="xliff"></a>
+### <a name="browse-to-the-azure-web-app"></a>浏览到 Azure Web 应用
 使用 [az appservice web browse](https://docs.microsoft.com/cli/azure/webapp#browse) 查看 Azure 中的实时更改。
 
 ```azurecli
 az appservice web browse --name $appName --resource-group myResourceGroup
 ```
 
-## 步骤 4 - 扩展到多个实例
-<a id="step-4---scale-to-multiple-instances" class="xliff"></a>
+## <a name="step-4---scale-to-multiple-instances"></a>步骤 4 - 扩展到多个实例
 应用服务计划是 Azure Web 应用的缩放单位。 若要横向扩展 Web 应用，可以扩展应用服务计划。
 
 使用 [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#update) 将应用服务计划横向扩展到三个实例，这是 B1 定价层允许的最大数目。 请记住，B1 是之前创建应用服务计划时选择的定价层。 
@@ -240,21 +221,18 @@ az appservice web browse --name $appName --resource-group myResourceGroup
 az appservice plan update --name myAppServicePlan --resource-group myResourceGroup --number-of-workers 3 
 ```
 
-## 步骤 5 - 按地理位置扩展
-<a id="step-5---scale-geographically" class="xliff"></a>
+## <a name="step-5---scale-geographically"></a>步骤 5 - 按地理位置扩展
 按地理位置扩展时，需在 Azure 云的多个区域中运行应用。 这种设置可以根据地理位置进一步对应用进行负载均衡，并通过将应用放置在更靠近客户端浏览器的位置来减小响应时间。
 
 在此步骤中，你将使用 [Azure 流量管理器](/traffic-manager/)将 ASP.NET Web 应用扩展到另一个区域。 结束此步骤后，中国北部将运行一个 Web 应用（已创建），中国东部将运行另一个 Web 应用（尚未创建）。 应该从同一个流量管理器 URL 提供这两个应用。
 
-### 将中国北部的应用纵向扩展到标准层
-<a id="scale-up-the-china-north-app-to-standard-tier" class="xliff"></a>
+### <a name="scale-up-the-china-north-app-to-standard-tier"></a>将中国北部的应用纵向扩展到标准层
 在应用服务中，与 Azure 流量管理器的集成需要使用标准定价层。 使用 [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#update) 将应用服务计划纵向扩展到 S1。 
 
 ```azurecli
 az appservice plan update --name myAppServicePlan --resource-group myResourceGroup --sku S1
 ```
-### 创建流量管理器配置文件
-<a id="create-a-traffic-manager-profile" class="xliff"></a> 
+### <a name="create-a-traffic-manager-profile"></a>创建流量管理器配置文件 
 使用 [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#create) 创建流量管理器配置文件并将其添加到资源组。 在 $dnsName 中使用唯一的 DNS 名称。
 
 ```azurecli
@@ -265,24 +243,21 @@ az network traffic-manager profile create --name myTrafficManagerProfile --resou
 > [!NOTE]
 > `--routing-method Performance` 指定此配置文件要[将用户流量路由到最靠近的终结点](../traffic-manager/traffic-manager-routing-methods.md)。
 
-### 获取中国北部应用的资源 ID
-<a id="get-the-resource-id-of-the-china-north-app" class="xliff"></a>
+### <a name="get-the-resource-id-of-the-china-north-app"></a>获取中国北部应用的资源 ID
 使用 [az appservice web show](https://docs.microsoft.com/cli/azure/webapp#show) 获取 Web 应用的资源 ID。
 
 ```azurecli
 $appId = az appservice web show --name $appName --resource-group myResourceGroup --query id --output tsv
 ```
 
-### 为中国北部的应用添加流量管理器终结点
-<a id="add-a-traffic-manager-endpoint-for-the-china-north-app" class="xliff"></a>
+### <a name="add-a-traffic-manager-endpoint-for-the-china-north-app"></a>为中国北部的应用添加流量管理器终结点
 使用 [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#create) 将一个终结点添加到流量管理器配置文件，并使用 Web 应用的资源 ID 作为目标。
 
 ```azurecli
 az network traffic-manager endpoint create --name myChinaNorthEndpoint --profile-name myTrafficManagerProfile --resource-group myResourceGroup --type azureEndpoints --target-resource-id $appId
 ```
 
-### 获取流量管理器终结点 URL
-<a id="get-the-traffic-manager-endpoint-url" class="xliff"></a>
+### <a name="get-the-traffic-manager-endpoint-url"></a>获取流量管理器终结点 URL
 现在，流量管理器配置文件包含一个指向现有 Web 应用的终结点。 使用 [az network traffic-manager profile show](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#show) 获取该终结点的 URL。 
 
 ```azurecli
@@ -291,26 +266,23 @@ az network traffic-manager profile show --name myTrafficManagerProfile --resourc
 
 将输出复制到浏览器中。 随后应会再次显示你的 Web 应用。
 
-### 在中国东部创建 Azure Redis 缓存
-<a id="create-an-azure-redis-cache-in-china-east" class="xliff"></a>
+### <a name="create-an-azure-redis-cache-in-china-east"></a>在中国东部创建 Azure Redis 缓存
 现在，请将 Azure Web 应用程序复制到中国东部区域。 若要开始，请使用 [az redis create](https://docs.microsoft.com/cli/azure/redis#create) 在中国东部创建另一个 Azure Redis 缓存。 此缓存需要与中国东部的应用放置在一起。
 
 ```powershell
 $redis = (az redis create --name $cacheName-east --resource-group myResourceGroup --location "China East" --sku-capacity 0 --sku-family C --sku-name Basic | ConvertFrom-Json)
 ```
 
-`--name $cacheName-east` 为该缓存指定与中国北部的缓存相同的名称，并添加 `-east` 后缀。
+`--name $cacheName-east` 使用 `-east` 后缀为该缓存指定中国东部缓存的名称。
 
-### 在中国东部创建应用服务计划
-<a id="create-an-app-service-plan-in-china-east" class="xliff"></a>
+### <a name="create-an-app-service-plan-in-china-east"></a>在中国东部创建应用服务计划
 运行 [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create)，使用 S1 层（中国北部的计划也使用此层）在中国东部区域创建另一个应用服务计划。
 
 ```azurecli
-az appservice plan create --name myAppServicePlanEast --resource-group myResourceGroup --location "China North" --sku S1
+az appservice plan create --name myAppServicePlanEast --resource-group myResourceGroup --location "China East" --sku S1
 ```
 
-### 在中国东部创建 Web 应用
-<a id="create-a-web-app-in-china-east" class="xliff"></a>
+### <a name="create-a-web-app-in-china-east"></a>在中国东部创建 Web 应用
 使用 [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) 创建另一个 Web 应用。
 
 ```azurecli
@@ -319,14 +291,12 @@ az appservice web create --name $appName-east --resource-group myResourceGroup -
 
 `--name $appName-east` 为该应用指定与中国北部应用相同的名称，并添加 `-east` 后缀。
 
-### 配置 Redis 的连接字符串
-<a id="configure-the-connection-string-for-redis" class="xliff"></a>
+### <a name="configure-the-connection-string-for-redis"></a>配置 Redis 的连接字符串
 使用 [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#update) 将中国东部缓存的连接字符串添加到该 Web 应用。
 
     az appservice web config appsettings update --settings "RedisConnection=$($redis.hostname):$($redis.sslPort),password=$($redis.accessKeys.primaryKey),ssl=True,abortConnect=False" --name $appName-east --resource-group myResourceGroup
 
-### 配置中国东部应用的 Git 部署。
-<a id="configure-git-deployment-for-the-china-east-app" class="xliff"></a>
+### <a name="configure-git-deployment-for-the-china-east-app"></a>配置中国东部应用的 Git 部署。
 使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) 配置第二个 Web 应用的本地 Git 部署。
 
 ```azurecli
@@ -347,8 +317,7 @@ az appservice web source-control config-local-git --name $appName-east --resourc
 git remote add azure-east https://user123@myuniqueappname-east.scm.chinacloudsites.cn/myuniqueappname.git
 ```
 
-### 部署示例应用程序
-<a id="deploy-your-sample-application" class="xliff"></a>
+### <a name="deploy-your-sample-application"></a>部署示例应用程序
 运行 `git push` 将示例应用程序部署到第二个 Git remote。 
 
 ```bash
@@ -357,32 +326,28 @@ git push azure-east master
 
 当系统提示输入密码时，请使用运行 `az appservice web deployment user set` 时指定的密码。
 
-### 浏览到中国东部的应用
-<a id="browse-to-the-china-east-app" class="xliff"></a>
+### <a name="browse-to-the-china-east-app"></a>浏览到中国东部的应用
 使用 [az appservice web browse](https://docs.microsoft.com/cli/azure/webapp#browse) 验证你的应用是否在 Azure 中实时运行。
 
 ```azurecli
 az appservice web browse --name $appName-east --resource-group myResourceGroup
 ```
 
-### 获取中国东部应用的资源 ID
-<a id="get-the-resource-id-of-the-china-east-app" class="xliff"></a>
+### <a name="get-the-resource-id-of-the-china-east-app"></a>获取中国东部应用的资源 ID
 使用 [az appservice web show](https://docs.microsoft.com/cli/azure/webapp#show) 获取中国东部 Web 应用的资源 ID。
 
 ```azurecli
 $appIdEast = az appservice web show --name $appName-east --resource-group myResourceGroup --query id --output tsv
 ```
 
-### 为中国东部的应用添加流量管理器终结点
-<a id="add-a-traffic-manager-endpoint-for-the-china-east-app" class="xliff"></a>
+### <a name="add-a-traffic-manager-endpoint-for-the-china-east-app"></a>为中国东部的应用添加流量管理器终结点
 使用 [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#create) 将另一个终结点添加到流量管理器配置文件。
 
 ```azurecli
 az network traffic-manager endpoint create --name myEastEndpoint --profile-name myTrafficManagerProfile --resource-group myResourceGroup --type azureEndpoints --target-resource-id $appIdEast
 ```
 
-### 将区域标识符添加到 Web 应用
-<a id="add-region-identifier-to-web-apps" class="xliff"></a>
+### <a name="add-region-identifier-to-web-apps"></a>将区域标识符添加到 Web 应用
 使用 [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#update) 添加区域特定的环境变量。
 
 ```azurecli
@@ -392,7 +357,6 @@ az appservice web config appsettings update --settings "Region=China East" --nam
 
 应用程序代码已使用此应用程序设置。 查看 `HighScaleApp\Views\Home\Index.cshtml`。
 
-### 搞定！
-<a id="complete" class="xliff"></a>
+### <a name="complete"></a>搞定！
 
 现在，请尝试通过不同地理区域中的浏览器访问流量管理器配置文件的 URL。 中国北部的客户端浏览器应显示“ASP.NET China North”，中国东部的客户端浏览器应显示“ASP.NET China East”。

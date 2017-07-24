@@ -1,5 +1,5 @@
 ---
-title: "在 HDInsight 中将 Hadoop Hive 与 PowerShell 配合使用 | Azure"
+title: "在 HDInsight 中将 Hadoop Hive 与 PowerShell 配合使用 - Azure | Azure"
 description: "使用 PowerShell 在 HDInsight 上的 Hadoop 中运行 Hive 查询。"
 services: hdinsight
 documentationcenter: 
@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 03/21/2017
-ms.date: 05/08/2017
+origin.date: 06/16/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 90971fbd16d8d922f69429fb77c87865e356e998
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 6c368d425552ed9267ea802f555363c962083662
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 使用 PowerShell 运行 Hive 查询
-<a id="run-hive-queries-using-powershell" class="xliff"></a>
+# <a name="run-hive-queries-using-powershell"></a>使用 PowerShell 运行 Hive 查询
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -41,14 +40,13 @@ ms.lasthandoff: 06/21/2017
 * **Azure HDInsight 群集**：无论该群集是基于 Windows 还是基于 Linux 都行。
 
   > [!IMPORTANT]
-  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 * **配备 Azure PowerShell 的工作站**。
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-## 使用 Azure PowerShell 运行 Hive 查询
-<a id="run-hive-queries-using-azure-powershell" class="xliff"></a>
+## <a name="run-hive-queries-using-azure-powershell"></a>使用 Azure PowerShell 运行 Hive 查询
 
 Azure PowerShell 提供 *cmdlet* ，可让你在 HDInsight 上远程运行 Hive 查询。 cmdlet 在内部对 HDInsight 群集上的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) 进行 REST 调用。
 
@@ -160,8 +158,7 @@ Azure PowerShell 提供 *cmdlet* ，可让你在 HDInsight 上远程运行 Hive 
    >
    > 有关 **Here-Strings** 的详细信息，请参阅<a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">使用 Windows PowerShell Here-Strings</a>。
 
-## 故障排除
-<a id="troubleshooting" class="xliff"></a>
+## <a name="troubleshooting"></a>故障排除
 
 如果在作业完成时未返回任何信息，则可能表示处理期间发生错误。 若要查看此作业的错误信息，请将以下内容添加到 **hivejob.ps1** 文件的末尾，保存，然后重新运行该文件。
 
@@ -176,13 +173,11 @@ Get-AzureRmHDInsightJobOutput `
 
 运行作业时，此 cmdlet 返回写入到服务器上的 STDERR 中的信息。
 
-## 摘要
-<a id="summary" class="xliff"></a>
+## <a name="summary"></a>摘要
 
 如你所见，Azure PowerShell 提供了简单的方法让你在 HDInsight 群集上运行 Hive 查询，监视作业状态，以及检索输出。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关 HDInsight 中的 Hive 的一般信息：
 

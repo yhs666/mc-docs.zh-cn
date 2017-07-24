@@ -3,8 +3,8 @@ title: "使用 ASP.NET Core 与服务通信 | Azure"
 description: "了解如何在无状态和有状态 Reliable Services 中使用 ASP.NET Core。"
 services: service-fabric
 documentationcenter: .net
-author: vturecek
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
 ms.service: service-fabric
@@ -12,17 +12,28 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/22/2017
-ms.author: v-johch
-ms.openlocfilehash: c00f8ca3bf5805fa9a335e2754e8ce334c8ae3a4
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 05/02/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
+ms.openlocfilehash: 3717d08613fbc68c51dc4d72efb215764f9994f6
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services 中的 ASP.NET Core
 
-ASP.NET Core 是新的开源跨平台框架，用于构建现代基于云的连接 Internet 的应用程序，如 Web 应用、IoT 应用和移动后端。 虽然 ASP.NET Core 应用可在 .NET Core 或完整的 .NET Framework 上运行，但 Service Fabric 服务当前只能在完整的 .NET Framework 上运行。 这意味着在构建 ASP.NET Core Service Fabric 服务时，仍必须以完整的 .NET Framework 为目标。
+ASP.NET Core 是新的开源跨平台框架，用于构建现代基于云的连接 Internet 的应用程序，如 Web 应用、IoT 应用和移动后端。 
+
+本文详细说明了如何使用 NuGet 包的 **Microsoft.ServiceFabric.AspNetCore.*** 集在 Service Fabric Reliable Services 中托管 ASP.NET Core 服务。
+
+有关 Service Fabric 中 ASP.NET Core 的入门教程以及如何设置开发环境的说明，请参阅[使用 ASP.NET Core 为应用程序构建 Web 前端](service-fabric-add-a-web-frontend.md)。
+
+本文的其余部分假定你已熟悉 ASP.NET Core。 如果不熟悉，我们建议通读一遍 [ASP.NET Core 基础知识](https://docs.microsoft.com/aspnet/core/fundamentals/index)。
+
+## <a name="aspnet-core-in-the-service-fabric-environment"></a>Service Fabric 环境中的 ASP.NET Core
+
+虽然 ASP.NET Core 应用可在 .NET Core 或完整的 .NET Framework 上运行，但 Service Fabric 服务当前只能在完整的 .NET Framework 上运行。 这意味着在构建 ASP.NET Core Service Fabric 服务时，仍必须以完整的 .NET Framework 为目标。
 
 在 Service Fabric 中可通过两种不同方法使用 ASP.NET Core：
  - **作为来宾可执行文件托管**。 这主要用于在 Service Fabric 上运行现有 ASP.NET Core 应用程序，无需更改代码。
@@ -30,13 +41,8 @@ ASP.NET Core 是新的开源跨平台框架，用于构建现代基于云的连�
 
 本文的其余部分说明如何借助 Service Fabric SDK 提供的 ASP.NET Core 集成组件在 Reliable Service 内部使用 ASP.NET Core。 
 
-> [!NOTE]
->本文的其余部分假定你熟悉 ASP.NET Core 中的托管。 若要了解有关在 ASP.NET Core 中托管的详细信息，请参阅：[Introduction to hosting in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/hosting)（在 ASP.NET Core 中托管的简介）。
-
-> [!NOTE]
-> 若要在 Visual Studio 2015 中使用 ASP.NET Core 开发 Reliable Services，则需要安装 [.NET Core VS 2015 Tooling Preview 2](https://www.microsoft.com/net/download/core)。
-
 ## <a name="service-fabric-service-hosting"></a>Service Fabric 服务托管
+
 在 Service Fabric 中，服务的一个或多个实例和/或副本在*服务主机进程*（运行服务代码的可执行文件）中运行。 服务作者拥有服务主机进程，Service Fabric 将为服务作者激活并监视此进程。
 
 传统的 ASP.NET（最高为 MVC 5）通过 System.Web.dll 与 IIS 紧密耦合。 ASP.NET Core 在 Web 服务器和 Web 应用程序之间提供分隔。 这使 Web 应用程序可在不同 Web 服务器之间移植，并且还允许 Web 服务器*自托管*，这意味着你可以在自己的进程（而不是由 IIS 等专用 Web 服务器软件拥有的进程）中启动 Web 服务器。 
@@ -117,7 +123,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
                         services => services
                             .AddSingleton<StatelessServiceContext>(serviceContext))
                     .UseContentRoot(Directory.GetCurrentDirectory())
-                    .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+                    .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
                     .UseStartup<Startup>()
                     .UseUrls(url)
                     .Build()))
@@ -300,7 +306,7 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 对于在 Windows 上公开外部、面向 Internet 的 HTTP 终结点的前端服务，建议使用 WebListener Web 服务器。 它能针对攻击提供更好的防护并支持 Kestrel 不支持的功能，例如 Windows 身份验证和端口共享。 
 
 此时不支持将 Kestrel 用作边缘（面向 Internet）服务器。 必须使用 IIS 或 Nginx 等反向代理服务器处理来自公共 Internet 的流量。
- 
+
 向 Internet 公开时，无状态服务应使用可通过负载均衡器到达的已知稳定终结点。 这是将为应用程序的用户提供的 URL。 建议采用以下配置：
 
 |  |  | **说明** |
@@ -316,7 +322,7 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
  new WebListenerCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
  {
      url += "/MyUniqueServicePath";
- 
+
      return new WebHostBuilder()
          .UseWebListener()
          ...

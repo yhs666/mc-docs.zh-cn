@@ -3,23 +3,24 @@ title: "使用多实例任务运行 MPI 应用程序 - Azure Batch | Microsoft D
 description: "了解如何在 Azure Batch 中使用多实例任务类型执行消息传递接口 (MPI) 应用程序。"
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: big-compute
-ms.date: 02/27/2017
+origin.date: 05/22/2017
+ms.date: 07/03/2017
+ms.workload: 5/22/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9490d60ab07e93418de4bdb4fc84433c937f8674
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: cb144e829fde99a5a9e7f9b132626afcd0c94f1e
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>在 Batch 中使用多实例任务来运行消息传递接口 (MPI) 应用程序
 
@@ -49,13 +50,15 @@ ms.lasthandoff: 06/21/2017
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>多实例任务的要求
-多实例任务需要有**已启用节点间通信**和**已禁用并发任务执行**的池。 如果尝试在已禁用节点间通信，或 *maxTasksPerNode* 值大于 1 的池中运行多实例任务，则永远不排定任务 -- 它无限期停留在“活动”状态。 本代码段显示如何使用 Batch .NET 库创建这种池。
+多实例任务需要有**已启用节点间通信**和**已禁用并发任务执行**的池。 若要禁用并发任务执行，请将 [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) 属性设置为 1。
+
+此代码片段演示如何使用 Batch.NET 库为多实例任务创建池。
 
 ```csharp
 CloudPool myCloudPool =
     myBatchClient.PoolOperations.CreatePool(
         poolId: "MultiInstanceSamplePool",
-        targetDedicated: 3
+        targetDedicatedComputeNodes: 3
         virtualMachineSize: "small",
         cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
@@ -65,7 +68,12 @@ myCloudPool.InterComputeNodeCommunicationEnabled = true;
 myCloudPool.MaxTasksPerComputeNode = 1;
 ```
 
-此外，多实例任务*只能*在 **2015 年 12 月 14 日之后创建的池**中的节点上执行。
+> [!NOTE]
+> 如果尝试在已禁用节点间通信，或 *maxTasksPerNode* 值大于 1 的池中运行多实例任务，则永远不排定任务 -- 它无限期停留在“活动”状态。 
+>
+> 多实例任务只能在 2015 年 12 月 14 日之后创建的池中的节点上执行。
+>
+>
 
 ### <a name="use-a-starttask-to-install-mpi"></a>使用 StartTask 安装 MPI
 若要通过多实例任务运行 MPI 应用程序，首先需在池中的计算节点上安装 MPI 实现（例如 MS-MPI 或 Intel MPI）。 这是使用 [StartTask][net_starttask] 的好时机，每当节点加入池或重新启动时，它就会执行。 此代码片段创建一个 StartTask，将 MS-MPI 安装程序包指定为 [资源文件][net_resourcefile]。 资源文件下载到节点之后，将执行启动任务的命令行。 在本示例中，命令行执行 MS-MPI 的无人参与安装。
@@ -77,7 +85,7 @@ StartTask startTask = new StartTask
 {
     CommandLine = "cmd /c MSMpiSetup.exe -unattend -force",
     ResourceFiles = new List<ResourceFile> { new ResourceFile("https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/MSMpiSetup.exe", "MSMpiSetup.exe") },
-    RunElevated = true,
+    UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin)),
     WaitForSuccess = true
 };
 myCloudPool.StartTask = startTask;
@@ -88,7 +96,6 @@ await myCloudPool.CommitAsync();
 ```
 
 ### <a name="remote-direct-memory-access-rdma"></a>远程直接内存访问 (RDMA)
-
 在以下文章中查找指定为“支持 RDMA”的大小：
 
 - **CloudServiceConfiguration** 池
@@ -96,11 +103,11 @@ await myCloudPool.CommitAsync();
   - [云服务的大小](../cloud-services/cloud-services-sizes-specs.md)（仅 Windows）
 - **VirtualMachineConfiguration** 池
 
-  - [Azure 中虚拟机的大小](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
-  - [Azure 中虚拟机的大小](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
+  - [Azure 中虚拟机的大小](../virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
+  - [Azure 中虚拟机的大小](../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> 若要充分利用 [Linux 计算节点](./batch-linux-nodes.md)上的 RDMA，必须使用节点上的 **Intel MPI**。 有关 CloudServiceConfiguration 和 VirtualMachineConfiguration 池的详细信息，请参阅[批处理功能概述](./batch-api-basics.md)的“池”部分。
+> 若要充分利用 [Linux 计算节点](batch-linux-nodes.md)上的 RDMA，必须使用节点上的 **Intel MPI**。 有关 CloudServiceConfiguration 和 VirtualMachineConfiguration 池的详细信息，请参阅[批处理功能概述](batch-api-basics.md)的“池”部分。
 >
 >
 
@@ -235,7 +242,7 @@ await subtasks.ForEachAsync(async (subtask) =>
     Console.WriteLine("subtask: {0}", subtask.Id);
     Console.WriteLine("exit code: {0}", subtask.ExitCode);
 
-    if (subtask.State == TaskState.Completed)
+    if (subtask.State == SubtaskState.Completed)
     {
         ComputeNode node =
             await batchClient.PoolOperations.GetComputeNodeAsync(subtask.ComputeNodeInformation.PoolId,
@@ -264,7 +271,7 @@ GitHub 上的 [MultiInstanceTasks][github_mpi] 代码示例演示了如何通过
 1. 执行 [How to compile and run a simple MS-MPI program][msmpi_howto]（如何编译和运行简单的 MS-MPI 程序）中的头两个步骤。 这样即可满足下一步的先决条件。
 2. 生成 *MPIHelloWorld* 示例 MPI 程序的 [发行][helloworld_proj] 版。 该程序是将在计算节点上通过多实例任务运行的程序。
 3. 创建包含 `MPIHelloWorld.exe`（在步骤 2 构建）和 `MSMpiSetup.exe`（在步骤 1 下载）的 zip 文件。 需在下一步将此 zip 文件作为应用程序包上传。
-4. 通过 [Azure 门户][portal]创建名为“MPIHelloWorld”的 Batch [应用程序](./batch-application-packages.md)，并将在上一步创建的 zip 文件指定为“1.0”版应用程序包。 有关详细信息，请参阅[上传和管理应用程序](./batch-application-packages.md#upload-and-manage-applications)。
+4. 通过 [Azure 门户][portal]创建名为“MPIHelloWorld”的 Batch [应用程序](batch-application-packages.md)，并将在上一步创建的 zip 文件指定为“1.0”版应用程序包。 有关详细信息，请参阅[上传和管理应用程序](batch-application-packages.md#upload-and-manage-applications)。
 
 > [!TIP]
 > 生成*发行*版 `MPIHelloWorld.exe`，这样就不需在应用程序包中包括任何其他依赖项（例如 `msvcp140d.dll` 或 `vcruntime140d.dll`）。
@@ -322,7 +329,7 @@ Sample complete, hit ENTER to exit...
 
 ## <a name="next-steps"></a>后续步骤
 - Microsoft HPC 和 Azure Batch 团队博客讨论 [Azure Batch 上针对 Linux 的 MPI 支持][blog_mpi_linux]，并介绍如何将 [OpenFOAM][openfoam] 与 Batch 配合使用。 可以查找适用于 [GitHub 上的 OpenFOAM 示例][github_mpi]的 Python 代码示例。
-- 了解如何[创建 Linux 计算节点池](./batch-linux-nodes.md)，以便将其用在 Azure Batch MPI 解决方案中。
+- 了解如何[创建 Linux 计算节点池](batch-linux-nodes.md)，以便将其用在 Azure Batch MPI 解决方案中。
 
 [helloworld_proj]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks/MPIHelloWorld
 
@@ -367,3 +374,4 @@ Sample complete, hit ENTER to exit...
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "多实例概述"
+

@@ -1,10 +1,10 @@
 ---
-title: "使用 Azure 媒体分析 OCR 将文本数字化 | Microsoft 文档"
+title: "使用 Azure 媒体分析 OCR 将文本数字化 | Azure"
 description: "Azure 媒体分析 OCR（光学字符识别）可让你将视频文件中的文本内容转换成可编辑、可搜索的数字文本。  这可让你从媒体的视频信号中自动提取有意义的元数据。"
 services: media-services
 documentationcenter: 
-author: juliako
-manager: erikre
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6
 ms.service: media-services
@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+origin.date: 03/02/2017
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 97d7701c1043f3151f07e15475a74bf4da605979
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: c256a7c78d2f18350a3dedfa45de4eb3f6764685
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>使用 Azure 媒体分析将视频文件中的文本内容转换为数字文本
 ## <a name="overview"></a>概述
@@ -43,10 +44,11 @@ ms.lasthandoff: 06/21/2017
 ### <a name="attribute-descriptions"></a>属性说明
 | 属性名称 | 说明 |
 | --- | --- |
+|AdvancedOutput| 如果将 AdvancedOutput 设置为 true，则 JSON 输出将包含每个单词的位置数据（除了短语和区域以外）。 如果不想查看这些详细信息，请将标志设置为 false。 默认值为 false。 有关详细信息，请参阅[此博客](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/)。|
 | 语言 |（可选）描述要查找的文本的语言。 下列其中一项：AutoDetect（默认值）、Arabic、ChineseSimplified、ChineseTraditional、Czech Danish、Dutch、English、Finnish、French、German、Greek、Hungarian、Italian、Japanese、Korean、Norwegian、Polish、Portuguese、Romanian、Russian、SerbianCyrillic、SerbianLatin、Slovak、Spanish、Swedish、Turkish。 |
 | TextOrientation |（可选）描述要查找的文本的方向。  “Left”表示所有字母顶部朝向左侧。  默认文本（例如书籍中出现的文本）的方向为“Up”。  下列其中一项：AutoDetect（默认值）、Up、Right、Down、Left。 |
 | TimeInterval |（可选）描述采样率。  默认值为每 1/2 秒。<br/>JSON 格式 - HH:mm:ss.SSS（默认值 00:00:00.500）<br/>XML 格式 - W3C XSD 持续时间基元（默认值 PT0.5） |
-| DetectRegions |（可选）指定要在其中检测文本的视频帧中的区域的 DetectRegion 对象数组。<br/>DetectRegion 对象由以下四个整数值组成：<br/>Left – 左边距中的像素<br/>Top – 上边距中的像素<br/>Width – 以像素为单位的区域宽度<br/>Height – 以像素为单位的区域高度 |
+| DetectRegions |（可选）指定要在其中检测文本的视频帧中的区域的 DetectRegion 对象数组。<br/>DetectRegion 对象由以下四个整数值组成：<br/>Left - 左边距中的像素<br/>Top - 上边距中的像素<br/>Width - 以像素为单位的区域宽度<br/>Height - 以像素为单位的区域高度 |
 
 #### <a name="json-preset-example"></a>JSON 预设示例
 
@@ -54,6 +56,7 @@ ms.lasthandoff: 06/21/2017
         "Version":1.0, 
         "Options": 
         {
+            "AdvancedOutput":"true",
             "Language":"English", 
             "TimeInterval":"00:00:01.5",
             "TextOrientation":"Up",
@@ -68,11 +71,11 @@ ms.lasthandoff: 06/21/2017
         }
     }
 
-
 #### <a name="xml-preset-example"></a>XML 预设示例
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
+         <AdvancedOutput>true</AdvancedOutput>
          <Language>English</Language>
          <TimeInterval>PT1.5S</TimeInterval>
          <DetectRegions>

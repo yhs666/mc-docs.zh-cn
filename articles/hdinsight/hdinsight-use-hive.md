@@ -1,5 +1,5 @@
 ---
-title: "什么是 Apache Hive 和 HiveQL- Azure HDInsight | Azure"
+title: "什么是 Apache Hive 和 HiveQL？ - Azure HDInsight | Azure"
 description: "Apache Hive 是适用于 Hadoop 的数据仓库系统。 可以使用 HiveQL（类似于 Transact-SQL）查询 Hive 中存储的数据。 本文档介绍了如何在 Azure HDInsight 中使用 Hive 和 HiveQL。"
 keywords: "hiveql,什么是 hive,hadoop hiveql,如何使用 hive,了解 hive,hive 是什么"
 services: hdinsight
@@ -10,7 +10,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2c10f989-7636-41bf-b7f7-c4b67ec0814f
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,13 +18,13 @@ ms.workload: big-data
 origin.date: 05/12/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: def593b047c12eb940efab282d8e2523c3d5eae4
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: aedeffbdb8d79ae20f5ca5a982364a2fbf1e1d56
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>什么是 Azure HDInsight 中的 Apache Hive 和 HiveQL
+# <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>什么是 Azure HDInsight 中的 Apache Hive 和 HiveQL？
 
 [Apache Hive](http://hive.apache.org/) 是适用于 Hadoop 的数据仓库系统。 使用 Hive 可以汇总、查询和分析数据。 Hive 查询使用 HiveQL 编写，它是类似于 SQL 的查询语言。
 
@@ -53,7 +53,7 @@ HDInsight 提供了已针对特定工作负荷进行了优化的多种群集类�
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux 或 Windows* |Windows |
 
 > [!IMPORTANT]
-> \* Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 3.3 弃用](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> \* Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 >
 > 如果使用基于 Windows 的 HDInsight 群集，可以通过浏览器或[远程桌面](hdinsight-hadoop-use-hive-remote-desktop.md)使用[查询控制台](hdinsight-hadoop-use-hive-query-console.md)来运行 Hive 查询。
 
@@ -226,7 +226,7 @@ HDInsight 在交互式 Hive 群集类型中提供 LLAP。 有关详细信息，�
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: /hdinsight/hdinsight-connect-excel-power-query
+[import-to-excel]: /hdinsight/hdinsight-connect-excel-power-query/
 [hivetask]: http://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
 [connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
 [ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx

@@ -1,10 +1,10 @@
 ---
-title: "使用 Azure Media Encoder Standard 自动生成比特率阶梯 | Microsoft 文档"
+title: "使用 Azure Media Encoder Standard 自动生成比特率阶梯 | Azure"
 description: "本主题介绍如何使用 Media Encoder Standard (MES) 根据输入分辨率和比特率自动生成比特率阶梯。 不会超过输入分辨率和比特率。 例如，如果输入在 3Mbps 时为 720p，则输出最多会保持 720p，并且会以低于 3Mbps 的速率开始。"
 services: media-services
 documentationcenter: 
-author: juliako
-manager: erikre
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: 63ed95da-1b82-44b0-b8ff-eebd535bc5c7
 ms.service: media-services
@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+origin.date: 06/06/2017
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 0937b5ed3ad62f6910434042e8cc1283b667a8da
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 5bfa06429afac45e48cedea5b72f38a0484a82d0
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>使用 Azure Media Encoder Standard 自动生成比特率阶梯
 
@@ -27,6 +28,9 @@ ms.lasthandoff: 06/21/2017
 本主题介绍如何使用 Media Encoder Standard (MES) 根据输入分辨率和比特率自动生成比特率阶梯（比特率-分辨率对）。 自动生成的预设不会超过输入分辨率和比特率。 例如，如果输入在 3Mbps 时为 720p，则输出最多会保持 720p，并且会以低于 3Mbps 的速率开始。
 
 若要使用此功能，需在创建编码任务时指定“自适应流式处理”预设。 使用“自适应流式处理”预设时，MES 编码器会以智能方式为比特率阶梯设置一个上限。 但是，用户无法控制编码成本，因为是由服务确定要使用的层数和分辨率。 可以在本主题[末尾](#output)看到 MES 生成的输出层的示例，是使用“自适应流式处理”预设进行编码得来的。
+
+>[!NOTE]
+> 仅当要生成可流式处理的输出资产时，才使用此预设。 具体而言，该输出资产将包含无音频和视频交错的 MP4 文件。 如果需要输出包含音频和视频交错的 MP4 文件（例如，作为渐进式下载文件使用），请使用[此部分中](media-services-mes-presets-overview.md)列出的一个预设。
 
 ## <a id="encoding_with_dotnet"></a>使用媒体服务 .NET SDK 进行编码
 
@@ -203,4 +207,3 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="see-also"></a>另请参阅
 [媒体服务编码概述](media-services-encode-asset.md)
-

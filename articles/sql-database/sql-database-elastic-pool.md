@@ -1,26 +1,27 @@
 ---
-title: "什么是弹性池？ 管理多个 SQL 数据库 - Azure | Microsoft 文档"
+title: "什么是弹性池？ 管理多个 SQL 数据库 - Azure | Azure"
 description: "使用弹性池管理和缩放多个 SQL 数据库（成千上万的）。 可以按一个价格将资源分布到你需要的任何位置。"
 keywords: "多个数据库, 数据库资源, 数据库性能"
 services: sql-database
 documentationcenter: 
-author: ddove
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: DBs & servers
 ms.devlang: NA
-ms.date: 05/15/2017
+origin.date: 05/31/2017
+ms.date: 07/10/2017
 ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 34d0e53d667d2e5d87de66158a2ae00b7247d7b4
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 0df906beafacef1288a1ee066e76f01341632ab3
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-sql-databases"></a>弹性池有助于管理和缩放多个 SQL 数据库
 
@@ -48,7 +49,7 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 
 可以使用 [Azure 门户](sql-database-elastic-pool-manage-portal.md)、[PowerShell](sql-database-elastic-pool-manage-powershell.md)、[Transact-SQL](sql-database-elastic-pool-manage-tsql.md)、[C#](sql-database-elastic-pool-manage-csharp.md) 和 REST API 创建和管理弹性池。 
 
-##<a name="elastic-database-pool-pricing-tier-recommendations"></a> 何时应考虑使用池
+## <a name="when-to-consider-a-pool"></a>何时应考虑使用池
 池很适合具有特定使用模式的大量数据库。 对于给定的数据库，此模式的特征是低平均使用量与相对不频繁的使用高峰。
 
 可以加入池的数据库越多，就可以节省更多的成本。 具体取决于应用程序使用模式，你可能会看到与使用两个 S3 数据库相同的成本节约。  
@@ -81,7 +82,6 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 池的价格取决于池的 eDTU。 尽管池的 eDTU 单位价格比单一数据库的 DTU 单位价格多 1.5 倍，但 **池 eDTU 可由多个数据库共享，因而所需的 eDTU 总数更少**。 定价方面和 eDTU 共享的这些差异是池可以提供成本节省可能性的基础。  
 
 以下数据库计数和数据库使用率相关规则的经验法则可帮助确保池提供相比于使用单一数据库的性能级别降低的成本。
-
 
 ### <a name="minimum-number-of-databases"></a>数据库的最小数目
 如果单一数据库性能级别的 DTU 总和比池所需的 eDTU 多 1.5 倍，则弹性池更具成本效益。 有关可用的大小，请参阅[弹性池和弹性数据库的 eDTU 和存储限制](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools)。
@@ -124,7 +124,7 @@ SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源
 4. 请参阅 [SQL 数据库定价页面](https://www.azure.cn/pricing/details/sql-database/)，查找大于步骤 3 中估计值的最小 eDTU 池大小。
 5. 将步骤 5 的池价格与单一数据库适当性能级别的价格相比较。
 
-##<a name="edtu-and-storage-limits-for-elastic-pools-and-elastic-databases"></a><a name="eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases"></a><a name="edtu-and-storage-limits-for-elastic-pools"></a> 弹性池的 eDTU 和存储限制
+## <a name="edtu-and-storage-limits-for-elastic-pools"></a>弹性池的 eDTU 和存储限制
 
 下表描述了弹性池的资源限制。  请注意，弹性池中单个数据库的资源限制通常与池外部基于 DTU 和服务层的单个数据库相同。  例如，S2 数据库的最大并发辅助进程数为 120 个。  因此，如果池中每个数据库的最大 DTU 是 50 个 DTU（这等效于 S2），则标准池中数据库的最大并发辅助进程数也是 120 个辅助进程。
 
@@ -132,7 +132,7 @@ SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源
 
 如果使用了弹性池的所有 DTU，那么池中的每个数据库将接收相同数量的资源来处理查询。  SQL 数据库服务通过确保相等的计算时间片段，在数据库之间提供资源共享的公平性。 弹性池资源共享公平性是在将每个数据库的 DTU 最小值设为非零值时，对另外为每个数据库保证的任意资源量的补充。
 
-##<a name="elastic-pool-and-elastic-database-properties"></a><a name="database-properties-for-pooled-databases"><a> 入池数据库的数据库属性
+## <a name="database-properties-for-pooled-databases"></a>入池数据库的数据库属性
 
 下表介绍了入池数据库的属性。
 

@@ -5,8 +5,7 @@
 * [Mark Russinovich 谈论 Azure 规模集](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
 * [Guy Bowerman 介绍虚拟机规模集](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-## 创建和管理 VM 规模集
-<a id="creating-and-managing-vm-scale-sets" class="xliff"></a>
+## <a name="creating-and-managing-vm-scale-sets"></a>创建和管理 VM 规模集
 可以使用 JSON 模板和 [REST API](https://msdn.microsoft.com/library/mt589023.aspx) 定义和部署 VM 规模集，就像定义和部署单个 Azure Resource Manager VM 一样。 因此，可以使用任何标准的 Azure Resource Manager 部署方法。 有关模板的详细信息，请参阅[创作 Azure Resource Manager 模板](../articles/resource-group-authoring-templates.md)。
 
 可在此处的 Azure 快速入门模板 GitHub 存储库中找到一组 VM 规模集示例模板。
@@ -17,23 +16,20 @@
 
 [VM 规模集模板详细分析](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player)
 
-## 扩大和缩小 VM 规模集
-<a id="scaling-a-vm-scale-set-out-and-in" class="xliff"></a>
+## <a name="scaling-a-vm-scale-set-out-and-in"></a>扩大和缩小 VM 规模集
 若要增加或减少 VM 规模集中的虚拟机数目，只需更改 *capacity* 属性并重新部署模板。 这种简单性可让你在想要定义 Azure 自动缩放不支持的自定义缩放事件时轻松编写自己的自定义缩放层。
 
 如果要重新部署模板以更改容量，则可以定义只包括 SKU 和已更新容量的更小模板。 下面是一个相关示例：[https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json)。
 
 若要浏览创建自动缩放的规模集的步骤，请参阅[自动缩放虚拟机规模集中的虚拟机](../articles/virtual-machines/windows/vmss-powershell-creating.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## 监视 VM 规模集
-<a id="monitoring-your-vm-scale-set" class="xliff"></a>
+## <a name="monitoring-your-vm-scale-set"></a>监视 VM 规模集
 目前建议使用 [Azure 资源浏览器](https://resources.azure.com)来查看 VM 规模集。 VM 规模集是 Microsoft.Compute 下的资源，因此，你可以通过在此站点中展开以下链接来查看它们：
 
     subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
 
-## VM 规模集方案
-<a id="vm-scale-set-scenarios" class="xliff"></a>
-本部分列出了一些典型的 VM 规模集方案。 一些高级 Azure 服务（如 Batch、Service Fabric、Azure 容器服务）将使用这些方案。
+## <a name="vm-scale-set-scenarios"></a>VM 规模集方案
+本部分列出了一些典型的 VM 规模集方案。 一些高级 Azure 服务（如 Batch、Service Fabric）使用这些方案。
 
 * **通过 RDP/SSH 连接到 VM 规模集实例** - VM 规模集是在 VNET 中创建的，并且没有为其中单独的 VM 分配公共 IP 地址。 这是一件好事，因为你通常不希望承担为计算网格中的所有无状态资源分配单独的 IP 地址而产生支出和管理开销，并且你可以轻松地从 VNET 中的其他资源（包括负载均衡器或独立虚拟机等具有公共 IP 地址的资源）连接到这些 VM。
 * **使用 NAT 规则连接到 VM** - 可以创建一个公共 IP 地址，并将其分配给负载均衡器，然后定义入站 NAT 规则，用于将 IP 地址上的端口映射到 VM 规模集中的 VM 上的端口。 例如
@@ -53,10 +49,9 @@
 
    PaaS v1 辅助角色虽然在平台/运行时支持方面受到限制（仅 Windows 平台映像），但它也包括多项服务，如 VIP 交换，可配置升级设置，以及*尚未*在 VM 规模集中提供，或者将由 Service Fabric 等其他更高级别 PaaS 服务提供的特定于运行时/应用部署的设置。 考虑到这一点，你可以将 VM 规模集视为支持 PaaS 的基础结构。 即， 生成 Service Fabric 等 PaaS 解决方案或 Mesos 等群集管理器时，可以在将 VM 规模集作为可缩放计算层的基础上进行生成。
 
-   以下示例演示 Mesos 群集，它在同一 VNET 中将 VM 规模集部署为一个独立 VM。 独立 VM 是一个 Mesos 主机，而 VM 规模集则表示一组从属节点：[https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)。 [Azure 容器服务](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/)的将来版本将基于 VM 规模集部署此方案的更复杂/更强化版本。
+   以下示例演示 Mesos 群集，它在同一 VNET 中将 VM 规模集部署为一个独立 VM。 独立 VM 是一个 Mesos 主机，而 VM 规模集则表示一组从属节点：[https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)。
 
-## VM 规模集性能和缩放指南
-<a id="vm-scale-set-performance-and-scale-guidance" class="xliff"></a>
+## <a name="vm-scale-set-performance-and-scale-guidance"></a>VM 规模集性能和缩放指南
 * 在公共预览期间，不要一次在多个 VM 规模集中创建超过 500 个 VM。
 * 为每个存储帐户规划不超过 40 个 VM。
 * 使存储帐户名称的第一个字母尽可能的彼此不同。  [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/) 中的示例 VMSS 模板提供了如何执行此操作的示例。
@@ -64,8 +59,7 @@
 * 为每个 VNET 规划不超过 2048 个 VM。  将来会增加此限制。
 * 可创建的 VM 数目受到任何区域中计算核心配额的限制。 即使你对用于云服务或 IaaS v1 的核心已具有较高的限制，也仍可能需要联系客户支持才可增加计算配额限制。 若要查询配额，可运行 Azure CLI 命令 *azure vm list-usage* 和 PowerShell 命令 *Get-AzureRmVMUsage*（如果使用的 PowerShell 版本低于 1.0，则使用 *Get-AzureVMUsage*）。
 
-## VM 规模集常见问题
-<a id="vm-scale-set-frequently-asked-questions" class="xliff"></a>
+## <a name="vm-scale-set-frequently-asked-questions"></a>VM 规模集常见问题
 **Q.** VM 规模集中可以有多少个 VM？
 
 **A.** 如果使用可分布在多个存储帐户中的平台映像，则可以有 100 台。 如果使用自定义映像，则最多可以有 40 台，因为在预览期间，自定义映像限于单个存储帐户。

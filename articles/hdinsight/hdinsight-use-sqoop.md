@@ -14,18 +14,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2017
-ms.date: 06/05/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
-ms.openlocfilehash: e074834b0a13ab547f0e10402060b825afecb278
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: b2ef755d0fe66ab284b9e8fe9b1ee367a957ac3a
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 将 Sqoop 与 HDInsight 中的 Hadoop 配合使用
-<a id="use-sqoop-with-hadoop-in-hdinsight" class="xliff"></a>
+# <a name="use-sqoop-with-hadoop-in-hdinsight"></a>将 Sqoop 与 HDInsight 中的 Hadoop 配合使用
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -36,10 +35,9 @@ ms.lasthandoff: 06/23/2017
 
 [Sqoop][sqoop-user-guide-1.4.4] 是一种专用于在 Hadoop 群集和关系数据库之间传输数据的工具。 可以使用此工具将数据从关系数据库管理系统 (RDBMS)（如 SQL Server、MySQL 或 Oracle）导入到 Hadoop 分布式文件系统 (HDFS)，在 Hadoop 中使用 MapReduce 或 Hive 转换数据，然后将数据导回 RDBMS。 在本教程中，SQL Server 数据库将用于关系数据库。
 
-有关 HDInsight 群集上支持的 Sqoop 版本，请参阅 [HDInsight 提供的群集版本有哪些新增功能？][hdinsight-versions]。
+有关 HDInsight 群集上支持的 Sqoop 版本，请参阅 [HDInsight 提供的群集版本有哪些新增功能？][hdinsight-versions]
 
-## 了解方案
-<a id="understand-the-scenario" class="xliff"></a>
+## <a name="understand-the-scenario"></a>了解方案
 
 HDInsight 群集附带了某些示例数据。 可使用以下两个示例：
 
@@ -65,13 +63,12 @@ HDInsight 群集附带了某些示例数据。 可使用以下两个示例：
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
 
-需要首先将 *sample.log* 和 *hivesampletable* 导出到 Azure SQL 数据库或 SQL Server，然后使用以下路径将包含移动设备数据的表导回到 HDInsight：
+首先，需要将 *sample.log* 和 *hivesampletable* 导出到 Azure SQL 数据库或 SQL Server，然后使用以下路径将包含移动设备数据的表导回到 HDInsight：
 
     /tutorials/usesqoop/importeddata
 
-## 创建群集和 SQL 数据库
-<a id="create-cluster-and-sql-database" class="xliff"></a>
-本部分演示如何使用 Azure 门户和 Azure Resource Manager 模板创建群集、SQL 数据库和 SQL 数据库架构，以便运行教程。 可以在 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database/)中找到模板。 Resource Manager 模板调用 bacpac 包，将表架构部署到 SQL 数据库。 Bacpac 包位于公共 blob 容器 https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac 中。 如果想要私有容器用于 bacpac 文件，请使用模板中的以下值：
+## <a name="create-cluster-and-sql-database"></a>创建群集和 SQL 数据库
+本部分演示如何使用 Azure 门户和 Azure Resource Manager 模板创建群集、SQL 数据库和 SQL 数据库架构，以便运行教程。 可以在 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database/)中找到模板。 Resource Manager 模板调用 bacpac 包，将表架构部署到 SQL 数据库。  Bacpac 包位于公共 blob 容器 https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac 中。 如果想要私有容器用于 bacpac 文件，请使用模板中的以下值：
 
         "storageKeyType": "Primary",
         "storageKey": "<TheAzureStorageAccountKey>",
@@ -111,7 +108,7 @@ HDInsight 群集附带了某些示例数据。 可使用以下两个示例：
 
 4.在“自定义部署”边栏选项卡中，单击“资源组”下拉框，然后单击“新建”以创建新资源组。 资源组是对群集、依赖存储帐户和其他链接资源进行分组的容器。
 
-5.单击“法律条款”，然后单击“创建”。
+5.单击“法律条款”，然后单击“购买”。
 
 6. 单击“创建”。 此时会出现一个标题为“为模板部署提交部署”的新磁贴。 创建群集和 SQL 数据库大约需要 20 分钟时间。
 
@@ -146,8 +143,7 @@ HDInsight 群集附带了某些示例数据。 可使用以下两个示例：
     > 
     > 
 
-## 运行 Sqoop 作业
-<a id="run-sqoop-jobs" class="xliff"></a>
+## <a name="run-sqoop-jobs"></a>运行 Sqoop 作业
 HDInsight 可以使用各种方法运行 Sqoop 作业。 使用下表来确定哪种方法最适合你，然后访问此链接进行演练。
 
 | **使用此方法** ，如果想要... | ... **交互式** shell | ...**批处理** | ...使用此 **群集操作系统** | ...从此 **客户端操作系统** |
@@ -156,13 +152,11 @@ HDInsight 可以使用各种方法运行 Sqoop 作业。 使用下表来确定�
 | [.NET SDK for Hadoop](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |✔ |Linux 或 Windows |Windows（暂时） |
 | [Azure PowerShell](hdinsight-hadoop-use-sqoop-powershell.md) |&nbsp; |✔ |Linux 或 Windows |Windows |
 
-## 限制
-<a id="limitations" class="xliff"></a>
+## <a name="limitations"></a>限制
 * 批量导出 - 在基于 Linux 的 HDInsight 上，用于将数据导出到 Microsoft SQL Server 或 Azure SQL 数据库的 Sqoop 连接器目前不支持批量插入。
 * 批处理 - 在基于 Linux 的 HDInsight 上，如果在执行插入时使用 `-batch` 开关，Sqoop 将执行多次插入而不是批处理插入操作。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 现在你已了解如何使用 Sqoop。 若要了解更多信息，请参阅以下文章：
 
 * [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
@@ -171,8 +165,7 @@ HDInsight 可以使用各种方法运行 Sqoop 作业。 使用下表来确定�
 * [使用 HDInsight 分析航班延误数据][hdinsight-analyze-flight-data]：使用 Hive 分析航班延误数据，然后使用 Sqoop 将数据导出到 Azure SQL 数据库。
 * [将数据上传到 HDInsight][hdinsight-upload-data]：了解将数据上传到 HDInsight/Azure Blob 存储的其他方法。
 
-## 附录 A - PowerShell 示例
-<a id="appendix-a---a-powershell-sample" class="xliff"></a>
+## <a name="appendix-a---a-powershell-sample"></a>附录 A - PowerShell 示例
 PowerShell 示例将执行以下步骤：
 
 1. 连接到 Azure。
@@ -234,8 +227,7 @@ PowerShell 示例将执行以下步骤：
 
     若要检查修改后的数据文件，可以使用 Azure 门户、Azure 存储资源管理器工具或 Azure PowerShell。  [HDInsight 入门][hdinsight-get-started] 中有一个关于使用 Azure PowerShell 下载文件并显示文件内容的代码示例。
 
-### PowerShell 示例
-<a id="the-powershell-sample" class="xliff"></a>
+### <a name="the-powershell-sample"></a>PowerShell 示例
     # Prepare an Azure SQL database to be used by the Sqoop tutorial
 
     #region - provide the following values
@@ -641,6 +633,6 @@ PowerShell 示例将执行以下步骤：
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[powershell-script]: https://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
+[powershell-script]: http://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

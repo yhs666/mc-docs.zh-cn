@@ -1,43 +1,46 @@
 ---
-title: 安全地连接到 Azure Service Fabric 群集 | Azure
-description: 介绍如何对访问 Service Fabric 群集的客户端进行身份验证，以及如何保护客户端与群集之间的通信。
+title: "安全地连接到 Azure Service Fabric 群集 | Azure"
+description: "介绍如何对访问 Service Fabric 群集的客户端进行身份验证，以及如何保护客户端与群集之间的通信。"
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
-editor: ''
-
+author: rockboyfor
+manager: digimobile
+editor: 
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/03/2017
-ms.date: 03/03/2017
-ms.author: v-johch
+origin.date: 06/01/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
+ms.openlocfilehash: ad1361f6665bd5b932c802ec019a9e72817595a4
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
+# <a name="connect-to-a-secure-cluster"></a>连接到安全群集
+当客户端连接到 Service Fabric 群集节点时，可以使用证书安全性或 Azure Active Directory (AAD) 与客户端建立经过身份验证的安全通信。 此身份验证可确保只有经过授权的用户才能访问该群集和部署的应用程序，以及执行管理任务。  创建群集时，必须事先在该群集上启用证书或 AAD 安全性。  有关群集安全方案的详细信息，请参阅[群集安全性](service-fabric-cluster-security.md)。 如果要连接到使用证书保护的群集，请在连接到群集的计算机上[设置客户端证书](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert)。 
 
-# 连接到安全群集
-当客户端连接到 Service Fabric 群集节点时，可以使用证书安全性或 Azure Active Directory (AAD) 来与客户端建立经过身份验证的安全通信。此身份验证可确保只有经过授权的用户才能访问该群集和部署的应用程序，以及执行管理任务。创建群集时，必须事先在该群集上启用证书或 AAD 安全性。有关群集安全方案的详细信息，请参阅[群集安全性](./service-fabric-cluster-security.md)。如果要连接到使用证书保护的群集，请在连接到群集的计算机上[设置客户端证书](./service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert)。
+<a id="connectsecureclustercli"></a> 
 
-<a id="connectsecureclustercli"></a>
+## <a name="connect-to-a-secure-cluster-using-azure-cli"></a>使用 Azure CLI 连接到安全群集
+以下 Azure CLI 命令说明如何连接到安全群集。 
 
-## 使用 Azure CLI 连接到安全群集
-以下 Azure CLI 命令说明如何连接到安全群集。
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>使用客户端证书连接到安全群集
+证书详细信息必须与群集节点上的证书匹配。 
 
-### 使用客户端证书连接到安全群集
-证书详细信息必须与群集节点上的证书匹配。
-
-如果证书具有证书颁发机构 (CA)，需要按以下示例所示添加参数 `--ca-cert-path`：
+如果证书具有证书颁发机构 (CA)，则需要添加 `--ca-cert-path` 参数，如下例所示： 
 
 ```
- azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
 ```
 
-如果有多个 CA，请使用逗号作为分隔符。
+如果有多个 CA，请使用逗号作为分隔符。 
 
-如果证书中的“公用名”与连接终结点不匹配，可以使用 `--strict-ssl-false` 参数绕过验证。
+如果证书中的“公用名”与连接终结点不匹配，可以使用 `--strict-ssl-false` 参数绕过验证。 
 
 ```
 azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
@@ -55,14 +58,14 @@ azure servicefabric cluster connect --connection-endpoint https://ip:19080 --cli
 azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
 ```
 
-连接后，应该能够[运行其他 CLI 命令](./service-fabric-azure-cli.md)来与群集交互。
+在连接后，应能够[运行其他 CLI 命令](service-fabric-azure-cli.md)与群集进行交互。 
 
 <a id="connectsecurecluster"></a>
 
-## 使用 PowerShell 连接到群集
-在通过 PowerShell 对群集执行操作之前，请首先建立与群集的连接。群集连接用于给定 PowerShell 会话中的所有后续命令。
+## <a name="connect-to-a-cluster-using-powershell"></a>使用 PowerShell 连接到群集
+在通过 PowerShell 对群集执行操作之前，请首先建立与群集的连接。 群集连接用于给定 PowerShell 会话中的所有后续命令。
 
-### 连接到不安全的群集
+### <a name="connect-to-an-unsecure-cluster"></a>连接到不安全的群集
 
 若要连接到不安全群集，请向 **Connect-ServiceFabricCluster** 命令提供群集终结点地址：
 
@@ -70,9 +73,9 @@ azure servicefabric cluster connect --connection-endpoint https://ip:19080 --cli
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 
 ```
 
-### 使用 Azure Active Directory 连接到安全群集
+### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>使用 Azure Active Directory 连接到安全群集
 
-若要连接到使用 Azure Active Directory 授权群集管理员访问权限的安全集群，请提供群集证书指纹，并使用 *AzureActiveDirectory* 标志。
+若要连接到使用 Azure Active Directory 授权群集管理员访问权限的安全集群，请提供群集证书指纹，并使用 *AzureActiveDirectory* 标志。  
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -80,8 +83,8 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 -AzureActiveDirectory
 ```
 
-### 使用客户端证书连接到安全群集
-运行以下 PowerShell 命令以连接到使用客户端证书授权管理员访问权限的安全群集。提供群集证书指纹以及已授予群集管理权限的客户端证书的指纹。证书详细信息必须与群集节点上的证书匹配。
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>使用客户端证书连接到安全群集
+运行以下 PowerShell 命令以连接到使用客户端证书授权管理员访问权限的安全群集。 提供群集证书指纹以及已授予群集管理权限的客户端证书的指纹。 证书详细信息必须与群集节点上的证书匹配。
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -91,17 +94,18 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-*ServerCertThumbprint* 是群集节点上安装的服务器证书的指纹。*FindValue* 是管理客户端证书的指纹。填充参数时，命令如以下示例所示：
+*ServerCertThumbprint* 是群集节点上安装的服务器证书的指纹。 *FindValue* 是管理客户端证书的指纹。
+填充参数时，命令如以下示例所示： 
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint clustername.chinaeast.cloudapp.chinacloudapi.cn:19000 `
+Connect-ServiceFabricCluster -ConnectionEndpoint clustername.chinaeast.chinacloudapp.cn:19000 `
           -KeepAliveIntervalInSec 10 `
           -X509Credential -ServerCertThumbprint A8136758F4AB8962AF2BF3F27921BE1DF67F4326 `
           -FindType FindByThumbprint -FindValue 71DE04467C9ED0544D021098BCD44C71E183414E `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-### 使用 Windows Active Directory 连接到安全群集
+### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>使用 Windows Active Directory 连接到安全群集
 如果独立群集是使用 AD 安全部署的，请通过追加开关“WindowsCredential”连接到群集。
 
 ```powershell
@@ -112,25 +116,25 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 <a id="connectsecureclusterfabricclient"></a>
 
 ##<a name="connect-to-a-cluster-using-the-fabricclient-apis"></a> 使用 FabricClient API 连接到群集
-Service Fabric SDK 为群集管理提供 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 类。若要使用 FabricClient API，请获取 Microsoft.ServiceFabric NuGet 包。
+Service Fabric SDK 为群集管理提供 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 类。 若要使用 FabricClient API，请获取 Microsoft.ServiceFabric NuGet 包。
 
-### 连接到不安全的群集
+### <a name="connect-to-an-unsecure-cluster"></a>连接到不安全的群集
 
 若要连接到远程不安全群集，请创建一个 FabricClient 实例并提供群集地址：
 
 ```csharp
-FabricClient fabricClient = new FabricClient("clustername.chinaeast.cloudapp.chinacloudapi.cn:19000");
+FabricClient fabricClient = new FabricClient("clustername.chinaeast.chinacloudapp.cn:19000");
 ```
 
-对于在群集内运行的代码（例如，在可靠服务中），请创建 FabricClient，无需指定群集地址。FabricClient 连接到代码当前正在运行的节点上的本地管理网关，从而避免额外的网络跃点。
+对于在群集内运行的代码（例如，在可靠服务中），请创建 FabricClient  ，无需指定群集地址。 FabricClient 连接到代码当前正在运行的节点上的本地管理网关，从而避免额外的网络跃点。
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
 ```
 
-### 使用客户端证书连接到安全群集
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>使用客户端证书连接到安全群集
 
-群集中的节点必须具有有效的证书，在 SAN 中，这些证书的公用名或 DNS 名出现在 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 上设置的 [RemoteCommonNames 属性](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames)中。按照此流程操作可在客户端与群集节点之间进行相互身份验证。
+群集中的节点必须具有有效的证书，在 SAN 中，这些证书的公用名或 DNS 名出现在 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 上设置的 [RemoteCommonNames 属性](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames)中。 按照此流程操作可在客户端与群集节点之间进行相互身份验证。
 
 ```csharp
 using System.Fabric;
@@ -138,8 +142,8 @@ using System.Security.Cryptography.X509Certificates;
 
 string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
-string CommonName = "www.clustername.chinaeast.cloudapp.chinacloudapi.cn";
-string connection = "clustername.chinaeast.cloudapp.chinacloudapi.cn:19000";
+string CommonName = "www.clustername.chinaeast.chinacloudapp.cn";
+string connection = "clustername.chinaeast.chinacloudapp.cn:19000";
 
 var xc = GetCredentials(clientCertThumb, serverCertThumb, CommonName);
 var fc = new FabricClient(xc, connection);
@@ -168,7 +172,7 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 }
 ```
 
-### 使用 Azure Active Directory 以交互方式连接到安全群集
+### <a name="connect-to-a-secure-cluster-interactively-using-azure-active-directory"></a>使用 Azure Active Directory 以交互方式连接到安全群集
 
 以下示例使用 Azure Active Directory 作为客户端标识，使用服务器证书作为服务器标识。
 
@@ -176,7 +180,7 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
-string connection = "clustername.chinaeast.cloudapp.chinacloudapi.cn:19000";
+string connection = "clustername.chinaeast.chinacloudapp.cn:19000";
 
 var claimsCredentials = new ClaimsCredentials();
 claimsCredentials.ServerThumbprints.Add(serverCertThumb);
@@ -194,11 +198,11 @@ catch (Exception e)
 }
 ```
 
-### 使用 Azure Active Directory 以非交互方式连接到安全群集
+### <a name="connect-to-a-secure-cluster-non-interactively-using-azure-active-directory"></a>使用 Azure Active Directory 以非交互方式连接到安全群集
 
 以下示例依赖于 Microsoft.IdentityModel.Clients.ActiveDirectory，版本：2.19.208020213。
 
-有关 AAD 令牌获取的详细信息，请参阅 [Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/zh-cn/library/microsoft.identitymodel.clients.activedirectory.aspx)。
+有关 AAD 令牌获取的详细信息，请参阅 [Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx)。
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";
@@ -212,7 +216,7 @@ string token = GetAccessToken(
     "urn:ietf:wg:oauth:2.0:oob");
 
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
-string connection = "clustername.chinaeast.cloudapp.chinacloudapi.cn:19000";
+string connection = "clustername.chinaeast.chinacloudapp.cn:19000";
 var claimsCredentials = new ClaimsCredentials();
 claimsCredentials.ServerThumbprints.Add(serverCertThumb);
 claimsCredentials.LocalClaims = token;
@@ -237,25 +241,26 @@ static string GetAccessToken(
     string clientId,
     string redirectUri)
 {
-    string authorityFormat = @"https://login.partner.microsoftonline.cn/{0}";
+    string authorityFormat = @"https://login.chinacloudapi.cn/{0}";
     string authority = string.Format(CultureInfo.InvariantCulture, authorityFormat, tenantId);
         var authContext = new AuthenticationContext(authority);
 
     var authResult = authContext.AcquireToken(
         resource,
         clientId,
-        new UserCredential("TestAdmin@clustenametenant.partner.onmsmicrosoft.cn", "TestPassword"));
-        return authResult.AccessToken;
-    }
+        new UserCredential("TestAdmin@clustenametenant.partner.onmschina.cn", "TestPassword"));
+    return authResult.AccessToken;
+}
+
 ```
 
-### 无需事先了解元数据，即可使用 Azure Active Directory 连接到安全群集
+### <a name="connect-to-a-secure-cluster-without-prior-metadata-knowledge-using-azure-active-directory"></a>无需事先了解元数据，即可使用 Azure Active Directory 连接到安全群集
 
-以下示例使用非交互式令牌获取，但可以使用相同的方法营造自定义交互式令牌获取体验。从群集配置中读取令牌获取所需的 Azure Active Directory 元数据。
+以下示例使用非交互式令牌获取，但可以使用相同的方法营造自定义交互式令牌获取体验。 从群集配置中读取令牌获取所需的 Azure Active Directory 元数据。
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
-string connection = "clustername.chinaeast.cloudapp.chinacloudapi.cn:19000";
+string connection = "clustername.chinaeast.chinacloudapp.cn:19000";
 
 var claimsCredentials = new ClaimsCredentials();
 claimsCredentials.ServerThumbprints.Add(serverCertThumb);
@@ -286,39 +291,40 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
     var authResult = authContext.AcquireToken(
         aad.ClusterApplication,
         aad.ClientApplication,
-        new UserCredential("TestAdmin@partner.onmschina.cn", "TestPassword"));
+        new UserCredential("TestAdmin@clustenametenant.partner.onmschina.cn", "TestPassword"));
     return authResult.AccessToken;
 }
+
 ```
 
 <a id="connectsecureclustersfx"></a>
 
-## 使用 Service Fabric Explorer 连接到安全群集
-若要连接到给定群集的 [Service Fabric Explorer](./service-fabric-visualizing-your-cluster.md)，请将浏览器指向：
+## <a name="connect-to-a-secure-cluster-using-service-fabric-explorer"></a>使用 Service Fabric Explorer 连接到安全群集
+若要访问给定群集的 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)，请将浏览器指向：
 
-`http://<your-cluster-endpoint>:19080/Explorer`  
+`http://<your-cluster-endpoint>:19080/Explorer`
 
 Azure 门户的群集基本信息窗格中也提供了完整 URL。
 
-### 使用 Azure Active Directory 连接到安全群集
+### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>使用 Azure Active Directory 连接到安全群集
 
 若要连接到用 AAD 保护的群集，请将浏览器指向：
 
-`https://<your-cluster-endpoint>:19080/Explorer`  
+`https://<your-cluster-endpoint>:19080/Explorer`
 
 系统将自动提示使用 AAD 登录。
 
-### 使用客户端证书连接到安全群集
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>使用客户端证书连接到安全群集
 
 若要连接到使用证书保护的群集，请将浏览器指向：
 
-`https://<your-cluster-endpoint>:19080/Explorer`  
+`https://<your-cluster-endpoint>:19080/Explorer`
 
 系统将自动提示选择客户端证书。
 
 <a id="connectsecureclustersetupclientcert"></a>
-## 在远程计算机上设置客户端证书
-至少应有两个证书用于保护群集，一个用于保护群集和服务器证书，另一个用于保护客户端访问。建议还使用其他辅助证书和客户端访问证书。若要使用证书安全性来保护客户端与群集节点之间的通信，首先需要获取和安装客户端证书。可将证书安装到本地计算机或当前用户的个人（我的）存储中。还需要服务器证书的指纹，以便客户端可以对群集进行身份验证。
+## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>在远程计算机上设置客户端证书
+至少应有两个证书用于保护群集，一个用于保护群集和服务器证书，另一个用于保护客户端访问。  建议还使用其他辅助证书和客户端访问证书。  若要使用证书安全性来保护客户端与群集节点之间的通信，首先需要获取和安装客户端证书。 证书可以安装到本地计算机或当前用户的个人（我的）存储。  还需要服务器证书的指纹，以便客户端可以对群集进行身份验证。
 
 运行以下 PowerShell cmdlet，在访问群集的计算机上设置客户端证书。
 
@@ -336,12 +342,9 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
 ```
 
-## 后续步骤
+## <a name="next-steps"></a>后续步骤
 
-- [Service Fabric 群集升级过程与期望](./service-fabric-cluster-upgrade.md)
-- [在 Visual Studio 中管理 Service Fabric 应用程序](./service-fabric-manage-application-in-visual-studio.md)。
-- [Service Fabric 运行状况模型简介](./service-fabric-health-introduction.md)
-- [应用程序安全性和 RunAs](./service-fabric-application-runas-security.md)
-
-<!---HONumber=Mooncake_0227_2017-->
-<!--Update_Description: update code samples of using Windows Active Directory to connect to a secured cluster-->
+* [Service Fabric 群集升级过程和用户预期](service-fabric-cluster-upgrade.md)
+* [在 Visual Studio 中管理 Service Fabric 应用程序](service-fabric-manage-application-in-visual-studio.md)。
+* [Service Fabric 运行状况模型简介](service-fabric-health-introduction.md)
+* [应用程序安全性和 RunAs](service-fabric-application-runas-security.md)

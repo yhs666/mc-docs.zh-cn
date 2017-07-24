@@ -3,8 +3,8 @@ title: "Azure CLI 脚本示例 - 创建批处理帐户 | Microsoft Docs"
 description: "Azure CLI 脚本示例 - 创建批处理帐户"
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
+author: alexchen2016
+manager: digimobile
 editor: tysonn
 ms.assetid: 
 ms.service: batch
@@ -12,21 +12,22 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+origin.date: 05/02/2017
+ms.date: 07/04/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: e6dfccdfd73aaed384463924977e786164f0a6d2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: d8695e209afc8ce57ba72f43ede999a647e48911
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
-
 # <a name="create-a-batch-account-with-the-azure-cli"></a>使用 Azure CLI 创建批处理帐户
 
-此脚本创建 Azure 批处理帐户，并演示如何查询和更新该帐户的各个属性。
+此脚本创建 Azure Batch 帐户，并演示如何查询和更新该帐户的各个属性。
 
-如果需要，请使用 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中的说明安装 Azure CLI，然后运行 `az login` 登录到 Azure。
+## <a name="prerequisites"></a>先决条件
+
+按照 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中提供的说明安装 Azure CLI（如果尚未这样做）。
 
 ## <a name="batch-account-sample-script"></a>批处理帐户示例脚本
 
@@ -56,7 +57,7 @@ az storage account create -g myresourcegroup -n mystorageaccount -l westeurope -
 az batch account set -g myresourcegroup -n mybatchaccount --storage-account mystorageaccount
 
 # We can view the access keys to the Batch Account for future client authentication.
-az batch account keys list
+az batch account keys list -g myresourcegroup -n mybatchaccount
 
 # Or we can authenticate against the account directly for further CLI interaction.
 az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
@@ -72,6 +73,9 @@ az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
 
 # Authenticate CLI session.
 az login
+
+# Allow Azure Batch to access the subscription (one-time operation).
+az role assignment create --assignee MicrosoftAzureBatch --role contributor
 
 # Create a resource group.
 az group create --name myresourcegroup --location westeurope
@@ -90,7 +94,7 @@ az keyvault create \
 az keyvault set-policy \
     --resource-group myresourcegroup \
     --name mykevault \
-    --object-id f520d84c-3fd3-4cc8-88d4-2ed25b00d27a \
+    --spn ddbf3205-c6bd-46ae-8127-60eb93363864 \
     --key-permissions all \
     --secret-permissions all
 
@@ -137,6 +141,5 @@ az group delete --name myResourceGroup
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 
-可以在 [Azure 批处理 CLI 文档](../batch-cli-samples.md)中找到其他批处理 CLI 脚本示例。
-
+可以在 [Azure Batch CLI 文档](../batch-cli-samples.md)中找到其他批处理 CLI 脚本示例。
 

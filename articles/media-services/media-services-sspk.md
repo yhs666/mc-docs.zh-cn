@@ -3,8 +3,8 @@ title: "授权 Microsoft® 平滑流式处理客户端移植工具包"
 description: "了解如何为 Microsoft® 平滑流式处理客户端移植工具包授权。"
 services: media-services
 documentationcenter: 
-author: xpouyat
-manager: erikre
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services
@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+origin.date: 06/06/2017
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 4ed735052e080e4ce11bb709908aac3f37241436
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: e166fe4fa7a0a5151a1ad05b2760dd6c62e568a1
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>授权 Microsoft® 平滑流式处理客户端移植工具包
 ## <a name="overview"></a>概述
@@ -83,6 +84,7 @@ Microsoft 根据此许可证提供全部所需的知识产权，以便从其他�
 * Albis Technologies Ltd.
 * Alticast Corporation
 * Amazon Digital Services, Inc.
+* Arion Technology, Inc.
 * AVC Multimedia Software Co., Ltd.
 * Cavium, Inc.
 * EchoStar Purchasing Corporation
@@ -114,6 +116,7 @@ Microsoft 根据此许可证提供全部所需的知识产权，以便从其他�
 * Amazon Digital Services, Inc.
 * AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
+* Arion Technology, Inc.
 * ATMACA ELEKTRONİK SAN. VE TİC. A.Ş
 * British Sky Broadcasting Limited
 * CastPal Technology Inc., Shenzhen

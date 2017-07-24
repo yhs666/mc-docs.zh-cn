@@ -1,10 +1,10 @@
 ---
-title: "Azure Service Fabric 模式和方案 | Microsoft Docs"
-description: "了解用于在 Service Fabric 上设计、开发和操作微服务的最佳实践以及经验证的可重用模式。"
+title: "Azure Service Fabric 模式和应用场景 | Azure"
+description: "了解最佳做法和经验证的可重复使用的模式，以便在 Service Fabric 上设计、开发和操作你的微服务。"
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: d5aa75ff-98b9-4573-a2e5-7f5ab288157a
 ms.service: service-fabric
@@ -12,18 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/08/2017
-ms.author: v-johch
-ms.openlocfilehash: eff0e7a2065d628e683e9998b004c59fd9d8f1e2
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 06/16/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
+ms.openlocfilehash: fe77af60f0ce713308c1783a39417425543e8576
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Service Fabric 模式和方案
-如果你正在寻求如何使用 Azure Service Fabric 构建大规模的微服务，那么可以向设计和构建平台即服务 (PaaS) 的专家咨询。 从正确的体系结构开始，然后了解如何针对应用程序优化资源。 [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) （Service Fabric 模式和实践）课程回答了实际客户最常询问的有关 Service Fabric 应用场景和应用领域的问题。
- 
-了解如何使用最佳做法和经验证的可重复使用的模式在 Service Fabric 上设计、开发和操作你的微服务。 了解 Service Fabric 的基本知识，然后深入探讨相关主题，包括群集优化和安全性、迁移旧的应用、大规模的 IoT、托管游戏引擎等等。 
+如果你正在考虑使用 Azure Service Fabric 构建大规模的微服务，则可以向设计和构建此平台即服务 (PaaS) 的专家咨询。 从正确的体系结构开始，然后了解如何针对应用程序优化资源。 [Service Fabric Patterns and Practices](https://mva.microsoft.com/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) （Service Fabric 模式和实践）课程回答了实际客户最常询问的有关 Service Fabric 应用场景和应用领域的问题。
+
+了解如何使用最佳做法和经验证的可重复使用的模式在 Service Fabric 上设计、开发和操作你的微服务。 了解 Service Fabric 的基本知识，然后深入探讨相关主题，包括群集优化和安全性、迁移旧的应用、大规模的 IoT、托管游戏引擎等等。 了解各种工作负荷的持续交付，甚至获取有关 Linux 支持和容器的详细信息。 
 
 ## <a name="introduction"></a>介绍
 探索最佳实践，并了解为何选择平台即服务 (PaaS)，而不选择基础结构即服务 (IaaS)。 获取以下经过验证的应用程序设计原则的详细信息。
@@ -88,5 +89,14 @@ ms.lasthandoff: 06/21/2017
 </a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=GQAq4QSGD_8305167344">迁移</a></td></tr>
 </table>
 
+## <a name="containers-and-linux-support"></a>容器和 Linux 支持
+获取问题“为什么使用容器？”的答案 了解 Windows 容器、Linux 支持和 Linux 容器业务流程的预览。 此外，了解如何将 .NET Core 应用迁移到 Linux。
+
+<table><tr><th>视频</th><th>PowerPoint 幻灯片</th></tr>
+<tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=V1ERJhSGD_305167344">
+<img src="./media/service-fabric-patterns-and-scenarios/containers.png" WIDTH="360" HEIGHT="244">
+</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mlYsZRSGD_2105167344">容器和 Linux 支持</a></td></tr>
+</table>
+
 ## <a name="next-steps"></a>后续步骤
-现在，你已了解 Service Fabric 模式和方案，并且详细了解了如何[创建和管理群集](service-fabric-deploy-anywhere.md)、如何[将云服务应用迁移到 Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)、如何[设置持续交付](service-fabric-set-up-continuous-integration.md)。
+现在，你已了解 Service Fabric 模式和方案，请详细了解如何[创建和管理群集](service-fabric-deploy-anywhere.md)、[将云服务应用迁移到 Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)、[设置持续交付](service-fabric-set-up-continuous-integration.md)以及[部署容器](service-fabric-containers-overview.md)。

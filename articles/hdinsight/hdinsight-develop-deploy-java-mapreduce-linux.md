@@ -1,6 +1,6 @@
 ---
-title: "为基于 Linux 的 HDInsight 开发 Java MapReduce 程序 | Azure"
-description: "了解如何开发 Java MapReduce 程序并将其部署到基于 Linux 的 HDInsight。"
+title: "为 Hadoop 创建 Java MapReduce - Azure HDInsight | Azure"
+description: "了解如何使用 Apache Maven 创建基于 Java 的 MapReduce 应用程序，然后使用 Azure HDInsight 中的 Hadoop 运行它。"
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -9,25 +9,23 @@ documentationcenter:
 tags: azure-portal
 ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-origin.date: 02/17/2017
-ms.date: 05/08/2017
+origin.date: 05/17/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: e2c609da661e30367605b552dea77d46da465fac
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.openlocfilehash: 8b239402df56e381e058763926168051cfb4a73b
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight-linux"></a>为 HDInsight Linux 上的 Hadoop 开发 Java MapReduce 程序
+# <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>为 HDInsight 上的 Hadoop 开发 Java MapReduce 程序
 
-了解如何使用 Apache Maven 创建基于 Java 的 MapReduce 应用程序，然后在 HDInsight 群集中基于 Linux 的 Hadoop 上部署和运行它。
+了解如何使用 Apache Maven 创建基于 Java 的 MapReduce 应用程序，然后使用 Azure HDInsight 中的 Hadoop 运行它。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -38,24 +36,19 @@ ms.lasthandoff: 04/28/2017
 
 * [Apache Maven](http://maven.apache.org/)
 
-* **Azure 订阅**
+## <a name="configure-development-environment"></a>配置开发环境
 
-* **Azure CLI**
-
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
-
-## <a name="configure-environment-variables"></a>配置环境变量
 可以在安装 Java 和 JDK 时设置以下环境变量。 但应检查其是否存在并且包含相关系统的适当值。
 
 * `JAVA_HOME` - 应该指向已安装 Java 运行时环境 (JRE) 的目录。 例如，在 OS X、Unix 或 Linux 系统上，它的值应该类似于 `/usr/lib/jvm/java-7-oracle`。 在 Windows 中，它的值类似于 `c:\Program Files (x86)\Java\jre1.7`
 
 * `PATH` - 应该包含以下路径：
 
-    * `JAVA_HOME`（或等效路径）
+  * `JAVA_HOME`（或等效路径）
 
-    * `JAVA_HOME\bin`（或等效路径）
+  * `JAVA_HOME\bin`（或等效路径）
 
-    * 安装 Maven 的目录
+  * 安装 Maven 的目录
 
 ## <a name="create-a-maven-project"></a>创建 Maven 项目
 
@@ -63,50 +56,53 @@ ms.lasthandoff: 04/28/2017
 
 2. 使用随同 Maven 一起安装的 `mvn` 命令，为项目生成基架。
 
-    ```
-    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-    ```
+   ```bash
+   mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+   ```
 
-    此命令将使用 **artifactID** 参数指定的名称（此示例中为 **wordcountjava**）创建目录。此目录包含以下项：
+    此命令将使用 `artifactID` 参数指定的名称（此示例中为 **wordcountjava**）创建目录。此目录包含以下项：
 
-    * `pom.xml` - [项目对象模型 (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)，其中包含用于生成项目的信息和配置详细信息。
+   * `pom.xml` - [项目对象模型 (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)，其中包含用于生成项目的信息和配置详细信息。
 
-    * `src` - 包含应用程序的目录。
+   * `src` - 包含应用程序的目录。
 
-3. 删除 `src/test/java/org/apache/hadoop/examples/apptest.java` 文件，因为本示例不使用该文件。
+3. 删除 `src/test/java/org/apache/hadoop/examples/apptest.java` 文件， 此示例不使用该文件。
 
 ## <a name="add-dependencies"></a>添加依赖项
 
 1. 编辑 `pom.xml` 文件，并在 `<dependencies>` 部分中添加以下文本：
 
-    ```xml
+   ```xml
     <dependency>
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-mapreduce-examples</artifactId>
-        <version>2.5.1</version>
+        <version>2.7.3</version>
         <scope>provided</scope>
     </dependency>
     <dependency>
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-mapreduce-client-common</artifactId>
-        <version>2.5.1</version>
+        <version>2.7.3</version>
         <scope>provided</scope>
     </dependency>
     <dependency>
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-common</artifactId>
-        <version>2.5.1</version>
+        <version>2.7.3</version>
         <scope>provided</scope>
     </dependency>
-    ```
+   ```
 
     这会定义具有特定版本（在 &lt;version\> 中列出）的库（在 &lt;artifactId\> 中列出）。 在编译时，会从默认 Maven 存储库下载这些依赖项。 你可以使用 [Maven 存储库搜索](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) 来查看详细信息。
 
     `<scope>provided</scope>` 会告知 Maven 这些依赖项不应与此应用程序一起打包，因为它们在运行时由 HDInsight 群集提供。
 
+    > [!IMPORTANT]
+    > 使用的版本应与群集上存在的 Hadoop 版本匹配。 有关版本的详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md)文档。
+
 2. 将以下内容添加到 `pom.xml` 文件中。 此文本必须位于文件中的 `<project>...</project>` 标记内；例如 `</dependencies>` 和 `</project>` 之间。
 
-    ```xml
+   ```xml
     <build>
         <plugins>
         <plugin>
@@ -131,14 +127,15 @@ ms.lasthandoff: 04/28/2017
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.6.1</version>
             <configuration>
-            <source>1.7</source>
-            <target>1.7</target>
+            <source>1.8</source>
+            <target>1.8</target>
             </configuration>
         </plugin>
         </plugins>
     </build>
-    ```
+   ```
 
     第一个插件配置 [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/)，用于生成 uberjar（有时称为 fatjar），其中包含应用程序所需的依赖项。 它还可以防止在 jar 包中复制许可证，复制许可证在某些系统中可能会导致问题。
 
@@ -155,76 +152,76 @@ ms.lasthandoff: 04/28/2017
 
 2. 在文本编辑器中打开 `WordCount.java` 文件，然后将其内容替换为以下文本：
 
-    ```java
-    package org.apache.hadoop.examples;
+   ```java
+   package org.apache.hadoop.examples;
 
-    import java.io.IOException;
-    import java.util.StringTokenizer;
-    import org.apache.hadoop.conf.Configuration;
-    import org.apache.hadoop.fs.Path;
-    import org.apache.hadoop.io.IntWritable;
-    import org.apache.hadoop.io.Text;
-    import org.apache.hadoop.mapreduce.Job;
-    import org.apache.hadoop.mapreduce.Mapper;
-    import org.apache.hadoop.mapreduce.Reducer;
-    import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-    import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-    import org.apache.hadoop.util.GenericOptionsParser;
+   import java.io.IOException;
+   import java.util.StringTokenizer;
+   import org.apache.hadoop.conf.Configuration;
+   import org.apache.hadoop.fs.Path;
+   import org.apache.hadoop.io.IntWritable;
+   import org.apache.hadoop.io.Text;
+   import org.apache.hadoop.mapreduce.Job;
+   import org.apache.hadoop.mapreduce.Mapper;
+   import org.apache.hadoop.mapreduce.Reducer;
+   import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+   import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+   import org.apache.hadoop.util.GenericOptionsParser;
 
-    public class WordCount {
+   public class WordCount {
 
-        public static class TokenizerMapper
-            extends Mapper<Object, Text, Text, IntWritable>{
+       public static class TokenizerMapper
+           extends Mapper<Object, Text, Text, IntWritable>{
 
-        private final static IntWritable one = new IntWritable(1);
-        private Text word = new Text();
+       private final static IntWritable one = new IntWritable(1);
+       private Text word = new Text();
 
-        public void map(Object key, Text value, Context context
-                        ) throws IOException, InterruptedException {
-          StringTokenizer itr = new StringTokenizer(value.toString());
-          while (itr.hasMoreTokens()) {
-            word.set(itr.nextToken());
-            context.write(word, one);
-          }
-        }
-    }
+       public void map(Object key, Text value, Context context
+                       ) throws IOException, InterruptedException {
+           StringTokenizer itr = new StringTokenizer(value.toString());
+           while (itr.hasMoreTokens()) {
+           word.set(itr.nextToken());
+           context.write(word, one);
+           }
+       }
+   }
 
-    public static class IntSumReducer
-            extends Reducer<Text,IntWritable,Text,IntWritable> {
-        private IntWritable result = new IntWritable();
+   public static class IntSumReducer
+           extends Reducer<Text,IntWritable,Text,IntWritable> {
+       private IntWritable result = new IntWritable();
 
-        public void reduce(Text key, Iterable<IntWritable> values,
-                            Context context
-                            ) throws IOException, InterruptedException {
-            int sum = 0;
-            for (IntWritable val : values) {
-            sum += val.get();
-            }
-           result.set(sum);
-           context.write(key, result);
-        }
-    }
+       public void reduce(Text key, Iterable<IntWritable> values,
+                           Context context
+                           ) throws IOException, InterruptedException {
+           int sum = 0;
+           for (IntWritable val : values) {
+           sum += val.get();
+           }
+          result.set(sum);
+          context.write(key, result);
+       }
+   }
 
-    public static void main(String[] args) throws Exception {
-        Configuration conf = new Configuration();
-        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
-        if (otherArgs.length != 2) {
-            System.err.println("Usage: wordcount <in> <out>");
-            System.exit(2);
-        }
-        Job job = new Job(conf, "word count");
-        job.setJarByClass(WordCount.class);
-        job.setMapperClass(TokenizerMapper.class);
-        job.setCombinerClass(IntSumReducer.class);
-        job.setReducerClass(IntSumReducer.class);
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
-        FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-        FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
-        System.exit(job.waitForCompletion(true) ? 0 : 1);
-        }
-    }
-    ```
+   public static void main(String[] args) throws Exception {
+       Configuration conf = new Configuration();
+       String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+       if (otherArgs.length != 2) {
+           System.err.println("Usage: wordcount <in> <out>");
+           System.exit(2);
+       }
+       Job job = new Job(conf, "word count");
+       job.setJarByClass(WordCount.class);
+       job.setMapperClass(TokenizerMapper.class);
+       job.setCombinerClass(IntSumReducer.class);
+       job.setReducerClass(IntSumReducer.class);
+       job.setOutputKeyClass(Text.class);
+       job.setOutputValueClass(IntWritable.class);
+       FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
+       FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+       System.exit(job.waitForCompletion(true) ? 0 : 1);
+       }
+   }
+   ```
 
     请注意，包名称为 `org.apache.hadoop.examples`，类名称为 `WordCount`。 提交 MapReduce 作业时，使用这些名称。
 
@@ -236,16 +233,16 @@ ms.lasthandoff: 04/28/2017
 
 2. 使用以下命令生成包含该应用程序的 JAR 文件：
 
-    ```
-    mvn clean package
-    ```
+   ```
+   mvn clean package
+   ```
 
     此命令将清除任何以前构建的项目，下载任何尚未安装的依赖项，然后生成并打包应用程序。
 
 3. 命令完成后，`wordcountjava/target` 目录将包含一个名为 `wordcountjava-1.0-SNAPSHOT.jar` 的文件。
 
-    > [!NOTE]
-    > `wordcountjava-1.0-SNAPSHOT.jar` 文件是一种 uberjar，其中不仅包含 WordCount 作业，还包含作业在运行时需要的依赖项。
+   > [!NOTE]
+   > `wordcountjava-1.0-SNAPSHOT.jar` 文件是一种 uberjar，其中不仅包含 WordCount 作业，还包含作业在运行时需要的依赖项。
 
 ## <a id="upload"></a>上传该 jar
 
@@ -257,28 +254,25 @@ scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:
 
 将 __USERNAME__ 替换为群集的 SSH 用户名。 将 __CLUSTERNAME__ 替换为 HDInsight 群集名称。
 
-此命令会将文件从本地系统复制到头节点。
+此命令会将文件从本地系统复制到头节点。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
-> [!NOTE]
-> 如果使用了密码来保护 SSH 帐户，系统会提示输入密码。 如果你使用了 SSH 密钥，你可能必须使用 `-i` 参数和私钥的路径。 例如， `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:`。
-
-## <a name="run"></a>运行 MapReduce 作业
+## <a name="run"></a>在 Hadoop 上运行 MapReduce 作业
 
 1. 使用 SSH 连接到 HDInsight。 有关信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 2. 在 SSH 会话中，使用以下命令运行 MapReduce 应用程序：
 
-    ```bash
-    yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
-    ```
+   ```bash
+   yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
+   ```
 
-    此命令启动 WordCount MapReduce 应用程序。 输入文件是 **/example/data/gutenberg/davinci.txt**，输出存储在 **/example/data/wordcountout** 中。 输入文件和输出均存储到群集的默认存储中。
+    此命令启动 WordCount MapReduce 应用程序。 输入文件是 `/example/data/gutenberg/davinci.txt`，输出目录是 `/example/data/wordcountout`。 输入文件和输出均存储到群集的默认存储中。
 
 3. 作业完成后，请使用以下命令查看结果：
 
-    ```bash
-    hdfs dfs -cat /example/data/wordcountout/*
-    ```
+   ```bash
+   hdfs dfs -cat /example/data/wordcountout/*
+   ```
 
     用户会收到单词和计数列表，其包含的值类似于以下文本：
 
@@ -311,4 +305,3 @@ scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-

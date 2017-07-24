@@ -3,8 +3,8 @@ title: "设置 Azure 微服务的开发环境 | Azure"
 description: "安装运行时、SDK 和工具并创建本地开发群集。 完成此设置后，你就可以开始生成应用程序。"
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
 ms.service: service-fabric
@@ -12,13 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/22/2017
-ms.author: v-johch
-ms.openlocfilehash: ec2d86d7abc65b5e4f30d3909cc8141ef991186b
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 05/26/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
+ms.openlocfilehash: b4ff9d849befb0b065efe88bfa94cbc96390bb17
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="prepare-your-development-environment"></a>准备开发环境
 > [!div class="op_single_selector"]
@@ -61,17 +62,17 @@ Service Fabric 工具是 Visual Studio 2017 中 Azure 开发和管理工作负�
 如果只需要 SDK，则安装此包：
 * [安装 Azure Service Fabric SDK][core-sdk]
 
-> [!WARNING]
-> 在安装过程中使用这些启动链接，或者在 Chrome 浏览器中使用这些链接时，客户会遇到报告的错误。 这些错误是 Web 平台安装程序中的已知问题，我们正在着手解决。  请尝试以下解决方法：
->- 在 Internet Explorer 或 Edge 浏览器中启动上述链接，或者
->- 在开始菜单中启动 Web 平台安装程序，搜索“Service Fabric”，然后安装 SDK
-> 
-> 对此给你带来的不便，我们深表歉意。 
-
 当前版本包括：
-* Service Fabric SDK 2.5.216
-* Service Fabric 运行时 5.5.216
-* Visual Studio 2015 工具 1.5.50311.1
+* Service Fabric SDK 2.6.210
+* Service Fabric 运行时 5.6.210
+* Visual Studio 2015 工具 1.6.50508.2
+* Visual Studio 2017 Update 2
+
+当前预览版本包括：
+* Service Fabric SDK 255.255.2709.255
+* Service Fabric 运行时 255.255.5709.255
+* Visual Studio 2015 工具 1.6.50509.5
+* Visual Studio 2017 Update 3 Preview 1
 
 有关支持的版本列表，请参阅 [Service Fabric 支持](service-fabric-support.md)
 
@@ -88,8 +89,9 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 * [在 Visual Studio 中创建你的第一个 Service Fabric 应用程序](service-fabric-create-your-first-application-in-visual-studio.md)
 * [了解如何在本地群集上部署和管理应用程序](service-fabric-get-started-with-a-local-cluster.md)
 * [了解编程模型：Reliable Services 和 Reliable Actors](service-fabric-choose-framework.md)
-
+* [在 GitHub 上检查 Service Fabric 代码示例](https://aka.ms/servicefabricsamples)
 * [使用 Service Fabric 资源管理器可视化群集](service-fabric-visualizing-your-cluster.md)
+* [按照 Service Fabric 学习路径获取平台的概括性介绍](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 * 了解 [Service Fabric 支持选项](service-fabric-support.md)
 
 [1]: https://www.azure.cn/home/features/service-fabric "Service Fabric 活动页"
@@ -97,4 +99,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 链接"
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 链接"
 [core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 链接"
-[powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
+[powershell5-download]:https://www.microsoft.com/en-US/download/details.aspx?id=50395

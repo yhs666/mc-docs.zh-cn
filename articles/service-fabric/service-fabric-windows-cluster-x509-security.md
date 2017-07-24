@@ -1,10 +1,10 @@
 ---
-title: "使用证书确保 Windows 上 Azure Service Fabric 群集的安全 | Microsoft Docs"
+title: "使用证书保护 Windows 上的 Azure Service Fabric 群集 | Azure"
 description: "本文介绍如何保护独立群集或专用群集内部的通信，以及客户端与群集之间的通信。"
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
 ms.service: service-fabric
@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
-ms.author: v-johch
-ms.openlocfilehash: 67f1e7bfadc9a419bea0c79474870743392c998d
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 06/16/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
+ms.openlocfilehash: 920818bd14a50370ce09b633be5623fb81b2630d
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>使用 X.509 证书在 Windows 上保护独立群集
 本文介绍如何使用 X.509 证书保护独立 Windows 群集的各个节点之间的通信，以及如何对连接到此群集的客户端进行身份验证。 这可确保只有经过授权的用户才能访问该群集和部署的应用程序，以及执行管理任务。  创建群集时，应在该群集上启用证书安全性。  
@@ -48,7 +49,7 @@ ms.lasthandoff: 06/21/2017
             {
                 "CertificateThumbprint": "[Thumbprint]",
                 "IsAdmin": false
-            }, 
+            },
             {
                 "CertificateThumbprint": "[Thumbprint]",
                 "IsAdmin": true
@@ -57,17 +58,17 @@ ms.lasthandoff: 06/21/2017
         "ClientCertificateCommonNames": [
             {
                 "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint" : "[Thumbprint]",
+                "CertificateIssuerThumbprint": "[Thumbprint]",
                 "IsAdmin": true
             }
-        ]
-        "ReverseProxyCertificate":{
+        ],
+        "ReverseProxyCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
             "X509StoreName": "My"
         }
     }
-}
+},
 ```
 
 该部分描述保护独立 Windows 群集所需的证书。 如果指定群集证书，请将 **ClusterCredentialType** 的值设置为 _**X509**_。 如果为外部连接指定服务器证书，请将 **ServerCredentialType** 设置为 _**X509**_。 虽然并非强制，但为了妥善保护群集，我们建议同时拥有这两个证书。 如果将这些值设置为 *X509*，还必须指定相应的证书，否则 Service Fabric 将引发异常。 在某些情况下，仅需要指定 _ClientCertificateThumbprints_ 或 _ReverseProxyCertificate_。 在这些情况下，不需要将 _ClusterCredentialType_ 或 _ServerCredentialType_ 设置为 _X509_。
@@ -211,46 +212,46 @@ Write-Host $cert.ToString($true)
 
 1. 将 .pfx 文件复制到节点。
 2. 以管理员身份打开 PowerShell 窗口并输入以下命令。 将 *$pswd* 替换为用来创建此证书的密码。 将 *$PfxFilePath* 替换为复制到此节点的 .pfx 文件的完整路径。
-   
+
     ```powershell
     $pswd = "1234"
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
 3. 现在通过运行以下脚本设置对此证书的访问控制，以便在网络服务帐户下运行的 Service Fabric 进程可以使用它。 为服务帐户提供证书指纹以及“NETWORK SERVICE”。 可检查证书上的 ACL 是否正确，方法是在“开始” > “管理计算机证书”中打开证书，并查看“所有任务” > “管理私钥”。
-   
+
     ```powershell
     param
     (
     [Parameter(Position=1, Mandatory=$true)]
     [ValidateNotNullOrEmpty()]
     [string]$pfxThumbPrint,
-   
+
     [Parameter(Position=2, Mandatory=$true)]
     [ValidateNotNullOrEmpty()]
     [string]$serviceAccount
     )
-   
+
     $cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object -FilterScript { $PSItem.ThumbPrint -eq $pfxThumbPrint; }
-   
+
     # Specify the user, the permissions and the permission type
     $permission = "$($serviceAccount)","FullControl","Allow"
     $accessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $permission
-   
+
     # Location of the machine related keys
     $keyPath = Join-Path -Path $env:ProgramData -ChildPath "\Microsoft\Crypto\RSA\MachineKeys"
     $keyName = $cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName
     $keyFullPath = Join-Path -Path $keyPath -ChildPath $keyName
-   
+
     # Get the current acl of the private key
     $acl = (Get-Item $keyFullPath).GetAccessControl('Access')
-   
+
     # Add the new ace to the acl of the private key
     $acl.SetAccessRule($accessRule)
-   
+
     # Write back the new acl
     Set-Acl -Path $keyFullPath -AclObject $acl -ErrorAction Stop
-   
+
     # Observe the access rights currently assigned to this certificate.
     get-acl $keyFullPath| fl
     ```
@@ -270,8 +271,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-然后可运行其他 PowerShell 命令来处理此群集。 例如，运行 [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricnode.md) 可显示此安全群集上的节点列表。
-
+然后可运行其他 PowerShell 命令来处理此群集。 例如，运行 [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode.md?view=azureservicefabricps) 可显示此安全群集上的节点列表。
 
 若要删除群集，请连接到已下载 Service Fabric 程序包的群集上的节点、打开命令行，然后导航到程序包文件夹。 现在运行以下命令：
 

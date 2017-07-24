@@ -1,5 +1,5 @@
 ---
-title: "使用 Web 浏览器创建 Azure HDInsight (Hadoop) | Azure"
+title: "使用 Web 浏览器创建 Hadoop 群集 - Azure HDInsight | Azure"
 description: "了解如何使用 Web 浏览器和 Azure 门户在 Linux 上创建适用于 HDInsight 的 Hadoop、HBase、Storm 或 Spark 群集。"
 services: hdinsight
 documentationcenter: 
@@ -15,39 +15,36 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/10/2017
-ms.date: 06/05/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: adcc1ac6102c966b9d8435c8dbdc17fb3c06ea5a
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: f2b3af10c6632a91f2325641b6cd4478b785daff
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集
-<a id="create-linux-based-clusters-in-hdinsight-using-the-azure-portal" class="xliff"></a>
+# <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Azure 门户是一种基于 Web 的管理工具，用于管理 Azure 云中托管的服务和资源。 在本文中，你将了解如何使用门户创建基于 Linux 的 HDInsight 群集。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * **一个现代 Web 浏览器**。 Azure 门户使用 HTML5 和 Javascript，可能无法在旧版 Web 浏览器中正确运行。
 
-## 创建群集
-<a id="create-clusters" class="xliff"></a>
+## <a name="create-clusters"></a>创建群集
 Azure 门户会公开大部分的群集属性。 使用 Azure Resource Manager 模板可以隐藏许多详细信息。 有关详细信息，请参阅[在 HDInsight 中使用 Azure Resource Manager 模板创建基于 Linux 的 Hadoop 群集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 依次单击“+”、“智能 + 分析”、“HDInsight”。
 
-    ![在 Azure 门户中创建新群集](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "在 Azure 门户中创建新群集")
+    ![在 Azure 门户中创建新群集](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster.png "在 Azure 门户中创建新群集")
 
 3. 在“HDInsight”边栏选项卡中，单击“自定义(大小、设置、应用)”，单击“基本信息”，然后输入以下信息。
 
-    ![在 Azure 门户中创建新群集](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.basics.png "在 Azure 门户中创建新群集")
+    ![在 Azure 门户中创建新群集](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-basics.png "在 Azure 门户中创建新群集")
 
     * 输入 **群集名称**：此名称必须全局唯一。
 
@@ -79,7 +76,7 @@ Azure 门户会公开大部分的群集属性。 使用 Azure Resource Manager �
 
 4. 在“存储”边栏选项卡上，指定是否要将 Azure 存储 (WASB) 作为默认存储。 有关详细信息，请查看下表。
 
-    ![在 Azure 门户中创建新群集](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.storage.png "在 Azure 门户中创建新群集")
+    ![在 Azure 门户中创建新群集](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "在 Azure 门户中创建新群集")
 
     | 存储                                      | 说明 |
     |----------------------------------------------|-------------|
@@ -95,7 +92,7 @@ Azure 门户会公开大部分的群集属性。 使用 Azure Resource Manager �
 
 6. 单击“群集大小”以显示针对此群集创建的节点的相关信息。 设置群集所需的工作节点数。 该群集的预估成本将显示在边栏选项卡内。
 
-    ![节点定价层边栏选项卡](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.nodes.png "指定群集节点数")
+    ![节点定价层边栏选项卡](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-nodes.png "指定群集节点数")
 
    > [!IMPORTANT]
    > 如果你计划使用 32 个以上的工作节点（在创建群集时或是在创建之后通过扩展群集进行），则必须选择至少具有 8 个核心和 14GB ram 的头节点大小。
@@ -108,7 +105,7 @@ Azure 门户会公开大部分的群集属性。 使用 Azure Resource Manager �
 
 7. 单击“高级设置”以配置其他可选设置，如使用“脚本操作”自定义群集以安装自定义组件或加入“虚拟网络”。 有关详细信息，请查看下表。
 
-    ![节点定价层边栏选项卡](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.advanced.png "指定群集节点数")
+    ![节点定价层边栏选项卡](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-advanced.png "指定群集节点数")
 
     | 选项 | 说明 |
     |--------|-------------|
@@ -119,7 +116,7 @@ Azure 门户会公开大部分的群集属性。 使用 Azure Resource Manager �
 
 8. 在“摘要”边栏选项卡上，验证之前输入的信息，然后单击“创建”。
 
-    ![节点定价层边栏选项卡](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.summary.png "指定群集节点数")
+    ![节点定价层边栏选项卡](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-summary.png "指定群集节点数")
 
     > [!NOTE]
     > 创建群集需要一些时间，通常约 15 分钟左右。 使用启动板上的磁贴或页面左侧的“通知”条目检查预配进程。
@@ -127,7 +124,7 @@ Azure 门户会公开大部分的群集属性。 使用 Azure Resource Manager �
     > 
 12. 创建过程完成后，在启动板中单击群集磁贴，启动群集边栏选项卡。 群集边栏选项卡提供以下信息。
 
-    ![群集边栏选项卡](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.completed.png "群集属性")
+    ![群集边栏选项卡](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-completed.png "群集属性")
 
     参考以下内容了解此边栏选项卡顶部的图标。
 
@@ -137,43 +134,35 @@ Azure 门户会公开大部分的群集属性。 使用 Azure Resource Manager �
     * **缩放群集** 可增加与群集关联的辅助角色节点数。
     * **删除**：删除 HDInsight 群集。
 
-## 自定义群集
-<a id="customize-clusters" class="xliff"></a>
+## <a name="customize-clusters"></a>自定义群集
 * 请参阅[使用 Bootstrap 自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-bootstrap.md)。
 * 请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
-## 删除群集
-<a id="delete-the-cluster" class="xliff"></a>
+## <a name="delete-the-cluster"></a>删除群集
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## 故障排除
-<a id="troubleshoot" class="xliff"></a>
+## <a name="troubleshoot"></a>故障排除
 
 如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](hdinsight-administer-use-portal-linux.md#create-clusters)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 成功创建 HDInsight 群集后，请参考以下主题来了解如何使用群集：
 
-### Hadoop 群集
-<a id="hadoop-clusters" class="xliff"></a>
+### <a name="hadoop-clusters"></a>Hadoop 群集
 * [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
 
-### HBase 群集
-<a id="hbase-clusters" class="xliff"></a>
+### <a name="hbase-clusters"></a>HBase 群集
 * [HBase on HDInsight 入门](hdinsight-hbase-tutorial-get-started-linux.md)
 * [为 HBase on HDInsight 开发 Java 应用程序](hdinsight-hbase-build-java-maven-linux.md)
 
-### Storm 群集
-<a id="storm-clusters" class="xliff"></a>
+### <a name="storm-clusters"></a>Storm 群集
 * [为 Storm on HDInsight 开发 Java 拓扑](hdinsight-storm-develop-java-topology.md)
 * [在 Storm on HDInsight 中使用 Python 组件](hdinsight-storm-develop-python-topology.md)
 * [使用 Storm on HDInsight 部署和监视拓扑](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-### Spark 群集
-<a id="spark-clusters" class="xliff"></a>
+### <a name="spark-clusters"></a>Spark 群集
 * [使用 Scala 创建独立的应用程序](hdinsight-apache-spark-create-standalone-application.md)
 * [使用 Livy 在 Spark 群集中远程运行作业](hdinsight-apache-spark-livy-rest-interface.md)
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](hdinsight-apache-spark-use-bi-tools.md)

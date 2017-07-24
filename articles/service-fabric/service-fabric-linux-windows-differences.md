@@ -3,8 +3,8 @@ title: "Linux 和 Windows 之间的 Azure Service Fabric 差异 | Azure"
 description: "Linux 上的 Azure Service Fabric 预览版和 Windows 上的 Azure Service Fabric 之间的差异。"
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
@@ -12,32 +12,36 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/23/2017
-ms.author: v-johch
-ms.openlocfilehash: 8c5622d76fc3aee336d43f683d4b492310fbddbd
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 03/23/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
+ms.openlocfilehash: 8a56c1895080a67e71f0e1207be2643eef3b5674
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Linux 上的 Service Fabric（预览版）与 Windows 上的 Service Fabric（正式版）之间的差异
 
-由于 Linux 上的 Service Fabric 是预览版，因此某些在 Windows 上受支持的功能，在 Linux 上不受支持。 最终，当 Linux 上的 Service Fabric 公开发布时，这些功能集会一致。
+由于 Linux 上的 Service Fabric 是预览版，因此某些在 Windows 上受支持的功能，在 Linux 上尚不受支持。 最终，当 Linux 上的 Service Fabric 公开发布时，这些功能集会一致。 在即将发布的版本中，此功能差异会缩小。 最新可用发行版（即 Windows 上的 5.6 版和 Linux 上的 5.5 版）之间存在以下差异： 
 
-* Linux 不支持 Reliable Collections（和 Reliable Stateful Services）。
-* ReverseProxy 在 Linux 上不可用。
-* 独立安装程序在 Linux 上不可用。
-* 清单文件的 XML 架构验证不在 Linux 上执行。 
-* Linux 不支持控制台重定向。 
-* 故障分析服务 (FAS) 在 Linux 上不可用。
-* Azure Active Directory 支持在 Linux 上不可用。
-* Powershell 命令的某些 CLI 命令对等项不可用。
+* Reliable Collections（和 Reliable Stateful Services） 
+* ReverseProxy 
+* 独立安装程序 
+* 清单文件的 XML 架构验证 
+* 控制台重定向 
+* 故障分析服务 (FAS)
+* Docker Compose 和 Docker Volume 以及适用于容器的日志记录驱动程序 
+* 容器和服务的资源调控 
+* DNS 服务
+* Azure Active Directory 支持
+* 某些 PowerShell 命令的 CLI 命令对等项 
 * 只能针对 Linux 群集运行部分 Powershell 命令（在下一部分展开介绍）。
 
 >[!NOTE]
 >即使在 Windows 上，也不支持在生产群集中进行控制台重定向。
 
-在 Windows 上使用 VisualStudio、Powershell、VSTS 和 ETW 以及在 Linux 上使用 Yeoman、Eclipse、Jenkins 和 LTTng 时，开发工具是不同的。
+Windows 和 Linux 的开发工具也不相同。 VisualStudio、Powershell、VSTS 和 ETW 用于 Windows，Yeoman、Eclipse、Jenkins 和 LTTng 用于 Linux。
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>不能对 Linux Service Fabric 群集使用的 Powershell cmdlet
 
@@ -94,8 +98,6 @@ ms.lasthandoff: 06/21/2017
 * Start-ServiceFabricRepairTask
 * Stop-ServiceFabricRepairTask
 * Update-ServiceFabricRepairTaskHealthPolicy
-
-
 
 ## <a name="next-steps"></a>后续步骤
 * [在 Linux 上准备开发环境](service-fabric-get-started-linux.md)

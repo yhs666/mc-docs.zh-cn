@@ -3,8 +3,8 @@ title: "使用 Transact-SQL 为 Azure SQL 数据库配置异地复制 | Azure"
 description: "使用 Transact-SQL 为 Azure SQL 数据库配置异地复制"
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: d94d89a6-3234-46c5-8279-5eb8daad10ac
 ms.service: sql-database
@@ -13,13 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/14/2017
+origin.date: 04/14/2017
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 177f548b788fdff0a677ae866ff29d101b04f029
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 045efd84a51e4ddb575fc99d1b569821c8d8d179
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-with-transact-sql"></a>使用 Transact-SQL 为 Azure SQL 数据库配置活动异地复制
 
@@ -34,11 +35,13 @@ ms.lasthandoff: 06/21/2017
 
 若要使用 Transact-SQL 配置活动异地复制，需提供：
 
-* Azure 订阅。
-* 逻辑 Azure SQL 数据库服务器 <MyLocalServer> 和 SQL 数据库 <MyDB> - 要复制的主数据库。
-* 一个或多个逻辑 Azure SQL 数据库服务器 <MySecondaryServer(n)> - 可充当伙伴服务器（将在其中创建辅助数据库）的逻辑服务器。
-* 主数据库上 DBManager 的登录名，拥有要异地复制的本地数据库的 db_ownership 权限，并且是要配置异地复制的伙伴服务器上的 DBManager。
-* SQL Server Management Studio (SSMS)
+* Azure 订阅
+* 逻辑 Azure SQL 数据库服务器 <MyLocalServer> 和 SQL 数据库 <MyDB> - 要复制的主数据库
+* 一个或多个逻辑 Azure SQL 数据库服务器 <MySecondaryServer(n)> - 可充当伙伴服务器（将在其中创建辅助数据库）的逻辑服务器
+* 作为主数据库上的 DBManager 的登录名
+* 具有要异地复制的本地数据库的 db_ownership
+* 作为要将异地复制配置到的伙伴服务器上的 DBManager
+* 最新版本的 SQL Server Management Studio (SSMS)
 
 > [!IMPORTANT]
 > 建议始终使用最新版本的 Management Studio 以保持与 Azure 和 SQL 数据库的更新同步。 [更新 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)。
@@ -62,7 +65,6 @@ ms.lasthandoff: 06/21/2017
    
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
-       
 4. 单击“执行”  运行查询。
 
 ### <a name="add-readable-secondary-elastic-pool"></a>添加可读的辅助数据库（弹性池）
@@ -75,7 +77,6 @@ ms.lasthandoff: 06/21/2017
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = ALL
            , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool2));
-       
 4. 单击“执行”  运行查询。
 
 ## <a name="remove-secondary-database"></a>删除辅助数据库
@@ -84,14 +85,11 @@ ms.lasthandoff: 06/21/2017
 使用以下步骤从异地复制合作关系中删除异地复制的辅助数据库。
 
 1. 在 Management Studio 中，连接到 Azure SQL 数据库逻辑服务器。
-
 2. 打开“数据库”文件夹，展开“系统数据库”，右键单击“master”，然后单击“新建查询”。
-
 3. 使用以下 **ALTER DATABASE** 语句来删除异地复制的辅助数据库。
    
         ALTER DATABASE <MyDB>
            REMOVE SECONDARY ON SERVER <MySecondaryServer1>;
-       
 4. 单击“执行”  运行查询。
 
 ## <a name="monitor-active-geo-replication-configuration-and-health"></a>监视活动异地复制配置和运行状况
@@ -101,28 +99,22 @@ ms.lasthandoff: 06/21/2017
 使用以下步骤监视活动异地复制合作关系。
 
 1. 在 Management Studio 中，连接到 Azure SQL 数据库逻辑服务器。
-
 2. 打开“数据库”文件夹，展开“系统数据库”，右键单击“master”，然后单击“新建查询”。
-
 3. 使用以下语句显示具有异地复制链接的所有数据库。
-   
-        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].geo_replication_links;
 
+        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].geo_replication_links;
 4. 单击“执行”  运行查询。
 5. 打开“数据库”文件夹，展开“系统数据库”，右键单击“MyDB”，然后单击“新建查询”。
 6. 使用以下语句显示复制延迟和 MyDB 的辅助数据库上次复制的时间。
    
         SELECT link_guid, partner_server, last_replication, replication_lag_sec FROM sys.dm_geo_replication_link_status
-
 7. 单击“执行”  运行查询。
 8. 使用以下语句显示与 MyDB 数据库关联的最近异地复制操作。
    
         SELECT * FROM sys.dm_operation_status where major_resource_id = 'MyDB'
         ORDER BY start_time DESC
-
 9. 单击“执行”  运行查询。
 
 ## <a name="next-steps"></a>后续步骤
 * 若要深入了解活动异地复制，请参阅[活动异地复制](sql-database-geo-replication-overview.md)
 * 有关业务连续性概述和应用场景，请参阅[业务连续性概述](sql-database-business-continuity.md)
-

@@ -1,10 +1,10 @@
 ---
 title: "Azure Service Fabric 中的可靠并发队列"
-description: "可靠并发队列是一种高吞吐量队列，它允许并行排队和并行取消排队。"
+description: "可靠并发队列是一种高吞吐量队列，适用于并行排队和取消排队。"
 services: service-fabric
 documentationcenter: .net
-author: sangarg
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
@@ -12,20 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 05/01/2017
-ms.author: v-johch
-ms.openlocfilehash: 61988680ff09f928d0d29ccd02ad9d3c7e093432
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 05/01/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
+ms.openlocfilehash: 2d0a804645d9b6d0b9707c2727c4c6b49fb9640e
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# Azure Service Fabric 中的可靠并发队列简介
-<a id="introduction-to-reliableconcurrentqueue-in-azure-service-fabric" class="xliff"></a>
-可靠并发队列是一种被复制的事务性异步队列。 该队列允许“并发排队”操作和“并发取消排队”操作来处理该队列。 此数据结构旨在通过放松严格的 FIFO 约束来提供高吞吐量，并为项提供尽力排序。
+# <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric 中的可靠并发队列简介
+可靠并发队列是一种异步的、事务性的已复制队列，其特点是排队和取消排队操作的高并发性。 它旨在降低[可靠队列](https://msdn.microsoft.com/library/azure/dn971527.aspx)提供的严格的 FIFO 排序要求，代之以“尽力排序”要求，从而提高吞吐量并降低延迟。
 
-## 提供的 API
-<a id="apis-offered" class="xliff"></a>
+## <a name="apis"></a>API
 
 |并发队列                |可靠并发队列                                         |
 |--------------------------------|------------------------------------------------------------------|
@@ -33,51 +32,46 @@ ms.lasthandoff: 06/21/2017
 | bool TryDequeue(out T result)  | Task< ConditionalValue < T > > TryDequeueAsync(ITransaction tx)  |
 | int Count()                    | long Count()                                                     |
 
-## 与[可靠队列](https://msdn.microsoft.com/library/azure/dn971527.aspx)比较
-<a id="comparison-with-reliable-queuehttpsmsdnmicrosoftcomlibraryazuredn971527aspx" class="xliff"></a>
+## <a name="comparison-with-reliable-queuehttpsmsdnmicrosoftcomlibraryazuredn971527aspx"></a>与[可靠队列](https://msdn.microsoft.com/library/azure/dn971527.aspx)比较
 
-可靠并发队列作为[可靠队列](https://msdn.microsoft.com/library/azure/dn971527.aspx)的替代推出， 其使用范围局限于不需要严格 FIFO 排序的情况，这种情况下，在尽量保证 FIFO 的同时，还需要考虑到并发性。  [可靠队列](https://msdn.microsoft.com/library/azure/dn971527.aspx)使用锁来强制实施 FIFO 排序，一次最多允许一个事务排队和/或取消排队。 相比之下，可靠并发队列会放松排序约束。 它允许任何数目的并发事务交错其排队和取消排队操作。 可靠并发队列的原则是“尽力排序”，但无法保证两个值的相对顺序。
+可靠并发队列作为[可靠队列](https://msdn.microsoft.com/library/azure/dn971527.aspx)的替代推出， 其使用范围局限于不需要严格 FIFO 排序的情况，这种情况下，在尽量保证 FIFO 的同时，还需要考虑到并发性。  [可靠队列](https://msdn.microsoft.com/library/azure/dn971527.aspx)以锁定方式强制实施 FIFO 排序，一次只允许一个事务排队，一个事务取消排队。 相对而言，可靠并发队列对排序的要求较松，允许任意数目的并发事务交叉进行排队和取消排队操作。 可靠并发队列的原则是“尽力排序”，但无法保证两个值的相对顺序。
 
-在任何有多个执行排队和/或取消排队操作的并发事务的情况下，可靠并发队列相对于[可靠队列](https://msdn.microsoft.com/library/azure/dn971527.aspx)而言都可以提高吞吐量并降低延迟。   
+在任何有多个执行排队和/或取消排队操作的并发事务的情况下，可靠并发队列相对于[可靠队列](https://msdn.microsoft.com/library/azure/dn971527.aspx)而言都可以提高吞吐量并降低延迟。
 
-可靠并发队列的一个不错的用例是[消息队列](https://en.wikipedia.org/wiki/Message_queue)方案。 在此方案中，有一个消息生产者，它创建一条消息并将其添加到独立于消息使用者的队列。 然后，消息使用者可以从队列中拉取消息并对其进行处理。 我们可能有多个相互独立工作的生产者和使用者，因此需要允许并发事务来处理该队列。
+可靠并发队列的一个示例用例是[消息队列](https://en.wikipedia.org/wiki/Message_queue)方案。 在该方案中，一个或多个消息生成者会创建项并将其添加到队列中，同时还会有一个或多个消息使用者从队列拉取消息并对其进行处理。 多个生成者和使用者可以独立操作，使用并发事务来处理队列。
 
-## 使用指南
-<a id="usage-guidelines" class="xliff"></a>
-* 队列期望项的保留期较短，就是说项停留在队列中的时间不宜过长。
+## <a name="usage-guidelines"></a>使用指南
+* 队列希望队列中的项的保留期较短。 换句话说，项呆在队列中的时间不宜过长。
 * 队列不保证严格的 FIFO 排序。
 * 队列不读取自己的写入。 项在事务中排队时，该项对于同一事务中的取消排队者来说为不可见。
-* 取消排队不是相互隔离的。 如果项 A 在事务 txnA 中取消排队，则即使 txnA 尚未提交，项 A 也不会对并发事务 txnB 可见。
-* 可以先使用 TryDequeueAsync，然后中止事务，从而实施 TryPeekAsync 行为。 “编程模式”部分提供了一个这样的代码片段。
-* 计数是非事务性的。 它应该用于了解队列中的元素数。 它不保证队列计数。
-* 如果处理取消排队项的代价较高，则必须将该处理延迟到以后进行，从而避免出现长时间运行的事务。
+* 取消排队不是相互隔离的。 如果项 A 在事务 txnA 中取消排队，则即使 txnA 尚未提交，项 A 也不会对并发事务 txnB 可见。  如果 *txnA* 中止，*A* 会立刻变得对 *txnB* 可见。
+* 可以先使用 TryDequeueAsync，然后中止事务，从而实施 TryPeekAsync 行为。 “编程模式”部分提供了一个这样的示例。
+* 计数是非事务性的。 可以通过计数来了解队列中的元素数目，但计数只代表一个时间点的情况，可靠性不强。
+* 不应在事务处于活动状态时对取消排队项执行开销昂贵的处理，以免事务长时间运行，对系统造成性能影响。
 
-## 代码片段
-<a id="code-snippets" class="xliff"></a>
-让我们看一些这样的代码片段及预期的输出。 本部分忽略异常处理。
+## <a name="code-snippets"></a>代码片段
+让我们看看一些代码片段及其预期输出。 本部分忽略异常处理。
 
-### - EnqueueAsync
-<a id="--enqueueasync" class="xliff"></a>
-下面是一些用于使用 EnqueueAsync 的代码片段，后跟预期的输出。
+### <a name="enqueueasync"></a>EnqueueAsync
+下面是使用 EnqueueAsync 的一些代码片段及其预期输出。
 
 - 案例 1：单个排队任务
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
 {
-    await this.Queue.EnqueueAsync(txn, 10, cancellationToken).ConfigureAwait(false);
-    await this.Queue.EnqueueAsync(txn, 20, cancellationToken).ConfigureAwait(false);
+    await this.Queue.EnqueueAsync(txn, 10, cancellationToken);
+    await this.Queue.EnqueueAsync(txn, 20, cancellationToken);
 
-    await txn.CommitAsync().ConfigureAwait(false);
+    await txn.CommitAsync();
 }
 ```
 
-假定该任务已成功完成，并且没有任何处理该队列的并行任务。 用户可以预期队列中的项将采用以下任一顺序：
+假定任务已成功完成，且没有并发事务在修改队列。 用户可以预期队列包含的项采用以下顺序：
 
 > 10, 20
 
->20, 10
-
+> 20, 10
 
 - 案例 2：并行排队任务
 
@@ -85,27 +79,25 @@ using (var txn = this.StateManager.CreateTransaction())
 // Parallel Task 1
 using (var txn = this.StateManager.CreateTransaction())
 {
-    await this.Queue.EnqueueAsync(txn, 10, cancellationToken).ConfigureAwait(false);
-    await this.Queue.EnqueueAsync(txn, 20, cancellationToken).ConfigureAwait(false);
+    await this.Queue.EnqueueAsync(txn, 10, cancellationToken);
+    await this.Queue.EnqueueAsync(txn, 20, cancellationToken);
 
-    await txn.CommitAsync().ConfigureAwait(false);
+    await txn.CommitAsync();
 }
 
-// Parallel  Task 2
+// Parallel Task 2
 using (var txn = this.StateManager.CreateTransaction())
 {
-    await this.Queue.EnqueueAsync(txn, 30, cancellationToken).ConfigureAwait(false);
-    await this.Queue.EnqueueAsync(txn, 40, cancellationToken).ConfigureAwait(false);
+    await this.Queue.EnqueueAsync(txn, 30, cancellationToken);
+    await this.Queue.EnqueueAsync(txn, 40, cancellationToken);
 
-    await txn.CommitAsync().ConfigureAwait(false);
+    await txn.CommitAsync();
 }
 ```
 
-假定没有任何其他处理该队列的并行任务，并且任务 1 和任务 2 并行运行。 那么，队列中项的顺序将无法推断。 就此代码片段来说，项的显示顺序可能是 4! 个 顺序中的任何一个。
+假定任务已成功完成且是以并行方式运行的，同时没有其他并发事务在修改队列。 那么，队列中项的顺序将无法推断。 就此代码片段来说，项的显示顺序可能是 4! 个 可能的顺序之一。  队列会尝试让项保持原有的（排队）顺序，但在出现并发操作或错误的情况下，也可能会强制其重新排序。
 
-
-### - DequeueAsync
-<a id="--dequeueasync" class="xliff"></a>
+### <a name="dequeueasync"></a>DequeueAsync
 下面是使用 TryDequeueAsync 的一些代码片段，后跟预期的输出。 假定已在队列中填充以下项：
 > 10, 20, 30, 40, 50, 60
 
@@ -114,16 +106,15 @@ using (var txn = this.StateManager.CreateTransaction())
 ```
 using (var txn = this.StateManager.CreateTransaction())
 {
-    await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
-    await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
-    await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
+    await this.Queue.TryDequeueAsync(txn, cancellationToken);
+    await this.Queue.TryDequeueAsync(txn, cancellationToken);
+    await this.Queue.TryDequeueAsync(txn, cancellationToken);
 
-    await txn.CommitAsync().ConfigureAwait(false);
+    await txn.CommitAsync();
 }
 ```
 
-假定没有任何其他处理该队列的并行任务。 项将按以下顺序取消排队：
-> 10, 20, 30
+假定任务已成功完成，且没有并发事务在修改队列。 由于无法推断队列中项的顺序，可能会采用任意顺序取消任意三个项的排队。 队列会尝试让项保持原有的（排队）顺序，但在出现并发操作或错误的情况下，也可能会强制其重新排序。  
 
 - 案例 2：并行取消排队任务
 
@@ -132,69 +123,56 @@ using (var txn = this.StateManager.CreateTransaction())
 List<int> dequeue1;
 using (var txn = this.StateManager.CreateTransaction())
 {
-    dequeue1.Add(await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false)).val;
-    dequeue1.Add(await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false)).val;
+    dequeue1.Add(await this.Queue.TryDequeueAsync(txn, cancellationToken)).val;
+    dequeue1.Add(await this.Queue.TryDequeueAsync(txn, cancellationToken)).val;
 
-    await txn.CommitAsync().ConfigureAwait(false);
+    await txn.CommitAsync();
 }
 
 // Parallel Task 2
 List<int> dequeue2;
 using (var txn = this.StateManager.CreateTransaction())
 {
-    dequeue2.Add(await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false)).val;
-    dequeue2.Add(await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false)).val;
+    dequeue2.Add(await this.Queue.TryDequeueAsync(txn, cancellationToken)).val;
+    dequeue2.Add(await this.Queue.TryDequeueAsync(txn, cancellationToken)).val;
 
-    await txn.CommitAsync().ConfigureAwait(false);
+    await txn.CommitAsync();
 }
 ```
 
-假定没有任何其他处理该队列的并行任务，并且任务 1 和任务 2 并行运行。 用户可以预期事务中的顺序会被保留，但项不会跨事务进行排序。 列表 dequeue1 的顺序和 dequeue2 的顺序可能是以下任何一个：
-> 10, 20
+假定任务已成功完成且是以并行方式运行的，同时没有其他并发事务在修改队列。 由于无法推断队列中项的顺序，列表 *dequeue1* 和 *dequeue2* 均会包含采用任意顺序的任意两个项。
 
-> 10, 30
+同一项不会出现在两个列表中。 因此，如果 dequeue1 包含 *10*、*30*，则 dequeue2 就会包含 *20*、*40*。
 
-> 10, 40
+- 案例 3：以中止事务方式取消排队时的排序
 
-> 20, 30
-
-> 20, 40
-
-> 30, 40
-
-同一元素不会同时出现在这两个列表中。 因此，如果 dequeue1 包含 10、30，则 dequeue2 就会包含 20、40。
-
-- 案例 3：中止事务时的取消排队排序
-
-中止正在执行“取消排队”操作的事务，项就会重新回到队列头。 项回到队列头的顺序是不确定的。 请看以下代码：
+中止正在取消排队的事务，项就会重新回到队列头。 项回到队列头的顺序是不确定的。 请看以下代码：
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
 {
-    await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
-    await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
+    await this.Queue.TryDequeueAsync(txn, cancellationToken);
+    await this.Queue.TryDequeueAsync(txn, cancellationToken);
 
     // Abort the transaction
-    await txn.AbortAsync().ConfigureAwait(false);
+    await txn.AbortAsync();
 }
 ```
 假定项按以下顺序取消排队：
 > 10, 20
 
-中止事务后，项会添加回队列头。 由于“取消排队”操作未成功完成，项可按以下任何顺序添加回队列：
+中止事务后，项会采用以下顺序之一添加回队列头：
 > 10, 20
 
 > 20, 10
 
 事务未成功提交的所有案例均是如此。
 
-## 编程模式
-<a id="programming-patterns" class="xliff"></a>
-此部分介绍一些编程模式，在使用可靠并发队列时可能会用到这些模式。
+## <a name="programming-patterns"></a>编程模式
+此部分介绍一些编程模式，在使用 ReliableConcurrentQueue 时可能会用到这些模式。
 
-### 对取消排队进行批处理
-<a id="batch-dequeues" class="xliff"></a>
-建议的编程模式是，通过使用者任务对取消排队进行批处理，而不是一次执行一个“取消排队”操作。 用户可以选择限制每个批处理之间的延迟，或者限制批处理大小。 以下代码片段显示了此编程模型。
+### <a name="batch-dequeues"></a>对取消排队进行批处理
+建议的编程模式是，通过使用者任务按批取消排队，而不是一次执行一个取消排队操作。 用户可以选择限制每个批处理之间的延迟，或者限制批处理大小。 以下代码片段显示了此编程模型。  请注意，在此示例中，提交事务后，处理就会开始。因此，如果在处理过程中发生错误，则会丢失未处理的项，这些项不会得到处理。  也可以让处理在事务范围内进行，但这种方式可能会对性能造成负面影响，并且需要对已处理的项进行相应的安排。
 
 ```
 int batchSize = 5;
@@ -211,7 +189,7 @@ while(!cancellationToken.IsCancellationRequested)
 
         for(int i = 0; i < batchSize; ++i)
         {
-            ret = await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
+            ret = await this.Queue.TryDequeueAsync(txn, cancellationToken);
 
             if (ret.HasValue)
             {
@@ -225,7 +203,7 @@ while(!cancellationToken.IsCancellationRequested)
             }
         }
 
-        await txn.CommitAsync().ConfigureAwait(false);
+        await txn.CommitAsync();
     }
 
     // Process the dequeues
@@ -235,13 +213,12 @@ while(!cancellationToken.IsCancellationRequested)
     }
 
     int delayFactor = batchSize - processItems.Count;
-    await Task.Delay(TimeSpan.FromMilliseconds(delayMs * delayFactor), cancellationToken).ConfigureAwait(false);
+    await Task.Delay(TimeSpan.FromMilliseconds(delayMs * delayFactor), cancellationToken);
 }
 ```
 
-### 基于通知的处理
-<a id="notification-based-processing" class="xliff"></a>
-另一种有趣的编程模式是使用计数 API。 在这里，我们可以为队列实施基于通知的处理。 可以使用队列计数来限制排队或取消排队任务。
+### <a name="best-effort-notification-based-processing"></a>基于通知的尽力处理
+另一种有趣的编程模式是使用计数 API。 在这里，我们可以为队列实施基于通知的尽力处理。 可以使用队列计数来限制排队或取消排队任务。  请注意，与前面的示例一样，由于处理在事务外部进行，如果在处理过程中发生错误，则可能会丢失未处理的项。
 
 ```
 int threshold = 5;
@@ -254,7 +231,7 @@ while(!cancellationToken.IsCancellationRequested)
         cancellationToken.ThrowIfCancellationRequested();
 
         // If the queue does not have the threshold number of items, delay the task and check again
-        await Task.Delay(TimeSpan.FromMilliseconds(delayMs), cancellationToken).ConfigureAwait(false);
+        await Task.Delay(TimeSpan.FromMilliseconds(delayMs), cancellationToken);
     }
 
     // If there are approximately threshold number of items, try and process the queue
@@ -268,7 +245,7 @@ while(!cancellationToken.IsCancellationRequested)
 
         do
         {
-            ret = await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
+            ret = await this.Queue.TryDequeueAsync(txn, cancellationToken);
 
             if (ret.HasValue)
             {
@@ -277,7 +254,7 @@ while(!cancellationToken.IsCancellationRequested)
             }
         } while (processItems.Count < threshold && ret.HasValue);
 
-        await txn.CommitAsync().ConfigureAwait(false);
+        await txn.CommitAsync();
     }
 
     // Process the dequeues
@@ -288,9 +265,10 @@ while(!cancellationToken.IsCancellationRequested)
 }
 ```
 
-### 尽力 DrainQueueAsync
-<a id="best-effort-drainqueueasync" class="xliff"></a>
-考虑到数据结构的并发特性，我们无法保证队列会被清空。 若要执行 DrainQueueAsync 任务，用户必须等待处理该队列的所有并行任务完成。 由于提交的排队和中止的取消排队均会将项添加到队列，因此应完成所有正在进行的排队和取消排队。 如果队列中的项数量很大，用户应选择对取消排队进行批处理。 所有并行任务都完成后，可以按以下方式实现 DrainQueueAsync：
+### <a name="best-effort-drain"></a>尽力清空
+考虑到数据结构的并发特性，不保证队列会被清空。  即使队列没有正在进行的用户操作，也可能会出现对 TryDequeueAsync 进行具体调用时不返回项（此前已排队并提交）的情况。  排队的项最终必定会变得对取消排队操作可见，但在没有带外通信机制的情况下，独立的使用者无法知道队列是否已达到稳定状态，即使系统已停止所有生成者且不允许新的排队操作。 因此，清空操作只能尽力而为，其执行情况如下所示。
+
+用户应停止所有后续的生成者和使用者任务，等待正在进行的事务提交或中止，然后尝试清空队列。  如果用户知道队列中预计会有多少项，则可设置一个通知，在所有项都已取消排队后发出指示。
 
 ```
 int numItemsDequeued;
@@ -306,7 +284,7 @@ do
     {
         do
         {
-            ret = await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
+            ret = await this.Queue.TryDequeueAsync(txn, cancellationToken);
 
             if(ret.HasValue)
             {
@@ -315,7 +293,7 @@ do
             }
         } while (ret.HasValue && processItems.Count < batchSize);
 
-        await txn.CommitAsync().ConfigureAwait(false);
+        await txn.CommitAsync();
     }
 
     // Process the dequeues
@@ -326,14 +304,13 @@ do
 } while (ret.HasValue);
 ```
 
-### TryPeekAsync
-<a id="trypeekasync" class="xliff"></a>
-可靠并发队列不支持 TryPeekAsync API。 用户可以先使用 TryDequeueAsync，然后中止事务，从而获取同一行为。 让我们看看这样的代码片段。 在此示例中，仅当项的值大于 10 时，才会处理“取消排队”操作；
+### <a name="peek"></a>速览
+可靠并发队列不提供 *TryPeekAsync* API。 用户可以先使用 *TryDequeueAsync*，然后中止事务，从而获取速览语义。 在以下示例中，仅当项的值大于 *10* 时，才会处理取消排队操作。
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
 {
-    ConditionalValue ret = await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
+    ConditionalValue ret = await this.Queue.TryDequeueAsync(txn, cancellationToken);
     bool valueProcessed = false;
 
     if (ret.HasValue)
@@ -348,22 +325,21 @@ using (var txn = this.StateManager.CreateTransaction())
 
     if (valueProcessed)
     {
-        await txn.CommitAsync().ConfigureAwait(false);    
+        await txn.CommitAsync();    
     }
     else
     {
-        await txn.AbortAsync().ConfigureAwait(false);
+        await txn.AbortAsync();
     }
 }
 ```
 
-## 必读
-<a id="must-read" class="xliff"></a>
-* [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
+## <a name="must-read"></a>必读
+* [Reliable Services 快速入门](service-fabric-reliable-services-quick-start.md)
 * [使用可靠集合](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services 通知](service-fabric-reliable-services-notifications.md)
 * [Reliable Services 备份和还原（灾难恢复）](service-fabric-reliable-services-backup-restore.md)
-* [可靠状态管理器和配置](service-fabric-reliable-services-configuration.md)
+* [可靠状态管理器配置](service-fabric-reliable-services-configuration.md)
 * [Service Fabric Web API 服务入门](service-fabric-reliable-services-communication-webapi.md)
 * [Reliable Services 编程模型的高级用法](service-fabric-reliable-services-advanced-usage.md)
 * [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

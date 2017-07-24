@@ -15,17 +15,15 @@ ms.workload: infrastructure-services
 origin.date: 03/28/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
-ms.openlocfilehash: f58900c0cafaab2cf7869d056e0e3339a6df4eb7
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 1f221ef9ee86f39f680852467e3793ea7218a953
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 应用程序网关常见问题
-<a id="frequently-asked-questions-for-application-gateway" class="xliff"></a>
+# <a name="frequently-asked-questions-for-application-gateway"></a>应用程序网关常见问题
 
-## 常规
-<a id="general" class="xliff"></a>
+## <a name="general"></a>常规
 
 **问：什么是应用程序网关？**
 
@@ -46,6 +44,10 @@ Azure 应用程序网关是服务形式的应用程序传送控制器 (ADC)，�
 **问：目前支持在后端池中添加哪些资源？**
 
 后端池可以包含 NIC、虚拟机规模集、公共 IP、内部 IP 和完全限定的域名 (FQDN)。 目前不提供 Azure Web 应用支持。 应用程序网关后端池成员不会绑定到可用性集。 后端池的成员可以跨群集、数据中心，或者在 Azure 外部，前提是它们建立了 IP 连接。
+
+**问：该服务已在哪些区域推出？**
+
+应用程序网关已在公共 Azure 的所有区域推出。
 
 **问：应用程序网关是订阅专门的部署，还是在所有客户之间共享？**
 
@@ -75,8 +77,7 @@ Azure 应用程序网关是服务形式的应用程序传送控制器 (ADC)，�
 
 支持。应用程序网关会将 x-forwarded-for、x-forwarded-proto 和 x-forwarded-port 标头插入转发到后端的请求中。 x-forwarded-for 标头的格式是逗号分隔的“IP:端口”列表。 x-forwarded-proto 的有效值为 http 或 https。 x-forwarded-port 指定请求抵达应用程序网关时所在的端口。
 
-## 配置
-<a id="configuration" class="xliff"></a>
+## <a name="configuration"></a>配置
 
 **问：是否始终要将应用程序网关部署在虚拟网络中？**
 
@@ -128,8 +129,7 @@ Azure 应用程序网关是服务形式的应用程序传送控制器 (ADC)，�
 
 Host 字段指定要将探测数据发送到的名称。 仅在应用程序网关上配置了多站点的情况下适用，否则使用“127.0.0.1”。 此值不同于 VM 主机名，它采用 \<协议\>://\<主机\>:\<端口\>\<路径\> 格式。 
 
-## 性能
-<a id="performance" class="xliff"></a>
+## <a name="performance"></a>性能
 
 **问：应用程序网关如何支持高可用性和可伸缩性？**
 
@@ -151,8 +151,7 @@ Host 字段指定要将探测数据发送到的名称。 仅在应用程序网�
 
 可以。Azure 将跨更新域和容错域分配实例，确保所有实例不会同时发生故障。 为了支持可伸缩性，应用程序网关将添加同一网关的多个实例来分担负载。
 
-## SSL 配置
-<a id="ssl-configuration" class="xliff"></a>
+## <a name="ssl-configuration"></a>SSL 配置
 
 **问：应用程序网关支持哪些证书？**
 
@@ -212,8 +211,7 @@ TLS_RSA_WITH_3DES_EDE_CBC_SHA
 
 不是，它没有与 Azure Key Vault 集成。
 
-## Web 应用程序防火墙 (WAF) 配置
-<a id="web-application-firewall-waf-configuration" class="xliff"></a>
+## <a name="web-application-firewall-waf-configuration"></a>Web 应用程序防火墙 (WAF) 配置
 
 **问：WAF SKU 是否提供标准 SKU 所提供的全部功能？**
 
@@ -257,8 +255,7 @@ WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 否，WAF 不提供 DDoS 防护。
 
-## 诊断和日志记录
-<a id="diagnostics-and-logging" class="xliff"></a>
+## <a name="diagnostics-and-logging"></a>诊断和日志记录
 
 **问：应用程序网关可以使用哪些类型的日志？**
 
@@ -282,13 +279,12 @@ WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 **问：是否可以使用应用程序网关设置警报？**
 
-可以，应用程序网关确实支持警报。可以基于指标设置警报。  应用程序网关目前提供“吞吐量”指标，可以使用它来配置警报。
+可以，应用程序网关确实支持警报。可以基于指标设置警报。  应用程序网关目前提供“吞吐量”指标，可以使用它来配置警报。 若要了解有关警报的详细信息，请访问 [Receive alert notifications](../monitoring-and-diagnostics/insights-alerts-portal.md)（接收警报通知）。
 
 **问：后端运行状况返回未知状态，原因是什么？**
 
 最常见的原因是访问的后端被 NSG 或自定义 DNS 阻止。 有关详细信息，请访问 [Backend health, diagnostics logging, and metrics for Application Gateway](application-gateway-diagnostics.md)（应用程序网关的后端运行状况、诊断日志记录和指标）。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 若要了解有关应用程序网关的详细信息，请访问 [Introduction to Application Gateway](application-gateway-introduction.md)（应用程序网关简介）。

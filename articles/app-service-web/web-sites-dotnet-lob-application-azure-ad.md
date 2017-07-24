@@ -15,14 +15,13 @@ ms.workload: web
 origin.date: 09/01/2016
 ms.date: 03/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 4c5532e91f9d2f3879e3d8f2d6cf76e4f2a6ed7c
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 96349860e49becff2054daeca0f84dc8c3681236
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 使用 Azure Active Directory 身份验证创建业务线 Azure 应用
-<a id="create-a-line-of-business-azure-app-with-azure-active-directory-authentication" class="xliff"></a>
+# <a name="create-a-line-of-business-azure-app-with-azure-active-directory-authentication"></a>使用 Azure Active Directory 身份验证创建业务线 Azure 应用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -32,8 +31,7 @@ ms.lasthandoff: 06/23/2017
 
 <a name="bkmk_build"></a>
 
-## 要生成的项目
-<a id="what-you-will-build" class="xliff"></a>
+## <a name="what-you-will-build"></a>要生成的项目
 将在应用服务 Web 应用中构建用于跟踪工作项并具有以下功能的简单的业务线创建-读取-更新-删除 (CRUD) 应用程序：
 
 * 根据 Azure Active Directory 对用户进行身份验证
@@ -44,8 +42,7 @@ ms.lasthandoff: 06/23/2017
 
 <a name="bkmk_need"></a>
 
-## 需要什么
-<a id="what-you-need" class="xliff"></a>
+## <a name="what-you-need"></a>需要什么
 [!INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 若要完成本教程，你需要以下项目：
@@ -55,12 +52,11 @@ ms.lasthandoff: 06/23/2017
 * Visual Studio 2013 Update 4 或更高版本
 * [Azure SDK 2.8.1 或更高版本](/downloads/)
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 <a name="bkmk_deploy"></a>
 
-## 创建 Web 应用并将其部署到 Azure
-<a id="create-and-deploy-a-web-app-to-azure" class="xliff"></a>
+## <a name="create-and-deploy-a-web-app-to-azure"></a>创建 Web 应用并将其部署到 Azure
 1. 在 Visual Studio 中，依次单击“文件” > “新建” > “项目”。
 2. 选择“ASP.NET Web 应用程序”、为项目命名，然后单击“确定”。
 3. 选择“MVC”模板，然后将身份验证更改为“无身份验证”。 确保已选中“在云中托管”，然后单击“确定”。
@@ -83,8 +79,7 @@ ms.lasthandoff: 06/23/2017
 
 <a name="bkmk_auth"></a>
 
-## 配置身份验证和目录访问
-<a id="configure-authentication-and-directory-access" class="xliff"></a>
+## <a name="configure-authentication-and-directory-access"></a>配置身份验证和目录访问
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 从左侧菜单中，依次单击“**应用服务** > **&lt;*应用名称*”** >“**身份验证/授权**”。
 
@@ -180,8 +175,7 @@ ms.lasthandoff: 06/23/2017
 
 <a name="bkmk_crud"></a>
 
-## 将业务线功能添加到应用
-<a id="add-line-of-business-functionality-to-your-app" class="xliff"></a>
+## <a name="add-line-of-business-functionality-to-your-app"></a>将业务线功能添加到应用
 现在，可以创建一个简单的 CRUD 工作项跟踪器。  
 
 1. 在 ~\Models 文件夹中，创建名为 WorkItem.cs 的类文件，将 `public class WorkItem {...}` 替换为以下代码：
@@ -385,17 +379,15 @@ ms.lasthandoff: 06/23/2017
 
 <a name="next"></a>
 
-## 后续步骤
-<a id="next-step" class="xliff"></a>
+## <a name="next-step"></a>后续步骤
 如果 Azure 中的业务线应用需要基于角色的访问控制 (RBAC)，请参阅 [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) 获取 Azure Active Directory 团队提供的示例。 该示例演示了如何为 Azure Active Directory 应用程序启用角色，然后使用 `[Authorize]` 装饰为用户授权。
 
 <a name="bkmk_resources"></a>
 
-## 其他资源
-<a id="further-resources" class="xliff"></a>
+## <a name="further-resources"></a>其他资源
 * [Azure 应用服务中的身份验证和授权](../app-service/app-service-authentication-overview.md)
 * [在 Azure 应用中使用本地 Active Directory 进行身份验证](web-sites-authentication-authorization.md)
 * [在 Azure 中使用 AD FS 身份验证创建业务线应用](web-sites-dotnet-lob-application-adfs.md)
 * [App Service Auth and the Azure AD Graph API（应用服务身份验证和 Azure AD 图形 API）](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Azure Active Directory Samples and Documentation（Azure Active Directory 示例和文档）](https://github.com/AzureADSamples)
-* [Azure Active Directory 支持的令牌和声明类型](/active-directory/develop/active-directory-token-and-claims/)
+* [Azure Active Directory 支持的令牌和声明类型](/active-directory/develop/active-directory-token-and-claims)

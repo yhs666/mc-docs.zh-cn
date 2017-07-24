@@ -1,5 +1,5 @@
 ---
-title: "在基于 Linux 的 HDInsight (Hadoop) 上安装并使用 Giraph | Azure"
+title: "在 HDInsight (Hadoop) 上安装并使用 Giraph - Azure | Azure"
 description: "了解如何使用脚本操作在基于 Linux 的 HDInsight 群集上安装 Giraph。 脚本操作可让你通过更改群集配置或安装服务和实用工具，在创建期间自定义群集。"
 services: hdinsight
 documentationcenter: 
@@ -17,19 +17,18 @@ ms.topic: article
 origin.date: 05/04/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: c64ca88798efb29ce15eec58f962ce1ab55621e7
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 5482a542470ae72e46c01220dafea051cf6ee493
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 在 HDInsight Hadoop 群集上安装 Giraph 并使用 Giraph 处理大型图形
-<a id="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs" class="xliff"></a>
+# <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 群集上安装 Giraph 并使用 Giraph 处理大型图形
 
 了解如何在 HDInsight 群集上安装 Apache Giraph。 HDInsight 的脚本操作功能允许通过运行 bash 脚本来自定义群集。 可以在创建群集期间或之后使用脚本来自定义群集。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)。
+> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 ## <a name="whatis"></a>什么是 Giraph
 
@@ -46,8 +45,7 @@ ms.lasthandoff: 06/21/2017
 >
 > 自定义组件（如 Giraph）可获得合理范围的支持，以帮助你进一步排查问题。 Azure.cn 支持可能能够解决问题。 如果不能，你必须去开源社区查阅资料，可以在那里找到关于该技术的深层专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
 
-## 脚本功能
-<a id="what-the-script-does" class="xliff"></a>
+## <a name="what-the-script-does"></a>脚本功能
 
 此脚本可执行以下操作：
 
@@ -174,8 +172,7 @@ ms.lasthandoff: 06/21/2017
 
     ![将对象绘制为圆圈，并绘制对象之间的最短路径](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph-out.png)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 * [在 HDInsight 群集上安装并使用 Hue](hdinsight-hadoop-hue-linux.md)。
 

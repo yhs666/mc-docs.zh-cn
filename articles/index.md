@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: "Azure 文档 | Microsoft Docs"
 description: "了解如何使用 Microsoft Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
-ms.openlocfilehash: cc95b8a2f4ca0d3a385b168ba2dc0f1a320906d5
-ms.sourcegitcommit: 04b365f5adee3a073b90fbf6ae353d16a071c89e
+ms.openlocfilehash: 489129f8b3cfdbaae66ed46df1a9348b8488de15
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 07/14/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1184,7 +1184,7 @@ ms.lasthandoff: 07/04/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>HDInsight</h3>
-                                                    <p>预配云 Hadoop、Spark、R Server、Hbase 和 Storm 群集</p>
+                                                    <p>预配云 Hadoop、Spark、Hbase 和 Storm 群集</p>
                                                 </div>
                                             </div>
                                         </div>

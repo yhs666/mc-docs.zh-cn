@@ -15,18 +15,16 @@ ms.topic: article
 origin.date: 04/11/2017
 ms.date: 05/02/2017
 ms.author: v-dazen
-ms.openlocfilehash: 32670ab77aacc07956605e4e66b17c26aadeb699
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 656e3e884811d73da22c28b197aaa28cf564b990
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
-# 如何缩放 Azure Redis 缓存
-<a id="how-to-scale-azure-redis-cache" class="xliff"></a>
+# <a name="how-to-scale-azure-redis-cache"></a>如何缩放 Azure Redis 缓存
 Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能的选择更加灵活。 创建缓存后，如果应用程序的要求发生更改，可以缩放缓存的大小和定价层。 本文演示如何通过 Azure 门户以及使用 Azure PowerShell 和 Azure CLI 等工具来缩放缓存。
 
-## 何时缩放
-<a id="when-to-scale" class="xliff"></a>
+## <a name="when-to-scale"></a>何时缩放
 可以使用 Azure Redis 缓存的[监视](cache-how-to-monitor.md)功能来监视缓存的运行状况和性能，并确定何时缩放缓存。 
 
 你可以监视以下指标以帮助确定是否需要进行缩放。
@@ -38,9 +36,8 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 
 如果确定缓存不再满足应用程序的要求，可以缩放到适合应用程序的更大或更小缓存定价层。 有关确定应使用哪个缓存定价层的详细信息，请参阅[我应当使用哪些 Redis 缓存产品/服务和大小](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)。
 
-## 缩放缓存
-<a id="scale-a-cache" class="xliff"></a>
-若要缩放缓存，请在 [Azure 门户](https://portal.azure.cn)中[浏览到缓存](cache-configure.md#configure-redis-cache-settings)，然后从“资源”菜单单击“缩放”。
+## <a name="scale-a-cache"></a>缩放缓存
+若要缩放缓存，请在 [Azure 门户](https://portal.azure.cn)中[浏览到缓存](cache-configure.md#configure-redis-cache-settings)，然后从“设置”单击“缩放”。
 
 ![缩放](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
@@ -63,30 +60,26 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 
 缩放完成后，状态将从**正在缩放**更改为**正在运行**。
 
-## 如何自动执行缩放操作
-<a id="how-to-automate-a-scaling-operation" class="xliff"></a>
+## <a name="how-to-automate-a-scaling-operation"></a>如何自动执行缩放操作
 除了在 Azure 门户中缩放缓存实例以外，还可以使用 PowerShell cmdlet、Azure CLI 和 Azure 管理库 (MAML) 进行缩放。 
 
 * [使用 PowerShell 进行缩放](#scale-using-powershell)
 * [使用 Azure CLI 进行缩放](#scale-using-azure-cli)
 * [使用 MAML 进行缩放](#scale-using-maml)
 
-### 使用 PowerShell 进行缩放
-<a id="scale-using-powershell" class="xliff"></a>
+### <a name="scale-using-powershell"></a>使用 PowerShell 进行缩放
 修改 `Size`、`Sku` 或 `ShardCount` 属性后，可以在 PowerShell 中使用 [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) cmdlet 缩放 Azure Redis 缓存实例。 以下示例演示了如何将名为 `myCache` 的缓存缩放为 2.5 GB 缓存。 
 
     Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
 有关使用 PowerShell 进行缩放的详细信息，请参阅[使用 PowerShell 缩放 Redis 缓存](cache-howto-manage-redis-cache-powershell.md#scale)。
 
-### 使用 Azure CLI 进行缩放
-<a id="scale-using-azure-cli" class="xliff"></a>
+### <a name="scale-using-azure-cli"></a>使用 Azure CLI 进行缩放
 若要使用 Azure CLI 缩放 Azure Redis 缓存实例，请调用 `azure rediscache set` 命令并传入所需的配置更改，包括新大小、sku 或群集大小，具体取决于所需的缩放操作。
 
 有关使用 Azure CLI 进行缩放的详细信息，请参阅[更改现有 Redis 缓存的设置](cache-manage-cli.md#scale)。
 
-### 使用 MAML 进行缩放
-<a id="scale-using-maml" class="xliff"></a>
+### <a name="scale-using-maml"></a>使用 MAML 进行缩放
 若要使用 [Azure 管理库 (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/) 缩放 Azure Redis 缓存实例，请调用 `IRedisOperations.CreateOrUpdate` 方法并传入 `RedisProperties.SKU.Capacity` 的新大小。
 
     static void Main(string[] args)
@@ -109,8 +102,7 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 
 有关详细信息，请参阅 [使用 MAML 管理 Redis 缓存](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) 示例。
 
-## 关于缩放的常见问题
-<a id="scaling-faq" class="xliff"></a>
+## <a name="scaling-faq"></a>关于缩放的常见问题
 以下列表包含有关 Azure Redis 缓存缩放的常见问题的解答。
 
 * [可以向上缩放到高级缓存，或在其中向下缩放吗？](#can-i-scale-to-from-or-within-a-premium-cache)
@@ -123,8 +115,7 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 * [缩放需要多长时间？](#how-long-does-scaling-take)
 * [如何判断缩放何时完成？](#how-can-i-tell-when-scaling-is-complete)
 
-### 可以向上缩放到高级缓存，或在其中向下缩放吗？
-<a id="can-i-scale-to-from-or-within-a-premium-cache" class="xliff"></a>
+### <a name="can-i-scale-to-from-or-within-a-premium-cache"></a>可以向上缩放到高级缓存，或在其中向下缩放吗？
 * 不能从**高级**缓存向下缩放到**基本**或**标准**定价层。
 * 可以从一个**高级**缓存定价层缩放到另一个高级缓存定价层。
 * 不能从**基本**缓存直接缩放到**高级**缓存。 必须先在一个缩放操作中从**基本**缩放到**标准**，然后再在后续的缩放操作中从**标准**缩放到**高级**。
@@ -132,24 +123,20 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 
   有关详细信息，请参阅 [如何为高级 Azure Redis 缓存配置群集功能](cache-how-to-premium-clustering.md)。
 
-### 缩放后，我是否需要更改缓存名称或访问密钥？
-<a id="after-scaling-do-i-have-to-change-my-cache-name-or-access-keys" class="xliff"></a>
+### <a name="after-scaling-do-i-have-to-change-my-cache-name-or-access-keys"></a>缩放后，我是否需要更改缓存名称或访问密钥？
 不需要，在缩放操作期间缓存名称和密钥不变。
 
-### 缩放的工作原理？
-<a id="how-does-scaling-work" class="xliff"></a>
+### <a name="how-does-scaling-work"></a>缩放的工作原理？
 * 将 **基本** 缓存缩放为不同大小时，将关闭该缓存，同时使用新的大小预配一个新缓存。 在此期间，缓存不可用，且缓存中的所有数据都将丢失。
 * 将**基本**缓存缩放为**标准**缓存时，将预配副本缓存并将主缓存中的数据复制到副本缓存。 在缩放过程中，缓存仍然可用。
 * 将**标准**缓存缩放为不同大小或缩放到**高级**缓存时，将关闭其中一个副本，同时将其重新预配为新的大小，将数据转移，然后，在重新预配另一个副本之前，另一个副本将执行一次故障转移，类似于一个缓存节点发生故障时所发生的过程。
 
-### 在缩放过程中是否会丢失缓存中的数据？
-<a id="will-i-lose-data-from-my-cache-during-scaling" class="xliff"></a>
+### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>在缩放过程中是否会丢失缓存中的数据？
 * 将 **基本** 缓存缩放为新的大小时，所有数据都将丢失，且在缩放操作期间缓存将不可用。
 * 将**基本**缓存缩放为**标准**缓存时，通常将保留缓存中的数据。
 * 将**标准**缓存扩展为更大大小或更大层，或者将**高级**缓存扩展为更大大小时，通常将保留所有数据。 将**标准**或**高级**缓存缩小到更小大小时，数据可能会丢失，具体取决于与缩放后的新大小相关的缓存中的数据量。 如果缩小时数据丢失，则使用 [allkeys lru](http://redis.io/topics/lru-cache) 逐出策略逐出密钥。 
 
-### 在缩放过程中，自定义数据库设置是否会受影响？
-<a id="is-my-custom-databases-setting-affected-during-scaling" class="xliff"></a>
+### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>在缩放过程中，自定义数据库设置是否会受影响？
 某些定价层具有不同的[数据库限制](cache-configure.md#databases)，因此，如果在缓存创建过程中为 `databases` 设置配置了自定义值，则在向下缩放时需注意一些注意事项。
 
 * 缩放到的定价层的 `databases` 限制低于当前层：
@@ -160,13 +147,11 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 
 注意，当标准和高级缓存有 99.9% 可用性 SLA 时，则没有数据丢失方面的 SLA。
 
-### 在缩放过程中，缓存是否可用？
-<a id="will-my-cache-be-available-during-scaling" class="xliff"></a>
+### <a name="will-my-cache-be-available-during-scaling"></a>在缩放过程中，缓存是否可用？
 * **标准**和**高级**缓存在缩放操作期间保持可用。
 * **基本**缓存在执行缩放为不同大小的缩放操作过程中处于脱机状态，但在从**基本**缓存缩放为**标准**缓存时仍然可用。
 
-### 不支持的操作
-<a id="operations-that-are-not-supported" class="xliff"></a>
+### <a name="operations-that-are-not-supported"></a>不支持的操作
 * 不能从较高的定价层缩放到较低的定价层。
   * 不能从**高级**缓存向下缩放到**标准**或**基本**缓存。
   * 不能从**标准**缓存向下缩放到**基本**缓存。
@@ -176,12 +161,10 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 
 如果缩放操作失败，该服务将尝试还原操作并且缓存将还原为初始大小。
 
-### 缩放需要多长时间？
-<a id="how-long-does-scaling-take" class="xliff"></a>
+### <a name="how-long-does-scaling-take"></a>缩放需要多长时间？
 缩放大约需要 20 分钟，具体取决于缓存中的数据量。
 
-### 如何判断缩放何时完成？
-<a id="how-can-i-tell-when-scaling-is-complete" class="xliff"></a>
+### <a name="how-can-i-tell-when-scaling-is-complete"></a>如何判断缩放何时完成？
 在 Azure 门户中可以看到进行中的缩放操作。 缩放完成后，缓存状态将更改为 **正在运行**。
 
 <!-- IMAGES -->
