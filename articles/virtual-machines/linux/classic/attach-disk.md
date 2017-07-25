@@ -17,10 +17,10 @@ origin.date: 02/09/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
 ms.openlocfilehash: 90519cdb692d705d37f0f2aad4f60da67786b140
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>如何将数据磁盘附加到 Linux 虚拟机
 > [!IMPORTANT] 
@@ -150,7 +150,7 @@ ms.lasthandoff: 06/23/2017
     ```
 
     > [!NOTE]
-    > 错误地编辑 **/etc/fstab** 文件可能会导致系统无法引导。 如果没有把握，请参考该发行版的文档来获取有关如何正确编辑该文件的信息。 另外，建议在编辑之前创建 /etc/fstab 文件的备份。
+    > 错误地编辑 **/etc/fstab** 文件可能会导致系统无法引导。 如果没有把握，请参考分发的文档来获取有关如何正确编辑该文件的信息。 另外，建议在编辑之前创建 /etc/fstab 文件的备份。
 
     接下来，请在文本编辑器中打开 **/etc/fstab** 文件。
 
@@ -194,7 +194,7 @@ ms.lasthandoff: 06/23/2017
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Azure 中对 Linux 的 TRIM/UNMAP 支持
 某些 Linux 内核支持 TRIM/UNMAP 操作以放弃磁盘上未使用的块。 这些操作主要适用于标准存储，以通知 Azure 已删除的页不再有效可以丢弃。 如果创建了较大的文件，然后将其删除，则放弃页可以节省成本。
 
-在 Linux VM 中有两种方法可以启用 TRIM 支持。 与往常一样，有关建议的方法，请参阅相应发行版：
+在 Linux VM 中有两种方法可以启用 TRIM 支持。 与往常一样，有关建议的方法，请参阅分发：
 
 * 在 `/etc/fstab` 中使用 `discard` 装载选项，例如：
 

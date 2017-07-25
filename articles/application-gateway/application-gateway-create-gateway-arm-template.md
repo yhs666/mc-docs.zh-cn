@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用 Azure Resource Manager 模板创建应用程序网关
-<a id="create-an-application-gateway-by-using-the-azure-resource-manager-template" class="xliff"></a>
+# <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建应用程序网关
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](application-gateway-create-gateway-portal.md)
@@ -40,8 +39,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 如果只是直接从 GitHub 部署 Azure Resource Manager 模板，而不进行任何更改，请跳到“从 GitHub 部署模板”。
 
-## 方案
-<a id="scenario" class="xliff"></a>
+## <a name="scenario"></a>方案
 
 在此方案中，将要：
 
@@ -55,8 +53,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 ![方案](./media/application-gateway-create-gateway-arm-template/scenario.png)
 
-## 下载并了解 Azure Resource Manager 模板
-<a id="download-and-understand-the-azure-resource-manager-template" class="xliff"></a>
+## <a name="download-and-understand-the-azure-resource-manager-template"></a>下载并了解 Azure Resource Manager 模板
 
 可以从 GitHub 下载用于创建虚拟网络和两个子网的现有 Azure Resource Manager 模板，进行任何所需的更改，然后重用该模板。 为此，请使用以下步骤：
 
@@ -133,8 +130,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 1. 保存文件。 可以使用联机 JSON 验证工具（例如 [JSlint.com](http://www.jslint.com/)）测试 JSON 模板和参数模板。
 
-## 使用 PowerShell 部署 Azure Resource Manager 模板
-<a id="deploy-the-azure-resource-manager-template-by-using-powershell" class="xliff"></a>
+## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>使用 PowerShell 部署 Azure Resource Manager 模板
 
 如果从未使用过 Azure PowerShell，请参阅：[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)，并按照说明进行操作，登录到 Azure 并选择订阅。
 
@@ -171,8 +167,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
-## 使用 Azure CLI 部署 Azure Resource Manager 模板
-<a id="deploy-the-azure-resource-manager-template-by-using-the-azure-cli" class="xliff"></a>
+## <a name="deploy-the-azure-resource-manager-template-by-using-the-azure-cli"></a>使用 Azure CLI 部署 Azure Resource Manager 模板
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -196,8 +191,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
     az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
     ```
 
-## 使用“单击部署”来部署 Azure Resource Manager 模板
-<a id="deploy-the-azure-resource-manager-template-by-using-click-to-deploy" class="xliff"></a>
+## <a name="deploy-the-azure-resource-manager-template-by-using-click-to-deploy"></a>使用“单击部署”来部署 Azure Resource Manager 模板
 
 “单击部署”是另一种使用 Azure Resource Manager 模板的方式。 这是将模板与 Azure 门户配合使用的简便方法。
 
@@ -215,8 +209,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 1. 在“自定义部署”边栏选项卡上，单击“创建” 。
 
-## 向 Resource Manager 模板提供证书数据
-<a id="providing-certificate-data-to-resource-manager-templates" class="xliff"></a>
+## <a name="providing-certificate-data-to-resource-manager-templates"></a>向 Resource Manager 模板提供证书数据
 
 如果将 SSL 与模板一起使用，请提供 base64 字符串的证书，而不是上传证书。 若要将 .pfx 或 .cer 转换为 base64 字符串，请运行以下 PowerShell 命令。 此代码片段会证书将转换为 base64 字符串，以便将其提供给模板。 预期输出为一个字符串，它可以存储在变量中，并粘贴到模板中。
 
@@ -224,27 +217,23 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```
 
-## 删除所有资源
-<a id="delete-all-resources" class="xliff"></a>
+## <a name="delete-all-resources"></a>删除所有资源
 
 若要删除在本文中创建的所有资源，请完成以下任一步骤：
 
-### PowerShell
-<a id="powershell" class="xliff"></a>
+### <a name="powershell"></a>PowerShell
 
 ```powershell
 Remove-AzureRmResourceGroup -Name appgatewayRG
 ```
 
-### Azure CLI
-<a id="azure-cli" class="xliff"></a>
+### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az group delete --name appgatewayRG
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 若要配置 SSL 卸载，请访问：[配置应用程序网关以进行 SSL 卸载](application-gateway-ssl.md)。
 

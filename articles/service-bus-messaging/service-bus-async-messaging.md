@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 异步消息传送模式和高可用性
-<a id="asynchronous-messaging-patterns-and-high-availability" class="xliff"></a>
+# <a name="asynchronous-messaging-patterns-and-high-availability"></a>异步消息传送模式和高可用性
 可以通过多种不同的方式实现异步消息传送。 对于队列、主题和订阅，Azure 服务总线通过存储和转发机制支持异步。 在正常（同步）操作中，会将消息发送到队列和主题，并从队列和主题接收消息。 你编写的应用程序依赖于这些始终可用的实体。 当实体运行状况因各种环境而发生变化时，你需要一种能够提供满足大多数需求的缩减功能实体的方式。
 
 应用程序通常使用异步消息传送模式来实现大量通信方案。 你可以构建一些应用程序，以便客户端在其中可以向服务发送消息（即使该服务未运行）。 对于将经历大量通信的应用程序，队列可以通过提供缓冲通信的场所，帮助对负载进行分级。 最后，你可以获得一个简单而高效的负载均衡器，从而在多台计算机间分发消息。
@@ -39,8 +38,7 @@ ms.lasthandoff: 07/14/2017
 
 对于以上每种故障，存在不同的故障模式，从而使应用程序能够在某种程度功能缩减的情况下继续执行工作。 例如，可以发送消息但无法接收消息的系统仍可以从客户接收指令，但无法处理这些指令。 本主题讨论了可能发生的潜在问题，以及如何缓解这些问题。 服务总线引入了必须选择加入的大量缓解措施，本主题还介绍了管理这些选择性加入缓解措施的规则。
 
-## 服务总线可靠性
-<a id="reliability-in-service-bus" class="xliff"></a>
+## <a name="reliability-in-service-bus"></a>服务总线可靠性
 可通过多种方式来处理消息和实体问题，有一套对这些缓解措施的恰当使用进行管理的准则。 要了解这些准则，必须先了解服务总线中可能出现的故障。 由于 Azure 系统的设计，所有这些故障往往都是短期的。 在高级别中，引起不可用的各种原因如下所示：
 
 -   来自服务总线所依赖的外部系统的限制。 与存储和计算资源的交互存在限制。
@@ -58,24 +56,20 @@ ms.lasthandoff: 07/14/2017
 
 服务总线包含了针对这些问题的许多缓解措施。 以下各节介绍了每个问题及其相应的缓解措施。
 
-### 限制
-<a id="throttling" class="xliff"></a>
+### <a name="throttling"></a>限制
 通过服务总线，设置限制可以实现协作消息速率管理。 每个单独的服务总线节点包含许多实体。 其中每个实体都需要在 CPU、内存、存储和其他方面占用系统。 当上述任一方面检测到超出定义阈值的使用情况时，服务总线可以拒绝给定的请求。 调用方会接收到 [ServerBusyException][ServerBusyException]，并在 10 秒后重试。
 
 作为一种缓解措施，该代码必须读取错误并停止该消息的任何重试至少 10 秒。 由于此错误可能发生在多个客户应用程序之间，所以最好使每个应用程序独立执行重试逻辑。 该代码可以通过对队列或主题启用分区来减少受限概率。
 
-### Azure 依赖项的问题
-<a id="issue-for-an-azure-dependency" class="xliff"></a>
+### <a name="issue-for-an-azure-dependency"></a>Azure 依赖项的问题
 Azure 中的其他组件可能偶尔会发生服务问题。 例如，当服务总线使用的系统正在升级时，该系统可能会暂时出现功能缩减。 为了解决这些类型的问题，服务总线会定期进行调查并实施缓解措施。 这些缓解措施的副作用的确存在。 例如，为了处理存储的暂时性问题，服务总线将实现系统来允许消息发送操作持续工作。 由于缓解措施的性质，发送的消息可能最多需要 15 分钟才能在受影响的队列或订阅中显示以及才可以接收得到。 一般而言，大多数实体不会遇到此问题。 但是，考虑到 Azure 服务总线中的实体数，有时需要为服务总线客户的一小部分实施此缓解措施。
 
-### 单个子系统上的服务总线故障
-<a id="service-bus-failure-on-a-single-subsystem" class="xliff"></a>
+### <a name="service-bus-failure-on-a-single-subsystem"></a>单个子系统上的服务总线故障
 使用任何应用程序时，环境都可能导致服务总线的内部组件出现不一致。 当服务总线检测到这种不一致时，它将从该应用程序收集数据以辅助诊断问题。 收集到数据后，将重新启动该应用程序以尝试使其返回一致状态。 此过程发生得相当迅速，并且会导致实体长达数分钟不可用，而典型的停机时间则要短得多。
 
 在这些情况下，客户端应用程序将生成 [System.TimeoutException][System.TimeoutException] 或 [MessagingException][MessagingException] 异常。 服务总线通过自动客户端重试逻辑来缓解该问题。 如果重试周期用尽而未能传递消息，可以尝试使用其他功能，例如[成对命名空间][paired namespaces]。 成对命名空间具有其他一些注意事项，本文对此进行了讨论。
 
-### Azure 数据中心内的服务总线故障
-<a id="failure-of-service-bus-within-an-azure-datacenter" class="xliff"></a>
+### <a name="failure-of-service-bus-within-an-azure-datacenter"></a>Azure 数据中心内的服务总线故障
 造成 Azure 数据中心内故障的最可能原因是，服务总线或依赖系统升级部署失败。 随着平台的成熟，出现此类型故障的可能性已降低。 数据中心出现故障的原因还可能包括以下方面：
 
 -   电力中断（电源和生成的电力消失）。
@@ -83,8 +77,7 @@ Azure 中的其他组件可能偶尔会发生服务问题。 例如，当服务�
 
 对于这两种情况，自然或人为灾难都可能导致此问题发生。 若要解决此问题并确保仍可发送消息，可以使用[成对命名空间][paired namespaces]，以允许在主位置恢复正常时能够将消息发送到第二个位置。 有关详细信息，请参阅[使应用程序免受服务总线中断和灾难影响的最佳实践][Best practices for insulating applications against Service Bus outages and disasters]。
 
-## 成对命名空间
-<a id="paired-namespaces" class="xliff"></a>
+## <a name="paired-namespaces"></a>成对命名空间
 [成对命名空间][paired namespaces]功能支持在数据中心内的服务总线实体或部署不可用时的应用场景。 虽然此故障很少发生，但仍必须准备分布式系统以应对最坏情况。 通常情况下，发生此故障是由于服务总线所依赖的某些元素发生短期问题。 为了维护应用程序在中断期间的可用性，服务总线用户可使用两个单独的命名空间（最好位于独立的数据中心内）来托管其消息实体。 此部分的剩余部分使用了下列术语：
 
 -   主命名空间：应用程序与之进行交互以便进行发送和接收操作的命名空间。
@@ -108,8 +101,7 @@ Azure 中的其他组件可能偶尔会发生服务问题。 例如，当服务�
 
 以下各节介绍了 API 以及实现 API 的方式，并显示了使用此功能的示例代码。 请注意，此功能将对计费产生相关影响。
 
-### MessagingFactory.PairNamespaceAsync API
-<a id="the-messagingfactorypairnamespaceasync-api" class="xliff"></a>
+### <a name="the-messagingfactorypairnamespaceasync-api"></a>MessagingFactory.PairNamespaceAsync API
 成对命名空间功能包含针对 [Microsoft.ServiceBus.Messaging.MessagingFactory][Microsoft.ServiceBus.Messaging.MessagingFactory] 类的 [PairNamespaceAsync][PairNamespaceAsync] 方法：
 
 ```csharp
@@ -151,8 +143,7 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 }
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 了解服务总线中的异步消息传送的基本信息后，可阅读有关[成对命名空间][paired namespaces]的详细信息。
 
 [ServerBusyException]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.serverbusyexception

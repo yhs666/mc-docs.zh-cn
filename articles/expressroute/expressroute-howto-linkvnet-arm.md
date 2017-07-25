@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 将虚拟网络连接到 ExpressRoute 线路
-<a id="connect-a-virtual-network-to-an-expressroute-circuit" class="xliff"></a>
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>将虚拟网络连接到 ExpressRoute 线路
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure 门户](./expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](./expressroute-howto-linkvnet-arm.md)
@@ -32,8 +31,7 @@ ms.lasthandoff: 07/14/2017
 
 本文将帮助你使用 Resource Manager 部署模型和 PowerShell 将虚拟网络 (VNet) 链接到 Azure ExpressRoute 线路。 虚拟网络可以在同一个订阅中，也可以属于另一个订阅。 本文还介绍如何更新虚拟网络链接。 
 
-## 开始之前
-<a id="before-you-begin" class="xliff"></a>
+## <a name="before-you-begin"></a>开始之前
 * 安装最新版本的 Azure PowerShell 模块。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。
 * 在开始配置之前，请查看[先决条件](./expressroute-prerequisites.md)、[路由要求](./expressroute-routing.md)和[工作流](./expressroute-workflows.md)。
 * 必须有活动的 ExpressRoute 线路。 
@@ -46,8 +44,7 @@ ms.lasthandoff: 07/14/2017
 
 如果已启用 ExpressRoute 高级外接程序，则可以链接 ExpressRoute 线路的地缘政治区域外部的虚拟网络，或者将更多虚拟网络连接到 ExpressRoute 线路。 有关高级外接程序的更多详细信息，请参阅[常见问题](./expressroute-faqs.md)。
 
-## 将同一订阅中的虚拟网络连接到线路
-<a id="connect-a-virtual-network-in-the-same-subscription-to-a-circuit" class="xliff"></a>
+## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>将同一订阅中的虚拟网络连接到线路
 
 可以使用以下 cmdlet 将虚拟网络网关连接到 ExpressRoute 线路。 在运行 cmdlet 前，请确保已创建虚拟网络网关并可将其用于进行链接：
 
@@ -57,8 +54,7 @@ $gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName
 $connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "China North" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
 ```
 
-## 将不同订阅中的虚拟网络连接到线路
-<a id="connect-a-virtual-network-in-a-different-subscription-to-a-circuit" class="xliff"></a>
+## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>将不同订阅中的虚拟网络连接到线路
 
 用户可以在多个订阅之间共享 ExpressRoute 线路。 下图是在多个订阅之间共享 ExpressRoute 线路的简单示意图。
 
@@ -72,15 +68,13 @@ $connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -R
 ![跨订阅连接](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
 
-### 管理 - 线路所有者和线路用户
-<a id="administration---circuit-owners-and-circuit-users" class="xliff"></a>
+### <a name="administration---circuit-owners-and-circuit-users"></a>管理 - 线路所有者和线路用户
 
 “线路所有者”是 ExpressRoute 线路资源的已授权高级用户。 线路所有者可以创建可供“线路用户”兑换的授权。 线路用户是虚拟网关的所有者，这些网关与 ExpressRoute 线路位于不同的订阅中。 线路用户可以兑换授权（每个虚拟网络需要一个授权）。
 
 线路所有者有权随时修改和撤消授权。 撤消授权会导致从已撤消访问权限的订阅中删除所有链路连接。
 
-### 线路所有者操作
-<a id="circuit-owner-operations" class="xliff"></a>
+### <a name="circuit-owner-operations"></a>线路所有者操作
 
 **创建授权**
 
@@ -140,8 +134,7 @@ Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -Express
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit    
 ```
 
-### 线路用户操作
-<a id="circuit-user-operations" class="xliff"></a>
+### <a name="circuit-user-operations"></a>线路用户操作
 
 线路用户需有对等 ID 和线路所有者提供的授权密钥。 授权密钥是一个 GUID。
 
@@ -165,8 +158,7 @@ $connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -R
 
 可以通过删除 ExpressRoute 线路与虚拟网络之间的连接释放授权。
 
-## 修改虚拟网络连接
-<a id="modify-a-virtual-network-connection" class="xliff"></a>
+## <a name="modify-a-virtual-network-connection"></a>修改虚拟网络连接
 可以更新虚拟网络连接的某些属性。 
 
 **更新连接权重**
@@ -181,7 +173,6 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 
 *RoutingWeight* 的范围是 0 到 32000。 默认值为 0。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关 ExpressRoute 的详细信息，请参阅 [ExpressRoute 常见问题](./expressroute-faqs.md)。

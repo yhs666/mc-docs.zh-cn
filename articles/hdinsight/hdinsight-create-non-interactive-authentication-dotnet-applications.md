@@ -1,5 +1,5 @@
 ---
-title: "创建非交互式身份验证 .NET HDInsight 应用程序 | Azure"
+title: "创建非交互式身份验证 .NET HDInsight 应用程序 - Azure | Azure"
 description: "了解如何创建非交互式身份验证 .NET HDInsight 应用程序。"
 editor: cgronlun
 manager: jhubbard
@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2017
-ms.date: 04/27/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 2f13773a6f0a8a4ec43acc30ef0ca7e4cbee3346
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 256c958e6b4b48ca4d61b4a99e0b9b473056669f
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="create-non-interactive-authentication-net-hdinsight-applications"></a>创建非交互式身份验证 .NET HDInsight 应用程序
 可以在应用程序自身的标识（非交互式）或应用程序的已登录用户标识（交互式）下运行 .NET Azure HDInsight 应用程序。 有关交互式应用程序的示例，请参阅[连接到 Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight)。 本文介绍如何创建非交互式身份验证 .NET 应用程序，以连接到 Azure 并管理 HDInsight。

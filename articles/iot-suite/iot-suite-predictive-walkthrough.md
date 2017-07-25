@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/16/2017
+origin.date: 04/25/2017
 ms.date: 04/27/2017
 ms.author: v-yiso
-ms.openlocfilehash: 75a9025281c56c4fa490b44877b565b1cb72197d
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: a4ccbf26b0c76f9a1d53a828169d7c6ee677b0e3
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>预见性维护预配置解决方案演练
 
 ## <a name="introduction"></a>介绍
 
-IoT 套件预见性维护预配置解决方案是一个用于商业应用场景的端到端解决方案，可预测可能发生故障的时间点。 可主动使用此预配置解决方案执行维护优化等活动。 该解决方案结合了重要的 Azure IoT 套件服务，例如 IoT 中心和流分析。 此解决方案还包含基于公用示例数据集的模型，用于预测飞机引擎的剩余使用寿命 (RUL)。 该模型在解决方案包含的某个虚拟机所托管的 R Server 上运行。 此解决方案全面实施 loT 商业应用场景，以此为起点，你可以规划和实施满足自己特定业务需求的解决方案。
+IoT 套件预见性维护预配置解决方案是一个用于商业应用场景的端到端解决方案，可预测可能发生故障的时间点。 可主动使用此预配置解决方案执行维护优化等活动。 该解决方案结合了重要的 Azure IoT 套件服务，例如 IoT 中心、“流分析”工作区。  此工作区包含基于公用示例数据集的模型，用于预测飞机引擎的剩余使用寿命 (RUL)。 此解决方案全面实施 loT 商业应用场景，以此为起点，你可以规划和实施满足自己特定业务需求的解决方案。
 
 ## <a name="logical-architecture"></a>逻辑体系结构
 

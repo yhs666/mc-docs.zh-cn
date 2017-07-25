@@ -1,5 +1,5 @@
 ---
-title: "使用脚本操作在 Hadoop 群集上安装 Solr | Azure"
+title: "使用脚本操作在 Hadoop 群集上安装 Solr - Azure | Azure"
 description: "了解如何使用 Solr 通过脚本操作自定义 HDInsight 群集。"
 services: hdinsight
 documentationcenter: 
@@ -17,18 +17,18 @@ origin.date: 02/05/2016
 ms.date: 03/10/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6d4630e54287d5beccd6aac0956f0d2e494d0323
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 2fc9742c37c1a8d712a7a487081d29f29ce0f278
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>在基于 Windows 的 HDInsight 群集上安装并使用 Solr
 
 了解如何使用 Solr 通过脚本操作自定义基于 Windows 的 HDInsight 群集，以及如何使用 Solr 搜索数据。
 
 > [!IMPORTANT]
-> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。 低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。 有关在基于 Linux 的群集中使用 Solr 的信息，请参阅[在 HDinsight Hadoop 群集 (Linux) 上安装并使用 Solr](hdinsight-hadoop-solr-install-linux.md)。
+> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。 低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。 有关在基于 Linux 的群集中使用 Solr 的信息，请参阅[在 HDinsight Hadoop 群集 (Linux) 上安装并使用 Solr](hdinsight-hadoop-solr-install-linux.md)。
 
 可以使用脚本操作，在 Azure HDInsight 的任何一种群集（Hadoop、Storm、HBase、Spark）上安装 Solr。 用于在 HDInsight 群集上安装 Solr 的示例脚本可通过 [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)上的只读 Azure 存储 Blob 获得。
 
@@ -92,77 +92,77 @@ ms.lasthandoff: 06/21/2017
 
      输出返回两个我们用于为 Solr 编制索引的文档。 输出如下所示：
 
-            "response": {
-              "numFound": 2,
-              "start": 0,
-              "maxScore": 1,
-              "docs": [
-                {
-                  "id": "SOLR1000",
-                  "name": "Solr, the Enterprise Search Server",
-                  "manu": "Apache Software Foundation",
-                  "cat": [
-                    "software",
-                    "search"
-                  ],
-                  "features": [
-                    "Advanced Full-Text Search Capabilities using Lucene",
-                    "Optimized for High Volume Web Traffic",
-                    "Standards Based Open Interfaces - XML and HTTP",
-                    "Comprehensive HTML Administration Interfaces",
-                    "Scalability - Efficient Replication to other Solr Search Servers",
-                    "Flexible and Adaptable with XML configuration and Schema",
-                    "Good unicode support: héllo (hello with an accent over the e)"
-                  ],
-                  "price": 0,
-                  "price_c": "0,USD",
-                  "popularity": 10,
-                  "inStock": true,
-                  "incubationdate_dt": "2006-01-17T00:00:00Z",
-                  "_version_": 1486960636996878300
-                },
-                {
-                  "id": "3007WFP",
-                  "name": "Dell Widescreen UltraSharp 3007WFP",
-                  "manu": "Dell, Inc.",
-                  "manu_id_s": "dell",
-                  "cat": [
-                    "electronics and computer1"
-                  ],
-                  "features": [
-                    "30\" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
-                  ],
-                  "includes": "USB cable",
-                  "weight": 401.6,
-                  "price": 2199,
-                  "price_c": "2199,USD",
-                  "popularity": 6,
-                  "inStock": true,
-                  "store": "43.17614,-90.57341",
-                  "_version_": 1486960637584081000
-                }
-              ]
-            }
+           "response": {
+               "numFound": 2,
+               "start": 0,
+               "maxScore": 1,
+               "docs": [
+                 {
+                   "id": "SOLR1000",
+                   "name": "Solr, the Enterprise Search Server",
+                   "manu": "Apache Software Foundation",
+                   "cat": [
+                     "software",
+                     "search"
+                   ],
+                   "features": [
+                     "Advanced Full-Text Search Capabilities using Lucene",
+                     "Optimized for High Volume Web Traffic",
+                     "Standards Based Open Interfaces - XML and HTTP",
+                     "Comprehensive HTML Administration Interfaces",
+                     "Scalability - Efficient Replication to other Solr Search Servers",
+                     "Flexible and Adaptable with XML configuration and Schema",
+                     "Good unicode support: héllo (hello with an accent over the e)"
+                   ],
+                   "price": 0,
+                   "price_c": "0,USD",
+                   "popularity": 10,
+                   "inStock": true,
+                   "incubationdate_dt": "2006-01-17T00:00:00Z",
+                   "_version_": 1486960636996878300
+                 },
+                 {
+                   "id": "3007WFP",
+                   "name": "Dell Widescreen UltraSharp 3007WFP",
+                   "manu": "Dell, Inc.",
+                   "manu_id_s": "dell",
+                   "cat": [
+                     "electronics and computer1"
+                   ],
+                   "features": [
+                     "30\" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
+                   ],
+                   "includes": "USB cable",
+                   "weight": 401.6,
+                   "price": 2199,
+                   "price_c": "2199,USD",
+                   "popularity": 6,
+                   "inStock": true,
+                   "store": "43.17614,-90.57341",
+                   "_version_": 1486960637584081000
+                 }
+               ]
+             }
 4. **建议：将索引数据从 Solr 备份到与 HDInsight 群集关联的 Azure Blob 存储**。 作为一种很好的做法，你应该将索引数据从 Solr 群集节点备份到 Azure Blob 存储上。 执行以下步骤来完成此操作：
 
    1. 在 RDP 会话中，打开 Internet Explorer，然后指向以下 URL：
 
-            http://localhost:8983/solr/replication?command=backup
+           http://localhost:8983/solr/replication?command=backup
 
        你应该看到如下所示的响应：
 
-            <?xml version="1.0" encoding="UTF-8"?>
-            <response>
-              <lst name="responseHeader">
-                <int name="status">0</int>
-                <int name="QTime">9</int>
-              </lst>
-              <str name="status">OK</str>
-            </response>
+           <?xml version="1.0" encoding="UTF-8"?>
+           <response>
+             <lst name="responseHeader">
+               <int name="status">0</int>
+               <int name="QTime">9</int>
+             </lst>
+             <str name="status">OK</str>
+           </response>
    2. 在远程会话中，导航到 {SOLR_HOME}\{Collection}\data。 对于通过示例脚本创建的群集，该目录应该是 C:\apps\dist\solr-4.7.2\example\solr\collection1\data。 在此位置，应该会看到使用类似于 snapshot.timestamp** 的名称创建的快照文件夹。
    3. 压缩快照文件夹，并将其上传到 Azure Blob 存储。 从 Hadoop 命令行，通过使用以下命令导航到快照文件夹所在的位置：
 
-            hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
+             hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
 
        此命令会将快照复制到与群集关联的默认存储帐户中容器下方的 /example/data/。
 

@@ -1,5 +1,5 @@
 ---
-title: "使用 PowerShell 管理 HDInsight 中的 Hadoop 群集 | Azure"
+title: "使用 PowerShell 管理 HDInsight 中的 Hadoop 群集 - Azure | Azure"
 description: "了解如何使用 Azure PowerShell 对 HDInsight 中的 Hadoop 群集执行管理任务。"
 services: hdinsight
 editor: cgronlun
@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2017
-ms.date: 04/27/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: e59c1e303097d59b2c13bd294716fc0816576446
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 1375145879ddc7280f12ea8d5a6f256cf305a110
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -45,7 +45,7 @@ Azure PowerShell 是一个功能强大的脚本编写环境，可用于在 Azure
 
     Get-Module *azure*
 
-若要卸载旧版本，请运行控制面板中的“程序和功能”。 
+若要卸载旧版本，请运行控制面板中的“程序和功能”。
 
 ## <a name="create-clusters"></a>创建群集
 请参阅[使用 Azure PowerShell 在 HDInsight 中创建基于 Linux 的群集](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -74,8 +74,8 @@ Azure PowerShell 是一个功能强大的脚本编写环境，可用于在 Azure
 
 > [!NOTE]
 > 只支持使用 HDInsight 3.1.3 或更高版本的群集。 如果不确定群集的版本，可以查看“属性”页面。  请参阅 [列出并显示群集](hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。
-> 
-> 
+>
+>
 
 更改 HDInsight 支持的每种类型的群集所用数据节点数的影响：
 
@@ -104,7 +104,7 @@ Azure PowerShell 是一个功能强大的脚本编写环境，可用于在 Azure
 
     HDInsight 群集上提供了 Storm Web UI：
 
-    ![HDInsight storm 缩放重新平衡](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight storm 缩放重新平衡](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
 
     以下是有关如何使用 CLI 命令重新平衡 Storm 拓扑的示例：
 
@@ -147,8 +147,8 @@ HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样
 
 > [!NOTE]
 > 通过授予/撤消访问权限，你将重置群集用户名和密码。
-> 
-> 
+>
+>
 
 也可以通过门户完成此操作。 请参阅[使用 Azure 门户管理 HDInsight][hdinsight-admin-portal]。
 
@@ -165,7 +165,7 @@ HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样
     $defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.chinacloudapi.cn", "")
     $defaultBlobContainerName = $cluster.DefaultStorageContainer
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
-    $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
+    $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
 
 ## <a name="find-the-resource-group"></a>查找资源组
 在 Resource Manager 模式下，每个 HDInsight 群集都属于一个 Azure 资源组。  若要查找资源组：
@@ -180,7 +180,7 @@ HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样
 
 请参阅[在基于 Windows 的 HDInsight 中运行 Hadoop MapReduce 示例](hdinsight-run-samples.md)。
 
-**提交 Hive 作业** 
+**提交 Hive 作业**
 
 请参阅[使用 PowerShell 运行 Hive 查询](hdinsight-hadoop-use-hive-powershell.md)。
 

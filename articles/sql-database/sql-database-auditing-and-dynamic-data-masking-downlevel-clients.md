@@ -1,30 +1,34 @@
 ---
-title: "Azure SQL 数据库的审核、TDS 重定向和 IP 终结点 | Azure"
+title: "Azure SQL 数据库的表审核、TDS 重定向和 IP 终结点 | Azure"
 description: "了解在 Azure SQL 数据库中实现表审核时，审核、TDS 重定向和 IP 终结点的变化。"
 services: sql-database
 documentationcenter: 
-author: ronitr
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2017
-ms.date: 01/25/2017
+origin.date: 05/31/2017
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 7e16a0f901951d0e81270d9c38b0f178e70d26b4
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: d40a262a6a1612c62fc003a67778e2cb36db9e3f
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>SQL 数据库 - 针对审核的下层客户端支持和 IP 终结点更改
+# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL 数据库 - 针对表审核的下层客户端支持和 IP 终结点更改
 
-对于支持 TDS 重定向的 SQL 客户端，可以自动使用 [SQL 数据库表审核](./sql-database-auditing-get-started.md)功能。 请注意，使用 Blob 审核方法时，重定向不适用。
+> [!IMPORTANT]
+> 本文档仅适用于**现已弃用**的表审核。<br>
+> 请使用新的 [Blob 审核](sql-database-auditing.md)方法，该方法**不**需要修改下层客户端的连接字符串。 有关 Blob 审核的其他信息可在 [SQL 数据库审核入门](sql-database-auditing.md)中找到。
+
+对于支持 TDS 重定向的 SQL 客户端，可以自动使用[数据库审核](sql-database-auditing.md)。 请注意，使用 Blob 审核方法时，重定向不适用。
 
 ## <a id="subheading-1"></a>下层客户端支持
 任何实现了 TDS 7.4 的客户端同样应当支持重定向。 例外情况包括不完全支持重定向功能的 JDBC 4.0 以及未实现重定向的 Tedious（适用于 Node.JS）。
@@ -37,10 +41,10 @@ ms.lasthandoff: 06/21/2017
 
 “下层客户端”的部分列表包括：
 
-- .NET 4.0 和更低版本，
-- ODBC 10.0 和更低版本。
-- JDBC（JDBC 虽然支持 TDS 7.4，但不完全支持 TDS 重定向功能）
-- Tedious（适用于 Node.JS）
+* .NET 4.0 和更低版本，
+* ODBC 10.0 和更低版本。
+* JDBC（JDBC 虽然支持 TDS 7.4，但不完全支持 TDS 重定向功能）
+* Tedious（适用于 Node.JS）
 
 注释：上面的服务器 FDQN 修改可能还可用于应用 SQL Server 级别的审核策略，而无需在每个数据库中进行配置（临时缓解）。
 
@@ -50,6 +54,6 @@ ms.lasthandoff: 06/21/2017
 新的数据库 IP 终结点将取决于数据库区域：
 
 | 数据库区域 | 可能的 IP 终结点 |
-|----------|---------------|
+| --- | --- |
 | 中国北部  | 139.217.29.176, 139.217.28.254 |
 | 中国东部  | 42.159.245.65, 42.159.246.245 |

@@ -6,16 +6,20 @@ documentationCenter: .net
 authors: rboucher
 manager: jwhit
 editor: 
+ms.assetid: 89623a0e-4e78-4b67-a446-7d19a35a44be
 ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
 ms.topic: article
-origin.date: 01/25/2016
-ms.date: 03/24/2017
+origin.date: 05/22/2017
+ms.date: 07/17/2017
 ms.author: v-yiso
-ms.openlocfilehash: 4376590abe74023756b948894c15f2896819ce02
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: f9242d299f41cd4c9b2096f9d06fcb73b7cf70ef
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>在 Azure 云服务中启用 Azure 诊断
 
@@ -26,14 +30,14 @@ ms.lasthandoff: 06/21/2017
 本演练介绍如何实现使用 .NET EventSource 类发出遥测数据的 Azure 辅助角色。 Azure Diagnostics 用于收集遥测数据，并将其存储在一个 Azure 存储帐户中。 创建辅助角色时，Visual Studio 将在适用于 .NET 2.4 和更低版本的 Azure SDK 中，自动启用 Diagnostics 1.0 作为解决方案的一部分。 以下说明介绍了创建辅助角色、从解决方案禁用 Diagnostics 1.0，以及在辅助角色中部署 Diagnostics 1.2 或 1.3 的过程。
 
 ### <a name="prerequisites"></a>先决条件
-本文假定你具有 Azure 订阅，并将 Visual Studio 2013 与 Azure SDK 结合使用。 如果你没有 Azure 订阅，你可以注册 [免费试用版][Free Trial]。 请确保[安装并配置 Azure PowerShell 0.8.7 版或更高版本][Install and configure Azure PowerShell version 0.8.7 or later]。
+本文假定你具有 Azure 订阅，并要将 Visual Studio 与 Azure SDK 配合使用。 如果你没有 Azure 订阅，你可以注册 [免费试用版][Free Trial]。 请确保[安装并配置 Azure PowerShell 0.8.7 版或更高版本][Install and configure Azure PowerShell version 0.8.7 or later]。
 
 ### <a name="step-1-create-a-worker-role"></a>步骤 1：创建辅助角色
-1. 启动 **Visual Studio 2013**。
-2. 从面向 .NET Framework 4.5 的“云”模板创建一个新的 Azure 云服务项目。  将该项目命名为“WadExample”。
+1. 启动 **Visual Studio**。
+2. 从面向 .NET Framework 4.5 的“云”模板创建一个“Azure 云服务”项目。  将该项目命名为“WadExample”。
 3. 选择“辅助角色”并单击“确定”  。 随后将创建该项目。
 4. 在“解决方案资源管理器”中，双击 WorkerRole1 属性文件。
-5. 在“配置”选项卡中，取消选中“启用诊断”禁用 Diagnostics 1.0（Azure SDK 2.4 和更低版本）。
+5. 在“配置”选项卡中，取消选中“启用诊断”以禁用 Diagnostics 1.0（Azure SDK 2.4 和更低版本）。
 6. 生成解决方案以验证无误。
 
 ### <a name="step-2-instrument-your-code"></a>步骤 2：检测代码
@@ -128,48 +132,49 @@ public class WorkerRole : RoleEntryPoint
 4. 在“创建云服务和存储帐户”对话框中输入一个“名称”（例如“WadExample”），然后选择区域或地缘组。
 5. 将“环境”设置为“暂存”。
 6. 适当地修改任何其他设置，然后单击“发布”。
-7. 完成部署后，在 Azure 经典门户中验证云服务是否处于“正在运行”状态。
+7. 完成部署后，在 Azure 门户中验证云服务是否处于“正在运行”状态。
 
 ### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>步骤 4：创建 Diagnostics 配置文件并安装扩展
 1. 通过执行以下 PowerShell 命令下载公共配置文件架构定义：
-2.
-        (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
 
-2. 右键单击 WorkerRole1 项目并选择“添加” -> “新建项...” -> “Visual C# 项” -> “数据” -> “XML 文件”，将 XML 文件添加到 WorkerRole1 项目中。 将该文件命名为“WadExample.xml”。
+    ```powershell
+    (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
+    ```
+2. 通过右键单击 WorkerRole1 项目并选择“添加” -> “新建项...”，将 XML 文件添加到 WorkerRole1 项目中 -> “Visual C# 项” -> “数据” -> “XML 文件”。 将该文件命名为“WadExample.xml”。
 
-    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-
+   ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 3. 将 WadConfig.xsd 与配置文件相关联。 确保 WadExample.xml 编辑器窗口是活动的窗口。 按 **F4** 打开“属性”窗口。 在“属性”窗口中单击“架构”属性。 在“架构”属性中 单击“...”。 在“架构”属性中单击“...”  。 单击“确定” 。
+
 4. 将 WadExample.xml 配置文件的内容替换为以下 XML 并保存该文件。 此配置文件定义两个要收集的性能计数器：一个对应于 CPU 使用率，另一个对应于内存使用率。 配置将定义对应于 SampleEventSourceWriter 类中方法的四个事件。
 
-```
-        <?xml version="1.0" encoding="utf-8"?>
-        <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-              <WadCfg>
-                <DiagnosticMonitorConfiguration overallQuotaInMB="25000">
-                  <PerformanceCounters scheduledTransferPeriod="PT1M">
-                    <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
-                    <PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
-                      </PerformanceCounters>
-                      <EtwProviders>
-                        <EtwEventSourceProviderConfiguration provider="SampleEventSourceWriter" scheduledTransferPeriod="PT5M">
-                              <Event id="1" eventDestination="EnumsTable"/>
-                              <Event id="2" eventDestination="MessageTable"/>
-                              <Event id="3" eventDestination="SetOtherTable"/>
-                              <Event id="4" eventDestination="HighFreqTable"/>
-                              <DefaultEvents eventDestination="DefaultTable" />
-                        </EtwEventSourceProviderConfiguration>
-                      </EtwProviders>
-                </DiagnosticMonitorConfiguration>
-              </WadCfg>
-        </PublicConfig>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+  <WadCfg>
+    <DiagnosticMonitorConfiguration overallQuotaInMB="25000">
+      <PerformanceCounters scheduledTransferPeriod="PT1M">
+        <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        <PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
+      </PerformanceCounters>
+      <EtwProviders>
+        <EtwEventSourceProviderConfiguration provider="SampleEventSourceWriter" scheduledTransferPeriod="PT5M">
+          <Event id="1" eventDestination="EnumsTable"/>
+          <Event id="2" eventDestination="MessageTable"/>
+          <Event id="3" eventDestination="SetOtherTable"/>
+          <Event id="4" eventDestination="HighFreqTable"/>
+          <DefaultEvents eventDestination="DefaultTable" />
+        </EtwEventSourceProviderConfiguration>
+      </EtwProviders>
+    </DiagnosticMonitorConfiguration>
+  </WadCfg>
+</PublicConfig>
 ```
 
 ### <a name="step-5-install-diagnostics-on-your-worker-role"></a>步骤 5：在辅助角色上安装 Diagnostics
 用于在 Web 或辅助角色上管理 Diagnostics 的 PowerShell cmdlet 为：Set-AzureServiceDiagnosticsExtension、Get-AzureServiceDiagnosticsExtension 和 Remove-AzureServiceDiagnosticsExtension。
 
 1. 打开 Azure PowerShell。
-2. 执行脚本，在辅助角色上安装 Diagnostics（将 StorageAccountKey 替换为 wadexample 存储帐户的存储帐户密钥）：
+2. 执行脚本以在辅助角色上安装 Diagnostics（将 *StorageAccountKey* 替换为 wadexample 存储帐户的存储帐户密钥，并将 *config_path* 替换为 *WadExample.xml* 文件的路径）：
 
     ```powershell
     $storage_name = "wadexample"
@@ -182,18 +187,17 @@ public class WorkerRole : RoleEntryPoint
 
 ### <a name="step-6-look-at-your-telemetry-data"></a>步骤 6：查看遥测数据
 在 Visual Studio 的“服务器资源管理器”中，导航到 wadexample 存储帐户。 在云服务运行约 5 分钟后，应该会看到表 WADEnumsTable、WADHighFreqTable、WADMessageTable、WADPerformanceCountersTable 和 WADSetOtherTable。 双击其中一个表即可查看已收集的遥测数据。
-    ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
+
+![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## <a name="configuration-file-schema"></a>配置文件架构
 
 诊断配置文件定义启动诊断代理时用于初始化诊断配置设置的值。 有关有效值和示例，请参阅 [最新架构参考](https://msdn.microsoft.com/zh-cn/library/azure/mt634524.aspx) 。
 
 ## <a name="troubleshooting"></a>故障排除
-
 如果遇到问题，请参阅 [Azure 诊断疑难解答](../azure-diagnostics-troubleshooting.md)，获取有关常见问题的帮助。
 
 ## <a name="next-steps"></a>后续步骤
-若要更改收集的数据、排查问题或者了解有关诊断的一般信息，请参阅[与虚拟机相关的 Azure 诊断文章列表](../azure-diagnostics.md#cloud-services-using-azure-diagnostics)。
 
 [EventSource Class]: http://msdn.microsoft.com/zh-cn/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

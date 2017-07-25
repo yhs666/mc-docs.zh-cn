@@ -21,15 +21,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 服务总线身份验证和授权
-<a id="service-bus-authentication-and-authorization" class="xliff"></a>
+# <a name="service-bus-authentication-and-authorization"></a>服务总线身份验证和授权
 可通过两种方式向 Azure 服务总线验证应用程序，即使用共享访问签名 (SAS) 身份验证，或通过 Azure Active Directory 访问控制（也称为访问控制服务或 ACS）进行身份验证。 通过共享访问签名身份验证，应用程序能够使用在命名空间或在关联了特定权限的实体上配置的访问密钥向服务总线进行身份验证。 然后可以使用此密钥生成共享访问签名令牌，客户端可用它向服务总线进行身份验证。
 
 > [!IMPORTANT]
 > 建议使用 SAS 而不是 ACS，因为它为服务总线提供了一种简单、灵活且易于使用的身份验证方案。 当应用程序不需要管理授权“用户”这一概念时，可以使用 SAS。 
 
-## 共享访问签名身份验证
-<a id="shared-access-signature-authentication" class="xliff"></a>
+## <a name="shared-access-signature-authentication"></a>共享访问签名身份验证
 
 通过 [SAS 身份验证](./service-bus-sas.md)可向具有特定权限的用户授予对服务总线资源的访问权限。 服务总线中的 SAS 身份验证涉及配置具有服务总线资源相关权限的加密密钥。 客户端随后即可通过提供 SAS 令牌来获取该资源的访问权限，该令牌包括正在访问的资源 URI，以及一个由已配置的密钥签名的到期时间。
 
@@ -51,8 +49,7 @@ ms.lasthandoff: 07/14/2017
 
 Azure .NET SDK 2.0 版和更高版本支持服务总线的 SAS 身份验证。 SAS 支持 [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)。 允许将连接字符串作为参数的所有 API 都支持 SAS 连接字符串。
 
-## ACS 身份验证
-<a id="acs-authentication" class="xliff"></a>
+## <a name="acs-authentication"></a>ACS 身份验证
 
 使用 ACS 的服务总线身份验证通过随附的“-sb”ACS 命名空间进行管理。 如果你想为服务总线命名空间创建随附 ACS 命名空间，则不能使用 Azure 经典门户创建服务总线命名空间，而必须使用 [New-AzureSBNamespace](https://docs.microsoft.com/en-us/powershell/module/azure/new-azuresbnamespace?view=azuresmps-3.7.0) PowerShell cmdlet 来创建命名空间。 例如：
 
@@ -74,7 +71,6 @@ New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $false
 
 Azure .NET SDK 2.0 版和更高版本支持服务总线的 ACS 身份验证。 此身份验证支持 [SharedSecretTokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider)。 允许将连接字符串作为参数的所有 API 都支持 ACS 连接字符串。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关 SAS 的详细信息，请继续阅读[使用共享访问签名进行服务总线身份验证](./service-bus-sas.md)。
 有关 Azure 中继身份验证和授权的相关信息，请参阅 [Azure 中继身份验证和授权](../service-bus-relay/relay-authentication-and-authorization.md)。 

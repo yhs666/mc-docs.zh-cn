@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# Azure Redis 缓存的 ASP.NET 会话状态提供程序
-<a id="aspnet-session-state-provider-for-azure-redis-cache" class="xliff"></a>
+# <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Azure Redis 缓存的 ASP.NET 会话状态提供程序
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -30,8 +29,7 @@ Azure Redis 缓存提供一个会话状态提供程序，可用于在缓存而�
 
 在实际云应用中避免存储某种形式的用户会话状态通常是不现实的，但某些方法相比其他方法而言，对性能和可伸缩性的影响更大。 如果你需要存储状态，最佳解决方案是使状态量保持较小并将其存储在 Cookie 中。 如果这不可行，下一个最佳解决方案是将 ASP.NET 会话状态与提供程序配合使用以实现分布式内存中缓存。 从性能和可伸缩性的角度来看，最差的解决方案是使用数据库支持的会话状态提供程序。 本主题提供有关使用 Azure Redis 缓存的 ASP.NET 会话状态提供程序的指南。 有关其他会话状态选项的信息，请参阅 [ASP.NET 会话状态选项](#aspnet-session-state-options)。
 
-## 在缓存中存储 ASP.NET 会话状态
-<a id="store-aspnet-session-state-in-the-cache" class="xliff"></a>
+## <a name="store-aspnet-session-state-in-the-cache"></a>在缓存中存储 ASP.NET 会话状态
 若要使用 Redis 缓存会话状态 NuGet 包在 Visual Studio 中配置客户端应用程序，请在“工具”菜单中依次单击“NuGet 包管理器”和“包管理器控制台”。
 
 从 `Package Manager Console` 窗口运行以下命令。
@@ -116,14 +114,12 @@ NuGet 包会下载并添加所需的程序集引用，并将以下节添加到 w
 > 
 > 
 
-## ASP.NET 会话状态选项
-<a id="aspnet-session-state-options" class="xliff"></a>
+## <a name="aspnet-session-state-options"></a>ASP.NET 会话状态选项
 * 内存中会话状态提供程序 - 此提供程序将会话状态存储在内存中。 使用此提供程序的好处是它简单且快速。 但是，如果使用内存中提供程序，由于它不是分布式的，因此不能缩放 Web 应用。
 * SQL Server 会话状态提供程序 - 此提供程序将会话状态存储在 SQL Server 中。 如果要将会话状态保存在持久性存储中，请使用此提供程序。 可以缩放 Web 应用，但将 SQL Server 用于会话会对 Web 应用造成性能影响。
 * 分布式内存中会话状态提供程序，如 Redis 缓存会话状态提供程序 - 此提供程序提供两全其美的功能。 Web 应用可以使用简单、快速且可缩放的会话状态提供程序。 由于此提供程序将会话状态存储在缓存中，应用必须考虑到在与分布式内存中缓存通信时关联的所有特征，如暂时性网络故障。
 
 有关会话状态和其他最佳实践的详细信息，请参阅 [Web Development Best Practices (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)（Web 开发最佳做法（使用 Azure 构建实际的云应用））。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 请查看 [Azure Redis 缓存的 ASP.NET 输出缓存提供程序](cache-aspnet-output-cache-provider.md)。

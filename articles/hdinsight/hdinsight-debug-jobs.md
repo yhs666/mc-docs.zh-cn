@@ -1,5 +1,5 @@
 ---
-title: "在 HDInsight 中调试 Hadoop：查看日志和解释错误消息 | Azure"
+title: "在 HDInsight 中调试 Hadoop：查看日志和解释错误消息 - Azure | Azure"
 description: "了解在使用 PowerShell 管理 HDInsight 时可能会收到的错误消息，以及恢复正常的步骤。"
 services: hdinsight
 tags: azure-portal
@@ -17,11 +17,11 @@ ms.topic: article
 origin.date: 02/06/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: ff71263cab4e527865178d082503e7abb926e08e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 072fdc9f1712070a1a6e772eb24a731d626e1ea8
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="analyze-hdinsight-logs"></a>分析 HDInsight 日志
 
@@ -68,7 +68,7 @@ Azure HDInsight 中的每个 Hadoop 群集都有用作默认文件系统的 Azur
 ### <a name="tools-for-accessing-the-logs"></a>用于访问日志的工具
 可以使用多个工具访问这些表中的数据：
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 * Visual Studio
 * Azure 存储资源管理器

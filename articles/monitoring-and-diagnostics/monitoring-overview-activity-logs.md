@@ -1,11 +1,12 @@
 ---
 title: "Azure 活动日志概述 | Azure"
 description: "了解什么是 Azure 活动日志，以及如何通过它了解发生在 Azure 订阅中的事件。"
-authors: johnkemnetz
+author: johnkemnetz
 manager: rboucher
 editor: 
 services: monitoring-and-diagnostics
-documentationCenter: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+ms.assetid: c274782f-039d-4c28-9ddb-f89ce21052c7
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.topic: article
 origin.date: 03/02/2017
 ms.author: v-yiso
 ms.date: 03/31/2017
-ms.openlocfilehash: 2a60e8fde0160158c82db1fd67acb51f2be4c112
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: cdf2fe3b6aecd9cfd38c1a8811605a8faa4fb436
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="overview-of-the-azure-activity-log"></a>Azure 活动日志概述
 **Azure 活动日志** 是一种日志，方便用户了解对订阅中的资源执行的操作。 活动日志此前称为“审核日志”或“操作日志”，因为它报告订阅的控制平面事件。 通过活动日志，可确定订阅中资源上进行的任何写入操作 (PUT, POST, DELETE) 的“什么操作、谁操作和操作时间”等信息。 还可以了解该操作和其他相关属性的状态。 活动日志未包括读取 (GET) 操作或针对使用经典/“RDFE”模型的资源的操作。
@@ -31,6 +32,7 @@ ms.lasthandoff: 06/21/2017
 
 可通过 Azure 门户、CLI、PowerShell cmdlet 和 Azure Monitor REST API 从活动日志检索事件。
 
+
 > [!WARNING]
 > Azure 活动日志主要适用于 Azure Resource Manager 中发生的活动。 它不跟踪使用经典/RDFE 模型的资源。 某些经典资源类型在 Azure Resource Manager 中具有代理资源提供程序（例如 Microsoft.ClassicCompute）。 如果使用这些代理资源提供程序通过 Azure Resource Manager 与经典资源类型交互，相关操作将出现在活动日志中。 如果你在经典门户中与经典资源类型交互，或以其他方式不通过 Azure Resource Manager 代理与经典资源类型交互，则你的操作只会记录在操作日志中。 操作日志只能在经典门户中访问。
 >
@@ -40,7 +42,7 @@ ms.lasthandoff: 06/21/2017
 
 ![Azure 活动日志](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
-* [创建触发活动日志事件的电子邮件或 webhook 警报。](./insights-auditlog-to-webhook-email.md)
+* [创建触发活动日志事件的警报。](./monitoring-activity-log-alerts.md)
 * [将活动日志流式传输到事件中心](./monitoring-stream-activity-logs-event-hubs.md)，方便第三方服务或自定义分析解决方案（例如 PowerBI）引入。
 * 在 PowerBI 中使用 [PowerBI 内容包](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)分析活动日志。
 * [将活动日志保存到存储帐户进行存档或手动检查](./monitoring-archive-activity-log.md)。 可以使用日志配置文件指定保留时间（天）。

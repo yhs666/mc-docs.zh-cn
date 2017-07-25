@@ -21,13 +21,11 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 配置性能流量路由方法
-<a id="configure-the-performance-traffic-routing-method" class="xliff"></a>
+# <a name="configure-the-performance-traffic-routing-method"></a>配置性能流量路由方法
 
 使用性能流量路由方法可将流量定向到客户端网络中延迟最低的终结点。 通常，延迟最低的数据中心就是地理距离最短的终结点。 此流量路由方法无法考虑网络配置或负载的实时变化。
 
-##  配置性能路由方法
-<a id="to-configure-performance-routing-method" class="xliff"></a>
+##  <a name="to-configure-performance-routing-method"></a>配置性能路由方法
 
 1. 在浏览器中，登录 [Azure 门户](http://portal.azure.cn)。 如果还没有帐户，可注册 [1 个月期限的试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
 2. 在门户的搜索栏中，搜索“流量管理器配置文件”，然后单击要为其配置路由方法的配置文件名称。
@@ -46,8 +44,7 @@ ms.lasthandoff: 07/14/2017
 
 ![使用流量管理器配置性能流量路由方法][1]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 - 了解[加权流量路由方法](traffic-manager-configure-weighted-routing-method.md)。
 - 了解[优先级路由方法](traffic-manager-configure-priority-routing-method.md)。

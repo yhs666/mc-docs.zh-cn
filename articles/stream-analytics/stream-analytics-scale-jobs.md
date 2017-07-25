@@ -22,18 +22,15 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 扩展 Azure 流分析作业，增加流数据处理吞吐量
-<a id="scale-azure-stream-analytics-jobs-to-increase-stream-data-processing-throughput" class="xliff"></a>
+# <a name="scale-azure-stream-analytics-jobs-to-increase-stream-data-processing-throughput"></a>扩展 Azure 流分析作业，增加流数据处理吞吐量
 了解如何优化分析作业和计算流分析的 *流式处理单位* ，如何通过配置输入分区、优化分析查询定义和设置作业流式处理单位缩放流分析作业。 
 
-## 流分析作业的组成部分有哪些？
-<a id="what-are-the-parts-of-a-stream-analytics-job" class="xliff"></a>
+## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>流分析作业的组成部分有哪些？
 流分析作业定义包括输入、查询和输出。 输入是作业读取数据流的位置，查询是用于转换数据输入流的一种方式，而输出则是作业将作业结果发送到的位置。  
 
 若要对数据进行流式处理，作业需要至少一个输入源。 可以将数据流输入源存储在 Azure Service Bus 事件中心或 Azure Blob 存储中。 有关详细信息，请参阅 [Azure 流分析简介](stream-analytics-introduction.md)和[开始使用 Azure 流分析](stream-analytics-get-started.md)。
 
-## 配置流式处理单位
-<a id="configuring-streaming-units" class="xliff"></a>
+## <a name="configuring-streaming-units"></a>配置流式处理单位
 流式处理单位 (SU) 表示执行 Azure 流分析作业所需的资源和计算能力。 在已经对 CPU、内存以及读取和写入速率进行测量的情况下，可以使用 SU 描述相对的事件处理能力。 每个流式处理单位大致相当于 1MB/秒的吞吐量。 
 
 应根据输入的分区配置和为作业定义的查询选择特定作业所需的 SU 数目。 使用 Azure 经典管理门户选择作业的流式处理单位数时，最多可以选择配额数。 默认情况下，每个 Azure 订阅的配额为最多 50 个流式处理单位，这适用于特定区域的所有分析作业。 若要提高订阅的流式处理单位数，请联系 [Microsoft 支持](https://www.azure.cn/support/contact/)。
@@ -44,8 +41,7 @@ ms.lasthandoff: 07/13/2017
 
 本文将说明如何计算和优化查询，以便增加分析作业的吞吐量。
 
-## 易并行作业
-<a id="embarrassingly-parallel-job" class="xliff"></a>
+## <a name="embarrassingly-parallel-job"></a>易并行作业
 易并行作业是我们在 Azure 流分析中具有的最具可扩展性的方案。 它将查询的一个实例的输入的一个分区连接到输出的一个分区。 实现此并行需要以下几个条件：
 
 1. 如果查询逻辑取决于同一个查询实例正在处理的相同键，则必须确保事件转到你的输入的同一个分区。 对于事件中心，这意味着事件数据需要具有 **PartitionKey** 集或者你可以使用已分区的发件人。 对于 Blob，这意味着这些事件被发送到相同的分区文件夹。 如果你的查询逻辑不需要由同一个查询实例处理相同键，则可以忽略此要求。 此示例是一个简单的选择/项目/筛选查询。  
@@ -59,8 +55,7 @@ ms.lasthandoff: 07/13/2017
 
 以下是一些易并行的示例方案。
 
-### 简单查询
-<a id="simple-query" class="xliff"></a>
+### <a name="simple-query"></a>简单查询
 
 输入 - 具有 8 个分区的事件中心 输出 - 具有 8 个分区的事件中心
 
@@ -72,8 +67,7 @@ ms.lasthandoff: 07/13/2017
 
 此查询是一个简单的筛选器，并在这种情况下，我们不需要担心对我们发送到事件中心的输入的分区。 你会注意到该查询具有 **PartitionId** 的 **Partition By**，因此我们满足上述要求 #2。 对于输出，我们需要配置作业中的事件中心输出，将“PartitionKey”字段设置为“PartitionId”。 一个上次检查、输入分区 == 输出分区。 此拓扑是易并行。
 
-### 带分组键的查询
-<a id="query-with-grouping-key" class="xliff"></a>
+### <a name="query-with-grouping-key"></a>带分组键的查询
 
 输入 - 具有 8 个分区的事件中心 输出 - Blob
 
@@ -85,8 +79,7 @@ ms.lasthandoff: 07/13/2017
 
 此查询具有分组键，在这种情况下，相同的键需要由同一个查询实例进行处理。 这意味着我们需要以分区的方式将我们事件发送到事件中心。 我们关注哪个键？ **PartitionId** 是作业的逻辑概念，我们所关心的真正键是 **TollBoothId**。 这意味着我们应将发送到事件中心的事件数据的 **PartitionKey** 设置为事件的 **TollBoothId**。 该查询具有 **PartitionId** 的 **Partition By**，所以我们没有问题。 对于输出，因为它是 Blob，所以我们不需要担心如何配置 **PartitionKey**。 对于要求 4，同样，由于这是 Blob，我们无需担心。 此拓扑是易并行。
 
-### 带有分组键的多步骤查询
-<a id="multi-step-query-with-grouping-key" class="xliff"></a>
+### <a name="multi-step-query-with-grouping-key"></a>带有分组键的多步骤查询
 
 输入 - 具有 8 个分区的事件中心 输出 - 具有 8 个分区的事件中心
 
@@ -104,25 +97,21 @@ ms.lasthandoff: 07/13/2017
 
 此查询具有分组键，在这种情况下，相同的键需要由同一个查询实例进行处理。 我们可以使用与前面的查询相同的策略。 查询包含多个步骤。 是否每个步骤的“分区依据”都为 **PartitionId**？ 是的，因此我们没问题。 对于输出，我们需要如上文所述，将 **PartitionKey** 设置为 **PartitionId**，我们还可以看到它的分区数与输入的相同。 此拓扑是易并行。
 
-## 非易并行的示例方案
-<a id="example-scenarios-that-are-not-embarrassingly-parallel" class="xliff"></a>
-### 分区计数不匹配
-<a id="mismatched-partition-count" class="xliff"></a>
+## <a name="example-scenarios-that-are-not-embarrassingly-parallel"></a>非易并行的示例方案
+### <a name="mismatched-partition-count"></a>分区计数不匹配
 
 输入 - 具有 8 个分区的事件中心 输出 - 具有 32 个分区的事件中心
 
 在这种情况下查询是什么并不重要，因为输入分区计数 != 输出分区计数。
 
-### 未将事件中心或 Blob 用作输出
-<a id="not-using-event-hubs-or-blobs-as-output" class="xliff"></a>
+### <a name="not-using-event-hubs-or-blobs-as-output"></a>未将事件中心或 Blob 用作输出
 
 输入 - 具有 8 个分区的事件中心 输出 - PowerBI
 
 
 PowerBI 输出当前不支持分区。
 
-### 使用不同的“分区依据”值的多步骤查询
-<a id="multi-step-query-with-different-partition-by-values" class="xliff"></a>
+### <a name="multi-step-query-with-different-partition-by-values"></a>使用不同的“分区依据”值的多步骤查询
 
 输入 - 具有 8 个分区的事件中心 输出 - 具有 8 个分区的事件中心
 
@@ -145,12 +134,10 @@ PowerBI 输出当前不支持分区。
 
 现在，请使用下面的常规指南：
 
-## 计算作业的最大流式处理单位数
-<a id="calculate-the-maximum-streaming-units-of-a-job" class="xliff"></a>
+## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>计算作业的最大流式处理单位数
 流分析作业所能使用的流式处理单位总数取决于为作业定义的查询中的步骤数，以及每一步的分区数。
 
-### 查询中的步骤
-<a id="steps-in-a-query" class="xliff"></a>
+### <a name="steps-in-a-query"></a>查询中的步骤
 查询可以有一个或多个步骤。 每一步都是一个使用 **WITH** 关键字定义的子查询。 位于 **WITH** 关键字外的唯一查询也计为一步，例如以下查询中的 **SELECT** 语句：
 
     WITH Step1 AS (
@@ -170,8 +157,7 @@ PowerBI 输出当前不支持分区。
 > 
 > 
 
-### 对步骤进行分区
-<a id="partition-a-step" class="xliff"></a>
+### <a name="partition-a-step"></a>对步骤进行分区
 对步骤进行分区需要下列条件：
 
 * 输入源必须进行分区。 有关详细信息，请参阅[事件中心编程指南](../event-hubs/event-hubs-programming-guide.md)。
@@ -180,8 +166,7 @@ PowerBI 输出当前不支持分区。
 
 对查询进行分区时，输入事件将在独立的分区组中进行处理和聚合，而输出事件则是针对每个组生成。 如果需要对聚合进行组合，则必须创建另一个不分区的步骤来进行聚合。
 
-### 计算作业的最大流式处理单位数
-<a id="calculate-the-max-streaming-units-for-a-job" class="xliff"></a>
+### <a name="calculate-the-max-streaming-units-for-a-job"></a>计算作业的最大流式处理单位数
 所有未分区的步骤加在一起可以进行扩展，最多可以扩展到每个流分析作业的 6 个流式处理单位。 若要添加更多流式处理单位，必须对步骤进行分区。 每个分区可以有 6 个流式处理单位。
 
 <table border="1">
@@ -222,8 +207,7 @@ PowerBI 输出当前不支持分区。
 <td>24（18 个用于已分区步骤 + 6 个用于未分区步骤）</td></tr>
 </table>
 
-### 缩放示例
-<a id="examples-of-scale" class="xliff"></a>
+### <a name="examples-of-scale"></a>缩放示例
 以下查询计算三分钟时段内通过收费站（总共三个收费亭）的车辆数。 此查询可以扩展到 6 个流式处理单位。
 
     SELECT COUNT(*) AS Count, TollBoothId
@@ -257,8 +241,7 @@ PowerBI 输出当前不支持分区。
 > 
 > 
 
-## 配置流分析作业分区
-<a id="configure-stream-analytics-job-partition" class="xliff"></a>
+## <a name="configure-stream-analytics-job-partition"></a>配置流分析作业分区
 
 **调整作业流式处理单位的步骤**
 
@@ -273,16 +256,14 @@ PowerBI 输出当前不支持分区。
 
 ![Azure 门户流分析作业配置][img.stream.analytics.preview.portal.settings.scale]
 
-## 监视作业性能
-<a id="monitor-job-performance" class="xliff"></a>
+## <a name="monitor-job-performance"></a>监视作业性能
 使用管理门户时，你可以跟踪作业的吞吐量（以事件数/秒为单位）：
 
 ![Azure 流分析监视作业][img.stream.analytics.monitor.job]
 
 计算预计的工作负荷吞吐量（以事件数/秒为单位）。 如果吞吐量少于预期，则可调整输入分区和查询，并可为作业添加额外的流式处理单位。
 
-## 基于规模的流分析吞吐量 - Raspberry Pi 方案
-<a id="stream-analytics-throughput-at-scale---raspberry-pi-scenario" class="xliff"></a>
+## <a name="stream-analytics-throughput-at-scale---raspberry-pi-scenario"></a>基于规模的流分析吞吐量 - Raspberry Pi 方案
 若要了解在典型方案中流分析作业如何根据多个流式处理单位的处理吞吐量进行伸缩，我们在这里进行了一个试验，将传感器数据（客户端）发送到事件中心并对其进行处理，然后将警报或统计信息作为输出发送到另一数据中心。
 
 客户端将综合性的传感器数据发送到事件中心，事件中心再以 JSON 格式将数据发送给流分析，数据输出也采用 JSON 格式。  示例数据如下所示： 
@@ -345,12 +326,10 @@ PowerBI 输出当前不支持分区。
 
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
-## 获取帮助
-<a id="get-help" class="xliff"></a>
+## <a name="get-help"></a>获取帮助
 如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)
 * [Azure 流分析入门](stream-analytics-get-started.md)
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)

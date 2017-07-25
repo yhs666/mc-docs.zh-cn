@@ -6,18 +6,19 @@ documentationCenter: na
 authors: sethmanheim
 manager: timlt
 editor: 
+ms.assetid: baf94c2d-0e58-4d5d-a588-767f996ccf7f
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+origin.date: 05/18/2017
 ms.author: v-yiso
-ms.openlocfilehash: 9b9df1da845dd219d6f5c3c05d1723064fd9dcea
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 41f3b84058c49df94fecec9675b352811dbadc64
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="service-bus-architecture"></a>服务总线体系结构
 
@@ -48,8 +49,7 @@ ms.lasthandoff: 06/21/2017
 ![处理传入消息请求](./media/service-bus-architecture/IC690644.png)
 
 ## <a name="processing-of-incoming-relay-requests"></a>处理传入中继请求
-
-当客户端向服务总线发送请求时，Azure 负载均衡器将其路由到任何一个网关节点。 如果请求为侦听请求，网关节点将创建新的中继。 如果请求是对特定中继的连接请求，网关节点会将连接请求转发给拥有中继的网关节点。 拥有中继的网关节点向侦听客户端发送会合请求，要求侦听器与接收连接请求的网关节点创建一个临时通道。
+当客户端向 [Azure 中继](/service-bus-relay/)服务发送请求时，Azure 负载均衡器将其路由到任何一个网关节点。 如果请求为侦听请求，网关节点将创建新的中继。 如果请求是对特定中继的连接请求，网关节点会将连接请求转发给拥有中继的网关节点。 拥有中继的网关节点向侦听客户端发送会合请求，要求侦听器与接收连接请求的网关节点创建一个临时通道。
 
 建立中继连接后，客户端可以通过用于会合的网关节点交换消息。
 
@@ -59,5 +59,6 @@ ms.lasthandoff: 06/21/2017
 现在，已概要了解服务总线体系结构，请访问以下链接了解详细信息：
 
 - [服务总线消息传送概述](./service-bus-messaging-overview.md)
+* [Azure 中继概述](../service-bus-relay/relay-what-is-it.md)
 - [服务总线基础知识](./service-bus-fundamentals-hybrid-solutions.md)
 - [使用服务总线队列的队列消息解决方案](./service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)

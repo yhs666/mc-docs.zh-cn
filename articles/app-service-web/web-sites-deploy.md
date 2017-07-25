@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 将应用部署到 Azure 应用服务
-<a id="deploy-your-app-to-azure-app-service" class="xliff"></a>
+# <a name="deploy-your-app-to-azure-app-service"></a>将应用部署到 Azure 应用服务
 本文可帮助你确定将 Web 应用、移动应用后端或 API 应用的文件部署到 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)的最佳选项，然后将你引导到相应的资源，其中包含特定于你的首选选项的操作说明。
 
 ## <a name="overview"></a>Azure 应用服务部署概述
@@ -106,8 +105,7 @@ Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等�
 * [从本地 Git 部署到 Azure 应用服务](app-service-deploy-local-git.md)。 
 * [从任何 git/hg 存储库发布到 Web 应用](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html)。  
 
-## 使用 IDE 进行部署
-<a id="deploy-using-an-ide" class="xliff"></a>
+## <a name="deploy-using-an-ide"></a>使用 IDE 进行部署
 如果你已在使用包含 [Azure SDK](/downloads/) 的 [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) 或其他 IDE 套件（如 [Xcode](https://developer.apple.com/xcode/)、[Eclipse](https://www.eclipse.org) 和 [IntelliJ IDEA](https://www.jetbrains.com/idea/)），可以直接从 IDE 内部署到 Azure。 此选项非常适合于单个开发人员。
 
 Visual Studio 支持所有这三种部署过程（FTP、Git 和 Web 部署），具体取决于你的首选项，而其他 IDE 在已集成 FTP 或 Git 时可部署到应用服务（请参阅[部署过程概述](#overview)）。

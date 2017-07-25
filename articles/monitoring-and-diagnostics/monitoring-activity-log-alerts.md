@@ -21,11 +21,9 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 创建活动日志警报
-<a id="create-activity-log-alerts" class="xliff"></a>
+# <a name="create-activity-log-alerts"></a>创建活动日志警报
 
-## 概述
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概述
 活动日志警报是 Azure 资源，因此可以使用 Azure 门户或 Azure Resource Manager (ARM) 管理它们。 本文演示如何使用 Azure 门户设置有关活动日志事件的警报。
 
 可以接收有关对订阅中的资源执行的操作的警报或有关可能会影响资源运行状况的服务运行状况事件的警报。 活动日志警报监视警报部署到的特定订阅的活动日志事件。
@@ -48,8 +46,7 @@ ms.lasthandoff: 07/14/2017
 可以使用以下方式配置和获取有关服务运行状况通知警报的信息
 * [Azure 门户](./monitoring-activity-log-alerts.md)
 
-## 使用 Azure 门户，通过新操作组创建有关活动日志事件的警报
-<a id="create-an-alert-on-an-activity-log-event-with-a-new-action-group-with-the-azure-portal" class="xliff"></a>
+## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-with-the-azure-portal"></a>使用 Azure 门户，通过新操作组创建有关活动日志事件的警报
 1.  在[门户](https://portal.azure.cn)中，导航到“监视”服务
 
     ![监视](./media/monitoring-activity-log-alerts/home-monitor.png)
@@ -92,8 +89,7 @@ ms.lasthandoff: 07/14/2017
 >
 >
 
-## 使用 Azure 门户为现有操作组创建有关活动日志的警报
-<a id="create-an-alert-on-an-activity-log-event-for-an-existing-action-group-with-the-azure-portal" class="xliff"></a>
+## <a name="create-an-alert-on-an-activity-log-event-for-an-existing-action-group-with-the-azure-portal"></a>使用 Azure 门户为现有操作组创建有关活动日志的警报
 1.  在[门户](https://portal.azure.cn)中，导航到“监视”服务
 
     ![监视](./media/monitoring-activity-log-alerts/home-monitor.png)
@@ -120,14 +116,12 @@ ms.lasthandoff: 07/14/2017
 
 几分钟后，警报将处于活动状态，并按前面所述进行触发。
 
-## 管理警报
-<a id="managing-your-alerts" class="xliff"></a>
+## <a name="managing-your-alerts"></a>管理警报
 
 创建了警报之后，它会在“监视器”服务的“警报”部分中可见。 选择要管理的警报，将能够：
 * **编辑**它。
 * **删除**它。
 * 如果要暂时停止或恢复接收警报的通知，可**禁用**或**启用**它。
 
-## 后续步骤：
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤：
 了解[服务运行状况通知](./monitoring-service-notifications.md)

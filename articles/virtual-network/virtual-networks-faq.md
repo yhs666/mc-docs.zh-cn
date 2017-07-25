@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 01/18/2017
 ms.date: 03/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 0b67614677ff82fbc27e48fabe5b69cbbee1a50e
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: c21a6a34699b9f936cfb9e561063a8701b3122f5
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虚拟网络常见问题 (FAQ)
 
@@ -147,7 +147,7 @@ Azure 提供的 DNS 是由 Microsoft 提供的多租户 DNS 服务。 Azure 在�
 是的。 附加到通过 Resource Manager 部署模型部署的 VM 的所有网络接口 (NIC) 必须连接到 VNet。 可以选择性地将通过经典部署模型部署的 VM 连接到 VNet。
 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>可向 VM 分配哪些不同类型的 IP 地址？
-* **专用：** 分配到每个 VM 中的每个 NIC。 使用静态或动态分配方法分配地址。 应该分配 VNet 子网设置中指定的范围内的专用 IP 地址。 通过经典部署模型部署的资源将接收专用 IP 地址，即使它们未连接到 VNet。 动态专用 IP 地址将保留分配给某个资源，直到该资源被解除分配 (VM) 或删除（VM 或云服务部署槽）。 静态专用 IP 地址将保留分配给某个资源，直到该资源被删除。
+* **专用：** 分配到每个 VM 中的每个 NIC。 使用静态或动态方法分配地址。 应该分配 VNet 子网设置中指定的范围内的专用 IP 地址。 将为通过经典部署模型部署的资源分配专用 IP 地址，即使它们未连接到 VNet。 使用动态方法分配的专用 IP 地址将仍分配给某个资源，直到该资源被删除（VM 或云服务部署槽）。 如果 VM 在处于停止（解除分配）状态后重新启动，使用动态方法分配的的专用 IP 地址可能会更改。 使用静态方法分配的专用 IP 地址将仍分配给某个资源，直到该资源被删除。 如果需要确保在删除资源之前，该资源的专用 IP 地址永远不会更改，请使用静态方法分配专用 IP 地址。
 * **公共：** 选择性地分配给附加到通过 Azure Resource Manager 部署模型部署的 VM 的 NIC。 可以使用静态或动态分配方法分配地址。 通过经典部署模型部署的所有 VM 和云服务角色实例位于分配有*动态*公共虚拟 IP (VIP) 地址的云服务中。 可以选择性地将某个公共*静态* IP 地址（称为[保留 IP 地址](virtual-networks-reserved-public-ip.md)）分配为 VIP。 可将公共 IP 地址分配给通过经典部署模型部署的单个 VM 或云服务角色实例。 这些地址称为[实例级公共 IP (ILPIP](virtual-networks-instance-level-public-ip.md) 地址，可动态分配。
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>是否可为以后创建的 VM 保留专用 IP 地址？
@@ -179,7 +179,7 @@ Azure 提供的 DNS 是由 Microsoft 提供的多租户 DNS 服务。 Azure 在�
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>是否可以在 VNet 中使用 Azure 应用服务 Web 应用？
 是的。 可以使用 ASE（应用服务环境）在 VNet 中部署 Web 应用。 如果为 VNet 配置了点到站点连接，Web 应用可以安全地连接和访问 Azure VNet 中的资源。 有关详细信息，请参阅以下文章：
 
-* [将应用与 Azure 虚拟网络进行集成](../app-service-web/app-service-vnet-integration-powershell.md)
+* [将应用与 Azure 虚拟网络进行集成](../app-service-web/web-sites-integrate-with-vnet.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>是否可以在 VNet 中部署云服务与 Web 和辅助角色 (PaaS)？
 是的。 （可选）可在 VNet 中部署云服务角色实例。 为此，请在服务配置的网络配置部分中指定 VNet 名称和角色/子网映射。 不需要更新任何二进制文件。
@@ -207,7 +207,7 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间完�
 ## <a name="apis-schemas-and-tools"></a>API、架构和工具
 
 ### <a name="can-i-manage-vnets-from-code"></a>是否可以通过代码管理 VNet？
-是的。 可以在 [Azure Resource Manager](https://msdn.microsoft.com/library/mt163658.aspx) 和[经典（服务管理）](https://msdn.microsoft.com/library/azure/ee460799.aspx)部署模型中使用适用于 VNet 的 REST API。
+是的。 可以在 [Azure Resource Manager](https://msdn.microsoft.com/library/mt163658.aspx) 和[经典（服务管理）](http://go.microsoft.com/fwlink/?LinkId=296833)部署模型中使用适用于 VNet 的 REST API。
 
 ### <a name="is-there-tooling-support-for-vnets"></a>是否有 VNet 的工具支持？
 可以。 详细了解以下操作：

@@ -23,8 +23,7 @@
 3. 打开远程桌面连接，方法是：在任务栏的搜索框中键入“RDP”或“远程桌面连接”，然后选择“远程桌面连接”。 也可在 PowerShell 中使用“mstsc”命令打开远程桌面连接。 
 4. 在远程桌面连接中，输入 VM 的专用 IP 地址。 可以通过单击“显示选项”来调整其他设置，然后进行连接。
 
-### 排查到 VM 的 RDP 连接的问题
-<a id="to-troubleshoot-an-rdp-connection-to-a-vm" class="xliff"></a>
+### <a name="to-troubleshoot-an-rdp-connection-to-a-vm"></a>排查到 VM 的 RDP 连接的问题
 
 如果无法通过 VPN 连接连接到虚拟机，请检查以下项目：
 

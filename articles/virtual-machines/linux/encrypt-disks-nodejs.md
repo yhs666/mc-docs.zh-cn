@@ -22,19 +22,16 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用 Azure CLI 1.0 加密 Linux VM 中的磁盘
-<a id="encrypt-disks-on-a-linux-vm-using-the-azure-cli-10" class="xliff"></a>
+# <a name="encrypt-disks-on-a-linux-vm-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 加密 Linux VM 中的磁盘
 为了增强虚拟机 (VM) 的安全性以及遵从法规，可以静态加密 Azure 中的虚拟磁盘。 磁盘是使用 Azure 密钥保管库中受保护的加密密钥加密的。 可以控制这些加密密钥，以及审核对它们的使用。 本文详细说明如何使用 Azure CLI 1.0 和 Resource Manager 部署模型加密 Linux VM 中的虚拟磁盘。
 
-## 用于完成任务的 CLI 版本
-<a id="cli-versions-to-complete-the-task" class="xliff"></a>
+## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可使用以下 CLI 版本之一完成任务：
 
 - [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
 - [Azure CLI 2.0](encrypt-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
-## 快速命令
-<a id="quick-commands" class="xliff"></a>
+## <a name="quick-commands"></a>快速命令
 如果需要快速完成任务，请参阅以下部分，其中详细说明了用于加密 VM 中虚拟磁盘的基本命令。 本文档的余下部分（[从此处开始](#overview-of-disk-encryption)）提供了每个步骤的更详细信息和上下文。
 
 需要安装[最新的 Azure CLI 1.0](../../xplat-cli-install.md)，然后按如下所示，使用 Resource Manager 模式登录：
@@ -130,8 +127,7 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
 azure vm show-disk-encryption-status --resource-group myResourceGroup --name myVM
 ```
 
-## 磁盘加密概述
-<a id="overview-of-disk-encryption" class="xliff"></a>
+## <a name="overview-of-disk-encryption"></a>磁盘加密概述
 Linux VM 上的虚拟磁盘是使用 [dm-crypt](https://wikipedia.org/wiki/Dm-crypt) 静态加密的。 加密 Azure 中的虚拟磁盘不会产生费用。 使用软件保护将加密密钥存储在 Azure 密钥保管库中，或者，可在已通过 FIPS 140-2 级别 2 标准认证的硬件安全模块 (HSM) 中导入或生成密钥。 你可以控制这些加密密钥，以及审核对它们的使用。 这些加密密钥用于加密和解密附加到 VM 的虚拟磁盘。 打开和关闭 VM 时，Azure Active Directory 终结点将提供一个安全机制用于颁发这些加密密钥。
 
 加密 VM 的过程如下：
@@ -143,8 +139,7 @@ Linux VM 上的虚拟磁盘是使用 [dm-crypt](https://wikipedia.org/wiki/Dm-cr
 5. Azure Active Directory 终结点将从 Azure 密钥保管库请求所需的加密密钥。
 6. 使用提供的加密密钥加密虚拟磁盘。
 
-## 支持服务和加密过程
-<a id="supporting-services-and-encryption-process" class="xliff"></a>
+## <a name="supporting-services-and-encryption-process"></a>支持服务和加密过程
 磁盘加密依赖于以下附加组件：
 
 * **Azure 密钥保管库** - 用于保护磁盘加密/解密过程中使用的加密密钥和机密。
@@ -154,8 +149,7 @@ Linux VM 上的虚拟磁盘是使用 [dm-crypt](https://wikipedia.org/wiki/Dm-cr
   * 通常，可以使用现有的 Azure Active Directory 实例来容装应用程序。
   * 应用程序更多地充当密钥保管库和虚拟机服务的终结点，请求并获取相应的加密密钥。 实际并不需要开发与 Azure Active Directory 集成的应用程序。
 
-## 要求和限制
-<a id="requirements-and-limitations" class="xliff"></a>
+## <a name="requirements-and-limitations"></a>要求和限制
 磁盘加密支持的方案和要求
 
 * 以下 Linux 服务器 SKU - Ubuntu、CentOS、SUSE、SUSE Linux Enterprise Server (SLES) 和 Red Hat Enterprise Linux。
@@ -169,8 +163,7 @@ Linux VM 上的虚拟磁盘是使用 [dm-crypt](https://wikipedia.org/wiki/Dm-cr
 * 在 Linux VM 上禁用 OS 磁盘加密。
 * 在已加密的 Linux VM 上更新加密密钥。
 
-## 创建 Azure 密钥保管库和密钥
-<a id="create-the-azure-key-vault-and-keys" class="xliff"></a>
+## <a name="create-the-azure-key-vault-and-keys"></a>创建 Azure 密钥保管库和密钥
 若要安装本指南的余下部分，需要安装[最新的 Azure CLI 1.0](../../xplat-cli-install.md)，然后按如下所示，使用 Resource Manager 模式登录：
 
 ```azurecli
@@ -206,8 +199,7 @@ azure keyvault set-policy --vault-name myKeyVault --resource-group myResourceGro
   --enabled-for-disk-encryption true
 ```
 
-## 创建 Azure Active Directory 应用程序
-<a id="create-the-azure-active-directory-application" class="xliff"></a>
+## <a name="create-the-azure-active-directory-application"></a>创建 Azure Active Directory 应用程序
 加密或解密虚拟磁盘时，将使用一个终结点来处理身份验证，以及从密钥保管库交换加密密钥。 此终结点（Azure Active Directory 应用程序）允许 Azure 平台代表 VM 请求相应的加密密钥。 订阅中提供了一个默认的 Azure Active Directory 实例，不过，许多组织使用专用的 Azure Active Directory 目录。
 
 由于我们不需要创建完整的 Azure Active Directory 应用程序，以下示例中的 `--home-page` 和 `--identifier-uris` 参数不需要是实际的可路由地址。 此外，以下示例指定了基于密码的机密，而不是在 Azure 门户中生成密钥。 目前，无法从 Azure CLI 生成密钥。
@@ -231,8 +223,7 @@ azure keyvault set-policy --vault-name myKeyVault --spn myApplicationID \
   --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]
 ```
 
-## 添加虚拟磁盘并检查加密状态
-<a id="add-a-virtual-disk-and-review-encryption-status" class="xliff"></a>
+## <a name="add-a-virtual-disk-and-review-encryption-status"></a>添加虚拟磁盘并检查加密状态
 为了实践加密一些虚拟磁盘，让我们在现有 VM 中添加一个磁盘。 按如下所示，将一个 5Gb 的数据磁盘添加到现有 VM：
 
 ```azurecli
@@ -246,8 +237,7 @@ azure vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
 azure vm show-disk-encryption-status --resource-group myResourceGroup --name myVM
 ```
 
-## 加密虚拟磁盘
-<a id="encrypt-virtual-disks" class="xliff"></a>
+## <a name="encrypt-virtual-disks"></a>加密虚拟磁盘
 若要立即加密虚拟磁盘，可将前面的所有组件合并在一起：
 
 1. 指定 Azure Active Directory 应用程序和密码。
@@ -295,8 +285,7 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
 azure vm show-disk-encryption-status --resource-group myResourceGroup --name myVM
 ```
 
-## 添加更多数据磁盘
-<a id="add-additional-data-disks" class="xliff"></a>
+## <a name="add-additional-data-disks"></a>添加更多数据磁盘
 加密数据磁盘后，可将更多的虚拟磁盘添加到 VM 并将其加密。 运行 `azure vm enable-disk-encryption` 命令时，可以使用 `--sequence-version` 参数递增序列版本。 使用此序列版本参数可以针对同一个 VM 重复执行操作。
 
 例如，按如下所示将另一个虚拟磁盘添加到 VM：
@@ -319,7 +308,6 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --sequence-version 2
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 有关管理 Azure 密钥保管库的详细信息，包括删除加密密钥和保管库，请参阅 [Manage Key Vault using CLI](../../key-vault/key-vault-manage-with-cli2.md)（使用 CLI 管理密钥保管库）。
 * 有关磁盘加密的详细信息，例如准备要上传到 Azure 的已加密自定义 VM，请参阅 [Azure Disk Encryption](../../security/azure-security-disk-encryption.md)（Azure 磁盘加密）。

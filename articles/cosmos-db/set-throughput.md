@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 设置 Azure Cosmos DB 容器的吞吐量
-<a id="set-throughput-for-azure-cosmos-db-containers" class="xliff"></a>
+# <a name="set-throughput-for-azure-cosmos-db-containers"></a>设置 Azure Cosmos DB 容器的吞吐量
 
 可在 Azure 门户中或通过使用客户端 SDK 设置 Azure Cosmos DB 容器的吞吐量。 
 
@@ -48,8 +47,7 @@ ms.lasthandoff: 07/13/2017
     </tbody>
 </table>
 
-## 使用 Azure 门户设置吞吐量
-<a id="to-set-the-throughput-by-using-the-azure-portal" class="xliff"></a>
+## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>使用 Azure 门户设置吞吐量
 
 1. 在新窗口中，打开 [Azure 门户](https://portal.azure.cn)。
 2. 在左侧栏中单击“Azure Cosmos DB”，或者单击底部的“更多服务”，滚动到“数据库”，然后单击“Azure Cosmos DB”。
@@ -60,8 +58,7 @@ ms.lasthandoff: 07/13/2017
 
 <a id="set-throughput-sdk"></a>
 
-## 使用用于 .NET 的 DocumentDB API 设置吞吐量
-<a id="to-set-the-throughput-by-using-the-documentdb-api-for-net" class="xliff"></a>
+## <a name="to-set-the-throughput-by-using-the-documentdb-api-for-net"></a>使用用于 .NET 的 DocumentDB API 设置吞吐量
 
 ```C#
 //Fetch the resource to be updated
@@ -77,8 +74,7 @@ offer = new OfferV2(offer, 12000);
 await client.ReplaceOfferAsync(offer);
 ```
 
-## 吞吐量常见问题
-<a id="throughput-faq" class="xliff"></a>
+## <a name="throughput-faq"></a>吞吐量常见问题
 
 **可否将吞吐量设置为 400 RU/s 以下？**
 
@@ -88,7 +84,6 @@ await client.ReplaceOfferAsync(offer);
 
 没有任何 MongoDB API 扩展可设置吞吐量。 建议根据[使用用于 .NET 的 DocumentDB API 设置吞吐量](#set-throughput-sdk)中所述使用 DocumentDB API。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 若要了解有关使用 Cosmos DB 进行预配和全球扩展的详细信息，请参阅[使用 Cosmos DB 进行分区和缩放](partition-data.md)。

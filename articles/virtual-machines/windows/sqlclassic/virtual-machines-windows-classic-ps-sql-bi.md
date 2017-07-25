@@ -22,22 +22,19 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/10/2017
 ---
-# Azure 虚拟机中的 SQL Server Business Intelligence
-<a id="sql-server-business-intelligence-in-azure-virtual-machines" class="xliff"></a>
+# <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server Business Intelligence
 > [!IMPORTANT] 
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
 
 Azure 虚拟机库包括含有 SQL Server 安装的映像。 库映像中支持的 SQL Server 版本是可以安装到本地计算机和虚拟机的相同安装文件。 本主题总结了在映像上安装的 SQL Server Business Intelligence (BI) 功能和预配虚拟机后所需的配置步骤。 本主题还介绍了 BI 功能的支持部署拓扑和最佳实践。
 
-## 许可证注意事项
-<a id="license-considerations" class="xliff"></a>
+## <a name="license-considerations"></a>许可证注意事项
 可通过两种方式授权 Azure 虚拟机中的 SQL Server：
 
 1. 属于软件保障的许可证移动性权益。 有关详细信息，请参阅 [Azure 上通过软件保障实现的许可移动性](https://www.azure.cn/pricing/license-mobility/)。
 2. 已安装 SQL Server 的 Azure 虚拟机按小时付费。 请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)中的“SQL Server”部分。
 
-## 在 Azure 虚拟机库中提供的 SQL Server 映像
-<a id="sql-server-images-available-in-azure-virtual-machine-gallery" class="xliff"></a>
+## <a name="sql-server-images-available-in-azure-virtual-machine-gallery"></a>在 Azure 虚拟机库中提供的 SQL Server 映像
 Azure 虚拟机库包括多个内含 Microsoft SQL Server 的映像。 虚拟机映像上安装的软件根据操作系统版本和 SQL Server 版本而有所不同。 Azure 虚拟机库中提供的映像列表频繁更改。
 
 <!--![SQL image in azure VM gallery](./media/virtual-machines-windows-classic-ps-sql-bi/IC741367.png)-->
@@ -67,8 +64,7 @@ Azure 虚拟机库包括多个内含 Microsoft SQL Server 的映像。 虚拟机
 * [SQL Server 版本](https://www.microsoft.com/server-cloud/products/sql-server-editions/#fbid=Zae0-E6r5oh)
 * [SQL Server 2016 版本支持的功能](https://msdn.microsoft.com/library/cc645993.aspx)
 
-### SQL Server 虚拟机库映像上安装的 BI 功能
-<a id="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images" class="xliff"></a>
+### <a name="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images"></a>SQL Server 虚拟机库映像上安装的 BI 功能
 下表总结了在适用于 SQL Server 的常见 Azure 虚拟机库映像上安装的 Business Intelligence 功能:
 
 * SQL Server 2016 SP1 Enterprise
@@ -92,8 +88,7 @@ Azure 虚拟机库包括多个内含 Microsoft SQL Server 的映像。 虚拟机
 
     get-service | Where-Object{ $_.DisplayName -like '*SQL*' } | Select DisplayName, status, servicetype, dependentservices | format-Table -AutoSize
 
-## 一般建议和最佳实践
-<a id="general-recommendations-and-best-practices" class="xliff"></a>
+## <a name="general-recommendations-and-best-practices"></a>一般建议和最佳实践
 * 在使用 SQL Server Enterprise Edition 时，虚拟机的最小建议大小是 **A3** 。 对于 Analysis Services 和 Reporting Services 的 SQL Server BI 部署，其建议虚拟机大小为 **A4** 。
 
     有关当前 VM 大小的信息，请参阅 [Azure 的虚拟机大小](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -113,46 +108,39 @@ Azure 虚拟机库包括多个内含 Microsoft SQL Server 的映像。 虚拟机
     有关详细信息，请参阅以下部分：[卸载 Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) 和[卸载 Analysis Services 实例](https://msdn.microsoft.com/library/ms143687.aspx)。
 * 检查 **Windows 更新** 以获取新的“重要更新”。 Azure 虚拟机映像会经常刷新；但在最近刷新 VM 映像后， **Windows 更新** 可能还会提供重要更新。
 
-## 部署拓扑示例
-<a id="example-deployment-topologies" class="xliff"></a>
+## <a name="example-deployment-topologies"></a>部署拓扑示例
 以下是使用 Azure 虚拟机的部署示例。 这些图中的拓扑仅是一些可用于 SQL Server BI 功能和 Azure 虚拟机的可能拓扑。
 
-### 单个虚拟机
-<a id="single-virtual-machine" class="xliff"></a>
+### <a name="single-virtual-machine"></a>单个虚拟机
 Analysis Services、Reporting Services、SQL Server 数据库引擎和数据源在单个虚拟机上。
 
 ![使用 1 个虚拟机的 bi iass 方案](./media/virtual-machines-windows-classic-ps-sql-bi/IC650108.gif)
 
-### 两个虚拟机
-<a id="two-virtual-machines" class="xliff"></a>
+### <a name="two-virtual-machines"></a>两个虚拟机
 * Analysis Services、Reporting Services 和 SQL Server 数据库引擎在单个虚拟机上。 这种部署包括报表服务器数据库。
 * 数据源在第二个 VM 上。 第二个 VM 包括 SQL Server 数据库引擎作为数据源。
 
 ![使用 2 个虚拟机的 bi iass 方案](./media/virtual-machines-windows-classic-ps-sql-bi/IC650109.gif)
 
-### Azure SQL 数据库上的混合 Azure 数据
-<a id="mixed-azure---data-on-azure-sql-database" class="xliff"></a>
+### <a name="mixed-azure---data-on-azure-sql-database"></a>Azure SQL 数据库上的混合 Azure 数据
 * Analysis Services、Reporting Services 和 SQL Server 数据库引擎在单个虚拟机上。 这种部署包括报表服务器数据库。
 * 数据源是 Azure SQL 数据库。
 
 ![bi iaas 方案 VM 和 AzureSQL 作为数据源](./media/virtual-machines-windows-classic-ps-sql-bi/IC650110.gif)
 
-### 本地混合数据
-<a id="hybrid--data-on-premises" class="xliff"></a>
+### <a name="hybrid--data-on-premises"></a>本地混合数据
 * 在此部署示例中，Analysis Services、Reporting Services 和 SQL Server 数据库引擎在单个虚拟机上运行。 该虚拟机托管报表服务器数据库。 该虚拟机通过 Azure 虚拟网络或其他 VPN 隧道解决方案加入到本地域。
 * 数据源是在本地。
 
 ![bi iaas 方案 VM 和本地数据源](./media/virtual-machines-windows-classic-ps-sql-bi/IC654384.gif)
 
-## Reporting Services 本机模式配置
-<a id="reporting-services-native-mode-configuration" class="xliff"></a>
+## <a name="reporting-services-native-mode-configuration"></a>Reporting Services 本机模式配置
 SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式，但未配置报表服务器。 本部分中的步骤配置 Reporting Services 报表服务器。 有关配置 Reporting Services 本机模式的更多详细信息，请参阅[安装 Reporting Services 本机模式报表服务器 (SSRS)](https://msdn.microsoft.com/library/ms143711.aspx)。
 
 > [!NOTE]
 > 有关使用 Windows PowerShell 脚本配置报表服务器的类似内容，请参阅[使用 PowerShell 创建运行本机模式报表服务器的 Azure VM](../classic/ps-sql-report.md)。
 
-### 连接到虚拟机并启动 Reporting Services 配置管理器
-<a id="connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager" class="xliff"></a>
+### <a name="connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager"></a>连接到虚拟机并启动 Reporting Services 配置管理器
 连接到 Azure 虚拟机有两个常见工作流：
 
 * 若要连接，请单击虚拟机的名称，然后单击“连接”。 远程桌面连接打开并自动填充计算机名称。
@@ -189,8 +177,7 @@ SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式�
 
     ![搜索 ssrs 配置管理器](./media/virtual-machines-windows-classic-ps-sql-bi/IC650113.gif)
 
-### 配置 Reporting Services
-<a id="configure-reporting-services" class="xliff"></a>
+### <a name="configure-reporting-services"></a>配置 Reporting Services
 **服务帐户和 Web 服务 URL：**
 
 1. 验证“服务器名称”是否是本地服务器名称，然后单击“连接”。
@@ -223,15 +210,13 @@ SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式�
 
 有关报表服务器权限的信息，请参阅[授予本机模式报表服务器权限](https://msdn.microsoft.com/library/ms156014.aspx)。
 
-### 浏览到本地报表管理器
-<a id="browse-to-the-local-report-manager" class="xliff"></a>
+### <a name="browse-to-the-local-report-manager"></a>浏览到本地报表管理器
 若要验证配置，浏览到 VM 上的报表管理器。
 
 1. 在 VM 中，使用管理员权限启动 Internet Explorer。
 2. 在 VM 上浏览到 http://localhost/reports。
 
-### 连接到 2012 和 2014 版的远程 Web 门户或报表管理器
-<a id="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012" class="xliff"></a>
+### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>连接到 2012 和 2014 版的远程 Web 门户或报表管理器
 如果想要从远程计算机连接到虚拟机上的 2012 和 2014 版 Web 门户或报表管理器，请创建新的虚拟机 TCP 终结点。 默认情况下，报表服务器侦听“端口 80”上的 HTTP 请求。 如果将报表服务器 URL 配置为使用其他端口，必须在下面的说明中指定该端口号。
 
 1. 为虚拟机创建终结点 TCP 端口 80。 有关详细信息，请参阅本文档中的 [虚拟机终结点以及防火墙端口](#virtual-machine-endpoints-and-firewall-ports) 部分。
@@ -242,8 +227,7 @@ SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式�
 
     [为报表服务器访问配置防火墙](https://msdn.microsoft.com/library/bb934283.aspx)
 
-### 创建报表并将其发布到 Azure 虚拟机
-<a id="to-create-and-publish-reports-to-the-azure-virtual-machine" class="xliff"></a>
+### <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>创建报表并将其发布到 Azure 虚拟机
 下表汇总一些选项，可用于将现有报表从本地计算机发布到 Azure 虚拟机上托管的报表服务器：
 
 * **报表生成器**：虚拟机包括适用于 SQL 2014 和 2012 的 Microsoft SQL Server 报表生成器的一键式版本。 若要首次在虚拟机上通过 SQL 2016 启动报表生成器：
@@ -264,8 +248,7 @@ SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式�
   3. 使用 Add-AzureVHD cmdlet 将 VHD 文件上传到 Azure [创建 Windows Server VHD 并将其上传到 Azure](../classic/createupload-vhd.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
   4. 将磁盘附加到虚拟机。
 
-## 安装其他 SQL Server 服务和功能
-<a id="install-other-sql-server-services-and-features" class="xliff"></a>
+## <a name="install-other-sql-server-services-and-features"></a>安装其他 SQL Server 服务和功能
 若要安装其他 SQL Server 服务（如表格模式下的 Analysis Services），运行 SQL Server 安装向导。 安装程序文件位于虚拟机的本地磁盘上。
 
 1. 单击“开始”，然后单击“所有程序”。
@@ -281,8 +264,7 @@ SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式�
 > 
 > 
 
-### 若要安装 Analysis Services 表格模式
-<a id="to-install-analysis-services-tabular-mode" class="xliff"></a>
+### <a name="to-install-analysis-services-tabular-mode"></a>若要安装 Analysis Services 表格模式
 本部分中的步骤 **汇总** 了 Analysis Services 表格模式的安装。 有关详细信息，请参阅以下部分：
 
 * [Install Analysis Services in Tabular Mode](https://msdn.microsoft.com/library/hh231722.aspx)（在表格模式下安装 Analysis Services）
@@ -301,10 +283,8 @@ SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式�
 7. 在“Analysis Services 配置”页上，选择“表格模式”。 将当前用户添加到管理权限列表。
 8. 完成并关闭 SQL Server 安装向导。
 
-## Analysis Services 配置
-<a id="analysis-services-configuration" class="xliff"></a>
-### 对 Analysis Services 服务器的远程访问
-<a id="remote-access-to-analysis-services-server" class="xliff"></a>
+## <a name="analysis-services-configuration"></a>Analysis Services 配置
+### <a name="remote-access-to-analysis-services-server"></a>对 Analysis Services 服务器的远程访问
 Analysis Services 服务器仅支持 windows 身份验证。 若要从客户端应用程序（如 SQL Server Management Studio 或 SQL Server Data Tools）远程访问 Analysis Services，虚拟机需要使用 Azure 虚拟网络加入到本地域。 有关详细信息，请参阅 [Azure 虚拟网络](../../../virtual-network/virtual-networks-overview.md)。
 
 Analysis Services 的默认实例侦听 TCP 端口 2383。 在虚拟机防火墙中打开该端口。 Analysis Services 的群集命名实例也侦听端口 **2383**。
@@ -321,8 +301,7 @@ Analysis Services 的默认实例侦听 TCP 端口 2383。 在虚拟机防火墙
 
 有关详细信息，请参阅本文档中的 **虚拟机终结点以及防火墙端口** 部分。
 
-## 虚拟机终结点以及防火墙端口
-<a id="virtual-machine-endpoints-and-firewall-ports" class="xliff"></a>
+## <a name="virtual-machine-endpoints-and-firewall-ports"></a>虚拟机终结点以及防火墙端口
 本部分总结了要创建的 Azure 虚拟机终结点以及要在虚拟机防火墙中打开的端口。 下表总结了要为其创建终结点的 **TCP** 端口和要在虚拟机防火墙中打开的端口。
 
 * 如果您使用的是单个 VM 并且下列两项为 true，不需要创建 VM 终结点并且不需要在 VM 上的防火墙中打开端口。
@@ -353,8 +332,7 @@ Analysis Services 的默认实例侦听 TCP 端口 2383。 在虚拟机防火墙
 
 ![要为 Azure VM 中的 bi 应用程序打开的端口](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
 
-## 资源
-<a id="resources" class="xliff"></a>
+## <a name="resources"></a>资源
 * 查看在 Azure 虚拟机环境中使用的 Microsoft 服务器软件的支持策略。 以下主题概述了对 BitLocker、故障转移群集和网络负载均衡等功能的支持。 [Microsoft 服务器软件对 Azure 虚拟机的支持](http://support.microsoft.com/kb/2721672)。
 * [Azure 虚拟机上的 SQL Server 概述](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [虚拟机](/virtual-machines/)

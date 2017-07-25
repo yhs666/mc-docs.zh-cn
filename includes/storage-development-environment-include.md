@@ -1,9 +1,7 @@
-## 设置开发环境
-<a id="set-up-your-development-environment" class="xliff"></a>
+## <a name="set-up-your-development-environment"></a>设置开发环境
 接下来在 Visual Studio 中设置开发环境，然后即可试用本指南中的代码示例。
 
-### 创建 Windows 控制台应用程序项目
-<a id="create-a-windows-console-application-project" class="xliff"></a>
+### <a name="create-a-windows-console-application-project"></a>创建 Windows 控制台应用程序项目
 在 Visual Studio 中创建新的 Windows 控制台应用程序。 以下步骤演示如何在 Visual Studio 2017 中创建控制台应用程序，但是，其他 Visual Studio 版本中的步骤是类似的。
 
 1. 选择“文件” > “新建” > “项目”
@@ -18,8 +16,7 @@
 
 可以在任意类型的 .NET 应用程序（包括 Azure 云服务或 Web 应用，以及桌面和移动应用程序）中使用 Azure 存储客户端库。 为简单起见，我们在本指南中使用控制台应用程序。
 
-### 使用 NuGet 安装所需包
-<a id="use-nuget-to-install-the-required-packages" class="xliff"></a>
+### <a name="use-nuget-to-install-the-required-packages"></a>使用 NuGet 安装所需包
 为完成此教程，需要在项目中引用两个包：
 
 * [适用于 .NET 的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)：此包提供以编程方式访问存储帐户中数据资源的权限。
@@ -38,8 +35,7 @@
 > 
 > 
 
-### 确定目标环境
-<a id="determine-your-target-environment" class="xliff"></a>
+### <a name="determine-your-target-environment"></a>确定目标环境
 
 可从两个环境中选择用于运行本指南中示例的环境：
 
@@ -53,8 +49,7 @@
 > 
 > 
 
-### 配置存储连接字符串
-<a id="configure-your-storage-connection-string" class="xliff"></a>
+### <a name="configure-your-storage-connection-string"></a>配置存储连接字符串
 用于 .NET 的 Azure 存储客户端库支持使用存储连接字符串来配置终结点和用于访问存储服务的凭据。 维护存储连接字符串的最佳方法在配置文件中。 
 
 有关连接字符串的详细信息，请参阅 [配置 Azure 存储的连接字符串](../articles/storage/storage-configure-connection-string.md)。

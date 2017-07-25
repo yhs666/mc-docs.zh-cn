@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 02/09/2017
 ms.date: 03/03/2017
 ms.author: v-dazen
-ms.openlocfilehash: 3dd138cf64dff9a4877f5a0e78dba08e7671880e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: d9827b409235523f8d871bff5ac187dc47d76a71
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>如何为高级 Azure Redis 缓存配置数据暂留
 Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚拟网络支持等高级层功能），使缓存大小和功能的选择更加灵活。 本文介绍如何配置高级 Azure Redis 缓存实例中的暂留。
@@ -31,7 +31,7 @@ Redis 暂留可让你保留存储在 Redis 中的数据。 还可以获取快照
 
 Azure Redis 缓存使用 [RDB 模型](http://redis.io/topics/persistence)提供的 Redis 持久性，允许将数据存储在 Azure 存储帐户中。 配置暂留以后，Azure Redis 缓存会按照可配置的备份频率，将 Redis 缓存的快照以 Redis 二进制格式暂留在磁盘上。 如果发生了灾难性事件，导致主缓存和副缓存都无法使用，则会使用最新快照重新构造缓存。
 
-可在缓存创建过程中通过“新建 Redis 缓存”边栏选项卡或者在现有高级缓存的“资源菜单”上配置暂留。
+可在缓存创建过程中通过“新建 Redis 缓存”边栏选项卡或者在现有高级缓存的“设置”边栏选项卡上配置暂留。
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
@@ -42,7 +42,7 @@ Azure Redis 缓存使用 [RDB 模型](http://redis.io/topics/persistence)提供�
 以下部分中的步骤说明如何在新的高级缓存上配置 Redis 持久性。 配置 Redis 暂留后，单击“创建”以创建具有 Redis 暂留的新高级版缓存。
 
 ## <a name="configure-redis-persistence"></a>配置 Redis 持久性
-在“Redis 数据暂留”边栏选项卡上配置 Redis 暂留。 对于新缓存，可以按前一部分中所述，在创建缓存过程中访问此边栏选项卡。 对于现有缓存，可从缓存的“资源菜单”访问“Redis 数据暂留”边栏选项卡。
+在“Redis 数据暂留”边栏选项卡上配置 Redis 暂留。 对于新缓存，可以按前一部分中所述，在创建缓存过程中访问此边栏选项卡。 对于现有缓存，可从缓存的“设置”边栏选项卡访问“Redis 数据暂留”边栏选项卡。
 
 ![Redis 设置][redis-cache-settings]
 

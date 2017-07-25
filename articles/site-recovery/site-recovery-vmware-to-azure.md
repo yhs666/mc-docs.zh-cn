@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/12/2017
 ms.author: v-johch
 ms.openlocfilehash: 68c91d5e202db31cc6af7c972ce090d86bf7ae9d
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="replicate-vmware-virtual-machines-to-azure-with--site-recovery"></a>通过 Site Recovery 将 VMware 虚拟机复制到 Azure
 >[!div class="op_single_selector"]
@@ -90,7 +90,7 @@ ms.lasthandoff: 06/21/2017
 - **准备一个用于推送移动服务的帐户**：如果要将移动服务推送到 VM，则需要一个可由进程服务器用来访问 VM 的帐户。 该帐户仅用于推送安装。 可以使用域或本地帐户：
 
     - 对于 Windows，如果你使用的不是域帐户，则需在本地计算机上禁用远程用户访问控制。 为此，请在注册表中的 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 下添加值为 1 的 DWORD 项 LocalAccountTokenFilterPolicy。
-    - 如果想要从 CLI 为 Windows 添加注册表项，请键入：  ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+    - 如果想要从 CLI 为 Windows 添加注册表项，请键入：``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
     - 对于 Linux，该帐户应是源 Linux 服务器上的root 用户。
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库

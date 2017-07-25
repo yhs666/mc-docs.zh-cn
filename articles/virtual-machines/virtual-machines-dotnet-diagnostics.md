@@ -21,21 +21,17 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 在 Azure 虚拟机中启用诊断
-<a id="enabling-diagnostics-in-azure-virtual-machines" class="xliff"></a>
+# <a name="enabling-diagnostics-in-azure-virtual-machines"></a>在 Azure 虚拟机中启用诊断
 
-## 如何在虚拟机中启用诊断
-<a id="how-to-enable-diagnostics-in-a-virtual-machine" class="xliff"></a>
+## <a name="how-to-enable-diagnostics-in-a-virtual-machine"></a>如何在虚拟机中启用诊断
 本演练介绍如何从开发计算机将 Diagnostics 远程安装到 Azure 虚拟机。 你还将了解如何实施在该 Azure 虚拟机上运行的应用程序，并使用 .NET [EventSource Class][EventSource Class] 发出遥测数据。 Azure Diagnostics 用于收集遥测数据，并将其存储在一个 Azure 存储帐户中。
 
-### 先决条件
-<a id="pre-requisites" class="xliff"></a>
+### <a name="pre-requisites"></a>先决条件
 本演练假定你具有 Azure 订阅，并将 Visual Studio 2013 与 Azure SDK 结合使用。 如果没有 Azure 订阅，可以注册[试用版][Trial]。 请确保[安装并配置 Azure PowerShell 0.8.7 版或更高版本][Install and configure Azure PowerShell version 0.8.7 or later]。
 
 [!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
-### 步骤 1：创建虚拟机
-<a id="step-1-create-a-virtual-machine" class="xliff"></a>
+### <a name="step-1-create-a-virtual-machine"></a>步骤 1：创建虚拟机
 1. 在开发计算机上启动 Visual Studio 2013。
 2. 在 Visual Studio 服务器资源管理器中，展开“Azure”，右键单击“虚拟机”然后选择“创建虚拟机”。
 3. 在“选择订阅”对话框中选择 Azure 订阅，然后单击“下一步”。
@@ -44,8 +40,7 @@ ms.lasthandoff: 07/14/2017
 6. 在“云服务设置”对话框中，创建名为“wadexampleVM”的新云服务。 创建一个名为“wadexample”的新存储帐户，然后单击“下一步”。
 7. 单击“创建” 。
 
-### 步骤 2：创建应用程序
-<a id="step-2-create-your-application" class="xliff"></a>
+### <a name="step-2-create-your-application"></a>步骤 2：创建应用程序
 1. 在开发计算机上启动 Visual Studio 2013。
 2. 创建面向 .NET Framework 4.5 的新 Visual C# 控制台应用程序。 将该项目命名为“WadExampleVM”。
    ![CloudServices_diag_new_project](./media/virtual-machines-dotnet-diagnostics/NewProject.png)
@@ -111,16 +106,14 @@ ms.lasthandoff: 07/14/2017
      ```
 4. 保存该文件，然后从“生成”菜单中选择“生成解决方案”以生成代码。
 
-### 步骤 3：部署应用程序
-<a id="step-3-deploy-your-application" class="xliff"></a>
+### <a name="step-3-deploy-your-application"></a>步骤 3：部署应用程序
 1. 在“解决方案资源管理器”中右键单击“WadExampleVM”项目，然后选择“在文件资源管理器中打开文件夹”。
 2. 导航到 *bin/Debug* 文件夹，并复制所有文件 (WadExampleVM.*)
 3. 在“服务器资源管理器”中，右键单击虚拟机并选择“使用远程桌面连接”。
 4. 连接到 VM 后，创建名为 WadExampleVM 的文件夹，并将应用程序文件粘贴到该文件夹中。
 5. 启动应用程序 WadExampleVM.exe。 你应会看到一个空白控制台窗口。
 
-### 步骤 4：创建 Diagnostics 配置并安装扩展
-<a id="step-4-create-your-diagnostics-configuration-and-install-the-extension" class="xliff"></a>
+### <a name="step-4-create-your-diagnostics-configuration-and-install-the-extension"></a>步骤 4：创建 Diagnostics 配置并安装扩展
 1. 通过执行以下 PowerShell 命令，将公共配置文件架构定义下载到开发计算机：
 
         (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
@@ -151,8 +144,7 @@ ms.lasthandoff: 07/14/2017
         </PublicConfig>
 ```
 
-### 步骤 5：将 Diagnostics 远程安装到 Azure 虚拟机上
-<a id="step-5-remotely-install-diagnostics-on-your-azure-virtual-machine" class="xliff"></a>
+### <a name="step-5-remotely-install-diagnostics-on-your-azure-virtual-machine"></a>步骤 5：将 Diagnostics 远程安装到 Azure 虚拟机上
 用于在 VM 上管理 Diagnostics 的 PowerShell cmdlet 为：Set-AzureVMDiagnosticsExtension、Get-AzureVMDiagnosticsExtension 和 Remove-AzureVMDiagnosticsExtension。
 
 1. 在开发人员计算机上，打开 Microsoft Azure PowerShell。
@@ -168,14 +160,12 @@ ms.lasthandoff: 07/14/2017
         $VM2 = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $config_path -Version "1.*" -VM $VM1 -StorageContext $storageContext
         $VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
 
-### 步骤 6：查看遥测数据
-<a id="step-6-look-at-your-telemetry-data" class="xliff"></a>
+### <a name="step-6-look-at-your-telemetry-data"></a>步骤 6：查看遥测数据
 在 Visual Studio 的“服务器资源管理器”中，导航到 wadexample 存储帐户。 在 VM 大约运行 5 分钟后，你应该会看到表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。 双击其中一个表即可查看已收集的遥测数据。
 
 ![CloudServices_diag_wadexamplevm_tables](./media/virtual-machines-dotnet-diagnostics/WadExampleVMTables.png)
 
-## 配置文件架构
-<a id="configuration-file-schema" class="xliff"></a>
+## <a name="configuration-file-schema"></a>配置文件架构
 诊断配置文件定义启动诊断代理时用于初始化诊断配置设置的值。 有关有效值和示例，请参阅[最新架构参考](https://msdn.microsoft.com/library/azure/mt634524.aspx)。
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx

@@ -21,12 +21,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 在 Azure 应用程序中指定 Node.js 版本
-<a id="specifying-a-nodejs-version-in-an-azure-application" class="xliff"></a>
+# <a name="specifying-a-nodejs-version-in-an-azure-application"></a>在 Azure 应用程序中指定 Node.js 版本
 托管 Node.js 应用程序时，您可能希望确保您的应用程序使用特定版本的 Node.js。 有几种方法可为托管在 Azure 上的应用程序完成此操作。
 
-## 默认版本
-<a id="default-versions" class="xliff"></a>
+## <a name="default-versions"></a>默认版本
 由 Azure 提供的 Node.js 版本会不断更新。 除非另行指定，否则将使用 `WEBSITE_NODE_DEFAULT_VERSION` 环境变量中指定的默认版本。 若要覆盖此默认值，请遵循本文后续部分中的步骤
 
 > [!NOTE]
@@ -34,8 +32,7 @@ ms.lasthandoff: 07/14/2017
 >
 >
 
-## 使用 package.json 进行版本控制
-<a id="versioning-with-packagejson" class="xliff"></a>
+## <a name="versioning-with-packagejson"></a>使用 package.json 进行版本控制
 可通过将以下内容添加到你的 **package.json** 文件中来指定要使用的 Node.js 的版本：
 
     "engines":{"node":version}
@@ -46,12 +43,10 @@ ms.lasthandoff: 07/14/2017
 
 由于 0.6.22 不是托管环境中提供的版本之一，将改为使用 0.8 系列中的最高版本 - 0.8.4。
 
-## 使用应用设置对网站进行版本控制
-<a id="versioning-websites-with-app-settings" class="xliff"></a>
+## <a name="versioning-websites-with-app-settings"></a>使用应用设置对网站进行版本控制
 如果是在网站中托管应用程序，可将环境变量 **WEBSITE_NODE_DEFAULT_VERSION** 设置为所需的版本。
 
-## 使用 PowerShell 对云服务进行版本控制
-<a id="versioning-cloud-services-with-powershell" class="xliff"></a>
+## <a name="versioning-cloud-services-with-powershell"></a>使用 PowerShell 对云服务进行版本控制
 如果你在云服务中托管应用程序，并且使用 Microsoft Azure PowerShell 部署该应用程序，则可使用 **Set-AzureServiceProjectRole** PowerShell cmdlet 替代默认的 Node.js 版本。 例如：
 
     Set-AzureServiceProjectRole WebRole1 Node 0.8.4
@@ -60,8 +55,7 @@ ms.lasthandoff: 07/14/2017
 
 你还可使用 **Get-AzureServiceProjectRoleRuntime** 检索托管为云服务的应用程序可用的 Node.js 版本的列表。  始终确认你的项目所依赖的 Node.js 版本是否在此列表中。
 
-## 对 Azure 网站使用自定义版本
-<a id="using-a-custom-version-with-azure-websites" class="xliff"></a>
+## <a name="using-a-custom-version-with-azure-websites"></a>对 Azure 网站使用自定义版本
 虽然 Azure 提供了 Node.js 的几个默认版本，但你可能希望使用并非默认提供的版本。 如果你的应用程序托管为 Azure 网站，则可以使用 **iisnode.yml** 文件完成此操作。 以下步骤演练了对 Azure 网站使用自定义版本的 Node.Js 的过程：
 
 1. 创建一个新目录，然后在该目录中创建 **server.js** 文件。 **server.js** 文件应包含以下内容：
@@ -95,8 +89,7 @@ ms.lasthandoff: 07/14/2017
 
     发布应用程序后，在浏览器中打开该网站。 您应看到一则指示“Hello from Azure running node version: v0.8.1”的消息。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 了解如何指定应用程序使用的 Node.js 版本后，请了解如何[使用模块]、[构建并部署 Node.js 网站](app-service-web/app-service-web-get-started-nodejs.md)以及[如何使用针对 Mac 和 Linux 的 Azure 命令行工具]。
 
 有关详细信息，请参阅 [Node.js 开发人员中心](/develop/nodejs/)。

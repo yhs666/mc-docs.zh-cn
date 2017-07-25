@@ -21,15 +21,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 针对 Azure 度量值警报配置 webhook
-<a id="configure-a-webhook-on-an-azure-metric-alert" class="xliff"></a>
+# <a name="configure-a-webhook-on-an-azure-metric-alert"></a>针对 Azure 度量值警报配置 webhook
 
 通过 webhook 可以将 Azure 警报通知路由到其他系统，以便进行后续处理或自定义操作。 可以针对警报使用 webhook，以将警报路由到可以发送短信、记录 Bug、通过聊天/消息通知团队，或执行任意数量的其他操作的服务。 本文介绍如何针对 Azure 度量值警报设置 webhook，以及 HTTP POST 对 Webhook 的有效负载情况。 有关 Azure 活动日志警报（事件警报）的设置和架构的信息，[请参阅本页](./insights-auditlog-to-webhook-email.md)。
 
 Azure 警报会将警报内容以 JSON 格式（架构定义如下）HTTP POST 到创建警报时提供的 webhook URI。 此 URI 必须是有效的 HTTP 或 HTTPS 终结点。 激活警报时，Azure 会针对每个请求发布一个条目。
 
-## 通过门户配置 webhook
-<a id="configuring-webhooks-via-the-portal" class="xliff"></a>
+## <a name="configuring-webhooks-via-the-portal"></a>通过门户配置 webhook
 
 可在 [门户](https://portal.azure.cn/)的“创建/更新警报”屏幕上添加或更新 webhook URI。
 
@@ -37,12 +35,10 @@ Azure 警报会将警报内容以 JSON 格式（架构定义如下）HTTP POST �
 
 还可以使用 [Azure PowerShell Cmdlet](./insights-powershell-samples.md#create-alert-rules)、[跨平台 CLI](./insights-cli-samples.md#work-with-alerts) 或 [Azure Monitor REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn933805.aspx) 将警报配置为发布到 webhook URI。
 
-## 对 webhook 进行身份验证
-<a id="authenticating-the-webhook" class="xliff"></a>
+## <a name="authenticating-the-webhook"></a>对 webhook 进行身份验证
 Webhook 可以使用基于令牌的授权进行身份验证。 保存的 Webhook URI 具有令牌 ID，例如 `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 
-## 负载架构
-<a id="payload-schema" class="xliff"></a>
+## <a name="payload-schema"></a>负载架构
 POST 操作对于所有基于度量值的警报包含以下 JSON 有效负载和架构。
 
 ```JSON
@@ -110,7 +106,6 @@ POST 操作对于所有基于度量值的警报包含以下 JSON 有效负载和
 >
 >
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 - 请在[将 Azure 警报与 PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080) 集成视频中了解有关 Azure 警报和 webhook 的详细信息
 - [Execute Azure Automation scripts (Runbooks) on Azure alerts](http://go.microsoft.com/fwlink/?LinkId=627081)（对 Azure 警报执行 Azure 自动化脚本 (Runbook)）

@@ -1,5 +1,5 @@
 ---
-title: "ExpressRoute 故障排除指南：获取 ARP 表 | Azure"
+title: "获取 ARP 表：经典：Azure ExpressRoute 故障排除 | Azure"
 description: "此页说明了如何为 ExpressRoute 线路获取 ARP 表。"
 documentationCenter: na
 services: expressroute
@@ -11,24 +11,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+origin.date: 01/30/2017
 ms.author: v-yiso
-ms.openlocfilehash: 67d8ebd2a10bea1f5e9ac899c93de7a7662e561a
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 
+ms.openlocfilehash: 373f6244d6848e19befff995932d90670cd27f68
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="expressroute-troubleshooting-guide-getting-arp-tables-in-the-classic-deployment-model"></a>ExpressRoute 故障排除指南：在经典部署模型中获取 ARP 表
-
+# <a name="getting-arp-tables-in-the-classic-deployment-model"></a>在经典部署模型中获取 ARP 表
 > [!div class="op_single_selector"]
-[PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
-[PowerShell - 经典](./expressroute-troubleshooting-arp-classic.md)
+> * [PowerShell - Resource Manager](./expressroute-troubleshooting-arp-resource-manager.md)
+> * [PowerShell - 经典](./expressroute-troubleshooting-arp-classic.md)
+> 
+> 
 
 本文介绍为 Azure ExpressRoute 线路获取地址解析协议 (ARP) 表的步骤。
 
 >[!IMPORTANT]
 > 本文档旨在帮助你诊断和修复简单问题。 它不是为了替代 Microsoft 支持部门。 如果你使用以下指南无法解决问题，请使用 [Azure 帮助+支持](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)建立支持请求。
+> 
+> 
 
 ## <a name="address-resolution-protocol-arp-and-arp-tables"></a>地址解析协议 (ARP) 和 ARP 表
 ARP 是 [RFC 826](https://tools.ietf.org/html/rfc826)中定义的第 2 层协议。 ARP 用于将以太网地址（MAC 地址）映射到 IP 地址。
@@ -149,6 +153,8 @@ ARP 表可帮助验证第 2 层配置，并可针对第 2 层的基本连接问�
 
 >[!NOTE]
 > 如果你遇到此类问题，请通过连接提供商联系建立支持请求以解决它。
+> 
+> 
 
 ### <a name="arp-table-when-the-microsoft-side-has-problems"></a>当 Microsoft 端出现问题时的 ARP 表
 

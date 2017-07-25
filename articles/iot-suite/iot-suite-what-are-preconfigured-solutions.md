@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# Azure IoT 套件预配置解决方案是什么？
-<a id="what-are-the-azure-iot-suite-preconfigured-solutions" class="xliff"></a>
+# <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>Azure IoT 套件预配置解决方案是什么？
 
 Azure IoT 套件预配置解决方案是你可以使用订阅部署到 Azure 的常见 IoT 解决方案模式的实现。 你可以使用预配置解决方案实现以下目的：
 
@@ -52,8 +51,7 @@ Azure IoT 套件预配置解决方案是你可以使用订阅部署到 Azure 的
 * *规则和操作*：解决方案后端使用规则作用于特定设备到云的数据。
 * *预测分析*：解决方案后端对设备到云数据进行分析，由此预测应何时采取特定操作。 例如，分析飞机发动机遥测数据来确定发动机维护何时到期。
 
-## 远程监控预配置解决方案概述
-<a id="remote-monitoring-preconfigured-solution-overview" class="xliff"></a>
+## <a name="remote-monitoring-preconfigured-solution-overview"></a>远程监控预配置解决方案概述
 
 我们选择在本文中讨论远程监控预配置解决方案，因为它介绍了许多其他解决方案共享的常见设计元素。
 
@@ -61,8 +59,7 @@ Azure IoT 套件预配置解决方案是你可以使用订阅部署到 Azure 的
 
 ![远程监控预配置解决方案体系结构][img-remote-monitoring-arch]
 
-## 设备
-<a id="devices" class="xliff"></a>
+## <a name="devices"></a>设备
 部署远程监控预配置解决方案时，在该解决方案中预配置了四个模拟冷却设备的设备。 这些模拟设备具有内置的可发出遥测数据的温度和湿度模型。 包含这些模拟设备的目的在于：
 - 演示贯穿整个解决方案的端到端数据流。
 - 提供方便的遥测源。
@@ -94,8 +91,7 @@ Azure IoT 套件预配置解决方案是你可以使用订阅部署到 Azure 的
 
 除响应命令和方法外，解决方案还使用 [设备孪生][lnk-device-twin]。 设备使用设备孪生向解决方案后端报告属性值。 解决方案仪表板使用设备孪生在设备上设置新的所需属性值。 例如，固件更新过程中，模拟设备将使用报告的属性报告更新状态。
 
-## IoT 中心
-<a id="iot-hub" class="xliff"></a>
+## <a name="iot-hub"></a>IoT 中心
 在此预配置的解决方案中，IoT 中心实例对应于典型的 *IoT 解决方案体系结构* 中的 [云网关][lnk-what-is-azure-iot]。
 
 IoT 中心接收单个终结点上的设备的遥测数据。 IoT 中心还维护特定于设备的终结点，终结点中的每个设备可以检索发送给它的命令。
@@ -108,8 +104,7 @@ IoT 中心通过服务端遥测数据读取终结点使收到的遥测数据可�
 - 更改设备状态
 - 固件更新
 
-## Azure 流分析
-<a id="azure-stream-analytics" class="xliff"></a>
+## <a name="azure-stream-analytics"></a>Azure 流分析
 此预配置的解决方案使用三种 [Azure 流分析][lnk-asa] (ASA) 作业筛选设备的遥测数据流：
 
 * DeviceInfo 作业 - 将数据输出到事件中心，该中心将特定于设备注册的消息路由到解决方案设备注册表（一种 Azure Cosmos DB 数据库）。 设备第一次连接或者响应 **更改设备状态** 命令时会发送此消息。
@@ -118,16 +113,14 @@ IoT 中心通过服务端遥测数据读取终结点使收到的遥测数据可�
 
 在此预配置的解决方案中，ASA 作业是典型的 **IoT 解决方案体系结构** 中 [IoT 解决方案后端][lnk-what-is-azure-iot]的组成部分。
 
-## 事件处理器
-<a id="event-processor" class="xliff"></a>
+## <a name="event-processor"></a>事件处理器
 在此预配置的解决方案中，事件处理器是典型的 **IoT 解决方案体系结构** 中 [IoT 解决方案后端][lnk-what-is-azure-iot]的组成部分。
 
 DeviceInfo 和规则 ASA 作业将其输出发送到事件中心以传递到其他后端服务。 该解决方案使用 [Web 作业][lnk-web-job]中运行的 [EventProcessorHost][lnk-event-processor] 实例从这些事件中心读取消息。 **EventProcessorHost** ：
 - DeviceInfo 数据更新 Cosmos DB 数据库中的设备数据。
 
 
-## 设备标识注册表、设备孪生和 Cosmos DB
-<a id="device-identity-registry-device-twin-and-cosmos-db" class="xliff"></a>
+## <a name="device-identity-registry-device-twin-and-cosmos-db"></a>设备标识注册表、设备孪生和 Cosmos DB
 每个 IoT 中心都包括存储设备密钥的 [设备标识注册表][lnk-identity-registry] 。 IoT 中心使用此信息对设备进行身份验证 - 设备必须已注册，并具有有效的密钥，然后才能连接到中心。
 
 [设备孪生][lnk-device-twin] 是由 IoT 中心管理的 JSON 文档。 设备的设备孪生包含：
@@ -140,8 +133,7 @@ DeviceInfo 和规则 ASA 作业将其输出发送到事件中心以传递到其�
 
 该解决方案必须保持设备标识注册表中的信息与 Cosmos DB 数据库的内容同步。 EventProcessorHost 使用来自 DeviceInfo 流分析作业的数据来管理同步。
 
-## 解决方案门户
-<a id="solution-portal" class="xliff"></a>
+## <a name="solution-portal"></a>解决方案门户
 ![解决方案门户][img-dashboard]
 
 解决方案门户是基于 Web 的 UI，作为预配置解决方案的一部分部署到云。 通过解决方案门户你可以：
@@ -156,8 +148,7 @@ DeviceInfo 和规则 ASA 作业将其输出发送到事件中心以传递到其�
 
 在此预配置的解决方案中，解决方案门户是典型的 [IoT 解决方案体系结构][lnk-what-is-azure-iot]中 IoT 解决方案后端和处理和业务连接的组成部分。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关 IoT 解决方案体系结构的详细信息，请参阅 [Azure IoT services: Reference Architecture（Azure IoT 服务：参考体系结构）][lnk-refarch]。
 

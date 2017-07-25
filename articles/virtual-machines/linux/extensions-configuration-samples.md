@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 09/13/2016
 ms.date: 11/21/2016
 ms.author: v-dazen
-ms.openlocfilehash: eac5c6d5f21c20ac8bc1b11707aaa80cb74b87b8
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 1cd64c505a03af2f752a1bcfce4aee37b1aa477e
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="linux-vm-extension-configuration-samples"></a>Linux VM 扩展配置示例
 > [!div class="op_single_selector"]
@@ -173,6 +173,31 @@ ms.lasthandoff: 06/21/2017
               "healthyTestScript": "<path_to_healthytestscript>"
           }
         }
+        }
+
+### <a name="docker-extension"></a>Docker 扩展
+有关更新的架构，请参阅 [Docker 扩展文档](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
+
+        {
+          "publisher": "Microsoft.Azure.Extensions ",
+          "type": "DockerExtension ",
+          "typeHandlerVersion": "1.0",
+          "Settings": {
+            "docker":{
+                "port": "2376",
+                "options": ["-D", "--dns=8.8.8.8"]
+            },
+            "compose": {
+                "cache" : {
+                    "image" : "memcached",
+                    "ports" : ["11211:11211"]
+                },
+                "blog": {
+                    "image": "ghost",
+                    "ports": ["80:2368"]
+                }
+            }
+            }
         }
 
 ### <a name="linux-diagnostics-extension"></a>Linux 诊断扩展

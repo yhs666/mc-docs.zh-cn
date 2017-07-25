@@ -1,24 +1,26 @@
 ---
-title: "使用弹性数据库工具添加分片 | Microsoft Docs"
+title: "使用弹性数据库工具添加分片 | Azure"
 description: "如何使用弹性缩放 API 将新分片添加到分片集。"
 services: sql-database
 documentationcenter: 
-manager: jhubbard
-author: ddove
+manager: digimobile
+author: Hayley244
 editor: 
 ms.assetid: 62a349db-bebe-406f-a120-2f1986f2b286
 ms.service: sql-database
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+origin.date: 10/24/2016
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 8ef29de1259a20cfddc07c9ca8d90109a1c180dd
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 128b14b8f85e8e6cadad13d8b9d98c2a99ca1df4
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>使用弹性数据库工具添加分片
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>添加新范围或键的分片
@@ -27,7 +29,7 @@ ms.lasthandoff: 06/21/2017
 如果新的键值范围还不是现有映射的一部分，则添加新分片以及将新的键或范围关联到该分片非常简单。 
 
 ### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>示例：将分片及其范围添加到现有的分片映射
-本示例使用 [TryGetShard](https://msdn.microsoft.com/zh-cn/library/azure/dn823929.aspx)、[CreateShard](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx)、[CreateRangeMapping](https://msdn.microsoft.com/zh-cn/library/azure/dn807221.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeShardMap`1.CreateRangeMapping(Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeMappingCreationInfo{`0})) 方法，并创建 [ShardLocation](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation.shardlocation.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardLocation.) 类的实例。 在以下示例中，创建了一个名为 sample_shard_2 的数据库以及其中所有必要的架构对象，用于保存范围 [300, 400)。  
+本示例使用 [TryGetShard](https://msdn.microsoft.com/library/azure/dn823929.aspx)、[CreateShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx)、[CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn807221.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeShardMap`1.CreateRangeMapping\(Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeMappingCreationInfo{`0}\)) 方法，并创建 [ShardLocation](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation.shardlocation.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardLocation.) 类的实例。 在以下示例中，创建了一个名为 sample_shard_2 的数据库以及其中所有必要的架构对象，用于保存范围 [300, 400)。  
 
 ```
 // sm is a RangeShardMap object.
@@ -45,9 +47,9 @@ sm.CreateRangeMapping(new RangeMappingCreationInfo<long>
 ```
 
 作为替代方法，你可以使用 Powershell 创建新的分片映射管理器。 [此处](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)提供了一个示例。
-## <a name="to-add-a-shard-for-an-empty-part-of-an-existing-range"></a>为现有范围的空部分添加分片  
 
-在某些情况下，用户可能已将某个范围映射到了某个分片，并在该分片中填充了部分数据，但是，现在用户希望将以后的数据定向到其他的分片。 例如，用户以前按日期范围进行分片，并且已在某个分片中分配了 50 天的数据，但从第 24 天开始，用户希望以后的数据都驻留在其他分片中。 弹性数据库[拆分/合并工具](./sql-database-elastic-scale-overview-split-and-merge.md)可以执行此操作，但是，如果不需要数据移动（例如，[25, 50) 天范围的数据 - 即，从第 25 天（含）到第 50 天（不含）的数据尚不存在），你完全可以直接使用分片映射管理 API 执行此操作。
+## <a name="to-add-a-shard-for-an-empty-part-of-an-existing-range"></a>为现有范围的空部分添加分片
+在某些情况下，用户可能已将某个范围映射到了某个分片，并在该分片中填充了部分数据，但是，现在用户希望将以后的数据定向到其他的分片。 例如，用户以前按日期范围进行分片，并且已在某个分片中分配了 50 天的数据，但从第 24 天开始，用户希望以后的数据都驻留在其他分片中。 弹性数据库[拆分/合并工具](sql-database-elastic-scale-overview-split-and-merge.md)可以执行此操作，但是，如果不需要数据移动（例如，[25, 50) 天范围的数据 - 即，从第 25 天（含）到第 50 天（不含）的数据尚不存在），你完全可以直接使用分片映射管理 API 执行此操作。
 
 ### <a name="example-splitting-a-range-and-assigning-the-empty-portion-to-a-newly-added-shard"></a>示例：拆分范围并将空部分分配到新添加的分片
 已创建名为“sample_shard_2”的数据库以及其中所有必要的架构对象。  
@@ -76,6 +78,6 @@ upd.Shard = shard2;
 sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd)); 
 ```
 
-重要说明：仅当确定所更新映射的范围为空时，才使用此方法。  上述方法不会检查数据中移动的范围，因此最好在代码中包含检查操作。  如果要移动的范围中存在行，则实际的数据分布将与更新后的分片映射不匹配。 在这种情况下，请改用[拆分/合并工具](./sql-database-elastic-scale-overview-split-and-merge.md)来执行操作。  
+重要说明：仅当确定所更新映射的范围为空时，才使用此方法。  上述方法不会检查数据中移动的范围，因此最好在代码中包含检查操作。  如果要移动的范围中存在行，则实际的数据分布将与更新后的分片映射不匹配。 在这种情况下，请改用[拆分/合并工具](sql-database-elastic-scale-overview-split-and-merge.md)来执行操作。  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

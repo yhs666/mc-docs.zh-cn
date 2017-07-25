@@ -155,7 +155,7 @@ azure vm deallocate <resource-group> <vm-name>
    * 从“位置”  下拉框中选择区域。
    * 不要编辑“模板根 URI”或“参数根 URI”文本框。
    * 在“OS 类型”下拉框中，选择“Linux”。
-   * 选择“法律条款”，查看条款和条件，然后单击“创建”按钮。
+   * 选择“法律条款”，查看条款和条件，然后单击“购买”按钮。
    * 单击“创建”按钮。
 3. 等待部署完成。
 4. 参数文件包括硬编码管理员用户名和密码，强烈建议你立即更改它们。 在 Azure 门户中单击名为 `ra-single-vm0 ` 的 VM。 然后，单击“支持 + 故障排除”部分中的“重置密码”。 在“模式”下拉框中选择“重置密码”，然后选择新**用户名**和**密码**。 单击“更新”  按钮来持久保存新的用户名和密码。
@@ -178,7 +178,7 @@ azure vm deallocate <resource-group> <vm-name>
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]:../articles/virtual-machines/linux/portal-create-fqdn.md
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm/
 [iostat]: https://en.wikipedia.org/wiki/Iostat
 [manage-vm-availability]:../articles/virtual-machines/linux/manage-availability.md
 [nsg]: ../articles/virtual-network/virtual-networks-nsg.md

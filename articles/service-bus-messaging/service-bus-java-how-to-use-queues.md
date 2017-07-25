@@ -20,8 +20,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 如何使用服务总线队列
-<a id="how-to-use-service-bus-queues" class="xliff"></a>
+# <a name="how-to-use-service-bus-queues"></a>如何使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 本文介绍了如何使用服务总线队列。 这些示例用 Java 编写并使用 [用于 Java 的 Azure SDK][用于 Java 的 Azure SDK]。 涉及的任务包括**创建队列**、**发送和接收消息**以及**删除队列**。
@@ -30,8 +29,7 @@ ms.lasthandoff: 07/14/2017
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## 配置应用程序以使用服务总线
-<a id="configure-your-application-to-use-service-bus" class="xliff"></a>
+## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
 在生成本示例之前，请确保已安装 [用于 Java 的 Azure SDK][用于 Java 的 Azure SDK]。 如果使用的是 Eclipse，则可以安装包含用于 Java 的 Azure SDK 的[用于 Eclipse 的 Azure 工具包][用于 Eclipse 的 Azure 工具包]。 然后，你可以将 **Microsoft Azure Libraries for Java** 添加到你的项目：
 
 ![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
@@ -46,8 +44,7 @@ import com.microsoft.windowsazure.core.*;
 import javax.xml.datatype.*;
 ```
 
-## 创建队列
-<a id="create-a-queue" class="xliff"></a>
+## <a name="create-a-queue"></a>创建队列
 
 服务总线队列的管理操作可通过 **ServiceBusContract** 类执行。 **ServiceBusContract** 对象是使用封装了 SAS 令牌及用于管理其权限的适当配置构造的，而 **ServiceBusContract** 类是与 Azure 进行通信的单一点。
 
@@ -87,8 +84,7 @@ CreateQueueResult result = service.createQueue(queueInfo);
 
 注意：可对 **ServiceBusContract** 对象使用 **listQueues** 方法来检查具有指定名称的队列在某个服务命名空间中是否已存在。
 
-## 向队列发送消息
-<a id="send-messages-to-a-queue" class="xliff"></a>
+## <a name="send-messages-to-a-queue"></a>向队列发送消息
 
 若要将消息发送到服务总线队列，应用程序将获得 **ServiceBusContract** 对象。 以下代码演示了如何将消息发送到先前在 `HowToSample` 命名空间中创建的 `TestQueue` 队列。
 
@@ -124,8 +120,7 @@ for (int i=0; i<5; i++)
 
 服务总线队列在标准层中支持的最大消息大小为 256 KB。 标头最大为 64 KB，其中包括标准和自定义应用程序属性。 一个队列可包含的消息数不受限制，但消息的总大小受限。 此队列大小是在创建时定义的，上限为 5 GB。
 
-## 从队列接收消息
-<a id="receive-messages-from-a-queue" class="xliff"></a>
+## <a name="receive-messages-from-a-queue"></a>从队列接收消息
 
 从队列接收消息的主要方法是使用 **ServiceBusContract** 对象。 收到的消息可在两种不同模式下工作：**ReceiveAndDelete** 和 **PeekLock**。
 
@@ -189,8 +184,7 @@ catch (Exception e) {
 }   
 ```
 
-## 如何处理应用程序崩溃和不可读消息
-<a id="how-to-handle-application-crashes-and-unreadable-messages" class="xliff"></a>
+## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>如何处理应用程序崩溃和不可读消息
 
 Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或消息处理问题中恢复。 如果接收方应用程序出于某种原因无法处理消息，则其可以对收到的消息调用 **unlockMessage** 方法（而不是 **deleteMessage** 方法）。 这将导致服务总线解锁队列中的消息并使其能够再次被同一个消费应用程序或其他消费应用程序接收。
 
@@ -198,8 +192,7 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 
 如果在处理消息之后，发出 **deleteMessage** 请求之前，应用程序发生崩溃，该消息将在应用程序重新启动时重新传送给它。 此情况通常称作*至少处理一次*，即每条消息至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 通常可使用消息的 **getMessageId** 方法实现此操作，这在多个传送尝试中保持不变。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 现在，你已了解服务总线队列的基础知识，请参阅 [队列、主题和订阅][Queues, topics, and subscriptions] 以获取更多信息。
 
 有关详细信息，请参阅 [Java 开发人员中心](https://www.azure.cn/develop/java/)。

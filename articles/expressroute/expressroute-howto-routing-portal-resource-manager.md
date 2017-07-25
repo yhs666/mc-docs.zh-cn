@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 创建和修改 ExpressRoute 线路的对等互连
-<a id="create-and-modify-peering-for-an-expressroute-circuit" class="xliff"></a>
+# <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>创建和修改 ExpressRoute 线路的对等互连
 > [!div class="op_single_selector"]
 >- [Resource Manager - Azure 门户](./expressroute-howto-routing-portal-resource-manager.md)
 >- [Resource Manager - PowerShell](./expressroute-howto-routing-arm.md)
@@ -31,8 +30,7 @@ ms.lasthandoff: 07/14/2017
 
 本文将指导你执行相关步骤，以便使用 Azure 门户和 Resource Manager 部署模型创建和管理 ExpressRoute 线路的路由配置。
 
-## 配置先决条件
-<a id="configuration-prerequisites" class="xliff"></a>
+## <a name="configuration-prerequisites"></a>配置先决条件
 
 - 在开始配置之前，请务必查看[先决条件](./expressroute-prerequisites.md)页、[路由要求](./expressroute-routing.md)页和[工作流](./expressroute-workflows.md)页。
 - 你必须有一个活动的 ExpressRoute 线路。 在继续下一步之前，请按说明 [创建 ExpressRoute 线路](./expressroute-howto-circuit-portal-resource-manager.md) ，并通过连接提供商启用该线路。 ExpressRoute 线路必须处于已预配和已启用状态，你才能运行下述 cmdlet。
@@ -47,13 +45,11 @@ ms.lasthandoff: 07/14/2017
 
 你可以为 ExpressRoute 线路配置一到三个对等互连（Azure 专用、Azure 公共和 Microsoft）。 可以按照所选的任意顺序配置对等互连。 但是，你必须确保一次只完成一个对等互连的配置。 
 
-## Azure 专用对等互连
-<a id="azure-private-peering" class="xliff"></a>
+## <a name="azure-private-peering"></a>Azure 专用对等互连
 
 本部分说明如何为 ExpressRoute 线路创建、获取、更新和删除 Azure 专用对等互连配置。 
 
-### 创建 Azure 专用对等互连
-<a id="to-create-azure-private-peering" class="xliff"></a>
+### <a name="to-create-azure-private-peering"></a>创建 Azure 专用对等互连
 
 1. 配置 ExpressRoute 线路。 在继续之前，请确保线路完全由连接提供商设置。
 
@@ -79,34 +75,29 @@ ms.lasthandoff: 07/14/2017
 
     ![](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
-### 查看 Azure 专用对等互连详细信息
-<a id="to-view-azure-private-peering-details" class="xliff"></a>
+### <a name="to-view-azure-private-peering-details"></a>查看 Azure 专用对等互连详细信息
 
 可以通过选择对等互连查看 Azure 专用对等互连的属性。
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
-### 更新 Azure 专用对等互连配置
-<a id="to-update-azure-private-peering-configuration" class="xliff"></a>
+### <a name="to-update-azure-private-peering-configuration"></a>更新 Azure 专用对等互连配置
 
 你可以选择用于对等互连的行并修改对等互连属性。 
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
 
-### 删除 Azure 专用对等互连
-<a id="to-delete-azure-private-peering" class="xliff"></a>
+### <a name="to-delete-azure-private-peering"></a>删除 Azure 专用对等互连
 
 可以通过选择删除图标来删除对等互连配置，如下所示。
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
 
-## Azure 公共对等互连
-<a id="azure-public-peering" class="xliff"></a>
+## <a name="azure-public-peering"></a>Azure 公共对等互连
 
 本部分说明如何为 ExpressRoute 线路创建、获取、更新和删除 Azure 公共对等互连配置。 
 
-### 创建 Azure 公共对等互连
-<a id="to-create-azure-public-peering" class="xliff"></a>
+### <a name="to-create-azure-public-peering"></a>创建 Azure 公共对等互连
 
 1. 配置 ExpressRoute 线路。 在进一步继续之前，请确保线路完全由连接提供商设置。
 
@@ -133,30 +124,26 @@ ms.lasthandoff: 07/14/2017
 
     ![](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
-### 查看 Azure 公共对等互连详细信息
-<a id="to-view-azure-public-peering-details" class="xliff"></a>
+### <a name="to-view-azure-public-peering-details"></a>查看 Azure 公共对等互连详细信息
 
 可以通过选择对等互连查看 Azure 公共对等互连的属性。
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
-### 更新 Azure 公共对等互连配置
-<a id="to-update-azure-public-peering-configuration" class="xliff"></a>
+### <a name="to-update-azure-public-peering-configuration"></a>更新 Azure 公共对等互连配置
 
 你可以选择用于对等互连的行并修改对等互连属性。 
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
 
-### 删除 Azure 公共对等互连
-<a id="to-delete-azure-public-peering" class="xliff"></a>
+### <a name="to-delete-azure-public-peering"></a>删除 Azure 公共对等互连
 
 可以通过选择删除图标来删除对等互连配置，如下所示。
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rpublic4.png)
 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 下一步， [将 VNet 链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-portal-resource-manager.md)。
 

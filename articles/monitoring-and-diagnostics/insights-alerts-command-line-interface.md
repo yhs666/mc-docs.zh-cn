@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 在 Azure Monitor 中为 Azure 服务创建指标警报 - 跨平台 CLI
-<a id="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli" class="xliff"></a>
+# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>在 Azure Monitor 中为 Azure 服务创建指标警报 - 跨平台 CLI
 > [!div class="op_single_selector"]
 > * [门户](./insights-alerts-portal.md)
 > * [PowerShell](./insights-alerts-powershell.md)
@@ -30,8 +29,7 @@ ms.lasthandoff: 07/14/2017
 >
 >
 
-## 概述
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概述
 本文说明如何使用跨平台命令行界面 (CLI) 设置 Azure 指标警报。
 
 > [!NOTE]
@@ -65,8 +63,7 @@ azure insights alerts -help
 azure insights alerts actions email create -help
 ```
 
-## 使用 CLI 创建警报规则
-<a id="create-alert-rules-using-the-cli" class="xliff"></a>
+## <a name="create-alert-rules-using-the-cli"></a>使用 CLI 创建警报规则
 1. 执行先决条件并登录到 Azure。 请参阅 [Azure 监视器 CLI 示例](./insights-cli-samples.md)。 简而言之，就是安装 CLI 并运行以下命令。 通过它们可进行登录，查看正在使用的订阅，并为运行 Azure 监视器命令做好准备。
 
     ```console
@@ -137,8 +134,7 @@ azure insights alerts actions email create -help
     azure insights alerts rule delete myresourcegroup myActivityLogRule
     ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 * [获取 Azure 监视概述](./monitoring-overview.md)，包括可收集和监视的信息的类型。
 * 了解[在警报中配置 Webhook](./insights-webhooks-alerts.md)的详细信息。

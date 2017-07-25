@@ -20,8 +20,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# Reliable Actors 入门
-<a id="getting-started-with-reliable-actors" class="xliff"></a>
+# <a name="getting-started-with-reliable-actors"></a>Reliable Actors 入门
 > [!div class="op_single_selector"]
 > * [Windows 上的 C#](service-fabric-reliable-actors-get-started.md)
 > * [Linux 上的 Java](service-fabric-reliable-actors-get-started-java.md)
@@ -30,13 +29,11 @@ ms.lasthandoff: 07/13/2017
 
 本文介绍了 Azure Service Fabric Reliable Actors 的基础知识，并演示了如何在 Visual Studio 中创建、调试和部署简单的 Reliable Actor 应用程序。
 
-## 安装和设置
-<a id="installation-and-setup" class="xliff"></a>
+## <a name="installation-and-setup"></a>安装和设置
 在开始之前，确保你的计算机上已设置 Service Fabric 开发环境。
 如果需要设置此环境，请参阅有关[如何设置开发环境](service-fabric-get-started.md)的详细说明。
 
-## 基本概念
-<a id="basic-concepts" class="xliff"></a>
+## <a name="basic-concepts"></a>基本概念
 若要开始使用 Reliable Actors，只需了解几个基本概念：
 
 * **执行组件服务**。 可以在 Service Fabric 基础结构中部署的 Reliable Services 中打包 Reliable Actors。 执行组件实例在命名的服务实例中激活。
@@ -53,8 +50,7 @@ ms.lasthandoff: 07/13/2017
 * 执行组件接口方法不能有输出参数、引用参数或可选参数。
 * 不支持泛型接口。
 
-## 在 Visual Studio 中创建新项目
-<a id="create-a-new-project-in-visual-studio" class="xliff"></a>
+## <a name="create-a-new-project-in-visual-studio"></a>在 Visual Studio 中创建新项目
 以管理员身份启动 Visual Studio 2015 或 Visual Studio 2017，并新建一个 Service Fabric 应用程序项目：
 
 ![适用于 Visual Studio 的 Service Fabric 工具 - 新建项目][1]
@@ -69,8 +65,7 @@ ms.lasthandoff: 07/13/2017
 
 ![Service Fabric 项目结构][2]
 
-## Reliable Actors 基本构建基块
-<a id="reliable-actors-basic-building-blocks" class="xliff"></a>
+## <a name="reliable-actors-basic-building-blocks"></a>Reliable Actors 基本构建基块
 典型的 Reliable Actors 解决方案由 3 个项目组成：
 
 * **应用程序项目 (MyActorApplication)**。 这是将所有服务打包在一起以进行部署的项目。 它包含用于管理应用程序的 *ApplicationManifest.xml* 和 PowerShell 脚本。
@@ -137,16 +132,14 @@ internal static class Program
 > 
 > 
 
-## 调试
-<a id="debugging" class="xliff"></a>
+## <a name="debugging"></a>调试
 适用于 Visual Studio 的 Service Fabric 工具支持在本地计算机上进行调试。 你可以通过点击 F5 键启动调试会话。 Visual Studio 将生成程序包（如果需要）。 Visual Studio 还将在本地 Service Fabric 群集中部署应用程序，并附加调试器。
 
 在部署过程中，可以在“**输出**”窗口中查看进度。
 
 ![Service Fabric 调试输出窗口][3]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * [Reliable Actors 如何使用 Service Fabric 平台](service-fabric-reliable-actors-platform.md)
 * [执行组件状态管理](service-fabric-reliable-actors-state-management.md)
 * [执行组件生命周期和垃圾回收](service-fabric-reliable-actors-lifecycle.md)

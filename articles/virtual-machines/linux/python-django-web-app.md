@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# Linux VM 上的 Django Hello World Web 应用程序
-<a id="django-hello-world-web-application-on-a-linux-vm" class="xliff"></a>
+# <a name="django-hello-world-web-application-on-a-linux-vm"></a>Linux VM 上的 Django Hello World Web 应用程序
 > [!div class="op_single_selector"]
 > * [Windows](../windows/classic/python-django-web-app.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 > * [Mac/Linux](../windows/classic/python-django-web-app.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
@@ -47,8 +46,7 @@ ms.lasthandoff: 07/13/2017
 
 [!INCLUDE [create-account-and-vms-note](../../../includes/create-account-and-vms-note.md)]
 
-## 创建并配置 Azure 虚拟机以托管 Django
-<a id="creating-and-configuring-an-azure-virtual-machine-to-host-django" class="xliff"></a>
+## <a name="creating-and-configuring-an-azure-virtual-machine-to-host-django"></a>创建并配置 Azure 虚拟机以托管 Django
 1. 按照[此处](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)提供的说明创建 Ubuntu Server 14.04 LTS 分发的 Azure 虚拟机。  如果需要，可以选择密码身份验证而不是 SSH 公钥。
 2. 使用[此处](../../virtual-network/virtual-networks-create-nsg-arm-pportal.md)的说明编辑网络安全组，以允许将 http 流量传入到端口 80。
 3. 默认情况下，新的虚拟机没有完全限定的域名 (FQDN)。  可以按照[此处](../windows/portal-create-fqdn.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)的说明创建一个。  完成本教程时，此步骤是可选的。
@@ -70,8 +68,7 @@ Ubuntu Linux VM 已预安装了 Python 2.7，但它没有安装 Apache 或 Djang
 
        $ sudo apt-get install apache2 libapache2-mod-wsgi
 
-## 创建新的 Django 应用程序
-<a id="creating-a-new-django-application" class="xliff"></a>
+## <a name="creating-a-new-django-application"></a>创建新的 Django 应用程序
 1. 打开上一节中使用的终端窗口，通过 ssh 进入 VM。
 2. 输入以下命令来创建新的 Django 项目：
 
@@ -96,8 +93,7 @@ Ubuntu Linux VM 已预安装了 Python 2.7，但它没有安装 Apache 或 Djang
            url(r'^$', 'helloworld.views.home', name='home'),
        )
 
-## 设置 Apache
-<a id="setting-up-apache" class="xliff"></a>
+## <a name="setting-up-apache"></a>设置 Apache
 1. 创建 Apache 虚拟主机配置文件 /etc/apache2/sites-available/helloworld.conf。 将内容设置为以下项，并将 yourVmName 替换为所使用的计算机的实际名称（例如 pyubuntu）。
 
        <VirtualHost *:80>
@@ -115,6 +111,5 @@ Ubuntu Linux VM 已预安装了 Python 2.7，但它没有安装 Apache 或 Djang
 
    ![显示 Azure 上的 hello world 页面的浏览器窗口](./media/python-django-web-app/mac-linux-django-helloworld-browser.png)
 
-## 关闭你的 Azure 虚拟机
-<a id="shutting-down-your-azure-virtual-machine" class="xliff"></a>
+## <a name="shutting-down-your-azure-virtual-machine"></a>关闭你的 Azure 虚拟机
 完成本教程后，关闭并/或删除新创建的 Azure 虚拟机，以便为其他教程释放资源并避免产生 Azure 使用费。

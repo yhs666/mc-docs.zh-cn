@@ -23,8 +23,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 将 Web 应用连接到 Cosmos DB
-<a id="connect-a-web-app-to-cosmos-db" class="xliff"></a>
+# <a name="connect-a-web-app-to-cosmos-db"></a>将 Web 应用连接到 Cosmos DB
 
 在此方案中，将了解如何创建 Azure Cosmos DB 帐户和 Azure Web 应用。 然后，使用应用设置将 Cosmos DB 链接到 Web 应用。
 
@@ -32,8 +31,7 @@ ms.lasthandoff: 07/14/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## 示例脚本
-<a id="sample-script" class="xliff"></a>
+## <a name="sample-script"></a>示例脚本
 
 ```azurecli
 #/bin/bash
@@ -62,8 +60,7 @@ az webapp config appsettings set --settings "COSMOSDB_URL=$cosmosdb" "COSMOSDB_K
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## 脚本说明
-<a id="script-explanation" class="xliff"></a>
+## <a name="script-explanation"></a>脚本说明
 
 此脚本使用以下命令创建资源组、Web 应用、Cosmos DB 和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
 
@@ -76,8 +73,7 @@ az webapp config appsettings set --settings "COSMOSDB_URL=$cosmosdb" "COSMOSDB_K
 | [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) | 列出指定 Cosmos DB 帐户的访问密钥。 |
 | [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#update) | 创建或更新 Azure Web 应用的应用设置。 应用设置将作为应用的环境变量公开。 |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 

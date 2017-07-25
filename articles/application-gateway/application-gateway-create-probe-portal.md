@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 使用门户创建应用程序网关的自定义探测
-<a id="create-a-custom-probe-for-application-gateway-by-using-the-portal" class="xliff"></a>
+# <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>使用门户创建应用程序网关的自定义探测
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](application-gateway-create-probe-portal.md)
@@ -32,8 +31,7 @@ ms.lasthandoff: 07/13/2017
 
 本文介绍如何通过 Azure 门户向现有应用程序网关添加自定义探测。 如果应用程序包含特定运行状况检查页面。或者未在默认 Web 应用程序上提供成功的响应，那么它们非常适合使用自定义探测。
 
-## 开始之前
-<a id="before-you-begin" class="xliff"></a>
+## <a name="before-you-begin"></a>开始之前
 
 如果还没有应用程序网关，请访问[创建应用程序网关](application-gateway-create-gateway-portal.md)，创建要使用的应用程序网关。
 
@@ -64,8 +62,7 @@ ms.lasthandoff: 07/13/2017
   > [!IMPORTANT]
   > 主机名不同于服务器名。 此值是运行在应用程序服务器上的虚拟主机的名称。 探测发送到 http://(主机名):(httpsetting 中的端口)/urlPath
 
-## 向网关添加探测
-<a id="add-probe-to-the-gateway" class="xliff"></a>
+## <a name="add-probe-to-the-gateway"></a>向网关添加探测
 
 创建探测以后，即可将其添加到网关。 探测设置在应用程序网关的后端 http 设置中设置。
 
@@ -78,8 +75,7 @@ ms.lasthandoff: 07/13/2017
 
 默认探测检查对 Web 应用程序的默认访问权限。 现已创建自定义探测，因此应用程序网关可以使用定义的自定义路径来监视后端服务器的运行状况。 应用程序网关根据所定义的条件检查探测中指定的路径。 如果调用 host:Port/path 时没有返回 HTTP 200-299 状态响应，则在达到不正常阈值后，服务器将不再进行轮换。 将继续对不正常的实例进行探测，看其何时恢复正常。 将实例添加回正常的服务器池以后，其流量即可恢复，同时也会继续按用户指定的正常时间间隔对实例进行探测。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 若要了解如何通过 Azure 应用程序网关来配置 SSL 卸载，请参阅[配置 SSL 卸载](application-gateway-ssl-portal.md)
 

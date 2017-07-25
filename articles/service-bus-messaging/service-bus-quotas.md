@@ -20,12 +20,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 服务总线配额
-<a id="service-bus-quotas" class="xliff"></a>
+# <a name="service-bus-quotas"></a>服务总线配额
 
 本部分列出了 Microsoft Azure 服务总线消息传送的基本配额和限制阈值。
 
-## 消息传送配额
-<a id="messaging-quotas" class="xliff"></a>
+## <a name="messaging-quotas"></a>消息传送配额
 
 [!INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)]

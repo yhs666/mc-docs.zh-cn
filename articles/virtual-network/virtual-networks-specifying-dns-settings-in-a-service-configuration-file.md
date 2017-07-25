@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/24/2016
 ms.date: 04/26/2016
 ms.author: v-dazen
-ms.openlocfilehash: 8e9844833065286935ba61cc14919aa3d12ad74b
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 5bb97419ec104867ebc2351c5d9c4595133e83e9
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>在服务配置文件中指定 DNS 设置
 ## <a name="dns-elements"></a>DNS 元素
@@ -41,6 +41,6 @@ ms.lasthandoff: 06/21/2017
 ## <a name="see-also"></a>另请参阅
 [Azure 服务配置架构 (.cscfg)](https://msdn.microsoft.com/library/azure/ee758710)
 
-[Azure 虚拟网络配置架构](https://msdn.microsoft.com/library/azure/jj157100)
+[Azure 虚拟网络配置架构](http://go.microsoft.com/fwlink/?LinkId=248093)
 
 [使用网络配置文件配置虚拟网络](/virtual-network/virtual-networks-create-vnet-classic-portal)

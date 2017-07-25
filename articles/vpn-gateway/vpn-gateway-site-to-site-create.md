@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用经典管理门户创建具有站点到站点连接的 VNet（经典）
-<a id="create-a-vnet-with-a-site-to-site-connection-using-the-classic-management-portal-classic" class="xliff"></a>
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-management-portal-classic"></a>使用经典管理门户创建具有站点到站点连接的 VNet（经典）
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
@@ -42,12 +41,10 @@ ms.lasthandoff: 07/14/2017
 
 使用站点到站点 VPN 网关连接，通过 IPsec/IKE（IKEv1 或 IKEv2）VPN 隧道将本地网络连接到 Azure 虚拟网络。 此类型的连接要求位于本地的 VPN 设备分配有一个面向外部的公共 IP 地址。 有关 VPN 网关的详细信息，请参阅[关于 VPN 网关](vpn-gateway-about-vpngateways.md)。
 
-#### 其他配置
-<a id="additional-configurations" class="xliff"></a>
+#### <a name="additional-configurations"></a>其他配置
 
 如果想要将多个 VNet 连接到一起，请参阅 [为经典部署模型配置 VNet 到 VNet 连接](virtual-networks-configure-vnet-to-vnet-connection.md)。 如果想要向已具有连接的 VNet 添加站点到站点连接，请参阅[使用现有 VPN 网关连接将 S2S 连接添加到 VNet](vpn-gateway-multi-site.md)。
-## 开始之前
-<a id="before-you-begin" class="xliff"></a>
+## <a name="before-you-begin"></a>开始之前
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
@@ -103,6 +100,5 @@ ms.lasthandoff: 07/14/2017
 ## <a name="VNetGateway"></a>配置虚拟网络网关
 配置虚拟网络网关，创建安全的站点到站点连接。 请参阅[在 Azure 经典管理门户中配置虚拟网关](vpn-gateway-configure-vpn-gateway-mp.md)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
  连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/#pivot=services&panel=Compute)。

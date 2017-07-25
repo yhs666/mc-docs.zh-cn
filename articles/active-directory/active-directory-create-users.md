@@ -21,12 +21,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 向 Azure Active Directory 添加新用户或具有 Microsoft 帐户的用户
-<a id="add-new-users--or-users-with-microsoft-accounts-to-azure-active-directory" class="xliff"></a>
+# <a name="add-new-users--or-users-with-microsoft-accounts-to-azure-active-directory"></a>向 Azure Active Directory 添加新用户或具有 Microsoft 帐户的用户
 请添加用户以填充你的目录。 本文说明如何在组织中添加新用户，以及如何添加具有 Microsoft 帐户的用户。 有关在 Azure Active Directory 中添加来自其他目录的用户或添加来自合作伙伴公司的用户的详细信息，请参阅 [在 Azure Active Directory 中添加来自其他目录或合作伙伴公司的用户](active-directory-create-users-external.md)。 默认情况下，添加的用户没有管理员权限，但你随时可以向他们分配角色。
 
-## 添加用户
-<a id="add-a-user" class="xliff"></a>
+## <a name="add-a-user"></a>添加用户
 1. 使用充当目录全局管理员的帐户登录到 [Azure 经典管理门户](https://manage.windowsazure.cn) 。
 2. 选择“Active Directory” ，然后选择组织目录的名称。
 3. 选择“用户”选项卡，然后在命令栏中选择“添加用户”。
@@ -46,8 +44,7 @@ ms.lasthandoff: 07/13/2017
 >
 >
 
-## 更改用户信息
-<a id="change-user-information" class="xliff"></a>
+## <a name="change-user-information"></a>更改用户信息
 可以更改任何用户属性，但对象 ID 除外。
 
 1. 打开你的目录。
@@ -56,8 +53,7 @@ ms.lasthandoff: 07/13/2017
 
 如果要更改的用户已与本地 Active Directory 服务同步，则无法使用此过程来更改用户信息。 若要更改该用户，请使用本地 Active Directory 管理工具。
 
-## 来宾用户管理和限制
-<a id="guest-user-management-and-limitations" class="xliff"></a>
+## <a name="guest-user-management-and-limitations"></a>来宾用户管理和限制
 来宾帐户是来自其他目录的用户，他们已受邀加入你的目录，可以访问 SharePoint 文档、应用程序或其他 Azure 资源。 目录中来宾帐户的基础 UserType 属性设置为“Guest”。 普通用户（具体而言，指目录的成员）的 UserType 属性设置为“Member”。
 
 来宾在目录中的权利有限。 这些权利限制了客户发现有关目录中其他用户的信息。 但是，来宾用户仍可与其使用的资源相关联的用户和组交互。 来宾用户可以：
@@ -69,8 +65,7 @@ ms.lasthandoff: 07/13/2017
 - 获取目录中已验证域的列表
 - 同意应用程序，授予它们与在目录中相同的成员访问权限
 
-## 设置来宾用户访问策略
-<a id="set-guest-user-access-policies" class="xliff"></a>
+## <a name="set-guest-user-access-policies"></a>设置来宾用户访问策略
 目录的“配置”  选项卡包含用于控制来宾用户访问权限的选项。 这些选项只能由目录全局管理员在 Azure 经典管理门户中更改。 目前不支持 PowerShell 或 API 方法。
 
 若要在 Azure 经典管理门户中打开“配置”选项卡，请选择“Active Directory”，然后选择目录的名称。
@@ -81,8 +76,7 @@ ms.lasthandoff: 07/13/2017
 
 ![来宾用户的访问控制选项][2]
 
-## 后续步骤
-<a id="whats-next" class="xliff"></a>
+## <a name="whats-next"></a>后续步骤
 - [在 Azure Active Directory 中添加来自其他目录或合作伙伴公司的用户](active-directory-create-users-external.md)
 - [管理 Azure AD](active-directory-administer.md)
 - [在 Azure AD 中管理密码](active-directory-manage-passwords.md)

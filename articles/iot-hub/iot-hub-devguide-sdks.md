@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 了解和使用 Azure IoT SDK
-<a id="understand-and-use-azure-iot-sdks" class="xliff"></a>
+# <a name="understand-and-use-azure-iot-sdks"></a>了解和使用 Azure IoT SDK
 
 有三种类别的 SDK 适用于 IoT 中心：
 
@@ -35,8 +34,7 @@ ms.lasthandoff: 07/13/2017
 
 提供 SDK 以支持多种编程语言。
 
-## Azure IoT 设备 SDK
-<a id="azure-iot-device-sdks" class="xliff"></a>
+## <a name="azure-iot-device-sdks"></a>Azure IoT 设备 SDK
 
 Microsoft Azure IoT 设备 SDK 包含的代码可帮助构建连接到 Azure IoT 中心服务并由这些服务管理的设备和应用程序。
 
@@ -53,13 +51,11 @@ Microsoft Azure IoT 设备 SDK 包含的代码可帮助构建连接到 Azure IoT
 > 
 > 
 
-### 操作系统平台和硬件兼容性
-<a id="os-platform-and-hardware-compatibility" class="xliff"></a>
+### <a name="os-platform-and-hardware-compatibility"></a>操作系统平台和硬件兼容性
 
 有关与特定硬件设备的 SDK 兼容性的详细信息，请参阅 [Azure IoT 认证设备目录][lnk-certified]。
 
-## Azure IoT 服务 SDK
-<a id="azure-iot-service-sdks" class="xliff"></a>
+## <a name="azure-iot-service-sdks"></a>Azure IoT 服务 SDK
 
 Azure IoT 服务 SDK 包含的代码可帮助生成直接与 IoT 中心进行交互以管理设备和安全性的应用程序。
 
@@ -74,15 +70,13 @@ Azure IoT 服务 SDK 包含的代码可帮助生成直接与 IoT 中心进行交
 > [!NOTE]
 > 有关使用语言和平台特定的程序包管理器在开发计算机上安装二进制文件和依赖项的信息，请参阅 GitHub 存储库中的自述文件。
 
-## Azure IoT Edge
-<a id="azure-iot-edge" class="xliff"></a>
+## <a name="azure-iot-edge"></a>Azure IoT Edge
 
 Azure IoT Edge 包含用于创建 IoT 网关解决方案的基础结构和模块。 可以扩展 IoT Edge，创建适用于任何端到端方案的网关。
 
 可以从 GitHub 下载 [Azure IoT Edge][lnk-iot-edge]。
 
-## 联机 API 参考文档
-<a id="online-api-reference-documentation" class="xliff"></a>
+## <a name="online-api-reference-documentation"></a>联机 API 参考文档
 
 以下列表包含 Azure IoT 设备、服务和网关库的联机 API 参考文档链接：
 
@@ -95,8 +89,7 @@ Azure IoT Edge 包含用于创建 IoT 网关解决方案的基础结构和模块
 * [适用于 Node.js 的 Azure IoT 服务 SDK][lnk-node-service-ref]
 * [Azure IoT Edge][lnk-gateway-ref]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 此 IoT 中心开发人员指南中的其他参考主题包括：
 

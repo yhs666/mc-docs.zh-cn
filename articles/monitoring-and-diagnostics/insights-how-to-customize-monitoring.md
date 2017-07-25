@@ -1,28 +1,29 @@
 ---
 title: "Microsoft Azure 中的指标概述 | Azure"
 description: "了解如何在 Azure 中自定义监视图表。"
-authors: rboucher
-manager: 
+author: rboucher
+manager: carolz
 editor: 
 services: monitoring-and-diagnostics
-documentationCenter: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+ms.assetid: c36031eb-4df5-4cd5-9479-311d493a40d2
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/08/2015
+origin.date: 06/06/2017
 ms.author: v-yiso
-ms.date: 10/17/2016
-ms.openlocfilehash: 0c824dbd2507c08a3b2b3d0887cdda53f245a907
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 
+ms.openlocfilehash: e41c2ab49743eec655ad96b0f58f58b8fc0f072d
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="overview-of-metrics-in-azure"></a>Azure 中的指标概述
 
-所有 Azure 服务都会跟踪使用户可以监视其服务的运行状况、性能、可用性和使用情况的关键指标。 可以在 Azure 门户中查看这些指标，也可以使用 [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931930.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) 以编程方式访问完整的指标集。
+所有 Azure 服务都会跟踪使用户可以监视其服务的运行状况、性能、可用性和使用情况的关键指标。 可以在 Azure 门户中查看这些指标，也可以使用 [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931930.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) 以编程方式访问完整的指标集。
 
 对于某些服务，可能需要打开诊断以便查看任何指标。 对于其他服务（如虚拟机），用户会获得基本指标集，但需要启用完整高频率指标集。 有关详细信息，请参阅[启用监视和诊断](./insights-how-to-use-diagnostics.md)。
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 06/21/2017
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“浏览”，然后单击要监视的资源。
 
-2. “监视”部分包含每个 Azure 资源的最重要指标。 例如，Web 应用具有“请求和错误”，而虚拟机具有“CPU 百分比”和“磁盘读写”： ![监视可重用功能区](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
+2. “监视”部分包含每个 Azure 资源的最重要指标。 例如，Web 应用具有“请求和错误”，而虚拟机具有“CPU 百分比”和“磁盘读写”：![监视可重用功能区](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
 
 3. 单击任何图表都会显示“指标”边栏选项卡。 在该边栏选项卡中，除了该图之外还有一个表，其中显示指标（例如在所选时间范围内的平均值、最小值和最大值）的聚合。 下面是资源的警报规则。
     ![“指标”边栏选项卡](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
@@ -40,10 +41,10 @@ ms.lasthandoff: 06/21/2017
 4. 若要自定义显示的折线图，请单击图表上的“编辑”按钮，或单击“指标”边栏选项卡上的“编辑图表”命令。
 
 5. 在“编辑查询”边栏选项卡上，可执行三个操作：
-    - 更改时间范围
-    - 在条形图与折线图之间切换外观
-    - 选择不同的指标![编辑查询](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
-
+   
+   * 更改时间范围
+   * 在条形图与折线图之间切换外观
+   * 选择不同的指标![编辑查询](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
 6. 更改时间范围十分轻松，只需选择不同的范围（例如“前一个小时”），然后单击边栏选项卡底部的“保存”即可。 还可选择“自定义”，由此选择过去两周内的任何时间段。 例如，可查看整个两周，或仅查看昨天的 1 小时。 在文本框中键入一个不同的小时即可。
     ![自定义时间范围](./media/insights-how-to-customize-monitoring/Insights_CustomTime.png)
 
@@ -57,7 +58,7 @@ ms.lasthandoff: 06/21/2017
 
 1. 在边栏选项卡顶部的“...”菜单中，单击“添加磁贴”：  
     ![添加菜单](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
-2. 然后可从屏幕右侧的“库”中选择图表： ![库](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
+2. 然后可从屏幕右侧的“库”中选择图表：![库](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
 3. 如果看不到所需指标，则始终可以添加一个预设指标，然后“编辑”图表以显示所需指标。 
 
 ## <a name="monitoring-usage-quotas"></a>监视使用配额
@@ -68,7 +69,7 @@ ms.lasthandoff: 06/21/2017
 
 ![使用情况](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
-与指标一样，可使用 [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931963.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) 按编程方式访问完整使用配额集。
+与指标一样，可使用 [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931963.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) 按编程方式访问完整使用配额集。
 
 ## <a name="next-steps"></a>后续步骤
 

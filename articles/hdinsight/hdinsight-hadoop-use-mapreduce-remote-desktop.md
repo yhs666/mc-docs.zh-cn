@@ -1,5 +1,5 @@
 ---
-title: "将 MapReduce 和远程桌面与 HDInsight 中的 Hadoop 配合使用 | Azure"
+title: "将 MapReduce 和远程桌面与 HDInsight 中的 Hadoop 配合使用 - Azure | Azure"
 description: "了解如何使用远程桌面连接到 HDInsight 上的 Hadoop 并运行 MapReduce 作业。"
 services: hdinsight
 documentationcenter: 
@@ -17,11 +17,11 @@ origin.date: 01/12/2017
 ms.date: 01/25/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
-ms.openlocfilehash: eebf95ae873caadc7d094fc27c3ee20eb31b8c3c
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: e900f8264b90d249d93050c102f3bc017852bee3
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>通过远程桌面在 HDInsight 上的 Hadoop 中使用 MapReduce
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
@@ -31,7 +31,7 @@ ms.lasthandoff: 06/21/2017
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> 远程桌面只能在基于 Windows 的 HDInsight 群集上使用。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+> 远程桌面只能在基于 Windows 的 HDInsight 群集上使用。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 >
 > 有关 HDInsight 3.4 或更高版本，请参阅[将 MapReduce 与 SSH 配合使用](hdinsight-hadoop-use-mapreduce-ssh.md)，了解如何连接到 HDInsight 群集以及如何运行 MapReduce 作业。
 

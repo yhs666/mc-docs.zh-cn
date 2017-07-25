@@ -21,15 +21,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 在 Azure Monitor 中为 Azure 服务创建指标警报 - PowerShell
-<a id="create-metric-alerts-in-azure-monitor-for-azure-services---powershell" class="xliff"></a>
+# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>在 Azure Monitor 中为 Azure 服务创建指标警报 - PowerShell
 > [!div class="op_single_selector"]
 >- [门户](./insights-alerts-portal.md)
 >- [PowerShell](./insights-alerts-powershell.md)
 >- [CLI](./insights-alerts-command-line-interface.md) 
 
-## 概述
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概述
 本文将展示如何使用 PowerShell 设置 Azure 指标警报。  
 
 可以根据监控指标或事件接收 Azure 服务的警报。
@@ -53,8 +51,7 @@ ms.lasthandoff: 07/14/2017
 
 若要获得更多信息，始终可以通过键入 ```get-help``` 然后键入希望获取其帮助信息的 PowerShell 命令来实现此目的。 
 
-## 在 PowerShell 中创建警报规则
-<a id="create-alert-rules-in-powershell" class="xliff"></a>
+## <a name="create-alert-rules-in-powershell"></a>在 PowerShell 中创建警报规则
 
 1. 登录到 Azure。   
 
@@ -134,8 +131,7 @@ ms.lasthandoff: 07/14/2017
     Remove-AzureRmAlertRule -ResourceGroup myresourcegroup -Name myLogAlertRule
     ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 * [获取 Azure 监视概述](./monitoring-overview.md)，包括可收集和监视的信息的类型。
 * 了解[在警报中配置 Webhook](./insights-webhooks-alerts.md)的详细信息。

@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# Azure Cosmos DB：适用于 DocumentDB API 的 C++ 控制台应用程序教程
-<a id="azure-cosmos-db-c-console-application-tutorial-for-the-documentdb-api" class="xliff"></a>
+# <a name="azure-cosmos-db-c-console-application-tutorial-for-the-documentdb-api"></a>Azure Cosmos DB：适用于 DocumentDB API 的 C++ 控制台应用程序教程
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -55,15 +54,13 @@ ms.lasthandoff: 07/13/2017
 
 现在，让我们开始吧！
 
-## C++ 教程的先决条件
-<a id="prerequisites-for-the-c-tutorial" class="xliff"></a>
+## <a name="prerequisites-for-the-c-tutorial"></a>C++ 教程的先决条件
 请确保你具有以下内容：
 
 * 有效的 Azure 帐户。 如果没有，可以注册 [Azure 免费试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * [Visual Studio](https://www.visualstudio.com/downloads/)，安装了 C++ 语言组件。
 
-## 步骤 1：创建 Azure Cosmos DB 帐户
-<a id="step-1-create-an-azure-cosmos-db-account" class="xliff"></a>
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>步骤 1：创建 Azure Cosmos DB 帐户
 创建一个 Azure Cosmos DB 帐户。 如果已经有想要使用的帐户，可以跳到 [安装 C++ 应用程序](#SetupNode)。
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -285,8 +282,7 @@ Azure Cosmos DB 支持删除 JSON 文档，为此，可以复制以下代码并�
 * [Azure Cosmos DB 帐户][create-account]。
 * GitHub 上提供的 [GetStarted](https://github.com/stalker314314/DocumentDBCpp) 解决方案。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 了解如何[监视 Azure Cosmos DB 帐户](monitor-accounts.md)。
 * 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
 * 在 [Azure Cosmos DB 文档页](/documentdb/)的“开发”部分了解有关编程模型的详细信息。

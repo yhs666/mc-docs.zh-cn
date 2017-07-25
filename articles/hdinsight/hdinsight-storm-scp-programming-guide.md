@@ -16,11 +16,11 @@ ms.workload: big-data
 origin.date: 05/16/2016
 ms.date: 12/26/2016
 ms.author: v-dazen
-ms.openlocfilehash: cd09588cce6570bffaef3f3dc0d4f9e598764624
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 7c91c24ef42441902f424fb23e2f47eb005955dc
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="scp-programming-guide"></a>SCP 编程指南
 SCP 是一个用于构建实时、可靠、一致和高性能的数据处理应用程序的平台。 它在 [Apache Storm](http://storm.incubator.apache.org/) 的基础上构建而成 -- Storm 是开源软件 (OSS) 社区设计的一个流处理系统。 Storm 由 Nathan Marz 设计，在 Twitter 上进行开源。 其利用 [Apache ZooKeeper](http://zookeeper.apache.org/)（另一个 Apache 项目）来实现高可靠性的分布式协调和状态管理。 
@@ -32,7 +32,7 @@ SCP 项目不仅已移植到 Windows 的 Storm 中，还为 Windows 生态系统
 ## <a name="processing-model"></a>处理模型
 SCP 中的数据以连续的元组流形式建模。 通常，元组首先流入某个队列，然后被提取，再通过托管在 Storm 拓扑中的业务逻辑进行转换；最后，所产生的输出可作为元组传送到其他 SCP 系统，或者提交到存储（如分布式文件系统）或数据库（如 SQL Server）。
 
-![馈送待处理数据的队列（在数据存储中馈送数据）示意图](./media/hdinsight-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
+![馈送待处理数据的队列（在数据存储中馈送数据）示意图](media/hdinsight-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
 
 在 Storm 中，应用程序拓扑定义计算图。 拓扑中的每个节点都包含处理逻辑，节点之间的链接指明数据流。 用于将输入数据注入到拓扑中的节点称为 Spout,这些节点还可用于对数据进行排列。 输入数据可驻留在文件日志、事务性数据库、系统性能计数器中或其他位置。具有输入和输出数据流的节点称为 Bolt，这些节点执行实际数据过滤、选择和汇总。
 
@@ -481,70 +481,70 @@ SCP 组件包括 Java 端和 C\# 端。 若要与本机 Java Spout/Bolt 交互�
 
    最初，默认情况下是在 Java 端进行序列化并在 C\# 端进行反序列化。 可以在规范文件中指定 Java 端的序列化方法：
 
-        (scp-bolt
-            {
-                "plugin.name" "HybridTopology.exe"
-                "plugin.args" ["displayer"]
-                "output.schema" {}
-                "customized.java.serializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer"]
-            })
+       (scp-bolt
+           {
+               "plugin.name" "HybridTopology.exe"
+               "plugin.args" ["displayer"]
+               "output.schema" {}
+               "customized.java.serializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer"]
+           })
 
    应在 C\# 用户代码中指定 C\# 端的反序列化方法：
 
-        Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
-        inputSchema.Add("default", new List<Type>() { typeof(Person) });
-        this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, null));
-        this.ctx.DeclareCustomizedDeserializer(new CustomizedInteropJSONDeserializer());            
+       Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
+       inputSchema.Add("default", new List<Type>() { typeof(Person) });
+       this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, null));
+       this.ctx.DeclareCustomizedDeserializer(new CustomizedInteropJSONDeserializer());            
 
    如果数据类型不是太复杂，这种默认实现方法应该能够应对大多数情况。 对于某些情况，由于用户数据类型太复杂，或者由于我们的默认实现方法不符合用户要求，用户可能会进行自定义实施。
 
    Java 端的序列化接口如下定义：
 
-        public interface ICustomizedInteropJavaSerializer {
-            public void prepare(String[] args);
-            public List<ByteBuffer> serialize(List<Object> objectList);
-        }
+       public interface ICustomizedInteropJavaSerializer {
+           public void prepare(String[] args);
+           public List<ByteBuffer> serialize(List<Object> objectList);
+       }
 
    C\# 端的反序列化接口如下定义：
 
    公共接口 ICustomizedInteropCSharpDeserializer
 
-        public interface ICustomizedInteropCSharpDeserializer
-        {
-            List<Object> Deserialize(List<byte[]> dataList, List<Type> targetTypes);
-        }
+       public interface ICustomizedInteropCSharpDeserializer
+       {
+           List<Object> Deserialize(List<byte[]> dataList, List<Type> targetTypes);
+       }
 2. C\# 端的序列化和 Java 端的反序列化
 
    应在 C\# 用户代码中指定 C\# 端的序列化方法：
 
-        this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer()); 
+       this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer()); 
 
    应在 SPEC 文件中指定 Java 端的反序列化方法：
 
-        (scp-spout
+     (scp-spout
 
-          {
-            "plugin.name" "HybridTopology.exe"
-            "plugin.args" ["generator"]
-            "output.schema" {"default" ["person"]}
-            "customized.java.deserializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" "microsoft.scp.example.HybridTopology.Person"]
-          })
+       {
+         "plugin.name" "HybridTopology.exe"
+         "plugin.args" ["generator"]
+         "output.schema" {"default" ["person"]}
+         "customized.java.deserializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" "microsoft.scp.example.HybridTopology.Person"]
+       })
 
    其中，"microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" 是反序列化程序的名称，"microsoft.scp.example.HybridTopology.Person" 是数据要反序列化成的目标类。
 
    用户也可以外挂其自己的 C\# 序列化程序和 Java 反序列化程序的实现。 这是 C\# 序列化程序的接口：
 
-        public interface ICustomizedInteropCSharpSerializer
-        {
-            List<byte[]> Serialize(List<object> dataList);
-        }
+       public interface ICustomizedInteropCSharpSerializer
+       {
+           List<byte[]> Serialize(List<object> dataList);
+       }
 
    这是 Java 反序列化程序的接口：
 
-        public interface ICustomizedInteropJavaDeserializer {
-            public void prepare(String[] targetClassNames);
-            public List<Object> Deserialize(List<ByteBuffer> dataList);
-        }
+       public interface ICustomizedInteropJavaDeserializer {
+           public void prepare(String[] targetClassNames);
+           public List<Object> Deserialize(List<ByteBuffer> dataList);
+       }
 
 ## <a name="scp-host-mode"></a>SCP 主机模式
 在此模式下，用户可以将代码编译为 DLL，以及使用 SCP 提供的 SCPHost.exe 来提交拓扑。 规范文件如下所示：

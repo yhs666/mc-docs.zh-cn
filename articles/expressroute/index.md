@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-#ExpressRoute 文档
-<a id="expressroute-documentation" class="xliff"></a>
+#<a name="expressroute-documentation"></a>ExpressRoute 文档
 
 了解如何使用 ExpressRoute 设置快速的专用连接，从本地基础结构或共置设施连接到 Microsoft 云服务。 教程、REST API 和其他文档可帮助你配置和管理 ExpressRoute 线路。
 

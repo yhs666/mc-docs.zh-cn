@@ -15,22 +15,22 @@ ms.topic: article
 origin.date: 08/29/2016
 ms.date: 11/25/2016
 ms.author: v-dazen
-ms.openlocfilehash: 1f95d308ee889baf5678cf5d4293d206542eb45b
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 07490cd3fc467dc0122cad3b2fe2c839b6e3c048
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="connect-your-app-to-your-virtual-network-by-using-powershell"></a>使用 PowerShell 将应用程序连接到虚拟网络
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 ## <a name="overview"></a>概述
-在 Azure App Service 中，可以将应用（Web、移动或 API）连接到订阅中的 Azure 虚拟网络 (VNet)。 此功能称为 VNet 集成。
+在 Azure App Service 中，可以将应用（Web、移动或 API）连接到订阅中的 Azure 虚拟网络 (VNet)。 此功能称为 VNet 集成。 不应将 VNet 集成功能与应用服务环境功能相混淆，后者可让用户在虚拟网络中运行 Azure 应用服务的实例。
 
-通过它可以与使用经典部署模型或 Azure Resource Manager 部署模型部署的虚拟网络集成。
+VNet 集成功能在新门户中有用户界面 (UI)，通过它可以与使用经典部署模型或 Azure Resource Manager 部署模型部署的虚拟网络集成。 如果想要详细了解该功能，请参阅 [Integrate your app with an Azure virtual network](web-sites-integrate-with-vnet.md)（将应用与 Azure 虚拟网络集成）。
 
-本文介绍了如何使用 PowerShell 启用集成。 由于每种部署模型使用的命令不同，本文中针对每种部署模型各添加了一个部分。  
+本文不会介绍如何使用 UI，而是介绍如何使用 PowerShell 来启用集成。 由于每种部署模型使用的命令不同，本文中针对每种部署模型各添加了一个部分。  
 
 继续阅读本文之前，请确保满足以下条件：
 

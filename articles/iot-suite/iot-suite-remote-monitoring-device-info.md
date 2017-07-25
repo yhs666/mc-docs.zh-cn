@@ -22,15 +22,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 远程监视预配置解决方案中的设备信息元数据
-<a id="device-information-metadata-in-the-remote-monitoring-preconfigured-solution" class="xliff"></a>
+# <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>远程监视预配置解决方案中的设备信息元数据
 Azure IoT 套件远程监视预配置解决方案演示了管理设备元数据的方法。 本文将概述此解决方案为了帮助你理解内容而采用的方法：
 
 - 解决方案存储哪些设备元数据。
 - 解决方案如何管理设备元数据。
 
-## 上下文
-<a id="context" class="xliff"></a>
+## <a name="context"></a>上下文
 远程监视预配置解决方案使用 [Azure IoT 中心][lnk-iot-hub] ，使设备能够将数据发送到云。 该解决方案在三个不同的位置存储有关设备的信息：
 
 | 位置 | 存储的信息 | 实现 |
@@ -44,8 +42,7 @@ IoT 中心提供[设备标识注册表][lnk-identity-registry]用于管理对 Io
 > [!NOTE]
 > 远程监视预配置解决方案可使设备标识注册表与 Cosmos DB 数据库中的信息保持同步。 这两个注册表使用相同的设备 ID 来唯一标识连接到 IoT 中心的每个设备。
 
-## 设备元数据
-<a id="device-metadata" class="xliff"></a>
+## <a name="device-metadata"></a>设备元数据
 IoT 中心为连接到远程监视解决方案的每个模拟设备和物理设备维护[设备孪生][lnk-device-twin]。 解决方案使用设备孪生来管理与设备关联的元数据。 设备孪生是 IoT 中心维护的 JSON 文档。解决方案使用 IoT 中心 API 来与设备孪生交互。
 
 设备孪生存储三种类型的元数据：
@@ -83,15 +80,13 @@ IoT 中心为连接到远程监视解决方案的每个模拟设备和物理设�
 > [!NOTE]
 > 设备信息还可能包含元数据，用于描述设备发送给 IoT 中心的遥测数据。 远程监视解决方案使用此遥测元数据来自定义仪表板显示 [动态遥测数据][lnk-dynamic-telemetry]的方式。
 
-## 生命周期
-<a id="lifecycle" class="xliff"></a>
+## <a name="lifecycle"></a>生命周期
 
 首次在解决方案门户中创建设备时，解决方案将在 Cosmos DB 数据库中创建一个项来存储命令和方法历史记录。 此时，解决方案还会在设备标识注册表中为设备创建一个条目，用于生成设备向 IoT 中心进行身份验证时所用的密钥。 它还会创建设备孪生。
 
 当设备首次连接到解决方案时，将发送报告的属性和设备信息消息。 报告的属性值自动保存在设备孪生中。 报告的属性包括设备制造商、型号、序列号和受支持方法的列表。 设备信息消息包含设备支持的命令列表，其中包括有关任何命令参数的信息。 当解决方案收到此消息时，将更新 Cosmos DB 数据库中的设备信息。
 
-### 在解决方案门户中查看和编辑设备信息
-<a id="view-and-edit-device-information-in-the-solution-portal" class="xliff"></a>
+### <a name="view-and-edit-device-information-in-the-solution-portal"></a>在解决方案门户中查看和编辑设备信息
 默认情况下，解决方案门户中的设备列表以列的形式显示以下设备属性：“状态”、“设备 ID”、“制造商”、“型号”、“序号”、“固件”、“平台”、“处理器”和“已安装的 RAM”。 可以通过单击“列编辑器”来自定义这些列。 设备属性“纬度”和“经度”驱动仪表板上必应地图中的位置。
 
 ![设备列表中的列编辑器][img-device-list]
@@ -104,16 +99,14 @@ IoT 中心为连接到远程监视解决方案的每个模拟设备和物理设�
 
 ![删除设备][img-device-remove]
 
-## 设备信息消息处理
-<a id="device-information-message-processing" class="xliff"></a>
+## <a name="device-information-message-processing"></a>设备信息消息处理
 
 设备发出的设备信息消息不同于遥测消息。 设备信息消息包括设备可响应的命令和任何命令历史记录。 IoT 中心本身不知道设备信息消息中包含的元数据，它以处理任何设备到云消息的相同方式处理消息。 在远程监视解决方案中，[Azure 流分析][lnk-stream-analytics] (ASA) 作业读取来自 IoT 中心的消息。 DeviceInfo 流分析作业筛选包含 "ObjectType": "DeviceInfo" 的消息，并将这些消息转发到 Web 作业中运行的 EventProcessorHost 主机实例。 EventProcessorHost 实例中的逻辑使用设备 ID 来查找特定设备的 Cosmos DB 记录并更新记录。
 
 > [!NOTE]
 > 设备信息消息是标准的设备到云消息。 解决方案使用 ASA 查询来区分设备信息消息与遥测消息。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 现在你已学习如何自定义预配置解决方案，接下来你可以浏览 IoT 套件预配置的解决方案的一些其他特性和功能：
 
 - [预见性维护预配置解决方案概述][lnk-predictive-overview]

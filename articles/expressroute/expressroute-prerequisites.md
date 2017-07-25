@@ -1,23 +1,25 @@
 ---
-title: "采用 ExpressRoute 要要满足的先决条件 | Azure"
+title: "采用 Azure ExpressRoute 所要满足的先决条件 | Azure"
 description: "本页提供了在订购 Azure ExpressRoute 线路之前需要满足的要求列表。"
-documentationCenter: na
+documentationcenter: na
 services: expressroute
-authors: cherylmc
-manager: carmonm
+author: cherylmc
+manager: timlt
 editor: 
+ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/06/2017
+origin.date: 05/12/2017
 ms.author: v-yiso
-ms.openlocfilehash: 888e292040b70b6d211a3213ae30859a9365743e
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 
+ms.openlocfilehash: a00a3d0c3a70de4eacaacd499d8074abf4a50bbe
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 先决条件和清单  
 
@@ -26,7 +28,7 @@ ms.lasthandoff: 06/21/2017
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Azure 帐户
-* 使用中的有效 Microsoft Azure 帐户。 需有此帐户才能设置 ExpressRoute 线路。 ExpressRoute 线路是 Azure 订阅中的资源。 即使连接仅限于非 Azure Microsoft 云服务（例如 Office 365 服务和 CRM Online），也必须提供 Azure 订阅。
+* 使用中的有效 Microsoft Azure 帐户。 需有此帐户才能设置 ExpressRoute 线路。 ExpressRoute 线路是 Azure 订阅中的资源。 即使连接限于非 Azure Microsoft 云服务（例如 Office 365 服务和 Dynamics 365），Azure 订阅也是一个必要条件。
 * 有效的 Office 365 订阅（如果使用的是 Office 365 服务）。 有关详细信息，请参阅本文中的 [Office 365 的具体要求](#office-365-specific-requirements) 部分。
 
 ## <a name="connectivity-provider"></a>连接服务提供商

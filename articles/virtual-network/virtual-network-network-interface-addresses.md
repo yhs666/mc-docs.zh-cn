@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 为 Azure 网络接口添加、更改或删除 IP 地址
-<a id="add-change-or-remove-ip-addresses-for-azure-network-interfaces" class="xliff"></a>
+# <a name="add-change-or-remove-ip-addresses-for-azure-network-interfaces"></a>为 Azure 网络接口添加、更改或删除 IP 地址
 
 了解如何为网络接口 (NIC) 添加、更改和删除公共和专用 IP 地址。 通过分配给 NIC 的专用 IP 地址，VM 可以与 Internet 以及连接到 Azure 虚拟网络 (VNet) 的其他资源通信。 使用分配给 NIC 的公共 IP 地址，可以从 Internet 进行 VM 的入站通信。 
 

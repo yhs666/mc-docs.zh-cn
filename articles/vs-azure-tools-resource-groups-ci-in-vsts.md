@@ -19,8 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 使用 Azure 资源组部署项目在 Visual Studio Team Services 中连续集成
-<a id="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects" class="xliff"></a>
+# <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>使用 Azure 资源组部署项目在 Visual Studio Team Services 中连续集成
 
 若要部署 Azure 模板，需要在各个阶段执行任务：生成、测试、复制到 Azure（也称为“暂存”）和部署模板。  在 Visual Studio Team Services (VS Team Services) 中可通过两种不同的方法执行此操作。 两种方法产生的结果相同，因此请选择最符合工作流的方法。
 
@@ -29,8 +28,7 @@ ms.lasthandoff: 07/13/2017
 
 本文演示如何使用第一个选项（使用生成定义运行 PowerShell 脚本）。 此选项的优点之一是开发人员在 Visual Studio 中使用的脚本与 VS Team Services 使用的脚本相同。 此过程假设你已经在 VS Team Services 中签入 Visual Studio 部署项目。
 
-## 将项目复制到 Azure
-<a id="copy-artifacts-to-azure" class="xliff"></a> 
+## <a name="copy-artifacts-to-azure"></a>将项目复制到 Azure 
 
 无论方案如何，如果需要为模板部署使用任何项目，都需要向 Azure Resource Manager 授予这些项目的访问权限。 这些项目可以包括如下所述的文件：
 
@@ -38,12 +36,10 @@ ms.lasthandoff: 07/13/2017
 - 配置脚本和 DSC 脚本
 - 应用程序二进制文件
 
-### 嵌套模板和配置脚本
-<a id="nested-templates-and-configuration-scripts" class="xliff"></a>
+### <a name="nested-templates-and-configuration-scripts"></a>嵌套模板和配置脚本
 当你使用 Visual Studio 提供的模板（或以 Visual Studio 代码段生成的模板）时，PowerShell 脚本不但会暂存项目，而且会参数化用于不同部署的资源的 URI。 脚本会将项目复制到 Azure 中的安全容器，为该容器创建 SaS 令牌，然后将该信息传递到模板部署。 有关嵌套模板的详细信息，请参阅 [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx) （创建模板部署）。
 
-## 在 VS Team Services 中设置连续部署
-<a id="set-up-continuous-deployment-in-vs-team-services" class="xliff"></a>
+## <a name="set-up-continuous-deployment-in-vs-team-services"></a>在 VS Team Services 中设置连续部署
 
 若要在 VS Team Services 中调用 PowerShell 脚本，请更新生成定义。 简而言之，请执行以下步骤： 
 
@@ -52,8 +48,7 @@ ms.lasthandoff: 07/13/2017
 1. 添加一个引用 Azure 资源组部署项目中 PowerShell 脚本的 Azure PowerShell 生成步骤。
 1. 设置 *-ArtifactsStagingDirectory* 参数值，以使用 VS Team Services 中生成的项目。
 
-### 详细演练
-<a id="detailed-walkthrough" class="xliff"></a>
+### <a name="detailed-walkthrough"></a>详细演练
 
 以下步骤将引导你完成在 VS Team Services 配置连续部署所要执行的步骤 
 
@@ -151,8 +146,7 @@ ms.lasthandoff: 07/13/2017
 
 1. 将所有必需的项添加 Azure PowerShell 生成步骤之后，请选择“队列”生成按钮来生成项目。 “生成”屏幕将显示 PowerShell 脚本的输出。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关 Azure Resource Manager 和 Azure 资源组的详细信息，请参阅 [Azure Resource Manager 概述](./azure-resource-manager/resource-group-overview.md)。
 

@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 在 SQL 数据仓库中使用 PolyBase 加载数据
-<a id="load-data-with-polybase-in-sql-data-warehouse" class="xliff"></a>
+# <a name="load-data-with-polybase-in-sql-data-warehouse"></a>在 SQL 数据仓库中使用 PolyBase 加载数据
 
 > [!div class="op_single_selector"]
 > * [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
@@ -42,8 +41,7 @@ ms.lasthandoff: 07/13/2017
 > 
 > 
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 若要逐步完成本教程，需要：
 
 * 一个 SQL 数据仓库数据库。
@@ -52,12 +50,10 @@ ms.lasthandoff: 07/13/2017
 
     ![Azure 存储工具](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
-## 步骤 1：将示例数据添加到 Azure Blob 存储
-<a id="step-1-add-sample-data-to-azure-blob-storage" class="xliff"></a>
+## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>步骤 1：将示例数据添加到 Azure Blob 存储
 为了加载数据，我们需要将一些示例数据放入 Azure Blob 存储。 在此步骤中，我们会将示例数据填入 Azure 存储 Blob。 稍后，我们会使用 PolyBase 将这些示例数据加载到 SQL 数据仓库数据库。
 
-### A. 准备一个示例文本文件
-<a id="a-prepare-a-sample-text-file" class="xliff"></a>
+### <a name="a-prepare-a-sample-text-file"></a>A. 准备一个示例文本文件
 若要准备示例文本文件，请执行以下操作：
 
 1. 打开“记事本”并将以下数据行复制到一个新文件。 将此文件保存到本地临时目录，路径为 %temp%\DimDate2.txt。
@@ -77,8 +73,7 @@ ms.lasthandoff: 07/13/2017
 20150101,1,3
 ```
 
-### B. 查找 Blob 服务终结点
-<a id="b-find-your-blob-service-endpoint" class="xliff"></a>
+### <a name="b-find-your-blob-service-endpoint"></a>B. 查找 Blob 服务终结点
 若要查找你的 Blob 服务终结点，请执行以下操作：
 
 1. 在 Azure 门户中，选择“浏览” > “存储帐户”。
@@ -91,8 +86,7 @@ ms.lasthandoff: 07/13/2017
 
     ![Blob 服务终结点](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### C. 查找 Azure 存储密钥
-<a id="c-find-your-azure-storage-key" class="xliff"></a>
+### <a name="c-find-your-azure-storage-key"></a>C. 查找 Azure 存储密钥
 若要查找你的 Azure 存储密钥，请执行以下操作：
 
 1. 在 Azure 门户中，选择“浏览” > “存储帐户”。
@@ -102,8 +96,7 @@ ms.lasthandoff: 07/13/2017
 
     ![复制 Azure 存储密钥](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### D. 将示例文件复制到 Azure Blob 存储
-<a id="d-copy-the-sample-file-to-azure-blob-storage" class="xliff"></a>
+### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. 将示例文件复制到 Azure Blob 存储
 若要将数据复制到 Azure Blob 存储，请执行以下操作：
 
 1. 打开命令提示符，然后将目录更改为 AzCopy 安装目录。 此命令可将目录更改为 64 位 Windows 客户端上的默认安装目录。
@@ -120,8 +113,7 @@ ms.lasthandoff: 07/13/2017
 
 另请参阅 [AzCopy 命令行实用工具入门][latest version of AzCopy]。
 
-### E. 浏览 Blob 存储容器
-<a id="e-explore-your-blob-storage-container" class="xliff"></a>
+### <a name="e-explore-your-blob-storage-container"></a>E. 浏览 Blob 存储容器
 若要查看已上传到 Blob 存储的文件，请执行以下操作：
 
 1. 返回你的 Blob 服务边栏选项卡。
@@ -132,8 +124,7 @@ ms.lasthandoff: 07/13/2017
 
     ![查看 Azure 存储 Blob](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
-## 步骤 2：为示例数据创建外部表
-<a id="step-2-create-an-external-table-for-the-sample-data" class="xliff"></a>
+## <a name="step-2-create-an-external-table-for-the-sample-data"></a>步骤 2：为示例数据创建外部表
 在本部分中，我们将创建一个用于定义示例数据的外部表。
 
 PolyBase 使用外部表访问 Azure Blob 存储中的数据。 由于数据不是存储在 SQL 数据仓库中，PolyBase 将使用数据库范围的凭据处理对外部数据的身份验证。
@@ -213,8 +204,7 @@ SELECT count(*) FROM dbo.DimDate2External;
 
 ![查看外部表](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## 步骤 3：将数据加载到 SQL 数据仓库
-<a id="step-3-load-data-into-sql-data-warehouse" class="xliff"></a>
+## <a name="step-3-load-data-into-sql-data-warehouse"></a>步骤 3：将数据加载到 SQL 数据仓库
 创建外部表后，你可以将数据载入新表，或将其插入到现有表。
 
 * 若要将数据载入新表，请运行 [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 语句。 新表将包含查询中指定的列。 列的数据类型将与外部表定义中的数据类型匹配。
@@ -233,8 +223,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## 步骤 4：基于新加载的数据创建统计信息
-<a id="step-4-create-statistics-on-your-newly-loaded-data" class="xliff"></a>
+## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>步骤 4：基于新加载的数据创建统计信息
 SQL 数据仓库不会自动创建或自动更新统计信息。 因此，若要实现较高的查询性能，必须在首次加载后基于每个表的每个列创建统计信息。 此外，在对数据做出重大更改后，必须更新统计信息。
 
 本示例将基于新的 DimDate2 表创建单列统计信息。
@@ -247,8 +236,7 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 
 若要了解详细信息，请参阅 [统计信息][Statistics]。  
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关在开发使用 PolyBase 的解决方案时应了解的其他信息，请参阅 [PolyBase 指南][PolyBase guide] 。
 
 <!--Image references-->

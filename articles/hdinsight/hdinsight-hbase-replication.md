@@ -1,5 +1,5 @@
 ---
-title: "配置 HBase 复制 | Azure"
+title: "在虚拟网络中配置 HBase 群集复制 - Azure | Azure"
 description: "了解如何配置 HBase 复制，以实现负载均衡、高可用性、在不造成任何停机的情况下从一个 HDInsight 版本迁移/更新到另一个版本，以及灾难恢复。"
 services: hdinsight,virtual-network
 documentationcenter: 
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/22/2017
-ms.date: 04/27/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 90de484f62b53a9fc16406252e637d937564b319
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 6a4e3fc60eeb8bafbf54ae36ce3afb2a50d10d4c
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="configure-hbase-replication"></a>配置 HBase 复制
+# <a name="configure-hbase-cluster-replication-within-virtual-networks"></a>在虚拟网络中配置 HBase 群集复制
 
 了解如何在一个虚拟网络 (VNet) 内部或者在两个虚拟网络之间配置 HBase 复制。
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 06/21/2017
 
 ### <a name="configure-one-virtual-network"></a>配置一个虚拟网络
 
-单击下图，在同一个虚拟网络中创建两个 HBase 群集。 模板存储在 [Azure 快速入门模板](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/)中。
+单击下图，在同一个虚拟网络中创建两个 HBase 群集。 模板存储在 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-hbase-replication-one-vnet/)中。
 
 <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 06/21/2017
 
 ### <a name="configure-two-virtual-networks-in-the-same-region"></a>在同一区域中配置两个虚拟网络
 
-单击下图，在同一区域中创建两个使用 VNet 对等互连的虚拟网络和两个 HBase 群集。 模板存储在 [Azure 快速入门模板](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/)中。
+单击下图，在同一区域中创建两个使用 VNet 对等互连的虚拟网络和两个 HBase 群集。 模板存储在 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-hbase-replication-two-vnets-same-region/)中。
 
 <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 

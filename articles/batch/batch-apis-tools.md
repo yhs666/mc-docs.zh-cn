@@ -35,7 +35,7 @@ ms.lasthandoff: 07/14/2017
 开发 Batch 解决方案时，用户在 Azure 中使用以下帐户。
 
 - **Azure 帐户和订阅** - 如果还没有 Azure 订阅，可注册 [Azure 帐户][free_account]。 创建帐户时，系统为用户创建默认订阅。
-- **批处理帐户** - Azure Batch 资源（包括池、计算节点、作业和任务）都与 Azure 批处理帐户关联。 如果应用程序对 Batch 服务发出请求，它将使用 Azure Batch 帐户名称、帐户 URL 和访问密钥对请求进行身份验证。 可以在 Azure 门户中 [创建 Batch 帐户](./batch-account-create-portal.md) 。
+- **批处理帐户** - Azure Batch 资源（包括池、计算节点、作业和任务）都与 Azure Batch 帐户关联。 如果应用程序对 Batch 服务发出请求，它将使用 Azure Batch 帐户名称、帐户 URL 和访问密钥对请求进行身份验证。 可以在 Azure 门户中 [创建 Batch 帐户](./batch-account-create-portal.md) 。
 - **存储帐户** - Batch 提供的内置支持允许处理 [Azure 存储][azure_storage]中的文件。 几乎每个 Batch 方案都使用 Azure Blob 存储暂存任务所运行的程序及其处理的数据，以及存储任务生成的输出数据。 若要创建存储帐户，请参阅 [关于 Azure 存储帐户](../storage/storage-create-storage-account.md)。
 
 ## <a name="batch-development-apis"></a>Batch 开发 API

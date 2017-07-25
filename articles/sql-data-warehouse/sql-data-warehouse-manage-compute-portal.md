@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 管理 Azure SQL 数据仓库中的计算能力（Azure 门户）
-<a id="manage-compute-power-in-azure-sql-data-warehouse-azure-portal" class="xliff"></a>
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-azure-portal"></a>管理 Azure SQL 数据仓库中的计算能力（Azure 门户）
 
 > [!div class="op_single_selector"]
 > * [概述](sql-data-warehouse-manage-compute-overview.md)
@@ -34,8 +33,7 @@ ms.lasthandoff: 07/13/2017
 >
 >
 
-## 缩放计算能力
-<a id="scale-compute-power" class="xliff"></a>
+## <a name="scale-compute-power"></a>缩放计算能力
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
 更改计算资源：

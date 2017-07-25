@@ -1,5 +1,5 @@
 ---
-title: "如何通过 Node.js 使用服务总线主题 | Azure"
+title: "如何通过 Node.js 使用 Azure 服务总线主题和订阅 | Azure"
 description: "了解如何通过 Node.js 应用在 Azure 中使用服务总线主题和订阅。"
 services: service-bus
 documentationCenter: nodejs
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 07/17/2017
 ms.author: v-yiso
-ms.openlocfilehash: 531fafc1268674f9f0fced2e64ed8aa393108848
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 61e0617376447c860ad106caeb0d8e471a5330c7
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>如何使用服务总线主题和订阅
 
@@ -28,8 +28,7 @@ ms.lasthandoff: 06/21/2017
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 ## <a name="create-a-nodejs-application"></a>创建 Node.js 应用程序
-
-创建一个空的 Node.js 应用程序。 有关创建 Node.js 应用程序的说明，请参阅[创建 Node.js 应用程序并将其部署到 Azure 网站]、[Node.js 云服务][]（使用 Windows PowerShell），或“使用 WebMatrix 创建网站”。
+创建一个空的 Node.js 应用程序。 有关创建 Node.js 应用程序的说明，请参阅[创建 Node.js 应用程序并将其部署到 Azure 网站]、使用 Windows PowerShell [创建 Node.js 云服务][Node.js Cloud Service]或使用 WebMatrix 创建网站。
 
 ## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用 Service Bus
 
@@ -69,9 +68,9 @@ var azure = require('azure');
 
 Azure 模块将读取环境变量 AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY 以获取连接到服务总线所需的信息。 如果未设置这些环境变量，则在调用 **createServiceBusService** 时必须指定帐户信息。
 
-有关在 Azure 云服务的配置文件中设置环境变量的示例，请参阅 [使用存储构建 Node.js 云服务][]。
+有关设置 Azure 云服务环境变量的示例，请参阅[使用存储的 Node.js 云服务][Node.js Cloud Service with Storage]。
 
-有关在 [Azure 经典门户][]中为 Azure 网站设置环境变量的示例，请参阅[使用存储构建 Node.js Web 应用程序][]。
+有关设置 Azure 网站环境变量的示例，请参阅[使用存储的 Node.js Web 应用程序][Node.js Web Application with Storage]。
 
 ## <a name="create-a-topic"></a>创建主题
 
@@ -239,7 +238,7 @@ var rule={
 
 若要将消息发送到服务总线主题，你的应用程序必须使用 ServiceBusService 对象的 sendTopicMessage 方法。
 发送到服务总线主题的消息是 **BrokeredMessage** 对象。
-BrokeredMessage 对象具有一组标准属性（如 Label 和 TimeToLive）、一个用来保存自定义应用程序特定属性的字典以及一段字符串数据正文。 应用程序可以通过将字符串值传递给 **sendTopicMessage** 来设置消息正文，并且任何必需的标准属性将用默认值填充。
+**BrokeredMessage** 对象具有一组标准属性（如 **Label** 和 **TimeToLive**）、一个用来保存自定义的应用程序特定属性的字典，以及大量字符串数据。 应用程序可以通过将字符串值传递给 **sendTopicMessage** 来设置消息正文，并且任何必需的标准属性将用默认值填充。
 
 下面的示例演示如何向“MyTopic”发送五条测试消息。 请注意，每条消息的 messagenumber 属性值因循环迭代而异（这将确定接收它的订阅）：
 
@@ -302,11 +301,11 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 
 另外，还存在与订阅中已锁定消息关联的超时，并且如果应用程序无法在锁定超时到期之前处理消息（例如，如果应用程序崩溃），则服务总线将自动解锁该消息并使其可再次被接收。
 
-如果应用程序在处理消息之后，调用 **deleteMessage** 方法之前崩溃，则在应用程序重新启动时会将该消息重新传送给它。 此情况通常称作 **至少处理一次**，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 这通常可以通过使用消息的 **MessageId** 属性来实现，该属性在多次传送尝试中保持不变。
+如果应用程序在处理消息之后，调用 **deleteMessage** 方法之前崩溃，则在应用程序重新启动时会将该消息重新传送给它。 此情况通常称作 *至少处理一次*，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 这通常可以通过使用消息的 **MessageId** 属性来实现，该属性在多次传送尝试中保持不变。
 
 ## <a name="delete-topics-and-subscriptions"></a>删除主题和订阅
 
-主题和订阅具有持久性，必须通过 [Azure 经典门户][] 或以编程方式显式删除。
+主题和订阅具有持久性，必须通过 [Azure 门户][Azure portal]或以编程方式显式删除。
 以下示例演示了如何删除名为 `MyTopic`的主题：
 
 ```javascript
@@ -331,17 +330,17 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 
 现在，你已了解有关 Service Bus 主题的基础知识，单击下面的链接可了解更多信息。
 
--   请参阅 [队列、主题和订阅][]。
--   [SqlFilter][]的 API 参考。
--   访问 GitHub 上的 [Azure SDK for Node][] 存储库。
+* 请参阅[队列、主题和订阅][Queues, topics, and subscriptions]。
+* [SqlFilter][SqlFilter] 的 API 参考。
+* 访问 GitHub 上的 [Azure SDK for Node][Azure SDK for Node] 存储库。
 
-  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
+[Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
 
-  [Azure 经典门户]: http://manage.windowsazure.cn
-  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [队列、主题和订阅]: ./service-bus-queues-topics-subscriptions.md
-  [SqlFilter]: http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Node.js 云服务]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [创建 Node.js 应用程序并将其部署到 Azure 网站]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-  [使用存储构建 Node.js 云服务]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [使用存储构建 Node.js Web 应用程序]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
+[Azure portal]: https://portal.azure.cn
+[SqlFilter.SqlExpression]: ./service-bus-messaging-sql-filter.md
+  [Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
+[SqlFilter]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sqlfilter
+  [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[创建 Node.js 应用程序并将其部署到 Azure 网站]: ../app-service-web/app-service-web-get-started-nodejs.md
+  [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+  [Node.js Web Application with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md

@@ -40,7 +40,7 @@ Service Fabric 应用程序包含一个或多个服务，每个服务都在提�
 
 1. 在终端中，键入 ``yo azuresfjava``。
 2. 为应用程序命名。 
-3. 选择第一个服务的类型并为其命名。 对于本教程，请选择“可靠角色服务”。 有关其他服务类型的详细信息，请参阅 [Service Fabric 编程模型概述](service-fabric-choose-framework.md)。
+3. 选择第一个服务的类型并为其命名。 对于本教程，请选择“Reliable Actor 服务”。 有关其他服务类型的详细信息，请参阅 [Service Fabric 编程模型概述](service-fabric-choose-framework.md)。
    ![适用于 Java 的 Service Fabric Yeoman 生成器][sf-yeoman]
 
 ## <a name="build-the-application"></a>构建应用程序

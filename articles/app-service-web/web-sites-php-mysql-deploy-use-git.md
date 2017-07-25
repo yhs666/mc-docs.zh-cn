@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 使用 Git 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用
-<a id="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-git" class="xliff"></a>
+# <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-git"></a>使用 Git 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -39,14 +38,12 @@ ms.lasthandoff: 07/13/2017
 
 ![Azure PHP 网站][running-app]
 
-## 设置开发环境
-<a id="set-up-the-development-environment" class="xliff"></a>
+## <a name="set-up-the-development-environment"></a>设置开发环境
 本教程假定计算机上已安装 [PHP][install-php]、MySQL 命令行工具（[MySQL][install-mysql] 的一部分）和 [Git][install-git]。
 
 <a id="create-web-site-and-set-up-git"></a>
 
-## 创建 Web 应用并设置 Git 发布
-<a id="create-a-web-app-and-set-up-git-publishing" class="xliff"></a>
+## <a name="create-a-web-app-and-set-up-git-publishing"></a>创建 Web 应用并设置 Git 发布
 按照以下步骤创建 Web 应用和 MySQL 数据库：
 
 1. 登录到 [Azure 门户][management-portal]。
@@ -67,8 +64,7 @@ ms.lasthandoff: 07/13/2017
 
      ![创建发布凭据][credentials]
 
-## 获取远程 MySQL 连接信息
-<a id="get-remote-mysql-connection-information" class="xliff"></a>
+## <a name="get-remote-mysql-connection-information"></a>获取远程 MySQL 连接信息
 若要连接到正在 Web 应用中运行的 MySQL 数据库，你将需要连接信息。 若要获取 MySQL 连接信息，请按照以下步骤操作：
 
 1. 在 Azure 经典管理门户中，单击“AZURE 上的 MYSQL 数据库” ，并打开 MYSQL 数据库服务器。 在“仪表板”页上的“速览”下，可以获取主机和端口。
@@ -77,8 +73,7 @@ ms.lasthandoff: 07/13/2017
 
     数据源将为 `<your MYSQL server name>.database.chinacloudapi.cn`
 
-## 在本地生成并测试应用
-<a id="build-and-test-your-app-locally" class="xliff"></a>
+## <a name="build-and-test-your-app-locally"></a>在本地生成并测试应用
 现在已创建 Web 应用，可以在本地开发应用程序，然后在测试后部署该应用程序。
 
 注册应用程序是一个简单的 PHP 应用程序，在该应用程序中提供姓名和电子邮件地址即可注册事件。 以前的注册者的信息将显示在表中。 注册信息存储在 MySQL 数据库中。 应用程序由一个文件组成（复制/粘贴以下可用代码）：
@@ -189,8 +184,7 @@ ms.lasthandoff: 07/13/2017
 
 现在可以浏览到 **http://localhost:8000/** 来测试此应用程序。
 
-## 发布应用
-<a id="publish-your-app" class="xliff"></a>
+## <a name="publish-your-app"></a>发布应用
 在本地测试你的应用之后，可以使用 Git 将其发布到 Web 应用。 你将初始化本地 Git 存储库并发布该应用程序。
 
 > [!NOTE]
@@ -216,8 +210,7 @@ ms.lasthandoff: 07/13/2017
 
 发布应用之后，你可以开始对其进行更改并使用 Git 发布所做的更改。
 
-## 发布对应用所做的更改
-<a id="publish-changes-to-your-app" class="xliff"></a>
+## <a name="publish-changes-to-your-app"></a>发布对应用所做的更改
 若要发布对应用所做的更改，请执行下列步骤：
 
 1. 本地对应用进行更改。
@@ -236,8 +229,7 @@ ms.lasthandoff: 07/13/2017
 
 <a name="composer"></a>
 
-## 使用编辑器扩展启用编辑器自动化
-<a id="enable-composer-automation-with-the-composer-extension" class="xliff"></a>
+## <a name="enable-composer-automation-with-the-composer-extension"></a>使用编辑器扩展启用编辑器自动化
 默认情况下，如果 PHP 项目中有 composer.json，则应用服务中的 git 部署过程与其不相关。 `git push` 期间可以通过启用编辑器扩展启用 composer.json 处理。
 
 1. 在 [Azure 门户][management-portal]的 PHP Web 应用的边栏选项卡中，单击“工具” > “扩展”。
@@ -254,8 +246,7 @@ ms.lasthandoff: 07/13/2017
 
     ![编辑器扩展插件成功][composer-extension-success]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅 [PHP 开发人员中心](/develop/php/)。
 
 <!-- URL List -->

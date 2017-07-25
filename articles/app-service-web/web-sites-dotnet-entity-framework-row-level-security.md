@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 教程：使用多租户数据库和 Entity Framework 及行级别安全性的 Web 应用
-<a id="tutorial-web-app-with-a-multi-tenant-database-using-entity-framework-and-row-level-security" class="xliff"></a>
+# <a name="tutorial-web-app-with-a-multi-tenant-database-using-entity-framework-and-row-level-security"></a>教程：使用多租户数据库和 Entity Framework 及行级别安全性的 Web 应用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -34,8 +33,7 @@ ms.lasthandoff: 07/14/2017
 
 只需进行一些很小的改动，就可以增加对多租户的支持，让用户只能查看属于自己的联系人。
 
-## 步骤 1：在应用程序中添加一个侦听器类，以便设置 SESSION_CONTEXT
-<a id="step-1-add-an-interceptor-class-in-the-application-to-set-the-sessioncontext" class="xliff"></a>
+## <a name="step-1-add-an-interceptor-class-in-the-application-to-set-the-sessioncontext"></a>步骤 1：在应用程序中添加一个侦听器类，以便设置 SESSION_CONTEXT
 需要进行一项应用程序更改。 由于所有应用程序用户都使用相同的连接字符串（即相同的 SQL 登录名）来连接到数据库，因此目前的 RLS 策略并不知道应该针对哪个用户进行筛选。 这种方法在 Web 应用程序中很常见，因为它可以确保连接池的高效率，但也意味着我们需要使用其他方法来标识当前正在数据库中的应用程序用户。 解决方法是让应用程序在打开连接之后、执行任何查询之前，先在 [SESSION_CONTEXT](https://msdn.microsoft.com/library/mt590806) 中针对当前的 UserId 设置一个键-值对。 SESSION_CONTEXT 是一个会话范围的键/值存储空间，RLS 策略将使用存储在该空间的 UserId 来标识当前用户。
 
 我们将添加一个[拦截器](https://msdn.microsoft.com/data/dn469464.aspx)（具体而言，为 [DbConnectionInterceptor](https://msdn.microsoft.com/library/system.data.entity.infrastructure.interception.idbconnectioninterceptor)，这是 Entity Framework (EF) 6 中的新功能），以便每当 EF 打开连接时，通过执行一个 T-SQL 语句在 SESSION_CONTEXT 中自动设置当前 UserId。
@@ -189,8 +187,7 @@ namespace ContactManager.Models
 
 只需对应用程序进行这样的更改。 继续操作，构建并发布应用程序。
 
-## 步骤 2：将 UserId 列添加到数据库架构
-<a id="step-2-add-a-userid-column-to-the-database-schema" class="xliff"></a>
+## <a name="step-2-add-a-userid-column-to-the-database-schema"></a>步骤 2：将 UserId 列添加到数据库架构
 接下来，我们需要将 UserId 列添加到 Contacts 表，以便将每一行与用户（租户）相关联。 我们会直接在数据库中更改架构，这样就不需要在 EF 数据模型中包括该字段。
 
 使用 SQL Server Management Studio 或 Visual Studio 直接连接到数据库，然后执行以下 T-SQL：
@@ -219,8 +216,7 @@ UPDATE Contacts SET UserId = '19bc9b0d-28dd-4510-bd5e-d6b6d445f511'
 WHERE ContactId IN (1, 2, 5)
 ```
 
-## 步骤 3：在数据库中创建行级安全性策略
-<a id="step-3-create-a-row-level-security-policy-in-the-database" class="xliff"></a>
+## <a name="step-3-create-a-row-level-security-policy-in-the-database"></a>步骤 3：在数据库中创建行级安全性策略
 最后一步是创建一个安全策略，以便使用 SESSION_CONTEXT 中的 UserId 自动筛选查询返回的结果。
 
 在仍然连接到数据库的情况下，执行以下 T-SQL：
@@ -252,8 +248,7 @@ go
 
 若要进一步验证这一点，请尝试注册一个新用户。 新用户将看不到任何联系人，因为尚未向新用户分配任何联系人。 如果新用户创建了一个新的联系人，系统会将该联系人分配给新用户，并且只有此新用户才能看到该联系人。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 就这么简单！ 简单的联系人管理器 Web 应用已变成一个多租户应用，其中的每个用户都有自己的联系人列表。 使用行级安全性以后，就不必在应用程序代码中强制实施租户访问逻辑，从而避免了各种复杂操作。 这种透明性使得应用程序可以专注于处理现实中存在的业务问题，还可以降低随着应用程序的代码库增长而发生数据意外泄漏的风险。
 
 本教程仅概要介绍了可以通过 RLS 执行的各种操作。 例如，可以创建更完善或更细致的访问逻辑，还可以在 SESSION_CONTEXT 中存储除当前 UserId 之外的其他内容。 还可以[将 RLS 与弹性数据库工具客户端库相集成](../sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md)，以便在扩展型数据层中启用多租户分片。

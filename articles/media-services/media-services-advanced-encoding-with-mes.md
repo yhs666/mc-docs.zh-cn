@@ -1,10 +1,10 @@
 ---
-title: "通过自定义 MES 预设执行高级编码 | Microsoft Docs"
+title: "通过自定义 MES 预设执行高级编码 | Azure"
 description: "本主题说明如何通过自定义 Media Encoder Standard 任务预设执行高级编码。"
 services: media-services
 documentationcenter: 
-author: juliako
-manager: erikre
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: 2a4ade25-e600-4bce-a66e-e29cf4a38369
 ms.service: media-services
@@ -12,19 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+origin.date: 06/12/2017
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 49f0344ab10c18e7a52bcd20f06acbffdfc67fe6
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 1cf0f8d8e5b2b5794e09a09967a4086ee43a2a3c
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>通过自定义 MES 预设执行高级编码 
 
 ## <a name="overview"></a>概述
 
 本主题演示如何自定义 Media Encoder Standard 预设。 [通过使用自定义预设的 Media Encoder Standard 进行编码](media-services-custom-mes-presets-with-dotnet.md)主题演示如何使用 .NET 创建编码任务和执行此任务的作业。 自定义预设后，请将其提供给编码任务。 
+
+>[!NOTE]
+>如果使用的是 XML 预设，请务必保留元素顺序，如下面的 XML 示例所示（例如，KeyFrameInterval 应在 SceneChangeDetection 前面）。
+>
 
 本主题演示了执行以下编码任务的自定义预设。
 
@@ -152,7 +157,6 @@ ms.lasthandoff: 06/21/2017
       ]
     }
 
-
 ### <a id="xml"></a>XML 预设
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -231,7 +235,7 @@ ms.lasthandoff: 06/21/2017
 请注意以下事项：
 
 * 为 Start/Step/Range 使用的显式时间戳假设输入源的长度至少为 1 分钟。
-* Jpg/Png/BmpImage 元素包含 Start、Step 和 Range 字符串属性 – 这些属性解释如下：
+* Jpg/Png/BmpImage 元素包含 Start、Step 和 Range 字符串属性 - 这些属性解释如下：
 
   * 帧数（如果为非负整数），例如："Start": "120"；
   * 相对于源持续时间（如果以 % 为后缀表示），例如："Start": "15%"，或者
@@ -239,12 +243,12 @@ ms.lasthandoff: 06/21/2017
 
     你可以随意混搭使用表示法。
 
-    此外，Start 还支持特殊的宏 {Best}，它会尝试判断第一个“有意义”的内容帧。注意：（Start 设置为 {Best} 时，将忽略 Step 与 Range）
+    此外，Start 还支持特殊的宏 {Best}，它会尝试确定第一个“有意义”的内容帧。注意：（Start 设置为 {Best} 时，将忽略 Step 与 Range）
   * 默认值：Start:{Best}
 * 需要显式提供每个图像格式的输出格式：Jpg/Png/BmpFormat。 MES 会将 JpgVideo（如果已指定）与 JpgFormat 进行匹配，依此类推。 OutputFormat 引入了新的图像编解码器特定宏 {Index}，需要为图像输出格式提供该宏一次（且只需一次）。
 
 ## <a id="trim_video"></a>剪裁视频（剪切）
-本部分说明如何修改编码器预设，以裁剪或修剪其输入为所谓的夹层文件或按需文件的输入视频。 也可以使用编码器来剪切或剪裁从实时流捕获或存档的资产 – [此博客](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)提供了详细信息。
+本部分说明如何修改编码器预设，以裁剪或修剪其输入为所谓的夹层文件或按需文件的输入视频。 也可以使用编码器来剪切或剪裁从实时流捕获或存档的资产 - [此博客](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)提供了详细信息。
 
 若要裁剪视频，可以使用[此部分](media-services-mes-presets-overview.md)所述的任何 MES 预设，并修改“Sources”元素（如下所示）。 StartTime 的值需与输入视频的绝对时间戳匹配。 例如，如果输入视频第一帧的时间戳为 12:00:10.000，则 StartTime 应大于或等于 12:00:10.000。 在以下示例中，假设输入视频的起始时间戳为零。 **Sources** 应位于预设的开始处。
 
@@ -493,11 +497,10 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 
 如果要使用 .NET，请将以下两个函数添加到[此主题](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) 中定义的 .NET 示例。 “UploadMediaFilesFromFolder”函数从文件夹上传文件（例如 BigBuckBunny.mp4 和 Image001.png），并将 mp4 文件设置为资产中的主文件。 “EncodeWithOverlay”函数使用传递给它的自定义预设文件（例如，下面的预设）来创建编码任务。
 
-
     static public IAsset UploadMediaFilesFromFolder(string folderPath)
     {
         IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
-    
+
         foreach (var af in asset.AssetFiles)
         {
             // The following code assumes 
@@ -506,10 +509,10 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
                 af.IsPrimary = true;
             else
                 af.IsPrimary = false;
-    
+
             af.Update();
         }
-    
+
         return asset;
     }
 
@@ -544,7 +547,6 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 
         return job.OutputMediaAssets[0];
     }
-
 
 > [!NOTE]
 > 当前限制：
@@ -631,7 +633,6 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
       ]
     }
 
-
 ### <a name="xml-preset"></a>XML 预设
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -694,7 +695,6 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
       </Outputs>
     </Preset>
 
-
 ## <a id="silent_audio"></a>在输入不包含音频时插入静音曲目
 默认情况下，如果要向编码器发送仅包含视频而不包含音频的输入，则输出资产将包含仅有视频数据的文件。 某些播放器可能无法处理此类输出流。 对于这种方案，你可以使用此设置来强制编码器将静音曲目添加到输出。
 
@@ -744,7 +744,6 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
       </Filters>
     </Source>
     </Sources>
-
 
 ## <a id="audio_only"></a>仅音频预设
 本部分介绍两个仅音频 MES 预设：AAC 音频和 AAC 优质音频。
@@ -907,11 +906,11 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 请参阅[使用 Media Encoder Standard 剪辑视频](media-services-crop-video.md)主题。
 
 ## <a id="no_video"></a>在输入不包含视频时插入视频轨迹
+
 默认情况下，如果要向编码器发送仅包含音频而不包含视频的输入，则输出资产将包含仅有音频数据的文件。 某些播放器（包括 Azure 媒体播放器）（请参阅[此处](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)）可能无法处理这样的流。 对于这种方案，可使用此设置来强制编码器将单色视频轨迹添加到输出。
 
 > [!NOTE]
 > 强制编码器插入输出视频轨迹会增加输出资产的大小，从而增加编码任务的相关成本。 应运行测试来验证此成本增加对每月费用的影响不大。
->
 >
 
 ### <a name="inserting-video-at-only-the-lowest-bitrate"></a>仅以最低比特率插入视频
@@ -930,9 +929,30 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
     }
 
 #### <a name="xml-preset"></a>XML 预设
-    <KeyFrameInterval>00:00:02</KeyFrameInterval>
-    <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
+
+使用 XML 时，请使用 Condition="InsertBlackIfNoVideoBottomLayerOnly" 作为“H264Video”元素的属性，并使用 Condition="InsertSilenceIfNoAudio" 作为“AACAudio”的属性。
+
+    . . .
+    <Encoding>  
+    <H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">  
+      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+      <SceneChangeDetection>true</SceneChangeDetection>  
+      <StretchMode>AutoSize</StretchMode>
+      <H264Layers>  
+    <H264Layer>  
+      . . .
+    </H264Layer>  
+      </H264Layers>  
+      <Chapters />  
+    </H264Video>  
+    <AACAudio Condition="InsertSilenceIfNoAudio">  
+      <Profile>AACLC</Profile>  
+      <Channels>2</Channels>  
+      <SamplingRate>48000</SamplingRate>  
+      <Bitrate>128</Bitrate>  
+    </AACAudio>  
+    </Encoding>  
+    . . .
 
 ### <a name="inserting-video-at-all-output-bitrates"></a>按所有输出比特率插入视频
 假设要使用多比特率编码预设（如 [“H264 多比特率 720p”](media-services-mes-preset-H264-Multiple-Bitrate-720p.md)）对整个输入目录进行编码以实现流式处理，且输入目录中混合了视频文件和仅音频文件。 在此方案中，如果输入不包含视频，用户可能想要强制编码器按所有输出比特率插入单色视频轨迹。 这可确保对于视频轨迹和音频曲目的数目，输出资产都是同源的。 要实现此目的，需要指定“InsertBlackIfNoVideo”标志。
@@ -950,9 +970,30 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
     }
 
 #### <a name="xml-preset"></a>XML 预设
-    <KeyFrameInterval>00:00:02</KeyFrameInterval>
-    <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideo</Condition>
+
+使用 XML 时，请使用 Condition="InsertBlackIfNoVideo" 作为“H264Video”元素的属性，并使用 Condition="InsertSilenceIfNoAudio" 作为“AACAudio”的属性。
+
+    . . .
+    <Encoding>  
+    <H264Video Condition="InsertBlackIfNoVideo">  
+      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+      <SceneChangeDetection>true</SceneChangeDetection>  
+      <StretchMode>AutoSize</StretchMode>
+      <H264Layers>  
+    <H264Layer>  
+      . . .
+    </H264Layer>  
+      </H264Layers>  
+      <Chapters />  
+    </H264Video>  
+    <AACAudio Condition="InsertSilenceIfNoAudio">  
+      <Profile>AACLC</Profile>  
+      <Channels>2</Channels>  
+      <SamplingRate>48000</SamplingRate>  
+      <Bitrate>128</Bitrate>  
+    </AACAudio>  
+    </Encoding>  
+    . . .  
 
 ## <a id="rotate_video"></a>旋转视频
 [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) 支持旋转的角度为 0/90/180/270。 默认行为是“自动”，即尝试在传入的视频文件中检测旋转元数据并对其进行补偿。 将以下“Sources”元素包含在[此部分](media-services-mes-presets-overview.md)定义的其中一个预设中：

@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 准备使用 Azure 备份服务器来备份工作负荷
-<a id="preparing-to-back-up-workloads-using-azure-backup-server" class="xliff"></a>
+# <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>准备使用 Azure 备份服务器来备份工作负荷
 > [!div class="op_single_selector"]
 > * [Azure 备份服务器（经典）](backup-azure-microsoft-azure-backup-classic.md)
 > * [SCDPM（经典）](backup-azure-dpm-introduction-classic.md)
@@ -37,8 +36,7 @@ ms.lasthandoff: 07/14/2017
 >
 >
 
-## 1.Windows Server 计算机
-<a id="1-windows-server-machine" class="xliff"></a>
+## <a name="1-windows-server-machine"></a>1.Windows Server 计算机
 ![步骤 1](./media/backup-azure-microsoft-azure-backup/step1.png)
 
 若要启动并运行 Azure 备份服务器，第一个步骤是部署一台 Windows Server 计算机。
@@ -55,19 +53,16 @@ ms.lasthandoff: 07/14/2017
 
 如果计划将 Azure 备份服务器加入到域，建议在安装 Azure 备份服务器软件之前，将物理服务器或虚拟机加入到域。 部署之后，*不支持*将 Azure 备份服务器移到新域。
 
-## 2.备份保管库
-<a id="2-backup-vault" class="xliff"></a>
+## <a name="2-backup-vault"></a>2.备份保管库
 ![步骤 2](./media/backup-azure-microsoft-azure-backup/step2.png)
 
 无论是将备份数据发送到 Azure 还是在本地保留，都必须将 Azure 备份服务器注册到保管库。
 
 
-## 3.软件包
-<a id="3-software-package" class="xliff"></a>
+## <a name="3-software-package"></a>3.软件包
 ![步骤 3](./media/backup-azure-microsoft-azure-backup/step3.png)
 
-### 下载软件包
-<a id="downloading-the-software-package" class="xliff"></a>
+### <a name="downloading-the-software-package"></a>下载软件包
 类似于保管库凭据，可以从备份保管库的 **“快速启动”页面** 下载适用于应用程序工作负荷的 Azure 备份。
 
 1. 单击“**用于应用程序工作负荷（磁盘到磁盘再到云）**”。 随后你将转到“下载中心”页，可以从中下载软件包。
@@ -81,8 +76,7 @@ ms.lasthandoff: 07/14/2017
 
     由于所有文件的下载大小合计超过了 3G，在 10Mbps 下载链路上可能需要 60 分钟才能完成下载。
 
-### 解压缩软件包
-<a id="extracting-the-software-package" class="xliff"></a>
+### <a name="extracting-the-software-package"></a>解压缩软件包
 下载所有文件之后，单击 **MicrosoftAzureBackupInstaller.exe**。 这将启动“Azure 备份安装向导”，并将安装程序文件解压缩到指定的位置。 继续运行向导，然后单击“**解压缩**”按钮开始解压缩过程。
 
 > [!WARNING]
@@ -94,8 +88,7 @@ ms.lasthandoff: 07/14/2017
 
 解压缩过程完成后，请选中相应的框，以启动刚刚解压缩的 *setup.exe* 来开始安装 Azure 备份服务器，然后单击“完成”按钮。
 
-### 安装软件包
-<a id="installing-the-software-package" class="xliff"></a>
+### <a name="installing-the-software-package"></a>安装软件包
 1. 单击“Azure 备份”启动安装向导。
 
     ![Azure 备份安装向导](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
@@ -143,8 +136,7 @@ ms.lasthandoff: 07/14/2017
 
 安装步骤完成后，会一同创建产品的桌面图标。 双击该图标即可启动该产品。
 
-### 添加备份存储
-<a id="add-backup-storage" class="xliff"></a>
+### <a name="add-backup-storage"></a>添加备份存储
 第一个备份副本保存在已附加到 Azure 备份服务器计算机的存储中。 有关添加磁盘的详细信息，请参阅[配置存储池和磁盘存储](https://technet.microsoft.com/library/hh758075.aspx)。
 
 > [!NOTE]
@@ -152,8 +144,7 @@ ms.lasthandoff: 07/14/2017
 >
 >
 
-## 4.网络连接
-<a id="4-network-connectivity" class="xliff"></a>
+## <a name="4-network-connectivity"></a>4.网络连接
 ![步骤 4](./media/backup-azure-microsoft-azure-backup/step4.png)
 
 Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若要验证计算机是否已连接到 Azure，请在Azure 备份服务器 PowerShell 控制台中使用 ```Get-DPMCloudConnection``` cmdlet。 如果该 cmdlet 的输出为 TRUE，则表示已建立连接，否则表示未建立连接。
@@ -171,8 +162,7 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 | 连接断开超过 15 天 |Expired |已停止 |已停止 |允许 |允许 |
 | 连接断开超过 15 天 |已取消预配 |已停止 |已停止 |已停止且已删除 Azure 恢复点 |已停止 |
 
-### 连接断开后进行恢复
-<a id="recovering-from-loss-of-connectivity" class="xliff"></a>
+### <a name="recovering-from-loss-of-connectivity"></a>连接断开后进行恢复
 如果你的防火墙或代理导致无法访问 Azure，需要将防火墙/代理配置文件中的以下域地址列入允许列表：
 
 - www.msftncsi.com
@@ -183,20 +173,17 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 
 在 Azure 备份服务器计算机上还原与 Azure 的连接之后，可执行的操作取决于 Azure 订阅状态。 上表详细列出了有关计算机在“连接”之后允许的操作的信息。
 
-### 处理订阅状态
-<a id="handling-subscription-states" class="xliff"></a>
+### <a name="handling-subscription-states"></a>处理订阅状态
 可以将 Azure 订阅从“*已过期*”或“*已取消预配*”状态更改为“*活动*”状态。 但是，当状态不是“*活动*”时，此操作对产品的行为会造成某些影响：
 
 - “*已取消预配*”的订阅在取消预配的这段期间将失去功能。 切换为“*活动*”后，将恢复产品的备份/还原功能。 此外，只要以够长的保留期来保存本地磁盘上的备份数据，则还可以检索这些数据。 但是，一旦订阅进入“*已取消预配*”状态，Azure 中的备份数据便会丢失且不可检索。
 - “*已过期*”的订阅只会在恢复“*活动*”状态之前失去功能。 在订阅处于“*已过期*”期间计划的任何备份都不会运行。
 
-## 故障排除
-<a id="troubleshooting" class="xliff"></a>
+## <a name="troubleshooting"></a>故障排除
 如果 Azure 备份服务器在安装阶段（或者备份或还原时）失败并出现错误，请参阅此[错误代码文档](https://support.microsoft.com/kb/3041338)以获取详细信息。
 此外，还可以参考 [Azure 备份相关的常见问题](backup-azure-backup-faq.md)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 可以在 Microsoft TechNet 站点上获取有关[为 DPM 准备环境](https://technet.microsoft.com/library/hh758176.aspx)的详细信息。 其中还包含有关可在其上部署和使用 Azure 备份服务器的受支持配置的信息。
 
 请参阅这些文章，深入了解如何使用 Azure 备份服务器来保护工作负荷。

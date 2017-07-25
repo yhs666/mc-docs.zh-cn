@@ -22,12 +22,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 自定义预配置解决方案
-<a id="customize-a-preconfigured-solution" class="xliff"></a>
+# <a name="customize-a-preconfigured-solution"></a>自定义预配置解决方案
 Azure IoT 套件提供的预配置解决方案演示了套件中的服务如何协力提供端到端解决方案。 从这个起点开始，有多个地方可以针对特定应用场景扩展和自定义解决方案。 以下各节描述了这些常见的自定义点。
 
-## 查找源代码
-<a id="find-the-source-code" class="xliff"></a>
+## <a name="find-the-source-code"></a>查找源代码
 预配置解决方案的源代码可在以下 GitHub 存储库获得：
 
 * 远程监视： [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
@@ -36,8 +34,7 @@ Azure IoT 套件提供的预配置解决方案演示了套件中的服务如何�
 
 提供预配置解决方案源代码的目的，在于演示实现使用 Azure IoT 套件的 IoT 解决方案的端到端功能时所采用的模式和做法。 你可以找到有关如何在 GitHub 存储库中生成和部署解决方案的详细信息。
 
-## 更改预配置规则
-<a id="change-the-preconfigured-rules" class="xliff"></a>
+## <a name="change-the-preconfigured-rules"></a>更改预配置规则
 
 远程监视解决方案包含三个 [Azure 流分析](/stream-analytics/)作业，这些作业可处理解决方案中的设备信息、遥测数据及规则逻辑。
 
@@ -58,30 +55,25 @@ Azure IoT 套件提供的预配置解决方案演示了套件中的服务如何�
 > [!NOTE]
 > 远程监视仪表板依赖特定数据，因此更改作业可能会导致仪表板出现故障。
 
-## 添加自己的规则
-<a id="add-your-own-rules" class="xliff"></a>
+## <a name="add-your-own-rules"></a>添加自己的规则
 
 除了更改预配置的 Azure 流分析作业，也可以使用 Azure 门户添加新作业或添加对现有作业的新查询。
 
-## 自定义设备
-<a id="customize-devices" class="xliff"></a>
+## <a name="customize-devices"></a>自定义设备
 
 最常见的扩展活动之一是使用方案特定的设备。 使用设备的方法有数种。 这些方法包括更改模拟设备以符合你的方案，或使用 [IoT 设备 SDK][IoT Device SDK] 将物理设备连接到解决方案。
 
 有关添加设备的分步指南，请参阅 [Iot 套件连接设备](./iot-suite-connecting-devices.md)一文和[远程监视 C SDK 示例](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring)。 本示例旨在配合远程监视预配置解决方案使用。
 
-### 创建自己的模拟设备
-<a id="create-your-own-simulated-device" class="xliff"></a>
+### <a name="create-your-own-simulated-device"></a>创建自己的模拟设备
 [远程监视解决方案源代码](https://github.com/Azure/azure-iot-remote-monitoring)中包含 .NET 模拟器。 此模拟器是解决方案中预配的模拟器，可以对其进行更改以发送不同的元数据、遥测数据和响应不同的命令和方法。
 
 远程监视预配置解决方案模拟器中的预配置模拟器是发出温度和湿度遥测的冷却设备。 派生 GitHub 存储库后，可以修改 [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) 项目中的模拟器。
 
-### 模拟设备的可用位置
-<a id="available-locations-for-simulated-devices" class="xliff"></a>
+### <a name="available-locations-for-simulated-devices"></a>模拟设备的可用位置
 默认的位置集为美国华盛顿州西雅图/雷德蒙德。 可以 [SampleDeviceFactory.cs][lnk-sample-device-factory]中更改这些位置。
 
-### 将所需的属性更新处理程序添加到模拟器
-<a id="add-a-desired-property-update-handler-to-the-simulator" class="xliff"></a>
+### <a name="add-a-desired-property-update-handler-to-the-simulator"></a>将所需的属性更新处理程序添加到模拟器
 可在解决方案门户中设置设备所需属性的值。 当设备检索所需的属性值时，由设备负责处理属性更改请求。 若要通过所需的属性添加属性值更改支持，需要将一个处理程序添加到模拟器。
 
 模拟器包含 **SetPointTemp** 和 **TelemetryInterval** 属性的处理程序，可以通过在解决方案门户中设置所需值来更新这些属性。
@@ -110,8 +102,7 @@ _desiredPropertyUpdateHandlers.Add(SetPointTempPropertyName, OnSetPointTempUpdat
 
 请注意， **SetPointTempPropertyName** 是定义为“Config.SetPointTemp”的常量。
 
-### 将新方法支持添加到模拟器
-<a id="add-support-for-a-new-method-to-the-simulator" class="xliff"></a>
+### <a name="add-support-for-a-new-method-to-the-simulator"></a>将新方法支持添加到模拟器
 可以自定义模拟器，以添加对新[方法（直接方法）][lnk-direct-methods]的支持。 需要执行两个重要步骤：
 
 - 模拟器必须在预配置解决方案中向 IoT 中心告知方法的详细信息。
@@ -215,26 +206,20 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 - 以异步方式启动固件更新操作，完成该操作时重置遥测。
 - 立即返回“FirmwareUpdate 已接受”消息，指出设备已接受请求。
 
-### 构建并使用自己的（物理）设备
-<a id="build-and-use-your-own-physical-device" class="xliff"></a>
+### <a name="build-and-use-your-own-physical-device"></a>构建并使用自己的（物理）设备
 [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) 提供用于将各种设备类型（语言和操作系统）连接到 IoT 解决方案的库。
 
-## 修改仪表板限制
-<a id="modify-dashboard-limits" class="xliff"></a>
-### 仪表板下拉列表中显示的设备数
-<a id="number-of-devices-displayed-in-dashboard-dropdown" class="xliff"></a>
+## <a name="modify-dashboard-limits"></a>修改仪表板限制
+### <a name="number-of-devices-displayed-in-dashboard-dropdown"></a>仪表板下拉列表中显示的设备数
 默认值为 200。 可以在 [DashboardController.cs][lnk-dashboard-controller]中更改此数字。
 
-### 必应地图控件中显示的图钉数
-<a id="number-of-pins-to-display-in-bing-map-control" class="xliff"></a>
+### <a name="number-of-pins-to-display-in-bing-map-control"></a>必应地图控件中显示的图钉数
 默认值为 200。 可以在 [TelemetryApiController.cs][lnk-telemetry-api-controller-01]中更改此数字。
 
-### 遥测图形的时间段
-<a id="time-period-of-telemetry-graph" class="xliff"></a>
+### <a name="time-period-of-telemetry-graph"></a>遥测图形的时间段
 默认值为 10 分钟。 可以在 [TelmetryApiController.cs][lnk-telemetry-api-controller-02]中更改此值。
 
-## 手动设置应用程序角色
-<a id="manually-set-up-application-roles" class="xliff"></a>
+## <a name="manually-set-up-application-roles"></a>手动设置应用程序角色
 以下过程描述如何将 **Admin** 和 **ReadOnly** 应用程序角色添加到预配置解决方案中。 请注意，从 azureiotsuite.com 站点预配的预配置解决方案已经包含 **Admin** 和 **ReadOnly** 角色。
 
 **ReadOnly** 角色的成员可以看到仪表板和设备列表，但不能添加设备、更改设备属性或发送命令。  **Admin** 角色的成员具有对解决方案中所有功能的完全访问权限。
@@ -288,12 +273,10 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 
 12. 若要将其中一个角色分配给你目录中的用户，请参阅 [azureiotsuite.com 站点上的权限][lnk-permissions]。
 
-## 反馈
-<a id="feedback" class="xliff"></a>
+## <a name="feedback"></a>反馈
 本文档是否涵盖你感兴趣的自定义内容？ 请在 [用户之声](https://feedback.azure.com/forums/321918-azure-iot)中添加功能建议，或对本文发表评论。 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 若要详细了解自定义预配置解决方案的选项，请参阅：
 

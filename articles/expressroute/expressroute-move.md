@@ -3,7 +3,7 @@ title: "将 ExpressRoute 线路从经典部署模型转移到 Resource Manager �
 description: "本页概述桥接经典部署模型与 Resource Manager 部署模型时所要了解的知识。"
 documentationCenter: na
 services: expressroute
-authors: ganesr
+author: ganesr
 manager: carmonm
 editor: 
 ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+origin.date: 05/02/2017
 ms.author: v-yiso
-ms.openlocfilehash: ced8be56a8e3fc551dd7ee844fd7c7659e9dc78d
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 
+ms.openlocfilehash: 506c7cafe9b95442d30b070b1972f087a7787cf6
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型
 
@@ -70,7 +71,7 @@ ms.lasthandoff: 06/21/2017
 
 将 **allowClassicOperations** 设置为 TRUE 时，无法执行以下经典操作：
 
- - 创建/更新/获取/删除针对 Azure 专用对等互连、Azure 公共对等互连和 Microsoft 对等互连的边界网关协议 (BGP) 对等互连
+ - 创建/更新/获取/删除针对 Azure 专用对等互连、Azure 公共对等互连的边界网关协议 (BGP) 对等互连
  - 删除 ExpressRoute 线路
 
 ## <a name="communication-between-the-classic-and-the-resource-manager-deployment-models"></a>经典部署模型和 Resource Manager 部署模型之间的通信
@@ -79,9 +80,9 @@ ExpressRoute 线路相当于经典部署模型与 Resource Manager 部署模型�
 
 聚合吞吐量受限于虚拟网络网关的吞吐容量。 在这种情况下，流量不进入连接服务提供商的网络或你的网络。 虚拟网络之间的流量完全包含在 Microsoft 网络中。
 
-## <a name="access-to-azure-public-and-microsoft-peering-resources"></a>对 Azure 公共对等互连资源和 Microsoft 对等互连资源的访问权限
+## <a name="access-to-azure-public-peering-resources"></a>对 Azure 公共对等互连资源的访问权限
 
-你可以继续访问通常可通过 Azure 公共对等互连和 Microsoft 对等互连访问的资源，而不会出现任何中断。  
+可以继续访问通常可通过 Azure 公共对等互连访问的资源，而不会出现任何中断。  
 
 ## <a name="whats-supported"></a>支持的操作
 

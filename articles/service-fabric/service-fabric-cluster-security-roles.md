@@ -20,20 +20,17 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 适用于 Service Fabric 客户端的基于角色的访问控制
-<a id="role-based-access-control-for-service-fabric-clients" class="xliff"></a>
+# <a name="role-based-access-control-for-service-fabric-clients"></a>适用于 Service Fabric 客户端的基于角色的访问控制
 Azure Service Fabric 针对连接到 Service Fabric 群集的客户端支持两种不同的访问控制类型：管理员和用户。 访问控制可让群集管理员针对不同的用户组限制特定群集操作的访问权限，使群集更加安全。  
 
 **管理员**对管理功能（包括读取/写入功能）拥有完全访问权限。 默认情况下，**用户**只有管理功能的读取访问权限（例如查询功能），以及解析应用程序和服务的能力。
 
 可在创建群集时为每个角色提供不同的证书，以指定两个客户端角色（管理员和客户端）。 有关设置安全 Service Fabric 群集的详细信息，请参阅 [Service Fabric 群集安全性](service-fabric-cluster-security.md)。
 
-## 默认访问控制设置
-<a id="default-access-control-settings" class="xliff"></a>
+## <a name="default-access-control-settings"></a>默认访问控制设置
 管理员访问控制类型对所有 FabricClient API 拥有完全访问权限。 它可以对 Service Fabric 群集执行任何读取和写入，包括以下操作：
 
-### 应用程序和服务操作
-<a id="application-and-service-operations" class="xliff"></a>
+### <a name="application-and-service-operations"></a>应用程序和服务操作
 * **CreateService**：创建服务                             
 * **CreateServiceFromTemplate**：从模板创建服务                             
 * **UpdateService**：更新服务                             
@@ -53,8 +50,7 @@ Azure Service Fabric 针对连接到 Service Fabric 群集的客户端支持两�
 * **RecoverServicePartitions**：恢复服务分区                             
 * **RecoverSystemPartitions**：恢复系统服务分区                             
 
-### 群集操作
-<a id="cluster-operations" class="xliff"></a>
+### <a name="cluster-operations"></a>群集操作
 * **ProvisionFabric**：预配 MSI 和/或群集清单                             
 * **UpgradeFabric**：启动群集升级                             
 * **UnprovisionFabric**：取消预配 MSI 和/或群集清单                         
@@ -78,8 +74,7 @@ Azure Service Fabric 针对连接到 Service Fabric 群集的客户端支持两�
 * **NodeControl**：启动、停止和重新启动节点                             
 * **MoveReplicaControl**：将副本从一个节点移到另一个节点                             
 
-### 其他操作
-<a id="miscellaneous-operations" class="xliff"></a>
+### <a name="miscellaneous-operations"></a>其他操作
 * **Ping**：客户端 ping                             
 * **Query**：允许所有查询
 * **NameExists**：检查命名 URI 是否存在                             
@@ -103,12 +98,10 @@ Azure Service Fabric 针对连接到 Service Fabric 群集的客户端支持两�
 
 管理员访问控制也有权访问上述操作。
 
-## 更改客户端角色的默认设置
-<a id="changing-default-settings-for-client-roles" class="xliff"></a>
+## <a name="changing-default-settings-for-client-roles"></a>更改客户端角色的默认设置
 在群集清单文件中，你可以根据需要向客户端提供管理功能。 可以更改默认设置，方法是在[创建群集](service-fabric-cluster-creation-via-portal.md)过程中转到“**结构设置**”选项，然后在“**名称**”、“**管理员**”、“**用户**”和“**值**”字段中提供上述设置。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 [Service Fabric 群集安全性](service-fabric-cluster-security.md)
 
 [创建 Service Fabric 群集](service-fabric-cluster-creation-via-portal.md)

@@ -1,5 +1,5 @@
 ---
-title: "使用 Ambari API 在 HDInsight 中监视 Hadoop 群集 | Azure"
+title: "使用 Ambari API 在 HDInsight 中监视 Hadoop 群集 - Azure | Azure"
 description: "使用 Apache Ambari API 创建、管理和监视 Hadoop 群集。 直观的操作员工具和 API 消除了 Hadoop 的复杂性。"
 services: hdinsight
 documentationcenter: 
@@ -17,11 +17,11 @@ origin.date: 04/07/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
-ms.openlocfilehash: 184870b3a42e6e2e426e8574eb8fd028a44b16a3
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 124a0264c6225c69fa867aa57f265b04e26b250b
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>使用 Ambari API 在 HDInsight 中监视 Hadoop 群集
 了解如何使用 Ambari API 监视 HDInsight 群集。
@@ -161,7 +161,7 @@ HDInsight 目前仅支持 Ambari 监视功能。 Ambari API 1.0 受 HDInsight �
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[powershell-script]: https://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
+[powershell-script]: http://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md

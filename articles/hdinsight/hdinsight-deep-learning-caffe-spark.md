@@ -17,11 +17,11 @@ ms.topic: article
 origin.date: 02/17/2017
 ms.date: 03/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 3e3d77669e522fe420bb237e3e334ba7399fa61b
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 8901adbc2dbddc9ad09d0767e6f144c861adc1f2
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>使用 Caffe on Azure HDInsight Spark 进行分布式深度学习
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 06/21/2017
 
 有[许多常用框架](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)，其中包括 [Microsoft 认知工具包](https://www.microsoft.com/research/product/cognitive-toolkit/)、[Tensorflow](https://www.tensorflow.org/)、MXNet、Theano 等。Caffe 是最著名的非符号（命令式）神经网络框架之一，广泛用于包括计算机视觉在内的许多领域。 另外，[CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) 将 Caffe 与 Apache Spark 结合在一起，使深度学习能够轻松地用于现有的 Hadoop 群集和 Spark ETL 管道，降低进行端到端学习时的系统复杂性和延迟。
 
-[HDInsight](https://www.azure.cn/home/features/hdinsight/) 是唯一完全托管的云 Hadoop 产品，为 Spark、Hive、MapReduce、HBase、Storm、Kafka 以及由一个 99.9% 的 SLA 支持的 R 服务器提供优化的开源分析群集。 这些大数据技术和 ISV 应用程序均可轻松部署为受企业级保护和监视的托管群集。
+[HDInsight](https://www.azure.cn/home/features/hdinsight/) 是唯一完全托管的云 Hadoop 产品，为 Spark、Hive、MapReduce、HBase 以及由一个 99.9% 的 SLA 支持的 Storm 提供优化的开源分析群集。 这些大数据技术和 ISV 应用程序均可轻松部署为受企业级保护和监视的托管群集。
 
 某些用户询问如何在 Microsoft 的 PaaS Hadoop 产品 HDInsight 上使用深度学习。 我们会在以后给大家带来更多内容，但目前只能以技术博客的方式总结一下如何使用 Caffe on HDInsight Spark。
 

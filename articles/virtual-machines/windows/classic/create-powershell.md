@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/10/2017
 ---
-# 使用 Powershell 和经典部署模型创建 Windows 虚拟机
-<a id="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model" class="xliff"></a>
+# <a name="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model"></a>使用 Powershell 和经典部署模型创建 Windows 虚拟机
 > [!div class="op_single_selector"]
 > * [Azure 门户 - Windows](tutorial.md)
 > * [PowerShell - Windows](create-powershell.md)
@@ -41,15 +40,13 @@ ms.lasthandoff: 07/10/2017
 
 如果尚未这样做，请按[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 中的说明在本地计算机上安装 Azure PowerShell。 然后，打开 Windows PowerShell 命令提示符。
 
-## 步骤 1：添加帐户
-<a id="step-1-add-your-account" class="xliff"></a>
+## <a name="step-1-add-your-account"></a>步骤 1：添加帐户
 1. 在 PowerShell 命令提示符处，键入 Add-AzureAccount -Environment AzureChinaCloud 并单击“Enter”。 
 2. 键入与你的 Azure 订阅相关联的电子邮件地址并单击“继续” 。 
 3. 键入你的帐户的密码。 
 4. 单击“登录” 。
 
-## 步骤 2：设置订阅和存储帐户
-<a id="step-2-set-your-subscription-and-storage-account" class="xliff"></a>
+## <a name="step-2-set-your-subscription-and-storage-account"></a>步骤 2：设置订阅和存储帐户
 通过在 Windows PowerShell 命令提示符处运行以下命令，设置你的 Azure 订阅和存储帐户。 将引号内的所有内容（包括 < and > 字符）替换为相应的名称。
 
     $subscr="<subscription name>"
@@ -59,8 +56,7 @@ ms.lasthandoff: 07/10/2017
 
 你可以从 **Get-AzureSubscription** 命令输出的 SubscriptionName 属性获取相应的订阅名称。 运行 Select-AzureSubscription 命令后，可以从 Get-AzureStorageAccount 命令输出的 Label 属性获取相应的存储帐户名称。
 
-## 步骤 3：确定 ImageFamily
-<a id="step-3-determine-the-imagefamily" class="xliff"></a>
+## <a name="step-3-determine-the-imagefamily"></a>步骤 3：确定 ImageFamily
 接下来，你需要确定与要创建的 Azure 虚拟机对应的特定映像的 ImageFamily 或 Label 值。 你可以使用此命令获取可用 ImageFamily 值的列表。
 
     Get-AzureVMImage | select ImageFamily -Unique
@@ -86,8 +82,7 @@ ms.lasthandoff: 07/10/2017
     $label="<Label value>"
     $image = Get-AzureVMImage | where { $_.Label -eq $label } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-## 步骤 4：构建命令集
-<a id="step-4-build-your-command-set" class="xliff"></a>
+## <a name="step-4-build-your-command-set"></a>步骤 4：构建命令集
 将下面相应的一组程序块复制到新文本文件或 ISE 中，然后填写变量值并删除 < and > 字符来构建命令集的其余部分。 请参阅本文末尾的两个 [示例](#examples) ，了解最终结果。
 
 选择这两个命令块之一启动命令集（必需）。
@@ -172,8 +167,7 @@ ms.lasthandoff: 07/10/2017
     $vnetname="<name of the virtual network>"
     New-AzureVM -ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
-## 步骤 5：运行命令集
-<a id="step-5-run-your-command-set" class="xliff"></a>
+## <a name="step-5-run-your-command-set"></a>步骤 5：运行命令集
 复查你在步骤 4 中在文本编辑器或 PowerShell ISE 中生成的包含多个命令块的 Azure PowerShell 命令集。 确保你指定了所需的所有变量，并且这些变量具有正确的值。 另请确保已删除所有 < and > 字符。
 
 如果你使用的是文本编辑器，则将命令集复制到剪贴板，然后右键单击打开的 Windows PowerShell 命令提示符。 这将发出作为一系列 PowerShell 命令的命令集，并创建 Azure 虚拟机。 或者，在 PowerShell ISE 中运行命令集。
@@ -186,8 +180,7 @@ ms.lasthandoff: 07/10/2017
 ## <a id="examples"></a>示例
 以下是使用上述步骤构建 Azure PowerShell 命令集以创建基于 Windows 的 Azure 虚拟机的两个示例。
 
-### 示例 1
-<a id="example-1" class="xliff"></a>
+### <a name="example-1"></a>示例 1
 我需要 PowerShell 命令集来为 Active Directory 域控制器创建满足以下条件的初始虚拟机：
 
 * 使用 Windows Server 2012 R2 Datacenter 映像。
@@ -223,8 +216,7 @@ ms.lasthandoff: 07/10/2017
     $vnetname="AZDatacenter"
     New-AzureVM -ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
-### 示例 2
-<a id="example-2" class="xliff"></a>
+### <a name="example-2"></a>示例 2
 我需要 PowerShell 命令集来为业务线服务器创建虚拟机：
 
 * 使用 Windows Server 2012 R2 Datacenter 映像。
@@ -260,6 +252,5 @@ ms.lasthandoff: 07/10/2017
     $vnetname="AZDatacenter"
     New-AzureVM -ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 如果需要大于 127 GB 的操作系统磁盘，可[展开 OS 驱动器](../../virtual-machines-windows-expand-os-disk.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。

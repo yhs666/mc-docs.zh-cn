@@ -22,12 +22,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# Azure AD 开发人员指南中的文章
-<a id="articles-in-the-azure-ad-developer-guide" class="xliff"></a>
+# <a name="articles-in-the-azure-ad-developer-guide"></a>Azure AD 开发人员指南中的文章
 下面是 Azure Active Directory 开发人员指南中涉及的所有主题的列表。
 
-## 指南
-<a id="guides" class="xliff"></a>
+## <a name="guides"></a>指南
 这些文章介绍 Azure Active Directory 的特定概念和功能。
 
 |                                                                                                                                 |  |
@@ -44,8 +42,7 @@ ms.lasthandoff: 07/14/2017
 | [Visual Studio 连接服务](vs-active-directory-dotnet-getting-started.md)                                               | 如何在 Visual Studio 中使用 Azure AD 与 MVC 项目的集成 |
 | [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | 如何使用 ADFS 与本地 Active Directory 集成 |
 
-## 引用
-<a id="reference" class="xliff"></a>
+## <a name="reference"></a>引用
 以下文章提供了有关 REST 和身份验证库 API、协议、错误、代码示例和终结点的基础信息。
 
 |                                                                                     | |

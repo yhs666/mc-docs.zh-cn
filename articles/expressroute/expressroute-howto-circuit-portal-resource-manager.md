@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 创建和修改 ExpressRoute 线路
-<a id="create-and-modify-an-expressroute-circuit" class="xliff"></a>
+# <a name="create-and-modify-an-expressroute-circuit"></a>创建和修改 ExpressRoute 线路
 
 > [!div class="op_single_selector"]
 [Azure 门户 - Resource Manager](./expressroute-howto-circuit-portal-resource-manager.md)
@@ -33,23 +32,19 @@ ms.lasthandoff: 07/14/2017
 本文介绍如何使用 Azure 门户和 Azure Resource Manager 部署模型创建 Azure ExpressRoute 线路。 以下步骤还说明如何查看线路状态，以及如何更新、删除和取消预配线路。
 
 
-## 开始之前
-<a id="before-you-begin" class="xliff"></a>
+## <a name="before-you-begin"></a>开始之前
 
 - 在开始配置之前，请查看[先决条件](./expressroute-prerequisites.md)和[工作流](./expressroute-workflows.md)。
 - 确保有权访问 [Azure 门户](https://portal.azure.cn)。
 - 确保你有权创建新的网络资源。 如果你没有适当的权限，请与帐户管理员联系。
 
-## 创建和预配 ExpressRoute 线路
-<a id="create-and-provision-an-expressroute-circuit" class="xliff"></a>
+## <a name="create-and-provision-an-expressroute-circuit"></a>创建和预配 ExpressRoute 线路
 
-### 1.登录到 Azure 门户
-<a id="1-sign-in-to-the-azure-portal" class="xliff"></a>
+### <a name="1-sign-in-to-the-azure-portal"></a>1.登录到 Azure 门户
 
 从浏览器导航到 [Azure 门户](http://portal.azure.cn)并使用 Azure 帐户登录。
 
-### 2.创建新的 ExpressRoute 线路
-<a id="2-create-a-new-expressroute-circuit" class="xliff"></a>
+### <a name="2-create-a-new-expressroute-circuit"></a>2.创建新的 ExpressRoute 线路
 
 >[!IMPORTANT]
 > 从发布服务密钥的那一刻起，将对 ExpressRoute 线路进行计费。 确保连接服务提供商准备好预配线路后就执行此操作。
@@ -73,8 +68,7 @@ ms.lasthandoff: 07/14/2017
 > 
 > 
 
-### 3.查看线路和属性
-<a id="3-view-the-circuits-and-properties" class="xliff"></a>
+### <a name="3-view-the-circuits-and-properties"></a>3.查看线路和属性
 
 **查看所有线路**
 
@@ -90,8 +84,7 @@ You can view the properties of the circuit by selecting it. On this blade, note 
 
 ![查看属性](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
-### 4.将服务密钥发送给连接服务提供商进行预配
-<a id="4-send-the-service-key-to-your-connectivity-provider-for-provisioning" class="xliff"></a>
+### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4.将服务密钥发送给连接服务提供商进行预配
 
 在此边栏选项卡中，“提供商状态”提供有关服务提供商端当前预配状态的信息。 “线路状态”提供 Microsoft 端的状态。 有关线路预配状态的详细信息，请参阅[工作流](./expressroute-workflows.md#expressroute-circuit-provisioning-states)一文。
 
@@ -112,15 +105,13 @@ You can view the properties of the circuit by selecting it. On this blade, note 
 提供商状态：已预配<BR>
 线路状态：已启用
 
-### 5.定期检查线路密钥的状态
-<a id="5-periodically-check-the-status-and-the-state-of-the-circuit-key" class="xliff"></a>
+### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5.定期检查线路密钥的状态
 
 选中你感兴趣的线路即可查看其属性。 选中“提供商状态”，确保在继续之前其已转为“已预配”。
 
 ![线路和提供商状态](./media/expressroute-howto-circuit-portal-resource-manager/viewstatusprovisioned.png)
 
-### 6.创建路由配置
-<a id="6-create-your-routing-configuration" class="xliff"></a>
+### <a name="6-create-your-routing-configuration"></a>6.创建路由配置
 
 有关分步说明，请参阅 [ExpressRoute 线路路由配置](./expressroute-howto-routing-portal-resource-manager.md)一文，了解如何创建和修改线路对等互连。
 
@@ -129,20 +120,17 @@ You can view the properties of the circuit by selecting it. On this blade, note 
 > 
 > 
 
-### 7.将虚拟网络链接到 ExpressRoute 线路
-<a id="7-link-a-virtual-network-to-an-expressroute-circuit" class="xliff"></a>
+### <a name="7-link-a-virtual-network-to-an-expressroute-circuit"></a>7.将虚拟网络链接到 ExpressRoute 线路
 
 接下来，将虚拟网络链接到 ExpressRoute 线路。 使用 Resource Manager 部署模型时，请参阅[将虚拟网络链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-arm.md)一文。
 
-## 获取 ExpressRoute 线路的状态
-<a id="getting-the-status-of-an-expressroute-circuit" class="xliff"></a>
+## <a name="getting-the-status-of-an-expressroute-circuit"></a>获取 ExpressRoute 线路的状态
 
 选择线路即可查看其状态。 
 
 ![ExpressRoute 线路的状态](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
-## 修改 ExpressRoute 线路
-<a id="modifying-an-expressroute-circuit" class="xliff"></a>
+## <a name="modifying-an-expressroute-circuit"></a>修改 ExpressRoute 线路
 可以在不影响连接的情况下修改 ExpressRoute 线路的某些属性。
 
 你可以在不停机的情况下执行以下操作：
@@ -169,8 +157,7 @@ You can view the properties of the circuit by selecting it. On this blade, note 
 > 
 > 
 
-## 取消预配和删除 ExpressRoute 线路
-<a id="deprovisioning-and-deleting-an-expressroute-circuit" class="xliff"></a>
+## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>取消预配和删除 ExpressRoute 线路
 可以通过选择“删除”图标来删除 ExpressRoute 线路。 注意以下事项：
 
 - 必须取消所有虚拟网络与 ExpressRoute 线路的链接。 如果此操作失败，请检查是否有虚拟网络链接到了该线路。
@@ -179,8 +166,7 @@ You can view the properties of the circuit by selecting it. On this blade, note 
 
 - 如果服务提供商已取消预配线路（服务提供商预配状态设置为“未预配”），则可以删除线路。 这样就会停止线路计费
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 创建你的线路后，请确保执行以下操作：
 

@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# Umbraco 使用 Azure SQL 数据库为云中数千个租户快速预配和缩放服务
-<a id="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud" class="xliff"></a>
+# <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco 使用 Azure SQL 数据库为云中数千个租户快速预配和缩放服务
 ![Umbraco 徽标](./media/sql-database-implementation-umbraco/umbracologo.png)
 
 Umbraco 是一种常用的开源内容管理系统 (CMS)，从小型市场活动或产品目录站点，到适用于财富 500 强公司以及全球媒体网站的复杂应用程序，全部都能运行。 
@@ -40,8 +39,7 @@ UaaS 使 SaaS 客户能够使用他们以前未曾接触过的 Umbraco CMS 功�
 
 图 1. Umbraco 即服务 (UaaS) 的预配生命周期
 
-## Azure 弹性池和自动化简化了部署
-<a id="azure-elastic-pools-and-automation-simplify-deployments" class="xliff"></a>
+## <a name="azure-elastic-pools-and-automation-simplify-deployments"></a>Azure 弹性池和自动化简化了部署
 使用 Azure SQL 数据库和其他 Azure 服务，Umbraco 客户可自行预配其环境，Umbraco 可以通过直观的工作流轻松监视和管理数据库：
 
 1. 预配
@@ -76,8 +74,7 @@ UaaS 使 SaaS 客户能够使用他们以前未曾接触过的 Umbraco CMS 功�
 
    删除项目环境后，将在 Azure 服务总线队列清理期间删除所有关联的数据库（开发、过渡或实时）。 此自动化过程将未使用的数据库还原为 Umbraco 的弹性数据库可用性池，这样既可充分利用这些数据库，又可将这些数据库用于将来的预配。
 
-## 弹性池可让 UaaS 轻松缩放
-<a id="elastic-pools-allow-uaas-to-scale-with-ease" class="xliff"></a>
+## <a name="elastic-pools-allow-uaas-to-scale-with-ease"></a>弹性池可让 UaaS 轻松缩放
 利用 Azure 弹性池，Umbraco 可为其客户优化性能，无需担心过度预配或预配不足。 Umbraco 目前拥有 3,000 个遍布在 19 个弹性池中的数据库，无论是现有 325,000 个客户中的任何一个客户，还是已准备好要在云中部署 CMS 的新客户，Umbraco 都能根据需要轻松缩放，满足客户的需求。
 
 实际上，Umbraco 技术主管 Morten Christensen 指出，“UaaS 现在以每天大约 30 个新客户的速度成长。 我们的客户很高兴能够在几秒内方便地预配好新项目、使用“单键部署”功能从开发环境立即将更新发布到直播站点，以同样快速的方式在发现错误时予以更改。”
@@ -88,8 +85,7 @@ UaaS 使 SaaS 客户能够使用他们以前未曾接触过的 Umbraco CMS 功�
 
 图 3. Microsoft Azure 上的 UaaS 部署体系结构
 
-## 从数据中心到云的路径
-<a id="the-path-from-datacenter-to-cloud" class="xliff"></a>
+## <a name="the-path-from-datacenter-to-cloud"></a>从数据中心到云的路径
 当 Umbraco 开发人员一开始确定转移到 SaaS 模型时，即已知道需要使用一种符合成本效益且可缩放的方式来构建服务。
 
 > “弹性池是最适合我们 SaaS 产品的选项，因为我们可以根据需要调大和调小容量。 预配相当简单，再配合我们的设置，可以发挥它的最大作用。”
@@ -110,8 +106,7 @@ Umbraco 开发人员的重要目标之一是，为 UaaS 客户提供一种快速
 * 支持 Microsoft 开发工具，使 Umbraco 工程师不被迫从头重建其开发环境
 * 在 UaaS 参与竞争的所有地理市场中都有运营点（企业需要确保它们可以快速访问其数据，并且其数据存储在符合其区域法规要求的位置）
 
-## Umbraco 为何选择将 Azure 用于 UaaS
-<a id="why-umbraco-chose-azure-for-uaas" class="xliff"></a>
+## <a name="why-umbraco-chose-azure-for-uaas"></a>Umbraco 为何选择将 Azure 用于 UaaS
 Morten Christensen 指出，“在考虑所有选项之后，我们选择了 Azure，因为从管理性、可伸缩性再到熟悉度及成本效益方面，它符合我们的所有标准。 我们在 Azure VM 上设置环境，每个环境都有自身的 Azure SQL 数据库实例，而所有实例都在弹性池中。 通过将开发、过渡与实时环境之间的数据库隔离，我们可以为客户提供与规模匹配的强大性能隔离，这是一个极大的优势。”
 
 Morten 补充道，“以前，我们必须手动预配 Web 数据库的服务器。 现在，我们无需考虑这项工作。 从预配到清理的所有操作都是自动化的。”
@@ -120,12 +115,10 @@ Morten 也很满意 Azure 提供的缩放功能。 “弹性池是最适合我�
 
 Mikkel Madsen 总结，“除了将 Azure 服务总线与 Azure SQL 数据库配合使用的基础技术以外，我们还采用了强大的 Azure 算法，将常见的 SaaS 方案（大规模实时加入新客户）与应用程序模式（预配开发数据库和实时数据库）相连接。”
 
-## 使用 Azure 后，UaaS 的表现超出客户期望
-<a id="with-azure-uaas-is-exceeding-customer-expectations" class="xliff"></a>
+## <a name="with-azure-uaas-is-exceeding-customer-expectations"></a>使用 Azure 后，UaaS 的表现超出客户期望
 自从选择 Azure 作为云合作伙伴后，Umbraco 无需像自承载解决方案那样需要投资 IT 资源，就能够为 UaaS 客户提供优化的内容管理性能。 就像 Morten 所说，“我们相当满意 Azure 为开发人员提供的便利性和伸缩性，我们的客户也为获得的功能和可靠性振奋不已。 整体而言，这是我们的一大成功！”
 
-## 详细信息
-<a id="more-information" class="xliff"></a>
+## <a name="more-information"></a>详细信息
 * 若要深入了解 Azure 弹性池，请参阅[弹性池](sql-database-elastic-pool.md)。
 * 若要深入了解 Azure 服务总线，请参阅 [Azure 服务总线](../service-bus/index.md)。
 * 若要深入了解 Web 角色和辅助角色，请参阅[辅助角色](../fundamentals-introduction-to-azure.md#compute)。    

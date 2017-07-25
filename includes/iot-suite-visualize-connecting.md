@@ -1,5 +1,4 @@
-## 在仪表板中查看设备遥测数据
-<a id="view-device-telemetry-in-the-dashboard" class="xliff"></a>
+## <a name="view-device-telemetry-in-the-dashboard"></a>在仪表板中查看设备遥测数据
 使用远程监视解决方案中的仪表板可以查看设备发送到 IoT 中心的遥测数据。
 
 1. 在浏览器中，返回到远程监视解决方案仪表板，单击左侧面板中的“设备”导航到“设备列表”。
@@ -10,8 +9,7 @@
 
     ![查看设备遥测数据][img-telemetry]
 
-## 在设备上调用方法
-<a id="invoke-a-method-on-your-device" class="xliff"></a>
+## <a name="invoke-a-method-on-your-device"></a>在设备上调用方法
 使用远程监视解决方案中的仪表板可通过 IoT 中心在设备上调用方法。 例如，在远程监视解决方案中，可以调用方法来模拟重新启动设备。
 
 1. 在远程监视解决方案仪表板中，单击左侧面板中的“设备”导航到“设备列表”。
@@ -27,8 +25,7 @@
 
     ![查看方法历史记录][img-method-history]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 [自定义预配置解决方案][lnk-customize] 一文介绍了扩展本示例的一些方法。 可能的扩展包括使用真实传感器和实现其他命令。
 
 详细了解 [azureiotsuite.com 站点权限][lnk-permissions]。

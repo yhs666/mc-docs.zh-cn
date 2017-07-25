@@ -21,20 +21,17 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 事件中心功能概述
-<a id="event-hubs-features-overview" class="xliff"></a>
+# <a name="event-hubs-features-overview"></a>事件中心功能概述
 
 Azure 事件中心是可缩放的事件处理服务，它引入并处理大量事件和数据，具有低延迟和高可靠性。 有关服务的高级概述，请参阅[什么是事件中心？](event-hubs-what-is-event-hubs.md)。
 
 本文基于[概述](event-hubs-what-is-event-hubs.md)中的信息编写，并提供有关事件中心组件和功能的技术和实现详细信息。
 
-## 事件发布者
-<a id="event-publishers" class="xliff"></a>
+## <a name="event-publishers"></a>事件发布者
 
 向事件中心发送数据的任何实体都是事件生成者或事件发布者。 事件发布者可以使用 HTTPS 或 AMQP 1.0 发布事件。 事件发布者通过共享访问签名 (SAS) 令牌向事件中心表明其身份，可以使用唯一的标识，也可以使用通用的 SAS 令牌。
 
-### 发布事件
-<a id="publishing-an-event" class="xliff"></a>
+### <a name="publishing-an-event"></a>发布事件
 
 可以通过 AMQP 1.0 或 HTTPS 发布事件。 服务总线提供了[客户端库和类](event-hubs-dotnet-framework-api-overview.md)，用于从 .NET 客户端将事件发布到事件中心。 对于其他运行时和平台，你可以使用任何 AMQP 1.0 客户端，例如 [Apache Qpid](http://qpid.apache.org/)。 可以逐个或者批量发送事件。 单个发布（事件数据实例）限制为 256 KB，无论其为单个事件还是批量事件。 发布大于此限制的事件将导致出错。 发布者最好是不知道事件中心内的分区数，而只是通过其 SAS 令牌指定“分区键”（如下一部分所述）或其标识。
 
@@ -44,8 +41,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 事件中心可确保按顺序将共享分区键值的所有事件传送到同一分区。 如果将分区键与发布者策略结合使用，则发布者的标识与分区键的值必须匹配。 否则将会出错。
 
-### 发布者策略
-<a id="publisher-policy" class="xliff"></a>
+### <a name="publisher-policy"></a>发布者策略
 
 事件中心可让你通过 *发布者策略*对事件发布者进行精细控制。 发布者策略是运行时功能，旨在为大量的独立事件发布者提供方便。 借助发布者策略，每个发布者在使用以下机制将事件发布到事件中心时可以使用自身的唯一标识符：
 
@@ -55,8 +51,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 不需要提前创建发布者名称，但它们必须与发布事件时使用的 SAS 令牌匹配，以确保发布者标识保持独立。 使用发布者策略时， **PartitionKey** 值将设置为发布者名称。 若要正常工作，这些值必须匹配。
 
-## 分区
-<a id="partitions" class="xliff"></a>
+## <a name="partitions"></a>分区
 
 事件中心使用分区使用者模式提供消息流式处理，在此模式下，每个使用者只读取消息流的特定子集或分区。 此模式允许以水平缩放规模进行事件处理，并提供其他面向流的功能，而队列和主题不能提供这些功能。
 
@@ -76,25 +71,21 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 如需详细了解分区以及如何在可用性和可靠性之间进行取舍，请参阅[事件中心编程指南](event-hubs-programming-guide.md#partition-key)和[事件中心中的可用性和一致性](event-hubs-availability-and-consistency.md)这两篇文章。
 
-### 分区键
-<a id="partition-key" class="xliff"></a>
+### <a name="partition-key"></a>分区键
 
 可以使用[分区键](event-hubs-programming-guide.md#partition-key)将传入事件数据映射到特定分区，以便进行数据组织。 分区键是发送者提供的、要传递给事件中心的值。 该键通过静态哈希函数进行处理，以便分配分区。 如果在发布事件时未指定分区键，则会使用循环分配。
 
 事件发布者只知道其分区密钥，而不知道事件要发布到的分区。 键与分区的这种分离使发送者无需了解有关下游处理的过多信息。 每个设备或用户的唯一标识就可以充当一个适当的分区键，但是，也可以使用其他属性（例如地理位置），以便将相关的事件分组到单个分区中。
 
-## SAS 令牌
-<a id="sas-tokens" class="xliff"></a>
+## <a name="sas-tokens"></a>SAS 令牌
 
 事件中心使用在命名空间和事件中心级别提供的共享访问签名。 SAS 令牌是从 SAS 密钥生成的，它是以特定格式编码的 URL 的 SHA 哈希。 事件中心可以使用密钥（策略）的名称和令牌重新生成哈希，以便对发送者进行身份验证。 通常，为事件发布者创建的 SAS 令牌只对特定的事件中心具有“发送”权限。 此 SAS 令牌 URL 机制是“发布者策略”中介绍的发布者标识的基础。 有关使用 SAS 的详细信息，请参阅[使用服务总线进行共享访问签名身份验证](../service-bus-messaging/service-bus-sas.md)。
 
-## 事件使用者
-<a id="event-consumers" class="xliff"></a>
+## <a name="event-consumers"></a>事件使用者
 
 从事件中心读取事件数据的任何实体称为“事件使用者”。 所有事件中心使用者都通过 AMQP 1.0 会话进行连接，事件将在可用时通过该会话传送。 客户端不需要轮询数据可用性。
 
-### 使用者组
-<a id="consumer-groups" class="xliff"></a>
+### <a name="consumer-groups"></a>使用者组
 
 事件中心的发布/订阅机制通过“使用者组”启用。 使用者组是整个事件中心视图（状态、位置或偏移量）。 使用者组使多个消费应用程序都有各自独立的事件流视图，并按自身步调和偏移量独立读取流。
 
@@ -111,32 +102,27 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 ![事件中心](./media/event-hubs-features/event_hubs_architecture.png)
 
-### 流偏移量
-<a id="stream-offsets" class="xliff"></a>
+### <a name="stream-offsets"></a>流偏移量
 
 偏移量  是事件在分区中的位置。 可以将偏移量视为客户端游标。 偏移量是事件的字节编号。 有了该偏移量，事件使用者（读取者）便可以在事件流中指定要从其开始读取事件的点。 可以时间戳或者偏移量值的形式指定偏移量。 使用者负责在事件中心服务的外部存储其自身的偏移量值。 在分区中，每个事件都包含一个偏移量。
 
 ![事件中心](./media/event-hubs-features/partition_offset.png)
 
-### 检查点
-<a id="checkpointing" class="xliff"></a>
+### <a name="checkpointing"></a>检查点
 
 *检查点* 是读取者在分区事件序列中标记或提交其位置时执行的过程。 检查点操作由使用者负责，并在使用者组中的每个分区上进行。 这种责任意味着，对于每个使用者组而言，每个分区读取者必须跟踪它在事件流中的当前位置，当它认为数据流已完成时，可以通知服务。
 
 如果读取者与分区断开连接，当它重新连接时，将开始读取前面由该使用者组中该分区的最后一个读取者提交的检查点。 当读取者建立连接时，它会将此偏移量传递给事件中心，指定要从其开始读取数据的位置。 这样，用户便可以使用检查点将事件标记为已由下游应用程序“完成”，并且在不同计算机上运行的读取者之间发生故障转移时，还可以提供弹性。 若要返回到较旧的数据，可以在此检查点过程中指定较低的偏移量。 借助此机制，检查点可以实现故障转移复原和事件流重放。
 
-### 常见的使用者任务
-<a id="common-consumer-tasks" class="xliff"></a>
+### <a name="common-consumer-tasks"></a>常见的使用者任务
 
 所有事件中心使用者都通过 AMQP 1.0 会话和状态感知双向信道进行连接。 每个分区都提供一个 AMQP 1.0 会话，方便传输按分区隔离的事件。
 
-#### 连接到分区
-<a id="connect-to-a-partition" class="xliff"></a>
+#### <a name="connect-to-a-partition"></a>连接到分区
 
 在连接到分区时，常见的做法是使用租用机制来协调读取者与特定分区的连接。 这样，便可以做到一个使用者组中每分区只有一个活动的读取者。 使用 .NET 客户端的 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost) 类可以简化检查点、租用和读取者管理功能。 事件处理程序主机是智能使用者代理。
 
-#### 读取事件
-<a id="read-events" class="xliff"></a>
+#### <a name="read-events"></a>读取事件
 
 为特定分区建立 AMQP 1.0 会话和链接后，事件中心服务会将事件传送到 AMQP 1.0 客户端。 与 HTTP GET 等基于提取的机制相比，此传送机制可以实现更高的吞吐量和更低的延迟。 将事件发送到客户端时，每个事件数据实例将包含重要的元数据，例如，用于简化对事件序列执行的检查点操作的偏移量和序列号。
 
@@ -149,13 +135,11 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 用户负责管理偏移量。
 
-## 容量
-<a id="capacity" class="xliff"></a>
+## <a name="capacity"></a>容量
 
 事件中心具有高度可缩放的并行体系结构，在调整大小和缩放时需要考虑几个主要因素。
 
-### 吞吐量单位
-<a id="throughput-units" class="xliff"></a>
+### <a name="throughput-units"></a>吞吐量单位
 
 事件中心的吞吐量容量由吞吐量单位 控制。 吞吐量单位是预先购买的容量单位。 单个吞吐量单位包括以下容量：
 
@@ -172,8 +156,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 如需事件中心的详细定价信息，请参阅[事件中心定价](https://www.azure.cn/pricing/details/event-hubs/)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关事件中心的详细信息，请访问以下链接：
 

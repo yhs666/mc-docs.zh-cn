@@ -16,11 +16,11 @@ origin.date: 03/15/2016
 ms.date: 03/31/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e82c67c2475d1c23639a9b411f6095a5d8ba950
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: cd7c29d926e7e05527ed36a60e8163e3d2d45f02
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>使用网络配置文件配置虚拟网络（经典）
 可以使用 Azure 经典管理门户或使用网络配置文件来配置虚拟网络（经典）。 无法使用网络配置文件通过 Azure Resource Manager 部署模型创建或修改虚拟网络。 也无法使用 Azure 门户创建或修改虚拟网络（经典）。

@@ -1,5 +1,5 @@
 ---
-title: "使用 bootstrap 自定义 HDInsight 群集 | Azure"
+title: "使用 bootstrap 自定义 HDInsight 群集 - Azure | Azure"
 description: "了解如何使用 Bootstrap 自定义 HDInsight 群集。"
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2017
-ms.date: 03/31/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: aecf88deae423b9a4a3fc9936cd28e988c199d23
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: b0d81de9eadfaf9909bc280c44433b0c22ce5d8a
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>使用 Bootstrap 自定义 HDInsight 群集
 

@@ -1,5 +1,5 @@
 ---
-title: "使用 HDInsight 中的交互式 Hive | Azure"
+title: "在 HDInsight 中使用 Interactive Hive - Azure | Azure"
 description: "了解如何在 HDInsight 中使用交互式 Hive（基于 LLAP 的 Hive）。"
 keywords: 
 services: hdinsight
@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/06/2017
-ms.date: 03/28/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 01e3535e95dd08ec680842c79bb34e1b6a076b00
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 8f89b0d0d3a8bcf66b6c2b398afacbaa59dcea86
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="use-interactive-hive-in-hdinsight-preview"></a>在 HDInsight（预览版）中使用交互式 Hive
 交互式 Hive（也称为 [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)）是一个新的 HDInsight [群集类型](hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。  交互式 Hive 允许在内存中缓存，这使 Hive 查询更具交互性且速度更快。 这项新功能使 HDInsight 成为世界上性能、灵活性和开放性最高的，具有内存中缓存（使用 Hive 和 Spark）和高级分析功能（通过与 R 服务的深度集成）的云端大数据解决方案之一。 

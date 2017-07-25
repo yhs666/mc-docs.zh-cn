@@ -5,8 +5,7 @@ sql-database-resource-limits.md
 sql-database-service-tiers.md  
 -->
  
-### 基本弹性池限制
-<a id="basic-elastic-pool-limits" class="xliff"></a>
+### <a name="basic-elastic-pool-limits"></a>基本弹性池限制
 
 | 池大小 (eDTU)  | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
@@ -21,8 +20,7 @@ sql-database-service-tiers.md
 | 每个数据库的最大数据存储 | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB |
 ||||||||
 
-### 标准弹性池限制
-<a id="standard-elastic-pool-limits" class="xliff"></a>
+### <a name="standard-elastic-pool-limits"></a>标准弹性池限制
 
 | 池大小 (eDTU)  | **50** | **100** | **200** | **300** | **400** | **800** | 
 |:---|---:|---:|---:| ---: | ---: | ---: | 
@@ -37,8 +35,7 @@ sql-database-service-tiers.md
 | 每个数据库的最大数据存储 | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB |
 ||||||||
 
-### 标准弹性池限制（续）
-<a id="standard-elastic-pool-limits-continued" class="xliff"></a> 
+### <a name="standard-elastic-pool-limits-continued"></a>标准弹性池限制（续） 
 
 | 池大小 (eDTU)  |  **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
@@ -53,8 +50,7 @@ sql-database-service-tiers.md
 | 每个数据库的最大数据存储 | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB |
 ||||||||
 
-### 高级弹性池限制
-<a id="premium-elastic-pool-limits" class="xliff"></a>
+### <a name="premium-elastic-pool-limits"></a>高级弹性池限制
 
 | 池大小 (eDTU)  | **125** | **250** | **500** | **1000** | **1500** **| 
 |:---|---:|---:|---:| ---: | ---: | 
@@ -69,8 +65,7 @@ sql-database-service-tiers.md
 | 每个数据库的最大数据存储 | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB |
 ||||||||
 
-### 高级弹性池限制（续）
-<a id="premium-elastic-pool-limits-continued" class="xliff"></a> 
+### <a name="premium-elastic-pool-limits-continued"></a>高级弹性池限制（续） 
 
 | 池大小 (eDTU)  |  **2000** **| **2500**  **| **3000**  **| **3500**  **| **4000**  **|
 |:---|---:|---:|---:| ---: | ---: | 
@@ -85,8 +80,7 @@ sql-database-service-tiers.md
 | 每个数据库的最大数据存储 | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB |
 ||||||||
 
-### 高级 RS 弹性池限制
-<a id="premium-rs-elastic-pool-limits" class="xliff"></a>
+### <a name="premium-rs-elastic-pool-limits"></a>高级 RS 弹性池限制
 
 | 池大小 (eDTU)  | **125** | **250** | **500** | **1000** |
 |:---|---:|---:|---:| ---: | ---: | 

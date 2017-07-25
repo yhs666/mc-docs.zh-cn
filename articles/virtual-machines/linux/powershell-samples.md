@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# Azure 虚拟机 PowerShell 示例
-<a id="azure-virtual-machine-powershell-samples" class="xliff"></a>
+# <a name="azure-virtual-machine-powershell-samples"></a>Azure 虚拟机 PowerShell 示例
 
 下表包含用于创建和管理 Linux 虚拟机的 PowerShell 脚本示例的链接。
 

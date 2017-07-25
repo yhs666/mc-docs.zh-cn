@@ -1,5 +1,4 @@
-## 负载均衡器之间的差异
-<a id="load-balancer-differences" class="xliff"></a>
+## <a name="load-balancer-differences"></a>负载均衡器之间的差异
 
 使用 Azure 分配网络流量有不同的选项。 这些选项的工作方式彼此不同，具有不同的功能集，并支持不同的方案。 这些选项每个都能单独使用，也可以组合使用。
 

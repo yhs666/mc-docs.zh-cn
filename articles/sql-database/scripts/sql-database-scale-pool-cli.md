@@ -23,15 +23,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用 Azure CLI 缩放 Azure SQL 数据库中的弹性池
-<a id="scale-an-elastic-pool-in-azure-sql-database-using-the-azure-cli" class="xliff"></a>
+# <a name="scale-an-elastic-pool-in-azure-sql-database-using-the-azure-cli"></a>使用 Azure CLI 缩放 Azure SQL 数据库中的弹性池
 
 此示例 CLI 脚本创建弹性池，移动入池数据库，并更改性能级别。 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## 示例脚本
-<a id="sample-script" class="xliff"></a>
+## <a name="sample-script"></a>示例脚本
 
 ```azurecli
 #!/bin/bash
@@ -84,8 +82,7 @@ az sql elastic-pools update \
     --set dtu=100
 ```
 
-## 清理部署
-<a id="clean-up-deployment" class="xliff"></a>
+## <a name="clean-up-deployment"></a>清理部署
 
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
@@ -93,8 +90,7 @@ az sql elastic-pools update \
 az group delete --name myResourceGroup
 ```
 
-## 脚本说明
-<a id="script-explanation" class="xliff"></a>
+## <a name="script-explanation"></a>脚本说明
 
 此脚本使用以下命令创建资源组、逻辑服务器、SQL 数据库和防火墙规则。 表中的每条命令均链接到特定于命令的文档。
 
@@ -107,8 +103,7 @@ az group delete --name myResourceGroup
 | [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pools#update) | 更新弹性数据库池，在此示例中更改分配的 eDTU。 |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | 删除资源组，包括所有嵌套的资源。 |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 

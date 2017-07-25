@@ -22,19 +22,16 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/10/2017
 ---
-# 如何从 Azure VM 创建非托管 VM 映像
-<a id="how-to-create-an-unmanaged-vm-image-from-an-azure-vm" class="xliff"></a>
+# <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>如何从 Azure VM 创建非托管 VM 映像
 
 本文涉及到使用存储帐户。 我们建议使用托管磁盘和托管映像，而不要使用存储帐户。 有关详细信息，请参阅[捕获 Azure 中通用化 VM 的托管映像](capture-image-resource.md)。
 
 本文说明如何通过 Azure PowerShell 使用存储帐户创建通用化 Azure VM 的映像。 然后可以使用该映像来创建另一个 VM。 该映像包含 OS 磁盘和附加到虚拟机的数据磁盘。 该映像不包含虚拟网络资源，因此，创建新 VM 时需要设置这些资源。 
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 需要安装 Azure PowerShell 1.0.x 版或更新版本。 如果尚未安装 PowerShell，请参阅 [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)（如何安装和配置 Azure PowerShell）了解安装步骤。
 
-## 通用化 VM
-<a id="generalize-the-vm" class="xliff"></a> 
+## <a name="generalize-the-vm"></a>通用化 VM 
 本部分说明如何通用化可用作映像的 Windows 虚拟机。 通用化 VM 将删除所有个人帐户信息及其他某些数据，并准备好要用作映像的计算机。 有关 Sysprep 的详细信息，请参阅[如何使用 Sysprep：简介](http://technet.microsoft.com/library/bb457073.aspx)。
 
 确保 Sysprep 支持计算机上运行的服务器角色。 有关详细信息，请参阅 [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
@@ -60,8 +57,7 @@ ms.lasthandoff: 07/10/2017
 > 
 > 
 
-## 登录到 Azure PowerShell
-<a id="log-in-to-azure-powershell" class="xliff"></a>
+## <a name="log-in-to-azure-powershell"></a>登录到 Azure PowerShell
 1. 打开 Azure PowerShell 并登录到 Azure 帐户。
 
     ```powershell
@@ -80,8 +76,7 @@ ms.lasthandoff: 07/10/2017
     Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
     ```
 
-## 解除分配 VM 并将状态设置为通用化
-<a id="deallocate-the-vm-and-set-the-state-to-generalized" class="xliff"></a>
+## <a name="deallocate-the-vm-and-set-the-state-to-generalized"></a>解除分配 VM 并将状态设置为通用化
 1. 解除分配 VM 资源。
 
     ```powershell
@@ -101,8 +96,7 @@ ms.lasthandoff: 07/10/2017
     $vm.Statuses
     ```
 
-## 创建映像
-<a id="create-the-image" class="xliff"></a>
+## <a name="create-the-image"></a>创建映像
 
 使用以下命令在目标存储容器中创建非托管虚拟机映像。 该映像在创建时所在的存储帐户与原始虚拟机的相同。 `-Path` 参数将源 VM 的 JSON 模板副本保存到本地计算机。 `-DestinationContainerName` 参数是要在其中保存映像的容器的名称。 如果该容器不存在，系统将自动创建。
 
@@ -116,13 +110,11 @@ Save-AzureRmVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
 
 也可以在门户中验证 URI。 映像将复制到存储帐户中名为 **system** 的容器。 
 
-## 从映像创建 VM
-<a id="create-a-vm-from-the-image" class="xliff"></a>
+## <a name="create-a-vm-from-the-image"></a>从映像创建 VM
 
 现在，可以从非托管映像创建一个或多个 VM。
 
-### 设置 VHD 的 URI
-<a id="set-the-uri-of-the-vhd" class="xliff"></a>
+### <a name="set-the-uri-of-the-vhd"></a>设置 VHD 的 URI
 
 VHD 使用的 URI 采用以下格式：https://**mystorageaccount**.blob.core.chinacloudapi.cn/**mycontainer**/**MyVhdName**.vhd。 在此示例中，名为 **myVHD** 的 VHD 位于存储帐户 **mystorageaccount** 的 **mycontainer** 容器中。
 
@@ -130,8 +122,7 @@ VHD 使用的 URI 采用以下格式：https://**mystorageaccount**.blob.core.ch
 $imageURI = "https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myVhd.vhd"
 ```
 
-### 创建虚拟网络
-<a id="create-a-virtual-network" class="xliff"></a>
+### <a name="create-a-virtual-network"></a>创建虚拟网络
 创建[虚拟网络](../../virtual-network/virtual-networks-overview.md)的 vNet 和子网。
 
 1. 创建子网。 以下示例在资源组 **myResourceGroup** 中创建具有 **10.0.0.0/24** 地址前缀的、名为 **mySubnet** 的子网。  
@@ -150,8 +141,7 @@ $imageURI = "https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myV
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
 
-### 创建公共 IP 地址和网络接口
-<a id="create-a-public-ip-address-and-network-interface" class="xliff"></a>
+### <a name="create-a-public-ip-address-and-network-interface"></a>创建公共 IP 地址和网络接口
 若要与虚拟网络中的虚拟机通信，需要一个 [公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 和网络接口。
 
 1. 创建公共 IP 地址。 此示例创建名为 **myPip**的公共 IP 地址。 
@@ -169,8 +159,7 @@ $imageURI = "https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myV
         -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
     ```
 
-### 创建网络安全组和 RDP 规则
-<a id="create-the-network-security-group-and-an-rdp-rule" class="xliff"></a>
+### <a name="create-the-network-security-group-and-an-rdp-rule"></a>创建网络安全组和 RDP 规则
 若要使用 RDP 登录到 VM，需要创建一个允许在端口 3389 上进行 RDP 访问的安全规则。 
 
 此示例创建名为 **myNsg** 的 NSG，其中包含一个允许通过端口 3389 传输 RDP 流量的、名为 **myRdpRule** 的规则。 有关 NSG 的详细信息，请参阅 [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（使用 PowerShell 在 Azure 中打开 VM 端口）。
@@ -187,16 +176,14 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
     -Name $nsgName -SecurityRules $rdpRule
 ```
 
-### 为虚拟网络创建变量
-<a id="create-a-variable-for-the-virtual-network" class="xliff"></a>
+### <a name="create-a-variable-for-the-virtual-network"></a>为虚拟网络创建变量
 为完成的虚拟网络创建变量。 
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
-### 创建 VM
-<a id="create-the-vm" class="xliff"></a>
+### <a name="create-the-vm"></a>创建 VM
 以下 PowerShell 脚本完成虚拟机配置，并使用非托管映像作为新安装的源。
 
 </br>
@@ -254,8 +241,7 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
     New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
 
-### 验证是否已创建 VM
-<a id="verify-that-the-vm-was-created" class="xliff"></a>
+### <a name="verify-that-the-vm-was-created"></a>验证是否已创建 VM
 完成后，应会在 [Azure 门户](https://portal.azure.cn)的“浏览” > “虚拟机”下看到新建的 VM，也可以使用以下 PowerShell 命令查看该 VM：
 
 ```powershell
@@ -263,6 +249,5 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
     $vmList.Name
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 若要使用 Azure PowerShell 管理新虚拟机，请参阅[使用 Azure Resource Manager 与 PowerShell 来管理虚拟机](ps-manage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。

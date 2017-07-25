@@ -16,10 +16,10 @@ origin.date: 01/03/2017
 ms.date: 02/10/2017
 ms.author: v-dazen
 ms.openlocfilehash: 00b56c7bbab832147a448085e95ae1ea32f4e798
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: 781b4b2006e5b9a51c7009642470f066e8f2ecb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="example-1---build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>示例 1 - 将 NSG 与 Azure Resource Manager 模板配合使用，构建简单的外围网络
 

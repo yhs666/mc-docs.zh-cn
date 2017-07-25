@@ -12,10 +12,10 @@ origin.date: 08/08/2016
 ms.date: 12/19/2016
 ms.author: v-johch
 ms.openlocfilehash: abc1f233732edee1730a88db678bb0133776c381
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="upgrade-to-azure-sql-database-v12-using-the-azure-portal"></a>使用 Azure 门户升级到 Azure SQL 数据库 V12
 

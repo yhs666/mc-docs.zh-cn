@@ -1,23 +1,25 @@
 ---
-title: "在扩展云数据库之间移动数据 | Microsoft Docs"
+title: "在横向扩展云数据库之间移动数据 | Azure"
 description: "介绍如何使用弹性数据库 API 通过自托管服务来操作分片和移动数据。"
 services: sql-database
 documentationcenter: 
-manager: jhubbard
-author: ddove
+manager: digimobile
+author: Hayley244
 ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
 ms.service: sql-database
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+origin.date: 10/24/2016
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 069b92bd391073537deef3a52c65fb402e325226
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 0bb161657d833b0e4ace21971db5f081f9d17993
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>在扩大云数据库之间移动数据
 如果你是软件即服务开发人员，并且你的应用突然遇到巨大需求，那么你需要适应该需求增长。 因此，你添加了更多数据库（分片）。 如何在不破坏数据完整性的情况下将数据重新分配到新数据库？ 使用 **拆分/合并工具** 将数据从受约束的数据库移到新数据库。  
@@ -27,16 +29,16 @@ ms.lasthandoff: 06/21/2017
 ![概述][1]
 
 ## <a name="download"></a>下载
-[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge)
+[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 ## <a name="documentation"></a>文档
-1. [弹性数据库拆分/合并工具教程](./sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-2. [拆分/合并安全配置](./sql-database-elastic-scale-split-merge-security-configuration.md)
-3. [拆分/合并安全注意事项](./sql-database-elastic-scale-split-merge-security-configuration.md)
-4. [分片映射管理](./sql-database-elastic-scale-shard-map-management.md)
-5. [迁移要扩大的现有数据库](./sql-database-elastic-convert-to-use-elastic-tools.md)
-6. [弹性数据库工具](./sql-database-elastic-scale-introduction.md)
-7. [弹性数据库工具术语表](./sql-database-elastic-scale-glossary.md)
+1. [弹性数据库拆分/合并工具教程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+2. [拆分/合并安全配置](sql-database-elastic-scale-split-merge-security-configuration.md)
+3. [拆分/合并安全注意事项](sql-database-elastic-scale-split-merge-security-configuration.md)
+4. [分片映射管理](sql-database-elastic-scale-shard-map-management.md)
+5. [迁移要扩大的现有数据库](sql-database-elastic-convert-to-use-elastic-tools.md)
+6. [弹性数据库工具](sql-database-elastic-scale-introduction.md)
+7. [弹性数据库工具术语表](sql-database-elastic-scale-glossary.md)
 
 ## <a name="why-use-the-split-merge-tool"></a>为什么使用拆分/合并工具？
 **灵活性**
@@ -58,7 +60,7 @@ ms.lasthandoff: 06/21/2017
 ## <a name="concepts--key-features"></a>概念和主要功能
 **客户托管服务**
 
-拆分/合并将作为客户托管的服务交付。 必须在 Azure 订阅中部署和托管该服务。 你从 NuGet 下载的程序包将包含一个要使用你的特定部署信息完成的配置模板。 有关详细信息，请参阅[拆分/合并教程](./sql-database-elastic-scale-configure-deploy-split-and-merge.md)。 由于服务在你的 Azure 订阅中运行，因此你可以控制和配置该服务的大多数安全设置。 默认模板包括配置 SSL 的选项、基于证书的客户端身份验证、存储凭据的加密、DoS 防护和 IP 限制。 你可以在以下[拆分/合并安全配置](./sql-database-elastic-scale-split-merge-security-configuration.md)文档中找到有关安全方面的详细信息。
+拆分/合并将作为客户托管的服务交付。 必须在 Azure 订阅中部署和托管该服务。 你从 NuGet 下载的程序包将包含一个要使用你的特定部署信息完成的配置模板。 有关详细信息，请参阅[拆分/合并教程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)。 由于服务在你的 Azure 订阅中运行，因此你可以控制和配置该服务的大多数安全设置。 默认模板包括配置 SSL 的选项、基于证书的客户端身份验证、存储凭据的加密、DoS 防护和 IP 限制。 你可以在以下[拆分/合并安全配置](sql-database-elastic-scale-split-merge-security-configuration.md)文档中找到有关安全方面的详细信息。
 
 默认部署的服务可与一个辅助角色和一个 Web 角色同时运行。 在 Azure 云服务中，每个角色都使用 A1 VM 大小。 虽然你无法在部署程序包时修改这些设置，但是可以在运行的云服务中成功进行部署之后更改它们（通过 Azure 门户）。 请注意，出于技术方面的原因，不得为多个实例配置辅助角色。 
 
@@ -136,13 +138,11 @@ smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo);
 * 在请求处理过程中，一些 shardlet 数据可能会同时存在于源分片和目标分片上。 为了防止在 shardlet 移动过程中出现故障，这是必需的。 拆分/合并与分片映射功能的集成可以确保在分片映射上使用 **OpenConnectionForKey** 方法通过依赖于数据的路由 API 建立的连接不会显示任何不一致的中间状态。 但是，在不使用 **OpenConnectionForKey** 方法连接到源分片或目标分片时，如果正在执行拆分/合并/移动请求，则不一致的中间状态可能可见。 这些连接可能会显示部分或重复的结果，具体取决于时间设置或进行基础连接的分片。 此限制当前包括由弹性缩放多分片查询建立的连接。
 * 不能在不同的角色之间共享用于拆分/合并服务的元数据数据库。 例如，在过渡环境中运行的拆分/合并服务的角色需要指向其他元数据数据库而不是生产角色。
 
-## <a name="billing"></a>计费 
-
+## <a name="billing"></a>计费
 在 Azure 订阅中拆分/合并服务作为云服务运行。 因此将对你的服务实例收取云服务费用。 除非你频繁地执行拆分/合并/移动操作，否则建议删除你的拆分/合并云服务。 这可以节省用于运行中的或已部署的云服务实例的成本。 只要你需要执行拆分或合并操作，你就可以重新部署和启用已准备好的可运行配置。 
 
-## <a name="monitoring"></a>监视 
-### <a name="status-tables"></a>状态表 
-
+## <a name="monitoring"></a>监视
+### <a name="status-tables"></a>状态表
 拆分/合并服务在元数据存储数据库中提供用于监视已完成和正在进行的请求的 **RequestStatus** 表。 该表将为已提交到拆分/合并服务的此实例的每个拆分/合并请求列出一行。 它将为每个请求提供以下信息：
 
 * **Timestamp**：发起请求时的时间和日期。
@@ -153,8 +153,7 @@ smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo);
 * **Details**：用于提供更详细的进度报告的 XML 值。 当将多组行从源复制到目标时，进度报告会定期更新。 此列还包括有关故障的详细信息，以防故障或异常。
 
 ### <a name="azure-diagnostics"></a>Azure 诊断
-
-拆分/合并服务使用基于 Azure SDK 2.5 的 Azure Diagnostics 进行监视与诊断。 可以根据此处所述控制诊断配置：[在 Azure 云服务和虚拟机器中启用诊断](../cloud-services/cloud-services-dotnet-diagnostics.md)。 下载包包含两个诊断配置 – 一个用于 Web 角色，另一个用于辅助角色。 该服务的这些诊断配置遵循 [Azure 中的云服务基本原则](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649)中的指导。 它包括用于记录性能计数器、IIS 日志、Windows 事件日志和拆分/合并应用程序事件日志的定义。 
+拆分/合并服务使用基于 Azure SDK 2.5 的 Azure Diagnostics 进行监视与诊断。 可以根据此处所述控制诊断配置：[在 Azure 云服务和虚拟机器中启用诊断](../cloud-services/cloud-services-dotnet-diagnostics.md)。 下载包包含两个诊断配置 - 一个用于 Web 角色，另一个用于辅助角色。 该服务的这些诊断配置遵循 [Azure 中的云服务基本原则](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649)中的指导。 它包括用于记录性能计数器、IIS 日志、Windows 事件日志和拆分/合并应用程序事件日志的定义。 
 
 ## <a name="deploy-diagnostics"></a>部署诊断
 针对 NuGet 包所提供的 Web 和辅助角色，若要使用诊断配置启用监视和诊断，请使用 Azure PowerShell 运行以下命令： 
@@ -181,9 +180,8 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 
 可以在此处找到有关如何配置和部署诊断设置的详细信息：[在 Azure 云服务和虚拟机中启用诊断](../cloud-services/cloud-services-dotnet-diagnostics.md)。 
 
-## <a name="retrieve-diagnostics"></a>检索诊断 
-
-你可以从服务器资源管理器树的 Azure 部分中的 Visual Studio 服务器资源管理器轻松访问你的诊断。 打开 Visual Studio 实例，然后在菜单栏中，依次单击“视图”和“服务器资源管理器”。 单击 Azure 图标连接到你的 Azure 订阅。 然后，导航到“Azure”->“存储”->“<your storage account>”->“表”->“WADLogsTable”。 有关详细信息，请参阅 [使用服务器资源管理器浏览存储资源](http://msdn.microsoft.com/zh-cn/library/azure/ff683677.aspx)。 
+## <a name="retrieve-diagnostics"></a>检索诊断
+你可以从服务器资源管理器树的 Azure 部分中的 Visual Studio 服务器资源管理器轻松访问你的诊断。 打开 Visual Studio 实例，然后在菜单栏中，依次单击“视图”和“服务器资源管理器”。 单击 Azure 图标连接到你的 Azure 订阅。 然后，导航到“Azure”->“存储”->“<your storage account>”->“表”->“WADLogsTable”。 有关详细信息，请参阅 [使用服务器资源管理器浏览存储资源](http://msdn.microsoft.com/library/azure/ff683677.aspx)。 
 
 ![WADLogsTable][2]
 
@@ -199,7 +197,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 此外，使用分片键作为起始列的唯一性将使服务能够使用一种优化的方式来限制日志空间和内存方面的资源使用。 若要移动较大数据大小（通常为 1GB 以上），此唯一性是必需的。 
 
 ## <a name="how-to-upgrade"></a>如何升级
-1. 请按照[部署拆分/合并服务](./sql-database-elastic-scale-configure-deploy-split-and-merge.md)中的步骤进行操作。
+1. 请按照[部署拆分/合并服务](sql-database-elastic-scale-configure-deploy-split-and-merge.md)中的步骤进行操作。
 2. 更改拆分/合并部署的云服务配置文件，以反映新的配置参数。 新的必需参数是用于加密的证书的相关信息。 执行此操作的简单方法是将下载的新配置模板文件与现有配置进行比较。 请确保添加 Web 和辅助角色的“DataEncryptionPrimaryCertificateThumbprint”与“DataEncryptionPrimary”设置。
 3. 将更新部署到 Azure 之前，请确保当前运行的所有拆分/合并操作都已完成。 做法很简单，可以针对进行中的请求，查询拆分/合并元数据数据库中的 RequestStatus 和 PendingWorkflows 表。
 4. 使用新程序包和更新的服务配置文件，在 Azure 订阅中更新拆分/合并的现有云服务部署。

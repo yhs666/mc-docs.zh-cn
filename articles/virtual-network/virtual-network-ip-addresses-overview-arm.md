@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 04/27/2016
 ms.date: 12/26/2016
 ms.author: v-dazen
-ms.openlocfilehash: 07143bf4789746db0953a99125d754c5a8c8f540
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: de54b52bea582566df2ba3a3b4cb456a377779c7
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 地址类型和分配方法
 可以将 IP 地址分配给 Azure 资源，以便与其他 Azure 资源、本地网络和 Internet 通信。 Azure 中可使用两种类型的 IP 地址：
@@ -138,7 +138,7 @@ ms.lasthandoff: 06/23/2017
 | 前端 |前端配置 |是 |是 |
 
 ## <a name="limits"></a>限制
-Azure 中的[网络限制](../azure-subscription-service-limits.md#networking-limits)全面阐述了对 IP 寻址施加的限制。 这些限制因区域和订阅而异。
+Azure 中的[网络限制](../azure-subscription-service-limits.md#networking-limits)全面阐述了对 IP 寻址施加的限制。 这些限制因区域和订阅而异。 可以[与支持人员联系](https://www.azure.cn/support/support-azure/)，根据业务需求将默认限制提高到最大限制。
 
 ## <a name="pricing"></a>定价
 公共 IP 地址可能会产生少许费用。 有关 Azure 中 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。

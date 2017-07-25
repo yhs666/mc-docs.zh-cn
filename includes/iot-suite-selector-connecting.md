@@ -4,8 +4,7 @@
 >- [mbed 上的 C](../articles/iot-suite/iot-suite-connecting-devices-mbed.md)
 >- [Node.js](../articles/iot-suite/iot-suite-connecting-devices-node.md)
 
-## 方案概述
-<a id="scenario-overview" class="xliff"></a>
+## <a name="scenario-overview"></a>方案概述
 此方案将创建一个设备，该设备可以将以下遥测数据发送到远程监视[预配置解决方案][lnk-what-are-preconfig-solutions]：
 
 - 外部温度
@@ -18,12 +17,10 @@
 
 要完成此教程，需要一个有效的 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 试用][lnk-1rmb-trial]。
 
-## 开始之前
-<a id="before-you-start" class="xliff"></a>
+## <a name="before-you-start"></a>开始之前
 在为设备编写任何代码之前，必须先预配远程监视预配置解决方案，并在该解决方案中预配新的自定义设备。
 
-### 预配远程监视预配置解决方案
-<a id="provision-your-remote-monitoring-preconfigured-solution" class="xliff"></a>
+### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>预配远程监视预配置解决方案
 本教程中创建的设备会将数据发送到 [远程监视][lnk-remote-monitoring] 预配置解决方案的实例中。 如果尚未在 Azure 帐户中预配远程监视预配置解决方案，请使用以下步骤：
 
 1. 在 https://www.azureiotsuite.cn/ 页上，单击“+”创建解决方案。
@@ -39,8 +36,7 @@
 
 ![解决方案仪表板][img-dashboard]
 
-### 在远程监视方案中预配设备
-<a id="provision-your-device-in-the-remote-monitoring-solution" class="xliff"></a>
+### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>在远程监视方案中预配设备
 
 > [!NOTE]
 > 如果你已在解决方案中预配了设备，则可以跳过此步骤。 创建客户端应用程序时需要知道设备凭据。

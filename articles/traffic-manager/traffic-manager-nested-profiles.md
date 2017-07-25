@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 03/22/2017
 ms.date: 05/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 44052e67922559871ed858625f9b17d56545fdbe
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: be4ebb95354b7750883cda8933e78eb9acf3e822
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="nested-traffic-manager-profiles"></a>嵌套式流量管理器配置文件
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 06/21/2017
 
 在此配置中，通过父配置文件定向的流量可跨区域正常分发。 在华东的站点 1 中，嵌套式配置文件根据分配的权重将流量分发到生产和测试终结点。
 
-当父配置文件使用“性能”流量路由方法时，必须为每个终结点分配一个位置。 可在配置终结点时分配该位置。 请选择离你的部署最近的 Azure 区域。 Azure 区域是 Internet 延迟表支持的位置值。 有关详细信息，请参阅[流量管理器“性能”流量路由方法](traffic-manager-routing-methods.md#performance-traffic-routing-method)。
+当父配置文件使用“性能”流量路由方法时，必须为每个终结点分配一个位置。 可在配置终结点时分配该位置。 请选择离你的部署最近的 Azure 区域。 Azure 区域是 Internet 延迟表支持的位置值。 有关详细信息，请参阅[流量管理器“性能”流量路由方法](traffic-manager-routing-methods.md#performance)。
 
 ## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>示例 2：嵌套式配置文件中的终结点监视
 

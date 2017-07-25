@@ -128,7 +128,7 @@ IActorReminder reminder = GetReminder("Pay cell phone bill");
 Task reminderUnregistration = UnregisterReminderAsync(reminder);
 ```
 
-如上所示，`UnregisterReminderAsync` 方法接受 `IActorReminder` 接口。 执行组件基类支持 `GetReminder` 方法，该方法可以用于通过传入提醒名称来检索 `IActorReminder` 接口。 这十分方便，因为参与者无需保存从 `RegisterReminder` 方法调用返回的 `IActorReminder` 接口。
+如上所示，`UnregisterReminderAsync` 方法接受 `IActorReminder` 接口。 执行组件基类支持 `GetReminder` 方法，该方法可以用于通过传入提醒名称来检索 `IActorReminder` 接口。 这十分方便，因为执行组件无需保存从 `RegisterReminder` 方法调用返回的 `IActorReminder` 接口。
 
 ## <a name="next-steps"></a>后续步骤
  - [执行组件事件](./service-fabric-reliable-actors-events.md)

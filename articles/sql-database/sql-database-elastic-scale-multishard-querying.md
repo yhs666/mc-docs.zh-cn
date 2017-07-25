@@ -1,39 +1,39 @@
 ---
-title: "多分片查询 | Azure"
+title: "查询分片的 Azure SQL 数据库 | Azure"
 description: "使用弹性数据库客户端库运行跨分片查询。"
 services: sql-database
 documentationCenter: 
-manager: jhubbard
-authors: torsteng
+manager: digimobile
+author: Hayley244
 editor: 
+ms.assetid: a4379c15-f213-4026-ab6f-a450ee9d5758
 ms.service: sql-database
+ms.custom: scale out apps
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
 origin.date: 04/12/2016
-ms.date: 12/19/2016
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 6fbbbb5e98b6778660e2b1d595b5bb8f3c758d7b
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: b0a2880c71573127274c2ea98385b29a30f8d24e
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="multi-shard-querying"></a>多分片查询
-
 ## <a name="overview"></a>概述
+可以使用[弹性数据库工具](sql-database-elastic-scale-introduction.md)创建分片数据库解决方案。 多分片查询用于诸如数据收集/报告等需要跨多个分片运行查询的任务。 （相比之下，[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)会在单个分片上执行所有操作。） 
 
-可以使用[弹性数据库工具](./sql-database-elastic-scale-introduction.md)创建分片数据库解决方案。 多分片查询用于诸如数据收集/报告等需要跨多个分片运行查询的任务。 （相比之下，[数据依赖型路由](./sql-database-elastic-scale-data-dependent-routing.md)会在单个分片上执行所有操作。） 
-
-## <a name="overview"></a>概述
-
-1. 使用 [TryGetRangeShardMap](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)、[TryGetListShardMap](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx) 或者 [GetShardMap](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx) 方法获取 [RangeShardMap](https://msdn.microsoft.com/zh-cn/library/azure/dn807318.aspx) 或 [ListShardMap](https://msdn.microsoft.com/zh-cn/library/azure/dn807370.aspx)。 请参阅[构造 ShardMapManager](./sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) 和[获取 RangeShardMap 或 ListShardMap](./sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)。
-2. 创建 [MultiShardConnection](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx) 对象。
-2. 创建 [MultiShardCommand](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)。 
-3. 设置 T-SQL 命令的 [CommandText 属性](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)。
-3. 通过调用 [ExecuteReader 方法](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)来执行命令。
-4. 使用 [MultiShardDataReader](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx) 类来查看结果。 
+1. 使用 [TryGetRangeShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)、[TryGetListShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx) 或者 [GetShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx) 方法获取 [RangeShardMap](https://msdn.microsoft.com/library/azure/dn807318.aspx) 或 [ListShardMap](https://msdn.microsoft.com/library/azure/dn807370.aspx)。 请参阅[构造 ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) 和[获取 RangeShardMap 或 ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)。
+2. 创建 [MultiShardConnection](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx) 对象。
+3. 创建 [MultiShardCommand](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)。 
+4. 设置 T-SQL 命令的 [CommandText 属性](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)。
+5. 通过调用 [ExecuteReader 方法](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)来执行命令。
+6. 使用 [MultiShardDataReader](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx) 类来查看结果。 
 
 ## <a name="example"></a>示例
-
 以下代码使用给定的 **ShardMap** （名为 *myShardMap*）演示多分片查询的用法。 
 
 ```
@@ -69,12 +69,11 @@ using (MultiShardCommand cmd = conn.CreateCommand())
 多分片查询目前存在的一个限制是，缺少对需要查询的分片和 shardlet 进行验证。 尽管依赖于数据的路由会在查询时验证给定的分片是否为分片映射的一部分，但多分片查询不会执行此检查。 这可能会导致多分片查询在已从分片映射中删除的分片上运行。
 
 ## <a name="multi-shard-queries-and-split-merge-operations"></a>多分片查询和拆分/合并操作
-
-多分片查询不会验证查询的数据库上的 shardlet 是否参与正在进行的拆分/合并操作。 （请参阅[使用弹性数据库拆分/合并工具进行缩放](./sql-database-elastic-scale-overview-split-and-merge.md)。）） 这可能会导致不一致问题，即为同一多分片查询中的多个数据库显示同一 shardlet 中的行。 请注意这些限制并在执行多分片查询时，考虑关闭正在进行的拆分/合并操作以及对分片映射的更改。
+多分片查询不会验证查询的数据库上的 shardlet 是否参与正在进行的拆分/合并操作。 （请参阅[使用弹性数据库拆分/合并工具进行缩放](sql-database-elastic-scale-overview-split-and-merge.md)。）） 这可能会导致不一致问题，即为同一多分片查询中的多个数据库显示同一 shardlet 中的行。 请注意这些限制并在执行多分片查询时，考虑关闭正在进行的拆分/合并操作以及对分片映射的更改。
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 ## <a name="see-also"></a>另请参阅
-[System.Data.SqlClient](http://msdn.microsoft.com/zh-cn/library/System.Data.SqlClient.aspx) 类和方法。
+[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient.aspx) 类和方法。
 
-使用[弹性数据库客户端库](./sql-database-elastic-database-client-library.md)管理分片。 包括名为 [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx) 的命名空间，可以通过该空间使用单个查询和结果来查询多个分片。 它提供对分片集合进行查询抽象的功能。 它还提供了备用执行策略，尤其是部分结果，以处理在对多个分片进行查询时所出现的故障。
+使用[弹性数据库客户端库](sql-database-elastic-database-client-library.md)管理分片。 包括名为 [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx) 的命名空间，可以通过该空间使用单个查询和结果来查询多个分片。 它提供对分片集合进行查询抽象的功能。 它还提供了备用执行策略，尤其是部分结果，以处理在对多个分片进行查询时所出现的故障。

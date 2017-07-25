@@ -1,5 +1,5 @@
 ---
-title: "将 Tez UI 与基于 Windows 的 HDInsight 配合使用 | Azure"
+title: "将 Tez UI 与基于 Windows 的 HDInsight 配合使用 - Azure | Azure"
 description: "了解如何使用 Tez UI 调试基于 Windows 的 HDInsight 上的 Tez 作业。"
 services: hdinsight
 documentationcenter: 
@@ -16,17 +16,17 @@ origin.date: 01/17/2017
 ms.date: 03/24/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8b66075194256927e47ee255b72b7196dc4ae280
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: e985afb480f37ba83c04cc2ba46fa6a1d621d9c6
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>使用 Tez UI 调试基于 Windows 的 HDInsight 上的 Tez 作业
 Tez UI 是一个网页，可用于了解和调试在基于 Windows 的 HDInsight 群集上将 Tez 用作执行引擎的作业。 利用 Tez UI，你可以将作业显示为包含已连接项目的图形、深入了解每个项目并检索统计信息和日志记录信息。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Windows 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+> 本文档中的步骤需要使用 Windows 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 ## <a name="prerequisites"></a>先决条件
 * 基于 Windows 的 HDInsight 群集。 有关创建新群集的步骤，请参阅[开始使用基于 Windows 的 HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md)。

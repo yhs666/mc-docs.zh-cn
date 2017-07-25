@@ -20,15 +20,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 在 Azure Monitor 中为 Azure 服务创建指标警报 - Azure 门户
-<a id="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal" class="xliff"></a>
+# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>在 Azure Monitor 中为 Azure 服务创建指标警报 - Azure 门户
 > [!div class="op_single_selector"]
 >- [门户](./insights-alerts-portal.md)
 >- [PowerShell](./insights-alerts-powershell.md)
 >- [CLI](./insights-alerts-command-line-interface.md) 
 
-## 概述
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概述
 本文将展示如何使用 Azure 门户设置 Azure 指标警报。   
 
 可以根据监控指标或事件接收 Azure 服务的警报。
@@ -50,8 +48,7 @@ ms.lasthandoff: 07/14/2017
 - [命令行接口 (CLI)](./insights-alerts-command-line-interface.md) 
 - [Azure 监视器 REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931945.aspx)
 
-## 使用 Azure 门户创建指标的警报规则
-<a id="create-an-alert-rule-on-a-metric-with-the-azure-portal" class="xliff"></a>
+## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>使用 Azure 门户创建指标的警报规则
 
 1. 在此[门户](https://portal.azure.cn/)，查找想要监视的资源并选中它。
 
@@ -78,8 +75,7 @@ ms.lasthandoff: 07/14/2017
 
 几分钟后，警报将处于活动状态，并按前面所述进行触发。
 
-## 管理警报
-<a id="managing-your-alerts" class="xliff"></a>
+## <a name="managing-your-alerts"></a>管理警报
 
 在创建警报后，可以选择警报并且：
 
@@ -87,8 +83,7 @@ ms.lasthandoff: 07/14/2017
 - 编辑或删除其。 
 - 如果想要暂时停止或恢复接收该警报的通知，可**禁用**或**启用**它。 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 * [获取 Azure 监视概述](./monitoring-overview.md)，包括可收集和监视的信息的类型。
 * 了解[在警报中配置 Webhook](./insights-webhooks-alerts.md)的详细信息。

@@ -21,20 +21,16 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 存储资源管理器（预览版）入门
-<a id="getting-started-with-storage-explorer-preview" class="xliff"></a>
-## 概述
-<a id="overview" class="xliff"></a>
+# <a name="getting-started-with-storage-explorer-preview"></a>存储资源管理器（预览版）入门
+## <a name="overview"></a>概述
 Azure 存储资源管理器（预览版）是一款独立应用，可用于在 Windows、macOS 和 Linux 上轻松处理 Azure 存储数据。 本文介绍如何通过各种方式连接到 Azure 存储帐户并对其进行管理。
 
 ![Azure 存储资源管理器（预览版）][15]
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 - [下载并安装存储资源管理器（预览版）](http://www.storageexplorer.com)
 
-## 连接到存储帐户或服务
-<a id="connect-to-a-storage-account-or-service" class="xliff"></a>
+## <a name="connect-to-a-storage-account-or-service"></a>连接到存储帐户或服务
 存储资源管理器（预览版）提供了多种连接到存储帐户的方式。 这些方式包括连接到与 Azure 订阅关联的存储帐户、连接到从其他 Azure 订阅共享的存储帐户和服务，甚至包括使用 Azure 存储模拟器连接到本地存储并对其进行管理。 此外，还可以在全球以及各区域 Azure 中使用存储帐户：
 
 - [连接到 Azure 订阅](#connect-to-an-azure-subscription) - 管理属于 Azure 订阅的存储资源。
@@ -43,8 +39,7 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
 - [使用 SAS 附加存储帐户](#attach-storage-account-using-sas) - 使用 SAS 管理属于另一 Azure 订阅的存储资源。
 - [使用 SAS 附加服务](#attach-service-using-sas) - 使用 SAS 管理属于另一 Azure 订阅的特定存储服务（Blob 容器、队列或表）。
 
-## 连接到 Azure 订阅
-<a id="connect-to-an-azure-subscription" class="xliff"></a>
+## <a name="connect-to-an-azure-subscription"></a>连接到 Azure 订阅
 > [!NOTE]
 > 如果没有 Azure 帐户，可以注册[试用版](http://www.azure.cn/pricing/1rmb-trial)。
 >
@@ -65,8 +60,7 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
 
     ![选择的 Azure 订阅][4]
 
-## 使用本地开发存储
-<a id="work-with-local-development-storage" class="xliff"></a>
+## <a name="work-with-local-development-storage"></a>使用本地开发存储
 使用存储资源管理器（预览版），可以通过 Azure 存储模拟器对本地存储进行操作。 因此，不需要在 Azure 上部署存储帐户就可以针对存储编写代码并对存储进行测试（因为存储帐户是通过 Azure 存储模拟器进行模拟的）。
 
 > [!NOTE]
@@ -87,12 +81,10 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
    - 管理 Azure 队列存储资源 - *即将推出*
    - 管理 Azure 表存储资源 - *即将推出*
 
-## 附加或分离外部存储帐户
-<a id="attach-or-detach-an-external-storage-account" class="xliff"></a>
+## <a name="attach-or-detach-an-external-storage-account"></a>附加或分离外部存储帐户
 可以通过存储资源管理器（预览版）附加到外部存储帐户，以便轻松共享存储帐户。 本部分介绍如何附加到外部存储帐户（以及如何从其分离）。
 
-### 获取存储帐户凭据
-<a id="get-the-storage-account-credentials" class="xliff"></a>
+### <a name="get-the-storage-account-credentials"></a>获取存储帐户凭据
 若要共享外部存储帐户，首先必须由该帐户的所有者获取该帐户的凭据（帐户名称和密钥），然后将该信息共享给想要附加到该（外部）帐户的人员。 可以使用以下步骤通过 Azure 门户获取存储帐户凭据：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
@@ -106,8 +98,7 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
 
     ![访问密钥][6]
 
-### 附加到外部存储帐户
-<a id="attach-to-an-external-storage-account" class="xliff"></a>
+### <a name="attach-to-an-external-storage-account"></a>附加到外部存储帐户
 若要附加到某个外部存储帐户，需要该帐户的名称和密钥。 “获取存储帐户凭据”部分说明了如何从 Azure 门户获取这些值。 但请注意，在门户中，帐户密钥称为“密钥 1”，因此，当存储资源管理器（预览版）要求输入帐户密钥时，需要输入（或粘贴）“密钥 1”的值。
 
 1. 在存储资源管理器（预览版）中，选择“连接到 Azure 存储”。
@@ -128,15 +119,13 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
 
     ![连接到外部存储帐户的结果][9]
 
-### 从外部存储帐户分离
-<a id="detach-from-an-external-storage-account" class="xliff"></a>
+### <a name="detach-from-an-external-storage-account"></a>从外部存储帐户分离
 1. 右键单击要分离的外部存储帐户，然后从上下文菜单中选择“分离”。
 
     ![“从存储分离”选项][10]
 2. 确认消息框出现时，选择“是”确认从外部存储帐户中分离。
 
-## 使用 SAS 附加存储帐户
-<a id="attach-storage-account-using-sas" class="xliff"></a>
+## <a name="attach-storage-account-using-sas"></a>使用 SAS 附加存储帐户
 Azure 订阅管理员可以临时通过 [SAS（共享访问签名）](storage/storage-dotnet-shared-access-signature-part-1.md)授予对存储帐户的访问权限，不需提供 Azure 订阅凭据。
 
 为了说明这一点，假设 UserA 是 Azure 订阅的管理员，UserA 想要允许 UserB 在有限的时间内使用特定权限访问某个存储帐户：
@@ -145,8 +134,7 @@ Azure 订阅管理员可以临时通过 [SAS（共享访问签名）](storage/st
 2. UserA 将 SAS 与需要访问该存储帐户的人员（在我们的示例中为 UserB）共享。  
 3. UserB 通过存储资源管理器（预览版）使用所提供的 SAS 附加到属于 UserA 的帐户。
 
-### 获取要共享的帐户的 SAS
-<a id="get-a-sas-for-the-account-you-want-to-share" class="xliff"></a>
+### <a name="get-a-sas-for-the-account-you-want-to-share"></a>获取要共享的帐户的 SAS
 1. 在存储资源管理器（预览版）中，右键单击要共享的存储帐户，然后从上下文菜单中选择“获取共享访问签名”。
 
     ![“获取 SAS”上下文菜单选项][13]
@@ -155,8 +143,7 @@ Azure 订阅管理员可以临时通过 [SAS（共享访问签名）](storage/st
     ![“获取 SAS”对话框][14]
 3. 第二个“共享访问签名”对话框会显示 SAS。 选择“连接字符串”旁边的“复制”，将其复制到剪贴板。 选择“关闭”关闭对话框。
 
-### 使用 SAS 附加到共享帐户
-<a id="attach-to-the-shared-account-using-the-sas" class="xliff"></a>
+### <a name="attach-to-the-shared-account-using-the-sas"></a>使用 SAS 附加到共享帐户
 1. 在存储资源管理器（预览版）中，选择“连接到 Azure 存储”。
 
     ![“连接到 Azure 存储”选项][23]
@@ -168,12 +155,10 @@ Azure 订阅管理员可以临时通过 [SAS（共享访问签名）](storage/st
 
     ![使用 SAS 附加到帐户的结果][17]
 
-## 使用 SAS 附加服务
-<a id="attach-service-using-sas" class="xliff"></a>
+## <a name="attach-service-using-sas"></a>使用 SAS 附加服务
 [使用 SAS 附加存储帐户](#attach-storage-account-using-sas)部分演示了 Azure 订阅管理员如何为存储帐户生成（和共享）SAS，从而授予用户对存储帐户的临时访问权限。 同样可以在存储帐户中为特定服务（Blob 容器、队列或表）生成 SAS。  
 
-### 为要共享的服务生成 SAS
-<a id="generate-a-sas-for-the-service-you-want-to-share" class="xliff"></a>
+### <a name="generate-a-sas-for-the-service-you-want-to-share"></a>为要共享的服务生成 SAS
 在这种情况下，服务可以是 Blob 容器、队列或表。 以下各节说明如何生成所列服务的 SAS：
 
 - [获取 Blob 容器的 SAS](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
@@ -181,8 +166,7 @@ Azure 订阅管理员可以临时通过 [SAS（共享访问签名）](storage/st
 - 获取队列的 SAS - *即将推出*
 - 获取表的 SAS - *即将推出*
 
-### 使用 SAS 附加到共享帐户服务
-<a id="attach-to-the-shared-account-service-using-the-sas" class="xliff"></a>
+### <a name="attach-to-the-shared-account-service-using-the-sas"></a>使用 SAS 附加到共享帐户服务
 1. 在存储资源管理器（预览版）中，选择“连接到 Azure 存储”。
 
     ![“连接到 Azure 存储”选项][23]
@@ -194,8 +178,7 @@ Azure 订阅管理员可以临时通过 [SAS（共享访问签名）](storage/st
 
     ![使用 SAS 附加到共享服务的结果][20]
 
-## 搜索存储帐户
-<a id="search-for-storage-accounts" class="xliff"></a>
+## <a name="search-for-storage-accounts"></a>搜索存储帐户
 如果你的存储帐户列表很长，则可使用左窗格顶部的搜索框来快速查找特定的存储帐户。
 
 在搜索框中键入内容时，左窗格仅显示与当前已输入搜索值匹配的存储帐户。 以下屏幕快照演示了一个示例，在该示例中，我通过搜索获得了存储帐户名称中包含文本“tarcher”的所有存储帐户。
@@ -204,8 +187,7 @@ Azure 订阅管理员可以临时通过 [SAS（共享访问签名）](storage/st
 
 若要清除搜索，请在“搜索”框中选择“x”按钮。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 - [使用存储资源管理器（预览版）管理 Azure Blob 存储资源](vs-azure-tools-storage-explorer-blobs.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png

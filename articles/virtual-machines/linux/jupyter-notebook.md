@@ -23,27 +23,23 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/10/2017
 ---
-# 在 Azure 上创建 Azure VM、安装 Jupyter 以及运行 Jupyter Notebook
-<a id="creating-an-azure-vm-installing-jupyter-and-running-a-jupyter-notebook-on-azure" class="xliff"></a>
+# <a name="creating-an-azure-vm-installing-jupyter-and-running-a-jupyter-notebook-on-azure"></a>在 Azure 上创建 Azure VM、安装 Jupyter 以及运行 Jupyter Notebook
 [Jupyter 项目](http://jupyter.org)（以前称为 [IPython 项目](http://ipython.org)），提供了一套使用功能强大的交互式 shell 进行科学计算的工具，实现了将代码执行与创建实时计算文档相结合。 这些 Notebook 文件可以包含任意文本、数学公式、输入代码、结果、图形、视频以及新型 Web 浏览器能够显示的任何其他种类的媒体。 无论你是第一次使用 Python 并希望在有趣的交互式环境中了解它，还是执行一些严格的并行/技术计算，Jupyter Notebook 都是一个很好的选择。
 
 ![屏幕截图](./media/jupyter-notebook/ipy-notebook-spectral.png)使用 SciPy 和 Matplotlib 包来分析录音结构。
 
-## Jupyter 的两种方法：Azure Notebook 或自定义部署
-<a id="jupyter-two-ways-azure-notebooks-or-custom-deployment" class="xliff"></a>
+## <a name="jupyter-two-ways-azure-notebooks-or-custom-deployment"></a>Jupyter 的两种方法：Azure Notebook 或自定义部署
 可以使用 Azure 提供的服务 [快速开始使用 Jupyter ](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)。  通过使用 Azure Notebook 服务，你可以轻松访问 Jupyter 的可缩放计算资源（包含 Python 的所有功能及其许多库）的可 Web 访问接口。  由于安装由该服务处理，用户无需管理和配置即可访问这些资源。
 
 如果 Notebook 服务不适用于你的方案，请继续阅读本文，它将会说明如何在 Azure 上使用 Linux 虚拟机 (VM) 部署 Jupyter Notebook。
 
 [!INCLUDE [create-account-and-vms-note](../../../includes/create-account-and-vms-note.md)]
 
-## 在 Azure 上创建并配置 VM
-<a id="create-and-configure-a-vm-on-azure" class="xliff"></a>
+## <a name="create-and-configure-a-vm-on-azure"></a>在 Azure 上创建并配置 VM
 第一步是创建在 Azure 上运行的虚拟机 (VM)。
 此 VM 是云中的完整操作系统，它将用于运行 Jupyter Notebook。 Azure 能够同时运行 Linux 和 Windows 虚拟机，我们将介绍如何在这两种类型的虚拟机上设置 Jupyter。
 
-### 为 Jupyter 创建 Linux VM 并打开端口
-<a id="create-a-linux-vm-and-open-a-port-for-jupyter" class="xliff"></a>
+### <a name="create-a-linux-vm-and-open-a-port-for-jupyter"></a>为 Jupyter 创建 Linux VM 并打开端口
 按照 [此处][portal-vm-linux] 提供的说明可创建 *Ubuntu* 分发的虚拟机。 本教程使用 Ubuntu Server 14.04 LTS。 我们将假定用户名为 *azureuser*。
 
 虚拟机部署后，我们需要在网络安全组中建立安全规则。  从 Azure 门户转到“网络安全组”，打开 VM 对应的安全组的选项卡。 需要使用以下设置添加入站安全规则：协议为 **TCP**，源（公用）端口为 **\***，目标（专用）端口为 **9999**。
@@ -52,16 +48,13 @@ ms.lasthandoff: 07/10/2017
 
 在“网络安全组”中，单击“网络接口”并记下**公共 IP 地址**，因为下一步需要使用它连接到 VM。
 
-## 在 VM 上安装所需的软件
-<a id="install-required-software-on-the-vm" class="xliff"></a>
+## <a name="install-required-software-on-the-vm"></a>在 VM 上安装所需的软件
 若要在我们的 VM 上运行 Jupyter Notebook，必须首先安装 Jupyter 及其依赖项。 使用 ssh 以及在创建 VM 时选择的用户名/密码对连接到你的 linux vm。 在本教程中，我们将使用 PuTTY，并从 Windows 进行连接。
 
-### 在 Ubuntu 上安装 Jupyter
-<a id="installing-jupyter-on-ubuntu" class="xliff"></a>
+### <a name="installing-jupyter-on-ubuntu"></a>在 Ubuntu 上安装 Jupyter
 使用 [Continuum Analytics](https://www.continuum.io/downloads)所提供的链接之一安装 Anaconda（一种常用的数据科学 python 分发）。  在撰写本文档之时，以下链接是最新版本。
 
-#### 适用于 Linux 的 Anaconda 安装
-<a id="anaconda-installs-for-linux" class="xliff"></a>
+#### <a name="anaconda-installs-for-linux"></a>适用于 Linux 的 Anaconda 安装
 <table>
   <th>Python 3.4</th>
   <th>Python 2.7</th>
@@ -83,8 +76,7 @@ ms.lasthandoff: 07/10/2017
   </tr>
 </table>
 
-#### 在 Ubuntu 上安装 Anaconda3 2.3.0（64 位）
-<a id="installing-anaconda3-230-64-bit-on-ubuntu" class="xliff"></a>
+#### <a name="installing-anaconda3-230-64-bit-on-ubuntu"></a>在 Ubuntu 上安装 Anaconda3 2.3.0（64 位）
 作为一个示例，这演示如何在 Ubuntu 上安装 Anaconda
 
     # install anaconda
@@ -104,8 +96,7 @@ ms.lasthandoff: 07/10/2017
 
 ![屏幕快照](./media/jupyter-notebook/anaconda-install.png)
 
-### 配置 Jupyter 和使用 SSL
-<a id="configuring-jupyter-and-using-ssl" class="xliff"></a>
+### <a name="configuring-jupyter-and-using-ssl"></a>配置 Jupyter 和使用 SSL
 在安装后，我们需要花一些时间来为 Jupyter 设置配置文件。 如果你在配置 Jupyter 时遇到问题，查看 [针对运行 Notebook 服务器的 Jupyter 文档](http://jupyter-notebook.readthedocs.org/en/latest/public_server.html)可能会有帮助。
 
 然后，通过 `cd` 进入配置文件目录来创建 SSL 证书并编辑配置文件的配置文件。
@@ -146,8 +137,7 @@ ms.lasthandoff: 07/10/2017
     c.NotebookApp.port = 9999
     c.NotebookApp.open_browser = False
 
-### 运行 Jupyter Notebook
-<a id="run-the-jupyter-notebook" class="xliff"></a>
+### <a name="run-the-jupyter-notebook"></a>运行 Jupyter Notebook
 此时，我们已准备好启动 Jupyter Notebook。 为此，请导航到要在其中存储 Notebook 的目录并使用以下命令启动 Jupyter Notebook 服务器。
 
     /anaconda3/bin/jupyter-notebook
@@ -158,16 +148,14 @@ ms.lasthandoff: 07/10/2017
 
 ![屏幕快照](./media/jupyter-notebook/jupyter-tree-view.png)
 
-### 使用 Jupyter Notebook
-<a id="using-the-jupyter-notebook" class="xliff"></a>
+### <a name="using-the-jupyter-notebook"></a>使用 Jupyter Notebook
 如果单击“新建”按钮，你将看到以下打开页  。
 
 ![屏幕快照](./media/jupyter-notebook/jupyter-untitled-notebook.png)
 
 标记有 `In []:` 提示的区域是输入区域，在这里可以键入任何有效的 Python 代码，并且它会在你按 `Shift-Enter` 或单击“播放”图标（工具栏中的右指三角形）时执行。
 
-## 强大的范例：具有丰富媒体的实时计算文档
-<a id="a-powerful-paradigm-live-computational-documents-with-rich-media" class="xliff"></a>
+## <a name="a-powerful-paradigm-live-computational-documents-with-rich-media"></a>强大的范例：具有丰富媒体的实时计算文档
 Notebook 本身对使用过 Python 和字处理器的任何人来说应感觉非常自然，因为它在某些方面是这二者的融合：你可以执行 Python 代码块，但也可以通过使用工具栏中的下拉菜单将单元格的样式从“代码”更改为“标记”来保留笔记及其他文本。
 
 Jupyter 不仅仅是字处理器，因为它允许混合计算和丰富媒体（文本、图形、视频以及新型 Web 浏览器可以显示的几乎任何内容）。 你可以混合文本、代码、视频等内容！
@@ -186,14 +174,12 @@ Jupyter 不仅仅是字处理器，因为它允许混合计算和丰富媒体（
 
 如果转到 IPython 源代码[存储库][repository]，可以找到具有 notebook 示例的整个目录，可以下载这些示例，然后在自己的 Azure Jupyter VM 上进行试用。  只需从网站中下载 `.ipynb` 文件并将它们上传到 notebook Azure VM 的仪表板上（或将它们直接下载到 VM 中）。
 
-## 结束语
-<a id="conclusion" class="xliff"></a>
+## <a name="conclusion"></a>结束语
 Jupyter Notebook 为交互访问 Azure 上的 Python 生态系统的功能提供了强大接口。  它涵盖范围广泛的用例，包括简单的探索和学习 Python、数据分析和可视化、模拟和并行计算。 生成的 Notebook 文档包含所执行的可与其他 Jupyter 用户共享的计算的完整记录。  Jupyter Notebook 可用作本地应用程序，但它非常适合 Azure 上的云部署
 
 还可通过[用于 Visual Studio 的 Python 工具][Python Tools for Visual Studio] (PTVS) 在 Visual Studio 中使用 Jupyter 的核心功能。 PTVS 是 Microsoft 提供的免费开源插件，它可将 Visual Studio 转变为高级 Python 开发环境，其中包括具有 IntelliSense、调试、分析和并行计算集成功能的高级编辑器。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅 [Python 开发人员中心](/develop/python/)。
 
 [portal-vm-linux]: /virtual-machines/virtual-machines-linux-tutorial-portal-rm/

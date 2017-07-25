@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/13/2017
-ms.date: 03/03/2017
+origin.date: 06/06/2017
+ms.date: 07/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: 9b27e59604c2f587caa430f4b46edff0b0518ede
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 1c4190f2fa875384e0a64a8f05492e77849187a1
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>关于 VPN 网关配置设置
 VPN 网关是一种虚拟网络网关，它通过公共连接在虚拟网络和本地位置之间发送加密流量。 还可以使用 VPN 网关跨 Azure 主干在虚拟网络之间发送流量。
@@ -44,16 +44,15 @@ VPN 网关需要 `-GatewayType` *Vpn*。
     -VpnType RouteBased
 
 ## <a name="gwsku"></a>网关 SKU
+
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-### <a name="configuring-the-gateway-sku"></a>配置网关 SKU
-####<a name="specifying-the-gateway-sku-in-the-azure-portal"></a>在 Azure 门户中指定网关 SKU
+### <a name="configure-the-gateway-sku"></a>配置网关 SKU
+#### <a name="azure-portal"></a>Azure 门户
 
 如果使用 Azure 门户创建 Resource Manager 虚拟网络网关，可以使用下拉列表选择网关 SKU。 显示的选项对应于所选的网关类型和 VPN 类型。
 
-例如，如果选择“VPN”作为网关类型，选择“基于策略”作为 VPN 类型，则只会看到“基本”SKU，因为这是 PolicyBased SKU 唯一可用的 SKU。 如果选择“基于路由”，则可以从“基本”、“标准”和“高性能”SKU 中选择。 
-
-####<a name="specifying-the-gateway-sku-using-powershell"></a>使用 PowerShell 指定网关 SKU
+####<a name="powershell"></a>PowerShell
 
 以下 PowerShell 示例将 `-GatewaySku` 指定为 *Standard*。
 
@@ -61,17 +60,14 @@ VPN 网关需要 `-GatewayType` *Vpn*。
     -Location 'China North' -IpConfigurations $gwipconfig -GatewaySku Standard `
     -GatewayType Vpn -VpnType RouteBased
 
-####<a name="changing-a-gateway-sku"></a>更改网关 SKU
+#### <a name="change-a-gateway-sku"></a>更改网关 SKU
 
-如果想要将网关 SKU 升级到更强大的 SKU（从“基本”/“标准”升级到“高性能”），可以使用 `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet。 也可以使用此 cmdlet 降级网关 SKU 大小。
+如果想要将网关 SKU 升级到更强大的 SKU，可以使用 `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet。 也可以使用此 cmdlet 降级网关 SKU 大小。
 
 以下 PowerShell 示例演示如何将网关 SKU 的大小调整为“高性能”。
 
     $gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
     Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
-
-### <a name="estimated-aggregate-throughput-by-gateway-sku-and-type"></a>按网关 SKU 和类型列出的估计聚合吞吐量
-[!INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ## <a name="connectiontype"></a>连接类型
 在 Resource Manager 部署模型中，每个配置都需要特定的虚拟网络网关连接类型。 `-ConnectionType` 的可用 Resource Manager PowerShell 值为：

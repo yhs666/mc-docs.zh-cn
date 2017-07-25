@@ -17,10 +17,10 @@ origin.date: 04/25/2017
 ms.date: 03/01/2017
 ms.author: v-dazen
 ms.openlocfilehash: b6a3c48ec4cfa5610b44c51ee27826ec9f6ee7b0
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>如何在虚拟机上通过 Java 运行计算密集型任务
 > [!IMPORTANT] 

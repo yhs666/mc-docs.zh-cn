@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: v-yiso
 ms.openlocfilehash: e5423bdca20fdcbef90fe0ab3f649b424ba3aa5e
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>如何使用 Azure 移动应用 Node.js SDK
 
@@ -416,7 +416,7 @@ _azureMobile.js_ 文件中的大多数设置在 [Azure 门户]中都有等效的
 
 1. 登录到 [Azure 门户]。
 
-2. 在窗口左上方，单击“+新建”按钮 >“Web + 移动” > “移动应用”，然后为移动应用后端提供名称。
+2. 在窗口左上方，单击“+新建”按钮 >“Web + 移动”>“移动应用”，然后为移动应用后端提供名称。
 
 3. 在“资源组”框中，输入与应用相同的名称。
 

@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# Azure 虚拟网络
-<a id="azure-virtual-network" class="xliff"></a>
+# <a name="azure-virtual-network"></a>Azure 虚拟网络
 
 通过 Azure 虚拟网络服务可安全地将 Azure 资源连接到具有虚拟网络 (VNet) 的各个资源。 VNet 是你自己的网络在云中的表示形式。 VNet 是对专用于你的订阅的 Azure 云进行的逻辑隔离。 也可将 VNet 连接到本地网络。 下图显示了 Azure 虚拟网络服务的部分功能：
 
@@ -79,13 +78,11 @@ VNet 之间可相互连接，因此，连接到任意一个 VNet 的资源都可
 - **用户定义路由：**可创建自定义路由表，其中包含可对每个子网控制流量路由位置的路由。 若要详细了解用户定义的路由，请阅读[用户定义的路由](virtual-networks-udr-overview.md)一文。
 - **BGP 路由：**如果使用 Azure VPN 网关或 ExpressRoute 连接将 VNet 连接到本地网络，则可将 BGP 路由传播到 VNet。
 
-## 定价
-<a id="pricing" class="xliff"></a>
+## <a name="pricing"></a>定价
 
 虚拟网络、子网、路由表或网络安全组无收费。 出站 Internet 带宽使用、公共 IP 地址、虚拟网络对等互连、VPN 网关和 ExpressRoute 各有其定价结构。 相关详细信息，请查看[虚拟网络](https://www.azure.cn/pricing/details/networking/)、[VPN 网关](https://www.azure.cn/pricing/details/vpn-gateway/)和 [ExpressRoute](https://www.azure.cn/pricing/details/expressroute/) 定价页面。
 
-## 常见问题
-<a id="faq" class="xliff"></a>
+## <a name="faq"></a>常见问题
 
 若要查看关于虚拟网络的常见问题解答，请参阅[虚拟网络常见问题解答](virtual-networks-faq.md)一文。
 

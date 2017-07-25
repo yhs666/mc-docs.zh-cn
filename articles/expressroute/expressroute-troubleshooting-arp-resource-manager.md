@@ -20,8 +20,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 在 Resource Manager 部署模型中获取 ARP 表
-<a id="getting-arp-tables-in-the-resource-manager-deployment-model" class="xliff"></a>
+# <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>在 Resource Manager 部署模型中获取 ARP 表
 
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](./expressroute-troubleshooting-arp-resource-manager.md)
@@ -36,8 +35,7 @@ ms.lasthandoff: 07/14/2017
 > 
 > 
 
-## 地址解析协议 (ARP) 和 ARP 表
-<a id="address-resolution-protocol-arp-and-arp-tables" class="xliff"></a>
+## <a name="address-resolution-protocol-arp-and-arp-tables"></a>地址解析协议 (ARP) 和 ARP 表
 地址解析协议 (ARP) 是在 [RFC 826](https://tools.ietf.org/html/rfc826) 中定义的第二层协议。 ARP 用于映射以太网地址（MAC 地址）和 IP 地址。
 
 可以通过 ARP 表来映射 IPv4 地址和 MAC 地址，以便实现特定的对等互连。 用于 ExpressRoute 线路对等互连的 ARP 表为每个接口（主接口和辅助接口）提供以下信息
@@ -58,8 +56,7 @@ ARP 表示例：
 
 以下部分介绍如何查看供 ExpressRoute 边缘路由器查看的 ARP 表。 
 
-## 了解 ARP 表需具备的先决条件
-<a id="prerequisites-for-learning-arp-tables" class="xliff"></a>
+## <a name="prerequisites-for-learning-arp-tables"></a>了解 ARP 表需具备的先决条件
 
 在继续下一步之前，请确保你已具备以下条件
 
@@ -68,12 +65,10 @@ ARP 表示例：
  - 你的网络团队/连接提供商提供的有关接口（用于这些 IP 地址）的 MAC 地址的信息。
  - 必须安装 Azure 的最新 PowerShell 模块（1.50 或更高版本）。
 
-## 获取 ExpressRoute 线路的 ARP 表
-<a id="getting-the-arp-tables-for-your-expressroute-circuit" class="xliff"></a>
+## <a name="getting-the-arp-tables-for-your-expressroute-circuit"></a>获取 ExpressRoute 线路的 ARP 表
 本部分说明了如何使用 PowerShell 根据对等互连来查看 ARP 表。 你或你的连接提供商必须在执行下一步之前配置好对等互连。 每个线路有两个路径（主路径和辅助路径）。 你可以独立地检查每个路径的 ARP 表。
 
-### Azure 专用对等互连的 ARP 表
-<a id="arp-tables-for-azure-private-peering" class="xliff"></a>
+### <a name="arp-tables-for-azure-private-peering"></a>Azure 专用对等互连的 ARP 表
 以下 cmdlet 为 Azure 专用对等互连提供 ARP 表
 
 ```
@@ -97,8 +92,7 @@ ARP 表示例：
       0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
 ```
 
-### Azure 公共对等互连的 ARP 表
-<a id="arp-tables-for-azure-public-peering" class="xliff"></a>
+### <a name="arp-tables-for-azure-public-peering"></a>Azure 公共对等互连的 ARP 表
 以下 cmdlet 为 Azure 公共对等互连提供 ARP 表
 
 ```
@@ -122,12 +116,10 @@ ARP 表示例：
       0 Microsoft         64.0.0.2 aaaa.bbbb.cccc
 ```
 
-## 如何使用此信息
-<a id="how-to-use-this-information" class="xliff"></a>
+## <a name="how-to-use-this-information"></a>如何使用此信息
 对等互连的 ARP 表可用于确定/验证第 2 层配置和连接。 本部分概述了不同方案的 ARP 表的外观。
 
-### 当线路处于运行状态（预期状态）时的 ARP 表
-<a id="arp-table-when-a-circuit-is-in-operational-state-expected-state" class="xliff"></a>
+### <a name="arp-table-when-a-circuit-is-in-operational-state-expected-state"></a>当线路处于运行状态（预期状态）时的 ARP 表
 
  - ARP 表会有一个针对本地端且带有有效 IP 地址和 MAC 地址的条目，以及一个类似的针对 Microsoft 端的条目。 
  - 本地 IP 地址的最后一个八位字节将始终是奇数。
@@ -139,8 +131,7 @@ ARP 表示例：
          10 On-Prem           65.0.0.1 ffff.eeee.dddd
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
-### 当本地端/连接提供商端出现问题时的 ARP 表
-<a id="arp-table-when-on-premises--connectivity-provider-side-has-problems" class="xliff"></a>
+### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>当本地端/连接提供商端出现问题时的 ARP 表
 如果本地或连接提供商有问题，则可能会看到只有一个条目出现在 ARP 表中，或者本地 MAC 地址将显示不完整。 此时会显示在 Microsoft 端使用的 MAC 地址与 IP 地址之间的映射。 
 
 ```
@@ -165,14 +156,12 @@ ARP 表示例：
 > 2. 验证客户型 (C-Tag) 和服务型 (S-Tag) VLAN 标记在 MSEE-PR 和 MSEE 对上是否均匹配。
 > 
 
-### 当 Microsoft 端出现问题时的 ARP 表
-<a id="arp-table-when-microsoft-side-has-problems" class="xliff"></a>
+### <a name="arp-table-when-microsoft-side-has-problems"></a>当 Microsoft 端出现问题时的 ARP 表
 
  - 如果 Microsoft 端存在问题，则不会为对等互连显示 ARP 表。 
  -  通过 [Microsoft 支持部门](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)开具一个支持票证。 指出你的第 2 层连接有问题。 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
  - 验证 ExpressRoute 线路的第 3 层配置
      - 获取路由摘要以确定 BGP 会话的状态 

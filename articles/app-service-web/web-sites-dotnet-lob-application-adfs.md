@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用 AD FS 身份验证创建业务线 Azure 应用
-<a id="create-a-line-of-business-azure-app-with-ad-fs-authentication" class="xliff"></a>
+# <a name="create-a-line-of-business-azure-app-with-ad-fs-authentication"></a>使用 AD FS 身份验证创建业务线 Azure 应用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -35,8 +34,7 @@ ms.lasthandoff: 07/14/2017
 
 <a name="bkmk_build"></a>
 
-## 要生成的项目
-<a id="what-you-will-build" class="xliff"></a>
+## <a name="what-you-will-build"></a>要生成的项目
 您将在 Azure 应用服务 Web 应用中生成具有以下功能的基本 ASP.NET 应用程序：
 
 * 根据 AD FS 对用户进行身份验证
@@ -45,8 +43,7 @@ ms.lasthandoff: 07/14/2017
 
 <a name="bkmk_need"></a>
 
-## 需要什么
-<a id="what-you-need" class="xliff"></a>
+## <a name="what-you-need"></a>需要什么
 [!INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 若要完成本教程，你需要以下项目：
@@ -58,8 +55,7 @@ ms.lasthandoff: 07/14/2017
 
 <a name="bkmk_sample"></a>
 
-## 将示例应用程序用作业务线模板
-<a id="use-sample-application-for-line-of-business-template" class="xliff"></a>
+## <a name="use-sample-application-for-line-of-business-template"></a>将示例应用程序用作业务线模板
 本教程中的示例应用程序 [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) 是由 Azure Active Directory 团队创建。 由于 AD FS 支持 WS 联合身份验证，因此可以将它用作模板来轻松创建业务线应用程序。 该示例应用程序具有以下功能：
 
 * 使用 [WS 联合身份验证](http://msdn.microsoft.com/library/bb498017.aspx)进行本地 AD FS 部署身份验证
@@ -68,8 +64,7 @@ ms.lasthandoff: 07/14/2017
 
 <a name="bkmk_setup"></a>
 
-## 设置示例应用程序
-<a id="set-up-the-sample-application" class="xliff"></a>
+## <a name="set-up-the-sample-application"></a>设置示例应用程序
 1. 将 [WebApp-WSFederation-DotNet](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) 的示例解决方案克隆或下载到您的本地目录中。
 
    > [!NOTE]
@@ -127,8 +122,7 @@ ms.lasthandoff: 07/14/2017
 
 <a name="bkmk_deploy"></a>
 
-## 将示例应用程序部署到 Azure 应用服务 Web 应用中
-<a id="deploy-the-sample-application-to-azure-app-service-web-apps" class="xliff"></a>
+## <a name="deploy-the-sample-application-to-azure-app-service-web-apps"></a>将示例应用程序部署到 Azure 应用服务 Web 应用中
 现在，请将应用程序发布到应用服务 Web 应用中的 Web 应用，同时保留调试环境。 请注意，你将要在建立 RP 与 AD FS 之间的信任关系之前发布应用程序，因此身份验证还不起作用。 不过，如果现在就执行此操作，则可以获得 Web 应用 URL，稍后可以使用此 URL 来配置 RP 信任。
 
 1. 右键单击您的项目，然后选择“发布” 。
@@ -157,8 +151,7 @@ ms.lasthandoff: 07/14/2017
 
 <a name="bkmk_rptrusts"></a>
 
-## 在 AD FS 管理中配置信赖方信任
-<a id="configure-relying-party-trusts-in-ad-fs-management" class="xliff"></a>
+## <a name="configure-relying-party-trusts-in-ad-fs-management"></a>在 AD FS 管理中配置信赖方信任
 现在，需要先在 AD FS 管理中配置 RP 信任，然后才能使用示例应用程序并真正在 AD FS 上进行身份验证。 您需要单独设置两个 RP 信任，一个用于调试环境，另一个用于已发布的 Web 应用。
 
 > [!NOTE]
@@ -254,8 +247,7 @@ ms.lasthandoff: 07/14/2017
 
 <a name="bkmk_test"></a>
 
-## 测试应用程序的联合身份验证
-<a id="test-federated-authentication-for-your-application" class="xliff"></a>
+## <a name="test-federated-authentication-for-your-application"></a>测试应用程序的联合身份验证
 现在，你可以针对 AD FS 测试应用程序的身份验证逻辑。 在 AD FS 实验室环境中，我有一个属于 Active Directory (AD) 中测试组的测试用户。
 
 ![](./media/web-sites-dotnet-lob-application-adfs/10-test-user-and-group.png)
@@ -282,8 +274,7 @@ ms.lasthandoff: 07/14/2017
 
 <a name="bkmk_authorize"></a>
 
-## 为特定的控制器或操作向用户授权
-<a id="authorize-users-for-specific-controllers-or-actions" class="xliff"></a>
+## <a name="authorize-users-for-specific-controllers-or-actions"></a>为特定的控制器或操作向用户授权
 由于已在 RP 信任配置中添加组成员资格作为角色声明，因此，现在可以在控制器和操作的 `[Authorize(Roles="...")]` 修饰中直接使用这些声明。 在采用创建-读取-更新-删除 (CRUD) 模式的业务线应用程序中，你可以授权特定的角色访问每个操作。 目前，你只能对现有的主控制器试用此功能。
 
 1. 打开 Controllers\HomeController.cs。
@@ -357,16 +348,14 @@ ms.lasthandoff: 07/14/2017
 
 <a name="bkmk_data"></a>
 
-## 连接到本地数据
-<a id="connect-to-on-premises-data" class="xliff"></a>
+## <a name="connect-to-on-premises-data"></a>连接到本地数据
 使用 AD FS 而不是 Azure Active Directory 实施业务线应用程序的一个原因是，既能符合法规要求，同时可将组织数据保留在外部。 这可能还意味着，您在 Azure 中的 Web 应用必须访问本地数据库，因为您不得使用 [SQL 数据库](https://www.azure.cn/home/features/sql-database/)作为 Web 应用的数据层。
 
 在 Azure 中国区，Azure 应用服务 Web 应用仅支持通过[虚拟网络](web-sites-integrate-with-vnet.md)访问本地数据库。
 
 <a name="bkmk_resources"></a>
 
-## 其他资源
-<a id="further-resources" class="xliff"></a>
+## <a name="further-resources"></a>其他资源
 * [在 Azure 应用中使用本地 Active Directory 进行身份验证](web-sites-authentication-authorization.md)
 * [使用 Azure Active Directory 身份验证创建业务线 Azure 应用](web-sites-dotnet-lob-application-azure-ad.md)
 * [在 Visual Studio 2013 中将本地组织的身份验证选项 (ADFS) 与 ASP.NET 结合使用](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)

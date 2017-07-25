@@ -1,10 +1,10 @@
 ---
-title: "将经典部署 Azure 虚拟机备份到备份保管库 | Azure"
+title: "将经典部署 Azure 虚拟机备份到备份保管库 | Microsoft Docs"
 description: "使用本文中的 Azure 虚拟机备份过程来发现、注册和备份虚拟机。"
 services: backup
 documentationcenter: 
-author: markgalioto
-manager: carmonm
+author: alexchen2016
+manager: digimobile
 editor: 
 keywords: "虚拟机备份;备份虚拟机;备份和灾难恢复;vm 备份"
 ms.assetid: c0ab5469-65fd-4af5-ae9b-f5d183f82ce8
@@ -13,18 +13,18 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/15/2017
-ms.date: 03/20/2017
+origin.date: 06/14/2017
+ms.date: 06/30/2017
 ms.author: v-junlch
-ms.openlocfilehash: 346688996c16ce42d06448f0b63499bccb52c2bd
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 08bcb6a086863eac556e1531bc44157b674c2196
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="back-up-azure-virtual-machines"></a>备份 Azure 虚拟机
+# <a name="back-up-azure-virtual-machines-classic-management-portal"></a>备份 Azure 虚拟机（经典管理门户）
 
-本文提供了将经典部署的 Azure 虚拟机 (VM) 备份到备份保管库的过程。 需要先执行几个任务，然后才能备份 Azure 虚拟机。 如果尚未这样做，请完成[先决条件](./backup-azure-vms-prepare.md)部分，在环境中做好 VM 备份的准备。
+本文提供了将经典部署的 Azure 虚拟机 (VM) 备份到备份保管库的过程。 需要先执行几个任务，然后才能备份 Azure 虚拟机。 如果尚未这样做，请完成[先决条件](backup-azure-vms-prepare.md)部分，在环境中做好 VM 备份的准备。
 
 有关其他信息，请参阅[在 Azure 中规划 VM 备份基础结构](./backup-azure-vms-introduction.md)和 [Azure 虚拟机](../virtual-machines/index.md)。
 
@@ -185,9 +185,9 @@ ms.lasthandoff: 06/21/2017
 仪表板中的值每 24 小时刷新一次。
 
 ## <a name="troubleshooting-errors"></a>排查错误
-如果在备份虚拟机时遇到问题，请参阅 [VM 故障排除文章](./backup-azure-vms-troubleshoot.md)获取帮助。
+如果在备份虚拟机时遇到问题，请参阅 [VM 故障排除文章](backup-azure-vms-troubleshoot.md)获取帮助。
 
 ## <a name="next-steps"></a>后续步骤
-
 - [管理和监视你的虚拟机](./backup-azure-manage-vms-classic.md)
-- [恢复虚拟机](./backup-azure-restore-vms.md)
+- [恢复虚拟机](backup-azure-restore-vms.md)
+

@@ -21,11 +21,9 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# Azure Batch CLI 示例
-<a id="azure-batch-cli-samples" class="xliff"></a>
+# <a name="azure-batch-cli-samples"></a>Azure Batch CLI 示例
 
-## 包含示例 shell 脚本的教程
-<a id="tutorials-with-sample-shell-scripts" class="xliff"></a>
+## <a name="tutorials-with-sample-shell-scripts"></a>包含示例 shell 脚本的教程
 
 下表包含指向使用 Azure CLI 生成的 bash 脚本的链接，以演示如何使用批处理服务。
 
@@ -36,8 +34,7 @@ ms.lasthandoff: 07/14/2017
 | [管理批处理池](./scripts/batch-cli-sample-manage-pool.md) | 演示如何创建、调整和管理池。 |
 | [使用批处理运行作业和任务](./scripts/batch-cli-sample-run-job.md) | 演示如何运行作业和添加任务。 |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
 

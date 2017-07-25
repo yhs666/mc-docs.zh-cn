@@ -173,6 +173,7 @@ Azure 提供的 DNS 是由 Microsoft 提供的多租户 DNS 服务。 在此服�
 是的。 可以在 VNet 内部署 Web 应用程序。 此外，如果为 VNet 配置了点到站点，Web 应用则可以安全地连接和访问 Azure VNet 中的资源。 有关详细信息，请参阅以下主题：
 
 * [Web 应用虚拟网络集成](/app-service-web/app-service-vnet-integration-powershell/)
+* [将 Web 应用与 Azure 虚拟网络集成](../articles/app-service-web/web-sites-integrate-with-vnet.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>是否可以在 VNet 中部署具有 Web 角色和辅助角色的云服务 (PaaS)？
 是的。 可以在 VNet 中部署 PaaS 服务。
@@ -195,7 +196,7 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间完�
 
 ## <a name="apis-schemas-and-tools"></a>API、架构和工具
 ### <a name="can-i-manage-vnets-from-code"></a>是否可以通过代码管理 VNet？
-是的。 可以使用 REST API 管理 VNet 和跨界连接。 可在[此处](https://msdn.microsoft.com/library/azure/ee460799.aspx)找到更多信息。
+是的。 可以使用 REST API 管理 VNet 和跨界连接。 可在[此处](http://go.microsoft.com/fwlink/?LinkId=296833)找到更多信息。
 
 ### <a name="is-there-tooling-support-for-vnets"></a>是否有 VNet 的工具支持？
-是的。 PowerShell 和命令行工具可用于各种平台。 可在[此处](https://msdn.microsoft.com/library/azure/jj152841.aspx)找到更多信息。
+是的。 PowerShell 和命令行工具可用于各种平台。 可在[此处](http://go.microsoft.com/fwlink/?LinkId=317721)找到更多信息。

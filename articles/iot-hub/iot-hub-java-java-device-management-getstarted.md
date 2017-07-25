@@ -20,8 +20,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 设备管理入门 (Java)
-<a id="get-started-with-device-management-java" class="xliff"></a>
+# <a name="get-started-with-device-management-java"></a>设备管理入门 (Java)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
@@ -59,8 +58,7 @@ trigger-reboot。 此应用：
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## 使用直接方法在设备上触发远程重新启动
-<a id="trigger-a-remote-reboot-on-the-device-using-a-direct-method" class="xliff"></a>
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>使用直接方法在设备上触发远程重新启动
 
 在本部分中，创建一个 .Java 控制台应用，用以调用模拟设备应用中的重新启动直接方法并显示响应。 随后，应用会对设备发出的报告属性进行轮询，从而确定重新启动过程何时完成。 此控制台应用连接到 IoT 中心，调用该直接方法并读取报告属性。
 
@@ -203,8 +201,7 @@ trigger-reboot。 此应用：
 
     `mvn clean package -DskipTests`
 
-## 创建模拟设备应用程序
-<a id="create-a-simulated-device-app" class="xliff"></a>
+## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
 
 本部分介绍如何创建模拟设备的 Java 控制台应用。 此应用侦听来自 IoT 中心的重新启动直接方法调用，并立即对该调用做出响应。 之后，此应用会休眠一段时间，以模拟重新启动过程，然后使用报告属性，通知 trigger-reboot 后端应用重新启动已完成。
 
@@ -412,8 +409,7 @@ trigger-reboot。 此应用：
 
     `mvn clean package -DskipTests`
 
-## 运行应用
-<a id="run-the-apps" class="xliff"></a>
+## <a name="run-the-apps"></a>运行应用
 
 现在，已准备就绪，可以运行应用。
 

@@ -12,13 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/18/2017
+origin.date: 04/18/2017
 ms.author: v-yiso
-ms.openlocfilehash: 84bbe60b71aa9457a030eccda446d442b0ba5aef
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/17/2017
+ms.openlocfilehash: 648a42046b937e52960541301d2498dbb330e19c
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 模板创建服务总线资源
 
@@ -150,6 +151,7 @@ Azure Resource Manager 模板可帮助你定义要为解决方案部署的资源
 }
 ```
 
+有关详细信息，请参阅[参数](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)主题。
 
 ### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>登录到 Azure 并设置 Azure 订阅
 在 PowerShell 提示符下，运行以下命令：

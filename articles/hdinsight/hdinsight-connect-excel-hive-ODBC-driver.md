@@ -24,8 +24,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 Azure HDInsight 中的 Hadoop
-<a id="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver" class="xliff"></a>
+# <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 Azure HDInsight 中的 Hadoop
 
 [!INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
 
@@ -47,14 +46,12 @@ Microsoft 的大数据解决方案将 Microsoft 商业智能 (BI) 组件与已�
 * **HDInsight 群集**。 若要创建一个 HDInsight 群集，请参阅 [Azure HDInsight 入门][hdinsight-get-started]。
 * **工作站** 。
 
-## 安装 Microsoft Hive ODBC 驱动程序
-<a id="install-microsoft-hive-odbc-driver" class="xliff"></a>
+## <a name="install-microsoft-hive-odbc-driver"></a>安装 Microsoft Hive ODBC 驱动程序
 从 [下载中心][hive-odbc-driver-download]下载并安装 Microsoft Hive ODBC 驱动程序。
 
 此驱动程序可以安装在 32 位或 64 位版本的 Windows 7、Windows 8、Windows 10、Windows Server 2008 R2 和 Windows Server 2012 上。 此驱动程序可用于连接到 Azure HDInsight（1.6 版及更高版本）和 Azure HDInsight Emulator（v.1.0.0.0 及更高版本）。 应安装与要在其中使用 ODBC 驱动程序的应用程序版本匹配的版本。 在本教程中，将通过 Office Excel 使用此驱动程序。
 
-## 创建 Hive ODBC 数据源
-<a id="create-hive-odbc-data-source" class="xliff"></a>
+## <a name="create-hive-odbc-data-source"></a>创建 Hive ODBC 数据源
 下列步骤演示如何创建 Hive ODBC 数据源。
 
 1. 在 Windows 8 或 Windows 10 中，按 Windows 键以打开“开始”屏幕，然后键入“数据源” 。
@@ -92,8 +89,7 @@ Microsoft 的大数据解决方案将 Microsoft 商业智能 (BI) 组件与已�
 2. 单击“确定”关闭“测试”对话框  。 现在，新的数据源应该在“ODBC 数据源管理器”中列出 。
 3. 单击“确定”退出向导  。
 
-## 将 HDInsight 中的数据导入到 Excel 中
-<a id="import-data-into-excel-from-hdinsight" class="xliff"></a>
+## <a name="import-data-into-excel-from-hdinsight"></a>将 HDInsight 中的数据导入到 Excel 中
 下列步骤介绍如何使用在上述步骤中创建的 ODBC 数据源将数据从 Hive 表中导入到 Excel 工作簿。
 
 1. 在 Excel 中打开新工作簿或现有工作簿。
@@ -115,8 +111,7 @@ Microsoft 的大数据解决方案将 Microsoft 商业智能 (BI) 组件与已�
 13. 单击“确定”关闭“导入数据”对话框。  
 14. 重新输入密码，然后单击“确定” 。 需要几秒钟时间才能将数据导入到 Excel 中。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 本文已介绍如何使用 Microsoft Hive ODBC 驱动程序将来自 HDInsight 服务的数据检索到 Excel 中。 同样地，你也可以将来自 HDInsight 服务的数据检索到 SQL 数据库中。 也可以将数据上传到 HDInsight 服务中。 若要了解更多信息，请参阅以下文章：
 
 * [使用 HDInsight 分析航班延误数据][hdinsight-analyze-flight-data]

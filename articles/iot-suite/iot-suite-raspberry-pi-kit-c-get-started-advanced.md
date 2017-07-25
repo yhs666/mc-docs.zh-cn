@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用 C 将 Raspberry Pi 3 连接到远程监视解决方案并启用远程固件更新
-<a id="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-c" class="xliff"></a>
+# <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-c"></a>使用 C 将 Raspberry Pi 3 连接到远程监视解决方案并启用远程固件更新
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-selector](../../includes/iot-suite-raspberry-pi-kit-selector.md)]
 
@@ -36,8 +35,7 @@ ms.lasthandoff: 07/14/2017
 - Raspbian OS、C 编程语言和 Azure IoT SDK for C 实现示例设备。
 - IoT 套件远程监视预配置解决方案作为基于云的后端。
 
-## 概述
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概述
 
 在本教程中，将完成以下步骤：
 
@@ -57,13 +55,11 @@ ms.lasthandoff: 07/14/2017
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-prepare-pi](../../includes/iot-suite-raspberry-pi-kit-prepare-pi.md)]
 
-## 下载并配置示例
-<a id="download-and-configure-the-sample" class="xliff"></a>
+## <a name="download-and-configure-the-sample"></a>下载并配置示例
 
 现在，可以在 Raspberry Pi 上下载并配置远程监视客户端应用程序。
 
-### 克隆存储库
-<a id="clone-the-repositories" class="xliff"></a>
+### <a name="clone-the-repositories"></a>克隆存储库
 
 如果尚未这样做，请通过在 Pi 上运行以下命令，克隆所需的存储库：
 
@@ -71,8 +67,7 @@ ms.lasthandoff: 07/14/2017
 
 `git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git`
 
-### 更新设备连接字符串
-<a id="update-the-device-connection-string" class="xliff"></a>
+### <a name="update-the-device-connection-string"></a>更新设备连接字符串
 
 使用以下命令在 **nano** 编辑器中打开示例配置文件：
 
@@ -89,8 +84,7 @@ HostName=youriothubname.azure-devices.cn;DeviceId=yourdeviceid;SharedAccessKey=y
 
 保存所做的更改（按 **Ctrl-O**，然后按 **Enter**），然后退出编辑器（按 **Ctrl-X**）。
 
-## 生成示例
-<a id="build-the-sample" class="xliff"></a>
+## <a name="build-the-sample"></a>生成示例
 
 如果尚未这样做，请通过在 Raspberry Pi 上的终端中运行以下命令，为适用于 C 的 Microsoft Azure IoT 设备 SDK 安装必备组件包：
 
@@ -128,8 +122,7 @@ HostName=youriothubname.azure-devices.cn;DeviceId=yourdeviceid;SharedAccessKey=y
 
     ![显示方法历史记录][img-method-history]
 
-## 观察固件更新过程
-<a id="observe-the-firmware-update-process" class="xliff"></a>
+## <a name="observe-the-firmware-update-process"></a>观察固件更新过程
 
 可以在设备运行固件更新过程时观察该更新过程，可通过在解决方案仪表板中查看报告的属性来实现此目的：
 
@@ -149,8 +142,7 @@ HostName=youriothubname.azure-devices.cn;DeviceId=yourdeviceid;SharedAccessKey=y
 > [!WARNING]
 > 如果让远程监视解决方案在 Azure 帐户中保持运行状态，系统会按其运行时间计费。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。 请在用完预配置的解决方案后将其从 Azure 帐户中删除。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关 Azure IoT 的更多示例和文档，请访问 [Azure IoT 开发人员中心](https://www.azure.cn/develop/iot/)。
 

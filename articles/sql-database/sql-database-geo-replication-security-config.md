@@ -1,53 +1,36 @@
 ---
-title: "如何在将数据库还原到新的服务器或将数据库故障转移到辅助数据库副本后进行安全管理 | Azure"
-description: "本主题介绍在数据库还原或故障转移后进行安全管理时的安全注意事项。"
-services: sql-database
-documentationCenter: na
-authors: CarlRabeler
-manager: jhubbard
-editor: monicar
-ms.service: sql-database
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 10/13/2016
-ms.author: v-johch
-ms.openlocfilehash: 2afe73ce3c830ab1188c0f782c0ed447d9e5db8f
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+title: 配置灾难恢复的 Azure SQL 数据库安全性 | Azure description: 本主题介绍在发生数据中心服务中断或其他灾难时数据库还原或故障转移到辅助服务器后配置和管理安全性的安全注意事项 services: sql-database documentationCenter: na author:Hayley244 manager: digimobile editor: monicar
+
+ms.assetid: c7c898c9-69d4-4e16-8b7e-720bbb3353dd ms.service: sql-database ms.custom: business continuity ms.devlang: na ms.topic: article ms.tgt_pltfrm: na ms.workload: data-management origin.date: 10/13/2016 ms.date: 07/10/2017 ms.author: v-johch
+
 ---
-# <a name="how-to-manage-azure-sql-database-security-after-disaster-recovery"></a>灾难恢复后如何管理 Azure SQL 数据库安全性
+# <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>针对异地还原或故障转移配置和管理 Azure SQL 数据库的安全性 
 
 >[!NOTE]
-> [活动异地复制](./sql-database-geo-replication-overview.md)现在可供所有服务层中的所有数据库使用。
+> [活动异地复制](sql-database-geo-replication-overview.md)现在可供所有服务层中的所有数据库使用。
 
 ## <a name="overview-of-authentication-requirements-for-disaster-recovery"></a>灾难恢复身份验证要求概述
-
-本主题介绍了配置和控制[活动异地复制](./sql-database-geo-replication-overview.md)所需的身份验证要求，以及设置辅助数据库的用户访问权限所需的步骤。 还介绍了使用[异地还原](./sql-database-recovery-using-backups.md#geo-restore)后如何启用对已恢复数据库的访问权限。 有关恢复选项的详细信息，请参阅[业务连续性概述](./sql-database-business-continuity.md)。
+本主题介绍了配置和控制[活动异地复制](sql-database-geo-replication-overview.md)所需的身份验证要求，以及设置辅助数据库的用户访问权限所需的步骤。 还介绍了使用[异地还原](sql-database-recovery-using-backups.md#geo-restore)后如何启用对已恢复数据库的访问权限。 有关恢复选项的详细信息，请参阅[业务连续性概述](sql-database-business-continuity.md)。
 
 ## <a name="disaster-recovery-with-contained-users"></a>使用包含的用户进行灾难恢复
-
-不同于必须映射到 master 数据库中登录名的传统用户，包含的用户完全由数据库自身管理。 这带来了两个好处。 在灾难恢复方案中，用户可以继续连接到新的主数据库或使用异地还原恢复的数据库，不需进行任何额外的配置，因为数据库会管理用户。 从登录的立场来看，此配置还有潜在的缩放性和性能优势。 有关详细信息，请参阅 [包含数据库用户 - 使你的数据库可移植](https://msdn.microsoft.com/zh-cn/library/ff929188.aspx)。 
+不同于必须映射到 master 数据库中登录名的传统用户，包含的用户完全由数据库自身管理。 这带来了两个好处。 在灾难恢复方案中，用户可以继续连接到新的主数据库或使用异地还原恢复的数据库，不需进行任何额外的配置，因为数据库会管理用户。 从登录的立场来看，此配置还有潜在的缩放性和性能优势。 有关详细信息，请参阅 [包含数据库用户 - 使你的数据库可移植](https://msdn.microsoft.com/library/ff929188.aspx)。 
 
 主要的不足是，在规模较大的情况下，管理灾难恢复过程更具挑战性。 当你有多个使用同一登录名的数据库时，在多个数据库中使用包含用户来维护凭据可能会抵消包含用户的好处。 例如，密码轮换策略要求在多个数据库中进行一致性的更改，而不是在 master 数据库中更改登录名的密码一次。 因此，如果你的多个数据库使用同一用户名和密码，则不建议你使用包含用户。 
 
 ## <a name="how-to-configure-logins-and-users"></a>如何配置登录名和用户
-
-如果要使用登录名和用户（而不是包含用户），则必须采取额外的步骤，确保相同的登录名存在于 master 数据库中。 以下部分概述了相关的步骤和其他注意事项。
+如果要使用登录名和用户（而不是包含用户），必须采取额外的步骤以确保相同的登录名存在于 master 数据库中。 以下部分概述了相关的步骤和其他注意事项。
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>设置对辅助数据库或已恢复数据库的用户访问权限
-
 为了确保能够将辅助数据库用作只读辅助数据库，以及确保使用异地还原对新的主数据库或已恢复数据库进行适当的访问，必须在恢复之前对目标服务器的 master 数据库进行适当的安全配置。
 
 本主题稍后部分介绍了各步骤所需的特定权限。
 
 应该在配置异地复制的过程中进行用户访问权限方面的准备，以便用户能够访问异地复制辅助数据库。 只要原始服务器处于联机状态（例如，在进行 DR 钻取时），就可以进行用户访问权限方面的准备，使用户能够访问异地还原数据库。
 
->[!NOTE]
-> 如果你在故障转移到或异地还原到某个服务器时，该服务器并没有进行适当的配置，则只能使用服务器管理员帐户通过登录方式对其进行访问。
+> [!NOTE]
+> 如果在故障转移到或异地还原到某个服务器时，该服务器没有正确配置的登录名，则将限制为只有服务器管理员帐户能够访问它。
+> 
+> 
 
 在目标服务器上设置登录名涉及三个步骤，概述如下：
 
@@ -81,7 +64,7 @@ FROM [sys].[database_principals]
 WHERE [type_desc] = 'SQL_USER'
 ```
 
->[!NOTE]
+> [!NOTE]
 > INFORMATION_SCHEMA 和 sys 用户具有 NULL SID，guest SID 为 0x00。 如果数据库创建者是服务器管理员而不是 DbManager 的成员，则 dbo SID 可能以 0x01060000000001648000000000048454 开头。
 
 #### <a name="3-create-the-logins-on-the-target-server"></a>3.在目标服务器上创建登录名：
@@ -93,18 +76,17 @@ WITH PASSWORD = <login password>,
 SID = <desired login SID>
 ```
 
->[!NOTE]
+> [!NOTE]
 > 如果你要授予用户对辅助数据库而不是主数据库的访问权限，你可以使用以下语法更改主服务器上的用户登录名来实现此目的。
->
->ALTER LOGIN <login name> DISABLE
->
->DISABLE 不会更改密码，因此你始终可以根据需要启用该登录名。
+> 
+> ALTER LOGIN <login name> DISABLE
+> 
+> DISABLE 不会更改密码，因此你始终可以根据需要启用该登录名。
+> 
+> 
 
 ## <a name="next-steps"></a>后续步骤
-
-- 若要深入了解如何管理数据库访问和登录，请参阅 [SQL 数据库安全：管理数据库访问和登录安全](./sql-database-manage-logins.md)。
-- 若要深入了解随附的数据库用户，请参阅 [包含的数据库用户 - 使你的数据库可移植](https://msdn.microsoft.com/zh-cn/library/ff929188.aspx)。
-- 若要了解如何使用和配置活动异地复制，请参阅[活动异地复制](./sql-database-geo-replication-overview.md)
-- 若要了解如何使用异地还原，请参阅[异地还原](./sql-database-recovery-using-backups.md#geo-restore)
-
-## <a name="additional-resources"></a>其他资源
+* 若要深入了解如何管理数据库访问和登录，请参阅 [SQL 数据库安全：管理数据库访问和登录安全](sql-database-manage-logins.md)。
+* 若要深入了解随附的数据库用户，请参阅 [包含的数据库用户 - 使你的数据库可移植](https://msdn.microsoft.com/library/ff929188.aspx)。
+* 若要了解如何使用和配置活动异地复制，请参阅[活动异地复制](sql-database-geo-replication-overview.md)
+* 若要了解如何使用异地还原，请参阅[异地还原](sql-database-recovery-using-backups.md#geo-restore)

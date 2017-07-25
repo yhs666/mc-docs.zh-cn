@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 适用于 C 语言的 Azure IoT 设备 SDK - 有关序列化程序的详细信息
-<a id="azure-iot-device-sdk-for-c--more-about-serializer" class="xliff"></a>
+# <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>适用于 C 语言的 Azure IoT 设备 SDK - 有关序列化程序的详细信息
 
 此系列中的[第一篇文章](./iot-hub-device-sdk-c-intro.md)介绍了**适用于 C 语言的 Azure IoT 设备 SDK**。下一篇文章中提供了 [**IoTHubClient**](./iot-hub-device-sdk-c-iothubclient.md) 的更详细说明。 本文最后的部分将提供该 SDK 的剩余组件 **序列化程序** 库的更详细说明。
 
@@ -34,8 +33,7 @@ ms.lasthandoff: 07/13/2017
 
 可在 GitHub 存储库中找到[**适用于 C 语言的 Azure IoT 设备 SDK**](https://github.com/Azure/azure-iot-sdk-c)，还可在 [C API 参考](https://azure.github.io/azure-iot-sdk-c/index.html)中查看 API 的详细信息。
 
-## 建模语言
-<a id="the-modeling-language" class="xliff"></a>
+## <a name="the-modeling-language"></a>建模语言
 
 此系列中的[介绍性文章](./iot-hub-device-sdk-c-intro.md)通过 **simplesample\_amqp** 应用程序中提供的示例，介绍了**适用于 C 语言的 Azure IoT 设备 SDK** 建模语言：
 
@@ -66,8 +64,7 @@ END_NAMESPACE(WeatherStation);
 > 
 > 
 
-### 支持的数据类型
-<a id="supported-data-types" class="xliff"></a>
+### <a name="supported-data-types"></a>支持的数据类型
 
 利用 **序列化程序** 库创建的模型支持以下数据类型：
 
@@ -207,8 +204,7 @@ EDM_DATE_TIME_OFFSET GetDateTimeOffset(time_t time)
 
 有了此信息，我们便可以定义包含受支持数据类型范围的模型，这些数据类型包括复杂类型（甚至可以包含其他复杂类型内的复杂类型）。 不过，上述示例生成的序列化 JSON 突显了一个重点。 *如何* 利用 **序列化程序** 库发送数据完全决定了 JSON 的构成形式。 此特定要点就是接下来要讨论的内容。
 
-## 有关序列化的详细信息
-<a id="more-about-serialization" class="xliff"></a>
+## <a name="more-about-serialization"></a>有关序列化的详细信息
 
 上一部分重点讲述了 **序列化程序** 库生成的输出示例。 在本部分，我们将说明该库如何将数据序列化，以及如何使用序列化 API 来控制该行为。
 
@@ -218,8 +214,7 @@ EDM_DATE_TIME_OFFSET GetDateTimeOffset(time_t time)
 
 在此方案中，我们将演示两种不同的数据建模方式，并将说明该建模对序列化输出的影响。
 
-### 模型 1
-<a id="model-1" class="xliff"></a>
+### <a name="model-1"></a>模型 1
 
 以下是支持前述方案的第一个模型版本：
 
@@ -312,8 +307,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Humidity) == IOT_AGENT
 
 现在，让我们修改模型，使它包含相同的数据，但具有不同的结构。
 
-### 模型 2
-<a id="model-2" class="xliff"></a>
+### <a name="model-2"></a>模型 2
 
 请考虑上述模型的替代模型：
 
@@ -457,8 +451,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermosta
 
 没有绝对正确或错误的方法。 你只需了解 **序列化程序** 库的工作原理，并挑选最符合需求的建模方法。
 
-## 消息处理
-<a id="message-handling" class="xliff"></a>
+## <a name="message-handling"></a>消息处理
 
 到目前为止，本文只讨论了如何将事件发送到 IoT 中心，而尚未涉及到消息接收。 这是因为有关接收消息的知识大多在[以前的文章](./iot-hub-device-sdk-c-intro.md)中都已涵盖。 回顾那篇文章，我们知道是通过注册消息回调函数来处理消息的：
 
@@ -550,8 +543,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 本部分说明了使用 **序列化程序** 库发送事件和接收消息时的所有要点。 在继续讨论之前，让我们先介绍一些可以配置以控制模型大小的参数。
 
-## 宏配置
-<a id="macro-configuration" class="xliff"></a>
+## <a name="macro-configuration"></a>宏配置
 如果使用的是 **序列化程序** 库，那么可在 azure-c-shared-utility 库中找到要注意的 SDK 的重要组成部分。
 如果使用 --recursive 选项从 GitHub 中克隆了 Azure-iot-sdk-c 存储库，那么可在此处找到此共享的实用程序库：
 
@@ -625,8 +617,7 @@ WITH_DATA(int, MyData)
 
 到目前为止，我们介绍了你在使用 **序列化程序** 库编写代码时需要知道的几乎所有内容。 结束前，来回顾下前面文章中可能感兴趣的一些主题。
 
-## 较低级别 API
-<a id="the-lower-level-apis" class="xliff"></a>
+## <a name="the-lower-level-apis"></a>较低级别 API
 
 这篇文章重点介绍的示例应用程序是 **simplesample\_amqp**。 此示例使用较高级别的（非“LL”）API 来发送事件和接收消息。 如果你使用这些 API，将运行后台线程来处理事件发送和消息接收。 不过，可以使用较低级别 (LL) API 以取消此后台线程，并在发送事件或接收来自云的消息时接管显式控制。
 
@@ -656,8 +647,7 @@ WITH_DATA(int, MyData)
 
 若要通过示例了解较低级别的 API 如何与**序列化程序**库配合使用，请参阅 **simplesample\_http** 应用程序。
 
-## 其他主题
-<a id="additional-topics" class="xliff"></a>
+## <a name="additional-topics"></a>其他主题
 
 值得一提的其他几个主题包括属性处理、使用替代设备凭据和配置选项。 这些主题均涵盖在 [前一篇文章](iot-hub-device-sdk-c-iothubclient.md)中。 重点在于，所有这些功能与**序列化程序**库配合使用的方式与和 **IoTHubClient** 库配合使用的方式相同。 例如，如果想要从模型将属性附加到事件，需要以前面所述的相同方式，使用 **IoTHubMessage\_Properties** 和 **Map**\_**AddorUpdate**：
 
@@ -689,8 +679,7 @@ serializer_deinit();
 
 除此之外，上面列出的所有其他功能在**序列化程序**库中的运行方式均与在 **IoTHubClient** 库中的运行方式相同。 有关这些主题中任何一个主题的详细信息，请参阅本系列教程中的[前一篇文章](./iot-hub-device-sdk-c-iothubclient.md)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 本文详细介绍了**适用于 C 语言的 Azure IoT 设备 SDK** 中包含的**序列化程序**库的独特方面。通过文中提供的信息，你应该能充分了解如何使用模型来发送事件和接收来自 IoT 中心的消息。
 

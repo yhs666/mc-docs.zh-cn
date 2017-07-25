@@ -16,8 +16,7 @@
 
 6. 单击“创建” 。 系统现已创建命名空间并已将其启用。 您可能需要等待几分钟，因为系统将为您的帐户配置资源。
 
-### 获取管理凭据
-<a id="obtain-the-management-credentials" class="xliff"></a>
+### <a name="obtain-the-management-credentials"></a>获取管理凭据
 
 1. 在命名空间列表中，单击新建的命名空间名称。
 

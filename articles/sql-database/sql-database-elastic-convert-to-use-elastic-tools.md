@@ -1,40 +1,41 @@
 ---
-title: "迁移要扩展的现有数据库 | Microsoft Docs"
+title: "迁移要扩大的现有数据库 | Azure"
 description: "通过创建分片映射管理器来转换分片数据库，以使用弹性数据库工具"
 services: sql-database
 documentationcenter: 
-author: ddove
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: 
 ms.assetid: 8c851d8e-8fd5-4327-89c1-9178b20ddd69
 ms.service: sql-database
+ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 10/24/2016
+origin.date: 10/24/2016
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: b40fc20c31e4feda743e4e17ed53ba73ec2aeb7b
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 3f73d27fbabbb58be1e92b39f20c97987ff85d89
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>迁移要扩展的现有数据库
-
-使用 Azure SQL 数据库数据库工具（例如[弹性数据库客户端库](./sql-database-elastic-database-client-library.md)）轻松管理现有的扩展共享数据库。 必须先转换现有数据库集，以使用[分片映射管理器](./sql-database-elastic-scale-shard-map-management.md)。 
+使用 Azure SQL 数据库数据库工具（例如[弹性数据库客户端库](sql-database-elastic-database-client-library.md)）轻松管理现有的扩展共享数据库。 必须先转换现有数据库集，以使用[分片映射管理器](sql-database-elastic-scale-shard-map-management.md)。 
 
 ## <a name="overview"></a>概述
 迁移现有的分片数据库： 
 
-1. 准备[分片映射管理器数据库](./sql-database-elastic-scale-shard-map-management.md)。
+1. 准备[分片映射管理器数据库](sql-database-elastic-scale-shard-map-management.md)。
 2. 创建分片映射。
 3. 准备各个分片。  
 4. 将映射添加到分片映射。
 
 可使用 [.NET Framework 客户端库](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)或者 [Azure SQL DB - 弹性数据库工具脚本](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)中提供的 PowerShell 脚本来实现这些技巧。 以下示例使用 PowerShell 脚本。
 
-有关 ShardMapManager 的详细信息，请参阅[分片映射管理](./sql-database-elastic-scale-shard-map-management.md)。 有关弹性数据库工具的概述，请参阅[弹性数据库功能概述](./sql-database-elastic-scale-introduction.md)。
+有关 ShardMapManager 的详细信息，请参阅[分片映射管理](sql-database-elastic-scale-shard-map-management.md)。 有关弹性数据库工具的概述，请参阅[弹性数据库功能概述](sql-database-elastic-scale-introduction.md)。
 
 ## <a name="prepare-the-shard-map-manager-database"></a>准备分片映射管理器数据库
 分片映射管理器是一个特殊的数据库，其中包含用于管理已扩展数据库的数据。 可以使用现有数据库，或创建新的数据库。 请注意：用作分片映射管理器的数据库应该是与分片不同的数据库。 另请注意：PowerShell 脚本不会为你创建该数据库。 
@@ -66,7 +67,7 @@ $ShardMapManager = Get-ShardMapManager -UserName '<user_name>'
 ## <a name="step-2-create-the-shard-map"></a>第 2 步：创建分片映射
 必须选择要创建的分片映射类型。 选择取决于数据库架构： 
 
-1. 每个数据库一个租户（有关术语，请参阅[词汇表](./sql-database-elastic-scale-glossary.md)。） 
+1. 每个数据库一个租户（有关术语，请参阅[词汇表](sql-database-elastic-scale-glossary.md)。） 
 2. 每个数据库多个租户（两种类型）：
     1. 列表映射
     2. 范围映射
@@ -138,7 +139,7 @@ Add-ListMapping
 ```
 
 ### <a name="option-2-map-the-data-for-a-range-mapping"></a>选项 2：为范围映射映射数据
-添加所有租户 ID 范围的范围映射 – 数据库关联：
+添加所有租户 ID 范围的范围映射 - 数据库关联：
 
 ```
 # Create the mappings and associate it with the new shards 
@@ -164,18 +165,19 @@ Get-Mappings -ShardMap $ShardMap
 ```
 
 ## <a name="summary"></a>摘要
-完成设置后，便可以开始使用弹性数据库客户端库。 还可以使用[数据依赖型路由](./sql-database-elastic-scale-data-dependent-routing.md)和[多分片查询](./sql-database-elastic-scale-multishard-querying.md)。
+完成设置后，便可以开始使用弹性数据库客户端库。 还可以使用[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)和[多分片查询](sql-database-elastic-scale-multishard-querying.md)。
 
 ## <a name="next-steps"></a>后续步骤
 从 [Azure SQL DB-Elastic Database tools sripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)（Azure SQL DB - 弹性数据库工具脚本）获取 PowerShell 脚本。
 
 GitHub 上也提供了这些工具： [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools)。
 
-使用拆分/合并工具在多租户模型与单租户模型之间来回移动数据。 请参阅[拆分合并工具](./sql-database-elastic-scale-get-started.md)。
+使用拆分/合并工具在多租户模型与单租户模型之间来回移动数据。 请参阅[拆分合并工具](sql-database-elastic-scale-get-started.md)。
 
 ## <a name="additional-resources"></a>其他资源
-有关多租户软件即服务 (SaaS) 数据库应用程序的常见数据体系结构模式的信息，请参阅[包含 Azure SQL 数据库的多租户 SaaS 应用程序的设计模式](./sql-database-design-patterns-multi-tenancy-saas-applications.md)。
+有关多租户软件即服务 (SaaS) 数据库应用程序的常见数据体系结构模式的信息，请参阅[包含 Azure SQL 数据库的多租户 SaaS 应用程序的设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
 
+如有问题，请在 [SQL 数据库论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=ssdsgetstarted)上联系我们。
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png
 [2]: ./media/sql-database-elastic-convert-to-use-elastic-tools/rangemapping.png

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 01/30/2017
 ms.date: 03/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: b0d8975e2fdf640cf47929a1fa8f475aa3c14d1b
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 7de07195dcf334587c7d5954acee30e43470657a
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="create-a-virtual-network-classic-with-a-netcfg-file-using-the-azure-classic-management-portal"></a>在 Azure 经典管理门户中使用 netcfg 文件创建虚拟网络（经典）
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]

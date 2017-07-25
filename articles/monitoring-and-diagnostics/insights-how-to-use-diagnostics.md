@@ -1,28 +1,29 @@
 ---
 title: "在 Azure 中启用监视和诊断 | Azure"
 description: "了解如何在 Azure 中为资源设置诊断。"
-authors: rboucher
-manager: 
+author: rboucher
+manager: carolz
 editor: 
 services: monitoring-and-diagnostics
-documentationCenter: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+ms.assetid: af1947a9-c211-4aa1-8924-880a86240be4
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/08/2015
+origin.date: 06/06/2017
 ms.author: v-yiso
 ms.date: 10/17/2016
-ms.openlocfilehash: 44e50080ca9c6567b190d46aff203f3e8c44dfc1
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 0b50a2d36ec5a076bb1c48219e62312a20e757a1
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="enable-monitoring-and-diagnostics"></a>启用监视和诊断
 
-在 [Azure 门户](https://portal.azure.cn)中，可以配置有关资源的丰富和频繁的监视和诊断数据。 还可以使用 [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931932.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) 以编程方式配置诊断。
+在 [Azure 门户](https://portal.azure.cn)中，可以配置有关资源的丰富和频繁的监视和诊断数据。 还可以使用 [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931932.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) 以编程方式配置诊断。
 
 Azure 中的诊断、监视和指标数据会保存到所选择的存储帐户中。 这使你可以使用所需的任何工具将数据从存储浏览器读取到 Power BI，再到第三方工具。
 
@@ -55,15 +56,15 @@ Azure 中的诊断、监视和指标数据会保存到所选择的存储帐户�
 ### <a name="categories-of-data-collection-for-virtual-machines"></a>虚拟机的数据收集类别
 对于虚拟机，所有指标和日志都会按一分钟间隔进行记录，因此你可以始终获得有关计算机的最新信息。
 
-- 基本指标：有关虚拟机的运行状况指标（如处理器和内存） 
-- 网络和 web 指标：有关网络连接和 Web 服务的指标
-- .NET 指标：有关虚拟机上运行的 .NET 和 ASP.NET 应用程序的指标
-- SQL 指标：如果在运行 Microsoft SQL Service，这些是其性能指标
-- Windows 事件应用程序日志：发送到应用程序通道的 Windows 事件
-- Windows 事件系统日志：发送到系统通道的 Windows 事件。 这还包括来自 [Microsoft 反恶意软件](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409)的所有事件。 
-- Windows 事件安全日志：发送到安全通道的 Windows 事件
-- 诊断基础结构日志：有关诊断收集基础结构的日志记录
-- IIS 日志：有关 IIS 服务器的日志
+* 基本指标：有关虚拟机的运行状况指标（如处理器和内存）
+* 网络和 web 指标：有关网络连接和 Web 服务的指标
+* .NET 指标：有关虚拟机上运行的 .NET 和 ASP.NET 应用程序的指标
+* SQL 指标：如果在运行 Microsoft SQL Service，这些是其性能指标
+* Windows 事件应用程序日志：发送到应用程序通道的 Windows 事件
+* Windows 事件系统日志：发送到系统通道的 Windows 事件。 这还包括来自 [Microsoft 反恶意软件](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409)的所有事件。
+* Windows 事件安全日志：发送到安全通道的 Windows 事件
+* 诊断基础结构日志：有关诊断收集基础结构的日志记录
+* IIS 日志：有关 IIS 服务器的日志
 
 请注意，当前不支持 Linux 的某些分发，并且必须在虚拟机上安装来宾代理。
 
@@ -72,3 +73,4 @@ Azure 中的诊断、监视和指标数据会保存到所选择的存储帐户�
 * [监视服务指标](./insights-how-to-customize-monitoring.md)，确保服务可用且响应迅速。
 * [自动缩放实例计数](./insights-how-to-scale.md)以确保服务基于需求进行缩放。
 * [查看事件和审核日志](./insights-debugging-with-events.md) 以了解在服务中发生的所有事件。
+* [跟踪服务运行状况](./monitoring-service-notifications.md)以在 Azure 遇到性能下降或服务中断时及时发现。

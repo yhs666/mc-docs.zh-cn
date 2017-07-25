@@ -9,16 +9,14 @@ Azure 是一个实现开发/测试或概念证明配置的极好平台，因为�
 > 
 > 
 
-## 1.命名约定
-<a id="1-naming-conventions" class="xliff"></a>
+## <a name="1-naming-conventions"></a>1.命名约定
 在 Azure 中创建任何项目之前，你应该已确定合适的命名约定。 命名约定可确保所有资源都具有可预测的名称，这有助于减轻与这些资源的管理相关联的管理负担。
 
 你可以选择遵循一组为你的整个组织或特定 Azure 订阅或帐户定义的特定命名约定。 虽然组织内的个人在使用 Azure 资源时，在团队需要在 Azure 上处理项目时很容易建立隐式规则，但该模型可伸缩性差。
 
 你们应事先就命名约定集达成一致意见。 对于超越构成这些约定的规则集的命名约定有一些注意事项。
 
-### 词缀
-<a id="affixes" class="xliff"></a>
+### <a name="affixes"></a>词缀
 创建特定资源时，Azure 使用某些默认设置来简化与这些资源关联的资源的管理。 例如，在为新的云服务创建第一个虚拟机时，Azure 经典管理门户会尝试将虚拟机的名称用于虚拟机的新的云服务名称。
 
 因此，它对确定需要词缀来标识该类型的资源的类型是有利的。 此外，还明确指定词缀是否在以下位置：
@@ -43,12 +41,10 @@ Azure 是一个实现开发/测试或概念证明配置的极好平台，因为�
 
 建立命名约定时，请确保这些命名约定明确说明要对每种类型的资源使用哪些词缀，以及在哪个位置使用（前缀还是后缀）。
 
-### 日期
-<a id="dates" class="xliff"></a>
+### <a name="dates"></a>日期
 通常情况下，从资源名称确定创建日期很重要。 我们建议使用 YYYYMMDD 日期格式。 此格式可确保不仅会记录完整的日期，而且名称只是日期不同的两个资源也会同时按字母和按时间顺序进行排序。
 
-### 命名资源
-<a id="naming-resources" class="xliff"></a>
+### <a name="naming-resources"></a>命名资源
 你应该在命名约定中定义每种类型的资源，其中应包含定义如何为创建的每个资源分配名称的规则。 这些规则应适用于所有类型的资源，例如：
 
 * 订阅
@@ -66,30 +62,26 @@ Azure 是一个实现开发/测试或概念证明配置的极好平台，因为�
 
 为了确保名称可以提供足够的信息来确定它所引用的资源，你应该使用描述性名称。
 
-### 计算机名称
-<a id="computer-names" class="xliff"></a>
+### <a name="computer-names"></a>计算机名称
 当管理员创建虚拟机时，Azure 将要求他们提供至多为 15 个字符的虚拟机名称。 Azure 使用虚拟机名称作为 Azure 虚拟机资源名称。 Azure 使用同一名称作为虚拟机上安装的操作系统的计算机名称。 但是，这些名称可能并非始终相同。
 
 如果使用已包含操作系统的 .vhd 映像文件创建虚拟机，Azure 中的虚拟机名称可能不同于虚拟机的操作系统计算机名称。 这种情况可能会增加虚拟机管理难度，因此不建议使用这种方法。 分配给 Azure 虚拟机资源的名称可以与分配给该虚拟机的操作系统的计算机名称相同。
 
 我们建议 Azure 虚拟机名称应该与基础操作系统计算机名称相同。 因此，请遵循 [Microsoft NetBIOS 计算机命名约定](https://support.microsoft.com/kb/188997/)中所述的 NetBIOS 命名规则。
 
-### 存储帐户名称
-<a id="storage-account-names" class="xliff"></a>
+### <a name="storage-account-names"></a>存储帐户名称
 存储帐户具有适用于其名称的特殊规则。 你只能使用小写字母和数字。 有关详细信息，请参阅[创建存储帐户](../articles/storage/storage-create-storage-account.md#create-a-storage-account)。 此外，存储帐户名称与 core.chinacloudapi.cn 组合在一起应该是一个全局有效的唯一 DNS 名称。 例如，如果存储帐户名为 mystorageaccount，则下面生成的 DNS 名称应该是唯一的：
 
 * mystorageaccount.blob.core.chinacloudapi.cn
 * mystorageaccount.table.core.chinacloudapi.cn
 * mystorageaccount.queue.core.chinacloudapi.cn
 
-### Azure 构建基块名称
-<a id="azure-building-block-names" class="xliff"></a>
+### <a name="azure-building-block-names"></a>Azure 构建基块名称
 Azure 构建基块是 Azure 通常为利用 PaaS 功能的应用程序提供的应用程序级别服务，虽然 IaaS 资源可以利用一些诸如 SQL 数据库、流量管理器等工具。
 
 这些服务依赖于已在 Azure 中创建并注册的一组项目。 命名约定中还需要考虑这些项。
 
-### 实现准则会扼要重述命名约定
-<a id="implementation-guidelines-recap-for-naming-conventions" class="xliff"></a>
+### <a name="implementation-guidelines-recap-for-naming-conventions"></a>实现准则会扼要重述命名约定
 决策：
 
 * 你的 Azure 资源的命名约定是什么？
@@ -98,8 +90,7 @@ Azure 构建基块是 Azure 通常为利用 PaaS 功能的应用程序提供的�
 
 * 根据 Azure 资源的词缀、层次结构、字符串值和其他策略定义命名约定。
 
-## 2.订阅和帐户
-<a id="2-subscriptions-and-accounts" class="xliff"></a>
+## <a name="2-subscriptions-and-accounts"></a>2.订阅和帐户
 要使用 Azure，需要一个或多个 Azure 订阅。 云服务或虚拟机等资源存在于这些订阅的上下文中。
 
 * 企业客户通常具有企业许可登记表，该表是层次结构中的最顶层资源并与一个或多个帐户相关联。
@@ -124,8 +115,7 @@ Azure 构建基块是 Azure 通常为利用 PaaS 功能的应用程序提供的�
 
 Azure.cn 通过可下载的文件为企业协议中的单个帐户或所有帐户提供详细的计费信息。 你可以通过合适的方式处理此文件，例如，使用 Microsoft Excel 来处理。 此过程将引入数据、对将多个级别的层次结构编码为单独列的资源进行分区，并使用数据透视表或 PowerPivot 提供动态报告功能。
 
-### 实现准则会扼要重述订阅和帐户
-<a id="implementation-guidelines-recap-for-subscriptions-and-accounts" class="xliff"></a>
+### <a name="implementation-guidelines-recap-for-subscriptions-and-accounts"></a>实现准则会扼要重述订阅和帐户
 决策：
 
 * 需要使用哪一组订阅和帐户来托管 IT 工作负荷或基础结构？
@@ -134,8 +124,7 @@ Azure.cn 通过可下载的文件为企业协议中的单个帐户或所有帐�
 
 * 使用命名约定创建订阅和帐户集。
 
-## 3.存储
-<a id="3-storage" class="xliff"></a>
+## <a name="3-storage"></a>3.存储
 Azure 存储是许多 Azure 解决方案不可或缺的组成部分。 Azure 存储提供的服务可用于存储文件数据、非结构化数据和消息，该存储空间也是为虚拟机提供支持的基础结构的一部分。
 
 Azure 提供两种类型的存储帐户。 使用标准存储帐户可以访问 Blob 存储（用于存储 Azure 虚拟机磁盘）、表存储、队列存储和文件存储。 高级存储专为高性能应用程序（例如 AlwaysOn 群集中的 SQL Server）设计，当前仅支持 Azure 虚拟机磁盘。
@@ -146,8 +135,7 @@ Azure 使用一个操作系统磁盘、一个临时磁盘和零个或更多可�
 
 由于 blob 的最大大小为 1024 千兆字节 (GB)，并且必须包含 VHD 文件的元数据（页脚），因此操作系统磁盘和数据磁盘的最大大小为 1023 GB（1 GB 为 1024<sup>3</sup> 字节）。 你可以通过在 Windows 中实现磁盘条带化来超越此限制。
 
-### 条带化的磁盘
-<a id="striped-disks" class="xliff"></a>
+### <a name="striped-disks"></a>条带化的磁盘
 除了提供相关功能来创建大于 1023 GB 的磁盘外，在许多情况下，对数据磁盘使用条带化还可增强性能，因为允许多个 blob 支持单个卷的存储。 使用条带化时，将会并行处理针对单个逻辑磁盘写入和读取数据所需的 I/O。
 
 Azure 将对可用的数据磁盘量和带宽加以限制，具体取决于虚拟机大小。 有关详细信息，请参阅[虚拟机大小](../articles/virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -162,20 +150,17 @@ Azure 将对可用的数据磁盘量和带宽加以限制，具体取决于虚�
 
 有关详细信息，请参阅[存储空间 - 专为提高性能设计](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx)。
 
-### 多个存储帐户
-<a id="multiple-storage-accounts" class="xliff"></a>
+### <a name="multiple-storage-accounts"></a>多个存储帐户
 使用多个存储帐户支持与多个虚拟机关联的磁盘，可确保这些磁盘的聚合 I/O 远低于这些存储帐户每个的可伸缩性目标。
 
 我们建议你从为每个存储帐户部署一个虚拟机开始。
 
-### 存储布局设计
-<a id="storage-layout-design" class="xliff"></a>
+### <a name="storage-layout-design"></a>存储布局设计
 为了实现这些策略，以便为虚拟机的磁盘子系统实现良好性能，IT 工作负荷或基础结构通常会利用多个存储帐户。 这些帐户托管多个 VHD blob。 在某些情况下，多个 blob 将关联到虚拟机中的单个卷。
 
 这种情况可能会增加管理任务的复杂性。 为存储设计有效的策略（包括基础磁盘和关联的 VHD blob 的相应命名）是关键。
 
-### 实现准则会扼要重述存储
-<a id="implementation-guidelines-recap-for-storage" class="xliff"></a>
+### <a name="implementation-guidelines-recap-for-storage"></a>实现准则会扼要重述存储
 决策：
 
 * 需要进行磁盘条带化以创建大于 500 千吉字节 (TB) 的磁盘吗？
@@ -186,8 +171,7 @@ Azure 将对可用的数据磁盘量和带宽加以限制，具体取决于虚�
 
 * 使用命名约定创建存储帐户集。 可以使用 Azure 门户、Azure 经典管理门户或 **New-AzureStorageAccount** PowerShell cmdlet。
 
-## 4.云服务
-<a id="4-cloud-services" class="xliff"></a>
+## <a name="4-cloud-services"></a>4.云服务
 云服务是 Azure 服务管理中的基本构建基块，同时用于 PaaS 和 IaaS 服务。 对于 PaaS，云服务表示其实例可以相互通信的角色关联。 云服务将关联到一个公共虚拟 IP (VIP) 地址和一个负载均衡器，后者将接受来自 Internet 的传入流量，并将该流量负载均衡到配置为接收该流量的角色。
 
 对于 IaaS，云服务提供类似的功能，虽然在大多数情况下，负载均衡器功能用于将流量转发到 Internet 上的特定 TCP 或 UDP 端口，再转发到该云服务中的多个虚拟机。
@@ -207,8 +191,7 @@ Azure 将公开云服务名称，因为这些名称会关联到域“chinaclouda
 
 Azure 订阅最多可以支持 200 个云服务。
 
-### 实现准则会扼要重述云服务
-<a id="implementation-guidelines-recap-for-cloud-services" class="xliff"></a>
+### <a name="implementation-guidelines-recap-for-cloud-services"></a>实现准则会扼要重述云服务
 决策：
 
 * 你需要使用哪一组云服务来托管你的 IT 工作负荷或基础结构？
@@ -217,14 +200,12 @@ Azure 订阅最多可以支持 200 个云服务。
 
 * 使用命名约定创建云服务集。 可以使用 Azure 经典管理门户或 **New-AzureService** PowerShell cmdlet。
 
-## 5.虚拟网络
-<a id="5-virtual-networks" class="xliff"></a>
+## <a name="5-virtual-networks"></a>5.虚拟网络
 下一个逻辑步骤是创建支持解决方案中的虚拟机之间的通信所需的虚拟网络。 虽然可以只在一个云服务中托管 IT 工作负荷的多个虚拟机，但是建议使用虚拟网络。
 
 虚拟网络是虚拟机的容器，你还可以为其指定子网、自定义寻址和 DNS 配置选项。 同一虚拟网络中的虚拟机可以直接与同一虚拟网络中的其他计算机通信，而不考虑它们属于哪个云服务。 在虚拟网络中，此通信将保持私有，而无需让通信通过公共终结点。 如果虚拟机已连接到公司网络，这种通信可通过 IP 地址进行，或按名称进行，使用虚拟网络中安装的 DNS 服务器进行，或在本地进行。
 
-### 站点连接
-<a id="site-connectivity" class="xliff"></a>
+### <a name="site-connectivity"></a>站点连接
 如果本地用户和计算机无需持续连接到 Azure 虚拟网络中的虚拟机，则可创建仅限云的虚拟网络。
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
@@ -245,8 +226,7 @@ Azure 订阅最多可以支持 200 个云服务。
 
 可以将仅限云的虚拟网络转换为跨界虚拟网络，但这很可能要求为虚拟网络地址空间、子网和使用 Azure 分配的静态 IP 地址（称为动态 IP (DIP)）的虚拟机重新编号。 因此，在创建虚拟网络前，请仔细考虑所需的虚拟网络类型（仅限云还是跨界）。
 
-### 子网
-<a id="subnets" class="xliff"></a>
+### <a name="subnets"></a>子网
 子网能够实现组织相关资源，以逻辑方式（例如，一个子网用于关联到同一个应用程序的虚拟机）或以物理方式（例如，每个云服务一个子网）或使用子网隔离技术以提高安全性。
 
 对于跨界虚拟网络，应使用用于本地资源的相同约定来设计子网，请记住： **Azure 始终使用每个子网的地址空间的前三个 IP 地址**。 若要确定子网所需的地址数，请计算你现在需要的虚拟机数，估计未来的增长，然后使用下表确定子网大小。
@@ -266,8 +246,7 @@ Azure 订阅最多可以支持 200 个云服务。
 
 如果你选择的子网大小太小，将需要对子网中的虚拟机进行重新编号和重新部署。
 
-### 实现准则会扼要重述虚拟网络
-<a id="implementation-guidelines-recap-for-virtual-networks" class="xliff"></a>
+### <a name="implementation-guidelines-recap-for-virtual-networks"></a>实现准则会扼要重述虚拟网络
 决策：
 
 * 需要使用哪种类型的虚拟网络来托管 IT 工作负荷或基础结构（仅限云还是跨界）？
@@ -280,16 +259,14 @@ Azure 订阅最多可以支持 200 个云服务。
 * 对于跨界虚拟网络，定义虚拟网络中的虚拟机需要访问的本地位置的本地网络地址空间集。
 * 使用命名约定创建虚拟网络。 可以使用 Azure 门户或 Azure 经典管理门户。
 
-## 6.可用性集
-<a id="6-availability-sets" class="xliff"></a>
+## <a name="6-availability-sets"></a>6.可用性集
 在 Azure PaaS 中，云服务包含执行应用程序代码的一个或多个角色。 角色可以拥有结构自动设置的一个或多个虚拟机实例。 在任何给定时间，Azure 都可以更新这些角色中的实例，但因为这些实例属于同一角色，所以 Azure 知道不能同时更新所有实例，以防止角色的服务中断。
 
 在 Azure IaaS 中，角色的概念并不重要，因为每个 IaaS 虚拟机表示包含单个实例的角色。 为了提示 Azure 不要同时关闭两个或更多关联的计算机（例如，为了对它们所在的节点进行操作系统更新），引入了可用性集的概念。 可用性集告知 Azure 不要同时关闭同一可用性集中的所有计算机，以防止服务中断。 可用性集的虚拟机成员具有 99.95% 的正常运行时间服务级别协议。
 
 可用性集必须是该解决方案的高可用性规划的一部分。 可用性集定义为单个云服务中具有相同可用性集名称的虚拟机集。 在创建云服务后，可以创建可用性集。
 
-### 实现准则会扼要重述可用性集
-<a id="implementation-guidelines-recap-for-availability-sets" class="xliff"></a>
+### <a name="implementation-guidelines-recap-for-availability-sets"></a>实现准则会扼要重述可用性集
 决策：
 
 * 你的 IT 工作负荷或基础结构中的各种角色和层需要多少可用性集？
@@ -298,8 +275,7 @@ Azure 订阅最多可以支持 200 个云服务。
 
 * 使用命名约定定义一组可用性集。 创建虚拟机时，你可以将该虚拟机关联到某个可用性集，也可以在创建虚拟机后将该虚拟机关联到某个可用性集。
 
-## 7.虚拟机
-<a id="7-virtual-machines" class="xliff"></a>
+## <a name="7-virtual-machines"></a>7.虚拟机
 在 Azure PaaS 中，Azure 管理虚拟机及其关联的磁盘。 你必须创建并命名云服务和角色，然后 Azure 将创建关联到这些角色的实例。 对于 Azure IaaS，由你负责为云服务、虚拟机和关联的磁盘提供名称。
 
 为了减少管理负担，Azure 经典管理门户将使用计算机名称作为关联的云服务的默认名称建议（如果客户在虚拟机创建向导中选择创建新的云服务）。
@@ -308,8 +284,7 @@ Azure 订阅最多可以支持 200 个云服务。
 
 通常，磁盘数将大大多于虚拟机数。 你在操作虚拟机时应小心以防止出现孤立的磁盘。 此外，还可以删除磁盘，而不会删除支持的 blob。 如果出现这种情况，该 blob 将一直保留在存储帐户中，直到被手动删除为止。
 
-### 实现准则会扼要重述虚拟机
-<a id="implementation-guidelines-recap-for-virtual-machines" class="xliff"></a>
+### <a name="implementation-guidelines-recap-for-virtual-machines"></a>实现准则会扼要重述虚拟机
 决策：
 
 * 你需要为 IT 工作负荷或基础结构提供多少个虚拟机？
@@ -319,8 +294,7 @@ Azure 订阅最多可以支持 200 个云服务。
 * 使用命名约定定义每个虚拟机名称。
 * 使用 Azure 门户、Azure 经典管理门户、**New-AzureVM** PowerShell cmdlet、Azure CLI，或使用 Resource Manager 模板创建虚拟机。
 
-## IT 工作负荷的示例：Contoso 财务分析引擎
-<a id="example-of-an-it-workload-the-contoso-financial-analysis-engine" class="xliff"></a>
+## <a name="example-of-an-it-workload-the-contoso-financial-analysis-engine"></a>IT 工作负荷的示例：Contoso 财务分析引擎
 Contoso Corporation 已使用最先进的专有算法开发了下一代财务分析引擎，以帮助实现将来的市场贸易。 他们想要将此引擎提供给其客户作为 Azure 中的一组服务器，其中包括：
 
 * 两个（最终会更多）在 Web 层中运行自定义 Web 服务的基于 IIS 的 Web 服务器
@@ -350,19 +324,16 @@ Contoso Corporation 已使用最先进的专有算法开发了下一代财务分
 * 可用性集使用 azfae-use-as-[角色]。
 * 虚拟机名称使用 azfae-use-vm-[vmname]。
 
-### Azure 订阅和帐户
-<a id="azure-subscriptions-and-accounts" class="xliff"></a>
+### <a name="azure-subscriptions-and-accounts"></a>Azure 订阅和帐户
 Contoso 使用名为“Contoso 企业订阅”的企业订阅来提供此 IT 工作负荷的计费。
 
-### 存储帐户
-<a id="storage-accounts" class="xliff"></a>
+### <a name="storage-accounts"></a>存储帐户
 Contoso 确定他们需要以下两个存储帐户：
 
 * **contosoazfaeusesawebapp** 用于 Web 服务器、应用程序服务器和域控制器及其额外的数据磁盘的标准存储
 * **contosoazfaeusesasqlclust** 用于 SQL Server 群集服务器及其额外的数据磁盘的高级存储
 
-### 包含子网的虚拟网络
-<a id="a-virtual-network-with-subnets" class="xliff"></a>
+### <a name="a-virtual-network-with-subnets"></a>包含子网的虚拟网络
 由于该虚拟网络不需要持续连接到 Contoso 本地网络，Contoso 决定选择仅限云的虚拟网络。
 
 他们通过 Azure 门户使用以下设置创建了仅限云的虚拟网络：
@@ -377,8 +348,7 @@ Contoso 确定他们需要以下两个存储帐户：
   * 名称：BackEnd
   * 地址空间：10.0.2.0/24
 
-### 可用性集
-<a id="availability-sets" class="xliff"></a>
+### <a name="availability-sets"></a>可用性集
 为了维护其财务分析引擎的所有四个层的高可用性，Contoso 决定使用四个可用性集：
 
 * **azfae-use-as-dc** 用于域控制器
@@ -388,8 +358,7 @@ Contoso 确定他们需要以下两个存储帐户：
 
 这些可用性集将随虚拟机一起创建。
 
-### 虚拟机
-<a id="virtual-machines" class="xliff"></a>
+### <a name="virtual-machines"></a>虚拟机
 Contoso 决定将以下名称用于其 Azure 虚拟机：
 
 * **azfae-use-vm-dc01** 用于第一个域控制器
@@ -416,8 +385,7 @@ Contoso 决定将以下名称用于其 Azure 虚拟机：
 * 用于从 Web 服务器到应用程序服务器的未加密 Web 流量的内部负载均衡集
 * 单个资源组
 
-## 其他资源
-<a id="additional-resources" class="xliff"></a>
+## <a name="additional-resources"></a>其他资源
 [Azure 订阅和服务限制、配额和约束](../articles/azure-subscription-service-limits.md#storage-limits)
 
 [虚拟机的大小](../articles/virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

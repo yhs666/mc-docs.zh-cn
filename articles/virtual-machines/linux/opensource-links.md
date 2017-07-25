@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 06/27/2016
 ms.date: 12/12/2016
 ms.author: v-dazen
-ms.openlocfilehash: b52ca7d7b2ece462de5fe51ad3fbefa4974c54ed
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: b59d164a7fb362e51ad6c36ed00b3487c06bb086
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="linux-and-open-source-computing-on-azure"></a>Azure 上的 Linux 和开源计算
 查找在经典部署模型中创建和管理基于 Linux 的虚拟机所需的所有文档。
@@ -48,6 +48,9 @@ ms.lasthandoff: 06/23/2017
 * [MySQL 群集](classic/mysql-cluster.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [在 Azure 上将 Cassandra 与 Linux 一起运行以及通过 Node.js 对其进行访问](classic/cassandra-nodejs.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [创建多主的 MariaDb 群集](classic/mariadb-mysql-cluster.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+### <a name="docker"></a>Docker
+* [从 Azure 命令行接口 (Azure CLI) 使用 Docker VM 扩展](classic/cli-use-docker.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [如何在 Azure 上使用 docker-machine](docker-machine.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="ubuntu"></a>Ubuntu
 * [如何：MySQL 群集](classic/mysql-cluster.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
@@ -122,7 +125,7 @@ ms.lasthandoff: 06/23/2017
 
 ### <a name="big-data"></a>大数据
 * [在 Azure Linux VM 上安装 Hadoop](http://blogs.msdn.com/b/benjguin/archive/2013/04/05/how-to-install-hadoop-on-windows-azure-linux-virtual-machines.aspx)
-* [Azure HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+* [Azure HDInsight](/hdinsight/)
 
 ### <a name="relational-database"></a>关系数据库
 * [Azure 中的 MySQL 高可用性体系结构](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)

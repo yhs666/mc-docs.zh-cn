@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用 Azure PowerShell 管理 Azure Redis 缓存
-<a id="manage-azure-redis-cache-with-azure-powershell" class="xliff"></a>
+# <a name="manage-azure-redis-cache-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Redis 缓存
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-howto-manage-redis-cache-powershell.md)
 > * [Azure CLI](cache-manage-cli.md)
@@ -35,8 +34,7 @@ ms.lasthandoff: 07/14/2017
 
 若要深入了解经典部署模型，请参阅 [Azure Resource Manager 与经典部署：了解部署模型和资源状态](../azure-resource-manager/resource-manager-deployment-model.md#classic-deployment-characteristics)。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 如果已安装 Azure PowerShell，则必须确保安装的是 Azure PowerShell 版本 1.0.0 或更高版本。 可以使用此命令在 Azure PowerShell 命令提示符下查看已安装的 Azure PowerShell 版本。
 
     Get-Module azure | format-table version
@@ -69,8 +67,7 @@ ms.lasthandoff: 07/14/2017
 
     Get-Help New-AzureRmRedisCache -Detailed
 
-### Azure Redis 缓存 PowerShell 使用的属性
-<a id="properties-used-for-azure-redis-cache-powershell" class="xliff"></a>
+### <a name="properties-used-for-azure-redis-cache-powershell"></a>Azure Redis 缓存 PowerShell 使用的属性
 下表包含使用 Azure PowerShell 创建和管理 Azure Redis 缓存实例时常用的参数的属性和说明。
 
 | 参数 | 说明 | 默认 |
@@ -89,8 +86,7 @@ ms.lasthandoff: 07/14/2017
 | VirtualNetwork |在 VNET 中托管缓存时，指定要在其中部署缓存的 VNET 的资源 ID。 | |
 | KeyType |指定续订访问密钥时要重新生成哪个访问密钥。 有效值为：Primary、Secondary | |
 
-### RedisConfiguration 属性
-<a id="redisconfiguration-properties" class="xliff"></a>
+### <a name="redisconfiguration-properties"></a>RedisConfiguration 属性
 | 属性 | 说明 | 定价层 |
 | --- | --- | --- |
 | rdb-backup-enabled |是否已启用 [Redis 数据暂留](cache-how-to-premium-persistence.md) |仅限高级版 |
@@ -106,8 +102,7 @@ ms.lasthandoff: 07/14/2017
 | zset-max-ziplist-value |为较小的聚合数据类型配置 [内存优化](http://redis.io/topics/memory-optimization) |标准版和高级版 |
 | 数据库 |配置数据库的数目。 该属性只能在创建缓存时配置。 |标准版和高级版 |
 
-## 创建 Redis 缓存
-<a id="to-create-a-redis-cache" class="xliff"></a>
+## <a name="to-create-a-redis-cache"></a>创建 Redis 缓存
 使用 [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet 创建新的 Azure Redis 缓存实例。
 
 > [!IMPORTANT]
@@ -204,16 +199,14 @@ ms.lasthandoff: 07/14/2017
 
 <a name="databases"></a>
 
-## 在缓存创建过程中配置数据库设置
-<a id="to-configure-the-databases-setting-during-cache-creation" class="xliff"></a>
+## <a name="to-configure-the-databases-setting-during-cache-creation"></a>在缓存创建过程中配置数据库设置
 `databases` 设置只能在缓存创建过程中配置。 下面的示例使用 [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet 创建具有 48 个数据库的高级 P3 (26 GB) 缓存。
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "China North" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 
 有关 `databases` 属性的详细信息，请参阅[默认 Azure Redis 缓存服务器配置](cache-configure.md#default-redis-server-configuration)。 有关使用 [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet 创建缓存的详细信息，请参阅前面的[创建 Redis 缓存](#to-create-a-redis-cache)部分。
 
-## 更新 Redis 缓存
-<a id="to-update-a-redis-cache" class="xliff"></a>
+## <a name="to-update-a-redis-cache"></a>更新 Redis 缓存
 使用 [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) cmdlet 更新 Azure Redis 缓存实例。
 
 若要查看 `Set-AzureRmRedisCache` 的可用参数列表及其说明，请运行以下命令。
@@ -278,8 +271,7 @@ ms.lasthandoff: 07/14/2017
 
 <a name="scale"></a>
 
-## 缩放 Redis 缓存
-<a id="to-scale-a-redis-cache" class="xliff"></a>
+## <a name="to-scale-a-redis-cache"></a>缩放 Redis 缓存
 修改 `Size`、`Sku` 或 `ShardCount` 属性时，可以使用 `Set-AzureRmRedisCache` 来缩放 Azure Redis 缓存实例。 
 
 > [!NOTE]
@@ -332,8 +324,7 @@ ms.lasthandoff: 07/14/2017
 
     Set-AzureRmRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
 
-## 获取有关 Redis 缓存的信息
-<a id="to-get-information-about-a-redis-cache" class="xliff"></a>
+## <a name="to-get-information-about-a-redis-cache"></a>获取有关 Redis 缓存的信息
 可以使用 [Get-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634514.aspx) cmdlet 检索有关缓存的信息。
 
 若要查看 `Get-AzureRmRedisCache`的可用参数列表及其说明，请运行以下命令。
@@ -409,8 +400,7 @@ ms.lasthandoff: 07/14/2017
     TenantSettings     : {}
     ShardCount         :
 
-## 检索 Redis 缓存的访问密钥
-<a id="to-retrieve-the-access-keys-for-a-redis-cache" class="xliff"></a>
+## <a name="to-retrieve-the-access-keys-for-a-redis-cache"></a>检索 Redis 缓存的访问密钥
 若要检索缓存的访问密钥，可以使用 [Get AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634516.aspx) cmdlet。
 
 若要查看 `Get-AzureRmRedisCacheKey`的可用参数列表及其说明，请运行以下命令。
@@ -449,8 +439,7 @@ ms.lasthandoff: 07/14/2017
     PrimaryKey   : b2wdt43sfetlju4hfbryfnregrd9wgIcc6IA3zAO1lY=
     SecondaryKey : ABhfB757JgjIgt785JgKH9865eifmekfnn649303JKL=
 
-## 重新生成 Redis 缓存的访问密钥
-<a id="to-regenerate-access-keys-for-your-redis-cache" class="xliff"></a>
+## <a name="to-regenerate-access-keys-for-your-redis-cache"></a>重新生成 Redis 缓存的访问密钥
 若要重新生成缓存的访问密钥，可以使用 [New-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634512.aspx) cmdlet。
 
 若要查看 `New-AzureRmRedisCacheKey` 的可用参数列表及其说明，请运行以下命令。
@@ -499,8 +488,7 @@ ms.lasthandoff: 07/14/2017
     PrimaryKey   : b2wdt43sfetlju4hfbryfnregrd9wgIcc6IA3zAO1lY=
     SecondaryKey : c53hj3kh4jhHjPJk8l0jji785JgKH9865eifmekfnn6=
 
-## 删除 Redis 缓存
-<a id="to-delete-a-redis-cache" class="xliff"></a>
+## <a name="to-delete-a-redis-cache"></a>删除 Redis 缓存
 若要删除 Redis 缓存，请使用 [Remove-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634515.aspx) cmdlet。
 
 若要查看 `Remove-AzureRmRedisCache`的可用参数列表及其说明，请运行以下命令。
@@ -547,8 +535,7 @@ ms.lasthandoff: 07/14/2017
     Are you sure you want to remove redis cache 'myCache'?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
-## 导入 Redis 缓存
-<a id="to-import-a-redis-cache" class="xliff"></a>
+## <a name="to-import-a-redis-cache"></a>导入 Redis 缓存
 你可以使用 `Import-AzureRmRedisCache` cmdlet 将数据导入 Azure Redis 缓存实例。
 
 > [!IMPORTANT]
@@ -604,8 +591,7 @@ ms.lasthandoff: 07/14/2017
 
     PS C:\>Import-AzureRmRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -Files @("https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainername/blobname?sv=2015-04-05&sr=b&sig=caIwutG2uDa0NZ8mjdNJdgOY8%2F8mhwRuGNdICU%2B0pI4%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwd") -Force
 
-## 导出 Redis 缓存
-<a id="to-export-a-redis-cache" class="xliff"></a>
+## <a name="to-export-a-redis-cache"></a>导出 Redis 缓存
 你可以使用 `Export-AzureRmRedisCache` cmdlet 将数据从 Azure Redis 缓存实例导出。
 
 > [!IMPORTANT]
@@ -662,8 +648,7 @@ ms.lasthandoff: 07/14/2017
         -Container "https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer?sv=2015-04-05&sr=c&sig=HezZtBZ3DURmEGDduauE7
         pvETY4kqlPI8JCNa8ATmaw%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwdl"
 
-## 重新启动 Redis 缓存
-<a id="to-reboot-a-redis-cache" class="xliff"></a>
+## <a name="to-reboot-a-redis-cache"></a>重新启动 Redis 缓存
 你可以使用 `Reset-AzureRmRedisCache` cmdlet 重新启动 Azure Redis 缓存实例。
 
 > [!IMPORTANT]
@@ -719,8 +704,7 @@ ms.lasthandoff: 07/14/2017
         PS C:\>Reset-AzureRmRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -RebootType "AllNodes"
         -Force
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 若要了解有关将 Windows PowerShell 与 Azure 配合使用的详细信息，请参阅以下资源：
 
 * [MSDN 上的 Azure Redis 缓存 cmdlet 文档](https://msdn.microsoft.com/library/azure/mt634513.aspx)

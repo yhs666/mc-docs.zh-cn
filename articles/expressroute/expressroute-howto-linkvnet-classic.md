@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用 PowerShell 将虚拟网络连接到 ExpressRoute 线路（经典）
-<a id="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic" class="xliff"></a>
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 将虚拟网络连接到 ExpressRoute 线路（经典）
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure 门户](./expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](./expressroute-howto-linkvnet-arm.md)
@@ -39,8 +38,7 @@ ms.lasthandoff: 07/14/2017
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-## 配置先决条件
-<a id="configuration-prerequisites" class="xliff"></a>
+## <a name="configuration-prerequisites"></a>配置先决条件
 
 1. 需要 Azure PowerShell 模块的最新版本。 可以从 [Azure 下载页](https://www.azure.cn/downloads/)的 PowerShell 部分下载最新 PowerShell 模块。 有关如何配置计算机以使用 Azure PowerShell 模块的分步指导，请遵循[如何安装和配置 Azure PowerShell](../powershell-install-configure.md) 中的说明。 
 2. 在开始配置之前，需要查看[先决条件](./expressroute-prerequisites.md)、[路由要求](./expressroute-routing.md)和[工作流](./expressroute-workflows.md)。
@@ -52,15 +50,13 @@ ms.lasthandoff: 07/14/2017
 
 最多可以将 10 个虚拟网络链接到 ExpressRoute 线路。 所有虚拟网络都必须位于同一地缘政治区域。 如果已启用 ExpressRoute 高级外接程序，则可以将更多虚拟网络链接到 ExpressRoute 线路，或者链接其他地缘政治区域中的虚拟网络。 有关高级外接程序的更多详细信息，请参阅[常见问题解答](./expressroute-faqs.md)。
 
-## 将同一订阅中的虚拟网络连接到线路
-<a id="connect-a-virtual-network-in-the-same-subscription-to-a-circuit" class="xliff"></a>
+## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>将同一订阅中的虚拟网络连接到线路
 可以使用以下 cmdlet 将虚拟网络链接到 ExpressRoute 线路。 在运行 cmdlet 之前，请确保已创建虚拟网络网关并可将其用于进行链接。
 
     New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
     Provisioned
 
-## 将不同订阅中的虚拟网络连接到线路
-<a id="connect-a-virtual-network-in-a-different-subscription-to-a-circuit" class="xliff"></a>
+## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>将不同订阅中的虚拟网络连接到线路
 用户可以在多个订阅之间共享 ExpressRoute 线路。 下图是在多个订阅之间共享 ExpressRoute 线路的简单示意图。
 
 大型云中的每个较小云用于表示属于组织中不同部门的订阅。 组织内的每个部门可以使用自己的订阅部署其服务，但这些部门可以共享单个 ExpressRoute 线路以连接回本地网络。 单个部门（在此示例中为 IT 部门）可以拥有 ExpressRoute 线路。 组织内的其他订阅可以使用 ExpressRoute 线路。
@@ -72,14 +68,12 @@ ms.lasthandoff: 07/14/2017
 
 ![跨订阅连接](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
-### 管理
-<a id="administration" class="xliff"></a>
+### <a name="administration"></a>管理
 *线路所有者* 是在其中创建 ExpressRoute 线路的订阅的管理员/共同管理员。 线路所有者可以授权其他订阅的管理员/共同管理员（称为 *线路用户*）使用他们拥有的专用线路。 有权使用组织的 ExpressRoute 线路的线路用户，在获得授权后可以将其订阅中的虚拟网络链接到 ExpressRoute 线路。
 
 线路所有者有权随时修改和撤消授权。 撤消授权将导致从已撤消其访问权限的订阅中删除所有链接。
 
-### 线路所有者操作
-<a id="circuit-owner-operations" class="xliff"></a>
+### <a name="circuit-owner-operations"></a>线路所有者操作
 
 **创建授权**
 
@@ -138,8 +132,7 @@ ms.lasthandoff: 07/14/2017
     Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
 
 
-### 线路用户操作
-<a id="circuit-user-operations" class="xliff"></a>
+### <a name="circuit-user-operations"></a>线路用户操作
 
 **查看授权**
 
@@ -167,7 +160,6 @@ ms.lasthandoff: 07/14/2017
     ----- --------
     Provisioned SalesVNET1
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关 ExpressRoute 的详细信息，请参阅 [ExpressRoute 常见问题](./expressroute-faqs.md)。

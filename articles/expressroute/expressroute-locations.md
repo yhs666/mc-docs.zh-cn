@@ -2,34 +2,40 @@
 title: "ExpressRoute 位置 | Azure"
 description: "本文详细说明了服务的上市区域，以及如何连接到 Azure 区域。"
 services: expressroute
-documentationCenter: na
-authors: cherylmc
-manager: carmonm
+documentationcenter: na
+author: cherylmc
+manager: timlt
 editor: 
+ms.assetid: c878513a-d594-42ad-8b0e-403efd0c4b25
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2016
+origin.date: 06/13/2017
 ms.author: v-yiso
-ms.openlocfilehash: 0c70d40d2233654fd3ec4b7936b8b767f00a8619
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 
+ms.openlocfilehash: 3ebd17930d046f981a7f1405cb8a369131a0e7d8
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作伙伴和对等位置
+
+> [!div class="op_single_selector"]
+> * [按提供商列出的位置](./expressroute-locations.md)
+> * [按位置列出的提供商](./expressroute-locations-providers.md)
+
 
 本文中的表格提供有关 ExpressRoute 连接提供商、ExpressRoute 地理覆盖范围、通过 ExpressRoute 支持的 Microsoft 云服务以及 ExpressRoute 系统集成商 (SI) 的信息。
 
 ## <a name="partners"></a>ExpressRoute 连接服务提供商
-
 所有 Azure 区域和位置都支持 ExpressRoute。 以下地图提供了 Azure 区域和 ExpressRoute 位置的列表。 ExpressRoute 位置是指 Microsoft 与多个服务提供商对等互连的位置。
 
 ![位置地图][0]
 
-如果你至少与地缘政治区域内的一个 ExpressRoute 位置连接，你将有权访问地缘政治区域内所有区域中的 Azure 服务。 下表提供了地缘政治区域内 ExpressRoute 位置与 Azure 区域的映射。
+如果你至少与地缘政治区域内的一个 ExpressRoute 位置连接，你将有权访问地缘政治区域内所有区域中的 Azure 服务。
 
 ### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>地缘政治区域内 ExpressRoute 位置与 Azure 区域的映射。
 下表提供了地缘政治区域内 ExpressRoute 位置与 Azure 区域的映射。
@@ -57,9 +63,8 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="locations"></a>连接服务提供商位置
 
-> [!div class="op_single_selector"]
-[按提供商划分的位置](./expressroute-locations.md#connectivity-provider-locations)
-[按位置划分的提供商](./expressroute-locations-providers.md#locations)
+下表显示按服务提供商列出的位置。 若要按位置查看可用的提供商，请参阅[按位置列出的服务提供商](./expressroute-locations-providers.md#locations)。
+
 
 ### <a name="production-azure"></a>生产 Azure
 

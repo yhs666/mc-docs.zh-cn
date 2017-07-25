@@ -23,16 +23,14 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 帮帮我，我忘记了密码
-<a id="help-i-forgot-my-password" class="xliff"></a>
+# <a name="help-i-forgot-my-password"></a>帮帮我，我忘记了密码
 
 如果你是属于以下情形，则我们可以提供帮助
 
 - 你不确定如何访问帐户，也不记得密码
 - 没有指定密码，管理员将你引导到这里
 
-## 解锁我的帐户
-<a id="unlock-my-account" class="xliff"></a>
+## <a name="unlock-my-account"></a>解锁我的帐户
 
 如果你在这里是要解锁自己的帐户，请执行下面的步骤。 在下面的步骤 6 看到“选择新密码”时，即可解锁或更改密码，然后你的帐户就解锁了。
 
@@ -78,13 +76,11 @@ ms.lasthandoff: 07/13/2017
 
 使用此方法解锁或重置密码以后，你会收到一封确认此过程已完成的电子邮件，该邮件来自“Microsoft 在此代表你的组织”之类的帐户。 如果你收到这样的电子邮件，且未使用自助密码重置重新获取帐户访问权限，请与管理员联系。
 
-## 更改我的密码
-<a id="change-my-password" class="xliff"></a>
+## <a name="change-my-password"></a>更改我的密码
 
 如果你已经知道自己的密码，需要对其进行更改，则可尝试下述步骤
 
-### 从 Office 365 门户更改密码
-<a id="change-your-password-from-the-office-365-portal" class="xliff"></a>
+### <a name="change-your-password-from-the-office-365-portal"></a>从 Office 365 门户更改密码
 
 1. 单击右上角的个人资料，然后单击“查看帐户”
 2. **安全和隐私**
@@ -92,16 +88,14 @@ ms.lasthandoff: 07/13/2017
 4. 输入旧密码，然后设置并确认新密码
 5. **提交**
 
-### 从 Azure 访问面板更改密码
-<a id="change-your-password-from-the-azure-access-panel" class="xliff"></a>
+### <a name="change-your-password-from-the-azure-access-panel"></a>从 Azure 访问面板更改密码
 
 1. 使用现有密码登录到 [Azure 访问门户](https://manage.windowsazure.cn/)
 2. 单击右上角的帐户名，然后单击“更改密码”
 3. 输入旧密码，然后设置并确认新密码
 4. **提交**
 
-## 常见问题及其解决方法
-<a id="common-problems-and-their-solutions" class="xliff"></a>
+## <a name="common-problems-and-their-solutions"></a>常见问题及其解决方法
 
  以下是一些常见的错误案例及其解决方法：
 
@@ -112,8 +106,7 @@ ms.lasthandoff: 07/13/2017
 | 在输入我的用户 ID 后，出现了“我们无法验证你的帐户”错误 | 我们无法验证你的帐户 <br> <br> 如果你愿意，我们可以联系你所在组织的管理员为你重置密码。 | 之所以出现此消息，是因为已经为你启用了密码重置，但你并未注册使用此服务。 若要注册密码重置，请在重新获取帐户访问权限后转到 https://login.partner.microsoftonline.cn。 <br> <br> 若要重置密码，请单击“联系管理员”链接以向公司 IT 人员发送电子邮件。 |
 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 - [密码重置注册页](https://login.partner.microsoftonline.cn)
 - [密码重置门户](https://passwordreset.microsoftonline.com/)

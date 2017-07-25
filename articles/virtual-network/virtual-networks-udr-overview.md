@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 用户定义的路由和 IP 转发
-<a id="user-defined-routes-and-ip-forwarding" class="xliff"></a>
+# <a name="user-defined-routes-and-ip-forwarding"></a>用户定义的路由和 IP 转发
 
 在 Azure 中将虚拟机 (VM) 添加到虚拟网络 (VNet) 时，VM 能够自动通过网络进行相互通信。 你不需要指定网关，即使这些 VM 位于不同子网中。 如果有从 Azure 到你的数据中心的混合连接，这同样适用于从 VM 到公共 Internet 的通信，甚至还适用于到本地网络的通信。
 
@@ -51,8 +50,7 @@ ms.lasthandoff: 07/14/2017
 > 
 > 
 
-## 路由资源
-<a id="route-resource" class="xliff"></a>
+## <a name="route-resource"></a>路由资源
 数据包根据物理网络每个节点上定义的路由表，通过 TCP/IP 网络进行路由。 路由表是各个路由的集合，用于确定如何根据目标 IP 地址来转发数据包。 路由由以下项组成：
 
 | 属性 | 说明 | 约束 | 注意事项 |
@@ -69,16 +67,14 @@ ms.lasthandoff: 07/14/2017
 * Internet 是“Internet”
 * 无是“无”
 
-### 系统路由
-<a id="system-routes" class="xliff"></a>
+### <a name="system-routes"></a>系统路由
 对于在虚拟网络中创建的每个子网，都会自动与其中包含以下系统路由规则的路由表关联：
 
 * **本地 VNet 规则**：将为虚拟网络中的每个子网自动创建此规则。 它指定 VNet 中的 VM 之间存在直接链接，其间没有下一个跃点。
 * **本地规则**：此规则适用于要发送到本地地址范围的所有流量，并使用 VPN 网关作为下一跃点目标。
 * **Internet 规则**：此规则处理要发送到公共 Internet（地址前缀 0.0.0.0/0）的所有流量，并使用基础结构 Internet 网关作为要发送到 Internet 的所有流量的下一跃点。
 
-### 用户定义路由
-<a id="user-defined-routes" class="xliff"></a>
+### <a name="user-defined-routes"></a>用户定义路由
 对于大多数环境，仅需要 Azure 已定义的系统路由。 不过，你可能需要创建路由表，在特定情况下还要添加一个或多个路由，例如：
 
 * 强制通过本地网络以隧道方式连接到 Internet。
@@ -99,8 +95,7 @@ ms.lasthandoff: 07/14/2017
 > 
 > 
 
-### BGP 路由
-<a id="bgp-routes" class="xliff"></a>
+### <a name="bgp-routes"></a>BGP 路由
 如果本地网络和 Azure 之间存在 ExpressRoute 连接，则可通过 BGP 将路由从本地网络传播到 Azure。 在每个 Azure 子网中，这些 BGP 路由与系统路由和用户定义的路由的使用方式相同。 有关详细信息，请参阅 [ExpressRoute 简介](../expressroute/expressroute-introduction.md)。
 
 > [!IMPORTANT]
@@ -108,13 +103,11 @@ ms.lasthandoff: 07/14/2017
 > 
 > 
 
-## IP 转发
-<a id="ip-forwarding" class="xliff"></a>
+## <a name="ip-forwarding"></a>IP 转发
 如上所述，之所以要创建用户定义路由，其中一个主要原因是为了将流量转发到虚拟设备。 虚拟设备只是一个 VM，其上运行的应用程序用于通过某种方式（例如防火墙或 NAT 设备）处理网络流量。
 
 此虚拟设备 VM 必须能够接收不以其自身为目标的传入流量。 若要允许 VM 接收发送到其他目标的流量，必须为该 VM 启用 IP 转发。 这是 Azure 设置，不是来宾操作系统中的设置。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 了解如何 [在 Resource Manager 部署模型中创建路由](virtual-network-create-udr-arm-template.md) 并将路由关联到子网。 
 * 了解如何 [在经典部署模型中创建路由](virtual-network-create-udr-classic-ps.md) 并将路由关联到子网。

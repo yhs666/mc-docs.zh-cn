@@ -20,10 +20,8 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 使用本地编码器执行实时传送视频流以创建多比特率流
-<a id="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams" class="xliff"></a>
-## 概述
-<a id="overview" class="xliff"></a>
+# <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>使用本地编码器执行实时传送视频流以创建多比特率流
+## <a name="overview"></a>概述
 在 Azure 媒体服务中， *频道* 表示用于处理实时传送视频流内容的管道。 频道通过以下两种方式之一接收实时输入流：
 
 * 本地实时编码器将多比特率 RTMP 或平滑流式处理（分片 MP4）流发送到无法通过媒体服务执行实时编码的频道。 引入流将通过频道，而不会进行任何进一步处理。 这种方法称为 *直通*。 可以使用以下输出多比特率平滑流式处理的实时编码器：Media Excel、Ateme、Imagine Communications、Envivio、Cisco 和 Elemental。 以下实时编码器将 RTMP 作为输出：Adobe Flash Media Live Encoder、Telestream Wirecast、Haivision、Teradek 和 TriCaster。 实时编码器也可将单比特率流发送到并未启用实时编码的频道，并不建议这样做。 媒体服务会将流传送给请求它的客户。
@@ -104,8 +102,7 @@ ms.lasthandoff: 07/13/2017
 
 有关 RTMP 实时编码器详细信息，请参阅 [Azure 媒体服务的 RTMP 支持和实时编码器](https://azure.microsoft.com/zh-cn/blog/azure-media-services-rtmp-support-and-live-encoders/)。
 
-#### 摄取 URL（终结点）
-<a id="ingest-urls-endpoints" class="xliff"></a>
+#### <a name="ingest-urls-endpoints"></a>摄取 URL（终结点）
 频道提供你在实时编码器中指定的输入终结点（引入 URL），因此编码器可以将流推送到你的频道。   
 
 当创建频道时，你可以获取摄取 URL。 若要获取这些 URL，频道不一定要处于“正在运行”状态。 准备好开始将数据推送到频道时，频道必须处于“正在运行”状态。 在频道开始引入数据后，你可以通过预览 URL 来预览流。
@@ -129,8 +126,7 @@ ms.lasthandoff: 07/13/2017
 
 如果同时显式设置了 KeyFrameInterval 和 FragmentsPerSegment，媒体服务将使用设置的值。
 
-#### 允许的 IP 地址
-<a id="allowed-ip-addresses" class="xliff"></a>
+#### <a name="allowed-ip-addresses"></a>允许的 IP 地址
 可以定义允许向此通道发布视频的 IP 地址。 可将允许的 IP 地址指定为以下形式之一：
 
 * 单个 IP 地址（例如，10.0.0.1）
@@ -139,30 +135,25 @@ ms.lasthandoff: 07/13/2017
 
 如果未指定 IP 地址并且没有规则定义，则不会允许任何 IP 地址。 若要允许任何 IP 地址，请创建规则并设置 0.0.0.0/0。
 
-### 通道预览
-<a id="channel-preview" class="xliff"></a>
-#### 预览 URL
-<a id="preview-urls" class="xliff"></a>
+### <a name="channel-preview"></a>通道预览
+#### <a name="preview-urls"></a>预览 URL
 通道还提供了一个预览终结点（预览 URL），可使用它在进一步处理和传递流之前预览流并对其进行验证。
 
 你可以在创建频道时获取预览 URL。 若要获取该 URL，频道不一定要处于“正在运行”状态。 在频道开始引入数据后，你可以预览流。
 
 当前，不管指定了哪种输入类型，都只能以分片 MP4（平滑流式处理）流格式来传送预览流。 可以使用[平滑流式处理运行状况监视器](http://smf.cloudapp.net/healthmonitor)播放器来测试平滑流。 还可以使用 Azure 门户中托管的播放器来查看流。
 
-#### 允许的 IP 地址
-<a id="allowed-ip-addresses" class="xliff"></a>
+#### <a name="allowed-ip-addresses"></a>允许的 IP 地址
 可以定义允许连接到预览终结点的 IP 地址。 如果未指定 IP 地址，则将允许任何 IP 地址。 可将允许的 IP 地址指定为以下形式之一：
 
 * 单个 IP 地址（例如，10.0.0.1）
 * 使用一个 IP 地址和 CIDR 子网掩码的 IP 范围（例如，10.0.0.1/22）
 * 使用一个 IP 地址和点分十进制子网掩码的 IP 范围（例如，10.0.0.1(255.255.252.0)）
 
-### 频道输出
-<a id="channel-output" class="xliff"></a>
+### <a name="channel-output"></a>频道输出
 有关频道输出的信息，请参阅 [关键帧间隔](#keyframe_interval) 部分。
 
-### 频道管理的节目
-<a id="channel-managed-programs" class="xliff"></a>
+### <a name="channel-managed-programs"></a>频道管理的节目
 频道与节目相关联，可以使用节目控制实时流中的段的发布和存储。 频道管理节目。 频道和节目的关系非常类似于传统媒体，频道具有恒定的内容流，而节目的范围限定为该频道上的一些定时事件。
 
 可以通过设置 **存档窗口** 长度，指定你希望保留节目录制内容的小时数。 此值的设置范围是最短 5 分钟，最长 25 小时。 存储时段长度还决定了客户端能够从当前实时位置按时间向后搜索的最长时间。 超出指定时间长度后，节目也能够运行，但落在时段长度后面的内容将全部被丢弃。 此属性的这个值还决定了客户端清单能够增加多长时间。
@@ -222,8 +213,7 @@ ms.lasthandoff: 07/13/2017
 * 默认情况下，只能向媒体服务帐户添加 5 个频道。 有关详细信息，请参阅[配额和限制](media-services-quotas-and-limitations.md)。
 * 仅当频道处于“正在运行”状态时才会向你收费。 有关详细信息，请参阅[频道状态和计费](media-services-live-streaming-with-onprem-encoders.md#states)部分。
 
-## 相关主题
-<a id="related-topics" class="xliff"></a>
+## <a name="related-topics"></a>相关主题
 [Azure 媒体服务分片 MP4 实时引入规范](media-services-fmp4-live-ingest-overview.md)
 
 [Azure 媒体服务概述和常见方案](media-services-overview.md)

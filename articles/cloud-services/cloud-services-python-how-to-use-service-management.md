@@ -12,21 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 04/05/2017
+origin.date: 05/30/2017
+ms.date: 07/17/2017
 ms.author: v-yiso
-ms.openlocfilehash: e6df6eab41111c5d9353909f20f820c5ee5740fc
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 34725790edd6d54671efeb6361c6bbe5b319da49
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="how-to-use-service-management-from-python"></a>如何从 Python 使用服务管理
-
-> [!NOTE]
-> 服务管理 API 将被新的资源管理 API 替换，后者目前已发布预览版。  请参阅 [Azure 资源管理文档](http://azure-sdk-for-python.readthedocs.org/) ，详细了解如何使用 Python 推出的全新资源管理 API。
-> 
-> 
-
 本指南说明如何以编程方式从 Python 执行常见服务管理任务。 [用于 Python 的 Azure SDK](https://github.com/Azure/azure-sdk-for-python) 中的 ServiceManagementService 类支持以编程方式访问 [Azure 经典门户][management-portal]中提供的众多与服务管理相关的功能（例如创建、更新和删除云服务、部署、数据管理服务和虚拟机）。 此功能可用于构建需要以编程方式访问服务管理的应用程序。
 
 ## <a name="WhatIs"> </a>什么是服务管理？
@@ -418,7 +413,7 @@ result = sms.capture_vm_image(
     )
 ```
 
-接下来，为确保成功捕获了映像，请使用 list\_vm\_images API 并确保映像显示在结果中：
+接下来，为确保成功捕获了映像，请使用 **list\_vm\_images** API 并确保映像显示在结果中：
 
 ```
 images = sms.list_vm_images()
@@ -482,4 +477,4 @@ sms.create_virtual_machine_deployment(service_name=name,
 [management-portal]: https://manage.windowsazure.cn/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/zh-cn/library/windowsazure/ee460799.aspx
 
-[云服务]:./index.md
+[云服务]: /cloud-services/

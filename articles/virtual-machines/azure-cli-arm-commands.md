@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 04/18/2017
 ms.date: 04/17/2017
 ms.author: v-dazen
-ms.openlocfilehash: 8dc3bbd77b1fb95543f1088d6450a7c0f9d5cebb
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 648b073c7a95a1c24a584c6d95aa88d7981981a3
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Resource Manager 模式下的 Azure CLI 命令
 本文提供常用于在 Azure Resource Manager 部署模型中创建和管理 Azure 资源的 Azure 命令行接口 (CLI) 命令的语法和选项。 通过在 Resource Manager (arm) 模式下运行 CLI 可以访问这些命令。 本参考内容并不完整，CLI 版本可能会显示稍微不同的命令或参数。 有关 Azure 资源和资源组的一般概述，请参阅 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)。  
@@ -1766,6 +1766,10 @@ ms.lasthandoff: 06/23/2017
 
     vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>
     vm extension get [options] <resource-group> <vm-name>
+
+**用于管理 Docker 虚拟机的命令**
+
+    vm docker create [options] <resource-group> <name> <location> <os-type>
 
 **用于管理 VM 映像的命令**
 

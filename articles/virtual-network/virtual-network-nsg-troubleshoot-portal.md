@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 09/23/2016
 ms.date: 11/14/2016
 ms.author: v-dazen
-ms.openlocfilehash: ba24a9491e4bb57b549db9a4ff868a4419cbb720
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: c78be97ce70a40ccccff7d6935e5626e5abbbb7c
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>使用 Azure 门户排查网络安全组问题
 > [!div class="op_single_selector"]
@@ -29,11 +29,11 @@ ms.lasthandoff: 06/23/2017
 > 
 > 
 
-如果在虚拟机 (VM) 上配置网络安全组 (NSG) 时遇到 VM 连接问题，可以借助本文中概述的 NSG 诊断功能进行故障排除。
+如果在虚拟机 (VM) 上配置网络安全组 (NSG) 时遇到 VM 连接问题，可以借助本文中概述的 NSG 诊断功能进行进一步故障排除。
 
 使用 NSG 可以控制流入和流出虚拟机 (VM) 的流量类型。 可对 Azure 虚拟网络 (VNet) 中的子网和/或网络接口 (NIC) 应用 NSG。 对 NIC 应用的有效规则是对 NIC 应用的 NSG 以及对 NIC 所连接到的子网应用的 NSG 的规则聚合。 这些 NSG 的规则有时互相冲突，影响 VM 的网络连接。  
 
-可以查看 NSG 中对 VM NIC 应用的所有有效安全规则。 本文说明如何在 Azure Resource Manager 部署模型中使用这些规则来排查 VM 连接问题。 如果你不熟悉 VNet 与 NSG 的概念，请参阅[虚拟网络](virtual-networks-overview.md)和[网络安全组](virtual-networks-nsg.md)概述文章。
+可以查看 NSG 中对 VM NIC 应用的所有有效安全规则。 本文说明如何在 Azure Resource Manager 部署模型中使用这些规则来排查 VM 连接问题。 如果不熟悉 VNet 与 NSG 的概念，请参阅[虚拟网络](virtual-networks-overview.md)和[网络安全组](virtual-networks-nsg.md)概述文章。
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>使用有效的安全规则排查 VM 流量流问题
 以下情景是常见连接问题的示例：
@@ -42,7 +42,7 @@ ms.lasthandoff: 06/23/2017
 
 尽管本示例使用 TCP 端口 3389，但可以使用以下步骤在任何端口上判断入站和出站连接失败情况。
 
-### <a name="view-effective-security-rules-for-a-virtual-machine"></a>查看虚拟机的有效安全规则
+### <a name="vm"></a>查看虚拟机的有效安全规则
 完成以下步骤排查 VM 的 NSG 问题：
 
 可以从 VM 本身查看 NIC 上的完整有效安全规则列表。 如果有相应的权限，也可以从有效规则的边栏选项卡添加、修改和删除 NIC 与子网的 NSG 规则。
@@ -93,7 +93,7 @@ ms.lasthandoff: 06/23/2017
 
     打开与 VM 的 RDP 连接或使用 PsPing 工具，确认 TCP 端口 3389 是否已打开。 有关 PsPing 的详细信息，请阅读 [PsPing 下载页](https://technet.microsoft.com/sysinternals/psping.aspx)。
 
-### <a name="view-effective-security-rules-for-a-network-interface"></a>查看网络接口的有效安全规则
+### <a name="nic"></a>查看网络接口的有效安全规则
 如果特定的 NIC 影响了 VM 流量流，可以完成以下步骤，从网络接口上下文查看 NIC 的完整有效规则列表：
 
 1. 登录到位于 https://portal.azure.cn 的 Azure 门户。
@@ -110,7 +110,7 @@ ms.lasthandoff: 06/23/2017
    > 
 4. 可以直接编辑与 NIC 和子网关联的 NSG 的规则。 若要了解操作方法，请阅读 **查看虚拟机的有效安全规则** 部分中的步骤 8。
 
-## <a name="view-effective-security-rules-for-a-network-security-group-nsg"></a>查看网络安全组 (NSG) 的有效安全规则
+## <a name="nsg"></a>查看网络安全组 (NSG) 的有效安全规则
 修改 NSG 规则时，可以查看在特定 VM 上添加规则产生的影响。 可以查看应用了给定 NSG 的所有 NIC 的完整有效安全规则列表，而无需从给定 NSG 的边栏选项卡切换上下文。 若要排查 NSG 中有效规则的问题，请完成以下步骤：
 
 1. 登录到位于 https://portal.azure.cn 的 Azure 门户。

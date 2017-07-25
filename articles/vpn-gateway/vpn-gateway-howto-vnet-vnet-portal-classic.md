@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 配置 VNet 到 VNet 连接（经典）
-<a id="configure-a-vnet-to-vnet-connection-classic" class="xliff"></a>
+# <a name="configure-a-vnet-to-vnet-connection-classic"></a>配置 VNet 到 VNet 连接（经典）
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
@@ -41,8 +40,7 @@ ms.lasthandoff: 07/14/2017
 
 ![VNet 到 VNet 连接示意图](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
 
-## 关于 VNet 到 VNet 的连接
-<a id="about-vnet-to-vnet-connections" class="xliff"></a>
+## <a name="about-vnet-to-vnet-connections"></a>关于 VNet 到 VNet 的连接
 
 在经典部署模型中使用 VPN 网关将一个虚拟网络连接到另一个虚拟网络（VNet 到 VNet）类似于将虚拟网络连接到本地站点位置。 这两种连接类型都使用 VPN 网关来提供使用 IPsec/IKE 的安全隧道。
 
@@ -50,8 +48,7 @@ ms.lasthandoff: 07/14/2017
 
 ![VNet 到 VNet 连接](./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png)
 
-### 为什么要连接虚拟网络？
-<a id="why-connect-virtual-networks" class="xliff"></a>
+### <a name="why-connect-virtual-networks"></a>为什么要连接虚拟网络？
 
 你可能会出于以下原因而连接虚拟网络：
 
@@ -69,8 +66,7 @@ ms.lasthandoff: 07/14/2017
 
 有关 VNet 到 VNet 连接的详细信息，请参阅本文末尾的 [VNet 到 VNet 注意事项](#faq)。
 
-### 开始之前
-<a id="before-you-begin" class="xliff"></a>
+### <a name="before-you-begin"></a>开始之前
 
 开始本练习之前，请下载和安装最新版本的 Azure 服务管理 (SM) PowerShell cmdlet。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 使用门户即可执行大部分步骤，但必须使用 PowerShell 创建 VNet 之间的连接。 无法使用 Azure 门户创建此连接。
 
@@ -163,13 +159,11 @@ Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet
 6. 单击 **“确定”**。
 7. 在“新建 VPN 连接”边栏选项卡上，单击“确定”开始创建虚拟网关。 创建网关通常需要 45 分钟或更长的时间，具体取决于所选网关 SKU。
 
-## 步骤 5 - 配置 TestVNet4 设置
-<a id="step-5---configure-testvnet4-settings" class="xliff"></a>
+## <a name="step-5---configure-testvnet4-settings"></a>步骤 5 - 配置 TestVNet4 设置
 
 重复[创建本地站点](#localsite)和[创建虚拟网关](#gw)中的步骤来配置 TestVNet4，并在必要时对值进行替换。 如果是作为练习执行此操作，请使用[示例值](#vnetvalues)。
 
-## 步骤 6 - 更新本地站点
-<a id="step-6---update-the-local-sites" class="xliff"></a>
+## <a name="step-6---update-the-local-sites"></a>步骤 6 - 更新本地站点
 
 在为两个 VNet 创建虚拟网关后，必须调整本地站点的 **VPN 网关 IP 地址**值。
 
@@ -178,8 +172,7 @@ Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet
 |TestVNet1|VNet4Local|TestVNet4 的 VPN 网关 IP 地址|
 |TestVNet4|VNet1Local|TestVNet1 的 VPN 网关 IP 地址|
 
-### 第 1 部分 - 获取虚拟网关的公共 IP 地址
-<a id="part-1---get-the-virtual-network-gateway-public-ip-address" class="xliff"></a>
+### <a name="part-1---get-the-virtual-network-gateway-public-ip-address"></a>第 1 部分 - 获取虚拟网关的公共 IP 地址
 
 1. 在 Azure 门户中找到虚拟网络。
 2. 单击打开 VNet“概览”边栏选项卡。 在该边栏选项卡的“VPN 连接”中，可以查看虚拟网关的 IP 地址。
@@ -188,8 +181,7 @@ Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet
 3. 复制 IP 地址。 将在下一部分使用它。
 4. 针对 TestVNet4 重复上述步骤
 
-### 第 2 部分 - 修改本地站点
-<a id="part-2---modify-the-local-sites" class="xliff"></a>
+### <a name="part-2---modify-the-local-sites"></a>第 2 部分 - 修改本地站点
 
 1. 在 Azure 门户中找到虚拟网络。
 2. 在 VNet“概览”边栏选项卡上，单击本地站点。
@@ -207,8 +199,7 @@ Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet
 6. 关闭其他边栏选项卡。
 7. 针对 TestVNet4 重复上述步骤
 
-## 步骤 7 - 从网络配置文件中检索值
-<a id="step-7---retrieve-values-from-the-network-configuration-file" class="xliff"></a>
+## <a name="step-7---retrieve-values-from-the-network-configuration-file"></a>步骤 7 - 从网络配置文件中检索值
 
 在 Azure 门户中创建经典 VNet 时，你看到的名称不是用于 PowerShell 的完整名称。 例如，在门户中命名为 **TestVNet1** 的 VNet 在网络配置文件中可能具有更长的名称。 该名称可能如下所示：**Group ClassicRG TestVNet1**。 在创建连接时，请务必使用在网络配置文件中看到的值。
 
@@ -246,8 +237,7 @@ Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet
   ```
 4. 使用文本编辑器打开该文件，并查看 VNet 和站点的名称。 将在创建连接时使用这些名称。<br>VNet 名称以 **VirtualNetworkSite name =** 形式列出<br>站点名称以 **LocalNetworkSiteRef name =** 形式列出
 
-## 步骤 8 - 创建 VPN 网关连接
-<a id="step-8---create-the-vpn-gateway-connections" class="xliff"></a>
+## <a name="step-8---create-the-vpn-gateway-connections"></a>步骤 8 - 创建 VPN 网关连接
 
 完成前面的所有步骤后，即可设置 IPsec/IKE 预共享密钥并创建连接。 这组步骤使用 PowerShell。 无法在 Azure 门户中配置经典部署模型的 VNet 到 VNet 连接。
 
@@ -289,6 +279,5 @@ Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet
 * VNet 的所有 VPN 隧道（包括 P2S VPN）共享 VPN 网关上的可用带宽，以及 Azure 中的相同 VPN 网关运行时间 SLA。
 * VNet 到 VNet 流量将会流经 Azure 主干。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 验证连接。 请参阅[验证 VPN 网关连接](vpn-gateway-verify-connection-resource-manager.md)。

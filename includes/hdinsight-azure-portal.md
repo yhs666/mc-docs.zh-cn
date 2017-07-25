@@ -1,4 +1,4 @@
-## <a name="azure-portal-and-azure-portal-preview"></a>Azure 门户和 Azure 门户预览
+## <a name="azure-portal-and-azure-portal"></a>Azure 门户和 Azure 门户
 > [!IMPORTANT]
 > 本文档中的步骤使用 Azure 经典管理门户。 Microsoft 不建议在创建新的服务时使用经典管理门户。 有关 Azure 门户的优点的说明，请参阅 [Azure 门户](https://azure.microsoft.com/features/azure-portal/)。 
 > 

@@ -20,8 +20,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 什么是 Azure 中继？
-<a id="what-is-azure-relay" class="xliff"></a>
+# <a name="what-is-azure-relay"></a>什么是 Azure 中继？
 Azure 中继服务简化了混合应用程序，通过允许安全地向公有云公开位于企业网络内的服务，无需打开防火墙连接，也无需对企业网络基础结构进行彻底更改。 中继支持各种不同的传输协议和 Web 服务标准。
 
 中继服务支持传统的单向流量、请求/响应流量和对等流量。 它还支持 Internet 范围的事件分发，以实现发布/订阅方案和双向套接字通信，从而提高点到点通信效率。 
@@ -52,12 +51,10 @@ Azure 中继具有两项功能：
 ##<a name="wcf-relays"></a> WCF 中继
 WCF 中继适用于整个 .NET Framework (NETFX) 和 WCF。 可以使用一套 WCF“中继”绑定在本地服务与中继服务之间发起连接。 在幕后，中继绑定将映射到新的传输绑定元素，这些元素旨在创建与云中服务总线集成的 WCF 通道组件。
 
-## 服务历史记录
-<a id="service-history" class="xliff"></a>
+## <a name="service-history"></a>服务历史记录
 混合连接取代了以前的“BizTalk 服务”功能，后者构建在 Azure 服务总线 WCF 中继的基础之上。 新的混合连接功能为现有 WCF 中继功能做了补充，在可预见的未来，这两项服务功能将在中继服务中共存。 它们共享一个公用网关，但实现方式有所不同。
 
-## 后续步骤：
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤：
 * [中继常见问题](./relay-faq.md)
 * [创建命名空间](./relay-create-namespace-portal.md)
 * [.NET 入门](./relay-hybrid-connections-dotnet-get-started.md)

@@ -23,8 +23,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# Apache Storm on HDInsight 的示例 Storm 拓扑和组件
-<a id="example-storm-toplogies-and-components-for-apache-storm-on-hdinsight" class="xliff"></a>
+# <a name="example-storm-toplogies-and-components-for-apache-storm-on-hdinsight"></a>Apache Storm on HDInsight 的示例 Storm 拓扑和组件
 
 以下是 Microsoft 创建和维护的、可配合 Apache Storm on HDInsight 使用的示例列表。 这些示例涵盖各种主题，从创建基本 C# 和 Java 拓扑，到使用 Azure 服务（例如事件中心、Cosmos DB、Power BI、SQL 数据库、HBase on HDInsight 和 Azure 存储）。 一些示例还演示了如何使用非 Azure 或甚至非 Microsoft 的技术，例如 SignalR 和 Socket.IO
 
@@ -45,8 +44,7 @@ ms.lasthandoff: 07/14/2017
 | [使用 HDInsight 上的 Storm 和 HBase 对事件进行关联](hdinsight-storm-correlation-topology.md) |HBase |C# |
 | [将 HDInsight 上的 Python 与 Storm 配合使用](hdinsight-storm-develop-python-topology.md) |具有 Flux 拓扑的 Python 组件 |Python |
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 * [Apache Storm on HDInsight 入门][2b8c3488]
 * [了解如何使用 Storm on HDInsight 部署和管理 Storm 拓扑][6eb0d3b8]

@@ -20,15 +20,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 使用基于角色的访问控制管理 Azure 订阅资源的访问权限
-<a id="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources" class="xliff"></a>
+# <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>使用基于角色的访问控制管理 Azure 订阅资源的访问权限
 
 Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访问管理。 使用 RBAC，你可以仅授予用户执行其作业所需的访问次数。 本文可帮助你在 Azure 门户中启动并运行 RBAC。 如果想要解有关 RBAC 如何帮助你管理访问权限的详细信息，请参阅 [什么是基于角色的访问控制](./role-based-access-control-what-is.md)。
 
 在每个订阅中，你最多可以授予 2000 个角色分配。 
 
-## 查看访问权限
-<a id="view-access" class="xliff"></a>
+## <a name="view-access"></a>查看访问权限
 你可以在 [Azure 门户](https://portal.azure.cn)中的主边栏选项卡上查看谁有权访问资源、资源组或订阅。 例如，我们想要查看谁有权访问其中一个资源组：
 
 1. 在左侧的导航栏中选择“资源组”  。  
@@ -44,8 +42,7 @@ Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访�
 > [!NOTE]
 > 经典订阅管理员和共同管理员被视为新 RBAC 模型中的订阅所有者。
 
-## 添加访问权限
-<a id="add-access" class="xliff"></a>
+## <a name="add-access"></a>添加访问权限
 从资源、资源组或在该角色分配范围内的订阅中授予访问权限。
 
 1. 在“访问控制”边栏选项卡上选择“添加”  。  
@@ -58,8 +55,7 @@ Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访�
 
 成功添加角色分配后，该角色分配将出现在“用户”  边栏选项卡上。
 
-## 删除访问权限
-<a id="remove-access" class="xliff"></a>
+## <a name="remove-access"></a>删除访问权限
 1. 使用“访问控制”边栏选项卡上的复选框选择一个或多个角色分配。
 2. 选择“删除” 。  
 3. 将弹出一个对话框，要求你确认该操作。 选择“是”  以删除这些角色分配。
@@ -68,16 +64,14 @@ Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访�
 
 ![用户边栏选项卡 - 继承的访问权限禁用删除按钮屏幕截图](./media/role-based-access-control-configure/remove-access2.png)
 
-## 管理访问权限的其他工具
-<a id="other-tools-to-manage-access" class="xliff"></a>
+## <a name="other-tools-to-manage-access"></a>管理访问权限的其他工具
 可以使用 Azure 门户以外的工具中的 Azure RBAC 命令分配角色和管理访问权限。  依照该链接以了解有关先决条件和 Azure RBAC 命令入门的详细信息。
 
 - [Azure PowerShell](./role-based-access-control-manage-access-powershell.md)
 - [Azure 命令行界面](./role-based-access-control-manage-access-azure-cli.md)
 - [REST API](./role-based-access-control-manage-access-rest.md)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 - [创建访问变更历史记录报表](./role-based-access-control-access-change-history-report.md)
 - 请参阅 [RBAC 内置角色](./role-based-access-built-in-roles.md)
 - 定义你在 [Azure RBAC 中的自定义角色](./role-based-access-control-custom-roles.md)

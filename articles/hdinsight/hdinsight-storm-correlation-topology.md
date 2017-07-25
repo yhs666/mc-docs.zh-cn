@@ -17,11 +17,11 @@ origin.date: 03/01/2017
 ms.date: 03/31/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b7b205d94abd4aecf85f92df482c02bcf5c88656
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 51840beb56e7e7488c4732ab66b45ac98354d861
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>使用 Storm 和 HBase 将不同时间到达的事件关联起来
 
@@ -43,14 +43,14 @@ ms.lasthandoff: 06/21/2017
 * HDInsight 群集上的 Apache HBase（基于 Linux 或 Windows）。
 
   > [!IMPORTANT]
-  > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 * [Java](https://java.com) 1.7 或更高版本，适用于开发环境。 将拓扑提交到 HDInsight 群集时，可以使用 Java 将拓扑打包。
 
   * JAVA_HOME 环境变量必须指向包含 Java 的目录。
   * 路径中必须包含 %JAVA_HOME%/bin 目录
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 ## <a name="architecture"></a>体系结构
 

@@ -21,10 +21,8 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 服务运行状况通知
-<a id="service-health-notifications" class="xliff"></a>
-## 概述
-<a id="overview" class="xliff"></a>
+# <a name="service-health-notifications"></a>服务运行状况通知
+## <a name="overview"></a>概述
 
 本文介绍如何使用 Azure 门户查看服务运行状况通知。
 
@@ -69,8 +67,7 @@ Properties.stage | 对于 AssistedRecovery、ActionRequired、Information、Inci
 Properties.communicationId | 与此事件关联的通信。
 
 
-## 在 Azure 门户中查看服务运行状况通知
-<a id="viewing-your-service-health-notifications-in-the-azure-portal" class="xliff"></a>
+## <a name="viewing-your-service-health-notifications-in-the-azure-portal"></a>在 Azure 门户中查看服务运行状况通知
 1.  在[门户](https://portal.azure.cn)中，导航到“监视”服务
 
     ![监视](./media/monitoring-service-notifications/home-monitor.png)
@@ -85,7 +82,6 @@ Properties.communicationId | 与此事件关联的通信。
 
 5. 单击“+添加活动日志警报”操作以接收通知，从而确保以后接受到此类型的服务通知。 若要深入了解如何配置服务通知警报，[请单击此处](monitoring-activity-log-alerts-on-service-notifications.md)
 
-## 后续步骤：
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤：
 每当[发布服务运行状况通知时接收警报通知](./monitoring-activity-log-alerts-on-service-notifications.md)  
 深入了解[活动日志警报](./monitoring-activity-log-alerts.md)

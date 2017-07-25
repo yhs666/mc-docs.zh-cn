@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 增加 Azure 中的应用
-<a id="scale-up-an-app-in-azure" class="xliff"></a>
+# <a name="scale-up-an-app-in-azure"></a>增加 Azure 中的应用
 本文介绍如何在 Azure 应用服务中缩放应用。 缩放的工作流有两种：向上缩放和向外缩放；本文介绍向上缩放工作流。
 
 * [向上缩放](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)：获取更多 CPU、内存、磁盘空间和额外功能，例如专用虚拟机 (VMs)、自定义域和证书、暂存槽、自动缩放以及更多功能。 可以通过更改应用所属的应用服务计划的定价层来向上缩放。
@@ -42,8 +41,7 @@ ms.lasthandoff: 07/13/2017
 <a name="scalingsharedorbasic"></a>
 <a name="scalingstandard"></a>
 
-## 增加定价层
-<a id="scale-up-your-pricing-tier" class="xliff"></a>
+## <a name="scale-up-your-pricing-tier"></a>增加定价层
 1. 在浏览器中，打开 [Azure 门户][portal]。
 2. 在应用的边栏选项卡中，单击“所有设置”，然后单击“向上缩放”。
 
@@ -54,8 +52,7 @@ ms.lasthandoff: 07/13/2017
 
 <a name="ScalingSQLServer"></a>
 
-## 与缩放相关的资源
-<a id="scale-related-resources" class="xliff"></a>
+## <a name="scale-related-resources"></a>与缩放相关的资源
 如果应用依赖于其他服务，如 Azure SQL 数据库或 Azure 存储，则还可以按需增加这些资源。 不应将这些资源与应用服务计划一起缩放，而必须单独进行缩放。
 
 1. 在“软件包”中，单击“资源组”链接。
@@ -76,30 +73,25 @@ ms.lasthandoff: 07/13/2017
 
 <a name="devfeatures"></a>
 
-## 了解开发人员功能
-<a id="learn-about-developer-features" class="xliff"></a>
+## <a name="learn-about-developer-features"></a>了解开发人员功能
 我们根据定价层提供以下面向开发人员的功能：
 
-### 位数
-<a id="bitness" class="xliff"></a>
+### <a name="bitness"></a>位数
 * **基本**、**标准**和**高级**层支持 64 位和 32 位应用程序。
 * **免费**和**共享**计划层仅支持 32 位应用程序。
 
-### 调试器支持
-<a id="debugger-support" class="xliff"></a>
+### <a name="debugger-support"></a>调试器支持
 * 对于**免费**、**共享**和**基本**模式，按每个应用服务计划一个连接的形式提供调试器支持。
 * 对于**标准**和**高级**模式，按每个应用服务计划五个并发连接的形式提供调试器支持。
 
 <a name="OtherFeatures"></a>
 
-## 了解其他功能
-<a id="learn-about-other-features" class="xliff"></a>
+## <a name="learn-about-other-features"></a>了解其他功能
 * 有关应用服务计划中的所有其余功能的详细信息，包括定价和所有用户（包括开发人员）感兴趣的功能，请参阅[应用服务定价详细信息](https://www.azure.cn/pricing/details/app-service/)。
 
 <a name="Next Steps"></a>
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 若要开始使用 Azure，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * 有关定价、支持和 SLA 的信息，请访问以下链接。
 

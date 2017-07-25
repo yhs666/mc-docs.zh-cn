@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# Azure Cosmos DB：DocumentDB API 和 .NET Core 入门
-<a id="azure-cosmos-db-getting-started-with-the-documentdb-api-and-net-core" class="xliff"></a>
+# <a name="azure-cosmos-db-getting-started-with-the-documentdb-api-and-net-core"></a>Azure Cosmos DB：DocumentDB API 和 .NET Core 入门
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -58,8 +57,7 @@ ms.lasthandoff: 07/13/2017
 
 现在，让我们开始吧！
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 请确保你具有以下内容：
 
 * 有效的 Azure 帐户。 如果没有，可以注册[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
@@ -69,8 +67,7 @@ ms.lasthandoff: 07/13/2017
     * 如果在 Windows 上操作，可以通过安装 [.NET Core SDK](https://www.microsoft.com/net/core#windows)，从命令行开发 .NET Core 应用。 
     * 可以使用自己的编辑器，或下载免费的适用于 Windows、Linux 和 MacOS 的 [Visual Studio Code](https://code.visualstudio.com/) 。 
 
-## 第 1 步：创建 DocumentDB 帐户
-<a id="step-1-create-a-documentdb-account" class="xliff"></a>
+## <a name="step-1-create-a-documentdb-account"></a>第 1 步：创建 DocumentDB 帐户
 创建一个 Azure Cosmos DB 帐户。 如果已经有一个想要使用的帐户，可以跳到 [设置 Visual Studio 解决方案](#SetupVS)。 如果使用 Azure Cosmos DB 模拟器，请遵循 [Azure Cosmos DB 模拟器](local-emulator.md)中的步骤设置该模拟器，然后直接跳到[设置 Visual Studio 解决方案](#SetupVS)。
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -177,8 +174,7 @@ static void Main(string[] args)
 
 祝贺你！ 成功连接到 Azure Cosmos DB 帐户后，接下来应了解如何使用 Azure Cosmos DB 资源。  
 
-## 第 4 步：创建数据库
-<a id="step-4-create-a-database" class="xliff"></a>
+## <a name="step-4-create-a-database"></a>第 4 步：创建数据库
 在添加创建数据库的代码之前，添加一个用于向控制台写入的帮助器方法。
 
 将 **WriteToConsoleAndPromptToContinue** 方法复制并粘贴到 **GetStartedDemo** 方法下面。
@@ -593,8 +589,7 @@ End of demo, press any key to exit.
 
 若要在 Visual Studio 中还原 DocumentDB .NET Core SDK 引用，请在解决方案资源管理器中右键单击“GetStarted”解决方案，然后单击“启用 NuGet 包还原”。 接下来，按照[连接到 DocumentDB 帐户](#Connect)中所述的方法在 Program.cs 文件中更新 EndpointUrl 和 AuthorizationKey 值。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 需要更复杂的 ASP.NET MVC 教程？ 请参阅 [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md)（使用 DocumentDB 构建具有 ASP.NET MVC 的 Web 应用程序）。
 * 想要使用 DocumentDB .NET Core SDK 开发 Xamarin iOS、Android 或 Forms 应用程序？ 请参阅[使用 DocumentDB 开发 Xamarin 移动应用程序](mobile-apps-with-xamarin.md)。
 * 希望使用 Azure Cosmos DB 执行规模和性能测试？ 请参阅[使用 Azure Cosmos DB 执行性能和规模测试](performance-testing.md)

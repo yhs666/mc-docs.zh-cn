@@ -22,21 +22,18 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# SQL 数据库威胁检测
-<a id="sql-database-threat-detection" class="xliff"></a>
+# <a name="sql-database-threat-detection"></a>SQL 数据库威胁检测
 
 SQL 威胁检测会检测异常活动，这些活动表示异常和可能有害的数据库访问或使用尝试。
 
-## 概述
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概述
 
 SQL 威胁检测提供新的安全层，在发生异常活动时会提供安全警报，让客户检测潜在威胁并做出响应。  出现可疑数据库活动、潜在漏洞、SQL 注入攻击和异常数据库访问模式时，用户将收到警报。 SQL 威胁检测警报提供可疑活动的详细信息，以及如何调查和缓解威胁的推荐操作。 用户可以使用 [SQL 数据库审核](sql-database-auditing.md)来探查可疑事件，判断这些可疑事件是否是因为有人尝试访问、破坏或利用数据库中的数据而生成的。 你不必是安全专家，也不需要管理先进的安全监视系统，就能使用威胁检测轻松解决数据库的潜在威胁。
 
 例如，SQL 注入是 Internet 上常见的 Web 应用程序安全问题之一，用于攻击数据驱动的应用程序。 攻击者利用应用程序漏洞将恶意 SQL 语句注入应用程序入口字段，以破坏或修改数据库中的数据。
 
 
-## 在 Azure 门户中为数据库设置威胁检测
-<a id="set-up-threat-detection-for-your-database-in-the-azure-portal" class="xliff"></a>
+## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>在 Azure 门户中为数据库设置威胁检测
 1. 启动 Azure 门户 ( [https://portal.azure.cn](https://portal.azure.cn))。
 2. 导航到要监视的 SQL 数据库的配置边栏选项卡。 在“设置”边栏选项卡中，选择“审核和威胁检测”。 
     ![导航窗格][1]
@@ -49,13 +46,11 @@ SQL 威胁检测提供新的安全层，在发生异常活动时会提供安全�
        
     ![导航窗格][3]
 
-## 使用 PowerShell 设置威胁检测
-<a id="set-up-threat-detection-using-powershell" class="xliff"></a>
+## <a name="set-up-threat-detection-using-powershell"></a>使用 PowerShell 设置威胁检测
 
 有关脚本示例，请参阅[使用 PowerShell 配置审核和威胁检测](scripts/sql-database-auditing-and-threat-detection-powershell.md)。
 
-## 检测到可疑事件时探查异常数据库活动
-<a id="explore-anomalous-database-activities-upon-detection-of-a-suspicious-event" class="xliff"></a>
+## <a name="explore-anomalous-database-activities-upon-detection-of-a-suspicious-event"></a>检测到可疑事件时探查异常数据库活动
 1. 检测到异常数据库活动时，你将收到电子邮件通知。 <br/>
    电子邮件将提供可疑安全事件的相关信息，包括异常活动的性质、数据库名称、服务器名称、应用程序名称和事件时间。 此外，电子邮件还会提供可能原因和建议操作的相关信息，帮助调查和缓解数据库的潜在威胁。<br/>
      
@@ -67,8 +62,7 @@ SQL 威胁检测提供新的安全层，在发生异常活动时会提供安全�
 
 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 * 有关威胁检测的详细信息，请访问 [Azure 博客](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * 了解有关 [Azure SQL 数据库审核](sql-database-auditing.md)的详细信息

@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/17/2017
-ms.date: 03/24/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
-ms.openlocfilehash: 93de2a1315d939cad2417b46e33d5ec2846625da
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 3b6340153d6442a793bdcfa276b85ccff274f12c
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户管理 HDInsight 中基于 Windows 的 Hadoop 群集
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 06/21/2017
 本文中的信息仅适用于基于 Windows 的 HDInsight 群集。 有关管理基于 Linux 的群集的信息，请参阅[使用 Azure 门户管理 HDInsight 中的 Hadoop 群集](hdinsight-administer-use-portal-linux.md)。
 
 > [!IMPORTANT]
-> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -187,7 +187,7 @@ HDInsight 使用各种 Hadoop 组件。 有关已获得验证和支持的组件�
 
     HDInsight 群集上提供了 Storm Web UI：
 
-    ![HDInsight storm 缩放重新平衡](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight storm 缩放重新平衡](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     以下是有关如何使用 CLI 命令重新平衡 Storm 拓扑的示例：
 
@@ -333,7 +333,7 @@ HDInsight 群集边栏选项卡的“使用情况”部分会显示相关信息�
     “到期日期”的默认值为“一周”。
 
    > [!NOTE]
-   > 也可以使用 HDInsight .NET SDK 在群集上启用远程桌面。 按以下方式使用 HDInsight 客户端对象上的 EnableRdp方法：client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))。 同样，若要在群集上禁用远程桌面，可以使用 client.DisableRdp(clustername, location)。 有关这些方法的详细信息，请参阅 [HDInsight .NET SDK 参考](https://msdn.microsoft.com/library/azure/dn469975.aspx)。 这仅适用于在 Windows 上运行的 HDInsight 群集。
+   > 也可以使用 HDInsight .NET SDK 在群集上启用远程桌面。 按以下方式使用 HDInsight 客户端对象上的 EnableRdp方法：client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))。 同样，若要在群集上禁用远程桌面，可以使用 client.DisableRdp(clustername, location)。 有关这些方法的详细信息，请参阅 [HDInsight .NET SDK 参考](http://go.microsoft.com/fwlink/?LinkId=529017)。 这仅适用于在 Windows 上运行的 HDInsight 群集。
    >
    >
 

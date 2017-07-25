@@ -16,11 +16,11 @@ ms.topic: get-started-article
 origin.date: 12/02/2016
 ms.date: 01/03/2017
 ms.author: v-dazen
-ms.openlocfilehash: 7ba1275860402889d12a91d1accd72c1e24a8c5e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: cc2e76671a2fd5dd0e2a07839fe2aa727c9893de
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="what-is-azure-app-service"></a>什么是 Azure 应用服务？
 应用服务是 Azure 的 [平台即服务](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) 产品。 为任何平台或设备创建 Web 应用和移动应用。 将应用与 SaaS 解决方案集成、与本地应用程序进行连接，以及实现业务流程的自动化。 Azure 在完全托管的虚拟机 (VM) 上运行应用，由用户选择共享的 VM 资源或专用 VM。
@@ -33,7 +33,7 @@ ms.lasthandoff: 06/21/2017
 * **多种语言和框架** - 应用服务为 ASP.NET、Node.js、Java、PHP 和 Python 提供一流支持。 也可以在应用服务 VM 上运行 [Windows PowerShell 和其他脚本或可执行文件](../app-service-web/web-sites-create-web-jobs.md) 。
 * **DevOps 优化** - 使用 GitHub 设置[持续集成和部署](../app-service-web/app-service-continuous-deployment.md)。 通过 [测试和过渡环境](../app-service-web/web-sites-staged-publishing.md)提升更新。 执行 [A/B 测试](../app-service-web/app-service-web-test-in-production-get-start.md)。 在应用服务中，利用 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 或[跨平台命令行接口 (CLI)](../cli-install-nodejs.md) 来管理应用。
 * **具有高可用性的全局缩放** - 以手动或自动方式进行[增大](../app-service-web/web-sites-scale.md)或[扩大](../monitoring-and-diagnostics/insights-how-to-scale.md)。 在 Azure 中国数据中心基础结构中的任意位置托管应用，并且应用服务 [SLA](https://www.azure.cn/support/sla/app-service/) 承诺高可用性。
-* 到 SaaS 平台和本地数据的连接 - 从适用于企业系统（例如 SAP、Siebel 和 Oracle）的 50 多个连接器、SaaS 服务（例如 Salesforce 和 Office 365）以及 Internet 服务（例如 Facebook 和 Twitter）中进行选择。 使用 [Azure 虚拟网络](../app-service-web/app-service-vnet-integration-powershell.md)访问本地数据。
+* **连接到本地数据** - 使用 [Azure 虚拟网络](../app-service-web/web-sites-integrate-with-vnet.md)访问本地数据。
 * **安全性和合规性** - 应用服务符合 [ISO、SOC 和 PCI](https://www.trustcenter.cn/)的要求。
 * **Visual Studio 集成** - Visual Studio 中的专用工具可简化创建、部署和调试工作。
 

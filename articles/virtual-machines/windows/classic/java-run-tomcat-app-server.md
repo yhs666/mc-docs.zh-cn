@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 如何在使用经典部署模型创建的虚拟机上运行 Java 应用程序服务器
-<a id="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model" class="xliff"></a>
+# <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>如何在使用经典部署模型创建的虚拟机上运行 Java 应用程序服务器
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关使用 Java 8 和 Tomcat 部署 webapp 的 Resource Manager 模板，请参阅[此处](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat/)。
 
@@ -43,8 +42,7 @@ ms.lasthandoff: 07/13/2017
 
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
-## 创建虚拟机
-<a id="to-create-a-virtual-machine" class="xliff"></a>
+## <a name="to-create-a-virtual-machine"></a>创建虚拟机
 1. 登录到 [Azure 门户](https://portal.azure.cn)。  
 2. 依次单击“新建”和“计算”，然后在“特色应用”中单击“全部查看”。
 3. 单击“JDK”，然后在“JDK”窗格中单击“JDK 8”。  
@@ -64,8 +62,7 @@ ms.lasthandoff: 07/13/2017
 9. 在“**设置**”边栏选项卡中，单击“**确定**”。 可使用 Azure 提供的默认值。  
 10. 在“**摘要**”边栏选项卡中，单击“**确定**”。
 
-## 远程登录到虚拟机的步骤
-<a id="to-remotely-sign-in-to-your-virtual-machine" class="xliff"></a>
+## <a name="to-remotely-sign-in-to-your-virtual-machine"></a>远程登录到虚拟机的步骤
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 单击“虚拟机(经典)”。 必要时，请单击服务类别下方左下角的“更多服务”。 “虚拟机(经典)”条目列在“计算”组中。
 3. 单击要登录到的虚拟机的名称。
@@ -73,8 +70,7 @@ ms.lasthandoff: 07/13/2017
 5. 单击“连接”。
 6. 根据需要响应提示以连接到虚拟机。 通常，将保存或打开含有连接详细信息的 .rdp 文件。 可能需要复制 url:port（.rdp 文件第一行的最后部分）并将其粘贴到远程登录应用程序中。
 
-## 在虚拟机上安装 Java 应用程序服务器
-<a id="to-install-a-java-application-server-on-your-virtual-machine" class="xliff"></a>
+## <a name="to-install-a-java-application-server-on-your-virtual-machine"></a>在虚拟机上安装 Java 应用程序服务器
 可以将 Java 应用程序服务器安装到虚拟机，也可以通过安装程序安装 Java 应用程序服务器。
 
 本教程将 Tomcat 用作 Java 应用程序服务器进行安装。
@@ -84,8 +80,7 @@ ms.lasthandoff: 07/13/2017
 3. 系统提示时，请选择运行该安装程序。
 4. 在“Apache Tomcat 安装程序”  向导中，按照提示操作来安装 Tomcat。 在本教程中，接受默认值即可。 当显示“完成 Apache Tomcat 安装程序向导”对话框时，可以选择“运行 Apache Tomcat”以立即启动 Tomcat。 单击“完成”以完成 Tomcat 安装过程。
 
-## 启动 Tomcat
-<a id="to-start-tomcat" class="xliff"></a>
+## <a name="to-start-tomcat"></a>启动 Tomcat
 
 可在虚拟机上打开命令提示符并运行命令 **net&nbsp;start&nbsp;Tomcat8** 来手动启动 Tomcat。
 
@@ -93,8 +88,7 @@ Tomcat 运行后，可通过在虚拟机浏览器中输入 URL <http://localhost
 
 若要从外部计算机查看 Tomcat 的运行，则需要创建一个终结点并开放一个端口。
 
-## 为虚拟机创建终结点
-<a id="to-create-an-endpoint-for-your-virtual-machine" class="xliff"></a>
+## <a name="to-create-an-endpoint-for-your-virtual-machine"></a>为虚拟机创建终结点
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 单击“虚拟机(经典)”。
 3. 单击正在运行 Java 应用程序服务器的虚拟机的名称。
@@ -109,8 +103,7 @@ Tomcat 运行后，可通过在虚拟机浏览器中输入 URL <http://localhost
    6. 将访问控制列表保持原样。
    7. 单击“确定”按钮，以关闭对话框并创建终结点。
 
-## 在防火墙上为虚拟机开放一个端口
-<a id="to-open-a-port-in-the-firewall-for-your-virtual-machine" class="xliff"></a>
+## <a name="to-open-a-port-in-the-firewall-for-your-virtual-machine"></a>在防火墙上为虚拟机开放一个端口
 1. 登录到虚拟机。
 2. 单击 Windows 的“开始” 。
 3. 单击“控制面板”。
@@ -130,8 +123,7 @@ Tomcat 运行后，可通过在虚拟机浏览器中输入 URL <http://localhost
 
 此时，应可从外部浏览器查看 Tomcat 网站。 在浏览器地址窗口中，以 **http://*your\_DNS\_name*.chinacloudapp.cn** 格式键入 URL，其中 ***your\_DNS\_name*** 是创建虚拟机时指定的 DNS 名称。
 
-## 应用程序生命周期注意事项
-<a id="application-lifecycle-considerations" class="xliff"></a>
+## <a name="application-lifecycle-considerations"></a>应用程序生命周期注意事项
 * 可以创建自己的 Web 应用程序存档 (WAR) 并将其添加到 **webapps** 文件夹。 例如，创建基本的 Java 服务页 (JSP) 动态 Web 项目并将其作为 WAR 文件导出。 然后，将 WAR 复制到虚拟机上的 Apache Tomcat **webapps** 文件夹中，然后在浏览器中运行它。
 * 默认情况下，Tomcat 服务在安装后会设置为手动启动。 可以使用“服务”管理单元将其切换为自动启动。 可通过依次单击 Windows 的“开始”、“管理工具”、“服务”来启动“服务”管理单元。 双击“Apache Tomcat”服务，并将“启动类型”设置为“自动”。
 
@@ -139,8 +131,7 @@ Tomcat 运行后，可通过在虚拟机浏览器中输入 URL <http://localhost
 
     让 Tomcat 自动启动的好处是，在虚拟机重启时（例如在安装需重启的软件更新后），Tomcat 即开始运行。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 可了解可能要在 Java 应用程序中包含的其他服务（例如 Azure 存储、服务总线和 SQL 数据库）。 查看 [Java 开发人员中心](/develop/java/)上提供的信息。
 
 [virtual_machine_tomcat]:media/java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png

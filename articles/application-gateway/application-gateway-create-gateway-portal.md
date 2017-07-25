@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 使用门户创建应用程序网关
-<a id="create-an-application-gateway-by-using-the-portal" class="xliff"></a>
+# <a name="create-an-application-gateway-by-using-the-portal"></a>使用门户创建应用程序网关
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](application-gateway-create-gateway-portal.md)
@@ -47,8 +46,7 @@ ms.lasthandoff: 07/13/2017
 > [!IMPORTANT]
 > 针对应用程序网关进行的其他配置（包括自定义运行状况探测、后端池地址以及其他规则）是在对应用程序网关配置以后配置的，不是在初始部署期间配置的。
 
-## 创建应用程序网关
-<a id="create-an-application-gateway" class="xliff"></a>
+## <a name="create-an-application-gateway"></a>创建应用程序网关
 
 若要创建应用程序网关，请完成下面的步骤。 应用程序网关需要自己的子网。 在创建虚拟网络时，请确保保留足够的地址空间，以便设置多个子网。 将应用程序网关部署到子网后，只能向该子网添加其他应用程序网关。
 
@@ -102,13 +100,11 @@ ms.lasthandoff: 07/13/2017
 
 1. 查看“摘要”边栏选项卡上的设置，然后单击“确定”开始创建应用程序网关。 创建应用程序网关是一个长时间运行的任务，需要一些时间来完成。
 
-## 将服务器添加到后端池
-<a id="add-servers-to-backend-pools" class="xliff"></a>
+## <a name="add-servers-to-backend-pools"></a>将服务器添加到后端池
 
 创建应用程序网关后，仍需将系统（托管着要进行负载均衡的应用程序）添加到应用程序网关。 这些服务器的 IP 地址、FQDN 或 NIC 已添加到后端地址池。
 
-### IP 地址或 FQDN
-<a id="ip-address-or-fqdn" class="xliff"></a>
+### <a name="ip-address-or-fqdn"></a>IP 地址或 FQDN
 
 1. 创建应用程序网关后，在 Azure 门户的“收藏夹”窗格中单击“所有资源”。 在“所有资源”边栏选项卡中单击“AdatumAppGateway”应用程序网关。 如果所选订阅中已包含多个资源，则可在“按名称筛选…”框中输入“AdatumAppGateway”， 轻松访问应用程序网关。
 
@@ -118,8 +114,7 @@ ms.lasthandoff: 07/13/2017
 
 1. 单击“添加目标”以添加 FQDN 值的 IP 地址。 选择“IP 地址或 FQDN”作为“类型”，在该字段中输入 IP 地址或 FQDN。 为其他后端池成员重复执行此过程。 完成后单击“保存”。
 
-### 虚拟机和 NIC
-<a id="virtual-machine-and-nic" class="xliff"></a>
+### <a name="virtual-machine-and-nic"></a>虚拟机和 NIC
 
 也可以将虚拟机 NIC 添加为后端池成员。 只有应用程序网关所在的虚拟网络中的虚拟机通过下拉列表提供。
 
@@ -134,8 +129,7 @@ ms.lasthandoff: 07/13/2017
    > [!NOTE]
    > 下拉列表中只提供与应用程序网关位于同一虚拟网络中的虚拟机。
 
-## 删除所有资源
-<a id="delete-all-resources" class="xliff"></a>
+## <a name="delete-all-resources"></a>删除所有资源
 
 若要删除本文中创建的所有资源，请完成以下步骤：
 
@@ -143,8 +137,7 @@ ms.lasthandoff: 07/13/2017
 1. 在“AdatumAppGatewayRG”边栏选项卡中，单击“删除”按钮。
 1. 门户将要求你键入资源组的名称以确认要将其删除。 单击“删除”，键入“AdatumAppGateway”作为资源组名称，然后单击“删除”。 资源组将连同其内附的所有资源一并删除，因此在删除前，请始终要确认资源组的内容。 门户将删除资源组中包含的所有资源，然后删除资源组本身。 此过程需耗时几分钟。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 此方案创建默认应用程序网关。 后续步骤是通过修改设置以及调整网关中的规则，配置应用程序网关。 通过访问以下文章，可找到这些步骤：
 

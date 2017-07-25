@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 02/11/2016
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: cad137789b353a0a484f9d8df3678fb40eaac3e7
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 3fa26f0b08d8e258f497454808ab263e1112bb06
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 地址类型和分配方法（经典）
 可以将 IP 地址分配给 Azure 资源，以便与其他 Azure 资源、本地网络和 Internet 通信。 可以在 Azure 中使用两种类型的 IP 地址：公共地址和专用地址。
@@ -149,7 +149,7 @@ Azure [应用程序网关](../application-gateway/application-gateway-introducti
 | 应用程序网关前端 |是 |是 |是 |
 
 ## <a name="limits"></a>限制
-下表显示 Azure 中每个订阅的 IP 寻址的限制。 可以[与支持人员联系](https://www.azure.cn/support/contact/)，根据业务需求将默认限制提高到最大限制。
+下表显示 Azure 中每个订阅的 IP 寻址的限制。 可以[与支持人员联系](https://www.azure.cn/support/support-azure/)，根据业务需求将默认限制提高到最大限制。
 
 |  | 默认限制 | 最大限制 |
 | --- | --- | --- |

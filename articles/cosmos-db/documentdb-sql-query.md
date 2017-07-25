@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# Azure Cosmos DB DocumentDB API 的 SQL 查询
-<a id="sql-queries-for-azure-cosmos-db-documentdb-api" class="xliff"></a>
+# <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB DocumentDB API 的 SQL 查询
 Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言来支持查询文档。 Cosmos DB 是真正无架构的。 凭借其对数据库引擎内 JSON 数据模型的直接承诺，它可以提供 JSON 文档的自动索引，而无需显式架构或创建辅助索引。 
 
 设计 Cosmos DB 的查询语言时，我们有两个目标：
@@ -198,8 +197,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 JSON 查询语言
 * 请注意，一旦有了别名，则无法绑定原始的源。 例如，由于再也无法解析标识符“Families”，因此 `SELECT Families.id FROM Families f` 在语法上无效。
 * 所有需要引用的属性都必须是完全限定的。 在没有遵循严格架构的情况下，会强制性地执行这一点以避免任何不确定的绑定。 因此，由于未绑定 `id` 属性，因此 `SELECT id FROM Families f` 在语法上无效。
 
-### 子文档
-<a id="sub-documents" class="xliff"></a>
+### <a name="sub-documents"></a>子文档
 也可以将源缩小为更小的子集。 例如，要在每个文档中仅枚举子树，则子根可能变成源，如下例所示。
 
 **查询**
@@ -326,8 +324,7 @@ WHERE 子句（**`WHERE <filter_condition>`**）可选。 它指定由源提供�
 
 除了二进制和一元运算符以外，还允许使用属性引用。 例如，`SELECT * FROM Families f WHERE f.isRegistered` 返回包含 `isRegistered` 属性的文档，其中的属性值等于 JSON `true` 值。 任何其他值（false、null、Undefined、`<number>`、`<string>`、`<object>`、`<array>` 等等）都会导致源文档被排除在结果之外。 
 
-### 等式和比较运算符
-<a id="equality-and-comparison-operators" class="xliff"></a>
+### <a name="equality-and-comparison-operators"></a>等式和比较运算符
 下表显示了 DocumentDB API SQL 中任意两个 JSON 类型之间等式比较的结果。
 
 <table style = "width:300px">
@@ -507,8 +504,7 @@ Undefined </td>
 
 如果筛选器中标量表达式的结果为 Undefined，则相应的文档不会包含在结果中，因为 Undefined 在逻辑上不等于“True”。
 
-### BETWEEN 关键字
-<a id="between-keyword" class="xliff"></a>
+### <a name="between-keyword"></a>BETWEEN 关键字
 还可以使用 BETWEEN 关键字来对一定范围内的值（如在 ANSI SQL 中）进行快速查询。 可对字符串或数字使用 BETWEEN。
 
 例如，此查询返回在其中第一个子女的年级为 1-5 之间（包括 1 和 5）的所有家庭文档。 
@@ -526,8 +522,7 @@ Undefined </td>
 
 在 DocumentDB API 与在 ANSI SQL 中使用 BETWEEN 的主要不同之处在于，前者支持对混合类型的属性执行快速范围查询 - 例如，可以在某些文档中将“grade”设置为数字 (5)，并在其他文档中将其设置为字符串（“grade4”）。 在这些情况下（如在 JavaScript 中），在两种不同类型之间进行比较的结果为“undefined”，将会跳过文档。
 
-### 逻辑（AND、OR 和 NOT）运算符
-<a id="logical-and-or-and-not-operators" class="xliff"></a>
+### <a name="logical-and-or-and-not-operators"></a>逻辑（AND、OR 和 NOT）运算符
 逻辑运算符对布尔值进行运算。 下表显示了这些运算符的逻辑真值表。
 
 | OR | True | False | Undefined |
@@ -548,8 +543,7 @@ Undefined </td>
 | False |True |
 | Undefined |Undefined |
 
-### IN 关键字
-<a id="in-keyword" class="xliff"></a>
+### <a name="in-keyword"></a>IN 关键字
 IN 关键字可用于检查指定的值是否与列表中的任意值匹配。 例如，此查询返回 ID 为“WakefieldFamily”或“AndersenFamily”的所有家庭文档。 
 
     SELECT *
@@ -562,8 +556,7 @@ IN 关键字可用于检查指定的值是否与列表中的任意值匹配。 �
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### 三元 (?) 和联合 (??) 运算符
-<a id="ternary--and-coalesce--operators" class="xliff"></a>
+### <a name="ternary--and-coalesce--operators"></a>三元 (?) 和联合 (??) 运算符
 三元和联合运算符可以用于生成条件表达式，类似于常用的编程语言（如 C# 和 JavaScript）。 
 
 当动态构建新的 JSON 属性时，使用三元 (?) 运算符会非常方便。 例如，现在你可以写入查询以将类级别（初学者/中级/高级）分类到用户可读的表单中，如下面所示。
@@ -611,8 +604,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从�
       }
     }]
 
-### 嵌套属性
-<a id="nested-properties" class="xliff"></a>
+### <a name="nested-properties"></a>嵌套属性
 在下面的示例中，我们将投影两个嵌套的属性 `f.address.state` and `f.address.city`。
 
 **查询**
@@ -667,8 +659,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从�
       }
     }]
 
-### 别名
-<a id="aliasing" class="xliff"></a>
+### <a name="aliasing"></a>别名
 现在让我们使用值的显示别名对上面的示例进行扩展。 AS 是用于别名的关键字。 请注意，将第二个值投影为 `NameInfo`时，它如显示的那样是可选的。 
 
 如果查询包含两个具有相同名称的属性，则必须使用别名以重命名其中一个属性或两个属性，以便可以在投影的结果中消除它们的歧义。
@@ -693,8 +684,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从�
       }
     }]
 
-### 标量表达式
-<a id="scalar-expressions" class="xliff"></a>
+### <a name="scalar-expressions"></a>标量表达式
 除了属性引用之外，SELECT 子句还支持标量表达式，如常量、算术表达式和逻辑表达式等。例如，下面是一个简单的“Hello World”查询。
 
 **查询**
@@ -737,8 +727,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从�
       }
     ]
 
-### 对象和数组创建
-<a id="object-and-array-creation" class="xliff"></a>
+### <a name="object-and-array-creation"></a>对象和数组创建
 DocumentDB API SQL 的另一个重要功能是数组/对象创建。 请注意，在上一个示例中，我们已创建了一个新的 JSON 对象。 同样，也可以构造数组，如下例所示。
 
 **查询**
@@ -812,8 +801,7 @@ DocumentDB API SQL 的另一个重要功能是数组/对象创建。 请注意�
       "NY"
     ]
 
-### * 运算符
-<a id="-operator" class="xliff"></a>
+### <a name="-operator"></a>* 运算符
 支持使用特殊运算符 (*) 按原样投影文档。 在使用时，它必须仅为投影的字段。 当类似 `SELECT * FROM Families f` 的查询有效时，`SELECT VALUE * FROM Families f ` 和 `SELECT *, f.id FROM Families f ` 无效。
 
 **查询**
@@ -1327,16 +1315,14 @@ DocumentDB API SQL 在处理 UDF 当前阶段（WHERE 子句或 SELECT 子句）
 
 总而言之，UDF 是作为查询的一部分处理复杂业务逻辑重要的工具。
 
-### 运算符评估
-<a id="operator-evaluation" class="xliff"></a>
+### <a name="operator-evaluation"></a>运算符评估
 Cosmos DB 是一个 JSON 数据库，与 JavaScript 运算符以及其评估语义具有许多相似之处。 就 JSON 支持而言，Cosmos DB 尝试保留 JavaScript 语义时，操作评估在某些实例中有所偏移。
 
 在 DocumentDB API SQL 中，与在传统 SQL 中不同，实际从数据库中检索出值之前，值类型经常是未知的。 为了高效执行查询，大多数运算符具有严格的类型要求。 
 
 不同于 JavaScript，DocumentDB API SQL 不会执行隐式转换。 例如，类似 `SELECT * FROM Person p WHERE p.Age = 21` 的查询与包含值为 21 的 Age 属性的文档相匹配。 任何其他 Age 属性与字符串“21”匹配或包含其他无数可能的变量（“021”、“21.0”、“0021”和“00021”等等）的文档则不匹配。 这与 JavaScript 相反，在 JavaScript 中，字符串会隐式转换为数字（基于运算符 ex: ==）。 此选择对于 DocumentDB API SQL 中的高效索引匹配至关重要。 
 
-## 参数化 SQL 查询
-<a id="parameterized-sql-queries" class="xliff"></a>
+## <a name="parameterized-sql-queries"></a>参数化 SQL 查询
 Cosmos DB 支持使用带有常用的 @ 表示法的参数进行查询。 参数化 SQL 为用户输入提供可靠的处理和转义，可防止通过 SQL 注入发生意外的数据泄露。 
 
 例如，你可以编写一个将姓氏和省/自治区/直辖市地址作为参数的查询，然后基于用户输入针对姓氏和省/自治区/直辖市地址执行此查询。
@@ -1379,8 +1365,7 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 
 如果当前正使用内置函数适用的用户定义的函数 (UDF)，那么应使用相应的内置函数，因为它会更快更有效地运行。 
 
-### 数学函数
-<a id="mathematical-functions" class="xliff"></a>
+### <a name="mathematical-functions"></a>数学函数
 每个数学函数均执行一个计算，通常基于作为参数提供的输出值，并返回数值。 以下是支持的内置数学函数表。
 
 | 使用情况 | 说明 |
@@ -1421,8 +1406,7 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 
 与 ANSI SQL 相比，Cosmos DB 的函数的主要差异在于它们设计为可良好地适用于无架构和混合架构数据。 例如，如果拥有一个缺少 Size 属性或有一个非数值的值（如“unknown”）的文档，那么会跳过该文档，而不是返回错误。
 
-### 类型检查函数
-<a id="type-checking-functions" class="xliff"></a>
+### <a name="type-checking-functions"></a>类型检查函数
 类型检查函数允许检查 SQL 查询内表达式的类型。 类型是变量或未知时，可使用类型检查函数动态确定文档内属性的类型。 以下是支持的内置类型检查函数表。
 
 <table>
@@ -1475,8 +1459,7 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 
     [true]
 
-### 字符串函数
-<a id="string-functions" class="xliff"></a>
+### <a name="string-functions"></a>字符串函数
 下面的标量函数对字符串输入值执行操作，并返回字符串、数值或布尔值。 以下是内置字符串函数表：
 
 | 使用情况 | 说明 |
@@ -1545,8 +1528,7 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
       "city": "NY"
     }]
 
-### 数组函数
-<a id="array-functions" class="xliff"></a>
+### <a name="array-functions"></a>数组函数
 下面的标量函数对数组输入值执行操作，并返回数值、布尔值或数组值。 以下是内置数组函数表：
 
 | 使用情况 | 说明 |
@@ -1588,8 +1570,7 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
       "numberOfChildren": 1
     }]
 
-### 空间函数
-<a id="spatial-functions" class="xliff"></a>
+### <a name="spatial-functions"></a>空间函数
 Cosmos DB 支持以下用于查询地理空间的开放地理空间信息联盟 (OGC) 内置函数。 
 
 <table>
@@ -1642,8 +1623,7 @@ LINQ 是一个 .NET 编程模型，它将计算表示为对对象流的查询。
 
 ![支持使用 DocumentDB API 的 LINQ 查询的体系结构 - SQL语法、JSON 查询语言、数据库概念和 SQL 查询][1]
 
-### .NET 和 JSON 映射
-<a id="net-and-json-mapping" class="xliff"></a>
+### <a name="net-and-json-mapping"></a>.NET 和 JSON 映射
 .NET 对象与 JSON 文档之间的映射是自然的 - 每个数据成员字段映射到 JSON 对象，其中字段名称映射到对象的“key”部分，并且"value"部分以递归方式映射到该对象的值部分。 请考虑以下示例。 创建的 Family 对象会映射到 JSON 文档，如下所示。 反之亦然，JSON 文档会映射回 .NET 对象。
 
 **C# 类**
@@ -1722,8 +1702,7 @@ LINQ 是一个 .NET 编程模型，它将计算表示为对对象流的查询。
         "isRegistered": false
     };
 
-### LINQ 到 SQL 转换
-<a id="linq-to-sql-translation" class="xliff"></a>
+### <a name="linq-to-sql-translation"></a>LINQ 到 SQL 转换
 Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最有效映射。 在以下描述中，我们假设读者对 LINQ 已经有了一个基本的了解。
 
 首先，对于类型系统，我们支持所有 JSON 基元类型 – 数值类型、布尔、字符串和 null。 仅支持这些 JSON 类型。 支持以下的标量表达式。
@@ -1760,12 +1739,10 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
 * **用户定义的函数扩展函数**：支持从 stub 方法 UserDefinedFunctionProvider.Invoke 转换为相应的用户的定义函数。
 * **其他**：支持联合与条件运算符的转换。 可以根据上下文将 Contains 转换为字符串 CONTAINS、ARRAY_CONTAINS 或 SQL IN。
 
-### SQL 查询运算符
-<a id="sql-query-operators" class="xliff"></a>
+### <a name="sql-query-operators"></a>SQL 查询运算符
 以下示例演示了一些标准 LINQ 查询运算符是如何转换为 Cosmos DB 查询的。
 
-#### Select 运算符
-<a id="select-operator" class="xliff"></a>
+#### <a name="select-operator"></a>Select 运算符
 语法为 `input.Select(x => f(x))`，其中 `f` 是一个标量表达式。
 
 **LINQ Lambda 表达式**
@@ -1800,8 +1777,7 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
                   "grade": f.children[0].grade + 3 }
     FROM Families f
 
-#### SelectMany 运算符
-<a id="selectmany-operator" class="xliff"></a>
+#### <a name="selectmany-operator"></a>SelectMany 运算符
 语法为 `input.SelectMany(x => f(x))`，其中 `f` 是返回集合类型的标量表达式。
 
 **LINQ Lambda 表达式**
@@ -1813,8 +1789,7 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
     SELECT VALUE child
     FROM child IN Families.children
 
-#### Where 运算符
-<a id="where-operator" class="xliff"></a>
+#### <a name="where-operator"></a>Where 运算符
 语法为 `input.Where(x => f(x))`，其中 `f` 是返回布尔值的标量表达式。
 
 **LINQ Lambda 表达式**
@@ -1840,12 +1815,10 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
     WHERE f.parents[0].familyName = "Smith"
     AND f.children[0].grade < 3
 
-### 复合 SQL 查询
-<a id="composite-sql-queries" class="xliff"></a>
+### <a name="composite-sql-queries"></a>复合 SQL 查询
 可以将以上运算符组合在一起，形成功能更强大的查询。 由于 Cosmos DB 支持嵌套的集合，因此可以连接或嵌套运算符组合。
 
-#### 串联
-<a id="concatenation" class="xliff"></a>
+#### <a name="concatenation"></a>串联
 语法为 `input(.|.SelectMany())(.Select()|.Where())*`。 串联的查询可以可选的 `SelectMany` 查询开始，后接多个 `Select` 或 `Where` 运算符。
 
 **LINQ Lambda 表达式**
@@ -1892,8 +1865,7 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
     FROM p IN Families.parents
     WHERE p.familyName = "Smith"
 
-#### 嵌套
-<a id="nesting" class="xliff"></a>
+#### <a name="nesting"></a>嵌套
 语法为 `input.SelectMany(x=>x.Q())`，其中 Q 是 `Select`、`SelectMany` 或 `Where` 运算符。
 
 在嵌套查询中，内部查询应用到外部集合的每个元素。 一项重要的功能是内部查询可以引用外部集合（如自联接）中元素的字段。

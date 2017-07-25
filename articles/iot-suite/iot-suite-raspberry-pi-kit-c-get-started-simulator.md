@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用 C 将 Raspberry Pi 3 连接到远程监视解决方案，并发送模拟遥测数据
-<a id="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-simulated-telemetry-using-c" class="xliff"></a>
+# <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-simulated-telemetry-using-c"></a>使用 C 将 Raspberry Pi 3 连接到远程监视解决方案，并发送模拟遥测数据
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-selector](../../includes/iot-suite-raspberry-pi-kit-selector.md)]
 
@@ -42,13 +41,11 @@ ms.lasthandoff: 07/14/2017
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-prepare-pi-simulator](../../includes/iot-suite-raspberry-pi-kit-prepare-pi-simulator.md)]
 
-## 下载并配置示例
-<a id="download-and-configure-the-sample" class="xliff"></a>
+## <a name="download-and-configure-the-sample"></a>下载并配置示例
 
 现在，可以在 Raspberry Pi 上下载并配置远程监视客户端应用程序。
 
-### 克隆存储库
-<a id="clone-the-repositories" class="xliff"></a>
+### <a name="clone-the-repositories"></a>克隆存储库
 
 如果尚未这样做，请通过在 Pi 上的终端中运行以下命令，克隆所需的存储库：
 
@@ -56,8 +53,7 @@ ms.lasthandoff: 07/14/2017
 
 `git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git`
 
-### 更新设备连接字符串
-<a id="update-the-device-connection-string" class="xliff"></a>
+### <a name="update-the-device-connection-string"></a>更新设备连接字符串
 
 使用以下命令在 **nano** 编辑器中打开示例源文件：
 
@@ -72,8 +68,7 @@ static const char* connectionString = "HostName=[IoTHub Name].azure-devices.cn;D
 
 将占位符值替换为在本教程开始时创建并保存的设备和 IoT 中心信息。 保存所做的更改（按 **Ctrl-O**，然后按 **Enter**），然后退出编辑器（按 **Ctrl-X**）。
 
-## 生成示例
-<a id="build-the-sample" class="xliff"></a>
+## <a name="build-the-sample"></a>生成示例
 
 通过在 Raspberry Pi 上的终端中运行以下命令，为适用于 C 的 Microsoft Azure IoT 设备 SDK 安装必备组件包：
 
@@ -99,8 +94,7 @@ static const char* connectionString = "HostName=[IoTHub Name].azure-devices.cn;D
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-telemetry-simulator](../../includes/iot-suite-raspberry-pi-kit-view-telemetry-simulator.md)]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有关 Azure IoT 的更多示例和文档，请访问 [Azure IoT 开发人员中心](https://www.azure.cn/develop/iot/)。
 

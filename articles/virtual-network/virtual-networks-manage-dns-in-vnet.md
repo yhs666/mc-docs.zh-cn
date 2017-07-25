@@ -1,6 +1,6 @@
 ---
-title: "管理经典虚拟网络所用的 DNS 服务器 - Azure 门户（经典）| Azure"
-description: "了解如何使用 Azure 门户（经典）在虚拟网络（经典）中添加和删除 DNS 服务器。"
+title: "管理虚拟网络（经典）所用的 DNS 服务器 - Azure 经典管理门户 | Azure"
+description: "了解如何使用 Azure 经典管理门户在虚拟网络（经典）中添加和删除 DNS 服务器。"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,23 +16,23 @@ origin.date: 03/15/2016
 ms.date: 03/31/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b4930c1707607199aebf1e2b35fec25c17d8b0bd
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 373059b59ffc984bdfb5a82462774abf24640d2c
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="manage-dns-servers-used-by-a-virtual-network-classic-using-the-azure-portal-classic"></a>使用 Azure 门户（经典）管理虚拟网络（经典）使用的 DNS 服务器
+# <a name="manage-dns-servers-used-by-a-virtual-network-classic-using-the-azure-classic-management-portal"></a>使用 Azure 经典管理门户管理虚拟网络（经典）所用的 DNS 服务器
 
-你可以在 Azure 门户（经典）或网络配置文件中管理虚拟网络 (VNet) 中使用的 DNS 服务器的列表。 对于每个 VNet，最多可以添加 12 个 DNS 服务器。 指定 DNS 服务器时，请确认按所处环境的正确顺序列出 DNS 服务器，这一点很重要。 DNS 服务器列表不采用循环机制。 将按指定服务器的顺序使用这些服务器。 如果可访问列表上的第一个 DNS 服务器，则无论该 DNS 服务器是否工作正常，客户端都将使用它。 若要更改你的虚拟网络的 DNS 服务器顺序，请从列表中删除 DNS 服务器，然后按你所需的顺序重新添加这些服务器。
+可以在 Azure 经典管理门户或网络配置文件中管理虚拟网络 (VNet) 中使用的 DNS 服务器的列表。 对于每个 VNet，最多可以添加 12 个 DNS 服务器。 指定 DNS 服务器时，请确认按所处环境的正确顺序列出 DNS 服务器，这一点很重要。 DNS 服务器列表不采用循环机制。 将按指定服务器的顺序使用这些服务器。 如果可访问列表上的第一个 DNS 服务器，则无论该 DNS 服务器是否工作正常，客户端都将使用它。 若要更改你的虚拟网络的 DNS 服务器顺序，请从列表中删除 DNS 服务器，然后按你所需的顺序重新添加这些服务器。
 
 > [!WARNING]
 > 更新 DNS 列表后，必须重新启动位于虚拟网络中的虚拟机，以使其选取新的 DNS 服务器设置。 虚拟机将继续使用其当前配置，直至其重新启动为止。
 > 
 > 
 
-## <a name="edit-a-dns-server-list-for-a-virtual-network-using-the-azure-portal-classic"></a>使用 Azure 门户（经典）编辑虚拟网络的 DNS 服务器列表
-1. 登录到 [Azure 门户（经典）](https://manage.windowsazure.cn)。
+## <a name="edit-a-dns-server-list-for-a-virtual-network-using-the-azure-classic-management-portal"></a>使用 Azure 经典管理门户编辑虚拟网络的 DNS 服务器列表
+1. 登录到 [Azure 经典管理门户](https://manage.windowsazure.cn)。
 2. 在导航窗格中，单击“网络”，然后在“名称”列中单击你的虚拟网络名称。
 3. 单击 **“配置”**。
 4. 在“DNS 服务器”中，你可以进行以下配置 ：

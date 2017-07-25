@@ -21,22 +21,18 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 使用存储资源管理器（预览版）管理 Azure Blob 存储资源
-<a id="manage-azure-blob-storage-resources-with-storage-explorer-preview" class="xliff"></a>
-## 概述
-<a id="overview" class="xliff"></a>
+# <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>使用存储资源管理器（预览版）管理 Azure Blob 存储资源
+## <a name="overview"></a>概述
 [Azure Blob 存储](./storage/storage-dotnet-how-to-use-blobs.md)是用于存储大量非结构化数据（例如文本或二进制数据）的服务，这些数据可通过 HTTP 或 HTTPS 从世界各地进行访问。
 你可以使用 Blob 存储向外公开数据，或者私下存储应用程序数据。 本文将介绍如何使用适合 Blob 容器和 Blob 的存储资源管理器（预览版）。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 若要完成本文中的步骤，需要满足以下先决条件：
 
 - [下载并安装存储资源管理器（预览版）](http://www.storageexplorer.com)
 - [连接到 Azure 存储帐户或服务](./vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
-## 创建 Blob 容器
-<a id="create-a-blob-container" class="xliff"></a>
+## <a name="create-a-blob-container"></a>创建 Blob 容器
 所有 Blob 都必须驻留在 Blob 容器中。简单说来，该容器就是对 Blob 进行逻辑分组。 一个帐户可以包含无限数量的容器，一个容器可以存储无限数量的 Blob。
 
 以下步骤演示了如何在存储资源管理器（预览版）中创建 Blob 容器。
@@ -53,8 +49,7 @@ ms.lasthandoff: 07/13/2017
 
    ![已创建的 Blob 容器][2]
 
-## 查看 Blob 容器的内容
-<a id="view-a-blob-containers-contents" class="xliff"></a>
+## <a name="view-a-blob-containers-contents"></a>查看 Blob 容器的内容
 Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
 
 以下步骤演示了如何在存储资源管理器（预览版）中查看 Blob 容器的内容：
@@ -70,8 +65,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
 
    ![Blob 容器编辑器][3]
 
-## 删除 Blob 容器
-<a id="delete-a-blob-container" class="xliff"></a>
+## <a name="delete-a-blob-container"></a>删除 Blob 容器
 可以根据需要轻松地创建和删除 Blob 容器。 （若要了解如何删除各个 Blob，请参阅[管理 Blob 容器中的 Blob](#managing-blobs-in-a-blob-container) 部分。）
 
 以下步骤演示了如何在存储资源管理器（预览版）中删除 Blob 容器：
@@ -87,8 +81,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
 
    ![“删除 Blob 容器”确认][5]
 
-## 复制 Blob 容器
-<a id="copy-a-blob-container" class="xliff"></a>
+## <a name="copy-a-blob-container"></a>复制 Blob 容器
 可以通过存储资源管理器（预览版）将 Blob 容器复制到剪贴板，然后再将该 Blob 容器粘贴到另一存储帐户中。 （若要了解如何复制各个 Blob，请参阅[管理 Blob 容器中的 Blob](#managing-blobs-in-a-blob-container) 部分。）
 
 以下步骤演示了如何将 Blob 容器从一个存储帐户复制到另一个存储帐户。
@@ -103,8 +96,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
 
    ![“粘贴 Blob 容器”上下文菜单][7]
 
-## 获取 Blob 容器的 SAS
-<a id="get-the-sas-for-a-blob-container" class="xliff"></a>
+## <a name="get-the-sas-for-a-blob-container"></a>获取 Blob 容器的 SAS
 [共享访问签名 (SAS)](./storage/storage-dotnet-shared-access-signature-part-1.md) 用于对存储帐户中的资源进行委托访问。
 这意味着你可以授权客户端在指定时间段内，以一组指定权限有限地访问你的存储帐户中的对象，而不必共享你的帐户访问密钥。
 
@@ -126,8 +118,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
    ![复制 SAS URL][10]
 8. 完成后，选择“关闭”。
 
-## 管理 Blob 容器的访问策略
-<a id="manage-access-policies-for-a-blob-container" class="xliff"></a>
+## <a name="manage-access-policies-for-a-blob-container"></a>管理 Blob 容器的访问策略
 以下步骤演示了如何管理（添加和删除）Blob 容器的访问策略：
 
 1. 打开存储资源管理器（预览版）。
@@ -145,8 +136,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
    - **编辑访问策略** - 进行需要的编辑，然后选择“保存”。
    - **删除访问策略** - 在要删除的访问策略旁边选择“删除”。
 
-## 为 Blob 容器设置公共访问级别
-<a id="set-the-public-access-level-for-a-blob-container" class="xliff"></a>
+## <a name="set-the-public-access-level-for-a-blob-container"></a>为 Blob 容器设置公共访问级别
 默认情况下，每个 Blob 容器都设置为“无公共访问权限”。
 
 以下步骤演示了如何指定 Blob 容器的公共访问级别。
@@ -162,8 +152,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
    ![“设置公共访问级别”选项][14]
 6. 选择“应用”。
 
-## 管理 Blob 容器中的 Blob
-<a id="managing-blobs-in-a-blob-container" class="xliff"></a>
+## <a name="managing-blobs-in-a-blob-container"></a>管理 Blob 容器中的 Blob
 创建 Blob 容器以后，即可将 Blob 上传到该 Blob 容器、将 Blob 下载到本地计算机、在本地计算机上打开 Blob，等等。
 
 以下步骤演示如何管理 Blob 容器中的 Blob（和文件夹）。
@@ -223,8 +212,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
      2. 在主窗格的工具栏上，选择“删除”。
      3. 出现确认对话框时，选择“是”。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 - 查看[最新的存储资源管理器（预览版）发行说明和视频](http://www.storageexplorer.com)。
 - 了解如何[使用 Azure Blob、表、队列和文件创建应用程序](./storage/index.md)。
 

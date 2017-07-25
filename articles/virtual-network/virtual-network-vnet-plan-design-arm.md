@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/08/2016
-ms.date: 03/28/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: e78166f314d78b4114e6f4b7c0ad60925fe630b9
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: f5749be05c1445fcd6d42e14ab23990dd04bcc0f
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>规划和设计 Azure 虚拟网络
 创建要用于试验的 VNet 非常简单，但却可能是，你将在一段时间内部署多个 VNet 以支持组织的生产需要。 通过进行一些规划和设计，你将能够更有效地部署 VNet 和连接所需的资源。 如果你不熟悉 VNet，我们建议你先[了解 VNet](virtual-networks-overview.md) 以及[如何部署](virtual-networks-create-vnet-arm-pportal.md) VNet，然后再继续阅读本文。
@@ -174,7 +174,7 @@ VNet 包含以下属性。
     是的。 因为连接到本地数据中心的用户必须能够通过加密隧道访问应用程序。
 4. 你需要将多少个 IaaS VM 用于你的解决方案？
 
-    200 个 IaaS VM。 App1、App2 和 App3 各需要 5 个 Web 服务器、2 个应用程序服务器和 2 个数据库服务器。 每个应用程序总共需要 9 个 IaaS VM，或总共需要 36 个 IaaS VM。 App5 和 App6 各需要 5 个 Web 服务器和 2 个数据库服务器。 每个应用程序总共需要 7 个 IaaS VM，或总共需要 14 个 IaaS VM。 因此，每个 Azure 区域中的所有应用程序需要 50 个 IaaS VM。 由于我们需要使用 4 个区域，因此将有 200 个 IaaS VM。
+    200 个 IaaS VM。 App1、App2、App3 和 App4 各需要 5 个 Web 服务器、2 个应用程序服务器和 2 个数据库服务器。 每个应用程序总共需要 9 个 IaaS VM，或总共需要 36 个 IaaS VM。 App5 和 App6 各需要 5 个 Web 服务器和 2 个数据库服务器。 每个应用程序总共需要 7 个 IaaS VM，或总共需要 14 个 IaaS VM。 因此，每个 Azure 区域中的所有应用程序需要 50 个 IaaS VM。 由于我们需要使用 4 个区域，因此将有 200 个 IaaS VM。
 
     你还需要在每个 VNet 中或本地数据中心内提供 DNS 服务器，以便在 Azure IaaS VM 和本地网络之间解析名称。
 5. 是否需要基于 VM 组（即前端 Web 服务器和后端数据库服务器）隔离流量？

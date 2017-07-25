@@ -20,12 +20,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 使用设备管理启动设备固件更新 (.NET/Node)
-<a id="use-device-management-to-initiate-a-device-firmware-update-netnode" class="xliff"></a>
+# <a name="use-device-management-to-initiate-a-device-firmware-update-netnode"></a>使用设备管理启动设备固件更新 (.NET/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
-## 介绍
-<a id="introduction" class="xliff"></a>
+## <a name="introduction"></a>介绍
 在[设备管理入门][lnk-dm-getstarted]教程中，已了解如何使用[设备孪生][lnk-devtwin]和[直接方法][lnk-c2dmethod]基元来远程重新启动设备。 本教程使用相同的 IoT 中心基元，并演示如何进行端到端模拟固件更新。  此模式在用于 [Raspberry Pi device implementation sample][lnk-rpi-implementation]（Raspberry Pi 设备实现示例）的固件更新实现中使用。
 
 本教程演示如何：
@@ -51,8 +49,7 @@ ms.lasthandoff: 07/13/2017
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## 使用直接方法在设备上触发远程固件更新
-<a id="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method" class="xliff"></a>
+## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>使用直接方法在设备上触发远程固件更新
 在本部分中，用户创建一个 .NET 控制台应用（使用 C#），以便在设备上启动远程固件更新。 该应用使用直接方法来启动更新，并使用设备孪生查询定期获取活动固件更新的状态。
 
 1. 在 Visual Studio 中，使用“ **控制台应用程序** ”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 将项目命名为 **TriggerFWUpdate**。
@@ -115,8 +112,7 @@ ms.lasthandoff: 07/13/2017
 
 [!INCLUDE [iot-hub-device-firmware-update](../../includes/iot-hub-device-firmware-update.md)]
 
-## 运行应用
-<a id="run-the-apps" class="xliff"></a>
+## <a name="run-the-apps"></a>运行应用
 现在，已准备就绪，可以运行应用。
 
 1. 在 **manageddevice** 文件夹的命令提示符处，运行以下命令以开始侦听重新启动直接方法。
@@ -130,8 +126,7 @@ ms.lasthandoff: 07/13/2017
 
     ![已成功更新固件][img-fwupdate]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 在本教程中，直接触发了设备的远程固件更新，并使用了报告属性跟踪固件更新的进度。
 
 若要了解如何扩展 IoT 解决方案并在多个设备上计划方法调用，请参阅 [Schedule and broadcast jobs][lnk-tutorial-jobs] （计划和广播作业）教程。

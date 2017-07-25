@@ -20,12 +20,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 对 Azure 存储进行监视、诊断和故障排除
-<a id="monitor-diagnose-and-troubleshoot-azure-storage" class="xliff"></a>
+# <a name="monitor-diagnose-and-troubleshoot-azure-storage"></a>对 Azure 存储进行监视、诊断和故障排除
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
-## 概述
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概述
 诊断和排查在云环境中托管的分布式应用程序中的问题可能会比在传统环境中更复杂。 应用程序可以部署在 PaaS 或 IaaS 基础结构、本地、移动设备，或这些项的某种组合中。 通常，应用程序的网络流量可能会经过公用和专用网络，且应用程序可以使用多种存储技术（如 Azure 存储表、Blob、队列或文件）以及其他数据存储（如关系数据库和文档数据库）。
 
 若要成功管理此类应用程序，应主动监视这些应用程序，并了解如何诊断和排查这些应用程序及其相关技术的所有方面的问题。 作为 Azure 存储服务的用户，你应持续监视你的应用程序所用的存储服务是否出现任何意外的行为更改（如比正常响应时间慢），并使用日志记录收集更详细的数据并深入分析问题。 从监视和日志记录获取的诊断信息将有助于确定应用程序所遇到问题的根本原因。 然后，你可以排查该问题，并确定可以执行以更正该问题的相应步骤。 Azure 存储是一项核心 Azure 服务，它是客户部署到 Azure 基础结构的大多数解决方案的重要组成部分。 Azure 存储提供的功能可以简化监视、诊断和排查基于云的应用程序中的存储问题的过程。
@@ -359,8 +357,7 @@ catch (StorageException storageException)
 > 
 > 
 
-#### 调查客户端的性能问题
-<a id="investigating-client-performance-issues" class="xliff"></a>
+#### <a name="investigating-client-performance-issues"></a>调查客户端的性能问题
 客户端响应速度慢的可能原因包括：可用连接数或可用线程数有限。 你可以通过以下方式解决此问题：修改客户端代码使其更高效（例如，对存储服务使用异步调用），或者使用更大的虚拟机（包含更多内核和更多内存）。
 
 对于表和队列服务，Nagle 算法也可能导致高 **AverageE2ELatency**（与 **AverageServerLatency** 相比）：有关详细信息，请参阅 Azure 存储团队博客上的 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle’s Algorithm is Not Friendly towards Small Requests</a>（Nagle 算法对小请求不友好）一文。 可以通过使用 **System.Net** 命名空间中的 **ServicePointManager** 类在代码中禁用 Nagle 算法。 应在应用程序中调用表或队列服务之前执行此操作，因为这样做不会影响已打开的连接。 下面的示例来自辅助角色中的 **Application_Start** 方法。
@@ -375,8 +372,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 
 您应查看客户端日志以了解客户端应用程序正在提交多少个请求，并检查客户端中一般与 .NET 相关的性能瓶颈（如 CPU、.NET 垃圾回收、网络利用率或内存（作为排查 .NET 客户端应用程序问题的起点，请参阅 MSDN 上的<a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">调试、跟踪和分析</a>）。
 
-#### 调查网络延迟问题
-<a id="investigating-network-latency-issues" class="xliff"></a>
+#### <a name="investigating-network-latency-issues"></a>调查网络延迟问题
 通常，因网络导致的高端到端延迟是由暂时状况导致的。 你可以使用工具（如 Wireshark 或 Microsoft Message Analyzer）调查临时和持久网络问题，例如丢弃数据包。
 
 有关使用 Wireshark 排查网络问题的详细信息，请参阅“[附录 2：使用 Wireshark 捕获网络流量]”。
@@ -769,8 +765,7 @@ WireShark 将在 **packetlist** 窗口中突出显示存在的任何错误。 �
 ### <a name="appendix-3"></a>附录 3：使用 Microsoft Message Analyzer 捕获网络流量
 可以使用 Microsoft Message Analyzer 以与 Fiddler 类似的方式捕获 HTTP 和 HTTPS 流量，并以与 Wireshark 类似的方式捕获网络流量。
 
-#### 使用 Microsoft Message Analyzer 配置 Web 跟踪会话
-<a id="configure-a-web-tracing-session-using-microsoft-message-analyzer" class="xliff"></a>
+#### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>使用 Microsoft Message Analyzer 配置 Web 跟踪会话
 若要使用 Microsoft Message Analyzer 为 HTTP 和 HTTPS 通信配置 Web 跟踪会话，请运行 Microsoft Message Analyzer 应用程序的，然后在“文件”菜单上单击“捕获/跟踪”。 在可用的跟踪方案列表中，选择“Web 代理”。 然后在“跟踪方案配置”面板的 **HostnameFilter** 文本框中，添加存储终结点的名称（可以在 Azure 经典管理门户中查找这些名称）。 例如，如果 Azure 存储帐户的名称是 **contosodata**，则应将以下内容添加到 **HostnameFilter** 文本框：
 
 ```
@@ -788,8 +783,7 @@ contosodata.blob.core.chinacloudapi.cn contosodata.table.core.chinacloudapi.cn c
 
 Microsoft Message Analyzer 中内置的 **Web 代理**跟踪基于 Fiddler；它可以捕获客户端 HTTPS 通信，并显示未加密的 HTTPS 消息。 “Web 代理”  跟踪的工作原理是通过为所有 HTTP 和 HTTPS 流量配置本地代理使其可以访问未加密的消息。
 
-#### 使用 Microsoft Message Analyzer 诊断网络问题
-<a id="diagnosing-network-issues-using-microsoft-message-analyzer" class="xliff"></a>
+#### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>使用 Microsoft Message Analyzer 诊断网络问题
 除了使用 Microsoft Message Analyzer **Web 代理**跟踪来捕获客户端应用程序和存储服务之间的 HTTP/HTTPS 流量的详细信息外，还可以使用内置的**本地链路层**跟踪来捕获网络数据包信息。 此能够实现捕获类似于使用 Wireshark 捕获的数据，并诊断丢弃的数据包等网络问题。
 
 下面的屏幕截图显示了**本地链路层**跟踪的一个示例，其中一些**信息性**消息显示在 **DiagnosisTypes** 列中。 单击 **DiagnosisTypes** 列中的图标可显示消息的详细信息。 在此示例中，服务器重新传输了消息 #305，因为它未收到来自客户端的确认消息：

@@ -8,14 +8,14 @@ manager: timlt
 editor: 
 ms.service: cloud-services
 ms.topic: article
-origin.date: 12/27/2016
-ms.date: 01/25/2017
+origin.date: 05/18/2017
+ms.date: 07/17/2017
 ms.author: v-yiso
-ms.openlocfilehash: cdc715a6d5b4510975c645091eaa574fa0607f1b
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: e6452ee3daf7066c6c368354e860d29ad9f00f6b
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>如何管理云服务
 
@@ -81,11 +81,11 @@ ms.lasthandoff: 06/21/2017
 
 - 如果想要将静态 IP 地址用于生产槽，也必须为过渡槽保留一个静态 IP 地址。 否则，交换将失败。
 
-- 在执行交换之前，你的角色的所有实例必须都在运行。 可以在 Azure 经典门户中或使用 [Windows PowerShell 中的 Get-AzureRole 命令](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole)检查实例的状态。
+- 在执行交换之前，你的角色的所有实例必须都在运行。 可以在 Azure 经典门户中或使用 [Windows PowerShell 中的 Get-AzureRole 命令](https://docs.microsoft.com/en-us/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0)检查实例的状态。
 
 请注意，来宾 OS 更新和服务修复操作也会导致部署交换失败。 有关详细信息，请参阅 [排查云服务部署问题](cloud-services-troubleshoot-deployment-problems.md) 。
 
-应用程序的交换是否会导致停机？应如何处理它？
+**应用程序的交换是否会导致停机？应如何处理它？**
 
 如在上一部分中所述，部署交换通常非常快，因为它只更改 Azure 负载均衡器中的配置。 但是，在某些情况下，它会需要 10 秒或更长时间并导致暂时性连接故障。 
 
@@ -118,9 +118,7 @@ ms.lasthandoff: 06/21/2017
     ![链接页 1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
 
 4. 单击“创建新资源”或“链接现有资源”。
-
-5. 选择要链接的资源类型。 在 [Azure 经典门户](http://manage.windowsazure.cn)中，单击“SQL 数据库”。 （预览版 Azure 经典门户不支持将存储帐户链接到云服务。）
-
+5. 选择要链接的资源类型。 在 [Azure 经典门户](http://manage.windowsazure.cn/)中，单击“SQL 数据库”。 （仅 Azure 经典门户支持将存储帐户链接到云服务。）
 6. 若要完成数据库配置，请按照 Azure 经典门户“SQL 数据库”区域的帮助中的说明操作。
 
     可以在消息区域中跟踪链接操作的进度。

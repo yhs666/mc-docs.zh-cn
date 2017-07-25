@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用门户删除虚拟网络网关
-<a id="delete-a-virtual-network-gateway-using-the-portal" class="xliff"></a>
+# <a name="delete-a-virtual-network-gateway-using-the-portal"></a>使用门户删除虚拟网络网关
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure 门户](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
@@ -41,29 +40,25 @@ ms.lasthandoff: 07/14/2017
 
 若要删除虚拟网络网关，必须先删除与该虚拟网络网关相关的每个资源。 由于存在依赖关系，必须按特定的顺序删除资源。
 
-### 步骤 1：导航到虚拟网络网关
-<a id="step-1-navigate-to-the-virtual-network-gateway" class="xliff"></a>
+### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>步骤 1：导航到虚拟网络网关
 
 在 [Azure 门户](https://portal.azure.cn)中的“所有资源”中，单击要删除的虚拟网络网关。 网关图形是：
 
 ![找到虚拟网络网关](./media/vpn-gateway-delete-vnet-gateway-portal/gw.png)
 
-### 步骤 2：删除连接
-<a id="step-2-delete-connections" class="xliff"></a>
+### <a name="step-2-delete-connections"></a>步骤 2：删除连接
 
 1. 在“虚拟网络网关”边栏选项卡中，单击“连接”以查看该网关的所有连接。
 2. 在连接的名称行中，单击“...”，然后从下拉列表中选择“删除”。
 3. 单击“是”以确认要删除该连接。 如果有多个连接，请删除每个连接。
 
-### 步骤 3：删除本地网关
-<a id="step-3-delete-the-local-network-gateways" class="xliff"></a>
+### <a name="step-3-delete-the-local-network-gateways"></a>步骤 3：删除本地网关
 1. 在“所有资源”中，找到与每个连接相关联的本地网关。 本地网关的图形是：
 
     ![找到本地网关](./media/vpn-gateway-delete-vnet-gateway-portal/lng.png)
 2. 在本地网关的“概述”边栏选项卡上，单击“删除”。
 
-### 步骤 4：删除虚拟网络网关
-<a id="step-4-delete-the-virtual-network-gateway" class="xliff"></a>
+### <a name="step-4-delete-the-virtual-network-gateway"></a>步骤 4：删除虚拟网络网关
 1. 在“所有资源”中，找到要删除的虚拟网络网关。
 2. 在“概述”边栏选项卡上，单击“删除”以删除网关。
 
@@ -72,8 +67,7 @@ ms.lasthandoff: 07/14/2017
 >
 >
 
-### 步骤 5：删除网关的公共 IP 地址
-<a id="step-5-delete-the-public-ip-address-for-the-gateway" class="xliff"></a>
+### <a name="step-5-delete-the-public-ip-address-for-the-gateway"></a>步骤 5：删除网关的公共 IP 地址
 
 1. 在“所有资源”中，找到已分配到该网关的公共 IP 地址。 如果虚拟网络网关采用主动-主动配置，将显示两个公共 IP 地址。 公共 IP 地址的图形是：
 
@@ -81,8 +75,7 @@ ms.lasthandoff: 07/14/2017
 
 2. 在公共 IP 地址的“概述”页上，单击“删除”，然后单击“是”进行确认。
 
-### 步骤 6：删除网关子网
-<a id="step-6-delete-the-gateway-subnet" class="xliff"></a>
+### <a name="step-6-delete-the-gateway-subnet"></a>步骤 6：删除网关子网
 
 1. 在“所有资源”中，找到虚拟网络。 
 2. 在“子网”边栏选项卡上，单击“GatewaySubnet”，然后单击“删除”。 

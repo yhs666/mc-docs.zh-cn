@@ -1,5 +1,5 @@
 ---
-title: "使用脚本操作自定义 HDInsight 群集 | Azure"
+title: "使用脚本操作自定义 HDInsight 群集 - Azure | Azure"
 description: "了解如何使用脚本操作自定义 HDInsight 群集。"
 services: hdinsight
 documentationcenter: 
@@ -17,11 +17,11 @@ origin.date: 10/05/2016
 ms.date: 03/10/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
-ms.openlocfilehash: af2e9f051645f9fc47d6c11cbb7a36746d01a5a7
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: f8f451f5cc4bf7a0177f6d36de8b830931b7cc7f
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>使用脚本操作自定义基于 Windows 的 HDInsight 群集
 在创建群集的过程中，可以使用脚本操作来调用[自定义脚本](hdinsight-hadoop-script-actions.md)，以便在群集上安装其他软件。
@@ -29,7 +29,7 @@ ms.lasthandoff: 06/21/2017
 本文中的信息特定于基于 Windows 的 HDInsight 群集。 有关基于 Linux 的群集，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)（HDInsight 在 Windows 上即将弃用）。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
 
 也可以使用多种其他方法来自定义 HDInsight 群集，例如包含其他 Azure 存储帐户、更改 Hadoop 配置文件（core-site.xml、hive-site.xml 等），或者将共享库（例如 Hive、Oozie）添加到群集中的共同位置。 这些自定义可以通过使用 Azure PowerShell、Azure HDInsight .NET SDK 或 Azure 门户来完成。 有关详细信息，请参阅 [在 HDInsight 中创建 Hadoop 群集][hdinsight-provision-cluster]。
 

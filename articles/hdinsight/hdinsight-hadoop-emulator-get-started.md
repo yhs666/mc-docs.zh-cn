@@ -1,5 +1,5 @@
 ---
-title: "使用 Hadoop 沙盒了解 Hadoop | Azure"
+title: "了解如何使用 Hadoop 沙盒 - 模拟器 - Azure HDInsight | Azure"
 description: "若要了解如何使用 Hadoop 生态系统，可以在 Azure 虚拟机上设置 Hortonworks 提供的 Hadoop 沙盒。 "
 keywords: "hadoop emulator,hadoop 沙盒"
 editor: cgronlun
@@ -10,21 +10,21 @@ documentationcenter:
 tags: azure-portal
 ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/06/2017
-ms.date: 01/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 0a69fbf6533e245b6712c0c5b319f8308e3f3b7e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 528d556b8c3ee88f17fd9f1cedca5522a16d3d07
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
-# <a name="get-started-in-the-hadoop-ecosystem-with-a-hadoop-sandbox-on-a-virtual-machine"></a>在虚拟机上使用 Hadoop 沙盒，开始了解 Hadoop 生态系统
+# <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>开始使用 Hadoop 沙盒, 虚拟机上的模拟器
 
 了解如何在虚拟机上安装 Hortonworks 提供的 Hadoop 沙盒，了解 Hadoop 生态系统。 该沙盒提供一个本地开发环境，让用户了解 Hadoop、Hadoop 分布式文件系统 (HDFS) 和作业提交内容。 熟悉 Hadoop 之后，便可以开始在 Azure 中使用 Hadoop 创建 HDInsight 群集。 有关如何入门的详细信息，请参阅[在 HDInsight 中开始使用 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)。
 
@@ -33,7 +33,8 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="download-and-install-the-virtual-machine"></a>下载并安装虚拟机
 1. 浏览到 [Hortonworks 下载](http://hortonworks.com/downloads/#sandbox)。
-2. 单击“下载 VIRTUALBOX”  ，将最新的 Hrotonworks 沙盒下载到 VM 上。 开始下载之前，网站会提示在 Hortonworks 上注册。 下载需要一到两个小时，具体取决于网络速度。
+
+2. 单击“下载 VIRTUALBOX”，将最新的 Hortonworks 沙盒下载到 VM 上。 开始下载之前，网站会提示在 Hortonworks 上注册。 下载需要一到两个小时，具体取决于网络速度。
 
     ![用于下载 Hortonworks Sandbox for VirtualBox 的链接图像](./media/hdinsight-hadoop-emulator-get-started/download-sandbox.png)
 3. 在同一网页上，单击“在 Virtual Box 上导入”  链接，下载包含虚拟机安装说明的 PDF。
@@ -59,7 +60,8 @@ ms.lasthandoff: 06/21/2017
    > 如果未安装 SSH 客户端，可以使用虚拟机在 http://localhost:4200/ 上提供的基于 Web 的 SSH。
    > 
 
-    首次使用 SSH 建立连接时，系统会提示更改 root 帐户的密码。 输入新密码，将来使用 SSH 登录时要用到它。
+    首次使用 SSH 建立连接时，系统会提示更改 root 帐户的密码。 输入新密码，在使用 SSH 登录时将使用该密码。
+
 2. 登录后，请输入以下命令：
 
         ambari-admin-password-reset

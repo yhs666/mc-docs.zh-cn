@@ -17,10 +17,10 @@ origin.date: 01/23/2017
 ms.date: 03/31/2017
 ms.author: v-dazen
 ms.openlocfilehash: c6fffb8c057aa5783b3113167158e9c1752f64c6
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>使用 Azure CLI 创建应用程序网关
 

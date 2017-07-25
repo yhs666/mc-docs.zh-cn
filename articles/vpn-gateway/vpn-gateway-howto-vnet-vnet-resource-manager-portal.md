@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用 Azure 门户配置 VNet 到 VNet VPN 网关连接
-<a id="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal" class="xliff"></a>
+# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>使用 Azure 门户配置 VNet 到 VNet VPN 网关连接
 
 本文介绍如何在虚拟网络之间创建 VPN 网关连接。 虚拟网络可位于相同或不同的区域，来自相同或不同的订阅。 本文中的步骤适用于 Resource Manager 部署模型和 Azure 门户。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
 
@@ -45,8 +44,7 @@ ms.lasthandoff: 07/14/2017
 
 ![关于连接](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "关于连接")
 
-### 为什么要连接虚拟网络？
-<a id="why-connect-virtual-networks" class="xliff"></a>
+### <a name="why-connect-virtual-networks"></a>为什么要连接虚拟网络？
 
 你可能会出于以下原因而连接虚拟网络：
 
@@ -112,8 +110,7 @@ ms.lasthandoff: 07/14/2017
 ## <a name="CreatVNet"></a>1.创建并配置 TestVNet1
 如果已有一个 VNet，请检查其设置是否与 VPN 网关设计兼容。 请特别留意可能与其他网络重叠的任何子网。 如果有重叠的子网，连接将无法正常工作。 如果为 VNet 配置了正确的设置，可以开始执行 [指定 DNS 服务器](#dns) 部分中的步骤。
 
-### 创建虚拟网络
-<a id="to-create-a-virtual-network" class="xliff"></a>
+### <a name="to-create-a-virtual-network"></a>创建虚拟网络
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="subnets"></a>2.添加其他地址空间并创建子网
@@ -128,8 +125,7 @@ ms.lasthandoff: 07/14/2017
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### 创建网关子网
-<a id="to-create-a-gateway-subnet" class="xliff"></a>
+### <a name="to-create-a-gateway-subnet"></a>创建网关子网
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## <a name="DNSServer"></a>4.指定 DNS 服务器（可选）
@@ -140,8 +136,7 @@ VNet 到 VNet 连接不需要 DNS。 但是，如果希望对部署到虚拟网�
 ## <a name="VNetGateway"></a>5.创建虚拟网关
 在此步骤中，将为 VNet 创建虚拟网络网关。 创建网关通常需要 45 分钟或更长的时间，具体取决于所选网关 SKU。 如果要练习创建此配置，可以引用 [示例设置](#values)。
 
-### 创建虚拟网络网关
-<a id="to-create-a-virtual-network-gateway" class="xliff"></a>
+### <a name="to-create-a-virtual-network-gateway"></a>创建虚拟网络网关
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 ## <a name="CreateTestVNet4"></a>6.创建并配置 TestVNet4
@@ -191,6 +186,5 @@ TestVNet1 和 TestVNet4 的虚拟网络网关都已完成后，便可以创建�
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机文档](/#pivot=services&panel=Compute)。

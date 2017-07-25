@@ -2,8 +2,8 @@
 title: "Media Encoder Standard 架构 | Azure"
 description: "本主题概述 Media Encoder Standard 架构。"
 author: Juliako
-manager: erikre
-editor: 
+manager: Hayley244
+editor: digimobile
 services: media-services
 documentationcenter: 
 ms.assetid: 4c060062-8ef2-41d9-834e-e81e8eafcf2e
@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/10/2017
-ms.date: 02/24/2017
+origin.date: 06/12/2017
+ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 60fac24cf7130214f471d59d23e0b213e5c16f5f
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 5c4936a75128509b984f067393d67bb920e1c78b
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 架构
-本主题描述 [Media Encoder Standard 预设](./media-services-mes-presets-overview.md)基于的 XML 架构的一些元素和类型。 本主题介绍元素及其有效值。 将在以后发布完整架构。  
+本主题描述 [Media Encoder Standard 预设](media-services-mes-presets-overview.md)基于的 XML 架构的一些元素和类型。 本主题介绍元素及其有效值。 将在以后发布完整架构。  
 
 ## <a name="Preset"></a> 预设（根元素）
 定义编码预设。  
@@ -30,8 +30,8 @@ ms.lasthandoff: 06/21/2017
 ### <a name="elements"></a>元素
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| **编码** |[编码](./media-services-mes-schema.md#Encoding) |根元素，指示要编码的输入源。 |
-| **Outputs** |[输出](./media-services-mes-schema.md#Output) |所需输出文件的集合。 |
+| **编码** |[编码](media-services-mes-schema.md#Encoding) |根元素，指示要编码的输入源。 |
+| **Outputs** |[输出](media-services-mes-schema.md#Output) |所需输出文件的集合。 |
 
 ### <a name="attributes"></a>属性
 | 名称 | 类型 | 说明 |
@@ -44,11 +44,11 @@ ms.lasthandoff: 06/21/2017
 ### <a name="elements"></a>元素
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| **H264Video** |[H264Video](./media-services-mes-schema.md#H264Video) |视频的 H.264 编码的设置。 |
-| **AACAudio** |[AACAudio](./media-services-mes-schema.md#AACAudio) |音频的 AAC 编码的设置。 |
-| **BmpImage** |[BmpImage](./media-services-mes-schema.md#BmpImage) |Bmp 图像的设置。 |
-| **PngImage** |[PngImage](./media-services-mes-schema.md#PngImage) |Png 图像的设置。 |
-| **JpgImage** |[JpgImage](./media-services-mes-schema.md#JpgImage) |Jpg 图像的设置。 |
+| **H264Video** |[H264Video](media-services-mes-schema.md#H264Video) |视频的 H.264 编码的设置。 |
+| **AACAudio** |[AACAudio](media-services-mes-schema.md#AACAudio) |音频的 AAC 编码的设置。 |
+| **BmpImage** |[BmpImage](media-services-mes-schema.md#BmpImage) |Bmp 图像的设置。 |
+| **PngImage** |[PngImage](media-services-mes-schema.md#PngImage) |Png 图像的设置。 |
+| **JpgImage** |[JpgImage](media-services-mes-schema.md#JpgImage) |Jpg 图像的设置。 |
 
 ## <a name="H264Video"></a> H264Video
 ### <a name="elements"></a>元素
@@ -56,34 +56,44 @@ ms.lasthandoff: 06/21/2017
 | --- | --- | --- |
 | TwoPass<br/><br/> minOccurs="0" |**xs:boolean** |目前，仅支持单步编码。 |
 | KeyFrameInterval<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |确定 IDR 帧之间的（默认）间距。 |
-| SceneChangeDetection<br/><br/> minOccurs="0"<br/><br/> default=”false” |**xs:boolean** |如果设置为 true，编码器尝试检测视频中的场景更改并插入 IDR 帧。 |
+| SceneChangeDetection<br/><br/> minOccurs="0"<br/><br/> default="false" |**xs:boolean** |如果设置为 true，编码器尝试检测视频中的场景更改并插入 IDR 帧。 |
 | 复杂性<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |控制编码速度和视频质量的平衡。 可能是以下值之一：速度、均衡或质量<br/><br/> 默认值：均衡 |
 | SyncMode<br/><br/> minOccurs="0" | |将在未来版本中公开功能。 |
-| **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](./media-services-mes-schema.md#H264Layers) |输出视频层的集合。 |
+| **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |输出视频层的集合。 |
+
+### <a name="attributes"></a>属性
+| 名称 | 类型 | 说明 |
+| --- | --- | --- |
+| **条件** |**xs:string** | 当输入不包含视频时，建议强制编码器插入单色视频轨道。 为此，请使用 Condition="InsertBlackIfNoVideoBottomLayerOnly"（仅在最低比特率处插入视频）或 Condition="InsertBlackIfNoVideo"（在所有输出比特率处插入视频）。 有关详细信息，请参阅[此](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video)主题。|
 
 ## <a name="H264Layers"></a> H264Layers
+
+默认情况下，如果向编码器发送仅包含音频而不包含视频的输入，则输出资产将包含仅有音频数据的文件。 某些播放器可能无法处理此类输出流。 在这种情况下，可使用 H264Video 的 InsertBlackIfNoVideo 属性设置，强制编码器将视频轨道添加到输出中。 有关详细信息，请参阅[此](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video)主题。
+
 ### <a name="elements"></a>元素
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](./media-services-mes-schema.md#H264Layer) |H264 层的集合。 |
+| **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |H264 层的集合。 |
 
 ## <a name="H264Layer"></a> H264Layer
 > [!NOTE]
->视频限制基于 [H264 级别](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels) 表中描述的值。  
+> 视频限制基于 [H264 级别](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels) 表中描述的值。  
+> 
+> 
 
 ### <a name="elements"></a>元素
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| Profile<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs:string** |可能是以下 xs:string 值之一：自动、基线、主要、高。 |
-| Level<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs:string** | |
+| Profile<br/><br/> minOccurs="0"<br/><br/> default="Auto" |**xs:string** |可能是以下 xs:string 值之一：自动、基线、主要、高。 |
+| Level<br/><br/> minOccurs="0"<br/><br/> default="Auto" |**xs:string** | |
 | Bitrate<br/><br/> minOccurs="0" |**xs:int** |此视频层使用的比特率，以 kbps 为单位指定。 |
 | MaxBitrate<br/><br/> minOccurs="0" |**xs:int** |此视频层使用的最大比特率，以 kbps 为单位指定。 |
 | BufferWindow<br/><br/> minOccurs="0"<br/><br/> default="00:00:05" |**xs:time** |视频缓冲区的长度。 |
 | Width<br/><br/> minOccurs="0" |**xs:int** |输出视频帧的宽度，以像素为单位。<br/><br/> 请注意，目前必须指定 Width 和 Height。 Width 和 Height 需为偶数。 |
 | Height<br/><br/> minOccurs="0" |**xs:int** |输出视频帧的高度，以像素为单位。<br/><br/> 请注意，目前必须指定“宽度”和“高度”。 Width 和 Height 需为偶数。|
 | BFrames<br/><br/> minOccurs="0" |**xs:int** |参考帧之间的 B 帧数。 |
-| ReferenceFrames<br/><br/> minOccurs="0"<br/><br/> default=”3” |**xs:int** |GOP 中的参考帧数。 |
-| EntropyMode<br/><br/> minOccurs="0"<br/><br/> default=”Cabac” |**xs:string** |可能是以下值之一：Cabac 和 Cavlc。 |
+| ReferenceFrames<br/><br/> minOccurs="0"<br/><br/> default="3" |**xs:int** |GOP 中的参考帧数。 |
+| EntropyMode<br/><br/> minOccurs="0"<br/><br/> default="Cabac" |**xs:string** |可能是以下值之一：Cabac 和 Cavlc。 |
 | FrameRate<br/><br/> minOccurs="0" |有理数 |确定输出视频的帧速率。 使用默认值 "0/1"，允许编码器使用与输入视频相同的帧速率。 允许的值应为常规视频帧速率，如下所示。 但是，允许使用任何有效有理数。 例如 1/1 表示 1 fps 且有效。<br/><br/> - 12/1 (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24000/1001 (23.976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30000/1001 (29.97 fps) |
 | AdaptiveBFrame<br/><br/> minOccurs="0" |**xs:boolean** |从 Azure 媒体编码器复制 |
 | Slices<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |确定一帧分为多少切片。 建议使用默认值。 |
@@ -106,7 +116,7 @@ ms.lasthandoff: 06/21/2017
 ### <a name="groups"></a>组
 | 引用 | 说明 |
 | --- | --- |
-| [AudioGroup](./media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |请参阅 [AudioGroup](./media-services-mes-schema.md#AudioGroup) 的说明，了解可为每个配置文件设置的适当通道数、采样率和比特率。 |
+| [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |请参阅 [AudioGroup](media-services-mes-schema.md#AudioGroup) 的说明，了解可为每个配置文件设置的适当通道数、采样率和比特率。 |
 
 ## <a name="AudioGroup"></a> AudioGroup
 有关每个配置文件的有效值的详细信息，请参阅随后的“音频编解码器详细信息”表。  
@@ -141,7 +151,7 @@ ms.lasthandoff: 06/21/2017
 ### <a name="macros"></a>宏
 | 宏 | 说明 |
 | --- | --- |
-| **{Basename}** |如果正在进行 VoD 编码，则 {Basename} 是输入资产中主文件的 AssetFile.Name 属性的前 32 个字符。<br/><br/> 如果输入资产是实时存档，则 {Basename} 从服务器清单中的 trackName 属性派生。 如果使用 TopBitrate 提交子剪辑作业，如：“<VideoStream\>TopBitrate</VideoStream\>”，并且输出文件包含视频，则 {Basename} 是具有最高比特率视频层的 trackName 的前 32 个字符。<br/><br/> 如果改为使用所有输入比特率提交子剪辑作业，例如“<VideoStream\>*</VideoStream\>”，并且输出文件包含视频，则 {Basename} 是对应视频层的 trackName 的前 32 个字符。 |
+| **{Basename}** |如果正在进行 VoD 编码，则 {Basename} 是输入资产中主文件的 AssetFile.Name 属性的前 32 个字符。<br/><br/> 如果输入资产是实时存档，则 {Basename} 从服务器清单中的 trackName 属性派生。 如果使用 TopBitrate 提交子剪辑作业，如：“<VideoStream\>TopBitrate</VideoStream\>”，并且输出文件包含视频，则 {Basename} 是具有最高比特率的视频层的 trackName 的前 32 个字符。<br/><br/> 如果改为使用所有输入比特率提交子剪辑作业，例如“<VideoStream\>*</VideoStream\>”，并且输出文件包含视频，则 {Basename} 是对应视频层的 trackName 的前 32 个字符。 |
 | **{Codec}** |对于视频，映射到“H264”；对于音频，映射到“AAC”。 |
 | **{Bitrate}** |如果输出文件包含视频和音频，则为目标视频比特率；如果输出文件仅包含音频，则为目标音频比特率。 使用的值是以 kbps 为单位的比特率。 |
 | **{Channel}** |如果文件包含音频，则为音频通道计数。 |
@@ -157,20 +167,20 @@ ms.lasthandoff: 06/21/2017
 | **启动** |**xs:string** | |
 | **步骤** |**xs:string** | |
 | **范围** |**xs:string** | |
-| **PreserveResolutionAfterRotation** |**xs:boolean** |有关详细说明，请参阅以下部分：[PreserveResolutionAfterRotation](./media-services-mes-schema.md#PreserveResolutionAfterRotation) |
+| **PreserveResolutionAfterRotation** |**xs:boolean** |有关详细说明，请参阅以下部分：[PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
 
 ### <a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation
-建议使用 PreserveResolutionAfterRotation 标志结合以百分比表示的分辨率值（宽度 = "100％"，高度 = "100％"）。  
+建议使用 PreserveResolutionAfterRotation 标志结合以百分比表示的分辨率值（Width="100%"，Height = "100%"）。  
 
 默认情况下，Media Encoder Standard (MES) 预设中的编码分辨率设置（宽度、高度）针对 0 度旋转的视频。 例如，如果输入视频在未旋转时为 1280x720，默认预设可确保输出具有相同的分辨率。 请参见下图。  
 
 ![MESRoation1](./media/media-services-shemas/media-services-mes-roation1.png) 
 
-但是，这意味着如果输入视频是以非零旋转捕获（例如， 垂直持握的智能手机或平板电脑），则默认情况下，MES 将对输入视频应用编码分辨率设置（宽度、高度），然后补偿旋转。 有关示例，请参阅下图。 预设使用宽度 = "100％"，高度 = "100％"，MES 将此理解为所需输出为 1280 像素宽和 720 像素高。 旋转视频后，它会缩小图片适应窗口，左右两侧会出现黑边区域。  
+但是，这意味着如果输入视频是以非零旋转捕获（例如， 垂直持握的智能手机或平板电脑），则默认情况下，MES 将对输入视频应用编码分辨率设置（宽度、高度），然后补偿旋转。 有关示例，请参阅下图。 预设使用 Width = "100%"，Height = "100%"，MES 将此解释为所需输出为 1280 像素宽和 720 像素高。 旋转视频后，它会缩小图片适应窗口，左右两侧会出现黑边区域。  
 
 ![MESRoation2](./media/media-services-shemas/media-services-mes-roation2.png) 
 
-如果不想采用上述行为，则可以使用 PreserveResolutionAfterRotation 标志并将其设置为 "true"（默认值为 "false"）。 因此，如果预设为宽度 = "100％"，高度 = "100％"，并将 PreserveResolutionAfterRotation 设置为 "true"，则宽为 1280 像素、高为 720 像素，且 90 度旋转的输入视频将生成 0 度旋转、但宽为 720 像素、高为 1280 像素的输出视频。 请参见下图。  
+如果不想采用上述行为，则可以使用 PreserveResolutionAfterRotation 标志并将其设置为“true”（默认值为“false”）。 因此，如果预设为 Width = "100%"，Height = "100%" 且 PreserveResolutionAfterRotation 设置为“true”，则宽为 1280 像素、高为 720 像素且具有 90 度旋转的输入视频将生成 0 度旋转、但宽为 720 像素、高为 1280 像素的输出。 请参见下图。  
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 
@@ -223,37 +233,37 @@ ms.lasthandoff: 06/21/2017
 ### <a name="elements"></a>元素
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](./media-services-mes-schema.md#PngLayer) | |
+| **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
 ## <a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>元素
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](./media-services-mes-schema.md#BmpLayer) | |
+| **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
 ## <a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>元素
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](./media-services-mes-schema.md#JpgLayer) | |
+| **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
 ## <a name="BmpImage"></a> BmpImage（继承自视频的复杂类型）
 ### <a name="elements"></a>元素
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](./media-services-mes-schema.md#PngLayers) |Png 层 |
+| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png 层 |
 
 ## <a name="JpgImage"></a> JpgImage（继承自视频的复杂类型）
 ### <a name="elements"></a>元素
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](./media-services-mes-schema.md#PngLayers) |Png 层 |
+| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png 层 |
 
 ## <a name="PngImage"></a> PngImage（继承自视频的复杂类型）
 ### <a name="elements"></a>元素
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](./media-services-mes-schema.md#PngLayers) |Png 层 |
+| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png 层 |
 
 ## <a name="examples"></a>示例
-查看根据此架构生成的 XML 预设示例，请参阅 [MES (Media Encoder Standard) 的任务预设](./media-services-mes-presets-overview.md)。
+查看根据此架构生成的 XML 预设示例，请参阅 [MES (Media Encoder Standard) 的任务预设](media-services-mes-presets-overview.md)。

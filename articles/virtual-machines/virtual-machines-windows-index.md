@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 02/13/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: c30999ecdb4e19a0772f616be1db7f7033c8681f
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 5fb70cb4c0fffd6f195a83304d47fdb8adab9da9
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="technical-articles-for-windows-vms-in-the-classic-deployment-model"></a>与经典部署模型中的 Windows VM 相关的技术文章
 查找在经典部署模型中创建和管理基于 Windows 的 Azure 虚拟机时需要参考的所有文档。
@@ -43,7 +43,6 @@ ms.lasthandoff: 06/21/2017
 [安装 Azure CLI](../cli-install-nodejs.md)
 
 ## <a name="get-started"></a>入门
-[Windows VM 的学习路径](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
 [在 Azure 经典管理门户中创建 Windows 虚拟机](windows/classic/tutorial.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

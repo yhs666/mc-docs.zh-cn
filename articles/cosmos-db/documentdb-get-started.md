@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# Azure Cosmos DB：DocumentDB API 入门教程
-<a id="azure-cosmos-db-documentdb-api-getting-started-tutorial" class="xliff"></a>
+# <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB：DocumentDB API 入门教程
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -54,16 +53,14 @@ ms.lasthandoff: 07/13/2017
 
 现在，让我们开始吧！
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 请确保你具有以下内容：
 
 * 有效的 Azure 帐户。 如果没有，可以注册[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
     * 另外，对于本教程，也可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)。
 * [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/)。
 
-## 步骤 1：创建 Azure Cosmos DB 帐户
-<a id="step-1-create-an-azure-cosmos-db-account" class="xliff"></a>
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>步骤 1：创建 Azure Cosmos DB 帐户
 创建 Azure Cosmos DB 帐户。 如果已经有一个想要使用的帐户，可以跳到 [设置 Visual Studio 解决方案](#SetupVS)。 如果使用 Azure Cosmos DB 模拟器，请遵循 [Azure Cosmos DB 模拟器](local-emulator.md)中的步骤设置该模拟器，然后直接跳到[设置 Visual Studio 解决方案](#SetupVS)。
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -164,8 +161,7 @@ ms.lasthandoff: 07/13/2017
 
 祝贺你！ 成功连接到 Azure Cosmos DB 帐户后，接下来应了解如何使用 Azure Cosmos DB 资源。  
 
-## 第 4 步：创建数据库
-<a id="step-4-create-a-database" class="xliff"></a>
+## <a name="step-4-create-a-database"></a>第 4 步：创建数据库
 在添加创建数据库的代码之前，添加一个用于向控制台写入的帮助器方法。
 
 将 **WriteToConsoleAndPromptToContinue** 方法复制并粘贴到 **GetStartedDemo** 方法后面。
@@ -544,8 +540,7 @@ Azure Cosmos DB 支持删除 JSON 文档。
 
 就这么简单，生成以后即可开始操作！
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 需要更复杂的 ASP.NET MVC 教程？ 请参阅[使用 Azure Cosmos DB 构建具有 ASP.NET MVC 的 Web 应用程序](documentdb-dotnet-application.md)。
 * 希望使用 Azure Cosmos DB 执行规模和性能测试？ 请参阅[使用 Azure Cosmos DB 执行性能和规模测试](performance-testing.md)
 * 了解如何[监视 Azure Cosmos DB 帐户](monitor-accounts.md)。

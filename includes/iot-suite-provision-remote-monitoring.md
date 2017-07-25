@@ -1,5 +1,4 @@
-## 预配解决方案
-<a id="provision-the-solution" class="xliff"></a>
+## <a name="provision-the-solution"></a>预配解决方案
 如果尚未在帐户中预配远程监视预配置解决方案，请执行以下步骤：
 1. 使用 Azure 帐户凭据登录到 [azureiotsuite.cn][lnk-azureiotsuite]，然后单击“+”创建解决方案。
 2. 单击“远程监视”磁贴上的“选择”。
@@ -7,8 +6,7 @@
 4. 选择要用于预配解决方案的“区域”和“订阅”。
 5. 单击“创建解决方案”  开始预配过程。 运行此过程通常需要花费几分钟时间。
 
-### 等待预配过程完成
-<a id="wait-for-the-provisioning-process-to-complete" class="xliff"></a>
+### <a name="wait-for-the-provisioning-process-to-complete"></a>等待预配过程完成
 1. 单击状态为“正在预配”的解决方案磁贴。
 2. 在 Azure 订阅中部署 Azure 服务时，请注意“预配状态”  。
 3. 预配完成后，状态会更改为“就绪” 。

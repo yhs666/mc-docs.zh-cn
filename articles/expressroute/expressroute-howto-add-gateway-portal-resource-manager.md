@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用 Azure 门户配置 ExpressRoute 的虚拟网络网关
-<a id="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal" class="xliff"></a>
+# <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>使用 Azure 门户配置 ExpressRoute 的虚拟网络网关
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure 门户](./expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](./expressroute-howto-add-gateway-resource-manager.md)
@@ -34,8 +33,7 @@ ms.lasthandoff: 07/14/2017
 本文演示如何为预先存在的 VNet 添加虚拟网络网关。 本文将演示为预先存在的 VNet 添加虚拟网络 (VNet) 网关、重设其大小并进行删除的步骤。 此配置的步骤专用于使用 Resource Manager 部署模型创建的、将在 ExpressRoute 配置中使用的 VNet。 有关 ExpressRoute 的虚拟网络网关和网关配置设置的详细信息，请参阅[关于 ExpressRoute 的虚拟网络网关](./expressroute-about-virtual-network-gateways.md)。 
 
 
-## 开始之前
-<a id="before-beginning" class="xliff"></a>
+## <a name="before-beginning"></a>开始之前
 
 此任务的步骤使用的 VNet 基于以下配置参考列表中的值。 我们将此列表用于我们的示例步骤。 你可以复制列表作为参考，并将列表中的值替换为自己的值。
 
@@ -55,8 +53,7 @@ ms.lasthandoff: 07/14/2017
 * 网关公共 IP 名称 =“MyERGWVIP”
 
 
-## 创建网关子网
-<a id="create-the-gateway-subnet" class="xliff"></a>
+## <a name="create-the-gateway-subnet"></a>创建网关子网
 
 1. 在[门户](http://portal.azure.cn)中，导航到要为其创建虚拟网关的 Resource Manager 虚拟网络。
 2. 在 VNet 边栏选项卡的“设置”部分中，单击“子网”以展开“子网”边栏选项卡。
@@ -69,8 +66,7 @@ ms.lasthandoff: 07/14/2017
 
     ![添加子网](./media/expressroute-howto-add-gateway-portal-resource-manager/addsubnetgw.png "添加子网")
 
-## 创建虚拟网络网关
-<a id="create-the-virtual-network-gateway" class="xliff"></a>
+## <a name="create-the-virtual-network-gateway"></a>创建虚拟网络网关
 
 1. 在门户左侧单击 **+**，然后在搜索框中键入“虚拟网关”。 在搜索返回结果中找到“虚拟网络网关”，然后单击该条目。 单击“虚拟网络网关”边栏选项卡底部的“创建”。 这会打开“创建虚拟网络网关”边栏选项卡。
 2. 在“创建虚拟网络网关”  边栏选项卡中，填写虚拟网络网关的值。
@@ -88,6 +84,5 @@ ms.lasthandoff: 07/14/2017
 13. 验证设置。 如果希望网关显示在仪表板上，可以在边栏选项卡底部选择“固定到仪表板”。
 14. 单击“创建”  开始创建网关。 此时会验证设置并部署网关。 创建虚拟网络网关可能需要多达 45 分钟才能完成。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 创建 VNet 网关之后，可以将 VNet 链接到 ExpressRoute 线路。 请参阅[将虚拟网络链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-portal-resource-manager.md)。

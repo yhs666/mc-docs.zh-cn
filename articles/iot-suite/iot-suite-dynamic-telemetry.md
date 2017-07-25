@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 配合使用动态遥测和远程监视预配置解决方案
-<a id="use-dynamic-telemetry-with-the-remote-monitoring-preconfigured-solution" class="xliff"></a>
+# <a name="use-dynamic-telemetry-with-the-remote-monitoring-preconfigured-solution"></a>配合使用动态遥测和远程监视预配置解决方案
 
 动态遥测可让你将发送到远程监视预配置解决方案的任何遥测数据可视化。 部署了预配置解决方案的模拟设备会发送温度和湿度遥测，可在仪表板上直观显示这些数据。 如果自定义现有的模拟设备、创建新的模拟设备或者将物理设备连接到预配置解决方案，则可以发送其他遥测值，例如外部温度、RPM 或风速。 然后，可以在仪表板上可视化这些附加的遥测数据。
 
@@ -40,8 +39,7 @@ ms.lasthandoff: 07/14/2017
 
 [!INCLUDE [iot-suite-send-external-temperature](../../includes/iot-suite-send-external-temperature.md)]
 
-## 添加遥测类型
-<a id="add-a-telemetry-type" class="xliff"></a>
+## <a name="add-a-telemetry-type"></a>添加遥测类型
 下一步是将 Node.js 模拟设备生成的遥测数据替换为一组新值：
 
 1. 在命令提示符或 shell 中键入 **Ctrl+C** 以停止 Node.js 模拟设备。
@@ -86,8 +84,7 @@ ms.lasthandoff: 07/14/2017
 > [!NOTE]
 > 可能需要在仪表板中的“设备”页上禁用 Node.js 设备然后重新将它启用，才能立即查看更改。
 
-## 自定义仪表板显示内容
-<a id="customize-the-dashboard-display" class="xliff"></a>
+## <a name="customize-the-dashboard-display"></a>自定义仪表板显示内容
 **Device-Info** 消息可以包含设备可发送给 IoT 中心的遥测数据的相关元数据。 此元数据可指定设备发送的遥测类型。 修改 remote_monitoring.js 文件中的 **deviceMetaData** 值，在 **Commands** 定义后附加 **Telemetry** 定义。 以下代码片段显示 **Commands** 定义（务必在 **Commands** 定义后添加 `,`）：
 
 ```nodejs
@@ -151,8 +148,7 @@ ms.lasthandoff: 07/14/2017
 > [!NOTE]
 > 可能需要在仪表板中的“设备”页上禁用 Node.js 设备然后重新将它启用，才能立即查看更改。
 
-## 筛选遥测类型
-<a id="filter-the-telemetry-types" class="xliff"></a>
+## <a name="filter-the-telemetry-types"></a>筛选遥测类型
 
 默认情况下，仪表板上的图表显示遥测流中的每个数据系列。 你可以使用 **Device-Info** 元数据来隐藏图表中的特定遥测类型。 
 
@@ -187,13 +183,11 @@ ms.lasthandoff: 07/14/2017
 > [!NOTE]
 > 可能需要在仪表板中的“设备”页上禁用 Node.js 设备然后重新将它启用，才能立即查看更改。
 
-## 处理错误
-<a id="handle-errors" class="xliff"></a>
+## <a name="handle-errors"></a>处理错误
 
 要使某个数据流显示在图表上，其在 **Device-Info** 元数据中的 **Type** 必须与遥测值的数据类型匹配。 例如，如果元数据指定湿度数据的 **Type** 必须为 **int**，而在遥测流中找到 **double**，则湿度遥测将不会显示在图表上。 但是， **湿度** 值仍会存储，并可供任何后端处理使用。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 熟悉了动态遥测的使用方式，现在可深入了解预配置的解决方案如何使用设备信息： [远程监视预配置解决方案中的设备信息元数据][lnk-devinfo]。
 

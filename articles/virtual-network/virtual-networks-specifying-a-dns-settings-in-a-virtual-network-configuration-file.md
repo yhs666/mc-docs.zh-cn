@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 02/23/2016
 ms.date: 12/16/2016
 ms.author: v-dazen
-ms.openlocfilehash: a30068a79ac23a29054f88dcf1fff425f3a4add4
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 83665e1c260ad18f7e86508de793b9444cb419a6
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>在虚拟网络配置文件中指定 DNS 设置
 网络配置文件有两个可用于指定域名系统 (DNS) 设置的元素：**DnsServers** 和 **DnsServerRef**。 可以通过指定服务器的 IP 地址和 **DnsServers** 元素的引用名添加 DNS 服务器列表。 然后可以使用 **DnsServerRef** 元素指定 DnsServers 元素中的哪些 DNS 服务器实体用于虚拟网络内的不同网络站点。
@@ -36,7 +36,7 @@ ms.lasthandoff: 06/21/2017
 > 
 > 
 
-[Dns 元素](https://msdn.microsoft.com/library/azure/jj157100)
+[Dns 元素](http://go.microsoft.com/fwlink/?LinkId=248093)
 
     <Dns>
       <DnsServers>
@@ -51,7 +51,7 @@ ms.lasthandoff: 06/21/2017
 > 
 > 
 
-[虚拟网络站点元素](https://msdn.microsoft.com/library/azure/jj157100)
+[虚拟网络站点元素](http://go.microsoft.com/fwlink/?LinkId=248093)
 
     <DnsServersRef>
       <DnsServerRef name="ID1" />
@@ -65,6 +65,6 @@ ms.lasthandoff: 06/21/2017
 > 
 
 ## <a name="next-steps"></a>后续步骤
-* 了解 [Azure 虚拟网络配置架构](https://msdn.microsoft.com/library/azure/jj157100)。
+* 了解 [Azure 虚拟网络配置架构](http://go.microsoft.com/fwlink/?LinkId=248093)。
 * 了解 [Azure 服务配置架构](https://msdn.microsoft.com/library/azure/ee758710)。
 * [使用网络配置文件配置虚拟网络](virtual-networks-using-network-configuration-file.md)。

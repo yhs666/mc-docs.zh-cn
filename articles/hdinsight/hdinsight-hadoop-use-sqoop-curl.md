@@ -1,5 +1,5 @@
 ---
-title: "在 HDInsight 中将 Hadoop Sqoop 与 Curl 配合使用 | Azure"
+title: "在 HDInsight 中将 Hadoop Sqoop 与 Curl 配合使用 - Azure | Azure"
 description: "了解如何使用 Curl 向 HDInsight 远程提交 Sqoop 作业。"
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/06/2017
-ms.date: 03/28/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 39237139f2ef9f461433f439d5f119521e6aaca5
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 26160281c04962241421c839749596f83e744ee6
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>使用 Curl 在 HDInsight 中的 Hadoop 上运行 Sqoop 作业
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
@@ -82,7 +82,9 @@ ms.lasthandoff: 06/21/2017
 
     此命令应会返回可用来检查作业状态的作业 ID。
 
-        {"id":"job_1415651640909_0026"}
+    ```
+    {"id":"job_1415651640909_0026"}
+    ```
 
 1. 若要检查作业的状态，请使用以下命令。 将“JOBID”替换为上一步骤返回的值。 例如，如果返回值为 `{"id":"job_1415651640909_0026"}`，则 **JOBID** 将是 `job_1415651640909_0026`。
 

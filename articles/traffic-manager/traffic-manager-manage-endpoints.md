@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 添加、禁用、启用或删除终结点
-<a id="add-disable-enable-or-delete-endpoints" class="xliff"></a>
+# <a name="add-disable-enable-or-delete-endpoints"></a>添加、禁用、启用或删除终结点
 
 无论网站模式如何，Azure 应用服务中的 Web 应用功能都已针对数据中心内的网站提供了故障转移和轮循机制流量路由功能。 你可以使用 Azure 流量管理器为不同数据中心内的网站和云服务指定故障转移和轮询机制流量路由。 提供该功能所需的第一个步骤是将云服务或网站终结点添加到流量管理器中。
 
@@ -31,8 +30,7 @@ ms.lasthandoff: 07/14/2017
 > [!NOTE]
 > 禁用某个终结点对其在 Azure 中的部署状态没有任何影响。 正常的终结点保持运行并能够接收流量，即使在流量管理器中已将其禁用也是如此。 此外，在一个配置文件中禁用某个终结点不会影响它在其他配置文件中的状态。
 
-## 将云服务或应用服务终结点添加到流量管理器配置文件
-<a id="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile" class="xliff"></a>
+## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>将云服务或应用服务终结点添加到流量管理器配置文件
 
 1. 在浏览器中，登录 [Azure 门户](http://portal.azure.cn)。
 2. 在门户的搜索栏中，搜索要修改的流量管理器配置文件名称，然后在显示的结果中单击该流量管理器配置文件。
@@ -52,8 +50,7 @@ ms.lasthandoff: 07/14/2017
 > [!NOTE]
 > 使用“故障转移”流量路由方法在配置文件中添加或删除终结点后，故障转移优先级列表可能不会按所需的顺序列出。 可以在“配置”页上调整故障转移优先级列表的顺序。 有关详细信息，请参阅[配置故障转移流量路由](traffic-manager-configure-failover-routing-method.md)。
 
-## 禁用终结点
-<a id="to-disable-an-endpoint" class="xliff"></a>
+## <a name="to-disable-an-endpoint"></a>禁用终结点
 
 1. 在浏览器中，登录 [Azure 门户](http://portal.azure.cn)。
 2. 在门户的搜索栏中，搜索要修改的**流量管理器配置文件**名称，然后在显示的结果中单击该流量管理器配置文件。
@@ -62,8 +59,7 @@ ms.lasthandoff: 07/14/2017
 5. 在“终结点”边栏选项卡中，将终结点的状态更改为“已禁用”，然后单击“保存”。
 6. 在生存时间 (TTL) 的持续时间内，客户端会继续将流量发送到终结点。 可以在流量管理器配置文件的“配置”页上更改 TTL。
 
-## 启用终结点
-<a id="to-enable-an-endpoint" class="xliff"></a>
+## <a name="to-enable-an-endpoint"></a>启用终结点
 
 1. 在浏览器中，登录 [Azure 门户](http://portal.azure.cn)。
 2. 在门户的搜索栏中，搜索要修改的**流量管理器配置文件**名称，然后在显示的结果中单击该流量管理器配置文件。
@@ -72,8 +68,7 @@ ms.lasthandoff: 07/14/2017
 5. 在“终结点”边栏选项卡中，将终结点的状态更改为“已启用”，然后单击“保存”。
 6. 在生存时间 (TTL) 的持续时间内，客户端会继续将流量发送到终结点。 可以在流量管理器配置文件的“配置”页上更改 TTL。
 
-## 删除终结点
-<a id="to-delete-an-endpoint" class="xliff"></a>
+## <a name="to-delete-an-endpoint"></a>删除终结点
 
 1. 在浏览器中，登录 [Azure 门户](http://portal.azure.cn)。
 2. 在门户的搜索栏中，搜索要修改的**流量管理器配置文件**名称，然后在显示的结果中单击该流量管理器配置文件。
@@ -81,8 +76,7 @@ ms.lasthandoff: 07/14/2017
 4. 单击要禁用的终结点，然后在显示的“终结点”边栏选项卡中，单击“编辑”。
 5. 在“终结点”边栏选项卡中，将终结点的状态更改为“已启用”，然后单击“保存”。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 * [管理流量管理器配置文件](traffic-manager-manage-profiles.md)
 * [配置路由方法](traffic-manager-configure-routing-method.md)

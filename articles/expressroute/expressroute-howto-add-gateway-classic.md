@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用 PowerShell 配置 ExpressRoute 的虚拟网络网关（经典）
-<a id="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic" class="xliff"></a>
+# <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>使用 PowerShell 配置 ExpressRoute 的虚拟网络网关（经典）
 > [!div class="op_single_selector"]
 > * [Resource Manager - PowerShell](./expressroute-howto-add-gateway-resource-manager.md)
 > * [经典 - PowerShell](./expressroute-howto-add-gateway-classic.md)
@@ -38,14 +37,12 @@ ms.lasthandoff: 07/14/2017
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-## 开始之前
-<a id="before-beginning" class="xliff"></a>
+## <a name="before-beginning"></a>开始之前
 
 确认已安装此配置所需的 Azure PowerShell cmdlet（1.0.2 或更高版本）。 如果尚未安装 cmdlet，必须先安装，然后才能开始执行配置步骤。 有关安装 Azure PowerShell 的详细信息，请参阅 [如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。
 
 [!INCLUDE [expressroute-gateway-classic-ps](../../includes/expressroute-gateway-classic-ps-include.md)]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 创建 VNet 网关之后，可以将 VNet 链接到 ExpressRoute 线路。 请参阅[将虚拟网络链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-classic.md)。

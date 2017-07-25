@@ -1,5 +1,4 @@
-## 创建模拟设备应用程序
-<a id="create-a-simulated-device-app" class="xliff"></a>
+## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
 本部分的操作：
 
 * 创建一个 Node.js 控制台应用，用于响应通过云调用的直接方法

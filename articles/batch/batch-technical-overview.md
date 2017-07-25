@@ -22,15 +22,13 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用 Batch 运行固有并行的工作负荷
-<a id="run-intrinsically-parallel-workloads-with-batch" class="xliff"></a>
+# <a name="run-intrinsically-parallel-workloads-with-batch"></a>使用 Batch 运行固有并行的工作负荷
 
 Azure Batch 是一项平台服务，适用于在云中有效运行大规模并行和高性能计算 (HPC) 应用程序。 Azure Batch 可计划要在托管的虚拟机集合上运行的计算密集型工作，并且可以缩放计算资源以符合作业的需求。
 
 使用 Azure Batch 时，可轻松定义用于大规模并行执行应用程序的 Azure 计算资源。 无需手动创建、配置和管理 HPC 群集、各个虚拟机、虚拟网络或复杂的作业和任务计划基础结构。 Azure Batch 将自动执行或简化这些任务。
 
-## Batch 的用例
-<a id="use-cases-for-batch" class="xliff"></a>
+## <a name="use-cases-for-batch"></a>Batch 的用例
 批处理是一种托管的 Azure 服务，可用于实现*批处理*或*批量计算* -- 运行大量类似任务以获取所需的结果。 定期处理、转换和分析大量数据的组织最常使用批量计算。
 
 Batch 很适合处理本质并行（也称为“超简单并行”）的应用程序和工作负荷。 本质并行的工作负荷是指容易拆分成多个任务，在多台计算机上同时执行的工作负荷。
@@ -53,8 +51,7 @@ Batch 很适合处理本质并行（也称为“超简单并行”）的应用�
 
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 
-## 方案：扩大并行工作负荷
-<a id="scenario-scale-out-a-parallel-workload" class="xliff"></a>
+## <a name="scenario-scale-out-a-parallel-workload"></a>方案：扩大并行工作负荷
 使用 Batch API 来与 Batch 服务交互的一个常见方案涉及在计算节点池上放大本质并行任务，例如渲染 3D 场景的图像。 例如，此计算节点池可能是“渲染场”，为渲染作业提供数十、数百甚至数千个核心。
 
 下图显示一个常见的 Batch 工作流，其中有一个客户端应用程序或托管服务使用 Batch 运行并行工作负荷。
@@ -75,8 +72,7 @@ Batch 很适合处理本质并行（也称为“超简单并行”）的应用�
 
 请记住，这只是使用 Batch 的一种方式，此方案只描述它的几项可用功能。 例如，可以在每个计算节点上[以并行方式执行多项任务](batch-parallel-node-tasks.md)，也可以使用[作业准备和完成任务](batch-job-prep-release.md)来准备作业的节点，然后再清除。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 在大致了解 Batch 服务后，接下来可以更深入探索该服务，以了解如何使用它来处理计算密集型并行工作负荷。
 
 - 对于准备使用 Batch 的任何人，有必要阅读 [面向开发人员的 Batch 功能概述](batch-api-basics.md)了解基本信息。 本文中包含有关 Batch 服务资源（如池、节点、作业和任务）以及生成你的 Batch 应用程序时可以使用的许多 API 功能的更多详细信息。

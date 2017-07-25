@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 09/23/2016
 ms.date: 01/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: 4d675a82b8cf9b804752d4f984fb93b603edf6c5
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 26ce9ef48c16878d739758f76c8442b8f6528086
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>使用 Azure PowerShell 排查路由问题
 > [!div class="op_single_selector"]
@@ -61,28 +61,28 @@ ms.lasthandoff: 06/23/2017
 1. 启动 Azure PowerShell 会话并登录到 Azure。 如果不熟悉 Azure PowerShell，请阅读 [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)（如何安装和配置 Azure PowerShell）一文。
 2. 以下命令返回对资源组 *RG1* 中名为 *VM1-NIC1* 的网络接口应用的所有路由。
 
-        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
+       Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
 
    > [!TIP]
    > 如果不知道网络接口的名称，请输入以下命令检索资源组中所有网络接口的名称。*
    > 
    > 
 
-        Get-AzureRmNetworkInterface -ResourceGroupName RG1 | Format-Table Name
+       Get-AzureRmNetworkInterface -ResourceGroupName RG1 | Format-Table Name
 
    以下输出类似于应用到 NIC 所连接子网的每个路由的输出：
 
-        Name :
-        State : Active
-        AddressPrefix : {10.9.0.0/16}
-        NextHopType : VNetLocal
-        NextHopIpAddress : {}
+       Name :
+       State : Active
+       AddressPrefix : {10.9.0.0/16}
+       NextHopType : VNetLocal
+       NextHopIpAddress : {}
 
-        Name :
-        State : Active
-        AddressPrefix : {0.0.0.0/16}
-        NextHopType : Internet
-        NextHopIpAddress : {}
+       Name :
+       State : Active
+       AddressPrefix : {0.0.0.0/16}
+       NextHopType : Internet
+       NextHopIpAddress : {}
 
    请注意输出中的以下信息：
 
@@ -94,14 +94,14 @@ ms.lasthandoff: 06/23/2017
 
    以下命令在一个方便查看的表中返回路由：
 
-        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1 | Format-Table
+       Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1 | Format-Table
 
    以下输出是上述方案收到的一部分输出：
 
-        Name State AddressPrefix NextHopType NextHopIpAddress
-        ---- ----- ------------- ----------- ----------------
-        Active {10.9.0.0/16} VnetLocal {}
-        Active {0.0.0.0/0} Internet {}
+       Name State AddressPrefix NextHopType NextHopIpAddress
+       ---- ----- ------------- ----------- ----------------
+       Active {10.9.0.0/16} VnetLocal {}
+       Active {0.0.0.0/0} Internet {}
 3. 上一步骤的输出没有列出 *ChinaNorth-VNet3* VNet（前缀 10.9.0.0/16）** from *ChinaNorth-VNet1*（前缀 10.10.0.0/16）的路由。 如下图所示，包含 *ChinaNorth-VNet3* VNet 的 VNet 对等互连链路处于“已断开”状态。
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image4.png)

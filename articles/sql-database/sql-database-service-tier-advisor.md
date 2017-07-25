@@ -11,11 +11,11 @@ ms.topic: article
 origin.date: 08/08/2016
 ms.date: 12/26/2016
 ms.author: v-johch
-ms.openlocfilehash: 7b93182fc5474dfc2b6d0f7e01cc75c6820c5423
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 3d3490e2f917280a4cb2cdfe0011f65f5c713f5f
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="sql-database-pricing-tier-recommendations"></a>SQL 数据库定价层建议
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 06/21/2017
 - [更改 SQL 数据库的服务层和性能级别（定价层）](./sql-database-scale-up.md)
 - [将 Azure SQL 服务器升级到 V12](./sql-database-upgrade-server-portal.md)
 - 浏览到 V12 服务器。 请参阅 [SQL 数据库定价层建议](./sql-database-service-tier-advisor.md)。
-- [创建弹性数据库池](./sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
+- [创建弹性数据库池](./sql-database-elastic-pool.md#when-to-consider-a-pool)
 
 ## <a name="overview"></a>概述
 

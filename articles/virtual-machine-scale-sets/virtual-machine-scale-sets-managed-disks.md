@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 02/21/2017
-ms.date: 06/20/2017
+origin.date: 06/01/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 3f4368ae76ca14c440d32546f72a4b9e65b00e52
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 51e96f6a8bdbda7b774d6cbbbff80caac05468d5
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Azure VM 规模集和托管磁盘
 
@@ -45,7 +45,7 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 
 ## <a name="api-versions"></a>API 版本
 
-针对使用托管磁盘的规模集的当前正式发布的 API 版本为 `2016-04-30-preview`。 即使在支持托管磁盘的新 API 版本中，也可以和当前一样继续使用具有非托管磁盘的规模集。 但是，使用非托管磁盘的规模集无法获得托管磁盘的优点，即使在这些新的 api 版本中也是如此。
+带有托管磁盘的规模集需要 `2016-04-30-preview` 或更高版本的 Microsoft.Compute APi。 即使在支持托管磁盘的新 API 版本中，也可以和当前一样继续使用具有非托管磁盘的规模集。 但是，使用非托管磁盘的规模集无法获得托管磁盘的优点，即使在这些新的 api 版本中也是如此。
 
 ## <a name="next-steps"></a>后续步骤
 

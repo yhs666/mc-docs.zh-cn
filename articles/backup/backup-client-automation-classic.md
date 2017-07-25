@@ -1,10 +1,10 @@
 ---
-title: "使用 PowerShell 部署和管理 Windows Server/客户端的备份 | Azure"
-description: "了解如何使用 PowerShell 部署和管理 Azure 备份"
+title: "在 Azure 中使用 PowerShell 管理 Windows Server 备份 | Microsoft Docs"
+description: "使用 PowerShell 部署和管理 Windows Server 备份。"
 services: backup
 documentationcenter: 
-author: saurabhsensharma
-manager: shivamg
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: e7e269e2-1f11-41a9-957b-a2155de6a1e0
 ms.service: backup
@@ -12,21 +12,24 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/28/2016
-ms.date: 01/24/2017
+origin.date: 06/14/2017
+ms.date: 06/30/2017
 ms.author: v-junlch
-ms.openlocfilehash: 5b178579078a81938ba36361143cb6e1c61d2e33
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 7cfc9b47038d1f9c29e64ef699a132224954f297
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 客户端的 Azure 备份
->[!div class="op_single_selector"]
-[ARM](./backup-client-automation.md)
-[经典](./backup-client-automation-classic.md)
+> [!div class="op_single_selector"]
+> * [ARM](backup-client-automation.md)
+> * [经典](backup-client-automation-classic.md)
+>
+>
 
-本文说明如何使用 PowerShell 在 Windows Server 或 Windows 客户端上设置 Azure 备份，以及管理备份和恢复。
+本文介绍如何使用 PowerShell 将 Windows Server 或 Windows 工作站数据备份到备份保管库。 Microsoft 建议对所有新部署使用恢复服务保管库。 如果是新的 Azure 备份用户，并且在订阅中未创建过备份保管库，请参阅文章[使用 PowerShell 将 Data Protection Manager 数据部署到 Azure 并管理这些数据](backup-client-automation.md)，以便将数据存储在恢复服务保管库中。 
+
 
 ## <a name="install-azure-powershell"></a>安装 Azure PowerShell
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
@@ -42,8 +45,8 @@ Azure PowerShell 1.0 已在 2015 年 10 月发布。 此版本在 0.9.8 版本�
 ## <a name="create-a-backup-vault"></a>创建备份保管库
 > [!WARNING]
 > 对于首次使用 Azure 备份的客户，需要注册用于订阅的 Azure 备份提供程序。 可通过运行以下命令来执行此操作：Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
-> 
-> 
+>
+>
 
 可以使用 **New-AzureRMBackupVault** cmdlet 创建新的备份保管库。 备份保管库是一种 ARM 资源，因此需要将它放置在资源组中。 在权限提升的 Azure PowerShell 控制台中运行以下命令：
 
@@ -92,7 +95,7 @@ PS C:\> MARSAgentInstaller.exe /?
 | /pw |代理密码 |- |
 
 ## <a name="registering-with-the-azure-backup-service"></a>注册到 Azure 备份服务
-在可注册 Azure 备份服务之前，需要确保符合[先决条件](./backup-configure-vault.md)。 必须具备以下条件：
+在可注册 Azure 备份服务之前，需要确保符合[先决条件](backup-configure-vault.md)。 必须具备以下条件：
 
 - 具备有效的 Azure 订阅
 - 有一个备份保管库
@@ -106,7 +109,7 @@ PS C:\> $credsfilename
 f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
 ```
 
-使用 [Start-OBRegistration](https://technet.microsoft.com/zh-cn/library/hh770398%28v=wps.630%29.aspx) cmdlet 即可向保管库注册计算机：
+使用 [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet 即可向保管库注册计算机：
 
 ```
 PS C:\> $cred = $credspath + $credsfilename
@@ -122,15 +125,15 @@ Machine registration succeeded.
 
 > [!IMPORTANT]
 > 请勿使用相对路径来指定保管库凭据文件。 必须提供绝对路径作为 cmdlet 的输入。
-> 
-> 
+>
+>
 
 ## <a name="networking-settings"></a>网络设置
 如果 Windows 计算机通过代理服务器连接到 Internet，则也可以向代理提供代理设置。 此示例未使用代理服务器，因此我们会显式清除任何与代理相关的信息。
 
 也可以针对给定的一组星期日期，使用 ```work hour bandwidth``` 和 ```non-work hour bandwidth``` 选项控制带宽使用。
 
-使用 [Set-OBMachineSetting](https://technet.microsoft.com/zh-cn/library/hh770409%28v=wps.630%29.aspx) cmdlet 即可设置代理和带宽详细信息：
+使用 [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409%28v=wps.630%29.aspx) cmdlet 即可设置代理和带宽详细信息：
 
 ```
 PS C:\> Set-OBMachineSetting -NoProxy
@@ -150,8 +153,8 @@ Server properties updated successfully
 
 > [!IMPORTANT]
 > 请妥善保管设置好的通行短语，并保证其安全。 如果没有此通行短语，则无法从 Azure 还原数据。
-> 
-> 
+>
+>
 
 ## <a name="back-up-files-and-folders"></a>备份文件和文件夹
 从 Windows Server 和客户端到 Azure 备份的所有备份由策略控制。 策略由三个部分组成：
@@ -160,7 +163,7 @@ Server properties updated successfully
 2. **保留计划** ，用于指定要在 Azure 中保留恢复点的时长。
 3. **文件包含/排除规范** ，用于指示应备份的内容。
 
-在本文档中，由于我们要自动备份，因此假设尚未配置任何选项。 首先，我们使用 [New-OBPolicy](https://technet.microsoft.com/zh-cn/library/hh770416.aspx) cmdlet 创建新的备份策略，并使用该策略。
+在本文档中，由于我们要自动备份，因此假设尚未配置任何选项。 首先，我们使用 [New-OBPolicy](https://technet.microsoft.com/library/hh770416.aspx) cmdlet 创建新的备份策略，并使用该策略。
 
 ```
 PS C:\> $newpolicy = New-OBPolicy
@@ -169,7 +172,7 @@ PS C:\> $newpolicy = New-OBPolicy
 该策略暂时是空的，需要使用其他 cmdlet 来定义要包含或排除的项、运行备份的时间，以及备份的存储位置。
 
 ### <a name="configuring-the-backup-schedule"></a>配置备份计划
-在策略的 3 个组成部分中，第 1 个部分是备份计划，它是使用 [New-OBSchedule](https://technet.microsoft.com/zh-cn/library/hh770401) cmdlet 创建的。 备份计划将定义何时需要备份。 创建计划时，需要指定 2 个输入参数：
+在策略的 3 个组成部分中，第 1 个部分是备份计划，它是使用 [New-OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet 创建的。 备份计划将定义何时需要备份。 创建计划时，需要指定 2 个输入参数：
 
 - 应运行备份的“星期日期”。 可以只选一天或选择一周的每天运行备份作业，或选择星期日期的任意组合。
 - **日期时间** 。 最多可以定义一天的 3 个不同日期时间来触发备份
@@ -180,20 +183,20 @@ PS C:\> $newpolicy = New-OBPolicy
 PS C:\> $sched = New-OBSchedule -DaysofWeek Saturday, Sunday -TimesofDay 16:00
 ```
 
-备份计划需要与策略相关联，这可以使用 [Set-OBSchedule](https://technet.microsoft.com/zh-cn/library/hh770407) cmdlet 来实现。
+备份计划需要与策略相关联，这可以使用 [Set-OBSchedule](https://technet.microsoft.com/library/hh770407) cmdlet 来实现。
 
 ```
 PS C:> Set-OBSchedule -Policy $newpolicy -Schedule $sched
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName : RetentionPolicy : State : New PolicyState : Valid
 ```
 ### <a name="configuring-a-retention-policy"></a>配置保留策略
-保留策略定义基于备份作业创建的恢复点的保留时间。 使用 [New-OBRetentionPolicy](https://technet.microsoft.com/zh-cn/library/hh770425) cmdlet 创建新的保留策略时，可以使用 Azure 备份来指定需要保留备份恢复点的天数。 以下示例将保留策略设置为 7 天。
+保留策略定义基于备份作业创建的恢复点的保留时间。 使用 [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) cmdlet 创建新的保留策略时，可以使用 Azure 备份来指定需要保留备份恢复点的天数。 以下示例将保留策略设置为 7 天。
 
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
-必须使用 cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/zh-cn/library/hh770405)将保留策略与主要策略相关联：
+必须使用 cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405)将保留策略与主要策略相关联：
 
 ```
 PS C:\> Set-OBRetentionPolicy -Policy $newpolicy -RetentionPolicy $retentionpolicy
@@ -226,7 +229,7 @@ PolicyState     : Valid
 
 可以在 New-OBFileSpec 命令中使用 -NonRecursive 标志来完成后一种指定。
 
-在以下示例中，备份卷 C: 和 D:，并排除 Windows 文件夹和任何临时文件夹中的操作系统二进制文件。 为此，我们将使用 [New-OBFileSpec](https://technet.microsoft.com/zh-cn/library/hh770408) cmdlet 创建两个文件规范 - 一个用于包含，一个用于排除。 创建文件规范后，使用 [Add-OBFileSpec](https://technet.microsoft.com/zh-cn/library/hh770424) cmdlet 将它们与策略相关联。
+在以下示例中，备份卷 C: 和 D:，并排除 Windows 文件夹和任何临时文件夹中的操作系统二进制文件。 为此，我们将使用 [New-OBFileSpec](https://technet.microsoft.com/library/hh770408) cmdlet 创建两个文件规范 - 一个用于包含，一个用于排除。 创建文件规范后，使用 [Add-OBFileSpec](https://technet.microsoft.com/library/hh770424) cmdlet 将它们与策略相关联。
 
 ```
 PS C:\> $inclusions = New-OBFileSpec -FileSpec @("C:\", "D:\")
@@ -269,6 +272,7 @@ RetentionPolicy : Retention Days : 7
 
 State           : New
 PolicyState     : Valid
+
 
 PS C:\> Add-OBFileSpec -Policy $newpolicy -FileSpec $exclusions
 
@@ -317,14 +321,14 @@ PolicyState     : Valid
 ```
 
 ### <a name="applying-the-policy"></a>应用策略
-现在已完成策略对象，并且具有关联的备份计划、保留策略及文件包含/排除列表。 现在可以提交此策略以供 Azure 备份使用。 应用新建策略之前，请使用 [Remove-OBPolicy](https://technet.microsoft.com/zh-cn/library/hh770415) cmdlet 确保没有任何现有备份策略与服务器相关联。 删除策略时，系统将提示用户确认。 若要跳过确认，请在 cmdlet 中请使用 ```-Confirm:$false``` 标志。
+现在已完成策略对象，并且具有关联的备份计划、保留策略及文件包含/排除列表。 现在可以提交此策略以供 Azure 备份使用。 应用新建策略之前，请使用 [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet 确保没有任何现有备份策略与服务器相关联。 删除策略时，系统将提示用户确认。 若要跳过确认，请在 cmdlet 中请使用 ```-Confirm:$false``` 标志。
 
 ```
 PS C:> Get-OBPolicy | Remove-OBPolicy
 Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 ```
 
-使用 [Set-OBPolicy](https://technet.microsoft.com/zh-cn/library/hh770421) cmdlet 可以提交策略对象。 这也将提示用户确认。 若要跳过确认，请在 cmdlet 中请使用 ```-Confirm:$false``` 标志。
+使用 [Set-OBPolicy](https://technet.microsoft.com/library/hh770421) cmdlet 可以提交策略对象。 这也将提示用户确认。 若要跳过确认，请在 cmdlet 中请使用 ```-Confirm:$false``` 标志。
 
 ```
 PS C:> Set-OBPolicy -Policy $newpolicy
@@ -369,7 +373,7 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-可以使用 [Get-OBPolicy](https://technet.microsoft.com/zh-cn/library/hh770406) cmdlet 来查看现有备份策略的详细信息。 可以使用 [Get-OBSchedule](https://technet.microsoft.com/zh-cn/library/hh770423) cmdlet（适用于备份计划）和 [Get-OBRetentionPolicy](https://technet.microsoft.com/zh-cn/library/hh770427) cmdlet（适用于保留策略）进一步向下钻取
+可以使用 [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) cmdlet 来查看现有备份策略的详细信息。 可以使用 [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) cmdlet（适用于备份计划）和 [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) cmdlet（适用于保留策略）进一步向下钻取
 
 ```
 PS C:> Get-OBPolicy | Get-OBSchedule
@@ -410,7 +414,7 @@ IsRecursive : True
 ```
 
 ### <a name="performing-an-ad-hoc-backup"></a>执行即席备份
-设置备份策略之后，将会根据计划进行备份。 你也可以使用 [Start-OBBackup](https://technet.microsoft.com/zh-cn/library/hh770426) cmdlet 来触发即席备份：
+设置备份策略之后，将会根据计划进行备份。 你也可以使用 [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet 来触发即席备份：
 
 ```
 PS C:> Get-OBPolicy | Start-OBBackup
@@ -433,7 +437,7 @@ The backup operation completed successfully.
 4. 触发还原过程
 
 ### <a name="picking-the-source-volume"></a>选取源卷
-若要从 Azure 备份还原某个项，需要先识别该项的源。 由于我们要在 Windows Server 或 Windows 客户端的上下文中执行命令，因此已识别了计算机。 识别源的下一步是识别它所在的卷。 运行 [Get-OBRecoverableSource](https://technet.microsoft.com/zh-cn/library/hh770410) cmdlet 可以检索正在从此计算机备份的卷或源的列表。 此命令将返回从此服务器/客户端备份的所有源的数组。
+若要从 Azure 备份还原某个项，需要先识别该项的源。 由于我们要在 Windows Server 或 Windows 客户端的上下文中执行命令，因此已识别了计算机。 识别源的下一步是识别它所在的卷。 运行 [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410) cmdlet 可以检索正在从此计算机备份的卷或源的列表。 此命令将返回从此服务器/客户端备份的所有源的数组。
 
 ```
 PS C:> $source = Get-OBRecoverableSource
@@ -448,7 +452,7 @@ ServerName : myserver.microsoft.com
 ```
 
 ### <a name="choosing-a-backup-point-to-restore"></a>选择要还原的备份点
-结合适当的参数运行 [Get-OBRecoverableItem](https://technet.microsoft.com/zh-cn/library/hh770399.aspx) cmdlet 可以检索备份点列表。 在本示例中，我们将选择源卷 *D:* 的最新备份点，并使用它还原特定的文件。
+结合适当的参数运行 [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet 可以检索备份点列表。 在本示例中，我们将选择源卷 *D:* 的最新备份点，并使用它还原特定的文件。
 
 ```
 PS C:> $rps = Get-OBRecoverableItem -Source $source[1]
@@ -477,7 +481,7 @@ ItemLastModifiedTime :
 对象 ```$rps``` 是备份点数组。 第一个元素是最新备份点，第 N 个元素是最旧的备份点。 为了选择最新的点，我们将使用 ```$rps[0]```。
 
 ### <a name="choosing-an-item-to-restore"></a>选择要还原的项
-为了识别要还原的确切文件或文件夹，请以递归方式使用 [Get-OBRecoverableItem](https://technet.microsoft.com/zh-cn/library/hh770399.aspx) cmdlet。 这样，只需使用 ```Get-OBRecoverableItem```便可浏览文件夹层次结构。
+为了识别要还原的确切文件或文件夹，请以递归方式使用 [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet。 这样，只需使用 ```Get-OBRecoverableItem```便可浏览文件夹层次结构。
 
 在本示例中，如果我们要还原文件 finances.xls，可以使用对象 ```$filesFolders[1]``` 引用该文件。
 
@@ -527,13 +531,13 @@ PS C:\> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyDat
 ```
 
 ### <a name="triggering-the-restore-process"></a>触发还原过程
-为了触发还原过程，首先需要指定恢复选项。 这可以使用 [New-OBRecoveryOption](https://technet.microsoft.com/zh-cn/library/hh770417.aspx) cmdlet 来完成。 在本示例中，我们假设要将文件还原到 C:\temp。 此外，我们假设要跳过目标文件夹 C:\temp 中已存在的文件。 若要创建此类恢复选项，请使用以下命令：
+为了触发还原过程，首先需要指定恢复选项。 这可以使用 [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) cmdlet 来完成。 在本示例中，我们假设要将文件还原到 C:\temp。 此外，我们假设要跳过目标文件夹 C:\temp 中已存在的文件。 若要创建此类恢复选项，请使用以下命令：
 
 ```
 PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
 ```
 
-现在，请对 ```Get-OBRecoverableItem``` cmdlet 输出中的选定 ```$item``` 使用 [Start-OBRecovery](https://technet.microsoft.com/zh-cn/library/hh770402.aspx) 命令，触发还原：
+现在，请对 ```Get-OBRecoverableItem``` cmdlet 输出中的选定 ```$item``` 使用 [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) 命令，触发还原：
 
 ```
 PS C:\> Start-OBRecovery -RecoverableItem $item -RecoveryOption $recover_option
@@ -544,6 +548,7 @@ Estimating size of backup items...
 Job completed.
 The recovery operation completed successfully.
 ```
+
 
 ## <a name="uninstalling-the-azure-backup-agent"></a>卸载 Azure 备份代理
 可以使用以下命令卸载 Azure 备份代理：
@@ -599,5 +604,6 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## <a name="next-steps"></a>后续步骤
 有关适用于 Windows Server/客户端的 Azure 备份的详细信息，请参阅
 
-- [Azure 备份简介](./backup-introduction-to-azure-backup.md)
-- [备份 Windows Server](./backup-configure-vault.md)
+- [Azure 备份简介](backup-introduction-to-azure-backup.md)
+- [备份 Windows Server](backup-configure-vault.md)
+

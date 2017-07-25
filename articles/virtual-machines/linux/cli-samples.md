@@ -23,8 +23,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 适用于 Linux 虚拟机的 Azure CLI 示例
-<a id="azure-cli-samples-for-linux-virtual-machines" class="xliff"></a>
+# <a name="azure-cli-samples-for-linux-virtual-machines"></a>适用于 Linux 虚拟机的 Azure CLI 示例
 
 下表包含指向使用 Azure CLI 生成的 bash 脚本的链接。
 

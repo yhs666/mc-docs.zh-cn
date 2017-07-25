@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用经典部署模型配置强制隧道
-<a id="configure-forced-tunneling-using-the-classic-deployment-model" class="xliff"></a>
+# <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>使用经典部署模型配置强制隧道
 
 借助强制隧道，你可以通过站点到站点 VPN 隧道，将全部 Internet 绑定流量重定向或“强制”返回到本地位置，以进行检查和审核。 这是很多企业 IT 策略的关键安全要求。 如果没有强制隧道，来自 Azure 中 VM 的 Internet 绑定流量会始终通过 Azure 网络基础设施直接连接到 Internet，而无法选择对流量进行检查或审核。 未经授权的 Internet 访问可能会导致信息泄漏或其他类型的安全漏洞
 
@@ -37,8 +36,7 @@ ms.lasthandoff: 07/14/2017
 > 
 > 
 
-## 要求和注意事项
-<a id="requirements-and-considerations" class="xliff"></a>
+## <a name="requirements-and-considerations"></a>要求和注意事项
 在 Azure 中，可通过虚拟网络用户定义路由配置强制隧道 (UDR)。 将流量重定向到本地站点，这是 Azure VPN 网关的默认路由。 以下部分列出了 Azure 虚拟网络路由和路由表的当前限制：
 
 * 每个虚拟网络子网具有内置的系统路由表。 系统路由表具有以下三组路由：
@@ -51,24 +49,21 @@ ms.lasthandoff: 07/14/2017
 * 强制隧道必须关联到具有动态路由 VPN 网关（而非静态网关）的 VNet。
 * ExpressRoute 强制隧道不是通过此机制配置的，而是通过 ExpressRoute BGP 对等会话播发默认路由来启用的。 有关详细信息，请参阅 [ExpressRoute 文档](/expressroute/)。
 
-## 配置概述
-<a id="configuration-overview" class="xliff"></a>
+## <a name="configuration-overview"></a>配置概述
 在以下示例中，前端子网没有使用强制隧道。 前端子网中的工作负载可以继续直接接受并响应来自 Internet 的客户请求。 中间层和后端子网会使用强制隧道。 任何从这两个子网到 Internet 的出站连接将通过一个 S2S VPN 隧道重定向或强制返回到本地站点。
 
 这样，在继续支持所需的多层服务体系结构的同时，你可以限制并检查来自虚拟机或 Azure 云服务的 Internet 访问。 如果在虚拟网络中没有面向 Internet 的工作负荷，也能选择对整个虚拟网络应用强制隧道连接。
 
 ![强制隧道](./media/vpn-gateway-about-forced-tunneling/forced-tunnel.png)
 
-## 开始之前
-<a id="before-you-begin" class="xliff"></a>
+## <a name="before-you-begin"></a>开始之前
 在开始配置之前，请确认具有以下各项。
 
 * Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 * 已配置虚拟网络。 
 * 最新版本的 Azure PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 。
 
-## 配置强制隧道
-<a id="configure-forced-tunneling" class="xliff"></a>
+## <a name="configure-forced-tunneling"></a>配置强制隧道
 以下过程将帮助您为虚拟网络指定强制隧道。 配置步骤与 VNet 网络配置文件相对应。
 
 ```
@@ -142,45 +137,38 @@ ms.lasthandoff: 07/14/2017
   Set-AzureVNetGatewayDefaultSite -VNetName "MultiTier-VNet" -DefaultSite "DefaultSiteHQ"
   ```
 
-## 其他 PowerShell cmdlet
-<a id="additional-powershell-cmdlets" class="xliff"></a>
-### 删除路由表
-<a id="to-delete-a-route-table" class="xliff"></a>
+## <a name="additional-powershell-cmdlets"></a>其他 PowerShell cmdlet
+### <a name="to-delete-a-route-table"></a>删除路由表
 
 ```powershell
 Remove-AzureRouteTable -Name <routeTableName>
 ```
 
-### 列出路由表
-<a id="to-list-a-route-table" class="xliff"></a>
+### <a name="to-list-a-route-table"></a>列出路由表
 
 ```powershell
 Get-AzureRouteTable [-Name <routeTableName> [-DetailLevel <detailLevel>]]
 ```
 
-### 从路由表中删除路由
-<a id="to-delete-a-route-from-a-route-table" class="xliff"></a>
+### <a name="to-delete-a-route-from-a-route-table"></a>从路由表中删除路由
 
 ```powershell
 Remove-AzureRouteTable -Name <routeTableName>
 ```
 
-### 从子网中删除路由
-<a id="to-remove-a-route-from-a-subnet" class="xliff"></a>
+### <a name="to-remove-a-route-from-a-subnet"></a>从子网中删除路由
 
 ```powershell
 Remove-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 ```
 
-### 列出与子网关联的路由表
-<a id="to-list-the-route-table-associated-with-a-subnet" class="xliff"></a>
+### <a name="to-list-the-route-table-associated-with-a-subnet"></a>列出与子网关联的路由表
 
 ```powershell
 Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 ```
 
-### 从 VNet VPN 网关中删除默认站点
-<a id="to-remove-a-default-site-from-a-vnet-vpn-gateway" class="xliff"></a>
+### <a name="to-remove-a-default-site-from-a-vnet-vpn-gateway"></a>从 VNet VPN 网关中删除默认站点
 
 ```powershell
 Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>

@@ -1,5 +1,5 @@
 ---
-title: "使用 HDInsight .NET SDK 运行 Hive 查询 | Azure"
+title: "使用 HDInsight .NET SDK 运行 Hive 查询 - Azure | Azure"
 description: "了解如何使用 HDInsight .NET SDK 将 Hadoop 作业提交到 Azure HDInsight Hadoop。"
 editor: cgronlun
 manager: jhubbard
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/03/2017
-ms.date: 04/27/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 6aa18b71c85ea2f748494cd4d4d016f4d3c0d5e2
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 9db3aa49c5056af475e5d8ad54d093335defd9a4
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK 运行 Hive 查询
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]

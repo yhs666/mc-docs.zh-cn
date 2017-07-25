@@ -6,18 +6,20 @@ documentationCenter:
 authors: TomArcher
 manager: douge
 editor: 
+ms.assetid: 4f3c93c6-5c82-4779-9d19-7404a01e82ca
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/18/2016
+origin.date: 06/12/2017
+ms.date: 07/17/2017
 ms.author: v-yiso
-ms.openlocfilehash: 159d2968cd94a4c40035bef42359120bc8fb7056
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: aa85653cdf22eba8edf4588a34204bef2e7b393e
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>在 Azure 中持续交付云服务
 
@@ -47,7 +49,7 @@ ms.lasthandoff: 06/21/2017
 
 本部分介绍如何构造用于生成 Azure 包的 MSBuild 命令。 在生成服务器上执行此步骤可验证所有内容是否已正确配置，以及 MSBuild 命令是否起到预期作用。 你可将此命令行添加到生成服务器上的现有生成脚本中，也可在 TFS 生成定义中使用此命令行，如下一部分所述。 有关命令行参数和 MSBuild 的详细信息，请参阅 [MSBuild 命令行参考](https://msdn.microsoft.com/zh-cn/library/ms164311%28v=vs.140%29.aspx)。
 
-1.  如果在生成服务器上安装了 Visual Studio，请在 Windows 中的“Visual Studio 工具”文件夹中找到并选择“Visual Studio 命令提示符”。
+1. 如果在生成服务器上安装了 Visual Studio，请在 Windows 中的“Visual Studio Tools”文件夹中找到并选择“Visual Studio 命令提示符”。
 
     如果未在生成服务器上安装 Visual Studio，请打开命令提示符并确保可按相应的路径访问 MSBuild.exe。 MSBuild 与 .NET Framework 一起安装在路径 %WINDIR%\\Microsoft.NET\\Framework\\Version 中。 例如，若要在已安装 .NET Framework 4 的情况下将 MSBuild.exe 添加到 PATH 环境变量，请在命令提示符处键入以下命令：
 
@@ -119,7 +121,7 @@ ms.lasthandoff: 06/21/2017
 本节介绍如何构造使用可选参数将云应用程序包输出发布到 Azure 的 Windows PowerShell 脚本。 在执行自定义生成自动化中的生成步骤后，可以调用此脚本。 也可以从 Visual Studio TFS Team Build 中的过程模板工作流活动中调用此脚本。
 
 1. 安装 [Azure PowerShell cmdlet][Azure PowerShell cmdlets]（v0.6.1 或更高版本）。
-   在 cmdlet 设置阶段，选择作为管理单元安装。 请注意，此受支持的正式版本将替代通过 CodePlex 提供的旧版本，尽管早期版本已采用 2.x.x 的形式进行编号。
+   在 cmdlet 安装阶段，选择作为管理单元安装。 请注意，此受支持的正式版本将替代通过 CodePlex 提供的旧版本，尽管早期版本已采用 2.x.x 的形式进行编号。
 2. 使用“开始”菜单或“开始”页启动 Azure PowerShell。 如果通过此方式启动，则将加载 Azure PowerShell cmdlet。
 3. 在 PowerShell 提示符下，通过输入部分命令 `Get-Azure`，然后按 Tab 完成语句，验证是否已加载 PowerShell cmdlet。
 
@@ -141,13 +143,13 @@ ms.lasthandoff: 06/21/2017
 
 6.  确保已在订阅中创建可通过发布脚本定位的有效云服务和存储帐户。 存储帐户（Blob 存储）将用于在创建部署时上传和临时存储部署包和配置文件。
 
-    -   若要创建新的云服务，可以调用此脚本或使用 [Azure 经典门户](https://manage.windowsazure.cn)。 云服务名称将用作完全限定域名中的前缀，因此该名称必须是唯一的。
+    -   若要创建新的云服务，可以调用此脚本或使用 [Azure 门户](https://portal.azure.cn)。 云服务名称将用作完全限定域名中的前缀，因此该名称必须是唯一的。
 
         ```
         New-AzureService -ServiceName "mytestcloudservice" -Location "China North" -Label "mytestcloudservice"
         ```
 
-    -   若要创建新的存储帐户，可以调用此脚本或使用 [Azure 经典门户](https://manage.windowsazure.cn)。 存储帐户名称将用作完全限定域名中的前缀，因此该名称必须是唯一的。 可尝试使用与云服务相同的名称。
+    -   若要创建新的存储帐户，可以调用此脚本或使用 [Azure 门户](https://portal.azure.cn)。 存储帐户名称将用作完全限定域名中的前缀，因此该名称必须是唯一的。 可尝试使用与云服务相同的名称。
 
         ```
         New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "China North" -Label "mytestcloudservice"
@@ -164,7 +166,7 @@ ms.lasthandoff: 06/21/2017
     PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
     ```
 
-    通常，此操作后跟测试运行验证和 VIP 交换。 VIP 交换可通过 [Azure 经典门户](https://manage.windowsazure.cn) 或使用 Move-Deployment cmdlet 执行。
+    通常，此操作后跟测试运行验证和 VIP 交换。 VIP 交换可通过 [Azure 门户](https://portal.azure.cn)或使用 Move-Deployment cmdlet 执行。
 
     **示例方案 2：** 对专用测试服务的生产环境进行持续部署
 
@@ -196,7 +198,7 @@ ms.lasthandoff: 06/21/2017
     Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
     ```
 
-    或者，可以导出带私钥的证书文件 PFX，并使用 [Azure 经典门户](https://manage.windowsazure.cn)将证书上传到每个目标云服务。 
+    或者，可以导出带私钥的证书文件 PFX，并使用 [Azure 门户](https://portal.azure.cn)将证书上传到每个目标云服务。
 
    <!---
    Fixing broken links for Azure content migration from ACOM to DOCS. I'm unable to find a replacement links, so I'm commenting out this reference for now. The author can investigate in the future. "Read the following article to learn more: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx.
@@ -207,8 +209,10 @@ ms.lasthandoff: 06/21/2017
 
     可使用脚本 ($enableDeploymentUpgrade = 0) 或通过将 -enableDeploymentUpgrade 0 作为参数传递（这会将脚本行为更改为首先删除任何现有部署，然后创建新的部署）来禁用升级部署。
 
-    >[!IMPORTANT]
-    > 默认情况下，此脚本将始终删除或替换现有部署（如果检测到这些部署）。 这对于从没有用户/操作员提示的自动化中启用持续交付是必需的。
+   > [!IMPORTANT]
+   > 默认情况下，此脚本将始终删除或替换现有部署（如果检测到这些部署）。 这对于从没有用户/操作员提示的自动化中启用持续交付是必需的。
+   >
+   >
 
 ## <a name="5-publish-a-package-using-tfs-team-build"></a>5：使用 TFS Team Build 发布包
 

@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 在 Azure 中使用 Bottle 创建 Web 应用
-<a id="creating-web-apps-with-bottle-in-azure" class="xliff"></a>
+# <a name="creating-web-apps-with-bottle-in-azure"></a>在 Azure 中使用 Bottle 创建 Web 应用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -33,8 +32,7 @@ ms.lasthandoff: 07/14/2017
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 * Windows、 Mac 或 Linux
 * Python 2.7 或 3.4
 * setuptools、pip、virtualenv（仅限 Python 2.7）
@@ -45,20 +43,17 @@ ms.lasthandoff: 07/14/2017
 
 **注意**：Python 项目目前不支持 TFS 发布。
 
-### Windows
-<a id="windows" class="xliff"></a>
+### <a name="windows"></a>Windows
 如果尚未安装 Python 2.7 或 3.4（32 位） ，建议使用 Web 平台安装程序来安装 [Azure SDK for Python 2.7] 或 [Azure SDK for Python 3.4]。 这将安装 32 位版本的 Python、setuptools、pip、virtualenv 等（32 位 Python 是在 Azure 主机计算机上安装的）。 或者，您可以从 [python.org]获取 Python。
 
 对于 Git，我们建议使用 [Git for Windows] 或 [GitHub for Windows]。 如果您使用 Visual Studio，可以使用集成的 Git 支持。
 
 我们还建议你安装 [Python Tools 2.2 for Visual Studio]。 这是可选的，但是如果你有 [Visual Studio]（包括免费 Visual Studio Community 2013 或 Visual Studio Express 2013 for Web），则可以提供 Python IDE。
 
-### Mac/Linux
-<a id="maclinux" class="xliff"></a>
+### <a name="maclinux"></a>Mac/Linux
 你应安装了 Python 和 Git ，但请确保你具有 Python 2.7 或 3.4。
 
-## 在 Azure 门户中创建 Web 应用
-<a id="web-app-creation-on-the-azure-portal" class="xliff"></a>
+## <a name="web-app-creation-on-the-azure-portal"></a>在 Azure 门户中创建 Web 应用
 创建应用的第一步是通过 [Azure 门户](https://portal.azure.cn)创建 Web 应用。  
 
 1. 登录到 Azure 门户，然后单击左下角的“新建”  按钮。 
@@ -67,10 +62,8 @@ ms.lasthandoff: 07/14/2017
 4. 配置新的 Bottle 应用，如为其创建新的应用服务计划和新的资源组。 然后单击“创建” 。
 5. 按照 [从本地 Git 部署到 Azure 应用服务](app-service-deploy-local-git.md)的说明为新创建的 Web 应用配置 Git 发布。
 
-## 应用程序概述
-<a id="application-overview" class="xliff"></a>
-### Git 存储库内容
-<a id="git-repository-contents" class="xliff"></a>
+## <a name="application-overview"></a>应用程序概述
+### <a name="git-repository-contents"></a>Git 存储库内容
 下面是你会在初始 Git 存储库找到的文件的概览，我们将在下一节中予以克隆。
 
     \routes.py
@@ -106,16 +99,13 @@ ms.lasthandoff: 07/14/2017
 
 IIS 配置文件。 部署脚本将使用适当的 web.x.y.config，并将其复制为 web.config。
 
-### 可选文件 - 自定义部署
-<a id="optional-files---customizing-deployment" class="xliff"></a>
+### <a name="optional-files---customizing-deployment"></a>可选文件 - 自定义部署
 [!INCLUDE [web-sites-python-customizing-deployment](../../includes/web-sites-python-customizing-deployment.md)]
 
-### 可选文件 - Python 运行时
-<a id="optional-files---python-runtime" class="xliff"></a>
+### <a name="optional-files---python-runtime"></a>可选文件 - Python 运行时
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
-### 服务器上的其他文件
-<a id="additional-files-on-server" class="xliff"></a>
+### <a name="additional-files-on-server"></a>服务器上的其他文件
 某些文件存在于服务器上，但不会添加到 git 存储库。 这些是由部署脚本创建的。
 
     \web.config
@@ -132,18 +122,15 @@ Python 虚拟环境。 如果在 Web 应用上尚不存在兼容的虚拟环境�
 * Windows，具有命令行
 * Mac/Linux，具有命令行
 
-## Web 应用开发 - Windows - Python Tools for Visual Studio
-<a id="web-app-development---windows---python-tools-for-visual-studio" class="xliff"></a>
-### 克隆存储库
-<a id="clone-the-repository" class="xliff"></a>
+## <a name="web-app-development---windows---python-tools-for-visual-studio"></a>Web 应用开发 - Windows - Python Tools for Visual Studio
+### <a name="clone-the-repository"></a>克隆存储库
 首先，使用 Azure 门户网站上提供的 URL 来克隆存储库。 有关详细信息，请参阅[从本地 Git 部署到 Azure 应用服务](app-service-deploy-local-git.md)。
 
 打开包含在存储库根中的解决方案文件 (.sln) 。
 
 ![](./media/web-sites-python-create-deploy-bottle-app/ptvs-solution-bottle.png)
 
-### 创建虚拟环境
-<a id="create-virtual-environment" class="xliff"></a>
+### <a name="create-virtual-environment"></a>创建虚拟环境
 现在，我们将创建本地开发的虚拟环境。 右键单击 **Python 环境**，选择“添加虚拟环境...”。
 
 * 请确保环境的名称是 `env`。
@@ -154,24 +141,21 @@ Python 虚拟环境。 如果在 Web 应用上尚不存在兼容的虚拟环境�
 
 单击“创建” 。 这会创建虚拟环境，并安装 requirements.txt 中列出的依赖项。
 
-### 使用开发服务器运行
-<a id="run-using-development-server" class="xliff"></a>
+### <a name="run-using-development-server"></a>使用开发服务器运行
 按 F5 开始调试，您的 web 浏览器会自动打开到本地运行的页面。
 
 ![](./media/web-sites-python-create-deploy-bottle-app/windows-browser-bottle.png)
 
 您可以在源中设置断点，使用监视窗口等。请参阅 [Python Tools for Visual Studio 文档]以了解有关各种功能的详细信息。
 
-### 进行更改
-<a id="make-changes" class="xliff"></a>
+### <a name="make-changes"></a>进行更改
 现在你可以通过更改应用程序源和/或模板进行试验。
 
 测试更改后，将其提交到 Git 存储库：
 
 ![](./media/web-sites-python-create-deploy-bottle-app/ptvs-commit-bottle.png)
 
-### 安装多个软件包
-<a id="install-more-packages" class="xliff"></a>
+### <a name="install-more-packages"></a>安装多个软件包
 你的应用程序可能具有除 Python 和 Bottle 以外的依赖关系。
 
 你可以使用 pip 安装其他软件包。 要安装包，请右键单击虚拟环境，然后选择 **安装 Python 软件包**。
@@ -184,8 +168,7 @@ Python 虚拟环境。 如果在 Web 应用上尚不存在兼容的虚拟环境�
 
 然后，将 requirements.txt 的更改提交到 Git 存储库。
 
-### 部署到 Azure
-<a id="deploy-to-azure" class="xliff"></a>
+### <a name="deploy-to-azure"></a>部署到 Azure
 要触发部署操作，请单击“同步”或“推送”。 同步执行推送和拉取。
 
 ![](./media/web-sites-python-create-deploy-bottle-app/ptvs-git-push.png)
@@ -196,18 +179,15 @@ Visual Studio 不会显示部署的进度。
 
 浏览到 Azure URL 以查看你的更改。
 
-## Web 应用开发 - Windows - 命令行
-<a id="web-app-development---windows---command-line" class="xliff"></a>
-### 克隆存储库
-<a id="clone-the-repository" class="xliff"></a>
+## <a name="web-app-development---windows---command-line"></a>Web 应用开发 - Windows - 命令行
+### <a name="clone-the-repository"></a>克隆存储库
 首先，使用在 Azure 门户中提供的 URL 来克隆存储库，并将 Azure 存储库添加为远程。 有关详细信息，请参阅[从本地 Git 部署到 Azure 应用服务](app-service-deploy-local-git.md)。
 
     git clone <repo-url>
     cd <repo-folder>
     git remote add azure <repo-url> 
 
-### 创建虚拟环境
-<a id="create-virtual-environment" class="xliff"></a>
+### <a name="create-virtual-environment"></a>创建虚拟环境
 我们将为开发目的创建新的虚拟环境 （不要将其添加到存储库）。 Python 中的虚拟环境是可重定位，因此使用该应用程序的每个开发人员将在本地创建自己的环境。
 
 请确保使用的 Python 版本与为 Web 应用选择的 Python 版本相同（在 runtime.txt 中或 Azure 门户中 Web 应用的“应用程序设置”边栏选项卡）
@@ -224,8 +204,7 @@ Visual Studio 不会显示部署的进度。
 
     env\scripts\pip install -r requirements.txt
 
-### 使用开发服务器运行
-<a id="run-using-development-server" class="xliff"></a>
+### <a name="run-using-development-server"></a>使用开发服务器运行
 你可以使用以下命令在开发服务器下启用应用程序：
 
     env\scripts\python app.py
@@ -238,8 +217,7 @@ Visual Studio 不会显示部署的进度。
 
 ![](./media/web-sites-python-create-deploy-bottle-app/windows-browser-bottle.png)
 
-### 执行更改
-<a id="make-changes" class="xliff"></a>
+### <a name="make-changes"></a>执行更改
 现在你可以通过更改应用程序源和/或模板进行试验。
 
 测试更改后，将其提交到 Git 存储库：
@@ -247,8 +225,7 @@ Visual Studio 不会显示部署的进度。
     git add <modified-file>
     git commit -m "<commit-comment>"
 
-### 安装多个软件包
-<a id="install-more-packages" class="xliff"></a>
+### <a name="install-more-packages"></a>安装多个软件包
 你的应用程序可能具有除 Python 和 Bottle 以外的依赖关系。
 
 你可以使用 pip 安装其他软件包。 例如，要安装 Azure SDK for Python（使你可以访问 Azure 存储、 服务总线和其他 Azure 服务），请输入：
@@ -264,8 +241,7 @@ Visual Studio 不会显示部署的进度。
     git add requirements.txt
     git commit -m "Added azure package"
 
-### 部署到 Azure
-<a id="deploy-to-azure" class="xliff"></a>
+### <a name="deploy-to-azure"></a>部署到 Azure
 要触发部署，请将更改推送到 Azure：
 
     git push azure master
@@ -274,18 +250,15 @@ Visual Studio 不会显示部署的进度。
 
 浏览到 Azure URL 以查看更改。
 
-## Web 应用开发 - Mac/Linux - 命令行
-<a id="web-app-development---maclinux---command-line" class="xliff"></a>
-### 克隆存储库
-<a id="clone-the-repository" class="xliff"></a>
+## <a name="web-app-development---maclinux---command-line"></a>Web 应用开发 - Mac/Linux - 命令行
+### <a name="clone-the-repository"></a>克隆存储库
 首先，使用在 Azure 门户中提供的 URL 来克隆存储库，并将 Azure 存储库添加为远程。 有关详细信息，请参阅[从本地 Git 部署到 Azure 应用服务](app-service-deploy-local-git.md)。
 
     git clone <repo-url>
     cd <repo-folder>
     git remote add azure <repo-url> 
 
-### 创建虚拟环境
-<a id="create-virtual-environment" class="xliff"></a>
+### <a name="create-virtual-environment"></a>创建虚拟环境
 我们将为开发目的创建新的虚拟环境 （不要将其添加到存储库）。 Python 中的虚拟环境是可重定位，因此使用该应用程序的每个开发人员将在本地创建自己的环境。
 
 请确保使用的 Python 版本与为 Web 应用选择的 Python 版本相同（在 runtime.txt 中或 Azure 门户中 Web 应用的“应用程序设置”边栏选项卡）。
@@ -306,8 +279,7 @@ Visual Studio 不会显示部署的进度。
 
     env/bin/pip install -r requirements.txt
 
-### 使用开发服务器运行
-<a id="run-using-development-server" class="xliff"></a>
+### <a name="run-using-development-server"></a>使用开发服务器运行
 你可以使用以下命令在开发服务器下启用应用程序：
 
     env/bin/python app.py
@@ -320,8 +292,7 @@ Visual Studio 不会显示部署的进度。
 
 ![](./media/web-sites-python-create-deploy-bottle-app/mac-browser-bottle.png)
 
-### 执行更改
-<a id="make-changes" class="xliff"></a>
+### <a name="make-changes"></a>执行更改
 现在你可以通过更改应用程序源和/或模板进行试验。
 
 测试更改后，将其提交到 Git 存储库：
@@ -329,8 +300,7 @@ Visual Studio 不会显示部署的进度。
     git add <modified-file>
     git commit -m "<commit-comment>"
 
-### 安装多个软件包
-<a id="install-more-packages" class="xliff"></a>
+### <a name="install-more-packages"></a>安装多个软件包
 你的应用程序可能具有除 Python 和 Bottle 以外的依赖关系。
 
 你可以使用 pip 安装其他软件包。 例如，要安装 Azure SDK for Python（使你可以访问 Azure 存储、 服务总线和其他 Azure 服务），请输入：
@@ -346,8 +316,7 @@ Visual Studio 不会显示部署的进度。
     git add requirements.txt
     git commit -m "Added azure package"
 
-### 部署到 Azure
-<a id="deploy-to-azure" class="xliff"></a>
+### <a name="deploy-to-azure"></a>部署到 Azure
 要触发部署，请将更改推送到 Azure：
 
     git push azure master
@@ -356,16 +325,13 @@ Visual Studio 不会显示部署的进度。
 
 浏览到 Azure URL 以查看你的更改。
 
-## 故障排除 - 软件包安装
-<a id="troubleshooting---package-installation" class="xliff"></a>
+## <a name="troubleshooting---package-installation"></a>故障排除 - 软件包安装
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
-## 故障排除 - 虚拟环境
-<a id="troubleshooting---virtual-environment" class="xliff"></a>
+## <a name="troubleshooting---virtual-environment"></a>故障排除 - 虚拟环境
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 请查看下面链接以了解有关 Bottle 和 Python Tools for Visual Studio 的更多信息： 
 
 * [Bottle 文档]
@@ -376,8 +342,7 @@ Visual Studio 不会显示部署的进度。
 * [具有 Python Tools for Visual Studio 的 Azure 上的 Bottle 和 MongoDB]
 * [具有 Python Tools for Visual Studio 的 Azure 上的 Bottle 和 Azure 表存储]
 
-## 发生的更改
-<a id="whats-changed" class="xliff"></a>
+## <a name="whats-changed"></a>发生的更改
 * 有关从网站更改为应用服务的指南，请参阅 [Azure 应用服务及其对现有 Azure 服务的影响](/app-service-web/app-service-changes-existing-services)
 
 <!--Link references-->

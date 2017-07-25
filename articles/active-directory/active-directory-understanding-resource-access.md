@@ -20,8 +20,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 了解 Azure 中的资源访问权限
-<a id="understanding-resource-access-in-azure" class="xliff"></a>
+# <a name="understanding-resource-access-in-azure"></a>了解 Azure 中的资源访问权限
 > [!NOTE]
 > 本主题介绍有关使用订阅管理员在整个 Azure 门户中控制资源访问权限的概念。 作为替代方法，Azure 管理门户提供[基于角色的访问控制](role-based-access-control-configure.md)，以便更准确地管理 Azure 资源。
 > 
@@ -57,8 +56,7 @@ Azure 中的访问控制首先体现在计费方面。 Azure 帐户的所有者�
 
 由于这种单一的订阅目录视图所导致的结果，诸如在订阅之间移动资源的操作可能会更难以实现。 若要执行资源传输，务必首先使用“订阅”页上“设置”中的“编辑目录”命令将订阅与相同目录关联。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 - 有关 Azure Active Directory 如何与 Azure 订阅相关联的详细信息，请参阅 [How Azure subscriptions are associated with Azure Active Directory](./active-directory-how-subscriptions-associated-directory.md)（Azure 订阅与 Azure Active Directory 的关联方式）
 - 有关如何在 Azure AD 中分配角色的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](./active-directory-assign-admin-roles.md)
 

@@ -23,8 +23,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 如何将 DocumentDB API 的数据导入 Azure Cosmos DB？
-<a id="how-to-import-data-into-azure-cosmos-db-for-the-documentdb-api" class="xliff"></a>
+# <a name="how-to-import-data-into-azure-cosmos-db-for-the-documentdb-api"></a>如何将 DocumentDB API 的数据导入 Azure Cosmos DB？
 
 本教程说明如何使用 Azure Cosmos DB：DocumentDB API 数据迁移工具，该工具可将数据从各种源（包括 JSON 文件、CSV 文件、SQL、MongoDB、Azure 表存储、Amazon DynamoDB 和 Azure Cosmos DB DocumentDB API 集合）导入到可在 Azure Cosmos DB 和 DocumentDB API 中使用的集合。 数据迁移工具还可用于从 DocumentDB API 的单分区集合迁移到多分区集合。
 
@@ -64,8 +63,7 @@ ms.lasthandoff: 07/13/2017
 * **Dtui.exe**︰该工具的图形界面版本
 * **Dtui.exe**︰该工具的命令行版本
 
-## 导入数据
-<a id="import-data" class="xliff"></a>
+## <a name="import-data"></a>导入数据
 
 安装好工具后，即可导入数据。 希望导入什么类型的数据？
 
@@ -482,8 +480,7 @@ Azure Cosmos DB - 顺序记录导入程序具有下列高级附加选项：
 > 
 > 
 
-## 导出到 JSON 文件
-<a id="export-to-json-file" class="xliff"></a>
+## <a name="export-to-json-file"></a>导出到 JSON 文件
 使用 Azure Cosmos DB JSON 导出程序，可以将所有可用的源选项导出到包含一组 JSON 文档的 JSON 文件。 该工具可为你处理导出，你也可以选择查看生成的迁移命令并自己运行该命令。 生成的 JSON 文件可能存储在本地或 Azure Blob 存储中。
 
 ![Azure Cosmos DB JSON 本地文件导出选项的屏幕截图](./media/import-data/jsontarget.png)
@@ -522,8 +519,7 @@ Azure Cosmos DB - 顺序记录导入程序具有下列高级附加选项：
     ]
     }]
 
-## 高级配置
-<a id="advanced-configuration" class="xliff"></a>
+## <a name="advanced-configuration"></a>高级配置
 在高级配置屏幕中，指定要向其中写入错误的日志文件的位置。 本页适用的规则如下：
 
 1. 如果未提供文件名，则将在结果页上返回所有错误。
@@ -534,8 +530,7 @@ Azure Cosmos DB - 顺序记录导入程序具有下列高级附加选项：
 
     ![Screenshot of Advanced configuration screen](./media/import-data/AdvancedConfiguration.png)
 
-## 确认导入设置并查看命令行
-<a id="confirm-import-settings-and-view-command-line" class="xliff"></a>
+## <a name="confirm-import-settings-and-view-command-line"></a>确认导入设置并查看命令行
 1. 在指定源信息、目标信息以及高级配置后，查看迁移摘要，并可选择查看/复制生成的迁移命令（复制命令对于自动执行导入操作非常有用）︰
 
     ![摘要屏幕的屏幕截图](./media/import-data/summary.png)
@@ -548,8 +543,7 @@ Azure Cosmos DB - 顺序记录导入程序具有下列高级附加选项：
 
     ![Azure Cosmos DB JSON 导出选项的屏幕截图](./media/import-data/newimport.png)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 在本教程中，已完成以下内容：
 

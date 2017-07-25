@@ -1,5 +1,4 @@
-## 创建 IoT 中心
-<a id="create-an-iot-hub" class="xliff"></a>
+## <a name="create-an-iot-hub"></a>创建 IoT 中心
 创建模拟设备应用要连接到的 IoT 中心。 以下步骤说明如何使用 Azure 门户来完成此任务。
 
 1. 登录到 [Azure 门户][lnk-portal]。

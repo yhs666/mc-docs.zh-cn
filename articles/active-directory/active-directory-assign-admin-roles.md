@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 在 Azure Active Directory 中分配管理员角色
-<a id="assigning-administrator-roles-in-azure-active-directory" class="xliff"></a>
+# <a name="assigning-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中分配管理员角色
 使用 Azure Active Directory (Azure AD) 时，可以指定不同的管理员来执行不同的功能。 这些管理员可以按角色访问 Azure 门户或 Azure 经典管理门户中的各种功能：创建或编辑用户、将管理角色分配给他人、重置用户密码、管理用户许可证以及管理域，等等。 不论是通过 Office 365 门户、Azure 经典管理门户还是用于 Windows PowerShell 的 Azure AD 模块分配管理员角色，分配了该角色的用户在组织订阅的所有云服务中都拥有相同的权限。
 
 提供以下管理员角色：
@@ -34,21 +33,17 @@ ms.lasthandoff: 07/13/2017
   >
   >
 
-## 管理员权限
-<a id="administrator-permissions" class="xliff"></a>
+## <a name="administrator-permissions"></a>管理员权限
 
-### 全局管理员
-<a id="global-administrator" class="xliff"></a>
+### <a name="global-administrator"></a>全局管理员
 | 有权执行的操作 | 无权执行的操作 |
 | --- | --- |
 | <p>查看公司信息和用户信息</p><p>管理 Office 支持票证</p><p>为 Office 产品执行计费和采购操作</p> <p>重置用户密码</p><p>创建和管理用户视图</p><p>创建、编辑和删除用户与组，以及管理用户许可证</p><p>管理域</p><p>管理公司信息</p><p>向其他人委派管理角色</p><p>使用目录同步</p> |不适用 |
 
-## 有关全局管理员角色的详细信息
-<a id="details-about-the-global-administrator-role" class="xliff"></a>
+## <a name="details-about-the-global-administrator-role"></a>有关全局管理员角色的详细信息
 全局管理员有权访问所有管理功能。 默认情况下，系统会将注册 Azure 订阅的人员指派为目录的全局管理员角色。 只有全局管理员才能分配其他管理员角色。
 
-## 分配或删除管理员角色
-<a id="assign-or-remove-administrator-roles" class="xliff"></a>
+## <a name="assign-or-remove-administrator-roles"></a>分配或删除管理员角色
 1. 在 [Azure 经典管理门户](https://manage.windowsazure.cn)中，单击“Active Directory”，然后单击所在组织的目录的名称。
 2. 在“用户”页上，单击要编辑的用户的显示名称。
 3. 在“组织角色”列表中，选择要分配给此用户的管理员角色，或者选择“用户”（如果要删除现有的管理员角色）。
@@ -57,8 +52,7 @@ ms.lasthandoff: 07/13/2017
 6. 从“使用位置”下拉列表中指定位置。
 7. 完成后，单击“保存”。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 - 若要了解有关如何在 Azure 中控制资源访问的详细信息，请参阅[了解 Azure 中的资源访问权限](./active-directory-understanding-resource-access.md)
 - 有关 Azure Active Directory 如何与 Azure 订阅相关联的详细信息，请参阅 [How Azure subscriptions are associated with Azure Active Directory](./active-directory-how-subscriptions-associated-directory.md)（Azure 订阅与 Azure Active Directory 的关联方式）
 - [管理用户](./active-directory-create-users.md)

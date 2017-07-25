@@ -14,11 +14,11 @@
 
     在 Windows 命令提示符窗口中，使用 **find** 而不是 grep。
 
-4. 使用 `azure vm create` 通过上一列表中的 Linux 映像创建 VM。 此步骤将创建云服务和存储帐户。 你还可通过 `-c` 选项将此 VM 连接到现有云服务。 使用 `-e` 选项创建 SSH 终结点以登录到 Linux 虚拟机。 以下示例在 `China North` 位置使用 `Ubuntu-14_04_3-LTS` 映像创建名为 `myVM` 的 VM，并添加用户名 `ops`：
+4. 使用 `azure vm create` 通过上一列表中的 Linux 映像创建 VM。 此步骤将创建云服务和存储帐户。 你还可通过 `-c` 选项将此 VM 连接到现有云服务。 使用 `-e` 选项创建 SSH 终结点以登录到 Linux 虚拟机。 以下示例在 `China North` 位置使用 `Ubuntu-14_04_4-LTS` 映像创建名为 `myVM` 的 VM，并添加用户名 `ops`：
 
     ```azurecli
     azure vm create myVM \
-        b549f4301d0b4295b8e76ceb65df47d4__Ubuntu-14_04_3-LTS-amd64-server-20160516-en-us-30GB \
+        b549f4301d0b4295b8e76ceb65df47d4__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB \
         -g ops -p P@ssw0rd! -z "Small" -e -l "China North"
     ```
 
@@ -26,7 +26,7 @@
 
     ```azurecli
     info:    Executing command vm create
-    + Looking up image b549f4301d0b4295b8e76ceb65df47d4__Ubuntu-14_04_3-LTS-amd64-server-20160516-en-us-30GB
+    + Looking up image b549f4301d0b4295b8e76ceb65df47d4__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB
     + Looking up cloud service
     info:    cloud service myVM not found.
     + Creating cloud service

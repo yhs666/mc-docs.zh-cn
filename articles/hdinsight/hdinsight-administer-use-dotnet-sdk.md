@@ -1,5 +1,5 @@
 ---
-title: "使用 .NET SDK 管理 HDInsight 中的 Hadoop 群集 | Azure"
+title: "使用 .NET SDK 管理 HDInsight 中的 Hadoop 群集 - Azure | Azure"
 description: "了解如何使用 HDInsight .NET SDK 针对 HDInsight 中的 Hadoop 群集执行管理任务。"
 services: hdinsight
 editor: cgronlun
@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2017
-ms.date: 04/27/2017
+origin.date: 05/25/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: f91cdae377e792749a6fe4b6ab9e076464e558d5
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: e7c98b041989ebfa6390254504d5c25c6f209a6c
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -169,7 +169,7 @@ ms.lasthandoff: 06/21/2017
 
     HDInsight 群集上提供了 Storm Web UI：
 
-    ![HDInsight Storm 缩放重新平衡](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight Storm 缩放重新平衡](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     以下是有关如何使用 CLI 命令重新平衡 Storm 拓扑的示例：
 

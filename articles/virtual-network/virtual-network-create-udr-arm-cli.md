@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 03/12/2017
 ms.date: 03/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 561b026b2e2eb755733b3dd2ebef07f4de7f581e
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 354e98cc788082c16829547ba7946db3331924ae
+ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="create-user-defined-routes-udr-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建用户定义的路由 (UDR)
 
@@ -193,7 +193,7 @@ ms.lasthandoff: 06/23/2017
 
 若要在 **FW1**使用的 NIC 中启用 IP 转发，请完成以下步骤：
 
-1. 运行带 JMESPATH 筛选器的 [az network nic show](https://docs.microsoft.com/cli/az/network/nic#show) 命令来显示 **Enable IP forwarding** 的当前 **enable-ip-forwarding** 值。 应将它设置为 *false*。
+1. 运行带 JMESPATH 筛选器的 [az network nic show](https://docs.microsoft.com/cli/azure/network/nic#show) 命令来显示 **Enable IP forwarding** 的当前 **enable-ip-forwarding** 值。 应将它设置为 *false*。
 
     ```azurecli
     az network nic show \

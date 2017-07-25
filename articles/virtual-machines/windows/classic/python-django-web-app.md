@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# Windows Server VM 上的 Django Hello World Web 应用程序
-<a id="django-hello-world-web-application-on-a-windows-server-vm" class="xliff"></a>
+# <a name="django-hello-world-web-application-on-a-windows-server-vm"></a>Windows Server VM 上的 Django Hello World Web 应用程序
 > [!div class="op_single_selector"]
 > * [Windows](python-django-web-app.md)
 > * [Mac/Linux](../../linux/python-django-web-app.md)
@@ -50,8 +49,7 @@ ms.lasthandoff: 07/13/2017
 
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
-## 创建并配置 Azure 虚拟机以托管 Django
-<a id="creating-and-configuring-an-azure-virtual-machine-to-host-django" class="xliff"></a>
+## <a name="creating-and-configuring-an-azure-virtual-machine-to-host-django"></a>创建并配置 Azure 虚拟机以托管 Django
 1. 按照[此处](tutorial.md)提供的说明创建 Windows Server 2012 R2 Datacenter 分发的 Azure 虚拟机。
 2. 指示 Azure 将来自 Web 的端口 80 通信定向到虚拟机上的端口 80：
 
@@ -86,14 +84,12 @@ ms.lasthandoff: 07/13/2017
         c:\python34\scripts\pip install wfastcgi
         c:\python34\scripts\pip install django
 
-## 安装具有 FastCGI 的 IIS
-<a id="installing-iis-with-fastcgi" class="xliff"></a>
+## <a name="installing-iis-with-fastcgi"></a>安装具有 FastCGI 的 IIS
 1. 安装具有 FastCGI 支持的 IIS。  执行此操作可能需要几分钟。
 
         start /wait %windir%\System32\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
 
-## 创建新的 Django 应用程序
-<a id="creating-a-new-django-application" class="xliff"></a>
+## <a name="creating-a-new-django-application"></a>创建新的 Django 应用程序
 1. 从 C:\inetpub\wwwroot 输入以下命令以创建新的 Django 项目：
 
    对于 Python 2.7，使用以下命令。
@@ -123,8 +119,7 @@ ms.lasthandoff: 07/13/2017
            url(r'^$', 'helloworld.views.home', name='home'),
        )
 
-## 配置 IIS
-<a id="configuring-iis" class="xliff"></a>
+## <a name="configuring-iis"></a>配置 IIS
 1. 解锁全局 applicationhost.config 中的处理程序节。  这将在 web.config 中启用 python 处理程序。
 
         %windir%\system32\inetsrv\appcmd unlock config -section:system.webServer/handlers
@@ -175,8 +170,7 @@ ms.lasthandoff: 07/13/2017
 
 ![显示 Azure 上的 hello world 页面的浏览器窗口][1]
 
-## 关闭你的 Azure 虚拟机
-<a id="shutting-down-your-azure-virtual-machine" class="xliff"></a>
+## <a name="shutting-down-your-azure-virtual-machine"></a>关闭你的 Azure 虚拟机
 完成本教程后，请关闭并/或删除你新创建的 Azure 虚拟机以为其他教程释放资源并避免产生 Azure 使用费。
 
 [1]: ./media/python-django-web-app/django-helloworld-browser-azure.png

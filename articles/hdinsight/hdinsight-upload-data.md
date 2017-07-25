@@ -79,7 +79,7 @@ Azure CLI 是一个跨平台工具，可用于管理 Azure 服务。 使用以�
 
         azure storage account keys list <storage-account-name>
 
-    这应会返回主密钥和辅助密钥。 复制 **主** 密钥值，因为后面的步骤要用到它。
+    这应会返回主密钥和辅助密钥。 复制 **主** 密钥值，因为后续步骤要用到它。
 5. 使用以下命令可检索存储帐户中的 Blob 容器列表：
 
         azure storage container list -a <storage-account-name> -k <primary-key>

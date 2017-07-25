@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# Node.js 教程：DocumentDB Node.js 控制台应用程序
-<a id="nodejs-tutorial-documentdb-nodejs-console-application" class="xliff"></a>
+# <a name="nodejs-tutorial-documentdb-nodejs-console-application"></a>Node.js 教程：DocumentDB Node.js 控制台应用程序
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -54,16 +53,14 @@ ms.lasthandoff: 07/13/2017
 
 现在，让我们开始吧！
 
-## Node.js 教程的先决条件
-<a id="prerequisites-for-the-nodejs-tutorial" class="xliff"></a>
+## <a name="prerequisites-for-the-nodejs-tutorial"></a>Node.js 教程的先决条件
 请确保你具有以下内容：
 
 * 有效的 Azure 帐户。 如果没有，可以注册 [Azure 免费试用版](https://www.azure.cn/pricing/1rmb-trial/)。
     * 另外，对于本教程，也可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)。
 * [Node.js](https://nodejs.org/) 版本 v0.10.29 或更高版本。
 
-## 步骤 1：创建 Azure Cosmos DB 帐户
-<a id="step-1-create-an-azure-cosmos-db-account" class="xliff"></a>
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>步骤 1：创建 Azure Cosmos DB 帐户
 创建一个 Azure Cosmos DB 帐户。 如果已经有想要使用的帐户，可以跳到 [安装 Node.js 应用程序](#SetupNode)。 如果使用 Azure Cosmos DB 模拟器，请遵循 [Azure Cosmos DB 模拟器](local-emulator.md)中的步骤设置该模拟器，然后直接跳到[安装 Node.js 应用程序](#SetupNode)。
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -199,8 +196,7 @@ ms.lasthandoff: 07/13/2017
 
 现已获得用于初始化 documentdb 客户端的代码，接下来让我们看看如何使用 DocumentDB 资源。
 
-## 步骤 5：创建节点数据库
-<a id="step-5-create-a-node-database" class="xliff"></a>
+## <a name="step-5-create-a-node-database"></a>步骤 5：创建节点数据库
 复制并粘贴以下代码，以设置“找不到”消息的 HTTP 状态、数据库 URL 和集合 URL。 这些 URL 可让 DocumentDB 客户端查找正确的数据库和集合。
 
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
@@ -623,8 +619,7 @@ Azure Cosmos DB 支持删除 JSON 文档。
 
 就这么简单，生成以后即可开始操作！ 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 想要更复杂的 Node.js 示例？ 请参阅[使用 Azure Cosmos DB 生成 Node.js Web 应用程序](documentdb-nodejs-application.md)。
 * 了解如何[监视 Azure Cosmos DB 帐户](monitor-accounts.md)。
 * 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。

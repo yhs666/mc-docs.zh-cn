@@ -15,11 +15,11 @@ ms.topic: hero-article
 origin.date: 01/07/2017
 ms.date: 04/11/2017
 ms.author: v-junlch
-ms.openlocfilehash: d927aa1b074238636ea941a19124073ca34e1fb4
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 505f9f032f2555e2f7eba34802d2add5a88a1dbc
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>访问防火墙后面的 Azure Key Vault
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>问：我需要将密钥保管库客户端应用程序置于防火墙后。 我应该打开什么样的端口、主机或 IP 地址来启用密钥保管库访问权限？
@@ -43,7 +43,7 @@ ms.lasthandoff: 06/21/2017
 | 使用 Azure AD 的工作或学校帐户的用户或服务主体（如 user@contoso.com） |**全球：**<br> login.microsoftonline.com:443<br><br> **Azure China：**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government：**<br> login-us.microsoftonline.com:443<br><br>**Azure Germany：**<br> login.microsoftonline.de:443 |
 | 使用工作或学校帐户，以及 Active Directory 联合身份验证服务 (AD FS) 或其他联合终结点的用户或服务主体（如 user@contoso.com） |适用于工作或学校帐户的所有终结点，以及 AD FS 或其他联合终结点 |
 
-还有其他可能的复杂情况。 有关其他信息，请参阅 [Azure Active Directory 身份验证流](../active-directory/develop/active-directory-authentication-scenarios.md)、[将应用程序与 Azure Active Directory 集成](../active-directory/develop/active-directory-integrating-applications.md)和 [Active Directory 身份验证协议](../active-directory/develop/active-directory-developers-guide.md)。  
+还有其他可能的复杂情况。 有关其他信息，请参阅 [Azure Active Directory 身份验证流](../active-directory/develop/active-directory-authentication-scenarios.md)和 [Active Directory 身份验证协议](../active-directory/develop/active-directory-developers-guide.md)。  
 
 ## <a name="key-vault-management"></a>Key Vault 管理
 对于 Key Vault 管理（CRUD 和设置访问策略），Key Vault 客户端应用程序需要访问 Azure Resource Manager 终结点。  

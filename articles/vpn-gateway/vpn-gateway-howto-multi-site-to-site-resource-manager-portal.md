@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 将站点到站点连接添加到包含现有 VPN 网关连接的 VNet
-<a id="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection" class="xliff"></a>
+# <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>将站点到站点连接添加到包含现有 VPN 网关连接的 VNet
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
@@ -35,8 +34,7 @@ ms.lasthandoff: 07/14/2017
 
 本文适用于使用 Resource Manager 部署模型创建的、具有 RouteBased VPN 网关的 VNet。 本文中的步骤不适用于 ExpressRoute/站点到站点共存连接配置。 有关共存连接的信息，请参阅 [ExpressRoute/S2S 共存连接](../expressroute/expressroute-howto-coexist-resource-manager.md)。
 
-### 部署模型和方法
-<a id="deployment-models-and-methods" class="xliff"></a>
+### <a name="deployment-models-and-methods"></a>部署模型和方法
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 当我们发布有关此配置的新文章和其他可用工具时，将会更新此表格。 有相关的文章发布时，我们会直接从此表格链接到该文章。
@@ -93,7 +91,6 @@ ms.lasthandoff: 07/14/2017
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机文档](/virtual-machines/)。

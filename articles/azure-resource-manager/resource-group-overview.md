@@ -21,12 +21,10 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# Azure Resource Manager 概述
-<a id="azure-resource-manager-overview" class="xliff"></a>
+# <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
 应用程序的基础结构通常由许多组件构成：可能有虚拟机、存储帐户和虚拟网络，或 Web 应用、数据库、数据库服务器和第三方服务。 这些组件不会以独立的实体出现，而是以单个实体的相关部件和依赖部件出现。 如果你希望以组的方式部署、管理和监视这些这些组件， 那么，你可以使用 Azure Resource Manager 以组的方式处理解决方案中的资源。 可以通过一个协调的操作为解决方案部署、更新或删除所有资源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 Resource Manager 提供安全、审核和标记功能，以帮助你在部署后管理资源。 
 
-## 术语
-<a id="terminology" class="xliff"></a>
+## <a name="terminology"></a>术语
 如果你不熟悉 Azure Resource Manager，则可能不熟悉某些术语。
 
 * **资源** - 可通过 Azure 获取的可管理项。 部分常见资源包括虚拟机、存储帐户、Web 应用、数据库和虚拟网络，但这只是其中一小部分。
@@ -55,8 +53,7 @@ Resource Manager 针对通过 Azure PowerShell、Azure CLI、Azure 门户、REST
 
 ![Resource Manager 请求模型](./media/resource-group-overview/consistent-management-layer.png)
 
-## 指南
-<a id="guidance" class="xliff"></a>
+## <a name="guidance"></a>指南
 以下建议可帮助你在使用解决方案时充分利用 Resource Manager。
 
 1. 通过 Resource Manager 模板中的声明性语法而不是强制性的命令来定义和部署基础结构。
@@ -160,8 +157,7 @@ Azure Resource Manager 会分析依赖关系，以确保按正确的顺序创建
 * [使用 Resource Manager 模板和 Azure 门户部署资源](resource-group-template-deploy-portal.md)
 * [使用 Resource Manager 模板和 Resource Manager REST API 部署资源](resource-group-template-deploy-rest.md)
 
-## 标记
-<a id="tags" class="xliff"></a>
+## <a name="tags"></a>标记
 Resource Manager 提供了标记功能，让你根据管理或计费要求为资源分类。 如果你有一系列复杂的资源组和资源，并想要以最有利的方式可视化这些资产，则可以使用标记。 例如，你可以标记组织中充当类似角色或者属于同一部门的资源。 如果不使用标记，组织中的用户可以创建多个资源，这可能会使将来的标识和管理变得困难。 例如，你可能会希望删除特定项目的所有资源。 如果这些资源没有针对项目进行标记，则必须手动查找它们。 标记是降低不必要的订阅成本的重要方法。 
 
 资源不需要驻留在同一个资源组中就能共享一个标记。 你可以创建自己的标记分类，以确保组织中的所有用户使用公用的标记，避免用户无意中应用稍有不同的标记（如“dept”而不是“department”）。
@@ -199,8 +195,7 @@ az resource list --tag costCenter=Finance
 
 订阅的[使用情况报告](../billing-understand-your-bill.md)包括标记名称和值，可用于按标记对成本进行细分。 有关标记的详细信息，请参阅 [使用标记来组织 Azure 资源](resource-group-using-tags.md)。
 
-## 访问控制
-<a id="access-control" class="xliff"></a>
+## <a name="access-control"></a>访问控制
 Resource Manager 可让你控制谁有权访问组织的特定操作。 Resource Manager 原生地在管理平台中集成了基于角色的访问控制 (RBAC)，并向资源组中的所有服务应用该访问控制。 
 
 使用基于角色的访问控制时，必须了解两个主要概念：
@@ -235,12 +230,10 @@ Azure 还提供资源特定的多种角色。 一些常见的角色包括：
 
 你可以显式锁定关键资源，以防止用户删除或修改这些资源。 有关详细信息，请参阅 [使用 Azure Resource Manager 锁定资源](resource-group-lock-resources.md)。
 
-## 活动日志
-<a id="activity-logs" class="xliff"></a>
+## <a name="activity-logs"></a>活动日志
 Resource Manager 记录所有创建、修改或删除资源的操作。 活动日志可用于在故障排除时查找错误，或用于监视组织内用户对资源的修改。 若要查看日志，请在某资源组的“设置”边栏选项卡选择“活动日志”。 可按多个值筛选日志，包括启动操作的用户。 有关使用活动日志的信息，请参阅[查看活动日志以管理 Azure 资源](resource-group-audit.md)。
 
-## 自定义的策略
-<a id="customized-policies" class="xliff"></a>
+## <a name="customized-policies"></a>自定义的策略
 Resource Manager 可让你创建自定义策略来管理资源。 创建的策略类型可包括各种方案。 可以在资源上实施命名约定，限制可部署的资源的类型和实例，或限制可托管资源类型的区域。 可以要求资源上的标记值按部门组织计费。 可以通过创建策略来降低成本并在订阅中保持一致性。 
 
 需要使用 JSON 定义策略，然后在整个订阅中或者在资源组内应用这些策略。 策略不同于基于角色的访问控制，因为它们将应用到资源类型。
@@ -263,8 +256,7 @@ Resource Manager 可让你创建自定义策略来管理资源。 创建的策�
 
 还可以创建其他类型的策略。 有关详细信息，请参阅 [使用策略来管理资源和控制访问](resource-manager-policy.md)。
 
-## SDK
-<a id="sdks" class="xliff"></a>
+## <a name="sdks"></a>SDK
 Azure SDK 适用于多种语言和平台。
 每种语言实现可通过其生态系统包管理器和 GitHub 来使用。
 
@@ -283,31 +275,25 @@ AutoRest 将这些 RESTful API 规范转换成采用多种语言的客户端库�
 > 
 > 
 
-## 示例
-<a id="samples" class="xliff"></a>
-### .NET
-<a id="net" class="xliff"></a>
+## <a name="samples"></a>示例
+### <a name="net"></a>.NET
 * [管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-dotnet-resources-and-groups/)
 * [使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-dotnet-template-deployment/)
 
-### Java
-<a id="java" class="xliff"></a>
+### <a name="java"></a>Java
 * [管理 Azure 资源](https://github.com/Azure-Samples/resources-java-manage-resource/)
 * [管理 Azure 资源组](https://github.com/Azure-Samples/resources-java-manage-resource-group/)
 * [使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resources-java-deploy-using-arm-template/)
 
-### Node.js
-<a id="nodejs" class="xliff"></a>
+### <a name="nodejs"></a>Node.js
 * [管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-node-resources-and-groups/)
 * [使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-node-template-deployment/)
 
-### Python
-<a id="python" class="xliff"></a>
+### <a name="python"></a>Python
 * [管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-python-resources-and-groups/)
 * [使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-python-template-deployment/)
 
-### Ruby
-<a id="ruby" class="xliff"></a>
+### <a name="ruby"></a>Ruby
 * [管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 * [使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/)
 
@@ -315,8 +301,7 @@ AutoRest 将这些 RESTful API 规范转换成采用多种语言的客户端库�
 
 [.NET](https://github.com/Azure-Samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://github.com/Azure-Samples/?service=azure-resource-manager&platform=java) | [Node.js](https://github.com/Azure-Samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://github.com/Azure-Samples/?service=azure-resource-manager&platform=python) | [Ruby](https://github.com/Azure-Samples/?service=azure-resource-manager&platform=ruby)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 有关使用模板的简单介绍，请参阅[从现有资源导出 Azure Resource Manager 模板](resource-manager-export-template.md)。
 * 有关如何创建模板的更全面演练，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。
 * 若要了解可以在模板中使用的函数，请参阅[模板函数](resource-group-template-functions.md)

@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 使用 Azure 门户创建 Batch 帐户
-<a id="create-a-batch-account-with-the-azure-portal" class="xliff"></a>
+# <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 门户创建 Batch 帐户
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](./batch-account-create-portal.md)
@@ -35,8 +34,7 @@ ms.lasthandoff: 07/13/2017
 
 有关批处理帐户和方案的背景，请参阅[功能概述](./batch-api-basics.md)。
 
-## 创建批处理帐户
-<a id="create-a-batch-account" class="xliff"></a>
+## <a name="create-a-batch-account"></a>创建批处理帐户
 1. 登录到 [Azure 门户][azure_portal]。
 2. 单击“新建” > “计算” > “批处理服务”。
    
@@ -61,8 +59,7 @@ ms.lasthandoff: 07/13/2017
    
 
 
-## 查看 Batch 帐户属性
-<a id="view-batch-account-properties" class="xliff"></a>
+## <a name="view-batch-account-properties"></a>查看 Batch 帐户属性
 创建帐户后，即可打开 **Batch 帐户边栏选项卡** 来访问其设置和属性。 可以使用 Batch 帐户边栏选项卡的左侧菜单访问所有帐户设置和属性。
 
 ![Azure 门户中的 Batch 帐户边栏选项卡][account_blade]
@@ -81,8 +78,7 @@ ms.lasthandoff: 07/13/2017
 
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 
-## 链接的 Azure 存储帐户
-<a id="linked-azure-storage-account" class="xliff"></a>
+## <a name="linked-azure-storage-account"></a>链接的 Azure 存储帐户
 
 可以选择性地将通用 Azure 存储帐户关联到批处理帐户。 与[批处理文件约定 .NET](./batch-task-output.md) 库一样，批处理的[应用程序包](./batch-application-packages.md)功能使用 Azure Blob 存储。 这些可选功能可用于部署批处理任务运行的应用程序，以及保存它们生成的数据。
 
@@ -102,8 +98,7 @@ ms.lasthandoff: 07/13/2017
 
 ![重新生成存储帐户密钥][4]
 
-## Batch 服务配额和限制
-<a id="batch-service-quotas-and-limits" class="xliff"></a>
+## <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 请知悉，与 Azure 订阅和其他 Azure 服务一样，Batch 帐户也适用特定 [配额和限制](./batch-quota-limit.md) 。 Batch 帐户的当前配额在门户上的帐户“属性” 中显示。
 
 ![Azure 门户中的 Batch 帐户配额][quotas]
@@ -112,16 +107,14 @@ ms.lasthandoff: 07/13/2017
 
 此外，其中许多配额只需在 Azure 门户中提交免费产品支持请求即可增加。 有关请求增加配额的详细信息，请参阅 [Azure Batch 服务的配额和限制](./batch-quota-limit.md) 。
 
-## 其他 Batch 帐户管理选项
-<a id="other-batch-account-management-options" class="xliff"></a>
+## <a name="other-batch-account-management-options"></a>其他 Batch 帐户管理选项
 除了使用 Azure 门户以外，还可以使用以下工具创建和管理 Batch 帐户：
 
 - [Batch PowerShell cmdlet](./batch-powershell-cmdlets-get-started.md)
 - [Azure CLI](./batch-cli-get-started.md)
 - [Batch Management .NET](./batch-management-dotnet.md)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 - 请参阅[批处理功能概述](./batch-api-basics.md)，详细了解处理服务的概念和功能。 本文讨论主要 Batch 资源（例如池、计算节点、作业和任务），并提供能够进行大规模计算工作负荷执行的服务功能概述。
 - 了解使用[批处理 .NET 客户端库](./batch-dotnet-get-started.md)或 [Python](./batch-python-tutorial.md) 开发支持批处理的应用程序的基本概念。 这些简介文章介绍了使用批处理服务在多个计算节点上执行工作负荷的可行应用程序，并说明了如何使用 Azure 存储进行工作负荷文件暂存和检索。
 

@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# Azure 中 Windows 虚拟机的大小
-<a id="sizes-for-windows-virtual-machines-in-azure" class="xliff"></a>
+# <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
 本文介绍可用于运行 Windows 应用和工作负荷的 Azure 虚拟机的可用大小和选项。 此外，还提供在计划使用这些资源时要考虑的部署注意事项。  本文也适用于 [Linux 虚拟机](../linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
@@ -40,8 +39,7 @@ ms.lasthandoff: 07/13/2017
 - 存储成本根据存储帐户中的已使用页数进行单独计算。 有关详细信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)。
 - 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。
 
-## REST API
-<a id="rest-api" class="xliff"></a>
+## <a name="rest-api"></a>REST API
 
 有关使用 REST API 来查询 VM 大小的信息，请参阅以下文章：
 
@@ -49,13 +47,11 @@ ms.lasthandoff: 07/13/2017
 - [List available virtual machine sizes for a subscription](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region)（列出订阅的可用虚拟机大小）
 - [List available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-availability-set)（列出可用性集中的可用虚拟机大小）
 
-## ACU
-<a id="acu" class="xliff"></a>
+## <a name="acu"></a>ACU
 
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 了解关于可用的各种 VM 大小的详细信息：
 - [常规用途](sizes-general.md)

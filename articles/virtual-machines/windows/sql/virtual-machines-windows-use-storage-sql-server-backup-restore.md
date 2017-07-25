@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 origin.date: 01/31/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: 006a86f4a784c8cafb4e92b70640f50f7acf6ff9
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: d014af11cce68366197ad017a57ad36879b4db8d
+ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/10/2017
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>将 Azure 存储用于 SQL Server 备份和还原
 ## <a name="overview"></a>概述
@@ -34,13 +34,13 @@ SQL Server 2016 引入了新功能；可以使用[文件快照备份](http://msd
 
 * **易用性**：在 Azure Blob 中存储备份非常方便、灵活且可轻松访问场外存储。 为 SQL Server 备份创建场外存储就像修改现有脚本/作业以使用 **BACKUP TO URL** 语法一样简单。 场外存储通常应当远离生产数据库位置，以防止某个灾难可能同时影响场外和生产数据库位置。 通过选择[异地复制 Azure blob](../../../storage/storage-redundancy.md)，可以在发生可能影响整个区域的灾难时进一步加强保护。
 * **备份存档**：对备份进行存档时，Azure Blob 存储服务提供可替代常用磁带存储方式的更好方式。 选择磁带存储时可能需要将数据实际运输到场外设施，并且需要采取一些介质保护措施。 在 Azure Blob 存储中存储备份可提供即时、具有高可用性且持久的存档方式。
-* **受管理的硬件**：使用 Azure 服务没有硬件管理开销。 Azure 服务可管理硬件并提供地域冗余复制和硬件故障防护。
+* **受管理的硬件**：使用 Azure 服务没有硬件管理开销。 Azure 服务可管理硬件并提供地域异地复制和硬件故障防护。
 * **无限制的存储空间**：通过启用直接备份到 Azure Blob，可以访问几乎无限制的存储空间。 或者，还可以选择备份到 Azure 虚拟机磁盘，所受的限制取决于计算机的大小。 只能将有限数量的磁盘附加到用于备份的 Azure 虚拟机。 对特大实例的限制为 16 个磁盘；对较小实例的磁盘限制数更少。
 * **备份可用性**：存储在 Azure Blob 中的备份可随时从任何位置使用，并可轻松访问以还原到本地 SQL Server 或运行于 Azure 虚拟机中的其他 SQL Server，而无需进行数据库附加/分离或者下载和附加 VHD。
 * **成本**：只需为所使用的服务付费。 作为场外和备份存档方式可能更加划算。 有关详细信息，请参阅 [Azure 定价计算器](https://www.azure.cn/pricing/calculator/ "定价计算器")和 [Azure 定价文章](https://www.azure.cn/pricing/overview/ "定价文章")。
 * **存储快照**：如果数据库文件存储在 Azure Blob 中并且使用的是 SQL Server 2016，则可以使用[文件快照备份](http://msdn.microsoft.com/library/mt169363.aspx)来执行几乎实时的备份和极其快速的还原。
 
-有关更多详细信息，请参阅[使用 Azure Blob 存储服务执行 SQL Server 备份和还原](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)。
+有关更多详细信息，请参阅[使用 Azure Blob 存储服务执行 SQL Server 备份和还原](http://go.microsoft.com/fwlink/?LinkId=271617)。
 
 接下来两节将介绍 Azure Blob 存储服务，包括必要的 SQL Server 组件。 若要从 Azure Blob 存储服务成功进行备份和还原，一定要了解这些组件及其交互。
 

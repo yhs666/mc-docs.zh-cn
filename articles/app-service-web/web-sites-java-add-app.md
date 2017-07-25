@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 将 Java 应用程序添加到 Azure 应用服务 Web 应用
-<a id="add-a-java-application-to-azure-app-service-web-apps" class="xliff"></a>
+# <a name="add-a-java-application-to-azure-app-service-web-apps"></a>将 Java 应用程序添加到 Azure 应用服务 Web 应用
 按照[在 Azure 应用服务中创建 Java Web 应用](web-sites-java-get-started.md)中的说明初始化 [Azure 应用服务][Azure App Service]中的 Java Web 应用后，可通过将 WAR 放置在 **webapps** 文件夹上传应用程序。
 
 **webapps** 文件夹的导航路径因用户设置 Web 应用实例的方式而异。
@@ -35,8 +34,7 @@ Tomcat Web 应用说明：将 WAR 文件上传到 **webapps** 文件夹后，Tom
 
 <a name="see-also"></a>
 
-## 另请参阅
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>另请参阅
 有关将 Azure 与 Java 配合使用的详细信息，请参阅 [Azure Java 开发人员中心]。
 
 <!-- URL List -->

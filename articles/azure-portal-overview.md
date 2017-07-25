@@ -17,8 +17,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# Microsoft Azure 门户概述
-<a id="microsoft-azure-portal-overview" class="xliff"></a>
+# <a name="microsoft-azure-portal-overview"></a>Microsoft Azure 门户概述
 
 Microsoft Azure 门户是一个中心位置，可在其中预配和管理 Azure 资源。  本教程将帮助你熟悉此门户，并介绍如何使用以下一些关键功能：
 - **综合应用商店**，可在其中浏览数千个来自 Microsoft 和其他供应商的应用，可以购买这些应用和/或对其进行预配。
@@ -28,13 +27,11 @@ Microsoft Azure 门户是一个中心位置，可在其中预配和管理 Azure 
 
  ![熟悉 Azure 门户 UI][UIOrientation]
 
-## 准备工作
-<a id="before-you-get-started" class="xliff"></a>
+## <a name="before-you-get-started"></a>准备工作
 
 必须拥有有效的 Azure 订阅才能完整浏览本教程。  如果没有 Azure 订阅，可立即[注册免费试用版](https://www.azure.cn/pricing/1rmb-trial/)。  获取订阅后，即可通过 [https://manage.windowsazure.cn] 访问门户。
 
-## 如何创建资源
-<a id="how-to-create-a-resource" class="xliff"></a>
+## <a name="how-to-create-a-resource"></a>如何创建资源
 
 Azure 应用商店提供数千商品，你可以在一个位置集中创建商品。  假设你要创建一个新的 Windows Server 2012 VM。  “+新建”中心是从应用商店进入特色类别的精选组的入口点。  每个类别都有少量的特色项目，以及指向完整应用商店（显示所有类别和搜索）的链接。 若要新建 Windows Server 2012 VM，请执行以下操作：  
 
@@ -46,15 +43,13 @@ Azure 应用商店提供数千商品，你可以在一个位置集中创建商�
 
 ![门户类别][PortalCategories]
 
-## 如何查找资源
-<a id="how-to-find-your-resources" class="xliff"></a>
+## <a name="how-to-find-your-resources"></a>如何查找资源
 
 始终可以将经常访问的资源固定到启动板，但也可能需要浏览不经常访问的内容。  可以通过浏览中心（如下所示）访问所有资源。  可以按订阅进行筛选、选择列/调整列大小，并能通过单击各个项导航到管理边栏选项卡。
 
 ![浏览中心][BrowseHub]
 
-## 如何管理和委派资源访问权限
-<a id="how-to-manage-and-delegate-access-to-a-resource" class="xliff"></a>
+## <a name="how-to-manage-and-delegate-access-to-a-resource"></a>如何管理和委派资源访问权限
 
 在此边栏选项卡中，可以使用远程桌面连接到虚拟机、监视关键性能指标、使用基于角色的访问 (RBAC) 控制对此 VM 的访问、配置 VM，并能执行其他重要的管理任务。  根据角色委派访问权限对大规模管理至关重要。  有关详情，请单击[此处](./active-directory/role-based-access-control-configure.md)。 若要委派资源访问权限，请执行以下操作：
 
@@ -66,8 +61,7 @@ Azure 应用商店提供数千商品，你可以在一个位置集中创建商�
 
 ![管理资源][ManageResource]
 
-## 如何自定义资源边栏选项卡
-<a id="how-to-customize-a-resource-blade" class="xliff"></a>
+## <a name="how-to-customize-a-resource-blade"></a>如何自定义资源边栏选项卡
 
 Azure 将为你的资源预配置边栏选项卡，但这些边栏选项卡上的磁贴由你控制。  可以轻松转到自定义模式来添加、删除、调整或重新排列磁贴。 若要自定义边栏选项卡，请执行以下操作：
 
@@ -78,15 +72,13 @@ Azure 将为你的资源预配置边栏选项卡，但这些边栏选项卡上�
 
 ![自定义边栏选项卡][CustomizeBlades]
 
-## 如何获取帮助
-<a id="how-to-get-help" class="xliff"></a>
+## <a name="how-to-get-help"></a>如何获取帮助
 
 如果遇到问题，请随时与我们联系。  门户提供帮助和支持页面，可为你指引正确的方向。  根据[支持计划](http://azure.microsoft.com/support/plans/)，还可以直接在门户中创建支持请求。  创建支持请求之后，可以在门户内管理请求的生命周期。 可以导航到“浏览”->“帮助 + 支持”，访问帮助和支持页面。  
 
 ![帮助和支持][HelpSupport]
 
-## 摘要
-<a id="summary" class="xliff"></a>
+## <a name="summary"></a>摘要
 
 让我们回顾一下本教程的讲解内容：
 - 如何注册、获取订阅，并浏览到门户

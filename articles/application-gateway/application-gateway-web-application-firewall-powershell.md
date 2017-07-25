@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
 ---
-# 在新的或现有的应用程序网关上配置 Web 应用程序防火墙
-<a id="configure-web-application-firewall-on-a-new-or-existing-application-gateway" class="xliff"></a>
+# <a name="configure-web-application-firewall-on-a-new-or-existing-application-gateway"></a>在新的或现有的应用程序网关上配置 Web 应用程序防火墙
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](application-gateway-web-application-firewall-portal.md)
@@ -38,8 +37,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 ![方案图像][scenario]
 
-## WAF 配置差异
-<a id="waf-configuration-differences" class="xliff"></a>
+## <a name="waf-configuration-differences"></a>WAF 配置差异
 
 如果已阅读了[使用 PowerShell 创建应用程序网关](application-gateway-create-gateway-arm.md)，就能了解创建应用程序网关时需要配置的 SKU 设置。 在应用程序网关上配置 SKU 时，WAF 会提供其他可定义的设置。 不需要对应用程序网关本身进行任何其他更改。
 
@@ -49,8 +47,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 |**层** | 可用值为“标准”或 **WAF**。 使用 Web 应用程序防火墙时，必须选择“WAF”。|
 |**模式** | 此设置是 WAF 的模式。 允许的值为**检测**和**阻止**。 WAF 设置为检测模式时，所有威胁都会存储在日志文件中。 在阻止模式下，仍然会记录事件，但攻击者会从应用程序网关收到“403 未授权”响应。|
 
-## 将 Web 应用程序防火墙添加到现有的应用程序网关
-<a id="add-web-application-firewall-to-an-existing-application-gateway" class="xliff"></a>
+## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>将 Web 应用程序防火墙添加到现有的应用程序网关
 
 确保使用最新版本的 Azure PowerShell。 [将 Windows PowerShell 与 Resource Manager 配合使用](../powershell-azure-resource-manager.md)中提供了详细信息。
 
@@ -94,8 +91,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 此命令使用 Web 应用程序防火墙更新应用程序网关。 建议查看[应用程序网关诊断](application-gateway-diagnostics.md)，以了解如何查看应用程序网关的日志。 由于 WAF 的安全特性，需要定期查看日志，以了解 Web 应用程序的安全状态。
 
-## 创建具有 Web 应用程序防火墙的应用程序网关
-<a id="create-an-application-gateway-with-web-application-firewall" class="xliff"></a>
+## <a name="create-an-application-gateway-with-web-application-firewall"></a>创建具有 Web 应用程序防火墙的应用程序网关
 
 以下步骤引导你从头到尾完成创建具有 Web 应用程序防火墙的应用程序网关的整个过程。
 
@@ -111,8 +107,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
     Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
     ```
 
-### 创建资源组
-<a id="create-a-resource-group" class="xliff"></a>
+### <a name="create-a-resource-group"></a>创建资源组
 
 为应用程序网关创建资源组。
 
@@ -127,8 +122,7 @@ Azure Resource Manager 要求所有资源组指定一个位置。 此位置将�
 > [!NOTE]
 > 如果需要为应用程序网关配置自定义探测，请参阅 [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md)（使用 PowerShell 创建带自定义探测的应用程序网关）。 有关详细信息，请查看 [custom probes and health monitoring](application-gateway-probe-overview.md)（自定义探测和运行状况监视）。
 
-### 配置虚拟网络
-<a id="configure-virtual-network" class="xliff"></a>
+### <a name="configure-virtual-network"></a>配置虚拟网络
 
 应用程序网关需要自己的子网。 在此步骤中，将创建一个具有 10.0.0.0/16 地址空间的虚拟网络和两个子网（一个子网用于应用程序网关，另一子网用于后端池成员）。
 
@@ -143,8 +137,7 @@ $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPr
 $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "China North" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
 ```
 
-### 配置公共 IP 地址
-<a id="configure-public-ip-address" class="xliff"></a>
+### <a name="configure-public-ip-address"></a>配置公共 IP 地址
 
 若要处理外部请求，应用程序网关需要公共 IP 地址。 此公共 IP 地址不能将 `DomainNameLabel` 定义为由应用程序网关使用。
 
@@ -153,8 +146,7 @@ $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg 
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwpip' -Location "China North" -AllocationMethod Dynamic
 ```
 
-### 配置应用程序网关
-<a id="configure-the-application-gateway" class="xliff"></a>
+### <a name="configure-the-application-gateway"></a>配置应用程序网关
 
 ```powershell
 # Create a IP configuration. This configures what subnet the Application Gateway uses. When Application Gateway starts, it picks up an IP address from the subnet configured and routes network traffic to the IP addresses in the back-end IP pool.
@@ -197,8 +189,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 > [!NOTE]
 > 为使用基本 Web 应用程序防火墙配置创建的应用程序网关配置 CRS 3.0 以进行保护。
 
-## 获取应用程序网关 DNS 名称
-<a id="get-application-gateway-dns-name" class="xliff"></a>
+## <a name="get-application-gateway-dns-name"></a>获取应用程序网关 DNS 名称
 
 创建网关后，下一步是配置用于通信的前端。 使用公共 IP 时，应用程序网关需要动态分配的 DNS 名称，这会造成不方便。 若要确保最终用户能够访问应用程序网关，可以使用 CNAME 记录指向应用程序网关的公共终结点。 [在 Azure 中配置自定义域名](../cloud-services/cloud-services-custom-domain-name-portal.md)。 为此，可使用附加到应用程序网关的 PublicIPAddress 元素检索应用程序网关及其关联的 IP/DNS 名称的详细信息。 应使用应用程序网关的 DNS 名称来创建 CNAME 记录，使两个 Web 应用程序都指向此 DNS 名称。 不建议使用 A 记录，因为重新启动应用程序网关后 VIP 可能会变化。
 
@@ -228,8 +219,7 @@ DnsSettings              : {
                             }
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 若要了解如何配置诊断日志记录，以及如何记录通过 Web 应用程序防火墙检测到或阻止的事件，请参阅[应用程序网关诊断](application-gateway-diagnostics.md)
 

@@ -17,10 +17,10 @@ origin.date: 02/21/2017
 ms.date: 04/24/2017
 ms.author: v-dazen
 ms.openlocfilehash: b27bd0ccab8e654ed296e4aa4bdb487ba5f01145
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/13/2017
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>将数据磁盘附加到使用经典部署模型创建的 Windows 虚拟机
 <!--

@@ -1,25 +1,25 @@
 ---
 title: "Azure 服务总线管理库 | Azure"
-description: "通过 .NET 管理服务总线命名空间和实体"
+description: "通过 .NET 管理服务总线命名空间和消息实体"
 services: service-bus-messaging
-cloud: na
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
+editor: 
 ms.assetid: 
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 01/06/2017
-ms.date: 05/22/2017
+origin.date: 04/03/2017
+ms.date: 07/17/2017
 ms.author: v-yiso
-ms.openlocfilehash: 5ad96ddd512ce834db4e7214814ef3290f6fe9c9
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 64d583b708502b057fcf876412eecf213526e5b3
+ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/14/2017
 ---
 # <a name="service-bus-management-libraries"></a>服务总线管理库
 
@@ -40,15 +40,15 @@ ms.lasthandoff: 06/21/2017
 * [使用 Azure PowerShell 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [使用 Azure CLI 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-这些教程将提供 `AppId`（客户端 ID）、`TenantId` 和 `ClientSecret`（身份验证密钥），这些都将用于管理库进行的身份验证。 必须具有要在其中运行的资源组的“所有者”权限。
+这些教程提供 `AppId`（客户端 ID）、`TenantId` 和 `ClientSecret`（身份验证密钥），这些都将用于管理库进行的身份验证。 必须具有要在其中运行的资源组的“所有者”权限。
 
 ## <a name="programming-pattern"></a>编程模式
 
 所有服务总线资源的操纵模式都遵循常用协议：
 
-1. 使用 `Microsoft.IdentityModel.Clients.ActiveDirectory` 库从 Azure Active Directory 获取令牌。
+1. 使用 **Microsoft.IdentityModel.Clients.ActiveDirectory** 库从 Azure Active Directory 获取令牌。
     ```csharp
-    var context = new AuthenticationContext($"https://login.windows.cn/{tenantId}");
+    var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
 
     var result = await context.AcquireTokenAsync(
         "https://management.core.windows.net/",

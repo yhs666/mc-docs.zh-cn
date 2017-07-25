@@ -22,13 +22,11 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 将设备连接到远程监视预配置解决方案 (Node.js)
-<a id="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs" class="xliff"></a>
+# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>将设备连接到远程监视预配置解决方案 (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## 创建 node.js 示例解决方案
-<a id="create-a-nodejs-sample-solution" class="xliff"></a>
+## <a name="create-a-nodejs-sample-solution"></a>创建 node.js 示例解决方案
 
 请确保已在开发计算机上安装 Node.js 版本 0.11.5 或更高版本。 若要检查版本，可在命令行中运行 `node --version` 。
 

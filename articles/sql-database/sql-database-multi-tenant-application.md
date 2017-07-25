@@ -22,8 +22,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 实现使用 Azure SQL 数据库的多租户 SaaS 应用程序
-<a id="implement-a-multi-tenant-saas-application-using-azure-sql-database" class="xliff"></a>
+# <a name="implement-a-multi-tenant-saas-application-using-azure-sql-database"></a>实现使用 Azure SQL 数据库的多租户 SaaS 应用程序
 
 多租户应用程序是指云环境中托管的应用程序，它向不共享数据或看不到彼此数据的数百或数千个租户提供一组相同的服务。 例如向云托管环境中的租户提供服务的 SaaS 应用程序。 此模型隔离每个租户的数据，并优化资源的分布以降低成本。 
 
@@ -49,8 +48,7 @@ ms.lasthandoff: 07/14/2017
 
 * 已安装在计算机上的 [Apache Maven](https://maven.apache.org/download.cgi)。 Maven 将用于帮助管理依赖项，构建、测试和运行示例 Java 项目
 
-## 设置数据环境
-<a id="set-up-data-environment" class="xliff"></a>
+## <a name="set-up-data-environment"></a>设置数据环境
 
 你将为每个租户预配一个数据库。 租户各有数据库模型在租户之间提供了最大程度的隔离，且只需少量的 DevOps 成本。 若要优化云资源的成本，还会将租户数据库预配到可用于优化一组数据库性价比的弹性池中。 若要了解其他数据库预配模型，请[参阅此处](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models)。 
 
@@ -102,8 +100,7 @@ ms.lasthandoff: 07/14/2017
        -DatabaseDtuMax 20
    ```
    
-## 创建租户目录
-<a id="create-tenant-catalog" class="xliff"></a> 
+## <a name="create-tenant-catalog"></a>创建租户目录 
 
 在多租户 SaaS 应用程序中，务必要了解租户信息的存储位置。 这通常存储在目录数据库中。 目录数据库用于保存租户与存储该租户数据的数据库之间的映射。  无论使用多租户数据库还是单租户数据库，均可使用基本模式。
 
@@ -137,8 +134,7 @@ Invoke-SqlCmd `
     -EncryptConnection
 ```
 
-## 预配“tenant1”的数据库并将其注册到租户目录中
-<a id="provision-database-for-tenant1-and-register-in-tenant-catalog" class="xliff"></a> 
+## <a name="provision-database-for-tenant1-and-register-in-tenant-catalog"></a>预配“tenant1”的数据库并将其注册到租户目录中 
 通过 Powershell 预配新租户“tenant1”的数据库，并将此租户注册到目录中。 
 
 ```PowerShell
@@ -175,8 +171,7 @@ Invoke-SqlCmd `
     -EncryptConnection
 ```
 
-## 预配“tenant2”的数据库并将其注册到租户目录中
-<a id="provision-database-for-tenant2-and-register-in-tenant-catalog" class="xliff"></a>
+## <a name="provision-database-for-tenant2-and-register-in-tenant-catalog"></a>预配“tenant2”的数据库并将其注册到租户目录中
 通过 Powershell 预配新租户“tenant2”的数据库，并将此租户注册到目录中。 
 
 ```PowerShell
@@ -213,8 +208,7 @@ Invoke-SqlCmd `
     -EncryptConnection
 ```
 
-## 设置示例 Java 应用程序
-<a id="set-up-sample-java-application" class="xliff"></a> 
+## <a name="set-up-sample-java-application"></a>设置示例 Java 应用程序 
 
 1. 创建 Maven 项目。 在命令提示符窗口中键入以下内容：
    
@@ -484,8 +478,7 @@ QUIT - quit the application
 * Query tenants you created
 ```
 
-## 删除第一个租户
-<a id="delete-first-tenant" class="xliff"></a> 
+## <a name="delete-first-tenant"></a>删除第一个租户 
 通过 PowerShell 删除第一个租户的租户数据库和目录条目。
 
 ```PowerShell
@@ -508,8 +501,7 @@ Remove-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
 
 尝试使用 Java 应用程序连接到“tenant1”。 将收到一个错误，指出该租户不存在。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a> 
+## <a name="next-steps"></a>后续步骤 
 本教程已介绍了如何执行以下操作：
 > [!div class="checklist"]
 > * 使用租户各有数据库模式设置数据库环境来支持多租户 SaaS 应用程序

@@ -23,8 +23,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
 ---
-# 使用 Azure CLI 2.0 创建具有多个 NIC 的 VM
-<a id="create-a-vm-with-multiple-nics-using-the-azure-cli-20" class="xliff"></a>
+# <a name="create-a-vm-with-multiple-nics-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建具有多个 NIC 的 VM
 
 [!INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
 
@@ -179,7 +178,6 @@ az vm create \
 2. 请确认在资源组中除了本文中脚本创建的资源外没有其他资源。 
 3. 若要删除本练习中创建的所有资源，请运行 `az group delete --name Multi-NIC-VM` 命令。 该命令将删除资源组及其包含的所有资源。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 任何网络流量都可流入和流出本文中创建的 VM。 可以在 NSG 中定义入站和出站规则，以限制可以流入和流出每个网络接口和/或每个子网的流量。 若要了解有关 NSG 的详细信息，请阅读 [NSG 概述](virtual-networks-nsg.md)一文。
