@@ -706,6 +706,11 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/sql-database/sql-database-auditing-get-started.md",
+      "redirect_url": "/sql-database/sql-database-auditing",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/sql-database/sql-database-auditing-portal.md",
       "redirect_url": "/sql-database/sql-database-auditing",
       "redirect_document_id": "false"
@@ -713,6 +718,16 @@
     {
       "source_path": "articles/sql-database/sql-database-auditing-powershell.md",
       "redirect_url": "/sql-database/sql-database-auditing",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-auditing-rest.md",
+      "redirect_url": "/sql-database/sql-database-auditing",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-build-multi-tenant-apps.md",
+      "redirect_url": "/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications",
       "redirect_document_id": "false"
     },
     {
@@ -741,13 +756,48 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/sql-database/sql-database-cloud-migrate-compatible-using-transactional-replication.md",
+      "redirect_url": "/sql-database/sql-database-cloud-migrate",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-cloud-migrate-determine-compatibility-sqlpackage.md",
+      "redirect_url": "/sql-database/sql-database-cloud-migrate",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-cloud-migrate-determine-compatibility-ssms.md",
+      "redirect_url": "/sql-database/sql-database-cloud-migrate",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/sql-database/sql-database-cloud-migrate-export-bacpac-ssms.md",
       "redirect_url": "/sql-database/sql-database-export",
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/sql-database/sql-database-cloud-migrate-fix-compatibility-issues.md",
+      "redirect_url": "/sql-database/sql-database-cloud-migrate",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md",
+      "redirect_url": "/sql-database/sql-database-cloud-migrate",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-cloud-migrate-fix-compatibility-issues-ssms.md",
+      "redirect_url": "/sql-database/sql-database-cloud-migrate",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/sql-database/sql-database-command-line-tools.md",
       "redirect_url": "/sql-database/sql-database-manage-overview",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-compatibility-level-query-performance-130.md",
+      "redirect_url": "https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level",
       "redirect_document_id": "false"
     },
     {
@@ -771,6 +821,26 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/sql-database/sql-database-connect-query.md",
+      "redirect_url": "/sql-database/sql-database-connect-query-vscode",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-connect-query-dotnet.md",
+      "redirect_url": "/sql-database/sql-database-connect-query-vscode",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-control-access-aad-authentication-get-started.md",
+      "redirect_url": "/sql-database/sql-database-aad-authentication-configure",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-control-access-sql-authentication-get-started.md",
+      "redirect_url": "/sql-database/sql-database-control-access-sql-authentication-get-started",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/sql-database/sql-database-copy-portal.md",
       "redirect_url": "/sql-database/sql-database-copy",
       "redirect_document_id": "false"
@@ -783,6 +853,21 @@
     {
       "source_path": "articles/sql-database/sql-database-copy-transact-sql.md",
       "redirect_url": "/sql-database/sql-database-copy",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-create-databases.md",
+      "redirect_url": "/sql-database/sql-database-service-tiers",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-create-servers.md",
+      "redirect_url": "/sql-database/sql-database-get-started-portal",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-develop-dotnet-simple.md",
+      "redirect_url": "/sql-database/sql-database-connect-query-dotnet-visual-studio",
       "redirect_document_id": "false"
     },
     {
@@ -811,6 +896,56 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/sql-database/sql-database-elastic-pool-create-csharp.md",
+      "redirect_url": "/sql-database/sql-database-elastic-pool-manage-csharp",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-pool-create-portal.md",
+      "redirect_url": "/sql-database/sql-database-elastic-pool-manage-portal",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-pool-create-powershell.md",
+      "redirect_url": "/sql-database/sql-database-elastic-pool-manage-powershell",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-pool-database-assessment-powershell.md",
+      "redirect_url": "/sql-database/sql-database-elastic-pool",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-pool-guidance.md",
+      "redirect_url": "/sql-database/sql-database-elastic-pool",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-pool-manage-csharp.md",
+      "redirect_url": "/sql-database/sql-database-elastic-pool",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-pool-manage-portal.md",
+      "redirect_url": "/sql-database/sql-database-elastic-pool",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-pool-manage-powershell.md",
+      "redirect_url": "/sql-database/sql-database-elastic-pool",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-elastic-pool-manage-tsql.md",
+      "redirect_url": "/sql-database/sql-database-elastic-pool",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-explore-tutorials.md",
+      "redirect_url": "/sql-database/sql-database-get-started-portal",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/sql-database/sql-database-export-portal.md",
       "redirect_url": "/sql-database/sql-database-export",
       "redirect_document_id": "false"
@@ -831,6 +966,16 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/sql-database/sql-database-general-limitations.md",
+      "redirect_url": "/sql-database/sql-database-features",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-geo-replication-failover-portal.md",
+      "redirect_url": "/sql-database/sql-database-geo-replication-portal",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/sql-database/sql-database-geo-replication-failover-powershell.md",
       "redirect_url": "/sql-database/scripts/sql-database-setup-geodr-and-failover-database-powershell",
       "redirect_document_id": "false"
@@ -841,23 +986,43 @@
       "redirect_document_id": "false"
     },
     {
-      "source_path": "articles/sql-database/sql-database-geo-restore-powershell.md",
-      "redirect_url": "/sql-database/scripts/sql-database-restore-database-powershell",
-      "redirect_document_id": "false"
-    },
-    {
       "source_path": "articles/sql-database/sql-database-geo-restore.md",
       "redirect_url": "/sql-database/sql-database-restore-database-portal",
       "redirect_document_id": "false"
     },
     {
-      "source_path": "articles/sql-database/sql-database-get-started-elastic-pool.md",
-      "redirect_url": "/sql-database/sql-database-elastic-pool-manage-portal",
+      "source_path": "articles/sql-database/sql-database-geo-restore-portal.md",
+      "redirect_url": "/sql-database/sql-database-recovery-using-backups",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-geo-restore-powershell.md",
+      "redirect_url": "/sql-database/scripts/sql-database-restore-database-powershell",
       "redirect_document_id": "false"
     },
     {
       "source_path": "articles/sql-database/sql-database-get-started.md",
       "redirect_url": "/sql-database/sql-database-get-started-portal",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-get-started-csharp.md",
+      "redirect_url": "/sql-database/sql-database-design-first-database-csharp",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-get-started-elastic-pool.md",
+      "redirect_url": "/sql-database/sql-database-elastic-pool",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-get-started-security.md",
+      "redirect_url": "/sql-database/sql-database-security-tutorial",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-helps-secures-and-protects.md",
+      "redirect_url": "/sql-database/sql-database-security-overview",
       "redirect_document_id": "false"
     },
     {
@@ -873,6 +1038,36 @@
     {
       "source_path": "articles/sql-database/sql-database-import-sqlpackage.md",
       "redirect_url": "/sql-database/sql-database-import",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-learn-and-adapt.md",
+      "redirect_url": "/sql-database/sql-database-advisor",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-manage-azure-ssms.md",
+      "redirect_url": "/sql-database/sql-database-servers-databases",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-manage-overview.md",
+      "redirect_url": "/sql-database/sql-database-servers-databases",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-manage-portal.md",
+      "redirect_url": "/sql-database/sql-database-servers-databases",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-manage-powershell.md",
+      "redirect_url": "/sql-database/sql-database-servers-databases",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-manage-servers-portal.md",
+      "redirect_url": "/sql-database/sql-database-get-started-portal",
       "redirect_document_id": "false"
     },
     {
@@ -896,18 +1091,28 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/sql-database/sql-database-overview.md",
+      "redirect_url": "/sql-database/sql-database-servers-databases",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-point-in-time-restore.md",
+      "redirect_url": "/sql-database/sql-database-recovery-using-backups",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/sql-database/sql-database-point-in-time-restore-portal.md",
       "redirect_url": "/sql-database/sql-database-recovery-using-backups",
       "redirect_document_id": "false"
     },
     {
       "source_path": "articles/sql-database/sql-database-point-in-time-restore-powershell.md",
-      "redirect_url": "/sql-database/scripts/sql-database-recovery-using-backups",
+      "redirect_url": "/sql-database/sql-database-recovery-using-backups",
       "redirect_document_id": "false"
     },
     {
-      "source_path": "articles/sql-database/sql-database-point-in-time-restore.md",
-      "redirect_url": "/sql-database/sql-database-recovery-using-backups",
+      "source_path": "articles/sql-database/sql-database-protect-data.md",
+      "redirect_url": "/sql-database/sql-database-security-overview",
       "redirect_document_id": "false"
     },
     {
@@ -917,7 +1122,7 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-restore-database-powershell.md",
-      "redirect_url": "/sql-database/sql-database-recovery-using-backups",
+      "redirect_url": "/sql-database/scripts/sql-database-restore-database-powershell",
       "redirect_document_id": "false"
     },
     {
@@ -927,7 +1132,17 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-restore-deleted-database-powershell.md",
-      "redirect_url": "/sql-database/scripts/sql-database-recovery-using-backups",
+      "redirect_url": "/sql-database/sql-database-recovery-using-backups",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-scale-on-the-fly.md",
+      "redirect_url": "/sql-database/sql-database-service-tiers",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-scale-up.md",
+      "redirect_url": "/sql-database/sql-database-service-tiers",
       "redirect_document_id": "false"
     },
     {
@@ -936,8 +1151,103 @@
       "redirect_document_id": "false"
     },
     {
+      "source_path": "articles/sql-database/sql-database-security.md",
+      "redirect_url": "/sql-database/sql-database-security-overview",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-security-guidelines.md",
+      "redirect_url": "/sql-database/sql-database-control-access",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-server-overview.md",
+      "redirect_url": "/sql-database/sql-database-servers-databases",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-service-tier-advisor.md",
+      "redirect_url": "/sql-database/sql-database-service-tiers",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-solution-quick-starts.md",
+      "redirect_url": "/sql-database/sql-database-get-started-portal",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-threat-detection-get-started.md",
+      "redirect_url": "/sql-database/sql-database-threat-detection",
+      "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/sql-database/sql-database-threat-detection-portal.md",
       "redirect_url": "/sql-database/sql-database-threat-detection",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-troubleshoot-backup-and-restore.md",
+      "redirect_url": "/sql-database/sql-database-recovery-using-backups",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-troubleshoot-connection.md",
+      "redirect_url": "/sql-database/sql-database-troubleshoot-common-connection-issues",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-troubleshoot-moving-data.md",
+      "redirect_url": "/sql-database/sql-database-faq",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-troubleshoot-permissions.md",
+      "redirect_url": "/sql-database/sql-database-faq",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-upgrade-server-portal.md",
+      "redirect_url": "/sql-database/sql-database-faq",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-upgrade-server-powershell.md",
+      "redirect_url": "/sql-database/sql-database-faq",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-v12-plan-prepare-upgrade.md",
+      "redirect_url": "/sql-database/sql-database-faq",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-v12-whats-new.md",
+      "redirect_url": "/sql-database/sql-database-features",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-view-oldest-restore-point.md",
+      "redirect_url": "/sql-database/sql-database-recovery-using-backups",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-view-update-database-settings.md",
+      "redirect_url": "/sql-database/sql-database-service-tiers",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-view-update-server-settings.md",
+      "redirect_url": "/sql-database/sql-database-get-started-portal",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-web-business-sunset-faq.md",
+      "redirect_url": "/sql-database/sql-database-faq",
+      "redirect_document_id": "false"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-works-in-your-environment.md",
+      "redirect_url": "/sql-database/sql-database-develop-overview",
       "redirect_document_id": "false"
     },
     {
@@ -3422,7 +3732,7 @@
     },
     {
       "source_path": "articles/documentdb/index.md",
-      "redirect_url": "https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/",
+      "redirect_url": "/cosmos-db/",
       "redirect_document_id": false
     }
   ]
