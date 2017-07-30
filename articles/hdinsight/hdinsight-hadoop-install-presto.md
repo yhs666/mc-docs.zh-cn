@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 05/17/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 2643072159d2af72a02cfd092534d6bbae3c7279
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 4c6dd589b04e75d1dc60bebbc168e898f77b388e
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Presto
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 07/14/2017
 [Presto](https://prestodb.io/overview.html) 是适用于大数据的快速分布式 SQL 查询引擎。 Presto 适合用于对 PB 量级的数据进行交互式查询。 有关 Presto 的组件及其如何配合工作的详细信息，请参阅 [Presto 的概念](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst)。
 
 > [!WARNING]
-> 完全支持通过 HDInsight 群集提供的组件，Microsoft 支持部门将帮助你找出并解决与这些组件相关的问题。
+> 完全支持通过 HDInsight 群集提供的组件，Azure 支持部门帮助找出并解决与这些组件相关的问题。
 > 
 > 自定义组件（如 Presto）可获得合理范围的支持，以帮助进一步排查问题。 这可能会促进解决问题，或要求使用可用的开源技术渠道，在渠道中可找到该技术的深厚的专业知识。 有许多可以使用的社区站点，例如：[HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)和 [Azure CSDN](http://azure.csdn.net/)。 此外，Apache 项目在 [http://apache.org](http://apache.org) 上提供了项目站点，例如 [Hadoop](http://hadoop.apache.org/)。
 > 
@@ -46,7 +46,7 @@ ms.lasthandoff: 07/14/2017
 
     a. 它必须是装有 HDInsight 3.5 的 Hadoop 群集。
 
-    b. 它必须使用 Azure 存储作为数据存储。
+    b. 它必须使用 Azure 存储作为数据存储。 
 
     ![使用自定义选项创建 HDInsight 群集](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
@@ -163,7 +163,7 @@ ms.lasthandoff: 07/14/2017
 TPC-DS 是有关测量多个决策支持系统（包括大数据系统）的性能的行业标准。 可以在 HDInsight 群集上使用 Presto 生成数据，并将它与你自己的 HDInsight 基准数据进行比较并评估结果。 有关详细信息，请参阅[此文](https://github.com/hdinsight/tpcds-datagen-as-hive-query/blob/master/README.md)。
 
 ## <a name="see-also"></a>另请参阅
-* [在 HDInsight 群集上安装并使用 Hue](hdinsight-hadoop-hue-linux.md)。 Hue 是一种 Web UI，可让你轻松创建、运行及保存 Pig 和 Hive 作业，以及浏览 HDInsight 群集的默认存储。
+* [在 HDInsight 群集上安装并使用 Hue](hdinsight-hadoop-hue-linux.md)。 Hue 是一个 Web UI，可让你轻松地创建、运行和保存 Pig 与 Hive 作业，以及浏览 HDInsight 群集的默认存储。
 
 * [在 HDInsight 群集上安装 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 使用群集自定义在 HDInsight Hadoop 群集上安装 Giraph。 Giraph 可让你通过使用 Hadoop 执行图形处理，并可以在 Azure HDInsight 上使用。
 

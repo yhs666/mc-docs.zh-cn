@@ -16,11 +16,11 @@ ms.workload: big-data
 origin.date: 05/04/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: 6891f781cbade9652094ef905beff5526eb86037
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: b695552c1f8d719002f77d6adbc3fc8f66ca131b
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-datafu-with-pig-on-hdinsight"></a>在 HDInsight 上将 DataFu 与 pig 配合使用
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 07/14/2017
 * Azure HDInsight 群集（基于 Linux 或 Windows）
 
   > [!IMPORTANT]
-  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * 基本熟悉[在 HDInsight 上使用 Pig](hdinsight-use-pig.md)
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 07/14/2017
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!NOTE]
-> DataFu 将安装在基于 Linux 的群集 3.3 版和更高版本上，以及基于 Windows 的群集上。 它不会安装在早于 3.3 版的基于 Linux 的群集上。
+> DataFu 安装在基于 Linux 的群集 3.3 版和更高版本上，以及基于 Windows 的群集上。 它不会安装在早于 3.3 版的基于 Linux 的群集上。
 >
 > 如果使用的是基于 Linux 的群集 3.3 版或更高版本或者基于 Windows 的群集，则可以跳过本部分。
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 07/14/2017
 
 1. 使用 SSH 连接到基于 Linux 的 HDInsight 群集。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
-2. 使用以下命令通过 wget 实用程序下载 DataFu jar 文件，或将链接复制并粘贴到浏览器以开始下载。
+2. 使用以下命令通过 wget 实用程序下载 DataFu jar 文件，或者将链接复制并粘贴到浏览器中以开始下载。
 
     ```
     wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
@@ -76,7 +76,7 @@ ms.lasthandoff: 07/14/2017
 >
 > 默认情况下，会在基于 Windows 的 HDInsight 群集上注册 DataFu。
 
-通常，将为 DataFu 函数定义别名。 例如：
+通常会为 DataFu 函数定义别名。 例如：
 
     DEFINE SHA datafu.pig.hash.SHA();
 

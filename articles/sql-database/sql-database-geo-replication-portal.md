@@ -13,25 +13,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 03/062/2016
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: c918f50ed2f397a36fcb1ab9aca73a542dacaf92
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+origin.date: 03/06/2016
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 0f6cb34364f557c341c03784d9b4dda8c86b0fd0
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>在 Azure 门户中为 Azure SQL 数据库配置活动异地复制，并启动故障转移
 
 本文说明如何在 [Azure 门户](http://portal.azure.cn)中为 SQL 数据库配置活动异地复制，以及如何启动故障转移。
 
 若要使用 Azure 门户启动故障转移，请参阅 [使用 Azure 门户为 Azure SQL 数据库启动计划内或计划外故障转移](sql-database-geo-replication-portal.md)。
-
-> [!NOTE]
-> 活动异地复制（可读辅助数据库）现在可供所有服务层中的所有数据库使用。 非可读辅助类型已于 2017 年 4 月停用，现有的非可读数据库已自动升级到可读辅助数据库。
-> 
-> 
 
 若要使用 Azure 门户配置活动异地复制，需要以下资源：
 
@@ -53,13 +48,13 @@ ms.lasthandoff: 07/14/2017
 > 
 
 1. 在 [Azure 门户](http://portal.azure.cn)中，浏览到需要设置以便进行异地复制的数据库。
-2. 在 SQL 数据库页上，选择“异地复制” ，然后选择要创建辅助数据库的区域。 
+2. 在 SQL 数据库页上，选择“异地复制” ，然后选择要创建辅助数据库的区域。
    
     ![配置异地复制](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
 3. 选择或配置辅助数据库的服务器和定价层。
 
     ![配置辅助数据库](./media/sql-database-geo-replication-portal/create-secondary.png)
-4. 可以选择性地将辅助数据库添加到弹性池。 若要在池中创建辅助数据库，请单击“弹性池”  ，然后在目标服务器上选择池。 池必须已在目标服务器上存在。 此工作流不会创建池。
+4. 可以选择性地将辅助数据库添加到弹性池。 如果要在池中创建辅助数据库，请单击“弹性池”  ，并在目标服务器上选择池。 池必须已在目标服务器上存在。 此工作流不会创建池。
 5. 单击“创建”添加辅助数据库。
 6. 此时会创建辅助数据库，种子设定过程开始。
 
@@ -81,7 +76,7 @@ ms.lasthandoff: 07/14/2017
 
 该命令会立即将辅助数据库切换为主数据库角色。 
 
-切换角色时，有一小段时间无法使用这两个数据库（大约为 0 到 25 秒）。 如果主数据库具有多个辅助数据库，则该命令将自动重新配置其他辅助数据库以连接到新的主数据库。 在正常情况下，完成整个操作所需的时间应该少于一分钟。 
+切换角色时，有一小段时间无法使用这两个数据库（大约为 0 到 25 秒）。 如果主数据库具有多个辅助数据库，则该命令自动重新配置其他辅助数据库以连接到新的主数据库。 在正常情况下，完成整个操作所需的时间应该少于一分钟。 
 
 > [!NOTE]
 > 此命令旨在服务中断时快速恢复数据库。 它将触发故障转移但不进行数据同步（强制故障转移）。  如果发出命令时主数据库处于在线状态且正在提交事务，则可能会丢失某些数据。 
@@ -103,3 +98,4 @@ ms.lasthandoff: 07/14/2017
 * 若要深入了解活动异地复制，请参阅[活动异地复制](sql-database-geo-replication-overview.md)。
 * 有关业务连续性概述和应用场景，请参阅[业务连续性概述](sql-database-business-continuity.md)。
 
+<!--Update_Description: wording update-->

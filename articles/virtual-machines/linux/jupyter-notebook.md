@@ -17,27 +17,20 @@ origin.date: 11/10/2015
 ms.date: 05/24/2016
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4d70d765e3413874c9d9d5226e82eb38a922e2f
-ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
+ms.openlocfilehash: e1dcd3b7340539b4eca26970f210e7da61555afb
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="creating-an-azure-vm-installing-jupyter-and-running-a-jupyter-notebook-on-azure"></a>在 Azure 上创建 Azure VM、安装 Jupyter 以及运行 Jupyter Notebook
 [Jupyter 项目](http://jupyter.org)（以前称为 [IPython 项目](http://ipython.org)），提供了一套使用功能强大的交互式 shell 进行科学计算的工具，实现了将代码执行与创建实时计算文档相结合。 这些 Notebook 文件可以包含任意文本、数学公式、输入代码、结果、图形、视频以及新型 Web 浏览器能够显示的任何其他种类的媒体。 无论你是第一次使用 Python 并希望在有趣的交互式环境中了解它，还是执行一些严格的并行/技术计算，Jupyter Notebook 都是一个很好的选择。
 
 ![屏幕截图](./media/jupyter-notebook/ipy-notebook-spectral.png)使用 SciPy 和 Matplotlib 包来分析录音结构。
 
-## <a name="jupyter-two-ways-azure-notebooks-or-custom-deployment"></a>Jupyter 的两种方法：Azure Notebook 或自定义部署
-可以使用 Azure 提供的服务 [快速开始使用 Jupyter ](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)。  通过使用 Azure Notebook 服务，你可以轻松访问 Jupyter 的可缩放计算资源（包含 Python 的所有功能及其许多库）的可 Web 访问接口。  由于安装由该服务处理，用户无需管理和配置即可访问这些资源。
-
-如果 Notebook 服务不适用于你的方案，请继续阅读本文，它将会说明如何在 Azure 上使用 Linux 虚拟机 (VM) 部署 Jupyter Notebook。
-
-[!INCLUDE [create-account-and-vms-note](../../../includes/create-account-and-vms-note.md)]
-
 ## <a name="create-and-configure-a-vm-on-azure"></a>在 Azure 上创建并配置 VM
 第一步是创建在 Azure 上运行的虚拟机 (VM)。
-此 VM 是云中的完整操作系统，它将用于运行 Jupyter Notebook。 Azure 能够同时运行 Linux 和 Windows 虚拟机，我们将介绍如何在这两种类型的虚拟机上设置 Jupyter。
+此 VM 是云中的完整操作系统，它将用于运行 Jupyter Notebook。 Azure 能够同时运行 Linux 和 Windows 虚拟机，我们会介绍如何在这两种类型的虚拟机上设置 Jupyter。
 
 ### <a name="create-a-linux-vm-and-open-a-port-for-jupyter"></a>为 Jupyter 创建 Linux VM 并打开端口
 按照 [此处][portal-vm-linux] 提供的说明可创建 *Ubuntu* 分发的虚拟机。 本教程使用 Ubuntu Server 14.04 LTS。 我们将假定用户名为 *azureuser*。
@@ -49,7 +42,7 @@ ms.lasthandoff: 07/10/2017
 在“网络安全组”中，单击“网络接口”并记下**公共 IP 地址**，因为下一步需要使用它连接到 VM。
 
 ## <a name="install-required-software-on-the-vm"></a>在 VM 上安装所需的软件
-若要在我们的 VM 上运行 Jupyter Notebook，必须首先安装 Jupyter 及其依赖项。 使用 ssh 以及在创建 VM 时选择的用户名/密码对连接到你的 linux vm。 在本教程中，我们将使用 PuTTY，并从 Windows 进行连接。
+若要在我们的 VM 上运行 Jupyter Notebook，必须首先安装 Jupyter 及其依赖项。 使用 ssh 以及在创建 VM 时选择的用户名/密码对连接到 linux vm。 在本教程中，我们使用 PuTTY，并从 Windows 进行连接。
 
 ### <a name="installing-jupyter-on-ubuntu"></a>在 Ubuntu 上安装 Jupyter
 使用 [Continuum Analytics](https://www.continuum.io/downloads)所提供的链接之一安装 Anaconda（一种常用的数据科学 python 分发）。  在撰写本文档之时，以下链接是最新版本。
@@ -97,7 +90,7 @@ ms.lasthandoff: 07/10/2017
 ![屏幕快照](./media/jupyter-notebook/anaconda-install.png)
 
 ### <a name="configuring-jupyter-and-using-ssl"></a>配置 Jupyter 和使用 SSL
-在安装后，我们需要花一些时间来为 Jupyter 设置配置文件。 如果你在配置 Jupyter 时遇到问题，查看 [针对运行 Notebook 服务器的 Jupyter 文档](http://jupyter-notebook.readthedocs.org/en/latest/public_server.html)可能会有帮助。
+在安装后，我们需要花一些时间来为 Jupyter 设置配置文件。 如果在配置 Jupyter 时遇到问题，查看 [针对运行 Notebook 服务器的 Jupyter 文档](http://jupyter-notebook.readthedocs.org/en/latest/public_server.html)可能会有帮助。
 
 然后，通过 `cd` 进入配置文件目录来创建 SSL 证书并编辑配置文件的配置文件。
 
@@ -109,19 +102,19 @@ ms.lasthandoff: 07/10/2017
 
     openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
-请注意，由于我们创建的是自签名 SSL 证书，因此在连接到 Notebook 时，你的浏览器将显示安全警告。  若要进行长期生产使用，你将需要使用与你的组织关联的正确签名的证书。  由于证书管理超出了本演示的范围，我们目前将只讨论自签名证书。
+请注意，由于我们创建的是自签名 SSL 证书，因此在连接到 Notebook 时，你的浏览器将显示安全警告。  要进行长期生产使用，需要使用与你的组织关联的正确签名的证书。  由于证书管理超出了本演示的范围，我们目前将只讨论自签名证书。
 
-除了使用证书外，你还必须提供密码以确保你的 Notebook 免遭未授权使用。  出于安全原因，Jupyter 在其配置文件中使用加密密码，因此你将首先需要加密你的密码。  IPython 提供了一个实用工具来执行此操作；在命令提示符下运行以下命令。
+除了使用证书外，还必须提供密码以确保 Notebook 免遭未授权使用。  出于安全原因，Jupyter 在其配置文件中使用加密密码，因此首先要加密密码。  IPython 提供了一个实用工具来执行此操作；在命令提示符下运行以下命令。
 
     /anaconda3/bin/python -c "import IPython;print(IPython.lib.passwd())"
 
-这会提示你提供密码并确认，然后将输出密码。 记下此密码，以便下一步使用。
+这会提示用户提供密码并确认，并将输出密码。 记下此密码，以便下一步使用。
 
     Enter password:
     Verify password:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
 
-接下来，我们将编辑配置文件的配置文件，即你所在目录中的 `jupyter_notebook_config.py` 文件。  请注意，此文件可能不存在 - 只需创建它（如果不存在）。  此文件包含多个字段，默认情况下会全部注释掉。  你可以使用你喜欢的任何文本编辑器打开此文件，并应确保它至少具有以下内容。 **请务必将配置中的 c.NotebookApp.password 替换为前一步中的 sha1**。
+接下来，我们编辑配置文件的配置文件，即你所在目录中的 `jupyter_notebook_config.py` 文件。  请注意，此文件可能不存在 - 只需创建它（如果不存在）。  此文件包含多个字段，默认情况下会全部注释掉。  你可以使用你喜欢的任何文本编辑器打开此文件，并应确保它至少具有以下内容。 **请务必将配置中的 c.NotebookApp.password 替换为前一步中的 sha1**。
 
     c = get_config()
 
@@ -142,14 +135,14 @@ ms.lasthandoff: 07/10/2017
 
     /anaconda3/bin/jupyter-notebook
 
-你现在应能够通过地址 `https://[PUBLIC-IP-ADDRESS]:9999`访问你的 Jupyter Notebook。
+现在应能够通过地址`https://[PUBLIC-IP-ADDRESS]:9999`访问 Jupyter Notebook。
 
-在你首次访问 Notebook 时，登录页会询问你的密码。 登录后，你会看到“Jupyter Notebook 仪表板”，它是所有 Notebook 操作的控制中心。  从此页中，你可以创建新 Notebook，打开现有 Notebook。
+在首次访问 Notebook 时，登录页会询问密码。 登录后，会看到“Jupyter Notebook 仪表板”，它是所有 Notebook 操作的控制中心。  从此页中，可以创建新 Notebook，打开现有 Notebook。
 
 ![屏幕快照](./media/jupyter-notebook/jupyter-tree-view.png)
 
 ### <a name="using-the-jupyter-notebook"></a>使用 Jupyter Notebook
-如果单击“新建”按钮，你将看到以下打开页  。
+如果单击“新建”按钮，你会看到以下打开页  。
 
 ![屏幕快照](./media/jupyter-notebook/jupyter-untitled-notebook.png)
 

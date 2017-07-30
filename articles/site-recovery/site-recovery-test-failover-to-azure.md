@@ -12,28 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 06/05/2017
-ms.date: 07/10/2017
+origin.date: 07/04/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
-ms.openlocfilehash: d85cf81d6bc9618258f3467c9fbc6b5ced78ea33
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: 31db717cf32ec1acd181cf461fae6d75e084d4b1
+ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 在 Site Recovery 中执行到 Azure 的测试故障转移
-<a id="test-failover-to-azure-in-site-recovery" class="xliff"></a>
+# <a name="test-failover-to-azure-in-site-recovery"></a>在 Site Recovery 中执行到 Azure 的测试故障转移
 
 本文提供有关针对使用 Azure 作为恢复站点、受 Site Recovery 保护的虚拟机和物理服务器执行测试故障转移或灾难恢复演练的信息与说明。
 
 运行测试故障转移可以在不丢失任何数据或造成停机的情况下验证复制策略或执行灾难恢复演练。 执行测试故障转移不会对进行中的复制或者生产环境造成任何影响。 可在虚拟机或[恢复计划](site-recovery-create-recovery-plans.md)上执行测试故障转移。 触发测试故障转移时，需要指定测试虚拟机要连接的网络。 触发测试故障转移后，可在“作业”页中跟踪进度。  
 
-## 支持的方案
-<a id="supported-scenarios" class="xliff"></a>
+## <a name="supported-scenarios"></a>支持的方案
 除传统的 VMware 站点到 Azure 的复制以外，并非所有部署方案都支持测试故障转移。 如果虚拟机已故障转移到 Azure，也不支持测试故障转移。  
+<!-- Not Available [legacy VMware site to Azure](site-recovery-vmware-to-azure-classic-legacy.md) -->
 
-## 运行测试故障转移
-<a id="run-a-test-failover" class="xliff"></a>
+## <a name="run-a-test-failover"></a>运行测试故障转移
 本过程描述如何对恢复计划运行测试故障转移。 或者，也可以在单个虚拟机上使用相应的选项运行测试故障转移。
 
 ![测试故障转移](./media/site-recovery-test-failover-to-azure/TestFailover.png)
@@ -55,50 +53,46 @@ ms.lasthandoff: 06/30/2017
 >
 > 
 
-## 测试故障转移作业
-<a id="test-failover-job" class="xliff"></a>
+## <a name="test-failover-job"></a>测试故障转移作业
 
 ![测试故障转移](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
 当测试故障转移触发时，将执行以下步骤：
 
 1. 先决条件检查：此步骤确保满足故障转移需要的所有条件
-1. 故障转移：此步骤处理数据并使其准备就绪，以便可以根据该数据创建 Azure 虚拟机。 如果你选择了 **最新** 恢复点，则此步骤将基于已发送到服务的数据创建一个恢复点。
+1. 故障转移：此步骤处理数据并使其准备就绪，以便可以根据该数据创建 Azure 虚拟机。 如果你选择了 **最新** 恢复点，则此步骤基于已发送到服务的数据创建一个恢复点。
 1. 启动：此步骤使用在上一步骤中处理的数据创建 Azure 虚拟机。
 
 
-## 为测试故障转移创建网络
-<a id="creating-a-network-for-test-failover" class="xliff"></a>
+## <a name="creating-a-network-for-test-failover"></a>为测试故障转移创建网络
 执行测试故障转移时，建议选择独立于虚拟机的“计算和网络”设置中提供的生产恢复站点网络的网络。 默认情况下，创建 Azure 虚拟网络时，该网络独立于其他网络。 此网络应模拟生产网络：
 
 1. 测试网络中的子网数目应与生产网络中的子网数目相同，并且其子网名称应与生产网络中子网的名称相同。
 1. 测试网络使用的 IP 范围应与生产网络的 IP 范围相同。
 1. 将测试网络的 DNS 的 IP 更新为在“计算和网络”设置下为 DNS 虚拟机指定的目标 IP。 如需更多详细信息，请参阅 [Active Directory 的测试性故障转移注意事项](site-recovery-active-directory.md#test-failover-considerations)部分。
 
-## 在恢复站点上执行到生产网络的测试故障转移
-<a id="test-failover-to-a-production-network-on-recovery-site" class="xliff"></a>
+## <a name="test-failover-to-a-production-network-on-recovery-site"></a>在恢复站点上执行到生产网络的测试故障转移
 执行测试故障转移时，建议选择与虚拟机的“计算和网络”设置中提供的生产恢复站点网络不同的网络。 但是，如果确实想要在故障转移后的虚拟机中验证端到端网络连接，请注意以下几点：
 
 1. 确保在执行测试故障转移时主虚拟机已关闭。 否则，同一网络中会同时运行两个具有相同标识的虚拟机，这可能会导致意外的后果。
 1. 清理测试故障转移虚拟机时，在测试故障转移虚拟机中所做的全部更改都会丢失。 这些更改将不会复制回到主虚拟机。
 1. 以这种方式执行测试会导致生产应用程序发生停机。 灾难恢复演练正在进行时，应该告诉应用程序的用户不要使用该应用程序。  
 
-## 准备 Active Directory 和 DNS
-<a id="prepare-active-directory-and-dns" class="xliff"></a>
+## <a name="prepare-active-directory-and-dns"></a>准备 Active Directory 和 DNS
 若要运行测试故障转移以进行应用程序测试，测试环境中需要具有生产 Active Directory 环境的副本。 如需更多详细信息，请参阅 [Active Directory 的测试性故障转移注意事项](site-recovery-active-directory.md#test-failover-considerations)部分。
 
-## 准备在故障转移后连接到 Azure VM
-<a id="prepare-to-connect-to-azure-vms-after-failover" class="xliff"></a>
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>准备在故障转移后连接到 Azure VM
 
 如果想要在故障转移后使用 RDP 连接到 Azure VM，请确保执行下表中汇总的操作。
 
 **故障转移** | **位置** | **操作**
 --- | --- | ---
 **运行 Windows 的 Azure VM** | 故障转移之前在本地计算机上 | 若要通过 Internet 访问 Azure VM，请启用 RDP，并确保已针对“公共”添加 TCP 和 UDP 规则，并确保在“Windows 防火墙” > “允许的应用”中针对所有配置文件允许 RDP。<br/><br/> 若要通过站点到站点连接进行访问，请在计算机上启用 RDP，并确保在“Windows 防火墙” -> “允许的应用和功能”中针对“域和专用”网络允许 RDP。<br/><br/>  确保操作系统的 SAN 策略已设置为 OnlineAll。 [了解详细信息](https://support.microsoft.com/kb/3031135)。<br/><br/> 在触发故障转移时，请确保虚拟机上没有挂起的 Windows 更新。 Windows 更新可能会在你进行故障转移时启动，并且在更新完成之前你将无法登录到虚拟机。 <br/><br/>
-**运行 Windows 的 Azure VM** | 故障转移之后在 Azure VM 上 | 对于经典虚拟机，请为 RDP 协议（端口 3389）[添加公共终结点](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)<br/><br/>  对于 Resource Manager 虚拟机，请向其[添加公共 IP](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine)。<br/><br/> 已故障转移的 VM 及其连接到的 Azure 子网上的网络安全组规则需要允许与 RDP 端口建立传入连接。<br/><br/> 对于 Resource Manager 虚拟机，可以查看“启动诊断”，查看虚拟机的屏幕截图<br/><br/> 如果无法连接，请检查 VM 是否正在运行，然后查看这些[故障排除技巧](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)。<br/><br/>
+**运行 Windows 的 Azure VM** | 故障转移之后在 Azure VM 上 | 对于经典虚拟机，请为 RDP 协议（端口 3389）[添加公共终结点](../virtual-machines/windows/classic/setup-endpoints.md)<br/><br/>  对于 Resource Manager 虚拟机，请向其[添加公共 IP](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine)。<br/><br/> 已故障转移的 VM 及其连接到的 Azure 子网上的网络安全组规则需要允许与 RDP 端口建立传入连接。<br/><br/> 对于 Resource Manager 虚拟机，可以查看“启动诊断”，查看虚拟机的屏幕截图<br/><br/> 如果无法连接，请检查 VM 是否正在运行，然后查看这些[故障排除技巧](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)。<br/><br/>
 **运行 Linux 的 Azure VM** | 故障转移之前在本地计算机上 | 确保 Azure VM 上的安全外壳服务已设置为在系统引导时自动启动。<br/><br/> 确保防火墙规则允许 SSH 连接。
-**运行 Linux 的 Azure VM** | 故障转移之后在 Azure VM 上 | 已故障转移的 VM 及其连接到的 Azure 子网上的网络安全组规则需要允许与 SSH 端口建立传入连接。<br/><br/> 对于经典虚拟机，应创建[公共终结点](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)，以允许 SSH 端口（默认为 TCP 端口 22）上的传入连接。<br/><br/> 对于 Resource Manager 虚拟机，请向其[添加公共 IP](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine)。<br/><br/> 对于 Resource Manager 虚拟机，可以查看“启动诊断”，查看虚拟机的屏幕截图<br/><br/>
+**运行 Linux 的 Azure VM** | 故障转移之后在 Azure VM 上 | 已故障转移的 VM 及其连接到的 Azure 子网上的网络安全组规则需要允许与 SSH 端口建立传入连接。<br/><br/> 对于经典虚拟机，应创建[公共终结点](../virtual-machines/windows/classic/setup-endpoints.md)，以允许 SSH 端口（默认为 TCP 端口 22）上的传入连接。<br/><br/> 对于 Resource Manager 虚拟机，请向其[添加公共 IP](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine)。<br/><br/> 对于 Resource Manager 虚拟机，可以查看“启动诊断”，查看虚拟机的屏幕截图<br/><br/>
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 成功尝试执行测试故障转移后，可以尝试执行实际 [故障转移](site-recovery-failover.md)。
+
+<!--Update_Description: update meta properties, update link-->

@@ -15,17 +15,14 @@ ms.topic: article
 origin.date: 05/25/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 5ef2db32a4431d34b9dd73af3637047dfd4ce960
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 0718066cf7b92cb684c745f8b35dc88177e84b6f
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>如何监视 Azure Redis 缓存
 Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用于监视缓存实例的几个选项。 可以查看度量值、将度量值图表固定到启动板、自定义监视图表的日期和时间范围、在图表中添加和删除度量值，以及设置符合特定条件时发出的警报。 借助这些工具，可以监视 Azure Redis 缓存实例的运行状况，以及管理缓存应用程序。
-
->[!NOTE]
-> 若要在 Azure 中国区启用缓存诊断，需要使用 Azure PowerShell 或 Azure CLI 设置 `rdb-storage-connection-string`。
 
 将使用 Redis [INFO](http://redis.io/commands/info) 命令每隔大约一分钟收集 Azure Redis 缓存实例的指标两次，并自动将其存储 30 天（请参阅[导出缓存指标](#export-cache-metrics)来配置不同的保留策略），以便将其显示在指标图表中，或者由警报规则评估。 有关用于每个缓存度量值的不同 INFO 值的详细信息，请参阅 [可用度量值和报告间隔](#available-metrics-and-reporting-intervals)。
 
@@ -62,7 +59,7 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>导出缓存指标
-默认情况下，Azure Monitor 中的缓存指标将[存储 30 天](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive)，过后被删除。
+默认情况下，Azure Monitor 中的缓存指标将[存储 30 天](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive)，过后被删除。 
 
 若要配置缓存指标的存储帐户，请执行以下操作：
 

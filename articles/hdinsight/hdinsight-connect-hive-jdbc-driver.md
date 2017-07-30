@@ -17,11 +17,11 @@ ms.workload: big-data
 origin.date: 05/22/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 7899c2f55ce106d6228737b531818bb610bcf2b1
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 404bf69597503a1185a2ca65349100e673a6634b
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>在 HDInsight 中通过 JDBC 驱动程序查询 Hive
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/14/2017
 * HDInsight 群集上的 Hadoop。 可以使用基于 Linux 或基于 Windows 的群集。
 
   > [!IMPORTANT]
-  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 3.3 停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 3.3 停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/)。 SQuirreL 是 JDBC 客户端应用程序。
 
@@ -88,7 +88,7 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
 
             ![“远程桌面”图标](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopicon.png)
 
-        2. 在“远程桌面”边栏选项卡上，使用“连接”  按钮连接到群集。 如果未启用远程桌面，请使用表单提供用户名和密码，然后选择“启用”为群集启用远程桌面  。
+        2. 在“远程桌面”边栏选项卡上，使用“连接”  按钮连接到群集。 如果未启用远程桌面，请使用表单提供用户名和密码，并选择“启用”为群集启用远程桌面  。
 
             ![“远程桌面”边栏选项卡](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
 

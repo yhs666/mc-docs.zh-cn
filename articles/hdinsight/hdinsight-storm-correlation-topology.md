@@ -17,11 +17,11 @@ origin.date: 03/01/2017
 ms.date: 03/31/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 51840beb56e7e7488c4732ab66b45ac98354d861
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: a299521e0231eb76ab691dd254748211e7297137
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>使用 Storm 和 HBase 将不同时间到达的事件关联起来
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 07/14/2017
 * HDInsight 群集上的 Apache HBase（基于 Linux 或 Windows）。
 
   > [!IMPORTANT]
-  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * [Java](https://java.com) 1.7 或更高版本，适用于开发环境。 将拓扑提交到 HDInsight 群集时，可以使用 Java 将拓扑打包。
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 07/14/2017
 
     ![已选择属性的菜单屏幕快照](./media/hdinsight-storm-correlation-topology/selectproperties.png)
 
-3. 选择 **“设置”**，然后设置以下值：
+3. 选择 **“设置”**，并设置以下值：
 
    * HBaseClusterURL：到 HBase 群集的 URL。 例如，https://myhbasecluster.azurehdinsight.cn。
 
@@ -210,7 +210,7 @@ ms.lasthandoff: 07/14/2017
     Session fc9fa8e6-6892-4073-93b3-a587040d892e lasted 2 minutes, and ended at 6/5/2015 6:12:15 PM
 
 > [!NOTE]
-> 虽然输入的时间值为本地时间，但从查询返回的时间将是 UTC 格式。
+> 虽然输入的时间值为本地时间，但从查询返回的时间是 UTC 格式。
 
 ## <a name="stop-the-topology"></a>停止拓扑
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 06/06/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 2ca2a32d460691ddf8e9a95a31a80359c58963a8
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 0fd9cef8fd1b92983767cd17a5eaac3d41adf7db
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="create-a-virtual-network-peering"></a>创建虚拟网络对等互连
 
@@ -257,7 +257,7 @@ ms.lasthandoff: 07/14/2017
 13. 在显示的“myVnet1 - 对等互连”边栏选项卡中，单击“+ 添加”
 14. 在显示的“添加对等互连”边栏选项卡中，输入或选择以下选项，然后单击“确定”：
      - 名称：myVnet1ToMyVnet2
-     - 虚拟网络部署模型：选择“经典”。 
+     - 虚拟网络部署模型：选择“Resource Manager”。 
      - 我知道我的资源 ID：选中此框。
      - 资源 ID：输入 myVnet2 的资源 ID。 仅当已选中“我知道我的资源 ID”复选框时，才显示此框。
      - 允许虚拟网络访问：确保选择“启用”。
@@ -345,7 +345,7 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="delete-cli"></a>Azure CLI
 
-在 Linux、macOS 或 Windows 命令 shell 中，输入以下命令。 或者，单击以下代码块右上角的“试用”按钮，启动 Cloud Shell。 然后，使用“复制”按钮将示例代码复制并粘贴到 Cloud Shell 中。
+在 Linux、macOS 或 Windows 命令 shell 中，输入以下命令。
 
 ```azurecli
 az group delete --name myResourceGroup --yes

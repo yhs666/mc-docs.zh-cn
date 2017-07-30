@@ -17,11 +17,11 @@ origin.date: 02/05/2017
 ms.date: 03/10/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
-ms.openlocfilehash: f80ec3a47614b105fe8e799886b8a731da7b8f07
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 4ec52ec5b5654456fe569c0180cab9536b7a60f3
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>借助 Maven 构建可将 HBase 与基于 Windows 的 HDInsight (Hadoop) 配合使用的 Java 应用程序
 了解如何通过使用 Apache Maven 在 Java 中创建和构建 [Apache HBase](http://hbase.apache.org/) 应用程序。 然后，将该应用程序用于 Azure HDInsight (Hadoop)。
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/14/2017
 [Maven](http://maven.apache.org/) 是一种软件项目管理和综合工具，可用于为 Java 项目构建软件、文档和报告。 在本文中，可了解如何使用 Maven 创建一个基本的 Java 应用程序，该应用程序可在 Azure HDInsight 群集中创建、查询和删除 HBase 表。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Windows 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> 本文档中的步骤需要使用 Windows 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="requirements"></a>要求
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 07/14/2017
           <version>1.1.2</version>
         </dependency>
 
-    本部分会告知 Maven，项目需要 hbase-client 版本 1.1.2。 在编译时，将从默认的 Maven 存储库下载该依赖项。 你可以使用 [Maven 中央存储库](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) 搜索来了解有关此依赖性的详细信息。
+    本部分会告知 Maven，项目需要 hbase-client 版本 1.1.2。 在编译时，将从默认的 Maven 存储库下载该依赖项。 可以使用 [Maven 中央存储库](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) 搜索来了解有关此依赖性的详细信息。
 
    > [!IMPORTANT]
    > 版本号必须与 HDInsight 群集随附的 HBase 版本匹配。 可以使用下表来查找正确的版本号。
@@ -359,7 +359,7 @@ ms.lasthandoff: 07/14/2017
 7. 保存 **DeleteTable.java** 文件。
 
 ## <a name="build-and-package-the-application"></a>生成并打包应用程序
-1. 打开命令提示符，然后将目录更改为 **hbaseapp** 目录。
+1. 打开命令提示符，并将目录更改为 **hbaseapp** 目录。
 2. 使用以下命令来构建包含应用程序的 JAR 文件：
 
         mvn clean package
@@ -577,12 +577,12 @@ ms.lasthandoff: 07/14/2017
    * **Add-HDInsightFile** - 用于将文件上传到 HDInsight
    * **Start-HBaseExample** - 用于运行以前创建的类
 2. 保存 **hbase-runner.psm1** 文件。
-3. 打开新的 Azure PowerShell 窗口，将目录切换到 **hbaseapp** 目录，然后运行以下命令。
+3. 打开新的 Azure PowerShell 窗口，将目录切换到 **hbaseapp** 目录，并运行以下命令。
 
         PS C:\ Import-Module c:\path\to\hbase-runner.psm1
 
     将路径切换到前面创建的 **hbase-runner.psm1** 文件所在的位置。 这将为此 Azure PowerShell 会话注册模块。
-4. 使用以下命令将 **hbaseapp-1.0-SNAPSHOT.jar** 上传到你的 HDInsight 群集。
+4. 使用以下命令将 **hbaseapp-1.0-SNAPSHOT.jar** 上传到 HDInsight 群集。
 
         Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
 
@@ -593,7 +593,7 @@ ms.lasthandoff: 07/14/2017
 
     将 **hdinsightclustername** 替换为 HDInsight 群集的名称。
 
-    此命令将在 HDInsight 群集中创建名为 **people** 的新表。 此命令在控制台窗口中不显示任何输出。
+    此命令在 HDInsight 群集中创建名为 **people** 的新表。 此命令在控制台窗口中不显示任何输出。
 6. 若要在表中搜索条目，请使用以下命令：
 
         Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com

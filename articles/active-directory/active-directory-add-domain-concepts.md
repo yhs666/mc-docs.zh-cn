@@ -3,8 +3,8 @@ title: "Azure Active Directory 中自定义域名的概念性概述 | Microsoft 
 description: "介绍了在 Azure Active Directory 中使用自定义域名的概念性框架，其中包括用于实现单一登录的联盟"
 services: active-directory
 documentationcenter: 
-author: curtand
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: fd0c5def-0da2-43af-81bc-76f4cfe86afd
 ms.service: active-directory
@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/04/2017
+origin.date: 07/13/2017
+ms.date: 07/18/2017
 ms.author: v-junlch
-ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 755930bcc6cf6c78b7cd0312808a94d81400f0f4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 336d3d065151c3ebe2377f5d4d722b4c46ecf8d0
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Azure Active Directory 中自定义域名的概念性概述
 域名是许多目录资源标识符的重要部分：它可能是用户的用户名或电子邮件地址的一部分、组地址的一部分，也可能是应用程序的应用 ID URI 的一部分。 Azure Active Directory (Azure AD) 中的资源可包含已验证为目录（包含该资源）所拥有的域名。 只有全局管理员才能在 Azure AD 中执行域管理任务。
@@ -44,7 +43,7 @@ Azure AD 通过在域名的域名服务 (DNS) 区域文件中查找特定的条�
 将 DNS 条目添加到域名的区域文件中，并不会影响其他域服务，例如电子邮件或 Web 托管。
 
 ## <a name="federated-and-managed-domain-names"></a>联盟域名和托管域名
-你可以配置 Azure AD 中的自定义域名，让用户在本地 Active Directory 与 Azure AD 之间获得联合登录体验。 为联盟配置域除了需要更新 Azure AD 中的特权资源，还需要更新 Windows Server Active Directory。 配置联盟域的操作必须在 Azure AD Connect 中或使用 PowerShell 来完成。 无法从 Azure 经典管理门户启动自定义域联盟操作。 
+可以配置 Azure AD 中的自定义域名，让用户在本地 Active Directory 与 Azure AD 之间获得联合登录体验。 为联盟配置域除了需要更新 Azure AD 中的特权资源，还需要更新 Windows Server Active Directory。 配置联盟域的操作必须在 Azure AD Connect 中或使用 PowerShell 来完成。 无法从 Azure 经典管理门户启动自定义域联盟操作。 
 
 未联盟的域有时也称为托管域。 Azure AD 目录的初始域会隐式评估为托管域。
 
@@ -64,5 +63,4 @@ Azure Web 应用使用其自身的机制来验证域的所有权。 必须验证
 - [使用 PowerShell 管理 Azure AD 中的域名](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 - [使用 Azure AD 图形 API 管理 Azure AD 中的域名](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-
-
+<!--Update_Description: update meta properties -->   

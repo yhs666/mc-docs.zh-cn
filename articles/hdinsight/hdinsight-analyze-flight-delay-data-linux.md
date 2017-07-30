@@ -17,22 +17,22 @@ origin.date: 05/04/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 9cfd6752e2bbc1be391441e5565ea2ecbde217e8
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 9880153d9730530571b3a313678cea72e4fbd1d7
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上使用 Hive 分析航班延误数据
 
-了解如何在基于 Linux 的 HDInsight 上使用 Hive 分析航班延误数据，然后使用 Sqoop 将数据导出到 Azure SQL 数据库中。
+了解如何在基于 Linux 的 HDInsight 上使用 Hive 分析航班延误数据，并使用 Sqoop 将数据导出到 Azure SQL 数据库中。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ### <a name="prerequisites"></a>先决条件
 
-* **HDInsight 群集**。 有关创建新的基于 Linux 的 HDInsight 群集的步骤，请参阅[在 Linux 上的 HDInsight 中开始将 Hadoop 与 Hive 配合使用](hdinsight-hadoop-linux-tutorial-get-started.md)。
+* **HDInsight 群集**。 有关创建新的基于 Linux 的 HDInsight 群集的步骤，请参阅[在 Linux 上的 HDInsight 中开始将 Hadoop 与 Hive 配合使用](hdinsight-hadoop-linux-tutorial-get-started.md) 。
 
 * **Azure SQL 数据库**。 使用 Azure SQL 数据库作为目标数据存储。 如果没有 SQL 数据库，请参阅 [SQL 数据库教程：几分钟内即可创建 SQL 数据库](../sql-database/sql-database-get-started.md)。
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 07/14/2017
     将 **FILENAME** 替换为 zip 文件的名称。 将 **USERNAME** 替换为 HDInsight 群集的 SSH 登录名。 将 CLUSTERNAME 替换为 HDInsight 群集的名称。
 
    > [!NOTE]
-   > 如果使用密码对 SSH 登录名进行身份验证，系统将提示输入密码。 如果你使用了公钥，则可能需要使用 `-i` 参数并指定匹配私钥的路径。 例如， `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:`。
+   > 如果使用密码对 SSH 登录名进行身份验证，系统会提示输入密码。 如果使用了公钥，则可能需要使用 `-i` 参数并指定匹配私钥的路径。 例如， `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:`。
 
 2. 上传完成后，使用 SSH 连接到群集：
 
@@ -187,7 +187,7 @@ ms.lasthandoff: 07/14/2017
     GROUP BY origin_city_name;
     ```
 
-    此查询将检索遇到天气延迟的城市的列表和平均延迟时间，并将其保存到 `/tutorials/flightdelays/output`中。 稍后，Sqoop 将从此位置读取数据并将其导出到 Azure SQL 数据库中。
+    此查询将检索遇到天气延迟的城市的列表和平均延迟时间，并将其保存到 `/tutorials/flightdelays/output` 中。 稍后，Sqoop 将从此位置读取数据并将其导出到 Azure SQL 数据库中。
 
 6. 若要退出 Beeline，请在提示符处输入 `!quit` 。
 
@@ -216,7 +216,7 @@ ms.lasthandoff: 07/14/2017
     TDSVER=8.0 tsql -H <serverName>.database.chinacloudapi.cn -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
-    你将收到类似于以下文本的输出：
+    你会收到类似于以下文本的输出：
 
     ```
     locale is "en_US.UTF-8"
@@ -257,7 +257,7 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="export-data-with-sqoop"></a>使用 Sqoop 导出数据
 
-1. 使用以下命令验证 Sqoop 是否可以看到你的 SQL 数据库：
+1. 使用以下命令验证 Sqoop 是否可以看到 SQL 数据库：
 
     ```
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433 --username <adminLogin> --password <adminPassword>
@@ -286,7 +286,7 @@ ms.lasthandoff: 07/14/2017
     GO
     ```
 
-    你会在表中看到一系列数据。 键入 `exit` 退出 tsql 实用程序。
+    会在表中看到一系列数据。 键入 `exit` 退出 tsql 实用程序。
 
 ## <a id="nextsteps"></a> 后续步骤
 

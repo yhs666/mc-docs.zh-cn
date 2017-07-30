@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/14/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: ce62375a465fabdf34b4732e1d2007b121211f7f
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 7a1ddb6ccb1f63dd10de7cc48656b1de9b6fc428
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>还原 Azure SQL 数据库或故障转移到辅助数据库
 Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
@@ -70,7 +70,7 @@ Azure 团队会努力尽快还原服务可用性，但视根本原因而定，�
 如果应用程序停机不会带来业务责任，则可以使用[异地还原](sql-database-recovery-using-backups.md)作为恢复应用程序数据库的方法。 它会从最新的异地冗余备份创建数据库的副本。
 
 ## <a name="configure-your-database-after-recovery"></a>恢复后配置数据库
-服务中断后，如果使用异地复制进行故障转移或使用异地还原进行恢复，则必须确保已正确配置与新数据库的连接，以便恢复正常的应用程序功能。 以下任务清单可帮助准备将恢复的数据库投入生产。
+服务中断后，如果使用异地复制进行故障转移或使用异地还原进行恢复，则必须确保已正确配置与新数据库的连接，以便恢复正常的应用程序功能。 以下任务清单用于让恢复的数据库做好生产准备。
 
 ### <a name="update-connection-strings"></a>更新连接字符串
 因为恢复的数据库将位于不同的服务器中，所以必须更新应用程序的连接字符串以指向该服务器。
@@ -93,10 +93,10 @@ Azure 团队会努力尽快还原服务可用性，但视根本原因而定，�
 
 
 ### <a name="enable-auditing"></a>启用审核
-如果需要通过审核来访问数据库，则需要在恢复数据库后启用审核。 如果客户端应用程序使用 *.database.secure.chinacloudapi.cn 模式的安全连接字符串，即充分表明需要审核。 有关详细信息，请参阅[数据库审核](sql-database-auditing.md)。 
+如果需要通过审核来访问数据库，则需要在恢复数据库后启用审核。 有关详细信息，请参阅[数据库审核](sql-database-auditing.md)。
 
 ## <a name="next-steps"></a>后续步骤
 * 若要了解 Azure SQL 数据库的自动备份，请参阅 [SQL 数据库自动备份](sql-database-automated-backups.md)
 * 若要了解业务连续性设计和恢复方案，请参阅[连续性方案](sql-database-business-continuity.md)
 * 若要了解如何使用自动备份进行恢复，请参阅[从服务启动的备份中还原数据库](sql-database-recovery-using-backups.md)
-
+<!--Update_Description: wording update-->

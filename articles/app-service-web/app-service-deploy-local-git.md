@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/13/2016
 ms.date: 07/10/2017
 ms.author: v-dazen
-ms.openlocfilehash: d65496e4b143b4fb03b199d4f089e31ae66a5760
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 400beba51f292471e888afebc3d076af7098ab1a
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
 本教程说明如何将应用从本地计算机上的 Git 存储库部署到 [Azure 应用服务] 。 应用服务支持结合 [Azure 门户]中的“本地 Git”部署选项使用此方法。  
@@ -39,7 +39,9 @@ ms.lasthandoff: 07/13/2017
 2. 导航到要部署的内容所在的目录。
 3. 使用以下命令可初始化新的 Git 存储库：
 
-        git init
+```bash  
+git init
+```
 
 ## <a name="Step2"></a>步骤 2：提交内容
 应用服务支持用各种编程语言创建的应用程序。 
@@ -50,10 +52,14 @@ ms.lasthandoff: 07/13/2017
    * 添加以下文本作为 index.html 文件的内容并保存该文件： *Hello Git!*
 2. 在命令行中，验证当前位置是否在 Git 存储库的根目录下。 然后使用以下命令将文件添加到存储库中：
 
-        git add -A 
+    ```bash  
+    git add -A 
+    ```
 3. 接下来，使用以下命令将更改提交到存储库：
 
-        git commit -m "Hello Azure App Service"
+    ```bash  
+    git commit -m "Hello Azure App Service"
+    ```  
 
 ## <a name="Step3"></a>步骤 3：启用应用服务应用存储库
 执行以下步骤为应用服务应用启用 Git 存储库。
@@ -84,8 +90,9 @@ ms.lasthandoff: 07/13/2017
    > 
 4. 使用刚刚创建的新 **azure** 远程命令将内容推送到应用服务。
 
-        git push azure master
-
+    ```bash  
+    git push azure master
+    ```
     当你在 Azure 门户中重置部署凭据时，系统将提示你输入以前创建的密码。 输入该密码（请注意，在键入密码时，Gitbash 不会将星号回显到控制台）。 
 5. 返回到 Azure 门户中的应用。 最近推送的日志条目应显示在“部署”边栏选项卡中。 
 
@@ -112,12 +119,14 @@ ms.lasthandoff: 07/13/2017
 - - -
 **症状**：无通用引用且未指定任何引用；不采取任何措施。 或许你应指定一个分支，例如“master”。
 
-**原因**：如果你在执行 Git 推送操作时未指定分支且未设置 Git 使用的 push.default 值，则会发生该错误。
+
+            **原因**：如果在执行 Git 推送操作时未指定分支且未设置 Git 使用的 push.default 值，则会发生该错误。
 
 **解决方法**：请再次执行推送操作，并指定 master 分支。 例如：
 
-    git push azure master
-
+```bash  
+git push azure master
+```
 - - -
 **症状**：src refspec [分支名] 不匹配任何内容。
 
@@ -125,8 +134,9 @@ ms.lasthandoff: 07/13/2017
 
 **解决方法**：请再次执行推送操作，并指定 master 分支。 例如：
 
-    git push azure master
-
+```bash  
+git push azure master
+```
 - - -
 **症状**：RPC 失败；结果 = 22，HTTP 代码 = 502。
 
@@ -134,8 +144,9 @@ ms.lasthandoff: 07/13/2017
 
 **解决方法**：在本地计算机上更改 Git 配置，以增大 postBuffer
 
-    git config --global http.postBuffer 524288000
-
+```bash  
+git config --global http.postBuffer 524288000
+```
 - - -
 **症状**：错误 - 已将更改提交到远程存储库，但未更新 Web 应用。
 

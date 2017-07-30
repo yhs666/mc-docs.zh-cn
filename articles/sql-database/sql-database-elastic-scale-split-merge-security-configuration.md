@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/27/2016
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: 88b8188c7da2e3078f2789e73d1860e4bba05c59
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 9c369c7ad6071dd926643eddd4a6b699ee5dccc0
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="split-merge-security-configuration"></a>拆分/合并安全配置
 若要使用拆分/合并服务，必须正确配置安全性。 该服务是 Azure SQL 数据库弹性缩放功能的一部分。 有关详细信息，请参阅[弹性缩放拆分和合并服务教程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)。
@@ -34,7 +34,7 @@ ms.lasthandoff: 07/14/2017
 ## <a name="to-obtain-certificates"></a>获取证书
 可从公共证书颁发机构 (CA) 或 [Windows 证书服务](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx)获取证书。 这些方法是获取证书的首选方法。
 
-如果这些选项不可用，你可以生成 **自签名证书**。
+如果这些选项不可用，可以生成 **自签名证书**。
 
 ## <a name="tools-to-generate-certificates"></a>用于生成证书的工具
 * [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
@@ -101,7 +101,7 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="use-a-new-self-signed-certificate"></a>使用新的自签名证书
 1. [创建自签名证书](#create-a-self-signed-certificate)
-2. [为自签名加密证书创建 PFX 文件](#create-pfx-file-for-self-signed-encryption-certificate)
+2. [为自签名加密证书创建 PFX 文件](#create-pfx-file-for-self-signed-ssl-certificate)
 3. [将加密证书上传到云服务](#upload-encryption-certificate-to-cloud-service)
 4. [在服务配置文件中更新加密证书](#update-encryption-certificate-in-service-configuration-file)
 
@@ -501,3 +501,5 @@ MyID.pvk and MyID.cer with the filename for the encryption certificate
 对此数据库中存储的凭据进行加密。 但是，最佳实践是，确保服务部署的 Web 角色和辅助角色保持最新且是安全的，因为它们都有权访问元数据数据库和用于加密和解密存储凭据的证书。 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+
+<!--Update_Description: update bookmark link-->

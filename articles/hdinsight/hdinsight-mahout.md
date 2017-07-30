@@ -17,11 +17,11 @@ ms.topic: article
 origin.date: 05/25/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: af9c51ac18066a1680be0bf992245f182c64c738
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 7ac41b6025b7e524f19cabed07d67db139c25544
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>将 Apache Mahout 与 HDInsight (PowerShell) 中的 Hadoop 配合使用生成电影推荐
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/14/2017
 * 基于 Linux 的 HDInsight 群集。 有关创建该群集的信息，请参阅 [开始在 HDInsight 中使用基于 Linux 的 Hadoop][getstarted]。
 
     > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 07/14/2017
 
 包含以下两个文件：`moviedb.txt`（有关电影的信息）和 `user-ratings.txt`。 `user-ratings.txt` 文件在分析期间使用。 `moviedb.txt` 文件用于在显示分析结果时，提供便于用户阅读的文本。
 
-user-ratings.txt 中包含的数据具有 `userID`、`movieID`、`userRating` 和 `timestamp` 结构，它将告诉我们每个用户对电影评级的情况。 下面是数据的示例：
+user-ratings.txt 中包含的数据具有 `userID`、`movieID`、`userRating` 和 `timestamp` 结构，它告诉我们每个用户对电影评级的情况。 下面是数据的示例：
 
     196    242    3    881250949
     186    302    3    891717742
@@ -76,7 +76,7 @@ user-ratings.txt 中包含的数据具有 `userID`、`movieID`、`userRating` �
 使用以下 Windows PowerShell 脚本来运行作业，以将 Mahout 推荐引擎用于电影数据：
 
 > [!NOTE]
-> 此文件将提示你输入用于连接到 HDInsight 群集和运行作业的信息。 完成作业和下载 output.txt 文件可能需要几分钟时间。
+> 此文件会提示你输入用于连接到 HDInsight 群集和运行作业的信息。 完成作业和下载 output.txt 文件可能需要几分钟时间。
 
 ```powershell
 # Login to your Azure subscription
@@ -178,7 +178,7 @@ Get-AzureStorageBlobContent -blob "HdiSamples/HdiSamples/MahoutMovieData/user-ra
 > [!NOTE]
 > Mahout 作业不删除在处理作业时创建的临时数据。 在示例作业中指定 `--tempDir` 参数，以将临时文件隔离到特定目录中。
 
-Mahout 作业不会将输出返回到 STDOUT。 而是会将其作为 **part-r-00000**存储在指定的输出目录中。 该脚本将此文件下载到你工作站上的当前目录中的 **output.txt** 中。
+Mahout 作业不会将输出返回到 STDOUT。 而是会将其作为 **part-r-00000**存储在指定的输出目录中。 该脚本将此文件下载到工作站上的当前目录中的 **output.txt** 中。
 
 以下文本是此文件内容的示例：
 
@@ -363,7 +363,7 @@ foreach($blob in $blobs)
 
 ### <a name="nopowershell"></a>不适用于 Azure PowerShell 的类
 
-在 Windows PowerShell 中使用时，使用以下类的 Mahout 作业将返回各种错误消息：
+在 Windows PowerShell 中使用时，使用以下类的 Mahout 作业返回各种错误消息：
 
 * org.apache.mahout.utils.clustering.ClusterDumper
 * org.apache.mahout.utils.SequenceFileDumper
@@ -382,7 +382,7 @@ foreach($blob in $blobs)
 * org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 * org.apache.mahout.classifier.df.tools.Describe
 
-若要运行使用这些类的作业，请使用 SSH 连接到 HDInsight 群集，然后从命令行运行这些作业。 有关使用 SSH 运行 Mahout 作业的示例，请参阅[使用 Mahout 和 HDInsight (SSH) 生成电影推荐](hdinsight-hadoop-mahout-linux-mac.md)。
+如果要运行使用这些类的作业，请使用 SSH 连接到 HDInsight 群集，并从命令行运行这些作业。 有关使用 SSH 运行 Mahout 作业的示例，请参阅[使用 Mahout 和 HDInsight (SSH) 生成电影推荐](hdinsight-hadoop-mahout-linux-mac.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/03/2017
-ms.date: 05/08/2017
+origin.date: 06/26/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: f552e75b2f14cb7e86f3bb1245ebea4524d7d6f4
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 8b48087927385c5112cb10a542f5534ecc6785e5
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>在 Hadoop on HDInsight 中使用 MapReduce
 
@@ -35,13 +35,14 @@ ms.lasthandoff: 07/14/2017
 | [远程桌面](hdinsight-hadoop-use-mapreduce-remote-desktop.md)（HDInsight 3.2 和 3.3） |通过**远程桌面**使用 Hadoop 命令 |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a id="whatis"></a>什么是 MapReduce
 
-Hadoop MapReduce 是一个软件框架，用于编写处理海量数据的作业。 输入数据已拆分成独立的区块，这些区块将在群集中的节点之间并行处理。 MapReduce 作业包括两个函数：
+Hadoop MapReduce 是一个软件框架，用于编写处理海量数据的作业。 输入数据已拆分成独立的区块，这些区块会在群集中的节点之间并行处理。 MapReduce 作业包括两个函数：
 
-* **映射器**：使用输入数据，对数据进行分析（通常使用筛选器和排序操作），然后发出元组（键/值对）
+* 
+            **映射器**：使用输入数据，对数据进行分析（通常使用筛选器和排序操作），并发出元组（键/值对）
 
 * **化简器**：使用映射器发出的元组并执行汇总运算，以基于映射器数据创建更小的合并结果
 
@@ -162,7 +163,7 @@ public class WordCount {
 
 ## <a id="run"></a>运行 MapReduce
 
-HDInsight 可以使用各种方法运行 HiveQL 作业。 使用下表来确定哪种方法最适合你，然后按链接进行演练。
+HDInsight 可以使用各种方法运行 HiveQL 作业。 使用下表来确定哪种方法最适合用户，并访问此链接进行演练。
 
 | **使用此方法**... | **...实现此目的** | ...使用此 **群集操作系统** | ...从此 **客户端操作系统** |
 |:--- |:--- |:--- |:--- |
@@ -174,7 +175,7 @@ HDInsight 可以使用各种方法运行 HiveQL 作业。 使用下表来确定�
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a id="nextsteps"></a>后续步骤
 
@@ -199,3 +200,5 @@ HDInsight 可以使用各种方法运行 HiveQL 作业。 使用下表来确定�
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
+
+<!--Update_Description: update meta data-->

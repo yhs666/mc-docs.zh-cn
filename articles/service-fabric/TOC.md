@@ -26,6 +26,7 @@
 ### 概念
 #### [支持的编程模型](service-fabric-choose-framework.md)
 #### [应用程序模型](service-fabric-application-model.md)
+#### [托管模型](service-fabric-hosting-model.md)
 #### [服务清单资源](service-fabric-service-manifest-resources.md)
 #### [服务状态](service-fabric-concepts-state.md)
 #### [服务分区](service-fabric-concepts-partitioning.md)
@@ -52,8 +53,12 @@
 
 #### Reliable Collections
 ##### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
+##### [Reliable Collection 指导原则和建议](service-fabric-reliable-services-reliable-collections-guidelines.md)
 ##### [使用可靠集合](service-fabric-work-with-reliable-collections.md)
+##### [事务和锁](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+##### [可靠的并发队列](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Reliable Collection 序列化](service-fabric-reliable-services-reliable-collections-serialization.md)
+##### [可靠状态管理器和 Reliable Collection 内部](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### 入门
 ##### [Windows 上的 C#](service-fabric-reliable-services-quick-start.md)
@@ -178,7 +183,7 @@
 ##### [Azure 门户](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 ##### [Visual Studio 和 Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
-#### 缩放 
+
 #### [升级](service-fabric-cluster-upgrade.md)
 #### [设置访问控制](service-fabric-cluster-security-roles.md)
 #### [配置](service-fabric-cluster-fabric-settings.md)

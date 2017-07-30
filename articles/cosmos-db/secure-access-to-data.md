@@ -15,14 +15,13 @@ ms.topic: article
 origin.date: 05/24/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1c73990c8afc5a337b2d5b8b595482ad5a3ad970
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 8a510cda5b1e14123cfa6187665344d92bac76dc
+ms.sourcegitcommit: f219d4fb1900676a4c86e7d9776c65bbc6b0f6f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/17/2017
 ---
-# 保护对 Azure Cosmos DB 数据的访问
-<a id="securing-access-to-azure-cosmos-db-data" class="xliff"></a>
+# <a name="securing-access-to-azure-cosmos-db-data"></a>保护对 Azure Cosmos DB 数据的访问
 本文概述了如何保护对存储在 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 中的数据的访问。
 
 Azure Cosmos DB 使用两种类型的密钥来验证用户身份并提供其数据和资源的访问权限。 
@@ -34,8 +33,7 @@ Azure Cosmos DB 使用两种类型的密钥来验证用户身份并提供其数�
 
 <a id="master-keys"></a>
 
-## 主密钥
-<a id="master-keys" class="xliff"></a> 
+## <a name="master-keys"></a>主密钥 
 
 主密钥提供对数据库帐户中所有管理资源的访问权限。 主密钥：  
 - 提供对帐户、数据库、用户和权限的访问权限。 
@@ -47,16 +45,15 @@ Azure Cosmos DB 使用两种类型的密钥来验证用户身份并提供其数�
 
 Azure Cosmos DB 帐户除了有两个主密钥以外，还有两个只读密钥。 这些只读密钥只允许针对帐户执行读取操作。 只读密钥不提供对资源的读取权限。
 
-可以使用 Azure 门户检索和重新生成主要、辅助、只读和读写主密钥。 有关说明，请参阅[查看、复制和重新生成访问密钥](manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys)。
+可以使用 Azure 门户检索和重新生成主要、辅助、只读和读写主密钥。 有关说明，请参阅[查看、复制和重新生成访问密钥](manage-account.md#keys)。
 
 ![Azure 门户中的访问控制 (IAM) - 演示 NoSQL 数据库安全性](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
-轮换主密钥的过程相当简单。 导航到 Azure 门户并检索你的辅助密钥，在应用程序中将主要密钥替换为该辅助密钥，然后在 Azure 门户中轮换主要密钥即可。
+轮换主密钥的过程相当简单。 导航到 Azure 门户并检索用户的辅助密钥，在应用程序中将主要密钥替换为该辅助密钥，并在 Azure 门户中轮换主要密钥即可。
 
 ![Azure 门户中的主密钥轮换 - 演示 NoSQL 数据库安全性](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
 
-### 有关使用主密钥的代码示例
-<a id="code-sample-to-use-a-master-key" class="xliff"></a>
+### <a name="code-sample-to-use-a-master-key"></a>有关使用主密钥的代码示例
 
 以下代码示例演示如何使用 Cosmos DB 帐户终结点和主密钥来实例化 DocumentClient 并创建数据库。 
 
@@ -80,8 +77,7 @@ Database database = await client.CreateDatabaseAsync(
 
 <a id="resource-tokens"></a>
 
-## 资源令牌
-<a id="resource-tokens" class="xliff"></a>
+## <a name="resource-tokens"></a>资源令牌
 
 资源令牌提供对数据库中应用程序资源的访问权限。 资源令牌：
 - 提供对特定集合、分区键、文档、附件、存储过程、触发器和 UDF 的访问权限。
@@ -105,7 +101,7 @@ Cosmos DB 资源令牌提供一种安全的替代方案，使客户端能够根�
 5. 一旦建立标识，中间层服务就会基于标识请求权限。
 6. 中间层服务将资源令牌发送回手机应用。
 7. 手机应用可以继续使用该资源令牌以该资源令牌定义的权限按照该资源令牌允许的间隔直接访问 Cosmos DB 资源。 
-8. 资源令牌到期后，后续请求将收到 401 未经授权的异常。  此时，手机应用会重新建立标识，并请求新的资源令牌。
+8. 资源令牌到期后，后续请求收到 401 未经授权的异常。  此时，手机应用会重新建立标识，并请求新的资源令牌。
 
     ![Azure Cosmos DB 资源令牌工作流](./media/secure-access-to-data/resourcekeyworkflow.png)
 
@@ -115,8 +111,7 @@ Cosmos DB 资源令牌提供一种安全的替代方案，使客户端能够根�
 
 <a id="users"></a>
 
-## 用户
-<a id="users" class="xliff"></a>
+## <a name="users"></a>用户
 Cosmos DB 用户与 Cosmos DB 数据库关联。  每个数据库可以包含零个或更多 Cosmos DB 用户。  以下代码示例演示如何创建 Cosmos DB 用户资源。
 
 ```csharp
@@ -136,8 +131,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 
 <a id="permissions"></a>
 
-## 权限
-<a id="permissions" class="xliff"></a>
+## <a name="permissions"></a>权限
 Cosmos DB 权限资源与 Cosmos DB 用户关联。  每个用户可能包含零个或多个 Cosmos DB 权限。  权限资源提供对用户在尝试访问某个特定应用程序资源时需要的安全令牌的访问权限。
 权限资源提供两种可用的访问级别：
 
@@ -145,12 +139,11 @@ Cosmos DB 权限资源与 Cosmos DB 用户关联。  每个用户可能包含零
 * 只读：用户只能读取资源的内容，但无法对资源执行写入、更新或删除操作。
 
 > [!NOTE]
-> 为了运行 Cosmos DB 存储过程，用户必须具有对存储过程将在其中运行的集合的所有权限。
+> 为了运行 Cosmos DB 存储过程，用户必须具有对存储过程在其中运行的集合的所有权限。
 > 
 > 
 
-### 有关创建权限的代码示例
-<a id="code-sample-to-create-permission" class="xliff"></a>
+### <a name="code-sample-to-create-permission"></a>有关创建权限的代码示例
 
 以下代码示例演示如何创建权限资源、读取权限资源的资源令牌以及将权限与上面创建的[用户](#users)关联。
 
@@ -169,8 +162,7 @@ Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
 
 如果为集合指定了分区键，则除 ResourceLink 以外，集合、文档和附件资源的权限，还必须包含 ResourcePartitionKey。
 
-### 有关读取用户权限的代码示例
-<a id="code-sample-to-read-permissions-for-user" class="xliff"></a>
+### <a name="code-sample-to-read-permissions-for-user"></a>有关读取用户权限的代码示例
 
 为了方便地获取与特定用户关联的所有权限资源，Cosmos DB 使权限源对每个用户对象均可用。  下面的代码片段演示如何检索与上面创建的用户关联的权限、构造权限列表以及代表用户实例化新 DocumentClient。
 
@@ -188,8 +180,7 @@ foreach (Permission perm in permFeed)
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * 若要详细了解 Cosmos DB 数据库安全性，请参阅 [Cosmos DB：数据库安全性](database-security.md)。
-* 若要了解如何管理主密钥和只读密钥，请参阅[如何管理 Azure Cosmos DB 帐户](manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys)。
+* 若要了解如何管理主密钥和只读密钥，请参阅[如何管理 Azure Cosmos DB 帐户](manage-account.md#keys)。
 * 若要了解如何构造 Azure Cosmos DB 授权令牌，请参阅 [Azure Cosmos DB 资源的访问控制](https://docs.microsoft.com/zh-cn/rest/api/documentdb/access-control-on-documentdb-resources)。

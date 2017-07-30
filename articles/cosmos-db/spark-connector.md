@@ -16,26 +16,22 @@ ms.topic: article
 origin.date: 06/05/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 435757b73767e387f5cef4a56e63d4f7d67eb1a5
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: c0ebed71cc30078f715832f1795b6a40f78e17ad
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/26/2017
 ---
-# 使用 Spark 到 Azure Cosmos DB 的连接器加速实时大数据分析
-<a id="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector" class="xliff"></a>
+# <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>使用 Spark 到 Azure Cosmos DB 的连接器加速实时大数据分析
 
 Spark 到 Azure Cosmos DB 的连接器能使 Cosmos DB 充当 Apache Spark 作业的输入源或输出接收器。 将 [Spark](http://spark.apache.org/) 连接到 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 后，可以更快地解决瞬息万变的数据科学问题，其中，你可以使用 Cosmos DB 快速保存和查询数据。 Spark 到 Azure Cosmos DB 的连接器可以有效地利用本机 Cosmos DB 托管索引。 针对快速变化的全球分布的数据执行分析和向下推送谓词筛选时，这些索引可用于实现可更新的列（范围从物联网 (IoT) 到数据科学以及分析方案）。
+<!-- Not Available  [Perform graph analytics using Spark and Apache TinkerPop Gremlin](spark-connector-graph.md) -->
 
-有关将 Spark GraphX 与 Azure Cosmos DB 的 Gremlin Graph API 配合使用的信息，请参阅[使用 Spark 和 Apache TinkerPop Gremlin 执行图形分析](spark-connector-graph.md)。
-
-## 下载
-<a id="download" class="xliff"></a>
+## <a name="download"></a>下载
 
 若要开始使用，请从 GitHub 上的 [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/) 存储库下载 Spark 到 Azure Cosmos DB 的连接器（预览版）。
 
-## 连接器组件
-<a id="connector-components" class="xliff"></a>
+## <a name="connector-components"></a>连接器组件
 
 连接器利用以下组件：
 
@@ -65,14 +61,12 @@ Spark 到 Azure Cosmos DB 的连接器能使 Cosmos DB 充当 Apache Spark 作�
 - 通过 [Azure DocumentDB Python SDK](https://github.com/Azure/azure-documentdb-python) 使用 pyDocumentDB。
 - 利用 [Azure DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java) 创建基于 Java 的 Spark 到 Cosmos DB 的连接器。
 
-## pyDocumentDB 实现
-<a id="pydocumentdb-implementation" class="xliff"></a>
+## <a name="pydocumentdb-implementation"></a>pyDocumentDB 实现
 使用最新的 [pyDocumentDB SDK](https://github.com/Azure/azure-documentdb-python) 可将 Spark 连接到 Cosmos DB，如下图所示：
 
 ![通过 pyDocumentDB DB 的 Spark 到 Cosmos DB 数据流。](./media/spark-connector/spark-pydocumentdb.png)
 
-### pyDocumentDB 实现的数据流
-<a id="data-flow-of-the-pydocumentdb-implementation" class="xliff"></a>
+### <a name="data-flow-of-the-pydocumentdb-implementation"></a>pyDocumentDB 实现的数据流
 
 数据流如下所示：
 
@@ -82,16 +76,14 @@ Spark 到 Azure Cosmos DB 的连接器能使 Cosmos DB 充当 Apache Spark 作�
 
 Spark 与 Cosmos DB 之间的通信仅限于 Spark 主节点和 Cosmos DB 网关节点。  查询速度与这两个节点之间的传输层允许的速度相同。
 
-### 安装 pyDocumentDB
-<a id="install-pydocumentdb" class="xliff"></a>
+### <a name="install-pydocumentdb"></a>安装 pyDocumentDB
 可以使用 **pip** 在驱动程序节点上安装 pyDocumentDB，例如：
 
 ```
 pip install pyDocumentDB
 ```
 
-### 通过 pyDocumentDB 将 Spark 连接到 Cosmos DB
-<a id="connect-spark-to-cosmos-db-via-pydocumentdb" class="xliff"></a>
+### <a name="connect-spark-to-cosmos-db-via-pydocumentdb"></a>通过 pyDocumentDB 将 Spark 连接到 Cosmos DB
 由于通信传输很简单，所以，使用 pyDocumentDB 执行从 Spark 到 Cosmos DB 的查询相当简单。
 
 以下代码片段演示了如何在 Spark 上下文中使用 pyDocumentDB。
@@ -119,8 +111,7 @@ client = document_client.DocumentClient(host, {'masterKey': masterKey}, connecti
 * Cosmos DB Python SDK (`pyDocumentDB`) 包含所有必需的连接参数。 例如，首选的位置参数选择读取副本和优先级顺序。
 *  导入所需的库，并配置 **masterKey** 和**主机**来创建 Cosmos DB *客户端* (**pydocumentdb.document_client**)。
 
-### 通过 pyDocumentDB 执行 Spark 查询
-<a id="execute-spark-queries-via-pydocumentdb" class="xliff"></a>
+### <a name="execute-spark-queries-via-pydocumentdb"></a>通过 pyDocumentDB 执行 Spark 查询
 以下示例使用前面代码片段中通过指定的只读密钥创建的 Cosmos DB 实例。 以下代码片段在前面指定的 DoctorWho 帐户中连接到 **airports.codes** 集合，并运行一个查询来提取华盛顿州的机场城市信息。
 
 ```
@@ -152,15 +143,13 @@ elements = list(query)
 df = spark.createDataFrame(elements)
 ```
 
-### 为何使用 pyDocumentDB 将 Spark 连接到 Cosmos DB？
-<a id="why-use-the-pydocumentdb-to-connect-spark-to-cosmos-db" class="xliff"></a>
+### <a name="why-use-the-pydocumentdb-to-connect-spark-to-cosmos-db"></a>为何使用 pyDocumentDB 将 Spark 连接到 Cosmos DB？
 在以下应用场景中，通常使用 pyDocumentDB 将 Spark 连接到 Cosmos DB：
 
 * 你希望使用 Python。
 * 你要从 Cosmos DB 中向 Spark 返回相对较小的结果集。 请注意，Cosmos DB 中的基础数据集可能很大。 你要应用筛选器，也就是说，针对 Cosmos DB 源运行谓词筛选器。  
 
-## Spark 到 Cosmos DB 的连接器
-<a id="spark-to-cosmos-db-connector" class="xliff"></a>
+## <a name="spark-to-cosmos-db-connector"></a>Spark 到 Cosmos DB 的连接器
 
 Spark 到 Cosmos DB 的连接器利用 [Azure DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java)，并在 Spark 辅助角色节点与 Cosmos DB 之间移动数据，如下图所示：
 
@@ -175,16 +164,14 @@ Spark 到 Cosmos DB 的连接器利用 [Azure DocumentDB Java SDK](https://githu
 
 Spark 与 Cosmos DB 之间的通信速度会大幅提高，因为数据移动在 Spark 辅助角色节点与 Cosmos DB 数据节点（分区）之间进行。
 
-### 构建 Spark 到 Cosmos DB 的连接器
-<a id="build-the-spark-to-cosmos-db-connector" class="xliff"></a>
+### <a name="build-the-spark-to-cosmos-db-connector"></a>构建 Spark 到 Cosmos DB 的连接器
 目前，连接器项目使用 maven。 若要构建不带依赖项的连接器，可以运行：
 ```
 mvn clean package
 ```
 也可以从 *releases* 文件夹中下载最新版本的 JAR。
 
-### 包含 Azure Cosmos DB Spark JAR
-<a id="include-the-azure-cosmos-db-spark-jar" class="xliff"></a>
+### <a name="include-the-azure-cosmos-db-spark-jar"></a>包含 Azure Cosmos DB Spark JAR
 在执行任何代码之前，都需要包含 Azure Cosmos DB Spark JAR。  如果使用 **spark-shell**，则可以使用 **-jar** 选项包含 JAR。  
 
 ```
@@ -210,8 +197,7 @@ spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3.jar,/$
 
 使用 **jars** 命令可以包含 **azure-cosmosdb-spark** 所需的两个 JAR（该 JAR 本身以及 Azure DocumentDB Java SDK）并排除 **scala-reflect**，使其不会干扰 Livy 调用（Jupyter 笔记本 > Livy > Spark）。
 
-### 使用连接器将 Spark 连接到 Cosmos DB
-<a id="connect-spark-to-cosmos-db-using-the-connector" class="xliff"></a>
+### <a name="connect-spark-to-cosmos-db-using-the-connector"></a>使用连接器将 Spark 连接到 Cosmos DB
 尽管通信传输有点复杂，但使用连接器执行从 Spark 到 Cosmos DB 的查询要快得多。
 
 以下代码片段演示了如何在 Spark 上下文中使用连接器。
@@ -242,8 +228,7 @@ coll.createOrReplaceTempView("c")
 - **azure-cosmosdb-spark** 包含所有必需的连接参数，包括首选位置。 例如，可以选择读取副本和优先级顺序。
 - 只需导入所需的库，并配置 masterKey 和主机来创建 Cosmos DB 客户端。
 
-### 通过连接器执行 Spark 查询
-<a id="execute-spark-queries-via-the-connector" class="xliff"></a>
+### <a name="execute-spark-queries-via-the-connector"></a>通过连接器执行 Spark 查询
 
 以下示例使用前面代码片段中通过指定的只读密钥创建的 Cosmos DB 实例。 以下代码片段连接到 DepartureDelays.flights_pcoll 集合（前面指定的 DoctorWho 帐户），并运行一个查询来提取从西雅图出发的航班的航班延迟信息。
 
@@ -259,8 +244,7 @@ df.count()
 df.show()
 ```
 
-### 为何使用 Spark 到 Cosmos DB 的连接器实现？
-<a id="why-use-the-spark-to-cosmos-db-connector-implementation" class="xliff"></a>
+### <a name="why-use-the-spark-to-cosmos-db-connector-implementation"></a>为何使用 Spark 到 Cosmos DB 的连接器实现？
 
 在以下应用场景中，通常使用连接器将 Spark 连接到 Cosmos DB：
 
@@ -269,14 +253,12 @@ df.show()
 
 若要大致了解查询性能的差异，请参阅[查询测试运行 wiki 文章](https://github.com/Azure/azure-cosmosdb-spark/wiki/Query-Test-Runs)。
 
-## 分布式聚合示例
-<a id="distributed-aggregation-example" class="xliff"></a>
+## <a name="distributed-aggregation-example"></a>分布式聚合示例
 本部分举例说明了如何结合使用 Apache Spark 和 Azure Cosmos DB 来执行分布式聚合与分析。 Azure Cosmos DB 已经支持聚合，[使用 Azure Cosmos DB 在全球范围内聚合](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)博客中对此进行了讨论。 下面是可以通过 Apache Spark 将其提升到下一级别的方式。
 
 请注意，这些聚合与 [Spark 到 Cosmos DB 的连接器 Notebook](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Spark-to-DocumentDB_Connector.ipynb) 相关。
 
-### 连接到航班示例数据
-<a id="connect-to-flights-sample-data" class="xliff"></a>
+### <a name="connect-to-flights-sample-data"></a>连接到航班示例数据
 这些聚合示例访问 **DoctorWho** Cosmos DB 数据库中存储的一些航班绩效数据。 若要连接到这些数据，需要利用以下代码片段：
 
 ```
@@ -308,8 +290,7 @@ originSEA.createOrReplaceTempView("originSEA")
 
 从 Jupyter 笔记本服务运行查询后，生成了以下结果。  请注意，所有代码片段都是泛用性的，并不特定于任一服务。
 
-### 运行 LIMIT 和 COUNT 查询
-<a id="running-limit-and-count-queries" class="xliff"></a>
+### <a name="running-limit-and-count-queries"></a>运行 LIMIT 和 COUNT 查询
 就像我们在 SQL/Spark SQL 中经常所做的那样，让我们从 **LIMIT** 查询开始：
 
 ![Spark LIMIT 查询](./media/spark-connector/spark-sql-query.png)
@@ -318,8 +299,7 @@ originSEA.createOrReplaceTempView("originSEA")
 
 ![Spark COUNT 查询](./media/spark-connector/spark-count-query.png)
 
-### GROUP BY 查询
-<a id="group-by-query" class="xliff"></a>
+### <a name="group-by-query"></a>GROUP BY 查询
 接下来，我们可以针对 Cosmos DB 数据库轻松运行 **GROUP BY** 查询：
 
 ```
@@ -331,18 +311,15 @@ order by sum(delay) desc limit 10
 
 ![Spark  GROUP BY 查询图表](./media/spark-connector/group-by-query-graph.png)
 
-### DISTINCT, ORDER BY 查询
-<a id="distinct-order-by-query" class="xliff"></a>
+### <a name="distinct-order-by-query"></a>DISTINCT, ORDER BY 查询
 下面是 **DISTINCT, ORDER BY** 查询：
 
 ![Spark  GROUP BY 查询图表](./media/spark-connector/order-by-query.png)
 
-### 继续分析航班数据
-<a id="continue-the-flight-data-analysis" class="xliff"></a>
+### <a name="continue-the-flight-data-analysis"></a>继续分析航班数据
 可以使用以下示例查询继续分析航班数据：
 
-#### 从西雅图出发的航班延迟次数最多的 5 个目的地（城市）
-<a id="top-5-delayed-destinations-cities-departing-from-seattle" class="xliff"></a>
+#### <a name="top-5-delayed-destinations-cities-departing-from-seattle"></a>从西雅图出发的航班延迟次数最多的 5 个目的地（城市）
 ```
 select destination, sum(delay)
 from originSEA
@@ -352,8 +329,7 @@ order by sum(delay) limit 5
 ```
 ![Spark 延迟次数最多的目的地图表](./media/spark-connector/top-delays-graph.png)
 
-#### 根据从西雅图出发的航班的目的地城市计算平均延迟时间
-<a id="calculate-median-delays-by-destination-cities-departing-from-seattle" class="xliff"></a>
+#### <a name="calculate-median-delays-by-destination-cities-departing-from-seattle"></a>根据从西雅图出发的航班的目的地城市计算平均延迟时间
 ```
 select destination, percentile_approx(delay, 0.5) as median_delay
 from originSEA
@@ -364,8 +340,7 @@ order by percentile_approx(delay, 0.5)
 
 ![Spark 平均延迟时间图表](./media/spark-connector/median-delays-graph.png)
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 从 [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark) GitHub 存储库下载 Spark 到 Cosmos DB 的连接器（如果尚未下载），并浏览该存储库中的其他资源：
 

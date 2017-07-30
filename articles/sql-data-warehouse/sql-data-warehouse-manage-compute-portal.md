@@ -16,11 +16,11 @@ ms.custom: manage
 origin.date: 10/31/2016
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: b9a9e282adce8c2da15b4bafe0fd75d04c903e20
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: b351d529c2e3d202bca613ceb80ca688123b0c82
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/26/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-azure-portal"></a>管理 Azure SQL 数据仓库中的计算能力（Azure 门户）
 
@@ -48,12 +48,13 @@ ms.lasthandoff: 07/13/2017
 
     ![点击“保存”(Save)][3]
 
-## <a name="pause-compute"></a><a name="pause-compute-bk"></a>暂停计算
+<a name="pause-compute-bk"></a>
+## <a name="pause-compute"></a> 暂停计算
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
 暂停数据库：
 
-1. 打开 [Azure 门户][Azure portal] ，并打开你的数据库。 请注意，状态为“联机” 。
+1. 打开 [Azure 门户][Azure portal]，并打开数据库。 请注意，状态为“联机” 。
 
     ![联机状态][6]
 2. 若要挂起计算和内存资源，请单击“暂停”，随后将显示确认消息。 单击“是”确认，或者单击“否”取消。

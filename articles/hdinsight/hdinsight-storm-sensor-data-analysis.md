@@ -16,11 +16,11 @@ ms.workload: big-data
 origin.date: 03/21/2017
 ms.date: 05/08/2017
 ms.author: v-dazen
-ms.openlocfilehash: fb729591ac0039c512b898478093e178d7f33d7d
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: c15d042cf169deb07aee0522695eab6c0a467543
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>使用 Apache Storm、事件中心和 HDInsight 中的 HBase (Hadoop) 分析传感器数据
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 07/14/2017
 > [!NOTE]
 > 此文档中的信息和此文档中的示例需要 HDInsight 3.5 版。
 >
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 07/14/2017
 > [!IMPORTANT]
 > 需要两个群集，因为没有方法支持为 Storm 和 HBase 创建同一个 HDInsight 群集。
 
-拓扑使用 [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) 类从事件中心读取数据，并使用 [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html) 类将数据写入到 HBase。 与网站的通信可通过使用 [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java) 来实现。
+拓扑使用 [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) 类从事件中心读取数据，并使用 [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/releases/1.0.1/javadocs/org/apache/storm/hbase/bolt/HBaseBolt.html) 类将数据写入到 HBase。 与网站的通信可通过使用 [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java) 来实现。
 
 下图说明拓扑的布局：
 
@@ -312,7 +312,7 @@ ms.lasthandoff: 07/14/2017
 
         hbase shell
 
-    在 Shell 加载后，将会显示 `hbase(main):001:0>` 提示符。
+    在 Shell 加载后，会显示 `hbase(main):001:0>` 提示符。
 
 3. 从 HBase Shell 中，输入以下命令以创建存储传感器数据的表。
 
@@ -390,7 +390,7 @@ ms.lasthandoff: 07/14/2017
 
         hbase shell
 
-    在 Shell 加载后，将会显示 `hbase(main):001:0>` 提示符。
+    在 Shell 加载后，会显示 `hbase(main):001:0>` 提示符。
 
 3. 查看表中的行：
 

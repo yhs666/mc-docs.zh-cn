@@ -15,28 +15,25 @@ ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 05/30/2017
-ms.date: 07/03/2017
-ms.author: v-johch
-ms.openlocfilehash: 1c3899dfba26ee0ce32197b1666dc53c795350d5
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 3dfc19cf6c49632f2595abc9944ae5869f5fe215
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 在 Azure 门户中创建 Azure SQL 数据库
-<a id="create-an-azure-sql-database-in-the-azure-portal" class="xliff"></a>
+# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>在 Azure 门户中创建 Azure SQL 数据库
 
 本快速入门教程逐步讲解如何在 Azure 中创建 SQL 数据库。 Azure SQL 数据库是一种“数据库即服务”产品，可用于在云中运行和缩放高可用性 SQL Server 数据库。 本快速入门教程介绍如何开始使用 Azure 门户创建 SQL 数据库。
 
 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
 
-## 登录到 Azure 门户
-<a id="log-in-to-the-azure-portal" class="xliff"></a>
+## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
 
 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-## 创建 SQL 数据库
-<a id="create-a-sql-database" class="xliff"></a>
+## <a name="create-a-sql-database"></a>创建 SQL 数据库
 
 创建 Azure SQL 数据库时，会使用定义好的一组[计算和存储资源](sql-database-service-tiers.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 数据库逻辑服务器](sql-database-features.md)中创建。 
 
@@ -60,7 +57,7 @@ ms.lasthandoff: 06/30/2017
    > 必须选择此表单中的示例数据库，因为本快速入门中的其余部分会用到它。
    > 
 
-4. 单击“服务器”，然后填写“新建服务器”表单，指定全局唯一的服务器名称，提供服务器管理员登录名，然后指定所选的密码。 
+4. 单击“服务器”，填写“新建服务器”表单，指定全局唯一的服务器名称，提供服务器管理员登录名，并指定所选的密码。 
 
    > [!IMPORTANT]
    > 在此处指定的服务器管理员登录名和密码是以后在本快速入门中登录到服务器及其数据库所必需的。 请牢记或记录此信息，以后会使用到它。 
@@ -81,8 +78,7 @@ ms.lasthandoff: 06/30/2017
 
    ![通知](./media/sql-database-get-started-portal/notification.png)
 
-## 创建服务器级防火墙规则
-<a id="create-a-server-level-firewall-rule" class="xliff"></a>
+## <a name="create-a-server-level-firewall-rule"></a>创建服务器级防火墙规则
 
 SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防火墙规则来为特定的 IP 地址打开防火墙，否则会阻止外部应用程序和工具连接到服务器或服务器上的任何数据库。 按照以下步骤为客户端 IP 地址创建 [SQL 数据库服务器级防火墙规则](sql-database-firewall-configure.md)，只允许通过 SQL 数据库防火墙进行外部连接，而该防火墙只对你的 IP 地址开放。 
 
@@ -96,7 +92,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
    > 在后续的快速入门中，需提供此完全限定的服务器名称才能连接到服务器及其数据库。
    > 
 
-   ![服务器名称](./media/sql-database-get-started-portal/server-name.png) 
+   ![服务器名称](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. 如上图所示，在工具栏上单击“设置服务器防火墙”。 此时会打开 SQL 数据库服务器的“防火墙设置”页。 
 
@@ -115,8 +111,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 > [!IMPORTANT]
 > 默认情况下，所有 Azure 服务都允许通过 SQL 数据库防火墙进行访问。 在此页上单击“关”即可对所有 Azure 服务执行禁用操作。
 
-## 查询 SQL 数据库
-<a id="query-the-sql-database" class="xliff"></a>
+## <a name="query-the-sql-database"></a>查询 SQL 数据库
 
 在 Azure 中创建示例数据库以后，即可使用 Azure 门户中的内置查询工具确认是否能够连接到数据库并查询数据。 
 
@@ -126,7 +121,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
 2. 依次单击“查询编辑器(预览版)”、“预览条款”复选框、“确定”。 此时会打开“查询编辑器”页。
 
-3. 单击“登录”，然后在出现提示时选择“SQL Server 身份验证”，然后提供前面创建的服务器管理员登录名和密码。
+3. 单击“登录”，在出现提示时选择“SQL Server 身份验证”，并提供前面创建的服务器管理员登录名和密码。
 
    ![登录](./media/sql-database-get-started-portal/login.png) 
 
@@ -141,22 +136,20 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-6. 单击“运行”，然后在“结果”窗格中查看查询结果。
+6. 单击“运行”，并在“结果”窗格中查看查询结果。
 
    ![查询编辑器结果](./media/sql-database-get-started-portal/query-editor-results.png)
 
 7. 关闭“查询编辑器”页和“工具”页。
 
-## 清理资源
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>清理资源
 
 如果不需要将这些资源用于其他快速入门/教程（请参阅[后续步骤](#next-steps)），则可通过以下操作将其删除：
 
 1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击“myResourceGroup”。 
 2. 在资源组页上单击“删除”，在文本框中键入 **myResourceGroup**，然后单击“删除”。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 有了数据库以后，即可使用偏好的工具进行连接和查询。 若要了解详细信息，请选择下面的工具：
 
@@ -168,3 +161,5 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 - [Java](sql-database-connect-query-java.md)
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
+
+<!--Update_Description: update image link references-->

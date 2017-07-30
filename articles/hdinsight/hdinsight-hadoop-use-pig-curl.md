@@ -17,11 +17,11 @@ ms.workload: big-data
 origin.date: 05/03/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: c5881feced45d5f30625fde3b3091d9bab884827
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 625288cf26d2863d5a81120a5c54e8b40bb883b4
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>使用 REST 通过 HDInsight 上的 Hadoop 运行 Pig 作业
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 07/14/2017
 * Azure HDInsight（HDInsight 上的 Hadoop）群集（基于 Linux 或 Windows）
 
   > [!IMPORTANT]
-  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * [Curl](http://curl.haxx.se/)
 
@@ -110,7 +110,7 @@ HDInsight 可以使用 Azure 存储作为默认数据存储。 有关详细信�
 
 ## <a id="summary"></a>摘要
 
-如本文档中所示，你可以使用原始 HTTP 请求运行、监视和查看 HDInsight 群集上的 Pig 作业的结果。
+如本文档中所示，可以使用原始 HTTP 请求运行、监视和查看 HDInsight 群集上的 Pig 作业的结果。
 
 有关本文中使用的 REST 接口的详细信息，请参阅 [WebHCat 参考](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference)。
 
@@ -122,5 +122,6 @@ HDInsight 可以使用 Azure 存储作为默认数据存储。 有关详细信�
 
 有关 HDInsight 上的 Hadoop 的其他使用方法的信息：
 
-* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* 
+            [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
 * [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)

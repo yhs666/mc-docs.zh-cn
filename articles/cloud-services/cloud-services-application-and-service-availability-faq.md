@@ -3,7 +3,7 @@ title: "Microsoft Azure 云服务的应用程序和服务可用性常见问题�
 description: "本文列出 Microsoft Azure 云服务的常见应用程序和服务可用性问题。"
 services: cloud-services
 documentationcenter: 
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: 
 tags: top-support-issue
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 6/9/2017
-ms.author: v-six
-ms.date: 07/17/2017
-ms.openlocfilehash: 859e9a280fc3ae783e5ce7511591ce7fa33515df
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+origin.date: 07/10/2017
+ms.author: v-yiso
+ms.date: 07/31/2017
+ms.openlocfilehash: ca496638a69989ba455a6b4dec6e0e9d7dbac535
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的应用程序和服务可用性问题：常见问题解答 (FAQ)
 
@@ -47,3 +47,7 @@ Microsoft 大约每隔一个月就会针对 Windows Azure PaaS VM 发布新的�
 若要更改 IIS 的默认行为，需要使用启动任务，因为如果向 Web 角色实例手动应用更改，更改最终会丢失。
 
 有关详细信息，请参阅[如何配置和运行云服务的启动任务](./cloud-services-startup-tasks.md)。
+
+
+
+<!--Update_Description: update meta data only-->

@@ -14,21 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 04/20/2017
-ms.date: 07/10/2017
+ms.date: 07/24/2017
 ms.author: v-yeche
-ms.openlocfilehash: fb126370c2cc1c4974c42a9b283b9193b303caab
-ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.openlocfilehash: ebc5d6d2632d1b78e045346538037502535d1ff3
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 07/26/2017
 ---
-# 在 Azure 门户中测试 Azure 流分析查询
-<a id="test-azure-stream-analytics-queries-in-the-azure-portal" class="xliff"></a>
+# <a name="test-azure-stream-analytics-queries-in-the-azure-portal"></a>在 Azure 门户中测试 Azure 流分析查询
 
 使用 Azure 流分析，可以在无需启动或停止作业的情况下在 Azure 门户中测试查询。
 
-## 测试输入
-<a id="test-the-input" class="xliff"></a>
+## <a name="test-the-input"></a>测试输入
 
 1. 若要使用示例输入数据进行测试，请右键单击任意输入，然后选择“从文件上传示例数据”。
 
@@ -46,16 +44,16 @@ ms.lasthandoff: 06/26/2017
 
 对浏览器中显示的结果感到满意后，即可保存查询、启动作业并使其在不出现错误的情况下处理事件。
 
-## 获取帮助
-<a id="get-help" class="xliff"></a>
+## <a name="get-help"></a>获取帮助
 
 如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 * [Azure 流分析简介](stream-analytics-introduction.md)
-* [Azure 流分析入门](stream-analytics-get-started.md)
+* [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
+<!--Update_Description: update link-->

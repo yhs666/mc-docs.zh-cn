@@ -3,7 +3,7 @@ title: "Azure Web 应用的应用程序性能常见问题解答 | Azure"
 description: "获取有关 Azure 应用服务 Web 应用功能的可用性、性能和应用程序的常见问题解答。"
 services: app-service\web
 documentationcenter: 
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: 
 tags: top-support-issue
@@ -13,44 +13,38 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 05/16/2017
-ms.date: 07/10/2017
+origin.date: 07/10/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: fd296751a9f12df95f9d6f1d129406e2cc93e70f
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: 3e7886695e200c491435fd637caadb95602530ea
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/28/2017
 ---
-# Azure 中 Web 应用的应用程序性能常见问题解答
-<a id="application-performance-faqs-for-web-apps-in-azure" class="xliff"></a>
+# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的应用程序性能常见问题解答
 
 本文对 [Azure 应用服务 Web 应用功能](https://www.azure.cn/home/features/app-service/web-apps/)的应用程序性能常见问题 (FAQ) 进行了解答。
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## 为何我的应用运行速度缓慢？
-<a id="why-is-my-app-slow" class="xliff"></a>
+## <a name="why-is-my-app-slow"></a>为何我的应用运行速度缓慢？
 
 有多种因素可能导致应用性能降低。 有关问题排查的详细步骤，请参阅 [Troubleshoot slow web app performance](app-service-web-troubleshoot-performance-degradation.md)（排查导致 Web 应用性能降低的问题）。
 
-## 如何解决 CPU 占用高的问题？
-<a id="how-do-i-troubleshoot-a-high-cpu-consumption-scenario" class="xliff"></a>
+## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>如何解决 CPU 占用高的问题？
 
 在某些 CPU 占用高的情况下，应用可能真的需要更多计算资源。 在这种情况下，请考虑缩放到更高的服务层，以便应用程序获取所需的所有资源。 其他情况下，高 CPU 占用可能是由错误循环或编码实践导致的。 深入了解 CPU 占用升高的触发因素这一过程分为两部分。 首先，创建进程转储，然后分析此进程转储。 有关详细信息，请参阅[捕获和分析 Web 应用高 CPU 占用的转储文件](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/)。
 
-## 如何解决内存占用高的问题？
-<a id="how-do-i-troubleshoot-a-high-memory-consumption-scenario" class="xliff"></a>
+## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>如何解决内存占用高的问题？
 
 在某些内存占用高的情况下，应用可能真的需要更多计算资源。 在这种情况下，请考虑缩放到更高的服务层，以便应用程序获取所需的所有资源。 在其他情况下，代码中存在的 bug 可能会导致内存泄漏。 此外，编码实践也可能会增大内存占用。 深入了解内存占用高的触发因素这一过程分为两部分。 首先，创建进程转储，然后分析此进程转储。 Azure 站点扩展库中的故障诊断程序可高效执行这两个步骤。 有关详细信息，请参阅[捕获和分析 Web 应用间歇性高内存的转储文件](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)。
 
-## 如何使用 PowerShell 实现应用服务 Web 应用的自动化？
-<a id="how-do-i-automate-app-service-web-apps-by-using-powershell" class="xliff"></a>
+## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>如何使用 PowerShell 实现应用服务 Web 应用的自动化？
 
 可以使用 PowerShell cmdlet 管理和维护应用服务 Web 应用。 在我们的博客文章 [Automate web apps hosted in Azure App Service by using PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)（使用 PowerShell 实现 Azure 应用服务中托管的 Web 应用的自动化）中，我们将说明如何使用基于 Azure Resource Manager 的 PowerShell cmdlet 自动执行常见任务。 此博客文章中还包含适用于各种 Web 应用管理任务的示例代码。 有关所有应用服务 Web 应用 cmdlet 的说明和语法，请参阅 [AzureRM.Websites](https://docs.microsoft.com/powershell/module/azurerm.websites/?view=azurermps-4.0.0)。
 
-## 如何查看 Web 应用的事件日志？
-<a id="how-do-i-view-my-web-apps-event-logs" class="xliff"></a>
+## <a name="how-do-i-view-my-web-apps-event-logs"></a>如何查看 Web 应用的事件日志？
 
 若要查看 Web 应用的事件日志，请执行以下操作：
 
@@ -60,8 +54,7 @@ ms.lasthandoff: 06/30/2017
 4. 若要查看事件日志，请选择“eventlog.xml”旁边的铅笔图标。
 5. 若要下载日志，请运行 PowerShell cmdlet `Save-AzureWebSiteLog -Name webappname`。
 
-## 如何捕获 Web 应用的用户模式内存转储？
-<a id="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app" class="xliff"></a>
+## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>如何捕获 Web 应用的用户模式内存转储？
 
 若要捕获 Web 应用的用户模式内存转储，请执行以下操作：
 
@@ -70,8 +63,7 @@ ms.lasthandoff: 06/30/2017
 3. 右键单击“w3wp.exe”进程或 WebJob 进程。
 4. 选择“下载内存转储” > “完全转储”。
 
-## 如何查看 Web 应用的进程级信息？
-<a id="how-do-i-view-process-level-info-for-my-web-app" class="xliff"></a>
+## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>如何查看 Web 应用的进程级信息？
 
 可通过两种方法查看 Web 应用的进程级信息：
 
@@ -83,8 +75,7 @@ ms.lasthandoff: 06/30/2017
     2. 选择“进程资源管理器”菜单。
     3. 对于“w3wp.exe”进程，选择“属性”。
 
-## 浏览到应用时，看到“错误 403 - 此 web 应用已停止。” 如何解决此问题？
-<a id="when-i-browse-to-my-app-i-see-error-403---this-web-app-is-stopped-how-do-i-resolve-this" class="xliff"></a>
+## <a name="when-i-browse-to-my-app-i-see-error-403---this-web-app-is-stopped-how-do-i-resolve-this"></a>浏览到应用时，看到“错误 403 - 此 web 应用已停止。” 如何解决此问题？
 
 有三种情况可能导致此错误：
 
@@ -94,13 +85,11 @@ ms.lasthandoff: 06/30/2017
 
 若要了解导致错误的原因并解决问题，请按照 [Web 应用：“错误 403 - 此 web 应用已停止”](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/)中的步骤进行操作。
 
-## 可从何处了解有关各种应用服务计划的配额和限制的详细信息？
-<a id="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans" class="xliff"></a>
+## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>可从何处了解有关各种应用服务计划的配额和限制的详细信息？
 
 有关配额和限制的信息，请参阅[应用服务限制](../azure-subscription-service-limits.md#app-service-limits)。 
 
-## 如何缩短空闲时间后第一个请求的响应时间？
-<a id="how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time" class="xliff"></a>
+## <a name="how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time"></a>如何缩短空闲时间后第一个请求的响应时间？
 
 默认情况下，如果 Web 应用已处于空闲状态相当一段时间，则其处于未加载的状态。 这样，系统可以节省资源。 其缺点是：Web 应用处于未加载的状态后，对第一个请求的响应时间较长，需要等待 Web 应用加载和启动处理响应。 在基本和标准服务计划中，可启用“始终打开”设置，使应用保持加载状态。 这样就无需在应用处于空闲状态后重新加载应用。 若要更改“始终打开”设置，请执行以下操作：
 
@@ -108,8 +97,7 @@ ms.lasthandoff: 06/30/2017
 2. 选择“应用程序设置”。
 3. 对于“始终打开”，选择“打开”。
 
-## 如何打开失败的请求跟踪？
-<a id="how-do-i-turned-on-failed-request-tracing" class="xliff"></a>
+## <a name="how-do-i-turned-on-failed-request-tracing"></a>如何打开失败的请求跟踪？
 
 若要打开失败的请求跟踪，请执行以下操作：
 
@@ -157,8 +145,7 @@ ms.lasthandoff: 06/30/2017
 19. 选择“LogFiles”文件夹，然后选择名称以“W3SVC”开头的文件夹。
 20. 若要查看 XML 文件，请选择铅笔图标。
 
-## 看到消息“由于‘内存百分比’限制工作进程请求回收。” 如何解决此问题？
-<a id="i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue" class="xliff"></a>
+## <a name="i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue"></a>看到消息“由于‘内存百分比’限制工作进程请求回收。” 如何解决此问题？
 
 对于 32 位的进程（即使是在 64 位操作系统中），最大可用内存量是 2 GB。 默认情况下，应用服务中的工作进程设置为 32 位（以便与旧版 Web 应用程序兼容）。
 
@@ -168,22 +155,19 @@ ms.lasthandoff: 06/30/2017
 
 有关详细信息，请参阅[在应用服务中配置 web 应用](/app-service-web/web-sites-configure)。
 
-## 为什么请求在 240 秒后超时？
-<a id="why-does-my-request-time-out-after-240-seconds" class="xliff"></a>
+## <a name="why-does-my-request-time-out-after-240-seconds"></a>为什么请求在 240 秒后超时？
 
 Azure 负载均衡器的默认空闲超时设置为四分钟。 这通常是 Web 请求合理的响应时间限制。 如果 Web 应用需要后台处理，建议使用 Azure WebJobs。 Azure Web 应用可以调用 WebJobs，并在后台处理完成时收到通知。 有多种方法可用于使用 WebJobs，包括队列和触发器。
 
 WebJobs 专用于后台处理。 可在 WebJobs 中执行任意数量的后台处理。 有关 WebJobs 的详细信息，请参阅[使用 WebJobs 运行后台任务](/app-service-web/web-sites-create-web-jobs)。
 
-## 应用服务中托管的 ASP.NET Core 应用程序有时会停止响应。 如何解决此问题？
-<a id="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue" class="xliff"></a>
+## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>应用服务中托管的 ASP.NET Core 应用程序有时会停止响应。 如何解决此问题？
 
 早期 [Kestrel 版本](https://github.com/aspnet/KestrelHttpServer/issues/1182)的已知问题可能会导致托管于应用服务中的 ASP.NET Core 1.0 应用间歇性地停止响应。 你可能还会看到此消息：“指定的 CGI 应用程序遇到错误，服务器终止了进程。”
 
 已在 Kestrel 版本 1.0.2 中修复了此问题。 此版本包含在 ASP.NET Core 1.0.3 更新中。 若要解决此问题，请确保将你的应用依赖项更新为使用 Kestrel 1.0.2。 或者，可以使用博客文章 [ASP.NET Core 1.0 slow perf issues in App Service web apps](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites)（应用服务 Web 应用中 ASP.NET Core 1.0 低性能问题）中介绍的两种解决方法之一。
 
-## 在 Web 应用的文件结构中找不到日志文件。 如何找到它们？
-<a id="i-cant-find-my-log-files-in-the-file-structure-of-my-web-app-how-can-i-find-them" class="xliff"></a>
+## <a name="i-cant-find-my-log-files-in-the-file-structure-of-my-web-app-how-can-i-find-them"></a>在 Web 应用的文件结构中找不到日志文件。 如何找到它们？
 
 如果使用应用服务的本地缓存功能，应用服务实例“LogFiles 和数据”文件夹的文件夹结构会受到影响。 使用本地缓存时，将在存储 LogFiles 和数据文件夹中创建子文件夹。 子文件夹使用“唯一标识符”+ 时间戳的命名模式。 每个子文件夹对应于一个 VM 实例，其中的 Web 应用正在运行或已运行。
 
@@ -191,8 +175,7 @@ WebJobs 专用于后台处理。 可在 WebJobs 中执行任意数量的后台�
 
 如果未使用本地缓存，并且遇到此问题，请提交支持请求。
 
-## 我看到消息“以一种访问权限不允许的方式做了一个访问套接字的尝试。” 如何解决此问题？
-<a id="i-see-the-message-an-attempt-was-made-to-access-a-socket-in-a-way-forbidden-by-its-access-permissions-how-do-i-resolve-this" class="xliff"></a>
+## <a name="i-see-the-message-an-attempt-was-made-to-access-a-socket-in-a-way-forbidden-by-its-access-permissions-how-do-i-resolve-this"></a>我看到消息“以一种访问权限不允许的方式做了一个访问套接字的尝试。” 如何解决此问题？
 
 将发生此错误通常是因为 VM 实例上的出站 TCP 连接耗尽。 在应用服务中，将强制限制每个 VM 实例的最大出站连接数。 有关详细信息，请参阅[跨 VM 数字限制](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)。
 
@@ -200,7 +183,8 @@ WebJobs 专用于后台处理。 可在 WebJobs 中执行任意数量的后台�
 
 有关 Web 应用中的出站连接的详细信息，请参阅有关[到 Azure 网站的传出连接](http://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/)的博客文章。
 
-## 如何使用 Visual Studio 远程调试应用服务 Web 应用？
-<a id="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app" class="xliff"></a>
+## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>如何使用 Visual Studio 远程调试应用服务 Web 应用？
 
 有关如何使用 Visual Studio 调试 Web 应用的详细演练，请参阅 [Remote debug your App Service web app](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/)（远程调试应用服务 Web 应用）。
+
+<!--Update_Description: update meta data-->

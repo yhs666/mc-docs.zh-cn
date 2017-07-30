@@ -17,11 +17,11 @@ ms.workload: big-data
 origin.date: 05/31/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 30a9f411bb82fe56113674980e63ea6d927f673a
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 699f61129db3e95957a3a33ffc669e03ca9b984c
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-power-bi-to-visualize-data-from-an-apache-storm-topology"></a>使用 Power BI 直观显示 Apache Storm 拓扑中的数据
 
@@ -44,7 +44,7 @@ Power BI 允许以可视方式将数据显示为报表。 本文档提供了如�
 * HDInsight 群集。 有关详细信息，请参阅 [Storm on HDInsight 入门](hdinsight-apache-storm-tutorial-get-started-linux.md)。
 
   > [!IMPORTANT]
-  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * Visual Studio（以下版本之一）
 

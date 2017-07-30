@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 10/28/2016
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 72786c300831b3204f2494a6f3a36000186f8f06
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 3ed629d41d9f3e3d74ad6e54fb8a6ca55e23780a
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>连续部署到 Azure 应用服务
 
@@ -43,32 +43,32 @@ ms.lasthandoff: 07/14/2017
     > [!NOTE]
     > Azure 中国目前只支持公共存储库，因为我们无法输入 Web 应用的 Git 凭据。
 
-    Azure 将创建与所选存储库的关联，从指定的分支提取文件，并保留 Azure Web 应用存储库的副本。
+    Azure 会创建与所选存储库的关联，从指定的分支提取文件，并保留 Azure Web 应用存储库的副本。
 3. 在应用的“概览”边栏选项卡中，单击“获取发布配置文件”以下载 Web 应用的发布配置文件。
 4. 使用文本编辑器打开发布配置文件，并获取以下值。
 
     ```
     userName="$<YOUR_WEB_APP>" userPWD="<SOME_BIG_RANDOM_TOKEN>"
     ```
-5. 在 GitHub 存储库页面上，单击“设置”，选择“Webhook 与服务”，然后单击“添加 Webhook”
+5. 在 GitHub 存储库页面上，单击“设置”，选择“Webhook 与服务”，并单击“添加 Webhook”
 6. 在“有效负载 URL”中，输入 `https://$<YOUR_WEB_APP>:<SOME_BIG_RANDOM_TOKEN>@<YOUR_WEB_APP>.scm.chinacloudsites.cn/deploy`，按原样保留所有其他项目，然后单击“添加 Webhook”以保存新的 Webhook。
 5. 若要验证是否已成功部署应用，请在 Azure 门户的应用边栏选项卡顶部单击“URL”。
-6. 若要验证是否能够在从所选存储库进行连续部署，请将更改推送到该存储库。 推送到存储库完成后，你的应用应该很快更新以反映更改。 可在应用的“部署选项”边栏选项卡中验证是否已拉取更新。
+6. 若要验证是否能够在从所选存储库进行连续部署，请将更改推送到该存储库。 推送到存储库完成后，应用应该很快更新以反映更改。 可在应用的“部署选项”边栏选项卡中验证是否已拉取更新。
 
 ## <a name="VSsolution"></a>连续部署 Visual Studio 解决方案
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 将 Visual Studio 解决方案推送到 Azure 应用服务就像推送简单的 index.html 文件一样容易。 应用服务部署过程简化了所有细节，包括还原 NuGet 依赖项和生成应用程序二进制文件。 可以按照仅在 Git 存储库中维护代码的源控件最佳实践操作，并让应用服务部署处理其余工作。
 
-将 Visual Studio 解决方案推送到应用服务的步骤与[上一部分](#overview)中的步骤相同，前提是按以下方式配置解决方案和存储库：
+将 Visual Studio 解决方案推送到应用服务的步骤与 [上一部分](#overview)中的步骤相同，前提是按以下方式配置解决方案和存储库：
 
 * 使用 Visual Studio 源代码管理选项生成如下图所示的 `.gitignore` 文件，或者在内容存储库根目录中手动添加一个 `.gitignore` 文件，其内容类似于此 [.gitignore 示例](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore)。
 
   ![](./media/app-service-continuous-deployment/VS_source_control.png)
-* 将整个解决方案的目录树添加到你的存储库中，其中 .sln 文件位于存储库根中。
+* 将整个解决方案的目录树添加到存储库中，其中 .sln 文件位于存储库根中。
 
-你按照说明设置存储库并将 Azure 中的应用配置为从某个联机 Git 存储库连续发布后，你就可以在 Visual Studio 中从本地开发 ASP.NET 应用程序，并且只需通过将所做的更改推送到联机的 Git 存储库即可连续部署代码。
+按照说明设置存储库并将 Azure 中的应用配置为从某个联机 Git 存储库连续发布后，便可以在 Visual Studio 中从本地开发 ASP.NET 应用程序，并且只需通过将所做的更改推送到联机的 Git 存储库即可连续部署代码。
 
 ## <a name="disableCD"></a>禁用连续部署
 若要禁用连续部署，请执行以下操作：

@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-origin.date: 03/27/2017
-ms.date: 05/02/2017
+origin.date: 07/05/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: abbe10f0d53d99d3fc5131378a9398b62892b574
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 2c9612104abd8494cc7daf21add11c9a30298103
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>在 Azure Redis 缓存中导入和导出数据
 导入/导出是一种 Azure Redis 缓存数据管理操作，可用于通过从高级缓存导入 Redis 缓存数据库 (RDB) 快照以及将 Redis 缓存数据库 (RDB) 快照导出到 Azure 存储帐户中的 blob 来相应地将数据导入到 Azure Redis 缓存以及从 Azure Redis 缓存导出数据。 
@@ -53,7 +53,7 @@ ms.lasthandoff: 07/14/2017
 3. 单击包含要导入的数据的容器。
 
     ![选择容器][cache-import-choose-container]
-4. 通过单击 blob 名称左侧的区域选择要导入的一个或多个 blob，然后单击“选择” 。
+4. 通过单击 blob 名称左侧的区域选择要导入的一个或多个 blob，并单击“选择” 。
 
     ![选择 blob][cache-import-choose-blobs]
 5. 单击“导入”以开始导入过程  。
@@ -83,7 +83,7 @@ ms.lasthandoff: 07/14/2017
    >
 
     ![存储帐户][cache-export-data-choose-account]
-3. 选择所需的 blob 容器，然后单击“选择” 。 若要使用新容器，请单击“添加容器”以先添加该容器，然后再从列表中选择该容器  。
+3. 选择所需的 blob 容器，并单击“选择” 。 如果要使用新容器，请单击“添加容器”以先添加该容器，再从列表中选择该容器  。
 
     ![选择存储容器][cache-export-data-container]
 4. 键入 **Blob 名称前缀**，单击“导出”开始导出过程。 blob 名称前缀用于作为此导出操作生成的文件名称的前缀。
@@ -136,8 +136,8 @@ ms.lasthandoff: 07/14/2017
 某些定价层具有不同的[数据库限制](cache-configure.md#databases)，因此，如果在缓存创建过程中为 `databases` 设置配置了自定义值，则在导入时需注意一些注意事项。
 
 * 当导入到的定价层的 `databases` 限制低于导出层的相应限制时：
-  * 如果你使用的是默认 `databases`数（对于所有定价层来说为 16），则不会丢失数据。
-  * 如果你使用的是在你要导入到的层的限制内的自定义 `databases` 数，则不会丢失数据。
+  * 如果使用的是默认 `databases`数（对于所有定价层来说为 16），则不会丢失数据。
+  * 如果使用的是在要导入到的层的限制内的自定义 `databases` 数，则不会丢失数据。
   * 如果你导出的数据包含超出新层限制的数据库中的数据，则将不会导入这些更高版本数据库中的数据。
 
 ### <a name="how-is-importexport-different-from-redis-persistence"></a>导入/导出与 Redis 持久性有何区别？
@@ -176,3 +176,5 @@ Azure Redis 缓存持久性可让你将 Redis 中存储的数据持久保存到 
 [cache-import-choose-blobs]: ./media/cache-how-to-import-export-data/cache-import-choose-blobs.png
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
+
+<!--Update_Description: update meta data-->

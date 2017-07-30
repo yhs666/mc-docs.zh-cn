@@ -17,11 +17,11 @@ ms.workload: big-data
 origin.date: 06/16/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 6c368d425552ed9267ea802f555363c962083662
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 391fa41e2a698459ab41c8ff6e8c2fd839607d61
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="run-hive-queries-using-powershell"></a>使用 PowerShell 运行 Hive 查询
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/14/2017
 本文档提供使用 Azure 资源组模式中的 Azure PowerShell 在 HDInsight 群集上的 Hadoop 中运行 Hive 查询的示例。
 
 > [!NOTE]
-> 本文档未详细描述示例中使用的 HiveQL 语句的作用。 有关此示例中使用的 HiveQL 的信息，请参阅[将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)。
+> 本文档未详细描述示例中使用的 HiveQL 语句的作用。 有关此示例中使用的 HiveQL 的信息，请参阅 [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)。
 
 **先决条件**
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 07/14/2017
 * **Azure HDInsight 群集**：无论该群集是基于 Windows 还是基于 Linux 都行。
 
   > [!IMPORTANT]
-  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * **配备 Azure PowerShell 的工作站**。
 
@@ -50,14 +50,15 @@ ms.lasthandoff: 07/14/2017
 
 Azure PowerShell 提供 *cmdlet* ，可让你在 HDInsight 上远程运行 Hive 查询。 cmdlet 在内部对 HDInsight 群集上的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) 进行 REST 调用。
 
-在远程 HDInsight 群集上运行 Hive 查询时，将使用以下 Cmdlet：
+在远程 HDInsight 群集上运行 Hive 查询时，使用以下 Cmdlet：
 
 * **Add-AzureRmAccount**：在 Azure 订阅中进行 Azure PowerShell 身份验证
 * **New-AzureRmHDInsightHiveJobDefinition**：使用指定的 HiveQL 语句创建作业定义
-* **Start-AzureRmHDInsightJob**：将作业定义发送到 HDInsight，启动作业，然后返回可用来检查作业状态的*作业*对象
+* 
+            **Start-AzureRmHDInsightJob**：将作业定义发送到 HDInsight，启动作业，并返回可用来检查作业状态的*作业*对象
 * **Wait-AzureRmHDInsightJob**：使用作业对象来检查作业的状态。 它等到作业完成或超出等待时间。
 * **Get-AzureRmHDInsightJobOutput**：用于检索作业的输出
-* **Invoke-AzureRmHDInsightHiveJob**：用于运行 HiveQL 语句。 此 cmdlet 将阻止查询完成，然后返回结果
+* **Invoke-AzureRmHDInsightHiveJob**：用于运行 HiveQL 语句。 此 cmdlet 将阻止查询完成，并返回结果
 * **Use-AzureRmHDInsightCluster**：设置要用于 **Invoke-AzureRmHDInsightHiveJob** 命令的当前群集
 
 以下步骤演示了如何使用这些 Cmdlet 在 HDInsight 群集上运行作业：
@@ -105,11 +106,11 @@ Azure PowerShell 提供 *cmdlet* ，可让你在 HDInsight 上远程运行 Hive 
         -HttpCredential $creds
     ```
 
-2. 打开一个新的 **Azure PowerShell** 命令提示符。 将目录更改为 **hivejob.ps1** 文件的所在位置，然后使用以下命令来运行脚本：
+2. 打开一个新的 **Azure PowerShell** 命令提示符。 将目录更改为 **hivejob.ps1** 文件的所在位置，并使用以下命令来运行脚本：
 
         .\hivejob.ps1
 
-    脚本运行时，系统将提示输入群集名称和该群集的 HTTPS/管理员帐户凭据。 可能还会提示登录到 Azure 订阅。
+    脚本运行时，系统会提示输入群集名称和该群集的 HTTPS/管理员帐户凭据。 可能还会提示登录到 Azure 订阅。
 
 3. 作业完成时，它会返回类似以下文本的信息：
 
@@ -160,7 +161,7 @@ Azure PowerShell 提供 *cmdlet* ，可让你在 HDInsight 上远程运行 Hive 
 
 ## <a name="troubleshooting"></a>故障排除
 
-如果在作业完成时未返回任何信息，则可能表示处理期间发生错误。 若要查看此作业的错误信息，请将以下内容添加到 **hivejob.ps1** 文件的末尾，保存，然后重新运行该文件。
+如果在作业完成时未返回任何信息，则可能表示处理期间发生错误。 如果要查看此作业的错误信息，请将以下内容添加到 **hivejob.ps1** 文件的末尾，保存，并重新运行该文件。
 
 ```powershell
 # Print the output of the Hive job.
@@ -181,7 +182,8 @@ Get-AzureRmHDInsightJobOutput `
 
 有关 HDInsight 中的 Hive 的一般信息：
 
-* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* 
+            [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 

@@ -16,17 +16,17 @@ origin.date: 01/17/2017
 ms.date: 03/24/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
-ms.openlocfilehash: e985afb480f37ba83c04cc2ba46fa6a1d621d9c6
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 9034f3cf56634c4c1d25541efa95cc8b03b15d1f
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>使用 Tez UI 调试基于 Windows 的 HDInsight 上的 Tez 作业
-Tez UI 是一个网页，可用于了解和调试在基于 Windows 的 HDInsight 群集上将 Tez 用作执行引擎的作业。 利用 Tez UI，你可以将作业显示为包含已连接项目的图形、深入了解每个项目并检索统计信息和日志记录信息。
+Tez UI 是一个网页，可用于了解和调试在基于 Windows 的 HDInsight 群集上将 Tez 用作执行引擎的作业。 利用 Tez UI，可以将作业显示为包含已连接项目的图形、深入了解每个项目并检索统计信息和日志记录信息。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Windows 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> 本文档中的步骤需要使用 Windows 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="prerequisites"></a>先决条件
 * 基于 Windows 的 HDInsight 群集。 有关创建新群集的步骤，请参阅[开始使用基于 Windows 的 HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md)。
@@ -45,7 +45,7 @@ Tez 是 Hadoop 中的一种可扩展数据处理框架，其处理速度比传�
 将工作提交到 Tez 时，Tez 会创建一个有向无环图 (DAG)，用于描述作业所需操作的执行顺序。 单独的操作称为顶点，每个顶点执行完整作业的一部分。 实际执行顶点所描述的工作称为完成任务，任务可以分布在群集的多个节点中。
 
 ### <a name="understanding-the-tez-ui"></a>了解 Tez UI
-Tez UI 是一个网页，提供正在使用 Tez 运行的或此前使用 Tez 运行过的进程的信息。 它允许你查看 Tez 生成的 DAG 及其在群集中的分布情况、计数器（例如任务和顶点所用内存）以及错误信息。 它可以为以下情况提供有用的信息：
+Tez UI 是一个网页，提供正在使用 Tez 运行的或此前使用 Tez 运行过的进程的信息。 它允许查看 Tez 生成的 DAG 及其在群集中的分布情况、计数器（例如任务和顶点所用内存）以及错误信息。 它可以为以下情况提供有用的信息：
 
 * 监视长时间运行的进程、查看映射的进度以及精简任务。
 * 分析成功进程或失败进程的历史数据，了解处理过程的改进方式或其失败的原因。
@@ -76,7 +76,7 @@ Tez UI 包含数据的前提是使用 Tez 引擎的作业当前正在运行或�
 >
 >
 
-1. 在 [Azure 门户](https://portal.azure.cn)中，选择 HDInsight 群集。 在 HDInsight 边栏选项卡的顶部，选择“远程桌面”  图标。 这将显示远程桌面边栏选项卡
+1. 在 [Azure 门户](https://portal.azure.cn)中，选择 HDInsight 群集。 在 HDInsight 边栏选项卡的顶部，选择“远程桌面”  图标。 这会显示远程桌面边栏选项卡
 
     ![“远程桌面”图标](./media/hdinsight-debug-tez-ui/remotedesktopicon.png)
 2. 在“远程桌面”边栏选项卡中，选择“连接”  连接到群集头节点。 出现提示时，使用群集远程桌面用户名和密码验证连接。
@@ -93,9 +93,9 @@ Tez UI 包含数据的前提是使用 Tez 引擎的作业当前正在运行或�
 
     ![Tez UI](./media/hdinsight-debug-tez-ui/tezui.png)
 
-    在 Tez UI 加载时，你会看到群集中当前正在运行或过去曾经运行过的 DAG 列表。 默认视图包括“DAG 名称”、“ID”、“提交者”、“状态”、“开始时间”、“结束时间”、“持续时间”、“应用程序 ID”和“队列”。 使用页面右侧的齿轮图标可以添加更多列。
+    在 Tez UI 加载时，会看到群集中当前正在运行或过去曾经运行过的 DAG 列表。 默认视图包括“DAG 名称”、“ID”、“提交者”、“状态”、“开始时间”、“结束时间”、“持续时间”、“应用程序 ID”和“队列”。 使用页面右侧的齿轮图标可以添加更多列。
 
-    如果只有一个条目，则该条目对应于你在前一部分运行的查询。 如果有多个条目，你可以在 DAG 上方的字段中输入搜索条件进行搜索，然后按 **Enter**。
+    如果只有一个条目，则该条目对应于在前一部分运行的查询。 如果有多个条目，用户可以在 DAG 上方的字段中输入搜索条件进行搜索，并按 **Enter**。
 6. 选择最新的 DAG 条目的“DAG 名称”  。 此时会显示有关 DAG 的信息，以及用于下载 JSON Zip 文件（其中包含有关 DAG 的信息）的选项。
 
     ![DAG 详细信息](./media/hdinsight-debug-tez-ui/dagdetails.png)

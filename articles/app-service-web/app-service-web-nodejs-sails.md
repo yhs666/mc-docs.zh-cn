@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/16/2016
 ms.date: 07/03/2017
 ms.author: v-dazen
-ms.openlocfilehash: 7040697dc879c5bb30ae3ce01c4ec1bfef1b0ceb
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 7bac8f582dac4db5f9b4d8d840504966b3fb633f
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="deploy-a-sailsjs-web-app-to-azure-app-service"></a>将 Sails.js Web 应用部署到 Azure 应用服务
 
@@ -187,7 +187,7 @@ ms.lasthandoff: 07/14/2017
 
 1. [创建具有 MongoDB 协议支持的 Cosmos DB 帐户](../cosmos-db/create-mongodb-nodejs.md)。
 2. [创建 Cosmos DB 集合和数据库](../documentdb/documentdb-create-collection.md)。 集合的名称不重要，但从 Sails.js 连接时需要数据库的名称。
-3. [查找 Cosmos DB 数据库的连接信息](../cosmos-db/connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize)。
+3. [查找 Cosmos DB 数据库的连接信息](../cosmos-db/connect-mongodb-account.md#GetCustomConnection)。
 2. 从命令行终端安装 MongoDB 适配器：
 
         npm install sails-mongo --save

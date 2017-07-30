@@ -3,7 +3,7 @@ title: "针对 Azure web 应用的开源技术常见问题解答 | Azure"
 description: "获取有关 Azure App Service Web 应用功能中开源技术常见问题的解答。"
 services: app-service\web
 documentationcenter: 
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: 
 tags: top-support-issue
@@ -13,24 +13,22 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 05/16/2017
-ms.date: 07/10/2017
+origin.date: 07/10/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 673253bff091fb005ddda101949b36c049529d3e
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: b74f49290c7bd53b5861de3ad5e6915ca2a053af
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 针对 Azure 中 Web 应用的开源技术常见问题的解答
-<a id="open-source-technologies-faqs-for-web-apps-in-azure" class="xliff"></a>
+# <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>针对 Azure 中 Web 应用的开源技术常见问题的解答
 
 本文对 [Azure App Service Web 应用功能](https://www.azure.cn/home/features/app-service/web-apps/)开源技术常见问题 (FAQ) 进行了解答。
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## 如何启用 PHP 日志记录以便对 PHP 问题进行故障排除？
-<a id="how-do-i-turn-on-php-logging-to-troubleshoot-php-issues" class="xliff"></a>
+## <a name="how-do-i-turn-on-php-logging-to-troubleshoot-php-issues"></a>如何启用 PHP 日志记录以便对 PHP 问题进行故障排除？
 
 若要启用 PHP 日志记录：
 
@@ -53,8 +51,7 @@ ms.lasthandoff: 06/30/2017
 
 有关详细信息，请参阅[启用 WordPress 错误日志](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/)。
 
-## 如何在应用服务中承载的应用中记录 Python 应用程序错误？
-<a id="how-do-i-log-python-application-errors-in-apps-that-are-hosted-in-app-service" class="xliff"></a>
+## <a name="how-do-i-log-python-application-errors-in-apps-that-are-hosted-in-app-service"></a>如何在应用服务中承载的应用中记录 Python 应用程序错误？
 
 捕获 Python 应用程序错误：
 
@@ -66,8 +63,7 @@ ms.lasthandoff: 06/30/2017
 
 现在应可在 wwwroot 文件夹中的 logs.txt 文件中看到错误。
 
-## 如何更改应用服务中承载的 Node.js 应用程序的版本？
-<a id="how-do-i-change-the-version-of-the-nodejs-application-that-is-hosted-in-app-service" class="xliff"></a>
+## <a name="how-do-i-change-the-version-of-the-nodejs-application-that-is-hosted-in-app-service"></a>如何更改应用服务中承载的 Node.js 应用程序的版本？
 
 若要更改 Node.js 应用程序的版本，可以使用以下选项之一：
 
@@ -97,8 +93,7 @@ ms.lasthandoff: 06/30/2017
         nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
         ```
 
-## 我在应用服务中承载的我的 WordPress 应用中看到消息“建立数据库连接时出错”。 如何解决此问题？
-<a id="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this" class="xliff"></a>
+## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>我在应用服务中承载的我的 WordPress 应用中看到消息“建立数据库连接时出错”。 如何解决此问题？
 
 如果在 Azure WordPress 应用中看到此错误，为启用 php_errors.log 和 debug.log，请完成[启用 WordPress 错误日志](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/)中详述的步骤。
 
@@ -109,25 +104,21 @@ ms.lasthandoff: 06/30/2017
 
 如果在 debug.log 或 php_errors.log 文件中看到此错误，则表示应用连接数已超出可用数目。 如果是承载于 ClearDB 上，请验证[服务计划](https://www.cleardb.com/pricing.view)中可用的连接数。
 
-## 如何调试应用服务中承载的 Node.js 应用？
-<a id="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service" class="xliff"></a>
+## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>如何调试应用服务中承载的 Node.js 应用？
 
 1.  转到 Kudu 控制台：https://*yourwebsitename*.scm.chinacloudsites.cn/DebugConsole。
 2.  转到应用程序日志文件夹 (D:\home\LogFiles\Application)。
 3.  在 logging_errors.txt 文件中，检查内容。
 
-## 如何在应用服务 Web 应用或 API 应用中安装本机 Python 模块？
-<a id="how-do-i-install-native-python-modules-in-an-app-service-web-app-or-api-app" class="xliff"></a>
+## <a name="how-do-i-install-native-python-modules-in-an-app-service-web-app-or-api-app"></a>如何在应用服务 Web 应用或 API 应用中安装本机 Python 模块？
 
 某些包可能并不通过使用 pip 在 Azure 中安装。 该包可能在 Python 包索引上不可用，或可能需要编译器（编译器在运行应用服务中 Web 应用的计算机上不可用）。 有关在应用服务 Web 应用和 API 应用中安装本机模块的信息，请参阅[在应用服务中安装 Python 模块](https://blogs.msdn.microsoft.com/azureossds/2015/06/29/install-native-python-modules-on-azure-web-apps-api-apps/)。
 
-## 如何通过使用 Git 和新版 Python 将 Django 应用部署到应用服务？
-<a id="how-do-i-deploy-a-django-app-to-app-service-by-using-git-and-the-new-version-of-python" class="xliff"></a>
+## <a name="how-do-i-deploy-a-django-app-to-app-service-by-using-git-and-the-new-version-of-python"></a>如何通过使用 Git 和新版 Python 将 Django 应用部署到应用服务？
 
 有关安装 Django 的信息，请参阅[将 Django 应用部署到应用服务](https://blogs.msdn.microsoft.com/azureossds/2016/08/25/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python/)。
 
-## Tomcat 日志文件位于何处？
-<a id="where-are-the-tomcat-log-files-located" class="xliff"></a>
+## <a name="where-are-the-tomcat-log-files-located"></a>Tomcat 日志文件位于何处？
 
 对于 Azure 应用商店和自定义部署：
 
@@ -149,8 +140,7 @@ ms.lasthandoff: 06/30/2017
     * manager.*yyyy-mm-dd*.log
     * site_access_log.*yyyy-mm-dd*.log
 
-## 如何解决 JDBC 驱动程序连接错误的问题？
-<a id="how-do-i-troubleshoot-jdbc-driver-connection-errors" class="xliff"></a>
+## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>如何解决 JDBC 驱动程序连接错误的问题？
 
 在 Tomcat 日志中，可能会看到以下消息：
 
@@ -173,8 +163,7 @@ The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but
     </httpPlatform>
     ```
 
-## 为什么当我尝试复制实时日志文件时看到错误？
-<a id="why-do-i-see-errors-when-i-attempt-to-copy-live-log-files" class="xliff"></a>
+## <a name="why-do-i-see-errors-when-i-attempt-to-copy-live-log-files"></a>为什么当我尝试复制实时日志文件时看到错误？
 
 如果尝试复制 Java 应用（例如 Tomcat）的实时日志文件，可能会看到此 FTP 错误：
 
@@ -192,20 +181,17 @@ The process cannot access the file because it is being used by another process.
 
 另一解决方法是编写按计划运行并将这些文件复制到另一个目录的 WebJob。 对于示例项目，请参阅 [CopyLogsJob](https://github.com/kamilsykora/CopyLogsJob) 项目。
 
-## 在哪里可以找到 Jetty 的日志文件？
-<a id="where-do-i-find-the-log-files-for-jetty" class="xliff"></a>
+## <a name="where-do-i-find-the-log-files-for-jetty"></a>在哪里可以找到 Jetty 的日志文件？
 
 对于应用商店和自定义部署，日志文件位于 D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs 文件夹。 请注意，文件夹位置取决于所使用的 Jetty 版本。 例如，以下提供的路径用于 Jetty 9.1.2。 查找 jetty_*YYYY_MM_DD*.stderrout.log。
 
 对于门户应用设置部署，日志文件位于 D:\home\LogFiles。 查找 jetty_*YYYY_MM_DD*.stderrout.log
 
-## 是否可从 Azure web 应用发送电子邮件？
-<a id="can-i-send-email-from-my-azure-web-app" class="xliff"></a>
+## <a name="can-i-send-email-from-my-azure-web-app"></a>是否可从 Azure web 应用发送电子邮件？
 
 应用服务没有内置电子邮件功能。 有关从应用发送电子邮件的一些不错的替代方案，请参阅此 [Stack Overflow 讨论](http://stackoverflow.com/questions/17666161/sending-email-from-azure)。
 
-## 为什么我的 WordPress 站点会重定向到另一个 URL？
-<a id="why-does-my-wordpress-site-redirect-to-another-url" class="xliff"></a>
+## <a name="why-does-my-wordpress-site-redirect-to-another-url"></a>为什么我的 WordPress 站点会重定向到另一个 URL？
 
 如果已在最近迁移到 Azure，WordPress 可能会重定向到旧的域 URL。 这是由 MySQL 数据库中的设置所致。
 
@@ -213,37 +199,33 @@ WordPress Buddy+ 是可用于在数据库中直接更新重定向 URL 的 Azure 
 
 或者，如果希望通过使用 SQL 查询或 PHPMyAdmin 手动更新重定向 URL，请参阅 [WordPress：重定向到错误 URL](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/)。
 
-## 如何更改我的 WordPress 登录密码？
-<a id="how-do-i-change-my-wordpress-sign-in-password" class="xliff"></a>
+## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>如何更改我的 WordPress 登录密码？
 
 如果忘记了 WordPress 登录密码，可以使用 WordPress Buddy+ 进行更新。 若要重置密码，请安装 WordPress Buddy+ Azure 站点扩展，然后完成 [WordPress 工具及使用 WordPress Buddy+ 进行 MySQL 迁移](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)中所述的步骤。
 
-## 我无法登录到 WordPress。 如何解决此问题？
-<a id="i-cant-sign-in-to-wordpress-how-do-i-resolve-this" class="xliff"></a>
+## <a name="i-cant-sign-in-to-wordpress-how-do-i-resolve-this"></a>我无法登录到 WordPress。 如何解决此问题？
 
 如果发现最近安装插件后被锁在 WordPress 外，可能插件有误。 WordPress Buddy+ 是 Azure 站点扩展，可帮助禁用 WordPress 中的插件。 有关详细信息，请参阅 [WordPress 工具及使用 WordPress Buddy+ 进行 MySQL 迁移](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)。
 
-## 如何迁移我的 WordPress 数据库？
-<a id="how-do-i-migrate-my-wordpress-database" class="xliff"></a>
+## <a name="how-do-i-migrate-my-wordpress-database"></a>如何迁移我的 WordPress 数据库？
 
 有多种方法可用于迁移连接到 WordPress 网站的 MySQL 数据库：
 
 * 开发人员：使用[命令提示符或 PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
 * 非开发人员：使用 [WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
 
-## 我如何提供帮助，可让 WordPress 更加安全？
-<a id="how-do-i-help-make-wordpress-more-secure" class="xliff"></a>
+## <a name="how-do-i-help-make-wordpress-more-secure"></a>我如何提供帮助，可让 WordPress 更加安全？
 
 若要了解有关 WordPress 的安全性最佳做法，请参阅 [Azure 中的 WordPress 安全性最佳做法](https://blogs.msdn.microsoft.com/azureossds/2016/12/26/best-practices-for-wordpress-security-on-azure/)。
 
-## 我在尝试使用 PHPMyAdmin 时看到消息“拒绝访问。” 如何解决此问题？
-<a id="i-am-trying-to-use-phpmyadmin-and-i-see-the-message-access-denied-how-do-i-resolve-this" class="xliff"></a>
+## <a name="i-am-trying-to-use-phpmyadmin-and-i-see-the-message-access-denied-how-do-i-resolve-this"></a>我在尝试使用 PHPMyAdmin 时看到消息“拒绝访问。” 如何解决此问题？
 
 如果 MySQL 应用内功能尚未在此应用服务实例中运行，可能会遇到此问题。 若要解决此问题，请尝试访问自己的网站。 这将启动所需的进程，包括 MySQL 应用内进程。 若要验证 MySQL 应用内功能正在运行，确保进程资源管理器 的进程中列出了 mysqld.exe。
 
 确保 MySQL 应用内功能运行后，尝试使用 PHPMyAdmin。
 
-## 在尝试使用 PHPMyadmin 导入或导出 MySQL 应用内数据库时，收到了 HTTP 403 错误。 如何解决此问题？
-<a id="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this" class="xliff"></a>
+## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>在尝试使用 PHPMyadmin 导入或导出 MySQL 应用内数据库时，收到了 HTTP 403 错误。 如何解决此问题？
 
 如果使用的是较旧版本的 Chrome，则可能遇到一个已知的 bug。 要解决此问题，请升级到较新版本的 Chrome。 还可尝试使用不会出现此问题的另一种浏览器，如 Internet Explorer 或 Edge。
+
+<!--Update_Description: update meta data-->

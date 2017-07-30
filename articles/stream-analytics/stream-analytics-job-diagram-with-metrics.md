@@ -14,21 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 05/01/2017
-ms.date: 07/10/2017
+ms.date: 07/24/2017
 ms.author: v-yeche
-ms.openlocfilehash: fe6ebb118393a5ed86fd401d6bd19b5bca324cb5
-ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.openlocfilehash: 26bbc12b90a2411c689a5e7104ee10e3177d2d65
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 07/26/2017
 ---
-# 使用作业关系图进行数据驱动调试
-<a id="data-driven-debugging-by-using-the-job-diagram" class="xliff"></a>
+# <a name="data-driven-debugging-by-using-the-job-diagram"></a>使用作业关系图进行数据驱动调试
 
 Azure 门户的“监视”边栏选项卡中的作业关系图可帮助你将作业管道可视化。 它显示了输入、输出和查询步骤。 可使用作业关系图检查每个步骤的指标，并且在解决问题时，更快速地隔离问题来源。
 
-## 使用作业关系图
-<a id="using-the-job-diagram" class="xliff"></a>
+## <a name="using-the-job-diagram"></a>使用作业关系图
 
 在 Azure 门户的流分析作业中，在“支持和故障排除”下，选择“作业关系图”：
 
@@ -54,53 +52,47 @@ Azure 门户的“监视”边栏选项卡中的作业关系图可帮助你将�
 
 ![包含指标的作业关系图 - 悬停](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-6.png)
 
-## 使用指标进行故障排除
-<a id="troubleshoot-by-using-metrics" class="xliff"></a>
+## <a name="troubleshoot-by-using-metrics"></a>使用指标进行故障排除
 
 QueryLastProcessedTime 指标指示特定步骤收到数据的时间。 通过查看拓扑，可以从输出处理器开始反向检查，判断哪个步骤未接收数据。 如果一个步骤未收到数据，请转到它之前的查询步骤。 检查前面的查询步骤是否具有时间范围，以及是否经过了充足的、用于输出数据的时间。 （注意：时间范围会对齐到小时。）
 
 如果前一个查询步骤是输入处理器，请使用输入指标帮助解答下列针对性问题。 它们可帮助你判断作业是否正从其输入源获取数据。 如果查询已分区，请检查每个分区。
 
-### 正在读取的数据量有多少？
-<a id="how-much-data-is-being-read" class="xliff"></a>
+### <a name="how-much-data-is-being-read"></a>正在读取的数据量有多少？
 
 *   **InputEventsSourcesTotal** 是已读取的数据单元的数目。 例如，blob 的数目。
 *   **InputEventsTotal** 是已读取的事件数目。 此指标按分区提供。
 *   **InputEventsInBytesTotal** 是已读取的字节数。
 *   在接收每个事件时，使用该事件的排队时间更新 **InputEventsLastArrivalTime**。
 
-### 时间是否在不断前进？ 如果已读取实际事件，可能不会发出停顿。
-<a id="is-time-moving-forward-if-actual-events-are-read-punctuation-might-not-be-issued" class="xliff"></a>
+### <a name="is-time-moving-forward-if-actual-events-are-read-punctuation-might-not-be-issued"></a>时间是否在不断前进？ 如果已读取实际事件，可能不会发出停顿。
 
 *   **InputEventsLastPunctuationTime** 表示发出停顿，从而使时间不断前进的时间。 如果不发出停顿，数据流可能会阻塞。
 
-### 输入中是否有任何错误？
-<a id="are-there-any-errors-in-the-input" class="xliff"></a>
+### <a name="are-there-any-errors-in-the-input"></a>输入中是否有任何错误？
 
 *   **InputEventsEventDataNullTotal** 是包含 null 数据的事件计数。
 *   **InputEventsSerializerErrorsTotal** 是无法正确反序列化的事件计数。
 *   **InputEventsDegradedTotal** 是出现了问题、但该问题不是反序列化问题的事件计数。
 
-### 事件是否被删除或调整？
-<a id="are-events-being-dropped-or-adjusted" class="xliff"></a>
+### <a name="are-events-being-dropped-or-adjusted"></a>事件是否被删除或调整？
 
 *   **InputEventsEarlyTotal** 是应用程序时间戳在高水位线之前的事件数目。
 *   **InputEventsLateTotal** 是应用程序时间戳在高水位线之后的事件数目。
 *   **InputEventsDroppedBeforeApplicationStartTimeTotal** 是作业开始时间之前删除的事件数目。
 
-### 在读取数据上是否落后于人？
-<a id="are-we-falling-behind-in-reading-data" class="xliff"></a>
+### <a name="are-we-falling-behind-in-reading-data"></a>在读取数据上是否落后于人？
 
 *   **InputEventsSourcesBackloggedTotal** 告知还需要为事件中心和 Azure IoT 中心输入读取多少条消息。
 
-## 获取帮助
-<a id="get-help" class="xliff"></a>
+## <a name="get-help"></a>获取帮助
 若要获取更多帮助，请访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * [流分析简介](stream-analytics-introduction.md)
-* [流分析入门](stream-analytics-get-started.md)
+* [流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放流分析作业](stream-analytics-scale-jobs.md)
 * [流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
+<!--Update_Description: update link-->

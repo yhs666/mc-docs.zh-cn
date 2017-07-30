@@ -17,11 +17,11 @@ ms.workload: big-data
 origin.date: 05/04/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: a9ef5bbd68e63729bd80b9987ba42954b0cdaada
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 287bf50c64716c6d860563e8c537a66a778ba6f0
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>使用 Ambari Web UI 管理 HDInsight 群集
 
@@ -38,7 +38,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 默认已对使用 Linux 操作系统的 HDInsight 群集提供了 Ambari Web UI。
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。 
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 
 
 ## <a name="connectivity"></a>连接
 
@@ -164,7 +164,8 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 
    * **停止所有组件** - 停止主机上的所有组件。
 
-   * **重新启动所有组件** - 停止然后启动主机上的所有组件。
+   * 
+            **重新启动所有组件** - 停止并启动主机上的所有组件。
 
    * **打开维护模式** - 隐藏主机的警报。 如果你正在执行生成了警报的操作，则应当启用此模式。 例如，停止和启动服务。
 
@@ -174,7 +175,8 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 
    * **启动** - 启动主机上的 DataNode 或 NodeManagers。
 
-   * **重新启动** - 停止然后启动主机上的 DataNode 或 NodeManagers。
+   * 
+            **重新启动** - 停止并启动主机上的 DataNode 或 NodeManagers。
 
    * **停用** - 从群集中删除主机。
 

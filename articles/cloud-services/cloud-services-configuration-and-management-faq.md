@@ -3,7 +3,7 @@ title: "Azure 云服务的配置和管理常见问题解答 | Azure"
 description: "本文列出有关 Microsoft Azure 云服务的配置和管理的常见问题。"
 services: cloud-services
 documentationcenter: 
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: 
 tags: top-support-issue
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/09/2017
+origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: 87ddc270cedda3be11bec0a37e5963c98686a841
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 07/31/2017
+ms.openlocfilehash: a7ef3e7148e75a01870492e7c6f2ff9ea8fa8f3f
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的配置和管理问题：常见问题解答 (FAQ)
 
@@ -135,3 +135,6 @@ Microsoft 会持续监视服务器、网络和应用程序以检测威胁。 Azu
 >[获取用于 Windows Azure 网站 (WAWS) 的证书](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/)
 
 请注意，CSR 只是一个文本文件。 不一定要在最终使用该证书的计算机上创建 CSR。 尽管本文档是针对应用服务编写的，但 CSR 创建过程是通用的，同样适用于云服务。
+
+
+<!--Update_Description: update meta data only -->

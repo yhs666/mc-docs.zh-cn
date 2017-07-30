@@ -13,24 +13,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/06/2017
-ms.date: 07/10/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
-ms.openlocfilehash: 36ff5e0d47af1c29b51f99c01854fc83a540108e
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: 53544b6f0dd322b9d2ea15710eed251ae54bc399
+ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 使用 Azure Automation DSC 部署移动服务以复制 VM
-<a id="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm" class="xliff"></a>
+# <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>使用 Azure Automation DSC 部署移动服务以复制 VM
 在 Operations Management Suite 中，我们提供了一个可在业务连续性计划中使用的综合性备份和灾难恢复解决方案。
 
 我们已使用 Hyper-V 副本并结合 Hyper-V 体验了这些功能。 但是，这些功能现已经过扩展，可支持异构设置，因为客户在其云中拥有多个虚拟机监管程序与平台。
 
 如果你目前运行的是 VMware 工作负荷和/或物理服务器，当 Azure 是目标时，管理服务器将运行环境中的所有 Azure Site Recovery 组件来处理与 Azure 之间的通信和数据复制。
 
-## 使用 Automation DSC 部署 Site Recovery 移动服务
-<a id="deploy-the-site-recovery-mobility-service-by-using-automation-dsc" class="xliff"></a>
+## <a name="deploy-the-site-recovery-mobility-service-by-using-automation-dsc"></a>使用 Automation DSC 部署 Site Recovery 移动服务
 让我们快速剖析此管理服务器的作用：
 
 管理服务器运行多个服务器角色。 其中一个角色是 *配置*，负责协调通信，以及管理数据复制与恢复过程。
@@ -50,8 +48,7 @@ ms.lasthandoff: 06/30/2017
 * 将移动服务和 Azure VM 代理部署到要保护的 Windows 计算机。
 * 如果 Azure 是复制目标，移动服务和 Azure VM 代理始终都处于运行状态。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 * 一个存储库，用于存储所需设置
 * 一个存储库，用于存储注册到管理服务器时所需的通行短语
 
@@ -68,8 +65,7 @@ ms.lasthandoff: 06/30/2017
 
 移动服务可通过命令行安装，接受多个参数。 因此，在从安装中提取二进制文件后，需要保留这些文件，并将其存储在能够使用 DSC 配置进行检索的某个位置。
 
-## 步骤 1：提取二进制文件
-<a id="step-1-extract-binaries" class="xliff"></a>
+## <a name="step-1-extract-binaries"></a>步骤 1：提取二进制文件
 1. 若要提取此设置所需的文件，请导航到管理服务器上的以下目录：
 
     **\Azure Site Recovery\home\svsystems\pushinstallsvc\repository**
@@ -85,8 +81,7 @@ ms.lasthandoff: 06/30/2017
 
 现已获得所需的二进制文件，可以使用 Automation DSC 自动安装移动服务了。
 
-### 通行短语
-<a id="passphrase" class="xliff"></a>
+### <a name="passphrase"></a>通行短语
 接下来，你需要确定在何处放置这个压缩的文件夹。 可以使用稍后所述的 Azure 存储帐户来存储设置所需的通行短语。 然后，代理将在此过程中注册到管理服务器。
 
 部署管理服务器时获取的通行短语可以保存到 txt 文件 (passphrase.txt) 中。
@@ -97,8 +92,7 @@ ms.lasthandoff: 06/30/2017
 
 也可以将这些文件保存在网络上的共享文件夹中。 只需确保以后要使用的 DSC 资源可以访问和获取该设置与通行短语即可。
 
-## 步骤 2：创建 DSC 配置
-<a id="step-2-create-the-dsc-configuration" class="xliff"></a>
+## <a name="step-2-create-the-dsc-configuration"></a>步骤 2：创建 DSC 配置
 设置依赖于 WMF 5.0。 为了使计算机能够成功通过 Automation DSC 应用配置，需要安装 WMF 5.0。
 
 环境使用以下示例 DSC 配置：
@@ -216,8 +210,7 @@ configuration ASRMobilityService {
 >
 >
 
-## 步骤 3：上传到 Automation DSC
-<a id="step-3-upload-to-automation-dsc" class="xliff"></a>
+## <a name="step-3-upload-to-automation-dsc"></a>步骤 3：上传到 Automation DSC
 由于所进行的 DSC 配置会导入所需的 DSC 资源模块 (xPSDesiredStateConfiguration)，因此，需要先将该模块导入 Automation 中，然后才能上传 DSC 配置。
 
 登录到自己的自动化帐户，浏览到“资产” > “模块”，然后单击“浏览库”。
@@ -228,8 +221,7 @@ configuration ASRMobilityService {
 
 完成此操作后，请转到已安装 Azure Resource Manager 模块的计算机，然后继续导入新建的 DSC 配置。
 
-### 导入 cmdlet
-<a id="import-cmdlets" class="xliff"></a>
+### <a name="import-cmdlets"></a>导入 cmdlet
 在 PowerShell 中，登录到 Azure 订阅。 修改 cmdlet 以反映环境，然后捕获变量中的自动化帐户信息：
 
 ```powershell
@@ -247,8 +239,7 @@ $ImportArgs = @{
 $AAAccount | Import-AzureRmAutomationDscConfiguration @ImportArgs
 ```
 
-### 在 Automation DSC 中编译配置
-<a id="compile-the-configuration-in-automation-dsc" class="xliff"></a>
+### <a name="compile-the-configuration-in-automation-dsc"></a>在 Automation DSC 中编译配置
 接下来，需要在 Automation DSC 中编译配置，以便开始向它注册节点。 为此，请运行以下 cmdlet：
 
 ```powershell
@@ -263,8 +254,7 @@ $AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobi
 
 现已成功发布 DSC 配置并将其上传到 Automation DSC。
 
-## 步骤 4：将计算机加入 Automation DSC
-<a id="step-4-onboard-machines-to-automation-dsc" class="xliff"></a>
+## <a name="step-4-onboard-machines-to-automation-dsc"></a>步骤 4：将计算机加入 Automation DSC
 > [!NOTE]
 > 完成此方案的一个先决条件是已使用最新版本的 WMF 更新了 Windows 计算机。 可以从 [下载中心](https://www.microsoft.com/download/details.aspx?id=50395)下载并安装适用于平台的正确版本。
 >
@@ -276,8 +266,7 @@ $AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobi
 
 在本示例中，需要使用 Site Recovery 来保护一台 Windows Server 2012 R2 物理服务器。
 
-### 查看注册表中是否有待完成的文件重命名操作
-<a id="check-for-any-pending-file-rename-operations-in-the-registry" class="xliff"></a>
+### <a name="check-for-any-pending-file-rename-operations-in-the-registry"></a>查看注册表中是否有待完成的文件重命名操作
 在开始将服务器关联到 Automation DSC 终结点之前，建议查看注册表中是否有待完成的文件重命名操作。 这些操作可能导致设置无法完成，因为系统等待重新启动。
 
 运行以下 cmdlet，确保服务器上没有待完成的重新启动操作：
@@ -370,8 +359,7 @@ Get-DscConfigurationStatus
 
 请注意，本示例为计算机名添加了一个参数。 远程文件现在位于想要保护的计算机应可访问的远程共享上。 脚本结束时，将启用配置，然后开始将 DSC 配置应用到目标计算机。
 
-### 先决条件
-<a id="prerequisites" class="xliff"></a>
+### <a name="prerequisites"></a>先决条件
 确定已安装 xPSDesiredStateConfiguration PowerShell 模块。 对于安装了 WMF 5.0 的 Windows 计算机，可在目标计算机上运行以下 cmdlet 来安装 xPSDesiredStateConfiguration 模块：
 
 ```powershell
@@ -487,10 +475,9 @@ ASRMobilityService -ComputerName 'MyTargetComputerName'
 Start-DscConfiguration .\ASRMobilityService -Wait -Force -Verbose
 ```
 
-若要在公司网络中实例化自己的 DSC 拉取服务器来模拟 Automation DSC 的功能，请参阅 [Setting up a DSC web pull server](https://msdn.microsoft.com/zh-cn/powershell/dsc/pullserver?f=255&MSPPError=-2147217396)（设置 DSC Web 拉服务器）。
+若要在公司网络中实例化自己的 DSC 拉取服务器来模拟 Automation DSC 的功能，请参阅 [Setting up a DSC web pull server](https://msdn.microsoft.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396)（设置 DSC Web 拉服务器）。
 
-## 可选：使用 Azure Resource Manager 模板部署 DSC 配置
-<a id="optional-deploy-a-dsc-configuration-by-using-an-azure-resource-manager-template" class="xliff"></a>
+## <a name="optional-deploy-a-dsc-configuration-by-using-an-azure-resource-manager-template"></a>可选：使用 Azure Resource Manager 模板部署 DSC 配置
 本文重点介绍如何通过创建自己的 DSC 配置来自动部署移动服务和 Azure VM 代理，以及如何确保它们在要保护的计算机上处于运行状态。 也可以使用 Azure Resource Manager 模板，将此 DSC 配置部署到新的或现有的 Azure 自动化帐户。 此模板使用输入参数来创建包含环境变量的自动化资产。
 
 部署模板后，只需参阅本指南中的步骤 4 即可登记计算机。
@@ -525,6 +512,7 @@ $RGDeployArgs = @{
 New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
-部署移动服务代理后，可为虚拟机[启用复制](site-recovery-vmware-to-azure.md#enable-replication)。
+## <a name="next-steps"></a>后续步骤
+部署移动服务代理后，可为虚拟机[启用复制](site-recovery-vmware-to-azure.md)。
+
+<!--Update_Description: update link-->

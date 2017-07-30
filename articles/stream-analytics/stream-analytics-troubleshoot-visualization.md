@@ -4,8 +4,8 @@ description: "了解如何使用诊断关系图功能对自助服务的流分析
 keywords: 
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 ms.assetid: d87841cd-c59f-4a46-b46e-8b904fdc12e9
 ms.service: stream-analytics
@@ -14,20 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 05/15/2017
+ms.date: 07/24/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: c149722faab8ad645c662737c547f82f7519162e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 3aad293ec2dd86f2e095f3acba1373bfad0ff972
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/26/2017
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>流分析作业的可视化和故障排除
 与其他基于云的技术一样，在流分析中，故障排除有时需要深入了解作业没有生成预期的输出（或者是该问题的任何输出）的原因。 考虑到这一点，流分析提供了可视化流作业的功能。 该功能作为建模工具使用起来也很方便，并且对需要其工作文档的人员来说具有附带好处。
 
-在可视化面板中显示输入和要执行的查询，然后是所有配置的输出。 连接或配置问题变得更加明显，对配置的可视化表示形式也很有用。
+在可视化面板中显示输入和要执行的查询，并是所有配置的输出。 连接或配置问题变得更加明显，对配置的可视化表示形式也很有用。
 
 ## <a name="using-the-diagnosis-diagram-tool"></a>使用诊断关系图工具
 若要访问此可视化工具，只需单击流分析作业的“设置”边栏选项卡中的“诊断关系图”按钮。
@@ -38,13 +36,15 @@ ms.lasthandoff: 05/05/2017
 
 ![stream-analytics-troubleshoot-visualization-input-map](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-input-map.png)
 
-当用户想要查看中间查询步骤，以了解作业内的数据流模式时，该可视化工具提供了将查询细分为其组件步骤的视图和流序列。 单击每个查询步骤将在查询编辑窗格中显示相应的部分，如图所示。 
+当用户想要查看中间查询步骤，以了解作业内的数据流模式时，该可视化工具提供了将查询细分为其组件步骤的视图和流序列。 单击每个查询步骤会在查询编辑窗格中显示相应的部分，如图所示。 
 
 ![stream-analytics-troubleshoot-visualization-intermediate-steps](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-intermediate-steps.png)
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)
-* [Azure 流分析入门](stream-analytics-get-started.md)
+* [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
+<!--Update_Description: update link-->

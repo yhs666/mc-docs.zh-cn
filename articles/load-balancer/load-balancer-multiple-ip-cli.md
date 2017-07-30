@@ -9,20 +9,18 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
-
-ms.assetid:
+ms.assetid: null
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/10/2017
-ms.date: 05/08/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
 ---
 
-# 在多个 IP 配置上进行负载均衡
-<a id="load-balancing-on-multiple-ip-configurations" class="xliff"></a>
+# <a name="load-balancing-on-multiple-ip-configurations"></a>在多个 IP 配置上进行负载均衡
 > [!div class="op_single_selector"]
 > * [门户](load-balancer-multiple-ip.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
@@ -32,13 +30,13 @@ ms.author: v-yeche
 
 ![负载均衡应用场景图像](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
-## 在多个 IP 配置上进行负载均衡的步骤
-<a id="steps-to-load-balance-on-multiple-ip-configurations" class="xliff"></a>
+## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>在多个 IP 配置上进行负载均衡的步骤
 
 按照以下步骤来实现本文所概述的场景：
 
-1. 按照所链接的文章中的步骤[安装和配置 Azure CLI](../cli-install-nodejs.md)，然后登录到你的 Azure 帐户。
-2. 如下所述[创建一个资源组](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations)并将其命名为 *contosofabrikam*。
+1. 按照所链接的文章中的步骤[安装和配置 Azure CLI](../cli-install-nodejs.md)，并登录到用户的 Azure 帐户。
+2. 如下所述[创建一个资源组](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)并将其命名为 *contosofabrikam*。
+<!-- Not Available create-resource-group --> 
 
     ```azurecli
     azure group create contosofabrikam chinaeast
@@ -58,7 +56,7 @@ ms.author: v-yeche
     azure network vnet subnet create --resource-group contosofabrikam --vnet-name myVnet --name mySubnet --address-prefix 10.0.0.0/24
     ```
 
-5. [创建负载均衡器](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-load-balancer-and-ip-pools)并将其命名为 *mylb*：
+5. [创建负载均衡器](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)并将其命名为 *mylb*：
 
     ```azurecli
     azure network lb create --resource-group contosofabrikam --location chinaeast --name mylb
@@ -79,7 +77,7 @@ ms.author: v-yeche
     azure network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp2 --name fabrkamfe
     ```
 
-8. 创建后端地址池 - *contosopool* 和 *fabrikampool*、[探测器](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-load-balancer-health-probe) - *HTTP* 以及负载均衡规则 - *HTTPc* 和 *HTTPf*：
+8. 创建后端地址池 - *contosopool* 和 *fabrikampool*、[探测器](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json) - *HTTP* 以及负载均衡规则 - *HTTPc* 和 *HTTPf*：
 
     ```azurecli
     azure network lb address-pool create --resource-group contosofabrikam --lb-name mylb --name contosopool
@@ -91,13 +89,13 @@ ms.author: v-yeche
     azure network lb rule create --resource-group contosofabrikam --lb-name mylb --name HTTPf --protocol tcp --probe-name http --frontend-port 5000 --backend-port 5000 --frontend-ip-name fabrkamfe --backend-address-pool-name fabrikampool
     ```
 
-9. 运行以下命令，然后检查输入以[验证是否正确创建了负载均衡器](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#verify-the-load-balancer)：
+9. 运行以下命令，并检查输入以[验证是否正确创建了负载均衡器](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)：
 
     ```azurecli
     azure network lb show --resource-group contosofabrikam --name mylb
     ```
 
-10. 为第一个虚拟机 VM1 [创建公共 IP](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-public-ip-address) *myPublicIp* 和[存储帐户](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-storage-account) *mystorageaccont1*，如下所示：
+10. 为第一个虚拟机 VM1 [创建公共 IP](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-public-ip-address) *myPublicIp* 和[存储帐户](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json) *mystorageaccont1*，如下所示：
 
     ```azurecli
     azure network public-ip create --resource-group contosofabrikam --location chinaeast --name myPublicIP --domain-name-label mypublicdns345 --allocation-method Dynamic
@@ -105,7 +103,8 @@ ms.author: v-yeche
     azure storage account create --location chinaeast --resource-group contosofabrikam --kind Storage --sku-name GRS mystorageaccount1
     ```
 
-11. 为 VM1 [创建网络接口](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-an-nic-to-use-with-the-linux-vm)，添加另一个 IP 配置 *VM1-ipconfig2*，然后[创建 VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-the-linux-vms)，如下所示：
+11. 为 VM1 [创建网络接口](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)，添加另一个 IP 配置 *VM1-ipconfig2*，并[创建 VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-the-linux-vms)，如下所示：
+<!-- Not Available create-a-virtual-nic -->
 
     ```azurecli
     azure network nic create --resource-group contosofabrikam --location chinaeast --subnet-vnet-name myVnet --subnet-name mySubnet --name VM1Nic1 --ip-config-name NIC1-ipconfig1
@@ -125,9 +124,10 @@ ms.author: v-yeche
     azure vm create --resource-group contosofabrikam --name VM2 --location chinaeast --os-type linux --nic-names VM2Nic1,VM2Nic2 --vnet-name VNet1 --vnet-subnet-name Subnet1 --availset-name myAvailabilitySet --vm-size Standard_DS3_v2 --storage-account-name mystorageaccount2 --image-urn canonical:UbuntuServer:16.04.0-LTS:latest --admin-username <your username>  --admin-password <your password>
     ```
 
-13. 最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 可以在 Azure DNS 中托管域。<!--Not available in Azure.cn  For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).-->
+13. 最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 可以在 Azure DNS 中托管域。<!--Not available [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).-->
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。
 - 若要了解如何在 Azure 中使用不同类型的日志对负载均衡器进行管理和故障排除，请参阅 [Azure 负载均衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md)。
+
+<!--Update_Description: update link-->

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-origin.date: 06/07/2017
+origin.date: 07/05/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 9f0bbb2cf67f8b000b185ec2980e572f4ed5bc04
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: e7dfa98402c63372e40f885f3a3e34f734a63b68
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>如何配置 Azure Redis 缓存
 本主题介绍如何查看和更新 Azure Redis 缓存实例的配置，并介绍了 Azure Redis 缓存实例的默认 Redis 服务器配置。
@@ -110,7 +110,7 @@ Azure Redis 缓存在“设置”边栏选项卡上提供以下设置。
 
 有关 `maxmemory` 策略的详细信息，请参阅 [Eviction policies](http://redis.io/topics/lru-cache#eviction-policies)（逐出策略）。
 
-“maxmemory-reserved”  设置可为故障转移过程中的复制等非缓存操作配置保留的内存量 (MB)。 碎片比率较高时也可使用此设置。 设置此值能够在负载变化时具有更一致的 Redis 服务器体验。 对于写入密集型工作负荷，应将此值设置为较高。 为此类操作保留内存后，将无法存储缓存数据。
+“maxmemory-reserved”  设置可为故障转移过程中的复制等非缓存操作配置保留的内存量 (MB)。 设置此值能够在负载变化时具有更一致的 Redis 服务器体验。 对于写入密集型工作负荷，应将此值设置为较高。 为此类操作保留内存后，将无法存储缓存数据。
 
 > [!IMPORTANT]
 > “maxmemory-reserved”设置仅适用于标准缓存和高级缓存。
@@ -410,3 +410,5 @@ Azure 门户中的“用户”部分对基于角色的访问控制 (RBAC) 提供
 
 ## <a name="next-steps"></a>后续步骤
 * 有关使用 Redis 命令的详细信息，请参阅[如何运行 Redis 命令？](cache-faq.md#how-can-i-run-redis-commands)
+
+<!--Update_Description: wording update-->

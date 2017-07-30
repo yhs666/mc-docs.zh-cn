@@ -3,8 +3,8 @@ title: "将用户添加到 Azure Active Directory 中的自定义域 | Microsoft
 description: "如何使用用户帐户填充 Azure Active Directory 中的自定义域。"
 services: active-directory
 documentationcenter: 
-author: curtand
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: 
 ms.assetid: 717b5a7c-7bc3-4ab1-98b5-4740b53338fe
 ms.service: active-directory
@@ -12,21 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/08/2016
+origin.date: 07/13/2017
+ms.date: 07/18/2017
 ms.author: v-junlch
-ms.date: 06/12/2016
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: d4964f4eb0cd5458468f7dcdc2f7dc2bb785ceb6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: b6974690592d90f553ca8b5d9fa8793471e7edb5
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="assign-users-to-a-custom-domain"></a>将用户分配到自定义域
-将自定义域添加到 Azure Active Directory 之后，你必须添加此域的用户帐户，才能开始对其身份验证。
+将自定义域添加到 Azure Active Directory 之后，必须添加此域的用户帐户，才能开始对其身份验证。
 
 ## <a name="users-synced-in-from-a-directory-on-your-corporate-network"></a>从企业网络上的目录同步的用户
-如果你已经设定本地 Active Directory 与 Azure Active Directory 之间的连接，则同步可以填充帐户。 如需有关如何同步 Azure Active Directory 与本地 Active Directory 的详细信息，请参阅[将本地标识与 Azure Active Directory 集成](./connect/active-directory-aadconnect.md)。
+如果已经设定本地 Active Directory 与 Azure Active Directory 之间的连接，则同步可以填充帐户。 如需有关如何同步 Azure Active Directory 与本地 Active Directory 的详细信息，请参阅[将本地标识与 Azure Active Directory 集成](./connect/active-directory-aadconnect.md)。
 
 ## <a name="users-added-and-managed-in-the-cloud"></a>在云中添加和管理的用户
 若要更改现有用户帐户的域，请执行以下操作：
@@ -52,5 +51,4 @@ ms.lasthandoff: 05/26/2017
 - [管理自定义域名](active-directory-add-manage-domain-names.md)
 - [了解 Azure AD 中的域管理概念](active-directory-add-domain-concepts.md)
 
-
-
+<!--Update_Description: update meta properties -->   

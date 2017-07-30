@@ -16,19 +16,17 @@ ms.topic: article
 origin.date: 02/25/2016
 ms.date: 12/12/2016
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: f9d1d587df1ee1f0f907850183a374716366589f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
-
+ms.openlocfilehash: 9aabe11c1ae60734f5bb9bf672f0c4d731e3da79
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="azure-app-service-web-app-advanced-config-and-extensions"></a>Azure 应用服务 Web 应用高级配置和扩展
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-使用 [XML 文档转换](http://msdn.microsoft.com/library/dd465326.aspx) (XDT) 声明，可以转换 Azure 应用服务中 Web 应用的 [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) 文件。 你还可使用 XDT 声明添加专用扩展，启用自定义 Web 应用管理操作。 本文包括一个 PHP Manager Web 应用扩展示例，可用于通过 Web 界面管理 PHP 设置。
+使用 [XML 文档转换](http://msdn.microsoft.com/library/dd465326.aspx) (XDT) 声明，可以转换 Azure 应用服务中 Web 应用的 [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) 文件。 还可使用 XDT 声明添加专用扩展，启用自定义 Web 应用管理操作。 本文包括一个 PHP Manager Web 应用扩展示例，可用于通过 Web 界面管理 PHP 设置。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -39,18 +37,20 @@ ms.lasthandoff: 05/19/2017
 
 以下 applicationHost.xdt 示例介绍了如何将新的自定义环境变量添加到使用 PHP 5.4 的 Web 应用。
 
-    <?xml version="1.0"?>
-    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-          <system.webServer>
-                <fastCgi>
-                      <application>
-                         <environmentVariables>
-                                <environmentVariable name="CONFIGTEST" value="TEST" xdt:Transform="Insert" xdt:Locator="XPath(/configuration/system.webServer/fastCgi/application[contains(@fullPath,'5.4')]/environmentVariables)" />
-                         </environmentVariables>
-                      </application>
-                </fastCgi>
-          </system.webServer>
-    </configuration>
+```xml
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.webServer>
+    <fastCgi>
+      <application>
+        <environmentVariables>
+          <environmentVariable name="CONFIGTEST" value="TEST" xdt:Transform="Insert" xdt:Locator="XPath(/configuration/system.webServer/fastCgi/application[contains(@fullPath,'5.4')]/environmentVariables)" />
+        </environmentVariables>
+      </application>
+    </fastCgi>
+  </system.webServer>
+</configuration>
+```
 
 包含转换状态和详细信息的日志文件位于 FTP 根目录 LogFiles\Transform 中。
 
@@ -89,19 +89,21 @@ PHP Manager 扩展是使用 Visual Studio ASP.NET MVC 4 Web 应用程序模板�
 
 文件 I/O 所需的唯一特殊逻辑是表示 Web 应用的 wwwroot 目录所在的位置。 如以下代码示例所示，环境变量“HOME”表示 Web 应用根路径，可以通过追加“site\wwwroot”来构造 wwwroot 路径：
 
-    /// <summary>
-    /// Gives the location of the .user.ini file, even if one doesn't exist yet
-    /// </summary>
-    private static string GetUserSettingsFilePath()
-    {
-            var rootPath = Environment.GetEnvironmentVariable("HOME"); // For use on Azure Websites
-            if (rootPath == null)
-            {
-                rootPath = System.IO.Path.GetTempPath(); // For testing purposes
-            };
-            var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
-            return userSettingsFile;
-    }
+```csharp
+/// <summary>
+/// Gives the location of the .user.ini file, even if one doesn't exist yet
+/// </summary>
+private static string GetUserSettingsFilePath()
+{
+  var rootPath = Environment.GetEnvironmentVariable("HOME"); // For use on Azure Websites
+  if (rootPath == null)
+  {
+    rootPath = System.IO.Path.GetTempPath(); // For testing purposes
+  };
+  var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
+  return userSettingsFile;
+}
+```
 
 得到目录路径后，可以使用常规文件 I/O 操作来读取和写入文件。
 
@@ -118,57 +120,62 @@ Web 应用扩展需要注意的一点是处理内部链接。  如果 HTML 文�
 #### <a id="XDT"></a> applicationHost.xdt 文件
 Web 应用扩展的代码位于 %HOME%\SiteExtensions\[扩展名称] 下。 该目录称为扩展根目录。  
 
-若要使用 applicationHost.config 文件注册 Web 应用扩展，需要将 ApplicationHost.xdt 文件放在扩展根目录中。 ApplicationHost.xdt 文件的内容应如下所示：
+要使用 applicationHost.config 文件注册 Web 应用扩展，需要将 ApplicationHost.xdt 文件放在扩展根目录中。 ApplicationHost.xdt 文件的内容应如下所示：
 
-    <?xml version="1.0"?>
-    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-          <system.applicationHost>
-                <sites>
-                      <site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
-                        <!-- NOTE: Add your extension name in the application paths below -->
-                        <application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
-                        <application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
-                              <virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
-                        </application>
-                      </site>
-                </sites>
-          </system.applicationHost>
-    </configuration>
+```xml
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.applicationHost>
+    <sites>
+      <site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
+        <!-- NOTE: Add your extension name in the application paths below -->
+        <application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
+        <application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
+          <virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
+        </application>
+      </site>
+    </sites>
+  </system.applicationHost>
+</configuration>
+```
 
 选择作为扩展名称的名称应与扩展根文件夹的名称相同。
 
 这样做可以将新应用程序路径添加到 SCM 站点下的 `system.applicationHost` 站点列表中。 SCM 站点为具有特定访问凭据的站点管理终结点。 其 URL 为 `https://[your-site-name].scm.chinacloudsites.cn`。  
 
-    <system.applicationHost>
-          ...
-          <site name="~1[your-website]" id="1716402716">
-                  <bindings>
-                    <binding protocol="http" bindingInformation="*:80: [your-website].scm.chinacloudsites.cn" />
-                    <binding protocol="https" bindingInformation="*:443: [your-website].scm.chinacloudsites.cn" />
-                  </bindings>
-                  <traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
-                  <detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
-                  <logFile logSiteId="false" />
-                  <application path="/" applicationPool="[your-website]">
-                    <virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
-                  </application>
-                <!-- Note the custom changes that go here -->
-                  <application path="/[your-extension-name]" applicationPool="[your-website]">
-                    <virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
-                  </application>
-            </site>
-      </sites>
-      ...
-    </system.applicationHost>
+```xml
+<system.applicationHost>
+  ...       
+  <sites>
+    <site name="~1[your-website]" id="1716402716">
+      <bindings>
+        <binding protocol="http" bindingInformation="*:80: [your-website].scm.chinacloudsites.cn" />
+        <binding protocol="https" bindingInformation="*:443: [your-website].scm.chinacloudsites.cn" />
+      </bindings>
+      <traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
+      <detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
+      <logFile logSiteId="false" />
+      <application path="/" applicationPool="[your-website]">
+        <virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
+      </application>
+      <!-- Note the custom changes that go here -->
+      <application path="/[your-extension-name]" applicationPool="[your-website]">
+        <virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
+      </application>
+    </site>
+  </sites>
+  ... 
+</system.applicationHost>
+```
 
 ### <a id="deploy"></a> Web 应用扩展部署
-若要安装 Web 应用扩展，你可以使用 FTP 将 Web 应用程序的所有文件复制到要安装该扩展的 Web 应用的 `\SiteExtensions\[your-extension-name]` 文件夹中。  请确保也将 ApplicationHost.xdt 文件复制到此位置。 重新启动 Web 应用以启用该扩展。
+要安装 Web 应用扩展，可以使用 FTP 将 Web 应用程序的所有文件复制到要安装该扩展的 Web 应用的 `\SiteExtensions\[your-extension-name]` 文件夹中。  请确保也会 ApplicationHost.xdt 文件复制到此位置。 重新启动 Web 应用以启用该扩展。
 
 Web 应用扩展位于：
 
 `https://[your-site-name].scm.chinacloudsites.cn/[your-extension-name]`
 
-请注意，该 URL 类似于你的 Web 应用的 URL，只不过它使用 HTTPS，且包含“.scm”。
+请注意，该 URL 类似于 Web 应用的 URL，只不过它使用 HTTPS，且包含“.scm”。
 
 在开发和调查过程中，可以通过添加使用键 `WEBSITE_PRIVATE_EXTENSIONS` 和值 `0` 的应用设置，来禁用 Web 应用的所有专用（非预装）扩展。
 

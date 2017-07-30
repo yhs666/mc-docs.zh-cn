@@ -16,11 +16,11 @@ ms.workload: big-data
 origin.date: 05/22/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 44a9d64b6157a1e9a4500752c43968fe1d7f0e46
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: a14851d41d1bae3c496907b5a733b04725177526
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>使用 Storm on HDInsight 处理来自 Azure 事件中心的事件 (C#)
 
@@ -52,7 +52,7 @@ Azure 事件中心可用于处理网站、应用程序和设备中的大量数�
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 HDInsight 3.4 及更高版本使用 Mono 运行 C# 拓扑。 请查看 [Mono 兼容性](http://www.mono-project.com/docs/about-mono/compatibility/)文档，了解可能的不兼容性。
 

@@ -17,21 +17,21 @@ origin.date: 01/12/2017
 ms.date: 01/25/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
-ms.openlocfilehash: e900f8264b90d249d93050c102f3bc017852bee3
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: fe2094c7a0bcea1232a0a270cf00e0652e99ce68
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>通过远程桌面在 HDInsight 上的 Hadoop 中使用 MapReduce
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
-本文介绍如何使用远程桌面连接到 HDInsight 群集上的 Hadoop，然后使用 Hadoop 命令运行 MapReduce 作业。
+本文介绍如何使用远程桌面连接到 HDInsight 群集上的 Hadoop，并使用 Hadoop 命令运行 MapReduce 作业。
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> 远程桌面只能在基于 Windows 的 HDInsight 群集上使用。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> 远程桌面只能在基于 Windows 的 HDInsight 群集上使用。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 >
 > 有关 HDInsight 3.4 或更高版本，请参阅[将 MapReduce 与 SSH 配合使用](hdinsight-hadoop-use-mapreduce-ssh.md)，了解如何连接到 HDInsight 群集以及如何运行 MapReduce 作业。
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 07/14/2017
         wriggling       1
 
 ## <a id="summary"></a>摘要
-Hadoop 命令提供了一种简单方法，可在 HDInsight 群集上运行 MapReduce 作业，然后查看作业输出。
+Hadoop 命令提供了一种简单方法，可在 HDInsight 群集上运行 MapReduce 作业，并查看作业输出。
 
 ## <a id="nextsteps"></a>后续步骤
 有关 HDInsight 中的 MapReduce 作业的一般信息：
@@ -103,5 +103,6 @@ Hadoop 命令提供了一种简单方法，可在 HDInsight 群集上运行 MapR
 
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
-* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* 
+            [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)

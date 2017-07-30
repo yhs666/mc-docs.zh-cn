@@ -16,11 +16,11 @@ origin.date: 05/25/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
-ms.openlocfilehash: 14f57c63b23cf857881c348f2de05aa215230d3d
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 854283d207873952df0541ef9a932ea95e4d0080
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>使用 HDInsight 中的 Hive 分析航班延误数据
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/14/2017
 Hive 提供了通过类似 SQL 的脚本语言（称为 [HiveQL][hadoop-hiveql]）运行 Hadoop MapReduce 作业的方法，此方法可用于对大量数据进行汇总、查询和分析。
 
 > [!IMPORTANT]
-> 本文档中的步骤要求使用基于 Windows 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。 有关适用于基于 Linux 的群集的步骤，请参阅[在 HDInsight (Linux) 中使用 Hive 分析航班延误数据](hdinsight-analyze-flight-delay-data-linux.md)。
+> 本文档中的步骤要求使用基于 Windows 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 有关适用于基于 Linux 的群集的步骤，请参阅[在 HDInsight (Linux) 中使用 Hive 分析航班延误数据](hdinsight-analyze-flight-delay-data-linux.md)。
 
 Azure HDInsight 的主要优势之一就是隔离数据存储和计算。 HDInsight 将 Azure Blob 存储用于数据存储。 典型的作业包含三部分：
 
@@ -68,7 +68,7 @@ Azure HDInsight 的主要优势之一就是隔离数据存储和计算。 HDInsi
 
 **本教程中使用的文件**
 
-本教程将使用来自 [美国研究与技术创新管理部门 - 运输统计局或 RITA][rita-website]的航班准时表现数据。
+本教程使用来自 [美国研究与技术创新管理部门 - 运输统计局或 RITA][rita-website]的航班准时表现数据。
 数据的副本已上传至具有公共 Blob 访问权限的 Azure Blob 存储容器。
 PowerShell 脚本的一部分将数据从公共 blob 容器复制到你的群集的默认 blob 容器。 HiveQL 脚本也会复制到同一 Blob 容器。
 如果想要了解如何将数据获取/上传到自己的存储帐户，以及如何创建/上传 HiveQL 脚本文件，请参阅[附录 A](#appendix-a) 和[附录 B](#appendix-b)。
@@ -248,8 +248,9 @@ Hadoop MapReduce 属于批处理。 运行 Hive 作业时，最具成本效益�
 ## <a id="appendix-a"></a>附录 A - 将航班延迟数据上传到 Azure Blob 存储
 上传数据文件和 HiveQL 脚本文件（请参阅[附录 B](#appendix-b)）需要进行规划。 思路是在创建 HDInsight 群集和运行 Hive 作业之前存储数据文件和 HiveQL 文件。 可以使用两个选项：
 
-* **使用将由 HDInsight 群集用作默认文件系统的同一 Azure 存储帐户。** 由于 HDInsight 群集将具有存储帐户访问密钥，因此你无需进行任何其他更改。
-* **使用与 HDInsight 群集默认文件系统不同的 Azure 存储帐户。** 如果选择了此项，你必须修改 [创建 HDInsight 群集和运行 Hive/Sqoop 作业](#runjob) 中的 Windows PowerShell 脚本的创建部分，以链接该存储帐户作为额外的存储帐户。 有关说明，请参阅 [在 HDInsight 中创建 Hadoop 群集][hdinsight-provision]。 这样，HDInsight 群集就会知道存储帐户的访问密钥。
+* 
+            **使用由 HDInsight 群集用作默认文件系统的同一 Azure 存储帐户。** 由于 HDInsight 群集将具有存储帐户访问密钥，因此你无需进行任何其他更改。
+* **使用与 HDInsight 群集默认文件系统不同的 Azure 存储帐户。** 如果选择了此项，必须修改 [创建 HDInsight 群集和运行 Hive/Sqoop 作业](#runjob) 中的 Windows PowerShell 脚本的创建部分，以链接该存储帐户作为额外的存储帐户。 有关说明，请参阅 [在 HDInsight 中创建 Hadoop 群集][hdinsight-provision]。 这样，HDInsight 群集就会知道存储帐户的访问密钥。
 
 > [!NOTE]
 > 数据文件的 WASB 路径会在 HiveQL 脚本文件中进行硬编码。 必须相应地进行更新。

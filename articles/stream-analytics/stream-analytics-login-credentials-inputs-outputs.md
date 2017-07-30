@@ -4,8 +4,8 @@ description: "了解如何更新流分析输入和输出的凭据。"
 keywords: "登录凭据"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4
 ms.service: stream-analytics
@@ -14,15 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 05/15/2017
+ms.date: 07/24/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: c698cddac4b2010635a63dbf81084d4cd60d4467
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: efde14dba392e49e461340c499fd1ddd5c796272
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/26/2017
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-in-stream-analytics-jobs"></a>在流分析作业中轮转输入和输出的登录凭据
 ## <a name="abstract"></a>摘要
@@ -47,7 +45,7 @@ Azure 流分析目前不允许在作业运行时替换输入/输出上的凭据�
     ![graphic2][graphic2]
 3. 单击“管理访问密钥”命令：  
     ![graphic3][graphic3]
-4. 从主访问密钥和辅助访问密钥之中 **挑选你的作业不使用的那个密钥**。
+4. 从主访问密钥和辅助访问密钥之中**挑选作业不使用的那个密钥**。
 5. 单击“重新生成”：  
     ![graphic4][graphic4]
 6. 复制新生成的密钥：  
@@ -68,7 +66,7 @@ Azure 流分析目前不允许在作业运行时替换输入/输出上的凭据�
     ![graphic10][graphic10]
 7. 在“策略名称”下拉列表中，找到你的作业所使用的共享访问策略：  
     ![graphic11][graphic11]
-8. 从主密钥和辅助密钥之中 **挑选你的作业不使用的那个密钥**。  
+8. 从主密钥和辅助密钥之中**挑选作业不使用的那个密钥**。  
 9. 单击“重新生成”：  
     ![graphic12][graphic12]
 10. 复制新生成的密钥：  
@@ -120,8 +118,7 @@ Azure 流分析目前不允许在作业运行时替换输入/输出上的凭据�
 3. 转到“输入”选项卡或“输出”选项卡，具体取决于是在输入上轮转凭据还是在输出上轮转凭据。  
     ![graphic28][graphic28]
 4. 单击“停止”命令，确认作业已停止：  
-    ![graphic29][graphic29]
-    等待作业停止。
+    ![graphic29][graphic29] 等待作业停止。
 5. 找到要轮转凭据的输入/输出，然后进入：  
     ![graphic30][graphic30]
 6. 继续第 3 部分。
@@ -138,23 +135,12 @@ Azure 流分析目前不允许在作业运行时替换输入/输出上的凭据�
 ### <a name="event-hubs"></a>事件中心
 1. 找到“事件中心策略密钥”字段，将新生成的密钥粘贴到其中：  
     ![graphic33][graphic33]
-2. 单击“保存”命令，然后确认已保存所做的更改：  
+2. 单击“保存”命令，并确认已保存所做的更改：  
     ![graphic34][graphic34]
-3. 保存所做的更改时，连接测试将自动启动，请确保连接测试已成功通过。
+3. 保存所做的更改时，连接测试自动启动，请确保连接测试已成功通过。
 4. 继续第 4 部分。
 
-### <a name="power-bi"></a>Power BI
-1. 单击“续订授权”：  
-
-    ![graphic35][graphic35]
-2. 你将获得以下确认：  
-
-    ![graphic36][graphic36]
-3. 单击“保存”命令，然后确认已保存所做的更改：  
-    ![graphic37][graphic37]
-4. 保存所做的更改时，连接测试将自动启动，请确保连接测试已成功通过。
-5. 继续第 4 部分。
-
+<!-- Not Available ### Power BI -->
 ### <a name="sql-database"></a>SQL 数据库
 1. 找到“用户名”和“密码”字段，然后将新创建的一组凭据粘贴到其中：  
     ![graphic38][graphic38]
@@ -197,11 +183,11 @@ Azure 流分析目前不允许在作业运行时替换输入/输出上的凭据�
     Command(s) completed successfully.
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)
-* [Azure 流分析入门](stream-analytics-get-started.md)
+* [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
@@ -249,3 +235,5 @@ Azure 流分析目前不允许在作业运行时替换输入/输出上的凭据�
 [graphic41]: ./media/stream-analytics-login-credentials-inputs-outputs/41-stream-analytics-login-credentials-inputs-outputs.png
 [graphic42]: ./media/stream-analytics-login-credentials-inputs-outputs/42-stream-analytics-login-credentials-inputs-outputs.png
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
+
+<!--Update_Description: update link-->

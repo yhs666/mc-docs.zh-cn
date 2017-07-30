@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 09/30/2016
-ms.date: 07/03/2017
-ms.author: v-johch
-ms.openlocfilehash: 11bf28abff738bc622aa980d3e63a353fc35f48f
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+origin.date: 07/05/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: fdb53cdd9283368ae4cfe2b15e6ae7b816377da8
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="performance-recommendations"></a>性能建议
 
@@ -48,9 +48,9 @@ Azure SQL 数据库持续监视执行的查询并找出可以改进性能的索�
 
 **参数化查询** 建议。 这种状态提供了一个应用强制参数化的机会，其允许查询计划进行缓存并在将来可以被重复使用，从而改善性能和减少资源使用。 
 
-对 SQL Server 发出的每个查询一开始需要进行编译，生成执行计划。 每个生成的计划将添加到计划缓存中，相同查询的后续执行可以重复使用该缓存中的此计划，而无需进一步编译。 
+对 SQL Server 发出的每个查询一开始需要进行编译，生成执行计划。 每个生成的计划会添加到计划缓存中，相同查询的后续执行可以重复使用该缓存中的此计划，而无需进一步编译。 
 
-发送包含非参数化值的查询的应用程序可能会导致性能开销，其中对于使用不同参数值的每个此类查询，将重新编译执行计划。 在许多情况下，使用不同参数值的相同查询将生成相同的执行计划，但这些计划将仍然分别添加到计划缓存中。 重新编译执行计划会占用数据库资源、增加查询持续时间并使计划缓存溢出，从而导致系统从缓存中逐出计划。 可以通过对数据库设置强制参数化选项来更改 SQL Server 的此行为。 
+发送包含非参数化值的查询的应用程序可能会导致性能开销，其中对于使用不同参数值的每个此类查询，将重新编译执行计划。 在许多情况下，使用不同参数值的相同查询会生成相同的执行计划，但这些计划仍会分别添加到计划缓存中。 重新编译执行计划会占用数据库资源、增加查询持续时间并使计划缓存溢出，从而导致系统从缓存中逐出计划。 可以通过对数据库设置强制参数化选项来更改 SQL Server 的此行为。 
 
 为了帮助你估计此建议的影响，将为你提供实际 CPU 使用率和预计 CPU 使用率（就像已应用建议一样）之间的比较。 除了节省 CPU 外，查询持续时间会因编译花费的时间而减少。 计划缓存上的开销也会更低，从而允许大部分计划保留在缓存中并可重复使用。 可以通过单击“应用”命令来快速轻松地应用此建议。 
 
@@ -82,4 +82,6 @@ Azure SQL 数据库持续监视执行的查询并找出可以改进性能的索�
 ## <a name="additional-resources"></a>其他资源
 * [查询存储](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [基于角色的访问控制](../active-directory/role-based-access-control-configure.md)
+* [基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)
+
+<!--Update_Description: update link references-->

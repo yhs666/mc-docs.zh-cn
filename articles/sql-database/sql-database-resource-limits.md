@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 05/31/2017
-ms.date: 07/03/2017
-ms.author: v-johch
-ms.openlocfilehash: 642019db85c35cb953aea2c60d9ad5ad340982e9
-ms.sourcegitcommit: bb82041119027be7a62fc96945d92a8a452e7849
+origin.date: 07/12/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: baa8d01bd6e84f1bf0a7662c13e02d2c44e492f6
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL 数据库资源限制
 ## <a name="overview"></a>概述
@@ -29,7 +29,7 @@ Azure SQL 数据库使用两种不同的机制管理可用于数据库的资源�
 ## <a name="resource-governance"></a>资源调控
 基本、标准、高级和高级 RS 服务层的设计目标之一是为了让 Azure SQL 数据库的行为与数据库运行在其自己的计算机上相同，独立于其他数据库。 资源调控模拟了此行为。 如果聚合资源利用率达到分配给数据库的最大可用 CPU、内存、日志 I/O 和数据 I/O 资源数，资源调控会将执行中的查询排队，并在资源释放时将资源分配给排队的查询。
 
-由于在专用计算机上，利用所有可用资源将导致当前执行的查询的执行时间较长，这可能会导致客户端上的命令超时。 达到并发请求数限制后，如果尝试执行新查询，具有积极重试逻辑的应用程序以及对数据库执行查询的应用程序遇到错误消息的频率会很高。
+由于在专用计算机上，利用所有可用资源会导致当前执行的查询的执行时间较长，这可能会导致客户端上的命令超时。 达到并发请求数限制后，如果尝试执行新查询，具有积极重试逻辑的应用程序以及对数据库执行查询的应用程序遇到错误消息的频率会很高。
 
 ### <a name="recommendations"></a>建议：
 在接近数据库的最大利用率时，监视查询的资源利用率以及平均响应时间。 在遇到较长的查询延迟时，通常有三个选择：
@@ -39,7 +39,7 @@ Azure SQL 数据库使用两种不同的机制管理可用于数据库的资源�
 3. 优化查询，以减少每个查询的资源利用率。 有关详细信息，请参阅“Azure SQL 数据库性能指南”一文中的“查询优化/提示”部分。
 
 ## <a name="enforcement-of-limits"></a>强制限制
-CPU、内存、日志 I/O 和数据 I/O 以外的资源在达到限制时，将通过拒绝新请求来强制实施。 当数据库达到所配置的最大大小限制时，将无法执行会增加数据大小的插入和更新操作，但仍可执行选择和删除操作。 客户端将根据已达到的限制收到[错误消息](sql-database-develop-error-messages.md)。
+CPU、内存、日志 I/O 和数据 I/O 以外的资源在达到限制时，会通过拒绝新请求来强制实施。 当数据库达到所配置的最大大小限制时，无法执行会增加数据大小的插入和更新操作，但仍可执行选择和删除操作。 客户端根据已达到的限制收到[错误消息](sql-database-develop-error-messages.md)。
 
 例如，会限制与 SQL 数据库的连接数以及可处理的并发请求数。 SQL 数据库允许与数据库的连接数大于并发请求数以支持连接池。 虽然应用程序可以轻松地控制可用的连接数，但并行请求数通常难于估计和控制。 特别是在负载峰值期间，应用程序发送过多请求或数据库达到其资源限制，并且由于长时间运行查询，开始堆积工作线程，可能会遇到错误。
 
@@ -61,7 +61,7 @@ CPU、内存、日志 I/O 和数据 I/O 以外的资源在达到限制时，将�
 ## <a name="other-sql-database-limits"></a>其他 SQL 数据库限制
 | 区域 | 限制 | 说明 |
 | --- | --- | --- |
-| 使用按订阅自动导出的数据库 |10 |自动导出可创建自定义计划来备份 SQL 数据库。 此功能的预览将于 2017 年 3 月 1 日结束。  |
+| 使用按订阅自动导出的数据库 |10 |自动导出可创建自定义计划来备份 SQL 数据库。 此功能的预览于 2017 年 3 月 1 日结束。  |
 | 每个服务器的数据库数 |最多 5000 个 |每个服务器最多允许使用 5000 个数据库。 |
 | 每个服务器的 DTU |45000 |允许每个服务器有 45000 个 DTU 可用于预配独立数据库和弹性池。 每台服务器允许的独立数据库和池的总数仅受服务器 DTU 数限制。  
 
@@ -74,3 +74,5 @@ CPU、内存、日志 I/O 和数据 I/O 以外的资源在达到限制时，将�
 [Azure SQL 数据库服务层和性能级别](sql-database-service-tiers.md)
 
 [SQL 数据库客户端程序的错误消息](sql-database-develop-error-messages.md)
+
+<!--Update_Description: update meta properties-->

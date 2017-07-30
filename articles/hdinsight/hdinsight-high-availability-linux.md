@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 04/03/2017
-ms.date: 06/05/2017
+origin.date: 06/26/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: d25a2a6a76257f02ca65c112a24e7527da8926f7
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: adfdddb11f9cdd3daab047c3cd46455211bb456f
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight 中 Hadoop 群集的可用性和可靠性
 
@@ -33,7 +33,7 @@ Hadoop 通过将服务和数据复制到群集中的多个节点来实现高可�
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="availability-and-reliability-of-nodes"></a>节点的可用性和可靠性
 
@@ -240,3 +240,5 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 [preview-portal]: https://portal.azure.cn/
 [azure-powershell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [azure-cli]: ../cli-install-nodejs.md
+
+<!--Update_Description: update meta data-->

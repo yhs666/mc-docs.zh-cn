@@ -14,15 +14,15 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/12/2017
-ms.date: 06/05/2017
+origin.date: 07/07/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: b7a19c3c09e919b88bef51596b1c05168f46973e
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: ae161b6a182349979cd032f8200ee1d975c84314
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>以 Java 语言创建 Apache Storm 拓扑
 
@@ -179,7 +179,7 @@ Maven 插件可用于自定义项目的生成阶段。 例如，如何编译项�
 
 ### <a name="add-plug-ins"></a>添加插件
 
-对于以 Java 语言实现的 Apache Storm 拓扑，Exec Maven 插件十分有用，因为它可让你轻松地在开发环境本地运行拓扑。 在 `pom.xml` 文件的 `<plugins>` 部分中添加以下内容，以包括 Exec Maven 插件：
+对于以 Java 语言实现的 Apache Storm 拓扑，[Exec Maven 插件](http://www.mojohaus.org/exec-maven-plugin/)十分有用，因为它可让你轻松地在开发环境本地运行拓扑。 在 `pom.xml` 文件的 `<plugins>` 部分中添加以下内容，以包括 Exec Maven 插件：
 
 ```xml
 <plugin>
@@ -791,3 +791,5 @@ Trident 是 Storm 提供的高级抽象。 它支持有状态处理。 Trident �
 * [使用 Visual Studio 开发 Apache Storm on HDInsight 的 C# 拓扑](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 如需更多 Storm 拓扑示例，请访问 [Storm on HDInsight 示例拓扑](hdinsight-storm-example-topology.md)。
+
+<!--Update_Description: update meta data-->

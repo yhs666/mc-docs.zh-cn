@@ -3,7 +3,7 @@ title: "Azure 云服务的常见连接和网络问题解答 | Azure"
 description: "本文列出有关 Microsoft Azure 云服务的常见连接和网络问题。"
 services: cloud-services
 documentationcenter: 
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: 
 tags: top-support-issue
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 6/9/2017
+origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
-ms.openlocfilehash: ede2ef9618ef06aadff1f9362727378ee2b35c58
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.date: 07/31/2017
+ms.openlocfilehash: f350647b4b3b200060e99bbc0b3433434ca25cda
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的连接和网络问题：常见问题解答 (FAQ)
 
@@ -59,3 +59,6 @@ Azure 实施多层网络安全性来防范其平台服务遭到分布式拒绝�
 有关内部负载均衡器工作原理的信息，请参阅 [Azure 负载均衡器的新分配模式](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode/)。
 
 使用的分配算法是将流量映射到可用服务器的 5 元组（源 IP、源端口、目标 IP、目标端口和协议类型）哈希。 它仅在传输会话内部提供粘性。 同一 TCP 或 UDP 会话中的数据包会定向到负载均衡终结点后面的同一数据中心 IP (DIP) 实例。 客户端从同一源 IP 关闭再重新打开连接或启动新会话时，源端口会更改，并导致流量定向到其他 DIP 终结点。
+
+
+<!--Update_Description: update meta data only-->

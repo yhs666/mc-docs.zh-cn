@@ -3,8 +3,8 @@ title: "Azure 流分析 JavaScript 用户定义的函数 | Azure"
 description: "使用 JavaScript 用户定义的函数执行高级查询机制"
 keywords: "javascript, 用户定义的函数, udf"
 services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 ms.assetid: 
 ms.service: stream-analytics
@@ -13,16 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 05/15/2017
+ms.date: 07/24/2017
 ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: a8a6af5cb75c25028895408b5c011bbc9a892eb2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: b00436b2f951833b31813b15782ce1df0a74783b
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/26/2017
 ---
-
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Azure 流分析 JavaScript 用户定义的函数
 Azure 流分析支持以 JavaScript 编写的用户定义的函数。 利用 JavaScript 提供的丰富 **String**、**RegExp**、**Math**、**Array** 和 **Date** 方法，可以更轻松地创建包含流分析作业的复杂数据转换。
 
@@ -40,16 +38,16 @@ JavaScript 用户定义的函数支持仅用于计算的且不需要外部连接
 * 针对输入/输出执行自定义事件格式序列化或反序列化
 * 创建自定义聚合
 
-尽管函数定义中并不禁止 **Date.GetDate()** 或 **Math.random()** 等函数，但应该避免使用这些函数。 这些函数在每次被调用时**不会**返回相同的结果，并且 Azure 流分析服务不会保留函数调用和返回结果的日记。 当你或流分析服务重新启动某个作业时，如果某个函数针对相同的事件返回不同的结果，将无法保证可重复性。
+尽管函数定义中并不禁止 **Date.GetDate()** 或 **Math.random()** 等函数，但应该避免使用这些函数。 这些函数在每次被调用时**不会**返回相同的结果，并且 Azure 流分析服务不会保留函数调用和返回结果的日记。 当你或流分析服务重新启动某个作业时，如果某个函数针对相同的事件返回不同的结果，则无法保证可重复性。
 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>在 Azure 门户中添加 JavaScript 用户定义的函数
 若要在现有的流分析作业中创建一个简单的 JavaScript 用户定义的函数，请执行以下步骤：
 
-1. 在 Azure 门户中找到你的流分析作业。
-2. 在“作业拓扑”下面选择你的函数。 此时将显示一个空白的函数列表。
+1. 在 Azure 门户中找到流分析作业。
+2. 在“作业拓扑”下面选择函数。 此时显示一个空白的函数列表。
 3. 若要新建用户的定义函数，请选择“添加”。
-4. 在“新建函数”边栏选项卡中，为“函数类型”选择“JavaScript”。 编辑器中将显示默认函数模板。
-5. 为“UDF 别名”输入 **hex2Int**，然后按如下所示更改函数实现：
+4. 在“新建函数”边栏选项卡中，为“函数类型”选择“JavaScript”。 编辑器中会显示默认函数模板。
+5. 为“UDF 别名”输入 **hex2Int**，并按如下所示更改函数实现：
 
     ```
     // Convert Hex value to integer.
@@ -64,7 +62,7 @@ JavaScript 用户定义的函数支持仅用于计算的且不需要外部连接
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>在查询中调用 JavaScript 用户定义的函数
 
 1. 在查询编辑器中的“作业拓扑”下面选择“查询”。
-2. 编辑查询，然后调用该用户定义的函数，如下所示：
+2. 编辑查询，并调用该用户定义的函数，如下所示：
 
     ```
     SELECT
@@ -76,7 +74,7 @@ JavaScript 用户定义的函数支持仅用于计算的且不需要外部连接
         InputStream
     ```
 
-3. 若要上载示例数据文件，请右键单击作业输入。
+3. 若要上传示例数据文件，请右键单击作业输入。
 4. 若要测试查询，请选择“测试”。
 
 ## <a name="supported-javascript-objects"></a>支持的 JavaScript 对象
@@ -109,12 +107,12 @@ Null、Undefined | Null
 其他任何类型（例如函数或错误） | 不支持（导致运行时错误）
 
 ## <a name="troubleshooting"></a>故障排除
-JavaScript 运行时错误被视为严重错误，可通过活动日志查看。 若要检索日志，请在 Azure 门户中转到你的作业，然后选择“活动日志”。
+JavaScript 运行时错误被视为严重错误，可通过活动日志查看。 如果要检索日志，请在 Azure 门户中转到用户的作业，并选择“活动日志”。
 
 ## <a name="other-javascript-user-defined-function-patterns"></a>JavaScript 用户定义的函数的其他模式
 
 ### <a name="write-nested-json-to-output"></a>编写要输出的嵌套 JSON
-如果后续处理步骤需要使用流分析作业输出作为输入并且要求采用 JSON 格式，可以编写要输出的 JSON 字符串。 以下示例调用 **JSON.stringify()** 函数封装输入的所有名称/值对，然后将其写入为输出中的单个字符串值。
+如果后续处理步骤需要使用流分析作业输出作为输入并且要求采用 JSON 格式，可以编写要输出的 JSON 字符串。 以下示例调用 **JSON.stringify()** 函数封装输入的所有名称/值对，并将其写入为输出中的单个字符串值。
 
 **JavaScript 用户定义的函数定义：**
 
@@ -139,11 +137,13 @@ FROM
 ```
 
 ## <a name="get-help"></a>获取帮助
-如需更多帮助，请访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需更多帮助，请访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)
-* [Azure 流分析入门](stream-analytics-get-started.md)
+* [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
+<!--Update_Description: update link-->

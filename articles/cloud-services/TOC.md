@@ -110,6 +110,3 @@
 # 资源
 ## [价格](https://azure.microsoft.com/pricing/details/cloud-services/)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [视频](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
-## [服务更新](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
-## [学习路径](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/14/2017
-ms.date: 05/08/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: df164bef3081db5937bc8e36cfd2acf465bc1370
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 5e26c612f51d1f23e6c4fea956c8fa471adbb99b
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>使用 Pig 命令 (SSH) 在基于 Linux 的群集上运行 Pig 作业
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/14/2017
 了解如何以交互方式从 HDInsight 群集的 SSH 连接中运行 Pig 作业。 可以使用 Pig Latin 编程语言来描述应用到输入数据以生成所需输出的转换。
 
 > [!IMPORTANT]
-> 本文档中的步骤要求使用基于 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> 本文档中的步骤要求使用基于 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a id="ssh"></a>使用 SSH 进行连接
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 07/14/2017
 
         pig
 
-    稍后，你应该会看到 `grunt>` 提示符。
+    稍后，应该会看到 `grunt>` 提示符。
 
 2. 输入以下语句：
 
@@ -74,18 +74,18 @@ ms.lasthandoff: 07/14/2017
     | ---- | ---- |
     | `FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;` | 删除包含日志级别 null 值的行，并将结果存储到 `FILTEREDLEVELS` 中。 |
     | `GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;` | 按日志级别对行进行分组，并将结果存储到 `GROUPEDLEVELS` 中。 |
-    | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | 创建包含每个唯一日志级别值及其发生次数的数据集。 该数据集将存储到 `FREQUENCIES` 中。 |
+    | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | 创建包含每个唯一日志级别值及其发生次数的数据集。 该数据集存储到 `FREQUENCIES` 中。 |
     | `RESULT = order FREQUENCIES by COUNT desc;` | 按计数为日志级别排序（降序），并存储到 `RESULT` 中。 |
 
     > [!TIP]
     > 使用 `DUMP` 查看每个步骤后的转换结果。
 
-5. 你也可以使用 `STORE` 语句保存转换结果。 例如，以下语句将 `RESULT` 保存到群集的默认存储的 `/example/data/pigout` 目录：
+5. 也可以使用 `STORE` 语句保存转换结果。 例如，以下语句将 `RESULT` 保存到群集的默认存储的 `/example/data/pigout` 目录：
 
         STORE RESULT into '/example/data/pigout';
 
    > [!NOTE]
-   > 该数据存储在名为 `part-nnnnn` 的文件的指定目录中。 如果该目录已存在，则将收到错误。
+   > 该数据存储在名为 `part-nnnnn` 的文件的指定目录中。 如果该目录已存在，则会收到错误。
 
 6. 若要退出 grunt 提示符，请输入以下语句：
 
@@ -93,13 +93,13 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="pig-latin-batch-files"></a>Pig Latin 批处理文件
 
-你也可以使用 Pig 命令运行文件中包含的 Pig Latin。
+也可以使用 Pig 命令运行文件中包含的 Pig Latin。
 
 1. 退出 grunt 提示符之后，请使用以下命令将 STDIN 发送到名为 `pigbatch.pig` 的文件中。 此文件创建于 SSH 用户帐户的主目录中。
 
         cat > ~/pigbatch.pig
 
-2. 输入或粘贴以下行，然后在完成后按 Ctrl+D。
+2. 输入或粘贴以下行，并在完成后按 Ctrl+D。
 
         LOGS = LOAD '/example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
@@ -113,7 +113,7 @@ ms.lasthandoff: 07/14/2017
 
         pig ~/pigbatch.pig
 
-    批处理作业完成后，将看到以下输出：
+    批处理作业完成后，会看到以下输出：
 
         (TRACE,816)
         (DEBUG,434)
@@ -130,5 +130,8 @@ ms.lasthandoff: 07/14/2017
 
 有关使用 HDInsight 上 Hadoop 的其他方式的详细信息，请参阅以下文档：
 
-* [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
+* 
+            [将 Hive 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-hive.md)
 * [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
+
+<!--Update_Description: update meta data-->

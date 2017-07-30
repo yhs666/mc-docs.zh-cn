@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 04/12/2017
-ms.date: 06/05/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 38b239c8d100625a37b7c28088a8a09e13e92eb7
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 4cdb7c1c561d7d0e64b48fc68cb42d57726d75a8
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>在 HDInsight 中的 Hadoop 上将 C# 与 MapReduce 流式处理配合使用
 
@@ -46,8 +46,8 @@ __基于 Linux 的 HDInsight__ 群集使用 [Mono (http://mono-project.com)](htt
 
 1. Hadoop 在 STDIN 上将数据传递到映射器（在本示例中为 mapper.exe）。
 2. 映射器处理数据，并向 STDOUT 发出制表符分隔的键/值对。
-3. 该输出由 Hadoop 读取，随后将传递到 STDIN 上的化简器（在本示例中为 reducer.exe）。
-4. 化简器将读取制表符分隔的键/值对、处理数据，然后将结果作为制表符分隔的键/值对在 STDOUT 上发出。
+3. 该输出由 Hadoop 读取，随后会传递到 STDIN 上的化简器（在本示例中为 reducer.exe）。
+4. 化简器将读取制表符分隔的键/值对、处理数据，并将结果作为制表符分隔的键/值对在 STDOUT 上发出。
 5. 该输出由 Hadoop 读取，并写入输出目录。
 
 有关流式处理的详细信息，请参阅 [Hadoop 流式处理 (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)。
@@ -160,17 +160,17 @@ namespace reducer
 
 2. 依次展开“Azure”和“HDInsight”。
 
-3. 如果出现提示，请输入 Azure 订阅凭据，然后单击“登录”。
+3. 如果出现提示，请输入 Azure 订阅凭据，并单击“登录”。
 
-4. 展开要将此应用程序部署到的 HDInsight 群集。 将列出带有文本“（默认存储帐户）”的条目。
+4. 展开要将此应用程序部署到的 HDInsight 群集。 列出带有文本“（默认存储帐户）”的条目。
 
     ![显示群集存储帐户的服务器资源管理器](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 
-    * 如果此条目可以展开，则在使用 __Azure 存储帐户__作为该群集的默认存储。 若要查看该群集的默认存储上的文件，请展开该条目，然后双击“（默认容器）”。
+    * 如果此条目可以展开，则在使用 __Azure 存储帐户__作为该群集的默认存储。 如果要查看该群集的默认存储上的文件，请展开该条目，并双击“（默认容器）”。
 
 5. 若要上传 .exe 文件，请使用以下方法之一：
 
-    单击上传图标，然后浏览到 **mapper** 项目的 **bin\debug** 文件夹。 最后，选择“mapper.exe”文件，然后单击“确定”。
+    单击上传图标，并浏览到 **mapper** 项目的 **bin\debug** 文件夹。 最后，选择“mapper.exe”文件，并单击“确定”。
 
     ![上传图标](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
@@ -295,7 +295,7 @@ Get-AzureStorageBlobContent `
     -Context $context
 ```
 
-此脚本将提示用户提供群集登录的帐户名和密码，以及 HDInsight 群集名称。 完成作业后，输出将下载到从中运行脚本的目录的 `output.txt` 文件。 以下文本是 `output.txt` 文件中数据的示例：
+此脚本会提示用户提供群集登录的帐户名和密码，以及 HDInsight 群集名称。 完成作业后，输出下载到从中运行脚本的目录的 `output.txt` 文件。 以下文本是 `output.txt` 文件中数据的示例：
 
     you     1128
     young   38
@@ -314,3 +314,5 @@ Get-AzureStorageBlobContent `
 有关将 C# 与 Hive 和 Pig 配合使用的信息，请参阅[将 C# 用户定义函数与 Hive 和 Pig 配合使用](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)。
 
 有关在 HDInsight 上将 C# 与 Storm 配合使用的信息，请参阅[为 HDInsight 上的 Storm 开发 C# 拓扑](hdinsight-storm-develop-csharp-visual-studio-topology.md)。
+
+<!--Update_Description: update meta data-->

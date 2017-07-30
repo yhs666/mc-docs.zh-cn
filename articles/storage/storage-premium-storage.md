@@ -15,14 +15,13 @@ ms.topic: article
 origin.date: 06/15/2017
 ms.date: 06/26/2017
 ms.author: v-johch
-ms.openlocfilehash: 88ba8655f5d6cc55c72c27d8b96011b0fb2e49de
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 9cb6139adafdd2d60e346f9b2ae65454902f5d6d
+ms.sourcegitcommit: a95cfb5f5d4d2f1286e8aa90823656d00eb32346
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/27/2017
 ---
-# VM 的高性能高级存储和托管磁盘
-<a id="high-performance-premium-storage-and-managed-disks-for-vms" class="xliff"></a>
+# <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM 的高性能高级存储和托管磁盘
 Azure 高级存储为运行输入/输出 (I/O) 密集型工作负荷的虚拟机 (VM) 提供高性能、低延迟的磁盘支持。 使用高级存储的 VM 磁盘在固态硬盘 (SSD) 上存储数据。 若要利用高级存储磁盘的速度和性能优势，可将现有的 VM 磁盘迁移到高级存储。
 
 在 Azure 中，可将多个高级存储磁盘附加到 VM。 使用多个磁盘可在每个 VM 上为应用程序提供高达 256 TB 的存储。 如果使用高级存储，每个 VM 上的应用程序可实现 80,000 次 I/O 操作/秒 (IOPS)，每个 VM 可实现高达 2,000 MB/秒的磁盘吞吐量。 执行读取操时延迟极低。
@@ -54,20 +53,17 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 > 大多数区域目前支持高级存储。 
 > 
 
-## 功能
-<a id="features" class="xliff"></a>
+## <a name="features"></a>功能
 
 下面是高级存储的一些功能：
 
 * **高级存储磁盘**
-
 
     高级存储支持可附加到特定大小系列 VM 的 VM 磁盘。 高级存储支持 DS 系列、DSv2 系列和 Fs 系列 VM。 可以选择七个磁盘大小：P4 (32GB)、P6 (64GB)、P10 (128GB)、P20 (512GB)、P30 (1024GB)、P40 (2048GB)、P50 (4095GB)。 P4 和 P6 磁盘大小目前只能用于托管磁盘。 每种磁盘大小都有自身的性能规范。 根据应用程序的要求，可将一个或多个磁盘附加到 VM。 [高级存储的可伸缩性和性能目标](#premium-storage-scalability-and-performance-targets)中更详细介绍了规范。
 
 * **高级页 Blob**
 
     高级存储支持页 Blob。 使用页 Blob 可在高级存储中存储 VM 的持久性非托管磁盘。 与标准 Azure 存储不同，高级存储不支持块 Blob、追加 Blob、文件、表或队列。 高级页 Blob 支持从 P4 到 P50 的八个大小，以及 P60 (8191GiB)。 P60 高级页 Blob 无法作为 VM 磁盘附加。 
-
 
     放在高级存储帐户中的任何对象都是页 Blob。 页 Blob 对应于某种受支持的预配大小。 因此，高级存储帐户不适合用于存储微型 Blob。
 
@@ -87,8 +83,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
     Azure 使用存储帐户作为非托管磁盘的容器。 如果使用非托管磁盘创建 Azure DS、DSv2 或 Fs 系列 VM 并选择高级存储帐户，操作系统和数据磁盘会存储在该存储帐户中。
 
-## 支持的 VM
-<a id="supported-vms" class="xliff"></a>
+## <a name="supported-vms"></a>支持的 VM
 高级存储支持 DS 系列、DSv2 系列和 Fs 系列 VM。 可将标准和高级存储磁盘用于这些 VM 类型。 不能在不兼容高级存储的 VM 系列中使用高级存储磁盘。
 
 有关 Azure 中适用于 Windows 的 VM 类型和大小的信息，请参阅 [Windows VM 大小](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 有关 Azure 中适用于 Linux 的 VM 类型和大小的信息，请参阅 [Linux VM 大小](../virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -97,9 +92,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
 * **云服务**
 
-
     可将 DS 系列 VM 添加到仅包含 DS 系列 VM 的云服务。 不要将 DS 系列虚拟机添加到类型不是 DS 系列 VM 的现有云服务。 可将现有 VHD 迁移到只运行 DS 系列 VM 的新云服务。 如果想要对托管 DS 系列 VM 的新云服务使用相同的虚拟 IP 地址，请使用[保留 IP 地址](../virtual-network/virtual-networks-instance-level-public-ip.md)。
-
 
 * **操作系统磁盘**
 
@@ -130,9 +123,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
     例如，STANDARD_DS1 VM 为高级存储磁盘流量提供 32 MB/秒的专用带宽。 P10 高级存储磁盘可以提供 100 MB/秒的带宽。 如果将 P10 高级存储磁盘附加到此 VM，此 VM 的带宽最高只能达到 32 MB/秒， 而无法使用 P10 磁盘提供的最高 100 MB/秒带宽。
 
-
     目前，DS 系列的最大 VM 是 Standard_DS15_v2。 Standard_DS15_v2 可以在所有磁盘上提供最高 960 MB/秒的带宽。 
-
 
     请注意，这些限制只适用于磁盘流量， 而不包括缓存命中和网络流量。 VM 网络流量可以使用单独的带宽。 网络流量使用的带宽不同于高级存储磁盘使用的专用带宽。
 
@@ -160,8 +151,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
 如果要对非托管磁盘使用高级存储帐户并且应用程序超过了单个存储帐户的可伸缩性目标，可以考虑迁移到托管磁盘。 如果不想迁移到托管磁盘，请将应用程序构建为使用多个存储帐户。 然后，在这些存储帐户中将数据分区。 例如，如果要将 51-TB 的磁盘附加到多个 VM，请将这些磁盘分散在两个存储帐户中。 35 TB 是单个高级存储帐户的限制。 请确保单个高级存储帐户永远不会超过 35 TB 的设置磁盘。
 
-### 高级存储磁盘限制
-<a id="premium-storage-disk-limits" class="xliff"></a>
+### <a name="premium-storage-disk-limits"></a>高级存储磁盘限制
 预配高级存储磁盘时，磁盘的大小决定最大 IOPS 和吞吐量（带宽）。 Azure 提供三种类型的高级存储磁盘：P10、P20 和 P30。 每种高级存储磁盘类型在 IOPS 和吞吐量方面存在具体的限制。 下表描述了磁盘类型的限制：
 
 | 高级磁盘类型  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
@@ -179,7 +169,6 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 下面是在高级存储可伸缩性和性能目标方面需要知道的一些重要事项：
 
 * **预配的容量和性能**
-
 
     预配高级存储磁盘时，可以获得该磁盘的容量、IOPS 和吞吐量保证，这与标准存储不同。 例如，如果要创建 P50 磁盘，Azure 将为该磁盘预配 4,095 GB 存储容量、7,500 IOPS 和 250 MB/秒的吞吐量。 应用程序可以使用全部或部分容量与性能。
 
@@ -209,24 +198,20 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
     缓存命中数不受磁盘已分配 IOPS 或吞吐量的限制。 例如，在高级存储支持的 VM 上使用具有 **ReadOnly** 缓存设置的数据磁盘时，缓存提供的读取数不受磁盘的 IOPS 和吞吐量上限的约束。 如果磁盘的工作负荷以读取为主，你可以获得极高的吞吐量。 缓存根据 VM 大小在 VM 级别受到不同 IOPS 和吞吐量的限制。 DS 系列 VM 大约有 4,000 IOPS，缓存与本地 SSD I/O 的吞吐量为每个核心 33 MB/秒。 GS 系列 VM 限制为 5,000 IOPS，缓存与本地 SSD I/O 的吞吐量为每个核心 50 MB/秒。 
 
-## 限制
-<a id="throttling" class="xliff"></a>
+## <a name="throttling"></a>限制
 如果应用程序的 IOPS 或吞吐量超过高级存储磁盘的分配限制，可能会发生限制。 此外，如果 VM 上所有磁盘的总磁盘流量超过 VM 可用的磁盘带宽限制，也可能会发生限制。 为了避免限制，建议限制磁盘的挂起 I/O 请求数。 请根据预配磁盘的可伸缩性和性能目标，以及 VM 可用的磁盘带宽使用限制。  
 
 当应用程序设计为避免限制情况时，可以达到最低延迟。 但是，如果磁盘的挂起 I/O 请求数过小，应用程序将无法利用磁盘可用的最大 IOPS 和吞吐量级别。
 
 以下示例演示如何计算限制级别。 所有计算基于 256 KB 的 I/O 单位大小。
 
-### 示例 1
-<a id="example-1" class="xliff"></a>
+### <a name="example-1"></a>示例 1
 在 P10 磁盘上，应用程序在一秒内已处理 495 个 16-KB 大小的 I/O 单位。 这些 I/O 单位被统计为 495 IOPS。 如果在该秒内尝试 2-MB 的 I/O，I/O 单位的总数等于 495 + 8 IOPS。 这是因为当 I/O 单位大小为 256 KB 时，2 MB I/O = 2,048 KB / 256 KB = 8 个 I/O 单位。 由于 495 + 8 的总和超出磁盘的 500 IOPS 限制，因此会发生限制。
 
-### 示例 2
-<a id="example-2" class="xliff"></a>
+### <a name="example-2"></a>示例 2
 在 P10 磁盘上，应用程序已处理 400 个 256 KB 大小的 I/O 单位。 使用的总带宽为 (400 &#215; 256) / 1,024 KB = 100 MB/秒。 P10 磁盘的吞吐量限制为 100 MB/秒。 如果应用程序尝试在该秒内执行更多 I/O 操作，则会发生限制，因为这超出了分配的限制。
 
-### 示例 3
-<a id="example-3" class="xliff"></a>
+### <a name="example-3"></a>示例 3
 某个 DS4 VM 附加了两个 P30 磁盘。 每个 P30 磁盘的吞吐量可达到 200 MB/秒。 但是，DS4 VM 的总磁盘带宽容量为 256 MB/秒。 无法在此 DS4 VM 上同时以最大吞吐量驱动两个附加的磁盘。 若要解决此问题，可在一个磁盘上保持 200 MB/秒的流量，在另一个磁盘上保持 56 MB/秒的流量。 如果磁盘流量的总和超过 256 MB/秒，磁盘流量将受到限制。
 
 > [!NOTE]
@@ -235,13 +220,11 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
 若要详细了解如何使用高级存储实现高性能设计，请阅读[使用高级存储实现高性能设计](storage-premium-storage-performance.md)一文。
 
-## 快照和复制 Blob
-<a id="snapshots-and-copy-blob" class="xliff"></a>
+## <a name="snapshots-and-copy-blob"></a>快照和复制 Blob
 
 对于存储服务而言，VHD 文件是页 Blob。 可以创建页 Blob 的快照，然后将其复制到其他位置，例如其他存储帐户。
 
-### 非托管磁盘
-<a id="unmanaged-disks" class="xliff"></a>
+### <a name="unmanaged-disks"></a>非托管磁盘
 
 像使用标准存储的快照一样，为非托管高级磁盘创建[增量快照](storage-incremental-snapshots.md)。 高级存储仅支持使用本地冗余存储作为复制选项。 建议创建快照，然后将这些快照复制到异地冗余的标准存储帐户。 有关详细信息，请参阅 [Azure 存储冗余选项](storage-redundancy.md)。
 
@@ -260,16 +243,14 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
 有关对高级存储帐户中的页 Blob 执行 REST 操作的详细信息，请参阅[对 Azure 高级存储执行 Blob 服务操作](http://go.microsoft.com/fwlink/?LinkId=521969)。
 
-### 托管磁盘
-<a id="managed-disks" class="xliff"></a>
+### <a name="managed-disks"></a>托管磁盘
 
 托管磁盘的快照是托管磁盘的只读副本。 该快照存储为标准托管磁盘。 目前，托管磁盘不支持[增量快照](storage-incremental-snapshots.md)。 若要了解如何创建托管磁盘的快照，请参阅[在 Windows 中使用托管快照创建存储为 Azure 托管磁盘的 VHD 的副本](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)或[在 Linux 中使用托管快照创建存储为 Azure 托管磁盘的 VHD 的副本](../virtual-machines/linux/snapshot-copy-managed-disk.md)。
 
-如果将托管磁盘附加到 VM，该磁盘上将不允许某些 API 操作。 例如，磁盘附加到 VM 时，无法通过生成共享访问签名 (SAS) 来执行复制操作。 而是，请先创建磁盘快照，然后再对该快照执行复制操作。 或者，可以分离磁盘，然后生成 SAS 来执行复制操作。
+如果将托管磁盘附加到 VM，该磁盘上将不允许某些 API 操作。 例如，磁盘附加到 VM 时，无法通过生成共享访问签名 (SAS) 来执行复制操作。 而是，请先创建磁盘快照，再对该快照执行复制操作。 或者，可以分离磁盘，然后生成 SAS 来执行复制操作。
 
 
-## Linux VM 的高级存储
-<a id="premium-storage-for-linux-vms" class="xliff"></a>
+## <a name="premium-storage-for-linux-vms"></a>Linux VM 的高级存储
 可以借助以下信息在高级存储中设置 Linux VM：
 
 若要在高级存储中实现可伸缩性目标，对于缓存设置为 **ReadOnly** 或 **None** 的所有高级存储磁盘，必须在装入文件系统时禁用“屏障”。 在此方案中不需要屏障，因为写入高级存储磁盘对于这些缓存设置是持久性的。 成功完成写入请求时，数据已写入持久存储。 若要禁用“屏障”，请使用以下方法之一： 选择适用于文件系统的方法：
@@ -298,8 +279,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 | Oracle | 6.4-6.7 | &nbsp; | UEK4 或带[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)的 RHCK |
 
 
-### OpenLogic CentOS 的 LIS 驱动程序
-<a id="lis-drivers-for-openlogic-centos" class="xliff"></a>
+### <a name="lis-drivers-for-openlogic-centos"></a>OpenLogic CentOS 的 LIS 驱动程序
 
 运行 OpenLogic CentOS VM 时，请运行以下命令来安装最新的驱动程序：
 
@@ -310,8 +290,7 @@ sudo yum install microsoft-hyper-v
 
 若要激活新驱动程序，请重启计算机。
 
-## 定价和计费
-<a id="pricing-and-billing" class="xliff"></a>
+## <a name="pricing-and-billing"></a>定价和计费
 
 使用高级存储时，请注意以下计费方式：
 
@@ -337,27 +316,22 @@ sudo yum install microsoft-hyper-v
 * [虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)
 * [托管磁盘定价](https://www.azure.cn/pricing/details/managed-disks/)
 
-## Azure 备份支持
-<a id="azure-backup-support" class="xliff"></a> 
+## <a name="azure-backup-support"></a>Azure 备份支持 
 
 对于区域性灾难恢复，必须使用 [Azure 备份](../backup/backup-introduction-to-azure-backup.md)和用作备份保管库的 GRS 存储帐户来备份不同区域中的 VM 磁盘。
 
 若要创建可执行基于时间的备份、轻松实现 VM 还原并采用备份保留策略的备份作业，请使用 Azure 备份。 可对非托管磁盘和托管磁盘使用备份。 
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 有关高级存储的详细信息，请参阅以下文章。
 
-### 高级存储的设计和实现
-<a id="design-and-implement-with-premium-storage" class="xliff"></a>
+### <a name="design-and-implement-with-premium-storage"></a>高级存储的设计和实现
 * [使用高级存储实现高性能设计](storage-premium-storage-performance.md)
 * [对高级存储使用 Blob 存储操作](http://go.microsoft.com/fwlink/?LinkId=521969)
 
-### 操作指南
-<a id="operational-guidance" class="xliff"></a>
+### <a name="operational-guidance"></a>操作指南
 * [迁移到 Azure 高级存储](storage-migration-to-premium-storage.md)
 
-### 博客文章
-<a id="blog-posts" class="xliff"></a>
+### <a name="blog-posts"></a>博客文章
 * [Azure Premium Storage generally available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)（Azure 高级存储已正式推出）
 * [Announcing the GS-Series: Adding Premium Storage Support to the Largest VMs in the Public Cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)（GS 系列公告：将高级存储支持添加到公有云中的最大 VM）

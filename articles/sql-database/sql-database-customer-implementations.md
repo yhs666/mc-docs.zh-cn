@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/03/2017
-ms.date: 07/10/2017
-ms.author: v-johch
-ms.openlocfilehash: 3be170c7b9871a2e50e5fd0bb1dc30667eb9251b
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 9d8273c80b071151cadeec8c8deb1f4fcb3c84ac
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Azure SQL 数据库客户实现技术研究
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 07/14/2017
 
 - [GEP](sql-database-implementation-gep.md)：GEP 提供软件和服务，可让世界各地的采购领导最大限度地影响其业务运营、策略及财务绩效。 除了咨询和托管的服务，该公司还提供 SMART by GEP® 基于云的全方位采购软件平台。 但是，GEP 在尝试使用自己的本地数据中心来支持 SMART by GEP 时遇到一些限制：所需的投资过高，而其他国家/地区的法规要求则令人在必要的投资上有所顾虑。 通过转移到云，GEP 释放了 IT 资源，可以节省 IT 营运的精力，更专注于为全球客户开发新的价值来源。
 
-- [SnelStart](sql-database-implementation-snelstart.md)：SnelStart 为荷兰的中小型企业 (SMB) 编写流行的财务和业务管理软件。 它的 55,000 家客户由 110 名员工提供服务，其中包括 35 名 IT 人员。 通过从桌面软件转移到 Azure 上的服务型软件 (SaaS) 产品，SnelStart 不仅能够使用 C# 中的熟悉环境将管理自动化，而且还能使用弹性池避免过度预配或预配不足，优化性能与伸缩性，从而充分利用内置服务。 Azure 使得 SnelStart 能够在本地环境与云之间灵活移动客户。
+- [SnelStart](sql-database-implementation-snelstart.md)：SnelStart 为荷兰的中小型企业 (SMB) 编写流行的财务和业务管理软件。 它的 55,000 家客户由 110 名员工提供服务，其中包括 35 名 IT 人员。 通过从桌面软件转移到 Azure 上的软件即服务 (SaaS) 产品，SnelStart 不仅能够使用 C# 中的熟悉环境将管理自动化，而且还能使用弹性池避免过度预配或预配不足，优化性能与伸缩性，从而充分利用内置服务。 Azure 使得 SnelStart 能够在本地环境与云之间灵活移动客户。
 
 - [Umbraco](sql-database-implementation-umbraco.md)：为了简化客户部署，Umbraco 添加了 Umbraco 即服务 (UaaS)：一个软件即服务 (SaaS) 产品，它无需本地部署，提供内置缩放，使开发人员能够专注于产品创新而不是解决方案管理，节省了管理开销。 Umbraco 依赖于 Azure 提供的弹性平台即服务 (PaaS) 模型提供所有这些优势。
+
+<!--Update_Description: update meta properties-->

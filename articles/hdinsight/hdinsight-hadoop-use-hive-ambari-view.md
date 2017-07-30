@@ -17,11 +17,11 @@ ms.workload: big-data
 origin.date: 05/05/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: 4d69d6c8810a0763b93c3914ffef08585101e2b6
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: de3c0f56a763f3020c64ebd08e99b74be9fd294c
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-the-hive-view-with-hadoop-in-hdinsight"></a>将 Hive 视图与 HDInsight 中的 Hadoop 配合使用
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 07/14/2017
 * 基于 Linux 的 HDInsight 群集。 有关创建群集的信息，请参阅[开始使用基于 Linux 的 HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="open-the-hive-view"></a>打开 Hive 视图
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 07/14/2017
      > [!NOTE]
      > 如果希望通过外部源更新基础数据，应使用外部表。 例如，自动执行的数据上传过程，或其他 MapReduce 操作。 删除外部表 *不会* 删除数据，只会删除表定义。
 
-2. 若要启动查询，请单击查询编辑器底部的“执行”  按钮。 该按钮将变为橙色并且文本将更改为“停止执行” 。 “查询进程结果”  部分应出现在“查询编辑器”下方，并显示有关作业的信息。
+2. 若要启动查询，请单击查询编辑器底部的“执行”  按钮。 该按钮将变为橙色并且文本更改为“停止执行” 。 “查询进程结果”  部分应出现在“查询编辑器”下方，并显示有关作业的信息。
 
    > [!IMPORTANT]
    > 某些浏览器可能无法正确刷新日志或结果信息。 如果运行一个作业，而它看上去似乎会永久运行下去而不更新日志或返回结果，请尝试改为使用 Mozilla FireFox 或 Google Chrome。

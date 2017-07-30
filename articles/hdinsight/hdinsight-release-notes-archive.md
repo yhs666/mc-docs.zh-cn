@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/06/2017
-ms.date: 05/08/2017
+origin.date: 06/29/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
-ms.openlocfilehash: d096576f6c878dc29724e56211b8f0dffd900b11
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: a4e526603744d5893822fd056a7120c5c179d720
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="release-notes-archive-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight 上的 Hadoop 组件发行说明（存档）
 
@@ -1252,7 +1252,7 @@ Apache Mahout 是 Apache Hadoop 的机器学习库。 Mahout 包含用于处理�
   * 要恢复到旧默认值，你可以在创建群集时使用以下命令通过 Azure PowerShell 将此配置值设置为 512：
 
       Add-AzureRmHDInsightConfigValues -Core @{"templeton.mapper.memory.mb"="512";}
-* zookeeper 角色的主机名已更改为 *zookeeper*。 这会影响群集内部的名称解析，但不会影响外部 REST API。 如果你的组件使用了 *zookeepernode* 主机名，则需更新这些组件，让其使用新名称。 三个 zookeeper 节点的新名称为：
+* zookeeper 角色的主机名已更改为 *zookeeper*。 这会影响群集内部的名称解析，但不会影响外部 REST API。 如果组件使用了 *zookeepernode* 主机名，则需更新这些组件，让其使用新名称。 三个 zookeeper 节点的新名称为：
 
   * zookeeper0
   * zookeeper1
@@ -1262,7 +1262,7 @@ Apache Mahout 是 Apache Hadoop 的机器学习库。 Mahout 包含用于处理�
 ## <a name="notes-about-clusters-created-prior-to-8152014"></a>2014/8/15 之前创建的群集的注意事项
 由于 Azure PowerShell 或 HDInsight SDK 与群集之间的版本不同，你可能会遇到 Azure PowerShell 或 HDInsight SDK 错误消息“群集 <clustername> 未配置 HTTP 服务访问”（或者根据操作，遇到其他错误消息，如：“无法连接到群集”）。 8 月 15 日或之后创建的群集支持虚拟网络的新配置功能。 旧版本 Azure PowerShell 或 HDInsight SDK 无法正确解释此功能，导致提交作业操作失败。 如果使用 HDInsight SDK API 或 Azure PowerShell cmdlet（例如 Use-AzureRmHDInsightCluster 或 Invoke-AzureRmHDInsightHiveJob）来提交作业，这些作业可能失败并返回上述其中一个错误消息。
 
-在最新版 HDInsight SDK 和 Azure PowerShell 中，这些兼容性问题均已解决。 我们建议将 HDInsight SDK 更新至 1.3.1.6 版本或更高版本，将 Azure PowerShell 工具更新至 0.8.8 版本或更高版本。 你可以从 [NuGet][nuget-link]访问最新的 HDInsight SDK。 可以使用 [Microsoft Web 平台安装程序][webpi-link]访问 Azure PowerShell 工具。
+在最新版 HDInsight SDK 和 Azure PowerShell 中，这些兼容性问题均已解决。 我们建议将 HDInsight SDK 更新至 1.3.1.6 版本或更高版本，将 Azure PowerShell 工具更新至 0.8.8 版本或更高版本。 可以从 [NuGet][nuget-link]访问最新的 HDInsight SDK。 可以使用 [Microsoft Web 平台安装程序][webpi-link]访问 Azure PowerShell 工具。
 
 ## <a name="notes-for-7282014-release"></a>7/28/2014 版本发行说明
 * **HDInsight 已在新区域推出：**我们已将 HDInsight 的地理位置据点扩展到三个新的区域。 HDInsight 客户可以在这些区域创建群集。
@@ -1480,3 +1480,5 @@ SQL Server 的 Java 数据库连接 (JDBC) 驱动程序由 HDInsight 在内部�
 
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
+
+<!--Update_Description: update meta data-->

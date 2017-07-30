@@ -12,17 +12,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2017
-ms.date: 07/10/2017
+origin.date: 06/29/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
-ms.openlocfilehash: 822a640234317c70d980183ac620137402740b16
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: d4a6e6b5eff9d7d4deab0d4d86bb237756783649
+ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 使用软件部署工具自动执行移动服务安装
-<a id="automate-mobility-service-installation-by-using-software-deployment-tools" class="xliff"></a>
+# <a name="automate-mobility-service-installation-by-using-software-deployment-tools"></a>使用软件部署工具自动执行移动服务安装
 
 >[!IMPORTANT]
 本文档假定使用的是版本 **9.9.4510.1** 或更高版本。
@@ -34,20 +33,17 @@ ms.lasthandoff: 06/30/2017
 > [!NOTE]
 > 本文使用 System Center Configuration Manager 2012 R2 来演示部署活动。 用户还可以使用 [Azure 自动化和 Desired State Configuration](site-recovery-automate-mobility-service-install.md) 自动安装移动服务。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 1. 已在环境中部署的软件部署工具，例如 Configuration Manager。
-  创建两个[设备集合](https://technet.microsoft.com/zh-cn/library/gg682169.aspx)，一个用于要使用 Site Recovery 保护的所有“Windows 服务器” ，另一个用于要保护的所有“Linux 服务器”。
+  创建两个[设备集合](https://technet.microsoft.com/library/gg682169.aspx)，一个用于要使用 Site Recovery 保护的所有“Windows 服务器” ，另一个用于要保护的所有“Linux 服务器”。
 3. 已向 Site Recovery 注册的配置服务器。
 4. 可通过 Configuration Manager 服务器访问的安全网络文件共享（服务器消息块共享）。
 
-## 在运行 Windows 的计算机上部署移动服务
-<a id="deploy-mobility-service-on-computers-running-windows" class="xliff"></a>
+## <a name="deploy-mobility-service-on-computers-running-windows"></a>在运行 Windows 的计算机上部署移动服务
 > [!NOTE]
 > 本文假设配置服务器的 IP 地址为 192.168.3.121，且安全网络文件共享为 \\\ContosoSecureFS\MobilityServiceInstallers。
 
-### 步骤 1：准备部署
-<a id="step-1-prepare-for-deployment" class="xliff"></a>
+### <a name="step-1-prepare-for-deployment"></a>步骤 1：准备部署
 1. 在网络共享上创建一个文件夹，并将其命名为“MobSvcWindows”。
 2. 登录配置服务器，并打开管理命令提示符。
 3. 运行以下命令，生成密码文件：
@@ -161,8 +157,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
 ```
 
-### 步骤 2：创建包
-<a id="step-2-create-a-package" class="xliff"></a>
+### <a name="step-2-create-a-package"></a>步骤 2：创建包
 
 1. 登录 Configuration Manager 控制台。
 2. 浏览到“软件库” > “应用程序管理” > “包”。
@@ -196,8 +191,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 > [!NOTE]
 > 脚本支持移动服务代理的全新安装和已安装代理的更新。
 
-### 步骤 3：部署包
-<a id="step-3-deploy-the-package" class="xliff"></a>
+### <a name="step-3-deploy-the-package"></a>步骤 3：部署包
 1. 在 Configuration Manager 控制台中，右键单击包，然后选择“分发内容”。
     ![Configuration Manager 控制台的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
 2. 选择包应复制到的“分发点”**[](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
@@ -223,13 +217,11 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
   ![用于监视部署的 Configuration Manager 选项的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
 
-## 在运行 Linux 操作系统的计算机上部署移动服务
-<a id="deploy-mobility-service-on-computers-running-linux" class="xliff"></a>
+## <a name="deploy-mobility-service-on-computers-running-linux"></a>在运行 Linux 操作系统的计算机上部署移动服务
 > [!NOTE]
 > 本文假设配置服务器的 IP 地址为 192.168.3.121，且安全网络文件共享为 \\\ContosoSecureFS\MobilityServiceInstallers。
 
-### 步骤 1：准备部署
-<a id="step-1-prepare-for-deployment" class="xliff"></a>
+### <a name="step-1-prepare-for-deployment"></a>步骤 1：准备部署
 1. 在网络共享上创建一个文件夹，并将其命名为“MobSvcLinux”。
 2. 登录配置服务器，并打开管理命令提示符。
 3. 运行以下命令，生成密码文件：
@@ -388,8 +380,7 @@ cd /tmp
 
 ```
 
-### 步骤 2：创建包
-<a id="step-2-create-a-package" class="xliff"></a>
+### <a name="step-2-create-a-package"></a>步骤 2：创建包
 
 1. 登录 Configuration Manager 控制台。
 2. 浏览到“软件库” > “应用程序管理” > “包”。
@@ -422,8 +413,7 @@ cd /tmp
 > [!NOTE]
 > 脚本支持移动服务代理的全新安装和已安装代理的更新。
 
-### 步骤 3：部署包
-<a id="step-3-deploy-the-package" class="xliff"></a>
+### <a name="step-3-deploy-the-package"></a>步骤 3：部署包
 1. 在 Configuration Manager 控制台中，右键单击包，然后选择“分发内容”。
     ![Configuration Manager 控制台的屏幕截图](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
 2. 选择包应复制到的“分发点”**[](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
@@ -443,16 +433,14 @@ cd /tmp
 
 移动服务将根据配置的计划安装在 Linux 服务器设备集合上。
 
-## 安装移动服务的其他方法
-<a id="other-methods-to-install-mobility-service" class="xliff"></a>
+## <a name="other-methods-to-install-mobility-service"></a>安装移动服务的其他方法
 以下是用于安装移动服务的一些其他选项：
 * [使用 GUI 手动安装](http://aka.ms/mobsvcmanualinstall)
 * [使用命令行手动安装](http://aka.ms/mobsvcmanualinstallcli)
 * [使用配置服务器推送安装](http://aka.ms/pushinstall)
 * [使用 Azure 自动化和 Desired State Configuration 自动安装](http://aka.ms/mobsvcdscinstall)
 
-## 卸载移动服务
-<a id="uninstall-mobility-service" class="xliff"></a>
+## <a name="uninstall-mobility-service"></a>卸载移动服务
 可以创建用于卸载移动服务的 Configuration Manager 包。 使用以下脚本执行相关操作：
 
 ```
@@ -476,6 +464,7 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
 
 ```
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 现在，可为虚拟机 [启用保护](/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications)。
+
+<!--Update_Description: update meta properties-->

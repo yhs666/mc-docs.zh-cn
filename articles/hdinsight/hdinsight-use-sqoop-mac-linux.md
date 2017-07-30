@@ -18,11 +18,11 @@ ms.topic: article
 origin.date: 04/14/2017
 ms.date: 06/05/2017
 ms.author: v-dazen
-ms.openlocfilehash: d9747be10300bbe0169cd7630cca45b9f530a653
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 00012d239102c420d87c70a39afc91ebb0416b9a
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>使用 Apache Sqoop 在 Hadoop on HDInsight 与 SQL 数据库之间进行导入和导出
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/14/2017
 了解如何使用 Apache Sqoop 在 Azure HDInsight 中的 Hadoop 群集与 Azure SQL 数据库或 Microsoft SQL Server 数据库之间进行导入和导出。 本文档中的步骤直接从 Hadoop 群集的头节点使用 `sqoop` 命令。 可以使用 SSH 连接到头节点并运行本文档中的命令。
 
 > [!IMPORTANT]
-> 本文档中的步骤仅适用于使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> 本文档中的步骤仅适用于使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="install-freetds"></a>安装 FreeTDS
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 07/14/2017
 
         TDSVER=8.0 tsql -H <serverName>.database.chinacloudapi.cn -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
 
-    将收到类似于以下文本的输出：
+    你会收到类似于以下文本的输出：
 
         locale is "en_US.UTF-8"
         locale charset is "UTF-8"
@@ -88,7 +88,7 @@ ms.lasthandoff: 07/14/2017
     GO
     ```
 
-    输入 `GO` 语句后，将评估前面的语句。 首先会创建 **mobiledata** 表，然后会向其添加聚集索引（根据 SQL 数据库的要求。）
+    输入 `GO` 语句后，会评估前面的语句。 首先会创建 **mobiledata** 表，然后会向其添加聚集索引（根据 SQL 数据库的要求。）
 
     使用以下查询验证是否已创建该表：
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 07/14/2017
     GO
     ```
 
-    将看到类似于以下文本的输出：
+    会看到类似于以下文本的输出：
 
         TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
         sqooptest       dbo     mobiledata      BASE TABLE
@@ -135,7 +135,7 @@ ms.lasthandoff: 07/14/2017
     GO
     ```
 
-    你会在表中看到一系列数据。 键入 `exit` 退出 tsql 实用程序。
+    会在表中看到一系列数据。 键入 `exit` 退出 tsql 实用程序。
 
 ## <a name="sqoop-import"></a>Sqoop 导入
 
@@ -145,7 +145,7 @@ ms.lasthandoff: 07/14/2017
     sqoop import --connect 'jdbc:sqlserver://<serverName>.database.chinacloudapi.cn:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
-    数据中的字段将通过制表符分隔，并且相关行将由换行符终止。
+    数据中的字段将通过制表符分隔，并且相关行由换行符终止。
 
 2. 完成导入后，可使用以下命令在新目录中列出这些数据：
 
@@ -155,7 +155,7 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="using-sql-server"></a>使用 SQL Server
 
-你还可以使用 Sqoop 通过 SQL Server 来导入和导出数据，不管是在数据中心进行，还是在托管在 Azure 中的虚拟机上进行。 SQL 数据库和 SQL Server 在使用方面的差异是：
+还可以使用 Sqoop 通过 SQL Server 来导入和导出数据，不管是在数据中心进行，还是在托管在 Azure 中的虚拟机上进行。 SQL 数据库和 SQL Server 在使用方面的差异是：
 
 * HDInsight 和 SQL Server 必须位于同一 Azure 虚拟网络上。
 
@@ -168,7 +168,7 @@ ms.lasthandoff: 07/14/2017
 
 * 必须将 SQL Server 配置为允许 SQL 身份验证。 有关详细信息，请参阅[选择身份验证模式](https://msdn.microsoft.com/ms144284.aspx)文档。
 
-* 你可能需要将 SQL Server 配置为接受远程连接。 有关详细信息，请参阅[如何解决 SQL Server 数据库引擎的连接问题](http://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx)文档。
+* 可能需要将 SQL Server 配置为接受远程连接。 有关详细信息，请参阅[如何解决 SQL Server 数据库引擎的连接问题](http://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx)文档。
 
 * 使用诸如 **SQL Server Management Studio** 或 **tsql** 等实用工具在 SQL Server 中创建 **sqooptest** 数据库。 有关使用 Azure CLI 的步骤仅适用于 Azure SQL 数据库。
 

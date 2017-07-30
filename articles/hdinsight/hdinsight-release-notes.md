@@ -14,17 +14,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/06/2017
-ms.date: 05/08/2017
+origin.date: 06/29/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 7e5e37e5c74e8e626296f8fc4b847355640c3cc4
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 4e76cca1a345cab1dfc1d3c7b59175ea12dead3f
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/28/2017
 ---
-# Azure HDInsight 上的 Hadoop 组件发行说明
-<a id="release-notes-for-hadoop-components-on-azure-hdinsight" class="xliff"></a>
+# <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight 上的 Hadoop 组件发行说明
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
@@ -33,8 +32,7 @@ ms.lasthandoff: 06/21/2017
 > [!IMPORTANT]
 > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 版本控制文章](hdinsight-component-versioning.md)。
 
-## HDInsight 3.6 公开上市
-<a id="general-availability-of-hdinsight-36" class="xliff"></a>
+## <a name="general-availability-of-hdinsight-36"></a>HDInsight 3.6 公开上市
 
 * 在此次发布中，Azure HDInsight 添加了基于 HDP 2.6 的 3.6 版。 [此处](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html)提供 HDP 2.6 发行说明；[此处](hdinsight-component-versioning.md)提供有关 HDInsight 版本的详细信息。 HDInsight 3.6 可用于以下工作负荷：
 
@@ -65,35 +63,29 @@ ms.lasthandoff: 06/21/2017
 
         HADOOP_CLASSPATH=/path/to/hbase-protocol.jar:/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
 
-## 发布 Spark 2.1 on HDInsight 3.6（预览版）
-<a id="release-of-spark-21-on-hdinsight-36-preview" class="xliff"></a>
+## <a name="release-of-spark-21-on-hdinsight-36-preview"></a>发布 Spark 2.1 on HDInsight 3.6（预览版）
 * [Spark 2.1](http://spark.apache.org/releases/spark-release-2-1-0.html) 纠正了旧版中的许多稳定性和可用性问题。 它还带来了针对所有 Spark 工作负荷（如 Spark Core、SQL、ML 和流式处理）的新功能。
 * 结构化流式处理通过支持事件时间水印和 Kafka 0.10 连接器提高了可伸缩性。
 * 现在使用新的可缩放分区处理机制处理 Spark SQL 分区。 有关如何升级，请参阅 [此处](http://spark.apache.org/releases/spark-release-2-1-0.html) 的更多详细信息。
 * Azure HDInsight 3.6 预览版中的 Spark 2.1 目前不支持使用 ODBC 驱动程序的 BI 工具连接。
 
-## 发布 Spark 2.0.1 on HDInsight 3.5
-<a id="release-of-spark-201-on-hdinsight-35" class="xliff"></a>
+## <a name="release-of-spark-201-on-hdinsight-35"></a>发布 Spark 2.0.1 on HDInsight 3.5
 Spark 2.0.1 现已在 Spark 群集（HDInsight 版本 3.5）上发行。
 
-## 发布 R Server 9.0 on HDInsight 3.5 (Spark 2.0)
-<a id="release-of-r-server-90-on-hdinsight-35-spark-20" class="xliff"></a>
+## <a name="release-of-r-server-90-on-hdinsight-35-spark-20"></a>发布 R Server 9.0 on HDInsight 3.5 (Spark 2.0)
 *   R Server 群集现在包括适用于两个版本的选项：R Server 9.0 on HDI 3.5 (Spark 2.0) 和 R Server 8.0 on HDI 3.4 (Spark 1.6)。
 *   R Server 9.0 on HDI 3.5 (Spark 2.0) 以 R 3.3.2 为基础构建，包括名为 RxHiveData 和 RxParquetData 的全新 ScaleR 数据源功能，可以将数据从 Hive 和 Parquet 直接加载到 Spark DataFrames 供 ScaleR 分析。 有关详细信息，请通过使用 **?RxHiveData** 和 **?RxParquetData** 命令在 R 中查看关于这些函数的内联帮助。
 *   现在，作为预配流的一部分，RStudio Server 社区版（通过选择退出选项）默认安装在“群集预配”边栏选项卡上。
 
-## - 发布 Spark 2.0 on HDInsight
-<a id="--release-of-spark-20-on-hdinsight" class="xliff"></a>
+## <a name="--release-of-spark-20-on-hdinsight"></a>- 发布 Spark 2.0 on HDInsight
 * HDInsight 3.5 上的 Spark 2.0 群集现支持 Livy 和 Jupyter 服务。
 
-## - 发布 R Server on HDInsight
-<a id="--release-of-r-server-on-hdinsight" class="xliff"></a>
+## <a name="--release-of-r-server-on-hdinsight"></a>- 发布 R Server on HDInsight
 * 进行边缘节点访问的 URI 已更改为 **clustername**-ed-ssh.azurehdinsight.cn
 * R Server on HDInsight 群集预配已简化。
 * R Server on HDInsight 现已作为常用的 HDInsight“R Server”群集类型推出，不再作为单独的 HDInsight 应用程序安装。 边缘节点和 R Server 二进制文件现在会在 R Server 群集部署过程中进行预配。 这将提高预配的速度和可靠性。 R Server 的定价模型会相应地进行更新。
 
-## 发布 R Server on HDInsight
-<a id="release-of-r-server-on-hdinsight" class="xliff"></a>
+## <a name="release-of-r-server-on-hdinsight"></a>发布 R Server on HDInsight
 随此版本一起部署的基于 Linux 的 HDInsight 群集的所有版本号：
 
 | HDI | HDI 群集版本 | HDP | HDP 内部版本 | Ambari 内部版本 |
@@ -111,3 +103,5 @@ Spark 2.0.1 现已在 Spark 群集（HDInsight 版本 3.5）上发行。
 | 3.1 |3.1.4.1033.2559206 |2.1 |2.1.16.0-2374 |
 | 3.2 |3.2.7.1033.2559206 |2.2 |2.2.9.1-11 |
 | 3.3 |3.3.0.1033.2559206 |2.3 |2.3.3.1-25 |
+
+<!--Update_Description: update meta data-->

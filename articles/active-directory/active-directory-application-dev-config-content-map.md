@@ -3,24 +3,22 @@ title: "配置或注册应用程序时出现问题"
 description: "配置或注册应用程序时出现问题"
 services: active-directory
 documentationcenter: 
-author: ajamess
-manager: kbrint
+author: alexchen2016
+manager: digimobile
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+origin.date: 07/11/2017
+ms.date: 07/18/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 11a83c8672c89e5493e85f23f2ff0a75a9018e3a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: 72cfb1eed931fff8ff7a47e6e0e35c8ca93f3e97
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/28/2017
 ---
-
 # <a name="problems-configuring-or-registering-my-application"></a>配置或注册应用程序时出现问题
 
 
@@ -44,4 +42,6 @@ ms.lasthandoff: 04/22/2017
   以下文档可帮助你解决一些此类最常见问题。
 
   - [我对应用程序许可的工作原理感到迷惑](application-dev-consent-framework.md)
- 
+  - [我不了解委派权限与应用程序权限之间的差别](application-dev-delegated-and-app-perms.md)
+
+<!--Update_Description: update meta properties -->   

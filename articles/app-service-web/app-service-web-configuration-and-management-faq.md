@@ -3,7 +3,7 @@ title: "Azure Web 应用配置常见问题解答 | Azure"
 description: "获取有关 Azure App Service Web 应用功能配置和管理常见问题的解答。"
 services: app-service\web
 documentationcenter: 
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: 
 tags: top-support-issue
@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 05/16/2017
-ms.date: 07/10/2017
+origin.date: 07/10/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 407cd8df2aec3511a5fe81a09f32b78289c369c4
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 4cc96767af3f417125a4bf6cde3a5867c5581d6c
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web 应用配置及管理常见问题解答
 
@@ -220,3 +220,5 @@ PCI DSS 3.1 版证书要求禁用传输层安全性 (TLS) 1.0。 目前，大多
 ```
 
 还可以指定要压缩的特定动态和静态 MIME 类型。 有关详细信息，请参阅[简单 Azure 网站上的 httpCompression 设置](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview)，查看我们对一个论坛问题的回复。
+
+<!--Update_Description: update meta data-->

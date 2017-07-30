@@ -13,16 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/24/2016
-ms.date: 07/10/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2cbe1215ab6d1ac219afa918dbd581815a4887eb
-ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.openlocfilehash: 77e4152c133a8b633bd038a7a99e651ca8008c07
+ms.sourcegitcommit: 66db84041f1e6e77ef9534c2f99f1f5331a63316
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 面向 Internet 的负载均衡器概述
-<a id="internet-facing-load-balancer-overview" class="xliff"></a>
+# <a name="internet-facing-load-balancer-overview"></a>面向 Internet 的负载均衡器概述
 
 Azure 负载均衡器将传入流量的公用 IP 地址和端口号映射到虚拟机的专用 IP 地址和端口号，对于来自虚拟机的响应流量，则进行反向的映射。 借助负载均衡规则，可在多个虚拟机或服务之间分配特定类型的流量。 例如，可将 Web 请求流量负载分配到多个 Web 服务器或 Web 角色。
 
@@ -40,11 +39,10 @@ Azure 负载均衡器将传入流量的公用 IP 地址和端口号映射到虚�
 
 默认情况下，Azure 负载均衡器在多个虚拟机实例之间平均分发网络流量。 还可以配置会话关联，有关详细信息，请参阅[负载均衡器分发模式](load-balancer-distribution-mode.md)。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 了解[内部负载均衡器](load-balancer-internal-overview.md)，以便更好地了解哪个负载均衡器更适合相关云部署。
 
 还可以[开始创建面向 Internet 的负载均衡器](load-balancer-get-started-internet-arm-ps.md)，并配置适合特定负载均衡器网络流量行为的[分发模式](load-balancer-distribution-mode.md)类型。
 
-如果应用程序需要始终保持对负载均衡器后面的服务器的连接，可详细了解[负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)。 该文章将有助于你了解使用 Azure 负载均衡器时的空闲连接行为。
+如果应用程序需要始终保持对负载均衡器后面的服务器的连接，可详细了解[负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)。 该文章有助于你了解使用 Azure 负载均衡器时的空闲连接行为。

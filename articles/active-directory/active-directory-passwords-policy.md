@@ -4,24 +4,24 @@ description: "Azure AD 自助密码重置策略选项"
 services: active-directory
 keywords: "Active Directory 密码管理, 密码管理, Azure AD 自助密码重置"
 documentationcenter: 
-author: MicrosoftGuyJFlo
-manager: femila
+author: alexchen2016
+manager: digimobile
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/26/2017
-ms.date: 06/12/2017
+origin.date: 07/17/2017
+ms.date: 07/18/2017
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 926c9504ebe2e14e51bd3230deaa794a5db5a7da
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+ms.custom: it-pro
+ms.openlocfilehash: 445961fd8d20d8a6a0d6b2aa444b295347aa1a20
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory 中的密码策略和限制
 
@@ -65,7 +65,7 @@ Microsoft 云服务的全局管理员可使用用于 Windows PowerShell 的 Azur
 
 ## <a name="set-or-check-password-policies-using-powershell"></a>使用 PowerShell 设置或检查密码策略
 
-若要开始，需要[下载并安装 Azure AD PowerShell 模块](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule)。 安装后，可以遵照以下步骤配置每个字段。
+若要开始，需要[下载并安装 Azure AD PowerShell 模块](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0)。 安装后，可以遵照以下步骤配置每个字段。
 
 ### <a name="how-to-check-expiration-policy-for-a-password"></a>如何检查密码过期策略
 1. 使用公司管理员凭据连接到 Windows PowerShell。
@@ -90,4 +90,4 @@ Microsoft 云服务的全局管理员可使用用于 Windows PowerShell 的 Azur
    - 若要将某一个用户的密码设置为永不过期，请使用用户主体名称 (UPN) 或该用户的用户 ID 运行以下 cmdlet：`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    - 若要将组织中所有用户的密码设置为永不过期，请运行以下 cmdlet： `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
-
+<!--Update_Description: wording update-->   

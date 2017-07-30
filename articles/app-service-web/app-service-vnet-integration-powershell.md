@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 08/29/2016
 ms.date: 11/25/2016
 ms.author: v-dazen
-ms.openlocfilehash: 07490cd3fc467dc0122cad3b2fe2c839b6e3c048
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: bb5bdf36a7718026e707b49de9797bccb504bd9a
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="connect-your-app-to-your-virtual-network-by-using-powershell"></a>使用 PowerShell 将应用程序连接到虚拟网络
 
@@ -114,7 +114,7 @@ VNet 集成功能在新门户中有用户界面 (UI)，通过它可以与使用�
 ##### <a name="upload-the-web-app-certificate-to-the-virtual-network"></a>将 Web 应用证书上传到虚拟网络
 需要针对订阅与虚拟网络的每个组合执行一次性的手动步骤。 也就是说，如果将订阅 A 中的应用连接到虚拟网络 A，只需执行此步骤一次，而不管配置了多少个应用。 如果将新的应用添加到另一个虚拟网络，则需要再次执行此步骤。 这是因为证书集是在 Azure 应用服务的订阅级别生成的，并且针对应用将要连接到的每个虚拟网络生成该集一次。
 
-如果你遵循了这些步骤，或者已使用门户来与相同的虚拟网络集成，则证书已设置。
+如果遵循了这些步骤，或者已使用门户来与相同的虚拟网络集成，则证书已设置。
 
 第一个步骤是生成 .cer 文件。 第二个步骤是将 .cer 文件上传到虚拟网络。 若要从前一步骤中的 API 调用生成 .cer 文件，请运行以下命令。
 
@@ -199,7 +199,7 @@ VNet 集成功能在新门户中有用户界面 (UI)，通过它可以与使用�
 Resource Manager 虚拟网络具有 Azure Resource Manager API，与经典虚拟网络相比，这些 API 可以简化某些过程。 我们提供了脚本来帮助你完成以下任务：
 
 * 创建 Resource Manager 虚拟网络并将你的应用与该虚拟网络集成。
-* 创建网关，在现有 Resource Manager 虚拟网络中配置点到站点连接，然后将你的应用与该虚拟网络集成。
+* 创建网关，在现有 Resource Manager 虚拟网络中配置点到站点连接，并将用户的应用与该虚拟网络集成。
 * 将应用与已启用网关和点到站点连接的现有 Resource Manager 虚拟网络集成。
 * 从虚拟网络断开连接应用。
 
@@ -340,6 +340,12 @@ Resource Manager 虚拟网络具有 Azure Resource Manager API，与经典虚拟
 
         Write-Host "Retrieving VPN Package and supplying to App"
         $packageUri = Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName -VirtualNetworkGatewayName $vnetGatewayName -ProcessorArchitecture Amd64
+
+        # $packageUri may contain literal double-quotes at the start and the end of the URL
+        if($packageUri.Length -gt 0 -and $packageUri.Substring(0, 1) -eq '"' -and $packageUri.Substring($packageUri.Length - 1, 1) -eq '"')
+        {
+            $packageUri = $packageUri.Substring(1, $packageUri.Length - 2)
+        }
 
         # Put the VPN client configuration package onto the App
         $PropertiesObject = @{
@@ -520,6 +526,12 @@ Resource Manager 虚拟网络具有 Azure Resource Manager API，与经典虚拟
         Write-Host "Retrieving VPN Package and supplying to App"
         $packageUri = Get-AzureRmVpnClientPackage -ResourceGroupName $vnet.ResourceGroupName -VirtualNetworkGatewayName $gateway.Name -ProcessorArchitecture Amd64
 
+        # $packageUri may contain literal double-quotes at the start and the end of the URL
+        if($packageUri.Length -gt 0 -and $packageUri.Substring(0, 1) -eq '"' -and $packageUri.Substring($packageUri.Length - 1, 1) -eq '"')
+        {
+            $packageUri = $packageUri.Substring(1, $packageUri.Length - 2)
+        }
+
         # Put the VPN client configuration package onto the App
         $PropertiesObject = @{
         "vnetName" = $vnet.Name; "vpnPackageUri" = $packageUri
@@ -646,7 +658,7 @@ Resource Manager 虚拟网络具有 Azure Resource Manager API，与经典虚拟
     Do you wish to change these settings?
     [Y] Yes  [N] No  [?] Help (default is "N"):
 
-如果想更改任何值，请键入 **Y** ，然后进行更改。 如果对虚拟网络设置感到满意，请键入 **N** ，或者在系统提示是否更改设置时按 Enter。 从此处开始，脚本将告诉你它正在执行什么操作，直到开始创建虚拟网络网关为止。 该步骤最多需要一个小时。 在此阶段没有任何进度指示器，但创建好网关后，脚本会告诉你。
+如果想更改任何值，请键入 **Y** ，并进行更改。 如果对虚拟网络设置感到满意，请键入 **N** ，或者在系统提示是否更改设置时按 Enter。 从此处开始，脚本将告诉你它正在执行什么操作，直到开始创建虚拟网络网关为止。 该步骤最多需要一个小时。 在此阶段没有任何进度指示器，但创建好网关后，脚本会告诉你。
 
 脚本完成时，会显示“Finished” 。 此时，你已创建了一个具有所选名称和设置的 Resource Manager 虚拟网络。 此新虚拟网络也将与你的应用集成。
 
@@ -687,7 +699,7 @@ Resource Manager 虚拟网络具有 Azure Resource Manager API，与经典虚拟
     [Y] Yes  [N] No  [?] Help (default is "N"):
     Creating App association to VNET
 
-如果你想要更改上述任何设置，可以这样做。 否则请按 Enter 键，然后脚本将创建网关，并将应用附加到虚拟网络。 网关创建时间仍为一小时，因此请确保有心理准备。 一切完成后，脚本将显示“Finished” 。
+如果你想要更改上述任何设置，可以这样做。 否则请按 Enter 键，脚本将创建网关，并将应用附加到虚拟网络。 网关创建时间仍为一小时，因此请确保有心理准备。 一切完成后，脚本显示“Finished” 。
 
 ### <a name="disconnect-your-app-from-a-resource-manager-vnet"></a>从 Resource Manager VNet 断开连接应用
 从虚拟网络断开连接应用不会关闭网关或禁用点到站点连接。 你仍可以将网关或该连接用于其他目的。 此外，除了与你提供的应用断开连接以外，不会与任何其他应用断开连接。 若要执行此操作，请选择“3) 从应用中删除虚拟网络”。 执行此操作时，将显示如下内容：
@@ -705,3 +717,5 @@ Resource Manager 虚拟网络具有 Azure Resource Manager API，与经典虚拟
 <!--Links-->
 [createvpngateway]: /vpn-gateway/vpn-gateway-point-to-site-create/
 [azureportal]: http://portal.azure.cn
+
+<!--Update_Description: update the sample code-->

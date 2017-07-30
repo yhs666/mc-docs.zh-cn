@@ -14,18 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 07/10/2017
+ms.date: 07/24/2017
 ms.author: v-yeche
-ms.openlocfilehash: ad08442ae4c452505ee0bc57e5700e6d80175561
-ms.sourcegitcommit: 61afe518b7db5ba6c66dace3b2b779f02dca501b
+ms.openlocfilehash: 098b7d0cfbf7e92eaade1ec453fb5ec58175d47e
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 07/26/2017
 ---
-# 使用用于 Visual Studio 的 Azure 流分析工具
-<a id="use-azure-stream-analytics-tools-for-visual-studio" class="xliff"></a>
-## 介绍
-<a id="introduction" class="xliff"></a>
+# <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>使用用于 Visual Studio 的 Azure 流分析工具
+## <a name="introduction"></a>介绍
 本教程介绍如何使用用于 Visual Studio 的 Azure 流分析工具来创建、编写、本地测试、管理和调试流分析作业。 
 
 完成本教程之后，你将能够：
@@ -36,8 +34,7 @@ ms.lasthandoff: 06/26/2017
 * 使用监视功能排查问题。
 * 将现有作业导出到项目。
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 
 若要完成本教程，需要满足以下先决条件：
 * 完成[使用流分析构建 IoT 解决方案教程](/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics)中“创建流分析作业”前面的步骤。 
@@ -45,8 +42,7 @@ ms.lasthandoff: 06/26/2017
 * 使用用于 .NET 的 Azure SDK 2.7.1 或更高版本。 使用 [Web 平台安装程序](http://www.microsoft.com/web/downloads/platform.aspx)进行安装。
 * 安装[用于 Visual Studio 的流分析工具](http://aka.ms/asatoolsvs)。
 
-## 创建流分析项目
-<a id="create-a-stream-analytics-project" class="xliff"></a>
+## <a name="create-a-stream-analytics-project"></a>创建流分析项目
 1. 在 Visual Studio 中，单击“文件”菜单并选择“新建项目”。 
 
 2. 在左侧的模板列表中选择“流分析”，然后单击“Azure 流分析应用程序”。
@@ -59,14 +55,12 @@ ms.lasthandoff: 06/26/2017
 
     ![在解决方案资源管理器中生成的 Toll 项目](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-create-project-02.png)
 
-## 选择正确的订阅
-<a id="choose-the-correct-subscription" class="xliff"></a>
+## <a name="choose-the-correct-subscription"></a>选择正确的订阅
 1. 在 Visual Studio 中单击“视图”菜单，打开“服务器资源管理器”。
 
 2. 使用 Azure 帐户登录。 
 
-## 定义输入源
-<a id="define-the-input-sources" class="xliff"></a>
+## <a name="define-the-input-sources"></a>定义输入源
 1.  在“解决方案资源管理器”中展开“输入”节点，将 **Input.json** 重命名为 **EntryStream.json**。 双击“EntryStream.json”。
 2.  “输入别名”现在为“EntryStream”。 输入别名用在查询脚本中。 
 3.  在“源类型”中，选择“数据流”。
@@ -106,8 +100,7 @@ ms.lasthandoff: 06/26/2017
 
 现在，已定义所有输入。
 
-## 定义输出
-<a id="define-the-output" class="xliff"></a>
+## <a name="define-the-output"></a>定义输出
 1.  在“解决方案资源管理器”中展开“输入”节点，然后双击“Output.json”。
 
 2.  在“输出别名”中，输入“输出”。 
@@ -120,13 +113,11 @@ ms.lasthandoff: 06/26/2017
 
     ![“输出”窗口](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
 
-## 创建流分析查询
-<a id="create-a-stream-analytics-query" class="xliff"></a>
+## <a name="create-a-stream-analytics-query"></a>创建流分析查询
 本教程尝试回答多个与收费数据相关的业务问题， 并且还构建了流分析查询，这些查询可以用在流分析中，以获取相关答案。
 在开始创建第一个流分析作业之前，让我们先了解一个简单的方案和查询语法。
 
-### 流分析查询语言简介
-<a id="introduction-to-the-stream-analytics-query-language" class="xliff"></a>
+### <a name="introduction-to-the-stream-analytics-query-language"></a>流分析查询语言简介
 假设需要统计进入某个收费亭的车辆数目。 此示例是连续的事件流，因此必须定义时段。 将问题修改为“每 3 分钟有多少辆车进入收费亭？” 这种计数的方法通常称为轮转计数。
 
 看看能回答此问题的流分析查询：
@@ -148,14 +139,12 @@ ms.lasthandoff: 06/26/2017
 *   Exit.json
 *   registration.json
 
-## 对进入收费亭的汽车计数
-<a id="count-the-number-of-vehicles-entering-a-toll-booth" class="xliff"></a>
+## <a name="count-the-number-of-vehicles-entering-a-toll-booth"></a>对进入收费亭的汽车计数
 在项目中双击 **Script.asaql**，以便在“查询编辑器”中打开脚本。 将前一部分的脚本复制并粘贴到编辑器中。 查询编辑器支持 Intellisense、语法颜色设置和错误标记。
 
 ![查询编辑器](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-query-01.png)
 
-### 在本地测试流分析查询
-<a id="test-stream-analytics-queries-locally" class="xliff"></a>
+### <a name="test-stream-analytics-queries-locally"></a>在本地测试流分析查询
 
 1. 若要编译查询，以查看是否存在语法错误，请右键单击项目，然后选择“生成”。 
 
@@ -185,8 +174,7 @@ ms.lasthandoff: 06/26/2017
 
     ![“打开结果文件夹”输出](./media/stream-analytics-tools-for-vs/local-testing-files.png)
 
-### 将输入数据作为示例
-<a id="sample-the-input-data" class="xliff"></a>
+### <a name="sample-the-input-data"></a>将输入数据作为示例
 还可以将输入源中的输入数据采样到本地文件。 
 1. 右键单击输入配置文件并选择“数据采样”。 
 
@@ -202,8 +190,7 @@ ms.lasthandoff: 06/26/2017
 
     ![“输出”窗口](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-sample-data-03.png)
 
-### 将流分析查询提交到 Azure
-<a id="submit-a-stream-analytics-query-to-azure" class="xliff"></a>
+### <a name="submit-a-stream-analytics-query-to-azure"></a>将流分析查询提交到 Azure
 1. 在“查询编辑器”的脚本编辑器中，单击“提交到 Azure”。
 
     ![提交到 Azure](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-01.png)
@@ -212,8 +199,7 @@ ms.lasthandoff: 06/26/2017
 
     ![“提交作业”窗口](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
 
-### 启动作业
-<a id="start-a-job" class="xliff"></a>
+### <a name="start-a-job"></a>启动作业
 创建作业以后，作业视图就会自动打开。 
 1. 若要启动作业，请单击绿色箭头按钮。
 
@@ -227,33 +213,28 @@ ms.lasthandoff: 06/26/2017
 
     ![作业摘要中的“正在运行”状态](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-03.png)
 
-## 在 Visual Studio 中检查结果
-<a id="check-the-results-in-visual-studio" class="xliff"></a>
+## <a name="check-the-results-in-visual-studio"></a>在 Visual Studio 中检查结果
 1. 在 Visual Studio 中打开服务器资源管理器，然后右键单击“TollDataRefJoin”表。
 2. 选择“显示表数据”，查看作业的输出。
 
     ![在服务器资源管理器中选择“显示表数据”](media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-check-results.jpg)
 
-### 查看作业指标
-<a id="view-the-job-metrics" class="xliff"></a>
+### <a name="view-the-job-metrics"></a>查看作业指标
 可在“作业指标”中找到一些基本的作业统计信息。 
 
 ![“作业指标”窗口](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-metrics-01.png)
 
-## 在服务器资源管理器中列出作业
-<a id="list-the-job-in-server-explorer" class="xliff"></a>
+## <a name="list-the-job-in-server-explorer"></a>在服务器资源管理器中列出作业
 在“服务器资源管理器”中单击“流分析作业”，然后单击“刷新”。 作业显示在“流分析作业”下。
 
 ![服务器资源管理器中列出的流分析作业](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-list-jobs-01.png)
 
-## 打开作业视图
-<a id="open-the-job-view" class="xliff"></a>
+## <a name="open-the-job-view"></a>打开作业视图
 若要打开作业视图，请展开作业节点，然后双击“作业视图”节点。
 
 ![“作业视图”节点](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-view-01.png)
 
-## 将现有作业导出到项目
-<a id="export-an-existing-job-to-a-project" class="xliff"></a>
+## <a name="export-an-existing-job-to-a-project"></a>将现有作业导出到项目
 可使用两种方法将现有作业导出到项目。
 
 在“服务器资源管理器”中，右键单击“流分析作业”节点中的作业节点，然后选择“导出到新的流分析项目”。
@@ -268,16 +249,16 @@ ms.lasthandoff: 06/26/2017
 
 ![生成项目](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-03.png)
 
-## 已知问题和限制
-<a id="known-issues-and-limitations" class="xliff"></a>
+## <a name="known-issues-and-limitations"></a>已知问题和限制
 
 - 不支持 Power BI 输出和 Azure Date Lake Store 输出。
 - 不支持在编辑器中添加或更改 JavaScript 用户定义函数。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)
-* [Azure 流分析入门](stream-analytics-get-started.md)
+* [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
+<!--Update_Description: update link-->

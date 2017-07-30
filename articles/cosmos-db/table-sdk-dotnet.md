@@ -15,36 +15,32 @@ ms.topic: article
 origin.date: 05/10/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3ffaaf7130f3d55a6b7a84fb545d80c4218a8418
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: 498e88110076c672db9bef650a843f902fc83967
+ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/26/2017
 ---
-# Azure Cosmos DB 表 .NET API：下载和发行说明
-<a id="azure-cosmos-db-table-net-api-download-and-release-notes" class="xliff"></a>
+# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB 表 .NET API：下载和发行说明
 
 |   |   |
 |---|---|
 |**SDK 下载**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**API 文档**|[ 参考文档](https://aka.ms/acdbtableapiref)|
 |快速入门|[Azure Cosmos DB：使用表 API 生成 .NET 应用程序](https://aka.ms/acdbtnetqs)|
-|**教程**|[Azure CosmosDB：使用图形 API 创建容器](tutorial-develop-graph-dotnet.md)|
 |**当前受支持的框架**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
+<!-- Not Available [Azure CosmosDB: Create a container with the Graph API](tutorial-develop-graph-dotnet.md) -->
 
-## 发行说明
-<a id="release-notes" class="xliff"></a>
+## <a name="release-notes"></a>发行说明
 
 * 初始预览版本。
 
-## 发布和停用日期
-<a id="release--retirement-dates" class="xliff"></a>
+## <a name="release--retirement-dates"></a>发布和停用日期
 Microsoft 至少会在停用 SDK 的 **12 个月**之前发出通知，以便顺利转换到更新的/受支持的版本。
 
 新特性和功能以及优化仅添加到当前 SDK，因此建议始终尽早升级到最新的 SDK 版本。 
 
-使用已停用的 SDK 对 Azure Cosmos DB 发出的任何请求都将被服务拒绝。
+使用已停用的 SDK 对 Azure Cosmos DB 发出的任何请求都会被服务拒绝。
 
-## 另请参阅
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>另请参阅
 若要了解有关 Azure Cosmos DB 表 API 的详细信息，请参阅 [Azure Cosmos DB 表 API](table-introduction.md)。

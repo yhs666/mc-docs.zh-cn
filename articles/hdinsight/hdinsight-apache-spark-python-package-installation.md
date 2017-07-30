@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/07/2017
-ms.date: 04/27/2017
+origin.date: 06/29/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 239e7cb99d826a3558f33370c906d36bb054424c
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 652e4d939ecf930462a4a24c493ea5330052bd81
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>在 HDInsight 上的 Apache Spark 群集中使用建本操作安装适用于 Jupyter 笔记本的外部 Python 包
 > [!div class="op_single_selector"]
@@ -80,7 +80,7 @@ ms.lasthandoff: 07/14/2017
         sess = tf.Session()
         print(sess.run(hello))
 
-    结果将如下所示：
+    结果如下所示：
 
     ![TensorFlow 代码执行](./media/hdinsight-apache-spark-python-package-installation/execution.png "执行 TensorFlow 代码")
 
@@ -109,3 +109,5 @@ ms.lasthandoff: 07/14/2017
 ### <a name="manage-resources"></a>管理资源
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](hdinsight-apache-spark-job-debugging.md)
+
+<!--Update_Description: update meta data-->

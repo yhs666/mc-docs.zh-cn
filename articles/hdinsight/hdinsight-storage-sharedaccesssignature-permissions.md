@@ -16,11 +16,11 @@ ms.workload: big-data
 origin.date: 05/22/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 4122850c49be861af89a7b496b2cdfb80ea93bd6
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: c9653976635bad5600069f67edcb0de6589975c5
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 存储共享访问签名来限制访问 HDInsight 中的数据
 
@@ -40,7 +40,7 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 * 基于 Linux 的 HDInsight 群集或 [Azure PowerShell][powershell] - 如果已有基于 Linux 的群集，则可以使用 Ambari 将共享访问签名添加到群集。 如果没有，则可以使用 Azure PowerShell 创建群集，并在创建群集期间添加共享访问签名。
 
     > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * 来自以下网址的示例文件： [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)。 此存储库包含以下项：
 
@@ -128,7 +128,7 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 
 存储库的 `CreateCluster` 目录中包含创建使用 SAS 的 HDInsight 群集的示例。 若要使用它，请执行以下步骤：
 
-1. 在文本编辑器中打开 `CreateCluster\HDInsightSAS.ps1` 文件，然后修改位于文档开头的以下值。
+1. 在文本编辑器中打开 `CreateCluster\HDInsightSAS.ps1` 文件，并修改位于文档开头的以下值。
 
         # Replace 'mycluster' with the name of the cluster to be created
         $clusterName = 'mycluster'
@@ -152,7 +152,7 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
     例如，将 `'mycluster'` 更改为要创建的群集的名称。 创建存储帐户和 SAS 令牌时，SAS 值应该与先前步骤中的值匹配。
 
     更改值之后，请保存该文件。
-2. 打开新的 Azure PowerShell 提示符。 如果你不熟悉或尚未安装 Azure PowerShell，请参阅 [安装和配置 Azure PowerShell][powershell]。
+2. 打开新的 Azure PowerShell 提示符。 如果不熟悉或尚未安装 Azure PowerShell，请参阅[安装和配置 Azure PowerShell][powershell]。
 3. 在提示符下，使用以下命令对 Azure 订阅进行身份验证：
 
         Login-AzureRmAccount -EnvironmentName AzureChinaCloud

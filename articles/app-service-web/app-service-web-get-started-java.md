@@ -16,21 +16,19 @@ origin.date: 06/07/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
 ms.custom: mvc
-ms.openlocfilehash: dc278fd95cf20345d27674b80c9f84f1d65ca56a
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: d9c01f467f6c54758a23cbd10ecf423c5fa1619b
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 在 Azure 中创建第一个 Java Web 应用
-<a id="create-your-first-java-web-app-in-azure" class="xliff"></a>
+# <a name="create-your-first-java-web-app-in-azure"></a>在 Azure 中创建第一个 Java Web 应用
 
 [Azure 应用服务](../app-service/app-service-value-prop-what-is.md)的 [Web 应用](/app-service-web/app-service-web-overview)功能提供高度可缩放、自助修补的 Web 托管服务。 本快速入门演示如何使用 [Eclipse IDE for Java EE Developers](http://www.eclipse.org/) 将 Java Web 应用部署到应用服务。
 
 ![“你好，Azure！” 示例 Web 应用](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## 先决条件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先决条件
 
 若要完成本快速入门教程，请安装：
 
@@ -41,8 +39,7 @@ ms.lasthandoff: 06/23/2017
 
 [!INCLUDE [azure-eclipse-login-guide](../../includes/azure-eclipse-login-guide.md)]
 
-## 在 Eclipse 中创建一个动态 Web 项目
-<a id="create-a-dynamic-web-project-in-eclipse" class="xliff"></a>
+## <a name="create-a-dynamic-web-project-in-eclipse"></a>在 Eclipse 中创建一个动态 Web 项目
 
 在 Eclipse 中，选择“文件” > “新建” > “动态 Web 项目”。
 
@@ -50,8 +47,7 @@ ms.lasthandoff: 06/23/2017
 
 ![“新建动态 Web 项目”对话框](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
-### 添加 JSP 页面
-<a id="add-a-jsp-page" class="xliff"></a>
+### <a name="add-a-jsp-page"></a>添加 JSP 页面
 
 如果未显示“项目资源管理器”，请将其还原。
 
@@ -79,8 +75,7 @@ ms.lasthandoff: 06/23/2017
 
 保存更改。
 
-## 将 Web 应用发布到 Azure
-<a id="publish-the-web-app-to-azure" class="xliff"></a>
+## <a name="publish-the-web-app-to-azure"></a>将 Web 应用发布到 Azure
 
 在“项目资源管理器”中，右键单击该项目，然后选择“Azure” > “发布为 Azure Web 应用”。
 
@@ -90,8 +85,7 @@ ms.lasthandoff: 06/23/2017
 
 按照登录说明操作。
 
-### “部署 Web 应用”对话框
-<a id="deploy-web-app-dialog-box" class="xliff"></a>
+### <a name="deploy-web-app-dialog-box"></a>“部署 Web 应用”对话框
 
 登录 Azure 帐户后，随即显示“部署 Web 应用”对话框。
 
@@ -99,8 +93,7 @@ ms.lasthandoff: 06/23/2017
 
 ![“部署 Web 应用”对话框](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
 
-### “创建应用服务”对话框
-<a id="create-app-service-dialog-box" class="xliff"></a>
+### <a name="create-app-service-dialog-box"></a>“创建应用服务”对话框
 
 随即显示含有默认值的“创建应用服务”对话框。 下图中显示的数字 **170602185241** 与对话框中的不同。
 
@@ -121,8 +114,7 @@ ms.lasthandoff: 06/23/2017
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-### “资源组”选项卡
-<a id="resource-group-tab" class="xliff"></a>
+### <a name="resource-group-tab"></a>“资源组”选项卡
 
 选择“资源组”选项卡。 保留默认的资源组生成值。
 
@@ -144,8 +136,7 @@ Azure 工具包创建 Web 应用，并显示进度对话框。
 
 ![“创建应用服务进度”对话框](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
-### “部署 Web 应用”对话框
-<a id="deploy-web-app-dialog-box" class="xliff"></a>
+### <a name="deploy-web-app-dialog-box"></a>“部署 Web 应用”对话框
 
 在“部署 Web 应用”对话框中，选择“部署到根目录”。 如果 *wingtiptoys.chinacloudsites.cn* 中有一个应用服务，而你不部署到根目录，则会将名为 **MyFirstJavaOnAzureWebApp** 的 Web 应用部署到 *wingtiptoys.chinacloudsites.cn/MyFirstJavaOnAzureWebApp*。
 
@@ -163,8 +154,7 @@ Azure 工具包创建 Web 应用，并显示进度对话框。
 
 ![“你好，Azure！” 示例 Web 应用](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## 更新 Web 应用
-<a id="update-the-web-app" class="xliff"></a>
+## <a name="update-the-web-app"></a>更新 Web 应用
 
 将示例 JSP 代码更改为其他消息。
 
@@ -188,10 +178,9 @@ Azure 工具包创建 Web 应用，并显示进度对话框。
 
 当“发布”链接显示后，选择它以浏览到 Web 应用，并查看更改。
 
-## 管理 Web 应用
-<a id="manage-the-web-app" class="xliff"></a>
+## <a name="manage-the-web-app"></a>管理 Web 应用
 
-转到 [Azure 门户](https://portal.azure.cn)查看已创建的 Web 应用。
+转到 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>查看已创建的 Web 应用。
 
 从左侧菜单中，选择“资源组”。
 
@@ -209,8 +198,7 @@ Azure 工具包创建 Web 应用，并显示进度对话框。
 
 [!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
 > [映射自定义域](app-service-web-tutorial-custom-domain.md)

@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/06/2017
-ms.date: 07/24/2017
+origin.date: 06/29/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 528d556b8c3ee88f17fd9f1cedca5522a16d3d07
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 32653b12705b9606bb5908a913208a32baf1f36a
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>开始使用 Hadoop 沙盒, 虚拟机上的模拟器
 
@@ -84,3 +84,5 @@ ms.lasthandoff: 07/14/2017
 * [了解如何将 Visual Studio 与 Hortonworks 沙盒配合使用](hdinsight-hadoop-emulator-visual-studio.md)
 * [了解 Hortonworks 沙盒的重要知识](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Hadoop 教程 - HDP 入门](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+
+<!--Update_Description: update meta data-->

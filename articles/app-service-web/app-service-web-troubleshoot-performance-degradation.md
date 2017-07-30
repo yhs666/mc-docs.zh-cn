@@ -17,16 +17,14 @@ ms.topic: article
 origin.date: 07/06/2016
 ms.date: 04/24/2017
 ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 7b3dea474a2d5a81fc32d1a388b5affda23fa484
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 994180f28564c7c7f14a9d772aafb2453c18481f
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>排查 Azure 应用服务中 Web 应用性能缓慢的问题
-本文将帮助排查 [Azure 应用服务](/app-service-web/app-service-changes-existing-services/)中 Web 应用性能缓慢的问题。
+本文将帮助排查 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)中 Web 应用性能缓慢的问题。
 
 如果你对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，你也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)，并单击“**获取支持**”。
 
@@ -49,11 +47,13 @@ ms.lasthandoff: 04/14/2017
 
 [应用服务 Web 应用](https://www.azure.cn/home/features/app-service/web-apps/)为每个步骤提供了多种选项。
 
-### <a name="observe"></a> 1.观察和监视应用程序行为
-#### <a name="track-service-health"></a>跟踪服务运行状况
-每次发生服务中断或性能下降时 Azure 会进行宣传。 可以在 [Azure 门户](https://portal.azure.cn/)中跟踪服务的运行状况。 有关详细信息，请参阅[跟踪服务的运行状况](../monitoring-and-diagnostics/insights-service-health.md)。
+<a name="observe" />
 
-#### <a name="monitor-your-web-app"></a>监视你的 Web 应用
+### <a name="1-observe-and-monitor-application-behavior"></a>1.观察和监视应用程序行为
+#### <a name="track-service-health"></a>跟踪服务运行状况
+每次发生服务中断或性能下降时 Azure 会进行宣传。 可以在 [Azure 门户](https://portal.azure.cn/)中跟踪服务的运行状况。
+
+#### <a name="monitor-your-web-app"></a>监视 Web 应用
 此选项可让你找出应用程序是否存在任何问题。 在 Web 应用的边栏选项卡中，单击“请求和错误”磁贴。 “指标”边栏选项卡将显示所有可以添加的指标。
 
 你可能想要在 Web 应用中监视的一些指标包括
@@ -71,7 +71,7 @@ ms.lasthandoff: 04/14/2017
 * [监视 Azure 应用服务中的 Web 应用](web-sites-monitor.md)
 
 #### <a name="monitor-web-endpoint-status"></a>监视 Web 终结点状态
-如果在 **标准** 定价层中运行 Web 应用，Web Apps 可让你从 3 个地理位置监视 2 个终结点。
+如果在 **标准** 定价层中运行 Web 应用，Web 应用可让你从 3 个地理位置监视 2 个终结点。
 
 终结点监视可从测试 Web URL 的响应时间和运行时间的分布式地理位置配置 Web 测试。 该测试可对 Web URL 执行 HTTP GET 操作，以从每个位置确定响应时间和运行时间。 每个已配置位置每 5 分钟运行一次测试。
 
@@ -86,7 +86,9 @@ ms.lasthandoff: 04/14/2017
 
 每个应用服务 Web 应用提供了一个可扩展的管理终结点，通过此终结点可利用一组作为站点扩展部署的功能强大的工具。 这些工具涵盖从源代码编辑器（例如 [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) ）到用于已连接资源（例如连接到 Web 应用的 MySQL 数据库）的管理工具。
 
-### <a name="collect"></a> 2.收集数据
+<a name="collect" />
+
+### <a name="2-collect-data"></a>2.收集数据
 #### <a name="enable-diagnostics-logging-for-your-web-app"></a>为 Web 应用启用诊断日志记录
 Web 应用环境为 Web 服务器和 Web 应用中的日志记录信息提供了诊断功能。 这些诊断功能按逻辑分为 Web 服务器诊断和应用程序诊断。
 
@@ -125,7 +127,7 @@ Azure 应用服务支持门户具有三个不同的选项卡，用于支持常�
 有关 Azure 应用服务支持门户的详细信息，请参阅[用于支持 Azure 网站的站点扩展的最新更新](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites)。
 
 #### <a name="use-the-kudu-debug-console"></a>使用 Kudu 调试控制台
-Web Apps 随附可用于调试、浏览和上传文件的调试控制台，以及用于获取环境相关信息的 JSON 终结点。 此控制台称为 Web 应用的 *Kudu 控制台*或 *SCM 仪表板*。
+Web应用随附可用于调试、浏览和上传文件的调试控制台，以及用于获取环境相关信息的 JSON 终结点。 此控制台称为 Web 应用的 *Kudu 控制台*或 *SCM 仪表板*。
 
 转到链接 **https://&lt;Your app name>.scm.chinacloudsites.cn/** 即可访问此仪表板。
 
@@ -140,7 +142,9 @@ Kudu 的另一项有用功能是，如果应用程序引发第一次异常，你
 
 有关 Kudu 提供的功能的详细信息，请参阅 [Azure Websites Team Services tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/)（你应该了解的 Azure Websites Team Services 工具）。
 
-### <a name="mitigate"></a> 3.缓解问题
+<a name="mitigate" />
+
+### <a name="3-mitigate-the-issue"></a>3.缓解问题
 #### <a name="scale-the-web-app"></a>缩放 Web 应用
 在 Azure 应用服务中，为了提高性能和吞吐量，可以调整运行应用程序的规模。 向上缩放 Web 应用涉及到两个相关操作：将应用服务计划更改为较高的定价层，以及在切换到较高的定价层后配置特定的设置。
 

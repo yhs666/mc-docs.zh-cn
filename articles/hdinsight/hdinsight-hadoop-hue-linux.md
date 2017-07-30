@@ -17,18 +17,18 @@ ms.topic: article
 origin.date: 05/10/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 3f38410cf9b98bc52178f539dadde187f3340dda
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 0ec7f903c29ccbb6b46b027375cb75679965a4d8
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Hue
 
 了解如何在 HDInsight 群集上安装 Hue，并使用隧道将请求路由至 Hue。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="what-is-hue"></a>什么是 Hue？
 Hue 是用来与 Hadoop 群集交互的一系列 Web 应用程序。 可以使用 Hue 浏览与 Hadoop 群集关联的存储（对于 HDInsight 群集，为 WASB）、运行 Hive 作业和 Pig 脚本等等。 HDInsight Hadoop 群集上的 Hue 安装提供以下组件。
@@ -72,7 +72,8 @@ Hue 是用来与 Hadoop 群集交互的一系列 Web 应用程序。 可以使�
    * **脚本 URI**：https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
    * **标头**：选中此选项
    * **辅助角色**：将此选项留空。
-   * **ZOOKEEPER**：将此选项留空。
+   * 
+            **ZOOKEEPER**：将此项留空。
    * **参数**：将此选项留空。
 3. 在“脚本操作”的底部，使用“选择”按钮保存配置。 最后，使用“可选配置”边栏选项卡底部的“选择”按钮保存可选配置信息。
 4. 继续按[预配 Linux 上的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)中所述预配群集。

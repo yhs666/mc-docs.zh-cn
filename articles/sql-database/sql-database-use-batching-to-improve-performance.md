@@ -9,20 +9,18 @@ editor:
 ms.service: sql-database
 ms.topic: article
 origin.date: 07/12/2016
-ms.date: 07/03/2017
-ms.author: v-johch
-ms.openlocfilehash: 50dc89a7e210732b531bbe616cdc08dea9f7d3ff
-ms.sourcegitcommit: 73b1d0f7686dea85647ef194111528c83dbec03b
+ms.date: 07/31/2017
+ms.author: v-haiqya
+ms.openlocfilehash: 7ccbce21ecb784cb333c46acd056cc09efbfbbe3
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/28/2017
 ---
-# 如何使用批处理来改善 SQL 数据库应用程序的性能
-<a id="how-to-use-batching-to-improve-sql-database-application-performance" class="xliff"></a>
+# <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>如何使用批处理来改善 SQL 数据库应用程序的性能
 对 Azure SQL 数据库执行批处理操作可以大幅改善应用程序的性能和缩放性。 为了帮助你了解优点，本文的第一部分包含一些示例测试结果，用于比较对 SQL 数据库发出的顺序请求和分批请求。 本文的余下部分介绍了帮助你在 Azure 应用程序中成功使用批处理的方法、方案和注意事项。
 
-## 为什么批处理对 SQL 数据库很重要？
-<a id="why-is-batching-important-for-sql-database" class="xliff"></a>
+## <a name="why-is-batching-important-for-sql-database"></a>为什么批处理对 SQL 数据库很重要？
 对远程服务的批处理调用是提高性能和可伸缩性的常用策略。 对于任何与远程服务的交互（如序列化、网络传输和反序列化），都有固定的处理开销。 将很多单独的事务打包为一个批处理操作可最大限度降低这些成本。
 
 在本文中，我们要比较各种 SQL 数据库批处理策略和情形。 尽管这些策略对于使用 SQL Server 的本地应用程序也很重要，但是将批处理用于 SQL 数据库主要是基于以下两个原因：
@@ -35,15 +33,12 @@ ms.lasthandoff: 06/28/2017
 
 本文的第一部分比较了使用 SQL 数据库的 .NET 应用程序可用的各种批处理方法。 最后两个部分介绍批处理准则和方案。
 
-## 批处理策略
-<a id="batching-strategies" class="xliff"></a>
-### 有关本主题中计时结果的注意事项
-<a id="note-about-timing-results-in-this-topic" class="xliff"></a>
+## <a name="batching-strategies"></a>批处理策略
+### <a name="note-about-timing-results-in-this-topic"></a>有关本主题中计时结果的注意事项
 >[!NOTE]
 > 结果并不是基准，而是用于显示**相对性能**。 计时基于至少运行 10 次测试后的平均值。 操作将插入空表。 这些测试将在 V12 以前的版本中测量，不一定对应于在使用新[服务层](./sql-database-service-tiers.md)的 V12 数据库中可能会获得的吞吐量。 批处理技术的相对优势应该类似。
 
-### 事务
-<a id="transactions" class="xliff"></a>
+### <a name="transactions"></a>事务
 通过讨论事务来开始讲述批处理似乎有点奇怪。 但是使用客户端事务具有提高性能的微妙服务器端批处理效果。 可以使用几行代码来添加事务，因此这提供了一个快速提高顺序操作的性能的方法。
 
 请注意以下 C# 代码，其中包含对一个简单表执行的插入和更新操作序列。
@@ -118,10 +113,9 @@ dbOperations.Add("insert MyTable values ('new value',3)");
 
 前一个示例演示你可以将一个本地事务添加到任何具有两行的 ADO.NET 代码。 事务提供了一个快速提高代码性能的方法，这些代码用于执行顺序插入、更新和删除操作。 但是，为了实现最佳性能，请考虑进一步更改代码，以利用客户端批处理（如表值参数）。
 
-有关 ADO.NET 中事务的详细信息，请参阅 [ADO.NET 中的本地事务](https://msdn.microsoft.com/library/vstudio/2k2hy99x.aspx)。
+有关 ADO.NET 中事务的详细信息，请参阅 [ADO.NET 中的本地事务](https://docs.microsoft.com/dotnet/framework/data/adonet/local-transactions)。
 
-### 表值参数
-<a id="table-valued-parameters" class="xliff"></a>
+### <a name="table-valued-parameters"></a>表值参数
 表值参数支持用户定义的表类型作为 Transact-SQL 语句、存储过程和函数的参数。 使用这个客户端批处理方法，可以在表值参数中发送多行数据。 若要使用表值参数，请首先定义表类型。 以下 Transact-SQL 语句将创建一个名为 **MyTableType** 的表类型。
 
     CREATE TYPE MyTableType AS TABLE 
@@ -196,8 +190,7 @@ dbOperations.Add("insert MyTable values ('new value',3)");
 
 有关表值参数的详细信息，请参阅[表值参数](https://msdn.microsoft.com/library/bb510489.aspx)。
 
-### SQL 批量复制
-<a id="sql-bulk-copy" class="xliff"></a>
+### <a name="sql-bulk-copy"></a>SQL 批量复制
 SQL 批量复制是另一种向目标数据库中插入大量数据的方法。 .NET 应用程序可以使用 **SqlBulkCopy** 类来执行批量插入操作。 **SqlBulkCopy** 的功能类似于命令行工具 **Bcp.exe**，或 Transact-SQL 语句 **BULK INSERT**。 以下代码示例显示如何将源表 **DataTable** 中的行批量复制到 SQL Server 中的目标表 MyTable。
 
     using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -232,8 +225,7 @@ SQL 批量复制是另一种向目标数据库中插入大量数据的方法。 
 
 有关 ADO.NET 中的批量复制的详细信息，请参阅 [SQL Server 中的批量复制操作](https://msdn.microsoft.com/library/7ek5da1a.aspx)。
 
-### 多行参数化 INSERT 语句
-<a id="multiple-row-parameterized-insert-statements" class="xliff"></a>
+### <a name="multiple-row-parameterized-insert-statements"></a>多行参数化 INSERT 语句
 对于小的批处理，一个替代方法是构造插入多个行的大型参数化 INSERT 语句。 以下代码示例演示了这个方法。
 
     using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -269,16 +261,13 @@ SQL 批量复制是另一种向目标数据库中插入大量数据的方法。 
 
 此方法对于小于 100 行的批处理稍微提高了一下速度。 尽管提高不大，但是此方法仍是一个可选方案，它可能在特定的应用程序方案下工作得很好。
 
-### DataAdapter
-<a id="dataadapter" class="xliff"></a>
+### <a name="dataadapter"></a>DataAdapter
 **DataAdapter** 类允许修改 **DataSet** 对象，然后将更改作为 INSERT、UPDATE 和 DELETE 操作提交。 如果你正在这样使用 **DataAdapter**，请注意必须为每个不同的操作发出单独的调用。 为了提高性能，请将 **UpdateBatchSize** 属性值设置为应同时进行批处理的操作数。 有关详细信息，请参阅[使用 DataAdapter 执行批处理操作](https://msdn.microsoft.com/library/aadf8fk2.aspx)。
 
-### 实体框架
-<a id="entity-framework" class="xliff"></a>
+### <a name="entity-framework"></a>实体框架
 实体框架当前不支持批处理。 社区中的各个开发人员已尝试寻找解决方法，例如重写 **SaveChanges** 方法。 但是这些解决方法通常很复杂，而且仅适用于特定应用程序和数据模型。 实体框架 codeplex 项目当前已有关于此功能请求的讨论页。 若要查看此讨论，请参阅[设计会议备忘录 - 2012 年 8 月 2 日](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012)。
 
-### XML
-<a id="xml" class="xliff"></a>
+### <a name="xml"></a>XML
 为了完整性，我们认为有必要将 XML 作为一种批处理策略来讲述。 但是，使用 XML 与其他方法相比没有什么优势，而且还有几个缺点。 此方法类似于表值参数，但是 XML 文件或字符串将传递到存储过程而非用户定义的表。 存储过程分析该存储过程中的命令。
 
 此方法有几个缺点：
@@ -289,18 +278,15 @@ SQL 批量复制是另一种向目标数据库中插入大量数据的方法。 
 
 由于上述原因，不建议将 XML 用于批处理查询。
 
-## 批处理注意事项
-<a id="batching-considerations" class="xliff"></a>
+## <a name="batching-considerations"></a>批处理注意事项
 以下部分提供有关在 SQL 数据库应用程序中使用批处理的更多指南。
 
-### 权衡
-<a id="tradeoffs" class="xliff"></a>
+### <a name="tradeoffs"></a>权衡
 根据你的体系结构，批处理可能涉及性能和弹性之间的权衡。 例如，请考虑角色意外停止的情况。 如果丢失一行数据，其影响小于丢失一大批未提交的行的影响。 在指定的时间窗口内将行发送到数据库前缓冲它们时，丢失数据的风险更大。
 
 因为要进行权衡，因此需要评估进行批处理的操作类型。 对相对不重要的数据进行更激进的批处理（即更大的批次，涉及更长的时间窗口）。
 
-### 批大小
-<a id="batch-size" class="xliff"></a>
+### <a name="batch-size"></a>批大小
 在我们的测试中，将大的批次拆分为更小的块通常没有好处。 实际上，这种拆分通常导致比提交单个大批次还要慢的性能。 例如，考虑要插入 1000 行的一个方案。 下表显示在拆分为更小的批次时使用表值参数插入 1000 行所需的时间。
 
 | 批大小 | 迭代 | 表值参数（毫秒） |
@@ -319,8 +305,7 @@ SQL 批量复制是另一种向目标数据库中插入大量数据的方法。 
 
 最后，平衡批大小和与批处理有关的风险。 如果出现暂时性错误或角色失败，请考虑重试操作或丢失批中数据的后果。
 
-### 并行处理
-<a id="parallel-processing" class="xliff"></a>
+### <a name="parallel-processing"></a>并行处理
 如果采用减小批大小但是使用多个线程的方式来执行工作，会怎么样？ 我们的测试再次显示几个较小的多线程批次的性能通常比单个较大的批次性能差。 以下测试尝试在一个或多个并行批次中插入 1000 行。 此测试显示多个同时执行的批次实际上降低了性能。
 
 | 批大小 [迭代] | 两个线程（毫秒） | 四个线程（毫秒） | 六个线程（毫秒） |
@@ -346,18 +331,15 @@ SQL 批量复制是另一种向目标数据库中插入大量数据的方法。 
 
 如果使用并行执行，请考虑控制最大工作线程数。 较小的数可能导致争用减少并且执行时间缩短。 此外，请注意这将增加目标数据库的连接和事务负载。
 
-### 相关性能因素
-<a id="related-performance-factors" class="xliff"></a>
+### <a name="related-performance-factors"></a>相关性能因素
 有关数据库性能的通常准则也影响批处理。 例如，对于具有大的主键或很多非聚集索引的表，插入性能会下降。
 
 如果表值参数使用存储过程，则可以在该过程开头使用命令 **SET NOCOUNT ON**。 此语句禁止返回过程中受影响的行的计数。 但是，在我们的测试中，使用 **SET NOCOUNT ON** 对性能没有影响或导致性能下降。 测试存储过程很简单，它只有来自表值参数的一个 **INSERT** 命令。 更复杂的存储过程可能从此语句受益。 但是不要认为将 **SET NOCOUNT ON** 添加到你的存储过程会自动提高性能。 为了了解该影响，请用包含和不包含 **SET NOCOUNT ON** 语句来测试存储过程。
 
-## 批处理方案
-<a id="batching-scenarios" class="xliff"></a>
+## <a name="batching-scenarios"></a>批处理方案
 以下部分说明如何在三种应用程序方案下使用表值参数。 第一种方案显示缓冲和批处理如何可以配合工作。 第二种方案通过在单个存储过程调用中执行主-从操作来提高性能。 最后一种方案显示如何在“UPSERT”操作中使用表值参数。
 
-### 缓冲
-<a id="buffering" class="xliff"></a>
+### <a name="buffering"></a>缓冲
 尽管一些方案中使用批处理很合适，但是也有很多方案下可以通过延迟处理来利用批处理。 但是，在出现意外故障时，延迟处理会使数据丢失的风险加大。 请务必了解此风险并考虑后果。
 
 例如，假设有一个跟踪每个用户的导航历史记录的 Web 应用程序。 对于每个页请求，该应用程序将创建一个数据库调用来记录用户的页面浏览量。 但是可以通过缓冲用户的导航活动，然后成批将此数据发送到数据库来提高性能和缩放性。 可用经历的时间和/或缓冲区大小来触发数据库更新。 例如，一个规则可能指定在 20 秒后或缓冲区达到 1000 项时应处理批。
@@ -446,8 +428,7 @@ NavHistoryDataMonitor 类负责将用户导航数据缓冲到数据库。 它包
 
 为了使用此缓冲类，应用程序将会创建静态 NavHistoryDataMonitor 对象。 每次用户访问页时，该应用程序都会调用 NavHistoryDataMonitor.RecordUserNavigationEntry 方法。 缓冲逻辑继续执行，以将这些项成批发送到数据库。
 
-### 主从
-<a id="master-detail" class="xliff"></a>
+### <a name="master-detail"></a>主从
 表值参数对于简单 INSERT 方案很有用。 但是，它对于涉及多个表的成批插入作用不大。 “主/从”方案是一个很好的示例。 主表标识主实体。 一个或多个从表存储有关实体的更多数据。 在此方案中，外键关系将详细信息的关系强制实施到唯一的主实体。 请考虑 PurchaseOrder 表的简化版本和它的关联 OrderDetail 表。 以下 Transact-SQL 创建包含以下四个列的 PurchaseOrder 表：OrderID、OrderDate、CustomerID 和 Status。
 
     CREATE TABLE [dbo].[PurchaseOrder](
@@ -560,8 +541,7 @@ OrderID 表中的 PurchaseOrderDetail 列必须引用 PurchaseOrder 表的订单
 
 此示例演示使用表值参数可以成批执行更复杂的数据库操作（如主-从操作）。
 
-### UPSERT
-<a id="upsert" class="xliff"></a>
+### <a name="upsert"></a>UPSERT
 另一批处理方案涉及同时更新现有行和插入新行。 此操作有时称为“UPSERT”（更新 + 插入）操作。 不用单独调用 INSERT 和 UPDATE，MERGE 语句最适合此任务。 MERGE 语句可以在单个调用中执行插入和更新操作。
 
 可以将表值参数用于 MERGE 语句以执行更新和插入。 例如，请考虑使用包含以下列的简化 Employee 表：EmployeeID、FirstName、LastName、SocialSecurityNumber：
@@ -599,8 +579,7 @@ OrderID 表中的 PurchaseOrderDetail 列必须引用 PurchaseOrder 表的订单
 
 有关详细信息，请参阅 MERGE 语句的文档和示例。 尽管可以在包含单独 INSERT 和 UPDATE 操作的多步骤存储过程调用中完成同样的工作，但是 MERGE 语句更有效。 数据库代码还可以构造直接使用 MERGE 语句的 Transact-SQL 调用而无需对 INSERT 和 UPDATE 使用两个数据库调用。
 
-## 建议摘要
-<a id="recommendation-summary" class="xliff"></a>
+## <a name="recommendation-summary"></a>建议摘要
 以下列表提供了本主题中讨论的批处理建议的摘要：
 
 * 使用缓冲和批处理可提高 SQL 数据库应用程序的性能和缩放性。
@@ -620,6 +599,7 @@ OrderID 表中的 PurchaseOrderDetail 列必须引用 PurchaseOrder 表的订单
 * 避免并行执行对一个数据库中单个表进行操作的批处理。 如果选择将单个批分配给多个工作线程，请运行测试来确定理想的线程数。 在达到某个阈值后，线程增加将导致性能下降而非提升。
 * 请考虑对大小和时间进行缓冲，为更多方案实现批处理。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 本文着重于与批处理相关的数据库设计和代码编写技术，以及如何改善应用程序的性能和缩放性。 但这只是整体策略中的一个因素。 有关其他可改善性能和缩放性的方式，请参阅 [Azure SQL 数据库的单一数据库性能指导](sql-database-performance-guidance.md)及[弹性池的价格和性能注意事项](sql-database-elastic-pool-guidance.md)。
+
+<!--Update_Description: update link refereces-->

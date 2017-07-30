@@ -18,11 +18,11 @@ ms.workload: big-data
 origin.date: 05/03/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 7ae11b3dfe5f21a943ad2d5fc80e84e6309aecd7
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 09e41a63565315ac840460f03228c9ba5ccb4938
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>为 HDInsight 开发 Python 流式处理 MapReduce 程序
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 07/14/2017
 * 基于 Linux 的 HDInsight 上的 Hadoop 群集
 
   > [!IMPORTANT]
-  > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+  > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * 文本编辑器
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="streaming-mapreduce"></a>流式处理 MapReduce
 
-Hadoop 允许你指定包含作业所用映射和化简逻辑的文件。 映射和化简逻辑的具体要求如下：
+Hadoop 允许指定包含作业所用映射和化简逻辑的文件。 映射和化简逻辑的具体要求如下：
 
 * **输入**：映射和化简组件必须从 STDIN 读取输入数据。
 * **输出**：映射和化简组件必须将输出数据写入到 STDOUT。

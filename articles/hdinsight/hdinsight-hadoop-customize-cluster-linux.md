@@ -17,11 +17,11 @@ ms.topic: article
 origin.date: 05/23/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
-ms.openlocfilehash: 364b1c59d4191dcb057605ca7bcc585f2a5bb810
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 11b9f1b6d8a81a7d70479405226f1ccb2045cd2c
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>使用脚本操作自定义基于 Linux 的 HDInsight 群集
 
@@ -30,7 +30,7 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 > [!IMPORTANT]
 > 只有基于 Linux 的 HDInsight 群集能够在运行中的群集上使用脚本操作。
 >
-> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)。
+> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 还可以将脚本操作作为 HDInsight 应用程序发布到 Azure 应用商店。 本文档中的某些示例将演示如何使用 PowerShell 和 .NET SDK 的脚本操作命令来安装 HDInsight 应用程序。
 
@@ -101,7 +101,7 @@ HDInsight 提供一个称为 **脚本操作** 的配置选项，该选项可调�
 
 在群集创建期间使用的脚本操作与在现有群集上运行的脚本操作稍有不同：
 
-* 该脚本将 **自动持久保存**。
+* 该脚本**自动持久保存**。
 * 脚本 **失败** 可能会导致群集创建过程失败。
 
 下图演示了在创建过程中执行脚本操作的时间：
@@ -212,7 +212,7 @@ HDInsight 提供了脚本用于在 HDInsight 群集上安装以下组件：
 
 #### <a name="create-clusters-using-script-action"></a>使用脚本操作创建群集
 
-1. 将以下模板复制到你计算机上的某个位置。 此模板在群集中的头节点和辅助角色节点上安装 Giraph。 你还可以验证 JSON 模板是否有效。 将模板内容粘贴到在线 JSON 验证工具 [JSONLint](http://jsonlint.com/)中。
+1. 将以下模板复制到你计算机上的某个位置。 此模板在群集中的头节点和辅助角色节点上安装 Giraph。 你还可以验证 JSON 模板是否有效。 将模板内容粘贴到在线 JSON 验证工具 [JSONLint](http://jsonlint.com/) 中。
 
             {
             "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
