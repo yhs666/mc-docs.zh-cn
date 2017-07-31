@@ -2,22 +2,24 @@
 title: "如何使用适用于 Azure 移动应用的 iOS SDK"
 description: "如何使用适用于 Azure 移动应用的 iOS SDK"
 services: app-service\mobile
-documentationCenter: ios
-authors: yuaxu
+documentationcenter: ios
+author: ysxu
 manager: yochayk
 editor: 
+ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
 ms.author: v-yiso
-ms.openlocfilehash: 4690c26b1e0b12e2fe26cd7bb725eafb3732a7ea
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.date: 07/31/2017
+ms.openlocfilehash: add067178bd47dbb674096813d12df2614acdb44
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 iOS 客户端库
 
@@ -74,7 +76,7 @@ let table = client.tableWithName("TodoItem")
 
 ##<a name="querying"></a>如何：查询数据
 
-若要创建数据库查询，请查询 `MSTable` 对象。 以下查询将获取 `TodoItem` 中的所有项，并记录每个项的文本。
+若要创建数据库查询，请查询 `MSTable` 对象。 以下查询会获取 `TodoItem` 中的所有项，并记录每个项的文本。
 
 **Objective-C**：
 
@@ -175,7 +177,7 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 
 ## <a name="sorting"></a>如何：使用 MSQuery 对数据排序
 
-让我们先看一个示例，来了解如何对结果排序。 若要对字段“text”进行升序排序，然后对“complete”进行降序排序，请调用 `MSQuery` ，如下所示：
+让我们先看一个示例，来了解如何对结果排序。 如果要对字段“text”进行升序排序，并对“complete”进行降序排序，请调用 `MSQuery` ，如下所示：
 
 **Objective-C**：
 
@@ -244,7 +246,7 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 ## <a name="paging"></a>如何配置页面大小
 
-在 Azure 移动应用中，页面大小将控制每次从后端表提取的记录数。 `pull` 数据的调用稍后将基于此页面大小对数据进行批量处理，直到没有更多要提取的记录。
+在 Azure 移动应用中，页面大小将控制每次从后端表提取的记录数。 `pull` 数据的调用稍后会基于此页面大小对数据进行批量处理，直到没有更多要提取的记录。
 
 可使用 **MSPullSettings** 配置页面大小，如下所示。 默认的页面大小为 50，下面的示例将其更改为 3。
 
@@ -283,7 +285,7 @@ table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
 
 若要插入新的表行，请创建 `NSDictionary` 并调用 `table insert`。 如果启用[动态架构]，Azure App Service 移动后端将根据 `NSDictionary` 自动生成新列。
 
-如果未提供 `id` ，后端会自动生成新的唯一 ID。 提供你自己的 `id` ，以使用电子邮件地址、用户名或你自己的自定义值作为 ID。 提供自己的 ID 可以让联接和业务导向型数据库逻辑变得更容易。
+如果未提供 `id` ，后端会自动生成新的唯一 ID。 提供自己的 `id`，以使用电子邮件地址、用户名或自己的自定义值作为 ID。 提供自己的 ID 可以让联接和业务导向型数据库逻辑变得更容易。
 
 `result` 包含插入的新项。 根据服务器逻辑，与传递给服务器的项相比，它可能包含其他或已修改的数据。
 
@@ -508,11 +510,11 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
-出于安全考虑，从请求中删除所有标记。  若要将标记添加到安装或安装中的模板，请参阅 [Work with the .NET backend server SDK for Azure Mobile Apps][4]（使用适用于 Azure 移动应用的 .NET 后端服务器 SDK）。  若要使用这些注册的模板发送通知，请参阅 [通知中心 API][3]。
+出于安全考虑，从请求中删除所有标记。  要将标记添加到安装或安装中的模板，请参阅 [Work with the .NET backend server SDK for Azure Mobile Apps][4]（使用适用于 Azure 移动应用的 .NET 后端服务器 SDK）。  若要使用这些注册的模板发送通知，请参阅 [通知中心 API][3]。
 
 ##<a name="errors"></a>如何：处理错误
 
-调用 Azure 应用服务移动后端时，完成块将包含 `NSError` 参数。 如果出错，此参数为非 nil 值。 应该在代码中检查此参数，并根据需要处理错误，如前面的代码片段中所示。
+调用 Azure 应用服务移动后端时，完成块包含 `NSError` 参数。 如果出错，此参数为非 nil 值。 应该在代码中检查此参数，并根据需要处理错误，如前面的代码片段中所示。
 
 文件 [`<WindowsAzureMobileServices/MSError.h>`][6] 定义常量 `MSErrorResponseKey`、`MSErrorRequestKey` 和 `MSErrorServerItemKey`。 若要获取与错误相关的更多数据，请执行以下操作：
 
@@ -690,3 +692,5 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 [8]: ../active-directory/develop/active-directory-devquickstarts-ios.md
 
 [10]: https://developers.facebook.com/docs/ios/getting-started
+
+<!--Update_Description: update meta data-->

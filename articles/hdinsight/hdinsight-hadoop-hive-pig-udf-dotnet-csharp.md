@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 04/12/2017
-ms.date: 06/05/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
-ms.openlocfilehash: 2593ab297069b184913c6b012fa4e31f0bc1c848
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 3668a0bf4d84ebe6b7e04f9d41a86be7239e1a7c
+ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>在 HDInsight 中的 Hadoop 上将 C# 用户定义函数与 Hive 和 Pig 流式处理配合使用
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 07/14/2017
 > [!IMPORTANT]
 > 本文档中的各个步骤适用于基于 Linux 和基于 Windows 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 组件版本控制](hdinsight-component-versioning.md)。
 
-Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此过程称为_流式处理_。 使用 .NET 应用程序时，数据将传递到 STDIN 上的应用程序，该应用程序也将在 STDOUT 上返回结果。 若要从 STDIN 和 STDOUT 读取和写入数据，可以使用控制台应用程序中的 `Console.ReadLine()` 和 `Console.WriteLine()`。
+Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此过程称为_流式处理_。 使用 .NET 应用程序时，数据将传递到 STDIN 上的应用程序，该应用程序也会在 STDOUT 上返回结果。 若要从 STDIN 和 STDOUT 读取和写入数据，可以使用控制台应用程序中的 `Console.ReadLine()` 和 `Console.WriteLine()`。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -163,7 +163,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
     此应用程序将分析发送自 Pig 的行，并对以 `java.lang.Exception`开头的行重新设置格式。
 
-3. 保存 **Program.cs**，然后生成项目。
+3. 保存 **Program.cs**，并生成项目。
 
 ## <a name="upload-to-storage"></a>上传到存储
 
@@ -171,17 +171,17 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
 2. 依次展开“Azure”和“HDInsight”。
 
-3. 如果出现提示，请输入 Azure 订阅凭据，然后单击“登录”。
+3. 如果出现提示，请输入 Azure 订阅凭据，并单击“登录”。
 
-4. 展开要将此应用程序部署到的 HDInsight 群集。 将列出带有文本“（默认存储帐户）”的条目。
+4. 展开要将此应用程序部署到的 HDInsight 群集。 列出带有文本“（默认存储帐户）”的条目。
 
     ![显示群集存储帐户的服务器资源管理器](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 
-    * 如果此条目可以展开，则在使用 __Azure 存储帐户__作为该群集的默认存储。 若要查看该群集的默认存储上的文件，请展开该条目，然后双击“（默认容器）”。
+    * 如果此条目可以展开，则在使用 __Azure 存储帐户__作为该群集的默认存储。 如果要查看该群集的默认存储上的文件，请展开该条目，并双击“（默认容器）”。
 
 6. 若要上传 .exe 文件，请使用以下方法之一：
 
-    * 如果使用的是 __Azure 存储帐户__，请单击“上传”图标，然后浏览到“HiveCSharp”项目的“bin\debug”文件夹。 最后，选择 **HiveCSharp.exe** 文件并单击“确定”。
+    * 如果使用的是 __Azure 存储帐户__，请单击“上传”图标，并浏览到“HiveCSharp”项目的“bin\debug”文件夹。 最后，选择 **HiveCSharp.exe** 文件并单击“确定”。
 
         ![上传图标](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
@@ -193,7 +193,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
 2. 依次展开“Azure”和“HDInsight”。
 
-3. 右键单击已将 **HiveCSharp** 应用程序部署到的群集，然后选择“编写 Hive 查询”。
+3. 右键单击已将 **HiveCSharp** 应用程序部署到的群集，并选择“编写 Hive 查询”。
 
 4. 请使用以下文本执行 Hive 查询：
 
@@ -211,9 +211,9 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
     > [!IMPORTANT]
     > 取消注释与用于群集的默认存储类型相匹配的 `add file` 语句。
 
-    此查询将从 `hivesampletable` 中选择 `clientid`、`devicemake` 和 `devicemodel` 字段并将这些字段传递到 HiveCSharp.exe 应用程序。 该查询预期应用程序返回三个字段，它们将存储为 `clientid`、`phoneLabel` 和 `phoneHash`。 该查询还预期在默认存储容器的根目录中找到 HiveCSharp.exe。
+    此查询将从 `hivesampletable` 中选择 `clientid`、`devicemake` 和 `devicemodel` 字段并将这些字段传递到 HiveCSharp.exe 应用程序。 该查询预期应用程序返回三个字段，它们存储为 `clientid`、`phoneLabel` 和 `phoneHash`。 该查询还预期在默认存储容器的根目录中找到 HiveCSharp.exe。
 
-5. 单击“提交”将作业提交到 HDInsight 群集。 此时将打开“Hive 作业摘要”窗口。
+5. 单击“提交”将作业提交到 HDInsight 群集  。 此时会打开“Hive 作业摘要”窗口  。
 
 6. 单击“刷新”以刷新摘要，直到“作业状态”更改为“已完成”。 若要查看作业输出，请单击“作业输出”。
 
@@ -236,7 +236,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
     > bin\pig
     > ```
 
-    此时将显示 `grunt>` 提示。
+    此时显示 `grunt>` 提示。
 
 3. 输入以下命令以运行使用 .NET Framework 应用程序的 Pig 作业：
 
@@ -251,7 +251,7 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
     > [!NOTE]
     > 用于流式处理的应用程序名称在使用别名时必须用 \`（反斜杠引号）字符括起来，当与 `SHIP` 一起使用时必须用 ' （单引号）括起来。
 
-4. 在输入最后一行后，该作业应该启动。 它将返回类似于以下文本的输出：
+4. 在输入最后一行后，该作业应该启动。 它返回类似于以下文本的输出：
 
         (2012-02-03 20:11:56 SampleClass5 [WARN] problem finding id 1358451042 - java.lang.Exception)
         (2012-02-03 20:11:56 SampleClass5 [DEBUG] detail for id 1976092771)
@@ -261,10 +261,12 @@ Hive 和 Pig 都可以将数据传递到外部应用程序以进行处理。 此
 
 ## <a name="next-steps"></a>后续步骤
 
-在本文档中，你已了解了如何在 HDInsight 上通过 Hive 和 Pig 使用 .NET Framework 应用程序。 如果希望了解如何将 Python 与 Hive 和 Pig 配合使用，请参阅[在 HDInsight 中将 Python 与 Hive 和 Pig 配合使用](hdinsight-python.md)。
+在本文档中，已了解了如何在 HDInsight 上通过 Hive 和 Pig 使用 .NET Framework 应用程序。 如果希望了解如何将 Python 与 Hive 和 Pig 配合使用，请参阅[在 HDInsight 中将 Python 与 Hive 和 Pig 配合使用](hdinsight-python.md)。
 
 若要了解使用 Pig 和 Hive 的其他方式以及如何使用 MapReduce，请参阅以下文档：
 
 * [将 Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
+
+<!--Update_Description: update meta data-->
