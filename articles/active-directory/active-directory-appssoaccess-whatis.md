@@ -79,7 +79,7 @@ Azure AD 允许对支持 SAML 2.0、WS 联合身份验证或 OpenID Connect 协�
 - Chrome -- 在 Windows 7 或更高版本上，以及在 MacOS X 或更高版本上
 - Firefox 26.0 或更高版本 -- 在 Windows XP SP2 或更高版本上，以及在 Mac OS X 10.6 或更高版本上
 
-**注意：** 如果浏览器扩展支持 Edge，则基于密码的 SSO 扩展将可供 Windows 10 中的 Edge 使用。
+**注意：** 如果浏览器扩展支持 Microsoft Edge，则基于密码的 SSO 扩展将可供 Windows 10 中的 Microsoft Edge 使用。
 
 ### <a name="existing-single-sign-on"></a>现有单一登录
 配置应用程序的单一登录时，Azure 管理门户提供了第三个选项，即“现有的单一登录”。 管理员使用此选项即可创建指向应用程序的链接，并将其放置在所选用户的访问面板上。

@@ -21,8 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
 ---
-# 事件中心身份验证和安全模型概述
-<a id="event-hubs-authentication-and-security-model-overview" class="xliff"></a>
+# <a name="event-hubs-authentication-and-security-model-overview"></a>事件中心身份验证和安全模型概述
 
 Azure 事件中心安全模型满足以下要求：
 
@@ -30,8 +29,7 @@ Azure 事件中心安全模型满足以下要求：
 * 一个客户端无法模拟另一个客户端。
 * 可以阻止恶意客户端向事件中心发送数据。
 
-## 客户端身份验证
-<a id="client-authentication" class="xliff"></a>
+## <a name="client-authentication"></a>客户端身份验证
 
 事件中心安全模型基于[共享访问签名 (SAS)](../service-bus-messaging/service-bus-sas.md) 令牌与*事件发布者*的组合。 事件发布者定义事件中心的虚拟终结点。 发布者只能用于将消息发送到事件中心。 无法从发布者接收消息。
 
@@ -39,12 +37,11 @@ Azure 事件中心安全模型满足以下要求：
 
 为每个事件中心客户端分配一个唯一令牌，该令牌将上传到客户端。 生成令牌后，每个唯一令牌将授予对不同唯一发布者的访问权限。 拥有令牌的客户端只能向一个发布者发送消息，但不能向其他发布者发送消息。 如果多个客户端共享同一令牌，则其中每个客户端都将共享一个发布者。
 
-可为设备配置令牌，用于授予对事件中心的直接访问权限，但不建议这样做。 持有此令牌的任何设备都可以直接将消息发送到该事件中心。 此类设备将不会受到限制。 此外，无法将设备列入黑名单，使其无法向该事件中心发送消息。
+可为设备配置令牌，用于授予对事件中心的直接访问权限，但不建议这样做。 持有此令牌的任何设备都可以直接将消息发送到该事件中心。 此类设备将不会受到限制。 此外，无法将设备列入方块列表，使其无法向该事件中心发送消息。
 
 所有令牌都使用 SAS 密钥进行签名。 通常，所有令牌使用同一密钥进行签名。 客户端不知道密钥；这可以防止其他客户端生成令牌。
 
-### 创建 SAS 密钥
-<a id="create-the-sas-key" class="xliff"></a>
+### <a name="create-the-sas-key"></a>创建 SAS 密钥
 
 创建事件中心命名空间时，该服务会生成名为 **RootManageSharedAccessKey**的 256 位 SAS 密钥。 此密钥授予对命名空间的发送、侦听和管理权限。 还可以创建其他密钥。 建议生成一个向特定事件中心授予发送权限的密钥。 本主题的余下部分假设已将此密钥命名为 **EventHubSendKey**。
 
@@ -68,8 +65,7 @@ ed.Authorization.Add(eventHubSendRule);
 nm.CreateEventHub(ed);
 ```
 
-### 生成令牌
-<a id="generate-tokens" class="xliff"></a>
+### <a name="generate-tokens"></a>生成令牌
 
 可以使用 SAS 密钥生成令牌。 对于每个客户端只能生成一个令牌。 然后，可以使用以下方法生成令牌。 所有令牌都使用 **EventHubSendKey** 密钥生成。 将为每个令牌分配一个唯一 URI。
 
@@ -93,20 +89,17 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 通常，令牌的使用期限相当于或长于客户端的使用期限。 如果客户端能够获取新令牌，则可以使用使用期限较短的令牌。
 
-### 发送数据
-<a id="sending-data" class="xliff"></a>
+### <a name="sending-data"></a>发送数据
 
 创建令牌后，将为每个客户端设置其自身唯一的令牌。
 
 当客户端向事件中心发送数据时，客户端会使用令牌标记其发送请求。 为了防止攻击者窃听和盗取令牌，客户端与事件中心之间的通信必须通过加密通道进行。
 
-### 将客户端列入黑名单
-<a id="blacklisting-clients" class="xliff"></a>
+### <a name="blacklisting-clients"></a>将客户端列入方块列表
 
-如果令牌被攻击者盗取，攻击者可能会模拟令牌已被盗的客户端。 将客户端列入黑名单会导致客户端不可用，直至该客户端收到使用其他发布者的新令牌。
+如果令牌被攻击者盗取，攻击者可能会模拟令牌已被盗的客户端。 将客户端列入方块列表会导致客户端不可用，直至该客户端收到使用其他发布者的新令牌。
 
-## 后端应用程序的身份验证
-<a id="authentication-of-back-end-applications" class="xliff"></a>
+## <a name="authentication-of-back-end-applications"></a>后端应用程序的身份验证
 
 为了对使用事件中心客户端生成的数据的后端应用程序进行身份验证，事件中心采用了与服务总线主题所用模型类似的安全模型。 事件中心使用者组相当于服务总线主题的订阅。 如果创建使用者组的请求附带了一个用于授予对事件中心或者对事件中心所属命名空间的管理权限的令牌，则客户端可以创建该使用者组。 如果接收请求附带了一个用于授予对使用者组、事件中心或者事件中心所属命名空间的接收权限的令牌，则允许客户端使用该使用者组的数据。
 
@@ -114,8 +107,7 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 在无法为单个使用者组进行 SAS 身份验证的情况下，使用 SAS 密钥来保护具有一个公用密钥的所有使用者组。 此方法使应用程序能使用事件中心的所有使用者组的数据。
 
-## 后续步骤
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>后续步骤
 
 若要了解有关事件中心的详细信息，请访问以下主题：
 

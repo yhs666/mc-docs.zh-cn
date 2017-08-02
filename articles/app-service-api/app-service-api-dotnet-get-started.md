@@ -104,7 +104,7 @@ ASP.NET Web API 项目可以使用 [Swashbuckle](https://www.nuget.org/packages/
 
     ![在 IE 中下载 JSON 元数据](./media/app-service-api-dotnet-get-started/iev1json.png)
 
-    如果使用的是 Chrome、Firefox 或 Edge，浏览器将在浏览器窗口中显示 JSON。 不同的浏览器有不同的 JSON 处理方式，因此浏览器窗口看起来可能与示例不完全相同。
+    如果使用的是 Chrome、Firefox 或 Microsoft Edge，浏览器将在浏览器窗口中显示 JSON。 不同的浏览器有不同的 JSON 处理方式，因此浏览器窗口看起来可能与示例不完全相同。
 
     ![Chrome 中的 JSON 元数据](./media/app-service-api-dotnet-get-started/chromev1json.png)
 

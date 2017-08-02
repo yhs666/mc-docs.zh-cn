@@ -12,7 +12,7 @@
   * **sql-rule**。 此规则只允许从 *FrontEnd* 子网传输的 SQL 流量。
   * **web-rule**。 此规则将拒绝从 *BackEnd* 子网传输的所有 Internet 绑定流量。
 
-将这些规则组合起来可创建一个与 DMZ 类似的方案，其中后端子网只能接收来自前端子网的 SQL 通信的传入流量且不能访问 Internet，而前端子网可以与 Internet 通信并只接收传入 HTTP 请求。
+将这些规则组合起来可创建一个与外围网络类似的方案，其中后端子网只能接收来自前端子网的 SQL 通信的传入流量且不能访问 Internet，而前端子网可以与 Internet 通信并只接收传入 HTTP 请求。
 
 若要部署上述方案，请访问[此链接](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG)。 请下载模板，执行一些必要的修改，然后使用 Azure CLI 进行部署。
 
