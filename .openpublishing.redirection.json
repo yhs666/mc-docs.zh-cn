@@ -461,6 +461,21 @@
       "redirect_document_id": "false"
     },
     {
+        "source_path": "articles/event-hubs/event-hubs-archive-overview.md",
+        "redirect_url": "/event-hubs/event-hubs-capture-overview",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/event-hubs/event-hubs-archive-python.md",
+        "redirect_url": "/event-hubs/event-hubs-capture-python",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/event-hubs/event-hubs-common-integrations.md",
+        "redirect_url": "/event-hubs/",
+        "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/event-hubs/event-hubs-c-ephcs-getstarted.md",
       "redirect_url": "/event-hubs/event-hubs-c-getstarted-send",
       "redirect_document_id": "false"
@@ -491,6 +506,11 @@
       "redirect_document_id": "false"
     },
     {
+        "source_path": "articles/event-hubs/event-hubs-handling-errors-retry.md",
+        "redirect_url": "/event-hubs/",
+        "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/event-hubs/event-hubs-java-ephcs-getstarted.md",
       "redirect_url": "/event-hubs/event-hubs-java-get-started-send",
       "redirect_document_id": "false"
@@ -511,6 +531,11 @@
       "redirect_document_id": "false"
     },
     {
+        "source_path": "articles/event-hubs/event-hubs-performance-scale.md",
+        "redirect_url": "/event-hubs/",
+        "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/event-hubs/event-hubs-pulling-public-data.md",
       "redirect_url": "https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb",
       "redirect_document_id": "false"
@@ -519,6 +544,11 @@
       "source_path": "articles/event-hubs/event-hubs-pulling-sql-data.md",
       "redirect_url": "https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql",
       "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive.md",
+        "redirect_url": "/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture",
+        "redirect_document_id": "false"
     },
     {
       "source_path": "articles/event-hubs/event-hubs-sensors-notify-users.md",
@@ -607,32 +637,32 @@
     },
     {
       "source_path": "articles/iot-hub/iot-hub-gateway-sdk-physical-device.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-iot-edge-physical-device",
+      "redirect_url": "/iot-hub/iot-hub-iot-edge-physical-device",
       "redirect_document_id": "false"
     },
     {
       "source_path": "articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-linux-iot-edge-get-started",
+      "redirect_url": "/iot-hub/iot-hub-linux-iot-edge-get-started",
       "redirect_document_id": "false"
     },
     {
       "source_path": "articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-linux-iot-edge-simulated-device",
+      "redirect_url": "/iot-hub/iot-hub-linux-iot-edge-simulated-device",
       "redirect_document_id": "false"
     },
     {
       "source_path": "articles/iot-hub/iot-hub-windows-gateway-sdk-get-started.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-windows-iot-edge-get-started",
+      "redirect_url": "/iot-hub/iot-hub-windows-iot-edge-get-started",
       "redirect_document_id": "false"
     },
     {
       "source_path": "articles/iot-hub/iot-hub-windows-gateway-sdk-simulated-device.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-windows-iot-edge-simulated-device",
+      "redirect_url": "/iot-hub/iot-hub-windows-iot-edge-simulated-device",
       "redirect_document_id": "false"
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/insights-service-health.md",
-      "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-service-notifications",
+      "redirect_url": "/monitoring-and-diagnostics/monitoring-service-notifications",
       "redirect_document_id": "false"
     },
     {
@@ -1254,6 +1284,11 @@
       "source_path": "articles/storage/storage-troubleshoot-file-connection-problems.md",
       "redirect_url": "/storage/storage-troubleshoot-windows-file-connection-problems",
       "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/stream-analytics/stream-analytics-get-started.md",
+        "redirect_url": "/stream-analytics/stream-analytics-real-time-fraud-detection",
+        "redirect_document_id": "false"
     },
     {
       "source_path": "articles/traffic-manager/traffic-manager-configure-failover-routing-method.md",
